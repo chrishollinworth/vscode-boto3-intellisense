@@ -1,19 +1,21 @@
 """
 Main interface for connectparticipant service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connectparticipant/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_connectparticipant import (
         Client,
         ConnectParticipantClient,
     )
 
-    session = boto3.Session()
-
-    client: ConnectParticipantClient = boto3.client("connectparticipant")
-    session_client: ConnectParticipantClient = session.client("connectparticipant")
+    session = Session()
+    client: ConnectParticipantClient = session.client("connectparticipant")
     ```
 """
 

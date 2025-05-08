@@ -1,20 +1,24 @@
 """
 Type annotations for sagemaker-geospatial service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker_geospatial/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sagemaker_geospatial/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_sagemaker_geospatial.type_defs import AreaOfInterestGeometryTypeDef
+    from mypy_boto3_sagemaker_geospatial.type_defs import MultiPolygonGeometryInputOutputTypeDef
 
-    data: AreaOfInterestGeometryTypeDef = {...}
+    data: MultiPolygonGeometryInputOutputTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List, Union
+from typing import Any, Union
 
 from botocore.response import StreamingBody
 
@@ -41,62 +45,79 @@ from .literals import (
     ZonalStatisticsType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
+    "AreaOfInterestGeometryOutputTypeDef",
     "AreaOfInterestGeometryTypeDef",
+    "AreaOfInterestGeometryUnionTypeDef",
+    "AreaOfInterestOutputTypeDef",
     "AreaOfInterestTypeDef",
+    "AreaOfInterestUnionTypeDef",
     "AssetValueTypeDef",
+    "BandMathConfigInputOutputTypeDef",
     "BandMathConfigInputTypeDef",
+    "CloudRemovalConfigInputOutputTypeDef",
     "CloudRemovalConfigInputTypeDef",
+    "CustomIndicesInputOutputTypeDef",
     "CustomIndicesInputTypeDef",
-    "DeleteEarthObservationJobInputRequestTypeDef",
-    "DeleteVectorEnrichmentJobInputRequestTypeDef",
+    "DeleteEarthObservationJobInputTypeDef",
+    "DeleteVectorEnrichmentJobInputTypeDef",
     "EarthObservationJobErrorDetailsTypeDef",
     "EoCloudCoverInputTypeDef",
-    "ExportEarthObservationJobInputRequestTypeDef",
+    "ExportEarthObservationJobInputTypeDef",
     "ExportEarthObservationJobOutputTypeDef",
     "ExportErrorDetailsOutputTypeDef",
     "ExportErrorDetailsTypeDef",
     "ExportS3DataInputTypeDef",
-    "ExportVectorEnrichmentJobInputRequestTypeDef",
+    "ExportVectorEnrichmentJobInputTypeDef",
     "ExportVectorEnrichmentJobOutputConfigTypeDef",
     "ExportVectorEnrichmentJobOutputTypeDef",
     "FilterTypeDef",
+    "GeoMosaicConfigInputOutputTypeDef",
     "GeoMosaicConfigInputTypeDef",
     "GeometryTypeDef",
-    "GetEarthObservationJobInputRequestTypeDef",
+    "GetEarthObservationJobInputTypeDef",
     "GetEarthObservationJobOutputTypeDef",
-    "GetRasterDataCollectionInputRequestTypeDef",
+    "GetRasterDataCollectionInputTypeDef",
     "GetRasterDataCollectionOutputTypeDef",
-    "GetTileInputRequestTypeDef",
+    "GetTileInputTypeDef",
     "GetTileOutputTypeDef",
-    "GetVectorEnrichmentJobInputRequestTypeDef",
+    "GetVectorEnrichmentJobInputTypeDef",
     "GetVectorEnrichmentJobOutputTypeDef",
     "InputConfigInputTypeDef",
     "InputConfigOutputTypeDef",
     "ItemSourceTypeDef",
+    "JobConfigInputOutputTypeDef",
     "JobConfigInputTypeDef",
+    "JobConfigInputUnionTypeDef",
     "LandsatCloudCoverLandInputTypeDef",
-    "ListEarthObservationJobInputRequestTypeDef",
+    "ListEarthObservationJobInputPaginateTypeDef",
+    "ListEarthObservationJobInputTypeDef",
     "ListEarthObservationJobOutputConfigTypeDef",
     "ListEarthObservationJobOutputTypeDef",
-    "ListRasterDataCollectionsInputRequestTypeDef",
+    "ListRasterDataCollectionsInputPaginateTypeDef",
+    "ListRasterDataCollectionsInputTypeDef",
     "ListRasterDataCollectionsOutputTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
-    "ListVectorEnrichmentJobInputRequestTypeDef",
+    "ListVectorEnrichmentJobInputPaginateTypeDef",
+    "ListVectorEnrichmentJobInputTypeDef",
     "ListVectorEnrichmentJobOutputConfigTypeDef",
     "ListVectorEnrichmentJobOutputTypeDef",
     "MapMatchingConfigTypeDef",
+    "MultiPolygonGeometryInputOutputTypeDef",
     "MultiPolygonGeometryInputTypeDef",
+    "MultiPolygonGeometryInputUnionTypeDef",
     "OperationTypeDef",
     "OutputBandTypeDef",
     "OutputConfigInputTypeDef",
@@ -104,32 +125,40 @@ __all__ = (
     "OutputResolutionStackInputTypeDef",
     "PaginatorConfigTypeDef",
     "PlatformInputTypeDef",
+    "PolygonGeometryInputOutputTypeDef",
     "PolygonGeometryInputTypeDef",
+    "PolygonGeometryInputUnionTypeDef",
     "PropertiesTypeDef",
     "PropertyFilterTypeDef",
+    "PropertyFiltersOutputTypeDef",
     "PropertyFiltersTypeDef",
+    "PropertyFiltersUnionTypeDef",
     "PropertyTypeDef",
     "RasterDataCollectionMetadataTypeDef",
     "RasterDataCollectionQueryInputTypeDef",
     "RasterDataCollectionQueryOutputTypeDef",
     "RasterDataCollectionQueryWithBandFilterInputTypeDef",
+    "ResamplingConfigInputOutputTypeDef",
     "ResamplingConfigInputTypeDef",
     "ResponseMetadataTypeDef",
     "ReverseGeocodingConfigTypeDef",
-    "SearchRasterDataCollectionInputRequestTypeDef",
+    "SearchRasterDataCollectionInputTypeDef",
     "SearchRasterDataCollectionOutputTypeDef",
+    "StackConfigInputOutputTypeDef",
     "StackConfigInputTypeDef",
-    "StartEarthObservationJobInputRequestTypeDef",
+    "StartEarthObservationJobInputTypeDef",
     "StartEarthObservationJobOutputTypeDef",
-    "StartVectorEnrichmentJobInputRequestTypeDef",
+    "StartVectorEnrichmentJobInputTypeDef",
     "StartVectorEnrichmentJobOutputTypeDef",
-    "StopEarthObservationJobInputRequestTypeDef",
-    "StopVectorEnrichmentJobInputRequestTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "StopEarthObservationJobInputTypeDef",
+    "StopVectorEnrichmentJobInputTypeDef",
+    "TagResourceRequestTypeDef",
+    "TemporalStatisticsConfigInputOutputTypeDef",
     "TemporalStatisticsConfigInputTypeDef",
     "TimeRangeFilterInputTypeDef",
     "TimeRangeFilterOutputTypeDef",
-    "UntagResourceRequestRequestTypeDef",
+    "TimestampTypeDef",
+    "UntagResourceRequestTypeDef",
     "UserDefinedTypeDef",
     "VectorEnrichmentJobConfigTypeDef",
     "VectorEnrichmentJobDataSourceConfigInputTypeDef",
@@ -140,233 +169,92 @@ __all__ = (
     "ViewOffNadirInputTypeDef",
     "ViewSunAzimuthInputTypeDef",
     "ViewSunElevationInputTypeDef",
+    "ZonalStatisticsConfigInputOutputTypeDef",
     "ZonalStatisticsConfigInputTypeDef",
 )
 
-AreaOfInterestGeometryTypeDef = TypedDict(
-    "AreaOfInterestGeometryTypeDef",
-    {
-        "MultiPolygonGeometry": "MultiPolygonGeometryInputTypeDef",
-        "PolygonGeometry": "PolygonGeometryInputTypeDef",
-    },
-    total=False,
-)
+class MultiPolygonGeometryInputOutputTypeDef(TypedDict):
+    Coordinates: List[List[List[List[float]]]]
 
-AreaOfInterestTypeDef = TypedDict(
-    "AreaOfInterestTypeDef",
-    {
-        "AreaOfInterestGeometry": "AreaOfInterestGeometryTypeDef",
-    },
-    total=False,
-)
+class PolygonGeometryInputOutputTypeDef(TypedDict):
+    Coordinates: List[List[List[float]]]
 
-AssetValueTypeDef = TypedDict(
-    "AssetValueTypeDef",
-    {
-        "Href": str,
-    },
-    total=False,
-)
+class AssetValueTypeDef(TypedDict):
+    Href: NotRequired[str]
 
-BandMathConfigInputTypeDef = TypedDict(
-    "BandMathConfigInputTypeDef",
-    {
-        "CustomIndices": "CustomIndicesInputTypeDef",
-        "PredefinedIndices": List[str],
-    },
-    total=False,
-)
+class CloudRemovalConfigInputOutputTypeDef(TypedDict):
+    AlgorithmName: NotRequired[Literal["INTERPOLATION"]]
+    InterpolationValue: NotRequired[str]
+    TargetBands: NotRequired[List[str]]
 
-CloudRemovalConfigInputTypeDef = TypedDict(
-    "CloudRemovalConfigInputTypeDef",
-    {
-        "AlgorithmName": Literal["INTERPOLATION"],
-        "InterpolationValue": str,
-        "TargetBands": List[str],
-    },
-    total=False,
-)
+class CloudRemovalConfigInputTypeDef(TypedDict):
+    AlgorithmName: NotRequired[Literal["INTERPOLATION"]]
+    InterpolationValue: NotRequired[str]
+    TargetBands: NotRequired[Sequence[str]]
 
-CustomIndicesInputTypeDef = TypedDict(
-    "CustomIndicesInputTypeDef",
-    {
-        "Operations": List["OperationTypeDef"],
-    },
-    total=False,
-)
+class OperationTypeDef(TypedDict):
+    Equation: str
+    Name: str
+    OutputType: NotRequired[OutputTypeType]
 
-DeleteEarthObservationJobInputRequestTypeDef = TypedDict(
-    "DeleteEarthObservationJobInputRequestTypeDef",
-    {
-        "Arn": str,
-    },
-)
+class DeleteEarthObservationJobInputTypeDef(TypedDict):
+    Arn: str
 
-DeleteVectorEnrichmentJobInputRequestTypeDef = TypedDict(
-    "DeleteVectorEnrichmentJobInputRequestTypeDef",
-    {
-        "Arn": str,
-    },
-)
+class DeleteVectorEnrichmentJobInputTypeDef(TypedDict):
+    Arn: str
 
 EarthObservationJobErrorDetailsTypeDef = TypedDict(
     "EarthObservationJobErrorDetailsTypeDef",
     {
-        "Message": str,
-        "Type": EarthObservationJobErrorTypeType,
-    },
-    total=False,
-)
-
-EoCloudCoverInputTypeDef = TypedDict(
-    "EoCloudCoverInputTypeDef",
-    {
-        "LowerBound": float,
-        "UpperBound": float,
+        "Message": NotRequired[str],
+        "Type": NotRequired[EarthObservationJobErrorTypeType],
     },
 )
 
-_RequiredExportEarthObservationJobInputRequestTypeDef = TypedDict(
-    "_RequiredExportEarthObservationJobInputRequestTypeDef",
-    {
-        "Arn": str,
-        "ExecutionRoleArn": str,
-        "OutputConfig": "OutputConfigInputTypeDef",
-    },
-)
-_OptionalExportEarthObservationJobInputRequestTypeDef = TypedDict(
-    "_OptionalExportEarthObservationJobInputRequestTypeDef",
-    {
-        "ClientToken": str,
-        "ExportSourceImages": bool,
-    },
-    total=False,
-)
+class EoCloudCoverInputTypeDef(TypedDict):
+    LowerBound: float
+    UpperBound: float
 
-class ExportEarthObservationJobInputRequestTypeDef(
-    _RequiredExportEarthObservationJobInputRequestTypeDef,
-    _OptionalExportEarthObservationJobInputRequestTypeDef,
-):
-    pass
-
-ExportEarthObservationJobOutputTypeDef = TypedDict(
-    "ExportEarthObservationJobOutputTypeDef",
-    {
-        "Arn": str,
-        "CreationTime": datetime,
-        "ExecutionRoleArn": str,
-        "ExportSourceImages": bool,
-        "ExportStatus": EarthObservationJobExportStatusType,
-        "OutputConfig": "OutputConfigInputTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
 ExportErrorDetailsOutputTypeDef = TypedDict(
     "ExportErrorDetailsOutputTypeDef",
     {
-        "Message": str,
-        "Type": ExportErrorTypeType,
-    },
-    total=False,
-)
-
-ExportErrorDetailsTypeDef = TypedDict(
-    "ExportErrorDetailsTypeDef",
-    {
-        "ExportResults": "ExportErrorDetailsOutputTypeDef",
-        "ExportSourceImages": "ExportErrorDetailsOutputTypeDef",
-    },
-    total=False,
-)
-
-_RequiredExportS3DataInputTypeDef = TypedDict(
-    "_RequiredExportS3DataInputTypeDef",
-    {
-        "S3Uri": str,
-    },
-)
-_OptionalExportS3DataInputTypeDef = TypedDict(
-    "_OptionalExportS3DataInputTypeDef",
-    {
-        "KmsKeyId": str,
-    },
-    total=False,
-)
-
-class ExportS3DataInputTypeDef(
-    _RequiredExportS3DataInputTypeDef, _OptionalExportS3DataInputTypeDef
-):
-    pass
-
-_RequiredExportVectorEnrichmentJobInputRequestTypeDef = TypedDict(
-    "_RequiredExportVectorEnrichmentJobInputRequestTypeDef",
-    {
-        "Arn": str,
-        "ExecutionRoleArn": str,
-        "OutputConfig": "ExportVectorEnrichmentJobOutputConfigTypeDef",
-    },
-)
-_OptionalExportVectorEnrichmentJobInputRequestTypeDef = TypedDict(
-    "_OptionalExportVectorEnrichmentJobInputRequestTypeDef",
-    {
-        "ClientToken": str,
-    },
-    total=False,
-)
-
-class ExportVectorEnrichmentJobInputRequestTypeDef(
-    _RequiredExportVectorEnrichmentJobInputRequestTypeDef,
-    _OptionalExportVectorEnrichmentJobInputRequestTypeDef,
-):
-    pass
-
-ExportVectorEnrichmentJobOutputConfigTypeDef = TypedDict(
-    "ExportVectorEnrichmentJobOutputConfigTypeDef",
-    {
-        "S3Data": "VectorEnrichmentJobS3DataTypeDef",
+        "Message": NotRequired[str],
+        "Type": NotRequired[ExportErrorTypeType],
     },
 )
 
-ExportVectorEnrichmentJobOutputTypeDef = TypedDict(
-    "ExportVectorEnrichmentJobOutputTypeDef",
-    {
-        "Arn": str,
-        "CreationTime": datetime,
-        "ExecutionRoleArn": str,
-        "ExportStatus": VectorEnrichmentJobExportStatusType,
-        "OutputConfig": "ExportVectorEnrichmentJobOutputConfigTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ExportS3DataInputTypeDef(TypedDict):
+    S3Uri: str
+    KmsKeyId: NotRequired[str]
 
-_RequiredFilterTypeDef = TypedDict(
-    "_RequiredFilterTypeDef",
+class VectorEnrichmentJobS3DataTypeDef(TypedDict):
+    S3Uri: str
+    KmsKeyId: NotRequired[str]
+
+FilterTypeDef = TypedDict(
+    "FilterTypeDef",
     {
         "Name": str,
         "Type": str,
+        "Maximum": NotRequired[float],
+        "Minimum": NotRequired[float],
     },
-)
-_OptionalFilterTypeDef = TypedDict(
-    "_OptionalFilterTypeDef",
-    {
-        "Maximum": float,
-        "Minimum": float,
-    },
-    total=False,
 )
 
-class FilterTypeDef(_RequiredFilterTypeDef, _OptionalFilterTypeDef):
-    pass
+class GeoMosaicConfigInputOutputTypeDef(TypedDict):
+    AlgorithmName: NotRequired[AlgorithmNameGeoMosaicType]
+    TargetBands: NotRequired[List[str]]
 
-GeoMosaicConfigInputTypeDef = TypedDict(
-    "GeoMosaicConfigInputTypeDef",
-    {
-        "AlgorithmName": AlgorithmNameGeoMosaicType,
-        "TargetBands": List[str],
-    },
-    total=False,
-)
+class GeoMosaicConfigInputTypeDef(TypedDict):
+    AlgorithmName: NotRequired[AlgorithmNameGeoMosaicType]
+    TargetBands: NotRequired[Sequence[str]]
 
 GeometryTypeDef = TypedDict(
     "GeometryTypeDef",
@@ -376,40 +264,213 @@ GeometryTypeDef = TypedDict(
     },
 )
 
-GetEarthObservationJobInputRequestTypeDef = TypedDict(
-    "GetEarthObservationJobInputRequestTypeDef",
+class GetEarthObservationJobInputTypeDef(TypedDict):
+    Arn: str
+
+class OutputBandTypeDef(TypedDict):
+    BandName: str
+    OutputDataType: OutputTypeType
+
+class GetRasterDataCollectionInputTypeDef(TypedDict):
+    Arn: str
+
+class GetTileInputTypeDef(TypedDict):
+    Arn: str
+    ImageAssets: Sequence[str]
+    Target: TargetOptionsType
+    x: int
+    y: int
+    z: int
+    ExecutionRoleArn: NotRequired[str]
+    ImageMask: NotRequired[bool]
+    OutputDataType: NotRequired[OutputTypeType]
+    OutputFormat: NotRequired[str]
+    PropertyFilters: NotRequired[str]
+    TimeRangeFilter: NotRequired[str]
+
+class GetVectorEnrichmentJobInputTypeDef(TypedDict):
+    Arn: str
+
+class VectorEnrichmentJobErrorDetailsTypeDef(TypedDict):
+    ErrorMessage: NotRequired[str]
+    ErrorType: NotRequired[VectorEnrichmentJobErrorTypeType]
+
+VectorEnrichmentJobExportErrorDetailsTypeDef = TypedDict(
+    "VectorEnrichmentJobExportErrorDetailsTypeDef",
     {
-        "Arn": str,
+        "Message": NotRequired[str],
+        "Type": NotRequired[VectorEnrichmentJobExportErrorTypeType],
     },
 )
 
-GetEarthObservationJobOutputTypeDef = TypedDict(
-    "GetEarthObservationJobOutputTypeDef",
+class PropertiesTypeDef(TypedDict):
+    EoCloudCover: NotRequired[float]
+    LandsatCloudCoverLand: NotRequired[float]
+    Platform: NotRequired[str]
+    ViewOffNadir: NotRequired[float]
+    ViewSunAzimuth: NotRequired[float]
+    ViewSunElevation: NotRequired[float]
+
+class TemporalStatisticsConfigInputOutputTypeDef(TypedDict):
+    Statistics: List[TemporalStatisticsType]
+    GroupBy: NotRequired[GroupByType]
+    TargetBands: NotRequired[List[str]]
+
+class ZonalStatisticsConfigInputOutputTypeDef(TypedDict):
+    Statistics: List[ZonalStatisticsType]
+    ZoneS3Path: str
+    TargetBands: NotRequired[List[str]]
+    ZoneS3PathKmsKeyId: NotRequired[str]
+
+class TemporalStatisticsConfigInputTypeDef(TypedDict):
+    Statistics: Sequence[TemporalStatisticsType]
+    GroupBy: NotRequired[GroupByType]
+    TargetBands: NotRequired[Sequence[str]]
+
+class ZonalStatisticsConfigInputTypeDef(TypedDict):
+    Statistics: Sequence[ZonalStatisticsType]
+    ZoneS3Path: str
+    TargetBands: NotRequired[Sequence[str]]
+    ZoneS3PathKmsKeyId: NotRequired[str]
+
+class LandsatCloudCoverLandInputTypeDef(TypedDict):
+    LowerBound: float
+    UpperBound: float
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class ListEarthObservationJobInputTypeDef(TypedDict):
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+    SortBy: NotRequired[str]
+    SortOrder: NotRequired[SortOrderType]
+    StatusEquals: NotRequired[EarthObservationJobStatusType]
+
+class ListEarthObservationJobOutputConfigTypeDef(TypedDict):
+    Arn: str
+    CreationTime: datetime
+    DurationInSeconds: int
+    Name: str
+    OperationType: str
+    Status: EarthObservationJobStatusType
+    Tags: NotRequired[Dict[str, str]]
+
+class ListRasterDataCollectionsInputTypeDef(TypedDict):
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+
+class ListVectorEnrichmentJobInputTypeDef(TypedDict):
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+    SortBy: NotRequired[str]
+    SortOrder: NotRequired[SortOrderType]
+    StatusEquals: NotRequired[str]
+
+ListVectorEnrichmentJobOutputConfigTypeDef = TypedDict(
+    "ListVectorEnrichmentJobOutputConfigTypeDef",
     {
         "Arn": str,
         "CreationTime": datetime,
         "DurationInSeconds": int,
-        "ErrorDetails": "EarthObservationJobErrorDetailsTypeDef",
-        "ExecutionRoleArn": str,
-        "ExportErrorDetails": "ExportErrorDetailsTypeDef",
-        "ExportStatus": EarthObservationJobExportStatusType,
-        "InputConfig": "InputConfigOutputTypeDef",
-        "JobConfig": "JobConfigInputTypeDef",
-        "KmsKeyId": str,
         "Name": str,
-        "OutputBands": List["OutputBandTypeDef"],
-        "Status": EarthObservationJobStatusType,
-        "Tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "Status": VectorEnrichmentJobStatusType,
+        "Type": VectorEnrichmentJobTypeType,
+        "Tags": NotRequired[Dict[str, str]],
     },
 )
 
-GetRasterDataCollectionInputRequestTypeDef = TypedDict(
-    "GetRasterDataCollectionInputRequestTypeDef",
-    {
-        "Arn": str,
-    },
-)
+class MapMatchingConfigTypeDef(TypedDict):
+    IdAttributeName: str
+    TimestampAttributeName: str
+    XAttributeName: str
+    YAttributeName: str
+
+class MultiPolygonGeometryInputTypeDef(TypedDict):
+    Coordinates: Sequence[Sequence[Sequence[Sequence[float]]]]
+
+class UserDefinedTypeDef(TypedDict):
+    Unit: Literal["METERS"]
+    Value: float
+
+class PlatformInputTypeDef(TypedDict):
+    Value: str
+    ComparisonOperator: NotRequired[ComparisonOperatorType]
+
+class PolygonGeometryInputTypeDef(TypedDict):
+    Coordinates: Sequence[Sequence[Sequence[float]]]
+
+class ViewOffNadirInputTypeDef(TypedDict):
+    LowerBound: float
+    UpperBound: float
+
+class ViewSunAzimuthInputTypeDef(TypedDict):
+    LowerBound: float
+    UpperBound: float
+
+class ViewSunElevationInputTypeDef(TypedDict):
+    LowerBound: float
+    UpperBound: float
+
+class TimeRangeFilterOutputTypeDef(TypedDict):
+    EndTime: datetime
+    StartTime: datetime
+
+class ReverseGeocodingConfigTypeDef(TypedDict):
+    XAttributeName: str
+    YAttributeName: str
+
+class StopEarthObservationJobInputTypeDef(TypedDict):
+    Arn: str
+
+class StopVectorEnrichmentJobInputTypeDef(TypedDict):
+    Arn: str
+
+class TagResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+    Tags: Mapping[str, str]
+
+TimestampTypeDef = Union[datetime, str]
+
+class UntagResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+    TagKeys: Sequence[str]
+
+class AreaOfInterestGeometryOutputTypeDef(TypedDict):
+    MultiPolygonGeometry: NotRequired[MultiPolygonGeometryInputOutputTypeDef]
+    PolygonGeometry: NotRequired[PolygonGeometryInputOutputTypeDef]
+
+class CustomIndicesInputOutputTypeDef(TypedDict):
+    Operations: NotRequired[List[OperationTypeDef]]
+
+class CustomIndicesInputTypeDef(TypedDict):
+    Operations: NotRequired[Sequence[OperationTypeDef]]
+
+class GetTileOutputTypeDef(TypedDict):
+    BinaryFile: StreamingBody
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    Tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ExportErrorDetailsTypeDef(TypedDict):
+    ExportResults: NotRequired[ExportErrorDetailsOutputTypeDef]
+    ExportSourceImages: NotRequired[ExportErrorDetailsOutputTypeDef]
+
+class OutputConfigInputTypeDef(TypedDict):
+    S3Data: ExportS3DataInputTypeDef
+
+class ExportVectorEnrichmentJobOutputConfigTypeDef(TypedDict):
+    S3Data: VectorEnrichmentJobS3DataTypeDef
+
+class VectorEnrichmentJobDataSourceConfigInputTypeDef(TypedDict):
+    S3Data: NotRequired[VectorEnrichmentJobS3DataTypeDef]
 
 GetRasterDataCollectionOutputTypeDef = TypedDict(
     "GetRasterDataCollectionOutputTypeDef",
@@ -419,56 +480,168 @@ GetRasterDataCollectionOutputTypeDef = TypedDict(
         "DescriptionPageUrl": str,
         "ImageSourceBands": List[str],
         "Name": str,
-        "SupportedFilters": List["FilterTypeDef"],
+        "SupportedFilters": List[FilterTypeDef],
         "Tags": Dict[str, str],
         "Type": DataCollectionTypeType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
-
-_RequiredGetTileInputRequestTypeDef = TypedDict(
-    "_RequiredGetTileInputRequestTypeDef",
+RasterDataCollectionMetadataTypeDef = TypedDict(
+    "RasterDataCollectionMetadataTypeDef",
     {
         "Arn": str,
-        "ImageAssets": List[str],
-        "Target": TargetOptionsType,
-        "x": int,
-        "y": int,
-        "z": int,
-    },
-)
-_OptionalGetTileInputRequestTypeDef = TypedDict(
-    "_OptionalGetTileInputRequestTypeDef",
-    {
-        "ExecutionRoleArn": str,
-        "ImageMask": bool,
-        "OutputDataType": OutputTypeType,
-        "OutputFormat": str,
-        "PropertyFilters": str,
-        "TimeRangeFilter": str,
-    },
-    total=False,
-)
-
-class GetTileInputRequestTypeDef(
-    _RequiredGetTileInputRequestTypeDef, _OptionalGetTileInputRequestTypeDef
-):
-    pass
-
-GetTileOutputTypeDef = TypedDict(
-    "GetTileOutputTypeDef",
-    {
-        "BinaryFile": StreamingBody,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "Description": str,
+        "Name": str,
+        "SupportedFilters": List[FilterTypeDef],
+        "Type": DataCollectionTypeType,
+        "DescriptionPageUrl": NotRequired[str],
+        "Tags": NotRequired[Dict[str, str]],
     },
 )
 
-GetVectorEnrichmentJobInputRequestTypeDef = TypedDict(
-    "GetVectorEnrichmentJobInputRequestTypeDef",
-    {
-        "Arn": str,
-    },
-)
+class ItemSourceTypeDef(TypedDict):
+    DateTime: datetime
+    Geometry: GeometryTypeDef
+    Id: str
+    Assets: NotRequired[Dict[str, AssetValueTypeDef]]
+    Properties: NotRequired[PropertiesTypeDef]
+
+class ListEarthObservationJobInputPaginateTypeDef(TypedDict):
+    SortBy: NotRequired[str]
+    SortOrder: NotRequired[SortOrderType]
+    StatusEquals: NotRequired[EarthObservationJobStatusType]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListRasterDataCollectionsInputPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListVectorEnrichmentJobInputPaginateTypeDef(TypedDict):
+    SortBy: NotRequired[str]
+    SortOrder: NotRequired[SortOrderType]
+    StatusEquals: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListEarthObservationJobOutputTypeDef(TypedDict):
+    EarthObservationJobSummaries: List[ListEarthObservationJobOutputConfigTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListVectorEnrichmentJobOutputTypeDef(TypedDict):
+    VectorEnrichmentJobSummaries: List[ListVectorEnrichmentJobOutputConfigTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+MultiPolygonGeometryInputUnionTypeDef = Union[
+    MultiPolygonGeometryInputTypeDef, MultiPolygonGeometryInputOutputTypeDef
+]
+
+class OutputResolutionResamplingInputTypeDef(TypedDict):
+    UserDefined: UserDefinedTypeDef
+
+class OutputResolutionStackInputTypeDef(TypedDict):
+    Predefined: NotRequired[PredefinedResolutionType]
+    UserDefined: NotRequired[UserDefinedTypeDef]
+
+PolygonGeometryInputUnionTypeDef = Union[
+    PolygonGeometryInputTypeDef, PolygonGeometryInputOutputTypeDef
+]
+
+class PropertyTypeDef(TypedDict):
+    EoCloudCover: NotRequired[EoCloudCoverInputTypeDef]
+    LandsatCloudCoverLand: NotRequired[LandsatCloudCoverLandInputTypeDef]
+    Platform: NotRequired[PlatformInputTypeDef]
+    ViewOffNadir: NotRequired[ViewOffNadirInputTypeDef]
+    ViewSunAzimuth: NotRequired[ViewSunAzimuthInputTypeDef]
+    ViewSunElevation: NotRequired[ViewSunElevationInputTypeDef]
+
+class VectorEnrichmentJobConfigTypeDef(TypedDict):
+    MapMatchingConfig: NotRequired[MapMatchingConfigTypeDef]
+    ReverseGeocodingConfig: NotRequired[ReverseGeocodingConfigTypeDef]
+
+class TimeRangeFilterInputTypeDef(TypedDict):
+    EndTime: TimestampTypeDef
+    StartTime: TimestampTypeDef
+
+class AreaOfInterestOutputTypeDef(TypedDict):
+    AreaOfInterestGeometry: NotRequired[AreaOfInterestGeometryOutputTypeDef]
+
+class BandMathConfigInputOutputTypeDef(TypedDict):
+    CustomIndices: NotRequired[CustomIndicesInputOutputTypeDef]
+    PredefinedIndices: NotRequired[List[str]]
+
+class BandMathConfigInputTypeDef(TypedDict):
+    CustomIndices: NotRequired[CustomIndicesInputTypeDef]
+    PredefinedIndices: NotRequired[Sequence[str]]
+
+class ExportEarthObservationJobInputTypeDef(TypedDict):
+    Arn: str
+    ExecutionRoleArn: str
+    OutputConfig: OutputConfigInputTypeDef
+    ClientToken: NotRequired[str]
+    ExportSourceImages: NotRequired[bool]
+
+class ExportEarthObservationJobOutputTypeDef(TypedDict):
+    Arn: str
+    CreationTime: datetime
+    ExecutionRoleArn: str
+    ExportSourceImages: bool
+    ExportStatus: EarthObservationJobExportStatusType
+    OutputConfig: OutputConfigInputTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ExportVectorEnrichmentJobInputTypeDef(TypedDict):
+    Arn: str
+    ExecutionRoleArn: str
+    OutputConfig: ExportVectorEnrichmentJobOutputConfigTypeDef
+    ClientToken: NotRequired[str]
+
+class ExportVectorEnrichmentJobOutputTypeDef(TypedDict):
+    Arn: str
+    CreationTime: datetime
+    ExecutionRoleArn: str
+    ExportStatus: VectorEnrichmentJobExportStatusType
+    OutputConfig: ExportVectorEnrichmentJobOutputConfigTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class VectorEnrichmentJobInputConfigTypeDef(TypedDict):
+    DataSourceConfig: VectorEnrichmentJobDataSourceConfigInputTypeDef
+    DocumentType: Literal["CSV"]
+
+class ListRasterDataCollectionsOutputTypeDef(TypedDict):
+    RasterDataCollectionSummaries: List[RasterDataCollectionMetadataTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class SearchRasterDataCollectionOutputTypeDef(TypedDict):
+    ApproximateResultCount: int
+    Items: List[ItemSourceTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ResamplingConfigInputOutputTypeDef(TypedDict):
+    OutputResolution: OutputResolutionResamplingInputTypeDef
+    AlgorithmName: NotRequired[AlgorithmNameResamplingType]
+    TargetBands: NotRequired[List[str]]
+
+class ResamplingConfigInputTypeDef(TypedDict):
+    OutputResolution: OutputResolutionResamplingInputTypeDef
+    AlgorithmName: NotRequired[AlgorithmNameResamplingType]
+    TargetBands: NotRequired[Sequence[str]]
+
+class StackConfigInputOutputTypeDef(TypedDict):
+    OutputResolution: NotRequired[OutputResolutionStackInputTypeDef]
+    TargetBands: NotRequired[List[str]]
+
+class StackConfigInputTypeDef(TypedDict):
+    OutputResolution: NotRequired[OutputResolutionStackInputTypeDef]
+    TargetBands: NotRequired[Sequence[str]]
+
+class AreaOfInterestGeometryTypeDef(TypedDict):
+    MultiPolygonGeometry: NotRequired[MultiPolygonGeometryInputUnionTypeDef]
+    PolygonGeometry: NotRequired[PolygonGeometryInputUnionTypeDef]
+
+class PropertyFilterTypeDef(TypedDict):
+    Property: PropertyTypeDef
 
 GetVectorEnrichmentJobOutputTypeDef = TypedDict(
     "GetVectorEnrichmentJobOutputTypeDef",
@@ -476,584 +649,29 @@ GetVectorEnrichmentJobOutputTypeDef = TypedDict(
         "Arn": str,
         "CreationTime": datetime,
         "DurationInSeconds": int,
-        "ErrorDetails": "VectorEnrichmentJobErrorDetailsTypeDef",
+        "ErrorDetails": VectorEnrichmentJobErrorDetailsTypeDef,
         "ExecutionRoleArn": str,
-        "ExportErrorDetails": "VectorEnrichmentJobExportErrorDetailsTypeDef",
+        "ExportErrorDetails": VectorEnrichmentJobExportErrorDetailsTypeDef,
         "ExportStatus": VectorEnrichmentJobExportStatusType,
-        "InputConfig": "VectorEnrichmentJobInputConfigTypeDef",
-        "JobConfig": "VectorEnrichmentJobConfigTypeDef",
+        "InputConfig": VectorEnrichmentJobInputConfigTypeDef,
+        "JobConfig": VectorEnrichmentJobConfigTypeDef,
         "KmsKeyId": str,
         "Name": str,
         "Status": VectorEnrichmentJobStatusType,
         "Tags": Dict[str, str],
         "Type": VectorEnrichmentJobTypeType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
 
-InputConfigInputTypeDef = TypedDict(
-    "InputConfigInputTypeDef",
-    {
-        "PreviousEarthObservationJobArn": str,
-        "RasterDataCollectionQuery": "RasterDataCollectionQueryInputTypeDef",
-    },
-    total=False,
-)
-
-InputConfigOutputTypeDef = TypedDict(
-    "InputConfigOutputTypeDef",
-    {
-        "PreviousEarthObservationJobArn": str,
-        "RasterDataCollectionQuery": "RasterDataCollectionQueryOutputTypeDef",
-    },
-    total=False,
-)
-
-_RequiredItemSourceTypeDef = TypedDict(
-    "_RequiredItemSourceTypeDef",
-    {
-        "DateTime": datetime,
-        "Geometry": "GeometryTypeDef",
-        "Id": str,
-    },
-)
-_OptionalItemSourceTypeDef = TypedDict(
-    "_OptionalItemSourceTypeDef",
-    {
-        "Assets": Dict[str, "AssetValueTypeDef"],
-        "Properties": "PropertiesTypeDef",
-    },
-    total=False,
-)
-
-class ItemSourceTypeDef(_RequiredItemSourceTypeDef, _OptionalItemSourceTypeDef):
-    pass
-
-JobConfigInputTypeDef = TypedDict(
-    "JobConfigInputTypeDef",
-    {
-        "BandMathConfig": "BandMathConfigInputTypeDef",
-        "CloudMaskingConfig": Dict[str, Any],
-        "CloudRemovalConfig": "CloudRemovalConfigInputTypeDef",
-        "GeoMosaicConfig": "GeoMosaicConfigInputTypeDef",
-        "LandCoverSegmentationConfig": Dict[str, Any],
-        "ResamplingConfig": "ResamplingConfigInputTypeDef",
-        "StackConfig": "StackConfigInputTypeDef",
-        "TemporalStatisticsConfig": "TemporalStatisticsConfigInputTypeDef",
-        "ZonalStatisticsConfig": "ZonalStatisticsConfigInputTypeDef",
-    },
-    total=False,
-)
-
-LandsatCloudCoverLandInputTypeDef = TypedDict(
-    "LandsatCloudCoverLandInputTypeDef",
-    {
-        "LowerBound": float,
-        "UpperBound": float,
-    },
-)
-
-ListEarthObservationJobInputRequestTypeDef = TypedDict(
-    "ListEarthObservationJobInputRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-        "SortBy": str,
-        "SortOrder": SortOrderType,
-        "StatusEquals": EarthObservationJobStatusType,
-    },
-    total=False,
-)
-
-_RequiredListEarthObservationJobOutputConfigTypeDef = TypedDict(
-    "_RequiredListEarthObservationJobOutputConfigTypeDef",
-    {
-        "Arn": str,
-        "CreationTime": datetime,
-        "DurationInSeconds": int,
-        "Name": str,
-        "OperationType": str,
-        "Status": EarthObservationJobStatusType,
-    },
-)
-_OptionalListEarthObservationJobOutputConfigTypeDef = TypedDict(
-    "_OptionalListEarthObservationJobOutputConfigTypeDef",
-    {
-        "Tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class ListEarthObservationJobOutputConfigTypeDef(
-    _RequiredListEarthObservationJobOutputConfigTypeDef,
-    _OptionalListEarthObservationJobOutputConfigTypeDef,
-):
-    pass
-
-ListEarthObservationJobOutputTypeDef = TypedDict(
-    "ListEarthObservationJobOutputTypeDef",
-    {
-        "EarthObservationJobSummaries": List["ListEarthObservationJobOutputConfigTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListRasterDataCollectionsInputRequestTypeDef = TypedDict(
-    "ListRasterDataCollectionsInputRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListRasterDataCollectionsOutputTypeDef = TypedDict(
-    "ListRasterDataCollectionsOutputTypeDef",
-    {
-        "NextToken": str,
-        "RasterDataCollectionSummaries": List["RasterDataCollectionMetadataTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-    },
-)
-
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "Tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListVectorEnrichmentJobInputRequestTypeDef = TypedDict(
-    "ListVectorEnrichmentJobInputRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-        "SortBy": str,
-        "SortOrder": SortOrderType,
-        "StatusEquals": str,
-    },
-    total=False,
-)
-
-_RequiredListVectorEnrichmentJobOutputConfigTypeDef = TypedDict(
-    "_RequiredListVectorEnrichmentJobOutputConfigTypeDef",
-    {
-        "Arn": str,
-        "CreationTime": datetime,
-        "DurationInSeconds": int,
-        "Name": str,
-        "Status": VectorEnrichmentJobStatusType,
-        "Type": VectorEnrichmentJobTypeType,
-    },
-)
-_OptionalListVectorEnrichmentJobOutputConfigTypeDef = TypedDict(
-    "_OptionalListVectorEnrichmentJobOutputConfigTypeDef",
-    {
-        "Tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class ListVectorEnrichmentJobOutputConfigTypeDef(
-    _RequiredListVectorEnrichmentJobOutputConfigTypeDef,
-    _OptionalListVectorEnrichmentJobOutputConfigTypeDef,
-):
-    pass
-
-ListVectorEnrichmentJobOutputTypeDef = TypedDict(
-    "ListVectorEnrichmentJobOutputTypeDef",
-    {
-        "NextToken": str,
-        "VectorEnrichmentJobSummaries": List["ListVectorEnrichmentJobOutputConfigTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-MapMatchingConfigTypeDef = TypedDict(
-    "MapMatchingConfigTypeDef",
-    {
-        "IdAttributeName": str,
-        "TimestampAttributeName": str,
-        "XAttributeName": str,
-        "YAttributeName": str,
-    },
-)
-
-MultiPolygonGeometryInputTypeDef = TypedDict(
-    "MultiPolygonGeometryInputTypeDef",
-    {
-        "Coordinates": List[List[List[List[float]]]],
-    },
-)
-
-_RequiredOperationTypeDef = TypedDict(
-    "_RequiredOperationTypeDef",
-    {
-        "Equation": str,
-        "Name": str,
-    },
-)
-_OptionalOperationTypeDef = TypedDict(
-    "_OptionalOperationTypeDef",
-    {
-        "OutputType": OutputTypeType,
-    },
-    total=False,
-)
-
-class OperationTypeDef(_RequiredOperationTypeDef, _OptionalOperationTypeDef):
-    pass
-
-OutputBandTypeDef = TypedDict(
-    "OutputBandTypeDef",
-    {
-        "BandName": str,
-        "OutputDataType": OutputTypeType,
-    },
-)
-
-OutputConfigInputTypeDef = TypedDict(
-    "OutputConfigInputTypeDef",
-    {
-        "S3Data": "ExportS3DataInputTypeDef",
-    },
-)
-
-OutputResolutionResamplingInputTypeDef = TypedDict(
-    "OutputResolutionResamplingInputTypeDef",
-    {
-        "UserDefined": "UserDefinedTypeDef",
-    },
-)
-
-OutputResolutionStackInputTypeDef = TypedDict(
-    "OutputResolutionStackInputTypeDef",
-    {
-        "Predefined": PredefinedResolutionType,
-        "UserDefined": "UserDefinedTypeDef",
-    },
-    total=False,
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-_RequiredPlatformInputTypeDef = TypedDict(
-    "_RequiredPlatformInputTypeDef",
-    {
-        "Value": str,
-    },
-)
-_OptionalPlatformInputTypeDef = TypedDict(
-    "_OptionalPlatformInputTypeDef",
-    {
-        "ComparisonOperator": ComparisonOperatorType,
-    },
-    total=False,
-)
-
-class PlatformInputTypeDef(_RequiredPlatformInputTypeDef, _OptionalPlatformInputTypeDef):
-    pass
-
-PolygonGeometryInputTypeDef = TypedDict(
-    "PolygonGeometryInputTypeDef",
-    {
-        "Coordinates": List[List[List[float]]],
-    },
-)
-
-PropertiesTypeDef = TypedDict(
-    "PropertiesTypeDef",
-    {
-        "EoCloudCover": float,
-        "LandsatCloudCoverLand": float,
-        "Platform": str,
-        "ViewOffNadir": float,
-        "ViewSunAzimuth": float,
-        "ViewSunElevation": float,
-    },
-    total=False,
-)
-
-PropertyFilterTypeDef = TypedDict(
-    "PropertyFilterTypeDef",
-    {
-        "Property": "PropertyTypeDef",
-    },
-)
-
-PropertyFiltersTypeDef = TypedDict(
-    "PropertyFiltersTypeDef",
-    {
-        "LogicalOperator": Literal["AND"],
-        "Properties": List["PropertyFilterTypeDef"],
-    },
-    total=False,
-)
-
-PropertyTypeDef = TypedDict(
-    "PropertyTypeDef",
-    {
-        "EoCloudCover": "EoCloudCoverInputTypeDef",
-        "LandsatCloudCoverLand": "LandsatCloudCoverLandInputTypeDef",
-        "Platform": "PlatformInputTypeDef",
-        "ViewOffNadir": "ViewOffNadirInputTypeDef",
-        "ViewSunAzimuth": "ViewSunAzimuthInputTypeDef",
-        "ViewSunElevation": "ViewSunElevationInputTypeDef",
-    },
-    total=False,
-)
-
-_RequiredRasterDataCollectionMetadataTypeDef = TypedDict(
-    "_RequiredRasterDataCollectionMetadataTypeDef",
-    {
-        "Arn": str,
-        "Description": str,
-        "Name": str,
-        "SupportedFilters": List["FilterTypeDef"],
-        "Type": DataCollectionTypeType,
-    },
-)
-_OptionalRasterDataCollectionMetadataTypeDef = TypedDict(
-    "_OptionalRasterDataCollectionMetadataTypeDef",
-    {
-        "DescriptionPageUrl": str,
-        "Tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class RasterDataCollectionMetadataTypeDef(
-    _RequiredRasterDataCollectionMetadataTypeDef, _OptionalRasterDataCollectionMetadataTypeDef
-):
-    pass
-
-_RequiredRasterDataCollectionQueryInputTypeDef = TypedDict(
-    "_RequiredRasterDataCollectionQueryInputTypeDef",
-    {
-        "RasterDataCollectionArn": str,
-        "TimeRangeFilter": "TimeRangeFilterInputTypeDef",
-    },
-)
-_OptionalRasterDataCollectionQueryInputTypeDef = TypedDict(
-    "_OptionalRasterDataCollectionQueryInputTypeDef",
-    {
-        "AreaOfInterest": "AreaOfInterestTypeDef",
-        "PropertyFilters": "PropertyFiltersTypeDef",
-    },
-    total=False,
-)
-
-class RasterDataCollectionQueryInputTypeDef(
-    _RequiredRasterDataCollectionQueryInputTypeDef, _OptionalRasterDataCollectionQueryInputTypeDef
-):
-    pass
-
-_RequiredRasterDataCollectionQueryOutputTypeDef = TypedDict(
-    "_RequiredRasterDataCollectionQueryOutputTypeDef",
-    {
-        "RasterDataCollectionArn": str,
-        "RasterDataCollectionName": str,
-        "TimeRangeFilter": "TimeRangeFilterOutputTypeDef",
-    },
-)
-_OptionalRasterDataCollectionQueryOutputTypeDef = TypedDict(
-    "_OptionalRasterDataCollectionQueryOutputTypeDef",
-    {
-        "AreaOfInterest": "AreaOfInterestTypeDef",
-        "PropertyFilters": "PropertyFiltersTypeDef",
-    },
-    total=False,
-)
-
-class RasterDataCollectionQueryOutputTypeDef(
-    _RequiredRasterDataCollectionQueryOutputTypeDef, _OptionalRasterDataCollectionQueryOutputTypeDef
-):
-    pass
-
-_RequiredRasterDataCollectionQueryWithBandFilterInputTypeDef = TypedDict(
-    "_RequiredRasterDataCollectionQueryWithBandFilterInputTypeDef",
-    {
-        "TimeRangeFilter": "TimeRangeFilterInputTypeDef",
-    },
-)
-_OptionalRasterDataCollectionQueryWithBandFilterInputTypeDef = TypedDict(
-    "_OptionalRasterDataCollectionQueryWithBandFilterInputTypeDef",
-    {
-        "AreaOfInterest": "AreaOfInterestTypeDef",
-        "BandFilter": List[str],
-        "PropertyFilters": "PropertyFiltersTypeDef",
-    },
-    total=False,
-)
-
-class RasterDataCollectionQueryWithBandFilterInputTypeDef(
-    _RequiredRasterDataCollectionQueryWithBandFilterInputTypeDef,
-    _OptionalRasterDataCollectionQueryWithBandFilterInputTypeDef,
-):
-    pass
-
-_RequiredResamplingConfigInputTypeDef = TypedDict(
-    "_RequiredResamplingConfigInputTypeDef",
-    {
-        "OutputResolution": "OutputResolutionResamplingInputTypeDef",
-    },
-)
-_OptionalResamplingConfigInputTypeDef = TypedDict(
-    "_OptionalResamplingConfigInputTypeDef",
-    {
-        "AlgorithmName": AlgorithmNameResamplingType,
-        "TargetBands": List[str],
-    },
-    total=False,
-)
-
-class ResamplingConfigInputTypeDef(
-    _RequiredResamplingConfigInputTypeDef, _OptionalResamplingConfigInputTypeDef
-):
-    pass
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-ReverseGeocodingConfigTypeDef = TypedDict(
-    "ReverseGeocodingConfigTypeDef",
-    {
-        "XAttributeName": str,
-        "YAttributeName": str,
-    },
-)
-
-_RequiredSearchRasterDataCollectionInputRequestTypeDef = TypedDict(
-    "_RequiredSearchRasterDataCollectionInputRequestTypeDef",
-    {
-        "Arn": str,
-        "RasterDataCollectionQuery": "RasterDataCollectionQueryWithBandFilterInputTypeDef",
-    },
-)
-_OptionalSearchRasterDataCollectionInputRequestTypeDef = TypedDict(
-    "_OptionalSearchRasterDataCollectionInputRequestTypeDef",
-    {
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class SearchRasterDataCollectionInputRequestTypeDef(
-    _RequiredSearchRasterDataCollectionInputRequestTypeDef,
-    _OptionalSearchRasterDataCollectionInputRequestTypeDef,
-):
-    pass
-
-SearchRasterDataCollectionOutputTypeDef = TypedDict(
-    "SearchRasterDataCollectionOutputTypeDef",
-    {
-        "ApproximateResultCount": int,
-        "Items": List["ItemSourceTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-StackConfigInputTypeDef = TypedDict(
-    "StackConfigInputTypeDef",
-    {
-        "OutputResolution": "OutputResolutionStackInputTypeDef",
-        "TargetBands": List[str],
-    },
-    total=False,
-)
-
-_RequiredStartEarthObservationJobInputRequestTypeDef = TypedDict(
-    "_RequiredStartEarthObservationJobInputRequestTypeDef",
-    {
-        "ExecutionRoleArn": str,
-        "InputConfig": "InputConfigInputTypeDef",
-        "JobConfig": "JobConfigInputTypeDef",
-        "Name": str,
-    },
-)
-_OptionalStartEarthObservationJobInputRequestTypeDef = TypedDict(
-    "_OptionalStartEarthObservationJobInputRequestTypeDef",
-    {
-        "ClientToken": str,
-        "KmsKeyId": str,
-        "Tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class StartEarthObservationJobInputRequestTypeDef(
-    _RequiredStartEarthObservationJobInputRequestTypeDef,
-    _OptionalStartEarthObservationJobInputRequestTypeDef,
-):
-    pass
-
-StartEarthObservationJobOutputTypeDef = TypedDict(
-    "StartEarthObservationJobOutputTypeDef",
-    {
-        "Arn": str,
-        "CreationTime": datetime,
-        "DurationInSeconds": int,
-        "ExecutionRoleArn": str,
-        "InputConfig": "InputConfigOutputTypeDef",
-        "JobConfig": "JobConfigInputTypeDef",
-        "KmsKeyId": str,
-        "Name": str,
-        "Status": EarthObservationJobStatusType,
-        "Tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredStartVectorEnrichmentJobInputRequestTypeDef = TypedDict(
-    "_RequiredStartVectorEnrichmentJobInputRequestTypeDef",
-    {
-        "ExecutionRoleArn": str,
-        "InputConfig": "VectorEnrichmentJobInputConfigTypeDef",
-        "JobConfig": "VectorEnrichmentJobConfigTypeDef",
-        "Name": str,
-    },
-)
-_OptionalStartVectorEnrichmentJobInputRequestTypeDef = TypedDict(
-    "_OptionalStartVectorEnrichmentJobInputRequestTypeDef",
-    {
-        "ClientToken": str,
-        "KmsKeyId": str,
-        "Tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class StartVectorEnrichmentJobInputRequestTypeDef(
-    _RequiredStartVectorEnrichmentJobInputRequestTypeDef,
-    _OptionalStartVectorEnrichmentJobInputRequestTypeDef,
-):
-    pass
+class StartVectorEnrichmentJobInputTypeDef(TypedDict):
+    ExecutionRoleArn: str
+    InputConfig: VectorEnrichmentJobInputConfigTypeDef
+    JobConfig: VectorEnrichmentJobConfigTypeDef
+    Name: str
+    ClientToken: NotRequired[str]
+    KmsKeyId: NotRequired[str]
+    Tags: NotRequired[Mapping[str, str]]
 
 StartVectorEnrichmentJobOutputTypeDef = TypedDict(
     "StartVectorEnrichmentJobOutputTypeDef",
@@ -1062,194 +680,126 @@ StartVectorEnrichmentJobOutputTypeDef = TypedDict(
         "CreationTime": datetime,
         "DurationInSeconds": int,
         "ExecutionRoleArn": str,
-        "InputConfig": "VectorEnrichmentJobInputConfigTypeDef",
-        "JobConfig": "VectorEnrichmentJobConfigTypeDef",
+        "InputConfig": VectorEnrichmentJobInputConfigTypeDef,
+        "JobConfig": VectorEnrichmentJobConfigTypeDef,
         "KmsKeyId": str,
         "Name": str,
         "Status": VectorEnrichmentJobStatusType,
         "Tags": Dict[str, str],
         "Type": VectorEnrichmentJobTypeType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
 
-StopEarthObservationJobInputRequestTypeDef = TypedDict(
-    "StopEarthObservationJobInputRequestTypeDef",
-    {
-        "Arn": str,
-    },
-)
+class JobConfigInputOutputTypeDef(TypedDict):
+    BandMathConfig: NotRequired[BandMathConfigInputOutputTypeDef]
+    CloudMaskingConfig: NotRequired[Dict[str, Any]]
+    CloudRemovalConfig: NotRequired[CloudRemovalConfigInputOutputTypeDef]
+    GeoMosaicConfig: NotRequired[GeoMosaicConfigInputOutputTypeDef]
+    LandCoverSegmentationConfig: NotRequired[Dict[str, Any]]
+    ResamplingConfig: NotRequired[ResamplingConfigInputOutputTypeDef]
+    StackConfig: NotRequired[StackConfigInputOutputTypeDef]
+    TemporalStatisticsConfig: NotRequired[TemporalStatisticsConfigInputOutputTypeDef]
+    ZonalStatisticsConfig: NotRequired[ZonalStatisticsConfigInputOutputTypeDef]
 
-StopVectorEnrichmentJobInputRequestTypeDef = TypedDict(
-    "StopVectorEnrichmentJobInputRequestTypeDef",
-    {
-        "Arn": str,
-    },
-)
+class JobConfigInputTypeDef(TypedDict):
+    BandMathConfig: NotRequired[BandMathConfigInputTypeDef]
+    CloudMaskingConfig: NotRequired[Mapping[str, Any]]
+    CloudRemovalConfig: NotRequired[CloudRemovalConfigInputTypeDef]
+    GeoMosaicConfig: NotRequired[GeoMosaicConfigInputTypeDef]
+    LandCoverSegmentationConfig: NotRequired[Mapping[str, Any]]
+    ResamplingConfig: NotRequired[ResamplingConfigInputTypeDef]
+    StackConfig: NotRequired[StackConfigInputTypeDef]
+    TemporalStatisticsConfig: NotRequired[TemporalStatisticsConfigInputTypeDef]
+    ZonalStatisticsConfig: NotRequired[ZonalStatisticsConfigInputTypeDef]
 
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-        "Tags": Dict[str, str],
-    },
-)
+AreaOfInterestGeometryUnionTypeDef = Union[
+    AreaOfInterestGeometryTypeDef, AreaOfInterestGeometryOutputTypeDef
+]
 
-_RequiredTemporalStatisticsConfigInputTypeDef = TypedDict(
-    "_RequiredTemporalStatisticsConfigInputTypeDef",
-    {
-        "Statistics": List[TemporalStatisticsType],
-    },
-)
-_OptionalTemporalStatisticsConfigInputTypeDef = TypedDict(
-    "_OptionalTemporalStatisticsConfigInputTypeDef",
-    {
-        "GroupBy": GroupByType,
-        "TargetBands": List[str],
-    },
-    total=False,
-)
+class PropertyFiltersOutputTypeDef(TypedDict):
+    LogicalOperator: NotRequired[Literal["AND"]]
+    Properties: NotRequired[List[PropertyFilterTypeDef]]
 
-class TemporalStatisticsConfigInputTypeDef(
-    _RequiredTemporalStatisticsConfigInputTypeDef, _OptionalTemporalStatisticsConfigInputTypeDef
-):
-    pass
+class PropertyFiltersTypeDef(TypedDict):
+    LogicalOperator: NotRequired[Literal["AND"]]
+    Properties: NotRequired[Sequence[PropertyFilterTypeDef]]
 
-TimeRangeFilterInputTypeDef = TypedDict(
-    "TimeRangeFilterInputTypeDef",
-    {
-        "EndTime": Union[datetime, str],
-        "StartTime": Union[datetime, str],
-    },
-)
+JobConfigInputUnionTypeDef = Union[JobConfigInputTypeDef, JobConfigInputOutputTypeDef]
 
-TimeRangeFilterOutputTypeDef = TypedDict(
-    "TimeRangeFilterOutputTypeDef",
-    {
-        "EndTime": datetime,
-        "StartTime": datetime,
-    },
-)
+class AreaOfInterestTypeDef(TypedDict):
+    AreaOfInterestGeometry: NotRequired[AreaOfInterestGeometryUnionTypeDef]
 
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-        "TagKeys": List[str],
-    },
-)
+class RasterDataCollectionQueryOutputTypeDef(TypedDict):
+    RasterDataCollectionArn: str
+    RasterDataCollectionName: str
+    TimeRangeFilter: TimeRangeFilterOutputTypeDef
+    AreaOfInterest: NotRequired[AreaOfInterestOutputTypeDef]
+    PropertyFilters: NotRequired[PropertyFiltersOutputTypeDef]
 
-UserDefinedTypeDef = TypedDict(
-    "UserDefinedTypeDef",
-    {
-        "Unit": Literal["METERS"],
-        "Value": float,
-    },
-)
+PropertyFiltersUnionTypeDef = Union[PropertyFiltersTypeDef, PropertyFiltersOutputTypeDef]
+AreaOfInterestUnionTypeDef = Union[AreaOfInterestTypeDef, AreaOfInterestOutputTypeDef]
 
-VectorEnrichmentJobConfigTypeDef = TypedDict(
-    "VectorEnrichmentJobConfigTypeDef",
-    {
-        "MapMatchingConfig": "MapMatchingConfigTypeDef",
-        "ReverseGeocodingConfig": "ReverseGeocodingConfigTypeDef",
-    },
-    total=False,
-)
+class InputConfigOutputTypeDef(TypedDict):
+    PreviousEarthObservationJobArn: NotRequired[str]
+    RasterDataCollectionQuery: NotRequired[RasterDataCollectionQueryOutputTypeDef]
 
-VectorEnrichmentJobDataSourceConfigInputTypeDef = TypedDict(
-    "VectorEnrichmentJobDataSourceConfigInputTypeDef",
-    {
-        "S3Data": "VectorEnrichmentJobS3DataTypeDef",
-    },
-    total=False,
-)
+class RasterDataCollectionQueryInputTypeDef(TypedDict):
+    RasterDataCollectionArn: str
+    TimeRangeFilter: TimeRangeFilterInputTypeDef
+    AreaOfInterest: NotRequired[AreaOfInterestUnionTypeDef]
+    PropertyFilters: NotRequired[PropertyFiltersUnionTypeDef]
 
-VectorEnrichmentJobErrorDetailsTypeDef = TypedDict(
-    "VectorEnrichmentJobErrorDetailsTypeDef",
-    {
-        "ErrorMessage": str,
-        "ErrorType": VectorEnrichmentJobErrorTypeType,
-    },
-    total=False,
-)
+class RasterDataCollectionQueryWithBandFilterInputTypeDef(TypedDict):
+    TimeRangeFilter: TimeRangeFilterInputTypeDef
+    AreaOfInterest: NotRequired[AreaOfInterestUnionTypeDef]
+    BandFilter: NotRequired[Sequence[str]]
+    PropertyFilters: NotRequired[PropertyFiltersUnionTypeDef]
 
-VectorEnrichmentJobExportErrorDetailsTypeDef = TypedDict(
-    "VectorEnrichmentJobExportErrorDetailsTypeDef",
-    {
-        "Message": str,
-        "Type": VectorEnrichmentJobExportErrorTypeType,
-    },
-    total=False,
-)
+class GetEarthObservationJobOutputTypeDef(TypedDict):
+    Arn: str
+    CreationTime: datetime
+    DurationInSeconds: int
+    ErrorDetails: EarthObservationJobErrorDetailsTypeDef
+    ExecutionRoleArn: str
+    ExportErrorDetails: ExportErrorDetailsTypeDef
+    ExportStatus: EarthObservationJobExportStatusType
+    InputConfig: InputConfigOutputTypeDef
+    JobConfig: JobConfigInputOutputTypeDef
+    KmsKeyId: str
+    Name: str
+    OutputBands: List[OutputBandTypeDef]
+    Status: EarthObservationJobStatusType
+    Tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-VectorEnrichmentJobInputConfigTypeDef = TypedDict(
-    "VectorEnrichmentJobInputConfigTypeDef",
-    {
-        "DataSourceConfig": "VectorEnrichmentJobDataSourceConfigInputTypeDef",
-        "DocumentType": Literal["CSV"],
-    },
-)
+class StartEarthObservationJobOutputTypeDef(TypedDict):
+    Arn: str
+    CreationTime: datetime
+    DurationInSeconds: int
+    ExecutionRoleArn: str
+    InputConfig: InputConfigOutputTypeDef
+    JobConfig: JobConfigInputOutputTypeDef
+    KmsKeyId: str
+    Name: str
+    Status: EarthObservationJobStatusType
+    Tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredVectorEnrichmentJobS3DataTypeDef = TypedDict(
-    "_RequiredVectorEnrichmentJobS3DataTypeDef",
-    {
-        "S3Uri": str,
-    },
-)
-_OptionalVectorEnrichmentJobS3DataTypeDef = TypedDict(
-    "_OptionalVectorEnrichmentJobS3DataTypeDef",
-    {
-        "KmsKeyId": str,
-    },
-    total=False,
-)
+class InputConfigInputTypeDef(TypedDict):
+    PreviousEarthObservationJobArn: NotRequired[str]
+    RasterDataCollectionQuery: NotRequired[RasterDataCollectionQueryInputTypeDef]
 
-class VectorEnrichmentJobS3DataTypeDef(
-    _RequiredVectorEnrichmentJobS3DataTypeDef, _OptionalVectorEnrichmentJobS3DataTypeDef
-):
-    pass
+class SearchRasterDataCollectionInputTypeDef(TypedDict):
+    Arn: str
+    RasterDataCollectionQuery: RasterDataCollectionQueryWithBandFilterInputTypeDef
+    NextToken: NotRequired[str]
 
-ViewOffNadirInputTypeDef = TypedDict(
-    "ViewOffNadirInputTypeDef",
-    {
-        "LowerBound": float,
-        "UpperBound": float,
-    },
-)
-
-ViewSunAzimuthInputTypeDef = TypedDict(
-    "ViewSunAzimuthInputTypeDef",
-    {
-        "LowerBound": float,
-        "UpperBound": float,
-    },
-)
-
-ViewSunElevationInputTypeDef = TypedDict(
-    "ViewSunElevationInputTypeDef",
-    {
-        "LowerBound": float,
-        "UpperBound": float,
-    },
-)
-
-_RequiredZonalStatisticsConfigInputTypeDef = TypedDict(
-    "_RequiredZonalStatisticsConfigInputTypeDef",
-    {
-        "Statistics": List[ZonalStatisticsType],
-        "ZoneS3Path": str,
-    },
-)
-_OptionalZonalStatisticsConfigInputTypeDef = TypedDict(
-    "_OptionalZonalStatisticsConfigInputTypeDef",
-    {
-        "TargetBands": List[str],
-        "ZoneS3PathKmsKeyId": str,
-    },
-    total=False,
-)
-
-class ZonalStatisticsConfigInputTypeDef(
-    _RequiredZonalStatisticsConfigInputTypeDef, _OptionalZonalStatisticsConfigInputTypeDef
-):
-    pass
+class StartEarthObservationJobInputTypeDef(TypedDict):
+    ExecutionRoleArn: str
+    InputConfig: InputConfigInputTypeDef
+    JobConfig: JobConfigInputUnionTypeDef
+    Name: str
+    ClientToken: NotRequired[str]
+    KmsKeyId: NotRequired[str]
+    Tags: NotRequired[Mapping[str, str]]

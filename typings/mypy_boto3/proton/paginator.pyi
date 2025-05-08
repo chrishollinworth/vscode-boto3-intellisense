@@ -1,14 +1,16 @@
 """
 Type annotations for proton service client paginators.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
 
-    from mypy_boto3_proton import ProtonClient
+    from mypy_boto3_proton.client import ProtonClient
     from mypy_boto3_proton.paginator import (
         ListComponentOutputsPaginator,
         ListComponentProvisionedResourcesPaginator,
@@ -33,7 +35,8 @@ Usage::
         ListTagsForResourcePaginator,
     )
 
-    client: ProtonClient = boto3.client("proton")
+    session = Session()
+    client: ProtonClient = session.client("proton")
 
     list_component_outputs_paginator: ListComponentOutputsPaginator = client.get_paginator("list_component_outputs")
     list_component_provisioned_resources_paginator: ListComponentProvisionedResourcesPaginator = client.get_paginator("list_component_provisioned_resources")
@@ -59,44 +62,62 @@ Usage::
     ```
 """
 
-from typing import Iterator, List
+from __future__ import annotations
 
-from botocore.paginate import Paginator as Boto3Paginator
+import sys
+from typing import TYPE_CHECKING
 
-from .literals import (
-    EnvironmentAccountConnectionRequesterAccountTypeType,
-    EnvironmentAccountConnectionStatusType,
-    ListServiceInstancesSortByType,
-    RepositoryProviderType,
-    SortOrderType,
-    SyncTypeType,
-)
+from botocore.paginate import PageIterator, Paginator
+
 from .type_defs import (
-    EnvironmentTemplateFilterTypeDef,
+    ListComponentOutputsInputPaginateTypeDef,
     ListComponentOutputsOutputTypeDef,
+    ListComponentProvisionedResourcesInputPaginateTypeDef,
     ListComponentProvisionedResourcesOutputTypeDef,
+    ListComponentsInputPaginateTypeDef,
     ListComponentsOutputTypeDef,
+    ListDeploymentsInputPaginateTypeDef,
     ListDeploymentsOutputTypeDef,
+    ListEnvironmentAccountConnectionsInputPaginateTypeDef,
     ListEnvironmentAccountConnectionsOutputTypeDef,
+    ListEnvironmentOutputsInputPaginateTypeDef,
     ListEnvironmentOutputsOutputTypeDef,
+    ListEnvironmentProvisionedResourcesInputPaginateTypeDef,
     ListEnvironmentProvisionedResourcesOutputTypeDef,
+    ListEnvironmentsInputPaginateTypeDef,
     ListEnvironmentsOutputTypeDef,
+    ListEnvironmentTemplatesInputPaginateTypeDef,
     ListEnvironmentTemplatesOutputTypeDef,
+    ListEnvironmentTemplateVersionsInputPaginateTypeDef,
     ListEnvironmentTemplateVersionsOutputTypeDef,
+    ListRepositoriesInputPaginateTypeDef,
     ListRepositoriesOutputTypeDef,
+    ListRepositorySyncDefinitionsInputPaginateTypeDef,
     ListRepositorySyncDefinitionsOutputTypeDef,
+    ListServiceInstanceOutputsInputPaginateTypeDef,
     ListServiceInstanceOutputsOutputTypeDef,
+    ListServiceInstanceProvisionedResourcesInputPaginateTypeDef,
     ListServiceInstanceProvisionedResourcesOutputTypeDef,
-    ListServiceInstancesFilterTypeDef,
+    ListServiceInstancesInputPaginateTypeDef,
     ListServiceInstancesOutputTypeDef,
+    ListServicePipelineOutputsInputPaginateTypeDef,
     ListServicePipelineOutputsOutputTypeDef,
+    ListServicePipelineProvisionedResourcesInputPaginateTypeDef,
     ListServicePipelineProvisionedResourcesOutputTypeDef,
+    ListServicesInputPaginateTypeDef,
     ListServicesOutputTypeDef,
+    ListServiceTemplatesInputPaginateTypeDef,
     ListServiceTemplatesOutputTypeDef,
+    ListServiceTemplateVersionsInputPaginateTypeDef,
     ListServiceTemplateVersionsOutputTypeDef,
+    ListTagsForResourceInputPaginateTypeDef,
     ListTagsForResourceOutputTypeDef,
-    PaginatorConfigTypeDef,
 )
+
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = (
     "ListComponentOutputsPaginator",
@@ -122,355 +143,400 @@ __all__ = (
     "ListTagsForResourcePaginator",
 )
 
-class ListComponentOutputsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Paginator.ListComponentOutputs)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators.html#listcomponentoutputspaginator)
-    """
+if TYPE_CHECKING:
+    _ListComponentOutputsPaginatorBase = Paginator[ListComponentOutputsOutputTypeDef]
+else:
+    _ListComponentOutputsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        componentName: str,
-        deploymentId: str = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListComponentOutputsOutputTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Paginator.ListComponentOutputs.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators.html#listcomponentoutputspaginator)
-        """
-
-class ListComponentProvisionedResourcesPaginator(Boto3Paginator):
+class ListComponentOutputsPaginator(_ListComponentOutputsPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Paginator.ListComponentProvisionedResources)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators.html#listcomponentprovisionedresourcespaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/proton/paginator/ListComponentOutputs.html#Proton.Paginator.ListComponentOutputs)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators/#listcomponentoutputspaginator)
     """
-
-    def paginate(
-        self, *, componentName: str, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListComponentProvisionedResourcesOutputTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListComponentOutputsInputPaginateTypeDef]
+    ) -> PageIterator[ListComponentOutputsOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Paginator.ListComponentProvisionedResources.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators.html#listcomponentprovisionedresourcespaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/proton/paginator/ListComponentOutputs.html#Proton.Paginator.ListComponentOutputs.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators/#listcomponentoutputspaginator)
         """
 
-class ListComponentsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Paginator.ListComponents)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators.html#listcomponentspaginator)
-    """
+if TYPE_CHECKING:
+    _ListComponentProvisionedResourcesPaginatorBase = Paginator[
+        ListComponentProvisionedResourcesOutputTypeDef
+    ]
+else:
+    _ListComponentProvisionedResourcesPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        environmentName: str = None,
-        serviceInstanceName: str = None,
-        serviceName: str = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListComponentsOutputTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Paginator.ListComponents.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators.html#listcomponentspaginator)
-        """
-
-class ListDeploymentsPaginator(Boto3Paginator):
+class ListComponentProvisionedResourcesPaginator(_ListComponentProvisionedResourcesPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Paginator.ListDeployments)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators.html#listdeploymentspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/proton/paginator/ListComponentProvisionedResources.html#Proton.Paginator.ListComponentProvisionedResources)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators/#listcomponentprovisionedresourcespaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        componentName: str = None,
-        environmentName: str = None,
-        serviceInstanceName: str = None,
-        serviceName: str = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListDeploymentsOutputTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListComponentProvisionedResourcesInputPaginateTypeDef]
+    ) -> PageIterator[ListComponentProvisionedResourcesOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Paginator.ListDeployments.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators.html#listdeploymentspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/proton/paginator/ListComponentProvisionedResources.html#Proton.Paginator.ListComponentProvisionedResources.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators/#listcomponentprovisionedresourcespaginator)
         """
 
-class ListEnvironmentAccountConnectionsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Paginator.ListEnvironmentAccountConnections)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators.html#listenvironmentaccountconnectionspaginator)
-    """
+if TYPE_CHECKING:
+    _ListComponentsPaginatorBase = Paginator[ListComponentsOutputTypeDef]
+else:
+    _ListComponentsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        requestedBy: EnvironmentAccountConnectionRequesterAccountTypeType,
-        environmentName: str = None,
-        statuses: List[EnvironmentAccountConnectionStatusType] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListEnvironmentAccountConnectionsOutputTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Paginator.ListEnvironmentAccountConnections.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators.html#listenvironmentaccountconnectionspaginator)
-        """
-
-class ListEnvironmentOutputsPaginator(Boto3Paginator):
+class ListComponentsPaginator(_ListComponentsPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Paginator.ListEnvironmentOutputs)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators.html#listenvironmentoutputspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/proton/paginator/ListComponents.html#Proton.Paginator.ListComponents)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators/#listcomponentspaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        environmentName: str,
-        deploymentId: str = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListEnvironmentOutputsOutputTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListComponentsInputPaginateTypeDef]
+    ) -> PageIterator[ListComponentsOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Paginator.ListEnvironmentOutputs.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators.html#listenvironmentoutputspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/proton/paginator/ListComponents.html#Proton.Paginator.ListComponents.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators/#listcomponentspaginator)
         """
 
-class ListEnvironmentProvisionedResourcesPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Paginator.ListEnvironmentProvisionedResources)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators.html#listenvironmentprovisionedresourcespaginator)
-    """
+if TYPE_CHECKING:
+    _ListDeploymentsPaginatorBase = Paginator[ListDeploymentsOutputTypeDef]
+else:
+    _ListDeploymentsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, environmentName: str, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListEnvironmentProvisionedResourcesOutputTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Paginator.ListEnvironmentProvisionedResources.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators.html#listenvironmentprovisionedresourcespaginator)
-        """
-
-class ListEnvironmentTemplateVersionsPaginator(Boto3Paginator):
+class ListDeploymentsPaginator(_ListDeploymentsPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Paginator.ListEnvironmentTemplateVersions)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators.html#listenvironmenttemplateversionspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/proton/paginator/ListDeployments.html#Proton.Paginator.ListDeployments)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators/#listdeploymentspaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        templateName: str,
-        majorVersion: str = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListEnvironmentTemplateVersionsOutputTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListDeploymentsInputPaginateTypeDef]
+    ) -> PageIterator[ListDeploymentsOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Paginator.ListEnvironmentTemplateVersions.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators.html#listenvironmenttemplateversionspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/proton/paginator/ListDeployments.html#Proton.Paginator.ListDeployments.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators/#listdeploymentspaginator)
         """
 
-class ListEnvironmentTemplatesPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Paginator.ListEnvironmentTemplates)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators.html#listenvironmenttemplatespaginator)
-    """
+if TYPE_CHECKING:
+    _ListEnvironmentAccountConnectionsPaginatorBase = Paginator[
+        ListEnvironmentAccountConnectionsOutputTypeDef
+    ]
+else:
+    _ListEnvironmentAccountConnectionsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListEnvironmentTemplatesOutputTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Paginator.ListEnvironmentTemplates.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators.html#listenvironmenttemplatespaginator)
-        """
-
-class ListEnvironmentsPaginator(Boto3Paginator):
+class ListEnvironmentAccountConnectionsPaginator(_ListEnvironmentAccountConnectionsPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Paginator.ListEnvironments)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators.html#listenvironmentspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/proton/paginator/ListEnvironmentAccountConnections.html#Proton.Paginator.ListEnvironmentAccountConnections)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators/#listenvironmentaccountconnectionspaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        environmentTemplates: List["EnvironmentTemplateFilterTypeDef"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListEnvironmentsOutputTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListEnvironmentAccountConnectionsInputPaginateTypeDef]
+    ) -> PageIterator[ListEnvironmentAccountConnectionsOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Paginator.ListEnvironments.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators.html#listenvironmentspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/proton/paginator/ListEnvironmentAccountConnections.html#Proton.Paginator.ListEnvironmentAccountConnections.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators/#listenvironmentaccountconnectionspaginator)
         """
 
-class ListRepositoriesPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Paginator.ListRepositories)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators.html#listrepositoriespaginator)
-    """
+if TYPE_CHECKING:
+    _ListEnvironmentOutputsPaginatorBase = Paginator[ListEnvironmentOutputsOutputTypeDef]
+else:
+    _ListEnvironmentOutputsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListRepositoriesOutputTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Paginator.ListRepositories.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators.html#listrepositoriespaginator)
-        """
-
-class ListRepositorySyncDefinitionsPaginator(Boto3Paginator):
+class ListEnvironmentOutputsPaginator(_ListEnvironmentOutputsPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Paginator.ListRepositorySyncDefinitions)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators.html#listrepositorysyncdefinitionspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/proton/paginator/ListEnvironmentOutputs.html#Proton.Paginator.ListEnvironmentOutputs)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators/#listenvironmentoutputspaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        repositoryName: str,
-        repositoryProvider: RepositoryProviderType,
-        syncType: SyncTypeType,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListRepositorySyncDefinitionsOutputTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListEnvironmentOutputsInputPaginateTypeDef]
+    ) -> PageIterator[ListEnvironmentOutputsOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Paginator.ListRepositorySyncDefinitions.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators.html#listrepositorysyncdefinitionspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/proton/paginator/ListEnvironmentOutputs.html#Proton.Paginator.ListEnvironmentOutputs.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators/#listenvironmentoutputspaginator)
         """
 
-class ListServiceInstanceOutputsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Paginator.ListServiceInstanceOutputs)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators.html#listserviceinstanceoutputspaginator)
-    """
+if TYPE_CHECKING:
+    _ListEnvironmentProvisionedResourcesPaginatorBase = Paginator[
+        ListEnvironmentProvisionedResourcesOutputTypeDef
+    ]
+else:
+    _ListEnvironmentProvisionedResourcesPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        serviceInstanceName: str,
-        serviceName: str,
-        deploymentId: str = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListServiceInstanceOutputsOutputTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Paginator.ListServiceInstanceOutputs.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators.html#listserviceinstanceoutputspaginator)
-        """
-
-class ListServiceInstanceProvisionedResourcesPaginator(Boto3Paginator):
+class ListEnvironmentProvisionedResourcesPaginator(
+    _ListEnvironmentProvisionedResourcesPaginatorBase
+):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Paginator.ListServiceInstanceProvisionedResources)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators.html#listserviceinstanceprovisionedresourcespaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/proton/paginator/ListEnvironmentProvisionedResources.html#Proton.Paginator.ListEnvironmentProvisionedResources)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators/#listenvironmentprovisionedresourcespaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        serviceInstanceName: str,
-        serviceName: str,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListServiceInstanceProvisionedResourcesOutputTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListEnvironmentProvisionedResourcesInputPaginateTypeDef]
+    ) -> PageIterator[ListEnvironmentProvisionedResourcesOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Paginator.ListServiceInstanceProvisionedResources.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators.html#listserviceinstanceprovisionedresourcespaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/proton/paginator/ListEnvironmentProvisionedResources.html#Proton.Paginator.ListEnvironmentProvisionedResources.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators/#listenvironmentprovisionedresourcespaginator)
         """
 
-class ListServiceInstancesPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Paginator.ListServiceInstances)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators.html#listserviceinstancespaginator)
-    """
+if TYPE_CHECKING:
+    _ListEnvironmentTemplateVersionsPaginatorBase = Paginator[
+        ListEnvironmentTemplateVersionsOutputTypeDef
+    ]
+else:
+    _ListEnvironmentTemplateVersionsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        filters: List["ListServiceInstancesFilterTypeDef"] = None,
-        serviceName: str = None,
-        sortBy: ListServiceInstancesSortByType = None,
-        sortOrder: SortOrderType = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListServiceInstancesOutputTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Paginator.ListServiceInstances.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators.html#listserviceinstancespaginator)
-        """
-
-class ListServicePipelineOutputsPaginator(Boto3Paginator):
+class ListEnvironmentTemplateVersionsPaginator(_ListEnvironmentTemplateVersionsPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Paginator.ListServicePipelineOutputs)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators.html#listservicepipelineoutputspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/proton/paginator/ListEnvironmentTemplateVersions.html#Proton.Paginator.ListEnvironmentTemplateVersions)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators/#listenvironmenttemplateversionspaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        serviceName: str,
-        deploymentId: str = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListServicePipelineOutputsOutputTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListEnvironmentTemplateVersionsInputPaginateTypeDef]
+    ) -> PageIterator[ListEnvironmentTemplateVersionsOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Paginator.ListServicePipelineOutputs.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators.html#listservicepipelineoutputspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/proton/paginator/ListEnvironmentTemplateVersions.html#Proton.Paginator.ListEnvironmentTemplateVersions.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators/#listenvironmenttemplateversionspaginator)
         """
 
-class ListServicePipelineProvisionedResourcesPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Paginator.ListServicePipelineProvisionedResources)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators.html#listservicepipelineprovisionedresourcespaginator)
-    """
+if TYPE_CHECKING:
+    _ListEnvironmentTemplatesPaginatorBase = Paginator[ListEnvironmentTemplatesOutputTypeDef]
+else:
+    _ListEnvironmentTemplatesPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, serviceName: str, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListServicePipelineProvisionedResourcesOutputTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Paginator.ListServicePipelineProvisionedResources.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators.html#listservicepipelineprovisionedresourcespaginator)
-        """
-
-class ListServiceTemplateVersionsPaginator(Boto3Paginator):
+class ListEnvironmentTemplatesPaginator(_ListEnvironmentTemplatesPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Paginator.ListServiceTemplateVersions)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators.html#listservicetemplateversionspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/proton/paginator/ListEnvironmentTemplates.html#Proton.Paginator.ListEnvironmentTemplates)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators/#listenvironmenttemplatespaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        templateName: str,
-        majorVersion: str = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListServiceTemplateVersionsOutputTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListEnvironmentTemplatesInputPaginateTypeDef]
+    ) -> PageIterator[ListEnvironmentTemplatesOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Paginator.ListServiceTemplateVersions.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators.html#listservicetemplateversionspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/proton/paginator/ListEnvironmentTemplates.html#Proton.Paginator.ListEnvironmentTemplates.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators/#listenvironmenttemplatespaginator)
         """
 
-class ListServiceTemplatesPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Paginator.ListServiceTemplates)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators.html#listservicetemplatespaginator)
-    """
+if TYPE_CHECKING:
+    _ListEnvironmentsPaginatorBase = Paginator[ListEnvironmentsOutputTypeDef]
+else:
+    _ListEnvironmentsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListServiceTemplatesOutputTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Paginator.ListServiceTemplates.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators.html#listservicetemplatespaginator)
-        """
-
-class ListServicesPaginator(Boto3Paginator):
+class ListEnvironmentsPaginator(_ListEnvironmentsPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Paginator.ListServices)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators.html#listservicespaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/proton/paginator/ListEnvironments.html#Proton.Paginator.ListEnvironments)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators/#listenvironmentspaginator)
     """
-
-    def paginate(
-        self, *, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListServicesOutputTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListEnvironmentsInputPaginateTypeDef]
+    ) -> PageIterator[ListEnvironmentsOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Paginator.ListServices.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators.html#listservicespaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/proton/paginator/ListEnvironments.html#Proton.Paginator.ListEnvironments.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators/#listenvironmentspaginator)
         """
 
-class ListTagsForResourcePaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Paginator.ListTagsForResource)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators.html#listtagsforresourcepaginator)
-    """
+if TYPE_CHECKING:
+    _ListRepositoriesPaginatorBase = Paginator[ListRepositoriesOutputTypeDef]
+else:
+    _ListRepositoriesPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, resourceArn: str, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListTagsForResourceOutputTypeDef]:
+class ListRepositoriesPaginator(_ListRepositoriesPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/proton/paginator/ListRepositories.html#Proton.Paginator.ListRepositories)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators/#listrepositoriespaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListRepositoriesInputPaginateTypeDef]
+    ) -> PageIterator[ListRepositoriesOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Paginator.ListTagsForResource.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators.html#listtagsforresourcepaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/proton/paginator/ListRepositories.html#Proton.Paginator.ListRepositories.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators/#listrepositoriespaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListRepositorySyncDefinitionsPaginatorBase = Paginator[
+        ListRepositorySyncDefinitionsOutputTypeDef
+    ]
+else:
+    _ListRepositorySyncDefinitionsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListRepositorySyncDefinitionsPaginator(_ListRepositorySyncDefinitionsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/proton/paginator/ListRepositorySyncDefinitions.html#Proton.Paginator.ListRepositorySyncDefinitions)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators/#listrepositorysyncdefinitionspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListRepositorySyncDefinitionsInputPaginateTypeDef]
+    ) -> PageIterator[ListRepositorySyncDefinitionsOutputTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/proton/paginator/ListRepositorySyncDefinitions.html#Proton.Paginator.ListRepositorySyncDefinitions.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators/#listrepositorysyncdefinitionspaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListServiceInstanceOutputsPaginatorBase = Paginator[ListServiceInstanceOutputsOutputTypeDef]
+else:
+    _ListServiceInstanceOutputsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListServiceInstanceOutputsPaginator(_ListServiceInstanceOutputsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/proton/paginator/ListServiceInstanceOutputs.html#Proton.Paginator.ListServiceInstanceOutputs)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators/#listserviceinstanceoutputspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListServiceInstanceOutputsInputPaginateTypeDef]
+    ) -> PageIterator[ListServiceInstanceOutputsOutputTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/proton/paginator/ListServiceInstanceOutputs.html#Proton.Paginator.ListServiceInstanceOutputs.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators/#listserviceinstanceoutputspaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListServiceInstanceProvisionedResourcesPaginatorBase = Paginator[
+        ListServiceInstanceProvisionedResourcesOutputTypeDef
+    ]
+else:
+    _ListServiceInstanceProvisionedResourcesPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListServiceInstanceProvisionedResourcesPaginator(
+    _ListServiceInstanceProvisionedResourcesPaginatorBase
+):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/proton/paginator/ListServiceInstanceProvisionedResources.html#Proton.Paginator.ListServiceInstanceProvisionedResources)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators/#listserviceinstanceprovisionedresourcespaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListServiceInstanceProvisionedResourcesInputPaginateTypeDef]
+    ) -> PageIterator[ListServiceInstanceProvisionedResourcesOutputTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/proton/paginator/ListServiceInstanceProvisionedResources.html#Proton.Paginator.ListServiceInstanceProvisionedResources.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators/#listserviceinstanceprovisionedresourcespaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListServiceInstancesPaginatorBase = Paginator[ListServiceInstancesOutputTypeDef]
+else:
+    _ListServiceInstancesPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListServiceInstancesPaginator(_ListServiceInstancesPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/proton/paginator/ListServiceInstances.html#Proton.Paginator.ListServiceInstances)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators/#listserviceinstancespaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListServiceInstancesInputPaginateTypeDef]
+    ) -> PageIterator[ListServiceInstancesOutputTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/proton/paginator/ListServiceInstances.html#Proton.Paginator.ListServiceInstances.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators/#listserviceinstancespaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListServicePipelineOutputsPaginatorBase = Paginator[ListServicePipelineOutputsOutputTypeDef]
+else:
+    _ListServicePipelineOutputsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListServicePipelineOutputsPaginator(_ListServicePipelineOutputsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/proton/paginator/ListServicePipelineOutputs.html#Proton.Paginator.ListServicePipelineOutputs)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators/#listservicepipelineoutputspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListServicePipelineOutputsInputPaginateTypeDef]
+    ) -> PageIterator[ListServicePipelineOutputsOutputTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/proton/paginator/ListServicePipelineOutputs.html#Proton.Paginator.ListServicePipelineOutputs.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators/#listservicepipelineoutputspaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListServicePipelineProvisionedResourcesPaginatorBase = Paginator[
+        ListServicePipelineProvisionedResourcesOutputTypeDef
+    ]
+else:
+    _ListServicePipelineProvisionedResourcesPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListServicePipelineProvisionedResourcesPaginator(
+    _ListServicePipelineProvisionedResourcesPaginatorBase
+):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/proton/paginator/ListServicePipelineProvisionedResources.html#Proton.Paginator.ListServicePipelineProvisionedResources)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators/#listservicepipelineprovisionedresourcespaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListServicePipelineProvisionedResourcesInputPaginateTypeDef]
+    ) -> PageIterator[ListServicePipelineProvisionedResourcesOutputTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/proton/paginator/ListServicePipelineProvisionedResources.html#Proton.Paginator.ListServicePipelineProvisionedResources.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators/#listservicepipelineprovisionedresourcespaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListServiceTemplateVersionsPaginatorBase = Paginator[ListServiceTemplateVersionsOutputTypeDef]
+else:
+    _ListServiceTemplateVersionsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListServiceTemplateVersionsPaginator(_ListServiceTemplateVersionsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/proton/paginator/ListServiceTemplateVersions.html#Proton.Paginator.ListServiceTemplateVersions)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators/#listservicetemplateversionspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListServiceTemplateVersionsInputPaginateTypeDef]
+    ) -> PageIterator[ListServiceTemplateVersionsOutputTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/proton/paginator/ListServiceTemplateVersions.html#Proton.Paginator.ListServiceTemplateVersions.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators/#listservicetemplateversionspaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListServiceTemplatesPaginatorBase = Paginator[ListServiceTemplatesOutputTypeDef]
+else:
+    _ListServiceTemplatesPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListServiceTemplatesPaginator(_ListServiceTemplatesPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/proton/paginator/ListServiceTemplates.html#Proton.Paginator.ListServiceTemplates)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators/#listservicetemplatespaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListServiceTemplatesInputPaginateTypeDef]
+    ) -> PageIterator[ListServiceTemplatesOutputTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/proton/paginator/ListServiceTemplates.html#Proton.Paginator.ListServiceTemplates.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators/#listservicetemplatespaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListServicesPaginatorBase = Paginator[ListServicesOutputTypeDef]
+else:
+    _ListServicesPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListServicesPaginator(_ListServicesPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/proton/paginator/ListServices.html#Proton.Paginator.ListServices)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators/#listservicespaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListServicesInputPaginateTypeDef]
+    ) -> PageIterator[ListServicesOutputTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/proton/paginator/ListServices.html#Proton.Paginator.ListServices.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators/#listservicespaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListTagsForResourcePaginatorBase = Paginator[ListTagsForResourceOutputTypeDef]
+else:
+    _ListTagsForResourcePaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListTagsForResourcePaginator(_ListTagsForResourcePaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/proton/paginator/ListTagsForResource.html#Proton.Paginator.ListTagsForResource)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators/#listtagsforresourcepaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListTagsForResourceInputPaginateTypeDef]
+    ) -> PageIterator[ListTagsForResourceOutputTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/proton/paginator/ListTagsForResource.html#Proton.Paginator.ListTagsForResource.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_proton/paginators/#listtagsforresourcepaginator)
         """

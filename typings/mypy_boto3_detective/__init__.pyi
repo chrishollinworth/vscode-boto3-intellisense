@@ -1,19 +1,21 @@
 """
 Main interface for detective service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_detective/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_detective import (
         Client,
         DetectiveClient,
     )
 
-    session = boto3.Session()
-
-    client: DetectiveClient = boto3.client("detective")
-    session_client: DetectiveClient = session.client("detective")
+    session = Session()
+    client: DetectiveClient = session.client("detective")
     ```
 """
 

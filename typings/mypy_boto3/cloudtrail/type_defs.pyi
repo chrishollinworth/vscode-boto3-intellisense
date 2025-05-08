@@ -1,23 +1,29 @@
 """
 Type annotations for cloudtrail service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_cloudtrail.type_defs import AddTagsRequestRequestTypeDef
+    from mypy_boto3_cloudtrail.type_defs import TagTypeDef
 
-    data: AddTagsRequestRequestTypeDef = {...}
+    data: TagTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List, Union
+from typing import Union
 
 from .literals import (
     BillingModeType,
+    DashboardStatusType,
+    DashboardTypeType,
     DeliveryStatusType,
     DestinationTypeType,
     EventDataStoreStatusType,
@@ -29,65 +35,85 @@ from .literals import (
     LookupAttributeKeyType,
     QueryStatusType,
     ReadWriteTypeType,
+    RefreshScheduleFrequencyUnitType,
+    RefreshScheduleStatusType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
-    "AddTagsRequestRequestTypeDef",
+    "AddTagsRequestTypeDef",
+    "AdvancedEventSelectorOutputTypeDef",
     "AdvancedEventSelectorTypeDef",
+    "AdvancedEventSelectorUnionTypeDef",
+    "AdvancedFieldSelectorOutputTypeDef",
     "AdvancedFieldSelectorTypeDef",
-    "CancelQueryRequestRequestTypeDef",
+    "AdvancedFieldSelectorUnionTypeDef",
+    "CancelQueryRequestTypeDef",
     "CancelQueryResponseTypeDef",
     "ChannelTypeDef",
-    "CreateChannelRequestRequestTypeDef",
+    "CreateChannelRequestTypeDef",
     "CreateChannelResponseTypeDef",
-    "CreateEventDataStoreRequestRequestTypeDef",
+    "CreateDashboardRequestTypeDef",
+    "CreateDashboardResponseTypeDef",
+    "CreateEventDataStoreRequestTypeDef",
     "CreateEventDataStoreResponseTypeDef",
-    "CreateTrailRequestRequestTypeDef",
+    "CreateTrailRequestTypeDef",
     "CreateTrailResponseTypeDef",
+    "DashboardDetailTypeDef",
+    "DataResourceOutputTypeDef",
     "DataResourceTypeDef",
-    "DeleteChannelRequestRequestTypeDef",
-    "DeleteEventDataStoreRequestRequestTypeDef",
-    "DeleteResourcePolicyRequestRequestTypeDef",
-    "DeleteTrailRequestRequestTypeDef",
-    "DeregisterOrganizationDelegatedAdminRequestRequestTypeDef",
-    "DescribeQueryRequestRequestTypeDef",
+    "DataResourceUnionTypeDef",
+    "DeleteChannelRequestTypeDef",
+    "DeleteDashboardRequestTypeDef",
+    "DeleteEventDataStoreRequestTypeDef",
+    "DeleteResourcePolicyRequestTypeDef",
+    "DeleteTrailRequestTypeDef",
+    "DeregisterOrganizationDelegatedAdminRequestTypeDef",
+    "DescribeQueryRequestTypeDef",
     "DescribeQueryResponseTypeDef",
-    "DescribeTrailsRequestRequestTypeDef",
+    "DescribeTrailsRequestTypeDef",
     "DescribeTrailsResponseTypeDef",
     "DestinationTypeDef",
-    "DisableFederationRequestRequestTypeDef",
+    "DisableFederationRequestTypeDef",
     "DisableFederationResponseTypeDef",
-    "EnableFederationRequestRequestTypeDef",
+    "EnableFederationRequestTypeDef",
     "EnableFederationResponseTypeDef",
     "EventDataStoreTypeDef",
+    "EventSelectorOutputTypeDef",
     "EventSelectorTypeDef",
+    "EventSelectorUnionTypeDef",
     "EventTypeDef",
-    "GetChannelRequestRequestTypeDef",
+    "GenerateQueryRequestTypeDef",
+    "GenerateQueryResponseTypeDef",
+    "GetChannelRequestTypeDef",
     "GetChannelResponseTypeDef",
-    "GetEventDataStoreRequestRequestTypeDef",
+    "GetDashboardRequestTypeDef",
+    "GetDashboardResponseTypeDef",
+    "GetEventDataStoreRequestTypeDef",
     "GetEventDataStoreResponseTypeDef",
-    "GetEventSelectorsRequestRequestTypeDef",
+    "GetEventSelectorsRequestTypeDef",
     "GetEventSelectorsResponseTypeDef",
-    "GetImportRequestRequestTypeDef",
+    "GetImportRequestTypeDef",
     "GetImportResponseTypeDef",
-    "GetInsightSelectorsRequestRequestTypeDef",
+    "GetInsightSelectorsRequestTypeDef",
     "GetInsightSelectorsResponseTypeDef",
-    "GetQueryResultsRequestRequestTypeDef",
+    "GetQueryResultsRequestTypeDef",
     "GetQueryResultsResponseTypeDef",
-    "GetResourcePolicyRequestRequestTypeDef",
+    "GetResourcePolicyRequestTypeDef",
     "GetResourcePolicyResponseTypeDef",
-    "GetTrailRequestRequestTypeDef",
+    "GetTrailRequestTypeDef",
     "GetTrailResponseTypeDef",
-    "GetTrailStatusRequestRequestTypeDef",
+    "GetTrailStatusRequestTypeDef",
     "GetTrailStatusResponseTypeDef",
     "ImportFailureListItemTypeDef",
     "ImportSourceTypeDef",
@@ -95,371 +121,126 @@ __all__ = (
     "ImportsListItemTypeDef",
     "IngestionStatusTypeDef",
     "InsightSelectorTypeDef",
-    "ListChannelsRequestRequestTypeDef",
+    "ListChannelsRequestTypeDef",
     "ListChannelsResponseTypeDef",
-    "ListEventDataStoresRequestRequestTypeDef",
+    "ListDashboardsRequestTypeDef",
+    "ListDashboardsResponseTypeDef",
+    "ListEventDataStoresRequestTypeDef",
     "ListEventDataStoresResponseTypeDef",
-    "ListImportFailuresRequestRequestTypeDef",
+    "ListImportFailuresRequestPaginateTypeDef",
+    "ListImportFailuresRequestTypeDef",
     "ListImportFailuresResponseTypeDef",
-    "ListImportsRequestRequestTypeDef",
+    "ListImportsRequestPaginateTypeDef",
+    "ListImportsRequestTypeDef",
     "ListImportsResponseTypeDef",
-    "ListInsightsMetricDataRequestRequestTypeDef",
+    "ListInsightsMetricDataRequestTypeDef",
     "ListInsightsMetricDataResponseTypeDef",
-    "ListPublicKeysRequestRequestTypeDef",
+    "ListPublicKeysRequestPaginateTypeDef",
+    "ListPublicKeysRequestTypeDef",
     "ListPublicKeysResponseTypeDef",
-    "ListQueriesRequestRequestTypeDef",
+    "ListQueriesRequestTypeDef",
     "ListQueriesResponseTypeDef",
-    "ListTagsRequestRequestTypeDef",
+    "ListTagsRequestPaginateTypeDef",
+    "ListTagsRequestTypeDef",
     "ListTagsResponseTypeDef",
-    "ListTrailsRequestRequestTypeDef",
+    "ListTrailsRequestPaginateTypeDef",
+    "ListTrailsRequestTypeDef",
     "ListTrailsResponseTypeDef",
     "LookupAttributeTypeDef",
-    "LookupEventsRequestRequestTypeDef",
+    "LookupEventsRequestPaginateTypeDef",
+    "LookupEventsRequestTypeDef",
     "LookupEventsResponseTypeDef",
     "PaginatorConfigTypeDef",
     "PartitionKeyTypeDef",
     "PublicKeyTypeDef",
-    "PutEventSelectorsRequestRequestTypeDef",
+    "PutEventSelectorsRequestTypeDef",
     "PutEventSelectorsResponseTypeDef",
-    "PutInsightSelectorsRequestRequestTypeDef",
+    "PutInsightSelectorsRequestTypeDef",
     "PutInsightSelectorsResponseTypeDef",
-    "PutResourcePolicyRequestRequestTypeDef",
+    "PutResourcePolicyRequestTypeDef",
     "PutResourcePolicyResponseTypeDef",
     "QueryStatisticsForDescribeQueryTypeDef",
     "QueryStatisticsTypeDef",
     "QueryTypeDef",
-    "RegisterOrganizationDelegatedAdminRequestRequestTypeDef",
-    "RemoveTagsRequestRequestTypeDef",
+    "RefreshScheduleFrequencyTypeDef",
+    "RefreshScheduleTypeDef",
+    "RegisterOrganizationDelegatedAdminRequestTypeDef",
+    "RemoveTagsRequestTypeDef",
+    "RequestWidgetTypeDef",
     "ResourceTagTypeDef",
     "ResourceTypeDef",
     "ResponseMetadataTypeDef",
-    "RestoreEventDataStoreRequestRequestTypeDef",
+    "RestoreEventDataStoreRequestTypeDef",
     "RestoreEventDataStoreResponseTypeDef",
     "S3ImportSourceTypeDef",
+    "SearchSampleQueriesRequestTypeDef",
+    "SearchSampleQueriesResponseTypeDef",
+    "SearchSampleQueriesSearchResultTypeDef",
     "SourceConfigTypeDef",
-    "StartEventDataStoreIngestionRequestRequestTypeDef",
-    "StartImportRequestRequestTypeDef",
+    "StartDashboardRefreshRequestTypeDef",
+    "StartDashboardRefreshResponseTypeDef",
+    "StartEventDataStoreIngestionRequestTypeDef",
+    "StartImportRequestTypeDef",
     "StartImportResponseTypeDef",
-    "StartLoggingRequestRequestTypeDef",
-    "StartQueryRequestRequestTypeDef",
+    "StartLoggingRequestTypeDef",
+    "StartQueryRequestTypeDef",
     "StartQueryResponseTypeDef",
-    "StopEventDataStoreIngestionRequestRequestTypeDef",
-    "StopImportRequestRequestTypeDef",
+    "StopEventDataStoreIngestionRequestTypeDef",
+    "StopImportRequestTypeDef",
     "StopImportResponseTypeDef",
-    "StopLoggingRequestRequestTypeDef",
+    "StopLoggingRequestTypeDef",
     "TagTypeDef",
+    "TimestampTypeDef",
     "TrailInfoTypeDef",
     "TrailTypeDef",
-    "UpdateChannelRequestRequestTypeDef",
+    "UpdateChannelRequestTypeDef",
     "UpdateChannelResponseTypeDef",
-    "UpdateEventDataStoreRequestRequestTypeDef",
+    "UpdateDashboardRequestTypeDef",
+    "UpdateDashboardResponseTypeDef",
+    "UpdateEventDataStoreRequestTypeDef",
     "UpdateEventDataStoreResponseTypeDef",
-    "UpdateTrailRequestRequestTypeDef",
+    "UpdateTrailRequestTypeDef",
     "UpdateTrailResponseTypeDef",
+    "WidgetTypeDef",
 )
 
-AddTagsRequestRequestTypeDef = TypedDict(
-    "AddTagsRequestRequestTypeDef",
-    {
-        "ResourceId": str,
-        "TagsList": List["TagTypeDef"],
-    },
-)
+class TagTypeDef(TypedDict):
+    Key: str
+    Value: NotRequired[str]
 
-_RequiredAdvancedEventSelectorTypeDef = TypedDict(
-    "_RequiredAdvancedEventSelectorTypeDef",
-    {
-        "FieldSelectors": List["AdvancedFieldSelectorTypeDef"],
-    },
-)
-_OptionalAdvancedEventSelectorTypeDef = TypedDict(
-    "_OptionalAdvancedEventSelectorTypeDef",
-    {
-        "Name": str,
-    },
-    total=False,
-)
+class AdvancedFieldSelectorOutputTypeDef(TypedDict):
+    Field: str
+    Equals: NotRequired[List[str]]
+    StartsWith: NotRequired[List[str]]
+    EndsWith: NotRequired[List[str]]
+    NotEquals: NotRequired[List[str]]
+    NotStartsWith: NotRequired[List[str]]
+    NotEndsWith: NotRequired[List[str]]
 
-class AdvancedEventSelectorTypeDef(
-    _RequiredAdvancedEventSelectorTypeDef, _OptionalAdvancedEventSelectorTypeDef
-):
-    pass
+class AdvancedFieldSelectorTypeDef(TypedDict):
+    Field: str
+    Equals: NotRequired[Sequence[str]]
+    StartsWith: NotRequired[Sequence[str]]
+    EndsWith: NotRequired[Sequence[str]]
+    NotEquals: NotRequired[Sequence[str]]
+    NotStartsWith: NotRequired[Sequence[str]]
+    NotEndsWith: NotRequired[Sequence[str]]
 
-_RequiredAdvancedFieldSelectorTypeDef = TypedDict(
-    "_RequiredAdvancedFieldSelectorTypeDef",
-    {
-        "Field": str,
-    },
-)
-_OptionalAdvancedFieldSelectorTypeDef = TypedDict(
-    "_OptionalAdvancedFieldSelectorTypeDef",
-    {
-        "Equals": List[str],
-        "StartsWith": List[str],
-        "EndsWith": List[str],
-        "NotEquals": List[str],
-        "NotStartsWith": List[str],
-        "NotEndsWith": List[str],
-    },
-    total=False,
-)
+class CancelQueryRequestTypeDef(TypedDict):
+    QueryId: str
+    EventDataStore: NotRequired[str]
+    EventDataStoreOwnerAccountId: NotRequired[str]
 
-class AdvancedFieldSelectorTypeDef(
-    _RequiredAdvancedFieldSelectorTypeDef, _OptionalAdvancedFieldSelectorTypeDef
-):
-    pass
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-_RequiredCancelQueryRequestRequestTypeDef = TypedDict(
-    "_RequiredCancelQueryRequestRequestTypeDef",
-    {
-        "QueryId": str,
-    },
-)
-_OptionalCancelQueryRequestRequestTypeDef = TypedDict(
-    "_OptionalCancelQueryRequestRequestTypeDef",
-    {
-        "EventDataStore": str,
-    },
-    total=False,
-)
-
-class CancelQueryRequestRequestTypeDef(
-    _RequiredCancelQueryRequestRequestTypeDef, _OptionalCancelQueryRequestRequestTypeDef
-):
-    pass
-
-CancelQueryResponseTypeDef = TypedDict(
-    "CancelQueryResponseTypeDef",
-    {
-        "QueryId": str,
-        "QueryStatus": QueryStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ChannelTypeDef = TypedDict(
-    "ChannelTypeDef",
-    {
-        "ChannelArn": str,
-        "Name": str,
-    },
-    total=False,
-)
-
-_RequiredCreateChannelRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateChannelRequestRequestTypeDef",
-    {
-        "Name": str,
-        "Source": str,
-        "Destinations": List["DestinationTypeDef"],
-    },
-)
-_OptionalCreateChannelRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateChannelRequestRequestTypeDef",
-    {
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateChannelRequestRequestTypeDef(
-    _RequiredCreateChannelRequestRequestTypeDef, _OptionalCreateChannelRequestRequestTypeDef
-):
-    pass
-
-CreateChannelResponseTypeDef = TypedDict(
-    "CreateChannelResponseTypeDef",
-    {
-        "ChannelArn": str,
-        "Name": str,
-        "Source": str,
-        "Destinations": List["DestinationTypeDef"],
-        "Tags": List["TagTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateEventDataStoreRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateEventDataStoreRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
-_OptionalCreateEventDataStoreRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateEventDataStoreRequestRequestTypeDef",
-    {
-        "AdvancedEventSelectors": List["AdvancedEventSelectorTypeDef"],
-        "MultiRegionEnabled": bool,
-        "OrganizationEnabled": bool,
-        "RetentionPeriod": int,
-        "TerminationProtectionEnabled": bool,
-        "TagsList": List["TagTypeDef"],
-        "KmsKeyId": str,
-        "StartIngestion": bool,
-        "BillingMode": BillingModeType,
-    },
-    total=False,
-)
-
-class CreateEventDataStoreRequestRequestTypeDef(
-    _RequiredCreateEventDataStoreRequestRequestTypeDef,
-    _OptionalCreateEventDataStoreRequestRequestTypeDef,
-):
-    pass
-
-CreateEventDataStoreResponseTypeDef = TypedDict(
-    "CreateEventDataStoreResponseTypeDef",
-    {
-        "EventDataStoreArn": str,
-        "Name": str,
-        "Status": EventDataStoreStatusType,
-        "AdvancedEventSelectors": List["AdvancedEventSelectorTypeDef"],
-        "MultiRegionEnabled": bool,
-        "OrganizationEnabled": bool,
-        "RetentionPeriod": int,
-        "TerminationProtectionEnabled": bool,
-        "TagsList": List["TagTypeDef"],
-        "CreatedTimestamp": datetime,
-        "UpdatedTimestamp": datetime,
-        "KmsKeyId": str,
-        "BillingMode": BillingModeType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateTrailRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateTrailRequestRequestTypeDef",
-    {
-        "Name": str,
-        "S3BucketName": str,
-    },
-)
-_OptionalCreateTrailRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateTrailRequestRequestTypeDef",
-    {
-        "S3KeyPrefix": str,
-        "SnsTopicName": str,
-        "IncludeGlobalServiceEvents": bool,
-        "IsMultiRegionTrail": bool,
-        "EnableLogFileValidation": bool,
-        "CloudWatchLogsLogGroupArn": str,
-        "CloudWatchLogsRoleArn": str,
-        "KmsKeyId": str,
-        "IsOrganizationTrail": bool,
-        "TagsList": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateTrailRequestRequestTypeDef(
-    _RequiredCreateTrailRequestRequestTypeDef, _OptionalCreateTrailRequestRequestTypeDef
-):
-    pass
-
-CreateTrailResponseTypeDef = TypedDict(
-    "CreateTrailResponseTypeDef",
-    {
-        "Name": str,
-        "S3BucketName": str,
-        "S3KeyPrefix": str,
-        "SnsTopicName": str,
-        "SnsTopicARN": str,
-        "IncludeGlobalServiceEvents": bool,
-        "IsMultiRegionTrail": bool,
-        "TrailARN": str,
-        "LogFileValidationEnabled": bool,
-        "CloudWatchLogsLogGroupArn": str,
-        "CloudWatchLogsRoleArn": str,
-        "KmsKeyId": str,
-        "IsOrganizationTrail": bool,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DataResourceTypeDef = TypedDict(
-    "DataResourceTypeDef",
-    {
-        "Type": str,
-        "Values": List[str],
-    },
-    total=False,
-)
-
-DeleteChannelRequestRequestTypeDef = TypedDict(
-    "DeleteChannelRequestRequestTypeDef",
-    {
-        "Channel": str,
-    },
-)
-
-DeleteEventDataStoreRequestRequestTypeDef = TypedDict(
-    "DeleteEventDataStoreRequestRequestTypeDef",
-    {
-        "EventDataStore": str,
-    },
-)
-
-DeleteResourcePolicyRequestRequestTypeDef = TypedDict(
-    "DeleteResourcePolicyRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-    },
-)
-
-DeleteTrailRequestRequestTypeDef = TypedDict(
-    "DeleteTrailRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
-
-DeregisterOrganizationDelegatedAdminRequestRequestTypeDef = TypedDict(
-    "DeregisterOrganizationDelegatedAdminRequestRequestTypeDef",
-    {
-        "DelegatedAdminAccountId": str,
-    },
-)
-
-DescribeQueryRequestRequestTypeDef = TypedDict(
-    "DescribeQueryRequestRequestTypeDef",
-    {
-        "EventDataStore": str,
-        "QueryId": str,
-        "QueryAlias": str,
-    },
-    total=False,
-)
-
-DescribeQueryResponseTypeDef = TypedDict(
-    "DescribeQueryResponseTypeDef",
-    {
-        "QueryId": str,
-        "QueryString": str,
-        "QueryStatus": QueryStatusType,
-        "QueryStatistics": "QueryStatisticsForDescribeQueryTypeDef",
-        "ErrorMessage": str,
-        "DeliveryS3Uri": str,
-        "DeliveryStatus": DeliveryStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeTrailsRequestRequestTypeDef = TypedDict(
-    "DescribeTrailsRequestRequestTypeDef",
-    {
-        "trailNameList": List[str],
-        "includeShadowTrails": bool,
-    },
-    total=False,
-)
-
-DescribeTrailsResponseTypeDef = TypedDict(
-    "DescribeTrailsResponseTypeDef",
-    {
-        "trailList": List["TrailTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ChannelTypeDef(TypedDict):
+    ChannelArn: NotRequired[str]
+    Name: NotRequired[str]
 
 DestinationTypeDef = TypedDict(
     "DestinationTypeDef",
@@ -469,614 +250,123 @@ DestinationTypeDef = TypedDict(
     },
 )
 
-DisableFederationRequestRequestTypeDef = TypedDict(
-    "DisableFederationRequestRequestTypeDef",
+class RequestWidgetTypeDef(TypedDict):
+    QueryStatement: str
+    ViewProperties: Mapping[str, str]
+    QueryParameters: NotRequired[Sequence[str]]
+
+class WidgetTypeDef(TypedDict):
+    QueryAlias: NotRequired[str]
+    QueryStatement: NotRequired[str]
+    QueryParameters: NotRequired[List[str]]
+    ViewProperties: NotRequired[Dict[str, str]]
+
+DashboardDetailTypeDef = TypedDict(
+    "DashboardDetailTypeDef",
     {
-        "EventDataStore": str,
+        "DashboardArn": NotRequired[str],
+        "Type": NotRequired[DashboardTypeType],
+    },
+)
+DataResourceOutputTypeDef = TypedDict(
+    "DataResourceOutputTypeDef",
+    {
+        "Type": NotRequired[str],
+        "Values": NotRequired[List[str]],
+    },
+)
+DataResourceTypeDef = TypedDict(
+    "DataResourceTypeDef",
+    {
+        "Type": NotRequired[str],
+        "Values": NotRequired[Sequence[str]],
     },
 )
 
-DisableFederationResponseTypeDef = TypedDict(
-    "DisableFederationResponseTypeDef",
-    {
-        "EventDataStoreArn": str,
-        "FederationStatus": FederationStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DeleteChannelRequestTypeDef(TypedDict):
+    Channel: str
 
-EnableFederationRequestRequestTypeDef = TypedDict(
-    "EnableFederationRequestRequestTypeDef",
-    {
-        "EventDataStore": str,
-        "FederationRoleArn": str,
-    },
-)
+class DeleteDashboardRequestTypeDef(TypedDict):
+    DashboardId: str
 
-EnableFederationResponseTypeDef = TypedDict(
-    "EnableFederationResponseTypeDef",
-    {
-        "EventDataStoreArn": str,
-        "FederationStatus": FederationStatusType,
-        "FederationRoleArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DeleteEventDataStoreRequestTypeDef(TypedDict):
+    EventDataStore: str
 
-EventDataStoreTypeDef = TypedDict(
-    "EventDataStoreTypeDef",
-    {
-        "EventDataStoreArn": str,
-        "Name": str,
-        "TerminationProtectionEnabled": bool,
-        "Status": EventDataStoreStatusType,
-        "AdvancedEventSelectors": List["AdvancedEventSelectorTypeDef"],
-        "MultiRegionEnabled": bool,
-        "OrganizationEnabled": bool,
-        "RetentionPeriod": int,
-        "CreatedTimestamp": datetime,
-        "UpdatedTimestamp": datetime,
-    },
-    total=False,
-)
+class DeleteResourcePolicyRequestTypeDef(TypedDict):
+    ResourceArn: str
 
-EventSelectorTypeDef = TypedDict(
-    "EventSelectorTypeDef",
-    {
-        "ReadWriteType": ReadWriteTypeType,
-        "IncludeManagementEvents": bool,
-        "DataResources": List["DataResourceTypeDef"],
-        "ExcludeManagementEventSources": List[str],
-    },
-    total=False,
-)
+class DeleteTrailRequestTypeDef(TypedDict):
+    Name: str
 
-EventTypeDef = TypedDict(
-    "EventTypeDef",
-    {
-        "EventId": str,
-        "EventName": str,
-        "ReadOnly": str,
-        "AccessKeyId": str,
-        "EventTime": datetime,
-        "EventSource": str,
-        "Username": str,
-        "Resources": List["ResourceTypeDef"],
-        "CloudTrailEvent": str,
-    },
-    total=False,
-)
+class DeregisterOrganizationDelegatedAdminRequestTypeDef(TypedDict):
+    DelegatedAdminAccountId: str
 
-GetChannelRequestRequestTypeDef = TypedDict(
-    "GetChannelRequestRequestTypeDef",
-    {
-        "Channel": str,
-    },
-)
+class DescribeQueryRequestTypeDef(TypedDict):
+    EventDataStore: NotRequired[str]
+    QueryId: NotRequired[str]
+    QueryAlias: NotRequired[str]
+    RefreshId: NotRequired[str]
+    EventDataStoreOwnerAccountId: NotRequired[str]
 
-GetChannelResponseTypeDef = TypedDict(
-    "GetChannelResponseTypeDef",
-    {
-        "ChannelArn": str,
-        "Name": str,
-        "Source": str,
-        "SourceConfig": "SourceConfigTypeDef",
-        "Destinations": List["DestinationTypeDef"],
-        "IngestionStatus": "IngestionStatusTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class QueryStatisticsForDescribeQueryTypeDef(TypedDict):
+    EventsMatched: NotRequired[int]
+    EventsScanned: NotRequired[int]
+    BytesScanned: NotRequired[int]
+    ExecutionTimeInMillis: NotRequired[int]
+    CreationTime: NotRequired[datetime]
 
-GetEventDataStoreRequestRequestTypeDef = TypedDict(
-    "GetEventDataStoreRequestRequestTypeDef",
-    {
-        "EventDataStore": str,
-    },
-)
+class DescribeTrailsRequestTypeDef(TypedDict):
+    trailNameList: NotRequired[Sequence[str]]
+    includeShadowTrails: NotRequired[bool]
 
-GetEventDataStoreResponseTypeDef = TypedDict(
-    "GetEventDataStoreResponseTypeDef",
-    {
-        "EventDataStoreArn": str,
-        "Name": str,
-        "Status": EventDataStoreStatusType,
-        "AdvancedEventSelectors": List["AdvancedEventSelectorTypeDef"],
-        "MultiRegionEnabled": bool,
-        "OrganizationEnabled": bool,
-        "RetentionPeriod": int,
-        "TerminationProtectionEnabled": bool,
-        "CreatedTimestamp": datetime,
-        "UpdatedTimestamp": datetime,
-        "KmsKeyId": str,
-        "BillingMode": BillingModeType,
-        "FederationStatus": FederationStatusType,
-        "FederationRoleArn": str,
-        "PartitionKeys": List["PartitionKeyTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class TrailTypeDef(TypedDict):
+    Name: NotRequired[str]
+    S3BucketName: NotRequired[str]
+    S3KeyPrefix: NotRequired[str]
+    SnsTopicName: NotRequired[str]
+    SnsTopicARN: NotRequired[str]
+    IncludeGlobalServiceEvents: NotRequired[bool]
+    IsMultiRegionTrail: NotRequired[bool]
+    HomeRegion: NotRequired[str]
+    TrailARN: NotRequired[str]
+    LogFileValidationEnabled: NotRequired[bool]
+    CloudWatchLogsLogGroupArn: NotRequired[str]
+    CloudWatchLogsRoleArn: NotRequired[str]
+    KmsKeyId: NotRequired[str]
+    HasCustomEventSelectors: NotRequired[bool]
+    HasInsightSelectors: NotRequired[bool]
+    IsOrganizationTrail: NotRequired[bool]
 
-GetEventSelectorsRequestRequestTypeDef = TypedDict(
-    "GetEventSelectorsRequestRequestTypeDef",
-    {
-        "TrailName": str,
-    },
-)
+class DisableFederationRequestTypeDef(TypedDict):
+    EventDataStore: str
 
-GetEventSelectorsResponseTypeDef = TypedDict(
-    "GetEventSelectorsResponseTypeDef",
-    {
-        "TrailARN": str,
-        "EventSelectors": List["EventSelectorTypeDef"],
-        "AdvancedEventSelectors": List["AdvancedEventSelectorTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class EnableFederationRequestTypeDef(TypedDict):
+    EventDataStore: str
+    FederationRoleArn: str
 
-GetImportRequestRequestTypeDef = TypedDict(
-    "GetImportRequestRequestTypeDef",
-    {
-        "ImportId": str,
-    },
-)
+class ResourceTypeDef(TypedDict):
+    ResourceType: NotRequired[str]
+    ResourceName: NotRequired[str]
 
-GetImportResponseTypeDef = TypedDict(
-    "GetImportResponseTypeDef",
-    {
-        "ImportId": str,
-        "Destinations": List[str],
-        "ImportSource": "ImportSourceTypeDef",
-        "StartEventTime": datetime,
-        "EndEventTime": datetime,
-        "ImportStatus": ImportStatusType,
-        "CreatedTimestamp": datetime,
-        "UpdatedTimestamp": datetime,
-        "ImportStatistics": "ImportStatisticsTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GenerateQueryRequestTypeDef(TypedDict):
+    EventDataStores: Sequence[str]
+    Prompt: str
 
-GetInsightSelectorsRequestRequestTypeDef = TypedDict(
-    "GetInsightSelectorsRequestRequestTypeDef",
-    {
-        "TrailName": str,
-        "EventDataStore": str,
-    },
-    total=False,
-)
+class GetChannelRequestTypeDef(TypedDict):
+    Channel: str
 
-GetInsightSelectorsResponseTypeDef = TypedDict(
-    "GetInsightSelectorsResponseTypeDef",
-    {
-        "TrailARN": str,
-        "InsightSelectors": List["InsightSelectorTypeDef"],
-        "EventDataStoreArn": str,
-        "InsightsDestination": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class IngestionStatusTypeDef(TypedDict):
+    LatestIngestionSuccessTime: NotRequired[datetime]
+    LatestIngestionSuccessEventID: NotRequired[str]
+    LatestIngestionErrorCode: NotRequired[str]
+    LatestIngestionAttemptTime: NotRequired[datetime]
+    LatestIngestionAttemptEventID: NotRequired[str]
 
-_RequiredGetQueryResultsRequestRequestTypeDef = TypedDict(
-    "_RequiredGetQueryResultsRequestRequestTypeDef",
-    {
-        "QueryId": str,
-    },
-)
-_OptionalGetQueryResultsRequestRequestTypeDef = TypedDict(
-    "_OptionalGetQueryResultsRequestRequestTypeDef",
-    {
-        "EventDataStore": str,
-        "NextToken": str,
-        "MaxQueryResults": int,
-    },
-    total=False,
-)
+class GetDashboardRequestTypeDef(TypedDict):
+    DashboardId: str
 
-class GetQueryResultsRequestRequestTypeDef(
-    _RequiredGetQueryResultsRequestRequestTypeDef, _OptionalGetQueryResultsRequestRequestTypeDef
-):
-    pass
-
-GetQueryResultsResponseTypeDef = TypedDict(
-    "GetQueryResultsResponseTypeDef",
-    {
-        "QueryStatus": QueryStatusType,
-        "QueryStatistics": "QueryStatisticsTypeDef",
-        "QueryResultRows": List[List[Dict[str, str]]],
-        "NextToken": str,
-        "ErrorMessage": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetResourcePolicyRequestRequestTypeDef = TypedDict(
-    "GetResourcePolicyRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-    },
-)
-
-GetResourcePolicyResponseTypeDef = TypedDict(
-    "GetResourcePolicyResponseTypeDef",
-    {
-        "ResourceArn": str,
-        "ResourcePolicy": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetTrailRequestRequestTypeDef = TypedDict(
-    "GetTrailRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
-
-GetTrailResponseTypeDef = TypedDict(
-    "GetTrailResponseTypeDef",
-    {
-        "Trail": "TrailTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetTrailStatusRequestRequestTypeDef = TypedDict(
-    "GetTrailStatusRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
-
-GetTrailStatusResponseTypeDef = TypedDict(
-    "GetTrailStatusResponseTypeDef",
-    {
-        "IsLogging": bool,
-        "LatestDeliveryError": str,
-        "LatestNotificationError": str,
-        "LatestDeliveryTime": datetime,
-        "LatestNotificationTime": datetime,
-        "StartLoggingTime": datetime,
-        "StopLoggingTime": datetime,
-        "LatestCloudWatchLogsDeliveryError": str,
-        "LatestCloudWatchLogsDeliveryTime": datetime,
-        "LatestDigestDeliveryTime": datetime,
-        "LatestDigestDeliveryError": str,
-        "LatestDeliveryAttemptTime": str,
-        "LatestNotificationAttemptTime": str,
-        "LatestNotificationAttemptSucceeded": str,
-        "LatestDeliveryAttemptSucceeded": str,
-        "TimeLoggingStarted": str,
-        "TimeLoggingStopped": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ImportFailureListItemTypeDef = TypedDict(
-    "ImportFailureListItemTypeDef",
-    {
-        "Location": str,
-        "Status": ImportFailureStatusType,
-        "ErrorType": str,
-        "ErrorMessage": str,
-        "LastUpdatedTime": datetime,
-    },
-    total=False,
-)
-
-ImportSourceTypeDef = TypedDict(
-    "ImportSourceTypeDef",
-    {
-        "S3": "S3ImportSourceTypeDef",
-    },
-)
-
-ImportStatisticsTypeDef = TypedDict(
-    "ImportStatisticsTypeDef",
-    {
-        "PrefixesFound": int,
-        "PrefixesCompleted": int,
-        "FilesCompleted": int,
-        "EventsCompleted": int,
-        "FailedEntries": int,
-    },
-    total=False,
-)
-
-ImportsListItemTypeDef = TypedDict(
-    "ImportsListItemTypeDef",
-    {
-        "ImportId": str,
-        "ImportStatus": ImportStatusType,
-        "Destinations": List[str],
-        "CreatedTimestamp": datetime,
-        "UpdatedTimestamp": datetime,
-    },
-    total=False,
-)
-
-IngestionStatusTypeDef = TypedDict(
-    "IngestionStatusTypeDef",
-    {
-        "LatestIngestionSuccessTime": datetime,
-        "LatestIngestionSuccessEventID": str,
-        "LatestIngestionErrorCode": str,
-        "LatestIngestionAttemptTime": datetime,
-        "LatestIngestionAttemptEventID": str,
-    },
-    total=False,
-)
-
-InsightSelectorTypeDef = TypedDict(
-    "InsightSelectorTypeDef",
-    {
-        "InsightType": InsightTypeType,
-    },
-    total=False,
-)
-
-ListChannelsRequestRequestTypeDef = TypedDict(
-    "ListChannelsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListChannelsResponseTypeDef = TypedDict(
-    "ListChannelsResponseTypeDef",
-    {
-        "Channels": List["ChannelTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListEventDataStoresRequestRequestTypeDef = TypedDict(
-    "ListEventDataStoresRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-ListEventDataStoresResponseTypeDef = TypedDict(
-    "ListEventDataStoresResponseTypeDef",
-    {
-        "EventDataStores": List["EventDataStoreTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListImportFailuresRequestRequestTypeDef = TypedDict(
-    "_RequiredListImportFailuresRequestRequestTypeDef",
-    {
-        "ImportId": str,
-    },
-)
-_OptionalListImportFailuresRequestRequestTypeDef = TypedDict(
-    "_OptionalListImportFailuresRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListImportFailuresRequestRequestTypeDef(
-    _RequiredListImportFailuresRequestRequestTypeDef,
-    _OptionalListImportFailuresRequestRequestTypeDef,
-):
-    pass
-
-ListImportFailuresResponseTypeDef = TypedDict(
-    "ListImportFailuresResponseTypeDef",
-    {
-        "Failures": List["ImportFailureListItemTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListImportsRequestRequestTypeDef = TypedDict(
-    "ListImportsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "Destination": str,
-        "ImportStatus": ImportStatusType,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListImportsResponseTypeDef = TypedDict(
-    "ListImportsResponseTypeDef",
-    {
-        "Imports": List["ImportsListItemTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListInsightsMetricDataRequestRequestTypeDef = TypedDict(
-    "_RequiredListInsightsMetricDataRequestRequestTypeDef",
-    {
-        "EventSource": str,
-        "EventName": str,
-        "InsightType": InsightTypeType,
-    },
-)
-_OptionalListInsightsMetricDataRequestRequestTypeDef = TypedDict(
-    "_OptionalListInsightsMetricDataRequestRequestTypeDef",
-    {
-        "ErrorCode": str,
-        "StartTime": Union[datetime, str],
-        "EndTime": Union[datetime, str],
-        "Period": int,
-        "DataType": InsightsMetricDataTypeType,
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListInsightsMetricDataRequestRequestTypeDef(
-    _RequiredListInsightsMetricDataRequestRequestTypeDef,
-    _OptionalListInsightsMetricDataRequestRequestTypeDef,
-):
-    pass
-
-ListInsightsMetricDataResponseTypeDef = TypedDict(
-    "ListInsightsMetricDataResponseTypeDef",
-    {
-        "EventSource": str,
-        "EventName": str,
-        "InsightType": InsightTypeType,
-        "ErrorCode": str,
-        "Timestamps": List[datetime],
-        "Values": List[float],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListPublicKeysRequestRequestTypeDef = TypedDict(
-    "ListPublicKeysRequestRequestTypeDef",
-    {
-        "StartTime": Union[datetime, str],
-        "EndTime": Union[datetime, str],
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListPublicKeysResponseTypeDef = TypedDict(
-    "ListPublicKeysResponseTypeDef",
-    {
-        "PublicKeyList": List["PublicKeyTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListQueriesRequestRequestTypeDef = TypedDict(
-    "_RequiredListQueriesRequestRequestTypeDef",
-    {
-        "EventDataStore": str,
-    },
-)
-_OptionalListQueriesRequestRequestTypeDef = TypedDict(
-    "_OptionalListQueriesRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-        "StartTime": Union[datetime, str],
-        "EndTime": Union[datetime, str],
-        "QueryStatus": QueryStatusType,
-    },
-    total=False,
-)
-
-class ListQueriesRequestRequestTypeDef(
-    _RequiredListQueriesRequestRequestTypeDef, _OptionalListQueriesRequestRequestTypeDef
-):
-    pass
-
-ListQueriesResponseTypeDef = TypedDict(
-    "ListQueriesResponseTypeDef",
-    {
-        "Queries": List["QueryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListTagsRequestRequestTypeDef = TypedDict(
-    "_RequiredListTagsRequestRequestTypeDef",
-    {
-        "ResourceIdList": List[str],
-    },
-)
-_OptionalListTagsRequestRequestTypeDef = TypedDict(
-    "_OptionalListTagsRequestRequestTypeDef",
-    {
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListTagsRequestRequestTypeDef(
-    _RequiredListTagsRequestRequestTypeDef, _OptionalListTagsRequestRequestTypeDef
-):
-    pass
-
-ListTagsResponseTypeDef = TypedDict(
-    "ListTagsResponseTypeDef",
-    {
-        "ResourceTagList": List["ResourceTagTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTrailsRequestRequestTypeDef = TypedDict(
-    "ListTrailsRequestRequestTypeDef",
-    {
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListTrailsResponseTypeDef = TypedDict(
-    "ListTrailsResponseTypeDef",
-    {
-        "Trails": List["TrailInfoTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-LookupAttributeTypeDef = TypedDict(
-    "LookupAttributeTypeDef",
-    {
-        "AttributeKey": LookupAttributeKeyType,
-        "AttributeValue": str,
-    },
-)
-
-LookupEventsRequestRequestTypeDef = TypedDict(
-    "LookupEventsRequestRequestTypeDef",
-    {
-        "LookupAttributes": List["LookupAttributeTypeDef"],
-        "StartTime": Union[datetime, str],
-        "EndTime": Union[datetime, str],
-        "EventCategory": Literal["insight"],
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-LookupEventsResponseTypeDef = TypedDict(
-    "LookupEventsResponseTypeDef",
-    {
-        "Events": List["EventTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
+class GetEventDataStoreRequestTypeDef(TypedDict):
+    EventDataStore: str
 
 PartitionKeyTypeDef = TypedDict(
     "PartitionKeyTypeDef",
@@ -1086,487 +376,796 @@ PartitionKeyTypeDef = TypedDict(
     },
 )
 
-PublicKeyTypeDef = TypedDict(
-    "PublicKeyTypeDef",
-    {
-        "Value": bytes,
-        "ValidityStartTime": datetime,
-        "ValidityEndTime": datetime,
-        "Fingerprint": str,
-    },
-    total=False,
-)
+class GetEventSelectorsRequestTypeDef(TypedDict):
+    TrailName: str
 
-_RequiredPutEventSelectorsRequestRequestTypeDef = TypedDict(
-    "_RequiredPutEventSelectorsRequestRequestTypeDef",
-    {
-        "TrailName": str,
-    },
-)
-_OptionalPutEventSelectorsRequestRequestTypeDef = TypedDict(
-    "_OptionalPutEventSelectorsRequestRequestTypeDef",
-    {
-        "EventSelectors": List["EventSelectorTypeDef"],
-        "AdvancedEventSelectors": List["AdvancedEventSelectorTypeDef"],
-    },
-    total=False,
-)
+class GetImportRequestTypeDef(TypedDict):
+    ImportId: str
 
-class PutEventSelectorsRequestRequestTypeDef(
-    _RequiredPutEventSelectorsRequestRequestTypeDef, _OptionalPutEventSelectorsRequestRequestTypeDef
-):
-    pass
+class ImportStatisticsTypeDef(TypedDict):
+    PrefixesFound: NotRequired[int]
+    PrefixesCompleted: NotRequired[int]
+    FilesCompleted: NotRequired[int]
+    EventsCompleted: NotRequired[int]
+    FailedEntries: NotRequired[int]
 
-PutEventSelectorsResponseTypeDef = TypedDict(
-    "PutEventSelectorsResponseTypeDef",
-    {
-        "TrailARN": str,
-        "EventSelectors": List["EventSelectorTypeDef"],
-        "AdvancedEventSelectors": List["AdvancedEventSelectorTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetInsightSelectorsRequestTypeDef(TypedDict):
+    TrailName: NotRequired[str]
+    EventDataStore: NotRequired[str]
 
-_RequiredPutInsightSelectorsRequestRequestTypeDef = TypedDict(
-    "_RequiredPutInsightSelectorsRequestRequestTypeDef",
-    {
-        "InsightSelectors": List["InsightSelectorTypeDef"],
-    },
-)
-_OptionalPutInsightSelectorsRequestRequestTypeDef = TypedDict(
-    "_OptionalPutInsightSelectorsRequestRequestTypeDef",
-    {
-        "TrailName": str,
-        "EventDataStore": str,
-        "InsightsDestination": str,
-    },
-    total=False,
-)
+class InsightSelectorTypeDef(TypedDict):
+    InsightType: NotRequired[InsightTypeType]
 
-class PutInsightSelectorsRequestRequestTypeDef(
-    _RequiredPutInsightSelectorsRequestRequestTypeDef,
-    _OptionalPutInsightSelectorsRequestRequestTypeDef,
-):
-    pass
+class GetQueryResultsRequestTypeDef(TypedDict):
+    QueryId: str
+    EventDataStore: NotRequired[str]
+    NextToken: NotRequired[str]
+    MaxQueryResults: NotRequired[int]
+    EventDataStoreOwnerAccountId: NotRequired[str]
 
-PutInsightSelectorsResponseTypeDef = TypedDict(
-    "PutInsightSelectorsResponseTypeDef",
-    {
-        "TrailARN": str,
-        "InsightSelectors": List["InsightSelectorTypeDef"],
-        "EventDataStoreArn": str,
-        "InsightsDestination": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class QueryStatisticsTypeDef(TypedDict):
+    ResultsCount: NotRequired[int]
+    TotalResultsCount: NotRequired[int]
+    BytesScanned: NotRequired[int]
 
-PutResourcePolicyRequestRequestTypeDef = TypedDict(
-    "PutResourcePolicyRequestRequestTypeDef",
+class GetResourcePolicyRequestTypeDef(TypedDict):
+    ResourceArn: str
+
+class GetTrailRequestTypeDef(TypedDict):
+    Name: str
+
+class GetTrailStatusRequestTypeDef(TypedDict):
+    Name: str
+
+class ImportFailureListItemTypeDef(TypedDict):
+    Location: NotRequired[str]
+    Status: NotRequired[ImportFailureStatusType]
+    ErrorType: NotRequired[str]
+    ErrorMessage: NotRequired[str]
+    LastUpdatedTime: NotRequired[datetime]
+
+class S3ImportSourceTypeDef(TypedDict):
+    S3LocationUri: str
+    S3BucketRegion: str
+    S3BucketAccessRoleArn: str
+
+class ImportsListItemTypeDef(TypedDict):
+    ImportId: NotRequired[str]
+    ImportStatus: NotRequired[ImportStatusType]
+    Destinations: NotRequired[List[str]]
+    CreatedTimestamp: NotRequired[datetime]
+    UpdatedTimestamp: NotRequired[datetime]
+
+class ListChannelsRequestTypeDef(TypedDict):
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+ListDashboardsRequestTypeDef = TypedDict(
+    "ListDashboardsRequestTypeDef",
     {
-        "ResourceArn": str,
-        "ResourcePolicy": str,
+        "NamePrefix": NotRequired[str],
+        "Type": NotRequired[DashboardTypeType],
+        "NextToken": NotRequired[str],
+        "MaxResults": NotRequired[int],
     },
 )
 
-PutResourcePolicyResponseTypeDef = TypedDict(
-    "PutResourcePolicyResponseTypeDef",
+class ListEventDataStoresRequestTypeDef(TypedDict):
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class ListImportFailuresRequestTypeDef(TypedDict):
+    ImportId: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListImportsRequestTypeDef(TypedDict):
+    MaxResults: NotRequired[int]
+    Destination: NotRequired[str]
+    ImportStatus: NotRequired[ImportStatusType]
+    NextToken: NotRequired[str]
+
+TimestampTypeDef = Union[datetime, str]
+
+class PublicKeyTypeDef(TypedDict):
+    Value: NotRequired[bytes]
+    ValidityStartTime: NotRequired[datetime]
+    ValidityEndTime: NotRequired[datetime]
+    Fingerprint: NotRequired[str]
+
+class QueryTypeDef(TypedDict):
+    QueryId: NotRequired[str]
+    QueryStatus: NotRequired[QueryStatusType]
+    CreationTime: NotRequired[datetime]
+
+class ListTagsRequestTypeDef(TypedDict):
+    ResourceIdList: Sequence[str]
+    NextToken: NotRequired[str]
+
+class ListTrailsRequestTypeDef(TypedDict):
+    NextToken: NotRequired[str]
+
+class TrailInfoTypeDef(TypedDict):
+    TrailARN: NotRequired[str]
+    Name: NotRequired[str]
+    HomeRegion: NotRequired[str]
+
+class LookupAttributeTypeDef(TypedDict):
+    AttributeKey: LookupAttributeKeyType
+    AttributeValue: str
+
+class PutResourcePolicyRequestTypeDef(TypedDict):
+    ResourceArn: str
+    ResourcePolicy: str
+
+class RefreshScheduleFrequencyTypeDef(TypedDict):
+    Unit: NotRequired[RefreshScheduleFrequencyUnitType]
+    Value: NotRequired[int]
+
+class RegisterOrganizationDelegatedAdminRequestTypeDef(TypedDict):
+    MemberAccountId: str
+
+class RestoreEventDataStoreRequestTypeDef(TypedDict):
+    EventDataStore: str
+
+class SearchSampleQueriesRequestTypeDef(TypedDict):
+    SearchPhrase: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class SearchSampleQueriesSearchResultTypeDef(TypedDict):
+    Name: NotRequired[str]
+    Description: NotRequired[str]
+    SQL: NotRequired[str]
+    Relevance: NotRequired[float]
+
+class StartDashboardRefreshRequestTypeDef(TypedDict):
+    DashboardId: str
+    QueryParameterValues: NotRequired[Mapping[str, str]]
+
+class StartEventDataStoreIngestionRequestTypeDef(TypedDict):
+    EventDataStore: str
+
+class StartLoggingRequestTypeDef(TypedDict):
+    Name: str
+
+class StartQueryRequestTypeDef(TypedDict):
+    QueryStatement: NotRequired[str]
+    DeliveryS3Uri: NotRequired[str]
+    QueryAlias: NotRequired[str]
+    QueryParameters: NotRequired[Sequence[str]]
+    EventDataStoreOwnerAccountId: NotRequired[str]
+
+class StopEventDataStoreIngestionRequestTypeDef(TypedDict):
+    EventDataStore: str
+
+class StopImportRequestTypeDef(TypedDict):
+    ImportId: str
+
+class StopLoggingRequestTypeDef(TypedDict):
+    Name: str
+
+class UpdateTrailRequestTypeDef(TypedDict):
+    Name: str
+    S3BucketName: NotRequired[str]
+    S3KeyPrefix: NotRequired[str]
+    SnsTopicName: NotRequired[str]
+    IncludeGlobalServiceEvents: NotRequired[bool]
+    IsMultiRegionTrail: NotRequired[bool]
+    EnableLogFileValidation: NotRequired[bool]
+    CloudWatchLogsLogGroupArn: NotRequired[str]
+    CloudWatchLogsRoleArn: NotRequired[str]
+    KmsKeyId: NotRequired[str]
+    IsOrganizationTrail: NotRequired[bool]
+
+class AddTagsRequestTypeDef(TypedDict):
+    ResourceId: str
+    TagsList: Sequence[TagTypeDef]
+
+class CreateTrailRequestTypeDef(TypedDict):
+    Name: str
+    S3BucketName: str
+    S3KeyPrefix: NotRequired[str]
+    SnsTopicName: NotRequired[str]
+    IncludeGlobalServiceEvents: NotRequired[bool]
+    IsMultiRegionTrail: NotRequired[bool]
+    EnableLogFileValidation: NotRequired[bool]
+    CloudWatchLogsLogGroupArn: NotRequired[str]
+    CloudWatchLogsRoleArn: NotRequired[str]
+    KmsKeyId: NotRequired[str]
+    IsOrganizationTrail: NotRequired[bool]
+    TagsList: NotRequired[Sequence[TagTypeDef]]
+
+class RemoveTagsRequestTypeDef(TypedDict):
+    ResourceId: str
+    TagsList: Sequence[TagTypeDef]
+
+class ResourceTagTypeDef(TypedDict):
+    ResourceId: NotRequired[str]
+    TagsList: NotRequired[List[TagTypeDef]]
+
+class AdvancedEventSelectorOutputTypeDef(TypedDict):
+    FieldSelectors: List[AdvancedFieldSelectorOutputTypeDef]
+    Name: NotRequired[str]
+
+AdvancedFieldSelectorUnionTypeDef = Union[
+    AdvancedFieldSelectorTypeDef, AdvancedFieldSelectorOutputTypeDef
+]
+
+class CancelQueryResponseTypeDef(TypedDict):
+    QueryId: str
+    QueryStatus: QueryStatusType
+    EventDataStoreOwnerAccountId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateTrailResponseTypeDef(TypedDict):
+    Name: str
+    S3BucketName: str
+    S3KeyPrefix: str
+    SnsTopicName: str
+    SnsTopicARN: str
+    IncludeGlobalServiceEvents: bool
+    IsMultiRegionTrail: bool
+    TrailARN: str
+    LogFileValidationEnabled: bool
+    CloudWatchLogsLogGroupArn: str
+    CloudWatchLogsRoleArn: str
+    KmsKeyId: str
+    IsOrganizationTrail: bool
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DisableFederationResponseTypeDef(TypedDict):
+    EventDataStoreArn: str
+    FederationStatus: FederationStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class EnableFederationResponseTypeDef(TypedDict):
+    EventDataStoreArn: str
+    FederationStatus: FederationStatusType
+    FederationRoleArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GenerateQueryResponseTypeDef(TypedDict):
+    QueryStatement: str
+    QueryAlias: str
+    EventDataStoreOwnerAccountId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetResourcePolicyResponseTypeDef(TypedDict):
+    ResourceArn: str
+    ResourcePolicy: str
+    DelegatedAdminResourcePolicy: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetTrailStatusResponseTypeDef(TypedDict):
+    IsLogging: bool
+    LatestDeliveryError: str
+    LatestNotificationError: str
+    LatestDeliveryTime: datetime
+    LatestNotificationTime: datetime
+    StartLoggingTime: datetime
+    StopLoggingTime: datetime
+    LatestCloudWatchLogsDeliveryError: str
+    LatestCloudWatchLogsDeliveryTime: datetime
+    LatestDigestDeliveryTime: datetime
+    LatestDigestDeliveryError: str
+    LatestDeliveryAttemptTime: str
+    LatestNotificationAttemptTime: str
+    LatestNotificationAttemptSucceeded: str
+    LatestDeliveryAttemptSucceeded: str
+    TimeLoggingStarted: str
+    TimeLoggingStopped: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListInsightsMetricDataResponseTypeDef(TypedDict):
+    EventSource: str
+    EventName: str
+    InsightType: InsightTypeType
+    ErrorCode: str
+    Timestamps: List[datetime]
+    Values: List[float]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class PutResourcePolicyResponseTypeDef(TypedDict):
+    ResourceArn: str
+    ResourcePolicy: str
+    DelegatedAdminResourcePolicy: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartDashboardRefreshResponseTypeDef(TypedDict):
+    RefreshId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartQueryResponseTypeDef(TypedDict):
+    QueryId: str
+    EventDataStoreOwnerAccountId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateTrailResponseTypeDef(TypedDict):
+    Name: str
+    S3BucketName: str
+    S3KeyPrefix: str
+    SnsTopicName: str
+    SnsTopicARN: str
+    IncludeGlobalServiceEvents: bool
+    IsMultiRegionTrail: bool
+    TrailARN: str
+    LogFileValidationEnabled: bool
+    CloudWatchLogsLogGroupArn: str
+    CloudWatchLogsRoleArn: str
+    KmsKeyId: str
+    IsOrganizationTrail: bool
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListChannelsResponseTypeDef(TypedDict):
+    Channels: List[ChannelTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class CreateChannelRequestTypeDef(TypedDict):
+    Name: str
+    Source: str
+    Destinations: Sequence[DestinationTypeDef]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+
+class CreateChannelResponseTypeDef(TypedDict):
+    ChannelArn: str
+    Name: str
+    Source: str
+    Destinations: List[DestinationTypeDef]
+    Tags: List[TagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateChannelRequestTypeDef(TypedDict):
+    Channel: str
+    Destinations: NotRequired[Sequence[DestinationTypeDef]]
+    Name: NotRequired[str]
+
+class UpdateChannelResponseTypeDef(TypedDict):
+    ChannelArn: str
+    Name: str
+    Source: str
+    Destinations: List[DestinationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListDashboardsResponseTypeDef(TypedDict):
+    Dashboards: List[DashboardDetailTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class EventSelectorOutputTypeDef(TypedDict):
+    ReadWriteType: NotRequired[ReadWriteTypeType]
+    IncludeManagementEvents: NotRequired[bool]
+    DataResources: NotRequired[List[DataResourceOutputTypeDef]]
+    ExcludeManagementEventSources: NotRequired[List[str]]
+
+DataResourceUnionTypeDef = Union[DataResourceTypeDef, DataResourceOutputTypeDef]
+
+class DescribeQueryResponseTypeDef(TypedDict):
+    QueryId: str
+    QueryString: str
+    QueryStatus: QueryStatusType
+    QueryStatistics: QueryStatisticsForDescribeQueryTypeDef
+    ErrorMessage: str
+    DeliveryS3Uri: str
+    DeliveryStatus: DeliveryStatusType
+    Prompt: str
+    EventDataStoreOwnerAccountId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeTrailsResponseTypeDef(TypedDict):
+    trailList: List[TrailTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetTrailResponseTypeDef(TypedDict):
+    Trail: TrailTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+EventTypeDef = TypedDict(
+    "EventTypeDef",
     {
-        "ResourceArn": str,
-        "ResourcePolicy": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "EventId": NotRequired[str],
+        "EventName": NotRequired[str],
+        "ReadOnly": NotRequired[str],
+        "AccessKeyId": NotRequired[str],
+        "EventTime": NotRequired[datetime],
+        "EventSource": NotRequired[str],
+        "Username": NotRequired[str],
+        "Resources": NotRequired[List[ResourceTypeDef]],
+        "CloudTrailEvent": NotRequired[str],
     },
 )
 
-QueryStatisticsForDescribeQueryTypeDef = TypedDict(
-    "QueryStatisticsForDescribeQueryTypeDef",
-    {
-        "EventsMatched": int,
-        "EventsScanned": int,
-        "BytesScanned": int,
-        "ExecutionTimeInMillis": int,
-        "CreationTime": datetime,
-    },
-    total=False,
-)
+class GetInsightSelectorsResponseTypeDef(TypedDict):
+    TrailARN: str
+    InsightSelectors: List[InsightSelectorTypeDef]
+    EventDataStoreArn: str
+    InsightsDestination: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-QueryStatisticsTypeDef = TypedDict(
-    "QueryStatisticsTypeDef",
-    {
-        "ResultsCount": int,
-        "TotalResultsCount": int,
-        "BytesScanned": int,
-    },
-    total=False,
-)
+class PutInsightSelectorsRequestTypeDef(TypedDict):
+    InsightSelectors: Sequence[InsightSelectorTypeDef]
+    TrailName: NotRequired[str]
+    EventDataStore: NotRequired[str]
+    InsightsDestination: NotRequired[str]
 
-QueryTypeDef = TypedDict(
-    "QueryTypeDef",
-    {
-        "QueryId": str,
-        "QueryStatus": QueryStatusType,
-        "CreationTime": datetime,
-    },
-    total=False,
-)
+class PutInsightSelectorsResponseTypeDef(TypedDict):
+    TrailARN: str
+    InsightSelectors: List[InsightSelectorTypeDef]
+    EventDataStoreArn: str
+    InsightsDestination: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-RegisterOrganizationDelegatedAdminRequestRequestTypeDef = TypedDict(
-    "RegisterOrganizationDelegatedAdminRequestRequestTypeDef",
-    {
-        "MemberAccountId": str,
-    },
-)
+class GetQueryResultsResponseTypeDef(TypedDict):
+    QueryStatus: QueryStatusType
+    QueryStatistics: QueryStatisticsTypeDef
+    QueryResultRows: List[List[Dict[str, str]]]
+    ErrorMessage: str
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-RemoveTagsRequestRequestTypeDef = TypedDict(
-    "RemoveTagsRequestRequestTypeDef",
-    {
-        "ResourceId": str,
-        "TagsList": List["TagTypeDef"],
-    },
-)
+class ListImportFailuresResponseTypeDef(TypedDict):
+    Failures: List[ImportFailureListItemTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-ResourceTagTypeDef = TypedDict(
-    "ResourceTagTypeDef",
-    {
-        "ResourceId": str,
-        "TagsList": List["TagTypeDef"],
-    },
-    total=False,
-)
+class ImportSourceTypeDef(TypedDict):
+    S3: S3ImportSourceTypeDef
 
-ResourceTypeDef = TypedDict(
-    "ResourceTypeDef",
-    {
-        "ResourceType": str,
-        "ResourceName": str,
-    },
-    total=False,
-)
+class ListImportsResponseTypeDef(TypedDict):
+    Imports: List[ImportsListItemTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
+class ListImportFailuresRequestPaginateTypeDef(TypedDict):
+    ImportId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-RestoreEventDataStoreRequestRequestTypeDef = TypedDict(
-    "RestoreEventDataStoreRequestRequestTypeDef",
-    {
-        "EventDataStore": str,
-    },
-)
+class ListImportsRequestPaginateTypeDef(TypedDict):
+    Destination: NotRequired[str]
+    ImportStatus: NotRequired[ImportStatusType]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-RestoreEventDataStoreResponseTypeDef = TypedDict(
-    "RestoreEventDataStoreResponseTypeDef",
+class ListTagsRequestPaginateTypeDef(TypedDict):
+    ResourceIdList: Sequence[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListTrailsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListInsightsMetricDataRequestTypeDef(TypedDict):
+    EventSource: str
+    EventName: str
+    InsightType: InsightTypeType
+    ErrorCode: NotRequired[str]
+    StartTime: NotRequired[TimestampTypeDef]
+    EndTime: NotRequired[TimestampTypeDef]
+    Period: NotRequired[int]
+    DataType: NotRequired[InsightsMetricDataTypeType]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListPublicKeysRequestPaginateTypeDef(TypedDict):
+    StartTime: NotRequired[TimestampTypeDef]
+    EndTime: NotRequired[TimestampTypeDef]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListPublicKeysRequestTypeDef(TypedDict):
+    StartTime: NotRequired[TimestampTypeDef]
+    EndTime: NotRequired[TimestampTypeDef]
+    NextToken: NotRequired[str]
+
+class ListQueriesRequestTypeDef(TypedDict):
+    EventDataStore: str
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+    StartTime: NotRequired[TimestampTypeDef]
+    EndTime: NotRequired[TimestampTypeDef]
+    QueryStatus: NotRequired[QueryStatusType]
+
+class ListPublicKeysResponseTypeDef(TypedDict):
+    PublicKeyList: List[PublicKeyTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListQueriesResponseTypeDef(TypedDict):
+    Queries: List[QueryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListTrailsResponseTypeDef(TypedDict):
+    Trails: List[TrailInfoTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class LookupEventsRequestPaginateTypeDef(TypedDict):
+    LookupAttributes: NotRequired[Sequence[LookupAttributeTypeDef]]
+    StartTime: NotRequired[TimestampTypeDef]
+    EndTime: NotRequired[TimestampTypeDef]
+    EventCategory: NotRequired[Literal["insight"]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class LookupEventsRequestTypeDef(TypedDict):
+    LookupAttributes: NotRequired[Sequence[LookupAttributeTypeDef]]
+    StartTime: NotRequired[TimestampTypeDef]
+    EndTime: NotRequired[TimestampTypeDef]
+    EventCategory: NotRequired[Literal["insight"]]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class RefreshScheduleTypeDef(TypedDict):
+    Frequency: NotRequired[RefreshScheduleFrequencyTypeDef]
+    Status: NotRequired[RefreshScheduleStatusType]
+    TimeOfDay: NotRequired[str]
+
+class SearchSampleQueriesResponseTypeDef(TypedDict):
+    SearchResults: List[SearchSampleQueriesSearchResultTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListTagsResponseTypeDef(TypedDict):
+    ResourceTagList: List[ResourceTagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class CreateEventDataStoreResponseTypeDef(TypedDict):
+    EventDataStoreArn: str
+    Name: str
+    Status: EventDataStoreStatusType
+    AdvancedEventSelectors: List[AdvancedEventSelectorOutputTypeDef]
+    MultiRegionEnabled: bool
+    OrganizationEnabled: bool
+    RetentionPeriod: int
+    TerminationProtectionEnabled: bool
+    TagsList: List[TagTypeDef]
+    CreatedTimestamp: datetime
+    UpdatedTimestamp: datetime
+    KmsKeyId: str
+    BillingMode: BillingModeType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class EventDataStoreTypeDef(TypedDict):
+    EventDataStoreArn: NotRequired[str]
+    Name: NotRequired[str]
+    TerminationProtectionEnabled: NotRequired[bool]
+    Status: NotRequired[EventDataStoreStatusType]
+    AdvancedEventSelectors: NotRequired[List[AdvancedEventSelectorOutputTypeDef]]
+    MultiRegionEnabled: NotRequired[bool]
+    OrganizationEnabled: NotRequired[bool]
+    RetentionPeriod: NotRequired[int]
+    CreatedTimestamp: NotRequired[datetime]
+    UpdatedTimestamp: NotRequired[datetime]
+
+class GetEventDataStoreResponseTypeDef(TypedDict):
+    EventDataStoreArn: str
+    Name: str
+    Status: EventDataStoreStatusType
+    AdvancedEventSelectors: List[AdvancedEventSelectorOutputTypeDef]
+    MultiRegionEnabled: bool
+    OrganizationEnabled: bool
+    RetentionPeriod: int
+    TerminationProtectionEnabled: bool
+    CreatedTimestamp: datetime
+    UpdatedTimestamp: datetime
+    KmsKeyId: str
+    BillingMode: BillingModeType
+    FederationStatus: FederationStatusType
+    FederationRoleArn: str
+    PartitionKeys: List[PartitionKeyTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class RestoreEventDataStoreResponseTypeDef(TypedDict):
+    EventDataStoreArn: str
+    Name: str
+    Status: EventDataStoreStatusType
+    AdvancedEventSelectors: List[AdvancedEventSelectorOutputTypeDef]
+    MultiRegionEnabled: bool
+    OrganizationEnabled: bool
+    RetentionPeriod: int
+    TerminationProtectionEnabled: bool
+    CreatedTimestamp: datetime
+    UpdatedTimestamp: datetime
+    KmsKeyId: str
+    BillingMode: BillingModeType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class SourceConfigTypeDef(TypedDict):
+    ApplyToAllRegions: NotRequired[bool]
+    AdvancedEventSelectors: NotRequired[List[AdvancedEventSelectorOutputTypeDef]]
+
+class UpdateEventDataStoreResponseTypeDef(TypedDict):
+    EventDataStoreArn: str
+    Name: str
+    Status: EventDataStoreStatusType
+    AdvancedEventSelectors: List[AdvancedEventSelectorOutputTypeDef]
+    MultiRegionEnabled: bool
+    OrganizationEnabled: bool
+    RetentionPeriod: int
+    TerminationProtectionEnabled: bool
+    CreatedTimestamp: datetime
+    UpdatedTimestamp: datetime
+    KmsKeyId: str
+    BillingMode: BillingModeType
+    FederationStatus: FederationStatusType
+    FederationRoleArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class AdvancedEventSelectorTypeDef(TypedDict):
+    FieldSelectors: Sequence[AdvancedFieldSelectorUnionTypeDef]
+    Name: NotRequired[str]
+
+class GetEventSelectorsResponseTypeDef(TypedDict):
+    TrailARN: str
+    EventSelectors: List[EventSelectorOutputTypeDef]
+    AdvancedEventSelectors: List[AdvancedEventSelectorOutputTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutEventSelectorsResponseTypeDef(TypedDict):
+    TrailARN: str
+    EventSelectors: List[EventSelectorOutputTypeDef]
+    AdvancedEventSelectors: List[AdvancedEventSelectorOutputTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class EventSelectorTypeDef(TypedDict):
+    ReadWriteType: NotRequired[ReadWriteTypeType]
+    IncludeManagementEvents: NotRequired[bool]
+    DataResources: NotRequired[Sequence[DataResourceUnionTypeDef]]
+    ExcludeManagementEventSources: NotRequired[Sequence[str]]
+
+class LookupEventsResponseTypeDef(TypedDict):
+    Events: List[EventTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class GetImportResponseTypeDef(TypedDict):
+    ImportId: str
+    Destinations: List[str]
+    ImportSource: ImportSourceTypeDef
+    StartEventTime: datetime
+    EndEventTime: datetime
+    ImportStatus: ImportStatusType
+    CreatedTimestamp: datetime
+    UpdatedTimestamp: datetime
+    ImportStatistics: ImportStatisticsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartImportRequestTypeDef(TypedDict):
+    Destinations: NotRequired[Sequence[str]]
+    ImportSource: NotRequired[ImportSourceTypeDef]
+    StartEventTime: NotRequired[TimestampTypeDef]
+    EndEventTime: NotRequired[TimestampTypeDef]
+    ImportId: NotRequired[str]
+
+class StartImportResponseTypeDef(TypedDict):
+    ImportId: str
+    Destinations: List[str]
+    ImportSource: ImportSourceTypeDef
+    StartEventTime: datetime
+    EndEventTime: datetime
+    ImportStatus: ImportStatusType
+    CreatedTimestamp: datetime
+    UpdatedTimestamp: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StopImportResponseTypeDef(TypedDict):
+    ImportId: str
+    ImportSource: ImportSourceTypeDef
+    Destinations: List[str]
+    ImportStatus: ImportStatusType
+    CreatedTimestamp: datetime
+    UpdatedTimestamp: datetime
+    StartEventTime: datetime
+    EndEventTime: datetime
+    ImportStatistics: ImportStatisticsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateDashboardRequestTypeDef(TypedDict):
+    Name: str
+    RefreshSchedule: NotRequired[RefreshScheduleTypeDef]
+    TagsList: NotRequired[Sequence[TagTypeDef]]
+    TerminationProtectionEnabled: NotRequired[bool]
+    Widgets: NotRequired[Sequence[RequestWidgetTypeDef]]
+
+CreateDashboardResponseTypeDef = TypedDict(
+    "CreateDashboardResponseTypeDef",
     {
-        "EventDataStoreArn": str,
+        "DashboardArn": str,
         "Name": str,
-        "Status": EventDataStoreStatusType,
-        "AdvancedEventSelectors": List["AdvancedEventSelectorTypeDef"],
-        "MultiRegionEnabled": bool,
-        "OrganizationEnabled": bool,
-        "RetentionPeriod": int,
+        "Type": DashboardTypeType,
+        "Widgets": List[WidgetTypeDef],
+        "TagsList": List[TagTypeDef],
+        "RefreshSchedule": RefreshScheduleTypeDef,
+        "TerminationProtectionEnabled": bool,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+GetDashboardResponseTypeDef = TypedDict(
+    "GetDashboardResponseTypeDef",
+    {
+        "DashboardArn": str,
+        "Type": DashboardTypeType,
+        "Status": DashboardStatusType,
+        "Widgets": List[WidgetTypeDef],
+        "RefreshSchedule": RefreshScheduleTypeDef,
+        "CreatedTimestamp": datetime,
+        "UpdatedTimestamp": datetime,
+        "LastRefreshId": str,
+        "LastRefreshFailureReason": str,
+        "TerminationProtectionEnabled": bool,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+
+class UpdateDashboardRequestTypeDef(TypedDict):
+    DashboardId: str
+    Widgets: NotRequired[Sequence[RequestWidgetTypeDef]]
+    RefreshSchedule: NotRequired[RefreshScheduleTypeDef]
+    TerminationProtectionEnabled: NotRequired[bool]
+
+UpdateDashboardResponseTypeDef = TypedDict(
+    "UpdateDashboardResponseTypeDef",
+    {
+        "DashboardArn": str,
+        "Name": str,
+        "Type": DashboardTypeType,
+        "Widgets": List[WidgetTypeDef],
+        "RefreshSchedule": RefreshScheduleTypeDef,
         "TerminationProtectionEnabled": bool,
         "CreatedTimestamp": datetime,
         "UpdatedTimestamp": datetime,
-        "KmsKeyId": str,
-        "BillingMode": BillingModeType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
 
-S3ImportSourceTypeDef = TypedDict(
-    "S3ImportSourceTypeDef",
-    {
-        "S3LocationUri": str,
-        "S3BucketRegion": str,
-        "S3BucketAccessRoleArn": str,
-    },
-)
+class ListEventDataStoresResponseTypeDef(TypedDict):
+    EventDataStores: List[EventDataStoreTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-SourceConfigTypeDef = TypedDict(
-    "SourceConfigTypeDef",
-    {
-        "ApplyToAllRegions": bool,
-        "AdvancedEventSelectors": List["AdvancedEventSelectorTypeDef"],
-    },
-    total=False,
-)
+class GetChannelResponseTypeDef(TypedDict):
+    ChannelArn: str
+    Name: str
+    Source: str
+    SourceConfig: SourceConfigTypeDef
+    Destinations: List[DestinationTypeDef]
+    IngestionStatus: IngestionStatusTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-StartEventDataStoreIngestionRequestRequestTypeDef = TypedDict(
-    "StartEventDataStoreIngestionRequestRequestTypeDef",
-    {
-        "EventDataStore": str,
-    },
-)
+AdvancedEventSelectorUnionTypeDef = Union[
+    AdvancedEventSelectorTypeDef, AdvancedEventSelectorOutputTypeDef
+]
+EventSelectorUnionTypeDef = Union[EventSelectorTypeDef, EventSelectorOutputTypeDef]
 
-StartImportRequestRequestTypeDef = TypedDict(
-    "StartImportRequestRequestTypeDef",
-    {
-        "Destinations": List[str],
-        "ImportSource": "ImportSourceTypeDef",
-        "StartEventTime": Union[datetime, str],
-        "EndEventTime": Union[datetime, str],
-        "ImportId": str,
-    },
-    total=False,
-)
+class CreateEventDataStoreRequestTypeDef(TypedDict):
+    Name: str
+    AdvancedEventSelectors: NotRequired[Sequence[AdvancedEventSelectorUnionTypeDef]]
+    MultiRegionEnabled: NotRequired[bool]
+    OrganizationEnabled: NotRequired[bool]
+    RetentionPeriod: NotRequired[int]
+    TerminationProtectionEnabled: NotRequired[bool]
+    TagsList: NotRequired[Sequence[TagTypeDef]]
+    KmsKeyId: NotRequired[str]
+    StartIngestion: NotRequired[bool]
+    BillingMode: NotRequired[BillingModeType]
 
-StartImportResponseTypeDef = TypedDict(
-    "StartImportResponseTypeDef",
-    {
-        "ImportId": str,
-        "Destinations": List[str],
-        "ImportSource": "ImportSourceTypeDef",
-        "StartEventTime": datetime,
-        "EndEventTime": datetime,
-        "ImportStatus": ImportStatusType,
-        "CreatedTimestamp": datetime,
-        "UpdatedTimestamp": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class UpdateEventDataStoreRequestTypeDef(TypedDict):
+    EventDataStore: str
+    Name: NotRequired[str]
+    AdvancedEventSelectors: NotRequired[Sequence[AdvancedEventSelectorUnionTypeDef]]
+    MultiRegionEnabled: NotRequired[bool]
+    OrganizationEnabled: NotRequired[bool]
+    RetentionPeriod: NotRequired[int]
+    TerminationProtectionEnabled: NotRequired[bool]
+    KmsKeyId: NotRequired[str]
+    BillingMode: NotRequired[BillingModeType]
 
-StartLoggingRequestRequestTypeDef = TypedDict(
-    "StartLoggingRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
-
-StartQueryRequestRequestTypeDef = TypedDict(
-    "StartQueryRequestRequestTypeDef",
-    {
-        "QueryStatement": str,
-        "DeliveryS3Uri": str,
-        "QueryAlias": str,
-        "QueryParameters": List[str],
-    },
-    total=False,
-)
-
-StartQueryResponseTypeDef = TypedDict(
-    "StartQueryResponseTypeDef",
-    {
-        "QueryId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-StopEventDataStoreIngestionRequestRequestTypeDef = TypedDict(
-    "StopEventDataStoreIngestionRequestRequestTypeDef",
-    {
-        "EventDataStore": str,
-    },
-)
-
-StopImportRequestRequestTypeDef = TypedDict(
-    "StopImportRequestRequestTypeDef",
-    {
-        "ImportId": str,
-    },
-)
-
-StopImportResponseTypeDef = TypedDict(
-    "StopImportResponseTypeDef",
-    {
-        "ImportId": str,
-        "ImportSource": "ImportSourceTypeDef",
-        "Destinations": List[str],
-        "ImportStatus": ImportStatusType,
-        "CreatedTimestamp": datetime,
-        "UpdatedTimestamp": datetime,
-        "StartEventTime": datetime,
-        "EndEventTime": datetime,
-        "ImportStatistics": "ImportStatisticsTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-StopLoggingRequestRequestTypeDef = TypedDict(
-    "StopLoggingRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
-
-_RequiredTagTypeDef = TypedDict(
-    "_RequiredTagTypeDef",
-    {
-        "Key": str,
-    },
-)
-_OptionalTagTypeDef = TypedDict(
-    "_OptionalTagTypeDef",
-    {
-        "Value": str,
-    },
-    total=False,
-)
-
-class TagTypeDef(_RequiredTagTypeDef, _OptionalTagTypeDef):
-    pass
-
-TrailInfoTypeDef = TypedDict(
-    "TrailInfoTypeDef",
-    {
-        "TrailARN": str,
-        "Name": str,
-        "HomeRegion": str,
-    },
-    total=False,
-)
-
-TrailTypeDef = TypedDict(
-    "TrailTypeDef",
-    {
-        "Name": str,
-        "S3BucketName": str,
-        "S3KeyPrefix": str,
-        "SnsTopicName": str,
-        "SnsTopicARN": str,
-        "IncludeGlobalServiceEvents": bool,
-        "IsMultiRegionTrail": bool,
-        "HomeRegion": str,
-        "TrailARN": str,
-        "LogFileValidationEnabled": bool,
-        "CloudWatchLogsLogGroupArn": str,
-        "CloudWatchLogsRoleArn": str,
-        "KmsKeyId": str,
-        "HasCustomEventSelectors": bool,
-        "HasInsightSelectors": bool,
-        "IsOrganizationTrail": bool,
-    },
-    total=False,
-)
-
-_RequiredUpdateChannelRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateChannelRequestRequestTypeDef",
-    {
-        "Channel": str,
-    },
-)
-_OptionalUpdateChannelRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateChannelRequestRequestTypeDef",
-    {
-        "Destinations": List["DestinationTypeDef"],
-        "Name": str,
-    },
-    total=False,
-)
-
-class UpdateChannelRequestRequestTypeDef(
-    _RequiredUpdateChannelRequestRequestTypeDef, _OptionalUpdateChannelRequestRequestTypeDef
-):
-    pass
-
-UpdateChannelResponseTypeDef = TypedDict(
-    "UpdateChannelResponseTypeDef",
-    {
-        "ChannelArn": str,
-        "Name": str,
-        "Source": str,
-        "Destinations": List["DestinationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateEventDataStoreRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateEventDataStoreRequestRequestTypeDef",
-    {
-        "EventDataStore": str,
-    },
-)
-_OptionalUpdateEventDataStoreRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateEventDataStoreRequestRequestTypeDef",
-    {
-        "Name": str,
-        "AdvancedEventSelectors": List["AdvancedEventSelectorTypeDef"],
-        "MultiRegionEnabled": bool,
-        "OrganizationEnabled": bool,
-        "RetentionPeriod": int,
-        "TerminationProtectionEnabled": bool,
-        "KmsKeyId": str,
-        "BillingMode": BillingModeType,
-    },
-    total=False,
-)
-
-class UpdateEventDataStoreRequestRequestTypeDef(
-    _RequiredUpdateEventDataStoreRequestRequestTypeDef,
-    _OptionalUpdateEventDataStoreRequestRequestTypeDef,
-):
-    pass
-
-UpdateEventDataStoreResponseTypeDef = TypedDict(
-    "UpdateEventDataStoreResponseTypeDef",
-    {
-        "EventDataStoreArn": str,
-        "Name": str,
-        "Status": EventDataStoreStatusType,
-        "AdvancedEventSelectors": List["AdvancedEventSelectorTypeDef"],
-        "MultiRegionEnabled": bool,
-        "OrganizationEnabled": bool,
-        "RetentionPeriod": int,
-        "TerminationProtectionEnabled": bool,
-        "CreatedTimestamp": datetime,
-        "UpdatedTimestamp": datetime,
-        "KmsKeyId": str,
-        "BillingMode": BillingModeType,
-        "FederationStatus": FederationStatusType,
-        "FederationRoleArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateTrailRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateTrailRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
-_OptionalUpdateTrailRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateTrailRequestRequestTypeDef",
-    {
-        "S3BucketName": str,
-        "S3KeyPrefix": str,
-        "SnsTopicName": str,
-        "IncludeGlobalServiceEvents": bool,
-        "IsMultiRegionTrail": bool,
-        "EnableLogFileValidation": bool,
-        "CloudWatchLogsLogGroupArn": str,
-        "CloudWatchLogsRoleArn": str,
-        "KmsKeyId": str,
-        "IsOrganizationTrail": bool,
-    },
-    total=False,
-)
-
-class UpdateTrailRequestRequestTypeDef(
-    _RequiredUpdateTrailRequestRequestTypeDef, _OptionalUpdateTrailRequestRequestTypeDef
-):
-    pass
-
-UpdateTrailResponseTypeDef = TypedDict(
-    "UpdateTrailResponseTypeDef",
-    {
-        "Name": str,
-        "S3BucketName": str,
-        "S3KeyPrefix": str,
-        "SnsTopicName": str,
-        "SnsTopicARN": str,
-        "IncludeGlobalServiceEvents": bool,
-        "IsMultiRegionTrail": bool,
-        "TrailARN": str,
-        "LogFileValidationEnabled": bool,
-        "CloudWatchLogsLogGroupArn": str,
-        "CloudWatchLogsRoleArn": str,
-        "KmsKeyId": str,
-        "IsOrganizationTrail": bool,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class PutEventSelectorsRequestTypeDef(TypedDict):
+    TrailName: str
+    EventSelectors: NotRequired[Sequence[EventSelectorUnionTypeDef]]
+    AdvancedEventSelectors: NotRequired[Sequence[AdvancedEventSelectorUnionTypeDef]]

@@ -1,20 +1,23 @@
 """
 Type annotations for polly service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_polly/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_polly/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_polly.type_defs import DeleteLexiconInputRequestTypeDef
+    from mypy_boto3_polly.type_defs import DeleteLexiconInputTypeDef
 
-    data: DeleteLexiconInputRequestTypeDef = {...}
+    data: DeleteLexiconInputTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
 
 from botocore.response import StreamingBody
 
@@ -29,297 +32,202 @@ from .literals import (
     VoiceIdType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Sequence
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List, Sequence
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
-    "DeleteLexiconInputRequestTypeDef",
-    "DescribeVoicesInputRequestTypeDef",
+    "DeleteLexiconInputTypeDef",
+    "DescribeVoicesInputPaginateTypeDef",
+    "DescribeVoicesInputTypeDef",
     "DescribeVoicesOutputTypeDef",
-    "GetLexiconInputRequestTypeDef",
+    "GetLexiconInputTypeDef",
     "GetLexiconOutputTypeDef",
-    "GetSpeechSynthesisTaskInputRequestTypeDef",
+    "GetSpeechSynthesisTaskInputTypeDef",
     "GetSpeechSynthesisTaskOutputTypeDef",
     "LexiconAttributesTypeDef",
     "LexiconDescriptionTypeDef",
     "LexiconTypeDef",
-    "ListLexiconsInputRequestTypeDef",
+    "ListLexiconsInputPaginateTypeDef",
+    "ListLexiconsInputTypeDef",
     "ListLexiconsOutputTypeDef",
-    "ListSpeechSynthesisTasksInputRequestTypeDef",
+    "ListSpeechSynthesisTasksInputPaginateTypeDef",
+    "ListSpeechSynthesisTasksInputTypeDef",
     "ListSpeechSynthesisTasksOutputTypeDef",
     "PaginatorConfigTypeDef",
-    "PutLexiconInputRequestTypeDef",
+    "PutLexiconInputTypeDef",
     "ResponseMetadataTypeDef",
-    "StartSpeechSynthesisTaskInputRequestTypeDef",
+    "StartSpeechSynthesisTaskInputTypeDef",
     "StartSpeechSynthesisTaskOutputTypeDef",
     "SynthesisTaskTypeDef",
-    "SynthesizeSpeechInputRequestTypeDef",
+    "SynthesizeSpeechInputTypeDef",
     "SynthesizeSpeechOutputTypeDef",
     "VoiceTypeDef",
 )
 
-DeleteLexiconInputRequestTypeDef = TypedDict(
-    "DeleteLexiconInputRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
+class DeleteLexiconInputTypeDef(TypedDict):
+    Name: str
 
-DescribeVoicesInputRequestTypeDef = TypedDict(
-    "DescribeVoicesInputRequestTypeDef",
-    {
-        "Engine": EngineType,
-        "LanguageCode": LanguageCodeType,
-        "IncludeAdditionalLanguageCodes": bool,
-        "NextToken": str,
-    },
-    total=False,
-)
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
 
-DescribeVoicesOutputTypeDef = TypedDict(
-    "DescribeVoicesOutputTypeDef",
-    {
-        "Voices": List["VoiceTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DescribeVoicesInputTypeDef(TypedDict):
+    Engine: NotRequired[EngineType]
+    LanguageCode: NotRequired[LanguageCodeType]
+    IncludeAdditionalLanguageCodes: NotRequired[bool]
+    NextToken: NotRequired[str]
 
-GetLexiconInputRequestTypeDef = TypedDict(
-    "GetLexiconInputRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-GetLexiconOutputTypeDef = TypedDict(
-    "GetLexiconOutputTypeDef",
-    {
-        "Lexicon": "LexiconTypeDef",
-        "LexiconAttributes": "LexiconAttributesTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class VoiceTypeDef(TypedDict):
+    Gender: NotRequired[GenderType]
+    Id: NotRequired[VoiceIdType]
+    LanguageCode: NotRequired[LanguageCodeType]
+    LanguageName: NotRequired[str]
+    Name: NotRequired[str]
+    AdditionalLanguageCodes: NotRequired[List[LanguageCodeType]]
+    SupportedEngines: NotRequired[List[EngineType]]
 
-GetSpeechSynthesisTaskInputRequestTypeDef = TypedDict(
-    "GetSpeechSynthesisTaskInputRequestTypeDef",
-    {
-        "TaskId": str,
-    },
-)
+class GetLexiconInputTypeDef(TypedDict):
+    Name: str
 
-GetSpeechSynthesisTaskOutputTypeDef = TypedDict(
-    "GetSpeechSynthesisTaskOutputTypeDef",
-    {
-        "SynthesisTask": "SynthesisTaskTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class LexiconAttributesTypeDef(TypedDict):
+    Alphabet: NotRequired[str]
+    LanguageCode: NotRequired[LanguageCodeType]
+    LastModified: NotRequired[datetime]
+    LexiconArn: NotRequired[str]
+    LexemesCount: NotRequired[int]
+    Size: NotRequired[int]
 
-LexiconAttributesTypeDef = TypedDict(
-    "LexiconAttributesTypeDef",
-    {
-        "Alphabet": str,
-        "LanguageCode": LanguageCodeType,
-        "LastModified": datetime,
-        "LexiconArn": str,
-        "LexemesCount": int,
-        "Size": int,
-    },
-    total=False,
-)
+class LexiconTypeDef(TypedDict):
+    Content: NotRequired[str]
+    Name: NotRequired[str]
 
-LexiconDescriptionTypeDef = TypedDict(
-    "LexiconDescriptionTypeDef",
-    {
-        "Name": str,
-        "Attributes": "LexiconAttributesTypeDef",
-    },
-    total=False,
-)
+class GetSpeechSynthesisTaskInputTypeDef(TypedDict):
+    TaskId: str
 
-LexiconTypeDef = TypedDict(
-    "LexiconTypeDef",
-    {
-        "Content": str,
-        "Name": str,
-    },
-    total=False,
-)
+class SynthesisTaskTypeDef(TypedDict):
+    Engine: NotRequired[EngineType]
+    TaskId: NotRequired[str]
+    TaskStatus: NotRequired[TaskStatusType]
+    TaskStatusReason: NotRequired[str]
+    OutputUri: NotRequired[str]
+    CreationTime: NotRequired[datetime]
+    RequestCharacters: NotRequired[int]
+    SnsTopicArn: NotRequired[str]
+    LexiconNames: NotRequired[List[str]]
+    OutputFormat: NotRequired[OutputFormatType]
+    SampleRate: NotRequired[str]
+    SpeechMarkTypes: NotRequired[List[SpeechMarkTypeType]]
+    TextType: NotRequired[TextTypeType]
+    VoiceId: NotRequired[VoiceIdType]
+    LanguageCode: NotRequired[LanguageCodeType]
 
-ListLexiconsInputRequestTypeDef = TypedDict(
-    "ListLexiconsInputRequestTypeDef",
-    {
-        "NextToken": str,
-    },
-    total=False,
-)
+class ListLexiconsInputTypeDef(TypedDict):
+    NextToken: NotRequired[str]
 
-ListLexiconsOutputTypeDef = TypedDict(
-    "ListLexiconsOutputTypeDef",
-    {
-        "Lexicons": List["LexiconDescriptionTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListSpeechSynthesisTasksInputTypeDef(TypedDict):
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+    Status: NotRequired[TaskStatusType]
 
-ListSpeechSynthesisTasksInputRequestTypeDef = TypedDict(
-    "ListSpeechSynthesisTasksInputRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-        "Status": TaskStatusType,
-    },
-    total=False,
-)
+class PutLexiconInputTypeDef(TypedDict):
+    Name: str
+    Content: str
 
-ListSpeechSynthesisTasksOutputTypeDef = TypedDict(
-    "ListSpeechSynthesisTasksOutputTypeDef",
-    {
-        "NextToken": str,
-        "SynthesisTasks": List["SynthesisTaskTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-PutLexiconInputRequestTypeDef = TypedDict(
-    "PutLexiconInputRequestTypeDef",
-    {
-        "Name": str,
-        "Content": str,
-    },
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-_RequiredStartSpeechSynthesisTaskInputRequestTypeDef = TypedDict(
-    "_RequiredStartSpeechSynthesisTaskInputRequestTypeDef",
+StartSpeechSynthesisTaskInputTypeDef = TypedDict(
+    "StartSpeechSynthesisTaskInputTypeDef",
     {
         "OutputFormat": OutputFormatType,
         "OutputS3BucketName": str,
         "Text": str,
         "VoiceId": VoiceIdType,
+        "Engine": NotRequired[EngineType],
+        "LanguageCode": NotRequired[LanguageCodeType],
+        "LexiconNames": NotRequired[Sequence[str]],
+        "OutputS3KeyPrefix": NotRequired[str],
+        "SampleRate": NotRequired[str],
+        "SnsTopicArn": NotRequired[str],
+        "SpeechMarkTypes": NotRequired[Sequence[SpeechMarkTypeType]],
+        "TextType": NotRequired[TextTypeType],
     },
 )
-_OptionalStartSpeechSynthesisTaskInputRequestTypeDef = TypedDict(
-    "_OptionalStartSpeechSynthesisTaskInputRequestTypeDef",
-    {
-        "Engine": EngineType,
-        "LanguageCode": LanguageCodeType,
-        "LexiconNames": List[str],
-        "OutputS3KeyPrefix": str,
-        "SampleRate": str,
-        "SnsTopicArn": str,
-        "SpeechMarkTypes": List[SpeechMarkTypeType],
-        "TextType": TextTypeType,
-    },
-    total=False,
-)
-
-class StartSpeechSynthesisTaskInputRequestTypeDef(
-    _RequiredStartSpeechSynthesisTaskInputRequestTypeDef,
-    _OptionalStartSpeechSynthesisTaskInputRequestTypeDef,
-):
-    pass
-
-StartSpeechSynthesisTaskOutputTypeDef = TypedDict(
-    "StartSpeechSynthesisTaskOutputTypeDef",
-    {
-        "SynthesisTask": "SynthesisTaskTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-SynthesisTaskTypeDef = TypedDict(
-    "SynthesisTaskTypeDef",
-    {
-        "Engine": EngineType,
-        "TaskId": str,
-        "TaskStatus": TaskStatusType,
-        "TaskStatusReason": str,
-        "OutputUri": str,
-        "CreationTime": datetime,
-        "RequestCharacters": int,
-        "SnsTopicArn": str,
-        "LexiconNames": List[str],
-        "OutputFormat": OutputFormatType,
-        "SampleRate": str,
-        "SpeechMarkTypes": List[SpeechMarkTypeType],
-        "TextType": TextTypeType,
-        "VoiceId": VoiceIdType,
-        "LanguageCode": LanguageCodeType,
-    },
-    total=False,
-)
-
-_RequiredSynthesizeSpeechInputRequestTypeDef = TypedDict(
-    "_RequiredSynthesizeSpeechInputRequestTypeDef",
+SynthesizeSpeechInputTypeDef = TypedDict(
+    "SynthesizeSpeechInputTypeDef",
     {
         "OutputFormat": OutputFormatType,
         "Text": str,
         "VoiceId": VoiceIdType,
-    },
-)
-_OptionalSynthesizeSpeechInputRequestTypeDef = TypedDict(
-    "_OptionalSynthesizeSpeechInputRequestTypeDef",
-    {
-        "Engine": EngineType,
-        "LanguageCode": LanguageCodeType,
-        "LexiconNames": List[str],
-        "SampleRate": str,
-        "SpeechMarkTypes": List[SpeechMarkTypeType],
-        "TextType": TextTypeType,
-    },
-    total=False,
-)
-
-class SynthesizeSpeechInputRequestTypeDef(
-    _RequiredSynthesizeSpeechInputRequestTypeDef, _OptionalSynthesizeSpeechInputRequestTypeDef
-):
-    pass
-
-SynthesizeSpeechOutputTypeDef = TypedDict(
-    "SynthesizeSpeechOutputTypeDef",
-    {
-        "AudioStream": StreamingBody,
-        "ContentType": str,
-        "RequestCharacters": int,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "Engine": NotRequired[EngineType],
+        "LanguageCode": NotRequired[LanguageCodeType],
+        "LexiconNames": NotRequired[Sequence[str]],
+        "SampleRate": NotRequired[str],
+        "SpeechMarkTypes": NotRequired[Sequence[SpeechMarkTypeType]],
+        "TextType": NotRequired[TextTypeType],
     },
 )
 
-VoiceTypeDef = TypedDict(
-    "VoiceTypeDef",
-    {
-        "Gender": GenderType,
-        "Id": VoiceIdType,
-        "LanguageCode": LanguageCodeType,
-        "LanguageName": str,
-        "Name": str,
-        "AdditionalLanguageCodes": List[LanguageCodeType],
-        "SupportedEngines": List[EngineType],
-    },
-    total=False,
-)
+class DescribeVoicesInputPaginateTypeDef(TypedDict):
+    Engine: NotRequired[EngineType]
+    LanguageCode: NotRequired[LanguageCodeType]
+    IncludeAdditionalLanguageCodes: NotRequired[bool]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListLexiconsInputPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListSpeechSynthesisTasksInputPaginateTypeDef(TypedDict):
+    Status: NotRequired[TaskStatusType]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class SynthesizeSpeechOutputTypeDef(TypedDict):
+    AudioStream: StreamingBody
+    ContentType: str
+    RequestCharacters: int
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeVoicesOutputTypeDef(TypedDict):
+    Voices: List[VoiceTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class LexiconDescriptionTypeDef(TypedDict):
+    Name: NotRequired[str]
+    Attributes: NotRequired[LexiconAttributesTypeDef]
+
+class GetLexiconOutputTypeDef(TypedDict):
+    Lexicon: LexiconTypeDef
+    LexiconAttributes: LexiconAttributesTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetSpeechSynthesisTaskOutputTypeDef(TypedDict):
+    SynthesisTask: SynthesisTaskTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListSpeechSynthesisTasksOutputTypeDef(TypedDict):
+    SynthesisTasks: List[SynthesisTaskTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class StartSpeechSynthesisTaskOutputTypeDef(TypedDict):
+    SynthesisTask: SynthesisTaskTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListLexiconsOutputTypeDef(TypedDict):
+    Lexicons: List[LexiconDescriptionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]

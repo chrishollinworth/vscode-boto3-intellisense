@@ -1,20 +1,24 @@
 """
 Type annotations for snow-device-management service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_snow_device_management/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_snow_device_management/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_snow_device_management.type_defs import CancelTaskInputRequestTypeDef
+    from mypy_boto3_snow_device_management.type_defs import CancelTaskInputTypeDef
 
-    data: CancelTaskInputRequestTypeDef = {...}
+    data: CancelTaskInputTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
+from typing import Any
 
 from .literals import (
     AttachmentStatusType,
@@ -26,43 +30,54 @@ from .literals import (
     UnlockStateType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
-    "CancelTaskInputRequestTypeDef",
+    "CancelTaskInputTypeDef",
     "CancelTaskOutputTypeDef",
     "CapacityTypeDef",
     "CommandTypeDef",
     "CpuOptionsTypeDef",
-    "CreateTaskInputRequestTypeDef",
+    "CreateTaskInputTypeDef",
     "CreateTaskOutputTypeDef",
-    "DescribeDeviceEc2InputRequestTypeDef",
+    "DescribeDeviceEc2InputTypeDef",
     "DescribeDeviceEc2OutputTypeDef",
-    "DescribeDeviceInputRequestTypeDef",
+    "DescribeDeviceInputTypeDef",
     "DescribeDeviceOutputTypeDef",
-    "DescribeExecutionInputRequestTypeDef",
+    "DescribeExecutionInputTypeDef",
     "DescribeExecutionOutputTypeDef",
-    "DescribeTaskInputRequestTypeDef",
+    "DescribeTaskInputTypeDef",
     "DescribeTaskOutputTypeDef",
     "DeviceSummaryTypeDef",
     "EbsInstanceBlockDeviceTypeDef",
+    "EmptyResponseMetadataTypeDef",
     "ExecutionSummaryTypeDef",
     "InstanceBlockDeviceMappingTypeDef",
     "InstanceStateTypeDef",
     "InstanceSummaryTypeDef",
     "InstanceTypeDef",
-    "ListDeviceResourcesInputRequestTypeDef",
+    "ListDeviceResourcesInputPaginateTypeDef",
+    "ListDeviceResourcesInputTypeDef",
     "ListDeviceResourcesOutputTypeDef",
-    "ListDevicesInputRequestTypeDef",
+    "ListDevicesInputPaginateTypeDef",
+    "ListDevicesInputTypeDef",
     "ListDevicesOutputTypeDef",
-    "ListExecutionsInputRequestTypeDef",
+    "ListExecutionsInputPaginateTypeDef",
+    "ListExecutionsInputTypeDef",
     "ListExecutionsOutputTypeDef",
-    "ListTagsForResourceInputRequestTypeDef",
+    "ListTagsForResourceInputTypeDef",
     "ListTagsForResourceOutputTypeDef",
-    "ListTasksInputRequestTypeDef",
+    "ListTasksInputPaginateTypeDef",
+    "ListTasksInputTypeDef",
     "ListTasksOutputTypeDef",
     "PaginatorConfigTypeDef",
     "PhysicalNetworkInterfaceTypeDef",
@@ -70,468 +85,269 @@ __all__ = (
     "ResponseMetadataTypeDef",
     "SecurityGroupIdentifierTypeDef",
     "SoftwareInformationTypeDef",
-    "TagResourceInputRequestTypeDef",
+    "TagResourceInputTypeDef",
     "TaskSummaryTypeDef",
-    "UntagResourceInputRequestTypeDef",
+    "UntagResourceInputTypeDef",
 )
 
-CancelTaskInputRequestTypeDef = TypedDict(
-    "CancelTaskInputRequestTypeDef",
-    {
-        "taskId": str,
-    },
-)
+class CancelTaskInputTypeDef(TypedDict):
+    taskId: str
 
-CancelTaskOutputTypeDef = TypedDict(
-    "CancelTaskOutputTypeDef",
-    {
-        "taskId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-CapacityTypeDef = TypedDict(
-    "CapacityTypeDef",
-    {
-        "available": int,
-        "name": str,
-        "total": int,
-        "unit": str,
-        "used": int,
-    },
-    total=False,
-)
+class CapacityTypeDef(TypedDict):
+    available: NotRequired[int]
+    name: NotRequired[str]
+    total: NotRequired[int]
+    unit: NotRequired[str]
+    used: NotRequired[int]
 
-CommandTypeDef = TypedDict(
-    "CommandTypeDef",
-    {
-        "reboot": Dict[str, Any],
-        "unlock": Dict[str, Any],
-    },
-    total=False,
-)
+class CommandTypeDef(TypedDict):
+    reboot: NotRequired[Mapping[str, Any]]
+    unlock: NotRequired[Mapping[str, Any]]
 
-CpuOptionsTypeDef = TypedDict(
-    "CpuOptionsTypeDef",
-    {
-        "coreCount": int,
-        "threadsPerCore": int,
-    },
-    total=False,
-)
+class CpuOptionsTypeDef(TypedDict):
+    coreCount: NotRequired[int]
+    threadsPerCore: NotRequired[int]
 
-_RequiredCreateTaskInputRequestTypeDef = TypedDict(
-    "_RequiredCreateTaskInputRequestTypeDef",
-    {
-        "command": "CommandTypeDef",
-        "targets": List[str],
-    },
-)
-_OptionalCreateTaskInputRequestTypeDef = TypedDict(
-    "_OptionalCreateTaskInputRequestTypeDef",
-    {
-        "clientToken": str,
-        "description": str,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
+class DescribeDeviceEc2InputTypeDef(TypedDict):
+    instanceIds: Sequence[str]
+    managedDeviceId: str
 
-class CreateTaskInputRequestTypeDef(
-    _RequiredCreateTaskInputRequestTypeDef, _OptionalCreateTaskInputRequestTypeDef
-):
-    pass
+class DescribeDeviceInputTypeDef(TypedDict):
+    managedDeviceId: str
 
-CreateTaskOutputTypeDef = TypedDict(
-    "CreateTaskOutputTypeDef",
-    {
-        "taskArn": str,
-        "taskId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class PhysicalNetworkInterfaceTypeDef(TypedDict):
+    defaultGateway: NotRequired[str]
+    ipAddress: NotRequired[str]
+    ipAddressAssignment: NotRequired[IpAddressAssignmentType]
+    macAddress: NotRequired[str]
+    netmask: NotRequired[str]
+    physicalConnectorType: NotRequired[PhysicalConnectorTypeType]
+    physicalNetworkInterfaceId: NotRequired[str]
 
-DescribeDeviceEc2InputRequestTypeDef = TypedDict(
-    "DescribeDeviceEc2InputRequestTypeDef",
-    {
-        "instanceIds": List[str],
-        "managedDeviceId": str,
-    },
-)
+class SoftwareInformationTypeDef(TypedDict):
+    installState: NotRequired[str]
+    installedVersion: NotRequired[str]
+    installingVersion: NotRequired[str]
 
-DescribeDeviceEc2OutputTypeDef = TypedDict(
-    "DescribeDeviceEc2OutputTypeDef",
-    {
-        "instances": List["InstanceSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DescribeExecutionInputTypeDef(TypedDict):
+    managedDeviceId: str
+    taskId: str
 
-DescribeDeviceInputRequestTypeDef = TypedDict(
-    "DescribeDeviceInputRequestTypeDef",
+class DescribeTaskInputTypeDef(TypedDict):
+    taskId: str
+
+class DeviceSummaryTypeDef(TypedDict):
+    associatedWithJob: NotRequired[str]
+    managedDeviceArn: NotRequired[str]
+    managedDeviceId: NotRequired[str]
+    tags: NotRequired[Dict[str, str]]
+
+class EbsInstanceBlockDeviceTypeDef(TypedDict):
+    attachTime: NotRequired[datetime]
+    deleteOnTermination: NotRequired[bool]
+    status: NotRequired[AttachmentStatusType]
+    volumeId: NotRequired[str]
+
+class ExecutionSummaryTypeDef(TypedDict):
+    executionId: NotRequired[str]
+    managedDeviceId: NotRequired[str]
+    state: NotRequired[ExecutionStateType]
+    taskId: NotRequired[str]
+
+class InstanceStateTypeDef(TypedDict):
+    code: NotRequired[int]
+    name: NotRequired[InstanceStateNameType]
+
+class SecurityGroupIdentifierTypeDef(TypedDict):
+    groupId: NotRequired[str]
+    groupName: NotRequired[str]
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+ListDeviceResourcesInputTypeDef = TypedDict(
+    "ListDeviceResourcesInputTypeDef",
     {
         "managedDeviceId": str,
+        "maxResults": NotRequired[int],
+        "nextToken": NotRequired[str],
+        "type": NotRequired[str],
     },
 )
-
-DescribeDeviceOutputTypeDef = TypedDict(
-    "DescribeDeviceOutputTypeDef",
-    {
-        "associatedWithJob": str,
-        "deviceCapacities": List["CapacityTypeDef"],
-        "deviceState": UnlockStateType,
-        "deviceType": str,
-        "lastReachedOutAt": datetime,
-        "lastUpdatedAt": datetime,
-        "managedDeviceArn": str,
-        "managedDeviceId": str,
-        "physicalNetworkInterfaces": List["PhysicalNetworkInterfaceTypeDef"],
-        "software": "SoftwareInformationTypeDef",
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeExecutionInputRequestTypeDef = TypedDict(
-    "DescribeExecutionInputRequestTypeDef",
-    {
-        "managedDeviceId": str,
-        "taskId": str,
-    },
-)
-
-DescribeExecutionOutputTypeDef = TypedDict(
-    "DescribeExecutionOutputTypeDef",
-    {
-        "executionId": str,
-        "lastUpdatedAt": datetime,
-        "managedDeviceId": str,
-        "startedAt": datetime,
-        "state": ExecutionStateType,
-        "taskId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeTaskInputRequestTypeDef = TypedDict(
-    "DescribeTaskInputRequestTypeDef",
-    {
-        "taskId": str,
-    },
-)
-
-DescribeTaskOutputTypeDef = TypedDict(
-    "DescribeTaskOutputTypeDef",
-    {
-        "completedAt": datetime,
-        "createdAt": datetime,
-        "description": str,
-        "lastUpdatedAt": datetime,
-        "state": TaskStateType,
-        "tags": Dict[str, str],
-        "targets": List[str],
-        "taskArn": str,
-        "taskId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeviceSummaryTypeDef = TypedDict(
-    "DeviceSummaryTypeDef",
-    {
-        "associatedWithJob": str,
-        "managedDeviceArn": str,
-        "managedDeviceId": str,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-EbsInstanceBlockDeviceTypeDef = TypedDict(
-    "EbsInstanceBlockDeviceTypeDef",
-    {
-        "attachTime": datetime,
-        "deleteOnTermination": bool,
-        "status": AttachmentStatusType,
-        "volumeId": str,
-    },
-    total=False,
-)
-
-ExecutionSummaryTypeDef = TypedDict(
-    "ExecutionSummaryTypeDef",
-    {
-        "executionId": str,
-        "managedDeviceId": str,
-        "state": ExecutionStateType,
-        "taskId": str,
-    },
-    total=False,
-)
-
-InstanceBlockDeviceMappingTypeDef = TypedDict(
-    "InstanceBlockDeviceMappingTypeDef",
-    {
-        "deviceName": str,
-        "ebs": "EbsInstanceBlockDeviceTypeDef",
-    },
-    total=False,
-)
-
-InstanceStateTypeDef = TypedDict(
-    "InstanceStateTypeDef",
-    {
-        "code": int,
-        "name": InstanceStateNameType,
-    },
-    total=False,
-)
-
-InstanceSummaryTypeDef = TypedDict(
-    "InstanceSummaryTypeDef",
-    {
-        "instance": "InstanceTypeDef",
-        "lastUpdatedAt": datetime,
-    },
-    total=False,
-)
-
-InstanceTypeDef = TypedDict(
-    "InstanceTypeDef",
-    {
-        "amiLaunchIndex": int,
-        "blockDeviceMappings": List["InstanceBlockDeviceMappingTypeDef"],
-        "cpuOptions": "CpuOptionsTypeDef",
-        "createdAt": datetime,
-        "imageId": str,
-        "instanceId": str,
-        "instanceType": str,
-        "privateIpAddress": str,
-        "publicIpAddress": str,
-        "rootDeviceName": str,
-        "securityGroups": List["SecurityGroupIdentifierTypeDef"],
-        "state": "InstanceStateTypeDef",
-        "updatedAt": datetime,
-    },
-    total=False,
-)
-
-_RequiredListDeviceResourcesInputRequestTypeDef = TypedDict(
-    "_RequiredListDeviceResourcesInputRequestTypeDef",
-    {
-        "managedDeviceId": str,
-    },
-)
-_OptionalListDeviceResourcesInputRequestTypeDef = TypedDict(
-    "_OptionalListDeviceResourcesInputRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-        "type": str,
-    },
-    total=False,
-)
-
-class ListDeviceResourcesInputRequestTypeDef(
-    _RequiredListDeviceResourcesInputRequestTypeDef, _OptionalListDeviceResourcesInputRequestTypeDef
-):
-    pass
-
-ListDeviceResourcesOutputTypeDef = TypedDict(
-    "ListDeviceResourcesOutputTypeDef",
-    {
-        "nextToken": str,
-        "resources": List["ResourceSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListDevicesInputRequestTypeDef = TypedDict(
-    "ListDevicesInputRequestTypeDef",
-    {
-        "jobId": str,
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-ListDevicesOutputTypeDef = TypedDict(
-    "ListDevicesOutputTypeDef",
-    {
-        "devices": List["DeviceSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListExecutionsInputRequestTypeDef = TypedDict(
-    "_RequiredListExecutionsInputRequestTypeDef",
-    {
-        "taskId": str,
-    },
-)
-_OptionalListExecutionsInputRequestTypeDef = TypedDict(
-    "_OptionalListExecutionsInputRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-        "state": ExecutionStateType,
-    },
-    total=False,
-)
-
-class ListExecutionsInputRequestTypeDef(
-    _RequiredListExecutionsInputRequestTypeDef, _OptionalListExecutionsInputRequestTypeDef
-):
-    pass
-
-ListExecutionsOutputTypeDef = TypedDict(
-    "ListExecutionsOutputTypeDef",
-    {
-        "executions": List["ExecutionSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTagsForResourceInputRequestTypeDef = TypedDict(
-    "ListTagsForResourceInputRequestTypeDef",
-    {
-        "resourceArn": str,
-    },
-)
-
-ListTagsForResourceOutputTypeDef = TypedDict(
-    "ListTagsForResourceOutputTypeDef",
-    {
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTasksInputRequestTypeDef = TypedDict(
-    "ListTasksInputRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-        "state": TaskStateType,
-    },
-    total=False,
-)
-
-ListTasksOutputTypeDef = TypedDict(
-    "ListTasksOutputTypeDef",
-    {
-        "nextToken": str,
-        "tasks": List["TaskSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-PhysicalNetworkInterfaceTypeDef = TypedDict(
-    "PhysicalNetworkInterfaceTypeDef",
-    {
-        "defaultGateway": str,
-        "ipAddress": str,
-        "ipAddressAssignment": IpAddressAssignmentType,
-        "macAddress": str,
-        "netmask": str,
-        "physicalConnectorType": PhysicalConnectorTypeType,
-        "physicalNetworkInterfaceId": str,
-    },
-    total=False,
-)
-
-_RequiredResourceSummaryTypeDef = TypedDict(
-    "_RequiredResourceSummaryTypeDef",
+ResourceSummaryTypeDef = TypedDict(
+    "ResourceSummaryTypeDef",
     {
         "resourceType": str,
-    },
-)
-_OptionalResourceSummaryTypeDef = TypedDict(
-    "_OptionalResourceSummaryTypeDef",
-    {
-        "arn": str,
-        "id": str,
-    },
-    total=False,
-)
-
-class ResourceSummaryTypeDef(_RequiredResourceSummaryTypeDef, _OptionalResourceSummaryTypeDef):
-    pass
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
+        "arn": NotRequired[str],
+        "id": NotRequired[str],
     },
 )
 
-SecurityGroupIdentifierTypeDef = TypedDict(
-    "SecurityGroupIdentifierTypeDef",
+class ListDevicesInputTypeDef(TypedDict):
+    jobId: NotRequired[str]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListExecutionsInputTypeDef(TypedDict):
+    taskId: str
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+    state: NotRequired[ExecutionStateType]
+
+class ListTagsForResourceInputTypeDef(TypedDict):
+    resourceArn: str
+
+class ListTasksInputTypeDef(TypedDict):
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+    state: NotRequired[TaskStateType]
+
+class TaskSummaryTypeDef(TypedDict):
+    taskId: str
+    state: NotRequired[TaskStateType]
+    tags: NotRequired[Dict[str, str]]
+    taskArn: NotRequired[str]
+
+class TagResourceInputTypeDef(TypedDict):
+    resourceArn: str
+    tags: Mapping[str, str]
+
+class UntagResourceInputTypeDef(TypedDict):
+    resourceArn: str
+    tagKeys: Sequence[str]
+
+class CancelTaskOutputTypeDef(TypedDict):
+    taskId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateTaskOutputTypeDef(TypedDict):
+    taskArn: str
+    taskId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeExecutionOutputTypeDef(TypedDict):
+    executionId: str
+    lastUpdatedAt: datetime
+    managedDeviceId: str
+    startedAt: datetime
+    state: ExecutionStateType
+    taskId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeTaskOutputTypeDef(TypedDict):
+    completedAt: datetime
+    createdAt: datetime
+    description: str
+    lastUpdatedAt: datetime
+    state: TaskStateType
+    tags: Dict[str, str]
+    targets: List[str]
+    taskArn: str
+    taskId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class EmptyResponseMetadataTypeDef(TypedDict):
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListTagsForResourceOutputTypeDef(TypedDict):
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateTaskInputTypeDef(TypedDict):
+    command: CommandTypeDef
+    targets: Sequence[str]
+    clientToken: NotRequired[str]
+    description: NotRequired[str]
+    tags: NotRequired[Mapping[str, str]]
+
+class DescribeDeviceOutputTypeDef(TypedDict):
+    associatedWithJob: str
+    deviceCapacities: List[CapacityTypeDef]
+    deviceState: UnlockStateType
+    deviceType: str
+    lastReachedOutAt: datetime
+    lastUpdatedAt: datetime
+    managedDeviceArn: str
+    managedDeviceId: str
+    physicalNetworkInterfaces: List[PhysicalNetworkInterfaceTypeDef]
+    software: SoftwareInformationTypeDef
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListDevicesOutputTypeDef(TypedDict):
+    devices: List[DeviceSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class InstanceBlockDeviceMappingTypeDef(TypedDict):
+    deviceName: NotRequired[str]
+    ebs: NotRequired[EbsInstanceBlockDeviceTypeDef]
+
+class ListExecutionsOutputTypeDef(TypedDict):
+    executions: List[ExecutionSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+ListDeviceResourcesInputPaginateTypeDef = TypedDict(
+    "ListDeviceResourcesInputPaginateTypeDef",
     {
-        "groupId": str,
-        "groupName": str,
+        "managedDeviceId": str,
+        "type": NotRequired[str],
+        "PaginationConfig": NotRequired[PaginatorConfigTypeDef],
     },
-    total=False,
 )
 
-SoftwareInformationTypeDef = TypedDict(
-    "SoftwareInformationTypeDef",
-    {
-        "installState": str,
-        "installedVersion": str,
-        "installingVersion": str,
-    },
-    total=False,
-)
+class ListDevicesInputPaginateTypeDef(TypedDict):
+    jobId: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-TagResourceInputRequestTypeDef = TypedDict(
-    "TagResourceInputRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tags": Dict[str, str],
-    },
-)
+class ListExecutionsInputPaginateTypeDef(TypedDict):
+    taskId: str
+    state: NotRequired[ExecutionStateType]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-_RequiredTaskSummaryTypeDef = TypedDict(
-    "_RequiredTaskSummaryTypeDef",
-    {
-        "taskId": str,
-    },
-)
-_OptionalTaskSummaryTypeDef = TypedDict(
-    "_OptionalTaskSummaryTypeDef",
-    {
-        "state": TaskStateType,
-        "tags": Dict[str, str],
-        "taskArn": str,
-    },
-    total=False,
-)
+class ListTasksInputPaginateTypeDef(TypedDict):
+    state: NotRequired[TaskStateType]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-class TaskSummaryTypeDef(_RequiredTaskSummaryTypeDef, _OptionalTaskSummaryTypeDef):
-    pass
+class ListDeviceResourcesOutputTypeDef(TypedDict):
+    resources: List[ResourceSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-UntagResourceInputRequestTypeDef = TypedDict(
-    "UntagResourceInputRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tagKeys": List[str],
-    },
-)
+class ListTasksOutputTypeDef(TypedDict):
+    tasks: List[TaskSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class InstanceTypeDef(TypedDict):
+    amiLaunchIndex: NotRequired[int]
+    blockDeviceMappings: NotRequired[List[InstanceBlockDeviceMappingTypeDef]]
+    cpuOptions: NotRequired[CpuOptionsTypeDef]
+    createdAt: NotRequired[datetime]
+    imageId: NotRequired[str]
+    instanceId: NotRequired[str]
+    instanceType: NotRequired[str]
+    privateIpAddress: NotRequired[str]
+    publicIpAddress: NotRequired[str]
+    rootDeviceName: NotRequired[str]
+    securityGroups: NotRequired[List[SecurityGroupIdentifierTypeDef]]
+    state: NotRequired[InstanceStateTypeDef]
+    updatedAt: NotRequired[datetime]
+
+class InstanceSummaryTypeDef(TypedDict):
+    instance: NotRequired[InstanceTypeDef]
+    lastUpdatedAt: NotRequired[datetime]
+
+class DescribeDeviceEc2OutputTypeDef(TypedDict):
+    instances: List[InstanceSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef

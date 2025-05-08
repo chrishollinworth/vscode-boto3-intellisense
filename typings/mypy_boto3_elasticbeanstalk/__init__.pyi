@@ -1,10 +1,14 @@
 """
 Main interface for elasticbeanstalk service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_elasticbeanstalk/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_elasticbeanstalk import (
         Client,
         DescribeApplicationVersionsPaginator,
@@ -18,10 +22,8 @@ Usage::
         ListPlatformVersionsPaginator,
     )
 
-    session = boto3.Session()
-
-    client: ElasticBeanstalkClient = boto3.client("elasticbeanstalk")
-    session_client: ElasticBeanstalkClient = session.client("elasticbeanstalk")
+    session = Session()
+    client: ElasticBeanstalkClient = session.client("elasticbeanstalk")
 
     environment_exists_waiter: EnvironmentExistsWaiter = client.get_waiter("environment_exists")
     environment_terminated_waiter: EnvironmentTerminatedWaiter = client.get_waiter("environment_terminated")

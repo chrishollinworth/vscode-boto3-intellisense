@@ -1,10 +1,14 @@
 """
 Main interface for connect service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_connect import (
         Client,
         ConnectClient,
@@ -15,12 +19,14 @@ Usage::
         ListBotsPaginator,
         ListContactEvaluationsPaginator,
         ListContactFlowModulesPaginator,
+        ListContactFlowVersionsPaginator,
         ListContactFlowsPaginator,
         ListContactReferencesPaginator,
         ListDefaultVocabulariesPaginator,
         ListEvaluationFormVersionsPaginator,
         ListEvaluationFormsPaginator,
         ListFlowAssociationsPaginator,
+        ListHoursOfOperationOverridesPaginator,
         ListHoursOfOperationsPaginator,
         ListInstanceAttributesPaginator,
         ListInstanceStorageConfigsPaginator,
@@ -51,10 +57,12 @@ Usage::
         ListUsersPaginator,
         ListViewVersionsPaginator,
         ListViewsPaginator,
+        SearchAgentStatusesPaginator,
         SearchAvailablePhoneNumbersPaginator,
         SearchContactFlowModulesPaginator,
         SearchContactFlowsPaginator,
         SearchContactsPaginator,
+        SearchHoursOfOperationOverridesPaginator,
         SearchHoursOfOperationsPaginator,
         SearchPredefinedAttributesPaginator,
         SearchPromptsPaginator,
@@ -63,14 +71,13 @@ Usage::
         SearchResourceTagsPaginator,
         SearchRoutingProfilesPaginator,
         SearchSecurityProfilesPaginator,
+        SearchUserHierarchyGroupsPaginator,
         SearchUsersPaginator,
         SearchVocabulariesPaginator,
     )
 
-    session = boto3.Session()
-
-    client: ConnectClient = boto3.client("connect")
-    session_client: ConnectClient = session.client("connect")
+    session = Session()
+    client: ConnectClient = session.client("connect")
 
     get_metric_data_paginator: GetMetricDataPaginator = client.get_paginator("get_metric_data")
     list_agent_statuses_paginator: ListAgentStatusesPaginator = client.get_paginator("list_agent_statuses")
@@ -79,12 +86,14 @@ Usage::
     list_bots_paginator: ListBotsPaginator = client.get_paginator("list_bots")
     list_contact_evaluations_paginator: ListContactEvaluationsPaginator = client.get_paginator("list_contact_evaluations")
     list_contact_flow_modules_paginator: ListContactFlowModulesPaginator = client.get_paginator("list_contact_flow_modules")
+    list_contact_flow_versions_paginator: ListContactFlowVersionsPaginator = client.get_paginator("list_contact_flow_versions")
     list_contact_flows_paginator: ListContactFlowsPaginator = client.get_paginator("list_contact_flows")
     list_contact_references_paginator: ListContactReferencesPaginator = client.get_paginator("list_contact_references")
     list_default_vocabularies_paginator: ListDefaultVocabulariesPaginator = client.get_paginator("list_default_vocabularies")
     list_evaluation_form_versions_paginator: ListEvaluationFormVersionsPaginator = client.get_paginator("list_evaluation_form_versions")
     list_evaluation_forms_paginator: ListEvaluationFormsPaginator = client.get_paginator("list_evaluation_forms")
     list_flow_associations_paginator: ListFlowAssociationsPaginator = client.get_paginator("list_flow_associations")
+    list_hours_of_operation_overrides_paginator: ListHoursOfOperationOverridesPaginator = client.get_paginator("list_hours_of_operation_overrides")
     list_hours_of_operations_paginator: ListHoursOfOperationsPaginator = client.get_paginator("list_hours_of_operations")
     list_instance_attributes_paginator: ListInstanceAttributesPaginator = client.get_paginator("list_instance_attributes")
     list_instance_storage_configs_paginator: ListInstanceStorageConfigsPaginator = client.get_paginator("list_instance_storage_configs")
@@ -115,10 +124,12 @@ Usage::
     list_users_paginator: ListUsersPaginator = client.get_paginator("list_users")
     list_view_versions_paginator: ListViewVersionsPaginator = client.get_paginator("list_view_versions")
     list_views_paginator: ListViewsPaginator = client.get_paginator("list_views")
+    search_agent_statuses_paginator: SearchAgentStatusesPaginator = client.get_paginator("search_agent_statuses")
     search_available_phone_numbers_paginator: SearchAvailablePhoneNumbersPaginator = client.get_paginator("search_available_phone_numbers")
     search_contact_flow_modules_paginator: SearchContactFlowModulesPaginator = client.get_paginator("search_contact_flow_modules")
     search_contact_flows_paginator: SearchContactFlowsPaginator = client.get_paginator("search_contact_flows")
     search_contacts_paginator: SearchContactsPaginator = client.get_paginator("search_contacts")
+    search_hours_of_operation_overrides_paginator: SearchHoursOfOperationOverridesPaginator = client.get_paginator("search_hours_of_operation_overrides")
     search_hours_of_operations_paginator: SearchHoursOfOperationsPaginator = client.get_paginator("search_hours_of_operations")
     search_predefined_attributes_paginator: SearchPredefinedAttributesPaginator = client.get_paginator("search_predefined_attributes")
     search_prompts_paginator: SearchPromptsPaginator = client.get_paginator("search_prompts")
@@ -127,6 +138,7 @@ Usage::
     search_resource_tags_paginator: SearchResourceTagsPaginator = client.get_paginator("search_resource_tags")
     search_routing_profiles_paginator: SearchRoutingProfilesPaginator = client.get_paginator("search_routing_profiles")
     search_security_profiles_paginator: SearchSecurityProfilesPaginator = client.get_paginator("search_security_profiles")
+    search_user_hierarchy_groups_paginator: SearchUserHierarchyGroupsPaginator = client.get_paginator("search_user_hierarchy_groups")
     search_users_paginator: SearchUsersPaginator = client.get_paginator("search_users")
     search_vocabularies_paginator: SearchVocabulariesPaginator = client.get_paginator("search_vocabularies")
     ```
@@ -142,11 +154,13 @@ from .paginator import (
     ListContactEvaluationsPaginator,
     ListContactFlowModulesPaginator,
     ListContactFlowsPaginator,
+    ListContactFlowVersionsPaginator,
     ListContactReferencesPaginator,
     ListDefaultVocabulariesPaginator,
     ListEvaluationFormsPaginator,
     ListEvaluationFormVersionsPaginator,
     ListFlowAssociationsPaginator,
+    ListHoursOfOperationOverridesPaginator,
     ListHoursOfOperationsPaginator,
     ListInstanceAttributesPaginator,
     ListInstancesPaginator,
@@ -177,10 +191,12 @@ from .paginator import (
     ListUsersPaginator,
     ListViewsPaginator,
     ListViewVersionsPaginator,
+    SearchAgentStatusesPaginator,
     SearchAvailablePhoneNumbersPaginator,
     SearchContactFlowModulesPaginator,
     SearchContactFlowsPaginator,
     SearchContactsPaginator,
+    SearchHoursOfOperationOverridesPaginator,
     SearchHoursOfOperationsPaginator,
     SearchPredefinedAttributesPaginator,
     SearchPromptsPaginator,
@@ -189,6 +205,7 @@ from .paginator import (
     SearchResourceTagsPaginator,
     SearchRoutingProfilesPaginator,
     SearchSecurityProfilesPaginator,
+    SearchUserHierarchyGroupsPaginator,
     SearchUsersPaginator,
     SearchVocabulariesPaginator,
 )
@@ -205,12 +222,14 @@ __all__ = (
     "ListBotsPaginator",
     "ListContactEvaluationsPaginator",
     "ListContactFlowModulesPaginator",
+    "ListContactFlowVersionsPaginator",
     "ListContactFlowsPaginator",
     "ListContactReferencesPaginator",
     "ListDefaultVocabulariesPaginator",
     "ListEvaluationFormVersionsPaginator",
     "ListEvaluationFormsPaginator",
     "ListFlowAssociationsPaginator",
+    "ListHoursOfOperationOverridesPaginator",
     "ListHoursOfOperationsPaginator",
     "ListInstanceAttributesPaginator",
     "ListInstanceStorageConfigsPaginator",
@@ -241,10 +260,12 @@ __all__ = (
     "ListUsersPaginator",
     "ListViewVersionsPaginator",
     "ListViewsPaginator",
+    "SearchAgentStatusesPaginator",
     "SearchAvailablePhoneNumbersPaginator",
     "SearchContactFlowModulesPaginator",
     "SearchContactFlowsPaginator",
     "SearchContactsPaginator",
+    "SearchHoursOfOperationOverridesPaginator",
     "SearchHoursOfOperationsPaginator",
     "SearchPredefinedAttributesPaginator",
     "SearchPromptsPaginator",
@@ -253,6 +274,7 @@ __all__ = (
     "SearchResourceTagsPaginator",
     "SearchRoutingProfilesPaginator",
     "SearchSecurityProfilesPaginator",
+    "SearchUserHierarchyGroupsPaginator",
     "SearchUsersPaginator",
     "SearchVocabulariesPaginator",
 )

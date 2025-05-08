@@ -1,20 +1,24 @@
 """
 Type annotations for cloudfront service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_cloudfront.type_defs import ActiveTrustedKeyGroupsTypeDef
+    from mypy_boto3_cloudfront.type_defs import AliasICPRecordalTypeDef
 
-    data: ActiveTrustedKeyGroupsTypeDef = {...}
+    data: AliasICPRecordalTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import IO, Any, Dict, List, Union
+from typing import IO, Any, Union
 
 from botocore.response import StreamingBody
 
@@ -24,7 +28,13 @@ from .literals import (
     CachePolicyQueryStringBehaviorType,
     CachePolicyTypeType,
     CertificateSourceType,
+    CertificateTransparencyLoggingPreferenceType,
+    ConnectionModeType,
     ContinuousDeploymentPolicyTypeType,
+    CustomizationActionTypeType,
+    DistributionResourceTypeType,
+    DnsConfigurationStatusType,
+    DomainStatusType,
     EventTypeType,
     FrameOptionsListType,
     FunctionRuntimeType,
@@ -33,10 +43,12 @@ from .literals import (
     HttpVersionType,
     ICPRecordalStatusType,
     ItemSelectionType,
+    ManagedCertificateStatusType,
     MethodType,
     MinimumProtocolVersionType,
     OriginAccessControlOriginTypesType,
     OriginAccessControlSigningBehaviorsType,
+    OriginGroupSelectionCriteriaType,
     OriginProtocolPolicyType,
     OriginRequestPolicyCookieBehaviorType,
     OriginRequestPolicyHeaderBehaviorType,
@@ -49,320 +61,518 @@ from .literals import (
     ResponseHeadersPolicyTypeType,
     SslProtocolType,
     SSLSupportMethodType,
+    ValidationTokenHostType,
     ViewerProtocolPolicyType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
     "ActiveTrustedKeyGroupsTypeDef",
     "ActiveTrustedSignersTypeDef",
     "AliasICPRecordalTypeDef",
+    "AliasesOutputTypeDef",
     "AliasesTypeDef",
+    "AliasesUnionTypeDef",
+    "AllowedMethodsOutputTypeDef",
     "AllowedMethodsTypeDef",
-    "AssociateAliasRequestRequestTypeDef",
+    "AllowedMethodsUnionTypeDef",
+    "AnycastIpListCollectionTypeDef",
+    "AnycastIpListSummaryTypeDef",
+    "AnycastIpListTypeDef",
+    "AssociateAliasRequestTypeDef",
+    "AssociateDistributionTenantWebACLRequestTypeDef",
+    "AssociateDistributionTenantWebACLResultTypeDef",
+    "AssociateDistributionWebACLRequestTypeDef",
+    "AssociateDistributionWebACLResultTypeDef",
+    "BlobTypeDef",
+    "CacheBehaviorOutputTypeDef",
     "CacheBehaviorTypeDef",
+    "CacheBehaviorUnionTypeDef",
+    "CacheBehaviorsOutputTypeDef",
     "CacheBehaviorsTypeDef",
+    "CacheBehaviorsUnionTypeDef",
+    "CachePolicyConfigOutputTypeDef",
     "CachePolicyConfigTypeDef",
+    "CachePolicyConfigUnionTypeDef",
+    "CachePolicyCookiesConfigOutputTypeDef",
     "CachePolicyCookiesConfigTypeDef",
+    "CachePolicyHeadersConfigOutputTypeDef",
     "CachePolicyHeadersConfigTypeDef",
     "CachePolicyListTypeDef",
+    "CachePolicyQueryStringsConfigOutputTypeDef",
     "CachePolicyQueryStringsConfigTypeDef",
     "CachePolicySummaryTypeDef",
     "CachePolicyTypeDef",
+    "CachedMethodsOutputTypeDef",
     "CachedMethodsTypeDef",
+    "CachedMethodsUnionTypeDef",
+    "CertificateTypeDef",
     "CloudFrontOriginAccessIdentityConfigTypeDef",
     "CloudFrontOriginAccessIdentityListTypeDef",
     "CloudFrontOriginAccessIdentitySummaryTypeDef",
     "CloudFrontOriginAccessIdentityTypeDef",
     "ConflictingAliasTypeDef",
     "ConflictingAliasesListTypeDef",
+    "ConnectionGroupAssociationFilterTypeDef",
+    "ConnectionGroupSummaryTypeDef",
+    "ConnectionGroupTypeDef",
+    "ContentTypeProfileConfigOutputTypeDef",
     "ContentTypeProfileConfigTypeDef",
     "ContentTypeProfileTypeDef",
+    "ContentTypeProfilesOutputTypeDef",
     "ContentTypeProfilesTypeDef",
+    "ContinuousDeploymentPolicyConfigOutputTypeDef",
     "ContinuousDeploymentPolicyConfigTypeDef",
+    "ContinuousDeploymentPolicyConfigUnionTypeDef",
     "ContinuousDeploymentPolicyListTypeDef",
     "ContinuousDeploymentPolicySummaryTypeDef",
     "ContinuousDeploymentPolicyTypeDef",
     "ContinuousDeploymentSingleHeaderConfigTypeDef",
     "ContinuousDeploymentSingleWeightConfigTypeDef",
+    "CookieNamesOutputTypeDef",
     "CookieNamesTypeDef",
+    "CookieNamesUnionTypeDef",
+    "CookiePreferenceOutputTypeDef",
     "CookiePreferenceTypeDef",
-    "CopyDistributionRequestRequestTypeDef",
+    "CookiePreferenceUnionTypeDef",
+    "CopyDistributionRequestTypeDef",
     "CopyDistributionResultTypeDef",
-    "CreateCachePolicyRequestRequestTypeDef",
+    "CreateAnycastIpListRequestTypeDef",
+    "CreateAnycastIpListResultTypeDef",
+    "CreateCachePolicyRequestTypeDef",
     "CreateCachePolicyResultTypeDef",
-    "CreateCloudFrontOriginAccessIdentityRequestRequestTypeDef",
+    "CreateCloudFrontOriginAccessIdentityRequestTypeDef",
     "CreateCloudFrontOriginAccessIdentityResultTypeDef",
-    "CreateContinuousDeploymentPolicyRequestRequestTypeDef",
+    "CreateConnectionGroupRequestTypeDef",
+    "CreateConnectionGroupResultTypeDef",
+    "CreateContinuousDeploymentPolicyRequestTypeDef",
     "CreateContinuousDeploymentPolicyResultTypeDef",
-    "CreateDistributionRequestRequestTypeDef",
+    "CreateDistributionRequestTypeDef",
     "CreateDistributionResultTypeDef",
-    "CreateDistributionWithTagsRequestRequestTypeDef",
+    "CreateDistributionTenantRequestTypeDef",
+    "CreateDistributionTenantResultTypeDef",
+    "CreateDistributionWithTagsRequestTypeDef",
     "CreateDistributionWithTagsResultTypeDef",
-    "CreateFieldLevelEncryptionConfigRequestRequestTypeDef",
+    "CreateFieldLevelEncryptionConfigRequestTypeDef",
     "CreateFieldLevelEncryptionConfigResultTypeDef",
-    "CreateFieldLevelEncryptionProfileRequestRequestTypeDef",
+    "CreateFieldLevelEncryptionProfileRequestTypeDef",
     "CreateFieldLevelEncryptionProfileResultTypeDef",
-    "CreateFunctionRequestRequestTypeDef",
+    "CreateFunctionRequestTypeDef",
     "CreateFunctionResultTypeDef",
-    "CreateInvalidationRequestRequestTypeDef",
+    "CreateInvalidationForDistributionTenantRequestTypeDef",
+    "CreateInvalidationForDistributionTenantResultTypeDef",
+    "CreateInvalidationRequestTypeDef",
     "CreateInvalidationResultTypeDef",
-    "CreateKeyGroupRequestRequestTypeDef",
+    "CreateKeyGroupRequestTypeDef",
     "CreateKeyGroupResultTypeDef",
-    "CreateKeyValueStoreRequestRequestTypeDef",
+    "CreateKeyValueStoreRequestTypeDef",
     "CreateKeyValueStoreResultTypeDef",
-    "CreateMonitoringSubscriptionRequestRequestTypeDef",
+    "CreateMonitoringSubscriptionRequestTypeDef",
     "CreateMonitoringSubscriptionResultTypeDef",
-    "CreateOriginAccessControlRequestRequestTypeDef",
+    "CreateOriginAccessControlRequestTypeDef",
     "CreateOriginAccessControlResultTypeDef",
-    "CreateOriginRequestPolicyRequestRequestTypeDef",
+    "CreateOriginRequestPolicyRequestTypeDef",
     "CreateOriginRequestPolicyResultTypeDef",
-    "CreatePublicKeyRequestRequestTypeDef",
+    "CreatePublicKeyRequestTypeDef",
     "CreatePublicKeyResultTypeDef",
-    "CreateRealtimeLogConfigRequestRequestTypeDef",
+    "CreateRealtimeLogConfigRequestTypeDef",
     "CreateRealtimeLogConfigResultTypeDef",
-    "CreateResponseHeadersPolicyRequestRequestTypeDef",
+    "CreateResponseHeadersPolicyRequestTypeDef",
     "CreateResponseHeadersPolicyResultTypeDef",
-    "CreateStreamingDistributionRequestRequestTypeDef",
+    "CreateStreamingDistributionRequestTypeDef",
     "CreateStreamingDistributionResultTypeDef",
-    "CreateStreamingDistributionWithTagsRequestRequestTypeDef",
+    "CreateStreamingDistributionWithTagsRequestTypeDef",
     "CreateStreamingDistributionWithTagsResultTypeDef",
+    "CreateVpcOriginRequestTypeDef",
+    "CreateVpcOriginResultTypeDef",
     "CustomErrorResponseTypeDef",
+    "CustomErrorResponsesOutputTypeDef",
     "CustomErrorResponsesTypeDef",
+    "CustomErrorResponsesUnionTypeDef",
+    "CustomHeadersOutputTypeDef",
     "CustomHeadersTypeDef",
+    "CustomHeadersUnionTypeDef",
+    "CustomOriginConfigOutputTypeDef",
     "CustomOriginConfigTypeDef",
+    "CustomOriginConfigUnionTypeDef",
+    "CustomizationsOutputTypeDef",
+    "CustomizationsTypeDef",
+    "CustomizationsUnionTypeDef",
+    "DefaultCacheBehaviorOutputTypeDef",
     "DefaultCacheBehaviorTypeDef",
-    "DeleteCachePolicyRequestRequestTypeDef",
-    "DeleteCloudFrontOriginAccessIdentityRequestRequestTypeDef",
-    "DeleteContinuousDeploymentPolicyRequestRequestTypeDef",
-    "DeleteDistributionRequestRequestTypeDef",
-    "DeleteFieldLevelEncryptionConfigRequestRequestTypeDef",
-    "DeleteFieldLevelEncryptionProfileRequestRequestTypeDef",
-    "DeleteFunctionRequestRequestTypeDef",
-    "DeleteKeyGroupRequestRequestTypeDef",
-    "DeleteKeyValueStoreRequestRequestTypeDef",
-    "DeleteMonitoringSubscriptionRequestRequestTypeDef",
-    "DeleteOriginAccessControlRequestRequestTypeDef",
-    "DeleteOriginRequestPolicyRequestRequestTypeDef",
-    "DeletePublicKeyRequestRequestTypeDef",
-    "DeleteRealtimeLogConfigRequestRequestTypeDef",
-    "DeleteResponseHeadersPolicyRequestRequestTypeDef",
-    "DeleteStreamingDistributionRequestRequestTypeDef",
-    "DescribeFunctionRequestRequestTypeDef",
+    "DefaultCacheBehaviorUnionTypeDef",
+    "DeleteAnycastIpListRequestTypeDef",
+    "DeleteCachePolicyRequestTypeDef",
+    "DeleteCloudFrontOriginAccessIdentityRequestTypeDef",
+    "DeleteConnectionGroupRequestTypeDef",
+    "DeleteContinuousDeploymentPolicyRequestTypeDef",
+    "DeleteDistributionRequestTypeDef",
+    "DeleteDistributionTenantRequestTypeDef",
+    "DeleteFieldLevelEncryptionConfigRequestTypeDef",
+    "DeleteFieldLevelEncryptionProfileRequestTypeDef",
+    "DeleteFunctionRequestTypeDef",
+    "DeleteKeyGroupRequestTypeDef",
+    "DeleteKeyValueStoreRequestTypeDef",
+    "DeleteMonitoringSubscriptionRequestTypeDef",
+    "DeleteOriginAccessControlRequestTypeDef",
+    "DeleteOriginRequestPolicyRequestTypeDef",
+    "DeletePublicKeyRequestTypeDef",
+    "DeleteRealtimeLogConfigRequestTypeDef",
+    "DeleteResponseHeadersPolicyRequestTypeDef",
+    "DeleteStreamingDistributionRequestTypeDef",
+    "DeleteVpcOriginRequestTypeDef",
+    "DeleteVpcOriginResultTypeDef",
+    "DescribeFunctionRequestTypeDef",
     "DescribeFunctionResultTypeDef",
-    "DescribeKeyValueStoreRequestRequestTypeDef",
+    "DescribeKeyValueStoreRequestTypeDef",
     "DescribeKeyValueStoreResultTypeDef",
+    "DisassociateDistributionTenantWebACLRequestTypeDef",
+    "DisassociateDistributionTenantWebACLResultTypeDef",
+    "DisassociateDistributionWebACLRequestTypeDef",
+    "DisassociateDistributionWebACLResultTypeDef",
+    "DistributionConfigOutputTypeDef",
     "DistributionConfigTypeDef",
+    "DistributionConfigUnionTypeDef",
     "DistributionConfigWithTagsTypeDef",
     "DistributionIdListTypeDef",
     "DistributionListTypeDef",
+    "DistributionResourceIdTypeDef",
     "DistributionSummaryTypeDef",
+    "DistributionTenantAssociationFilterTypeDef",
+    "DistributionTenantSummaryTypeDef",
+    "DistributionTenantTypeDef",
     "DistributionTypeDef",
+    "DnsConfigurationTypeDef",
+    "DomainConflictTypeDef",
+    "DomainItemTypeDef",
+    "DomainResultTypeDef",
+    "EmptyResponseMetadataTypeDef",
+    "EncryptionEntitiesOutputTypeDef",
     "EncryptionEntitiesTypeDef",
+    "EncryptionEntityOutputTypeDef",
     "EncryptionEntityTypeDef",
     "EndPointTypeDef",
+    "FieldLevelEncryptionConfigOutputTypeDef",
     "FieldLevelEncryptionConfigTypeDef",
+    "FieldLevelEncryptionConfigUnionTypeDef",
     "FieldLevelEncryptionListTypeDef",
+    "FieldLevelEncryptionProfileConfigOutputTypeDef",
     "FieldLevelEncryptionProfileConfigTypeDef",
+    "FieldLevelEncryptionProfileConfigUnionTypeDef",
     "FieldLevelEncryptionProfileListTypeDef",
     "FieldLevelEncryptionProfileSummaryTypeDef",
     "FieldLevelEncryptionProfileTypeDef",
     "FieldLevelEncryptionSummaryTypeDef",
     "FieldLevelEncryptionTypeDef",
+    "FieldPatternsOutputTypeDef",
     "FieldPatternsTypeDef",
+    "ForwardedValuesOutputTypeDef",
     "ForwardedValuesTypeDef",
+    "ForwardedValuesUnionTypeDef",
     "FunctionAssociationTypeDef",
+    "FunctionAssociationsOutputTypeDef",
     "FunctionAssociationsTypeDef",
+    "FunctionAssociationsUnionTypeDef",
+    "FunctionConfigOutputTypeDef",
     "FunctionConfigTypeDef",
+    "FunctionConfigUnionTypeDef",
     "FunctionListTypeDef",
     "FunctionMetadataTypeDef",
     "FunctionSummaryTypeDef",
+    "GeoRestrictionCustomizationOutputTypeDef",
+    "GeoRestrictionCustomizationTypeDef",
+    "GeoRestrictionOutputTypeDef",
     "GeoRestrictionTypeDef",
-    "GetCachePolicyConfigRequestRequestTypeDef",
+    "GeoRestrictionUnionTypeDef",
+    "GetAnycastIpListRequestTypeDef",
+    "GetAnycastIpListResultTypeDef",
+    "GetCachePolicyConfigRequestTypeDef",
     "GetCachePolicyConfigResultTypeDef",
-    "GetCachePolicyRequestRequestTypeDef",
+    "GetCachePolicyRequestTypeDef",
     "GetCachePolicyResultTypeDef",
-    "GetCloudFrontOriginAccessIdentityConfigRequestRequestTypeDef",
+    "GetCloudFrontOriginAccessIdentityConfigRequestTypeDef",
     "GetCloudFrontOriginAccessIdentityConfigResultTypeDef",
-    "GetCloudFrontOriginAccessIdentityRequestRequestTypeDef",
+    "GetCloudFrontOriginAccessIdentityRequestTypeDef",
     "GetCloudFrontOriginAccessIdentityResultTypeDef",
-    "GetContinuousDeploymentPolicyConfigRequestRequestTypeDef",
+    "GetConnectionGroupByRoutingEndpointRequestTypeDef",
+    "GetConnectionGroupByRoutingEndpointResultTypeDef",
+    "GetConnectionGroupRequestTypeDef",
+    "GetConnectionGroupResultTypeDef",
+    "GetContinuousDeploymentPolicyConfigRequestTypeDef",
     "GetContinuousDeploymentPolicyConfigResultTypeDef",
-    "GetContinuousDeploymentPolicyRequestRequestTypeDef",
+    "GetContinuousDeploymentPolicyRequestTypeDef",
     "GetContinuousDeploymentPolicyResultTypeDef",
-    "GetDistributionConfigRequestRequestTypeDef",
+    "GetDistributionConfigRequestTypeDef",
     "GetDistributionConfigResultTypeDef",
-    "GetDistributionRequestRequestTypeDef",
+    "GetDistributionRequestTypeDef",
+    "GetDistributionRequestWaitTypeDef",
     "GetDistributionResultTypeDef",
-    "GetFieldLevelEncryptionConfigRequestRequestTypeDef",
+    "GetDistributionTenantByDomainRequestTypeDef",
+    "GetDistributionTenantByDomainResultTypeDef",
+    "GetDistributionTenantRequestTypeDef",
+    "GetDistributionTenantResultTypeDef",
+    "GetFieldLevelEncryptionConfigRequestTypeDef",
     "GetFieldLevelEncryptionConfigResultTypeDef",
-    "GetFieldLevelEncryptionProfileConfigRequestRequestTypeDef",
+    "GetFieldLevelEncryptionProfileConfigRequestTypeDef",
     "GetFieldLevelEncryptionProfileConfigResultTypeDef",
-    "GetFieldLevelEncryptionProfileRequestRequestTypeDef",
+    "GetFieldLevelEncryptionProfileRequestTypeDef",
     "GetFieldLevelEncryptionProfileResultTypeDef",
-    "GetFieldLevelEncryptionRequestRequestTypeDef",
+    "GetFieldLevelEncryptionRequestTypeDef",
     "GetFieldLevelEncryptionResultTypeDef",
-    "GetFunctionRequestRequestTypeDef",
+    "GetFunctionRequestTypeDef",
     "GetFunctionResultTypeDef",
-    "GetInvalidationRequestRequestTypeDef",
+    "GetInvalidationForDistributionTenantRequestTypeDef",
+    "GetInvalidationForDistributionTenantRequestWaitTypeDef",
+    "GetInvalidationForDistributionTenantResultTypeDef",
+    "GetInvalidationRequestTypeDef",
+    "GetInvalidationRequestWaitTypeDef",
     "GetInvalidationResultTypeDef",
-    "GetKeyGroupConfigRequestRequestTypeDef",
+    "GetKeyGroupConfigRequestTypeDef",
     "GetKeyGroupConfigResultTypeDef",
-    "GetKeyGroupRequestRequestTypeDef",
+    "GetKeyGroupRequestTypeDef",
     "GetKeyGroupResultTypeDef",
-    "GetMonitoringSubscriptionRequestRequestTypeDef",
+    "GetManagedCertificateDetailsRequestTypeDef",
+    "GetManagedCertificateDetailsResultTypeDef",
+    "GetMonitoringSubscriptionRequestTypeDef",
     "GetMonitoringSubscriptionResultTypeDef",
-    "GetOriginAccessControlConfigRequestRequestTypeDef",
+    "GetOriginAccessControlConfigRequestTypeDef",
     "GetOriginAccessControlConfigResultTypeDef",
-    "GetOriginAccessControlRequestRequestTypeDef",
+    "GetOriginAccessControlRequestTypeDef",
     "GetOriginAccessControlResultTypeDef",
-    "GetOriginRequestPolicyConfigRequestRequestTypeDef",
+    "GetOriginRequestPolicyConfigRequestTypeDef",
     "GetOriginRequestPolicyConfigResultTypeDef",
-    "GetOriginRequestPolicyRequestRequestTypeDef",
+    "GetOriginRequestPolicyRequestTypeDef",
     "GetOriginRequestPolicyResultTypeDef",
-    "GetPublicKeyConfigRequestRequestTypeDef",
+    "GetPublicKeyConfigRequestTypeDef",
     "GetPublicKeyConfigResultTypeDef",
-    "GetPublicKeyRequestRequestTypeDef",
+    "GetPublicKeyRequestTypeDef",
     "GetPublicKeyResultTypeDef",
-    "GetRealtimeLogConfigRequestRequestTypeDef",
+    "GetRealtimeLogConfigRequestTypeDef",
     "GetRealtimeLogConfigResultTypeDef",
-    "GetResponseHeadersPolicyConfigRequestRequestTypeDef",
+    "GetResponseHeadersPolicyConfigRequestTypeDef",
     "GetResponseHeadersPolicyConfigResultTypeDef",
-    "GetResponseHeadersPolicyRequestRequestTypeDef",
+    "GetResponseHeadersPolicyRequestTypeDef",
     "GetResponseHeadersPolicyResultTypeDef",
-    "GetStreamingDistributionConfigRequestRequestTypeDef",
+    "GetStreamingDistributionConfigRequestTypeDef",
     "GetStreamingDistributionConfigResultTypeDef",
-    "GetStreamingDistributionRequestRequestTypeDef",
+    "GetStreamingDistributionRequestTypeDef",
+    "GetStreamingDistributionRequestWaitTypeDef",
     "GetStreamingDistributionResultTypeDef",
+    "GetVpcOriginRequestTypeDef",
+    "GetVpcOriginResultTypeDef",
+    "GrpcConfigTypeDef",
+    "HeadersOutputTypeDef",
     "HeadersTypeDef",
+    "HeadersUnionTypeDef",
     "ImportSourceTypeDef",
+    "InvalidationBatchOutputTypeDef",
     "InvalidationBatchTypeDef",
+    "InvalidationBatchUnionTypeDef",
     "InvalidationListTypeDef",
     "InvalidationSummaryTypeDef",
     "InvalidationTypeDef",
     "KGKeyPairIdsTypeDef",
+    "KeyGroupConfigOutputTypeDef",
     "KeyGroupConfigTypeDef",
+    "KeyGroupConfigUnionTypeDef",
     "KeyGroupListTypeDef",
     "KeyGroupSummaryTypeDef",
     "KeyGroupTypeDef",
     "KeyPairIdsTypeDef",
     "KeyValueStoreAssociationTypeDef",
+    "KeyValueStoreAssociationsOutputTypeDef",
     "KeyValueStoreAssociationsTypeDef",
     "KeyValueStoreListTypeDef",
     "KeyValueStoreTypeDef",
     "KinesisStreamConfigTypeDef",
     "LambdaFunctionAssociationTypeDef",
+    "LambdaFunctionAssociationsOutputTypeDef",
     "LambdaFunctionAssociationsTypeDef",
-    "ListCachePoliciesRequestRequestTypeDef",
+    "LambdaFunctionAssociationsUnionTypeDef",
+    "ListAnycastIpListsRequestTypeDef",
+    "ListAnycastIpListsResultTypeDef",
+    "ListCachePoliciesRequestTypeDef",
     "ListCachePoliciesResultTypeDef",
-    "ListCloudFrontOriginAccessIdentitiesRequestRequestTypeDef",
+    "ListCloudFrontOriginAccessIdentitiesRequestPaginateTypeDef",
+    "ListCloudFrontOriginAccessIdentitiesRequestTypeDef",
     "ListCloudFrontOriginAccessIdentitiesResultTypeDef",
-    "ListConflictingAliasesRequestRequestTypeDef",
+    "ListConflictingAliasesRequestTypeDef",
     "ListConflictingAliasesResultTypeDef",
-    "ListContinuousDeploymentPoliciesRequestRequestTypeDef",
+    "ListConnectionGroupsRequestPaginateTypeDef",
+    "ListConnectionGroupsRequestTypeDef",
+    "ListConnectionGroupsResultTypeDef",
+    "ListContinuousDeploymentPoliciesRequestTypeDef",
     "ListContinuousDeploymentPoliciesResultTypeDef",
-    "ListDistributionsByCachePolicyIdRequestRequestTypeDef",
+    "ListDistributionTenantsByCustomizationRequestPaginateTypeDef",
+    "ListDistributionTenantsByCustomizationRequestTypeDef",
+    "ListDistributionTenantsByCustomizationResultTypeDef",
+    "ListDistributionTenantsRequestPaginateTypeDef",
+    "ListDistributionTenantsRequestTypeDef",
+    "ListDistributionTenantsResultTypeDef",
+    "ListDistributionsByAnycastIpListIdRequestTypeDef",
+    "ListDistributionsByAnycastIpListIdResultTypeDef",
+    "ListDistributionsByCachePolicyIdRequestTypeDef",
     "ListDistributionsByCachePolicyIdResultTypeDef",
-    "ListDistributionsByKeyGroupRequestRequestTypeDef",
+    "ListDistributionsByConnectionModeRequestPaginateTypeDef",
+    "ListDistributionsByConnectionModeRequestTypeDef",
+    "ListDistributionsByConnectionModeResultTypeDef",
+    "ListDistributionsByKeyGroupRequestTypeDef",
     "ListDistributionsByKeyGroupResultTypeDef",
-    "ListDistributionsByOriginRequestPolicyIdRequestRequestTypeDef",
+    "ListDistributionsByOriginRequestPolicyIdRequestTypeDef",
     "ListDistributionsByOriginRequestPolicyIdResultTypeDef",
-    "ListDistributionsByRealtimeLogConfigRequestRequestTypeDef",
+    "ListDistributionsByRealtimeLogConfigRequestTypeDef",
     "ListDistributionsByRealtimeLogConfigResultTypeDef",
-    "ListDistributionsByResponseHeadersPolicyIdRequestRequestTypeDef",
+    "ListDistributionsByResponseHeadersPolicyIdRequestTypeDef",
     "ListDistributionsByResponseHeadersPolicyIdResultTypeDef",
-    "ListDistributionsByWebACLIdRequestRequestTypeDef",
+    "ListDistributionsByVpcOriginIdRequestTypeDef",
+    "ListDistributionsByVpcOriginIdResultTypeDef",
+    "ListDistributionsByWebACLIdRequestTypeDef",
     "ListDistributionsByWebACLIdResultTypeDef",
-    "ListDistributionsRequestRequestTypeDef",
+    "ListDistributionsRequestPaginateTypeDef",
+    "ListDistributionsRequestTypeDef",
     "ListDistributionsResultTypeDef",
-    "ListFieldLevelEncryptionConfigsRequestRequestTypeDef",
+    "ListDomainConflictsRequestPaginateTypeDef",
+    "ListDomainConflictsRequestTypeDef",
+    "ListDomainConflictsResultTypeDef",
+    "ListFieldLevelEncryptionConfigsRequestTypeDef",
     "ListFieldLevelEncryptionConfigsResultTypeDef",
-    "ListFieldLevelEncryptionProfilesRequestRequestTypeDef",
+    "ListFieldLevelEncryptionProfilesRequestTypeDef",
     "ListFieldLevelEncryptionProfilesResultTypeDef",
-    "ListFunctionsRequestRequestTypeDef",
+    "ListFunctionsRequestTypeDef",
     "ListFunctionsResultTypeDef",
-    "ListInvalidationsRequestRequestTypeDef",
+    "ListInvalidationsForDistributionTenantRequestPaginateTypeDef",
+    "ListInvalidationsForDistributionTenantRequestTypeDef",
+    "ListInvalidationsForDistributionTenantResultTypeDef",
+    "ListInvalidationsRequestPaginateTypeDef",
+    "ListInvalidationsRequestTypeDef",
     "ListInvalidationsResultTypeDef",
-    "ListKeyGroupsRequestRequestTypeDef",
+    "ListKeyGroupsRequestTypeDef",
     "ListKeyGroupsResultTypeDef",
-    "ListKeyValueStoresRequestRequestTypeDef",
+    "ListKeyValueStoresRequestPaginateTypeDef",
+    "ListKeyValueStoresRequestTypeDef",
     "ListKeyValueStoresResultTypeDef",
-    "ListOriginAccessControlsRequestRequestTypeDef",
+    "ListOriginAccessControlsRequestTypeDef",
     "ListOriginAccessControlsResultTypeDef",
-    "ListOriginRequestPoliciesRequestRequestTypeDef",
+    "ListOriginRequestPoliciesRequestTypeDef",
     "ListOriginRequestPoliciesResultTypeDef",
-    "ListPublicKeysRequestRequestTypeDef",
+    "ListPublicKeysRequestPaginateTypeDef",
+    "ListPublicKeysRequestTypeDef",
     "ListPublicKeysResultTypeDef",
-    "ListRealtimeLogConfigsRequestRequestTypeDef",
+    "ListRealtimeLogConfigsRequestTypeDef",
     "ListRealtimeLogConfigsResultTypeDef",
-    "ListResponseHeadersPoliciesRequestRequestTypeDef",
+    "ListResponseHeadersPoliciesRequestTypeDef",
     "ListResponseHeadersPoliciesResultTypeDef",
-    "ListStreamingDistributionsRequestRequestTypeDef",
+    "ListStreamingDistributionsRequestPaginateTypeDef",
+    "ListStreamingDistributionsRequestTypeDef",
     "ListStreamingDistributionsResultTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResultTypeDef",
+    "ListVpcOriginsRequestTypeDef",
+    "ListVpcOriginsResultTypeDef",
     "LoggingConfigTypeDef",
+    "ManagedCertificateDetailsTypeDef",
+    "ManagedCertificateRequestTypeDef",
     "MonitoringSubscriptionTypeDef",
     "OriginAccessControlConfigTypeDef",
     "OriginAccessControlListTypeDef",
     "OriginAccessControlSummaryTypeDef",
     "OriginAccessControlTypeDef",
     "OriginCustomHeaderTypeDef",
+    "OriginGroupFailoverCriteriaOutputTypeDef",
     "OriginGroupFailoverCriteriaTypeDef",
+    "OriginGroupFailoverCriteriaUnionTypeDef",
     "OriginGroupMemberTypeDef",
+    "OriginGroupMembersOutputTypeDef",
     "OriginGroupMembersTypeDef",
+    "OriginGroupMembersUnionTypeDef",
+    "OriginGroupOutputTypeDef",
     "OriginGroupTypeDef",
+    "OriginGroupUnionTypeDef",
+    "OriginGroupsOutputTypeDef",
     "OriginGroupsTypeDef",
+    "OriginGroupsUnionTypeDef",
+    "OriginOutputTypeDef",
+    "OriginRequestPolicyConfigOutputTypeDef",
     "OriginRequestPolicyConfigTypeDef",
+    "OriginRequestPolicyConfigUnionTypeDef",
+    "OriginRequestPolicyCookiesConfigOutputTypeDef",
     "OriginRequestPolicyCookiesConfigTypeDef",
+    "OriginRequestPolicyHeadersConfigOutputTypeDef",
     "OriginRequestPolicyHeadersConfigTypeDef",
     "OriginRequestPolicyListTypeDef",
+    "OriginRequestPolicyQueryStringsConfigOutputTypeDef",
     "OriginRequestPolicyQueryStringsConfigTypeDef",
     "OriginRequestPolicySummaryTypeDef",
     "OriginRequestPolicyTypeDef",
     "OriginShieldTypeDef",
+    "OriginSslProtocolsOutputTypeDef",
     "OriginSslProtocolsTypeDef",
+    "OriginSslProtocolsUnionTypeDef",
     "OriginTypeDef",
+    "OriginUnionTypeDef",
+    "OriginsOutputTypeDef",
     "OriginsTypeDef",
+    "OriginsUnionTypeDef",
     "PaginatorConfigTypeDef",
+    "ParameterDefinitionSchemaTypeDef",
+    "ParameterDefinitionTypeDef",
+    "ParameterTypeDef",
+    "ParametersInCacheKeyAndForwardedToOriginOutputTypeDef",
     "ParametersInCacheKeyAndForwardedToOriginTypeDef",
+    "PathsOutputTypeDef",
     "PathsTypeDef",
     "PublicKeyConfigTypeDef",
     "PublicKeyListTypeDef",
     "PublicKeySummaryTypeDef",
     "PublicKeyTypeDef",
-    "PublishFunctionRequestRequestTypeDef",
+    "PublishFunctionRequestTypeDef",
     "PublishFunctionResultTypeDef",
+    "QueryArgProfileConfigOutputTypeDef",
     "QueryArgProfileConfigTypeDef",
     "QueryArgProfileTypeDef",
+    "QueryArgProfilesOutputTypeDef",
     "QueryArgProfilesTypeDef",
+    "QueryStringCacheKeysOutputTypeDef",
     "QueryStringCacheKeysTypeDef",
+    "QueryStringCacheKeysUnionTypeDef",
+    "QueryStringNamesOutputTypeDef",
     "QueryStringNamesTypeDef",
     "RealtimeLogConfigTypeDef",
     "RealtimeLogConfigsTypeDef",
     "RealtimeMetricsSubscriptionConfigTypeDef",
+    "ResponseHeadersPolicyAccessControlAllowHeadersOutputTypeDef",
     "ResponseHeadersPolicyAccessControlAllowHeadersTypeDef",
+    "ResponseHeadersPolicyAccessControlAllowMethodsOutputTypeDef",
     "ResponseHeadersPolicyAccessControlAllowMethodsTypeDef",
+    "ResponseHeadersPolicyAccessControlAllowOriginsOutputTypeDef",
     "ResponseHeadersPolicyAccessControlAllowOriginsTypeDef",
+    "ResponseHeadersPolicyAccessControlExposeHeadersOutputTypeDef",
     "ResponseHeadersPolicyAccessControlExposeHeadersTypeDef",
+    "ResponseHeadersPolicyConfigOutputTypeDef",
     "ResponseHeadersPolicyConfigTypeDef",
+    "ResponseHeadersPolicyConfigUnionTypeDef",
     "ResponseHeadersPolicyContentSecurityPolicyTypeDef",
     "ResponseHeadersPolicyContentTypeOptionsTypeDef",
+    "ResponseHeadersPolicyCorsConfigOutputTypeDef",
     "ResponseHeadersPolicyCorsConfigTypeDef",
     "ResponseHeadersPolicyCustomHeaderTypeDef",
+    "ResponseHeadersPolicyCustomHeadersConfigOutputTypeDef",
     "ResponseHeadersPolicyCustomHeadersConfigTypeDef",
     "ResponseHeadersPolicyFrameOptionsTypeDef",
     "ResponseHeadersPolicyListTypeDef",
     "ResponseHeadersPolicyReferrerPolicyTypeDef",
     "ResponseHeadersPolicyRemoveHeaderTypeDef",
+    "ResponseHeadersPolicyRemoveHeadersConfigOutputTypeDef",
     "ResponseHeadersPolicyRemoveHeadersConfigTypeDef",
     "ResponseHeadersPolicySecurityHeadersConfigTypeDef",
     "ResponseHeadersPolicyServerTimingHeadersConfigTypeDef",
@@ -371,4782 +581,3045 @@ __all__ = (
     "ResponseHeadersPolicyTypeDef",
     "ResponseHeadersPolicyXSSProtectionTypeDef",
     "ResponseMetadataTypeDef",
+    "RestrictionsOutputTypeDef",
     "RestrictionsTypeDef",
+    "RestrictionsUnionTypeDef",
     "S3OriginConfigTypeDef",
     "S3OriginTypeDef",
     "SessionStickinessConfigTypeDef",
     "SignerTypeDef",
+    "StagingDistributionDnsNamesOutputTypeDef",
     "StagingDistributionDnsNamesTypeDef",
+    "StatusCodesOutputTypeDef",
     "StatusCodesTypeDef",
+    "StatusCodesUnionTypeDef",
+    "StreamingDistributionConfigOutputTypeDef",
     "StreamingDistributionConfigTypeDef",
+    "StreamingDistributionConfigUnionTypeDef",
     "StreamingDistributionConfigWithTagsTypeDef",
     "StreamingDistributionListTypeDef",
     "StreamingDistributionSummaryTypeDef",
     "StreamingDistributionTypeDef",
     "StreamingLoggingConfigTypeDef",
+    "StringSchemaConfigTypeDef",
     "TagKeysTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
     "TagTypeDef",
+    "TagsOutputTypeDef",
     "TagsTypeDef",
-    "TestFunctionRequestRequestTypeDef",
+    "TagsUnionTypeDef",
+    "TenantConfigOutputTypeDef",
+    "TenantConfigTypeDef",
+    "TenantConfigUnionTypeDef",
+    "TestFunctionRequestTypeDef",
     "TestFunctionResultTypeDef",
     "TestResultTypeDef",
     "TrafficConfigTypeDef",
+    "TrustedKeyGroupsOutputTypeDef",
     "TrustedKeyGroupsTypeDef",
+    "TrustedKeyGroupsUnionTypeDef",
+    "TrustedSignersOutputTypeDef",
     "TrustedSignersTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateCachePolicyRequestRequestTypeDef",
+    "TrustedSignersUnionTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateCachePolicyRequestTypeDef",
     "UpdateCachePolicyResultTypeDef",
-    "UpdateCloudFrontOriginAccessIdentityRequestRequestTypeDef",
+    "UpdateCloudFrontOriginAccessIdentityRequestTypeDef",
     "UpdateCloudFrontOriginAccessIdentityResultTypeDef",
-    "UpdateContinuousDeploymentPolicyRequestRequestTypeDef",
+    "UpdateConnectionGroupRequestTypeDef",
+    "UpdateConnectionGroupResultTypeDef",
+    "UpdateContinuousDeploymentPolicyRequestTypeDef",
     "UpdateContinuousDeploymentPolicyResultTypeDef",
-    "UpdateDistributionRequestRequestTypeDef",
+    "UpdateDistributionRequestTypeDef",
     "UpdateDistributionResultTypeDef",
-    "UpdateDistributionWithStagingConfigRequestRequestTypeDef",
+    "UpdateDistributionTenantRequestTypeDef",
+    "UpdateDistributionTenantResultTypeDef",
+    "UpdateDistributionWithStagingConfigRequestTypeDef",
     "UpdateDistributionWithStagingConfigResultTypeDef",
-    "UpdateFieldLevelEncryptionConfigRequestRequestTypeDef",
+    "UpdateDomainAssociationRequestTypeDef",
+    "UpdateDomainAssociationResultTypeDef",
+    "UpdateFieldLevelEncryptionConfigRequestTypeDef",
     "UpdateFieldLevelEncryptionConfigResultTypeDef",
-    "UpdateFieldLevelEncryptionProfileRequestRequestTypeDef",
+    "UpdateFieldLevelEncryptionProfileRequestTypeDef",
     "UpdateFieldLevelEncryptionProfileResultTypeDef",
-    "UpdateFunctionRequestRequestTypeDef",
+    "UpdateFunctionRequestTypeDef",
     "UpdateFunctionResultTypeDef",
-    "UpdateKeyGroupRequestRequestTypeDef",
+    "UpdateKeyGroupRequestTypeDef",
     "UpdateKeyGroupResultTypeDef",
-    "UpdateKeyValueStoreRequestRequestTypeDef",
+    "UpdateKeyValueStoreRequestTypeDef",
     "UpdateKeyValueStoreResultTypeDef",
-    "UpdateOriginAccessControlRequestRequestTypeDef",
+    "UpdateOriginAccessControlRequestTypeDef",
     "UpdateOriginAccessControlResultTypeDef",
-    "UpdateOriginRequestPolicyRequestRequestTypeDef",
+    "UpdateOriginRequestPolicyRequestTypeDef",
     "UpdateOriginRequestPolicyResultTypeDef",
-    "UpdatePublicKeyRequestRequestTypeDef",
+    "UpdatePublicKeyRequestTypeDef",
     "UpdatePublicKeyResultTypeDef",
-    "UpdateRealtimeLogConfigRequestRequestTypeDef",
+    "UpdateRealtimeLogConfigRequestTypeDef",
     "UpdateRealtimeLogConfigResultTypeDef",
-    "UpdateResponseHeadersPolicyRequestRequestTypeDef",
+    "UpdateResponseHeadersPolicyRequestTypeDef",
     "UpdateResponseHeadersPolicyResultTypeDef",
-    "UpdateStreamingDistributionRequestRequestTypeDef",
+    "UpdateStreamingDistributionRequestTypeDef",
     "UpdateStreamingDistributionResultTypeDef",
+    "UpdateVpcOriginRequestTypeDef",
+    "UpdateVpcOriginResultTypeDef",
+    "ValidationTokenDetailTypeDef",
+    "VerifyDnsConfigurationRequestTypeDef",
+    "VerifyDnsConfigurationResultTypeDef",
     "ViewerCertificateTypeDef",
+    "VpcOriginConfigTypeDef",
+    "VpcOriginEndpointConfigOutputTypeDef",
+    "VpcOriginEndpointConfigTypeDef",
+    "VpcOriginEndpointConfigUnionTypeDef",
+    "VpcOriginListTypeDef",
+    "VpcOriginSummaryTypeDef",
+    "VpcOriginTypeDef",
     "WaiterConfigTypeDef",
-)
-
-_RequiredActiveTrustedKeyGroupsTypeDef = TypedDict(
-    "_RequiredActiveTrustedKeyGroupsTypeDef",
-    {
-        "Enabled": bool,
-        "Quantity": int,
-    },
-)
-_OptionalActiveTrustedKeyGroupsTypeDef = TypedDict(
-    "_OptionalActiveTrustedKeyGroupsTypeDef",
-    {
-        "Items": List["KGKeyPairIdsTypeDef"],
-    },
-    total=False,
-)
-
-class ActiveTrustedKeyGroupsTypeDef(
-    _RequiredActiveTrustedKeyGroupsTypeDef, _OptionalActiveTrustedKeyGroupsTypeDef
-):
-    pass
-
-_RequiredActiveTrustedSignersTypeDef = TypedDict(
-    "_RequiredActiveTrustedSignersTypeDef",
-    {
-        "Enabled": bool,
-        "Quantity": int,
-    },
-)
-_OptionalActiveTrustedSignersTypeDef = TypedDict(
-    "_OptionalActiveTrustedSignersTypeDef",
-    {
-        "Items": List["SignerTypeDef"],
-    },
-    total=False,
-)
-
-class ActiveTrustedSignersTypeDef(
-    _RequiredActiveTrustedSignersTypeDef, _OptionalActiveTrustedSignersTypeDef
-):
-    pass
-
-AliasICPRecordalTypeDef = TypedDict(
-    "AliasICPRecordalTypeDef",
-    {
-        "CNAME": str,
-        "ICPRecordalStatus": ICPRecordalStatusType,
-    },
-    total=False,
-)
-
-_RequiredAliasesTypeDef = TypedDict(
-    "_RequiredAliasesTypeDef",
-    {
-        "Quantity": int,
-    },
-)
-_OptionalAliasesTypeDef = TypedDict(
-    "_OptionalAliasesTypeDef",
-    {
-        "Items": List[str],
-    },
-    total=False,
-)
-
-class AliasesTypeDef(_RequiredAliasesTypeDef, _OptionalAliasesTypeDef):
-    pass
-
-_RequiredAllowedMethodsTypeDef = TypedDict(
-    "_RequiredAllowedMethodsTypeDef",
-    {
-        "Quantity": int,
-        "Items": List[MethodType],
-    },
-)
-_OptionalAllowedMethodsTypeDef = TypedDict(
-    "_OptionalAllowedMethodsTypeDef",
-    {
-        "CachedMethods": "CachedMethodsTypeDef",
-    },
-    total=False,
-)
-
-class AllowedMethodsTypeDef(_RequiredAllowedMethodsTypeDef, _OptionalAllowedMethodsTypeDef):
-    pass
-
-AssociateAliasRequestRequestTypeDef = TypedDict(
-    "AssociateAliasRequestRequestTypeDef",
-    {
-        "TargetDistributionId": str,
-        "Alias": str,
-    },
-)
-
-_RequiredCacheBehaviorTypeDef = TypedDict(
-    "_RequiredCacheBehaviorTypeDef",
-    {
-        "PathPattern": str,
-        "TargetOriginId": str,
-        "ViewerProtocolPolicy": ViewerProtocolPolicyType,
-    },
-)
-_OptionalCacheBehaviorTypeDef = TypedDict(
-    "_OptionalCacheBehaviorTypeDef",
-    {
-        "TrustedSigners": "TrustedSignersTypeDef",
-        "TrustedKeyGroups": "TrustedKeyGroupsTypeDef",
-        "AllowedMethods": "AllowedMethodsTypeDef",
-        "SmoothStreaming": bool,
-        "Compress": bool,
-        "LambdaFunctionAssociations": "LambdaFunctionAssociationsTypeDef",
-        "FunctionAssociations": "FunctionAssociationsTypeDef",
-        "FieldLevelEncryptionId": str,
-        "RealtimeLogConfigArn": str,
-        "CachePolicyId": str,
-        "OriginRequestPolicyId": str,
-        "ResponseHeadersPolicyId": str,
-        "ForwardedValues": "ForwardedValuesTypeDef",
-        "MinTTL": int,
-        "DefaultTTL": int,
-        "MaxTTL": int,
-    },
-    total=False,
-)
-
-class CacheBehaviorTypeDef(_RequiredCacheBehaviorTypeDef, _OptionalCacheBehaviorTypeDef):
-    pass
-
-_RequiredCacheBehaviorsTypeDef = TypedDict(
-    "_RequiredCacheBehaviorsTypeDef",
-    {
-        "Quantity": int,
-    },
-)
-_OptionalCacheBehaviorsTypeDef = TypedDict(
-    "_OptionalCacheBehaviorsTypeDef",
-    {
-        "Items": List["CacheBehaviorTypeDef"],
-    },
-    total=False,
-)
-
-class CacheBehaviorsTypeDef(_RequiredCacheBehaviorsTypeDef, _OptionalCacheBehaviorsTypeDef):
-    pass
-
-_RequiredCachePolicyConfigTypeDef = TypedDict(
-    "_RequiredCachePolicyConfigTypeDef",
-    {
-        "Name": str,
-        "MinTTL": int,
-    },
-)
-_OptionalCachePolicyConfigTypeDef = TypedDict(
-    "_OptionalCachePolicyConfigTypeDef",
-    {
-        "Comment": str,
-        "DefaultTTL": int,
-        "MaxTTL": int,
-        "ParametersInCacheKeyAndForwardedToOrigin": "ParametersInCacheKeyAndForwardedToOriginTypeDef",
-    },
-    total=False,
-)
-
-class CachePolicyConfigTypeDef(
-    _RequiredCachePolicyConfigTypeDef, _OptionalCachePolicyConfigTypeDef
-):
-    pass
-
-_RequiredCachePolicyCookiesConfigTypeDef = TypedDict(
-    "_RequiredCachePolicyCookiesConfigTypeDef",
-    {
-        "CookieBehavior": CachePolicyCookieBehaviorType,
-    },
-)
-_OptionalCachePolicyCookiesConfigTypeDef = TypedDict(
-    "_OptionalCachePolicyCookiesConfigTypeDef",
-    {
-        "Cookies": "CookieNamesTypeDef",
-    },
-    total=False,
-)
-
-class CachePolicyCookiesConfigTypeDef(
-    _RequiredCachePolicyCookiesConfigTypeDef, _OptionalCachePolicyCookiesConfigTypeDef
-):
-    pass
-
-_RequiredCachePolicyHeadersConfigTypeDef = TypedDict(
-    "_RequiredCachePolicyHeadersConfigTypeDef",
-    {
-        "HeaderBehavior": CachePolicyHeaderBehaviorType,
-    },
-)
-_OptionalCachePolicyHeadersConfigTypeDef = TypedDict(
-    "_OptionalCachePolicyHeadersConfigTypeDef",
-    {
-        "Headers": "HeadersTypeDef",
-    },
-    total=False,
-)
-
-class CachePolicyHeadersConfigTypeDef(
-    _RequiredCachePolicyHeadersConfigTypeDef, _OptionalCachePolicyHeadersConfigTypeDef
-):
-    pass
-
-_RequiredCachePolicyListTypeDef = TypedDict(
-    "_RequiredCachePolicyListTypeDef",
-    {
-        "MaxItems": int,
-        "Quantity": int,
-    },
-)
-_OptionalCachePolicyListTypeDef = TypedDict(
-    "_OptionalCachePolicyListTypeDef",
-    {
-        "NextMarker": str,
-        "Items": List["CachePolicySummaryTypeDef"],
-    },
-    total=False,
-)
-
-class CachePolicyListTypeDef(_RequiredCachePolicyListTypeDef, _OptionalCachePolicyListTypeDef):
-    pass
-
-_RequiredCachePolicyQueryStringsConfigTypeDef = TypedDict(
-    "_RequiredCachePolicyQueryStringsConfigTypeDef",
-    {
-        "QueryStringBehavior": CachePolicyQueryStringBehaviorType,
-    },
-)
-_OptionalCachePolicyQueryStringsConfigTypeDef = TypedDict(
-    "_OptionalCachePolicyQueryStringsConfigTypeDef",
-    {
-        "QueryStrings": "QueryStringNamesTypeDef",
-    },
-    total=False,
-)
-
-class CachePolicyQueryStringsConfigTypeDef(
-    _RequiredCachePolicyQueryStringsConfigTypeDef, _OptionalCachePolicyQueryStringsConfigTypeDef
-):
-    pass
-
-CachePolicySummaryTypeDef = TypedDict(
-    "CachePolicySummaryTypeDef",
-    {
-        "Type": CachePolicyTypeType,
-        "CachePolicy": "CachePolicyTypeDef",
-    },
-)
-
-CachePolicyTypeDef = TypedDict(
-    "CachePolicyTypeDef",
-    {
-        "Id": str,
-        "LastModifiedTime": datetime,
-        "CachePolicyConfig": "CachePolicyConfigTypeDef",
-    },
-)
-
-CachedMethodsTypeDef = TypedDict(
-    "CachedMethodsTypeDef",
-    {
-        "Quantity": int,
-        "Items": List[MethodType],
-    },
-)
-
-CloudFrontOriginAccessIdentityConfigTypeDef = TypedDict(
-    "CloudFrontOriginAccessIdentityConfigTypeDef",
-    {
-        "CallerReference": str,
-        "Comment": str,
-    },
-)
-
-_RequiredCloudFrontOriginAccessIdentityListTypeDef = TypedDict(
-    "_RequiredCloudFrontOriginAccessIdentityListTypeDef",
-    {
-        "Marker": str,
-        "MaxItems": int,
-        "IsTruncated": bool,
-        "Quantity": int,
-    },
-)
-_OptionalCloudFrontOriginAccessIdentityListTypeDef = TypedDict(
-    "_OptionalCloudFrontOriginAccessIdentityListTypeDef",
-    {
-        "NextMarker": str,
-        "Items": List["CloudFrontOriginAccessIdentitySummaryTypeDef"],
-    },
-    total=False,
-)
-
-class CloudFrontOriginAccessIdentityListTypeDef(
-    _RequiredCloudFrontOriginAccessIdentityListTypeDef,
-    _OptionalCloudFrontOriginAccessIdentityListTypeDef,
-):
-    pass
-
-CloudFrontOriginAccessIdentitySummaryTypeDef = TypedDict(
-    "CloudFrontOriginAccessIdentitySummaryTypeDef",
-    {
-        "Id": str,
-        "S3CanonicalUserId": str,
-        "Comment": str,
-    },
-)
-
-_RequiredCloudFrontOriginAccessIdentityTypeDef = TypedDict(
-    "_RequiredCloudFrontOriginAccessIdentityTypeDef",
-    {
-        "Id": str,
-        "S3CanonicalUserId": str,
-    },
-)
-_OptionalCloudFrontOriginAccessIdentityTypeDef = TypedDict(
-    "_OptionalCloudFrontOriginAccessIdentityTypeDef",
-    {
-        "CloudFrontOriginAccessIdentityConfig": "CloudFrontOriginAccessIdentityConfigTypeDef",
-    },
-    total=False,
-)
-
-class CloudFrontOriginAccessIdentityTypeDef(
-    _RequiredCloudFrontOriginAccessIdentityTypeDef, _OptionalCloudFrontOriginAccessIdentityTypeDef
-):
-    pass
-
-ConflictingAliasTypeDef = TypedDict(
-    "ConflictingAliasTypeDef",
-    {
-        "Alias": str,
-        "DistributionId": str,
-        "AccountId": str,
-    },
-    total=False,
-)
-
-ConflictingAliasesListTypeDef = TypedDict(
-    "ConflictingAliasesListTypeDef",
-    {
-        "NextMarker": str,
-        "MaxItems": int,
-        "Quantity": int,
-        "Items": List["ConflictingAliasTypeDef"],
-    },
-    total=False,
-)
-
-_RequiredContentTypeProfileConfigTypeDef = TypedDict(
-    "_RequiredContentTypeProfileConfigTypeDef",
-    {
-        "ForwardWhenContentTypeIsUnknown": bool,
-    },
-)
-_OptionalContentTypeProfileConfigTypeDef = TypedDict(
-    "_OptionalContentTypeProfileConfigTypeDef",
-    {
-        "ContentTypeProfiles": "ContentTypeProfilesTypeDef",
-    },
-    total=False,
-)
-
-class ContentTypeProfileConfigTypeDef(
-    _RequiredContentTypeProfileConfigTypeDef, _OptionalContentTypeProfileConfigTypeDef
-):
-    pass
-
-_RequiredContentTypeProfileTypeDef = TypedDict(
-    "_RequiredContentTypeProfileTypeDef",
-    {
-        "Format": Literal["URLEncoded"],
-        "ContentType": str,
-    },
-)
-_OptionalContentTypeProfileTypeDef = TypedDict(
-    "_OptionalContentTypeProfileTypeDef",
-    {
-        "ProfileId": str,
-    },
-    total=False,
-)
-
-class ContentTypeProfileTypeDef(
-    _RequiredContentTypeProfileTypeDef, _OptionalContentTypeProfileTypeDef
-):
-    pass
-
-_RequiredContentTypeProfilesTypeDef = TypedDict(
-    "_RequiredContentTypeProfilesTypeDef",
-    {
-        "Quantity": int,
-    },
-)
-_OptionalContentTypeProfilesTypeDef = TypedDict(
-    "_OptionalContentTypeProfilesTypeDef",
-    {
-        "Items": List["ContentTypeProfileTypeDef"],
-    },
-    total=False,
-)
-
-class ContentTypeProfilesTypeDef(
-    _RequiredContentTypeProfilesTypeDef, _OptionalContentTypeProfilesTypeDef
-):
-    pass
-
-_RequiredContinuousDeploymentPolicyConfigTypeDef = TypedDict(
-    "_RequiredContinuousDeploymentPolicyConfigTypeDef",
-    {
-        "StagingDistributionDnsNames": "StagingDistributionDnsNamesTypeDef",
-        "Enabled": bool,
-    },
-)
-_OptionalContinuousDeploymentPolicyConfigTypeDef = TypedDict(
-    "_OptionalContinuousDeploymentPolicyConfigTypeDef",
-    {
-        "TrafficConfig": "TrafficConfigTypeDef",
-    },
-    total=False,
-)
-
-class ContinuousDeploymentPolicyConfigTypeDef(
-    _RequiredContinuousDeploymentPolicyConfigTypeDef,
-    _OptionalContinuousDeploymentPolicyConfigTypeDef,
-):
-    pass
-
-_RequiredContinuousDeploymentPolicyListTypeDef = TypedDict(
-    "_RequiredContinuousDeploymentPolicyListTypeDef",
-    {
-        "MaxItems": int,
-        "Quantity": int,
-    },
-)
-_OptionalContinuousDeploymentPolicyListTypeDef = TypedDict(
-    "_OptionalContinuousDeploymentPolicyListTypeDef",
-    {
-        "NextMarker": str,
-        "Items": List["ContinuousDeploymentPolicySummaryTypeDef"],
-    },
-    total=False,
-)
-
-class ContinuousDeploymentPolicyListTypeDef(
-    _RequiredContinuousDeploymentPolicyListTypeDef, _OptionalContinuousDeploymentPolicyListTypeDef
-):
-    pass
-
-ContinuousDeploymentPolicySummaryTypeDef = TypedDict(
-    "ContinuousDeploymentPolicySummaryTypeDef",
-    {
-        "ContinuousDeploymentPolicy": "ContinuousDeploymentPolicyTypeDef",
-    },
-)
-
-ContinuousDeploymentPolicyTypeDef = TypedDict(
-    "ContinuousDeploymentPolicyTypeDef",
-    {
-        "Id": str,
-        "LastModifiedTime": datetime,
-        "ContinuousDeploymentPolicyConfig": "ContinuousDeploymentPolicyConfigTypeDef",
-    },
-)
-
-ContinuousDeploymentSingleHeaderConfigTypeDef = TypedDict(
-    "ContinuousDeploymentSingleHeaderConfigTypeDef",
-    {
-        "Header": str,
-        "Value": str,
-    },
-)
-
-_RequiredContinuousDeploymentSingleWeightConfigTypeDef = TypedDict(
-    "_RequiredContinuousDeploymentSingleWeightConfigTypeDef",
-    {
-        "Weight": float,
-    },
-)
-_OptionalContinuousDeploymentSingleWeightConfigTypeDef = TypedDict(
-    "_OptionalContinuousDeploymentSingleWeightConfigTypeDef",
-    {
-        "SessionStickinessConfig": "SessionStickinessConfigTypeDef",
-    },
-    total=False,
-)
-
-class ContinuousDeploymentSingleWeightConfigTypeDef(
-    _RequiredContinuousDeploymentSingleWeightConfigTypeDef,
-    _OptionalContinuousDeploymentSingleWeightConfigTypeDef,
-):
-    pass
-
-_RequiredCookieNamesTypeDef = TypedDict(
-    "_RequiredCookieNamesTypeDef",
-    {
-        "Quantity": int,
-    },
-)
-_OptionalCookieNamesTypeDef = TypedDict(
-    "_OptionalCookieNamesTypeDef",
-    {
-        "Items": List[str],
-    },
-    total=False,
-)
-
-class CookieNamesTypeDef(_RequiredCookieNamesTypeDef, _OptionalCookieNamesTypeDef):
-    pass
-
-_RequiredCookiePreferenceTypeDef = TypedDict(
-    "_RequiredCookiePreferenceTypeDef",
-    {
-        "Forward": ItemSelectionType,
-    },
-)
-_OptionalCookiePreferenceTypeDef = TypedDict(
-    "_OptionalCookiePreferenceTypeDef",
-    {
-        "WhitelistedNames": "CookieNamesTypeDef",
-    },
-    total=False,
-)
-
-class CookiePreferenceTypeDef(_RequiredCookiePreferenceTypeDef, _OptionalCookiePreferenceTypeDef):
-    pass
-
-_RequiredCopyDistributionRequestRequestTypeDef = TypedDict(
-    "_RequiredCopyDistributionRequestRequestTypeDef",
-    {
-        "PrimaryDistributionId": str,
-        "CallerReference": str,
-    },
-)
-_OptionalCopyDistributionRequestRequestTypeDef = TypedDict(
-    "_OptionalCopyDistributionRequestRequestTypeDef",
-    {
-        "Staging": bool,
-        "IfMatch": str,
-        "Enabled": bool,
-    },
-    total=False,
-)
-
-class CopyDistributionRequestRequestTypeDef(
-    _RequiredCopyDistributionRequestRequestTypeDef, _OptionalCopyDistributionRequestRequestTypeDef
-):
-    pass
-
-CopyDistributionResultTypeDef = TypedDict(
-    "CopyDistributionResultTypeDef",
-    {
-        "Distribution": "DistributionTypeDef",
-        "Location": str,
-        "ETag": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateCachePolicyRequestRequestTypeDef = TypedDict(
-    "CreateCachePolicyRequestRequestTypeDef",
-    {
-        "CachePolicyConfig": "CachePolicyConfigTypeDef",
-    },
-)
-
-CreateCachePolicyResultTypeDef = TypedDict(
-    "CreateCachePolicyResultTypeDef",
-    {
-        "CachePolicy": "CachePolicyTypeDef",
-        "Location": str,
-        "ETag": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateCloudFrontOriginAccessIdentityRequestRequestTypeDef = TypedDict(
-    "CreateCloudFrontOriginAccessIdentityRequestRequestTypeDef",
-    {
-        "CloudFrontOriginAccessIdentityConfig": "CloudFrontOriginAccessIdentityConfigTypeDef",
-    },
-)
-
-CreateCloudFrontOriginAccessIdentityResultTypeDef = TypedDict(
-    "CreateCloudFrontOriginAccessIdentityResultTypeDef",
-    {
-        "CloudFrontOriginAccessIdentity": "CloudFrontOriginAccessIdentityTypeDef",
-        "Location": str,
-        "ETag": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateContinuousDeploymentPolicyRequestRequestTypeDef = TypedDict(
-    "CreateContinuousDeploymentPolicyRequestRequestTypeDef",
-    {
-        "ContinuousDeploymentPolicyConfig": "ContinuousDeploymentPolicyConfigTypeDef",
-    },
-)
-
-CreateContinuousDeploymentPolicyResultTypeDef = TypedDict(
-    "CreateContinuousDeploymentPolicyResultTypeDef",
-    {
-        "ContinuousDeploymentPolicy": "ContinuousDeploymentPolicyTypeDef",
-        "Location": str,
-        "ETag": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateDistributionRequestRequestTypeDef = TypedDict(
-    "CreateDistributionRequestRequestTypeDef",
-    {
-        "DistributionConfig": "DistributionConfigTypeDef",
-    },
-)
-
-CreateDistributionResultTypeDef = TypedDict(
-    "CreateDistributionResultTypeDef",
-    {
-        "Distribution": "DistributionTypeDef",
-        "Location": str,
-        "ETag": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateDistributionWithTagsRequestRequestTypeDef = TypedDict(
-    "CreateDistributionWithTagsRequestRequestTypeDef",
-    {
-        "DistributionConfigWithTags": "DistributionConfigWithTagsTypeDef",
-    },
-)
-
-CreateDistributionWithTagsResultTypeDef = TypedDict(
-    "CreateDistributionWithTagsResultTypeDef",
-    {
-        "Distribution": "DistributionTypeDef",
-        "Location": str,
-        "ETag": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateFieldLevelEncryptionConfigRequestRequestTypeDef = TypedDict(
-    "CreateFieldLevelEncryptionConfigRequestRequestTypeDef",
-    {
-        "FieldLevelEncryptionConfig": "FieldLevelEncryptionConfigTypeDef",
-    },
-)
-
-CreateFieldLevelEncryptionConfigResultTypeDef = TypedDict(
-    "CreateFieldLevelEncryptionConfigResultTypeDef",
-    {
-        "FieldLevelEncryption": "FieldLevelEncryptionTypeDef",
-        "Location": str,
-        "ETag": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateFieldLevelEncryptionProfileRequestRequestTypeDef = TypedDict(
-    "CreateFieldLevelEncryptionProfileRequestRequestTypeDef",
-    {
-        "FieldLevelEncryptionProfileConfig": "FieldLevelEncryptionProfileConfigTypeDef",
-    },
-)
-
-CreateFieldLevelEncryptionProfileResultTypeDef = TypedDict(
-    "CreateFieldLevelEncryptionProfileResultTypeDef",
-    {
-        "FieldLevelEncryptionProfile": "FieldLevelEncryptionProfileTypeDef",
-        "Location": str,
-        "ETag": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateFunctionRequestRequestTypeDef = TypedDict(
-    "CreateFunctionRequestRequestTypeDef",
-    {
-        "Name": str,
-        "FunctionConfig": "FunctionConfigTypeDef",
-        "FunctionCode": Union[bytes, IO[bytes], StreamingBody],
-    },
-)
-
-CreateFunctionResultTypeDef = TypedDict(
-    "CreateFunctionResultTypeDef",
-    {
-        "FunctionSummary": "FunctionSummaryTypeDef",
-        "Location": str,
-        "ETag": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateInvalidationRequestRequestTypeDef = TypedDict(
-    "CreateInvalidationRequestRequestTypeDef",
-    {
-        "DistributionId": str,
-        "InvalidationBatch": "InvalidationBatchTypeDef",
-    },
-)
-
-CreateInvalidationResultTypeDef = TypedDict(
-    "CreateInvalidationResultTypeDef",
-    {
-        "Location": str,
-        "Invalidation": "InvalidationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateKeyGroupRequestRequestTypeDef = TypedDict(
-    "CreateKeyGroupRequestRequestTypeDef",
-    {
-        "KeyGroupConfig": "KeyGroupConfigTypeDef",
-    },
-)
-
-CreateKeyGroupResultTypeDef = TypedDict(
-    "CreateKeyGroupResultTypeDef",
-    {
-        "KeyGroup": "KeyGroupTypeDef",
-        "Location": str,
-        "ETag": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateKeyValueStoreRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateKeyValueStoreRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
-_OptionalCreateKeyValueStoreRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateKeyValueStoreRequestRequestTypeDef",
-    {
-        "Comment": str,
-        "ImportSource": "ImportSourceTypeDef",
-    },
-    total=False,
-)
-
-class CreateKeyValueStoreRequestRequestTypeDef(
-    _RequiredCreateKeyValueStoreRequestRequestTypeDef,
-    _OptionalCreateKeyValueStoreRequestRequestTypeDef,
-):
-    pass
-
-CreateKeyValueStoreResultTypeDef = TypedDict(
-    "CreateKeyValueStoreResultTypeDef",
-    {
-        "KeyValueStore": "KeyValueStoreTypeDef",
-        "ETag": str,
-        "Location": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateMonitoringSubscriptionRequestRequestTypeDef = TypedDict(
-    "CreateMonitoringSubscriptionRequestRequestTypeDef",
-    {
-        "DistributionId": str,
-        "MonitoringSubscription": "MonitoringSubscriptionTypeDef",
-    },
-)
-
-CreateMonitoringSubscriptionResultTypeDef = TypedDict(
-    "CreateMonitoringSubscriptionResultTypeDef",
-    {
-        "MonitoringSubscription": "MonitoringSubscriptionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateOriginAccessControlRequestRequestTypeDef = TypedDict(
-    "CreateOriginAccessControlRequestRequestTypeDef",
-    {
-        "OriginAccessControlConfig": "OriginAccessControlConfigTypeDef",
-    },
-)
-
-CreateOriginAccessControlResultTypeDef = TypedDict(
-    "CreateOriginAccessControlResultTypeDef",
-    {
-        "OriginAccessControl": "OriginAccessControlTypeDef",
-        "Location": str,
-        "ETag": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateOriginRequestPolicyRequestRequestTypeDef = TypedDict(
-    "CreateOriginRequestPolicyRequestRequestTypeDef",
-    {
-        "OriginRequestPolicyConfig": "OriginRequestPolicyConfigTypeDef",
-    },
-)
-
-CreateOriginRequestPolicyResultTypeDef = TypedDict(
-    "CreateOriginRequestPolicyResultTypeDef",
-    {
-        "OriginRequestPolicy": "OriginRequestPolicyTypeDef",
-        "Location": str,
-        "ETag": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreatePublicKeyRequestRequestTypeDef = TypedDict(
-    "CreatePublicKeyRequestRequestTypeDef",
-    {
-        "PublicKeyConfig": "PublicKeyConfigTypeDef",
-    },
-)
-
-CreatePublicKeyResultTypeDef = TypedDict(
-    "CreatePublicKeyResultTypeDef",
-    {
-        "PublicKey": "PublicKeyTypeDef",
-        "Location": str,
-        "ETag": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateRealtimeLogConfigRequestRequestTypeDef = TypedDict(
-    "CreateRealtimeLogConfigRequestRequestTypeDef",
-    {
-        "EndPoints": List["EndPointTypeDef"],
-        "Fields": List[str],
-        "Name": str,
-        "SamplingRate": int,
-    },
-)
-
-CreateRealtimeLogConfigResultTypeDef = TypedDict(
-    "CreateRealtimeLogConfigResultTypeDef",
-    {
-        "RealtimeLogConfig": "RealtimeLogConfigTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateResponseHeadersPolicyRequestRequestTypeDef = TypedDict(
-    "CreateResponseHeadersPolicyRequestRequestTypeDef",
-    {
-        "ResponseHeadersPolicyConfig": "ResponseHeadersPolicyConfigTypeDef",
-    },
-)
-
-CreateResponseHeadersPolicyResultTypeDef = TypedDict(
-    "CreateResponseHeadersPolicyResultTypeDef",
-    {
-        "ResponseHeadersPolicy": "ResponseHeadersPolicyTypeDef",
-        "Location": str,
-        "ETag": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateStreamingDistributionRequestRequestTypeDef = TypedDict(
-    "CreateStreamingDistributionRequestRequestTypeDef",
-    {
-        "StreamingDistributionConfig": "StreamingDistributionConfigTypeDef",
-    },
-)
-
-CreateStreamingDistributionResultTypeDef = TypedDict(
-    "CreateStreamingDistributionResultTypeDef",
-    {
-        "StreamingDistribution": "StreamingDistributionTypeDef",
-        "Location": str,
-        "ETag": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateStreamingDistributionWithTagsRequestRequestTypeDef = TypedDict(
-    "CreateStreamingDistributionWithTagsRequestRequestTypeDef",
-    {
-        "StreamingDistributionConfigWithTags": "StreamingDistributionConfigWithTagsTypeDef",
-    },
-)
-
-CreateStreamingDistributionWithTagsResultTypeDef = TypedDict(
-    "CreateStreamingDistributionWithTagsResultTypeDef",
-    {
-        "StreamingDistribution": "StreamingDistributionTypeDef",
-        "Location": str,
-        "ETag": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCustomErrorResponseTypeDef = TypedDict(
-    "_RequiredCustomErrorResponseTypeDef",
-    {
-        "ErrorCode": int,
-    },
-)
-_OptionalCustomErrorResponseTypeDef = TypedDict(
-    "_OptionalCustomErrorResponseTypeDef",
-    {
-        "ResponsePagePath": str,
-        "ResponseCode": str,
-        "ErrorCachingMinTTL": int,
-    },
-    total=False,
-)
-
-class CustomErrorResponseTypeDef(
-    _RequiredCustomErrorResponseTypeDef, _OptionalCustomErrorResponseTypeDef
-):
-    pass
-
-_RequiredCustomErrorResponsesTypeDef = TypedDict(
-    "_RequiredCustomErrorResponsesTypeDef",
-    {
-        "Quantity": int,
-    },
-)
-_OptionalCustomErrorResponsesTypeDef = TypedDict(
-    "_OptionalCustomErrorResponsesTypeDef",
-    {
-        "Items": List["CustomErrorResponseTypeDef"],
-    },
-    total=False,
-)
-
-class CustomErrorResponsesTypeDef(
-    _RequiredCustomErrorResponsesTypeDef, _OptionalCustomErrorResponsesTypeDef
-):
-    pass
-
-_RequiredCustomHeadersTypeDef = TypedDict(
-    "_RequiredCustomHeadersTypeDef",
-    {
-        "Quantity": int,
-    },
-)
-_OptionalCustomHeadersTypeDef = TypedDict(
-    "_OptionalCustomHeadersTypeDef",
-    {
-        "Items": List["OriginCustomHeaderTypeDef"],
-    },
-    total=False,
-)
-
-class CustomHeadersTypeDef(_RequiredCustomHeadersTypeDef, _OptionalCustomHeadersTypeDef):
-    pass
-
-_RequiredCustomOriginConfigTypeDef = TypedDict(
-    "_RequiredCustomOriginConfigTypeDef",
-    {
-        "HTTPPort": int,
-        "HTTPSPort": int,
-        "OriginProtocolPolicy": OriginProtocolPolicyType,
-    },
-)
-_OptionalCustomOriginConfigTypeDef = TypedDict(
-    "_OptionalCustomOriginConfigTypeDef",
-    {
-        "OriginSslProtocols": "OriginSslProtocolsTypeDef",
-        "OriginReadTimeout": int,
-        "OriginKeepaliveTimeout": int,
-    },
-    total=False,
-)
-
-class CustomOriginConfigTypeDef(
-    _RequiredCustomOriginConfigTypeDef, _OptionalCustomOriginConfigTypeDef
-):
-    pass
-
-_RequiredDefaultCacheBehaviorTypeDef = TypedDict(
-    "_RequiredDefaultCacheBehaviorTypeDef",
-    {
-        "TargetOriginId": str,
-        "ViewerProtocolPolicy": ViewerProtocolPolicyType,
-    },
-)
-_OptionalDefaultCacheBehaviorTypeDef = TypedDict(
-    "_OptionalDefaultCacheBehaviorTypeDef",
-    {
-        "TrustedSigners": "TrustedSignersTypeDef",
-        "TrustedKeyGroups": "TrustedKeyGroupsTypeDef",
-        "AllowedMethods": "AllowedMethodsTypeDef",
-        "SmoothStreaming": bool,
-        "Compress": bool,
-        "LambdaFunctionAssociations": "LambdaFunctionAssociationsTypeDef",
-        "FunctionAssociations": "FunctionAssociationsTypeDef",
-        "FieldLevelEncryptionId": str,
-        "RealtimeLogConfigArn": str,
-        "CachePolicyId": str,
-        "OriginRequestPolicyId": str,
-        "ResponseHeadersPolicyId": str,
-        "ForwardedValues": "ForwardedValuesTypeDef",
-        "MinTTL": int,
-        "DefaultTTL": int,
-        "MaxTTL": int,
-    },
-    total=False,
-)
-
-class DefaultCacheBehaviorTypeDef(
-    _RequiredDefaultCacheBehaviorTypeDef, _OptionalDefaultCacheBehaviorTypeDef
-):
-    pass
-
-_RequiredDeleteCachePolicyRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteCachePolicyRequestRequestTypeDef",
-    {
-        "Id": str,
-    },
-)
-_OptionalDeleteCachePolicyRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteCachePolicyRequestRequestTypeDef",
-    {
-        "IfMatch": str,
-    },
-    total=False,
-)
-
-class DeleteCachePolicyRequestRequestTypeDef(
-    _RequiredDeleteCachePolicyRequestRequestTypeDef, _OptionalDeleteCachePolicyRequestRequestTypeDef
-):
-    pass
-
-_RequiredDeleteCloudFrontOriginAccessIdentityRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteCloudFrontOriginAccessIdentityRequestRequestTypeDef",
-    {
-        "Id": str,
-    },
-)
-_OptionalDeleteCloudFrontOriginAccessIdentityRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteCloudFrontOriginAccessIdentityRequestRequestTypeDef",
-    {
-        "IfMatch": str,
-    },
-    total=False,
-)
-
-class DeleteCloudFrontOriginAccessIdentityRequestRequestTypeDef(
-    _RequiredDeleteCloudFrontOriginAccessIdentityRequestRequestTypeDef,
-    _OptionalDeleteCloudFrontOriginAccessIdentityRequestRequestTypeDef,
-):
-    pass
-
-_RequiredDeleteContinuousDeploymentPolicyRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteContinuousDeploymentPolicyRequestRequestTypeDef",
-    {
-        "Id": str,
-    },
-)
-_OptionalDeleteContinuousDeploymentPolicyRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteContinuousDeploymentPolicyRequestRequestTypeDef",
-    {
-        "IfMatch": str,
-    },
-    total=False,
-)
-
-class DeleteContinuousDeploymentPolicyRequestRequestTypeDef(
-    _RequiredDeleteContinuousDeploymentPolicyRequestRequestTypeDef,
-    _OptionalDeleteContinuousDeploymentPolicyRequestRequestTypeDef,
-):
-    pass
-
-_RequiredDeleteDistributionRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteDistributionRequestRequestTypeDef",
-    {
-        "Id": str,
-    },
-)
-_OptionalDeleteDistributionRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteDistributionRequestRequestTypeDef",
-    {
-        "IfMatch": str,
-    },
-    total=False,
-)
-
-class DeleteDistributionRequestRequestTypeDef(
-    _RequiredDeleteDistributionRequestRequestTypeDef,
-    _OptionalDeleteDistributionRequestRequestTypeDef,
-):
-    pass
-
-_RequiredDeleteFieldLevelEncryptionConfigRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteFieldLevelEncryptionConfigRequestRequestTypeDef",
-    {
-        "Id": str,
-    },
-)
-_OptionalDeleteFieldLevelEncryptionConfigRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteFieldLevelEncryptionConfigRequestRequestTypeDef",
-    {
-        "IfMatch": str,
-    },
-    total=False,
-)
-
-class DeleteFieldLevelEncryptionConfigRequestRequestTypeDef(
-    _RequiredDeleteFieldLevelEncryptionConfigRequestRequestTypeDef,
-    _OptionalDeleteFieldLevelEncryptionConfigRequestRequestTypeDef,
-):
-    pass
-
-_RequiredDeleteFieldLevelEncryptionProfileRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteFieldLevelEncryptionProfileRequestRequestTypeDef",
-    {
-        "Id": str,
-    },
-)
-_OptionalDeleteFieldLevelEncryptionProfileRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteFieldLevelEncryptionProfileRequestRequestTypeDef",
-    {
-        "IfMatch": str,
-    },
-    total=False,
-)
-
-class DeleteFieldLevelEncryptionProfileRequestRequestTypeDef(
-    _RequiredDeleteFieldLevelEncryptionProfileRequestRequestTypeDef,
-    _OptionalDeleteFieldLevelEncryptionProfileRequestRequestTypeDef,
-):
-    pass
-
-DeleteFunctionRequestRequestTypeDef = TypedDict(
-    "DeleteFunctionRequestRequestTypeDef",
-    {
-        "Name": str,
-        "IfMatch": str,
-    },
-)
-
-_RequiredDeleteKeyGroupRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteKeyGroupRequestRequestTypeDef",
-    {
-        "Id": str,
-    },
-)
-_OptionalDeleteKeyGroupRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteKeyGroupRequestRequestTypeDef",
-    {
-        "IfMatch": str,
-    },
-    total=False,
-)
-
-class DeleteKeyGroupRequestRequestTypeDef(
-    _RequiredDeleteKeyGroupRequestRequestTypeDef, _OptionalDeleteKeyGroupRequestRequestTypeDef
-):
-    pass
-
-DeleteKeyValueStoreRequestRequestTypeDef = TypedDict(
-    "DeleteKeyValueStoreRequestRequestTypeDef",
-    {
-        "Name": str,
-        "IfMatch": str,
-    },
-)
-
-DeleteMonitoringSubscriptionRequestRequestTypeDef = TypedDict(
-    "DeleteMonitoringSubscriptionRequestRequestTypeDef",
-    {
-        "DistributionId": str,
-    },
-)
-
-_RequiredDeleteOriginAccessControlRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteOriginAccessControlRequestRequestTypeDef",
-    {
-        "Id": str,
-    },
-)
-_OptionalDeleteOriginAccessControlRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteOriginAccessControlRequestRequestTypeDef",
-    {
-        "IfMatch": str,
-    },
-    total=False,
-)
-
-class DeleteOriginAccessControlRequestRequestTypeDef(
-    _RequiredDeleteOriginAccessControlRequestRequestTypeDef,
-    _OptionalDeleteOriginAccessControlRequestRequestTypeDef,
-):
-    pass
-
-_RequiredDeleteOriginRequestPolicyRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteOriginRequestPolicyRequestRequestTypeDef",
-    {
-        "Id": str,
-    },
-)
-_OptionalDeleteOriginRequestPolicyRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteOriginRequestPolicyRequestRequestTypeDef",
-    {
-        "IfMatch": str,
-    },
-    total=False,
-)
-
-class DeleteOriginRequestPolicyRequestRequestTypeDef(
-    _RequiredDeleteOriginRequestPolicyRequestRequestTypeDef,
-    _OptionalDeleteOriginRequestPolicyRequestRequestTypeDef,
-):
-    pass
-
-_RequiredDeletePublicKeyRequestRequestTypeDef = TypedDict(
-    "_RequiredDeletePublicKeyRequestRequestTypeDef",
-    {
-        "Id": str,
-    },
-)
-_OptionalDeletePublicKeyRequestRequestTypeDef = TypedDict(
-    "_OptionalDeletePublicKeyRequestRequestTypeDef",
-    {
-        "IfMatch": str,
-    },
-    total=False,
-)
-
-class DeletePublicKeyRequestRequestTypeDef(
-    _RequiredDeletePublicKeyRequestRequestTypeDef, _OptionalDeletePublicKeyRequestRequestTypeDef
-):
-    pass
-
-DeleteRealtimeLogConfigRequestRequestTypeDef = TypedDict(
-    "DeleteRealtimeLogConfigRequestRequestTypeDef",
-    {
-        "Name": str,
-        "ARN": str,
-    },
-    total=False,
-)
-
-_RequiredDeleteResponseHeadersPolicyRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteResponseHeadersPolicyRequestRequestTypeDef",
-    {
-        "Id": str,
-    },
-)
-_OptionalDeleteResponseHeadersPolicyRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteResponseHeadersPolicyRequestRequestTypeDef",
-    {
-        "IfMatch": str,
-    },
-    total=False,
-)
-
-class DeleteResponseHeadersPolicyRequestRequestTypeDef(
-    _RequiredDeleteResponseHeadersPolicyRequestRequestTypeDef,
-    _OptionalDeleteResponseHeadersPolicyRequestRequestTypeDef,
-):
-    pass
-
-_RequiredDeleteStreamingDistributionRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteStreamingDistributionRequestRequestTypeDef",
-    {
-        "Id": str,
-    },
-)
-_OptionalDeleteStreamingDistributionRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteStreamingDistributionRequestRequestTypeDef",
-    {
-        "IfMatch": str,
-    },
-    total=False,
-)
-
-class DeleteStreamingDistributionRequestRequestTypeDef(
-    _RequiredDeleteStreamingDistributionRequestRequestTypeDef,
-    _OptionalDeleteStreamingDistributionRequestRequestTypeDef,
-):
-    pass
-
-_RequiredDescribeFunctionRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeFunctionRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
-_OptionalDescribeFunctionRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeFunctionRequestRequestTypeDef",
-    {
-        "Stage": FunctionStageType,
-    },
-    total=False,
-)
-
-class DescribeFunctionRequestRequestTypeDef(
-    _RequiredDescribeFunctionRequestRequestTypeDef, _OptionalDescribeFunctionRequestRequestTypeDef
-):
-    pass
-
-DescribeFunctionResultTypeDef = TypedDict(
-    "DescribeFunctionResultTypeDef",
-    {
-        "FunctionSummary": "FunctionSummaryTypeDef",
-        "ETag": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeKeyValueStoreRequestRequestTypeDef = TypedDict(
-    "DescribeKeyValueStoreRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
-
-DescribeKeyValueStoreResultTypeDef = TypedDict(
-    "DescribeKeyValueStoreResultTypeDef",
-    {
-        "KeyValueStore": "KeyValueStoreTypeDef",
-        "ETag": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDistributionConfigTypeDef = TypedDict(
-    "_RequiredDistributionConfigTypeDef",
-    {
-        "CallerReference": str,
-        "Origins": "OriginsTypeDef",
-        "DefaultCacheBehavior": "DefaultCacheBehaviorTypeDef",
-        "Comment": str,
-        "Enabled": bool,
-    },
-)
-_OptionalDistributionConfigTypeDef = TypedDict(
-    "_OptionalDistributionConfigTypeDef",
-    {
-        "Aliases": "AliasesTypeDef",
-        "DefaultRootObject": str,
-        "OriginGroups": "OriginGroupsTypeDef",
-        "CacheBehaviors": "CacheBehaviorsTypeDef",
-        "CustomErrorResponses": "CustomErrorResponsesTypeDef",
-        "Logging": "LoggingConfigTypeDef",
-        "PriceClass": PriceClassType,
-        "ViewerCertificate": "ViewerCertificateTypeDef",
-        "Restrictions": "RestrictionsTypeDef",
-        "WebACLId": str,
-        "HttpVersion": HttpVersionType,
-        "IsIPV6Enabled": bool,
-        "ContinuousDeploymentPolicyId": str,
-        "Staging": bool,
-    },
-    total=False,
-)
-
-class DistributionConfigTypeDef(
-    _RequiredDistributionConfigTypeDef, _OptionalDistributionConfigTypeDef
-):
-    pass
-
-DistributionConfigWithTagsTypeDef = TypedDict(
-    "DistributionConfigWithTagsTypeDef",
-    {
-        "DistributionConfig": "DistributionConfigTypeDef",
-        "Tags": "TagsTypeDef",
-    },
-)
-
-_RequiredDistributionIdListTypeDef = TypedDict(
-    "_RequiredDistributionIdListTypeDef",
-    {
-        "Marker": str,
-        "MaxItems": int,
-        "IsTruncated": bool,
-        "Quantity": int,
-    },
-)
-_OptionalDistributionIdListTypeDef = TypedDict(
-    "_OptionalDistributionIdListTypeDef",
-    {
-        "NextMarker": str,
-        "Items": List[str],
-    },
-    total=False,
-)
-
-class DistributionIdListTypeDef(
-    _RequiredDistributionIdListTypeDef, _OptionalDistributionIdListTypeDef
-):
-    pass
-
-_RequiredDistributionListTypeDef = TypedDict(
-    "_RequiredDistributionListTypeDef",
-    {
-        "Marker": str,
-        "MaxItems": int,
-        "IsTruncated": bool,
-        "Quantity": int,
-    },
-)
-_OptionalDistributionListTypeDef = TypedDict(
-    "_OptionalDistributionListTypeDef",
-    {
-        "NextMarker": str,
-        "Items": List["DistributionSummaryTypeDef"],
-    },
-    total=False,
-)
-
-class DistributionListTypeDef(_RequiredDistributionListTypeDef, _OptionalDistributionListTypeDef):
-    pass
-
-_RequiredDistributionSummaryTypeDef = TypedDict(
-    "_RequiredDistributionSummaryTypeDef",
-    {
-        "Id": str,
-        "ARN": str,
-        "Status": str,
-        "LastModifiedTime": datetime,
-        "DomainName": str,
-        "Aliases": "AliasesTypeDef",
-        "Origins": "OriginsTypeDef",
-        "DefaultCacheBehavior": "DefaultCacheBehaviorTypeDef",
-        "CacheBehaviors": "CacheBehaviorsTypeDef",
-        "CustomErrorResponses": "CustomErrorResponsesTypeDef",
-        "Comment": str,
-        "PriceClass": PriceClassType,
-        "Enabled": bool,
-        "ViewerCertificate": "ViewerCertificateTypeDef",
-        "Restrictions": "RestrictionsTypeDef",
-        "WebACLId": str,
-        "HttpVersion": HttpVersionType,
-        "IsIPV6Enabled": bool,
-        "Staging": bool,
-    },
-)
-_OptionalDistributionSummaryTypeDef = TypedDict(
-    "_OptionalDistributionSummaryTypeDef",
-    {
-        "OriginGroups": "OriginGroupsTypeDef",
-        "AliasICPRecordals": List["AliasICPRecordalTypeDef"],
-    },
-    total=False,
-)
-
-class DistributionSummaryTypeDef(
-    _RequiredDistributionSummaryTypeDef, _OptionalDistributionSummaryTypeDef
-):
-    pass
-
-_RequiredDistributionTypeDef = TypedDict(
-    "_RequiredDistributionTypeDef",
-    {
-        "Id": str,
-        "ARN": str,
-        "Status": str,
-        "LastModifiedTime": datetime,
-        "InProgressInvalidationBatches": int,
-        "DomainName": str,
-        "DistributionConfig": "DistributionConfigTypeDef",
-    },
-)
-_OptionalDistributionTypeDef = TypedDict(
-    "_OptionalDistributionTypeDef",
-    {
-        "ActiveTrustedSigners": "ActiveTrustedSignersTypeDef",
-        "ActiveTrustedKeyGroups": "ActiveTrustedKeyGroupsTypeDef",
-        "AliasICPRecordals": List["AliasICPRecordalTypeDef"],
-    },
-    total=False,
-)
-
-class DistributionTypeDef(_RequiredDistributionTypeDef, _OptionalDistributionTypeDef):
-    pass
-
-_RequiredEncryptionEntitiesTypeDef = TypedDict(
-    "_RequiredEncryptionEntitiesTypeDef",
-    {
-        "Quantity": int,
-    },
-)
-_OptionalEncryptionEntitiesTypeDef = TypedDict(
-    "_OptionalEncryptionEntitiesTypeDef",
-    {
-        "Items": List["EncryptionEntityTypeDef"],
-    },
-    total=False,
-)
-
-class EncryptionEntitiesTypeDef(
-    _RequiredEncryptionEntitiesTypeDef, _OptionalEncryptionEntitiesTypeDef
-):
-    pass
-
-EncryptionEntityTypeDef = TypedDict(
-    "EncryptionEntityTypeDef",
-    {
-        "PublicKeyId": str,
-        "ProviderId": str,
-        "FieldPatterns": "FieldPatternsTypeDef",
-    },
-)
-
-_RequiredEndPointTypeDef = TypedDict(
-    "_RequiredEndPointTypeDef",
-    {
-        "StreamType": str,
-    },
-)
-_OptionalEndPointTypeDef = TypedDict(
-    "_OptionalEndPointTypeDef",
-    {
-        "KinesisStreamConfig": "KinesisStreamConfigTypeDef",
-    },
-    total=False,
-)
-
-class EndPointTypeDef(_RequiredEndPointTypeDef, _OptionalEndPointTypeDef):
-    pass
-
-_RequiredFieldLevelEncryptionConfigTypeDef = TypedDict(
-    "_RequiredFieldLevelEncryptionConfigTypeDef",
-    {
-        "CallerReference": str,
-    },
-)
-_OptionalFieldLevelEncryptionConfigTypeDef = TypedDict(
-    "_OptionalFieldLevelEncryptionConfigTypeDef",
-    {
-        "Comment": str,
-        "QueryArgProfileConfig": "QueryArgProfileConfigTypeDef",
-        "ContentTypeProfileConfig": "ContentTypeProfileConfigTypeDef",
-    },
-    total=False,
-)
-
-class FieldLevelEncryptionConfigTypeDef(
-    _RequiredFieldLevelEncryptionConfigTypeDef, _OptionalFieldLevelEncryptionConfigTypeDef
-):
-    pass
-
-_RequiredFieldLevelEncryptionListTypeDef = TypedDict(
-    "_RequiredFieldLevelEncryptionListTypeDef",
-    {
-        "MaxItems": int,
-        "Quantity": int,
-    },
-)
-_OptionalFieldLevelEncryptionListTypeDef = TypedDict(
-    "_OptionalFieldLevelEncryptionListTypeDef",
-    {
-        "NextMarker": str,
-        "Items": List["FieldLevelEncryptionSummaryTypeDef"],
-    },
-    total=False,
-)
-
-class FieldLevelEncryptionListTypeDef(
-    _RequiredFieldLevelEncryptionListTypeDef, _OptionalFieldLevelEncryptionListTypeDef
-):
-    pass
-
-_RequiredFieldLevelEncryptionProfileConfigTypeDef = TypedDict(
-    "_RequiredFieldLevelEncryptionProfileConfigTypeDef",
-    {
-        "Name": str,
-        "CallerReference": str,
-        "EncryptionEntities": "EncryptionEntitiesTypeDef",
-    },
-)
-_OptionalFieldLevelEncryptionProfileConfigTypeDef = TypedDict(
-    "_OptionalFieldLevelEncryptionProfileConfigTypeDef",
-    {
-        "Comment": str,
-    },
-    total=False,
-)
-
-class FieldLevelEncryptionProfileConfigTypeDef(
-    _RequiredFieldLevelEncryptionProfileConfigTypeDef,
-    _OptionalFieldLevelEncryptionProfileConfigTypeDef,
-):
-    pass
-
-_RequiredFieldLevelEncryptionProfileListTypeDef = TypedDict(
-    "_RequiredFieldLevelEncryptionProfileListTypeDef",
-    {
-        "MaxItems": int,
-        "Quantity": int,
-    },
-)
-_OptionalFieldLevelEncryptionProfileListTypeDef = TypedDict(
-    "_OptionalFieldLevelEncryptionProfileListTypeDef",
-    {
-        "NextMarker": str,
-        "Items": List["FieldLevelEncryptionProfileSummaryTypeDef"],
-    },
-    total=False,
-)
-
-class FieldLevelEncryptionProfileListTypeDef(
-    _RequiredFieldLevelEncryptionProfileListTypeDef, _OptionalFieldLevelEncryptionProfileListTypeDef
-):
-    pass
-
-_RequiredFieldLevelEncryptionProfileSummaryTypeDef = TypedDict(
-    "_RequiredFieldLevelEncryptionProfileSummaryTypeDef",
-    {
-        "Id": str,
-        "LastModifiedTime": datetime,
-        "Name": str,
-        "EncryptionEntities": "EncryptionEntitiesTypeDef",
-    },
-)
-_OptionalFieldLevelEncryptionProfileSummaryTypeDef = TypedDict(
-    "_OptionalFieldLevelEncryptionProfileSummaryTypeDef",
-    {
-        "Comment": str,
-    },
-    total=False,
-)
-
-class FieldLevelEncryptionProfileSummaryTypeDef(
-    _RequiredFieldLevelEncryptionProfileSummaryTypeDef,
-    _OptionalFieldLevelEncryptionProfileSummaryTypeDef,
-):
-    pass
-
-FieldLevelEncryptionProfileTypeDef = TypedDict(
-    "FieldLevelEncryptionProfileTypeDef",
-    {
-        "Id": str,
-        "LastModifiedTime": datetime,
-        "FieldLevelEncryptionProfileConfig": "FieldLevelEncryptionProfileConfigTypeDef",
-    },
-)
-
-_RequiredFieldLevelEncryptionSummaryTypeDef = TypedDict(
-    "_RequiredFieldLevelEncryptionSummaryTypeDef",
-    {
-        "Id": str,
-        "LastModifiedTime": datetime,
-    },
-)
-_OptionalFieldLevelEncryptionSummaryTypeDef = TypedDict(
-    "_OptionalFieldLevelEncryptionSummaryTypeDef",
-    {
-        "Comment": str,
-        "QueryArgProfileConfig": "QueryArgProfileConfigTypeDef",
-        "ContentTypeProfileConfig": "ContentTypeProfileConfigTypeDef",
-    },
-    total=False,
-)
-
-class FieldLevelEncryptionSummaryTypeDef(
-    _RequiredFieldLevelEncryptionSummaryTypeDef, _OptionalFieldLevelEncryptionSummaryTypeDef
-):
-    pass
-
-FieldLevelEncryptionTypeDef = TypedDict(
-    "FieldLevelEncryptionTypeDef",
-    {
-        "Id": str,
-        "LastModifiedTime": datetime,
-        "FieldLevelEncryptionConfig": "FieldLevelEncryptionConfigTypeDef",
-    },
-)
-
-_RequiredFieldPatternsTypeDef = TypedDict(
-    "_RequiredFieldPatternsTypeDef",
-    {
-        "Quantity": int,
-    },
-)
-_OptionalFieldPatternsTypeDef = TypedDict(
-    "_OptionalFieldPatternsTypeDef",
-    {
-        "Items": List[str],
-    },
-    total=False,
-)
-
-class FieldPatternsTypeDef(_RequiredFieldPatternsTypeDef, _OptionalFieldPatternsTypeDef):
-    pass
-
-_RequiredForwardedValuesTypeDef = TypedDict(
-    "_RequiredForwardedValuesTypeDef",
-    {
-        "QueryString": bool,
-        "Cookies": "CookiePreferenceTypeDef",
-    },
-)
-_OptionalForwardedValuesTypeDef = TypedDict(
-    "_OptionalForwardedValuesTypeDef",
-    {
-        "Headers": "HeadersTypeDef",
-        "QueryStringCacheKeys": "QueryStringCacheKeysTypeDef",
-    },
-    total=False,
-)
-
-class ForwardedValuesTypeDef(_RequiredForwardedValuesTypeDef, _OptionalForwardedValuesTypeDef):
-    pass
-
-FunctionAssociationTypeDef = TypedDict(
-    "FunctionAssociationTypeDef",
-    {
-        "FunctionARN": str,
-        "EventType": EventTypeType,
-    },
-)
-
-_RequiredFunctionAssociationsTypeDef = TypedDict(
-    "_RequiredFunctionAssociationsTypeDef",
-    {
-        "Quantity": int,
-    },
-)
-_OptionalFunctionAssociationsTypeDef = TypedDict(
-    "_OptionalFunctionAssociationsTypeDef",
-    {
-        "Items": List["FunctionAssociationTypeDef"],
-    },
-    total=False,
-)
-
-class FunctionAssociationsTypeDef(
-    _RequiredFunctionAssociationsTypeDef, _OptionalFunctionAssociationsTypeDef
-):
-    pass
-
-_RequiredFunctionConfigTypeDef = TypedDict(
-    "_RequiredFunctionConfigTypeDef",
-    {
-        "Comment": str,
-        "Runtime": FunctionRuntimeType,
-    },
-)
-_OptionalFunctionConfigTypeDef = TypedDict(
-    "_OptionalFunctionConfigTypeDef",
-    {
-        "KeyValueStoreAssociations": "KeyValueStoreAssociationsTypeDef",
-    },
-    total=False,
-)
-
-class FunctionConfigTypeDef(_RequiredFunctionConfigTypeDef, _OptionalFunctionConfigTypeDef):
-    pass
-
-_RequiredFunctionListTypeDef = TypedDict(
-    "_RequiredFunctionListTypeDef",
-    {
-        "MaxItems": int,
-        "Quantity": int,
-    },
-)
-_OptionalFunctionListTypeDef = TypedDict(
-    "_OptionalFunctionListTypeDef",
-    {
-        "NextMarker": str,
-        "Items": List["FunctionSummaryTypeDef"],
-    },
-    total=False,
-)
-
-class FunctionListTypeDef(_RequiredFunctionListTypeDef, _OptionalFunctionListTypeDef):
-    pass
-
-_RequiredFunctionMetadataTypeDef = TypedDict(
-    "_RequiredFunctionMetadataTypeDef",
-    {
-        "FunctionARN": str,
-        "LastModifiedTime": datetime,
-    },
-)
-_OptionalFunctionMetadataTypeDef = TypedDict(
-    "_OptionalFunctionMetadataTypeDef",
-    {
-        "Stage": FunctionStageType,
-        "CreatedTime": datetime,
-    },
-    total=False,
-)
-
-class FunctionMetadataTypeDef(_RequiredFunctionMetadataTypeDef, _OptionalFunctionMetadataTypeDef):
-    pass
-
-_RequiredFunctionSummaryTypeDef = TypedDict(
-    "_RequiredFunctionSummaryTypeDef",
-    {
-        "Name": str,
-        "FunctionConfig": "FunctionConfigTypeDef",
-        "FunctionMetadata": "FunctionMetadataTypeDef",
-    },
-)
-_OptionalFunctionSummaryTypeDef = TypedDict(
-    "_OptionalFunctionSummaryTypeDef",
-    {
-        "Status": str,
-    },
-    total=False,
-)
-
-class FunctionSummaryTypeDef(_RequiredFunctionSummaryTypeDef, _OptionalFunctionSummaryTypeDef):
-    pass
-
-_RequiredGeoRestrictionTypeDef = TypedDict(
-    "_RequiredGeoRestrictionTypeDef",
-    {
-        "RestrictionType": GeoRestrictionTypeType,
-        "Quantity": int,
-    },
-)
-_OptionalGeoRestrictionTypeDef = TypedDict(
-    "_OptionalGeoRestrictionTypeDef",
-    {
-        "Items": List[str],
-    },
-    total=False,
-)
-
-class GeoRestrictionTypeDef(_RequiredGeoRestrictionTypeDef, _OptionalGeoRestrictionTypeDef):
-    pass
-
-GetCachePolicyConfigRequestRequestTypeDef = TypedDict(
-    "GetCachePolicyConfigRequestRequestTypeDef",
-    {
-        "Id": str,
-    },
-)
-
-GetCachePolicyConfigResultTypeDef = TypedDict(
-    "GetCachePolicyConfigResultTypeDef",
-    {
-        "CachePolicyConfig": "CachePolicyConfigTypeDef",
-        "ETag": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetCachePolicyRequestRequestTypeDef = TypedDict(
-    "GetCachePolicyRequestRequestTypeDef",
-    {
-        "Id": str,
-    },
-)
-
-GetCachePolicyResultTypeDef = TypedDict(
-    "GetCachePolicyResultTypeDef",
-    {
-        "CachePolicy": "CachePolicyTypeDef",
-        "ETag": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetCloudFrontOriginAccessIdentityConfigRequestRequestTypeDef = TypedDict(
-    "GetCloudFrontOriginAccessIdentityConfigRequestRequestTypeDef",
-    {
-        "Id": str,
-    },
-)
-
-GetCloudFrontOriginAccessIdentityConfigResultTypeDef = TypedDict(
-    "GetCloudFrontOriginAccessIdentityConfigResultTypeDef",
-    {
-        "CloudFrontOriginAccessIdentityConfig": "CloudFrontOriginAccessIdentityConfigTypeDef",
-        "ETag": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetCloudFrontOriginAccessIdentityRequestRequestTypeDef = TypedDict(
-    "GetCloudFrontOriginAccessIdentityRequestRequestTypeDef",
-    {
-        "Id": str,
-    },
-)
-
-GetCloudFrontOriginAccessIdentityResultTypeDef = TypedDict(
-    "GetCloudFrontOriginAccessIdentityResultTypeDef",
-    {
-        "CloudFrontOriginAccessIdentity": "CloudFrontOriginAccessIdentityTypeDef",
-        "ETag": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetContinuousDeploymentPolicyConfigRequestRequestTypeDef = TypedDict(
-    "GetContinuousDeploymentPolicyConfigRequestRequestTypeDef",
-    {
-        "Id": str,
-    },
-)
-
-GetContinuousDeploymentPolicyConfigResultTypeDef = TypedDict(
-    "GetContinuousDeploymentPolicyConfigResultTypeDef",
-    {
-        "ContinuousDeploymentPolicyConfig": "ContinuousDeploymentPolicyConfigTypeDef",
-        "ETag": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetContinuousDeploymentPolicyRequestRequestTypeDef = TypedDict(
-    "GetContinuousDeploymentPolicyRequestRequestTypeDef",
-    {
-        "Id": str,
-    },
-)
-
-GetContinuousDeploymentPolicyResultTypeDef = TypedDict(
-    "GetContinuousDeploymentPolicyResultTypeDef",
-    {
-        "ContinuousDeploymentPolicy": "ContinuousDeploymentPolicyTypeDef",
-        "ETag": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetDistributionConfigRequestRequestTypeDef = TypedDict(
-    "GetDistributionConfigRequestRequestTypeDef",
-    {
-        "Id": str,
-    },
-)
-
-GetDistributionConfigResultTypeDef = TypedDict(
-    "GetDistributionConfigResultTypeDef",
-    {
-        "DistributionConfig": "DistributionConfigTypeDef",
-        "ETag": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetDistributionRequestRequestTypeDef = TypedDict(
-    "GetDistributionRequestRequestTypeDef",
-    {
-        "Id": str,
-    },
-)
-
-GetDistributionResultTypeDef = TypedDict(
-    "GetDistributionResultTypeDef",
-    {
-        "Distribution": "DistributionTypeDef",
-        "ETag": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetFieldLevelEncryptionConfigRequestRequestTypeDef = TypedDict(
-    "GetFieldLevelEncryptionConfigRequestRequestTypeDef",
-    {
-        "Id": str,
-    },
-)
-
-GetFieldLevelEncryptionConfigResultTypeDef = TypedDict(
-    "GetFieldLevelEncryptionConfigResultTypeDef",
-    {
-        "FieldLevelEncryptionConfig": "FieldLevelEncryptionConfigTypeDef",
-        "ETag": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetFieldLevelEncryptionProfileConfigRequestRequestTypeDef = TypedDict(
-    "GetFieldLevelEncryptionProfileConfigRequestRequestTypeDef",
-    {
-        "Id": str,
-    },
-)
-
-GetFieldLevelEncryptionProfileConfigResultTypeDef = TypedDict(
-    "GetFieldLevelEncryptionProfileConfigResultTypeDef",
-    {
-        "FieldLevelEncryptionProfileConfig": "FieldLevelEncryptionProfileConfigTypeDef",
-        "ETag": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetFieldLevelEncryptionProfileRequestRequestTypeDef = TypedDict(
-    "GetFieldLevelEncryptionProfileRequestRequestTypeDef",
-    {
-        "Id": str,
-    },
-)
-
-GetFieldLevelEncryptionProfileResultTypeDef = TypedDict(
-    "GetFieldLevelEncryptionProfileResultTypeDef",
-    {
-        "FieldLevelEncryptionProfile": "FieldLevelEncryptionProfileTypeDef",
-        "ETag": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetFieldLevelEncryptionRequestRequestTypeDef = TypedDict(
-    "GetFieldLevelEncryptionRequestRequestTypeDef",
-    {
-        "Id": str,
-    },
-)
-
-GetFieldLevelEncryptionResultTypeDef = TypedDict(
-    "GetFieldLevelEncryptionResultTypeDef",
-    {
-        "FieldLevelEncryption": "FieldLevelEncryptionTypeDef",
-        "ETag": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetFunctionRequestRequestTypeDef = TypedDict(
-    "_RequiredGetFunctionRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
-_OptionalGetFunctionRequestRequestTypeDef = TypedDict(
-    "_OptionalGetFunctionRequestRequestTypeDef",
-    {
-        "Stage": FunctionStageType,
-    },
-    total=False,
-)
-
-class GetFunctionRequestRequestTypeDef(
-    _RequiredGetFunctionRequestRequestTypeDef, _OptionalGetFunctionRequestRequestTypeDef
-):
-    pass
-
-GetFunctionResultTypeDef = TypedDict(
-    "GetFunctionResultTypeDef",
-    {
-        "FunctionCode": bytes,
-        "ETag": str,
-        "ContentType": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetInvalidationRequestRequestTypeDef = TypedDict(
-    "GetInvalidationRequestRequestTypeDef",
-    {
-        "DistributionId": str,
-        "Id": str,
-    },
-)
-
-GetInvalidationResultTypeDef = TypedDict(
-    "GetInvalidationResultTypeDef",
-    {
-        "Invalidation": "InvalidationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetKeyGroupConfigRequestRequestTypeDef = TypedDict(
-    "GetKeyGroupConfigRequestRequestTypeDef",
-    {
-        "Id": str,
-    },
-)
-
-GetKeyGroupConfigResultTypeDef = TypedDict(
-    "GetKeyGroupConfigResultTypeDef",
-    {
-        "KeyGroupConfig": "KeyGroupConfigTypeDef",
-        "ETag": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetKeyGroupRequestRequestTypeDef = TypedDict(
-    "GetKeyGroupRequestRequestTypeDef",
-    {
-        "Id": str,
-    },
-)
-
-GetKeyGroupResultTypeDef = TypedDict(
-    "GetKeyGroupResultTypeDef",
-    {
-        "KeyGroup": "KeyGroupTypeDef",
-        "ETag": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetMonitoringSubscriptionRequestRequestTypeDef = TypedDict(
-    "GetMonitoringSubscriptionRequestRequestTypeDef",
-    {
-        "DistributionId": str,
-    },
-)
-
-GetMonitoringSubscriptionResultTypeDef = TypedDict(
-    "GetMonitoringSubscriptionResultTypeDef",
-    {
-        "MonitoringSubscription": "MonitoringSubscriptionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetOriginAccessControlConfigRequestRequestTypeDef = TypedDict(
-    "GetOriginAccessControlConfigRequestRequestTypeDef",
-    {
-        "Id": str,
-    },
-)
-
-GetOriginAccessControlConfigResultTypeDef = TypedDict(
-    "GetOriginAccessControlConfigResultTypeDef",
-    {
-        "OriginAccessControlConfig": "OriginAccessControlConfigTypeDef",
-        "ETag": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetOriginAccessControlRequestRequestTypeDef = TypedDict(
-    "GetOriginAccessControlRequestRequestTypeDef",
-    {
-        "Id": str,
-    },
-)
-
-GetOriginAccessControlResultTypeDef = TypedDict(
-    "GetOriginAccessControlResultTypeDef",
-    {
-        "OriginAccessControl": "OriginAccessControlTypeDef",
-        "ETag": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetOriginRequestPolicyConfigRequestRequestTypeDef = TypedDict(
-    "GetOriginRequestPolicyConfigRequestRequestTypeDef",
-    {
-        "Id": str,
-    },
-)
-
-GetOriginRequestPolicyConfigResultTypeDef = TypedDict(
-    "GetOriginRequestPolicyConfigResultTypeDef",
-    {
-        "OriginRequestPolicyConfig": "OriginRequestPolicyConfigTypeDef",
-        "ETag": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetOriginRequestPolicyRequestRequestTypeDef = TypedDict(
-    "GetOriginRequestPolicyRequestRequestTypeDef",
-    {
-        "Id": str,
-    },
-)
-
-GetOriginRequestPolicyResultTypeDef = TypedDict(
-    "GetOriginRequestPolicyResultTypeDef",
-    {
-        "OriginRequestPolicy": "OriginRequestPolicyTypeDef",
-        "ETag": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetPublicKeyConfigRequestRequestTypeDef = TypedDict(
-    "GetPublicKeyConfigRequestRequestTypeDef",
-    {
-        "Id": str,
-    },
-)
-
-GetPublicKeyConfigResultTypeDef = TypedDict(
-    "GetPublicKeyConfigResultTypeDef",
-    {
-        "PublicKeyConfig": "PublicKeyConfigTypeDef",
-        "ETag": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetPublicKeyRequestRequestTypeDef = TypedDict(
-    "GetPublicKeyRequestRequestTypeDef",
-    {
-        "Id": str,
-    },
-)
-
-GetPublicKeyResultTypeDef = TypedDict(
-    "GetPublicKeyResultTypeDef",
-    {
-        "PublicKey": "PublicKeyTypeDef",
-        "ETag": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetRealtimeLogConfigRequestRequestTypeDef = TypedDict(
-    "GetRealtimeLogConfigRequestRequestTypeDef",
-    {
-        "Name": str,
-        "ARN": str,
-    },
-    total=False,
-)
-
-GetRealtimeLogConfigResultTypeDef = TypedDict(
-    "GetRealtimeLogConfigResultTypeDef",
-    {
-        "RealtimeLogConfig": "RealtimeLogConfigTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetResponseHeadersPolicyConfigRequestRequestTypeDef = TypedDict(
-    "GetResponseHeadersPolicyConfigRequestRequestTypeDef",
-    {
-        "Id": str,
-    },
-)
-
-GetResponseHeadersPolicyConfigResultTypeDef = TypedDict(
-    "GetResponseHeadersPolicyConfigResultTypeDef",
-    {
-        "ResponseHeadersPolicyConfig": "ResponseHeadersPolicyConfigTypeDef",
-        "ETag": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetResponseHeadersPolicyRequestRequestTypeDef = TypedDict(
-    "GetResponseHeadersPolicyRequestRequestTypeDef",
-    {
-        "Id": str,
-    },
-)
-
-GetResponseHeadersPolicyResultTypeDef = TypedDict(
-    "GetResponseHeadersPolicyResultTypeDef",
-    {
-        "ResponseHeadersPolicy": "ResponseHeadersPolicyTypeDef",
-        "ETag": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetStreamingDistributionConfigRequestRequestTypeDef = TypedDict(
-    "GetStreamingDistributionConfigRequestRequestTypeDef",
-    {
-        "Id": str,
-    },
-)
-
-GetStreamingDistributionConfigResultTypeDef = TypedDict(
-    "GetStreamingDistributionConfigResultTypeDef",
-    {
-        "StreamingDistributionConfig": "StreamingDistributionConfigTypeDef",
-        "ETag": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetStreamingDistributionRequestRequestTypeDef = TypedDict(
-    "GetStreamingDistributionRequestRequestTypeDef",
-    {
-        "Id": str,
-    },
-)
-
-GetStreamingDistributionResultTypeDef = TypedDict(
-    "GetStreamingDistributionResultTypeDef",
-    {
-        "StreamingDistribution": "StreamingDistributionTypeDef",
-        "ETag": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredHeadersTypeDef = TypedDict(
-    "_RequiredHeadersTypeDef",
-    {
-        "Quantity": int,
-    },
-)
-_OptionalHeadersTypeDef = TypedDict(
-    "_OptionalHeadersTypeDef",
-    {
-        "Items": List[str],
-    },
-    total=False,
-)
-
-class HeadersTypeDef(_RequiredHeadersTypeDef, _OptionalHeadersTypeDef):
-    pass
-
-ImportSourceTypeDef = TypedDict(
-    "ImportSourceTypeDef",
-    {
-        "SourceType": Literal["S3"],
-        "SourceARN": str,
-    },
-)
-
-InvalidationBatchTypeDef = TypedDict(
-    "InvalidationBatchTypeDef",
-    {
-        "Paths": "PathsTypeDef",
-        "CallerReference": str,
-    },
-)
-
-_RequiredInvalidationListTypeDef = TypedDict(
-    "_RequiredInvalidationListTypeDef",
-    {
-        "Marker": str,
-        "MaxItems": int,
-        "IsTruncated": bool,
-        "Quantity": int,
-    },
-)
-_OptionalInvalidationListTypeDef = TypedDict(
-    "_OptionalInvalidationListTypeDef",
-    {
-        "NextMarker": str,
-        "Items": List["InvalidationSummaryTypeDef"],
-    },
-    total=False,
-)
-
-class InvalidationListTypeDef(_RequiredInvalidationListTypeDef, _OptionalInvalidationListTypeDef):
-    pass
-
-InvalidationSummaryTypeDef = TypedDict(
-    "InvalidationSummaryTypeDef",
-    {
-        "Id": str,
-        "CreateTime": datetime,
-        "Status": str,
-    },
-)
-
-InvalidationTypeDef = TypedDict(
-    "InvalidationTypeDef",
-    {
-        "Id": str,
-        "Status": str,
-        "CreateTime": datetime,
-        "InvalidationBatch": "InvalidationBatchTypeDef",
-    },
-)
-
-KGKeyPairIdsTypeDef = TypedDict(
-    "KGKeyPairIdsTypeDef",
-    {
-        "KeyGroupId": str,
-        "KeyPairIds": "KeyPairIdsTypeDef",
-    },
-    total=False,
-)
-
-_RequiredKeyGroupConfigTypeDef = TypedDict(
-    "_RequiredKeyGroupConfigTypeDef",
-    {
-        "Name": str,
-        "Items": List[str],
-    },
-)
-_OptionalKeyGroupConfigTypeDef = TypedDict(
-    "_OptionalKeyGroupConfigTypeDef",
-    {
-        "Comment": str,
-    },
-    total=False,
-)
-
-class KeyGroupConfigTypeDef(_RequiredKeyGroupConfigTypeDef, _OptionalKeyGroupConfigTypeDef):
-    pass
-
-_RequiredKeyGroupListTypeDef = TypedDict(
-    "_RequiredKeyGroupListTypeDef",
-    {
-        "MaxItems": int,
-        "Quantity": int,
-    },
-)
-_OptionalKeyGroupListTypeDef = TypedDict(
-    "_OptionalKeyGroupListTypeDef",
-    {
-        "NextMarker": str,
-        "Items": List["KeyGroupSummaryTypeDef"],
-    },
-    total=False,
-)
-
-class KeyGroupListTypeDef(_RequiredKeyGroupListTypeDef, _OptionalKeyGroupListTypeDef):
-    pass
-
-KeyGroupSummaryTypeDef = TypedDict(
-    "KeyGroupSummaryTypeDef",
-    {
-        "KeyGroup": "KeyGroupTypeDef",
-    },
-)
-
-KeyGroupTypeDef = TypedDict(
-    "KeyGroupTypeDef",
-    {
-        "Id": str,
-        "LastModifiedTime": datetime,
-        "KeyGroupConfig": "KeyGroupConfigTypeDef",
-    },
-)
-
-_RequiredKeyPairIdsTypeDef = TypedDict(
-    "_RequiredKeyPairIdsTypeDef",
-    {
-        "Quantity": int,
-    },
-)
-_OptionalKeyPairIdsTypeDef = TypedDict(
-    "_OptionalKeyPairIdsTypeDef",
-    {
-        "Items": List[str],
-    },
-    total=False,
-)
-
-class KeyPairIdsTypeDef(_RequiredKeyPairIdsTypeDef, _OptionalKeyPairIdsTypeDef):
-    pass
-
-KeyValueStoreAssociationTypeDef = TypedDict(
-    "KeyValueStoreAssociationTypeDef",
-    {
-        "KeyValueStoreARN": str,
-    },
-)
-
-_RequiredKeyValueStoreAssociationsTypeDef = TypedDict(
-    "_RequiredKeyValueStoreAssociationsTypeDef",
-    {
-        "Quantity": int,
-    },
-)
-_OptionalKeyValueStoreAssociationsTypeDef = TypedDict(
-    "_OptionalKeyValueStoreAssociationsTypeDef",
-    {
-        "Items": List["KeyValueStoreAssociationTypeDef"],
-    },
-    total=False,
-)
-
-class KeyValueStoreAssociationsTypeDef(
-    _RequiredKeyValueStoreAssociationsTypeDef, _OptionalKeyValueStoreAssociationsTypeDef
-):
-    pass
-
-_RequiredKeyValueStoreListTypeDef = TypedDict(
-    "_RequiredKeyValueStoreListTypeDef",
-    {
-        "MaxItems": int,
-        "Quantity": int,
-    },
-)
-_OptionalKeyValueStoreListTypeDef = TypedDict(
-    "_OptionalKeyValueStoreListTypeDef",
-    {
-        "NextMarker": str,
-        "Items": List["KeyValueStoreTypeDef"],
-    },
-    total=False,
-)
-
-class KeyValueStoreListTypeDef(
-    _RequiredKeyValueStoreListTypeDef, _OptionalKeyValueStoreListTypeDef
-):
-    pass
-
-_RequiredKeyValueStoreTypeDef = TypedDict(
-    "_RequiredKeyValueStoreTypeDef",
-    {
-        "Name": str,
-        "Id": str,
-        "Comment": str,
-        "ARN": str,
-        "LastModifiedTime": datetime,
-    },
-)
-_OptionalKeyValueStoreTypeDef = TypedDict(
-    "_OptionalKeyValueStoreTypeDef",
-    {
-        "Status": str,
-    },
-    total=False,
-)
-
-class KeyValueStoreTypeDef(_RequiredKeyValueStoreTypeDef, _OptionalKeyValueStoreTypeDef):
-    pass
-
-KinesisStreamConfigTypeDef = TypedDict(
-    "KinesisStreamConfigTypeDef",
-    {
-        "RoleARN": str,
-        "StreamARN": str,
-    },
-)
-
-_RequiredLambdaFunctionAssociationTypeDef = TypedDict(
-    "_RequiredLambdaFunctionAssociationTypeDef",
-    {
-        "LambdaFunctionARN": str,
-        "EventType": EventTypeType,
-    },
-)
-_OptionalLambdaFunctionAssociationTypeDef = TypedDict(
-    "_OptionalLambdaFunctionAssociationTypeDef",
-    {
-        "IncludeBody": bool,
-    },
-    total=False,
-)
-
-class LambdaFunctionAssociationTypeDef(
-    _RequiredLambdaFunctionAssociationTypeDef, _OptionalLambdaFunctionAssociationTypeDef
-):
-    pass
-
-_RequiredLambdaFunctionAssociationsTypeDef = TypedDict(
-    "_RequiredLambdaFunctionAssociationsTypeDef",
-    {
-        "Quantity": int,
-    },
-)
-_OptionalLambdaFunctionAssociationsTypeDef = TypedDict(
-    "_OptionalLambdaFunctionAssociationsTypeDef",
-    {
-        "Items": List["LambdaFunctionAssociationTypeDef"],
-    },
-    total=False,
-)
-
-class LambdaFunctionAssociationsTypeDef(
-    _RequiredLambdaFunctionAssociationsTypeDef, _OptionalLambdaFunctionAssociationsTypeDef
-):
-    pass
-
-ListCachePoliciesRequestRequestTypeDef = TypedDict(
-    "ListCachePoliciesRequestRequestTypeDef",
-    {
-        "Type": CachePolicyTypeType,
-        "Marker": str,
-        "MaxItems": str,
-    },
-    total=False,
-)
-
-ListCachePoliciesResultTypeDef = TypedDict(
-    "ListCachePoliciesResultTypeDef",
-    {
-        "CachePolicyList": "CachePolicyListTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListCloudFrontOriginAccessIdentitiesRequestRequestTypeDef = TypedDict(
-    "ListCloudFrontOriginAccessIdentitiesRequestRequestTypeDef",
-    {
-        "Marker": str,
-        "MaxItems": str,
-    },
-    total=False,
-)
-
-ListCloudFrontOriginAccessIdentitiesResultTypeDef = TypedDict(
-    "ListCloudFrontOriginAccessIdentitiesResultTypeDef",
-    {
-        "CloudFrontOriginAccessIdentityList": "CloudFrontOriginAccessIdentityListTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListConflictingAliasesRequestRequestTypeDef = TypedDict(
-    "_RequiredListConflictingAliasesRequestRequestTypeDef",
-    {
-        "DistributionId": str,
-        "Alias": str,
-    },
-)
-_OptionalListConflictingAliasesRequestRequestTypeDef = TypedDict(
-    "_OptionalListConflictingAliasesRequestRequestTypeDef",
-    {
-        "Marker": str,
-        "MaxItems": int,
-    },
-    total=False,
-)
-
-class ListConflictingAliasesRequestRequestTypeDef(
-    _RequiredListConflictingAliasesRequestRequestTypeDef,
-    _OptionalListConflictingAliasesRequestRequestTypeDef,
-):
-    pass
-
-ListConflictingAliasesResultTypeDef = TypedDict(
-    "ListConflictingAliasesResultTypeDef",
-    {
-        "ConflictingAliasesList": "ConflictingAliasesListTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListContinuousDeploymentPoliciesRequestRequestTypeDef = TypedDict(
-    "ListContinuousDeploymentPoliciesRequestRequestTypeDef",
-    {
-        "Marker": str,
-        "MaxItems": str,
-    },
-    total=False,
-)
-
-ListContinuousDeploymentPoliciesResultTypeDef = TypedDict(
-    "ListContinuousDeploymentPoliciesResultTypeDef",
-    {
-        "ContinuousDeploymentPolicyList": "ContinuousDeploymentPolicyListTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListDistributionsByCachePolicyIdRequestRequestTypeDef = TypedDict(
-    "_RequiredListDistributionsByCachePolicyIdRequestRequestTypeDef",
-    {
-        "CachePolicyId": str,
-    },
-)
-_OptionalListDistributionsByCachePolicyIdRequestRequestTypeDef = TypedDict(
-    "_OptionalListDistributionsByCachePolicyIdRequestRequestTypeDef",
-    {
-        "Marker": str,
-        "MaxItems": str,
-    },
-    total=False,
-)
-
-class ListDistributionsByCachePolicyIdRequestRequestTypeDef(
-    _RequiredListDistributionsByCachePolicyIdRequestRequestTypeDef,
-    _OptionalListDistributionsByCachePolicyIdRequestRequestTypeDef,
-):
-    pass
-
-ListDistributionsByCachePolicyIdResultTypeDef = TypedDict(
-    "ListDistributionsByCachePolicyIdResultTypeDef",
-    {
-        "DistributionIdList": "DistributionIdListTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListDistributionsByKeyGroupRequestRequestTypeDef = TypedDict(
-    "_RequiredListDistributionsByKeyGroupRequestRequestTypeDef",
-    {
-        "KeyGroupId": str,
-    },
-)
-_OptionalListDistributionsByKeyGroupRequestRequestTypeDef = TypedDict(
-    "_OptionalListDistributionsByKeyGroupRequestRequestTypeDef",
-    {
-        "Marker": str,
-        "MaxItems": str,
-    },
-    total=False,
-)
-
-class ListDistributionsByKeyGroupRequestRequestTypeDef(
-    _RequiredListDistributionsByKeyGroupRequestRequestTypeDef,
-    _OptionalListDistributionsByKeyGroupRequestRequestTypeDef,
-):
-    pass
-
-ListDistributionsByKeyGroupResultTypeDef = TypedDict(
-    "ListDistributionsByKeyGroupResultTypeDef",
-    {
-        "DistributionIdList": "DistributionIdListTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListDistributionsByOriginRequestPolicyIdRequestRequestTypeDef = TypedDict(
-    "_RequiredListDistributionsByOriginRequestPolicyIdRequestRequestTypeDef",
-    {
-        "OriginRequestPolicyId": str,
-    },
-)
-_OptionalListDistributionsByOriginRequestPolicyIdRequestRequestTypeDef = TypedDict(
-    "_OptionalListDistributionsByOriginRequestPolicyIdRequestRequestTypeDef",
-    {
-        "Marker": str,
-        "MaxItems": str,
-    },
-    total=False,
-)
-
-class ListDistributionsByOriginRequestPolicyIdRequestRequestTypeDef(
-    _RequiredListDistributionsByOriginRequestPolicyIdRequestRequestTypeDef,
-    _OptionalListDistributionsByOriginRequestPolicyIdRequestRequestTypeDef,
-):
-    pass
-
-ListDistributionsByOriginRequestPolicyIdResultTypeDef = TypedDict(
-    "ListDistributionsByOriginRequestPolicyIdResultTypeDef",
-    {
-        "DistributionIdList": "DistributionIdListTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListDistributionsByRealtimeLogConfigRequestRequestTypeDef = TypedDict(
-    "ListDistributionsByRealtimeLogConfigRequestRequestTypeDef",
-    {
-        "Marker": str,
-        "MaxItems": str,
-        "RealtimeLogConfigName": str,
-        "RealtimeLogConfigArn": str,
-    },
-    total=False,
-)
-
-ListDistributionsByRealtimeLogConfigResultTypeDef = TypedDict(
-    "ListDistributionsByRealtimeLogConfigResultTypeDef",
-    {
-        "DistributionList": "DistributionListTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListDistributionsByResponseHeadersPolicyIdRequestRequestTypeDef = TypedDict(
-    "_RequiredListDistributionsByResponseHeadersPolicyIdRequestRequestTypeDef",
-    {
-        "ResponseHeadersPolicyId": str,
-    },
-)
-_OptionalListDistributionsByResponseHeadersPolicyIdRequestRequestTypeDef = TypedDict(
-    "_OptionalListDistributionsByResponseHeadersPolicyIdRequestRequestTypeDef",
-    {
-        "Marker": str,
-        "MaxItems": str,
-    },
-    total=False,
-)
-
-class ListDistributionsByResponseHeadersPolicyIdRequestRequestTypeDef(
-    _RequiredListDistributionsByResponseHeadersPolicyIdRequestRequestTypeDef,
-    _OptionalListDistributionsByResponseHeadersPolicyIdRequestRequestTypeDef,
-):
-    pass
-
-ListDistributionsByResponseHeadersPolicyIdResultTypeDef = TypedDict(
-    "ListDistributionsByResponseHeadersPolicyIdResultTypeDef",
-    {
-        "DistributionIdList": "DistributionIdListTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListDistributionsByWebACLIdRequestRequestTypeDef = TypedDict(
-    "_RequiredListDistributionsByWebACLIdRequestRequestTypeDef",
-    {
-        "WebACLId": str,
-    },
-)
-_OptionalListDistributionsByWebACLIdRequestRequestTypeDef = TypedDict(
-    "_OptionalListDistributionsByWebACLIdRequestRequestTypeDef",
-    {
-        "Marker": str,
-        "MaxItems": str,
-    },
-    total=False,
-)
-
-class ListDistributionsByWebACLIdRequestRequestTypeDef(
-    _RequiredListDistributionsByWebACLIdRequestRequestTypeDef,
-    _OptionalListDistributionsByWebACLIdRequestRequestTypeDef,
-):
-    pass
-
-ListDistributionsByWebACLIdResultTypeDef = TypedDict(
-    "ListDistributionsByWebACLIdResultTypeDef",
-    {
-        "DistributionList": "DistributionListTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListDistributionsRequestRequestTypeDef = TypedDict(
-    "ListDistributionsRequestRequestTypeDef",
-    {
-        "Marker": str,
-        "MaxItems": str,
-    },
-    total=False,
-)
-
-ListDistributionsResultTypeDef = TypedDict(
-    "ListDistributionsResultTypeDef",
-    {
-        "DistributionList": "DistributionListTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListFieldLevelEncryptionConfigsRequestRequestTypeDef = TypedDict(
-    "ListFieldLevelEncryptionConfigsRequestRequestTypeDef",
-    {
-        "Marker": str,
-        "MaxItems": str,
-    },
-    total=False,
-)
-
-ListFieldLevelEncryptionConfigsResultTypeDef = TypedDict(
-    "ListFieldLevelEncryptionConfigsResultTypeDef",
-    {
-        "FieldLevelEncryptionList": "FieldLevelEncryptionListTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListFieldLevelEncryptionProfilesRequestRequestTypeDef = TypedDict(
-    "ListFieldLevelEncryptionProfilesRequestRequestTypeDef",
-    {
-        "Marker": str,
-        "MaxItems": str,
-    },
-    total=False,
-)
-
-ListFieldLevelEncryptionProfilesResultTypeDef = TypedDict(
-    "ListFieldLevelEncryptionProfilesResultTypeDef",
-    {
-        "FieldLevelEncryptionProfileList": "FieldLevelEncryptionProfileListTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListFunctionsRequestRequestTypeDef = TypedDict(
-    "ListFunctionsRequestRequestTypeDef",
-    {
-        "Marker": str,
-        "MaxItems": str,
-        "Stage": FunctionStageType,
-    },
-    total=False,
-)
-
-ListFunctionsResultTypeDef = TypedDict(
-    "ListFunctionsResultTypeDef",
-    {
-        "FunctionList": "FunctionListTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListInvalidationsRequestRequestTypeDef = TypedDict(
-    "_RequiredListInvalidationsRequestRequestTypeDef",
-    {
-        "DistributionId": str,
-    },
-)
-_OptionalListInvalidationsRequestRequestTypeDef = TypedDict(
-    "_OptionalListInvalidationsRequestRequestTypeDef",
-    {
-        "Marker": str,
-        "MaxItems": str,
-    },
-    total=False,
-)
-
-class ListInvalidationsRequestRequestTypeDef(
-    _RequiredListInvalidationsRequestRequestTypeDef, _OptionalListInvalidationsRequestRequestTypeDef
-):
-    pass
-
-ListInvalidationsResultTypeDef = TypedDict(
-    "ListInvalidationsResultTypeDef",
-    {
-        "InvalidationList": "InvalidationListTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListKeyGroupsRequestRequestTypeDef = TypedDict(
-    "ListKeyGroupsRequestRequestTypeDef",
-    {
-        "Marker": str,
-        "MaxItems": str,
-    },
-    total=False,
-)
-
-ListKeyGroupsResultTypeDef = TypedDict(
-    "ListKeyGroupsResultTypeDef",
-    {
-        "KeyGroupList": "KeyGroupListTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListKeyValueStoresRequestRequestTypeDef = TypedDict(
-    "ListKeyValueStoresRequestRequestTypeDef",
-    {
-        "Marker": str,
-        "MaxItems": str,
-        "Status": str,
-    },
-    total=False,
-)
-
-ListKeyValueStoresResultTypeDef = TypedDict(
-    "ListKeyValueStoresResultTypeDef",
-    {
-        "KeyValueStoreList": "KeyValueStoreListTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListOriginAccessControlsRequestRequestTypeDef = TypedDict(
-    "ListOriginAccessControlsRequestRequestTypeDef",
-    {
-        "Marker": str,
-        "MaxItems": str,
-    },
-    total=False,
-)
-
-ListOriginAccessControlsResultTypeDef = TypedDict(
-    "ListOriginAccessControlsResultTypeDef",
-    {
-        "OriginAccessControlList": "OriginAccessControlListTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListOriginRequestPoliciesRequestRequestTypeDef = TypedDict(
-    "ListOriginRequestPoliciesRequestRequestTypeDef",
-    {
-        "Type": OriginRequestPolicyTypeType,
-        "Marker": str,
-        "MaxItems": str,
-    },
-    total=False,
-)
-
-ListOriginRequestPoliciesResultTypeDef = TypedDict(
-    "ListOriginRequestPoliciesResultTypeDef",
-    {
-        "OriginRequestPolicyList": "OriginRequestPolicyListTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListPublicKeysRequestRequestTypeDef = TypedDict(
-    "ListPublicKeysRequestRequestTypeDef",
-    {
-        "Marker": str,
-        "MaxItems": str,
-    },
-    total=False,
-)
-
-ListPublicKeysResultTypeDef = TypedDict(
-    "ListPublicKeysResultTypeDef",
-    {
-        "PublicKeyList": "PublicKeyListTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListRealtimeLogConfigsRequestRequestTypeDef = TypedDict(
-    "ListRealtimeLogConfigsRequestRequestTypeDef",
-    {
-        "MaxItems": str,
-        "Marker": str,
-    },
-    total=False,
-)
-
-ListRealtimeLogConfigsResultTypeDef = TypedDict(
-    "ListRealtimeLogConfigsResultTypeDef",
-    {
-        "RealtimeLogConfigs": "RealtimeLogConfigsTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListResponseHeadersPoliciesRequestRequestTypeDef = TypedDict(
-    "ListResponseHeadersPoliciesRequestRequestTypeDef",
-    {
-        "Type": ResponseHeadersPolicyTypeType,
-        "Marker": str,
-        "MaxItems": str,
-    },
-    total=False,
-)
-
-ListResponseHeadersPoliciesResultTypeDef = TypedDict(
-    "ListResponseHeadersPoliciesResultTypeDef",
-    {
-        "ResponseHeadersPolicyList": "ResponseHeadersPolicyListTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListStreamingDistributionsRequestRequestTypeDef = TypedDict(
-    "ListStreamingDistributionsRequestRequestTypeDef",
-    {
-        "Marker": str,
-        "MaxItems": str,
-    },
-    total=False,
-)
-
-ListStreamingDistributionsResultTypeDef = TypedDict(
-    "ListStreamingDistributionsResultTypeDef",
-    {
-        "StreamingDistributionList": "StreamingDistributionListTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "Resource": str,
-    },
-)
-
-ListTagsForResourceResultTypeDef = TypedDict(
-    "ListTagsForResourceResultTypeDef",
-    {
-        "Tags": "TagsTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-LoggingConfigTypeDef = TypedDict(
-    "LoggingConfigTypeDef",
-    {
-        "Enabled": bool,
-        "IncludeCookies": bool,
-        "Bucket": str,
-        "Prefix": str,
-    },
-)
-
-MonitoringSubscriptionTypeDef = TypedDict(
-    "MonitoringSubscriptionTypeDef",
-    {
-        "RealtimeMetricsSubscriptionConfig": "RealtimeMetricsSubscriptionConfigTypeDef",
-    },
-    total=False,
-)
-
-_RequiredOriginAccessControlConfigTypeDef = TypedDict(
-    "_RequiredOriginAccessControlConfigTypeDef",
-    {
-        "Name": str,
-        "SigningProtocol": Literal["sigv4"],
-        "SigningBehavior": OriginAccessControlSigningBehaviorsType,
-        "OriginAccessControlOriginType": OriginAccessControlOriginTypesType,
-    },
-)
-_OptionalOriginAccessControlConfigTypeDef = TypedDict(
-    "_OptionalOriginAccessControlConfigTypeDef",
-    {
-        "Description": str,
-    },
-    total=False,
-)
-
-class OriginAccessControlConfigTypeDef(
-    _RequiredOriginAccessControlConfigTypeDef, _OptionalOriginAccessControlConfigTypeDef
-):
-    pass
-
-_RequiredOriginAccessControlListTypeDef = TypedDict(
-    "_RequiredOriginAccessControlListTypeDef",
-    {
-        "Marker": str,
-        "MaxItems": int,
-        "IsTruncated": bool,
-        "Quantity": int,
-    },
-)
-_OptionalOriginAccessControlListTypeDef = TypedDict(
-    "_OptionalOriginAccessControlListTypeDef",
-    {
-        "NextMarker": str,
-        "Items": List["OriginAccessControlSummaryTypeDef"],
-    },
-    total=False,
-)
-
-class OriginAccessControlListTypeDef(
-    _RequiredOriginAccessControlListTypeDef, _OptionalOriginAccessControlListTypeDef
-):
-    pass
-
-OriginAccessControlSummaryTypeDef = TypedDict(
-    "OriginAccessControlSummaryTypeDef",
-    {
-        "Id": str,
-        "Description": str,
-        "Name": str,
-        "SigningProtocol": Literal["sigv4"],
-        "SigningBehavior": OriginAccessControlSigningBehaviorsType,
-        "OriginAccessControlOriginType": OriginAccessControlOriginTypesType,
-    },
-)
-
-_RequiredOriginAccessControlTypeDef = TypedDict(
-    "_RequiredOriginAccessControlTypeDef",
-    {
-        "Id": str,
-    },
-)
-_OptionalOriginAccessControlTypeDef = TypedDict(
-    "_OptionalOriginAccessControlTypeDef",
-    {
-        "OriginAccessControlConfig": "OriginAccessControlConfigTypeDef",
-    },
-    total=False,
-)
-
-class OriginAccessControlTypeDef(
-    _RequiredOriginAccessControlTypeDef, _OptionalOriginAccessControlTypeDef
-):
-    pass
-
-OriginCustomHeaderTypeDef = TypedDict(
-    "OriginCustomHeaderTypeDef",
-    {
-        "HeaderName": str,
-        "HeaderValue": str,
-    },
-)
-
-OriginGroupFailoverCriteriaTypeDef = TypedDict(
-    "OriginGroupFailoverCriteriaTypeDef",
-    {
-        "StatusCodes": "StatusCodesTypeDef",
-    },
-)
-
-OriginGroupMemberTypeDef = TypedDict(
-    "OriginGroupMemberTypeDef",
-    {
-        "OriginId": str,
-    },
-)
-
-OriginGroupMembersTypeDef = TypedDict(
-    "OriginGroupMembersTypeDef",
-    {
-        "Quantity": int,
-        "Items": List["OriginGroupMemberTypeDef"],
-    },
-)
-
-OriginGroupTypeDef = TypedDict(
-    "OriginGroupTypeDef",
-    {
-        "Id": str,
-        "FailoverCriteria": "OriginGroupFailoverCriteriaTypeDef",
-        "Members": "OriginGroupMembersTypeDef",
-    },
-)
-
-_RequiredOriginGroupsTypeDef = TypedDict(
-    "_RequiredOriginGroupsTypeDef",
-    {
-        "Quantity": int,
-    },
-)
-_OptionalOriginGroupsTypeDef = TypedDict(
-    "_OptionalOriginGroupsTypeDef",
-    {
-        "Items": List["OriginGroupTypeDef"],
-    },
-    total=False,
-)
-
-class OriginGroupsTypeDef(_RequiredOriginGroupsTypeDef, _OptionalOriginGroupsTypeDef):
-    pass
-
-_RequiredOriginRequestPolicyConfigTypeDef = TypedDict(
-    "_RequiredOriginRequestPolicyConfigTypeDef",
-    {
-        "Name": str,
-        "HeadersConfig": "OriginRequestPolicyHeadersConfigTypeDef",
-        "CookiesConfig": "OriginRequestPolicyCookiesConfigTypeDef",
-        "QueryStringsConfig": "OriginRequestPolicyQueryStringsConfigTypeDef",
-    },
-)
-_OptionalOriginRequestPolicyConfigTypeDef = TypedDict(
-    "_OptionalOriginRequestPolicyConfigTypeDef",
-    {
-        "Comment": str,
-    },
-    total=False,
-)
-
-class OriginRequestPolicyConfigTypeDef(
-    _RequiredOriginRequestPolicyConfigTypeDef, _OptionalOriginRequestPolicyConfigTypeDef
-):
-    pass
-
-_RequiredOriginRequestPolicyCookiesConfigTypeDef = TypedDict(
-    "_RequiredOriginRequestPolicyCookiesConfigTypeDef",
-    {
-        "CookieBehavior": OriginRequestPolicyCookieBehaviorType,
-    },
-)
-_OptionalOriginRequestPolicyCookiesConfigTypeDef = TypedDict(
-    "_OptionalOriginRequestPolicyCookiesConfigTypeDef",
-    {
-        "Cookies": "CookieNamesTypeDef",
-    },
-    total=False,
-)
-
-class OriginRequestPolicyCookiesConfigTypeDef(
-    _RequiredOriginRequestPolicyCookiesConfigTypeDef,
-    _OptionalOriginRequestPolicyCookiesConfigTypeDef,
-):
-    pass
-
-_RequiredOriginRequestPolicyHeadersConfigTypeDef = TypedDict(
-    "_RequiredOriginRequestPolicyHeadersConfigTypeDef",
-    {
-        "HeaderBehavior": OriginRequestPolicyHeaderBehaviorType,
-    },
-)
-_OptionalOriginRequestPolicyHeadersConfigTypeDef = TypedDict(
-    "_OptionalOriginRequestPolicyHeadersConfigTypeDef",
-    {
-        "Headers": "HeadersTypeDef",
-    },
-    total=False,
-)
-
-class OriginRequestPolicyHeadersConfigTypeDef(
-    _RequiredOriginRequestPolicyHeadersConfigTypeDef,
-    _OptionalOriginRequestPolicyHeadersConfigTypeDef,
-):
-    pass
-
-_RequiredOriginRequestPolicyListTypeDef = TypedDict(
-    "_RequiredOriginRequestPolicyListTypeDef",
-    {
-        "MaxItems": int,
-        "Quantity": int,
-    },
-)
-_OptionalOriginRequestPolicyListTypeDef = TypedDict(
-    "_OptionalOriginRequestPolicyListTypeDef",
-    {
-        "NextMarker": str,
-        "Items": List["OriginRequestPolicySummaryTypeDef"],
-    },
-    total=False,
-)
-
-class OriginRequestPolicyListTypeDef(
-    _RequiredOriginRequestPolicyListTypeDef, _OptionalOriginRequestPolicyListTypeDef
-):
-    pass
-
-_RequiredOriginRequestPolicyQueryStringsConfigTypeDef = TypedDict(
-    "_RequiredOriginRequestPolicyQueryStringsConfigTypeDef",
-    {
-        "QueryStringBehavior": OriginRequestPolicyQueryStringBehaviorType,
-    },
-)
-_OptionalOriginRequestPolicyQueryStringsConfigTypeDef = TypedDict(
-    "_OptionalOriginRequestPolicyQueryStringsConfigTypeDef",
-    {
-        "QueryStrings": "QueryStringNamesTypeDef",
-    },
-    total=False,
-)
-
-class OriginRequestPolicyQueryStringsConfigTypeDef(
-    _RequiredOriginRequestPolicyQueryStringsConfigTypeDef,
-    _OptionalOriginRequestPolicyQueryStringsConfigTypeDef,
-):
-    pass
+    "WebAclCustomizationTypeDef",
+)
+
+class AliasICPRecordalTypeDef(TypedDict):
+    CNAME: NotRequired[str]
+    ICPRecordalStatus: NotRequired[ICPRecordalStatusType]
+
+class AliasesOutputTypeDef(TypedDict):
+    Quantity: int
+    Items: NotRequired[List[str]]
+
+class AliasesTypeDef(TypedDict):
+    Quantity: int
+    Items: NotRequired[Sequence[str]]
+
+class CachedMethodsOutputTypeDef(TypedDict):
+    Quantity: int
+    Items: List[MethodType]
+
+class AnycastIpListSummaryTypeDef(TypedDict):
+    Id: str
+    Name: str
+    Status: str
+    Arn: str
+    IpCount: int
+    LastModifiedTime: datetime
+
+class AnycastIpListTypeDef(TypedDict):
+    Id: str
+    Name: str
+    Status: str
+    Arn: str
+    AnycastIps: List[str]
+    IpCount: int
+    LastModifiedTime: datetime
+
+class AssociateAliasRequestTypeDef(TypedDict):
+    TargetDistributionId: str
+    Alias: str
+
+class AssociateDistributionTenantWebACLRequestTypeDef(TypedDict):
+    Id: str
+    WebACLArn: str
+    IfMatch: NotRequired[str]
+
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
+
+class AssociateDistributionWebACLRequestTypeDef(TypedDict):
+    Id: str
+    WebACLArn: str
+    IfMatch: NotRequired[str]
+
+BlobTypeDef = Union[str, bytes, IO[Any], StreamingBody]
+
+class GrpcConfigTypeDef(TypedDict):
+    Enabled: bool
+
+class TrustedKeyGroupsOutputTypeDef(TypedDict):
+    Enabled: bool
+    Quantity: int
+    Items: NotRequired[List[str]]
+
+class TrustedSignersOutputTypeDef(TypedDict):
+    Enabled: bool
+    Quantity: int
+    Items: NotRequired[List[str]]
+
+class CookieNamesOutputTypeDef(TypedDict):
+    Quantity: int
+    Items: NotRequired[List[str]]
+
+class CookieNamesTypeDef(TypedDict):
+    Quantity: int
+    Items: NotRequired[Sequence[str]]
+
+class HeadersOutputTypeDef(TypedDict):
+    Quantity: int
+    Items: NotRequired[List[str]]
+
+class HeadersTypeDef(TypedDict):
+    Quantity: int
+    Items: NotRequired[Sequence[str]]
+
+class QueryStringNamesOutputTypeDef(TypedDict):
+    Quantity: int
+    Items: NotRequired[List[str]]
+
+class QueryStringNamesTypeDef(TypedDict):
+    Quantity: int
+    Items: NotRequired[Sequence[str]]
+
+class CachedMethodsTypeDef(TypedDict):
+    Quantity: int
+    Items: Sequence[MethodType]
+
+class CertificateTypeDef(TypedDict):
+    Arn: str
+
+class CloudFrontOriginAccessIdentityConfigTypeDef(TypedDict):
+    CallerReference: str
+    Comment: str
+
+class CloudFrontOriginAccessIdentitySummaryTypeDef(TypedDict):
+    Id: str
+    S3CanonicalUserId: str
+    Comment: str
+
+class ConflictingAliasTypeDef(TypedDict):
+    Alias: NotRequired[str]
+    DistributionId: NotRequired[str]
+    AccountId: NotRequired[str]
+
+class ConnectionGroupAssociationFilterTypeDef(TypedDict):
+    AnycastIpListId: NotRequired[str]
+
+class ConnectionGroupSummaryTypeDef(TypedDict):
+    Id: str
+    Name: str
+    Arn: str
+    RoutingEndpoint: str
+    CreatedTime: datetime
+    LastModifiedTime: datetime
+    ETag: str
+    AnycastIpListId: NotRequired[str]
+    Enabled: NotRequired[bool]
+    Status: NotRequired[str]
+    IsDefault: NotRequired[bool]
+
+class ContentTypeProfileTypeDef(TypedDict):
+    Format: Literal["URLEncoded"]
+    ContentType: str
+    ProfileId: NotRequired[str]
+
+class StagingDistributionDnsNamesOutputTypeDef(TypedDict):
+    Quantity: int
+    Items: NotRequired[List[str]]
+
+class StagingDistributionDnsNamesTypeDef(TypedDict):
+    Quantity: int
+    Items: NotRequired[Sequence[str]]
+
+class ContinuousDeploymentSingleHeaderConfigTypeDef(TypedDict):
+    Header: str
+    Value: str
+
+class SessionStickinessConfigTypeDef(TypedDict):
+    IdleTTL: int
+    MaximumTTL: int
+
+class CopyDistributionRequestTypeDef(TypedDict):
+    PrimaryDistributionId: str
+    CallerReference: str
+    Staging: NotRequired[bool]
+    IfMatch: NotRequired[str]
+    Enabled: NotRequired[bool]
+
+class DomainItemTypeDef(TypedDict):
+    Domain: str
+
+class ManagedCertificateRequestTypeDef(TypedDict):
+    ValidationTokenHost: ValidationTokenHostType
+    PrimaryDomainName: NotRequired[str]
+    CertificateTransparencyLoggingPreference: NotRequired[
+        CertificateTransparencyLoggingPreferenceType
+    ]
+
+class ParameterTypeDef(TypedDict):
+    Name: str
+    Value: str
+
+class ImportSourceTypeDef(TypedDict):
+    SourceType: Literal["S3"]
+    SourceARN: str
+
+class KeyValueStoreTypeDef(TypedDict):
+    Name: str
+    Id: str
+    Comment: str
+    ARN: str
+    LastModifiedTime: datetime
+    Status: NotRequired[str]
+
+class OriginAccessControlConfigTypeDef(TypedDict):
+    Name: str
+    SigningProtocol: Literal["sigv4"]
+    SigningBehavior: OriginAccessControlSigningBehaviorsType
+    OriginAccessControlOriginType: OriginAccessControlOriginTypesType
+    Description: NotRequired[str]
+
+class PublicKeyConfigTypeDef(TypedDict):
+    CallerReference: str
+    Name: str
+    EncodedKey: str
+    Comment: NotRequired[str]
+
+class CustomErrorResponseTypeDef(TypedDict):
+    ErrorCode: int
+    ResponsePagePath: NotRequired[str]
+    ResponseCode: NotRequired[str]
+    ErrorCachingMinTTL: NotRequired[int]
+
+class OriginCustomHeaderTypeDef(TypedDict):
+    HeaderName: str
+    HeaderValue: str
+
+class OriginSslProtocolsOutputTypeDef(TypedDict):
+    Quantity: int
+    Items: List[SslProtocolType]
+
+class GeoRestrictionCustomizationOutputTypeDef(TypedDict):
+    RestrictionType: GeoRestrictionTypeType
+    Locations: NotRequired[List[str]]
+
+class WebAclCustomizationTypeDef(TypedDict):
+    Action: CustomizationActionTypeType
+    Arn: NotRequired[str]
+
+class GeoRestrictionCustomizationTypeDef(TypedDict):
+    RestrictionType: GeoRestrictionTypeType
+    Locations: NotRequired[Sequence[str]]
+
+class DeleteAnycastIpListRequestTypeDef(TypedDict):
+    Id: str
+    IfMatch: str
+
+class DeleteCachePolicyRequestTypeDef(TypedDict):
+    Id: str
+    IfMatch: NotRequired[str]
+
+class DeleteCloudFrontOriginAccessIdentityRequestTypeDef(TypedDict):
+    Id: str
+    IfMatch: NotRequired[str]
+
+class DeleteConnectionGroupRequestTypeDef(TypedDict):
+    Id: str
+    IfMatch: str
+
+class DeleteContinuousDeploymentPolicyRequestTypeDef(TypedDict):
+    Id: str
+    IfMatch: NotRequired[str]
+
+class DeleteDistributionRequestTypeDef(TypedDict):
+    Id: str
+    IfMatch: NotRequired[str]
+
+class DeleteDistributionTenantRequestTypeDef(TypedDict):
+    Id: str
+    IfMatch: str
+
+class DeleteFieldLevelEncryptionConfigRequestTypeDef(TypedDict):
+    Id: str
+    IfMatch: NotRequired[str]
+
+class DeleteFieldLevelEncryptionProfileRequestTypeDef(TypedDict):
+    Id: str
+    IfMatch: NotRequired[str]
+
+class DeleteFunctionRequestTypeDef(TypedDict):
+    Name: str
+    IfMatch: str
+
+class DeleteKeyGroupRequestTypeDef(TypedDict):
+    Id: str
+    IfMatch: NotRequired[str]
+
+class DeleteKeyValueStoreRequestTypeDef(TypedDict):
+    Name: str
+    IfMatch: str
+
+class DeleteMonitoringSubscriptionRequestTypeDef(TypedDict):
+    DistributionId: str
+
+class DeleteOriginAccessControlRequestTypeDef(TypedDict):
+    Id: str
+    IfMatch: NotRequired[str]
+
+class DeleteOriginRequestPolicyRequestTypeDef(TypedDict):
+    Id: str
+    IfMatch: NotRequired[str]
+
+class DeletePublicKeyRequestTypeDef(TypedDict):
+    Id: str
+    IfMatch: NotRequired[str]
+
+class DeleteRealtimeLogConfigRequestTypeDef(TypedDict):
+    Name: NotRequired[str]
+    ARN: NotRequired[str]
+
+class DeleteResponseHeadersPolicyRequestTypeDef(TypedDict):
+    Id: str
+    IfMatch: NotRequired[str]
+
+class DeleteStreamingDistributionRequestTypeDef(TypedDict):
+    Id: str
+    IfMatch: NotRequired[str]
+
+class DeleteVpcOriginRequestTypeDef(TypedDict):
+    Id: str
+    IfMatch: str
+
+class DescribeFunctionRequestTypeDef(TypedDict):
+    Name: str
+    Stage: NotRequired[FunctionStageType]
+
+class DescribeKeyValueStoreRequestTypeDef(TypedDict):
+    Name: str
+
+class DisassociateDistributionTenantWebACLRequestTypeDef(TypedDict):
+    Id: str
+    IfMatch: NotRequired[str]
+
+class DisassociateDistributionWebACLRequestTypeDef(TypedDict):
+    Id: str
+    IfMatch: NotRequired[str]
+
+class LoggingConfigTypeDef(TypedDict):
+    Enabled: NotRequired[bool]
+    IncludeCookies: NotRequired[bool]
+    Bucket: NotRequired[str]
+    Prefix: NotRequired[str]
+
+class ViewerCertificateTypeDef(TypedDict):
+    CloudFrontDefaultCertificate: NotRequired[bool]
+    IAMCertificateId: NotRequired[str]
+    ACMCertificateArn: NotRequired[str]
+    SSLSupportMethod: NotRequired[SSLSupportMethodType]
+    MinimumProtocolVersion: NotRequired[MinimumProtocolVersionType]
+    Certificate: NotRequired[str]
+    CertificateSource: NotRequired[CertificateSourceType]
+
+class DistributionIdListTypeDef(TypedDict):
+    Marker: str
+    MaxItems: int
+    IsTruncated: bool
+    Quantity: int
+    NextMarker: NotRequired[str]
+    Items: NotRequired[List[str]]
+
+class DistributionResourceIdTypeDef(TypedDict):
+    DistributionId: NotRequired[str]
+    DistributionTenantId: NotRequired[str]
+
+class DistributionTenantAssociationFilterTypeDef(TypedDict):
+    DistributionId: NotRequired[str]
+    ConnectionGroupId: NotRequired[str]
+
+class DomainResultTypeDef(TypedDict):
+    Domain: str
+    Status: NotRequired[DomainStatusType]
+
+class DnsConfigurationTypeDef(TypedDict):
+    Domain: str
+    Status: DnsConfigurationStatusType
+    Reason: NotRequired[str]
+
+class DomainConflictTypeDef(TypedDict):
+    Domain: str
+    ResourceType: DistributionResourceTypeType
+    ResourceId: str
+    AccountId: str
+
+class FieldPatternsOutputTypeDef(TypedDict):
+    Quantity: int
+    Items: NotRequired[List[str]]
+
+class FieldPatternsTypeDef(TypedDict):
+    Quantity: int
+    Items: NotRequired[Sequence[str]]
+
+class KinesisStreamConfigTypeDef(TypedDict):
+    RoleARN: str
+    StreamARN: str
+
+class QueryStringCacheKeysOutputTypeDef(TypedDict):
+    Quantity: int
+    Items: NotRequired[List[str]]
+
+class FunctionAssociationTypeDef(TypedDict):
+    FunctionARN: str
+    EventType: EventTypeType
+
+class FunctionMetadataTypeDef(TypedDict):
+    FunctionARN: str
+    LastModifiedTime: datetime
+    Stage: NotRequired[FunctionStageType]
+    CreatedTime: NotRequired[datetime]
+
+class GeoRestrictionOutputTypeDef(TypedDict):
+    RestrictionType: GeoRestrictionTypeType
+    Quantity: int
+    Items: NotRequired[List[str]]
+
+class GeoRestrictionTypeDef(TypedDict):
+    RestrictionType: GeoRestrictionTypeType
+    Quantity: int
+    Items: NotRequired[Sequence[str]]
+
+class GetAnycastIpListRequestTypeDef(TypedDict):
+    Id: str
+
+class GetCachePolicyConfigRequestTypeDef(TypedDict):
+    Id: str
+
+class GetCachePolicyRequestTypeDef(TypedDict):
+    Id: str
+
+class GetCloudFrontOriginAccessIdentityConfigRequestTypeDef(TypedDict):
+    Id: str
+
+class GetCloudFrontOriginAccessIdentityRequestTypeDef(TypedDict):
+    Id: str
+
+class GetConnectionGroupByRoutingEndpointRequestTypeDef(TypedDict):
+    RoutingEndpoint: str
+
+class GetConnectionGroupRequestTypeDef(TypedDict):
+    Identifier: str
+
+class GetContinuousDeploymentPolicyConfigRequestTypeDef(TypedDict):
+    Id: str
+
+class GetContinuousDeploymentPolicyRequestTypeDef(TypedDict):
+    Id: str
+
+class GetDistributionConfigRequestTypeDef(TypedDict):
+    Id: str
+
+class GetDistributionRequestTypeDef(TypedDict):
+    Id: str
+
+class WaiterConfigTypeDef(TypedDict):
+    Delay: NotRequired[int]
+    MaxAttempts: NotRequired[int]
+
+class GetDistributionTenantByDomainRequestTypeDef(TypedDict):
+    Domain: str
+
+class GetDistributionTenantRequestTypeDef(TypedDict):
+    Identifier: str
+
+class GetFieldLevelEncryptionConfigRequestTypeDef(TypedDict):
+    Id: str
+
+class GetFieldLevelEncryptionProfileConfigRequestTypeDef(TypedDict):
+    Id: str
+
+class GetFieldLevelEncryptionProfileRequestTypeDef(TypedDict):
+    Id: str
+
+class GetFieldLevelEncryptionRequestTypeDef(TypedDict):
+    Id: str
+
+class GetFunctionRequestTypeDef(TypedDict):
+    Name: str
+    Stage: NotRequired[FunctionStageType]
+
+class GetInvalidationForDistributionTenantRequestTypeDef(TypedDict):
+    DistributionTenantId: str
+    Id: str
+
+class GetInvalidationRequestTypeDef(TypedDict):
+    DistributionId: str
+    Id: str
+
+class GetKeyGroupConfigRequestTypeDef(TypedDict):
+    Id: str
+
+class KeyGroupConfigOutputTypeDef(TypedDict):
+    Name: str
+    Items: List[str]
+    Comment: NotRequired[str]
+
+class GetKeyGroupRequestTypeDef(TypedDict):
+    Id: str
+
+class GetManagedCertificateDetailsRequestTypeDef(TypedDict):
+    Identifier: str
+
+class GetMonitoringSubscriptionRequestTypeDef(TypedDict):
+    DistributionId: str
+
+class GetOriginAccessControlConfigRequestTypeDef(TypedDict):
+    Id: str
+
+class GetOriginAccessControlRequestTypeDef(TypedDict):
+    Id: str
+
+class GetOriginRequestPolicyConfigRequestTypeDef(TypedDict):
+    Id: str
+
+class GetOriginRequestPolicyRequestTypeDef(TypedDict):
+    Id: str
+
+class GetPublicKeyConfigRequestTypeDef(TypedDict):
+    Id: str
+
+class GetPublicKeyRequestTypeDef(TypedDict):
+    Id: str
+
+class GetRealtimeLogConfigRequestTypeDef(TypedDict):
+    Name: NotRequired[str]
+    ARN: NotRequired[str]
+
+class GetResponseHeadersPolicyConfigRequestTypeDef(TypedDict):
+    Id: str
+
+class GetResponseHeadersPolicyRequestTypeDef(TypedDict):
+    Id: str
+
+class GetStreamingDistributionConfigRequestTypeDef(TypedDict):
+    Id: str
+
+class GetStreamingDistributionRequestTypeDef(TypedDict):
+    Id: str
+
+class GetVpcOriginRequestTypeDef(TypedDict):
+    Id: str
+
+class PathsOutputTypeDef(TypedDict):
+    Quantity: int
+    Items: NotRequired[List[str]]
+
+class PathsTypeDef(TypedDict):
+    Quantity: int
+    Items: NotRequired[Sequence[str]]
+
+class InvalidationSummaryTypeDef(TypedDict):
+    Id: str
+    CreateTime: datetime
+    Status: str
+
+class KeyPairIdsTypeDef(TypedDict):
+    Quantity: int
+    Items: NotRequired[List[str]]
+
+class KeyGroupConfigTypeDef(TypedDict):
+    Name: str
+    Items: Sequence[str]
+    Comment: NotRequired[str]
+
+class KeyValueStoreAssociationTypeDef(TypedDict):
+    KeyValueStoreARN: str
+
+class LambdaFunctionAssociationTypeDef(TypedDict):
+    LambdaFunctionARN: str
+    EventType: EventTypeType
+    IncludeBody: NotRequired[bool]
+
+class ListAnycastIpListsRequestTypeDef(TypedDict):
+    Marker: NotRequired[str]
+    MaxItems: NotRequired[int]
+
+ListCachePoliciesRequestTypeDef = TypedDict(
+    "ListCachePoliciesRequestTypeDef",
+    {
+        "Type": NotRequired[CachePolicyTypeType],
+        "Marker": NotRequired[str],
+        "MaxItems": NotRequired[str],
+    },
+)
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class ListCloudFrontOriginAccessIdentitiesRequestTypeDef(TypedDict):
+    Marker: NotRequired[str]
+    MaxItems: NotRequired[str]
+
+class ListConflictingAliasesRequestTypeDef(TypedDict):
+    DistributionId: str
+    Alias: str
+    Marker: NotRequired[str]
+    MaxItems: NotRequired[int]
+
+class ListContinuousDeploymentPoliciesRequestTypeDef(TypedDict):
+    Marker: NotRequired[str]
+    MaxItems: NotRequired[str]
+
+class ListDistributionTenantsByCustomizationRequestTypeDef(TypedDict):
+    WebACLArn: NotRequired[str]
+    CertificateArn: NotRequired[str]
+    Marker: NotRequired[str]
+    MaxItems: NotRequired[int]
+
+class ListDistributionsByAnycastIpListIdRequestTypeDef(TypedDict):
+    AnycastIpListId: str
+    Marker: NotRequired[str]
+    MaxItems: NotRequired[str]
+
+class ListDistributionsByCachePolicyIdRequestTypeDef(TypedDict):
+    CachePolicyId: str
+    Marker: NotRequired[str]
+    MaxItems: NotRequired[str]
+
+class ListDistributionsByConnectionModeRequestTypeDef(TypedDict):
+    ConnectionMode: ConnectionModeType
+    Marker: NotRequired[str]
+    MaxItems: NotRequired[int]
+
+class ListDistributionsByKeyGroupRequestTypeDef(TypedDict):
+    KeyGroupId: str
+    Marker: NotRequired[str]
+    MaxItems: NotRequired[str]
+
+class ListDistributionsByOriginRequestPolicyIdRequestTypeDef(TypedDict):
+    OriginRequestPolicyId: str
+    Marker: NotRequired[str]
+    MaxItems: NotRequired[str]
+
+class ListDistributionsByRealtimeLogConfigRequestTypeDef(TypedDict):
+    Marker: NotRequired[str]
+    MaxItems: NotRequired[str]
+    RealtimeLogConfigName: NotRequired[str]
+    RealtimeLogConfigArn: NotRequired[str]
+
+class ListDistributionsByResponseHeadersPolicyIdRequestTypeDef(TypedDict):
+    ResponseHeadersPolicyId: str
+    Marker: NotRequired[str]
+    MaxItems: NotRequired[str]
+
+class ListDistributionsByVpcOriginIdRequestTypeDef(TypedDict):
+    VpcOriginId: str
+    Marker: NotRequired[str]
+    MaxItems: NotRequired[str]
+
+class ListDistributionsByWebACLIdRequestTypeDef(TypedDict):
+    WebACLId: str
+    Marker: NotRequired[str]
+    MaxItems: NotRequired[str]
+
+class ListDistributionsRequestTypeDef(TypedDict):
+    Marker: NotRequired[str]
+    MaxItems: NotRequired[str]
+
+class ListFieldLevelEncryptionConfigsRequestTypeDef(TypedDict):
+    Marker: NotRequired[str]
+    MaxItems: NotRequired[str]
+
+class ListFieldLevelEncryptionProfilesRequestTypeDef(TypedDict):
+    Marker: NotRequired[str]
+    MaxItems: NotRequired[str]
+
+class ListFunctionsRequestTypeDef(TypedDict):
+    Marker: NotRequired[str]
+    MaxItems: NotRequired[str]
+    Stage: NotRequired[FunctionStageType]
+
+class ListInvalidationsForDistributionTenantRequestTypeDef(TypedDict):
+    Id: str
+    Marker: NotRequired[str]
+    MaxItems: NotRequired[int]
+
+class ListInvalidationsRequestTypeDef(TypedDict):
+    DistributionId: str
+    Marker: NotRequired[str]
+    MaxItems: NotRequired[str]
+
+class ListKeyGroupsRequestTypeDef(TypedDict):
+    Marker: NotRequired[str]
+    MaxItems: NotRequired[str]
+
+class ListKeyValueStoresRequestTypeDef(TypedDict):
+    Marker: NotRequired[str]
+    MaxItems: NotRequired[str]
+    Status: NotRequired[str]
+
+class ListOriginAccessControlsRequestTypeDef(TypedDict):
+    Marker: NotRequired[str]
+    MaxItems: NotRequired[str]
+
+ListOriginRequestPoliciesRequestTypeDef = TypedDict(
+    "ListOriginRequestPoliciesRequestTypeDef",
+    {
+        "Type": NotRequired[OriginRequestPolicyTypeType],
+        "Marker": NotRequired[str],
+        "MaxItems": NotRequired[str],
+    },
+)
+
+class ListPublicKeysRequestTypeDef(TypedDict):
+    Marker: NotRequired[str]
+    MaxItems: NotRequired[str]
+
+class ListRealtimeLogConfigsRequestTypeDef(TypedDict):
+    MaxItems: NotRequired[str]
+    Marker: NotRequired[str]
+
+ListResponseHeadersPoliciesRequestTypeDef = TypedDict(
+    "ListResponseHeadersPoliciesRequestTypeDef",
+    {
+        "Type": NotRequired[ResponseHeadersPolicyTypeType],
+        "Marker": NotRequired[str],
+        "MaxItems": NotRequired[str],
+    },
+)
+
+class ListStreamingDistributionsRequestTypeDef(TypedDict):
+    Marker: NotRequired[str]
+    MaxItems: NotRequired[str]
+
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    Resource: str
+
+class ListVpcOriginsRequestTypeDef(TypedDict):
+    Marker: NotRequired[str]
+    MaxItems: NotRequired[str]
+
+class ValidationTokenDetailTypeDef(TypedDict):
+    Domain: str
+    RedirectTo: NotRequired[str]
+    RedirectFrom: NotRequired[str]
+
+class RealtimeMetricsSubscriptionConfigTypeDef(TypedDict):
+    RealtimeMetricsSubscriptionStatus: RealtimeMetricsSubscriptionStatusType
+
+class OriginAccessControlSummaryTypeDef(TypedDict):
+    Id: str
+    Description: str
+    Name: str
+    SigningProtocol: Literal["sigv4"]
+    SigningBehavior: OriginAccessControlSigningBehaviorsType
+    OriginAccessControlOriginType: OriginAccessControlOriginTypesType
+
+class StatusCodesOutputTypeDef(TypedDict):
+    Quantity: int
+    Items: List[int]
+
+class OriginGroupMemberTypeDef(TypedDict):
+    OriginId: str
+
+class OriginShieldTypeDef(TypedDict):
+    Enabled: bool
+    OriginShieldRegion: NotRequired[str]
+
+class S3OriginConfigTypeDef(TypedDict):
+    OriginAccessIdentity: str
+
+class VpcOriginConfigTypeDef(TypedDict):
+    VpcOriginId: str
+    OriginReadTimeout: NotRequired[int]
+    OriginKeepaliveTimeout: NotRequired[int]
+
+class OriginSslProtocolsTypeDef(TypedDict):
+    Quantity: int
+    Items: Sequence[SslProtocolType]
+
+StringSchemaConfigTypeDef = TypedDict(
+    "StringSchemaConfigTypeDef",
+    {
+        "Required": bool,
+        "Comment": NotRequired[str],
+        "DefaultValue": NotRequired[str],
+    },
+)
+
+class PublicKeySummaryTypeDef(TypedDict):
+    Id: str
+    Name: str
+    CreatedTime: datetime
+    EncodedKey: str
+    Comment: NotRequired[str]
+
+class PublishFunctionRequestTypeDef(TypedDict):
+    Name: str
+    IfMatch: str
+
+class QueryArgProfileTypeDef(TypedDict):
+    QueryArg: str
+    ProfileId: str
+
+class QueryStringCacheKeysTypeDef(TypedDict):
+    Quantity: int
+    Items: NotRequired[Sequence[str]]
+
+class ResponseHeadersPolicyAccessControlAllowHeadersOutputTypeDef(TypedDict):
+    Quantity: int
+    Items: List[str]
+
+class ResponseHeadersPolicyAccessControlAllowHeadersTypeDef(TypedDict):
+    Quantity: int
+    Items: Sequence[str]
+
+class ResponseHeadersPolicyAccessControlAllowMethodsOutputTypeDef(TypedDict):
+    Quantity: int
+    Items: List[ResponseHeadersPolicyAccessControlAllowMethodsValuesType]
+
+class ResponseHeadersPolicyAccessControlAllowMethodsTypeDef(TypedDict):
+    Quantity: int
+    Items: Sequence[ResponseHeadersPolicyAccessControlAllowMethodsValuesType]
+
+class ResponseHeadersPolicyAccessControlAllowOriginsOutputTypeDef(TypedDict):
+    Quantity: int
+    Items: List[str]
+
+class ResponseHeadersPolicyAccessControlAllowOriginsTypeDef(TypedDict):
+    Quantity: int
+    Items: Sequence[str]
+
+class ResponseHeadersPolicyAccessControlExposeHeadersOutputTypeDef(TypedDict):
+    Quantity: int
+    Items: NotRequired[List[str]]
+
+class ResponseHeadersPolicyAccessControlExposeHeadersTypeDef(TypedDict):
+    Quantity: int
+    Items: NotRequired[Sequence[str]]
+
+class ResponseHeadersPolicyServerTimingHeadersConfigTypeDef(TypedDict):
+    Enabled: bool
+    SamplingRate: NotRequired[float]
+
+class ResponseHeadersPolicyContentSecurityPolicyTypeDef(TypedDict):
+    Override: bool
+    ContentSecurityPolicy: str
+
+class ResponseHeadersPolicyContentTypeOptionsTypeDef(TypedDict):
+    Override: bool
+
+class ResponseHeadersPolicyCustomHeaderTypeDef(TypedDict):
+    Header: str
+    Value: str
+    Override: bool
+
+class ResponseHeadersPolicyFrameOptionsTypeDef(TypedDict):
+    Override: bool
+    FrameOption: FrameOptionsListType
+
+class ResponseHeadersPolicyReferrerPolicyTypeDef(TypedDict):
+    Override: bool
+    ReferrerPolicy: ReferrerPolicyListType
+
+class ResponseHeadersPolicyRemoveHeaderTypeDef(TypedDict):
+    Header: str
+
+class ResponseHeadersPolicyStrictTransportSecurityTypeDef(TypedDict):
+    Override: bool
+    AccessControlMaxAgeSec: int
+    IncludeSubdomains: NotRequired[bool]
+    Preload: NotRequired[bool]
+
+class ResponseHeadersPolicyXSSProtectionTypeDef(TypedDict):
+    Override: bool
+    Protection: bool
+    ModeBlock: NotRequired[bool]
+    ReportUri: NotRequired[str]
+
+class S3OriginTypeDef(TypedDict):
+    DomainName: str
+    OriginAccessIdentity: str
+
+class StatusCodesTypeDef(TypedDict):
+    Quantity: int
+    Items: Sequence[int]
+
+class StreamingLoggingConfigTypeDef(TypedDict):
+    Enabled: bool
+    Bucket: str
+    Prefix: str
+
+class TagKeysTypeDef(TypedDict):
+    Items: NotRequired[Sequence[str]]
+
+class TagTypeDef(TypedDict):
+    Key: str
+    Value: NotRequired[str]
+
+class TrustedKeyGroupsTypeDef(TypedDict):
+    Enabled: bool
+    Quantity: int
+    Items: NotRequired[Sequence[str]]
+
+class TrustedSignersTypeDef(TypedDict):
+    Enabled: bool
+    Quantity: int
+    Items: NotRequired[Sequence[str]]
+
+class UpdateConnectionGroupRequestTypeDef(TypedDict):
+    Id: str
+    IfMatch: str
+    Ipv6Enabled: NotRequired[bool]
+    AnycastIpListId: NotRequired[str]
+    Enabled: NotRequired[bool]
+
+class UpdateDistributionWithStagingConfigRequestTypeDef(TypedDict):
+    Id: str
+    StagingDistributionId: NotRequired[str]
+    IfMatch: NotRequired[str]
+
+class UpdateKeyValueStoreRequestTypeDef(TypedDict):
+    Name: str
+    Comment: str
+    IfMatch: str
+
+class VerifyDnsConfigurationRequestTypeDef(TypedDict):
+    Identifier: str
+    Domain: NotRequired[str]
+
+class VpcOriginSummaryTypeDef(TypedDict):
+    Id: str
+    Name: str
+    Status: str
+    CreatedTime: datetime
+    LastModifiedTime: datetime
+    Arn: str
+    OriginEndpointArn: str
+
+AliasesUnionTypeDef = Union[AliasesTypeDef, AliasesOutputTypeDef]
+
+class AllowedMethodsOutputTypeDef(TypedDict):
+    Quantity: int
+    Items: List[MethodType]
+    CachedMethods: NotRequired[CachedMethodsOutputTypeDef]
+
+class AnycastIpListCollectionTypeDef(TypedDict):
+    Marker: str
+    MaxItems: int
+    IsTruncated: bool
+    Quantity: int
+    Items: NotRequired[List[AnycastIpListSummaryTypeDef]]
+    NextMarker: NotRequired[str]
+
+class AssociateDistributionTenantWebACLResultTypeDef(TypedDict):
+    Id: str
+    WebACLArn: str
+    ETag: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class AssociateDistributionWebACLResultTypeDef(TypedDict):
+    Id: str
+    WebACLArn: str
+    ETag: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateAnycastIpListResultTypeDef(TypedDict):
+    AnycastIpList: AnycastIpListTypeDef
+    ETag: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DisassociateDistributionTenantWebACLResultTypeDef(TypedDict):
+    Id: str
+    ETag: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DisassociateDistributionWebACLResultTypeDef(TypedDict):
+    Id: str
+    ETag: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class EmptyResponseMetadataTypeDef(TypedDict):
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetAnycastIpListResultTypeDef(TypedDict):
+    AnycastIpList: AnycastIpListTypeDef
+    ETag: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetFunctionResultTypeDef(TypedDict):
+    FunctionCode: StreamingBody
+    ETag: str
+    ContentType: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateDomainAssociationResultTypeDef(TypedDict):
+    Domain: str
+    ResourceId: str
+    ETag: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class TestFunctionRequestTypeDef(TypedDict):
+    Name: str
+    IfMatch: str
+    EventObject: BlobTypeDef
+    Stage: NotRequired[FunctionStageType]
+
+class CachePolicyCookiesConfigOutputTypeDef(TypedDict):
+    CookieBehavior: CachePolicyCookieBehaviorType
+    Cookies: NotRequired[CookieNamesOutputTypeDef]
+
+class CookiePreferenceOutputTypeDef(TypedDict):
+    Forward: ItemSelectionType
+    WhitelistedNames: NotRequired[CookieNamesOutputTypeDef]
+
+class OriginRequestPolicyCookiesConfigOutputTypeDef(TypedDict):
+    CookieBehavior: OriginRequestPolicyCookieBehaviorType
+    Cookies: NotRequired[CookieNamesOutputTypeDef]
+
+class CachePolicyCookiesConfigTypeDef(TypedDict):
+    CookieBehavior: CachePolicyCookieBehaviorType
+    Cookies: NotRequired[CookieNamesTypeDef]
+
+CookieNamesUnionTypeDef = Union[CookieNamesTypeDef, CookieNamesOutputTypeDef]
+
+class OriginRequestPolicyCookiesConfigTypeDef(TypedDict):
+    CookieBehavior: OriginRequestPolicyCookieBehaviorType
+    Cookies: NotRequired[CookieNamesTypeDef]
+
+class CachePolicyHeadersConfigOutputTypeDef(TypedDict):
+    HeaderBehavior: CachePolicyHeaderBehaviorType
+    Headers: NotRequired[HeadersOutputTypeDef]
+
+class OriginRequestPolicyHeadersConfigOutputTypeDef(TypedDict):
+    HeaderBehavior: OriginRequestPolicyHeaderBehaviorType
+    Headers: NotRequired[HeadersOutputTypeDef]
+
+class CachePolicyHeadersConfigTypeDef(TypedDict):
+    HeaderBehavior: CachePolicyHeaderBehaviorType
+    Headers: NotRequired[HeadersTypeDef]
+
+HeadersUnionTypeDef = Union[HeadersTypeDef, HeadersOutputTypeDef]
+
+class OriginRequestPolicyHeadersConfigTypeDef(TypedDict):
+    HeaderBehavior: OriginRequestPolicyHeaderBehaviorType
+    Headers: NotRequired[HeadersTypeDef]
+
+class CachePolicyQueryStringsConfigOutputTypeDef(TypedDict):
+    QueryStringBehavior: CachePolicyQueryStringBehaviorType
+    QueryStrings: NotRequired[QueryStringNamesOutputTypeDef]
+
+class OriginRequestPolicyQueryStringsConfigOutputTypeDef(TypedDict):
+    QueryStringBehavior: OriginRequestPolicyQueryStringBehaviorType
+    QueryStrings: NotRequired[QueryStringNamesOutputTypeDef]
+
+class CachePolicyQueryStringsConfigTypeDef(TypedDict):
+    QueryStringBehavior: CachePolicyQueryStringBehaviorType
+    QueryStrings: NotRequired[QueryStringNamesTypeDef]
+
+class OriginRequestPolicyQueryStringsConfigTypeDef(TypedDict):
+    QueryStringBehavior: OriginRequestPolicyQueryStringBehaviorType
+    QueryStrings: NotRequired[QueryStringNamesTypeDef]
+
+CachedMethodsUnionTypeDef = Union[CachedMethodsTypeDef, CachedMethodsOutputTypeDef]
+
+class CloudFrontOriginAccessIdentityTypeDef(TypedDict):
+    Id: str
+    S3CanonicalUserId: str
+    CloudFrontOriginAccessIdentityConfig: NotRequired[CloudFrontOriginAccessIdentityConfigTypeDef]
+
+class CreateCloudFrontOriginAccessIdentityRequestTypeDef(TypedDict):
+    CloudFrontOriginAccessIdentityConfig: CloudFrontOriginAccessIdentityConfigTypeDef
+
+class GetCloudFrontOriginAccessIdentityConfigResultTypeDef(TypedDict):
+    CloudFrontOriginAccessIdentityConfig: CloudFrontOriginAccessIdentityConfigTypeDef
+    ETag: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateCloudFrontOriginAccessIdentityRequestTypeDef(TypedDict):
+    CloudFrontOriginAccessIdentityConfig: CloudFrontOriginAccessIdentityConfigTypeDef
+    Id: str
+    IfMatch: NotRequired[str]
+
+class CloudFrontOriginAccessIdentityListTypeDef(TypedDict):
+    Marker: str
+    MaxItems: int
+    IsTruncated: bool
+    Quantity: int
+    NextMarker: NotRequired[str]
+    Items: NotRequired[List[CloudFrontOriginAccessIdentitySummaryTypeDef]]
+
+class ConflictingAliasesListTypeDef(TypedDict):
+    NextMarker: NotRequired[str]
+    MaxItems: NotRequired[int]
+    Quantity: NotRequired[int]
+    Items: NotRequired[List[ConflictingAliasTypeDef]]
+
+class ListConnectionGroupsRequestTypeDef(TypedDict):
+    AssociationFilter: NotRequired[ConnectionGroupAssociationFilterTypeDef]
+    Marker: NotRequired[str]
+    MaxItems: NotRequired[int]
+
+class ListConnectionGroupsResultTypeDef(TypedDict):
+    NextMarker: str
+    ConnectionGroups: List[ConnectionGroupSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ContentTypeProfilesOutputTypeDef(TypedDict):
+    Quantity: int
+    Items: NotRequired[List[ContentTypeProfileTypeDef]]
+
+class ContentTypeProfilesTypeDef(TypedDict):
+    Quantity: int
+    Items: NotRequired[Sequence[ContentTypeProfileTypeDef]]
+
+class ContinuousDeploymentSingleWeightConfigTypeDef(TypedDict):
+    Weight: float
+    SessionStickinessConfig: NotRequired[SessionStickinessConfigTypeDef]
+
+class CreateKeyValueStoreRequestTypeDef(TypedDict):
+    Name: str
+    Comment: NotRequired[str]
+    ImportSource: NotRequired[ImportSourceTypeDef]
+
+class CreateKeyValueStoreResultTypeDef(TypedDict):
+    KeyValueStore: KeyValueStoreTypeDef
+    ETag: str
+    Location: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeKeyValueStoreResultTypeDef(TypedDict):
+    KeyValueStore: KeyValueStoreTypeDef
+    ETag: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class KeyValueStoreListTypeDef(TypedDict):
+    MaxItems: int
+    Quantity: int
+    NextMarker: NotRequired[str]
+    Items: NotRequired[List[KeyValueStoreTypeDef]]
+
+class UpdateKeyValueStoreResultTypeDef(TypedDict):
+    KeyValueStore: KeyValueStoreTypeDef
+    ETag: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateOriginAccessControlRequestTypeDef(TypedDict):
+    OriginAccessControlConfig: OriginAccessControlConfigTypeDef
+
+class GetOriginAccessControlConfigResultTypeDef(TypedDict):
+    OriginAccessControlConfig: OriginAccessControlConfigTypeDef
+    ETag: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class OriginAccessControlTypeDef(TypedDict):
+    Id: str
+    OriginAccessControlConfig: NotRequired[OriginAccessControlConfigTypeDef]
+
+class UpdateOriginAccessControlRequestTypeDef(TypedDict):
+    OriginAccessControlConfig: OriginAccessControlConfigTypeDef
+    Id: str
+    IfMatch: NotRequired[str]
+
+class CreatePublicKeyRequestTypeDef(TypedDict):
+    PublicKeyConfig: PublicKeyConfigTypeDef
+
+class GetPublicKeyConfigResultTypeDef(TypedDict):
+    PublicKeyConfig: PublicKeyConfigTypeDef
+    ETag: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PublicKeyTypeDef(TypedDict):
+    Id: str
+    CreatedTime: datetime
+    PublicKeyConfig: PublicKeyConfigTypeDef
+
+class UpdatePublicKeyRequestTypeDef(TypedDict):
+    PublicKeyConfig: PublicKeyConfigTypeDef
+    Id: str
+    IfMatch: NotRequired[str]
+
+class CustomErrorResponsesOutputTypeDef(TypedDict):
+    Quantity: int
+    Items: NotRequired[List[CustomErrorResponseTypeDef]]
+
+class CustomErrorResponsesTypeDef(TypedDict):
+    Quantity: int
+    Items: NotRequired[Sequence[CustomErrorResponseTypeDef]]
+
+class CustomHeadersOutputTypeDef(TypedDict):
+    Quantity: int
+    Items: NotRequired[List[OriginCustomHeaderTypeDef]]
+
+class CustomHeadersTypeDef(TypedDict):
+    Quantity: int
+    Items: NotRequired[Sequence[OriginCustomHeaderTypeDef]]
+
+class CustomOriginConfigOutputTypeDef(TypedDict):
+    HTTPPort: int
+    HTTPSPort: int
+    OriginProtocolPolicy: OriginProtocolPolicyType
+    OriginSslProtocols: NotRequired[OriginSslProtocolsOutputTypeDef]
+    OriginReadTimeout: NotRequired[int]
+    OriginKeepaliveTimeout: NotRequired[int]
+
+class VpcOriginEndpointConfigOutputTypeDef(TypedDict):
+    Name: str
+    Arn: str
+    HTTPPort: int
+    HTTPSPort: int
+    OriginProtocolPolicy: OriginProtocolPolicyType
+    OriginSslProtocols: NotRequired[OriginSslProtocolsOutputTypeDef]
+
+class CustomizationsOutputTypeDef(TypedDict):
+    WebAcl: NotRequired[WebAclCustomizationTypeDef]
+    Certificate: NotRequired[CertificateTypeDef]
+    GeoRestrictions: NotRequired[GeoRestrictionCustomizationOutputTypeDef]
+
+class CustomizationsTypeDef(TypedDict):
+    WebAcl: NotRequired[WebAclCustomizationTypeDef]
+    Certificate: NotRequired[CertificateTypeDef]
+    GeoRestrictions: NotRequired[GeoRestrictionCustomizationTypeDef]
+
+class ListDistributionsByCachePolicyIdResultTypeDef(TypedDict):
+    DistributionIdList: DistributionIdListTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListDistributionsByKeyGroupResultTypeDef(TypedDict):
+    DistributionIdList: DistributionIdListTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListDistributionsByOriginRequestPolicyIdResultTypeDef(TypedDict):
+    DistributionIdList: DistributionIdListTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListDistributionsByResponseHeadersPolicyIdResultTypeDef(TypedDict):
+    DistributionIdList: DistributionIdListTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListDistributionsByVpcOriginIdResultTypeDef(TypedDict):
+    DistributionIdList: DistributionIdListTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListDomainConflictsRequestTypeDef(TypedDict):
+    Domain: str
+    DomainControlValidationResource: DistributionResourceIdTypeDef
+    MaxItems: NotRequired[int]
+    Marker: NotRequired[str]
+
+class UpdateDomainAssociationRequestTypeDef(TypedDict):
+    Domain: str
+    TargetResource: DistributionResourceIdTypeDef
+    IfMatch: NotRequired[str]
+
+class ListDistributionTenantsRequestTypeDef(TypedDict):
+    AssociationFilter: NotRequired[DistributionTenantAssociationFilterTypeDef]
+    Marker: NotRequired[str]
+    MaxItems: NotRequired[int]
+
+class VerifyDnsConfigurationResultTypeDef(TypedDict):
+    DnsConfigurationList: List[DnsConfigurationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListDomainConflictsResultTypeDef(TypedDict):
+    DomainConflicts: List[DomainConflictTypeDef]
+    NextMarker: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class EncryptionEntityOutputTypeDef(TypedDict):
+    PublicKeyId: str
+    ProviderId: str
+    FieldPatterns: FieldPatternsOutputTypeDef
+
+class EncryptionEntityTypeDef(TypedDict):
+    PublicKeyId: str
+    ProviderId: str
+    FieldPatterns: FieldPatternsTypeDef
+
+class EndPointTypeDef(TypedDict):
+    StreamType: str
+    KinesisStreamConfig: NotRequired[KinesisStreamConfigTypeDef]
+
+class FunctionAssociationsOutputTypeDef(TypedDict):
+    Quantity: int
+    Items: NotRequired[List[FunctionAssociationTypeDef]]
+
+class FunctionAssociationsTypeDef(TypedDict):
+    Quantity: int
+    Items: NotRequired[Sequence[FunctionAssociationTypeDef]]
+
+class RestrictionsOutputTypeDef(TypedDict):
+    GeoRestriction: GeoRestrictionOutputTypeDef
+
+GeoRestrictionUnionTypeDef = Union[GeoRestrictionTypeDef, GeoRestrictionOutputTypeDef]
+
+class GetDistributionRequestWaitTypeDef(TypedDict):
+    Id: str
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class GetInvalidationForDistributionTenantRequestWaitTypeDef(TypedDict):
+    DistributionTenantId: str
+    Id: str
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class GetInvalidationRequestWaitTypeDef(TypedDict):
+    DistributionId: str
+    Id: str
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class GetStreamingDistributionRequestWaitTypeDef(TypedDict):
+    Id: str
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class GetKeyGroupConfigResultTypeDef(TypedDict):
+    KeyGroupConfig: KeyGroupConfigOutputTypeDef
+    ETag: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class KeyGroupTypeDef(TypedDict):
+    Id: str
+    LastModifiedTime: datetime
+    KeyGroupConfig: KeyGroupConfigOutputTypeDef
+
+class InvalidationBatchOutputTypeDef(TypedDict):
+    Paths: PathsOutputTypeDef
+    CallerReference: str
+
+class InvalidationBatchTypeDef(TypedDict):
+    Paths: PathsTypeDef
+    CallerReference: str
+
+class InvalidationListTypeDef(TypedDict):
+    Marker: str
+    MaxItems: int
+    IsTruncated: bool
+    Quantity: int
+    NextMarker: NotRequired[str]
+    Items: NotRequired[List[InvalidationSummaryTypeDef]]
+
+class KGKeyPairIdsTypeDef(TypedDict):
+    KeyGroupId: NotRequired[str]
+    KeyPairIds: NotRequired[KeyPairIdsTypeDef]
+
+class SignerTypeDef(TypedDict):
+    AwsAccountNumber: NotRequired[str]
+    KeyPairIds: NotRequired[KeyPairIdsTypeDef]
+
+KeyGroupConfigUnionTypeDef = Union[KeyGroupConfigTypeDef, KeyGroupConfigOutputTypeDef]
+
+class KeyValueStoreAssociationsOutputTypeDef(TypedDict):
+    Quantity: int
+    Items: NotRequired[List[KeyValueStoreAssociationTypeDef]]
+
+class KeyValueStoreAssociationsTypeDef(TypedDict):
+    Quantity: int
+    Items: NotRequired[Sequence[KeyValueStoreAssociationTypeDef]]
+
+class LambdaFunctionAssociationsOutputTypeDef(TypedDict):
+    Quantity: int
+    Items: NotRequired[List[LambdaFunctionAssociationTypeDef]]
+
+class LambdaFunctionAssociationsTypeDef(TypedDict):
+    Quantity: int
+    Items: NotRequired[Sequence[LambdaFunctionAssociationTypeDef]]
+
+class ListCloudFrontOriginAccessIdentitiesRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListConnectionGroupsRequestPaginateTypeDef(TypedDict):
+    AssociationFilter: NotRequired[ConnectionGroupAssociationFilterTypeDef]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListDistributionTenantsByCustomizationRequestPaginateTypeDef(TypedDict):
+    WebACLArn: NotRequired[str]
+    CertificateArn: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListDistributionTenantsRequestPaginateTypeDef(TypedDict):
+    AssociationFilter: NotRequired[DistributionTenantAssociationFilterTypeDef]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListDistributionsByConnectionModeRequestPaginateTypeDef(TypedDict):
+    ConnectionMode: ConnectionModeType
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListDistributionsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListDomainConflictsRequestPaginateTypeDef(TypedDict):
+    Domain: str
+    DomainControlValidationResource: DistributionResourceIdTypeDef
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListInvalidationsForDistributionTenantRequestPaginateTypeDef(TypedDict):
+    Id: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListInvalidationsRequestPaginateTypeDef(TypedDict):
+    DistributionId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListKeyValueStoresRequestPaginateTypeDef(TypedDict):
+    Status: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListPublicKeysRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListStreamingDistributionsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ManagedCertificateDetailsTypeDef(TypedDict):
+    CertificateArn: NotRequired[str]
+    CertificateStatus: NotRequired[ManagedCertificateStatusType]
+    ValidationTokenHost: NotRequired[ValidationTokenHostType]
+    ValidationTokenDetails: NotRequired[List[ValidationTokenDetailTypeDef]]
+
+class MonitoringSubscriptionTypeDef(TypedDict):
+    RealtimeMetricsSubscriptionConfig: NotRequired[RealtimeMetricsSubscriptionConfigTypeDef]
+
+class OriginAccessControlListTypeDef(TypedDict):
+    Marker: str
+    MaxItems: int
+    IsTruncated: bool
+    Quantity: int
+    NextMarker: NotRequired[str]
+    Items: NotRequired[List[OriginAccessControlSummaryTypeDef]]
+
+class OriginGroupFailoverCriteriaOutputTypeDef(TypedDict):
+    StatusCodes: StatusCodesOutputTypeDef
+
+class OriginGroupMembersOutputTypeDef(TypedDict):
+    Quantity: int
+    Items: List[OriginGroupMemberTypeDef]
+
+class OriginGroupMembersTypeDef(TypedDict):
+    Quantity: int
+    Items: Sequence[OriginGroupMemberTypeDef]
+
+OriginSslProtocolsUnionTypeDef = Union[OriginSslProtocolsTypeDef, OriginSslProtocolsOutputTypeDef]
+
+class VpcOriginEndpointConfigTypeDef(TypedDict):
+    Name: str
+    Arn: str
+    HTTPPort: int
+    HTTPSPort: int
+    OriginProtocolPolicy: OriginProtocolPolicyType
+    OriginSslProtocols: NotRequired[OriginSslProtocolsTypeDef]
+
+class ParameterDefinitionSchemaTypeDef(TypedDict):
+    StringSchema: NotRequired[StringSchemaConfigTypeDef]
+
+class PublicKeyListTypeDef(TypedDict):
+    MaxItems: int
+    Quantity: int
+    NextMarker: NotRequired[str]
+    Items: NotRequired[List[PublicKeySummaryTypeDef]]
+
+class QueryArgProfilesOutputTypeDef(TypedDict):
+    Quantity: int
+    Items: NotRequired[List[QueryArgProfileTypeDef]]
+
+class QueryArgProfilesTypeDef(TypedDict):
+    Quantity: int
+    Items: NotRequired[Sequence[QueryArgProfileTypeDef]]
+
+QueryStringCacheKeysUnionTypeDef = Union[
+    QueryStringCacheKeysTypeDef, QueryStringCacheKeysOutputTypeDef
+]
+
+class ResponseHeadersPolicyCorsConfigOutputTypeDef(TypedDict):
+    AccessControlAllowOrigins: ResponseHeadersPolicyAccessControlAllowOriginsOutputTypeDef
+    AccessControlAllowHeaders: ResponseHeadersPolicyAccessControlAllowHeadersOutputTypeDef
+    AccessControlAllowMethods: ResponseHeadersPolicyAccessControlAllowMethodsOutputTypeDef
+    AccessControlAllowCredentials: bool
+    OriginOverride: bool
+    AccessControlExposeHeaders: NotRequired[
+        ResponseHeadersPolicyAccessControlExposeHeadersOutputTypeDef
+    ]
+    AccessControlMaxAgeSec: NotRequired[int]
+
+class ResponseHeadersPolicyCorsConfigTypeDef(TypedDict):
+    AccessControlAllowOrigins: ResponseHeadersPolicyAccessControlAllowOriginsTypeDef
+    AccessControlAllowHeaders: ResponseHeadersPolicyAccessControlAllowHeadersTypeDef
+    AccessControlAllowMethods: ResponseHeadersPolicyAccessControlAllowMethodsTypeDef
+    AccessControlAllowCredentials: bool
+    OriginOverride: bool
+    AccessControlExposeHeaders: NotRequired[ResponseHeadersPolicyAccessControlExposeHeadersTypeDef]
+    AccessControlMaxAgeSec: NotRequired[int]
+
+class ResponseHeadersPolicyCustomHeadersConfigOutputTypeDef(TypedDict):
+    Quantity: int
+    Items: NotRequired[List[ResponseHeadersPolicyCustomHeaderTypeDef]]
+
+class ResponseHeadersPolicyCustomHeadersConfigTypeDef(TypedDict):
+    Quantity: int
+    Items: NotRequired[Sequence[ResponseHeadersPolicyCustomHeaderTypeDef]]
+
+class ResponseHeadersPolicyRemoveHeadersConfigOutputTypeDef(TypedDict):
+    Quantity: int
+    Items: NotRequired[List[ResponseHeadersPolicyRemoveHeaderTypeDef]]
+
+class ResponseHeadersPolicyRemoveHeadersConfigTypeDef(TypedDict):
+    Quantity: int
+    Items: NotRequired[Sequence[ResponseHeadersPolicyRemoveHeaderTypeDef]]
+
+class ResponseHeadersPolicySecurityHeadersConfigTypeDef(TypedDict):
+    XSSProtection: NotRequired[ResponseHeadersPolicyXSSProtectionTypeDef]
+    FrameOptions: NotRequired[ResponseHeadersPolicyFrameOptionsTypeDef]
+    ReferrerPolicy: NotRequired[ResponseHeadersPolicyReferrerPolicyTypeDef]
+    ContentSecurityPolicy: NotRequired[ResponseHeadersPolicyContentSecurityPolicyTypeDef]
+    ContentTypeOptions: NotRequired[ResponseHeadersPolicyContentTypeOptionsTypeDef]
+    StrictTransportSecurity: NotRequired[ResponseHeadersPolicyStrictTransportSecurityTypeDef]
+
+class StreamingDistributionSummaryTypeDef(TypedDict):
+    Id: str
+    ARN: str
+    Status: str
+    LastModifiedTime: datetime
+    DomainName: str
+    S3Origin: S3OriginTypeDef
+    Aliases: AliasesOutputTypeDef
+    TrustedSigners: TrustedSignersOutputTypeDef
+    Comment: str
+    PriceClass: PriceClassType
+    Enabled: bool
+
+StatusCodesUnionTypeDef = Union[StatusCodesTypeDef, StatusCodesOutputTypeDef]
+
+class StreamingDistributionConfigOutputTypeDef(TypedDict):
+    CallerReference: str
+    S3Origin: S3OriginTypeDef
+    Comment: str
+    TrustedSigners: TrustedSignersOutputTypeDef
+    Enabled: bool
+    Aliases: NotRequired[AliasesOutputTypeDef]
+    Logging: NotRequired[StreamingLoggingConfigTypeDef]
+    PriceClass: NotRequired[PriceClassType]
+
+class UntagResourceRequestTypeDef(TypedDict):
+    Resource: str
+    TagKeys: TagKeysTypeDef
+
+class TagsOutputTypeDef(TypedDict):
+    Items: NotRequired[List[TagTypeDef]]
+
+class TagsTypeDef(TypedDict):
+    Items: NotRequired[Sequence[TagTypeDef]]
+
+TrustedKeyGroupsUnionTypeDef = Union[TrustedKeyGroupsTypeDef, TrustedKeyGroupsOutputTypeDef]
+TrustedSignersUnionTypeDef = Union[TrustedSignersTypeDef, TrustedSignersOutputTypeDef]
+
+class VpcOriginListTypeDef(TypedDict):
+    Marker: str
+    MaxItems: int
+    IsTruncated: bool
+    Quantity: int
+    NextMarker: NotRequired[str]
+    Items: NotRequired[List[VpcOriginSummaryTypeDef]]
+
+class ListAnycastIpListsResultTypeDef(TypedDict):
+    AnycastIpLists: AnycastIpListCollectionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ForwardedValuesOutputTypeDef(TypedDict):
+    QueryString: bool
+    Cookies: CookiePreferenceOutputTypeDef
+    Headers: NotRequired[HeadersOutputTypeDef]
+    QueryStringCacheKeys: NotRequired[QueryStringCacheKeysOutputTypeDef]
+
+class CookiePreferenceTypeDef(TypedDict):
+    Forward: ItemSelectionType
+    WhitelistedNames: NotRequired[CookieNamesUnionTypeDef]
+
+class ParametersInCacheKeyAndForwardedToOriginOutputTypeDef(TypedDict):
+    EnableAcceptEncodingGzip: bool
+    HeadersConfig: CachePolicyHeadersConfigOutputTypeDef
+    CookiesConfig: CachePolicyCookiesConfigOutputTypeDef
+    QueryStringsConfig: CachePolicyQueryStringsConfigOutputTypeDef
+    EnableAcceptEncodingBrotli: NotRequired[bool]
+
+class OriginRequestPolicyConfigOutputTypeDef(TypedDict):
+    Name: str
+    HeadersConfig: OriginRequestPolicyHeadersConfigOutputTypeDef
+    CookiesConfig: OriginRequestPolicyCookiesConfigOutputTypeDef
+    QueryStringsConfig: OriginRequestPolicyQueryStringsConfigOutputTypeDef
+    Comment: NotRequired[str]
+
+class ParametersInCacheKeyAndForwardedToOriginTypeDef(TypedDict):
+    EnableAcceptEncodingGzip: bool
+    HeadersConfig: CachePolicyHeadersConfigTypeDef
+    CookiesConfig: CachePolicyCookiesConfigTypeDef
+    QueryStringsConfig: CachePolicyQueryStringsConfigTypeDef
+    EnableAcceptEncodingBrotli: NotRequired[bool]
+
+class OriginRequestPolicyConfigTypeDef(TypedDict):
+    Name: str
+    HeadersConfig: OriginRequestPolicyHeadersConfigTypeDef
+    CookiesConfig: OriginRequestPolicyCookiesConfigTypeDef
+    QueryStringsConfig: OriginRequestPolicyQueryStringsConfigTypeDef
+    Comment: NotRequired[str]
+
+class AllowedMethodsTypeDef(TypedDict):
+    Quantity: int
+    Items: Sequence[MethodType]
+    CachedMethods: NotRequired[CachedMethodsUnionTypeDef]
+
+class CreateCloudFrontOriginAccessIdentityResultTypeDef(TypedDict):
+    CloudFrontOriginAccessIdentity: CloudFrontOriginAccessIdentityTypeDef
+    Location: str
+    ETag: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetCloudFrontOriginAccessIdentityResultTypeDef(TypedDict):
+    CloudFrontOriginAccessIdentity: CloudFrontOriginAccessIdentityTypeDef
+    ETag: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateCloudFrontOriginAccessIdentityResultTypeDef(TypedDict):
+    CloudFrontOriginAccessIdentity: CloudFrontOriginAccessIdentityTypeDef
+    ETag: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListCloudFrontOriginAccessIdentitiesResultTypeDef(TypedDict):
+    CloudFrontOriginAccessIdentityList: CloudFrontOriginAccessIdentityListTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListConflictingAliasesResultTypeDef(TypedDict):
+    ConflictingAliasesList: ConflictingAliasesListTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ContentTypeProfileConfigOutputTypeDef(TypedDict):
+    ForwardWhenContentTypeIsUnknown: bool
+    ContentTypeProfiles: NotRequired[ContentTypeProfilesOutputTypeDef]
+
+class ContentTypeProfileConfigTypeDef(TypedDict):
+    ForwardWhenContentTypeIsUnknown: bool
+    ContentTypeProfiles: NotRequired[ContentTypeProfilesTypeDef]
+
+TrafficConfigTypeDef = TypedDict(
+    "TrafficConfigTypeDef",
+    {
+        "Type": ContinuousDeploymentPolicyTypeType,
+        "SingleWeightConfig": NotRequired[ContinuousDeploymentSingleWeightConfigTypeDef],
+        "SingleHeaderConfig": NotRequired[ContinuousDeploymentSingleHeaderConfigTypeDef],
+    },
+)
+
+class ListKeyValueStoresResultTypeDef(TypedDict):
+    KeyValueStoreList: KeyValueStoreListTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateOriginAccessControlResultTypeDef(TypedDict):
+    OriginAccessControl: OriginAccessControlTypeDef
+    Location: str
+    ETag: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetOriginAccessControlResultTypeDef(TypedDict):
+    OriginAccessControl: OriginAccessControlTypeDef
+    ETag: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateOriginAccessControlResultTypeDef(TypedDict):
+    OriginAccessControl: OriginAccessControlTypeDef
+    ETag: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreatePublicKeyResultTypeDef(TypedDict):
+    PublicKey: PublicKeyTypeDef
+    Location: str
+    ETag: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetPublicKeyResultTypeDef(TypedDict):
+    PublicKey: PublicKeyTypeDef
+    ETag: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdatePublicKeyResultTypeDef(TypedDict):
+    PublicKey: PublicKeyTypeDef
+    ETag: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+CustomErrorResponsesUnionTypeDef = Union[
+    CustomErrorResponsesTypeDef, CustomErrorResponsesOutputTypeDef
+]
+CustomHeadersUnionTypeDef = Union[CustomHeadersTypeDef, CustomHeadersOutputTypeDef]
+
+class OriginOutputTypeDef(TypedDict):
+    Id: str
+    DomainName: str
+    OriginPath: NotRequired[str]
+    CustomHeaders: NotRequired[CustomHeadersOutputTypeDef]
+    S3OriginConfig: NotRequired[S3OriginConfigTypeDef]
+    CustomOriginConfig: NotRequired[CustomOriginConfigOutputTypeDef]
+    VpcOriginConfig: NotRequired[VpcOriginConfigTypeDef]
+    ConnectionAttempts: NotRequired[int]
+    ConnectionTimeout: NotRequired[int]
+    OriginShield: NotRequired[OriginShieldTypeDef]
+    OriginAccessControlId: NotRequired[str]
+
+class VpcOriginTypeDef(TypedDict):
+    Id: str
+    Arn: str
+    Status: str
+    CreatedTime: datetime
+    LastModifiedTime: datetime
+    VpcOriginEndpointConfig: VpcOriginEndpointConfigOutputTypeDef
+
+class DistributionTenantSummaryTypeDef(TypedDict):
+    Id: str
+    DistributionId: str
+    Name: str
+    Arn: str
+    Domains: List[DomainResultTypeDef]
+    CreatedTime: datetime
+    LastModifiedTime: datetime
+    ETag: str
+    ConnectionGroupId: NotRequired[str]
+    Customizations: NotRequired[CustomizationsOutputTypeDef]
+    Enabled: NotRequired[bool]
+    Status: NotRequired[str]
+
+CustomizationsUnionTypeDef = Union[CustomizationsTypeDef, CustomizationsOutputTypeDef]
+
+class EncryptionEntitiesOutputTypeDef(TypedDict):
+    Quantity: int
+    Items: NotRequired[List[EncryptionEntityOutputTypeDef]]
+
+class EncryptionEntitiesTypeDef(TypedDict):
+    Quantity: int
+    Items: NotRequired[Sequence[EncryptionEntityTypeDef]]
+
+class CreateRealtimeLogConfigRequestTypeDef(TypedDict):
+    EndPoints: Sequence[EndPointTypeDef]
+    Fields: Sequence[str]
+    Name: str
+    SamplingRate: int
+
+class RealtimeLogConfigTypeDef(TypedDict):
+    ARN: str
+    Name: str
+    SamplingRate: int
+    EndPoints: List[EndPointTypeDef]
+    Fields: List[str]
+
+class UpdateRealtimeLogConfigRequestTypeDef(TypedDict):
+    EndPoints: NotRequired[Sequence[EndPointTypeDef]]
+    Fields: NotRequired[Sequence[str]]
+    Name: NotRequired[str]
+    ARN: NotRequired[str]
+    SamplingRate: NotRequired[int]
+
+FunctionAssociationsUnionTypeDef = Union[
+    FunctionAssociationsTypeDef, FunctionAssociationsOutputTypeDef
+]
+
+class RestrictionsTypeDef(TypedDict):
+    GeoRestriction: GeoRestrictionUnionTypeDef
+
+class CreateKeyGroupResultTypeDef(TypedDict):
+    KeyGroup: KeyGroupTypeDef
+    Location: str
+    ETag: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetKeyGroupResultTypeDef(TypedDict):
+    KeyGroup: KeyGroupTypeDef
+    ETag: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class KeyGroupSummaryTypeDef(TypedDict):
+    KeyGroup: KeyGroupTypeDef
+
+class UpdateKeyGroupResultTypeDef(TypedDict):
+    KeyGroup: KeyGroupTypeDef
+    ETag: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class InvalidationTypeDef(TypedDict):
+    Id: str
+    Status: str
+    CreateTime: datetime
+    InvalidationBatch: InvalidationBatchOutputTypeDef
+
+InvalidationBatchUnionTypeDef = Union[InvalidationBatchTypeDef, InvalidationBatchOutputTypeDef]
+
+class ListInvalidationsForDistributionTenantResultTypeDef(TypedDict):
+    InvalidationList: InvalidationListTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListInvalidationsResultTypeDef(TypedDict):
+    InvalidationList: InvalidationListTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ActiveTrustedKeyGroupsTypeDef(TypedDict):
+    Enabled: bool
+    Quantity: int
+    Items: NotRequired[List[KGKeyPairIdsTypeDef]]
+
+class ActiveTrustedSignersTypeDef(TypedDict):
+    Enabled: bool
+    Quantity: int
+    Items: NotRequired[List[SignerTypeDef]]
+
+class CreateKeyGroupRequestTypeDef(TypedDict):
+    KeyGroupConfig: KeyGroupConfigUnionTypeDef
+
+class UpdateKeyGroupRequestTypeDef(TypedDict):
+    KeyGroupConfig: KeyGroupConfigUnionTypeDef
+    Id: str
+    IfMatch: NotRequired[str]
+
+class FunctionConfigOutputTypeDef(TypedDict):
+    Comment: str
+    Runtime: FunctionRuntimeType
+    KeyValueStoreAssociations: NotRequired[KeyValueStoreAssociationsOutputTypeDef]
+
+class FunctionConfigTypeDef(TypedDict):
+    Comment: str
+    Runtime: FunctionRuntimeType
+    KeyValueStoreAssociations: NotRequired[KeyValueStoreAssociationsTypeDef]
+
+LambdaFunctionAssociationsUnionTypeDef = Union[
+    LambdaFunctionAssociationsTypeDef, LambdaFunctionAssociationsOutputTypeDef
+]
+
+class GetManagedCertificateDetailsResultTypeDef(TypedDict):
+    ManagedCertificateDetails: ManagedCertificateDetailsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateMonitoringSubscriptionRequestTypeDef(TypedDict):
+    DistributionId: str
+    MonitoringSubscription: MonitoringSubscriptionTypeDef
+
+class CreateMonitoringSubscriptionResultTypeDef(TypedDict):
+    MonitoringSubscription: MonitoringSubscriptionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetMonitoringSubscriptionResultTypeDef(TypedDict):
+    MonitoringSubscription: MonitoringSubscriptionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListOriginAccessControlsResultTypeDef(TypedDict):
+    OriginAccessControlList: OriginAccessControlListTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class OriginGroupOutputTypeDef(TypedDict):
+    Id: str
+    FailoverCriteria: OriginGroupFailoverCriteriaOutputTypeDef
+    Members: OriginGroupMembersOutputTypeDef
+    SelectionCriteria: NotRequired[OriginGroupSelectionCriteriaType]
+
+OriginGroupMembersUnionTypeDef = Union[OriginGroupMembersTypeDef, OriginGroupMembersOutputTypeDef]
+
+class CustomOriginConfigTypeDef(TypedDict):
+    HTTPPort: int
+    HTTPSPort: int
+    OriginProtocolPolicy: OriginProtocolPolicyType
+    OriginSslProtocols: NotRequired[OriginSslProtocolsUnionTypeDef]
+    OriginReadTimeout: NotRequired[int]
+    OriginKeepaliveTimeout: NotRequired[int]
+
+VpcOriginEndpointConfigUnionTypeDef = Union[
+    VpcOriginEndpointConfigTypeDef, VpcOriginEndpointConfigOutputTypeDef
+]
+
+class ParameterDefinitionTypeDef(TypedDict):
+    Name: str
+    Definition: ParameterDefinitionSchemaTypeDef
+
+class ListPublicKeysResultTypeDef(TypedDict):
+    PublicKeyList: PublicKeyListTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class QueryArgProfileConfigOutputTypeDef(TypedDict):
+    ForwardWhenQueryArgProfileIsUnknown: bool
+    QueryArgProfiles: NotRequired[QueryArgProfilesOutputTypeDef]
+
+class QueryArgProfileConfigTypeDef(TypedDict):
+    ForwardWhenQueryArgProfileIsUnknown: bool
+    QueryArgProfiles: NotRequired[QueryArgProfilesTypeDef]
+
+class ResponseHeadersPolicyConfigOutputTypeDef(TypedDict):
+    Name: str
+    Comment: NotRequired[str]
+    CorsConfig: NotRequired[ResponseHeadersPolicyCorsConfigOutputTypeDef]
+    SecurityHeadersConfig: NotRequired[ResponseHeadersPolicySecurityHeadersConfigTypeDef]
+    ServerTimingHeadersConfig: NotRequired[ResponseHeadersPolicyServerTimingHeadersConfigTypeDef]
+    CustomHeadersConfig: NotRequired[ResponseHeadersPolicyCustomHeadersConfigOutputTypeDef]
+    RemoveHeadersConfig: NotRequired[ResponseHeadersPolicyRemoveHeadersConfigOutputTypeDef]
+
+class ResponseHeadersPolicyConfigTypeDef(TypedDict):
+    Name: str
+    Comment: NotRequired[str]
+    CorsConfig: NotRequired[ResponseHeadersPolicyCorsConfigTypeDef]
+    SecurityHeadersConfig: NotRequired[ResponseHeadersPolicySecurityHeadersConfigTypeDef]
+    ServerTimingHeadersConfig: NotRequired[ResponseHeadersPolicyServerTimingHeadersConfigTypeDef]
+    CustomHeadersConfig: NotRequired[ResponseHeadersPolicyCustomHeadersConfigTypeDef]
+    RemoveHeadersConfig: NotRequired[ResponseHeadersPolicyRemoveHeadersConfigTypeDef]
+
+class StreamingDistributionListTypeDef(TypedDict):
+    Marker: str
+    MaxItems: int
+    IsTruncated: bool
+    Quantity: int
+    NextMarker: NotRequired[str]
+    Items: NotRequired[List[StreamingDistributionSummaryTypeDef]]
+
+class OriginGroupFailoverCriteriaTypeDef(TypedDict):
+    StatusCodes: StatusCodesUnionTypeDef
+
+class GetStreamingDistributionConfigResultTypeDef(TypedDict):
+    StreamingDistributionConfig: StreamingDistributionConfigOutputTypeDef
+    ETag: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ConnectionGroupTypeDef(TypedDict):
+    Id: NotRequired[str]
+    Name: NotRequired[str]
+    Arn: NotRequired[str]
+    CreatedTime: NotRequired[datetime]
+    LastModifiedTime: NotRequired[datetime]
+    Tags: NotRequired[TagsOutputTypeDef]
+    Ipv6Enabled: NotRequired[bool]
+    RoutingEndpoint: NotRequired[str]
+    AnycastIpListId: NotRequired[str]
+    Status: NotRequired[str]
+    Enabled: NotRequired[bool]
+    IsDefault: NotRequired[bool]
+
+class DistributionTenantTypeDef(TypedDict):
+    Id: NotRequired[str]
+    DistributionId: NotRequired[str]
+    Name: NotRequired[str]
+    Arn: NotRequired[str]
+    Domains: NotRequired[List[DomainResultTypeDef]]
+    Tags: NotRequired[TagsOutputTypeDef]
+    Customizations: NotRequired[CustomizationsOutputTypeDef]
+    Parameters: NotRequired[List[ParameterTypeDef]]
+    ConnectionGroupId: NotRequired[str]
+    CreatedTime: NotRequired[datetime]
+    LastModifiedTime: NotRequired[datetime]
+    Enabled: NotRequired[bool]
+    Status: NotRequired[str]
+
+class ListTagsForResourceResultTypeDef(TypedDict):
+    Tags: TagsOutputTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+TagsUnionTypeDef = Union[TagsTypeDef, TagsOutputTypeDef]
+
+class StreamingDistributionConfigTypeDef(TypedDict):
+    CallerReference: str
+    S3Origin: S3OriginTypeDef
+    Comment: str
+    TrustedSigners: TrustedSignersUnionTypeDef
+    Enabled: bool
+    Aliases: NotRequired[AliasesUnionTypeDef]
+    Logging: NotRequired[StreamingLoggingConfigTypeDef]
+    PriceClass: NotRequired[PriceClassType]
+
+class ListVpcOriginsResultTypeDef(TypedDict):
+    VpcOriginList: VpcOriginListTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CacheBehaviorOutputTypeDef(TypedDict):
+    PathPattern: str
+    TargetOriginId: str
+    ViewerProtocolPolicy: ViewerProtocolPolicyType
+    TrustedSigners: NotRequired[TrustedSignersOutputTypeDef]
+    TrustedKeyGroups: NotRequired[TrustedKeyGroupsOutputTypeDef]
+    AllowedMethods: NotRequired[AllowedMethodsOutputTypeDef]
+    SmoothStreaming: NotRequired[bool]
+    Compress: NotRequired[bool]
+    LambdaFunctionAssociations: NotRequired[LambdaFunctionAssociationsOutputTypeDef]
+    FunctionAssociations: NotRequired[FunctionAssociationsOutputTypeDef]
+    FieldLevelEncryptionId: NotRequired[str]
+    RealtimeLogConfigArn: NotRequired[str]
+    CachePolicyId: NotRequired[str]
+    OriginRequestPolicyId: NotRequired[str]
+    ResponseHeadersPolicyId: NotRequired[str]
+    GrpcConfig: NotRequired[GrpcConfigTypeDef]
+    ForwardedValues: NotRequired[ForwardedValuesOutputTypeDef]
+    MinTTL: NotRequired[int]
+    DefaultTTL: NotRequired[int]
+    MaxTTL: NotRequired[int]
+
+class DefaultCacheBehaviorOutputTypeDef(TypedDict):
+    TargetOriginId: str
+    ViewerProtocolPolicy: ViewerProtocolPolicyType
+    TrustedSigners: NotRequired[TrustedSignersOutputTypeDef]
+    TrustedKeyGroups: NotRequired[TrustedKeyGroupsOutputTypeDef]
+    AllowedMethods: NotRequired[AllowedMethodsOutputTypeDef]
+    SmoothStreaming: NotRequired[bool]
+    Compress: NotRequired[bool]
+    LambdaFunctionAssociations: NotRequired[LambdaFunctionAssociationsOutputTypeDef]
+    FunctionAssociations: NotRequired[FunctionAssociationsOutputTypeDef]
+    FieldLevelEncryptionId: NotRequired[str]
+    RealtimeLogConfigArn: NotRequired[str]
+    CachePolicyId: NotRequired[str]
+    OriginRequestPolicyId: NotRequired[str]
+    ResponseHeadersPolicyId: NotRequired[str]
+    GrpcConfig: NotRequired[GrpcConfigTypeDef]
+    ForwardedValues: NotRequired[ForwardedValuesOutputTypeDef]
+    MinTTL: NotRequired[int]
+    DefaultTTL: NotRequired[int]
+    MaxTTL: NotRequired[int]
+
+CookiePreferenceUnionTypeDef = Union[CookiePreferenceTypeDef, CookiePreferenceOutputTypeDef]
+
+class CachePolicyConfigOutputTypeDef(TypedDict):
+    Name: str
+    MinTTL: int
+    Comment: NotRequired[str]
+    DefaultTTL: NotRequired[int]
+    MaxTTL: NotRequired[int]
+    ParametersInCacheKeyAndForwardedToOrigin: NotRequired[
+        ParametersInCacheKeyAndForwardedToOriginOutputTypeDef
+    ]
+
+class GetOriginRequestPolicyConfigResultTypeDef(TypedDict):
+    OriginRequestPolicyConfig: OriginRequestPolicyConfigOutputTypeDef
+    ETag: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class OriginRequestPolicyTypeDef(TypedDict):
+    Id: str
+    LastModifiedTime: datetime
+    OriginRequestPolicyConfig: OriginRequestPolicyConfigOutputTypeDef
+
+class CachePolicyConfigTypeDef(TypedDict):
+    Name: str
+    MinTTL: int
+    Comment: NotRequired[str]
+    DefaultTTL: NotRequired[int]
+    MaxTTL: NotRequired[int]
+    ParametersInCacheKeyAndForwardedToOrigin: NotRequired[
+        ParametersInCacheKeyAndForwardedToOriginTypeDef
+    ]
+
+OriginRequestPolicyConfigUnionTypeDef = Union[
+    OriginRequestPolicyConfigTypeDef, OriginRequestPolicyConfigOutputTypeDef
+]
+AllowedMethodsUnionTypeDef = Union[AllowedMethodsTypeDef, AllowedMethodsOutputTypeDef]
+
+class ContinuousDeploymentPolicyConfigOutputTypeDef(TypedDict):
+    StagingDistributionDnsNames: StagingDistributionDnsNamesOutputTypeDef
+    Enabled: bool
+    TrafficConfig: NotRequired[TrafficConfigTypeDef]
+
+class ContinuousDeploymentPolicyConfigTypeDef(TypedDict):
+    StagingDistributionDnsNames: StagingDistributionDnsNamesTypeDef
+    Enabled: bool
+    TrafficConfig: NotRequired[TrafficConfigTypeDef]
+
+class OriginsOutputTypeDef(TypedDict):
+    Quantity: int
+    Items: List[OriginOutputTypeDef]
+
+class CreateVpcOriginResultTypeDef(TypedDict):
+    VpcOrigin: VpcOriginTypeDef
+    Location: str
+    ETag: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteVpcOriginResultTypeDef(TypedDict):
+    VpcOrigin: VpcOriginTypeDef
+    ETag: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetVpcOriginResultTypeDef(TypedDict):
+    VpcOrigin: VpcOriginTypeDef
+    ETag: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateVpcOriginResultTypeDef(TypedDict):
+    VpcOrigin: VpcOriginTypeDef
+    ETag: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListDistributionTenantsByCustomizationResultTypeDef(TypedDict):
+    NextMarker: str
+    DistributionTenantList: List[DistributionTenantSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListDistributionTenantsResultTypeDef(TypedDict):
+    NextMarker: str
+    DistributionTenantList: List[DistributionTenantSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateDistributionTenantRequestTypeDef(TypedDict):
+    Id: str
+    IfMatch: str
+    DistributionId: NotRequired[str]
+    Domains: NotRequired[Sequence[DomainItemTypeDef]]
+    Customizations: NotRequired[CustomizationsUnionTypeDef]
+    Parameters: NotRequired[Sequence[ParameterTypeDef]]
+    ConnectionGroupId: NotRequired[str]
+    ManagedCertificateRequest: NotRequired[ManagedCertificateRequestTypeDef]
+    Enabled: NotRequired[bool]
+
+class FieldLevelEncryptionProfileConfigOutputTypeDef(TypedDict):
+    Name: str
+    CallerReference: str
+    EncryptionEntities: EncryptionEntitiesOutputTypeDef
+    Comment: NotRequired[str]
+
+class FieldLevelEncryptionProfileSummaryTypeDef(TypedDict):
+    Id: str
+    LastModifiedTime: datetime
+    Name: str
+    EncryptionEntities: EncryptionEntitiesOutputTypeDef
+    Comment: NotRequired[str]
+
+class FieldLevelEncryptionProfileConfigTypeDef(TypedDict):
+    Name: str
+    CallerReference: str
+    EncryptionEntities: EncryptionEntitiesTypeDef
+    Comment: NotRequired[str]
+
+class CreateRealtimeLogConfigResultTypeDef(TypedDict):
+    RealtimeLogConfig: RealtimeLogConfigTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetRealtimeLogConfigResultTypeDef(TypedDict):
+    RealtimeLogConfig: RealtimeLogConfigTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class RealtimeLogConfigsTypeDef(TypedDict):
+    MaxItems: int
+    IsTruncated: bool
+    Marker: str
+    Items: NotRequired[List[RealtimeLogConfigTypeDef]]
+    NextMarker: NotRequired[str]
+
+class UpdateRealtimeLogConfigResultTypeDef(TypedDict):
+    RealtimeLogConfig: RealtimeLogConfigTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+RestrictionsUnionTypeDef = Union[RestrictionsTypeDef, RestrictionsOutputTypeDef]
+
+class KeyGroupListTypeDef(TypedDict):
+    MaxItems: int
+    Quantity: int
+    NextMarker: NotRequired[str]
+    Items: NotRequired[List[KeyGroupSummaryTypeDef]]
+
+class CreateInvalidationForDistributionTenantResultTypeDef(TypedDict):
+    Location: str
+    Invalidation: InvalidationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateInvalidationResultTypeDef(TypedDict):
+    Location: str
+    Invalidation: InvalidationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetInvalidationForDistributionTenantResultTypeDef(TypedDict):
+    Invalidation: InvalidationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetInvalidationResultTypeDef(TypedDict):
+    Invalidation: InvalidationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateInvalidationForDistributionTenantRequestTypeDef(TypedDict):
+    Id: str
+    InvalidationBatch: InvalidationBatchUnionTypeDef
+
+class CreateInvalidationRequestTypeDef(TypedDict):
+    DistributionId: str
+    InvalidationBatch: InvalidationBatchUnionTypeDef
+
+class StreamingDistributionTypeDef(TypedDict):
+    Id: str
+    ARN: str
+    Status: str
+    DomainName: str
+    ActiveTrustedSigners: ActiveTrustedSignersTypeDef
+    StreamingDistributionConfig: StreamingDistributionConfigOutputTypeDef
+    LastModifiedTime: NotRequired[datetime]
+
+class FunctionSummaryTypeDef(TypedDict):
+    Name: str
+    FunctionConfig: FunctionConfigOutputTypeDef
+    FunctionMetadata: FunctionMetadataTypeDef
+    Status: NotRequired[str]
+
+FunctionConfigUnionTypeDef = Union[FunctionConfigTypeDef, FunctionConfigOutputTypeDef]
+
+class OriginGroupsOutputTypeDef(TypedDict):
+    Quantity: int
+    Items: NotRequired[List[OriginGroupOutputTypeDef]]
+
+CustomOriginConfigUnionTypeDef = Union[CustomOriginConfigTypeDef, CustomOriginConfigOutputTypeDef]
+
+class UpdateVpcOriginRequestTypeDef(TypedDict):
+    VpcOriginEndpointConfig: VpcOriginEndpointConfigUnionTypeDef
+    Id: str
+    IfMatch: str
+
+class TenantConfigOutputTypeDef(TypedDict):
+    ParameterDefinitions: NotRequired[List[ParameterDefinitionTypeDef]]
+
+class TenantConfigTypeDef(TypedDict):
+    ParameterDefinitions: NotRequired[Sequence[ParameterDefinitionTypeDef]]
+
+class FieldLevelEncryptionConfigOutputTypeDef(TypedDict):
+    CallerReference: str
+    Comment: NotRequired[str]
+    QueryArgProfileConfig: NotRequired[QueryArgProfileConfigOutputTypeDef]
+    ContentTypeProfileConfig: NotRequired[ContentTypeProfileConfigOutputTypeDef]
+
+class FieldLevelEncryptionSummaryTypeDef(TypedDict):
+    Id: str
+    LastModifiedTime: datetime
+    Comment: NotRequired[str]
+    QueryArgProfileConfig: NotRequired[QueryArgProfileConfigOutputTypeDef]
+    ContentTypeProfileConfig: NotRequired[ContentTypeProfileConfigOutputTypeDef]
+
+class FieldLevelEncryptionConfigTypeDef(TypedDict):
+    CallerReference: str
+    Comment: NotRequired[str]
+    QueryArgProfileConfig: NotRequired[QueryArgProfileConfigTypeDef]
+    ContentTypeProfileConfig: NotRequired[ContentTypeProfileConfigTypeDef]
+
+class GetResponseHeadersPolicyConfigResultTypeDef(TypedDict):
+    ResponseHeadersPolicyConfig: ResponseHeadersPolicyConfigOutputTypeDef
+    ETag: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ResponseHeadersPolicyTypeDef(TypedDict):
+    Id: str
+    LastModifiedTime: datetime
+    ResponseHeadersPolicyConfig: ResponseHeadersPolicyConfigOutputTypeDef
+
+ResponseHeadersPolicyConfigUnionTypeDef = Union[
+    ResponseHeadersPolicyConfigTypeDef, ResponseHeadersPolicyConfigOutputTypeDef
+]
+
+class ListStreamingDistributionsResultTypeDef(TypedDict):
+    StreamingDistributionList: StreamingDistributionListTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+OriginGroupFailoverCriteriaUnionTypeDef = Union[
+    OriginGroupFailoverCriteriaTypeDef, OriginGroupFailoverCriteriaOutputTypeDef
+]
+
+class CreateConnectionGroupResultTypeDef(TypedDict):
+    ConnectionGroup: ConnectionGroupTypeDef
+    ETag: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetConnectionGroupByRoutingEndpointResultTypeDef(TypedDict):
+    ConnectionGroup: ConnectionGroupTypeDef
+    ETag: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetConnectionGroupResultTypeDef(TypedDict):
+    ConnectionGroup: ConnectionGroupTypeDef
+    ETag: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateConnectionGroupResultTypeDef(TypedDict):
+    ConnectionGroup: ConnectionGroupTypeDef
+    ETag: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateDistributionTenantResultTypeDef(TypedDict):
+    DistributionTenant: DistributionTenantTypeDef
+    ETag: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetDistributionTenantByDomainResultTypeDef(TypedDict):
+    DistributionTenant: DistributionTenantTypeDef
+    ETag: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetDistributionTenantResultTypeDef(TypedDict):
+    DistributionTenant: DistributionTenantTypeDef
+    ETag: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateDistributionTenantResultTypeDef(TypedDict):
+    DistributionTenant: DistributionTenantTypeDef
+    ETag: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateAnycastIpListRequestTypeDef(TypedDict):
+    Name: str
+    IpCount: int
+    Tags: NotRequired[TagsUnionTypeDef]
+
+class CreateConnectionGroupRequestTypeDef(TypedDict):
+    Name: str
+    Ipv6Enabled: NotRequired[bool]
+    Tags: NotRequired[TagsUnionTypeDef]
+    AnycastIpListId: NotRequired[str]
+    Enabled: NotRequired[bool]
+
+class CreateDistributionTenantRequestTypeDef(TypedDict):
+    DistributionId: str
+    Name: str
+    Domains: Sequence[DomainItemTypeDef]
+    Tags: NotRequired[TagsUnionTypeDef]
+    Customizations: NotRequired[CustomizationsUnionTypeDef]
+    Parameters: NotRequired[Sequence[ParameterTypeDef]]
+    ConnectionGroupId: NotRequired[str]
+    ManagedCertificateRequest: NotRequired[ManagedCertificateRequestTypeDef]
+    Enabled: NotRequired[bool]
+
+class CreateVpcOriginRequestTypeDef(TypedDict):
+    VpcOriginEndpointConfig: VpcOriginEndpointConfigUnionTypeDef
+    Tags: NotRequired[TagsUnionTypeDef]
+
+class TagResourceRequestTypeDef(TypedDict):
+    Resource: str
+    Tags: TagsUnionTypeDef
+
+StreamingDistributionConfigUnionTypeDef = Union[
+    StreamingDistributionConfigTypeDef, StreamingDistributionConfigOutputTypeDef
+]
+
+class CacheBehaviorsOutputTypeDef(TypedDict):
+    Quantity: int
+    Items: NotRequired[List[CacheBehaviorOutputTypeDef]]
+
+class ForwardedValuesTypeDef(TypedDict):
+    QueryString: bool
+    Cookies: CookiePreferenceUnionTypeDef
+    Headers: NotRequired[HeadersUnionTypeDef]
+    QueryStringCacheKeys: NotRequired[QueryStringCacheKeysUnionTypeDef]
+
+class CachePolicyTypeDef(TypedDict):
+    Id: str
+    LastModifiedTime: datetime
+    CachePolicyConfig: CachePolicyConfigOutputTypeDef
+
+class GetCachePolicyConfigResultTypeDef(TypedDict):
+    CachePolicyConfig: CachePolicyConfigOutputTypeDef
+    ETag: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateOriginRequestPolicyResultTypeDef(TypedDict):
+    OriginRequestPolicy: OriginRequestPolicyTypeDef
+    Location: str
+    ETag: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetOriginRequestPolicyResultTypeDef(TypedDict):
+    OriginRequestPolicy: OriginRequestPolicyTypeDef
+    ETag: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
 OriginRequestPolicySummaryTypeDef = TypedDict(
     "OriginRequestPolicySummaryTypeDef",
     {
         "Type": OriginRequestPolicyTypeType,
-        "OriginRequestPolicy": "OriginRequestPolicyTypeDef",
+        "OriginRequestPolicy": OriginRequestPolicyTypeDef,
     },
 )
 
-OriginRequestPolicyTypeDef = TypedDict(
-    "OriginRequestPolicyTypeDef",
-    {
-        "Id": str,
-        "LastModifiedTime": datetime,
-        "OriginRequestPolicyConfig": "OriginRequestPolicyConfigTypeDef",
-    },
-)
+class UpdateOriginRequestPolicyResultTypeDef(TypedDict):
+    OriginRequestPolicy: OriginRequestPolicyTypeDef
+    ETag: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredOriginShieldTypeDef = TypedDict(
-    "_RequiredOriginShieldTypeDef",
-    {
-        "Enabled": bool,
-    },
-)
-_OptionalOriginShieldTypeDef = TypedDict(
-    "_OptionalOriginShieldTypeDef",
-    {
-        "OriginShieldRegion": str,
-    },
-    total=False,
-)
+CachePolicyConfigUnionTypeDef = Union[CachePolicyConfigTypeDef, CachePolicyConfigOutputTypeDef]
 
-class OriginShieldTypeDef(_RequiredOriginShieldTypeDef, _OptionalOriginShieldTypeDef):
-    pass
+class CreateOriginRequestPolicyRequestTypeDef(TypedDict):
+    OriginRequestPolicyConfig: OriginRequestPolicyConfigUnionTypeDef
 
-OriginSslProtocolsTypeDef = TypedDict(
-    "OriginSslProtocolsTypeDef",
-    {
-        "Quantity": int,
-        "Items": List[SslProtocolType],
-    },
-)
+class UpdateOriginRequestPolicyRequestTypeDef(TypedDict):
+    OriginRequestPolicyConfig: OriginRequestPolicyConfigUnionTypeDef
+    Id: str
+    IfMatch: NotRequired[str]
 
-_RequiredOriginTypeDef = TypedDict(
-    "_RequiredOriginTypeDef",
-    {
-        "Id": str,
-        "DomainName": str,
-    },
-)
-_OptionalOriginTypeDef = TypedDict(
-    "_OptionalOriginTypeDef",
-    {
-        "OriginPath": str,
-        "CustomHeaders": "CustomHeadersTypeDef",
-        "S3OriginConfig": "S3OriginConfigTypeDef",
-        "CustomOriginConfig": "CustomOriginConfigTypeDef",
-        "ConnectionAttempts": int,
-        "ConnectionTimeout": int,
-        "OriginShield": "OriginShieldTypeDef",
-        "OriginAccessControlId": str,
-    },
-    total=False,
-)
+class ContinuousDeploymentPolicyTypeDef(TypedDict):
+    Id: str
+    LastModifiedTime: datetime
+    ContinuousDeploymentPolicyConfig: ContinuousDeploymentPolicyConfigOutputTypeDef
 
-class OriginTypeDef(_RequiredOriginTypeDef, _OptionalOriginTypeDef):
-    pass
+class GetContinuousDeploymentPolicyConfigResultTypeDef(TypedDict):
+    ContinuousDeploymentPolicyConfig: ContinuousDeploymentPolicyConfigOutputTypeDef
+    ETag: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-OriginsTypeDef = TypedDict(
-    "OriginsTypeDef",
-    {
-        "Quantity": int,
-        "Items": List["OriginTypeDef"],
-    },
-)
+ContinuousDeploymentPolicyConfigUnionTypeDef = Union[
+    ContinuousDeploymentPolicyConfigTypeDef, ContinuousDeploymentPolicyConfigOutputTypeDef
+]
 
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
+class FieldLevelEncryptionProfileTypeDef(TypedDict):
+    Id: str
+    LastModifiedTime: datetime
+    FieldLevelEncryptionProfileConfig: FieldLevelEncryptionProfileConfigOutputTypeDef
 
-_RequiredParametersInCacheKeyAndForwardedToOriginTypeDef = TypedDict(
-    "_RequiredParametersInCacheKeyAndForwardedToOriginTypeDef",
-    {
-        "EnableAcceptEncodingGzip": bool,
-        "HeadersConfig": "CachePolicyHeadersConfigTypeDef",
-        "CookiesConfig": "CachePolicyCookiesConfigTypeDef",
-        "QueryStringsConfig": "CachePolicyQueryStringsConfigTypeDef",
-    },
-)
-_OptionalParametersInCacheKeyAndForwardedToOriginTypeDef = TypedDict(
-    "_OptionalParametersInCacheKeyAndForwardedToOriginTypeDef",
-    {
-        "EnableAcceptEncodingBrotli": bool,
-    },
-    total=False,
-)
+class GetFieldLevelEncryptionProfileConfigResultTypeDef(TypedDict):
+    FieldLevelEncryptionProfileConfig: FieldLevelEncryptionProfileConfigOutputTypeDef
+    ETag: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class ParametersInCacheKeyAndForwardedToOriginTypeDef(
-    _RequiredParametersInCacheKeyAndForwardedToOriginTypeDef,
-    _OptionalParametersInCacheKeyAndForwardedToOriginTypeDef,
-):
-    pass
+class FieldLevelEncryptionProfileListTypeDef(TypedDict):
+    MaxItems: int
+    Quantity: int
+    NextMarker: NotRequired[str]
+    Items: NotRequired[List[FieldLevelEncryptionProfileSummaryTypeDef]]
 
-_RequiredPathsTypeDef = TypedDict(
-    "_RequiredPathsTypeDef",
-    {
-        "Quantity": int,
-    },
-)
-_OptionalPathsTypeDef = TypedDict(
-    "_OptionalPathsTypeDef",
-    {
-        "Items": List[str],
-    },
-    total=False,
-)
+FieldLevelEncryptionProfileConfigUnionTypeDef = Union[
+    FieldLevelEncryptionProfileConfigTypeDef, FieldLevelEncryptionProfileConfigOutputTypeDef
+]
 
-class PathsTypeDef(_RequiredPathsTypeDef, _OptionalPathsTypeDef):
-    pass
+class ListRealtimeLogConfigsResultTypeDef(TypedDict):
+    RealtimeLogConfigs: RealtimeLogConfigsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredPublicKeyConfigTypeDef = TypedDict(
-    "_RequiredPublicKeyConfigTypeDef",
-    {
-        "CallerReference": str,
-        "Name": str,
-        "EncodedKey": str,
-    },
-)
-_OptionalPublicKeyConfigTypeDef = TypedDict(
-    "_OptionalPublicKeyConfigTypeDef",
-    {
-        "Comment": str,
-    },
-    total=False,
-)
+class ListKeyGroupsResultTypeDef(TypedDict):
+    KeyGroupList: KeyGroupListTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class PublicKeyConfigTypeDef(_RequiredPublicKeyConfigTypeDef, _OptionalPublicKeyConfigTypeDef):
-    pass
+class CreateStreamingDistributionResultTypeDef(TypedDict):
+    StreamingDistribution: StreamingDistributionTypeDef
+    Location: str
+    ETag: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredPublicKeyListTypeDef = TypedDict(
-    "_RequiredPublicKeyListTypeDef",
-    {
-        "MaxItems": int,
-        "Quantity": int,
-    },
-)
-_OptionalPublicKeyListTypeDef = TypedDict(
-    "_OptionalPublicKeyListTypeDef",
-    {
-        "NextMarker": str,
-        "Items": List["PublicKeySummaryTypeDef"],
-    },
-    total=False,
-)
+class CreateStreamingDistributionWithTagsResultTypeDef(TypedDict):
+    StreamingDistribution: StreamingDistributionTypeDef
+    Location: str
+    ETag: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class PublicKeyListTypeDef(_RequiredPublicKeyListTypeDef, _OptionalPublicKeyListTypeDef):
-    pass
+class GetStreamingDistributionResultTypeDef(TypedDict):
+    StreamingDistribution: StreamingDistributionTypeDef
+    ETag: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredPublicKeySummaryTypeDef = TypedDict(
-    "_RequiredPublicKeySummaryTypeDef",
-    {
-        "Id": str,
-        "Name": str,
-        "CreatedTime": datetime,
-        "EncodedKey": str,
-    },
-)
-_OptionalPublicKeySummaryTypeDef = TypedDict(
-    "_OptionalPublicKeySummaryTypeDef",
-    {
-        "Comment": str,
-    },
-    total=False,
-)
+class UpdateStreamingDistributionResultTypeDef(TypedDict):
+    StreamingDistribution: StreamingDistributionTypeDef
+    ETag: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class PublicKeySummaryTypeDef(_RequiredPublicKeySummaryTypeDef, _OptionalPublicKeySummaryTypeDef):
-    pass
+class CreateFunctionResultTypeDef(TypedDict):
+    FunctionSummary: FunctionSummaryTypeDef
+    Location: str
+    ETag: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-PublicKeyTypeDef = TypedDict(
-    "PublicKeyTypeDef",
-    {
-        "Id": str,
-        "CreatedTime": datetime,
-        "PublicKeyConfig": "PublicKeyConfigTypeDef",
-    },
-)
+class DescribeFunctionResultTypeDef(TypedDict):
+    FunctionSummary: FunctionSummaryTypeDef
+    ETag: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-PublishFunctionRequestRequestTypeDef = TypedDict(
-    "PublishFunctionRequestRequestTypeDef",
-    {
-        "Name": str,
-        "IfMatch": str,
-    },
-)
+class FunctionListTypeDef(TypedDict):
+    MaxItems: int
+    Quantity: int
+    NextMarker: NotRequired[str]
+    Items: NotRequired[List[FunctionSummaryTypeDef]]
 
-PublishFunctionResultTypeDef = TypedDict(
-    "PublishFunctionResultTypeDef",
-    {
-        "FunctionSummary": "FunctionSummaryTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class PublishFunctionResultTypeDef(TypedDict):
+    FunctionSummary: FunctionSummaryTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredQueryArgProfileConfigTypeDef = TypedDict(
-    "_RequiredQueryArgProfileConfigTypeDef",
-    {
-        "ForwardWhenQueryArgProfileIsUnknown": bool,
-    },
-)
-_OptionalQueryArgProfileConfigTypeDef = TypedDict(
-    "_OptionalQueryArgProfileConfigTypeDef",
-    {
-        "QueryArgProfiles": "QueryArgProfilesTypeDef",
-    },
-    total=False,
-)
+class TestResultTypeDef(TypedDict):
+    FunctionSummary: NotRequired[FunctionSummaryTypeDef]
+    ComputeUtilization: NotRequired[str]
+    FunctionExecutionLogs: NotRequired[List[str]]
+    FunctionErrorMessage: NotRequired[str]
+    FunctionOutput: NotRequired[str]
 
-class QueryArgProfileConfigTypeDef(
-    _RequiredQueryArgProfileConfigTypeDef, _OptionalQueryArgProfileConfigTypeDef
-):
-    pass
+class UpdateFunctionResultTypeDef(TypedDict):
+    FunctionSummary: FunctionSummaryTypeDef
+    ETag: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-QueryArgProfileTypeDef = TypedDict(
-    "QueryArgProfileTypeDef",
-    {
-        "QueryArg": str,
-        "ProfileId": str,
-    },
-)
+class CreateFunctionRequestTypeDef(TypedDict):
+    Name: str
+    FunctionConfig: FunctionConfigUnionTypeDef
+    FunctionCode: BlobTypeDef
 
-_RequiredQueryArgProfilesTypeDef = TypedDict(
-    "_RequiredQueryArgProfilesTypeDef",
-    {
-        "Quantity": int,
-    },
-)
-_OptionalQueryArgProfilesTypeDef = TypedDict(
-    "_OptionalQueryArgProfilesTypeDef",
-    {
-        "Items": List["QueryArgProfileTypeDef"],
-    },
-    total=False,
-)
+class UpdateFunctionRequestTypeDef(TypedDict):
+    Name: str
+    IfMatch: str
+    FunctionConfig: FunctionConfigUnionTypeDef
+    FunctionCode: BlobTypeDef
 
-class QueryArgProfilesTypeDef(_RequiredQueryArgProfilesTypeDef, _OptionalQueryArgProfilesTypeDef):
-    pass
+class OriginTypeDef(TypedDict):
+    Id: str
+    DomainName: str
+    OriginPath: NotRequired[str]
+    CustomHeaders: NotRequired[CustomHeadersUnionTypeDef]
+    S3OriginConfig: NotRequired[S3OriginConfigTypeDef]
+    CustomOriginConfig: NotRequired[CustomOriginConfigUnionTypeDef]
+    VpcOriginConfig: NotRequired[VpcOriginConfigTypeDef]
+    ConnectionAttempts: NotRequired[int]
+    ConnectionTimeout: NotRequired[int]
+    OriginShield: NotRequired[OriginShieldTypeDef]
+    OriginAccessControlId: NotRequired[str]
 
-_RequiredQueryStringCacheKeysTypeDef = TypedDict(
-    "_RequiredQueryStringCacheKeysTypeDef",
-    {
-        "Quantity": int,
-    },
-)
-_OptionalQueryStringCacheKeysTypeDef = TypedDict(
-    "_OptionalQueryStringCacheKeysTypeDef",
-    {
-        "Items": List[str],
-    },
-    total=False,
-)
+TenantConfigUnionTypeDef = Union[TenantConfigTypeDef, TenantConfigOutputTypeDef]
 
-class QueryStringCacheKeysTypeDef(
-    _RequiredQueryStringCacheKeysTypeDef, _OptionalQueryStringCacheKeysTypeDef
-):
-    pass
+class FieldLevelEncryptionTypeDef(TypedDict):
+    Id: str
+    LastModifiedTime: datetime
+    FieldLevelEncryptionConfig: FieldLevelEncryptionConfigOutputTypeDef
 
-_RequiredQueryStringNamesTypeDef = TypedDict(
-    "_RequiredQueryStringNamesTypeDef",
-    {
-        "Quantity": int,
-    },
-)
-_OptionalQueryStringNamesTypeDef = TypedDict(
-    "_OptionalQueryStringNamesTypeDef",
-    {
-        "Items": List[str],
-    },
-    total=False,
-)
+class GetFieldLevelEncryptionConfigResultTypeDef(TypedDict):
+    FieldLevelEncryptionConfig: FieldLevelEncryptionConfigOutputTypeDef
+    ETag: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class QueryStringNamesTypeDef(_RequiredQueryStringNamesTypeDef, _OptionalQueryStringNamesTypeDef):
-    pass
+class FieldLevelEncryptionListTypeDef(TypedDict):
+    MaxItems: int
+    Quantity: int
+    NextMarker: NotRequired[str]
+    Items: NotRequired[List[FieldLevelEncryptionSummaryTypeDef]]
 
-RealtimeLogConfigTypeDef = TypedDict(
-    "RealtimeLogConfigTypeDef",
-    {
-        "ARN": str,
-        "Name": str,
-        "SamplingRate": int,
-        "EndPoints": List["EndPointTypeDef"],
-        "Fields": List[str],
-    },
-)
+FieldLevelEncryptionConfigUnionTypeDef = Union[
+    FieldLevelEncryptionConfigTypeDef, FieldLevelEncryptionConfigOutputTypeDef
+]
 
-_RequiredRealtimeLogConfigsTypeDef = TypedDict(
-    "_RequiredRealtimeLogConfigsTypeDef",
-    {
-        "MaxItems": int,
-        "IsTruncated": bool,
-        "Marker": str,
-    },
-)
-_OptionalRealtimeLogConfigsTypeDef = TypedDict(
-    "_OptionalRealtimeLogConfigsTypeDef",
-    {
-        "Items": List["RealtimeLogConfigTypeDef"],
-        "NextMarker": str,
-    },
-    total=False,
-)
+class CreateResponseHeadersPolicyResultTypeDef(TypedDict):
+    ResponseHeadersPolicy: ResponseHeadersPolicyTypeDef
+    Location: str
+    ETag: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class RealtimeLogConfigsTypeDef(
-    _RequiredRealtimeLogConfigsTypeDef, _OptionalRealtimeLogConfigsTypeDef
-):
-    pass
-
-RealtimeMetricsSubscriptionConfigTypeDef = TypedDict(
-    "RealtimeMetricsSubscriptionConfigTypeDef",
-    {
-        "RealtimeMetricsSubscriptionStatus": RealtimeMetricsSubscriptionStatusType,
-    },
-)
-
-ResponseHeadersPolicyAccessControlAllowHeadersTypeDef = TypedDict(
-    "ResponseHeadersPolicyAccessControlAllowHeadersTypeDef",
-    {
-        "Quantity": int,
-        "Items": List[str],
-    },
-)
-
-ResponseHeadersPolicyAccessControlAllowMethodsTypeDef = TypedDict(
-    "ResponseHeadersPolicyAccessControlAllowMethodsTypeDef",
-    {
-        "Quantity": int,
-        "Items": List[ResponseHeadersPolicyAccessControlAllowMethodsValuesType],
-    },
-)
-
-ResponseHeadersPolicyAccessControlAllowOriginsTypeDef = TypedDict(
-    "ResponseHeadersPolicyAccessControlAllowOriginsTypeDef",
-    {
-        "Quantity": int,
-        "Items": List[str],
-    },
-)
-
-_RequiredResponseHeadersPolicyAccessControlExposeHeadersTypeDef = TypedDict(
-    "_RequiredResponseHeadersPolicyAccessControlExposeHeadersTypeDef",
-    {
-        "Quantity": int,
-    },
-)
-_OptionalResponseHeadersPolicyAccessControlExposeHeadersTypeDef = TypedDict(
-    "_OptionalResponseHeadersPolicyAccessControlExposeHeadersTypeDef",
-    {
-        "Items": List[str],
-    },
-    total=False,
-)
-
-class ResponseHeadersPolicyAccessControlExposeHeadersTypeDef(
-    _RequiredResponseHeadersPolicyAccessControlExposeHeadersTypeDef,
-    _OptionalResponseHeadersPolicyAccessControlExposeHeadersTypeDef,
-):
-    pass
-
-_RequiredResponseHeadersPolicyConfigTypeDef = TypedDict(
-    "_RequiredResponseHeadersPolicyConfigTypeDef",
-    {
-        "Name": str,
-    },
-)
-_OptionalResponseHeadersPolicyConfigTypeDef = TypedDict(
-    "_OptionalResponseHeadersPolicyConfigTypeDef",
-    {
-        "Comment": str,
-        "CorsConfig": "ResponseHeadersPolicyCorsConfigTypeDef",
-        "SecurityHeadersConfig": "ResponseHeadersPolicySecurityHeadersConfigTypeDef",
-        "ServerTimingHeadersConfig": "ResponseHeadersPolicyServerTimingHeadersConfigTypeDef",
-        "CustomHeadersConfig": "ResponseHeadersPolicyCustomHeadersConfigTypeDef",
-        "RemoveHeadersConfig": "ResponseHeadersPolicyRemoveHeadersConfigTypeDef",
-    },
-    total=False,
-)
-
-class ResponseHeadersPolicyConfigTypeDef(
-    _RequiredResponseHeadersPolicyConfigTypeDef, _OptionalResponseHeadersPolicyConfigTypeDef
-):
-    pass
-
-ResponseHeadersPolicyContentSecurityPolicyTypeDef = TypedDict(
-    "ResponseHeadersPolicyContentSecurityPolicyTypeDef",
-    {
-        "Override": bool,
-        "ContentSecurityPolicy": str,
-    },
-)
-
-ResponseHeadersPolicyContentTypeOptionsTypeDef = TypedDict(
-    "ResponseHeadersPolicyContentTypeOptionsTypeDef",
-    {
-        "Override": bool,
-    },
-)
-
-_RequiredResponseHeadersPolicyCorsConfigTypeDef = TypedDict(
-    "_RequiredResponseHeadersPolicyCorsConfigTypeDef",
-    {
-        "AccessControlAllowOrigins": "ResponseHeadersPolicyAccessControlAllowOriginsTypeDef",
-        "AccessControlAllowHeaders": "ResponseHeadersPolicyAccessControlAllowHeadersTypeDef",
-        "AccessControlAllowMethods": "ResponseHeadersPolicyAccessControlAllowMethodsTypeDef",
-        "AccessControlAllowCredentials": bool,
-        "OriginOverride": bool,
-    },
-)
-_OptionalResponseHeadersPolicyCorsConfigTypeDef = TypedDict(
-    "_OptionalResponseHeadersPolicyCorsConfigTypeDef",
-    {
-        "AccessControlExposeHeaders": "ResponseHeadersPolicyAccessControlExposeHeadersTypeDef",
-        "AccessControlMaxAgeSec": int,
-    },
-    total=False,
-)
-
-class ResponseHeadersPolicyCorsConfigTypeDef(
-    _RequiredResponseHeadersPolicyCorsConfigTypeDef, _OptionalResponseHeadersPolicyCorsConfigTypeDef
-):
-    pass
-
-ResponseHeadersPolicyCustomHeaderTypeDef = TypedDict(
-    "ResponseHeadersPolicyCustomHeaderTypeDef",
-    {
-        "Header": str,
-        "Value": str,
-        "Override": bool,
-    },
-)
-
-_RequiredResponseHeadersPolicyCustomHeadersConfigTypeDef = TypedDict(
-    "_RequiredResponseHeadersPolicyCustomHeadersConfigTypeDef",
-    {
-        "Quantity": int,
-    },
-)
-_OptionalResponseHeadersPolicyCustomHeadersConfigTypeDef = TypedDict(
-    "_OptionalResponseHeadersPolicyCustomHeadersConfigTypeDef",
-    {
-        "Items": List["ResponseHeadersPolicyCustomHeaderTypeDef"],
-    },
-    total=False,
-)
-
-class ResponseHeadersPolicyCustomHeadersConfigTypeDef(
-    _RequiredResponseHeadersPolicyCustomHeadersConfigTypeDef,
-    _OptionalResponseHeadersPolicyCustomHeadersConfigTypeDef,
-):
-    pass
-
-ResponseHeadersPolicyFrameOptionsTypeDef = TypedDict(
-    "ResponseHeadersPolicyFrameOptionsTypeDef",
-    {
-        "Override": bool,
-        "FrameOption": FrameOptionsListType,
-    },
-)
-
-_RequiredResponseHeadersPolicyListTypeDef = TypedDict(
-    "_RequiredResponseHeadersPolicyListTypeDef",
-    {
-        "MaxItems": int,
-        "Quantity": int,
-    },
-)
-_OptionalResponseHeadersPolicyListTypeDef = TypedDict(
-    "_OptionalResponseHeadersPolicyListTypeDef",
-    {
-        "NextMarker": str,
-        "Items": List["ResponseHeadersPolicySummaryTypeDef"],
-    },
-    total=False,
-)
-
-class ResponseHeadersPolicyListTypeDef(
-    _RequiredResponseHeadersPolicyListTypeDef, _OptionalResponseHeadersPolicyListTypeDef
-):
-    pass
-
-ResponseHeadersPolicyReferrerPolicyTypeDef = TypedDict(
-    "ResponseHeadersPolicyReferrerPolicyTypeDef",
-    {
-        "Override": bool,
-        "ReferrerPolicy": ReferrerPolicyListType,
-    },
-)
-
-ResponseHeadersPolicyRemoveHeaderTypeDef = TypedDict(
-    "ResponseHeadersPolicyRemoveHeaderTypeDef",
-    {
-        "Header": str,
-    },
-)
-
-_RequiredResponseHeadersPolicyRemoveHeadersConfigTypeDef = TypedDict(
-    "_RequiredResponseHeadersPolicyRemoveHeadersConfigTypeDef",
-    {
-        "Quantity": int,
-    },
-)
-_OptionalResponseHeadersPolicyRemoveHeadersConfigTypeDef = TypedDict(
-    "_OptionalResponseHeadersPolicyRemoveHeadersConfigTypeDef",
-    {
-        "Items": List["ResponseHeadersPolicyRemoveHeaderTypeDef"],
-    },
-    total=False,
-)
-
-class ResponseHeadersPolicyRemoveHeadersConfigTypeDef(
-    _RequiredResponseHeadersPolicyRemoveHeadersConfigTypeDef,
-    _OptionalResponseHeadersPolicyRemoveHeadersConfigTypeDef,
-):
-    pass
-
-ResponseHeadersPolicySecurityHeadersConfigTypeDef = TypedDict(
-    "ResponseHeadersPolicySecurityHeadersConfigTypeDef",
-    {
-        "XSSProtection": "ResponseHeadersPolicyXSSProtectionTypeDef",
-        "FrameOptions": "ResponseHeadersPolicyFrameOptionsTypeDef",
-        "ReferrerPolicy": "ResponseHeadersPolicyReferrerPolicyTypeDef",
-        "ContentSecurityPolicy": "ResponseHeadersPolicyContentSecurityPolicyTypeDef",
-        "ContentTypeOptions": "ResponseHeadersPolicyContentTypeOptionsTypeDef",
-        "StrictTransportSecurity": "ResponseHeadersPolicyStrictTransportSecurityTypeDef",
-    },
-    total=False,
-)
-
-_RequiredResponseHeadersPolicyServerTimingHeadersConfigTypeDef = TypedDict(
-    "_RequiredResponseHeadersPolicyServerTimingHeadersConfigTypeDef",
-    {
-        "Enabled": bool,
-    },
-)
-_OptionalResponseHeadersPolicyServerTimingHeadersConfigTypeDef = TypedDict(
-    "_OptionalResponseHeadersPolicyServerTimingHeadersConfigTypeDef",
-    {
-        "SamplingRate": float,
-    },
-    total=False,
-)
-
-class ResponseHeadersPolicyServerTimingHeadersConfigTypeDef(
-    _RequiredResponseHeadersPolicyServerTimingHeadersConfigTypeDef,
-    _OptionalResponseHeadersPolicyServerTimingHeadersConfigTypeDef,
-):
-    pass
-
-_RequiredResponseHeadersPolicyStrictTransportSecurityTypeDef = TypedDict(
-    "_RequiredResponseHeadersPolicyStrictTransportSecurityTypeDef",
-    {
-        "Override": bool,
-        "AccessControlMaxAgeSec": int,
-    },
-)
-_OptionalResponseHeadersPolicyStrictTransportSecurityTypeDef = TypedDict(
-    "_OptionalResponseHeadersPolicyStrictTransportSecurityTypeDef",
-    {
-        "IncludeSubdomains": bool,
-        "Preload": bool,
-    },
-    total=False,
-)
-
-class ResponseHeadersPolicyStrictTransportSecurityTypeDef(
-    _RequiredResponseHeadersPolicyStrictTransportSecurityTypeDef,
-    _OptionalResponseHeadersPolicyStrictTransportSecurityTypeDef,
-):
-    pass
+class GetResponseHeadersPolicyResultTypeDef(TypedDict):
+    ResponseHeadersPolicy: ResponseHeadersPolicyTypeDef
+    ETag: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
 ResponseHeadersPolicySummaryTypeDef = TypedDict(
     "ResponseHeadersPolicySummaryTypeDef",
     {
         "Type": ResponseHeadersPolicyTypeType,
-        "ResponseHeadersPolicy": "ResponseHeadersPolicyTypeDef",
-    },
-)
-
-ResponseHeadersPolicyTypeDef = TypedDict(
-    "ResponseHeadersPolicyTypeDef",
-    {
-        "Id": str,
-        "LastModifiedTime": datetime,
-        "ResponseHeadersPolicyConfig": "ResponseHeadersPolicyConfigTypeDef",
-    },
-)
-
-_RequiredResponseHeadersPolicyXSSProtectionTypeDef = TypedDict(
-    "_RequiredResponseHeadersPolicyXSSProtectionTypeDef",
-    {
-        "Override": bool,
-        "Protection": bool,
-    },
-)
-_OptionalResponseHeadersPolicyXSSProtectionTypeDef = TypedDict(
-    "_OptionalResponseHeadersPolicyXSSProtectionTypeDef",
-    {
-        "ModeBlock": bool,
-        "ReportUri": str,
-    },
-    total=False,
-)
-
-class ResponseHeadersPolicyXSSProtectionTypeDef(
-    _RequiredResponseHeadersPolicyXSSProtectionTypeDef,
-    _OptionalResponseHeadersPolicyXSSProtectionTypeDef,
-):
-    pass
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-RestrictionsTypeDef = TypedDict(
-    "RestrictionsTypeDef",
-    {
-        "GeoRestriction": "GeoRestrictionTypeDef",
-    },
-)
-
-S3OriginConfigTypeDef = TypedDict(
-    "S3OriginConfigTypeDef",
-    {
-        "OriginAccessIdentity": str,
-    },
-)
-
-S3OriginTypeDef = TypedDict(
-    "S3OriginTypeDef",
-    {
-        "DomainName": str,
-        "OriginAccessIdentity": str,
-    },
-)
-
-SessionStickinessConfigTypeDef = TypedDict(
-    "SessionStickinessConfigTypeDef",
-    {
-        "IdleTTL": int,
-        "MaximumTTL": int,
-    },
-)
-
-SignerTypeDef = TypedDict(
-    "SignerTypeDef",
-    {
-        "AwsAccountNumber": str,
-        "KeyPairIds": "KeyPairIdsTypeDef",
-    },
-    total=False,
-)
-
-_RequiredStagingDistributionDnsNamesTypeDef = TypedDict(
-    "_RequiredStagingDistributionDnsNamesTypeDef",
-    {
-        "Quantity": int,
-    },
-)
-_OptionalStagingDistributionDnsNamesTypeDef = TypedDict(
-    "_OptionalStagingDistributionDnsNamesTypeDef",
-    {
-        "Items": List[str],
-    },
-    total=False,
-)
-
-class StagingDistributionDnsNamesTypeDef(
-    _RequiredStagingDistributionDnsNamesTypeDef, _OptionalStagingDistributionDnsNamesTypeDef
-):
-    pass
-
-StatusCodesTypeDef = TypedDict(
-    "StatusCodesTypeDef",
-    {
-        "Quantity": int,
-        "Items": List[int],
-    },
-)
-
-_RequiredStreamingDistributionConfigTypeDef = TypedDict(
-    "_RequiredStreamingDistributionConfigTypeDef",
-    {
-        "CallerReference": str,
-        "S3Origin": "S3OriginTypeDef",
-        "Comment": str,
-        "TrustedSigners": "TrustedSignersTypeDef",
-        "Enabled": bool,
-    },
-)
-_OptionalStreamingDistributionConfigTypeDef = TypedDict(
-    "_OptionalStreamingDistributionConfigTypeDef",
-    {
-        "Aliases": "AliasesTypeDef",
-        "Logging": "StreamingLoggingConfigTypeDef",
-        "PriceClass": PriceClassType,
-    },
-    total=False,
-)
-
-class StreamingDistributionConfigTypeDef(
-    _RequiredStreamingDistributionConfigTypeDef, _OptionalStreamingDistributionConfigTypeDef
-):
-    pass
-
-StreamingDistributionConfigWithTagsTypeDef = TypedDict(
-    "StreamingDistributionConfigWithTagsTypeDef",
-    {
-        "StreamingDistributionConfig": "StreamingDistributionConfigTypeDef",
-        "Tags": "TagsTypeDef",
-    },
-)
-
-_RequiredStreamingDistributionListTypeDef = TypedDict(
-    "_RequiredStreamingDistributionListTypeDef",
-    {
-        "Marker": str,
-        "MaxItems": int,
-        "IsTruncated": bool,
-        "Quantity": int,
-    },
-)
-_OptionalStreamingDistributionListTypeDef = TypedDict(
-    "_OptionalStreamingDistributionListTypeDef",
-    {
-        "NextMarker": str,
-        "Items": List["StreamingDistributionSummaryTypeDef"],
-    },
-    total=False,
-)
-
-class StreamingDistributionListTypeDef(
-    _RequiredStreamingDistributionListTypeDef, _OptionalStreamingDistributionListTypeDef
-):
-    pass
-
-StreamingDistributionSummaryTypeDef = TypedDict(
-    "StreamingDistributionSummaryTypeDef",
-    {
-        "Id": str,
-        "ARN": str,
-        "Status": str,
-        "LastModifiedTime": datetime,
-        "DomainName": str,
-        "S3Origin": "S3OriginTypeDef",
-        "Aliases": "AliasesTypeDef",
-        "TrustedSigners": "TrustedSignersTypeDef",
-        "Comment": str,
-        "PriceClass": PriceClassType,
-        "Enabled": bool,
-    },
-)
-
-_RequiredStreamingDistributionTypeDef = TypedDict(
-    "_RequiredStreamingDistributionTypeDef",
-    {
-        "Id": str,
-        "ARN": str,
-        "Status": str,
-        "DomainName": str,
-        "ActiveTrustedSigners": "ActiveTrustedSignersTypeDef",
-        "StreamingDistributionConfig": "StreamingDistributionConfigTypeDef",
-    },
-)
-_OptionalStreamingDistributionTypeDef = TypedDict(
-    "_OptionalStreamingDistributionTypeDef",
-    {
-        "LastModifiedTime": datetime,
-    },
-    total=False,
-)
-
-class StreamingDistributionTypeDef(
-    _RequiredStreamingDistributionTypeDef, _OptionalStreamingDistributionTypeDef
-):
-    pass
-
-StreamingLoggingConfigTypeDef = TypedDict(
-    "StreamingLoggingConfigTypeDef",
-    {
-        "Enabled": bool,
-        "Bucket": str,
-        "Prefix": str,
-    },
-)
-
-TagKeysTypeDef = TypedDict(
-    "TagKeysTypeDef",
-    {
-        "Items": List[str],
-    },
-    total=False,
-)
-
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "Resource": str,
-        "Tags": "TagsTypeDef",
-    },
-)
-
-_RequiredTagTypeDef = TypedDict(
-    "_RequiredTagTypeDef",
-    {
-        "Key": str,
-    },
-)
-_OptionalTagTypeDef = TypedDict(
-    "_OptionalTagTypeDef",
-    {
-        "Value": str,
-    },
-    total=False,
-)
-
-class TagTypeDef(_RequiredTagTypeDef, _OptionalTagTypeDef):
-    pass
-
-TagsTypeDef = TypedDict(
-    "TagsTypeDef",
-    {
-        "Items": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-_RequiredTestFunctionRequestRequestTypeDef = TypedDict(
-    "_RequiredTestFunctionRequestRequestTypeDef",
-    {
-        "Name": str,
-        "IfMatch": str,
-        "EventObject": Union[bytes, IO[bytes], StreamingBody],
-    },
-)
-_OptionalTestFunctionRequestRequestTypeDef = TypedDict(
-    "_OptionalTestFunctionRequestRequestTypeDef",
-    {
-        "Stage": FunctionStageType,
-    },
-    total=False,
-)
-
-class TestFunctionRequestRequestTypeDef(
-    _RequiredTestFunctionRequestRequestTypeDef, _OptionalTestFunctionRequestRequestTypeDef
-):
-    pass
-
-TestFunctionResultTypeDef = TypedDict(
-    "TestFunctionResultTypeDef",
-    {
-        "TestResult": "TestResultTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-TestResultTypeDef = TypedDict(
-    "TestResultTypeDef",
-    {
-        "FunctionSummary": "FunctionSummaryTypeDef",
-        "ComputeUtilization": str,
-        "FunctionExecutionLogs": List[str],
-        "FunctionErrorMessage": str,
-        "FunctionOutput": str,
-    },
-    total=False,
-)
-
-_RequiredTrafficConfigTypeDef = TypedDict(
-    "_RequiredTrafficConfigTypeDef",
-    {
-        "Type": ContinuousDeploymentPolicyTypeType,
-    },
-)
-_OptionalTrafficConfigTypeDef = TypedDict(
-    "_OptionalTrafficConfigTypeDef",
-    {
-        "SingleWeightConfig": "ContinuousDeploymentSingleWeightConfigTypeDef",
-        "SingleHeaderConfig": "ContinuousDeploymentSingleHeaderConfigTypeDef",
-    },
-    total=False,
-)
-
-class TrafficConfigTypeDef(_RequiredTrafficConfigTypeDef, _OptionalTrafficConfigTypeDef):
-    pass
-
-_RequiredTrustedKeyGroupsTypeDef = TypedDict(
-    "_RequiredTrustedKeyGroupsTypeDef",
-    {
-        "Enabled": bool,
-        "Quantity": int,
-    },
-)
-_OptionalTrustedKeyGroupsTypeDef = TypedDict(
-    "_OptionalTrustedKeyGroupsTypeDef",
-    {
-        "Items": List[str],
-    },
-    total=False,
-)
-
-class TrustedKeyGroupsTypeDef(_RequiredTrustedKeyGroupsTypeDef, _OptionalTrustedKeyGroupsTypeDef):
-    pass
-
-_RequiredTrustedSignersTypeDef = TypedDict(
-    "_RequiredTrustedSignersTypeDef",
-    {
-        "Enabled": bool,
-        "Quantity": int,
-    },
-)
-_OptionalTrustedSignersTypeDef = TypedDict(
-    "_OptionalTrustedSignersTypeDef",
-    {
-        "Items": List[str],
-    },
-    total=False,
-)
-
-class TrustedSignersTypeDef(_RequiredTrustedSignersTypeDef, _OptionalTrustedSignersTypeDef):
-    pass
-
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "Resource": str,
-        "TagKeys": "TagKeysTypeDef",
-    },
-)
-
-_RequiredUpdateCachePolicyRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateCachePolicyRequestRequestTypeDef",
-    {
-        "CachePolicyConfig": "CachePolicyConfigTypeDef",
-        "Id": str,
-    },
-)
-_OptionalUpdateCachePolicyRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateCachePolicyRequestRequestTypeDef",
-    {
-        "IfMatch": str,
-    },
-    total=False,
-)
-
-class UpdateCachePolicyRequestRequestTypeDef(
-    _RequiredUpdateCachePolicyRequestRequestTypeDef, _OptionalUpdateCachePolicyRequestRequestTypeDef
-):
-    pass
-
-UpdateCachePolicyResultTypeDef = TypedDict(
-    "UpdateCachePolicyResultTypeDef",
-    {
-        "CachePolicy": "CachePolicyTypeDef",
-        "ETag": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateCloudFrontOriginAccessIdentityRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateCloudFrontOriginAccessIdentityRequestRequestTypeDef",
-    {
-        "CloudFrontOriginAccessIdentityConfig": "CloudFrontOriginAccessIdentityConfigTypeDef",
-        "Id": str,
-    },
-)
-_OptionalUpdateCloudFrontOriginAccessIdentityRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateCloudFrontOriginAccessIdentityRequestRequestTypeDef",
-    {
-        "IfMatch": str,
-    },
-    total=False,
-)
-
-class UpdateCloudFrontOriginAccessIdentityRequestRequestTypeDef(
-    _RequiredUpdateCloudFrontOriginAccessIdentityRequestRequestTypeDef,
-    _OptionalUpdateCloudFrontOriginAccessIdentityRequestRequestTypeDef,
-):
-    pass
-
-UpdateCloudFrontOriginAccessIdentityResultTypeDef = TypedDict(
-    "UpdateCloudFrontOriginAccessIdentityResultTypeDef",
-    {
-        "CloudFrontOriginAccessIdentity": "CloudFrontOriginAccessIdentityTypeDef",
-        "ETag": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateContinuousDeploymentPolicyRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateContinuousDeploymentPolicyRequestRequestTypeDef",
-    {
-        "ContinuousDeploymentPolicyConfig": "ContinuousDeploymentPolicyConfigTypeDef",
-        "Id": str,
-    },
-)
-_OptionalUpdateContinuousDeploymentPolicyRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateContinuousDeploymentPolicyRequestRequestTypeDef",
-    {
-        "IfMatch": str,
-    },
-    total=False,
-)
-
-class UpdateContinuousDeploymentPolicyRequestRequestTypeDef(
-    _RequiredUpdateContinuousDeploymentPolicyRequestRequestTypeDef,
-    _OptionalUpdateContinuousDeploymentPolicyRequestRequestTypeDef,
-):
-    pass
-
-UpdateContinuousDeploymentPolicyResultTypeDef = TypedDict(
-    "UpdateContinuousDeploymentPolicyResultTypeDef",
-    {
-        "ContinuousDeploymentPolicy": "ContinuousDeploymentPolicyTypeDef",
-        "ETag": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateDistributionRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateDistributionRequestRequestTypeDef",
-    {
-        "DistributionConfig": "DistributionConfigTypeDef",
-        "Id": str,
-    },
-)
-_OptionalUpdateDistributionRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateDistributionRequestRequestTypeDef",
-    {
-        "IfMatch": str,
-    },
-    total=False,
-)
-
-class UpdateDistributionRequestRequestTypeDef(
-    _RequiredUpdateDistributionRequestRequestTypeDef,
-    _OptionalUpdateDistributionRequestRequestTypeDef,
-):
-    pass
-
-UpdateDistributionResultTypeDef = TypedDict(
-    "UpdateDistributionResultTypeDef",
-    {
-        "Distribution": "DistributionTypeDef",
-        "ETag": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateDistributionWithStagingConfigRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateDistributionWithStagingConfigRequestRequestTypeDef",
-    {
-        "Id": str,
-    },
-)
-_OptionalUpdateDistributionWithStagingConfigRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateDistributionWithStagingConfigRequestRequestTypeDef",
-    {
-        "StagingDistributionId": str,
-        "IfMatch": str,
-    },
-    total=False,
-)
-
-class UpdateDistributionWithStagingConfigRequestRequestTypeDef(
-    _RequiredUpdateDistributionWithStagingConfigRequestRequestTypeDef,
-    _OptionalUpdateDistributionWithStagingConfigRequestRequestTypeDef,
-):
-    pass
-
-UpdateDistributionWithStagingConfigResultTypeDef = TypedDict(
-    "UpdateDistributionWithStagingConfigResultTypeDef",
-    {
-        "Distribution": "DistributionTypeDef",
-        "ETag": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateFieldLevelEncryptionConfigRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateFieldLevelEncryptionConfigRequestRequestTypeDef",
-    {
-        "FieldLevelEncryptionConfig": "FieldLevelEncryptionConfigTypeDef",
-        "Id": str,
-    },
-)
-_OptionalUpdateFieldLevelEncryptionConfigRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateFieldLevelEncryptionConfigRequestRequestTypeDef",
-    {
-        "IfMatch": str,
-    },
-    total=False,
-)
-
-class UpdateFieldLevelEncryptionConfigRequestRequestTypeDef(
-    _RequiredUpdateFieldLevelEncryptionConfigRequestRequestTypeDef,
-    _OptionalUpdateFieldLevelEncryptionConfigRequestRequestTypeDef,
-):
-    pass
-
-UpdateFieldLevelEncryptionConfigResultTypeDef = TypedDict(
-    "UpdateFieldLevelEncryptionConfigResultTypeDef",
-    {
-        "FieldLevelEncryption": "FieldLevelEncryptionTypeDef",
-        "ETag": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateFieldLevelEncryptionProfileRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateFieldLevelEncryptionProfileRequestRequestTypeDef",
-    {
-        "FieldLevelEncryptionProfileConfig": "FieldLevelEncryptionProfileConfigTypeDef",
-        "Id": str,
-    },
-)
-_OptionalUpdateFieldLevelEncryptionProfileRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateFieldLevelEncryptionProfileRequestRequestTypeDef",
-    {
-        "IfMatch": str,
-    },
-    total=False,
-)
-
-class UpdateFieldLevelEncryptionProfileRequestRequestTypeDef(
-    _RequiredUpdateFieldLevelEncryptionProfileRequestRequestTypeDef,
-    _OptionalUpdateFieldLevelEncryptionProfileRequestRequestTypeDef,
-):
-    pass
-
-UpdateFieldLevelEncryptionProfileResultTypeDef = TypedDict(
-    "UpdateFieldLevelEncryptionProfileResultTypeDef",
-    {
-        "FieldLevelEncryptionProfile": "FieldLevelEncryptionProfileTypeDef",
-        "ETag": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UpdateFunctionRequestRequestTypeDef = TypedDict(
-    "UpdateFunctionRequestRequestTypeDef",
-    {
-        "Name": str,
-        "IfMatch": str,
-        "FunctionConfig": "FunctionConfigTypeDef",
-        "FunctionCode": Union[bytes, IO[bytes], StreamingBody],
-    },
-)
-
-UpdateFunctionResultTypeDef = TypedDict(
-    "UpdateFunctionResultTypeDef",
-    {
-        "FunctionSummary": "FunctionSummaryTypeDef",
-        "ETag": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateKeyGroupRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateKeyGroupRequestRequestTypeDef",
-    {
-        "KeyGroupConfig": "KeyGroupConfigTypeDef",
-        "Id": str,
-    },
-)
-_OptionalUpdateKeyGroupRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateKeyGroupRequestRequestTypeDef",
-    {
-        "IfMatch": str,
-    },
-    total=False,
-)
-
-class UpdateKeyGroupRequestRequestTypeDef(
-    _RequiredUpdateKeyGroupRequestRequestTypeDef, _OptionalUpdateKeyGroupRequestRequestTypeDef
-):
-    pass
-
-UpdateKeyGroupResultTypeDef = TypedDict(
-    "UpdateKeyGroupResultTypeDef",
-    {
-        "KeyGroup": "KeyGroupTypeDef",
-        "ETag": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UpdateKeyValueStoreRequestRequestTypeDef = TypedDict(
-    "UpdateKeyValueStoreRequestRequestTypeDef",
-    {
-        "Name": str,
-        "Comment": str,
-        "IfMatch": str,
-    },
-)
-
-UpdateKeyValueStoreResultTypeDef = TypedDict(
-    "UpdateKeyValueStoreResultTypeDef",
-    {
-        "KeyValueStore": "KeyValueStoreTypeDef",
-        "ETag": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateOriginAccessControlRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateOriginAccessControlRequestRequestTypeDef",
-    {
-        "OriginAccessControlConfig": "OriginAccessControlConfigTypeDef",
-        "Id": str,
-    },
-)
-_OptionalUpdateOriginAccessControlRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateOriginAccessControlRequestRequestTypeDef",
-    {
-        "IfMatch": str,
-    },
-    total=False,
-)
-
-class UpdateOriginAccessControlRequestRequestTypeDef(
-    _RequiredUpdateOriginAccessControlRequestRequestTypeDef,
-    _OptionalUpdateOriginAccessControlRequestRequestTypeDef,
-):
-    pass
-
-UpdateOriginAccessControlResultTypeDef = TypedDict(
-    "UpdateOriginAccessControlResultTypeDef",
-    {
-        "OriginAccessControl": "OriginAccessControlTypeDef",
-        "ETag": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateOriginRequestPolicyRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateOriginRequestPolicyRequestRequestTypeDef",
-    {
-        "OriginRequestPolicyConfig": "OriginRequestPolicyConfigTypeDef",
-        "Id": str,
-    },
-)
-_OptionalUpdateOriginRequestPolicyRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateOriginRequestPolicyRequestRequestTypeDef",
-    {
-        "IfMatch": str,
-    },
-    total=False,
-)
-
-class UpdateOriginRequestPolicyRequestRequestTypeDef(
-    _RequiredUpdateOriginRequestPolicyRequestRequestTypeDef,
-    _OptionalUpdateOriginRequestPolicyRequestRequestTypeDef,
-):
-    pass
-
-UpdateOriginRequestPolicyResultTypeDef = TypedDict(
-    "UpdateOriginRequestPolicyResultTypeDef",
-    {
-        "OriginRequestPolicy": "OriginRequestPolicyTypeDef",
-        "ETag": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdatePublicKeyRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdatePublicKeyRequestRequestTypeDef",
-    {
-        "PublicKeyConfig": "PublicKeyConfigTypeDef",
-        "Id": str,
-    },
-)
-_OptionalUpdatePublicKeyRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdatePublicKeyRequestRequestTypeDef",
-    {
-        "IfMatch": str,
-    },
-    total=False,
-)
-
-class UpdatePublicKeyRequestRequestTypeDef(
-    _RequiredUpdatePublicKeyRequestRequestTypeDef, _OptionalUpdatePublicKeyRequestRequestTypeDef
-):
-    pass
-
-UpdatePublicKeyResultTypeDef = TypedDict(
-    "UpdatePublicKeyResultTypeDef",
-    {
-        "PublicKey": "PublicKeyTypeDef",
-        "ETag": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UpdateRealtimeLogConfigRequestRequestTypeDef = TypedDict(
-    "UpdateRealtimeLogConfigRequestRequestTypeDef",
-    {
-        "EndPoints": List["EndPointTypeDef"],
-        "Fields": List[str],
-        "Name": str,
-        "ARN": str,
-        "SamplingRate": int,
-    },
-    total=False,
-)
-
-UpdateRealtimeLogConfigResultTypeDef = TypedDict(
-    "UpdateRealtimeLogConfigResultTypeDef",
-    {
-        "RealtimeLogConfig": "RealtimeLogConfigTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateResponseHeadersPolicyRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateResponseHeadersPolicyRequestRequestTypeDef",
-    {
-        "ResponseHeadersPolicyConfig": "ResponseHeadersPolicyConfigTypeDef",
-        "Id": str,
-    },
-)
-_OptionalUpdateResponseHeadersPolicyRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateResponseHeadersPolicyRequestRequestTypeDef",
-    {
-        "IfMatch": str,
-    },
-    total=False,
-)
-
-class UpdateResponseHeadersPolicyRequestRequestTypeDef(
-    _RequiredUpdateResponseHeadersPolicyRequestRequestTypeDef,
-    _OptionalUpdateResponseHeadersPolicyRequestRequestTypeDef,
-):
-    pass
-
-UpdateResponseHeadersPolicyResultTypeDef = TypedDict(
-    "UpdateResponseHeadersPolicyResultTypeDef",
-    {
-        "ResponseHeadersPolicy": "ResponseHeadersPolicyTypeDef",
-        "ETag": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateStreamingDistributionRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateStreamingDistributionRequestRequestTypeDef",
-    {
-        "StreamingDistributionConfig": "StreamingDistributionConfigTypeDef",
-        "Id": str,
-    },
-)
-_OptionalUpdateStreamingDistributionRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateStreamingDistributionRequestRequestTypeDef",
-    {
-        "IfMatch": str,
-    },
-    total=False,
-)
-
-class UpdateStreamingDistributionRequestRequestTypeDef(
-    _RequiredUpdateStreamingDistributionRequestRequestTypeDef,
-    _OptionalUpdateStreamingDistributionRequestRequestTypeDef,
-):
-    pass
-
-UpdateStreamingDistributionResultTypeDef = TypedDict(
-    "UpdateStreamingDistributionResultTypeDef",
-    {
-        "StreamingDistribution": "StreamingDistributionTypeDef",
-        "ETag": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ViewerCertificateTypeDef = TypedDict(
-    "ViewerCertificateTypeDef",
-    {
-        "CloudFrontDefaultCertificate": bool,
-        "IAMCertificateId": str,
-        "ACMCertificateArn": str,
-        "SSLSupportMethod": SSLSupportMethodType,
-        "MinimumProtocolVersion": MinimumProtocolVersionType,
-        "Certificate": str,
-        "CertificateSource": CertificateSourceType,
-    },
-    total=False,
-)
-
-WaiterConfigTypeDef = TypedDict(
-    "WaiterConfigTypeDef",
-    {
-        "Delay": int,
-        "MaxAttempts": int,
-    },
-    total=False,
-)
+        "ResponseHeadersPolicy": ResponseHeadersPolicyTypeDef,
+    },
+)
+
+class UpdateResponseHeadersPolicyResultTypeDef(TypedDict):
+    ResponseHeadersPolicy: ResponseHeadersPolicyTypeDef
+    ETag: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateResponseHeadersPolicyRequestTypeDef(TypedDict):
+    ResponseHeadersPolicyConfig: ResponseHeadersPolicyConfigUnionTypeDef
+
+class UpdateResponseHeadersPolicyRequestTypeDef(TypedDict):
+    ResponseHeadersPolicyConfig: ResponseHeadersPolicyConfigUnionTypeDef
+    Id: str
+    IfMatch: NotRequired[str]
+
+class OriginGroupTypeDef(TypedDict):
+    Id: str
+    FailoverCriteria: OriginGroupFailoverCriteriaUnionTypeDef
+    Members: OriginGroupMembersUnionTypeDef
+    SelectionCriteria: NotRequired[OriginGroupSelectionCriteriaType]
+
+class CreateStreamingDistributionRequestTypeDef(TypedDict):
+    StreamingDistributionConfig: StreamingDistributionConfigUnionTypeDef
+
+class StreamingDistributionConfigWithTagsTypeDef(TypedDict):
+    StreamingDistributionConfig: StreamingDistributionConfigUnionTypeDef
+    Tags: TagsUnionTypeDef
+
+class UpdateStreamingDistributionRequestTypeDef(TypedDict):
+    StreamingDistributionConfig: StreamingDistributionConfigUnionTypeDef
+    Id: str
+    IfMatch: NotRequired[str]
+
+class DistributionConfigOutputTypeDef(TypedDict):
+    CallerReference: str
+    Origins: OriginsOutputTypeDef
+    DefaultCacheBehavior: DefaultCacheBehaviorOutputTypeDef
+    Comment: str
+    Enabled: bool
+    Aliases: NotRequired[AliasesOutputTypeDef]
+    DefaultRootObject: NotRequired[str]
+    OriginGroups: NotRequired[OriginGroupsOutputTypeDef]
+    CacheBehaviors: NotRequired[CacheBehaviorsOutputTypeDef]
+    CustomErrorResponses: NotRequired[CustomErrorResponsesOutputTypeDef]
+    Logging: NotRequired[LoggingConfigTypeDef]
+    PriceClass: NotRequired[PriceClassType]
+    ViewerCertificate: NotRequired[ViewerCertificateTypeDef]
+    Restrictions: NotRequired[RestrictionsOutputTypeDef]
+    WebACLId: NotRequired[str]
+    HttpVersion: NotRequired[HttpVersionType]
+    IsIPV6Enabled: NotRequired[bool]
+    ContinuousDeploymentPolicyId: NotRequired[str]
+    Staging: NotRequired[bool]
+    AnycastIpListId: NotRequired[str]
+    TenantConfig: NotRequired[TenantConfigOutputTypeDef]
+    ConnectionMode: NotRequired[ConnectionModeType]
+
+class DistributionSummaryTypeDef(TypedDict):
+    Id: str
+    ARN: str
+    Status: str
+    LastModifiedTime: datetime
+    DomainName: str
+    Aliases: AliasesOutputTypeDef
+    Origins: OriginsOutputTypeDef
+    DefaultCacheBehavior: DefaultCacheBehaviorOutputTypeDef
+    CacheBehaviors: CacheBehaviorsOutputTypeDef
+    CustomErrorResponses: CustomErrorResponsesOutputTypeDef
+    Comment: str
+    PriceClass: PriceClassType
+    Enabled: bool
+    ViewerCertificate: ViewerCertificateTypeDef
+    Restrictions: RestrictionsOutputTypeDef
+    WebACLId: str
+    HttpVersion: HttpVersionType
+    IsIPV6Enabled: bool
+    Staging: bool
+    ETag: NotRequired[str]
+    OriginGroups: NotRequired[OriginGroupsOutputTypeDef]
+    AliasICPRecordals: NotRequired[List[AliasICPRecordalTypeDef]]
+    ConnectionMode: NotRequired[ConnectionModeType]
+    AnycastIpListId: NotRequired[str]
+
+ForwardedValuesUnionTypeDef = Union[ForwardedValuesTypeDef, ForwardedValuesOutputTypeDef]
+CachePolicySummaryTypeDef = TypedDict(
+    "CachePolicySummaryTypeDef",
+    {
+        "Type": CachePolicyTypeType,
+        "CachePolicy": CachePolicyTypeDef,
+    },
+)
+
+class CreateCachePolicyResultTypeDef(TypedDict):
+    CachePolicy: CachePolicyTypeDef
+    Location: str
+    ETag: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetCachePolicyResultTypeDef(TypedDict):
+    CachePolicy: CachePolicyTypeDef
+    ETag: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateCachePolicyResultTypeDef(TypedDict):
+    CachePolicy: CachePolicyTypeDef
+    ETag: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class OriginRequestPolicyListTypeDef(TypedDict):
+    MaxItems: int
+    Quantity: int
+    NextMarker: NotRequired[str]
+    Items: NotRequired[List[OriginRequestPolicySummaryTypeDef]]
+
+class CreateCachePolicyRequestTypeDef(TypedDict):
+    CachePolicyConfig: CachePolicyConfigUnionTypeDef
+
+class UpdateCachePolicyRequestTypeDef(TypedDict):
+    CachePolicyConfig: CachePolicyConfigUnionTypeDef
+    Id: str
+    IfMatch: NotRequired[str]
+
+class ContinuousDeploymentPolicySummaryTypeDef(TypedDict):
+    ContinuousDeploymentPolicy: ContinuousDeploymentPolicyTypeDef
+
+class CreateContinuousDeploymentPolicyResultTypeDef(TypedDict):
+    ContinuousDeploymentPolicy: ContinuousDeploymentPolicyTypeDef
+    Location: str
+    ETag: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetContinuousDeploymentPolicyResultTypeDef(TypedDict):
+    ContinuousDeploymentPolicy: ContinuousDeploymentPolicyTypeDef
+    ETag: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateContinuousDeploymentPolicyResultTypeDef(TypedDict):
+    ContinuousDeploymentPolicy: ContinuousDeploymentPolicyTypeDef
+    ETag: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateContinuousDeploymentPolicyRequestTypeDef(TypedDict):
+    ContinuousDeploymentPolicyConfig: ContinuousDeploymentPolicyConfigUnionTypeDef
+
+class UpdateContinuousDeploymentPolicyRequestTypeDef(TypedDict):
+    ContinuousDeploymentPolicyConfig: ContinuousDeploymentPolicyConfigUnionTypeDef
+    Id: str
+    IfMatch: NotRequired[str]
+
+class CreateFieldLevelEncryptionProfileResultTypeDef(TypedDict):
+    FieldLevelEncryptionProfile: FieldLevelEncryptionProfileTypeDef
+    Location: str
+    ETag: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetFieldLevelEncryptionProfileResultTypeDef(TypedDict):
+    FieldLevelEncryptionProfile: FieldLevelEncryptionProfileTypeDef
+    ETag: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateFieldLevelEncryptionProfileResultTypeDef(TypedDict):
+    FieldLevelEncryptionProfile: FieldLevelEncryptionProfileTypeDef
+    ETag: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListFieldLevelEncryptionProfilesResultTypeDef(TypedDict):
+    FieldLevelEncryptionProfileList: FieldLevelEncryptionProfileListTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateFieldLevelEncryptionProfileRequestTypeDef(TypedDict):
+    FieldLevelEncryptionProfileConfig: FieldLevelEncryptionProfileConfigUnionTypeDef
+
+class UpdateFieldLevelEncryptionProfileRequestTypeDef(TypedDict):
+    FieldLevelEncryptionProfileConfig: FieldLevelEncryptionProfileConfigUnionTypeDef
+    Id: str
+    IfMatch: NotRequired[str]
+
+class ListFunctionsResultTypeDef(TypedDict):
+    FunctionList: FunctionListTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class TestFunctionResultTypeDef(TypedDict):
+    TestResult: TestResultTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+OriginUnionTypeDef = Union[OriginTypeDef, OriginOutputTypeDef]
+
+class CreateFieldLevelEncryptionConfigResultTypeDef(TypedDict):
+    FieldLevelEncryption: FieldLevelEncryptionTypeDef
+    Location: str
+    ETag: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetFieldLevelEncryptionResultTypeDef(TypedDict):
+    FieldLevelEncryption: FieldLevelEncryptionTypeDef
+    ETag: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateFieldLevelEncryptionConfigResultTypeDef(TypedDict):
+    FieldLevelEncryption: FieldLevelEncryptionTypeDef
+    ETag: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListFieldLevelEncryptionConfigsResultTypeDef(TypedDict):
+    FieldLevelEncryptionList: FieldLevelEncryptionListTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateFieldLevelEncryptionConfigRequestTypeDef(TypedDict):
+    FieldLevelEncryptionConfig: FieldLevelEncryptionConfigUnionTypeDef
+
+class UpdateFieldLevelEncryptionConfigRequestTypeDef(TypedDict):
+    FieldLevelEncryptionConfig: FieldLevelEncryptionConfigUnionTypeDef
+    Id: str
+    IfMatch: NotRequired[str]
+
+class ResponseHeadersPolicyListTypeDef(TypedDict):
+    MaxItems: int
+    Quantity: int
+    NextMarker: NotRequired[str]
+    Items: NotRequired[List[ResponseHeadersPolicySummaryTypeDef]]
+
+OriginGroupUnionTypeDef = Union[OriginGroupTypeDef, OriginGroupOutputTypeDef]
+
+class CreateStreamingDistributionWithTagsRequestTypeDef(TypedDict):
+    StreamingDistributionConfigWithTags: StreamingDistributionConfigWithTagsTypeDef
+
+class DistributionTypeDef(TypedDict):
+    Id: str
+    ARN: str
+    Status: str
+    LastModifiedTime: datetime
+    InProgressInvalidationBatches: int
+    DomainName: str
+    DistributionConfig: DistributionConfigOutputTypeDef
+    ActiveTrustedSigners: NotRequired[ActiveTrustedSignersTypeDef]
+    ActiveTrustedKeyGroups: NotRequired[ActiveTrustedKeyGroupsTypeDef]
+    AliasICPRecordals: NotRequired[List[AliasICPRecordalTypeDef]]
+
+class GetDistributionConfigResultTypeDef(TypedDict):
+    DistributionConfig: DistributionConfigOutputTypeDef
+    ETag: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DistributionListTypeDef(TypedDict):
+    Marker: str
+    MaxItems: int
+    IsTruncated: bool
+    Quantity: int
+    NextMarker: NotRequired[str]
+    Items: NotRequired[List[DistributionSummaryTypeDef]]
+
+class CacheBehaviorTypeDef(TypedDict):
+    PathPattern: str
+    TargetOriginId: str
+    ViewerProtocolPolicy: ViewerProtocolPolicyType
+    TrustedSigners: NotRequired[TrustedSignersUnionTypeDef]
+    TrustedKeyGroups: NotRequired[TrustedKeyGroupsUnionTypeDef]
+    AllowedMethods: NotRequired[AllowedMethodsUnionTypeDef]
+    SmoothStreaming: NotRequired[bool]
+    Compress: NotRequired[bool]
+    LambdaFunctionAssociations: NotRequired[LambdaFunctionAssociationsUnionTypeDef]
+    FunctionAssociations: NotRequired[FunctionAssociationsUnionTypeDef]
+    FieldLevelEncryptionId: NotRequired[str]
+    RealtimeLogConfigArn: NotRequired[str]
+    CachePolicyId: NotRequired[str]
+    OriginRequestPolicyId: NotRequired[str]
+    ResponseHeadersPolicyId: NotRequired[str]
+    GrpcConfig: NotRequired[GrpcConfigTypeDef]
+    ForwardedValues: NotRequired[ForwardedValuesUnionTypeDef]
+    MinTTL: NotRequired[int]
+    DefaultTTL: NotRequired[int]
+    MaxTTL: NotRequired[int]
+
+class DefaultCacheBehaviorTypeDef(TypedDict):
+    TargetOriginId: str
+    ViewerProtocolPolicy: ViewerProtocolPolicyType
+    TrustedSigners: NotRequired[TrustedSignersUnionTypeDef]
+    TrustedKeyGroups: NotRequired[TrustedKeyGroupsUnionTypeDef]
+    AllowedMethods: NotRequired[AllowedMethodsUnionTypeDef]
+    SmoothStreaming: NotRequired[bool]
+    Compress: NotRequired[bool]
+    LambdaFunctionAssociations: NotRequired[LambdaFunctionAssociationsUnionTypeDef]
+    FunctionAssociations: NotRequired[FunctionAssociationsUnionTypeDef]
+    FieldLevelEncryptionId: NotRequired[str]
+    RealtimeLogConfigArn: NotRequired[str]
+    CachePolicyId: NotRequired[str]
+    OriginRequestPolicyId: NotRequired[str]
+    ResponseHeadersPolicyId: NotRequired[str]
+    GrpcConfig: NotRequired[GrpcConfigTypeDef]
+    ForwardedValues: NotRequired[ForwardedValuesUnionTypeDef]
+    MinTTL: NotRequired[int]
+    DefaultTTL: NotRequired[int]
+    MaxTTL: NotRequired[int]
+
+class CachePolicyListTypeDef(TypedDict):
+    MaxItems: int
+    Quantity: int
+    NextMarker: NotRequired[str]
+    Items: NotRequired[List[CachePolicySummaryTypeDef]]
+
+class ListOriginRequestPoliciesResultTypeDef(TypedDict):
+    OriginRequestPolicyList: OriginRequestPolicyListTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ContinuousDeploymentPolicyListTypeDef(TypedDict):
+    MaxItems: int
+    Quantity: int
+    NextMarker: NotRequired[str]
+    Items: NotRequired[List[ContinuousDeploymentPolicySummaryTypeDef]]
+
+class OriginsTypeDef(TypedDict):
+    Quantity: int
+    Items: Sequence[OriginUnionTypeDef]
+
+class ListResponseHeadersPoliciesResultTypeDef(TypedDict):
+    ResponseHeadersPolicyList: ResponseHeadersPolicyListTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class OriginGroupsTypeDef(TypedDict):
+    Quantity: int
+    Items: NotRequired[Sequence[OriginGroupUnionTypeDef]]
+
+class CopyDistributionResultTypeDef(TypedDict):
+    Distribution: DistributionTypeDef
+    Location: str
+    ETag: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateDistributionResultTypeDef(TypedDict):
+    Distribution: DistributionTypeDef
+    Location: str
+    ETag: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateDistributionWithTagsResultTypeDef(TypedDict):
+    Distribution: DistributionTypeDef
+    Location: str
+    ETag: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetDistributionResultTypeDef(TypedDict):
+    Distribution: DistributionTypeDef
+    ETag: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateDistributionResultTypeDef(TypedDict):
+    Distribution: DistributionTypeDef
+    ETag: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateDistributionWithStagingConfigResultTypeDef(TypedDict):
+    Distribution: DistributionTypeDef
+    ETag: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListDistributionsByAnycastIpListIdResultTypeDef(TypedDict):
+    DistributionList: DistributionListTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListDistributionsByConnectionModeResultTypeDef(TypedDict):
+    DistributionList: DistributionListTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListDistributionsByRealtimeLogConfigResultTypeDef(TypedDict):
+    DistributionList: DistributionListTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListDistributionsByWebACLIdResultTypeDef(TypedDict):
+    DistributionList: DistributionListTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListDistributionsResultTypeDef(TypedDict):
+    DistributionList: DistributionListTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+CacheBehaviorUnionTypeDef = Union[CacheBehaviorTypeDef, CacheBehaviorOutputTypeDef]
+DefaultCacheBehaviorUnionTypeDef = Union[
+    DefaultCacheBehaviorTypeDef, DefaultCacheBehaviorOutputTypeDef
+]
+
+class ListCachePoliciesResultTypeDef(TypedDict):
+    CachePolicyList: CachePolicyListTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListContinuousDeploymentPoliciesResultTypeDef(TypedDict):
+    ContinuousDeploymentPolicyList: ContinuousDeploymentPolicyListTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+OriginsUnionTypeDef = Union[OriginsTypeDef, OriginsOutputTypeDef]
+OriginGroupsUnionTypeDef = Union[OriginGroupsTypeDef, OriginGroupsOutputTypeDef]
+
+class CacheBehaviorsTypeDef(TypedDict):
+    Quantity: int
+    Items: NotRequired[Sequence[CacheBehaviorUnionTypeDef]]
+
+CacheBehaviorsUnionTypeDef = Union[CacheBehaviorsTypeDef, CacheBehaviorsOutputTypeDef]
+
+class DistributionConfigTypeDef(TypedDict):
+    CallerReference: str
+    Origins: OriginsUnionTypeDef
+    DefaultCacheBehavior: DefaultCacheBehaviorUnionTypeDef
+    Comment: str
+    Enabled: bool
+    Aliases: NotRequired[AliasesUnionTypeDef]
+    DefaultRootObject: NotRequired[str]
+    OriginGroups: NotRequired[OriginGroupsUnionTypeDef]
+    CacheBehaviors: NotRequired[CacheBehaviorsUnionTypeDef]
+    CustomErrorResponses: NotRequired[CustomErrorResponsesUnionTypeDef]
+    Logging: NotRequired[LoggingConfigTypeDef]
+    PriceClass: NotRequired[PriceClassType]
+    ViewerCertificate: NotRequired[ViewerCertificateTypeDef]
+    Restrictions: NotRequired[RestrictionsUnionTypeDef]
+    WebACLId: NotRequired[str]
+    HttpVersion: NotRequired[HttpVersionType]
+    IsIPV6Enabled: NotRequired[bool]
+    ContinuousDeploymentPolicyId: NotRequired[str]
+    Staging: NotRequired[bool]
+    AnycastIpListId: NotRequired[str]
+    TenantConfig: NotRequired[TenantConfigUnionTypeDef]
+    ConnectionMode: NotRequired[ConnectionModeType]
+
+DistributionConfigUnionTypeDef = Union[DistributionConfigTypeDef, DistributionConfigOutputTypeDef]
+
+class CreateDistributionRequestTypeDef(TypedDict):
+    DistributionConfig: DistributionConfigUnionTypeDef
+
+class DistributionConfigWithTagsTypeDef(TypedDict):
+    DistributionConfig: DistributionConfigUnionTypeDef
+    Tags: TagsUnionTypeDef
+
+class UpdateDistributionRequestTypeDef(TypedDict):
+    DistributionConfig: DistributionConfigUnionTypeDef
+    Id: str
+    IfMatch: NotRequired[str]
+
+class CreateDistributionWithTagsRequestTypeDef(TypedDict):
+    DistributionConfigWithTags: DistributionConfigWithTagsTypeDef

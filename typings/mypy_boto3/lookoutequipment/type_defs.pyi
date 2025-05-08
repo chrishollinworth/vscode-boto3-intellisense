@@ -1,20 +1,24 @@
 """
 Type annotations for lookoutequipment service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutequipment/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lookoutequipment/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_lookoutequipment.type_defs import CategoricalValuesTypeDef
 
-    data: CategoricalValuesTypeDef = {...}
+    data: CategoricalValuesTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List, Union
+from typing import Union
 
 from .literals import (
     AutoPromotionResultType,
@@ -37,60 +41,67 @@ from .literals import (
     TargetSamplingRateType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Sequence
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List, Sequence
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
     "CategoricalValuesTypeDef",
     "CountPercentTypeDef",
-    "CreateDatasetRequestRequestTypeDef",
+    "CreateDatasetRequestTypeDef",
     "CreateDatasetResponseTypeDef",
-    "CreateInferenceSchedulerRequestRequestTypeDef",
+    "CreateInferenceSchedulerRequestTypeDef",
     "CreateInferenceSchedulerResponseTypeDef",
-    "CreateLabelGroupRequestRequestTypeDef",
+    "CreateLabelGroupRequestTypeDef",
     "CreateLabelGroupResponseTypeDef",
-    "CreateLabelRequestRequestTypeDef",
+    "CreateLabelRequestTypeDef",
     "CreateLabelResponseTypeDef",
-    "CreateModelRequestRequestTypeDef",
+    "CreateModelRequestTypeDef",
     "CreateModelResponseTypeDef",
-    "CreateRetrainingSchedulerRequestRequestTypeDef",
+    "CreateRetrainingSchedulerRequestTypeDef",
     "CreateRetrainingSchedulerResponseTypeDef",
     "DataIngestionJobSummaryTypeDef",
     "DataPreProcessingConfigurationTypeDef",
     "DataQualitySummaryTypeDef",
     "DatasetSchemaTypeDef",
     "DatasetSummaryTypeDef",
-    "DeleteDatasetRequestRequestTypeDef",
-    "DeleteInferenceSchedulerRequestRequestTypeDef",
-    "DeleteLabelGroupRequestRequestTypeDef",
-    "DeleteLabelRequestRequestTypeDef",
-    "DeleteModelRequestRequestTypeDef",
-    "DeleteResourcePolicyRequestRequestTypeDef",
-    "DeleteRetrainingSchedulerRequestRequestTypeDef",
-    "DescribeDataIngestionJobRequestRequestTypeDef",
+    "DeleteDatasetRequestTypeDef",
+    "DeleteInferenceSchedulerRequestTypeDef",
+    "DeleteLabelGroupRequestTypeDef",
+    "DeleteLabelRequestTypeDef",
+    "DeleteModelRequestTypeDef",
+    "DeleteResourcePolicyRequestTypeDef",
+    "DeleteRetrainingSchedulerRequestTypeDef",
+    "DescribeDataIngestionJobRequestTypeDef",
     "DescribeDataIngestionJobResponseTypeDef",
-    "DescribeDatasetRequestRequestTypeDef",
+    "DescribeDatasetRequestTypeDef",
     "DescribeDatasetResponseTypeDef",
-    "DescribeInferenceSchedulerRequestRequestTypeDef",
+    "DescribeInferenceSchedulerRequestTypeDef",
     "DescribeInferenceSchedulerResponseTypeDef",
-    "DescribeLabelGroupRequestRequestTypeDef",
+    "DescribeLabelGroupRequestTypeDef",
     "DescribeLabelGroupResponseTypeDef",
-    "DescribeLabelRequestRequestTypeDef",
+    "DescribeLabelRequestTypeDef",
     "DescribeLabelResponseTypeDef",
-    "DescribeModelRequestRequestTypeDef",
+    "DescribeModelRequestTypeDef",
     "DescribeModelResponseTypeDef",
-    "DescribeModelVersionRequestRequestTypeDef",
+    "DescribeModelVersionRequestTypeDef",
     "DescribeModelVersionResponseTypeDef",
-    "DescribeResourcePolicyRequestRequestTypeDef",
+    "DescribeResourcePolicyRequestTypeDef",
     "DescribeResourcePolicyResponseTypeDef",
-    "DescribeRetrainingSchedulerRequestRequestTypeDef",
+    "DescribeRetrainingSchedulerRequestTypeDef",
     "DescribeRetrainingSchedulerResponseTypeDef",
     "DuplicateTimestampsTypeDef",
-    "ImportDatasetRequestRequestTypeDef",
+    "EmptyResponseMetadataTypeDef",
+    "ImportDatasetRequestTypeDef",
     "ImportDatasetResponseTypeDef",
-    "ImportModelVersionRequestRequestTypeDef",
+    "ImportModelVersionRequestTypeDef",
     "ImportModelVersionResponseTypeDef",
     "InferenceEventSummaryTypeDef",
     "InferenceExecutionSummaryTypeDef",
@@ -110,29 +121,29 @@ __all__ = (
     "LabelsInputConfigurationTypeDef",
     "LabelsS3InputConfigurationTypeDef",
     "LargeTimestampGapsTypeDef",
-    "ListDataIngestionJobsRequestRequestTypeDef",
+    "ListDataIngestionJobsRequestTypeDef",
     "ListDataIngestionJobsResponseTypeDef",
-    "ListDatasetsRequestRequestTypeDef",
+    "ListDatasetsRequestTypeDef",
     "ListDatasetsResponseTypeDef",
-    "ListInferenceEventsRequestRequestTypeDef",
+    "ListInferenceEventsRequestTypeDef",
     "ListInferenceEventsResponseTypeDef",
-    "ListInferenceExecutionsRequestRequestTypeDef",
+    "ListInferenceExecutionsRequestTypeDef",
     "ListInferenceExecutionsResponseTypeDef",
-    "ListInferenceSchedulersRequestRequestTypeDef",
+    "ListInferenceSchedulersRequestTypeDef",
     "ListInferenceSchedulersResponseTypeDef",
-    "ListLabelGroupsRequestRequestTypeDef",
+    "ListLabelGroupsRequestTypeDef",
     "ListLabelGroupsResponseTypeDef",
-    "ListLabelsRequestRequestTypeDef",
+    "ListLabelsRequestTypeDef",
     "ListLabelsResponseTypeDef",
-    "ListModelVersionsRequestRequestTypeDef",
+    "ListModelVersionsRequestTypeDef",
     "ListModelVersionsResponseTypeDef",
-    "ListModelsRequestRequestTypeDef",
+    "ListModelsRequestTypeDef",
     "ListModelsResponseTypeDef",
-    "ListRetrainingSchedulersRequestRequestTypeDef",
+    "ListRetrainingSchedulersRequestTypeDef",
     "ListRetrainingSchedulersResponseTypeDef",
-    "ListSensorStatisticsRequestRequestTypeDef",
+    "ListSensorStatisticsRequestTypeDef",
     "ListSensorStatisticsResponseTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "MissingCompleteSensorDataTypeDef",
     "MissingSensorDataTypeDef",
@@ -142,1718 +153,871 @@ __all__ = (
     "ModelVersionSummaryTypeDef",
     "MonotonicValuesTypeDef",
     "MultipleOperatingModesTypeDef",
-    "PutResourcePolicyRequestRequestTypeDef",
+    "PutResourcePolicyRequestTypeDef",
     "PutResourcePolicyResponseTypeDef",
     "ResponseMetadataTypeDef",
     "RetrainingSchedulerSummaryTypeDef",
     "S3ObjectTypeDef",
     "SensorStatisticsSummaryTypeDef",
     "SensorsWithShortDateRangeTypeDef",
-    "StartDataIngestionJobRequestRequestTypeDef",
+    "StartDataIngestionJobRequestTypeDef",
     "StartDataIngestionJobResponseTypeDef",
-    "StartInferenceSchedulerRequestRequestTypeDef",
+    "StartInferenceSchedulerRequestTypeDef",
     "StartInferenceSchedulerResponseTypeDef",
-    "StartRetrainingSchedulerRequestRequestTypeDef",
+    "StartRetrainingSchedulerRequestTypeDef",
     "StartRetrainingSchedulerResponseTypeDef",
-    "StopInferenceSchedulerRequestRequestTypeDef",
+    "StopInferenceSchedulerRequestTypeDef",
     "StopInferenceSchedulerResponseTypeDef",
-    "StopRetrainingSchedulerRequestRequestTypeDef",
+    "StopRetrainingSchedulerRequestTypeDef",
     "StopRetrainingSchedulerResponseTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
     "TagTypeDef",
+    "TimestampTypeDef",
     "UnsupportedTimestampsTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateActiveModelVersionRequestRequestTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateActiveModelVersionRequestTypeDef",
     "UpdateActiveModelVersionResponseTypeDef",
-    "UpdateInferenceSchedulerRequestRequestTypeDef",
-    "UpdateLabelGroupRequestRequestTypeDef",
-    "UpdateModelRequestRequestTypeDef",
-    "UpdateRetrainingSchedulerRequestRequestTypeDef",
+    "UpdateInferenceSchedulerRequestTypeDef",
+    "UpdateLabelGroupRequestTypeDef",
+    "UpdateModelRequestTypeDef",
+    "UpdateRetrainingSchedulerRequestTypeDef",
 )
 
-_RequiredCategoricalValuesTypeDef = TypedDict(
-    "_RequiredCategoricalValuesTypeDef",
-    {
-        "Status": StatisticalIssueStatusType,
-    },
-)
-_OptionalCategoricalValuesTypeDef = TypedDict(
-    "_OptionalCategoricalValuesTypeDef",
-    {
-        "NumberOfCategory": int,
-    },
-    total=False,
-)
-
-class CategoricalValuesTypeDef(
-    _RequiredCategoricalValuesTypeDef, _OptionalCategoricalValuesTypeDef
-):
-    pass
-
-CountPercentTypeDef = TypedDict(
-    "CountPercentTypeDef",
-    {
-        "Count": int,
-        "Percentage": float,
-    },
-)
-
-_RequiredCreateDatasetRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateDatasetRequestRequestTypeDef",
-    {
-        "DatasetName": str,
-        "ClientToken": str,
-    },
-)
-_OptionalCreateDatasetRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateDatasetRequestRequestTypeDef",
-    {
-        "DatasetSchema": "DatasetSchemaTypeDef",
-        "ServerSideKmsKeyId": str,
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateDatasetRequestRequestTypeDef(
-    _RequiredCreateDatasetRequestRequestTypeDef, _OptionalCreateDatasetRequestRequestTypeDef
-):
-    pass
-
-CreateDatasetResponseTypeDef = TypedDict(
-    "CreateDatasetResponseTypeDef",
-    {
-        "DatasetName": str,
-        "DatasetArn": str,
-        "Status": DatasetStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateInferenceSchedulerRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateInferenceSchedulerRequestRequestTypeDef",
-    {
-        "ModelName": str,
-        "InferenceSchedulerName": str,
-        "DataUploadFrequency": DataUploadFrequencyType,
-        "DataInputConfiguration": "InferenceInputConfigurationTypeDef",
-        "DataOutputConfiguration": "InferenceOutputConfigurationTypeDef",
-        "RoleArn": str,
-        "ClientToken": str,
-    },
-)
-_OptionalCreateInferenceSchedulerRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateInferenceSchedulerRequestRequestTypeDef",
-    {
-        "DataDelayOffsetInMinutes": int,
-        "ServerSideKmsKeyId": str,
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateInferenceSchedulerRequestRequestTypeDef(
-    _RequiredCreateInferenceSchedulerRequestRequestTypeDef,
-    _OptionalCreateInferenceSchedulerRequestRequestTypeDef,
-):
-    pass
-
-CreateInferenceSchedulerResponseTypeDef = TypedDict(
-    "CreateInferenceSchedulerResponseTypeDef",
-    {
-        "InferenceSchedulerArn": str,
-        "InferenceSchedulerName": str,
-        "Status": InferenceSchedulerStatusType,
-        "ModelQuality": ModelQualityType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateLabelGroupRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateLabelGroupRequestRequestTypeDef",
-    {
-        "LabelGroupName": str,
-        "ClientToken": str,
-    },
-)
-_OptionalCreateLabelGroupRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateLabelGroupRequestRequestTypeDef",
-    {
-        "FaultCodes": List[str],
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateLabelGroupRequestRequestTypeDef(
-    _RequiredCreateLabelGroupRequestRequestTypeDef, _OptionalCreateLabelGroupRequestRequestTypeDef
-):
-    pass
-
-CreateLabelGroupResponseTypeDef = TypedDict(
-    "CreateLabelGroupResponseTypeDef",
-    {
-        "LabelGroupName": str,
-        "LabelGroupArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateLabelRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateLabelRequestRequestTypeDef",
-    {
-        "LabelGroupName": str,
-        "StartTime": Union[datetime, str],
-        "EndTime": Union[datetime, str],
-        "Rating": LabelRatingType,
-        "ClientToken": str,
-    },
-)
-_OptionalCreateLabelRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateLabelRequestRequestTypeDef",
-    {
-        "FaultCode": str,
-        "Notes": str,
-        "Equipment": str,
-    },
-    total=False,
-)
-
-class CreateLabelRequestRequestTypeDef(
-    _RequiredCreateLabelRequestRequestTypeDef, _OptionalCreateLabelRequestRequestTypeDef
-):
-    pass
-
-CreateLabelResponseTypeDef = TypedDict(
-    "CreateLabelResponseTypeDef",
-    {
-        "LabelId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateModelRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateModelRequestRequestTypeDef",
-    {
-        "ModelName": str,
-        "DatasetName": str,
-        "ClientToken": str,
-    },
-)
-_OptionalCreateModelRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateModelRequestRequestTypeDef",
-    {
-        "DatasetSchema": "DatasetSchemaTypeDef",
-        "LabelsInputConfiguration": "LabelsInputConfigurationTypeDef",
-        "TrainingDataStartTime": Union[datetime, str],
-        "TrainingDataEndTime": Union[datetime, str],
-        "EvaluationDataStartTime": Union[datetime, str],
-        "EvaluationDataEndTime": Union[datetime, str],
-        "RoleArn": str,
-        "DataPreProcessingConfiguration": "DataPreProcessingConfigurationTypeDef",
-        "ServerSideKmsKeyId": str,
-        "Tags": List["TagTypeDef"],
-        "OffCondition": str,
-        "ModelDiagnosticsOutputConfiguration": "ModelDiagnosticsOutputConfigurationTypeDef",
-    },
-    total=False,
-)
-
-class CreateModelRequestRequestTypeDef(
-    _RequiredCreateModelRequestRequestTypeDef, _OptionalCreateModelRequestRequestTypeDef
-):
-    pass
-
-CreateModelResponseTypeDef = TypedDict(
-    "CreateModelResponseTypeDef",
-    {
-        "ModelArn": str,
-        "Status": ModelStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateRetrainingSchedulerRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateRetrainingSchedulerRequestRequestTypeDef",
-    {
-        "ModelName": str,
-        "RetrainingFrequency": str,
-        "LookbackWindow": str,
-        "ClientToken": str,
-    },
-)
-_OptionalCreateRetrainingSchedulerRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateRetrainingSchedulerRequestRequestTypeDef",
-    {
-        "RetrainingStartDate": Union[datetime, str],
-        "PromoteMode": ModelPromoteModeType,
-    },
-    total=False,
-)
-
-class CreateRetrainingSchedulerRequestRequestTypeDef(
-    _RequiredCreateRetrainingSchedulerRequestRequestTypeDef,
-    _OptionalCreateRetrainingSchedulerRequestRequestTypeDef,
-):
-    pass
-
-CreateRetrainingSchedulerResponseTypeDef = TypedDict(
-    "CreateRetrainingSchedulerResponseTypeDef",
-    {
-        "ModelName": str,
-        "ModelArn": str,
-        "Status": RetrainingSchedulerStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DataIngestionJobSummaryTypeDef = TypedDict(
-    "DataIngestionJobSummaryTypeDef",
-    {
-        "JobId": str,
-        "DatasetName": str,
-        "DatasetArn": str,
-        "IngestionInputConfiguration": "IngestionInputConfigurationTypeDef",
-        "Status": IngestionJobStatusType,
-    },
-    total=False,
-)
-
-DataPreProcessingConfigurationTypeDef = TypedDict(
-    "DataPreProcessingConfigurationTypeDef",
-    {
-        "TargetSamplingRate": TargetSamplingRateType,
-    },
-    total=False,
-)
-
-DataQualitySummaryTypeDef = TypedDict(
-    "DataQualitySummaryTypeDef",
-    {
-        "InsufficientSensorData": "InsufficientSensorDataTypeDef",
-        "MissingSensorData": "MissingSensorDataTypeDef",
-        "InvalidSensorData": "InvalidSensorDataTypeDef",
-        "UnsupportedTimestamps": "UnsupportedTimestampsTypeDef",
-        "DuplicateTimestamps": "DuplicateTimestampsTypeDef",
-    },
-)
-
-DatasetSchemaTypeDef = TypedDict(
-    "DatasetSchemaTypeDef",
-    {
-        "InlineDataSchema": str,
-    },
-    total=False,
-)
-
-DatasetSummaryTypeDef = TypedDict(
-    "DatasetSummaryTypeDef",
-    {
-        "DatasetName": str,
-        "DatasetArn": str,
-        "Status": DatasetStatusType,
-        "CreatedAt": datetime,
-    },
-    total=False,
-)
-
-DeleteDatasetRequestRequestTypeDef = TypedDict(
-    "DeleteDatasetRequestRequestTypeDef",
-    {
-        "DatasetName": str,
-    },
-)
-
-DeleteInferenceSchedulerRequestRequestTypeDef = TypedDict(
-    "DeleteInferenceSchedulerRequestRequestTypeDef",
-    {
-        "InferenceSchedulerName": str,
-    },
-)
-
-DeleteLabelGroupRequestRequestTypeDef = TypedDict(
-    "DeleteLabelGroupRequestRequestTypeDef",
-    {
-        "LabelGroupName": str,
-    },
-)
-
-DeleteLabelRequestRequestTypeDef = TypedDict(
-    "DeleteLabelRequestRequestTypeDef",
-    {
-        "LabelGroupName": str,
-        "LabelId": str,
-    },
-)
-
-DeleteModelRequestRequestTypeDef = TypedDict(
-    "DeleteModelRequestRequestTypeDef",
-    {
-        "ModelName": str,
-    },
-)
-
-DeleteResourcePolicyRequestRequestTypeDef = TypedDict(
-    "DeleteResourcePolicyRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-    },
-)
-
-DeleteRetrainingSchedulerRequestRequestTypeDef = TypedDict(
-    "DeleteRetrainingSchedulerRequestRequestTypeDef",
-    {
-        "ModelName": str,
-    },
-)
-
-DescribeDataIngestionJobRequestRequestTypeDef = TypedDict(
-    "DescribeDataIngestionJobRequestRequestTypeDef",
-    {
-        "JobId": str,
-    },
-)
-
-DescribeDataIngestionJobResponseTypeDef = TypedDict(
-    "DescribeDataIngestionJobResponseTypeDef",
-    {
-        "JobId": str,
-        "DatasetArn": str,
-        "IngestionInputConfiguration": "IngestionInputConfigurationTypeDef",
-        "RoleArn": str,
-        "CreatedAt": datetime,
-        "Status": IngestionJobStatusType,
-        "FailedReason": str,
-        "DataQualitySummary": "DataQualitySummaryTypeDef",
-        "IngestedFilesSummary": "IngestedFilesSummaryTypeDef",
-        "StatusDetail": str,
-        "IngestedDataSize": int,
-        "DataStartTime": datetime,
-        "DataEndTime": datetime,
-        "SourceDatasetArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeDatasetRequestRequestTypeDef = TypedDict(
-    "DescribeDatasetRequestRequestTypeDef",
-    {
-        "DatasetName": str,
-    },
-)
-
-DescribeDatasetResponseTypeDef = TypedDict(
-    "DescribeDatasetResponseTypeDef",
-    {
-        "DatasetName": str,
-        "DatasetArn": str,
-        "CreatedAt": datetime,
-        "LastUpdatedAt": datetime,
-        "Status": DatasetStatusType,
-        "Schema": str,
-        "ServerSideKmsKeyId": str,
-        "IngestionInputConfiguration": "IngestionInputConfigurationTypeDef",
-        "DataQualitySummary": "DataQualitySummaryTypeDef",
-        "IngestedFilesSummary": "IngestedFilesSummaryTypeDef",
-        "RoleArn": str,
-        "DataStartTime": datetime,
-        "DataEndTime": datetime,
-        "SourceDatasetArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeInferenceSchedulerRequestRequestTypeDef = TypedDict(
-    "DescribeInferenceSchedulerRequestRequestTypeDef",
-    {
-        "InferenceSchedulerName": str,
-    },
-)
-
-DescribeInferenceSchedulerResponseTypeDef = TypedDict(
-    "DescribeInferenceSchedulerResponseTypeDef",
-    {
-        "ModelArn": str,
-        "ModelName": str,
-        "InferenceSchedulerName": str,
-        "InferenceSchedulerArn": str,
-        "Status": InferenceSchedulerStatusType,
-        "DataDelayOffsetInMinutes": int,
-        "DataUploadFrequency": DataUploadFrequencyType,
-        "CreatedAt": datetime,
-        "UpdatedAt": datetime,
-        "DataInputConfiguration": "InferenceInputConfigurationTypeDef",
-        "DataOutputConfiguration": "InferenceOutputConfigurationTypeDef",
-        "RoleArn": str,
-        "ServerSideKmsKeyId": str,
-        "LatestInferenceResult": LatestInferenceResultType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeLabelGroupRequestRequestTypeDef = TypedDict(
-    "DescribeLabelGroupRequestRequestTypeDef",
-    {
-        "LabelGroupName": str,
-    },
-)
-
-DescribeLabelGroupResponseTypeDef = TypedDict(
-    "DescribeLabelGroupResponseTypeDef",
-    {
-        "LabelGroupName": str,
-        "LabelGroupArn": str,
-        "FaultCodes": List[str],
-        "CreatedAt": datetime,
-        "UpdatedAt": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeLabelRequestRequestTypeDef = TypedDict(
-    "DescribeLabelRequestRequestTypeDef",
-    {
-        "LabelGroupName": str,
-        "LabelId": str,
-    },
-)
-
-DescribeLabelResponseTypeDef = TypedDict(
-    "DescribeLabelResponseTypeDef",
-    {
-        "LabelGroupName": str,
-        "LabelGroupArn": str,
-        "LabelId": str,
-        "StartTime": datetime,
-        "EndTime": datetime,
-        "Rating": LabelRatingType,
-        "FaultCode": str,
-        "Notes": str,
-        "Equipment": str,
-        "CreatedAt": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeModelRequestRequestTypeDef = TypedDict(
-    "DescribeModelRequestRequestTypeDef",
-    {
-        "ModelName": str,
-    },
-)
-
-DescribeModelResponseTypeDef = TypedDict(
-    "DescribeModelResponseTypeDef",
-    {
-        "ModelName": str,
-        "ModelArn": str,
-        "DatasetName": str,
-        "DatasetArn": str,
-        "Schema": str,
-        "LabelsInputConfiguration": "LabelsInputConfigurationTypeDef",
-        "TrainingDataStartTime": datetime,
-        "TrainingDataEndTime": datetime,
-        "EvaluationDataStartTime": datetime,
-        "EvaluationDataEndTime": datetime,
-        "RoleArn": str,
-        "DataPreProcessingConfiguration": "DataPreProcessingConfigurationTypeDef",
-        "Status": ModelStatusType,
-        "TrainingExecutionStartTime": datetime,
-        "TrainingExecutionEndTime": datetime,
-        "FailedReason": str,
-        "ModelMetrics": str,
-        "LastUpdatedTime": datetime,
-        "CreatedAt": datetime,
-        "ServerSideKmsKeyId": str,
-        "OffCondition": str,
-        "SourceModelVersionArn": str,
-        "ImportJobStartTime": datetime,
-        "ImportJobEndTime": datetime,
-        "ActiveModelVersion": int,
-        "ActiveModelVersionArn": str,
-        "ModelVersionActivatedAt": datetime,
-        "PreviousActiveModelVersion": int,
-        "PreviousActiveModelVersionArn": str,
-        "PreviousModelVersionActivatedAt": datetime,
-        "PriorModelMetrics": str,
-        "LatestScheduledRetrainingFailedReason": str,
-        "LatestScheduledRetrainingStatus": ModelVersionStatusType,
-        "LatestScheduledRetrainingModelVersion": int,
-        "LatestScheduledRetrainingStartTime": datetime,
-        "LatestScheduledRetrainingAvailableDataInDays": int,
-        "NextScheduledRetrainingStartDate": datetime,
-        "AccumulatedInferenceDataStartTime": datetime,
-        "AccumulatedInferenceDataEndTime": datetime,
-        "RetrainingSchedulerStatus": RetrainingSchedulerStatusType,
-        "ModelDiagnosticsOutputConfiguration": "ModelDiagnosticsOutputConfigurationTypeDef",
-        "ModelQuality": ModelQualityType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeModelVersionRequestRequestTypeDef = TypedDict(
-    "DescribeModelVersionRequestRequestTypeDef",
-    {
-        "ModelName": str,
-        "ModelVersion": int,
-    },
-)
-
-DescribeModelVersionResponseTypeDef = TypedDict(
-    "DescribeModelVersionResponseTypeDef",
-    {
-        "ModelName": str,
-        "ModelArn": str,
-        "ModelVersion": int,
-        "ModelVersionArn": str,
-        "Status": ModelVersionStatusType,
-        "SourceType": ModelVersionSourceTypeType,
-        "DatasetName": str,
-        "DatasetArn": str,
-        "Schema": str,
-        "LabelsInputConfiguration": "LabelsInputConfigurationTypeDef",
-        "TrainingDataStartTime": datetime,
-        "TrainingDataEndTime": datetime,
-        "EvaluationDataStartTime": datetime,
-        "EvaluationDataEndTime": datetime,
-        "RoleArn": str,
-        "DataPreProcessingConfiguration": "DataPreProcessingConfigurationTypeDef",
-        "TrainingExecutionStartTime": datetime,
-        "TrainingExecutionEndTime": datetime,
-        "FailedReason": str,
-        "ModelMetrics": str,
-        "LastUpdatedTime": datetime,
-        "CreatedAt": datetime,
-        "ServerSideKmsKeyId": str,
-        "OffCondition": str,
-        "SourceModelVersionArn": str,
-        "ImportJobStartTime": datetime,
-        "ImportJobEndTime": datetime,
-        "ImportedDataSizeInBytes": int,
-        "PriorModelMetrics": str,
-        "RetrainingAvailableDataInDays": int,
-        "AutoPromotionResult": AutoPromotionResultType,
-        "AutoPromotionResultReason": str,
-        "ModelDiagnosticsOutputConfiguration": "ModelDiagnosticsOutputConfigurationTypeDef",
-        "ModelDiagnosticsResultsObject": "S3ObjectTypeDef",
-        "ModelQuality": ModelQualityType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeResourcePolicyRequestRequestTypeDef = TypedDict(
-    "DescribeResourcePolicyRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-    },
-)
-
-DescribeResourcePolicyResponseTypeDef = TypedDict(
-    "DescribeResourcePolicyResponseTypeDef",
-    {
-        "PolicyRevisionId": str,
-        "ResourcePolicy": str,
-        "CreationTime": datetime,
-        "LastModifiedTime": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeRetrainingSchedulerRequestRequestTypeDef = TypedDict(
-    "DescribeRetrainingSchedulerRequestRequestTypeDef",
-    {
-        "ModelName": str,
-    },
-)
-
-DescribeRetrainingSchedulerResponseTypeDef = TypedDict(
-    "DescribeRetrainingSchedulerResponseTypeDef",
-    {
-        "ModelName": str,
-        "ModelArn": str,
-        "RetrainingStartDate": datetime,
-        "RetrainingFrequency": str,
-        "LookbackWindow": str,
-        "Status": RetrainingSchedulerStatusType,
-        "PromoteMode": ModelPromoteModeType,
-        "CreatedAt": datetime,
-        "UpdatedAt": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DuplicateTimestampsTypeDef = TypedDict(
-    "DuplicateTimestampsTypeDef",
-    {
-        "TotalNumberOfDuplicateTimestamps": int,
-    },
-)
-
-_RequiredImportDatasetRequestRequestTypeDef = TypedDict(
-    "_RequiredImportDatasetRequestRequestTypeDef",
-    {
-        "SourceDatasetArn": str,
-        "ClientToken": str,
-    },
-)
-_OptionalImportDatasetRequestRequestTypeDef = TypedDict(
-    "_OptionalImportDatasetRequestRequestTypeDef",
-    {
-        "DatasetName": str,
-        "ServerSideKmsKeyId": str,
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class ImportDatasetRequestRequestTypeDef(
-    _RequiredImportDatasetRequestRequestTypeDef, _OptionalImportDatasetRequestRequestTypeDef
-):
-    pass
-
-ImportDatasetResponseTypeDef = TypedDict(
-    "ImportDatasetResponseTypeDef",
-    {
-        "DatasetName": str,
-        "DatasetArn": str,
-        "Status": DatasetStatusType,
-        "JobId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredImportModelVersionRequestRequestTypeDef = TypedDict(
-    "_RequiredImportModelVersionRequestRequestTypeDef",
-    {
-        "SourceModelVersionArn": str,
-        "DatasetName": str,
-        "ClientToken": str,
-    },
-)
-_OptionalImportModelVersionRequestRequestTypeDef = TypedDict(
-    "_OptionalImportModelVersionRequestRequestTypeDef",
-    {
-        "ModelName": str,
-        "LabelsInputConfiguration": "LabelsInputConfigurationTypeDef",
-        "RoleArn": str,
-        "ServerSideKmsKeyId": str,
-        "Tags": List["TagTypeDef"],
-        "InferenceDataImportStrategy": InferenceDataImportStrategyType,
-    },
-    total=False,
-)
-
-class ImportModelVersionRequestRequestTypeDef(
-    _RequiredImportModelVersionRequestRequestTypeDef,
-    _OptionalImportModelVersionRequestRequestTypeDef,
-):
-    pass
-
-ImportModelVersionResponseTypeDef = TypedDict(
-    "ImportModelVersionResponseTypeDef",
-    {
-        "ModelName": str,
-        "ModelArn": str,
-        "ModelVersionArn": str,
-        "ModelVersion": int,
-        "Status": ModelVersionStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-InferenceEventSummaryTypeDef = TypedDict(
-    "InferenceEventSummaryTypeDef",
-    {
-        "InferenceSchedulerArn": str,
-        "InferenceSchedulerName": str,
-        "EventStartTime": datetime,
-        "EventEndTime": datetime,
-        "Diagnostics": str,
-        "EventDurationInSeconds": int,
-    },
-    total=False,
-)
-
-InferenceExecutionSummaryTypeDef = TypedDict(
-    "InferenceExecutionSummaryTypeDef",
-    {
-        "ModelName": str,
-        "ModelArn": str,
-        "InferenceSchedulerName": str,
-        "InferenceSchedulerArn": str,
-        "ScheduledStartTime": datetime,
-        "DataStartTime": datetime,
-        "DataEndTime": datetime,
-        "DataInputConfiguration": "InferenceInputConfigurationTypeDef",
-        "DataOutputConfiguration": "InferenceOutputConfigurationTypeDef",
-        "CustomerResultObject": "S3ObjectTypeDef",
-        "Status": InferenceExecutionStatusType,
-        "FailedReason": str,
-        "ModelVersion": int,
-        "ModelVersionArn": str,
-    },
-    total=False,
-)
-
-InferenceInputConfigurationTypeDef = TypedDict(
-    "InferenceInputConfigurationTypeDef",
-    {
-        "S3InputConfiguration": "InferenceS3InputConfigurationTypeDef",
-        "InputTimeZoneOffset": str,
-        "InferenceInputNameConfiguration": "InferenceInputNameConfigurationTypeDef",
-    },
-    total=False,
-)
-
-InferenceInputNameConfigurationTypeDef = TypedDict(
-    "InferenceInputNameConfigurationTypeDef",
-    {
-        "TimestampFormat": str,
-        "ComponentTimestampDelimiter": str,
-    },
-    total=False,
-)
-
-_RequiredInferenceOutputConfigurationTypeDef = TypedDict(
-    "_RequiredInferenceOutputConfigurationTypeDef",
-    {
-        "S3OutputConfiguration": "InferenceS3OutputConfigurationTypeDef",
-    },
-)
-_OptionalInferenceOutputConfigurationTypeDef = TypedDict(
-    "_OptionalInferenceOutputConfigurationTypeDef",
-    {
-        "KmsKeyId": str,
-    },
-    total=False,
-)
-
-class InferenceOutputConfigurationTypeDef(
-    _RequiredInferenceOutputConfigurationTypeDef, _OptionalInferenceOutputConfigurationTypeDef
-):
-    pass
-
-_RequiredInferenceS3InputConfigurationTypeDef = TypedDict(
-    "_RequiredInferenceS3InputConfigurationTypeDef",
-    {
-        "Bucket": str,
-    },
-)
-_OptionalInferenceS3InputConfigurationTypeDef = TypedDict(
-    "_OptionalInferenceS3InputConfigurationTypeDef",
-    {
-        "Prefix": str,
-    },
-    total=False,
-)
-
-class InferenceS3InputConfigurationTypeDef(
-    _RequiredInferenceS3InputConfigurationTypeDef, _OptionalInferenceS3InputConfigurationTypeDef
-):
-    pass
-
-_RequiredInferenceS3OutputConfigurationTypeDef = TypedDict(
-    "_RequiredInferenceS3OutputConfigurationTypeDef",
-    {
-        "Bucket": str,
-    },
-)
-_OptionalInferenceS3OutputConfigurationTypeDef = TypedDict(
-    "_OptionalInferenceS3OutputConfigurationTypeDef",
-    {
-        "Prefix": str,
-    },
-    total=False,
-)
-
-class InferenceS3OutputConfigurationTypeDef(
-    _RequiredInferenceS3OutputConfigurationTypeDef, _OptionalInferenceS3OutputConfigurationTypeDef
-):
-    pass
-
-InferenceSchedulerSummaryTypeDef = TypedDict(
-    "InferenceSchedulerSummaryTypeDef",
-    {
-        "ModelName": str,
-        "ModelArn": str,
-        "InferenceSchedulerName": str,
-        "InferenceSchedulerArn": str,
-        "Status": InferenceSchedulerStatusType,
-        "DataDelayOffsetInMinutes": int,
-        "DataUploadFrequency": DataUploadFrequencyType,
-        "LatestInferenceResult": LatestInferenceResultType,
-    },
-    total=False,
-)
-
-_RequiredIngestedFilesSummaryTypeDef = TypedDict(
-    "_RequiredIngestedFilesSummaryTypeDef",
-    {
-        "TotalNumberOfFiles": int,
-        "IngestedNumberOfFiles": int,
-    },
-)
-_OptionalIngestedFilesSummaryTypeDef = TypedDict(
-    "_OptionalIngestedFilesSummaryTypeDef",
-    {
-        "DiscardedFiles": List["S3ObjectTypeDef"],
-    },
-    total=False,
-)
-
-class IngestedFilesSummaryTypeDef(
-    _RequiredIngestedFilesSummaryTypeDef, _OptionalIngestedFilesSummaryTypeDef
-):
-    pass
-
-IngestionInputConfigurationTypeDef = TypedDict(
-    "IngestionInputConfigurationTypeDef",
-    {
-        "S3InputConfiguration": "IngestionS3InputConfigurationTypeDef",
-    },
-)
-
-_RequiredIngestionS3InputConfigurationTypeDef = TypedDict(
-    "_RequiredIngestionS3InputConfigurationTypeDef",
-    {
-        "Bucket": str,
-    },
-)
-_OptionalIngestionS3InputConfigurationTypeDef = TypedDict(
-    "_OptionalIngestionS3InputConfigurationTypeDef",
-    {
-        "Prefix": str,
-        "KeyPattern": str,
-    },
-    total=False,
-)
+class CategoricalValuesTypeDef(TypedDict):
+    Status: StatisticalIssueStatusType
+    NumberOfCategory: NotRequired[int]
 
-class IngestionS3InputConfigurationTypeDef(
-    _RequiredIngestionS3InputConfigurationTypeDef, _OptionalIngestionS3InputConfigurationTypeDef
-):
-    pass
-
-InsufficientSensorDataTypeDef = TypedDict(
-    "InsufficientSensorDataTypeDef",
-    {
-        "MissingCompleteSensorData": "MissingCompleteSensorDataTypeDef",
-        "SensorsWithShortDateRange": "SensorsWithShortDateRangeTypeDef",
-    },
-)
-
-InvalidSensorDataTypeDef = TypedDict(
-    "InvalidSensorDataTypeDef",
-    {
-        "AffectedSensorCount": int,
-        "TotalNumberOfInvalidValues": int,
-    },
-)
-
-LabelGroupSummaryTypeDef = TypedDict(
-    "LabelGroupSummaryTypeDef",
-    {
-        "LabelGroupName": str,
-        "LabelGroupArn": str,
-        "CreatedAt": datetime,
-        "UpdatedAt": datetime,
-    },
-    total=False,
-)
-
-LabelSummaryTypeDef = TypedDict(
-    "LabelSummaryTypeDef",
-    {
-        "LabelGroupName": str,
-        "LabelId": str,
-        "LabelGroupArn": str,
-        "StartTime": datetime,
-        "EndTime": datetime,
-        "Rating": LabelRatingType,
-        "FaultCode": str,
-        "Equipment": str,
-        "CreatedAt": datetime,
-    },
-    total=False,
-)
-
-LabelsInputConfigurationTypeDef = TypedDict(
-    "LabelsInputConfigurationTypeDef",
-    {
-        "S3InputConfiguration": "LabelsS3InputConfigurationTypeDef",
-        "LabelGroupName": str,
-    },
-    total=False,
-)
-
-_RequiredLabelsS3InputConfigurationTypeDef = TypedDict(
-    "_RequiredLabelsS3InputConfigurationTypeDef",
-    {
-        "Bucket": str,
-    },
-)
-_OptionalLabelsS3InputConfigurationTypeDef = TypedDict(
-    "_OptionalLabelsS3InputConfigurationTypeDef",
-    {
-        "Prefix": str,
-    },
-    total=False,
-)
-
-class LabelsS3InputConfigurationTypeDef(
-    _RequiredLabelsS3InputConfigurationTypeDef, _OptionalLabelsS3InputConfigurationTypeDef
-):
-    pass
-
-_RequiredLargeTimestampGapsTypeDef = TypedDict(
-    "_RequiredLargeTimestampGapsTypeDef",
-    {
-        "Status": StatisticalIssueStatusType,
-    },
-)
-_OptionalLargeTimestampGapsTypeDef = TypedDict(
-    "_OptionalLargeTimestampGapsTypeDef",
-    {
-        "NumberOfLargeTimestampGaps": int,
-        "MaxTimestampGapInDays": int,
-    },
-    total=False,
-)
-
-class LargeTimestampGapsTypeDef(
-    _RequiredLargeTimestampGapsTypeDef, _OptionalLargeTimestampGapsTypeDef
-):
-    pass
-
-ListDataIngestionJobsRequestRequestTypeDef = TypedDict(
-    "ListDataIngestionJobsRequestRequestTypeDef",
-    {
-        "DatasetName": str,
-        "NextToken": str,
-        "MaxResults": int,
-        "Status": IngestionJobStatusType,
-    },
-    total=False,
-)
-
-ListDataIngestionJobsResponseTypeDef = TypedDict(
-    "ListDataIngestionJobsResponseTypeDef",
-    {
-        "NextToken": str,
-        "DataIngestionJobSummaries": List["DataIngestionJobSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListDatasetsRequestRequestTypeDef = TypedDict(
-    "ListDatasetsRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-        "DatasetNameBeginsWith": str,
-    },
-    total=False,
-)
-
-ListDatasetsResponseTypeDef = TypedDict(
-    "ListDatasetsResponseTypeDef",
-    {
-        "NextToken": str,
-        "DatasetSummaries": List["DatasetSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListInferenceEventsRequestRequestTypeDef = TypedDict(
-    "_RequiredListInferenceEventsRequestRequestTypeDef",
-    {
-        "InferenceSchedulerName": str,
-        "IntervalStartTime": Union[datetime, str],
-        "IntervalEndTime": Union[datetime, str],
-    },
-)
-_OptionalListInferenceEventsRequestRequestTypeDef = TypedDict(
-    "_OptionalListInferenceEventsRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-class ListInferenceEventsRequestRequestTypeDef(
-    _RequiredListInferenceEventsRequestRequestTypeDef,
-    _OptionalListInferenceEventsRequestRequestTypeDef,
-):
-    pass
-
-ListInferenceEventsResponseTypeDef = TypedDict(
-    "ListInferenceEventsResponseTypeDef",
-    {
-        "NextToken": str,
-        "InferenceEventSummaries": List["InferenceEventSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListInferenceExecutionsRequestRequestTypeDef = TypedDict(
-    "_RequiredListInferenceExecutionsRequestRequestTypeDef",
-    {
-        "InferenceSchedulerName": str,
-    },
-)
-_OptionalListInferenceExecutionsRequestRequestTypeDef = TypedDict(
-    "_OptionalListInferenceExecutionsRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-        "DataStartTimeAfter": Union[datetime, str],
-        "DataEndTimeBefore": Union[datetime, str],
-        "Status": InferenceExecutionStatusType,
-    },
-    total=False,
-)
-
-class ListInferenceExecutionsRequestRequestTypeDef(
-    _RequiredListInferenceExecutionsRequestRequestTypeDef,
-    _OptionalListInferenceExecutionsRequestRequestTypeDef,
-):
-    pass
-
-ListInferenceExecutionsResponseTypeDef = TypedDict(
-    "ListInferenceExecutionsResponseTypeDef",
-    {
-        "NextToken": str,
-        "InferenceExecutionSummaries": List["InferenceExecutionSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListInferenceSchedulersRequestRequestTypeDef = TypedDict(
-    "ListInferenceSchedulersRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-        "InferenceSchedulerNameBeginsWith": str,
-        "ModelName": str,
-        "Status": InferenceSchedulerStatusType,
-    },
-    total=False,
-)
-
-ListInferenceSchedulersResponseTypeDef = TypedDict(
-    "ListInferenceSchedulersResponseTypeDef",
-    {
-        "NextToken": str,
-        "InferenceSchedulerSummaries": List["InferenceSchedulerSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListLabelGroupsRequestRequestTypeDef = TypedDict(
-    "ListLabelGroupsRequestRequestTypeDef",
-    {
-        "LabelGroupNameBeginsWith": str,
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-ListLabelGroupsResponseTypeDef = TypedDict(
-    "ListLabelGroupsResponseTypeDef",
-    {
-        "NextToken": str,
-        "LabelGroupSummaries": List["LabelGroupSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListLabelsRequestRequestTypeDef = TypedDict(
-    "_RequiredListLabelsRequestRequestTypeDef",
-    {
-        "LabelGroupName": str,
-    },
-)
-_OptionalListLabelsRequestRequestTypeDef = TypedDict(
-    "_OptionalListLabelsRequestRequestTypeDef",
-    {
-        "IntervalStartTime": Union[datetime, str],
-        "IntervalEndTime": Union[datetime, str],
-        "FaultCode": str,
-        "Equipment": str,
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-class ListLabelsRequestRequestTypeDef(
-    _RequiredListLabelsRequestRequestTypeDef, _OptionalListLabelsRequestRequestTypeDef
-):
-    pass
-
-ListLabelsResponseTypeDef = TypedDict(
-    "ListLabelsResponseTypeDef",
-    {
-        "NextToken": str,
-        "LabelSummaries": List["LabelSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListModelVersionsRequestRequestTypeDef = TypedDict(
-    "_RequiredListModelVersionsRequestRequestTypeDef",
-    {
-        "ModelName": str,
-    },
-)
-_OptionalListModelVersionsRequestRequestTypeDef = TypedDict(
-    "_OptionalListModelVersionsRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-        "Status": ModelVersionStatusType,
-        "SourceType": ModelVersionSourceTypeType,
-        "CreatedAtEndTime": Union[datetime, str],
-        "CreatedAtStartTime": Union[datetime, str],
-        "MaxModelVersion": int,
-        "MinModelVersion": int,
-    },
-    total=False,
-)
-
-class ListModelVersionsRequestRequestTypeDef(
-    _RequiredListModelVersionsRequestRequestTypeDef, _OptionalListModelVersionsRequestRequestTypeDef
-):
-    pass
-
-ListModelVersionsResponseTypeDef = TypedDict(
-    "ListModelVersionsResponseTypeDef",
-    {
-        "NextToken": str,
-        "ModelVersionSummaries": List["ModelVersionSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListModelsRequestRequestTypeDef = TypedDict(
-    "ListModelsRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-        "Status": ModelStatusType,
-        "ModelNameBeginsWith": str,
-        "DatasetNameBeginsWith": str,
-    },
-    total=False,
-)
-
-ListModelsResponseTypeDef = TypedDict(
-    "ListModelsResponseTypeDef",
-    {
-        "NextToken": str,
-        "ModelSummaries": List["ModelSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListRetrainingSchedulersRequestRequestTypeDef = TypedDict(
-    "ListRetrainingSchedulersRequestRequestTypeDef",
-    {
-        "ModelNameBeginsWith": str,
-        "Status": RetrainingSchedulerStatusType,
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-ListRetrainingSchedulersResponseTypeDef = TypedDict(
-    "ListRetrainingSchedulersResponseTypeDef",
-    {
-        "RetrainingSchedulerSummaries": List["RetrainingSchedulerSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListSensorStatisticsRequestRequestTypeDef = TypedDict(
-    "_RequiredListSensorStatisticsRequestRequestTypeDef",
-    {
-        "DatasetName": str,
-    },
-)
-_OptionalListSensorStatisticsRequestRequestTypeDef = TypedDict(
-    "_OptionalListSensorStatisticsRequestRequestTypeDef",
-    {
-        "IngestionJobId": str,
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListSensorStatisticsRequestRequestTypeDef(
-    _RequiredListSensorStatisticsRequestRequestTypeDef,
-    _OptionalListSensorStatisticsRequestRequestTypeDef,
-):
-    pass
-
-ListSensorStatisticsResponseTypeDef = TypedDict(
-    "ListSensorStatisticsResponseTypeDef",
-    {
-        "SensorStatisticsSummaries": List["SensorStatisticsSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-    },
-)
-
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "Tags": List["TagTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-MissingCompleteSensorDataTypeDef = TypedDict(
-    "MissingCompleteSensorDataTypeDef",
-    {
-        "AffectedSensorCount": int,
-    },
-)
-
-MissingSensorDataTypeDef = TypedDict(
-    "MissingSensorDataTypeDef",
-    {
-        "AffectedSensorCount": int,
-        "TotalNumberOfMissingValues": int,
-    },
-)
-
-_RequiredModelDiagnosticsOutputConfigurationTypeDef = TypedDict(
-    "_RequiredModelDiagnosticsOutputConfigurationTypeDef",
-    {
-        "S3OutputConfiguration": "ModelDiagnosticsS3OutputConfigurationTypeDef",
-    },
-)
-_OptionalModelDiagnosticsOutputConfigurationTypeDef = TypedDict(
-    "_OptionalModelDiagnosticsOutputConfigurationTypeDef",
-    {
-        "KmsKeyId": str,
-    },
-    total=False,
-)
-
-class ModelDiagnosticsOutputConfigurationTypeDef(
-    _RequiredModelDiagnosticsOutputConfigurationTypeDef,
-    _OptionalModelDiagnosticsOutputConfigurationTypeDef,
-):
-    pass
-
-_RequiredModelDiagnosticsS3OutputConfigurationTypeDef = TypedDict(
-    "_RequiredModelDiagnosticsS3OutputConfigurationTypeDef",
-    {
-        "Bucket": str,
-    },
-)
-_OptionalModelDiagnosticsS3OutputConfigurationTypeDef = TypedDict(
-    "_OptionalModelDiagnosticsS3OutputConfigurationTypeDef",
-    {
-        "Prefix": str,
-    },
-    total=False,
-)
-
-class ModelDiagnosticsS3OutputConfigurationTypeDef(
-    _RequiredModelDiagnosticsS3OutputConfigurationTypeDef,
-    _OptionalModelDiagnosticsS3OutputConfigurationTypeDef,
-):
-    pass
-
-ModelSummaryTypeDef = TypedDict(
-    "ModelSummaryTypeDef",
-    {
-        "ModelName": str,
-        "ModelArn": str,
-        "DatasetName": str,
-        "DatasetArn": str,
-        "Status": ModelStatusType,
-        "CreatedAt": datetime,
-        "ActiveModelVersion": int,
-        "ActiveModelVersionArn": str,
-        "LatestScheduledRetrainingStatus": ModelVersionStatusType,
-        "LatestScheduledRetrainingModelVersion": int,
-        "LatestScheduledRetrainingStartTime": datetime,
-        "NextScheduledRetrainingStartDate": datetime,
-        "RetrainingSchedulerStatus": RetrainingSchedulerStatusType,
-        "ModelDiagnosticsOutputConfiguration": "ModelDiagnosticsOutputConfigurationTypeDef",
-        "ModelQuality": ModelQualityType,
-    },
-    total=False,
-)
-
-ModelVersionSummaryTypeDef = TypedDict(
-    "ModelVersionSummaryTypeDef",
-    {
-        "ModelName": str,
-        "ModelArn": str,
-        "ModelVersion": int,
-        "ModelVersionArn": str,
-        "CreatedAt": datetime,
-        "Status": ModelVersionStatusType,
-        "SourceType": ModelVersionSourceTypeType,
-        "ModelQuality": ModelQualityType,
-    },
-    total=False,
-)
-
-_RequiredMonotonicValuesTypeDef = TypedDict(
-    "_RequiredMonotonicValuesTypeDef",
-    {
-        "Status": StatisticalIssueStatusType,
-    },
-)
-_OptionalMonotonicValuesTypeDef = TypedDict(
-    "_OptionalMonotonicValuesTypeDef",
-    {
-        "Monotonicity": MonotonicityType,
-    },
-    total=False,
-)
-
-class MonotonicValuesTypeDef(_RequiredMonotonicValuesTypeDef, _OptionalMonotonicValuesTypeDef):
-    pass
-
-MultipleOperatingModesTypeDef = TypedDict(
-    "MultipleOperatingModesTypeDef",
-    {
-        "Status": StatisticalIssueStatusType,
-    },
-)
-
-_RequiredPutResourcePolicyRequestRequestTypeDef = TypedDict(
-    "_RequiredPutResourcePolicyRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-        "ResourcePolicy": str,
-        "ClientToken": str,
-    },
-)
-_OptionalPutResourcePolicyRequestRequestTypeDef = TypedDict(
-    "_OptionalPutResourcePolicyRequestRequestTypeDef",
-    {
-        "PolicyRevisionId": str,
-    },
-    total=False,
-)
-
-class PutResourcePolicyRequestRequestTypeDef(
-    _RequiredPutResourcePolicyRequestRequestTypeDef, _OptionalPutResourcePolicyRequestRequestTypeDef
-):
-    pass
-
-PutResourcePolicyResponseTypeDef = TypedDict(
-    "PutResourcePolicyResponseTypeDef",
-    {
-        "ResourceArn": str,
-        "PolicyRevisionId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-RetrainingSchedulerSummaryTypeDef = TypedDict(
-    "RetrainingSchedulerSummaryTypeDef",
-    {
-        "ModelName": str,
-        "ModelArn": str,
-        "Status": RetrainingSchedulerStatusType,
-        "RetrainingStartDate": datetime,
-        "RetrainingFrequency": str,
-        "LookbackWindow": str,
-    },
-    total=False,
-)
-
-S3ObjectTypeDef = TypedDict(
-    "S3ObjectTypeDef",
-    {
-        "Bucket": str,
-        "Key": str,
-    },
-)
-
-SensorStatisticsSummaryTypeDef = TypedDict(
-    "SensorStatisticsSummaryTypeDef",
-    {
-        "ComponentName": str,
-        "SensorName": str,
-        "DataExists": bool,
-        "MissingValues": "CountPercentTypeDef",
-        "InvalidValues": "CountPercentTypeDef",
-        "InvalidDateEntries": "CountPercentTypeDef",
-        "DuplicateTimestamps": "CountPercentTypeDef",
-        "CategoricalValues": "CategoricalValuesTypeDef",
-        "MultipleOperatingModes": "MultipleOperatingModesTypeDef",
-        "LargeTimestampGaps": "LargeTimestampGapsTypeDef",
-        "MonotonicValues": "MonotonicValuesTypeDef",
-        "DataStartTime": datetime,
-        "DataEndTime": datetime,
-    },
-    total=False,
-)
+class CountPercentTypeDef(TypedDict):
+    Count: int
+    Percentage: float
 
-SensorsWithShortDateRangeTypeDef = TypedDict(
-    "SensorsWithShortDateRangeTypeDef",
-    {
-        "AffectedSensorCount": int,
-    },
-)
-
-StartDataIngestionJobRequestRequestTypeDef = TypedDict(
-    "StartDataIngestionJobRequestRequestTypeDef",
-    {
-        "DatasetName": str,
-        "IngestionInputConfiguration": "IngestionInputConfigurationTypeDef",
-        "RoleArn": str,
-        "ClientToken": str,
-    },
-)
-
-StartDataIngestionJobResponseTypeDef = TypedDict(
-    "StartDataIngestionJobResponseTypeDef",
-    {
-        "JobId": str,
-        "Status": IngestionJobStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-StartInferenceSchedulerRequestRequestTypeDef = TypedDict(
-    "StartInferenceSchedulerRequestRequestTypeDef",
-    {
-        "InferenceSchedulerName": str,
-    },
-)
-
-StartInferenceSchedulerResponseTypeDef = TypedDict(
-    "StartInferenceSchedulerResponseTypeDef",
-    {
-        "ModelArn": str,
-        "ModelName": str,
-        "InferenceSchedulerName": str,
-        "InferenceSchedulerArn": str,
-        "Status": InferenceSchedulerStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-StartRetrainingSchedulerRequestRequestTypeDef = TypedDict(
-    "StartRetrainingSchedulerRequestRequestTypeDef",
-    {
-        "ModelName": str,
-    },
-)
-
-StartRetrainingSchedulerResponseTypeDef = TypedDict(
-    "StartRetrainingSchedulerResponseTypeDef",
-    {
-        "ModelName": str,
-        "ModelArn": str,
-        "Status": RetrainingSchedulerStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-StopInferenceSchedulerRequestRequestTypeDef = TypedDict(
-    "StopInferenceSchedulerRequestRequestTypeDef",
-    {
-        "InferenceSchedulerName": str,
-    },
-)
-
-StopInferenceSchedulerResponseTypeDef = TypedDict(
-    "StopInferenceSchedulerResponseTypeDef",
-    {
-        "ModelArn": str,
-        "ModelName": str,
-        "InferenceSchedulerName": str,
-        "InferenceSchedulerArn": str,
-        "Status": InferenceSchedulerStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DatasetSchemaTypeDef(TypedDict):
+    InlineDataSchema: NotRequired[str]
 
-StopRetrainingSchedulerRequestRequestTypeDef = TypedDict(
-    "StopRetrainingSchedulerRequestRequestTypeDef",
-    {
-        "ModelName": str,
-    },
-)
-
-StopRetrainingSchedulerResponseTypeDef = TypedDict(
-    "StopRetrainingSchedulerResponseTypeDef",
-    {
-        "ModelName": str,
-        "ModelArn": str,
-        "Status": RetrainingSchedulerStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class TagTypeDef(TypedDict):
+    Key: str
+    Value: str
 
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-        "Tags": List["TagTypeDef"],
-    },
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-TagTypeDef = TypedDict(
-    "TagTypeDef",
-    {
-        "Key": str,
-        "Value": str,
-    },
-)
+TimestampTypeDef = Union[datetime, str]
 
-UnsupportedTimestampsTypeDef = TypedDict(
-    "UnsupportedTimestampsTypeDef",
-    {
-        "TotalNumberOfUnsupportedTimestamps": int,
-    },
-)
+class DataPreProcessingConfigurationTypeDef(TypedDict):
+    TargetSamplingRate: NotRequired[TargetSamplingRateType]
 
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-        "TagKeys": List[str],
-    },
-)
+class DuplicateTimestampsTypeDef(TypedDict):
+    TotalNumberOfDuplicateTimestamps: int
 
-UpdateActiveModelVersionRequestRequestTypeDef = TypedDict(
-    "UpdateActiveModelVersionRequestRequestTypeDef",
-    {
-        "ModelName": str,
-        "ModelVersion": int,
-    },
-)
+class InvalidSensorDataTypeDef(TypedDict):
+    AffectedSensorCount: int
+    TotalNumberOfInvalidValues: int
 
-UpdateActiveModelVersionResponseTypeDef = TypedDict(
-    "UpdateActiveModelVersionResponseTypeDef",
-    {
-        "ModelName": str,
-        "ModelArn": str,
-        "CurrentActiveVersion": int,
-        "PreviousActiveVersion": int,
-        "CurrentActiveVersionArn": str,
-        "PreviousActiveVersionArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class MissingSensorDataTypeDef(TypedDict):
+    AffectedSensorCount: int
+    TotalNumberOfMissingValues: int
 
-_RequiredUpdateInferenceSchedulerRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateInferenceSchedulerRequestRequestTypeDef",
-    {
-        "InferenceSchedulerName": str,
-    },
-)
-_OptionalUpdateInferenceSchedulerRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateInferenceSchedulerRequestRequestTypeDef",
-    {
-        "DataDelayOffsetInMinutes": int,
-        "DataUploadFrequency": DataUploadFrequencyType,
-        "DataInputConfiguration": "InferenceInputConfigurationTypeDef",
-        "DataOutputConfiguration": "InferenceOutputConfigurationTypeDef",
-        "RoleArn": str,
-    },
-    total=False,
-)
+class UnsupportedTimestampsTypeDef(TypedDict):
+    TotalNumberOfUnsupportedTimestamps: int
 
-class UpdateInferenceSchedulerRequestRequestTypeDef(
-    _RequiredUpdateInferenceSchedulerRequestRequestTypeDef,
-    _OptionalUpdateInferenceSchedulerRequestRequestTypeDef,
-):
-    pass
-
-_RequiredUpdateLabelGroupRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateLabelGroupRequestRequestTypeDef",
-    {
-        "LabelGroupName": str,
-    },
-)
-_OptionalUpdateLabelGroupRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateLabelGroupRequestRequestTypeDef",
-    {
-        "FaultCodes": List[str],
-    },
-    total=False,
-)
+class DatasetSummaryTypeDef(TypedDict):
+    DatasetName: NotRequired[str]
+    DatasetArn: NotRequired[str]
+    Status: NotRequired[DatasetStatusType]
+    CreatedAt: NotRequired[datetime]
 
-class UpdateLabelGroupRequestRequestTypeDef(
-    _RequiredUpdateLabelGroupRequestRequestTypeDef, _OptionalUpdateLabelGroupRequestRequestTypeDef
-):
-    pass
-
-_RequiredUpdateModelRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateModelRequestRequestTypeDef",
-    {
-        "ModelName": str,
-    },
-)
-_OptionalUpdateModelRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateModelRequestRequestTypeDef",
-    {
-        "LabelsInputConfiguration": "LabelsInputConfigurationTypeDef",
-        "RoleArn": str,
-        "ModelDiagnosticsOutputConfiguration": "ModelDiagnosticsOutputConfigurationTypeDef",
-    },
-    total=False,
-)
+class DeleteDatasetRequestTypeDef(TypedDict):
+    DatasetName: str
 
-class UpdateModelRequestRequestTypeDef(
-    _RequiredUpdateModelRequestRequestTypeDef, _OptionalUpdateModelRequestRequestTypeDef
-):
-    pass
-
-_RequiredUpdateRetrainingSchedulerRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateRetrainingSchedulerRequestRequestTypeDef",
-    {
-        "ModelName": str,
-    },
-)
-_OptionalUpdateRetrainingSchedulerRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateRetrainingSchedulerRequestRequestTypeDef",
-    {
-        "RetrainingStartDate": Union[datetime, str],
-        "RetrainingFrequency": str,
-        "LookbackWindow": str,
-        "PromoteMode": ModelPromoteModeType,
-    },
-    total=False,
-)
+class DeleteInferenceSchedulerRequestTypeDef(TypedDict):
+    InferenceSchedulerName: str
 
-class UpdateRetrainingSchedulerRequestRequestTypeDef(
-    _RequiredUpdateRetrainingSchedulerRequestRequestTypeDef,
-    _OptionalUpdateRetrainingSchedulerRequestRequestTypeDef,
-):
-    pass
+class DeleteLabelGroupRequestTypeDef(TypedDict):
+    LabelGroupName: str
+
+class DeleteLabelRequestTypeDef(TypedDict):
+    LabelGroupName: str
+    LabelId: str
+
+class DeleteModelRequestTypeDef(TypedDict):
+    ModelName: str
+
+class DeleteResourcePolicyRequestTypeDef(TypedDict):
+    ResourceArn: str
+
+class DeleteRetrainingSchedulerRequestTypeDef(TypedDict):
+    ModelName: str
+
+class DescribeDataIngestionJobRequestTypeDef(TypedDict):
+    JobId: str
+
+class DescribeDatasetRequestTypeDef(TypedDict):
+    DatasetName: str
+
+class DescribeInferenceSchedulerRequestTypeDef(TypedDict):
+    InferenceSchedulerName: str
+
+class DescribeLabelGroupRequestTypeDef(TypedDict):
+    LabelGroupName: str
+
+class DescribeLabelRequestTypeDef(TypedDict):
+    LabelGroupName: str
+    LabelId: str
+
+class DescribeModelRequestTypeDef(TypedDict):
+    ModelName: str
+
+class DescribeModelVersionRequestTypeDef(TypedDict):
+    ModelName: str
+    ModelVersion: int
+
+class S3ObjectTypeDef(TypedDict):
+    Bucket: str
+    Key: str
+
+class DescribeResourcePolicyRequestTypeDef(TypedDict):
+    ResourceArn: str
+
+class DescribeRetrainingSchedulerRequestTypeDef(TypedDict):
+    ModelName: str
+
+class InferenceEventSummaryTypeDef(TypedDict):
+    InferenceSchedulerArn: NotRequired[str]
+    InferenceSchedulerName: NotRequired[str]
+    EventStartTime: NotRequired[datetime]
+    EventEndTime: NotRequired[datetime]
+    Diagnostics: NotRequired[str]
+    EventDurationInSeconds: NotRequired[int]
+
+class InferenceInputNameConfigurationTypeDef(TypedDict):
+    TimestampFormat: NotRequired[str]
+    ComponentTimestampDelimiter: NotRequired[str]
+
+class InferenceS3InputConfigurationTypeDef(TypedDict):
+    Bucket: str
+    Prefix: NotRequired[str]
+
+class InferenceS3OutputConfigurationTypeDef(TypedDict):
+    Bucket: str
+    Prefix: NotRequired[str]
+
+class InferenceSchedulerSummaryTypeDef(TypedDict):
+    ModelName: NotRequired[str]
+    ModelArn: NotRequired[str]
+    InferenceSchedulerName: NotRequired[str]
+    InferenceSchedulerArn: NotRequired[str]
+    Status: NotRequired[InferenceSchedulerStatusType]
+    DataDelayOffsetInMinutes: NotRequired[int]
+    DataUploadFrequency: NotRequired[DataUploadFrequencyType]
+    LatestInferenceResult: NotRequired[LatestInferenceResultType]
+
+class IngestionS3InputConfigurationTypeDef(TypedDict):
+    Bucket: str
+    Prefix: NotRequired[str]
+    KeyPattern: NotRequired[str]
+
+class MissingCompleteSensorDataTypeDef(TypedDict):
+    AffectedSensorCount: int
+
+class SensorsWithShortDateRangeTypeDef(TypedDict):
+    AffectedSensorCount: int
+
+class LabelGroupSummaryTypeDef(TypedDict):
+    LabelGroupName: NotRequired[str]
+    LabelGroupArn: NotRequired[str]
+    CreatedAt: NotRequired[datetime]
+    UpdatedAt: NotRequired[datetime]
+
+class LabelSummaryTypeDef(TypedDict):
+    LabelGroupName: NotRequired[str]
+    LabelId: NotRequired[str]
+    LabelGroupArn: NotRequired[str]
+    StartTime: NotRequired[datetime]
+    EndTime: NotRequired[datetime]
+    Rating: NotRequired[LabelRatingType]
+    FaultCode: NotRequired[str]
+    Equipment: NotRequired[str]
+    CreatedAt: NotRequired[datetime]
+
+class LabelsS3InputConfigurationTypeDef(TypedDict):
+    Bucket: str
+    Prefix: NotRequired[str]
+
+class LargeTimestampGapsTypeDef(TypedDict):
+    Status: StatisticalIssueStatusType
+    NumberOfLargeTimestampGaps: NotRequired[int]
+    MaxTimestampGapInDays: NotRequired[int]
+
+class ListDataIngestionJobsRequestTypeDef(TypedDict):
+    DatasetName: NotRequired[str]
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+    Status: NotRequired[IngestionJobStatusType]
+
+class ListDatasetsRequestTypeDef(TypedDict):
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+    DatasetNameBeginsWith: NotRequired[str]
+
+class ListInferenceSchedulersRequestTypeDef(TypedDict):
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+    InferenceSchedulerNameBeginsWith: NotRequired[str]
+    ModelName: NotRequired[str]
+    Status: NotRequired[InferenceSchedulerStatusType]
+
+class ListLabelGroupsRequestTypeDef(TypedDict):
+    LabelGroupNameBeginsWith: NotRequired[str]
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class ModelVersionSummaryTypeDef(TypedDict):
+    ModelName: NotRequired[str]
+    ModelArn: NotRequired[str]
+    ModelVersion: NotRequired[int]
+    ModelVersionArn: NotRequired[str]
+    CreatedAt: NotRequired[datetime]
+    Status: NotRequired[ModelVersionStatusType]
+    SourceType: NotRequired[ModelVersionSourceTypeType]
+    ModelQuality: NotRequired[ModelQualityType]
+
+class ListModelsRequestTypeDef(TypedDict):
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+    Status: NotRequired[ModelStatusType]
+    ModelNameBeginsWith: NotRequired[str]
+    DatasetNameBeginsWith: NotRequired[str]
+
+class ListRetrainingSchedulersRequestTypeDef(TypedDict):
+    ModelNameBeginsWith: NotRequired[str]
+    Status: NotRequired[RetrainingSchedulerStatusType]
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class RetrainingSchedulerSummaryTypeDef(TypedDict):
+    ModelName: NotRequired[str]
+    ModelArn: NotRequired[str]
+    Status: NotRequired[RetrainingSchedulerStatusType]
+    RetrainingStartDate: NotRequired[datetime]
+    RetrainingFrequency: NotRequired[str]
+    LookbackWindow: NotRequired[str]
+
+class ListSensorStatisticsRequestTypeDef(TypedDict):
+    DatasetName: str
+    IngestionJobId: NotRequired[str]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+
+class ModelDiagnosticsS3OutputConfigurationTypeDef(TypedDict):
+    Bucket: str
+    Prefix: NotRequired[str]
+
+class MonotonicValuesTypeDef(TypedDict):
+    Status: StatisticalIssueStatusType
+    Monotonicity: NotRequired[MonotonicityType]
+
+class MultipleOperatingModesTypeDef(TypedDict):
+    Status: StatisticalIssueStatusType
+
+class PutResourcePolicyRequestTypeDef(TypedDict):
+    ResourceArn: str
+    ResourcePolicy: str
+    ClientToken: str
+    PolicyRevisionId: NotRequired[str]
+
+class StartInferenceSchedulerRequestTypeDef(TypedDict):
+    InferenceSchedulerName: str
+
+class StartRetrainingSchedulerRequestTypeDef(TypedDict):
+    ModelName: str
+
+class StopInferenceSchedulerRequestTypeDef(TypedDict):
+    InferenceSchedulerName: str
+
+class StopRetrainingSchedulerRequestTypeDef(TypedDict):
+    ModelName: str
+
+class UntagResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+    TagKeys: Sequence[str]
+
+class UpdateActiveModelVersionRequestTypeDef(TypedDict):
+    ModelName: str
+    ModelVersion: int
+
+class UpdateLabelGroupRequestTypeDef(TypedDict):
+    LabelGroupName: str
+    FaultCodes: NotRequired[Sequence[str]]
+
+class CreateDatasetRequestTypeDef(TypedDict):
+    DatasetName: str
+    ClientToken: str
+    DatasetSchema: NotRequired[DatasetSchemaTypeDef]
+    ServerSideKmsKeyId: NotRequired[str]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+
+class CreateLabelGroupRequestTypeDef(TypedDict):
+    LabelGroupName: str
+    ClientToken: str
+    FaultCodes: NotRequired[Sequence[str]]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+
+class ImportDatasetRequestTypeDef(TypedDict):
+    SourceDatasetArn: str
+    ClientToken: str
+    DatasetName: NotRequired[str]
+    ServerSideKmsKeyId: NotRequired[str]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+
+class TagResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+    Tags: Sequence[TagTypeDef]
+
+class CreateDatasetResponseTypeDef(TypedDict):
+    DatasetName: str
+    DatasetArn: str
+    Status: DatasetStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateInferenceSchedulerResponseTypeDef(TypedDict):
+    InferenceSchedulerArn: str
+    InferenceSchedulerName: str
+    Status: InferenceSchedulerStatusType
+    ModelQuality: ModelQualityType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateLabelGroupResponseTypeDef(TypedDict):
+    LabelGroupName: str
+    LabelGroupArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateLabelResponseTypeDef(TypedDict):
+    LabelId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateModelResponseTypeDef(TypedDict):
+    ModelArn: str
+    Status: ModelStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateRetrainingSchedulerResponseTypeDef(TypedDict):
+    ModelName: str
+    ModelArn: str
+    Status: RetrainingSchedulerStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeLabelGroupResponseTypeDef(TypedDict):
+    LabelGroupName: str
+    LabelGroupArn: str
+    FaultCodes: List[str]
+    CreatedAt: datetime
+    UpdatedAt: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeLabelResponseTypeDef(TypedDict):
+    LabelGroupName: str
+    LabelGroupArn: str
+    LabelId: str
+    StartTime: datetime
+    EndTime: datetime
+    Rating: LabelRatingType
+    FaultCode: str
+    Notes: str
+    Equipment: str
+    CreatedAt: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeResourcePolicyResponseTypeDef(TypedDict):
+    PolicyRevisionId: str
+    ResourcePolicy: str
+    CreationTime: datetime
+    LastModifiedTime: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeRetrainingSchedulerResponseTypeDef(TypedDict):
+    ModelName: str
+    ModelArn: str
+    RetrainingStartDate: datetime
+    RetrainingFrequency: str
+    LookbackWindow: str
+    Status: RetrainingSchedulerStatusType
+    PromoteMode: ModelPromoteModeType
+    CreatedAt: datetime
+    UpdatedAt: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class EmptyResponseMetadataTypeDef(TypedDict):
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ImportDatasetResponseTypeDef(TypedDict):
+    DatasetName: str
+    DatasetArn: str
+    Status: DatasetStatusType
+    JobId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ImportModelVersionResponseTypeDef(TypedDict):
+    ModelName: str
+    ModelArn: str
+    ModelVersionArn: str
+    ModelVersion: int
+    Status: ModelVersionStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    Tags: List[TagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutResourcePolicyResponseTypeDef(TypedDict):
+    ResourceArn: str
+    PolicyRevisionId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartDataIngestionJobResponseTypeDef(TypedDict):
+    JobId: str
+    Status: IngestionJobStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartInferenceSchedulerResponseTypeDef(TypedDict):
+    ModelArn: str
+    ModelName: str
+    InferenceSchedulerName: str
+    InferenceSchedulerArn: str
+    Status: InferenceSchedulerStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartRetrainingSchedulerResponseTypeDef(TypedDict):
+    ModelName: str
+    ModelArn: str
+    Status: RetrainingSchedulerStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StopInferenceSchedulerResponseTypeDef(TypedDict):
+    ModelArn: str
+    ModelName: str
+    InferenceSchedulerName: str
+    InferenceSchedulerArn: str
+    Status: InferenceSchedulerStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StopRetrainingSchedulerResponseTypeDef(TypedDict):
+    ModelName: str
+    ModelArn: str
+    Status: RetrainingSchedulerStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateActiveModelVersionResponseTypeDef(TypedDict):
+    ModelName: str
+    ModelArn: str
+    CurrentActiveVersion: int
+    PreviousActiveVersion: int
+    CurrentActiveVersionArn: str
+    PreviousActiveVersionArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateLabelRequestTypeDef(TypedDict):
+    LabelGroupName: str
+    StartTime: TimestampTypeDef
+    EndTime: TimestampTypeDef
+    Rating: LabelRatingType
+    ClientToken: str
+    FaultCode: NotRequired[str]
+    Notes: NotRequired[str]
+    Equipment: NotRequired[str]
+
+class CreateRetrainingSchedulerRequestTypeDef(TypedDict):
+    ModelName: str
+    RetrainingFrequency: str
+    LookbackWindow: str
+    ClientToken: str
+    RetrainingStartDate: NotRequired[TimestampTypeDef]
+    PromoteMode: NotRequired[ModelPromoteModeType]
+
+class ListInferenceEventsRequestTypeDef(TypedDict):
+    InferenceSchedulerName: str
+    IntervalStartTime: TimestampTypeDef
+    IntervalEndTime: TimestampTypeDef
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class ListInferenceExecutionsRequestTypeDef(TypedDict):
+    InferenceSchedulerName: str
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+    DataStartTimeAfter: NotRequired[TimestampTypeDef]
+    DataEndTimeBefore: NotRequired[TimestampTypeDef]
+    Status: NotRequired[InferenceExecutionStatusType]
+
+class ListLabelsRequestTypeDef(TypedDict):
+    LabelGroupName: str
+    IntervalStartTime: NotRequired[TimestampTypeDef]
+    IntervalEndTime: NotRequired[TimestampTypeDef]
+    FaultCode: NotRequired[str]
+    Equipment: NotRequired[str]
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class ListModelVersionsRequestTypeDef(TypedDict):
+    ModelName: str
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+    Status: NotRequired[ModelVersionStatusType]
+    SourceType: NotRequired[ModelVersionSourceTypeType]
+    CreatedAtEndTime: NotRequired[TimestampTypeDef]
+    CreatedAtStartTime: NotRequired[TimestampTypeDef]
+    MaxModelVersion: NotRequired[int]
+    MinModelVersion: NotRequired[int]
+
+class UpdateRetrainingSchedulerRequestTypeDef(TypedDict):
+    ModelName: str
+    RetrainingStartDate: NotRequired[TimestampTypeDef]
+    RetrainingFrequency: NotRequired[str]
+    LookbackWindow: NotRequired[str]
+    PromoteMode: NotRequired[ModelPromoteModeType]
+
+class ListDatasetsResponseTypeDef(TypedDict):
+    DatasetSummaries: List[DatasetSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class IngestedFilesSummaryTypeDef(TypedDict):
+    TotalNumberOfFiles: int
+    IngestedNumberOfFiles: int
+    DiscardedFiles: NotRequired[List[S3ObjectTypeDef]]
+
+class ListInferenceEventsResponseTypeDef(TypedDict):
+    InferenceEventSummaries: List[InferenceEventSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class InferenceInputConfigurationTypeDef(TypedDict):
+    S3InputConfiguration: NotRequired[InferenceS3InputConfigurationTypeDef]
+    InputTimeZoneOffset: NotRequired[str]
+    InferenceInputNameConfiguration: NotRequired[InferenceInputNameConfigurationTypeDef]
+
+class InferenceOutputConfigurationTypeDef(TypedDict):
+    S3OutputConfiguration: InferenceS3OutputConfigurationTypeDef
+    KmsKeyId: NotRequired[str]
+
+class ListInferenceSchedulersResponseTypeDef(TypedDict):
+    InferenceSchedulerSummaries: List[InferenceSchedulerSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class IngestionInputConfigurationTypeDef(TypedDict):
+    S3InputConfiguration: IngestionS3InputConfigurationTypeDef
+
+class InsufficientSensorDataTypeDef(TypedDict):
+    MissingCompleteSensorData: MissingCompleteSensorDataTypeDef
+    SensorsWithShortDateRange: SensorsWithShortDateRangeTypeDef
+
+class ListLabelGroupsResponseTypeDef(TypedDict):
+    LabelGroupSummaries: List[LabelGroupSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListLabelsResponseTypeDef(TypedDict):
+    LabelSummaries: List[LabelSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class LabelsInputConfigurationTypeDef(TypedDict):
+    S3InputConfiguration: NotRequired[LabelsS3InputConfigurationTypeDef]
+    LabelGroupName: NotRequired[str]
+
+class ListModelVersionsResponseTypeDef(TypedDict):
+    ModelVersionSummaries: List[ModelVersionSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListRetrainingSchedulersResponseTypeDef(TypedDict):
+    RetrainingSchedulerSummaries: List[RetrainingSchedulerSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ModelDiagnosticsOutputConfigurationTypeDef(TypedDict):
+    S3OutputConfiguration: ModelDiagnosticsS3OutputConfigurationTypeDef
+    KmsKeyId: NotRequired[str]
+
+class SensorStatisticsSummaryTypeDef(TypedDict):
+    ComponentName: NotRequired[str]
+    SensorName: NotRequired[str]
+    DataExists: NotRequired[bool]
+    MissingValues: NotRequired[CountPercentTypeDef]
+    InvalidValues: NotRequired[CountPercentTypeDef]
+    InvalidDateEntries: NotRequired[CountPercentTypeDef]
+    DuplicateTimestamps: NotRequired[CountPercentTypeDef]
+    CategoricalValues: NotRequired[CategoricalValuesTypeDef]
+    MultipleOperatingModes: NotRequired[MultipleOperatingModesTypeDef]
+    LargeTimestampGaps: NotRequired[LargeTimestampGapsTypeDef]
+    MonotonicValues: NotRequired[MonotonicValuesTypeDef]
+    DataStartTime: NotRequired[datetime]
+    DataEndTime: NotRequired[datetime]
+
+class CreateInferenceSchedulerRequestTypeDef(TypedDict):
+    ModelName: str
+    InferenceSchedulerName: str
+    DataUploadFrequency: DataUploadFrequencyType
+    DataInputConfiguration: InferenceInputConfigurationTypeDef
+    DataOutputConfiguration: InferenceOutputConfigurationTypeDef
+    RoleArn: str
+    ClientToken: str
+    DataDelayOffsetInMinutes: NotRequired[int]
+    ServerSideKmsKeyId: NotRequired[str]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+
+class DescribeInferenceSchedulerResponseTypeDef(TypedDict):
+    ModelArn: str
+    ModelName: str
+    InferenceSchedulerName: str
+    InferenceSchedulerArn: str
+    Status: InferenceSchedulerStatusType
+    DataDelayOffsetInMinutes: int
+    DataUploadFrequency: DataUploadFrequencyType
+    CreatedAt: datetime
+    UpdatedAt: datetime
+    DataInputConfiguration: InferenceInputConfigurationTypeDef
+    DataOutputConfiguration: InferenceOutputConfigurationTypeDef
+    RoleArn: str
+    ServerSideKmsKeyId: str
+    LatestInferenceResult: LatestInferenceResultType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class InferenceExecutionSummaryTypeDef(TypedDict):
+    ModelName: NotRequired[str]
+    ModelArn: NotRequired[str]
+    InferenceSchedulerName: NotRequired[str]
+    InferenceSchedulerArn: NotRequired[str]
+    ScheduledStartTime: NotRequired[datetime]
+    DataStartTime: NotRequired[datetime]
+    DataEndTime: NotRequired[datetime]
+    DataInputConfiguration: NotRequired[InferenceInputConfigurationTypeDef]
+    DataOutputConfiguration: NotRequired[InferenceOutputConfigurationTypeDef]
+    CustomerResultObject: NotRequired[S3ObjectTypeDef]
+    Status: NotRequired[InferenceExecutionStatusType]
+    FailedReason: NotRequired[str]
+    ModelVersion: NotRequired[int]
+    ModelVersionArn: NotRequired[str]
+
+class UpdateInferenceSchedulerRequestTypeDef(TypedDict):
+    InferenceSchedulerName: str
+    DataDelayOffsetInMinutes: NotRequired[int]
+    DataUploadFrequency: NotRequired[DataUploadFrequencyType]
+    DataInputConfiguration: NotRequired[InferenceInputConfigurationTypeDef]
+    DataOutputConfiguration: NotRequired[InferenceOutputConfigurationTypeDef]
+    RoleArn: NotRequired[str]
+
+class DataIngestionJobSummaryTypeDef(TypedDict):
+    JobId: NotRequired[str]
+    DatasetName: NotRequired[str]
+    DatasetArn: NotRequired[str]
+    IngestionInputConfiguration: NotRequired[IngestionInputConfigurationTypeDef]
+    Status: NotRequired[IngestionJobStatusType]
+
+class StartDataIngestionJobRequestTypeDef(TypedDict):
+    DatasetName: str
+    IngestionInputConfiguration: IngestionInputConfigurationTypeDef
+    RoleArn: str
+    ClientToken: str
+
+class DataQualitySummaryTypeDef(TypedDict):
+    InsufficientSensorData: InsufficientSensorDataTypeDef
+    MissingSensorData: MissingSensorDataTypeDef
+    InvalidSensorData: InvalidSensorDataTypeDef
+    UnsupportedTimestamps: UnsupportedTimestampsTypeDef
+    DuplicateTimestamps: DuplicateTimestampsTypeDef
+
+class ImportModelVersionRequestTypeDef(TypedDict):
+    SourceModelVersionArn: str
+    DatasetName: str
+    ClientToken: str
+    ModelName: NotRequired[str]
+    LabelsInputConfiguration: NotRequired[LabelsInputConfigurationTypeDef]
+    RoleArn: NotRequired[str]
+    ServerSideKmsKeyId: NotRequired[str]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+    InferenceDataImportStrategy: NotRequired[InferenceDataImportStrategyType]
+
+class CreateModelRequestTypeDef(TypedDict):
+    ModelName: str
+    DatasetName: str
+    ClientToken: str
+    DatasetSchema: NotRequired[DatasetSchemaTypeDef]
+    LabelsInputConfiguration: NotRequired[LabelsInputConfigurationTypeDef]
+    TrainingDataStartTime: NotRequired[TimestampTypeDef]
+    TrainingDataEndTime: NotRequired[TimestampTypeDef]
+    EvaluationDataStartTime: NotRequired[TimestampTypeDef]
+    EvaluationDataEndTime: NotRequired[TimestampTypeDef]
+    RoleArn: NotRequired[str]
+    DataPreProcessingConfiguration: NotRequired[DataPreProcessingConfigurationTypeDef]
+    ServerSideKmsKeyId: NotRequired[str]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+    OffCondition: NotRequired[str]
+    ModelDiagnosticsOutputConfiguration: NotRequired[ModelDiagnosticsOutputConfigurationTypeDef]
+
+class DescribeModelResponseTypeDef(TypedDict):
+    ModelName: str
+    ModelArn: str
+    DatasetName: str
+    DatasetArn: str
+    Schema: str
+    LabelsInputConfiguration: LabelsInputConfigurationTypeDef
+    TrainingDataStartTime: datetime
+    TrainingDataEndTime: datetime
+    EvaluationDataStartTime: datetime
+    EvaluationDataEndTime: datetime
+    RoleArn: str
+    DataPreProcessingConfiguration: DataPreProcessingConfigurationTypeDef
+    Status: ModelStatusType
+    TrainingExecutionStartTime: datetime
+    TrainingExecutionEndTime: datetime
+    FailedReason: str
+    ModelMetrics: str
+    LastUpdatedTime: datetime
+    CreatedAt: datetime
+    ServerSideKmsKeyId: str
+    OffCondition: str
+    SourceModelVersionArn: str
+    ImportJobStartTime: datetime
+    ImportJobEndTime: datetime
+    ActiveModelVersion: int
+    ActiveModelVersionArn: str
+    ModelVersionActivatedAt: datetime
+    PreviousActiveModelVersion: int
+    PreviousActiveModelVersionArn: str
+    PreviousModelVersionActivatedAt: datetime
+    PriorModelMetrics: str
+    LatestScheduledRetrainingFailedReason: str
+    LatestScheduledRetrainingStatus: ModelVersionStatusType
+    LatestScheduledRetrainingModelVersion: int
+    LatestScheduledRetrainingStartTime: datetime
+    LatestScheduledRetrainingAvailableDataInDays: int
+    NextScheduledRetrainingStartDate: datetime
+    AccumulatedInferenceDataStartTime: datetime
+    AccumulatedInferenceDataEndTime: datetime
+    RetrainingSchedulerStatus: RetrainingSchedulerStatusType
+    ModelDiagnosticsOutputConfiguration: ModelDiagnosticsOutputConfigurationTypeDef
+    ModelQuality: ModelQualityType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeModelVersionResponseTypeDef(TypedDict):
+    ModelName: str
+    ModelArn: str
+    ModelVersion: int
+    ModelVersionArn: str
+    Status: ModelVersionStatusType
+    SourceType: ModelVersionSourceTypeType
+    DatasetName: str
+    DatasetArn: str
+    Schema: str
+    LabelsInputConfiguration: LabelsInputConfigurationTypeDef
+    TrainingDataStartTime: datetime
+    TrainingDataEndTime: datetime
+    EvaluationDataStartTime: datetime
+    EvaluationDataEndTime: datetime
+    RoleArn: str
+    DataPreProcessingConfiguration: DataPreProcessingConfigurationTypeDef
+    TrainingExecutionStartTime: datetime
+    TrainingExecutionEndTime: datetime
+    FailedReason: str
+    ModelMetrics: str
+    LastUpdatedTime: datetime
+    CreatedAt: datetime
+    ServerSideKmsKeyId: str
+    OffCondition: str
+    SourceModelVersionArn: str
+    ImportJobStartTime: datetime
+    ImportJobEndTime: datetime
+    ImportedDataSizeInBytes: int
+    PriorModelMetrics: str
+    RetrainingAvailableDataInDays: int
+    AutoPromotionResult: AutoPromotionResultType
+    AutoPromotionResultReason: str
+    ModelDiagnosticsOutputConfiguration: ModelDiagnosticsOutputConfigurationTypeDef
+    ModelDiagnosticsResultsObject: S3ObjectTypeDef
+    ModelQuality: ModelQualityType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ModelSummaryTypeDef(TypedDict):
+    ModelName: NotRequired[str]
+    ModelArn: NotRequired[str]
+    DatasetName: NotRequired[str]
+    DatasetArn: NotRequired[str]
+    Status: NotRequired[ModelStatusType]
+    CreatedAt: NotRequired[datetime]
+    ActiveModelVersion: NotRequired[int]
+    ActiveModelVersionArn: NotRequired[str]
+    LatestScheduledRetrainingStatus: NotRequired[ModelVersionStatusType]
+    LatestScheduledRetrainingModelVersion: NotRequired[int]
+    LatestScheduledRetrainingStartTime: NotRequired[datetime]
+    NextScheduledRetrainingStartDate: NotRequired[datetime]
+    RetrainingSchedulerStatus: NotRequired[RetrainingSchedulerStatusType]
+    ModelDiagnosticsOutputConfiguration: NotRequired[ModelDiagnosticsOutputConfigurationTypeDef]
+    ModelQuality: NotRequired[ModelQualityType]
+
+class UpdateModelRequestTypeDef(TypedDict):
+    ModelName: str
+    LabelsInputConfiguration: NotRequired[LabelsInputConfigurationTypeDef]
+    RoleArn: NotRequired[str]
+    ModelDiagnosticsOutputConfiguration: NotRequired[ModelDiagnosticsOutputConfigurationTypeDef]
+
+class ListSensorStatisticsResponseTypeDef(TypedDict):
+    SensorStatisticsSummaries: List[SensorStatisticsSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListInferenceExecutionsResponseTypeDef(TypedDict):
+    InferenceExecutionSummaries: List[InferenceExecutionSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListDataIngestionJobsResponseTypeDef(TypedDict):
+    DataIngestionJobSummaries: List[DataIngestionJobSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class DescribeDataIngestionJobResponseTypeDef(TypedDict):
+    JobId: str
+    DatasetArn: str
+    IngestionInputConfiguration: IngestionInputConfigurationTypeDef
+    RoleArn: str
+    CreatedAt: datetime
+    Status: IngestionJobStatusType
+    FailedReason: str
+    DataQualitySummary: DataQualitySummaryTypeDef
+    IngestedFilesSummary: IngestedFilesSummaryTypeDef
+    StatusDetail: str
+    IngestedDataSize: int
+    DataStartTime: datetime
+    DataEndTime: datetime
+    SourceDatasetArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeDatasetResponseTypeDef(TypedDict):
+    DatasetName: str
+    DatasetArn: str
+    CreatedAt: datetime
+    LastUpdatedAt: datetime
+    Status: DatasetStatusType
+    Schema: str
+    ServerSideKmsKeyId: str
+    IngestionInputConfiguration: IngestionInputConfigurationTypeDef
+    DataQualitySummary: DataQualitySummaryTypeDef
+    IngestedFilesSummary: IngestedFilesSummaryTypeDef
+    RoleArn: str
+    DataStartTime: datetime
+    DataEndTime: datetime
+    SourceDatasetArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListModelsResponseTypeDef(TypedDict):
+    ModelSummaries: List[ModelSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]

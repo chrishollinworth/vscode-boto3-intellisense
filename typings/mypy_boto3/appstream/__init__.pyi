@@ -1,10 +1,14 @@
 """
 Main interface for appstream service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appstream/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_appstream import (
         AppStreamClient,
         Client,
@@ -22,10 +26,8 @@ Usage::
         ListAssociatedStacksPaginator,
     )
 
-    session = boto3.Session()
-
-    client: AppStreamClient = boto3.client("appstream")
-    session_client: AppStreamClient = session.client("appstream")
+    session = Session()
+    client: AppStreamClient = session.client("appstream")
 
     fleet_started_waiter: FleetStartedWaiter = client.get_waiter("fleet_started")
     fleet_stopped_waiter: FleetStoppedWaiter = client.get_waiter("fleet_stopped")

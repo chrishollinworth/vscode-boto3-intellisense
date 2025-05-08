@@ -1,10 +1,14 @@
 """
 Main interface for events service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_events/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_events import (
         Client,
         EventBridgeClient,
@@ -13,10 +17,8 @@ Usage::
         ListTargetsByRulePaginator,
     )
 
-    session = boto3.Session()
-
-    client: EventBridgeClient = boto3.client("events")
-    session_client: EventBridgeClient = session.client("events")
+    session = Session()
+    client: EventBridgeClient = session.client("events")
 
     list_rule_names_by_target_paginator: ListRuleNamesByTargetPaginator = client.get_paginator("list_rule_names_by_target")
     list_rules_paginator: ListRulesPaginator = client.get_paginator("list_rules")

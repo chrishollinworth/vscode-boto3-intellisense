@@ -1,10 +1,14 @@
 """
 Main interface for ses service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ses/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_ses import (
         Client,
         IdentityExistsWaiter,
@@ -16,10 +20,8 @@ Usage::
         SESClient,
     )
 
-    session = boto3.Session()
-
-    client: SESClient = boto3.client("ses")
-    session_client: SESClient = session.client("ses")
+    session = Session()
+    client: SESClient = session.client("ses")
 
     identity_exists_waiter: IdentityExistsWaiter = client.get_waiter("identity_exists")
 

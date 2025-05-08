@@ -1,10 +1,14 @@
 """
 Main interface for rum service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_rum/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_rum import (
         BatchGetRumMetricDefinitionsPaginator,
         Client,
@@ -14,10 +18,8 @@ Usage::
         ListRumMetricsDestinationsPaginator,
     )
 
-    session = boto3.Session()
-
-    client: CloudWatchRUMClient = boto3.client("rum")
-    session_client: CloudWatchRUMClient = session.client("rum")
+    session = Session()
+    client: CloudWatchRUMClient = session.client("rum")
 
     batch_get_rum_metric_definitions_paginator: BatchGetRumMetricDefinitionsPaginator = client.get_paginator("batch_get_rum_metric_definitions")
     get_app_monitor_data_paginator: GetAppMonitorDataPaginator = client.get_paginator("get_app_monitor_data")

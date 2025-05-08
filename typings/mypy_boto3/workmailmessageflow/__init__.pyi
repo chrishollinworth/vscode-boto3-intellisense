@@ -1,19 +1,21 @@
 """
 Main interface for workmailmessageflow service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_workmailmessageflow/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_workmailmessageflow import (
         Client,
         WorkMailMessageFlowClient,
     )
 
-    session = boto3.Session()
-
-    client: WorkMailMessageFlowClient = boto3.client("workmailmessageflow")
-    session_client: WorkMailMessageFlowClient = session.client("workmailmessageflow")
+    session = Session()
+    client: WorkMailMessageFlowClient = session.client("workmailmessageflow")
     ```
 """
 

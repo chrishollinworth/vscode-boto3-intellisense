@@ -1,20 +1,24 @@
 """
 Type annotations for connectcases service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connectcases/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connectcases/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_connectcases.type_defs import AuditEventFieldTypeDef
+    from mypy_boto3_connectcases.type_defs import AuditEventFieldValueUnionTypeDef
 
-    data: AuditEventFieldTypeDef = {...}
+    data: AuditEventFieldValueUnionTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
+from typing import Any, Union
 
 from .literals import (
     AuditEventTypeType,
@@ -23,569 +27,207 @@ from .literals import (
     FieldTypeType,
     OrderType,
     RelatedItemTypeType,
+    SlaStatusType,
     TemplateStatusType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
     "AuditEventFieldTypeDef",
     "AuditEventFieldValueUnionTypeDef",
     "AuditEventPerformedByTypeDef",
     "AuditEventTypeDef",
+    "BasicLayoutOutputTypeDef",
     "BasicLayoutTypeDef",
-    "BatchGetFieldRequestRequestTypeDef",
+    "BatchGetCaseRuleRequestTypeDef",
+    "BatchGetCaseRuleResponseTypeDef",
+    "BatchGetFieldRequestTypeDef",
     "BatchGetFieldResponseTypeDef",
-    "BatchPutFieldOptionsRequestRequestTypeDef",
+    "BatchPutFieldOptionsRequestTypeDef",
     "BatchPutFieldOptionsResponseTypeDef",
+    "BooleanConditionOutputTypeDef",
+    "BooleanConditionTypeDef",
+    "BooleanOperandsOutputTypeDef",
+    "BooleanOperandsTypeDef",
+    "CaseEventIncludedDataOutputTypeDef",
     "CaseEventIncludedDataTypeDef",
+    "CaseFilterPaginatorTypeDef",
     "CaseFilterTypeDef",
+    "CaseRuleDetailsOutputTypeDef",
+    "CaseRuleDetailsTypeDef",
+    "CaseRuleDetailsUnionTypeDef",
+    "CaseRuleErrorTypeDef",
+    "CaseRuleIdentifierTypeDef",
+    "CaseRuleSummaryTypeDef",
     "CaseSummaryTypeDef",
     "CommentContentTypeDef",
     "ContactContentTypeDef",
     "ContactFilterTypeDef",
     "ContactTypeDef",
-    "CreateCaseRequestRequestTypeDef",
+    "CreateCaseRequestTypeDef",
     "CreateCaseResponseTypeDef",
-    "CreateDomainRequestRequestTypeDef",
+    "CreateCaseRuleRequestTypeDef",
+    "CreateCaseRuleResponseTypeDef",
+    "CreateDomainRequestTypeDef",
     "CreateDomainResponseTypeDef",
-    "CreateFieldRequestRequestTypeDef",
+    "CreateFieldRequestTypeDef",
     "CreateFieldResponseTypeDef",
-    "CreateLayoutRequestRequestTypeDef",
+    "CreateLayoutRequestTypeDef",
     "CreateLayoutResponseTypeDef",
-    "CreateRelatedItemRequestRequestTypeDef",
+    "CreateRelatedItemRequestTypeDef",
     "CreateRelatedItemResponseTypeDef",
-    "CreateTemplateRequestRequestTypeDef",
+    "CreateTemplateRequestTypeDef",
     "CreateTemplateResponseTypeDef",
-    "DeleteDomainRequestRequestTypeDef",
-    "DeleteFieldRequestRequestTypeDef",
-    "DeleteLayoutRequestRequestTypeDef",
-    "DeleteTemplateRequestRequestTypeDef",
+    "DeleteCaseRuleRequestTypeDef",
+    "DeleteDomainRequestTypeDef",
+    "DeleteFieldRequestTypeDef",
+    "DeleteLayoutRequestTypeDef",
+    "DeleteTemplateRequestTypeDef",
     "DomainSummaryTypeDef",
+    "EmptyResponseMetadataTypeDef",
+    "EventBridgeConfigurationOutputTypeDef",
     "EventBridgeConfigurationTypeDef",
+    "EventBridgeConfigurationUnionTypeDef",
+    "EventIncludedDataOutputTypeDef",
     "EventIncludedDataTypeDef",
     "FieldErrorTypeDef",
     "FieldFilterTypeDef",
+    "FieldGroupOutputTypeDef",
     "FieldGroupTypeDef",
     "FieldIdentifierTypeDef",
     "FieldItemTypeDef",
     "FieldOptionErrorTypeDef",
     "FieldOptionTypeDef",
     "FieldSummaryTypeDef",
+    "FieldValueOutputTypeDef",
     "FieldValueTypeDef",
+    "FieldValueUnionExtraTypeDef",
+    "FieldValueUnionOutputTypeDef",
     "FieldValueUnionTypeDef",
+    "FieldValueUnionUnionTypeDef",
     "FileContentTypeDef",
     "FileFilterTypeDef",
-    "GetCaseAuditEventsRequestRequestTypeDef",
+    "GetCaseAuditEventsRequestTypeDef",
     "GetCaseAuditEventsResponseTypeDef",
-    "GetCaseEventConfigurationRequestRequestTypeDef",
+    "GetCaseEventConfigurationRequestTypeDef",
     "GetCaseEventConfigurationResponseTypeDef",
-    "GetCaseRequestRequestTypeDef",
+    "GetCaseRequestTypeDef",
     "GetCaseResponseTypeDef",
-    "GetDomainRequestRequestTypeDef",
+    "GetCaseRuleResponseTypeDef",
+    "GetDomainRequestTypeDef",
     "GetDomainResponseTypeDef",
     "GetFieldResponseTypeDef",
-    "GetLayoutRequestRequestTypeDef",
+    "GetLayoutRequestTypeDef",
     "GetLayoutResponseTypeDef",
-    "GetTemplateRequestRequestTypeDef",
+    "GetTemplateRequestTypeDef",
     "GetTemplateResponseTypeDef",
     "LayoutConfigurationTypeDef",
+    "LayoutContentOutputTypeDef",
     "LayoutContentTypeDef",
+    "LayoutContentUnionTypeDef",
+    "LayoutSectionsOutputTypeDef",
     "LayoutSectionsTypeDef",
     "LayoutSummaryTypeDef",
-    "ListCasesForContactRequestRequestTypeDef",
+    "ListCaseRulesRequestPaginateTypeDef",
+    "ListCaseRulesRequestTypeDef",
+    "ListCaseRulesResponseTypeDef",
+    "ListCasesForContactRequestTypeDef",
     "ListCasesForContactResponseTypeDef",
-    "ListDomainsRequestRequestTypeDef",
+    "ListDomainsRequestTypeDef",
     "ListDomainsResponseTypeDef",
-    "ListFieldOptionsRequestRequestTypeDef",
+    "ListFieldOptionsRequestTypeDef",
     "ListFieldOptionsResponseTypeDef",
-    "ListFieldsRequestRequestTypeDef",
+    "ListFieldsRequestTypeDef",
     "ListFieldsResponseTypeDef",
-    "ListLayoutsRequestRequestTypeDef",
+    "ListLayoutsRequestTypeDef",
     "ListLayoutsResponseTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
-    "ListTemplatesRequestRequestTypeDef",
+    "ListTemplatesRequestTypeDef",
     "ListTemplatesResponseTypeDef",
+    "OperandOneTypeDef",
+    "OperandTwoOutputTypeDef",
+    "OperandTwoTypeDef",
     "PaginatorConfigTypeDef",
-    "PutCaseEventConfigurationRequestRequestTypeDef",
+    "PutCaseEventConfigurationRequestTypeDef",
     "RelatedItemContentTypeDef",
     "RelatedItemEventIncludedDataTypeDef",
     "RelatedItemInputContentTypeDef",
     "RelatedItemTypeFilterTypeDef",
+    "RequiredCaseRuleOutputTypeDef",
+    "RequiredCaseRuleTypeDef",
     "RequiredFieldTypeDef",
     "ResponseMetadataTypeDef",
-    "SearchCasesRequestRequestTypeDef",
+    "SearchCasesRequestPaginateTypeDef",
+    "SearchCasesRequestTypeDef",
     "SearchCasesResponseItemTypeDef",
     "SearchCasesResponseTypeDef",
-    "SearchRelatedItemsRequestRequestTypeDef",
+    "SearchRelatedItemsRequestPaginateTypeDef",
+    "SearchRelatedItemsRequestTypeDef",
     "SearchRelatedItemsResponseItemTypeDef",
     "SearchRelatedItemsResponseTypeDef",
+    "SectionOutputTypeDef",
     "SectionTypeDef",
+    "SlaConfigurationTypeDef",
+    "SlaContentTypeDef",
+    "SlaFilterTypeDef",
+    "SlaInputConfigurationTypeDef",
+    "SlaInputContentTypeDef",
     "SortTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
+    "TemplateRuleTypeDef",
     "TemplateSummaryTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateCaseRequestRequestTypeDef",
-    "UpdateFieldRequestRequestTypeDef",
-    "UpdateLayoutRequestRequestTypeDef",
-    "UpdateTemplateRequestRequestTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateCaseRequestTypeDef",
+    "UpdateCaseRuleRequestTypeDef",
+    "UpdateFieldRequestTypeDef",
+    "UpdateLayoutRequestTypeDef",
+    "UpdateTemplateRequestTypeDef",
     "UserUnionTypeDef",
 )
 
-_RequiredAuditEventFieldTypeDef = TypedDict(
-    "_RequiredAuditEventFieldTypeDef",
-    {
-        "eventFieldId": str,
-        "newValue": "AuditEventFieldValueUnionTypeDef",
-    },
-)
-_OptionalAuditEventFieldTypeDef = TypedDict(
-    "_OptionalAuditEventFieldTypeDef",
-    {
-        "oldValue": "AuditEventFieldValueUnionTypeDef",
-    },
-    total=False,
-)
+class AuditEventFieldValueUnionTypeDef(TypedDict):
+    booleanValue: NotRequired[bool]
+    doubleValue: NotRequired[float]
+    emptyValue: NotRequired[Dict[str, Any]]
+    stringValue: NotRequired[str]
+    userArnValue: NotRequired[str]
 
-class AuditEventFieldTypeDef(_RequiredAuditEventFieldTypeDef, _OptionalAuditEventFieldTypeDef):
-    pass
+class UserUnionTypeDef(TypedDict):
+    customEntity: NotRequired[str]
+    userArn: NotRequired[str]
 
-AuditEventFieldValueUnionTypeDef = TypedDict(
-    "AuditEventFieldValueUnionTypeDef",
+CaseRuleIdentifierTypeDef = TypedDict(
+    "CaseRuleIdentifierTypeDef",
     {
-        "booleanValue": bool,
-        "doubleValue": float,
-        "emptyValue": Dict[str, Any],
-        "stringValue": str,
-        "userArnValue": str,
-    },
-    total=False,
-)
-
-_RequiredAuditEventPerformedByTypeDef = TypedDict(
-    "_RequiredAuditEventPerformedByTypeDef",
-    {
-        "iamPrincipalArn": str,
-    },
-)
-_OptionalAuditEventPerformedByTypeDef = TypedDict(
-    "_OptionalAuditEventPerformedByTypeDef",
-    {
-        "user": "UserUnionTypeDef",
-    },
-    total=False,
-)
-
-class AuditEventPerformedByTypeDef(
-    _RequiredAuditEventPerformedByTypeDef, _OptionalAuditEventPerformedByTypeDef
-):
-    pass
-
-_RequiredAuditEventTypeDef = TypedDict(
-    "_RequiredAuditEventTypeDef",
-    {
-        "eventId": str,
-        "fields": List["AuditEventFieldTypeDef"],
-        "performedTime": datetime,
-        "type": AuditEventTypeType,
-    },
-)
-_OptionalAuditEventTypeDef = TypedDict(
-    "_OptionalAuditEventTypeDef",
-    {
-        "performedBy": "AuditEventPerformedByTypeDef",
-        "relatedItemType": RelatedItemTypeType,
-    },
-    total=False,
-)
-
-class AuditEventTypeDef(_RequiredAuditEventTypeDef, _OptionalAuditEventTypeDef):
-    pass
-
-BasicLayoutTypeDef = TypedDict(
-    "BasicLayoutTypeDef",
-    {
-        "moreInfo": "LayoutSectionsTypeDef",
-        "topPanel": "LayoutSectionsTypeDef",
-    },
-    total=False,
-)
-
-BatchGetFieldRequestRequestTypeDef = TypedDict(
-    "BatchGetFieldRequestRequestTypeDef",
-    {
-        "domainId": str,
-        "fields": List["FieldIdentifierTypeDef"],
-    },
-)
-
-BatchGetFieldResponseTypeDef = TypedDict(
-    "BatchGetFieldResponseTypeDef",
-    {
-        "errors": List["FieldErrorTypeDef"],
-        "fields": List["GetFieldResponseTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-BatchPutFieldOptionsRequestRequestTypeDef = TypedDict(
-    "BatchPutFieldOptionsRequestRequestTypeDef",
-    {
-        "domainId": str,
-        "fieldId": str,
-        "options": List["FieldOptionTypeDef"],
-    },
-)
-
-BatchPutFieldOptionsResponseTypeDef = TypedDict(
-    "BatchPutFieldOptionsResponseTypeDef",
-    {
-        "errors": List["FieldOptionErrorTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CaseEventIncludedDataTypeDef = TypedDict(
-    "CaseEventIncludedDataTypeDef",
-    {
-        "fields": List["FieldIdentifierTypeDef"],
-    },
-)
-
-CaseFilterTypeDef = TypedDict(
-    "CaseFilterTypeDef",
-    {
-        "andAll": List[Dict[str, Any]],
-        "field": "FieldFilterTypeDef",
-        "not": Dict[str, Any],
-        "orAll": List[Dict[str, Any]],
-    },
-    total=False,
-)
-
-CaseSummaryTypeDef = TypedDict(
-    "CaseSummaryTypeDef",
-    {
-        "caseId": str,
-        "templateId": str,
-    },
-)
-
-CommentContentTypeDef = TypedDict(
-    "CommentContentTypeDef",
-    {
-        "body": str,
-        "contentType": Literal["Text/Plain"],
-    },
-)
-
-ContactContentTypeDef = TypedDict(
-    "ContactContentTypeDef",
-    {
-        "channel": str,
-        "connectedToSystemTime": datetime,
-        "contactArn": str,
-    },
-)
-
-ContactFilterTypeDef = TypedDict(
-    "ContactFilterTypeDef",
-    {
-        "channel": List[str],
-        "contactArn": str,
-    },
-    total=False,
-)
-
-ContactTypeDef = TypedDict(
-    "ContactTypeDef",
-    {
-        "contactArn": str,
-    },
-)
-
-_RequiredCreateCaseRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateCaseRequestRequestTypeDef",
-    {
-        "domainId": str,
-        "fields": List["FieldValueTypeDef"],
-        "templateId": str,
-    },
-)
-_OptionalCreateCaseRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateCaseRequestRequestTypeDef",
-    {
-        "clientToken": str,
-        "performedBy": "UserUnionTypeDef",
-    },
-    total=False,
-)
-
-class CreateCaseRequestRequestTypeDef(
-    _RequiredCreateCaseRequestRequestTypeDef, _OptionalCreateCaseRequestRequestTypeDef
-):
-    pass
-
-CreateCaseResponseTypeDef = TypedDict(
-    "CreateCaseResponseTypeDef",
-    {
-        "caseArn": str,
-        "caseId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateDomainRequestRequestTypeDef = TypedDict(
-    "CreateDomainRequestRequestTypeDef",
-    {
-        "name": str,
-    },
-)
-
-CreateDomainResponseTypeDef = TypedDict(
-    "CreateDomainResponseTypeDef",
-    {
-        "domainArn": str,
-        "domainId": str,
-        "domainStatus": DomainStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateFieldRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateFieldRequestRequestTypeDef",
-    {
-        "domainId": str,
-        "name": str,
-        "type": FieldTypeType,
-    },
-)
-_OptionalCreateFieldRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateFieldRequestRequestTypeDef",
-    {
-        "description": str,
-    },
-    total=False,
-)
-
-class CreateFieldRequestRequestTypeDef(
-    _RequiredCreateFieldRequestRequestTypeDef, _OptionalCreateFieldRequestRequestTypeDef
-):
-    pass
-
-CreateFieldResponseTypeDef = TypedDict(
-    "CreateFieldResponseTypeDef",
-    {
-        "fieldArn": str,
-        "fieldId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateLayoutRequestRequestTypeDef = TypedDict(
-    "CreateLayoutRequestRequestTypeDef",
-    {
-        "content": "LayoutContentTypeDef",
-        "domainId": str,
-        "name": str,
-    },
-)
-
-CreateLayoutResponseTypeDef = TypedDict(
-    "CreateLayoutResponseTypeDef",
-    {
-        "layoutArn": str,
-        "layoutId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateRelatedItemRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateRelatedItemRequestRequestTypeDef",
-    {
-        "caseId": str,
-        "content": "RelatedItemInputContentTypeDef",
-        "domainId": str,
-        "type": RelatedItemTypeType,
-    },
-)
-_OptionalCreateRelatedItemRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateRelatedItemRequestRequestTypeDef",
-    {
-        "performedBy": "UserUnionTypeDef",
-    },
-    total=False,
-)
-
-class CreateRelatedItemRequestRequestTypeDef(
-    _RequiredCreateRelatedItemRequestRequestTypeDef, _OptionalCreateRelatedItemRequestRequestTypeDef
-):
-    pass
-
-CreateRelatedItemResponseTypeDef = TypedDict(
-    "CreateRelatedItemResponseTypeDef",
-    {
-        "relatedItemArn": str,
-        "relatedItemId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateTemplateRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateTemplateRequestRequestTypeDef",
-    {
-        "domainId": str,
-        "name": str,
-    },
-)
-_OptionalCreateTemplateRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateTemplateRequestRequestTypeDef",
-    {
-        "description": str,
-        "layoutConfiguration": "LayoutConfigurationTypeDef",
-        "requiredFields": List["RequiredFieldTypeDef"],
-        "status": TemplateStatusType,
-    },
-    total=False,
-)
-
-class CreateTemplateRequestRequestTypeDef(
-    _RequiredCreateTemplateRequestRequestTypeDef, _OptionalCreateTemplateRequestRequestTypeDef
-):
-    pass
-
-CreateTemplateResponseTypeDef = TypedDict(
-    "CreateTemplateResponseTypeDef",
-    {
-        "templateArn": str,
-        "templateId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteDomainRequestRequestTypeDef = TypedDict(
-    "DeleteDomainRequestRequestTypeDef",
-    {
-        "domainId": str,
-    },
-)
-
-DeleteFieldRequestRequestTypeDef = TypedDict(
-    "DeleteFieldRequestRequestTypeDef",
-    {
-        "domainId": str,
-        "fieldId": str,
-    },
-)
-
-DeleteLayoutRequestRequestTypeDef = TypedDict(
-    "DeleteLayoutRequestRequestTypeDef",
-    {
-        "domainId": str,
-        "layoutId": str,
-    },
-)
-
-DeleteTemplateRequestRequestTypeDef = TypedDict(
-    "DeleteTemplateRequestRequestTypeDef",
-    {
-        "domainId": str,
-        "templateId": str,
-    },
-)
-
-DomainSummaryTypeDef = TypedDict(
-    "DomainSummaryTypeDef",
-    {
-        "domainArn": str,
-        "domainId": str,
-        "name": str,
-    },
-)
-
-_RequiredEventBridgeConfigurationTypeDef = TypedDict(
-    "_RequiredEventBridgeConfigurationTypeDef",
-    {
-        "enabled": bool,
-    },
-)
-_OptionalEventBridgeConfigurationTypeDef = TypedDict(
-    "_OptionalEventBridgeConfigurationTypeDef",
-    {
-        "includedData": "EventIncludedDataTypeDef",
-    },
-    total=False,
-)
-
-class EventBridgeConfigurationTypeDef(
-    _RequiredEventBridgeConfigurationTypeDef, _OptionalEventBridgeConfigurationTypeDef
-):
-    pass
-
-EventIncludedDataTypeDef = TypedDict(
-    "EventIncludedDataTypeDef",
-    {
-        "caseData": "CaseEventIncludedDataTypeDef",
-        "relatedItemData": "RelatedItemEventIncludedDataTypeDef",
-    },
-    total=False,
-)
-
-_RequiredFieldErrorTypeDef = TypedDict(
-    "_RequiredFieldErrorTypeDef",
-    {
-        "errorCode": str,
         "id": str,
     },
 )
-_OptionalFieldErrorTypeDef = TypedDict(
-    "_OptionalFieldErrorTypeDef",
+CaseRuleErrorTypeDef = TypedDict(
+    "CaseRuleErrorTypeDef",
     {
-        "message": str,
-    },
-    total=False,
-)
-
-class FieldErrorTypeDef(_RequiredFieldErrorTypeDef, _OptionalFieldErrorTypeDef):
-    pass
-
-FieldFilterTypeDef = TypedDict(
-    "FieldFilterTypeDef",
-    {
-        "contains": "FieldValueTypeDef",
-        "equalTo": "FieldValueTypeDef",
-        "greaterThan": "FieldValueTypeDef",
-        "greaterThanOrEqualTo": "FieldValueTypeDef",
-        "lessThan": "FieldValueTypeDef",
-        "lessThanOrEqualTo": "FieldValueTypeDef",
-    },
-    total=False,
-)
-
-_RequiredFieldGroupTypeDef = TypedDict(
-    "_RequiredFieldGroupTypeDef",
-    {
-        "fields": List["FieldItemTypeDef"],
+        "errorCode": str,
+        "id": str,
+        "message": NotRequired[str],
     },
 )
-_OptionalFieldGroupTypeDef = TypedDict(
-    "_OptionalFieldGroupTypeDef",
-    {
-        "name": str,
-    },
-    total=False,
-)
 
-class FieldGroupTypeDef(_RequiredFieldGroupTypeDef, _OptionalFieldGroupTypeDef):
-    pass
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
 FieldIdentifierTypeDef = TypedDict(
     "FieldIdentifierTypeDef",
@@ -593,6 +235,131 @@ FieldIdentifierTypeDef = TypedDict(
         "id": str,
     },
 )
+FieldErrorTypeDef = TypedDict(
+    "FieldErrorTypeDef",
+    {
+        "errorCode": str,
+        "id": str,
+        "message": NotRequired[str],
+    },
+)
+GetFieldResponseTypeDef = TypedDict(
+    "GetFieldResponseTypeDef",
+    {
+        "fieldArn": str,
+        "fieldId": str,
+        "name": str,
+        "namespace": FieldNamespaceType,
+        "type": FieldTypeType,
+        "createdTime": NotRequired[datetime],
+        "deleted": NotRequired[bool],
+        "description": NotRequired[str],
+        "lastModifiedTime": NotRequired[datetime],
+        "tags": NotRequired[Dict[str, str]],
+    },
+)
+
+class FieldOptionTypeDef(TypedDict):
+    active: bool
+    name: str
+    value: str
+
+class FieldOptionErrorTypeDef(TypedDict):
+    errorCode: str
+    message: str
+    value: str
+
+class OperandOneTypeDef(TypedDict):
+    fieldId: NotRequired[str]
+
+class OperandTwoOutputTypeDef(TypedDict):
+    booleanValue: NotRequired[bool]
+    doubleValue: NotRequired[float]
+    emptyValue: NotRequired[Dict[str, Any]]
+    stringValue: NotRequired[str]
+
+class OperandTwoTypeDef(TypedDict):
+    booleanValue: NotRequired[bool]
+    doubleValue: NotRequired[float]
+    emptyValue: NotRequired[Mapping[str, Any]]
+    stringValue: NotRequired[str]
+
+class CaseRuleSummaryTypeDef(TypedDict):
+    caseRuleArn: str
+    caseRuleId: str
+    name: str
+    ruleType: Literal["Required"]
+    description: NotRequired[str]
+
+class CaseSummaryTypeDef(TypedDict):
+    caseId: str
+    templateId: str
+
+class CommentContentTypeDef(TypedDict):
+    body: str
+    contentType: Literal["Text/Plain"]
+
+class ContactContentTypeDef(TypedDict):
+    channel: str
+    connectedToSystemTime: datetime
+    contactArn: str
+
+class ContactFilterTypeDef(TypedDict):
+    channel: NotRequired[Sequence[str]]
+    contactArn: NotRequired[str]
+
+class ContactTypeDef(TypedDict):
+    contactArn: str
+
+class CreateDomainRequestTypeDef(TypedDict):
+    name: str
+
+CreateFieldRequestTypeDef = TypedDict(
+    "CreateFieldRequestTypeDef",
+    {
+        "domainId": str,
+        "name": str,
+        "type": FieldTypeType,
+        "description": NotRequired[str],
+    },
+)
+
+class LayoutConfigurationTypeDef(TypedDict):
+    defaultLayout: NotRequired[str]
+
+class RequiredFieldTypeDef(TypedDict):
+    fieldId: str
+
+class TemplateRuleTypeDef(TypedDict):
+    caseRuleId: str
+    fieldId: str
+
+class DeleteCaseRuleRequestTypeDef(TypedDict):
+    caseRuleId: str
+    domainId: str
+
+class DeleteDomainRequestTypeDef(TypedDict):
+    domainId: str
+
+class DeleteFieldRequestTypeDef(TypedDict):
+    domainId: str
+    fieldId: str
+
+class DeleteLayoutRequestTypeDef(TypedDict):
+    domainId: str
+    layoutId: str
+
+class DeleteTemplateRequestTypeDef(TypedDict):
+    domainId: str
+    templateId: str
+
+class DomainSummaryTypeDef(TypedDict):
+    domainArn: str
+    domainId: str
+    name: str
+
+class RelatedItemEventIncludedDataTypeDef(TypedDict):
+    includeContent: bool
 
 FieldItemTypeDef = TypedDict(
     "FieldItemTypeDef",
@@ -600,25 +367,6 @@ FieldItemTypeDef = TypedDict(
         "id": str,
     },
 )
-
-FieldOptionErrorTypeDef = TypedDict(
-    "FieldOptionErrorTypeDef",
-    {
-        "errorCode": str,
-        "message": str,
-        "value": str,
-    },
-)
-
-FieldOptionTypeDef = TypedDict(
-    "FieldOptionTypeDef",
-    {
-        "active": bool,
-        "name": str,
-        "value": str,
-    },
-)
-
 FieldSummaryTypeDef = TypedDict(
     "FieldSummaryTypeDef",
     {
@@ -630,744 +378,641 @@ FieldSummaryTypeDef = TypedDict(
     },
 )
 
+class FieldValueUnionOutputTypeDef(TypedDict):
+    booleanValue: NotRequired[bool]
+    doubleValue: NotRequired[float]
+    emptyValue: NotRequired[Dict[str, Any]]
+    stringValue: NotRequired[str]
+    userArnValue: NotRequired[str]
+
+class FieldValueUnionTypeDef(TypedDict):
+    booleanValue: NotRequired[bool]
+    doubleValue: NotRequired[float]
+    emptyValue: NotRequired[Mapping[str, Any]]
+    stringValue: NotRequired[str]
+    userArnValue: NotRequired[str]
+
+class FileContentTypeDef(TypedDict):
+    fileArn: str
+
+class FileFilterTypeDef(TypedDict):
+    fileArn: NotRequired[str]
+
+class GetCaseAuditEventsRequestTypeDef(TypedDict):
+    caseId: str
+    domainId: str
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class GetCaseEventConfigurationRequestTypeDef(TypedDict):
+    domainId: str
+
+class GetDomainRequestTypeDef(TypedDict):
+    domainId: str
+
+class GetLayoutRequestTypeDef(TypedDict):
+    domainId: str
+    layoutId: str
+
+class GetTemplateRequestTypeDef(TypedDict):
+    domainId: str
+    templateId: str
+
+class LayoutSummaryTypeDef(TypedDict):
+    layoutArn: str
+    layoutId: str
+    name: str
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class ListCaseRulesRequestTypeDef(TypedDict):
+    domainId: str
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListCasesForContactRequestTypeDef(TypedDict):
+    contactArn: str
+    domainId: str
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListDomainsRequestTypeDef(TypedDict):
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListFieldOptionsRequestTypeDef(TypedDict):
+    domainId: str
+    fieldId: str
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+    values: NotRequired[Sequence[str]]
+
+class ListFieldsRequestTypeDef(TypedDict):
+    domainId: str
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListLayoutsRequestTypeDef(TypedDict):
+    domainId: str
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    arn: str
+
+class ListTemplatesRequestTypeDef(TypedDict):
+    domainId: str
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+    status: NotRequired[Sequence[TemplateStatusType]]
+
+class TemplateSummaryTypeDef(TypedDict):
+    name: str
+    status: TemplateStatusType
+    templateArn: str
+    templateId: str
+
+class SlaFilterTypeDef(TypedDict):
+    name: NotRequired[str]
+    status: NotRequired[SlaStatusType]
+
+class SortTypeDef(TypedDict):
+    fieldId: str
+    sortOrder: OrderType
+
+class TagResourceRequestTypeDef(TypedDict):
+    arn: str
+    tags: Mapping[str, str]
+
+class UntagResourceRequestTypeDef(TypedDict):
+    arn: str
+    tagKeys: Sequence[str]
+
+class UpdateFieldRequestTypeDef(TypedDict):
+    domainId: str
+    fieldId: str
+    description: NotRequired[str]
+    name: NotRequired[str]
+
+class AuditEventFieldTypeDef(TypedDict):
+    eventFieldId: str
+    newValue: AuditEventFieldValueUnionTypeDef
+    oldValue: NotRequired[AuditEventFieldValueUnionTypeDef]
+
+class AuditEventPerformedByTypeDef(TypedDict):
+    iamPrincipalArn: str
+    user: NotRequired[UserUnionTypeDef]
+
+class BatchGetCaseRuleRequestTypeDef(TypedDict):
+    caseRules: Sequence[CaseRuleIdentifierTypeDef]
+    domainId: str
+
+class CreateCaseResponseTypeDef(TypedDict):
+    caseArn: str
+    caseId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateCaseRuleResponseTypeDef(TypedDict):
+    caseRuleArn: str
+    caseRuleId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateDomainResponseTypeDef(TypedDict):
+    domainArn: str
+    domainId: str
+    domainStatus: DomainStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateFieldResponseTypeDef(TypedDict):
+    fieldArn: str
+    fieldId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateLayoutResponseTypeDef(TypedDict):
+    layoutArn: str
+    layoutId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateRelatedItemResponseTypeDef(TypedDict):
+    relatedItemArn: str
+    relatedItemId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateTemplateResponseTypeDef(TypedDict):
+    templateArn: str
+    templateId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class EmptyResponseMetadataTypeDef(TypedDict):
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetDomainResponseTypeDef(TypedDict):
+    createdTime: datetime
+    domainArn: str
+    domainId: str
+    domainStatus: DomainStatusType
+    name: str
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class BatchGetFieldRequestTypeDef(TypedDict):
+    domainId: str
+    fields: Sequence[FieldIdentifierTypeDef]
+
+class CaseEventIncludedDataOutputTypeDef(TypedDict):
+    fields: List[FieldIdentifierTypeDef]
+
+class CaseEventIncludedDataTypeDef(TypedDict):
+    fields: Sequence[FieldIdentifierTypeDef]
+
+class GetCaseRequestTypeDef(TypedDict):
+    caseId: str
+    domainId: str
+    fields: Sequence[FieldIdentifierTypeDef]
+    nextToken: NotRequired[str]
+
+class BatchGetFieldResponseTypeDef(TypedDict):
+    errors: List[FieldErrorTypeDef]
+    fields: List[GetFieldResponseTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class BatchPutFieldOptionsRequestTypeDef(TypedDict):
+    domainId: str
+    fieldId: str
+    options: Sequence[FieldOptionTypeDef]
+
+class ListFieldOptionsResponseTypeDef(TypedDict):
+    options: List[FieldOptionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class BatchPutFieldOptionsResponseTypeDef(TypedDict):
+    errors: List[FieldOptionErrorTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class BooleanOperandsOutputTypeDef(TypedDict):
+    operandOne: OperandOneTypeDef
+    operandTwo: OperandTwoOutputTypeDef
+    result: bool
+
+class BooleanOperandsTypeDef(TypedDict):
+    operandOne: OperandOneTypeDef
+    operandTwo: OperandTwoTypeDef
+    result: bool
+
+class ListCaseRulesResponseTypeDef(TypedDict):
+    caseRules: List[CaseRuleSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListCasesForContactResponseTypeDef(TypedDict):
+    cases: List[CaseSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class CreateTemplateRequestTypeDef(TypedDict):
+    domainId: str
+    name: str
+    description: NotRequired[str]
+    layoutConfiguration: NotRequired[LayoutConfigurationTypeDef]
+    requiredFields: NotRequired[Sequence[RequiredFieldTypeDef]]
+    rules: NotRequired[Sequence[TemplateRuleTypeDef]]
+    status: NotRequired[TemplateStatusType]
+
+class GetTemplateResponseTypeDef(TypedDict):
+    createdTime: datetime
+    deleted: bool
+    description: str
+    lastModifiedTime: datetime
+    layoutConfiguration: LayoutConfigurationTypeDef
+    name: str
+    requiredFields: List[RequiredFieldTypeDef]
+    rules: List[TemplateRuleTypeDef]
+    status: TemplateStatusType
+    tags: Dict[str, str]
+    templateArn: str
+    templateId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateTemplateRequestTypeDef(TypedDict):
+    domainId: str
+    templateId: str
+    description: NotRequired[str]
+    layoutConfiguration: NotRequired[LayoutConfigurationTypeDef]
+    name: NotRequired[str]
+    requiredFields: NotRequired[Sequence[RequiredFieldTypeDef]]
+    rules: NotRequired[Sequence[TemplateRuleTypeDef]]
+    status: NotRequired[TemplateStatusType]
+
+class ListDomainsResponseTypeDef(TypedDict):
+    domains: List[DomainSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class FieldGroupOutputTypeDef(TypedDict):
+    fields: List[FieldItemTypeDef]
+    name: NotRequired[str]
+
+class FieldGroupTypeDef(TypedDict):
+    fields: Sequence[FieldItemTypeDef]
+    name: NotRequired[str]
+
+class ListFieldsResponseTypeDef(TypedDict):
+    fields: List[FieldSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+FieldValueOutputTypeDef = TypedDict(
+    "FieldValueOutputTypeDef",
+    {
+        "id": str,
+        "value": FieldValueUnionOutputTypeDef,
+    },
+)
+SlaConfigurationTypeDef = TypedDict(
+    "SlaConfigurationTypeDef",
+    {
+        "name": str,
+        "status": SlaStatusType,
+        "targetTime": datetime,
+        "type": Literal["CaseField"],
+        "completionTime": NotRequired[datetime],
+        "fieldId": NotRequired[str],
+        "targetFieldValues": NotRequired[List[FieldValueUnionOutputTypeDef]],
+    },
+)
+FieldValueUnionUnionTypeDef = Union[FieldValueUnionTypeDef, FieldValueUnionOutputTypeDef]
+
+class ListLayoutsResponseTypeDef(TypedDict):
+    layouts: List[LayoutSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListCaseRulesRequestPaginateTypeDef(TypedDict):
+    domainId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListTemplatesResponseTypeDef(TypedDict):
+    templates: List[TemplateSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class RelatedItemTypeFilterTypeDef(TypedDict):
+    comment: NotRequired[Mapping[str, Any]]
+    contact: NotRequired[ContactFilterTypeDef]
+    file: NotRequired[FileFilterTypeDef]
+    sla: NotRequired[SlaFilterTypeDef]
+
+AuditEventTypeDef = TypedDict(
+    "AuditEventTypeDef",
+    {
+        "eventId": str,
+        "fields": List[AuditEventFieldTypeDef],
+        "performedTime": datetime,
+        "type": AuditEventTypeType,
+        "performedBy": NotRequired[AuditEventPerformedByTypeDef],
+        "relatedItemType": NotRequired[RelatedItemTypeType],
+    },
+)
+
+class EventIncludedDataOutputTypeDef(TypedDict):
+    caseData: NotRequired[CaseEventIncludedDataOutputTypeDef]
+    relatedItemData: NotRequired[RelatedItemEventIncludedDataTypeDef]
+
+class EventIncludedDataTypeDef(TypedDict):
+    caseData: NotRequired[CaseEventIncludedDataTypeDef]
+    relatedItemData: NotRequired[RelatedItemEventIncludedDataTypeDef]
+
+class BooleanConditionOutputTypeDef(TypedDict):
+    equalTo: NotRequired[BooleanOperandsOutputTypeDef]
+    notEqualTo: NotRequired[BooleanOperandsOutputTypeDef]
+
+class BooleanConditionTypeDef(TypedDict):
+    equalTo: NotRequired[BooleanOperandsTypeDef]
+    notEqualTo: NotRequired[BooleanOperandsTypeDef]
+
+class SectionOutputTypeDef(TypedDict):
+    fieldGroup: NotRequired[FieldGroupOutputTypeDef]
+
+class SectionTypeDef(TypedDict):
+    fieldGroup: NotRequired[FieldGroupTypeDef]
+
+class GetCaseResponseTypeDef(TypedDict):
+    fields: List[FieldValueOutputTypeDef]
+    tags: Dict[str, str]
+    templateId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class SearchCasesResponseItemTypeDef(TypedDict):
+    caseId: str
+    fields: List[FieldValueOutputTypeDef]
+    templateId: str
+    tags: NotRequired[Dict[str, str]]
+
+class SlaContentTypeDef(TypedDict):
+    slaConfiguration: SlaConfigurationTypeDef
+
 FieldValueTypeDef = TypedDict(
     "FieldValueTypeDef",
     {
         "id": str,
-        "value": "FieldValueUnionTypeDef",
+        "value": FieldValueUnionUnionTypeDef,
     },
 )
-
-FieldValueUnionTypeDef = TypedDict(
-    "FieldValueUnionTypeDef",
+SlaInputConfigurationTypeDef = TypedDict(
+    "SlaInputConfigurationTypeDef",
     {
-        "booleanValue": bool,
-        "doubleValue": float,
-        "emptyValue": Dict[str, Any],
-        "stringValue": str,
-        "userArnValue": str,
-    },
-    total=False,
-)
-
-FileContentTypeDef = TypedDict(
-    "FileContentTypeDef",
-    {
-        "fileArn": str,
-    },
-)
-
-FileFilterTypeDef = TypedDict(
-    "FileFilterTypeDef",
-    {
-        "fileArn": str,
-    },
-    total=False,
-)
-
-_RequiredGetCaseAuditEventsRequestRequestTypeDef = TypedDict(
-    "_RequiredGetCaseAuditEventsRequestRequestTypeDef",
-    {
-        "caseId": str,
-        "domainId": str,
-    },
-)
-_OptionalGetCaseAuditEventsRequestRequestTypeDef = TypedDict(
-    "_OptionalGetCaseAuditEventsRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class GetCaseAuditEventsRequestRequestTypeDef(
-    _RequiredGetCaseAuditEventsRequestRequestTypeDef,
-    _OptionalGetCaseAuditEventsRequestRequestTypeDef,
-):
-    pass
-
-GetCaseAuditEventsResponseTypeDef = TypedDict(
-    "GetCaseAuditEventsResponseTypeDef",
-    {
-        "auditEvents": List["AuditEventTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetCaseEventConfigurationRequestRequestTypeDef = TypedDict(
-    "GetCaseEventConfigurationRequestRequestTypeDef",
-    {
-        "domainId": str,
-    },
-)
-
-GetCaseEventConfigurationResponseTypeDef = TypedDict(
-    "GetCaseEventConfigurationResponseTypeDef",
-    {
-        "eventBridge": "EventBridgeConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetCaseRequestRequestTypeDef = TypedDict(
-    "_RequiredGetCaseRequestRequestTypeDef",
-    {
-        "caseId": str,
-        "domainId": str,
-        "fields": List["FieldIdentifierTypeDef"],
-    },
-)
-_OptionalGetCaseRequestRequestTypeDef = TypedDict(
-    "_OptionalGetCaseRequestRequestTypeDef",
-    {
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class GetCaseRequestRequestTypeDef(
-    _RequiredGetCaseRequestRequestTypeDef, _OptionalGetCaseRequestRequestTypeDef
-):
-    pass
-
-GetCaseResponseTypeDef = TypedDict(
-    "GetCaseResponseTypeDef",
-    {
-        "fields": List["FieldValueTypeDef"],
-        "nextToken": str,
-        "tags": Dict[str, str],
-        "templateId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetDomainRequestRequestTypeDef = TypedDict(
-    "GetDomainRequestRequestTypeDef",
-    {
-        "domainId": str,
-    },
-)
-
-GetDomainResponseTypeDef = TypedDict(
-    "GetDomainResponseTypeDef",
-    {
-        "createdTime": datetime,
-        "domainArn": str,
-        "domainId": str,
-        "domainStatus": DomainStatusType,
         "name": str,
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "targetSlaMinutes": int,
+        "type": Literal["CaseField"],
+        "fieldId": NotRequired[str],
+        "targetFieldValues": NotRequired[Sequence[FieldValueUnionUnionTypeDef]],
     },
 )
 
-_RequiredGetFieldResponseTypeDef = TypedDict(
-    "_RequiredGetFieldResponseTypeDef",
-    {
-        "fieldArn": str,
-        "fieldId": str,
-        "name": str,
-        "namespace": FieldNamespaceType,
-        "type": FieldTypeType,
-    },
-)
-_OptionalGetFieldResponseTypeDef = TypedDict(
-    "_OptionalGetFieldResponseTypeDef",
-    {
-        "createdTime": datetime,
-        "deleted": bool,
-        "description": str,
-        "lastModifiedTime": datetime,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
+class SearchRelatedItemsRequestPaginateTypeDef(TypedDict):
+    caseId: str
+    domainId: str
+    filters: NotRequired[Sequence[RelatedItemTypeFilterTypeDef]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-class GetFieldResponseTypeDef(_RequiredGetFieldResponseTypeDef, _OptionalGetFieldResponseTypeDef):
-    pass
+class SearchRelatedItemsRequestTypeDef(TypedDict):
+    caseId: str
+    domainId: str
+    filters: NotRequired[Sequence[RelatedItemTypeFilterTypeDef]]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
 
-GetLayoutRequestRequestTypeDef = TypedDict(
-    "GetLayoutRequestRequestTypeDef",
-    {
-        "domainId": str,
-        "layoutId": str,
-    },
-)
+class GetCaseAuditEventsResponseTypeDef(TypedDict):
+    auditEvents: List[AuditEventTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-GetLayoutResponseTypeDef = TypedDict(
-    "GetLayoutResponseTypeDef",
-    {
-        "content": "LayoutContentTypeDef",
-        "createdTime": datetime,
-        "deleted": bool,
-        "lastModifiedTime": datetime,
-        "layoutArn": str,
-        "layoutId": str,
-        "name": str,
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class EventBridgeConfigurationOutputTypeDef(TypedDict):
+    enabled: bool
+    includedData: NotRequired[EventIncludedDataOutputTypeDef]
 
-GetTemplateRequestRequestTypeDef = TypedDict(
-    "GetTemplateRequestRequestTypeDef",
-    {
-        "domainId": str,
-        "templateId": str,
-    },
-)
+class EventBridgeConfigurationTypeDef(TypedDict):
+    enabled: bool
+    includedData: NotRequired[EventIncludedDataTypeDef]
 
-GetTemplateResponseTypeDef = TypedDict(
-    "GetTemplateResponseTypeDef",
-    {
-        "createdTime": datetime,
-        "deleted": bool,
-        "description": str,
-        "lastModifiedTime": datetime,
-        "layoutConfiguration": "LayoutConfigurationTypeDef",
-        "name": str,
-        "requiredFields": List["RequiredFieldTypeDef"],
-        "status": TemplateStatusType,
-        "tags": Dict[str, str],
-        "templateArn": str,
-        "templateId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class RequiredCaseRuleOutputTypeDef(TypedDict):
+    conditions: List[BooleanConditionOutputTypeDef]
+    defaultValue: bool
 
-LayoutConfigurationTypeDef = TypedDict(
-    "LayoutConfigurationTypeDef",
-    {
-        "defaultLayout": str,
-    },
-    total=False,
-)
+class RequiredCaseRuleTypeDef(TypedDict):
+    conditions: Sequence[BooleanConditionTypeDef]
+    defaultValue: bool
 
-LayoutContentTypeDef = TypedDict(
-    "LayoutContentTypeDef",
-    {
-        "basic": "BasicLayoutTypeDef",
-    },
-    total=False,
-)
+class LayoutSectionsOutputTypeDef(TypedDict):
+    sections: NotRequired[List[SectionOutputTypeDef]]
 
-LayoutSectionsTypeDef = TypedDict(
-    "LayoutSectionsTypeDef",
-    {
-        "sections": List["SectionTypeDef"],
-    },
-    total=False,
-)
+class LayoutSectionsTypeDef(TypedDict):
+    sections: NotRequired[Sequence[SectionTypeDef]]
 
-LayoutSummaryTypeDef = TypedDict(
-    "LayoutSummaryTypeDef",
-    {
-        "layoutArn": str,
-        "layoutId": str,
-        "name": str,
-    },
-)
+class SearchCasesResponseTypeDef(TypedDict):
+    cases: List[SearchCasesResponseItemTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-_RequiredListCasesForContactRequestRequestTypeDef = TypedDict(
-    "_RequiredListCasesForContactRequestRequestTypeDef",
-    {
-        "contactArn": str,
-        "domainId": str,
-    },
-)
-_OptionalListCasesForContactRequestRequestTypeDef = TypedDict(
-    "_OptionalListCasesForContactRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
+class RelatedItemContentTypeDef(TypedDict):
+    comment: NotRequired[CommentContentTypeDef]
+    contact: NotRequired[ContactContentTypeDef]
+    file: NotRequired[FileContentTypeDef]
+    sla: NotRequired[SlaContentTypeDef]
 
-class ListCasesForContactRequestRequestTypeDef(
-    _RequiredListCasesForContactRequestRequestTypeDef,
-    _OptionalListCasesForContactRequestRequestTypeDef,
-):
-    pass
+FieldValueUnionExtraTypeDef = Union[FieldValueTypeDef, FieldValueOutputTypeDef]
 
-ListCasesForContactResponseTypeDef = TypedDict(
-    "ListCasesForContactResponseTypeDef",
-    {
-        "cases": List["CaseSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class SlaInputContentTypeDef(TypedDict):
+    slaInputConfiguration: NotRequired[SlaInputConfigurationTypeDef]
 
-ListDomainsRequestRequestTypeDef = TypedDict(
-    "ListDomainsRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
+class GetCaseEventConfigurationResponseTypeDef(TypedDict):
+    eventBridge: EventBridgeConfigurationOutputTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ListDomainsResponseTypeDef = TypedDict(
-    "ListDomainsResponseTypeDef",
-    {
-        "domains": List["DomainSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+EventBridgeConfigurationUnionTypeDef = Union[
+    EventBridgeConfigurationTypeDef, EventBridgeConfigurationOutputTypeDef
+]
 
-_RequiredListFieldOptionsRequestRequestTypeDef = TypedDict(
-    "_RequiredListFieldOptionsRequestRequestTypeDef",
-    {
-        "domainId": str,
-        "fieldId": str,
-    },
-)
-_OptionalListFieldOptionsRequestRequestTypeDef = TypedDict(
-    "_OptionalListFieldOptionsRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-        "values": List[str],
-    },
-    total=False,
-)
+class CaseRuleDetailsOutputTypeDef(TypedDict):
+    required: NotRequired[RequiredCaseRuleOutputTypeDef]
 
-class ListFieldOptionsRequestRequestTypeDef(
-    _RequiredListFieldOptionsRequestRequestTypeDef, _OptionalListFieldOptionsRequestRequestTypeDef
-):
-    pass
+class CaseRuleDetailsTypeDef(TypedDict):
+    required: NotRequired[RequiredCaseRuleTypeDef]
 
-ListFieldOptionsResponseTypeDef = TypedDict(
-    "ListFieldOptionsResponseTypeDef",
-    {
-        "nextToken": str,
-        "options": List["FieldOptionTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class BasicLayoutOutputTypeDef(TypedDict):
+    moreInfo: NotRequired[LayoutSectionsOutputTypeDef]
+    topPanel: NotRequired[LayoutSectionsOutputTypeDef]
 
-_RequiredListFieldsRequestRequestTypeDef = TypedDict(
-    "_RequiredListFieldsRequestRequestTypeDef",
-    {
-        "domainId": str,
-    },
-)
-_OptionalListFieldsRequestRequestTypeDef = TypedDict(
-    "_OptionalListFieldsRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
+class BasicLayoutTypeDef(TypedDict):
+    moreInfo: NotRequired[LayoutSectionsTypeDef]
+    topPanel: NotRequired[LayoutSectionsTypeDef]
 
-class ListFieldsRequestRequestTypeDef(
-    _RequiredListFieldsRequestRequestTypeDef, _OptionalListFieldsRequestRequestTypeDef
-):
-    pass
-
-ListFieldsResponseTypeDef = TypedDict(
-    "ListFieldsResponseTypeDef",
-    {
-        "fields": List["FieldSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListLayoutsRequestRequestTypeDef = TypedDict(
-    "_RequiredListLayoutsRequestRequestTypeDef",
-    {
-        "domainId": str,
-    },
-)
-_OptionalListLayoutsRequestRequestTypeDef = TypedDict(
-    "_OptionalListLayoutsRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListLayoutsRequestRequestTypeDef(
-    _RequiredListLayoutsRequestRequestTypeDef, _OptionalListLayoutsRequestRequestTypeDef
-):
-    pass
-
-ListLayoutsResponseTypeDef = TypedDict(
-    "ListLayoutsResponseTypeDef",
-    {
-        "layouts": List["LayoutSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "arn": str,
-    },
-)
-
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListTemplatesRequestRequestTypeDef = TypedDict(
-    "_RequiredListTemplatesRequestRequestTypeDef",
-    {
-        "domainId": str,
-    },
-)
-_OptionalListTemplatesRequestRequestTypeDef = TypedDict(
-    "_OptionalListTemplatesRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-        "status": List[TemplateStatusType],
-    },
-    total=False,
-)
-
-class ListTemplatesRequestRequestTypeDef(
-    _RequiredListTemplatesRequestRequestTypeDef, _OptionalListTemplatesRequestRequestTypeDef
-):
-    pass
-
-ListTemplatesResponseTypeDef = TypedDict(
-    "ListTemplatesResponseTypeDef",
-    {
-        "nextToken": str,
-        "templates": List["TemplateSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-PutCaseEventConfigurationRequestRequestTypeDef = TypedDict(
-    "PutCaseEventConfigurationRequestRequestTypeDef",
-    {
-        "domainId": str,
-        "eventBridge": "EventBridgeConfigurationTypeDef",
-    },
-)
-
-RelatedItemContentTypeDef = TypedDict(
-    "RelatedItemContentTypeDef",
-    {
-        "comment": "CommentContentTypeDef",
-        "contact": "ContactContentTypeDef",
-        "file": "FileContentTypeDef",
-    },
-    total=False,
-)
-
-RelatedItemEventIncludedDataTypeDef = TypedDict(
-    "RelatedItemEventIncludedDataTypeDef",
-    {
-        "includeContent": bool,
-    },
-)
-
-RelatedItemInputContentTypeDef = TypedDict(
-    "RelatedItemInputContentTypeDef",
-    {
-        "comment": "CommentContentTypeDef",
-        "contact": "ContactTypeDef",
-        "file": "FileContentTypeDef",
-    },
-    total=False,
-)
-
-RelatedItemTypeFilterTypeDef = TypedDict(
-    "RelatedItemTypeFilterTypeDef",
-    {
-        "comment": Dict[str, Any],
-        "contact": "ContactFilterTypeDef",
-        "file": "FileFilterTypeDef",
-    },
-    total=False,
-)
-
-RequiredFieldTypeDef = TypedDict(
-    "RequiredFieldTypeDef",
-    {
-        "fieldId": str,
-    },
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-_RequiredSearchCasesRequestRequestTypeDef = TypedDict(
-    "_RequiredSearchCasesRequestRequestTypeDef",
-    {
-        "domainId": str,
-    },
-)
-_OptionalSearchCasesRequestRequestTypeDef = TypedDict(
-    "_OptionalSearchCasesRequestRequestTypeDef",
-    {
-        "fields": List["FieldIdentifierTypeDef"],
-        "filter": "CaseFilterTypeDef",
-        "maxResults": int,
-        "nextToken": str,
-        "searchTerm": str,
-        "sorts": List["SortTypeDef"],
-    },
-    total=False,
-)
-
-class SearchCasesRequestRequestTypeDef(
-    _RequiredSearchCasesRequestRequestTypeDef, _OptionalSearchCasesRequestRequestTypeDef
-):
-    pass
-
-_RequiredSearchCasesResponseItemTypeDef = TypedDict(
-    "_RequiredSearchCasesResponseItemTypeDef",
-    {
-        "caseId": str,
-        "fields": List["FieldValueTypeDef"],
-        "templateId": str,
-    },
-)
-_OptionalSearchCasesResponseItemTypeDef = TypedDict(
-    "_OptionalSearchCasesResponseItemTypeDef",
-    {
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class SearchCasesResponseItemTypeDef(
-    _RequiredSearchCasesResponseItemTypeDef, _OptionalSearchCasesResponseItemTypeDef
-):
-    pass
-
-SearchCasesResponseTypeDef = TypedDict(
-    "SearchCasesResponseTypeDef",
-    {
-        "cases": List["SearchCasesResponseItemTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredSearchRelatedItemsRequestRequestTypeDef = TypedDict(
-    "_RequiredSearchRelatedItemsRequestRequestTypeDef",
-    {
-        "caseId": str,
-        "domainId": str,
-    },
-)
-_OptionalSearchRelatedItemsRequestRequestTypeDef = TypedDict(
-    "_OptionalSearchRelatedItemsRequestRequestTypeDef",
-    {
-        "filters": List["RelatedItemTypeFilterTypeDef"],
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class SearchRelatedItemsRequestRequestTypeDef(
-    _RequiredSearchRelatedItemsRequestRequestTypeDef,
-    _OptionalSearchRelatedItemsRequestRequestTypeDef,
-):
-    pass
-
-_RequiredSearchRelatedItemsResponseItemTypeDef = TypedDict(
-    "_RequiredSearchRelatedItemsResponseItemTypeDef",
+SearchRelatedItemsResponseItemTypeDef = TypedDict(
+    "SearchRelatedItemsResponseItemTypeDef",
     {
         "associationTime": datetime,
-        "content": "RelatedItemContentTypeDef",
+        "content": RelatedItemContentTypeDef,
         "relatedItemId": str,
         "type": RelatedItemTypeType,
+        "performedBy": NotRequired[UserUnionTypeDef],
+        "tags": NotRequired[Dict[str, str]],
     },
 )
-_OptionalSearchRelatedItemsResponseItemTypeDef = TypedDict(
-    "_OptionalSearchRelatedItemsResponseItemTypeDef",
+
+class CreateCaseRequestTypeDef(TypedDict):
+    domainId: str
+    fields: Sequence[FieldValueUnionExtraTypeDef]
+    templateId: str
+    clientToken: NotRequired[str]
+    performedBy: NotRequired[UserUnionTypeDef]
+
+class FieldFilterTypeDef(TypedDict):
+    contains: NotRequired[FieldValueUnionExtraTypeDef]
+    equalTo: NotRequired[FieldValueUnionExtraTypeDef]
+    greaterThan: NotRequired[FieldValueUnionExtraTypeDef]
+    greaterThanOrEqualTo: NotRequired[FieldValueUnionExtraTypeDef]
+    lessThan: NotRequired[FieldValueUnionExtraTypeDef]
+    lessThanOrEqualTo: NotRequired[FieldValueUnionExtraTypeDef]
+
+class UpdateCaseRequestTypeDef(TypedDict):
+    caseId: str
+    domainId: str
+    fields: Sequence[FieldValueUnionExtraTypeDef]
+    performedBy: NotRequired[UserUnionTypeDef]
+
+class RelatedItemInputContentTypeDef(TypedDict):
+    comment: NotRequired[CommentContentTypeDef]
+    contact: NotRequired[ContactTypeDef]
+    file: NotRequired[FileContentTypeDef]
+    sla: NotRequired[SlaInputContentTypeDef]
+
+class PutCaseEventConfigurationRequestTypeDef(TypedDict):
+    domainId: str
+    eventBridge: EventBridgeConfigurationUnionTypeDef
+
+class GetCaseRuleResponseTypeDef(TypedDict):
+    caseRuleArn: str
+    caseRuleId: str
+    name: str
+    rule: CaseRuleDetailsOutputTypeDef
+    createdTime: NotRequired[datetime]
+    deleted: NotRequired[bool]
+    description: NotRequired[str]
+    lastModifiedTime: NotRequired[datetime]
+    tags: NotRequired[Dict[str, str]]
+
+CaseRuleDetailsUnionTypeDef = Union[CaseRuleDetailsTypeDef, CaseRuleDetailsOutputTypeDef]
+
+class LayoutContentOutputTypeDef(TypedDict):
+    basic: NotRequired[BasicLayoutOutputTypeDef]
+
+class LayoutContentTypeDef(TypedDict):
+    basic: NotRequired[BasicLayoutTypeDef]
+
+class SearchRelatedItemsResponseTypeDef(TypedDict):
+    relatedItems: List[SearchRelatedItemsResponseItemTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+CaseFilterPaginatorTypeDef = TypedDict(
+    "CaseFilterPaginatorTypeDef",
     {
-        "performedBy": "UserUnionTypeDef",
-        "tags": Dict[str, str],
+        "andAll": NotRequired[Sequence[Mapping[str, Any]]],
+        "field": NotRequired[FieldFilterTypeDef],
+        "not": NotRequired[Mapping[str, Any]],
+        "orAll": NotRequired[Sequence[Mapping[str, Any]]],
     },
-    total=False,
 )
-
-class SearchRelatedItemsResponseItemTypeDef(
-    _RequiredSearchRelatedItemsResponseItemTypeDef, _OptionalSearchRelatedItemsResponseItemTypeDef
-):
-    pass
-
-SearchRelatedItemsResponseTypeDef = TypedDict(
-    "SearchRelatedItemsResponseTypeDef",
+CaseFilterTypeDef = TypedDict(
+    "CaseFilterTypeDef",
     {
-        "nextToken": str,
-        "relatedItems": List["SearchRelatedItemsResponseItemTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "andAll": NotRequired[Sequence[Mapping[str, Any]]],
+        "field": NotRequired[FieldFilterTypeDef],
+        "not": NotRequired[Mapping[str, Any]],
+        "orAll": NotRequired[Sequence[Mapping[str, Any]]],
     },
 )
-
-SectionTypeDef = TypedDict(
-    "SectionTypeDef",
-    {
-        "fieldGroup": "FieldGroupTypeDef",
-    },
-    total=False,
-)
-
-SortTypeDef = TypedDict(
-    "SortTypeDef",
-    {
-        "fieldId": str,
-        "sortOrder": OrderType,
-    },
-)
-
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "arn": str,
-        "tags": Dict[str, str],
-    },
-)
-
-TemplateSummaryTypeDef = TypedDict(
-    "TemplateSummaryTypeDef",
-    {
-        "name": str,
-        "status": TemplateStatusType,
-        "templateArn": str,
-        "templateId": str,
-    },
-)
-
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "arn": str,
-        "tagKeys": List[str],
-    },
-)
-
-_RequiredUpdateCaseRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateCaseRequestRequestTypeDef",
+CreateRelatedItemRequestTypeDef = TypedDict(
+    "CreateRelatedItemRequestTypeDef",
     {
         "caseId": str,
+        "content": RelatedItemInputContentTypeDef,
         "domainId": str,
-        "fields": List["FieldValueTypeDef"],
+        "type": RelatedItemTypeType,
+        "performedBy": NotRequired[UserUnionTypeDef],
     },
 )
-_OptionalUpdateCaseRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateCaseRequestRequestTypeDef",
-    {
-        "performedBy": "UserUnionTypeDef",
-    },
-    total=False,
-)
 
-class UpdateCaseRequestRequestTypeDef(
-    _RequiredUpdateCaseRequestRequestTypeDef, _OptionalUpdateCaseRequestRequestTypeDef
-):
-    pass
+class BatchGetCaseRuleResponseTypeDef(TypedDict):
+    caseRules: List[GetCaseRuleResponseTypeDef]
+    errors: List[CaseRuleErrorTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredUpdateFieldRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateFieldRequestRequestTypeDef",
-    {
-        "domainId": str,
-        "fieldId": str,
-    },
-)
-_OptionalUpdateFieldRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateFieldRequestRequestTypeDef",
-    {
-        "description": str,
-        "name": str,
-    },
-    total=False,
-)
+class CreateCaseRuleRequestTypeDef(TypedDict):
+    domainId: str
+    name: str
+    rule: CaseRuleDetailsUnionTypeDef
+    description: NotRequired[str]
 
-class UpdateFieldRequestRequestTypeDef(
-    _RequiredUpdateFieldRequestRequestTypeDef, _OptionalUpdateFieldRequestRequestTypeDef
-):
-    pass
+class UpdateCaseRuleRequestTypeDef(TypedDict):
+    caseRuleId: str
+    domainId: str
+    description: NotRequired[str]
+    name: NotRequired[str]
+    rule: NotRequired[CaseRuleDetailsUnionTypeDef]
 
-_RequiredUpdateLayoutRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateLayoutRequestRequestTypeDef",
-    {
-        "domainId": str,
-        "layoutId": str,
-    },
-)
-_OptionalUpdateLayoutRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateLayoutRequestRequestTypeDef",
-    {
-        "content": "LayoutContentTypeDef",
-        "name": str,
-    },
-    total=False,
-)
+class GetLayoutResponseTypeDef(TypedDict):
+    content: LayoutContentOutputTypeDef
+    createdTime: datetime
+    deleted: bool
+    lastModifiedTime: datetime
+    layoutArn: str
+    layoutId: str
+    name: str
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateLayoutRequestRequestTypeDef(
-    _RequiredUpdateLayoutRequestRequestTypeDef, _OptionalUpdateLayoutRequestRequestTypeDef
-):
-    pass
-
-_RequiredUpdateTemplateRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateTemplateRequestRequestTypeDef",
+LayoutContentUnionTypeDef = Union[LayoutContentTypeDef, LayoutContentOutputTypeDef]
+SearchCasesRequestPaginateTypeDef = TypedDict(
+    "SearchCasesRequestPaginateTypeDef",
     {
         "domainId": str,
-        "templateId": str,
+        "fields": NotRequired[Sequence[FieldIdentifierTypeDef]],
+        "filter": NotRequired[CaseFilterPaginatorTypeDef],
+        "searchTerm": NotRequired[str],
+        "sorts": NotRequired[Sequence[SortTypeDef]],
+        "PaginationConfig": NotRequired[PaginatorConfigTypeDef],
     },
 )
-_OptionalUpdateTemplateRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateTemplateRequestRequestTypeDef",
+SearchCasesRequestTypeDef = TypedDict(
+    "SearchCasesRequestTypeDef",
     {
-        "description": str,
-        "layoutConfiguration": "LayoutConfigurationTypeDef",
-        "name": str,
-        "requiredFields": List["RequiredFieldTypeDef"],
-        "status": TemplateStatusType,
+        "domainId": str,
+        "fields": NotRequired[Sequence[FieldIdentifierTypeDef]],
+        "filter": NotRequired[CaseFilterTypeDef],
+        "maxResults": NotRequired[int],
+        "nextToken": NotRequired[str],
+        "searchTerm": NotRequired[str],
+        "sorts": NotRequired[Sequence[SortTypeDef]],
     },
-    total=False,
 )
 
-class UpdateTemplateRequestRequestTypeDef(
-    _RequiredUpdateTemplateRequestRequestTypeDef, _OptionalUpdateTemplateRequestRequestTypeDef
-):
-    pass
+class CreateLayoutRequestTypeDef(TypedDict):
+    content: LayoutContentUnionTypeDef
+    domainId: str
+    name: str
 
-UserUnionTypeDef = TypedDict(
-    "UserUnionTypeDef",
-    {
-        "userArn": str,
-    },
-    total=False,
-)
+class UpdateLayoutRequestTypeDef(TypedDict):
+    domainId: str
+    layoutId: str
+    content: NotRequired[LayoutContentUnionTypeDef]
+    name: NotRequired[str]

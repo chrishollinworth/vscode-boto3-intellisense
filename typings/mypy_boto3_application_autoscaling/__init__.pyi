@@ -1,10 +1,14 @@
 """
 Main interface for application-autoscaling service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_application_autoscaling/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_application_autoscaling import (
         ApplicationAutoScalingClient,
         Client,
@@ -14,10 +18,8 @@ Usage::
         DescribeScheduledActionsPaginator,
     )
 
-    session = boto3.Session()
-
-    client: ApplicationAutoScalingClient = boto3.client("application-autoscaling")
-    session_client: ApplicationAutoScalingClient = session.client("application-autoscaling")
+    session = Session()
+    client: ApplicationAutoScalingClient = session.client("application-autoscaling")
 
     describe_scalable_targets_paginator: DescribeScalableTargetsPaginator = client.get_paginator("describe_scalable_targets")
     describe_scaling_activities_paginator: DescribeScalingActivitiesPaginator = client.get_paginator("describe_scaling_activities")

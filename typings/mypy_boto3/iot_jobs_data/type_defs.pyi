@@ -1,201 +1,152 @@
 """
 Type annotations for iot-jobs-data service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot_jobs_data/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iot_jobs_data/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_iot_jobs_data.type_defs import DescribeJobExecutionRequestRequestTypeDef
+    from mypy_boto3_iot_jobs_data.type_defs import BlobTypeDef
 
-    data: DescribeJobExecutionRequestRequestTypeDef = {...}
+    data: BlobTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from typing import Any, Dict, List
+from typing import IO, Any, Union
+
+from botocore.response import StreamingBody
 
 from .literals import JobExecutionStatusType
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List, Mapping
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
-    "DescribeJobExecutionRequestRequestTypeDef",
+    "BlobTypeDef",
+    "CommandParameterValueTypeDef",
+    "DescribeJobExecutionRequestTypeDef",
     "DescribeJobExecutionResponseTypeDef",
-    "GetPendingJobExecutionsRequestRequestTypeDef",
+    "GetPendingJobExecutionsRequestTypeDef",
     "GetPendingJobExecutionsResponseTypeDef",
     "JobExecutionStateTypeDef",
     "JobExecutionSummaryTypeDef",
     "JobExecutionTypeDef",
     "ResponseMetadataTypeDef",
-    "StartNextPendingJobExecutionRequestRequestTypeDef",
+    "StartCommandExecutionRequestTypeDef",
+    "StartCommandExecutionResponseTypeDef",
+    "StartNextPendingJobExecutionRequestTypeDef",
     "StartNextPendingJobExecutionResponseTypeDef",
-    "UpdateJobExecutionRequestRequestTypeDef",
+    "UpdateJobExecutionRequestTypeDef",
     "UpdateJobExecutionResponseTypeDef",
 )
 
-_RequiredDescribeJobExecutionRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeJobExecutionRequestRequestTypeDef",
-    {
-        "jobId": str,
-        "thingName": str,
-    },
-)
-_OptionalDescribeJobExecutionRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeJobExecutionRequestRequestTypeDef",
-    {
-        "includeJobDocument": bool,
-        "executionNumber": int,
-    },
-    total=False,
-)
+BlobTypeDef = Union[str, bytes, IO[Any], StreamingBody]
 
-class DescribeJobExecutionRequestRequestTypeDef(
-    _RequiredDescribeJobExecutionRequestRequestTypeDef,
-    _OptionalDescribeJobExecutionRequestRequestTypeDef,
-):
-    pass
+class DescribeJobExecutionRequestTypeDef(TypedDict):
+    jobId: str
+    thingName: str
+    includeJobDocument: NotRequired[bool]
+    executionNumber: NotRequired[int]
 
-DescribeJobExecutionResponseTypeDef = TypedDict(
-    "DescribeJobExecutionResponseTypeDef",
-    {
-        "execution": "JobExecutionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class JobExecutionTypeDef(TypedDict):
+    jobId: NotRequired[str]
+    thingName: NotRequired[str]
+    status: NotRequired[JobExecutionStatusType]
+    statusDetails: NotRequired[Dict[str, str]]
+    queuedAt: NotRequired[int]
+    startedAt: NotRequired[int]
+    lastUpdatedAt: NotRequired[int]
+    approximateSecondsBeforeTimedOut: NotRequired[int]
+    versionNumber: NotRequired[int]
+    executionNumber: NotRequired[int]
+    jobDocument: NotRequired[str]
 
-GetPendingJobExecutionsRequestRequestTypeDef = TypedDict(
-    "GetPendingJobExecutionsRequestRequestTypeDef",
-    {
-        "thingName": str,
-    },
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-GetPendingJobExecutionsResponseTypeDef = TypedDict(
-    "GetPendingJobExecutionsResponseTypeDef",
-    {
-        "inProgressJobs": List["JobExecutionSummaryTypeDef"],
-        "queuedJobs": List["JobExecutionSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetPendingJobExecutionsRequestTypeDef(TypedDict):
+    thingName: str
 
-JobExecutionStateTypeDef = TypedDict(
-    "JobExecutionStateTypeDef",
-    {
-        "status": JobExecutionStatusType,
-        "statusDetails": Dict[str, str],
-        "versionNumber": int,
-    },
-    total=False,
-)
+class JobExecutionSummaryTypeDef(TypedDict):
+    jobId: NotRequired[str]
+    queuedAt: NotRequired[int]
+    startedAt: NotRequired[int]
+    lastUpdatedAt: NotRequired[int]
+    versionNumber: NotRequired[int]
+    executionNumber: NotRequired[int]
 
-JobExecutionSummaryTypeDef = TypedDict(
-    "JobExecutionSummaryTypeDef",
-    {
-        "jobId": str,
-        "queuedAt": int,
-        "startedAt": int,
-        "lastUpdatedAt": int,
-        "versionNumber": int,
-        "executionNumber": int,
-    },
-    total=False,
-)
+class JobExecutionStateTypeDef(TypedDict):
+    status: NotRequired[JobExecutionStatusType]
+    statusDetails: NotRequired[Dict[str, str]]
+    versionNumber: NotRequired[int]
 
-JobExecutionTypeDef = TypedDict(
-    "JobExecutionTypeDef",
-    {
-        "jobId": str,
-        "thingName": str,
-        "status": JobExecutionStatusType,
-        "statusDetails": Dict[str, str],
-        "queuedAt": int,
-        "startedAt": int,
-        "lastUpdatedAt": int,
-        "approximateSecondsBeforeTimedOut": int,
-        "versionNumber": int,
-        "executionNumber": int,
-        "jobDocument": str,
-    },
-    total=False,
-)
+class StartNextPendingJobExecutionRequestTypeDef(TypedDict):
+    thingName: str
+    statusDetails: NotRequired[Mapping[str, str]]
+    stepTimeoutInMinutes: NotRequired[int]
 
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
+class UpdateJobExecutionRequestTypeDef(TypedDict):
+    jobId: str
+    thingName: str
+    status: JobExecutionStatusType
+    statusDetails: NotRequired[Mapping[str, str]]
+    stepTimeoutInMinutes: NotRequired[int]
+    expectedVersion: NotRequired[int]
+    includeJobExecutionState: NotRequired[bool]
+    includeJobDocument: NotRequired[bool]
+    executionNumber: NotRequired[int]
 
-_RequiredStartNextPendingJobExecutionRequestRequestTypeDef = TypedDict(
-    "_RequiredStartNextPendingJobExecutionRequestRequestTypeDef",
-    {
-        "thingName": str,
-    },
-)
-_OptionalStartNextPendingJobExecutionRequestRequestTypeDef = TypedDict(
-    "_OptionalStartNextPendingJobExecutionRequestRequestTypeDef",
-    {
-        "statusDetails": Dict[str, str],
-        "stepTimeoutInMinutes": int,
-    },
-    total=False,
-)
+class CommandParameterValueTypeDef(TypedDict):
+    S: NotRequired[str]
+    B: NotRequired[bool]
+    I: NotRequired[int]
+    L: NotRequired[int]
+    D: NotRequired[float]
+    BIN: NotRequired[BlobTypeDef]
+    UL: NotRequired[str]
 
-class StartNextPendingJobExecutionRequestRequestTypeDef(
-    _RequiredStartNextPendingJobExecutionRequestRequestTypeDef,
-    _OptionalStartNextPendingJobExecutionRequestRequestTypeDef,
-):
-    pass
+class DescribeJobExecutionResponseTypeDef(TypedDict):
+    execution: JobExecutionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-StartNextPendingJobExecutionResponseTypeDef = TypedDict(
-    "StartNextPendingJobExecutionResponseTypeDef",
-    {
-        "execution": "JobExecutionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class StartCommandExecutionResponseTypeDef(TypedDict):
+    executionId: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredUpdateJobExecutionRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateJobExecutionRequestRequestTypeDef",
-    {
-        "jobId": str,
-        "thingName": str,
-        "status": JobExecutionStatusType,
-    },
-)
-_OptionalUpdateJobExecutionRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateJobExecutionRequestRequestTypeDef",
-    {
-        "statusDetails": Dict[str, str],
-        "stepTimeoutInMinutes": int,
-        "expectedVersion": int,
-        "includeJobExecutionState": bool,
-        "includeJobDocument": bool,
-        "executionNumber": int,
-    },
-    total=False,
-)
+class StartNextPendingJobExecutionResponseTypeDef(TypedDict):
+    execution: JobExecutionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateJobExecutionRequestRequestTypeDef(
-    _RequiredUpdateJobExecutionRequestRequestTypeDef,
-    _OptionalUpdateJobExecutionRequestRequestTypeDef,
-):
-    pass
+class GetPendingJobExecutionsResponseTypeDef(TypedDict):
+    inProgressJobs: List[JobExecutionSummaryTypeDef]
+    queuedJobs: List[JobExecutionSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-UpdateJobExecutionResponseTypeDef = TypedDict(
-    "UpdateJobExecutionResponseTypeDef",
-    {
-        "executionState": "JobExecutionStateTypeDef",
-        "jobDocument": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class UpdateJobExecutionResponseTypeDef(TypedDict):
+    executionState: JobExecutionStateTypeDef
+    jobDocument: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartCommandExecutionRequestTypeDef(TypedDict):
+    targetArn: str
+    commandArn: str
+    parameters: NotRequired[Mapping[str, CommandParameterValueTypeDef]]
+    executionTimeoutSeconds: NotRequired[int]
+    clientToken: NotRequired[str]

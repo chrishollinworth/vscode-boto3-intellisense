@@ -1,497 +1,305 @@
 """
 Type annotations for cognito-sync service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_sync/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cognito_sync/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_cognito_sync.type_defs import BulkPublishRequestRequestTypeDef
+    from mypy_boto3_cognito_sync.type_defs import BulkPublishRequestTypeDef
 
-    data: BulkPublishRequestRequestTypeDef = {...}
+    data: BulkPublishRequestTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List, Union
+from typing import Union
 
 from .literals import BulkPublishStatusType, OperationType, PlatformType, StreamingStatusType
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
-    "BulkPublishRequestRequestTypeDef",
+    "BulkPublishRequestTypeDef",
     "BulkPublishResponseTypeDef",
     "CognitoStreamsTypeDef",
     "DatasetTypeDef",
-    "DeleteDatasetRequestRequestTypeDef",
+    "DeleteDatasetRequestTypeDef",
     "DeleteDatasetResponseTypeDef",
-    "DescribeDatasetRequestRequestTypeDef",
+    "DescribeDatasetRequestTypeDef",
     "DescribeDatasetResponseTypeDef",
-    "DescribeIdentityPoolUsageRequestRequestTypeDef",
+    "DescribeIdentityPoolUsageRequestTypeDef",
     "DescribeIdentityPoolUsageResponseTypeDef",
-    "DescribeIdentityUsageRequestRequestTypeDef",
+    "DescribeIdentityUsageRequestTypeDef",
     "DescribeIdentityUsageResponseTypeDef",
-    "GetBulkPublishDetailsRequestRequestTypeDef",
+    "EmptyResponseMetadataTypeDef",
+    "GetBulkPublishDetailsRequestTypeDef",
     "GetBulkPublishDetailsResponseTypeDef",
-    "GetCognitoEventsRequestRequestTypeDef",
+    "GetCognitoEventsRequestTypeDef",
     "GetCognitoEventsResponseTypeDef",
-    "GetIdentityPoolConfigurationRequestRequestTypeDef",
+    "GetIdentityPoolConfigurationRequestTypeDef",
     "GetIdentityPoolConfigurationResponseTypeDef",
     "IdentityPoolUsageTypeDef",
     "IdentityUsageTypeDef",
-    "ListDatasetsRequestRequestTypeDef",
+    "ListDatasetsRequestTypeDef",
     "ListDatasetsResponseTypeDef",
-    "ListIdentityPoolUsageRequestRequestTypeDef",
+    "ListIdentityPoolUsageRequestTypeDef",
     "ListIdentityPoolUsageResponseTypeDef",
-    "ListRecordsRequestRequestTypeDef",
+    "ListRecordsRequestTypeDef",
     "ListRecordsResponseTypeDef",
+    "PushSyncOutputTypeDef",
     "PushSyncTypeDef",
+    "PushSyncUnionTypeDef",
     "RecordPatchTypeDef",
     "RecordTypeDef",
-    "RegisterDeviceRequestRequestTypeDef",
+    "RegisterDeviceRequestTypeDef",
     "RegisterDeviceResponseTypeDef",
     "ResponseMetadataTypeDef",
-    "SetCognitoEventsRequestRequestTypeDef",
-    "SetIdentityPoolConfigurationRequestRequestTypeDef",
+    "SetCognitoEventsRequestTypeDef",
+    "SetIdentityPoolConfigurationRequestTypeDef",
     "SetIdentityPoolConfigurationResponseTypeDef",
-    "SubscribeToDatasetRequestRequestTypeDef",
-    "UnsubscribeFromDatasetRequestRequestTypeDef",
-    "UpdateRecordsRequestRequestTypeDef",
+    "SubscribeToDatasetRequestTypeDef",
+    "TimestampTypeDef",
+    "UnsubscribeFromDatasetRequestTypeDef",
+    "UpdateRecordsRequestTypeDef",
     "UpdateRecordsResponseTypeDef",
 )
 
-BulkPublishRequestRequestTypeDef = TypedDict(
-    "BulkPublishRequestRequestTypeDef",
-    {
-        "IdentityPoolId": str,
-    },
-)
+class BulkPublishRequestTypeDef(TypedDict):
+    IdentityPoolId: str
 
-BulkPublishResponseTypeDef = TypedDict(
-    "BulkPublishResponseTypeDef",
-    {
-        "IdentityPoolId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-CognitoStreamsTypeDef = TypedDict(
-    "CognitoStreamsTypeDef",
-    {
-        "StreamName": str,
-        "RoleArn": str,
-        "StreamingStatus": StreamingStatusType,
-    },
-    total=False,
-)
+class CognitoStreamsTypeDef(TypedDict):
+    StreamName: NotRequired[str]
+    RoleArn: NotRequired[str]
+    StreamingStatus: NotRequired[StreamingStatusType]
 
-DatasetTypeDef = TypedDict(
-    "DatasetTypeDef",
-    {
-        "IdentityId": str,
-        "DatasetName": str,
-        "CreationDate": datetime,
-        "LastModifiedDate": datetime,
-        "LastModifiedBy": str,
-        "DataStorage": int,
-        "NumRecords": int,
-    },
-    total=False,
-)
+class DatasetTypeDef(TypedDict):
+    IdentityId: NotRequired[str]
+    DatasetName: NotRequired[str]
+    CreationDate: NotRequired[datetime]
+    LastModifiedDate: NotRequired[datetime]
+    LastModifiedBy: NotRequired[str]
+    DataStorage: NotRequired[int]
+    NumRecords: NotRequired[int]
 
-DeleteDatasetRequestRequestTypeDef = TypedDict(
-    "DeleteDatasetRequestRequestTypeDef",
-    {
-        "IdentityPoolId": str,
-        "IdentityId": str,
-        "DatasetName": str,
-    },
-)
+class DeleteDatasetRequestTypeDef(TypedDict):
+    IdentityPoolId: str
+    IdentityId: str
+    DatasetName: str
 
-DeleteDatasetResponseTypeDef = TypedDict(
-    "DeleteDatasetResponseTypeDef",
-    {
-        "Dataset": "DatasetTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DescribeDatasetRequestTypeDef(TypedDict):
+    IdentityPoolId: str
+    IdentityId: str
+    DatasetName: str
 
-DescribeDatasetRequestRequestTypeDef = TypedDict(
-    "DescribeDatasetRequestRequestTypeDef",
-    {
-        "IdentityPoolId": str,
-        "IdentityId": str,
-        "DatasetName": str,
-    },
-)
+class DescribeIdentityPoolUsageRequestTypeDef(TypedDict):
+    IdentityPoolId: str
 
-DescribeDatasetResponseTypeDef = TypedDict(
-    "DescribeDatasetResponseTypeDef",
-    {
-        "Dataset": "DatasetTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class IdentityPoolUsageTypeDef(TypedDict):
+    IdentityPoolId: NotRequired[str]
+    SyncSessionsCount: NotRequired[int]
+    DataStorage: NotRequired[int]
+    LastModifiedDate: NotRequired[datetime]
 
-DescribeIdentityPoolUsageRequestRequestTypeDef = TypedDict(
-    "DescribeIdentityPoolUsageRequestRequestTypeDef",
-    {
-        "IdentityPoolId": str,
-    },
-)
+class DescribeIdentityUsageRequestTypeDef(TypedDict):
+    IdentityPoolId: str
+    IdentityId: str
 
-DescribeIdentityPoolUsageResponseTypeDef = TypedDict(
-    "DescribeIdentityPoolUsageResponseTypeDef",
-    {
-        "IdentityPoolUsage": "IdentityPoolUsageTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class IdentityUsageTypeDef(TypedDict):
+    IdentityId: NotRequired[str]
+    IdentityPoolId: NotRequired[str]
+    LastModifiedDate: NotRequired[datetime]
+    DatasetCount: NotRequired[int]
+    DataStorage: NotRequired[int]
 
-DescribeIdentityUsageRequestRequestTypeDef = TypedDict(
-    "DescribeIdentityUsageRequestRequestTypeDef",
-    {
-        "IdentityPoolId": str,
-        "IdentityId": str,
-    },
-)
+class GetBulkPublishDetailsRequestTypeDef(TypedDict):
+    IdentityPoolId: str
 
-DescribeIdentityUsageResponseTypeDef = TypedDict(
-    "DescribeIdentityUsageResponseTypeDef",
-    {
-        "IdentityUsage": "IdentityUsageTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetCognitoEventsRequestTypeDef(TypedDict):
+    IdentityPoolId: str
 
-GetBulkPublishDetailsRequestRequestTypeDef = TypedDict(
-    "GetBulkPublishDetailsRequestRequestTypeDef",
-    {
-        "IdentityPoolId": str,
-    },
-)
+class GetIdentityPoolConfigurationRequestTypeDef(TypedDict):
+    IdentityPoolId: str
 
-GetBulkPublishDetailsResponseTypeDef = TypedDict(
-    "GetBulkPublishDetailsResponseTypeDef",
-    {
-        "IdentityPoolId": str,
-        "BulkPublishStartTime": datetime,
-        "BulkPublishCompleteTime": datetime,
-        "BulkPublishStatus": BulkPublishStatusType,
-        "FailureMessage": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class PushSyncOutputTypeDef(TypedDict):
+    ApplicationArns: NotRequired[List[str]]
+    RoleArn: NotRequired[str]
 
-GetCognitoEventsRequestRequestTypeDef = TypedDict(
-    "GetCognitoEventsRequestRequestTypeDef",
-    {
-        "IdentityPoolId": str,
-    },
-)
+class ListDatasetsRequestTypeDef(TypedDict):
+    IdentityPoolId: str
+    IdentityId: str
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
 
-GetCognitoEventsResponseTypeDef = TypedDict(
-    "GetCognitoEventsResponseTypeDef",
-    {
-        "Events": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListIdentityPoolUsageRequestTypeDef(TypedDict):
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
 
-GetIdentityPoolConfigurationRequestRequestTypeDef = TypedDict(
-    "GetIdentityPoolConfigurationRequestRequestTypeDef",
-    {
-        "IdentityPoolId": str,
-    },
-)
+class ListRecordsRequestTypeDef(TypedDict):
+    IdentityPoolId: str
+    IdentityId: str
+    DatasetName: str
+    LastSyncCount: NotRequired[int]
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+    SyncSessionToken: NotRequired[str]
 
-GetIdentityPoolConfigurationResponseTypeDef = TypedDict(
-    "GetIdentityPoolConfigurationResponseTypeDef",
-    {
-        "IdentityPoolId": str,
-        "PushSync": "PushSyncTypeDef",
-        "CognitoStreams": "CognitoStreamsTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class RecordTypeDef(TypedDict):
+    Key: NotRequired[str]
+    Value: NotRequired[str]
+    SyncCount: NotRequired[int]
+    LastModifiedDate: NotRequired[datetime]
+    LastModifiedBy: NotRequired[str]
+    DeviceLastModifiedDate: NotRequired[datetime]
 
-IdentityPoolUsageTypeDef = TypedDict(
-    "IdentityPoolUsageTypeDef",
-    {
-        "IdentityPoolId": str,
-        "SyncSessionsCount": int,
-        "DataStorage": int,
-        "LastModifiedDate": datetime,
-    },
-    total=False,
-)
+class PushSyncTypeDef(TypedDict):
+    ApplicationArns: NotRequired[Sequence[str]]
+    RoleArn: NotRequired[str]
 
-IdentityUsageTypeDef = TypedDict(
-    "IdentityUsageTypeDef",
-    {
-        "IdentityId": str,
-        "IdentityPoolId": str,
-        "LastModifiedDate": datetime,
-        "DatasetCount": int,
-        "DataStorage": int,
-    },
-    total=False,
-)
+TimestampTypeDef = Union[datetime, str]
 
-_RequiredListDatasetsRequestRequestTypeDef = TypedDict(
-    "_RequiredListDatasetsRequestRequestTypeDef",
-    {
-        "IdentityPoolId": str,
-        "IdentityId": str,
-    },
-)
-_OptionalListDatasetsRequestRequestTypeDef = TypedDict(
-    "_OptionalListDatasetsRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
+class RegisterDeviceRequestTypeDef(TypedDict):
+    IdentityPoolId: str
+    IdentityId: str
+    Platform: PlatformType
+    Token: str
 
-class ListDatasetsRequestRequestTypeDef(
-    _RequiredListDatasetsRequestRequestTypeDef, _OptionalListDatasetsRequestRequestTypeDef
-):
-    pass
+class SetCognitoEventsRequestTypeDef(TypedDict):
+    IdentityPoolId: str
+    Events: Mapping[str, str]
 
-ListDatasetsResponseTypeDef = TypedDict(
-    "ListDatasetsResponseTypeDef",
-    {
-        "Datasets": List["DatasetTypeDef"],
-        "Count": int,
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class SubscribeToDatasetRequestTypeDef(TypedDict):
+    IdentityPoolId: str
+    IdentityId: str
+    DatasetName: str
+    DeviceId: str
 
-ListIdentityPoolUsageRequestRequestTypeDef = TypedDict(
-    "ListIdentityPoolUsageRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
+class UnsubscribeFromDatasetRequestTypeDef(TypedDict):
+    IdentityPoolId: str
+    IdentityId: str
+    DatasetName: str
+    DeviceId: str
 
-ListIdentityPoolUsageResponseTypeDef = TypedDict(
-    "ListIdentityPoolUsageResponseTypeDef",
-    {
-        "IdentityPoolUsages": List["IdentityPoolUsageTypeDef"],
-        "MaxResults": int,
-        "Count": int,
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class BulkPublishResponseTypeDef(TypedDict):
+    IdentityPoolId: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredListRecordsRequestRequestTypeDef = TypedDict(
-    "_RequiredListRecordsRequestRequestTypeDef",
-    {
-        "IdentityPoolId": str,
-        "IdentityId": str,
-        "DatasetName": str,
-    },
-)
-_OptionalListRecordsRequestRequestTypeDef = TypedDict(
-    "_OptionalListRecordsRequestRequestTypeDef",
-    {
-        "LastSyncCount": int,
-        "NextToken": str,
-        "MaxResults": int,
-        "SyncSessionToken": str,
-    },
-    total=False,
-)
+class EmptyResponseMetadataTypeDef(TypedDict):
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class ListRecordsRequestRequestTypeDef(
-    _RequiredListRecordsRequestRequestTypeDef, _OptionalListRecordsRequestRequestTypeDef
-):
-    pass
+class GetBulkPublishDetailsResponseTypeDef(TypedDict):
+    IdentityPoolId: str
+    BulkPublishStartTime: datetime
+    BulkPublishCompleteTime: datetime
+    BulkPublishStatus: BulkPublishStatusType
+    FailureMessage: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ListRecordsResponseTypeDef = TypedDict(
-    "ListRecordsResponseTypeDef",
-    {
-        "Records": List["RecordTypeDef"],
-        "NextToken": str,
-        "Count": int,
-        "DatasetSyncCount": int,
-        "LastModifiedBy": str,
-        "MergedDatasetNames": List[str],
-        "DatasetExists": bool,
-        "DatasetDeletedAfterRequestedSyncCount": bool,
-        "SyncSessionToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetCognitoEventsResponseTypeDef(TypedDict):
+    Events: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-PushSyncTypeDef = TypedDict(
-    "PushSyncTypeDef",
-    {
-        "ApplicationArns": List[str],
-        "RoleArn": str,
-    },
-    total=False,
-)
+class RegisterDeviceResponseTypeDef(TypedDict):
+    DeviceId: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredRecordPatchTypeDef = TypedDict(
-    "_RequiredRecordPatchTypeDef",
-    {
-        "Op": OperationType,
-        "Key": str,
-        "SyncCount": int,
-    },
-)
-_OptionalRecordPatchTypeDef = TypedDict(
-    "_OptionalRecordPatchTypeDef",
-    {
-        "Value": str,
-        "DeviceLastModifiedDate": Union[datetime, str],
-    },
-    total=False,
-)
+class DeleteDatasetResponseTypeDef(TypedDict):
+    Dataset: DatasetTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class RecordPatchTypeDef(_RequiredRecordPatchTypeDef, _OptionalRecordPatchTypeDef):
-    pass
+class DescribeDatasetResponseTypeDef(TypedDict):
+    Dataset: DatasetTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-RecordTypeDef = TypedDict(
-    "RecordTypeDef",
-    {
-        "Key": str,
-        "Value": str,
-        "SyncCount": int,
-        "LastModifiedDate": datetime,
-        "LastModifiedBy": str,
-        "DeviceLastModifiedDate": datetime,
-    },
-    total=False,
-)
+class ListDatasetsResponseTypeDef(TypedDict):
+    Datasets: List[DatasetTypeDef]
+    Count: int
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-RegisterDeviceRequestRequestTypeDef = TypedDict(
-    "RegisterDeviceRequestRequestTypeDef",
-    {
-        "IdentityPoolId": str,
-        "IdentityId": str,
-        "Platform": PlatformType,
-        "Token": str,
-    },
-)
+class DescribeIdentityPoolUsageResponseTypeDef(TypedDict):
+    IdentityPoolUsage: IdentityPoolUsageTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-RegisterDeviceResponseTypeDef = TypedDict(
-    "RegisterDeviceResponseTypeDef",
-    {
-        "DeviceId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListIdentityPoolUsageResponseTypeDef(TypedDict):
+    IdentityPoolUsages: List[IdentityPoolUsageTypeDef]
+    MaxResults: int
+    Count: int
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
+class DescribeIdentityUsageResponseTypeDef(TypedDict):
+    IdentityUsage: IdentityUsageTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-SetCognitoEventsRequestRequestTypeDef = TypedDict(
-    "SetCognitoEventsRequestRequestTypeDef",
-    {
-        "IdentityPoolId": str,
-        "Events": Dict[str, str],
-    },
-)
+class GetIdentityPoolConfigurationResponseTypeDef(TypedDict):
+    IdentityPoolId: str
+    PushSync: PushSyncOutputTypeDef
+    CognitoStreams: CognitoStreamsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredSetIdentityPoolConfigurationRequestRequestTypeDef = TypedDict(
-    "_RequiredSetIdentityPoolConfigurationRequestRequestTypeDef",
-    {
-        "IdentityPoolId": str,
-    },
-)
-_OptionalSetIdentityPoolConfigurationRequestRequestTypeDef = TypedDict(
-    "_OptionalSetIdentityPoolConfigurationRequestRequestTypeDef",
-    {
-        "PushSync": "PushSyncTypeDef",
-        "CognitoStreams": "CognitoStreamsTypeDef",
-    },
-    total=False,
-)
+class SetIdentityPoolConfigurationResponseTypeDef(TypedDict):
+    IdentityPoolId: str
+    PushSync: PushSyncOutputTypeDef
+    CognitoStreams: CognitoStreamsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class SetIdentityPoolConfigurationRequestRequestTypeDef(
-    _RequiredSetIdentityPoolConfigurationRequestRequestTypeDef,
-    _OptionalSetIdentityPoolConfigurationRequestRequestTypeDef,
-):
-    pass
+class ListRecordsResponseTypeDef(TypedDict):
+    Records: List[RecordTypeDef]
+    Count: int
+    DatasetSyncCount: int
+    LastModifiedBy: str
+    MergedDatasetNames: List[str]
+    DatasetExists: bool
+    DatasetDeletedAfterRequestedSyncCount: bool
+    SyncSessionToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-SetIdentityPoolConfigurationResponseTypeDef = TypedDict(
-    "SetIdentityPoolConfigurationResponseTypeDef",
-    {
-        "IdentityPoolId": str,
-        "PushSync": "PushSyncTypeDef",
-        "CognitoStreams": "CognitoStreamsTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class UpdateRecordsResponseTypeDef(TypedDict):
+    Records: List[RecordTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-SubscribeToDatasetRequestRequestTypeDef = TypedDict(
-    "SubscribeToDatasetRequestRequestTypeDef",
-    {
-        "IdentityPoolId": str,
-        "IdentityId": str,
-        "DatasetName": str,
-        "DeviceId": str,
-    },
-)
+PushSyncUnionTypeDef = Union[PushSyncTypeDef, PushSyncOutputTypeDef]
 
-UnsubscribeFromDatasetRequestRequestTypeDef = TypedDict(
-    "UnsubscribeFromDatasetRequestRequestTypeDef",
-    {
-        "IdentityPoolId": str,
-        "IdentityId": str,
-        "DatasetName": str,
-        "DeviceId": str,
-    },
-)
+class RecordPatchTypeDef(TypedDict):
+    Op: OperationType
+    Key: str
+    SyncCount: int
+    Value: NotRequired[str]
+    DeviceLastModifiedDate: NotRequired[TimestampTypeDef]
 
-_RequiredUpdateRecordsRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateRecordsRequestRequestTypeDef",
-    {
-        "IdentityPoolId": str,
-        "IdentityId": str,
-        "DatasetName": str,
-        "SyncSessionToken": str,
-    },
-)
-_OptionalUpdateRecordsRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateRecordsRequestRequestTypeDef",
-    {
-        "DeviceId": str,
-        "RecordPatches": List["RecordPatchTypeDef"],
-        "ClientContext": str,
-    },
-    total=False,
-)
+class SetIdentityPoolConfigurationRequestTypeDef(TypedDict):
+    IdentityPoolId: str
+    PushSync: NotRequired[PushSyncUnionTypeDef]
+    CognitoStreams: NotRequired[CognitoStreamsTypeDef]
 
-class UpdateRecordsRequestRequestTypeDef(
-    _RequiredUpdateRecordsRequestRequestTypeDef, _OptionalUpdateRecordsRequestRequestTypeDef
-):
-    pass
-
-UpdateRecordsResponseTypeDef = TypedDict(
-    "UpdateRecordsResponseTypeDef",
-    {
-        "Records": List["RecordTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class UpdateRecordsRequestTypeDef(TypedDict):
+    IdentityPoolId: str
+    IdentityId: str
+    DatasetName: str
+    SyncSessionToken: str
+    DeviceId: NotRequired[str]
+    RecordPatches: NotRequired[Sequence[RecordPatchTypeDef]]
+    ClientContext: NotRequired[str]

@@ -1,68 +1,83 @@
 """
 Type annotations for support service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_support/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_support/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_support.type_defs import AddAttachmentsToSetRequestRequestTypeDef
+    from mypy_boto3_support.type_defs import ResponseMetadataTypeDef
 
-    data: AddAttachmentsToSetRequestRequestTypeDef = {...}
+    data: ResponseMetadataTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from typing import IO, Any, Dict, List, Union
+from typing import IO, Any, Union
 
 from botocore.response import StreamingBody
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Sequence
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List, Sequence
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
-    "AddAttachmentsToSetRequestRequestTypeDef",
+    "AddAttachmentsToSetRequestTypeDef",
     "AddAttachmentsToSetResponseTypeDef",
-    "AddCommunicationToCaseRequestRequestTypeDef",
+    "AddCommunicationToCaseRequestTypeDef",
     "AddCommunicationToCaseResponseTypeDef",
     "AttachmentDetailsTypeDef",
+    "AttachmentOutputTypeDef",
     "AttachmentTypeDef",
+    "AttachmentUnionTypeDef",
+    "BlobTypeDef",
     "CaseDetailsTypeDef",
     "CategoryTypeDef",
     "CommunicationTypeDef",
     "CommunicationTypeOptionsTypeDef",
-    "CreateCaseRequestRequestTypeDef",
+    "CreateCaseRequestTypeDef",
     "CreateCaseResponseTypeDef",
     "DateIntervalTypeDef",
-    "DescribeAttachmentRequestRequestTypeDef",
+    "DescribeAttachmentRequestTypeDef",
     "DescribeAttachmentResponseTypeDef",
-    "DescribeCasesRequestRequestTypeDef",
+    "DescribeCasesRequestPaginateTypeDef",
+    "DescribeCasesRequestTypeDef",
     "DescribeCasesResponseTypeDef",
-    "DescribeCommunicationsRequestRequestTypeDef",
+    "DescribeCommunicationsRequestPaginateTypeDef",
+    "DescribeCommunicationsRequestTypeDef",
     "DescribeCommunicationsResponseTypeDef",
-    "DescribeCreateCaseOptionsRequestRequestTypeDef",
+    "DescribeCreateCaseOptionsRequestTypeDef",
     "DescribeCreateCaseOptionsResponseTypeDef",
-    "DescribeServicesRequestRequestTypeDef",
+    "DescribeServicesRequestTypeDef",
     "DescribeServicesResponseTypeDef",
-    "DescribeSeverityLevelsRequestRequestTypeDef",
+    "DescribeSeverityLevelsRequestTypeDef",
     "DescribeSeverityLevelsResponseTypeDef",
-    "DescribeSupportedLanguagesRequestRequestTypeDef",
+    "DescribeSupportedLanguagesRequestTypeDef",
     "DescribeSupportedLanguagesResponseTypeDef",
-    "DescribeTrustedAdvisorCheckRefreshStatusesRequestRequestTypeDef",
+    "DescribeTrustedAdvisorCheckRefreshStatusesRequestTypeDef",
     "DescribeTrustedAdvisorCheckRefreshStatusesResponseTypeDef",
-    "DescribeTrustedAdvisorCheckResultRequestRequestTypeDef",
+    "DescribeTrustedAdvisorCheckResultRequestTypeDef",
     "DescribeTrustedAdvisorCheckResultResponseTypeDef",
-    "DescribeTrustedAdvisorCheckSummariesRequestRequestTypeDef",
+    "DescribeTrustedAdvisorCheckSummariesRequestTypeDef",
     "DescribeTrustedAdvisorCheckSummariesResponseTypeDef",
-    "DescribeTrustedAdvisorChecksRequestRequestTypeDef",
+    "DescribeTrustedAdvisorChecksRequestTypeDef",
     "DescribeTrustedAdvisorChecksResponseTypeDef",
     "PaginatorConfigTypeDef",
     "RecentCaseCommunicationsTypeDef",
-    "RefreshTrustedAdvisorCheckRequestRequestTypeDef",
+    "RefreshTrustedAdvisorCheckRequestTypeDef",
     "RefreshTrustedAdvisorCheckResponseTypeDef",
-    "ResolveCaseRequestRequestTypeDef",
+    "ResolveCaseRequestTypeDef",
     "ResolveCaseResponseTypeDef",
     "ResponseMetadataTypeDef",
     "ServiceTypeDef",
@@ -79,497 +94,122 @@ __all__ = (
     "TrustedAdvisorResourcesSummaryTypeDef",
 )
 
-_RequiredAddAttachmentsToSetRequestRequestTypeDef = TypedDict(
-    "_RequiredAddAttachmentsToSetRequestRequestTypeDef",
-    {
-        "attachments": List["AttachmentTypeDef"],
-    },
-)
-_OptionalAddAttachmentsToSetRequestRequestTypeDef = TypedDict(
-    "_OptionalAddAttachmentsToSetRequestRequestTypeDef",
-    {
-        "attachmentSetId": str,
-    },
-    total=False,
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-class AddAttachmentsToSetRequestRequestTypeDef(
-    _RequiredAddAttachmentsToSetRequestRequestTypeDef,
-    _OptionalAddAttachmentsToSetRequestRequestTypeDef,
-):
-    pass
+class AddCommunicationToCaseRequestTypeDef(TypedDict):
+    communicationBody: str
+    caseId: NotRequired[str]
+    ccEmailAddresses: NotRequired[Sequence[str]]
+    attachmentSetId: NotRequired[str]
 
-AddAttachmentsToSetResponseTypeDef = TypedDict(
-    "AddAttachmentsToSetResponseTypeDef",
-    {
-        "attachmentSetId": str,
-        "expiryTime": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class AttachmentDetailsTypeDef(TypedDict):
+    attachmentId: NotRequired[str]
+    fileName: NotRequired[str]
 
-_RequiredAddCommunicationToCaseRequestRequestTypeDef = TypedDict(
-    "_RequiredAddCommunicationToCaseRequestRequestTypeDef",
-    {
-        "communicationBody": str,
-    },
-)
-_OptionalAddCommunicationToCaseRequestRequestTypeDef = TypedDict(
-    "_OptionalAddCommunicationToCaseRequestRequestTypeDef",
-    {
-        "caseId": str,
-        "ccEmailAddresses": List[str],
-        "attachmentSetId": str,
-    },
-    total=False,
-)
+class AttachmentOutputTypeDef(TypedDict):
+    fileName: NotRequired[str]
+    data: NotRequired[bytes]
 
-class AddCommunicationToCaseRequestRequestTypeDef(
-    _RequiredAddCommunicationToCaseRequestRequestTypeDef,
-    _OptionalAddCommunicationToCaseRequestRequestTypeDef,
-):
-    pass
+BlobTypeDef = Union[str, bytes, IO[Any], StreamingBody]
 
-AddCommunicationToCaseResponseTypeDef = TypedDict(
-    "AddCommunicationToCaseResponseTypeDef",
-    {
-        "result": bool,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CategoryTypeDef(TypedDict):
+    code: NotRequired[str]
+    name: NotRequired[str]
 
-AttachmentDetailsTypeDef = TypedDict(
-    "AttachmentDetailsTypeDef",
-    {
-        "attachmentId": str,
-        "fileName": str,
-    },
-    total=False,
-)
+class DateIntervalTypeDef(TypedDict):
+    startDateTime: NotRequired[str]
+    endDateTime: NotRequired[str]
 
-AttachmentTypeDef = TypedDict(
-    "AttachmentTypeDef",
-    {
-        "fileName": str,
-        "data": Union[bytes, IO[bytes], StreamingBody],
-    },
-    total=False,
-)
+class SupportedHourTypeDef(TypedDict):
+    startTime: NotRequired[str]
+    endTime: NotRequired[str]
 
-CaseDetailsTypeDef = TypedDict(
-    "CaseDetailsTypeDef",
-    {
-        "caseId": str,
-        "displayId": str,
-        "subject": str,
-        "status": str,
-        "serviceCode": str,
-        "categoryCode": str,
-        "severityCode": str,
-        "submittedBy": str,
-        "timeCreated": str,
-        "recentCommunications": "RecentCaseCommunicationsTypeDef",
-        "ccEmailAddresses": List[str],
-        "language": str,
-    },
-    total=False,
-)
+class CreateCaseRequestTypeDef(TypedDict):
+    subject: str
+    communicationBody: str
+    serviceCode: NotRequired[str]
+    severityCode: NotRequired[str]
+    categoryCode: NotRequired[str]
+    ccEmailAddresses: NotRequired[Sequence[str]]
+    language: NotRequired[str]
+    issueType: NotRequired[str]
+    attachmentSetId: NotRequired[str]
 
-CategoryTypeDef = TypedDict(
-    "CategoryTypeDef",
-    {
-        "code": str,
-        "name": str,
-    },
-    total=False,
-)
+class DescribeAttachmentRequestTypeDef(TypedDict):
+    attachmentId: str
 
-CommunicationTypeDef = TypedDict(
-    "CommunicationTypeDef",
-    {
-        "caseId": str,
-        "body": str,
-        "submittedBy": str,
-        "timeCreated": str,
-        "attachmentSet": List["AttachmentDetailsTypeDef"],
-    },
-    total=False,
-)
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
 
-CommunicationTypeOptionsTypeDef = TypedDict(
-    "CommunicationTypeOptionsTypeDef",
-    {
-        "type": str,
-        "supportedHours": List["SupportedHourTypeDef"],
-        "datesWithoutSupport": List["DateIntervalTypeDef"],
-    },
-    total=False,
-)
+class DescribeCasesRequestTypeDef(TypedDict):
+    caseIdList: NotRequired[Sequence[str]]
+    displayId: NotRequired[str]
+    afterTime: NotRequired[str]
+    beforeTime: NotRequired[str]
+    includeResolvedCases: NotRequired[bool]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+    language: NotRequired[str]
+    includeCommunications: NotRequired[bool]
 
-_RequiredCreateCaseRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateCaseRequestRequestTypeDef",
-    {
-        "subject": str,
-        "communicationBody": str,
-    },
-)
-_OptionalCreateCaseRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateCaseRequestRequestTypeDef",
-    {
-        "serviceCode": str,
-        "severityCode": str,
-        "categoryCode": str,
-        "ccEmailAddresses": List[str],
-        "language": str,
-        "issueType": str,
-        "attachmentSetId": str,
-    },
-    total=False,
-)
+class DescribeCommunicationsRequestTypeDef(TypedDict):
+    caseId: str
+    beforeTime: NotRequired[str]
+    afterTime: NotRequired[str]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
 
-class CreateCaseRequestRequestTypeDef(
-    _RequiredCreateCaseRequestRequestTypeDef, _OptionalCreateCaseRequestRequestTypeDef
-):
-    pass
+class DescribeCreateCaseOptionsRequestTypeDef(TypedDict):
+    issueType: str
+    serviceCode: str
+    language: str
+    categoryCode: str
 
-CreateCaseResponseTypeDef = TypedDict(
-    "CreateCaseResponseTypeDef",
-    {
-        "caseId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DescribeServicesRequestTypeDef(TypedDict):
+    serviceCodeList: NotRequired[Sequence[str]]
+    language: NotRequired[str]
 
-DateIntervalTypeDef = TypedDict(
-    "DateIntervalTypeDef",
-    {
-        "startDateTime": str,
-        "endDateTime": str,
-    },
-    total=False,
-)
+class DescribeSeverityLevelsRequestTypeDef(TypedDict):
+    language: NotRequired[str]
 
-DescribeAttachmentRequestRequestTypeDef = TypedDict(
-    "DescribeAttachmentRequestRequestTypeDef",
-    {
-        "attachmentId": str,
-    },
-)
+class SeverityLevelTypeDef(TypedDict):
+    code: NotRequired[str]
+    name: NotRequired[str]
 
-DescribeAttachmentResponseTypeDef = TypedDict(
-    "DescribeAttachmentResponseTypeDef",
-    {
-        "attachment": "AttachmentTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DescribeSupportedLanguagesRequestTypeDef(TypedDict):
+    issueType: str
+    serviceCode: str
+    categoryCode: str
 
-DescribeCasesRequestRequestTypeDef = TypedDict(
-    "DescribeCasesRequestRequestTypeDef",
-    {
-        "caseIdList": List[str],
-        "displayId": str,
-        "afterTime": str,
-        "beforeTime": str,
-        "includeResolvedCases": bool,
-        "nextToken": str,
-        "maxResults": int,
-        "language": str,
-        "includeCommunications": bool,
-    },
-    total=False,
-)
+class SupportedLanguageTypeDef(TypedDict):
+    code: NotRequired[str]
+    language: NotRequired[str]
+    display: NotRequired[str]
 
-DescribeCasesResponseTypeDef = TypedDict(
-    "DescribeCasesResponseTypeDef",
-    {
-        "cases": List["CaseDetailsTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DescribeTrustedAdvisorCheckRefreshStatusesRequestTypeDef(TypedDict):
+    checkIds: Sequence[str]
 
-_RequiredDescribeCommunicationsRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeCommunicationsRequestRequestTypeDef",
-    {
-        "caseId": str,
-    },
-)
-_OptionalDescribeCommunicationsRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeCommunicationsRequestRequestTypeDef",
-    {
-        "beforeTime": str,
-        "afterTime": str,
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
+class TrustedAdvisorCheckRefreshStatusTypeDef(TypedDict):
+    checkId: str
+    status: str
+    millisUntilNextRefreshable: int
 
-class DescribeCommunicationsRequestRequestTypeDef(
-    _RequiredDescribeCommunicationsRequestRequestTypeDef,
-    _OptionalDescribeCommunicationsRequestRequestTypeDef,
-):
-    pass
+class DescribeTrustedAdvisorCheckResultRequestTypeDef(TypedDict):
+    checkId: str
+    language: NotRequired[str]
 
-DescribeCommunicationsResponseTypeDef = TypedDict(
-    "DescribeCommunicationsResponseTypeDef",
-    {
-        "communications": List["CommunicationTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DescribeTrustedAdvisorCheckSummariesRequestTypeDef(TypedDict):
+    checkIds: Sequence[str]
 
-DescribeCreateCaseOptionsRequestRequestTypeDef = TypedDict(
-    "DescribeCreateCaseOptionsRequestRequestTypeDef",
-    {
-        "issueType": str,
-        "serviceCode": str,
-        "language": str,
-        "categoryCode": str,
-    },
-)
-
-DescribeCreateCaseOptionsResponseTypeDef = TypedDict(
-    "DescribeCreateCaseOptionsResponseTypeDef",
-    {
-        "languageAvailability": str,
-        "communicationTypes": List["CommunicationTypeOptionsTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeServicesRequestRequestTypeDef = TypedDict(
-    "DescribeServicesRequestRequestTypeDef",
-    {
-        "serviceCodeList": List[str],
-        "language": str,
-    },
-    total=False,
-)
-
-DescribeServicesResponseTypeDef = TypedDict(
-    "DescribeServicesResponseTypeDef",
-    {
-        "services": List["ServiceTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeSeverityLevelsRequestRequestTypeDef = TypedDict(
-    "DescribeSeverityLevelsRequestRequestTypeDef",
-    {
-        "language": str,
-    },
-    total=False,
-)
-
-DescribeSeverityLevelsResponseTypeDef = TypedDict(
-    "DescribeSeverityLevelsResponseTypeDef",
-    {
-        "severityLevels": List["SeverityLevelTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeSupportedLanguagesRequestRequestTypeDef = TypedDict(
-    "DescribeSupportedLanguagesRequestRequestTypeDef",
-    {
-        "issueType": str,
-        "serviceCode": str,
-        "categoryCode": str,
-    },
-)
-
-DescribeSupportedLanguagesResponseTypeDef = TypedDict(
-    "DescribeSupportedLanguagesResponseTypeDef",
-    {
-        "supportedLanguages": List["SupportedLanguageTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeTrustedAdvisorCheckRefreshStatusesRequestRequestTypeDef = TypedDict(
-    "DescribeTrustedAdvisorCheckRefreshStatusesRequestRequestTypeDef",
-    {
-        "checkIds": List[str],
-    },
-)
-
-DescribeTrustedAdvisorCheckRefreshStatusesResponseTypeDef = TypedDict(
-    "DescribeTrustedAdvisorCheckRefreshStatusesResponseTypeDef",
-    {
-        "statuses": List["TrustedAdvisorCheckRefreshStatusTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribeTrustedAdvisorCheckResultRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeTrustedAdvisorCheckResultRequestRequestTypeDef",
-    {
-        "checkId": str,
-    },
-)
-_OptionalDescribeTrustedAdvisorCheckResultRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeTrustedAdvisorCheckResultRequestRequestTypeDef",
-    {
-        "language": str,
-    },
-    total=False,
-)
-
-class DescribeTrustedAdvisorCheckResultRequestRequestTypeDef(
-    _RequiredDescribeTrustedAdvisorCheckResultRequestRequestTypeDef,
-    _OptionalDescribeTrustedAdvisorCheckResultRequestRequestTypeDef,
-):
-    pass
-
-DescribeTrustedAdvisorCheckResultResponseTypeDef = TypedDict(
-    "DescribeTrustedAdvisorCheckResultResponseTypeDef",
-    {
-        "result": "TrustedAdvisorCheckResultTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeTrustedAdvisorCheckSummariesRequestRequestTypeDef = TypedDict(
-    "DescribeTrustedAdvisorCheckSummariesRequestRequestTypeDef",
-    {
-        "checkIds": List[str],
-    },
-)
-
-DescribeTrustedAdvisorCheckSummariesResponseTypeDef = TypedDict(
-    "DescribeTrustedAdvisorCheckSummariesResponseTypeDef",
-    {
-        "summaries": List["TrustedAdvisorCheckSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeTrustedAdvisorChecksRequestRequestTypeDef = TypedDict(
-    "DescribeTrustedAdvisorChecksRequestRequestTypeDef",
-    {
-        "language": str,
-    },
-)
-
-DescribeTrustedAdvisorChecksResponseTypeDef = TypedDict(
-    "DescribeTrustedAdvisorChecksResponseTypeDef",
-    {
-        "checks": List["TrustedAdvisorCheckDescriptionTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-RecentCaseCommunicationsTypeDef = TypedDict(
-    "RecentCaseCommunicationsTypeDef",
-    {
-        "communications": List["CommunicationTypeDef"],
-        "nextToken": str,
-    },
-    total=False,
-)
-
-RefreshTrustedAdvisorCheckRequestRequestTypeDef = TypedDict(
-    "RefreshTrustedAdvisorCheckRequestRequestTypeDef",
-    {
-        "checkId": str,
-    },
-)
-
-RefreshTrustedAdvisorCheckResponseTypeDef = TypedDict(
-    "RefreshTrustedAdvisorCheckResponseTypeDef",
-    {
-        "status": "TrustedAdvisorCheckRefreshStatusTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ResolveCaseRequestRequestTypeDef = TypedDict(
-    "ResolveCaseRequestRequestTypeDef",
-    {
-        "caseId": str,
-    },
-    total=False,
-)
-
-ResolveCaseResponseTypeDef = TypedDict(
-    "ResolveCaseResponseTypeDef",
-    {
-        "initialCaseStatus": str,
-        "finalCaseStatus": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-ServiceTypeDef = TypedDict(
-    "ServiceTypeDef",
-    {
-        "code": str,
-        "name": str,
-        "categories": List["CategoryTypeDef"],
-    },
-    total=False,
-)
-
-SeverityLevelTypeDef = TypedDict(
-    "SeverityLevelTypeDef",
-    {
-        "code": str,
-        "name": str,
-    },
-    total=False,
-)
-
-SupportedHourTypeDef = TypedDict(
-    "SupportedHourTypeDef",
-    {
-        "startTime": str,
-        "endTime": str,
-    },
-    total=False,
-)
-
-SupportedLanguageTypeDef = TypedDict(
-    "SupportedLanguageTypeDef",
-    {
-        "code": str,
-        "language": str,
-        "display": str,
-    },
-    total=False,
-)
-
-TrustedAdvisorCategorySpecificSummaryTypeDef = TypedDict(
-    "TrustedAdvisorCategorySpecificSummaryTypeDef",
-    {
-        "costOptimizing": "TrustedAdvisorCostOptimizingSummaryTypeDef",
-    },
-    total=False,
-)
+class DescribeTrustedAdvisorChecksRequestTypeDef(TypedDict):
+    language: str
 
 TrustedAdvisorCheckDescriptionTypeDef = TypedDict(
     "TrustedAdvisorCheckDescriptionTypeDef",
@@ -582,86 +222,178 @@ TrustedAdvisorCheckDescriptionTypeDef = TypedDict(
     },
 )
 
-TrustedAdvisorCheckRefreshStatusTypeDef = TypedDict(
-    "TrustedAdvisorCheckRefreshStatusTypeDef",
+class RefreshTrustedAdvisorCheckRequestTypeDef(TypedDict):
+    checkId: str
+
+class ResolveCaseRequestTypeDef(TypedDict):
+    caseId: NotRequired[str]
+
+class TrustedAdvisorCostOptimizingSummaryTypeDef(TypedDict):
+    estimatedMonthlySavings: float
+    estimatedPercentMonthlySavings: float
+
+class TrustedAdvisorResourceDetailTypeDef(TypedDict):
+    status: str
+    resourceId: str
+    metadata: List[str]
+    region: NotRequired[str]
+    isSuppressed: NotRequired[bool]
+
+class TrustedAdvisorResourcesSummaryTypeDef(TypedDict):
+    resourcesProcessed: int
+    resourcesFlagged: int
+    resourcesIgnored: int
+    resourcesSuppressed: int
+
+class AddAttachmentsToSetResponseTypeDef(TypedDict):
+    attachmentSetId: str
+    expiryTime: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class AddCommunicationToCaseResponseTypeDef(TypedDict):
+    result: bool
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateCaseResponseTypeDef(TypedDict):
+    caseId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ResolveCaseResponseTypeDef(TypedDict):
+    initialCaseStatus: str
+    finalCaseStatus: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CommunicationTypeDef(TypedDict):
+    caseId: NotRequired[str]
+    body: NotRequired[str]
+    submittedBy: NotRequired[str]
+    timeCreated: NotRequired[str]
+    attachmentSet: NotRequired[List[AttachmentDetailsTypeDef]]
+
+class DescribeAttachmentResponseTypeDef(TypedDict):
+    attachment: AttachmentOutputTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class AttachmentTypeDef(TypedDict):
+    fileName: NotRequired[str]
+    data: NotRequired[BlobTypeDef]
+
+class ServiceTypeDef(TypedDict):
+    code: NotRequired[str]
+    name: NotRequired[str]
+    categories: NotRequired[List[CategoryTypeDef]]
+
+CommunicationTypeOptionsTypeDef = TypedDict(
+    "CommunicationTypeOptionsTypeDef",
     {
-        "checkId": str,
-        "status": str,
-        "millisUntilNextRefreshable": int,
+        "type": NotRequired[str],
+        "supportedHours": NotRequired[List[SupportedHourTypeDef]],
+        "datesWithoutSupport": NotRequired[List[DateIntervalTypeDef]],
     },
 )
 
-TrustedAdvisorCheckResultTypeDef = TypedDict(
-    "TrustedAdvisorCheckResultTypeDef",
-    {
-        "checkId": str,
-        "timestamp": str,
-        "status": str,
-        "resourcesSummary": "TrustedAdvisorResourcesSummaryTypeDef",
-        "categorySpecificSummary": "TrustedAdvisorCategorySpecificSummaryTypeDef",
-        "flaggedResources": List["TrustedAdvisorResourceDetailTypeDef"],
-    },
-)
+class DescribeCasesRequestPaginateTypeDef(TypedDict):
+    caseIdList: NotRequired[Sequence[str]]
+    displayId: NotRequired[str]
+    afterTime: NotRequired[str]
+    beforeTime: NotRequired[str]
+    includeResolvedCases: NotRequired[bool]
+    language: NotRequired[str]
+    includeCommunications: NotRequired[bool]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-_RequiredTrustedAdvisorCheckSummaryTypeDef = TypedDict(
-    "_RequiredTrustedAdvisorCheckSummaryTypeDef",
-    {
-        "checkId": str,
-        "timestamp": str,
-        "status": str,
-        "resourcesSummary": "TrustedAdvisorResourcesSummaryTypeDef",
-        "categorySpecificSummary": "TrustedAdvisorCategorySpecificSummaryTypeDef",
-    },
-)
-_OptionalTrustedAdvisorCheckSummaryTypeDef = TypedDict(
-    "_OptionalTrustedAdvisorCheckSummaryTypeDef",
-    {
-        "hasFlaggedResources": bool,
-    },
-    total=False,
-)
+class DescribeCommunicationsRequestPaginateTypeDef(TypedDict):
+    caseId: str
+    beforeTime: NotRequired[str]
+    afterTime: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-class TrustedAdvisorCheckSummaryTypeDef(
-    _RequiredTrustedAdvisorCheckSummaryTypeDef, _OptionalTrustedAdvisorCheckSummaryTypeDef
-):
-    pass
+class DescribeSeverityLevelsResponseTypeDef(TypedDict):
+    severityLevels: List[SeverityLevelTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-TrustedAdvisorCostOptimizingSummaryTypeDef = TypedDict(
-    "TrustedAdvisorCostOptimizingSummaryTypeDef",
-    {
-        "estimatedMonthlySavings": float,
-        "estimatedPercentMonthlySavings": float,
-    },
-)
+class DescribeSupportedLanguagesResponseTypeDef(TypedDict):
+    supportedLanguages: List[SupportedLanguageTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredTrustedAdvisorResourceDetailTypeDef = TypedDict(
-    "_RequiredTrustedAdvisorResourceDetailTypeDef",
-    {
-        "status": str,
-        "resourceId": str,
-        "metadata": List[str],
-    },
-)
-_OptionalTrustedAdvisorResourceDetailTypeDef = TypedDict(
-    "_OptionalTrustedAdvisorResourceDetailTypeDef",
-    {
-        "region": str,
-        "isSuppressed": bool,
-    },
-    total=False,
-)
+class DescribeTrustedAdvisorCheckRefreshStatusesResponseTypeDef(TypedDict):
+    statuses: List[TrustedAdvisorCheckRefreshStatusTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class TrustedAdvisorResourceDetailTypeDef(
-    _RequiredTrustedAdvisorResourceDetailTypeDef, _OptionalTrustedAdvisorResourceDetailTypeDef
-):
-    pass
+class RefreshTrustedAdvisorCheckResponseTypeDef(TypedDict):
+    status: TrustedAdvisorCheckRefreshStatusTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-TrustedAdvisorResourcesSummaryTypeDef = TypedDict(
-    "TrustedAdvisorResourcesSummaryTypeDef",
-    {
-        "resourcesProcessed": int,
-        "resourcesFlagged": int,
-        "resourcesIgnored": int,
-        "resourcesSuppressed": int,
-    },
-)
+class DescribeTrustedAdvisorChecksResponseTypeDef(TypedDict):
+    checks: List[TrustedAdvisorCheckDescriptionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class TrustedAdvisorCategorySpecificSummaryTypeDef(TypedDict):
+    costOptimizing: NotRequired[TrustedAdvisorCostOptimizingSummaryTypeDef]
+
+class DescribeCommunicationsResponseTypeDef(TypedDict):
+    communications: List[CommunicationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class RecentCaseCommunicationsTypeDef(TypedDict):
+    communications: NotRequired[List[CommunicationTypeDef]]
+    nextToken: NotRequired[str]
+
+AttachmentUnionTypeDef = Union[AttachmentTypeDef, AttachmentOutputTypeDef]
+
+class DescribeServicesResponseTypeDef(TypedDict):
+    services: List[ServiceTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeCreateCaseOptionsResponseTypeDef(TypedDict):
+    languageAvailability: str
+    communicationTypes: List[CommunicationTypeOptionsTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class TrustedAdvisorCheckResultTypeDef(TypedDict):
+    checkId: str
+    timestamp: str
+    status: str
+    resourcesSummary: TrustedAdvisorResourcesSummaryTypeDef
+    categorySpecificSummary: TrustedAdvisorCategorySpecificSummaryTypeDef
+    flaggedResources: List[TrustedAdvisorResourceDetailTypeDef]
+
+class TrustedAdvisorCheckSummaryTypeDef(TypedDict):
+    checkId: str
+    timestamp: str
+    status: str
+    resourcesSummary: TrustedAdvisorResourcesSummaryTypeDef
+    categorySpecificSummary: TrustedAdvisorCategorySpecificSummaryTypeDef
+    hasFlaggedResources: NotRequired[bool]
+
+class CaseDetailsTypeDef(TypedDict):
+    caseId: NotRequired[str]
+    displayId: NotRequired[str]
+    subject: NotRequired[str]
+    status: NotRequired[str]
+    serviceCode: NotRequired[str]
+    categoryCode: NotRequired[str]
+    severityCode: NotRequired[str]
+    submittedBy: NotRequired[str]
+    timeCreated: NotRequired[str]
+    recentCommunications: NotRequired[RecentCaseCommunicationsTypeDef]
+    ccEmailAddresses: NotRequired[List[str]]
+    language: NotRequired[str]
+
+class AddAttachmentsToSetRequestTypeDef(TypedDict):
+    attachments: Sequence[AttachmentUnionTypeDef]
+    attachmentSetId: NotRequired[str]
+
+class DescribeTrustedAdvisorCheckResultResponseTypeDef(TypedDict):
+    result: TrustedAdvisorCheckResultTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeTrustedAdvisorCheckSummariesResponseTypeDef(TypedDict):
+    summaries: List[TrustedAdvisorCheckSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeCasesResponseTypeDef(TypedDict):
+    cases: List[CaseDetailsTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]

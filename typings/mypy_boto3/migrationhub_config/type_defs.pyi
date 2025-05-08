@@ -1,35 +1,39 @@
 """
 Type annotations for migrationhub-config service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migrationhub_config/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_migrationhub_config/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_migrationhub_config.type_defs import CreateHomeRegionControlRequestRequestTypeDef
+    from mypy_boto3_migrationhub_config.type_defs import TargetTypeDef
 
-    data: CreateHomeRegionControlRequestRequestTypeDef = {...}
+    data: TargetTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
-    "CreateHomeRegionControlRequestRequestTypeDef",
+    "CreateHomeRegionControlRequestTypeDef",
     "CreateHomeRegionControlResultTypeDef",
-    "DeleteHomeRegionControlRequestRequestTypeDef",
-    "DescribeHomeRegionControlsRequestRequestTypeDef",
+    "DeleteHomeRegionControlRequestTypeDef",
+    "DescribeHomeRegionControlsRequestTypeDef",
     "DescribeHomeRegionControlsResultTypeDef",
     "GetHomeRegionResultTypeDef",
     "HomeRegionControlTypeDef",
@@ -37,106 +41,51 @@ __all__ = (
     "TargetTypeDef",
 )
 
-_RequiredCreateHomeRegionControlRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateHomeRegionControlRequestRequestTypeDef",
-    {
-        "HomeRegion": str,
-        "Target": "TargetTypeDef",
-    },
-)
-_OptionalCreateHomeRegionControlRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateHomeRegionControlRequestRequestTypeDef",
-    {
-        "DryRun": bool,
-    },
-    total=False,
-)
-
-class CreateHomeRegionControlRequestRequestTypeDef(
-    _RequiredCreateHomeRegionControlRequestRequestTypeDef,
-    _OptionalCreateHomeRegionControlRequestRequestTypeDef,
-):
-    pass
-
-CreateHomeRegionControlResultTypeDef = TypedDict(
-    "CreateHomeRegionControlResultTypeDef",
-    {
-        "HomeRegionControl": "HomeRegionControlTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteHomeRegionControlRequestRequestTypeDef = TypedDict(
-    "DeleteHomeRegionControlRequestRequestTypeDef",
-    {
-        "ControlId": str,
-    },
-)
-
-DescribeHomeRegionControlsRequestRequestTypeDef = TypedDict(
-    "DescribeHomeRegionControlsRequestRequestTypeDef",
-    {
-        "ControlId": str,
-        "HomeRegion": str,
-        "Target": "TargetTypeDef",
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-DescribeHomeRegionControlsResultTypeDef = TypedDict(
-    "DescribeHomeRegionControlsResultTypeDef",
-    {
-        "HomeRegionControls": List["HomeRegionControlTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetHomeRegionResultTypeDef = TypedDict(
-    "GetHomeRegionResultTypeDef",
-    {
-        "HomeRegion": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-HomeRegionControlTypeDef = TypedDict(
-    "HomeRegionControlTypeDef",
-    {
-        "ControlId": str,
-        "HomeRegion": str,
-        "Target": "TargetTypeDef",
-        "RequestedTime": datetime,
-    },
-    total=False,
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-_RequiredTargetTypeDef = TypedDict(
-    "_RequiredTargetTypeDef",
+TargetTypeDef = TypedDict(
+    "TargetTypeDef",
     {
         "Type": Literal["ACCOUNT"],
+        "Id": NotRequired[str],
     },
-)
-_OptionalTargetTypeDef = TypedDict(
-    "_OptionalTargetTypeDef",
-    {
-        "Id": str,
-    },
-    total=False,
 )
 
-class TargetTypeDef(_RequiredTargetTypeDef, _OptionalTargetTypeDef):
-    pass
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
+
+class DeleteHomeRegionControlRequestTypeDef(TypedDict):
+    ControlId: str
+
+class CreateHomeRegionControlRequestTypeDef(TypedDict):
+    HomeRegion: str
+    Target: TargetTypeDef
+    DryRun: NotRequired[bool]
+
+class DescribeHomeRegionControlsRequestTypeDef(TypedDict):
+    ControlId: NotRequired[str]
+    HomeRegion: NotRequired[str]
+    Target: NotRequired[TargetTypeDef]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class HomeRegionControlTypeDef(TypedDict):
+    ControlId: NotRequired[str]
+    HomeRegion: NotRequired[str]
+    Target: NotRequired[TargetTypeDef]
+    RequestedTime: NotRequired[datetime]
+
+class GetHomeRegionResultTypeDef(TypedDict):
+    HomeRegion: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateHomeRegionControlResultTypeDef(TypedDict):
+    HomeRegionControl: HomeRegionControlTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeHomeRegionControlsResultTypeDef(TypedDict):
+    HomeRegionControls: List[HomeRegionControlTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]

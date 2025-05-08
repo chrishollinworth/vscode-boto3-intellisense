@@ -1,22 +1,29 @@
 """
-Type annotations for route53-recovery-control-config service client.
+Type annotations for route53-recovery-control-config service Client.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/client.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/client/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
-    from mypy_boto3_route53_recovery_control_config import Route53RecoveryControlConfigClient
+    from boto3.session import Session
+    from mypy_boto3_route53_recovery_control_config.client import Route53RecoveryControlConfigClient
 
-    client: Route53RecoveryControlConfigClient = boto3.client("route53-recovery-control-config")
+    session = Session()
+    client: Route53RecoveryControlConfigClient = session.client("route53-recovery-control-config")
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from typing import Any, Dict, List, Type, overload
+from typing import Any, overload
 
 from botocore.client import BaseClient, ClientMeta
+from botocore.errorfactory import BaseClientExceptions
+from botocore.exceptions import ClientError as BotocoreClientError
 
 from .paginator import (
     ListAssociatedRoute53HealthChecksPaginator,
@@ -26,27 +33,49 @@ from .paginator import (
     ListSafetyRulesPaginator,
 )
 from .type_defs import (
-    AssertionRuleUpdateTypeDef,
+    CreateClusterRequestTypeDef,
     CreateClusterResponseTypeDef,
+    CreateControlPanelRequestTypeDef,
     CreateControlPanelResponseTypeDef,
+    CreateRoutingControlRequestTypeDef,
     CreateRoutingControlResponseTypeDef,
+    CreateSafetyRuleRequestTypeDef,
     CreateSafetyRuleResponseTypeDef,
+    DeleteClusterRequestTypeDef,
+    DeleteControlPanelRequestTypeDef,
+    DeleteRoutingControlRequestTypeDef,
+    DeleteSafetyRuleRequestTypeDef,
+    DescribeClusterRequestTypeDef,
     DescribeClusterResponseTypeDef,
+    DescribeControlPanelRequestTypeDef,
     DescribeControlPanelResponseTypeDef,
+    DescribeRoutingControlRequestTypeDef,
     DescribeRoutingControlResponseTypeDef,
+    DescribeSafetyRuleRequestTypeDef,
     DescribeSafetyRuleResponseTypeDef,
-    GatingRuleUpdateTypeDef,
+    GetResourcePolicyRequestTypeDef,
     GetResourcePolicyResponseTypeDef,
+    ListAssociatedRoute53HealthChecksRequestTypeDef,
     ListAssociatedRoute53HealthChecksResponseTypeDef,
+    ListClustersRequestTypeDef,
     ListClustersResponseTypeDef,
+    ListControlPanelsRequestTypeDef,
     ListControlPanelsResponseTypeDef,
+    ListRoutingControlsRequestTypeDef,
     ListRoutingControlsResponseTypeDef,
+    ListSafetyRulesRequestTypeDef,
     ListSafetyRulesResponseTypeDef,
+    ListTagsForResourceRequestTypeDef,
     ListTagsForResourceResponseTypeDef,
-    NewAssertionRuleTypeDef,
-    NewGatingRuleTypeDef,
+    TagResourceRequestTypeDef,
+    UntagResourceRequestTypeDef,
+    UpdateClusterRequestTypeDef,
+    UpdateClusterResponseTypeDef,
+    UpdateControlPanelRequestTypeDef,
     UpdateControlPanelResponseTypeDef,
+    UpdateRoutingControlRequestTypeDef,
     UpdateRoutingControlResponseTypeDef,
+    UpdateSafetyRuleRequestTypeDef,
     UpdateSafetyRuleResponseTypeDef,
 )
 from .waiter import (
@@ -58,21 +87,20 @@ from .waiter import (
     RoutingControlDeletedWaiter,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import type as Type
+    from collections.abc import Mapping
 else:
-    from typing_extensions import Literal
+    from typing import Dict, Mapping, Type
+if sys.version_info >= (3, 12):
+    from typing import Literal, Unpack
+else:
+    from typing_extensions import Literal, Unpack
 
 __all__ = ("Route53RecoveryControlConfigClient",)
 
-class BotocoreClientError(BaseException):
-    MSG_TEMPLATE: str
-
-    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
-        self.response: Dict[str, Any]
-        self.operation_name: str
-
-class Exceptions:
+class Exceptions(BaseClientExceptions):
     AccessDeniedException: Type[BotocoreClientError]
     ClientError: Type[BotocoreClientError]
     ConflictException: Type[BotocoreClientError]
@@ -84,8 +112,8 @@ class Exceptions:
 
 class Route53RecoveryControlConfigClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53-recovery-control-config.html#Route53RecoveryControlConfig.Client)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/client.html)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53-recovery-control-config.html#Route53RecoveryControlConfig.Client)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/client/)
     """
 
     meta: ClientMeta
@@ -94,367 +122,392 @@ class Route53RecoveryControlConfigClient(BaseClient):
     def exceptions(self) -> Exceptions:
         """
         Route53RecoveryControlConfigClient exceptions.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53-recovery-control-config.html#Route53RecoveryControlConfig.Client)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/client/#exceptions)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        Check if an operation can be paginated.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53-recovery-control-config.html#Route53RecoveryControlConfig.Client.can_paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/client.html#can_paginate)
-        """
-
-    def close(self) -> None:
-        """
-        Closes underlying endpoint connections.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53-recovery-control-config.html#Route53RecoveryControlConfig.Client.close)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/client.html#close)
-        """
-
-    def create_cluster(
-        self, *, ClusterName: str, ClientToken: str = None, Tags: Dict[str, str] = None
-    ) -> CreateClusterResponseTypeDef:
-        """
-        Create a new cluster.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53-recovery-control-config.html#Route53RecoveryControlConfig.Client.create_cluster)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/client.html#create_cluster)
-        """
-
-    def create_control_panel(
-        self,
-        *,
-        ClusterArn: str,
-        ControlPanelName: str,
-        ClientToken: str = None,
-        Tags: Dict[str, str] = None
-    ) -> CreateControlPanelResponseTypeDef:
-        """
-        Creates a new control panel.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53-recovery-control-config.html#Route53RecoveryControlConfig.Client.create_control_panel)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/client.html#create_control_panel)
-        """
-
-    def create_routing_control(
-        self,
-        *,
-        ClusterArn: str,
-        RoutingControlName: str,
-        ClientToken: str = None,
-        ControlPanelArn: str = None
-    ) -> CreateRoutingControlResponseTypeDef:
-        """
-        Creates a new routing control.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53-recovery-control-config.html#Route53RecoveryControlConfig.Client.create_routing_control)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/client.html#create_routing_control)
-        """
-
-    def create_safety_rule(
-        self,
-        *,
-        AssertionRule: "NewAssertionRuleTypeDef" = None,
-        ClientToken: str = None,
-        GatingRule: "NewGatingRuleTypeDef" = None,
-        Tags: Dict[str, str] = None
-    ) -> CreateSafetyRuleResponseTypeDef:
-        """
-        Creates a safety rule in a control panel.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53-recovery-control-config.html#Route53RecoveryControlConfig.Client.create_safety_rule)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/client.html#create_safety_rule)
-        """
-
-    def delete_cluster(self, *, ClusterArn: str) -> Dict[str, Any]:
-        """
-        Delete a cluster.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53-recovery-control-config.html#Route53RecoveryControlConfig.Client.delete_cluster)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/client.html#delete_cluster)
-        """
-
-    def delete_control_panel(self, *, ControlPanelArn: str) -> Dict[str, Any]:
-        """
-        Deletes a control panel.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53-recovery-control-config.html#Route53RecoveryControlConfig.Client.delete_control_panel)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/client.html#delete_control_panel)
-        """
-
-    def delete_routing_control(self, *, RoutingControlArn: str) -> Dict[str, Any]:
-        """
-        Deletes a routing control.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53-recovery-control-config.html#Route53RecoveryControlConfig.Client.delete_routing_control)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/client.html#delete_routing_control)
-        """
-
-    def delete_safety_rule(self, *, SafetyRuleArn: str) -> Dict[str, Any]:
-        """
-        Deletes a safety rule.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53-recovery-control-config.html#Route53RecoveryControlConfig.Client.delete_safety_rule)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/client.html#delete_safety_rule)
-        """
-
-    def describe_cluster(self, *, ClusterArn: str) -> DescribeClusterResponseTypeDef:
-        """
-        Display the details about a cluster.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53-recovery-control-config.html#Route53RecoveryControlConfig.Client.describe_cluster)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/client.html#describe_cluster)
-        """
-
-    def describe_control_panel(
-        self, *, ControlPanelArn: str
-    ) -> DescribeControlPanelResponseTypeDef:
-        """
-        Displays details about a control panel.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53-recovery-control-config.html#Route53RecoveryControlConfig.Client.describe_control_panel)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/client.html#describe_control_panel)
-        """
-
-    def describe_routing_control(
-        self, *, RoutingControlArn: str
-    ) -> DescribeRoutingControlResponseTypeDef:
-        """
-        Displays details about a routing control.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53-recovery-control-config.html#Route53RecoveryControlConfig.Client.describe_routing_control)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/client.html#describe_routing_control)
-        """
-
-    def describe_safety_rule(self, *, SafetyRuleArn: str) -> DescribeSafetyRuleResponseTypeDef:
-        """
-        Returns information about a safety rule.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53-recovery-control-config.html#Route53RecoveryControlConfig.Client.describe_safety_rule)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/client.html#describe_safety_rule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53-recovery-control-config/client/can_paginate.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/client/#can_paginate)
         """
 
     def generate_presigned_url(
         self,
         ClientMethod: str,
-        Params: Dict[str, Any] = None,
+        Params: Mapping[str, Any] = ...,
         ExpiresIn: int = 3600,
-        HttpMethod: str = None,
+        HttpMethod: str = ...,
     ) -> str:
         """
-        Generate a presigned url given a client, its method, and arguments.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53-recovery-control-config.html#Route53RecoveryControlConfig.Client.generate_presigned_url)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/client.html#generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53-recovery-control-config/client/generate_presigned_url.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/client/#generate_presigned_url)
         """
 
-    def get_resource_policy(self, *, ResourceArn: str) -> GetResourcePolicyResponseTypeDef:
+    def create_cluster(
+        self, **kwargs: Unpack[CreateClusterRequestTypeDef]
+    ) -> CreateClusterResponseTypeDef:
+        """
+        Create a new cluster.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53-recovery-control-config/client/create_cluster.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/client/#create_cluster)
+        """
+
+    def create_control_panel(
+        self, **kwargs: Unpack[CreateControlPanelRequestTypeDef]
+    ) -> CreateControlPanelResponseTypeDef:
+        """
+        Creates a new control panel.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53-recovery-control-config/client/create_control_panel.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/client/#create_control_panel)
+        """
+
+    def create_routing_control(
+        self, **kwargs: Unpack[CreateRoutingControlRequestTypeDef]
+    ) -> CreateRoutingControlResponseTypeDef:
+        """
+        Creates a new routing control.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53-recovery-control-config/client/create_routing_control.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/client/#create_routing_control)
+        """
+
+    def create_safety_rule(
+        self, **kwargs: Unpack[CreateSafetyRuleRequestTypeDef]
+    ) -> CreateSafetyRuleResponseTypeDef:
+        """
+        Creates a safety rule in a control panel.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53-recovery-control-config/client/create_safety_rule.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/client/#create_safety_rule)
+        """
+
+    def delete_cluster(self, **kwargs: Unpack[DeleteClusterRequestTypeDef]) -> Dict[str, Any]:
+        """
+        Delete a cluster.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53-recovery-control-config/client/delete_cluster.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/client/#delete_cluster)
+        """
+
+    def delete_control_panel(
+        self, **kwargs: Unpack[DeleteControlPanelRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Deletes a control panel.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53-recovery-control-config/client/delete_control_panel.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/client/#delete_control_panel)
+        """
+
+    def delete_routing_control(
+        self, **kwargs: Unpack[DeleteRoutingControlRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Deletes a routing control.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53-recovery-control-config/client/delete_routing_control.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/client/#delete_routing_control)
+        """
+
+    def delete_safety_rule(
+        self, **kwargs: Unpack[DeleteSafetyRuleRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Deletes a safety rule.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53-recovery-control-config/client/delete_safety_rule.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/client/#delete_safety_rule)
+        """
+
+    def describe_cluster(
+        self, **kwargs: Unpack[DescribeClusterRequestTypeDef]
+    ) -> DescribeClusterResponseTypeDef:
+        """
+        Display the details about a cluster.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53-recovery-control-config/client/describe_cluster.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/client/#describe_cluster)
+        """
+
+    def describe_control_panel(
+        self, **kwargs: Unpack[DescribeControlPanelRequestTypeDef]
+    ) -> DescribeControlPanelResponseTypeDef:
+        """
+        Displays details about a control panel.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53-recovery-control-config/client/describe_control_panel.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/client/#describe_control_panel)
+        """
+
+    def describe_routing_control(
+        self, **kwargs: Unpack[DescribeRoutingControlRequestTypeDef]
+    ) -> DescribeRoutingControlResponseTypeDef:
+        """
+        Displays details about a routing control.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53-recovery-control-config/client/describe_routing_control.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/client/#describe_routing_control)
+        """
+
+    def describe_safety_rule(
+        self, **kwargs: Unpack[DescribeSafetyRuleRequestTypeDef]
+    ) -> DescribeSafetyRuleResponseTypeDef:
+        """
+        Returns information about a safety rule.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53-recovery-control-config/client/describe_safety_rule.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/client/#describe_safety_rule)
+        """
+
+    def get_resource_policy(
+        self, **kwargs: Unpack[GetResourcePolicyRequestTypeDef]
+    ) -> GetResourcePolicyResponseTypeDef:
         """
         Get information about the resource policy for a cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53-recovery-control-config.html#Route53RecoveryControlConfig.Client.get_resource_policy)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/client.html#get_resource_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53-recovery-control-config/client/get_resource_policy.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/client/#get_resource_policy)
         """
 
     def list_associated_route53_health_checks(
-        self, *, RoutingControlArn: str, MaxResults: int = None, NextToken: str = None
+        self, **kwargs: Unpack[ListAssociatedRoute53HealthChecksRequestTypeDef]
     ) -> ListAssociatedRoute53HealthChecksResponseTypeDef:
         """
-        Returns an array of all Amazon Route 53 health checks associated with a specific
-        routing control.
+        Returns an array of all Amazon Route 53 health checks associated with a
+        specific routing control.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53-recovery-control-config.html#Route53RecoveryControlConfig.Client.list_associated_route53_health_checks)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/client.html#list_associated_route53_health_checks)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53-recovery-control-config/client/list_associated_route53_health_checks.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/client/#list_associated_route53_health_checks)
         """
 
     def list_clusters(
-        self, *, MaxResults: int = None, NextToken: str = None
+        self, **kwargs: Unpack[ListClustersRequestTypeDef]
     ) -> ListClustersResponseTypeDef:
         """
         Returns an array of all the clusters in an account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53-recovery-control-config.html#Route53RecoveryControlConfig.Client.list_clusters)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/client.html#list_clusters)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53-recovery-control-config/client/list_clusters.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/client/#list_clusters)
         """
 
     def list_control_panels(
-        self, *, ClusterArn: str = None, MaxResults: int = None, NextToken: str = None
+        self, **kwargs: Unpack[ListControlPanelsRequestTypeDef]
     ) -> ListControlPanelsResponseTypeDef:
         """
         Returns an array of control panels in an account or in a cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53-recovery-control-config.html#Route53RecoveryControlConfig.Client.list_control_panels)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/client.html#list_control_panels)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53-recovery-control-config/client/list_control_panels.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/client/#list_control_panels)
         """
 
     def list_routing_controls(
-        self, *, ControlPanelArn: str, MaxResults: int = None, NextToken: str = None
+        self, **kwargs: Unpack[ListRoutingControlsRequestTypeDef]
     ) -> ListRoutingControlsResponseTypeDef:
         """
         Returns an array of routing controls for a control panel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53-recovery-control-config.html#Route53RecoveryControlConfig.Client.list_routing_controls)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/client.html#list_routing_controls)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53-recovery-control-config/client/list_routing_controls.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/client/#list_routing_controls)
         """
 
     def list_safety_rules(
-        self, *, ControlPanelArn: str, MaxResults: int = None, NextToken: str = None
+        self, **kwargs: Unpack[ListSafetyRulesRequestTypeDef]
     ) -> ListSafetyRulesResponseTypeDef:
         """
-        List the safety rules (the assertion rules and gating rules) that you've defined
-        for the routing controls in a control panel.
+        List the safety rules (the assertion rules and gating rules) that you've
+        defined for the routing controls in a control panel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53-recovery-control-config.html#Route53RecoveryControlConfig.Client.list_safety_rules)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/client.html#list_safety_rules)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53-recovery-control-config/client/list_safety_rules.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/client/#list_safety_rules)
         """
 
-    def list_tags_for_resource(self, *, ResourceArn: str) -> ListTagsForResourceResponseTypeDef:
+    def list_tags_for_resource(
+        self, **kwargs: Unpack[ListTagsForResourceRequestTypeDef]
+    ) -> ListTagsForResourceResponseTypeDef:
         """
         Lists the tags for a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53-recovery-control-config.html#Route53RecoveryControlConfig.Client.list_tags_for_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/client.html#list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53-recovery-control-config/client/list_tags_for_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/client/#list_tags_for_resource)
         """
 
-    def tag_resource(self, *, ResourceArn: str, Tags: Dict[str, str]) -> Dict[str, Any]:
+    def tag_resource(self, **kwargs: Unpack[TagResourceRequestTypeDef]) -> Dict[str, Any]:
         """
         Adds a tag to a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53-recovery-control-config.html#Route53RecoveryControlConfig.Client.tag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/client.html#tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53-recovery-control-config/client/tag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/client/#tag_resource)
         """
 
-    def untag_resource(self, *, ResourceArn: str, TagKeys: List[str]) -> Dict[str, Any]:
+    def untag_resource(self, **kwargs: Unpack[UntagResourceRequestTypeDef]) -> Dict[str, Any]:
         """
         Removes a tag from a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53-recovery-control-config.html#Route53RecoveryControlConfig.Client.untag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/client.html#untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53-recovery-control-config/client/untag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/client/#untag_resource)
+        """
+
+    def update_cluster(
+        self, **kwargs: Unpack[UpdateClusterRequestTypeDef]
+    ) -> UpdateClusterResponseTypeDef:
+        """
+        Updates an existing cluster.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53-recovery-control-config/client/update_cluster.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/client/#update_cluster)
         """
 
     def update_control_panel(
-        self, *, ControlPanelArn: str, ControlPanelName: str
+        self, **kwargs: Unpack[UpdateControlPanelRequestTypeDef]
     ) -> UpdateControlPanelResponseTypeDef:
         """
         Updates a control panel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53-recovery-control-config.html#Route53RecoveryControlConfig.Client.update_control_panel)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/client.html#update_control_panel)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53-recovery-control-config/client/update_control_panel.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/client/#update_control_panel)
         """
 
     def update_routing_control(
-        self, *, RoutingControlArn: str, RoutingControlName: str
+        self, **kwargs: Unpack[UpdateRoutingControlRequestTypeDef]
     ) -> UpdateRoutingControlResponseTypeDef:
         """
         Updates a routing control.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53-recovery-control-config.html#Route53RecoveryControlConfig.Client.update_routing_control)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/client.html#update_routing_control)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53-recovery-control-config/client/update_routing_control.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/client/#update_routing_control)
         """
 
     def update_safety_rule(
-        self,
-        *,
-        AssertionRuleUpdate: "AssertionRuleUpdateTypeDef" = None,
-        GatingRuleUpdate: "GatingRuleUpdateTypeDef" = None
+        self, **kwargs: Unpack[UpdateSafetyRuleRequestTypeDef]
     ) -> UpdateSafetyRuleResponseTypeDef:
         """
         Update a safety rule (an assertion rule or gating rule).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53-recovery-control-config.html#Route53RecoveryControlConfig.Client.update_safety_rule)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/client.html#update_safety_rule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53-recovery-control-config/client/update_safety_rule.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/client/#update_safety_rule)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_associated_route53_health_checks"]
     ) -> ListAssociatedRoute53HealthChecksPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53-recovery-control-config.html#Route53RecoveryControlConfig.Paginator.ListAssociatedRoute53HealthChecks)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/paginators.html#listassociatedroute53healthcheckspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53-recovery-control-config/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_clusters"]) -> ListClustersPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_clusters"]
+    ) -> ListClustersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53-recovery-control-config.html#Route53RecoveryControlConfig.Paginator.ListClusters)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/paginators.html#listclusterspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53-recovery-control-config/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_control_panels"]
     ) -> ListControlPanelsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53-recovery-control-config.html#Route53RecoveryControlConfig.Paginator.ListControlPanels)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/paginators.html#listcontrolpanelspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53-recovery-control-config/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_routing_controls"]
     ) -> ListRoutingControlsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53-recovery-control-config.html#Route53RecoveryControlConfig.Paginator.ListRoutingControls)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/paginators.html#listroutingcontrolspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53-recovery-control-config/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_safety_rules"]
     ) -> ListSafetyRulesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53-recovery-control-config.html#Route53RecoveryControlConfig.Paginator.ListSafetyRules)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/paginators.html#listsafetyrulespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53-recovery-control-config/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/client/#get_paginator)
         """
 
-    @overload
-    def get_waiter(self, waiter_name: Literal["cluster_created"]) -> ClusterCreatedWaiter:
+    @overload  # type: ignore[override]
+    def get_waiter(  # type: ignore[override]
+        self, waiter_name: Literal["cluster_created"]
+    ) -> ClusterCreatedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53-recovery-control-config.html#Route53RecoveryControlConfig.Waiter.ClusterCreated)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/waiters.html#clustercreatedwaiter)
+        Returns an object that can wait for some condition.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53-recovery-control-config/client/get_waiter.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/client/#get_waiter)
         """
 
-    @overload
-    def get_waiter(self, waiter_name: Literal["cluster_deleted"]) -> ClusterDeletedWaiter:
+    @overload  # type: ignore[override]
+    def get_waiter(  # type: ignore[override]
+        self, waiter_name: Literal["cluster_deleted"]
+    ) -> ClusterDeletedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53-recovery-control-config.html#Route53RecoveryControlConfig.Waiter.ClusterDeleted)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/waiters.html#clusterdeletedwaiter)
+        Returns an object that can wait for some condition.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53-recovery-control-config/client/get_waiter.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/client/#get_waiter)
         """
 
-    @overload
-    def get_waiter(
+    @overload  # type: ignore[override]
+    def get_waiter(  # type: ignore[override]
         self, waiter_name: Literal["control_panel_created"]
     ) -> ControlPanelCreatedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53-recovery-control-config.html#Route53RecoveryControlConfig.Waiter.ControlPanelCreated)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/waiters.html#controlpanelcreatedwaiter)
+        Returns an object that can wait for some condition.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53-recovery-control-config/client/get_waiter.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/client/#get_waiter)
         """
 
-    @overload
-    def get_waiter(
+    @overload  # type: ignore[override]
+    def get_waiter(  # type: ignore[override]
         self, waiter_name: Literal["control_panel_deleted"]
     ) -> ControlPanelDeletedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53-recovery-control-config.html#Route53RecoveryControlConfig.Waiter.ControlPanelDeleted)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/waiters.html#controlpaneldeletedwaiter)
+        Returns an object that can wait for some condition.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53-recovery-control-config/client/get_waiter.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/client/#get_waiter)
         """
 
-    @overload
-    def get_waiter(
+    @overload  # type: ignore[override]
+    def get_waiter(  # type: ignore[override]
         self, waiter_name: Literal["routing_control_created"]
     ) -> RoutingControlCreatedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53-recovery-control-config.html#Route53RecoveryControlConfig.Waiter.RoutingControlCreated)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/waiters.html#routingcontrolcreatedwaiter)
+        Returns an object that can wait for some condition.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53-recovery-control-config/client/get_waiter.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/client/#get_waiter)
         """
 
-    @overload
-    def get_waiter(
+    @overload  # type: ignore[override]
+    def get_waiter(  # type: ignore[override]
         self, waiter_name: Literal["routing_control_deleted"]
     ) -> RoutingControlDeletedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53-recovery-control-config.html#Route53RecoveryControlConfig.Waiter.RoutingControlDeleted)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/waiters.html#routingcontroldeletedwaiter)
+        Returns an object that can wait for some condition.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53-recovery-control-config/client/get_waiter.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/client/#get_waiter)
         """

@@ -1,10 +1,14 @@
 """
 Main interface for acm-pca service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_acm_pca/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_acm_pca import (
         ACMPCAClient,
         AuditReportCreatedWaiter,
@@ -16,10 +20,8 @@ Usage::
         ListTagsPaginator,
     )
 
-    session = boto3.Session()
-
-    client: ACMPCAClient = boto3.client("acm-pca")
-    session_client: ACMPCAClient = session.client("acm-pca")
+    session = Session()
+    client: ACMPCAClient = session.client("acm-pca")
 
     audit_report_created_waiter: AuditReportCreatedWaiter = client.get_waiter("audit_report_created")
     certificate_authority_csr_created_waiter: CertificateAuthorityCSRCreatedWaiter = client.get_waiter("certificate_authority_csr_created")

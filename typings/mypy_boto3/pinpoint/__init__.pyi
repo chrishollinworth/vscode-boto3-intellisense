@@ -1,19 +1,21 @@
 """
 Main interface for pinpoint service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_pinpoint/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_pinpoint import (
         Client,
         PinpointClient,
     )
 
-    session = boto3.Session()
-
-    client: PinpointClient = boto3.client("pinpoint")
-    session_client: PinpointClient = session.client("pinpoint")
+    session = Session()
+    client: PinpointClient = session.client("pinpoint")
     ```
 """
 

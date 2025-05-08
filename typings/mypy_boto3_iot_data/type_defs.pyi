@@ -1,253 +1,150 @@
 """
 Type annotations for iot-data service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot_data/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iot_data/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_iot_data.type_defs import DeleteThingShadowRequestRequestTypeDef
+    from mypy_boto3_iot_data.type_defs import BlobTypeDef
 
-    data: DeleteThingShadowRequestRequestTypeDef = {...}
+    data: BlobTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from typing import IO, Any, Dict, List, Union
+from typing import IO, Any, Union
 
 from botocore.response import StreamingBody
 
 from .literals import PayloadFormatIndicatorType
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
-    "DeleteThingShadowRequestRequestTypeDef",
+    "BlobTypeDef",
+    "DeleteThingShadowRequestTypeDef",
     "DeleteThingShadowResponseTypeDef",
-    "GetRetainedMessageRequestRequestTypeDef",
+    "EmptyResponseMetadataTypeDef",
+    "GetRetainedMessageRequestTypeDef",
     "GetRetainedMessageResponseTypeDef",
-    "GetThingShadowRequestRequestTypeDef",
+    "GetThingShadowRequestTypeDef",
     "GetThingShadowResponseTypeDef",
-    "ListNamedShadowsForThingRequestRequestTypeDef",
+    "ListNamedShadowsForThingRequestTypeDef",
     "ListNamedShadowsForThingResponseTypeDef",
-    "ListRetainedMessagesRequestRequestTypeDef",
+    "ListRetainedMessagesRequestPaginateTypeDef",
+    "ListRetainedMessagesRequestTypeDef",
     "ListRetainedMessagesResponseTypeDef",
     "PaginatorConfigTypeDef",
-    "PublishRequestRequestTypeDef",
+    "PublishRequestTypeDef",
     "ResponseMetadataTypeDef",
     "RetainedMessageSummaryTypeDef",
-    "UpdateThingShadowRequestRequestTypeDef",
+    "UpdateThingShadowRequestTypeDef",
     "UpdateThingShadowResponseTypeDef",
 )
 
-_RequiredDeleteThingShadowRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteThingShadowRequestRequestTypeDef",
-    {
-        "thingName": str,
-    },
-)
-_OptionalDeleteThingShadowRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteThingShadowRequestRequestTypeDef",
-    {
-        "shadowName": str,
-    },
-    total=False,
-)
+BlobTypeDef = Union[str, bytes, IO[Any], StreamingBody]
 
-class DeleteThingShadowRequestRequestTypeDef(
-    _RequiredDeleteThingShadowRequestRequestTypeDef, _OptionalDeleteThingShadowRequestRequestTypeDef
-):
-    pass
+class DeleteThingShadowRequestTypeDef(TypedDict):
+    thingName: str
+    shadowName: NotRequired[str]
 
-DeleteThingShadowResponseTypeDef = TypedDict(
-    "DeleteThingShadowResponseTypeDef",
-    {
-        "payload": bytes,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-GetRetainedMessageRequestRequestTypeDef = TypedDict(
-    "GetRetainedMessageRequestRequestTypeDef",
-    {
-        "topic": str,
-    },
-)
+class GetRetainedMessageRequestTypeDef(TypedDict):
+    topic: str
 
-GetRetainedMessageResponseTypeDef = TypedDict(
-    "GetRetainedMessageResponseTypeDef",
-    {
-        "topic": str,
-        "payload": bytes,
-        "qos": int,
-        "lastModifiedTime": int,
-        "userProperties": bytes,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetThingShadowRequestTypeDef(TypedDict):
+    thingName: str
+    shadowName: NotRequired[str]
 
-_RequiredGetThingShadowRequestRequestTypeDef = TypedDict(
-    "_RequiredGetThingShadowRequestRequestTypeDef",
-    {
-        "thingName": str,
-    },
-)
-_OptionalGetThingShadowRequestRequestTypeDef = TypedDict(
-    "_OptionalGetThingShadowRequestRequestTypeDef",
-    {
-        "shadowName": str,
-    },
-    total=False,
-)
+class ListNamedShadowsForThingRequestTypeDef(TypedDict):
+    thingName: str
+    nextToken: NotRequired[str]
+    pageSize: NotRequired[int]
 
-class GetThingShadowRequestRequestTypeDef(
-    _RequiredGetThingShadowRequestRequestTypeDef, _OptionalGetThingShadowRequestRequestTypeDef
-):
-    pass
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
 
-GetThingShadowResponseTypeDef = TypedDict(
-    "GetThingShadowResponseTypeDef",
-    {
-        "payload": bytes,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListRetainedMessagesRequestTypeDef(TypedDict):
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
 
-_RequiredListNamedShadowsForThingRequestRequestTypeDef = TypedDict(
-    "_RequiredListNamedShadowsForThingRequestRequestTypeDef",
-    {
-        "thingName": str,
-    },
-)
-_OptionalListNamedShadowsForThingRequestRequestTypeDef = TypedDict(
-    "_OptionalListNamedShadowsForThingRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "pageSize": int,
-    },
-    total=False,
-)
+class RetainedMessageSummaryTypeDef(TypedDict):
+    topic: NotRequired[str]
+    payloadSize: NotRequired[int]
+    qos: NotRequired[int]
+    lastModifiedTime: NotRequired[int]
 
-class ListNamedShadowsForThingRequestRequestTypeDef(
-    _RequiredListNamedShadowsForThingRequestRequestTypeDef,
-    _OptionalListNamedShadowsForThingRequestRequestTypeDef,
-):
-    pass
+class PublishRequestTypeDef(TypedDict):
+    topic: str
+    qos: NotRequired[int]
+    retain: NotRequired[bool]
+    payload: NotRequired[BlobTypeDef]
+    userProperties: NotRequired[str]
+    payloadFormatIndicator: NotRequired[PayloadFormatIndicatorType]
+    contentType: NotRequired[str]
+    responseTopic: NotRequired[str]
+    correlationData: NotRequired[str]
+    messageExpiry: NotRequired[int]
 
-ListNamedShadowsForThingResponseTypeDef = TypedDict(
-    "ListNamedShadowsForThingResponseTypeDef",
-    {
-        "results": List[str],
-        "nextToken": str,
-        "timestamp": int,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class UpdateThingShadowRequestTypeDef(TypedDict):
+    thingName: str
+    payload: BlobTypeDef
+    shadowName: NotRequired[str]
 
-ListRetainedMessagesRequestRequestTypeDef = TypedDict(
-    "ListRetainedMessagesRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
+class DeleteThingShadowResponseTypeDef(TypedDict):
+    payload: StreamingBody
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ListRetainedMessagesResponseTypeDef = TypedDict(
-    "ListRetainedMessagesResponseTypeDef",
-    {
-        "retainedTopics": List["RetainedMessageSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class EmptyResponseMetadataTypeDef(TypedDict):
+    ResponseMetadata: ResponseMetadataTypeDef
 
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
+class GetRetainedMessageResponseTypeDef(TypedDict):
+    topic: str
+    payload: bytes
+    qos: int
+    lastModifiedTime: int
+    userProperties: bytes
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredPublishRequestRequestTypeDef = TypedDict(
-    "_RequiredPublishRequestRequestTypeDef",
-    {
-        "topic": str,
-    },
-)
-_OptionalPublishRequestRequestTypeDef = TypedDict(
-    "_OptionalPublishRequestRequestTypeDef",
-    {
-        "qos": int,
-        "retain": bool,
-        "payload": Union[bytes, IO[bytes], StreamingBody],
-        "userProperties": str,
-        "payloadFormatIndicator": PayloadFormatIndicatorType,
-        "contentType": str,
-        "responseTopic": str,
-        "correlationData": str,
-        "messageExpiry": int,
-    },
-    total=False,
-)
+class GetThingShadowResponseTypeDef(TypedDict):
+    payload: StreamingBody
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class PublishRequestRequestTypeDef(
-    _RequiredPublishRequestRequestTypeDef, _OptionalPublishRequestRequestTypeDef
-):
-    pass
+class ListNamedShadowsForThingResponseTypeDef(TypedDict):
+    results: List[str]
+    timestamp: int
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
+class UpdateThingShadowResponseTypeDef(TypedDict):
+    payload: StreamingBody
+    ResponseMetadata: ResponseMetadataTypeDef
 
-RetainedMessageSummaryTypeDef = TypedDict(
-    "RetainedMessageSummaryTypeDef",
-    {
-        "topic": str,
-        "payloadSize": int,
-        "qos": int,
-        "lastModifiedTime": int,
-    },
-    total=False,
-)
+class ListRetainedMessagesRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-_RequiredUpdateThingShadowRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateThingShadowRequestRequestTypeDef",
-    {
-        "thingName": str,
-        "payload": Union[bytes, IO[bytes], StreamingBody],
-    },
-)
-_OptionalUpdateThingShadowRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateThingShadowRequestRequestTypeDef",
-    {
-        "shadowName": str,
-    },
-    total=False,
-)
-
-class UpdateThingShadowRequestRequestTypeDef(
-    _RequiredUpdateThingShadowRequestRequestTypeDef, _OptionalUpdateThingShadowRequestRequestTypeDef
-):
-    pass
-
-UpdateThingShadowResponseTypeDef = TypedDict(
-    "UpdateThingShadowResponseTypeDef",
-    {
-        "payload": bytes,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListRetainedMessagesResponseTypeDef(TypedDict):
+    retainedTopics: List[RetainedMessageSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]

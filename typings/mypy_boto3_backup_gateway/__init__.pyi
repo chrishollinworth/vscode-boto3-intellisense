@@ -1,10 +1,14 @@
 """
 Main interface for backup-gateway service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_backup_gateway/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_backup_gateway import (
         BackupGatewayClient,
         Client,
@@ -13,10 +17,8 @@ Usage::
         ListVirtualMachinesPaginator,
     )
 
-    session = boto3.Session()
-
-    client: BackupGatewayClient = boto3.client("backup-gateway")
-    session_client: BackupGatewayClient = session.client("backup-gateway")
+    session = Session()
+    client: BackupGatewayClient = session.client("backup-gateway")
 
     list_gateways_paginator: ListGatewaysPaginator = client.get_paginator("list_gateways")
     list_hypervisors_paginator: ListHypervisorsPaginator = client.get_paginator("list_hypervisors")

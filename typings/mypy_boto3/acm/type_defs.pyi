@@ -1,20 +1,24 @@
 """
 Type annotations for acm service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_acm/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_acm/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_acm.type_defs import AddTagsToCertificateRequestRequestTypeDef
+    from mypy_boto3_acm.type_defs import TagTypeDef
 
-    data: AddTagsToCertificateRequestRequestTypeDef = {...}
+    data: TagTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import IO, Any, Dict, List, Union
+from typing import IO, Any, Union
 
 from botocore.response import StreamingBody
 
@@ -34,431 +38,129 @@ from .literals import (
     ValidationMethodType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
-    "AddTagsToCertificateRequestRequestTypeDef",
+    "AddTagsToCertificateRequestTypeDef",
+    "BlobTypeDef",
     "CertificateDetailTypeDef",
     "CertificateOptionsTypeDef",
     "CertificateSummaryTypeDef",
-    "DeleteCertificateRequestRequestTypeDef",
-    "DescribeCertificateRequestRequestTypeDef",
+    "DeleteCertificateRequestTypeDef",
+    "DescribeCertificateRequestTypeDef",
+    "DescribeCertificateRequestWaitTypeDef",
     "DescribeCertificateResponseTypeDef",
     "DomainValidationOptionTypeDef",
     "DomainValidationTypeDef",
+    "EmptyResponseMetadataTypeDef",
     "ExpiryEventsConfigurationTypeDef",
-    "ExportCertificateRequestRequestTypeDef",
+    "ExportCertificateRequestTypeDef",
     "ExportCertificateResponseTypeDef",
     "ExtendedKeyUsageTypeDef",
     "FiltersTypeDef",
     "GetAccountConfigurationResponseTypeDef",
-    "GetCertificateRequestRequestTypeDef",
+    "GetCertificateRequestTypeDef",
     "GetCertificateResponseTypeDef",
-    "ImportCertificateRequestRequestTypeDef",
+    "HttpRedirectTypeDef",
+    "ImportCertificateRequestTypeDef",
     "ImportCertificateResponseTypeDef",
     "KeyUsageTypeDef",
-    "ListCertificatesRequestRequestTypeDef",
+    "ListCertificatesRequestPaginateTypeDef",
+    "ListCertificatesRequestTypeDef",
     "ListCertificatesResponseTypeDef",
-    "ListTagsForCertificateRequestRequestTypeDef",
+    "ListTagsForCertificateRequestTypeDef",
     "ListTagsForCertificateResponseTypeDef",
     "PaginatorConfigTypeDef",
-    "PutAccountConfigurationRequestRequestTypeDef",
-    "RemoveTagsFromCertificateRequestRequestTypeDef",
-    "RenewCertificateRequestRequestTypeDef",
+    "PutAccountConfigurationRequestTypeDef",
+    "RemoveTagsFromCertificateRequestTypeDef",
+    "RenewCertificateRequestTypeDef",
     "RenewalSummaryTypeDef",
-    "RequestCertificateRequestRequestTypeDef",
+    "RequestCertificateRequestTypeDef",
     "RequestCertificateResponseTypeDef",
-    "ResendValidationEmailRequestRequestTypeDef",
+    "ResendValidationEmailRequestTypeDef",
     "ResourceRecordTypeDef",
     "ResponseMetadataTypeDef",
     "TagTypeDef",
-    "UpdateCertificateOptionsRequestRequestTypeDef",
+    "UpdateCertificateOptionsRequestTypeDef",
     "WaiterConfigTypeDef",
 )
 
-AddTagsToCertificateRequestRequestTypeDef = TypedDict(
-    "AddTagsToCertificateRequestRequestTypeDef",
-    {
-        "CertificateArn": str,
-        "Tags": List["TagTypeDef"],
-    },
-)
+class TagTypeDef(TypedDict):
+    Key: str
+    Value: NotRequired[str]
 
-CertificateDetailTypeDef = TypedDict(
-    "CertificateDetailTypeDef",
-    {
-        "CertificateArn": str,
-        "DomainName": str,
-        "SubjectAlternativeNames": List[str],
-        "DomainValidationOptions": List["DomainValidationTypeDef"],
-        "Serial": str,
-        "Subject": str,
-        "Issuer": str,
-        "CreatedAt": datetime,
-        "IssuedAt": datetime,
-        "ImportedAt": datetime,
-        "Status": CertificateStatusType,
-        "RevokedAt": datetime,
-        "RevocationReason": RevocationReasonType,
-        "NotBefore": datetime,
-        "NotAfter": datetime,
-        "KeyAlgorithm": KeyAlgorithmType,
-        "SignatureAlgorithm": str,
-        "InUseBy": List[str],
-        "FailureReason": FailureReasonType,
-        "Type": CertificateTypeType,
-        "RenewalSummary": "RenewalSummaryTypeDef",
-        "KeyUsages": List["KeyUsageTypeDef"],
-        "ExtendedKeyUsages": List["ExtendedKeyUsageTypeDef"],
-        "CertificateAuthorityArn": str,
-        "RenewalEligibility": RenewalEligibilityType,
-        "Options": "CertificateOptionsTypeDef",
-    },
-    total=False,
-)
+BlobTypeDef = Union[str, bytes, IO[Any], StreamingBody]
 
-CertificateOptionsTypeDef = TypedDict(
-    "CertificateOptionsTypeDef",
-    {
-        "CertificateTransparencyLoggingPreference": CertificateTransparencyLoggingPreferenceType,
-    },
-    total=False,
-)
+class CertificateOptionsTypeDef(TypedDict):
+    CertificateTransparencyLoggingPreference: NotRequired[
+        CertificateTransparencyLoggingPreferenceType
+    ]
+
+class ExtendedKeyUsageTypeDef(TypedDict):
+    Name: NotRequired[ExtendedKeyUsageNameType]
+    OID: NotRequired[str]
+
+class KeyUsageTypeDef(TypedDict):
+    Name: NotRequired[KeyUsageNameType]
 
 CertificateSummaryTypeDef = TypedDict(
     "CertificateSummaryTypeDef",
     {
-        "CertificateArn": str,
-        "DomainName": str,
-        "SubjectAlternativeNameSummaries": List[str],
-        "HasAdditionalSubjectAlternativeNames": bool,
-        "Status": CertificateStatusType,
-        "Type": CertificateTypeType,
-        "KeyAlgorithm": KeyAlgorithmType,
-        "KeyUsages": List[KeyUsageNameType],
-        "ExtendedKeyUsages": List[ExtendedKeyUsageNameType],
-        "InUse": bool,
-        "Exported": bool,
-        "RenewalEligibility": RenewalEligibilityType,
-        "NotBefore": datetime,
-        "NotAfter": datetime,
-        "CreatedAt": datetime,
-        "IssuedAt": datetime,
-        "ImportedAt": datetime,
-        "RevokedAt": datetime,
-    },
-    total=False,
-)
-
-DeleteCertificateRequestRequestTypeDef = TypedDict(
-    "DeleteCertificateRequestRequestTypeDef",
-    {
-        "CertificateArn": str,
+        "CertificateArn": NotRequired[str],
+        "DomainName": NotRequired[str],
+        "SubjectAlternativeNameSummaries": NotRequired[List[str]],
+        "HasAdditionalSubjectAlternativeNames": NotRequired[bool],
+        "Status": NotRequired[CertificateStatusType],
+        "Type": NotRequired[CertificateTypeType],
+        "KeyAlgorithm": NotRequired[KeyAlgorithmType],
+        "KeyUsages": NotRequired[List[KeyUsageNameType]],
+        "ExtendedKeyUsages": NotRequired[List[ExtendedKeyUsageNameType]],
+        "InUse": NotRequired[bool],
+        "Exported": NotRequired[bool],
+        "RenewalEligibility": NotRequired[RenewalEligibilityType],
+        "NotBefore": NotRequired[datetime],
+        "NotAfter": NotRequired[datetime],
+        "CreatedAt": NotRequired[datetime],
+        "IssuedAt": NotRequired[datetime],
+        "ImportedAt": NotRequired[datetime],
+        "RevokedAt": NotRequired[datetime],
+        "ManagedBy": NotRequired[Literal["CLOUDFRONT"]],
     },
 )
 
-DescribeCertificateRequestRequestTypeDef = TypedDict(
-    "DescribeCertificateRequestRequestTypeDef",
-    {
-        "CertificateArn": str,
-    },
-)
+class DeleteCertificateRequestTypeDef(TypedDict):
+    CertificateArn: str
 
-DescribeCertificateResponseTypeDef = TypedDict(
-    "DescribeCertificateResponseTypeDef",
-    {
-        "Certificate": "CertificateDetailTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DescribeCertificateRequestTypeDef(TypedDict):
+    CertificateArn: str
 
-DomainValidationOptionTypeDef = TypedDict(
-    "DomainValidationOptionTypeDef",
-    {
-        "DomainName": str,
-        "ValidationDomain": str,
-    },
-)
+class WaiterConfigTypeDef(TypedDict):
+    Delay: NotRequired[int]
+    MaxAttempts: NotRequired[int]
 
-_RequiredDomainValidationTypeDef = TypedDict(
-    "_RequiredDomainValidationTypeDef",
-    {
-        "DomainName": str,
-    },
-)
-_OptionalDomainValidationTypeDef = TypedDict(
-    "_OptionalDomainValidationTypeDef",
-    {
-        "ValidationEmails": List[str],
-        "ValidationDomain": str,
-        "ValidationStatus": DomainStatusType,
-        "ResourceRecord": "ResourceRecordTypeDef",
-        "ValidationMethod": ValidationMethodType,
-    },
-    total=False,
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-class DomainValidationTypeDef(_RequiredDomainValidationTypeDef, _OptionalDomainValidationTypeDef):
-    pass
+class DomainValidationOptionTypeDef(TypedDict):
+    DomainName: str
+    ValidationDomain: str
 
-ExpiryEventsConfigurationTypeDef = TypedDict(
-    "ExpiryEventsConfigurationTypeDef",
-    {
-        "DaysBeforeExpiry": int,
-    },
-    total=False,
-)
-
-ExportCertificateRequestRequestTypeDef = TypedDict(
-    "ExportCertificateRequestRequestTypeDef",
-    {
-        "CertificateArn": str,
-        "Passphrase": Union[bytes, IO[bytes], StreamingBody],
-    },
-)
-
-ExportCertificateResponseTypeDef = TypedDict(
-    "ExportCertificateResponseTypeDef",
-    {
-        "Certificate": str,
-        "CertificateChain": str,
-        "PrivateKey": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ExtendedKeyUsageTypeDef = TypedDict(
-    "ExtendedKeyUsageTypeDef",
-    {
-        "Name": ExtendedKeyUsageNameType,
-        "OID": str,
-    },
-    total=False,
-)
-
-FiltersTypeDef = TypedDict(
-    "FiltersTypeDef",
-    {
-        "extendedKeyUsage": List[ExtendedKeyUsageNameType],
-        "keyUsage": List[KeyUsageNameType],
-        "keyTypes": List[KeyAlgorithmType],
-    },
-    total=False,
-)
-
-GetAccountConfigurationResponseTypeDef = TypedDict(
-    "GetAccountConfigurationResponseTypeDef",
-    {
-        "ExpiryEvents": "ExpiryEventsConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetCertificateRequestRequestTypeDef = TypedDict(
-    "GetCertificateRequestRequestTypeDef",
-    {
-        "CertificateArn": str,
-    },
-)
-
-GetCertificateResponseTypeDef = TypedDict(
-    "GetCertificateResponseTypeDef",
-    {
-        "Certificate": str,
-        "CertificateChain": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredImportCertificateRequestRequestTypeDef = TypedDict(
-    "_RequiredImportCertificateRequestRequestTypeDef",
-    {
-        "Certificate": Union[bytes, IO[bytes], StreamingBody],
-        "PrivateKey": Union[bytes, IO[bytes], StreamingBody],
-    },
-)
-_OptionalImportCertificateRequestRequestTypeDef = TypedDict(
-    "_OptionalImportCertificateRequestRequestTypeDef",
-    {
-        "CertificateArn": str,
-        "CertificateChain": Union[bytes, IO[bytes], StreamingBody],
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class ImportCertificateRequestRequestTypeDef(
-    _RequiredImportCertificateRequestRequestTypeDef, _OptionalImportCertificateRequestRequestTypeDef
-):
-    pass
-
-ImportCertificateResponseTypeDef = TypedDict(
-    "ImportCertificateResponseTypeDef",
-    {
-        "CertificateArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-KeyUsageTypeDef = TypedDict(
-    "KeyUsageTypeDef",
-    {
-        "Name": KeyUsageNameType,
-    },
-    total=False,
-)
-
-ListCertificatesRequestRequestTypeDef = TypedDict(
-    "ListCertificatesRequestRequestTypeDef",
-    {
-        "CertificateStatuses": List[CertificateStatusType],
-        "Includes": "FiltersTypeDef",
-        "NextToken": str,
-        "MaxItems": int,
-        "SortBy": Literal["CREATED_AT"],
-        "SortOrder": SortOrderType,
-    },
-    total=False,
-)
-
-ListCertificatesResponseTypeDef = TypedDict(
-    "ListCertificatesResponseTypeDef",
-    {
-        "NextToken": str,
-        "CertificateSummaryList": List["CertificateSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTagsForCertificateRequestRequestTypeDef = TypedDict(
-    "ListTagsForCertificateRequestRequestTypeDef",
-    {
-        "CertificateArn": str,
-    },
-)
-
-ListTagsForCertificateResponseTypeDef = TypedDict(
-    "ListTagsForCertificateResponseTypeDef",
-    {
-        "Tags": List["TagTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-_RequiredPutAccountConfigurationRequestRequestTypeDef = TypedDict(
-    "_RequiredPutAccountConfigurationRequestRequestTypeDef",
-    {
-        "IdempotencyToken": str,
-    },
-)
-_OptionalPutAccountConfigurationRequestRequestTypeDef = TypedDict(
-    "_OptionalPutAccountConfigurationRequestRequestTypeDef",
-    {
-        "ExpiryEvents": "ExpiryEventsConfigurationTypeDef",
-    },
-    total=False,
-)
-
-class PutAccountConfigurationRequestRequestTypeDef(
-    _RequiredPutAccountConfigurationRequestRequestTypeDef,
-    _OptionalPutAccountConfigurationRequestRequestTypeDef,
-):
-    pass
-
-RemoveTagsFromCertificateRequestRequestTypeDef = TypedDict(
-    "RemoveTagsFromCertificateRequestRequestTypeDef",
-    {
-        "CertificateArn": str,
-        "Tags": List["TagTypeDef"],
-    },
-)
-
-RenewCertificateRequestRequestTypeDef = TypedDict(
-    "RenewCertificateRequestRequestTypeDef",
-    {
-        "CertificateArn": str,
-    },
-)
-
-_RequiredRenewalSummaryTypeDef = TypedDict(
-    "_RequiredRenewalSummaryTypeDef",
-    {
-        "RenewalStatus": RenewalStatusType,
-        "DomainValidationOptions": List["DomainValidationTypeDef"],
-        "UpdatedAt": datetime,
-    },
-)
-_OptionalRenewalSummaryTypeDef = TypedDict(
-    "_OptionalRenewalSummaryTypeDef",
-    {
-        "RenewalStatusReason": FailureReasonType,
-    },
-    total=False,
-)
-
-class RenewalSummaryTypeDef(_RequiredRenewalSummaryTypeDef, _OptionalRenewalSummaryTypeDef):
-    pass
-
-_RequiredRequestCertificateRequestRequestTypeDef = TypedDict(
-    "_RequiredRequestCertificateRequestRequestTypeDef",
-    {
-        "DomainName": str,
-    },
-)
-_OptionalRequestCertificateRequestRequestTypeDef = TypedDict(
-    "_OptionalRequestCertificateRequestRequestTypeDef",
-    {
-        "ValidationMethod": ValidationMethodType,
-        "SubjectAlternativeNames": List[str],
-        "IdempotencyToken": str,
-        "DomainValidationOptions": List["DomainValidationOptionTypeDef"],
-        "Options": "CertificateOptionsTypeDef",
-        "CertificateAuthorityArn": str,
-        "Tags": List["TagTypeDef"],
-        "KeyAlgorithm": KeyAlgorithmType,
-    },
-    total=False,
-)
-
-class RequestCertificateRequestRequestTypeDef(
-    _RequiredRequestCertificateRequestRequestTypeDef,
-    _OptionalRequestCertificateRequestRequestTypeDef,
-):
-    pass
-
-RequestCertificateResponseTypeDef = TypedDict(
-    "RequestCertificateResponseTypeDef",
-    {
-        "CertificateArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ResendValidationEmailRequestRequestTypeDef = TypedDict(
-    "ResendValidationEmailRequestRequestTypeDef",
-    {
-        "CertificateArn": str,
-        "Domain": str,
-        "ValidationDomain": str,
-    },
-)
+class HttpRedirectTypeDef(TypedDict):
+    RedirectFrom: NotRequired[str]
+    RedirectTo: NotRequired[str]
 
 ResourceRecordTypeDef = TypedDict(
     "ResourceRecordTypeDef",
@@ -469,47 +171,175 @@ ResourceRecordTypeDef = TypedDict(
     },
 )
 
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
+class ExpiryEventsConfigurationTypeDef(TypedDict):
+    DaysBeforeExpiry: NotRequired[int]
+
+class FiltersTypeDef(TypedDict):
+    extendedKeyUsage: NotRequired[Sequence[ExtendedKeyUsageNameType]]
+    keyUsage: NotRequired[Sequence[KeyUsageNameType]]
+    keyTypes: NotRequired[Sequence[KeyAlgorithmType]]
+    managedBy: NotRequired[Literal["CLOUDFRONT"]]
+
+class GetCertificateRequestTypeDef(TypedDict):
+    CertificateArn: str
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class ListTagsForCertificateRequestTypeDef(TypedDict):
+    CertificateArn: str
+
+class RenewCertificateRequestTypeDef(TypedDict):
+    CertificateArn: str
+
+class ResendValidationEmailRequestTypeDef(TypedDict):
+    CertificateArn: str
+    Domain: str
+    ValidationDomain: str
+
+class AddTagsToCertificateRequestTypeDef(TypedDict):
+    CertificateArn: str
+    Tags: Sequence[TagTypeDef]
+
+class RemoveTagsFromCertificateRequestTypeDef(TypedDict):
+    CertificateArn: str
+    Tags: Sequence[TagTypeDef]
+
+class ExportCertificateRequestTypeDef(TypedDict):
+    CertificateArn: str
+    Passphrase: BlobTypeDef
+
+class ImportCertificateRequestTypeDef(TypedDict):
+    Certificate: BlobTypeDef
+    PrivateKey: BlobTypeDef
+    CertificateArn: NotRequired[str]
+    CertificateChain: NotRequired[BlobTypeDef]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+
+class UpdateCertificateOptionsRequestTypeDef(TypedDict):
+    CertificateArn: str
+    Options: CertificateOptionsTypeDef
+
+class DescribeCertificateRequestWaitTypeDef(TypedDict):
+    CertificateArn: str
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class EmptyResponseMetadataTypeDef(TypedDict):
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ExportCertificateResponseTypeDef(TypedDict):
+    Certificate: str
+    CertificateChain: str
+    PrivateKey: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetCertificateResponseTypeDef(TypedDict):
+    Certificate: str
+    CertificateChain: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ImportCertificateResponseTypeDef(TypedDict):
+    CertificateArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListCertificatesResponseTypeDef(TypedDict):
+    CertificateSummaryList: List[CertificateSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListTagsForCertificateResponseTypeDef(TypedDict):
+    Tags: List[TagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class RequestCertificateResponseTypeDef(TypedDict):
+    CertificateArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class RequestCertificateRequestTypeDef(TypedDict):
+    DomainName: str
+    ValidationMethod: NotRequired[ValidationMethodType]
+    SubjectAlternativeNames: NotRequired[Sequence[str]]
+    IdempotencyToken: NotRequired[str]
+    DomainValidationOptions: NotRequired[Sequence[DomainValidationOptionTypeDef]]
+    Options: NotRequired[CertificateOptionsTypeDef]
+    CertificateAuthorityArn: NotRequired[str]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+    KeyAlgorithm: NotRequired[KeyAlgorithmType]
+    ManagedBy: NotRequired[Literal["CLOUDFRONT"]]
+
+class DomainValidationTypeDef(TypedDict):
+    DomainName: str
+    ValidationEmails: NotRequired[List[str]]
+    ValidationDomain: NotRequired[str]
+    ValidationStatus: NotRequired[DomainStatusType]
+    ResourceRecord: NotRequired[ResourceRecordTypeDef]
+    HttpRedirect: NotRequired[HttpRedirectTypeDef]
+    ValidationMethod: NotRequired[ValidationMethodType]
+
+class GetAccountConfigurationResponseTypeDef(TypedDict):
+    ExpiryEvents: ExpiryEventsConfigurationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutAccountConfigurationRequestTypeDef(TypedDict):
+    IdempotencyToken: str
+    ExpiryEvents: NotRequired[ExpiryEventsConfigurationTypeDef]
+
+class ListCertificatesRequestTypeDef(TypedDict):
+    CertificateStatuses: NotRequired[Sequence[CertificateStatusType]]
+    Includes: NotRequired[FiltersTypeDef]
+    NextToken: NotRequired[str]
+    MaxItems: NotRequired[int]
+    SortBy: NotRequired[Literal["CREATED_AT"]]
+    SortOrder: NotRequired[SortOrderType]
+
+class ListCertificatesRequestPaginateTypeDef(TypedDict):
+    CertificateStatuses: NotRequired[Sequence[CertificateStatusType]]
+    Includes: NotRequired[FiltersTypeDef]
+    SortBy: NotRequired[Literal["CREATED_AT"]]
+    SortOrder: NotRequired[SortOrderType]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class RenewalSummaryTypeDef(TypedDict):
+    RenewalStatus: RenewalStatusType
+    DomainValidationOptions: List[DomainValidationTypeDef]
+    UpdatedAt: datetime
+    RenewalStatusReason: NotRequired[FailureReasonType]
+
+CertificateDetailTypeDef = TypedDict(
+    "CertificateDetailTypeDef",
     {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
+        "CertificateArn": NotRequired[str],
+        "DomainName": NotRequired[str],
+        "SubjectAlternativeNames": NotRequired[List[str]],
+        "ManagedBy": NotRequired[Literal["CLOUDFRONT"]],
+        "DomainValidationOptions": NotRequired[List[DomainValidationTypeDef]],
+        "Serial": NotRequired[str],
+        "Subject": NotRequired[str],
+        "Issuer": NotRequired[str],
+        "CreatedAt": NotRequired[datetime],
+        "IssuedAt": NotRequired[datetime],
+        "ImportedAt": NotRequired[datetime],
+        "Status": NotRequired[CertificateStatusType],
+        "RevokedAt": NotRequired[datetime],
+        "RevocationReason": NotRequired[RevocationReasonType],
+        "NotBefore": NotRequired[datetime],
+        "NotAfter": NotRequired[datetime],
+        "KeyAlgorithm": NotRequired[KeyAlgorithmType],
+        "SignatureAlgorithm": NotRequired[str],
+        "InUseBy": NotRequired[List[str]],
+        "FailureReason": NotRequired[FailureReasonType],
+        "Type": NotRequired[CertificateTypeType],
+        "RenewalSummary": NotRequired[RenewalSummaryTypeDef],
+        "KeyUsages": NotRequired[List[KeyUsageTypeDef]],
+        "ExtendedKeyUsages": NotRequired[List[ExtendedKeyUsageTypeDef]],
+        "CertificateAuthorityArn": NotRequired[str],
+        "RenewalEligibility": NotRequired[RenewalEligibilityType],
+        "Options": NotRequired[CertificateOptionsTypeDef],
     },
 )
 
-_RequiredTagTypeDef = TypedDict(
-    "_RequiredTagTypeDef",
-    {
-        "Key": str,
-    },
-)
-_OptionalTagTypeDef = TypedDict(
-    "_OptionalTagTypeDef",
-    {
-        "Value": str,
-    },
-    total=False,
-)
-
-class TagTypeDef(_RequiredTagTypeDef, _OptionalTagTypeDef):
-    pass
-
-UpdateCertificateOptionsRequestRequestTypeDef = TypedDict(
-    "UpdateCertificateOptionsRequestRequestTypeDef",
-    {
-        "CertificateArn": str,
-        "Options": "CertificateOptionsTypeDef",
-    },
-)
-
-WaiterConfigTypeDef = TypedDict(
-    "WaiterConfigTypeDef",
-    {
-        "Delay": int,
-        "MaxAttempts": int,
-    },
-    total=False,
-)
+class DescribeCertificateResponseTypeDef(TypedDict):
+    Certificate: CertificateDetailTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef

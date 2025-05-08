@@ -1,10 +1,14 @@
 """
 Main interface for sdb service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sdb/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_sdb import (
         Client,
         ListDomainsPaginator,
@@ -12,10 +16,8 @@ Usage::
         SimpleDBClient,
     )
 
-    session = boto3.Session()
-
-    client: SimpleDBClient = boto3.client("sdb")
-    session_client: SimpleDBClient = session.client("sdb")
+    session = Session()
+    client: SimpleDBClient = session.client("sdb")
 
     list_domains_paginator: ListDomainsPaginator = client.get_paginator("list_domains")
     select_paginator: SelectPaginator = client.get_paginator("select")

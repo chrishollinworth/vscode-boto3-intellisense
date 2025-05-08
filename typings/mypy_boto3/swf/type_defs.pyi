@@ -1,20 +1,24 @@
 """
 Type annotations for swf service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_swf/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_swf/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_swf.type_defs import ActivityTaskCancelRequestedEventAttributesTypeDef
 
-    data: ActivityTaskCancelRequestedEventAttributesTypeDef = {...}
+    data: ActivityTaskCancelRequestedEventAttributesTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List, Union
+from typing import Union
 
 from .literals import (
     ActivityTaskTimeoutTypeType,
@@ -40,14 +44,16 @@ from .literals import (
     WorkflowExecutionTerminatedCauseType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
     "ActivityTaskCancelRequestedEventAttributesTypeDef",
@@ -79,35 +85,37 @@ __all__ = (
     "CompleteWorkflowExecutionFailedEventAttributesTypeDef",
     "ContinueAsNewWorkflowExecutionDecisionAttributesTypeDef",
     "ContinueAsNewWorkflowExecutionFailedEventAttributesTypeDef",
-    "CountClosedWorkflowExecutionsInputRequestTypeDef",
-    "CountOpenWorkflowExecutionsInputRequestTypeDef",
-    "CountPendingActivityTasksInputRequestTypeDef",
-    "CountPendingDecisionTasksInputRequestTypeDef",
+    "CountClosedWorkflowExecutionsInputTypeDef",
+    "CountOpenWorkflowExecutionsInputTypeDef",
+    "CountPendingActivityTasksInputTypeDef",
+    "CountPendingDecisionTasksInputTypeDef",
     "DecisionTaskCompletedEventAttributesTypeDef",
     "DecisionTaskScheduledEventAttributesTypeDef",
     "DecisionTaskStartedEventAttributesTypeDef",
     "DecisionTaskTimedOutEventAttributesTypeDef",
     "DecisionTaskTypeDef",
     "DecisionTypeDef",
-    "DeleteActivityTypeInputRequestTypeDef",
-    "DeleteWorkflowTypeInputRequestTypeDef",
-    "DeprecateActivityTypeInputRequestTypeDef",
-    "DeprecateDomainInputRequestTypeDef",
-    "DeprecateWorkflowTypeInputRequestTypeDef",
-    "DescribeActivityTypeInputRequestTypeDef",
-    "DescribeDomainInputRequestTypeDef",
-    "DescribeWorkflowExecutionInputRequestTypeDef",
-    "DescribeWorkflowTypeInputRequestTypeDef",
+    "DeleteActivityTypeInputTypeDef",
+    "DeleteWorkflowTypeInputTypeDef",
+    "DeprecateActivityTypeInputTypeDef",
+    "DeprecateDomainInputTypeDef",
+    "DeprecateWorkflowTypeInputTypeDef",
+    "DescribeActivityTypeInputTypeDef",
+    "DescribeDomainInputTypeDef",
+    "DescribeWorkflowExecutionInputTypeDef",
+    "DescribeWorkflowTypeInputTypeDef",
     "DomainConfigurationTypeDef",
     "DomainDetailTypeDef",
     "DomainInfoTypeDef",
     "DomainInfosTypeDef",
+    "EmptyResponseMetadataTypeDef",
     "ExecutionTimeFilterTypeDef",
     "ExternalWorkflowExecutionCancelRequestedEventAttributesTypeDef",
     "ExternalWorkflowExecutionSignaledEventAttributesTypeDef",
     "FailWorkflowExecutionDecisionAttributesTypeDef",
     "FailWorkflowExecutionFailedEventAttributesTypeDef",
-    "GetWorkflowExecutionHistoryInputRequestTypeDef",
+    "GetWorkflowExecutionHistoryInputPaginateTypeDef",
+    "GetWorkflowExecutionHistoryInputTypeDef",
     "HistoryEventTypeDef",
     "HistoryTypeDef",
     "LambdaFunctionCompletedEventAttributesTypeDef",
@@ -115,35 +123,41 @@ __all__ = (
     "LambdaFunctionScheduledEventAttributesTypeDef",
     "LambdaFunctionStartedEventAttributesTypeDef",
     "LambdaFunctionTimedOutEventAttributesTypeDef",
-    "ListActivityTypesInputRequestTypeDef",
-    "ListClosedWorkflowExecutionsInputRequestTypeDef",
-    "ListDomainsInputRequestTypeDef",
-    "ListOpenWorkflowExecutionsInputRequestTypeDef",
-    "ListTagsForResourceInputRequestTypeDef",
+    "ListActivityTypesInputPaginateTypeDef",
+    "ListActivityTypesInputTypeDef",
+    "ListClosedWorkflowExecutionsInputPaginateTypeDef",
+    "ListClosedWorkflowExecutionsInputTypeDef",
+    "ListDomainsInputPaginateTypeDef",
+    "ListDomainsInputTypeDef",
+    "ListOpenWorkflowExecutionsInputPaginateTypeDef",
+    "ListOpenWorkflowExecutionsInputTypeDef",
+    "ListTagsForResourceInputTypeDef",
     "ListTagsForResourceOutputTypeDef",
-    "ListWorkflowTypesInputRequestTypeDef",
+    "ListWorkflowTypesInputPaginateTypeDef",
+    "ListWorkflowTypesInputTypeDef",
     "MarkerRecordedEventAttributesTypeDef",
     "PaginatorConfigTypeDef",
     "PendingTaskCountTypeDef",
-    "PollForActivityTaskInputRequestTypeDef",
-    "PollForDecisionTaskInputRequestTypeDef",
-    "RecordActivityTaskHeartbeatInputRequestTypeDef",
+    "PollForActivityTaskInputTypeDef",
+    "PollForDecisionTaskInputPaginateTypeDef",
+    "PollForDecisionTaskInputTypeDef",
+    "RecordActivityTaskHeartbeatInputTypeDef",
     "RecordMarkerDecisionAttributesTypeDef",
     "RecordMarkerFailedEventAttributesTypeDef",
-    "RegisterActivityTypeInputRequestTypeDef",
-    "RegisterDomainInputRequestTypeDef",
-    "RegisterWorkflowTypeInputRequestTypeDef",
+    "RegisterActivityTypeInputTypeDef",
+    "RegisterDomainInputTypeDef",
+    "RegisterWorkflowTypeInputTypeDef",
     "RequestCancelActivityTaskDecisionAttributesTypeDef",
     "RequestCancelActivityTaskFailedEventAttributesTypeDef",
     "RequestCancelExternalWorkflowExecutionDecisionAttributesTypeDef",
     "RequestCancelExternalWorkflowExecutionFailedEventAttributesTypeDef",
     "RequestCancelExternalWorkflowExecutionInitiatedEventAttributesTypeDef",
-    "RequestCancelWorkflowExecutionInputRequestTypeDef",
+    "RequestCancelWorkflowExecutionInputTypeDef",
     "ResourceTagTypeDef",
-    "RespondActivityTaskCanceledInputRequestTypeDef",
-    "RespondActivityTaskCompletedInputRequestTypeDef",
-    "RespondActivityTaskFailedInputRequestTypeDef",
-    "RespondDecisionTaskCompletedInputRequestTypeDef",
+    "RespondActivityTaskCanceledInputTypeDef",
+    "RespondActivityTaskCompletedInputTypeDef",
+    "RespondActivityTaskFailedInputTypeDef",
+    "RespondDecisionTaskCompletedInputTypeDef",
     "ResponseMetadataTypeDef",
     "RunTypeDef",
     "ScheduleActivityTaskDecisionAttributesTypeDef",
@@ -153,25 +167,26 @@ __all__ = (
     "SignalExternalWorkflowExecutionDecisionAttributesTypeDef",
     "SignalExternalWorkflowExecutionFailedEventAttributesTypeDef",
     "SignalExternalWorkflowExecutionInitiatedEventAttributesTypeDef",
-    "SignalWorkflowExecutionInputRequestTypeDef",
+    "SignalWorkflowExecutionInputTypeDef",
     "StartChildWorkflowExecutionDecisionAttributesTypeDef",
     "StartChildWorkflowExecutionFailedEventAttributesTypeDef",
     "StartChildWorkflowExecutionInitiatedEventAttributesTypeDef",
     "StartLambdaFunctionFailedEventAttributesTypeDef",
     "StartTimerDecisionAttributesTypeDef",
     "StartTimerFailedEventAttributesTypeDef",
-    "StartWorkflowExecutionInputRequestTypeDef",
+    "StartWorkflowExecutionInputTypeDef",
     "TagFilterTypeDef",
-    "TagResourceInputRequestTypeDef",
+    "TagResourceInputTypeDef",
     "TaskListTypeDef",
-    "TerminateWorkflowExecutionInputRequestTypeDef",
+    "TerminateWorkflowExecutionInputTypeDef",
     "TimerCanceledEventAttributesTypeDef",
     "TimerFiredEventAttributesTypeDef",
     "TimerStartedEventAttributesTypeDef",
-    "UndeprecateActivityTypeInputRequestTypeDef",
-    "UndeprecateDomainInputRequestTypeDef",
-    "UndeprecateWorkflowTypeInputRequestTypeDef",
-    "UntagResourceInputRequestTypeDef",
+    "TimestampTypeDef",
+    "UndeprecateActivityTypeInputTypeDef",
+    "UndeprecateDomainInputTypeDef",
+    "UndeprecateWorkflowTypeInputTypeDef",
+    "UntagResourceInputTypeDef",
     "WorkflowExecutionCancelRequestedEventAttributesTypeDef",
     "WorkflowExecutionCanceledEventAttributesTypeDef",
     "WorkflowExecutionCompletedEventAttributesTypeDef",
@@ -197,1583 +212,234 @@ __all__ = (
     "WorkflowTypeTypeDef",
 )
 
-ActivityTaskCancelRequestedEventAttributesTypeDef = TypedDict(
-    "ActivityTaskCancelRequestedEventAttributesTypeDef",
-    {
-        "decisionTaskCompletedEventId": int,
-        "activityId": str,
-    },
-)
+class ActivityTaskCancelRequestedEventAttributesTypeDef(TypedDict):
+    decisionTaskCompletedEventId: int
+    activityId: str
 
-_RequiredActivityTaskCanceledEventAttributesTypeDef = TypedDict(
-    "_RequiredActivityTaskCanceledEventAttributesTypeDef",
-    {
-        "scheduledEventId": int,
-        "startedEventId": int,
-    },
-)
-_OptionalActivityTaskCanceledEventAttributesTypeDef = TypedDict(
-    "_OptionalActivityTaskCanceledEventAttributesTypeDef",
-    {
-        "details": str,
-        "latestCancelRequestedEventId": int,
-    },
-    total=False,
-)
+class ActivityTaskCanceledEventAttributesTypeDef(TypedDict):
+    scheduledEventId: int
+    startedEventId: int
+    details: NotRequired[str]
+    latestCancelRequestedEventId: NotRequired[int]
 
-class ActivityTaskCanceledEventAttributesTypeDef(
-    _RequiredActivityTaskCanceledEventAttributesTypeDef,
-    _OptionalActivityTaskCanceledEventAttributesTypeDef,
-):
-    pass
+class ActivityTaskCompletedEventAttributesTypeDef(TypedDict):
+    scheduledEventId: int
+    startedEventId: int
+    result: NotRequired[str]
 
-_RequiredActivityTaskCompletedEventAttributesTypeDef = TypedDict(
-    "_RequiredActivityTaskCompletedEventAttributesTypeDef",
-    {
-        "scheduledEventId": int,
-        "startedEventId": int,
-    },
-)
-_OptionalActivityTaskCompletedEventAttributesTypeDef = TypedDict(
-    "_OptionalActivityTaskCompletedEventAttributesTypeDef",
-    {
-        "result": str,
-    },
-    total=False,
-)
+class ActivityTaskFailedEventAttributesTypeDef(TypedDict):
+    scheduledEventId: int
+    startedEventId: int
+    reason: NotRequired[str]
+    details: NotRequired[str]
 
-class ActivityTaskCompletedEventAttributesTypeDef(
-    _RequiredActivityTaskCompletedEventAttributesTypeDef,
-    _OptionalActivityTaskCompletedEventAttributesTypeDef,
-):
-    pass
+class ActivityTypeTypeDef(TypedDict):
+    name: str
+    version: str
 
-_RequiredActivityTaskFailedEventAttributesTypeDef = TypedDict(
-    "_RequiredActivityTaskFailedEventAttributesTypeDef",
-    {
-        "scheduledEventId": int,
-        "startedEventId": int,
-    },
-)
-_OptionalActivityTaskFailedEventAttributesTypeDef = TypedDict(
-    "_OptionalActivityTaskFailedEventAttributesTypeDef",
-    {
-        "reason": str,
-        "details": str,
-    },
-    total=False,
-)
+class TaskListTypeDef(TypedDict):
+    name: str
 
-class ActivityTaskFailedEventAttributesTypeDef(
-    _RequiredActivityTaskFailedEventAttributesTypeDef,
-    _OptionalActivityTaskFailedEventAttributesTypeDef,
-):
-    pass
+class ActivityTaskStartedEventAttributesTypeDef(TypedDict):
+    scheduledEventId: int
+    identity: NotRequired[str]
 
-_RequiredActivityTaskScheduledEventAttributesTypeDef = TypedDict(
-    "_RequiredActivityTaskScheduledEventAttributesTypeDef",
-    {
-        "activityType": "ActivityTypeTypeDef",
-        "activityId": str,
-        "taskList": "TaskListTypeDef",
-        "decisionTaskCompletedEventId": int,
-    },
-)
-_OptionalActivityTaskScheduledEventAttributesTypeDef = TypedDict(
-    "_OptionalActivityTaskScheduledEventAttributesTypeDef",
-    {
-        "input": str,
-        "control": str,
-        "scheduleToStartTimeout": str,
-        "scheduleToCloseTimeout": str,
-        "startToCloseTimeout": str,
-        "taskPriority": str,
-        "heartbeatTimeout": str,
-    },
-    total=False,
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-class ActivityTaskScheduledEventAttributesTypeDef(
-    _RequiredActivityTaskScheduledEventAttributesTypeDef,
-    _OptionalActivityTaskScheduledEventAttributesTypeDef,
-):
-    pass
+class ActivityTaskTimedOutEventAttributesTypeDef(TypedDict):
+    timeoutType: ActivityTaskTimeoutTypeType
+    scheduledEventId: int
+    startedEventId: int
+    details: NotRequired[str]
 
-_RequiredActivityTaskStartedEventAttributesTypeDef = TypedDict(
-    "_RequiredActivityTaskStartedEventAttributesTypeDef",
-    {
-        "scheduledEventId": int,
-    },
-)
-_OptionalActivityTaskStartedEventAttributesTypeDef = TypedDict(
-    "_OptionalActivityTaskStartedEventAttributesTypeDef",
-    {
-        "identity": str,
-    },
-    total=False,
-)
+class WorkflowExecutionTypeDef(TypedDict):
+    workflowId: str
+    runId: str
 
-class ActivityTaskStartedEventAttributesTypeDef(
-    _RequiredActivityTaskStartedEventAttributesTypeDef,
-    _OptionalActivityTaskStartedEventAttributesTypeDef,
-):
-    pass
+class CancelTimerDecisionAttributesTypeDef(TypedDict):
+    timerId: str
 
-ActivityTaskStatusTypeDef = TypedDict(
-    "ActivityTaskStatusTypeDef",
-    {
-        "cancelRequested": bool,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CancelTimerFailedEventAttributesTypeDef(TypedDict):
+    timerId: str
+    cause: CancelTimerFailedCauseType
+    decisionTaskCompletedEventId: int
 
-_RequiredActivityTaskTimedOutEventAttributesTypeDef = TypedDict(
-    "_RequiredActivityTaskTimedOutEventAttributesTypeDef",
-    {
-        "timeoutType": ActivityTaskTimeoutTypeType,
-        "scheduledEventId": int,
-        "startedEventId": int,
-    },
-)
-_OptionalActivityTaskTimedOutEventAttributesTypeDef = TypedDict(
-    "_OptionalActivityTaskTimedOutEventAttributesTypeDef",
-    {
-        "details": str,
-    },
-    total=False,
-)
+class CancelWorkflowExecutionDecisionAttributesTypeDef(TypedDict):
+    details: NotRequired[str]
 
-class ActivityTaskTimedOutEventAttributesTypeDef(
-    _RequiredActivityTaskTimedOutEventAttributesTypeDef,
-    _OptionalActivityTaskTimedOutEventAttributesTypeDef,
-):
-    pass
+class CancelWorkflowExecutionFailedEventAttributesTypeDef(TypedDict):
+    cause: CancelWorkflowExecutionFailedCauseType
+    decisionTaskCompletedEventId: int
 
-ActivityTaskTypeDef = TypedDict(
-    "ActivityTaskTypeDef",
-    {
-        "taskToken": str,
-        "activityId": str,
-        "startedEventId": int,
-        "workflowExecution": "WorkflowExecutionTypeDef",
-        "activityType": "ActivityTypeTypeDef",
-        "input": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class WorkflowTypeTypeDef(TypedDict):
+    name: str
+    version: str
 
-ActivityTypeConfigurationTypeDef = TypedDict(
-    "ActivityTypeConfigurationTypeDef",
-    {
-        "defaultTaskStartToCloseTimeout": str,
-        "defaultTaskHeartbeatTimeout": str,
-        "defaultTaskList": "TaskListTypeDef",
-        "defaultTaskPriority": str,
-        "defaultTaskScheduleToStartTimeout": str,
-        "defaultTaskScheduleToCloseTimeout": str,
-    },
-    total=False,
-)
+class CloseStatusFilterTypeDef(TypedDict):
+    status: CloseStatusType
 
-ActivityTypeDetailTypeDef = TypedDict(
-    "ActivityTypeDetailTypeDef",
-    {
-        "typeInfo": "ActivityTypeInfoTypeDef",
-        "configuration": "ActivityTypeConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CompleteWorkflowExecutionDecisionAttributesTypeDef(TypedDict):
+    result: NotRequired[str]
 
-_RequiredActivityTypeInfoTypeDef = TypedDict(
-    "_RequiredActivityTypeInfoTypeDef",
-    {
-        "activityType": "ActivityTypeTypeDef",
-        "status": RegistrationStatusType,
-        "creationDate": datetime,
-    },
-)
-_OptionalActivityTypeInfoTypeDef = TypedDict(
-    "_OptionalActivityTypeInfoTypeDef",
-    {
-        "description": str,
-        "deprecationDate": datetime,
-    },
-    total=False,
-)
+class CompleteWorkflowExecutionFailedEventAttributesTypeDef(TypedDict):
+    cause: CompleteWorkflowExecutionFailedCauseType
+    decisionTaskCompletedEventId: int
 
-class ActivityTypeInfoTypeDef(_RequiredActivityTypeInfoTypeDef, _OptionalActivityTypeInfoTypeDef):
-    pass
+class ContinueAsNewWorkflowExecutionFailedEventAttributesTypeDef(TypedDict):
+    cause: ContinueAsNewWorkflowExecutionFailedCauseType
+    decisionTaskCompletedEventId: int
 
-ActivityTypeInfosTypeDef = TypedDict(
-    "ActivityTypeInfosTypeDef",
-    {
-        "typeInfos": List["ActivityTypeInfoTypeDef"],
-        "nextPageToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class TagFilterTypeDef(TypedDict):
+    tag: str
 
-ActivityTypeTypeDef = TypedDict(
-    "ActivityTypeTypeDef",
+class WorkflowExecutionFilterTypeDef(TypedDict):
+    workflowId: str
+
+class WorkflowTypeFilterTypeDef(TypedDict):
+    name: str
+    version: NotRequired[str]
+
+class DecisionTaskStartedEventAttributesTypeDef(TypedDict):
+    scheduledEventId: int
+    identity: NotRequired[str]
+
+class DecisionTaskTimedOutEventAttributesTypeDef(TypedDict):
+    timeoutType: DecisionTaskTimeoutTypeType
+    scheduledEventId: int
+    startedEventId: int
+
+class FailWorkflowExecutionDecisionAttributesTypeDef(TypedDict):
+    reason: NotRequired[str]
+    details: NotRequired[str]
+
+class RecordMarkerDecisionAttributesTypeDef(TypedDict):
+    markerName: str
+    details: NotRequired[str]
+
+class RequestCancelActivityTaskDecisionAttributesTypeDef(TypedDict):
+    activityId: str
+
+class RequestCancelExternalWorkflowExecutionDecisionAttributesTypeDef(TypedDict):
+    workflowId: str
+    runId: NotRequired[str]
+    control: NotRequired[str]
+
+ScheduleLambdaFunctionDecisionAttributesTypeDef = TypedDict(
+    "ScheduleLambdaFunctionDecisionAttributesTypeDef",
     {
+        "id": str,
         "name": str,
-        "version": str,
+        "control": NotRequired[str],
+        "input": NotRequired[str],
+        "startToCloseTimeout": NotRequired[str],
     },
 )
-
-CancelTimerDecisionAttributesTypeDef = TypedDict(
-    "CancelTimerDecisionAttributesTypeDef",
+SignalExternalWorkflowExecutionDecisionAttributesTypeDef = TypedDict(
+    "SignalExternalWorkflowExecutionDecisionAttributesTypeDef",
     {
-        "timerId": str,
+        "workflowId": str,
+        "signalName": str,
+        "runId": NotRequired[str],
+        "input": NotRequired[str],
+        "control": NotRequired[str],
     },
 )
 
-CancelTimerFailedEventAttributesTypeDef = TypedDict(
-    "CancelTimerFailedEventAttributesTypeDef",
-    {
-        "timerId": str,
-        "cause": CancelTimerFailedCauseType,
-        "decisionTaskCompletedEventId": int,
-    },
-)
+class StartTimerDecisionAttributesTypeDef(TypedDict):
+    timerId: str
+    startToFireTimeout: str
+    control: NotRequired[str]
 
-CancelWorkflowExecutionDecisionAttributesTypeDef = TypedDict(
-    "CancelWorkflowExecutionDecisionAttributesTypeDef",
-    {
-        "details": str,
-    },
-    total=False,
-)
+class DeprecateDomainInputTypeDef(TypedDict):
+    name: str
 
-CancelWorkflowExecutionFailedEventAttributesTypeDef = TypedDict(
-    "CancelWorkflowExecutionFailedEventAttributesTypeDef",
-    {
-        "cause": CancelWorkflowExecutionFailedCauseType,
-        "decisionTaskCompletedEventId": int,
-    },
-)
+class DescribeDomainInputTypeDef(TypedDict):
+    name: str
 
-_RequiredChildWorkflowExecutionCanceledEventAttributesTypeDef = TypedDict(
-    "_RequiredChildWorkflowExecutionCanceledEventAttributesTypeDef",
-    {
-        "workflowExecution": "WorkflowExecutionTypeDef",
-        "workflowType": "WorkflowTypeTypeDef",
-        "initiatedEventId": int,
-        "startedEventId": int,
-    },
-)
-_OptionalChildWorkflowExecutionCanceledEventAttributesTypeDef = TypedDict(
-    "_OptionalChildWorkflowExecutionCanceledEventAttributesTypeDef",
-    {
-        "details": str,
-    },
-    total=False,
-)
+class DomainConfigurationTypeDef(TypedDict):
+    workflowExecutionRetentionPeriodInDays: str
 
-class ChildWorkflowExecutionCanceledEventAttributesTypeDef(
-    _RequiredChildWorkflowExecutionCanceledEventAttributesTypeDef,
-    _OptionalChildWorkflowExecutionCanceledEventAttributesTypeDef,
-):
-    pass
+class DomainInfoTypeDef(TypedDict):
+    name: str
+    status: RegistrationStatusType
+    description: NotRequired[str]
+    arn: NotRequired[str]
 
-_RequiredChildWorkflowExecutionCompletedEventAttributesTypeDef = TypedDict(
-    "_RequiredChildWorkflowExecutionCompletedEventAttributesTypeDef",
-    {
-        "workflowExecution": "WorkflowExecutionTypeDef",
-        "workflowType": "WorkflowTypeTypeDef",
-        "initiatedEventId": int,
-        "startedEventId": int,
-    },
-)
-_OptionalChildWorkflowExecutionCompletedEventAttributesTypeDef = TypedDict(
-    "_OptionalChildWorkflowExecutionCompletedEventAttributesTypeDef",
-    {
-        "result": str,
-    },
-    total=False,
-)
+TimestampTypeDef = Union[datetime, str]
 
-class ChildWorkflowExecutionCompletedEventAttributesTypeDef(
-    _RequiredChildWorkflowExecutionCompletedEventAttributesTypeDef,
-    _OptionalChildWorkflowExecutionCompletedEventAttributesTypeDef,
-):
-    pass
+class FailWorkflowExecutionFailedEventAttributesTypeDef(TypedDict):
+    cause: FailWorkflowExecutionFailedCauseType
+    decisionTaskCompletedEventId: int
 
-_RequiredChildWorkflowExecutionFailedEventAttributesTypeDef = TypedDict(
-    "_RequiredChildWorkflowExecutionFailedEventAttributesTypeDef",
-    {
-        "workflowExecution": "WorkflowExecutionTypeDef",
-        "workflowType": "WorkflowTypeTypeDef",
-        "initiatedEventId": int,
-        "startedEventId": int,
-    },
-)
-_OptionalChildWorkflowExecutionFailedEventAttributesTypeDef = TypedDict(
-    "_OptionalChildWorkflowExecutionFailedEventAttributesTypeDef",
-    {
-        "reason": str,
-        "details": str,
-    },
-    total=False,
-)
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
 
-class ChildWorkflowExecutionFailedEventAttributesTypeDef(
-    _RequiredChildWorkflowExecutionFailedEventAttributesTypeDef,
-    _OptionalChildWorkflowExecutionFailedEventAttributesTypeDef,
-):
-    pass
+class LambdaFunctionCompletedEventAttributesTypeDef(TypedDict):
+    scheduledEventId: int
+    startedEventId: int
+    result: NotRequired[str]
 
-ChildWorkflowExecutionStartedEventAttributesTypeDef = TypedDict(
-    "ChildWorkflowExecutionStartedEventAttributesTypeDef",
-    {
-        "workflowExecution": "WorkflowExecutionTypeDef",
-        "workflowType": "WorkflowTypeTypeDef",
-        "initiatedEventId": int,
-    },
-)
+class LambdaFunctionFailedEventAttributesTypeDef(TypedDict):
+    scheduledEventId: int
+    startedEventId: int
+    reason: NotRequired[str]
+    details: NotRequired[str]
 
-ChildWorkflowExecutionTerminatedEventAttributesTypeDef = TypedDict(
-    "ChildWorkflowExecutionTerminatedEventAttributesTypeDef",
-    {
-        "workflowExecution": "WorkflowExecutionTypeDef",
-        "workflowType": "WorkflowTypeTypeDef",
-        "initiatedEventId": int,
-        "startedEventId": int,
-    },
-)
-
-ChildWorkflowExecutionTimedOutEventAttributesTypeDef = TypedDict(
-    "ChildWorkflowExecutionTimedOutEventAttributesTypeDef",
-    {
-        "workflowExecution": "WorkflowExecutionTypeDef",
-        "workflowType": "WorkflowTypeTypeDef",
-        "timeoutType": Literal["START_TO_CLOSE"],
-        "initiatedEventId": int,
-        "startedEventId": int,
-    },
-)
-
-CloseStatusFilterTypeDef = TypedDict(
-    "CloseStatusFilterTypeDef",
-    {
-        "status": CloseStatusType,
-    },
-)
-
-CompleteWorkflowExecutionDecisionAttributesTypeDef = TypedDict(
-    "CompleteWorkflowExecutionDecisionAttributesTypeDef",
-    {
-        "result": str,
-    },
-    total=False,
-)
-
-CompleteWorkflowExecutionFailedEventAttributesTypeDef = TypedDict(
-    "CompleteWorkflowExecutionFailedEventAttributesTypeDef",
-    {
-        "cause": CompleteWorkflowExecutionFailedCauseType,
-        "decisionTaskCompletedEventId": int,
-    },
-)
-
-ContinueAsNewWorkflowExecutionDecisionAttributesTypeDef = TypedDict(
-    "ContinueAsNewWorkflowExecutionDecisionAttributesTypeDef",
-    {
-        "input": str,
-        "executionStartToCloseTimeout": str,
-        "taskList": "TaskListTypeDef",
-        "taskPriority": str,
-        "taskStartToCloseTimeout": str,
-        "childPolicy": ChildPolicyType,
-        "tagList": List[str],
-        "workflowTypeVersion": str,
-        "lambdaRole": str,
-    },
-    total=False,
-)
-
-ContinueAsNewWorkflowExecutionFailedEventAttributesTypeDef = TypedDict(
-    "ContinueAsNewWorkflowExecutionFailedEventAttributesTypeDef",
-    {
-        "cause": ContinueAsNewWorkflowExecutionFailedCauseType,
-        "decisionTaskCompletedEventId": int,
-    },
-)
-
-_RequiredCountClosedWorkflowExecutionsInputRequestTypeDef = TypedDict(
-    "_RequiredCountClosedWorkflowExecutionsInputRequestTypeDef",
-    {
-        "domain": str,
-    },
-)
-_OptionalCountClosedWorkflowExecutionsInputRequestTypeDef = TypedDict(
-    "_OptionalCountClosedWorkflowExecutionsInputRequestTypeDef",
-    {
-        "startTimeFilter": "ExecutionTimeFilterTypeDef",
-        "closeTimeFilter": "ExecutionTimeFilterTypeDef",
-        "executionFilter": "WorkflowExecutionFilterTypeDef",
-        "typeFilter": "WorkflowTypeFilterTypeDef",
-        "tagFilter": "TagFilterTypeDef",
-        "closeStatusFilter": "CloseStatusFilterTypeDef",
-    },
-    total=False,
-)
-
-class CountClosedWorkflowExecutionsInputRequestTypeDef(
-    _RequiredCountClosedWorkflowExecutionsInputRequestTypeDef,
-    _OptionalCountClosedWorkflowExecutionsInputRequestTypeDef,
-):
-    pass
-
-_RequiredCountOpenWorkflowExecutionsInputRequestTypeDef = TypedDict(
-    "_RequiredCountOpenWorkflowExecutionsInputRequestTypeDef",
-    {
-        "domain": str,
-        "startTimeFilter": "ExecutionTimeFilterTypeDef",
-    },
-)
-_OptionalCountOpenWorkflowExecutionsInputRequestTypeDef = TypedDict(
-    "_OptionalCountOpenWorkflowExecutionsInputRequestTypeDef",
-    {
-        "typeFilter": "WorkflowTypeFilterTypeDef",
-        "tagFilter": "TagFilterTypeDef",
-        "executionFilter": "WorkflowExecutionFilterTypeDef",
-    },
-    total=False,
-)
-
-class CountOpenWorkflowExecutionsInputRequestTypeDef(
-    _RequiredCountOpenWorkflowExecutionsInputRequestTypeDef,
-    _OptionalCountOpenWorkflowExecutionsInputRequestTypeDef,
-):
-    pass
-
-CountPendingActivityTasksInputRequestTypeDef = TypedDict(
-    "CountPendingActivityTasksInputRequestTypeDef",
-    {
-        "domain": str,
-        "taskList": "TaskListTypeDef",
-    },
-)
-
-CountPendingDecisionTasksInputRequestTypeDef = TypedDict(
-    "CountPendingDecisionTasksInputRequestTypeDef",
-    {
-        "domain": str,
-        "taskList": "TaskListTypeDef",
-    },
-)
-
-_RequiredDecisionTaskCompletedEventAttributesTypeDef = TypedDict(
-    "_RequiredDecisionTaskCompletedEventAttributesTypeDef",
-    {
-        "scheduledEventId": int,
-        "startedEventId": int,
-    },
-)
-_OptionalDecisionTaskCompletedEventAttributesTypeDef = TypedDict(
-    "_OptionalDecisionTaskCompletedEventAttributesTypeDef",
-    {
-        "executionContext": str,
-        "taskList": "TaskListTypeDef",
-        "taskListScheduleToStartTimeout": str,
-    },
-    total=False,
-)
-
-class DecisionTaskCompletedEventAttributesTypeDef(
-    _RequiredDecisionTaskCompletedEventAttributesTypeDef,
-    _OptionalDecisionTaskCompletedEventAttributesTypeDef,
-):
-    pass
-
-_RequiredDecisionTaskScheduledEventAttributesTypeDef = TypedDict(
-    "_RequiredDecisionTaskScheduledEventAttributesTypeDef",
-    {
-        "taskList": "TaskListTypeDef",
-    },
-)
-_OptionalDecisionTaskScheduledEventAttributesTypeDef = TypedDict(
-    "_OptionalDecisionTaskScheduledEventAttributesTypeDef",
-    {
-        "taskPriority": str,
-        "startToCloseTimeout": str,
-        "scheduleToStartTimeout": str,
-    },
-    total=False,
-)
-
-class DecisionTaskScheduledEventAttributesTypeDef(
-    _RequiredDecisionTaskScheduledEventAttributesTypeDef,
-    _OptionalDecisionTaskScheduledEventAttributesTypeDef,
-):
-    pass
-
-_RequiredDecisionTaskStartedEventAttributesTypeDef = TypedDict(
-    "_RequiredDecisionTaskStartedEventAttributesTypeDef",
-    {
-        "scheduledEventId": int,
-    },
-)
-_OptionalDecisionTaskStartedEventAttributesTypeDef = TypedDict(
-    "_OptionalDecisionTaskStartedEventAttributesTypeDef",
-    {
-        "identity": str,
-    },
-    total=False,
-)
-
-class DecisionTaskStartedEventAttributesTypeDef(
-    _RequiredDecisionTaskStartedEventAttributesTypeDef,
-    _OptionalDecisionTaskStartedEventAttributesTypeDef,
-):
-    pass
-
-DecisionTaskTimedOutEventAttributesTypeDef = TypedDict(
-    "DecisionTaskTimedOutEventAttributesTypeDef",
-    {
-        "timeoutType": DecisionTaskTimeoutTypeType,
-        "scheduledEventId": int,
-        "startedEventId": int,
-    },
-)
-
-DecisionTaskTypeDef = TypedDict(
-    "DecisionTaskTypeDef",
-    {
-        "taskToken": str,
-        "startedEventId": int,
-        "workflowExecution": "WorkflowExecutionTypeDef",
-        "workflowType": "WorkflowTypeTypeDef",
-        "events": List["HistoryEventTypeDef"],
-        "nextPageToken": str,
-        "previousStartedEventId": int,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDecisionTypeDef = TypedDict(
-    "_RequiredDecisionTypeDef",
-    {
-        "decisionType": DecisionTypeType,
-    },
-)
-_OptionalDecisionTypeDef = TypedDict(
-    "_OptionalDecisionTypeDef",
-    {
-        "scheduleActivityTaskDecisionAttributes": "ScheduleActivityTaskDecisionAttributesTypeDef",
-        "requestCancelActivityTaskDecisionAttributes": "RequestCancelActivityTaskDecisionAttributesTypeDef",
-        "completeWorkflowExecutionDecisionAttributes": "CompleteWorkflowExecutionDecisionAttributesTypeDef",
-        "failWorkflowExecutionDecisionAttributes": "FailWorkflowExecutionDecisionAttributesTypeDef",
-        "cancelWorkflowExecutionDecisionAttributes": "CancelWorkflowExecutionDecisionAttributesTypeDef",
-        "continueAsNewWorkflowExecutionDecisionAttributes": "ContinueAsNewWorkflowExecutionDecisionAttributesTypeDef",
-        "recordMarkerDecisionAttributes": "RecordMarkerDecisionAttributesTypeDef",
-        "startTimerDecisionAttributes": "StartTimerDecisionAttributesTypeDef",
-        "cancelTimerDecisionAttributes": "CancelTimerDecisionAttributesTypeDef",
-        "signalExternalWorkflowExecutionDecisionAttributes": "SignalExternalWorkflowExecutionDecisionAttributesTypeDef",
-        "requestCancelExternalWorkflowExecutionDecisionAttributes": "RequestCancelExternalWorkflowExecutionDecisionAttributesTypeDef",
-        "startChildWorkflowExecutionDecisionAttributes": "StartChildWorkflowExecutionDecisionAttributesTypeDef",
-        "scheduleLambdaFunctionDecisionAttributes": "ScheduleLambdaFunctionDecisionAttributesTypeDef",
-    },
-    total=False,
-)
-
-class DecisionTypeDef(_RequiredDecisionTypeDef, _OptionalDecisionTypeDef):
-    pass
-
-DeleteActivityTypeInputRequestTypeDef = TypedDict(
-    "DeleteActivityTypeInputRequestTypeDef",
-    {
-        "domain": str,
-        "activityType": "ActivityTypeTypeDef",
-    },
-)
-
-DeleteWorkflowTypeInputRequestTypeDef = TypedDict(
-    "DeleteWorkflowTypeInputRequestTypeDef",
-    {
-        "domain": str,
-        "workflowType": "WorkflowTypeTypeDef",
-    },
-)
-
-DeprecateActivityTypeInputRequestTypeDef = TypedDict(
-    "DeprecateActivityTypeInputRequestTypeDef",
-    {
-        "domain": str,
-        "activityType": "ActivityTypeTypeDef",
-    },
-)
-
-DeprecateDomainInputRequestTypeDef = TypedDict(
-    "DeprecateDomainInputRequestTypeDef",
-    {
-        "name": str,
-    },
-)
-
-DeprecateWorkflowTypeInputRequestTypeDef = TypedDict(
-    "DeprecateWorkflowTypeInputRequestTypeDef",
-    {
-        "domain": str,
-        "workflowType": "WorkflowTypeTypeDef",
-    },
-)
-
-DescribeActivityTypeInputRequestTypeDef = TypedDict(
-    "DescribeActivityTypeInputRequestTypeDef",
-    {
-        "domain": str,
-        "activityType": "ActivityTypeTypeDef",
-    },
-)
-
-DescribeDomainInputRequestTypeDef = TypedDict(
-    "DescribeDomainInputRequestTypeDef",
-    {
-        "name": str,
-    },
-)
-
-DescribeWorkflowExecutionInputRequestTypeDef = TypedDict(
-    "DescribeWorkflowExecutionInputRequestTypeDef",
-    {
-        "domain": str,
-        "execution": "WorkflowExecutionTypeDef",
-    },
-)
-
-DescribeWorkflowTypeInputRequestTypeDef = TypedDict(
-    "DescribeWorkflowTypeInputRequestTypeDef",
-    {
-        "domain": str,
-        "workflowType": "WorkflowTypeTypeDef",
-    },
-)
-
-DomainConfigurationTypeDef = TypedDict(
-    "DomainConfigurationTypeDef",
-    {
-        "workflowExecutionRetentionPeriodInDays": str,
-    },
-)
-
-DomainDetailTypeDef = TypedDict(
-    "DomainDetailTypeDef",
-    {
-        "domainInfo": "DomainInfoTypeDef",
-        "configuration": "DomainConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDomainInfoTypeDef = TypedDict(
-    "_RequiredDomainInfoTypeDef",
-    {
-        "name": str,
-        "status": RegistrationStatusType,
-    },
-)
-_OptionalDomainInfoTypeDef = TypedDict(
-    "_OptionalDomainInfoTypeDef",
-    {
-        "description": str,
-        "arn": str,
-    },
-    total=False,
-)
-
-class DomainInfoTypeDef(_RequiredDomainInfoTypeDef, _OptionalDomainInfoTypeDef):
-    pass
-
-DomainInfosTypeDef = TypedDict(
-    "DomainInfosTypeDef",
-    {
-        "domainInfos": List["DomainInfoTypeDef"],
-        "nextPageToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredExecutionTimeFilterTypeDef = TypedDict(
-    "_RequiredExecutionTimeFilterTypeDef",
-    {
-        "oldestDate": Union[datetime, str],
-    },
-)
-_OptionalExecutionTimeFilterTypeDef = TypedDict(
-    "_OptionalExecutionTimeFilterTypeDef",
-    {
-        "latestDate": Union[datetime, str],
-    },
-    total=False,
-)
-
-class ExecutionTimeFilterTypeDef(
-    _RequiredExecutionTimeFilterTypeDef, _OptionalExecutionTimeFilterTypeDef
-):
-    pass
-
-ExternalWorkflowExecutionCancelRequestedEventAttributesTypeDef = TypedDict(
-    "ExternalWorkflowExecutionCancelRequestedEventAttributesTypeDef",
-    {
-        "workflowExecution": "WorkflowExecutionTypeDef",
-        "initiatedEventId": int,
-    },
-)
-
-ExternalWorkflowExecutionSignaledEventAttributesTypeDef = TypedDict(
-    "ExternalWorkflowExecutionSignaledEventAttributesTypeDef",
-    {
-        "workflowExecution": "WorkflowExecutionTypeDef",
-        "initiatedEventId": int,
-    },
-)
-
-FailWorkflowExecutionDecisionAttributesTypeDef = TypedDict(
-    "FailWorkflowExecutionDecisionAttributesTypeDef",
-    {
-        "reason": str,
-        "details": str,
-    },
-    total=False,
-)
-
-FailWorkflowExecutionFailedEventAttributesTypeDef = TypedDict(
-    "FailWorkflowExecutionFailedEventAttributesTypeDef",
-    {
-        "cause": FailWorkflowExecutionFailedCauseType,
-        "decisionTaskCompletedEventId": int,
-    },
-)
-
-_RequiredGetWorkflowExecutionHistoryInputRequestTypeDef = TypedDict(
-    "_RequiredGetWorkflowExecutionHistoryInputRequestTypeDef",
-    {
-        "domain": str,
-        "execution": "WorkflowExecutionTypeDef",
-    },
-)
-_OptionalGetWorkflowExecutionHistoryInputRequestTypeDef = TypedDict(
-    "_OptionalGetWorkflowExecutionHistoryInputRequestTypeDef",
-    {
-        "nextPageToken": str,
-        "maximumPageSize": int,
-        "reverseOrder": bool,
-    },
-    total=False,
-)
-
-class GetWorkflowExecutionHistoryInputRequestTypeDef(
-    _RequiredGetWorkflowExecutionHistoryInputRequestTypeDef,
-    _OptionalGetWorkflowExecutionHistoryInputRequestTypeDef,
-):
-    pass
-
-_RequiredHistoryEventTypeDef = TypedDict(
-    "_RequiredHistoryEventTypeDef",
-    {
-        "eventTimestamp": datetime,
-        "eventType": EventTypeType,
-        "eventId": int,
-    },
-)
-_OptionalHistoryEventTypeDef = TypedDict(
-    "_OptionalHistoryEventTypeDef",
-    {
-        "workflowExecutionStartedEventAttributes": "WorkflowExecutionStartedEventAttributesTypeDef",
-        "workflowExecutionCompletedEventAttributes": "WorkflowExecutionCompletedEventAttributesTypeDef",
-        "completeWorkflowExecutionFailedEventAttributes": "CompleteWorkflowExecutionFailedEventAttributesTypeDef",
-        "workflowExecutionFailedEventAttributes": "WorkflowExecutionFailedEventAttributesTypeDef",
-        "failWorkflowExecutionFailedEventAttributes": "FailWorkflowExecutionFailedEventAttributesTypeDef",
-        "workflowExecutionTimedOutEventAttributes": "WorkflowExecutionTimedOutEventAttributesTypeDef",
-        "workflowExecutionCanceledEventAttributes": "WorkflowExecutionCanceledEventAttributesTypeDef",
-        "cancelWorkflowExecutionFailedEventAttributes": "CancelWorkflowExecutionFailedEventAttributesTypeDef",
-        "workflowExecutionContinuedAsNewEventAttributes": "WorkflowExecutionContinuedAsNewEventAttributesTypeDef",
-        "continueAsNewWorkflowExecutionFailedEventAttributes": "ContinueAsNewWorkflowExecutionFailedEventAttributesTypeDef",
-        "workflowExecutionTerminatedEventAttributes": "WorkflowExecutionTerminatedEventAttributesTypeDef",
-        "workflowExecutionCancelRequestedEventAttributes": "WorkflowExecutionCancelRequestedEventAttributesTypeDef",
-        "decisionTaskScheduledEventAttributes": "DecisionTaskScheduledEventAttributesTypeDef",
-        "decisionTaskStartedEventAttributes": "DecisionTaskStartedEventAttributesTypeDef",
-        "decisionTaskCompletedEventAttributes": "DecisionTaskCompletedEventAttributesTypeDef",
-        "decisionTaskTimedOutEventAttributes": "DecisionTaskTimedOutEventAttributesTypeDef",
-        "activityTaskScheduledEventAttributes": "ActivityTaskScheduledEventAttributesTypeDef",
-        "activityTaskStartedEventAttributes": "ActivityTaskStartedEventAttributesTypeDef",
-        "activityTaskCompletedEventAttributes": "ActivityTaskCompletedEventAttributesTypeDef",
-        "activityTaskFailedEventAttributes": "ActivityTaskFailedEventAttributesTypeDef",
-        "activityTaskTimedOutEventAttributes": "ActivityTaskTimedOutEventAttributesTypeDef",
-        "activityTaskCanceledEventAttributes": "ActivityTaskCanceledEventAttributesTypeDef",
-        "activityTaskCancelRequestedEventAttributes": "ActivityTaskCancelRequestedEventAttributesTypeDef",
-        "workflowExecutionSignaledEventAttributes": "WorkflowExecutionSignaledEventAttributesTypeDef",
-        "markerRecordedEventAttributes": "MarkerRecordedEventAttributesTypeDef",
-        "recordMarkerFailedEventAttributes": "RecordMarkerFailedEventAttributesTypeDef",
-        "timerStartedEventAttributes": "TimerStartedEventAttributesTypeDef",
-        "timerFiredEventAttributes": "TimerFiredEventAttributesTypeDef",
-        "timerCanceledEventAttributes": "TimerCanceledEventAttributesTypeDef",
-        "startChildWorkflowExecutionInitiatedEventAttributes": "StartChildWorkflowExecutionInitiatedEventAttributesTypeDef",
-        "childWorkflowExecutionStartedEventAttributes": "ChildWorkflowExecutionStartedEventAttributesTypeDef",
-        "childWorkflowExecutionCompletedEventAttributes": "ChildWorkflowExecutionCompletedEventAttributesTypeDef",
-        "childWorkflowExecutionFailedEventAttributes": "ChildWorkflowExecutionFailedEventAttributesTypeDef",
-        "childWorkflowExecutionTimedOutEventAttributes": "ChildWorkflowExecutionTimedOutEventAttributesTypeDef",
-        "childWorkflowExecutionCanceledEventAttributes": "ChildWorkflowExecutionCanceledEventAttributesTypeDef",
-        "childWorkflowExecutionTerminatedEventAttributes": "ChildWorkflowExecutionTerminatedEventAttributesTypeDef",
-        "signalExternalWorkflowExecutionInitiatedEventAttributes": "SignalExternalWorkflowExecutionInitiatedEventAttributesTypeDef",
-        "externalWorkflowExecutionSignaledEventAttributes": "ExternalWorkflowExecutionSignaledEventAttributesTypeDef",
-        "signalExternalWorkflowExecutionFailedEventAttributes": "SignalExternalWorkflowExecutionFailedEventAttributesTypeDef",
-        "externalWorkflowExecutionCancelRequestedEventAttributes": "ExternalWorkflowExecutionCancelRequestedEventAttributesTypeDef",
-        "requestCancelExternalWorkflowExecutionInitiatedEventAttributes": "RequestCancelExternalWorkflowExecutionInitiatedEventAttributesTypeDef",
-        "requestCancelExternalWorkflowExecutionFailedEventAttributes": "RequestCancelExternalWorkflowExecutionFailedEventAttributesTypeDef",
-        "scheduleActivityTaskFailedEventAttributes": "ScheduleActivityTaskFailedEventAttributesTypeDef",
-        "requestCancelActivityTaskFailedEventAttributes": "RequestCancelActivityTaskFailedEventAttributesTypeDef",
-        "startTimerFailedEventAttributes": "StartTimerFailedEventAttributesTypeDef",
-        "cancelTimerFailedEventAttributes": "CancelTimerFailedEventAttributesTypeDef",
-        "startChildWorkflowExecutionFailedEventAttributes": "StartChildWorkflowExecutionFailedEventAttributesTypeDef",
-        "lambdaFunctionScheduledEventAttributes": "LambdaFunctionScheduledEventAttributesTypeDef",
-        "lambdaFunctionStartedEventAttributes": "LambdaFunctionStartedEventAttributesTypeDef",
-        "lambdaFunctionCompletedEventAttributes": "LambdaFunctionCompletedEventAttributesTypeDef",
-        "lambdaFunctionFailedEventAttributes": "LambdaFunctionFailedEventAttributesTypeDef",
-        "lambdaFunctionTimedOutEventAttributes": "LambdaFunctionTimedOutEventAttributesTypeDef",
-        "scheduleLambdaFunctionFailedEventAttributes": "ScheduleLambdaFunctionFailedEventAttributesTypeDef",
-        "startLambdaFunctionFailedEventAttributes": "StartLambdaFunctionFailedEventAttributesTypeDef",
-    },
-    total=False,
-)
-
-class HistoryEventTypeDef(_RequiredHistoryEventTypeDef, _OptionalHistoryEventTypeDef):
-    pass
-
-HistoryTypeDef = TypedDict(
-    "HistoryTypeDef",
-    {
-        "events": List["HistoryEventTypeDef"],
-        "nextPageToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredLambdaFunctionCompletedEventAttributesTypeDef = TypedDict(
-    "_RequiredLambdaFunctionCompletedEventAttributesTypeDef",
-    {
-        "scheduledEventId": int,
-        "startedEventId": int,
-    },
-)
-_OptionalLambdaFunctionCompletedEventAttributesTypeDef = TypedDict(
-    "_OptionalLambdaFunctionCompletedEventAttributesTypeDef",
-    {
-        "result": str,
-    },
-    total=False,
-)
-
-class LambdaFunctionCompletedEventAttributesTypeDef(
-    _RequiredLambdaFunctionCompletedEventAttributesTypeDef,
-    _OptionalLambdaFunctionCompletedEventAttributesTypeDef,
-):
-    pass
-
-_RequiredLambdaFunctionFailedEventAttributesTypeDef = TypedDict(
-    "_RequiredLambdaFunctionFailedEventAttributesTypeDef",
-    {
-        "scheduledEventId": int,
-        "startedEventId": int,
-    },
-)
-_OptionalLambdaFunctionFailedEventAttributesTypeDef = TypedDict(
-    "_OptionalLambdaFunctionFailedEventAttributesTypeDef",
-    {
-        "reason": str,
-        "details": str,
-    },
-    total=False,
-)
-
-class LambdaFunctionFailedEventAttributesTypeDef(
-    _RequiredLambdaFunctionFailedEventAttributesTypeDef,
-    _OptionalLambdaFunctionFailedEventAttributesTypeDef,
-):
-    pass
-
-_RequiredLambdaFunctionScheduledEventAttributesTypeDef = TypedDict(
-    "_RequiredLambdaFunctionScheduledEventAttributesTypeDef",
+LambdaFunctionScheduledEventAttributesTypeDef = TypedDict(
+    "LambdaFunctionScheduledEventAttributesTypeDef",
     {
         "id": str,
         "name": str,
         "decisionTaskCompletedEventId": int,
-    },
-)
-_OptionalLambdaFunctionScheduledEventAttributesTypeDef = TypedDict(
-    "_OptionalLambdaFunctionScheduledEventAttributesTypeDef",
-    {
-        "control": str,
-        "input": str,
-        "startToCloseTimeout": str,
-    },
-    total=False,
-)
-
-class LambdaFunctionScheduledEventAttributesTypeDef(
-    _RequiredLambdaFunctionScheduledEventAttributesTypeDef,
-    _OptionalLambdaFunctionScheduledEventAttributesTypeDef,
-):
-    pass
-
-LambdaFunctionStartedEventAttributesTypeDef = TypedDict(
-    "LambdaFunctionStartedEventAttributesTypeDef",
-    {
-        "scheduledEventId": int,
+        "control": NotRequired[str],
+        "input": NotRequired[str],
+        "startToCloseTimeout": NotRequired[str],
     },
 )
 
-_RequiredLambdaFunctionTimedOutEventAttributesTypeDef = TypedDict(
-    "_RequiredLambdaFunctionTimedOutEventAttributesTypeDef",
-    {
-        "scheduledEventId": int,
-        "startedEventId": int,
-    },
-)
-_OptionalLambdaFunctionTimedOutEventAttributesTypeDef = TypedDict(
-    "_OptionalLambdaFunctionTimedOutEventAttributesTypeDef",
-    {
-        "timeoutType": Literal["START_TO_CLOSE"],
-    },
-    total=False,
-)
+class LambdaFunctionStartedEventAttributesTypeDef(TypedDict):
+    scheduledEventId: int
 
-class LambdaFunctionTimedOutEventAttributesTypeDef(
-    _RequiredLambdaFunctionTimedOutEventAttributesTypeDef,
-    _OptionalLambdaFunctionTimedOutEventAttributesTypeDef,
-):
-    pass
+class LambdaFunctionTimedOutEventAttributesTypeDef(TypedDict):
+    scheduledEventId: int
+    startedEventId: int
+    timeoutType: NotRequired[Literal["START_TO_CLOSE"]]
 
-_RequiredListActivityTypesInputRequestTypeDef = TypedDict(
-    "_RequiredListActivityTypesInputRequestTypeDef",
-    {
-        "domain": str,
-        "registrationStatus": RegistrationStatusType,
-    },
-)
-_OptionalListActivityTypesInputRequestTypeDef = TypedDict(
-    "_OptionalListActivityTypesInputRequestTypeDef",
-    {
-        "name": str,
-        "nextPageToken": str,
-        "maximumPageSize": int,
-        "reverseOrder": bool,
-    },
-    total=False,
-)
+class MarkerRecordedEventAttributesTypeDef(TypedDict):
+    markerName: str
+    decisionTaskCompletedEventId: int
+    details: NotRequired[str]
 
-class ListActivityTypesInputRequestTypeDef(
-    _RequiredListActivityTypesInputRequestTypeDef, _OptionalListActivityTypesInputRequestTypeDef
-):
-    pass
+class RecordMarkerFailedEventAttributesTypeDef(TypedDict):
+    markerName: str
+    cause: Literal["OPERATION_NOT_PERMITTED"]
+    decisionTaskCompletedEventId: int
 
-_RequiredListClosedWorkflowExecutionsInputRequestTypeDef = TypedDict(
-    "_RequiredListClosedWorkflowExecutionsInputRequestTypeDef",
-    {
-        "domain": str,
-    },
-)
-_OptionalListClosedWorkflowExecutionsInputRequestTypeDef = TypedDict(
-    "_OptionalListClosedWorkflowExecutionsInputRequestTypeDef",
-    {
-        "startTimeFilter": "ExecutionTimeFilterTypeDef",
-        "closeTimeFilter": "ExecutionTimeFilterTypeDef",
-        "executionFilter": "WorkflowExecutionFilterTypeDef",
-        "closeStatusFilter": "CloseStatusFilterTypeDef",
-        "typeFilter": "WorkflowTypeFilterTypeDef",
-        "tagFilter": "TagFilterTypeDef",
-        "nextPageToken": str,
-        "maximumPageSize": int,
-        "reverseOrder": bool,
-    },
-    total=False,
-)
+class RequestCancelActivityTaskFailedEventAttributesTypeDef(TypedDict):
+    activityId: str
+    cause: RequestCancelActivityTaskFailedCauseType
+    decisionTaskCompletedEventId: int
 
-class ListClosedWorkflowExecutionsInputRequestTypeDef(
-    _RequiredListClosedWorkflowExecutionsInputRequestTypeDef,
-    _OptionalListClosedWorkflowExecutionsInputRequestTypeDef,
-):
-    pass
+class RequestCancelExternalWorkflowExecutionFailedEventAttributesTypeDef(TypedDict):
+    workflowId: str
+    cause: RequestCancelExternalWorkflowExecutionFailedCauseType
+    initiatedEventId: int
+    decisionTaskCompletedEventId: int
+    runId: NotRequired[str]
+    control: NotRequired[str]
 
-_RequiredListDomainsInputRequestTypeDef = TypedDict(
-    "_RequiredListDomainsInputRequestTypeDef",
-    {
-        "registrationStatus": RegistrationStatusType,
-    },
-)
-_OptionalListDomainsInputRequestTypeDef = TypedDict(
-    "_OptionalListDomainsInputRequestTypeDef",
-    {
-        "nextPageToken": str,
-        "maximumPageSize": int,
-        "reverseOrder": bool,
-    },
-    total=False,
-)
-
-class ListDomainsInputRequestTypeDef(
-    _RequiredListDomainsInputRequestTypeDef, _OptionalListDomainsInputRequestTypeDef
-):
-    pass
-
-_RequiredListOpenWorkflowExecutionsInputRequestTypeDef = TypedDict(
-    "_RequiredListOpenWorkflowExecutionsInputRequestTypeDef",
-    {
-        "domain": str,
-        "startTimeFilter": "ExecutionTimeFilterTypeDef",
-    },
-)
-_OptionalListOpenWorkflowExecutionsInputRequestTypeDef = TypedDict(
-    "_OptionalListOpenWorkflowExecutionsInputRequestTypeDef",
-    {
-        "typeFilter": "WorkflowTypeFilterTypeDef",
-        "tagFilter": "TagFilterTypeDef",
-        "nextPageToken": str,
-        "maximumPageSize": int,
-        "reverseOrder": bool,
-        "executionFilter": "WorkflowExecutionFilterTypeDef",
-    },
-    total=False,
-)
-
-class ListOpenWorkflowExecutionsInputRequestTypeDef(
-    _RequiredListOpenWorkflowExecutionsInputRequestTypeDef,
-    _OptionalListOpenWorkflowExecutionsInputRequestTypeDef,
-):
-    pass
-
-ListTagsForResourceInputRequestTypeDef = TypedDict(
-    "ListTagsForResourceInputRequestTypeDef",
-    {
-        "resourceArn": str,
-    },
-)
-
-ListTagsForResourceOutputTypeDef = TypedDict(
-    "ListTagsForResourceOutputTypeDef",
-    {
-        "tags": List["ResourceTagTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListWorkflowTypesInputRequestTypeDef = TypedDict(
-    "_RequiredListWorkflowTypesInputRequestTypeDef",
-    {
-        "domain": str,
-        "registrationStatus": RegistrationStatusType,
-    },
-)
-_OptionalListWorkflowTypesInputRequestTypeDef = TypedDict(
-    "_OptionalListWorkflowTypesInputRequestTypeDef",
-    {
-        "name": str,
-        "nextPageToken": str,
-        "maximumPageSize": int,
-        "reverseOrder": bool,
-    },
-    total=False,
-)
-
-class ListWorkflowTypesInputRequestTypeDef(
-    _RequiredListWorkflowTypesInputRequestTypeDef, _OptionalListWorkflowTypesInputRequestTypeDef
-):
-    pass
-
-_RequiredMarkerRecordedEventAttributesTypeDef = TypedDict(
-    "_RequiredMarkerRecordedEventAttributesTypeDef",
-    {
-        "markerName": str,
-        "decisionTaskCompletedEventId": int,
-    },
-)
-_OptionalMarkerRecordedEventAttributesTypeDef = TypedDict(
-    "_OptionalMarkerRecordedEventAttributesTypeDef",
-    {
-        "details": str,
-    },
-    total=False,
-)
-
-class MarkerRecordedEventAttributesTypeDef(
-    _RequiredMarkerRecordedEventAttributesTypeDef, _OptionalMarkerRecordedEventAttributesTypeDef
-):
-    pass
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-PendingTaskCountTypeDef = TypedDict(
-    "PendingTaskCountTypeDef",
-    {
-        "count": int,
-        "truncated": bool,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredPollForActivityTaskInputRequestTypeDef = TypedDict(
-    "_RequiredPollForActivityTaskInputRequestTypeDef",
-    {
-        "domain": str,
-        "taskList": "TaskListTypeDef",
-    },
-)
-_OptionalPollForActivityTaskInputRequestTypeDef = TypedDict(
-    "_OptionalPollForActivityTaskInputRequestTypeDef",
-    {
-        "identity": str,
-    },
-    total=False,
-)
-
-class PollForActivityTaskInputRequestTypeDef(
-    _RequiredPollForActivityTaskInputRequestTypeDef, _OptionalPollForActivityTaskInputRequestTypeDef
-):
-    pass
-
-_RequiredPollForDecisionTaskInputRequestTypeDef = TypedDict(
-    "_RequiredPollForDecisionTaskInputRequestTypeDef",
-    {
-        "domain": str,
-        "taskList": "TaskListTypeDef",
-    },
-)
-_OptionalPollForDecisionTaskInputRequestTypeDef = TypedDict(
-    "_OptionalPollForDecisionTaskInputRequestTypeDef",
-    {
-        "identity": str,
-        "nextPageToken": str,
-        "maximumPageSize": int,
-        "reverseOrder": bool,
-        "startAtPreviousStartedEvent": bool,
-    },
-    total=False,
-)
-
-class PollForDecisionTaskInputRequestTypeDef(
-    _RequiredPollForDecisionTaskInputRequestTypeDef, _OptionalPollForDecisionTaskInputRequestTypeDef
-):
-    pass
-
-_RequiredRecordActivityTaskHeartbeatInputRequestTypeDef = TypedDict(
-    "_RequiredRecordActivityTaskHeartbeatInputRequestTypeDef",
-    {
-        "taskToken": str,
-    },
-)
-_OptionalRecordActivityTaskHeartbeatInputRequestTypeDef = TypedDict(
-    "_OptionalRecordActivityTaskHeartbeatInputRequestTypeDef",
-    {
-        "details": str,
-    },
-    total=False,
-)
-
-class RecordActivityTaskHeartbeatInputRequestTypeDef(
-    _RequiredRecordActivityTaskHeartbeatInputRequestTypeDef,
-    _OptionalRecordActivityTaskHeartbeatInputRequestTypeDef,
-):
-    pass
-
-_RequiredRecordMarkerDecisionAttributesTypeDef = TypedDict(
-    "_RequiredRecordMarkerDecisionAttributesTypeDef",
-    {
-        "markerName": str,
-    },
-)
-_OptionalRecordMarkerDecisionAttributesTypeDef = TypedDict(
-    "_OptionalRecordMarkerDecisionAttributesTypeDef",
-    {
-        "details": str,
-    },
-    total=False,
-)
-
-class RecordMarkerDecisionAttributesTypeDef(
-    _RequiredRecordMarkerDecisionAttributesTypeDef, _OptionalRecordMarkerDecisionAttributesTypeDef
-):
-    pass
-
-RecordMarkerFailedEventAttributesTypeDef = TypedDict(
-    "RecordMarkerFailedEventAttributesTypeDef",
-    {
-        "markerName": str,
-        "cause": Literal["OPERATION_NOT_PERMITTED"],
-        "decisionTaskCompletedEventId": int,
-    },
-)
-
-_RequiredRegisterActivityTypeInputRequestTypeDef = TypedDict(
-    "_RequiredRegisterActivityTypeInputRequestTypeDef",
-    {
-        "domain": str,
-        "name": str,
-        "version": str,
-    },
-)
-_OptionalRegisterActivityTypeInputRequestTypeDef = TypedDict(
-    "_OptionalRegisterActivityTypeInputRequestTypeDef",
-    {
-        "description": str,
-        "defaultTaskStartToCloseTimeout": str,
-        "defaultTaskHeartbeatTimeout": str,
-        "defaultTaskList": "TaskListTypeDef",
-        "defaultTaskPriority": str,
-        "defaultTaskScheduleToStartTimeout": str,
-        "defaultTaskScheduleToCloseTimeout": str,
-    },
-    total=False,
-)
-
-class RegisterActivityTypeInputRequestTypeDef(
-    _RequiredRegisterActivityTypeInputRequestTypeDef,
-    _OptionalRegisterActivityTypeInputRequestTypeDef,
-):
-    pass
-
-_RequiredRegisterDomainInputRequestTypeDef = TypedDict(
-    "_RequiredRegisterDomainInputRequestTypeDef",
-    {
-        "name": str,
-        "workflowExecutionRetentionPeriodInDays": str,
-    },
-)
-_OptionalRegisterDomainInputRequestTypeDef = TypedDict(
-    "_OptionalRegisterDomainInputRequestTypeDef",
-    {
-        "description": str,
-        "tags": List["ResourceTagTypeDef"],
-    },
-    total=False,
-)
-
-class RegisterDomainInputRequestTypeDef(
-    _RequiredRegisterDomainInputRequestTypeDef, _OptionalRegisterDomainInputRequestTypeDef
-):
-    pass
-
-_RequiredRegisterWorkflowTypeInputRequestTypeDef = TypedDict(
-    "_RequiredRegisterWorkflowTypeInputRequestTypeDef",
-    {
-        "domain": str,
-        "name": str,
-        "version": str,
-    },
-)
-_OptionalRegisterWorkflowTypeInputRequestTypeDef = TypedDict(
-    "_OptionalRegisterWorkflowTypeInputRequestTypeDef",
-    {
-        "description": str,
-        "defaultTaskStartToCloseTimeout": str,
-        "defaultExecutionStartToCloseTimeout": str,
-        "defaultTaskList": "TaskListTypeDef",
-        "defaultTaskPriority": str,
-        "defaultChildPolicy": ChildPolicyType,
-        "defaultLambdaRole": str,
-    },
-    total=False,
-)
-
-class RegisterWorkflowTypeInputRequestTypeDef(
-    _RequiredRegisterWorkflowTypeInputRequestTypeDef,
-    _OptionalRegisterWorkflowTypeInputRequestTypeDef,
-):
-    pass
-
-RequestCancelActivityTaskDecisionAttributesTypeDef = TypedDict(
-    "RequestCancelActivityTaskDecisionAttributesTypeDef",
-    {
-        "activityId": str,
-    },
-)
-
-RequestCancelActivityTaskFailedEventAttributesTypeDef = TypedDict(
-    "RequestCancelActivityTaskFailedEventAttributesTypeDef",
-    {
-        "activityId": str,
-        "cause": RequestCancelActivityTaskFailedCauseType,
-        "decisionTaskCompletedEventId": int,
-    },
-)
-
-_RequiredRequestCancelExternalWorkflowExecutionDecisionAttributesTypeDef = TypedDict(
-    "_RequiredRequestCancelExternalWorkflowExecutionDecisionAttributesTypeDef",
-    {
-        "workflowId": str,
-    },
-)
-_OptionalRequestCancelExternalWorkflowExecutionDecisionAttributesTypeDef = TypedDict(
-    "_OptionalRequestCancelExternalWorkflowExecutionDecisionAttributesTypeDef",
-    {
-        "runId": str,
-        "control": str,
-    },
-    total=False,
-)
-
-class RequestCancelExternalWorkflowExecutionDecisionAttributesTypeDef(
-    _RequiredRequestCancelExternalWorkflowExecutionDecisionAttributesTypeDef,
-    _OptionalRequestCancelExternalWorkflowExecutionDecisionAttributesTypeDef,
-):
-    pass
-
-_RequiredRequestCancelExternalWorkflowExecutionFailedEventAttributesTypeDef = TypedDict(
-    "_RequiredRequestCancelExternalWorkflowExecutionFailedEventAttributesTypeDef",
-    {
-        "workflowId": str,
-        "cause": RequestCancelExternalWorkflowExecutionFailedCauseType,
-        "initiatedEventId": int,
-        "decisionTaskCompletedEventId": int,
-    },
-)
-_OptionalRequestCancelExternalWorkflowExecutionFailedEventAttributesTypeDef = TypedDict(
-    "_OptionalRequestCancelExternalWorkflowExecutionFailedEventAttributesTypeDef",
-    {
-        "runId": str,
-        "control": str,
-    },
-    total=False,
-)
-
-class RequestCancelExternalWorkflowExecutionFailedEventAttributesTypeDef(
-    _RequiredRequestCancelExternalWorkflowExecutionFailedEventAttributesTypeDef,
-    _OptionalRequestCancelExternalWorkflowExecutionFailedEventAttributesTypeDef,
-):
-    pass
-
-_RequiredRequestCancelExternalWorkflowExecutionInitiatedEventAttributesTypeDef = TypedDict(
-    "_RequiredRequestCancelExternalWorkflowExecutionInitiatedEventAttributesTypeDef",
-    {
-        "workflowId": str,
-        "decisionTaskCompletedEventId": int,
-    },
-)
-_OptionalRequestCancelExternalWorkflowExecutionInitiatedEventAttributesTypeDef = TypedDict(
-    "_OptionalRequestCancelExternalWorkflowExecutionInitiatedEventAttributesTypeDef",
-    {
-        "runId": str,
-        "control": str,
-    },
-    total=False,
-)
-
-class RequestCancelExternalWorkflowExecutionInitiatedEventAttributesTypeDef(
-    _RequiredRequestCancelExternalWorkflowExecutionInitiatedEventAttributesTypeDef,
-    _OptionalRequestCancelExternalWorkflowExecutionInitiatedEventAttributesTypeDef,
-):
-    pass
-
-_RequiredRequestCancelWorkflowExecutionInputRequestTypeDef = TypedDict(
-    "_RequiredRequestCancelWorkflowExecutionInputRequestTypeDef",
-    {
-        "domain": str,
-        "workflowId": str,
-    },
-)
-_OptionalRequestCancelWorkflowExecutionInputRequestTypeDef = TypedDict(
-    "_OptionalRequestCancelWorkflowExecutionInputRequestTypeDef",
-    {
-        "runId": str,
-    },
-    total=False,
-)
-
-class RequestCancelWorkflowExecutionInputRequestTypeDef(
-    _RequiredRequestCancelWorkflowExecutionInputRequestTypeDef,
-    _OptionalRequestCancelWorkflowExecutionInputRequestTypeDef,
-):
-    pass
-
-_RequiredResourceTagTypeDef = TypedDict(
-    "_RequiredResourceTagTypeDef",
-    {
-        "key": str,
-    },
-)
-_OptionalResourceTagTypeDef = TypedDict(
-    "_OptionalResourceTagTypeDef",
-    {
-        "value": str,
-    },
-    total=False,
-)
-
-class ResourceTagTypeDef(_RequiredResourceTagTypeDef, _OptionalResourceTagTypeDef):
-    pass
-
-_RequiredRespondActivityTaskCanceledInputRequestTypeDef = TypedDict(
-    "_RequiredRespondActivityTaskCanceledInputRequestTypeDef",
-    {
-        "taskToken": str,
-    },
-)
-_OptionalRespondActivityTaskCanceledInputRequestTypeDef = TypedDict(
-    "_OptionalRespondActivityTaskCanceledInputRequestTypeDef",
-    {
-        "details": str,
-    },
-    total=False,
-)
-
-class RespondActivityTaskCanceledInputRequestTypeDef(
-    _RequiredRespondActivityTaskCanceledInputRequestTypeDef,
-    _OptionalRespondActivityTaskCanceledInputRequestTypeDef,
-):
-    pass
-
-_RequiredRespondActivityTaskCompletedInputRequestTypeDef = TypedDict(
-    "_RequiredRespondActivityTaskCompletedInputRequestTypeDef",
-    {
-        "taskToken": str,
-    },
-)
-_OptionalRespondActivityTaskCompletedInputRequestTypeDef = TypedDict(
-    "_OptionalRespondActivityTaskCompletedInputRequestTypeDef",
-    {
-        "result": str,
-    },
-    total=False,
-)
-
-class RespondActivityTaskCompletedInputRequestTypeDef(
-    _RequiredRespondActivityTaskCompletedInputRequestTypeDef,
-    _OptionalRespondActivityTaskCompletedInputRequestTypeDef,
-):
-    pass
-
-_RequiredRespondActivityTaskFailedInputRequestTypeDef = TypedDict(
-    "_RequiredRespondActivityTaskFailedInputRequestTypeDef",
-    {
-        "taskToken": str,
-    },
-)
-_OptionalRespondActivityTaskFailedInputRequestTypeDef = TypedDict(
-    "_OptionalRespondActivityTaskFailedInputRequestTypeDef",
-    {
-        "reason": str,
-        "details": str,
-    },
-    total=False,
-)
-
-class RespondActivityTaskFailedInputRequestTypeDef(
-    _RequiredRespondActivityTaskFailedInputRequestTypeDef,
-    _OptionalRespondActivityTaskFailedInputRequestTypeDef,
-):
-    pass
-
-_RequiredRespondDecisionTaskCompletedInputRequestTypeDef = TypedDict(
-    "_RequiredRespondDecisionTaskCompletedInputRequestTypeDef",
-    {
-        "taskToken": str,
-    },
-)
-_OptionalRespondDecisionTaskCompletedInputRequestTypeDef = TypedDict(
-    "_OptionalRespondDecisionTaskCompletedInputRequestTypeDef",
-    {
-        "decisions": List["DecisionTypeDef"],
-        "executionContext": str,
-        "taskList": "TaskListTypeDef",
-        "taskListScheduleToStartTimeout": str,
-    },
-    total=False,
-)
-
-class RespondDecisionTaskCompletedInputRequestTypeDef(
-    _RequiredRespondDecisionTaskCompletedInputRequestTypeDef,
-    _OptionalRespondDecisionTaskCompletedInputRequestTypeDef,
-):
-    pass
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-RunTypeDef = TypedDict(
-    "RunTypeDef",
-    {
-        "runId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredScheduleActivityTaskDecisionAttributesTypeDef = TypedDict(
-    "_RequiredScheduleActivityTaskDecisionAttributesTypeDef",
-    {
-        "activityType": "ActivityTypeTypeDef",
-        "activityId": str,
-    },
-)
-_OptionalScheduleActivityTaskDecisionAttributesTypeDef = TypedDict(
-    "_OptionalScheduleActivityTaskDecisionAttributesTypeDef",
-    {
-        "control": str,
-        "input": str,
-        "scheduleToCloseTimeout": str,
-        "taskList": "TaskListTypeDef",
-        "taskPriority": str,
-        "scheduleToStartTimeout": str,
-        "startToCloseTimeout": str,
-        "heartbeatTimeout": str,
-    },
-    total=False,
-)
-
-class ScheduleActivityTaskDecisionAttributesTypeDef(
-    _RequiredScheduleActivityTaskDecisionAttributesTypeDef,
-    _OptionalScheduleActivityTaskDecisionAttributesTypeDef,
-):
-    pass
-
-ScheduleActivityTaskFailedEventAttributesTypeDef = TypedDict(
-    "ScheduleActivityTaskFailedEventAttributesTypeDef",
-    {
-        "activityType": "ActivityTypeTypeDef",
-        "activityId": str,
-        "cause": ScheduleActivityTaskFailedCauseType,
-        "decisionTaskCompletedEventId": int,
-    },
-)
-
-_RequiredScheduleLambdaFunctionDecisionAttributesTypeDef = TypedDict(
-    "_RequiredScheduleLambdaFunctionDecisionAttributesTypeDef",
-    {
-        "id": str,
-        "name": str,
-    },
-)
-_OptionalScheduleLambdaFunctionDecisionAttributesTypeDef = TypedDict(
-    "_OptionalScheduleLambdaFunctionDecisionAttributesTypeDef",
-    {
-        "control": str,
-        "input": str,
-        "startToCloseTimeout": str,
-    },
-    total=False,
-)
-
-class ScheduleLambdaFunctionDecisionAttributesTypeDef(
-    _RequiredScheduleLambdaFunctionDecisionAttributesTypeDef,
-    _OptionalScheduleLambdaFunctionDecisionAttributesTypeDef,
-):
-    pass
+class RequestCancelExternalWorkflowExecutionInitiatedEventAttributesTypeDef(TypedDict):
+    workflowId: str
+    decisionTaskCompletedEventId: int
+    runId: NotRequired[str]
+    control: NotRequired[str]
 
 ScheduleLambdaFunctionFailedEventAttributesTypeDef = TypedDict(
     "ScheduleLambdaFunctionFailedEventAttributesTypeDef",
@@ -1785,738 +451,887 @@ ScheduleLambdaFunctionFailedEventAttributesTypeDef = TypedDict(
     },
 )
 
-_RequiredSignalExternalWorkflowExecutionDecisionAttributesTypeDef = TypedDict(
-    "_RequiredSignalExternalWorkflowExecutionDecisionAttributesTypeDef",
-    {
-        "workflowId": str,
-        "signalName": str,
-    },
-)
-_OptionalSignalExternalWorkflowExecutionDecisionAttributesTypeDef = TypedDict(
-    "_OptionalSignalExternalWorkflowExecutionDecisionAttributesTypeDef",
-    {
-        "runId": str,
-        "input": str,
-        "control": str,
-    },
-    total=False,
-)
+class SignalExternalWorkflowExecutionFailedEventAttributesTypeDef(TypedDict):
+    workflowId: str
+    cause: SignalExternalWorkflowExecutionFailedCauseType
+    initiatedEventId: int
+    decisionTaskCompletedEventId: int
+    runId: NotRequired[str]
+    control: NotRequired[str]
 
-class SignalExternalWorkflowExecutionDecisionAttributesTypeDef(
-    _RequiredSignalExternalWorkflowExecutionDecisionAttributesTypeDef,
-    _OptionalSignalExternalWorkflowExecutionDecisionAttributesTypeDef,
-):
-    pass
-
-_RequiredSignalExternalWorkflowExecutionFailedEventAttributesTypeDef = TypedDict(
-    "_RequiredSignalExternalWorkflowExecutionFailedEventAttributesTypeDef",
-    {
-        "workflowId": str,
-        "cause": SignalExternalWorkflowExecutionFailedCauseType,
-        "initiatedEventId": int,
-        "decisionTaskCompletedEventId": int,
-    },
-)
-_OptionalSignalExternalWorkflowExecutionFailedEventAttributesTypeDef = TypedDict(
-    "_OptionalSignalExternalWorkflowExecutionFailedEventAttributesTypeDef",
-    {
-        "runId": str,
-        "control": str,
-    },
-    total=False,
-)
-
-class SignalExternalWorkflowExecutionFailedEventAttributesTypeDef(
-    _RequiredSignalExternalWorkflowExecutionFailedEventAttributesTypeDef,
-    _OptionalSignalExternalWorkflowExecutionFailedEventAttributesTypeDef,
-):
-    pass
-
-_RequiredSignalExternalWorkflowExecutionInitiatedEventAttributesTypeDef = TypedDict(
-    "_RequiredSignalExternalWorkflowExecutionInitiatedEventAttributesTypeDef",
+SignalExternalWorkflowExecutionInitiatedEventAttributesTypeDef = TypedDict(
+    "SignalExternalWorkflowExecutionInitiatedEventAttributesTypeDef",
     {
         "workflowId": str,
         "signalName": str,
         "decisionTaskCompletedEventId": int,
+        "runId": NotRequired[str],
+        "input": NotRequired[str],
+        "control": NotRequired[str],
     },
 )
-_OptionalSignalExternalWorkflowExecutionInitiatedEventAttributesTypeDef = TypedDict(
-    "_OptionalSignalExternalWorkflowExecutionInitiatedEventAttributesTypeDef",
-    {
-        "runId": str,
-        "input": str,
-        "control": str,
-    },
-    total=False,
-)
 
-class SignalExternalWorkflowExecutionInitiatedEventAttributesTypeDef(
-    _RequiredSignalExternalWorkflowExecutionInitiatedEventAttributesTypeDef,
-    _OptionalSignalExternalWorkflowExecutionInitiatedEventAttributesTypeDef,
-):
-    pass
+class StartLambdaFunctionFailedEventAttributesTypeDef(TypedDict):
+    scheduledEventId: NotRequired[int]
+    cause: NotRequired[Literal["ASSUME_ROLE_FAILED"]]
+    message: NotRequired[str]
 
-_RequiredSignalWorkflowExecutionInputRequestTypeDef = TypedDict(
-    "_RequiredSignalWorkflowExecutionInputRequestTypeDef",
+class StartTimerFailedEventAttributesTypeDef(TypedDict):
+    timerId: str
+    cause: StartTimerFailedCauseType
+    decisionTaskCompletedEventId: int
+
+class TimerCanceledEventAttributesTypeDef(TypedDict):
+    timerId: str
+    startedEventId: int
+    decisionTaskCompletedEventId: int
+
+class TimerFiredEventAttributesTypeDef(TypedDict):
+    timerId: str
+    startedEventId: int
+
+class TimerStartedEventAttributesTypeDef(TypedDict):
+    timerId: str
+    startToFireTimeout: str
+    decisionTaskCompletedEventId: int
+    control: NotRequired[str]
+
+class WorkflowExecutionCanceledEventAttributesTypeDef(TypedDict):
+    decisionTaskCompletedEventId: int
+    details: NotRequired[str]
+
+class WorkflowExecutionCompletedEventAttributesTypeDef(TypedDict):
+    decisionTaskCompletedEventId: int
+    result: NotRequired[str]
+
+class WorkflowExecutionFailedEventAttributesTypeDef(TypedDict):
+    decisionTaskCompletedEventId: int
+    reason: NotRequired[str]
+    details: NotRequired[str]
+
+class WorkflowExecutionTerminatedEventAttributesTypeDef(TypedDict):
+    childPolicy: ChildPolicyType
+    reason: NotRequired[str]
+    details: NotRequired[str]
+    cause: NotRequired[WorkflowExecutionTerminatedCauseType]
+
+class WorkflowExecutionTimedOutEventAttributesTypeDef(TypedDict):
+    timeoutType: Literal["START_TO_CLOSE"]
+    childPolicy: ChildPolicyType
+
+class ListActivityTypesInputTypeDef(TypedDict):
+    domain: str
+    registrationStatus: RegistrationStatusType
+    name: NotRequired[str]
+    nextPageToken: NotRequired[str]
+    maximumPageSize: NotRequired[int]
+    reverseOrder: NotRequired[bool]
+
+class ListDomainsInputTypeDef(TypedDict):
+    registrationStatus: RegistrationStatusType
+    nextPageToken: NotRequired[str]
+    maximumPageSize: NotRequired[int]
+    reverseOrder: NotRequired[bool]
+
+class ListTagsForResourceInputTypeDef(TypedDict):
+    resourceArn: str
+
+class ResourceTagTypeDef(TypedDict):
+    key: str
+    value: NotRequired[str]
+
+class ListWorkflowTypesInputTypeDef(TypedDict):
+    domain: str
+    registrationStatus: RegistrationStatusType
+    name: NotRequired[str]
+    nextPageToken: NotRequired[str]
+    maximumPageSize: NotRequired[int]
+    reverseOrder: NotRequired[bool]
+
+class RecordActivityTaskHeartbeatInputTypeDef(TypedDict):
+    taskToken: str
+    details: NotRequired[str]
+
+class RequestCancelWorkflowExecutionInputTypeDef(TypedDict):
+    domain: str
+    workflowId: str
+    runId: NotRequired[str]
+
+class RespondActivityTaskCanceledInputTypeDef(TypedDict):
+    taskToken: str
+    details: NotRequired[str]
+
+class RespondActivityTaskCompletedInputTypeDef(TypedDict):
+    taskToken: str
+    result: NotRequired[str]
+
+class RespondActivityTaskFailedInputTypeDef(TypedDict):
+    taskToken: str
+    reason: NotRequired[str]
+    details: NotRequired[str]
+
+SignalWorkflowExecutionInputTypeDef = TypedDict(
+    "SignalWorkflowExecutionInputTypeDef",
     {
         "domain": str,
         "workflowId": str,
         "signalName": str,
+        "runId": NotRequired[str],
+        "input": NotRequired[str],
     },
 )
-_OptionalSignalWorkflowExecutionInputRequestTypeDef = TypedDict(
-    "_OptionalSignalWorkflowExecutionInputRequestTypeDef",
-    {
-        "runId": str,
-        "input": str,
-    },
-    total=False,
-)
 
-class SignalWorkflowExecutionInputRequestTypeDef(
-    _RequiredSignalWorkflowExecutionInputRequestTypeDef,
-    _OptionalSignalWorkflowExecutionInputRequestTypeDef,
-):
-    pass
+class TerminateWorkflowExecutionInputTypeDef(TypedDict):
+    domain: str
+    workflowId: str
+    runId: NotRequired[str]
+    reason: NotRequired[str]
+    details: NotRequired[str]
+    childPolicy: NotRequired[ChildPolicyType]
 
-_RequiredStartChildWorkflowExecutionDecisionAttributesTypeDef = TypedDict(
-    "_RequiredStartChildWorkflowExecutionDecisionAttributesTypeDef",
-    {
-        "workflowType": "WorkflowTypeTypeDef",
-        "workflowId": str,
-    },
-)
-_OptionalStartChildWorkflowExecutionDecisionAttributesTypeDef = TypedDict(
-    "_OptionalStartChildWorkflowExecutionDecisionAttributesTypeDef",
-    {
-        "control": str,
-        "input": str,
-        "executionStartToCloseTimeout": str,
-        "taskList": "TaskListTypeDef",
-        "taskPriority": str,
-        "taskStartToCloseTimeout": str,
-        "childPolicy": ChildPolicyType,
-        "tagList": List[str],
-        "lambdaRole": str,
-    },
-    total=False,
-)
+class UndeprecateDomainInputTypeDef(TypedDict):
+    name: str
 
-class StartChildWorkflowExecutionDecisionAttributesTypeDef(
-    _RequiredStartChildWorkflowExecutionDecisionAttributesTypeDef,
-    _OptionalStartChildWorkflowExecutionDecisionAttributesTypeDef,
-):
-    pass
+class UntagResourceInputTypeDef(TypedDict):
+    resourceArn: str
+    tagKeys: Sequence[str]
 
-_RequiredStartChildWorkflowExecutionFailedEventAttributesTypeDef = TypedDict(
-    "_RequiredStartChildWorkflowExecutionFailedEventAttributesTypeDef",
+class WorkflowExecutionOpenCountsTypeDef(TypedDict):
+    openActivityTasks: int
+    openDecisionTasks: int
+    openTimers: int
+    openChildWorkflowExecutions: int
+    openLambdaFunctions: NotRequired[int]
+
+class ActivityTypeInfoTypeDef(TypedDict):
+    activityType: ActivityTypeTypeDef
+    status: RegistrationStatusType
+    creationDate: datetime
+    description: NotRequired[str]
+    deprecationDate: NotRequired[datetime]
+
+class DeleteActivityTypeInputTypeDef(TypedDict):
+    domain: str
+    activityType: ActivityTypeTypeDef
+
+class DeprecateActivityTypeInputTypeDef(TypedDict):
+    domain: str
+    activityType: ActivityTypeTypeDef
+
+class DescribeActivityTypeInputTypeDef(TypedDict):
+    domain: str
+    activityType: ActivityTypeTypeDef
+
+class ScheduleActivityTaskFailedEventAttributesTypeDef(TypedDict):
+    activityType: ActivityTypeTypeDef
+    activityId: str
+    cause: ScheduleActivityTaskFailedCauseType
+    decisionTaskCompletedEventId: int
+
+class UndeprecateActivityTypeInputTypeDef(TypedDict):
+    domain: str
+    activityType: ActivityTypeTypeDef
+
+ActivityTaskScheduledEventAttributesTypeDef = TypedDict(
+    "ActivityTaskScheduledEventAttributesTypeDef",
     {
-        "workflowType": "WorkflowTypeTypeDef",
-        "cause": StartChildWorkflowExecutionFailedCauseType,
-        "workflowId": str,
-        "initiatedEventId": int,
+        "activityType": ActivityTypeTypeDef,
+        "activityId": str,
+        "taskList": TaskListTypeDef,
         "decisionTaskCompletedEventId": int,
-    },
-)
-_OptionalStartChildWorkflowExecutionFailedEventAttributesTypeDef = TypedDict(
-    "_OptionalStartChildWorkflowExecutionFailedEventAttributesTypeDef",
-    {
-        "control": str,
-    },
-    total=False,
-)
-
-class StartChildWorkflowExecutionFailedEventAttributesTypeDef(
-    _RequiredStartChildWorkflowExecutionFailedEventAttributesTypeDef,
-    _OptionalStartChildWorkflowExecutionFailedEventAttributesTypeDef,
-):
-    pass
-
-_RequiredStartChildWorkflowExecutionInitiatedEventAttributesTypeDef = TypedDict(
-    "_RequiredStartChildWorkflowExecutionInitiatedEventAttributesTypeDef",
-    {
-        "workflowId": str,
-        "workflowType": "WorkflowTypeTypeDef",
-        "taskList": "TaskListTypeDef",
-        "decisionTaskCompletedEventId": int,
-        "childPolicy": ChildPolicyType,
-    },
-)
-_OptionalStartChildWorkflowExecutionInitiatedEventAttributesTypeDef = TypedDict(
-    "_OptionalStartChildWorkflowExecutionInitiatedEventAttributesTypeDef",
-    {
-        "control": str,
-        "input": str,
-        "executionStartToCloseTimeout": str,
-        "taskPriority": str,
-        "taskStartToCloseTimeout": str,
-        "tagList": List[str],
-        "lambdaRole": str,
-    },
-    total=False,
-)
-
-class StartChildWorkflowExecutionInitiatedEventAttributesTypeDef(
-    _RequiredStartChildWorkflowExecutionInitiatedEventAttributesTypeDef,
-    _OptionalStartChildWorkflowExecutionInitiatedEventAttributesTypeDef,
-):
-    pass
-
-StartLambdaFunctionFailedEventAttributesTypeDef = TypedDict(
-    "StartLambdaFunctionFailedEventAttributesTypeDef",
-    {
-        "scheduledEventId": int,
-        "cause": Literal["ASSUME_ROLE_FAILED"],
-        "message": str,
-    },
-    total=False,
-)
-
-_RequiredStartTimerDecisionAttributesTypeDef = TypedDict(
-    "_RequiredStartTimerDecisionAttributesTypeDef",
-    {
-        "timerId": str,
-        "startToFireTimeout": str,
-    },
-)
-_OptionalStartTimerDecisionAttributesTypeDef = TypedDict(
-    "_OptionalStartTimerDecisionAttributesTypeDef",
-    {
-        "control": str,
-    },
-    total=False,
-)
-
-class StartTimerDecisionAttributesTypeDef(
-    _RequiredStartTimerDecisionAttributesTypeDef, _OptionalStartTimerDecisionAttributesTypeDef
-):
-    pass
-
-StartTimerFailedEventAttributesTypeDef = TypedDict(
-    "StartTimerFailedEventAttributesTypeDef",
-    {
-        "timerId": str,
-        "cause": StartTimerFailedCauseType,
-        "decisionTaskCompletedEventId": int,
+        "input": NotRequired[str],
+        "control": NotRequired[str],
+        "scheduleToStartTimeout": NotRequired[str],
+        "scheduleToCloseTimeout": NotRequired[str],
+        "startToCloseTimeout": NotRequired[str],
+        "taskPriority": NotRequired[str],
+        "heartbeatTimeout": NotRequired[str],
     },
 )
 
-_RequiredStartWorkflowExecutionInputRequestTypeDef = TypedDict(
-    "_RequiredStartWorkflowExecutionInputRequestTypeDef",
-    {
-        "domain": str,
-        "workflowId": str,
-        "workflowType": "WorkflowTypeTypeDef",
-    },
-)
-_OptionalStartWorkflowExecutionInputRequestTypeDef = TypedDict(
-    "_OptionalStartWorkflowExecutionInputRequestTypeDef",
-    {
-        "taskList": "TaskListTypeDef",
-        "taskPriority": str,
-        "input": str,
-        "executionStartToCloseTimeout": str,
-        "tagList": List[str],
-        "taskStartToCloseTimeout": str,
-        "childPolicy": ChildPolicyType,
-        "lambdaRole": str,
-    },
-    total=False,
-)
+class ActivityTypeConfigurationTypeDef(TypedDict):
+    defaultTaskStartToCloseTimeout: NotRequired[str]
+    defaultTaskHeartbeatTimeout: NotRequired[str]
+    defaultTaskList: NotRequired[TaskListTypeDef]
+    defaultTaskPriority: NotRequired[str]
+    defaultTaskScheduleToStartTimeout: NotRequired[str]
+    defaultTaskScheduleToCloseTimeout: NotRequired[str]
 
-class StartWorkflowExecutionInputRequestTypeDef(
-    _RequiredStartWorkflowExecutionInputRequestTypeDef,
-    _OptionalStartWorkflowExecutionInputRequestTypeDef,
-):
-    pass
-
-TagFilterTypeDef = TypedDict(
-    "TagFilterTypeDef",
+ContinueAsNewWorkflowExecutionDecisionAttributesTypeDef = TypedDict(
+    "ContinueAsNewWorkflowExecutionDecisionAttributesTypeDef",
     {
-        "tag": str,
+        "input": NotRequired[str],
+        "executionStartToCloseTimeout": NotRequired[str],
+        "taskList": NotRequired[TaskListTypeDef],
+        "taskPriority": NotRequired[str],
+        "taskStartToCloseTimeout": NotRequired[str],
+        "childPolicy": NotRequired[ChildPolicyType],
+        "tagList": NotRequired[Sequence[str]],
+        "workflowTypeVersion": NotRequired[str],
+        "lambdaRole": NotRequired[str],
     },
 )
 
-TagResourceInputRequestTypeDef = TypedDict(
-    "TagResourceInputRequestTypeDef",
+class CountPendingActivityTasksInputTypeDef(TypedDict):
+    domain: str
+    taskList: TaskListTypeDef
+
+class CountPendingDecisionTasksInputTypeDef(TypedDict):
+    domain: str
+    taskList: TaskListTypeDef
+
+class DecisionTaskCompletedEventAttributesTypeDef(TypedDict):
+    scheduledEventId: int
+    startedEventId: int
+    executionContext: NotRequired[str]
+    taskList: NotRequired[TaskListTypeDef]
+    taskListScheduleToStartTimeout: NotRequired[str]
+
+class DecisionTaskScheduledEventAttributesTypeDef(TypedDict):
+    taskList: TaskListTypeDef
+    taskPriority: NotRequired[str]
+    startToCloseTimeout: NotRequired[str]
+    scheduleToStartTimeout: NotRequired[str]
+
+class PollForActivityTaskInputTypeDef(TypedDict):
+    domain: str
+    taskList: TaskListTypeDef
+    identity: NotRequired[str]
+
+class PollForDecisionTaskInputTypeDef(TypedDict):
+    domain: str
+    taskList: TaskListTypeDef
+    identity: NotRequired[str]
+    nextPageToken: NotRequired[str]
+    maximumPageSize: NotRequired[int]
+    reverseOrder: NotRequired[bool]
+    startAtPreviousStartedEvent: NotRequired[bool]
+
+class RegisterActivityTypeInputTypeDef(TypedDict):
+    domain: str
+    name: str
+    version: str
+    description: NotRequired[str]
+    defaultTaskStartToCloseTimeout: NotRequired[str]
+    defaultTaskHeartbeatTimeout: NotRequired[str]
+    defaultTaskList: NotRequired[TaskListTypeDef]
+    defaultTaskPriority: NotRequired[str]
+    defaultTaskScheduleToStartTimeout: NotRequired[str]
+    defaultTaskScheduleToCloseTimeout: NotRequired[str]
+
+class RegisterWorkflowTypeInputTypeDef(TypedDict):
+    domain: str
+    name: str
+    version: str
+    description: NotRequired[str]
+    defaultTaskStartToCloseTimeout: NotRequired[str]
+    defaultExecutionStartToCloseTimeout: NotRequired[str]
+    defaultTaskList: NotRequired[TaskListTypeDef]
+    defaultTaskPriority: NotRequired[str]
+    defaultChildPolicy: NotRequired[ChildPolicyType]
+    defaultLambdaRole: NotRequired[str]
+
+ScheduleActivityTaskDecisionAttributesTypeDef = TypedDict(
+    "ScheduleActivityTaskDecisionAttributesTypeDef",
     {
-        "resourceArn": str,
-        "tags": List["ResourceTagTypeDef"],
+        "activityType": ActivityTypeTypeDef,
+        "activityId": str,
+        "control": NotRequired[str],
+        "input": NotRequired[str],
+        "scheduleToCloseTimeout": NotRequired[str],
+        "taskList": NotRequired[TaskListTypeDef],
+        "taskPriority": NotRequired[str],
+        "scheduleToStartTimeout": NotRequired[str],
+        "startToCloseTimeout": NotRequired[str],
+        "heartbeatTimeout": NotRequired[str],
     },
 )
 
-TaskListTypeDef = TypedDict(
-    "TaskListTypeDef",
-    {
-        "name": str,
-    },
-)
+class WorkflowExecutionConfigurationTypeDef(TypedDict):
+    taskStartToCloseTimeout: str
+    executionStartToCloseTimeout: str
+    taskList: TaskListTypeDef
+    childPolicy: ChildPolicyType
+    taskPriority: NotRequired[str]
+    lambdaRole: NotRequired[str]
 
-_RequiredTerminateWorkflowExecutionInputRequestTypeDef = TypedDict(
-    "_RequiredTerminateWorkflowExecutionInputRequestTypeDef",
-    {
-        "domain": str,
-        "workflowId": str,
-    },
-)
-_OptionalTerminateWorkflowExecutionInputRequestTypeDef = TypedDict(
-    "_OptionalTerminateWorkflowExecutionInputRequestTypeDef",
-    {
-        "runId": str,
-        "reason": str,
-        "details": str,
-        "childPolicy": ChildPolicyType,
-    },
-    total=False,
-)
+class WorkflowTypeConfigurationTypeDef(TypedDict):
+    defaultTaskStartToCloseTimeout: NotRequired[str]
+    defaultExecutionStartToCloseTimeout: NotRequired[str]
+    defaultTaskList: NotRequired[TaskListTypeDef]
+    defaultTaskPriority: NotRequired[str]
+    defaultChildPolicy: NotRequired[ChildPolicyType]
+    defaultLambdaRole: NotRequired[str]
 
-class TerminateWorkflowExecutionInputRequestTypeDef(
-    _RequiredTerminateWorkflowExecutionInputRequestTypeDef,
-    _OptionalTerminateWorkflowExecutionInputRequestTypeDef,
-):
-    pass
+class ActivityTaskStatusTypeDef(TypedDict):
+    cancelRequested: bool
+    ResponseMetadata: ResponseMetadataTypeDef
 
-TimerCanceledEventAttributesTypeDef = TypedDict(
-    "TimerCanceledEventAttributesTypeDef",
+class EmptyResponseMetadataTypeDef(TypedDict):
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PendingTaskCountTypeDef(TypedDict):
+    count: int
+    truncated: bool
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class RunTypeDef(TypedDict):
+    runId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class WorkflowExecutionCountTypeDef(TypedDict):
+    count: int
+    truncated: bool
+    ResponseMetadata: ResponseMetadataTypeDef
+
+ActivityTaskTypeDef = TypedDict(
+    "ActivityTaskTypeDef",
     {
-        "timerId": str,
+        "taskToken": str,
+        "activityId": str,
         "startedEventId": int,
+        "workflowExecution": WorkflowExecutionTypeDef,
+        "activityType": ActivityTypeTypeDef,
+        "input": str,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+
+class DescribeWorkflowExecutionInputTypeDef(TypedDict):
+    domain: str
+    execution: WorkflowExecutionTypeDef
+
+class ExternalWorkflowExecutionCancelRequestedEventAttributesTypeDef(TypedDict):
+    workflowExecution: WorkflowExecutionTypeDef
+    initiatedEventId: int
+
+class ExternalWorkflowExecutionSignaledEventAttributesTypeDef(TypedDict):
+    workflowExecution: WorkflowExecutionTypeDef
+    initiatedEventId: int
+
+class GetWorkflowExecutionHistoryInputTypeDef(TypedDict):
+    domain: str
+    execution: WorkflowExecutionTypeDef
+    nextPageToken: NotRequired[str]
+    maximumPageSize: NotRequired[int]
+    reverseOrder: NotRequired[bool]
+
+class WorkflowExecutionCancelRequestedEventAttributesTypeDef(TypedDict):
+    externalWorkflowExecution: NotRequired[WorkflowExecutionTypeDef]
+    externalInitiatedEventId: NotRequired[int]
+    cause: NotRequired[Literal["CHILD_POLICY_APPLIED"]]
+
+WorkflowExecutionSignaledEventAttributesTypeDef = TypedDict(
+    "WorkflowExecutionSignaledEventAttributesTypeDef",
+    {
+        "signalName": str,
+        "input": NotRequired[str],
+        "externalWorkflowExecution": NotRequired[WorkflowExecutionTypeDef],
+        "externalInitiatedEventId": NotRequired[int],
+    },
+)
+
+class ChildWorkflowExecutionCanceledEventAttributesTypeDef(TypedDict):
+    workflowExecution: WorkflowExecutionTypeDef
+    workflowType: WorkflowTypeTypeDef
+    initiatedEventId: int
+    startedEventId: int
+    details: NotRequired[str]
+
+class ChildWorkflowExecutionCompletedEventAttributesTypeDef(TypedDict):
+    workflowExecution: WorkflowExecutionTypeDef
+    workflowType: WorkflowTypeTypeDef
+    initiatedEventId: int
+    startedEventId: int
+    result: NotRequired[str]
+
+class ChildWorkflowExecutionFailedEventAttributesTypeDef(TypedDict):
+    workflowExecution: WorkflowExecutionTypeDef
+    workflowType: WorkflowTypeTypeDef
+    initiatedEventId: int
+    startedEventId: int
+    reason: NotRequired[str]
+    details: NotRequired[str]
+
+class ChildWorkflowExecutionStartedEventAttributesTypeDef(TypedDict):
+    workflowExecution: WorkflowExecutionTypeDef
+    workflowType: WorkflowTypeTypeDef
+    initiatedEventId: int
+
+class ChildWorkflowExecutionTerminatedEventAttributesTypeDef(TypedDict):
+    workflowExecution: WorkflowExecutionTypeDef
+    workflowType: WorkflowTypeTypeDef
+    initiatedEventId: int
+    startedEventId: int
+
+class ChildWorkflowExecutionTimedOutEventAttributesTypeDef(TypedDict):
+    workflowExecution: WorkflowExecutionTypeDef
+    workflowType: WorkflowTypeTypeDef
+    timeoutType: Literal["START_TO_CLOSE"]
+    initiatedEventId: int
+    startedEventId: int
+
+class DeleteWorkflowTypeInputTypeDef(TypedDict):
+    domain: str
+    workflowType: WorkflowTypeTypeDef
+
+class DeprecateWorkflowTypeInputTypeDef(TypedDict):
+    domain: str
+    workflowType: WorkflowTypeTypeDef
+
+class DescribeWorkflowTypeInputTypeDef(TypedDict):
+    domain: str
+    workflowType: WorkflowTypeTypeDef
+
+StartChildWorkflowExecutionDecisionAttributesTypeDef = TypedDict(
+    "StartChildWorkflowExecutionDecisionAttributesTypeDef",
+    {
+        "workflowType": WorkflowTypeTypeDef,
+        "workflowId": str,
+        "control": NotRequired[str],
+        "input": NotRequired[str],
+        "executionStartToCloseTimeout": NotRequired[str],
+        "taskList": NotRequired[TaskListTypeDef],
+        "taskPriority": NotRequired[str],
+        "taskStartToCloseTimeout": NotRequired[str],
+        "childPolicy": NotRequired[ChildPolicyType],
+        "tagList": NotRequired[Sequence[str]],
+        "lambdaRole": NotRequired[str],
+    },
+)
+
+class StartChildWorkflowExecutionFailedEventAttributesTypeDef(TypedDict):
+    workflowType: WorkflowTypeTypeDef
+    cause: StartChildWorkflowExecutionFailedCauseType
+    workflowId: str
+    initiatedEventId: int
+    decisionTaskCompletedEventId: int
+    control: NotRequired[str]
+
+StartChildWorkflowExecutionInitiatedEventAttributesTypeDef = TypedDict(
+    "StartChildWorkflowExecutionInitiatedEventAttributesTypeDef",
+    {
+        "workflowId": str,
+        "workflowType": WorkflowTypeTypeDef,
+        "taskList": TaskListTypeDef,
         "decisionTaskCompletedEventId": int,
-    },
-)
-
-TimerFiredEventAttributesTypeDef = TypedDict(
-    "TimerFiredEventAttributesTypeDef",
-    {
-        "timerId": str,
-        "startedEventId": int,
-    },
-)
-
-_RequiredTimerStartedEventAttributesTypeDef = TypedDict(
-    "_RequiredTimerStartedEventAttributesTypeDef",
-    {
-        "timerId": str,
-        "startToFireTimeout": str,
-        "decisionTaskCompletedEventId": int,
-    },
-)
-_OptionalTimerStartedEventAttributesTypeDef = TypedDict(
-    "_OptionalTimerStartedEventAttributesTypeDef",
-    {
-        "control": str,
-    },
-    total=False,
-)
-
-class TimerStartedEventAttributesTypeDef(
-    _RequiredTimerStartedEventAttributesTypeDef, _OptionalTimerStartedEventAttributesTypeDef
-):
-    pass
-
-UndeprecateActivityTypeInputRequestTypeDef = TypedDict(
-    "UndeprecateActivityTypeInputRequestTypeDef",
-    {
-        "domain": str,
-        "activityType": "ActivityTypeTypeDef",
-    },
-)
-
-UndeprecateDomainInputRequestTypeDef = TypedDict(
-    "UndeprecateDomainInputRequestTypeDef",
-    {
-        "name": str,
-    },
-)
-
-UndeprecateWorkflowTypeInputRequestTypeDef = TypedDict(
-    "UndeprecateWorkflowTypeInputRequestTypeDef",
-    {
-        "domain": str,
-        "workflowType": "WorkflowTypeTypeDef",
-    },
-)
-
-UntagResourceInputRequestTypeDef = TypedDict(
-    "UntagResourceInputRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tagKeys": List[str],
-    },
-)
-
-WorkflowExecutionCancelRequestedEventAttributesTypeDef = TypedDict(
-    "WorkflowExecutionCancelRequestedEventAttributesTypeDef",
-    {
-        "externalWorkflowExecution": "WorkflowExecutionTypeDef",
-        "externalInitiatedEventId": int,
-        "cause": Literal["CHILD_POLICY_APPLIED"],
-    },
-    total=False,
-)
-
-_RequiredWorkflowExecutionCanceledEventAttributesTypeDef = TypedDict(
-    "_RequiredWorkflowExecutionCanceledEventAttributesTypeDef",
-    {
-        "decisionTaskCompletedEventId": int,
-    },
-)
-_OptionalWorkflowExecutionCanceledEventAttributesTypeDef = TypedDict(
-    "_OptionalWorkflowExecutionCanceledEventAttributesTypeDef",
-    {
-        "details": str,
-    },
-    total=False,
-)
-
-class WorkflowExecutionCanceledEventAttributesTypeDef(
-    _RequiredWorkflowExecutionCanceledEventAttributesTypeDef,
-    _OptionalWorkflowExecutionCanceledEventAttributesTypeDef,
-):
-    pass
-
-_RequiredWorkflowExecutionCompletedEventAttributesTypeDef = TypedDict(
-    "_RequiredWorkflowExecutionCompletedEventAttributesTypeDef",
-    {
-        "decisionTaskCompletedEventId": int,
-    },
-)
-_OptionalWorkflowExecutionCompletedEventAttributesTypeDef = TypedDict(
-    "_OptionalWorkflowExecutionCompletedEventAttributesTypeDef",
-    {
-        "result": str,
-    },
-    total=False,
-)
-
-class WorkflowExecutionCompletedEventAttributesTypeDef(
-    _RequiredWorkflowExecutionCompletedEventAttributesTypeDef,
-    _OptionalWorkflowExecutionCompletedEventAttributesTypeDef,
-):
-    pass
-
-_RequiredWorkflowExecutionConfigurationTypeDef = TypedDict(
-    "_RequiredWorkflowExecutionConfigurationTypeDef",
-    {
-        "taskStartToCloseTimeout": str,
-        "executionStartToCloseTimeout": str,
-        "taskList": "TaskListTypeDef",
         "childPolicy": ChildPolicyType,
+        "control": NotRequired[str],
+        "input": NotRequired[str],
+        "executionStartToCloseTimeout": NotRequired[str],
+        "taskPriority": NotRequired[str],
+        "taskStartToCloseTimeout": NotRequired[str],
+        "tagList": NotRequired[List[str]],
+        "lambdaRole": NotRequired[str],
     },
 )
-_OptionalWorkflowExecutionConfigurationTypeDef = TypedDict(
-    "_OptionalWorkflowExecutionConfigurationTypeDef",
+StartWorkflowExecutionInputTypeDef = TypedDict(
+    "StartWorkflowExecutionInputTypeDef",
     {
-        "taskPriority": str,
-        "lambdaRole": str,
+        "domain": str,
+        "workflowId": str,
+        "workflowType": WorkflowTypeTypeDef,
+        "taskList": NotRequired[TaskListTypeDef],
+        "taskPriority": NotRequired[str],
+        "input": NotRequired[str],
+        "executionStartToCloseTimeout": NotRequired[str],
+        "tagList": NotRequired[Sequence[str]],
+        "taskStartToCloseTimeout": NotRequired[str],
+        "childPolicy": NotRequired[ChildPolicyType],
+        "lambdaRole": NotRequired[str],
     },
-    total=False,
 )
 
-class WorkflowExecutionConfigurationTypeDef(
-    _RequiredWorkflowExecutionConfigurationTypeDef, _OptionalWorkflowExecutionConfigurationTypeDef
-):
-    pass
+class UndeprecateWorkflowTypeInputTypeDef(TypedDict):
+    domain: str
+    workflowType: WorkflowTypeTypeDef
 
-_RequiredWorkflowExecutionContinuedAsNewEventAttributesTypeDef = TypedDict(
-    "_RequiredWorkflowExecutionContinuedAsNewEventAttributesTypeDef",
+WorkflowExecutionContinuedAsNewEventAttributesTypeDef = TypedDict(
+    "WorkflowExecutionContinuedAsNewEventAttributesTypeDef",
     {
         "decisionTaskCompletedEventId": int,
         "newExecutionRunId": str,
-        "taskList": "TaskListTypeDef",
+        "taskList": TaskListTypeDef,
         "childPolicy": ChildPolicyType,
-        "workflowType": "WorkflowTypeTypeDef",
-    },
-)
-_OptionalWorkflowExecutionContinuedAsNewEventAttributesTypeDef = TypedDict(
-    "_OptionalWorkflowExecutionContinuedAsNewEventAttributesTypeDef",
-    {
-        "input": str,
-        "executionStartToCloseTimeout": str,
-        "taskPriority": str,
-        "taskStartToCloseTimeout": str,
-        "tagList": List[str],
-        "lambdaRole": str,
-    },
-    total=False,
-)
-
-class WorkflowExecutionContinuedAsNewEventAttributesTypeDef(
-    _RequiredWorkflowExecutionContinuedAsNewEventAttributesTypeDef,
-    _OptionalWorkflowExecutionContinuedAsNewEventAttributesTypeDef,
-):
-    pass
-
-WorkflowExecutionCountTypeDef = TypedDict(
-    "WorkflowExecutionCountTypeDef",
-    {
-        "count": int,
-        "truncated": bool,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "workflowType": WorkflowTypeTypeDef,
+        "input": NotRequired[str],
+        "executionStartToCloseTimeout": NotRequired[str],
+        "taskPriority": NotRequired[str],
+        "taskStartToCloseTimeout": NotRequired[str],
+        "tagList": NotRequired[List[str]],
+        "lambdaRole": NotRequired[str],
     },
 )
 
-WorkflowExecutionDetailTypeDef = TypedDict(
-    "WorkflowExecutionDetailTypeDef",
-    {
-        "executionInfo": "WorkflowExecutionInfoTypeDef",
-        "executionConfiguration": "WorkflowExecutionConfigurationTypeDef",
-        "openCounts": "WorkflowExecutionOpenCountsTypeDef",
-        "latestActivityTaskTimestamp": datetime,
-        "latestExecutionContext": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class WorkflowExecutionInfoTypeDef(TypedDict):
+    execution: WorkflowExecutionTypeDef
+    workflowType: WorkflowTypeTypeDef
+    startTimestamp: datetime
+    executionStatus: ExecutionStatusType
+    closeTimestamp: NotRequired[datetime]
+    closeStatus: NotRequired[CloseStatusType]
+    parent: NotRequired[WorkflowExecutionTypeDef]
+    tagList: NotRequired[List[str]]
+    cancelRequested: NotRequired[bool]
 
-_RequiredWorkflowExecutionFailedEventAttributesTypeDef = TypedDict(
-    "_RequiredWorkflowExecutionFailedEventAttributesTypeDef",
-    {
-        "decisionTaskCompletedEventId": int,
-    },
-)
-_OptionalWorkflowExecutionFailedEventAttributesTypeDef = TypedDict(
-    "_OptionalWorkflowExecutionFailedEventAttributesTypeDef",
-    {
-        "reason": str,
-        "details": str,
-    },
-    total=False,
-)
-
-class WorkflowExecutionFailedEventAttributesTypeDef(
-    _RequiredWorkflowExecutionFailedEventAttributesTypeDef,
-    _OptionalWorkflowExecutionFailedEventAttributesTypeDef,
-):
-    pass
-
-WorkflowExecutionFilterTypeDef = TypedDict(
-    "WorkflowExecutionFilterTypeDef",
-    {
-        "workflowId": str,
-    },
-)
-
-_RequiredWorkflowExecutionInfoTypeDef = TypedDict(
-    "_RequiredWorkflowExecutionInfoTypeDef",
-    {
-        "execution": "WorkflowExecutionTypeDef",
-        "workflowType": "WorkflowTypeTypeDef",
-        "startTimestamp": datetime,
-        "executionStatus": ExecutionStatusType,
-    },
-)
-_OptionalWorkflowExecutionInfoTypeDef = TypedDict(
-    "_OptionalWorkflowExecutionInfoTypeDef",
-    {
-        "closeTimestamp": datetime,
-        "closeStatus": CloseStatusType,
-        "parent": "WorkflowExecutionTypeDef",
-        "tagList": List[str],
-        "cancelRequested": bool,
-    },
-    total=False,
-)
-
-class WorkflowExecutionInfoTypeDef(
-    _RequiredWorkflowExecutionInfoTypeDef, _OptionalWorkflowExecutionInfoTypeDef
-):
-    pass
-
-WorkflowExecutionInfosTypeDef = TypedDict(
-    "WorkflowExecutionInfosTypeDef",
-    {
-        "executionInfos": List["WorkflowExecutionInfoTypeDef"],
-        "nextPageToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredWorkflowExecutionOpenCountsTypeDef = TypedDict(
-    "_RequiredWorkflowExecutionOpenCountsTypeDef",
-    {
-        "openActivityTasks": int,
-        "openDecisionTasks": int,
-        "openTimers": int,
-        "openChildWorkflowExecutions": int,
-    },
-)
-_OptionalWorkflowExecutionOpenCountsTypeDef = TypedDict(
-    "_OptionalWorkflowExecutionOpenCountsTypeDef",
-    {
-        "openLambdaFunctions": int,
-    },
-    total=False,
-)
-
-class WorkflowExecutionOpenCountsTypeDef(
-    _RequiredWorkflowExecutionOpenCountsTypeDef, _OptionalWorkflowExecutionOpenCountsTypeDef
-):
-    pass
-
-_RequiredWorkflowExecutionSignaledEventAttributesTypeDef = TypedDict(
-    "_RequiredWorkflowExecutionSignaledEventAttributesTypeDef",
-    {
-        "signalName": str,
-    },
-)
-_OptionalWorkflowExecutionSignaledEventAttributesTypeDef = TypedDict(
-    "_OptionalWorkflowExecutionSignaledEventAttributesTypeDef",
-    {
-        "input": str,
-        "externalWorkflowExecution": "WorkflowExecutionTypeDef",
-        "externalInitiatedEventId": int,
-    },
-    total=False,
-)
-
-class WorkflowExecutionSignaledEventAttributesTypeDef(
-    _RequiredWorkflowExecutionSignaledEventAttributesTypeDef,
-    _OptionalWorkflowExecutionSignaledEventAttributesTypeDef,
-):
-    pass
-
-_RequiredWorkflowExecutionStartedEventAttributesTypeDef = TypedDict(
-    "_RequiredWorkflowExecutionStartedEventAttributesTypeDef",
+WorkflowExecutionStartedEventAttributesTypeDef = TypedDict(
+    "WorkflowExecutionStartedEventAttributesTypeDef",
     {
         "childPolicy": ChildPolicyType,
-        "taskList": "TaskListTypeDef",
-        "workflowType": "WorkflowTypeTypeDef",
-    },
-)
-_OptionalWorkflowExecutionStartedEventAttributesTypeDef = TypedDict(
-    "_OptionalWorkflowExecutionStartedEventAttributesTypeDef",
-    {
-        "input": str,
-        "executionStartToCloseTimeout": str,
-        "taskStartToCloseTimeout": str,
-        "taskPriority": str,
-        "tagList": List[str],
-        "continuedExecutionRunId": str,
-        "parentWorkflowExecution": "WorkflowExecutionTypeDef",
-        "parentInitiatedEventId": int,
-        "lambdaRole": str,
-    },
-    total=False,
-)
-
-class WorkflowExecutionStartedEventAttributesTypeDef(
-    _RequiredWorkflowExecutionStartedEventAttributesTypeDef,
-    _OptionalWorkflowExecutionStartedEventAttributesTypeDef,
-):
-    pass
-
-_RequiredWorkflowExecutionTerminatedEventAttributesTypeDef = TypedDict(
-    "_RequiredWorkflowExecutionTerminatedEventAttributesTypeDef",
-    {
-        "childPolicy": ChildPolicyType,
-    },
-)
-_OptionalWorkflowExecutionTerminatedEventAttributesTypeDef = TypedDict(
-    "_OptionalWorkflowExecutionTerminatedEventAttributesTypeDef",
-    {
-        "reason": str,
-        "details": str,
-        "cause": WorkflowExecutionTerminatedCauseType,
-    },
-    total=False,
-)
-
-class WorkflowExecutionTerminatedEventAttributesTypeDef(
-    _RequiredWorkflowExecutionTerminatedEventAttributesTypeDef,
-    _OptionalWorkflowExecutionTerminatedEventAttributesTypeDef,
-):
-    pass
-
-WorkflowExecutionTimedOutEventAttributesTypeDef = TypedDict(
-    "WorkflowExecutionTimedOutEventAttributesTypeDef",
-    {
-        "timeoutType": Literal["START_TO_CLOSE"],
-        "childPolicy": ChildPolicyType,
+        "taskList": TaskListTypeDef,
+        "workflowType": WorkflowTypeTypeDef,
+        "input": NotRequired[str],
+        "executionStartToCloseTimeout": NotRequired[str],
+        "taskStartToCloseTimeout": NotRequired[str],
+        "taskPriority": NotRequired[str],
+        "tagList": NotRequired[List[str]],
+        "continuedExecutionRunId": NotRequired[str],
+        "parentWorkflowExecution": NotRequired[WorkflowExecutionTypeDef],
+        "parentInitiatedEventId": NotRequired[int],
+        "lambdaRole": NotRequired[str],
     },
 )
 
-WorkflowExecutionTypeDef = TypedDict(
-    "WorkflowExecutionTypeDef",
-    {
-        "workflowId": str,
-        "runId": str,
-    },
-)
+class WorkflowTypeInfoTypeDef(TypedDict):
+    workflowType: WorkflowTypeTypeDef
+    status: RegistrationStatusType
+    creationDate: datetime
+    description: NotRequired[str]
+    deprecationDate: NotRequired[datetime]
 
-WorkflowTypeConfigurationTypeDef = TypedDict(
-    "WorkflowTypeConfigurationTypeDef",
-    {
-        "defaultTaskStartToCloseTimeout": str,
-        "defaultExecutionStartToCloseTimeout": str,
-        "defaultTaskList": "TaskListTypeDef",
-        "defaultTaskPriority": str,
-        "defaultChildPolicy": ChildPolicyType,
-        "defaultLambdaRole": str,
-    },
-    total=False,
-)
+class DomainDetailTypeDef(TypedDict):
+    domainInfo: DomainInfoTypeDef
+    configuration: DomainConfigurationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-WorkflowTypeDetailTypeDef = TypedDict(
-    "WorkflowTypeDetailTypeDef",
-    {
-        "typeInfo": "WorkflowTypeInfoTypeDef",
-        "configuration": "WorkflowTypeConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DomainInfosTypeDef(TypedDict):
+    domainInfos: List[DomainInfoTypeDef]
+    nextPageToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredWorkflowTypeFilterTypeDef = TypedDict(
-    "_RequiredWorkflowTypeFilterTypeDef",
-    {
-        "name": str,
-    },
-)
-_OptionalWorkflowTypeFilterTypeDef = TypedDict(
-    "_OptionalWorkflowTypeFilterTypeDef",
-    {
-        "version": str,
-    },
-    total=False,
-)
+class ExecutionTimeFilterTypeDef(TypedDict):
+    oldestDate: TimestampTypeDef
+    latestDate: NotRequired[TimestampTypeDef]
 
-class WorkflowTypeFilterTypeDef(
-    _RequiredWorkflowTypeFilterTypeDef, _OptionalWorkflowTypeFilterTypeDef
-):
-    pass
+class GetWorkflowExecutionHistoryInputPaginateTypeDef(TypedDict):
+    domain: str
+    execution: WorkflowExecutionTypeDef
+    reverseOrder: NotRequired[bool]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-_RequiredWorkflowTypeInfoTypeDef = TypedDict(
-    "_RequiredWorkflowTypeInfoTypeDef",
-    {
-        "workflowType": "WorkflowTypeTypeDef",
-        "status": RegistrationStatusType,
-        "creationDate": datetime,
-    },
-)
-_OptionalWorkflowTypeInfoTypeDef = TypedDict(
-    "_OptionalWorkflowTypeInfoTypeDef",
-    {
-        "description": str,
-        "deprecationDate": datetime,
-    },
-    total=False,
-)
+class ListActivityTypesInputPaginateTypeDef(TypedDict):
+    domain: str
+    registrationStatus: RegistrationStatusType
+    name: NotRequired[str]
+    reverseOrder: NotRequired[bool]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-class WorkflowTypeInfoTypeDef(_RequiredWorkflowTypeInfoTypeDef, _OptionalWorkflowTypeInfoTypeDef):
-    pass
+class ListDomainsInputPaginateTypeDef(TypedDict):
+    registrationStatus: RegistrationStatusType
+    reverseOrder: NotRequired[bool]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-WorkflowTypeInfosTypeDef = TypedDict(
-    "WorkflowTypeInfosTypeDef",
-    {
-        "typeInfos": List["WorkflowTypeInfoTypeDef"],
-        "nextPageToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListWorkflowTypesInputPaginateTypeDef(TypedDict):
+    domain: str
+    registrationStatus: RegistrationStatusType
+    name: NotRequired[str]
+    reverseOrder: NotRequired[bool]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-WorkflowTypeTypeDef = TypedDict(
-    "WorkflowTypeTypeDef",
-    {
-        "name": str,
-        "version": str,
-    },
-)
+class PollForDecisionTaskInputPaginateTypeDef(TypedDict):
+    domain: str
+    taskList: TaskListTypeDef
+    identity: NotRequired[str]
+    reverseOrder: NotRequired[bool]
+    startAtPreviousStartedEvent: NotRequired[bool]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListTagsForResourceOutputTypeDef(TypedDict):
+    tags: List[ResourceTagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class RegisterDomainInputTypeDef(TypedDict):
+    name: str
+    workflowExecutionRetentionPeriodInDays: str
+    description: NotRequired[str]
+    tags: NotRequired[Sequence[ResourceTagTypeDef]]
+
+class TagResourceInputTypeDef(TypedDict):
+    resourceArn: str
+    tags: Sequence[ResourceTagTypeDef]
+
+class ActivityTypeInfosTypeDef(TypedDict):
+    typeInfos: List[ActivityTypeInfoTypeDef]
+    nextPageToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ActivityTypeDetailTypeDef(TypedDict):
+    typeInfo: ActivityTypeInfoTypeDef
+    configuration: ActivityTypeConfigurationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DecisionTypeDef(TypedDict):
+    decisionType: DecisionTypeType
+    scheduleActivityTaskDecisionAttributes: NotRequired[
+        ScheduleActivityTaskDecisionAttributesTypeDef
+    ]
+    requestCancelActivityTaskDecisionAttributes: NotRequired[
+        RequestCancelActivityTaskDecisionAttributesTypeDef
+    ]
+    completeWorkflowExecutionDecisionAttributes: NotRequired[
+        CompleteWorkflowExecutionDecisionAttributesTypeDef
+    ]
+    failWorkflowExecutionDecisionAttributes: NotRequired[
+        FailWorkflowExecutionDecisionAttributesTypeDef
+    ]
+    cancelWorkflowExecutionDecisionAttributes: NotRequired[
+        CancelWorkflowExecutionDecisionAttributesTypeDef
+    ]
+    continueAsNewWorkflowExecutionDecisionAttributes: NotRequired[
+        ContinueAsNewWorkflowExecutionDecisionAttributesTypeDef
+    ]
+    recordMarkerDecisionAttributes: NotRequired[RecordMarkerDecisionAttributesTypeDef]
+    startTimerDecisionAttributes: NotRequired[StartTimerDecisionAttributesTypeDef]
+    cancelTimerDecisionAttributes: NotRequired[CancelTimerDecisionAttributesTypeDef]
+    signalExternalWorkflowExecutionDecisionAttributes: NotRequired[
+        SignalExternalWorkflowExecutionDecisionAttributesTypeDef
+    ]
+    requestCancelExternalWorkflowExecutionDecisionAttributes: NotRequired[
+        RequestCancelExternalWorkflowExecutionDecisionAttributesTypeDef
+    ]
+    startChildWorkflowExecutionDecisionAttributes: NotRequired[
+        StartChildWorkflowExecutionDecisionAttributesTypeDef
+    ]
+    scheduleLambdaFunctionDecisionAttributes: NotRequired[
+        ScheduleLambdaFunctionDecisionAttributesTypeDef
+    ]
+
+class WorkflowExecutionDetailTypeDef(TypedDict):
+    executionInfo: WorkflowExecutionInfoTypeDef
+    executionConfiguration: WorkflowExecutionConfigurationTypeDef
+    openCounts: WorkflowExecutionOpenCountsTypeDef
+    latestActivityTaskTimestamp: datetime
+    latestExecutionContext: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class WorkflowExecutionInfosTypeDef(TypedDict):
+    executionInfos: List[WorkflowExecutionInfoTypeDef]
+    nextPageToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class HistoryEventTypeDef(TypedDict):
+    eventTimestamp: datetime
+    eventType: EventTypeType
+    eventId: int
+    workflowExecutionStartedEventAttributes: NotRequired[
+        WorkflowExecutionStartedEventAttributesTypeDef
+    ]
+    workflowExecutionCompletedEventAttributes: NotRequired[
+        WorkflowExecutionCompletedEventAttributesTypeDef
+    ]
+    completeWorkflowExecutionFailedEventAttributes: NotRequired[
+        CompleteWorkflowExecutionFailedEventAttributesTypeDef
+    ]
+    workflowExecutionFailedEventAttributes: NotRequired[
+        WorkflowExecutionFailedEventAttributesTypeDef
+    ]
+    failWorkflowExecutionFailedEventAttributes: NotRequired[
+        FailWorkflowExecutionFailedEventAttributesTypeDef
+    ]
+    workflowExecutionTimedOutEventAttributes: NotRequired[
+        WorkflowExecutionTimedOutEventAttributesTypeDef
+    ]
+    workflowExecutionCanceledEventAttributes: NotRequired[
+        WorkflowExecutionCanceledEventAttributesTypeDef
+    ]
+    cancelWorkflowExecutionFailedEventAttributes: NotRequired[
+        CancelWorkflowExecutionFailedEventAttributesTypeDef
+    ]
+    workflowExecutionContinuedAsNewEventAttributes: NotRequired[
+        WorkflowExecutionContinuedAsNewEventAttributesTypeDef
+    ]
+    continueAsNewWorkflowExecutionFailedEventAttributes: NotRequired[
+        ContinueAsNewWorkflowExecutionFailedEventAttributesTypeDef
+    ]
+    workflowExecutionTerminatedEventAttributes: NotRequired[
+        WorkflowExecutionTerminatedEventAttributesTypeDef
+    ]
+    workflowExecutionCancelRequestedEventAttributes: NotRequired[
+        WorkflowExecutionCancelRequestedEventAttributesTypeDef
+    ]
+    decisionTaskScheduledEventAttributes: NotRequired[DecisionTaskScheduledEventAttributesTypeDef]
+    decisionTaskStartedEventAttributes: NotRequired[DecisionTaskStartedEventAttributesTypeDef]
+    decisionTaskCompletedEventAttributes: NotRequired[DecisionTaskCompletedEventAttributesTypeDef]
+    decisionTaskTimedOutEventAttributes: NotRequired[DecisionTaskTimedOutEventAttributesTypeDef]
+    activityTaskScheduledEventAttributes: NotRequired[ActivityTaskScheduledEventAttributesTypeDef]
+    activityTaskStartedEventAttributes: NotRequired[ActivityTaskStartedEventAttributesTypeDef]
+    activityTaskCompletedEventAttributes: NotRequired[ActivityTaskCompletedEventAttributesTypeDef]
+    activityTaskFailedEventAttributes: NotRequired[ActivityTaskFailedEventAttributesTypeDef]
+    activityTaskTimedOutEventAttributes: NotRequired[ActivityTaskTimedOutEventAttributesTypeDef]
+    activityTaskCanceledEventAttributes: NotRequired[ActivityTaskCanceledEventAttributesTypeDef]
+    activityTaskCancelRequestedEventAttributes: NotRequired[
+        ActivityTaskCancelRequestedEventAttributesTypeDef
+    ]
+    workflowExecutionSignaledEventAttributes: NotRequired[
+        WorkflowExecutionSignaledEventAttributesTypeDef
+    ]
+    markerRecordedEventAttributes: NotRequired[MarkerRecordedEventAttributesTypeDef]
+    recordMarkerFailedEventAttributes: NotRequired[RecordMarkerFailedEventAttributesTypeDef]
+    timerStartedEventAttributes: NotRequired[TimerStartedEventAttributesTypeDef]
+    timerFiredEventAttributes: NotRequired[TimerFiredEventAttributesTypeDef]
+    timerCanceledEventAttributes: NotRequired[TimerCanceledEventAttributesTypeDef]
+    startChildWorkflowExecutionInitiatedEventAttributes: NotRequired[
+        StartChildWorkflowExecutionInitiatedEventAttributesTypeDef
+    ]
+    childWorkflowExecutionStartedEventAttributes: NotRequired[
+        ChildWorkflowExecutionStartedEventAttributesTypeDef
+    ]
+    childWorkflowExecutionCompletedEventAttributes: NotRequired[
+        ChildWorkflowExecutionCompletedEventAttributesTypeDef
+    ]
+    childWorkflowExecutionFailedEventAttributes: NotRequired[
+        ChildWorkflowExecutionFailedEventAttributesTypeDef
+    ]
+    childWorkflowExecutionTimedOutEventAttributes: NotRequired[
+        ChildWorkflowExecutionTimedOutEventAttributesTypeDef
+    ]
+    childWorkflowExecutionCanceledEventAttributes: NotRequired[
+        ChildWorkflowExecutionCanceledEventAttributesTypeDef
+    ]
+    childWorkflowExecutionTerminatedEventAttributes: NotRequired[
+        ChildWorkflowExecutionTerminatedEventAttributesTypeDef
+    ]
+    signalExternalWorkflowExecutionInitiatedEventAttributes: NotRequired[
+        SignalExternalWorkflowExecutionInitiatedEventAttributesTypeDef
+    ]
+    externalWorkflowExecutionSignaledEventAttributes: NotRequired[
+        ExternalWorkflowExecutionSignaledEventAttributesTypeDef
+    ]
+    signalExternalWorkflowExecutionFailedEventAttributes: NotRequired[
+        SignalExternalWorkflowExecutionFailedEventAttributesTypeDef
+    ]
+    externalWorkflowExecutionCancelRequestedEventAttributes: NotRequired[
+        ExternalWorkflowExecutionCancelRequestedEventAttributesTypeDef
+    ]
+    requestCancelExternalWorkflowExecutionInitiatedEventAttributes: NotRequired[
+        RequestCancelExternalWorkflowExecutionInitiatedEventAttributesTypeDef
+    ]
+    requestCancelExternalWorkflowExecutionFailedEventAttributes: NotRequired[
+        RequestCancelExternalWorkflowExecutionFailedEventAttributesTypeDef
+    ]
+    scheduleActivityTaskFailedEventAttributes: NotRequired[
+        ScheduleActivityTaskFailedEventAttributesTypeDef
+    ]
+    requestCancelActivityTaskFailedEventAttributes: NotRequired[
+        RequestCancelActivityTaskFailedEventAttributesTypeDef
+    ]
+    startTimerFailedEventAttributes: NotRequired[StartTimerFailedEventAttributesTypeDef]
+    cancelTimerFailedEventAttributes: NotRequired[CancelTimerFailedEventAttributesTypeDef]
+    startChildWorkflowExecutionFailedEventAttributes: NotRequired[
+        StartChildWorkflowExecutionFailedEventAttributesTypeDef
+    ]
+    lambdaFunctionScheduledEventAttributes: NotRequired[
+        LambdaFunctionScheduledEventAttributesTypeDef
+    ]
+    lambdaFunctionStartedEventAttributes: NotRequired[LambdaFunctionStartedEventAttributesTypeDef]
+    lambdaFunctionCompletedEventAttributes: NotRequired[
+        LambdaFunctionCompletedEventAttributesTypeDef
+    ]
+    lambdaFunctionFailedEventAttributes: NotRequired[LambdaFunctionFailedEventAttributesTypeDef]
+    lambdaFunctionTimedOutEventAttributes: NotRequired[LambdaFunctionTimedOutEventAttributesTypeDef]
+    scheduleLambdaFunctionFailedEventAttributes: NotRequired[
+        ScheduleLambdaFunctionFailedEventAttributesTypeDef
+    ]
+    startLambdaFunctionFailedEventAttributes: NotRequired[
+        StartLambdaFunctionFailedEventAttributesTypeDef
+    ]
+
+class WorkflowTypeDetailTypeDef(TypedDict):
+    typeInfo: WorkflowTypeInfoTypeDef
+    configuration: WorkflowTypeConfigurationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class WorkflowTypeInfosTypeDef(TypedDict):
+    typeInfos: List[WorkflowTypeInfoTypeDef]
+    nextPageToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CountClosedWorkflowExecutionsInputTypeDef(TypedDict):
+    domain: str
+    startTimeFilter: NotRequired[ExecutionTimeFilterTypeDef]
+    closeTimeFilter: NotRequired[ExecutionTimeFilterTypeDef]
+    executionFilter: NotRequired[WorkflowExecutionFilterTypeDef]
+    typeFilter: NotRequired[WorkflowTypeFilterTypeDef]
+    tagFilter: NotRequired[TagFilterTypeDef]
+    closeStatusFilter: NotRequired[CloseStatusFilterTypeDef]
+
+class CountOpenWorkflowExecutionsInputTypeDef(TypedDict):
+    domain: str
+    startTimeFilter: ExecutionTimeFilterTypeDef
+    typeFilter: NotRequired[WorkflowTypeFilterTypeDef]
+    tagFilter: NotRequired[TagFilterTypeDef]
+    executionFilter: NotRequired[WorkflowExecutionFilterTypeDef]
+
+class ListClosedWorkflowExecutionsInputPaginateTypeDef(TypedDict):
+    domain: str
+    startTimeFilter: NotRequired[ExecutionTimeFilterTypeDef]
+    closeTimeFilter: NotRequired[ExecutionTimeFilterTypeDef]
+    executionFilter: NotRequired[WorkflowExecutionFilterTypeDef]
+    closeStatusFilter: NotRequired[CloseStatusFilterTypeDef]
+    typeFilter: NotRequired[WorkflowTypeFilterTypeDef]
+    tagFilter: NotRequired[TagFilterTypeDef]
+    reverseOrder: NotRequired[bool]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListClosedWorkflowExecutionsInputTypeDef(TypedDict):
+    domain: str
+    startTimeFilter: NotRequired[ExecutionTimeFilterTypeDef]
+    closeTimeFilter: NotRequired[ExecutionTimeFilterTypeDef]
+    executionFilter: NotRequired[WorkflowExecutionFilterTypeDef]
+    closeStatusFilter: NotRequired[CloseStatusFilterTypeDef]
+    typeFilter: NotRequired[WorkflowTypeFilterTypeDef]
+    tagFilter: NotRequired[TagFilterTypeDef]
+    nextPageToken: NotRequired[str]
+    maximumPageSize: NotRequired[int]
+    reverseOrder: NotRequired[bool]
+
+class ListOpenWorkflowExecutionsInputPaginateTypeDef(TypedDict):
+    domain: str
+    startTimeFilter: ExecutionTimeFilterTypeDef
+    typeFilter: NotRequired[WorkflowTypeFilterTypeDef]
+    tagFilter: NotRequired[TagFilterTypeDef]
+    reverseOrder: NotRequired[bool]
+    executionFilter: NotRequired[WorkflowExecutionFilterTypeDef]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListOpenWorkflowExecutionsInputTypeDef(TypedDict):
+    domain: str
+    startTimeFilter: ExecutionTimeFilterTypeDef
+    typeFilter: NotRequired[WorkflowTypeFilterTypeDef]
+    tagFilter: NotRequired[TagFilterTypeDef]
+    nextPageToken: NotRequired[str]
+    maximumPageSize: NotRequired[int]
+    reverseOrder: NotRequired[bool]
+    executionFilter: NotRequired[WorkflowExecutionFilterTypeDef]
+
+class RespondDecisionTaskCompletedInputTypeDef(TypedDict):
+    taskToken: str
+    decisions: NotRequired[Sequence[DecisionTypeDef]]
+    executionContext: NotRequired[str]
+    taskList: NotRequired[TaskListTypeDef]
+    taskListScheduleToStartTimeout: NotRequired[str]
+
+class DecisionTaskTypeDef(TypedDict):
+    taskToken: str
+    startedEventId: int
+    workflowExecution: WorkflowExecutionTypeDef
+    workflowType: WorkflowTypeTypeDef
+    events: List[HistoryEventTypeDef]
+    nextPageToken: str
+    previousStartedEventId: int
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class HistoryTypeDef(TypedDict):
+    events: List[HistoryEventTypeDef]
+    nextPageToken: str
+    ResponseMetadata: ResponseMetadataTypeDef

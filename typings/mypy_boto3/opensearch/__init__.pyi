@@ -1,24 +1,30 @@
 """
 Main interface for opensearch service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_opensearch/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_opensearch import (
         Client,
+        ListApplicationsPaginator,
         OpenSearchServiceClient,
     )
 
-    session = boto3.Session()
+    session = Session()
+    client: OpenSearchServiceClient = session.client("opensearch")
 
-    client: OpenSearchServiceClient = boto3.client("opensearch")
-    session_client: OpenSearchServiceClient = session.client("opensearch")
+    list_applications_paginator: ListApplicationsPaginator = client.get_paginator("list_applications")
     ```
 """
 
 from .client import OpenSearchServiceClient
+from .paginator import ListApplicationsPaginator
 
 Client = OpenSearchServiceClient
 
-__all__ = ("Client", "OpenSearchServiceClient")
+__all__ = ("Client", "ListApplicationsPaginator", "OpenSearchServiceClient")

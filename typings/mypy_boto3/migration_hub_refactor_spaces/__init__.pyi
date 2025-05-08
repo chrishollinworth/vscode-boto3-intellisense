@@ -1,10 +1,14 @@
 """
 Main interface for migration-hub-refactor-spaces service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_migration_hub_refactor_spaces/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_migration_hub_refactor_spaces import (
         Client,
         ListApplicationsPaginator,
@@ -15,10 +19,8 @@ Usage::
         MigrationHubRefactorSpacesClient,
     )
 
-    session = boto3.Session()
-
-    client: MigrationHubRefactorSpacesClient = boto3.client("migration-hub-refactor-spaces")
-    session_client: MigrationHubRefactorSpacesClient = session.client("migration-hub-refactor-spaces")
+    session = Session()
+    client: MigrationHubRefactorSpacesClient = session.client("migration-hub-refactor-spaces")
 
     list_applications_paginator: ListApplicationsPaginator = client.get_paginator("list_applications")
     list_environment_vpcs_paginator: ListEnvironmentVpcsPaginator = client.get_paginator("list_environment_vpcs")

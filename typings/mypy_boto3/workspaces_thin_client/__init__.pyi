@@ -1,10 +1,14 @@
 """
 Main interface for workspaces-thin-client service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_workspaces_thin_client/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_workspaces_thin_client import (
         Client,
         ListDevicesPaginator,
@@ -13,10 +17,8 @@ Usage::
         WorkSpacesThinClientClient,
     )
 
-    session = boto3.Session()
-
-    client: WorkSpacesThinClientClient = boto3.client("workspaces-thin-client")
-    session_client: WorkSpacesThinClientClient = session.client("workspaces-thin-client")
+    session = Session()
+    client: WorkSpacesThinClientClient = session.client("workspaces-thin-client")
 
     list_devices_paginator: ListDevicesPaginator = client.get_paginator("list_devices")
     list_environments_paginator: ListEnvironmentsPaginator = client.get_paginator("list_environments")

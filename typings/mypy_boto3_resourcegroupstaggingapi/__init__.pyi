@@ -1,10 +1,14 @@
 """
 Main interface for resourcegroupstaggingapi service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_resourcegroupstaggingapi/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_resourcegroupstaggingapi import (
         Client,
         GetComplianceSummaryPaginator,
@@ -14,10 +18,8 @@ Usage::
         ResourceGroupsTaggingAPIClient,
     )
 
-    session = boto3.Session()
-
-    client: ResourceGroupsTaggingAPIClient = boto3.client("resourcegroupstaggingapi")
-    session_client: ResourceGroupsTaggingAPIClient = session.client("resourcegroupstaggingapi")
+    session = Session()
+    client: ResourceGroupsTaggingAPIClient = session.client("resourcegroupstaggingapi")
 
     get_compliance_summary_paginator: GetComplianceSummaryPaginator = client.get_paginator("get_compliance_summary")
     get_resources_paginator: GetResourcesPaginator = client.get_paginator("get_resources")

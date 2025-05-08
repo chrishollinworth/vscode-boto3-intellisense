@@ -1,111 +1,136 @@
 """
-Type annotations for ce service client.
+Type annotations for ce service Client.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ce/client.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ce/client/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
-    from mypy_boto3_ce import CostExplorerClient
+    from boto3.session import Session
+    from mypy_boto3_ce.client import CostExplorerClient
 
-    client: CostExplorerClient = boto3.client("ce")
+    session = Session()
+    client: CostExplorerClient = session.client("ce")
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from typing import Any, Dict, List, Type
+from typing import Any, overload
 
 from botocore.client import BaseClient, ClientMeta
+from botocore.errorfactory import BaseClientExceptions
+from botocore.exceptions import ClientError as BotocoreClientError
 
-from .literals import (
-    AccountScopeType,
-    AnomalyFeedbackTypeType,
-    AnomalySubscriptionFrequencyType,
-    ApproximationDimensionType,
-    ContextType,
-    CostAllocationTagStatusType,
-    CostAllocationTagTypeType,
-    DimensionType,
-    GenerationStatusType,
-    GranularityType,
-    LookbackPeriodInDaysType,
-    MetricType,
-    PaymentOptionType,
-    SavingsPlansDataTypeType,
-    SupportedSavingsPlansTypeType,
-    TermInYearsType,
+from .paginator import (
+    GetAnomaliesPaginator,
+    GetAnomalyMonitorsPaginator,
+    GetAnomalySubscriptionsPaginator,
 )
 from .type_defs import (
-    AnomalyDateIntervalTypeDef,
-    AnomalyMonitorTypeDef,
-    AnomalySubscriptionTypeDef,
-    CostAllocationTagStatusEntryTypeDef,
-    CostCategoryRuleTypeDef,
-    CostCategorySplitChargeRuleTypeDef,
+    CreateAnomalyMonitorRequestTypeDef,
     CreateAnomalyMonitorResponseTypeDef,
+    CreateAnomalySubscriptionRequestTypeDef,
     CreateAnomalySubscriptionResponseTypeDef,
+    CreateCostCategoryDefinitionRequestTypeDef,
     CreateCostCategoryDefinitionResponseTypeDef,
-    DateIntervalTypeDef,
+    DeleteAnomalyMonitorRequestTypeDef,
+    DeleteAnomalySubscriptionRequestTypeDef,
+    DeleteCostCategoryDefinitionRequestTypeDef,
     DeleteCostCategoryDefinitionResponseTypeDef,
+    DescribeCostCategoryDefinitionRequestTypeDef,
     DescribeCostCategoryDefinitionResponseTypeDef,
-    ExpressionTypeDef,
+    GetAnomaliesRequestTypeDef,
     GetAnomaliesResponseTypeDef,
+    GetAnomalyMonitorsRequestTypeDef,
     GetAnomalyMonitorsResponseTypeDef,
+    GetAnomalySubscriptionsRequestTypeDef,
     GetAnomalySubscriptionsResponseTypeDef,
+    GetApproximateUsageRecordsRequestTypeDef,
     GetApproximateUsageRecordsResponseTypeDef,
+    GetCommitmentPurchaseAnalysisRequestTypeDef,
+    GetCommitmentPurchaseAnalysisResponseTypeDef,
+    GetCostAndUsageRequestTypeDef,
     GetCostAndUsageResponseTypeDef,
+    GetCostAndUsageWithResourcesRequestTypeDef,
     GetCostAndUsageWithResourcesResponseTypeDef,
+    GetCostCategoriesRequestTypeDef,
     GetCostCategoriesResponseTypeDef,
+    GetCostForecastRequestTypeDef,
     GetCostForecastResponseTypeDef,
+    GetDimensionValuesRequestTypeDef,
     GetDimensionValuesResponseTypeDef,
+    GetReservationCoverageRequestTypeDef,
     GetReservationCoverageResponseTypeDef,
+    GetReservationPurchaseRecommendationRequestTypeDef,
     GetReservationPurchaseRecommendationResponseTypeDef,
+    GetReservationUtilizationRequestTypeDef,
     GetReservationUtilizationResponseTypeDef,
+    GetRightsizingRecommendationRequestTypeDef,
     GetRightsizingRecommendationResponseTypeDef,
+    GetSavingsPlanPurchaseRecommendationDetailsRequestTypeDef,
     GetSavingsPlanPurchaseRecommendationDetailsResponseTypeDef,
+    GetSavingsPlansCoverageRequestTypeDef,
     GetSavingsPlansCoverageResponseTypeDef,
+    GetSavingsPlansPurchaseRecommendationRequestTypeDef,
     GetSavingsPlansPurchaseRecommendationResponseTypeDef,
+    GetSavingsPlansUtilizationDetailsRequestTypeDef,
     GetSavingsPlansUtilizationDetailsResponseTypeDef,
+    GetSavingsPlansUtilizationRequestTypeDef,
     GetSavingsPlansUtilizationResponseTypeDef,
+    GetTagsRequestTypeDef,
     GetTagsResponseTypeDef,
+    GetUsageForecastRequestTypeDef,
     GetUsageForecastResponseTypeDef,
-    GroupDefinitionTypeDef,
+    ListCommitmentPurchaseAnalysesRequestTypeDef,
+    ListCommitmentPurchaseAnalysesResponseTypeDef,
+    ListCostAllocationTagBackfillHistoryRequestTypeDef,
     ListCostAllocationTagBackfillHistoryResponseTypeDef,
+    ListCostAllocationTagsRequestTypeDef,
     ListCostAllocationTagsResponseTypeDef,
+    ListCostCategoryDefinitionsRequestTypeDef,
     ListCostCategoryDefinitionsResponseTypeDef,
+    ListSavingsPlansPurchaseRecommendationGenerationRequestTypeDef,
     ListSavingsPlansPurchaseRecommendationGenerationResponseTypeDef,
+    ListTagsForResourceRequestTypeDef,
     ListTagsForResourceResponseTypeDef,
+    ProvideAnomalyFeedbackRequestTypeDef,
     ProvideAnomalyFeedbackResponseTypeDef,
-    ResourceTagTypeDef,
-    RightsizingRecommendationConfigurationTypeDef,
-    ServiceSpecificationTypeDef,
-    SortDefinitionTypeDef,
+    StartCommitmentPurchaseAnalysisRequestTypeDef,
+    StartCommitmentPurchaseAnalysisResponseTypeDef,
+    StartCostAllocationTagBackfillRequestTypeDef,
     StartCostAllocationTagBackfillResponseTypeDef,
     StartSavingsPlansPurchaseRecommendationGenerationResponseTypeDef,
-    SubscriberTypeDef,
-    TotalImpactFilterTypeDef,
+    TagResourceRequestTypeDef,
+    UntagResourceRequestTypeDef,
+    UpdateAnomalyMonitorRequestTypeDef,
     UpdateAnomalyMonitorResponseTypeDef,
+    UpdateAnomalySubscriptionRequestTypeDef,
     UpdateAnomalySubscriptionResponseTypeDef,
+    UpdateCostAllocationTagsStatusRequestTypeDef,
     UpdateCostAllocationTagsStatusResponseTypeDef,
+    UpdateCostCategoryDefinitionRequestTypeDef,
     UpdateCostCategoryDefinitionResponseTypeDef,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import type as Type
+    from collections.abc import Mapping
 else:
-    from typing_extensions import Literal
+    from typing import Dict, Mapping, Type
+if sys.version_info >= (3, 12):
+    from typing import Literal, Unpack
+else:
+    from typing_extensions import Literal, Unpack
 
 __all__ = ("CostExplorerClient",)
 
-class BotocoreClientError(BaseException):
-    MSG_TEMPLATE: str
-
-    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
-        self.response: Dict[str, Any]
-        self.operation_name: str
-
-class Exceptions:
+class Exceptions(BaseClientExceptions):
+    AnalysisNotFoundException: Type[BotocoreClientError]
     BackfillLimitExceededException: Type[BotocoreClientError]
     BillExpirationException: Type[BotocoreClientError]
     ClientError: Type[BotocoreClientError]
@@ -123,8 +148,8 @@ class Exceptions:
 
 class CostExplorerClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ce.html#CostExplorer.Client)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ce/client.html)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ce.html#CostExplorer.Client)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ce/client/)
     """
 
     meta: ClientMeta
@@ -133,278 +158,208 @@ class CostExplorerClient(BaseClient):
     def exceptions(self) -> Exceptions:
         """
         CostExplorerClient exceptions.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ce.html#CostExplorer.Client)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ce/client/#exceptions)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        Check if an operation can be paginated.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ce.html#CostExplorer.Client.can_paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ce/client.html#can_paginate)
-        """
-
-    def close(self) -> None:
-        """
-        Closes underlying endpoint connections.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ce.html#CostExplorer.Client.close)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ce/client.html#close)
-        """
-
-    def create_anomaly_monitor(
-        self,
-        *,
-        AnomalyMonitor: "AnomalyMonitorTypeDef",
-        ResourceTags: List["ResourceTagTypeDef"] = None
-    ) -> CreateAnomalyMonitorResponseTypeDef:
-        """
-        Creates a new cost anomaly detection monitor with the requested type and monitor
-        specification.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ce.html#CostExplorer.Client.create_anomaly_monitor)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ce/client.html#create_anomaly_monitor)
-        """
-
-    def create_anomaly_subscription(
-        self,
-        *,
-        AnomalySubscription: "AnomalySubscriptionTypeDef",
-        ResourceTags: List["ResourceTagTypeDef"] = None
-    ) -> CreateAnomalySubscriptionResponseTypeDef:
-        """
-        Adds an alert subscription to a cost anomaly detection monitor.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ce.html#CostExplorer.Client.create_anomaly_subscription)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ce/client.html#create_anomaly_subscription)
-        """
-
-    def create_cost_category_definition(
-        self,
-        *,
-        Name: str,
-        RuleVersion: Literal["CostCategoryExpression.v1"],
-        Rules: List["CostCategoryRuleTypeDef"],
-        EffectiveStart: str = None,
-        DefaultValue: str = None,
-        SplitChargeRules: List["CostCategorySplitChargeRuleTypeDef"] = None,
-        ResourceTags: List["ResourceTagTypeDef"] = None
-    ) -> CreateCostCategoryDefinitionResponseTypeDef:
-        """
-        Creates a new Cost Category with the requested name and rules.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ce.html#CostExplorer.Client.create_cost_category_definition)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ce/client.html#create_cost_category_definition)
-        """
-
-    def delete_anomaly_monitor(self, *, MonitorArn: str) -> Dict[str, Any]:
-        """
-        Deletes a cost anomaly monitor.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ce.html#CostExplorer.Client.delete_anomaly_monitor)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ce/client.html#delete_anomaly_monitor)
-        """
-
-    def delete_anomaly_subscription(self, *, SubscriptionArn: str) -> Dict[str, Any]:
-        """
-        Deletes a cost anomaly subscription.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ce.html#CostExplorer.Client.delete_anomaly_subscription)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ce/client.html#delete_anomaly_subscription)
-        """
-
-    def delete_cost_category_definition(
-        self, *, CostCategoryArn: str
-    ) -> DeleteCostCategoryDefinitionResponseTypeDef:
-        """
-        Deletes a Cost Category.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ce.html#CostExplorer.Client.delete_cost_category_definition)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ce/client.html#delete_cost_category_definition)
-        """
-
-    def describe_cost_category_definition(
-        self, *, CostCategoryArn: str, EffectiveOn: str = None
-    ) -> DescribeCostCategoryDefinitionResponseTypeDef:
-        """
-        Returns the name, Amazon Resource Name (ARN), rules, definition, and effective
-        dates of a Cost Category that's defined in the account.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ce.html#CostExplorer.Client.describe_cost_category_definition)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ce/client.html#describe_cost_category_definition)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ce/client/can_paginate.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ce/client/#can_paginate)
         """
 
     def generate_presigned_url(
         self,
         ClientMethod: str,
-        Params: Dict[str, Any] = None,
+        Params: Mapping[str, Any] = ...,
         ExpiresIn: int = 3600,
-        HttpMethod: str = None,
+        HttpMethod: str = ...,
     ) -> str:
         """
-        Generate a presigned url given a client, its method, and arguments.
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ce/client/generate_presigned_url.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ce/client/#generate_presigned_url)
+        """
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ce.html#CostExplorer.Client.generate_presigned_url)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ce/client.html#generate_presigned_url)
+    def create_anomaly_monitor(
+        self, **kwargs: Unpack[CreateAnomalyMonitorRequestTypeDef]
+    ) -> CreateAnomalyMonitorResponseTypeDef:
+        """
+        Creates a new cost anomaly detection monitor with the requested type and
+        monitor specification.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ce/client/create_anomaly_monitor.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ce/client/#create_anomaly_monitor)
+        """
+
+    def create_anomaly_subscription(
+        self, **kwargs: Unpack[CreateAnomalySubscriptionRequestTypeDef]
+    ) -> CreateAnomalySubscriptionResponseTypeDef:
+        """
+        Adds an alert subscription to a cost anomaly detection monitor.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ce/client/create_anomaly_subscription.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ce/client/#create_anomaly_subscription)
+        """
+
+    def create_cost_category_definition(
+        self, **kwargs: Unpack[CreateCostCategoryDefinitionRequestTypeDef]
+    ) -> CreateCostCategoryDefinitionResponseTypeDef:
+        """
+        Creates a new Cost Category with the requested name and rules.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ce/client/create_cost_category_definition.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ce/client/#create_cost_category_definition)
+        """
+
+    def delete_anomaly_monitor(
+        self, **kwargs: Unpack[DeleteAnomalyMonitorRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Deletes a cost anomaly monitor.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ce/client/delete_anomaly_monitor.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ce/client/#delete_anomaly_monitor)
+        """
+
+    def delete_anomaly_subscription(
+        self, **kwargs: Unpack[DeleteAnomalySubscriptionRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Deletes a cost anomaly subscription.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ce/client/delete_anomaly_subscription.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ce/client/#delete_anomaly_subscription)
+        """
+
+    def delete_cost_category_definition(
+        self, **kwargs: Unpack[DeleteCostCategoryDefinitionRequestTypeDef]
+    ) -> DeleteCostCategoryDefinitionResponseTypeDef:
+        """
+        Deletes a Cost Category.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ce/client/delete_cost_category_definition.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ce/client/#delete_cost_category_definition)
+        """
+
+    def describe_cost_category_definition(
+        self, **kwargs: Unpack[DescribeCostCategoryDefinitionRequestTypeDef]
+    ) -> DescribeCostCategoryDefinitionResponseTypeDef:
+        """
+        Returns the name, Amazon Resource Name (ARN), rules, definition, and effective
+        dates of a Cost Category that's defined in the account.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ce/client/describe_cost_category_definition.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ce/client/#describe_cost_category_definition)
         """
 
     def get_anomalies(
-        self,
-        *,
-        DateInterval: "AnomalyDateIntervalTypeDef",
-        MonitorArn: str = None,
-        Feedback: AnomalyFeedbackTypeType = None,
-        TotalImpact: "TotalImpactFilterTypeDef" = None,
-        NextPageToken: str = None,
-        MaxResults: int = None
+        self, **kwargs: Unpack[GetAnomaliesRequestTypeDef]
     ) -> GetAnomaliesResponseTypeDef:
         """
         Retrieves all of the cost anomalies detected on your account during the time
-        period that's specified by the `DateInterval` object.
+        period that's specified by the <code>DateInterval</code> object.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ce.html#CostExplorer.Client.get_anomalies)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ce/client.html#get_anomalies)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ce/client/get_anomalies.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ce/client/#get_anomalies)
         """
 
     def get_anomaly_monitors(
-        self, *, MonitorArnList: List[str] = None, NextPageToken: str = None, MaxResults: int = None
+        self, **kwargs: Unpack[GetAnomalyMonitorsRequestTypeDef]
     ) -> GetAnomalyMonitorsResponseTypeDef:
         """
         Retrieves the cost anomaly monitor definitions for your account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ce.html#CostExplorer.Client.get_anomaly_monitors)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ce/client.html#get_anomaly_monitors)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ce/client/get_anomaly_monitors.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ce/client/#get_anomaly_monitors)
         """
 
     def get_anomaly_subscriptions(
-        self,
-        *,
-        SubscriptionArnList: List[str] = None,
-        MonitorArn: str = None,
-        NextPageToken: str = None,
-        MaxResults: int = None
+        self, **kwargs: Unpack[GetAnomalySubscriptionsRequestTypeDef]
     ) -> GetAnomalySubscriptionsResponseTypeDef:
         """
         Retrieves the cost anomaly subscription objects for your account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ce.html#CostExplorer.Client.get_anomaly_subscriptions)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ce/client.html#get_anomaly_subscriptions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ce/client/get_anomaly_subscriptions.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ce/client/#get_anomaly_subscriptions)
         """
 
     def get_approximate_usage_records(
-        self,
-        *,
-        Granularity: GranularityType,
-        ApproximationDimension: ApproximationDimensionType,
-        Services: List[str] = None
+        self, **kwargs: Unpack[GetApproximateUsageRecordsRequestTypeDef]
     ) -> GetApproximateUsageRecordsResponseTypeDef:
         """
         Retrieves estimated usage records for hourly granularity or resource-level data
         at daily granularity.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ce.html#CostExplorer.Client.get_approximate_usage_records)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ce/client.html#get_approximate_usage_records)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ce/client/get_approximate_usage_records.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ce/client/#get_approximate_usage_records)
+        """
+
+    def get_commitment_purchase_analysis(
+        self, **kwargs: Unpack[GetCommitmentPurchaseAnalysisRequestTypeDef]
+    ) -> GetCommitmentPurchaseAnalysisResponseTypeDef:
+        """
+        Retrieves a commitment purchase analysis result based on the
+        <code>AnalysisId</code>.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ce/client/get_commitment_purchase_analysis.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ce/client/#get_commitment_purchase_analysis)
         """
 
     def get_cost_and_usage(
-        self,
-        *,
-        TimePeriod: "DateIntervalTypeDef",
-        Granularity: GranularityType,
-        Metrics: List[str],
-        Filter: "ExpressionTypeDef" = None,
-        GroupBy: List["GroupDefinitionTypeDef"] = None,
-        NextPageToken: str = None
+        self, **kwargs: Unpack[GetCostAndUsageRequestTypeDef]
     ) -> GetCostAndUsageResponseTypeDef:
         """
         Retrieves cost and usage metrics for your account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ce.html#CostExplorer.Client.get_cost_and_usage)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ce/client.html#get_cost_and_usage)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ce/client/get_cost_and_usage.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ce/client/#get_cost_and_usage)
         """
 
     def get_cost_and_usage_with_resources(
-        self,
-        *,
-        TimePeriod: "DateIntervalTypeDef",
-        Granularity: GranularityType,
-        Filter: "ExpressionTypeDef",
-        Metrics: List[str] = None,
-        GroupBy: List["GroupDefinitionTypeDef"] = None,
-        NextPageToken: str = None
+        self, **kwargs: Unpack[GetCostAndUsageWithResourcesRequestTypeDef]
     ) -> GetCostAndUsageWithResourcesResponseTypeDef:
         """
         Retrieves cost and usage metrics with resources for your account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ce.html#CostExplorer.Client.get_cost_and_usage_with_resources)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ce/client.html#get_cost_and_usage_with_resources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ce/client/get_cost_and_usage_with_resources.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ce/client/#get_cost_and_usage_with_resources)
         """
 
     def get_cost_categories(
-        self,
-        *,
-        TimePeriod: "DateIntervalTypeDef",
-        SearchString: str = None,
-        CostCategoryName: str = None,
-        Filter: "ExpressionTypeDef" = None,
-        SortBy: List["SortDefinitionTypeDef"] = None,
-        MaxResults: int = None,
-        NextPageToken: str = None
+        self, **kwargs: Unpack[GetCostCategoriesRequestTypeDef]
     ) -> GetCostCategoriesResponseTypeDef:
         """
         Retrieves an array of Cost Category names and values incurred cost.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ce.html#CostExplorer.Client.get_cost_categories)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ce/client.html#get_cost_categories)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ce/client/get_cost_categories.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ce/client/#get_cost_categories)
         """
 
     def get_cost_forecast(
-        self,
-        *,
-        TimePeriod: "DateIntervalTypeDef",
-        Metric: MetricType,
-        Granularity: GranularityType,
-        Filter: "ExpressionTypeDef" = None,
-        PredictionIntervalLevel: int = None
+        self, **kwargs: Unpack[GetCostForecastRequestTypeDef]
     ) -> GetCostForecastResponseTypeDef:
         """
         Retrieves a forecast for how much Amazon Web Services predicts that you will
         spend over the forecast time period that you select, based on your past costs.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ce.html#CostExplorer.Client.get_cost_forecast)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ce/client.html#get_cost_forecast)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ce/client/get_cost_forecast.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ce/client/#get_cost_forecast)
         """
 
     def get_dimension_values(
-        self,
-        *,
-        TimePeriod: "DateIntervalTypeDef",
-        Dimension: DimensionType,
-        SearchString: str = None,
-        Context: ContextType = None,
-        Filter: "ExpressionTypeDef" = None,
-        SortBy: List["SortDefinitionTypeDef"] = None,
-        MaxResults: int = None,
-        NextPageToken: str = None
+        self, **kwargs: Unpack[GetDimensionValuesRequestTypeDef]
     ) -> GetDimensionValuesResponseTypeDef:
         """
         Retrieves all available filter values for a specified filter over a period of
         time.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ce.html#CostExplorer.Client.get_dimension_values)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ce/client.html#get_dimension_values)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ce/client/get_dimension_values.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ce/client/#get_dimension_values)
         """
 
     def get_reservation_coverage(
-        self,
-        *,
-        TimePeriod: "DateIntervalTypeDef",
-        GroupBy: List["GroupDefinitionTypeDef"] = None,
-        Granularity: GranularityType = None,
-        Filter: "ExpressionTypeDef" = None,
-        Metrics: List[str] = None,
-        NextPageToken: str = None,
-        SortBy: "SortDefinitionTypeDef" = None,
-        MaxResults: int = None
+        self, **kwargs: Unpack[GetReservationCoverageRequestTypeDef]
     ) -> GetReservationCoverageResponseTypeDef:
         """
         Retrieves the reservation coverage for your account, which you can use to see
@@ -412,263 +367,204 @@ class CostExplorerClient(BaseClient):
         Relational Database Service, or Amazon Redshift usage is covered by a
         reservation.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ce.html#CostExplorer.Client.get_reservation_coverage)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ce/client.html#get_reservation_coverage)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ce/client/get_reservation_coverage.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ce/client/#get_reservation_coverage)
         """
 
     def get_reservation_purchase_recommendation(
-        self,
-        *,
-        Service: str,
-        AccountId: str = None,
-        Filter: "ExpressionTypeDef" = None,
-        AccountScope: AccountScopeType = None,
-        LookbackPeriodInDays: LookbackPeriodInDaysType = None,
-        TermInYears: TermInYearsType = None,
-        PaymentOption: PaymentOptionType = None,
-        ServiceSpecification: "ServiceSpecificationTypeDef" = None,
-        PageSize: int = None,
-        NextPageToken: str = None
+        self, **kwargs: Unpack[GetReservationPurchaseRecommendationRequestTypeDef]
     ) -> GetReservationPurchaseRecommendationResponseTypeDef:
         """
         Gets recommendations for reservation purchases.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ce.html#CostExplorer.Client.get_reservation_purchase_recommendation)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ce/client.html#get_reservation_purchase_recommendation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ce/client/get_reservation_purchase_recommendation.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ce/client/#get_reservation_purchase_recommendation)
         """
 
     def get_reservation_utilization(
-        self,
-        *,
-        TimePeriod: "DateIntervalTypeDef",
-        GroupBy: List["GroupDefinitionTypeDef"] = None,
-        Granularity: GranularityType = None,
-        Filter: "ExpressionTypeDef" = None,
-        SortBy: "SortDefinitionTypeDef" = None,
-        NextPageToken: str = None,
-        MaxResults: int = None
+        self, **kwargs: Unpack[GetReservationUtilizationRequestTypeDef]
     ) -> GetReservationUtilizationResponseTypeDef:
         """
         Retrieves the reservation utilization for your account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ce.html#CostExplorer.Client.get_reservation_utilization)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ce/client.html#get_reservation_utilization)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ce/client/get_reservation_utilization.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ce/client/#get_reservation_utilization)
         """
 
     def get_rightsizing_recommendation(
-        self,
-        *,
-        Service: str,
-        Filter: "ExpressionTypeDef" = None,
-        Configuration: "RightsizingRecommendationConfigurationTypeDef" = None,
-        PageSize: int = None,
-        NextPageToken: str = None
+        self, **kwargs: Unpack[GetRightsizingRecommendationRequestTypeDef]
     ) -> GetRightsizingRecommendationResponseTypeDef:
         """
         Creates recommendations that help you save cost by identifying idle and
         underutilized Amazon EC2 instances.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ce.html#CostExplorer.Client.get_rightsizing_recommendation)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ce/client.html#get_rightsizing_recommendation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ce/client/get_rightsizing_recommendation.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ce/client/#get_rightsizing_recommendation)
         """
 
     def get_savings_plan_purchase_recommendation_details(
-        self, *, RecommendationDetailId: str
+        self, **kwargs: Unpack[GetSavingsPlanPurchaseRecommendationDetailsRequestTypeDef]
     ) -> GetSavingsPlanPurchaseRecommendationDetailsResponseTypeDef:
         """
         Retrieves the details for a Savings Plan recommendation.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ce.html#CostExplorer.Client.get_savings_plan_purchase_recommendation_details)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ce/client.html#get_savings_plan_purchase_recommendation_details)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ce/client/get_savings_plan_purchase_recommendation_details.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ce/client/#get_savings_plan_purchase_recommendation_details)
         """
 
     def get_savings_plans_coverage(
-        self,
-        *,
-        TimePeriod: "DateIntervalTypeDef",
-        GroupBy: List["GroupDefinitionTypeDef"] = None,
-        Granularity: GranularityType = None,
-        Filter: "ExpressionTypeDef" = None,
-        Metrics: List[str] = None,
-        NextToken: str = None,
-        MaxResults: int = None,
-        SortBy: "SortDefinitionTypeDef" = None
+        self, **kwargs: Unpack[GetSavingsPlansCoverageRequestTypeDef]
     ) -> GetSavingsPlansCoverageResponseTypeDef:
         """
         Retrieves the Savings Plans covered for your account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ce.html#CostExplorer.Client.get_savings_plans_coverage)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ce/client.html#get_savings_plans_coverage)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ce/client/get_savings_plans_coverage.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ce/client/#get_savings_plans_coverage)
         """
 
     def get_savings_plans_purchase_recommendation(
-        self,
-        *,
-        SavingsPlansType: SupportedSavingsPlansTypeType,
-        TermInYears: TermInYearsType,
-        PaymentOption: PaymentOptionType,
-        LookbackPeriodInDays: LookbackPeriodInDaysType,
-        AccountScope: AccountScopeType = None,
-        NextPageToken: str = None,
-        PageSize: int = None,
-        Filter: "ExpressionTypeDef" = None
+        self, **kwargs: Unpack[GetSavingsPlansPurchaseRecommendationRequestTypeDef]
     ) -> GetSavingsPlansPurchaseRecommendationResponseTypeDef:
         """
         Retrieves the Savings Plans recommendations for your account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ce.html#CostExplorer.Client.get_savings_plans_purchase_recommendation)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ce/client.html#get_savings_plans_purchase_recommendation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ce/client/get_savings_plans_purchase_recommendation.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ce/client/#get_savings_plans_purchase_recommendation)
         """
 
     def get_savings_plans_utilization(
-        self,
-        *,
-        TimePeriod: "DateIntervalTypeDef",
-        Granularity: GranularityType = None,
-        Filter: "ExpressionTypeDef" = None,
-        SortBy: "SortDefinitionTypeDef" = None
+        self, **kwargs: Unpack[GetSavingsPlansUtilizationRequestTypeDef]
     ) -> GetSavingsPlansUtilizationResponseTypeDef:
         """
-        Retrieves the Savings Plans utilization for your account across date ranges with
-        daily or monthly granularity.
+        Retrieves the Savings Plans utilization for your account across date ranges
+        with daily or monthly granularity.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ce.html#CostExplorer.Client.get_savings_plans_utilization)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ce/client.html#get_savings_plans_utilization)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ce/client/get_savings_plans_utilization.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ce/client/#get_savings_plans_utilization)
         """
 
     def get_savings_plans_utilization_details(
-        self,
-        *,
-        TimePeriod: "DateIntervalTypeDef",
-        Filter: "ExpressionTypeDef" = None,
-        DataType: List[SavingsPlansDataTypeType] = None,
-        NextToken: str = None,
-        MaxResults: int = None,
-        SortBy: "SortDefinitionTypeDef" = None
+        self, **kwargs: Unpack[GetSavingsPlansUtilizationDetailsRequestTypeDef]
     ) -> GetSavingsPlansUtilizationDetailsResponseTypeDef:
         """
-        Retrieves attribute data along with aggregate utilization and savings data for a
-        given time period.
+        Retrieves attribute data along with aggregate utilization and savings data for
+        a given time period.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ce.html#CostExplorer.Client.get_savings_plans_utilization_details)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ce/client.html#get_savings_plans_utilization_details)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ce/client/get_savings_plans_utilization_details.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ce/client/#get_savings_plans_utilization_details)
         """
 
-    def get_tags(
-        self,
-        *,
-        TimePeriod: "DateIntervalTypeDef",
-        SearchString: str = None,
-        TagKey: str = None,
-        Filter: "ExpressionTypeDef" = None,
-        SortBy: List["SortDefinitionTypeDef"] = None,
-        MaxResults: int = None,
-        NextPageToken: str = None
-    ) -> GetTagsResponseTypeDef:
+    def get_tags(self, **kwargs: Unpack[GetTagsRequestTypeDef]) -> GetTagsResponseTypeDef:
         """
         Queries for available tag keys and tag values for a specified period.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ce.html#CostExplorer.Client.get_tags)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ce/client.html#get_tags)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ce/client/get_tags.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ce/client/#get_tags)
         """
 
     def get_usage_forecast(
-        self,
-        *,
-        TimePeriod: "DateIntervalTypeDef",
-        Metric: MetricType,
-        Granularity: GranularityType,
-        Filter: "ExpressionTypeDef" = None,
-        PredictionIntervalLevel: int = None
+        self, **kwargs: Unpack[GetUsageForecastRequestTypeDef]
     ) -> GetUsageForecastResponseTypeDef:
         """
-        Retrieves a forecast for how much Amazon Web Services predicts that you will use
-        over the forecast time period that you select, based on your past usage.
+        Retrieves a forecast for how much Amazon Web Services predicts that you will
+        use over the forecast time period that you select, based on your past usage.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ce.html#CostExplorer.Client.get_usage_forecast)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ce/client.html#get_usage_forecast)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ce/client/get_usage_forecast.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ce/client/#get_usage_forecast)
+        """
+
+    def list_commitment_purchase_analyses(
+        self, **kwargs: Unpack[ListCommitmentPurchaseAnalysesRequestTypeDef]
+    ) -> ListCommitmentPurchaseAnalysesResponseTypeDef:
+        """
+        Lists the commitment purchase analyses for your account.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ce/client/list_commitment_purchase_analyses.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ce/client/#list_commitment_purchase_analyses)
         """
 
     def list_cost_allocation_tag_backfill_history(
-        self, *, NextToken: str = None, MaxResults: int = None
+        self, **kwargs: Unpack[ListCostAllocationTagBackfillHistoryRequestTypeDef]
     ) -> ListCostAllocationTagBackfillHistoryResponseTypeDef:
         """
         Retrieves a list of your historical cost allocation tag backfill requests.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ce.html#CostExplorer.Client.list_cost_allocation_tag_backfill_history)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ce/client.html#list_cost_allocation_tag_backfill_history)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ce/client/list_cost_allocation_tag_backfill_history.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ce/client/#list_cost_allocation_tag_backfill_history)
         """
 
     def list_cost_allocation_tags(
-        self,
-        *,
-        Status: CostAllocationTagStatusType = None,
-        TagKeys: List[str] = None,
-        Type: CostAllocationTagTypeType = None,
-        NextToken: str = None,
-        MaxResults: int = None
+        self, **kwargs: Unpack[ListCostAllocationTagsRequestTypeDef]
     ) -> ListCostAllocationTagsResponseTypeDef:
         """
         Get a list of cost allocation tags.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ce.html#CostExplorer.Client.list_cost_allocation_tags)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ce/client.html#list_cost_allocation_tags)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ce/client/list_cost_allocation_tags.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ce/client/#list_cost_allocation_tags)
         """
 
     def list_cost_category_definitions(
-        self, *, EffectiveOn: str = None, NextToken: str = None, MaxResults: int = None
+        self, **kwargs: Unpack[ListCostCategoryDefinitionsRequestTypeDef]
     ) -> ListCostCategoryDefinitionsResponseTypeDef:
         """
-        Returns the name, Amazon Resource Name (ARN), `NumberOfRules` and effective
-        dates of all Cost Categories defined in the account.
+        Returns the name, Amazon Resource Name (ARN), <code>NumberOfRules</code> and
+        effective dates of all Cost Categories defined in the account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ce.html#CostExplorer.Client.list_cost_category_definitions)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ce/client.html#list_cost_category_definitions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ce/client/list_cost_category_definitions.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ce/client/#list_cost_category_definitions)
         """
 
     def list_savings_plans_purchase_recommendation_generation(
-        self,
-        *,
-        GenerationStatus: GenerationStatusType = None,
-        RecommendationIds: List[str] = None,
-        PageSize: int = None,
-        NextPageToken: str = None
+        self, **kwargs: Unpack[ListSavingsPlansPurchaseRecommendationGenerationRequestTypeDef]
     ) -> ListSavingsPlansPurchaseRecommendationGenerationResponseTypeDef:
         """
         Retrieves a list of your historical recommendation generations within the past
         30 days.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ce.html#CostExplorer.Client.list_savings_plans_purchase_recommendation_generation)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ce/client.html#list_savings_plans_purchase_recommendation_generation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ce/client/list_savings_plans_purchase_recommendation_generation.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ce/client/#list_savings_plans_purchase_recommendation_generation)
         """
 
-    def list_tags_for_resource(self, *, ResourceArn: str) -> ListTagsForResourceResponseTypeDef:
+    def list_tags_for_resource(
+        self, **kwargs: Unpack[ListTagsForResourceRequestTypeDef]
+    ) -> ListTagsForResourceResponseTypeDef:
         """
         Returns a list of resource tags associated with the resource specified by the
         Amazon Resource Name (ARN).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ce.html#CostExplorer.Client.list_tags_for_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ce/client.html#list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ce/client/list_tags_for_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ce/client/#list_tags_for_resource)
         """
 
     def provide_anomaly_feedback(
-        self, *, AnomalyId: str, Feedback: AnomalyFeedbackTypeType
+        self, **kwargs: Unpack[ProvideAnomalyFeedbackRequestTypeDef]
     ) -> ProvideAnomalyFeedbackResponseTypeDef:
         """
         Modifies the feedback property of a given cost anomaly.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ce.html#CostExplorer.Client.provide_anomaly_feedback)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ce/client.html#provide_anomaly_feedback)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ce/client/provide_anomaly_feedback.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ce/client/#provide_anomaly_feedback)
+        """
+
+    def start_commitment_purchase_analysis(
+        self, **kwargs: Unpack[StartCommitmentPurchaseAnalysisRequestTypeDef]
+    ) -> StartCommitmentPurchaseAnalysisResponseTypeDef:
+        """
+        Specifies the parameters of a planned commitment purchase and starts the
+        generation of the analysis.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ce/client/start_commitment_purchase_analysis.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ce/client/#start_commitment_purchase_analysis)
         """
 
     def start_cost_allocation_tag_backfill(
-        self, *, BackfillFrom: str
+        self, **kwargs: Unpack[StartCostAllocationTagBackfillRequestTypeDef]
     ) -> StartCostAllocationTagBackfillResponseTypeDef:
         """
         Request a cost allocation tag backfill.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ce.html#CostExplorer.Client.start_cost_allocation_tag_backfill)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ce/client.html#start_cost_allocation_tag_backfill)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ce/client/start_cost_allocation_tag_backfill.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ce/client/#start_cost_allocation_tag_backfill)
         """
 
     def start_savings_plans_purchase_recommendation_generation(
@@ -677,79 +573,95 @@ class CostExplorerClient(BaseClient):
         """
         Requests a Savings Plans recommendation generation.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ce.html#CostExplorer.Client.start_savings_plans_purchase_recommendation_generation)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ce/client.html#start_savings_plans_purchase_recommendation_generation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ce/client/start_savings_plans_purchase_recommendation_generation.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ce/client/#start_savings_plans_purchase_recommendation_generation)
         """
 
-    def tag_resource(
-        self, *, ResourceArn: str, ResourceTags: List["ResourceTagTypeDef"]
-    ) -> Dict[str, Any]:
+    def tag_resource(self, **kwargs: Unpack[TagResourceRequestTypeDef]) -> Dict[str, Any]:
         """
         An API operation for adding one or more tags (key-value pairs) to a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ce.html#CostExplorer.Client.tag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ce/client.html#tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ce/client/tag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ce/client/#tag_resource)
         """
 
-    def untag_resource(self, *, ResourceArn: str, ResourceTagKeys: List[str]) -> Dict[str, Any]:
+    def untag_resource(self, **kwargs: Unpack[UntagResourceRequestTypeDef]) -> Dict[str, Any]:
         """
         Removes one or more tags from a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ce.html#CostExplorer.Client.untag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ce/client.html#untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ce/client/untag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ce/client/#untag_resource)
         """
 
     def update_anomaly_monitor(
-        self, *, MonitorArn: str, MonitorName: str = None
+        self, **kwargs: Unpack[UpdateAnomalyMonitorRequestTypeDef]
     ) -> UpdateAnomalyMonitorResponseTypeDef:
         """
         Updates an existing cost anomaly monitor.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ce.html#CostExplorer.Client.update_anomaly_monitor)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ce/client.html#update_anomaly_monitor)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ce/client/update_anomaly_monitor.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ce/client/#update_anomaly_monitor)
         """
 
     def update_anomaly_subscription(
-        self,
-        *,
-        SubscriptionArn: str,
-        Threshold: float = None,
-        Frequency: AnomalySubscriptionFrequencyType = None,
-        MonitorArnList: List[str] = None,
-        Subscribers: List["SubscriberTypeDef"] = None,
-        SubscriptionName: str = None,
-        ThresholdExpression: "ExpressionTypeDef" = None
+        self, **kwargs: Unpack[UpdateAnomalySubscriptionRequestTypeDef]
     ) -> UpdateAnomalySubscriptionResponseTypeDef:
         """
         Updates an existing cost anomaly subscription.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ce.html#CostExplorer.Client.update_anomaly_subscription)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ce/client.html#update_anomaly_subscription)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ce/client/update_anomaly_subscription.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ce/client/#update_anomaly_subscription)
         """
 
     def update_cost_allocation_tags_status(
-        self, *, CostAllocationTagsStatus: List["CostAllocationTagStatusEntryTypeDef"]
+        self, **kwargs: Unpack[UpdateCostAllocationTagsStatusRequestTypeDef]
     ) -> UpdateCostAllocationTagsStatusResponseTypeDef:
         """
         Updates status for cost allocation tags in bulk, with maximum batch size of 20.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ce.html#CostExplorer.Client.update_cost_allocation_tags_status)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ce/client.html#update_cost_allocation_tags_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ce/client/update_cost_allocation_tags_status.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ce/client/#update_cost_allocation_tags_status)
         """
 
     def update_cost_category_definition(
-        self,
-        *,
-        CostCategoryArn: str,
-        RuleVersion: Literal["CostCategoryExpression.v1"],
-        Rules: List["CostCategoryRuleTypeDef"],
-        EffectiveStart: str = None,
-        DefaultValue: str = None,
-        SplitChargeRules: List["CostCategorySplitChargeRuleTypeDef"] = None
+        self, **kwargs: Unpack[UpdateCostCategoryDefinitionRequestTypeDef]
     ) -> UpdateCostCategoryDefinitionResponseTypeDef:
         """
         Updates an existing Cost Category.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ce.html#CostExplorer.Client.update_cost_category_definition)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ce/client.html#update_cost_category_definition)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ce/client/update_cost_category_definition.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ce/client/#update_cost_category_definition)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["get_anomalies"]
+    ) -> GetAnomaliesPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ce/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ce/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["get_anomaly_monitors"]
+    ) -> GetAnomalyMonitorsPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ce/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ce/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["get_anomaly_subscriptions"]
+    ) -> GetAnomalySubscriptionsPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ce/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ce/client/#get_paginator)
         """

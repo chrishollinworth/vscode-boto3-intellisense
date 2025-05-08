@@ -1,24 +1,30 @@
 """
-Type annotations for schemas service client.
+Type annotations for schemas service Client.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_schemas/client.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_schemas/client/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
-    from mypy_boto3_schemas import SchemasClient
+    from boto3.session import Session
+    from mypy_boto3_schemas.client import SchemasClient
 
-    client: SchemasClient = boto3.client("schemas")
+    session = Session()
+    client: SchemasClient = session.client("schemas")
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from typing import Any, Dict, List, Type, overload
+from typing import Any, overload
 
 from botocore.client import BaseClient, ClientMeta
+from botocore.errorfactory import BaseClientExceptions
+from botocore.exceptions import ClientError as BotocoreClientError
 
-from .literals import TypeType
 from .paginator import (
     ListDiscoverersPaginator,
     ListRegistriesPaginator,
@@ -27,48 +33,78 @@ from .paginator import (
     SearchSchemasPaginator,
 )
 from .type_defs import (
+    CreateDiscovererRequestTypeDef,
     CreateDiscovererResponseTypeDef,
+    CreateRegistryRequestTypeDef,
     CreateRegistryResponseTypeDef,
+    CreateSchemaRequestTypeDef,
     CreateSchemaResponseTypeDef,
+    DeleteDiscovererRequestTypeDef,
+    DeleteRegistryRequestTypeDef,
+    DeleteResourcePolicyRequestTypeDef,
+    DeleteSchemaRequestTypeDef,
+    DeleteSchemaVersionRequestTypeDef,
+    DescribeCodeBindingRequestTypeDef,
     DescribeCodeBindingResponseTypeDef,
+    DescribeDiscovererRequestTypeDef,
     DescribeDiscovererResponseTypeDef,
+    DescribeRegistryRequestTypeDef,
     DescribeRegistryResponseTypeDef,
+    DescribeSchemaRequestTypeDef,
     DescribeSchemaResponseTypeDef,
+    EmptyResponseMetadataTypeDef,
+    ExportSchemaRequestTypeDef,
     ExportSchemaResponseTypeDef,
+    GetCodeBindingSourceRequestTypeDef,
     GetCodeBindingSourceResponseTypeDef,
+    GetDiscoveredSchemaRequestTypeDef,
     GetDiscoveredSchemaResponseTypeDef,
+    GetResourcePolicyRequestTypeDef,
     GetResourcePolicyResponseTypeDef,
+    ListDiscoverersRequestTypeDef,
     ListDiscoverersResponseTypeDef,
+    ListRegistriesRequestTypeDef,
     ListRegistriesResponseTypeDef,
+    ListSchemasRequestTypeDef,
     ListSchemasResponseTypeDef,
+    ListSchemaVersionsRequestTypeDef,
     ListSchemaVersionsResponseTypeDef,
+    ListTagsForResourceRequestTypeDef,
     ListTagsForResourceResponseTypeDef,
+    PutCodeBindingRequestTypeDef,
     PutCodeBindingResponseTypeDef,
+    PutResourcePolicyRequestTypeDef,
     PutResourcePolicyResponseTypeDef,
+    SearchSchemasRequestTypeDef,
     SearchSchemasResponseTypeDef,
+    StartDiscovererRequestTypeDef,
     StartDiscovererResponseTypeDef,
+    StopDiscovererRequestTypeDef,
     StopDiscovererResponseTypeDef,
+    TagResourceRequestTypeDef,
+    UntagResourceRequestTypeDef,
+    UpdateDiscovererRequestTypeDef,
     UpdateDiscovererResponseTypeDef,
+    UpdateRegistryRequestTypeDef,
     UpdateRegistryResponseTypeDef,
+    UpdateSchemaRequestTypeDef,
     UpdateSchemaResponseTypeDef,
 )
 from .waiter import CodeBindingExistsWaiter
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import type as Type
+    from collections.abc import Mapping
 else:
-    from typing_extensions import Literal
+    from typing import Mapping, Type
+if sys.version_info >= (3, 12):
+    from typing import Literal, Unpack
+else:
+    from typing_extensions import Literal, Unpack
 
 __all__ = ("SchemasClient",)
 
-class BotocoreClientError(BaseException):
-    MSG_TEMPLATE: str
-
-    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
-        self.response: Dict[str, Any]
-        self.operation_name: str
-
-class Exceptions:
+class Exceptions(BaseClientExceptions):
     BadRequestException: Type[BotocoreClientError]
     ClientError: Type[BotocoreClientError]
     ConflictException: Type[BotocoreClientError]
@@ -83,8 +119,8 @@ class Exceptions:
 
 class SchemasClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/schemas.html#Schemas.Client)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_schemas/client.html)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/schemas.html#Schemas.Client)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_schemas/client/)
     """
 
     meta: ClientMeta
@@ -93,418 +129,398 @@ class SchemasClient(BaseClient):
     def exceptions(self) -> Exceptions:
         """
         SchemasClient exceptions.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/schemas.html#Schemas.Client)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_schemas/client/#exceptions)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        Check if an operation can be paginated.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/schemas.html#Schemas.Client.can_paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_schemas/client.html#can_paginate)
-        """
-
-    def close(self) -> None:
-        """
-        Closes underlying endpoint connections.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/schemas.html#Schemas.Client.close)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_schemas/client.html#close)
-        """
-
-    def create_discoverer(
-        self,
-        *,
-        SourceArn: str,
-        Description: str = None,
-        CrossAccount: bool = None,
-        Tags: Dict[str, str] = None
-    ) -> CreateDiscovererResponseTypeDef:
-        """
-        Creates a discoverer.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/schemas.html#Schemas.Client.create_discoverer)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_schemas/client.html#create_discoverer)
-        """
-
-    def create_registry(
-        self, *, RegistryName: str, Description: str = None, Tags: Dict[str, str] = None
-    ) -> CreateRegistryResponseTypeDef:
-        """
-        Creates a registry.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/schemas.html#Schemas.Client.create_registry)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_schemas/client.html#create_registry)
-        """
-
-    def create_schema(
-        self,
-        *,
-        Content: str,
-        RegistryName: str,
-        SchemaName: str,
-        Type: TypeType,
-        Description: str = None,
-        Tags: Dict[str, str] = None
-    ) -> CreateSchemaResponseTypeDef:
-        """
-        Creates a schema definition.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/schemas.html#Schemas.Client.create_schema)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_schemas/client.html#create_schema)
-        """
-
-    def delete_discoverer(self, *, DiscovererId: str) -> None:
-        """
-        Deletes a discoverer.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/schemas.html#Schemas.Client.delete_discoverer)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_schemas/client.html#delete_discoverer)
-        """
-
-    def delete_registry(self, *, RegistryName: str) -> None:
-        """
-        Deletes a Registry.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/schemas.html#Schemas.Client.delete_registry)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_schemas/client.html#delete_registry)
-        """
-
-    def delete_resource_policy(self, *, RegistryName: str = None) -> None:
-        """
-        Delete the resource-based policy attached to the specified registry.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/schemas.html#Schemas.Client.delete_resource_policy)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_schemas/client.html#delete_resource_policy)
-        """
-
-    def delete_schema(self, *, RegistryName: str, SchemaName: str) -> None:
-        """
-        Delete a schema definition.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/schemas.html#Schemas.Client.delete_schema)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_schemas/client.html#delete_schema)
-        """
-
-    def delete_schema_version(
-        self, *, RegistryName: str, SchemaName: str, SchemaVersion: str
-    ) -> None:
-        """
-        Delete the schema version definition See also: `AWS API Documentation <https://d
-        ocs.aws.amazon.com/goto/WebAPI/schemas-2019-12-02/DeleteSchemaVersion>`_
-        **Request Syntax** response = client.delete_schema_version(
-        RegistryName='string', SchemaName='string', SchemaVersi...
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/schemas.html#Schemas.Client.delete_schema_version)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_schemas/client.html#delete_schema_version)
-        """
-
-    def describe_code_binding(
-        self, *, Language: str, RegistryName: str, SchemaName: str, SchemaVersion: str = None
-    ) -> DescribeCodeBindingResponseTypeDef:
-        """
-        Describe the code binding URI.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/schemas.html#Schemas.Client.describe_code_binding)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_schemas/client.html#describe_code_binding)
-        """
-
-    def describe_discoverer(self, *, DiscovererId: str) -> DescribeDiscovererResponseTypeDef:
-        """
-        Describes the discoverer.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/schemas.html#Schemas.Client.describe_discoverer)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_schemas/client.html#describe_discoverer)
-        """
-
-    def describe_registry(self, *, RegistryName: str) -> DescribeRegistryResponseTypeDef:
-        """
-        Describes the registry.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/schemas.html#Schemas.Client.describe_registry)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_schemas/client.html#describe_registry)
-        """
-
-    def describe_schema(
-        self, *, RegistryName: str, SchemaName: str, SchemaVersion: str = None
-    ) -> DescribeSchemaResponseTypeDef:
-        """
-        Retrieve the schema definition.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/schemas.html#Schemas.Client.describe_schema)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_schemas/client.html#describe_schema)
-        """
-
-    def export_schema(
-        self, *, RegistryName: str, SchemaName: str, Type: str, SchemaVersion: str = None
-    ) -> ExportSchemaResponseTypeDef:
-        """
-        See also: `AWS API Documentation
-        <https://docs.aws.amazon.com/goto/WebAPI/schemas-2019-12-02/ExportSchema>`_
-        **Request Syntax** response = client.export_schema( RegistryName='string',
-        SchemaName='string', SchemaVersion='string', Type='string' ).
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/schemas.html#Schemas.Client.export_schema)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_schemas/client.html#export_schema)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/schemas/client/can_paginate.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_schemas/client/#can_paginate)
         """
 
     def generate_presigned_url(
         self,
         ClientMethod: str,
-        Params: Dict[str, Any] = None,
+        Params: Mapping[str, Any] = ...,
         ExpiresIn: int = 3600,
-        HttpMethod: str = None,
+        HttpMethod: str = ...,
     ) -> str:
         """
-        Generate a presigned url given a client, its method, and arguments.
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/schemas/client/generate_presigned_url.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_schemas/client/#generate_presigned_url)
+        """
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/schemas.html#Schemas.Client.generate_presigned_url)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_schemas/client.html#generate_presigned_url)
+    def create_discoverer(
+        self, **kwargs: Unpack[CreateDiscovererRequestTypeDef]
+    ) -> CreateDiscovererResponseTypeDef:
+        """
+        Creates a discoverer.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/schemas/client/create_discoverer.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_schemas/client/#create_discoverer)
+        """
+
+    def create_registry(
+        self, **kwargs: Unpack[CreateRegistryRequestTypeDef]
+    ) -> CreateRegistryResponseTypeDef:
+        """
+        Creates a registry.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/schemas/client/create_registry.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_schemas/client/#create_registry)
+        """
+
+    def create_schema(
+        self, **kwargs: Unpack[CreateSchemaRequestTypeDef]
+    ) -> CreateSchemaResponseTypeDef:
+        """
+        Creates a schema definition.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/schemas/client/create_schema.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_schemas/client/#create_schema)
+        """
+
+    def delete_discoverer(
+        self, **kwargs: Unpack[DeleteDiscovererRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Deletes a discoverer.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/schemas/client/delete_discoverer.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_schemas/client/#delete_discoverer)
+        """
+
+    def delete_registry(
+        self, **kwargs: Unpack[DeleteRegistryRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Deletes a Registry.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/schemas/client/delete_registry.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_schemas/client/#delete_registry)
+        """
+
+    def delete_resource_policy(
+        self, **kwargs: Unpack[DeleteResourcePolicyRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Delete the resource-based policy attached to the specified registry.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/schemas/client/delete_resource_policy.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_schemas/client/#delete_resource_policy)
+        """
+
+    def delete_schema(
+        self, **kwargs: Unpack[DeleteSchemaRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Delete a schema definition.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/schemas/client/delete_schema.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_schemas/client/#delete_schema)
+        """
+
+    def delete_schema_version(
+        self, **kwargs: Unpack[DeleteSchemaVersionRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Delete the schema version definition.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/schemas/client/delete_schema_version.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_schemas/client/#delete_schema_version)
+        """
+
+    def describe_code_binding(
+        self, **kwargs: Unpack[DescribeCodeBindingRequestTypeDef]
+    ) -> DescribeCodeBindingResponseTypeDef:
+        """
+        Describe the code binding URI.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/schemas/client/describe_code_binding.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_schemas/client/#describe_code_binding)
+        """
+
+    def describe_discoverer(
+        self, **kwargs: Unpack[DescribeDiscovererRequestTypeDef]
+    ) -> DescribeDiscovererResponseTypeDef:
+        """
+        Describes the discoverer.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/schemas/client/describe_discoverer.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_schemas/client/#describe_discoverer)
+        """
+
+    def describe_registry(
+        self, **kwargs: Unpack[DescribeRegistryRequestTypeDef]
+    ) -> DescribeRegistryResponseTypeDef:
+        """
+        Describes the registry.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/schemas/client/describe_registry.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_schemas/client/#describe_registry)
+        """
+
+    def describe_schema(
+        self, **kwargs: Unpack[DescribeSchemaRequestTypeDef]
+    ) -> DescribeSchemaResponseTypeDef:
+        """
+        Retrieve the schema definition.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/schemas/client/describe_schema.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_schemas/client/#describe_schema)
+        """
+
+    def export_schema(
+        self, **kwargs: Unpack[ExportSchemaRequestTypeDef]
+    ) -> ExportSchemaResponseTypeDef:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/schemas/client/export_schema.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_schemas/client/#export_schema)
         """
 
     def get_code_binding_source(
-        self, *, Language: str, RegistryName: str, SchemaName: str, SchemaVersion: str = None
+        self, **kwargs: Unpack[GetCodeBindingSourceRequestTypeDef]
     ) -> GetCodeBindingSourceResponseTypeDef:
         """
         Get the code binding source URI.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/schemas.html#Schemas.Client.get_code_binding_source)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_schemas/client.html#get_code_binding_source)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/schemas/client/get_code_binding_source.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_schemas/client/#get_code_binding_source)
         """
 
     def get_discovered_schema(
-        self, *, Events: List[str], Type: TypeType
+        self, **kwargs: Unpack[GetDiscoveredSchemaRequestTypeDef]
     ) -> GetDiscoveredSchemaResponseTypeDef:
         """
         Get the discovered schema that was generated based on sampled events.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/schemas.html#Schemas.Client.get_discovered_schema)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_schemas/client.html#get_discovered_schema)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/schemas/client/get_discovered_schema.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_schemas/client/#get_discovered_schema)
         """
 
-    def get_resource_policy(self, *, RegistryName: str = None) -> GetResourcePolicyResponseTypeDef:
+    def get_resource_policy(
+        self, **kwargs: Unpack[GetResourcePolicyRequestTypeDef]
+    ) -> GetResourcePolicyResponseTypeDef:
         """
         Retrieves the resource-based policy attached to a given registry.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/schemas.html#Schemas.Client.get_resource_policy)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_schemas/client.html#get_resource_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/schemas/client/get_resource_policy.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_schemas/client/#get_resource_policy)
         """
 
     def list_discoverers(
-        self,
-        *,
-        DiscovererIdPrefix: str = None,
-        Limit: int = None,
-        NextToken: str = None,
-        SourceArnPrefix: str = None
+        self, **kwargs: Unpack[ListDiscoverersRequestTypeDef]
     ) -> ListDiscoverersResponseTypeDef:
         """
         List the discoverers.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/schemas.html#Schemas.Client.list_discoverers)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_schemas/client.html#list_discoverers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/schemas/client/list_discoverers.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_schemas/client/#list_discoverers)
         """
 
     def list_registries(
-        self,
-        *,
-        Limit: int = None,
-        NextToken: str = None,
-        RegistryNamePrefix: str = None,
-        Scope: str = None
+        self, **kwargs: Unpack[ListRegistriesRequestTypeDef]
     ) -> ListRegistriesResponseTypeDef:
         """
         List the registries.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/schemas.html#Schemas.Client.list_registries)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_schemas/client.html#list_registries)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/schemas/client/list_registries.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_schemas/client/#list_registries)
         """
 
     def list_schema_versions(
-        self, *, RegistryName: str, SchemaName: str, Limit: int = None, NextToken: str = None
+        self, **kwargs: Unpack[ListSchemaVersionsRequestTypeDef]
     ) -> ListSchemaVersionsResponseTypeDef:
         """
         Provides a list of the schema versions and related information.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/schemas.html#Schemas.Client.list_schema_versions)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_schemas/client.html#list_schema_versions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/schemas/client/list_schema_versions.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_schemas/client/#list_schema_versions)
         """
 
     def list_schemas(
-        self,
-        *,
-        RegistryName: str,
-        Limit: int = None,
-        NextToken: str = None,
-        SchemaNamePrefix: str = None
+        self, **kwargs: Unpack[ListSchemasRequestTypeDef]
     ) -> ListSchemasResponseTypeDef:
         """
         List the schemas.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/schemas.html#Schemas.Client.list_schemas)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_schemas/client.html#list_schemas)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/schemas/client/list_schemas.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_schemas/client/#list_schemas)
         """
 
-    def list_tags_for_resource(self, *, ResourceArn: str) -> ListTagsForResourceResponseTypeDef:
+    def list_tags_for_resource(
+        self, **kwargs: Unpack[ListTagsForResourceRequestTypeDef]
+    ) -> ListTagsForResourceResponseTypeDef:
         """
         Get tags for resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/schemas.html#Schemas.Client.list_tags_for_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_schemas/client.html#list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/schemas/client/list_tags_for_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_schemas/client/#list_tags_for_resource)
         """
 
     def put_code_binding(
-        self, *, Language: str, RegistryName: str, SchemaName: str, SchemaVersion: str = None
+        self, **kwargs: Unpack[PutCodeBindingRequestTypeDef]
     ) -> PutCodeBindingResponseTypeDef:
         """
-        Put code binding URI See also: `AWS API Documentation
-        <https://docs.aws.amazon.com/goto/WebAPI/schemas-2019-12-02/PutCodeBinding>`_
-        **Request Syntax** response = client.put_code_binding( Language='string',
-        RegistryName='string', SchemaName='string', SchemaVersio...
+        Put code binding URI.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/schemas.html#Schemas.Client.put_code_binding)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_schemas/client.html#put_code_binding)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/schemas/client/put_code_binding.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_schemas/client/#put_code_binding)
         """
 
     def put_resource_policy(
-        self, *, Policy: str, RegistryName: str = None, RevisionId: str = None
+        self, **kwargs: Unpack[PutResourcePolicyRequestTypeDef]
     ) -> PutResourcePolicyResponseTypeDef:
         """
         The name of the policy.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/schemas.html#Schemas.Client.put_resource_policy)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_schemas/client.html#put_resource_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/schemas/client/put_resource_policy.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_schemas/client/#put_resource_policy)
         """
 
     def search_schemas(
-        self, *, Keywords: str, RegistryName: str, Limit: int = None, NextToken: str = None
+        self, **kwargs: Unpack[SearchSchemasRequestTypeDef]
     ) -> SearchSchemasResponseTypeDef:
         """
-        Search the schemas See also: `AWS API Documentation
-        <https://docs.aws.amazon.com/goto/WebAPI/schemas-2019-12-02/SearchSchemas>`_
-        **Request Syntax** response = client.search_schemas( Keywords='string',
-        Limit=123, NextToken='string', RegistryName='string' ).
+        Search the schemas.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/schemas.html#Schemas.Client.search_schemas)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_schemas/client.html#search_schemas)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/schemas/client/search_schemas.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_schemas/client/#search_schemas)
         """
 
-    def start_discoverer(self, *, DiscovererId: str) -> StartDiscovererResponseTypeDef:
+    def start_discoverer(
+        self, **kwargs: Unpack[StartDiscovererRequestTypeDef]
+    ) -> StartDiscovererResponseTypeDef:
         """
-        Starts the discoverer See also: `AWS API Documentation
-        <https://docs.aws.amazon.com/goto/WebAPI/schemas-2019-12-02/StartDiscoverer>`_
-        **Request Syntax** response = client.start_discoverer( DiscovererId='string' ).
+        Starts the discoverer.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/schemas.html#Schemas.Client.start_discoverer)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_schemas/client.html#start_discoverer)
-        """
-
-    def stop_discoverer(self, *, DiscovererId: str) -> StopDiscovererResponseTypeDef:
-        """
-        Stops the discoverer See also: `AWS API Documentation
-        <https://docs.aws.amazon.com/goto/WebAPI/schemas-2019-12-02/StopDiscoverer>`_
-        **Request Syntax** response = client.stop_discoverer( DiscovererId='string' ).
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/schemas.html#Schemas.Client.stop_discoverer)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_schemas/client.html#stop_discoverer)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/schemas/client/start_discoverer.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_schemas/client/#start_discoverer)
         """
 
-    def tag_resource(self, *, ResourceArn: str, Tags: Dict[str, str]) -> None:
+    def stop_discoverer(
+        self, **kwargs: Unpack[StopDiscovererRequestTypeDef]
+    ) -> StopDiscovererResponseTypeDef:
+        """
+        Stops the discoverer.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/schemas/client/stop_discoverer.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_schemas/client/#stop_discoverer)
+        """
+
+    def tag_resource(
+        self, **kwargs: Unpack[TagResourceRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Add tags to a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/schemas.html#Schemas.Client.tag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_schemas/client.html#tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/schemas/client/tag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_schemas/client/#tag_resource)
         """
 
-    def untag_resource(self, *, ResourceArn: str, TagKeys: List[str]) -> None:
+    def untag_resource(
+        self, **kwargs: Unpack[UntagResourceRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Removes tags from a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/schemas.html#Schemas.Client.untag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_schemas/client.html#untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/schemas/client/untag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_schemas/client/#untag_resource)
         """
 
     def update_discoverer(
-        self, *, DiscovererId: str, Description: str = None, CrossAccount: bool = None
+        self, **kwargs: Unpack[UpdateDiscovererRequestTypeDef]
     ) -> UpdateDiscovererResponseTypeDef:
         """
-        Updates the discoverer See also: `AWS API Documentation
-        <https://docs.aws.amazon.com/goto/WebAPI/schemas-2019-12-02/UpdateDiscoverer>`_
-        **Request Syntax** response = client.update_discoverer( Description='string',
-        DiscovererId='string', CrossAccount=True|False ) ...
+        Updates the discoverer.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/schemas.html#Schemas.Client.update_discoverer)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_schemas/client.html#update_discoverer)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/schemas/client/update_discoverer.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_schemas/client/#update_discoverer)
         """
 
     def update_registry(
-        self, *, RegistryName: str, Description: str = None
+        self, **kwargs: Unpack[UpdateRegistryRequestTypeDef]
     ) -> UpdateRegistryResponseTypeDef:
         """
         Updates a registry.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/schemas.html#Schemas.Client.update_registry)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_schemas/client.html#update_registry)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/schemas/client/update_registry.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_schemas/client/#update_registry)
         """
 
     def update_schema(
-        self,
-        *,
-        RegistryName: str,
-        SchemaName: str,
-        ClientTokenId: str = None,
-        Content: str = None,
-        Description: str = None,
-        Type: TypeType = None
+        self, **kwargs: Unpack[UpdateSchemaRequestTypeDef]
     ) -> UpdateSchemaResponseTypeDef:
         """
-        Updates the schema definition .
+        Updates the schema definition.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/schemas.html#Schemas.Client.update_schema)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_schemas/client.html#update_schema)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/schemas/client/update_schema.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_schemas/client/#update_schema)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_discoverers"]
     ) -> ListDiscoverersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/schemas.html#Schemas.Paginator.ListDiscoverers)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_schemas/paginators.html#listdiscovererspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/schemas/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_schemas/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_registries"]) -> ListRegistriesPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_registries"]
+    ) -> ListRegistriesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/schemas.html#Schemas.Paginator.ListRegistries)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_schemas/paginators.html#listregistriespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/schemas/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_schemas/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_schema_versions"]
     ) -> ListSchemaVersionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/schemas.html#Schemas.Paginator.ListSchemaVersions)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_schemas/paginators.html#listschemaversionspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/schemas/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_schemas/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_schemas"]) -> ListSchemasPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_schemas"]
+    ) -> ListSchemasPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/schemas.html#Schemas.Paginator.ListSchemas)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_schemas/paginators.html#listschemaspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/schemas/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_schemas/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["search_schemas"]) -> SearchSchemasPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["search_schemas"]
+    ) -> SearchSchemasPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/schemas.html#Schemas.Paginator.SearchSchemas)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_schemas/paginators.html#searchschemaspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/schemas/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_schemas/client/#get_paginator)
         """
 
-    def get_waiter(self, waiter_name: Literal["code_binding_exists"]) -> CodeBindingExistsWaiter:
+    def get_waiter(  # type: ignore[override]
+        self, waiter_name: Literal["code_binding_exists"]
+    ) -> CodeBindingExistsWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/schemas.html#Schemas.Waiter.CodeBindingExists)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_schemas/waiters.html#codebindingexistswaiter)
+        Returns an object that can wait for some condition.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/schemas/client/get_waiter.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_schemas/client/#get_waiter)
         """

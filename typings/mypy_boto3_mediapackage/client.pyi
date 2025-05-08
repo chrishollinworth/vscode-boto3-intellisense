@@ -1,66 +1,83 @@
 """
-Type annotations for mediapackage service client.
+Type annotations for mediapackage service Client.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediapackage/client.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediapackage/client/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
-    from mypy_boto3_mediapackage import MediaPackageClient
+    from boto3.session import Session
+    from mypy_boto3_mediapackage.client import MediaPackageClient
 
-    client: MediaPackageClient = boto3.client("mediapackage")
+    session = Session()
+    client: MediaPackageClient = session.client("mediapackage")
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from typing import Any, Dict, List, Type, overload
+from typing import Any, overload
 
 from botocore.client import BaseClient, ClientMeta
+from botocore.errorfactory import BaseClientExceptions
+from botocore.exceptions import ClientError as BotocoreClientError
 
-from .literals import OriginationType
 from .paginator import ListChannelsPaginator, ListHarvestJobsPaginator, ListOriginEndpointsPaginator
 from .type_defs import (
-    AuthorizationTypeDef,
-    CmafPackageCreateOrUpdateParametersTypeDef,
+    ConfigureLogsRequestTypeDef,
     ConfigureLogsResponseTypeDef,
+    CreateChannelRequestTypeDef,
     CreateChannelResponseTypeDef,
+    CreateHarvestJobRequestTypeDef,
     CreateHarvestJobResponseTypeDef,
+    CreateOriginEndpointRequestTypeDef,
     CreateOriginEndpointResponseTypeDef,
-    DashPackageTypeDef,
+    DeleteChannelRequestTypeDef,
+    DeleteOriginEndpointRequestTypeDef,
+    DescribeChannelRequestTypeDef,
     DescribeChannelResponseTypeDef,
+    DescribeHarvestJobRequestTypeDef,
     DescribeHarvestJobResponseTypeDef,
+    DescribeOriginEndpointRequestTypeDef,
     DescribeOriginEndpointResponseTypeDef,
-    EgressAccessLogsTypeDef,
-    HlsPackageTypeDef,
-    IngressAccessLogsTypeDef,
+    EmptyResponseMetadataTypeDef,
+    ListChannelsRequestTypeDef,
     ListChannelsResponseTypeDef,
+    ListHarvestJobsRequestTypeDef,
     ListHarvestJobsResponseTypeDef,
+    ListOriginEndpointsRequestTypeDef,
     ListOriginEndpointsResponseTypeDef,
+    ListTagsForResourceRequestTypeDef,
     ListTagsForResourceResponseTypeDef,
-    MssPackageTypeDef,
+    RotateChannelCredentialsRequestTypeDef,
     RotateChannelCredentialsResponseTypeDef,
+    RotateIngestEndpointCredentialsRequestTypeDef,
     RotateIngestEndpointCredentialsResponseTypeDef,
-    S3DestinationTypeDef,
+    TagResourceRequestTypeDef,
+    UntagResourceRequestTypeDef,
+    UpdateChannelRequestTypeDef,
     UpdateChannelResponseTypeDef,
+    UpdateOriginEndpointRequestTypeDef,
     UpdateOriginEndpointResponseTypeDef,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import type as Type
+    from collections.abc import Mapping
 else:
-    from typing_extensions import Literal
+    from typing import Dict, Mapping, Type
+if sys.version_info >= (3, 12):
+    from typing import Literal, Unpack
+else:
+    from typing_extensions import Literal, Unpack
 
 __all__ = ("MediaPackageClient",)
 
-class BotocoreClientError(BaseException):
-    MSG_TEMPLATE: str
-
-    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
-        self.response: Dict[str, Any]
-        self.operation_name: str
-
-class Exceptions:
+class Exceptions(BaseClientExceptions):
     ClientError: Type[BotocoreClientError]
     ForbiddenException: Type[BotocoreClientError]
     InternalServerErrorException: Type[BotocoreClientError]
@@ -71,8 +88,8 @@ class Exceptions:
 
 class MediaPackageClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediapackage.html#MediaPackage.Client)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediapackage/client.html)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediapackage.html#MediaPackage.Client)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediapackage/client/)
     """
 
     meta: ClientMeta
@@ -81,283 +98,241 @@ class MediaPackageClient(BaseClient):
     def exceptions(self) -> Exceptions:
         """
         MediaPackageClient exceptions.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediapackage.html#MediaPackage.Client)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediapackage/client/#exceptions)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        Check if an operation can be paginated.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediapackage.html#MediaPackage.Client.can_paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediapackage/client.html#can_paginate)
-        """
-
-    def close(self) -> None:
-        """
-        Closes underlying endpoint connections.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediapackage.html#MediaPackage.Client.close)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediapackage/client.html#close)
-        """
-
-    def configure_logs(
-        self,
-        *,
-        Id: str,
-        EgressAccessLogs: "EgressAccessLogsTypeDef" = None,
-        IngressAccessLogs: "IngressAccessLogsTypeDef" = None
-    ) -> ConfigureLogsResponseTypeDef:
-        """
-        Changes the Channel's properities to configure log subscription See also: `AWS
-        API Documentation <https://docs.aws.amazon.com/goto/WebAPI/mediapackage-2017-10-
-        12/ConfigureLogs>`_ **Request Syntax** response = client.configure_logs(
-        EgressAccessLogs={ 'LogGroupName': 'stri...
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediapackage.html#MediaPackage.Client.configure_logs)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediapackage/client.html#configure_logs)
-        """
-
-    def create_channel(
-        self, *, Id: str, Description: str = None, Tags: Dict[str, str] = None
-    ) -> CreateChannelResponseTypeDef:
-        """
-        Creates a new Channel.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediapackage.html#MediaPackage.Client.create_channel)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediapackage/client.html#create_channel)
-        """
-
-    def create_harvest_job(
-        self,
-        *,
-        EndTime: str,
-        Id: str,
-        OriginEndpointId: str,
-        S3Destination: "S3DestinationTypeDef",
-        StartTime: str
-    ) -> CreateHarvestJobResponseTypeDef:
-        """
-        Creates a new HarvestJob record.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediapackage.html#MediaPackage.Client.create_harvest_job)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediapackage/client.html#create_harvest_job)
-        """
-
-    def create_origin_endpoint(
-        self,
-        *,
-        ChannelId: str,
-        Id: str,
-        Authorization: "AuthorizationTypeDef" = None,
-        CmafPackage: "CmafPackageCreateOrUpdateParametersTypeDef" = None,
-        DashPackage: "DashPackageTypeDef" = None,
-        Description: str = None,
-        HlsPackage: "HlsPackageTypeDef" = None,
-        ManifestName: str = None,
-        MssPackage: "MssPackageTypeDef" = None,
-        Origination: OriginationType = None,
-        StartoverWindowSeconds: int = None,
-        Tags: Dict[str, str] = None,
-        TimeDelaySeconds: int = None,
-        Whitelist: List[str] = None
-    ) -> CreateOriginEndpointResponseTypeDef:
-        """
-        Creates a new OriginEndpoint record.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediapackage.html#MediaPackage.Client.create_origin_endpoint)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediapackage/client.html#create_origin_endpoint)
-        """
-
-    def delete_channel(self, *, Id: str) -> Dict[str, Any]:
-        """
-        Deletes an existing Channel.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediapackage.html#MediaPackage.Client.delete_channel)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediapackage/client.html#delete_channel)
-        """
-
-    def delete_origin_endpoint(self, *, Id: str) -> Dict[str, Any]:
-        """
-        Deletes an existing OriginEndpoint.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediapackage.html#MediaPackage.Client.delete_origin_endpoint)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediapackage/client.html#delete_origin_endpoint)
-        """
-
-    def describe_channel(self, *, Id: str) -> DescribeChannelResponseTypeDef:
-        """
-        Gets details about a Channel.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediapackage.html#MediaPackage.Client.describe_channel)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediapackage/client.html#describe_channel)
-        """
-
-    def describe_harvest_job(self, *, Id: str) -> DescribeHarvestJobResponseTypeDef:
-        """
-        Gets details about an existing HarvestJob.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediapackage.html#MediaPackage.Client.describe_harvest_job)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediapackage/client.html#describe_harvest_job)
-        """
-
-    def describe_origin_endpoint(self, *, Id: str) -> DescribeOriginEndpointResponseTypeDef:
-        """
-        Gets details about an existing OriginEndpoint.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediapackage.html#MediaPackage.Client.describe_origin_endpoint)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediapackage/client.html#describe_origin_endpoint)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediapackage/client/can_paginate.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediapackage/client/#can_paginate)
         """
 
     def generate_presigned_url(
         self,
         ClientMethod: str,
-        Params: Dict[str, Any] = None,
+        Params: Mapping[str, Any] = ...,
         ExpiresIn: int = 3600,
-        HttpMethod: str = None,
+        HttpMethod: str = ...,
     ) -> str:
         """
-        Generate a presigned url given a client, its method, and arguments.
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediapackage/client/generate_presigned_url.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediapackage/client/#generate_presigned_url)
+        """
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediapackage.html#MediaPackage.Client.generate_presigned_url)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediapackage/client.html#generate_presigned_url)
+    def configure_logs(
+        self, **kwargs: Unpack[ConfigureLogsRequestTypeDef]
+    ) -> ConfigureLogsResponseTypeDef:
+        """
+        Changes the Channel's properities to configure log subscription.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediapackage/client/configure_logs.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediapackage/client/#configure_logs)
+        """
+
+    def create_channel(
+        self, **kwargs: Unpack[CreateChannelRequestTypeDef]
+    ) -> CreateChannelResponseTypeDef:
+        """
+        Creates a new Channel.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediapackage/client/create_channel.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediapackage/client/#create_channel)
+        """
+
+    def create_harvest_job(
+        self, **kwargs: Unpack[CreateHarvestJobRequestTypeDef]
+    ) -> CreateHarvestJobResponseTypeDef:
+        """
+        Creates a new HarvestJob record.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediapackage/client/create_harvest_job.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediapackage/client/#create_harvest_job)
+        """
+
+    def create_origin_endpoint(
+        self, **kwargs: Unpack[CreateOriginEndpointRequestTypeDef]
+    ) -> CreateOriginEndpointResponseTypeDef:
+        """
+        Creates a new OriginEndpoint record.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediapackage/client/create_origin_endpoint.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediapackage/client/#create_origin_endpoint)
+        """
+
+    def delete_channel(self, **kwargs: Unpack[DeleteChannelRequestTypeDef]) -> Dict[str, Any]:
+        """
+        Deletes an existing Channel.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediapackage/client/delete_channel.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediapackage/client/#delete_channel)
+        """
+
+    def delete_origin_endpoint(
+        self, **kwargs: Unpack[DeleteOriginEndpointRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Deletes an existing OriginEndpoint.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediapackage/client/delete_origin_endpoint.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediapackage/client/#delete_origin_endpoint)
+        """
+
+    def describe_channel(
+        self, **kwargs: Unpack[DescribeChannelRequestTypeDef]
+    ) -> DescribeChannelResponseTypeDef:
+        """
+        Gets details about a Channel.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediapackage/client/describe_channel.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediapackage/client/#describe_channel)
+        """
+
+    def describe_harvest_job(
+        self, **kwargs: Unpack[DescribeHarvestJobRequestTypeDef]
+    ) -> DescribeHarvestJobResponseTypeDef:
+        """
+        Gets details about an existing HarvestJob.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediapackage/client/describe_harvest_job.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediapackage/client/#describe_harvest_job)
+        """
+
+    def describe_origin_endpoint(
+        self, **kwargs: Unpack[DescribeOriginEndpointRequestTypeDef]
+    ) -> DescribeOriginEndpointResponseTypeDef:
+        """
+        Gets details about an existing OriginEndpoint.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediapackage/client/describe_origin_endpoint.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediapackage/client/#describe_origin_endpoint)
         """
 
     def list_channels(
-        self, *, MaxResults: int = None, NextToken: str = None
+        self, **kwargs: Unpack[ListChannelsRequestTypeDef]
     ) -> ListChannelsResponseTypeDef:
         """
         Returns a collection of Channels.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediapackage.html#MediaPackage.Client.list_channels)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediapackage/client.html#list_channels)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediapackage/client/list_channels.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediapackage/client/#list_channels)
         """
 
     def list_harvest_jobs(
-        self,
-        *,
-        IncludeChannelId: str = None,
-        IncludeStatus: str = None,
-        MaxResults: int = None,
-        NextToken: str = None
+        self, **kwargs: Unpack[ListHarvestJobsRequestTypeDef]
     ) -> ListHarvestJobsResponseTypeDef:
         """
         Returns a collection of HarvestJob records.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediapackage.html#MediaPackage.Client.list_harvest_jobs)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediapackage/client.html#list_harvest_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediapackage/client/list_harvest_jobs.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediapackage/client/#list_harvest_jobs)
         """
 
     def list_origin_endpoints(
-        self, *, ChannelId: str = None, MaxResults: int = None, NextToken: str = None
+        self, **kwargs: Unpack[ListOriginEndpointsRequestTypeDef]
     ) -> ListOriginEndpointsResponseTypeDef:
         """
         Returns a collection of OriginEndpoint records.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediapackage.html#MediaPackage.Client.list_origin_endpoints)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediapackage/client.html#list_origin_endpoints)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediapackage/client/list_origin_endpoints.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediapackage/client/#list_origin_endpoints)
         """
 
-    def list_tags_for_resource(self, *, ResourceArn: str) -> ListTagsForResourceResponseTypeDef:
+    def list_tags_for_resource(
+        self, **kwargs: Unpack[ListTagsForResourceRequestTypeDef]
+    ) -> ListTagsForResourceResponseTypeDef:
         """
-        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/mediap
-        ackage-2017-10-12/ListTagsForResource>`_ **Request Syntax** response =
-        client.list_tags_for_resource( ResourceArn='string' ).
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediapackage.html#MediaPackage.Client.list_tags_for_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediapackage/client.html#list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediapackage/client/list_tags_for_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediapackage/client/#list_tags_for_resource)
         """
 
-    def rotate_channel_credentials(self, *, Id: str) -> RotateChannelCredentialsResponseTypeDef:
+    def rotate_channel_credentials(
+        self, **kwargs: Unpack[RotateChannelCredentialsRequestTypeDef]
+    ) -> RotateChannelCredentialsResponseTypeDef:
         """
         Changes the Channel's first IngestEndpoint's username and password.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediapackage.html#MediaPackage.Client.rotate_channel_credentials)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediapackage/client.html#rotate_channel_credentials)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediapackage/client/rotate_channel_credentials.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediapackage/client/#rotate_channel_credentials)
         """
 
     def rotate_ingest_endpoint_credentials(
-        self, *, Id: str, IngestEndpointId: str
+        self, **kwargs: Unpack[RotateIngestEndpointCredentialsRequestTypeDef]
     ) -> RotateIngestEndpointCredentialsResponseTypeDef:
         """
         Rotate the IngestEndpoint's username and password, as specified by the
         IngestEndpoint's id.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediapackage.html#MediaPackage.Client.rotate_ingest_endpoint_credentials)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediapackage/client.html#rotate_ingest_endpoint_credentials)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediapackage/client/rotate_ingest_endpoint_credentials.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediapackage/client/#rotate_ingest_endpoint_credentials)
         """
 
-    def tag_resource(self, *, ResourceArn: str, Tags: Dict[str, str]) -> None:
+    def tag_resource(
+        self, **kwargs: Unpack[TagResourceRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
-        See also: `AWS API Documentation
-        <https://docs.aws.amazon.com/goto/WebAPI/mediapackage-2017-10-12/TagResource>`_
-        **Request Syntax** response = client.tag_resource( ResourceArn='string', Tags={
-        'string': 'string' } ).
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediapackage.html#MediaPackage.Client.tag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediapackage/client.html#tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediapackage/client/tag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediapackage/client/#tag_resource)
         """
 
-    def untag_resource(self, *, ResourceArn: str, TagKeys: List[str]) -> None:
+    def untag_resource(
+        self, **kwargs: Unpack[UntagResourceRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
-        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/mediap
-        ackage-2017-10-12/UntagResource>`_ **Request Syntax** response =
-        client.untag_resource( ResourceArn='string', TagKeys=[ 'string', ] ).
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediapackage.html#MediaPackage.Client.untag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediapackage/client.html#untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediapackage/client/untag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediapackage/client/#untag_resource)
         """
 
-    def update_channel(self, *, Id: str, Description: str = None) -> UpdateChannelResponseTypeDef:
+    def update_channel(
+        self, **kwargs: Unpack[UpdateChannelRequestTypeDef]
+    ) -> UpdateChannelResponseTypeDef:
         """
         Updates an existing Channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediapackage.html#MediaPackage.Client.update_channel)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediapackage/client.html#update_channel)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediapackage/client/update_channel.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediapackage/client/#update_channel)
         """
 
     def update_origin_endpoint(
-        self,
-        *,
-        Id: str,
-        Authorization: "AuthorizationTypeDef" = None,
-        CmafPackage: "CmafPackageCreateOrUpdateParametersTypeDef" = None,
-        DashPackage: "DashPackageTypeDef" = None,
-        Description: str = None,
-        HlsPackage: "HlsPackageTypeDef" = None,
-        ManifestName: str = None,
-        MssPackage: "MssPackageTypeDef" = None,
-        Origination: OriginationType = None,
-        StartoverWindowSeconds: int = None,
-        TimeDelaySeconds: int = None,
-        Whitelist: List[str] = None
+        self, **kwargs: Unpack[UpdateOriginEndpointRequestTypeDef]
     ) -> UpdateOriginEndpointResponseTypeDef:
         """
         Updates an existing OriginEndpoint.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediapackage.html#MediaPackage.Client.update_origin_endpoint)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediapackage/client.html#update_origin_endpoint)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediapackage/client/update_origin_endpoint.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediapackage/client/#update_origin_endpoint)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_channels"]) -> ListChannelsPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_channels"]
+    ) -> ListChannelsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediapackage.html#MediaPackage.Paginator.ListChannels)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediapackage/paginators.html#listchannelspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediapackage/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediapackage/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_harvest_jobs"]
     ) -> ListHarvestJobsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediapackage.html#MediaPackage.Paginator.ListHarvestJobs)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediapackage/paginators.html#listharvestjobspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediapackage/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediapackage/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_origin_endpoints"]
     ) -> ListOriginEndpointsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediapackage.html#MediaPackage.Paginator.ListOriginEndpoints)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediapackage/paginators.html#listoriginendpointspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediapackage/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediapackage/client/#get_paginator)
         """

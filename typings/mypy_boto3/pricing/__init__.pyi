@@ -1,10 +1,14 @@
 """
 Main interface for pricing service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_pricing/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_pricing import (
         Client,
         DescribeServicesPaginator,
@@ -14,10 +18,8 @@ Usage::
         PricingClient,
     )
 
-    session = boto3.Session()
-
-    client: PricingClient = boto3.client("pricing")
-    session_client: PricingClient = session.client("pricing")
+    session = Session()
+    client: PricingClient = session.client("pricing")
 
     describe_services_paginator: DescribeServicesPaginator = client.get_paginator("describe_services")
     get_attribute_values_paginator: GetAttributeValuesPaginator = client.get_paginator("get_attribute_values")

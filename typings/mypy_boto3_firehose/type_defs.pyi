@@ -1,20 +1,24 @@
 """
 Type annotations for firehose service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_firehose/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_firehose/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_firehose.type_defs import AmazonOpenSearchServerlessBufferingHintsTypeDef
 
-    data: AmazonOpenSearchServerlessBufferingHintsTypeDef = {...}
+    data: AmazonOpenSearchServerlessBufferingHintsTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import IO, Any, Dict, List, Union
+from typing import IO, Any, Union
 
 from botocore.response import StreamingBody
 
@@ -25,6 +29,7 @@ from .literals import (
     CompressionFormatType,
     ConnectivityType,
     ContentEncodingType,
+    DatabaseTypeType,
     DefaultDocumentIdFormatType,
     DeliveryStreamEncryptionStatusType,
     DeliveryStreamFailureTypeType,
@@ -34,6 +39,7 @@ from .literals import (
     ElasticsearchS3BackupModeType,
     HECEndpointTypeType,
     HttpEndpointS3BackupModeType,
+    IcebergS3BackupModeType,
     KeyTypeType,
     OrcCompressionType,
     OrcFormatVersionType,
@@ -43,19 +49,24 @@ from .literals import (
     ProcessorTypeType,
     RedshiftS3BackupModeType,
     S3BackupModeType,
+    SnapshotRequestedByType,
+    SnapshotStatusType,
     SnowflakeDataLoadingOptionType,
     SnowflakeS3BackupModeType,
     SplunkS3BackupModeType,
+    SSLModeType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
     "AmazonOpenSearchServerlessBufferingHintsTypeDef",
@@ -69,20 +80,45 @@ __all__ = (
     "AmazonopensearchserviceDestinationUpdateTypeDef",
     "AmazonopensearchserviceRetryOptionsTypeDef",
     "AuthenticationConfigurationTypeDef",
+    "BlobTypeDef",
     "BufferingHintsTypeDef",
+    "CatalogConfigurationTypeDef",
     "CloudWatchLoggingOptionsTypeDef",
     "CopyCommandTypeDef",
-    "CreateDeliveryStreamInputRequestTypeDef",
+    "CreateDeliveryStreamInputTypeDef",
     "CreateDeliveryStreamOutputTypeDef",
+    "DataFormatConversionConfigurationOutputTypeDef",
     "DataFormatConversionConfigurationTypeDef",
-    "DeleteDeliveryStreamInputRequestTypeDef",
+    "DataFormatConversionConfigurationUnionTypeDef",
+    "DatabaseColumnListOutputTypeDef",
+    "DatabaseColumnListTypeDef",
+    "DatabaseColumnListUnionTypeDef",
+    "DatabaseListOutputTypeDef",
+    "DatabaseListTypeDef",
+    "DatabaseListUnionTypeDef",
+    "DatabaseSnapshotInfoTypeDef",
+    "DatabaseSourceAuthenticationConfigurationTypeDef",
+    "DatabaseSourceConfigurationTypeDef",
+    "DatabaseSourceDescriptionTypeDef",
+    "DatabaseSourceVPCConfigurationTypeDef",
+    "DatabaseTableListOutputTypeDef",
+    "DatabaseTableListTypeDef",
+    "DatabaseTableListUnionTypeDef",
+    "DeleteDeliveryStreamInputTypeDef",
     "DeliveryStreamDescriptionTypeDef",
     "DeliveryStreamEncryptionConfigurationInputTypeDef",
     "DeliveryStreamEncryptionConfigurationTypeDef",
-    "DescribeDeliveryStreamInputRequestTypeDef",
+    "DescribeDeliveryStreamInputTypeDef",
     "DescribeDeliveryStreamOutputTypeDef",
+    "DeserializerOutputTypeDef",
     "DeserializerTypeDef",
+    "DeserializerUnionTypeDef",
     "DestinationDescriptionTypeDef",
+    "DestinationTableConfigurationOutputTypeDef",
+    "DestinationTableConfigurationTypeDef",
+    "DestinationTableConfigurationUnionTypeDef",
+    "DirectPutSourceConfigurationTypeDef",
+    "DirectPutSourceDescriptionTypeDef",
     "DocumentIdOptionsTypeDef",
     "DynamicPartitioningConfigurationTypeDef",
     "ElasticsearchBufferingHintsTypeDef",
@@ -95,7 +131,9 @@ __all__ = (
     "ExtendedS3DestinationDescriptionTypeDef",
     "ExtendedS3DestinationUpdateTypeDef",
     "FailureDescriptionTypeDef",
+    "HiveJsonSerDeOutputTypeDef",
     "HiveJsonSerDeTypeDef",
+    "HiveJsonSerDeUnionTypeDef",
     "HttpEndpointBufferingHintsTypeDef",
     "HttpEndpointCommonAttributeTypeDef",
     "HttpEndpointConfigurationTypeDef",
@@ -103,29 +141,50 @@ __all__ = (
     "HttpEndpointDestinationConfigurationTypeDef",
     "HttpEndpointDestinationDescriptionTypeDef",
     "HttpEndpointDestinationUpdateTypeDef",
+    "HttpEndpointRequestConfigurationOutputTypeDef",
     "HttpEndpointRequestConfigurationTypeDef",
+    "HttpEndpointRequestConfigurationUnionTypeDef",
     "HttpEndpointRetryOptionsTypeDef",
+    "IcebergDestinationConfigurationTypeDef",
+    "IcebergDestinationDescriptionTypeDef",
+    "IcebergDestinationUpdateTypeDef",
+    "InputFormatConfigurationOutputTypeDef",
     "InputFormatConfigurationTypeDef",
+    "InputFormatConfigurationUnionTypeDef",
     "KMSEncryptionConfigTypeDef",
     "KinesisStreamSourceConfigurationTypeDef",
     "KinesisStreamSourceDescriptionTypeDef",
-    "ListDeliveryStreamsInputRequestTypeDef",
+    "ListDeliveryStreamsInputTypeDef",
     "ListDeliveryStreamsOutputTypeDef",
-    "ListTagsForDeliveryStreamInputRequestTypeDef",
+    "ListTagsForDeliveryStreamInputTypeDef",
     "ListTagsForDeliveryStreamOutputTypeDef",
     "MSKSourceConfigurationTypeDef",
     "MSKSourceDescriptionTypeDef",
+    "OpenXJsonSerDeOutputTypeDef",
     "OpenXJsonSerDeTypeDef",
+    "OpenXJsonSerDeUnionTypeDef",
+    "OrcSerDeOutputTypeDef",
     "OrcSerDeTypeDef",
+    "OrcSerDeUnionTypeDef",
+    "OutputFormatConfigurationOutputTypeDef",
     "OutputFormatConfigurationTypeDef",
+    "OutputFormatConfigurationUnionTypeDef",
     "ParquetSerDeTypeDef",
+    "PartitionFieldTypeDef",
+    "PartitionSpecOutputTypeDef",
+    "PartitionSpecTypeDef",
+    "PartitionSpecUnionTypeDef",
+    "ProcessingConfigurationOutputTypeDef",
     "ProcessingConfigurationTypeDef",
+    "ProcessingConfigurationUnionTypeDef",
+    "ProcessorOutputTypeDef",
     "ProcessorParameterTypeDef",
     "ProcessorTypeDef",
-    "PutRecordBatchInputRequestTypeDef",
+    "ProcessorUnionTypeDef",
+    "PutRecordBatchInputTypeDef",
     "PutRecordBatchOutputTypeDef",
     "PutRecordBatchResponseEntryTypeDef",
-    "PutRecordInputRequestTypeDef",
+    "PutRecordInputTypeDef",
     "PutRecordOutputTypeDef",
     "RecordTypeDef",
     "RedshiftDestinationConfigurationTypeDef",
@@ -138,8 +197,12 @@ __all__ = (
     "S3DestinationDescriptionTypeDef",
     "S3DestinationUpdateTypeDef",
     "SchemaConfigurationTypeDef",
+    "SchemaEvolutionConfigurationTypeDef",
     "SecretsManagerConfigurationTypeDef",
+    "SerializerOutputTypeDef",
     "SerializerTypeDef",
+    "SerializerUnionTypeDef",
+    "SnowflakeBufferingHintsTypeDef",
     "SnowflakeDestinationConfigurationTypeDef",
     "SnowflakeDestinationDescriptionTypeDef",
     "SnowflakeDestinationUpdateTypeDef",
@@ -152,625 +215,115 @@ __all__ = (
     "SplunkDestinationDescriptionTypeDef",
     "SplunkDestinationUpdateTypeDef",
     "SplunkRetryOptionsTypeDef",
-    "StartDeliveryStreamEncryptionInputRequestTypeDef",
-    "StopDeliveryStreamEncryptionInputRequestTypeDef",
-    "TagDeliveryStreamInputRequestTypeDef",
+    "StartDeliveryStreamEncryptionInputTypeDef",
+    "StopDeliveryStreamEncryptionInputTypeDef",
+    "TableCreationConfigurationTypeDef",
+    "TagDeliveryStreamInputTypeDef",
     "TagTypeDef",
-    "UntagDeliveryStreamInputRequestTypeDef",
-    "UpdateDestinationInputRequestTypeDef",
+    "TimestampTypeDef",
+    "UntagDeliveryStreamInputTypeDef",
+    "UpdateDestinationInputTypeDef",
     "VpcConfigurationDescriptionTypeDef",
     "VpcConfigurationTypeDef",
 )
 
-AmazonOpenSearchServerlessBufferingHintsTypeDef = TypedDict(
-    "AmazonOpenSearchServerlessBufferingHintsTypeDef",
-    {
-        "IntervalInSeconds": int,
-        "SizeInMBs": int,
-    },
-    total=False,
-)
+class AmazonOpenSearchServerlessBufferingHintsTypeDef(TypedDict):
+    IntervalInSeconds: NotRequired[int]
+    SizeInMBs: NotRequired[int]
 
-_RequiredAmazonOpenSearchServerlessDestinationConfigurationTypeDef = TypedDict(
-    "_RequiredAmazonOpenSearchServerlessDestinationConfigurationTypeDef",
-    {
-        "RoleARN": str,
-        "IndexName": str,
-        "S3Configuration": "S3DestinationConfigurationTypeDef",
-    },
-)
-_OptionalAmazonOpenSearchServerlessDestinationConfigurationTypeDef = TypedDict(
-    "_OptionalAmazonOpenSearchServerlessDestinationConfigurationTypeDef",
-    {
-        "CollectionEndpoint": str,
-        "BufferingHints": "AmazonOpenSearchServerlessBufferingHintsTypeDef",
-        "RetryOptions": "AmazonOpenSearchServerlessRetryOptionsTypeDef",
-        "S3BackupMode": AmazonOpenSearchServerlessS3BackupModeType,
-        "ProcessingConfiguration": "ProcessingConfigurationTypeDef",
-        "CloudWatchLoggingOptions": "CloudWatchLoggingOptionsTypeDef",
-        "VpcConfiguration": "VpcConfigurationTypeDef",
-    },
-    total=False,
-)
+class AmazonOpenSearchServerlessRetryOptionsTypeDef(TypedDict):
+    DurationInSeconds: NotRequired[int]
 
-class AmazonOpenSearchServerlessDestinationConfigurationTypeDef(
-    _RequiredAmazonOpenSearchServerlessDestinationConfigurationTypeDef,
-    _OptionalAmazonOpenSearchServerlessDestinationConfigurationTypeDef,
-):
-    pass
+class CloudWatchLoggingOptionsTypeDef(TypedDict):
+    Enabled: NotRequired[bool]
+    LogGroupName: NotRequired[str]
+    LogStreamName: NotRequired[str]
 
-AmazonOpenSearchServerlessDestinationDescriptionTypeDef = TypedDict(
-    "AmazonOpenSearchServerlessDestinationDescriptionTypeDef",
-    {
-        "RoleARN": str,
-        "CollectionEndpoint": str,
-        "IndexName": str,
-        "BufferingHints": "AmazonOpenSearchServerlessBufferingHintsTypeDef",
-        "RetryOptions": "AmazonOpenSearchServerlessRetryOptionsTypeDef",
-        "S3BackupMode": AmazonOpenSearchServerlessS3BackupModeType,
-        "S3DestinationDescription": "S3DestinationDescriptionTypeDef",
-        "ProcessingConfiguration": "ProcessingConfigurationTypeDef",
-        "CloudWatchLoggingOptions": "CloudWatchLoggingOptionsTypeDef",
-        "VpcConfigurationDescription": "VpcConfigurationDescriptionTypeDef",
-    },
-    total=False,
-)
+class VpcConfigurationTypeDef(TypedDict):
+    SubnetIds: Sequence[str]
+    RoleARN: str
+    SecurityGroupIds: Sequence[str]
 
-AmazonOpenSearchServerlessDestinationUpdateTypeDef = TypedDict(
-    "AmazonOpenSearchServerlessDestinationUpdateTypeDef",
-    {
-        "RoleARN": str,
-        "CollectionEndpoint": str,
-        "IndexName": str,
-        "BufferingHints": "AmazonOpenSearchServerlessBufferingHintsTypeDef",
-        "RetryOptions": "AmazonOpenSearchServerlessRetryOptionsTypeDef",
-        "S3Update": "S3DestinationUpdateTypeDef",
-        "ProcessingConfiguration": "ProcessingConfigurationTypeDef",
-        "CloudWatchLoggingOptions": "CloudWatchLoggingOptionsTypeDef",
-    },
-    total=False,
-)
+class VpcConfigurationDescriptionTypeDef(TypedDict):
+    SubnetIds: List[str]
+    RoleARN: str
+    SecurityGroupIds: List[str]
+    VpcId: str
 
-AmazonOpenSearchServerlessRetryOptionsTypeDef = TypedDict(
-    "AmazonOpenSearchServerlessRetryOptionsTypeDef",
-    {
-        "DurationInSeconds": int,
-    },
-    total=False,
-)
+class AmazonopensearchserviceBufferingHintsTypeDef(TypedDict):
+    IntervalInSeconds: NotRequired[int]
+    SizeInMBs: NotRequired[int]
 
-AmazonopensearchserviceBufferingHintsTypeDef = TypedDict(
-    "AmazonopensearchserviceBufferingHintsTypeDef",
-    {
-        "IntervalInSeconds": int,
-        "SizeInMBs": int,
-    },
-    total=False,
-)
+class AmazonopensearchserviceRetryOptionsTypeDef(TypedDict):
+    DurationInSeconds: NotRequired[int]
 
-_RequiredAmazonopensearchserviceDestinationConfigurationTypeDef = TypedDict(
-    "_RequiredAmazonopensearchserviceDestinationConfigurationTypeDef",
-    {
-        "RoleARN": str,
-        "IndexName": str,
-        "S3Configuration": "S3DestinationConfigurationTypeDef",
-    },
-)
-_OptionalAmazonopensearchserviceDestinationConfigurationTypeDef = TypedDict(
-    "_OptionalAmazonopensearchserviceDestinationConfigurationTypeDef",
-    {
-        "DomainARN": str,
-        "ClusterEndpoint": str,
-        "TypeName": str,
-        "IndexRotationPeriod": AmazonopensearchserviceIndexRotationPeriodType,
-        "BufferingHints": "AmazonopensearchserviceBufferingHintsTypeDef",
-        "RetryOptions": "AmazonopensearchserviceRetryOptionsTypeDef",
-        "S3BackupMode": AmazonopensearchserviceS3BackupModeType,
-        "ProcessingConfiguration": "ProcessingConfigurationTypeDef",
-        "CloudWatchLoggingOptions": "CloudWatchLoggingOptionsTypeDef",
-        "VpcConfiguration": "VpcConfigurationTypeDef",
-        "DocumentIdOptions": "DocumentIdOptionsTypeDef",
-    },
-    total=False,
-)
+class DocumentIdOptionsTypeDef(TypedDict):
+    DefaultDocumentIdFormat: DefaultDocumentIdFormatType
 
-class AmazonopensearchserviceDestinationConfigurationTypeDef(
-    _RequiredAmazonopensearchserviceDestinationConfigurationTypeDef,
-    _OptionalAmazonopensearchserviceDestinationConfigurationTypeDef,
-):
-    pass
+class AuthenticationConfigurationTypeDef(TypedDict):
+    RoleARN: str
+    Connectivity: ConnectivityType
 
-AmazonopensearchserviceDestinationDescriptionTypeDef = TypedDict(
-    "AmazonopensearchserviceDestinationDescriptionTypeDef",
-    {
-        "RoleARN": str,
-        "DomainARN": str,
-        "ClusterEndpoint": str,
-        "IndexName": str,
-        "TypeName": str,
-        "IndexRotationPeriod": AmazonopensearchserviceIndexRotationPeriodType,
-        "BufferingHints": "AmazonopensearchserviceBufferingHintsTypeDef",
-        "RetryOptions": "AmazonopensearchserviceRetryOptionsTypeDef",
-        "S3BackupMode": AmazonopensearchserviceS3BackupModeType,
-        "S3DestinationDescription": "S3DestinationDescriptionTypeDef",
-        "ProcessingConfiguration": "ProcessingConfigurationTypeDef",
-        "CloudWatchLoggingOptions": "CloudWatchLoggingOptionsTypeDef",
-        "VpcConfigurationDescription": "VpcConfigurationDescriptionTypeDef",
-        "DocumentIdOptions": "DocumentIdOptionsTypeDef",
-    },
-    total=False,
-)
+BlobTypeDef = Union[str, bytes, IO[Any], StreamingBody]
 
-AmazonopensearchserviceDestinationUpdateTypeDef = TypedDict(
-    "AmazonopensearchserviceDestinationUpdateTypeDef",
-    {
-        "RoleARN": str,
-        "DomainARN": str,
-        "ClusterEndpoint": str,
-        "IndexName": str,
-        "TypeName": str,
-        "IndexRotationPeriod": AmazonopensearchserviceIndexRotationPeriodType,
-        "BufferingHints": "AmazonopensearchserviceBufferingHintsTypeDef",
-        "RetryOptions": "AmazonopensearchserviceRetryOptionsTypeDef",
-        "S3Update": "S3DestinationUpdateTypeDef",
-        "ProcessingConfiguration": "ProcessingConfigurationTypeDef",
-        "CloudWatchLoggingOptions": "CloudWatchLoggingOptionsTypeDef",
-        "DocumentIdOptions": "DocumentIdOptionsTypeDef",
-    },
-    total=False,
-)
+class BufferingHintsTypeDef(TypedDict):
+    SizeInMBs: NotRequired[int]
+    IntervalInSeconds: NotRequired[int]
 
-AmazonopensearchserviceRetryOptionsTypeDef = TypedDict(
-    "AmazonopensearchserviceRetryOptionsTypeDef",
-    {
-        "DurationInSeconds": int,
-    },
-    total=False,
-)
+class CatalogConfigurationTypeDef(TypedDict):
+    CatalogARN: NotRequired[str]
+    WarehouseLocation: NotRequired[str]
 
-AuthenticationConfigurationTypeDef = TypedDict(
-    "AuthenticationConfigurationTypeDef",
-    {
-        "RoleARN": str,
-        "Connectivity": ConnectivityType,
-    },
-)
+class CopyCommandTypeDef(TypedDict):
+    DataTableName: str
+    DataTableColumns: NotRequired[str]
+    CopyOptions: NotRequired[str]
 
-BufferingHintsTypeDef = TypedDict(
-    "BufferingHintsTypeDef",
-    {
-        "SizeInMBs": int,
-        "IntervalInSeconds": int,
-    },
-    total=False,
-)
+class DeliveryStreamEncryptionConfigurationInputTypeDef(TypedDict):
+    KeyType: KeyTypeType
+    KeyARN: NotRequired[str]
 
-CloudWatchLoggingOptionsTypeDef = TypedDict(
-    "CloudWatchLoggingOptionsTypeDef",
-    {
-        "Enabled": bool,
-        "LogGroupName": str,
-        "LogStreamName": str,
-    },
-    total=False,
-)
+class DirectPutSourceConfigurationTypeDef(TypedDict):
+    ThroughputHintInMBs: int
 
-_RequiredCopyCommandTypeDef = TypedDict(
-    "_RequiredCopyCommandTypeDef",
-    {
-        "DataTableName": str,
-    },
-)
-_OptionalCopyCommandTypeDef = TypedDict(
-    "_OptionalCopyCommandTypeDef",
-    {
-        "DataTableColumns": str,
-        "CopyOptions": str,
-    },
-    total=False,
-)
+class KinesisStreamSourceConfigurationTypeDef(TypedDict):
+    KinesisStreamARN: str
+    RoleARN: str
 
-class CopyCommandTypeDef(_RequiredCopyCommandTypeDef, _OptionalCopyCommandTypeDef):
-    pass
+class TagTypeDef(TypedDict):
+    Key: str
+    Value: NotRequired[str]
 
-_RequiredCreateDeliveryStreamInputRequestTypeDef = TypedDict(
-    "_RequiredCreateDeliveryStreamInputRequestTypeDef",
-    {
-        "DeliveryStreamName": str,
-    },
-)
-_OptionalCreateDeliveryStreamInputRequestTypeDef = TypedDict(
-    "_OptionalCreateDeliveryStreamInputRequestTypeDef",
-    {
-        "DeliveryStreamType": DeliveryStreamTypeType,
-        "KinesisStreamSourceConfiguration": "KinesisStreamSourceConfigurationTypeDef",
-        "DeliveryStreamEncryptionConfigurationInput": "DeliveryStreamEncryptionConfigurationInputTypeDef",
-        "S3DestinationConfiguration": "S3DestinationConfigurationTypeDef",
-        "ExtendedS3DestinationConfiguration": "ExtendedS3DestinationConfigurationTypeDef",
-        "RedshiftDestinationConfiguration": "RedshiftDestinationConfigurationTypeDef",
-        "ElasticsearchDestinationConfiguration": "ElasticsearchDestinationConfigurationTypeDef",
-        "AmazonopensearchserviceDestinationConfiguration": "AmazonopensearchserviceDestinationConfigurationTypeDef",
-        "SplunkDestinationConfiguration": "SplunkDestinationConfigurationTypeDef",
-        "HttpEndpointDestinationConfiguration": "HttpEndpointDestinationConfigurationTypeDef",
-        "Tags": List["TagTypeDef"],
-        "AmazonOpenSearchServerlessDestinationConfiguration": "AmazonOpenSearchServerlessDestinationConfigurationTypeDef",
-        "MSKSourceConfiguration": "MSKSourceConfigurationTypeDef",
-        "SnowflakeDestinationConfiguration": "SnowflakeDestinationConfigurationTypeDef",
-    },
-    total=False,
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-class CreateDeliveryStreamInputRequestTypeDef(
-    _RequiredCreateDeliveryStreamInputRequestTypeDef,
-    _OptionalCreateDeliveryStreamInputRequestTypeDef,
-):
-    pass
+class SchemaConfigurationTypeDef(TypedDict):
+    RoleARN: NotRequired[str]
+    CatalogId: NotRequired[str]
+    DatabaseName: NotRequired[str]
+    TableName: NotRequired[str]
+    Region: NotRequired[str]
+    VersionId: NotRequired[str]
 
-CreateDeliveryStreamOutputTypeDef = TypedDict(
-    "CreateDeliveryStreamOutputTypeDef",
-    {
-        "DeliveryStreamARN": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DatabaseColumnListOutputTypeDef(TypedDict):
+    Include: NotRequired[List[str]]
+    Exclude: NotRequired[List[str]]
 
-DataFormatConversionConfigurationTypeDef = TypedDict(
-    "DataFormatConversionConfigurationTypeDef",
-    {
-        "SchemaConfiguration": "SchemaConfigurationTypeDef",
-        "InputFormatConfiguration": "InputFormatConfigurationTypeDef",
-        "OutputFormatConfiguration": "OutputFormatConfigurationTypeDef",
-        "Enabled": bool,
-    },
-    total=False,
-)
+class DatabaseColumnListTypeDef(TypedDict):
+    Include: NotRequired[Sequence[str]]
+    Exclude: NotRequired[Sequence[str]]
 
-_RequiredDeleteDeliveryStreamInputRequestTypeDef = TypedDict(
-    "_RequiredDeleteDeliveryStreamInputRequestTypeDef",
-    {
-        "DeliveryStreamName": str,
-    },
-)
-_OptionalDeleteDeliveryStreamInputRequestTypeDef = TypedDict(
-    "_OptionalDeleteDeliveryStreamInputRequestTypeDef",
-    {
-        "AllowForceDelete": bool,
-    },
-    total=False,
-)
+class DatabaseListOutputTypeDef(TypedDict):
+    Include: NotRequired[List[str]]
+    Exclude: NotRequired[List[str]]
 
-class DeleteDeliveryStreamInputRequestTypeDef(
-    _RequiredDeleteDeliveryStreamInputRequestTypeDef,
-    _OptionalDeleteDeliveryStreamInputRequestTypeDef,
-):
-    pass
-
-_RequiredDeliveryStreamDescriptionTypeDef = TypedDict(
-    "_RequiredDeliveryStreamDescriptionTypeDef",
-    {
-        "DeliveryStreamName": str,
-        "DeliveryStreamARN": str,
-        "DeliveryStreamStatus": DeliveryStreamStatusType,
-        "DeliveryStreamType": DeliveryStreamTypeType,
-        "VersionId": str,
-        "Destinations": List["DestinationDescriptionTypeDef"],
-        "HasMoreDestinations": bool,
-    },
-)
-_OptionalDeliveryStreamDescriptionTypeDef = TypedDict(
-    "_OptionalDeliveryStreamDescriptionTypeDef",
-    {
-        "FailureDescription": "FailureDescriptionTypeDef",
-        "DeliveryStreamEncryptionConfiguration": "DeliveryStreamEncryptionConfigurationTypeDef",
-        "CreateTimestamp": datetime,
-        "LastUpdateTimestamp": datetime,
-        "Source": "SourceDescriptionTypeDef",
-    },
-    total=False,
-)
-
-class DeliveryStreamDescriptionTypeDef(
-    _RequiredDeliveryStreamDescriptionTypeDef, _OptionalDeliveryStreamDescriptionTypeDef
-):
-    pass
-
-_RequiredDeliveryStreamEncryptionConfigurationInputTypeDef = TypedDict(
-    "_RequiredDeliveryStreamEncryptionConfigurationInputTypeDef",
-    {
-        "KeyType": KeyTypeType,
-    },
-)
-_OptionalDeliveryStreamEncryptionConfigurationInputTypeDef = TypedDict(
-    "_OptionalDeliveryStreamEncryptionConfigurationInputTypeDef",
-    {
-        "KeyARN": str,
-    },
-    total=False,
-)
-
-class DeliveryStreamEncryptionConfigurationInputTypeDef(
-    _RequiredDeliveryStreamEncryptionConfigurationInputTypeDef,
-    _OptionalDeliveryStreamEncryptionConfigurationInputTypeDef,
-):
-    pass
-
-DeliveryStreamEncryptionConfigurationTypeDef = TypedDict(
-    "DeliveryStreamEncryptionConfigurationTypeDef",
-    {
-        "KeyARN": str,
-        "KeyType": KeyTypeType,
-        "Status": DeliveryStreamEncryptionStatusType,
-        "FailureDescription": "FailureDescriptionTypeDef",
-    },
-    total=False,
-)
-
-_RequiredDescribeDeliveryStreamInputRequestTypeDef = TypedDict(
-    "_RequiredDescribeDeliveryStreamInputRequestTypeDef",
-    {
-        "DeliveryStreamName": str,
-    },
-)
-_OptionalDescribeDeliveryStreamInputRequestTypeDef = TypedDict(
-    "_OptionalDescribeDeliveryStreamInputRequestTypeDef",
-    {
-        "Limit": int,
-        "ExclusiveStartDestinationId": str,
-    },
-    total=False,
-)
-
-class DescribeDeliveryStreamInputRequestTypeDef(
-    _RequiredDescribeDeliveryStreamInputRequestTypeDef,
-    _OptionalDescribeDeliveryStreamInputRequestTypeDef,
-):
-    pass
-
-DescribeDeliveryStreamOutputTypeDef = TypedDict(
-    "DescribeDeliveryStreamOutputTypeDef",
-    {
-        "DeliveryStreamDescription": "DeliveryStreamDescriptionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeserializerTypeDef = TypedDict(
-    "DeserializerTypeDef",
-    {
-        "OpenXJsonSerDe": "OpenXJsonSerDeTypeDef",
-        "HiveJsonSerDe": "HiveJsonSerDeTypeDef",
-    },
-    total=False,
-)
-
-_RequiredDestinationDescriptionTypeDef = TypedDict(
-    "_RequiredDestinationDescriptionTypeDef",
-    {
-        "DestinationId": str,
-    },
-)
-_OptionalDestinationDescriptionTypeDef = TypedDict(
-    "_OptionalDestinationDescriptionTypeDef",
-    {
-        "S3DestinationDescription": "S3DestinationDescriptionTypeDef",
-        "ExtendedS3DestinationDescription": "ExtendedS3DestinationDescriptionTypeDef",
-        "RedshiftDestinationDescription": "RedshiftDestinationDescriptionTypeDef",
-        "ElasticsearchDestinationDescription": "ElasticsearchDestinationDescriptionTypeDef",
-        "AmazonopensearchserviceDestinationDescription": "AmazonopensearchserviceDestinationDescriptionTypeDef",
-        "SplunkDestinationDescription": "SplunkDestinationDescriptionTypeDef",
-        "HttpEndpointDestinationDescription": "HttpEndpointDestinationDescriptionTypeDef",
-        "SnowflakeDestinationDescription": "SnowflakeDestinationDescriptionTypeDef",
-        "AmazonOpenSearchServerlessDestinationDescription": "AmazonOpenSearchServerlessDestinationDescriptionTypeDef",
-    },
-    total=False,
-)
-
-class DestinationDescriptionTypeDef(
-    _RequiredDestinationDescriptionTypeDef, _OptionalDestinationDescriptionTypeDef
-):
-    pass
-
-DocumentIdOptionsTypeDef = TypedDict(
-    "DocumentIdOptionsTypeDef",
-    {
-        "DefaultDocumentIdFormat": DefaultDocumentIdFormatType,
-    },
-)
-
-DynamicPartitioningConfigurationTypeDef = TypedDict(
-    "DynamicPartitioningConfigurationTypeDef",
-    {
-        "RetryOptions": "RetryOptionsTypeDef",
-        "Enabled": bool,
-    },
-    total=False,
-)
-
-ElasticsearchBufferingHintsTypeDef = TypedDict(
-    "ElasticsearchBufferingHintsTypeDef",
-    {
-        "IntervalInSeconds": int,
-        "SizeInMBs": int,
-    },
-    total=False,
-)
-
-_RequiredElasticsearchDestinationConfigurationTypeDef = TypedDict(
-    "_RequiredElasticsearchDestinationConfigurationTypeDef",
-    {
-        "RoleARN": str,
-        "IndexName": str,
-        "S3Configuration": "S3DestinationConfigurationTypeDef",
-    },
-)
-_OptionalElasticsearchDestinationConfigurationTypeDef = TypedDict(
-    "_OptionalElasticsearchDestinationConfigurationTypeDef",
-    {
-        "DomainARN": str,
-        "ClusterEndpoint": str,
-        "TypeName": str,
-        "IndexRotationPeriod": ElasticsearchIndexRotationPeriodType,
-        "BufferingHints": "ElasticsearchBufferingHintsTypeDef",
-        "RetryOptions": "ElasticsearchRetryOptionsTypeDef",
-        "S3BackupMode": ElasticsearchS3BackupModeType,
-        "ProcessingConfiguration": "ProcessingConfigurationTypeDef",
-        "CloudWatchLoggingOptions": "CloudWatchLoggingOptionsTypeDef",
-        "VpcConfiguration": "VpcConfigurationTypeDef",
-        "DocumentIdOptions": "DocumentIdOptionsTypeDef",
-    },
-    total=False,
-)
-
-class ElasticsearchDestinationConfigurationTypeDef(
-    _RequiredElasticsearchDestinationConfigurationTypeDef,
-    _OptionalElasticsearchDestinationConfigurationTypeDef,
-):
-    pass
-
-ElasticsearchDestinationDescriptionTypeDef = TypedDict(
-    "ElasticsearchDestinationDescriptionTypeDef",
-    {
-        "RoleARN": str,
-        "DomainARN": str,
-        "ClusterEndpoint": str,
-        "IndexName": str,
-        "TypeName": str,
-        "IndexRotationPeriod": ElasticsearchIndexRotationPeriodType,
-        "BufferingHints": "ElasticsearchBufferingHintsTypeDef",
-        "RetryOptions": "ElasticsearchRetryOptionsTypeDef",
-        "S3BackupMode": ElasticsearchS3BackupModeType,
-        "S3DestinationDescription": "S3DestinationDescriptionTypeDef",
-        "ProcessingConfiguration": "ProcessingConfigurationTypeDef",
-        "CloudWatchLoggingOptions": "CloudWatchLoggingOptionsTypeDef",
-        "VpcConfigurationDescription": "VpcConfigurationDescriptionTypeDef",
-        "DocumentIdOptions": "DocumentIdOptionsTypeDef",
-    },
-    total=False,
-)
-
-ElasticsearchDestinationUpdateTypeDef = TypedDict(
-    "ElasticsearchDestinationUpdateTypeDef",
-    {
-        "RoleARN": str,
-        "DomainARN": str,
-        "ClusterEndpoint": str,
-        "IndexName": str,
-        "TypeName": str,
-        "IndexRotationPeriod": ElasticsearchIndexRotationPeriodType,
-        "BufferingHints": "ElasticsearchBufferingHintsTypeDef",
-        "RetryOptions": "ElasticsearchRetryOptionsTypeDef",
-        "S3Update": "S3DestinationUpdateTypeDef",
-        "ProcessingConfiguration": "ProcessingConfigurationTypeDef",
-        "CloudWatchLoggingOptions": "CloudWatchLoggingOptionsTypeDef",
-        "DocumentIdOptions": "DocumentIdOptionsTypeDef",
-    },
-    total=False,
-)
-
-ElasticsearchRetryOptionsTypeDef = TypedDict(
-    "ElasticsearchRetryOptionsTypeDef",
-    {
-        "DurationInSeconds": int,
-    },
-    total=False,
-)
-
-EncryptionConfigurationTypeDef = TypedDict(
-    "EncryptionConfigurationTypeDef",
-    {
-        "NoEncryptionConfig": Literal["NoEncryption"],
-        "KMSEncryptionConfig": "KMSEncryptionConfigTypeDef",
-    },
-    total=False,
-)
-
-_RequiredExtendedS3DestinationConfigurationTypeDef = TypedDict(
-    "_RequiredExtendedS3DestinationConfigurationTypeDef",
-    {
-        "RoleARN": str,
-        "BucketARN": str,
-    },
-)
-_OptionalExtendedS3DestinationConfigurationTypeDef = TypedDict(
-    "_OptionalExtendedS3DestinationConfigurationTypeDef",
-    {
-        "Prefix": str,
-        "ErrorOutputPrefix": str,
-        "BufferingHints": "BufferingHintsTypeDef",
-        "CompressionFormat": CompressionFormatType,
-        "EncryptionConfiguration": "EncryptionConfigurationTypeDef",
-        "CloudWatchLoggingOptions": "CloudWatchLoggingOptionsTypeDef",
-        "ProcessingConfiguration": "ProcessingConfigurationTypeDef",
-        "S3BackupMode": S3BackupModeType,
-        "S3BackupConfiguration": "S3DestinationConfigurationTypeDef",
-        "DataFormatConversionConfiguration": "DataFormatConversionConfigurationTypeDef",
-        "DynamicPartitioningConfiguration": "DynamicPartitioningConfigurationTypeDef",
-        "FileExtension": str,
-        "CustomTimeZone": str,
-    },
-    total=False,
-)
-
-class ExtendedS3DestinationConfigurationTypeDef(
-    _RequiredExtendedS3DestinationConfigurationTypeDef,
-    _OptionalExtendedS3DestinationConfigurationTypeDef,
-):
-    pass
-
-_RequiredExtendedS3DestinationDescriptionTypeDef = TypedDict(
-    "_RequiredExtendedS3DestinationDescriptionTypeDef",
-    {
-        "RoleARN": str,
-        "BucketARN": str,
-        "BufferingHints": "BufferingHintsTypeDef",
-        "CompressionFormat": CompressionFormatType,
-        "EncryptionConfiguration": "EncryptionConfigurationTypeDef",
-    },
-)
-_OptionalExtendedS3DestinationDescriptionTypeDef = TypedDict(
-    "_OptionalExtendedS3DestinationDescriptionTypeDef",
-    {
-        "Prefix": str,
-        "ErrorOutputPrefix": str,
-        "CloudWatchLoggingOptions": "CloudWatchLoggingOptionsTypeDef",
-        "ProcessingConfiguration": "ProcessingConfigurationTypeDef",
-        "S3BackupMode": S3BackupModeType,
-        "S3BackupDescription": "S3DestinationDescriptionTypeDef",
-        "DataFormatConversionConfiguration": "DataFormatConversionConfigurationTypeDef",
-        "DynamicPartitioningConfiguration": "DynamicPartitioningConfigurationTypeDef",
-        "FileExtension": str,
-        "CustomTimeZone": str,
-    },
-    total=False,
-)
-
-class ExtendedS3DestinationDescriptionTypeDef(
-    _RequiredExtendedS3DestinationDescriptionTypeDef,
-    _OptionalExtendedS3DestinationDescriptionTypeDef,
-):
-    pass
-
-ExtendedS3DestinationUpdateTypeDef = TypedDict(
-    "ExtendedS3DestinationUpdateTypeDef",
-    {
-        "RoleARN": str,
-        "BucketARN": str,
-        "Prefix": str,
-        "ErrorOutputPrefix": str,
-        "BufferingHints": "BufferingHintsTypeDef",
-        "CompressionFormat": CompressionFormatType,
-        "EncryptionConfiguration": "EncryptionConfigurationTypeDef",
-        "CloudWatchLoggingOptions": "CloudWatchLoggingOptionsTypeDef",
-        "ProcessingConfiguration": "ProcessingConfigurationTypeDef",
-        "S3BackupMode": S3BackupModeType,
-        "S3BackupUpdate": "S3DestinationUpdateTypeDef",
-        "DataFormatConversionConfiguration": "DataFormatConversionConfigurationTypeDef",
-        "DynamicPartitioningConfiguration": "DynamicPartitioningConfigurationTypeDef",
-        "FileExtension": str,
-        "CustomTimeZone": str,
-    },
-    total=False,
-)
+class DatabaseListTypeDef(TypedDict):
+    Include: NotRequired[Sequence[str]]
+    Exclude: NotRequired[Sequence[str]]
 
 FailureDescriptionTypeDef = TypedDict(
     "FailureDescriptionTypeDef",
@@ -780,890 +333,944 @@ FailureDescriptionTypeDef = TypedDict(
     },
 )
 
-HiveJsonSerDeTypeDef = TypedDict(
-    "HiveJsonSerDeTypeDef",
-    {
-        "TimestampFormats": List[str],
-    },
-    total=False,
-)
+class SecretsManagerConfigurationTypeDef(TypedDict):
+    Enabled: bool
+    SecretARN: NotRequired[str]
+    RoleARN: NotRequired[str]
 
-HttpEndpointBufferingHintsTypeDef = TypedDict(
-    "HttpEndpointBufferingHintsTypeDef",
-    {
-        "SizeInMBs": int,
-        "IntervalInSeconds": int,
-    },
-    total=False,
-)
+class DatabaseSourceVPCConfigurationTypeDef(TypedDict):
+    VpcEndpointServiceName: str
 
-HttpEndpointCommonAttributeTypeDef = TypedDict(
-    "HttpEndpointCommonAttributeTypeDef",
-    {
-        "AttributeName": str,
-        "AttributeValue": str,
-    },
-)
+class DatabaseTableListOutputTypeDef(TypedDict):
+    Include: NotRequired[List[str]]
+    Exclude: NotRequired[List[str]]
 
-_RequiredHttpEndpointConfigurationTypeDef = TypedDict(
-    "_RequiredHttpEndpointConfigurationTypeDef",
-    {
-        "Url": str,
-    },
-)
-_OptionalHttpEndpointConfigurationTypeDef = TypedDict(
-    "_OptionalHttpEndpointConfigurationTypeDef",
-    {
-        "Name": str,
-        "AccessKey": str,
-    },
-    total=False,
-)
+class DatabaseTableListTypeDef(TypedDict):
+    Include: NotRequired[Sequence[str]]
+    Exclude: NotRequired[Sequence[str]]
 
-class HttpEndpointConfigurationTypeDef(
-    _RequiredHttpEndpointConfigurationTypeDef, _OptionalHttpEndpointConfigurationTypeDef
-):
-    pass
+class DeleteDeliveryStreamInputTypeDef(TypedDict):
+    DeliveryStreamName: str
+    AllowForceDelete: NotRequired[bool]
 
-HttpEndpointDescriptionTypeDef = TypedDict(
-    "HttpEndpointDescriptionTypeDef",
-    {
-        "Url": str,
-        "Name": str,
-    },
-    total=False,
-)
+class DescribeDeliveryStreamInputTypeDef(TypedDict):
+    DeliveryStreamName: str
+    Limit: NotRequired[int]
+    ExclusiveStartDestinationId: NotRequired[str]
 
-_RequiredHttpEndpointDestinationConfigurationTypeDef = TypedDict(
-    "_RequiredHttpEndpointDestinationConfigurationTypeDef",
-    {
-        "EndpointConfiguration": "HttpEndpointConfigurationTypeDef",
-        "S3Configuration": "S3DestinationConfigurationTypeDef",
-    },
-)
-_OptionalHttpEndpointDestinationConfigurationTypeDef = TypedDict(
-    "_OptionalHttpEndpointDestinationConfigurationTypeDef",
-    {
-        "BufferingHints": "HttpEndpointBufferingHintsTypeDef",
-        "CloudWatchLoggingOptions": "CloudWatchLoggingOptionsTypeDef",
-        "RequestConfiguration": "HttpEndpointRequestConfigurationTypeDef",
-        "ProcessingConfiguration": "ProcessingConfigurationTypeDef",
-        "RoleARN": str,
-        "RetryOptions": "HttpEndpointRetryOptionsTypeDef",
-        "S3BackupMode": HttpEndpointS3BackupModeType,
-        "SecretsManagerConfiguration": "SecretsManagerConfigurationTypeDef",
-    },
-    total=False,
-)
+class HiveJsonSerDeOutputTypeDef(TypedDict):
+    TimestampFormats: NotRequired[List[str]]
 
-class HttpEndpointDestinationConfigurationTypeDef(
-    _RequiredHttpEndpointDestinationConfigurationTypeDef,
-    _OptionalHttpEndpointDestinationConfigurationTypeDef,
-):
-    pass
+class OpenXJsonSerDeOutputTypeDef(TypedDict):
+    ConvertDotsInJsonKeysToUnderscores: NotRequired[bool]
+    CaseInsensitive: NotRequired[bool]
+    ColumnToJsonKeyMappings: NotRequired[Dict[str, str]]
 
-HttpEndpointDestinationDescriptionTypeDef = TypedDict(
-    "HttpEndpointDestinationDescriptionTypeDef",
-    {
-        "EndpointConfiguration": "HttpEndpointDescriptionTypeDef",
-        "BufferingHints": "HttpEndpointBufferingHintsTypeDef",
-        "CloudWatchLoggingOptions": "CloudWatchLoggingOptionsTypeDef",
-        "RequestConfiguration": "HttpEndpointRequestConfigurationTypeDef",
-        "ProcessingConfiguration": "ProcessingConfigurationTypeDef",
-        "RoleARN": str,
-        "RetryOptions": "HttpEndpointRetryOptionsTypeDef",
-        "S3BackupMode": HttpEndpointS3BackupModeType,
-        "S3DestinationDescription": "S3DestinationDescriptionTypeDef",
-        "SecretsManagerConfiguration": "SecretsManagerConfigurationTypeDef",
-    },
-    total=False,
-)
+class DirectPutSourceDescriptionTypeDef(TypedDict):
+    ThroughputHintInMBs: NotRequired[int]
 
-HttpEndpointDestinationUpdateTypeDef = TypedDict(
-    "HttpEndpointDestinationUpdateTypeDef",
-    {
-        "EndpointConfiguration": "HttpEndpointConfigurationTypeDef",
-        "BufferingHints": "HttpEndpointBufferingHintsTypeDef",
-        "CloudWatchLoggingOptions": "CloudWatchLoggingOptionsTypeDef",
-        "RequestConfiguration": "HttpEndpointRequestConfigurationTypeDef",
-        "ProcessingConfiguration": "ProcessingConfigurationTypeDef",
-        "RoleARN": str,
-        "RetryOptions": "HttpEndpointRetryOptionsTypeDef",
-        "S3BackupMode": HttpEndpointS3BackupModeType,
-        "S3Update": "S3DestinationUpdateTypeDef",
-        "SecretsManagerConfiguration": "SecretsManagerConfigurationTypeDef",
-    },
-    total=False,
-)
+class RetryOptionsTypeDef(TypedDict):
+    DurationInSeconds: NotRequired[int]
 
-HttpEndpointRequestConfigurationTypeDef = TypedDict(
-    "HttpEndpointRequestConfigurationTypeDef",
-    {
-        "ContentEncoding": ContentEncodingType,
-        "CommonAttributes": List["HttpEndpointCommonAttributeTypeDef"],
-    },
-    total=False,
-)
+class ElasticsearchBufferingHintsTypeDef(TypedDict):
+    IntervalInSeconds: NotRequired[int]
+    SizeInMBs: NotRequired[int]
 
-HttpEndpointRetryOptionsTypeDef = TypedDict(
-    "HttpEndpointRetryOptionsTypeDef",
-    {
-        "DurationInSeconds": int,
-    },
-    total=False,
-)
+class ElasticsearchRetryOptionsTypeDef(TypedDict):
+    DurationInSeconds: NotRequired[int]
 
-InputFormatConfigurationTypeDef = TypedDict(
-    "InputFormatConfigurationTypeDef",
-    {
-        "Deserializer": "DeserializerTypeDef",
-    },
-    total=False,
-)
+class KMSEncryptionConfigTypeDef(TypedDict):
+    AWSKMSKeyARN: str
 
-KMSEncryptionConfigTypeDef = TypedDict(
-    "KMSEncryptionConfigTypeDef",
-    {
-        "AWSKMSKeyARN": str,
-    },
-)
+class HiveJsonSerDeTypeDef(TypedDict):
+    TimestampFormats: NotRequired[Sequence[str]]
 
-KinesisStreamSourceConfigurationTypeDef = TypedDict(
-    "KinesisStreamSourceConfigurationTypeDef",
-    {
-        "KinesisStreamARN": str,
-        "RoleARN": str,
-    },
-)
+class HttpEndpointBufferingHintsTypeDef(TypedDict):
+    SizeInMBs: NotRequired[int]
+    IntervalInSeconds: NotRequired[int]
 
-KinesisStreamSourceDescriptionTypeDef = TypedDict(
-    "KinesisStreamSourceDescriptionTypeDef",
-    {
-        "KinesisStreamARN": str,
-        "RoleARN": str,
-        "DeliveryStartTimestamp": datetime,
-    },
-    total=False,
-)
+class HttpEndpointCommonAttributeTypeDef(TypedDict):
+    AttributeName: str
+    AttributeValue: str
 
-ListDeliveryStreamsInputRequestTypeDef = TypedDict(
-    "ListDeliveryStreamsInputRequestTypeDef",
-    {
-        "Limit": int,
-        "DeliveryStreamType": DeliveryStreamTypeType,
-        "ExclusiveStartDeliveryStreamName": str,
-    },
-    total=False,
-)
+class HttpEndpointConfigurationTypeDef(TypedDict):
+    Url: str
+    Name: NotRequired[str]
+    AccessKey: NotRequired[str]
 
-ListDeliveryStreamsOutputTypeDef = TypedDict(
-    "ListDeliveryStreamsOutputTypeDef",
-    {
-        "DeliveryStreamNames": List[str],
-        "HasMoreDeliveryStreams": bool,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class HttpEndpointDescriptionTypeDef(TypedDict):
+    Url: NotRequired[str]
+    Name: NotRequired[str]
 
-_RequiredListTagsForDeliveryStreamInputRequestTypeDef = TypedDict(
-    "_RequiredListTagsForDeliveryStreamInputRequestTypeDef",
-    {
-        "DeliveryStreamName": str,
-    },
-)
-_OptionalListTagsForDeliveryStreamInputRequestTypeDef = TypedDict(
-    "_OptionalListTagsForDeliveryStreamInputRequestTypeDef",
-    {
-        "ExclusiveStartTagKey": str,
-        "Limit": int,
-    },
-    total=False,
-)
+class HttpEndpointRetryOptionsTypeDef(TypedDict):
+    DurationInSeconds: NotRequired[int]
 
-class ListTagsForDeliveryStreamInputRequestTypeDef(
-    _RequiredListTagsForDeliveryStreamInputRequestTypeDef,
-    _OptionalListTagsForDeliveryStreamInputRequestTypeDef,
-):
-    pass
+class SchemaEvolutionConfigurationTypeDef(TypedDict):
+    Enabled: bool
 
-ListTagsForDeliveryStreamOutputTypeDef = TypedDict(
-    "ListTagsForDeliveryStreamOutputTypeDef",
-    {
-        "Tags": List["TagTypeDef"],
-        "HasMoreTags": bool,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class TableCreationConfigurationTypeDef(TypedDict):
+    Enabled: bool
 
-MSKSourceConfigurationTypeDef = TypedDict(
-    "MSKSourceConfigurationTypeDef",
-    {
-        "MSKClusterARN": str,
-        "TopicName": str,
-        "AuthenticationConfiguration": "AuthenticationConfigurationTypeDef",
-    },
-)
+class KinesisStreamSourceDescriptionTypeDef(TypedDict):
+    KinesisStreamARN: NotRequired[str]
+    RoleARN: NotRequired[str]
+    DeliveryStartTimestamp: NotRequired[datetime]
 
-MSKSourceDescriptionTypeDef = TypedDict(
-    "MSKSourceDescriptionTypeDef",
-    {
-        "MSKClusterARN": str,
-        "TopicName": str,
-        "AuthenticationConfiguration": "AuthenticationConfigurationTypeDef",
-        "DeliveryStartTimestamp": datetime,
-    },
-    total=False,
-)
+class ListDeliveryStreamsInputTypeDef(TypedDict):
+    Limit: NotRequired[int]
+    DeliveryStreamType: NotRequired[DeliveryStreamTypeType]
+    ExclusiveStartDeliveryStreamName: NotRequired[str]
 
-OpenXJsonSerDeTypeDef = TypedDict(
-    "OpenXJsonSerDeTypeDef",
-    {
-        "ConvertDotsInJsonKeysToUnderscores": bool,
-        "CaseInsensitive": bool,
-        "ColumnToJsonKeyMappings": Dict[str, str],
-    },
-    total=False,
-)
+class ListTagsForDeliveryStreamInputTypeDef(TypedDict):
+    DeliveryStreamName: str
+    ExclusiveStartTagKey: NotRequired[str]
+    Limit: NotRequired[int]
 
-OrcSerDeTypeDef = TypedDict(
-    "OrcSerDeTypeDef",
-    {
-        "StripeSizeBytes": int,
-        "BlockSizeBytes": int,
-        "RowIndexStride": int,
-        "EnablePadding": bool,
-        "PaddingTolerance": float,
-        "Compression": OrcCompressionType,
-        "BloomFilterColumns": List[str],
-        "BloomFilterFalsePositiveProbability": float,
-        "DictionaryKeyThreshold": float,
-        "FormatVersion": OrcFormatVersionType,
-    },
-    total=False,
-)
+TimestampTypeDef = Union[datetime, str]
 
-OutputFormatConfigurationTypeDef = TypedDict(
-    "OutputFormatConfigurationTypeDef",
-    {
-        "Serializer": "SerializerTypeDef",
-    },
-    total=False,
-)
+class OpenXJsonSerDeTypeDef(TypedDict):
+    ConvertDotsInJsonKeysToUnderscores: NotRequired[bool]
+    CaseInsensitive: NotRequired[bool]
+    ColumnToJsonKeyMappings: NotRequired[Mapping[str, str]]
 
-ParquetSerDeTypeDef = TypedDict(
-    "ParquetSerDeTypeDef",
-    {
-        "BlockSizeBytes": int,
-        "PageSizeBytes": int,
-        "Compression": ParquetCompressionType,
-        "EnableDictionaryCompression": bool,
-        "MaxPaddingBytes": int,
-        "WriterVersion": ParquetWriterVersionType,
-    },
-    total=False,
-)
+class OrcSerDeOutputTypeDef(TypedDict):
+    StripeSizeBytes: NotRequired[int]
+    BlockSizeBytes: NotRequired[int]
+    RowIndexStride: NotRequired[int]
+    EnablePadding: NotRequired[bool]
+    PaddingTolerance: NotRequired[float]
+    Compression: NotRequired[OrcCompressionType]
+    BloomFilterColumns: NotRequired[List[str]]
+    BloomFilterFalsePositiveProbability: NotRequired[float]
+    DictionaryKeyThreshold: NotRequired[float]
+    FormatVersion: NotRequired[OrcFormatVersionType]
 
-ProcessingConfigurationTypeDef = TypedDict(
-    "ProcessingConfigurationTypeDef",
-    {
-        "Enabled": bool,
-        "Processors": List["ProcessorTypeDef"],
-    },
-    total=False,
-)
+class OrcSerDeTypeDef(TypedDict):
+    StripeSizeBytes: NotRequired[int]
+    BlockSizeBytes: NotRequired[int]
+    RowIndexStride: NotRequired[int]
+    EnablePadding: NotRequired[bool]
+    PaddingTolerance: NotRequired[float]
+    Compression: NotRequired[OrcCompressionType]
+    BloomFilterColumns: NotRequired[Sequence[str]]
+    BloomFilterFalsePositiveProbability: NotRequired[float]
+    DictionaryKeyThreshold: NotRequired[float]
+    FormatVersion: NotRequired[OrcFormatVersionType]
 
-ProcessorParameterTypeDef = TypedDict(
-    "ProcessorParameterTypeDef",
-    {
-        "ParameterName": ProcessorParameterNameType,
-        "ParameterValue": str,
-    },
-)
+class ParquetSerDeTypeDef(TypedDict):
+    BlockSizeBytes: NotRequired[int]
+    PageSizeBytes: NotRequired[int]
+    Compression: NotRequired[ParquetCompressionType]
+    EnableDictionaryCompression: NotRequired[bool]
+    MaxPaddingBytes: NotRequired[int]
+    WriterVersion: NotRequired[ParquetWriterVersionType]
 
-_RequiredProcessorTypeDef = TypedDict(
-    "_RequiredProcessorTypeDef",
+class PartitionFieldTypeDef(TypedDict):
+    SourceName: str
+
+class ProcessorParameterTypeDef(TypedDict):
+    ParameterName: ProcessorParameterNameType
+    ParameterValue: str
+
+class PutRecordBatchResponseEntryTypeDef(TypedDict):
+    RecordId: NotRequired[str]
+    ErrorCode: NotRequired[str]
+    ErrorMessage: NotRequired[str]
+
+class RedshiftRetryOptionsTypeDef(TypedDict):
+    DurationInSeconds: NotRequired[int]
+
+class SnowflakeBufferingHintsTypeDef(TypedDict):
+    SizeInMBs: NotRequired[int]
+    IntervalInSeconds: NotRequired[int]
+
+class SnowflakeRetryOptionsTypeDef(TypedDict):
+    DurationInSeconds: NotRequired[int]
+
+class SnowflakeRoleConfigurationTypeDef(TypedDict):
+    Enabled: NotRequired[bool]
+    SnowflakeRole: NotRequired[str]
+
+class SnowflakeVpcConfigurationTypeDef(TypedDict):
+    PrivateLinkVpceId: str
+
+class SplunkBufferingHintsTypeDef(TypedDict):
+    IntervalInSeconds: NotRequired[int]
+    SizeInMBs: NotRequired[int]
+
+class SplunkRetryOptionsTypeDef(TypedDict):
+    DurationInSeconds: NotRequired[int]
+
+class StopDeliveryStreamEncryptionInputTypeDef(TypedDict):
+    DeliveryStreamName: str
+
+class UntagDeliveryStreamInputTypeDef(TypedDict):
+    DeliveryStreamName: str
+    TagKeys: Sequence[str]
+
+class MSKSourceDescriptionTypeDef(TypedDict):
+    MSKClusterARN: NotRequired[str]
+    TopicName: NotRequired[str]
+    AuthenticationConfiguration: NotRequired[AuthenticationConfigurationTypeDef]
+    DeliveryStartTimestamp: NotRequired[datetime]
+    ReadFromTimestamp: NotRequired[datetime]
+
+class RecordTypeDef(TypedDict):
+    Data: BlobTypeDef
+
+class StartDeliveryStreamEncryptionInputTypeDef(TypedDict):
+    DeliveryStreamName: str
+    DeliveryStreamEncryptionConfigurationInput: NotRequired[
+        DeliveryStreamEncryptionConfigurationInputTypeDef
+    ]
+
+class TagDeliveryStreamInputTypeDef(TypedDict):
+    DeliveryStreamName: str
+    Tags: Sequence[TagTypeDef]
+
+class CreateDeliveryStreamOutputTypeDef(TypedDict):
+    DeliveryStreamARN: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListDeliveryStreamsOutputTypeDef(TypedDict):
+    DeliveryStreamNames: List[str]
+    HasMoreDeliveryStreams: bool
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListTagsForDeliveryStreamOutputTypeDef(TypedDict):
+    Tags: List[TagTypeDef]
+    HasMoreTags: bool
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutRecordOutputTypeDef(TypedDict):
+    RecordId: str
+    Encrypted: bool
+    ResponseMetadata: ResponseMetadataTypeDef
+
+DatabaseColumnListUnionTypeDef = Union[DatabaseColumnListTypeDef, DatabaseColumnListOutputTypeDef]
+DatabaseListUnionTypeDef = Union[DatabaseListTypeDef, DatabaseListOutputTypeDef]
+
+class DatabaseSnapshotInfoTypeDef(TypedDict):
+    Id: str
+    Table: str
+    RequestTimestamp: datetime
+    RequestedBy: SnapshotRequestedByType
+    Status: SnapshotStatusType
+    FailureDescription: NotRequired[FailureDescriptionTypeDef]
+
+class DeliveryStreamEncryptionConfigurationTypeDef(TypedDict):
+    KeyARN: NotRequired[str]
+    KeyType: NotRequired[KeyTypeType]
+    Status: NotRequired[DeliveryStreamEncryptionStatusType]
+    FailureDescription: NotRequired[FailureDescriptionTypeDef]
+
+class DatabaseSourceAuthenticationConfigurationTypeDef(TypedDict):
+    SecretsManagerConfiguration: SecretsManagerConfigurationTypeDef
+
+DatabaseTableListUnionTypeDef = Union[DatabaseTableListTypeDef, DatabaseTableListOutputTypeDef]
+
+class DeserializerOutputTypeDef(TypedDict):
+    OpenXJsonSerDe: NotRequired[OpenXJsonSerDeOutputTypeDef]
+    HiveJsonSerDe: NotRequired[HiveJsonSerDeOutputTypeDef]
+
+class DynamicPartitioningConfigurationTypeDef(TypedDict):
+    RetryOptions: NotRequired[RetryOptionsTypeDef]
+    Enabled: NotRequired[bool]
+
+class EncryptionConfigurationTypeDef(TypedDict):
+    NoEncryptionConfig: NotRequired[Literal["NoEncryption"]]
+    KMSEncryptionConfig: NotRequired[KMSEncryptionConfigTypeDef]
+
+HiveJsonSerDeUnionTypeDef = Union[HiveJsonSerDeTypeDef, HiveJsonSerDeOutputTypeDef]
+
+class HttpEndpointRequestConfigurationOutputTypeDef(TypedDict):
+    ContentEncoding: NotRequired[ContentEncodingType]
+    CommonAttributes: NotRequired[List[HttpEndpointCommonAttributeTypeDef]]
+
+class HttpEndpointRequestConfigurationTypeDef(TypedDict):
+    ContentEncoding: NotRequired[ContentEncodingType]
+    CommonAttributes: NotRequired[Sequence[HttpEndpointCommonAttributeTypeDef]]
+
+class MSKSourceConfigurationTypeDef(TypedDict):
+    MSKClusterARN: str
+    TopicName: str
+    AuthenticationConfiguration: AuthenticationConfigurationTypeDef
+    ReadFromTimestamp: NotRequired[TimestampTypeDef]
+
+OpenXJsonSerDeUnionTypeDef = Union[OpenXJsonSerDeTypeDef, OpenXJsonSerDeOutputTypeDef]
+OrcSerDeUnionTypeDef = Union[OrcSerDeTypeDef, OrcSerDeOutputTypeDef]
+
+class SerializerOutputTypeDef(TypedDict):
+    ParquetSerDe: NotRequired[ParquetSerDeTypeDef]
+    OrcSerDe: NotRequired[OrcSerDeOutputTypeDef]
+
+class PartitionSpecOutputTypeDef(TypedDict):
+    Identity: NotRequired[List[PartitionFieldTypeDef]]
+
+class PartitionSpecTypeDef(TypedDict):
+    Identity: NotRequired[Sequence[PartitionFieldTypeDef]]
+
+ProcessorOutputTypeDef = TypedDict(
+    "ProcessorOutputTypeDef",
     {
         "Type": ProcessorTypeType,
+        "Parameters": NotRequired[List[ProcessorParameterTypeDef]],
     },
 )
-_OptionalProcessorTypeDef = TypedDict(
-    "_OptionalProcessorTypeDef",
+ProcessorTypeDef = TypedDict(
+    "ProcessorTypeDef",
     {
-        "Parameters": List["ProcessorParameterTypeDef"],
-    },
-    total=False,
-)
-
-class ProcessorTypeDef(_RequiredProcessorTypeDef, _OptionalProcessorTypeDef):
-    pass
-
-PutRecordBatchInputRequestTypeDef = TypedDict(
-    "PutRecordBatchInputRequestTypeDef",
-    {
-        "DeliveryStreamName": str,
-        "Records": List["RecordTypeDef"],
+        "Type": ProcessorTypeType,
+        "Parameters": NotRequired[Sequence[ProcessorParameterTypeDef]],
     },
 )
 
-PutRecordBatchOutputTypeDef = TypedDict(
-    "PutRecordBatchOutputTypeDef",
+class PutRecordBatchOutputTypeDef(TypedDict):
+    FailedPutCount: int
+    Encrypted: bool
+    RequestResponses: List[PutRecordBatchResponseEntryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutRecordBatchInputTypeDef(TypedDict):
+    DeliveryStreamName: str
+    Records: Sequence[RecordTypeDef]
+
+class PutRecordInputTypeDef(TypedDict):
+    DeliveryStreamName: str
+    Record: RecordTypeDef
+
+DatabaseSourceDescriptionTypeDef = TypedDict(
+    "DatabaseSourceDescriptionTypeDef",
     {
-        "FailedPutCount": int,
-        "Encrypted": bool,
-        "RequestResponses": List["PutRecordBatchResponseEntryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "Type": NotRequired[DatabaseTypeType],
+        "Endpoint": NotRequired[str],
+        "Port": NotRequired[int],
+        "SSLMode": NotRequired[SSLModeType],
+        "Databases": NotRequired[DatabaseListOutputTypeDef],
+        "Tables": NotRequired[DatabaseTableListOutputTypeDef],
+        "Columns": NotRequired[DatabaseColumnListOutputTypeDef],
+        "SurrogateKeys": NotRequired[List[str]],
+        "SnapshotWatermarkTable": NotRequired[str],
+        "SnapshotInfo": NotRequired[List[DatabaseSnapshotInfoTypeDef]],
+        "DatabaseSourceAuthenticationConfiguration": NotRequired[
+            DatabaseSourceAuthenticationConfigurationTypeDef
+        ],
+        "DatabaseSourceVPCConfiguration": NotRequired[DatabaseSourceVPCConfigurationTypeDef],
+    },
+)
+DatabaseSourceConfigurationTypeDef = TypedDict(
+    "DatabaseSourceConfigurationTypeDef",
+    {
+        "Type": DatabaseTypeType,
+        "Endpoint": str,
+        "Port": int,
+        "Databases": DatabaseListUnionTypeDef,
+        "Tables": DatabaseTableListUnionTypeDef,
+        "SnapshotWatermarkTable": str,
+        "DatabaseSourceAuthenticationConfiguration": DatabaseSourceAuthenticationConfigurationTypeDef,
+        "DatabaseSourceVPCConfiguration": DatabaseSourceVPCConfigurationTypeDef,
+        "SSLMode": NotRequired[SSLModeType],
+        "Columns": NotRequired[DatabaseColumnListUnionTypeDef],
+        "SurrogateKeys": NotRequired[Sequence[str]],
     },
 )
 
-PutRecordBatchResponseEntryTypeDef = TypedDict(
-    "PutRecordBatchResponseEntryTypeDef",
-    {
-        "RecordId": str,
-        "ErrorCode": str,
-        "ErrorMessage": str,
-    },
-    total=False,
-)
+class InputFormatConfigurationOutputTypeDef(TypedDict):
+    Deserializer: NotRequired[DeserializerOutputTypeDef]
 
-PutRecordInputRequestTypeDef = TypedDict(
-    "PutRecordInputRequestTypeDef",
-    {
-        "DeliveryStreamName": str,
-        "Record": "RecordTypeDef",
-    },
-)
+class S3DestinationConfigurationTypeDef(TypedDict):
+    RoleARN: str
+    BucketARN: str
+    Prefix: NotRequired[str]
+    ErrorOutputPrefix: NotRequired[str]
+    BufferingHints: NotRequired[BufferingHintsTypeDef]
+    CompressionFormat: NotRequired[CompressionFormatType]
+    EncryptionConfiguration: NotRequired[EncryptionConfigurationTypeDef]
+    CloudWatchLoggingOptions: NotRequired[CloudWatchLoggingOptionsTypeDef]
 
-PutRecordOutputTypeDef = TypedDict(
-    "PutRecordOutputTypeDef",
-    {
-        "RecordId": str,
-        "Encrypted": bool,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class S3DestinationDescriptionTypeDef(TypedDict):
+    RoleARN: str
+    BucketARN: str
+    BufferingHints: BufferingHintsTypeDef
+    CompressionFormat: CompressionFormatType
+    EncryptionConfiguration: EncryptionConfigurationTypeDef
+    Prefix: NotRequired[str]
+    ErrorOutputPrefix: NotRequired[str]
+    CloudWatchLoggingOptions: NotRequired[CloudWatchLoggingOptionsTypeDef]
 
-RecordTypeDef = TypedDict(
-    "RecordTypeDef",
-    {
-        "Data": Union[bytes, IO[bytes], StreamingBody],
-    },
-)
+class S3DestinationUpdateTypeDef(TypedDict):
+    RoleARN: NotRequired[str]
+    BucketARN: NotRequired[str]
+    Prefix: NotRequired[str]
+    ErrorOutputPrefix: NotRequired[str]
+    BufferingHints: NotRequired[BufferingHintsTypeDef]
+    CompressionFormat: NotRequired[CompressionFormatType]
+    EncryptionConfiguration: NotRequired[EncryptionConfigurationTypeDef]
+    CloudWatchLoggingOptions: NotRequired[CloudWatchLoggingOptionsTypeDef]
 
-_RequiredRedshiftDestinationConfigurationTypeDef = TypedDict(
-    "_RequiredRedshiftDestinationConfigurationTypeDef",
-    {
-        "RoleARN": str,
-        "ClusterJDBCURL": str,
-        "CopyCommand": "CopyCommandTypeDef",
-        "S3Configuration": "S3DestinationConfigurationTypeDef",
-    },
-)
-_OptionalRedshiftDestinationConfigurationTypeDef = TypedDict(
-    "_OptionalRedshiftDestinationConfigurationTypeDef",
-    {
-        "Username": str,
-        "Password": str,
-        "RetryOptions": "RedshiftRetryOptionsTypeDef",
-        "ProcessingConfiguration": "ProcessingConfigurationTypeDef",
-        "S3BackupMode": RedshiftS3BackupModeType,
-        "S3BackupConfiguration": "S3DestinationConfigurationTypeDef",
-        "CloudWatchLoggingOptions": "CloudWatchLoggingOptionsTypeDef",
-        "SecretsManagerConfiguration": "SecretsManagerConfigurationTypeDef",
-    },
-    total=False,
-)
+HttpEndpointRequestConfigurationUnionTypeDef = Union[
+    HttpEndpointRequestConfigurationTypeDef, HttpEndpointRequestConfigurationOutputTypeDef
+]
 
-class RedshiftDestinationConfigurationTypeDef(
-    _RequiredRedshiftDestinationConfigurationTypeDef,
-    _OptionalRedshiftDestinationConfigurationTypeDef,
-):
-    pass
+class DeserializerTypeDef(TypedDict):
+    OpenXJsonSerDe: NotRequired[OpenXJsonSerDeUnionTypeDef]
+    HiveJsonSerDe: NotRequired[HiveJsonSerDeUnionTypeDef]
 
-_RequiredRedshiftDestinationDescriptionTypeDef = TypedDict(
-    "_RequiredRedshiftDestinationDescriptionTypeDef",
-    {
-        "RoleARN": str,
-        "ClusterJDBCURL": str,
-        "CopyCommand": "CopyCommandTypeDef",
-        "S3DestinationDescription": "S3DestinationDescriptionTypeDef",
-    },
-)
-_OptionalRedshiftDestinationDescriptionTypeDef = TypedDict(
-    "_OptionalRedshiftDestinationDescriptionTypeDef",
-    {
-        "Username": str,
-        "RetryOptions": "RedshiftRetryOptionsTypeDef",
-        "ProcessingConfiguration": "ProcessingConfigurationTypeDef",
-        "S3BackupMode": RedshiftS3BackupModeType,
-        "S3BackupDescription": "S3DestinationDescriptionTypeDef",
-        "CloudWatchLoggingOptions": "CloudWatchLoggingOptionsTypeDef",
-        "SecretsManagerConfiguration": "SecretsManagerConfigurationTypeDef",
-    },
-    total=False,
-)
+class SerializerTypeDef(TypedDict):
+    ParquetSerDe: NotRequired[ParquetSerDeTypeDef]
+    OrcSerDe: NotRequired[OrcSerDeUnionTypeDef]
 
-class RedshiftDestinationDescriptionTypeDef(
-    _RequiredRedshiftDestinationDescriptionTypeDef, _OptionalRedshiftDestinationDescriptionTypeDef
-):
-    pass
+class OutputFormatConfigurationOutputTypeDef(TypedDict):
+    Serializer: NotRequired[SerializerOutputTypeDef]
 
-RedshiftDestinationUpdateTypeDef = TypedDict(
-    "RedshiftDestinationUpdateTypeDef",
-    {
-        "RoleARN": str,
-        "ClusterJDBCURL": str,
-        "CopyCommand": "CopyCommandTypeDef",
-        "Username": str,
-        "Password": str,
-        "RetryOptions": "RedshiftRetryOptionsTypeDef",
-        "S3Update": "S3DestinationUpdateTypeDef",
-        "ProcessingConfiguration": "ProcessingConfigurationTypeDef",
-        "S3BackupMode": RedshiftS3BackupModeType,
-        "S3BackupUpdate": "S3DestinationUpdateTypeDef",
-        "CloudWatchLoggingOptions": "CloudWatchLoggingOptionsTypeDef",
-        "SecretsManagerConfiguration": "SecretsManagerConfigurationTypeDef",
-    },
-    total=False,
-)
+class DestinationTableConfigurationOutputTypeDef(TypedDict):
+    DestinationTableName: str
+    DestinationDatabaseName: str
+    UniqueKeys: NotRequired[List[str]]
+    PartitionSpec: NotRequired[PartitionSpecOutputTypeDef]
+    S3ErrorOutputPrefix: NotRequired[str]
 
-RedshiftRetryOptionsTypeDef = TypedDict(
-    "RedshiftRetryOptionsTypeDef",
-    {
-        "DurationInSeconds": int,
-    },
-    total=False,
-)
+PartitionSpecUnionTypeDef = Union[PartitionSpecTypeDef, PartitionSpecOutputTypeDef]
 
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
+class ProcessingConfigurationOutputTypeDef(TypedDict):
+    Enabled: NotRequired[bool]
+    Processors: NotRequired[List[ProcessorOutputTypeDef]]
 
-RetryOptionsTypeDef = TypedDict(
-    "RetryOptionsTypeDef",
-    {
-        "DurationInSeconds": int,
-    },
-    total=False,
-)
+ProcessorUnionTypeDef = Union[ProcessorTypeDef, ProcessorOutputTypeDef]
 
-_RequiredS3DestinationConfigurationTypeDef = TypedDict(
-    "_RequiredS3DestinationConfigurationTypeDef",
-    {
-        "RoleARN": str,
-        "BucketARN": str,
-    },
-)
-_OptionalS3DestinationConfigurationTypeDef = TypedDict(
-    "_OptionalS3DestinationConfigurationTypeDef",
-    {
-        "Prefix": str,
-        "ErrorOutputPrefix": str,
-        "BufferingHints": "BufferingHintsTypeDef",
-        "CompressionFormat": CompressionFormatType,
-        "EncryptionConfiguration": "EncryptionConfigurationTypeDef",
-        "CloudWatchLoggingOptions": "CloudWatchLoggingOptionsTypeDef",
-    },
-    total=False,
-)
+class SourceDescriptionTypeDef(TypedDict):
+    DirectPutSourceDescription: NotRequired[DirectPutSourceDescriptionTypeDef]
+    KinesisStreamSourceDescription: NotRequired[KinesisStreamSourceDescriptionTypeDef]
+    MSKSourceDescription: NotRequired[MSKSourceDescriptionTypeDef]
+    DatabaseSourceDescription: NotRequired[DatabaseSourceDescriptionTypeDef]
 
-class S3DestinationConfigurationTypeDef(
-    _RequiredS3DestinationConfigurationTypeDef, _OptionalS3DestinationConfigurationTypeDef
-):
-    pass
+DeserializerUnionTypeDef = Union[DeserializerTypeDef, DeserializerOutputTypeDef]
+SerializerUnionTypeDef = Union[SerializerTypeDef, SerializerOutputTypeDef]
 
-_RequiredS3DestinationDescriptionTypeDef = TypedDict(
-    "_RequiredS3DestinationDescriptionTypeDef",
-    {
-        "RoleARN": str,
-        "BucketARN": str,
-        "BufferingHints": "BufferingHintsTypeDef",
-        "CompressionFormat": CompressionFormatType,
-        "EncryptionConfiguration": "EncryptionConfigurationTypeDef",
-    },
-)
-_OptionalS3DestinationDescriptionTypeDef = TypedDict(
-    "_OptionalS3DestinationDescriptionTypeDef",
-    {
-        "Prefix": str,
-        "ErrorOutputPrefix": str,
-        "CloudWatchLoggingOptions": "CloudWatchLoggingOptionsTypeDef",
-    },
-    total=False,
-)
+class DataFormatConversionConfigurationOutputTypeDef(TypedDict):
+    SchemaConfiguration: NotRequired[SchemaConfigurationTypeDef]
+    InputFormatConfiguration: NotRequired[InputFormatConfigurationOutputTypeDef]
+    OutputFormatConfiguration: NotRequired[OutputFormatConfigurationOutputTypeDef]
+    Enabled: NotRequired[bool]
 
-class S3DestinationDescriptionTypeDef(
-    _RequiredS3DestinationDescriptionTypeDef, _OptionalS3DestinationDescriptionTypeDef
-):
-    pass
+class DestinationTableConfigurationTypeDef(TypedDict):
+    DestinationTableName: str
+    DestinationDatabaseName: str
+    UniqueKeys: NotRequired[Sequence[str]]
+    PartitionSpec: NotRequired[PartitionSpecUnionTypeDef]
+    S3ErrorOutputPrefix: NotRequired[str]
 
-S3DestinationUpdateTypeDef = TypedDict(
-    "S3DestinationUpdateTypeDef",
-    {
-        "RoleARN": str,
-        "BucketARN": str,
-        "Prefix": str,
-        "ErrorOutputPrefix": str,
-        "BufferingHints": "BufferingHintsTypeDef",
-        "CompressionFormat": CompressionFormatType,
-        "EncryptionConfiguration": "EncryptionConfigurationTypeDef",
-        "CloudWatchLoggingOptions": "CloudWatchLoggingOptionsTypeDef",
-    },
-    total=False,
-)
+class AmazonOpenSearchServerlessDestinationDescriptionTypeDef(TypedDict):
+    RoleARN: NotRequired[str]
+    CollectionEndpoint: NotRequired[str]
+    IndexName: NotRequired[str]
+    BufferingHints: NotRequired[AmazonOpenSearchServerlessBufferingHintsTypeDef]
+    RetryOptions: NotRequired[AmazonOpenSearchServerlessRetryOptionsTypeDef]
+    S3BackupMode: NotRequired[AmazonOpenSearchServerlessS3BackupModeType]
+    S3DestinationDescription: NotRequired[S3DestinationDescriptionTypeDef]
+    ProcessingConfiguration: NotRequired[ProcessingConfigurationOutputTypeDef]
+    CloudWatchLoggingOptions: NotRequired[CloudWatchLoggingOptionsTypeDef]
+    VpcConfigurationDescription: NotRequired[VpcConfigurationDescriptionTypeDef]
 
-SchemaConfigurationTypeDef = TypedDict(
-    "SchemaConfigurationTypeDef",
-    {
-        "RoleARN": str,
-        "CatalogId": str,
-        "DatabaseName": str,
-        "TableName": str,
-        "Region": str,
-        "VersionId": str,
-    },
-    total=False,
-)
+class AmazonopensearchserviceDestinationDescriptionTypeDef(TypedDict):
+    RoleARN: NotRequired[str]
+    DomainARN: NotRequired[str]
+    ClusterEndpoint: NotRequired[str]
+    IndexName: NotRequired[str]
+    TypeName: NotRequired[str]
+    IndexRotationPeriod: NotRequired[AmazonopensearchserviceIndexRotationPeriodType]
+    BufferingHints: NotRequired[AmazonopensearchserviceBufferingHintsTypeDef]
+    RetryOptions: NotRequired[AmazonopensearchserviceRetryOptionsTypeDef]
+    S3BackupMode: NotRequired[AmazonopensearchserviceS3BackupModeType]
+    S3DestinationDescription: NotRequired[S3DestinationDescriptionTypeDef]
+    ProcessingConfiguration: NotRequired[ProcessingConfigurationOutputTypeDef]
+    CloudWatchLoggingOptions: NotRequired[CloudWatchLoggingOptionsTypeDef]
+    VpcConfigurationDescription: NotRequired[VpcConfigurationDescriptionTypeDef]
+    DocumentIdOptions: NotRequired[DocumentIdOptionsTypeDef]
 
-_RequiredSecretsManagerConfigurationTypeDef = TypedDict(
-    "_RequiredSecretsManagerConfigurationTypeDef",
-    {
-        "Enabled": bool,
-    },
-)
-_OptionalSecretsManagerConfigurationTypeDef = TypedDict(
-    "_OptionalSecretsManagerConfigurationTypeDef",
-    {
-        "SecretARN": str,
-        "RoleARN": str,
-    },
-    total=False,
-)
+class ElasticsearchDestinationDescriptionTypeDef(TypedDict):
+    RoleARN: NotRequired[str]
+    DomainARN: NotRequired[str]
+    ClusterEndpoint: NotRequired[str]
+    IndexName: NotRequired[str]
+    TypeName: NotRequired[str]
+    IndexRotationPeriod: NotRequired[ElasticsearchIndexRotationPeriodType]
+    BufferingHints: NotRequired[ElasticsearchBufferingHintsTypeDef]
+    RetryOptions: NotRequired[ElasticsearchRetryOptionsTypeDef]
+    S3BackupMode: NotRequired[ElasticsearchS3BackupModeType]
+    S3DestinationDescription: NotRequired[S3DestinationDescriptionTypeDef]
+    ProcessingConfiguration: NotRequired[ProcessingConfigurationOutputTypeDef]
+    CloudWatchLoggingOptions: NotRequired[CloudWatchLoggingOptionsTypeDef]
+    VpcConfigurationDescription: NotRequired[VpcConfigurationDescriptionTypeDef]
+    DocumentIdOptions: NotRequired[DocumentIdOptionsTypeDef]
 
-class SecretsManagerConfigurationTypeDef(
-    _RequiredSecretsManagerConfigurationTypeDef, _OptionalSecretsManagerConfigurationTypeDef
-):
-    pass
+class HttpEndpointDestinationDescriptionTypeDef(TypedDict):
+    EndpointConfiguration: NotRequired[HttpEndpointDescriptionTypeDef]
+    BufferingHints: NotRequired[HttpEndpointBufferingHintsTypeDef]
+    CloudWatchLoggingOptions: NotRequired[CloudWatchLoggingOptionsTypeDef]
+    RequestConfiguration: NotRequired[HttpEndpointRequestConfigurationOutputTypeDef]
+    ProcessingConfiguration: NotRequired[ProcessingConfigurationOutputTypeDef]
+    RoleARN: NotRequired[str]
+    RetryOptions: NotRequired[HttpEndpointRetryOptionsTypeDef]
+    S3BackupMode: NotRequired[HttpEndpointS3BackupModeType]
+    S3DestinationDescription: NotRequired[S3DestinationDescriptionTypeDef]
+    SecretsManagerConfiguration: NotRequired[SecretsManagerConfigurationTypeDef]
 
-SerializerTypeDef = TypedDict(
-    "SerializerTypeDef",
-    {
-        "ParquetSerDe": "ParquetSerDeTypeDef",
-        "OrcSerDe": "OrcSerDeTypeDef",
-    },
-    total=False,
-)
+class IcebergDestinationDescriptionTypeDef(TypedDict):
+    DestinationTableConfigurationList: NotRequired[List[DestinationTableConfigurationOutputTypeDef]]
+    SchemaEvolutionConfiguration: NotRequired[SchemaEvolutionConfigurationTypeDef]
+    TableCreationConfiguration: NotRequired[TableCreationConfigurationTypeDef]
+    BufferingHints: NotRequired[BufferingHintsTypeDef]
+    CloudWatchLoggingOptions: NotRequired[CloudWatchLoggingOptionsTypeDef]
+    ProcessingConfiguration: NotRequired[ProcessingConfigurationOutputTypeDef]
+    S3BackupMode: NotRequired[IcebergS3BackupModeType]
+    RetryOptions: NotRequired[RetryOptionsTypeDef]
+    RoleARN: NotRequired[str]
+    AppendOnly: NotRequired[bool]
+    CatalogConfiguration: NotRequired[CatalogConfigurationTypeDef]
+    S3DestinationDescription: NotRequired[S3DestinationDescriptionTypeDef]
 
-_RequiredSnowflakeDestinationConfigurationTypeDef = TypedDict(
-    "_RequiredSnowflakeDestinationConfigurationTypeDef",
-    {
-        "AccountUrl": str,
-        "Database": str,
-        "Schema": str,
-        "Table": str,
-        "RoleARN": str,
-        "S3Configuration": "S3DestinationConfigurationTypeDef",
-    },
-)
-_OptionalSnowflakeDestinationConfigurationTypeDef = TypedDict(
-    "_OptionalSnowflakeDestinationConfigurationTypeDef",
-    {
-        "PrivateKey": str,
-        "KeyPassphrase": str,
-        "User": str,
-        "SnowflakeRoleConfiguration": "SnowflakeRoleConfigurationTypeDef",
-        "DataLoadingOption": SnowflakeDataLoadingOptionType,
-        "MetaDataColumnName": str,
-        "ContentColumnName": str,
-        "SnowflakeVpcConfiguration": "SnowflakeVpcConfigurationTypeDef",
-        "CloudWatchLoggingOptions": "CloudWatchLoggingOptionsTypeDef",
-        "ProcessingConfiguration": "ProcessingConfigurationTypeDef",
-        "RetryOptions": "SnowflakeRetryOptionsTypeDef",
-        "S3BackupMode": SnowflakeS3BackupModeType,
-        "SecretsManagerConfiguration": "SecretsManagerConfigurationTypeDef",
-    },
-    total=False,
-)
+class RedshiftDestinationDescriptionTypeDef(TypedDict):
+    RoleARN: str
+    ClusterJDBCURL: str
+    CopyCommand: CopyCommandTypeDef
+    S3DestinationDescription: S3DestinationDescriptionTypeDef
+    Username: NotRequired[str]
+    RetryOptions: NotRequired[RedshiftRetryOptionsTypeDef]
+    ProcessingConfiguration: NotRequired[ProcessingConfigurationOutputTypeDef]
+    S3BackupMode: NotRequired[RedshiftS3BackupModeType]
+    S3BackupDescription: NotRequired[S3DestinationDescriptionTypeDef]
+    CloudWatchLoggingOptions: NotRequired[CloudWatchLoggingOptionsTypeDef]
+    SecretsManagerConfiguration: NotRequired[SecretsManagerConfigurationTypeDef]
 
-class SnowflakeDestinationConfigurationTypeDef(
-    _RequiredSnowflakeDestinationConfigurationTypeDef,
-    _OptionalSnowflakeDestinationConfigurationTypeDef,
-):
-    pass
+class SnowflakeDestinationDescriptionTypeDef(TypedDict):
+    AccountUrl: NotRequired[str]
+    User: NotRequired[str]
+    Database: NotRequired[str]
+    Schema: NotRequired[str]
+    Table: NotRequired[str]
+    SnowflakeRoleConfiguration: NotRequired[SnowflakeRoleConfigurationTypeDef]
+    DataLoadingOption: NotRequired[SnowflakeDataLoadingOptionType]
+    MetaDataColumnName: NotRequired[str]
+    ContentColumnName: NotRequired[str]
+    SnowflakeVpcConfiguration: NotRequired[SnowflakeVpcConfigurationTypeDef]
+    CloudWatchLoggingOptions: NotRequired[CloudWatchLoggingOptionsTypeDef]
+    ProcessingConfiguration: NotRequired[ProcessingConfigurationOutputTypeDef]
+    RoleARN: NotRequired[str]
+    RetryOptions: NotRequired[SnowflakeRetryOptionsTypeDef]
+    S3BackupMode: NotRequired[SnowflakeS3BackupModeType]
+    S3DestinationDescription: NotRequired[S3DestinationDescriptionTypeDef]
+    SecretsManagerConfiguration: NotRequired[SecretsManagerConfigurationTypeDef]
+    BufferingHints: NotRequired[SnowflakeBufferingHintsTypeDef]
 
-SnowflakeDestinationDescriptionTypeDef = TypedDict(
-    "SnowflakeDestinationDescriptionTypeDef",
-    {
-        "AccountUrl": str,
-        "User": str,
-        "Database": str,
-        "Schema": str,
-        "Table": str,
-        "SnowflakeRoleConfiguration": "SnowflakeRoleConfigurationTypeDef",
-        "DataLoadingOption": SnowflakeDataLoadingOptionType,
-        "MetaDataColumnName": str,
-        "ContentColumnName": str,
-        "SnowflakeVpcConfiguration": "SnowflakeVpcConfigurationTypeDef",
-        "CloudWatchLoggingOptions": "CloudWatchLoggingOptionsTypeDef",
-        "ProcessingConfiguration": "ProcessingConfigurationTypeDef",
-        "RoleARN": str,
-        "RetryOptions": "SnowflakeRetryOptionsTypeDef",
-        "S3BackupMode": SnowflakeS3BackupModeType,
-        "S3DestinationDescription": "S3DestinationDescriptionTypeDef",
-        "SecretsManagerConfiguration": "SecretsManagerConfigurationTypeDef",
-    },
-    total=False,
-)
+class SplunkDestinationDescriptionTypeDef(TypedDict):
+    HECEndpoint: NotRequired[str]
+    HECEndpointType: NotRequired[HECEndpointTypeType]
+    HECToken: NotRequired[str]
+    HECAcknowledgmentTimeoutInSeconds: NotRequired[int]
+    RetryOptions: NotRequired[SplunkRetryOptionsTypeDef]
+    S3BackupMode: NotRequired[SplunkS3BackupModeType]
+    S3DestinationDescription: NotRequired[S3DestinationDescriptionTypeDef]
+    ProcessingConfiguration: NotRequired[ProcessingConfigurationOutputTypeDef]
+    CloudWatchLoggingOptions: NotRequired[CloudWatchLoggingOptionsTypeDef]
+    BufferingHints: NotRequired[SplunkBufferingHintsTypeDef]
+    SecretsManagerConfiguration: NotRequired[SecretsManagerConfigurationTypeDef]
 
-SnowflakeDestinationUpdateTypeDef = TypedDict(
-    "SnowflakeDestinationUpdateTypeDef",
-    {
-        "AccountUrl": str,
-        "PrivateKey": str,
-        "KeyPassphrase": str,
-        "User": str,
-        "Database": str,
-        "Schema": str,
-        "Table": str,
-        "SnowflakeRoleConfiguration": "SnowflakeRoleConfigurationTypeDef",
-        "DataLoadingOption": SnowflakeDataLoadingOptionType,
-        "MetaDataColumnName": str,
-        "ContentColumnName": str,
-        "CloudWatchLoggingOptions": "CloudWatchLoggingOptionsTypeDef",
-        "ProcessingConfiguration": "ProcessingConfigurationTypeDef",
-        "RoleARN": str,
-        "RetryOptions": "SnowflakeRetryOptionsTypeDef",
-        "S3BackupMode": SnowflakeS3BackupModeType,
-        "S3Update": "S3DestinationUpdateTypeDef",
-        "SecretsManagerConfiguration": "SecretsManagerConfigurationTypeDef",
-    },
-    total=False,
-)
+class ProcessingConfigurationTypeDef(TypedDict):
+    Enabled: NotRequired[bool]
+    Processors: NotRequired[Sequence[ProcessorUnionTypeDef]]
 
-SnowflakeRetryOptionsTypeDef = TypedDict(
-    "SnowflakeRetryOptionsTypeDef",
-    {
-        "DurationInSeconds": int,
-    },
-    total=False,
-)
+class InputFormatConfigurationTypeDef(TypedDict):
+    Deserializer: NotRequired[DeserializerUnionTypeDef]
 
-SnowflakeRoleConfigurationTypeDef = TypedDict(
-    "SnowflakeRoleConfigurationTypeDef",
-    {
-        "Enabled": bool,
-        "SnowflakeRole": str,
-    },
-    total=False,
-)
+class OutputFormatConfigurationTypeDef(TypedDict):
+    Serializer: NotRequired[SerializerUnionTypeDef]
 
-SnowflakeVpcConfigurationTypeDef = TypedDict(
-    "SnowflakeVpcConfigurationTypeDef",
-    {
-        "PrivateLinkVpceId": str,
-    },
-)
+class ExtendedS3DestinationDescriptionTypeDef(TypedDict):
+    RoleARN: str
+    BucketARN: str
+    BufferingHints: BufferingHintsTypeDef
+    CompressionFormat: CompressionFormatType
+    EncryptionConfiguration: EncryptionConfigurationTypeDef
+    Prefix: NotRequired[str]
+    ErrorOutputPrefix: NotRequired[str]
+    CloudWatchLoggingOptions: NotRequired[CloudWatchLoggingOptionsTypeDef]
+    ProcessingConfiguration: NotRequired[ProcessingConfigurationOutputTypeDef]
+    S3BackupMode: NotRequired[S3BackupModeType]
+    S3BackupDescription: NotRequired[S3DestinationDescriptionTypeDef]
+    DataFormatConversionConfiguration: NotRequired[DataFormatConversionConfigurationOutputTypeDef]
+    DynamicPartitioningConfiguration: NotRequired[DynamicPartitioningConfigurationTypeDef]
+    FileExtension: NotRequired[str]
+    CustomTimeZone: NotRequired[str]
 
-SourceDescriptionTypeDef = TypedDict(
-    "SourceDescriptionTypeDef",
-    {
-        "KinesisStreamSourceDescription": "KinesisStreamSourceDescriptionTypeDef",
-        "MSKSourceDescription": "MSKSourceDescriptionTypeDef",
-    },
-    total=False,
-)
+DestinationTableConfigurationUnionTypeDef = Union[
+    DestinationTableConfigurationTypeDef, DestinationTableConfigurationOutputTypeDef
+]
+ProcessingConfigurationUnionTypeDef = Union[
+    ProcessingConfigurationTypeDef, ProcessingConfigurationOutputTypeDef
+]
+InputFormatConfigurationUnionTypeDef = Union[
+    InputFormatConfigurationTypeDef, InputFormatConfigurationOutputTypeDef
+]
+OutputFormatConfigurationUnionTypeDef = Union[
+    OutputFormatConfigurationTypeDef, OutputFormatConfigurationOutputTypeDef
+]
 
-SplunkBufferingHintsTypeDef = TypedDict(
-    "SplunkBufferingHintsTypeDef",
-    {
-        "IntervalInSeconds": int,
-        "SizeInMBs": int,
-    },
-    total=False,
-)
+class DestinationDescriptionTypeDef(TypedDict):
+    DestinationId: str
+    S3DestinationDescription: NotRequired[S3DestinationDescriptionTypeDef]
+    ExtendedS3DestinationDescription: NotRequired[ExtendedS3DestinationDescriptionTypeDef]
+    RedshiftDestinationDescription: NotRequired[RedshiftDestinationDescriptionTypeDef]
+    ElasticsearchDestinationDescription: NotRequired[ElasticsearchDestinationDescriptionTypeDef]
+    AmazonopensearchserviceDestinationDescription: NotRequired[
+        AmazonopensearchserviceDestinationDescriptionTypeDef
+    ]
+    SplunkDestinationDescription: NotRequired[SplunkDestinationDescriptionTypeDef]
+    HttpEndpointDestinationDescription: NotRequired[HttpEndpointDestinationDescriptionTypeDef]
+    SnowflakeDestinationDescription: NotRequired[SnowflakeDestinationDescriptionTypeDef]
+    AmazonOpenSearchServerlessDestinationDescription: NotRequired[
+        AmazonOpenSearchServerlessDestinationDescriptionTypeDef
+    ]
+    IcebergDestinationDescription: NotRequired[IcebergDestinationDescriptionTypeDef]
 
-_RequiredSplunkDestinationConfigurationTypeDef = TypedDict(
-    "_RequiredSplunkDestinationConfigurationTypeDef",
-    {
-        "HECEndpoint": str,
-        "HECEndpointType": HECEndpointTypeType,
-        "S3Configuration": "S3DestinationConfigurationTypeDef",
-    },
-)
-_OptionalSplunkDestinationConfigurationTypeDef = TypedDict(
-    "_OptionalSplunkDestinationConfigurationTypeDef",
-    {
-        "HECToken": str,
-        "HECAcknowledgmentTimeoutInSeconds": int,
-        "RetryOptions": "SplunkRetryOptionsTypeDef",
-        "S3BackupMode": SplunkS3BackupModeType,
-        "ProcessingConfiguration": "ProcessingConfigurationTypeDef",
-        "CloudWatchLoggingOptions": "CloudWatchLoggingOptionsTypeDef",
-        "BufferingHints": "SplunkBufferingHintsTypeDef",
-        "SecretsManagerConfiguration": "SecretsManagerConfigurationTypeDef",
-    },
-    total=False,
-)
+class AmazonOpenSearchServerlessDestinationConfigurationTypeDef(TypedDict):
+    RoleARN: str
+    IndexName: str
+    S3Configuration: S3DestinationConfigurationTypeDef
+    CollectionEndpoint: NotRequired[str]
+    BufferingHints: NotRequired[AmazonOpenSearchServerlessBufferingHintsTypeDef]
+    RetryOptions: NotRequired[AmazonOpenSearchServerlessRetryOptionsTypeDef]
+    S3BackupMode: NotRequired[AmazonOpenSearchServerlessS3BackupModeType]
+    ProcessingConfiguration: NotRequired[ProcessingConfigurationUnionTypeDef]
+    CloudWatchLoggingOptions: NotRequired[CloudWatchLoggingOptionsTypeDef]
+    VpcConfiguration: NotRequired[VpcConfigurationTypeDef]
 
-class SplunkDestinationConfigurationTypeDef(
-    _RequiredSplunkDestinationConfigurationTypeDef, _OptionalSplunkDestinationConfigurationTypeDef
-):
-    pass
+class AmazonOpenSearchServerlessDestinationUpdateTypeDef(TypedDict):
+    RoleARN: NotRequired[str]
+    CollectionEndpoint: NotRequired[str]
+    IndexName: NotRequired[str]
+    BufferingHints: NotRequired[AmazonOpenSearchServerlessBufferingHintsTypeDef]
+    RetryOptions: NotRequired[AmazonOpenSearchServerlessRetryOptionsTypeDef]
+    S3Update: NotRequired[S3DestinationUpdateTypeDef]
+    ProcessingConfiguration: NotRequired[ProcessingConfigurationUnionTypeDef]
+    CloudWatchLoggingOptions: NotRequired[CloudWatchLoggingOptionsTypeDef]
 
-SplunkDestinationDescriptionTypeDef = TypedDict(
-    "SplunkDestinationDescriptionTypeDef",
-    {
-        "HECEndpoint": str,
-        "HECEndpointType": HECEndpointTypeType,
-        "HECToken": str,
-        "HECAcknowledgmentTimeoutInSeconds": int,
-        "RetryOptions": "SplunkRetryOptionsTypeDef",
-        "S3BackupMode": SplunkS3BackupModeType,
-        "S3DestinationDescription": "S3DestinationDescriptionTypeDef",
-        "ProcessingConfiguration": "ProcessingConfigurationTypeDef",
-        "CloudWatchLoggingOptions": "CloudWatchLoggingOptionsTypeDef",
-        "BufferingHints": "SplunkBufferingHintsTypeDef",
-        "SecretsManagerConfiguration": "SecretsManagerConfigurationTypeDef",
-    },
-    total=False,
-)
+class AmazonopensearchserviceDestinationConfigurationTypeDef(TypedDict):
+    RoleARN: str
+    IndexName: str
+    S3Configuration: S3DestinationConfigurationTypeDef
+    DomainARN: NotRequired[str]
+    ClusterEndpoint: NotRequired[str]
+    TypeName: NotRequired[str]
+    IndexRotationPeriod: NotRequired[AmazonopensearchserviceIndexRotationPeriodType]
+    BufferingHints: NotRequired[AmazonopensearchserviceBufferingHintsTypeDef]
+    RetryOptions: NotRequired[AmazonopensearchserviceRetryOptionsTypeDef]
+    S3BackupMode: NotRequired[AmazonopensearchserviceS3BackupModeType]
+    ProcessingConfiguration: NotRequired[ProcessingConfigurationUnionTypeDef]
+    CloudWatchLoggingOptions: NotRequired[CloudWatchLoggingOptionsTypeDef]
+    VpcConfiguration: NotRequired[VpcConfigurationTypeDef]
+    DocumentIdOptions: NotRequired[DocumentIdOptionsTypeDef]
 
-SplunkDestinationUpdateTypeDef = TypedDict(
-    "SplunkDestinationUpdateTypeDef",
-    {
-        "HECEndpoint": str,
-        "HECEndpointType": HECEndpointTypeType,
-        "HECToken": str,
-        "HECAcknowledgmentTimeoutInSeconds": int,
-        "RetryOptions": "SplunkRetryOptionsTypeDef",
-        "S3BackupMode": SplunkS3BackupModeType,
-        "S3Update": "S3DestinationUpdateTypeDef",
-        "ProcessingConfiguration": "ProcessingConfigurationTypeDef",
-        "CloudWatchLoggingOptions": "CloudWatchLoggingOptionsTypeDef",
-        "BufferingHints": "SplunkBufferingHintsTypeDef",
-        "SecretsManagerConfiguration": "SecretsManagerConfigurationTypeDef",
-    },
-    total=False,
-)
+class AmazonopensearchserviceDestinationUpdateTypeDef(TypedDict):
+    RoleARN: NotRequired[str]
+    DomainARN: NotRequired[str]
+    ClusterEndpoint: NotRequired[str]
+    IndexName: NotRequired[str]
+    TypeName: NotRequired[str]
+    IndexRotationPeriod: NotRequired[AmazonopensearchserviceIndexRotationPeriodType]
+    BufferingHints: NotRequired[AmazonopensearchserviceBufferingHintsTypeDef]
+    RetryOptions: NotRequired[AmazonopensearchserviceRetryOptionsTypeDef]
+    S3Update: NotRequired[S3DestinationUpdateTypeDef]
+    ProcessingConfiguration: NotRequired[ProcessingConfigurationUnionTypeDef]
+    CloudWatchLoggingOptions: NotRequired[CloudWatchLoggingOptionsTypeDef]
+    DocumentIdOptions: NotRequired[DocumentIdOptionsTypeDef]
 
-SplunkRetryOptionsTypeDef = TypedDict(
-    "SplunkRetryOptionsTypeDef",
-    {
-        "DurationInSeconds": int,
-    },
-    total=False,
-)
+class ElasticsearchDestinationConfigurationTypeDef(TypedDict):
+    RoleARN: str
+    IndexName: str
+    S3Configuration: S3DestinationConfigurationTypeDef
+    DomainARN: NotRequired[str]
+    ClusterEndpoint: NotRequired[str]
+    TypeName: NotRequired[str]
+    IndexRotationPeriod: NotRequired[ElasticsearchIndexRotationPeriodType]
+    BufferingHints: NotRequired[ElasticsearchBufferingHintsTypeDef]
+    RetryOptions: NotRequired[ElasticsearchRetryOptionsTypeDef]
+    S3BackupMode: NotRequired[ElasticsearchS3BackupModeType]
+    ProcessingConfiguration: NotRequired[ProcessingConfigurationUnionTypeDef]
+    CloudWatchLoggingOptions: NotRequired[CloudWatchLoggingOptionsTypeDef]
+    VpcConfiguration: NotRequired[VpcConfigurationTypeDef]
+    DocumentIdOptions: NotRequired[DocumentIdOptionsTypeDef]
 
-_RequiredStartDeliveryStreamEncryptionInputRequestTypeDef = TypedDict(
-    "_RequiredStartDeliveryStreamEncryptionInputRequestTypeDef",
-    {
-        "DeliveryStreamName": str,
-    },
-)
-_OptionalStartDeliveryStreamEncryptionInputRequestTypeDef = TypedDict(
-    "_OptionalStartDeliveryStreamEncryptionInputRequestTypeDef",
-    {
-        "DeliveryStreamEncryptionConfigurationInput": "DeliveryStreamEncryptionConfigurationInputTypeDef",
-    },
-    total=False,
-)
+class ElasticsearchDestinationUpdateTypeDef(TypedDict):
+    RoleARN: NotRequired[str]
+    DomainARN: NotRequired[str]
+    ClusterEndpoint: NotRequired[str]
+    IndexName: NotRequired[str]
+    TypeName: NotRequired[str]
+    IndexRotationPeriod: NotRequired[ElasticsearchIndexRotationPeriodType]
+    BufferingHints: NotRequired[ElasticsearchBufferingHintsTypeDef]
+    RetryOptions: NotRequired[ElasticsearchRetryOptionsTypeDef]
+    S3Update: NotRequired[S3DestinationUpdateTypeDef]
+    ProcessingConfiguration: NotRequired[ProcessingConfigurationUnionTypeDef]
+    CloudWatchLoggingOptions: NotRequired[CloudWatchLoggingOptionsTypeDef]
+    DocumentIdOptions: NotRequired[DocumentIdOptionsTypeDef]
 
-class StartDeliveryStreamEncryptionInputRequestTypeDef(
-    _RequiredStartDeliveryStreamEncryptionInputRequestTypeDef,
-    _OptionalStartDeliveryStreamEncryptionInputRequestTypeDef,
-):
-    pass
+class HttpEndpointDestinationConfigurationTypeDef(TypedDict):
+    EndpointConfiguration: HttpEndpointConfigurationTypeDef
+    S3Configuration: S3DestinationConfigurationTypeDef
+    BufferingHints: NotRequired[HttpEndpointBufferingHintsTypeDef]
+    CloudWatchLoggingOptions: NotRequired[CloudWatchLoggingOptionsTypeDef]
+    RequestConfiguration: NotRequired[HttpEndpointRequestConfigurationUnionTypeDef]
+    ProcessingConfiguration: NotRequired[ProcessingConfigurationUnionTypeDef]
+    RoleARN: NotRequired[str]
+    RetryOptions: NotRequired[HttpEndpointRetryOptionsTypeDef]
+    S3BackupMode: NotRequired[HttpEndpointS3BackupModeType]
+    SecretsManagerConfiguration: NotRequired[SecretsManagerConfigurationTypeDef]
 
-StopDeliveryStreamEncryptionInputRequestTypeDef = TypedDict(
-    "StopDeliveryStreamEncryptionInputRequestTypeDef",
-    {
-        "DeliveryStreamName": str,
-    },
-)
+class HttpEndpointDestinationUpdateTypeDef(TypedDict):
+    EndpointConfiguration: NotRequired[HttpEndpointConfigurationTypeDef]
+    BufferingHints: NotRequired[HttpEndpointBufferingHintsTypeDef]
+    CloudWatchLoggingOptions: NotRequired[CloudWatchLoggingOptionsTypeDef]
+    RequestConfiguration: NotRequired[HttpEndpointRequestConfigurationUnionTypeDef]
+    ProcessingConfiguration: NotRequired[ProcessingConfigurationUnionTypeDef]
+    RoleARN: NotRequired[str]
+    RetryOptions: NotRequired[HttpEndpointRetryOptionsTypeDef]
+    S3BackupMode: NotRequired[HttpEndpointS3BackupModeType]
+    S3Update: NotRequired[S3DestinationUpdateTypeDef]
+    SecretsManagerConfiguration: NotRequired[SecretsManagerConfigurationTypeDef]
 
-TagDeliveryStreamInputRequestTypeDef = TypedDict(
-    "TagDeliveryStreamInputRequestTypeDef",
-    {
-        "DeliveryStreamName": str,
-        "Tags": List["TagTypeDef"],
-    },
-)
+class IcebergDestinationConfigurationTypeDef(TypedDict):
+    RoleARN: str
+    CatalogConfiguration: CatalogConfigurationTypeDef
+    S3Configuration: S3DestinationConfigurationTypeDef
+    DestinationTableConfigurationList: NotRequired[
+        Sequence[DestinationTableConfigurationUnionTypeDef]
+    ]
+    SchemaEvolutionConfiguration: NotRequired[SchemaEvolutionConfigurationTypeDef]
+    TableCreationConfiguration: NotRequired[TableCreationConfigurationTypeDef]
+    BufferingHints: NotRequired[BufferingHintsTypeDef]
+    CloudWatchLoggingOptions: NotRequired[CloudWatchLoggingOptionsTypeDef]
+    ProcessingConfiguration: NotRequired[ProcessingConfigurationUnionTypeDef]
+    S3BackupMode: NotRequired[IcebergS3BackupModeType]
+    RetryOptions: NotRequired[RetryOptionsTypeDef]
+    AppendOnly: NotRequired[bool]
 
-_RequiredTagTypeDef = TypedDict(
-    "_RequiredTagTypeDef",
-    {
-        "Key": str,
-    },
-)
-_OptionalTagTypeDef = TypedDict(
-    "_OptionalTagTypeDef",
-    {
-        "Value": str,
-    },
-    total=False,
-)
+class IcebergDestinationUpdateTypeDef(TypedDict):
+    DestinationTableConfigurationList: NotRequired[
+        Sequence[DestinationTableConfigurationUnionTypeDef]
+    ]
+    SchemaEvolutionConfiguration: NotRequired[SchemaEvolutionConfigurationTypeDef]
+    TableCreationConfiguration: NotRequired[TableCreationConfigurationTypeDef]
+    BufferingHints: NotRequired[BufferingHintsTypeDef]
+    CloudWatchLoggingOptions: NotRequired[CloudWatchLoggingOptionsTypeDef]
+    ProcessingConfiguration: NotRequired[ProcessingConfigurationUnionTypeDef]
+    S3BackupMode: NotRequired[IcebergS3BackupModeType]
+    RetryOptions: NotRequired[RetryOptionsTypeDef]
+    RoleARN: NotRequired[str]
+    AppendOnly: NotRequired[bool]
+    CatalogConfiguration: NotRequired[CatalogConfigurationTypeDef]
+    S3Configuration: NotRequired[S3DestinationConfigurationTypeDef]
 
-class TagTypeDef(_RequiredTagTypeDef, _OptionalTagTypeDef):
-    pass
+class RedshiftDestinationConfigurationTypeDef(TypedDict):
+    RoleARN: str
+    ClusterJDBCURL: str
+    CopyCommand: CopyCommandTypeDef
+    S3Configuration: S3DestinationConfigurationTypeDef
+    Username: NotRequired[str]
+    Password: NotRequired[str]
+    RetryOptions: NotRequired[RedshiftRetryOptionsTypeDef]
+    ProcessingConfiguration: NotRequired[ProcessingConfigurationUnionTypeDef]
+    S3BackupMode: NotRequired[RedshiftS3BackupModeType]
+    S3BackupConfiguration: NotRequired[S3DestinationConfigurationTypeDef]
+    CloudWatchLoggingOptions: NotRequired[CloudWatchLoggingOptionsTypeDef]
+    SecretsManagerConfiguration: NotRequired[SecretsManagerConfigurationTypeDef]
 
-UntagDeliveryStreamInputRequestTypeDef = TypedDict(
-    "UntagDeliveryStreamInputRequestTypeDef",
-    {
-        "DeliveryStreamName": str,
-        "TagKeys": List[str],
-    },
-)
+class RedshiftDestinationUpdateTypeDef(TypedDict):
+    RoleARN: NotRequired[str]
+    ClusterJDBCURL: NotRequired[str]
+    CopyCommand: NotRequired[CopyCommandTypeDef]
+    Username: NotRequired[str]
+    Password: NotRequired[str]
+    RetryOptions: NotRequired[RedshiftRetryOptionsTypeDef]
+    S3Update: NotRequired[S3DestinationUpdateTypeDef]
+    ProcessingConfiguration: NotRequired[ProcessingConfigurationUnionTypeDef]
+    S3BackupMode: NotRequired[RedshiftS3BackupModeType]
+    S3BackupUpdate: NotRequired[S3DestinationUpdateTypeDef]
+    CloudWatchLoggingOptions: NotRequired[CloudWatchLoggingOptionsTypeDef]
+    SecretsManagerConfiguration: NotRequired[SecretsManagerConfigurationTypeDef]
 
-_RequiredUpdateDestinationInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateDestinationInputRequestTypeDef",
-    {
-        "DeliveryStreamName": str,
-        "CurrentDeliveryStreamVersionId": str,
-        "DestinationId": str,
-    },
-)
-_OptionalUpdateDestinationInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateDestinationInputRequestTypeDef",
-    {
-        "S3DestinationUpdate": "S3DestinationUpdateTypeDef",
-        "ExtendedS3DestinationUpdate": "ExtendedS3DestinationUpdateTypeDef",
-        "RedshiftDestinationUpdate": "RedshiftDestinationUpdateTypeDef",
-        "ElasticsearchDestinationUpdate": "ElasticsearchDestinationUpdateTypeDef",
-        "AmazonopensearchserviceDestinationUpdate": "AmazonopensearchserviceDestinationUpdateTypeDef",
-        "SplunkDestinationUpdate": "SplunkDestinationUpdateTypeDef",
-        "HttpEndpointDestinationUpdate": "HttpEndpointDestinationUpdateTypeDef",
-        "AmazonOpenSearchServerlessDestinationUpdate": "AmazonOpenSearchServerlessDestinationUpdateTypeDef",
-        "SnowflakeDestinationUpdate": "SnowflakeDestinationUpdateTypeDef",
-    },
-    total=False,
-)
+class SnowflakeDestinationConfigurationTypeDef(TypedDict):
+    AccountUrl: str
+    Database: str
+    Schema: str
+    Table: str
+    RoleARN: str
+    S3Configuration: S3DestinationConfigurationTypeDef
+    PrivateKey: NotRequired[str]
+    KeyPassphrase: NotRequired[str]
+    User: NotRequired[str]
+    SnowflakeRoleConfiguration: NotRequired[SnowflakeRoleConfigurationTypeDef]
+    DataLoadingOption: NotRequired[SnowflakeDataLoadingOptionType]
+    MetaDataColumnName: NotRequired[str]
+    ContentColumnName: NotRequired[str]
+    SnowflakeVpcConfiguration: NotRequired[SnowflakeVpcConfigurationTypeDef]
+    CloudWatchLoggingOptions: NotRequired[CloudWatchLoggingOptionsTypeDef]
+    ProcessingConfiguration: NotRequired[ProcessingConfigurationUnionTypeDef]
+    RetryOptions: NotRequired[SnowflakeRetryOptionsTypeDef]
+    S3BackupMode: NotRequired[SnowflakeS3BackupModeType]
+    SecretsManagerConfiguration: NotRequired[SecretsManagerConfigurationTypeDef]
+    BufferingHints: NotRequired[SnowflakeBufferingHintsTypeDef]
 
-class UpdateDestinationInputRequestTypeDef(
-    _RequiredUpdateDestinationInputRequestTypeDef, _OptionalUpdateDestinationInputRequestTypeDef
-):
-    pass
+class SnowflakeDestinationUpdateTypeDef(TypedDict):
+    AccountUrl: NotRequired[str]
+    PrivateKey: NotRequired[str]
+    KeyPassphrase: NotRequired[str]
+    User: NotRequired[str]
+    Database: NotRequired[str]
+    Schema: NotRequired[str]
+    Table: NotRequired[str]
+    SnowflakeRoleConfiguration: NotRequired[SnowflakeRoleConfigurationTypeDef]
+    DataLoadingOption: NotRequired[SnowflakeDataLoadingOptionType]
+    MetaDataColumnName: NotRequired[str]
+    ContentColumnName: NotRequired[str]
+    CloudWatchLoggingOptions: NotRequired[CloudWatchLoggingOptionsTypeDef]
+    ProcessingConfiguration: NotRequired[ProcessingConfigurationUnionTypeDef]
+    RoleARN: NotRequired[str]
+    RetryOptions: NotRequired[SnowflakeRetryOptionsTypeDef]
+    S3BackupMode: NotRequired[SnowflakeS3BackupModeType]
+    S3Update: NotRequired[S3DestinationUpdateTypeDef]
+    SecretsManagerConfiguration: NotRequired[SecretsManagerConfigurationTypeDef]
+    BufferingHints: NotRequired[SnowflakeBufferingHintsTypeDef]
 
-VpcConfigurationDescriptionTypeDef = TypedDict(
-    "VpcConfigurationDescriptionTypeDef",
-    {
-        "SubnetIds": List[str],
-        "RoleARN": str,
-        "SecurityGroupIds": List[str],
-        "VpcId": str,
-    },
-)
+class SplunkDestinationConfigurationTypeDef(TypedDict):
+    HECEndpoint: str
+    HECEndpointType: HECEndpointTypeType
+    S3Configuration: S3DestinationConfigurationTypeDef
+    HECToken: NotRequired[str]
+    HECAcknowledgmentTimeoutInSeconds: NotRequired[int]
+    RetryOptions: NotRequired[SplunkRetryOptionsTypeDef]
+    S3BackupMode: NotRequired[SplunkS3BackupModeType]
+    ProcessingConfiguration: NotRequired[ProcessingConfigurationUnionTypeDef]
+    CloudWatchLoggingOptions: NotRequired[CloudWatchLoggingOptionsTypeDef]
+    BufferingHints: NotRequired[SplunkBufferingHintsTypeDef]
+    SecretsManagerConfiguration: NotRequired[SecretsManagerConfigurationTypeDef]
 
-VpcConfigurationTypeDef = TypedDict(
-    "VpcConfigurationTypeDef",
-    {
-        "SubnetIds": List[str],
-        "RoleARN": str,
-        "SecurityGroupIds": List[str],
-    },
-)
+class SplunkDestinationUpdateTypeDef(TypedDict):
+    HECEndpoint: NotRequired[str]
+    HECEndpointType: NotRequired[HECEndpointTypeType]
+    HECToken: NotRequired[str]
+    HECAcknowledgmentTimeoutInSeconds: NotRequired[int]
+    RetryOptions: NotRequired[SplunkRetryOptionsTypeDef]
+    S3BackupMode: NotRequired[SplunkS3BackupModeType]
+    S3Update: NotRequired[S3DestinationUpdateTypeDef]
+    ProcessingConfiguration: NotRequired[ProcessingConfigurationUnionTypeDef]
+    CloudWatchLoggingOptions: NotRequired[CloudWatchLoggingOptionsTypeDef]
+    BufferingHints: NotRequired[SplunkBufferingHintsTypeDef]
+    SecretsManagerConfiguration: NotRequired[SecretsManagerConfigurationTypeDef]
+
+class DataFormatConversionConfigurationTypeDef(TypedDict):
+    SchemaConfiguration: NotRequired[SchemaConfigurationTypeDef]
+    InputFormatConfiguration: NotRequired[InputFormatConfigurationUnionTypeDef]
+    OutputFormatConfiguration: NotRequired[OutputFormatConfigurationUnionTypeDef]
+    Enabled: NotRequired[bool]
+
+class DeliveryStreamDescriptionTypeDef(TypedDict):
+    DeliveryStreamName: str
+    DeliveryStreamARN: str
+    DeliveryStreamStatus: DeliveryStreamStatusType
+    DeliveryStreamType: DeliveryStreamTypeType
+    VersionId: str
+    Destinations: List[DestinationDescriptionTypeDef]
+    HasMoreDestinations: bool
+    FailureDescription: NotRequired[FailureDescriptionTypeDef]
+    DeliveryStreamEncryptionConfiguration: NotRequired[DeliveryStreamEncryptionConfigurationTypeDef]
+    CreateTimestamp: NotRequired[datetime]
+    LastUpdateTimestamp: NotRequired[datetime]
+    Source: NotRequired[SourceDescriptionTypeDef]
+
+DataFormatConversionConfigurationUnionTypeDef = Union[
+    DataFormatConversionConfigurationTypeDef, DataFormatConversionConfigurationOutputTypeDef
+]
+
+class DescribeDeliveryStreamOutputTypeDef(TypedDict):
+    DeliveryStreamDescription: DeliveryStreamDescriptionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ExtendedS3DestinationConfigurationTypeDef(TypedDict):
+    RoleARN: str
+    BucketARN: str
+    Prefix: NotRequired[str]
+    ErrorOutputPrefix: NotRequired[str]
+    BufferingHints: NotRequired[BufferingHintsTypeDef]
+    CompressionFormat: NotRequired[CompressionFormatType]
+    EncryptionConfiguration: NotRequired[EncryptionConfigurationTypeDef]
+    CloudWatchLoggingOptions: NotRequired[CloudWatchLoggingOptionsTypeDef]
+    ProcessingConfiguration: NotRequired[ProcessingConfigurationUnionTypeDef]
+    S3BackupMode: NotRequired[S3BackupModeType]
+    S3BackupConfiguration: NotRequired[S3DestinationConfigurationTypeDef]
+    DataFormatConversionConfiguration: NotRequired[DataFormatConversionConfigurationUnionTypeDef]
+    DynamicPartitioningConfiguration: NotRequired[DynamicPartitioningConfigurationTypeDef]
+    FileExtension: NotRequired[str]
+    CustomTimeZone: NotRequired[str]
+
+class ExtendedS3DestinationUpdateTypeDef(TypedDict):
+    RoleARN: NotRequired[str]
+    BucketARN: NotRequired[str]
+    Prefix: NotRequired[str]
+    ErrorOutputPrefix: NotRequired[str]
+    BufferingHints: NotRequired[BufferingHintsTypeDef]
+    CompressionFormat: NotRequired[CompressionFormatType]
+    EncryptionConfiguration: NotRequired[EncryptionConfigurationTypeDef]
+    CloudWatchLoggingOptions: NotRequired[CloudWatchLoggingOptionsTypeDef]
+    ProcessingConfiguration: NotRequired[ProcessingConfigurationUnionTypeDef]
+    S3BackupMode: NotRequired[S3BackupModeType]
+    S3BackupUpdate: NotRequired[S3DestinationUpdateTypeDef]
+    DataFormatConversionConfiguration: NotRequired[DataFormatConversionConfigurationUnionTypeDef]
+    DynamicPartitioningConfiguration: NotRequired[DynamicPartitioningConfigurationTypeDef]
+    FileExtension: NotRequired[str]
+    CustomTimeZone: NotRequired[str]
+
+class CreateDeliveryStreamInputTypeDef(TypedDict):
+    DeliveryStreamName: str
+    DeliveryStreamType: NotRequired[DeliveryStreamTypeType]
+    DirectPutSourceConfiguration: NotRequired[DirectPutSourceConfigurationTypeDef]
+    KinesisStreamSourceConfiguration: NotRequired[KinesisStreamSourceConfigurationTypeDef]
+    DeliveryStreamEncryptionConfigurationInput: NotRequired[
+        DeliveryStreamEncryptionConfigurationInputTypeDef
+    ]
+    S3DestinationConfiguration: NotRequired[S3DestinationConfigurationTypeDef]
+    ExtendedS3DestinationConfiguration: NotRequired[ExtendedS3DestinationConfigurationTypeDef]
+    RedshiftDestinationConfiguration: NotRequired[RedshiftDestinationConfigurationTypeDef]
+    ElasticsearchDestinationConfiguration: NotRequired[ElasticsearchDestinationConfigurationTypeDef]
+    AmazonopensearchserviceDestinationConfiguration: NotRequired[
+        AmazonopensearchserviceDestinationConfigurationTypeDef
+    ]
+    SplunkDestinationConfiguration: NotRequired[SplunkDestinationConfigurationTypeDef]
+    HttpEndpointDestinationConfiguration: NotRequired[HttpEndpointDestinationConfigurationTypeDef]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+    AmazonOpenSearchServerlessDestinationConfiguration: NotRequired[
+        AmazonOpenSearchServerlessDestinationConfigurationTypeDef
+    ]
+    MSKSourceConfiguration: NotRequired[MSKSourceConfigurationTypeDef]
+    SnowflakeDestinationConfiguration: NotRequired[SnowflakeDestinationConfigurationTypeDef]
+    IcebergDestinationConfiguration: NotRequired[IcebergDestinationConfigurationTypeDef]
+    DatabaseSourceConfiguration: NotRequired[DatabaseSourceConfigurationTypeDef]
+
+class UpdateDestinationInputTypeDef(TypedDict):
+    DeliveryStreamName: str
+    CurrentDeliveryStreamVersionId: str
+    DestinationId: str
+    S3DestinationUpdate: NotRequired[S3DestinationUpdateTypeDef]
+    ExtendedS3DestinationUpdate: NotRequired[ExtendedS3DestinationUpdateTypeDef]
+    RedshiftDestinationUpdate: NotRequired[RedshiftDestinationUpdateTypeDef]
+    ElasticsearchDestinationUpdate: NotRequired[ElasticsearchDestinationUpdateTypeDef]
+    AmazonopensearchserviceDestinationUpdate: NotRequired[
+        AmazonopensearchserviceDestinationUpdateTypeDef
+    ]
+    SplunkDestinationUpdate: NotRequired[SplunkDestinationUpdateTypeDef]
+    HttpEndpointDestinationUpdate: NotRequired[HttpEndpointDestinationUpdateTypeDef]
+    AmazonOpenSearchServerlessDestinationUpdate: NotRequired[
+        AmazonOpenSearchServerlessDestinationUpdateTypeDef
+    ]
+    SnowflakeDestinationUpdate: NotRequired[SnowflakeDestinationUpdateTypeDef]
+    IcebergDestinationUpdate: NotRequired[IcebergDestinationUpdateTypeDef]

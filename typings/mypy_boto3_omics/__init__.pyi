@@ -1,10 +1,14 @@
 """
 Main interface for omics service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_omics/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_omics import (
         AnnotationImportJobCreatedWaiter,
         AnnotationStoreCreatedWaiter,
@@ -24,6 +28,7 @@ Usage::
         ListReferenceImportJobsPaginator,
         ListReferenceStoresPaginator,
         ListReferencesPaginator,
+        ListRunCachesPaginator,
         ListRunGroupsPaginator,
         ListRunTasksPaginator,
         ListRunsPaginator,
@@ -31,6 +36,7 @@ Usage::
         ListSharesPaginator,
         ListVariantImportJobsPaginator,
         ListVariantStoresPaginator,
+        ListWorkflowVersionsPaginator,
         ListWorkflowsPaginator,
         OmicsClient,
         ReadSetActivationJobCompletedWaiter,
@@ -45,12 +51,11 @@ Usage::
         VariantStoreCreatedWaiter,
         VariantStoreDeletedWaiter,
         WorkflowActiveWaiter,
+        WorkflowVersionActiveWaiter,
     )
 
-    session = boto3.Session()
-
-    client: OmicsClient = boto3.client("omics")
-    session_client: OmicsClient = session.client("omics")
+    session = Session()
+    client: OmicsClient = session.client("omics")
 
     annotation_import_job_created_waiter: AnnotationImportJobCreatedWaiter = client.get_waiter("annotation_import_job_created")
     annotation_store_created_waiter: AnnotationStoreCreatedWaiter = client.get_waiter("annotation_store_created")
@@ -69,6 +74,7 @@ Usage::
     variant_store_created_waiter: VariantStoreCreatedWaiter = client.get_waiter("variant_store_created")
     variant_store_deleted_waiter: VariantStoreDeletedWaiter = client.get_waiter("variant_store_deleted")
     workflow_active_waiter: WorkflowActiveWaiter = client.get_waiter("workflow_active")
+    workflow_version_active_waiter: WorkflowVersionActiveWaiter = client.get_waiter("workflow_version_active")
 
     list_annotation_import_jobs_paginator: ListAnnotationImportJobsPaginator = client.get_paginator("list_annotation_import_jobs")
     list_annotation_store_versions_paginator: ListAnnotationStoreVersionsPaginator = client.get_paginator("list_annotation_store_versions")
@@ -82,6 +88,7 @@ Usage::
     list_reference_import_jobs_paginator: ListReferenceImportJobsPaginator = client.get_paginator("list_reference_import_jobs")
     list_reference_stores_paginator: ListReferenceStoresPaginator = client.get_paginator("list_reference_stores")
     list_references_paginator: ListReferencesPaginator = client.get_paginator("list_references")
+    list_run_caches_paginator: ListRunCachesPaginator = client.get_paginator("list_run_caches")
     list_run_groups_paginator: ListRunGroupsPaginator = client.get_paginator("list_run_groups")
     list_run_tasks_paginator: ListRunTasksPaginator = client.get_paginator("list_run_tasks")
     list_runs_paginator: ListRunsPaginator = client.get_paginator("list_runs")
@@ -89,6 +96,7 @@ Usage::
     list_shares_paginator: ListSharesPaginator = client.get_paginator("list_shares")
     list_variant_import_jobs_paginator: ListVariantImportJobsPaginator = client.get_paginator("list_variant_import_jobs")
     list_variant_stores_paginator: ListVariantStoresPaginator = client.get_paginator("list_variant_stores")
+    list_workflow_versions_paginator: ListWorkflowVersionsPaginator = client.get_paginator("list_workflow_versions")
     list_workflows_paginator: ListWorkflowsPaginator = client.get_paginator("list_workflows")
     ```
 """
@@ -107,6 +115,7 @@ from .paginator import (
     ListReferenceImportJobsPaginator,
     ListReferencesPaginator,
     ListReferenceStoresPaginator,
+    ListRunCachesPaginator,
     ListRunGroupsPaginator,
     ListRunsPaginator,
     ListRunTasksPaginator,
@@ -115,6 +124,7 @@ from .paginator import (
     ListVariantImportJobsPaginator,
     ListVariantStoresPaginator,
     ListWorkflowsPaginator,
+    ListWorkflowVersionsPaginator,
 )
 from .waiter import (
     AnnotationImportJobCreatedWaiter,
@@ -134,6 +144,7 @@ from .waiter import (
     VariantStoreCreatedWaiter,
     VariantStoreDeletedWaiter,
     WorkflowActiveWaiter,
+    WorkflowVersionActiveWaiter,
 )
 
 Client = OmicsClient
@@ -157,6 +168,7 @@ __all__ = (
     "ListReferenceImportJobsPaginator",
     "ListReferenceStoresPaginator",
     "ListReferencesPaginator",
+    "ListRunCachesPaginator",
     "ListRunGroupsPaginator",
     "ListRunTasksPaginator",
     "ListRunsPaginator",
@@ -164,6 +176,7 @@ __all__ = (
     "ListSharesPaginator",
     "ListVariantImportJobsPaginator",
     "ListVariantStoresPaginator",
+    "ListWorkflowVersionsPaginator",
     "ListWorkflowsPaginator",
     "OmicsClient",
     "ReadSetActivationJobCompletedWaiter",
@@ -178,4 +191,5 @@ __all__ = (
     "VariantStoreCreatedWaiter",
     "VariantStoreDeletedWaiter",
     "WorkflowActiveWaiter",
+    "WorkflowVersionActiveWaiter",
 )

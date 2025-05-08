@@ -1,10 +1,14 @@
 """
 Main interface for apigatewayv2 service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_apigatewayv2/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_apigatewayv2 import (
         ApiGatewayV2Client,
         Client,
@@ -20,10 +24,8 @@ Usage::
         GetStagesPaginator,
     )
 
-    session = boto3.Session()
-
-    client: ApiGatewayV2Client = boto3.client("apigatewayv2")
-    session_client: ApiGatewayV2Client = session.client("apigatewayv2")
+    session = Session()
+    client: ApiGatewayV2Client = session.client("apigatewayv2")
 
     get_apis_paginator: GetApisPaginator = client.get_paginator("get_apis")
     get_authorizers_paginator: GetAuthorizersPaginator = client.get_paginator("get_authorizers")

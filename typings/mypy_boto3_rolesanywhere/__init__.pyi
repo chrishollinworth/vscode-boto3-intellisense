@@ -1,10 +1,14 @@
 """
 Main interface for rolesanywhere service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_rolesanywhere/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_rolesanywhere import (
         Client,
         IAMRolesAnywhereClient,
@@ -14,10 +18,8 @@ Usage::
         ListTrustAnchorsPaginator,
     )
 
-    session = boto3.Session()
-
-    client: IAMRolesAnywhereClient = boto3.client("rolesanywhere")
-    session_client: IAMRolesAnywhereClient = session.client("rolesanywhere")
+    session = Session()
+    client: IAMRolesAnywhereClient = session.client("rolesanywhere")
 
     list_crls_paginator: ListCrlsPaginator = client.get_paginator("list_crls")
     list_profiles_paginator: ListProfilesPaginator = client.get_paginator("list_profiles")

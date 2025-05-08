@@ -1,42 +1,57 @@
 """
 Type annotations for networkmonitor service client paginators.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmonitor/paginators.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_networkmonitor/paginators/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
 
-    from mypy_boto3_networkmonitor import CloudWatchNetworkMonitorClient
+    from mypy_boto3_networkmonitor.client import CloudWatchNetworkMonitorClient
     from mypy_boto3_networkmonitor.paginator import (
         ListMonitorsPaginator,
     )
 
-    client: CloudWatchNetworkMonitorClient = boto3.client("networkmonitor")
+    session = Session()
+    client: CloudWatchNetworkMonitorClient = session.client("networkmonitor")
 
     list_monitors_paginator: ListMonitorsPaginator = client.get_paginator("list_monitors")
     ```
 """
 
-from typing import Iterator
+from __future__ import annotations
 
-from botocore.paginate import Paginator as Boto3Paginator
+import sys
+from typing import TYPE_CHECKING
 
-from .type_defs import ListMonitorsOutputTypeDef, PaginatorConfigTypeDef
+from botocore.paginate import PageIterator, Paginator
+
+from .type_defs import ListMonitorsInputPaginateTypeDef, ListMonitorsOutputTypeDef
+
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = ("ListMonitorsPaginator",)
 
-class ListMonitorsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/networkmonitor.html#CloudWatchNetworkMonitor.Paginator.ListMonitors)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmonitor/paginators.html#listmonitorspaginator)
-    """
+if TYPE_CHECKING:
+    _ListMonitorsPaginatorBase = Paginator[ListMonitorsOutputTypeDef]
+else:
+    _ListMonitorsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, state: str = None, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListMonitorsOutputTypeDef]:
+class ListMonitorsPaginator(_ListMonitorsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/networkmonitor/paginator/ListMonitors.html#CloudWatchNetworkMonitor.Paginator.ListMonitors)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_networkmonitor/paginators/#listmonitorspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListMonitorsInputPaginateTypeDef]
+    ) -> PageIterator[ListMonitorsOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/networkmonitor.html#CloudWatchNetworkMonitor.Paginator.ListMonitors.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmonitor/paginators.html#listmonitorspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/networkmonitor/paginator/ListMonitors.html#CloudWatchNetworkMonitor.Paginator.ListMonitors.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_networkmonitor/paginators/#listmonitorspaginator)
         """

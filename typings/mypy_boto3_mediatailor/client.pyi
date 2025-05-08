@@ -1,24 +1,30 @@
 """
-Type annotations for mediatailor service client.
+Type annotations for mediatailor service Client.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
-    from mypy_boto3_mediatailor import MediaTailorClient
+    from boto3.session import Session
+    from mypy_boto3_mediatailor.client import MediaTailorClient
 
-    client: MediaTailorClient = boto3.client("mediatailor")
+    session = Session()
+    client: MediaTailorClient = session.client("mediatailor")
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from typing import Any, Dict, List, Type, overload
+from typing import Any, overload
 
 from botocore.client import BaseClient, ClientMeta
+from botocore.errorfactory import BaseClientExceptions
+from botocore.exceptions import ClientError as BotocoreClientError
 
-from .literals import InsertionModeType, PlaybackModeType, TierType
 from .paginator import (
     GetChannelSchedulePaginator,
     ListAlertsPaginator,
@@ -30,81 +36,105 @@ from .paginator import (
     ListVodSourcesPaginator,
 )
 from .type_defs import (
-    AccessConfigurationTypeDef,
-    AdBreakTypeDef,
-    AudienceMediaTypeDef,
-    AvailSuppressionTypeDef,
-    BumperTypeDef,
-    CdnConfigurationTypeDef,
+    ConfigureLogsForChannelRequestTypeDef,
     ConfigureLogsForChannelResponseTypeDef,
+    ConfigureLogsForPlaybackConfigurationRequestTypeDef,
     ConfigureLogsForPlaybackConfigurationResponseTypeDef,
+    CreateChannelRequestTypeDef,
     CreateChannelResponseTypeDef,
+    CreateLiveSourceRequestTypeDef,
     CreateLiveSourceResponseTypeDef,
+    CreatePrefetchScheduleRequestTypeDef,
     CreatePrefetchScheduleResponseTypeDef,
+    CreateProgramRequestTypeDef,
     CreateProgramResponseTypeDef,
+    CreateSourceLocationRequestTypeDef,
     CreateSourceLocationResponseTypeDef,
+    CreateVodSourceRequestTypeDef,
     CreateVodSourceResponseTypeDef,
-    DashConfigurationForPutTypeDef,
-    DefaultSegmentDeliveryConfigurationTypeDef,
+    DeleteChannelPolicyRequestTypeDef,
+    DeleteChannelRequestTypeDef,
+    DeleteLiveSourceRequestTypeDef,
+    DeletePlaybackConfigurationRequestTypeDef,
+    DeletePrefetchScheduleRequestTypeDef,
+    DeleteProgramRequestTypeDef,
+    DeleteSourceLocationRequestTypeDef,
+    DeleteVodSourceRequestTypeDef,
+    DescribeChannelRequestTypeDef,
     DescribeChannelResponseTypeDef,
+    DescribeLiveSourceRequestTypeDef,
     DescribeLiveSourceResponseTypeDef,
+    DescribeProgramRequestTypeDef,
     DescribeProgramResponseTypeDef,
+    DescribeSourceLocationRequestTypeDef,
     DescribeSourceLocationResponseTypeDef,
+    DescribeVodSourceRequestTypeDef,
     DescribeVodSourceResponseTypeDef,
+    EmptyResponseMetadataTypeDef,
+    GetChannelPolicyRequestTypeDef,
     GetChannelPolicyResponseTypeDef,
+    GetChannelScheduleRequestTypeDef,
     GetChannelScheduleResponseTypeDef,
+    GetPlaybackConfigurationRequestTypeDef,
     GetPlaybackConfigurationResponseTypeDef,
+    GetPrefetchScheduleRequestTypeDef,
     GetPrefetchScheduleResponseTypeDef,
-    HttpConfigurationTypeDef,
-    HttpPackageConfigurationTypeDef,
+    ListAlertsRequestTypeDef,
     ListAlertsResponseTypeDef,
+    ListChannelsRequestTypeDef,
     ListChannelsResponseTypeDef,
+    ListLiveSourcesRequestTypeDef,
     ListLiveSourcesResponseTypeDef,
+    ListPlaybackConfigurationsRequestTypeDef,
     ListPlaybackConfigurationsResponseTypeDef,
+    ListPrefetchSchedulesRequestTypeDef,
     ListPrefetchSchedulesResponseTypeDef,
+    ListSourceLocationsRequestTypeDef,
     ListSourceLocationsResponseTypeDef,
+    ListTagsForResourceRequestTypeDef,
     ListTagsForResourceResponseTypeDef,
+    ListVodSourcesRequestTypeDef,
     ListVodSourcesResponseTypeDef,
-    LivePreRollConfigurationTypeDef,
-    ManifestProcessingRulesTypeDef,
-    PrefetchConsumptionTypeDef,
-    PrefetchRetrievalTypeDef,
+    PutChannelPolicyRequestTypeDef,
+    PutPlaybackConfigurationRequestTypeDef,
     PutPlaybackConfigurationResponseTypeDef,
-    RequestOutputItemTypeDef,
-    ScheduleConfigurationTypeDef,
-    SegmentDeliveryConfigurationTypeDef,
-    SlateSourceTypeDef,
-    TimeShiftConfigurationTypeDef,
+    StartChannelRequestTypeDef,
+    StopChannelRequestTypeDef,
+    TagResourceRequestTypeDef,
+    UntagResourceRequestTypeDef,
+    UpdateChannelRequestTypeDef,
     UpdateChannelResponseTypeDef,
+    UpdateLiveSourceRequestTypeDef,
     UpdateLiveSourceResponseTypeDef,
+    UpdateProgramRequestTypeDef,
     UpdateProgramResponseTypeDef,
-    UpdateProgramScheduleConfigurationTypeDef,
+    UpdateSourceLocationRequestTypeDef,
     UpdateSourceLocationResponseTypeDef,
+    UpdateVodSourceRequestTypeDef,
     UpdateVodSourceResponseTypeDef,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import type as Type
+    from collections.abc import Mapping
 else:
-    from typing_extensions import Literal
+    from typing import Dict, Mapping, Type
+if sys.version_info >= (3, 12):
+    from typing import Literal, Unpack
+else:
+    from typing_extensions import Literal, Unpack
 
 __all__ = ("MediaTailorClient",)
 
-class BotocoreClientError(BaseException):
-    MSG_TEMPLATE: str
-
-    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
-        self.response: Dict[str, Any]
-        self.operation_name: str
-
-class Exceptions:
+class Exceptions(BaseClientExceptions):
     BadRequestException: Type[BotocoreClientError]
     ClientError: Type[BotocoreClientError]
 
 class MediaTailorClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Client)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client.html)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediatailor.html#MediaTailor.Client)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client/)
     """
 
     meta: ClientMeta
@@ -113,605 +143,545 @@ class MediaTailorClient(BaseClient):
     def exceptions(self) -> Exceptions:
         """
         MediaTailorClient exceptions.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediatailor.html#MediaTailor.Client)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client/#exceptions)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        Check if an operation can be paginated.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Client.can_paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client.html#can_paginate)
-        """
-
-    def close(self) -> None:
-        """
-        Closes underlying endpoint connections.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Client.close)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client.html#close)
-        """
-
-    def configure_logs_for_channel(
-        self, *, ChannelName: str, LogTypes: List[Literal["AS_RUN"]]
-    ) -> ConfigureLogsForChannelResponseTypeDef:
-        """
-        Configures Amazon CloudWatch log settings for a channel.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Client.configure_logs_for_channel)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client.html#configure_logs_for_channel)
-        """
-
-    def configure_logs_for_playback_configuration(
-        self, *, PercentEnabled: int, PlaybackConfigurationName: str
-    ) -> ConfigureLogsForPlaybackConfigurationResponseTypeDef:
-        """
-        Amazon CloudWatch log settings for a playback configuration.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Client.configure_logs_for_playback_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client.html#configure_logs_for_playback_configuration)
-        """
-
-    def create_channel(
-        self,
-        *,
-        ChannelName: str,
-        Outputs: List["RequestOutputItemTypeDef"],
-        PlaybackMode: PlaybackModeType,
-        Audiences: List[str] = None,
-        FillerSlate: "SlateSourceTypeDef" = None,
-        Tags: Dict[str, str] = None,
-        Tier: TierType = None,
-        TimeShiftConfiguration: "TimeShiftConfigurationTypeDef" = None
-    ) -> CreateChannelResponseTypeDef:
-        """
-        Creates a channel.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Client.create_channel)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client.html#create_channel)
-        """
-
-    def create_live_source(
-        self,
-        *,
-        HttpPackageConfigurations: List["HttpPackageConfigurationTypeDef"],
-        LiveSourceName: str,
-        SourceLocationName: str,
-        Tags: Dict[str, str] = None
-    ) -> CreateLiveSourceResponseTypeDef:
-        """
-        The live source configuration.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Client.create_live_source)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client.html#create_live_source)
-        """
-
-    def create_prefetch_schedule(
-        self,
-        *,
-        Consumption: "PrefetchConsumptionTypeDef",
-        Name: str,
-        PlaybackConfigurationName: str,
-        Retrieval: "PrefetchRetrievalTypeDef",
-        StreamId: str = None
-    ) -> CreatePrefetchScheduleResponseTypeDef:
-        """
-        Creates a prefetch schedule for a playback configuration.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Client.create_prefetch_schedule)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client.html#create_prefetch_schedule)
-        """
-
-    def create_program(
-        self,
-        *,
-        ChannelName: str,
-        ProgramName: str,
-        ScheduleConfiguration: "ScheduleConfigurationTypeDef",
-        SourceLocationName: str,
-        AdBreaks: List["AdBreakTypeDef"] = None,
-        AudienceMedia: List["AudienceMediaTypeDef"] = None,
-        LiveSourceName: str = None,
-        VodSourceName: str = None
-    ) -> CreateProgramResponseTypeDef:
-        """
-        Creates a program within a channel.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Client.create_program)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client.html#create_program)
-        """
-
-    def create_source_location(
-        self,
-        *,
-        HttpConfiguration: "HttpConfigurationTypeDef",
-        SourceLocationName: str,
-        AccessConfiguration: "AccessConfigurationTypeDef" = None,
-        DefaultSegmentDeliveryConfiguration: "DefaultSegmentDeliveryConfigurationTypeDef" = None,
-        SegmentDeliveryConfigurations: List["SegmentDeliveryConfigurationTypeDef"] = None,
-        Tags: Dict[str, str] = None
-    ) -> CreateSourceLocationResponseTypeDef:
-        """
-        Creates a source location.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Client.create_source_location)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client.html#create_source_location)
-        """
-
-    def create_vod_source(
-        self,
-        *,
-        HttpPackageConfigurations: List["HttpPackageConfigurationTypeDef"],
-        SourceLocationName: str,
-        VodSourceName: str,
-        Tags: Dict[str, str] = None
-    ) -> CreateVodSourceResponseTypeDef:
-        """
-        The VOD source configuration parameters.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Client.create_vod_source)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client.html#create_vod_source)
-        """
-
-    def delete_channel(self, *, ChannelName: str) -> Dict[str, Any]:
-        """
-        Deletes a channel.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Client.delete_channel)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client.html#delete_channel)
-        """
-
-    def delete_channel_policy(self, *, ChannelName: str) -> Dict[str, Any]:
-        """
-        The channel policy to delete.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Client.delete_channel_policy)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client.html#delete_channel_policy)
-        """
-
-    def delete_live_source(self, *, LiveSourceName: str, SourceLocationName: str) -> Dict[str, Any]:
-        """
-        The live source to delete.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Client.delete_live_source)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client.html#delete_live_source)
-        """
-
-    def delete_playback_configuration(self, *, Name: str) -> Dict[str, Any]:
-        """
-        Deletes a playback configuration.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Client.delete_playback_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client.html#delete_playback_configuration)
-        """
-
-    def delete_prefetch_schedule(
-        self, *, Name: str, PlaybackConfigurationName: str
-    ) -> Dict[str, Any]:
-        """
-        Deletes a prefetch schedule for a specific playback configuration.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Client.delete_prefetch_schedule)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client.html#delete_prefetch_schedule)
-        """
-
-    def delete_program(self, *, ChannelName: str, ProgramName: str) -> Dict[str, Any]:
-        """
-        Deletes a program within a channel.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Client.delete_program)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client.html#delete_program)
-        """
-
-    def delete_source_location(self, *, SourceLocationName: str) -> Dict[str, Any]:
-        """
-        Deletes a source location.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Client.delete_source_location)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client.html#delete_source_location)
-        """
-
-    def delete_vod_source(self, *, SourceLocationName: str, VodSourceName: str) -> Dict[str, Any]:
-        """
-        The video on demand (VOD) source to delete.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Client.delete_vod_source)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client.html#delete_vod_source)
-        """
-
-    def describe_channel(self, *, ChannelName: str) -> DescribeChannelResponseTypeDef:
-        """
-        Describes a channel.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Client.describe_channel)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client.html#describe_channel)
-        """
-
-    def describe_live_source(
-        self, *, LiveSourceName: str, SourceLocationName: str
-    ) -> DescribeLiveSourceResponseTypeDef:
-        """
-        The live source to describe.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Client.describe_live_source)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client.html#describe_live_source)
-        """
-
-    def describe_program(
-        self, *, ChannelName: str, ProgramName: str
-    ) -> DescribeProgramResponseTypeDef:
-        """
-        Describes a program within a channel.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Client.describe_program)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client.html#describe_program)
-        """
-
-    def describe_source_location(
-        self, *, SourceLocationName: str
-    ) -> DescribeSourceLocationResponseTypeDef:
-        """
-        Describes a source location.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Client.describe_source_location)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client.html#describe_source_location)
-        """
-
-    def describe_vod_source(
-        self, *, SourceLocationName: str, VodSourceName: str
-    ) -> DescribeVodSourceResponseTypeDef:
-        """
-        Provides details about a specific video on demand (VOD) source in a specific
-        source location.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Client.describe_vod_source)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client.html#describe_vod_source)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediatailor/client/can_paginate.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client/#can_paginate)
         """
 
     def generate_presigned_url(
         self,
         ClientMethod: str,
-        Params: Dict[str, Any] = None,
+        Params: Mapping[str, Any] = ...,
         ExpiresIn: int = 3600,
-        HttpMethod: str = None,
+        HttpMethod: str = ...,
     ) -> str:
         """
-        Generate a presigned url given a client, its method, and arguments.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Client.generate_presigned_url)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client.html#generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediatailor/client/generate_presigned_url.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client/#generate_presigned_url)
         """
 
-    def get_channel_policy(self, *, ChannelName: str) -> GetChannelPolicyResponseTypeDef:
+    def configure_logs_for_channel(
+        self, **kwargs: Unpack[ConfigureLogsForChannelRequestTypeDef]
+    ) -> ConfigureLogsForChannelResponseTypeDef:
+        """
+        Configures Amazon CloudWatch log settings for a channel.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediatailor/client/configure_logs_for_channel.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client/#configure_logs_for_channel)
+        """
+
+    def configure_logs_for_playback_configuration(
+        self, **kwargs: Unpack[ConfigureLogsForPlaybackConfigurationRequestTypeDef]
+    ) -> ConfigureLogsForPlaybackConfigurationResponseTypeDef:
+        """
+        Defines where AWS Elemental MediaTailor sends logs for the playback
+        configuration.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediatailor/client/configure_logs_for_playback_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client/#configure_logs_for_playback_configuration)
+        """
+
+    def create_channel(
+        self, **kwargs: Unpack[CreateChannelRequestTypeDef]
+    ) -> CreateChannelResponseTypeDef:
+        """
+        Creates a channel.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediatailor/client/create_channel.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client/#create_channel)
+        """
+
+    def create_live_source(
+        self, **kwargs: Unpack[CreateLiveSourceRequestTypeDef]
+    ) -> CreateLiveSourceResponseTypeDef:
+        """
+        The live source configuration.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediatailor/client/create_live_source.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client/#create_live_source)
+        """
+
+    def create_prefetch_schedule(
+        self, **kwargs: Unpack[CreatePrefetchScheduleRequestTypeDef]
+    ) -> CreatePrefetchScheduleResponseTypeDef:
+        """
+        Creates a prefetch schedule for a playback configuration.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediatailor/client/create_prefetch_schedule.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client/#create_prefetch_schedule)
+        """
+
+    def create_program(
+        self, **kwargs: Unpack[CreateProgramRequestTypeDef]
+    ) -> CreateProgramResponseTypeDef:
+        """
+        Creates a program within a channel.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediatailor/client/create_program.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client/#create_program)
+        """
+
+    def create_source_location(
+        self, **kwargs: Unpack[CreateSourceLocationRequestTypeDef]
+    ) -> CreateSourceLocationResponseTypeDef:
+        """
+        Creates a source location.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediatailor/client/create_source_location.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client/#create_source_location)
+        """
+
+    def create_vod_source(
+        self, **kwargs: Unpack[CreateVodSourceRequestTypeDef]
+    ) -> CreateVodSourceResponseTypeDef:
+        """
+        The VOD source configuration parameters.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediatailor/client/create_vod_source.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client/#create_vod_source)
+        """
+
+    def delete_channel(self, **kwargs: Unpack[DeleteChannelRequestTypeDef]) -> Dict[str, Any]:
+        """
+        Deletes a channel.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediatailor/client/delete_channel.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client/#delete_channel)
+        """
+
+    def delete_channel_policy(
+        self, **kwargs: Unpack[DeleteChannelPolicyRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        The channel policy to delete.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediatailor/client/delete_channel_policy.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client/#delete_channel_policy)
+        """
+
+    def delete_live_source(
+        self, **kwargs: Unpack[DeleteLiveSourceRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        The live source to delete.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediatailor/client/delete_live_source.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client/#delete_live_source)
+        """
+
+    def delete_playback_configuration(
+        self, **kwargs: Unpack[DeletePlaybackConfigurationRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Deletes a playback configuration.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediatailor/client/delete_playback_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client/#delete_playback_configuration)
+        """
+
+    def delete_prefetch_schedule(
+        self, **kwargs: Unpack[DeletePrefetchScheduleRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Deletes a prefetch schedule for a specific playback configuration.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediatailor/client/delete_prefetch_schedule.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client/#delete_prefetch_schedule)
+        """
+
+    def delete_program(self, **kwargs: Unpack[DeleteProgramRequestTypeDef]) -> Dict[str, Any]:
+        """
+        Deletes a program within a channel.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediatailor/client/delete_program.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client/#delete_program)
+        """
+
+    def delete_source_location(
+        self, **kwargs: Unpack[DeleteSourceLocationRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Deletes a source location.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediatailor/client/delete_source_location.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client/#delete_source_location)
+        """
+
+    def delete_vod_source(self, **kwargs: Unpack[DeleteVodSourceRequestTypeDef]) -> Dict[str, Any]:
+        """
+        The video on demand (VOD) source to delete.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediatailor/client/delete_vod_source.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client/#delete_vod_source)
+        """
+
+    def describe_channel(
+        self, **kwargs: Unpack[DescribeChannelRequestTypeDef]
+    ) -> DescribeChannelResponseTypeDef:
+        """
+        Describes a channel.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediatailor/client/describe_channel.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client/#describe_channel)
+        """
+
+    def describe_live_source(
+        self, **kwargs: Unpack[DescribeLiveSourceRequestTypeDef]
+    ) -> DescribeLiveSourceResponseTypeDef:
+        """
+        The live source to describe.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediatailor/client/describe_live_source.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client/#describe_live_source)
+        """
+
+    def describe_program(
+        self, **kwargs: Unpack[DescribeProgramRequestTypeDef]
+    ) -> DescribeProgramResponseTypeDef:
+        """
+        Describes a program within a channel.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediatailor/client/describe_program.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client/#describe_program)
+        """
+
+    def describe_source_location(
+        self, **kwargs: Unpack[DescribeSourceLocationRequestTypeDef]
+    ) -> DescribeSourceLocationResponseTypeDef:
+        """
+        Describes a source location.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediatailor/client/describe_source_location.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client/#describe_source_location)
+        """
+
+    def describe_vod_source(
+        self, **kwargs: Unpack[DescribeVodSourceRequestTypeDef]
+    ) -> DescribeVodSourceResponseTypeDef:
+        """
+        Provides details about a specific video on demand (VOD) source in a specific
+        source location.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediatailor/client/describe_vod_source.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client/#describe_vod_source)
+        """
+
+    def get_channel_policy(
+        self, **kwargs: Unpack[GetChannelPolicyRequestTypeDef]
+    ) -> GetChannelPolicyResponseTypeDef:
         """
         Returns the channel's IAM policy.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Client.get_channel_policy)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client.html#get_channel_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediatailor/client/get_channel_policy.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client/#get_channel_policy)
         """
 
     def get_channel_schedule(
-        self,
-        *,
-        ChannelName: str,
-        Audience: str = None,
-        DurationMinutes: str = None,
-        MaxResults: int = None,
-        NextToken: str = None
+        self, **kwargs: Unpack[GetChannelScheduleRequestTypeDef]
     ) -> GetChannelScheduleResponseTypeDef:
         """
         Retrieves information about your channel's schedule.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Client.get_channel_schedule)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client.html#get_channel_schedule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediatailor/client/get_channel_schedule.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client/#get_channel_schedule)
         """
 
-    def get_playback_configuration(self, *, Name: str) -> GetPlaybackConfigurationResponseTypeDef:
+    def get_playback_configuration(
+        self, **kwargs: Unpack[GetPlaybackConfigurationRequestTypeDef]
+    ) -> GetPlaybackConfigurationResponseTypeDef:
         """
         Retrieves a playback configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Client.get_playback_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client.html#get_playback_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediatailor/client/get_playback_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client/#get_playback_configuration)
         """
 
     def get_prefetch_schedule(
-        self, *, Name: str, PlaybackConfigurationName: str
+        self, **kwargs: Unpack[GetPrefetchScheduleRequestTypeDef]
     ) -> GetPrefetchScheduleResponseTypeDef:
         """
         Retrieves a prefetch schedule for a playback configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Client.get_prefetch_schedule)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client.html#get_prefetch_schedule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediatailor/client/get_prefetch_schedule.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client/#get_prefetch_schedule)
         """
 
-    def list_alerts(
-        self, *, ResourceArn: str, MaxResults: int = None, NextToken: str = None
-    ) -> ListAlertsResponseTypeDef:
+    def list_alerts(self, **kwargs: Unpack[ListAlertsRequestTypeDef]) -> ListAlertsResponseTypeDef:
         """
         Lists the alerts that are associated with a MediaTailor channel assembly
         resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Client.list_alerts)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client.html#list_alerts)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediatailor/client/list_alerts.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client/#list_alerts)
         """
 
     def list_channels(
-        self, *, MaxResults: int = None, NextToken: str = None
+        self, **kwargs: Unpack[ListChannelsRequestTypeDef]
     ) -> ListChannelsResponseTypeDef:
         """
         Retrieves information about the channels that are associated with the current
         AWS account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Client.list_channels)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client.html#list_channels)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediatailor/client/list_channels.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client/#list_channels)
         """
 
     def list_live_sources(
-        self, *, SourceLocationName: str, MaxResults: int = None, NextToken: str = None
+        self, **kwargs: Unpack[ListLiveSourcesRequestTypeDef]
     ) -> ListLiveSourcesResponseTypeDef:
         """
         Lists the live sources contained in a source location.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Client.list_live_sources)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client.html#list_live_sources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediatailor/client/list_live_sources.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client/#list_live_sources)
         """
 
     def list_playback_configurations(
-        self, *, MaxResults: int = None, NextToken: str = None
+        self, **kwargs: Unpack[ListPlaybackConfigurationsRequestTypeDef]
     ) -> ListPlaybackConfigurationsResponseTypeDef:
         """
         Retrieves existing playback configurations.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Client.list_playback_configurations)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client.html#list_playback_configurations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediatailor/client/list_playback_configurations.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client/#list_playback_configurations)
         """
 
     def list_prefetch_schedules(
-        self,
-        *,
-        PlaybackConfigurationName: str,
-        MaxResults: int = None,
-        NextToken: str = None,
-        StreamId: str = None
+        self, **kwargs: Unpack[ListPrefetchSchedulesRequestTypeDef]
     ) -> ListPrefetchSchedulesResponseTypeDef:
         """
         Lists the prefetch schedules for a playback configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Client.list_prefetch_schedules)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client.html#list_prefetch_schedules)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediatailor/client/list_prefetch_schedules.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client/#list_prefetch_schedules)
         """
 
     def list_source_locations(
-        self, *, MaxResults: int = None, NextToken: str = None
+        self, **kwargs: Unpack[ListSourceLocationsRequestTypeDef]
     ) -> ListSourceLocationsResponseTypeDef:
         """
         Lists the source locations for a channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Client.list_source_locations)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client.html#list_source_locations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediatailor/client/list_source_locations.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client/#list_source_locations)
         """
 
-    def list_tags_for_resource(self, *, ResourceArn: str) -> ListTagsForResourceResponseTypeDef:
+    def list_tags_for_resource(
+        self, **kwargs: Unpack[ListTagsForResourceRequestTypeDef]
+    ) -> ListTagsForResourceResponseTypeDef:
         """
         A list of tags that are associated with this resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Client.list_tags_for_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client.html#list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediatailor/client/list_tags_for_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client/#list_tags_for_resource)
         """
 
     def list_vod_sources(
-        self, *, SourceLocationName: str, MaxResults: int = None, NextToken: str = None
+        self, **kwargs: Unpack[ListVodSourcesRequestTypeDef]
     ) -> ListVodSourcesResponseTypeDef:
         """
         Lists the VOD sources contained in a source location.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Client.list_vod_sources)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client.html#list_vod_sources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediatailor/client/list_vod_sources.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client/#list_vod_sources)
         """
 
-    def put_channel_policy(self, *, ChannelName: str, Policy: str) -> Dict[str, Any]:
+    def put_channel_policy(
+        self, **kwargs: Unpack[PutChannelPolicyRequestTypeDef]
+    ) -> Dict[str, Any]:
         """
         Creates an IAM policy for the channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Client.put_channel_policy)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client.html#put_channel_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediatailor/client/put_channel_policy.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client/#put_channel_policy)
         """
 
     def put_playback_configuration(
-        self,
-        *,
-        Name: str,
-        AdDecisionServerUrl: str = None,
-        AvailSuppression: "AvailSuppressionTypeDef" = None,
-        Bumper: "BumperTypeDef" = None,
-        CdnConfiguration: "CdnConfigurationTypeDef" = None,
-        ConfigurationAliases: Dict[str, Dict[str, str]] = None,
-        DashConfiguration: "DashConfigurationForPutTypeDef" = None,
-        InsertionMode: InsertionModeType = None,
-        LivePreRollConfiguration: "LivePreRollConfigurationTypeDef" = None,
-        ManifestProcessingRules: "ManifestProcessingRulesTypeDef" = None,
-        PersonalizationThresholdSeconds: int = None,
-        SlateAdUrl: str = None,
-        Tags: Dict[str, str] = None,
-        TranscodeProfileName: str = None,
-        VideoContentSourceUrl: str = None
+        self, **kwargs: Unpack[PutPlaybackConfigurationRequestTypeDef]
     ) -> PutPlaybackConfigurationResponseTypeDef:
         """
         Creates a playback configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Client.put_playback_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client.html#put_playback_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediatailor/client/put_playback_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client/#put_playback_configuration)
         """
 
-    def start_channel(self, *, ChannelName: str) -> Dict[str, Any]:
+    def start_channel(self, **kwargs: Unpack[StartChannelRequestTypeDef]) -> Dict[str, Any]:
         """
         Starts a channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Client.start_channel)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client.html#start_channel)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediatailor/client/start_channel.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client/#start_channel)
         """
 
-    def stop_channel(self, *, ChannelName: str) -> Dict[str, Any]:
+    def stop_channel(self, **kwargs: Unpack[StopChannelRequestTypeDef]) -> Dict[str, Any]:
         """
         Stops a channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Client.stop_channel)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client.html#stop_channel)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediatailor/client/stop_channel.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client/#stop_channel)
         """
 
-    def tag_resource(self, *, ResourceArn: str, Tags: Dict[str, str]) -> None:
+    def tag_resource(
+        self, **kwargs: Unpack[TagResourceRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         The resource to tag.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Client.tag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client.html#tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediatailor/client/tag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client/#tag_resource)
         """
 
-    def untag_resource(self, *, ResourceArn: str, TagKeys: List[str]) -> None:
+    def untag_resource(
+        self, **kwargs: Unpack[UntagResourceRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         The resource to untag.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Client.untag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client.html#untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediatailor/client/untag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client/#untag_resource)
         """
 
     def update_channel(
-        self,
-        *,
-        ChannelName: str,
-        Outputs: List["RequestOutputItemTypeDef"],
-        Audiences: List[str] = None,
-        FillerSlate: "SlateSourceTypeDef" = None,
-        TimeShiftConfiguration: "TimeShiftConfigurationTypeDef" = None
+        self, **kwargs: Unpack[UpdateChannelRequestTypeDef]
     ) -> UpdateChannelResponseTypeDef:
         """
         Updates a channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Client.update_channel)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client.html#update_channel)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediatailor/client/update_channel.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client/#update_channel)
         """
 
     def update_live_source(
-        self,
-        *,
-        HttpPackageConfigurations: List["HttpPackageConfigurationTypeDef"],
-        LiveSourceName: str,
-        SourceLocationName: str
+        self, **kwargs: Unpack[UpdateLiveSourceRequestTypeDef]
     ) -> UpdateLiveSourceResponseTypeDef:
         """
         Updates a live source's configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Client.update_live_source)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client.html#update_live_source)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediatailor/client/update_live_source.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client/#update_live_source)
         """
 
     def update_program(
-        self,
-        *,
-        ChannelName: str,
-        ProgramName: str,
-        ScheduleConfiguration: "UpdateProgramScheduleConfigurationTypeDef",
-        AdBreaks: List["AdBreakTypeDef"] = None,
-        AudienceMedia: List["AudienceMediaTypeDef"] = None
+        self, **kwargs: Unpack[UpdateProgramRequestTypeDef]
     ) -> UpdateProgramResponseTypeDef:
         """
         Updates a program within a channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Client.update_program)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client.html#update_program)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediatailor/client/update_program.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client/#update_program)
         """
 
     def update_source_location(
-        self,
-        *,
-        HttpConfiguration: "HttpConfigurationTypeDef",
-        SourceLocationName: str,
-        AccessConfiguration: "AccessConfigurationTypeDef" = None,
-        DefaultSegmentDeliveryConfiguration: "DefaultSegmentDeliveryConfigurationTypeDef" = None,
-        SegmentDeliveryConfigurations: List["SegmentDeliveryConfigurationTypeDef"] = None
+        self, **kwargs: Unpack[UpdateSourceLocationRequestTypeDef]
     ) -> UpdateSourceLocationResponseTypeDef:
         """
         Updates a source location.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Client.update_source_location)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client.html#update_source_location)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediatailor/client/update_source_location.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client/#update_source_location)
         """
 
     def update_vod_source(
-        self,
-        *,
-        HttpPackageConfigurations: List["HttpPackageConfigurationTypeDef"],
-        SourceLocationName: str,
-        VodSourceName: str
+        self, **kwargs: Unpack[UpdateVodSourceRequestTypeDef]
     ) -> UpdateVodSourceResponseTypeDef:
         """
         Updates a VOD source's configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Client.update_vod_source)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client.html#update_vod_source)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediatailor/client/update_vod_source.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client/#update_vod_source)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["get_channel_schedule"]
     ) -> GetChannelSchedulePaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Paginator.GetChannelSchedule)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/paginators.html#getchannelschedulepaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediatailor/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_alerts"]) -> ListAlertsPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_alerts"]
+    ) -> ListAlertsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Paginator.ListAlerts)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/paginators.html#listalertspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediatailor/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_channels"]) -> ListChannelsPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_channels"]
+    ) -> ListChannelsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Paginator.ListChannels)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/paginators.html#listchannelspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediatailor/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_live_sources"]
     ) -> ListLiveSourcesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Paginator.ListLiveSources)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/paginators.html#listlivesourcespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediatailor/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_playback_configurations"]
     ) -> ListPlaybackConfigurationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Paginator.ListPlaybackConfigurations)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/paginators.html#listplaybackconfigurationspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediatailor/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_prefetch_schedules"]
     ) -> ListPrefetchSchedulesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Paginator.ListPrefetchSchedules)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/paginators.html#listprefetchschedulespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediatailor/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_source_locations"]
     ) -> ListSourceLocationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Paginator.ListSourceLocations)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/paginators.html#listsourcelocationspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediatailor/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_vod_sources"]) -> ListVodSourcesPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_vod_sources"]
+    ) -> ListVodSourcesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediatailor.html#MediaTailor.Paginator.ListVodSources)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/paginators.html#listvodsourcespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediatailor/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/client/#get_paginator)
         """

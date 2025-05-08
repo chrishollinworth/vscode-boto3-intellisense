@@ -1,20 +1,24 @@
 """
 Type annotations for sns service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sns/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sns/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_sns.type_defs import AddPermissionInputRequestTypeDef
+    from mypy_boto3_sns.type_defs import AddPermissionInputTopicAddPermissionTypeDef
 
-    data: AddPermissionInputRequestTypeDef = {...}
+    data: AddPermissionInputTopicAddPermissionTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import IO, Any, Dict, List, Union
+from typing import IO, Any, Union
 
 from botocore.response import StreamingBody
 
@@ -25,1160 +29,569 @@ from .literals import (
     SMSSandboxPhoneNumberVerificationStatusType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
-    "AddPermissionInputRequestTypeDef",
-    "AddPermissionInputTopicTypeDef",
+    "AddPermissionInputTopicAddPermissionTypeDef",
+    "AddPermissionInputTypeDef",
     "BatchResultErrorEntryTypeDef",
-    "CheckIfPhoneNumberIsOptedOutInputRequestTypeDef",
+    "BlobTypeDef",
+    "CheckIfPhoneNumberIsOptedOutInputTypeDef",
     "CheckIfPhoneNumberIsOptedOutResponseTypeDef",
-    "ConfirmSubscriptionInputRequestTypeDef",
-    "ConfirmSubscriptionInputTopicTypeDef",
+    "ConfirmSubscriptionInputTopicConfirmSubscriptionTypeDef",
+    "ConfirmSubscriptionInputTypeDef",
     "ConfirmSubscriptionResponseTypeDef",
     "CreateEndpointResponseTypeDef",
-    "CreatePlatformApplicationInputRequestTypeDef",
-    "CreatePlatformApplicationInputServiceResourceTypeDef",
+    "CreatePlatformApplicationInputServiceResourceCreatePlatformApplicationTypeDef",
+    "CreatePlatformApplicationInputTypeDef",
     "CreatePlatformApplicationResponseTypeDef",
-    "CreatePlatformEndpointInputPlatformApplicationTypeDef",
-    "CreatePlatformEndpointInputRequestTypeDef",
-    "CreateSMSSandboxPhoneNumberInputRequestTypeDef",
-    "CreateTopicInputRequestTypeDef",
-    "CreateTopicInputServiceResourceTypeDef",
+    "CreatePlatformEndpointInputPlatformApplicationCreatePlatformEndpointTypeDef",
+    "CreatePlatformEndpointInputTypeDef",
+    "CreateSMSSandboxPhoneNumberInputTypeDef",
+    "CreateTopicInputServiceResourceCreateTopicTypeDef",
+    "CreateTopicInputTypeDef",
     "CreateTopicResponseTypeDef",
-    "DeleteEndpointInputRequestTypeDef",
-    "DeletePlatformApplicationInputRequestTypeDef",
-    "DeleteSMSSandboxPhoneNumberInputRequestTypeDef",
-    "DeleteTopicInputRequestTypeDef",
+    "DeleteEndpointInputTypeDef",
+    "DeletePlatformApplicationInputTypeDef",
+    "DeleteSMSSandboxPhoneNumberInputTypeDef",
+    "DeleteTopicInputTypeDef",
+    "EmptyResponseMetadataTypeDef",
     "EndpointTypeDef",
-    "GetDataProtectionPolicyInputRequestTypeDef",
+    "GetDataProtectionPolicyInputTypeDef",
     "GetDataProtectionPolicyResponseTypeDef",
-    "GetEndpointAttributesInputRequestTypeDef",
+    "GetEndpointAttributesInputTypeDef",
     "GetEndpointAttributesResponseTypeDef",
-    "GetPlatformApplicationAttributesInputRequestTypeDef",
+    "GetPlatformApplicationAttributesInputTypeDef",
     "GetPlatformApplicationAttributesResponseTypeDef",
-    "GetSMSAttributesInputRequestTypeDef",
+    "GetSMSAttributesInputTypeDef",
     "GetSMSAttributesResponseTypeDef",
     "GetSMSSandboxAccountStatusResultTypeDef",
-    "GetSubscriptionAttributesInputRequestTypeDef",
+    "GetSubscriptionAttributesInputTypeDef",
     "GetSubscriptionAttributesResponseTypeDef",
-    "GetTopicAttributesInputRequestTypeDef",
+    "GetTopicAttributesInputTypeDef",
     "GetTopicAttributesResponseTypeDef",
-    "ListEndpointsByPlatformApplicationInputRequestTypeDef",
+    "ListEndpointsByPlatformApplicationInputPaginateTypeDef",
+    "ListEndpointsByPlatformApplicationInputTypeDef",
     "ListEndpointsByPlatformApplicationResponseTypeDef",
-    "ListOriginationNumbersRequestRequestTypeDef",
+    "ListOriginationNumbersRequestPaginateTypeDef",
+    "ListOriginationNumbersRequestTypeDef",
     "ListOriginationNumbersResultTypeDef",
-    "ListPhoneNumbersOptedOutInputRequestTypeDef",
+    "ListPhoneNumbersOptedOutInputPaginateTypeDef",
+    "ListPhoneNumbersOptedOutInputTypeDef",
     "ListPhoneNumbersOptedOutResponseTypeDef",
-    "ListPlatformApplicationsInputRequestTypeDef",
+    "ListPlatformApplicationsInputPaginateTypeDef",
+    "ListPlatformApplicationsInputTypeDef",
     "ListPlatformApplicationsResponseTypeDef",
-    "ListSMSSandboxPhoneNumbersInputRequestTypeDef",
+    "ListSMSSandboxPhoneNumbersInputPaginateTypeDef",
+    "ListSMSSandboxPhoneNumbersInputTypeDef",
     "ListSMSSandboxPhoneNumbersResultTypeDef",
-    "ListSubscriptionsByTopicInputRequestTypeDef",
+    "ListSubscriptionsByTopicInputPaginateTypeDef",
+    "ListSubscriptionsByTopicInputTypeDef",
     "ListSubscriptionsByTopicResponseTypeDef",
-    "ListSubscriptionsInputRequestTypeDef",
+    "ListSubscriptionsInputPaginateTypeDef",
+    "ListSubscriptionsInputTypeDef",
     "ListSubscriptionsResponseTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
-    "ListTopicsInputRequestTypeDef",
+    "ListTopicsInputPaginateTypeDef",
+    "ListTopicsInputTypeDef",
     "ListTopicsResponseTypeDef",
     "MessageAttributeValueTypeDef",
-    "OptInPhoneNumberInputRequestTypeDef",
+    "OptInPhoneNumberInputTypeDef",
     "PaginatorConfigTypeDef",
     "PhoneNumberInformationTypeDef",
     "PlatformApplicationTypeDef",
-    "PublishBatchInputRequestTypeDef",
+    "PublishBatchInputTypeDef",
     "PublishBatchRequestEntryTypeDef",
     "PublishBatchResponseTypeDef",
     "PublishBatchResultEntryTypeDef",
-    "PublishInputPlatformEndpointTypeDef",
-    "PublishInputRequestTypeDef",
-    "PublishInputTopicTypeDef",
+    "PublishInputPlatformEndpointPublishTypeDef",
+    "PublishInputTopicPublishTypeDef",
+    "PublishInputTypeDef",
     "PublishResponseTypeDef",
-    "PutDataProtectionPolicyInputRequestTypeDef",
-    "RemovePermissionInputRequestTypeDef",
-    "RemovePermissionInputTopicTypeDef",
+    "PutDataProtectionPolicyInputTypeDef",
+    "RemovePermissionInputTopicRemovePermissionTypeDef",
+    "RemovePermissionInputTypeDef",
     "ResponseMetadataTypeDef",
     "SMSSandboxPhoneNumberTypeDef",
-    "ServiceResourcePlatformApplicationRequestTypeDef",
-    "ServiceResourcePlatformEndpointRequestTypeDef",
-    "ServiceResourceSubscriptionRequestTypeDef",
-    "ServiceResourceTopicRequestTypeDef",
-    "SetEndpointAttributesInputPlatformEndpointTypeDef",
-    "SetEndpointAttributesInputRequestTypeDef",
-    "SetPlatformApplicationAttributesInputPlatformApplicationTypeDef",
-    "SetPlatformApplicationAttributesInputRequestTypeDef",
-    "SetSMSAttributesInputRequestTypeDef",
-    "SetSubscriptionAttributesInputRequestTypeDef",
-    "SetSubscriptionAttributesInputSubscriptionTypeDef",
-    "SetTopicAttributesInputRequestTypeDef",
-    "SetTopicAttributesInputTopicTypeDef",
-    "SubscribeInputRequestTypeDef",
-    "SubscribeInputTopicTypeDef",
+    "SetEndpointAttributesInputPlatformEndpointSetAttributesTypeDef",
+    "SetEndpointAttributesInputTypeDef",
+    "SetPlatformApplicationAttributesInputPlatformApplicationSetAttributesTypeDef",
+    "SetPlatformApplicationAttributesInputTypeDef",
+    "SetSMSAttributesInputTypeDef",
+    "SetSubscriptionAttributesInputSubscriptionSetAttributesTypeDef",
+    "SetSubscriptionAttributesInputTypeDef",
+    "SetTopicAttributesInputTopicSetAttributesTypeDef",
+    "SetTopicAttributesInputTypeDef",
+    "SubscribeInputTopicSubscribeTypeDef",
+    "SubscribeInputTypeDef",
     "SubscribeResponseTypeDef",
     "SubscriptionTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
     "TagTypeDef",
     "TopicTypeDef",
-    "UnsubscribeInputRequestTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "VerifySMSSandboxPhoneNumberInputRequestTypeDef",
+    "UnsubscribeInputTypeDef",
+    "UntagResourceRequestTypeDef",
+    "VerifySMSSandboxPhoneNumberInputTypeDef",
 )
 
-AddPermissionInputRequestTypeDef = TypedDict(
-    "AddPermissionInputRequestTypeDef",
-    {
-        "TopicArn": str,
-        "Label": str,
-        "AWSAccountId": List[str],
-        "ActionName": List[str],
-    },
-)
-
-AddPermissionInputTopicTypeDef = TypedDict(
-    "AddPermissionInputTopicTypeDef",
-    {
-        "Label": str,
-        "AWSAccountId": List[str],
-        "ActionName": List[str],
-    },
-)
-
-_RequiredBatchResultErrorEntryTypeDef = TypedDict(
-    "_RequiredBatchResultErrorEntryTypeDef",
-    {
-        "Id": str,
-        "Code": str,
-        "SenderFault": bool,
-    },
-)
-_OptionalBatchResultErrorEntryTypeDef = TypedDict(
-    "_OptionalBatchResultErrorEntryTypeDef",
-    {
-        "Message": str,
-    },
-    total=False,
-)
-
-class BatchResultErrorEntryTypeDef(
-    _RequiredBatchResultErrorEntryTypeDef, _OptionalBatchResultErrorEntryTypeDef
-):
-    pass
-
-CheckIfPhoneNumberIsOptedOutInputRequestTypeDef = TypedDict(
-    "CheckIfPhoneNumberIsOptedOutInputRequestTypeDef",
-    {
-        "phoneNumber": str,
-    },
-)
-
-CheckIfPhoneNumberIsOptedOutResponseTypeDef = TypedDict(
-    "CheckIfPhoneNumberIsOptedOutResponseTypeDef",
-    {
-        "isOptedOut": bool,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredConfirmSubscriptionInputRequestTypeDef = TypedDict(
-    "_RequiredConfirmSubscriptionInputRequestTypeDef",
-    {
-        "TopicArn": str,
-        "Token": str,
-    },
-)
-_OptionalConfirmSubscriptionInputRequestTypeDef = TypedDict(
-    "_OptionalConfirmSubscriptionInputRequestTypeDef",
-    {
-        "AuthenticateOnUnsubscribe": str,
-    },
-    total=False,
-)
-
-class ConfirmSubscriptionInputRequestTypeDef(
-    _RequiredConfirmSubscriptionInputRequestTypeDef, _OptionalConfirmSubscriptionInputRequestTypeDef
-):
-    pass
-
-_RequiredConfirmSubscriptionInputTopicTypeDef = TypedDict(
-    "_RequiredConfirmSubscriptionInputTopicTypeDef",
-    {
-        "Token": str,
-    },
-)
-_OptionalConfirmSubscriptionInputTopicTypeDef = TypedDict(
-    "_OptionalConfirmSubscriptionInputTopicTypeDef",
-    {
-        "AuthenticateOnUnsubscribe": str,
-    },
-    total=False,
-)
-
-class ConfirmSubscriptionInputTopicTypeDef(
-    _RequiredConfirmSubscriptionInputTopicTypeDef, _OptionalConfirmSubscriptionInputTopicTypeDef
-):
-    pass
-
-ConfirmSubscriptionResponseTypeDef = TypedDict(
-    "ConfirmSubscriptionResponseTypeDef",
-    {
-        "SubscriptionArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateEndpointResponseTypeDef = TypedDict(
-    "CreateEndpointResponseTypeDef",
-    {
-        "EndpointArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreatePlatformApplicationInputRequestTypeDef = TypedDict(
-    "CreatePlatformApplicationInputRequestTypeDef",
-    {
-        "Name": str,
-        "Platform": str,
-        "Attributes": Dict[str, str],
-    },
-)
-
-CreatePlatformApplicationInputServiceResourceTypeDef = TypedDict(
-    "CreatePlatformApplicationInputServiceResourceTypeDef",
-    {
-        "Name": str,
-        "Platform": str,
-        "Attributes": Dict[str, str],
-    },
-)
-
-CreatePlatformApplicationResponseTypeDef = TypedDict(
-    "CreatePlatformApplicationResponseTypeDef",
-    {
-        "PlatformApplicationArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreatePlatformEndpointInputPlatformApplicationTypeDef = TypedDict(
-    "_RequiredCreatePlatformEndpointInputPlatformApplicationTypeDef",
-    {
-        "Token": str,
-    },
-)
-_OptionalCreatePlatformEndpointInputPlatformApplicationTypeDef = TypedDict(
-    "_OptionalCreatePlatformEndpointInputPlatformApplicationTypeDef",
-    {
-        "CustomUserData": str,
-        "Attributes": Dict[str, str],
-    },
-    total=False,
-)
-
-class CreatePlatformEndpointInputPlatformApplicationTypeDef(
-    _RequiredCreatePlatformEndpointInputPlatformApplicationTypeDef,
-    _OptionalCreatePlatformEndpointInputPlatformApplicationTypeDef,
-):
-    pass
-
-_RequiredCreatePlatformEndpointInputRequestTypeDef = TypedDict(
-    "_RequiredCreatePlatformEndpointInputRequestTypeDef",
-    {
-        "PlatformApplicationArn": str,
-        "Token": str,
-    },
-)
-_OptionalCreatePlatformEndpointInputRequestTypeDef = TypedDict(
-    "_OptionalCreatePlatformEndpointInputRequestTypeDef",
-    {
-        "CustomUserData": str,
-        "Attributes": Dict[str, str],
-    },
-    total=False,
-)
-
-class CreatePlatformEndpointInputRequestTypeDef(
-    _RequiredCreatePlatformEndpointInputRequestTypeDef,
-    _OptionalCreatePlatformEndpointInputRequestTypeDef,
-):
-    pass
-
-_RequiredCreateSMSSandboxPhoneNumberInputRequestTypeDef = TypedDict(
-    "_RequiredCreateSMSSandboxPhoneNumberInputRequestTypeDef",
-    {
-        "PhoneNumber": str,
-    },
-)
-_OptionalCreateSMSSandboxPhoneNumberInputRequestTypeDef = TypedDict(
-    "_OptionalCreateSMSSandboxPhoneNumberInputRequestTypeDef",
-    {
-        "LanguageCode": LanguageCodeStringType,
-    },
-    total=False,
-)
-
-class CreateSMSSandboxPhoneNumberInputRequestTypeDef(
-    _RequiredCreateSMSSandboxPhoneNumberInputRequestTypeDef,
-    _OptionalCreateSMSSandboxPhoneNumberInputRequestTypeDef,
-):
-    pass
-
-_RequiredCreateTopicInputRequestTypeDef = TypedDict(
-    "_RequiredCreateTopicInputRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
-_OptionalCreateTopicInputRequestTypeDef = TypedDict(
-    "_OptionalCreateTopicInputRequestTypeDef",
-    {
-        "Attributes": Dict[str, str],
-        "Tags": List["TagTypeDef"],
-        "DataProtectionPolicy": str,
-    },
-    total=False,
-)
-
-class CreateTopicInputRequestTypeDef(
-    _RequiredCreateTopicInputRequestTypeDef, _OptionalCreateTopicInputRequestTypeDef
-):
-    pass
-
-_RequiredCreateTopicInputServiceResourceTypeDef = TypedDict(
-    "_RequiredCreateTopicInputServiceResourceTypeDef",
-    {
-        "Name": str,
-    },
-)
-_OptionalCreateTopicInputServiceResourceTypeDef = TypedDict(
-    "_OptionalCreateTopicInputServiceResourceTypeDef",
-    {
-        "Attributes": Dict[str, str],
-        "Tags": List["TagTypeDef"],
-        "DataProtectionPolicy": str,
-    },
-    total=False,
-)
-
-class CreateTopicInputServiceResourceTypeDef(
-    _RequiredCreateTopicInputServiceResourceTypeDef, _OptionalCreateTopicInputServiceResourceTypeDef
-):
-    pass
-
-CreateTopicResponseTypeDef = TypedDict(
-    "CreateTopicResponseTypeDef",
-    {
-        "TopicArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteEndpointInputRequestTypeDef = TypedDict(
-    "DeleteEndpointInputRequestTypeDef",
-    {
-        "EndpointArn": str,
-    },
-)
-
-DeletePlatformApplicationInputRequestTypeDef = TypedDict(
-    "DeletePlatformApplicationInputRequestTypeDef",
-    {
-        "PlatformApplicationArn": str,
-    },
-)
-
-DeleteSMSSandboxPhoneNumberInputRequestTypeDef = TypedDict(
-    "DeleteSMSSandboxPhoneNumberInputRequestTypeDef",
-    {
-        "PhoneNumber": str,
-    },
-)
-
-DeleteTopicInputRequestTypeDef = TypedDict(
-    "DeleteTopicInputRequestTypeDef",
-    {
-        "TopicArn": str,
-    },
-)
-
-EndpointTypeDef = TypedDict(
-    "EndpointTypeDef",
-    {
-        "EndpointArn": str,
-        "Attributes": Dict[str, str],
-    },
-    total=False,
-)
-
-GetDataProtectionPolicyInputRequestTypeDef = TypedDict(
-    "GetDataProtectionPolicyInputRequestTypeDef",
-    {
-        "ResourceArn": str,
-    },
-)
-
-GetDataProtectionPolicyResponseTypeDef = TypedDict(
-    "GetDataProtectionPolicyResponseTypeDef",
-    {
-        "DataProtectionPolicy": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetEndpointAttributesInputRequestTypeDef = TypedDict(
-    "GetEndpointAttributesInputRequestTypeDef",
-    {
-        "EndpointArn": str,
-    },
-)
-
-GetEndpointAttributesResponseTypeDef = TypedDict(
-    "GetEndpointAttributesResponseTypeDef",
-    {
-        "Attributes": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetPlatformApplicationAttributesInputRequestTypeDef = TypedDict(
-    "GetPlatformApplicationAttributesInputRequestTypeDef",
-    {
-        "PlatformApplicationArn": str,
-    },
-)
-
-GetPlatformApplicationAttributesResponseTypeDef = TypedDict(
-    "GetPlatformApplicationAttributesResponseTypeDef",
-    {
-        "Attributes": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetSMSAttributesInputRequestTypeDef = TypedDict(
-    "GetSMSAttributesInputRequestTypeDef",
-    {
-        "attributes": List[str],
-    },
-    total=False,
-)
-
-GetSMSAttributesResponseTypeDef = TypedDict(
-    "GetSMSAttributesResponseTypeDef",
-    {
-        "attributes": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetSMSSandboxAccountStatusResultTypeDef = TypedDict(
-    "GetSMSSandboxAccountStatusResultTypeDef",
-    {
-        "IsInSandbox": bool,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetSubscriptionAttributesInputRequestTypeDef = TypedDict(
-    "GetSubscriptionAttributesInputRequestTypeDef",
-    {
-        "SubscriptionArn": str,
-    },
-)
-
-GetSubscriptionAttributesResponseTypeDef = TypedDict(
-    "GetSubscriptionAttributesResponseTypeDef",
-    {
-        "Attributes": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetTopicAttributesInputRequestTypeDef = TypedDict(
-    "GetTopicAttributesInputRequestTypeDef",
-    {
-        "TopicArn": str,
-    },
-)
-
-GetTopicAttributesResponseTypeDef = TypedDict(
-    "GetTopicAttributesResponseTypeDef",
-    {
-        "Attributes": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListEndpointsByPlatformApplicationInputRequestTypeDef = TypedDict(
-    "_RequiredListEndpointsByPlatformApplicationInputRequestTypeDef",
-    {
-        "PlatformApplicationArn": str,
-    },
-)
-_OptionalListEndpointsByPlatformApplicationInputRequestTypeDef = TypedDict(
-    "_OptionalListEndpointsByPlatformApplicationInputRequestTypeDef",
-    {
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListEndpointsByPlatformApplicationInputRequestTypeDef(
-    _RequiredListEndpointsByPlatformApplicationInputRequestTypeDef,
-    _OptionalListEndpointsByPlatformApplicationInputRequestTypeDef,
-):
-    pass
-
-ListEndpointsByPlatformApplicationResponseTypeDef = TypedDict(
-    "ListEndpointsByPlatformApplicationResponseTypeDef",
-    {
-        "Endpoints": List["EndpointTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListOriginationNumbersRequestRequestTypeDef = TypedDict(
-    "ListOriginationNumbersRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-ListOriginationNumbersResultTypeDef = TypedDict(
-    "ListOriginationNumbersResultTypeDef",
-    {
-        "NextToken": str,
-        "PhoneNumbers": List["PhoneNumberInformationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListPhoneNumbersOptedOutInputRequestTypeDef = TypedDict(
-    "ListPhoneNumbersOptedOutInputRequestTypeDef",
-    {
-        "nextToken": str,
-    },
-    total=False,
-)
-
-ListPhoneNumbersOptedOutResponseTypeDef = TypedDict(
-    "ListPhoneNumbersOptedOutResponseTypeDef",
-    {
-        "phoneNumbers": List[str],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListPlatformApplicationsInputRequestTypeDef = TypedDict(
-    "ListPlatformApplicationsInputRequestTypeDef",
-    {
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListPlatformApplicationsResponseTypeDef = TypedDict(
-    "ListPlatformApplicationsResponseTypeDef",
-    {
-        "PlatformApplications": List["PlatformApplicationTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListSMSSandboxPhoneNumbersInputRequestTypeDef = TypedDict(
-    "ListSMSSandboxPhoneNumbersInputRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-ListSMSSandboxPhoneNumbersResultTypeDef = TypedDict(
-    "ListSMSSandboxPhoneNumbersResultTypeDef",
-    {
-        "PhoneNumbers": List["SMSSandboxPhoneNumberTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListSubscriptionsByTopicInputRequestTypeDef = TypedDict(
-    "_RequiredListSubscriptionsByTopicInputRequestTypeDef",
-    {
-        "TopicArn": str,
-    },
-)
-_OptionalListSubscriptionsByTopicInputRequestTypeDef = TypedDict(
-    "_OptionalListSubscriptionsByTopicInputRequestTypeDef",
-    {
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListSubscriptionsByTopicInputRequestTypeDef(
-    _RequiredListSubscriptionsByTopicInputRequestTypeDef,
-    _OptionalListSubscriptionsByTopicInputRequestTypeDef,
-):
-    pass
-
-ListSubscriptionsByTopicResponseTypeDef = TypedDict(
-    "ListSubscriptionsByTopicResponseTypeDef",
-    {
-        "Subscriptions": List["SubscriptionTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListSubscriptionsInputRequestTypeDef = TypedDict(
-    "ListSubscriptionsInputRequestTypeDef",
-    {
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListSubscriptionsResponseTypeDef = TypedDict(
-    "ListSubscriptionsResponseTypeDef",
-    {
-        "Subscriptions": List["SubscriptionTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-    },
-)
-
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "Tags": List["TagTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTopicsInputRequestTypeDef = TypedDict(
-    "ListTopicsInputRequestTypeDef",
-    {
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListTopicsResponseTypeDef = TypedDict(
-    "ListTopicsResponseTypeDef",
-    {
-        "Topics": List["TopicTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredMessageAttributeValueTypeDef = TypedDict(
-    "_RequiredMessageAttributeValueTypeDef",
-    {
-        "DataType": str,
-    },
-)
-_OptionalMessageAttributeValueTypeDef = TypedDict(
-    "_OptionalMessageAttributeValueTypeDef",
-    {
-        "StringValue": str,
-        "BinaryValue": Union[bytes, IO[bytes], StreamingBody],
-    },
-    total=False,
-)
-
-class MessageAttributeValueTypeDef(
-    _RequiredMessageAttributeValueTypeDef, _OptionalMessageAttributeValueTypeDef
-):
-    pass
-
-OptInPhoneNumberInputRequestTypeDef = TypedDict(
-    "OptInPhoneNumberInputRequestTypeDef",
-    {
-        "phoneNumber": str,
-    },
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-PhoneNumberInformationTypeDef = TypedDict(
-    "PhoneNumberInformationTypeDef",
-    {
-        "CreatedAt": datetime,
-        "PhoneNumber": str,
-        "Status": str,
-        "Iso2CountryCode": str,
-        "RouteType": RouteTypeType,
-        "NumberCapabilities": List[NumberCapabilityType],
-    },
-    total=False,
-)
-
-PlatformApplicationTypeDef = TypedDict(
-    "PlatformApplicationTypeDef",
-    {
-        "PlatformApplicationArn": str,
-        "Attributes": Dict[str, str],
-    },
-    total=False,
-)
-
-PublishBatchInputRequestTypeDef = TypedDict(
-    "PublishBatchInputRequestTypeDef",
-    {
-        "TopicArn": str,
-        "PublishBatchRequestEntries": List["PublishBatchRequestEntryTypeDef"],
-    },
-)
-
-_RequiredPublishBatchRequestEntryTypeDef = TypedDict(
-    "_RequiredPublishBatchRequestEntryTypeDef",
-    {
-        "Id": str,
-        "Message": str,
-    },
-)
-_OptionalPublishBatchRequestEntryTypeDef = TypedDict(
-    "_OptionalPublishBatchRequestEntryTypeDef",
-    {
-        "Subject": str,
-        "MessageStructure": str,
-        "MessageAttributes": Dict[str, "MessageAttributeValueTypeDef"],
-        "MessageDeduplicationId": str,
-        "MessageGroupId": str,
-    },
-    total=False,
-)
-
-class PublishBatchRequestEntryTypeDef(
-    _RequiredPublishBatchRequestEntryTypeDef, _OptionalPublishBatchRequestEntryTypeDef
-):
-    pass
-
-PublishBatchResponseTypeDef = TypedDict(
-    "PublishBatchResponseTypeDef",
-    {
-        "Successful": List["PublishBatchResultEntryTypeDef"],
-        "Failed": List["BatchResultErrorEntryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-PublishBatchResultEntryTypeDef = TypedDict(
-    "PublishBatchResultEntryTypeDef",
-    {
-        "Id": str,
-        "MessageId": str,
-        "SequenceNumber": str,
-    },
-    total=False,
-)
-
-_RequiredPublishInputPlatformEndpointTypeDef = TypedDict(
-    "_RequiredPublishInputPlatformEndpointTypeDef",
-    {
-        "Message": str,
-    },
-)
-_OptionalPublishInputPlatformEndpointTypeDef = TypedDict(
-    "_OptionalPublishInputPlatformEndpointTypeDef",
-    {
-        "TopicArn": str,
-        "PhoneNumber": str,
-        "Subject": str,
-        "MessageStructure": str,
-        "MessageAttributes": Dict[str, "MessageAttributeValueTypeDef"],
-        "MessageDeduplicationId": str,
-        "MessageGroupId": str,
-    },
-    total=False,
-)
-
-class PublishInputPlatformEndpointTypeDef(
-    _RequiredPublishInputPlatformEndpointTypeDef, _OptionalPublishInputPlatformEndpointTypeDef
-):
-    pass
-
-_RequiredPublishInputRequestTypeDef = TypedDict(
-    "_RequiredPublishInputRequestTypeDef",
-    {
-        "Message": str,
-    },
-)
-_OptionalPublishInputRequestTypeDef = TypedDict(
-    "_OptionalPublishInputRequestTypeDef",
-    {
-        "TopicArn": str,
-        "TargetArn": str,
-        "PhoneNumber": str,
-        "Subject": str,
-        "MessageStructure": str,
-        "MessageAttributes": Dict[str, "MessageAttributeValueTypeDef"],
-        "MessageDeduplicationId": str,
-        "MessageGroupId": str,
-    },
-    total=False,
-)
-
-class PublishInputRequestTypeDef(
-    _RequiredPublishInputRequestTypeDef, _OptionalPublishInputRequestTypeDef
-):
-    pass
-
-_RequiredPublishInputTopicTypeDef = TypedDict(
-    "_RequiredPublishInputTopicTypeDef",
-    {
-        "Message": str,
-    },
-)
-_OptionalPublishInputTopicTypeDef = TypedDict(
-    "_OptionalPublishInputTopicTypeDef",
-    {
-        "TargetArn": str,
-        "PhoneNumber": str,
-        "Subject": str,
-        "MessageStructure": str,
-        "MessageAttributes": Dict[str, "MessageAttributeValueTypeDef"],
-        "MessageDeduplicationId": str,
-        "MessageGroupId": str,
-    },
-    total=False,
-)
+class AddPermissionInputTopicAddPermissionTypeDef(TypedDict):
+    Label: str
+    AWSAccountId: Sequence[str]
+    ActionName: Sequence[str]
+
+class AddPermissionInputTypeDef(TypedDict):
+    TopicArn: str
+    Label: str
+    AWSAccountId: Sequence[str]
+    ActionName: Sequence[str]
 
-class PublishInputTopicTypeDef(
-    _RequiredPublishInputTopicTypeDef, _OptionalPublishInputTopicTypeDef
-):
-    pass
-
-PublishResponseTypeDef = TypedDict(
-    "PublishResponseTypeDef",
-    {
-        "MessageId": str,
-        "SequenceNumber": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-PutDataProtectionPolicyInputRequestTypeDef = TypedDict(
-    "PutDataProtectionPolicyInputRequestTypeDef",
-    {
-        "ResourceArn": str,
-        "DataProtectionPolicy": str,
-    },
-)
-
-RemovePermissionInputRequestTypeDef = TypedDict(
-    "RemovePermissionInputRequestTypeDef",
-    {
-        "TopicArn": str,
-        "Label": str,
-    },
-)
-
-RemovePermissionInputTopicTypeDef = TypedDict(
-    "RemovePermissionInputTopicTypeDef",
-    {
-        "Label": str,
-    },
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-SMSSandboxPhoneNumberTypeDef = TypedDict(
-    "SMSSandboxPhoneNumberTypeDef",
-    {
-        "PhoneNumber": str,
-        "Status": SMSSandboxPhoneNumberVerificationStatusType,
-    },
-    total=False,
-)
-
-ServiceResourcePlatformApplicationRequestTypeDef = TypedDict(
-    "ServiceResourcePlatformApplicationRequestTypeDef",
-    {
-        "arn": str,
-    },
-)
-
-ServiceResourcePlatformEndpointRequestTypeDef = TypedDict(
-    "ServiceResourcePlatformEndpointRequestTypeDef",
-    {
-        "arn": str,
-    },
-)
-
-ServiceResourceSubscriptionRequestTypeDef = TypedDict(
-    "ServiceResourceSubscriptionRequestTypeDef",
-    {
-        "arn": str,
-    },
-)
-
-ServiceResourceTopicRequestTypeDef = TypedDict(
-    "ServiceResourceTopicRequestTypeDef",
-    {
-        "arn": str,
-    },
-)
-
-SetEndpointAttributesInputPlatformEndpointTypeDef = TypedDict(
-    "SetEndpointAttributesInputPlatformEndpointTypeDef",
-    {
-        "Attributes": Dict[str, str],
-    },
-)
-
-SetEndpointAttributesInputRequestTypeDef = TypedDict(
-    "SetEndpointAttributesInputRequestTypeDef",
-    {
-        "EndpointArn": str,
-        "Attributes": Dict[str, str],
-    },
-)
-
-SetPlatformApplicationAttributesInputPlatformApplicationTypeDef = TypedDict(
-    "SetPlatformApplicationAttributesInputPlatformApplicationTypeDef",
-    {
-        "Attributes": Dict[str, str],
-    },
-)
-
-SetPlatformApplicationAttributesInputRequestTypeDef = TypedDict(
-    "SetPlatformApplicationAttributesInputRequestTypeDef",
-    {
-        "PlatformApplicationArn": str,
-        "Attributes": Dict[str, str],
-    },
-)
-
-SetSMSAttributesInputRequestTypeDef = TypedDict(
-    "SetSMSAttributesInputRequestTypeDef",
-    {
-        "attributes": Dict[str, str],
-    },
-)
-
-_RequiredSetSubscriptionAttributesInputRequestTypeDef = TypedDict(
-    "_RequiredSetSubscriptionAttributesInputRequestTypeDef",
-    {
-        "SubscriptionArn": str,
-        "AttributeName": str,
-    },
-)
-_OptionalSetSubscriptionAttributesInputRequestTypeDef = TypedDict(
-    "_OptionalSetSubscriptionAttributesInputRequestTypeDef",
-    {
-        "AttributeValue": str,
-    },
-    total=False,
-)
-
-class SetSubscriptionAttributesInputRequestTypeDef(
-    _RequiredSetSubscriptionAttributesInputRequestTypeDef,
-    _OptionalSetSubscriptionAttributesInputRequestTypeDef,
-):
-    pass
-
-_RequiredSetSubscriptionAttributesInputSubscriptionTypeDef = TypedDict(
-    "_RequiredSetSubscriptionAttributesInputSubscriptionTypeDef",
-    {
-        "AttributeName": str,
-    },
-)
-_OptionalSetSubscriptionAttributesInputSubscriptionTypeDef = TypedDict(
-    "_OptionalSetSubscriptionAttributesInputSubscriptionTypeDef",
-    {
-        "AttributeValue": str,
-    },
-    total=False,
-)
-
-class SetSubscriptionAttributesInputSubscriptionTypeDef(
-    _RequiredSetSubscriptionAttributesInputSubscriptionTypeDef,
-    _OptionalSetSubscriptionAttributesInputSubscriptionTypeDef,
-):
-    pass
-
-_RequiredSetTopicAttributesInputRequestTypeDef = TypedDict(
-    "_RequiredSetTopicAttributesInputRequestTypeDef",
-    {
-        "TopicArn": str,
-        "AttributeName": str,
-    },
-)
-_OptionalSetTopicAttributesInputRequestTypeDef = TypedDict(
-    "_OptionalSetTopicAttributesInputRequestTypeDef",
-    {
-        "AttributeValue": str,
-    },
-    total=False,
-)
-
-class SetTopicAttributesInputRequestTypeDef(
-    _RequiredSetTopicAttributesInputRequestTypeDef, _OptionalSetTopicAttributesInputRequestTypeDef
-):
-    pass
-
-_RequiredSetTopicAttributesInputTopicTypeDef = TypedDict(
-    "_RequiredSetTopicAttributesInputTopicTypeDef",
-    {
-        "AttributeName": str,
-    },
-)
-_OptionalSetTopicAttributesInputTopicTypeDef = TypedDict(
-    "_OptionalSetTopicAttributesInputTopicTypeDef",
-    {
-        "AttributeValue": str,
-    },
-    total=False,
-)
-
-class SetTopicAttributesInputTopicTypeDef(
-    _RequiredSetTopicAttributesInputTopicTypeDef, _OptionalSetTopicAttributesInputTopicTypeDef
-):
-    pass
-
-_RequiredSubscribeInputRequestTypeDef = TypedDict(
-    "_RequiredSubscribeInputRequestTypeDef",
-    {
-        "TopicArn": str,
-        "Protocol": str,
-    },
-)
-_OptionalSubscribeInputRequestTypeDef = TypedDict(
-    "_OptionalSubscribeInputRequestTypeDef",
-    {
-        "Endpoint": str,
-        "Attributes": Dict[str, str],
-        "ReturnSubscriptionArn": bool,
-    },
-    total=False,
-)
-
-class SubscribeInputRequestTypeDef(
-    _RequiredSubscribeInputRequestTypeDef, _OptionalSubscribeInputRequestTypeDef
-):
-    pass
-
-_RequiredSubscribeInputTopicTypeDef = TypedDict(
-    "_RequiredSubscribeInputTopicTypeDef",
-    {
-        "Protocol": str,
-    },
-)
-_OptionalSubscribeInputTopicTypeDef = TypedDict(
-    "_OptionalSubscribeInputTopicTypeDef",
-    {
-        "Endpoint": str,
-        "Attributes": Dict[str, str],
-        "ReturnSubscriptionArn": bool,
-    },
-    total=False,
-)
-
-class SubscribeInputTopicTypeDef(
-    _RequiredSubscribeInputTopicTypeDef, _OptionalSubscribeInputTopicTypeDef
-):
-    pass
-
-SubscribeResponseTypeDef = TypedDict(
-    "SubscribeResponseTypeDef",
-    {
-        "SubscriptionArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class BatchResultErrorEntryTypeDef(TypedDict):
+    Id: str
+    Code: str
+    SenderFault: bool
+    Message: NotRequired[str]
+
+BlobTypeDef = Union[str, bytes, IO[Any], StreamingBody]
+
+class CheckIfPhoneNumberIsOptedOutInputTypeDef(TypedDict):
+    phoneNumber: str
+
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
+
+class ConfirmSubscriptionInputTopicConfirmSubscriptionTypeDef(TypedDict):
+    Token: str
+    AuthenticateOnUnsubscribe: NotRequired[str]
+
+class ConfirmSubscriptionInputTypeDef(TypedDict):
+    TopicArn: str
+    Token: str
+    AuthenticateOnUnsubscribe: NotRequired[str]
+
+class CreatePlatformApplicationInputServiceResourceCreatePlatformApplicationTypeDef(TypedDict):
+    Name: str
+    Platform: str
+    Attributes: Mapping[str, str]
+
+class CreatePlatformApplicationInputTypeDef(TypedDict):
+    Name: str
+    Platform: str
+    Attributes: Mapping[str, str]
+
+class CreatePlatformEndpointInputPlatformApplicationCreatePlatformEndpointTypeDef(TypedDict):
+    Token: str
+    CustomUserData: NotRequired[str]
+    Attributes: NotRequired[Mapping[str, str]]
+
+class CreatePlatformEndpointInputTypeDef(TypedDict):
+    PlatformApplicationArn: str
+    Token: str
+    CustomUserData: NotRequired[str]
+    Attributes: NotRequired[Mapping[str, str]]
+
+class CreateSMSSandboxPhoneNumberInputTypeDef(TypedDict):
+    PhoneNumber: str
+    LanguageCode: NotRequired[LanguageCodeStringType]
+
+class TagTypeDef(TypedDict):
+    Key: str
+    Value: str
+
+class DeleteEndpointInputTypeDef(TypedDict):
+    EndpointArn: str
+
+class DeletePlatformApplicationInputTypeDef(TypedDict):
+    PlatformApplicationArn: str
+
+class DeleteSMSSandboxPhoneNumberInputTypeDef(TypedDict):
+    PhoneNumber: str
+
+class DeleteTopicInputTypeDef(TypedDict):
+    TopicArn: str
+
+class EndpointTypeDef(TypedDict):
+    EndpointArn: NotRequired[str]
+    Attributes: NotRequired[Dict[str, str]]
+
+class GetDataProtectionPolicyInputTypeDef(TypedDict):
+    ResourceArn: str
+
+class GetEndpointAttributesInputTypeDef(TypedDict):
+    EndpointArn: str
+
+class GetPlatformApplicationAttributesInputTypeDef(TypedDict):
+    PlatformApplicationArn: str
+
+class GetSMSAttributesInputTypeDef(TypedDict):
+    attributes: NotRequired[Sequence[str]]
+
+class GetSubscriptionAttributesInputTypeDef(TypedDict):
+    SubscriptionArn: str
+
+class GetTopicAttributesInputTypeDef(TypedDict):
+    TopicArn: str
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class ListEndpointsByPlatformApplicationInputTypeDef(TypedDict):
+    PlatformApplicationArn: str
+    NextToken: NotRequired[str]
+
+class ListOriginationNumbersRequestTypeDef(TypedDict):
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class PhoneNumberInformationTypeDef(TypedDict):
+    CreatedAt: NotRequired[datetime]
+    PhoneNumber: NotRequired[str]
+    Status: NotRequired[str]
+    Iso2CountryCode: NotRequired[str]
+    RouteType: NotRequired[RouteTypeType]
+    NumberCapabilities: NotRequired[List[NumberCapabilityType]]
+
+class ListPhoneNumbersOptedOutInputTypeDef(TypedDict):
+    nextToken: NotRequired[str]
+
+class ListPlatformApplicationsInputTypeDef(TypedDict):
+    NextToken: NotRequired[str]
+
+class PlatformApplicationTypeDef(TypedDict):
+    PlatformApplicationArn: NotRequired[str]
+    Attributes: NotRequired[Dict[str, str]]
+
+class ListSMSSandboxPhoneNumbersInputTypeDef(TypedDict):
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class SMSSandboxPhoneNumberTypeDef(TypedDict):
+    PhoneNumber: NotRequired[str]
+    Status: NotRequired[SMSSandboxPhoneNumberVerificationStatusType]
+
+class ListSubscriptionsByTopicInputTypeDef(TypedDict):
+    TopicArn: str
+    NextToken: NotRequired[str]
 
 SubscriptionTypeDef = TypedDict(
     "SubscriptionTypeDef",
     {
-        "SubscriptionArn": str,
-        "Owner": str,
+        "SubscriptionArn": NotRequired[str],
+        "Owner": NotRequired[str],
+        "Protocol": NotRequired[str],
+        "Endpoint": NotRequired[str],
+        "TopicArn": NotRequired[str],
+    },
+)
+
+class ListSubscriptionsInputTypeDef(TypedDict):
+    NextToken: NotRequired[str]
+
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+
+class ListTopicsInputTypeDef(TypedDict):
+    NextToken: NotRequired[str]
+
+class TopicTypeDef(TypedDict):
+    TopicArn: NotRequired[str]
+
+class OptInPhoneNumberInputTypeDef(TypedDict):
+    phoneNumber: str
+
+class PublishBatchResultEntryTypeDef(TypedDict):
+    Id: NotRequired[str]
+    MessageId: NotRequired[str]
+    SequenceNumber: NotRequired[str]
+
+class PutDataProtectionPolicyInputTypeDef(TypedDict):
+    ResourceArn: str
+    DataProtectionPolicy: str
+
+class RemovePermissionInputTopicRemovePermissionTypeDef(TypedDict):
+    Label: str
+
+class RemovePermissionInputTypeDef(TypedDict):
+    TopicArn: str
+    Label: str
+
+class SetEndpointAttributesInputPlatformEndpointSetAttributesTypeDef(TypedDict):
+    Attributes: Mapping[str, str]
+
+class SetEndpointAttributesInputTypeDef(TypedDict):
+    EndpointArn: str
+    Attributes: Mapping[str, str]
+
+class SetPlatformApplicationAttributesInputPlatformApplicationSetAttributesTypeDef(TypedDict):
+    Attributes: Mapping[str, str]
+
+class SetPlatformApplicationAttributesInputTypeDef(TypedDict):
+    PlatformApplicationArn: str
+    Attributes: Mapping[str, str]
+
+class SetSMSAttributesInputTypeDef(TypedDict):
+    attributes: Mapping[str, str]
+
+class SetSubscriptionAttributesInputSubscriptionSetAttributesTypeDef(TypedDict):
+    AttributeName: str
+    AttributeValue: NotRequired[str]
+
+class SetSubscriptionAttributesInputTypeDef(TypedDict):
+    SubscriptionArn: str
+    AttributeName: str
+    AttributeValue: NotRequired[str]
+
+class SetTopicAttributesInputTopicSetAttributesTypeDef(TypedDict):
+    AttributeName: str
+    AttributeValue: NotRequired[str]
+
+class SetTopicAttributesInputTypeDef(TypedDict):
+    TopicArn: str
+    AttributeName: str
+    AttributeValue: NotRequired[str]
+
+SubscribeInputTopicSubscribeTypeDef = TypedDict(
+    "SubscribeInputTopicSubscribeTypeDef",
+    {
         "Protocol": str,
-        "Endpoint": str,
-        "TopicArn": str,
-    },
-    total=False,
-)
-
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-        "Tags": List["TagTypeDef"],
+        "Endpoint": NotRequired[str],
+        "Attributes": NotRequired[Mapping[str, str]],
+        "ReturnSubscriptionArn": NotRequired[bool],
     },
 )
-
-TagTypeDef = TypedDict(
-    "TagTypeDef",
-    {
-        "Key": str,
-        "Value": str,
-    },
-)
-
-TopicTypeDef = TypedDict(
-    "TopicTypeDef",
+SubscribeInputTypeDef = TypedDict(
+    "SubscribeInputTypeDef",
     {
         "TopicArn": str,
-    },
-    total=False,
-)
-
-UnsubscribeInputRequestTypeDef = TypedDict(
-    "UnsubscribeInputRequestTypeDef",
-    {
-        "SubscriptionArn": str,
+        "Protocol": str,
+        "Endpoint": NotRequired[str],
+        "Attributes": NotRequired[Mapping[str, str]],
+        "ReturnSubscriptionArn": NotRequired[bool],
     },
 )
 
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-        "TagKeys": List[str],
-    },
-)
+class UnsubscribeInputTypeDef(TypedDict):
+    SubscriptionArn: str
 
-VerifySMSSandboxPhoneNumberInputRequestTypeDef = TypedDict(
-    "VerifySMSSandboxPhoneNumberInputRequestTypeDef",
-    {
-        "PhoneNumber": str,
-        "OneTimePassword": str,
-    },
-)
+class UntagResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+    TagKeys: Sequence[str]
+
+class VerifySMSSandboxPhoneNumberInputTypeDef(TypedDict):
+    PhoneNumber: str
+    OneTimePassword: str
+
+class MessageAttributeValueTypeDef(TypedDict):
+    DataType: str
+    StringValue: NotRequired[str]
+    BinaryValue: NotRequired[BlobTypeDef]
+
+class CheckIfPhoneNumberIsOptedOutResponseTypeDef(TypedDict):
+    isOptedOut: bool
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ConfirmSubscriptionResponseTypeDef(TypedDict):
+    SubscriptionArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateEndpointResponseTypeDef(TypedDict):
+    EndpointArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreatePlatformApplicationResponseTypeDef(TypedDict):
+    PlatformApplicationArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateTopicResponseTypeDef(TypedDict):
+    TopicArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class EmptyResponseMetadataTypeDef(TypedDict):
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetDataProtectionPolicyResponseTypeDef(TypedDict):
+    DataProtectionPolicy: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetEndpointAttributesResponseTypeDef(TypedDict):
+    Attributes: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetPlatformApplicationAttributesResponseTypeDef(TypedDict):
+    Attributes: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetSMSAttributesResponseTypeDef(TypedDict):
+    attributes: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetSMSSandboxAccountStatusResultTypeDef(TypedDict):
+    IsInSandbox: bool
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetSubscriptionAttributesResponseTypeDef(TypedDict):
+    Attributes: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetTopicAttributesResponseTypeDef(TypedDict):
+    Attributes: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListPhoneNumbersOptedOutResponseTypeDef(TypedDict):
+    phoneNumbers: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class PublishResponseTypeDef(TypedDict):
+    MessageId: str
+    SequenceNumber: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class SubscribeResponseTypeDef(TypedDict):
+    SubscriptionArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateTopicInputServiceResourceCreateTopicTypeDef(TypedDict):
+    Name: str
+    Attributes: NotRequired[Mapping[str, str]]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+    DataProtectionPolicy: NotRequired[str]
+
+class CreateTopicInputTypeDef(TypedDict):
+    Name: str
+    Attributes: NotRequired[Mapping[str, str]]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+    DataProtectionPolicy: NotRequired[str]
+
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    Tags: List[TagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class TagResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+    Tags: Sequence[TagTypeDef]
+
+class ListEndpointsByPlatformApplicationResponseTypeDef(TypedDict):
+    Endpoints: List[EndpointTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListEndpointsByPlatformApplicationInputPaginateTypeDef(TypedDict):
+    PlatformApplicationArn: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListOriginationNumbersRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListPhoneNumbersOptedOutInputPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListPlatformApplicationsInputPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListSMSSandboxPhoneNumbersInputPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListSubscriptionsByTopicInputPaginateTypeDef(TypedDict):
+    TopicArn: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListSubscriptionsInputPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListTopicsInputPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListOriginationNumbersResultTypeDef(TypedDict):
+    PhoneNumbers: List[PhoneNumberInformationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListPlatformApplicationsResponseTypeDef(TypedDict):
+    PlatformApplications: List[PlatformApplicationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListSMSSandboxPhoneNumbersResultTypeDef(TypedDict):
+    PhoneNumbers: List[SMSSandboxPhoneNumberTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListSubscriptionsByTopicResponseTypeDef(TypedDict):
+    Subscriptions: List[SubscriptionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListSubscriptionsResponseTypeDef(TypedDict):
+    Subscriptions: List[SubscriptionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListTopicsResponseTypeDef(TypedDict):
+    Topics: List[TopicTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class PublishBatchResponseTypeDef(TypedDict):
+    Successful: List[PublishBatchResultEntryTypeDef]
+    Failed: List[BatchResultErrorEntryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PublishBatchRequestEntryTypeDef(TypedDict):
+    Id: str
+    Message: str
+    Subject: NotRequired[str]
+    MessageStructure: NotRequired[str]
+    MessageAttributes: NotRequired[Mapping[str, MessageAttributeValueTypeDef]]
+    MessageDeduplicationId: NotRequired[str]
+    MessageGroupId: NotRequired[str]
+
+class PublishInputPlatformEndpointPublishTypeDef(TypedDict):
+    Message: str
+    TopicArn: NotRequired[str]
+    PhoneNumber: NotRequired[str]
+    Subject: NotRequired[str]
+    MessageStructure: NotRequired[str]
+    MessageAttributes: NotRequired[Mapping[str, MessageAttributeValueTypeDef]]
+    MessageDeduplicationId: NotRequired[str]
+    MessageGroupId: NotRequired[str]
+
+class PublishInputTopicPublishTypeDef(TypedDict):
+    Message: str
+    TargetArn: NotRequired[str]
+    PhoneNumber: NotRequired[str]
+    Subject: NotRequired[str]
+    MessageStructure: NotRequired[str]
+    MessageAttributes: NotRequired[Mapping[str, MessageAttributeValueTypeDef]]
+    MessageDeduplicationId: NotRequired[str]
+    MessageGroupId: NotRequired[str]
+
+class PublishInputTypeDef(TypedDict):
+    Message: str
+    TopicArn: NotRequired[str]
+    TargetArn: NotRequired[str]
+    PhoneNumber: NotRequired[str]
+    Subject: NotRequired[str]
+    MessageStructure: NotRequired[str]
+    MessageAttributes: NotRequired[Mapping[str, MessageAttributeValueTypeDef]]
+    MessageDeduplicationId: NotRequired[str]
+    MessageGroupId: NotRequired[str]
+
+class PublishBatchInputTypeDef(TypedDict):
+    TopicArn: str
+    PublishBatchRequestEntries: Sequence[PublishBatchRequestEntryTypeDef]

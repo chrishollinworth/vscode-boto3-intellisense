@@ -1,7 +1,9 @@
 """
 Type annotations for datazone service literal definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/literals.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/literals/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
@@ -14,7 +16,7 @@ Usage::
 
 import sys
 
-if sys.version_info >= (3, 8):
+if sys.version_info >= (3, 12):
     from typing import Literal
 else:
     from typing_extensions import Literal
@@ -22,56 +24,99 @@ else:
 __all__ = (
     "AcceptRuleBehaviorType",
     "AuthTypeType",
+    "AuthenticationTypeType",
     "ChangeActionType",
+    "ComputeEnvironmentsType",
     "ConfigurableActionTypeAuthorizationType",
+    "ConnectionStatusType",
+    "ConnectionTypeType",
     "DataAssetActivityStatusType",
+    "DataProductItemTypeType",
+    "DataProductStatusType",
     "DataSourceErrorTypeType",
     "DataSourceRunStatusType",
     "DataSourceRunTypeType",
     "DataSourceStatusType",
+    "DataZoneEntityTypeType",
+    "DataZoneServiceName",
+    "DeploymentModeType",
     "DeploymentStatusType",
     "DeploymentTypeType",
     "DomainStatusType",
+    "DomainUnitDesignationType",
+    "DomainVersionType",
     "EdgeDirectionType",
     "EnableSettingType",
     "EntityTypeType",
     "EnvironmentStatusType",
     "FilterExpressionTypeType",
+    "FilterStatusType",
     "FormTypeStatusType",
     "GlossaryStatusType",
     "GlossaryTermStatusType",
+    "GlueConnectionTypeType",
+    "GovernanceTypeType",
     "GroupProfileStatusType",
     "GroupSearchTypeType",
+    "HyperPodOrchestratorType",
     "InventorySearchScopeType",
+    "JobRunModeType",
+    "JobRunStatusType",
+    "JobTypeType",
+    "LineageEventProcessingStatusType",
+    "LineageImportStatusType",
+    "ListAssetFiltersPaginatorName",
     "ListAssetRevisionsPaginatorName",
+    "ListConnectionsPaginatorName",
+    "ListDataProductRevisionsPaginatorName",
     "ListDataSourceRunActivitiesPaginatorName",
     "ListDataSourceRunsPaginatorName",
     "ListDataSourcesPaginatorName",
+    "ListDomainUnitsForParentPaginatorName",
     "ListDomainsPaginatorName",
+    "ListEntityOwnersPaginatorName",
     "ListEnvironmentActionsPaginatorName",
     "ListEnvironmentBlueprintConfigurationsPaginatorName",
     "ListEnvironmentBlueprintsPaginatorName",
     "ListEnvironmentProfilesPaginatorName",
     "ListEnvironmentsPaginatorName",
+    "ListJobRunsPaginatorName",
+    "ListLineageEventsPaginatorName",
     "ListLineageNodeHistoryPaginatorName",
     "ListMetadataGenerationRunsPaginatorName",
     "ListNotificationsPaginatorName",
+    "ListPolicyGrantsPaginatorName",
     "ListProjectMembershipsPaginatorName",
+    "ListProjectProfilesPaginatorName",
     "ListProjectsPaginatorName",
+    "ListRulesPaginatorName",
     "ListSubscriptionGrantsPaginatorName",
     "ListSubscriptionRequestsPaginatorName",
     "ListSubscriptionTargetsPaginatorName",
     "ListSubscriptionsPaginatorName",
     "ListTimeSeriesDataPointsPaginatorName",
     "ListingStatusType",
+    "ManagedPolicyTypeType",
     "MetadataGenerationRunStatusType",
     "MetadataGenerationRunTypeType",
     "MetadataGenerationTargetTypeType",
     "NotificationResourceTypeType",
     "NotificationRoleType",
     "NotificationTypeType",
+    "OAuth2GrantTypeType",
+    "OpenLineageRunStateType",
+    "OverallDeploymentStatusType",
+    "PaginatorName",
+    "ProjectDesignationType",
     "ProjectStatusType",
+    "ProtocolType",
+    "RegionName",
     "RejectRuleBehaviorType",
+    "ResourceServiceName",
+    "RuleActionType",
+    "RuleScopeSelectionModeType",
+    "RuleTargetTypeType",
+    "RuleTypeType",
     "SearchGroupProfilesPaginatorName",
     "SearchListingsPaginatorName",
     "SearchOutputAdditionalAttributeType",
@@ -79,13 +124,17 @@ __all__ = (
     "SearchTypesPaginatorName",
     "SearchUserProfilesPaginatorName",
     "SelfGrantStatusType",
+    "ServiceName",
+    "SortFieldConnectionType",
     "SortFieldProjectType",
     "SortKeyType",
     "SortOrderType",
+    "StatusType",
     "SubscriptionGrantOverallStatusType",
     "SubscriptionGrantStatusType",
     "SubscriptionRequestStatusType",
     "SubscriptionStatusType",
+    "TargetEntityTypeType",
     "TaskStatusType",
     "TimeSeriesEntityTypeType",
     "TimezoneType",
@@ -100,8 +149,41 @@ __all__ = (
 
 AcceptRuleBehaviorType = Literal["ALL", "NONE"]
 AuthTypeType = Literal["DISABLED", "IAM_IDC"]
+AuthenticationTypeType = Literal["BASIC", "CUSTOM", "OAUTH2"]
 ChangeActionType = Literal["PUBLISH", "UNPUBLISH"]
+ComputeEnvironmentsType = Literal["ATHENA", "PYTHON", "SPARK"]
 ConfigurableActionTypeAuthorizationType = Literal["HTTPS", "IAM"]
+ConnectionStatusType = Literal[
+    "CREATE_FAILED",
+    "CREATING",
+    "DELETED",
+    "DELETE_FAILED",
+    "DELETING",
+    "READY",
+    "UPDATE_FAILED",
+    "UPDATING",
+]
+ConnectionTypeType = Literal[
+    "ATHENA",
+    "BIGQUERY",
+    "DATABRICKS",
+    "DOCUMENTDB",
+    "DYNAMODB",
+    "HYPERPOD",
+    "IAM",
+    "MYSQL",
+    "OPENSEARCH",
+    "ORACLE",
+    "POSTGRESQL",
+    "REDSHIFT",
+    "SAPHANA",
+    "SNOWFLAKE",
+    "SPARK",
+    "SQLSERVER",
+    "TERADATA",
+    "VERTICA",
+    "WORKFLOWS_MWAA",
+]
 DataAssetActivityStatusType = Literal[
     "FAILED",
     "PUBLISHING_FAILED",
@@ -112,6 +194,8 @@ DataAssetActivityStatusType = Literal[
     "SUCCEEDED_UPDATED",
     "UNCHANGED",
 ]
+DataProductItemTypeType = Literal["ASSET"]
+DataProductStatusType = Literal["CREATED", "CREATE_FAILED", "CREATING"]
 DataSourceErrorTypeType = Literal[
     "ACCESS_DENIED_EXCEPTION",
     "CONFLICT_EXCEPTION",
@@ -135,14 +219,18 @@ DataSourceStatusType = Literal[
     "RUNNING",
     "UPDATING",
 ]
+DataZoneEntityTypeType = Literal["DOMAIN_UNIT"]
+DeploymentModeType = Literal["ON_CREATE", "ON_DEMAND"]
 DeploymentStatusType = Literal["FAILED", "IN_PROGRESS", "PENDING_DEPLOYMENT", "SUCCESSFUL"]
 DeploymentTypeType = Literal["CREATE", "DELETE", "UPDATE"]
 DomainStatusType = Literal[
     "AVAILABLE", "CREATING", "CREATION_FAILED", "DELETED", "DELETING", "DELETION_FAILED"
 ]
+DomainUnitDesignationType = Literal["OWNER"]
+DomainVersionType = Literal["V1", "V2"]
 EdgeDirectionType = Literal["DOWNSTREAM", "UPSTREAM"]
 EnableSettingType = Literal["DISABLED", "ENABLED"]
-EntityTypeType = Literal["ASSET"]
+EntityTypeType = Literal["ASSET", "DATA_PRODUCT"]
 EnvironmentStatusType = Literal[
     "ACTIVE",
     "CREATE_FAILED",
@@ -159,17 +247,54 @@ EnvironmentStatusType = Literal[
     "VALIDATION_FAILED",
 ]
 FilterExpressionTypeType = Literal["EXCLUDE", "INCLUDE"]
+FilterStatusType = Literal["INVALID", "VALID"]
 FormTypeStatusType = Literal["DISABLED", "ENABLED"]
 GlossaryStatusType = Literal["DISABLED", "ENABLED"]
 GlossaryTermStatusType = Literal["DISABLED", "ENABLED"]
+GlueConnectionTypeType = Literal[
+    "BIGQUERY",
+    "DOCUMENTDB",
+    "DYNAMODB",
+    "MYSQL",
+    "OPENSEARCH",
+    "ORACLE",
+    "POSTGRESQL",
+    "REDSHIFT",
+    "SAPHANA",
+    "SNOWFLAKE",
+    "SQLSERVER",
+    "TERADATA",
+    "VERTICA",
+]
+GovernanceTypeType = Literal["AWS_MANAGED", "USER_MANAGED"]
 GroupProfileStatusType = Literal["ASSIGNED", "NOT_ASSIGNED"]
 GroupSearchTypeType = Literal["DATAZONE_SSO_GROUP", "SSO_GROUP"]
-InventorySearchScopeType = Literal["ASSET", "GLOSSARY", "GLOSSARY_TERM"]
+HyperPodOrchestratorType = Literal["EKS", "SLURM"]
+InventorySearchScopeType = Literal["ASSET", "DATA_PRODUCT", "GLOSSARY", "GLOSSARY_TERM"]
+JobRunModeType = Literal["ON_DEMAND", "SCHEDULED"]
+JobRunStatusType = Literal[
+    "ABORTED",
+    "CANCELED",
+    "FAILED",
+    "IN_PROGRESS",
+    "PARTIALLY_SUCCEEDED",
+    "SCHEDULED",
+    "SUCCESS",
+    "TIMED_OUT",
+]
+JobTypeType = Literal["LINEAGE"]
+LineageEventProcessingStatusType = Literal["FAILED", "PROCESSING", "REQUESTED", "SUCCESS"]
+LineageImportStatusType = Literal["FAILED", "IN_PROGRESS", "PARTIALLY_SUCCEEDED", "SUCCESS"]
+ListAssetFiltersPaginatorName = Literal["list_asset_filters"]
 ListAssetRevisionsPaginatorName = Literal["list_asset_revisions"]
+ListConnectionsPaginatorName = Literal["list_connections"]
+ListDataProductRevisionsPaginatorName = Literal["list_data_product_revisions"]
 ListDataSourceRunActivitiesPaginatorName = Literal["list_data_source_run_activities"]
 ListDataSourceRunsPaginatorName = Literal["list_data_source_runs"]
 ListDataSourcesPaginatorName = Literal["list_data_sources"]
+ListDomainUnitsForParentPaginatorName = Literal["list_domain_units_for_parent"]
 ListDomainsPaginatorName = Literal["list_domains"]
+ListEntityOwnersPaginatorName = Literal["list_entity_owners"]
 ListEnvironmentActionsPaginatorName = Literal["list_environment_actions"]
 ListEnvironmentBlueprintConfigurationsPaginatorName = Literal[
     "list_environment_blueprint_configurations"
@@ -177,17 +302,38 @@ ListEnvironmentBlueprintConfigurationsPaginatorName = Literal[
 ListEnvironmentBlueprintsPaginatorName = Literal["list_environment_blueprints"]
 ListEnvironmentProfilesPaginatorName = Literal["list_environment_profiles"]
 ListEnvironmentsPaginatorName = Literal["list_environments"]
+ListJobRunsPaginatorName = Literal["list_job_runs"]
+ListLineageEventsPaginatorName = Literal["list_lineage_events"]
 ListLineageNodeHistoryPaginatorName = Literal["list_lineage_node_history"]
 ListMetadataGenerationRunsPaginatorName = Literal["list_metadata_generation_runs"]
 ListNotificationsPaginatorName = Literal["list_notifications"]
+ListPolicyGrantsPaginatorName = Literal["list_policy_grants"]
 ListProjectMembershipsPaginatorName = Literal["list_project_memberships"]
+ListProjectProfilesPaginatorName = Literal["list_project_profiles"]
 ListProjectsPaginatorName = Literal["list_projects"]
+ListRulesPaginatorName = Literal["list_rules"]
 ListSubscriptionGrantsPaginatorName = Literal["list_subscription_grants"]
 ListSubscriptionRequestsPaginatorName = Literal["list_subscription_requests"]
 ListSubscriptionTargetsPaginatorName = Literal["list_subscription_targets"]
 ListSubscriptionsPaginatorName = Literal["list_subscriptions"]
 ListTimeSeriesDataPointsPaginatorName = Literal["list_time_series_data_points"]
 ListingStatusType = Literal["ACTIVE", "CREATING", "INACTIVE"]
+ManagedPolicyTypeType = Literal[
+    "ADD_TO_PROJECT_MEMBER_POOL",
+    "CREATE_ASSET_TYPE",
+    "CREATE_DOMAIN_UNIT",
+    "CREATE_ENVIRONMENT",
+    "CREATE_ENVIRONMENT_FROM_BLUEPRINT",
+    "CREATE_ENVIRONMENT_PROFILE",
+    "CREATE_FORM_TYPE",
+    "CREATE_GLOSSARY",
+    "CREATE_PROJECT",
+    "CREATE_PROJECT_FROM_PROJECT_PROFILE",
+    "DELEGATE_CREATE_ENVIRONMENT_PROFILE",
+    "OVERRIDE_DOMAIN_UNIT_OWNERS",
+    "OVERRIDE_PROJECT_OWNERS",
+    "USE_ASSET_TYPE",
+]
 MetadataGenerationRunStatusType = Literal[
     "CANCELED", "FAILED", "IN_PROGRESS", "SUBMITTED", "SUCCEEDED"
 ]
@@ -198,8 +344,21 @@ NotificationRoleType = Literal[
     "DOMAIN_OWNER", "PROJECT_CONTRIBUTOR", "PROJECT_OWNER", "PROJECT_SUBSCRIBER", "PROJECT_VIEWER"
 ]
 NotificationTypeType = Literal["EVENT", "TASK"]
-ProjectStatusType = Literal["ACTIVE", "DELETE_FAILED", "DELETING"]
+OAuth2GrantTypeType = Literal["AUTHORIZATION_CODE", "CLIENT_CREDENTIALS", "JWT_BEARER"]
+OpenLineageRunStateType = Literal["ABORT", "COMPLETE", "FAIL", "OTHER", "RUNNING", "START"]
+OverallDeploymentStatusType = Literal[
+    "FAILED_DEPLOYMENT", "FAILED_VALIDATION", "IN_PROGRESS", "PENDING_DEPLOYMENT", "SUCCESSFUL"
+]
+ProjectDesignationType = Literal["CONTRIBUTOR", "OWNER", "PROJECT_CATALOG_STEWARD"]
+ProjectStatusType = Literal["ACTIVE", "DELETE_FAILED", "DELETING", "UPDATE_FAILED", "UPDATING"]
+ProtocolType = Literal[
+    "ATHENA", "GLUE_INTERACTIVE_SESSION", "HTTPS", "JDBC", "LIVY", "ODBC", "PRISM"
+]
 RejectRuleBehaviorType = Literal["ALL", "NONE"]
+RuleActionType = Literal["CREATE_LISTING_CHANGE_SET", "CREATE_SUBSCRIPTION_REQUEST"]
+RuleScopeSelectionModeType = Literal["ALL", "SPECIFIC"]
+RuleTargetTypeType = Literal["DOMAIN_UNIT"]
+RuleTypeType = Literal["METADATA_FORM_ENFORCEMENT"]
 SearchGroupProfilesPaginatorName = Literal["search_group_profiles"]
 SearchListingsPaginatorName = Literal["search_listings"]
 SearchOutputAdditionalAttributeType = Literal["FORMS", "TIME_SERIES_DATA_POINT_FORMS"]
@@ -215,9 +374,11 @@ SelfGrantStatusType = Literal[
     "REVOKE_IN_PROGRESS",
     "REVOKE_PENDING",
 ]
+SortFieldConnectionType = Literal["NAME"]
 SortFieldProjectType = Literal["NAME"]
 SortKeyType = Literal["CREATED_AT", "UPDATED_AT"]
 SortOrderType = Literal["ASCENDING", "DESCENDING"]
+StatusType = Literal["DISABLED", "ENABLED"]
 SubscriptionGrantOverallStatusType = Literal[
     "COMPLETED",
     "GRANT_AND_REVOKE_FAILED",
@@ -239,6 +400,9 @@ SubscriptionGrantStatusType = Literal[
 ]
 SubscriptionRequestStatusType = Literal["ACCEPTED", "PENDING", "REJECTED"]
 SubscriptionStatusType = Literal["APPROVED", "CANCELLED", "REVOKED"]
+TargetEntityTypeType = Literal[
+    "ASSET_TYPE", "DOMAIN_UNIT", "ENVIRONMENT_BLUEPRINT_CONFIGURATION", "ENVIRONMENT_PROFILE"
+]
 TaskStatusType = Literal["ACTIVE", "INACTIVE"]
 TimeSeriesEntityTypeType = Literal["ASSET", "LISTING"]
 TimezoneType = Literal[
@@ -309,8 +473,500 @@ TimezoneType = Literal[
 ]
 TypesSearchScopeType = Literal["ASSET_TYPE", "FORM_TYPE", "LINEAGE_NODE_TYPE"]
 UserAssignmentType = Literal["AUTOMATIC", "MANUAL"]
-UserDesignationType = Literal["PROJECT_CONTRIBUTOR", "PROJECT_OWNER"]
+UserDesignationType = Literal[
+    "PROJECT_CATALOG_CONSUMER",
+    "PROJECT_CATALOG_STEWARD",
+    "PROJECT_CATALOG_VIEWER",
+    "PROJECT_CONTRIBUTOR",
+    "PROJECT_OWNER",
+]
 UserProfileStatusType = Literal["ACTIVATED", "ASSIGNED", "DEACTIVATED", "NOT_ASSIGNED"]
 UserProfileTypeType = Literal["IAM", "SSO"]
 UserSearchTypeType = Literal["DATAZONE_IAM_USER", "DATAZONE_SSO_USER", "DATAZONE_USER", "SSO_USER"]
 UserTypeType = Literal["IAM_ROLE", "IAM_USER", "SSO_USER"]
+DataZoneServiceName = Literal["datazone"]
+ServiceName = Literal[
+    "accessanalyzer",
+    "account",
+    "acm",
+    "acm-pca",
+    "amp",
+    "amplify",
+    "amplifybackend",
+    "amplifyuibuilder",
+    "apigateway",
+    "apigatewaymanagementapi",
+    "apigatewayv2",
+    "appconfig",
+    "appconfigdata",
+    "appfabric",
+    "appflow",
+    "appintegrations",
+    "application-autoscaling",
+    "application-insights",
+    "application-signals",
+    "applicationcostprofiler",
+    "appmesh",
+    "apprunner",
+    "appstream",
+    "appsync",
+    "apptest",
+    "arc-zonal-shift",
+    "artifact",
+    "athena",
+    "auditmanager",
+    "autoscaling",
+    "autoscaling-plans",
+    "b2bi",
+    "backup",
+    "backup-gateway",
+    "backupsearch",
+    "batch",
+    "bcm-data-exports",
+    "bcm-pricing-calculator",
+    "bedrock",
+    "bedrock-agent",
+    "bedrock-agent-runtime",
+    "bedrock-data-automation",
+    "bedrock-data-automation-runtime",
+    "bedrock-runtime",
+    "billing",
+    "billingconductor",
+    "braket",
+    "budgets",
+    "ce",
+    "chatbot",
+    "chime",
+    "chime-sdk-identity",
+    "chime-sdk-media-pipelines",
+    "chime-sdk-meetings",
+    "chime-sdk-messaging",
+    "chime-sdk-voice",
+    "cleanrooms",
+    "cleanroomsml",
+    "cloud9",
+    "cloudcontrol",
+    "clouddirectory",
+    "cloudformation",
+    "cloudfront",
+    "cloudfront-keyvaluestore",
+    "cloudhsm",
+    "cloudhsmv2",
+    "cloudsearch",
+    "cloudsearchdomain",
+    "cloudtrail",
+    "cloudtrail-data",
+    "cloudwatch",
+    "codeartifact",
+    "codebuild",
+    "codecatalyst",
+    "codecommit",
+    "codeconnections",
+    "codedeploy",
+    "codeguru-reviewer",
+    "codeguru-security",
+    "codeguruprofiler",
+    "codepipeline",
+    "codestar-connections",
+    "codestar-notifications",
+    "cognito-identity",
+    "cognito-idp",
+    "cognito-sync",
+    "comprehend",
+    "comprehendmedical",
+    "compute-optimizer",
+    "config",
+    "connect",
+    "connect-contact-lens",
+    "connectcampaigns",
+    "connectcampaignsv2",
+    "connectcases",
+    "connectparticipant",
+    "controlcatalog",
+    "controltower",
+    "cost-optimization-hub",
+    "cur",
+    "customer-profiles",
+    "databrew",
+    "dataexchange",
+    "datapipeline",
+    "datasync",
+    "datazone",
+    "dax",
+    "deadline",
+    "detective",
+    "devicefarm",
+    "devops-guru",
+    "directconnect",
+    "discovery",
+    "dlm",
+    "dms",
+    "docdb",
+    "docdb-elastic",
+    "drs",
+    "ds",
+    "ds-data",
+    "dsql",
+    "dynamodb",
+    "dynamodbstreams",
+    "ebs",
+    "ec2",
+    "ec2-instance-connect",
+    "ecr",
+    "ecr-public",
+    "ecs",
+    "efs",
+    "eks",
+    "eks-auth",
+    "elasticache",
+    "elasticbeanstalk",
+    "elastictranscoder",
+    "elb",
+    "elbv2",
+    "emr",
+    "emr-containers",
+    "emr-serverless",
+    "entityresolution",
+    "es",
+    "events",
+    "evidently",
+    "finspace",
+    "finspace-data",
+    "firehose",
+    "fis",
+    "fms",
+    "forecast",
+    "forecastquery",
+    "frauddetector",
+    "freetier",
+    "fsx",
+    "gamelift",
+    "gameliftstreams",
+    "geo-maps",
+    "geo-places",
+    "geo-routes",
+    "glacier",
+    "globalaccelerator",
+    "glue",
+    "grafana",
+    "greengrass",
+    "greengrassv2",
+    "groundstation",
+    "guardduty",
+    "health",
+    "healthlake",
+    "iam",
+    "identitystore",
+    "imagebuilder",
+    "importexport",
+    "inspector",
+    "inspector-scan",
+    "inspector2",
+    "internetmonitor",
+    "invoicing",
+    "iot",
+    "iot-data",
+    "iot-jobs-data",
+    "iot-managed-integrations",
+    "iotanalytics",
+    "iotdeviceadvisor",
+    "iotevents",
+    "iotevents-data",
+    "iotfleethub",
+    "iotfleetwise",
+    "iotsecuretunneling",
+    "iotsitewise",
+    "iotthingsgraph",
+    "iottwinmaker",
+    "iotwireless",
+    "ivs",
+    "ivs-realtime",
+    "ivschat",
+    "kafka",
+    "kafkaconnect",
+    "kendra",
+    "kendra-ranking",
+    "keyspaces",
+    "kinesis",
+    "kinesis-video-archived-media",
+    "kinesis-video-media",
+    "kinesis-video-signaling",
+    "kinesis-video-webrtc-storage",
+    "kinesisanalytics",
+    "kinesisanalyticsv2",
+    "kinesisvideo",
+    "kms",
+    "lakeformation",
+    "lambda",
+    "launch-wizard",
+    "lex-models",
+    "lex-runtime",
+    "lexv2-models",
+    "lexv2-runtime",
+    "license-manager",
+    "license-manager-linux-subscriptions",
+    "license-manager-user-subscriptions",
+    "lightsail",
+    "location",
+    "logs",
+    "lookoutequipment",
+    "lookoutmetrics",
+    "lookoutvision",
+    "m2",
+    "machinelearning",
+    "macie2",
+    "mailmanager",
+    "managedblockchain",
+    "managedblockchain-query",
+    "marketplace-agreement",
+    "marketplace-catalog",
+    "marketplace-deployment",
+    "marketplace-entitlement",
+    "marketplace-reporting",
+    "marketplacecommerceanalytics",
+    "mediaconnect",
+    "mediaconvert",
+    "medialive",
+    "mediapackage",
+    "mediapackage-vod",
+    "mediapackagev2",
+    "mediastore",
+    "mediastore-data",
+    "mediatailor",
+    "medical-imaging",
+    "memorydb",
+    "meteringmarketplace",
+    "mgh",
+    "mgn",
+    "migration-hub-refactor-spaces",
+    "migrationhub-config",
+    "migrationhuborchestrator",
+    "migrationhubstrategy",
+    "mq",
+    "mturk",
+    "mwaa",
+    "neptune",
+    "neptune-graph",
+    "neptunedata",
+    "network-firewall",
+    "networkflowmonitor",
+    "networkmanager",
+    "networkmonitor",
+    "notifications",
+    "notificationscontacts",
+    "oam",
+    "observabilityadmin",
+    "omics",
+    "opensearch",
+    "opensearchserverless",
+    "opsworks",
+    "opsworkscm",
+    "organizations",
+    "osis",
+    "outposts",
+    "panorama",
+    "partnercentral-selling",
+    "payment-cryptography",
+    "payment-cryptography-data",
+    "pca-connector-ad",
+    "pca-connector-scep",
+    "pcs",
+    "personalize",
+    "personalize-events",
+    "personalize-runtime",
+    "pi",
+    "pinpoint",
+    "pinpoint-email",
+    "pinpoint-sms-voice",
+    "pinpoint-sms-voice-v2",
+    "pipes",
+    "polly",
+    "pricing",
+    "privatenetworks",
+    "proton",
+    "qapps",
+    "qbusiness",
+    "qconnect",
+    "qldb",
+    "qldb-session",
+    "quicksight",
+    "ram",
+    "rbin",
+    "rds",
+    "rds-data",
+    "redshift",
+    "redshift-data",
+    "redshift-serverless",
+    "rekognition",
+    "repostspace",
+    "resiliencehub",
+    "resource-explorer-2",
+    "resource-groups",
+    "resourcegroupstaggingapi",
+    "robomaker",
+    "rolesanywhere",
+    "route53",
+    "route53-recovery-cluster",
+    "route53-recovery-control-config",
+    "route53-recovery-readiness",
+    "route53domains",
+    "route53profiles",
+    "route53resolver",
+    "rum",
+    "s3",
+    "s3control",
+    "s3outposts",
+    "s3tables",
+    "sagemaker",
+    "sagemaker-a2i-runtime",
+    "sagemaker-edge",
+    "sagemaker-featurestore-runtime",
+    "sagemaker-geospatial",
+    "sagemaker-metrics",
+    "sagemaker-runtime",
+    "savingsplans",
+    "scheduler",
+    "schemas",
+    "sdb",
+    "secretsmanager",
+    "security-ir",
+    "securityhub",
+    "securitylake",
+    "serverlessrepo",
+    "service-quotas",
+    "servicecatalog",
+    "servicecatalog-appregistry",
+    "servicediscovery",
+    "ses",
+    "sesv2",
+    "shield",
+    "signer",
+    "simspaceweaver",
+    "sms",
+    "snow-device-management",
+    "snowball",
+    "sns",
+    "socialmessaging",
+    "sqs",
+    "ssm",
+    "ssm-contacts",
+    "ssm-guiconnect",
+    "ssm-incidents",
+    "ssm-quicksetup",
+    "ssm-sap",
+    "sso",
+    "sso-admin",
+    "sso-oidc",
+    "stepfunctions",
+    "storagegateway",
+    "sts",
+    "supplychain",
+    "support",
+    "support-app",
+    "swf",
+    "synthetics",
+    "taxsettings",
+    "textract",
+    "timestream-influxdb",
+    "timestream-query",
+    "timestream-write",
+    "tnb",
+    "transcribe",
+    "transfer",
+    "translate",
+    "trustedadvisor",
+    "verifiedpermissions",
+    "voice-id",
+    "vpc-lattice",
+    "waf",
+    "waf-regional",
+    "wafv2",
+    "wellarchitected",
+    "wisdom",
+    "workdocs",
+    "workmail",
+    "workmailmessageflow",
+    "workspaces",
+    "workspaces-thin-client",
+    "workspaces-web",
+    "xray",
+]
+ResourceServiceName = Literal[
+    "cloudformation",
+    "cloudwatch",
+    "dynamodb",
+    "ec2",
+    "glacier",
+    "iam",
+    "opsworks",
+    "s3",
+    "sns",
+    "sqs",
+]
+PaginatorName = Literal[
+    "list_asset_filters",
+    "list_asset_revisions",
+    "list_connections",
+    "list_data_product_revisions",
+    "list_data_source_run_activities",
+    "list_data_source_runs",
+    "list_data_sources",
+    "list_domain_units_for_parent",
+    "list_domains",
+    "list_entity_owners",
+    "list_environment_actions",
+    "list_environment_blueprint_configurations",
+    "list_environment_blueprints",
+    "list_environment_profiles",
+    "list_environments",
+    "list_job_runs",
+    "list_lineage_events",
+    "list_lineage_node_history",
+    "list_metadata_generation_runs",
+    "list_notifications",
+    "list_policy_grants",
+    "list_project_memberships",
+    "list_project_profiles",
+    "list_projects",
+    "list_rules",
+    "list_subscription_grants",
+    "list_subscription_requests",
+    "list_subscription_targets",
+    "list_subscriptions",
+    "list_time_series_data_points",
+    "search",
+    "search_group_profiles",
+    "search_listings",
+    "search_types",
+    "search_user_profiles",
+]
+RegionName = Literal[
+    "ap-northeast-1",
+    "ap-northeast-2",
+    "ap-northeast-3",
+    "ap-south-1",
+    "ap-south-2",
+    "ap-southeast-1",
+    "ap-southeast-2",
+    "ap-southeast-3",
+    "ap-southeast-4",
+    "ap-southeast-5",
+    "ap-southeast-7",
+    "ca-central-1",
+    "ca-west-1",
+    "eu-central-1",
+    "eu-north-1",
+    "eu-south-1",
+    "eu-west-1",
+    "eu-west-2",
+    "eu-west-3",
+    "il-central-1",
+    "me-central-1",
+    "me-south-1",
+    "mx-central-1",
+    "sa-east-1",
+    "us-east-1",
+    "us-east-2",
+    "us-west-1",
+    "us-west-2",
+]

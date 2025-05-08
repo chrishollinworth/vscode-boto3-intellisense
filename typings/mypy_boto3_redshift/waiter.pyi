@@ -1,14 +1,16 @@
 """
 Type annotations for redshift service client waiters.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/waiters.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/waiters/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
 
-    from mypy_boto3_redshift import RedshiftClient
+    from mypy_boto3_redshift.client import RedshiftClient
     from mypy_boto3_redshift.waiter import (
         ClusterAvailableWaiter,
         ClusterDeletedWaiter,
@@ -16,7 +18,8 @@ Usage::
         SnapshotAvailableWaiter,
     )
 
-    client: RedshiftClient = boto3.client("redshift")
+    session = Session()
+    client: RedshiftClient = session.client("redshift")
 
     cluster_available_waiter: ClusterAvailableWaiter = client.get_waiter("cluster_available")
     cluster_deleted_waiter: ClusterDeletedWaiter = client.get_waiter("cluster_deleted")
@@ -25,12 +28,23 @@ Usage::
     ```
 """
 
-from datetime import datetime
-from typing import List, Union
+from __future__ import annotations
 
-from botocore.waiter import Waiter as Boto3Waiter
+import sys
 
-from .type_defs import SnapshotSortingEntityTypeDef, WaiterConfigTypeDef
+from botocore.waiter import Waiter
+
+from .type_defs import (
+    DescribeClustersMessageWaitExtraExtraTypeDef,
+    DescribeClustersMessageWaitExtraTypeDef,
+    DescribeClustersMessageWaitTypeDef,
+    DescribeClusterSnapshotsMessageWaitTypeDef,
+)
+
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = (
     "ClusterAvailableWaiter",
@@ -39,94 +53,54 @@ __all__ = (
     "SnapshotAvailableWaiter",
 )
 
-class ClusterAvailableWaiter(Boto3Waiter):
+class ClusterAvailableWaiter(Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Waiter.ClusterAvailable)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/waiters.html#clusteravailablewaiter)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/waiter/ClusterAvailable.html#Redshift.Waiter.ClusterAvailable)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/waiters/#clusteravailablewaiter)
     """
-
-    def wait(
-        self,
-        *,
-        ClusterIdentifier: str = None,
-        MaxRecords: int = None,
-        Marker: str = None,
-        TagKeys: List[str] = None,
-        TagValues: List[str] = None,
-        WaiterConfig: WaiterConfigTypeDef = None
+    def wait(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeClustersMessageWaitTypeDef]
     ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Waiter.ClusterAvailable.wait)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/waiters.html#clusteravailablewaiter)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/waiter/ClusterAvailable.html#Redshift.Waiter.ClusterAvailable.wait)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/waiters/#clusteravailablewaiter)
         """
 
-class ClusterDeletedWaiter(Boto3Waiter):
+class ClusterDeletedWaiter(Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Waiter.ClusterDeleted)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/waiters.html#clusterdeletedwaiter)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/waiter/ClusterDeleted.html#Redshift.Waiter.ClusterDeleted)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/waiters/#clusterdeletedwaiter)
     """
-
-    def wait(
-        self,
-        *,
-        ClusterIdentifier: str = None,
-        MaxRecords: int = None,
-        Marker: str = None,
-        TagKeys: List[str] = None,
-        TagValues: List[str] = None,
-        WaiterConfig: WaiterConfigTypeDef = None
+    def wait(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeClustersMessageWaitExtraTypeDef]
     ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Waiter.ClusterDeleted.wait)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/waiters.html#clusterdeletedwaiter)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/waiter/ClusterDeleted.html#Redshift.Waiter.ClusterDeleted.wait)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/waiters/#clusterdeletedwaiter)
         """
 
-class ClusterRestoredWaiter(Boto3Waiter):
+class ClusterRestoredWaiter(Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Waiter.ClusterRestored)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/waiters.html#clusterrestoredwaiter)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/waiter/ClusterRestored.html#Redshift.Waiter.ClusterRestored)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/waiters/#clusterrestoredwaiter)
     """
-
-    def wait(
-        self,
-        *,
-        ClusterIdentifier: str = None,
-        MaxRecords: int = None,
-        Marker: str = None,
-        TagKeys: List[str] = None,
-        TagValues: List[str] = None,
-        WaiterConfig: WaiterConfigTypeDef = None
+    def wait(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeClustersMessageWaitExtraExtraTypeDef]
     ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Waiter.ClusterRestored.wait)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/waiters.html#clusterrestoredwaiter)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/waiter/ClusterRestored.html#Redshift.Waiter.ClusterRestored.wait)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/waiters/#clusterrestoredwaiter)
         """
 
-class SnapshotAvailableWaiter(Boto3Waiter):
+class SnapshotAvailableWaiter(Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Waiter.SnapshotAvailable)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/waiters.html#snapshotavailablewaiter)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/waiter/SnapshotAvailable.html#Redshift.Waiter.SnapshotAvailable)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/waiters/#snapshotavailablewaiter)
     """
-
-    def wait(
-        self,
-        *,
-        ClusterIdentifier: str = None,
-        SnapshotIdentifier: str = None,
-        SnapshotArn: str = None,
-        SnapshotType: str = None,
-        StartTime: Union[datetime, str] = None,
-        EndTime: Union[datetime, str] = None,
-        MaxRecords: int = None,
-        Marker: str = None,
-        OwnerAccount: str = None,
-        TagKeys: List[str] = None,
-        TagValues: List[str] = None,
-        ClusterExists: bool = None,
-        SortingEntities: List["SnapshotSortingEntityTypeDef"] = None,
-        WaiterConfig: WaiterConfigTypeDef = None
+    def wait(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeClusterSnapshotsMessageWaitTypeDef]
     ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Waiter.SnapshotAvailable.wait)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/waiters.html#snapshotavailablewaiter)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/waiter/SnapshotAvailable.html#Redshift.Waiter.SnapshotAvailable.wait)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/waiters/#snapshotavailablewaiter)
         """

@@ -1,28 +1,35 @@
 """
 Type annotations for eks-auth service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks_auth/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks_auth/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_eks_auth.type_defs import AssumeRoleForPodIdentityRequestRequestTypeDef
+    from mypy_boto3_eks_auth.type_defs import AssumeRoleForPodIdentityRequestTypeDef
 
-    data: AssumeRoleForPodIdentityRequestRequestTypeDef = {...}
+    data: AssumeRoleForPodIdentityRequestTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
-    "AssumeRoleForPodIdentityRequestRequestTypeDef",
+    "AssumeRoleForPodIdentityRequestTypeDef",
     "AssumeRoleForPodIdentityResponseTypeDef",
     "AssumedRoleUserTypeDef",
     "CredentialsTypeDef",
@@ -31,67 +38,39 @@ __all__ = (
     "SubjectTypeDef",
 )
 
-AssumeRoleForPodIdentityRequestRequestTypeDef = TypedDict(
-    "AssumeRoleForPodIdentityRequestRequestTypeDef",
-    {
-        "clusterName": str,
-        "token": str,
-    },
-)
+class AssumeRoleForPodIdentityRequestTypeDef(TypedDict):
+    clusterName: str
+    token: str
 
-AssumeRoleForPodIdentityResponseTypeDef = TypedDict(
-    "AssumeRoleForPodIdentityResponseTypeDef",
-    {
-        "subject": "SubjectTypeDef",
-        "audience": str,
-        "podIdentityAssociation": "PodIdentityAssociationTypeDef",
-        "assumedRoleUser": "AssumedRoleUserTypeDef",
-        "credentials": "CredentialsTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class AssumedRoleUserTypeDef(TypedDict):
+    arn: str
+    assumeRoleId: str
 
-AssumedRoleUserTypeDef = TypedDict(
-    "AssumedRoleUserTypeDef",
-    {
-        "arn": str,
-        "assumeRoleId": str,
-    },
-)
+class CredentialsTypeDef(TypedDict):
+    sessionToken: str
+    secretAccessKey: str
+    accessKeyId: str
+    expiration: datetime
 
-CredentialsTypeDef = TypedDict(
-    "CredentialsTypeDef",
-    {
-        "sessionToken": str,
-        "secretAccessKey": str,
-        "accessKeyId": str,
-        "expiration": datetime,
-    },
-)
+class PodIdentityAssociationTypeDef(TypedDict):
+    associationArn: str
+    associationId: str
 
-PodIdentityAssociationTypeDef = TypedDict(
-    "PodIdentityAssociationTypeDef",
-    {
-        "associationArn": str,
-        "associationId": str,
-    },
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
+class SubjectTypeDef(TypedDict):
+    namespace: str
+    serviceAccount: str
 
-SubjectTypeDef = TypedDict(
-    "SubjectTypeDef",
-    {
-        "namespace": str,
-        "serviceAccount": str,
-    },
-)
+class AssumeRoleForPodIdentityResponseTypeDef(TypedDict):
+    subject: SubjectTypeDef
+    audience: str
+    podIdentityAssociation: PodIdentityAssociationTypeDef
+    assumedRoleUser: AssumedRoleUserTypeDef
+    credentials: CredentialsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef

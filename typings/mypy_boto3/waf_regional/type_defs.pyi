@@ -1,20 +1,26 @@
 """
 Type annotations for waf-regional service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_waf_regional/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_waf_regional/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_waf_regional.type_defs import ActivatedRuleTypeDef
+    from mypy_boto3_waf_regional.type_defs import ExcludedRuleTypeDef
 
-    data: ActivatedRuleTypeDef = {...}
+    data: ExcludedRuleTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List, Union
+from typing import IO, Any, Union
+
+from botocore.response import StreamingBody
 
 from .literals import (
     ChangeActionType,
@@ -32,117 +38,124 @@ from .literals import (
     WafRuleTypeType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
+    "ActivatedRuleOutputTypeDef",
     "ActivatedRuleTypeDef",
-    "AssociateWebACLRequestRequestTypeDef",
+    "ActivatedRuleUnionTypeDef",
+    "AssociateWebACLRequestTypeDef",
+    "BlobTypeDef",
     "ByteMatchSetSummaryTypeDef",
     "ByteMatchSetTypeDef",
     "ByteMatchSetUpdateTypeDef",
+    "ByteMatchTupleOutputTypeDef",
     "ByteMatchTupleTypeDef",
-    "CreateByteMatchSetRequestRequestTypeDef",
+    "ByteMatchTupleUnionTypeDef",
+    "CreateByteMatchSetRequestTypeDef",
     "CreateByteMatchSetResponseTypeDef",
-    "CreateGeoMatchSetRequestRequestTypeDef",
+    "CreateGeoMatchSetRequestTypeDef",
     "CreateGeoMatchSetResponseTypeDef",
-    "CreateIPSetRequestRequestTypeDef",
+    "CreateIPSetRequestTypeDef",
     "CreateIPSetResponseTypeDef",
-    "CreateRateBasedRuleRequestRequestTypeDef",
+    "CreateRateBasedRuleRequestTypeDef",
     "CreateRateBasedRuleResponseTypeDef",
-    "CreateRegexMatchSetRequestRequestTypeDef",
+    "CreateRegexMatchSetRequestTypeDef",
     "CreateRegexMatchSetResponseTypeDef",
-    "CreateRegexPatternSetRequestRequestTypeDef",
+    "CreateRegexPatternSetRequestTypeDef",
     "CreateRegexPatternSetResponseTypeDef",
-    "CreateRuleGroupRequestRequestTypeDef",
+    "CreateRuleGroupRequestTypeDef",
     "CreateRuleGroupResponseTypeDef",
-    "CreateRuleRequestRequestTypeDef",
+    "CreateRuleRequestTypeDef",
     "CreateRuleResponseTypeDef",
-    "CreateSizeConstraintSetRequestRequestTypeDef",
+    "CreateSizeConstraintSetRequestTypeDef",
     "CreateSizeConstraintSetResponseTypeDef",
-    "CreateSqlInjectionMatchSetRequestRequestTypeDef",
+    "CreateSqlInjectionMatchSetRequestTypeDef",
     "CreateSqlInjectionMatchSetResponseTypeDef",
-    "CreateWebACLMigrationStackRequestRequestTypeDef",
+    "CreateWebACLMigrationStackRequestTypeDef",
     "CreateWebACLMigrationStackResponseTypeDef",
-    "CreateWebACLRequestRequestTypeDef",
+    "CreateWebACLRequestTypeDef",
     "CreateWebACLResponseTypeDef",
-    "CreateXssMatchSetRequestRequestTypeDef",
+    "CreateXssMatchSetRequestTypeDef",
     "CreateXssMatchSetResponseTypeDef",
-    "DeleteByteMatchSetRequestRequestTypeDef",
+    "DeleteByteMatchSetRequestTypeDef",
     "DeleteByteMatchSetResponseTypeDef",
-    "DeleteGeoMatchSetRequestRequestTypeDef",
+    "DeleteGeoMatchSetRequestTypeDef",
     "DeleteGeoMatchSetResponseTypeDef",
-    "DeleteIPSetRequestRequestTypeDef",
+    "DeleteIPSetRequestTypeDef",
     "DeleteIPSetResponseTypeDef",
-    "DeleteLoggingConfigurationRequestRequestTypeDef",
-    "DeletePermissionPolicyRequestRequestTypeDef",
-    "DeleteRateBasedRuleRequestRequestTypeDef",
+    "DeleteLoggingConfigurationRequestTypeDef",
+    "DeletePermissionPolicyRequestTypeDef",
+    "DeleteRateBasedRuleRequestTypeDef",
     "DeleteRateBasedRuleResponseTypeDef",
-    "DeleteRegexMatchSetRequestRequestTypeDef",
+    "DeleteRegexMatchSetRequestTypeDef",
     "DeleteRegexMatchSetResponseTypeDef",
-    "DeleteRegexPatternSetRequestRequestTypeDef",
+    "DeleteRegexPatternSetRequestTypeDef",
     "DeleteRegexPatternSetResponseTypeDef",
-    "DeleteRuleGroupRequestRequestTypeDef",
+    "DeleteRuleGroupRequestTypeDef",
     "DeleteRuleGroupResponseTypeDef",
-    "DeleteRuleRequestRequestTypeDef",
+    "DeleteRuleRequestTypeDef",
     "DeleteRuleResponseTypeDef",
-    "DeleteSizeConstraintSetRequestRequestTypeDef",
+    "DeleteSizeConstraintSetRequestTypeDef",
     "DeleteSizeConstraintSetResponseTypeDef",
-    "DeleteSqlInjectionMatchSetRequestRequestTypeDef",
+    "DeleteSqlInjectionMatchSetRequestTypeDef",
     "DeleteSqlInjectionMatchSetResponseTypeDef",
-    "DeleteWebACLRequestRequestTypeDef",
+    "DeleteWebACLRequestTypeDef",
     "DeleteWebACLResponseTypeDef",
-    "DeleteXssMatchSetRequestRequestTypeDef",
+    "DeleteXssMatchSetRequestTypeDef",
     "DeleteXssMatchSetResponseTypeDef",
-    "DisassociateWebACLRequestRequestTypeDef",
+    "DisassociateWebACLRequestTypeDef",
     "ExcludedRuleTypeDef",
     "FieldToMatchTypeDef",
     "GeoMatchConstraintTypeDef",
     "GeoMatchSetSummaryTypeDef",
     "GeoMatchSetTypeDef",
     "GeoMatchSetUpdateTypeDef",
-    "GetByteMatchSetRequestRequestTypeDef",
+    "GetByteMatchSetRequestTypeDef",
     "GetByteMatchSetResponseTypeDef",
     "GetChangeTokenResponseTypeDef",
-    "GetChangeTokenStatusRequestRequestTypeDef",
+    "GetChangeTokenStatusRequestTypeDef",
     "GetChangeTokenStatusResponseTypeDef",
-    "GetGeoMatchSetRequestRequestTypeDef",
+    "GetGeoMatchSetRequestTypeDef",
     "GetGeoMatchSetResponseTypeDef",
-    "GetIPSetRequestRequestTypeDef",
+    "GetIPSetRequestTypeDef",
     "GetIPSetResponseTypeDef",
-    "GetLoggingConfigurationRequestRequestTypeDef",
+    "GetLoggingConfigurationRequestTypeDef",
     "GetLoggingConfigurationResponseTypeDef",
-    "GetPermissionPolicyRequestRequestTypeDef",
+    "GetPermissionPolicyRequestTypeDef",
     "GetPermissionPolicyResponseTypeDef",
-    "GetRateBasedRuleManagedKeysRequestRequestTypeDef",
+    "GetRateBasedRuleManagedKeysRequestTypeDef",
     "GetRateBasedRuleManagedKeysResponseTypeDef",
-    "GetRateBasedRuleRequestRequestTypeDef",
+    "GetRateBasedRuleRequestTypeDef",
     "GetRateBasedRuleResponseTypeDef",
-    "GetRegexMatchSetRequestRequestTypeDef",
+    "GetRegexMatchSetRequestTypeDef",
     "GetRegexMatchSetResponseTypeDef",
-    "GetRegexPatternSetRequestRequestTypeDef",
+    "GetRegexPatternSetRequestTypeDef",
     "GetRegexPatternSetResponseTypeDef",
-    "GetRuleGroupRequestRequestTypeDef",
+    "GetRuleGroupRequestTypeDef",
     "GetRuleGroupResponseTypeDef",
-    "GetRuleRequestRequestTypeDef",
+    "GetRuleRequestTypeDef",
     "GetRuleResponseTypeDef",
-    "GetSampledRequestsRequestRequestTypeDef",
+    "GetSampledRequestsRequestTypeDef",
     "GetSampledRequestsResponseTypeDef",
-    "GetSizeConstraintSetRequestRequestTypeDef",
+    "GetSizeConstraintSetRequestTypeDef",
     "GetSizeConstraintSetResponseTypeDef",
-    "GetSqlInjectionMatchSetRequestRequestTypeDef",
+    "GetSqlInjectionMatchSetRequestTypeDef",
     "GetSqlInjectionMatchSetResponseTypeDef",
-    "GetWebACLForResourceRequestRequestTypeDef",
+    "GetWebACLForResourceRequestTypeDef",
     "GetWebACLForResourceResponseTypeDef",
-    "GetWebACLRequestRequestTypeDef",
+    "GetWebACLRequestTypeDef",
     "GetWebACLResponseTypeDef",
-    "GetXssMatchSetRequestRequestTypeDef",
+    "GetXssMatchSetRequestTypeDef",
     "GetXssMatchSetResponseTypeDef",
     "HTTPHeaderTypeDef",
     "HTTPRequestTypeDef",
@@ -150,45 +163,47 @@ __all__ = (
     "IPSetSummaryTypeDef",
     "IPSetTypeDef",
     "IPSetUpdateTypeDef",
-    "ListActivatedRulesInRuleGroupRequestRequestTypeDef",
+    "ListActivatedRulesInRuleGroupRequestTypeDef",
     "ListActivatedRulesInRuleGroupResponseTypeDef",
-    "ListByteMatchSetsRequestRequestTypeDef",
+    "ListByteMatchSetsRequestTypeDef",
     "ListByteMatchSetsResponseTypeDef",
-    "ListGeoMatchSetsRequestRequestTypeDef",
+    "ListGeoMatchSetsRequestTypeDef",
     "ListGeoMatchSetsResponseTypeDef",
-    "ListIPSetsRequestRequestTypeDef",
+    "ListIPSetsRequestTypeDef",
     "ListIPSetsResponseTypeDef",
-    "ListLoggingConfigurationsRequestRequestTypeDef",
+    "ListLoggingConfigurationsRequestTypeDef",
     "ListLoggingConfigurationsResponseTypeDef",
-    "ListRateBasedRulesRequestRequestTypeDef",
+    "ListRateBasedRulesRequestTypeDef",
     "ListRateBasedRulesResponseTypeDef",
-    "ListRegexMatchSetsRequestRequestTypeDef",
+    "ListRegexMatchSetsRequestTypeDef",
     "ListRegexMatchSetsResponseTypeDef",
-    "ListRegexPatternSetsRequestRequestTypeDef",
+    "ListRegexPatternSetsRequestTypeDef",
     "ListRegexPatternSetsResponseTypeDef",
-    "ListResourcesForWebACLRequestRequestTypeDef",
+    "ListResourcesForWebACLRequestTypeDef",
     "ListResourcesForWebACLResponseTypeDef",
-    "ListRuleGroupsRequestRequestTypeDef",
+    "ListRuleGroupsRequestTypeDef",
     "ListRuleGroupsResponseTypeDef",
-    "ListRulesRequestRequestTypeDef",
+    "ListRulesRequestTypeDef",
     "ListRulesResponseTypeDef",
-    "ListSizeConstraintSetsRequestRequestTypeDef",
+    "ListSizeConstraintSetsRequestTypeDef",
     "ListSizeConstraintSetsResponseTypeDef",
-    "ListSqlInjectionMatchSetsRequestRequestTypeDef",
+    "ListSqlInjectionMatchSetsRequestTypeDef",
     "ListSqlInjectionMatchSetsResponseTypeDef",
-    "ListSubscribedRuleGroupsRequestRequestTypeDef",
+    "ListSubscribedRuleGroupsRequestTypeDef",
     "ListSubscribedRuleGroupsResponseTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
-    "ListWebACLsRequestRequestTypeDef",
+    "ListWebACLsRequestTypeDef",
     "ListWebACLsResponseTypeDef",
-    "ListXssMatchSetsRequestRequestTypeDef",
+    "ListXssMatchSetsRequestTypeDef",
     "ListXssMatchSetsResponseTypeDef",
+    "LoggingConfigurationOutputTypeDef",
     "LoggingConfigurationTypeDef",
+    "LoggingConfigurationUnionTypeDef",
     "PredicateTypeDef",
-    "PutLoggingConfigurationRequestRequestTypeDef",
+    "PutLoggingConfigurationRequestTypeDef",
     "PutLoggingConfigurationResponseTypeDef",
-    "PutPermissionPolicyRequestRequestTypeDef",
+    "PutPermissionPolicyRequestTypeDef",
     "RateBasedRuleTypeDef",
     "RegexMatchSetSummaryTypeDef",
     "RegexMatchSetTypeDef",
@@ -215,33 +230,36 @@ __all__ = (
     "SqlInjectionMatchTupleTypeDef",
     "SubscribedRuleGroupSummaryTypeDef",
     "TagInfoForResourceTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
     "TagTypeDef",
+    "TimeWindowOutputTypeDef",
     "TimeWindowTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateByteMatchSetRequestRequestTypeDef",
+    "TimeWindowUnionTypeDef",
+    "TimestampTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateByteMatchSetRequestTypeDef",
     "UpdateByteMatchSetResponseTypeDef",
-    "UpdateGeoMatchSetRequestRequestTypeDef",
+    "UpdateGeoMatchSetRequestTypeDef",
     "UpdateGeoMatchSetResponseTypeDef",
-    "UpdateIPSetRequestRequestTypeDef",
+    "UpdateIPSetRequestTypeDef",
     "UpdateIPSetResponseTypeDef",
-    "UpdateRateBasedRuleRequestRequestTypeDef",
+    "UpdateRateBasedRuleRequestTypeDef",
     "UpdateRateBasedRuleResponseTypeDef",
-    "UpdateRegexMatchSetRequestRequestTypeDef",
+    "UpdateRegexMatchSetRequestTypeDef",
     "UpdateRegexMatchSetResponseTypeDef",
-    "UpdateRegexPatternSetRequestRequestTypeDef",
+    "UpdateRegexPatternSetRequestTypeDef",
     "UpdateRegexPatternSetResponseTypeDef",
-    "UpdateRuleGroupRequestRequestTypeDef",
+    "UpdateRuleGroupRequestTypeDef",
     "UpdateRuleGroupResponseTypeDef",
-    "UpdateRuleRequestRequestTypeDef",
+    "UpdateRuleRequestTypeDef",
     "UpdateRuleResponseTypeDef",
-    "UpdateSizeConstraintSetRequestRequestTypeDef",
+    "UpdateSizeConstraintSetRequestTypeDef",
     "UpdateSizeConstraintSetResponseTypeDef",
-    "UpdateSqlInjectionMatchSetRequestRequestTypeDef",
+    "UpdateSqlInjectionMatchSetRequestTypeDef",
     "UpdateSqlInjectionMatchSetResponseTypeDef",
-    "UpdateWebACLRequestRequestTypeDef",
+    "UpdateWebACLRequestTypeDef",
     "UpdateWebACLResponseTypeDef",
-    "UpdateXssMatchSetRequestRequestTypeDef",
+    "UpdateXssMatchSetRequestTypeDef",
     "UpdateXssMatchSetResponseTypeDef",
     "WafActionTypeDef",
     "WafOverrideActionTypeDef",
@@ -254,592 +272,154 @@ __all__ = (
     "XssMatchTupleTypeDef",
 )
 
-_RequiredActivatedRuleTypeDef = TypedDict(
-    "_RequiredActivatedRuleTypeDef",
-    {
-        "Priority": int,
-        "RuleId": str,
-    },
-)
-_OptionalActivatedRuleTypeDef = TypedDict(
-    "_OptionalActivatedRuleTypeDef",
-    {
-        "Action": "WafActionTypeDef",
-        "OverrideAction": "WafOverrideActionTypeDef",
-        "Type": WafRuleTypeType,
-        "ExcludedRules": List["ExcludedRuleTypeDef"],
-    },
-    total=False,
-)
-
-class ActivatedRuleTypeDef(_RequiredActivatedRuleTypeDef, _OptionalActivatedRuleTypeDef):
-    pass
-
-AssociateWebACLRequestRequestTypeDef = TypedDict(
-    "AssociateWebACLRequestRequestTypeDef",
-    {
-        "WebACLId": str,
-        "ResourceArn": str,
-    },
-)
-
-ByteMatchSetSummaryTypeDef = TypedDict(
-    "ByteMatchSetSummaryTypeDef",
-    {
-        "ByteMatchSetId": str,
-        "Name": str,
-    },
-)
-
-_RequiredByteMatchSetTypeDef = TypedDict(
-    "_RequiredByteMatchSetTypeDef",
-    {
-        "ByteMatchSetId": str,
-        "ByteMatchTuples": List["ByteMatchTupleTypeDef"],
-    },
-)
-_OptionalByteMatchSetTypeDef = TypedDict(
-    "_OptionalByteMatchSetTypeDef",
-    {
-        "Name": str,
-    },
-    total=False,
-)
-
-class ByteMatchSetTypeDef(_RequiredByteMatchSetTypeDef, _OptionalByteMatchSetTypeDef):
-    pass
-
-ByteMatchSetUpdateTypeDef = TypedDict(
-    "ByteMatchSetUpdateTypeDef",
-    {
-        "Action": ChangeActionType,
-        "ByteMatchTuple": "ByteMatchTupleTypeDef",
-    },
-)
-
-ByteMatchTupleTypeDef = TypedDict(
-    "ByteMatchTupleTypeDef",
-    {
-        "FieldToMatch": "FieldToMatchTypeDef",
-        "TargetString": bytes,
-        "TextTransformation": TextTransformationType,
-        "PositionalConstraint": PositionalConstraintType,
-    },
-)
-
-CreateByteMatchSetRequestRequestTypeDef = TypedDict(
-    "CreateByteMatchSetRequestRequestTypeDef",
-    {
-        "Name": str,
-        "ChangeToken": str,
-    },
-)
-
-CreateByteMatchSetResponseTypeDef = TypedDict(
-    "CreateByteMatchSetResponseTypeDef",
-    {
-        "ByteMatchSet": "ByteMatchSetTypeDef",
-        "ChangeToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateGeoMatchSetRequestRequestTypeDef = TypedDict(
-    "CreateGeoMatchSetRequestRequestTypeDef",
-    {
-        "Name": str,
-        "ChangeToken": str,
-    },
-)
-
-CreateGeoMatchSetResponseTypeDef = TypedDict(
-    "CreateGeoMatchSetResponseTypeDef",
-    {
-        "GeoMatchSet": "GeoMatchSetTypeDef",
-        "ChangeToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateIPSetRequestRequestTypeDef = TypedDict(
-    "CreateIPSetRequestRequestTypeDef",
-    {
-        "Name": str,
-        "ChangeToken": str,
-    },
-)
-
-CreateIPSetResponseTypeDef = TypedDict(
-    "CreateIPSetResponseTypeDef",
-    {
-        "IPSet": "IPSetTypeDef",
-        "ChangeToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateRateBasedRuleRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateRateBasedRuleRequestRequestTypeDef",
-    {
-        "Name": str,
-        "MetricName": str,
-        "RateKey": Literal["IP"],
-        "RateLimit": int,
-        "ChangeToken": str,
-    },
-)
-_OptionalCreateRateBasedRuleRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateRateBasedRuleRequestRequestTypeDef",
-    {
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateRateBasedRuleRequestRequestTypeDef(
-    _RequiredCreateRateBasedRuleRequestRequestTypeDef,
-    _OptionalCreateRateBasedRuleRequestRequestTypeDef,
-):
-    pass
-
-CreateRateBasedRuleResponseTypeDef = TypedDict(
-    "CreateRateBasedRuleResponseTypeDef",
-    {
-        "Rule": "RateBasedRuleTypeDef",
-        "ChangeToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateRegexMatchSetRequestRequestTypeDef = TypedDict(
-    "CreateRegexMatchSetRequestRequestTypeDef",
-    {
-        "Name": str,
-        "ChangeToken": str,
-    },
-)
-
-CreateRegexMatchSetResponseTypeDef = TypedDict(
-    "CreateRegexMatchSetResponseTypeDef",
-    {
-        "RegexMatchSet": "RegexMatchSetTypeDef",
-        "ChangeToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateRegexPatternSetRequestRequestTypeDef = TypedDict(
-    "CreateRegexPatternSetRequestRequestTypeDef",
-    {
-        "Name": str,
-        "ChangeToken": str,
-    },
-)
-
-CreateRegexPatternSetResponseTypeDef = TypedDict(
-    "CreateRegexPatternSetResponseTypeDef",
-    {
-        "RegexPatternSet": "RegexPatternSetTypeDef",
-        "ChangeToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateRuleGroupRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateRuleGroupRequestRequestTypeDef",
-    {
-        "Name": str,
-        "MetricName": str,
-        "ChangeToken": str,
-    },
-)
-_OptionalCreateRuleGroupRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateRuleGroupRequestRequestTypeDef",
-    {
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateRuleGroupRequestRequestTypeDef(
-    _RequiredCreateRuleGroupRequestRequestTypeDef, _OptionalCreateRuleGroupRequestRequestTypeDef
-):
-    pass
-
-CreateRuleGroupResponseTypeDef = TypedDict(
-    "CreateRuleGroupResponseTypeDef",
-    {
-        "RuleGroup": "RuleGroupTypeDef",
-        "ChangeToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateRuleRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateRuleRequestRequestTypeDef",
-    {
-        "Name": str,
-        "MetricName": str,
-        "ChangeToken": str,
-    },
-)
-_OptionalCreateRuleRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateRuleRequestRequestTypeDef",
-    {
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateRuleRequestRequestTypeDef(
-    _RequiredCreateRuleRequestRequestTypeDef, _OptionalCreateRuleRequestRequestTypeDef
-):
-    pass
-
-CreateRuleResponseTypeDef = TypedDict(
-    "CreateRuleResponseTypeDef",
-    {
-        "Rule": "RuleTypeDef",
-        "ChangeToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateSizeConstraintSetRequestRequestTypeDef = TypedDict(
-    "CreateSizeConstraintSetRequestRequestTypeDef",
-    {
-        "Name": str,
-        "ChangeToken": str,
-    },
-)
-
-CreateSizeConstraintSetResponseTypeDef = TypedDict(
-    "CreateSizeConstraintSetResponseTypeDef",
-    {
-        "SizeConstraintSet": "SizeConstraintSetTypeDef",
-        "ChangeToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateSqlInjectionMatchSetRequestRequestTypeDef = TypedDict(
-    "CreateSqlInjectionMatchSetRequestRequestTypeDef",
-    {
-        "Name": str,
-        "ChangeToken": str,
-    },
-)
-
-CreateSqlInjectionMatchSetResponseTypeDef = TypedDict(
-    "CreateSqlInjectionMatchSetResponseTypeDef",
-    {
-        "SqlInjectionMatchSet": "SqlInjectionMatchSetTypeDef",
-        "ChangeToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateWebACLMigrationStackRequestRequestTypeDef = TypedDict(
-    "CreateWebACLMigrationStackRequestRequestTypeDef",
-    {
-        "WebACLId": str,
-        "S3BucketName": str,
-        "IgnoreUnsupportedType": bool,
-    },
-)
-
-CreateWebACLMigrationStackResponseTypeDef = TypedDict(
-    "CreateWebACLMigrationStackResponseTypeDef",
-    {
-        "S3ObjectUrl": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateWebACLRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateWebACLRequestRequestTypeDef",
-    {
-        "Name": str,
-        "MetricName": str,
-        "DefaultAction": "WafActionTypeDef",
-        "ChangeToken": str,
-    },
-)
-_OptionalCreateWebACLRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateWebACLRequestRequestTypeDef",
-    {
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateWebACLRequestRequestTypeDef(
-    _RequiredCreateWebACLRequestRequestTypeDef, _OptionalCreateWebACLRequestRequestTypeDef
-):
-    pass
-
-CreateWebACLResponseTypeDef = TypedDict(
-    "CreateWebACLResponseTypeDef",
-    {
-        "WebACL": "WebACLTypeDef",
-        "ChangeToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateXssMatchSetRequestRequestTypeDef = TypedDict(
-    "CreateXssMatchSetRequestRequestTypeDef",
-    {
-        "Name": str,
-        "ChangeToken": str,
-    },
-)
-
-CreateXssMatchSetResponseTypeDef = TypedDict(
-    "CreateXssMatchSetResponseTypeDef",
-    {
-        "XssMatchSet": "XssMatchSetTypeDef",
-        "ChangeToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteByteMatchSetRequestRequestTypeDef = TypedDict(
-    "DeleteByteMatchSetRequestRequestTypeDef",
-    {
-        "ByteMatchSetId": str,
-        "ChangeToken": str,
-    },
-)
-
-DeleteByteMatchSetResponseTypeDef = TypedDict(
-    "DeleteByteMatchSetResponseTypeDef",
-    {
-        "ChangeToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteGeoMatchSetRequestRequestTypeDef = TypedDict(
-    "DeleteGeoMatchSetRequestRequestTypeDef",
-    {
-        "GeoMatchSetId": str,
-        "ChangeToken": str,
-    },
-)
-
-DeleteGeoMatchSetResponseTypeDef = TypedDict(
-    "DeleteGeoMatchSetResponseTypeDef",
-    {
-        "ChangeToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteIPSetRequestRequestTypeDef = TypedDict(
-    "DeleteIPSetRequestRequestTypeDef",
-    {
-        "IPSetId": str,
-        "ChangeToken": str,
-    },
-)
-
-DeleteIPSetResponseTypeDef = TypedDict(
-    "DeleteIPSetResponseTypeDef",
-    {
-        "ChangeToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteLoggingConfigurationRequestRequestTypeDef = TypedDict(
-    "DeleteLoggingConfigurationRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-    },
-)
-
-DeletePermissionPolicyRequestRequestTypeDef = TypedDict(
-    "DeletePermissionPolicyRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-    },
-)
-
-DeleteRateBasedRuleRequestRequestTypeDef = TypedDict(
-    "DeleteRateBasedRuleRequestRequestTypeDef",
-    {
-        "RuleId": str,
-        "ChangeToken": str,
-    },
-)
-
-DeleteRateBasedRuleResponseTypeDef = TypedDict(
-    "DeleteRateBasedRuleResponseTypeDef",
-    {
-        "ChangeToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteRegexMatchSetRequestRequestTypeDef = TypedDict(
-    "DeleteRegexMatchSetRequestRequestTypeDef",
-    {
-        "RegexMatchSetId": str,
-        "ChangeToken": str,
-    },
-)
-
-DeleteRegexMatchSetResponseTypeDef = TypedDict(
-    "DeleteRegexMatchSetResponseTypeDef",
-    {
-        "ChangeToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteRegexPatternSetRequestRequestTypeDef = TypedDict(
-    "DeleteRegexPatternSetRequestRequestTypeDef",
-    {
-        "RegexPatternSetId": str,
-        "ChangeToken": str,
-    },
-)
-
-DeleteRegexPatternSetResponseTypeDef = TypedDict(
-    "DeleteRegexPatternSetResponseTypeDef",
-    {
-        "ChangeToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteRuleGroupRequestRequestTypeDef = TypedDict(
-    "DeleteRuleGroupRequestRequestTypeDef",
-    {
-        "RuleGroupId": str,
-        "ChangeToken": str,
-    },
-)
-
-DeleteRuleGroupResponseTypeDef = TypedDict(
-    "DeleteRuleGroupResponseTypeDef",
-    {
-        "ChangeToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteRuleRequestRequestTypeDef = TypedDict(
-    "DeleteRuleRequestRequestTypeDef",
-    {
-        "RuleId": str,
-        "ChangeToken": str,
-    },
-)
-
-DeleteRuleResponseTypeDef = TypedDict(
-    "DeleteRuleResponseTypeDef",
-    {
-        "ChangeToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteSizeConstraintSetRequestRequestTypeDef = TypedDict(
-    "DeleteSizeConstraintSetRequestRequestTypeDef",
-    {
-        "SizeConstraintSetId": str,
-        "ChangeToken": str,
-    },
-)
-
-DeleteSizeConstraintSetResponseTypeDef = TypedDict(
-    "DeleteSizeConstraintSetResponseTypeDef",
-    {
-        "ChangeToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteSqlInjectionMatchSetRequestRequestTypeDef = TypedDict(
-    "DeleteSqlInjectionMatchSetRequestRequestTypeDef",
-    {
-        "SqlInjectionMatchSetId": str,
-        "ChangeToken": str,
-    },
-)
-
-DeleteSqlInjectionMatchSetResponseTypeDef = TypedDict(
-    "DeleteSqlInjectionMatchSetResponseTypeDef",
-    {
-        "ChangeToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteWebACLRequestRequestTypeDef = TypedDict(
-    "DeleteWebACLRequestRequestTypeDef",
-    {
-        "WebACLId": str,
-        "ChangeToken": str,
-    },
-)
+class ExcludedRuleTypeDef(TypedDict):
+    RuleId: str
 
-DeleteWebACLResponseTypeDef = TypedDict(
-    "DeleteWebACLResponseTypeDef",
+WafActionTypeDef = TypedDict(
+    "WafActionTypeDef",
     {
-        "ChangeToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "Type": WafActionTypeType,
     },
 )
-
-DeleteXssMatchSetRequestRequestTypeDef = TypedDict(
-    "DeleteXssMatchSetRequestRequestTypeDef",
+WafOverrideActionTypeDef = TypedDict(
+    "WafOverrideActionTypeDef",
     {
-        "XssMatchSetId": str,
-        "ChangeToken": str,
+        "Type": WafOverrideActionTypeType,
     },
 )
 
-DeleteXssMatchSetResponseTypeDef = TypedDict(
-    "DeleteXssMatchSetResponseTypeDef",
-    {
-        "ChangeToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class AssociateWebACLRequestTypeDef(TypedDict):
+    WebACLId: str
+    ResourceArn: str
 
-DisassociateWebACLRequestRequestTypeDef = TypedDict(
-    "DisassociateWebACLRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-    },
-)
+BlobTypeDef = Union[str, bytes, IO[Any], StreamingBody]
 
-ExcludedRuleTypeDef = TypedDict(
-    "ExcludedRuleTypeDef",
-    {
-        "RuleId": str,
-    },
-)
+class ByteMatchSetSummaryTypeDef(TypedDict):
+    ByteMatchSetId: str
+    Name: str
 
-_RequiredFieldToMatchTypeDef = TypedDict(
-    "_RequiredFieldToMatchTypeDef",
+FieldToMatchTypeDef = TypedDict(
+    "FieldToMatchTypeDef",
     {
         "Type": MatchFieldTypeType,
+        "Data": NotRequired[str],
     },
-)
-_OptionalFieldToMatchTypeDef = TypedDict(
-    "_OptionalFieldToMatchTypeDef",
-    {
-        "Data": str,
-    },
-    total=False,
 )
 
-class FieldToMatchTypeDef(_RequiredFieldToMatchTypeDef, _OptionalFieldToMatchTypeDef):
-    pass
+class CreateByteMatchSetRequestTypeDef(TypedDict):
+    Name: str
+    ChangeToken: str
+
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
+
+class CreateGeoMatchSetRequestTypeDef(TypedDict):
+    Name: str
+    ChangeToken: str
+
+class CreateIPSetRequestTypeDef(TypedDict):
+    Name: str
+    ChangeToken: str
+
+class TagTypeDef(TypedDict):
+    Key: str
+    Value: str
+
+class CreateRegexMatchSetRequestTypeDef(TypedDict):
+    Name: str
+    ChangeToken: str
+
+class CreateRegexPatternSetRequestTypeDef(TypedDict):
+    Name: str
+    ChangeToken: str
+
+class RegexPatternSetTypeDef(TypedDict):
+    RegexPatternSetId: str
+    RegexPatternStrings: List[str]
+    Name: NotRequired[str]
+
+class RuleGroupTypeDef(TypedDict):
+    RuleGroupId: str
+    Name: NotRequired[str]
+    MetricName: NotRequired[str]
+
+class CreateSizeConstraintSetRequestTypeDef(TypedDict):
+    Name: str
+    ChangeToken: str
+
+class CreateSqlInjectionMatchSetRequestTypeDef(TypedDict):
+    Name: str
+    ChangeToken: str
+
+class CreateWebACLMigrationStackRequestTypeDef(TypedDict):
+    WebACLId: str
+    S3BucketName: str
+    IgnoreUnsupportedType: bool
+
+class CreateXssMatchSetRequestTypeDef(TypedDict):
+    Name: str
+    ChangeToken: str
+
+class DeleteByteMatchSetRequestTypeDef(TypedDict):
+    ByteMatchSetId: str
+    ChangeToken: str
+
+class DeleteGeoMatchSetRequestTypeDef(TypedDict):
+    GeoMatchSetId: str
+    ChangeToken: str
+
+class DeleteIPSetRequestTypeDef(TypedDict):
+    IPSetId: str
+    ChangeToken: str
+
+class DeleteLoggingConfigurationRequestTypeDef(TypedDict):
+    ResourceArn: str
+
+class DeletePermissionPolicyRequestTypeDef(TypedDict):
+    ResourceArn: str
+
+class DeleteRateBasedRuleRequestTypeDef(TypedDict):
+    RuleId: str
+    ChangeToken: str
+
+class DeleteRegexMatchSetRequestTypeDef(TypedDict):
+    RegexMatchSetId: str
+    ChangeToken: str
+
+class DeleteRegexPatternSetRequestTypeDef(TypedDict):
+    RegexPatternSetId: str
+    ChangeToken: str
+
+class DeleteRuleGroupRequestTypeDef(TypedDict):
+    RuleGroupId: str
+    ChangeToken: str
+
+class DeleteRuleRequestTypeDef(TypedDict):
+    RuleId: str
+    ChangeToken: str
+
+class DeleteSizeConstraintSetRequestTypeDef(TypedDict):
+    SizeConstraintSetId: str
+    ChangeToken: str
+
+class DeleteSqlInjectionMatchSetRequestTypeDef(TypedDict):
+    SqlInjectionMatchSetId: str
+    ChangeToken: str
+
+class DeleteWebACLRequestTypeDef(TypedDict):
+    WebACLId: str
+    ChangeToken: str
+
+class DeleteXssMatchSetRequestTypeDef(TypedDict):
+    XssMatchSetId: str
+    ChangeToken: str
+
+class DisassociateWebACLRequestTypeDef(TypedDict):
+    ResourceArn: str
 
 GeoMatchConstraintTypeDef = TypedDict(
     "GeoMatchConstraintTypeDef",
@@ -849,358 +429,73 @@ GeoMatchConstraintTypeDef = TypedDict(
     },
 )
 
-GeoMatchSetSummaryTypeDef = TypedDict(
-    "GeoMatchSetSummaryTypeDef",
-    {
-        "GeoMatchSetId": str,
-        "Name": str,
-    },
-)
+class GeoMatchSetSummaryTypeDef(TypedDict):
+    GeoMatchSetId: str
+    Name: str
 
-_RequiredGeoMatchSetTypeDef = TypedDict(
-    "_RequiredGeoMatchSetTypeDef",
-    {
-        "GeoMatchSetId": str,
-        "GeoMatchConstraints": List["GeoMatchConstraintTypeDef"],
-    },
-)
-_OptionalGeoMatchSetTypeDef = TypedDict(
-    "_OptionalGeoMatchSetTypeDef",
-    {
-        "Name": str,
-    },
-    total=False,
-)
+class GetByteMatchSetRequestTypeDef(TypedDict):
+    ByteMatchSetId: str
 
-class GeoMatchSetTypeDef(_RequiredGeoMatchSetTypeDef, _OptionalGeoMatchSetTypeDef):
-    pass
+class GetChangeTokenStatusRequestTypeDef(TypedDict):
+    ChangeToken: str
 
-GeoMatchSetUpdateTypeDef = TypedDict(
-    "GeoMatchSetUpdateTypeDef",
-    {
-        "Action": ChangeActionType,
-        "GeoMatchConstraint": "GeoMatchConstraintTypeDef",
-    },
-)
+class GetGeoMatchSetRequestTypeDef(TypedDict):
+    GeoMatchSetId: str
 
-GetByteMatchSetRequestRequestTypeDef = TypedDict(
-    "GetByteMatchSetRequestRequestTypeDef",
-    {
-        "ByteMatchSetId": str,
-    },
-)
+class GetIPSetRequestTypeDef(TypedDict):
+    IPSetId: str
 
-GetByteMatchSetResponseTypeDef = TypedDict(
-    "GetByteMatchSetResponseTypeDef",
-    {
-        "ByteMatchSet": "ByteMatchSetTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetLoggingConfigurationRequestTypeDef(TypedDict):
+    ResourceArn: str
 
-GetChangeTokenResponseTypeDef = TypedDict(
-    "GetChangeTokenResponseTypeDef",
-    {
-        "ChangeToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetPermissionPolicyRequestTypeDef(TypedDict):
+    ResourceArn: str
 
-GetChangeTokenStatusRequestRequestTypeDef = TypedDict(
-    "GetChangeTokenStatusRequestRequestTypeDef",
-    {
-        "ChangeToken": str,
-    },
-)
+class GetRateBasedRuleManagedKeysRequestTypeDef(TypedDict):
+    RuleId: str
+    NextMarker: NotRequired[str]
 
-GetChangeTokenStatusResponseTypeDef = TypedDict(
-    "GetChangeTokenStatusResponseTypeDef",
-    {
-        "ChangeTokenStatus": ChangeTokenStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetRateBasedRuleRequestTypeDef(TypedDict):
+    RuleId: str
 
-GetGeoMatchSetRequestRequestTypeDef = TypedDict(
-    "GetGeoMatchSetRequestRequestTypeDef",
-    {
-        "GeoMatchSetId": str,
-    },
-)
+class GetRegexMatchSetRequestTypeDef(TypedDict):
+    RegexMatchSetId: str
 
-GetGeoMatchSetResponseTypeDef = TypedDict(
-    "GetGeoMatchSetResponseTypeDef",
-    {
-        "GeoMatchSet": "GeoMatchSetTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetRegexPatternSetRequestTypeDef(TypedDict):
+    RegexPatternSetId: str
 
-GetIPSetRequestRequestTypeDef = TypedDict(
-    "GetIPSetRequestRequestTypeDef",
-    {
-        "IPSetId": str,
-    },
-)
+class GetRuleGroupRequestTypeDef(TypedDict):
+    RuleGroupId: str
 
-GetIPSetResponseTypeDef = TypedDict(
-    "GetIPSetResponseTypeDef",
-    {
-        "IPSet": "IPSetTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetRuleRequestTypeDef(TypedDict):
+    RuleId: str
 
-GetLoggingConfigurationRequestRequestTypeDef = TypedDict(
-    "GetLoggingConfigurationRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-    },
-)
+class TimeWindowOutputTypeDef(TypedDict):
+    StartTime: datetime
+    EndTime: datetime
 
-GetLoggingConfigurationResponseTypeDef = TypedDict(
-    "GetLoggingConfigurationResponseTypeDef",
-    {
-        "LoggingConfiguration": "LoggingConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetSizeConstraintSetRequestTypeDef(TypedDict):
+    SizeConstraintSetId: str
 
-GetPermissionPolicyRequestRequestTypeDef = TypedDict(
-    "GetPermissionPolicyRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-    },
-)
+class GetSqlInjectionMatchSetRequestTypeDef(TypedDict):
+    SqlInjectionMatchSetId: str
 
-GetPermissionPolicyResponseTypeDef = TypedDict(
-    "GetPermissionPolicyResponseTypeDef",
-    {
-        "Policy": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetWebACLForResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
 
-_RequiredGetRateBasedRuleManagedKeysRequestRequestTypeDef = TypedDict(
-    "_RequiredGetRateBasedRuleManagedKeysRequestRequestTypeDef",
-    {
-        "RuleId": str,
-    },
-)
-_OptionalGetRateBasedRuleManagedKeysRequestRequestTypeDef = TypedDict(
-    "_OptionalGetRateBasedRuleManagedKeysRequestRequestTypeDef",
-    {
-        "NextMarker": str,
-    },
-    total=False,
-)
+class WebACLSummaryTypeDef(TypedDict):
+    WebACLId: str
+    Name: str
 
-class GetRateBasedRuleManagedKeysRequestRequestTypeDef(
-    _RequiredGetRateBasedRuleManagedKeysRequestRequestTypeDef,
-    _OptionalGetRateBasedRuleManagedKeysRequestRequestTypeDef,
-):
-    pass
+class GetWebACLRequestTypeDef(TypedDict):
+    WebACLId: str
 
-GetRateBasedRuleManagedKeysResponseTypeDef = TypedDict(
-    "GetRateBasedRuleManagedKeysResponseTypeDef",
-    {
-        "ManagedKeys": List[str],
-        "NextMarker": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetXssMatchSetRequestTypeDef(TypedDict):
+    XssMatchSetId: str
 
-GetRateBasedRuleRequestRequestTypeDef = TypedDict(
-    "GetRateBasedRuleRequestRequestTypeDef",
-    {
-        "RuleId": str,
-    },
-)
-
-GetRateBasedRuleResponseTypeDef = TypedDict(
-    "GetRateBasedRuleResponseTypeDef",
-    {
-        "Rule": "RateBasedRuleTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetRegexMatchSetRequestRequestTypeDef = TypedDict(
-    "GetRegexMatchSetRequestRequestTypeDef",
-    {
-        "RegexMatchSetId": str,
-    },
-)
-
-GetRegexMatchSetResponseTypeDef = TypedDict(
-    "GetRegexMatchSetResponseTypeDef",
-    {
-        "RegexMatchSet": "RegexMatchSetTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetRegexPatternSetRequestRequestTypeDef = TypedDict(
-    "GetRegexPatternSetRequestRequestTypeDef",
-    {
-        "RegexPatternSetId": str,
-    },
-)
-
-GetRegexPatternSetResponseTypeDef = TypedDict(
-    "GetRegexPatternSetResponseTypeDef",
-    {
-        "RegexPatternSet": "RegexPatternSetTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetRuleGroupRequestRequestTypeDef = TypedDict(
-    "GetRuleGroupRequestRequestTypeDef",
-    {
-        "RuleGroupId": str,
-    },
-)
-
-GetRuleGroupResponseTypeDef = TypedDict(
-    "GetRuleGroupResponseTypeDef",
-    {
-        "RuleGroup": "RuleGroupTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetRuleRequestRequestTypeDef = TypedDict(
-    "GetRuleRequestRequestTypeDef",
-    {
-        "RuleId": str,
-    },
-)
-
-GetRuleResponseTypeDef = TypedDict(
-    "GetRuleResponseTypeDef",
-    {
-        "Rule": "RuleTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetSampledRequestsRequestRequestTypeDef = TypedDict(
-    "GetSampledRequestsRequestRequestTypeDef",
-    {
-        "WebAclId": str,
-        "RuleId": str,
-        "TimeWindow": "TimeWindowTypeDef",
-        "MaxItems": int,
-    },
-)
-
-GetSampledRequestsResponseTypeDef = TypedDict(
-    "GetSampledRequestsResponseTypeDef",
-    {
-        "SampledRequests": List["SampledHTTPRequestTypeDef"],
-        "PopulationSize": int,
-        "TimeWindow": "TimeWindowTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetSizeConstraintSetRequestRequestTypeDef = TypedDict(
-    "GetSizeConstraintSetRequestRequestTypeDef",
-    {
-        "SizeConstraintSetId": str,
-    },
-)
-
-GetSizeConstraintSetResponseTypeDef = TypedDict(
-    "GetSizeConstraintSetResponseTypeDef",
-    {
-        "SizeConstraintSet": "SizeConstraintSetTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetSqlInjectionMatchSetRequestRequestTypeDef = TypedDict(
-    "GetSqlInjectionMatchSetRequestRequestTypeDef",
-    {
-        "SqlInjectionMatchSetId": str,
-    },
-)
-
-GetSqlInjectionMatchSetResponseTypeDef = TypedDict(
-    "GetSqlInjectionMatchSetResponseTypeDef",
-    {
-        "SqlInjectionMatchSet": "SqlInjectionMatchSetTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetWebACLForResourceRequestRequestTypeDef = TypedDict(
-    "GetWebACLForResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-    },
-)
-
-GetWebACLForResourceResponseTypeDef = TypedDict(
-    "GetWebACLForResourceResponseTypeDef",
-    {
-        "WebACLSummary": "WebACLSummaryTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetWebACLRequestRequestTypeDef = TypedDict(
-    "GetWebACLRequestRequestTypeDef",
-    {
-        "WebACLId": str,
-    },
-)
-
-GetWebACLResponseTypeDef = TypedDict(
-    "GetWebACLResponseTypeDef",
-    {
-        "WebACL": "WebACLTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetXssMatchSetRequestRequestTypeDef = TypedDict(
-    "GetXssMatchSetRequestRequestTypeDef",
-    {
-        "XssMatchSetId": str,
-    },
-)
-
-GetXssMatchSetResponseTypeDef = TypedDict(
-    "GetXssMatchSetResponseTypeDef",
-    {
-        "XssMatchSet": "XssMatchSetTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-HTTPHeaderTypeDef = TypedDict(
-    "HTTPHeaderTypeDef",
-    {
-        "Name": str,
-        "Value": str,
-    },
-    total=False,
-)
-
-HTTPRequestTypeDef = TypedDict(
-    "HTTPRequestTypeDef",
-    {
-        "ClientIP": str,
-        "Country": str,
-        "URI": str,
-        "Method": str,
-        "HTTPVersion": str,
-        "Headers": List["HTTPHeaderTypeDef"],
-    },
-    total=False,
-)
+class HTTPHeaderTypeDef(TypedDict):
+    Name: NotRequired[str]
+    Value: NotRequired[str]
 
 IPSetDescriptorTypeDef = TypedDict(
     "IPSetDescriptorTypeDef",
@@ -1210,388 +505,112 @@ IPSetDescriptorTypeDef = TypedDict(
     },
 )
 
-IPSetSummaryTypeDef = TypedDict(
-    "IPSetSummaryTypeDef",
-    {
-        "IPSetId": str,
-        "Name": str,
-    },
-)
+class IPSetSummaryTypeDef(TypedDict):
+    IPSetId: str
+    Name: str
 
-_RequiredIPSetTypeDef = TypedDict(
-    "_RequiredIPSetTypeDef",
-    {
-        "IPSetId": str,
-        "IPSetDescriptors": List["IPSetDescriptorTypeDef"],
-    },
-)
-_OptionalIPSetTypeDef = TypedDict(
-    "_OptionalIPSetTypeDef",
-    {
-        "Name": str,
-    },
-    total=False,
-)
+class ListActivatedRulesInRuleGroupRequestTypeDef(TypedDict):
+    RuleGroupId: NotRequired[str]
+    NextMarker: NotRequired[str]
+    Limit: NotRequired[int]
 
-class IPSetTypeDef(_RequiredIPSetTypeDef, _OptionalIPSetTypeDef):
-    pass
+class ListByteMatchSetsRequestTypeDef(TypedDict):
+    NextMarker: NotRequired[str]
+    Limit: NotRequired[int]
 
-IPSetUpdateTypeDef = TypedDict(
-    "IPSetUpdateTypeDef",
-    {
-        "Action": ChangeActionType,
-        "IPSetDescriptor": "IPSetDescriptorTypeDef",
-    },
-)
+class ListGeoMatchSetsRequestTypeDef(TypedDict):
+    NextMarker: NotRequired[str]
+    Limit: NotRequired[int]
 
-ListActivatedRulesInRuleGroupRequestRequestTypeDef = TypedDict(
-    "ListActivatedRulesInRuleGroupRequestRequestTypeDef",
-    {
-        "RuleGroupId": str,
-        "NextMarker": str,
-        "Limit": int,
-    },
-    total=False,
-)
+class ListIPSetsRequestTypeDef(TypedDict):
+    NextMarker: NotRequired[str]
+    Limit: NotRequired[int]
 
-ListActivatedRulesInRuleGroupResponseTypeDef = TypedDict(
-    "ListActivatedRulesInRuleGroupResponseTypeDef",
-    {
-        "NextMarker": str,
-        "ActivatedRules": List["ActivatedRuleTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListLoggingConfigurationsRequestTypeDef(TypedDict):
+    NextMarker: NotRequired[str]
+    Limit: NotRequired[int]
 
-ListByteMatchSetsRequestRequestTypeDef = TypedDict(
-    "ListByteMatchSetsRequestRequestTypeDef",
-    {
-        "NextMarker": str,
-        "Limit": int,
-    },
-    total=False,
-)
+class ListRateBasedRulesRequestTypeDef(TypedDict):
+    NextMarker: NotRequired[str]
+    Limit: NotRequired[int]
 
-ListByteMatchSetsResponseTypeDef = TypedDict(
-    "ListByteMatchSetsResponseTypeDef",
-    {
-        "NextMarker": str,
-        "ByteMatchSets": List["ByteMatchSetSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class RuleSummaryTypeDef(TypedDict):
+    RuleId: str
+    Name: str
 
-ListGeoMatchSetsRequestRequestTypeDef = TypedDict(
-    "ListGeoMatchSetsRequestRequestTypeDef",
-    {
-        "NextMarker": str,
-        "Limit": int,
-    },
-    total=False,
-)
+class ListRegexMatchSetsRequestTypeDef(TypedDict):
+    NextMarker: NotRequired[str]
+    Limit: NotRequired[int]
 
-ListGeoMatchSetsResponseTypeDef = TypedDict(
-    "ListGeoMatchSetsResponseTypeDef",
-    {
-        "NextMarker": str,
-        "GeoMatchSets": List["GeoMatchSetSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class RegexMatchSetSummaryTypeDef(TypedDict):
+    RegexMatchSetId: str
+    Name: str
 
-ListIPSetsRequestRequestTypeDef = TypedDict(
-    "ListIPSetsRequestRequestTypeDef",
-    {
-        "NextMarker": str,
-        "Limit": int,
-    },
-    total=False,
-)
+class ListRegexPatternSetsRequestTypeDef(TypedDict):
+    NextMarker: NotRequired[str]
+    Limit: NotRequired[int]
 
-ListIPSetsResponseTypeDef = TypedDict(
-    "ListIPSetsResponseTypeDef",
-    {
-        "NextMarker": str,
-        "IPSets": List["IPSetSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class RegexPatternSetSummaryTypeDef(TypedDict):
+    RegexPatternSetId: str
+    Name: str
 
-ListLoggingConfigurationsRequestRequestTypeDef = TypedDict(
-    "ListLoggingConfigurationsRequestRequestTypeDef",
-    {
-        "NextMarker": str,
-        "Limit": int,
-    },
-    total=False,
-)
+class ListResourcesForWebACLRequestTypeDef(TypedDict):
+    WebACLId: str
+    ResourceType: NotRequired[ResourceTypeType]
 
-ListLoggingConfigurationsResponseTypeDef = TypedDict(
-    "ListLoggingConfigurationsResponseTypeDef",
-    {
-        "LoggingConfigurations": List["LoggingConfigurationTypeDef"],
-        "NextMarker": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListRuleGroupsRequestTypeDef(TypedDict):
+    NextMarker: NotRequired[str]
+    Limit: NotRequired[int]
 
-ListRateBasedRulesRequestRequestTypeDef = TypedDict(
-    "ListRateBasedRulesRequestRequestTypeDef",
-    {
-        "NextMarker": str,
-        "Limit": int,
-    },
-    total=False,
-)
+class RuleGroupSummaryTypeDef(TypedDict):
+    RuleGroupId: str
+    Name: str
 
-ListRateBasedRulesResponseTypeDef = TypedDict(
-    "ListRateBasedRulesResponseTypeDef",
-    {
-        "NextMarker": str,
-        "Rules": List["RuleSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListRulesRequestTypeDef(TypedDict):
+    NextMarker: NotRequired[str]
+    Limit: NotRequired[int]
 
-ListRegexMatchSetsRequestRequestTypeDef = TypedDict(
-    "ListRegexMatchSetsRequestRequestTypeDef",
-    {
-        "NextMarker": str,
-        "Limit": int,
-    },
-    total=False,
-)
+class ListSizeConstraintSetsRequestTypeDef(TypedDict):
+    NextMarker: NotRequired[str]
+    Limit: NotRequired[int]
 
-ListRegexMatchSetsResponseTypeDef = TypedDict(
-    "ListRegexMatchSetsResponseTypeDef",
-    {
-        "NextMarker": str,
-        "RegexMatchSets": List["RegexMatchSetSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class SizeConstraintSetSummaryTypeDef(TypedDict):
+    SizeConstraintSetId: str
+    Name: str
 
-ListRegexPatternSetsRequestRequestTypeDef = TypedDict(
-    "ListRegexPatternSetsRequestRequestTypeDef",
-    {
-        "NextMarker": str,
-        "Limit": int,
-    },
-    total=False,
-)
+class ListSqlInjectionMatchSetsRequestTypeDef(TypedDict):
+    NextMarker: NotRequired[str]
+    Limit: NotRequired[int]
 
-ListRegexPatternSetsResponseTypeDef = TypedDict(
-    "ListRegexPatternSetsResponseTypeDef",
-    {
-        "NextMarker": str,
-        "RegexPatternSets": List["RegexPatternSetSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class SqlInjectionMatchSetSummaryTypeDef(TypedDict):
+    SqlInjectionMatchSetId: str
+    Name: str
 
-_RequiredListResourcesForWebACLRequestRequestTypeDef = TypedDict(
-    "_RequiredListResourcesForWebACLRequestRequestTypeDef",
-    {
-        "WebACLId": str,
-    },
-)
-_OptionalListResourcesForWebACLRequestRequestTypeDef = TypedDict(
-    "_OptionalListResourcesForWebACLRequestRequestTypeDef",
-    {
-        "ResourceType": ResourceTypeType,
-    },
-    total=False,
-)
+class ListSubscribedRuleGroupsRequestTypeDef(TypedDict):
+    NextMarker: NotRequired[str]
+    Limit: NotRequired[int]
 
-class ListResourcesForWebACLRequestRequestTypeDef(
-    _RequiredListResourcesForWebACLRequestRequestTypeDef,
-    _OptionalListResourcesForWebACLRequestRequestTypeDef,
-):
-    pass
+class SubscribedRuleGroupSummaryTypeDef(TypedDict):
+    RuleGroupId: str
+    Name: str
+    MetricName: str
 
-ListResourcesForWebACLResponseTypeDef = TypedDict(
-    "ListResourcesForWebACLResponseTypeDef",
-    {
-        "ResourceArns": List[str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    ResourceARN: str
+    NextMarker: NotRequired[str]
+    Limit: NotRequired[int]
 
-ListRuleGroupsRequestRequestTypeDef = TypedDict(
-    "ListRuleGroupsRequestRequestTypeDef",
-    {
-        "NextMarker": str,
-        "Limit": int,
-    },
-    total=False,
-)
+class ListWebACLsRequestTypeDef(TypedDict):
+    NextMarker: NotRequired[str]
+    Limit: NotRequired[int]
 
-ListRuleGroupsResponseTypeDef = TypedDict(
-    "ListRuleGroupsResponseTypeDef",
-    {
-        "NextMarker": str,
-        "RuleGroups": List["RuleGroupSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListXssMatchSetsRequestTypeDef(TypedDict):
+    NextMarker: NotRequired[str]
+    Limit: NotRequired[int]
 
-ListRulesRequestRequestTypeDef = TypedDict(
-    "ListRulesRequestRequestTypeDef",
-    {
-        "NextMarker": str,
-        "Limit": int,
-    },
-    total=False,
-)
-
-ListRulesResponseTypeDef = TypedDict(
-    "ListRulesResponseTypeDef",
-    {
-        "NextMarker": str,
-        "Rules": List["RuleSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListSizeConstraintSetsRequestRequestTypeDef = TypedDict(
-    "ListSizeConstraintSetsRequestRequestTypeDef",
-    {
-        "NextMarker": str,
-        "Limit": int,
-    },
-    total=False,
-)
-
-ListSizeConstraintSetsResponseTypeDef = TypedDict(
-    "ListSizeConstraintSetsResponseTypeDef",
-    {
-        "NextMarker": str,
-        "SizeConstraintSets": List["SizeConstraintSetSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListSqlInjectionMatchSetsRequestRequestTypeDef = TypedDict(
-    "ListSqlInjectionMatchSetsRequestRequestTypeDef",
-    {
-        "NextMarker": str,
-        "Limit": int,
-    },
-    total=False,
-)
-
-ListSqlInjectionMatchSetsResponseTypeDef = TypedDict(
-    "ListSqlInjectionMatchSetsResponseTypeDef",
-    {
-        "NextMarker": str,
-        "SqlInjectionMatchSets": List["SqlInjectionMatchSetSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListSubscribedRuleGroupsRequestRequestTypeDef = TypedDict(
-    "ListSubscribedRuleGroupsRequestRequestTypeDef",
-    {
-        "NextMarker": str,
-        "Limit": int,
-    },
-    total=False,
-)
-
-ListSubscribedRuleGroupsResponseTypeDef = TypedDict(
-    "ListSubscribedRuleGroupsResponseTypeDef",
-    {
-        "NextMarker": str,
-        "RuleGroups": List["SubscribedRuleGroupSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "_RequiredListTagsForResourceRequestRequestTypeDef",
-    {
-        "ResourceARN": str,
-    },
-)
-_OptionalListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "_OptionalListTagsForResourceRequestRequestTypeDef",
-    {
-        "NextMarker": str,
-        "Limit": int,
-    },
-    total=False,
-)
-
-class ListTagsForResourceRequestRequestTypeDef(
-    _RequiredListTagsForResourceRequestRequestTypeDef,
-    _OptionalListTagsForResourceRequestRequestTypeDef,
-):
-    pass
-
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "NextMarker": str,
-        "TagInfoForResource": "TagInfoForResourceTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListWebACLsRequestRequestTypeDef = TypedDict(
-    "ListWebACLsRequestRequestTypeDef",
-    {
-        "NextMarker": str,
-        "Limit": int,
-    },
-    total=False,
-)
-
-ListWebACLsResponseTypeDef = TypedDict(
-    "ListWebACLsResponseTypeDef",
-    {
-        "NextMarker": str,
-        "WebACLs": List["WebACLSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListXssMatchSetsRequestRequestTypeDef = TypedDict(
-    "ListXssMatchSetsRequestRequestTypeDef",
-    {
-        "NextMarker": str,
-        "Limit": int,
-    },
-    total=False,
-)
-
-ListXssMatchSetsResponseTypeDef = TypedDict(
-    "ListXssMatchSetsResponseTypeDef",
-    {
-        "NextMarker": str,
-        "XssMatchSets": List["XssMatchSetSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredLoggingConfigurationTypeDef = TypedDict(
-    "_RequiredLoggingConfigurationTypeDef",
-    {
-        "ResourceArn": str,
-        "LogDestinationConfigs": List[str],
-    },
-)
-_OptionalLoggingConfigurationTypeDef = TypedDict(
-    "_OptionalLoggingConfigurationTypeDef",
-    {
-        "RedactedFields": List["FieldToMatchTypeDef"],
-    },
-    total=False,
-)
-
-class LoggingConfigurationTypeDef(
-    _RequiredLoggingConfigurationTypeDef, _OptionalLoggingConfigurationTypeDef
-):
-    pass
+class XssMatchSetSummaryTypeDef(TypedDict):
+    XssMatchSetId: str
+    Name: str
 
 PredicateTypeDef = TypedDict(
     "PredicateTypeDef",
@@ -1602,667 +621,639 @@ PredicateTypeDef = TypedDict(
     },
 )
 
-PutLoggingConfigurationRequestRequestTypeDef = TypedDict(
-    "PutLoggingConfigurationRequestRequestTypeDef",
-    {
-        "LoggingConfiguration": "LoggingConfigurationTypeDef",
-    },
-)
+class PutPermissionPolicyRequestTypeDef(TypedDict):
+    ResourceArn: str
+    Policy: str
 
-PutLoggingConfigurationResponseTypeDef = TypedDict(
-    "PutLoggingConfigurationResponseTypeDef",
-    {
-        "LoggingConfiguration": "LoggingConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class RegexPatternSetUpdateTypeDef(TypedDict):
+    Action: ChangeActionType
+    RegexPatternString: str
 
-PutPermissionPolicyRequestRequestTypeDef = TypedDict(
-    "PutPermissionPolicyRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-        "Policy": str,
-    },
-)
+TimestampTypeDef = Union[datetime, str]
 
-_RequiredRateBasedRuleTypeDef = TypedDict(
-    "_RequiredRateBasedRuleTypeDef",
+class UntagResourceRequestTypeDef(TypedDict):
+    ResourceARN: str
+    TagKeys: Sequence[str]
+
+ActivatedRuleOutputTypeDef = TypedDict(
+    "ActivatedRuleOutputTypeDef",
     {
+        "Priority": int,
         "RuleId": str,
-        "MatchPredicates": List["PredicateTypeDef"],
-        "RateKey": Literal["IP"],
-        "RateLimit": int,
+        "Action": NotRequired[WafActionTypeDef],
+        "OverrideAction": NotRequired[WafOverrideActionTypeDef],
+        "Type": NotRequired[WafRuleTypeType],
+        "ExcludedRules": NotRequired[List[ExcludedRuleTypeDef]],
     },
 )
-_OptionalRateBasedRuleTypeDef = TypedDict(
-    "_OptionalRateBasedRuleTypeDef",
+ActivatedRuleTypeDef = TypedDict(
+    "ActivatedRuleTypeDef",
     {
-        "Name": str,
-        "MetricName": str,
-    },
-    total=False,
-)
-
-class RateBasedRuleTypeDef(_RequiredRateBasedRuleTypeDef, _OptionalRateBasedRuleTypeDef):
-    pass
-
-RegexMatchSetSummaryTypeDef = TypedDict(
-    "RegexMatchSetSummaryTypeDef",
-    {
-        "RegexMatchSetId": str,
-        "Name": str,
-    },
-)
-
-RegexMatchSetTypeDef = TypedDict(
-    "RegexMatchSetTypeDef",
-    {
-        "RegexMatchSetId": str,
-        "Name": str,
-        "RegexMatchTuples": List["RegexMatchTupleTypeDef"],
-    },
-    total=False,
-)
-
-RegexMatchSetUpdateTypeDef = TypedDict(
-    "RegexMatchSetUpdateTypeDef",
-    {
-        "Action": ChangeActionType,
-        "RegexMatchTuple": "RegexMatchTupleTypeDef",
-    },
-)
-
-RegexMatchTupleTypeDef = TypedDict(
-    "RegexMatchTupleTypeDef",
-    {
-        "FieldToMatch": "FieldToMatchTypeDef",
-        "TextTransformation": TextTransformationType,
-        "RegexPatternSetId": str,
-    },
-)
-
-RegexPatternSetSummaryTypeDef = TypedDict(
-    "RegexPatternSetSummaryTypeDef",
-    {
-        "RegexPatternSetId": str,
-        "Name": str,
-    },
-)
-
-_RequiredRegexPatternSetTypeDef = TypedDict(
-    "_RequiredRegexPatternSetTypeDef",
-    {
-        "RegexPatternSetId": str,
-        "RegexPatternStrings": List[str],
-    },
-)
-_OptionalRegexPatternSetTypeDef = TypedDict(
-    "_OptionalRegexPatternSetTypeDef",
-    {
-        "Name": str,
-    },
-    total=False,
-)
-
-class RegexPatternSetTypeDef(_RequiredRegexPatternSetTypeDef, _OptionalRegexPatternSetTypeDef):
-    pass
-
-RegexPatternSetUpdateTypeDef = TypedDict(
-    "RegexPatternSetUpdateTypeDef",
-    {
-        "Action": ChangeActionType,
-        "RegexPatternString": str,
-    },
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-RuleGroupSummaryTypeDef = TypedDict(
-    "RuleGroupSummaryTypeDef",
-    {
-        "RuleGroupId": str,
-        "Name": str,
-    },
-)
-
-_RequiredRuleGroupTypeDef = TypedDict(
-    "_RequiredRuleGroupTypeDef",
-    {
-        "RuleGroupId": str,
-    },
-)
-_OptionalRuleGroupTypeDef = TypedDict(
-    "_OptionalRuleGroupTypeDef",
-    {
-        "Name": str,
-        "MetricName": str,
-    },
-    total=False,
-)
-
-class RuleGroupTypeDef(_RequiredRuleGroupTypeDef, _OptionalRuleGroupTypeDef):
-    pass
-
-RuleGroupUpdateTypeDef = TypedDict(
-    "RuleGroupUpdateTypeDef",
-    {
-        "Action": ChangeActionType,
-        "ActivatedRule": "ActivatedRuleTypeDef",
-    },
-)
-
-RuleSummaryTypeDef = TypedDict(
-    "RuleSummaryTypeDef",
-    {
+        "Priority": int,
         "RuleId": str,
-        "Name": str,
+        "Action": NotRequired[WafActionTypeDef],
+        "OverrideAction": NotRequired[WafOverrideActionTypeDef],
+        "Type": NotRequired[WafRuleTypeType],
+        "ExcludedRules": NotRequired[Sequence[ExcludedRuleTypeDef]],
     },
 )
 
-_RequiredRuleTypeDef = TypedDict(
-    "_RequiredRuleTypeDef",
-    {
-        "RuleId": str,
-        "Predicates": List["PredicateTypeDef"],
-    },
-)
-_OptionalRuleTypeDef = TypedDict(
-    "_OptionalRuleTypeDef",
-    {
-        "Name": str,
-        "MetricName": str,
-    },
-    total=False,
-)
+class ByteMatchTupleOutputTypeDef(TypedDict):
+    FieldToMatch: FieldToMatchTypeDef
+    TargetString: bytes
+    TextTransformation: TextTransformationType
+    PositionalConstraint: PositionalConstraintType
 
-class RuleTypeDef(_RequiredRuleTypeDef, _OptionalRuleTypeDef):
-    pass
+class ByteMatchTupleTypeDef(TypedDict):
+    FieldToMatch: FieldToMatchTypeDef
+    TargetString: BlobTypeDef
+    TextTransformation: TextTransformationType
+    PositionalConstraint: PositionalConstraintType
 
-RuleUpdateTypeDef = TypedDict(
-    "RuleUpdateTypeDef",
-    {
-        "Action": ChangeActionType,
-        "Predicate": "PredicateTypeDef",
-    },
-)
+class LoggingConfigurationOutputTypeDef(TypedDict):
+    ResourceArn: str
+    LogDestinationConfigs: List[str]
+    RedactedFields: NotRequired[List[FieldToMatchTypeDef]]
 
-_RequiredSampledHTTPRequestTypeDef = TypedDict(
-    "_RequiredSampledHTTPRequestTypeDef",
-    {
-        "Request": "HTTPRequestTypeDef",
-        "Weight": int,
-    },
-)
-_OptionalSampledHTTPRequestTypeDef = TypedDict(
-    "_OptionalSampledHTTPRequestTypeDef",
-    {
-        "Timestamp": datetime,
-        "Action": str,
-        "RuleWithinRuleGroup": str,
-    },
-    total=False,
-)
+class LoggingConfigurationTypeDef(TypedDict):
+    ResourceArn: str
+    LogDestinationConfigs: Sequence[str]
+    RedactedFields: NotRequired[Sequence[FieldToMatchTypeDef]]
 
-class SampledHTTPRequestTypeDef(
-    _RequiredSampledHTTPRequestTypeDef, _OptionalSampledHTTPRequestTypeDef
-):
-    pass
+class RegexMatchTupleTypeDef(TypedDict):
+    FieldToMatch: FieldToMatchTypeDef
+    TextTransformation: TextTransformationType
+    RegexPatternSetId: str
 
-SizeConstraintSetSummaryTypeDef = TypedDict(
-    "SizeConstraintSetSummaryTypeDef",
-    {
-        "SizeConstraintSetId": str,
-        "Name": str,
-    },
-)
+class SizeConstraintTypeDef(TypedDict):
+    FieldToMatch: FieldToMatchTypeDef
+    TextTransformation: TextTransformationType
+    ComparisonOperator: ComparisonOperatorType
+    Size: int
 
-_RequiredSizeConstraintSetTypeDef = TypedDict(
-    "_RequiredSizeConstraintSetTypeDef",
-    {
-        "SizeConstraintSetId": str,
-        "SizeConstraints": List["SizeConstraintTypeDef"],
-    },
-)
-_OptionalSizeConstraintSetTypeDef = TypedDict(
-    "_OptionalSizeConstraintSetTypeDef",
-    {
-        "Name": str,
-    },
-    total=False,
-)
+class SqlInjectionMatchTupleTypeDef(TypedDict):
+    FieldToMatch: FieldToMatchTypeDef
+    TextTransformation: TextTransformationType
 
-class SizeConstraintSetTypeDef(
-    _RequiredSizeConstraintSetTypeDef, _OptionalSizeConstraintSetTypeDef
-):
-    pass
+class XssMatchTupleTypeDef(TypedDict):
+    FieldToMatch: FieldToMatchTypeDef
+    TextTransformation: TextTransformationType
 
-SizeConstraintSetUpdateTypeDef = TypedDict(
-    "SizeConstraintSetUpdateTypeDef",
-    {
-        "Action": ChangeActionType,
-        "SizeConstraint": "SizeConstraintTypeDef",
-    },
-)
+class CreateWebACLMigrationStackResponseTypeDef(TypedDict):
+    S3ObjectUrl: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-SizeConstraintTypeDef = TypedDict(
-    "SizeConstraintTypeDef",
-    {
-        "FieldToMatch": "FieldToMatchTypeDef",
-        "TextTransformation": TextTransformationType,
-        "ComparisonOperator": ComparisonOperatorType,
-        "Size": int,
-    },
-)
+class DeleteByteMatchSetResponseTypeDef(TypedDict):
+    ChangeToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-SqlInjectionMatchSetSummaryTypeDef = TypedDict(
-    "SqlInjectionMatchSetSummaryTypeDef",
-    {
-        "SqlInjectionMatchSetId": str,
-        "Name": str,
-    },
-)
+class DeleteGeoMatchSetResponseTypeDef(TypedDict):
+    ChangeToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredSqlInjectionMatchSetTypeDef = TypedDict(
-    "_RequiredSqlInjectionMatchSetTypeDef",
-    {
-        "SqlInjectionMatchSetId": str,
-        "SqlInjectionMatchTuples": List["SqlInjectionMatchTupleTypeDef"],
-    },
-)
-_OptionalSqlInjectionMatchSetTypeDef = TypedDict(
-    "_OptionalSqlInjectionMatchSetTypeDef",
-    {
-        "Name": str,
-    },
-    total=False,
-)
+class DeleteIPSetResponseTypeDef(TypedDict):
+    ChangeToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class SqlInjectionMatchSetTypeDef(
-    _RequiredSqlInjectionMatchSetTypeDef, _OptionalSqlInjectionMatchSetTypeDef
-):
-    pass
+class DeleteRateBasedRuleResponseTypeDef(TypedDict):
+    ChangeToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-SqlInjectionMatchSetUpdateTypeDef = TypedDict(
-    "SqlInjectionMatchSetUpdateTypeDef",
-    {
-        "Action": ChangeActionType,
-        "SqlInjectionMatchTuple": "SqlInjectionMatchTupleTypeDef",
-    },
-)
+class DeleteRegexMatchSetResponseTypeDef(TypedDict):
+    ChangeToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-SqlInjectionMatchTupleTypeDef = TypedDict(
-    "SqlInjectionMatchTupleTypeDef",
-    {
-        "FieldToMatch": "FieldToMatchTypeDef",
-        "TextTransformation": TextTransformationType,
-    },
-)
+class DeleteRegexPatternSetResponseTypeDef(TypedDict):
+    ChangeToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-SubscribedRuleGroupSummaryTypeDef = TypedDict(
-    "SubscribedRuleGroupSummaryTypeDef",
-    {
-        "RuleGroupId": str,
-        "Name": str,
-        "MetricName": str,
-    },
-)
+class DeleteRuleGroupResponseTypeDef(TypedDict):
+    ChangeToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-TagInfoForResourceTypeDef = TypedDict(
-    "TagInfoForResourceTypeDef",
-    {
-        "ResourceARN": str,
-        "TagList": List["TagTypeDef"],
-    },
-    total=False,
-)
+class DeleteRuleResponseTypeDef(TypedDict):
+    ChangeToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "ResourceARN": str,
-        "Tags": List["TagTypeDef"],
-    },
-)
+class DeleteSizeConstraintSetResponseTypeDef(TypedDict):
+    ChangeToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-TagTypeDef = TypedDict(
-    "TagTypeDef",
-    {
-        "Key": str,
-        "Value": str,
-    },
-)
+class DeleteSqlInjectionMatchSetResponseTypeDef(TypedDict):
+    ChangeToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-TimeWindowTypeDef = TypedDict(
-    "TimeWindowTypeDef",
-    {
-        "StartTime": Union[datetime, str],
-        "EndTime": Union[datetime, str],
-    },
-)
+class DeleteWebACLResponseTypeDef(TypedDict):
+    ChangeToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "ResourceARN": str,
-        "TagKeys": List[str],
-    },
-)
+class DeleteXssMatchSetResponseTypeDef(TypedDict):
+    ChangeToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-UpdateByteMatchSetRequestRequestTypeDef = TypedDict(
-    "UpdateByteMatchSetRequestRequestTypeDef",
-    {
-        "ByteMatchSetId": str,
-        "ChangeToken": str,
-        "Updates": List["ByteMatchSetUpdateTypeDef"],
-    },
-)
+class GetChangeTokenResponseTypeDef(TypedDict):
+    ChangeToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-UpdateByteMatchSetResponseTypeDef = TypedDict(
-    "UpdateByteMatchSetResponseTypeDef",
-    {
-        "ChangeToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetChangeTokenStatusResponseTypeDef(TypedDict):
+    ChangeTokenStatus: ChangeTokenStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
 
-UpdateGeoMatchSetRequestRequestTypeDef = TypedDict(
-    "UpdateGeoMatchSetRequestRequestTypeDef",
-    {
-        "GeoMatchSetId": str,
-        "ChangeToken": str,
-        "Updates": List["GeoMatchSetUpdateTypeDef"],
-    },
-)
+class GetPermissionPolicyResponseTypeDef(TypedDict):
+    Policy: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-UpdateGeoMatchSetResponseTypeDef = TypedDict(
-    "UpdateGeoMatchSetResponseTypeDef",
-    {
-        "ChangeToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetRateBasedRuleManagedKeysResponseTypeDef(TypedDict):
+    ManagedKeys: List[str]
+    NextMarker: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-UpdateIPSetRequestRequestTypeDef = TypedDict(
-    "UpdateIPSetRequestRequestTypeDef",
-    {
-        "IPSetId": str,
-        "ChangeToken": str,
-        "Updates": List["IPSetUpdateTypeDef"],
-    },
-)
+class ListByteMatchSetsResponseTypeDef(TypedDict):
+    NextMarker: str
+    ByteMatchSets: List[ByteMatchSetSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-UpdateIPSetResponseTypeDef = TypedDict(
-    "UpdateIPSetResponseTypeDef",
-    {
-        "ChangeToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListResourcesForWebACLResponseTypeDef(TypedDict):
+    ResourceArns: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-UpdateRateBasedRuleRequestRequestTypeDef = TypedDict(
-    "UpdateRateBasedRuleRequestRequestTypeDef",
-    {
-        "RuleId": str,
-        "ChangeToken": str,
-        "Updates": List["RuleUpdateTypeDef"],
-        "RateLimit": int,
-    },
-)
+class UpdateByteMatchSetResponseTypeDef(TypedDict):
+    ChangeToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-UpdateRateBasedRuleResponseTypeDef = TypedDict(
-    "UpdateRateBasedRuleResponseTypeDef",
-    {
-        "ChangeToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class UpdateGeoMatchSetResponseTypeDef(TypedDict):
+    ChangeToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-UpdateRegexMatchSetRequestRequestTypeDef = TypedDict(
-    "UpdateRegexMatchSetRequestRequestTypeDef",
-    {
-        "RegexMatchSetId": str,
-        "Updates": List["RegexMatchSetUpdateTypeDef"],
-        "ChangeToken": str,
-    },
-)
+class UpdateIPSetResponseTypeDef(TypedDict):
+    ChangeToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-UpdateRegexMatchSetResponseTypeDef = TypedDict(
-    "UpdateRegexMatchSetResponseTypeDef",
-    {
-        "ChangeToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class UpdateRateBasedRuleResponseTypeDef(TypedDict):
+    ChangeToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-UpdateRegexPatternSetRequestRequestTypeDef = TypedDict(
-    "UpdateRegexPatternSetRequestRequestTypeDef",
-    {
-        "RegexPatternSetId": str,
-        "Updates": List["RegexPatternSetUpdateTypeDef"],
-        "ChangeToken": str,
-    },
-)
+class UpdateRegexMatchSetResponseTypeDef(TypedDict):
+    ChangeToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-UpdateRegexPatternSetResponseTypeDef = TypedDict(
-    "UpdateRegexPatternSetResponseTypeDef",
-    {
-        "ChangeToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class UpdateRegexPatternSetResponseTypeDef(TypedDict):
+    ChangeToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-UpdateRuleGroupRequestRequestTypeDef = TypedDict(
-    "UpdateRuleGroupRequestRequestTypeDef",
-    {
-        "RuleGroupId": str,
-        "Updates": List["RuleGroupUpdateTypeDef"],
-        "ChangeToken": str,
-    },
-)
+class UpdateRuleGroupResponseTypeDef(TypedDict):
+    ChangeToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-UpdateRuleGroupResponseTypeDef = TypedDict(
-    "UpdateRuleGroupResponseTypeDef",
-    {
-        "ChangeToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class UpdateRuleResponseTypeDef(TypedDict):
+    ChangeToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-UpdateRuleRequestRequestTypeDef = TypedDict(
-    "UpdateRuleRequestRequestTypeDef",
-    {
-        "RuleId": str,
-        "ChangeToken": str,
-        "Updates": List["RuleUpdateTypeDef"],
-    },
-)
+class UpdateSizeConstraintSetResponseTypeDef(TypedDict):
+    ChangeToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-UpdateRuleResponseTypeDef = TypedDict(
-    "UpdateRuleResponseTypeDef",
-    {
-        "ChangeToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class UpdateSqlInjectionMatchSetResponseTypeDef(TypedDict):
+    ChangeToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-UpdateSizeConstraintSetRequestRequestTypeDef = TypedDict(
-    "UpdateSizeConstraintSetRequestRequestTypeDef",
-    {
-        "SizeConstraintSetId": str,
-        "ChangeToken": str,
-        "Updates": List["SizeConstraintSetUpdateTypeDef"],
-    },
-)
+class UpdateWebACLResponseTypeDef(TypedDict):
+    ChangeToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-UpdateSizeConstraintSetResponseTypeDef = TypedDict(
-    "UpdateSizeConstraintSetResponseTypeDef",
-    {
-        "ChangeToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class UpdateXssMatchSetResponseTypeDef(TypedDict):
+    ChangeToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-UpdateSqlInjectionMatchSetRequestRequestTypeDef = TypedDict(
-    "UpdateSqlInjectionMatchSetRequestRequestTypeDef",
-    {
-        "SqlInjectionMatchSetId": str,
-        "ChangeToken": str,
-        "Updates": List["SqlInjectionMatchSetUpdateTypeDef"],
-    },
-)
+class CreateRateBasedRuleRequestTypeDef(TypedDict):
+    Name: str
+    MetricName: str
+    RateKey: Literal["IP"]
+    RateLimit: int
+    ChangeToken: str
+    Tags: NotRequired[Sequence[TagTypeDef]]
 
-UpdateSqlInjectionMatchSetResponseTypeDef = TypedDict(
-    "UpdateSqlInjectionMatchSetResponseTypeDef",
-    {
-        "ChangeToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CreateRuleGroupRequestTypeDef(TypedDict):
+    Name: str
+    MetricName: str
+    ChangeToken: str
+    Tags: NotRequired[Sequence[TagTypeDef]]
 
-_RequiredUpdateWebACLRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateWebACLRequestRequestTypeDef",
-    {
-        "WebACLId": str,
-        "ChangeToken": str,
-    },
-)
-_OptionalUpdateWebACLRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateWebACLRequestRequestTypeDef",
-    {
-        "Updates": List["WebACLUpdateTypeDef"],
-        "DefaultAction": "WafActionTypeDef",
-    },
-    total=False,
-)
+class CreateRuleRequestTypeDef(TypedDict):
+    Name: str
+    MetricName: str
+    ChangeToken: str
+    Tags: NotRequired[Sequence[TagTypeDef]]
 
-class UpdateWebACLRequestRequestTypeDef(
-    _RequiredUpdateWebACLRequestRequestTypeDef, _OptionalUpdateWebACLRequestRequestTypeDef
-):
-    pass
+class CreateWebACLRequestTypeDef(TypedDict):
+    Name: str
+    MetricName: str
+    DefaultAction: WafActionTypeDef
+    ChangeToken: str
+    Tags: NotRequired[Sequence[TagTypeDef]]
 
-UpdateWebACLResponseTypeDef = TypedDict(
-    "UpdateWebACLResponseTypeDef",
-    {
-        "ChangeToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class TagInfoForResourceTypeDef(TypedDict):
+    ResourceARN: NotRequired[str]
+    TagList: NotRequired[List[TagTypeDef]]
 
-UpdateXssMatchSetRequestRequestTypeDef = TypedDict(
-    "UpdateXssMatchSetRequestRequestTypeDef",
-    {
-        "XssMatchSetId": str,
-        "ChangeToken": str,
-        "Updates": List["XssMatchSetUpdateTypeDef"],
-    },
-)
+class TagResourceRequestTypeDef(TypedDict):
+    ResourceARN: str
+    Tags: Sequence[TagTypeDef]
 
-UpdateXssMatchSetResponseTypeDef = TypedDict(
-    "UpdateXssMatchSetResponseTypeDef",
-    {
-        "ChangeToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CreateRegexPatternSetResponseTypeDef(TypedDict):
+    RegexPatternSet: RegexPatternSetTypeDef
+    ChangeToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-WafActionTypeDef = TypedDict(
-    "WafActionTypeDef",
-    {
-        "Type": WafActionTypeType,
-    },
-)
+class GetRegexPatternSetResponseTypeDef(TypedDict):
+    RegexPatternSet: RegexPatternSetTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-WafOverrideActionTypeDef = TypedDict(
-    "WafOverrideActionTypeDef",
-    {
-        "Type": WafOverrideActionTypeType,
-    },
-)
+class CreateRuleGroupResponseTypeDef(TypedDict):
+    RuleGroup: RuleGroupTypeDef
+    ChangeToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-WebACLSummaryTypeDef = TypedDict(
-    "WebACLSummaryTypeDef",
-    {
-        "WebACLId": str,
-        "Name": str,
-    },
-)
+class GetRuleGroupResponseTypeDef(TypedDict):
+    RuleGroup: RuleGroupTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredWebACLTypeDef = TypedDict(
-    "_RequiredWebACLTypeDef",
-    {
-        "WebACLId": str,
-        "DefaultAction": "WafActionTypeDef",
-        "Rules": List["ActivatedRuleTypeDef"],
-    },
-)
-_OptionalWebACLTypeDef = TypedDict(
-    "_OptionalWebACLTypeDef",
-    {
-        "Name": str,
-        "MetricName": str,
-        "WebACLArn": str,
-    },
-    total=False,
-)
+class GeoMatchSetTypeDef(TypedDict):
+    GeoMatchSetId: str
+    GeoMatchConstraints: List[GeoMatchConstraintTypeDef]
+    Name: NotRequired[str]
 
-class WebACLTypeDef(_RequiredWebACLTypeDef, _OptionalWebACLTypeDef):
-    pass
+class GeoMatchSetUpdateTypeDef(TypedDict):
+    Action: ChangeActionType
+    GeoMatchConstraint: GeoMatchConstraintTypeDef
 
-WebACLUpdateTypeDef = TypedDict(
-    "WebACLUpdateTypeDef",
-    {
-        "Action": ChangeActionType,
-        "ActivatedRule": "ActivatedRuleTypeDef",
-    },
-)
+class ListGeoMatchSetsResponseTypeDef(TypedDict):
+    NextMarker: str
+    GeoMatchSets: List[GeoMatchSetSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-XssMatchSetSummaryTypeDef = TypedDict(
-    "XssMatchSetSummaryTypeDef",
-    {
-        "XssMatchSetId": str,
-        "Name": str,
-    },
-)
+class GetWebACLForResourceResponseTypeDef(TypedDict):
+    WebACLSummary: WebACLSummaryTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredXssMatchSetTypeDef = TypedDict(
-    "_RequiredXssMatchSetTypeDef",
-    {
-        "XssMatchSetId": str,
-        "XssMatchTuples": List["XssMatchTupleTypeDef"],
-    },
-)
-_OptionalXssMatchSetTypeDef = TypedDict(
-    "_OptionalXssMatchSetTypeDef",
-    {
-        "Name": str,
-    },
-    total=False,
-)
+class ListWebACLsResponseTypeDef(TypedDict):
+    NextMarker: str
+    WebACLs: List[WebACLSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class XssMatchSetTypeDef(_RequiredXssMatchSetTypeDef, _OptionalXssMatchSetTypeDef):
-    pass
+class HTTPRequestTypeDef(TypedDict):
+    ClientIP: NotRequired[str]
+    Country: NotRequired[str]
+    URI: NotRequired[str]
+    Method: NotRequired[str]
+    HTTPVersion: NotRequired[str]
+    Headers: NotRequired[List[HTTPHeaderTypeDef]]
 
-XssMatchSetUpdateTypeDef = TypedDict(
-    "XssMatchSetUpdateTypeDef",
-    {
-        "Action": ChangeActionType,
-        "XssMatchTuple": "XssMatchTupleTypeDef",
-    },
-)
+class IPSetTypeDef(TypedDict):
+    IPSetId: str
+    IPSetDescriptors: List[IPSetDescriptorTypeDef]
+    Name: NotRequired[str]
 
-XssMatchTupleTypeDef = TypedDict(
-    "XssMatchTupleTypeDef",
-    {
-        "FieldToMatch": "FieldToMatchTypeDef",
-        "TextTransformation": TextTransformationType,
-    },
-)
+class IPSetUpdateTypeDef(TypedDict):
+    Action: ChangeActionType
+    IPSetDescriptor: IPSetDescriptorTypeDef
+
+class ListIPSetsResponseTypeDef(TypedDict):
+    NextMarker: str
+    IPSets: List[IPSetSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListRateBasedRulesResponseTypeDef(TypedDict):
+    NextMarker: str
+    Rules: List[RuleSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListRulesResponseTypeDef(TypedDict):
+    NextMarker: str
+    Rules: List[RuleSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListRegexMatchSetsResponseTypeDef(TypedDict):
+    NextMarker: str
+    RegexMatchSets: List[RegexMatchSetSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListRegexPatternSetsResponseTypeDef(TypedDict):
+    NextMarker: str
+    RegexPatternSets: List[RegexPatternSetSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListRuleGroupsResponseTypeDef(TypedDict):
+    NextMarker: str
+    RuleGroups: List[RuleGroupSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListSizeConstraintSetsResponseTypeDef(TypedDict):
+    NextMarker: str
+    SizeConstraintSets: List[SizeConstraintSetSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListSqlInjectionMatchSetsResponseTypeDef(TypedDict):
+    NextMarker: str
+    SqlInjectionMatchSets: List[SqlInjectionMatchSetSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListSubscribedRuleGroupsResponseTypeDef(TypedDict):
+    NextMarker: str
+    RuleGroups: List[SubscribedRuleGroupSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListXssMatchSetsResponseTypeDef(TypedDict):
+    NextMarker: str
+    XssMatchSets: List[XssMatchSetSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class RateBasedRuleTypeDef(TypedDict):
+    RuleId: str
+    MatchPredicates: List[PredicateTypeDef]
+    RateKey: Literal["IP"]
+    RateLimit: int
+    Name: NotRequired[str]
+    MetricName: NotRequired[str]
+
+class RuleTypeDef(TypedDict):
+    RuleId: str
+    Predicates: List[PredicateTypeDef]
+    Name: NotRequired[str]
+    MetricName: NotRequired[str]
+
+class RuleUpdateTypeDef(TypedDict):
+    Action: ChangeActionType
+    Predicate: PredicateTypeDef
+
+class UpdateRegexPatternSetRequestTypeDef(TypedDict):
+    RegexPatternSetId: str
+    Updates: Sequence[RegexPatternSetUpdateTypeDef]
+    ChangeToken: str
+
+class TimeWindowTypeDef(TypedDict):
+    StartTime: TimestampTypeDef
+    EndTime: TimestampTypeDef
+
+class ListActivatedRulesInRuleGroupResponseTypeDef(TypedDict):
+    NextMarker: str
+    ActivatedRules: List[ActivatedRuleOutputTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class WebACLTypeDef(TypedDict):
+    WebACLId: str
+    DefaultAction: WafActionTypeDef
+    Rules: List[ActivatedRuleOutputTypeDef]
+    Name: NotRequired[str]
+    MetricName: NotRequired[str]
+    WebACLArn: NotRequired[str]
+
+ActivatedRuleUnionTypeDef = Union[ActivatedRuleTypeDef, ActivatedRuleOutputTypeDef]
+
+class ByteMatchSetTypeDef(TypedDict):
+    ByteMatchSetId: str
+    ByteMatchTuples: List[ByteMatchTupleOutputTypeDef]
+    Name: NotRequired[str]
+
+ByteMatchTupleUnionTypeDef = Union[ByteMatchTupleTypeDef, ByteMatchTupleOutputTypeDef]
+
+class GetLoggingConfigurationResponseTypeDef(TypedDict):
+    LoggingConfiguration: LoggingConfigurationOutputTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListLoggingConfigurationsResponseTypeDef(TypedDict):
+    LoggingConfigurations: List[LoggingConfigurationOutputTypeDef]
+    NextMarker: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutLoggingConfigurationResponseTypeDef(TypedDict):
+    LoggingConfiguration: LoggingConfigurationOutputTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+LoggingConfigurationUnionTypeDef = Union[
+    LoggingConfigurationTypeDef, LoggingConfigurationOutputTypeDef
+]
+
+class RegexMatchSetTypeDef(TypedDict):
+    RegexMatchSetId: NotRequired[str]
+    Name: NotRequired[str]
+    RegexMatchTuples: NotRequired[List[RegexMatchTupleTypeDef]]
+
+class RegexMatchSetUpdateTypeDef(TypedDict):
+    Action: ChangeActionType
+    RegexMatchTuple: RegexMatchTupleTypeDef
+
+class SizeConstraintSetTypeDef(TypedDict):
+    SizeConstraintSetId: str
+    SizeConstraints: List[SizeConstraintTypeDef]
+    Name: NotRequired[str]
+
+class SizeConstraintSetUpdateTypeDef(TypedDict):
+    Action: ChangeActionType
+    SizeConstraint: SizeConstraintTypeDef
+
+class SqlInjectionMatchSetTypeDef(TypedDict):
+    SqlInjectionMatchSetId: str
+    SqlInjectionMatchTuples: List[SqlInjectionMatchTupleTypeDef]
+    Name: NotRequired[str]
+
+class SqlInjectionMatchSetUpdateTypeDef(TypedDict):
+    Action: ChangeActionType
+    SqlInjectionMatchTuple: SqlInjectionMatchTupleTypeDef
+
+class XssMatchSetTypeDef(TypedDict):
+    XssMatchSetId: str
+    XssMatchTuples: List[XssMatchTupleTypeDef]
+    Name: NotRequired[str]
+
+class XssMatchSetUpdateTypeDef(TypedDict):
+    Action: ChangeActionType
+    XssMatchTuple: XssMatchTupleTypeDef
+
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    NextMarker: str
+    TagInfoForResource: TagInfoForResourceTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateGeoMatchSetResponseTypeDef(TypedDict):
+    GeoMatchSet: GeoMatchSetTypeDef
+    ChangeToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetGeoMatchSetResponseTypeDef(TypedDict):
+    GeoMatchSet: GeoMatchSetTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateGeoMatchSetRequestTypeDef(TypedDict):
+    GeoMatchSetId: str
+    ChangeToken: str
+    Updates: Sequence[GeoMatchSetUpdateTypeDef]
+
+class SampledHTTPRequestTypeDef(TypedDict):
+    Request: HTTPRequestTypeDef
+    Weight: int
+    Timestamp: NotRequired[datetime]
+    Action: NotRequired[str]
+    RuleWithinRuleGroup: NotRequired[str]
+
+class CreateIPSetResponseTypeDef(TypedDict):
+    IPSet: IPSetTypeDef
+    ChangeToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetIPSetResponseTypeDef(TypedDict):
+    IPSet: IPSetTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateIPSetRequestTypeDef(TypedDict):
+    IPSetId: str
+    ChangeToken: str
+    Updates: Sequence[IPSetUpdateTypeDef]
+
+class CreateRateBasedRuleResponseTypeDef(TypedDict):
+    Rule: RateBasedRuleTypeDef
+    ChangeToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetRateBasedRuleResponseTypeDef(TypedDict):
+    Rule: RateBasedRuleTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateRuleResponseTypeDef(TypedDict):
+    Rule: RuleTypeDef
+    ChangeToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetRuleResponseTypeDef(TypedDict):
+    Rule: RuleTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateRateBasedRuleRequestTypeDef(TypedDict):
+    RuleId: str
+    ChangeToken: str
+    Updates: Sequence[RuleUpdateTypeDef]
+    RateLimit: int
+
+class UpdateRuleRequestTypeDef(TypedDict):
+    RuleId: str
+    ChangeToken: str
+    Updates: Sequence[RuleUpdateTypeDef]
+
+TimeWindowUnionTypeDef = Union[TimeWindowTypeDef, TimeWindowOutputTypeDef]
+
+class CreateWebACLResponseTypeDef(TypedDict):
+    WebACL: WebACLTypeDef
+    ChangeToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetWebACLResponseTypeDef(TypedDict):
+    WebACL: WebACLTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class RuleGroupUpdateTypeDef(TypedDict):
+    Action: ChangeActionType
+    ActivatedRule: ActivatedRuleUnionTypeDef
+
+class WebACLUpdateTypeDef(TypedDict):
+    Action: ChangeActionType
+    ActivatedRule: ActivatedRuleUnionTypeDef
+
+class CreateByteMatchSetResponseTypeDef(TypedDict):
+    ByteMatchSet: ByteMatchSetTypeDef
+    ChangeToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetByteMatchSetResponseTypeDef(TypedDict):
+    ByteMatchSet: ByteMatchSetTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ByteMatchSetUpdateTypeDef(TypedDict):
+    Action: ChangeActionType
+    ByteMatchTuple: ByteMatchTupleUnionTypeDef
+
+class PutLoggingConfigurationRequestTypeDef(TypedDict):
+    LoggingConfiguration: LoggingConfigurationUnionTypeDef
+
+class CreateRegexMatchSetResponseTypeDef(TypedDict):
+    RegexMatchSet: RegexMatchSetTypeDef
+    ChangeToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetRegexMatchSetResponseTypeDef(TypedDict):
+    RegexMatchSet: RegexMatchSetTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateRegexMatchSetRequestTypeDef(TypedDict):
+    RegexMatchSetId: str
+    Updates: Sequence[RegexMatchSetUpdateTypeDef]
+    ChangeToken: str
+
+class CreateSizeConstraintSetResponseTypeDef(TypedDict):
+    SizeConstraintSet: SizeConstraintSetTypeDef
+    ChangeToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetSizeConstraintSetResponseTypeDef(TypedDict):
+    SizeConstraintSet: SizeConstraintSetTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateSizeConstraintSetRequestTypeDef(TypedDict):
+    SizeConstraintSetId: str
+    ChangeToken: str
+    Updates: Sequence[SizeConstraintSetUpdateTypeDef]
+
+class CreateSqlInjectionMatchSetResponseTypeDef(TypedDict):
+    SqlInjectionMatchSet: SqlInjectionMatchSetTypeDef
+    ChangeToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetSqlInjectionMatchSetResponseTypeDef(TypedDict):
+    SqlInjectionMatchSet: SqlInjectionMatchSetTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateSqlInjectionMatchSetRequestTypeDef(TypedDict):
+    SqlInjectionMatchSetId: str
+    ChangeToken: str
+    Updates: Sequence[SqlInjectionMatchSetUpdateTypeDef]
+
+class CreateXssMatchSetResponseTypeDef(TypedDict):
+    XssMatchSet: XssMatchSetTypeDef
+    ChangeToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetXssMatchSetResponseTypeDef(TypedDict):
+    XssMatchSet: XssMatchSetTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateXssMatchSetRequestTypeDef(TypedDict):
+    XssMatchSetId: str
+    ChangeToken: str
+    Updates: Sequence[XssMatchSetUpdateTypeDef]
+
+class GetSampledRequestsResponseTypeDef(TypedDict):
+    SampledRequests: List[SampledHTTPRequestTypeDef]
+    PopulationSize: int
+    TimeWindow: TimeWindowOutputTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetSampledRequestsRequestTypeDef(TypedDict):
+    WebAclId: str
+    RuleId: str
+    TimeWindow: TimeWindowUnionTypeDef
+    MaxItems: int
+
+class UpdateRuleGroupRequestTypeDef(TypedDict):
+    RuleGroupId: str
+    Updates: Sequence[RuleGroupUpdateTypeDef]
+    ChangeToken: str
+
+class UpdateWebACLRequestTypeDef(TypedDict):
+    WebACLId: str
+    ChangeToken: str
+    Updates: NotRequired[Sequence[WebACLUpdateTypeDef]]
+    DefaultAction: NotRequired[WafActionTypeDef]
+
+class UpdateByteMatchSetRequestTypeDef(TypedDict):
+    ByteMatchSetId: str
+    ChangeToken: str
+    Updates: Sequence[ByteMatchSetUpdateTypeDef]

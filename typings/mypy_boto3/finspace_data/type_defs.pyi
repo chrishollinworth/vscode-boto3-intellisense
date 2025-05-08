@@ -1,19 +1,23 @@
 """
 Type annotations for finspace-data service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_finspace_data.type_defs import AssociateUserToPermissionGroupRequestRequestTypeDef
+    from mypy_boto3_finspace_data.type_defs import AssociateUserToPermissionGroupRequestTypeDef
 
-    data: AssociateUserToPermissionGroupRequestRequestTypeDef = {...}
+    data: AssociateUserToPermissionGroupRequestTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from typing import Any, Dict, List
+from typing import Union
 
 from .literals import (
     ApiAccessType,
@@ -26,710 +30,413 @@ from .literals import (
     ErrorCategoryType,
     ExportFileFormatType,
     IngestionStatusType,
+    LocationTypeType,
     PermissionGroupMembershipStatusType,
     UserStatusType,
     UserTypeType,
-    locationTypeType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
-    "AssociateUserToPermissionGroupRequestRequestTypeDef",
+    "AssociateUserToPermissionGroupRequestTypeDef",
     "AssociateUserToPermissionGroupResponseTypeDef",
     "AwsCredentialsTypeDef",
     "ChangesetErrorInfoTypeDef",
     "ChangesetSummaryTypeDef",
     "ColumnDefinitionTypeDef",
-    "CreateChangesetRequestRequestTypeDef",
+    "CreateChangesetRequestTypeDef",
     "CreateChangesetResponseTypeDef",
-    "CreateDataViewRequestRequestTypeDef",
+    "CreateDataViewRequestTypeDef",
     "CreateDataViewResponseTypeDef",
-    "CreateDatasetRequestRequestTypeDef",
+    "CreateDatasetRequestTypeDef",
     "CreateDatasetResponseTypeDef",
-    "CreatePermissionGroupRequestRequestTypeDef",
+    "CreatePermissionGroupRequestTypeDef",
     "CreatePermissionGroupResponseTypeDef",
-    "CreateUserRequestRequestTypeDef",
+    "CreateUserRequestTypeDef",
     "CreateUserResponseTypeDef",
     "CredentialsTypeDef",
+    "DataViewDestinationTypeParamsOutputTypeDef",
     "DataViewDestinationTypeParamsTypeDef",
+    "DataViewDestinationTypeParamsUnionTypeDef",
     "DataViewErrorInfoTypeDef",
     "DataViewSummaryTypeDef",
     "DatasetOwnerInfoTypeDef",
     "DatasetTypeDef",
-    "DeleteDatasetRequestRequestTypeDef",
+    "DeleteDatasetRequestTypeDef",
     "DeleteDatasetResponseTypeDef",
-    "DeletePermissionGroupRequestRequestTypeDef",
+    "DeletePermissionGroupRequestTypeDef",
     "DeletePermissionGroupResponseTypeDef",
-    "DisableUserRequestRequestTypeDef",
+    "DisableUserRequestTypeDef",
     "DisableUserResponseTypeDef",
-    "DisassociateUserFromPermissionGroupRequestRequestTypeDef",
+    "DisassociateUserFromPermissionGroupRequestTypeDef",
     "DisassociateUserFromPermissionGroupResponseTypeDef",
-    "EnableUserRequestRequestTypeDef",
+    "EnableUserRequestTypeDef",
     "EnableUserResponseTypeDef",
-    "GetChangesetRequestRequestTypeDef",
+    "GetChangesetRequestTypeDef",
     "GetChangesetResponseTypeDef",
-    "GetDataViewRequestRequestTypeDef",
+    "GetDataViewRequestTypeDef",
     "GetDataViewResponseTypeDef",
-    "GetDatasetRequestRequestTypeDef",
+    "GetDatasetRequestTypeDef",
     "GetDatasetResponseTypeDef",
-    "GetExternalDataViewAccessDetailsRequestRequestTypeDef",
+    "GetExternalDataViewAccessDetailsRequestTypeDef",
     "GetExternalDataViewAccessDetailsResponseTypeDef",
-    "GetPermissionGroupRequestRequestTypeDef",
+    "GetPermissionGroupRequestTypeDef",
     "GetPermissionGroupResponseTypeDef",
-    "GetProgrammaticAccessCredentialsRequestRequestTypeDef",
+    "GetProgrammaticAccessCredentialsRequestTypeDef",
     "GetProgrammaticAccessCredentialsResponseTypeDef",
-    "GetUserRequestRequestTypeDef",
+    "GetUserRequestTypeDef",
     "GetUserResponseTypeDef",
-    "GetWorkingLocationRequestRequestTypeDef",
+    "GetWorkingLocationRequestTypeDef",
     "GetWorkingLocationResponseTypeDef",
-    "ListChangesetsRequestRequestTypeDef",
+    "ListChangesetsRequestPaginateTypeDef",
+    "ListChangesetsRequestTypeDef",
     "ListChangesetsResponseTypeDef",
-    "ListDataViewsRequestRequestTypeDef",
+    "ListDataViewsRequestPaginateTypeDef",
+    "ListDataViewsRequestTypeDef",
     "ListDataViewsResponseTypeDef",
-    "ListDatasetsRequestRequestTypeDef",
+    "ListDatasetsRequestPaginateTypeDef",
+    "ListDatasetsRequestTypeDef",
     "ListDatasetsResponseTypeDef",
-    "ListPermissionGroupsByUserRequestRequestTypeDef",
+    "ListPermissionGroupsByUserRequestTypeDef",
     "ListPermissionGroupsByUserResponseTypeDef",
-    "ListPermissionGroupsRequestRequestTypeDef",
+    "ListPermissionGroupsRequestPaginateTypeDef",
+    "ListPermissionGroupsRequestTypeDef",
     "ListPermissionGroupsResponseTypeDef",
-    "ListUsersByPermissionGroupRequestRequestTypeDef",
+    "ListUsersByPermissionGroupRequestTypeDef",
     "ListUsersByPermissionGroupResponseTypeDef",
-    "ListUsersRequestRequestTypeDef",
+    "ListUsersRequestPaginateTypeDef",
+    "ListUsersRequestTypeDef",
     "ListUsersResponseTypeDef",
     "PaginatorConfigTypeDef",
     "PermissionGroupByUserTypeDef",
     "PermissionGroupParamsTypeDef",
     "PermissionGroupTypeDef",
-    "ResetUserPasswordRequestRequestTypeDef",
+    "ResetUserPasswordRequestTypeDef",
     "ResetUserPasswordResponseTypeDef",
     "ResourcePermissionTypeDef",
     "ResponseMetadataTypeDef",
     "S3LocationTypeDef",
+    "SchemaDefinitionOutputTypeDef",
     "SchemaDefinitionTypeDef",
+    "SchemaUnionOutputTypeDef",
     "SchemaUnionTypeDef",
-    "UpdateChangesetRequestRequestTypeDef",
+    "SchemaUnionUnionTypeDef",
+    "UpdateChangesetRequestTypeDef",
     "UpdateChangesetResponseTypeDef",
-    "UpdateDatasetRequestRequestTypeDef",
+    "UpdateDatasetRequestTypeDef",
     "UpdateDatasetResponseTypeDef",
-    "UpdatePermissionGroupRequestRequestTypeDef",
+    "UpdatePermissionGroupRequestTypeDef",
     "UpdatePermissionGroupResponseTypeDef",
-    "UpdateUserRequestRequestTypeDef",
+    "UpdateUserRequestTypeDef",
     "UpdateUserResponseTypeDef",
     "UserByPermissionGroupTypeDef",
     "UserTypeDef",
 )
 
-_RequiredAssociateUserToPermissionGroupRequestRequestTypeDef = TypedDict(
-    "_RequiredAssociateUserToPermissionGroupRequestRequestTypeDef",
-    {
-        "permissionGroupId": str,
-        "userId": str,
-    },
-)
-_OptionalAssociateUserToPermissionGroupRequestRequestTypeDef = TypedDict(
-    "_OptionalAssociateUserToPermissionGroupRequestRequestTypeDef",
-    {
-        "clientToken": str,
-    },
-    total=False,
-)
+class AssociateUserToPermissionGroupRequestTypeDef(TypedDict):
+    permissionGroupId: str
+    userId: str
+    clientToken: NotRequired[str]
 
-class AssociateUserToPermissionGroupRequestRequestTypeDef(
-    _RequiredAssociateUserToPermissionGroupRequestRequestTypeDef,
-    _OptionalAssociateUserToPermissionGroupRequestRequestTypeDef,
-):
-    pass
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-AssociateUserToPermissionGroupResponseTypeDef = TypedDict(
-    "AssociateUserToPermissionGroupResponseTypeDef",
-    {
-        "statusCode": int,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class AwsCredentialsTypeDef(TypedDict):
+    accessKeyId: NotRequired[str]
+    secretAccessKey: NotRequired[str]
+    sessionToken: NotRequired[str]
+    expiration: NotRequired[int]
 
-AwsCredentialsTypeDef = TypedDict(
-    "AwsCredentialsTypeDef",
-    {
-        "accessKeyId": str,
-        "secretAccessKey": str,
-        "sessionToken": str,
-        "expiration": int,
-    },
-    total=False,
-)
+class ChangesetErrorInfoTypeDef(TypedDict):
+    errorMessage: NotRequired[str]
+    errorCategory: NotRequired[ErrorCategoryType]
 
-ChangesetErrorInfoTypeDef = TypedDict(
-    "ChangesetErrorInfoTypeDef",
-    {
-        "errorMessage": str,
-        "errorCategory": ErrorCategoryType,
-    },
-    total=False,
-)
+class ColumnDefinitionTypeDef(TypedDict):
+    dataType: NotRequired[ColumnDataTypeType]
+    columnName: NotRequired[str]
+    columnDescription: NotRequired[str]
 
-ChangesetSummaryTypeDef = TypedDict(
-    "ChangesetSummaryTypeDef",
-    {
-        "changesetId": str,
-        "changesetArn": str,
-        "datasetId": str,
-        "changeType": ChangeTypeType,
-        "sourceParams": Dict[str, str],
-        "formatParams": Dict[str, str],
-        "createTime": int,
-        "status": IngestionStatusType,
-        "errorInfo": "ChangesetErrorInfoTypeDef",
-        "activeUntilTimestamp": int,
-        "activeFromTimestamp": int,
-        "updatesChangesetId": str,
-        "updatedByChangesetId": str,
-    },
-    total=False,
-)
+class CreateChangesetRequestTypeDef(TypedDict):
+    datasetId: str
+    changeType: ChangeTypeType
+    sourceParams: Mapping[str, str]
+    formatParams: Mapping[str, str]
+    clientToken: NotRequired[str]
 
-ColumnDefinitionTypeDef = TypedDict(
-    "ColumnDefinitionTypeDef",
-    {
-        "dataType": ColumnDataTypeType,
-        "columnName": str,
-        "columnDescription": str,
-    },
-    total=False,
-)
+class DatasetOwnerInfoTypeDef(TypedDict):
+    name: NotRequired[str]
+    phoneNumber: NotRequired[str]
+    email: NotRequired[str]
 
-_RequiredCreateChangesetRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateChangesetRequestRequestTypeDef",
-    {
-        "datasetId": str,
-        "changeType": ChangeTypeType,
-        "sourceParams": Dict[str, str],
-        "formatParams": Dict[str, str],
-    },
-)
-_OptionalCreateChangesetRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateChangesetRequestRequestTypeDef",
-    {
-        "clientToken": str,
-    },
-    total=False,
-)
+class CreatePermissionGroupRequestTypeDef(TypedDict):
+    name: str
+    applicationPermissions: Sequence[ApplicationPermissionType]
+    description: NotRequired[str]
+    clientToken: NotRequired[str]
 
-class CreateChangesetRequestRequestTypeDef(
-    _RequiredCreateChangesetRequestRequestTypeDef, _OptionalCreateChangesetRequestRequestTypeDef
-):
-    pass
-
-CreateChangesetResponseTypeDef = TypedDict(
-    "CreateChangesetResponseTypeDef",
-    {
-        "datasetId": str,
-        "changesetId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateDataViewRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateDataViewRequestRequestTypeDef",
-    {
-        "datasetId": str,
-        "destinationTypeParams": "DataViewDestinationTypeParamsTypeDef",
-    },
-)
-_OptionalCreateDataViewRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateDataViewRequestRequestTypeDef",
-    {
-        "clientToken": str,
-        "autoUpdate": bool,
-        "sortColumns": List[str],
-        "partitionColumns": List[str],
-        "asOfTimestamp": int,
-    },
-    total=False,
-)
-
-class CreateDataViewRequestRequestTypeDef(
-    _RequiredCreateDataViewRequestRequestTypeDef, _OptionalCreateDataViewRequestRequestTypeDef
-):
-    pass
-
-CreateDataViewResponseTypeDef = TypedDict(
-    "CreateDataViewResponseTypeDef",
-    {
-        "datasetId": str,
-        "dataViewId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateDatasetRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateDatasetRequestRequestTypeDef",
-    {
-        "datasetTitle": str,
-        "kind": DatasetKindType,
-        "permissionGroupParams": "PermissionGroupParamsTypeDef",
-    },
-)
-_OptionalCreateDatasetRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateDatasetRequestRequestTypeDef",
-    {
-        "clientToken": str,
-        "datasetDescription": str,
-        "ownerInfo": "DatasetOwnerInfoTypeDef",
-        "alias": str,
-        "schemaDefinition": "SchemaUnionTypeDef",
-    },
-    total=False,
-)
-
-class CreateDatasetRequestRequestTypeDef(
-    _RequiredCreateDatasetRequestRequestTypeDef, _OptionalCreateDatasetRequestRequestTypeDef
-):
-    pass
-
-CreateDatasetResponseTypeDef = TypedDict(
-    "CreateDatasetResponseTypeDef",
-    {
-        "datasetId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreatePermissionGroupRequestRequestTypeDef = TypedDict(
-    "_RequiredCreatePermissionGroupRequestRequestTypeDef",
-    {
-        "name": str,
-        "applicationPermissions": List[ApplicationPermissionType],
-    },
-)
-_OptionalCreatePermissionGroupRequestRequestTypeDef = TypedDict(
-    "_OptionalCreatePermissionGroupRequestRequestTypeDef",
-    {
-        "description": str,
-        "clientToken": str,
-    },
-    total=False,
-)
-
-class CreatePermissionGroupRequestRequestTypeDef(
-    _RequiredCreatePermissionGroupRequestRequestTypeDef,
-    _OptionalCreatePermissionGroupRequestRequestTypeDef,
-):
-    pass
-
-CreatePermissionGroupResponseTypeDef = TypedDict(
-    "CreatePermissionGroupResponseTypeDef",
-    {
-        "permissionGroupId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateUserRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateUserRequestRequestTypeDef",
+CreateUserRequestTypeDef = TypedDict(
+    "CreateUserRequestTypeDef",
     {
         "emailAddress": str,
         "type": UserTypeType,
+        "firstName": NotRequired[str],
+        "lastName": NotRequired[str],
+        "apiAccess": NotRequired[ApiAccessType],
+        "apiAccessPrincipalArn": NotRequired[str],
+        "clientToken": NotRequired[str],
     },
 )
-_OptionalCreateUserRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateUserRequestRequestTypeDef",
+
+class CredentialsTypeDef(TypedDict):
+    accessKeyId: NotRequired[str]
+    secretAccessKey: NotRequired[str]
+    sessionToken: NotRequired[str]
+
+class DataViewDestinationTypeParamsOutputTypeDef(TypedDict):
+    destinationType: str
+    s3DestinationExportFileFormat: NotRequired[ExportFileFormatType]
+    s3DestinationExportFileFormatOptions: NotRequired[Dict[str, str]]
+
+class DataViewDestinationTypeParamsTypeDef(TypedDict):
+    destinationType: str
+    s3DestinationExportFileFormat: NotRequired[ExportFileFormatType]
+    s3DestinationExportFileFormatOptions: NotRequired[Mapping[str, str]]
+
+class DataViewErrorInfoTypeDef(TypedDict):
+    errorMessage: NotRequired[str]
+    errorCategory: NotRequired[ErrorCategoryType]
+
+class DeleteDatasetRequestTypeDef(TypedDict):
+    datasetId: str
+    clientToken: NotRequired[str]
+
+class DeletePermissionGroupRequestTypeDef(TypedDict):
+    permissionGroupId: str
+    clientToken: NotRequired[str]
+
+class DisableUserRequestTypeDef(TypedDict):
+    userId: str
+    clientToken: NotRequired[str]
+
+class DisassociateUserFromPermissionGroupRequestTypeDef(TypedDict):
+    permissionGroupId: str
+    userId: str
+    clientToken: NotRequired[str]
+
+class EnableUserRequestTypeDef(TypedDict):
+    userId: str
+    clientToken: NotRequired[str]
+
+class GetChangesetRequestTypeDef(TypedDict):
+    datasetId: str
+    changesetId: str
+
+class GetDataViewRequestTypeDef(TypedDict):
+    dataViewId: str
+    datasetId: str
+
+class GetDatasetRequestTypeDef(TypedDict):
+    datasetId: str
+
+class GetExternalDataViewAccessDetailsRequestTypeDef(TypedDict):
+    dataViewId: str
+    datasetId: str
+
+class S3LocationTypeDef(TypedDict):
+    bucket: str
+    key: str
+
+class GetPermissionGroupRequestTypeDef(TypedDict):
+    permissionGroupId: str
+
+class PermissionGroupTypeDef(TypedDict):
+    permissionGroupId: NotRequired[str]
+    name: NotRequired[str]
+    description: NotRequired[str]
+    applicationPermissions: NotRequired[List[ApplicationPermissionType]]
+    createTime: NotRequired[int]
+    lastModifiedTime: NotRequired[int]
+    membershipStatus: NotRequired[PermissionGroupMembershipStatusType]
+
+class GetProgrammaticAccessCredentialsRequestTypeDef(TypedDict):
+    environmentId: str
+    durationInMinutes: NotRequired[int]
+
+class GetUserRequestTypeDef(TypedDict):
+    userId: str
+
+class GetWorkingLocationRequestTypeDef(TypedDict):
+    locationType: NotRequired[LocationTypeType]
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class ListChangesetsRequestTypeDef(TypedDict):
+    datasetId: str
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListDataViewsRequestTypeDef(TypedDict):
+    datasetId: str
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class ListDatasetsRequestTypeDef(TypedDict):
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class ListPermissionGroupsByUserRequestTypeDef(TypedDict):
+    userId: str
+    maxResults: int
+    nextToken: NotRequired[str]
+
+class PermissionGroupByUserTypeDef(TypedDict):
+    permissionGroupId: NotRequired[str]
+    name: NotRequired[str]
+    membershipStatus: NotRequired[PermissionGroupMembershipStatusType]
+
+class ListPermissionGroupsRequestTypeDef(TypedDict):
+    maxResults: int
+    nextToken: NotRequired[str]
+
+class ListUsersByPermissionGroupRequestTypeDef(TypedDict):
+    permissionGroupId: str
+    maxResults: int
+    nextToken: NotRequired[str]
+
+UserByPermissionGroupTypeDef = TypedDict(
+    "UserByPermissionGroupTypeDef",
     {
-        "firstName": str,
-        "lastName": str,
-        "apiAccess": ApiAccessType,
-        "apiAccessPrincipalArn": str,
-        "clientToken": str,
+        "userId": NotRequired[str],
+        "status": NotRequired[UserStatusType],
+        "firstName": NotRequired[str],
+        "lastName": NotRequired[str],
+        "emailAddress": NotRequired[str],
+        "type": NotRequired[UserTypeType],
+        "apiAccess": NotRequired[ApiAccessType],
+        "apiAccessPrincipalArn": NotRequired[str],
+        "membershipStatus": NotRequired[PermissionGroupMembershipStatusType],
     },
-    total=False,
 )
 
-class CreateUserRequestRequestTypeDef(
-    _RequiredCreateUserRequestRequestTypeDef, _OptionalCreateUserRequestRequestTypeDef
-):
-    pass
+class ListUsersRequestTypeDef(TypedDict):
+    maxResults: int
+    nextToken: NotRequired[str]
 
-CreateUserResponseTypeDef = TypedDict(
-    "CreateUserResponseTypeDef",
+UserTypeDef = TypedDict(
+    "UserTypeDef",
     {
-        "userId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "userId": NotRequired[str],
+        "status": NotRequired[UserStatusType],
+        "firstName": NotRequired[str],
+        "lastName": NotRequired[str],
+        "emailAddress": NotRequired[str],
+        "type": NotRequired[UserTypeType],
+        "apiAccess": NotRequired[ApiAccessType],
+        "apiAccessPrincipalArn": NotRequired[str],
+        "createTime": NotRequired[int],
+        "lastEnabledTime": NotRequired[int],
+        "lastDisabledTime": NotRequired[int],
+        "lastModifiedTime": NotRequired[int],
+        "lastLoginTime": NotRequired[int],
     },
 )
 
-CredentialsTypeDef = TypedDict(
-    "CredentialsTypeDef",
-    {
-        "accessKeyId": str,
-        "secretAccessKey": str,
-        "sessionToken": str,
-    },
-    total=False,
-)
+class ResourcePermissionTypeDef(TypedDict):
+    permission: NotRequired[str]
 
-_RequiredDataViewDestinationTypeParamsTypeDef = TypedDict(
-    "_RequiredDataViewDestinationTypeParamsTypeDef",
-    {
-        "destinationType": str,
-    },
-)
-_OptionalDataViewDestinationTypeParamsTypeDef = TypedDict(
-    "_OptionalDataViewDestinationTypeParamsTypeDef",
-    {
-        "s3DestinationExportFileFormat": ExportFileFormatType,
-        "s3DestinationExportFileFormatOptions": Dict[str, str],
-    },
-    total=False,
-)
+class ResetUserPasswordRequestTypeDef(TypedDict):
+    userId: str
+    clientToken: NotRequired[str]
 
-class DataViewDestinationTypeParamsTypeDef(
-    _RequiredDataViewDestinationTypeParamsTypeDef, _OptionalDataViewDestinationTypeParamsTypeDef
-):
-    pass
+class UpdateChangesetRequestTypeDef(TypedDict):
+    datasetId: str
+    changesetId: str
+    sourceParams: Mapping[str, str]
+    formatParams: Mapping[str, str]
+    clientToken: NotRequired[str]
 
-DataViewErrorInfoTypeDef = TypedDict(
-    "DataViewErrorInfoTypeDef",
-    {
-        "errorMessage": str,
-        "errorCategory": ErrorCategoryType,
-    },
-    total=False,
-)
+class UpdatePermissionGroupRequestTypeDef(TypedDict):
+    permissionGroupId: str
+    name: NotRequired[str]
+    description: NotRequired[str]
+    applicationPermissions: NotRequired[Sequence[ApplicationPermissionType]]
+    clientToken: NotRequired[str]
 
-DataViewSummaryTypeDef = TypedDict(
-    "DataViewSummaryTypeDef",
-    {
-        "dataViewId": str,
-        "dataViewArn": str,
-        "datasetId": str,
-        "asOfTimestamp": int,
-        "partitionColumns": List[str],
-        "sortColumns": List[str],
-        "status": DataViewStatusType,
-        "errorInfo": "DataViewErrorInfoTypeDef",
-        "destinationTypeProperties": "DataViewDestinationTypeParamsTypeDef",
-        "autoUpdate": bool,
-        "createTime": int,
-        "lastModifiedTime": int,
-    },
-    total=False,
-)
-
-DatasetOwnerInfoTypeDef = TypedDict(
-    "DatasetOwnerInfoTypeDef",
-    {
-        "name": str,
-        "phoneNumber": str,
-        "email": str,
-    },
-    total=False,
-)
-
-DatasetTypeDef = TypedDict(
-    "DatasetTypeDef",
-    {
-        "datasetId": str,
-        "datasetArn": str,
-        "datasetTitle": str,
-        "kind": DatasetKindType,
-        "datasetDescription": str,
-        "ownerInfo": "DatasetOwnerInfoTypeDef",
-        "createTime": int,
-        "lastModifiedTime": int,
-        "schemaDefinition": "SchemaUnionTypeDef",
-        "alias": str,
-    },
-    total=False,
-)
-
-_RequiredDeleteDatasetRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteDatasetRequestRequestTypeDef",
-    {
-        "datasetId": str,
-    },
-)
-_OptionalDeleteDatasetRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteDatasetRequestRequestTypeDef",
-    {
-        "clientToken": str,
-    },
-    total=False,
-)
-
-class DeleteDatasetRequestRequestTypeDef(
-    _RequiredDeleteDatasetRequestRequestTypeDef, _OptionalDeleteDatasetRequestRequestTypeDef
-):
-    pass
-
-DeleteDatasetResponseTypeDef = TypedDict(
-    "DeleteDatasetResponseTypeDef",
-    {
-        "datasetId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDeletePermissionGroupRequestRequestTypeDef = TypedDict(
-    "_RequiredDeletePermissionGroupRequestRequestTypeDef",
-    {
-        "permissionGroupId": str,
-    },
-)
-_OptionalDeletePermissionGroupRequestRequestTypeDef = TypedDict(
-    "_OptionalDeletePermissionGroupRequestRequestTypeDef",
-    {
-        "clientToken": str,
-    },
-    total=False,
-)
-
-class DeletePermissionGroupRequestRequestTypeDef(
-    _RequiredDeletePermissionGroupRequestRequestTypeDef,
-    _OptionalDeletePermissionGroupRequestRequestTypeDef,
-):
-    pass
-
-DeletePermissionGroupResponseTypeDef = TypedDict(
-    "DeletePermissionGroupResponseTypeDef",
-    {
-        "permissionGroupId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDisableUserRequestRequestTypeDef = TypedDict(
-    "_RequiredDisableUserRequestRequestTypeDef",
-    {
-        "userId": str,
-    },
-)
-_OptionalDisableUserRequestRequestTypeDef = TypedDict(
-    "_OptionalDisableUserRequestRequestTypeDef",
-    {
-        "clientToken": str,
-    },
-    total=False,
-)
-
-class DisableUserRequestRequestTypeDef(
-    _RequiredDisableUserRequestRequestTypeDef, _OptionalDisableUserRequestRequestTypeDef
-):
-    pass
-
-DisableUserResponseTypeDef = TypedDict(
-    "DisableUserResponseTypeDef",
-    {
-        "userId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDisassociateUserFromPermissionGroupRequestRequestTypeDef = TypedDict(
-    "_RequiredDisassociateUserFromPermissionGroupRequestRequestTypeDef",
-    {
-        "permissionGroupId": str,
-        "userId": str,
-    },
-)
-_OptionalDisassociateUserFromPermissionGroupRequestRequestTypeDef = TypedDict(
-    "_OptionalDisassociateUserFromPermissionGroupRequestRequestTypeDef",
-    {
-        "clientToken": str,
-    },
-    total=False,
-)
-
-class DisassociateUserFromPermissionGroupRequestRequestTypeDef(
-    _RequiredDisassociateUserFromPermissionGroupRequestRequestTypeDef,
-    _OptionalDisassociateUserFromPermissionGroupRequestRequestTypeDef,
-):
-    pass
-
-DisassociateUserFromPermissionGroupResponseTypeDef = TypedDict(
-    "DisassociateUserFromPermissionGroupResponseTypeDef",
-    {
-        "statusCode": int,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredEnableUserRequestRequestTypeDef = TypedDict(
-    "_RequiredEnableUserRequestRequestTypeDef",
+UpdateUserRequestTypeDef = TypedDict(
+    "UpdateUserRequestTypeDef",
     {
         "userId": str,
-    },
-)
-_OptionalEnableUserRequestRequestTypeDef = TypedDict(
-    "_OptionalEnableUserRequestRequestTypeDef",
-    {
-        "clientToken": str,
-    },
-    total=False,
-)
-
-class EnableUserRequestRequestTypeDef(
-    _RequiredEnableUserRequestRequestTypeDef, _OptionalEnableUserRequestRequestTypeDef
-):
-    pass
-
-EnableUserResponseTypeDef = TypedDict(
-    "EnableUserResponseTypeDef",
-    {
-        "userId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "type": NotRequired[UserTypeType],
+        "firstName": NotRequired[str],
+        "lastName": NotRequired[str],
+        "apiAccess": NotRequired[ApiAccessType],
+        "apiAccessPrincipalArn": NotRequired[str],
+        "clientToken": NotRequired[str],
     },
 )
 
-GetChangesetRequestRequestTypeDef = TypedDict(
-    "GetChangesetRequestRequestTypeDef",
-    {
-        "datasetId": str,
-        "changesetId": str,
-    },
-)
+class AssociateUserToPermissionGroupResponseTypeDef(TypedDict):
+    statusCode: int
+    ResponseMetadata: ResponseMetadataTypeDef
 
-GetChangesetResponseTypeDef = TypedDict(
-    "GetChangesetResponseTypeDef",
-    {
-        "changesetId": str,
-        "changesetArn": str,
-        "datasetId": str,
-        "changeType": ChangeTypeType,
-        "sourceParams": Dict[str, str],
-        "formatParams": Dict[str, str],
-        "createTime": int,
-        "status": IngestionStatusType,
-        "errorInfo": "ChangesetErrorInfoTypeDef",
-        "activeUntilTimestamp": int,
-        "activeFromTimestamp": int,
-        "updatesChangesetId": str,
-        "updatedByChangesetId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CreateChangesetResponseTypeDef(TypedDict):
+    datasetId: str
+    changesetId: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-GetDataViewRequestRequestTypeDef = TypedDict(
-    "GetDataViewRequestRequestTypeDef",
-    {
-        "dataViewId": str,
-        "datasetId": str,
-    },
-)
+class CreateDataViewResponseTypeDef(TypedDict):
+    datasetId: str
+    dataViewId: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-GetDataViewResponseTypeDef = TypedDict(
-    "GetDataViewResponseTypeDef",
-    {
-        "autoUpdate": bool,
-        "partitionColumns": List[str],
-        "datasetId": str,
-        "asOfTimestamp": int,
-        "errorInfo": "DataViewErrorInfoTypeDef",
-        "lastModifiedTime": int,
-        "createTime": int,
-        "sortColumns": List[str],
-        "dataViewId": str,
-        "dataViewArn": str,
-        "destinationTypeParams": "DataViewDestinationTypeParamsTypeDef",
-        "status": DataViewStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CreateDatasetResponseTypeDef(TypedDict):
+    datasetId: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-GetDatasetRequestRequestTypeDef = TypedDict(
-    "GetDatasetRequestRequestTypeDef",
-    {
-        "datasetId": str,
-    },
-)
+class CreatePermissionGroupResponseTypeDef(TypedDict):
+    permissionGroupId: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-GetDatasetResponseTypeDef = TypedDict(
-    "GetDatasetResponseTypeDef",
-    {
-        "datasetId": str,
-        "datasetArn": str,
-        "datasetTitle": str,
-        "kind": DatasetKindType,
-        "datasetDescription": str,
-        "createTime": int,
-        "lastModifiedTime": int,
-        "schemaDefinition": "SchemaUnionTypeDef",
-        "alias": str,
-        "status": DatasetStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CreateUserResponseTypeDef(TypedDict):
+    userId: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-GetExternalDataViewAccessDetailsRequestRequestTypeDef = TypedDict(
-    "GetExternalDataViewAccessDetailsRequestRequestTypeDef",
-    {
-        "dataViewId": str,
-        "datasetId": str,
-    },
-)
+class DeleteDatasetResponseTypeDef(TypedDict):
+    datasetId: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-GetExternalDataViewAccessDetailsResponseTypeDef = TypedDict(
-    "GetExternalDataViewAccessDetailsResponseTypeDef",
-    {
-        "credentials": "AwsCredentialsTypeDef",
-        "s3Location": "S3LocationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DeletePermissionGroupResponseTypeDef(TypedDict):
+    permissionGroupId: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-GetPermissionGroupRequestRequestTypeDef = TypedDict(
-    "GetPermissionGroupRequestRequestTypeDef",
-    {
-        "permissionGroupId": str,
-    },
-)
+class DisableUserResponseTypeDef(TypedDict):
+    userId: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-GetPermissionGroupResponseTypeDef = TypedDict(
-    "GetPermissionGroupResponseTypeDef",
-    {
-        "permissionGroup": "PermissionGroupTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DisassociateUserFromPermissionGroupResponseTypeDef(TypedDict):
+    statusCode: int
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredGetProgrammaticAccessCredentialsRequestRequestTypeDef = TypedDict(
-    "_RequiredGetProgrammaticAccessCredentialsRequestRequestTypeDef",
-    {
-        "environmentId": str,
-    },
-)
-_OptionalGetProgrammaticAccessCredentialsRequestRequestTypeDef = TypedDict(
-    "_OptionalGetProgrammaticAccessCredentialsRequestRequestTypeDef",
-    {
-        "durationInMinutes": int,
-    },
-    total=False,
-)
-
-class GetProgrammaticAccessCredentialsRequestRequestTypeDef(
-    _RequiredGetProgrammaticAccessCredentialsRequestRequestTypeDef,
-    _OptionalGetProgrammaticAccessCredentialsRequestRequestTypeDef,
-):
-    pass
-
-GetProgrammaticAccessCredentialsResponseTypeDef = TypedDict(
-    "GetProgrammaticAccessCredentialsResponseTypeDef",
-    {
-        "credentials": "CredentialsTypeDef",
-        "durationInMinutes": int,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetUserRequestRequestTypeDef = TypedDict(
-    "GetUserRequestRequestTypeDef",
-    {
-        "userId": str,
-    },
-)
+class EnableUserResponseTypeDef(TypedDict):
+    userId: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
 GetUserResponseTypeDef = TypedDict(
     "GetUserResponseTypeDef",
@@ -747,494 +454,237 @@ GetUserResponseTypeDef = TypedDict(
         "lastDisabledTime": int,
         "lastModifiedTime": int,
         "lastLoginTime": int,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
 
-GetWorkingLocationRequestRequestTypeDef = TypedDict(
-    "GetWorkingLocationRequestRequestTypeDef",
-    {
-        "locationType": locationTypeType,
-    },
-    total=False,
-)
+class GetWorkingLocationResponseTypeDef(TypedDict):
+    s3Uri: str
+    s3Path: str
+    s3Bucket: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-GetWorkingLocationResponseTypeDef = TypedDict(
-    "GetWorkingLocationResponseTypeDef",
-    {
-        "s3Uri": str,
-        "s3Path": str,
-        "s3Bucket": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ResetUserPasswordResponseTypeDef(TypedDict):
+    userId: str
+    temporaryPassword: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredListChangesetsRequestRequestTypeDef = TypedDict(
-    "_RequiredListChangesetsRequestRequestTypeDef",
-    {
-        "datasetId": str,
-    },
-)
-_OptionalListChangesetsRequestRequestTypeDef = TypedDict(
-    "_OptionalListChangesetsRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
+class UpdateChangesetResponseTypeDef(TypedDict):
+    changesetId: str
+    datasetId: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class ListChangesetsRequestRequestTypeDef(
-    _RequiredListChangesetsRequestRequestTypeDef, _OptionalListChangesetsRequestRequestTypeDef
-):
-    pass
+class UpdateDatasetResponseTypeDef(TypedDict):
+    datasetId: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ListChangesetsResponseTypeDef = TypedDict(
-    "ListChangesetsResponseTypeDef",
-    {
-        "changesets": List["ChangesetSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class UpdatePermissionGroupResponseTypeDef(TypedDict):
+    permissionGroupId: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredListDataViewsRequestRequestTypeDef = TypedDict(
-    "_RequiredListDataViewsRequestRequestTypeDef",
-    {
-        "datasetId": str,
-    },
-)
-_OptionalListDataViewsRequestRequestTypeDef = TypedDict(
-    "_OptionalListDataViewsRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
+class UpdateUserResponseTypeDef(TypedDict):
+    userId: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class ListDataViewsRequestRequestTypeDef(
-    _RequiredListDataViewsRequestRequestTypeDef, _OptionalListDataViewsRequestRequestTypeDef
-):
-    pass
+class ChangesetSummaryTypeDef(TypedDict):
+    changesetId: NotRequired[str]
+    changesetArn: NotRequired[str]
+    datasetId: NotRequired[str]
+    changeType: NotRequired[ChangeTypeType]
+    sourceParams: NotRequired[Dict[str, str]]
+    formatParams: NotRequired[Dict[str, str]]
+    createTime: NotRequired[int]
+    status: NotRequired[IngestionStatusType]
+    errorInfo: NotRequired[ChangesetErrorInfoTypeDef]
+    activeUntilTimestamp: NotRequired[int]
+    activeFromTimestamp: NotRequired[int]
+    updatesChangesetId: NotRequired[str]
+    updatedByChangesetId: NotRequired[str]
 
-ListDataViewsResponseTypeDef = TypedDict(
-    "ListDataViewsResponseTypeDef",
-    {
-        "nextToken": str,
-        "dataViews": List["DataViewSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetChangesetResponseTypeDef(TypedDict):
+    changesetId: str
+    changesetArn: str
+    datasetId: str
+    changeType: ChangeTypeType
+    sourceParams: Dict[str, str]
+    formatParams: Dict[str, str]
+    createTime: int
+    status: IngestionStatusType
+    errorInfo: ChangesetErrorInfoTypeDef
+    activeUntilTimestamp: int
+    activeFromTimestamp: int
+    updatesChangesetId: str
+    updatedByChangesetId: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ListDatasetsRequestRequestTypeDef = TypedDict(
-    "ListDatasetsRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
+class SchemaDefinitionOutputTypeDef(TypedDict):
+    columns: NotRequired[List[ColumnDefinitionTypeDef]]
+    primaryKeyColumns: NotRequired[List[str]]
 
-ListDatasetsResponseTypeDef = TypedDict(
-    "ListDatasetsResponseTypeDef",
-    {
-        "datasets": List["DatasetTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class SchemaDefinitionTypeDef(TypedDict):
+    columns: NotRequired[Sequence[ColumnDefinitionTypeDef]]
+    primaryKeyColumns: NotRequired[Sequence[str]]
 
-_RequiredListPermissionGroupsByUserRequestRequestTypeDef = TypedDict(
-    "_RequiredListPermissionGroupsByUserRequestRequestTypeDef",
-    {
-        "userId": str,
-        "maxResults": int,
-    },
-)
-_OptionalListPermissionGroupsByUserRequestRequestTypeDef = TypedDict(
-    "_OptionalListPermissionGroupsByUserRequestRequestTypeDef",
-    {
-        "nextToken": str,
-    },
-    total=False,
-)
+class GetProgrammaticAccessCredentialsResponseTypeDef(TypedDict):
+    credentials: CredentialsTypeDef
+    durationInMinutes: int
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class ListPermissionGroupsByUserRequestRequestTypeDef(
-    _RequiredListPermissionGroupsByUserRequestRequestTypeDef,
-    _OptionalListPermissionGroupsByUserRequestRequestTypeDef,
-):
-    pass
+DataViewDestinationTypeParamsUnionTypeDef = Union[
+    DataViewDestinationTypeParamsTypeDef, DataViewDestinationTypeParamsOutputTypeDef
+]
 
-ListPermissionGroupsByUserResponseTypeDef = TypedDict(
-    "ListPermissionGroupsByUserResponseTypeDef",
-    {
-        "permissionGroups": List["PermissionGroupByUserTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DataViewSummaryTypeDef(TypedDict):
+    dataViewId: NotRequired[str]
+    dataViewArn: NotRequired[str]
+    datasetId: NotRequired[str]
+    asOfTimestamp: NotRequired[int]
+    partitionColumns: NotRequired[List[str]]
+    sortColumns: NotRequired[List[str]]
+    status: NotRequired[DataViewStatusType]
+    errorInfo: NotRequired[DataViewErrorInfoTypeDef]
+    destinationTypeProperties: NotRequired[DataViewDestinationTypeParamsOutputTypeDef]
+    autoUpdate: NotRequired[bool]
+    createTime: NotRequired[int]
+    lastModifiedTime: NotRequired[int]
 
-_RequiredListPermissionGroupsRequestRequestTypeDef = TypedDict(
-    "_RequiredListPermissionGroupsRequestRequestTypeDef",
-    {
-        "maxResults": int,
-    },
-)
-_OptionalListPermissionGroupsRequestRequestTypeDef = TypedDict(
-    "_OptionalListPermissionGroupsRequestRequestTypeDef",
-    {
-        "nextToken": str,
-    },
-    total=False,
-)
+class GetDataViewResponseTypeDef(TypedDict):
+    autoUpdate: bool
+    partitionColumns: List[str]
+    datasetId: str
+    asOfTimestamp: int
+    errorInfo: DataViewErrorInfoTypeDef
+    lastModifiedTime: int
+    createTime: int
+    sortColumns: List[str]
+    dataViewId: str
+    dataViewArn: str
+    destinationTypeParams: DataViewDestinationTypeParamsOutputTypeDef
+    status: DataViewStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class ListPermissionGroupsRequestRequestTypeDef(
-    _RequiredListPermissionGroupsRequestRequestTypeDef,
-    _OptionalListPermissionGroupsRequestRequestTypeDef,
-):
-    pass
+class GetExternalDataViewAccessDetailsResponseTypeDef(TypedDict):
+    credentials: AwsCredentialsTypeDef
+    s3Location: S3LocationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ListPermissionGroupsResponseTypeDef = TypedDict(
-    "ListPermissionGroupsResponseTypeDef",
-    {
-        "permissionGroups": List["PermissionGroupTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetPermissionGroupResponseTypeDef(TypedDict):
+    permissionGroup: PermissionGroupTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredListUsersByPermissionGroupRequestRequestTypeDef = TypedDict(
-    "_RequiredListUsersByPermissionGroupRequestRequestTypeDef",
-    {
-        "permissionGroupId": str,
-        "maxResults": int,
-    },
-)
-_OptionalListUsersByPermissionGroupRequestRequestTypeDef = TypedDict(
-    "_OptionalListUsersByPermissionGroupRequestRequestTypeDef",
-    {
-        "nextToken": str,
-    },
-    total=False,
-)
+class ListPermissionGroupsResponseTypeDef(TypedDict):
+    permissionGroups: List[PermissionGroupTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-class ListUsersByPermissionGroupRequestRequestTypeDef(
-    _RequiredListUsersByPermissionGroupRequestRequestTypeDef,
-    _OptionalListUsersByPermissionGroupRequestRequestTypeDef,
-):
-    pass
+class ListChangesetsRequestPaginateTypeDef(TypedDict):
+    datasetId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-ListUsersByPermissionGroupResponseTypeDef = TypedDict(
-    "ListUsersByPermissionGroupResponseTypeDef",
-    {
-        "users": List["UserByPermissionGroupTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListDataViewsRequestPaginateTypeDef(TypedDict):
+    datasetId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-_RequiredListUsersRequestRequestTypeDef = TypedDict(
-    "_RequiredListUsersRequestRequestTypeDef",
-    {
-        "maxResults": int,
-    },
-)
-_OptionalListUsersRequestRequestTypeDef = TypedDict(
-    "_OptionalListUsersRequestRequestTypeDef",
-    {
-        "nextToken": str,
-    },
-    total=False,
-)
+class ListDatasetsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-class ListUsersRequestRequestTypeDef(
-    _RequiredListUsersRequestRequestTypeDef, _OptionalListUsersRequestRequestTypeDef
-):
-    pass
+class ListPermissionGroupsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-ListUsersResponseTypeDef = TypedDict(
-    "ListUsersResponseTypeDef",
-    {
-        "users": List["UserTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListUsersRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
+class ListPermissionGroupsByUserResponseTypeDef(TypedDict):
+    permissionGroups: List[PermissionGroupByUserTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-PermissionGroupByUserTypeDef = TypedDict(
-    "PermissionGroupByUserTypeDef",
-    {
-        "permissionGroupId": str,
-        "name": str,
-        "membershipStatus": PermissionGroupMembershipStatusType,
-    },
-    total=False,
-)
+class ListUsersByPermissionGroupResponseTypeDef(TypedDict):
+    users: List[UserByPermissionGroupTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-PermissionGroupParamsTypeDef = TypedDict(
-    "PermissionGroupParamsTypeDef",
-    {
-        "permissionGroupId": str,
-        "datasetPermissions": List["ResourcePermissionTypeDef"],
-    },
-    total=False,
-)
+class ListUsersResponseTypeDef(TypedDict):
+    users: List[UserTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-PermissionGroupTypeDef = TypedDict(
-    "PermissionGroupTypeDef",
-    {
-        "permissionGroupId": str,
-        "name": str,
-        "description": str,
-        "applicationPermissions": List[ApplicationPermissionType],
-        "createTime": int,
-        "lastModifiedTime": int,
-        "membershipStatus": PermissionGroupMembershipStatusType,
-    },
-    total=False,
-)
+class PermissionGroupParamsTypeDef(TypedDict):
+    permissionGroupId: NotRequired[str]
+    datasetPermissions: NotRequired[Sequence[ResourcePermissionTypeDef]]
 
-_RequiredResetUserPasswordRequestRequestTypeDef = TypedDict(
-    "_RequiredResetUserPasswordRequestRequestTypeDef",
-    {
-        "userId": str,
-    },
-)
-_OptionalResetUserPasswordRequestRequestTypeDef = TypedDict(
-    "_OptionalResetUserPasswordRequestRequestTypeDef",
-    {
-        "clientToken": str,
-    },
-    total=False,
-)
+class ListChangesetsResponseTypeDef(TypedDict):
+    changesets: List[ChangesetSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-class ResetUserPasswordRequestRequestTypeDef(
-    _RequiredResetUserPasswordRequestRequestTypeDef, _OptionalResetUserPasswordRequestRequestTypeDef
-):
-    pass
+class SchemaUnionOutputTypeDef(TypedDict):
+    tabularSchemaConfig: NotRequired[SchemaDefinitionOutputTypeDef]
 
-ResetUserPasswordResponseTypeDef = TypedDict(
-    "ResetUserPasswordResponseTypeDef",
-    {
-        "userId": str,
-        "temporaryPassword": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class SchemaUnionTypeDef(TypedDict):
+    tabularSchemaConfig: NotRequired[SchemaDefinitionTypeDef]
 
-ResourcePermissionTypeDef = TypedDict(
-    "ResourcePermissionTypeDef",
-    {
-        "permission": str,
-    },
-    total=False,
-)
+class CreateDataViewRequestTypeDef(TypedDict):
+    datasetId: str
+    destinationTypeParams: DataViewDestinationTypeParamsUnionTypeDef
+    clientToken: NotRequired[str]
+    autoUpdate: NotRequired[bool]
+    sortColumns: NotRequired[Sequence[str]]
+    partitionColumns: NotRequired[Sequence[str]]
+    asOfTimestamp: NotRequired[int]
 
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
+class ListDataViewsResponseTypeDef(TypedDict):
+    dataViews: List[DataViewSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-S3LocationTypeDef = TypedDict(
-    "S3LocationTypeDef",
-    {
-        "bucket": str,
-        "key": str,
-    },
-)
+class DatasetTypeDef(TypedDict):
+    datasetId: NotRequired[str]
+    datasetArn: NotRequired[str]
+    datasetTitle: NotRequired[str]
+    kind: NotRequired[DatasetKindType]
+    datasetDescription: NotRequired[str]
+    ownerInfo: NotRequired[DatasetOwnerInfoTypeDef]
+    createTime: NotRequired[int]
+    lastModifiedTime: NotRequired[int]
+    schemaDefinition: NotRequired[SchemaUnionOutputTypeDef]
+    alias: NotRequired[str]
 
-SchemaDefinitionTypeDef = TypedDict(
-    "SchemaDefinitionTypeDef",
-    {
-        "columns": List["ColumnDefinitionTypeDef"],
-        "primaryKeyColumns": List[str],
-    },
-    total=False,
-)
+class GetDatasetResponseTypeDef(TypedDict):
+    datasetId: str
+    datasetArn: str
+    datasetTitle: str
+    kind: DatasetKindType
+    datasetDescription: str
+    createTime: int
+    lastModifiedTime: int
+    schemaDefinition: SchemaUnionOutputTypeDef
+    alias: str
+    status: DatasetStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
 
-SchemaUnionTypeDef = TypedDict(
-    "SchemaUnionTypeDef",
-    {
-        "tabularSchemaConfig": "SchemaDefinitionTypeDef",
-    },
-    total=False,
-)
+SchemaUnionUnionTypeDef = Union[SchemaUnionTypeDef, SchemaUnionOutputTypeDef]
 
-_RequiredUpdateChangesetRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateChangesetRequestRequestTypeDef",
-    {
-        "datasetId": str,
-        "changesetId": str,
-        "sourceParams": Dict[str, str],
-        "formatParams": Dict[str, str],
-    },
-)
-_OptionalUpdateChangesetRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateChangesetRequestRequestTypeDef",
-    {
-        "clientToken": str,
-    },
-    total=False,
-)
+class ListDatasetsResponseTypeDef(TypedDict):
+    datasets: List[DatasetTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-class UpdateChangesetRequestRequestTypeDef(
-    _RequiredUpdateChangesetRequestRequestTypeDef, _OptionalUpdateChangesetRequestRequestTypeDef
-):
-    pass
+class CreateDatasetRequestTypeDef(TypedDict):
+    datasetTitle: str
+    kind: DatasetKindType
+    permissionGroupParams: PermissionGroupParamsTypeDef
+    clientToken: NotRequired[str]
+    datasetDescription: NotRequired[str]
+    ownerInfo: NotRequired[DatasetOwnerInfoTypeDef]
+    alias: NotRequired[str]
+    schemaDefinition: NotRequired[SchemaUnionUnionTypeDef]
 
-UpdateChangesetResponseTypeDef = TypedDict(
-    "UpdateChangesetResponseTypeDef",
-    {
-        "changesetId": str,
-        "datasetId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateDatasetRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateDatasetRequestRequestTypeDef",
-    {
-        "datasetId": str,
-        "datasetTitle": str,
-        "kind": DatasetKindType,
-    },
-)
-_OptionalUpdateDatasetRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateDatasetRequestRequestTypeDef",
-    {
-        "clientToken": str,
-        "datasetDescription": str,
-        "alias": str,
-        "schemaDefinition": "SchemaUnionTypeDef",
-    },
-    total=False,
-)
-
-class UpdateDatasetRequestRequestTypeDef(
-    _RequiredUpdateDatasetRequestRequestTypeDef, _OptionalUpdateDatasetRequestRequestTypeDef
-):
-    pass
-
-UpdateDatasetResponseTypeDef = TypedDict(
-    "UpdateDatasetResponseTypeDef",
-    {
-        "datasetId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdatePermissionGroupRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdatePermissionGroupRequestRequestTypeDef",
-    {
-        "permissionGroupId": str,
-    },
-)
-_OptionalUpdatePermissionGroupRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdatePermissionGroupRequestRequestTypeDef",
-    {
-        "name": str,
-        "description": str,
-        "applicationPermissions": List[ApplicationPermissionType],
-        "clientToken": str,
-    },
-    total=False,
-)
-
-class UpdatePermissionGroupRequestRequestTypeDef(
-    _RequiredUpdatePermissionGroupRequestRequestTypeDef,
-    _OptionalUpdatePermissionGroupRequestRequestTypeDef,
-):
-    pass
-
-UpdatePermissionGroupResponseTypeDef = TypedDict(
-    "UpdatePermissionGroupResponseTypeDef",
-    {
-        "permissionGroupId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateUserRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateUserRequestRequestTypeDef",
-    {
-        "userId": str,
-    },
-)
-_OptionalUpdateUserRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateUserRequestRequestTypeDef",
-    {
-        "type": UserTypeType,
-        "firstName": str,
-        "lastName": str,
-        "apiAccess": ApiAccessType,
-        "apiAccessPrincipalArn": str,
-        "clientToken": str,
-    },
-    total=False,
-)
-
-class UpdateUserRequestRequestTypeDef(
-    _RequiredUpdateUserRequestRequestTypeDef, _OptionalUpdateUserRequestRequestTypeDef
-):
-    pass
-
-UpdateUserResponseTypeDef = TypedDict(
-    "UpdateUserResponseTypeDef",
-    {
-        "userId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UserByPermissionGroupTypeDef = TypedDict(
-    "UserByPermissionGroupTypeDef",
-    {
-        "userId": str,
-        "status": UserStatusType,
-        "firstName": str,
-        "lastName": str,
-        "emailAddress": str,
-        "type": UserTypeType,
-        "apiAccess": ApiAccessType,
-        "apiAccessPrincipalArn": str,
-        "membershipStatus": PermissionGroupMembershipStatusType,
-    },
-    total=False,
-)
-
-UserTypeDef = TypedDict(
-    "UserTypeDef",
-    {
-        "userId": str,
-        "status": UserStatusType,
-        "firstName": str,
-        "lastName": str,
-        "emailAddress": str,
-        "type": UserTypeType,
-        "apiAccess": ApiAccessType,
-        "apiAccessPrincipalArn": str,
-        "createTime": int,
-        "lastEnabledTime": int,
-        "lastDisabledTime": int,
-        "lastModifiedTime": int,
-        "lastLoginTime": int,
-    },
-    total=False,
-)
+class UpdateDatasetRequestTypeDef(TypedDict):
+    datasetId: str
+    datasetTitle: str
+    kind: DatasetKindType
+    clientToken: NotRequired[str]
+    datasetDescription: NotRequired[str]
+    alias: NotRequired[str]
+    schemaDefinition: NotRequired[SchemaUnionUnionTypeDef]

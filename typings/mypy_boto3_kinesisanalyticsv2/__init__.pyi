@@ -1,10 +1,14 @@
 """
 Main interface for kinesisanalyticsv2 service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kinesisanalyticsv2/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_kinesisanalyticsv2 import (
         Client,
         KinesisAnalyticsV2Client,
@@ -14,10 +18,8 @@ Usage::
         ListApplicationsPaginator,
     )
 
-    session = boto3.Session()
-
-    client: KinesisAnalyticsV2Client = boto3.client("kinesisanalyticsv2")
-    session_client: KinesisAnalyticsV2Client = session.client("kinesisanalyticsv2")
+    session = Session()
+    client: KinesisAnalyticsV2Client = session.client("kinesisanalyticsv2")
 
     list_application_operations_paginator: ListApplicationOperationsPaginator = client.get_paginator("list_application_operations")
     list_application_snapshots_paginator: ListApplicationSnapshotsPaginator = client.get_paginator("list_application_snapshots")

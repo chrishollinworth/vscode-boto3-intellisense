@@ -1,270 +1,199 @@
 """
 Type annotations for resourcegroupstaggingapi service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resourcegroupstaggingapi/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_resourcegroupstaggingapi/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_resourcegroupstaggingapi.type_defs import ComplianceDetailsTypeDef
 
-    data: ComplianceDetailsTypeDef = {...}
+    data: ComplianceDetailsTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from typing import Any, Dict, List
 
 from .literals import ErrorCodeType, GroupByAttributeType, TargetIdTypeType
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
     "ComplianceDetailsTypeDef",
     "DescribeReportCreationOutputTypeDef",
     "FailureInfoTypeDef",
-    "GetComplianceSummaryInputRequestTypeDef",
+    "GetComplianceSummaryInputPaginateTypeDef",
+    "GetComplianceSummaryInputTypeDef",
     "GetComplianceSummaryOutputTypeDef",
-    "GetResourcesInputRequestTypeDef",
+    "GetResourcesInputPaginateTypeDef",
+    "GetResourcesInputTypeDef",
     "GetResourcesOutputTypeDef",
-    "GetTagKeysInputRequestTypeDef",
+    "GetTagKeysInputPaginateTypeDef",
+    "GetTagKeysInputTypeDef",
     "GetTagKeysOutputTypeDef",
-    "GetTagValuesInputRequestTypeDef",
+    "GetTagValuesInputPaginateTypeDef",
+    "GetTagValuesInputTypeDef",
     "GetTagValuesOutputTypeDef",
     "PaginatorConfigTypeDef",
     "ResourceTagMappingTypeDef",
     "ResponseMetadataTypeDef",
-    "StartReportCreationInputRequestTypeDef",
+    "StartReportCreationInputTypeDef",
     "SummaryTypeDef",
     "TagFilterTypeDef",
-    "TagResourcesInputRequestTypeDef",
+    "TagResourcesInputTypeDef",
     "TagResourcesOutputTypeDef",
     "TagTypeDef",
-    "UntagResourcesInputRequestTypeDef",
+    "UntagResourcesInputTypeDef",
     "UntagResourcesOutputTypeDef",
 )
 
-ComplianceDetailsTypeDef = TypedDict(
-    "ComplianceDetailsTypeDef",
-    {
-        "NoncompliantKeys": List[str],
-        "KeysWithNoncompliantValues": List[str],
-        "ComplianceStatus": bool,
-    },
-    total=False,
-)
+class ComplianceDetailsTypeDef(TypedDict):
+    NoncompliantKeys: NotRequired[List[str]]
+    KeysWithNoncompliantValues: NotRequired[List[str]]
+    ComplianceStatus: NotRequired[bool]
 
-DescribeReportCreationOutputTypeDef = TypedDict(
-    "DescribeReportCreationOutputTypeDef",
-    {
-        "Status": str,
-        "S3Location": str,
-        "ErrorMessage": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-FailureInfoTypeDef = TypedDict(
-    "FailureInfoTypeDef",
-    {
-        "StatusCode": int,
-        "ErrorCode": ErrorCodeType,
-        "ErrorMessage": str,
-    },
-    total=False,
-)
+class FailureInfoTypeDef(TypedDict):
+    StatusCode: NotRequired[int]
+    ErrorCode: NotRequired[ErrorCodeType]
+    ErrorMessage: NotRequired[str]
 
-GetComplianceSummaryInputRequestTypeDef = TypedDict(
-    "GetComplianceSummaryInputRequestTypeDef",
-    {
-        "TargetIdFilters": List[str],
-        "RegionFilters": List[str],
-        "ResourceTypeFilters": List[str],
-        "TagKeyFilters": List[str],
-        "GroupBy": List[GroupByAttributeType],
-        "MaxResults": int,
-        "PaginationToken": str,
-    },
-    total=False,
-)
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
 
-GetComplianceSummaryOutputTypeDef = TypedDict(
-    "GetComplianceSummaryOutputTypeDef",
-    {
-        "SummaryList": List["SummaryTypeDef"],
-        "PaginationToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetComplianceSummaryInputTypeDef(TypedDict):
+    TargetIdFilters: NotRequired[Sequence[str]]
+    RegionFilters: NotRequired[Sequence[str]]
+    ResourceTypeFilters: NotRequired[Sequence[str]]
+    TagKeyFilters: NotRequired[Sequence[str]]
+    GroupBy: NotRequired[Sequence[GroupByAttributeType]]
+    MaxResults: NotRequired[int]
+    PaginationToken: NotRequired[str]
 
-GetResourcesInputRequestTypeDef = TypedDict(
-    "GetResourcesInputRequestTypeDef",
-    {
-        "PaginationToken": str,
-        "TagFilters": List["TagFilterTypeDef"],
-        "ResourcesPerPage": int,
-        "TagsPerPage": int,
-        "ResourceTypeFilters": List[str],
-        "IncludeComplianceDetails": bool,
-        "ExcludeCompliantResources": bool,
-        "ResourceARNList": List[str],
-    },
-    total=False,
-)
+class SummaryTypeDef(TypedDict):
+    LastUpdated: NotRequired[str]
+    TargetId: NotRequired[str]
+    TargetIdType: NotRequired[TargetIdTypeType]
+    Region: NotRequired[str]
+    ResourceType: NotRequired[str]
+    NonCompliantResources: NotRequired[int]
 
-GetResourcesOutputTypeDef = TypedDict(
-    "GetResourcesOutputTypeDef",
-    {
-        "PaginationToken": str,
-        "ResourceTagMappingList": List["ResourceTagMappingTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class TagFilterTypeDef(TypedDict):
+    Key: NotRequired[str]
+    Values: NotRequired[Sequence[str]]
 
-GetTagKeysInputRequestTypeDef = TypedDict(
-    "GetTagKeysInputRequestTypeDef",
-    {
-        "PaginationToken": str,
-    },
-    total=False,
-)
+class GetTagKeysInputTypeDef(TypedDict):
+    PaginationToken: NotRequired[str]
 
-GetTagKeysOutputTypeDef = TypedDict(
-    "GetTagKeysOutputTypeDef",
-    {
-        "PaginationToken": str,
-        "TagKeys": List[str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetTagValuesInputTypeDef(TypedDict):
+    Key: str
+    PaginationToken: NotRequired[str]
 
-_RequiredGetTagValuesInputRequestTypeDef = TypedDict(
-    "_RequiredGetTagValuesInputRequestTypeDef",
-    {
-        "Key": str,
-    },
-)
-_OptionalGetTagValuesInputRequestTypeDef = TypedDict(
-    "_OptionalGetTagValuesInputRequestTypeDef",
-    {
-        "PaginationToken": str,
-    },
-    total=False,
-)
+class TagTypeDef(TypedDict):
+    Key: str
+    Value: str
 
-class GetTagValuesInputRequestTypeDef(
-    _RequiredGetTagValuesInputRequestTypeDef, _OptionalGetTagValuesInputRequestTypeDef
-):
-    pass
+class StartReportCreationInputTypeDef(TypedDict):
+    S3Bucket: str
 
-GetTagValuesOutputTypeDef = TypedDict(
-    "GetTagValuesOutputTypeDef",
-    {
-        "PaginationToken": str,
-        "TagValues": List[str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class TagResourcesInputTypeDef(TypedDict):
+    ResourceARNList: Sequence[str]
+    Tags: Mapping[str, str]
 
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
+class UntagResourcesInputTypeDef(TypedDict):
+    ResourceARNList: Sequence[str]
+    TagKeys: Sequence[str]
 
-ResourceTagMappingTypeDef = TypedDict(
-    "ResourceTagMappingTypeDef",
-    {
-        "ResourceARN": str,
-        "Tags": List["TagTypeDef"],
-        "ComplianceDetails": "ComplianceDetailsTypeDef",
-    },
-    total=False,
-)
+class DescribeReportCreationOutputTypeDef(TypedDict):
+    Status: str
+    S3Location: str
+    ErrorMessage: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
+class GetTagKeysOutputTypeDef(TypedDict):
+    TagKeys: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+    PaginationToken: NotRequired[str]
 
-StartReportCreationInputRequestTypeDef = TypedDict(
-    "StartReportCreationInputRequestTypeDef",
-    {
-        "S3Bucket": str,
-    },
-)
+class GetTagValuesOutputTypeDef(TypedDict):
+    TagValues: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+    PaginationToken: NotRequired[str]
 
-SummaryTypeDef = TypedDict(
-    "SummaryTypeDef",
-    {
-        "LastUpdated": str,
-        "TargetId": str,
-        "TargetIdType": TargetIdTypeType,
-        "Region": str,
-        "ResourceType": str,
-        "NonCompliantResources": int,
-    },
-    total=False,
-)
+class TagResourcesOutputTypeDef(TypedDict):
+    FailedResourcesMap: Dict[str, FailureInfoTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-TagFilterTypeDef = TypedDict(
-    "TagFilterTypeDef",
-    {
-        "Key": str,
-        "Values": List[str],
-    },
-    total=False,
-)
+class UntagResourcesOutputTypeDef(TypedDict):
+    FailedResourcesMap: Dict[str, FailureInfoTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-TagResourcesInputRequestTypeDef = TypedDict(
-    "TagResourcesInputRequestTypeDef",
-    {
-        "ResourceARNList": List[str],
-        "Tags": Dict[str, str],
-    },
-)
+class GetComplianceSummaryInputPaginateTypeDef(TypedDict):
+    TargetIdFilters: NotRequired[Sequence[str]]
+    RegionFilters: NotRequired[Sequence[str]]
+    ResourceTypeFilters: NotRequired[Sequence[str]]
+    TagKeyFilters: NotRequired[Sequence[str]]
+    GroupBy: NotRequired[Sequence[GroupByAttributeType]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-TagResourcesOutputTypeDef = TypedDict(
-    "TagResourcesOutputTypeDef",
-    {
-        "FailedResourcesMap": Dict[str, "FailureInfoTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetTagKeysInputPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-TagTypeDef = TypedDict(
-    "TagTypeDef",
-    {
-        "Key": str,
-        "Value": str,
-    },
-)
+class GetTagValuesInputPaginateTypeDef(TypedDict):
+    Key: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-UntagResourcesInputRequestTypeDef = TypedDict(
-    "UntagResourcesInputRequestTypeDef",
-    {
-        "ResourceARNList": List[str],
-        "TagKeys": List[str],
-    },
-)
+class GetComplianceSummaryOutputTypeDef(TypedDict):
+    SummaryList: List[SummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    PaginationToken: NotRequired[str]
 
-UntagResourcesOutputTypeDef = TypedDict(
-    "UntagResourcesOutputTypeDef",
-    {
-        "FailedResourcesMap": Dict[str, "FailureInfoTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetResourcesInputPaginateTypeDef(TypedDict):
+    TagFilters: NotRequired[Sequence[TagFilterTypeDef]]
+    TagsPerPage: NotRequired[int]
+    ResourceTypeFilters: NotRequired[Sequence[str]]
+    IncludeComplianceDetails: NotRequired[bool]
+    ExcludeCompliantResources: NotRequired[bool]
+    ResourceARNList: NotRequired[Sequence[str]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class GetResourcesInputTypeDef(TypedDict):
+    PaginationToken: NotRequired[str]
+    TagFilters: NotRequired[Sequence[TagFilterTypeDef]]
+    ResourcesPerPage: NotRequired[int]
+    TagsPerPage: NotRequired[int]
+    ResourceTypeFilters: NotRequired[Sequence[str]]
+    IncludeComplianceDetails: NotRequired[bool]
+    ExcludeCompliantResources: NotRequired[bool]
+    ResourceARNList: NotRequired[Sequence[str]]
+
+class ResourceTagMappingTypeDef(TypedDict):
+    ResourceARN: NotRequired[str]
+    Tags: NotRequired[List[TagTypeDef]]
+    ComplianceDetails: NotRequired[ComplianceDetailsTypeDef]
+
+class GetResourcesOutputTypeDef(TypedDict):
+    ResourceTagMappingList: List[ResourceTagMappingTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    PaginationToken: NotRequired[str]

@@ -1,14 +1,16 @@
 """
 Type annotations for route53 service client paginators.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53/paginators.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53/paginators/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
 
-    from mypy_boto3_route53 import Route53Client
+    from mypy_boto3_route53.client import Route53Client
     from mypy_boto3_route53.paginator import (
         ListCidrBlocksPaginator,
         ListCidrCollectionsPaginator,
@@ -20,7 +22,8 @@ Usage::
         ListVPCAssociationAuthorizationsPaginator,
     )
 
-    client: Route53Client = boto3.client("route53")
+    session = Session()
+    client: Route53Client = session.client("route53")
 
     list_cidr_blocks_paginator: ListCidrBlocksPaginator = client.get_paginator("list_cidr_blocks")
     list_cidr_collections_paginator: ListCidrCollectionsPaginator = client.get_paginator("list_cidr_collections")
@@ -33,27 +36,36 @@ Usage::
     ```
 """
 
-import sys
-from typing import Iterator
+from __future__ import annotations
 
-from botocore.paginate import Paginator as Boto3Paginator
+import sys
+from typing import TYPE_CHECKING
+
+from botocore.paginate import PageIterator, Paginator
 
 from .type_defs import (
+    ListCidrBlocksRequestPaginateTypeDef,
     ListCidrBlocksResponseTypeDef,
+    ListCidrCollectionsRequestPaginateTypeDef,
     ListCidrCollectionsResponseTypeDef,
+    ListCidrLocationsRequestPaginateTypeDef,
     ListCidrLocationsResponseTypeDef,
+    ListHealthChecksRequestPaginateTypeDef,
     ListHealthChecksResponseTypeDef,
+    ListHostedZonesRequestPaginateTypeDef,
     ListHostedZonesResponseTypeDef,
+    ListQueryLoggingConfigsRequestPaginateTypeDef,
     ListQueryLoggingConfigsResponseTypeDef,
+    ListResourceRecordSetsRequestPaginateTypeDef,
     ListResourceRecordSetsResponseTypeDef,
+    ListVPCAssociationAuthorizationsRequestPaginateTypeDef,
     ListVPCAssociationAuthorizationsResponseTypeDef,
-    PaginatorConfigTypeDef,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 12):
+    from typing import Unpack
 else:
-    from typing_extensions import Literal
+    from typing_extensions import Unpack
 
 __all__ = (
     "ListCidrBlocksPaginator",
@@ -66,126 +78,148 @@ __all__ = (
     "ListVPCAssociationAuthorizationsPaginator",
 )
 
-class ListCidrBlocksPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53.html#Route53.Paginator.ListCidrBlocks)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53/paginators.html#listcidrblockspaginator)
-    """
+if TYPE_CHECKING:
+    _ListCidrBlocksPaginatorBase = Paginator[ListCidrBlocksResponseTypeDef]
+else:
+    _ListCidrBlocksPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        CollectionId: str,
-        LocationName: str = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListCidrBlocksResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53.html#Route53.Paginator.ListCidrBlocks.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53/paginators.html#listcidrblockspaginator)
-        """
-
-class ListCidrCollectionsPaginator(Boto3Paginator):
+class ListCidrBlocksPaginator(_ListCidrBlocksPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53.html#Route53.Paginator.ListCidrCollections)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53/paginators.html#listcidrcollectionspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53/paginator/ListCidrBlocks.html#Route53.Paginator.ListCidrBlocks)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53/paginators/#listcidrblockspaginator)
     """
-
-    def paginate(
-        self, *, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListCidrCollectionsResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListCidrBlocksRequestPaginateTypeDef]
+    ) -> PageIterator[ListCidrBlocksResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53.html#Route53.Paginator.ListCidrCollections.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53/paginators.html#listcidrcollectionspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53/paginator/ListCidrBlocks.html#Route53.Paginator.ListCidrBlocks.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53/paginators/#listcidrblockspaginator)
         """
 
-class ListCidrLocationsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53.html#Route53.Paginator.ListCidrLocations)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53/paginators.html#listcidrlocationspaginator)
-    """
+if TYPE_CHECKING:
+    _ListCidrCollectionsPaginatorBase = Paginator[ListCidrCollectionsResponseTypeDef]
+else:
+    _ListCidrCollectionsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, CollectionId: str, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListCidrLocationsResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53.html#Route53.Paginator.ListCidrLocations.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53/paginators.html#listcidrlocationspaginator)
-        """
-
-class ListHealthChecksPaginator(Boto3Paginator):
+class ListCidrCollectionsPaginator(_ListCidrCollectionsPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53.html#Route53.Paginator.ListHealthChecks)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53/paginators.html#listhealthcheckspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53/paginator/ListCidrCollections.html#Route53.Paginator.ListCidrCollections)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53/paginators/#listcidrcollectionspaginator)
     """
-
-    def paginate(
-        self, *, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListHealthChecksResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListCidrCollectionsRequestPaginateTypeDef]
+    ) -> PageIterator[ListCidrCollectionsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53.html#Route53.Paginator.ListHealthChecks.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53/paginators.html#listhealthcheckspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53/paginator/ListCidrCollections.html#Route53.Paginator.ListCidrCollections.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53/paginators/#listcidrcollectionspaginator)
         """
 
-class ListHostedZonesPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53.html#Route53.Paginator.ListHostedZones)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53/paginators.html#listhostedzonespaginator)
-    """
+if TYPE_CHECKING:
+    _ListCidrLocationsPaginatorBase = Paginator[ListCidrLocationsResponseTypeDef]
+else:
+    _ListCidrLocationsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        DelegationSetId: str = None,
-        HostedZoneType: Literal["PrivateHostedZone"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListHostedZonesResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53.html#Route53.Paginator.ListHostedZones.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53/paginators.html#listhostedzonespaginator)
-        """
-
-class ListQueryLoggingConfigsPaginator(Boto3Paginator):
+class ListCidrLocationsPaginator(_ListCidrLocationsPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53.html#Route53.Paginator.ListQueryLoggingConfigs)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53/paginators.html#listqueryloggingconfigspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53/paginator/ListCidrLocations.html#Route53.Paginator.ListCidrLocations)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53/paginators/#listcidrlocationspaginator)
     """
-
-    def paginate(
-        self, *, HostedZoneId: str = None, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListQueryLoggingConfigsResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListCidrLocationsRequestPaginateTypeDef]
+    ) -> PageIterator[ListCidrLocationsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53.html#Route53.Paginator.ListQueryLoggingConfigs.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53/paginators.html#listqueryloggingconfigspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53/paginator/ListCidrLocations.html#Route53.Paginator.ListCidrLocations.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53/paginators/#listcidrlocationspaginator)
         """
 
-class ListResourceRecordSetsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53.html#Route53.Paginator.ListResourceRecordSets)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53/paginators.html#listresourcerecordsetspaginator)
-    """
+if TYPE_CHECKING:
+    _ListHealthChecksPaginatorBase = Paginator[ListHealthChecksResponseTypeDef]
+else:
+    _ListHealthChecksPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, HostedZoneId: str, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListResourceRecordSetsResponseTypeDef]:
+class ListHealthChecksPaginator(_ListHealthChecksPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53/paginator/ListHealthChecks.html#Route53.Paginator.ListHealthChecks)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53/paginators/#listhealthcheckspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListHealthChecksRequestPaginateTypeDef]
+    ) -> PageIterator[ListHealthChecksResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53.html#Route53.Paginator.ListResourceRecordSets.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53/paginators.html#listresourcerecordsetspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53/paginator/ListHealthChecks.html#Route53.Paginator.ListHealthChecks.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53/paginators/#listhealthcheckspaginator)
         """
 
-class ListVPCAssociationAuthorizationsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53.html#Route53.Paginator.ListVPCAssociationAuthorizations)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53/paginators.html#listvpcassociationauthorizationspaginator)
-    """
+if TYPE_CHECKING:
+    _ListHostedZonesPaginatorBase = Paginator[ListHostedZonesResponseTypeDef]
+else:
+    _ListHostedZonesPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        HostedZoneId: str,
-        MaxResults: str = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListVPCAssociationAuthorizationsResponseTypeDef]:
+class ListHostedZonesPaginator(_ListHostedZonesPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53/paginator/ListHostedZones.html#Route53.Paginator.ListHostedZones)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53/paginators/#listhostedzonespaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListHostedZonesRequestPaginateTypeDef]
+    ) -> PageIterator[ListHostedZonesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53.html#Route53.Paginator.ListVPCAssociationAuthorizations.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53/paginators.html#listvpcassociationauthorizationspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53/paginator/ListHostedZones.html#Route53.Paginator.ListHostedZones.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53/paginators/#listhostedzonespaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListQueryLoggingConfigsPaginatorBase = Paginator[ListQueryLoggingConfigsResponseTypeDef]
+else:
+    _ListQueryLoggingConfigsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListQueryLoggingConfigsPaginator(_ListQueryLoggingConfigsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53/paginator/ListQueryLoggingConfigs.html#Route53.Paginator.ListQueryLoggingConfigs)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53/paginators/#listqueryloggingconfigspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListQueryLoggingConfigsRequestPaginateTypeDef]
+    ) -> PageIterator[ListQueryLoggingConfigsResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53/paginator/ListQueryLoggingConfigs.html#Route53.Paginator.ListQueryLoggingConfigs.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53/paginators/#listqueryloggingconfigspaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListResourceRecordSetsPaginatorBase = Paginator[ListResourceRecordSetsResponseTypeDef]
+else:
+    _ListResourceRecordSetsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListResourceRecordSetsPaginator(_ListResourceRecordSetsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53/paginator/ListResourceRecordSets.html#Route53.Paginator.ListResourceRecordSets)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53/paginators/#listresourcerecordsetspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListResourceRecordSetsRequestPaginateTypeDef]
+    ) -> PageIterator[ListResourceRecordSetsResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53/paginator/ListResourceRecordSets.html#Route53.Paginator.ListResourceRecordSets.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53/paginators/#listresourcerecordsetspaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListVPCAssociationAuthorizationsPaginatorBase = Paginator[
+        ListVPCAssociationAuthorizationsResponseTypeDef
+    ]
+else:
+    _ListVPCAssociationAuthorizationsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListVPCAssociationAuthorizationsPaginator(_ListVPCAssociationAuthorizationsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53/paginator/ListVPCAssociationAuthorizations.html#Route53.Paginator.ListVPCAssociationAuthorizations)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53/paginators/#listvpcassociationauthorizationspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListVPCAssociationAuthorizationsRequestPaginateTypeDef]
+    ) -> PageIterator[ListVPCAssociationAuthorizationsResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53/paginator/ListVPCAssociationAuthorizations.html#Route53.Paginator.ListVPCAssociationAuthorizations.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53/paginators/#listvpcassociationauthorizationspaginator)
         """

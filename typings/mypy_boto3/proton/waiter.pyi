@@ -1,14 +1,16 @@
 """
 Type annotations for proton service client waiters.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/waiters.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_proton/waiters/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
 
-    from mypy_boto3_proton import ProtonClient
+    from mypy_boto3_proton.client import ProtonClient
     from mypy_boto3_proton.waiter import (
         ComponentDeletedWaiter,
         ComponentDeployedWaiter,
@@ -22,7 +24,8 @@ Usage::
         ServiceUpdatedWaiter,
     )
 
-    client: ProtonClient = boto3.client("proton")
+    session = Session()
+    client: ProtonClient = session.client("proton")
 
     component_deleted_waiter: ComponentDeletedWaiter = client.get_waiter("component_deleted")
     component_deployed_waiter: ComponentDeployedWaiter = client.get_waiter("component_deployed")
@@ -37,9 +40,29 @@ Usage::
     ```
 """
 
-from botocore.waiter import Waiter as Boto3Waiter
+from __future__ import annotations
 
-from .type_defs import WaiterConfigTypeDef
+import sys
+
+from botocore.waiter import Waiter
+
+from .type_defs import (
+    GetComponentInputWaitExtraTypeDef,
+    GetComponentInputWaitTypeDef,
+    GetEnvironmentInputWaitTypeDef,
+    GetEnvironmentTemplateVersionInputWaitTypeDef,
+    GetServiceInputWaitExtraExtraExtraTypeDef,
+    GetServiceInputWaitExtraExtraTypeDef,
+    GetServiceInputWaitExtraTypeDef,
+    GetServiceInputWaitTypeDef,
+    GetServiceInstanceInputWaitTypeDef,
+    GetServiceTemplateVersionInputWaitTypeDef,
+)
+
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = (
     "ComponentDeletedWaiter",
@@ -54,138 +77,132 @@ __all__ = (
     "ServiceUpdatedWaiter",
 )
 
-class ComponentDeletedWaiter(Boto3Waiter):
+class ComponentDeletedWaiter(Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Waiter.ComponentDeleted)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/waiters.html#componentdeletedwaiter)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/proton/waiter/ComponentDeleted.html#Proton.Waiter.ComponentDeleted)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_proton/waiters/#componentdeletedwaiter)
     """
-
-    def wait(self, *, name: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Waiter.ComponentDeleted.wait)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/waiters.html#componentdeletedwaiter)
-        """
-
-class ComponentDeployedWaiter(Boto3Waiter):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Waiter.ComponentDeployed)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/waiters.html#componentdeployedwaiter)
-    """
-
-    def wait(self, *, name: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Waiter.ComponentDeployed.wait)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/waiters.html#componentdeployedwaiter)
-        """
-
-class EnvironmentDeployedWaiter(Boto3Waiter):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Waiter.EnvironmentDeployed)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/waiters.html#environmentdeployedwaiter)
-    """
-
-    def wait(self, *, name: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Waiter.EnvironmentDeployed.wait)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/waiters.html#environmentdeployedwaiter)
-        """
-
-class EnvironmentTemplateVersionRegisteredWaiter(Boto3Waiter):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Waiter.EnvironmentTemplateVersionRegistered)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/waiters.html#environmenttemplateversionregisteredwaiter)
-    """
-
-    def wait(
-        self,
-        *,
-        majorVersion: str,
-        minorVersion: str,
-        templateName: str,
-        WaiterConfig: WaiterConfigTypeDef = None
+    def wait(  # type: ignore[override]
+        self, **kwargs: Unpack[GetComponentInputWaitTypeDef]
     ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Waiter.EnvironmentTemplateVersionRegistered.wait)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/waiters.html#environmenttemplateversionregisteredwaiter)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/proton/waiter/ComponentDeleted.html#Proton.Waiter.ComponentDeleted.wait)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_proton/waiters/#componentdeletedwaiter)
         """
 
-class ServiceCreatedWaiter(Boto3Waiter):
+class ComponentDeployedWaiter(Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Waiter.ServiceCreated)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/waiters.html#servicecreatedwaiter)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/proton/waiter/ComponentDeployed.html#Proton.Waiter.ComponentDeployed)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_proton/waiters/#componentdeployedwaiter)
     """
-
-    def wait(self, *, name: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Waiter.ServiceCreated.wait)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/waiters.html#servicecreatedwaiter)
-        """
-
-class ServiceDeletedWaiter(Boto3Waiter):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Waiter.ServiceDeleted)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/waiters.html#servicedeletedwaiter)
-    """
-
-    def wait(self, *, name: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Waiter.ServiceDeleted.wait)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/waiters.html#servicedeletedwaiter)
-        """
-
-class ServiceInstanceDeployedWaiter(Boto3Waiter):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Waiter.ServiceInstanceDeployed)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/waiters.html#serviceinstancedeployedwaiter)
-    """
-
-    def wait(
-        self, *, name: str, serviceName: str, WaiterConfig: WaiterConfigTypeDef = None
+    def wait(  # type: ignore[override]
+        self, **kwargs: Unpack[GetComponentInputWaitExtraTypeDef]
     ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Waiter.ServiceInstanceDeployed.wait)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/waiters.html#serviceinstancedeployedwaiter)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/proton/waiter/ComponentDeployed.html#Proton.Waiter.ComponentDeployed.wait)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_proton/waiters/#componentdeployedwaiter)
         """
 
-class ServicePipelineDeployedWaiter(Boto3Waiter):
+class EnvironmentDeployedWaiter(Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Waiter.ServicePipelineDeployed)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/waiters.html#servicepipelinedeployedwaiter)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/proton/waiter/EnvironmentDeployed.html#Proton.Waiter.EnvironmentDeployed)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_proton/waiters/#environmentdeployedwaiter)
     """
-
-    def wait(self, *, name: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Waiter.ServicePipelineDeployed.wait)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/waiters.html#servicepipelinedeployedwaiter)
-        """
-
-class ServiceTemplateVersionRegisteredWaiter(Boto3Waiter):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Waiter.ServiceTemplateVersionRegistered)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/waiters.html#servicetemplateversionregisteredwaiter)
-    """
-
-    def wait(
-        self,
-        *,
-        majorVersion: str,
-        minorVersion: str,
-        templateName: str,
-        WaiterConfig: WaiterConfigTypeDef = None
+    def wait(  # type: ignore[override]
+        self, **kwargs: Unpack[GetEnvironmentInputWaitTypeDef]
     ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Waiter.ServiceTemplateVersionRegistered.wait)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/waiters.html#servicetemplateversionregisteredwaiter)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/proton/waiter/EnvironmentDeployed.html#Proton.Waiter.EnvironmentDeployed.wait)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_proton/waiters/#environmentdeployedwaiter)
         """
 
-class ServiceUpdatedWaiter(Boto3Waiter):
+class EnvironmentTemplateVersionRegisteredWaiter(Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Waiter.ServiceUpdated)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/waiters.html#serviceupdatedwaiter)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/proton/waiter/EnvironmentTemplateVersionRegistered.html#Proton.Waiter.EnvironmentTemplateVersionRegistered)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_proton/waiters/#environmenttemplateversionregisteredwaiter)
     """
-
-    def wait(self, *, name: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
+    def wait(  # type: ignore[override]
+        self, **kwargs: Unpack[GetEnvironmentTemplateVersionInputWaitTypeDef]
+    ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/proton.html#Proton.Waiter.ServiceUpdated.wait)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/waiters.html#serviceupdatedwaiter)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/proton/waiter/EnvironmentTemplateVersionRegistered.html#Proton.Waiter.EnvironmentTemplateVersionRegistered.wait)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_proton/waiters/#environmenttemplateversionregisteredwaiter)
+        """
+
+class ServiceCreatedWaiter(Waiter):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/proton/waiter/ServiceCreated.html#Proton.Waiter.ServiceCreated)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_proton/waiters/#servicecreatedwaiter)
+    """
+    def wait(  # type: ignore[override]
+        self, **kwargs: Unpack[GetServiceInputWaitTypeDef]
+    ) -> None:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/proton/waiter/ServiceCreated.html#Proton.Waiter.ServiceCreated.wait)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_proton/waiters/#servicecreatedwaiter)
+        """
+
+class ServiceDeletedWaiter(Waiter):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/proton/waiter/ServiceDeleted.html#Proton.Waiter.ServiceDeleted)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_proton/waiters/#servicedeletedwaiter)
+    """
+    def wait(  # type: ignore[override]
+        self, **kwargs: Unpack[GetServiceInputWaitExtraTypeDef]
+    ) -> None:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/proton/waiter/ServiceDeleted.html#Proton.Waiter.ServiceDeleted.wait)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_proton/waiters/#servicedeletedwaiter)
+        """
+
+class ServiceInstanceDeployedWaiter(Waiter):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/proton/waiter/ServiceInstanceDeployed.html#Proton.Waiter.ServiceInstanceDeployed)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_proton/waiters/#serviceinstancedeployedwaiter)
+    """
+    def wait(  # type: ignore[override]
+        self, **kwargs: Unpack[GetServiceInstanceInputWaitTypeDef]
+    ) -> None:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/proton/waiter/ServiceInstanceDeployed.html#Proton.Waiter.ServiceInstanceDeployed.wait)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_proton/waiters/#serviceinstancedeployedwaiter)
+        """
+
+class ServicePipelineDeployedWaiter(Waiter):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/proton/waiter/ServicePipelineDeployed.html#Proton.Waiter.ServicePipelineDeployed)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_proton/waiters/#servicepipelinedeployedwaiter)
+    """
+    def wait(  # type: ignore[override]
+        self, **kwargs: Unpack[GetServiceInputWaitExtraExtraTypeDef]
+    ) -> None:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/proton/waiter/ServicePipelineDeployed.html#Proton.Waiter.ServicePipelineDeployed.wait)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_proton/waiters/#servicepipelinedeployedwaiter)
+        """
+
+class ServiceTemplateVersionRegisteredWaiter(Waiter):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/proton/waiter/ServiceTemplateVersionRegistered.html#Proton.Waiter.ServiceTemplateVersionRegistered)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_proton/waiters/#servicetemplateversionregisteredwaiter)
+    """
+    def wait(  # type: ignore[override]
+        self, **kwargs: Unpack[GetServiceTemplateVersionInputWaitTypeDef]
+    ) -> None:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/proton/waiter/ServiceTemplateVersionRegistered.html#Proton.Waiter.ServiceTemplateVersionRegistered.wait)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_proton/waiters/#servicetemplateversionregisteredwaiter)
+        """
+
+class ServiceUpdatedWaiter(Waiter):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/proton/waiter/ServiceUpdated.html#Proton.Waiter.ServiceUpdated)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_proton/waiters/#serviceupdatedwaiter)
+    """
+    def wait(  # type: ignore[override]
+        self, **kwargs: Unpack[GetServiceInputWaitExtraExtraExtraTypeDef]
+    ) -> None:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/proton/waiter/ServiceUpdated.html#Proton.Waiter.ServiceUpdated.wait)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_proton/waiters/#serviceupdatedwaiter)
         """

@@ -1,10 +1,14 @@
 """
 Main interface for iam service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iam/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_iam import (
         Client,
         GetAccountAuthorizationDetailsPaginator,
@@ -50,13 +54,10 @@ Usage::
         UserExistsWaiter,
     )
 
-    session = boto3.Session()
+    session = Session()
+    client: IAMClient = session.client("iam")
 
-    client: IAMClient = boto3.client("iam")
-    session_client: IAMClient = session.client("iam")
-
-    resource: IAMServiceResource = boto3.resource("iam")
-    session_resource: IAMServiceResource = session.resource("iam")
+    resource: IAMServiceResource = session.resource("iam")
 
     instance_profile_exists_waiter: InstanceProfileExistsWaiter = client.get_waiter("instance_profile_exists")
     policy_exists_waiter: PolicyExistsWaiter = client.get_waiter("policy_exists")
@@ -72,11 +73,11 @@ Usage::
     list_attached_user_policies_paginator: ListAttachedUserPoliciesPaginator = client.get_paginator("list_attached_user_policies")
     list_entities_for_policy_paginator: ListEntitiesForPolicyPaginator = client.get_paginator("list_entities_for_policy")
     list_group_policies_paginator: ListGroupPoliciesPaginator = client.get_paginator("list_group_policies")
-    list_groups_paginator: ListGroupsPaginator = client.get_paginator("list_groups")
     list_groups_for_user_paginator: ListGroupsForUserPaginator = client.get_paginator("list_groups_for_user")
+    list_groups_paginator: ListGroupsPaginator = client.get_paginator("list_groups")
     list_instance_profile_tags_paginator: ListInstanceProfileTagsPaginator = client.get_paginator("list_instance_profile_tags")
-    list_instance_profiles_paginator: ListInstanceProfilesPaginator = client.get_paginator("list_instance_profiles")
     list_instance_profiles_for_role_paginator: ListInstanceProfilesForRolePaginator = client.get_paginator("list_instance_profiles_for_role")
+    list_instance_profiles_paginator: ListInstanceProfilesPaginator = client.get_paginator("list_instance_profiles")
     list_mfa_device_tags_paginator: ListMFADeviceTagsPaginator = client.get_paginator("list_mfa_device_tags")
     list_mfa_devices_paginator: ListMFADevicesPaginator = client.get_paginator("list_mfa_devices")
     list_open_id_connect_provider_tags_paginator: ListOpenIDConnectProviderTagsPaginator = client.get_paginator("list_open_id_connect_provider_tags")
@@ -137,13 +138,17 @@ from .paginator import (
     SimulateCustomPolicyPaginator,
     SimulatePrincipalPolicyPaginator,
 )
-from .service_resource import IAMServiceResource
 from .waiter import (
     InstanceProfileExistsWaiter,
     PolicyExistsWaiter,
     RoleExistsWaiter,
     UserExistsWaiter,
 )
+
+try:
+    from .service_resource import IAMServiceResource
+except ImportError:
+    from builtins import object as IAMServiceResource  # type: ignore[assignment]
 
 Client = IAMClient
 

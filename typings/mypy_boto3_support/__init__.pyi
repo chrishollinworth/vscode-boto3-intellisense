@@ -1,10 +1,14 @@
 """
 Main interface for support service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_support/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_support import (
         Client,
         DescribeCasesPaginator,
@@ -12,10 +16,8 @@ Usage::
         SupportClient,
     )
 
-    session = boto3.Session()
-
-    client: SupportClient = boto3.client("support")
-    session_client: SupportClient = session.client("support")
+    session = Session()
+    client: SupportClient = session.client("support")
 
     describe_cases_paginator: DescribeCasesPaginator = client.get_paginator("describe_cases")
     describe_communications_paginator: DescribeCommunicationsPaginator = client.get_paginator("describe_communications")

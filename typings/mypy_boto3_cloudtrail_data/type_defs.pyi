@@ -1,29 +1,38 @@
 """
 Type annotations for cloudtrail-data service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail_data/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail_data/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_cloudtrail_data.type_defs import AuditEventResultEntryTypeDef
 
-    data: AuditEventResultEntryTypeDef = {...}
+    data: AuditEventResultEntryTypeDef = ...
     ```
 """
 
-import sys
-from typing import Any, Dict, List
+from __future__ import annotations
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+import sys
+
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Sequence
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List, Sequence
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
     "AuditEventResultEntryTypeDef",
     "AuditEventTypeDef",
-    "PutAuditEventsRequestRequestTypeDef",
+    "PutAuditEventsRequestTypeDef",
     "PutAuditEventsResponseTypeDef",
     "ResponseMetadataTypeDef",
     "ResultErrorEntryTypeDef",
@@ -36,64 +45,21 @@ AuditEventResultEntryTypeDef = TypedDict(
         "id": str,
     },
 )
-
-_RequiredAuditEventTypeDef = TypedDict(
-    "_RequiredAuditEventTypeDef",
+AuditEventTypeDef = TypedDict(
+    "AuditEventTypeDef",
     {
         "eventData": str,
         "id": str,
-    },
-)
-_OptionalAuditEventTypeDef = TypedDict(
-    "_OptionalAuditEventTypeDef",
-    {
-        "eventDataChecksum": str,
-    },
-    total=False,
-)
-
-class AuditEventTypeDef(_RequiredAuditEventTypeDef, _OptionalAuditEventTypeDef):
-    pass
-
-_RequiredPutAuditEventsRequestRequestTypeDef = TypedDict(
-    "_RequiredPutAuditEventsRequestRequestTypeDef",
-    {
-        "auditEvents": List["AuditEventTypeDef"],
-        "channelArn": str,
-    },
-)
-_OptionalPutAuditEventsRequestRequestTypeDef = TypedDict(
-    "_OptionalPutAuditEventsRequestRequestTypeDef",
-    {
-        "externalId": str,
-    },
-    total=False,
-)
-
-class PutAuditEventsRequestRequestTypeDef(
-    _RequiredPutAuditEventsRequestRequestTypeDef, _OptionalPutAuditEventsRequestRequestTypeDef
-):
-    pass
-
-PutAuditEventsResponseTypeDef = TypedDict(
-    "PutAuditEventsResponseTypeDef",
-    {
-        "failed": List["ResultErrorEntryTypeDef"],
-        "successful": List["AuditEventResultEntryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "eventDataChecksum": NotRequired[str],
     },
 )
 
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
 ResultErrorEntryTypeDef = TypedDict(
     "ResultErrorEntryTypeDef",
@@ -103,3 +69,13 @@ ResultErrorEntryTypeDef = TypedDict(
         "id": str,
     },
 )
+
+class PutAuditEventsRequestTypeDef(TypedDict):
+    auditEvents: Sequence[AuditEventTypeDef]
+    channelArn: str
+    externalId: NotRequired[str]
+
+class PutAuditEventsResponseTypeDef(TypedDict):
+    failed: List[ResultErrorEntryTypeDef]
+    successful: List[AuditEventResultEntryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef

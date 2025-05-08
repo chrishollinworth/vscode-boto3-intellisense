@@ -1,54 +1,70 @@
 """
-Type annotations for bcm-data-exports service client.
+Type annotations for bcm-data-exports service Client.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bcm_data_exports/client.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bcm_data_exports/client/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
-    from mypy_boto3_bcm_data_exports import BillingandCostManagementDataExportsClient
+    from boto3.session import Session
+    from mypy_boto3_bcm_data_exports.client import BillingandCostManagementDataExportsClient
 
-    client: BillingandCostManagementDataExportsClient = boto3.client("bcm-data-exports")
+    session = Session()
+    client: BillingandCostManagementDataExportsClient = session.client("bcm-data-exports")
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from typing import Any, Dict, List, Type, overload
+from typing import Any, overload
 
 from botocore.client import BaseClient, ClientMeta
+from botocore.errorfactory import BaseClientExceptions
+from botocore.exceptions import ClientError as BotocoreClientError
 
 from .paginator import ListExecutionsPaginator, ListExportsPaginator, ListTablesPaginator
 from .type_defs import (
+    CreateExportRequestTypeDef,
     CreateExportResponseTypeDef,
+    DeleteExportRequestTypeDef,
     DeleteExportResponseTypeDef,
-    ExportTypeDef,
+    GetExecutionRequestTypeDef,
     GetExecutionResponseTypeDef,
+    GetExportRequestTypeDef,
     GetExportResponseTypeDef,
+    GetTableRequestTypeDef,
     GetTableResponseTypeDef,
+    ListExecutionsRequestTypeDef,
     ListExecutionsResponseTypeDef,
+    ListExportsRequestTypeDef,
     ListExportsResponseTypeDef,
+    ListTablesRequestTypeDef,
     ListTablesResponseTypeDef,
+    ListTagsForResourceRequestTypeDef,
     ListTagsForResourceResponseTypeDef,
-    ResourceTagTypeDef,
+    TagResourceRequestTypeDef,
+    UntagResourceRequestTypeDef,
+    UpdateExportRequestTypeDef,
     UpdateExportResponseTypeDef,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import type as Type
+    from collections.abc import Mapping
 else:
-    from typing_extensions import Literal
+    from typing import Dict, Mapping, Type
+if sys.version_info >= (3, 12):
+    from typing import Literal, Unpack
+else:
+    from typing_extensions import Literal, Unpack
 
 __all__ = ("BillingandCostManagementDataExportsClient",)
 
-class BotocoreClientError(BaseException):
-    MSG_TEMPLATE: str
-
-    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
-        self.response: Dict[str, Any]
-        self.operation_name: str
-
-class Exceptions:
+class Exceptions(BaseClientExceptions):
     ClientError: Type[BotocoreClientError]
     InternalServerException: Type[BotocoreClientError]
     ResourceNotFoundException: Type[BotocoreClientError]
@@ -58,8 +74,8 @@ class Exceptions:
 
 class BillingandCostManagementDataExportsClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bcm-data-exports.html#BillingandCostManagementDataExports.Client)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bcm_data_exports/client.html)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bcm-data-exports.html#BillingandCostManagementDataExports.Client)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bcm_data_exports/client/)
     """
 
     meta: ClientMeta
@@ -68,168 +84,169 @@ class BillingandCostManagementDataExportsClient(BaseClient):
     def exceptions(self) -> Exceptions:
         """
         BillingandCostManagementDataExportsClient exceptions.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bcm-data-exports.html#BillingandCostManagementDataExports.Client)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bcm_data_exports/client/#exceptions)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        Check if an operation can be paginated.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bcm-data-exports.html#BillingandCostManagementDataExports.Client.can_paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bcm_data_exports/client.html#can_paginate)
-        """
-
-    def close(self) -> None:
-        """
-        Closes underlying endpoint connections.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bcm-data-exports.html#BillingandCostManagementDataExports.Client.close)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bcm_data_exports/client.html#close)
-        """
-
-    def create_export(
-        self, *, Export: "ExportTypeDef", ResourceTags: List["ResourceTagTypeDef"] = None
-    ) -> CreateExportResponseTypeDef:
-        """
-        Creates a data export and specifies the data query, the delivery preference, and
-        any optional resource tags.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bcm-data-exports.html#BillingandCostManagementDataExports.Client.create_export)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bcm_data_exports/client.html#create_export)
-        """
-
-    def delete_export(self, *, ExportArn: str) -> DeleteExportResponseTypeDef:
-        """
-        Deletes an existing data export.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bcm-data-exports.html#BillingandCostManagementDataExports.Client.delete_export)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bcm_data_exports/client.html#delete_export)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bcm-data-exports/client/can_paginate.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bcm_data_exports/client/#can_paginate)
         """
 
     def generate_presigned_url(
         self,
         ClientMethod: str,
-        Params: Dict[str, Any] = None,
+        Params: Mapping[str, Any] = ...,
         ExpiresIn: int = 3600,
-        HttpMethod: str = None,
+        HttpMethod: str = ...,
     ) -> str:
         """
-        Generate a presigned url given a client, its method, and arguments.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bcm-data-exports.html#BillingandCostManagementDataExports.Client.generate_presigned_url)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bcm_data_exports/client.html#generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bcm-data-exports/client/generate_presigned_url.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bcm_data_exports/client/#generate_presigned_url)
         """
 
-    def get_execution(self, *, ExecutionId: str, ExportArn: str) -> GetExecutionResponseTypeDef:
+    def create_export(
+        self, **kwargs: Unpack[CreateExportRequestTypeDef]
+    ) -> CreateExportResponseTypeDef:
+        """
+        Creates a data export and specifies the data query, the delivery preference,
+        and any optional resource tags.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bcm-data-exports/client/create_export.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bcm_data_exports/client/#create_export)
+        """
+
+    def delete_export(
+        self, **kwargs: Unpack[DeleteExportRequestTypeDef]
+    ) -> DeleteExportResponseTypeDef:
+        """
+        Deletes an existing data export.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bcm-data-exports/client/delete_export.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bcm_data_exports/client/#delete_export)
+        """
+
+    def get_execution(
+        self, **kwargs: Unpack[GetExecutionRequestTypeDef]
+    ) -> GetExecutionResponseTypeDef:
         """
         Exports data based on the source data update.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bcm-data-exports.html#BillingandCostManagementDataExports.Client.get_execution)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bcm_data_exports/client.html#get_execution)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bcm-data-exports/client/get_execution.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bcm_data_exports/client/#get_execution)
         """
 
-    def get_export(self, *, ExportArn: str) -> GetExportResponseTypeDef:
+    def get_export(self, **kwargs: Unpack[GetExportRequestTypeDef]) -> GetExportResponseTypeDef:
         """
         Views the definition of an existing data export.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bcm-data-exports.html#BillingandCostManagementDataExports.Client.get_export)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bcm_data_exports/client.html#get_export)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bcm-data-exports/client/get_export.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bcm_data_exports/client/#get_export)
         """
 
-    def get_table(
-        self, *, TableName: str, TableProperties: Dict[str, str] = None
-    ) -> GetTableResponseTypeDef:
+    def get_table(self, **kwargs: Unpack[GetTableRequestTypeDef]) -> GetTableResponseTypeDef:
         """
         Returns the metadata for the specified table and table properties.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bcm-data-exports.html#BillingandCostManagementDataExports.Client.get_table)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bcm_data_exports/client.html#get_table)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bcm-data-exports/client/get_table.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bcm_data_exports/client/#get_table)
         """
 
     def list_executions(
-        self, *, ExportArn: str, MaxResults: int = None, NextToken: str = None
+        self, **kwargs: Unpack[ListExecutionsRequestTypeDef]
     ) -> ListExecutionsResponseTypeDef:
         """
         Lists the historical executions for the export.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bcm-data-exports.html#BillingandCostManagementDataExports.Client.list_executions)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bcm_data_exports/client.html#list_executions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bcm-data-exports/client/list_executions.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bcm_data_exports/client/#list_executions)
         """
 
     def list_exports(
-        self, *, MaxResults: int = None, NextToken: str = None
+        self, **kwargs: Unpack[ListExportsRequestTypeDef]
     ) -> ListExportsResponseTypeDef:
         """
         Lists all data export definitions.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bcm-data-exports.html#BillingandCostManagementDataExports.Client.list_exports)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bcm_data_exports/client.html#list_exports)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bcm-data-exports/client/list_exports.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bcm_data_exports/client/#list_exports)
         """
 
-    def list_tables(
-        self, *, MaxResults: int = None, NextToken: str = None
-    ) -> ListTablesResponseTypeDef:
+    def list_tables(self, **kwargs: Unpack[ListTablesRequestTypeDef]) -> ListTablesResponseTypeDef:
         """
         Lists all available tables in data exports.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bcm-data-exports.html#BillingandCostManagementDataExports.Client.list_tables)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bcm_data_exports/client.html#list_tables)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bcm-data-exports/client/list_tables.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bcm_data_exports/client/#list_tables)
         """
 
     def list_tags_for_resource(
-        self, *, ResourceArn: str, MaxResults: int = None, NextToken: str = None
+        self, **kwargs: Unpack[ListTagsForResourceRequestTypeDef]
     ) -> ListTagsForResourceResponseTypeDef:
         """
         List tags associated with an existing data export.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bcm-data-exports.html#BillingandCostManagementDataExports.Client.list_tags_for_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bcm_data_exports/client.html#list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bcm-data-exports/client/list_tags_for_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bcm_data_exports/client/#list_tags_for_resource)
         """
 
-    def tag_resource(
-        self, *, ResourceArn: str, ResourceTags: List["ResourceTagTypeDef"]
-    ) -> Dict[str, Any]:
+    def tag_resource(self, **kwargs: Unpack[TagResourceRequestTypeDef]) -> Dict[str, Any]:
         """
         Adds tags for an existing data export definition.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bcm-data-exports.html#BillingandCostManagementDataExports.Client.tag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bcm_data_exports/client.html#tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bcm-data-exports/client/tag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bcm_data_exports/client/#tag_resource)
         """
 
-    def untag_resource(self, *, ResourceArn: str, ResourceTagKeys: List[str]) -> Dict[str, Any]:
+    def untag_resource(self, **kwargs: Unpack[UntagResourceRequestTypeDef]) -> Dict[str, Any]:
         """
         Deletes tags associated with an existing data export definition.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bcm-data-exports.html#BillingandCostManagementDataExports.Client.untag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bcm_data_exports/client.html#untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bcm-data-exports/client/untag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bcm_data_exports/client/#untag_resource)
         """
 
     def update_export(
-        self, *, Export: "ExportTypeDef", ExportArn: str
+        self, **kwargs: Unpack[UpdateExportRequestTypeDef]
     ) -> UpdateExportResponseTypeDef:
         """
         Updates an existing data export by overwriting all export parameters.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bcm-data-exports.html#BillingandCostManagementDataExports.Client.update_export)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bcm_data_exports/client.html#update_export)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bcm-data-exports/client/update_export.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bcm_data_exports/client/#update_export)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_executions"]) -> ListExecutionsPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_executions"]
+    ) -> ListExecutionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bcm-data-exports.html#BillingandCostManagementDataExports.Paginator.ListExecutions)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bcm_data_exports/paginators.html#listexecutionspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bcm-data-exports/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bcm_data_exports/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_exports"]) -> ListExportsPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_exports"]
+    ) -> ListExportsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bcm-data-exports.html#BillingandCostManagementDataExports.Paginator.ListExports)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bcm_data_exports/paginators.html#listexportspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bcm-data-exports/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bcm_data_exports/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_tables"]) -> ListTablesPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_tables"]
+    ) -> ListTablesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bcm-data-exports.html#BillingandCostManagementDataExports.Paginator.ListTables)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bcm_data_exports/paginators.html#listtablespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bcm-data-exports/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bcm_data_exports/client/#get_paginator)
         """

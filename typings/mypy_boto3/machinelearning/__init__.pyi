@@ -1,10 +1,14 @@
 """
 Main interface for machinelearning service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_machinelearning/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_machinelearning import (
         BatchPredictionAvailableWaiter,
         Client,
@@ -18,10 +22,8 @@ Usage::
         MachineLearningClient,
     )
 
-    session = boto3.Session()
-
-    client: MachineLearningClient = boto3.client("machinelearning")
-    session_client: MachineLearningClient = session.client("machinelearning")
+    session = Session()
+    client: MachineLearningClient = session.client("machinelearning")
 
     batch_prediction_available_waiter: BatchPredictionAvailableWaiter = client.get_waiter("batch_prediction_available")
     data_source_available_waiter: DataSourceAvailableWaiter = client.get_waiter("data_source_available")

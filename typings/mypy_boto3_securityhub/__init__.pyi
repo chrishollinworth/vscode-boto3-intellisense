@@ -1,10 +1,14 @@
 """
 Main interface for securityhub service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_securityhub/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_securityhub import (
         Client,
         DescribeActionTargetsPaginator,
@@ -27,15 +31,13 @@ Usage::
         SecurityHubClient,
     )
 
-    session = boto3.Session()
-
-    client: SecurityHubClient = boto3.client("securityhub")
-    session_client: SecurityHubClient = session.client("securityhub")
+    session = Session()
+    client: SecurityHubClient = session.client("securityhub")
 
     describe_action_targets_paginator: DescribeActionTargetsPaginator = client.get_paginator("describe_action_targets")
     describe_products_paginator: DescribeProductsPaginator = client.get_paginator("describe_products")
-    describe_standards_paginator: DescribeStandardsPaginator = client.get_paginator("describe_standards")
     describe_standards_controls_paginator: DescribeStandardsControlsPaginator = client.get_paginator("describe_standards_controls")
+    describe_standards_paginator: DescribeStandardsPaginator = client.get_paginator("describe_standards")
     get_enabled_standards_paginator: GetEnabledStandardsPaginator = client.get_paginator("get_enabled_standards")
     get_finding_history_paginator: GetFindingHistoryPaginator = client.get_paginator("get_finding_history")
     get_findings_paginator: GetFindingsPaginator = client.get_paginator("get_findings")

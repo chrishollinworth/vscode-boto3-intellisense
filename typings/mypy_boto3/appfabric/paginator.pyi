@@ -1,14 +1,16 @@
 """
 Type annotations for appfabric service client paginators.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appfabric/paginators.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appfabric/paginators/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
 
-    from mypy_boto3_appfabric import AppFabricClient
+    from mypy_boto3_appfabric.client import AppFabricClient
     from mypy_boto3_appfabric.paginator import (
         ListAppAuthorizationsPaginator,
         ListAppBundlesPaginator,
@@ -16,7 +18,8 @@ Usage::
         ListIngestionsPaginator,
     )
 
-    client: AppFabricClient = boto3.client("appfabric")
+    session = Session()
+    client: AppFabricClient = session.client("appfabric")
 
     list_app_authorizations_paginator: ListAppAuthorizationsPaginator = client.get_paginator("list_app_authorizations")
     list_app_bundles_paginator: ListAppBundlesPaginator = client.get_paginator("list_app_bundles")
@@ -25,17 +28,28 @@ Usage::
     ```
 """
 
-from typing import Iterator
+from __future__ import annotations
 
-from botocore.paginate import Paginator as Boto3Paginator
+import sys
+from typing import TYPE_CHECKING
+
+from botocore.paginate import PageIterator, Paginator
 
 from .type_defs import (
+    ListAppAuthorizationsRequestPaginateTypeDef,
     ListAppAuthorizationsResponseTypeDef,
+    ListAppBundlesRequestPaginateTypeDef,
     ListAppBundlesResponseTypeDef,
+    ListIngestionDestinationsRequestPaginateTypeDef,
     ListIngestionDestinationsResponseTypeDef,
+    ListIngestionsRequestPaginateTypeDef,
     ListIngestionsResponseTypeDef,
-    PaginatorConfigTypeDef,
 )
+
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = (
     "ListAppAuthorizationsPaginator",
@@ -44,62 +58,74 @@ __all__ = (
     "ListIngestionsPaginator",
 )
 
-class ListAppAuthorizationsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appfabric.html#AppFabric.Paginator.ListAppAuthorizations)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appfabric/paginators.html#listappauthorizationspaginator)
-    """
+if TYPE_CHECKING:
+    _ListAppAuthorizationsPaginatorBase = Paginator[ListAppAuthorizationsResponseTypeDef]
+else:
+    _ListAppAuthorizationsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, appBundleIdentifier: str, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListAppAuthorizationsResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appfabric.html#AppFabric.Paginator.ListAppAuthorizations.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appfabric/paginators.html#listappauthorizationspaginator)
-        """
-
-class ListAppBundlesPaginator(Boto3Paginator):
+class ListAppAuthorizationsPaginator(_ListAppAuthorizationsPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appfabric.html#AppFabric.Paginator.ListAppBundles)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appfabric/paginators.html#listappbundlespaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appfabric/paginator/ListAppAuthorizations.html#AppFabric.Paginator.ListAppAuthorizations)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appfabric/paginators/#listappauthorizationspaginator)
     """
-
-    def paginate(
-        self, *, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListAppBundlesResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListAppAuthorizationsRequestPaginateTypeDef]
+    ) -> PageIterator[ListAppAuthorizationsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appfabric.html#AppFabric.Paginator.ListAppBundles.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appfabric/paginators.html#listappbundlespaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appfabric/paginator/ListAppAuthorizations.html#AppFabric.Paginator.ListAppAuthorizations.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appfabric/paginators/#listappauthorizationspaginator)
         """
 
-class ListIngestionDestinationsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appfabric.html#AppFabric.Paginator.ListIngestionDestinations)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appfabric/paginators.html#listingestiondestinationspaginator)
-    """
+if TYPE_CHECKING:
+    _ListAppBundlesPaginatorBase = Paginator[ListAppBundlesResponseTypeDef]
+else:
+    _ListAppBundlesPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        appBundleIdentifier: str,
-        ingestionIdentifier: str,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListIngestionDestinationsResponseTypeDef]:
+class ListAppBundlesPaginator(_ListAppBundlesPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appfabric/paginator/ListAppBundles.html#AppFabric.Paginator.ListAppBundles)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appfabric/paginators/#listappbundlespaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListAppBundlesRequestPaginateTypeDef]
+    ) -> PageIterator[ListAppBundlesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appfabric.html#AppFabric.Paginator.ListIngestionDestinations.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appfabric/paginators.html#listingestiondestinationspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appfabric/paginator/ListAppBundles.html#AppFabric.Paginator.ListAppBundles.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appfabric/paginators/#listappbundlespaginator)
         """
 
-class ListIngestionsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appfabric.html#AppFabric.Paginator.ListIngestions)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appfabric/paginators.html#listingestionspaginator)
-    """
+if TYPE_CHECKING:
+    _ListIngestionDestinationsPaginatorBase = Paginator[ListIngestionDestinationsResponseTypeDef]
+else:
+    _ListIngestionDestinationsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, appBundleIdentifier: str, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListIngestionsResponseTypeDef]:
+class ListIngestionDestinationsPaginator(_ListIngestionDestinationsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appfabric/paginator/ListIngestionDestinations.html#AppFabric.Paginator.ListIngestionDestinations)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appfabric/paginators/#listingestiondestinationspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListIngestionDestinationsRequestPaginateTypeDef]
+    ) -> PageIterator[ListIngestionDestinationsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appfabric.html#AppFabric.Paginator.ListIngestions.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appfabric/paginators.html#listingestionspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appfabric/paginator/ListIngestionDestinations.html#AppFabric.Paginator.ListIngestionDestinations.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appfabric/paginators/#listingestiondestinationspaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListIngestionsPaginatorBase = Paginator[ListIngestionsResponseTypeDef]
+else:
+    _ListIngestionsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListIngestionsPaginator(_ListIngestionsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appfabric/paginator/ListIngestions.html#AppFabric.Paginator.ListIngestions)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appfabric/paginators/#listingestionspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListIngestionsRequestPaginateTypeDef]
+    ) -> PageIterator[ListIngestionsResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appfabric/paginator/ListIngestions.html#AppFabric.Paginator.ListIngestions.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appfabric/paginators/#listingestionspaginator)
         """

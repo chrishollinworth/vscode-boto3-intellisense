@@ -1,10 +1,14 @@
 """
 Main interface for proton service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_proton/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_proton import (
         Client,
         ComponentDeletedWaiter,
@@ -41,10 +45,8 @@ Usage::
         ServiceUpdatedWaiter,
     )
 
-    session = boto3.Session()
-
-    client: ProtonClient = boto3.client("proton")
-    session_client: ProtonClient = session.client("proton")
+    session = Session()
+    client: ProtonClient = session.client("proton")
 
     component_deleted_waiter: ComponentDeletedWaiter = client.get_waiter("component_deleted")
     component_deployed_waiter: ComponentDeployedWaiter = client.get_waiter("component_deployed")

@@ -1,21 +1,24 @@
 """
 Type annotations for payment-cryptography service client paginators.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography/paginators.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography/paginators/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
 
-    from mypy_boto3_payment_cryptography import PaymentCryptographyControlPlaneClient
+    from mypy_boto3_payment_cryptography.client import PaymentCryptographyControlPlaneClient
     from mypy_boto3_payment_cryptography.paginator import (
         ListAliasesPaginator,
         ListKeysPaginator,
         ListTagsForResourcePaginator,
     )
 
-    client: PaymentCryptographyControlPlaneClient = boto3.client("payment-cryptography")
+    session = Session()
+    client: PaymentCryptographyControlPlaneClient = session.client("payment-cryptography")
 
     list_aliases_paginator: ListAliasesPaginator = client.get_paginator("list_aliases")
     list_keys_paginator: ListKeysPaginator = client.get_paginator("list_keys")
@@ -23,58 +26,79 @@ Usage::
     ```
 """
 
-from typing import Iterator
+from __future__ import annotations
 
-from botocore.paginate import Paginator as Boto3Paginator
+import sys
+from typing import TYPE_CHECKING
 
-from .literals import KeyStateType
+from botocore.paginate import PageIterator, Paginator
+
 from .type_defs import (
+    ListAliasesInputPaginateTypeDef,
     ListAliasesOutputTypeDef,
+    ListKeysInputPaginateTypeDef,
     ListKeysOutputTypeDef,
+    ListTagsForResourceInputPaginateTypeDef,
     ListTagsForResourceOutputTypeDef,
-    PaginatorConfigTypeDef,
 )
+
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = ("ListAliasesPaginator", "ListKeysPaginator", "ListTagsForResourcePaginator")
 
-class ListAliasesPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/payment-cryptography.html#PaymentCryptographyControlPlane.Paginator.ListAliases)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography/paginators.html#listaliasespaginator)
-    """
+if TYPE_CHECKING:
+    _ListAliasesPaginatorBase = Paginator[ListAliasesOutputTypeDef]
+else:
+    _ListAliasesPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListAliasesOutputTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/payment-cryptography.html#PaymentCryptographyControlPlane.Paginator.ListAliases.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography/paginators.html#listaliasespaginator)
-        """
-
-class ListKeysPaginator(Boto3Paginator):
+class ListAliasesPaginator(_ListAliasesPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/payment-cryptography.html#PaymentCryptographyControlPlane.Paginator.ListKeys)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography/paginators.html#listkeyspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/payment-cryptography/paginator/ListAliases.html#PaymentCryptographyControlPlane.Paginator.ListAliases)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography/paginators/#listaliasespaginator)
     """
-
-    def paginate(
-        self, *, KeyState: KeyStateType = None, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListKeysOutputTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListAliasesInputPaginateTypeDef]
+    ) -> PageIterator[ListAliasesOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/payment-cryptography.html#PaymentCryptographyControlPlane.Paginator.ListKeys.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography/paginators.html#listkeyspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/payment-cryptography/paginator/ListAliases.html#PaymentCryptographyControlPlane.Paginator.ListAliases.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography/paginators/#listaliasespaginator)
         """
 
-class ListTagsForResourcePaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/payment-cryptography.html#PaymentCryptographyControlPlane.Paginator.ListTagsForResource)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography/paginators.html#listtagsforresourcepaginator)
-    """
+if TYPE_CHECKING:
+    _ListKeysPaginatorBase = Paginator[ListKeysOutputTypeDef]
+else:
+    _ListKeysPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, ResourceArn: str, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListTagsForResourceOutputTypeDef]:
+class ListKeysPaginator(_ListKeysPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/payment-cryptography/paginator/ListKeys.html#PaymentCryptographyControlPlane.Paginator.ListKeys)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography/paginators/#listkeyspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListKeysInputPaginateTypeDef]
+    ) -> PageIterator[ListKeysOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/payment-cryptography.html#PaymentCryptographyControlPlane.Paginator.ListTagsForResource.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography/paginators.html#listtagsforresourcepaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/payment-cryptography/paginator/ListKeys.html#PaymentCryptographyControlPlane.Paginator.ListKeys.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography/paginators/#listkeyspaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListTagsForResourcePaginatorBase = Paginator[ListTagsForResourceOutputTypeDef]
+else:
+    _ListTagsForResourcePaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListTagsForResourcePaginator(_ListTagsForResourcePaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/payment-cryptography/paginator/ListTagsForResource.html#PaymentCryptographyControlPlane.Paginator.ListTagsForResource)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography/paginators/#listtagsforresourcepaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListTagsForResourceInputPaginateTypeDef]
+    ) -> PageIterator[ListTagsForResourceOutputTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/payment-cryptography/paginator/ListTagsForResource.html#PaymentCryptographyControlPlane.Paginator.ListTagsForResource.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography/paginators/#listtagsforresourcepaginator)
         """

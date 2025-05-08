@@ -1,20 +1,24 @@
 """
 Type annotations for lex-models service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lex_models/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lex_models/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_lex_models.type_defs import BotAliasMetadataTypeDef
+    from mypy_boto3_lex_models.type_defs import BlobTypeDef
 
-    data: BotAliasMetadataTypeDef = {...}
+    data: BlobTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import IO, Any, Dict, List, Union
+from typing import IO, Any, Union
 
 from botocore.response import StreamingBody
 
@@ -44,12 +48,19 @@ from .literals import (
     StatusTypeType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Sequence
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List, Sequence
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
+    "BlobTypeDef",
     "BotAliasMetadataTypeDef",
     "BotChannelAssociationTypeDef",
     "BotMetadataTypeDef",
@@ -59,71 +70,86 @@ __all__ = (
     "CodeHookTypeDef",
     "ConversationLogsRequestTypeDef",
     "ConversationLogsResponseTypeDef",
-    "CreateBotVersionRequestRequestTypeDef",
+    "CreateBotVersionRequestTypeDef",
     "CreateBotVersionResponseTypeDef",
-    "CreateIntentVersionRequestRequestTypeDef",
+    "CreateIntentVersionRequestTypeDef",
     "CreateIntentVersionResponseTypeDef",
-    "CreateSlotTypeVersionRequestRequestTypeDef",
+    "CreateSlotTypeVersionRequestTypeDef",
     "CreateSlotTypeVersionResponseTypeDef",
-    "DeleteBotAliasRequestRequestTypeDef",
-    "DeleteBotChannelAssociationRequestRequestTypeDef",
-    "DeleteBotRequestRequestTypeDef",
-    "DeleteBotVersionRequestRequestTypeDef",
-    "DeleteIntentRequestRequestTypeDef",
-    "DeleteIntentVersionRequestRequestTypeDef",
-    "DeleteSlotTypeRequestRequestTypeDef",
-    "DeleteSlotTypeVersionRequestRequestTypeDef",
-    "DeleteUtterancesRequestRequestTypeDef",
+    "DeleteBotAliasRequestTypeDef",
+    "DeleteBotChannelAssociationRequestTypeDef",
+    "DeleteBotRequestTypeDef",
+    "DeleteBotVersionRequestTypeDef",
+    "DeleteIntentRequestTypeDef",
+    "DeleteIntentVersionRequestTypeDef",
+    "DeleteSlotTypeRequestTypeDef",
+    "DeleteSlotTypeVersionRequestTypeDef",
+    "DeleteUtterancesRequestTypeDef",
+    "EmptyResponseMetadataTypeDef",
+    "EnumerationValueOutputTypeDef",
     "EnumerationValueTypeDef",
+    "EnumerationValueUnionTypeDef",
+    "FollowUpPromptOutputTypeDef",
     "FollowUpPromptTypeDef",
+    "FollowUpPromptUnionTypeDef",
     "FulfillmentActivityTypeDef",
-    "GetBotAliasRequestRequestTypeDef",
+    "GetBotAliasRequestTypeDef",
     "GetBotAliasResponseTypeDef",
-    "GetBotAliasesRequestRequestTypeDef",
+    "GetBotAliasesRequestPaginateTypeDef",
+    "GetBotAliasesRequestTypeDef",
     "GetBotAliasesResponseTypeDef",
-    "GetBotChannelAssociationRequestRequestTypeDef",
+    "GetBotChannelAssociationRequestTypeDef",
     "GetBotChannelAssociationResponseTypeDef",
-    "GetBotChannelAssociationsRequestRequestTypeDef",
+    "GetBotChannelAssociationsRequestPaginateTypeDef",
+    "GetBotChannelAssociationsRequestTypeDef",
     "GetBotChannelAssociationsResponseTypeDef",
-    "GetBotRequestRequestTypeDef",
+    "GetBotRequestTypeDef",
     "GetBotResponseTypeDef",
-    "GetBotVersionsRequestRequestTypeDef",
+    "GetBotVersionsRequestPaginateTypeDef",
+    "GetBotVersionsRequestTypeDef",
     "GetBotVersionsResponseTypeDef",
-    "GetBotsRequestRequestTypeDef",
+    "GetBotsRequestPaginateTypeDef",
+    "GetBotsRequestTypeDef",
     "GetBotsResponseTypeDef",
-    "GetBuiltinIntentRequestRequestTypeDef",
+    "GetBuiltinIntentRequestTypeDef",
     "GetBuiltinIntentResponseTypeDef",
-    "GetBuiltinIntentsRequestRequestTypeDef",
+    "GetBuiltinIntentsRequestPaginateTypeDef",
+    "GetBuiltinIntentsRequestTypeDef",
     "GetBuiltinIntentsResponseTypeDef",
-    "GetBuiltinSlotTypesRequestRequestTypeDef",
+    "GetBuiltinSlotTypesRequestPaginateTypeDef",
+    "GetBuiltinSlotTypesRequestTypeDef",
     "GetBuiltinSlotTypesResponseTypeDef",
-    "GetExportRequestRequestTypeDef",
+    "GetExportRequestTypeDef",
     "GetExportResponseTypeDef",
-    "GetImportRequestRequestTypeDef",
+    "GetImportRequestTypeDef",
     "GetImportResponseTypeDef",
-    "GetIntentRequestRequestTypeDef",
+    "GetIntentRequestTypeDef",
     "GetIntentResponseTypeDef",
-    "GetIntentVersionsRequestRequestTypeDef",
+    "GetIntentVersionsRequestPaginateTypeDef",
+    "GetIntentVersionsRequestTypeDef",
     "GetIntentVersionsResponseTypeDef",
-    "GetIntentsRequestRequestTypeDef",
+    "GetIntentsRequestPaginateTypeDef",
+    "GetIntentsRequestTypeDef",
     "GetIntentsResponseTypeDef",
-    "GetMigrationRequestRequestTypeDef",
+    "GetMigrationRequestTypeDef",
     "GetMigrationResponseTypeDef",
-    "GetMigrationsRequestRequestTypeDef",
+    "GetMigrationsRequestTypeDef",
     "GetMigrationsResponseTypeDef",
-    "GetSlotTypeRequestRequestTypeDef",
+    "GetSlotTypeRequestTypeDef",
     "GetSlotTypeResponseTypeDef",
-    "GetSlotTypeVersionsRequestRequestTypeDef",
+    "GetSlotTypeVersionsRequestPaginateTypeDef",
+    "GetSlotTypeVersionsRequestTypeDef",
     "GetSlotTypeVersionsResponseTypeDef",
-    "GetSlotTypesRequestRequestTypeDef",
+    "GetSlotTypesRequestPaginateTypeDef",
+    "GetSlotTypesRequestTypeDef",
     "GetSlotTypesResponseTypeDef",
-    "GetUtterancesViewRequestRequestTypeDef",
+    "GetUtterancesViewRequestTypeDef",
     "GetUtterancesViewResponseTypeDef",
     "InputContextTypeDef",
     "IntentMetadataTypeDef",
     "IntentTypeDef",
     "KendraConfigurationTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "LogSettingsRequestTypeDef",
     "LogSettingsResponseTypeDef",
@@ -132,429 +158,370 @@ __all__ = (
     "MigrationSummaryTypeDef",
     "OutputContextTypeDef",
     "PaginatorConfigTypeDef",
+    "PromptOutputTypeDef",
     "PromptTypeDef",
-    "PutBotAliasRequestRequestTypeDef",
+    "PromptUnionTypeDef",
+    "PutBotAliasRequestTypeDef",
     "PutBotAliasResponseTypeDef",
-    "PutBotRequestRequestTypeDef",
+    "PutBotRequestTypeDef",
     "PutBotResponseTypeDef",
-    "PutIntentRequestRequestTypeDef",
+    "PutIntentRequestTypeDef",
     "PutIntentResponseTypeDef",
-    "PutSlotTypeRequestRequestTypeDef",
+    "PutSlotTypeRequestTypeDef",
     "PutSlotTypeResponseTypeDef",
     "ResponseMetadataTypeDef",
+    "SlotDefaultValueSpecOutputTypeDef",
     "SlotDefaultValueSpecTypeDef",
+    "SlotDefaultValueSpecUnionTypeDef",
     "SlotDefaultValueTypeDef",
+    "SlotOutputTypeDef",
     "SlotTypeConfigurationTypeDef",
     "SlotTypeDef",
     "SlotTypeMetadataTypeDef",
     "SlotTypeRegexConfigurationTypeDef",
-    "StartImportRequestRequestTypeDef",
+    "SlotUnionTypeDef",
+    "StartImportRequestTypeDef",
     "StartImportResponseTypeDef",
-    "StartMigrationRequestRequestTypeDef",
+    "StartMigrationRequestTypeDef",
     "StartMigrationResponseTypeDef",
+    "StatementOutputTypeDef",
     "StatementTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "StatementUnionTypeDef",
+    "TagResourceRequestTypeDef",
     "TagTypeDef",
-    "UntagResourceRequestRequestTypeDef",
+    "UntagResourceRequestTypeDef",
     "UtteranceDataTypeDef",
     "UtteranceListTypeDef",
 )
 
-BotAliasMetadataTypeDef = TypedDict(
-    "BotAliasMetadataTypeDef",
-    {
-        "name": str,
-        "description": str,
-        "botVersion": str,
-        "botName": str,
-        "lastUpdatedDate": datetime,
-        "createdDate": datetime,
-        "checksum": str,
-        "conversationLogs": "ConversationLogsResponseTypeDef",
-    },
-    total=False,
-)
-
+BlobTypeDef = Union[str, bytes, IO[Any], StreamingBody]
 BotChannelAssociationTypeDef = TypedDict(
     "BotChannelAssociationTypeDef",
     {
-        "name": str,
-        "description": str,
-        "botAlias": str,
-        "botName": str,
-        "createdDate": datetime,
-        "type": ChannelTypeType,
-        "botConfiguration": Dict[str, str],
-        "status": ChannelStatusType,
-        "failureReason": str,
+        "name": NotRequired[str],
+        "description": NotRequired[str],
+        "botAlias": NotRequired[str],
+        "botName": NotRequired[str],
+        "createdDate": NotRequired[datetime],
+        "type": NotRequired[ChannelTypeType],
+        "botConfiguration": NotRequired[Dict[str, str]],
+        "status": NotRequired[ChannelStatusType],
+        "failureReason": NotRequired[str],
     },
-    total=False,
 )
 
-BotMetadataTypeDef = TypedDict(
-    "BotMetadataTypeDef",
+class BotMetadataTypeDef(TypedDict):
+    name: NotRequired[str]
+    description: NotRequired[str]
+    status: NotRequired[StatusType]
+    lastUpdatedDate: NotRequired[datetime]
+    createdDate: NotRequired[datetime]
+    version: NotRequired[str]
+
+class BuiltinIntentMetadataTypeDef(TypedDict):
+    signature: NotRequired[str]
+    supportedLocales: NotRequired[List[LocaleType]]
+
+class BuiltinIntentSlotTypeDef(TypedDict):
+    name: NotRequired[str]
+
+class BuiltinSlotTypeMetadataTypeDef(TypedDict):
+    signature: NotRequired[str]
+    supportedLocales: NotRequired[List[LocaleType]]
+
+class CodeHookTypeDef(TypedDict):
+    uri: str
+    messageVersion: str
+
+class LogSettingsRequestTypeDef(TypedDict):
+    logType: LogTypeType
+    destination: DestinationType
+    resourceArn: str
+    kmsKeyArn: NotRequired[str]
+
+class LogSettingsResponseTypeDef(TypedDict):
+    logType: NotRequired[LogTypeType]
+    destination: NotRequired[DestinationType]
+    kmsKeyArn: NotRequired[str]
+    resourceArn: NotRequired[str]
+    resourcePrefix: NotRequired[str]
+
+class CreateBotVersionRequestTypeDef(TypedDict):
+    name: str
+    checksum: NotRequired[str]
+
+class IntentTypeDef(TypedDict):
+    intentName: str
+    intentVersion: str
+
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
+
+class CreateIntentVersionRequestTypeDef(TypedDict):
+    name: str
+    checksum: NotRequired[str]
+
+class InputContextTypeDef(TypedDict):
+    name: str
+
+class KendraConfigurationTypeDef(TypedDict):
+    kendraIndex: str
+    role: str
+    queryFilterString: NotRequired[str]
+
+class OutputContextTypeDef(TypedDict):
+    name: str
+    timeToLiveInSeconds: int
+    turnsToLive: int
+
+class CreateSlotTypeVersionRequestTypeDef(TypedDict):
+    name: str
+    checksum: NotRequired[str]
+
+class EnumerationValueOutputTypeDef(TypedDict):
+    value: str
+    synonyms: NotRequired[List[str]]
+
+class DeleteBotAliasRequestTypeDef(TypedDict):
+    name: str
+    botName: str
+
+class DeleteBotChannelAssociationRequestTypeDef(TypedDict):
+    name: str
+    botName: str
+    botAlias: str
+
+class DeleteBotRequestTypeDef(TypedDict):
+    name: str
+
+class DeleteBotVersionRequestTypeDef(TypedDict):
+    name: str
+    version: str
+
+class DeleteIntentRequestTypeDef(TypedDict):
+    name: str
+
+class DeleteIntentVersionRequestTypeDef(TypedDict):
+    name: str
+    version: str
+
+class DeleteSlotTypeRequestTypeDef(TypedDict):
+    name: str
+
+class DeleteSlotTypeVersionRequestTypeDef(TypedDict):
+    name: str
+    version: str
+
+class DeleteUtterancesRequestTypeDef(TypedDict):
+    botName: str
+    userId: str
+
+class EnumerationValueTypeDef(TypedDict):
+    value: str
+    synonyms: NotRequired[Sequence[str]]
+
+class GetBotAliasRequestTypeDef(TypedDict):
+    name: str
+    botName: str
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class GetBotAliasesRequestTypeDef(TypedDict):
+    botName: str
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+    nameContains: NotRequired[str]
+
+class GetBotChannelAssociationRequestTypeDef(TypedDict):
+    name: str
+    botName: str
+    botAlias: str
+
+class GetBotChannelAssociationsRequestTypeDef(TypedDict):
+    botName: str
+    botAlias: str
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+    nameContains: NotRequired[str]
+
+class GetBotRequestTypeDef(TypedDict):
+    name: str
+    versionOrAlias: str
+
+class GetBotVersionsRequestTypeDef(TypedDict):
+    name: str
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class GetBotsRequestTypeDef(TypedDict):
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+    nameContains: NotRequired[str]
+
+class GetBuiltinIntentRequestTypeDef(TypedDict):
+    signature: str
+
+class GetBuiltinIntentsRequestTypeDef(TypedDict):
+    locale: NotRequired[LocaleType]
+    signatureContains: NotRequired[str]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class GetBuiltinSlotTypesRequestTypeDef(TypedDict):
+    locale: NotRequired[LocaleType]
+    signatureContains: NotRequired[str]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class GetExportRequestTypeDef(TypedDict):
+    name: str
+    version: str
+    resourceType: ResourceTypeType
+    exportType: ExportTypeType
+
+class GetImportRequestTypeDef(TypedDict):
+    importId: str
+
+class GetIntentRequestTypeDef(TypedDict):
+    name: str
+    version: str
+
+class GetIntentVersionsRequestTypeDef(TypedDict):
+    name: str
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class IntentMetadataTypeDef(TypedDict):
+    name: NotRequired[str]
+    description: NotRequired[str]
+    lastUpdatedDate: NotRequired[datetime]
+    createdDate: NotRequired[datetime]
+    version: NotRequired[str]
+
+class GetIntentsRequestTypeDef(TypedDict):
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+    nameContains: NotRequired[str]
+
+class GetMigrationRequestTypeDef(TypedDict):
+    migrationId: str
+
+MigrationAlertTypeDef = TypedDict(
+    "MigrationAlertTypeDef",
     {
-        "name": str,
-        "description": str,
-        "status": StatusType,
-        "lastUpdatedDate": datetime,
-        "createdDate": datetime,
-        "version": str,
-    },
-    total=False,
-)
-
-BuiltinIntentMetadataTypeDef = TypedDict(
-    "BuiltinIntentMetadataTypeDef",
-    {
-        "signature": str,
-        "supportedLocales": List[LocaleType],
-    },
-    total=False,
-)
-
-BuiltinIntentSlotTypeDef = TypedDict(
-    "BuiltinIntentSlotTypeDef",
-    {
-        "name": str,
-    },
-    total=False,
-)
-
-BuiltinSlotTypeMetadataTypeDef = TypedDict(
-    "BuiltinSlotTypeMetadataTypeDef",
-    {
-        "signature": str,
-        "supportedLocales": List[LocaleType],
-    },
-    total=False,
-)
-
-CodeHookTypeDef = TypedDict(
-    "CodeHookTypeDef",
-    {
-        "uri": str,
-        "messageVersion": str,
+        "type": NotRequired[MigrationAlertTypeType],
+        "message": NotRequired[str],
+        "details": NotRequired[List[str]],
+        "referenceURLs": NotRequired[List[str]],
     },
 )
 
-ConversationLogsRequestTypeDef = TypedDict(
-    "ConversationLogsRequestTypeDef",
-    {
-        "logSettings": List["LogSettingsRequestTypeDef"],
-        "iamRoleArn": str,
-    },
-)
+class GetMigrationsRequestTypeDef(TypedDict):
+    sortByAttribute: NotRequired[MigrationSortAttributeType]
+    sortByOrder: NotRequired[SortOrderType]
+    v1BotNameContains: NotRequired[str]
+    migrationStatusEquals: NotRequired[MigrationStatusType]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
 
-ConversationLogsResponseTypeDef = TypedDict(
-    "ConversationLogsResponseTypeDef",
-    {
-        "logSettings": List["LogSettingsResponseTypeDef"],
-        "iamRoleArn": str,
-    },
-    total=False,
-)
+class MigrationSummaryTypeDef(TypedDict):
+    migrationId: NotRequired[str]
+    v1BotName: NotRequired[str]
+    v1BotVersion: NotRequired[str]
+    v1BotLocale: NotRequired[LocaleType]
+    v2BotId: NotRequired[str]
+    v2BotRole: NotRequired[str]
+    migrationStatus: NotRequired[MigrationStatusType]
+    migrationStrategy: NotRequired[MigrationStrategyType]
+    migrationTimestamp: NotRequired[datetime]
 
-_RequiredCreateBotVersionRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateBotVersionRequestRequestTypeDef",
-    {
-        "name": str,
-    },
-)
-_OptionalCreateBotVersionRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateBotVersionRequestRequestTypeDef",
-    {
-        "checksum": str,
-    },
-    total=False,
-)
+class GetSlotTypeRequestTypeDef(TypedDict):
+    name: str
+    version: str
 
-class CreateBotVersionRequestRequestTypeDef(
-    _RequiredCreateBotVersionRequestRequestTypeDef, _OptionalCreateBotVersionRequestRequestTypeDef
-):
-    pass
+class GetSlotTypeVersionsRequestTypeDef(TypedDict):
+    name: str
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
 
-CreateBotVersionResponseTypeDef = TypedDict(
-    "CreateBotVersionResponseTypeDef",
-    {
-        "name": str,
-        "description": str,
-        "intents": List["IntentTypeDef"],
-        "clarificationPrompt": "PromptTypeDef",
-        "abortStatement": "StatementTypeDef",
-        "status": StatusType,
-        "failureReason": str,
-        "lastUpdatedDate": datetime,
-        "createdDate": datetime,
-        "idleSessionTTLInSeconds": int,
-        "voiceId": str,
-        "checksum": str,
-        "version": str,
-        "locale": LocaleType,
-        "childDirected": bool,
-        "enableModelImprovements": bool,
-        "detectSentiment": bool,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class SlotTypeMetadataTypeDef(TypedDict):
+    name: NotRequired[str]
+    description: NotRequired[str]
+    lastUpdatedDate: NotRequired[datetime]
+    createdDate: NotRequired[datetime]
+    version: NotRequired[str]
 
-_RequiredCreateIntentVersionRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateIntentVersionRequestRequestTypeDef",
-    {
-        "name": str,
-    },
-)
-_OptionalCreateIntentVersionRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateIntentVersionRequestRequestTypeDef",
-    {
-        "checksum": str,
-    },
-    total=False,
-)
+class GetSlotTypesRequestTypeDef(TypedDict):
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+    nameContains: NotRequired[str]
 
-class CreateIntentVersionRequestRequestTypeDef(
-    _RequiredCreateIntentVersionRequestRequestTypeDef,
-    _OptionalCreateIntentVersionRequestRequestTypeDef,
-):
-    pass
+class GetUtterancesViewRequestTypeDef(TypedDict):
+    botName: str
+    botVersions: Sequence[str]
+    statusType: StatusTypeType
 
-CreateIntentVersionResponseTypeDef = TypedDict(
-    "CreateIntentVersionResponseTypeDef",
-    {
-        "name": str,
-        "description": str,
-        "slots": List["SlotTypeDef"],
-        "sampleUtterances": List[str],
-        "confirmationPrompt": "PromptTypeDef",
-        "rejectionStatement": "StatementTypeDef",
-        "followUpPrompt": "FollowUpPromptTypeDef",
-        "conclusionStatement": "StatementTypeDef",
-        "dialogCodeHook": "CodeHookTypeDef",
-        "fulfillmentActivity": "FulfillmentActivityTypeDef",
-        "parentIntentSignature": str,
-        "lastUpdatedDate": datetime,
-        "createdDate": datetime,
-        "version": str,
-        "checksum": str,
-        "kendraConfiguration": "KendraConfigurationTypeDef",
-        "inputContexts": List["InputContextTypeDef"],
-        "outputContexts": List["OutputContextTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    resourceArn: str
 
-_RequiredCreateSlotTypeVersionRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateSlotTypeVersionRequestRequestTypeDef",
-    {
-        "name": str,
-    },
-)
-_OptionalCreateSlotTypeVersionRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateSlotTypeVersionRequestRequestTypeDef",
-    {
-        "checksum": str,
-    },
-    total=False,
-)
+class TagTypeDef(TypedDict):
+    key: str
+    value: str
 
-class CreateSlotTypeVersionRequestRequestTypeDef(
-    _RequiredCreateSlotTypeVersionRequestRequestTypeDef,
-    _OptionalCreateSlotTypeVersionRequestRequestTypeDef,
-):
-    pass
+class MessageTypeDef(TypedDict):
+    contentType: ContentTypeType
+    content: str
+    groupNumber: NotRequired[int]
 
-CreateSlotTypeVersionResponseTypeDef = TypedDict(
-    "CreateSlotTypeVersionResponseTypeDef",
-    {
-        "name": str,
-        "description": str,
-        "enumerationValues": List["EnumerationValueTypeDef"],
-        "lastUpdatedDate": datetime,
-        "createdDate": datetime,
-        "version": str,
-        "checksum": str,
-        "valueSelectionStrategy": SlotValueSelectionStrategyType,
-        "parentSlotTypeSignature": str,
-        "slotTypeConfigurations": List["SlotTypeConfigurationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class SlotDefaultValueTypeDef(TypedDict):
+    defaultValue: str
 
-DeleteBotAliasRequestRequestTypeDef = TypedDict(
-    "DeleteBotAliasRequestRequestTypeDef",
-    {
-        "name": str,
-        "botName": str,
-    },
-)
+class SlotTypeRegexConfigurationTypeDef(TypedDict):
+    pattern: str
 
-DeleteBotChannelAssociationRequestRequestTypeDef = TypedDict(
-    "DeleteBotChannelAssociationRequestRequestTypeDef",
-    {
-        "name": str,
-        "botName": str,
-        "botAlias": str,
-    },
-)
+class StartMigrationRequestTypeDef(TypedDict):
+    v1BotName: str
+    v1BotVersion: str
+    v2BotName: str
+    v2BotRole: str
+    migrationStrategy: MigrationStrategyType
 
-DeleteBotRequestRequestTypeDef = TypedDict(
-    "DeleteBotRequestRequestTypeDef",
-    {
-        "name": str,
-    },
-)
+class UntagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tagKeys: Sequence[str]
 
-DeleteBotVersionRequestRequestTypeDef = TypedDict(
-    "DeleteBotVersionRequestRequestTypeDef",
-    {
-        "name": str,
-        "version": str,
-    },
-)
+class UtteranceDataTypeDef(TypedDict):
+    utteranceString: NotRequired[str]
+    count: NotRequired[int]
+    distinctUsers: NotRequired[int]
+    firstUtteredDate: NotRequired[datetime]
+    lastUtteredDate: NotRequired[datetime]
 
-DeleteIntentRequestRequestTypeDef = TypedDict(
-    "DeleteIntentRequestRequestTypeDef",
-    {
-        "name": str,
-    },
-)
-
-DeleteIntentVersionRequestRequestTypeDef = TypedDict(
-    "DeleteIntentVersionRequestRequestTypeDef",
-    {
-        "name": str,
-        "version": str,
-    },
-)
-
-DeleteSlotTypeRequestRequestTypeDef = TypedDict(
-    "DeleteSlotTypeRequestRequestTypeDef",
-    {
-        "name": str,
-    },
-)
-
-DeleteSlotTypeVersionRequestRequestTypeDef = TypedDict(
-    "DeleteSlotTypeVersionRequestRequestTypeDef",
-    {
-        "name": str,
-        "version": str,
-    },
-)
-
-DeleteUtterancesRequestRequestTypeDef = TypedDict(
-    "DeleteUtterancesRequestRequestTypeDef",
-    {
-        "botName": str,
-        "userId": str,
-    },
-)
-
-_RequiredEnumerationValueTypeDef = TypedDict(
-    "_RequiredEnumerationValueTypeDef",
-    {
-        "value": str,
-    },
-)
-_OptionalEnumerationValueTypeDef = TypedDict(
-    "_OptionalEnumerationValueTypeDef",
-    {
-        "synonyms": List[str],
-    },
-    total=False,
-)
-
-class EnumerationValueTypeDef(_RequiredEnumerationValueTypeDef, _OptionalEnumerationValueTypeDef):
-    pass
-
-FollowUpPromptTypeDef = TypedDict(
-    "FollowUpPromptTypeDef",
-    {
-        "prompt": "PromptTypeDef",
-        "rejectionStatement": "StatementTypeDef",
-    },
-)
-
-_RequiredFulfillmentActivityTypeDef = TypedDict(
-    "_RequiredFulfillmentActivityTypeDef",
+FulfillmentActivityTypeDef = TypedDict(
+    "FulfillmentActivityTypeDef",
     {
         "type": FulfillmentActivityTypeType,
-    },
-)
-_OptionalFulfillmentActivityTypeDef = TypedDict(
-    "_OptionalFulfillmentActivityTypeDef",
-    {
-        "codeHook": "CodeHookTypeDef",
-    },
-    total=False,
-)
-
-class FulfillmentActivityTypeDef(
-    _RequiredFulfillmentActivityTypeDef, _OptionalFulfillmentActivityTypeDef
-):
-    pass
-
-GetBotAliasRequestRequestTypeDef = TypedDict(
-    "GetBotAliasRequestRequestTypeDef",
-    {
-        "name": str,
-        "botName": str,
+        "codeHook": NotRequired[CodeHookTypeDef],
     },
 )
 
-GetBotAliasResponseTypeDef = TypedDict(
-    "GetBotAliasResponseTypeDef",
-    {
-        "name": str,
-        "description": str,
-        "botVersion": str,
-        "botName": str,
-        "lastUpdatedDate": datetime,
-        "createdDate": datetime,
-        "checksum": str,
-        "conversationLogs": "ConversationLogsResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ConversationLogsRequestTypeDef(TypedDict):
+    logSettings: Sequence[LogSettingsRequestTypeDef]
+    iamRoleArn: str
 
-_RequiredGetBotAliasesRequestRequestTypeDef = TypedDict(
-    "_RequiredGetBotAliasesRequestRequestTypeDef",
-    {
-        "botName": str,
-    },
-)
-_OptionalGetBotAliasesRequestRequestTypeDef = TypedDict(
-    "_OptionalGetBotAliasesRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-        "nameContains": str,
-    },
-    total=False,
-)
+class ConversationLogsResponseTypeDef(TypedDict):
+    logSettings: NotRequired[List[LogSettingsResponseTypeDef]]
+    iamRoleArn: NotRequired[str]
 
-class GetBotAliasesRequestRequestTypeDef(
-    _RequiredGetBotAliasesRequestRequestTypeDef, _OptionalGetBotAliasesRequestRequestTypeDef
-):
-    pass
-
-GetBotAliasesResponseTypeDef = TypedDict(
-    "GetBotAliasesResponseTypeDef",
-    {
-        "BotAliases": List["BotAliasMetadataTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetBotChannelAssociationRequestRequestTypeDef = TypedDict(
-    "GetBotChannelAssociationRequestRequestTypeDef",
-    {
-        "name": str,
-        "botName": str,
-        "botAlias": str,
-    },
-)
+class EmptyResponseMetadataTypeDef(TypedDict):
+    ResponseMetadata: ResponseMetadataTypeDef
 
 GetBotChannelAssociationResponseTypeDef = TypedDict(
     "GetBotChannelAssociationResponseTypeDef",
@@ -568,1020 +535,520 @@ GetBotChannelAssociationResponseTypeDef = TypedDict(
         "botConfiguration": Dict[str, str],
         "status": ChannelStatusType,
         "failureReason": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetBotChannelAssociationsRequestRequestTypeDef = TypedDict(
-    "_RequiredGetBotChannelAssociationsRequestRequestTypeDef",
-    {
-        "botName": str,
-        "botAlias": str,
-    },
-)
-_OptionalGetBotChannelAssociationsRequestRequestTypeDef = TypedDict(
-    "_OptionalGetBotChannelAssociationsRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-        "nameContains": str,
-    },
-    total=False,
-)
-
-class GetBotChannelAssociationsRequestRequestTypeDef(
-    _RequiredGetBotChannelAssociationsRequestRequestTypeDef,
-    _OptionalGetBotChannelAssociationsRequestRequestTypeDef,
-):
-    pass
-
-GetBotChannelAssociationsResponseTypeDef = TypedDict(
-    "GetBotChannelAssociationsResponseTypeDef",
-    {
-        "botChannelAssociations": List["BotChannelAssociationTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetBotRequestRequestTypeDef = TypedDict(
-    "GetBotRequestRequestTypeDef",
-    {
-        "name": str,
-        "versionOrAlias": str,
-    },
-)
-
-GetBotResponseTypeDef = TypedDict(
-    "GetBotResponseTypeDef",
-    {
-        "name": str,
-        "description": str,
-        "intents": List["IntentTypeDef"],
-        "enableModelImprovements": bool,
-        "nluIntentConfidenceThreshold": float,
-        "clarificationPrompt": "PromptTypeDef",
-        "abortStatement": "StatementTypeDef",
-        "status": StatusType,
-        "failureReason": str,
-        "lastUpdatedDate": datetime,
-        "createdDate": datetime,
-        "idleSessionTTLInSeconds": int,
-        "voiceId": str,
-        "checksum": str,
-        "version": str,
-        "locale": LocaleType,
-        "childDirected": bool,
-        "detectSentiment": bool,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetBotVersionsRequestRequestTypeDef = TypedDict(
-    "_RequiredGetBotVersionsRequestRequestTypeDef",
-    {
-        "name": str,
-    },
-)
-_OptionalGetBotVersionsRequestRequestTypeDef = TypedDict(
-    "_OptionalGetBotVersionsRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-class GetBotVersionsRequestRequestTypeDef(
-    _RequiredGetBotVersionsRequestRequestTypeDef, _OptionalGetBotVersionsRequestRequestTypeDef
-):
-    pass
-
-GetBotVersionsResponseTypeDef = TypedDict(
-    "GetBotVersionsResponseTypeDef",
-    {
-        "bots": List["BotMetadataTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetBotsRequestRequestTypeDef = TypedDict(
-    "GetBotsRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-        "nameContains": str,
-    },
-    total=False,
-)
-
-GetBotsResponseTypeDef = TypedDict(
-    "GetBotsResponseTypeDef",
-    {
-        "bots": List["BotMetadataTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetBuiltinIntentRequestRequestTypeDef = TypedDict(
-    "GetBuiltinIntentRequestRequestTypeDef",
-    {
-        "signature": str,
-    },
-)
-
-GetBuiltinIntentResponseTypeDef = TypedDict(
-    "GetBuiltinIntentResponseTypeDef",
-    {
-        "signature": str,
-        "supportedLocales": List[LocaleType],
-        "slots": List["BuiltinIntentSlotTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetBuiltinIntentsRequestRequestTypeDef = TypedDict(
-    "GetBuiltinIntentsRequestRequestTypeDef",
-    {
-        "locale": LocaleType,
-        "signatureContains": str,
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-GetBuiltinIntentsResponseTypeDef = TypedDict(
-    "GetBuiltinIntentsResponseTypeDef",
-    {
-        "intents": List["BuiltinIntentMetadataTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetBuiltinSlotTypesRequestRequestTypeDef = TypedDict(
-    "GetBuiltinSlotTypesRequestRequestTypeDef",
-    {
-        "locale": LocaleType,
-        "signatureContains": str,
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-GetBuiltinSlotTypesResponseTypeDef = TypedDict(
-    "GetBuiltinSlotTypesResponseTypeDef",
-    {
-        "slotTypes": List["BuiltinSlotTypeMetadataTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetExportRequestRequestTypeDef = TypedDict(
-    "GetExportRequestRequestTypeDef",
-    {
-        "name": str,
-        "version": str,
-        "resourceType": ResourceTypeType,
-        "exportType": ExportTypeType,
-    },
-)
-
-GetExportResponseTypeDef = TypedDict(
-    "GetExportResponseTypeDef",
-    {
-        "name": str,
-        "version": str,
-        "resourceType": ResourceTypeType,
-        "exportType": ExportTypeType,
-        "exportStatus": ExportStatusType,
-        "failureReason": str,
-        "url": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetImportRequestRequestTypeDef = TypedDict(
-    "GetImportRequestRequestTypeDef",
-    {
-        "importId": str,
-    },
-)
-
-GetImportResponseTypeDef = TypedDict(
-    "GetImportResponseTypeDef",
-    {
-        "name": str,
-        "resourceType": ResourceTypeType,
-        "mergeStrategy": MergeStrategyType,
-        "importId": str,
-        "importStatus": ImportStatusType,
-        "failureReason": List[str],
-        "createdDate": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetIntentRequestRequestTypeDef = TypedDict(
-    "GetIntentRequestRequestTypeDef",
-    {
-        "name": str,
-        "version": str,
-    },
-)
-
-GetIntentResponseTypeDef = TypedDict(
-    "GetIntentResponseTypeDef",
-    {
-        "name": str,
-        "description": str,
-        "slots": List["SlotTypeDef"],
-        "sampleUtterances": List[str],
-        "confirmationPrompt": "PromptTypeDef",
-        "rejectionStatement": "StatementTypeDef",
-        "followUpPrompt": "FollowUpPromptTypeDef",
-        "conclusionStatement": "StatementTypeDef",
-        "dialogCodeHook": "CodeHookTypeDef",
-        "fulfillmentActivity": "FulfillmentActivityTypeDef",
-        "parentIntentSignature": str,
-        "lastUpdatedDate": datetime,
-        "createdDate": datetime,
-        "version": str,
-        "checksum": str,
-        "kendraConfiguration": "KendraConfigurationTypeDef",
-        "inputContexts": List["InputContextTypeDef"],
-        "outputContexts": List["OutputContextTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetIntentVersionsRequestRequestTypeDef = TypedDict(
-    "_RequiredGetIntentVersionsRequestRequestTypeDef",
-    {
-        "name": str,
-    },
-)
-_OptionalGetIntentVersionsRequestRequestTypeDef = TypedDict(
-    "_OptionalGetIntentVersionsRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-class GetIntentVersionsRequestRequestTypeDef(
-    _RequiredGetIntentVersionsRequestRequestTypeDef, _OptionalGetIntentVersionsRequestRequestTypeDef
-):
-    pass
-
-GetIntentVersionsResponseTypeDef = TypedDict(
-    "GetIntentVersionsResponseTypeDef",
-    {
-        "intents": List["IntentMetadataTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetIntentsRequestRequestTypeDef = TypedDict(
-    "GetIntentsRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-        "nameContains": str,
-    },
-    total=False,
-)
-
-GetIntentsResponseTypeDef = TypedDict(
-    "GetIntentsResponseTypeDef",
-    {
-        "intents": List["IntentMetadataTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetMigrationRequestRequestTypeDef = TypedDict(
-    "GetMigrationRequestRequestTypeDef",
-    {
-        "migrationId": str,
-    },
-)
-
-GetMigrationResponseTypeDef = TypedDict(
-    "GetMigrationResponseTypeDef",
-    {
-        "migrationId": str,
-        "v1BotName": str,
-        "v1BotVersion": str,
-        "v1BotLocale": LocaleType,
-        "v2BotId": str,
-        "v2BotRole": str,
-        "migrationStatus": MigrationStatusType,
-        "migrationStrategy": MigrationStrategyType,
-        "migrationTimestamp": datetime,
-        "alerts": List["MigrationAlertTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetMigrationsRequestRequestTypeDef = TypedDict(
-    "GetMigrationsRequestRequestTypeDef",
-    {
-        "sortByAttribute": MigrationSortAttributeType,
-        "sortByOrder": SortOrderType,
-        "v1BotNameContains": str,
-        "migrationStatusEquals": MigrationStatusType,
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-GetMigrationsResponseTypeDef = TypedDict(
-    "GetMigrationsResponseTypeDef",
-    {
-        "migrationSummaries": List["MigrationSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetSlotTypeRequestRequestTypeDef = TypedDict(
-    "GetSlotTypeRequestRequestTypeDef",
-    {
-        "name": str,
-        "version": str,
-    },
-)
-
-GetSlotTypeResponseTypeDef = TypedDict(
-    "GetSlotTypeResponseTypeDef",
-    {
-        "name": str,
-        "description": str,
-        "enumerationValues": List["EnumerationValueTypeDef"],
-        "lastUpdatedDate": datetime,
-        "createdDate": datetime,
-        "version": str,
-        "checksum": str,
-        "valueSelectionStrategy": SlotValueSelectionStrategyType,
-        "parentSlotTypeSignature": str,
-        "slotTypeConfigurations": List["SlotTypeConfigurationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetSlotTypeVersionsRequestRequestTypeDef = TypedDict(
-    "_RequiredGetSlotTypeVersionsRequestRequestTypeDef",
-    {
-        "name": str,
-    },
-)
-_OptionalGetSlotTypeVersionsRequestRequestTypeDef = TypedDict(
-    "_OptionalGetSlotTypeVersionsRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-class GetSlotTypeVersionsRequestRequestTypeDef(
-    _RequiredGetSlotTypeVersionsRequestRequestTypeDef,
-    _OptionalGetSlotTypeVersionsRequestRequestTypeDef,
-):
-    pass
-
-GetSlotTypeVersionsResponseTypeDef = TypedDict(
-    "GetSlotTypeVersionsResponseTypeDef",
-    {
-        "slotTypes": List["SlotTypeMetadataTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetSlotTypesRequestRequestTypeDef = TypedDict(
-    "GetSlotTypesRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-        "nameContains": str,
-    },
-    total=False,
-)
-
-GetSlotTypesResponseTypeDef = TypedDict(
-    "GetSlotTypesResponseTypeDef",
-    {
-        "slotTypes": List["SlotTypeMetadataTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetUtterancesViewRequestRequestTypeDef = TypedDict(
-    "GetUtterancesViewRequestRequestTypeDef",
-    {
-        "botName": str,
-        "botVersions": List[str],
-        "statusType": StatusTypeType,
-    },
-)
-
-GetUtterancesViewResponseTypeDef = TypedDict(
-    "GetUtterancesViewResponseTypeDef",
-    {
-        "botName": str,
-        "utterances": List["UtteranceListTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-InputContextTypeDef = TypedDict(
-    "InputContextTypeDef",
-    {
-        "name": str,
-    },
-)
-
-IntentMetadataTypeDef = TypedDict(
-    "IntentMetadataTypeDef",
-    {
-        "name": str,
-        "description": str,
-        "lastUpdatedDate": datetime,
-        "createdDate": datetime,
-        "version": str,
-    },
-    total=False,
-)
-
-IntentTypeDef = TypedDict(
-    "IntentTypeDef",
-    {
-        "intentName": str,
-        "intentVersion": str,
-    },
-)
-
-_RequiredKendraConfigurationTypeDef = TypedDict(
-    "_RequiredKendraConfigurationTypeDef",
-    {
-        "kendraIndex": str,
-        "role": str,
-    },
-)
-_OptionalKendraConfigurationTypeDef = TypedDict(
-    "_OptionalKendraConfigurationTypeDef",
-    {
-        "queryFilterString": str,
-    },
-    total=False,
-)
-
-class KendraConfigurationTypeDef(
-    _RequiredKendraConfigurationTypeDef, _OptionalKendraConfigurationTypeDef
-):
-    pass
-
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-    },
-)
-
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "tags": List["TagTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredLogSettingsRequestTypeDef = TypedDict(
-    "_RequiredLogSettingsRequestTypeDef",
-    {
-        "logType": LogTypeType,
-        "destination": DestinationType,
-        "resourceArn": str,
-    },
-)
-_OptionalLogSettingsRequestTypeDef = TypedDict(
-    "_OptionalLogSettingsRequestTypeDef",
-    {
-        "kmsKeyArn": str,
-    },
-    total=False,
-)
-
-class LogSettingsRequestTypeDef(
-    _RequiredLogSettingsRequestTypeDef, _OptionalLogSettingsRequestTypeDef
-):
-    pass
-
-LogSettingsResponseTypeDef = TypedDict(
-    "LogSettingsResponseTypeDef",
-    {
-        "logType": LogTypeType,
-        "destination": DestinationType,
-        "kmsKeyArn": str,
-        "resourceArn": str,
-        "resourcePrefix": str,
-    },
-    total=False,
-)
-
-_RequiredMessageTypeDef = TypedDict(
-    "_RequiredMessageTypeDef",
-    {
-        "contentType": ContentTypeType,
-        "content": str,
-    },
-)
-_OptionalMessageTypeDef = TypedDict(
-    "_OptionalMessageTypeDef",
-    {
-        "groupNumber": int,
-    },
-    total=False,
-)
-
-class MessageTypeDef(_RequiredMessageTypeDef, _OptionalMessageTypeDef):
-    pass
-
-MigrationAlertTypeDef = TypedDict(
-    "MigrationAlertTypeDef",
-    {
-        "type": MigrationAlertTypeType,
-        "message": str,
-        "details": List[str],
-        "referenceURLs": List[str],
-    },
-    total=False,
-)
-
-MigrationSummaryTypeDef = TypedDict(
-    "MigrationSummaryTypeDef",
-    {
-        "migrationId": str,
-        "v1BotName": str,
-        "v1BotVersion": str,
-        "v1BotLocale": LocaleType,
-        "v2BotId": str,
-        "v2BotRole": str,
-        "migrationStatus": MigrationStatusType,
-        "migrationStrategy": MigrationStrategyType,
-        "migrationTimestamp": datetime,
-    },
-    total=False,
-)
-
-OutputContextTypeDef = TypedDict(
-    "OutputContextTypeDef",
-    {
-        "name": str,
-        "timeToLiveInSeconds": int,
-        "turnsToLive": int,
-    },
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-_RequiredPromptTypeDef = TypedDict(
-    "_RequiredPromptTypeDef",
-    {
-        "messages": List["MessageTypeDef"],
-        "maxAttempts": int,
-    },
-)
-_OptionalPromptTypeDef = TypedDict(
-    "_OptionalPromptTypeDef",
-    {
-        "responseCard": str,
-    },
-    total=False,
-)
-
-class PromptTypeDef(_RequiredPromptTypeDef, _OptionalPromptTypeDef):
-    pass
-
-_RequiredPutBotAliasRequestRequestTypeDef = TypedDict(
-    "_RequiredPutBotAliasRequestRequestTypeDef",
-    {
-        "name": str,
-        "botVersion": str,
-        "botName": str,
-    },
-)
-_OptionalPutBotAliasRequestRequestTypeDef = TypedDict(
-    "_OptionalPutBotAliasRequestRequestTypeDef",
-    {
-        "description": str,
-        "checksum": str,
-        "conversationLogs": "ConversationLogsRequestTypeDef",
-        "tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class PutBotAliasRequestRequestTypeDef(
-    _RequiredPutBotAliasRequestRequestTypeDef, _OptionalPutBotAliasRequestRequestTypeDef
-):
-    pass
-
-PutBotAliasResponseTypeDef = TypedDict(
-    "PutBotAliasResponseTypeDef",
-    {
-        "name": str,
-        "description": str,
-        "botVersion": str,
-        "botName": str,
-        "lastUpdatedDate": datetime,
-        "createdDate": datetime,
-        "checksum": str,
-        "conversationLogs": "ConversationLogsResponseTypeDef",
-        "tags": List["TagTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredPutBotRequestRequestTypeDef = TypedDict(
-    "_RequiredPutBotRequestRequestTypeDef",
-    {
-        "name": str,
-        "locale": LocaleType,
-        "childDirected": bool,
-    },
-)
-_OptionalPutBotRequestRequestTypeDef = TypedDict(
-    "_OptionalPutBotRequestRequestTypeDef",
-    {
-        "description": str,
-        "intents": List["IntentTypeDef"],
-        "enableModelImprovements": bool,
-        "nluIntentConfidenceThreshold": float,
-        "clarificationPrompt": "PromptTypeDef",
-        "abortStatement": "StatementTypeDef",
-        "idleSessionTTLInSeconds": int,
-        "voiceId": str,
-        "checksum": str,
-        "processBehavior": ProcessBehaviorType,
-        "detectSentiment": bool,
-        "createVersion": bool,
-        "tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class PutBotRequestRequestTypeDef(
-    _RequiredPutBotRequestRequestTypeDef, _OptionalPutBotRequestRequestTypeDef
-):
-    pass
-
-PutBotResponseTypeDef = TypedDict(
-    "PutBotResponseTypeDef",
-    {
-        "name": str,
-        "description": str,
-        "intents": List["IntentTypeDef"],
-        "enableModelImprovements": bool,
-        "nluIntentConfidenceThreshold": float,
-        "clarificationPrompt": "PromptTypeDef",
-        "abortStatement": "StatementTypeDef",
-        "status": StatusType,
-        "failureReason": str,
-        "lastUpdatedDate": datetime,
-        "createdDate": datetime,
-        "idleSessionTTLInSeconds": int,
-        "voiceId": str,
-        "checksum": str,
-        "version": str,
-        "locale": LocaleType,
-        "childDirected": bool,
-        "createVersion": bool,
-        "detectSentiment": bool,
-        "tags": List["TagTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredPutIntentRequestRequestTypeDef = TypedDict(
-    "_RequiredPutIntentRequestRequestTypeDef",
-    {
-        "name": str,
-    },
-)
-_OptionalPutIntentRequestRequestTypeDef = TypedDict(
-    "_OptionalPutIntentRequestRequestTypeDef",
-    {
-        "description": str,
-        "slots": List["SlotTypeDef"],
-        "sampleUtterances": List[str],
-        "confirmationPrompt": "PromptTypeDef",
-        "rejectionStatement": "StatementTypeDef",
-        "followUpPrompt": "FollowUpPromptTypeDef",
-        "conclusionStatement": "StatementTypeDef",
-        "dialogCodeHook": "CodeHookTypeDef",
-        "fulfillmentActivity": "FulfillmentActivityTypeDef",
-        "parentIntentSignature": str,
-        "checksum": str,
-        "createVersion": bool,
-        "kendraConfiguration": "KendraConfigurationTypeDef",
-        "inputContexts": List["InputContextTypeDef"],
-        "outputContexts": List["OutputContextTypeDef"],
-    },
-    total=False,
-)
-
-class PutIntentRequestRequestTypeDef(
-    _RequiredPutIntentRequestRequestTypeDef, _OptionalPutIntentRequestRequestTypeDef
-):
-    pass
-
-PutIntentResponseTypeDef = TypedDict(
-    "PutIntentResponseTypeDef",
-    {
-        "name": str,
-        "description": str,
-        "slots": List["SlotTypeDef"],
-        "sampleUtterances": List[str],
-        "confirmationPrompt": "PromptTypeDef",
-        "rejectionStatement": "StatementTypeDef",
-        "followUpPrompt": "FollowUpPromptTypeDef",
-        "conclusionStatement": "StatementTypeDef",
-        "dialogCodeHook": "CodeHookTypeDef",
-        "fulfillmentActivity": "FulfillmentActivityTypeDef",
-        "parentIntentSignature": str,
-        "lastUpdatedDate": datetime,
-        "createdDate": datetime,
-        "version": str,
-        "checksum": str,
-        "createVersion": bool,
-        "kendraConfiguration": "KendraConfigurationTypeDef",
-        "inputContexts": List["InputContextTypeDef"],
-        "outputContexts": List["OutputContextTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredPutSlotTypeRequestRequestTypeDef = TypedDict(
-    "_RequiredPutSlotTypeRequestRequestTypeDef",
-    {
-        "name": str,
-    },
-)
-_OptionalPutSlotTypeRequestRequestTypeDef = TypedDict(
-    "_OptionalPutSlotTypeRequestRequestTypeDef",
-    {
-        "description": str,
-        "enumerationValues": List["EnumerationValueTypeDef"],
-        "checksum": str,
-        "valueSelectionStrategy": SlotValueSelectionStrategyType,
-        "createVersion": bool,
-        "parentSlotTypeSignature": str,
-        "slotTypeConfigurations": List["SlotTypeConfigurationTypeDef"],
-    },
-    total=False,
-)
-
-class PutSlotTypeRequestRequestTypeDef(
-    _RequiredPutSlotTypeRequestRequestTypeDef, _OptionalPutSlotTypeRequestRequestTypeDef
-):
-    pass
-
-PutSlotTypeResponseTypeDef = TypedDict(
-    "PutSlotTypeResponseTypeDef",
-    {
-        "name": str,
-        "description": str,
-        "enumerationValues": List["EnumerationValueTypeDef"],
-        "lastUpdatedDate": datetime,
-        "createdDate": datetime,
-        "version": str,
-        "checksum": str,
-        "valueSelectionStrategy": SlotValueSelectionStrategyType,
-        "createVersion": bool,
-        "parentSlotTypeSignature": str,
-        "slotTypeConfigurations": List["SlotTypeConfigurationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-SlotDefaultValueSpecTypeDef = TypedDict(
-    "SlotDefaultValueSpecTypeDef",
-    {
-        "defaultValueList": List["SlotDefaultValueTypeDef"],
-    },
-)
-
-SlotDefaultValueTypeDef = TypedDict(
-    "SlotDefaultValueTypeDef",
-    {
-        "defaultValue": str,
-    },
-)
-
-SlotTypeConfigurationTypeDef = TypedDict(
-    "SlotTypeConfigurationTypeDef",
-    {
-        "regexConfiguration": "SlotTypeRegexConfigurationTypeDef",
-    },
-    total=False,
-)
-
-_RequiredSlotTypeDef = TypedDict(
-    "_RequiredSlotTypeDef",
-    {
-        "name": str,
-        "slotConstraint": SlotConstraintType,
-    },
-)
-_OptionalSlotTypeDef = TypedDict(
-    "_OptionalSlotTypeDef",
-    {
-        "description": str,
-        "slotType": str,
-        "slotTypeVersion": str,
-        "valueElicitationPrompt": "PromptTypeDef",
-        "priority": int,
-        "sampleUtterances": List[str],
-        "responseCard": str,
-        "obfuscationSetting": ObfuscationSettingType,
-        "defaultValueSpec": "SlotDefaultValueSpecTypeDef",
-    },
-    total=False,
-)
-
-class SlotTypeDef(_RequiredSlotTypeDef, _OptionalSlotTypeDef):
-    pass
-
-SlotTypeMetadataTypeDef = TypedDict(
-    "SlotTypeMetadataTypeDef",
-    {
-        "name": str,
-        "description": str,
-        "lastUpdatedDate": datetime,
-        "createdDate": datetime,
-        "version": str,
-    },
-    total=False,
-)
-
-SlotTypeRegexConfigurationTypeDef = TypedDict(
-    "SlotTypeRegexConfigurationTypeDef",
-    {
-        "pattern": str,
-    },
-)
-
-_RequiredStartImportRequestRequestTypeDef = TypedDict(
-    "_RequiredStartImportRequestRequestTypeDef",
-    {
-        "payload": Union[bytes, IO[bytes], StreamingBody],
-        "resourceType": ResourceTypeType,
-        "mergeStrategy": MergeStrategyType,
-    },
-)
-_OptionalStartImportRequestRequestTypeDef = TypedDict(
-    "_OptionalStartImportRequestRequestTypeDef",
-    {
-        "tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class StartImportRequestRequestTypeDef(
-    _RequiredStartImportRequestRequestTypeDef, _OptionalStartImportRequestRequestTypeDef
-):
-    pass
-
-StartImportResponseTypeDef = TypedDict(
-    "StartImportResponseTypeDef",
-    {
-        "name": str,
-        "resourceType": ResourceTypeType,
-        "mergeStrategy": MergeStrategyType,
-        "importId": str,
-        "importStatus": ImportStatusType,
-        "tags": List["TagTypeDef"],
-        "createdDate": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-StartMigrationRequestRequestTypeDef = TypedDict(
-    "StartMigrationRequestRequestTypeDef",
-    {
-        "v1BotName": str,
-        "v1BotVersion": str,
-        "v2BotName": str,
-        "v2BotRole": str,
-        "migrationStrategy": MigrationStrategyType,
-    },
-)
-
-StartMigrationResponseTypeDef = TypedDict(
-    "StartMigrationResponseTypeDef",
-    {
-        "v1BotName": str,
-        "v1BotVersion": str,
-        "v1BotLocale": LocaleType,
-        "v2BotId": str,
-        "v2BotRole": str,
-        "migrationId": str,
-        "migrationStrategy": MigrationStrategyType,
-        "migrationTimestamp": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredStatementTypeDef = TypedDict(
-    "_RequiredStatementTypeDef",
-    {
-        "messages": List["MessageTypeDef"],
-    },
-)
-_OptionalStatementTypeDef = TypedDict(
-    "_OptionalStatementTypeDef",
-    {
-        "responseCard": str,
-    },
-    total=False,
-)
-
-class StatementTypeDef(_RequiredStatementTypeDef, _OptionalStatementTypeDef):
-    pass
-
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tags": List["TagTypeDef"],
-    },
-)
-
-TagTypeDef = TypedDict(
-    "TagTypeDef",
-    {
-        "key": str,
-        "value": str,
-    },
-)
-
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tagKeys": List[str],
-    },
-)
-
-UtteranceDataTypeDef = TypedDict(
-    "UtteranceDataTypeDef",
-    {
-        "utteranceString": str,
-        "count": int,
-        "distinctUsers": int,
-        "firstUtteredDate": datetime,
-        "lastUtteredDate": datetime,
-    },
-    total=False,
-)
-
-UtteranceListTypeDef = TypedDict(
-    "UtteranceListTypeDef",
-    {
-        "botVersion": str,
-        "utterances": List["UtteranceDataTypeDef"],
-    },
-    total=False,
-)
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+
+class GetBotChannelAssociationsResponseTypeDef(TypedDict):
+    botChannelAssociations: List[BotChannelAssociationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class GetBotVersionsResponseTypeDef(TypedDict):
+    bots: List[BotMetadataTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class GetBotsResponseTypeDef(TypedDict):
+    bots: List[BotMetadataTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class GetBuiltinIntentResponseTypeDef(TypedDict):
+    signature: str
+    supportedLocales: List[LocaleType]
+    slots: List[BuiltinIntentSlotTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetBuiltinIntentsResponseTypeDef(TypedDict):
+    intents: List[BuiltinIntentMetadataTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class GetBuiltinSlotTypesResponseTypeDef(TypedDict):
+    slotTypes: List[BuiltinSlotTypeMetadataTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class GetExportResponseTypeDef(TypedDict):
+    name: str
+    version: str
+    resourceType: ResourceTypeType
+    exportType: ExportTypeType
+    exportStatus: ExportStatusType
+    failureReason: str
+    url: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetImportResponseTypeDef(TypedDict):
+    name: str
+    resourceType: ResourceTypeType
+    mergeStrategy: MergeStrategyType
+    importId: str
+    importStatus: ImportStatusType
+    failureReason: List[str]
+    createdDate: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartMigrationResponseTypeDef(TypedDict):
+    v1BotName: str
+    v1BotVersion: str
+    v1BotLocale: LocaleType
+    v2BotId: str
+    v2BotRole: str
+    migrationId: str
+    migrationStrategy: MigrationStrategyType
+    migrationTimestamp: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+EnumerationValueUnionTypeDef = Union[EnumerationValueTypeDef, EnumerationValueOutputTypeDef]
+
+class GetBotAliasesRequestPaginateTypeDef(TypedDict):
+    botName: str
+    nameContains: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class GetBotChannelAssociationsRequestPaginateTypeDef(TypedDict):
+    botName: str
+    botAlias: str
+    nameContains: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class GetBotVersionsRequestPaginateTypeDef(TypedDict):
+    name: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class GetBotsRequestPaginateTypeDef(TypedDict):
+    nameContains: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class GetBuiltinIntentsRequestPaginateTypeDef(TypedDict):
+    locale: NotRequired[LocaleType]
+    signatureContains: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class GetBuiltinSlotTypesRequestPaginateTypeDef(TypedDict):
+    locale: NotRequired[LocaleType]
+    signatureContains: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class GetIntentVersionsRequestPaginateTypeDef(TypedDict):
+    name: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class GetIntentsRequestPaginateTypeDef(TypedDict):
+    nameContains: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class GetSlotTypeVersionsRequestPaginateTypeDef(TypedDict):
+    name: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class GetSlotTypesRequestPaginateTypeDef(TypedDict):
+    nameContains: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class GetIntentVersionsResponseTypeDef(TypedDict):
+    intents: List[IntentMetadataTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class GetIntentsResponseTypeDef(TypedDict):
+    intents: List[IntentMetadataTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class GetMigrationResponseTypeDef(TypedDict):
+    migrationId: str
+    v1BotName: str
+    v1BotVersion: str
+    v1BotLocale: LocaleType
+    v2BotId: str
+    v2BotRole: str
+    migrationStatus: MigrationStatusType
+    migrationStrategy: MigrationStrategyType
+    migrationTimestamp: datetime
+    alerts: List[MigrationAlertTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetMigrationsResponseTypeDef(TypedDict):
+    migrationSummaries: List[MigrationSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class GetSlotTypeVersionsResponseTypeDef(TypedDict):
+    slotTypes: List[SlotTypeMetadataTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class GetSlotTypesResponseTypeDef(TypedDict):
+    slotTypes: List[SlotTypeMetadataTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    tags: List[TagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartImportRequestTypeDef(TypedDict):
+    payload: BlobTypeDef
+    resourceType: ResourceTypeType
+    mergeStrategy: MergeStrategyType
+    tags: NotRequired[Sequence[TagTypeDef]]
+
+class StartImportResponseTypeDef(TypedDict):
+    name: str
+    resourceType: ResourceTypeType
+    mergeStrategy: MergeStrategyType
+    importId: str
+    importStatus: ImportStatusType
+    tags: List[TagTypeDef]
+    createdDate: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class TagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tags: Sequence[TagTypeDef]
+
+class PromptOutputTypeDef(TypedDict):
+    messages: List[MessageTypeDef]
+    maxAttempts: int
+    responseCard: NotRequired[str]
+
+class PromptTypeDef(TypedDict):
+    messages: Sequence[MessageTypeDef]
+    maxAttempts: int
+    responseCard: NotRequired[str]
+
+class StatementOutputTypeDef(TypedDict):
+    messages: List[MessageTypeDef]
+    responseCard: NotRequired[str]
+
+class StatementTypeDef(TypedDict):
+    messages: Sequence[MessageTypeDef]
+    responseCard: NotRequired[str]
+
+class SlotDefaultValueSpecOutputTypeDef(TypedDict):
+    defaultValueList: List[SlotDefaultValueTypeDef]
+
+class SlotDefaultValueSpecTypeDef(TypedDict):
+    defaultValueList: Sequence[SlotDefaultValueTypeDef]
+
+class SlotTypeConfigurationTypeDef(TypedDict):
+    regexConfiguration: NotRequired[SlotTypeRegexConfigurationTypeDef]
+
+class UtteranceListTypeDef(TypedDict):
+    botVersion: NotRequired[str]
+    utterances: NotRequired[List[UtteranceDataTypeDef]]
+
+class PutBotAliasRequestTypeDef(TypedDict):
+    name: str
+    botVersion: str
+    botName: str
+    description: NotRequired[str]
+    checksum: NotRequired[str]
+    conversationLogs: NotRequired[ConversationLogsRequestTypeDef]
+    tags: NotRequired[Sequence[TagTypeDef]]
+
+class BotAliasMetadataTypeDef(TypedDict):
+    name: NotRequired[str]
+    description: NotRequired[str]
+    botVersion: NotRequired[str]
+    botName: NotRequired[str]
+    lastUpdatedDate: NotRequired[datetime]
+    createdDate: NotRequired[datetime]
+    checksum: NotRequired[str]
+    conversationLogs: NotRequired[ConversationLogsResponseTypeDef]
+
+class GetBotAliasResponseTypeDef(TypedDict):
+    name: str
+    description: str
+    botVersion: str
+    botName: str
+    lastUpdatedDate: datetime
+    createdDate: datetime
+    checksum: str
+    conversationLogs: ConversationLogsResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutBotAliasResponseTypeDef(TypedDict):
+    name: str
+    description: str
+    botVersion: str
+    botName: str
+    lastUpdatedDate: datetime
+    createdDate: datetime
+    checksum: str
+    conversationLogs: ConversationLogsResponseTypeDef
+    tags: List[TagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+PromptUnionTypeDef = Union[PromptTypeDef, PromptOutputTypeDef]
+
+class CreateBotVersionResponseTypeDef(TypedDict):
+    name: str
+    description: str
+    intents: List[IntentTypeDef]
+    clarificationPrompt: PromptOutputTypeDef
+    abortStatement: StatementOutputTypeDef
+    status: StatusType
+    failureReason: str
+    lastUpdatedDate: datetime
+    createdDate: datetime
+    idleSessionTTLInSeconds: int
+    voiceId: str
+    checksum: str
+    version: str
+    locale: LocaleType
+    childDirected: bool
+    enableModelImprovements: bool
+    detectSentiment: bool
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class FollowUpPromptOutputTypeDef(TypedDict):
+    prompt: PromptOutputTypeDef
+    rejectionStatement: StatementOutputTypeDef
+
+class GetBotResponseTypeDef(TypedDict):
+    name: str
+    description: str
+    intents: List[IntentTypeDef]
+    enableModelImprovements: bool
+    nluIntentConfidenceThreshold: float
+    clarificationPrompt: PromptOutputTypeDef
+    abortStatement: StatementOutputTypeDef
+    status: StatusType
+    failureReason: str
+    lastUpdatedDate: datetime
+    createdDate: datetime
+    idleSessionTTLInSeconds: int
+    voiceId: str
+    checksum: str
+    version: str
+    locale: LocaleType
+    childDirected: bool
+    detectSentiment: bool
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutBotResponseTypeDef(TypedDict):
+    name: str
+    description: str
+    intents: List[IntentTypeDef]
+    enableModelImprovements: bool
+    nluIntentConfidenceThreshold: float
+    clarificationPrompt: PromptOutputTypeDef
+    abortStatement: StatementOutputTypeDef
+    status: StatusType
+    failureReason: str
+    lastUpdatedDate: datetime
+    createdDate: datetime
+    idleSessionTTLInSeconds: int
+    voiceId: str
+    checksum: str
+    version: str
+    locale: LocaleType
+    childDirected: bool
+    createVersion: bool
+    detectSentiment: bool
+    tags: List[TagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class FollowUpPromptTypeDef(TypedDict):
+    prompt: PromptTypeDef
+    rejectionStatement: StatementTypeDef
+
+StatementUnionTypeDef = Union[StatementTypeDef, StatementOutputTypeDef]
+
+class SlotOutputTypeDef(TypedDict):
+    name: str
+    slotConstraint: SlotConstraintType
+    description: NotRequired[str]
+    slotType: NotRequired[str]
+    slotTypeVersion: NotRequired[str]
+    valueElicitationPrompt: NotRequired[PromptOutputTypeDef]
+    priority: NotRequired[int]
+    sampleUtterances: NotRequired[List[str]]
+    responseCard: NotRequired[str]
+    obfuscationSetting: NotRequired[ObfuscationSettingType]
+    defaultValueSpec: NotRequired[SlotDefaultValueSpecOutputTypeDef]
+
+SlotDefaultValueSpecUnionTypeDef = Union[
+    SlotDefaultValueSpecTypeDef, SlotDefaultValueSpecOutputTypeDef
+]
+
+class CreateSlotTypeVersionResponseTypeDef(TypedDict):
+    name: str
+    description: str
+    enumerationValues: List[EnumerationValueOutputTypeDef]
+    lastUpdatedDate: datetime
+    createdDate: datetime
+    version: str
+    checksum: str
+    valueSelectionStrategy: SlotValueSelectionStrategyType
+    parentSlotTypeSignature: str
+    slotTypeConfigurations: List[SlotTypeConfigurationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetSlotTypeResponseTypeDef(TypedDict):
+    name: str
+    description: str
+    enumerationValues: List[EnumerationValueOutputTypeDef]
+    lastUpdatedDate: datetime
+    createdDate: datetime
+    version: str
+    checksum: str
+    valueSelectionStrategy: SlotValueSelectionStrategyType
+    parentSlotTypeSignature: str
+    slotTypeConfigurations: List[SlotTypeConfigurationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutSlotTypeRequestTypeDef(TypedDict):
+    name: str
+    description: NotRequired[str]
+    enumerationValues: NotRequired[Sequence[EnumerationValueUnionTypeDef]]
+    checksum: NotRequired[str]
+    valueSelectionStrategy: NotRequired[SlotValueSelectionStrategyType]
+    createVersion: NotRequired[bool]
+    parentSlotTypeSignature: NotRequired[str]
+    slotTypeConfigurations: NotRequired[Sequence[SlotTypeConfigurationTypeDef]]
+
+class PutSlotTypeResponseTypeDef(TypedDict):
+    name: str
+    description: str
+    enumerationValues: List[EnumerationValueOutputTypeDef]
+    lastUpdatedDate: datetime
+    createdDate: datetime
+    version: str
+    checksum: str
+    valueSelectionStrategy: SlotValueSelectionStrategyType
+    createVersion: bool
+    parentSlotTypeSignature: str
+    slotTypeConfigurations: List[SlotTypeConfigurationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetUtterancesViewResponseTypeDef(TypedDict):
+    botName: str
+    utterances: List[UtteranceListTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetBotAliasesResponseTypeDef(TypedDict):
+    BotAliases: List[BotAliasMetadataTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+FollowUpPromptUnionTypeDef = Union[FollowUpPromptTypeDef, FollowUpPromptOutputTypeDef]
+
+class PutBotRequestTypeDef(TypedDict):
+    name: str
+    locale: LocaleType
+    childDirected: bool
+    description: NotRequired[str]
+    intents: NotRequired[Sequence[IntentTypeDef]]
+    enableModelImprovements: NotRequired[bool]
+    nluIntentConfidenceThreshold: NotRequired[float]
+    clarificationPrompt: NotRequired[PromptUnionTypeDef]
+    abortStatement: NotRequired[StatementUnionTypeDef]
+    idleSessionTTLInSeconds: NotRequired[int]
+    voiceId: NotRequired[str]
+    checksum: NotRequired[str]
+    processBehavior: NotRequired[ProcessBehaviorType]
+    detectSentiment: NotRequired[bool]
+    createVersion: NotRequired[bool]
+    tags: NotRequired[Sequence[TagTypeDef]]
+
+class CreateIntentVersionResponseTypeDef(TypedDict):
+    name: str
+    description: str
+    slots: List[SlotOutputTypeDef]
+    sampleUtterances: List[str]
+    confirmationPrompt: PromptOutputTypeDef
+    rejectionStatement: StatementOutputTypeDef
+    followUpPrompt: FollowUpPromptOutputTypeDef
+    conclusionStatement: StatementOutputTypeDef
+    dialogCodeHook: CodeHookTypeDef
+    fulfillmentActivity: FulfillmentActivityTypeDef
+    parentIntentSignature: str
+    lastUpdatedDate: datetime
+    createdDate: datetime
+    version: str
+    checksum: str
+    kendraConfiguration: KendraConfigurationTypeDef
+    inputContexts: List[InputContextTypeDef]
+    outputContexts: List[OutputContextTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetIntentResponseTypeDef(TypedDict):
+    name: str
+    description: str
+    slots: List[SlotOutputTypeDef]
+    sampleUtterances: List[str]
+    confirmationPrompt: PromptOutputTypeDef
+    rejectionStatement: StatementOutputTypeDef
+    followUpPrompt: FollowUpPromptOutputTypeDef
+    conclusionStatement: StatementOutputTypeDef
+    dialogCodeHook: CodeHookTypeDef
+    fulfillmentActivity: FulfillmentActivityTypeDef
+    parentIntentSignature: str
+    lastUpdatedDate: datetime
+    createdDate: datetime
+    version: str
+    checksum: str
+    kendraConfiguration: KendraConfigurationTypeDef
+    inputContexts: List[InputContextTypeDef]
+    outputContexts: List[OutputContextTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutIntentResponseTypeDef(TypedDict):
+    name: str
+    description: str
+    slots: List[SlotOutputTypeDef]
+    sampleUtterances: List[str]
+    confirmationPrompt: PromptOutputTypeDef
+    rejectionStatement: StatementOutputTypeDef
+    followUpPrompt: FollowUpPromptOutputTypeDef
+    conclusionStatement: StatementOutputTypeDef
+    dialogCodeHook: CodeHookTypeDef
+    fulfillmentActivity: FulfillmentActivityTypeDef
+    parentIntentSignature: str
+    lastUpdatedDate: datetime
+    createdDate: datetime
+    version: str
+    checksum: str
+    createVersion: bool
+    kendraConfiguration: KendraConfigurationTypeDef
+    inputContexts: List[InputContextTypeDef]
+    outputContexts: List[OutputContextTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class SlotTypeDef(TypedDict):
+    name: str
+    slotConstraint: SlotConstraintType
+    description: NotRequired[str]
+    slotType: NotRequired[str]
+    slotTypeVersion: NotRequired[str]
+    valueElicitationPrompt: NotRequired[PromptUnionTypeDef]
+    priority: NotRequired[int]
+    sampleUtterances: NotRequired[Sequence[str]]
+    responseCard: NotRequired[str]
+    obfuscationSetting: NotRequired[ObfuscationSettingType]
+    defaultValueSpec: NotRequired[SlotDefaultValueSpecUnionTypeDef]
+
+SlotUnionTypeDef = Union[SlotTypeDef, SlotOutputTypeDef]
+
+class PutIntentRequestTypeDef(TypedDict):
+    name: str
+    description: NotRequired[str]
+    slots: NotRequired[Sequence[SlotUnionTypeDef]]
+    sampleUtterances: NotRequired[Sequence[str]]
+    confirmationPrompt: NotRequired[PromptUnionTypeDef]
+    rejectionStatement: NotRequired[StatementUnionTypeDef]
+    followUpPrompt: NotRequired[FollowUpPromptUnionTypeDef]
+    conclusionStatement: NotRequired[StatementUnionTypeDef]
+    dialogCodeHook: NotRequired[CodeHookTypeDef]
+    fulfillmentActivity: NotRequired[FulfillmentActivityTypeDef]
+    parentIntentSignature: NotRequired[str]
+    checksum: NotRequired[str]
+    createVersion: NotRequired[bool]
+    kendraConfiguration: NotRequired[KendraConfigurationTypeDef]
+    inputContexts: NotRequired[Sequence[InputContextTypeDef]]
+    outputContexts: NotRequired[Sequence[OutputContextTypeDef]]

@@ -1,20 +1,23 @@
 """
 Type annotations for codeguru-reviewer service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeguru_reviewer/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codeguru_reviewer/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_codeguru_reviewer.type_defs import AssociateRepositoryRequestRequestTypeDef
+    from mypy_boto3_codeguru_reviewer.type_defs import KMSKeyDetailsTypeDef
 
-    data: AssociateRepositoryRequestRequestTypeDef = {...}
+    data: KMSKeyDetailsTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
 
 from .literals import (
     AnalysisTypeType,
@@ -30,13 +33,19 @@ from .literals import (
     VendorNameType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
-    "AssociateRepositoryRequestRequestTypeDef",
+    "AssociateRepositoryRequestTypeDef",
     "AssociateRepositoryResponseTypeDef",
     "BranchDiffSourceCodeTypeTypeDef",
     "CodeArtifactsTypeDef",
@@ -45,32 +54,35 @@ __all__ = (
     "CodeReviewTypeDef",
     "CodeReviewTypeTypeDef",
     "CommitDiffSourceCodeTypeTypeDef",
-    "CreateCodeReviewRequestRequestTypeDef",
+    "CreateCodeReviewRequestTypeDef",
     "CreateCodeReviewResponseTypeDef",
-    "DescribeCodeReviewRequestRequestTypeDef",
+    "DescribeCodeReviewRequestTypeDef",
+    "DescribeCodeReviewRequestWaitTypeDef",
     "DescribeCodeReviewResponseTypeDef",
-    "DescribeRecommendationFeedbackRequestRequestTypeDef",
+    "DescribeRecommendationFeedbackRequestTypeDef",
     "DescribeRecommendationFeedbackResponseTypeDef",
-    "DescribeRepositoryAssociationRequestRequestTypeDef",
+    "DescribeRepositoryAssociationRequestTypeDef",
+    "DescribeRepositoryAssociationRequestWaitTypeDef",
     "DescribeRepositoryAssociationResponseTypeDef",
-    "DisassociateRepositoryRequestRequestTypeDef",
+    "DisassociateRepositoryRequestTypeDef",
     "DisassociateRepositoryResponseTypeDef",
     "EventInfoTypeDef",
     "KMSKeyDetailsTypeDef",
-    "ListCodeReviewsRequestRequestTypeDef",
+    "ListCodeReviewsRequestTypeDef",
     "ListCodeReviewsResponseTypeDef",
-    "ListRecommendationFeedbackRequestRequestTypeDef",
+    "ListRecommendationFeedbackRequestTypeDef",
     "ListRecommendationFeedbackResponseTypeDef",
-    "ListRecommendationsRequestRequestTypeDef",
+    "ListRecommendationsRequestTypeDef",
     "ListRecommendationsResponseTypeDef",
-    "ListRepositoryAssociationsRequestRequestTypeDef",
+    "ListRepositoryAssociationsRequestPaginateTypeDef",
+    "ListRepositoryAssociationsRequestTypeDef",
     "ListRepositoryAssociationsResponseTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "MetricsSummaryTypeDef",
     "MetricsTypeDef",
     "PaginatorConfigTypeDef",
-    "PutRecommendationFeedbackRequestRequestTypeDef",
+    "PutRecommendationFeedbackRequestTypeDef",
     "RecommendationFeedbackSummaryTypeDef",
     "RecommendationFeedbackTypeDef",
     "RecommendationSummaryTypeDef",
@@ -86,648 +98,342 @@ __all__ = (
     "S3RepositoryDetailsTypeDef",
     "S3RepositoryTypeDef",
     "SourceCodeTypeTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
     "ThirdPartySourceRepositoryTypeDef",
-    "UntagResourceRequestRequestTypeDef",
+    "UntagResourceRequestTypeDef",
     "WaiterConfigTypeDef",
 )
 
-_RequiredAssociateRepositoryRequestRequestTypeDef = TypedDict(
-    "_RequiredAssociateRepositoryRequestRequestTypeDef",
+class KMSKeyDetailsTypeDef(TypedDict):
+    KMSKeyId: NotRequired[str]
+    EncryptionOption: NotRequired[EncryptionOptionType]
+
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
+
+class BranchDiffSourceCodeTypeTypeDef(TypedDict):
+    SourceBranchName: str
+    DestinationBranchName: str
+
+class CodeArtifactsTypeDef(TypedDict):
+    SourceCodeArtifactsObjectKey: str
+    BuildArtifactsObjectKey: NotRequired[str]
+
+class CodeCommitRepositoryTypeDef(TypedDict):
+    Name: str
+
+class MetricsSummaryTypeDef(TypedDict):
+    MeteredLinesOfCodeCount: NotRequired[int]
+    SuppressedLinesOfCodeCount: NotRequired[int]
+    FindingsCount: NotRequired[int]
+
+class MetricsTypeDef(TypedDict):
+    MeteredLinesOfCodeCount: NotRequired[int]
+    SuppressedLinesOfCodeCount: NotRequired[int]
+    FindingsCount: NotRequired[int]
+
+class CommitDiffSourceCodeTypeTypeDef(TypedDict):
+    SourceCommit: NotRequired[str]
+    DestinationCommit: NotRequired[str]
+    MergeBaseCommit: NotRequired[str]
+
+class DescribeCodeReviewRequestTypeDef(TypedDict):
+    CodeReviewArn: str
+
+class WaiterConfigTypeDef(TypedDict):
+    Delay: NotRequired[int]
+    MaxAttempts: NotRequired[int]
+
+class DescribeRecommendationFeedbackRequestTypeDef(TypedDict):
+    CodeReviewArn: str
+    RecommendationId: str
+    UserId: NotRequired[str]
+
+class RecommendationFeedbackTypeDef(TypedDict):
+    CodeReviewArn: NotRequired[str]
+    RecommendationId: NotRequired[str]
+    Reactions: NotRequired[List[ReactionType]]
+    UserId: NotRequired[str]
+    CreatedTimeStamp: NotRequired[datetime]
+    LastUpdatedTimeStamp: NotRequired[datetime]
+
+class DescribeRepositoryAssociationRequestTypeDef(TypedDict):
+    AssociationArn: str
+
+class DisassociateRepositoryRequestTypeDef(TypedDict):
+    AssociationArn: str
+
+class EventInfoTypeDef(TypedDict):
+    Name: NotRequired[str]
+    State: NotRequired[str]
+
+ListCodeReviewsRequestTypeDef = TypedDict(
+    "ListCodeReviewsRequestTypeDef",
     {
-        "Repository": "RepositoryTypeDef",
+        "Type": TypeType,
+        "ProviderTypes": NotRequired[Sequence[ProviderTypeType]],
+        "States": NotRequired[Sequence[JobStateType]],
+        "RepositoryNames": NotRequired[Sequence[str]],
+        "MaxResults": NotRequired[int],
+        "NextToken": NotRequired[str],
     },
-)
-_OptionalAssociateRepositoryRequestRequestTypeDef = TypedDict(
-    "_OptionalAssociateRepositoryRequestRequestTypeDef",
-    {
-        "ClientRequestToken": str,
-        "Tags": Dict[str, str],
-        "KMSKeyDetails": "KMSKeyDetailsTypeDef",
-    },
-    total=False,
 )
 
-class AssociateRepositoryRequestRequestTypeDef(
-    _RequiredAssociateRepositoryRequestRequestTypeDef,
-    _OptionalAssociateRepositoryRequestRequestTypeDef,
-):
-    pass
+class ListRecommendationFeedbackRequestTypeDef(TypedDict):
+    CodeReviewArn: str
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+    UserIds: NotRequired[Sequence[str]]
+    RecommendationIds: NotRequired[Sequence[str]]
 
-AssociateRepositoryResponseTypeDef = TypedDict(
-    "AssociateRepositoryResponseTypeDef",
-    {
-        "RepositoryAssociation": "RepositoryAssociationTypeDef",
-        "Tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class RecommendationFeedbackSummaryTypeDef(TypedDict):
+    RecommendationId: NotRequired[str]
+    Reactions: NotRequired[List[ReactionType]]
+    UserId: NotRequired[str]
 
-BranchDiffSourceCodeTypeTypeDef = TypedDict(
-    "BranchDiffSourceCodeTypeTypeDef",
-    {
-        "SourceBranchName": str,
-        "DestinationBranchName": str,
-    },
-)
+class ListRecommendationsRequestTypeDef(TypedDict):
+    CodeReviewArn: str
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
 
-_RequiredCodeArtifactsTypeDef = TypedDict(
-    "_RequiredCodeArtifactsTypeDef",
-    {
-        "SourceCodeArtifactsObjectKey": str,
-    },
-)
-_OptionalCodeArtifactsTypeDef = TypedDict(
-    "_OptionalCodeArtifactsTypeDef",
-    {
-        "BuildArtifactsObjectKey": str,
-    },
-    total=False,
-)
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
 
-class CodeArtifactsTypeDef(_RequiredCodeArtifactsTypeDef, _OptionalCodeArtifactsTypeDef):
-    pass
+class ListRepositoryAssociationsRequestTypeDef(TypedDict):
+    ProviderTypes: NotRequired[Sequence[ProviderTypeType]]
+    States: NotRequired[Sequence[RepositoryAssociationStateType]]
+    Names: NotRequired[Sequence[str]]
+    Owners: NotRequired[Sequence[str]]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
 
-CodeCommitRepositoryTypeDef = TypedDict(
-    "CodeCommitRepositoryTypeDef",
-    {
-        "Name": str,
-    },
-)
+class RepositoryAssociationSummaryTypeDef(TypedDict):
+    AssociationArn: NotRequired[str]
+    ConnectionArn: NotRequired[str]
+    LastUpdatedTimeStamp: NotRequired[datetime]
+    AssociationId: NotRequired[str]
+    Name: NotRequired[str]
+    Owner: NotRequired[str]
+    ProviderType: NotRequired[ProviderTypeType]
+    State: NotRequired[RepositoryAssociationStateType]
+
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+
+class PutRecommendationFeedbackRequestTypeDef(TypedDict):
+    CodeReviewArn: str
+    RecommendationId: str
+    Reactions: Sequence[ReactionType]
+
+class RuleMetadataTypeDef(TypedDict):
+    RuleId: NotRequired[str]
+    RuleName: NotRequired[str]
+    ShortDescription: NotRequired[str]
+    LongDescription: NotRequired[str]
+    RuleTags: NotRequired[List[str]]
+
+class RepositoryHeadSourceCodeTypeTypeDef(TypedDict):
+    BranchName: str
+
+class S3RepositoryTypeDef(TypedDict):
+    Name: str
+    BucketName: str
+
+class ThirdPartySourceRepositoryTypeDef(TypedDict):
+    Name: str
+    ConnectionArn: str
+    Owner: str
+
+class TagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    Tags: Mapping[str, str]
+
+class UntagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    TagKeys: Sequence[str]
+
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    Tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class S3RepositoryDetailsTypeDef(TypedDict):
+    BucketName: NotRequired[str]
+    CodeArtifacts: NotRequired[CodeArtifactsTypeDef]
+
+class DescribeCodeReviewRequestWaitTypeDef(TypedDict):
+    CodeReviewArn: str
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class DescribeRepositoryAssociationRequestWaitTypeDef(TypedDict):
+    AssociationArn: str
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class DescribeRecommendationFeedbackResponseTypeDef(TypedDict):
+    RecommendationFeedback: RecommendationFeedbackTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class RequestMetadataTypeDef(TypedDict):
+    RequestId: NotRequired[str]
+    Requester: NotRequired[str]
+    EventInfo: NotRequired[EventInfoTypeDef]
+    VendorName: NotRequired[VendorNameType]
+
+class ListRecommendationFeedbackResponseTypeDef(TypedDict):
+    RecommendationFeedbackSummaries: List[RecommendationFeedbackSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListRepositoryAssociationsRequestPaginateTypeDef(TypedDict):
+    ProviderTypes: NotRequired[Sequence[ProviderTypeType]]
+    States: NotRequired[Sequence[RepositoryAssociationStateType]]
+    Names: NotRequired[Sequence[str]]
+    Owners: NotRequired[Sequence[str]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListRepositoryAssociationsResponseTypeDef(TypedDict):
+    RepositoryAssociationSummaries: List[RepositoryAssociationSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class RecommendationSummaryTypeDef(TypedDict):
+    FilePath: NotRequired[str]
+    RecommendationId: NotRequired[str]
+    StartLine: NotRequired[int]
+    EndLine: NotRequired[int]
+    Description: NotRequired[str]
+    RecommendationCategory: NotRequired[RecommendationCategoryType]
+    RuleMetadata: NotRequired[RuleMetadataTypeDef]
+    Severity: NotRequired[SeverityType]
+
+class RepositoryTypeDef(TypedDict):
+    CodeCommit: NotRequired[CodeCommitRepositoryTypeDef]
+    Bitbucket: NotRequired[ThirdPartySourceRepositoryTypeDef]
+    GitHubEnterpriseServer: NotRequired[ThirdPartySourceRepositoryTypeDef]
+    S3Bucket: NotRequired[S3RepositoryTypeDef]
+
+class RepositoryAssociationTypeDef(TypedDict):
+    AssociationId: NotRequired[str]
+    AssociationArn: NotRequired[str]
+    ConnectionArn: NotRequired[str]
+    Name: NotRequired[str]
+    Owner: NotRequired[str]
+    ProviderType: NotRequired[ProviderTypeType]
+    State: NotRequired[RepositoryAssociationStateType]
+    StateReason: NotRequired[str]
+    LastUpdatedTimeStamp: NotRequired[datetime]
+    CreatedTimeStamp: NotRequired[datetime]
+    KMSKeyDetails: NotRequired[KMSKeyDetailsTypeDef]
+    S3RepositoryDetails: NotRequired[S3RepositoryDetailsTypeDef]
+
+class S3BucketRepositoryTypeDef(TypedDict):
+    Name: str
+    Details: NotRequired[S3RepositoryDetailsTypeDef]
+
+class ListRecommendationsResponseTypeDef(TypedDict):
+    RecommendationSummaries: List[RecommendationSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class AssociateRepositoryRequestTypeDef(TypedDict):
+    Repository: RepositoryTypeDef
+    ClientRequestToken: NotRequired[str]
+    Tags: NotRequired[Mapping[str, str]]
+    KMSKeyDetails: NotRequired[KMSKeyDetailsTypeDef]
+
+class AssociateRepositoryResponseTypeDef(TypedDict):
+    RepositoryAssociation: RepositoryAssociationTypeDef
+    Tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeRepositoryAssociationResponseTypeDef(TypedDict):
+    RepositoryAssociation: RepositoryAssociationTypeDef
+    Tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DisassociateRepositoryResponseTypeDef(TypedDict):
+    RepositoryAssociation: RepositoryAssociationTypeDef
+    Tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class SourceCodeTypeTypeDef(TypedDict):
+    CommitDiff: NotRequired[CommitDiffSourceCodeTypeTypeDef]
+    RepositoryHead: NotRequired[RepositoryHeadSourceCodeTypeTypeDef]
+    BranchDiff: NotRequired[BranchDiffSourceCodeTypeTypeDef]
+    S3BucketRepository: NotRequired[S3BucketRepositoryTypeDef]
+    RequestMetadata: NotRequired[RequestMetadataTypeDef]
 
 CodeReviewSummaryTypeDef = TypedDict(
     "CodeReviewSummaryTypeDef",
     {
-        "Name": str,
-        "CodeReviewArn": str,
-        "RepositoryName": str,
-        "Owner": str,
-        "ProviderType": ProviderTypeType,
-        "State": JobStateType,
-        "CreatedTimeStamp": datetime,
-        "LastUpdatedTimeStamp": datetime,
-        "Type": TypeType,
-        "PullRequestId": str,
-        "MetricsSummary": "MetricsSummaryTypeDef",
-        "SourceCodeType": "SourceCodeTypeTypeDef",
+        "Name": NotRequired[str],
+        "CodeReviewArn": NotRequired[str],
+        "RepositoryName": NotRequired[str],
+        "Owner": NotRequired[str],
+        "ProviderType": NotRequired[ProviderTypeType],
+        "State": NotRequired[JobStateType],
+        "CreatedTimeStamp": NotRequired[datetime],
+        "LastUpdatedTimeStamp": NotRequired[datetime],
+        "Type": NotRequired[TypeType],
+        "PullRequestId": NotRequired[str],
+        "MetricsSummary": NotRequired[MetricsSummaryTypeDef],
+        "SourceCodeType": NotRequired[SourceCodeTypeTypeDef],
     },
-    total=False,
 )
-
 CodeReviewTypeDef = TypedDict(
     "CodeReviewTypeDef",
     {
-        "Name": str,
-        "CodeReviewArn": str,
-        "RepositoryName": str,
-        "Owner": str,
-        "ProviderType": ProviderTypeType,
-        "State": JobStateType,
-        "StateReason": str,
-        "CreatedTimeStamp": datetime,
-        "LastUpdatedTimeStamp": datetime,
-        "Type": TypeType,
-        "PullRequestId": str,
-        "SourceCodeType": "SourceCodeTypeTypeDef",
-        "AssociationArn": str,
-        "Metrics": "MetricsTypeDef",
-        "AnalysisTypes": List[AnalysisTypeType],
-        "ConfigFileState": ConfigFileStateType,
-    },
-    total=False,
-)
-
-_RequiredCodeReviewTypeTypeDef = TypedDict(
-    "_RequiredCodeReviewTypeTypeDef",
-    {
-        "RepositoryAnalysis": "RepositoryAnalysisTypeDef",
+        "Name": NotRequired[str],
+        "CodeReviewArn": NotRequired[str],
+        "RepositoryName": NotRequired[str],
+        "Owner": NotRequired[str],
+        "ProviderType": NotRequired[ProviderTypeType],
+        "State": NotRequired[JobStateType],
+        "StateReason": NotRequired[str],
+        "CreatedTimeStamp": NotRequired[datetime],
+        "LastUpdatedTimeStamp": NotRequired[datetime],
+        "Type": NotRequired[TypeType],
+        "PullRequestId": NotRequired[str],
+        "SourceCodeType": NotRequired[SourceCodeTypeTypeDef],
+        "AssociationArn": NotRequired[str],
+        "Metrics": NotRequired[MetricsTypeDef],
+        "AnalysisTypes": NotRequired[List[AnalysisTypeType]],
+        "ConfigFileState": NotRequired[ConfigFileStateType],
     },
 )
-_OptionalCodeReviewTypeTypeDef = TypedDict(
-    "_OptionalCodeReviewTypeTypeDef",
-    {
-        "AnalysisTypes": List[AnalysisTypeType],
-    },
-    total=False,
-)
 
-class CodeReviewTypeTypeDef(_RequiredCodeReviewTypeTypeDef, _OptionalCodeReviewTypeTypeDef):
-    pass
+class RepositoryAnalysisTypeDef(TypedDict):
+    RepositoryHead: NotRequired[RepositoryHeadSourceCodeTypeTypeDef]
+    SourceCodeType: NotRequired[SourceCodeTypeTypeDef]
 
-CommitDiffSourceCodeTypeTypeDef = TypedDict(
-    "CommitDiffSourceCodeTypeTypeDef",
-    {
-        "SourceCommit": str,
-        "DestinationCommit": str,
-        "MergeBaseCommit": str,
-    },
-    total=False,
-)
+class ListCodeReviewsResponseTypeDef(TypedDict):
+    CodeReviewSummaries: List[CodeReviewSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-_RequiredCreateCodeReviewRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateCodeReviewRequestRequestTypeDef",
+class CreateCodeReviewResponseTypeDef(TypedDict):
+    CodeReview: CodeReviewTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeCodeReviewResponseTypeDef(TypedDict):
+    CodeReview: CodeReviewTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CodeReviewTypeTypeDef(TypedDict):
+    RepositoryAnalysis: RepositoryAnalysisTypeDef
+    AnalysisTypes: NotRequired[Sequence[AnalysisTypeType]]
+
+CreateCodeReviewRequestTypeDef = TypedDict(
+    "CreateCodeReviewRequestTypeDef",
     {
         "Name": str,
         "RepositoryAssociationArn": str,
-        "Type": "CodeReviewTypeTypeDef",
+        "Type": CodeReviewTypeTypeDef,
+        "ClientRequestToken": NotRequired[str],
     },
-)
-_OptionalCreateCodeReviewRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateCodeReviewRequestRequestTypeDef",
-    {
-        "ClientRequestToken": str,
-    },
-    total=False,
-)
-
-class CreateCodeReviewRequestRequestTypeDef(
-    _RequiredCreateCodeReviewRequestRequestTypeDef, _OptionalCreateCodeReviewRequestRequestTypeDef
-):
-    pass
-
-CreateCodeReviewResponseTypeDef = TypedDict(
-    "CreateCodeReviewResponseTypeDef",
-    {
-        "CodeReview": "CodeReviewTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeCodeReviewRequestRequestTypeDef = TypedDict(
-    "DescribeCodeReviewRequestRequestTypeDef",
-    {
-        "CodeReviewArn": str,
-    },
-)
-
-DescribeCodeReviewResponseTypeDef = TypedDict(
-    "DescribeCodeReviewResponseTypeDef",
-    {
-        "CodeReview": "CodeReviewTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribeRecommendationFeedbackRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeRecommendationFeedbackRequestRequestTypeDef",
-    {
-        "CodeReviewArn": str,
-        "RecommendationId": str,
-    },
-)
-_OptionalDescribeRecommendationFeedbackRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeRecommendationFeedbackRequestRequestTypeDef",
-    {
-        "UserId": str,
-    },
-    total=False,
-)
-
-class DescribeRecommendationFeedbackRequestRequestTypeDef(
-    _RequiredDescribeRecommendationFeedbackRequestRequestTypeDef,
-    _OptionalDescribeRecommendationFeedbackRequestRequestTypeDef,
-):
-    pass
-
-DescribeRecommendationFeedbackResponseTypeDef = TypedDict(
-    "DescribeRecommendationFeedbackResponseTypeDef",
-    {
-        "RecommendationFeedback": "RecommendationFeedbackTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeRepositoryAssociationRequestRequestTypeDef = TypedDict(
-    "DescribeRepositoryAssociationRequestRequestTypeDef",
-    {
-        "AssociationArn": str,
-    },
-)
-
-DescribeRepositoryAssociationResponseTypeDef = TypedDict(
-    "DescribeRepositoryAssociationResponseTypeDef",
-    {
-        "RepositoryAssociation": "RepositoryAssociationTypeDef",
-        "Tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DisassociateRepositoryRequestRequestTypeDef = TypedDict(
-    "DisassociateRepositoryRequestRequestTypeDef",
-    {
-        "AssociationArn": str,
-    },
-)
-
-DisassociateRepositoryResponseTypeDef = TypedDict(
-    "DisassociateRepositoryResponseTypeDef",
-    {
-        "RepositoryAssociation": "RepositoryAssociationTypeDef",
-        "Tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-EventInfoTypeDef = TypedDict(
-    "EventInfoTypeDef",
-    {
-        "Name": str,
-        "State": str,
-    },
-    total=False,
-)
-
-KMSKeyDetailsTypeDef = TypedDict(
-    "KMSKeyDetailsTypeDef",
-    {
-        "KMSKeyId": str,
-        "EncryptionOption": EncryptionOptionType,
-    },
-    total=False,
-)
-
-_RequiredListCodeReviewsRequestRequestTypeDef = TypedDict(
-    "_RequiredListCodeReviewsRequestRequestTypeDef",
-    {
-        "Type": TypeType,
-    },
-)
-_OptionalListCodeReviewsRequestRequestTypeDef = TypedDict(
-    "_OptionalListCodeReviewsRequestRequestTypeDef",
-    {
-        "ProviderTypes": List[ProviderTypeType],
-        "States": List[JobStateType],
-        "RepositoryNames": List[str],
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListCodeReviewsRequestRequestTypeDef(
-    _RequiredListCodeReviewsRequestRequestTypeDef, _OptionalListCodeReviewsRequestRequestTypeDef
-):
-    pass
-
-ListCodeReviewsResponseTypeDef = TypedDict(
-    "ListCodeReviewsResponseTypeDef",
-    {
-        "CodeReviewSummaries": List["CodeReviewSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListRecommendationFeedbackRequestRequestTypeDef = TypedDict(
-    "_RequiredListRecommendationFeedbackRequestRequestTypeDef",
-    {
-        "CodeReviewArn": str,
-    },
-)
-_OptionalListRecommendationFeedbackRequestRequestTypeDef = TypedDict(
-    "_OptionalListRecommendationFeedbackRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-        "UserIds": List[str],
-        "RecommendationIds": List[str],
-    },
-    total=False,
-)
-
-class ListRecommendationFeedbackRequestRequestTypeDef(
-    _RequiredListRecommendationFeedbackRequestRequestTypeDef,
-    _OptionalListRecommendationFeedbackRequestRequestTypeDef,
-):
-    pass
-
-ListRecommendationFeedbackResponseTypeDef = TypedDict(
-    "ListRecommendationFeedbackResponseTypeDef",
-    {
-        "RecommendationFeedbackSummaries": List["RecommendationFeedbackSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListRecommendationsRequestRequestTypeDef = TypedDict(
-    "_RequiredListRecommendationsRequestRequestTypeDef",
-    {
-        "CodeReviewArn": str,
-    },
-)
-_OptionalListRecommendationsRequestRequestTypeDef = TypedDict(
-    "_OptionalListRecommendationsRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-class ListRecommendationsRequestRequestTypeDef(
-    _RequiredListRecommendationsRequestRequestTypeDef,
-    _OptionalListRecommendationsRequestRequestTypeDef,
-):
-    pass
-
-ListRecommendationsResponseTypeDef = TypedDict(
-    "ListRecommendationsResponseTypeDef",
-    {
-        "RecommendationSummaries": List["RecommendationSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListRepositoryAssociationsRequestRequestTypeDef = TypedDict(
-    "ListRepositoryAssociationsRequestRequestTypeDef",
-    {
-        "ProviderTypes": List[ProviderTypeType],
-        "States": List[RepositoryAssociationStateType],
-        "Names": List[str],
-        "Owners": List[str],
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListRepositoryAssociationsResponseTypeDef = TypedDict(
-    "ListRepositoryAssociationsResponseTypeDef",
-    {
-        "RepositoryAssociationSummaries": List["RepositoryAssociationSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-    },
-)
-
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "Tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-MetricsSummaryTypeDef = TypedDict(
-    "MetricsSummaryTypeDef",
-    {
-        "MeteredLinesOfCodeCount": int,
-        "SuppressedLinesOfCodeCount": int,
-        "FindingsCount": int,
-    },
-    total=False,
-)
-
-MetricsTypeDef = TypedDict(
-    "MetricsTypeDef",
-    {
-        "MeteredLinesOfCodeCount": int,
-        "SuppressedLinesOfCodeCount": int,
-        "FindingsCount": int,
-    },
-    total=False,
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-PutRecommendationFeedbackRequestRequestTypeDef = TypedDict(
-    "PutRecommendationFeedbackRequestRequestTypeDef",
-    {
-        "CodeReviewArn": str,
-        "RecommendationId": str,
-        "Reactions": List[ReactionType],
-    },
-)
-
-RecommendationFeedbackSummaryTypeDef = TypedDict(
-    "RecommendationFeedbackSummaryTypeDef",
-    {
-        "RecommendationId": str,
-        "Reactions": List[ReactionType],
-        "UserId": str,
-    },
-    total=False,
-)
-
-RecommendationFeedbackTypeDef = TypedDict(
-    "RecommendationFeedbackTypeDef",
-    {
-        "CodeReviewArn": str,
-        "RecommendationId": str,
-        "Reactions": List[ReactionType],
-        "UserId": str,
-        "CreatedTimeStamp": datetime,
-        "LastUpdatedTimeStamp": datetime,
-    },
-    total=False,
-)
-
-RecommendationSummaryTypeDef = TypedDict(
-    "RecommendationSummaryTypeDef",
-    {
-        "FilePath": str,
-        "RecommendationId": str,
-        "StartLine": int,
-        "EndLine": int,
-        "Description": str,
-        "RecommendationCategory": RecommendationCategoryType,
-        "RuleMetadata": "RuleMetadataTypeDef",
-        "Severity": SeverityType,
-    },
-    total=False,
-)
-
-RepositoryAnalysisTypeDef = TypedDict(
-    "RepositoryAnalysisTypeDef",
-    {
-        "RepositoryHead": "RepositoryHeadSourceCodeTypeTypeDef",
-        "SourceCodeType": "SourceCodeTypeTypeDef",
-    },
-    total=False,
-)
-
-RepositoryAssociationSummaryTypeDef = TypedDict(
-    "RepositoryAssociationSummaryTypeDef",
-    {
-        "AssociationArn": str,
-        "ConnectionArn": str,
-        "LastUpdatedTimeStamp": datetime,
-        "AssociationId": str,
-        "Name": str,
-        "Owner": str,
-        "ProviderType": ProviderTypeType,
-        "State": RepositoryAssociationStateType,
-    },
-    total=False,
-)
-
-RepositoryAssociationTypeDef = TypedDict(
-    "RepositoryAssociationTypeDef",
-    {
-        "AssociationId": str,
-        "AssociationArn": str,
-        "ConnectionArn": str,
-        "Name": str,
-        "Owner": str,
-        "ProviderType": ProviderTypeType,
-        "State": RepositoryAssociationStateType,
-        "StateReason": str,
-        "LastUpdatedTimeStamp": datetime,
-        "CreatedTimeStamp": datetime,
-        "KMSKeyDetails": "KMSKeyDetailsTypeDef",
-        "S3RepositoryDetails": "S3RepositoryDetailsTypeDef",
-    },
-    total=False,
-)
-
-RepositoryHeadSourceCodeTypeTypeDef = TypedDict(
-    "RepositoryHeadSourceCodeTypeTypeDef",
-    {
-        "BranchName": str,
-    },
-)
-
-RepositoryTypeDef = TypedDict(
-    "RepositoryTypeDef",
-    {
-        "CodeCommit": "CodeCommitRepositoryTypeDef",
-        "Bitbucket": "ThirdPartySourceRepositoryTypeDef",
-        "GitHubEnterpriseServer": "ThirdPartySourceRepositoryTypeDef",
-        "S3Bucket": "S3RepositoryTypeDef",
-    },
-    total=False,
-)
-
-RequestMetadataTypeDef = TypedDict(
-    "RequestMetadataTypeDef",
-    {
-        "RequestId": str,
-        "Requester": str,
-        "EventInfo": "EventInfoTypeDef",
-        "VendorName": VendorNameType,
-    },
-    total=False,
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-RuleMetadataTypeDef = TypedDict(
-    "RuleMetadataTypeDef",
-    {
-        "RuleId": str,
-        "RuleName": str,
-        "ShortDescription": str,
-        "LongDescription": str,
-        "RuleTags": List[str],
-    },
-    total=False,
-)
-
-_RequiredS3BucketRepositoryTypeDef = TypedDict(
-    "_RequiredS3BucketRepositoryTypeDef",
-    {
-        "Name": str,
-    },
-)
-_OptionalS3BucketRepositoryTypeDef = TypedDict(
-    "_OptionalS3BucketRepositoryTypeDef",
-    {
-        "Details": "S3RepositoryDetailsTypeDef",
-    },
-    total=False,
-)
-
-class S3BucketRepositoryTypeDef(
-    _RequiredS3BucketRepositoryTypeDef, _OptionalS3BucketRepositoryTypeDef
-):
-    pass
-
-S3RepositoryDetailsTypeDef = TypedDict(
-    "S3RepositoryDetailsTypeDef",
-    {
-        "BucketName": str,
-        "CodeArtifacts": "CodeArtifactsTypeDef",
-    },
-    total=False,
-)
-
-S3RepositoryTypeDef = TypedDict(
-    "S3RepositoryTypeDef",
-    {
-        "Name": str,
-        "BucketName": str,
-    },
-)
-
-SourceCodeTypeTypeDef = TypedDict(
-    "SourceCodeTypeTypeDef",
-    {
-        "CommitDiff": "CommitDiffSourceCodeTypeTypeDef",
-        "RepositoryHead": "RepositoryHeadSourceCodeTypeTypeDef",
-        "BranchDiff": "BranchDiffSourceCodeTypeTypeDef",
-        "S3BucketRepository": "S3BucketRepositoryTypeDef",
-        "RequestMetadata": "RequestMetadataTypeDef",
-    },
-    total=False,
-)
-
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "Tags": Dict[str, str],
-    },
-)
-
-ThirdPartySourceRepositoryTypeDef = TypedDict(
-    "ThirdPartySourceRepositoryTypeDef",
-    {
-        "Name": str,
-        "ConnectionArn": str,
-        "Owner": str,
-    },
-)
-
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "TagKeys": List[str],
-    },
-)
-
-WaiterConfigTypeDef = TypedDict(
-    "WaiterConfigTypeDef",
-    {
-        "Delay": int,
-        "MaxAttempts": int,
-    },
-    total=False,
 )

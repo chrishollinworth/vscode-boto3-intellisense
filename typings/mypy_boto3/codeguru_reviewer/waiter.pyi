@@ -1,52 +1,69 @@
 """
 Type annotations for codeguru-reviewer service client waiters.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeguru_reviewer/waiters.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codeguru_reviewer/waiters/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
 
-    from mypy_boto3_codeguru_reviewer import CodeGuruReviewerClient
+    from mypy_boto3_codeguru_reviewer.client import CodeGuruReviewerClient
     from mypy_boto3_codeguru_reviewer.waiter import (
         CodeReviewCompletedWaiter,
         RepositoryAssociationSucceededWaiter,
     )
 
-    client: CodeGuruReviewerClient = boto3.client("codeguru-reviewer")
+    session = Session()
+    client: CodeGuruReviewerClient = session.client("codeguru-reviewer")
 
     code_review_completed_waiter: CodeReviewCompletedWaiter = client.get_waiter("code_review_completed")
     repository_association_succeeded_waiter: RepositoryAssociationSucceededWaiter = client.get_waiter("repository_association_succeeded")
     ```
 """
 
-from botocore.waiter import Waiter as Boto3Waiter
+from __future__ import annotations
 
-from .type_defs import WaiterConfigTypeDef
+import sys
+
+from botocore.waiter import Waiter
+
+from .type_defs import (
+    DescribeCodeReviewRequestWaitTypeDef,
+    DescribeRepositoryAssociationRequestWaitTypeDef,
+)
+
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = ("CodeReviewCompletedWaiter", "RepositoryAssociationSucceededWaiter")
 
-class CodeReviewCompletedWaiter(Boto3Waiter):
+class CodeReviewCompletedWaiter(Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codeguru-reviewer.html#CodeGuruReviewer.Waiter.CodeReviewCompleted)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeguru_reviewer/waiters.html#codereviewcompletedwaiter)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codeguru-reviewer/waiter/CodeReviewCompleted.html#CodeGuruReviewer.Waiter.CodeReviewCompleted)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codeguru_reviewer/waiters/#codereviewcompletedwaiter)
     """
-
-    def wait(self, *, CodeReviewArn: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
+    def wait(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeCodeReviewRequestWaitTypeDef]
+    ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codeguru-reviewer.html#CodeGuruReviewer.Waiter.CodeReviewCompleted.wait)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeguru_reviewer/waiters.html#codereviewcompletedwaiter)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codeguru-reviewer/waiter/CodeReviewCompleted.html#CodeGuruReviewer.Waiter.CodeReviewCompleted.wait)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codeguru_reviewer/waiters/#codereviewcompletedwaiter)
         """
 
-class RepositoryAssociationSucceededWaiter(Boto3Waiter):
+class RepositoryAssociationSucceededWaiter(Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codeguru-reviewer.html#CodeGuruReviewer.Waiter.RepositoryAssociationSucceeded)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeguru_reviewer/waiters.html#repositoryassociationsucceededwaiter)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codeguru-reviewer/waiter/RepositoryAssociationSucceeded.html#CodeGuruReviewer.Waiter.RepositoryAssociationSucceeded)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codeguru_reviewer/waiters/#repositoryassociationsucceededwaiter)
     """
-
-    def wait(self, *, AssociationArn: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
+    def wait(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeRepositoryAssociationRequestWaitTypeDef]
+    ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codeguru-reviewer.html#CodeGuruReviewer.Waiter.RepositoryAssociationSucceeded.wait)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeguru_reviewer/waiters.html#repositoryassociationsucceededwaiter)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codeguru-reviewer/waiter/RepositoryAssociationSucceeded.html#CodeGuruReviewer.Waiter.RepositoryAssociationSucceeded.wait)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codeguru_reviewer/waiters/#repositoryassociationsucceededwaiter)
         """

@@ -1,20 +1,24 @@
 """
 Type annotations for chime-sdk-messaging service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_messaging/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_messaging/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_chime_sdk_messaging.type_defs import AppInstanceUserMembershipSummaryTypeDef
 
-    data: AppInstanceUserMembershipSummaryTypeDef = {...}
+    data: AppInstanceUserMembershipSummaryTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List, Union
+from typing import Union
 
 from .literals import (
     AllowNotificationsType,
@@ -33,26 +37,28 @@ from .literals import (
     SortOrderType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
     "AppInstanceUserMembershipSummaryTypeDef",
-    "AssociateChannelFlowRequestRequestTypeDef",
+    "AssociateChannelFlowRequestTypeDef",
     "BatchChannelMembershipsTypeDef",
     "BatchCreateChannelMembershipErrorTypeDef",
-    "BatchCreateChannelMembershipRequestRequestTypeDef",
+    "BatchCreateChannelMembershipRequestTypeDef",
     "BatchCreateChannelMembershipResponseTypeDef",
     "ChannelAssociatedWithFlowSummaryTypeDef",
     "ChannelBanSummaryTypeDef",
     "ChannelBanTypeDef",
-    "ChannelFlowCallbackRequestRequestTypeDef",
+    "ChannelFlowCallbackRequestTypeDef",
     "ChannelFlowCallbackResponseTypeDef",
     "ChannelFlowSummaryTypeDef",
     "ChannelFlowTypeDef",
@@ -69,1478 +75,805 @@ __all__ = (
     "ChannelModeratorTypeDef",
     "ChannelSummaryTypeDef",
     "ChannelTypeDef",
-    "CreateChannelBanRequestRequestTypeDef",
+    "CreateChannelBanRequestTypeDef",
     "CreateChannelBanResponseTypeDef",
-    "CreateChannelFlowRequestRequestTypeDef",
+    "CreateChannelFlowRequestTypeDef",
     "CreateChannelFlowResponseTypeDef",
-    "CreateChannelMembershipRequestRequestTypeDef",
+    "CreateChannelMembershipRequestTypeDef",
     "CreateChannelMembershipResponseTypeDef",
-    "CreateChannelModeratorRequestRequestTypeDef",
+    "CreateChannelModeratorRequestTypeDef",
     "CreateChannelModeratorResponseTypeDef",
-    "CreateChannelRequestRequestTypeDef",
+    "CreateChannelRequestTypeDef",
     "CreateChannelResponseTypeDef",
-    "DeleteChannelBanRequestRequestTypeDef",
-    "DeleteChannelFlowRequestRequestTypeDef",
-    "DeleteChannelMembershipRequestRequestTypeDef",
-    "DeleteChannelMessageRequestRequestTypeDef",
-    "DeleteChannelModeratorRequestRequestTypeDef",
-    "DeleteChannelRequestRequestTypeDef",
-    "DeleteMessagingStreamingConfigurationsRequestRequestTypeDef",
-    "DescribeChannelBanRequestRequestTypeDef",
+    "DeleteChannelBanRequestTypeDef",
+    "DeleteChannelFlowRequestTypeDef",
+    "DeleteChannelMembershipRequestTypeDef",
+    "DeleteChannelMessageRequestTypeDef",
+    "DeleteChannelModeratorRequestTypeDef",
+    "DeleteChannelRequestTypeDef",
+    "DeleteMessagingStreamingConfigurationsRequestTypeDef",
+    "DescribeChannelBanRequestTypeDef",
     "DescribeChannelBanResponseTypeDef",
-    "DescribeChannelFlowRequestRequestTypeDef",
+    "DescribeChannelFlowRequestTypeDef",
     "DescribeChannelFlowResponseTypeDef",
-    "DescribeChannelMembershipForAppInstanceUserRequestRequestTypeDef",
+    "DescribeChannelMembershipForAppInstanceUserRequestTypeDef",
     "DescribeChannelMembershipForAppInstanceUserResponseTypeDef",
-    "DescribeChannelMembershipRequestRequestTypeDef",
+    "DescribeChannelMembershipRequestTypeDef",
     "DescribeChannelMembershipResponseTypeDef",
-    "DescribeChannelModeratedByAppInstanceUserRequestRequestTypeDef",
+    "DescribeChannelModeratedByAppInstanceUserRequestTypeDef",
     "DescribeChannelModeratedByAppInstanceUserResponseTypeDef",
-    "DescribeChannelModeratorRequestRequestTypeDef",
+    "DescribeChannelModeratorRequestTypeDef",
     "DescribeChannelModeratorResponseTypeDef",
-    "DescribeChannelRequestRequestTypeDef",
+    "DescribeChannelRequestTypeDef",
     "DescribeChannelResponseTypeDef",
-    "DisassociateChannelFlowRequestRequestTypeDef",
+    "DisassociateChannelFlowRequestTypeDef",
     "ElasticChannelConfigurationTypeDef",
+    "EmptyResponseMetadataTypeDef",
     "ExpirationSettingsTypeDef",
-    "GetChannelMembershipPreferencesRequestRequestTypeDef",
+    "GetChannelMembershipPreferencesRequestTypeDef",
     "GetChannelMembershipPreferencesResponseTypeDef",
-    "GetChannelMessageRequestRequestTypeDef",
+    "GetChannelMessageRequestTypeDef",
     "GetChannelMessageResponseTypeDef",
-    "GetChannelMessageStatusRequestRequestTypeDef",
+    "GetChannelMessageStatusRequestTypeDef",
     "GetChannelMessageStatusResponseTypeDef",
     "GetMessagingSessionEndpointResponseTypeDef",
-    "GetMessagingStreamingConfigurationsRequestRequestTypeDef",
+    "GetMessagingStreamingConfigurationsRequestTypeDef",
     "GetMessagingStreamingConfigurationsResponseTypeDef",
     "IdentityTypeDef",
     "LambdaConfigurationTypeDef",
-    "ListChannelBansRequestRequestTypeDef",
+    "ListChannelBansRequestTypeDef",
     "ListChannelBansResponseTypeDef",
-    "ListChannelFlowsRequestRequestTypeDef",
+    "ListChannelFlowsRequestTypeDef",
     "ListChannelFlowsResponseTypeDef",
-    "ListChannelMembershipsForAppInstanceUserRequestRequestTypeDef",
+    "ListChannelMembershipsForAppInstanceUserRequestTypeDef",
     "ListChannelMembershipsForAppInstanceUserResponseTypeDef",
-    "ListChannelMembershipsRequestRequestTypeDef",
+    "ListChannelMembershipsRequestTypeDef",
     "ListChannelMembershipsResponseTypeDef",
-    "ListChannelMessagesRequestRequestTypeDef",
+    "ListChannelMessagesRequestTypeDef",
     "ListChannelMessagesResponseTypeDef",
-    "ListChannelModeratorsRequestRequestTypeDef",
+    "ListChannelModeratorsRequestTypeDef",
     "ListChannelModeratorsResponseTypeDef",
-    "ListChannelsAssociatedWithChannelFlowRequestRequestTypeDef",
+    "ListChannelsAssociatedWithChannelFlowRequestTypeDef",
     "ListChannelsAssociatedWithChannelFlowResponseTypeDef",
-    "ListChannelsModeratedByAppInstanceUserRequestRequestTypeDef",
+    "ListChannelsModeratedByAppInstanceUserRequestTypeDef",
     "ListChannelsModeratedByAppInstanceUserResponseTypeDef",
-    "ListChannelsRequestRequestTypeDef",
+    "ListChannelsRequestTypeDef",
     "ListChannelsResponseTypeDef",
-    "ListSubChannelsRequestRequestTypeDef",
+    "ListSubChannelsRequestTypeDef",
     "ListSubChannelsResponseTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
+    "MessageAttributeValueOutputTypeDef",
     "MessageAttributeValueTypeDef",
+    "MessageAttributeValueUnionTypeDef",
     "MessagingSessionEndpointTypeDef",
     "ProcessorConfigurationTypeDef",
     "ProcessorTypeDef",
     "PushNotificationConfigurationTypeDef",
     "PushNotificationPreferencesTypeDef",
-    "PutChannelExpirationSettingsRequestRequestTypeDef",
+    "PutChannelExpirationSettingsRequestTypeDef",
     "PutChannelExpirationSettingsResponseTypeDef",
-    "PutChannelMembershipPreferencesRequestRequestTypeDef",
+    "PutChannelMembershipPreferencesRequestTypeDef",
     "PutChannelMembershipPreferencesResponseTypeDef",
-    "PutMessagingStreamingConfigurationsRequestRequestTypeDef",
+    "PutMessagingStreamingConfigurationsRequestTypeDef",
     "PutMessagingStreamingConfigurationsResponseTypeDef",
-    "RedactChannelMessageRequestRequestTypeDef",
+    "RedactChannelMessageRequestTypeDef",
     "RedactChannelMessageResponseTypeDef",
     "ResponseMetadataTypeDef",
-    "SearchChannelsRequestRequestTypeDef",
+    "SearchChannelsRequestTypeDef",
     "SearchChannelsResponseTypeDef",
     "SearchFieldTypeDef",
-    "SendChannelMessageRequestRequestTypeDef",
+    "SendChannelMessageRequestTypeDef",
     "SendChannelMessageResponseTypeDef",
     "StreamingConfigurationTypeDef",
     "SubChannelSummaryTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
     "TagTypeDef",
     "TargetTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateChannelFlowRequestRequestTypeDef",
+    "TimestampTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateChannelFlowRequestTypeDef",
     "UpdateChannelFlowResponseTypeDef",
-    "UpdateChannelMessageRequestRequestTypeDef",
+    "UpdateChannelMessageRequestTypeDef",
     "UpdateChannelMessageResponseTypeDef",
-    "UpdateChannelReadMarkerRequestRequestTypeDef",
+    "UpdateChannelReadMarkerRequestTypeDef",
     "UpdateChannelReadMarkerResponseTypeDef",
-    "UpdateChannelRequestRequestTypeDef",
+    "UpdateChannelRequestTypeDef",
     "UpdateChannelResponseTypeDef",
 )
 
 AppInstanceUserMembershipSummaryTypeDef = TypedDict(
     "AppInstanceUserMembershipSummaryTypeDef",
     {
-        "Type": ChannelMembershipTypeType,
-        "ReadMarkerTimestamp": datetime,
-        "SubChannelId": str,
+        "Type": NotRequired[ChannelMembershipTypeType],
+        "ReadMarkerTimestamp": NotRequired[datetime],
+        "SubChannelId": NotRequired[str],
     },
-    total=False,
 )
 
-AssociateChannelFlowRequestRequestTypeDef = TypedDict(
-    "AssociateChannelFlowRequestRequestTypeDef",
+class AssociateChannelFlowRequestTypeDef(TypedDict):
+    ChannelArn: str
+    ChannelFlowArn: str
+    ChimeBearer: str
+
+class IdentityTypeDef(TypedDict):
+    Arn: NotRequired[str]
+    Name: NotRequired[str]
+
+class BatchCreateChannelMembershipErrorTypeDef(TypedDict):
+    MemberArn: NotRequired[str]
+    ErrorCode: NotRequired[ErrorCodeType]
+    ErrorMessage: NotRequired[str]
+
+BatchCreateChannelMembershipRequestTypeDef = TypedDict(
+    "BatchCreateChannelMembershipRequestTypeDef",
     {
         "ChannelArn": str,
-        "ChannelFlowArn": str,
+        "MemberArns": Sequence[str],
         "ChimeBearer": str,
-    },
-)
-
-BatchChannelMembershipsTypeDef = TypedDict(
-    "BatchChannelMembershipsTypeDef",
-    {
-        "InvitedBy": "IdentityTypeDef",
-        "Type": ChannelMembershipTypeType,
-        "Members": List["IdentityTypeDef"],
-        "ChannelArn": str,
-        "SubChannelId": str,
-    },
-    total=False,
-)
-
-BatchCreateChannelMembershipErrorTypeDef = TypedDict(
-    "BatchCreateChannelMembershipErrorTypeDef",
-    {
-        "MemberArn": str,
-        "ErrorCode": ErrorCodeType,
-        "ErrorMessage": str,
-    },
-    total=False,
-)
-
-_RequiredBatchCreateChannelMembershipRequestRequestTypeDef = TypedDict(
-    "_RequiredBatchCreateChannelMembershipRequestRequestTypeDef",
-    {
-        "ChannelArn": str,
-        "MemberArns": List[str],
-        "ChimeBearer": str,
-    },
-)
-_OptionalBatchCreateChannelMembershipRequestRequestTypeDef = TypedDict(
-    "_OptionalBatchCreateChannelMembershipRequestRequestTypeDef",
-    {
-        "Type": ChannelMembershipTypeType,
-        "SubChannelId": str,
-    },
-    total=False,
-)
-
-class BatchCreateChannelMembershipRequestRequestTypeDef(
-    _RequiredBatchCreateChannelMembershipRequestRequestTypeDef,
-    _OptionalBatchCreateChannelMembershipRequestRequestTypeDef,
-):
-    pass
-
-BatchCreateChannelMembershipResponseTypeDef = TypedDict(
-    "BatchCreateChannelMembershipResponseTypeDef",
-    {
-        "BatchChannelMemberships": "BatchChannelMembershipsTypeDef",
-        "Errors": List["BatchCreateChannelMembershipErrorTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ChannelAssociatedWithFlowSummaryTypeDef = TypedDict(
-    "ChannelAssociatedWithFlowSummaryTypeDef",
-    {
-        "Name": str,
-        "ChannelArn": str,
-        "Mode": ChannelModeType,
-        "Privacy": ChannelPrivacyType,
-        "Metadata": str,
-    },
-    total=False,
-)
-
-ChannelBanSummaryTypeDef = TypedDict(
-    "ChannelBanSummaryTypeDef",
-    {
-        "Member": "IdentityTypeDef",
-    },
-    total=False,
-)
-
-ChannelBanTypeDef = TypedDict(
-    "ChannelBanTypeDef",
-    {
-        "Member": "IdentityTypeDef",
-        "ChannelArn": str,
-        "CreatedTimestamp": datetime,
-        "CreatedBy": "IdentityTypeDef",
-    },
-    total=False,
-)
-
-_RequiredChannelFlowCallbackRequestRequestTypeDef = TypedDict(
-    "_RequiredChannelFlowCallbackRequestRequestTypeDef",
-    {
-        "CallbackId": str,
-        "ChannelArn": str,
-        "ChannelMessage": "ChannelMessageCallbackTypeDef",
-    },
-)
-_OptionalChannelFlowCallbackRequestRequestTypeDef = TypedDict(
-    "_OptionalChannelFlowCallbackRequestRequestTypeDef",
-    {
-        "DeleteResource": bool,
-    },
-    total=False,
-)
-
-class ChannelFlowCallbackRequestRequestTypeDef(
-    _RequiredChannelFlowCallbackRequestRequestTypeDef,
-    _OptionalChannelFlowCallbackRequestRequestTypeDef,
-):
-    pass
-
-ChannelFlowCallbackResponseTypeDef = TypedDict(
-    "ChannelFlowCallbackResponseTypeDef",
-    {
-        "ChannelArn": str,
-        "CallbackId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ChannelFlowSummaryTypeDef = TypedDict(
-    "ChannelFlowSummaryTypeDef",
-    {
-        "ChannelFlowArn": str,
-        "Name": str,
-        "Processors": List["ProcessorTypeDef"],
-    },
-    total=False,
-)
-
-ChannelFlowTypeDef = TypedDict(
-    "ChannelFlowTypeDef",
-    {
-        "ChannelFlowArn": str,
-        "Processors": List["ProcessorTypeDef"],
-        "Name": str,
-        "CreatedTimestamp": datetime,
-        "LastUpdatedTimestamp": datetime,
-    },
-    total=False,
-)
-
-ChannelMembershipForAppInstanceUserSummaryTypeDef = TypedDict(
-    "ChannelMembershipForAppInstanceUserSummaryTypeDef",
-    {
-        "ChannelSummary": "ChannelSummaryTypeDef",
-        "AppInstanceUserMembershipSummary": "AppInstanceUserMembershipSummaryTypeDef",
-    },
-    total=False,
-)
-
-ChannelMembershipPreferencesTypeDef = TypedDict(
-    "ChannelMembershipPreferencesTypeDef",
-    {
-        "PushNotifications": "PushNotificationPreferencesTypeDef",
-    },
-    total=False,
-)
-
-ChannelMembershipSummaryTypeDef = TypedDict(
-    "ChannelMembershipSummaryTypeDef",
-    {
-        "Member": "IdentityTypeDef",
-    },
-    total=False,
-)
-
-ChannelMembershipTypeDef = TypedDict(
-    "ChannelMembershipTypeDef",
-    {
-        "InvitedBy": "IdentityTypeDef",
-        "Type": ChannelMembershipTypeType,
-        "Member": "IdentityTypeDef",
-        "ChannelArn": str,
-        "CreatedTimestamp": datetime,
-        "LastUpdatedTimestamp": datetime,
-        "SubChannelId": str,
-    },
-    total=False,
-)
-
-_RequiredChannelMessageCallbackTypeDef = TypedDict(
-    "_RequiredChannelMessageCallbackTypeDef",
-    {
-        "MessageId": str,
-    },
-)
-_OptionalChannelMessageCallbackTypeDef = TypedDict(
-    "_OptionalChannelMessageCallbackTypeDef",
-    {
-        "Content": str,
-        "Metadata": str,
-        "PushNotification": "PushNotificationConfigurationTypeDef",
-        "MessageAttributes": Dict[str, "MessageAttributeValueTypeDef"],
-        "SubChannelId": str,
-        "ContentType": str,
-    },
-    total=False,
-)
-
-class ChannelMessageCallbackTypeDef(
-    _RequiredChannelMessageCallbackTypeDef, _OptionalChannelMessageCallbackTypeDef
-):
-    pass
-
-ChannelMessageStatusStructureTypeDef = TypedDict(
-    "ChannelMessageStatusStructureTypeDef",
-    {
-        "Value": ChannelMessageStatusType,
-        "Detail": str,
-    },
-    total=False,
-)
-
-ChannelMessageSummaryTypeDef = TypedDict(
-    "ChannelMessageSummaryTypeDef",
-    {
-        "MessageId": str,
-        "Content": str,
-        "Metadata": str,
-        "Type": ChannelMessageTypeType,
-        "CreatedTimestamp": datetime,
-        "LastUpdatedTimestamp": datetime,
-        "LastEditedTimestamp": datetime,
-        "Sender": "IdentityTypeDef",
-        "Redacted": bool,
-        "Status": "ChannelMessageStatusStructureTypeDef",
-        "MessageAttributes": Dict[str, "MessageAttributeValueTypeDef"],
-        "ContentType": str,
-        "Target": List["TargetTypeDef"],
-    },
-    total=False,
-)
-
-ChannelMessageTypeDef = TypedDict(
-    "ChannelMessageTypeDef",
-    {
-        "ChannelArn": str,
-        "MessageId": str,
-        "Content": str,
-        "Metadata": str,
-        "Type": ChannelMessageTypeType,
-        "CreatedTimestamp": datetime,
-        "LastEditedTimestamp": datetime,
-        "LastUpdatedTimestamp": datetime,
-        "Sender": "IdentityTypeDef",
-        "Redacted": bool,
-        "Persistence": ChannelMessagePersistenceTypeType,
-        "Status": "ChannelMessageStatusStructureTypeDef",
-        "MessageAttributes": Dict[str, "MessageAttributeValueTypeDef"],
-        "SubChannelId": str,
-        "ContentType": str,
-        "Target": List["TargetTypeDef"],
-    },
-    total=False,
-)
-
-ChannelModeratedByAppInstanceUserSummaryTypeDef = TypedDict(
-    "ChannelModeratedByAppInstanceUserSummaryTypeDef",
-    {
-        "ChannelSummary": "ChannelSummaryTypeDef",
-    },
-    total=False,
-)
-
-ChannelModeratorSummaryTypeDef = TypedDict(
-    "ChannelModeratorSummaryTypeDef",
-    {
-        "Moderator": "IdentityTypeDef",
-    },
-    total=False,
-)
-
-ChannelModeratorTypeDef = TypedDict(
-    "ChannelModeratorTypeDef",
-    {
-        "Moderator": "IdentityTypeDef",
-        "ChannelArn": str,
-        "CreatedTimestamp": datetime,
-        "CreatedBy": "IdentityTypeDef",
-    },
-    total=False,
-)
-
-ChannelSummaryTypeDef = TypedDict(
-    "ChannelSummaryTypeDef",
-    {
-        "Name": str,
-        "ChannelArn": str,
-        "Mode": ChannelModeType,
-        "Privacy": ChannelPrivacyType,
-        "Metadata": str,
-        "LastMessageTimestamp": datetime,
-    },
-    total=False,
-)
-
-ChannelTypeDef = TypedDict(
-    "ChannelTypeDef",
-    {
-        "Name": str,
-        "ChannelArn": str,
-        "Mode": ChannelModeType,
-        "Privacy": ChannelPrivacyType,
-        "Metadata": str,
-        "CreatedBy": "IdentityTypeDef",
-        "CreatedTimestamp": datetime,
-        "LastMessageTimestamp": datetime,
-        "LastUpdatedTimestamp": datetime,
-        "ChannelFlowArn": str,
-        "ElasticChannelConfiguration": "ElasticChannelConfigurationTypeDef",
-        "ExpirationSettings": "ExpirationSettingsTypeDef",
-    },
-    total=False,
-)
-
-CreateChannelBanRequestRequestTypeDef = TypedDict(
-    "CreateChannelBanRequestRequestTypeDef",
-    {
-        "ChannelArn": str,
-        "MemberArn": str,
-        "ChimeBearer": str,
-    },
-)
-
-CreateChannelBanResponseTypeDef = TypedDict(
-    "CreateChannelBanResponseTypeDef",
-    {
-        "ChannelArn": str,
-        "Member": "IdentityTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateChannelFlowRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateChannelFlowRequestRequestTypeDef",
-    {
-        "AppInstanceArn": str,
-        "Processors": List["ProcessorTypeDef"],
-        "Name": str,
-        "ClientRequestToken": str,
-    },
-)
-_OptionalCreateChannelFlowRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateChannelFlowRequestRequestTypeDef",
-    {
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateChannelFlowRequestRequestTypeDef(
-    _RequiredCreateChannelFlowRequestRequestTypeDef, _OptionalCreateChannelFlowRequestRequestTypeDef
-):
-    pass
-
-CreateChannelFlowResponseTypeDef = TypedDict(
-    "CreateChannelFlowResponseTypeDef",
-    {
-        "ChannelFlowArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateChannelMembershipRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateChannelMembershipRequestRequestTypeDef",
-    {
-        "ChannelArn": str,
-        "MemberArn": str,
-        "Type": ChannelMembershipTypeType,
-        "ChimeBearer": str,
-    },
-)
-_OptionalCreateChannelMembershipRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateChannelMembershipRequestRequestTypeDef",
-    {
-        "SubChannelId": str,
-    },
-    total=False,
-)
-
-class CreateChannelMembershipRequestRequestTypeDef(
-    _RequiredCreateChannelMembershipRequestRequestTypeDef,
-    _OptionalCreateChannelMembershipRequestRequestTypeDef,
-):
-    pass
-
-CreateChannelMembershipResponseTypeDef = TypedDict(
-    "CreateChannelMembershipResponseTypeDef",
-    {
-        "ChannelArn": str,
-        "Member": "IdentityTypeDef",
-        "SubChannelId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateChannelModeratorRequestRequestTypeDef = TypedDict(
-    "CreateChannelModeratorRequestRequestTypeDef",
-    {
-        "ChannelArn": str,
-        "ChannelModeratorArn": str,
-        "ChimeBearer": str,
-    },
-)
-
-CreateChannelModeratorResponseTypeDef = TypedDict(
-    "CreateChannelModeratorResponseTypeDef",
-    {
-        "ChannelArn": str,
-        "ChannelModerator": "IdentityTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateChannelRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateChannelRequestRequestTypeDef",
-    {
-        "AppInstanceArn": str,
-        "Name": str,
-        "ClientRequestToken": str,
-        "ChimeBearer": str,
-    },
-)
-_OptionalCreateChannelRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateChannelRequestRequestTypeDef",
-    {
-        "Mode": ChannelModeType,
-        "Privacy": ChannelPrivacyType,
-        "Metadata": str,
-        "Tags": List["TagTypeDef"],
-        "ChannelId": str,
-        "MemberArns": List[str],
-        "ModeratorArns": List[str],
-        "ElasticChannelConfiguration": "ElasticChannelConfigurationTypeDef",
-        "ExpirationSettings": "ExpirationSettingsTypeDef",
-    },
-    total=False,
-)
-
-class CreateChannelRequestRequestTypeDef(
-    _RequiredCreateChannelRequestRequestTypeDef, _OptionalCreateChannelRequestRequestTypeDef
-):
-    pass
-
-CreateChannelResponseTypeDef = TypedDict(
-    "CreateChannelResponseTypeDef",
-    {
-        "ChannelArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteChannelBanRequestRequestTypeDef = TypedDict(
-    "DeleteChannelBanRequestRequestTypeDef",
-    {
-        "ChannelArn": str,
-        "MemberArn": str,
-        "ChimeBearer": str,
-    },
-)
-
-DeleteChannelFlowRequestRequestTypeDef = TypedDict(
-    "DeleteChannelFlowRequestRequestTypeDef",
-    {
-        "ChannelFlowArn": str,
-    },
-)
-
-_RequiredDeleteChannelMembershipRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteChannelMembershipRequestRequestTypeDef",
-    {
-        "ChannelArn": str,
-        "MemberArn": str,
-        "ChimeBearer": str,
-    },
-)
-_OptionalDeleteChannelMembershipRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteChannelMembershipRequestRequestTypeDef",
-    {
-        "SubChannelId": str,
-    },
-    total=False,
-)
-
-class DeleteChannelMembershipRequestRequestTypeDef(
-    _RequiredDeleteChannelMembershipRequestRequestTypeDef,
-    _OptionalDeleteChannelMembershipRequestRequestTypeDef,
-):
-    pass
-
-_RequiredDeleteChannelMessageRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteChannelMessageRequestRequestTypeDef",
-    {
-        "ChannelArn": str,
-        "MessageId": str,
-        "ChimeBearer": str,
-    },
-)
-_OptionalDeleteChannelMessageRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteChannelMessageRequestRequestTypeDef",
-    {
-        "SubChannelId": str,
-    },
-    total=False,
-)
-
-class DeleteChannelMessageRequestRequestTypeDef(
-    _RequiredDeleteChannelMessageRequestRequestTypeDef,
-    _OptionalDeleteChannelMessageRequestRequestTypeDef,
-):
-    pass
-
-DeleteChannelModeratorRequestRequestTypeDef = TypedDict(
-    "DeleteChannelModeratorRequestRequestTypeDef",
-    {
-        "ChannelArn": str,
-        "ChannelModeratorArn": str,
-        "ChimeBearer": str,
-    },
-)
-
-DeleteChannelRequestRequestTypeDef = TypedDict(
-    "DeleteChannelRequestRequestTypeDef",
-    {
-        "ChannelArn": str,
-        "ChimeBearer": str,
-    },
-)
-
-DeleteMessagingStreamingConfigurationsRequestRequestTypeDef = TypedDict(
-    "DeleteMessagingStreamingConfigurationsRequestRequestTypeDef",
-    {
-        "AppInstanceArn": str,
-    },
-)
-
-DescribeChannelBanRequestRequestTypeDef = TypedDict(
-    "DescribeChannelBanRequestRequestTypeDef",
-    {
-        "ChannelArn": str,
-        "MemberArn": str,
-        "ChimeBearer": str,
-    },
-)
-
-DescribeChannelBanResponseTypeDef = TypedDict(
-    "DescribeChannelBanResponseTypeDef",
-    {
-        "ChannelBan": "ChannelBanTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeChannelFlowRequestRequestTypeDef = TypedDict(
-    "DescribeChannelFlowRequestRequestTypeDef",
-    {
-        "ChannelFlowArn": str,
-    },
-)
-
-DescribeChannelFlowResponseTypeDef = TypedDict(
-    "DescribeChannelFlowResponseTypeDef",
-    {
-        "ChannelFlow": "ChannelFlowTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeChannelMembershipForAppInstanceUserRequestRequestTypeDef = TypedDict(
-    "DescribeChannelMembershipForAppInstanceUserRequestRequestTypeDef",
-    {
-        "ChannelArn": str,
-        "AppInstanceUserArn": str,
-        "ChimeBearer": str,
-    },
-)
-
-DescribeChannelMembershipForAppInstanceUserResponseTypeDef = TypedDict(
-    "DescribeChannelMembershipForAppInstanceUserResponseTypeDef",
-    {
-        "ChannelMembership": "ChannelMembershipForAppInstanceUserSummaryTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribeChannelMembershipRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeChannelMembershipRequestRequestTypeDef",
-    {
-        "ChannelArn": str,
-        "MemberArn": str,
-        "ChimeBearer": str,
-    },
-)
-_OptionalDescribeChannelMembershipRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeChannelMembershipRequestRequestTypeDef",
-    {
-        "SubChannelId": str,
-    },
-    total=False,
-)
-
-class DescribeChannelMembershipRequestRequestTypeDef(
-    _RequiredDescribeChannelMembershipRequestRequestTypeDef,
-    _OptionalDescribeChannelMembershipRequestRequestTypeDef,
-):
-    pass
-
-DescribeChannelMembershipResponseTypeDef = TypedDict(
-    "DescribeChannelMembershipResponseTypeDef",
-    {
-        "ChannelMembership": "ChannelMembershipTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeChannelModeratedByAppInstanceUserRequestRequestTypeDef = TypedDict(
-    "DescribeChannelModeratedByAppInstanceUserRequestRequestTypeDef",
-    {
-        "ChannelArn": str,
-        "AppInstanceUserArn": str,
-        "ChimeBearer": str,
-    },
-)
-
-DescribeChannelModeratedByAppInstanceUserResponseTypeDef = TypedDict(
-    "DescribeChannelModeratedByAppInstanceUserResponseTypeDef",
-    {
-        "Channel": "ChannelModeratedByAppInstanceUserSummaryTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeChannelModeratorRequestRequestTypeDef = TypedDict(
-    "DescribeChannelModeratorRequestRequestTypeDef",
-    {
-        "ChannelArn": str,
-        "ChannelModeratorArn": str,
-        "ChimeBearer": str,
-    },
-)
-
-DescribeChannelModeratorResponseTypeDef = TypedDict(
-    "DescribeChannelModeratorResponseTypeDef",
-    {
-        "ChannelModerator": "ChannelModeratorTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeChannelRequestRequestTypeDef = TypedDict(
-    "DescribeChannelRequestRequestTypeDef",
-    {
-        "ChannelArn": str,
-        "ChimeBearer": str,
-    },
-)
-
-DescribeChannelResponseTypeDef = TypedDict(
-    "DescribeChannelResponseTypeDef",
-    {
-        "Channel": "ChannelTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DisassociateChannelFlowRequestRequestTypeDef = TypedDict(
-    "DisassociateChannelFlowRequestRequestTypeDef",
-    {
-        "ChannelArn": str,
-        "ChannelFlowArn": str,
-        "ChimeBearer": str,
-    },
-)
-
-ElasticChannelConfigurationTypeDef = TypedDict(
-    "ElasticChannelConfigurationTypeDef",
-    {
-        "MaximumSubChannels": int,
-        "TargetMembershipsPerSubChannel": int,
-        "MinimumMembershipPercentage": int,
-    },
-)
-
-ExpirationSettingsTypeDef = TypedDict(
-    "ExpirationSettingsTypeDef",
-    {
-        "ExpirationDays": int,
-        "ExpirationCriterion": ExpirationCriterionType,
-    },
-)
-
-GetChannelMembershipPreferencesRequestRequestTypeDef = TypedDict(
-    "GetChannelMembershipPreferencesRequestRequestTypeDef",
-    {
-        "ChannelArn": str,
-        "MemberArn": str,
-        "ChimeBearer": str,
-    },
-)
-
-GetChannelMembershipPreferencesResponseTypeDef = TypedDict(
-    "GetChannelMembershipPreferencesResponseTypeDef",
-    {
-        "ChannelArn": str,
-        "Member": "IdentityTypeDef",
-        "Preferences": "ChannelMembershipPreferencesTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetChannelMessageRequestRequestTypeDef = TypedDict(
-    "_RequiredGetChannelMessageRequestRequestTypeDef",
-    {
-        "ChannelArn": str,
-        "MessageId": str,
-        "ChimeBearer": str,
-    },
-)
-_OptionalGetChannelMessageRequestRequestTypeDef = TypedDict(
-    "_OptionalGetChannelMessageRequestRequestTypeDef",
-    {
-        "SubChannelId": str,
-    },
-    total=False,
-)
-
-class GetChannelMessageRequestRequestTypeDef(
-    _RequiredGetChannelMessageRequestRequestTypeDef, _OptionalGetChannelMessageRequestRequestTypeDef
-):
-    pass
-
-GetChannelMessageResponseTypeDef = TypedDict(
-    "GetChannelMessageResponseTypeDef",
-    {
-        "ChannelMessage": "ChannelMessageTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetChannelMessageStatusRequestRequestTypeDef = TypedDict(
-    "_RequiredGetChannelMessageStatusRequestRequestTypeDef",
-    {
-        "ChannelArn": str,
-        "MessageId": str,
-        "ChimeBearer": str,
-    },
-)
-_OptionalGetChannelMessageStatusRequestRequestTypeDef = TypedDict(
-    "_OptionalGetChannelMessageStatusRequestRequestTypeDef",
-    {
-        "SubChannelId": str,
-    },
-    total=False,
-)
-
-class GetChannelMessageStatusRequestRequestTypeDef(
-    _RequiredGetChannelMessageStatusRequestRequestTypeDef,
-    _OptionalGetChannelMessageStatusRequestRequestTypeDef,
-):
-    pass
-
-GetChannelMessageStatusResponseTypeDef = TypedDict(
-    "GetChannelMessageStatusResponseTypeDef",
-    {
-        "Status": "ChannelMessageStatusStructureTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetMessagingSessionEndpointResponseTypeDef = TypedDict(
-    "GetMessagingSessionEndpointResponseTypeDef",
-    {
-        "Endpoint": "MessagingSessionEndpointTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetMessagingStreamingConfigurationsRequestRequestTypeDef = TypedDict(
-    "GetMessagingStreamingConfigurationsRequestRequestTypeDef",
-    {
-        "AppInstanceArn": str,
-    },
-)
-
-GetMessagingStreamingConfigurationsResponseTypeDef = TypedDict(
-    "GetMessagingStreamingConfigurationsResponseTypeDef",
-    {
-        "StreamingConfigurations": List["StreamingConfigurationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-IdentityTypeDef = TypedDict(
-    "IdentityTypeDef",
-    {
-        "Arn": str,
-        "Name": str,
-    },
-    total=False,
-)
-
-LambdaConfigurationTypeDef = TypedDict(
-    "LambdaConfigurationTypeDef",
-    {
-        "ResourceArn": str,
-        "InvocationType": Literal["ASYNC"],
-    },
-)
-
-_RequiredListChannelBansRequestRequestTypeDef = TypedDict(
-    "_RequiredListChannelBansRequestRequestTypeDef",
-    {
-        "ChannelArn": str,
-        "ChimeBearer": str,
-    },
-)
-_OptionalListChannelBansRequestRequestTypeDef = TypedDict(
-    "_OptionalListChannelBansRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListChannelBansRequestRequestTypeDef(
-    _RequiredListChannelBansRequestRequestTypeDef, _OptionalListChannelBansRequestRequestTypeDef
-):
-    pass
-
-ListChannelBansResponseTypeDef = TypedDict(
-    "ListChannelBansResponseTypeDef",
-    {
-        "ChannelArn": str,
-        "NextToken": str,
-        "ChannelBans": List["ChannelBanSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListChannelFlowsRequestRequestTypeDef = TypedDict(
-    "_RequiredListChannelFlowsRequestRequestTypeDef",
-    {
-        "AppInstanceArn": str,
-    },
-)
-_OptionalListChannelFlowsRequestRequestTypeDef = TypedDict(
-    "_OptionalListChannelFlowsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListChannelFlowsRequestRequestTypeDef(
-    _RequiredListChannelFlowsRequestRequestTypeDef, _OptionalListChannelFlowsRequestRequestTypeDef
-):
-    pass
-
-ListChannelFlowsResponseTypeDef = TypedDict(
-    "ListChannelFlowsResponseTypeDef",
-    {
-        "ChannelFlows": List["ChannelFlowSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListChannelMembershipsForAppInstanceUserRequestRequestTypeDef = TypedDict(
-    "_RequiredListChannelMembershipsForAppInstanceUserRequestRequestTypeDef",
-    {
-        "ChimeBearer": str,
-    },
-)
-_OptionalListChannelMembershipsForAppInstanceUserRequestRequestTypeDef = TypedDict(
-    "_OptionalListChannelMembershipsForAppInstanceUserRequestRequestTypeDef",
-    {
-        "AppInstanceUserArn": str,
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListChannelMembershipsForAppInstanceUserRequestRequestTypeDef(
-    _RequiredListChannelMembershipsForAppInstanceUserRequestRequestTypeDef,
-    _OptionalListChannelMembershipsForAppInstanceUserRequestRequestTypeDef,
-):
-    pass
-
-ListChannelMembershipsForAppInstanceUserResponseTypeDef = TypedDict(
-    "ListChannelMembershipsForAppInstanceUserResponseTypeDef",
-    {
-        "ChannelMemberships": List["ChannelMembershipForAppInstanceUserSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListChannelMembershipsRequestRequestTypeDef = TypedDict(
-    "_RequiredListChannelMembershipsRequestRequestTypeDef",
-    {
-        "ChannelArn": str,
-        "ChimeBearer": str,
-    },
-)
-_OptionalListChannelMembershipsRequestRequestTypeDef = TypedDict(
-    "_OptionalListChannelMembershipsRequestRequestTypeDef",
-    {
-        "Type": ChannelMembershipTypeType,
-        "MaxResults": int,
-        "NextToken": str,
-        "SubChannelId": str,
-    },
-    total=False,
-)
-
-class ListChannelMembershipsRequestRequestTypeDef(
-    _RequiredListChannelMembershipsRequestRequestTypeDef,
-    _OptionalListChannelMembershipsRequestRequestTypeDef,
-):
-    pass
-
-ListChannelMembershipsResponseTypeDef = TypedDict(
-    "ListChannelMembershipsResponseTypeDef",
-    {
-        "ChannelArn": str,
-        "ChannelMemberships": List["ChannelMembershipSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListChannelMessagesRequestRequestTypeDef = TypedDict(
-    "_RequiredListChannelMessagesRequestRequestTypeDef",
-    {
-        "ChannelArn": str,
-        "ChimeBearer": str,
-    },
-)
-_OptionalListChannelMessagesRequestRequestTypeDef = TypedDict(
-    "_OptionalListChannelMessagesRequestRequestTypeDef",
-    {
-        "SortOrder": SortOrderType,
-        "NotBefore": Union[datetime, str],
-        "NotAfter": Union[datetime, str],
-        "MaxResults": int,
-        "NextToken": str,
-        "SubChannelId": str,
-    },
-    total=False,
-)
-
-class ListChannelMessagesRequestRequestTypeDef(
-    _RequiredListChannelMessagesRequestRequestTypeDef,
-    _OptionalListChannelMessagesRequestRequestTypeDef,
-):
-    pass
-
-ListChannelMessagesResponseTypeDef = TypedDict(
-    "ListChannelMessagesResponseTypeDef",
-    {
-        "ChannelArn": str,
-        "NextToken": str,
-        "ChannelMessages": List["ChannelMessageSummaryTypeDef"],
-        "SubChannelId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListChannelModeratorsRequestRequestTypeDef = TypedDict(
-    "_RequiredListChannelModeratorsRequestRequestTypeDef",
-    {
-        "ChannelArn": str,
-        "ChimeBearer": str,
-    },
-)
-_OptionalListChannelModeratorsRequestRequestTypeDef = TypedDict(
-    "_OptionalListChannelModeratorsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListChannelModeratorsRequestRequestTypeDef(
-    _RequiredListChannelModeratorsRequestRequestTypeDef,
-    _OptionalListChannelModeratorsRequestRequestTypeDef,
-):
-    pass
-
-ListChannelModeratorsResponseTypeDef = TypedDict(
-    "ListChannelModeratorsResponseTypeDef",
-    {
-        "ChannelArn": str,
-        "NextToken": str,
-        "ChannelModerators": List["ChannelModeratorSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListChannelsAssociatedWithChannelFlowRequestRequestTypeDef = TypedDict(
-    "_RequiredListChannelsAssociatedWithChannelFlowRequestRequestTypeDef",
-    {
-        "ChannelFlowArn": str,
-    },
-)
-_OptionalListChannelsAssociatedWithChannelFlowRequestRequestTypeDef = TypedDict(
-    "_OptionalListChannelsAssociatedWithChannelFlowRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListChannelsAssociatedWithChannelFlowRequestRequestTypeDef(
-    _RequiredListChannelsAssociatedWithChannelFlowRequestRequestTypeDef,
-    _OptionalListChannelsAssociatedWithChannelFlowRequestRequestTypeDef,
-):
-    pass
-
-ListChannelsAssociatedWithChannelFlowResponseTypeDef = TypedDict(
-    "ListChannelsAssociatedWithChannelFlowResponseTypeDef",
-    {
-        "Channels": List["ChannelAssociatedWithFlowSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListChannelsModeratedByAppInstanceUserRequestRequestTypeDef = TypedDict(
-    "_RequiredListChannelsModeratedByAppInstanceUserRequestRequestTypeDef",
-    {
-        "ChimeBearer": str,
-    },
-)
-_OptionalListChannelsModeratedByAppInstanceUserRequestRequestTypeDef = TypedDict(
-    "_OptionalListChannelsModeratedByAppInstanceUserRequestRequestTypeDef",
-    {
-        "AppInstanceUserArn": str,
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListChannelsModeratedByAppInstanceUserRequestRequestTypeDef(
-    _RequiredListChannelsModeratedByAppInstanceUserRequestRequestTypeDef,
-    _OptionalListChannelsModeratedByAppInstanceUserRequestRequestTypeDef,
-):
-    pass
-
-ListChannelsModeratedByAppInstanceUserResponseTypeDef = TypedDict(
-    "ListChannelsModeratedByAppInstanceUserResponseTypeDef",
-    {
-        "Channels": List["ChannelModeratedByAppInstanceUserSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListChannelsRequestRequestTypeDef = TypedDict(
-    "_RequiredListChannelsRequestRequestTypeDef",
-    {
-        "AppInstanceArn": str,
-        "ChimeBearer": str,
-    },
-)
-_OptionalListChannelsRequestRequestTypeDef = TypedDict(
-    "_OptionalListChannelsRequestRequestTypeDef",
-    {
-        "Privacy": ChannelPrivacyType,
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListChannelsRequestRequestTypeDef(
-    _RequiredListChannelsRequestRequestTypeDef, _OptionalListChannelsRequestRequestTypeDef
-):
-    pass
-
-ListChannelsResponseTypeDef = TypedDict(
-    "ListChannelsResponseTypeDef",
-    {
-        "Channels": List["ChannelSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListSubChannelsRequestRequestTypeDef = TypedDict(
-    "_RequiredListSubChannelsRequestRequestTypeDef",
-    {
-        "ChannelArn": str,
-        "ChimeBearer": str,
-    },
-)
-_OptionalListSubChannelsRequestRequestTypeDef = TypedDict(
-    "_OptionalListSubChannelsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListSubChannelsRequestRequestTypeDef(
-    _RequiredListSubChannelsRequestRequestTypeDef, _OptionalListSubChannelsRequestRequestTypeDef
-):
-    pass
-
-ListSubChannelsResponseTypeDef = TypedDict(
-    "ListSubChannelsResponseTypeDef",
-    {
-        "ChannelArn": str,
-        "SubChannels": List["SubChannelSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "ResourceARN": str,
-    },
-)
-
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "Tags": List["TagTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-MessageAttributeValueTypeDef = TypedDict(
-    "MessageAttributeValueTypeDef",
-    {
-        "StringValues": List[str],
-    },
-    total=False,
-)
-
-MessagingSessionEndpointTypeDef = TypedDict(
-    "MessagingSessionEndpointTypeDef",
-    {
-        "Url": str,
-    },
-    total=False,
-)
-
-ProcessorConfigurationTypeDef = TypedDict(
-    "ProcessorConfigurationTypeDef",
-    {
-        "Lambda": "LambdaConfigurationTypeDef",
-    },
-)
-
-ProcessorTypeDef = TypedDict(
-    "ProcessorTypeDef",
-    {
-        "Name": str,
-        "Configuration": "ProcessorConfigurationTypeDef",
-        "ExecutionOrder": int,
-        "FallbackAction": FallbackActionType,
-    },
-)
+        "Type": NotRequired[ChannelMembershipTypeType],
+        "SubChannelId": NotRequired[str],
+    },
+)
+
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
+
+class ChannelAssociatedWithFlowSummaryTypeDef(TypedDict):
+    Name: NotRequired[str]
+    ChannelArn: NotRequired[str]
+    Mode: NotRequired[ChannelModeType]
+    Privacy: NotRequired[ChannelPrivacyType]
+    Metadata: NotRequired[str]
+
+class ChannelSummaryTypeDef(TypedDict):
+    Name: NotRequired[str]
+    ChannelArn: NotRequired[str]
+    Mode: NotRequired[ChannelModeType]
+    Privacy: NotRequired[ChannelPrivacyType]
+    Metadata: NotRequired[str]
+    LastMessageTimestamp: NotRequired[datetime]
+
+class PushNotificationPreferencesTypeDef(TypedDict):
+    AllowNotifications: AllowNotificationsType
+    FilterRule: NotRequired[str]
 
 PushNotificationConfigurationTypeDef = TypedDict(
     "PushNotificationConfigurationTypeDef",
     {
-        "Title": str,
-        "Body": str,
-        "Type": PushNotificationTypeType,
-    },
-    total=False,
-)
-
-_RequiredPushNotificationPreferencesTypeDef = TypedDict(
-    "_RequiredPushNotificationPreferencesTypeDef",
-    {
-        "AllowNotifications": AllowNotificationsType,
-    },
-)
-_OptionalPushNotificationPreferencesTypeDef = TypedDict(
-    "_OptionalPushNotificationPreferencesTypeDef",
-    {
-        "FilterRule": str,
-    },
-    total=False,
-)
-
-class PushNotificationPreferencesTypeDef(
-    _RequiredPushNotificationPreferencesTypeDef, _OptionalPushNotificationPreferencesTypeDef
-):
-    pass
-
-_RequiredPutChannelExpirationSettingsRequestRequestTypeDef = TypedDict(
-    "_RequiredPutChannelExpirationSettingsRequestRequestTypeDef",
-    {
-        "ChannelArn": str,
-    },
-)
-_OptionalPutChannelExpirationSettingsRequestRequestTypeDef = TypedDict(
-    "_OptionalPutChannelExpirationSettingsRequestRequestTypeDef",
-    {
-        "ChimeBearer": str,
-        "ExpirationSettings": "ExpirationSettingsTypeDef",
-    },
-    total=False,
-)
-
-class PutChannelExpirationSettingsRequestRequestTypeDef(
-    _RequiredPutChannelExpirationSettingsRequestRequestTypeDef,
-    _OptionalPutChannelExpirationSettingsRequestRequestTypeDef,
-):
-    pass
-
-PutChannelExpirationSettingsResponseTypeDef = TypedDict(
-    "PutChannelExpirationSettingsResponseTypeDef",
-    {
-        "ChannelArn": str,
-        "ExpirationSettings": "ExpirationSettingsTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "Title": NotRequired[str],
+        "Body": NotRequired[str],
+        "Type": NotRequired[PushNotificationTypeType],
     },
 )
 
-PutChannelMembershipPreferencesRequestRequestTypeDef = TypedDict(
-    "PutChannelMembershipPreferencesRequestRequestTypeDef",
+class ChannelMessageStatusStructureTypeDef(TypedDict):
+    Value: NotRequired[ChannelMessageStatusType]
+    Detail: NotRequired[str]
+
+class MessageAttributeValueOutputTypeDef(TypedDict):
+    StringValues: NotRequired[List[str]]
+
+class TargetTypeDef(TypedDict):
+    MemberArn: NotRequired[str]
+
+class ElasticChannelConfigurationTypeDef(TypedDict):
+    MaximumSubChannels: int
+    TargetMembershipsPerSubChannel: int
+    MinimumMembershipPercentage: int
+
+class ExpirationSettingsTypeDef(TypedDict):
+    ExpirationDays: int
+    ExpirationCriterion: ExpirationCriterionType
+
+class CreateChannelBanRequestTypeDef(TypedDict):
+    ChannelArn: str
+    MemberArn: str
+    ChimeBearer: str
+
+class TagTypeDef(TypedDict):
+    Key: str
+    Value: str
+
+CreateChannelMembershipRequestTypeDef = TypedDict(
+    "CreateChannelMembershipRequestTypeDef",
     {
         "ChannelArn": str,
         "MemberArn": str,
+        "Type": ChannelMembershipTypeType,
         "ChimeBearer": str,
-        "Preferences": "ChannelMembershipPreferencesTypeDef",
+        "SubChannelId": NotRequired[str],
     },
 )
 
-PutChannelMembershipPreferencesResponseTypeDef = TypedDict(
-    "PutChannelMembershipPreferencesResponseTypeDef",
+class CreateChannelModeratorRequestTypeDef(TypedDict):
+    ChannelArn: str
+    ChannelModeratorArn: str
+    ChimeBearer: str
+
+class DeleteChannelBanRequestTypeDef(TypedDict):
+    ChannelArn: str
+    MemberArn: str
+    ChimeBearer: str
+
+class DeleteChannelFlowRequestTypeDef(TypedDict):
+    ChannelFlowArn: str
+
+class DeleteChannelMembershipRequestTypeDef(TypedDict):
+    ChannelArn: str
+    MemberArn: str
+    ChimeBearer: str
+    SubChannelId: NotRequired[str]
+
+class DeleteChannelMessageRequestTypeDef(TypedDict):
+    ChannelArn: str
+    MessageId: str
+    ChimeBearer: str
+    SubChannelId: NotRequired[str]
+
+class DeleteChannelModeratorRequestTypeDef(TypedDict):
+    ChannelArn: str
+    ChannelModeratorArn: str
+    ChimeBearer: str
+
+class DeleteChannelRequestTypeDef(TypedDict):
+    ChannelArn: str
+    ChimeBearer: str
+
+class DeleteMessagingStreamingConfigurationsRequestTypeDef(TypedDict):
+    AppInstanceArn: str
+
+class DescribeChannelBanRequestTypeDef(TypedDict):
+    ChannelArn: str
+    MemberArn: str
+    ChimeBearer: str
+
+class DescribeChannelFlowRequestTypeDef(TypedDict):
+    ChannelFlowArn: str
+
+class DescribeChannelMembershipForAppInstanceUserRequestTypeDef(TypedDict):
+    ChannelArn: str
+    AppInstanceUserArn: str
+    ChimeBearer: str
+
+class DescribeChannelMembershipRequestTypeDef(TypedDict):
+    ChannelArn: str
+    MemberArn: str
+    ChimeBearer: str
+    SubChannelId: NotRequired[str]
+
+class DescribeChannelModeratedByAppInstanceUserRequestTypeDef(TypedDict):
+    ChannelArn: str
+    AppInstanceUserArn: str
+    ChimeBearer: str
+
+class DescribeChannelModeratorRequestTypeDef(TypedDict):
+    ChannelArn: str
+    ChannelModeratorArn: str
+    ChimeBearer: str
+
+class DescribeChannelRequestTypeDef(TypedDict):
+    ChannelArn: str
+    ChimeBearer: str
+
+class DisassociateChannelFlowRequestTypeDef(TypedDict):
+    ChannelArn: str
+    ChannelFlowArn: str
+    ChimeBearer: str
+
+class GetChannelMembershipPreferencesRequestTypeDef(TypedDict):
+    ChannelArn: str
+    MemberArn: str
+    ChimeBearer: str
+
+class GetChannelMessageRequestTypeDef(TypedDict):
+    ChannelArn: str
+    MessageId: str
+    ChimeBearer: str
+    SubChannelId: NotRequired[str]
+
+class GetChannelMessageStatusRequestTypeDef(TypedDict):
+    ChannelArn: str
+    MessageId: str
+    ChimeBearer: str
+    SubChannelId: NotRequired[str]
+
+class MessagingSessionEndpointTypeDef(TypedDict):
+    Url: NotRequired[str]
+
+class GetMessagingStreamingConfigurationsRequestTypeDef(TypedDict):
+    AppInstanceArn: str
+
+class StreamingConfigurationTypeDef(TypedDict):
+    DataType: MessagingDataTypeType
+    ResourceArn: str
+
+class LambdaConfigurationTypeDef(TypedDict):
+    ResourceArn: str
+    InvocationType: Literal["ASYNC"]
+
+class ListChannelBansRequestTypeDef(TypedDict):
+    ChannelArn: str
+    ChimeBearer: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListChannelFlowsRequestTypeDef(TypedDict):
+    AppInstanceArn: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListChannelMembershipsForAppInstanceUserRequestTypeDef(TypedDict):
+    ChimeBearer: str
+    AppInstanceUserArn: NotRequired[str]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+ListChannelMembershipsRequestTypeDef = TypedDict(
+    "ListChannelMembershipsRequestTypeDef",
     {
         "ChannelArn": str,
-        "Member": "IdentityTypeDef",
-        "Preferences": "ChannelMembershipPreferencesTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-PutMessagingStreamingConfigurationsRequestRequestTypeDef = TypedDict(
-    "PutMessagingStreamingConfigurationsRequestRequestTypeDef",
-    {
-        "AppInstanceArn": str,
-        "StreamingConfigurations": List["StreamingConfigurationTypeDef"],
-    },
-)
-
-PutMessagingStreamingConfigurationsResponseTypeDef = TypedDict(
-    "PutMessagingStreamingConfigurationsResponseTypeDef",
-    {
-        "StreamingConfigurations": List["StreamingConfigurationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredRedactChannelMessageRequestRequestTypeDef = TypedDict(
-    "_RequiredRedactChannelMessageRequestRequestTypeDef",
-    {
-        "ChannelArn": str,
-        "MessageId": str,
         "ChimeBearer": str,
+        "Type": NotRequired[ChannelMembershipTypeType],
+        "MaxResults": NotRequired[int],
+        "NextToken": NotRequired[str],
+        "SubChannelId": NotRequired[str],
     },
 )
-_OptionalRedactChannelMessageRequestRequestTypeDef = TypedDict(
-    "_OptionalRedactChannelMessageRequestRequestTypeDef",
+TimestampTypeDef = Union[datetime, str]
+
+class ListChannelModeratorsRequestTypeDef(TypedDict):
+    ChannelArn: str
+    ChimeBearer: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListChannelsAssociatedWithChannelFlowRequestTypeDef(TypedDict):
+    ChannelFlowArn: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListChannelsModeratedByAppInstanceUserRequestTypeDef(TypedDict):
+    ChimeBearer: str
+    AppInstanceUserArn: NotRequired[str]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListChannelsRequestTypeDef(TypedDict):
+    AppInstanceArn: str
+    ChimeBearer: str
+    Privacy: NotRequired[ChannelPrivacyType]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListSubChannelsRequestTypeDef(TypedDict):
+    ChannelArn: str
+    ChimeBearer: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class SubChannelSummaryTypeDef(TypedDict):
+    SubChannelId: NotRequired[str]
+    MembershipCount: NotRequired[int]
+
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    ResourceARN: str
+
+class MessageAttributeValueTypeDef(TypedDict):
+    StringValues: NotRequired[Sequence[str]]
+
+class RedactChannelMessageRequestTypeDef(TypedDict):
+    ChannelArn: str
+    MessageId: str
+    ChimeBearer: str
+    SubChannelId: NotRequired[str]
+
+class SearchFieldTypeDef(TypedDict):
+    Key: Literal["MEMBERS"]
+    Values: Sequence[str]
+    Operator: SearchFieldOperatorType
+
+class UntagResourceRequestTypeDef(TypedDict):
+    ResourceARN: str
+    TagKeys: Sequence[str]
+
+class UpdateChannelMessageRequestTypeDef(TypedDict):
+    ChannelArn: str
+    MessageId: str
+    Content: str
+    ChimeBearer: str
+    Metadata: NotRequired[str]
+    SubChannelId: NotRequired[str]
+    ContentType: NotRequired[str]
+
+class UpdateChannelReadMarkerRequestTypeDef(TypedDict):
+    ChannelArn: str
+    ChimeBearer: str
+
+class UpdateChannelRequestTypeDef(TypedDict):
+    ChannelArn: str
+    ChimeBearer: str
+    Name: NotRequired[str]
+    Mode: NotRequired[ChannelModeType]
+    Metadata: NotRequired[str]
+
+BatchChannelMembershipsTypeDef = TypedDict(
+    "BatchChannelMembershipsTypeDef",
     {
-        "SubChannelId": str,
+        "InvitedBy": NotRequired[IdentityTypeDef],
+        "Type": NotRequired[ChannelMembershipTypeType],
+        "Members": NotRequired[List[IdentityTypeDef]],
+        "ChannelArn": NotRequired[str],
+        "SubChannelId": NotRequired[str],
     },
-    total=False,
 )
 
-class RedactChannelMessageRequestRequestTypeDef(
-    _RequiredRedactChannelMessageRequestRequestTypeDef,
-    _OptionalRedactChannelMessageRequestRequestTypeDef,
-):
-    pass
+class ChannelBanSummaryTypeDef(TypedDict):
+    Member: NotRequired[IdentityTypeDef]
 
-RedactChannelMessageResponseTypeDef = TypedDict(
-    "RedactChannelMessageResponseTypeDef",
+class ChannelBanTypeDef(TypedDict):
+    Member: NotRequired[IdentityTypeDef]
+    ChannelArn: NotRequired[str]
+    CreatedTimestamp: NotRequired[datetime]
+    CreatedBy: NotRequired[IdentityTypeDef]
+
+class ChannelMembershipSummaryTypeDef(TypedDict):
+    Member: NotRequired[IdentityTypeDef]
+
+ChannelMembershipTypeDef = TypedDict(
+    "ChannelMembershipTypeDef",
     {
-        "ChannelArn": str,
-        "MessageId": str,
-        "SubChannelId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "InvitedBy": NotRequired[IdentityTypeDef],
+        "Type": NotRequired[ChannelMembershipTypeType],
+        "Member": NotRequired[IdentityTypeDef],
+        "ChannelArn": NotRequired[str],
+        "CreatedTimestamp": NotRequired[datetime],
+        "LastUpdatedTimestamp": NotRequired[datetime],
+        "SubChannelId": NotRequired[str],
     },
 )
 
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
+class ChannelModeratorSummaryTypeDef(TypedDict):
+    Moderator: NotRequired[IdentityTypeDef]
+
+class ChannelModeratorTypeDef(TypedDict):
+    Moderator: NotRequired[IdentityTypeDef]
+    ChannelArn: NotRequired[str]
+    CreatedTimestamp: NotRequired[datetime]
+    CreatedBy: NotRequired[IdentityTypeDef]
+
+class ChannelFlowCallbackResponseTypeDef(TypedDict):
+    ChannelArn: str
+    CallbackId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateChannelBanResponseTypeDef(TypedDict):
+    ChannelArn: str
+    Member: IdentityTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateChannelFlowResponseTypeDef(TypedDict):
+    ChannelFlowArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateChannelMembershipResponseTypeDef(TypedDict):
+    ChannelArn: str
+    Member: IdentityTypeDef
+    SubChannelId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateChannelModeratorResponseTypeDef(TypedDict):
+    ChannelArn: str
+    ChannelModerator: IdentityTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateChannelResponseTypeDef(TypedDict):
+    ChannelArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class EmptyResponseMetadataTypeDef(TypedDict):
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class RedactChannelMessageResponseTypeDef(TypedDict):
+    ChannelArn: str
+    MessageId: str
+    SubChannelId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateChannelFlowResponseTypeDef(TypedDict):
+    ChannelFlowArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateChannelReadMarkerResponseTypeDef(TypedDict):
+    ChannelArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateChannelResponseTypeDef(TypedDict):
+    ChannelArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListChannelsAssociatedWithChannelFlowResponseTypeDef(TypedDict):
+    Channels: List[ChannelAssociatedWithFlowSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ChannelMembershipForAppInstanceUserSummaryTypeDef(TypedDict):
+    ChannelSummary: NotRequired[ChannelSummaryTypeDef]
+    AppInstanceUserMembershipSummary: NotRequired[AppInstanceUserMembershipSummaryTypeDef]
+
+class ChannelModeratedByAppInstanceUserSummaryTypeDef(TypedDict):
+    ChannelSummary: NotRequired[ChannelSummaryTypeDef]
+
+class ListChannelsResponseTypeDef(TypedDict):
+    Channels: List[ChannelSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class SearchChannelsResponseTypeDef(TypedDict):
+    Channels: List[ChannelSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ChannelMembershipPreferencesTypeDef(TypedDict):
+    PushNotifications: NotRequired[PushNotificationPreferencesTypeDef]
+
+class GetChannelMessageStatusResponseTypeDef(TypedDict):
+    Status: ChannelMessageStatusStructureTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class SendChannelMessageResponseTypeDef(TypedDict):
+    ChannelArn: str
+    MessageId: str
+    Status: ChannelMessageStatusStructureTypeDef
+    SubChannelId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateChannelMessageResponseTypeDef(TypedDict):
+    ChannelArn: str
+    MessageId: str
+    Status: ChannelMessageStatusStructureTypeDef
+    SubChannelId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+ChannelMessageSummaryTypeDef = TypedDict(
+    "ChannelMessageSummaryTypeDef",
     {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
+        "MessageId": NotRequired[str],
+        "Content": NotRequired[str],
+        "Metadata": NotRequired[str],
+        "Type": NotRequired[ChannelMessageTypeType],
+        "CreatedTimestamp": NotRequired[datetime],
+        "LastUpdatedTimestamp": NotRequired[datetime],
+        "LastEditedTimestamp": NotRequired[datetime],
+        "Sender": NotRequired[IdentityTypeDef],
+        "Redacted": NotRequired[bool],
+        "Status": NotRequired[ChannelMessageStatusStructureTypeDef],
+        "MessageAttributes": NotRequired[Dict[str, MessageAttributeValueOutputTypeDef]],
+        "ContentType": NotRequired[str],
+        "Target": NotRequired[List[TargetTypeDef]],
     },
 )
-
-_RequiredSearchChannelsRequestRequestTypeDef = TypedDict(
-    "_RequiredSearchChannelsRequestRequestTypeDef",
+ChannelMessageTypeDef = TypedDict(
+    "ChannelMessageTypeDef",
     {
-        "Fields": List["SearchFieldTypeDef"],
-    },
-)
-_OptionalSearchChannelsRequestRequestTypeDef = TypedDict(
-    "_OptionalSearchChannelsRequestRequestTypeDef",
-    {
-        "ChimeBearer": str,
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class SearchChannelsRequestRequestTypeDef(
-    _RequiredSearchChannelsRequestRequestTypeDef, _OptionalSearchChannelsRequestRequestTypeDef
-):
-    pass
-
-SearchChannelsResponseTypeDef = TypedDict(
-    "SearchChannelsResponseTypeDef",
-    {
-        "Channels": List["ChannelSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ChannelArn": NotRequired[str],
+        "MessageId": NotRequired[str],
+        "Content": NotRequired[str],
+        "Metadata": NotRequired[str],
+        "Type": NotRequired[ChannelMessageTypeType],
+        "CreatedTimestamp": NotRequired[datetime],
+        "LastEditedTimestamp": NotRequired[datetime],
+        "LastUpdatedTimestamp": NotRequired[datetime],
+        "Sender": NotRequired[IdentityTypeDef],
+        "Redacted": NotRequired[bool],
+        "Persistence": NotRequired[ChannelMessagePersistenceTypeType],
+        "Status": NotRequired[ChannelMessageStatusStructureTypeDef],
+        "MessageAttributes": NotRequired[Dict[str, MessageAttributeValueOutputTypeDef]],
+        "SubChannelId": NotRequired[str],
+        "ContentType": NotRequired[str],
+        "Target": NotRequired[List[TargetTypeDef]],
     },
 )
 
-SearchFieldTypeDef = TypedDict(
-    "SearchFieldTypeDef",
-    {
-        "Key": Literal["MEMBERS"],
-        "Values": List[str],
-        "Operator": SearchFieldOperatorType,
-    },
-)
+class ChannelTypeDef(TypedDict):
+    Name: NotRequired[str]
+    ChannelArn: NotRequired[str]
+    Mode: NotRequired[ChannelModeType]
+    Privacy: NotRequired[ChannelPrivacyType]
+    Metadata: NotRequired[str]
+    CreatedBy: NotRequired[IdentityTypeDef]
+    CreatedTimestamp: NotRequired[datetime]
+    LastMessageTimestamp: NotRequired[datetime]
+    LastUpdatedTimestamp: NotRequired[datetime]
+    ChannelFlowArn: NotRequired[str]
+    ElasticChannelConfiguration: NotRequired[ElasticChannelConfigurationTypeDef]
+    ExpirationSettings: NotRequired[ExpirationSettingsTypeDef]
 
-_RequiredSendChannelMessageRequestRequestTypeDef = TypedDict(
-    "_RequiredSendChannelMessageRequestRequestTypeDef",
+class PutChannelExpirationSettingsRequestTypeDef(TypedDict):
+    ChannelArn: str
+    ChimeBearer: NotRequired[str]
+    ExpirationSettings: NotRequired[ExpirationSettingsTypeDef]
+
+class PutChannelExpirationSettingsResponseTypeDef(TypedDict):
+    ChannelArn: str
+    ExpirationSettings: ExpirationSettingsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateChannelRequestTypeDef(TypedDict):
+    AppInstanceArn: str
+    Name: str
+    ClientRequestToken: str
+    ChimeBearer: str
+    Mode: NotRequired[ChannelModeType]
+    Privacy: NotRequired[ChannelPrivacyType]
+    Metadata: NotRequired[str]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+    ChannelId: NotRequired[str]
+    MemberArns: NotRequired[Sequence[str]]
+    ModeratorArns: NotRequired[Sequence[str]]
+    ElasticChannelConfiguration: NotRequired[ElasticChannelConfigurationTypeDef]
+    ExpirationSettings: NotRequired[ExpirationSettingsTypeDef]
+
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    Tags: List[TagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class TagResourceRequestTypeDef(TypedDict):
+    ResourceARN: str
+    Tags: Sequence[TagTypeDef]
+
+class GetMessagingSessionEndpointResponseTypeDef(TypedDict):
+    Endpoint: MessagingSessionEndpointTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetMessagingStreamingConfigurationsResponseTypeDef(TypedDict):
+    StreamingConfigurations: List[StreamingConfigurationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutMessagingStreamingConfigurationsRequestTypeDef(TypedDict):
+    AppInstanceArn: str
+    StreamingConfigurations: Sequence[StreamingConfigurationTypeDef]
+
+class PutMessagingStreamingConfigurationsResponseTypeDef(TypedDict):
+    StreamingConfigurations: List[StreamingConfigurationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ProcessorConfigurationTypeDef(TypedDict):
+    Lambda: LambdaConfigurationTypeDef
+
+class ListChannelMessagesRequestTypeDef(TypedDict):
+    ChannelArn: str
+    ChimeBearer: str
+    SortOrder: NotRequired[SortOrderType]
+    NotBefore: NotRequired[TimestampTypeDef]
+    NotAfter: NotRequired[TimestampTypeDef]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+    SubChannelId: NotRequired[str]
+
+class ListSubChannelsResponseTypeDef(TypedDict):
+    ChannelArn: str
+    SubChannels: List[SubChannelSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+MessageAttributeValueUnionTypeDef = Union[
+    MessageAttributeValueTypeDef, MessageAttributeValueOutputTypeDef
+]
+
+class SearchChannelsRequestTypeDef(TypedDict):
+    Fields: Sequence[SearchFieldTypeDef]
+    ChimeBearer: NotRequired[str]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class BatchCreateChannelMembershipResponseTypeDef(TypedDict):
+    BatchChannelMemberships: BatchChannelMembershipsTypeDef
+    Errors: List[BatchCreateChannelMembershipErrorTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListChannelBansResponseTypeDef(TypedDict):
+    ChannelArn: str
+    ChannelBans: List[ChannelBanSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class DescribeChannelBanResponseTypeDef(TypedDict):
+    ChannelBan: ChannelBanTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListChannelMembershipsResponseTypeDef(TypedDict):
+    ChannelArn: str
+    ChannelMemberships: List[ChannelMembershipSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class DescribeChannelMembershipResponseTypeDef(TypedDict):
+    ChannelMembership: ChannelMembershipTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListChannelModeratorsResponseTypeDef(TypedDict):
+    ChannelArn: str
+    ChannelModerators: List[ChannelModeratorSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class DescribeChannelModeratorResponseTypeDef(TypedDict):
+    ChannelModerator: ChannelModeratorTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeChannelMembershipForAppInstanceUserResponseTypeDef(TypedDict):
+    ChannelMembership: ChannelMembershipForAppInstanceUserSummaryTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListChannelMembershipsForAppInstanceUserResponseTypeDef(TypedDict):
+    ChannelMemberships: List[ChannelMembershipForAppInstanceUserSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class DescribeChannelModeratedByAppInstanceUserResponseTypeDef(TypedDict):
+    Channel: ChannelModeratedByAppInstanceUserSummaryTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListChannelsModeratedByAppInstanceUserResponseTypeDef(TypedDict):
+    Channels: List[ChannelModeratedByAppInstanceUserSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class GetChannelMembershipPreferencesResponseTypeDef(TypedDict):
+    ChannelArn: str
+    Member: IdentityTypeDef
+    Preferences: ChannelMembershipPreferencesTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutChannelMembershipPreferencesRequestTypeDef(TypedDict):
+    ChannelArn: str
+    MemberArn: str
+    ChimeBearer: str
+    Preferences: ChannelMembershipPreferencesTypeDef
+
+class PutChannelMembershipPreferencesResponseTypeDef(TypedDict):
+    ChannelArn: str
+    Member: IdentityTypeDef
+    Preferences: ChannelMembershipPreferencesTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListChannelMessagesResponseTypeDef(TypedDict):
+    ChannelArn: str
+    ChannelMessages: List[ChannelMessageSummaryTypeDef]
+    SubChannelId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class GetChannelMessageResponseTypeDef(TypedDict):
+    ChannelMessage: ChannelMessageTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeChannelResponseTypeDef(TypedDict):
+    Channel: ChannelTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ProcessorTypeDef(TypedDict):
+    Name: str
+    Configuration: ProcessorConfigurationTypeDef
+    ExecutionOrder: int
+    FallbackAction: FallbackActionType
+
+class ChannelMessageCallbackTypeDef(TypedDict):
+    MessageId: str
+    Content: NotRequired[str]
+    Metadata: NotRequired[str]
+    PushNotification: NotRequired[PushNotificationConfigurationTypeDef]
+    MessageAttributes: NotRequired[Mapping[str, MessageAttributeValueUnionTypeDef]]
+    SubChannelId: NotRequired[str]
+    ContentType: NotRequired[str]
+
+SendChannelMessageRequestTypeDef = TypedDict(
+    "SendChannelMessageRequestTypeDef",
     {
         "ChannelArn": str,
         "Content": str,
@@ -1548,182 +881,50 @@ _RequiredSendChannelMessageRequestRequestTypeDef = TypedDict(
         "Persistence": ChannelMessagePersistenceTypeType,
         "ClientRequestToken": str,
         "ChimeBearer": str,
-    },
-)
-_OptionalSendChannelMessageRequestRequestTypeDef = TypedDict(
-    "_OptionalSendChannelMessageRequestRequestTypeDef",
-    {
-        "Metadata": str,
-        "PushNotification": "PushNotificationConfigurationTypeDef",
-        "MessageAttributes": Dict[str, "MessageAttributeValueTypeDef"],
-        "SubChannelId": str,
-        "ContentType": str,
-        "Target": List["TargetTypeDef"],
-    },
-    total=False,
-)
-
-class SendChannelMessageRequestRequestTypeDef(
-    _RequiredSendChannelMessageRequestRequestTypeDef,
-    _OptionalSendChannelMessageRequestRequestTypeDef,
-):
-    pass
-
-SendChannelMessageResponseTypeDef = TypedDict(
-    "SendChannelMessageResponseTypeDef",
-    {
-        "ChannelArn": str,
-        "MessageId": str,
-        "Status": "ChannelMessageStatusStructureTypeDef",
-        "SubChannelId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "Metadata": NotRequired[str],
+        "PushNotification": NotRequired[PushNotificationConfigurationTypeDef],
+        "MessageAttributes": NotRequired[Mapping[str, MessageAttributeValueUnionTypeDef]],
+        "SubChannelId": NotRequired[str],
+        "ContentType": NotRequired[str],
+        "Target": NotRequired[Sequence[TargetTypeDef]],
     },
 )
 
-StreamingConfigurationTypeDef = TypedDict(
-    "StreamingConfigurationTypeDef",
-    {
-        "DataType": MessagingDataTypeType,
-        "ResourceArn": str,
-    },
-)
+class ChannelFlowSummaryTypeDef(TypedDict):
+    ChannelFlowArn: NotRequired[str]
+    Name: NotRequired[str]
+    Processors: NotRequired[List[ProcessorTypeDef]]
 
-SubChannelSummaryTypeDef = TypedDict(
-    "SubChannelSummaryTypeDef",
-    {
-        "SubChannelId": str,
-        "MembershipCount": int,
-    },
-    total=False,
-)
+class ChannelFlowTypeDef(TypedDict):
+    ChannelFlowArn: NotRequired[str]
+    Processors: NotRequired[List[ProcessorTypeDef]]
+    Name: NotRequired[str]
+    CreatedTimestamp: NotRequired[datetime]
+    LastUpdatedTimestamp: NotRequired[datetime]
 
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "ResourceARN": str,
-        "Tags": List["TagTypeDef"],
-    },
-)
+class CreateChannelFlowRequestTypeDef(TypedDict):
+    AppInstanceArn: str
+    Processors: Sequence[ProcessorTypeDef]
+    Name: str
+    ClientRequestToken: str
+    Tags: NotRequired[Sequence[TagTypeDef]]
 
-TagTypeDef = TypedDict(
-    "TagTypeDef",
-    {
-        "Key": str,
-        "Value": str,
-    },
-)
+class UpdateChannelFlowRequestTypeDef(TypedDict):
+    ChannelFlowArn: str
+    Processors: Sequence[ProcessorTypeDef]
+    Name: str
 
-TargetTypeDef = TypedDict(
-    "TargetTypeDef",
-    {
-        "MemberArn": str,
-    },
-    total=False,
-)
+class ChannelFlowCallbackRequestTypeDef(TypedDict):
+    CallbackId: str
+    ChannelArn: str
+    ChannelMessage: ChannelMessageCallbackTypeDef
+    DeleteResource: NotRequired[bool]
 
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "ResourceARN": str,
-        "TagKeys": List[str],
-    },
-)
+class ListChannelFlowsResponseTypeDef(TypedDict):
+    ChannelFlows: List[ChannelFlowSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-UpdateChannelFlowRequestRequestTypeDef = TypedDict(
-    "UpdateChannelFlowRequestRequestTypeDef",
-    {
-        "ChannelFlowArn": str,
-        "Processors": List["ProcessorTypeDef"],
-        "Name": str,
-    },
-)
-
-UpdateChannelFlowResponseTypeDef = TypedDict(
-    "UpdateChannelFlowResponseTypeDef",
-    {
-        "ChannelFlowArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateChannelMessageRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateChannelMessageRequestRequestTypeDef",
-    {
-        "ChannelArn": str,
-        "MessageId": str,
-        "Content": str,
-        "ChimeBearer": str,
-    },
-)
-_OptionalUpdateChannelMessageRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateChannelMessageRequestRequestTypeDef",
-    {
-        "Metadata": str,
-        "SubChannelId": str,
-        "ContentType": str,
-    },
-    total=False,
-)
-
-class UpdateChannelMessageRequestRequestTypeDef(
-    _RequiredUpdateChannelMessageRequestRequestTypeDef,
-    _OptionalUpdateChannelMessageRequestRequestTypeDef,
-):
-    pass
-
-UpdateChannelMessageResponseTypeDef = TypedDict(
-    "UpdateChannelMessageResponseTypeDef",
-    {
-        "ChannelArn": str,
-        "MessageId": str,
-        "Status": "ChannelMessageStatusStructureTypeDef",
-        "SubChannelId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UpdateChannelReadMarkerRequestRequestTypeDef = TypedDict(
-    "UpdateChannelReadMarkerRequestRequestTypeDef",
-    {
-        "ChannelArn": str,
-        "ChimeBearer": str,
-    },
-)
-
-UpdateChannelReadMarkerResponseTypeDef = TypedDict(
-    "UpdateChannelReadMarkerResponseTypeDef",
-    {
-        "ChannelArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateChannelRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateChannelRequestRequestTypeDef",
-    {
-        "ChannelArn": str,
-        "ChimeBearer": str,
-    },
-)
-_OptionalUpdateChannelRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateChannelRequestRequestTypeDef",
-    {
-        "Name": str,
-        "Mode": ChannelModeType,
-        "Metadata": str,
-    },
-    total=False,
-)
-
-class UpdateChannelRequestRequestTypeDef(
-    _RequiredUpdateChannelRequestRequestTypeDef, _OptionalUpdateChannelRequestRequestTypeDef
-):
-    pass
-
-UpdateChannelResponseTypeDef = TypedDict(
-    "UpdateChannelResponseTypeDef",
-    {
-        "ChannelArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DescribeChannelFlowResponseTypeDef(TypedDict):
+    ChannelFlow: ChannelFlowTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef

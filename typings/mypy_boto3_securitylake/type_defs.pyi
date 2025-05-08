@@ -1,20 +1,24 @@
 """
 Type annotations for securitylake service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securitylake/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_securitylake/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_securitylake.type_defs import AwsIdentityTypeDef
 
-    data: AwsIdentityTypeDef = {...}
+    data: AwsIdentityTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
+from typing import Any, Union
 
 from .literals import (
     AccessTypeType,
@@ -25,895 +29,491 @@ from .literals import (
     SubscriberStatusType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
     "AwsIdentityTypeDef",
     "AwsLogSourceConfigurationTypeDef",
     "AwsLogSourceResourceTypeDef",
-    "CreateAwsLogSourceRequestRequestTypeDef",
+    "CreateAwsLogSourceRequestTypeDef",
     "CreateAwsLogSourceResponseTypeDef",
-    "CreateCustomLogSourceRequestRequestTypeDef",
+    "CreateCustomLogSourceRequestTypeDef",
     "CreateCustomLogSourceResponseTypeDef",
-    "CreateDataLakeExceptionSubscriptionRequestRequestTypeDef",
-    "CreateDataLakeOrganizationConfigurationRequestRequestTypeDef",
-    "CreateDataLakeRequestRequestTypeDef",
+    "CreateDataLakeExceptionSubscriptionRequestTypeDef",
+    "CreateDataLakeOrganizationConfigurationRequestTypeDef",
+    "CreateDataLakeRequestTypeDef",
     "CreateDataLakeResponseTypeDef",
-    "CreateSubscriberNotificationRequestRequestTypeDef",
+    "CreateSubscriberNotificationRequestTypeDef",
     "CreateSubscriberNotificationResponseTypeDef",
-    "CreateSubscriberRequestRequestTypeDef",
+    "CreateSubscriberRequestTypeDef",
     "CreateSubscriberResponseTypeDef",
     "CustomLogSourceAttributesTypeDef",
     "CustomLogSourceConfigurationTypeDef",
     "CustomLogSourceCrawlerConfigurationTypeDef",
     "CustomLogSourceProviderTypeDef",
     "CustomLogSourceResourceTypeDef",
+    "DataLakeAutoEnableNewAccountConfigurationOutputTypeDef",
     "DataLakeAutoEnableNewAccountConfigurationTypeDef",
+    "DataLakeAutoEnableNewAccountConfigurationUnionTypeDef",
     "DataLakeConfigurationTypeDef",
     "DataLakeEncryptionConfigurationTypeDef",
     "DataLakeExceptionTypeDef",
+    "DataLakeLifecycleConfigurationOutputTypeDef",
     "DataLakeLifecycleConfigurationTypeDef",
+    "DataLakeLifecycleConfigurationUnionTypeDef",
     "DataLakeLifecycleExpirationTypeDef",
     "DataLakeLifecycleTransitionTypeDef",
+    "DataLakeReplicationConfigurationOutputTypeDef",
     "DataLakeReplicationConfigurationTypeDef",
+    "DataLakeReplicationConfigurationUnionTypeDef",
     "DataLakeResourceTypeDef",
     "DataLakeSourceStatusTypeDef",
     "DataLakeSourceTypeDef",
     "DataLakeUpdateExceptionTypeDef",
     "DataLakeUpdateStatusTypeDef",
-    "DeleteAwsLogSourceRequestRequestTypeDef",
+    "DeleteAwsLogSourceRequestTypeDef",
     "DeleteAwsLogSourceResponseTypeDef",
-    "DeleteCustomLogSourceRequestRequestTypeDef",
-    "DeleteDataLakeOrganizationConfigurationRequestRequestTypeDef",
-    "DeleteDataLakeRequestRequestTypeDef",
-    "DeleteSubscriberNotificationRequestRequestTypeDef",
-    "DeleteSubscriberRequestRequestTypeDef",
+    "DeleteCustomLogSourceRequestTypeDef",
+    "DeleteDataLakeOrganizationConfigurationRequestTypeDef",
+    "DeleteDataLakeRequestTypeDef",
+    "DeleteSubscriberNotificationRequestTypeDef",
+    "DeleteSubscriberRequestTypeDef",
     "GetDataLakeExceptionSubscriptionResponseTypeDef",
     "GetDataLakeOrganizationConfigurationResponseTypeDef",
-    "GetDataLakeSourcesRequestRequestTypeDef",
+    "GetDataLakeSourcesRequestPaginateTypeDef",
+    "GetDataLakeSourcesRequestTypeDef",
     "GetDataLakeSourcesResponseTypeDef",
-    "GetSubscriberRequestRequestTypeDef",
+    "GetSubscriberRequestTypeDef",
     "GetSubscriberResponseTypeDef",
     "HttpsNotificationConfigurationTypeDef",
-    "ListDataLakeExceptionsRequestRequestTypeDef",
+    "ListDataLakeExceptionsRequestPaginateTypeDef",
+    "ListDataLakeExceptionsRequestTypeDef",
     "ListDataLakeExceptionsResponseTypeDef",
-    "ListDataLakesRequestRequestTypeDef",
+    "ListDataLakesRequestTypeDef",
     "ListDataLakesResponseTypeDef",
-    "ListLogSourcesRequestRequestTypeDef",
+    "ListLogSourcesRequestPaginateTypeDef",
+    "ListLogSourcesRequestTypeDef",
     "ListLogSourcesResponseTypeDef",
-    "ListSubscribersRequestRequestTypeDef",
+    "ListSubscribersRequestPaginateTypeDef",
+    "ListSubscribersRequestTypeDef",
     "ListSubscribersResponseTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "LogSourceResourceTypeDef",
     "LogSourceTypeDef",
     "NotificationConfigurationTypeDef",
     "PaginatorConfigTypeDef",
-    "RegisterDataLakeDelegatedAdministratorRequestRequestTypeDef",
+    "RegisterDataLakeDelegatedAdministratorRequestTypeDef",
     "ResponseMetadataTypeDef",
     "SubscriberResourceTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
     "TagTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateDataLakeExceptionSubscriptionRequestRequestTypeDef",
-    "UpdateDataLakeRequestRequestTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateDataLakeExceptionSubscriptionRequestTypeDef",
+    "UpdateDataLakeRequestTypeDef",
     "UpdateDataLakeResponseTypeDef",
-    "UpdateSubscriberNotificationRequestRequestTypeDef",
+    "UpdateSubscriberNotificationRequestTypeDef",
     "UpdateSubscriberNotificationResponseTypeDef",
-    "UpdateSubscriberRequestRequestTypeDef",
+    "UpdateSubscriberRequestTypeDef",
     "UpdateSubscriberResponseTypeDef",
 )
 
-AwsIdentityTypeDef = TypedDict(
-    "AwsIdentityTypeDef",
-    {
-        "externalId": str,
-        "principal": str,
-    },
-)
-
-_RequiredAwsLogSourceConfigurationTypeDef = TypedDict(
-    "_RequiredAwsLogSourceConfigurationTypeDef",
-    {
-        "regions": List[str],
-        "sourceName": AwsLogSourceNameType,
-    },
-)
-_OptionalAwsLogSourceConfigurationTypeDef = TypedDict(
-    "_OptionalAwsLogSourceConfigurationTypeDef",
-    {
-        "accounts": List[str],
-        "sourceVersion": str,
-    },
-    total=False,
-)
-
-class AwsLogSourceConfigurationTypeDef(
-    _RequiredAwsLogSourceConfigurationTypeDef, _OptionalAwsLogSourceConfigurationTypeDef
-):
-    pass
-
-AwsLogSourceResourceTypeDef = TypedDict(
-    "AwsLogSourceResourceTypeDef",
-    {
-        "sourceName": AwsLogSourceNameType,
-        "sourceVersion": str,
-    },
-    total=False,
-)
-
-CreateAwsLogSourceRequestRequestTypeDef = TypedDict(
-    "CreateAwsLogSourceRequestRequestTypeDef",
-    {
-        "sources": List["AwsLogSourceConfigurationTypeDef"],
-    },
-)
-
-CreateAwsLogSourceResponseTypeDef = TypedDict(
-    "CreateAwsLogSourceResponseTypeDef",
-    {
-        "failed": List[str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateCustomLogSourceRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateCustomLogSourceRequestRequestTypeDef",
-    {
-        "configuration": "CustomLogSourceConfigurationTypeDef",
-        "sourceName": str,
-    },
-)
-_OptionalCreateCustomLogSourceRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateCustomLogSourceRequestRequestTypeDef",
-    {
-        "eventClasses": List[str],
-        "sourceVersion": str,
-    },
-    total=False,
-)
-
-class CreateCustomLogSourceRequestRequestTypeDef(
-    _RequiredCreateCustomLogSourceRequestRequestTypeDef,
-    _OptionalCreateCustomLogSourceRequestRequestTypeDef,
-):
-    pass
-
-CreateCustomLogSourceResponseTypeDef = TypedDict(
-    "CreateCustomLogSourceResponseTypeDef",
-    {
-        "source": "CustomLogSourceResourceTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateDataLakeExceptionSubscriptionRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateDataLakeExceptionSubscriptionRequestRequestTypeDef",
-    {
-        "notificationEndpoint": str,
-        "subscriptionProtocol": str,
-    },
-)
-_OptionalCreateDataLakeExceptionSubscriptionRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateDataLakeExceptionSubscriptionRequestRequestTypeDef",
-    {
-        "exceptionTimeToLive": int,
-    },
-    total=False,
-)
-
-class CreateDataLakeExceptionSubscriptionRequestRequestTypeDef(
-    _RequiredCreateDataLakeExceptionSubscriptionRequestRequestTypeDef,
-    _OptionalCreateDataLakeExceptionSubscriptionRequestRequestTypeDef,
-):
-    pass
-
-CreateDataLakeOrganizationConfigurationRequestRequestTypeDef = TypedDict(
-    "CreateDataLakeOrganizationConfigurationRequestRequestTypeDef",
-    {
-        "autoEnableNewAccount": List["DataLakeAutoEnableNewAccountConfigurationTypeDef"],
-    },
-    total=False,
-)
-
-_RequiredCreateDataLakeRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateDataLakeRequestRequestTypeDef",
-    {
-        "configurations": List["DataLakeConfigurationTypeDef"],
-        "metaStoreManagerRoleArn": str,
-    },
-)
-_OptionalCreateDataLakeRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateDataLakeRequestRequestTypeDef",
-    {
-        "tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateDataLakeRequestRequestTypeDef(
-    _RequiredCreateDataLakeRequestRequestTypeDef, _OptionalCreateDataLakeRequestRequestTypeDef
-):
-    pass
-
-CreateDataLakeResponseTypeDef = TypedDict(
-    "CreateDataLakeResponseTypeDef",
-    {
-        "dataLakes": List["DataLakeResourceTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateSubscriberNotificationRequestRequestTypeDef = TypedDict(
-    "CreateSubscriberNotificationRequestRequestTypeDef",
-    {
-        "configuration": "NotificationConfigurationTypeDef",
-        "subscriberId": str,
-    },
-)
-
-CreateSubscriberNotificationResponseTypeDef = TypedDict(
-    "CreateSubscriberNotificationResponseTypeDef",
-    {
-        "subscriberEndpoint": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateSubscriberRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateSubscriberRequestRequestTypeDef",
-    {
-        "sources": List["LogSourceResourceTypeDef"],
-        "subscriberIdentity": "AwsIdentityTypeDef",
-        "subscriberName": str,
-    },
-)
-_OptionalCreateSubscriberRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateSubscriberRequestRequestTypeDef",
-    {
-        "accessTypes": List[AccessTypeType],
-        "subscriberDescription": str,
-        "tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateSubscriberRequestRequestTypeDef(
-    _RequiredCreateSubscriberRequestRequestTypeDef, _OptionalCreateSubscriberRequestRequestTypeDef
-):
-    pass
-
-CreateSubscriberResponseTypeDef = TypedDict(
-    "CreateSubscriberResponseTypeDef",
-    {
-        "subscriber": "SubscriberResourceTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CustomLogSourceAttributesTypeDef = TypedDict(
-    "CustomLogSourceAttributesTypeDef",
-    {
-        "crawlerArn": str,
-        "databaseArn": str,
-        "tableArn": str,
-    },
-    total=False,
-)
-
-CustomLogSourceConfigurationTypeDef = TypedDict(
-    "CustomLogSourceConfigurationTypeDef",
-    {
-        "crawlerConfiguration": "CustomLogSourceCrawlerConfigurationTypeDef",
-        "providerIdentity": "AwsIdentityTypeDef",
-    },
-)
-
-CustomLogSourceCrawlerConfigurationTypeDef = TypedDict(
-    "CustomLogSourceCrawlerConfigurationTypeDef",
-    {
-        "roleArn": str,
-    },
-)
-
-CustomLogSourceProviderTypeDef = TypedDict(
-    "CustomLogSourceProviderTypeDef",
-    {
-        "location": str,
-        "roleArn": str,
-    },
-    total=False,
-)
-
-CustomLogSourceResourceTypeDef = TypedDict(
-    "CustomLogSourceResourceTypeDef",
-    {
-        "attributes": "CustomLogSourceAttributesTypeDef",
-        "provider": "CustomLogSourceProviderTypeDef",
-        "sourceName": str,
-        "sourceVersion": str,
-    },
-    total=False,
-)
-
-DataLakeAutoEnableNewAccountConfigurationTypeDef = TypedDict(
-    "DataLakeAutoEnableNewAccountConfigurationTypeDef",
-    {
-        "region": str,
-        "sources": List["AwsLogSourceResourceTypeDef"],
-    },
-)
-
-_RequiredDataLakeConfigurationTypeDef = TypedDict(
-    "_RequiredDataLakeConfigurationTypeDef",
-    {
-        "region": str,
-    },
-)
-_OptionalDataLakeConfigurationTypeDef = TypedDict(
-    "_OptionalDataLakeConfigurationTypeDef",
-    {
-        "encryptionConfiguration": "DataLakeEncryptionConfigurationTypeDef",
-        "lifecycleConfiguration": "DataLakeLifecycleConfigurationTypeDef",
-        "replicationConfiguration": "DataLakeReplicationConfigurationTypeDef",
-    },
-    total=False,
-)
-
-class DataLakeConfigurationTypeDef(
-    _RequiredDataLakeConfigurationTypeDef, _OptionalDataLakeConfigurationTypeDef
-):
-    pass
-
-DataLakeEncryptionConfigurationTypeDef = TypedDict(
-    "DataLakeEncryptionConfigurationTypeDef",
-    {
-        "kmsKeyId": str,
-    },
-    total=False,
-)
-
-DataLakeExceptionTypeDef = TypedDict(
-    "DataLakeExceptionTypeDef",
-    {
-        "exception": str,
-        "region": str,
-        "remediation": str,
-        "timestamp": datetime,
-    },
-    total=False,
-)
-
-DataLakeLifecycleConfigurationTypeDef = TypedDict(
-    "DataLakeLifecycleConfigurationTypeDef",
-    {
-        "expiration": "DataLakeLifecycleExpirationTypeDef",
-        "transitions": List["DataLakeLifecycleTransitionTypeDef"],
-    },
-    total=False,
-)
-
-DataLakeLifecycleExpirationTypeDef = TypedDict(
-    "DataLakeLifecycleExpirationTypeDef",
-    {
-        "days": int,
-    },
-    total=False,
-)
-
-DataLakeLifecycleTransitionTypeDef = TypedDict(
-    "DataLakeLifecycleTransitionTypeDef",
-    {
-        "days": int,
-        "storageClass": str,
-    },
-    total=False,
-)
-
-DataLakeReplicationConfigurationTypeDef = TypedDict(
-    "DataLakeReplicationConfigurationTypeDef",
-    {
-        "regions": List[str],
-        "roleArn": str,
-    },
-    total=False,
-)
-
-_RequiredDataLakeResourceTypeDef = TypedDict(
-    "_RequiredDataLakeResourceTypeDef",
-    {
-        "dataLakeArn": str,
-        "region": str,
-    },
-)
-_OptionalDataLakeResourceTypeDef = TypedDict(
-    "_OptionalDataLakeResourceTypeDef",
-    {
-        "createStatus": DataLakeStatusType,
-        "encryptionConfiguration": "DataLakeEncryptionConfigurationTypeDef",
-        "lifecycleConfiguration": "DataLakeLifecycleConfigurationTypeDef",
-        "replicationConfiguration": "DataLakeReplicationConfigurationTypeDef",
-        "s3BucketArn": str,
-        "updateStatus": "DataLakeUpdateStatusTypeDef",
-    },
-    total=False,
-)
-
-class DataLakeResourceTypeDef(_RequiredDataLakeResourceTypeDef, _OptionalDataLakeResourceTypeDef):
-    pass
-
-DataLakeSourceStatusTypeDef = TypedDict(
-    "DataLakeSourceStatusTypeDef",
-    {
-        "resource": str,
-        "status": SourceCollectionStatusType,
-    },
-    total=False,
-)
-
-DataLakeSourceTypeDef = TypedDict(
-    "DataLakeSourceTypeDef",
-    {
-        "account": str,
-        "eventClasses": List[str],
-        "sourceName": str,
-        "sourceStatuses": List["DataLakeSourceStatusTypeDef"],
-    },
-    total=False,
-)
-
-DataLakeUpdateExceptionTypeDef = TypedDict(
-    "DataLakeUpdateExceptionTypeDef",
-    {
-        "code": str,
-        "reason": str,
-    },
-    total=False,
-)
-
-DataLakeUpdateStatusTypeDef = TypedDict(
-    "DataLakeUpdateStatusTypeDef",
-    {
-        "exception": "DataLakeUpdateExceptionTypeDef",
-        "requestId": str,
-        "status": DataLakeStatusType,
-    },
-    total=False,
-)
-
-DeleteAwsLogSourceRequestRequestTypeDef = TypedDict(
-    "DeleteAwsLogSourceRequestRequestTypeDef",
-    {
-        "sources": List["AwsLogSourceConfigurationTypeDef"],
-    },
-)
-
-DeleteAwsLogSourceResponseTypeDef = TypedDict(
-    "DeleteAwsLogSourceResponseTypeDef",
-    {
-        "failed": List[str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDeleteCustomLogSourceRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteCustomLogSourceRequestRequestTypeDef",
-    {
-        "sourceName": str,
-    },
-)
-_OptionalDeleteCustomLogSourceRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteCustomLogSourceRequestRequestTypeDef",
-    {
-        "sourceVersion": str,
-    },
-    total=False,
-)
-
-class DeleteCustomLogSourceRequestRequestTypeDef(
-    _RequiredDeleteCustomLogSourceRequestRequestTypeDef,
-    _OptionalDeleteCustomLogSourceRequestRequestTypeDef,
-):
-    pass
-
-DeleteDataLakeOrganizationConfigurationRequestRequestTypeDef = TypedDict(
-    "DeleteDataLakeOrganizationConfigurationRequestRequestTypeDef",
-    {
-        "autoEnableNewAccount": List["DataLakeAutoEnableNewAccountConfigurationTypeDef"],
-    },
-    total=False,
-)
-
-DeleteDataLakeRequestRequestTypeDef = TypedDict(
-    "DeleteDataLakeRequestRequestTypeDef",
-    {
-        "regions": List[str],
-    },
-)
-
-DeleteSubscriberNotificationRequestRequestTypeDef = TypedDict(
-    "DeleteSubscriberNotificationRequestRequestTypeDef",
-    {
-        "subscriberId": str,
-    },
-)
-
-DeleteSubscriberRequestRequestTypeDef = TypedDict(
-    "DeleteSubscriberRequestRequestTypeDef",
-    {
-        "subscriberId": str,
-    },
-)
-
-GetDataLakeExceptionSubscriptionResponseTypeDef = TypedDict(
-    "GetDataLakeExceptionSubscriptionResponseTypeDef",
-    {
-        "exceptionTimeToLive": int,
-        "notificationEndpoint": str,
-        "subscriptionProtocol": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetDataLakeOrganizationConfigurationResponseTypeDef = TypedDict(
-    "GetDataLakeOrganizationConfigurationResponseTypeDef",
-    {
-        "autoEnableNewAccount": List["DataLakeAutoEnableNewAccountConfigurationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetDataLakeSourcesRequestRequestTypeDef = TypedDict(
-    "GetDataLakeSourcesRequestRequestTypeDef",
-    {
-        "accounts": List[str],
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-GetDataLakeSourcesResponseTypeDef = TypedDict(
-    "GetDataLakeSourcesResponseTypeDef",
-    {
-        "dataLakeArn": str,
-        "dataLakeSources": List["DataLakeSourceTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetSubscriberRequestRequestTypeDef = TypedDict(
-    "GetSubscriberRequestRequestTypeDef",
-    {
-        "subscriberId": str,
-    },
-)
-
-GetSubscriberResponseTypeDef = TypedDict(
-    "GetSubscriberResponseTypeDef",
-    {
-        "subscriber": "SubscriberResourceTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredHttpsNotificationConfigurationTypeDef = TypedDict(
-    "_RequiredHttpsNotificationConfigurationTypeDef",
-    {
-        "endpoint": str,
-        "targetRoleArn": str,
-    },
-)
-_OptionalHttpsNotificationConfigurationTypeDef = TypedDict(
-    "_OptionalHttpsNotificationConfigurationTypeDef",
-    {
-        "authorizationApiKeyName": str,
-        "authorizationApiKeyValue": str,
-        "httpMethod": HttpMethodType,
-    },
-    total=False,
-)
-
-class HttpsNotificationConfigurationTypeDef(
-    _RequiredHttpsNotificationConfigurationTypeDef, _OptionalHttpsNotificationConfigurationTypeDef
-):
-    pass
-
-ListDataLakeExceptionsRequestRequestTypeDef = TypedDict(
-    "ListDataLakeExceptionsRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-        "regions": List[str],
-    },
-    total=False,
-)
-
-ListDataLakeExceptionsResponseTypeDef = TypedDict(
-    "ListDataLakeExceptionsResponseTypeDef",
-    {
-        "exceptions": List["DataLakeExceptionTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListDataLakesRequestRequestTypeDef = TypedDict(
-    "ListDataLakesRequestRequestTypeDef",
-    {
-        "regions": List[str],
-    },
-    total=False,
-)
-
-ListDataLakesResponseTypeDef = TypedDict(
-    "ListDataLakesResponseTypeDef",
-    {
-        "dataLakes": List["DataLakeResourceTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListLogSourcesRequestRequestTypeDef = TypedDict(
-    "ListLogSourcesRequestRequestTypeDef",
-    {
-        "accounts": List[str],
-        "maxResults": int,
-        "nextToken": str,
-        "regions": List[str],
-        "sources": List["LogSourceResourceTypeDef"],
-    },
-    total=False,
-)
-
-ListLogSourcesResponseTypeDef = TypedDict(
-    "ListLogSourcesResponseTypeDef",
-    {
-        "nextToken": str,
-        "sources": List["LogSourceTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListSubscribersRequestRequestTypeDef = TypedDict(
-    "ListSubscribersRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-ListSubscribersResponseTypeDef = TypedDict(
-    "ListSubscribersResponseTypeDef",
-    {
-        "nextToken": str,
-        "subscribers": List["SubscriberResourceTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-    },
-)
-
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "tags": List["TagTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-LogSourceResourceTypeDef = TypedDict(
-    "LogSourceResourceTypeDef",
-    {
-        "awsLogSource": "AwsLogSourceResourceTypeDef",
-        "customLogSource": "CustomLogSourceResourceTypeDef",
-    },
-    total=False,
-)
-
-LogSourceTypeDef = TypedDict(
-    "LogSourceTypeDef",
-    {
-        "account": str,
-        "region": str,
-        "sources": List["LogSourceResourceTypeDef"],
-    },
-    total=False,
-)
-
-NotificationConfigurationTypeDef = TypedDict(
-    "NotificationConfigurationTypeDef",
-    {
-        "httpsNotificationConfiguration": "HttpsNotificationConfigurationTypeDef",
-        "sqsNotificationConfiguration": Dict[str, Any],
-    },
-    total=False,
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-RegisterDataLakeDelegatedAdministratorRequestRequestTypeDef = TypedDict(
-    "RegisterDataLakeDelegatedAdministratorRequestRequestTypeDef",
-    {
-        "accountId": str,
-    },
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-_RequiredSubscriberResourceTypeDef = TypedDict(
-    "_RequiredSubscriberResourceTypeDef",
-    {
-        "sources": List["LogSourceResourceTypeDef"],
-        "subscriberArn": str,
-        "subscriberId": str,
-        "subscriberIdentity": "AwsIdentityTypeDef",
-        "subscriberName": str,
-    },
-)
-_OptionalSubscriberResourceTypeDef = TypedDict(
-    "_OptionalSubscriberResourceTypeDef",
-    {
-        "accessTypes": List[AccessTypeType],
-        "createdAt": datetime,
-        "resourceShareArn": str,
-        "resourceShareName": str,
-        "roleArn": str,
-        "s3BucketArn": str,
-        "subscriberDescription": str,
-        "subscriberEndpoint": str,
-        "subscriberStatus": SubscriberStatusType,
-        "updatedAt": datetime,
-    },
-    total=False,
-)
-
-class SubscriberResourceTypeDef(
-    _RequiredSubscriberResourceTypeDef, _OptionalSubscriberResourceTypeDef
-):
-    pass
-
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tags": List["TagTypeDef"],
-    },
-)
-
-TagTypeDef = TypedDict(
-    "TagTypeDef",
-    {
-        "key": str,
-        "value": str,
-    },
-)
-
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tagKeys": List[str],
-    },
-)
-
-_RequiredUpdateDataLakeExceptionSubscriptionRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateDataLakeExceptionSubscriptionRequestRequestTypeDef",
-    {
-        "notificationEndpoint": str,
-        "subscriptionProtocol": str,
-    },
-)
-_OptionalUpdateDataLakeExceptionSubscriptionRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateDataLakeExceptionSubscriptionRequestRequestTypeDef",
-    {
-        "exceptionTimeToLive": int,
-    },
-    total=False,
-)
-
-class UpdateDataLakeExceptionSubscriptionRequestRequestTypeDef(
-    _RequiredUpdateDataLakeExceptionSubscriptionRequestRequestTypeDef,
-    _OptionalUpdateDataLakeExceptionSubscriptionRequestRequestTypeDef,
-):
-    pass
-
-_RequiredUpdateDataLakeRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateDataLakeRequestRequestTypeDef",
-    {
-        "configurations": List["DataLakeConfigurationTypeDef"],
-    },
-)
-_OptionalUpdateDataLakeRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateDataLakeRequestRequestTypeDef",
-    {
-        "metaStoreManagerRoleArn": str,
-    },
-    total=False,
-)
-
-class UpdateDataLakeRequestRequestTypeDef(
-    _RequiredUpdateDataLakeRequestRequestTypeDef, _OptionalUpdateDataLakeRequestRequestTypeDef
-):
-    pass
-
-UpdateDataLakeResponseTypeDef = TypedDict(
-    "UpdateDataLakeResponseTypeDef",
-    {
-        "dataLakes": List["DataLakeResourceTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UpdateSubscriberNotificationRequestRequestTypeDef = TypedDict(
-    "UpdateSubscriberNotificationRequestRequestTypeDef",
-    {
-        "configuration": "NotificationConfigurationTypeDef",
-        "subscriberId": str,
-    },
-)
-
-UpdateSubscriberNotificationResponseTypeDef = TypedDict(
-    "UpdateSubscriberNotificationResponseTypeDef",
-    {
-        "subscriberEndpoint": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateSubscriberRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateSubscriberRequestRequestTypeDef",
-    {
-        "subscriberId": str,
-    },
-)
-_OptionalUpdateSubscriberRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateSubscriberRequestRequestTypeDef",
-    {
-        "sources": List["LogSourceResourceTypeDef"],
-        "subscriberDescription": str,
-        "subscriberIdentity": "AwsIdentityTypeDef",
-        "subscriberName": str,
-    },
-    total=False,
-)
-
-class UpdateSubscriberRequestRequestTypeDef(
-    _RequiredUpdateSubscriberRequestRequestTypeDef, _OptionalUpdateSubscriberRequestRequestTypeDef
-):
-    pass
-
-UpdateSubscriberResponseTypeDef = TypedDict(
-    "UpdateSubscriberResponseTypeDef",
-    {
-        "subscriber": "SubscriberResourceTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class AwsIdentityTypeDef(TypedDict):
+    externalId: str
+    principal: str
+
+class AwsLogSourceConfigurationTypeDef(TypedDict):
+    regions: Sequence[str]
+    sourceName: AwsLogSourceNameType
+    accounts: NotRequired[Sequence[str]]
+    sourceVersion: NotRequired[str]
+
+class AwsLogSourceResourceTypeDef(TypedDict):
+    sourceName: NotRequired[AwsLogSourceNameType]
+    sourceVersion: NotRequired[str]
+
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
+
+class CreateDataLakeExceptionSubscriptionRequestTypeDef(TypedDict):
+    notificationEndpoint: str
+    subscriptionProtocol: str
+    exceptionTimeToLive: NotRequired[int]
+
+class TagTypeDef(TypedDict):
+    key: str
+    value: str
+
+class CustomLogSourceAttributesTypeDef(TypedDict):
+    crawlerArn: NotRequired[str]
+    databaseArn: NotRequired[str]
+    tableArn: NotRequired[str]
+
+class CustomLogSourceCrawlerConfigurationTypeDef(TypedDict):
+    roleArn: str
+
+class CustomLogSourceProviderTypeDef(TypedDict):
+    location: NotRequired[str]
+    roleArn: NotRequired[str]
+
+class DataLakeEncryptionConfigurationTypeDef(TypedDict):
+    kmsKeyId: NotRequired[str]
+
+class DataLakeExceptionTypeDef(TypedDict):
+    exception: NotRequired[str]
+    region: NotRequired[str]
+    remediation: NotRequired[str]
+    timestamp: NotRequired[datetime]
+
+class DataLakeLifecycleExpirationTypeDef(TypedDict):
+    days: NotRequired[int]
+
+class DataLakeLifecycleTransitionTypeDef(TypedDict):
+    days: NotRequired[int]
+    storageClass: NotRequired[str]
+
+class DataLakeReplicationConfigurationOutputTypeDef(TypedDict):
+    regions: NotRequired[List[str]]
+    roleArn: NotRequired[str]
+
+class DataLakeReplicationConfigurationTypeDef(TypedDict):
+    regions: NotRequired[Sequence[str]]
+    roleArn: NotRequired[str]
+
+class DataLakeSourceStatusTypeDef(TypedDict):
+    resource: NotRequired[str]
+    status: NotRequired[SourceCollectionStatusType]
+
+class DataLakeUpdateExceptionTypeDef(TypedDict):
+    code: NotRequired[str]
+    reason: NotRequired[str]
+
+class DeleteCustomLogSourceRequestTypeDef(TypedDict):
+    sourceName: str
+    sourceVersion: NotRequired[str]
+
+class DeleteDataLakeRequestTypeDef(TypedDict):
+    regions: Sequence[str]
+
+class DeleteSubscriberNotificationRequestTypeDef(TypedDict):
+    subscriberId: str
+
+class DeleteSubscriberRequestTypeDef(TypedDict):
+    subscriberId: str
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class GetDataLakeSourcesRequestTypeDef(TypedDict):
+    accounts: NotRequired[Sequence[str]]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class GetSubscriberRequestTypeDef(TypedDict):
+    subscriberId: str
+
+class HttpsNotificationConfigurationTypeDef(TypedDict):
+    endpoint: str
+    targetRoleArn: str
+    authorizationApiKeyName: NotRequired[str]
+    authorizationApiKeyValue: NotRequired[str]
+    httpMethod: NotRequired[HttpMethodType]
+
+class ListDataLakeExceptionsRequestTypeDef(TypedDict):
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+    regions: NotRequired[Sequence[str]]
+
+class ListDataLakesRequestTypeDef(TypedDict):
+    regions: NotRequired[Sequence[str]]
+
+class ListSubscribersRequestTypeDef(TypedDict):
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+
+class RegisterDataLakeDelegatedAdministratorRequestTypeDef(TypedDict):
+    accountId: str
+
+class UntagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tagKeys: Sequence[str]
+
+class UpdateDataLakeExceptionSubscriptionRequestTypeDef(TypedDict):
+    notificationEndpoint: str
+    subscriptionProtocol: str
+    exceptionTimeToLive: NotRequired[int]
+
+class CreateAwsLogSourceRequestTypeDef(TypedDict):
+    sources: Sequence[AwsLogSourceConfigurationTypeDef]
+
+class DeleteAwsLogSourceRequestTypeDef(TypedDict):
+    sources: Sequence[AwsLogSourceConfigurationTypeDef]
+
+class DataLakeAutoEnableNewAccountConfigurationOutputTypeDef(TypedDict):
+    region: str
+    sources: List[AwsLogSourceResourceTypeDef]
+
+class DataLakeAutoEnableNewAccountConfigurationTypeDef(TypedDict):
+    region: str
+    sources: Sequence[AwsLogSourceResourceTypeDef]
+
+class CreateAwsLogSourceResponseTypeDef(TypedDict):
+    failed: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateSubscriberNotificationResponseTypeDef(TypedDict):
+    subscriberEndpoint: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteAwsLogSourceResponseTypeDef(TypedDict):
+    failed: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetDataLakeExceptionSubscriptionResponseTypeDef(TypedDict):
+    exceptionTimeToLive: int
+    notificationEndpoint: str
+    subscriptionProtocol: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateSubscriberNotificationResponseTypeDef(TypedDict):
+    subscriberEndpoint: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    tags: List[TagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class TagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tags: Sequence[TagTypeDef]
+
+class CustomLogSourceConfigurationTypeDef(TypedDict):
+    crawlerConfiguration: CustomLogSourceCrawlerConfigurationTypeDef
+    providerIdentity: AwsIdentityTypeDef
+
+class CustomLogSourceResourceTypeDef(TypedDict):
+    attributes: NotRequired[CustomLogSourceAttributesTypeDef]
+    provider: NotRequired[CustomLogSourceProviderTypeDef]
+    sourceName: NotRequired[str]
+    sourceVersion: NotRequired[str]
+
+class ListDataLakeExceptionsResponseTypeDef(TypedDict):
+    exceptions: List[DataLakeExceptionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class DataLakeLifecycleConfigurationOutputTypeDef(TypedDict):
+    expiration: NotRequired[DataLakeLifecycleExpirationTypeDef]
+    transitions: NotRequired[List[DataLakeLifecycleTransitionTypeDef]]
+
+class DataLakeLifecycleConfigurationTypeDef(TypedDict):
+    expiration: NotRequired[DataLakeLifecycleExpirationTypeDef]
+    transitions: NotRequired[Sequence[DataLakeLifecycleTransitionTypeDef]]
+
+DataLakeReplicationConfigurationUnionTypeDef = Union[
+    DataLakeReplicationConfigurationTypeDef, DataLakeReplicationConfigurationOutputTypeDef
+]
+
+class DataLakeSourceTypeDef(TypedDict):
+    account: NotRequired[str]
+    eventClasses: NotRequired[List[str]]
+    sourceName: NotRequired[str]
+    sourceStatuses: NotRequired[List[DataLakeSourceStatusTypeDef]]
+
+class DataLakeUpdateStatusTypeDef(TypedDict):
+    exception: NotRequired[DataLakeUpdateExceptionTypeDef]
+    requestId: NotRequired[str]
+    status: NotRequired[DataLakeStatusType]
+
+class GetDataLakeSourcesRequestPaginateTypeDef(TypedDict):
+    accounts: NotRequired[Sequence[str]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListDataLakeExceptionsRequestPaginateTypeDef(TypedDict):
+    regions: NotRequired[Sequence[str]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListSubscribersRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class NotificationConfigurationTypeDef(TypedDict):
+    httpsNotificationConfiguration: NotRequired[HttpsNotificationConfigurationTypeDef]
+    sqsNotificationConfiguration: NotRequired[Mapping[str, Any]]
+
+class GetDataLakeOrganizationConfigurationResponseTypeDef(TypedDict):
+    autoEnableNewAccount: List[DataLakeAutoEnableNewAccountConfigurationOutputTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+DataLakeAutoEnableNewAccountConfigurationUnionTypeDef = Union[
+    DataLakeAutoEnableNewAccountConfigurationTypeDef,
+    DataLakeAutoEnableNewAccountConfigurationOutputTypeDef,
+]
+
+class CreateCustomLogSourceRequestTypeDef(TypedDict):
+    configuration: CustomLogSourceConfigurationTypeDef
+    sourceName: str
+    eventClasses: NotRequired[Sequence[str]]
+    sourceVersion: NotRequired[str]
+
+class CreateCustomLogSourceResponseTypeDef(TypedDict):
+    source: CustomLogSourceResourceTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class LogSourceResourceTypeDef(TypedDict):
+    awsLogSource: NotRequired[AwsLogSourceResourceTypeDef]
+    customLogSource: NotRequired[CustomLogSourceResourceTypeDef]
+
+DataLakeLifecycleConfigurationUnionTypeDef = Union[
+    DataLakeLifecycleConfigurationTypeDef, DataLakeLifecycleConfigurationOutputTypeDef
+]
+
+class GetDataLakeSourcesResponseTypeDef(TypedDict):
+    dataLakeArn: str
+    dataLakeSources: List[DataLakeSourceTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class DataLakeResourceTypeDef(TypedDict):
+    dataLakeArn: str
+    region: str
+    createStatus: NotRequired[DataLakeStatusType]
+    encryptionConfiguration: NotRequired[DataLakeEncryptionConfigurationTypeDef]
+    lifecycleConfiguration: NotRequired[DataLakeLifecycleConfigurationOutputTypeDef]
+    replicationConfiguration: NotRequired[DataLakeReplicationConfigurationOutputTypeDef]
+    s3BucketArn: NotRequired[str]
+    updateStatus: NotRequired[DataLakeUpdateStatusTypeDef]
+
+class CreateSubscriberNotificationRequestTypeDef(TypedDict):
+    configuration: NotificationConfigurationTypeDef
+    subscriberId: str
+
+class UpdateSubscriberNotificationRequestTypeDef(TypedDict):
+    configuration: NotificationConfigurationTypeDef
+    subscriberId: str
+
+class CreateDataLakeOrganizationConfigurationRequestTypeDef(TypedDict):
+    autoEnableNewAccount: NotRequired[
+        Sequence[DataLakeAutoEnableNewAccountConfigurationUnionTypeDef]
+    ]
+
+class DeleteDataLakeOrganizationConfigurationRequestTypeDef(TypedDict):
+    autoEnableNewAccount: NotRequired[
+        Sequence[DataLakeAutoEnableNewAccountConfigurationUnionTypeDef]
+    ]
+
+class CreateSubscriberRequestTypeDef(TypedDict):
+    sources: Sequence[LogSourceResourceTypeDef]
+    subscriberIdentity: AwsIdentityTypeDef
+    subscriberName: str
+    accessTypes: NotRequired[Sequence[AccessTypeType]]
+    subscriberDescription: NotRequired[str]
+    tags: NotRequired[Sequence[TagTypeDef]]
+
+class ListLogSourcesRequestPaginateTypeDef(TypedDict):
+    accounts: NotRequired[Sequence[str]]
+    regions: NotRequired[Sequence[str]]
+    sources: NotRequired[Sequence[LogSourceResourceTypeDef]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListLogSourcesRequestTypeDef(TypedDict):
+    accounts: NotRequired[Sequence[str]]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+    regions: NotRequired[Sequence[str]]
+    sources: NotRequired[Sequence[LogSourceResourceTypeDef]]
+
+class LogSourceTypeDef(TypedDict):
+    account: NotRequired[str]
+    region: NotRequired[str]
+    sources: NotRequired[List[LogSourceResourceTypeDef]]
+
+class SubscriberResourceTypeDef(TypedDict):
+    sources: List[LogSourceResourceTypeDef]
+    subscriberArn: str
+    subscriberId: str
+    subscriberIdentity: AwsIdentityTypeDef
+    subscriberName: str
+    accessTypes: NotRequired[List[AccessTypeType]]
+    createdAt: NotRequired[datetime]
+    resourceShareArn: NotRequired[str]
+    resourceShareName: NotRequired[str]
+    roleArn: NotRequired[str]
+    s3BucketArn: NotRequired[str]
+    subscriberDescription: NotRequired[str]
+    subscriberEndpoint: NotRequired[str]
+    subscriberStatus: NotRequired[SubscriberStatusType]
+    updatedAt: NotRequired[datetime]
+
+class UpdateSubscriberRequestTypeDef(TypedDict):
+    subscriberId: str
+    sources: NotRequired[Sequence[LogSourceResourceTypeDef]]
+    subscriberDescription: NotRequired[str]
+    subscriberIdentity: NotRequired[AwsIdentityTypeDef]
+    subscriberName: NotRequired[str]
+
+class DataLakeConfigurationTypeDef(TypedDict):
+    region: str
+    encryptionConfiguration: NotRequired[DataLakeEncryptionConfigurationTypeDef]
+    lifecycleConfiguration: NotRequired[DataLakeLifecycleConfigurationUnionTypeDef]
+    replicationConfiguration: NotRequired[DataLakeReplicationConfigurationUnionTypeDef]
+
+class CreateDataLakeResponseTypeDef(TypedDict):
+    dataLakes: List[DataLakeResourceTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListDataLakesResponseTypeDef(TypedDict):
+    dataLakes: List[DataLakeResourceTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateDataLakeResponseTypeDef(TypedDict):
+    dataLakes: List[DataLakeResourceTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListLogSourcesResponseTypeDef(TypedDict):
+    sources: List[LogSourceTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class CreateSubscriberResponseTypeDef(TypedDict):
+    subscriber: SubscriberResourceTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetSubscriberResponseTypeDef(TypedDict):
+    subscriber: SubscriberResourceTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListSubscribersResponseTypeDef(TypedDict):
+    subscribers: List[SubscriberResourceTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class UpdateSubscriberResponseTypeDef(TypedDict):
+    subscriber: SubscriberResourceTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateDataLakeRequestTypeDef(TypedDict):
+    configurations: Sequence[DataLakeConfigurationTypeDef]
+    metaStoreManagerRoleArn: str
+    tags: NotRequired[Sequence[TagTypeDef]]
+
+class UpdateDataLakeRequestTypeDef(TypedDict):
+    configurations: Sequence[DataLakeConfigurationTypeDef]
+    metaStoreManagerRoleArn: NotRequired[str]

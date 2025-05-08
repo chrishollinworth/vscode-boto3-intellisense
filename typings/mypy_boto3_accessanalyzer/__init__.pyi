@@ -1,10 +1,14 @@
 """
 Main interface for accessanalyzer service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_accessanalyzer/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_accessanalyzer import (
         AccessAnalyzerClient,
         Client,
@@ -21,10 +25,8 @@ Usage::
         ValidatePolicyPaginator,
     )
 
-    session = boto3.Session()
-
-    client: AccessAnalyzerClient = boto3.client("accessanalyzer")
-    session_client: AccessAnalyzerClient = session.client("accessanalyzer")
+    session = Session()
+    client: AccessAnalyzerClient = session.client("accessanalyzer")
 
     get_finding_recommendation_paginator: GetFindingRecommendationPaginator = client.get_paginator("get_finding_recommendation")
     get_finding_v2_paginator: GetFindingV2Paginator = client.get_paginator("get_finding_v2")

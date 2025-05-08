@@ -1,33 +1,30 @@
 """
-Type annotations for evidently service client.
+Type annotations for evidently service Client.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_evidently/client.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_evidently/client/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
-    from mypy_boto3_evidently import CloudWatchEvidentlyClient
+    from boto3.session import Session
+    from mypy_boto3_evidently.client import CloudWatchEvidentlyClient
 
-    client: CloudWatchEvidentlyClient = boto3.client("evidently")
+    session = Session()
+    client: CloudWatchEvidentlyClient = session.client("evidently")
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from datetime import datetime
-from typing import Any, Dict, List, Type, Union, overload
+from typing import Any, overload
 
 from botocore.client import BaseClient, ClientMeta
+from botocore.errorfactory import BaseClientExceptions
+from botocore.exceptions import ClientError as BotocoreClientError
 
-from .literals import (
-    ExperimentResultRequestTypeType,
-    ExperimentStatusType,
-    ExperimentStopDesiredStateType,
-    FeatureEvaluationStrategyType,
-    LaunchStatusType,
-    LaunchStopDesiredStateType,
-    SegmentReferenceResourceTypeType,
-)
 from .paginator import (
     ListExperimentsPaginator,
     ListFeaturesPaginator,
@@ -37,67 +34,91 @@ from .paginator import (
     ListSegmentsPaginator,
 )
 from .type_defs import (
+    BatchEvaluateFeatureRequestTypeDef,
     BatchEvaluateFeatureResponseTypeDef,
-    CloudWatchLogsDestinationConfigTypeDef,
+    CreateExperimentRequestTypeDef,
     CreateExperimentResponseTypeDef,
+    CreateFeatureRequestTypeDef,
     CreateFeatureResponseTypeDef,
+    CreateLaunchRequestTypeDef,
     CreateLaunchResponseTypeDef,
+    CreateProjectRequestTypeDef,
     CreateProjectResponseTypeDef,
+    CreateSegmentRequestTypeDef,
     CreateSegmentResponseTypeDef,
+    DeleteExperimentRequestTypeDef,
+    DeleteFeatureRequestTypeDef,
+    DeleteLaunchRequestTypeDef,
+    DeleteProjectRequestTypeDef,
+    DeleteSegmentRequestTypeDef,
+    EvaluateFeatureRequestTypeDef,
     EvaluateFeatureResponseTypeDef,
-    EvaluationRequestTypeDef,
-    EventTypeDef,
+    GetExperimentRequestTypeDef,
     GetExperimentResponseTypeDef,
+    GetExperimentResultsRequestTypeDef,
     GetExperimentResultsResponseTypeDef,
+    GetFeatureRequestTypeDef,
     GetFeatureResponseTypeDef,
+    GetLaunchRequestTypeDef,
     GetLaunchResponseTypeDef,
+    GetProjectRequestTypeDef,
     GetProjectResponseTypeDef,
+    GetSegmentRequestTypeDef,
     GetSegmentResponseTypeDef,
-    LaunchGroupConfigTypeDef,
+    ListExperimentsRequestTypeDef,
     ListExperimentsResponseTypeDef,
+    ListFeaturesRequestTypeDef,
     ListFeaturesResponseTypeDef,
+    ListLaunchesRequestTypeDef,
     ListLaunchesResponseTypeDef,
+    ListProjectsRequestTypeDef,
     ListProjectsResponseTypeDef,
+    ListSegmentReferencesRequestTypeDef,
     ListSegmentReferencesResponseTypeDef,
+    ListSegmentsRequestTypeDef,
     ListSegmentsResponseTypeDef,
+    ListTagsForResourceRequestTypeDef,
     ListTagsForResourceResponseTypeDef,
-    MetricGoalConfigTypeDef,
-    MetricMonitorConfigTypeDef,
-    OnlineAbConfigTypeDef,
-    ProjectAppConfigResourceConfigTypeDef,
-    ProjectDataDeliveryConfigTypeDef,
+    PutProjectEventsRequestTypeDef,
     PutProjectEventsResponseTypeDef,
-    S3DestinationConfigTypeDef,
-    ScheduledSplitsLaunchConfigTypeDef,
+    StartExperimentRequestTypeDef,
     StartExperimentResponseTypeDef,
+    StartLaunchRequestTypeDef,
     StartLaunchResponseTypeDef,
+    StopExperimentRequestTypeDef,
     StopExperimentResponseTypeDef,
+    StopLaunchRequestTypeDef,
     StopLaunchResponseTypeDef,
+    TagResourceRequestTypeDef,
+    TestSegmentPatternRequestTypeDef,
     TestSegmentPatternResponseTypeDef,
-    TreatmentConfigTypeDef,
+    UntagResourceRequestTypeDef,
+    UpdateExperimentRequestTypeDef,
     UpdateExperimentResponseTypeDef,
+    UpdateFeatureRequestTypeDef,
     UpdateFeatureResponseTypeDef,
+    UpdateLaunchRequestTypeDef,
     UpdateLaunchResponseTypeDef,
+    UpdateProjectDataDeliveryRequestTypeDef,
     UpdateProjectDataDeliveryResponseTypeDef,
+    UpdateProjectRequestTypeDef,
     UpdateProjectResponseTypeDef,
-    VariationConfigTypeDef,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import type as Type
+    from collections.abc import Mapping
 else:
-    from typing_extensions import Literal
+    from typing import Dict, Mapping, Type
+if sys.version_info >= (3, 12):
+    from typing import Literal, Unpack
+else:
+    from typing_extensions import Literal, Unpack
 
 __all__ = ("CloudWatchEvidentlyClient",)
 
-class BotocoreClientError(BaseException):
-    MSG_TEMPLATE: str
-
-    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
-        self.response: Dict[str, Any]
-        self.operation_name: str
-
-class Exceptions:
+class Exceptions(BaseClientExceptions):
     AccessDeniedException: Type[BotocoreClientError]
     ClientError: Type[BotocoreClientError]
     ConflictException: Type[BotocoreClientError]
@@ -110,8 +131,8 @@ class Exceptions:
 
 class CloudWatchEvidentlyClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/evidently.html#CloudWatchEvidently.Client)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_evidently/client.html)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/evidently.html#CloudWatchEvidently.Client)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_evidently/client/)
     """
 
     meta: ClientMeta
@@ -120,546 +141,454 @@ class CloudWatchEvidentlyClient(BaseClient):
     def exceptions(self) -> Exceptions:
         """
         CloudWatchEvidentlyClient exceptions.
-        """
 
-    def batch_evaluate_feature(
-        self, *, project: str, requests: List["EvaluationRequestTypeDef"]
-    ) -> BatchEvaluateFeatureResponseTypeDef:
-        """
-        This operation assigns feature variation to user sessions.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/evidently.html#CloudWatchEvidently.Client.batch_evaluate_feature)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_evidently/client.html#batch_evaluate_feature)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/evidently.html#CloudWatchEvidently.Client)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_evidently/client/#exceptions)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        Check if an operation can be paginated.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/evidently.html#CloudWatchEvidently.Client.can_paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_evidently/client.html#can_paginate)
-        """
-
-    def close(self) -> None:
-        """
-        Closes underlying endpoint connections.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/evidently.html#CloudWatchEvidently.Client.close)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_evidently/client.html#close)
-        """
-
-    def create_experiment(
-        self,
-        *,
-        metricGoals: List["MetricGoalConfigTypeDef"],
-        name: str,
-        project: str,
-        treatments: List["TreatmentConfigTypeDef"],
-        description: str = None,
-        onlineAbConfig: "OnlineAbConfigTypeDef" = None,
-        randomizationSalt: str = None,
-        samplingRate: int = None,
-        segment: str = None,
-        tags: Dict[str, str] = None
-    ) -> CreateExperimentResponseTypeDef:
-        """
-        Creates an Evidently *experiment*.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/evidently.html#CloudWatchEvidently.Client.create_experiment)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_evidently/client.html#create_experiment)
-        """
-
-    def create_feature(
-        self,
-        *,
-        name: str,
-        project: str,
-        variations: List["VariationConfigTypeDef"],
-        defaultVariation: str = None,
-        description: str = None,
-        entityOverrides: Dict[str, str] = None,
-        evaluationStrategy: FeatureEvaluationStrategyType = None,
-        tags: Dict[str, str] = None
-    ) -> CreateFeatureResponseTypeDef:
-        """
-        Creates an Evidently *feature* that you want to launch or test.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/evidently.html#CloudWatchEvidently.Client.create_feature)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_evidently/client.html#create_feature)
-        """
-
-    def create_launch(
-        self,
-        *,
-        groups: List["LaunchGroupConfigTypeDef"],
-        name: str,
-        project: str,
-        description: str = None,
-        metricMonitors: List["MetricMonitorConfigTypeDef"] = None,
-        randomizationSalt: str = None,
-        scheduledSplitsConfig: "ScheduledSplitsLaunchConfigTypeDef" = None,
-        tags: Dict[str, str] = None
-    ) -> CreateLaunchResponseTypeDef:
-        """
-        Creates a *launch* of a given feature.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/evidently.html#CloudWatchEvidently.Client.create_launch)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_evidently/client.html#create_launch)
-        """
-
-    def create_project(
-        self,
-        *,
-        name: str,
-        appConfigResource: "ProjectAppConfigResourceConfigTypeDef" = None,
-        dataDelivery: "ProjectDataDeliveryConfigTypeDef" = None,
-        description: str = None,
-        tags: Dict[str, str] = None
-    ) -> CreateProjectResponseTypeDef:
-        """
-        Creates a project, which is the logical object in Evidently that can contain
-        features, launches, and experiments.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/evidently.html#CloudWatchEvidently.Client.create_project)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_evidently/client.html#create_project)
-        """
-
-    def create_segment(
-        self, *, name: str, pattern: str, description: str = None, tags: Dict[str, str] = None
-    ) -> CreateSegmentResponseTypeDef:
-        """
-        Use this operation to define a *segment* of your audience.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/evidently.html#CloudWatchEvidently.Client.create_segment)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_evidently/client.html#create_segment)
-        """
-
-    def delete_experiment(self, *, experiment: str, project: str) -> Dict[str, Any]:
-        """
-        Deletes an Evidently experiment.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/evidently.html#CloudWatchEvidently.Client.delete_experiment)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_evidently/client.html#delete_experiment)
-        """
-
-    def delete_feature(self, *, feature: str, project: str) -> Dict[str, Any]:
-        """
-        Deletes an Evidently feature.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/evidently.html#CloudWatchEvidently.Client.delete_feature)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_evidently/client.html#delete_feature)
-        """
-
-    def delete_launch(self, *, launch: str, project: str) -> Dict[str, Any]:
-        """
-        Deletes an Evidently launch.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/evidently.html#CloudWatchEvidently.Client.delete_launch)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_evidently/client.html#delete_launch)
-        """
-
-    def delete_project(self, *, project: str) -> Dict[str, Any]:
-        """
-        Deletes an Evidently project.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/evidently.html#CloudWatchEvidently.Client.delete_project)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_evidently/client.html#delete_project)
-        """
-
-    def delete_segment(self, *, segment: str) -> Dict[str, Any]:
-        """
-        Deletes a segment.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/evidently.html#CloudWatchEvidently.Client.delete_segment)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_evidently/client.html#delete_segment)
-        """
-
-    def evaluate_feature(
-        self, *, entityId: str, feature: str, project: str, evaluationContext: str = None
-    ) -> EvaluateFeatureResponseTypeDef:
-        """
-        This operation assigns a feature variation to one given user session.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/evidently.html#CloudWatchEvidently.Client.evaluate_feature)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_evidently/client.html#evaluate_feature)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/evidently/client/can_paginate.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_evidently/client/#can_paginate)
         """
 
     def generate_presigned_url(
         self,
         ClientMethod: str,
-        Params: Dict[str, Any] = None,
+        Params: Mapping[str, Any] = ...,
         ExpiresIn: int = 3600,
-        HttpMethod: str = None,
+        HttpMethod: str = ...,
     ) -> str:
         """
-        Generate a presigned url given a client, its method, and arguments.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/evidently.html#CloudWatchEvidently.Client.generate_presigned_url)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_evidently/client.html#generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/evidently/client/generate_presigned_url.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_evidently/client/#generate_presigned_url)
         """
 
-    def get_experiment(self, *, experiment: str, project: str) -> GetExperimentResponseTypeDef:
+    def batch_evaluate_feature(
+        self, **kwargs: Unpack[BatchEvaluateFeatureRequestTypeDef]
+    ) -> BatchEvaluateFeatureResponseTypeDef:
+        """
+        This operation assigns feature variation to user sessions.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/evidently/client/batch_evaluate_feature.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_evidently/client/#batch_evaluate_feature)
+        """
+
+    def create_experiment(
+        self, **kwargs: Unpack[CreateExperimentRequestTypeDef]
+    ) -> CreateExperimentResponseTypeDef:
+        """
+        Creates an Evidently <i>experiment</i>.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/evidently/client/create_experiment.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_evidently/client/#create_experiment)
+        """
+
+    def create_feature(
+        self, **kwargs: Unpack[CreateFeatureRequestTypeDef]
+    ) -> CreateFeatureResponseTypeDef:
+        """
+        Creates an Evidently <i>feature</i> that you want to launch or test.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/evidently/client/create_feature.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_evidently/client/#create_feature)
+        """
+
+    def create_launch(
+        self, **kwargs: Unpack[CreateLaunchRequestTypeDef]
+    ) -> CreateLaunchResponseTypeDef:
+        """
+        Creates a <i>launch</i> of a given feature.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/evidently/client/create_launch.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_evidently/client/#create_launch)
+        """
+
+    def create_project(
+        self, **kwargs: Unpack[CreateProjectRequestTypeDef]
+    ) -> CreateProjectResponseTypeDef:
+        """
+        Creates a project, which is the logical object in Evidently that can contain
+        features, launches, and experiments.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/evidently/client/create_project.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_evidently/client/#create_project)
+        """
+
+    def create_segment(
+        self, **kwargs: Unpack[CreateSegmentRequestTypeDef]
+    ) -> CreateSegmentResponseTypeDef:
+        """
+        Use this operation to define a <i>segment</i> of your audience.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/evidently/client/create_segment.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_evidently/client/#create_segment)
+        """
+
+    def delete_experiment(self, **kwargs: Unpack[DeleteExperimentRequestTypeDef]) -> Dict[str, Any]:
+        """
+        Deletes an Evidently experiment.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/evidently/client/delete_experiment.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_evidently/client/#delete_experiment)
+        """
+
+    def delete_feature(self, **kwargs: Unpack[DeleteFeatureRequestTypeDef]) -> Dict[str, Any]:
+        """
+        Deletes an Evidently feature.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/evidently/client/delete_feature.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_evidently/client/#delete_feature)
+        """
+
+    def delete_launch(self, **kwargs: Unpack[DeleteLaunchRequestTypeDef]) -> Dict[str, Any]:
+        """
+        Deletes an Evidently launch.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/evidently/client/delete_launch.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_evidently/client/#delete_launch)
+        """
+
+    def delete_project(self, **kwargs: Unpack[DeleteProjectRequestTypeDef]) -> Dict[str, Any]:
+        """
+        Deletes an Evidently project.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/evidently/client/delete_project.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_evidently/client/#delete_project)
+        """
+
+    def delete_segment(self, **kwargs: Unpack[DeleteSegmentRequestTypeDef]) -> Dict[str, Any]:
+        """
+        Deletes a segment.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/evidently/client/delete_segment.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_evidently/client/#delete_segment)
+        """
+
+    def evaluate_feature(
+        self, **kwargs: Unpack[EvaluateFeatureRequestTypeDef]
+    ) -> EvaluateFeatureResponseTypeDef:
+        """
+        This operation assigns a feature variation to one given user session.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/evidently/client/evaluate_feature.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_evidently/client/#evaluate_feature)
+        """
+
+    def get_experiment(
+        self, **kwargs: Unpack[GetExperimentRequestTypeDef]
+    ) -> GetExperimentResponseTypeDef:
         """
         Returns the details about one experiment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/evidently.html#CloudWatchEvidently.Client.get_experiment)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_evidently/client.html#get_experiment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/evidently/client/get_experiment.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_evidently/client/#get_experiment)
         """
 
     def get_experiment_results(
-        self,
-        *,
-        experiment: str,
-        metricNames: List[str],
-        project: str,
-        treatmentNames: List[str],
-        baseStat: Literal["Mean"] = None,
-        endTime: Union[datetime, str] = None,
-        period: int = None,
-        reportNames: List[Literal["BayesianInference"]] = None,
-        resultStats: List[ExperimentResultRequestTypeType] = None,
-        startTime: Union[datetime, str] = None
+        self, **kwargs: Unpack[GetExperimentResultsRequestTypeDef]
     ) -> GetExperimentResultsResponseTypeDef:
         """
         Retrieves the results of a running or completed experiment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/evidently.html#CloudWatchEvidently.Client.get_experiment_results)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_evidently/client.html#get_experiment_results)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/evidently/client/get_experiment_results.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_evidently/client/#get_experiment_results)
         """
 
-    def get_feature(self, *, feature: str, project: str) -> GetFeatureResponseTypeDef:
+    def get_feature(self, **kwargs: Unpack[GetFeatureRequestTypeDef]) -> GetFeatureResponseTypeDef:
         """
         Returns the details about one feature.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/evidently.html#CloudWatchEvidently.Client.get_feature)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_evidently/client.html#get_feature)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/evidently/client/get_feature.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_evidently/client/#get_feature)
         """
 
-    def get_launch(self, *, launch: str, project: str) -> GetLaunchResponseTypeDef:
-        """
-        Returns the details about one launch.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/evidently.html#CloudWatchEvidently.Client.get_launch)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_evidently/client.html#get_launch)
-        """
-
-    def get_project(self, *, project: str) -> GetProjectResponseTypeDef:
+    def get_launch(self, **kwargs: Unpack[GetLaunchRequestTypeDef]) -> GetLaunchResponseTypeDef:
         """
         Returns the details about one launch.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/evidently.html#CloudWatchEvidently.Client.get_project)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_evidently/client.html#get_project)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/evidently/client/get_launch.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_evidently/client/#get_launch)
         """
 
-    def get_segment(self, *, segment: str) -> GetSegmentResponseTypeDef:
+    def get_project(self, **kwargs: Unpack[GetProjectRequestTypeDef]) -> GetProjectResponseTypeDef:
+        """
+        Returns the details about one launch.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/evidently/client/get_project.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_evidently/client/#get_project)
+        """
+
+    def get_segment(self, **kwargs: Unpack[GetSegmentRequestTypeDef]) -> GetSegmentResponseTypeDef:
         """
         Returns information about the specified segment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/evidently.html#CloudWatchEvidently.Client.get_segment)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_evidently/client.html#get_segment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/evidently/client/get_segment.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_evidently/client/#get_segment)
         """
 
     def list_experiments(
-        self,
-        *,
-        project: str,
-        maxResults: int = None,
-        nextToken: str = None,
-        status: ExperimentStatusType = None
+        self, **kwargs: Unpack[ListExperimentsRequestTypeDef]
     ) -> ListExperimentsResponseTypeDef:
         """
         Returns configuration details about all the experiments in the specified
         project.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/evidently.html#CloudWatchEvidently.Client.list_experiments)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_evidently/client.html#list_experiments)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/evidently/client/list_experiments.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_evidently/client/#list_experiments)
         """
 
     def list_features(
-        self, *, project: str, maxResults: int = None, nextToken: str = None
+        self, **kwargs: Unpack[ListFeaturesRequestTypeDef]
     ) -> ListFeaturesResponseTypeDef:
         """
         Returns configuration details about all the features in the specified project.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/evidently.html#CloudWatchEvidently.Client.list_features)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_evidently/client.html#list_features)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/evidently/client/list_features.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_evidently/client/#list_features)
         """
 
     def list_launches(
-        self,
-        *,
-        project: str,
-        maxResults: int = None,
-        nextToken: str = None,
-        status: LaunchStatusType = None
+        self, **kwargs: Unpack[ListLaunchesRequestTypeDef]
     ) -> ListLaunchesResponseTypeDef:
         """
         Returns configuration details about all the launches in the specified project.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/evidently.html#CloudWatchEvidently.Client.list_launches)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_evidently/client.html#list_launches)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/evidently/client/list_launches.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_evidently/client/#list_launches)
         """
 
     def list_projects(
-        self, *, maxResults: int = None, nextToken: str = None
+        self, **kwargs: Unpack[ListProjectsRequestTypeDef]
     ) -> ListProjectsResponseTypeDef:
         """
         Returns configuration details about all the projects in the current Region in
         your account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/evidently.html#CloudWatchEvidently.Client.list_projects)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_evidently/client.html#list_projects)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/evidently/client/list_projects.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_evidently/client/#list_projects)
         """
 
     def list_segment_references(
-        self,
-        *,
-        segment: str,
-        type: SegmentReferenceResourceTypeType,
-        maxResults: int = None,
-        nextToken: str = None
+        self, **kwargs: Unpack[ListSegmentReferencesRequestTypeDef]
     ) -> ListSegmentReferencesResponseTypeDef:
         """
         Use this operation to find which experiments or launches are using a specified
         segment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/evidently.html#CloudWatchEvidently.Client.list_segment_references)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_evidently/client.html#list_segment_references)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/evidently/client/list_segment_references.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_evidently/client/#list_segment_references)
         """
 
     def list_segments(
-        self, *, maxResults: int = None, nextToken: str = None
+        self, **kwargs: Unpack[ListSegmentsRequestTypeDef]
     ) -> ListSegmentsResponseTypeDef:
         """
         Returns a list of audience segments that you have created in your account in
         this Region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/evidently.html#CloudWatchEvidently.Client.list_segments)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_evidently/client.html#list_segments)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/evidently/client/list_segments.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_evidently/client/#list_segments)
         """
 
-    def list_tags_for_resource(self, *, resourceArn: str) -> ListTagsForResourceResponseTypeDef:
+    def list_tags_for_resource(
+        self, **kwargs: Unpack[ListTagsForResourceRequestTypeDef]
+    ) -> ListTagsForResourceResponseTypeDef:
         """
         Displays the tags associated with an Evidently resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/evidently.html#CloudWatchEvidently.Client.list_tags_for_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_evidently/client.html#list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/evidently/client/list_tags_for_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_evidently/client/#list_tags_for_resource)
         """
 
     def put_project_events(
-        self, *, events: List["EventTypeDef"], project: str
+        self, **kwargs: Unpack[PutProjectEventsRequestTypeDef]
     ) -> PutProjectEventsResponseTypeDef:
         """
         Sends performance events to Evidently.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/evidently.html#CloudWatchEvidently.Client.put_project_events)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_evidently/client.html#put_project_events)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/evidently/client/put_project_events.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_evidently/client/#put_project_events)
         """
 
     def start_experiment(
-        self, *, analysisCompleteTime: Union[datetime, str], experiment: str, project: str
+        self, **kwargs: Unpack[StartExperimentRequestTypeDef]
     ) -> StartExperimentResponseTypeDef:
         """
         Starts an existing experiment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/evidently.html#CloudWatchEvidently.Client.start_experiment)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_evidently/client.html#start_experiment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/evidently/client/start_experiment.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_evidently/client/#start_experiment)
         """
 
-    def start_launch(self, *, launch: str, project: str) -> StartLaunchResponseTypeDef:
+    def start_launch(
+        self, **kwargs: Unpack[StartLaunchRequestTypeDef]
+    ) -> StartLaunchResponseTypeDef:
         """
         Starts an existing launch.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/evidently.html#CloudWatchEvidently.Client.start_launch)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_evidently/client.html#start_launch)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/evidently/client/start_launch.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_evidently/client/#start_launch)
         """
 
     def stop_experiment(
-        self,
-        *,
-        experiment: str,
-        project: str,
-        desiredState: ExperimentStopDesiredStateType = None,
-        reason: str = None
+        self, **kwargs: Unpack[StopExperimentRequestTypeDef]
     ) -> StopExperimentResponseTypeDef:
         """
         Stops an experiment that is currently running.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/evidently.html#CloudWatchEvidently.Client.stop_experiment)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_evidently/client.html#stop_experiment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/evidently/client/stop_experiment.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_evidently/client/#stop_experiment)
         """
 
-    def stop_launch(
-        self,
-        *,
-        launch: str,
-        project: str,
-        desiredState: LaunchStopDesiredStateType = None,
-        reason: str = None
-    ) -> StopLaunchResponseTypeDef:
+    def stop_launch(self, **kwargs: Unpack[StopLaunchRequestTypeDef]) -> StopLaunchResponseTypeDef:
         """
         Stops a launch that is currently running.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/evidently.html#CloudWatchEvidently.Client.stop_launch)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_evidently/client.html#stop_launch)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/evidently/client/stop_launch.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_evidently/client/#stop_launch)
         """
 
-    def tag_resource(self, *, resourceArn: str, tags: Dict[str, str]) -> Dict[str, Any]:
+    def tag_resource(self, **kwargs: Unpack[TagResourceRequestTypeDef]) -> Dict[str, Any]:
         """
-        Assigns one or more tags (key-value pairs) to the specified CloudWatch Evidently
-        resource.
+        Assigns one or more tags (key-value pairs) to the specified CloudWatch
+        Evidently resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/evidently.html#CloudWatchEvidently.Client.tag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_evidently/client.html#tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/evidently/client/tag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_evidently/client/#tag_resource)
         """
 
     def test_segment_pattern(
-        self, *, pattern: str, payload: str
+        self, **kwargs: Unpack[TestSegmentPatternRequestTypeDef]
     ) -> TestSegmentPatternResponseTypeDef:
         """
         Use this operation to test a rules pattern that you plan to use to create an
         audience segment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/evidently.html#CloudWatchEvidently.Client.test_segment_pattern)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_evidently/client.html#test_segment_pattern)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/evidently/client/test_segment_pattern.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_evidently/client/#test_segment_pattern)
         """
 
-    def untag_resource(self, *, resourceArn: str, tagKeys: List[str]) -> Dict[str, Any]:
+    def untag_resource(self, **kwargs: Unpack[UntagResourceRequestTypeDef]) -> Dict[str, Any]:
         """
         Removes one or more tags from the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/evidently.html#CloudWatchEvidently.Client.untag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_evidently/client.html#untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/evidently/client/untag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_evidently/client/#untag_resource)
         """
 
     def update_experiment(
-        self,
-        *,
-        experiment: str,
-        project: str,
-        description: str = None,
-        metricGoals: List["MetricGoalConfigTypeDef"] = None,
-        onlineAbConfig: "OnlineAbConfigTypeDef" = None,
-        randomizationSalt: str = None,
-        removeSegment: bool = None,
-        samplingRate: int = None,
-        segment: str = None,
-        treatments: List["TreatmentConfigTypeDef"] = None
+        self, **kwargs: Unpack[UpdateExperimentRequestTypeDef]
     ) -> UpdateExperimentResponseTypeDef:
         """
         Updates an Evidently experiment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/evidently.html#CloudWatchEvidently.Client.update_experiment)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_evidently/client.html#update_experiment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/evidently/client/update_experiment.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_evidently/client/#update_experiment)
         """
 
     def update_feature(
-        self,
-        *,
-        feature: str,
-        project: str,
-        addOrUpdateVariations: List["VariationConfigTypeDef"] = None,
-        defaultVariation: str = None,
-        description: str = None,
-        entityOverrides: Dict[str, str] = None,
-        evaluationStrategy: FeatureEvaluationStrategyType = None,
-        removeVariations: List[str] = None
+        self, **kwargs: Unpack[UpdateFeatureRequestTypeDef]
     ) -> UpdateFeatureResponseTypeDef:
         """
         Updates an existing feature.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/evidently.html#CloudWatchEvidently.Client.update_feature)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_evidently/client.html#update_feature)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/evidently/client/update_feature.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_evidently/client/#update_feature)
         """
 
     def update_launch(
-        self,
-        *,
-        launch: str,
-        project: str,
-        description: str = None,
-        groups: List["LaunchGroupConfigTypeDef"] = None,
-        metricMonitors: List["MetricMonitorConfigTypeDef"] = None,
-        randomizationSalt: str = None,
-        scheduledSplitsConfig: "ScheduledSplitsLaunchConfigTypeDef" = None
+        self, **kwargs: Unpack[UpdateLaunchRequestTypeDef]
     ) -> UpdateLaunchResponseTypeDef:
         """
         Updates a launch of a given feature.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/evidently.html#CloudWatchEvidently.Client.update_launch)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_evidently/client.html#update_launch)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/evidently/client/update_launch.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_evidently/client/#update_launch)
         """
 
     def update_project(
-        self,
-        *,
-        project: str,
-        appConfigResource: "ProjectAppConfigResourceConfigTypeDef" = None,
-        description: str = None
+        self, **kwargs: Unpack[UpdateProjectRequestTypeDef]
     ) -> UpdateProjectResponseTypeDef:
         """
         Updates the description of an existing project.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/evidently.html#CloudWatchEvidently.Client.update_project)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_evidently/client.html#update_project)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/evidently/client/update_project.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_evidently/client/#update_project)
         """
 
     def update_project_data_delivery(
-        self,
-        *,
-        project: str,
-        cloudWatchLogs: "CloudWatchLogsDestinationConfigTypeDef" = None,
-        s3Destination: "S3DestinationConfigTypeDef" = None
+        self, **kwargs: Unpack[UpdateProjectDataDeliveryRequestTypeDef]
     ) -> UpdateProjectDataDeliveryResponseTypeDef:
         """
         Updates the data storage options for this project.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/evidently.html#CloudWatchEvidently.Client.update_project_data_delivery)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_evidently/client.html#update_project_data_delivery)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/evidently/client/update_project_data_delivery.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_evidently/client/#update_project_data_delivery)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_experiments"]
     ) -> ListExperimentsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/evidently.html#CloudWatchEvidently.Paginator.ListExperiments)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_evidently/paginators.html#listexperimentspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/evidently/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_evidently/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_features"]) -> ListFeaturesPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_features"]
+    ) -> ListFeaturesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/evidently.html#CloudWatchEvidently.Paginator.ListFeatures)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_evidently/paginators.html#listfeaturespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/evidently/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_evidently/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_launches"]) -> ListLaunchesPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_launches"]
+    ) -> ListLaunchesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/evidently.html#CloudWatchEvidently.Paginator.ListLaunches)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_evidently/paginators.html#listlaunchespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/evidently/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_evidently/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_projects"]) -> ListProjectsPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_projects"]
+    ) -> ListProjectsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/evidently.html#CloudWatchEvidently.Paginator.ListProjects)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_evidently/paginators.html#listprojectspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/evidently/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_evidently/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_segment_references"]
     ) -> ListSegmentReferencesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/evidently.html#CloudWatchEvidently.Paginator.ListSegmentReferences)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_evidently/paginators.html#listsegmentreferencespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/evidently/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_evidently/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_segments"]) -> ListSegmentsPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_segments"]
+    ) -> ListSegmentsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/evidently.html#CloudWatchEvidently.Paginator.ListSegments)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_evidently/paginators.html#listsegmentspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/evidently/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_evidently/client/#get_paginator)
         """

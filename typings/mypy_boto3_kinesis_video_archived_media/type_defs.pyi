@@ -1,20 +1,24 @@
 """
 Type annotations for kinesis-video-archived-media service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesis_video_archived_media/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kinesis_video_archived_media/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_kinesis_video_archived_media.type_defs import ClipFragmentSelectorTypeDef
+    from mypy_boto3_kinesis_video_archived_media.type_defs import TimestampTypeDef
 
-    data: ClipFragmentSelectorTypeDef = {...}
+    data: TimestampTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List, Union
+from typing import Union
 
 from botocore.response import StreamingBody
 
@@ -35,14 +39,16 @@ from .literals import (
     ImageSelectorTypeType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
     "ClipFragmentSelectorTypeDef",
@@ -51,298 +57,182 @@ __all__ = (
     "DASHTimestampRangeTypeDef",
     "FragmentSelectorTypeDef",
     "FragmentTypeDef",
-    "GetClipInputRequestTypeDef",
+    "GetClipInputTypeDef",
     "GetClipOutputTypeDef",
-    "GetDASHStreamingSessionURLInputRequestTypeDef",
+    "GetDASHStreamingSessionURLInputTypeDef",
     "GetDASHStreamingSessionURLOutputTypeDef",
-    "GetHLSStreamingSessionURLInputRequestTypeDef",
+    "GetHLSStreamingSessionURLInputTypeDef",
     "GetHLSStreamingSessionURLOutputTypeDef",
-    "GetImagesInputRequestTypeDef",
+    "GetImagesInputPaginateTypeDef",
+    "GetImagesInputTypeDef",
     "GetImagesOutputTypeDef",
-    "GetMediaForFragmentListInputRequestTypeDef",
+    "GetMediaForFragmentListInputTypeDef",
     "GetMediaForFragmentListOutputTypeDef",
     "HLSFragmentSelectorTypeDef",
     "HLSTimestampRangeTypeDef",
     "ImageTypeDef",
-    "ListFragmentsInputRequestTypeDef",
+    "ListFragmentsInputPaginateTypeDef",
+    "ListFragmentsInputTypeDef",
     "ListFragmentsOutputTypeDef",
     "PaginatorConfigTypeDef",
     "ResponseMetadataTypeDef",
     "TimestampRangeTypeDef",
+    "TimestampTypeDef",
 )
 
-ClipFragmentSelectorTypeDef = TypedDict(
-    "ClipFragmentSelectorTypeDef",
-    {
-        "FragmentSelectorType": ClipFragmentSelectorTypeType,
-        "TimestampRange": "ClipTimestampRangeTypeDef",
-    },
-)
+TimestampTypeDef = Union[datetime, str]
 
-ClipTimestampRangeTypeDef = TypedDict(
-    "ClipTimestampRangeTypeDef",
-    {
-        "StartTimestamp": Union[datetime, str],
-        "EndTimestamp": Union[datetime, str],
-    },
-)
+class FragmentTypeDef(TypedDict):
+    FragmentNumber: NotRequired[str]
+    FragmentSizeInBytes: NotRequired[int]
+    ProducerTimestamp: NotRequired[datetime]
+    ServerTimestamp: NotRequired[datetime]
+    FragmentLengthInMilliseconds: NotRequired[int]
 
-DASHFragmentSelectorTypeDef = TypedDict(
-    "DASHFragmentSelectorTypeDef",
-    {
-        "FragmentSelectorType": DASHFragmentSelectorTypeType,
-        "TimestampRange": "DASHTimestampRangeTypeDef",
-    },
-    total=False,
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-DASHTimestampRangeTypeDef = TypedDict(
-    "DASHTimestampRangeTypeDef",
-    {
-        "StartTimestamp": Union[datetime, str],
-        "EndTimestamp": Union[datetime, str],
-    },
-    total=False,
-)
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
 
-FragmentSelectorTypeDef = TypedDict(
-    "FragmentSelectorTypeDef",
-    {
-        "FragmentSelectorType": FragmentSelectorTypeType,
-        "TimestampRange": "TimestampRangeTypeDef",
-    },
-)
+class ImageTypeDef(TypedDict):
+    TimeStamp: NotRequired[datetime]
+    Error: NotRequired[ImageErrorType]
+    ImageContent: NotRequired[str]
 
-FragmentTypeDef = TypedDict(
-    "FragmentTypeDef",
-    {
-        "FragmentNumber": str,
-        "FragmentSizeInBytes": int,
-        "ProducerTimestamp": datetime,
-        "ServerTimestamp": datetime,
-        "FragmentLengthInMilliseconds": int,
-    },
-    total=False,
-)
+class GetMediaForFragmentListInputTypeDef(TypedDict):
+    Fragments: Sequence[str]
+    StreamName: NotRequired[str]
+    StreamARN: NotRequired[str]
 
-_RequiredGetClipInputRequestTypeDef = TypedDict(
-    "_RequiredGetClipInputRequestTypeDef",
-    {
-        "ClipFragmentSelector": "ClipFragmentSelectorTypeDef",
-    },
-)
-_OptionalGetClipInputRequestTypeDef = TypedDict(
-    "_OptionalGetClipInputRequestTypeDef",
-    {
-        "StreamName": str,
-        "StreamARN": str,
-    },
-    total=False,
-)
+class ClipTimestampRangeTypeDef(TypedDict):
+    StartTimestamp: TimestampTypeDef
+    EndTimestamp: TimestampTypeDef
 
-class GetClipInputRequestTypeDef(
-    _RequiredGetClipInputRequestTypeDef, _OptionalGetClipInputRequestTypeDef
-):
-    pass
+class DASHTimestampRangeTypeDef(TypedDict):
+    StartTimestamp: NotRequired[TimestampTypeDef]
+    EndTimestamp: NotRequired[TimestampTypeDef]
 
-GetClipOutputTypeDef = TypedDict(
-    "GetClipOutputTypeDef",
-    {
-        "ContentType": str,
-        "Payload": StreamingBody,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetImagesInputTypeDef(TypedDict):
+    ImageSelectorType: ImageSelectorTypeType
+    StartTimestamp: TimestampTypeDef
+    EndTimestamp: TimestampTypeDef
+    Format: FormatType
+    StreamName: NotRequired[str]
+    StreamARN: NotRequired[str]
+    SamplingInterval: NotRequired[int]
+    FormatConfig: NotRequired[Mapping[Literal["JPEGQuality"], str]]
+    WidthPixels: NotRequired[int]
+    HeightPixels: NotRequired[int]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
 
-GetDASHStreamingSessionURLInputRequestTypeDef = TypedDict(
-    "GetDASHStreamingSessionURLInputRequestTypeDef",
-    {
-        "StreamName": str,
-        "StreamARN": str,
-        "PlaybackMode": DASHPlaybackModeType,
-        "DisplayFragmentTimestamp": DASHDisplayFragmentTimestampType,
-        "DisplayFragmentNumber": DASHDisplayFragmentNumberType,
-        "DASHFragmentSelector": "DASHFragmentSelectorTypeDef",
-        "Expires": int,
-        "MaxManifestFragmentResults": int,
-    },
-    total=False,
-)
+class HLSTimestampRangeTypeDef(TypedDict):
+    StartTimestamp: NotRequired[TimestampTypeDef]
+    EndTimestamp: NotRequired[TimestampTypeDef]
 
-GetDASHStreamingSessionURLOutputTypeDef = TypedDict(
-    "GetDASHStreamingSessionURLOutputTypeDef",
-    {
-        "DASHStreamingSessionURL": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class TimestampRangeTypeDef(TypedDict):
+    StartTimestamp: TimestampTypeDef
+    EndTimestamp: TimestampTypeDef
 
-GetHLSStreamingSessionURLInputRequestTypeDef = TypedDict(
-    "GetHLSStreamingSessionURLInputRequestTypeDef",
-    {
-        "StreamName": str,
-        "StreamARN": str,
-        "PlaybackMode": HLSPlaybackModeType,
-        "HLSFragmentSelector": "HLSFragmentSelectorTypeDef",
-        "ContainerFormat": ContainerFormatType,
-        "DiscontinuityMode": HLSDiscontinuityModeType,
-        "DisplayFragmentTimestamp": HLSDisplayFragmentTimestampType,
-        "Expires": int,
-        "MaxMediaPlaylistFragmentResults": int,
-    },
-    total=False,
-)
+class GetClipOutputTypeDef(TypedDict):
+    ContentType: str
+    Payload: StreamingBody
+    ResponseMetadata: ResponseMetadataTypeDef
 
-GetHLSStreamingSessionURLOutputTypeDef = TypedDict(
-    "GetHLSStreamingSessionURLOutputTypeDef",
-    {
-        "HLSStreamingSessionURL": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetDASHStreamingSessionURLOutputTypeDef(TypedDict):
+    DASHStreamingSessionURL: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredGetImagesInputRequestTypeDef = TypedDict(
-    "_RequiredGetImagesInputRequestTypeDef",
-    {
-        "ImageSelectorType": ImageSelectorTypeType,
-        "StartTimestamp": Union[datetime, str],
-        "EndTimestamp": Union[datetime, str],
-        "Format": FormatType,
-    },
-)
-_OptionalGetImagesInputRequestTypeDef = TypedDict(
-    "_OptionalGetImagesInputRequestTypeDef",
-    {
-        "StreamName": str,
-        "StreamARN": str,
-        "SamplingInterval": int,
-        "FormatConfig": Dict[Literal["JPEGQuality"], str],
-        "WidthPixels": int,
-        "HeightPixels": int,
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
+class GetHLSStreamingSessionURLOutputTypeDef(TypedDict):
+    HLSStreamingSessionURL: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class GetImagesInputRequestTypeDef(
-    _RequiredGetImagesInputRequestTypeDef, _OptionalGetImagesInputRequestTypeDef
-):
-    pass
+class GetMediaForFragmentListOutputTypeDef(TypedDict):
+    ContentType: str
+    Payload: StreamingBody
+    ResponseMetadata: ResponseMetadataTypeDef
 
-GetImagesOutputTypeDef = TypedDict(
-    "GetImagesOutputTypeDef",
-    {
-        "Images": List["ImageTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListFragmentsOutputTypeDef(TypedDict):
+    Fragments: List[FragmentTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-_RequiredGetMediaForFragmentListInputRequestTypeDef = TypedDict(
-    "_RequiredGetMediaForFragmentListInputRequestTypeDef",
-    {
-        "Fragments": List[str],
-    },
-)
-_OptionalGetMediaForFragmentListInputRequestTypeDef = TypedDict(
-    "_OptionalGetMediaForFragmentListInputRequestTypeDef",
-    {
-        "StreamName": str,
-        "StreamARN": str,
-    },
-    total=False,
-)
+class GetImagesInputPaginateTypeDef(TypedDict):
+    ImageSelectorType: ImageSelectorTypeType
+    StartTimestamp: TimestampTypeDef
+    EndTimestamp: TimestampTypeDef
+    Format: FormatType
+    StreamName: NotRequired[str]
+    StreamARN: NotRequired[str]
+    SamplingInterval: NotRequired[int]
+    FormatConfig: NotRequired[Mapping[Literal["JPEGQuality"], str]]
+    WidthPixels: NotRequired[int]
+    HeightPixels: NotRequired[int]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-class GetMediaForFragmentListInputRequestTypeDef(
-    _RequiredGetMediaForFragmentListInputRequestTypeDef,
-    _OptionalGetMediaForFragmentListInputRequestTypeDef,
-):
-    pass
+class GetImagesOutputTypeDef(TypedDict):
+    Images: List[ImageTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-GetMediaForFragmentListOutputTypeDef = TypedDict(
-    "GetMediaForFragmentListOutputTypeDef",
-    {
-        "ContentType": str,
-        "Payload": StreamingBody,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ClipFragmentSelectorTypeDef(TypedDict):
+    FragmentSelectorType: ClipFragmentSelectorTypeType
+    TimestampRange: ClipTimestampRangeTypeDef
 
-HLSFragmentSelectorTypeDef = TypedDict(
-    "HLSFragmentSelectorTypeDef",
-    {
-        "FragmentSelectorType": HLSFragmentSelectorTypeType,
-        "TimestampRange": "HLSTimestampRangeTypeDef",
-    },
-    total=False,
-)
+class DASHFragmentSelectorTypeDef(TypedDict):
+    FragmentSelectorType: NotRequired[DASHFragmentSelectorTypeType]
+    TimestampRange: NotRequired[DASHTimestampRangeTypeDef]
 
-HLSTimestampRangeTypeDef = TypedDict(
-    "HLSTimestampRangeTypeDef",
-    {
-        "StartTimestamp": Union[datetime, str],
-        "EndTimestamp": Union[datetime, str],
-    },
-    total=False,
-)
+class HLSFragmentSelectorTypeDef(TypedDict):
+    FragmentSelectorType: NotRequired[HLSFragmentSelectorTypeType]
+    TimestampRange: NotRequired[HLSTimestampRangeTypeDef]
 
-ImageTypeDef = TypedDict(
-    "ImageTypeDef",
-    {
-        "TimeStamp": datetime,
-        "Error": ImageErrorType,
-        "ImageContent": str,
-    },
-    total=False,
-)
+class FragmentSelectorTypeDef(TypedDict):
+    FragmentSelectorType: FragmentSelectorTypeType
+    TimestampRange: TimestampRangeTypeDef
 
-ListFragmentsInputRequestTypeDef = TypedDict(
-    "ListFragmentsInputRequestTypeDef",
-    {
-        "StreamName": str,
-        "StreamARN": str,
-        "MaxResults": int,
-        "NextToken": str,
-        "FragmentSelector": "FragmentSelectorTypeDef",
-    },
-    total=False,
-)
+class GetClipInputTypeDef(TypedDict):
+    ClipFragmentSelector: ClipFragmentSelectorTypeDef
+    StreamName: NotRequired[str]
+    StreamARN: NotRequired[str]
 
-ListFragmentsOutputTypeDef = TypedDict(
-    "ListFragmentsOutputTypeDef",
-    {
-        "Fragments": List["FragmentTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetDASHStreamingSessionURLInputTypeDef(TypedDict):
+    StreamName: NotRequired[str]
+    StreamARN: NotRequired[str]
+    PlaybackMode: NotRequired[DASHPlaybackModeType]
+    DisplayFragmentTimestamp: NotRequired[DASHDisplayFragmentTimestampType]
+    DisplayFragmentNumber: NotRequired[DASHDisplayFragmentNumberType]
+    DASHFragmentSelector: NotRequired[DASHFragmentSelectorTypeDef]
+    Expires: NotRequired[int]
+    MaxManifestFragmentResults: NotRequired[int]
 
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
+class GetHLSStreamingSessionURLInputTypeDef(TypedDict):
+    StreamName: NotRequired[str]
+    StreamARN: NotRequired[str]
+    PlaybackMode: NotRequired[HLSPlaybackModeType]
+    HLSFragmentSelector: NotRequired[HLSFragmentSelectorTypeDef]
+    ContainerFormat: NotRequired[ContainerFormatType]
+    DiscontinuityMode: NotRequired[HLSDiscontinuityModeType]
+    DisplayFragmentTimestamp: NotRequired[HLSDisplayFragmentTimestampType]
+    Expires: NotRequired[int]
+    MaxMediaPlaylistFragmentResults: NotRequired[int]
 
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
+class ListFragmentsInputPaginateTypeDef(TypedDict):
+    StreamName: NotRequired[str]
+    StreamARN: NotRequired[str]
+    FragmentSelector: NotRequired[FragmentSelectorTypeDef]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-TimestampRangeTypeDef = TypedDict(
-    "TimestampRangeTypeDef",
-    {
-        "StartTimestamp": Union[datetime, str],
-        "EndTimestamp": Union[datetime, str],
-    },
-)
+class ListFragmentsInputTypeDef(TypedDict):
+    StreamName: NotRequired[str]
+    StreamARN: NotRequired[str]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+    FragmentSelector: NotRequired[FragmentSelectorTypeDef]

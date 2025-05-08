@@ -1,10 +1,14 @@
 """
 Main interface for config service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_config import (
         Client,
         ConfigServiceClient,
@@ -34,6 +38,7 @@ Usage::
         GetOrganizationConformancePackDetailedStatusPaginator,
         GetResourceConfigHistoryPaginator,
         ListAggregateDiscoveredResourcesPaginator,
+        ListConfigurationRecordersPaginator,
         ListDiscoveredResourcesPaginator,
         ListResourceEvaluationsPaginator,
         ListTagsForResourcePaginator,
@@ -41,10 +46,8 @@ Usage::
         SelectResourceConfigPaginator,
     )
 
-    session = boto3.Session()
-
-    client: ConfigServiceClient = boto3.client("config")
-    session_client: ConfigServiceClient = session.client("config")
+    session = Session()
+    client: ConfigServiceClient = session.client("config")
 
     describe_aggregate_compliance_by_config_rules_paginator: DescribeAggregateComplianceByConfigRulesPaginator = client.get_paginator("describe_aggregate_compliance_by_config_rules")
     describe_aggregate_compliance_by_conformance_packs_paginator: DescribeAggregateComplianceByConformancePacksPaginator = client.get_paginator("describe_aggregate_compliance_by_conformance_packs")
@@ -72,6 +75,7 @@ Usage::
     get_organization_conformance_pack_detailed_status_paginator: GetOrganizationConformancePackDetailedStatusPaginator = client.get_paginator("get_organization_conformance_pack_detailed_status")
     get_resource_config_history_paginator: GetResourceConfigHistoryPaginator = client.get_paginator("get_resource_config_history")
     list_aggregate_discovered_resources_paginator: ListAggregateDiscoveredResourcesPaginator = client.get_paginator("list_aggregate_discovered_resources")
+    list_configuration_recorders_paginator: ListConfigurationRecordersPaginator = client.get_paginator("list_configuration_recorders")
     list_discovered_resources_paginator: ListDiscoveredResourcesPaginator = client.get_paginator("list_discovered_resources")
     list_resource_evaluations_paginator: ListResourceEvaluationsPaginator = client.get_paginator("list_resource_evaluations")
     list_tags_for_resource_paginator: ListTagsForResourcePaginator = client.get_paginator("list_tags_for_resource")
@@ -108,6 +112,7 @@ from .paginator import (
     GetOrganizationConformancePackDetailedStatusPaginator,
     GetResourceConfigHistoryPaginator,
     ListAggregateDiscoveredResourcesPaginator,
+    ListConfigurationRecordersPaginator,
     ListDiscoveredResourcesPaginator,
     ListResourceEvaluationsPaginator,
     ListTagsForResourcePaginator,
@@ -146,6 +151,7 @@ __all__ = (
     "GetOrganizationConformancePackDetailedStatusPaginator",
     "GetResourceConfigHistoryPaginator",
     "ListAggregateDiscoveredResourcesPaginator",
+    "ListConfigurationRecordersPaginator",
     "ListDiscoveredResourcesPaginator",
     "ListResourceEvaluationsPaginator",
     "ListTagsForResourcePaginator",

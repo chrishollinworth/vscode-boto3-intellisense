@@ -1,22 +1,29 @@
 """
-Type annotations for appintegrations service client.
+Type annotations for appintegrations service Client.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/client.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/client/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
-    from mypy_boto3_appintegrations import AppIntegrationsServiceClient
+    from boto3.session import Session
+    from mypy_boto3_appintegrations.client import AppIntegrationsServiceClient
 
-    client: AppIntegrationsServiceClient = boto3.client("appintegrations")
+    session = Session()
+    client: AppIntegrationsServiceClient = session.client("appintegrations")
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from typing import Any, Dict, List, Type, overload
+from typing import Any, overload
 
 from botocore.client import BaseClient, ClientMeta
+from botocore.errorfactory import BaseClientExceptions
+from botocore.exceptions import ClientError as BotocoreClientError
 
 from .paginator import (
     ListApplicationAssociationsPaginator,
@@ -27,42 +34,59 @@ from .paginator import (
     ListEventIntegrationsPaginator,
 )
 from .type_defs import (
-    ApplicationSourceConfigTypeDef,
+    CreateApplicationRequestTypeDef,
     CreateApplicationResponseTypeDef,
+    CreateDataIntegrationAssociationRequestTypeDef,
+    CreateDataIntegrationAssociationResponseTypeDef,
+    CreateDataIntegrationRequestTypeDef,
     CreateDataIntegrationResponseTypeDef,
+    CreateEventIntegrationRequestTypeDef,
     CreateEventIntegrationResponseTypeDef,
-    EventFilterTypeDef,
-    FileConfigurationTypeDef,
+    DeleteApplicationRequestTypeDef,
+    DeleteDataIntegrationRequestTypeDef,
+    DeleteEventIntegrationRequestTypeDef,
+    GetApplicationRequestTypeDef,
     GetApplicationResponseTypeDef,
+    GetDataIntegrationRequestTypeDef,
     GetDataIntegrationResponseTypeDef,
+    GetEventIntegrationRequestTypeDef,
     GetEventIntegrationResponseTypeDef,
+    ListApplicationAssociationsRequestTypeDef,
     ListApplicationAssociationsResponseTypeDef,
+    ListApplicationsRequestTypeDef,
     ListApplicationsResponseTypeDef,
+    ListDataIntegrationAssociationsRequestTypeDef,
     ListDataIntegrationAssociationsResponseTypeDef,
+    ListDataIntegrationsRequestTypeDef,
     ListDataIntegrationsResponseTypeDef,
+    ListEventIntegrationAssociationsRequestTypeDef,
     ListEventIntegrationAssociationsResponseTypeDef,
+    ListEventIntegrationsRequestTypeDef,
     ListEventIntegrationsResponseTypeDef,
+    ListTagsForResourceRequestTypeDef,
     ListTagsForResourceResponseTypeDef,
-    PublicationTypeDef,
-    ScheduleConfigurationTypeDef,
-    SubscriptionTypeDef,
+    TagResourceRequestTypeDef,
+    UntagResourceRequestTypeDef,
+    UpdateApplicationRequestTypeDef,
+    UpdateDataIntegrationAssociationRequestTypeDef,
+    UpdateDataIntegrationRequestTypeDef,
+    UpdateEventIntegrationRequestTypeDef,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import type as Type
+    from collections.abc import Mapping
 else:
-    from typing_extensions import Literal
+    from typing import Dict, Mapping, Type
+if sys.version_info >= (3, 12):
+    from typing import Literal, Unpack
+else:
+    from typing_extensions import Literal, Unpack
 
 __all__ = ("AppIntegrationsServiceClient",)
 
-class BotocoreClientError(BaseException):
-    MSG_TEMPLATE: str
-
-    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
-        self.response: Dict[str, Any]
-        self.operation_name: str
-
-class Exceptions:
+class Exceptions(BaseClientExceptions):
     AccessDeniedException: Type[BotocoreClientError]
     ClientError: Type[BotocoreClientError]
     DuplicateResourceException: Type[BotocoreClientError]
@@ -75,8 +99,8 @@ class Exceptions:
 
 class AppIntegrationsServiceClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appintegrations.html#AppIntegrationsService.Client)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/client.html)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appintegrations.html#AppIntegrationsService.Client)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/client/)
     """
 
     meta: ClientMeta
@@ -85,315 +109,319 @@ class AppIntegrationsServiceClient(BaseClient):
     def exceptions(self) -> Exceptions:
         """
         AppIntegrationsServiceClient exceptions.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appintegrations.html#AppIntegrationsService.Client)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/client/#exceptions)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        Check if an operation can be paginated.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appintegrations.html#AppIntegrationsService.Client.can_paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/client.html#can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appintegrations/client/can_paginate.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/client/#can_paginate)
         """
 
-    def close(self) -> None:
+    def generate_presigned_url(
+        self,
+        ClientMethod: str,
+        Params: Mapping[str, Any] = ...,
+        ExpiresIn: int = 3600,
+        HttpMethod: str = ...,
+    ) -> str:
         """
-        Closes underlying endpoint connections.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appintegrations.html#AppIntegrationsService.Client.close)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/client.html#close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appintegrations/client/generate_presigned_url.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/client/#generate_presigned_url)
         """
 
     def create_application(
-        self,
-        *,
-        Name: str,
-        Namespace: str,
-        ApplicationSourceConfig: "ApplicationSourceConfigTypeDef",
-        Description: str = None,
-        Subscriptions: List["SubscriptionTypeDef"] = None,
-        Publications: List["PublicationTypeDef"] = None,
-        ClientToken: str = None,
-        Tags: Dict[str, str] = None,
-        Permissions: List[str] = None
+        self, **kwargs: Unpack[CreateApplicationRequestTypeDef]
     ) -> CreateApplicationResponseTypeDef:
         """
-        This API is in preview release and subject to change.
+        Creates and persists an Application resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appintegrations.html#AppIntegrationsService.Client.create_application)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/client.html#create_application)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appintegrations/client/create_application.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/client/#create_application)
         """
 
     def create_data_integration(
-        self,
-        *,
-        Name: str,
-        KmsKey: str,
-        SourceURI: str,
-        Description: str = None,
-        ScheduleConfig: "ScheduleConfigurationTypeDef" = None,
-        Tags: Dict[str, str] = None,
-        ClientToken: str = None,
-        FileConfiguration: "FileConfigurationTypeDef" = None,
-        ObjectConfiguration: Dict[str, Dict[str, List[str]]] = None
+        self, **kwargs: Unpack[CreateDataIntegrationRequestTypeDef]
     ) -> CreateDataIntegrationResponseTypeDef:
         """
         Creates and persists a DataIntegration resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appintegrations.html#AppIntegrationsService.Client.create_data_integration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/client.html#create_data_integration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appintegrations/client/create_data_integration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/client/#create_data_integration)
+        """
+
+    def create_data_integration_association(
+        self, **kwargs: Unpack[CreateDataIntegrationAssociationRequestTypeDef]
+    ) -> CreateDataIntegrationAssociationResponseTypeDef:
+        """
+        Creates and persists a DataIntegrationAssociation resource.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appintegrations/client/create_data_integration_association.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/client/#create_data_integration_association)
         """
 
     def create_event_integration(
-        self,
-        *,
-        Name: str,
-        EventFilter: "EventFilterTypeDef",
-        EventBridgeBus: str,
-        Description: str = None,
-        ClientToken: str = None,
-        Tags: Dict[str, str] = None
+        self, **kwargs: Unpack[CreateEventIntegrationRequestTypeDef]
     ) -> CreateEventIntegrationResponseTypeDef:
         """
         Creates an EventIntegration, given a specified name, description, and a
         reference to an Amazon EventBridge bus in your account and a partner event
         source that pushes events to that bus.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appintegrations.html#AppIntegrationsService.Client.create_event_integration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/client.html#create_event_integration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appintegrations/client/create_event_integration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/client/#create_event_integration)
         """
 
-    def delete_application(self, *, Arn: str) -> Dict[str, Any]:
+    def delete_application(
+        self, **kwargs: Unpack[DeleteApplicationRequestTypeDef]
+    ) -> Dict[str, Any]:
         """
         Deletes the Application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appintegrations.html#AppIntegrationsService.Client.delete_application)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/client.html#delete_application)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appintegrations/client/delete_application.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/client/#delete_application)
         """
 
-    def delete_data_integration(self, *, DataIntegrationIdentifier: str) -> Dict[str, Any]:
+    def delete_data_integration(
+        self, **kwargs: Unpack[DeleteDataIntegrationRequestTypeDef]
+    ) -> Dict[str, Any]:
         """
         Deletes the DataIntegration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appintegrations.html#AppIntegrationsService.Client.delete_data_integration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/client.html#delete_data_integration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appintegrations/client/delete_data_integration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/client/#delete_data_integration)
         """
 
-    def delete_event_integration(self, *, Name: str) -> Dict[str, Any]:
+    def delete_event_integration(
+        self, **kwargs: Unpack[DeleteEventIntegrationRequestTypeDef]
+    ) -> Dict[str, Any]:
         """
         Deletes the specified existing event integration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appintegrations.html#AppIntegrationsService.Client.delete_event_integration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/client.html#delete_event_integration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appintegrations/client/delete_event_integration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/client/#delete_event_integration)
         """
 
-    def generate_presigned_url(
-        self,
-        ClientMethod: str,
-        Params: Dict[str, Any] = None,
-        ExpiresIn: int = 3600,
-        HttpMethod: str = None,
-    ) -> str:
+    def get_application(
+        self, **kwargs: Unpack[GetApplicationRequestTypeDef]
+    ) -> GetApplicationResponseTypeDef:
         """
-        Generate a presigned url given a client, its method, and arguments.
+        Get an Application resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appintegrations.html#AppIntegrationsService.Client.generate_presigned_url)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/client.html#generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appintegrations/client/get_application.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/client/#get_application)
         """
 
-    def get_application(self, *, Arn: str) -> GetApplicationResponseTypeDef:
-        """
-        This API is in preview release and subject to change.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appintegrations.html#AppIntegrationsService.Client.get_application)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/client.html#get_application)
-        """
-
-    def get_data_integration(self, *, Identifier: str) -> GetDataIntegrationResponseTypeDef:
+    def get_data_integration(
+        self, **kwargs: Unpack[GetDataIntegrationRequestTypeDef]
+    ) -> GetDataIntegrationResponseTypeDef:
         """
         Returns information about the DataIntegration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appintegrations.html#AppIntegrationsService.Client.get_data_integration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/client.html#get_data_integration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appintegrations/client/get_data_integration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/client/#get_data_integration)
         """
 
-    def get_event_integration(self, *, Name: str) -> GetEventIntegrationResponseTypeDef:
+    def get_event_integration(
+        self, **kwargs: Unpack[GetEventIntegrationRequestTypeDef]
+    ) -> GetEventIntegrationResponseTypeDef:
         """
         Returns information about the event integration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appintegrations.html#AppIntegrationsService.Client.get_event_integration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/client.html#get_event_integration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appintegrations/client/get_event_integration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/client/#get_event_integration)
         """
 
     def list_application_associations(
-        self, *, ApplicationId: str, NextToken: str = None, MaxResults: int = None
+        self, **kwargs: Unpack[ListApplicationAssociationsRequestTypeDef]
     ) -> ListApplicationAssociationsResponseTypeDef:
         """
         Returns a paginated list of application associations for an application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appintegrations.html#AppIntegrationsService.Client.list_application_associations)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/client.html#list_application_associations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appintegrations/client/list_application_associations.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/client/#list_application_associations)
         """
 
     def list_applications(
-        self, *, NextToken: str = None, MaxResults: int = None
+        self, **kwargs: Unpack[ListApplicationsRequestTypeDef]
     ) -> ListApplicationsResponseTypeDef:
         """
-        This API is in preview release and subject to change.
+        Lists applications in the account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appintegrations.html#AppIntegrationsService.Client.list_applications)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/client.html#list_applications)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appintegrations/client/list_applications.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/client/#list_applications)
         """
 
     def list_data_integration_associations(
-        self, *, DataIntegrationIdentifier: str, NextToken: str = None, MaxResults: int = None
+        self, **kwargs: Unpack[ListDataIntegrationAssociationsRequestTypeDef]
     ) -> ListDataIntegrationAssociationsResponseTypeDef:
         """
         Returns a paginated list of DataIntegration associations in the account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appintegrations.html#AppIntegrationsService.Client.list_data_integration_associations)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/client.html#list_data_integration_associations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appintegrations/client/list_data_integration_associations.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/client/#list_data_integration_associations)
         """
 
     def list_data_integrations(
-        self, *, NextToken: str = None, MaxResults: int = None
+        self, **kwargs: Unpack[ListDataIntegrationsRequestTypeDef]
     ) -> ListDataIntegrationsResponseTypeDef:
         """
         Returns a paginated list of DataIntegrations in the account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appintegrations.html#AppIntegrationsService.Client.list_data_integrations)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/client.html#list_data_integrations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appintegrations/client/list_data_integrations.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/client/#list_data_integrations)
         """
 
     def list_event_integration_associations(
-        self, *, EventIntegrationName: str, NextToken: str = None, MaxResults: int = None
+        self, **kwargs: Unpack[ListEventIntegrationAssociationsRequestTypeDef]
     ) -> ListEventIntegrationAssociationsResponseTypeDef:
         """
         Returns a paginated list of event integration associations in the account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appintegrations.html#AppIntegrationsService.Client.list_event_integration_associations)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/client.html#list_event_integration_associations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appintegrations/client/list_event_integration_associations.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/client/#list_event_integration_associations)
         """
 
     def list_event_integrations(
-        self, *, NextToken: str = None, MaxResults: int = None
+        self, **kwargs: Unpack[ListEventIntegrationsRequestTypeDef]
     ) -> ListEventIntegrationsResponseTypeDef:
         """
         Returns a paginated list of event integrations in the account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appintegrations.html#AppIntegrationsService.Client.list_event_integrations)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/client.html#list_event_integrations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appintegrations/client/list_event_integrations.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/client/#list_event_integrations)
         """
 
-    def list_tags_for_resource(self, *, resourceArn: str) -> ListTagsForResourceResponseTypeDef:
+    def list_tags_for_resource(
+        self, **kwargs: Unpack[ListTagsForResourceRequestTypeDef]
+    ) -> ListTagsForResourceResponseTypeDef:
         """
         Lists the tags for the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appintegrations.html#AppIntegrationsService.Client.list_tags_for_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/client.html#list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appintegrations/client/list_tags_for_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/client/#list_tags_for_resource)
         """
 
-    def tag_resource(self, *, resourceArn: str, tags: Dict[str, str]) -> Dict[str, Any]:
+    def tag_resource(self, **kwargs: Unpack[TagResourceRequestTypeDef]) -> Dict[str, Any]:
         """
         Adds the specified tags to the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appintegrations.html#AppIntegrationsService.Client.tag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/client.html#tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appintegrations/client/tag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/client/#tag_resource)
         """
 
-    def untag_resource(self, *, resourceArn: str, tagKeys: List[str]) -> Dict[str, Any]:
+    def untag_resource(self, **kwargs: Unpack[UntagResourceRequestTypeDef]) -> Dict[str, Any]:
         """
         Removes the specified tags from the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appintegrations.html#AppIntegrationsService.Client.untag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/client.html#untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appintegrations/client/untag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/client/#untag_resource)
         """
 
     def update_application(
-        self,
-        *,
-        Arn: str,
-        Name: str = None,
-        Description: str = None,
-        ApplicationSourceConfig: "ApplicationSourceConfigTypeDef" = None,
-        Subscriptions: List["SubscriptionTypeDef"] = None,
-        Publications: List["PublicationTypeDef"] = None,
-        Permissions: List[str] = None
+        self, **kwargs: Unpack[UpdateApplicationRequestTypeDef]
     ) -> Dict[str, Any]:
         """
-        This API is in preview release and subject to change.
+        Updates and persists an Application resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appintegrations.html#AppIntegrationsService.Client.update_application)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/client.html#update_application)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appintegrations/client/update_application.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/client/#update_application)
         """
 
     def update_data_integration(
-        self, *, Identifier: str, Name: str = None, Description: str = None
+        self, **kwargs: Unpack[UpdateDataIntegrationRequestTypeDef]
     ) -> Dict[str, Any]:
         """
         Updates the description of a DataIntegration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appintegrations.html#AppIntegrationsService.Client.update_data_integration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/client.html#update_data_integration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appintegrations/client/update_data_integration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/client/#update_data_integration)
         """
 
-    def update_event_integration(self, *, Name: str, Description: str = None) -> Dict[str, Any]:
+    def update_data_integration_association(
+        self, **kwargs: Unpack[UpdateDataIntegrationAssociationRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Updates and persists a DataIntegrationAssociation resource.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appintegrations/client/update_data_integration_association.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/client/#update_data_integration_association)
+        """
+
+    def update_event_integration(
+        self, **kwargs: Unpack[UpdateEventIntegrationRequestTypeDef]
+    ) -> Dict[str, Any]:
         """
         Updates the description of an event integration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appintegrations.html#AppIntegrationsService.Client.update_event_integration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/client.html#update_event_integration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appintegrations/client/update_event_integration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/client/#update_event_integration)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_application_associations"]
     ) -> ListApplicationAssociationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appintegrations.html#AppIntegrationsService.Paginator.ListApplicationAssociations)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/paginators.html#listapplicationassociationspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appintegrations/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_applications"]
     ) -> ListApplicationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appintegrations.html#AppIntegrationsService.Paginator.ListApplications)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/paginators.html#listapplicationspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appintegrations/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_data_integration_associations"]
     ) -> ListDataIntegrationAssociationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appintegrations.html#AppIntegrationsService.Paginator.ListDataIntegrationAssociations)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/paginators.html#listdataintegrationassociationspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appintegrations/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_data_integrations"]
     ) -> ListDataIntegrationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appintegrations.html#AppIntegrationsService.Paginator.ListDataIntegrations)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/paginators.html#listdataintegrationspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appintegrations/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_event_integration_associations"]
     ) -> ListEventIntegrationAssociationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appintegrations.html#AppIntegrationsService.Paginator.ListEventIntegrationAssociations)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/paginators.html#listeventintegrationassociationspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appintegrations/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_event_integrations"]
     ) -> ListEventIntegrationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appintegrations.html#AppIntegrationsService.Paginator.ListEventIntegrations)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/paginators.html#listeventintegrationspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appintegrations/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/client/#get_paginator)
         """

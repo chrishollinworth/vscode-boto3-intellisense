@@ -1,20 +1,22 @@
 """
 Main interface for pipes service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_pipes/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_pipes import (
         Client,
         EventBridgePipesClient,
         ListPipesPaginator,
     )
 
-    session = boto3.Session()
-
-    client: EventBridgePipesClient = boto3.client("pipes")
-    session_client: EventBridgePipesClient = session.client("pipes")
+    session = Session()
+    client: EventBridgePipesClient = session.client("pipes")
 
     list_pipes_paginator: ListPipesPaginator = client.get_paginator("list_pipes")
     ```

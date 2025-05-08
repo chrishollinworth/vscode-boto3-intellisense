@@ -1,20 +1,24 @@
 """
 Type annotations for personalize service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_personalize/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_personalize.type_defs import AlgorithmImageTypeDef
 
-    data: AlgorithmImageTypeDef = {...}
+    data: AlgorithmImageTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
+from typing import Union
 
 from .literals import (
     BatchInferenceJobModeType,
@@ -26,22 +30,27 @@ from .literals import (
     TrainingTypeType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
     "AlgorithmImageTypeDef",
     "AlgorithmTypeDef",
+    "AutoMLConfigOutputTypeDef",
     "AutoMLConfigTypeDef",
     "AutoMLResultTypeDef",
     "AutoTrainingConfigTypeDef",
+    "BatchInferenceJobConfigOutputTypeDef",
     "BatchInferenceJobConfigTypeDef",
+    "BatchInferenceJobConfigUnionTypeDef",
     "BatchInferenceJobInputTypeDef",
     "BatchInferenceJobOutputTypeDef",
     "BatchInferenceJobSummaryTypeDef",
@@ -50,41 +59,44 @@ __all__ = (
     "BatchSegmentJobOutputTypeDef",
     "BatchSegmentJobSummaryTypeDef",
     "BatchSegmentJobTypeDef",
+    "CampaignConfigOutputTypeDef",
     "CampaignConfigTypeDef",
+    "CampaignConfigUnionTypeDef",
     "CampaignSummaryTypeDef",
     "CampaignTypeDef",
     "CampaignUpdateSummaryTypeDef",
+    "CategoricalHyperParameterRangeOutputTypeDef",
     "CategoricalHyperParameterRangeTypeDef",
     "ContinuousHyperParameterRangeTypeDef",
-    "CreateBatchInferenceJobRequestRequestTypeDef",
+    "CreateBatchInferenceJobRequestTypeDef",
     "CreateBatchInferenceJobResponseTypeDef",
-    "CreateBatchSegmentJobRequestRequestTypeDef",
+    "CreateBatchSegmentJobRequestTypeDef",
     "CreateBatchSegmentJobResponseTypeDef",
-    "CreateCampaignRequestRequestTypeDef",
+    "CreateCampaignRequestTypeDef",
     "CreateCampaignResponseTypeDef",
-    "CreateDataDeletionJobRequestRequestTypeDef",
+    "CreateDataDeletionJobRequestTypeDef",
     "CreateDataDeletionJobResponseTypeDef",
-    "CreateDatasetExportJobRequestRequestTypeDef",
+    "CreateDatasetExportJobRequestTypeDef",
     "CreateDatasetExportJobResponseTypeDef",
-    "CreateDatasetGroupRequestRequestTypeDef",
+    "CreateDatasetGroupRequestTypeDef",
     "CreateDatasetGroupResponseTypeDef",
-    "CreateDatasetImportJobRequestRequestTypeDef",
+    "CreateDatasetImportJobRequestTypeDef",
     "CreateDatasetImportJobResponseTypeDef",
-    "CreateDatasetRequestRequestTypeDef",
+    "CreateDatasetRequestTypeDef",
     "CreateDatasetResponseTypeDef",
-    "CreateEventTrackerRequestRequestTypeDef",
+    "CreateEventTrackerRequestTypeDef",
     "CreateEventTrackerResponseTypeDef",
-    "CreateFilterRequestRequestTypeDef",
+    "CreateFilterRequestTypeDef",
     "CreateFilterResponseTypeDef",
-    "CreateMetricAttributionRequestRequestTypeDef",
+    "CreateMetricAttributionRequestTypeDef",
     "CreateMetricAttributionResponseTypeDef",
-    "CreateRecommenderRequestRequestTypeDef",
+    "CreateRecommenderRequestTypeDef",
     "CreateRecommenderResponseTypeDef",
-    "CreateSchemaRequestRequestTypeDef",
+    "CreateSchemaRequestTypeDef",
     "CreateSchemaResponseTypeDef",
-    "CreateSolutionRequestRequestTypeDef",
+    "CreateSolutionRequestTypeDef",
     "CreateSolutionResponseTypeDef",
-    "CreateSolutionVersionRequestRequestTypeDef",
+    "CreateSolutionVersionRequestTypeDef",
     "CreateSolutionVersionResponseTypeDef",
     "DataDeletionJobSummaryTypeDef",
     "DataDeletionJobTypeDef",
@@ -105,99 +117,121 @@ __all__ = (
     "DefaultContinuousHyperParameterRangeTypeDef",
     "DefaultHyperParameterRangesTypeDef",
     "DefaultIntegerHyperParameterRangeTypeDef",
-    "DeleteCampaignRequestRequestTypeDef",
-    "DeleteDatasetGroupRequestRequestTypeDef",
-    "DeleteDatasetRequestRequestTypeDef",
-    "DeleteEventTrackerRequestRequestTypeDef",
-    "DeleteFilterRequestRequestTypeDef",
-    "DeleteMetricAttributionRequestRequestTypeDef",
-    "DeleteRecommenderRequestRequestTypeDef",
-    "DeleteSchemaRequestRequestTypeDef",
-    "DeleteSolutionRequestRequestTypeDef",
-    "DescribeAlgorithmRequestRequestTypeDef",
+    "DeleteCampaignRequestTypeDef",
+    "DeleteDatasetGroupRequestTypeDef",
+    "DeleteDatasetRequestTypeDef",
+    "DeleteEventTrackerRequestTypeDef",
+    "DeleteFilterRequestTypeDef",
+    "DeleteMetricAttributionRequestTypeDef",
+    "DeleteRecommenderRequestTypeDef",
+    "DeleteSchemaRequestTypeDef",
+    "DeleteSolutionRequestTypeDef",
+    "DescribeAlgorithmRequestTypeDef",
     "DescribeAlgorithmResponseTypeDef",
-    "DescribeBatchInferenceJobRequestRequestTypeDef",
+    "DescribeBatchInferenceJobRequestTypeDef",
     "DescribeBatchInferenceJobResponseTypeDef",
-    "DescribeBatchSegmentJobRequestRequestTypeDef",
+    "DescribeBatchSegmentJobRequestTypeDef",
     "DescribeBatchSegmentJobResponseTypeDef",
-    "DescribeCampaignRequestRequestTypeDef",
+    "DescribeCampaignRequestTypeDef",
     "DescribeCampaignResponseTypeDef",
-    "DescribeDataDeletionJobRequestRequestTypeDef",
+    "DescribeDataDeletionJobRequestTypeDef",
     "DescribeDataDeletionJobResponseTypeDef",
-    "DescribeDatasetExportJobRequestRequestTypeDef",
+    "DescribeDatasetExportJobRequestTypeDef",
     "DescribeDatasetExportJobResponseTypeDef",
-    "DescribeDatasetGroupRequestRequestTypeDef",
+    "DescribeDatasetGroupRequestTypeDef",
     "DescribeDatasetGroupResponseTypeDef",
-    "DescribeDatasetImportJobRequestRequestTypeDef",
+    "DescribeDatasetImportJobRequestTypeDef",
     "DescribeDatasetImportJobResponseTypeDef",
-    "DescribeDatasetRequestRequestTypeDef",
+    "DescribeDatasetRequestTypeDef",
     "DescribeDatasetResponseTypeDef",
-    "DescribeEventTrackerRequestRequestTypeDef",
+    "DescribeEventTrackerRequestTypeDef",
     "DescribeEventTrackerResponseTypeDef",
-    "DescribeFeatureTransformationRequestRequestTypeDef",
+    "DescribeFeatureTransformationRequestTypeDef",
     "DescribeFeatureTransformationResponseTypeDef",
-    "DescribeFilterRequestRequestTypeDef",
+    "DescribeFilterRequestTypeDef",
     "DescribeFilterResponseTypeDef",
-    "DescribeMetricAttributionRequestRequestTypeDef",
+    "DescribeMetricAttributionRequestTypeDef",
     "DescribeMetricAttributionResponseTypeDef",
-    "DescribeRecipeRequestRequestTypeDef",
+    "DescribeRecipeRequestTypeDef",
     "DescribeRecipeResponseTypeDef",
-    "DescribeRecommenderRequestRequestTypeDef",
+    "DescribeRecommenderRequestTypeDef",
     "DescribeRecommenderResponseTypeDef",
-    "DescribeSchemaRequestRequestTypeDef",
+    "DescribeSchemaRequestTypeDef",
     "DescribeSchemaResponseTypeDef",
-    "DescribeSolutionRequestRequestTypeDef",
+    "DescribeSolutionRequestTypeDef",
     "DescribeSolutionResponseTypeDef",
-    "DescribeSolutionVersionRequestRequestTypeDef",
+    "DescribeSolutionVersionRequestTypeDef",
     "DescribeSolutionVersionResponseTypeDef",
+    "EmptyResponseMetadataTypeDef",
+    "EventParametersTypeDef",
     "EventTrackerSummaryTypeDef",
     "EventTrackerTypeDef",
+    "EventsConfigOutputTypeDef",
+    "EventsConfigTypeDef",
     "FeatureTransformationTypeDef",
     "FieldsForThemeGenerationTypeDef",
     "FilterSummaryTypeDef",
     "FilterTypeDef",
-    "GetSolutionMetricsRequestRequestTypeDef",
+    "GetSolutionMetricsRequestTypeDef",
     "GetSolutionMetricsResponseTypeDef",
+    "HPOConfigOutputTypeDef",
     "HPOConfigTypeDef",
     "HPOObjectiveTypeDef",
     "HPOResourceConfigTypeDef",
+    "HyperParameterRangesOutputTypeDef",
     "HyperParameterRangesTypeDef",
     "IntegerHyperParameterRangeTypeDef",
-    "ListBatchInferenceJobsRequestRequestTypeDef",
+    "ListBatchInferenceJobsRequestPaginateTypeDef",
+    "ListBatchInferenceJobsRequestTypeDef",
     "ListBatchInferenceJobsResponseTypeDef",
-    "ListBatchSegmentJobsRequestRequestTypeDef",
+    "ListBatchSegmentJobsRequestPaginateTypeDef",
+    "ListBatchSegmentJobsRequestTypeDef",
     "ListBatchSegmentJobsResponseTypeDef",
-    "ListCampaignsRequestRequestTypeDef",
+    "ListCampaignsRequestPaginateTypeDef",
+    "ListCampaignsRequestTypeDef",
     "ListCampaignsResponseTypeDef",
-    "ListDataDeletionJobsRequestRequestTypeDef",
+    "ListDataDeletionJobsRequestTypeDef",
     "ListDataDeletionJobsResponseTypeDef",
-    "ListDatasetExportJobsRequestRequestTypeDef",
+    "ListDatasetExportJobsRequestPaginateTypeDef",
+    "ListDatasetExportJobsRequestTypeDef",
     "ListDatasetExportJobsResponseTypeDef",
-    "ListDatasetGroupsRequestRequestTypeDef",
+    "ListDatasetGroupsRequestPaginateTypeDef",
+    "ListDatasetGroupsRequestTypeDef",
     "ListDatasetGroupsResponseTypeDef",
-    "ListDatasetImportJobsRequestRequestTypeDef",
+    "ListDatasetImportJobsRequestPaginateTypeDef",
+    "ListDatasetImportJobsRequestTypeDef",
     "ListDatasetImportJobsResponseTypeDef",
-    "ListDatasetsRequestRequestTypeDef",
+    "ListDatasetsRequestPaginateTypeDef",
+    "ListDatasetsRequestTypeDef",
     "ListDatasetsResponseTypeDef",
-    "ListEventTrackersRequestRequestTypeDef",
+    "ListEventTrackersRequestPaginateTypeDef",
+    "ListEventTrackersRequestTypeDef",
     "ListEventTrackersResponseTypeDef",
-    "ListFiltersRequestRequestTypeDef",
+    "ListFiltersRequestPaginateTypeDef",
+    "ListFiltersRequestTypeDef",
     "ListFiltersResponseTypeDef",
-    "ListMetricAttributionMetricsRequestRequestTypeDef",
+    "ListMetricAttributionMetricsRequestPaginateTypeDef",
+    "ListMetricAttributionMetricsRequestTypeDef",
     "ListMetricAttributionMetricsResponseTypeDef",
-    "ListMetricAttributionsRequestRequestTypeDef",
+    "ListMetricAttributionsRequestPaginateTypeDef",
+    "ListMetricAttributionsRequestTypeDef",
     "ListMetricAttributionsResponseTypeDef",
-    "ListRecipesRequestRequestTypeDef",
+    "ListRecipesRequestPaginateTypeDef",
+    "ListRecipesRequestTypeDef",
     "ListRecipesResponseTypeDef",
-    "ListRecommendersRequestRequestTypeDef",
+    "ListRecommendersRequestPaginateTypeDef",
+    "ListRecommendersRequestTypeDef",
     "ListRecommendersResponseTypeDef",
-    "ListSchemasRequestRequestTypeDef",
+    "ListSchemasRequestPaginateTypeDef",
+    "ListSchemasRequestTypeDef",
     "ListSchemasResponseTypeDef",
-    "ListSolutionVersionsRequestRequestTypeDef",
+    "ListSolutionVersionsRequestPaginateTypeDef",
+    "ListSolutionVersionsRequestTypeDef",
     "ListSolutionVersionsResponseTypeDef",
-    "ListSolutionsRequestRequestTypeDef",
+    "ListSolutionsRequestPaginateTypeDef",
+    "ListSolutionsRequestTypeDef",
     "ListSolutionsResponseTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "MetricAttributeTypeDef",
     "MetricAttributionOutputTypeDef",
@@ -207,2227 +241,1326 @@ __all__ = (
     "PaginatorConfigTypeDef",
     "RecipeSummaryTypeDef",
     "RecipeTypeDef",
+    "RecommenderConfigOutputTypeDef",
     "RecommenderConfigTypeDef",
+    "RecommenderConfigUnionTypeDef",
     "RecommenderSummaryTypeDef",
     "RecommenderTypeDef",
     "RecommenderUpdateSummaryTypeDef",
     "ResponseMetadataTypeDef",
     "S3DataConfigTypeDef",
+    "SolutionConfigOutputTypeDef",
     "SolutionConfigTypeDef",
+    "SolutionConfigUnionTypeDef",
     "SolutionSummaryTypeDef",
     "SolutionTypeDef",
+    "SolutionUpdateConfigOutputTypeDef",
+    "SolutionUpdateConfigTypeDef",
+    "SolutionUpdateConfigUnionTypeDef",
+    "SolutionUpdateSummaryTypeDef",
     "SolutionVersionSummaryTypeDef",
     "SolutionVersionTypeDef",
-    "StartRecommenderRequestRequestTypeDef",
+    "StartRecommenderRequestTypeDef",
     "StartRecommenderResponseTypeDef",
-    "StopRecommenderRequestRequestTypeDef",
+    "StopRecommenderRequestTypeDef",
     "StopRecommenderResponseTypeDef",
-    "StopSolutionVersionCreationRequestRequestTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "StopSolutionVersionCreationRequestTypeDef",
+    "TagResourceRequestTypeDef",
     "TagTypeDef",
     "ThemeGenerationConfigTypeDef",
+    "TrainingDataConfigOutputTypeDef",
     "TrainingDataConfigTypeDef",
     "TunedHPOParamsTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateCampaignRequestRequestTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateCampaignRequestTypeDef",
     "UpdateCampaignResponseTypeDef",
-    "UpdateDatasetRequestRequestTypeDef",
+    "UpdateDatasetRequestTypeDef",
     "UpdateDatasetResponseTypeDef",
-    "UpdateMetricAttributionRequestRequestTypeDef",
+    "UpdateMetricAttributionRequestTypeDef",
     "UpdateMetricAttributionResponseTypeDef",
-    "UpdateRecommenderRequestRequestTypeDef",
+    "UpdateRecommenderRequestTypeDef",
     "UpdateRecommenderResponseTypeDef",
-)
-
-_RequiredAlgorithmImageTypeDef = TypedDict(
-    "_RequiredAlgorithmImageTypeDef",
-    {
-        "dockerURI": str,
-    },
-)
-_OptionalAlgorithmImageTypeDef = TypedDict(
-    "_OptionalAlgorithmImageTypeDef",
-    {
-        "name": str,
-    },
-    total=False,
-)
-
-class AlgorithmImageTypeDef(_RequiredAlgorithmImageTypeDef, _OptionalAlgorithmImageTypeDef):
-    pass
-
-AlgorithmTypeDef = TypedDict(
-    "AlgorithmTypeDef",
-    {
-        "name": str,
-        "algorithmArn": str,
-        "algorithmImage": "AlgorithmImageTypeDef",
-        "defaultHyperParameters": Dict[str, str],
-        "defaultHyperParameterRanges": "DefaultHyperParameterRangesTypeDef",
-        "defaultResourceConfig": Dict[str, str],
-        "trainingInputMode": str,
-        "roleArn": str,
-        "creationDateTime": datetime,
-        "lastUpdatedDateTime": datetime,
-    },
-    total=False,
-)
-
-AutoMLConfigTypeDef = TypedDict(
-    "AutoMLConfigTypeDef",
-    {
-        "metricName": str,
-        "recipeList": List[str],
-    },
-    total=False,
-)
-
-AutoMLResultTypeDef = TypedDict(
-    "AutoMLResultTypeDef",
-    {
-        "bestRecipeArn": str,
-    },
-    total=False,
-)
-
-AutoTrainingConfigTypeDef = TypedDict(
-    "AutoTrainingConfigTypeDef",
-    {
-        "schedulingExpression": str,
-    },
-    total=False,
-)
-
-BatchInferenceJobConfigTypeDef = TypedDict(
-    "BatchInferenceJobConfigTypeDef",
-    {
-        "itemExplorationConfig": Dict[str, str],
-    },
-    total=False,
-)
-
-BatchInferenceJobInputTypeDef = TypedDict(
-    "BatchInferenceJobInputTypeDef",
-    {
-        "s3DataSource": "S3DataConfigTypeDef",
-    },
-)
-
-BatchInferenceJobOutputTypeDef = TypedDict(
-    "BatchInferenceJobOutputTypeDef",
-    {
-        "s3DataDestination": "S3DataConfigTypeDef",
-    },
-)
-
-BatchInferenceJobSummaryTypeDef = TypedDict(
-    "BatchInferenceJobSummaryTypeDef",
-    {
-        "batchInferenceJobArn": str,
-        "jobName": str,
-        "status": str,
-        "creationDateTime": datetime,
-        "lastUpdatedDateTime": datetime,
-        "failureReason": str,
-        "solutionVersionArn": str,
-        "batchInferenceJobMode": BatchInferenceJobModeType,
-    },
-    total=False,
-)
-
-BatchInferenceJobTypeDef = TypedDict(
-    "BatchInferenceJobTypeDef",
-    {
-        "jobName": str,
-        "batchInferenceJobArn": str,
-        "filterArn": str,
-        "failureReason": str,
-        "solutionVersionArn": str,
-        "numResults": int,
-        "jobInput": "BatchInferenceJobInputTypeDef",
-        "jobOutput": "BatchInferenceJobOutputTypeDef",
-        "batchInferenceJobConfig": "BatchInferenceJobConfigTypeDef",
-        "roleArn": str,
-        "batchInferenceJobMode": BatchInferenceJobModeType,
-        "themeGenerationConfig": "ThemeGenerationConfigTypeDef",
-        "status": str,
-        "creationDateTime": datetime,
-        "lastUpdatedDateTime": datetime,
-    },
-    total=False,
-)
-
-BatchSegmentJobInputTypeDef = TypedDict(
-    "BatchSegmentJobInputTypeDef",
-    {
-        "s3DataSource": "S3DataConfigTypeDef",
-    },
-)
-
-BatchSegmentJobOutputTypeDef = TypedDict(
-    "BatchSegmentJobOutputTypeDef",
-    {
-        "s3DataDestination": "S3DataConfigTypeDef",
-    },
-)
-
-BatchSegmentJobSummaryTypeDef = TypedDict(
-    "BatchSegmentJobSummaryTypeDef",
-    {
-        "batchSegmentJobArn": str,
-        "jobName": str,
-        "status": str,
-        "creationDateTime": datetime,
-        "lastUpdatedDateTime": datetime,
-        "failureReason": str,
-        "solutionVersionArn": str,
-    },
-    total=False,
-)
-
-BatchSegmentJobTypeDef = TypedDict(
-    "BatchSegmentJobTypeDef",
-    {
-        "jobName": str,
-        "batchSegmentJobArn": str,
-        "filterArn": str,
-        "failureReason": str,
-        "solutionVersionArn": str,
-        "numResults": int,
-        "jobInput": "BatchSegmentJobInputTypeDef",
-        "jobOutput": "BatchSegmentJobOutputTypeDef",
-        "roleArn": str,
-        "status": str,
-        "creationDateTime": datetime,
-        "lastUpdatedDateTime": datetime,
-    },
-    total=False,
-)
-
-CampaignConfigTypeDef = TypedDict(
-    "CampaignConfigTypeDef",
-    {
-        "itemExplorationConfig": Dict[str, str],
-        "enableMetadataWithRecommendations": bool,
-        "syncWithLatestSolutionVersion": bool,
-    },
-    total=False,
-)
-
-CampaignSummaryTypeDef = TypedDict(
-    "CampaignSummaryTypeDef",
-    {
-        "name": str,
-        "campaignArn": str,
-        "status": str,
-        "creationDateTime": datetime,
-        "lastUpdatedDateTime": datetime,
-        "failureReason": str,
-    },
-    total=False,
-)
-
-CampaignTypeDef = TypedDict(
-    "CampaignTypeDef",
-    {
-        "name": str,
-        "campaignArn": str,
-        "solutionVersionArn": str,
-        "minProvisionedTPS": int,
-        "campaignConfig": "CampaignConfigTypeDef",
-        "status": str,
-        "failureReason": str,
-        "creationDateTime": datetime,
-        "lastUpdatedDateTime": datetime,
-        "latestCampaignUpdate": "CampaignUpdateSummaryTypeDef",
-    },
-    total=False,
-)
-
-CampaignUpdateSummaryTypeDef = TypedDict(
-    "CampaignUpdateSummaryTypeDef",
-    {
-        "solutionVersionArn": str,
-        "minProvisionedTPS": int,
-        "campaignConfig": "CampaignConfigTypeDef",
-        "status": str,
-        "failureReason": str,
-        "creationDateTime": datetime,
-        "lastUpdatedDateTime": datetime,
-    },
-    total=False,
-)
-
-CategoricalHyperParameterRangeTypeDef = TypedDict(
-    "CategoricalHyperParameterRangeTypeDef",
-    {
-        "name": str,
-        "values": List[str],
-    },
-    total=False,
-)
-
-ContinuousHyperParameterRangeTypeDef = TypedDict(
-    "ContinuousHyperParameterRangeTypeDef",
-    {
-        "name": str,
-        "minValue": float,
-        "maxValue": float,
-    },
-    total=False,
-)
-
-_RequiredCreateBatchInferenceJobRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateBatchInferenceJobRequestRequestTypeDef",
-    {
-        "jobName": str,
-        "solutionVersionArn": str,
-        "jobInput": "BatchInferenceJobInputTypeDef",
-        "jobOutput": "BatchInferenceJobOutputTypeDef",
-        "roleArn": str,
-    },
-)
-_OptionalCreateBatchInferenceJobRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateBatchInferenceJobRequestRequestTypeDef",
-    {
-        "filterArn": str,
-        "numResults": int,
-        "batchInferenceJobConfig": "BatchInferenceJobConfigTypeDef",
-        "tags": List["TagTypeDef"],
-        "batchInferenceJobMode": BatchInferenceJobModeType,
-        "themeGenerationConfig": "ThemeGenerationConfigTypeDef",
-    },
-    total=False,
-)
-
-class CreateBatchInferenceJobRequestRequestTypeDef(
-    _RequiredCreateBatchInferenceJobRequestRequestTypeDef,
-    _OptionalCreateBatchInferenceJobRequestRequestTypeDef,
-):
-    pass
-
-CreateBatchInferenceJobResponseTypeDef = TypedDict(
-    "CreateBatchInferenceJobResponseTypeDef",
-    {
-        "batchInferenceJobArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateBatchSegmentJobRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateBatchSegmentJobRequestRequestTypeDef",
-    {
-        "jobName": str,
-        "solutionVersionArn": str,
-        "jobInput": "BatchSegmentJobInputTypeDef",
-        "jobOutput": "BatchSegmentJobOutputTypeDef",
-        "roleArn": str,
-    },
-)
-_OptionalCreateBatchSegmentJobRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateBatchSegmentJobRequestRequestTypeDef",
-    {
-        "filterArn": str,
-        "numResults": int,
-        "tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateBatchSegmentJobRequestRequestTypeDef(
-    _RequiredCreateBatchSegmentJobRequestRequestTypeDef,
-    _OptionalCreateBatchSegmentJobRequestRequestTypeDef,
-):
-    pass
-
-CreateBatchSegmentJobResponseTypeDef = TypedDict(
-    "CreateBatchSegmentJobResponseTypeDef",
-    {
-        "batchSegmentJobArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateCampaignRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateCampaignRequestRequestTypeDef",
-    {
-        "name": str,
-        "solutionVersionArn": str,
-    },
-)
-_OptionalCreateCampaignRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateCampaignRequestRequestTypeDef",
-    {
-        "minProvisionedTPS": int,
-        "campaignConfig": "CampaignConfigTypeDef",
-        "tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateCampaignRequestRequestTypeDef(
-    _RequiredCreateCampaignRequestRequestTypeDef, _OptionalCreateCampaignRequestRequestTypeDef
-):
-    pass
-
-CreateCampaignResponseTypeDef = TypedDict(
-    "CreateCampaignResponseTypeDef",
-    {
-        "campaignArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateDataDeletionJobRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateDataDeletionJobRequestRequestTypeDef",
-    {
-        "jobName": str,
-        "datasetGroupArn": str,
-        "dataSource": "DataSourceTypeDef",
-        "roleArn": str,
-    },
-)
-_OptionalCreateDataDeletionJobRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateDataDeletionJobRequestRequestTypeDef",
-    {
-        "tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateDataDeletionJobRequestRequestTypeDef(
-    _RequiredCreateDataDeletionJobRequestRequestTypeDef,
-    _OptionalCreateDataDeletionJobRequestRequestTypeDef,
-):
-    pass
-
-CreateDataDeletionJobResponseTypeDef = TypedDict(
-    "CreateDataDeletionJobResponseTypeDef",
-    {
-        "dataDeletionJobArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateDatasetExportJobRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateDatasetExportJobRequestRequestTypeDef",
-    {
-        "jobName": str,
-        "datasetArn": str,
-        "roleArn": str,
-        "jobOutput": "DatasetExportJobOutputTypeDef",
-    },
-)
-_OptionalCreateDatasetExportJobRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateDatasetExportJobRequestRequestTypeDef",
-    {
-        "ingestionMode": IngestionModeType,
-        "tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateDatasetExportJobRequestRequestTypeDef(
-    _RequiredCreateDatasetExportJobRequestRequestTypeDef,
-    _OptionalCreateDatasetExportJobRequestRequestTypeDef,
-):
-    pass
-
-CreateDatasetExportJobResponseTypeDef = TypedDict(
-    "CreateDatasetExportJobResponseTypeDef",
-    {
-        "datasetExportJobArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateDatasetGroupRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateDatasetGroupRequestRequestTypeDef",
-    {
-        "name": str,
-    },
-)
-_OptionalCreateDatasetGroupRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateDatasetGroupRequestRequestTypeDef",
-    {
-        "roleArn": str,
-        "kmsKeyArn": str,
-        "domain": DomainType,
-        "tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateDatasetGroupRequestRequestTypeDef(
-    _RequiredCreateDatasetGroupRequestRequestTypeDef,
-    _OptionalCreateDatasetGroupRequestRequestTypeDef,
-):
-    pass
-
-CreateDatasetGroupResponseTypeDef = TypedDict(
-    "CreateDatasetGroupResponseTypeDef",
-    {
-        "datasetGroupArn": str,
-        "domain": DomainType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateDatasetImportJobRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateDatasetImportJobRequestRequestTypeDef",
-    {
-        "jobName": str,
-        "datasetArn": str,
-        "dataSource": "DataSourceTypeDef",
-        "roleArn": str,
-    },
-)
-_OptionalCreateDatasetImportJobRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateDatasetImportJobRequestRequestTypeDef",
-    {
-        "tags": List["TagTypeDef"],
-        "importMode": ImportModeType,
-        "publishAttributionMetricsToS3": bool,
-    },
-    total=False,
-)
-
-class CreateDatasetImportJobRequestRequestTypeDef(
-    _RequiredCreateDatasetImportJobRequestRequestTypeDef,
-    _OptionalCreateDatasetImportJobRequestRequestTypeDef,
-):
-    pass
-
-CreateDatasetImportJobResponseTypeDef = TypedDict(
-    "CreateDatasetImportJobResponseTypeDef",
-    {
-        "datasetImportJobArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateDatasetRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateDatasetRequestRequestTypeDef",
-    {
-        "name": str,
-        "schemaArn": str,
-        "datasetGroupArn": str,
-        "datasetType": str,
-    },
-)
-_OptionalCreateDatasetRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateDatasetRequestRequestTypeDef",
-    {
-        "tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateDatasetRequestRequestTypeDef(
-    _RequiredCreateDatasetRequestRequestTypeDef, _OptionalCreateDatasetRequestRequestTypeDef
-):
-    pass
-
-CreateDatasetResponseTypeDef = TypedDict(
-    "CreateDatasetResponseTypeDef",
-    {
-        "datasetArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateEventTrackerRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateEventTrackerRequestRequestTypeDef",
-    {
-        "name": str,
-        "datasetGroupArn": str,
-    },
-)
-_OptionalCreateEventTrackerRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateEventTrackerRequestRequestTypeDef",
-    {
-        "tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateEventTrackerRequestRequestTypeDef(
-    _RequiredCreateEventTrackerRequestRequestTypeDef,
-    _OptionalCreateEventTrackerRequestRequestTypeDef,
-):
-    pass
-
-CreateEventTrackerResponseTypeDef = TypedDict(
-    "CreateEventTrackerResponseTypeDef",
-    {
-        "eventTrackerArn": str,
-        "trackingId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateFilterRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateFilterRequestRequestTypeDef",
-    {
-        "name": str,
-        "datasetGroupArn": str,
-        "filterExpression": str,
-    },
-)
-_OptionalCreateFilterRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateFilterRequestRequestTypeDef",
-    {
-        "tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateFilterRequestRequestTypeDef(
-    _RequiredCreateFilterRequestRequestTypeDef, _OptionalCreateFilterRequestRequestTypeDef
-):
-    pass
-
-CreateFilterResponseTypeDef = TypedDict(
-    "CreateFilterResponseTypeDef",
-    {
-        "filterArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateMetricAttributionRequestRequestTypeDef = TypedDict(
-    "CreateMetricAttributionRequestRequestTypeDef",
-    {
-        "name": str,
-        "datasetGroupArn": str,
-        "metrics": List["MetricAttributeTypeDef"],
-        "metricsOutputConfig": "MetricAttributionOutputTypeDef",
-    },
-)
-
-CreateMetricAttributionResponseTypeDef = TypedDict(
-    "CreateMetricAttributionResponseTypeDef",
-    {
-        "metricAttributionArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateRecommenderRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateRecommenderRequestRequestTypeDef",
-    {
-        "name": str,
-        "datasetGroupArn": str,
-        "recipeArn": str,
-    },
-)
-_OptionalCreateRecommenderRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateRecommenderRequestRequestTypeDef",
-    {
-        "recommenderConfig": "RecommenderConfigTypeDef",
-        "tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateRecommenderRequestRequestTypeDef(
-    _RequiredCreateRecommenderRequestRequestTypeDef, _OptionalCreateRecommenderRequestRequestTypeDef
-):
-    pass
-
-CreateRecommenderResponseTypeDef = TypedDict(
-    "CreateRecommenderResponseTypeDef",
-    {
-        "recommenderArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateSchemaRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateSchemaRequestRequestTypeDef",
-    {
-        "name": str,
-        "schema": str,
-    },
-)
-_OptionalCreateSchemaRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateSchemaRequestRequestTypeDef",
-    {
-        "domain": DomainType,
-    },
-    total=False,
-)
-
-class CreateSchemaRequestRequestTypeDef(
-    _RequiredCreateSchemaRequestRequestTypeDef, _OptionalCreateSchemaRequestRequestTypeDef
-):
-    pass
-
-CreateSchemaResponseTypeDef = TypedDict(
-    "CreateSchemaResponseTypeDef",
-    {
-        "schemaArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateSolutionRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateSolutionRequestRequestTypeDef",
-    {
-        "name": str,
-        "datasetGroupArn": str,
-    },
-)
-_OptionalCreateSolutionRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateSolutionRequestRequestTypeDef",
-    {
-        "performHPO": bool,
-        "performAutoML": bool,
-        "performAutoTraining": bool,
-        "recipeArn": str,
-        "eventType": str,
-        "solutionConfig": "SolutionConfigTypeDef",
-        "tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateSolutionRequestRequestTypeDef(
-    _RequiredCreateSolutionRequestRequestTypeDef, _OptionalCreateSolutionRequestRequestTypeDef
-):
-    pass
-
-CreateSolutionResponseTypeDef = TypedDict(
-    "CreateSolutionResponseTypeDef",
-    {
-        "solutionArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateSolutionVersionRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateSolutionVersionRequestRequestTypeDef",
-    {
-        "solutionArn": str,
-    },
-)
-_OptionalCreateSolutionVersionRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateSolutionVersionRequestRequestTypeDef",
-    {
-        "name": str,
-        "trainingMode": TrainingModeType,
-        "tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateSolutionVersionRequestRequestTypeDef(
-    _RequiredCreateSolutionVersionRequestRequestTypeDef,
-    _OptionalCreateSolutionVersionRequestRequestTypeDef,
-):
-    pass
-
-CreateSolutionVersionResponseTypeDef = TypedDict(
-    "CreateSolutionVersionResponseTypeDef",
-    {
-        "solutionVersionArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DataDeletionJobSummaryTypeDef = TypedDict(
-    "DataDeletionJobSummaryTypeDef",
-    {
-        "dataDeletionJobArn": str,
-        "datasetGroupArn": str,
-        "jobName": str,
-        "status": str,
-        "creationDateTime": datetime,
-        "lastUpdatedDateTime": datetime,
-        "failureReason": str,
-    },
-    total=False,
-)
-
-DataDeletionJobTypeDef = TypedDict(
-    "DataDeletionJobTypeDef",
-    {
-        "jobName": str,
-        "dataDeletionJobArn": str,
-        "datasetGroupArn": str,
-        "dataSource": "DataSourceTypeDef",
-        "roleArn": str,
-        "status": str,
-        "numDeleted": int,
-        "creationDateTime": datetime,
-        "lastUpdatedDateTime": datetime,
-        "failureReason": str,
-    },
-    total=False,
-)
-
-DataSourceTypeDef = TypedDict(
-    "DataSourceTypeDef",
-    {
-        "dataLocation": str,
-    },
-    total=False,
-)
-
-DatasetExportJobOutputTypeDef = TypedDict(
-    "DatasetExportJobOutputTypeDef",
-    {
-        "s3DataDestination": "S3DataConfigTypeDef",
-    },
-)
-
-DatasetExportJobSummaryTypeDef = TypedDict(
-    "DatasetExportJobSummaryTypeDef",
-    {
-        "datasetExportJobArn": str,
-        "jobName": str,
-        "status": str,
-        "creationDateTime": datetime,
-        "lastUpdatedDateTime": datetime,
-        "failureReason": str,
-    },
-    total=False,
-)
-
-DatasetExportJobTypeDef = TypedDict(
-    "DatasetExportJobTypeDef",
-    {
-        "jobName": str,
-        "datasetExportJobArn": str,
-        "datasetArn": str,
-        "ingestionMode": IngestionModeType,
-        "roleArn": str,
-        "status": str,
-        "jobOutput": "DatasetExportJobOutputTypeDef",
-        "creationDateTime": datetime,
-        "lastUpdatedDateTime": datetime,
-        "failureReason": str,
-    },
-    total=False,
-)
-
-DatasetGroupSummaryTypeDef = TypedDict(
-    "DatasetGroupSummaryTypeDef",
-    {
-        "name": str,
-        "datasetGroupArn": str,
-        "status": str,
-        "creationDateTime": datetime,
-        "lastUpdatedDateTime": datetime,
-        "failureReason": str,
-        "domain": DomainType,
-    },
-    total=False,
-)
-
-DatasetGroupTypeDef = TypedDict(
-    "DatasetGroupTypeDef",
-    {
-        "name": str,
-        "datasetGroupArn": str,
-        "status": str,
-        "roleArn": str,
-        "kmsKeyArn": str,
-        "creationDateTime": datetime,
-        "lastUpdatedDateTime": datetime,
-        "failureReason": str,
-        "domain": DomainType,
-    },
-    total=False,
-)
-
-DatasetImportJobSummaryTypeDef = TypedDict(
-    "DatasetImportJobSummaryTypeDef",
-    {
-        "datasetImportJobArn": str,
-        "jobName": str,
-        "status": str,
-        "creationDateTime": datetime,
-        "lastUpdatedDateTime": datetime,
-        "failureReason": str,
-        "importMode": ImportModeType,
-    },
-    total=False,
-)
-
-DatasetImportJobTypeDef = TypedDict(
-    "DatasetImportJobTypeDef",
-    {
-        "jobName": str,
-        "datasetImportJobArn": str,
-        "datasetArn": str,
-        "dataSource": "DataSourceTypeDef",
-        "roleArn": str,
-        "status": str,
-        "creationDateTime": datetime,
-        "lastUpdatedDateTime": datetime,
-        "failureReason": str,
-        "importMode": ImportModeType,
-        "publishAttributionMetricsToS3": bool,
-    },
-    total=False,
-)
-
-DatasetSchemaSummaryTypeDef = TypedDict(
-    "DatasetSchemaSummaryTypeDef",
-    {
-        "name": str,
-        "schemaArn": str,
-        "creationDateTime": datetime,
-        "lastUpdatedDateTime": datetime,
-        "domain": DomainType,
-    },
-    total=False,
-)
-
-DatasetSchemaTypeDef = TypedDict(
-    "DatasetSchemaTypeDef",
-    {
-        "name": str,
-        "schemaArn": str,
-        "schema": str,
-        "creationDateTime": datetime,
-        "lastUpdatedDateTime": datetime,
-        "domain": DomainType,
-    },
-    total=False,
-)
-
-DatasetSummaryTypeDef = TypedDict(
-    "DatasetSummaryTypeDef",
-    {
-        "name": str,
-        "datasetArn": str,
-        "datasetType": str,
-        "status": str,
-        "creationDateTime": datetime,
-        "lastUpdatedDateTime": datetime,
-    },
-    total=False,
-)
-
-DatasetTypeDef = TypedDict(
-    "DatasetTypeDef",
-    {
-        "name": str,
-        "datasetArn": str,
-        "datasetGroupArn": str,
-        "datasetType": str,
-        "schemaArn": str,
-        "status": str,
-        "creationDateTime": datetime,
-        "lastUpdatedDateTime": datetime,
-        "latestDatasetUpdate": "DatasetUpdateSummaryTypeDef",
-        "trackingId": str,
-    },
-    total=False,
-)
-
-DatasetUpdateSummaryTypeDef = TypedDict(
-    "DatasetUpdateSummaryTypeDef",
-    {
-        "schemaArn": str,
-        "status": str,
-        "failureReason": str,
-        "creationDateTime": datetime,
-        "lastUpdatedDateTime": datetime,
-    },
-    total=False,
-)
-
-DefaultCategoricalHyperParameterRangeTypeDef = TypedDict(
-    "DefaultCategoricalHyperParameterRangeTypeDef",
-    {
-        "name": str,
-        "values": List[str],
-        "isTunable": bool,
-    },
-    total=False,
-)
-
-DefaultContinuousHyperParameterRangeTypeDef = TypedDict(
-    "DefaultContinuousHyperParameterRangeTypeDef",
-    {
-        "name": str,
-        "minValue": float,
-        "maxValue": float,
-        "isTunable": bool,
-    },
-    total=False,
-)
-
-DefaultHyperParameterRangesTypeDef = TypedDict(
-    "DefaultHyperParameterRangesTypeDef",
-    {
-        "integerHyperParameterRanges": List["DefaultIntegerHyperParameterRangeTypeDef"],
-        "continuousHyperParameterRanges": List["DefaultContinuousHyperParameterRangeTypeDef"],
-        "categoricalHyperParameterRanges": List["DefaultCategoricalHyperParameterRangeTypeDef"],
-    },
-    total=False,
-)
-
-DefaultIntegerHyperParameterRangeTypeDef = TypedDict(
-    "DefaultIntegerHyperParameterRangeTypeDef",
-    {
-        "name": str,
-        "minValue": int,
-        "maxValue": int,
-        "isTunable": bool,
-    },
-    total=False,
-)
-
-DeleteCampaignRequestRequestTypeDef = TypedDict(
-    "DeleteCampaignRequestRequestTypeDef",
-    {
-        "campaignArn": str,
-    },
-)
-
-DeleteDatasetGroupRequestRequestTypeDef = TypedDict(
-    "DeleteDatasetGroupRequestRequestTypeDef",
-    {
-        "datasetGroupArn": str,
-    },
-)
-
-DeleteDatasetRequestRequestTypeDef = TypedDict(
-    "DeleteDatasetRequestRequestTypeDef",
-    {
-        "datasetArn": str,
-    },
-)
-
-DeleteEventTrackerRequestRequestTypeDef = TypedDict(
-    "DeleteEventTrackerRequestRequestTypeDef",
-    {
-        "eventTrackerArn": str,
-    },
-)
-
-DeleteFilterRequestRequestTypeDef = TypedDict(
-    "DeleteFilterRequestRequestTypeDef",
-    {
-        "filterArn": str,
-    },
-)
-
-DeleteMetricAttributionRequestRequestTypeDef = TypedDict(
-    "DeleteMetricAttributionRequestRequestTypeDef",
-    {
-        "metricAttributionArn": str,
-    },
-)
-
-DeleteRecommenderRequestRequestTypeDef = TypedDict(
-    "DeleteRecommenderRequestRequestTypeDef",
-    {
-        "recommenderArn": str,
-    },
-)
-
-DeleteSchemaRequestRequestTypeDef = TypedDict(
-    "DeleteSchemaRequestRequestTypeDef",
-    {
-        "schemaArn": str,
-    },
-)
-
-DeleteSolutionRequestRequestTypeDef = TypedDict(
-    "DeleteSolutionRequestRequestTypeDef",
-    {
-        "solutionArn": str,
-    },
-)
-
-DescribeAlgorithmRequestRequestTypeDef = TypedDict(
-    "DescribeAlgorithmRequestRequestTypeDef",
-    {
-        "algorithmArn": str,
-    },
-)
-
-DescribeAlgorithmResponseTypeDef = TypedDict(
-    "DescribeAlgorithmResponseTypeDef",
-    {
-        "algorithm": "AlgorithmTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeBatchInferenceJobRequestRequestTypeDef = TypedDict(
-    "DescribeBatchInferenceJobRequestRequestTypeDef",
-    {
-        "batchInferenceJobArn": str,
-    },
-)
-
-DescribeBatchInferenceJobResponseTypeDef = TypedDict(
-    "DescribeBatchInferenceJobResponseTypeDef",
-    {
-        "batchInferenceJob": "BatchInferenceJobTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeBatchSegmentJobRequestRequestTypeDef = TypedDict(
-    "DescribeBatchSegmentJobRequestRequestTypeDef",
-    {
-        "batchSegmentJobArn": str,
-    },
-)
-
-DescribeBatchSegmentJobResponseTypeDef = TypedDict(
-    "DescribeBatchSegmentJobResponseTypeDef",
-    {
-        "batchSegmentJob": "BatchSegmentJobTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeCampaignRequestRequestTypeDef = TypedDict(
-    "DescribeCampaignRequestRequestTypeDef",
-    {
-        "campaignArn": str,
-    },
-)
-
-DescribeCampaignResponseTypeDef = TypedDict(
-    "DescribeCampaignResponseTypeDef",
-    {
-        "campaign": "CampaignTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeDataDeletionJobRequestRequestTypeDef = TypedDict(
-    "DescribeDataDeletionJobRequestRequestTypeDef",
-    {
-        "dataDeletionJobArn": str,
-    },
-)
-
-DescribeDataDeletionJobResponseTypeDef = TypedDict(
-    "DescribeDataDeletionJobResponseTypeDef",
-    {
-        "dataDeletionJob": "DataDeletionJobTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeDatasetExportJobRequestRequestTypeDef = TypedDict(
-    "DescribeDatasetExportJobRequestRequestTypeDef",
-    {
-        "datasetExportJobArn": str,
-    },
-)
-
-DescribeDatasetExportJobResponseTypeDef = TypedDict(
-    "DescribeDatasetExportJobResponseTypeDef",
-    {
-        "datasetExportJob": "DatasetExportJobTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeDatasetGroupRequestRequestTypeDef = TypedDict(
-    "DescribeDatasetGroupRequestRequestTypeDef",
-    {
-        "datasetGroupArn": str,
-    },
-)
-
-DescribeDatasetGroupResponseTypeDef = TypedDict(
-    "DescribeDatasetGroupResponseTypeDef",
-    {
-        "datasetGroup": "DatasetGroupTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeDatasetImportJobRequestRequestTypeDef = TypedDict(
-    "DescribeDatasetImportJobRequestRequestTypeDef",
-    {
-        "datasetImportJobArn": str,
-    },
-)
-
-DescribeDatasetImportJobResponseTypeDef = TypedDict(
-    "DescribeDatasetImportJobResponseTypeDef",
-    {
-        "datasetImportJob": "DatasetImportJobTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeDatasetRequestRequestTypeDef = TypedDict(
-    "DescribeDatasetRequestRequestTypeDef",
-    {
-        "datasetArn": str,
-    },
-)
-
-DescribeDatasetResponseTypeDef = TypedDict(
-    "DescribeDatasetResponseTypeDef",
-    {
-        "dataset": "DatasetTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeEventTrackerRequestRequestTypeDef = TypedDict(
-    "DescribeEventTrackerRequestRequestTypeDef",
-    {
-        "eventTrackerArn": str,
-    },
-)
-
-DescribeEventTrackerResponseTypeDef = TypedDict(
-    "DescribeEventTrackerResponseTypeDef",
-    {
-        "eventTracker": "EventTrackerTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeFeatureTransformationRequestRequestTypeDef = TypedDict(
-    "DescribeFeatureTransformationRequestRequestTypeDef",
-    {
-        "featureTransformationArn": str,
-    },
-)
-
-DescribeFeatureTransformationResponseTypeDef = TypedDict(
-    "DescribeFeatureTransformationResponseTypeDef",
-    {
-        "featureTransformation": "FeatureTransformationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeFilterRequestRequestTypeDef = TypedDict(
-    "DescribeFilterRequestRequestTypeDef",
-    {
-        "filterArn": str,
-    },
-)
-
-DescribeFilterResponseTypeDef = TypedDict(
-    "DescribeFilterResponseTypeDef",
-    {
-        "filter": "FilterTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeMetricAttributionRequestRequestTypeDef = TypedDict(
-    "DescribeMetricAttributionRequestRequestTypeDef",
-    {
-        "metricAttributionArn": str,
-    },
-)
-
-DescribeMetricAttributionResponseTypeDef = TypedDict(
-    "DescribeMetricAttributionResponseTypeDef",
-    {
-        "metricAttribution": "MetricAttributionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeRecipeRequestRequestTypeDef = TypedDict(
-    "DescribeRecipeRequestRequestTypeDef",
-    {
-        "recipeArn": str,
-    },
-)
-
-DescribeRecipeResponseTypeDef = TypedDict(
-    "DescribeRecipeResponseTypeDef",
-    {
-        "recipe": "RecipeTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeRecommenderRequestRequestTypeDef = TypedDict(
-    "DescribeRecommenderRequestRequestTypeDef",
-    {
-        "recommenderArn": str,
-    },
-)
-
-DescribeRecommenderResponseTypeDef = TypedDict(
-    "DescribeRecommenderResponseTypeDef",
-    {
-        "recommender": "RecommenderTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeSchemaRequestRequestTypeDef = TypedDict(
-    "DescribeSchemaRequestRequestTypeDef",
-    {
-        "schemaArn": str,
-    },
-)
-
-DescribeSchemaResponseTypeDef = TypedDict(
-    "DescribeSchemaResponseTypeDef",
-    {
-        "schema": "DatasetSchemaTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeSolutionRequestRequestTypeDef = TypedDict(
-    "DescribeSolutionRequestRequestTypeDef",
-    {
-        "solutionArn": str,
-    },
-)
-
-DescribeSolutionResponseTypeDef = TypedDict(
-    "DescribeSolutionResponseTypeDef",
-    {
-        "solution": "SolutionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeSolutionVersionRequestRequestTypeDef = TypedDict(
-    "DescribeSolutionVersionRequestRequestTypeDef",
-    {
-        "solutionVersionArn": str,
-    },
-)
-
-DescribeSolutionVersionResponseTypeDef = TypedDict(
-    "DescribeSolutionVersionResponseTypeDef",
-    {
-        "solutionVersion": "SolutionVersionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-EventTrackerSummaryTypeDef = TypedDict(
-    "EventTrackerSummaryTypeDef",
-    {
-        "name": str,
-        "eventTrackerArn": str,
-        "status": str,
-        "creationDateTime": datetime,
-        "lastUpdatedDateTime": datetime,
-    },
-    total=False,
-)
-
-EventTrackerTypeDef = TypedDict(
-    "EventTrackerTypeDef",
-    {
-        "name": str,
-        "eventTrackerArn": str,
-        "accountId": str,
-        "trackingId": str,
-        "datasetGroupArn": str,
-        "status": str,
-        "creationDateTime": datetime,
-        "lastUpdatedDateTime": datetime,
-    },
-    total=False,
-)
-
-FeatureTransformationTypeDef = TypedDict(
-    "FeatureTransformationTypeDef",
-    {
-        "name": str,
-        "featureTransformationArn": str,
-        "defaultParameters": Dict[str, str],
-        "creationDateTime": datetime,
-        "lastUpdatedDateTime": datetime,
-        "status": str,
-    },
-    total=False,
-)
-
-FieldsForThemeGenerationTypeDef = TypedDict(
-    "FieldsForThemeGenerationTypeDef",
-    {
-        "itemName": str,
-    },
-)
-
-FilterSummaryTypeDef = TypedDict(
-    "FilterSummaryTypeDef",
-    {
-        "name": str,
-        "filterArn": str,
-        "creationDateTime": datetime,
-        "lastUpdatedDateTime": datetime,
-        "datasetGroupArn": str,
-        "failureReason": str,
-        "status": str,
-    },
-    total=False,
-)
-
-FilterTypeDef = TypedDict(
-    "FilterTypeDef",
-    {
-        "name": str,
-        "filterArn": str,
-        "creationDateTime": datetime,
-        "lastUpdatedDateTime": datetime,
-        "datasetGroupArn": str,
-        "failureReason": str,
-        "filterExpression": str,
-        "status": str,
-    },
-    total=False,
-)
-
-GetSolutionMetricsRequestRequestTypeDef = TypedDict(
-    "GetSolutionMetricsRequestRequestTypeDef",
-    {
-        "solutionVersionArn": str,
-    },
-)
-
-GetSolutionMetricsResponseTypeDef = TypedDict(
-    "GetSolutionMetricsResponseTypeDef",
-    {
-        "solutionVersionArn": str,
-        "metrics": Dict[str, float],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-HPOConfigTypeDef = TypedDict(
-    "HPOConfigTypeDef",
-    {
-        "hpoObjective": "HPOObjectiveTypeDef",
-        "hpoResourceConfig": "HPOResourceConfigTypeDef",
-        "algorithmHyperParameterRanges": "HyperParameterRangesTypeDef",
-    },
-    total=False,
-)
+    "UpdateSolutionRequestTypeDef",
+    "UpdateSolutionResponseTypeDef",
+)
+
+class AlgorithmImageTypeDef(TypedDict):
+    dockerURI: str
+    name: NotRequired[str]
+
+class AutoMLConfigOutputTypeDef(TypedDict):
+    metricName: NotRequired[str]
+    recipeList: NotRequired[List[str]]
+
+class AutoMLConfigTypeDef(TypedDict):
+    metricName: NotRequired[str]
+    recipeList: NotRequired[Sequence[str]]
+
+class AutoMLResultTypeDef(TypedDict):
+    bestRecipeArn: NotRequired[str]
+
+class AutoTrainingConfigTypeDef(TypedDict):
+    schedulingExpression: NotRequired[str]
+
+class BatchInferenceJobConfigOutputTypeDef(TypedDict):
+    itemExplorationConfig: NotRequired[Dict[str, str]]
+
+class BatchInferenceJobConfigTypeDef(TypedDict):
+    itemExplorationConfig: NotRequired[Mapping[str, str]]
+
+class S3DataConfigTypeDef(TypedDict):
+    path: str
+    kmsKeyArn: NotRequired[str]
+
+class BatchInferenceJobSummaryTypeDef(TypedDict):
+    batchInferenceJobArn: NotRequired[str]
+    jobName: NotRequired[str]
+    status: NotRequired[str]
+    creationDateTime: NotRequired[datetime]
+    lastUpdatedDateTime: NotRequired[datetime]
+    failureReason: NotRequired[str]
+    solutionVersionArn: NotRequired[str]
+    batchInferenceJobMode: NotRequired[BatchInferenceJobModeType]
+
+class BatchSegmentJobSummaryTypeDef(TypedDict):
+    batchSegmentJobArn: NotRequired[str]
+    jobName: NotRequired[str]
+    status: NotRequired[str]
+    creationDateTime: NotRequired[datetime]
+    lastUpdatedDateTime: NotRequired[datetime]
+    failureReason: NotRequired[str]
+    solutionVersionArn: NotRequired[str]
+
+class CampaignConfigOutputTypeDef(TypedDict):
+    itemExplorationConfig: NotRequired[Dict[str, str]]
+    enableMetadataWithRecommendations: NotRequired[bool]
+    syncWithLatestSolutionVersion: NotRequired[bool]
+
+class CampaignConfigTypeDef(TypedDict):
+    itemExplorationConfig: NotRequired[Mapping[str, str]]
+    enableMetadataWithRecommendations: NotRequired[bool]
+    syncWithLatestSolutionVersion: NotRequired[bool]
+
+class CampaignSummaryTypeDef(TypedDict):
+    name: NotRequired[str]
+    campaignArn: NotRequired[str]
+    status: NotRequired[str]
+    creationDateTime: NotRequired[datetime]
+    lastUpdatedDateTime: NotRequired[datetime]
+    failureReason: NotRequired[str]
+
+class CategoricalHyperParameterRangeOutputTypeDef(TypedDict):
+    name: NotRequired[str]
+    values: NotRequired[List[str]]
+
+class CategoricalHyperParameterRangeTypeDef(TypedDict):
+    name: NotRequired[str]
+    values: NotRequired[Sequence[str]]
+
+class ContinuousHyperParameterRangeTypeDef(TypedDict):
+    name: NotRequired[str]
+    minValue: NotRequired[float]
+    maxValue: NotRequired[float]
+
+class TagTypeDef(TypedDict):
+    tagKey: str
+    tagValue: str
+
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
+
+class DataSourceTypeDef(TypedDict):
+    dataLocation: NotRequired[str]
+
+class MetricAttributeTypeDef(TypedDict):
+    eventType: str
+    metricName: str
+    expression: str
+
+class CreateSchemaRequestTypeDef(TypedDict):
+    name: str
+    schema: str
+    domain: NotRequired[DomainType]
+
+class DataDeletionJobSummaryTypeDef(TypedDict):
+    dataDeletionJobArn: NotRequired[str]
+    datasetGroupArn: NotRequired[str]
+    jobName: NotRequired[str]
+    status: NotRequired[str]
+    creationDateTime: NotRequired[datetime]
+    lastUpdatedDateTime: NotRequired[datetime]
+    failureReason: NotRequired[str]
+
+class DatasetExportJobSummaryTypeDef(TypedDict):
+    datasetExportJobArn: NotRequired[str]
+    jobName: NotRequired[str]
+    status: NotRequired[str]
+    creationDateTime: NotRequired[datetime]
+    lastUpdatedDateTime: NotRequired[datetime]
+    failureReason: NotRequired[str]
+
+class DatasetGroupSummaryTypeDef(TypedDict):
+    name: NotRequired[str]
+    datasetGroupArn: NotRequired[str]
+    status: NotRequired[str]
+    creationDateTime: NotRequired[datetime]
+    lastUpdatedDateTime: NotRequired[datetime]
+    failureReason: NotRequired[str]
+    domain: NotRequired[DomainType]
+
+class DatasetGroupTypeDef(TypedDict):
+    name: NotRequired[str]
+    datasetGroupArn: NotRequired[str]
+    status: NotRequired[str]
+    roleArn: NotRequired[str]
+    kmsKeyArn: NotRequired[str]
+    creationDateTime: NotRequired[datetime]
+    lastUpdatedDateTime: NotRequired[datetime]
+    failureReason: NotRequired[str]
+    domain: NotRequired[DomainType]
+
+class DatasetImportJobSummaryTypeDef(TypedDict):
+    datasetImportJobArn: NotRequired[str]
+    jobName: NotRequired[str]
+    status: NotRequired[str]
+    creationDateTime: NotRequired[datetime]
+    lastUpdatedDateTime: NotRequired[datetime]
+    failureReason: NotRequired[str]
+    importMode: NotRequired[ImportModeType]
+
+class DatasetSchemaSummaryTypeDef(TypedDict):
+    name: NotRequired[str]
+    schemaArn: NotRequired[str]
+    creationDateTime: NotRequired[datetime]
+    lastUpdatedDateTime: NotRequired[datetime]
+    domain: NotRequired[DomainType]
+
+class DatasetSchemaTypeDef(TypedDict):
+    name: NotRequired[str]
+    schemaArn: NotRequired[str]
+    schema: NotRequired[str]
+    creationDateTime: NotRequired[datetime]
+    lastUpdatedDateTime: NotRequired[datetime]
+    domain: NotRequired[DomainType]
+
+class DatasetSummaryTypeDef(TypedDict):
+    name: NotRequired[str]
+    datasetArn: NotRequired[str]
+    datasetType: NotRequired[str]
+    status: NotRequired[str]
+    creationDateTime: NotRequired[datetime]
+    lastUpdatedDateTime: NotRequired[datetime]
+
+class DatasetUpdateSummaryTypeDef(TypedDict):
+    schemaArn: NotRequired[str]
+    status: NotRequired[str]
+    failureReason: NotRequired[str]
+    creationDateTime: NotRequired[datetime]
+    lastUpdatedDateTime: NotRequired[datetime]
+
+class DefaultCategoricalHyperParameterRangeTypeDef(TypedDict):
+    name: NotRequired[str]
+    values: NotRequired[List[str]]
+    isTunable: NotRequired[bool]
+
+class DefaultContinuousHyperParameterRangeTypeDef(TypedDict):
+    name: NotRequired[str]
+    minValue: NotRequired[float]
+    maxValue: NotRequired[float]
+    isTunable: NotRequired[bool]
+
+class DefaultIntegerHyperParameterRangeTypeDef(TypedDict):
+    name: NotRequired[str]
+    minValue: NotRequired[int]
+    maxValue: NotRequired[int]
+    isTunable: NotRequired[bool]
+
+class DeleteCampaignRequestTypeDef(TypedDict):
+    campaignArn: str
+
+class DeleteDatasetGroupRequestTypeDef(TypedDict):
+    datasetGroupArn: str
+
+class DeleteDatasetRequestTypeDef(TypedDict):
+    datasetArn: str
+
+class DeleteEventTrackerRequestTypeDef(TypedDict):
+    eventTrackerArn: str
+
+class DeleteFilterRequestTypeDef(TypedDict):
+    filterArn: str
+
+class DeleteMetricAttributionRequestTypeDef(TypedDict):
+    metricAttributionArn: str
+
+class DeleteRecommenderRequestTypeDef(TypedDict):
+    recommenderArn: str
+
+class DeleteSchemaRequestTypeDef(TypedDict):
+    schemaArn: str
+
+class DeleteSolutionRequestTypeDef(TypedDict):
+    solutionArn: str
+
+class DescribeAlgorithmRequestTypeDef(TypedDict):
+    algorithmArn: str
+
+class DescribeBatchInferenceJobRequestTypeDef(TypedDict):
+    batchInferenceJobArn: str
+
+class DescribeBatchSegmentJobRequestTypeDef(TypedDict):
+    batchSegmentJobArn: str
+
+class DescribeCampaignRequestTypeDef(TypedDict):
+    campaignArn: str
+
+class DescribeDataDeletionJobRequestTypeDef(TypedDict):
+    dataDeletionJobArn: str
+
+class DescribeDatasetExportJobRequestTypeDef(TypedDict):
+    datasetExportJobArn: str
+
+class DescribeDatasetGroupRequestTypeDef(TypedDict):
+    datasetGroupArn: str
+
+class DescribeDatasetImportJobRequestTypeDef(TypedDict):
+    datasetImportJobArn: str
+
+class DescribeDatasetRequestTypeDef(TypedDict):
+    datasetArn: str
+
+class DescribeEventTrackerRequestTypeDef(TypedDict):
+    eventTrackerArn: str
+
+class EventTrackerTypeDef(TypedDict):
+    name: NotRequired[str]
+    eventTrackerArn: NotRequired[str]
+    accountId: NotRequired[str]
+    trackingId: NotRequired[str]
+    datasetGroupArn: NotRequired[str]
+    status: NotRequired[str]
+    creationDateTime: NotRequired[datetime]
+    lastUpdatedDateTime: NotRequired[datetime]
+
+class DescribeFeatureTransformationRequestTypeDef(TypedDict):
+    featureTransformationArn: str
+
+class FeatureTransformationTypeDef(TypedDict):
+    name: NotRequired[str]
+    featureTransformationArn: NotRequired[str]
+    defaultParameters: NotRequired[Dict[str, str]]
+    creationDateTime: NotRequired[datetime]
+    lastUpdatedDateTime: NotRequired[datetime]
+    status: NotRequired[str]
+
+class DescribeFilterRequestTypeDef(TypedDict):
+    filterArn: str
+
+class FilterTypeDef(TypedDict):
+    name: NotRequired[str]
+    filterArn: NotRequired[str]
+    creationDateTime: NotRequired[datetime]
+    lastUpdatedDateTime: NotRequired[datetime]
+    datasetGroupArn: NotRequired[str]
+    failureReason: NotRequired[str]
+    filterExpression: NotRequired[str]
+    status: NotRequired[str]
+
+class DescribeMetricAttributionRequestTypeDef(TypedDict):
+    metricAttributionArn: str
+
+class DescribeRecipeRequestTypeDef(TypedDict):
+    recipeArn: str
+
+class RecipeTypeDef(TypedDict):
+    name: NotRequired[str]
+    recipeArn: NotRequired[str]
+    algorithmArn: NotRequired[str]
+    featureTransformationArn: NotRequired[str]
+    status: NotRequired[str]
+    description: NotRequired[str]
+    creationDateTime: NotRequired[datetime]
+    recipeType: NotRequired[str]
+    lastUpdatedDateTime: NotRequired[datetime]
+
+class DescribeRecommenderRequestTypeDef(TypedDict):
+    recommenderArn: str
+
+class DescribeSchemaRequestTypeDef(TypedDict):
+    schemaArn: str
+
+class DescribeSolutionRequestTypeDef(TypedDict):
+    solutionArn: str
+
+class DescribeSolutionVersionRequestTypeDef(TypedDict):
+    solutionVersionArn: str
+
+class EventParametersTypeDef(TypedDict):
+    eventType: NotRequired[str]
+    eventValueThreshold: NotRequired[float]
+    weight: NotRequired[float]
+
+class EventTrackerSummaryTypeDef(TypedDict):
+    name: NotRequired[str]
+    eventTrackerArn: NotRequired[str]
+    status: NotRequired[str]
+    creationDateTime: NotRequired[datetime]
+    lastUpdatedDateTime: NotRequired[datetime]
+
+class FieldsForThemeGenerationTypeDef(TypedDict):
+    itemName: str
+
+class FilterSummaryTypeDef(TypedDict):
+    name: NotRequired[str]
+    filterArn: NotRequired[str]
+    creationDateTime: NotRequired[datetime]
+    lastUpdatedDateTime: NotRequired[datetime]
+    datasetGroupArn: NotRequired[str]
+    failureReason: NotRequired[str]
+    status: NotRequired[str]
+
+class GetSolutionMetricsRequestTypeDef(TypedDict):
+    solutionVersionArn: str
 
 HPOObjectiveTypeDef = TypedDict(
     "HPOObjectiveTypeDef",
     {
-        "type": str,
-        "metricName": str,
-        "metricRegex": str,
-    },
-    total=False,
-)
-
-HPOResourceConfigTypeDef = TypedDict(
-    "HPOResourceConfigTypeDef",
-    {
-        "maxNumberOfTrainingJobs": str,
-        "maxParallelTrainingJobs": str,
-    },
-    total=False,
-)
-
-HyperParameterRangesTypeDef = TypedDict(
-    "HyperParameterRangesTypeDef",
-    {
-        "integerHyperParameterRanges": List["IntegerHyperParameterRangeTypeDef"],
-        "continuousHyperParameterRanges": List["ContinuousHyperParameterRangeTypeDef"],
-        "categoricalHyperParameterRanges": List["CategoricalHyperParameterRangeTypeDef"],
-    },
-    total=False,
-)
-
-IntegerHyperParameterRangeTypeDef = TypedDict(
-    "IntegerHyperParameterRangeTypeDef",
-    {
-        "name": str,
-        "minValue": int,
-        "maxValue": int,
-    },
-    total=False,
-)
-
-ListBatchInferenceJobsRequestRequestTypeDef = TypedDict(
-    "ListBatchInferenceJobsRequestRequestTypeDef",
-    {
-        "solutionVersionArn": str,
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-ListBatchInferenceJobsResponseTypeDef = TypedDict(
-    "ListBatchInferenceJobsResponseTypeDef",
-    {
-        "batchInferenceJobs": List["BatchInferenceJobSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListBatchSegmentJobsRequestRequestTypeDef = TypedDict(
-    "ListBatchSegmentJobsRequestRequestTypeDef",
-    {
-        "solutionVersionArn": str,
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-ListBatchSegmentJobsResponseTypeDef = TypedDict(
-    "ListBatchSegmentJobsResponseTypeDef",
-    {
-        "batchSegmentJobs": List["BatchSegmentJobSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListCampaignsRequestRequestTypeDef = TypedDict(
-    "ListCampaignsRequestRequestTypeDef",
-    {
-        "solutionArn": str,
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-ListCampaignsResponseTypeDef = TypedDict(
-    "ListCampaignsResponseTypeDef",
-    {
-        "campaigns": List["CampaignSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListDataDeletionJobsRequestRequestTypeDef = TypedDict(
-    "ListDataDeletionJobsRequestRequestTypeDef",
-    {
-        "datasetGroupArn": str,
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-ListDataDeletionJobsResponseTypeDef = TypedDict(
-    "ListDataDeletionJobsResponseTypeDef",
-    {
-        "dataDeletionJobs": List["DataDeletionJobSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListDatasetExportJobsRequestRequestTypeDef = TypedDict(
-    "ListDatasetExportJobsRequestRequestTypeDef",
-    {
-        "datasetArn": str,
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-ListDatasetExportJobsResponseTypeDef = TypedDict(
-    "ListDatasetExportJobsResponseTypeDef",
-    {
-        "datasetExportJobs": List["DatasetExportJobSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListDatasetGroupsRequestRequestTypeDef = TypedDict(
-    "ListDatasetGroupsRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-ListDatasetGroupsResponseTypeDef = TypedDict(
-    "ListDatasetGroupsResponseTypeDef",
-    {
-        "datasetGroups": List["DatasetGroupSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListDatasetImportJobsRequestRequestTypeDef = TypedDict(
-    "ListDatasetImportJobsRequestRequestTypeDef",
-    {
-        "datasetArn": str,
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-ListDatasetImportJobsResponseTypeDef = TypedDict(
-    "ListDatasetImportJobsResponseTypeDef",
-    {
-        "datasetImportJobs": List["DatasetImportJobSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListDatasetsRequestRequestTypeDef = TypedDict(
-    "ListDatasetsRequestRequestTypeDef",
-    {
-        "datasetGroupArn": str,
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-ListDatasetsResponseTypeDef = TypedDict(
-    "ListDatasetsResponseTypeDef",
-    {
-        "datasets": List["DatasetSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListEventTrackersRequestRequestTypeDef = TypedDict(
-    "ListEventTrackersRequestRequestTypeDef",
-    {
-        "datasetGroupArn": str,
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-ListEventTrackersResponseTypeDef = TypedDict(
-    "ListEventTrackersResponseTypeDef",
-    {
-        "eventTrackers": List["EventTrackerSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListFiltersRequestRequestTypeDef = TypedDict(
-    "ListFiltersRequestRequestTypeDef",
-    {
-        "datasetGroupArn": str,
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-ListFiltersResponseTypeDef = TypedDict(
-    "ListFiltersResponseTypeDef",
-    {
-        "Filters": List["FilterSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListMetricAttributionMetricsRequestRequestTypeDef = TypedDict(
-    "ListMetricAttributionMetricsRequestRequestTypeDef",
-    {
-        "metricAttributionArn": str,
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-ListMetricAttributionMetricsResponseTypeDef = TypedDict(
-    "ListMetricAttributionMetricsResponseTypeDef",
-    {
-        "metrics": List["MetricAttributeTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListMetricAttributionsRequestRequestTypeDef = TypedDict(
-    "ListMetricAttributionsRequestRequestTypeDef",
-    {
-        "datasetGroupArn": str,
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-ListMetricAttributionsResponseTypeDef = TypedDict(
-    "ListMetricAttributionsResponseTypeDef",
-    {
-        "metricAttributions": List["MetricAttributionSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListRecipesRequestRequestTypeDef = TypedDict(
-    "ListRecipesRequestRequestTypeDef",
-    {
-        "recipeProvider": Literal["SERVICE"],
-        "nextToken": str,
-        "maxResults": int,
-        "domain": DomainType,
-    },
-    total=False,
-)
-
-ListRecipesResponseTypeDef = TypedDict(
-    "ListRecipesResponseTypeDef",
-    {
-        "recipes": List["RecipeSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListRecommendersRequestRequestTypeDef = TypedDict(
-    "ListRecommendersRequestRequestTypeDef",
-    {
-        "datasetGroupArn": str,
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-ListRecommendersResponseTypeDef = TypedDict(
-    "ListRecommendersResponseTypeDef",
-    {
-        "recommenders": List["RecommenderSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListSchemasRequestRequestTypeDef = TypedDict(
-    "ListSchemasRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-ListSchemasResponseTypeDef = TypedDict(
-    "ListSchemasResponseTypeDef",
-    {
-        "schemas": List["DatasetSchemaSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListSolutionVersionsRequestRequestTypeDef = TypedDict(
-    "ListSolutionVersionsRequestRequestTypeDef",
-    {
-        "solutionArn": str,
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-ListSolutionVersionsResponseTypeDef = TypedDict(
-    "ListSolutionVersionsResponseTypeDef",
-    {
-        "solutionVersions": List["SolutionVersionSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListSolutionsRequestRequestTypeDef = TypedDict(
-    "ListSolutionsRequestRequestTypeDef",
-    {
-        "datasetGroupArn": str,
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-ListSolutionsResponseTypeDef = TypedDict(
-    "ListSolutionsResponseTypeDef",
-    {
-        "solutions": List["SolutionSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-    },
-)
-
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "tags": List["TagTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-MetricAttributeTypeDef = TypedDict(
-    "MetricAttributeTypeDef",
-    {
-        "eventType": str,
-        "metricName": str,
-        "expression": str,
-    },
-)
-
-_RequiredMetricAttributionOutputTypeDef = TypedDict(
-    "_RequiredMetricAttributionOutputTypeDef",
-    {
-        "roleArn": str,
-    },
-)
-_OptionalMetricAttributionOutputTypeDef = TypedDict(
-    "_OptionalMetricAttributionOutputTypeDef",
-    {
-        "s3DataDestination": "S3DataConfigTypeDef",
-    },
-    total=False,
-)
-
-class MetricAttributionOutputTypeDef(
-    _RequiredMetricAttributionOutputTypeDef, _OptionalMetricAttributionOutputTypeDef
-):
-    pass
-
-MetricAttributionSummaryTypeDef = TypedDict(
-    "MetricAttributionSummaryTypeDef",
-    {
-        "name": str,
-        "metricAttributionArn": str,
-        "status": str,
-        "creationDateTime": datetime,
-        "lastUpdatedDateTime": datetime,
-        "failureReason": str,
-    },
-    total=False,
-)
-
-MetricAttributionTypeDef = TypedDict(
-    "MetricAttributionTypeDef",
-    {
-        "name": str,
-        "metricAttributionArn": str,
-        "datasetGroupArn": str,
-        "metricsOutputConfig": "MetricAttributionOutputTypeDef",
-        "status": str,
-        "creationDateTime": datetime,
-        "lastUpdatedDateTime": datetime,
-        "failureReason": str,
-    },
-    total=False,
-)
-
-OptimizationObjectiveTypeDef = TypedDict(
-    "OptimizationObjectiveTypeDef",
-    {
-        "itemAttribute": str,
-        "objectiveSensitivity": ObjectiveSensitivityType,
-    },
-    total=False,
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-RecipeSummaryTypeDef = TypedDict(
-    "RecipeSummaryTypeDef",
-    {
-        "name": str,
-        "recipeArn": str,
-        "status": str,
-        "creationDateTime": datetime,
-        "lastUpdatedDateTime": datetime,
-        "domain": DomainType,
-    },
-    total=False,
-)
-
-RecipeTypeDef = TypedDict(
-    "RecipeTypeDef",
-    {
-        "name": str,
-        "recipeArn": str,
-        "algorithmArn": str,
-        "featureTransformationArn": str,
-        "status": str,
-        "description": str,
-        "creationDateTime": datetime,
-        "recipeType": str,
-        "lastUpdatedDateTime": datetime,
-    },
-    total=False,
-)
-
-RecommenderConfigTypeDef = TypedDict(
-    "RecommenderConfigTypeDef",
-    {
-        "itemExplorationConfig": Dict[str, str],
-        "minRecommendationRequestsPerSecond": int,
-        "trainingDataConfig": "TrainingDataConfigTypeDef",
-        "enableMetadataWithRecommendations": bool,
-    },
-    total=False,
-)
-
-RecommenderSummaryTypeDef = TypedDict(
-    "RecommenderSummaryTypeDef",
-    {
-        "name": str,
-        "recommenderArn": str,
-        "datasetGroupArn": str,
-        "recipeArn": str,
-        "recommenderConfig": "RecommenderConfigTypeDef",
-        "status": str,
-        "creationDateTime": datetime,
-        "lastUpdatedDateTime": datetime,
-    },
-    total=False,
-)
-
-RecommenderTypeDef = TypedDict(
-    "RecommenderTypeDef",
-    {
-        "recommenderArn": str,
-        "datasetGroupArn": str,
-        "name": str,
-        "recipeArn": str,
-        "recommenderConfig": "RecommenderConfigTypeDef",
-        "creationDateTime": datetime,
-        "lastUpdatedDateTime": datetime,
-        "status": str,
-        "failureReason": str,
-        "latestRecommenderUpdate": "RecommenderUpdateSummaryTypeDef",
-        "modelMetrics": Dict[str, float],
-    },
-    total=False,
-)
-
-RecommenderUpdateSummaryTypeDef = TypedDict(
-    "RecommenderUpdateSummaryTypeDef",
-    {
-        "recommenderConfig": "RecommenderConfigTypeDef",
-        "creationDateTime": datetime,
-        "lastUpdatedDateTime": datetime,
-        "status": str,
-        "failureReason": str,
-    },
-    total=False,
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-_RequiredS3DataConfigTypeDef = TypedDict(
-    "_RequiredS3DataConfigTypeDef",
-    {
-        "path": str,
-    },
-)
-_OptionalS3DataConfigTypeDef = TypedDict(
-    "_OptionalS3DataConfigTypeDef",
-    {
-        "kmsKeyArn": str,
-    },
-    total=False,
-)
-
-class S3DataConfigTypeDef(_RequiredS3DataConfigTypeDef, _OptionalS3DataConfigTypeDef):
-    pass
-
-SolutionConfigTypeDef = TypedDict(
-    "SolutionConfigTypeDef",
-    {
-        "eventValueThreshold": str,
-        "hpoConfig": "HPOConfigTypeDef",
-        "algorithmHyperParameters": Dict[str, str],
-        "featureTransformationParameters": Dict[str, str],
-        "autoMLConfig": "AutoMLConfigTypeDef",
-        "optimizationObjective": "OptimizationObjectiveTypeDef",
-        "trainingDataConfig": "TrainingDataConfigTypeDef",
-        "autoTrainingConfig": "AutoTrainingConfigTypeDef",
-    },
-    total=False,
-)
-
-SolutionSummaryTypeDef = TypedDict(
-    "SolutionSummaryTypeDef",
-    {
-        "name": str,
-        "solutionArn": str,
-        "status": str,
-        "creationDateTime": datetime,
-        "lastUpdatedDateTime": datetime,
-        "recipeArn": str,
-    },
-    total=False,
-)
-
-SolutionTypeDef = TypedDict(
-    "SolutionTypeDef",
-    {
-        "name": str,
-        "solutionArn": str,
-        "performHPO": bool,
-        "performAutoML": bool,
-        "performAutoTraining": bool,
-        "recipeArn": str,
-        "datasetGroupArn": str,
-        "eventType": str,
-        "solutionConfig": "SolutionConfigTypeDef",
-        "autoMLResult": "AutoMLResultTypeDef",
-        "status": str,
-        "creationDateTime": datetime,
-        "lastUpdatedDateTime": datetime,
-        "latestSolutionVersion": "SolutionVersionSummaryTypeDef",
-    },
-    total=False,
-)
-
-SolutionVersionSummaryTypeDef = TypedDict(
-    "SolutionVersionSummaryTypeDef",
-    {
-        "solutionVersionArn": str,
-        "status": str,
-        "trainingMode": TrainingModeType,
-        "trainingType": TrainingTypeType,
-        "creationDateTime": datetime,
-        "lastUpdatedDateTime": datetime,
-        "failureReason": str,
-    },
-    total=False,
-)
-
-SolutionVersionTypeDef = TypedDict(
-    "SolutionVersionTypeDef",
-    {
-        "name": str,
-        "solutionVersionArn": str,
-        "solutionArn": str,
-        "performHPO": bool,
-        "performAutoML": bool,
-        "recipeArn": str,
-        "eventType": str,
-        "datasetGroupArn": str,
-        "solutionConfig": "SolutionConfigTypeDef",
-        "trainingHours": float,
-        "trainingMode": TrainingModeType,
-        "tunedHPOParams": "TunedHPOParamsTypeDef",
-        "status": str,
-        "failureReason": str,
-        "creationDateTime": datetime,
-        "lastUpdatedDateTime": datetime,
-        "trainingType": TrainingTypeType,
-    },
-    total=False,
-)
-
-StartRecommenderRequestRequestTypeDef = TypedDict(
-    "StartRecommenderRequestRequestTypeDef",
-    {
-        "recommenderArn": str,
-    },
-)
-
-StartRecommenderResponseTypeDef = TypedDict(
-    "StartRecommenderResponseTypeDef",
-    {
-        "recommenderArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-StopRecommenderRequestRequestTypeDef = TypedDict(
-    "StopRecommenderRequestRequestTypeDef",
-    {
-        "recommenderArn": str,
-    },
-)
-
-StopRecommenderResponseTypeDef = TypedDict(
-    "StopRecommenderResponseTypeDef",
-    {
-        "recommenderArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-StopSolutionVersionCreationRequestRequestTypeDef = TypedDict(
-    "StopSolutionVersionCreationRequestRequestTypeDef",
-    {
-        "solutionVersionArn": str,
-    },
-)
-
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tags": List["TagTypeDef"],
-    },
-)
-
-TagTypeDef = TypedDict(
-    "TagTypeDef",
-    {
-        "tagKey": str,
-        "tagValue": str,
-    },
-)
-
-ThemeGenerationConfigTypeDef = TypedDict(
-    "ThemeGenerationConfigTypeDef",
-    {
-        "fieldsForThemeGeneration": "FieldsForThemeGenerationTypeDef",
-    },
-)
-
-TrainingDataConfigTypeDef = TypedDict(
-    "TrainingDataConfigTypeDef",
-    {
-        "excludedDatasetColumns": Dict[str, List[str]],
-    },
-    total=False,
-)
-
-TunedHPOParamsTypeDef = TypedDict(
-    "TunedHPOParamsTypeDef",
-    {
-        "algorithmHyperParameters": Dict[str, str],
-    },
-    total=False,
-)
-
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tagKeys": List[str],
-    },
-)
-
-_RequiredUpdateCampaignRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateCampaignRequestRequestTypeDef",
-    {
-        "campaignArn": str,
-    },
-)
-_OptionalUpdateCampaignRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateCampaignRequestRequestTypeDef",
-    {
-        "solutionVersionArn": str,
-        "minProvisionedTPS": int,
-        "campaignConfig": "CampaignConfigTypeDef",
-    },
-    total=False,
-)
-
-class UpdateCampaignRequestRequestTypeDef(
-    _RequiredUpdateCampaignRequestRequestTypeDef, _OptionalUpdateCampaignRequestRequestTypeDef
-):
-    pass
-
-UpdateCampaignResponseTypeDef = TypedDict(
-    "UpdateCampaignResponseTypeDef",
-    {
-        "campaignArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UpdateDatasetRequestRequestTypeDef = TypedDict(
-    "UpdateDatasetRequestRequestTypeDef",
-    {
-        "datasetArn": str,
-        "schemaArn": str,
-    },
-)
-
-UpdateDatasetResponseTypeDef = TypedDict(
-    "UpdateDatasetResponseTypeDef",
-    {
-        "datasetArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UpdateMetricAttributionRequestRequestTypeDef = TypedDict(
-    "UpdateMetricAttributionRequestRequestTypeDef",
-    {
-        "addMetrics": List["MetricAttributeTypeDef"],
-        "removeMetrics": List[str],
-        "metricsOutputConfig": "MetricAttributionOutputTypeDef",
-        "metricAttributionArn": str,
-    },
-    total=False,
-)
-
-UpdateMetricAttributionResponseTypeDef = TypedDict(
-    "UpdateMetricAttributionResponseTypeDef",
-    {
-        "metricAttributionArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UpdateRecommenderRequestRequestTypeDef = TypedDict(
-    "UpdateRecommenderRequestRequestTypeDef",
-    {
-        "recommenderArn": str,
-        "recommenderConfig": "RecommenderConfigTypeDef",
-    },
-)
-
-UpdateRecommenderResponseTypeDef = TypedDict(
-    "UpdateRecommenderResponseTypeDef",
-    {
-        "recommenderArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+        "type": NotRequired[str],
+        "metricName": NotRequired[str],
+        "metricRegex": NotRequired[str],
+    },
+)
+
+class HPOResourceConfigTypeDef(TypedDict):
+    maxNumberOfTrainingJobs: NotRequired[str]
+    maxParallelTrainingJobs: NotRequired[str]
+
+class IntegerHyperParameterRangeTypeDef(TypedDict):
+    name: NotRequired[str]
+    minValue: NotRequired[int]
+    maxValue: NotRequired[int]
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class ListBatchInferenceJobsRequestTypeDef(TypedDict):
+    solutionVersionArn: NotRequired[str]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class ListBatchSegmentJobsRequestTypeDef(TypedDict):
+    solutionVersionArn: NotRequired[str]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class ListCampaignsRequestTypeDef(TypedDict):
+    solutionArn: NotRequired[str]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class ListDataDeletionJobsRequestTypeDef(TypedDict):
+    datasetGroupArn: NotRequired[str]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class ListDatasetExportJobsRequestTypeDef(TypedDict):
+    datasetArn: NotRequired[str]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class ListDatasetGroupsRequestTypeDef(TypedDict):
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class ListDatasetImportJobsRequestTypeDef(TypedDict):
+    datasetArn: NotRequired[str]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class ListDatasetsRequestTypeDef(TypedDict):
+    datasetGroupArn: NotRequired[str]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class ListEventTrackersRequestTypeDef(TypedDict):
+    datasetGroupArn: NotRequired[str]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class ListFiltersRequestTypeDef(TypedDict):
+    datasetGroupArn: NotRequired[str]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class ListMetricAttributionMetricsRequestTypeDef(TypedDict):
+    metricAttributionArn: NotRequired[str]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class ListMetricAttributionsRequestTypeDef(TypedDict):
+    datasetGroupArn: NotRequired[str]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class MetricAttributionSummaryTypeDef(TypedDict):
+    name: NotRequired[str]
+    metricAttributionArn: NotRequired[str]
+    status: NotRequired[str]
+    creationDateTime: NotRequired[datetime]
+    lastUpdatedDateTime: NotRequired[datetime]
+    failureReason: NotRequired[str]
+
+class ListRecipesRequestTypeDef(TypedDict):
+    recipeProvider: NotRequired[Literal["SERVICE"]]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+    domain: NotRequired[DomainType]
+
+class RecipeSummaryTypeDef(TypedDict):
+    name: NotRequired[str]
+    recipeArn: NotRequired[str]
+    status: NotRequired[str]
+    creationDateTime: NotRequired[datetime]
+    lastUpdatedDateTime: NotRequired[datetime]
+    domain: NotRequired[DomainType]
+
+class ListRecommendersRequestTypeDef(TypedDict):
+    datasetGroupArn: NotRequired[str]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class ListSchemasRequestTypeDef(TypedDict):
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class ListSolutionVersionsRequestTypeDef(TypedDict):
+    solutionArn: NotRequired[str]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class SolutionVersionSummaryTypeDef(TypedDict):
+    solutionVersionArn: NotRequired[str]
+    status: NotRequired[str]
+    trainingMode: NotRequired[TrainingModeType]
+    trainingType: NotRequired[TrainingTypeType]
+    creationDateTime: NotRequired[datetime]
+    lastUpdatedDateTime: NotRequired[datetime]
+    failureReason: NotRequired[str]
+
+class ListSolutionsRequestTypeDef(TypedDict):
+    datasetGroupArn: NotRequired[str]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class SolutionSummaryTypeDef(TypedDict):
+    name: NotRequired[str]
+    solutionArn: NotRequired[str]
+    status: NotRequired[str]
+    creationDateTime: NotRequired[datetime]
+    lastUpdatedDateTime: NotRequired[datetime]
+    recipeArn: NotRequired[str]
+
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+
+class OptimizationObjectiveTypeDef(TypedDict):
+    itemAttribute: NotRequired[str]
+    objectiveSensitivity: NotRequired[ObjectiveSensitivityType]
+
+class TrainingDataConfigOutputTypeDef(TypedDict):
+    excludedDatasetColumns: NotRequired[Dict[str, List[str]]]
+
+class TrainingDataConfigTypeDef(TypedDict):
+    excludedDatasetColumns: NotRequired[Mapping[str, Sequence[str]]]
+
+class TunedHPOParamsTypeDef(TypedDict):
+    algorithmHyperParameters: NotRequired[Dict[str, str]]
+
+class StartRecommenderRequestTypeDef(TypedDict):
+    recommenderArn: str
+
+class StopRecommenderRequestTypeDef(TypedDict):
+    recommenderArn: str
+
+class StopSolutionVersionCreationRequestTypeDef(TypedDict):
+    solutionVersionArn: str
+
+class UntagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tagKeys: Sequence[str]
+
+class UpdateDatasetRequestTypeDef(TypedDict):
+    datasetArn: str
+    schemaArn: str
+
+BatchInferenceJobConfigUnionTypeDef = Union[
+    BatchInferenceJobConfigTypeDef, BatchInferenceJobConfigOutputTypeDef
+]
+
+class BatchInferenceJobInputTypeDef(TypedDict):
+    s3DataSource: S3DataConfigTypeDef
+
+class BatchInferenceJobOutputTypeDef(TypedDict):
+    s3DataDestination: S3DataConfigTypeDef
+
+class BatchSegmentJobInputTypeDef(TypedDict):
+    s3DataSource: S3DataConfigTypeDef
+
+class BatchSegmentJobOutputTypeDef(TypedDict):
+    s3DataDestination: S3DataConfigTypeDef
+
+class DatasetExportJobOutputTypeDef(TypedDict):
+    s3DataDestination: S3DataConfigTypeDef
+
+class MetricAttributionOutputTypeDef(TypedDict):
+    roleArn: str
+    s3DataDestination: NotRequired[S3DataConfigTypeDef]
+
+class CampaignUpdateSummaryTypeDef(TypedDict):
+    solutionVersionArn: NotRequired[str]
+    minProvisionedTPS: NotRequired[int]
+    campaignConfig: NotRequired[CampaignConfigOutputTypeDef]
+    status: NotRequired[str]
+    failureReason: NotRequired[str]
+    creationDateTime: NotRequired[datetime]
+    lastUpdatedDateTime: NotRequired[datetime]
+
+CampaignConfigUnionTypeDef = Union[CampaignConfigTypeDef, CampaignConfigOutputTypeDef]
+
+class CreateDatasetGroupRequestTypeDef(TypedDict):
+    name: str
+    roleArn: NotRequired[str]
+    kmsKeyArn: NotRequired[str]
+    domain: NotRequired[DomainType]
+    tags: NotRequired[Sequence[TagTypeDef]]
+
+class CreateDatasetRequestTypeDef(TypedDict):
+    name: str
+    schemaArn: str
+    datasetGroupArn: str
+    datasetType: str
+    tags: NotRequired[Sequence[TagTypeDef]]
+
+class CreateEventTrackerRequestTypeDef(TypedDict):
+    name: str
+    datasetGroupArn: str
+    tags: NotRequired[Sequence[TagTypeDef]]
+
+class CreateFilterRequestTypeDef(TypedDict):
+    name: str
+    datasetGroupArn: str
+    filterExpression: str
+    tags: NotRequired[Sequence[TagTypeDef]]
+
+class CreateSolutionVersionRequestTypeDef(TypedDict):
+    solutionArn: str
+    name: NotRequired[str]
+    trainingMode: NotRequired[TrainingModeType]
+    tags: NotRequired[Sequence[TagTypeDef]]
+
+class TagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tags: Sequence[TagTypeDef]
+
+class CreateBatchInferenceJobResponseTypeDef(TypedDict):
+    batchInferenceJobArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateBatchSegmentJobResponseTypeDef(TypedDict):
+    batchSegmentJobArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateCampaignResponseTypeDef(TypedDict):
+    campaignArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateDataDeletionJobResponseTypeDef(TypedDict):
+    dataDeletionJobArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateDatasetExportJobResponseTypeDef(TypedDict):
+    datasetExportJobArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateDatasetGroupResponseTypeDef(TypedDict):
+    datasetGroupArn: str
+    domain: DomainType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateDatasetImportJobResponseTypeDef(TypedDict):
+    datasetImportJobArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateDatasetResponseTypeDef(TypedDict):
+    datasetArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateEventTrackerResponseTypeDef(TypedDict):
+    eventTrackerArn: str
+    trackingId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateFilterResponseTypeDef(TypedDict):
+    filterArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateMetricAttributionResponseTypeDef(TypedDict):
+    metricAttributionArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateRecommenderResponseTypeDef(TypedDict):
+    recommenderArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateSchemaResponseTypeDef(TypedDict):
+    schemaArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateSolutionResponseTypeDef(TypedDict):
+    solutionArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateSolutionVersionResponseTypeDef(TypedDict):
+    solutionVersionArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class EmptyResponseMetadataTypeDef(TypedDict):
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetSolutionMetricsResponseTypeDef(TypedDict):
+    solutionVersionArn: str
+    metrics: Dict[str, float]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListBatchInferenceJobsResponseTypeDef(TypedDict):
+    batchInferenceJobs: List[BatchInferenceJobSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListBatchSegmentJobsResponseTypeDef(TypedDict):
+    batchSegmentJobs: List[BatchSegmentJobSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListCampaignsResponseTypeDef(TypedDict):
+    campaigns: List[CampaignSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    tags: List[TagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartRecommenderResponseTypeDef(TypedDict):
+    recommenderArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StopRecommenderResponseTypeDef(TypedDict):
+    recommenderArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateCampaignResponseTypeDef(TypedDict):
+    campaignArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateDatasetResponseTypeDef(TypedDict):
+    datasetArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateMetricAttributionResponseTypeDef(TypedDict):
+    metricAttributionArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateRecommenderResponseTypeDef(TypedDict):
+    recommenderArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateSolutionResponseTypeDef(TypedDict):
+    solutionArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateDataDeletionJobRequestTypeDef(TypedDict):
+    jobName: str
+    datasetGroupArn: str
+    dataSource: DataSourceTypeDef
+    roleArn: str
+    tags: NotRequired[Sequence[TagTypeDef]]
+
+class CreateDatasetImportJobRequestTypeDef(TypedDict):
+    jobName: str
+    datasetArn: str
+    dataSource: DataSourceTypeDef
+    roleArn: str
+    tags: NotRequired[Sequence[TagTypeDef]]
+    importMode: NotRequired[ImportModeType]
+    publishAttributionMetricsToS3: NotRequired[bool]
+
+class DataDeletionJobTypeDef(TypedDict):
+    jobName: NotRequired[str]
+    dataDeletionJobArn: NotRequired[str]
+    datasetGroupArn: NotRequired[str]
+    dataSource: NotRequired[DataSourceTypeDef]
+    roleArn: NotRequired[str]
+    status: NotRequired[str]
+    numDeleted: NotRequired[int]
+    creationDateTime: NotRequired[datetime]
+    lastUpdatedDateTime: NotRequired[datetime]
+    failureReason: NotRequired[str]
+
+class DatasetImportJobTypeDef(TypedDict):
+    jobName: NotRequired[str]
+    datasetImportJobArn: NotRequired[str]
+    datasetArn: NotRequired[str]
+    dataSource: NotRequired[DataSourceTypeDef]
+    roleArn: NotRequired[str]
+    status: NotRequired[str]
+    creationDateTime: NotRequired[datetime]
+    lastUpdatedDateTime: NotRequired[datetime]
+    failureReason: NotRequired[str]
+    importMode: NotRequired[ImportModeType]
+    publishAttributionMetricsToS3: NotRequired[bool]
+
+class ListMetricAttributionMetricsResponseTypeDef(TypedDict):
+    metrics: List[MetricAttributeTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListDataDeletionJobsResponseTypeDef(TypedDict):
+    dataDeletionJobs: List[DataDeletionJobSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListDatasetExportJobsResponseTypeDef(TypedDict):
+    datasetExportJobs: List[DatasetExportJobSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListDatasetGroupsResponseTypeDef(TypedDict):
+    datasetGroups: List[DatasetGroupSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class DescribeDatasetGroupResponseTypeDef(TypedDict):
+    datasetGroup: DatasetGroupTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListDatasetImportJobsResponseTypeDef(TypedDict):
+    datasetImportJobs: List[DatasetImportJobSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListSchemasResponseTypeDef(TypedDict):
+    schemas: List[DatasetSchemaSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class DescribeSchemaResponseTypeDef(TypedDict):
+    schema: DatasetSchemaTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListDatasetsResponseTypeDef(TypedDict):
+    datasets: List[DatasetSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class DatasetTypeDef(TypedDict):
+    name: NotRequired[str]
+    datasetArn: NotRequired[str]
+    datasetGroupArn: NotRequired[str]
+    datasetType: NotRequired[str]
+    schemaArn: NotRequired[str]
+    status: NotRequired[str]
+    creationDateTime: NotRequired[datetime]
+    lastUpdatedDateTime: NotRequired[datetime]
+    latestDatasetUpdate: NotRequired[DatasetUpdateSummaryTypeDef]
+    trackingId: NotRequired[str]
+
+class DefaultHyperParameterRangesTypeDef(TypedDict):
+    integerHyperParameterRanges: NotRequired[List[DefaultIntegerHyperParameterRangeTypeDef]]
+    continuousHyperParameterRanges: NotRequired[List[DefaultContinuousHyperParameterRangeTypeDef]]
+    categoricalHyperParameterRanges: NotRequired[List[DefaultCategoricalHyperParameterRangeTypeDef]]
+
+class DescribeEventTrackerResponseTypeDef(TypedDict):
+    eventTracker: EventTrackerTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeFeatureTransformationResponseTypeDef(TypedDict):
+    featureTransformation: FeatureTransformationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+DescribeFilterResponseTypeDef = TypedDict(
+    "DescribeFilterResponseTypeDef",
+    {
+        "filter": FilterTypeDef,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+
+class DescribeRecipeResponseTypeDef(TypedDict):
+    recipe: RecipeTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class EventsConfigOutputTypeDef(TypedDict):
+    eventParametersList: NotRequired[List[EventParametersTypeDef]]
+
+class EventsConfigTypeDef(TypedDict):
+    eventParametersList: NotRequired[Sequence[EventParametersTypeDef]]
+
+class ListEventTrackersResponseTypeDef(TypedDict):
+    eventTrackers: List[EventTrackerSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ThemeGenerationConfigTypeDef(TypedDict):
+    fieldsForThemeGeneration: FieldsForThemeGenerationTypeDef
+
+class ListFiltersResponseTypeDef(TypedDict):
+    Filters: List[FilterSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class HyperParameterRangesOutputTypeDef(TypedDict):
+    integerHyperParameterRanges: NotRequired[List[IntegerHyperParameterRangeTypeDef]]
+    continuousHyperParameterRanges: NotRequired[List[ContinuousHyperParameterRangeTypeDef]]
+    categoricalHyperParameterRanges: NotRequired[List[CategoricalHyperParameterRangeOutputTypeDef]]
+
+class HyperParameterRangesTypeDef(TypedDict):
+    integerHyperParameterRanges: NotRequired[Sequence[IntegerHyperParameterRangeTypeDef]]
+    continuousHyperParameterRanges: NotRequired[Sequence[ContinuousHyperParameterRangeTypeDef]]
+    categoricalHyperParameterRanges: NotRequired[Sequence[CategoricalHyperParameterRangeTypeDef]]
+
+class ListBatchInferenceJobsRequestPaginateTypeDef(TypedDict):
+    solutionVersionArn: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListBatchSegmentJobsRequestPaginateTypeDef(TypedDict):
+    solutionVersionArn: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListCampaignsRequestPaginateTypeDef(TypedDict):
+    solutionArn: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListDatasetExportJobsRequestPaginateTypeDef(TypedDict):
+    datasetArn: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListDatasetGroupsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListDatasetImportJobsRequestPaginateTypeDef(TypedDict):
+    datasetArn: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListDatasetsRequestPaginateTypeDef(TypedDict):
+    datasetGroupArn: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListEventTrackersRequestPaginateTypeDef(TypedDict):
+    datasetGroupArn: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListFiltersRequestPaginateTypeDef(TypedDict):
+    datasetGroupArn: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListMetricAttributionMetricsRequestPaginateTypeDef(TypedDict):
+    metricAttributionArn: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListMetricAttributionsRequestPaginateTypeDef(TypedDict):
+    datasetGroupArn: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListRecipesRequestPaginateTypeDef(TypedDict):
+    recipeProvider: NotRequired[Literal["SERVICE"]]
+    domain: NotRequired[DomainType]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListRecommendersRequestPaginateTypeDef(TypedDict):
+    datasetGroupArn: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListSchemasRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListSolutionVersionsRequestPaginateTypeDef(TypedDict):
+    solutionArn: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListSolutionsRequestPaginateTypeDef(TypedDict):
+    datasetGroupArn: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListMetricAttributionsResponseTypeDef(TypedDict):
+    metricAttributions: List[MetricAttributionSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListRecipesResponseTypeDef(TypedDict):
+    recipes: List[RecipeSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListSolutionVersionsResponseTypeDef(TypedDict):
+    solutionVersions: List[SolutionVersionSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListSolutionsResponseTypeDef(TypedDict):
+    solutions: List[SolutionSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class RecommenderConfigOutputTypeDef(TypedDict):
+    itemExplorationConfig: NotRequired[Dict[str, str]]
+    minRecommendationRequestsPerSecond: NotRequired[int]
+    trainingDataConfig: NotRequired[TrainingDataConfigOutputTypeDef]
+    enableMetadataWithRecommendations: NotRequired[bool]
+
+class RecommenderConfigTypeDef(TypedDict):
+    itemExplorationConfig: NotRequired[Mapping[str, str]]
+    minRecommendationRequestsPerSecond: NotRequired[int]
+    trainingDataConfig: NotRequired[TrainingDataConfigTypeDef]
+    enableMetadataWithRecommendations: NotRequired[bool]
+
+class BatchSegmentJobTypeDef(TypedDict):
+    jobName: NotRequired[str]
+    batchSegmentJobArn: NotRequired[str]
+    filterArn: NotRequired[str]
+    failureReason: NotRequired[str]
+    solutionVersionArn: NotRequired[str]
+    numResults: NotRequired[int]
+    jobInput: NotRequired[BatchSegmentJobInputTypeDef]
+    jobOutput: NotRequired[BatchSegmentJobOutputTypeDef]
+    roleArn: NotRequired[str]
+    status: NotRequired[str]
+    creationDateTime: NotRequired[datetime]
+    lastUpdatedDateTime: NotRequired[datetime]
+
+class CreateBatchSegmentJobRequestTypeDef(TypedDict):
+    jobName: str
+    solutionVersionArn: str
+    jobInput: BatchSegmentJobInputTypeDef
+    jobOutput: BatchSegmentJobOutputTypeDef
+    roleArn: str
+    filterArn: NotRequired[str]
+    numResults: NotRequired[int]
+    tags: NotRequired[Sequence[TagTypeDef]]
+
+class CreateDatasetExportJobRequestTypeDef(TypedDict):
+    jobName: str
+    datasetArn: str
+    roleArn: str
+    jobOutput: DatasetExportJobOutputTypeDef
+    ingestionMode: NotRequired[IngestionModeType]
+    tags: NotRequired[Sequence[TagTypeDef]]
+
+class DatasetExportJobTypeDef(TypedDict):
+    jobName: NotRequired[str]
+    datasetExportJobArn: NotRequired[str]
+    datasetArn: NotRequired[str]
+    ingestionMode: NotRequired[IngestionModeType]
+    roleArn: NotRequired[str]
+    status: NotRequired[str]
+    jobOutput: NotRequired[DatasetExportJobOutputTypeDef]
+    creationDateTime: NotRequired[datetime]
+    lastUpdatedDateTime: NotRequired[datetime]
+    failureReason: NotRequired[str]
+
+class CreateMetricAttributionRequestTypeDef(TypedDict):
+    name: str
+    datasetGroupArn: str
+    metrics: Sequence[MetricAttributeTypeDef]
+    metricsOutputConfig: MetricAttributionOutputTypeDef
+
+class MetricAttributionTypeDef(TypedDict):
+    name: NotRequired[str]
+    metricAttributionArn: NotRequired[str]
+    datasetGroupArn: NotRequired[str]
+    metricsOutputConfig: NotRequired[MetricAttributionOutputTypeDef]
+    status: NotRequired[str]
+    creationDateTime: NotRequired[datetime]
+    lastUpdatedDateTime: NotRequired[datetime]
+    failureReason: NotRequired[str]
+
+class UpdateMetricAttributionRequestTypeDef(TypedDict):
+    addMetrics: NotRequired[Sequence[MetricAttributeTypeDef]]
+    removeMetrics: NotRequired[Sequence[str]]
+    metricsOutputConfig: NotRequired[MetricAttributionOutputTypeDef]
+    metricAttributionArn: NotRequired[str]
+
+class CampaignTypeDef(TypedDict):
+    name: NotRequired[str]
+    campaignArn: NotRequired[str]
+    solutionVersionArn: NotRequired[str]
+    minProvisionedTPS: NotRequired[int]
+    campaignConfig: NotRequired[CampaignConfigOutputTypeDef]
+    status: NotRequired[str]
+    failureReason: NotRequired[str]
+    creationDateTime: NotRequired[datetime]
+    lastUpdatedDateTime: NotRequired[datetime]
+    latestCampaignUpdate: NotRequired[CampaignUpdateSummaryTypeDef]
+
+class CreateCampaignRequestTypeDef(TypedDict):
+    name: str
+    solutionVersionArn: str
+    minProvisionedTPS: NotRequired[int]
+    campaignConfig: NotRequired[CampaignConfigUnionTypeDef]
+    tags: NotRequired[Sequence[TagTypeDef]]
+
+class UpdateCampaignRequestTypeDef(TypedDict):
+    campaignArn: str
+    solutionVersionArn: NotRequired[str]
+    minProvisionedTPS: NotRequired[int]
+    campaignConfig: NotRequired[CampaignConfigUnionTypeDef]
+
+class DescribeDataDeletionJobResponseTypeDef(TypedDict):
+    dataDeletionJob: DataDeletionJobTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeDatasetImportJobResponseTypeDef(TypedDict):
+    datasetImportJob: DatasetImportJobTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeDatasetResponseTypeDef(TypedDict):
+    dataset: DatasetTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class AlgorithmTypeDef(TypedDict):
+    name: NotRequired[str]
+    algorithmArn: NotRequired[str]
+    algorithmImage: NotRequired[AlgorithmImageTypeDef]
+    defaultHyperParameters: NotRequired[Dict[str, str]]
+    defaultHyperParameterRanges: NotRequired[DefaultHyperParameterRangesTypeDef]
+    defaultResourceConfig: NotRequired[Dict[str, str]]
+    trainingInputMode: NotRequired[str]
+    roleArn: NotRequired[str]
+    creationDateTime: NotRequired[datetime]
+    lastUpdatedDateTime: NotRequired[datetime]
+
+class SolutionUpdateConfigOutputTypeDef(TypedDict):
+    autoTrainingConfig: NotRequired[AutoTrainingConfigTypeDef]
+    eventsConfig: NotRequired[EventsConfigOutputTypeDef]
+
+class SolutionUpdateConfigTypeDef(TypedDict):
+    autoTrainingConfig: NotRequired[AutoTrainingConfigTypeDef]
+    eventsConfig: NotRequired[EventsConfigTypeDef]
+
+class BatchInferenceJobTypeDef(TypedDict):
+    jobName: NotRequired[str]
+    batchInferenceJobArn: NotRequired[str]
+    filterArn: NotRequired[str]
+    failureReason: NotRequired[str]
+    solutionVersionArn: NotRequired[str]
+    numResults: NotRequired[int]
+    jobInput: NotRequired[BatchInferenceJobInputTypeDef]
+    jobOutput: NotRequired[BatchInferenceJobOutputTypeDef]
+    batchInferenceJobConfig: NotRequired[BatchInferenceJobConfigOutputTypeDef]
+    roleArn: NotRequired[str]
+    batchInferenceJobMode: NotRequired[BatchInferenceJobModeType]
+    themeGenerationConfig: NotRequired[ThemeGenerationConfigTypeDef]
+    status: NotRequired[str]
+    creationDateTime: NotRequired[datetime]
+    lastUpdatedDateTime: NotRequired[datetime]
+
+class CreateBatchInferenceJobRequestTypeDef(TypedDict):
+    jobName: str
+    solutionVersionArn: str
+    jobInput: BatchInferenceJobInputTypeDef
+    jobOutput: BatchInferenceJobOutputTypeDef
+    roleArn: str
+    filterArn: NotRequired[str]
+    numResults: NotRequired[int]
+    batchInferenceJobConfig: NotRequired[BatchInferenceJobConfigUnionTypeDef]
+    tags: NotRequired[Sequence[TagTypeDef]]
+    batchInferenceJobMode: NotRequired[BatchInferenceJobModeType]
+    themeGenerationConfig: NotRequired[ThemeGenerationConfigTypeDef]
+
+class HPOConfigOutputTypeDef(TypedDict):
+    hpoObjective: NotRequired[HPOObjectiveTypeDef]
+    hpoResourceConfig: NotRequired[HPOResourceConfigTypeDef]
+    algorithmHyperParameterRanges: NotRequired[HyperParameterRangesOutputTypeDef]
+
+class HPOConfigTypeDef(TypedDict):
+    hpoObjective: NotRequired[HPOObjectiveTypeDef]
+    hpoResourceConfig: NotRequired[HPOResourceConfigTypeDef]
+    algorithmHyperParameterRanges: NotRequired[HyperParameterRangesTypeDef]
+
+class RecommenderSummaryTypeDef(TypedDict):
+    name: NotRequired[str]
+    recommenderArn: NotRequired[str]
+    datasetGroupArn: NotRequired[str]
+    recipeArn: NotRequired[str]
+    recommenderConfig: NotRequired[RecommenderConfigOutputTypeDef]
+    status: NotRequired[str]
+    creationDateTime: NotRequired[datetime]
+    lastUpdatedDateTime: NotRequired[datetime]
+
+class RecommenderUpdateSummaryTypeDef(TypedDict):
+    recommenderConfig: NotRequired[RecommenderConfigOutputTypeDef]
+    creationDateTime: NotRequired[datetime]
+    lastUpdatedDateTime: NotRequired[datetime]
+    status: NotRequired[str]
+    failureReason: NotRequired[str]
+
+RecommenderConfigUnionTypeDef = Union[RecommenderConfigTypeDef, RecommenderConfigOutputTypeDef]
+
+class DescribeBatchSegmentJobResponseTypeDef(TypedDict):
+    batchSegmentJob: BatchSegmentJobTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeDatasetExportJobResponseTypeDef(TypedDict):
+    datasetExportJob: DatasetExportJobTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeMetricAttributionResponseTypeDef(TypedDict):
+    metricAttribution: MetricAttributionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeCampaignResponseTypeDef(TypedDict):
+    campaign: CampaignTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeAlgorithmResponseTypeDef(TypedDict):
+    algorithm: AlgorithmTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class SolutionUpdateSummaryTypeDef(TypedDict):
+    solutionUpdateConfig: NotRequired[SolutionUpdateConfigOutputTypeDef]
+    status: NotRequired[str]
+    performAutoTraining: NotRequired[bool]
+    creationDateTime: NotRequired[datetime]
+    lastUpdatedDateTime: NotRequired[datetime]
+    failureReason: NotRequired[str]
+
+SolutionUpdateConfigUnionTypeDef = Union[
+    SolutionUpdateConfigTypeDef, SolutionUpdateConfigOutputTypeDef
+]
+
+class DescribeBatchInferenceJobResponseTypeDef(TypedDict):
+    batchInferenceJob: BatchInferenceJobTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class SolutionConfigOutputTypeDef(TypedDict):
+    eventValueThreshold: NotRequired[str]
+    hpoConfig: NotRequired[HPOConfigOutputTypeDef]
+    algorithmHyperParameters: NotRequired[Dict[str, str]]
+    featureTransformationParameters: NotRequired[Dict[str, str]]
+    autoMLConfig: NotRequired[AutoMLConfigOutputTypeDef]
+    eventsConfig: NotRequired[EventsConfigOutputTypeDef]
+    optimizationObjective: NotRequired[OptimizationObjectiveTypeDef]
+    trainingDataConfig: NotRequired[TrainingDataConfigOutputTypeDef]
+    autoTrainingConfig: NotRequired[AutoTrainingConfigTypeDef]
+
+class SolutionConfigTypeDef(TypedDict):
+    eventValueThreshold: NotRequired[str]
+    hpoConfig: NotRequired[HPOConfigTypeDef]
+    algorithmHyperParameters: NotRequired[Mapping[str, str]]
+    featureTransformationParameters: NotRequired[Mapping[str, str]]
+    autoMLConfig: NotRequired[AutoMLConfigTypeDef]
+    eventsConfig: NotRequired[EventsConfigTypeDef]
+    optimizationObjective: NotRequired[OptimizationObjectiveTypeDef]
+    trainingDataConfig: NotRequired[TrainingDataConfigTypeDef]
+    autoTrainingConfig: NotRequired[AutoTrainingConfigTypeDef]
+
+class ListRecommendersResponseTypeDef(TypedDict):
+    recommenders: List[RecommenderSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class RecommenderTypeDef(TypedDict):
+    recommenderArn: NotRequired[str]
+    datasetGroupArn: NotRequired[str]
+    name: NotRequired[str]
+    recipeArn: NotRequired[str]
+    recommenderConfig: NotRequired[RecommenderConfigOutputTypeDef]
+    creationDateTime: NotRequired[datetime]
+    lastUpdatedDateTime: NotRequired[datetime]
+    status: NotRequired[str]
+    failureReason: NotRequired[str]
+    latestRecommenderUpdate: NotRequired[RecommenderUpdateSummaryTypeDef]
+    modelMetrics: NotRequired[Dict[str, float]]
+
+class CreateRecommenderRequestTypeDef(TypedDict):
+    name: str
+    datasetGroupArn: str
+    recipeArn: str
+    recommenderConfig: NotRequired[RecommenderConfigUnionTypeDef]
+    tags: NotRequired[Sequence[TagTypeDef]]
+
+class UpdateRecommenderRequestTypeDef(TypedDict):
+    recommenderArn: str
+    recommenderConfig: RecommenderConfigUnionTypeDef
+
+class UpdateSolutionRequestTypeDef(TypedDict):
+    solutionArn: str
+    performAutoTraining: NotRequired[bool]
+    solutionUpdateConfig: NotRequired[SolutionUpdateConfigUnionTypeDef]
+
+class SolutionTypeDef(TypedDict):
+    name: NotRequired[str]
+    solutionArn: NotRequired[str]
+    performHPO: NotRequired[bool]
+    performAutoML: NotRequired[bool]
+    performAutoTraining: NotRequired[bool]
+    recipeArn: NotRequired[str]
+    datasetGroupArn: NotRequired[str]
+    eventType: NotRequired[str]
+    solutionConfig: NotRequired[SolutionConfigOutputTypeDef]
+    autoMLResult: NotRequired[AutoMLResultTypeDef]
+    status: NotRequired[str]
+    creationDateTime: NotRequired[datetime]
+    lastUpdatedDateTime: NotRequired[datetime]
+    latestSolutionVersion: NotRequired[SolutionVersionSummaryTypeDef]
+    latestSolutionUpdate: NotRequired[SolutionUpdateSummaryTypeDef]
+
+class SolutionVersionTypeDef(TypedDict):
+    name: NotRequired[str]
+    solutionVersionArn: NotRequired[str]
+    solutionArn: NotRequired[str]
+    performHPO: NotRequired[bool]
+    performAutoML: NotRequired[bool]
+    recipeArn: NotRequired[str]
+    eventType: NotRequired[str]
+    datasetGroupArn: NotRequired[str]
+    solutionConfig: NotRequired[SolutionConfigOutputTypeDef]
+    trainingHours: NotRequired[float]
+    trainingMode: NotRequired[TrainingModeType]
+    tunedHPOParams: NotRequired[TunedHPOParamsTypeDef]
+    status: NotRequired[str]
+    failureReason: NotRequired[str]
+    creationDateTime: NotRequired[datetime]
+    lastUpdatedDateTime: NotRequired[datetime]
+    trainingType: NotRequired[TrainingTypeType]
+
+SolutionConfigUnionTypeDef = Union[SolutionConfigTypeDef, SolutionConfigOutputTypeDef]
+
+class DescribeRecommenderResponseTypeDef(TypedDict):
+    recommender: RecommenderTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeSolutionResponseTypeDef(TypedDict):
+    solution: SolutionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeSolutionVersionResponseTypeDef(TypedDict):
+    solutionVersion: SolutionVersionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateSolutionRequestTypeDef(TypedDict):
+    name: str
+    datasetGroupArn: str
+    performHPO: NotRequired[bool]
+    performAutoML: NotRequired[bool]
+    performAutoTraining: NotRequired[bool]
+    recipeArn: NotRequired[str]
+    eventType: NotRequired[str]
+    solutionConfig: NotRequired[SolutionConfigUnionTypeDef]
+    tags: NotRequired[Sequence[TagTypeDef]]

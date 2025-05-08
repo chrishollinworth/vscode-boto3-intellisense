@@ -1,251 +1,205 @@
 """
 Type annotations for artifact service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_artifact/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_artifact/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_artifact.type_defs import AccountSettingsTypeDef
 
-    data: AccountSettingsTypeDef = {...}
+    data: AccountSettingsTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
 
 from .literals import (
     AcceptanceTypeType,
+    AgreementTypeType,
+    CustomerAgreementStateType,
     NotificationSubscriptionStatusType,
     PublishedStateType,
     UploadStateType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
     "AccountSettingsTypeDef",
+    "CustomerAgreementSummaryTypeDef",
     "GetAccountSettingsResponseTypeDef",
-    "GetReportMetadataRequestRequestTypeDef",
+    "GetReportMetadataRequestTypeDef",
     "GetReportMetadataResponseTypeDef",
-    "GetReportRequestRequestTypeDef",
+    "GetReportRequestTypeDef",
     "GetReportResponseTypeDef",
-    "GetTermForReportRequestRequestTypeDef",
+    "GetTermForReportRequestTypeDef",
     "GetTermForReportResponseTypeDef",
-    "ListReportsRequestRequestTypeDef",
+    "ListCustomerAgreementsRequestPaginateTypeDef",
+    "ListCustomerAgreementsRequestTypeDef",
+    "ListCustomerAgreementsResponseTypeDef",
+    "ListReportsRequestPaginateTypeDef",
+    "ListReportsRequestTypeDef",
     "ListReportsResponseTypeDef",
     "PaginatorConfigTypeDef",
-    "PutAccountSettingsRequestRequestTypeDef",
+    "PutAccountSettingsRequestTypeDef",
     "PutAccountSettingsResponseTypeDef",
     "ReportDetailTypeDef",
     "ReportSummaryTypeDef",
     "ResponseMetadataTypeDef",
 )
 
-AccountSettingsTypeDef = TypedDict(
-    "AccountSettingsTypeDef",
-    {
-        "notificationSubscriptionStatus": NotificationSubscriptionStatusType,
-    },
-    total=False,
-)
+class AccountSettingsTypeDef(TypedDict):
+    notificationSubscriptionStatus: NotRequired[NotificationSubscriptionStatusType]
 
-GetAccountSettingsResponseTypeDef = TypedDict(
-    "GetAccountSettingsResponseTypeDef",
+CustomerAgreementSummaryTypeDef = TypedDict(
+    "CustomerAgreementSummaryTypeDef",
     {
-        "accountSettings": "AccountSettingsTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetReportMetadataRequestRequestTypeDef = TypedDict(
-    "_RequiredGetReportMetadataRequestRequestTypeDef",
-    {
-        "reportId": str,
-    },
-)
-_OptionalGetReportMetadataRequestRequestTypeDef = TypedDict(
-    "_OptionalGetReportMetadataRequestRequestTypeDef",
-    {
-        "reportVersion": int,
-    },
-    total=False,
-)
-
-class GetReportMetadataRequestRequestTypeDef(
-    _RequiredGetReportMetadataRequestRequestTypeDef, _OptionalGetReportMetadataRequestRequestTypeDef
-):
-    pass
-
-GetReportMetadataResponseTypeDef = TypedDict(
-    "GetReportMetadataResponseTypeDef",
-    {
-        "reportDetails": "ReportDetailTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "name": NotRequired[str],
+        "arn": NotRequired[str],
+        "id": NotRequired[str],
+        "agreementArn": NotRequired[str],
+        "awsAccountId": NotRequired[str],
+        "organizationArn": NotRequired[str],
+        "effectiveStart": NotRequired[datetime],
+        "effectiveEnd": NotRequired[datetime],
+        "state": NotRequired[CustomerAgreementStateType],
+        "description": NotRequired[str],
+        "acceptanceTerms": NotRequired[List[str]],
+        "terminateTerms": NotRequired[List[str]],
+        "type": NotRequired[AgreementTypeType],
     },
 )
 
-_RequiredGetReportRequestRequestTypeDef = TypedDict(
-    "_RequiredGetReportRequestRequestTypeDef",
-    {
-        "reportId": str,
-        "termToken": str,
-    },
-)
-_OptionalGetReportRequestRequestTypeDef = TypedDict(
-    "_OptionalGetReportRequestRequestTypeDef",
-    {
-        "reportVersion": int,
-    },
-    total=False,
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-class GetReportRequestRequestTypeDef(
-    _RequiredGetReportRequestRequestTypeDef, _OptionalGetReportRequestRequestTypeDef
-):
-    pass
-
-GetReportResponseTypeDef = TypedDict(
-    "GetReportResponseTypeDef",
-    {
-        "documentPresignedUrl": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetTermForReportRequestRequestTypeDef = TypedDict(
-    "_RequiredGetTermForReportRequestRequestTypeDef",
-    {
-        "reportId": str,
-    },
-)
-_OptionalGetTermForReportRequestRequestTypeDef = TypedDict(
-    "_OptionalGetTermForReportRequestRequestTypeDef",
-    {
-        "reportVersion": int,
-    },
-    total=False,
-)
-
-class GetTermForReportRequestRequestTypeDef(
-    _RequiredGetTermForReportRequestRequestTypeDef, _OptionalGetTermForReportRequestRequestTypeDef
-):
-    pass
-
-GetTermForReportResponseTypeDef = TypedDict(
-    "GetTermForReportResponseTypeDef",
-    {
-        "documentPresignedUrl": str,
-        "termToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListReportsRequestRequestTypeDef = TypedDict(
-    "ListReportsRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-ListReportsResponseTypeDef = TypedDict(
-    "ListReportsResponseTypeDef",
-    {
-        "reports": List["ReportSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-PutAccountSettingsRequestRequestTypeDef = TypedDict(
-    "PutAccountSettingsRequestRequestTypeDef",
-    {
-        "notificationSubscriptionStatus": NotificationSubscriptionStatusType,
-    },
-    total=False,
-)
-
-PutAccountSettingsResponseTypeDef = TypedDict(
-    "PutAccountSettingsResponseTypeDef",
-    {
-        "accountSettings": "AccountSettingsTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetReportMetadataRequestTypeDef(TypedDict):
+    reportId: str
+    reportVersion: NotRequired[int]
 
 ReportDetailTypeDef = TypedDict(
     "ReportDetailTypeDef",
     {
-        "id": str,
-        "name": str,
-        "description": str,
-        "periodStart": datetime,
-        "periodEnd": datetime,
-        "createdAt": datetime,
-        "lastModifiedAt": datetime,
-        "deletedAt": datetime,
-        "state": PublishedStateType,
-        "arn": str,
-        "series": str,
-        "category": str,
-        "companyName": str,
-        "productName": str,
-        "termArn": str,
-        "version": int,
-        "acceptanceType": AcceptanceTypeType,
-        "sequenceNumber": int,
-        "uploadState": UploadStateType,
-        "statusMessage": str,
+        "id": NotRequired[str],
+        "name": NotRequired[str],
+        "description": NotRequired[str],
+        "periodStart": NotRequired[datetime],
+        "periodEnd": NotRequired[datetime],
+        "createdAt": NotRequired[datetime],
+        "lastModifiedAt": NotRequired[datetime],
+        "deletedAt": NotRequired[datetime],
+        "state": NotRequired[PublishedStateType],
+        "arn": NotRequired[str],
+        "series": NotRequired[str],
+        "category": NotRequired[str],
+        "companyName": NotRequired[str],
+        "productName": NotRequired[str],
+        "termArn": NotRequired[str],
+        "version": NotRequired[int],
+        "acceptanceType": NotRequired[AcceptanceTypeType],
+        "sequenceNumber": NotRequired[int],
+        "uploadState": NotRequired[UploadStateType],
+        "statusMessage": NotRequired[str],
     },
-    total=False,
 )
+
+class GetReportRequestTypeDef(TypedDict):
+    reportId: str
+    termToken: str
+    reportVersion: NotRequired[int]
+
+class GetTermForReportRequestTypeDef(TypedDict):
+    reportId: str
+    reportVersion: NotRequired[int]
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class ListCustomerAgreementsRequestTypeDef(TypedDict):
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListReportsRequestTypeDef(TypedDict):
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
 
 ReportSummaryTypeDef = TypedDict(
     "ReportSummaryTypeDef",
     {
-        "id": str,
-        "name": str,
-        "state": PublishedStateType,
-        "arn": str,
-        "version": int,
-        "uploadState": UploadStateType,
-        "description": str,
-        "periodStart": datetime,
-        "periodEnd": datetime,
-        "series": str,
-        "category": str,
-        "companyName": str,
-        "productName": str,
-        "statusMessage": str,
-        "acceptanceType": AcceptanceTypeType,
+        "id": NotRequired[str],
+        "name": NotRequired[str],
+        "state": NotRequired[PublishedStateType],
+        "arn": NotRequired[str],
+        "version": NotRequired[int],
+        "uploadState": NotRequired[UploadStateType],
+        "description": NotRequired[str],
+        "periodStart": NotRequired[datetime],
+        "periodEnd": NotRequired[datetime],
+        "series": NotRequired[str],
+        "category": NotRequired[str],
+        "companyName": NotRequired[str],
+        "productName": NotRequired[str],
+        "statusMessage": NotRequired[str],
+        "acceptanceType": NotRequired[AcceptanceTypeType],
     },
-    total=False,
 )
 
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
+class PutAccountSettingsRequestTypeDef(TypedDict):
+    notificationSubscriptionStatus: NotRequired[NotificationSubscriptionStatusType]
+
+class GetAccountSettingsResponseTypeDef(TypedDict):
+    accountSettings: AccountSettingsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetReportResponseTypeDef(TypedDict):
+    documentPresignedUrl: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetTermForReportResponseTypeDef(TypedDict):
+    documentPresignedUrl: str
+    termToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListCustomerAgreementsResponseTypeDef(TypedDict):
+    customerAgreements: List[CustomerAgreementSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class PutAccountSettingsResponseTypeDef(TypedDict):
+    accountSettings: AccountSettingsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetReportMetadataResponseTypeDef(TypedDict):
+    reportDetails: ReportDetailTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListCustomerAgreementsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListReportsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListReportsResponseTypeDef(TypedDict):
+    reports: List[ReportSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]

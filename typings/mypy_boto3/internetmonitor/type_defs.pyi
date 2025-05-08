@@ -1,20 +1,24 @@
 """
 Type annotations for internetmonitor service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_internetmonitor/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_internetmonitor/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_internetmonitor.type_defs import AvailabilityMeasurementTypeDef
 
-    data: AvailabilityMeasurementTypeDef = {...}
+    data: AvailabilityMeasurementTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List, Union
+from typing import Union
 
 from .literals import (
     HealthEventImpactTypeType,
@@ -31,27 +35,33 @@ from .literals import (
     TriangulationEventTypeType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
     "AvailabilityMeasurementTypeDef",
     "ClientLocationTypeDef",
-    "CreateMonitorInputRequestTypeDef",
+    "CreateMonitorInputTypeDef",
     "CreateMonitorOutputTypeDef",
-    "DeleteMonitorInputRequestTypeDef",
+    "DeleteMonitorInputTypeDef",
     "FilterParameterTypeDef",
-    "GetHealthEventInputRequestTypeDef",
+    "GetHealthEventInputTypeDef",
     "GetHealthEventOutputTypeDef",
-    "GetInternetEventInputRequestTypeDef",
+    "GetInternetEventInputTypeDef",
     "GetInternetEventOutputTypeDef",
-    "GetMonitorInputRequestTypeDef",
+    "GetMonitorInputTypeDef",
     "GetMonitorOutputTypeDef",
-    "GetQueryResultsInputRequestTypeDef",
+    "GetQueryResultsInputTypeDef",
     "GetQueryResultsOutputTypeDef",
-    "GetQueryStatusInputRequestTypeDef",
+    "GetQueryStatusInputTypeDef",
     "GetQueryStatusOutputTypeDef",
     "HealthEventTypeDef",
     "HealthEventsConfigTypeDef",
@@ -59,13 +69,16 @@ __all__ = (
     "InternetEventSummaryTypeDef",
     "InternetHealthTypeDef",
     "InternetMeasurementsLogDeliveryTypeDef",
-    "ListHealthEventsInputRequestTypeDef",
+    "ListHealthEventsInputPaginateTypeDef",
+    "ListHealthEventsInputTypeDef",
     "ListHealthEventsOutputTypeDef",
-    "ListInternetEventsInputRequestTypeDef",
+    "ListInternetEventsInputPaginateTypeDef",
+    "ListInternetEventsInputTypeDef",
     "ListInternetEventsOutputTypeDef",
-    "ListMonitorsInputRequestTypeDef",
+    "ListMonitorsInputPaginateTypeDef",
+    "ListMonitorsInputTypeDef",
     "ListMonitorsOutputTypeDef",
-    "ListTagsForResourceInputRequestTypeDef",
+    "ListTagsForResourceInputTypeDef",
     "ListTagsForResourceOutputTypeDef",
     "LocalHealthEventsConfigTypeDef",
     "MonitorTypeDef",
@@ -77,635 +90,337 @@ __all__ = (
     "ResponseMetadataTypeDef",
     "RoundTripTimeTypeDef",
     "S3ConfigTypeDef",
-    "StartQueryInputRequestTypeDef",
+    "StartQueryInputTypeDef",
     "StartQueryOutputTypeDef",
-    "StopQueryInputRequestTypeDef",
-    "TagResourceInputRequestTypeDef",
-    "UntagResourceInputRequestTypeDef",
-    "UpdateMonitorInputRequestTypeDef",
+    "StopQueryInputTypeDef",
+    "TagResourceInputTypeDef",
+    "TimestampTypeDef",
+    "UntagResourceInputTypeDef",
+    "UpdateMonitorInputTypeDef",
     "UpdateMonitorOutputTypeDef",
 )
 
-AvailabilityMeasurementTypeDef = TypedDict(
-    "AvailabilityMeasurementTypeDef",
-    {
-        "ExperienceScore": float,
-        "PercentOfTotalTrafficImpacted": float,
-        "PercentOfClientLocationImpacted": float,
-    },
-    total=False,
-)
+class AvailabilityMeasurementTypeDef(TypedDict):
+    ExperienceScore: NotRequired[float]
+    PercentOfTotalTrafficImpacted: NotRequired[float]
+    PercentOfClientLocationImpacted: NotRequired[float]
 
-_RequiredClientLocationTypeDef = TypedDict(
-    "_RequiredClientLocationTypeDef",
-    {
-        "ASName": str,
-        "ASNumber": int,
-        "Country": str,
-        "City": str,
-        "Latitude": float,
-        "Longitude": float,
-    },
-)
-_OptionalClientLocationTypeDef = TypedDict(
-    "_OptionalClientLocationTypeDef",
-    {
-        "Subdivision": str,
-        "Metro": str,
-    },
-    total=False,
-)
+class ClientLocationTypeDef(TypedDict):
+    ASName: str
+    ASNumber: int
+    Country: str
+    City: str
+    Latitude: float
+    Longitude: float
+    Subdivision: NotRequired[str]
+    Metro: NotRequired[str]
 
-class ClientLocationTypeDef(_RequiredClientLocationTypeDef, _OptionalClientLocationTypeDef):
-    pass
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-_RequiredCreateMonitorInputRequestTypeDef = TypedDict(
-    "_RequiredCreateMonitorInputRequestTypeDef",
-    {
-        "MonitorName": str,
-    },
-)
-_OptionalCreateMonitorInputRequestTypeDef = TypedDict(
-    "_OptionalCreateMonitorInputRequestTypeDef",
-    {
-        "Resources": List[str],
-        "ClientToken": str,
-        "Tags": Dict[str, str],
-        "MaxCityNetworksToMonitor": int,
-        "InternetMeasurementsLogDelivery": "InternetMeasurementsLogDeliveryTypeDef",
-        "TrafficPercentageToMonitor": int,
-        "HealthEventsConfig": "HealthEventsConfigTypeDef",
-    },
-    total=False,
-)
+class DeleteMonitorInputTypeDef(TypedDict):
+    MonitorName: str
 
-class CreateMonitorInputRequestTypeDef(
-    _RequiredCreateMonitorInputRequestTypeDef, _OptionalCreateMonitorInputRequestTypeDef
-):
-    pass
+class FilterParameterTypeDef(TypedDict):
+    Field: NotRequired[str]
+    Operator: NotRequired[OperatorType]
+    Values: NotRequired[Sequence[str]]
 
-CreateMonitorOutputTypeDef = TypedDict(
-    "CreateMonitorOutputTypeDef",
-    {
-        "Arn": str,
-        "Status": MonitorConfigStateType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetHealthEventInputTypeDef(TypedDict):
+    MonitorName: str
+    EventId: str
+    LinkedAccountId: NotRequired[str]
 
-DeleteMonitorInputRequestTypeDef = TypedDict(
-    "DeleteMonitorInputRequestTypeDef",
-    {
-        "MonitorName": str,
-    },
-)
+class GetInternetEventInputTypeDef(TypedDict):
+    EventId: str
 
-FilterParameterTypeDef = TypedDict(
-    "FilterParameterTypeDef",
-    {
-        "Field": str,
-        "Operator": OperatorType,
-        "Values": List[str],
-    },
-    total=False,
-)
+class GetMonitorInputTypeDef(TypedDict):
+    MonitorName: str
+    LinkedAccountId: NotRequired[str]
 
-_RequiredGetHealthEventInputRequestTypeDef = TypedDict(
-    "_RequiredGetHealthEventInputRequestTypeDef",
-    {
-        "MonitorName": str,
-        "EventId": str,
-    },
-)
-_OptionalGetHealthEventInputRequestTypeDef = TypedDict(
-    "_OptionalGetHealthEventInputRequestTypeDef",
-    {
-        "LinkedAccountId": str,
-    },
-    total=False,
-)
-
-class GetHealthEventInputRequestTypeDef(
-    _RequiredGetHealthEventInputRequestTypeDef, _OptionalGetHealthEventInputRequestTypeDef
-):
-    pass
-
-GetHealthEventOutputTypeDef = TypedDict(
-    "GetHealthEventOutputTypeDef",
-    {
-        "EventArn": str,
-        "EventId": str,
-        "StartedAt": datetime,
-        "EndedAt": datetime,
-        "CreatedAt": datetime,
-        "LastUpdatedAt": datetime,
-        "ImpactedLocations": List["ImpactedLocationTypeDef"],
-        "Status": HealthEventStatusType,
-        "PercentOfTotalTrafficImpacted": float,
-        "ImpactType": HealthEventImpactTypeType,
-        "HealthScoreThreshold": float,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetInternetEventInputRequestTypeDef = TypedDict(
-    "GetInternetEventInputRequestTypeDef",
-    {
-        "EventId": str,
-    },
-)
-
-GetInternetEventOutputTypeDef = TypedDict(
-    "GetInternetEventOutputTypeDef",
-    {
-        "EventId": str,
-        "EventArn": str,
-        "StartedAt": datetime,
-        "EndedAt": datetime,
-        "ClientLocation": "ClientLocationTypeDef",
-        "EventType": InternetEventTypeType,
-        "EventStatus": InternetEventStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetMonitorInputRequestTypeDef = TypedDict(
-    "_RequiredGetMonitorInputRequestTypeDef",
-    {
-        "MonitorName": str,
-    },
-)
-_OptionalGetMonitorInputRequestTypeDef = TypedDict(
-    "_OptionalGetMonitorInputRequestTypeDef",
-    {
-        "LinkedAccountId": str,
-    },
-    total=False,
-)
-
-class GetMonitorInputRequestTypeDef(
-    _RequiredGetMonitorInputRequestTypeDef, _OptionalGetMonitorInputRequestTypeDef
-):
-    pass
-
-GetMonitorOutputTypeDef = TypedDict(
-    "GetMonitorOutputTypeDef",
-    {
-        "MonitorName": str,
-        "MonitorArn": str,
-        "Resources": List[str],
-        "Status": MonitorConfigStateType,
-        "CreatedAt": datetime,
-        "ModifiedAt": datetime,
-        "ProcessingStatus": MonitorProcessingStatusCodeType,
-        "ProcessingStatusInfo": str,
-        "Tags": Dict[str, str],
-        "MaxCityNetworksToMonitor": int,
-        "InternetMeasurementsLogDelivery": "InternetMeasurementsLogDeliveryTypeDef",
-        "TrafficPercentageToMonitor": int,
-        "HealthEventsConfig": "HealthEventsConfigTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetQueryResultsInputRequestTypeDef = TypedDict(
-    "_RequiredGetQueryResultsInputRequestTypeDef",
-    {
-        "MonitorName": str,
-        "QueryId": str,
-    },
-)
-_OptionalGetQueryResultsInputRequestTypeDef = TypedDict(
-    "_OptionalGetQueryResultsInputRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-class GetQueryResultsInputRequestTypeDef(
-    _RequiredGetQueryResultsInputRequestTypeDef, _OptionalGetQueryResultsInputRequestTypeDef
-):
-    pass
-
-GetQueryResultsOutputTypeDef = TypedDict(
-    "GetQueryResultsOutputTypeDef",
-    {
-        "Fields": List["QueryFieldTypeDef"],
-        "Data": List[List[str]],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetQueryStatusInputRequestTypeDef = TypedDict(
-    "GetQueryStatusInputRequestTypeDef",
-    {
-        "MonitorName": str,
-        "QueryId": str,
-    },
-)
-
-GetQueryStatusOutputTypeDef = TypedDict(
-    "GetQueryStatusOutputTypeDef",
-    {
-        "Status": QueryStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredHealthEventTypeDef = TypedDict(
-    "_RequiredHealthEventTypeDef",
-    {
-        "EventArn": str,
-        "EventId": str,
-        "StartedAt": datetime,
-        "LastUpdatedAt": datetime,
-        "ImpactedLocations": List["ImpactedLocationTypeDef"],
-        "Status": HealthEventStatusType,
-        "ImpactType": HealthEventImpactTypeType,
-    },
-)
-_OptionalHealthEventTypeDef = TypedDict(
-    "_OptionalHealthEventTypeDef",
-    {
-        "EndedAt": datetime,
-        "CreatedAt": datetime,
-        "PercentOfTotalTrafficImpacted": float,
-        "HealthScoreThreshold": float,
-    },
-    total=False,
-)
-
-class HealthEventTypeDef(_RequiredHealthEventTypeDef, _OptionalHealthEventTypeDef):
-    pass
-
-HealthEventsConfigTypeDef = TypedDict(
-    "HealthEventsConfigTypeDef",
-    {
-        "AvailabilityScoreThreshold": float,
-        "PerformanceScoreThreshold": float,
-        "AvailabilityLocalHealthEventsConfig": "LocalHealthEventsConfigTypeDef",
-        "PerformanceLocalHealthEventsConfig": "LocalHealthEventsConfigTypeDef",
-    },
-    total=False,
-)
-
-_RequiredImpactedLocationTypeDef = TypedDict(
-    "_RequiredImpactedLocationTypeDef",
-    {
-        "ASName": str,
-        "ASNumber": int,
-        "Country": str,
-        "Status": HealthEventStatusType,
-    },
-)
-_OptionalImpactedLocationTypeDef = TypedDict(
-    "_OptionalImpactedLocationTypeDef",
-    {
-        "Subdivision": str,
-        "Metro": str,
-        "City": str,
-        "Latitude": float,
-        "Longitude": float,
-        "CountryCode": str,
-        "SubdivisionCode": str,
-        "ServiceLocation": str,
-        "CausedBy": "NetworkImpairmentTypeDef",
-        "InternetHealth": "InternetHealthTypeDef",
-        "Ipv4Prefixes": List[str],
-    },
-    total=False,
-)
-
-class ImpactedLocationTypeDef(_RequiredImpactedLocationTypeDef, _OptionalImpactedLocationTypeDef):
-    pass
-
-_RequiredInternetEventSummaryTypeDef = TypedDict(
-    "_RequiredInternetEventSummaryTypeDef",
-    {
-        "EventId": str,
-        "EventArn": str,
-        "StartedAt": datetime,
-        "ClientLocation": "ClientLocationTypeDef",
-        "EventType": InternetEventTypeType,
-        "EventStatus": InternetEventStatusType,
-    },
-)
-_OptionalInternetEventSummaryTypeDef = TypedDict(
-    "_OptionalInternetEventSummaryTypeDef",
-    {
-        "EndedAt": datetime,
-    },
-    total=False,
-)
-
-class InternetEventSummaryTypeDef(
-    _RequiredInternetEventSummaryTypeDef, _OptionalInternetEventSummaryTypeDef
-):
-    pass
-
-InternetHealthTypeDef = TypedDict(
-    "InternetHealthTypeDef",
-    {
-        "Availability": "AvailabilityMeasurementTypeDef",
-        "Performance": "PerformanceMeasurementTypeDef",
-    },
-    total=False,
-)
-
-InternetMeasurementsLogDeliveryTypeDef = TypedDict(
-    "InternetMeasurementsLogDeliveryTypeDef",
-    {
-        "S3Config": "S3ConfigTypeDef",
-    },
-    total=False,
-)
-
-_RequiredListHealthEventsInputRequestTypeDef = TypedDict(
-    "_RequiredListHealthEventsInputRequestTypeDef",
-    {
-        "MonitorName": str,
-    },
-)
-_OptionalListHealthEventsInputRequestTypeDef = TypedDict(
-    "_OptionalListHealthEventsInputRequestTypeDef",
-    {
-        "StartTime": Union[datetime, str],
-        "EndTime": Union[datetime, str],
-        "NextToken": str,
-        "MaxResults": int,
-        "EventStatus": HealthEventStatusType,
-        "LinkedAccountId": str,
-    },
-    total=False,
-)
-
-class ListHealthEventsInputRequestTypeDef(
-    _RequiredListHealthEventsInputRequestTypeDef, _OptionalListHealthEventsInputRequestTypeDef
-):
-    pass
-
-ListHealthEventsOutputTypeDef = TypedDict(
-    "ListHealthEventsOutputTypeDef",
-    {
-        "HealthEvents": List["HealthEventTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListInternetEventsInputRequestTypeDef = TypedDict(
-    "ListInternetEventsInputRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-        "StartTime": Union[datetime, str],
-        "EndTime": Union[datetime, str],
-        "EventStatus": str,
-        "EventType": str,
-    },
-    total=False,
-)
-
-ListInternetEventsOutputTypeDef = TypedDict(
-    "ListInternetEventsOutputTypeDef",
-    {
-        "InternetEvents": List["InternetEventSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListMonitorsInputRequestTypeDef = TypedDict(
-    "ListMonitorsInputRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-        "MonitorStatus": str,
-        "IncludeLinkedAccounts": bool,
-    },
-    total=False,
-)
-
-ListMonitorsOutputTypeDef = TypedDict(
-    "ListMonitorsOutputTypeDef",
-    {
-        "Monitors": List["MonitorTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTagsForResourceInputRequestTypeDef = TypedDict(
-    "ListTagsForResourceInputRequestTypeDef",
-    {
-        "ResourceArn": str,
-    },
-)
-
-ListTagsForResourceOutputTypeDef = TypedDict(
-    "ListTagsForResourceOutputTypeDef",
-    {
-        "Tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-LocalHealthEventsConfigTypeDef = TypedDict(
-    "LocalHealthEventsConfigTypeDef",
-    {
-        "Status": LocalHealthEventsConfigStatusType,
-        "HealthScoreThreshold": float,
-        "MinTrafficImpact": float,
-    },
-    total=False,
-)
-
-_RequiredMonitorTypeDef = TypedDict(
-    "_RequiredMonitorTypeDef",
-    {
-        "MonitorName": str,
-        "MonitorArn": str,
-        "Status": MonitorConfigStateType,
-    },
-)
-_OptionalMonitorTypeDef = TypedDict(
-    "_OptionalMonitorTypeDef",
-    {
-        "ProcessingStatus": MonitorProcessingStatusCodeType,
-    },
-    total=False,
-)
-
-class MonitorTypeDef(_RequiredMonitorTypeDef, _OptionalMonitorTypeDef):
-    pass
-
-NetworkImpairmentTypeDef = TypedDict(
-    "NetworkImpairmentTypeDef",
-    {
-        "Networks": List["NetworkTypeDef"],
-        "AsPath": List["NetworkTypeDef"],
-        "NetworkEventType": TriangulationEventTypeType,
-    },
-)
-
-NetworkTypeDef = TypedDict(
-    "NetworkTypeDef",
-    {
-        "ASName": str,
-        "ASNumber": int,
-    },
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-PerformanceMeasurementTypeDef = TypedDict(
-    "PerformanceMeasurementTypeDef",
-    {
-        "ExperienceScore": float,
-        "PercentOfTotalTrafficImpacted": float,
-        "PercentOfClientLocationImpacted": float,
-        "RoundTripTime": "RoundTripTimeTypeDef",
-    },
-    total=False,
-)
+class GetQueryResultsInputTypeDef(TypedDict):
+    MonitorName: str
+    QueryId: str
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
 
 QueryFieldTypeDef = TypedDict(
     "QueryFieldTypeDef",
     {
-        "Name": str,
-        "Type": str,
-    },
-    total=False,
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
+        "Name": NotRequired[str],
+        "Type": NotRequired[str],
     },
 )
 
-RoundTripTimeTypeDef = TypedDict(
-    "RoundTripTimeTypeDef",
-    {
-        "P50": float,
-        "P90": float,
-        "P95": float,
-    },
-    total=False,
-)
+class GetQueryStatusInputTypeDef(TypedDict):
+    MonitorName: str
+    QueryId: str
 
-S3ConfigTypeDef = TypedDict(
-    "S3ConfigTypeDef",
-    {
-        "BucketName": str,
-        "BucketPrefix": str,
-        "LogDeliveryStatus": LogDeliveryStatusType,
-    },
-    total=False,
-)
+class LocalHealthEventsConfigTypeDef(TypedDict):
+    Status: NotRequired[LocalHealthEventsConfigStatusType]
+    HealthScoreThreshold: NotRequired[float]
+    MinTrafficImpact: NotRequired[float]
 
-_RequiredStartQueryInputRequestTypeDef = TypedDict(
-    "_RequiredStartQueryInputRequestTypeDef",
-    {
-        "MonitorName": str,
-        "StartTime": Union[datetime, str],
-        "EndTime": Union[datetime, str],
-        "QueryType": QueryTypeType,
-    },
-)
-_OptionalStartQueryInputRequestTypeDef = TypedDict(
-    "_OptionalStartQueryInputRequestTypeDef",
-    {
-        "FilterParameters": List["FilterParameterTypeDef"],
-        "LinkedAccountId": str,
-    },
-    total=False,
-)
+class S3ConfigTypeDef(TypedDict):
+    BucketName: NotRequired[str]
+    BucketPrefix: NotRequired[str]
+    LogDeliveryStatus: NotRequired[LogDeliveryStatusType]
 
-class StartQueryInputRequestTypeDef(
-    _RequiredStartQueryInputRequestTypeDef, _OptionalStartQueryInputRequestTypeDef
-):
-    pass
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
 
-StartQueryOutputTypeDef = TypedDict(
-    "StartQueryOutputTypeDef",
-    {
-        "QueryId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+TimestampTypeDef = Union[datetime, str]
 
-StopQueryInputRequestTypeDef = TypedDict(
-    "StopQueryInputRequestTypeDef",
-    {
-        "MonitorName": str,
-        "QueryId": str,
-    },
-)
+class ListMonitorsInputTypeDef(TypedDict):
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+    MonitorStatus: NotRequired[str]
+    IncludeLinkedAccounts: NotRequired[bool]
 
-TagResourceInputRequestTypeDef = TypedDict(
-    "TagResourceInputRequestTypeDef",
-    {
-        "ResourceArn": str,
-        "Tags": Dict[str, str],
-    },
-)
+class MonitorTypeDef(TypedDict):
+    MonitorName: str
+    MonitorArn: str
+    Status: MonitorConfigStateType
+    ProcessingStatus: NotRequired[MonitorProcessingStatusCodeType]
 
-UntagResourceInputRequestTypeDef = TypedDict(
-    "UntagResourceInputRequestTypeDef",
-    {
-        "ResourceArn": str,
-        "TagKeys": List[str],
-    },
-)
+class ListTagsForResourceInputTypeDef(TypedDict):
+    ResourceArn: str
 
-_RequiredUpdateMonitorInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateMonitorInputRequestTypeDef",
-    {
-        "MonitorName": str,
-    },
-)
-_OptionalUpdateMonitorInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateMonitorInputRequestTypeDef",
-    {
-        "ResourcesToAdd": List[str],
-        "ResourcesToRemove": List[str],
-        "Status": MonitorConfigStateType,
-        "ClientToken": str,
-        "MaxCityNetworksToMonitor": int,
-        "InternetMeasurementsLogDelivery": "InternetMeasurementsLogDeliveryTypeDef",
-        "TrafficPercentageToMonitor": int,
-        "HealthEventsConfig": "HealthEventsConfigTypeDef",
-    },
-    total=False,
-)
+class NetworkTypeDef(TypedDict):
+    ASName: str
+    ASNumber: int
 
-class UpdateMonitorInputRequestTypeDef(
-    _RequiredUpdateMonitorInputRequestTypeDef, _OptionalUpdateMonitorInputRequestTypeDef
-):
-    pass
+class RoundTripTimeTypeDef(TypedDict):
+    P50: NotRequired[float]
+    P90: NotRequired[float]
+    P95: NotRequired[float]
 
-UpdateMonitorOutputTypeDef = TypedDict(
-    "UpdateMonitorOutputTypeDef",
-    {
-        "MonitorArn": str,
-        "Status": MonitorConfigStateType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class StopQueryInputTypeDef(TypedDict):
+    MonitorName: str
+    QueryId: str
+
+class TagResourceInputTypeDef(TypedDict):
+    ResourceArn: str
+    Tags: Mapping[str, str]
+
+class UntagResourceInputTypeDef(TypedDict):
+    ResourceArn: str
+    TagKeys: Sequence[str]
+
+class InternetEventSummaryTypeDef(TypedDict):
+    EventId: str
+    EventArn: str
+    StartedAt: datetime
+    ClientLocation: ClientLocationTypeDef
+    EventType: InternetEventTypeType
+    EventStatus: InternetEventStatusType
+    EndedAt: NotRequired[datetime]
+
+class CreateMonitorOutputTypeDef(TypedDict):
+    Arn: str
+    Status: MonitorConfigStateType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetInternetEventOutputTypeDef(TypedDict):
+    EventId: str
+    EventArn: str
+    StartedAt: datetime
+    EndedAt: datetime
+    ClientLocation: ClientLocationTypeDef
+    EventType: InternetEventTypeType
+    EventStatus: InternetEventStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetQueryStatusOutputTypeDef(TypedDict):
+    Status: QueryStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListTagsForResourceOutputTypeDef(TypedDict):
+    Tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartQueryOutputTypeDef(TypedDict):
+    QueryId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateMonitorOutputTypeDef(TypedDict):
+    MonitorArn: str
+    Status: MonitorConfigStateType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetQueryResultsOutputTypeDef(TypedDict):
+    Fields: List[QueryFieldTypeDef]
+    Data: List[List[str]]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class HealthEventsConfigTypeDef(TypedDict):
+    AvailabilityScoreThreshold: NotRequired[float]
+    PerformanceScoreThreshold: NotRequired[float]
+    AvailabilityLocalHealthEventsConfig: NotRequired[LocalHealthEventsConfigTypeDef]
+    PerformanceLocalHealthEventsConfig: NotRequired[LocalHealthEventsConfigTypeDef]
+
+class InternetMeasurementsLogDeliveryTypeDef(TypedDict):
+    S3Config: NotRequired[S3ConfigTypeDef]
+
+class ListMonitorsInputPaginateTypeDef(TypedDict):
+    MonitorStatus: NotRequired[str]
+    IncludeLinkedAccounts: NotRequired[bool]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListHealthEventsInputPaginateTypeDef(TypedDict):
+    MonitorName: str
+    StartTime: NotRequired[TimestampTypeDef]
+    EndTime: NotRequired[TimestampTypeDef]
+    EventStatus: NotRequired[HealthEventStatusType]
+    LinkedAccountId: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListHealthEventsInputTypeDef(TypedDict):
+    MonitorName: str
+    StartTime: NotRequired[TimestampTypeDef]
+    EndTime: NotRequired[TimestampTypeDef]
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+    EventStatus: NotRequired[HealthEventStatusType]
+    LinkedAccountId: NotRequired[str]
+
+class ListInternetEventsInputPaginateTypeDef(TypedDict):
+    StartTime: NotRequired[TimestampTypeDef]
+    EndTime: NotRequired[TimestampTypeDef]
+    EventStatus: NotRequired[str]
+    EventType: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListInternetEventsInputTypeDef(TypedDict):
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+    StartTime: NotRequired[TimestampTypeDef]
+    EndTime: NotRequired[TimestampTypeDef]
+    EventStatus: NotRequired[str]
+    EventType: NotRequired[str]
+
+class StartQueryInputTypeDef(TypedDict):
+    MonitorName: str
+    StartTime: TimestampTypeDef
+    EndTime: TimestampTypeDef
+    QueryType: QueryTypeType
+    FilterParameters: NotRequired[Sequence[FilterParameterTypeDef]]
+    LinkedAccountId: NotRequired[str]
+
+class ListMonitorsOutputTypeDef(TypedDict):
+    Monitors: List[MonitorTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class NetworkImpairmentTypeDef(TypedDict):
+    Networks: List[NetworkTypeDef]
+    AsPath: List[NetworkTypeDef]
+    NetworkEventType: TriangulationEventTypeType
+
+class PerformanceMeasurementTypeDef(TypedDict):
+    ExperienceScore: NotRequired[float]
+    PercentOfTotalTrafficImpacted: NotRequired[float]
+    PercentOfClientLocationImpacted: NotRequired[float]
+    RoundTripTime: NotRequired[RoundTripTimeTypeDef]
+
+class ListInternetEventsOutputTypeDef(TypedDict):
+    InternetEvents: List[InternetEventSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class CreateMonitorInputTypeDef(TypedDict):
+    MonitorName: str
+    Resources: NotRequired[Sequence[str]]
+    ClientToken: NotRequired[str]
+    Tags: NotRequired[Mapping[str, str]]
+    MaxCityNetworksToMonitor: NotRequired[int]
+    InternetMeasurementsLogDelivery: NotRequired[InternetMeasurementsLogDeliveryTypeDef]
+    TrafficPercentageToMonitor: NotRequired[int]
+    HealthEventsConfig: NotRequired[HealthEventsConfigTypeDef]
+
+class GetMonitorOutputTypeDef(TypedDict):
+    MonitorName: str
+    MonitorArn: str
+    Resources: List[str]
+    Status: MonitorConfigStateType
+    CreatedAt: datetime
+    ModifiedAt: datetime
+    ProcessingStatus: MonitorProcessingStatusCodeType
+    ProcessingStatusInfo: str
+    Tags: Dict[str, str]
+    MaxCityNetworksToMonitor: int
+    InternetMeasurementsLogDelivery: InternetMeasurementsLogDeliveryTypeDef
+    TrafficPercentageToMonitor: int
+    HealthEventsConfig: HealthEventsConfigTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateMonitorInputTypeDef(TypedDict):
+    MonitorName: str
+    ResourcesToAdd: NotRequired[Sequence[str]]
+    ResourcesToRemove: NotRequired[Sequence[str]]
+    Status: NotRequired[MonitorConfigStateType]
+    ClientToken: NotRequired[str]
+    MaxCityNetworksToMonitor: NotRequired[int]
+    InternetMeasurementsLogDelivery: NotRequired[InternetMeasurementsLogDeliveryTypeDef]
+    TrafficPercentageToMonitor: NotRequired[int]
+    HealthEventsConfig: NotRequired[HealthEventsConfigTypeDef]
+
+class InternetHealthTypeDef(TypedDict):
+    Availability: NotRequired[AvailabilityMeasurementTypeDef]
+    Performance: NotRequired[PerformanceMeasurementTypeDef]
+
+class ImpactedLocationTypeDef(TypedDict):
+    ASName: str
+    ASNumber: int
+    Country: str
+    Status: HealthEventStatusType
+    Subdivision: NotRequired[str]
+    Metro: NotRequired[str]
+    City: NotRequired[str]
+    Latitude: NotRequired[float]
+    Longitude: NotRequired[float]
+    CountryCode: NotRequired[str]
+    SubdivisionCode: NotRequired[str]
+    ServiceLocation: NotRequired[str]
+    CausedBy: NotRequired[NetworkImpairmentTypeDef]
+    InternetHealth: NotRequired[InternetHealthTypeDef]
+    Ipv4Prefixes: NotRequired[List[str]]
+
+class GetHealthEventOutputTypeDef(TypedDict):
+    EventArn: str
+    EventId: str
+    StartedAt: datetime
+    EndedAt: datetime
+    CreatedAt: datetime
+    LastUpdatedAt: datetime
+    ImpactedLocations: List[ImpactedLocationTypeDef]
+    Status: HealthEventStatusType
+    PercentOfTotalTrafficImpacted: float
+    ImpactType: HealthEventImpactTypeType
+    HealthScoreThreshold: float
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class HealthEventTypeDef(TypedDict):
+    EventArn: str
+    EventId: str
+    StartedAt: datetime
+    LastUpdatedAt: datetime
+    ImpactedLocations: List[ImpactedLocationTypeDef]
+    Status: HealthEventStatusType
+    ImpactType: HealthEventImpactTypeType
+    EndedAt: NotRequired[datetime]
+    CreatedAt: NotRequired[datetime]
+    PercentOfTotalTrafficImpacted: NotRequired[float]
+    HealthScoreThreshold: NotRequired[float]
+
+class ListHealthEventsOutputTypeDef(TypedDict):
+    HealthEvents: List[HealthEventTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]

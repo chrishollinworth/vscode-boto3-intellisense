@@ -1,19 +1,21 @@
 """
 Main interface for iotevents-data service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotevents_data/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_iotevents_data import (
         Client,
         IoTEventsDataClient,
     )
 
-    session = boto3.Session()
-
-    client: IoTEventsDataClient = boto3.client("iotevents-data")
-    session_client: IoTEventsDataClient = session.client("iotevents-data")
+    session = Session()
+    client: IoTEventsDataClient = session.client("iotevents-data")
     ```
 """
 

@@ -1,10 +1,14 @@
 """
 Main interface for verifiedpermissions service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_verifiedpermissions/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_verifiedpermissions import (
         Client,
         ListIdentitySourcesPaginator,
@@ -14,10 +18,8 @@ Usage::
         VerifiedPermissionsClient,
     )
 
-    session = boto3.Session()
-
-    client: VerifiedPermissionsClient = boto3.client("verifiedpermissions")
-    session_client: VerifiedPermissionsClient = session.client("verifiedpermissions")
+    session = Session()
+    client: VerifiedPermissionsClient = session.client("verifiedpermissions")
 
     list_identity_sources_paginator: ListIdentitySourcesPaginator = client.get_paginator("list_identity_sources")
     list_policies_paginator: ListPoliciesPaginator = client.get_paginator("list_policies")

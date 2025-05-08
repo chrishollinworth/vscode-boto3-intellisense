@@ -1,25 +1,30 @@
 """
-Type annotations for ssm-incidents service client.
+Type annotations for ssm-incidents service Client.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
-    from mypy_boto3_ssm_incidents import SSMIncidentsClient
+    from boto3.session import Session
+    from mypy_boto3_ssm_incidents.client import SSMIncidentsClient
 
-    client: SSMIncidentsClient = boto3.client("ssm-incidents")
+    session = Session()
+    client: SSMIncidentsClient = session.client("ssm-incidents")
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from datetime import datetime
-from typing import Any, Dict, List, Type, Union, overload
+from typing import Any, overload
 
 from botocore.client import BaseClient, ClientMeta
+from botocore.errorfactory import BaseClientExceptions
+from botocore.exceptions import ClientError as BotocoreClientError
 
-from .literals import IncidentRecordStatusType, SortOrderType
 from .paginator import (
     GetResourcePoliciesPaginator,
     ListIncidentFindingsPaginator,
@@ -30,54 +35,72 @@ from .paginator import (
     ListTimelineEventsPaginator,
 )
 from .type_defs import (
-    ActionTypeDef,
+    BatchGetIncidentFindingsInputTypeDef,
     BatchGetIncidentFindingsOutputTypeDef,
-    ChatChannelTypeDef,
+    CreateReplicationSetInputTypeDef,
     CreateReplicationSetOutputTypeDef,
+    CreateResponsePlanInputTypeDef,
     CreateResponsePlanOutputTypeDef,
+    CreateTimelineEventInputTypeDef,
     CreateTimelineEventOutputTypeDef,
-    EventReferenceTypeDef,
-    FilterTypeDef,
+    DeleteIncidentRecordInputTypeDef,
+    DeleteReplicationSetInputTypeDef,
+    DeleteResourcePolicyInputTypeDef,
+    DeleteResponsePlanInputTypeDef,
+    DeleteTimelineEventInputTypeDef,
+    GetIncidentRecordInputTypeDef,
     GetIncidentRecordOutputTypeDef,
+    GetReplicationSetInputTypeDef,
     GetReplicationSetOutputTypeDef,
+    GetResourcePoliciesInputTypeDef,
     GetResourcePoliciesOutputTypeDef,
+    GetResponsePlanInputTypeDef,
     GetResponsePlanOutputTypeDef,
+    GetTimelineEventInputTypeDef,
     GetTimelineEventOutputTypeDef,
-    IncidentTemplateTypeDef,
-    IntegrationTypeDef,
+    ListIncidentFindingsInputTypeDef,
     ListIncidentFindingsOutputTypeDef,
+    ListIncidentRecordsInputTypeDef,
     ListIncidentRecordsOutputTypeDef,
+    ListRelatedItemsInputTypeDef,
     ListRelatedItemsOutputTypeDef,
+    ListReplicationSetsInputTypeDef,
     ListReplicationSetsOutputTypeDef,
+    ListResponsePlansInputTypeDef,
     ListResponsePlansOutputTypeDef,
+    ListTagsForResourceRequestTypeDef,
     ListTagsForResourceResponseTypeDef,
+    ListTimelineEventsInputTypeDef,
     ListTimelineEventsOutputTypeDef,
-    NotificationTargetItemTypeDef,
+    PutResourcePolicyInputTypeDef,
     PutResourcePolicyOutputTypeDef,
-    RegionMapInputValueTypeDef,
-    RelatedItemsUpdateTypeDef,
-    RelatedItemTypeDef,
+    StartIncidentInputTypeDef,
     StartIncidentOutputTypeDef,
-    TriggerDetailsTypeDef,
-    UpdateReplicationSetActionTypeDef,
+    TagResourceRequestTypeDef,
+    UntagResourceRequestTypeDef,
+    UpdateDeletionProtectionInputTypeDef,
+    UpdateIncidentRecordInputTypeDef,
+    UpdateRelatedItemsInputTypeDef,
+    UpdateReplicationSetInputTypeDef,
+    UpdateResponsePlanInputTypeDef,
+    UpdateTimelineEventInputTypeDef,
 )
 from .waiter import WaitForReplicationSetActiveWaiter, WaitForReplicationSetDeletedWaiter
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import type as Type
+    from collections.abc import Mapping
 else:
-    from typing_extensions import Literal
+    from typing import Dict, Mapping, Type
+if sys.version_info >= (3, 12):
+    from typing import Literal, Unpack
+else:
+    from typing_extensions import Literal, Unpack
 
 __all__ = ("SSMIncidentsClient",)
 
-class BotocoreClientError(BaseException):
-    MSG_TEMPLATE: str
-
-    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
-        self.response: Dict[str, Any]
-        self.operation_name: str
-
-class Exceptions:
+class Exceptions(BaseClientExceptions):
     AccessDeniedException: Type[BotocoreClientError]
     ClientError: Type[BotocoreClientError]
     ConflictException: Type[BotocoreClientError]
@@ -89,8 +112,8 @@ class Exceptions:
 
 class SSMIncidentsClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-incidents.html#SSMIncidents.Client)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client.html)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm-incidents.html#SSMIncidents.Client)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client/)
     """
 
     meta: ClientMeta
@@ -99,488 +122,437 @@ class SSMIncidentsClient(BaseClient):
     def exceptions(self) -> Exceptions:
         """
         SSMIncidentsClient exceptions.
-        """
 
-    def batch_get_incident_findings(
-        self, *, findingIds: List[str], incidentRecordArn: str
-    ) -> BatchGetIncidentFindingsOutputTypeDef:
-        """
-        Retrieves details about all specified findings for an incident, including
-        descriptive details about each finding.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-incidents.html#SSMIncidents.Client.batch_get_incident_findings)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client.html#batch_get_incident_findings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm-incidents.html#SSMIncidents.Client)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client/#exceptions)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        Check if an operation can be paginated.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-incidents.html#SSMIncidents.Client.can_paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client.html#can_paginate)
-        """
-
-    def close(self) -> None:
-        """
-        Closes underlying endpoint connections.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-incidents.html#SSMIncidents.Client.close)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client.html#close)
-        """
-
-    def create_replication_set(
-        self,
-        *,
-        regions: Dict[str, "RegionMapInputValueTypeDef"],
-        clientToken: str = None,
-        tags: Dict[str, str] = None
-    ) -> CreateReplicationSetOutputTypeDef:
-        """
-        A replication set replicates and encrypts your data to the provided Regions with
-        the provided KMS key.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-incidents.html#SSMIncidents.Client.create_replication_set)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client.html#create_replication_set)
-        """
-
-    def create_response_plan(
-        self,
-        *,
-        incidentTemplate: "IncidentTemplateTypeDef",
-        name: str,
-        actions: List["ActionTypeDef"] = None,
-        chatChannel: "ChatChannelTypeDef" = None,
-        clientToken: str = None,
-        displayName: str = None,
-        engagements: List[str] = None,
-        integrations: List["IntegrationTypeDef"] = None,
-        tags: Dict[str, str] = None
-    ) -> CreateResponsePlanOutputTypeDef:
-        """
-        Creates a response plan that automates the initial response to incidents.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-incidents.html#SSMIncidents.Client.create_response_plan)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client.html#create_response_plan)
-        """
-
-    def create_timeline_event(
-        self,
-        *,
-        eventData: str,
-        eventTime: Union[datetime, str],
-        eventType: str,
-        incidentRecordArn: str,
-        clientToken: str = None,
-        eventReferences: List["EventReferenceTypeDef"] = None
-    ) -> CreateTimelineEventOutputTypeDef:
-        """
-        Creates a custom timeline event on the incident details page of an incident
-        record.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-incidents.html#SSMIncidents.Client.create_timeline_event)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client.html#create_timeline_event)
-        """
-
-    def delete_incident_record(self, *, arn: str) -> Dict[str, Any]:
-        """
-        Delete an incident record from Incident Manager.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-incidents.html#SSMIncidents.Client.delete_incident_record)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client.html#delete_incident_record)
-        """
-
-    def delete_replication_set(self, *, arn: str) -> Dict[str, Any]:
-        """
-        Deletes all Regions in your replication set.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-incidents.html#SSMIncidents.Client.delete_replication_set)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client.html#delete_replication_set)
-        """
-
-    def delete_resource_policy(self, *, policyId: str, resourceArn: str) -> Dict[str, Any]:
-        """
-        Deletes the resource policy that Resource Access Manager uses to share your
-        Incident Manager resource.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-incidents.html#SSMIncidents.Client.delete_resource_policy)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client.html#delete_resource_policy)
-        """
-
-    def delete_response_plan(self, *, arn: str) -> Dict[str, Any]:
-        """
-        Deletes the specified response plan.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-incidents.html#SSMIncidents.Client.delete_response_plan)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client.html#delete_response_plan)
-        """
-
-    def delete_timeline_event(self, *, eventId: str, incidentRecordArn: str) -> Dict[str, Any]:
-        """
-        Deletes a timeline event from an incident.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-incidents.html#SSMIncidents.Client.delete_timeline_event)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client.html#delete_timeline_event)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm-incidents/client/can_paginate.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client/#can_paginate)
         """
 
     def generate_presigned_url(
         self,
         ClientMethod: str,
-        Params: Dict[str, Any] = None,
+        Params: Mapping[str, Any] = ...,
         ExpiresIn: int = 3600,
-        HttpMethod: str = None,
+        HttpMethod: str = ...,
     ) -> str:
         """
-        Generate a presigned url given a client, its method, and arguments.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-incidents.html#SSMIncidents.Client.generate_presigned_url)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client.html#generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm-incidents/client/generate_presigned_url.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client/#generate_presigned_url)
         """
 
-    def get_incident_record(self, *, arn: str) -> GetIncidentRecordOutputTypeDef:
+    def batch_get_incident_findings(
+        self, **kwargs: Unpack[BatchGetIncidentFindingsInputTypeDef]
+    ) -> BatchGetIncidentFindingsOutputTypeDef:
+        """
+        Retrieves details about all specified findings for an incident, including
+        descriptive details about each finding.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm-incidents/client/batch_get_incident_findings.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client/#batch_get_incident_findings)
+        """
+
+    def create_replication_set(
+        self, **kwargs: Unpack[CreateReplicationSetInputTypeDef]
+    ) -> CreateReplicationSetOutputTypeDef:
+        """
+        A replication set replicates and encrypts your data to the provided Regions
+        with the provided KMS key.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm-incidents/client/create_replication_set.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client/#create_replication_set)
+        """
+
+    def create_response_plan(
+        self, **kwargs: Unpack[CreateResponsePlanInputTypeDef]
+    ) -> CreateResponsePlanOutputTypeDef:
+        """
+        Creates a response plan that automates the initial response to incidents.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm-incidents/client/create_response_plan.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client/#create_response_plan)
+        """
+
+    def create_timeline_event(
+        self, **kwargs: Unpack[CreateTimelineEventInputTypeDef]
+    ) -> CreateTimelineEventOutputTypeDef:
+        """
+        Creates a custom timeline event on the incident details page of an incident
+        record.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm-incidents/client/create_timeline_event.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client/#create_timeline_event)
+        """
+
+    def delete_incident_record(
+        self, **kwargs: Unpack[DeleteIncidentRecordInputTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Delete an incident record from Incident Manager.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm-incidents/client/delete_incident_record.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client/#delete_incident_record)
+        """
+
+    def delete_replication_set(
+        self, **kwargs: Unpack[DeleteReplicationSetInputTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Deletes all Regions in your replication set.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm-incidents/client/delete_replication_set.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client/#delete_replication_set)
+        """
+
+    def delete_resource_policy(
+        self, **kwargs: Unpack[DeleteResourcePolicyInputTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Deletes the resource policy that Resource Access Manager uses to share your
+        Incident Manager resource.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm-incidents/client/delete_resource_policy.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client/#delete_resource_policy)
+        """
+
+    def delete_response_plan(
+        self, **kwargs: Unpack[DeleteResponsePlanInputTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Deletes the specified response plan.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm-incidents/client/delete_response_plan.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client/#delete_response_plan)
+        """
+
+    def delete_timeline_event(
+        self, **kwargs: Unpack[DeleteTimelineEventInputTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Deletes a timeline event from an incident.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm-incidents/client/delete_timeline_event.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client/#delete_timeline_event)
+        """
+
+    def get_incident_record(
+        self, **kwargs: Unpack[GetIncidentRecordInputTypeDef]
+    ) -> GetIncidentRecordOutputTypeDef:
         """
         Returns the details for the specified incident record.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-incidents.html#SSMIncidents.Client.get_incident_record)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client.html#get_incident_record)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm-incidents/client/get_incident_record.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client/#get_incident_record)
         """
 
-    def get_replication_set(self, *, arn: str) -> GetReplicationSetOutputTypeDef:
+    def get_replication_set(
+        self, **kwargs: Unpack[GetReplicationSetInputTypeDef]
+    ) -> GetReplicationSetOutputTypeDef:
         """
         Retrieve your Incident Manager replication set.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-incidents.html#SSMIncidents.Client.get_replication_set)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client.html#get_replication_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm-incidents/client/get_replication_set.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client/#get_replication_set)
         """
 
     def get_resource_policies(
-        self, *, resourceArn: str, maxResults: int = None, nextToken: str = None
+        self, **kwargs: Unpack[GetResourcePoliciesInputTypeDef]
     ) -> GetResourcePoliciesOutputTypeDef:
         """
         Retrieves the resource policies attached to the specified response plan.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-incidents.html#SSMIncidents.Client.get_resource_policies)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client.html#get_resource_policies)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm-incidents/client/get_resource_policies.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client/#get_resource_policies)
         """
 
-    def get_response_plan(self, *, arn: str) -> GetResponsePlanOutputTypeDef:
+    def get_response_plan(
+        self, **kwargs: Unpack[GetResponsePlanInputTypeDef]
+    ) -> GetResponsePlanOutputTypeDef:
         """
         Retrieves the details of the specified response plan.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-incidents.html#SSMIncidents.Client.get_response_plan)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client.html#get_response_plan)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm-incidents/client/get_response_plan.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client/#get_response_plan)
         """
 
     def get_timeline_event(
-        self, *, eventId: str, incidentRecordArn: str
+        self, **kwargs: Unpack[GetTimelineEventInputTypeDef]
     ) -> GetTimelineEventOutputTypeDef:
         """
         Retrieves a timeline event based on its ID and incident record.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-incidents.html#SSMIncidents.Client.get_timeline_event)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client.html#get_timeline_event)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm-incidents/client/get_timeline_event.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client/#get_timeline_event)
         """
 
     def list_incident_findings(
-        self, *, incidentRecordArn: str, maxResults: int = None, nextToken: str = None
+        self, **kwargs: Unpack[ListIncidentFindingsInputTypeDef]
     ) -> ListIncidentFindingsOutputTypeDef:
         """
         Retrieves a list of the IDs of findings, plus their last modified times, that
         have been identified for a specified incident.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-incidents.html#SSMIncidents.Client.list_incident_findings)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client.html#list_incident_findings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm-incidents/client/list_incident_findings.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client/#list_incident_findings)
         """
 
     def list_incident_records(
-        self,
-        *,
-        filters: List["FilterTypeDef"] = None,
-        maxResults: int = None,
-        nextToken: str = None
+        self, **kwargs: Unpack[ListIncidentRecordsInputTypeDef]
     ) -> ListIncidentRecordsOutputTypeDef:
         """
         Lists all incident records in your account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-incidents.html#SSMIncidents.Client.list_incident_records)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client.html#list_incident_records)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm-incidents/client/list_incident_records.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client/#list_incident_records)
         """
 
     def list_related_items(
-        self, *, incidentRecordArn: str, maxResults: int = None, nextToken: str = None
+        self, **kwargs: Unpack[ListRelatedItemsInputTypeDef]
     ) -> ListRelatedItemsOutputTypeDef:
         """
         List all related items for an incident record.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-incidents.html#SSMIncidents.Client.list_related_items)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client.html#list_related_items)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm-incidents/client/list_related_items.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client/#list_related_items)
         """
 
     def list_replication_sets(
-        self, *, maxResults: int = None, nextToken: str = None
+        self, **kwargs: Unpack[ListReplicationSetsInputTypeDef]
     ) -> ListReplicationSetsOutputTypeDef:
         """
         Lists details about the replication set configured in your account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-incidents.html#SSMIncidents.Client.list_replication_sets)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client.html#list_replication_sets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm-incidents/client/list_replication_sets.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client/#list_replication_sets)
         """
 
     def list_response_plans(
-        self, *, maxResults: int = None, nextToken: str = None
+        self, **kwargs: Unpack[ListResponsePlansInputTypeDef]
     ) -> ListResponsePlansOutputTypeDef:
         """
         Lists all response plans in your account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-incidents.html#SSMIncidents.Client.list_response_plans)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client.html#list_response_plans)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm-incidents/client/list_response_plans.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client/#list_response_plans)
         """
 
-    def list_tags_for_resource(self, *, resourceArn: str) -> ListTagsForResourceResponseTypeDef:
+    def list_tags_for_resource(
+        self, **kwargs: Unpack[ListTagsForResourceRequestTypeDef]
+    ) -> ListTagsForResourceResponseTypeDef:
         """
         Lists the tags that are attached to the specified response plan or incident.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-incidents.html#SSMIncidents.Client.list_tags_for_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client.html#list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm-incidents/client/list_tags_for_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client/#list_tags_for_resource)
         """
 
     def list_timeline_events(
-        self,
-        *,
-        incidentRecordArn: str,
-        filters: List["FilterTypeDef"] = None,
-        maxResults: int = None,
-        nextToken: str = None,
-        sortBy: Literal["EVENT_TIME"] = None,
-        sortOrder: SortOrderType = None
+        self, **kwargs: Unpack[ListTimelineEventsInputTypeDef]
     ) -> ListTimelineEventsOutputTypeDef:
         """
         Lists timeline events for the specified incident record.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-incidents.html#SSMIncidents.Client.list_timeline_events)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client.html#list_timeline_events)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm-incidents/client/list_timeline_events.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client/#list_timeline_events)
         """
 
     def put_resource_policy(
-        self, *, policy: str, resourceArn: str
+        self, **kwargs: Unpack[PutResourcePolicyInputTypeDef]
     ) -> PutResourcePolicyOutputTypeDef:
         """
         Adds a resource policy to the specified response plan.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-incidents.html#SSMIncidents.Client.put_resource_policy)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client.html#put_resource_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm-incidents/client/put_resource_policy.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client/#put_resource_policy)
         """
 
     def start_incident(
-        self,
-        *,
-        responsePlanArn: str,
-        clientToken: str = None,
-        impact: int = None,
-        relatedItems: List["RelatedItemTypeDef"] = None,
-        title: str = None,
-        triggerDetails: "TriggerDetailsTypeDef" = None
+        self, **kwargs: Unpack[StartIncidentInputTypeDef]
     ) -> StartIncidentOutputTypeDef:
         """
         Used to start an incident from CloudWatch alarms, EventBridge events, or
         manually.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-incidents.html#SSMIncidents.Client.start_incident)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client.html#start_incident)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm-incidents/client/start_incident.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client/#start_incident)
         """
 
-    def tag_resource(self, *, resourceArn: str, tags: Dict[str, str]) -> Dict[str, Any]:
+    def tag_resource(self, **kwargs: Unpack[TagResourceRequestTypeDef]) -> Dict[str, Any]:
         """
         Adds a tag to a response plan.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-incidents.html#SSMIncidents.Client.tag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client.html#tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm-incidents/client/tag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client/#tag_resource)
         """
 
-    def untag_resource(self, *, resourceArn: str, tagKeys: List[str]) -> Dict[str, Any]:
+    def untag_resource(self, **kwargs: Unpack[UntagResourceRequestTypeDef]) -> Dict[str, Any]:
         """
         Removes a tag from a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-incidents.html#SSMIncidents.Client.untag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client.html#untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm-incidents/client/untag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client/#untag_resource)
         """
 
     def update_deletion_protection(
-        self, *, arn: str, deletionProtected: bool, clientToken: str = None
+        self, **kwargs: Unpack[UpdateDeletionProtectionInputTypeDef]
     ) -> Dict[str, Any]:
         """
         Update deletion protection to either allow or deny deletion of the final Region
         in a replication set.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-incidents.html#SSMIncidents.Client.update_deletion_protection)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client.html#update_deletion_protection)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm-incidents/client/update_deletion_protection.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client/#update_deletion_protection)
         """
 
     def update_incident_record(
-        self,
-        *,
-        arn: str,
-        chatChannel: "ChatChannelTypeDef" = None,
-        clientToken: str = None,
-        impact: int = None,
-        notificationTargets: List["NotificationTargetItemTypeDef"] = None,
-        status: IncidentRecordStatusType = None,
-        summary: str = None,
-        title: str = None
+        self, **kwargs: Unpack[UpdateIncidentRecordInputTypeDef]
     ) -> Dict[str, Any]:
         """
         Update the details of an incident record.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-incidents.html#SSMIncidents.Client.update_incident_record)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client.html#update_incident_record)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm-incidents/client/update_incident_record.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client/#update_incident_record)
         """
 
     def update_related_items(
-        self,
-        *,
-        incidentRecordArn: str,
-        relatedItemsUpdate: "RelatedItemsUpdateTypeDef",
-        clientToken: str = None
+        self, **kwargs: Unpack[UpdateRelatedItemsInputTypeDef]
     ) -> Dict[str, Any]:
         """
         Add or remove related items from the related items tab of an incident record.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-incidents.html#SSMIncidents.Client.update_related_items)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client.html#update_related_items)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm-incidents/client/update_related_items.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client/#update_related_items)
         """
 
     def update_replication_set(
-        self,
-        *,
-        actions: List["UpdateReplicationSetActionTypeDef"],
-        arn: str,
-        clientToken: str = None
+        self, **kwargs: Unpack[UpdateReplicationSetInputTypeDef]
     ) -> Dict[str, Any]:
         """
         Add or delete Regions from your replication set.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-incidents.html#SSMIncidents.Client.update_replication_set)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client.html#update_replication_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm-incidents/client/update_replication_set.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client/#update_replication_set)
         """
 
     def update_response_plan(
-        self,
-        *,
-        arn: str,
-        actions: List["ActionTypeDef"] = None,
-        chatChannel: "ChatChannelTypeDef" = None,
-        clientToken: str = None,
-        displayName: str = None,
-        engagements: List[str] = None,
-        incidentTemplateDedupeString: str = None,
-        incidentTemplateImpact: int = None,
-        incidentTemplateNotificationTargets: List["NotificationTargetItemTypeDef"] = None,
-        incidentTemplateSummary: str = None,
-        incidentTemplateTags: Dict[str, str] = None,
-        incidentTemplateTitle: str = None,
-        integrations: List["IntegrationTypeDef"] = None
+        self, **kwargs: Unpack[UpdateResponsePlanInputTypeDef]
     ) -> Dict[str, Any]:
         """
         Updates the specified response plan.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-incidents.html#SSMIncidents.Client.update_response_plan)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client.html#update_response_plan)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm-incidents/client/update_response_plan.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client/#update_response_plan)
         """
 
     def update_timeline_event(
-        self,
-        *,
-        eventId: str,
-        incidentRecordArn: str,
-        clientToken: str = None,
-        eventData: str = None,
-        eventReferences: List["EventReferenceTypeDef"] = None,
-        eventTime: Union[datetime, str] = None,
-        eventType: str = None
+        self, **kwargs: Unpack[UpdateTimelineEventInputTypeDef]
     ) -> Dict[str, Any]:
         """
         Updates a timeline event.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-incidents.html#SSMIncidents.Client.update_timeline_event)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client.html#update_timeline_event)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm-incidents/client/update_timeline_event.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client/#update_timeline_event)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["get_resource_policies"]
     ) -> GetResourcePoliciesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-incidents.html#SSMIncidents.Paginator.GetResourcePolicies)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/paginators.html#getresourcepoliciespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm-incidents/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_incident_findings"]
     ) -> ListIncidentFindingsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-incidents.html#SSMIncidents.Paginator.ListIncidentFindings)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/paginators.html#listincidentfindingspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm-incidents/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_incident_records"]
     ) -> ListIncidentRecordsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-incidents.html#SSMIncidents.Paginator.ListIncidentRecords)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/paginators.html#listincidentrecordspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm-incidents/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_related_items"]
     ) -> ListRelatedItemsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-incidents.html#SSMIncidents.Paginator.ListRelatedItems)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/paginators.html#listrelateditemspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm-incidents/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_replication_sets"]
     ) -> ListReplicationSetsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-incidents.html#SSMIncidents.Paginator.ListReplicationSets)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/paginators.html#listreplicationsetspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm-incidents/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_response_plans"]
     ) -> ListResponsePlansPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-incidents.html#SSMIncidents.Paginator.ListResponsePlans)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/paginators.html#listresponseplanspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm-incidents/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_timeline_events"]
     ) -> ListTimelineEventsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-incidents.html#SSMIncidents.Paginator.ListTimelineEvents)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/paginators.html#listtimelineeventspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm-incidents/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client/#get_paginator)
         """
 
-    @overload
-    def get_waiter(
+    @overload  # type: ignore[override]
+    def get_waiter(  # type: ignore[override]
         self, waiter_name: Literal["wait_for_replication_set_active"]
     ) -> WaitForReplicationSetActiveWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-incidents.html#SSMIncidents.Waiter.WaitForReplicationSetActive)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/waiters.html#waitforreplicationsetactivewaiter)
+        Returns an object that can wait for some condition.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm-incidents/client/get_waiter.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client/#get_waiter)
         """
 
-    @overload
-    def get_waiter(
+    @overload  # type: ignore[override]
+    def get_waiter(  # type: ignore[override]
         self, waiter_name: Literal["wait_for_replication_set_deleted"]
     ) -> WaitForReplicationSetDeletedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-incidents.html#SSMIncidents.Waiter.WaitForReplicationSetDeleted)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/waiters.html#waitforreplicationsetdeletedwaiter)
+        Returns an object that can wait for some condition.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm-incidents/client/get_waiter.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/client/#get_waiter)
         """

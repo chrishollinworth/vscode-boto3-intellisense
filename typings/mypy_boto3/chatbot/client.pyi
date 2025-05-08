@@ -1,53 +1,113 @@
 """
-Type annotations for chatbot service client.
+Type annotations for chatbot service Client.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
-    from mypy_boto3_chatbot import ChatbotClient
+    from boto3.session import Session
+    from mypy_boto3_chatbot.client import ChatbotClient
 
-    client: ChatbotClient = boto3.client("chatbot")
+    session = Session()
+    client: ChatbotClient = session.client("chatbot")
     ```
 """
 
-from typing import Any, Dict, List, Type
+from __future__ import annotations
+
+import sys
+from typing import Any, overload
 
 from botocore.client import BaseClient, ClientMeta
+from botocore.errorfactory import BaseClientExceptions
+from botocore.exceptions import ClientError as BotocoreClientError
 
+from .paginator import (
+    DescribeChimeWebhookConfigurationsPaginator,
+    DescribeSlackChannelConfigurationsPaginator,
+    DescribeSlackUserIdentitiesPaginator,
+    DescribeSlackWorkspacesPaginator,
+    ListAssociationsPaginator,
+    ListCustomActionsPaginator,
+    ListMicrosoftTeamsChannelConfigurationsPaginator,
+    ListMicrosoftTeamsConfiguredTeamsPaginator,
+    ListMicrosoftTeamsUserIdentitiesPaginator,
+)
 from .type_defs import (
+    AssociateToConfigurationRequestTypeDef,
+    CreateChimeWebhookConfigurationRequestTypeDef,
     CreateChimeWebhookConfigurationResultTypeDef,
+    CreateCustomActionRequestTypeDef,
+    CreateCustomActionResultTypeDef,
+    CreateSlackChannelConfigurationRequestTypeDef,
     CreateSlackChannelConfigurationResultTypeDef,
+    CreateTeamsChannelConfigurationRequestTypeDef,
     CreateTeamsChannelConfigurationResultTypeDef,
+    DeleteChimeWebhookConfigurationRequestTypeDef,
+    DeleteCustomActionRequestTypeDef,
+    DeleteMicrosoftTeamsUserIdentityRequestTypeDef,
+    DeleteSlackChannelConfigurationRequestTypeDef,
+    DeleteSlackUserIdentityRequestTypeDef,
+    DeleteSlackWorkspaceAuthorizationRequestTypeDef,
+    DeleteTeamsChannelConfigurationRequestTypeDef,
+    DeleteTeamsConfiguredTeamRequestTypeDef,
+    DescribeChimeWebhookConfigurationsRequestTypeDef,
     DescribeChimeWebhookConfigurationsResultTypeDef,
+    DescribeSlackChannelConfigurationsRequestTypeDef,
     DescribeSlackChannelConfigurationsResultTypeDef,
+    DescribeSlackUserIdentitiesRequestTypeDef,
     DescribeSlackUserIdentitiesResultTypeDef,
+    DescribeSlackWorkspacesRequestTypeDef,
     DescribeSlackWorkspacesResultTypeDef,
+    DisassociateFromConfigurationRequestTypeDef,
     GetAccountPreferencesResultTypeDef,
+    GetCustomActionRequestTypeDef,
+    GetCustomActionResultTypeDef,
+    GetTeamsChannelConfigurationRequestTypeDef,
     GetTeamsChannelConfigurationResultTypeDef,
+    ListAssociationsRequestTypeDef,
+    ListAssociationsResultTypeDef,
+    ListCustomActionsRequestTypeDef,
+    ListCustomActionsResultTypeDef,
+    ListMicrosoftTeamsConfiguredTeamsRequestTypeDef,
     ListMicrosoftTeamsConfiguredTeamsResultTypeDef,
+    ListMicrosoftTeamsUserIdentitiesRequestTypeDef,
     ListMicrosoftTeamsUserIdentitiesResultTypeDef,
+    ListTagsForResourceRequestTypeDef,
     ListTagsForResourceResponseTypeDef,
+    ListTeamsChannelConfigurationsRequestTypeDef,
     ListTeamsChannelConfigurationsResultTypeDef,
-    TagTypeDef,
+    TagResourceRequestTypeDef,
+    UntagResourceRequestTypeDef,
+    UpdateAccountPreferencesRequestTypeDef,
     UpdateAccountPreferencesResultTypeDef,
+    UpdateChimeWebhookConfigurationRequestTypeDef,
     UpdateChimeWebhookConfigurationResultTypeDef,
+    UpdateCustomActionRequestTypeDef,
+    UpdateCustomActionResultTypeDef,
+    UpdateSlackChannelConfigurationRequestTypeDef,
     UpdateSlackChannelConfigurationResultTypeDef,
+    UpdateTeamsChannelConfigurationRequestTypeDef,
     UpdateTeamsChannelConfigurationResultTypeDef,
 )
 
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import type as Type
+    from collections.abc import Mapping
+else:
+    from typing import Dict, Mapping, Type
+if sys.version_info >= (3, 12):
+    from typing import Literal, Unpack
+else:
+    from typing_extensions import Literal, Unpack
+
 __all__ = ("ChatbotClient",)
 
-class BotocoreClientError(BaseException):
-    MSG_TEMPLATE: str
-
-    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
-        self.response: Dict[str, Any]
-        self.operation_name: str
-
-class Exceptions:
+class Exceptions(BaseClientExceptions):
     ClientError: Type[BotocoreClientError]
     ConflictException: Type[BotocoreClientError]
     CreateChimeWebhookConfigurationException: Type[BotocoreClientError]
@@ -76,6 +136,7 @@ class Exceptions:
     ResourceNotFoundException: Type[BotocoreClientError]
     ServiceUnavailableException: Type[BotocoreClientError]
     TooManyTagsException: Type[BotocoreClientError]
+    UnauthorizedException: Type[BotocoreClientError]
     UpdateAccountPreferencesException: Type[BotocoreClientError]
     UpdateChimeWebhookConfigurationException: Type[BotocoreClientError]
     UpdateSlackChannelConfigurationException: Type[BotocoreClientError]
@@ -83,8 +144,8 @@ class Exceptions:
 
 class ChatbotClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chatbot.html#Chatbot.Client)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client.html)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chatbot.html#Chatbot.Client)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client/)
     """
 
     meta: ClientMeta
@@ -93,401 +154,466 @@ class ChatbotClient(BaseClient):
     def exceptions(self) -> Exceptions:
         """
         ChatbotClient exceptions.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chatbot.html#Chatbot.Client)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client/#exceptions)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        Check if an operation can be paginated.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chatbot.html#Chatbot.Client.can_paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client.html#can_paginate)
-        """
-
-    def close(self) -> None:
-        """
-        Closes underlying endpoint connections.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chatbot.html#Chatbot.Client.close)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client.html#close)
-        """
-
-    def create_chime_webhook_configuration(
-        self,
-        *,
-        WebhookDescription: str,
-        WebhookUrl: str,
-        SnsTopicArns: List[str],
-        IamRoleArn: str,
-        ConfigurationName: str,
-        LoggingLevel: str = None,
-        Tags: List["TagTypeDef"] = None
-    ) -> CreateChimeWebhookConfigurationResultTypeDef:
-        """
-        Creates Chime Webhook Configuration See also: `AWS API Documentation <https://do
-        cs.aws.amazon.com/goto/WebAPI/chatbot-2017-10-
-        11/CreateChimeWebhookConfiguration>`_ **Request Syntax** response =
-        client.create_chime_webhook_configuration( WebhookDescription='string',
-        WebhookUrl...
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chatbot.html#Chatbot.Client.create_chime_webhook_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client.html#create_chime_webhook_configuration)
-        """
-
-    def create_microsoft_teams_channel_configuration(
-        self,
-        *,
-        ChannelId: str,
-        TeamId: str,
-        TenantId: str,
-        IamRoleArn: str,
-        ConfigurationName: str,
-        ChannelName: str = None,
-        TeamName: str = None,
-        SnsTopicArns: List[str] = None,
-        LoggingLevel: str = None,
-        GuardrailPolicyArns: List[str] = None,
-        UserAuthorizationRequired: bool = None,
-        Tags: List["TagTypeDef"] = None
-    ) -> CreateTeamsChannelConfigurationResultTypeDef:
-        """
-        Creates MS Teams Channel Configuration See also: `AWS API Documentation <https:/
-        /docs.aws.amazon.com/goto/WebAPI/chatbot-2017-10-
-        11/CreateMicrosoftTeamsChannelConfiguration>`_ **Request Syntax** response =
-        client.create_microsoft_teams_channel_configuration( ChannelId='string', ...
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chatbot.html#Chatbot.Client.create_microsoft_teams_channel_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client.html#create_microsoft_teams_channel_configuration)
-        """
-
-    def create_slack_channel_configuration(
-        self,
-        *,
-        SlackTeamId: str,
-        SlackChannelId: str,
-        IamRoleArn: str,
-        ConfigurationName: str,
-        SlackChannelName: str = None,
-        SnsTopicArns: List[str] = None,
-        LoggingLevel: str = None,
-        GuardrailPolicyArns: List[str] = None,
-        UserAuthorizationRequired: bool = None,
-        Tags: List["TagTypeDef"] = None
-    ) -> CreateSlackChannelConfigurationResultTypeDef:
-        """
-        Creates Slack Channel Configuration See also: `AWS API Documentation <https://do
-        cs.aws.amazon.com/goto/WebAPI/chatbot-2017-10-
-        11/CreateSlackChannelConfiguration>`_ **Request Syntax** response =
-        client.create_slack_channel_configuration( SlackTeamId='string',
-        SlackChannelId='s...
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chatbot.html#Chatbot.Client.create_slack_channel_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client.html#create_slack_channel_configuration)
-        """
-
-    def delete_chime_webhook_configuration(self, *, ChatConfigurationArn: str) -> Dict[str, Any]:
-        """
-        Deletes a Chime Webhook Configuration See also: `AWS API Documentation <https://
-        docs.aws.amazon.com/goto/WebAPI/chatbot-2017-10-
-        11/DeleteChimeWebhookConfiguration>`_ **Request Syntax** response =
-        client.delete_chime_webhook_configuration( ChatConfigurationArn='string' ).
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chatbot.html#Chatbot.Client.delete_chime_webhook_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client.html#delete_chime_webhook_configuration)
-        """
-
-    def delete_microsoft_teams_channel_configuration(
-        self, *, ChatConfigurationArn: str
-    ) -> Dict[str, Any]:
-        """
-        Deletes MS Teams Channel Configuration See also: `AWS API Documentation <https:/
-        /docs.aws.amazon.com/goto/WebAPI/chatbot-2017-10-
-        11/DeleteMicrosoftTeamsChannelConfiguration>`_ **Request Syntax** response =
-        client.delete_microsoft_teams_channel_configuration( ChatConfigurationArn='s...
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chatbot.html#Chatbot.Client.delete_microsoft_teams_channel_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client.html#delete_microsoft_teams_channel_configuration)
-        """
-
-    def delete_microsoft_teams_configured_team(self, *, TeamId: str) -> Dict[str, Any]:
-        """
-        Deletes the Microsoft Teams team authorization allowing for channels to be
-        configured in that Microsoft Teams team.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chatbot.html#Chatbot.Client.delete_microsoft_teams_configured_team)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client.html#delete_microsoft_teams_configured_team)
-        """
-
-    def delete_microsoft_teams_user_identity(
-        self, *, ChatConfigurationArn: str, UserId: str
-    ) -> Dict[str, Any]:
-        """
-        Deletes a Teams user identity See also: `AWS API Documentation <https://docs.aws
-        .amazon.com/goto/WebAPI/chatbot-2017-10-11/DeleteMicrosoftTeamsUserIdentity>`_
-        **Request Syntax** response = client.delete_microsoft_teams_user_identity(
-        ChatConfigurationArn='string', UserId='str...
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chatbot.html#Chatbot.Client.delete_microsoft_teams_user_identity)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client.html#delete_microsoft_teams_user_identity)
-        """
-
-    def delete_slack_channel_configuration(self, *, ChatConfigurationArn: str) -> Dict[str, Any]:
-        """
-        Deletes Slack Channel Configuration See also: `AWS API Documentation <https://do
-        cs.aws.amazon.com/goto/WebAPI/chatbot-2017-10-
-        11/DeleteSlackChannelConfiguration>`_ **Request Syntax** response =
-        client.delete_slack_channel_configuration( ChatConfigurationArn='string' ).
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chatbot.html#Chatbot.Client.delete_slack_channel_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client.html#delete_slack_channel_configuration)
-        """
-
-    def delete_slack_user_identity(
-        self, *, ChatConfigurationArn: str, SlackTeamId: str, SlackUserId: str
-    ) -> Dict[str, Any]:
-        """
-        Deletes a Slack user identity See also: `AWS API Documentation <https://docs.aws
-        .amazon.com/goto/WebAPI/chatbot-2017-10-11/DeleteSlackUserIdentity>`_ **Request
-        Syntax** response = client.delete_slack_user_identity(
-        ChatConfigurationArn='string', SlackTeamId='string', Sl...
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chatbot.html#Chatbot.Client.delete_slack_user_identity)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client.html#delete_slack_user_identity)
-        """
-
-    def delete_slack_workspace_authorization(self, *, SlackTeamId: str) -> Dict[str, Any]:
-        """
-        Deletes the Slack workspace authorization that allows channels to be configured
-        in that workspace.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chatbot.html#Chatbot.Client.delete_slack_workspace_authorization)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client.html#delete_slack_workspace_authorization)
-        """
-
-    def describe_chime_webhook_configurations(
-        self, *, MaxResults: int = None, NextToken: str = None, ChatConfigurationArn: str = None
-    ) -> DescribeChimeWebhookConfigurationsResultTypeDef:
-        """
-        Lists Chime Webhook Configurations optionally filtered by ChatConfigurationArn
-        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/chatbo
-        t-2017-10-11/DescribeChimeWebhookConfigurations>`_ **Request Syntax** response =
-        client.describe_chime_webhook_configurations( ...
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chatbot.html#Chatbot.Client.describe_chime_webhook_configurations)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client.html#describe_chime_webhook_configurations)
-        """
-
-    def describe_slack_channel_configurations(
-        self, *, MaxResults: int = None, NextToken: str = None, ChatConfigurationArn: str = None
-    ) -> DescribeSlackChannelConfigurationsResultTypeDef:
-        """
-        Lists Slack Channel Configurations optionally filtered by ChatConfigurationArn
-        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/chatbo
-        t-2017-10-11/DescribeSlackChannelConfigurations>`_ **Request Syntax** response =
-        client.describe_slack_channel_configurations( ...
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chatbot.html#Chatbot.Client.describe_slack_channel_configurations)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client.html#describe_slack_channel_configurations)
-        """
-
-    def describe_slack_user_identities(
-        self, *, ChatConfigurationArn: str = None, NextToken: str = None, MaxResults: int = None
-    ) -> DescribeSlackUserIdentitiesResultTypeDef:
-        """
-        Lists all Slack user identities with a mapped role.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chatbot.html#Chatbot.Client.describe_slack_user_identities)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client.html#describe_slack_user_identities)
-        """
-
-    def describe_slack_workspaces(
-        self, *, MaxResults: int = None, NextToken: str = None
-    ) -> DescribeSlackWorkspacesResultTypeDef:
-        """
-        Lists all authorized Slack Workspaces for AWS Account See also: `AWS API
-        Documentation <https://docs.aws.amazon.com/goto/WebAPI/chatbot-2017-10-
-        11/DescribeSlackWorkspaces>`_ **Request Syntax** response =
-        client.describe_slack_workspaces( MaxResults=123, NextToken='string' )...
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chatbot.html#Chatbot.Client.describe_slack_workspaces)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client.html#describe_slack_workspaces)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chatbot/client/can_paginate.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client/#can_paginate)
         """
 
     def generate_presigned_url(
         self,
         ClientMethod: str,
-        Params: Dict[str, Any] = None,
+        Params: Mapping[str, Any] = ...,
         ExpiresIn: int = 3600,
-        HttpMethod: str = None,
+        HttpMethod: str = ...,
     ) -> str:
         """
-        Generate a presigned url given a client, its method, and arguments.
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chatbot/client/generate_presigned_url.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client/#generate_presigned_url)
+        """
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chatbot.html#Chatbot.Client.generate_presigned_url)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client.html#generate_presigned_url)
+    def associate_to_configuration(
+        self, **kwargs: Unpack[AssociateToConfigurationRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Links a resource (for example, a custom action) to a channel configuration.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chatbot/client/associate_to_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client/#associate_to_configuration)
+        """
+
+    def create_chime_webhook_configuration(
+        self, **kwargs: Unpack[CreateChimeWebhookConfigurationRequestTypeDef]
+    ) -> CreateChimeWebhookConfigurationResultTypeDef:
+        """
+        Creates an AWS Chatbot configuration for Amazon Chime.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chatbot/client/create_chime_webhook_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client/#create_chime_webhook_configuration)
+        """
+
+    def create_custom_action(
+        self, **kwargs: Unpack[CreateCustomActionRequestTypeDef]
+    ) -> CreateCustomActionResultTypeDef:
+        """
+        Creates a custom action that can be invoked as an alias or as a button on a
+        notification.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chatbot/client/create_custom_action.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client/#create_custom_action)
+        """
+
+    def create_microsoft_teams_channel_configuration(
+        self, **kwargs: Unpack[CreateTeamsChannelConfigurationRequestTypeDef]
+    ) -> CreateTeamsChannelConfigurationResultTypeDef:
+        """
+        Creates an AWS Chatbot configuration for Microsoft Teams.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chatbot/client/create_microsoft_teams_channel_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client/#create_microsoft_teams_channel_configuration)
+        """
+
+    def create_slack_channel_configuration(
+        self, **kwargs: Unpack[CreateSlackChannelConfigurationRequestTypeDef]
+    ) -> CreateSlackChannelConfigurationResultTypeDef:
+        """
+        Creates an AWS Chatbot confugration for Slack.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chatbot/client/create_slack_channel_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client/#create_slack_channel_configuration)
+        """
+
+    def delete_chime_webhook_configuration(
+        self, **kwargs: Unpack[DeleteChimeWebhookConfigurationRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Deletes a Amazon Chime webhook configuration for AWS Chatbot.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chatbot/client/delete_chime_webhook_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client/#delete_chime_webhook_configuration)
+        """
+
+    def delete_custom_action(
+        self, **kwargs: Unpack[DeleteCustomActionRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Deletes a custom action.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chatbot/client/delete_custom_action.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client/#delete_custom_action)
+        """
+
+    def delete_microsoft_teams_channel_configuration(
+        self, **kwargs: Unpack[DeleteTeamsChannelConfigurationRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Deletes a Microsoft Teams channel configuration for AWS Chatbot.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chatbot/client/delete_microsoft_teams_channel_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client/#delete_microsoft_teams_channel_configuration)
+        """
+
+    def delete_microsoft_teams_configured_team(
+        self, **kwargs: Unpack[DeleteTeamsConfiguredTeamRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Deletes the Microsoft Teams team authorization allowing for channels to be
+        configured in that Microsoft Teams team.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chatbot/client/delete_microsoft_teams_configured_team.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client/#delete_microsoft_teams_configured_team)
+        """
+
+    def delete_microsoft_teams_user_identity(
+        self, **kwargs: Unpack[DeleteMicrosoftTeamsUserIdentityRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Identifes a user level permission for a channel configuration.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chatbot/client/delete_microsoft_teams_user_identity.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client/#delete_microsoft_teams_user_identity)
+        """
+
+    def delete_slack_channel_configuration(
+        self, **kwargs: Unpack[DeleteSlackChannelConfigurationRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Deletes a Slack channel configuration for AWS Chatbot.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chatbot/client/delete_slack_channel_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client/#delete_slack_channel_configuration)
+        """
+
+    def delete_slack_user_identity(
+        self, **kwargs: Unpack[DeleteSlackUserIdentityRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Deletes a user level permission for a Slack channel configuration.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chatbot/client/delete_slack_user_identity.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client/#delete_slack_user_identity)
+        """
+
+    def delete_slack_workspace_authorization(
+        self, **kwargs: Unpack[DeleteSlackWorkspaceAuthorizationRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Deletes the Slack workspace authorization that allows channels to be configured
+        in that workspace.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chatbot/client/delete_slack_workspace_authorization.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client/#delete_slack_workspace_authorization)
+        """
+
+    def describe_chime_webhook_configurations(
+        self, **kwargs: Unpack[DescribeChimeWebhookConfigurationsRequestTypeDef]
+    ) -> DescribeChimeWebhookConfigurationsResultTypeDef:
+        """
+        Lists Amazon Chime webhook configurations optionally filtered by
+        ChatConfigurationArn.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chatbot/client/describe_chime_webhook_configurations.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client/#describe_chime_webhook_configurations)
+        """
+
+    def describe_slack_channel_configurations(
+        self, **kwargs: Unpack[DescribeSlackChannelConfigurationsRequestTypeDef]
+    ) -> DescribeSlackChannelConfigurationsResultTypeDef:
+        """
+        Lists Slack channel configurations optionally filtered by ChatConfigurationArn.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chatbot/client/describe_slack_channel_configurations.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client/#describe_slack_channel_configurations)
+        """
+
+    def describe_slack_user_identities(
+        self, **kwargs: Unpack[DescribeSlackUserIdentitiesRequestTypeDef]
+    ) -> DescribeSlackUserIdentitiesResultTypeDef:
+        """
+        Lists all Slack user identities with a mapped role.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chatbot/client/describe_slack_user_identities.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client/#describe_slack_user_identities)
+        """
+
+    def describe_slack_workspaces(
+        self, **kwargs: Unpack[DescribeSlackWorkspacesRequestTypeDef]
+    ) -> DescribeSlackWorkspacesResultTypeDef:
+        """
+        List all authorized Slack workspaces connected to the AWS Account onboarded
+        with AWS Chatbot.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chatbot/client/describe_slack_workspaces.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client/#describe_slack_workspaces)
+        """
+
+    def disassociate_from_configuration(
+        self, **kwargs: Unpack[DisassociateFromConfigurationRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Unlink a resource, for example a custom action, from a channel configuration.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chatbot/client/disassociate_from_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client/#disassociate_from_configuration)
         """
 
     def get_account_preferences(self) -> GetAccountPreferencesResultTypeDef:
         """
-        Get Chatbot account level preferences See also: `AWS API Documentation <https://
-        docs.aws.amazon.com/goto/WebAPI/chatbot-2017-10-11/GetAccountPreferences>`_
-        **Request Syntax** response = client.get_account_preferences().
+        Returns AWS Chatbot account preferences.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chatbot.html#Chatbot.Client.get_account_preferences)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client.html#get_account_preferences)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chatbot/client/get_account_preferences.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client/#get_account_preferences)
+        """
+
+    def get_custom_action(
+        self, **kwargs: Unpack[GetCustomActionRequestTypeDef]
+    ) -> GetCustomActionResultTypeDef:
+        """
+        Returns a custom action.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chatbot/client/get_custom_action.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client/#get_custom_action)
         """
 
     def get_microsoft_teams_channel_configuration(
-        self, *, ChatConfigurationArn: str
+        self, **kwargs: Unpack[GetTeamsChannelConfigurationRequestTypeDef]
     ) -> GetTeamsChannelConfigurationResultTypeDef:
         """
-        Get a single MS Teams Channel Configurations See also: `AWS API Documentation <h
-        ttps://docs.aws.amazon.com/goto/WebAPI/chatbot-2017-10-
-        11/GetMicrosoftTeamsChannelConfiguration>`_ **Request Syntax** response =
-        client.get_microsoft_teams_channel_configuration( ChatConfigurationArn='s...
+        Returns a Microsoft Teams channel configuration in an AWS account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chatbot.html#Chatbot.Client.get_microsoft_teams_channel_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client.html#get_microsoft_teams_channel_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chatbot/client/get_microsoft_teams_channel_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client/#get_microsoft_teams_channel_configuration)
+        """
+
+    def list_associations(
+        self, **kwargs: Unpack[ListAssociationsRequestTypeDef]
+    ) -> ListAssociationsResultTypeDef:
+        """
+        Lists resources associated with a channel configuration.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chatbot/client/list_associations.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client/#list_associations)
+        """
+
+    def list_custom_actions(
+        self, **kwargs: Unpack[ListCustomActionsRequestTypeDef]
+    ) -> ListCustomActionsResultTypeDef:
+        """
+        Lists custom actions defined in this account.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chatbot/client/list_custom_actions.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client/#list_custom_actions)
         """
 
     def list_microsoft_teams_channel_configurations(
-        self, *, MaxResults: int = None, NextToken: str = None, TeamId: str = None
+        self, **kwargs: Unpack[ListTeamsChannelConfigurationsRequestTypeDef]
     ) -> ListTeamsChannelConfigurationsResultTypeDef:
         """
-        Lists MS Teams Channel Configurations optionally filtered by TeamId See also:
-        `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/chatbot-2017-10-
-        11/ListMicrosoftTeamsChannelConfigurations>`_ **Request Syntax** response =
-        client.list_microsoft_teams_channel_configurations( ...
+        Lists all AWS Chatbot Microsoft Teams channel configurations in an AWS account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chatbot.html#Chatbot.Client.list_microsoft_teams_channel_configurations)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client.html#list_microsoft_teams_channel_configurations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chatbot/client/list_microsoft_teams_channel_configurations.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client/#list_microsoft_teams_channel_configurations)
         """
 
     def list_microsoft_teams_configured_teams(
-        self, *, MaxResults: int = None, NextToken: str = None
+        self, **kwargs: Unpack[ListMicrosoftTeamsConfiguredTeamsRequestTypeDef]
     ) -> ListMicrosoftTeamsConfiguredTeamsResultTypeDef:
         """
-        Lists all authorized MS teams for AWS Account See also: `AWS API Documentation <
-        https://docs.aws.amazon.com/goto/WebAPI/chatbot-2017-10-
-        11/ListMicrosoftTeamsConfiguredTeams>`_ **Request Syntax** response =
-        client.list_microsoft_teams_configured_teams( MaxResults=123, NextToke...
+        Lists all authorized Microsoft Teams for an AWS Account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chatbot.html#Chatbot.Client.list_microsoft_teams_configured_teams)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client.html#list_microsoft_teams_configured_teams)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chatbot/client/list_microsoft_teams_configured_teams.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client/#list_microsoft_teams_configured_teams)
         """
 
     def list_microsoft_teams_user_identities(
-        self, *, ChatConfigurationArn: str = None, NextToken: str = None, MaxResults: int = None
+        self, **kwargs: Unpack[ListMicrosoftTeamsUserIdentitiesRequestTypeDef]
     ) -> ListMicrosoftTeamsUserIdentitiesResultTypeDef:
         """
-        Lists all Microsoft Teams user identities with a mapped role.
+        A list all Microsoft Teams user identities with a mapped role.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chatbot.html#Chatbot.Client.list_microsoft_teams_user_identities)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client.html#list_microsoft_teams_user_identities)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chatbot/client/list_microsoft_teams_user_identities.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client/#list_microsoft_teams_user_identities)
         """
 
-    def list_tags_for_resource(self, *, ResourceARN: str) -> ListTagsForResourceResponseTypeDef:
+    def list_tags_for_resource(
+        self, **kwargs: Unpack[ListTagsForResourceRequestTypeDef]
+    ) -> ListTagsForResourceResponseTypeDef:
         """
-        Retrieves the list of tags applied to a configuration.
+        Lists all of the tags associated with the Amazon Resource Name (ARN) that you
+        specify.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chatbot.html#Chatbot.Client.list_tags_for_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client.html#list_tags_for_resource)
-        """
-
-    def tag_resource(self, *, ResourceARN: str, Tags: List["TagTypeDef"]) -> Dict[str, Any]:
-        """
-        Applies the supplied tags to a configuration.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chatbot.html#Chatbot.Client.tag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client.html#tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chatbot/client/list_tags_for_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client/#list_tags_for_resource)
         """
 
-    def untag_resource(self, *, ResourceARN: str, TagKeys: List[str]) -> Dict[str, Any]:
+    def tag_resource(self, **kwargs: Unpack[TagResourceRequestTypeDef]) -> Dict[str, Any]:
         """
-        Removes the supplied tags from a configuration See also: `AWS API Documentation
-        <https://docs.aws.amazon.com/goto/WebAPI/chatbot-2017-10-11/UntagResource>`_
-        **Request Syntax** response = client.untag_resource( ResourceARN='string',
-        TagKeys=[ 'string', ] ) ...
+        Attaches a key-value pair to a resource, as identified by its Amazon Resource
+        Name (ARN).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chatbot.html#Chatbot.Client.untag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client.html#untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chatbot/client/tag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client/#tag_resource)
+        """
+
+    def untag_resource(self, **kwargs: Unpack[UntagResourceRequestTypeDef]) -> Dict[str, Any]:
+        """
+        Detaches a key-value pair from a resource, as identified by its Amazon Resource
+        Name (ARN).
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chatbot/client/untag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client/#untag_resource)
         """
 
     def update_account_preferences(
-        self, *, UserAuthorizationRequired: bool = None, TrainingDataCollectionEnabled: bool = None
+        self, **kwargs: Unpack[UpdateAccountPreferencesRequestTypeDef]
     ) -> UpdateAccountPreferencesResultTypeDef:
         """
-        Update Chatbot account level preferences See also: `AWS API Documentation <https
-        ://docs.aws.amazon.com/goto/WebAPI/chatbot-2017-10-
-        11/UpdateAccountPreferences>`_ **Request Syntax** response =
-        client.update_account_preferences( UserAuthorizationRequired=True|False,
-        TrainingDat...
+        Updates AWS Chatbot account preferences.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chatbot.html#Chatbot.Client.update_account_preferences)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client.html#update_account_preferences)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chatbot/client/update_account_preferences.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client/#update_account_preferences)
         """
 
     def update_chime_webhook_configuration(
-        self,
-        *,
-        ChatConfigurationArn: str,
-        WebhookDescription: str = None,
-        WebhookUrl: str = None,
-        SnsTopicArns: List[str] = None,
-        IamRoleArn: str = None,
-        LoggingLevel: str = None
+        self, **kwargs: Unpack[UpdateChimeWebhookConfigurationRequestTypeDef]
     ) -> UpdateChimeWebhookConfigurationResultTypeDef:
         """
-        Updates a Chime Webhook Configuration See also: `AWS API Documentation <https://
-        docs.aws.amazon.com/goto/WebAPI/chatbot-2017-10-
-        11/UpdateChimeWebhookConfiguration>`_ **Request Syntax** response =
-        client.update_chime_webhook_configuration( ChatConfigurationArn='string',
-        Webhoo...
+        Updates a Amazon Chime webhook configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chatbot.html#Chatbot.Client.update_chime_webhook_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client.html#update_chime_webhook_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chatbot/client/update_chime_webhook_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client/#update_chime_webhook_configuration)
+        """
+
+    def update_custom_action(
+        self, **kwargs: Unpack[UpdateCustomActionRequestTypeDef]
+    ) -> UpdateCustomActionResultTypeDef:
+        """
+        Updates a custom action.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chatbot/client/update_custom_action.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client/#update_custom_action)
         """
 
     def update_microsoft_teams_channel_configuration(
-        self,
-        *,
-        ChatConfigurationArn: str,
-        ChannelId: str,
-        ChannelName: str = None,
-        SnsTopicArns: List[str] = None,
-        IamRoleArn: str = None,
-        LoggingLevel: str = None,
-        GuardrailPolicyArns: List[str] = None,
-        UserAuthorizationRequired: bool = None
+        self, **kwargs: Unpack[UpdateTeamsChannelConfigurationRequestTypeDef]
     ) -> UpdateTeamsChannelConfigurationResultTypeDef:
         """
-        Updates MS Teams Channel Configuration See also: `AWS API Documentation <https:/
-        /docs.aws.amazon.com/goto/WebAPI/chatbot-2017-10-
-        11/UpdateMicrosoftTeamsChannelConfiguration>`_ **Request Syntax** response =
-        client.update_microsoft_teams_channel_configuration( ChatConfigurationArn='s...
+        Updates an Microsoft Teams channel configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chatbot.html#Chatbot.Client.update_microsoft_teams_channel_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client.html#update_microsoft_teams_channel_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chatbot/client/update_microsoft_teams_channel_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client/#update_microsoft_teams_channel_configuration)
         """
 
     def update_slack_channel_configuration(
-        self,
-        *,
-        ChatConfigurationArn: str,
-        SlackChannelId: str,
-        SlackChannelName: str = None,
-        SnsTopicArns: List[str] = None,
-        IamRoleArn: str = None,
-        LoggingLevel: str = None,
-        GuardrailPolicyArns: List[str] = None,
-        UserAuthorizationRequired: bool = None
+        self, **kwargs: Unpack[UpdateSlackChannelConfigurationRequestTypeDef]
     ) -> UpdateSlackChannelConfigurationResultTypeDef:
         """
-        Updates Slack Channel Configuration See also: `AWS API Documentation <https://do
-        cs.aws.amazon.com/goto/WebAPI/chatbot-2017-10-
-        11/UpdateSlackChannelConfiguration>`_ **Request Syntax** response =
-        client.update_slack_channel_configuration( ChatConfigurationArn='string',
-        SlackCha...
+        Updates a Slack channel configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chatbot.html#Chatbot.Client.update_slack_channel_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client.html#update_slack_channel_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chatbot/client/update_slack_channel_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client/#update_slack_channel_configuration)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["describe_chime_webhook_configurations"]
+    ) -> DescribeChimeWebhookConfigurationsPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chatbot/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["describe_slack_channel_configurations"]
+    ) -> DescribeSlackChannelConfigurationsPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chatbot/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["describe_slack_user_identities"]
+    ) -> DescribeSlackUserIdentitiesPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chatbot/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["describe_slack_workspaces"]
+    ) -> DescribeSlackWorkspacesPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chatbot/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_associations"]
+    ) -> ListAssociationsPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chatbot/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_custom_actions"]
+    ) -> ListCustomActionsPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chatbot/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_microsoft_teams_channel_configurations"]
+    ) -> ListMicrosoftTeamsChannelConfigurationsPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chatbot/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_microsoft_teams_configured_teams"]
+    ) -> ListMicrosoftTeamsConfiguredTeamsPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chatbot/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_microsoft_teams_user_identities"]
+    ) -> ListMicrosoftTeamsUserIdentitiesPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chatbot/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chatbot/client/#get_paginator)
         """

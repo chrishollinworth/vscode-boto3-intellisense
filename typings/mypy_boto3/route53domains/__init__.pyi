@@ -1,10 +1,14 @@
 """
 Main interface for route53domains service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53domains/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_route53domains import (
         Client,
         ListDomainsPaginator,
@@ -14,10 +18,8 @@ Usage::
         ViewBillingPaginator,
     )
 
-    session = boto3.Session()
-
-    client: Route53DomainsClient = boto3.client("route53domains")
-    session_client: Route53DomainsClient = session.client("route53domains")
+    session = Session()
+    client: Route53DomainsClient = session.client("route53domains")
 
     list_domains_paginator: ListDomainsPaginator = client.get_paginator("list_domains")
     list_operations_paginator: ListOperationsPaginator = client.get_paginator("list_operations")

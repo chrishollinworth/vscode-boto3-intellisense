@@ -1,10 +1,14 @@
 """
 Main interface for greengrass service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_greengrass/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_greengrass import (
         Client,
         GreengrassClient,
@@ -29,10 +33,8 @@ Usage::
         ListSubscriptionDefinitionsPaginator,
     )
 
-    session = boto3.Session()
-
-    client: GreengrassClient = boto3.client("greengrass")
-    session_client: GreengrassClient = session.client("greengrass")
+    session = Session()
+    client: GreengrassClient = session.client("greengrass")
 
     list_bulk_deployment_detailed_reports_paginator: ListBulkDeploymentDetailedReportsPaginator = client.get_paginator("list_bulk_deployment_detailed_reports")
     list_bulk_deployments_paginator: ListBulkDeploymentsPaginator = client.get_paginator("list_bulk_deployments")

@@ -1,20 +1,24 @@
 """
 Type annotations for iotevents-data service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotevents_data/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotevents_data/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_iotevents_data.type_defs import AcknowledgeActionConfigurationTypeDef
 
-    data: AcknowledgeActionConfigurationTypeDef = {...}
+    data: AcknowledgeActionConfigurationTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import IO, Any, Dict, List, Union
+from typing import IO, Any, Union
 
 from botocore.response import StreamingBody
 
@@ -25,14 +29,16 @@ from .literals import (
     ErrorCodeType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
     "AcknowledgeActionConfigurationTypeDef",
@@ -40,31 +46,32 @@ __all__ = (
     "AlarmStateTypeDef",
     "AlarmSummaryTypeDef",
     "AlarmTypeDef",
-    "BatchAcknowledgeAlarmRequestRequestTypeDef",
+    "BatchAcknowledgeAlarmRequestTypeDef",
     "BatchAcknowledgeAlarmResponseTypeDef",
     "BatchAlarmActionErrorEntryTypeDef",
     "BatchDeleteDetectorErrorEntryTypeDef",
-    "BatchDeleteDetectorRequestRequestTypeDef",
+    "BatchDeleteDetectorRequestTypeDef",
     "BatchDeleteDetectorResponseTypeDef",
-    "BatchDisableAlarmRequestRequestTypeDef",
+    "BatchDisableAlarmRequestTypeDef",
     "BatchDisableAlarmResponseTypeDef",
-    "BatchEnableAlarmRequestRequestTypeDef",
+    "BatchEnableAlarmRequestTypeDef",
     "BatchEnableAlarmResponseTypeDef",
     "BatchPutMessageErrorEntryTypeDef",
-    "BatchPutMessageRequestRequestTypeDef",
+    "BatchPutMessageRequestTypeDef",
     "BatchPutMessageResponseTypeDef",
-    "BatchResetAlarmRequestRequestTypeDef",
+    "BatchResetAlarmRequestTypeDef",
     "BatchResetAlarmResponseTypeDef",
-    "BatchSnoozeAlarmRequestRequestTypeDef",
+    "BatchSnoozeAlarmRequestTypeDef",
     "BatchSnoozeAlarmResponseTypeDef",
     "BatchUpdateDetectorErrorEntryTypeDef",
-    "BatchUpdateDetectorRequestRequestTypeDef",
+    "BatchUpdateDetectorRequestTypeDef",
     "BatchUpdateDetectorResponseTypeDef",
+    "BlobTypeDef",
     "CustomerActionTypeDef",
     "DeleteDetectorRequestTypeDef",
-    "DescribeAlarmRequestRequestTypeDef",
+    "DescribeAlarmRequestTypeDef",
     "DescribeAlarmResponseTypeDef",
-    "DescribeDetectorRequestRequestTypeDef",
+    "DescribeDetectorRequestTypeDef",
     "DescribeDetectorResponseTypeDef",
     "DetectorStateDefinitionTypeDef",
     "DetectorStateSummaryTypeDef",
@@ -75,9 +82,9 @@ __all__ = (
     "DisableAlarmActionRequestTypeDef",
     "EnableActionConfigurationTypeDef",
     "EnableAlarmActionRequestTypeDef",
-    "ListAlarmsRequestRequestTypeDef",
+    "ListAlarmsRequestTypeDef",
     "ListAlarmsResponseTypeDef",
-    "ListDetectorsRequestRequestTypeDef",
+    "ListDetectorsRequestTypeDef",
     "ListDetectorsResponseTypeDef",
     "MessageTypeDef",
     "ResetActionConfigurationTypeDef",
@@ -97,671 +104,286 @@ __all__ = (
     "VariableTypeDef",
 )
 
-AcknowledgeActionConfigurationTypeDef = TypedDict(
-    "AcknowledgeActionConfigurationTypeDef",
-    {
-        "note": str,
-    },
-    total=False,
-)
+class AcknowledgeActionConfigurationTypeDef(TypedDict):
+    note: NotRequired[str]
 
-_RequiredAcknowledgeAlarmActionRequestTypeDef = TypedDict(
-    "_RequiredAcknowledgeAlarmActionRequestTypeDef",
-    {
-        "requestId": str,
-        "alarmModelName": str,
-    },
-)
-_OptionalAcknowledgeAlarmActionRequestTypeDef = TypedDict(
-    "_OptionalAcknowledgeAlarmActionRequestTypeDef",
-    {
-        "keyValue": str,
-        "note": str,
-    },
-    total=False,
-)
+class AcknowledgeAlarmActionRequestTypeDef(TypedDict):
+    requestId: str
+    alarmModelName: str
+    keyValue: NotRequired[str]
+    note: NotRequired[str]
 
-class AcknowledgeAlarmActionRequestTypeDef(
-    _RequiredAcknowledgeAlarmActionRequestTypeDef, _OptionalAcknowledgeAlarmActionRequestTypeDef
-):
-    pass
+class AlarmSummaryTypeDef(TypedDict):
+    alarmModelName: NotRequired[str]
+    alarmModelVersion: NotRequired[str]
+    keyValue: NotRequired[str]
+    stateName: NotRequired[AlarmStateNameType]
+    creationTime: NotRequired[datetime]
+    lastUpdateTime: NotRequired[datetime]
 
-AlarmStateTypeDef = TypedDict(
-    "AlarmStateTypeDef",
-    {
-        "stateName": AlarmStateNameType,
-        "ruleEvaluation": "RuleEvaluationTypeDef",
-        "customerAction": "CustomerActionTypeDef",
-        "systemEvent": "SystemEventTypeDef",
-    },
-    total=False,
-)
+class BatchAlarmActionErrorEntryTypeDef(TypedDict):
+    requestId: NotRequired[str]
+    errorCode: NotRequired[ErrorCodeType]
+    errorMessage: NotRequired[str]
 
-AlarmSummaryTypeDef = TypedDict(
-    "AlarmSummaryTypeDef",
-    {
-        "alarmModelName": str,
-        "alarmModelVersion": str,
-        "keyValue": str,
-        "stateName": AlarmStateNameType,
-        "creationTime": datetime,
-        "lastUpdateTime": datetime,
-    },
-    total=False,
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-AlarmTypeDef = TypedDict(
-    "AlarmTypeDef",
-    {
-        "alarmModelName": str,
-        "alarmModelVersion": str,
-        "keyValue": str,
-        "alarmState": "AlarmStateTypeDef",
-        "severity": int,
-        "creationTime": datetime,
-        "lastUpdateTime": datetime,
-    },
-    total=False,
-)
+class BatchDeleteDetectorErrorEntryTypeDef(TypedDict):
+    messageId: NotRequired[str]
+    errorCode: NotRequired[ErrorCodeType]
+    errorMessage: NotRequired[str]
 
-BatchAcknowledgeAlarmRequestRequestTypeDef = TypedDict(
-    "BatchAcknowledgeAlarmRequestRequestTypeDef",
-    {
-        "acknowledgeActionRequests": List["AcknowledgeAlarmActionRequestTypeDef"],
-    },
-)
+class DeleteDetectorRequestTypeDef(TypedDict):
+    messageId: str
+    detectorModelName: str
+    keyValue: NotRequired[str]
 
-BatchAcknowledgeAlarmResponseTypeDef = TypedDict(
-    "BatchAcknowledgeAlarmResponseTypeDef",
-    {
-        "errorEntries": List["BatchAlarmActionErrorEntryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DisableAlarmActionRequestTypeDef(TypedDict):
+    requestId: str
+    alarmModelName: str
+    keyValue: NotRequired[str]
+    note: NotRequired[str]
 
-BatchAlarmActionErrorEntryTypeDef = TypedDict(
-    "BatchAlarmActionErrorEntryTypeDef",
-    {
-        "requestId": str,
-        "errorCode": ErrorCodeType,
-        "errorMessage": str,
-    },
-    total=False,
-)
+class EnableAlarmActionRequestTypeDef(TypedDict):
+    requestId: str
+    alarmModelName: str
+    keyValue: NotRequired[str]
+    note: NotRequired[str]
 
-BatchDeleteDetectorErrorEntryTypeDef = TypedDict(
-    "BatchDeleteDetectorErrorEntryTypeDef",
-    {
-        "messageId": str,
-        "errorCode": ErrorCodeType,
-        "errorMessage": str,
-    },
-    total=False,
-)
+class BatchPutMessageErrorEntryTypeDef(TypedDict):
+    messageId: NotRequired[str]
+    errorCode: NotRequired[ErrorCodeType]
+    errorMessage: NotRequired[str]
 
-BatchDeleteDetectorRequestRequestTypeDef = TypedDict(
-    "BatchDeleteDetectorRequestRequestTypeDef",
-    {
-        "detectors": List["DeleteDetectorRequestTypeDef"],
-    },
-)
+class ResetAlarmActionRequestTypeDef(TypedDict):
+    requestId: str
+    alarmModelName: str
+    keyValue: NotRequired[str]
+    note: NotRequired[str]
 
-BatchDeleteDetectorResponseTypeDef = TypedDict(
-    "BatchDeleteDetectorResponseTypeDef",
-    {
-        "batchDeleteDetectorErrorEntries": List["BatchDeleteDetectorErrorEntryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class SnoozeAlarmActionRequestTypeDef(TypedDict):
+    requestId: str
+    alarmModelName: str
+    snoozeDuration: int
+    keyValue: NotRequired[str]
+    note: NotRequired[str]
 
-BatchDisableAlarmRequestRequestTypeDef = TypedDict(
-    "BatchDisableAlarmRequestRequestTypeDef",
-    {
-        "disableActionRequests": List["DisableAlarmActionRequestTypeDef"],
-    },
-)
+class BatchUpdateDetectorErrorEntryTypeDef(TypedDict):
+    messageId: NotRequired[str]
+    errorCode: NotRequired[ErrorCodeType]
+    errorMessage: NotRequired[str]
 
-BatchDisableAlarmResponseTypeDef = TypedDict(
-    "BatchDisableAlarmResponseTypeDef",
-    {
-        "errorEntries": List["BatchAlarmActionErrorEntryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+BlobTypeDef = Union[str, bytes, IO[Any], StreamingBody]
 
-BatchEnableAlarmRequestRequestTypeDef = TypedDict(
-    "BatchEnableAlarmRequestRequestTypeDef",
-    {
-        "enableActionRequests": List["EnableAlarmActionRequestTypeDef"],
-    },
-)
+class DisableActionConfigurationTypeDef(TypedDict):
+    note: NotRequired[str]
 
-BatchEnableAlarmResponseTypeDef = TypedDict(
-    "BatchEnableAlarmResponseTypeDef",
-    {
-        "errorEntries": List["BatchAlarmActionErrorEntryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class EnableActionConfigurationTypeDef(TypedDict):
+    note: NotRequired[str]
 
-BatchPutMessageErrorEntryTypeDef = TypedDict(
-    "BatchPutMessageErrorEntryTypeDef",
-    {
-        "messageId": str,
-        "errorCode": ErrorCodeType,
-        "errorMessage": str,
-    },
-    total=False,
-)
+class ResetActionConfigurationTypeDef(TypedDict):
+    note: NotRequired[str]
 
-BatchPutMessageRequestRequestTypeDef = TypedDict(
-    "BatchPutMessageRequestRequestTypeDef",
-    {
-        "messages": List["MessageTypeDef"],
-    },
-)
+class SnoozeActionConfigurationTypeDef(TypedDict):
+    snoozeDuration: NotRequired[int]
+    note: NotRequired[str]
 
-BatchPutMessageResponseTypeDef = TypedDict(
-    "BatchPutMessageResponseTypeDef",
-    {
-        "BatchPutMessageErrorEntries": List["BatchPutMessageErrorEntryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DescribeAlarmRequestTypeDef(TypedDict):
+    alarmModelName: str
+    keyValue: NotRequired[str]
 
-BatchResetAlarmRequestRequestTypeDef = TypedDict(
-    "BatchResetAlarmRequestRequestTypeDef",
-    {
-        "resetActionRequests": List["ResetAlarmActionRequestTypeDef"],
-    },
-)
+class DescribeDetectorRequestTypeDef(TypedDict):
+    detectorModelName: str
+    keyValue: NotRequired[str]
 
-BatchResetAlarmResponseTypeDef = TypedDict(
-    "BatchResetAlarmResponseTypeDef",
-    {
-        "errorEntries": List["BatchAlarmActionErrorEntryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class TimerDefinitionTypeDef(TypedDict):
+    name: str
+    seconds: int
 
-BatchSnoozeAlarmRequestRequestTypeDef = TypedDict(
-    "BatchSnoozeAlarmRequestRequestTypeDef",
-    {
-        "snoozeActionRequests": List["SnoozeAlarmActionRequestTypeDef"],
-    },
-)
+class VariableDefinitionTypeDef(TypedDict):
+    name: str
+    value: str
 
-BatchSnoozeAlarmResponseTypeDef = TypedDict(
-    "BatchSnoozeAlarmResponseTypeDef",
-    {
-        "errorEntries": List["BatchAlarmActionErrorEntryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DetectorStateSummaryTypeDef(TypedDict):
+    stateName: NotRequired[str]
 
-BatchUpdateDetectorErrorEntryTypeDef = TypedDict(
-    "BatchUpdateDetectorErrorEntryTypeDef",
-    {
-        "messageId": str,
-        "errorCode": ErrorCodeType,
-        "errorMessage": str,
-    },
-    total=False,
-)
+class TimerTypeDef(TypedDict):
+    name: str
+    timestamp: datetime
 
-BatchUpdateDetectorRequestRequestTypeDef = TypedDict(
-    "BatchUpdateDetectorRequestRequestTypeDef",
-    {
-        "detectors": List["UpdateDetectorRequestTypeDef"],
-    },
-)
+class VariableTypeDef(TypedDict):
+    name: str
+    value: str
 
-BatchUpdateDetectorResponseTypeDef = TypedDict(
-    "BatchUpdateDetectorResponseTypeDef",
-    {
-        "batchUpdateDetectorErrorEntries": List["BatchUpdateDetectorErrorEntryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListAlarmsRequestTypeDef(TypedDict):
+    alarmModelName: str
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
 
-CustomerActionTypeDef = TypedDict(
-    "CustomerActionTypeDef",
-    {
-        "actionName": CustomerActionNameType,
-        "snoozeActionConfiguration": "SnoozeActionConfigurationTypeDef",
-        "enableActionConfiguration": "EnableActionConfigurationTypeDef",
-        "disableActionConfiguration": "DisableActionConfigurationTypeDef",
-        "acknowledgeActionConfiguration": "AcknowledgeActionConfigurationTypeDef",
-        "resetActionConfiguration": "ResetActionConfigurationTypeDef",
-    },
-    total=False,
-)
+class ListDetectorsRequestTypeDef(TypedDict):
+    detectorModelName: str
+    stateName: NotRequired[str]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
 
-_RequiredDeleteDetectorRequestTypeDef = TypedDict(
-    "_RequiredDeleteDetectorRequestTypeDef",
-    {
-        "messageId": str,
-        "detectorModelName": str,
-    },
-)
-_OptionalDeleteDetectorRequestTypeDef = TypedDict(
-    "_OptionalDeleteDetectorRequestTypeDef",
-    {
-        "keyValue": str,
-    },
-    total=False,
-)
-
-class DeleteDetectorRequestTypeDef(
-    _RequiredDeleteDetectorRequestTypeDef, _OptionalDeleteDetectorRequestTypeDef
-):
-    pass
-
-_RequiredDescribeAlarmRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeAlarmRequestRequestTypeDef",
-    {
-        "alarmModelName": str,
-    },
-)
-_OptionalDescribeAlarmRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeAlarmRequestRequestTypeDef",
-    {
-        "keyValue": str,
-    },
-    total=False,
-)
-
-class DescribeAlarmRequestRequestTypeDef(
-    _RequiredDescribeAlarmRequestRequestTypeDef, _OptionalDescribeAlarmRequestRequestTypeDef
-):
-    pass
-
-DescribeAlarmResponseTypeDef = TypedDict(
-    "DescribeAlarmResponseTypeDef",
-    {
-        "alarm": "AlarmTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribeDetectorRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeDetectorRequestRequestTypeDef",
-    {
-        "detectorModelName": str,
-    },
-)
-_OptionalDescribeDetectorRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeDetectorRequestRequestTypeDef",
-    {
-        "keyValue": str,
-    },
-    total=False,
-)
-
-class DescribeDetectorRequestRequestTypeDef(
-    _RequiredDescribeDetectorRequestRequestTypeDef, _OptionalDescribeDetectorRequestRequestTypeDef
-):
-    pass
-
-DescribeDetectorResponseTypeDef = TypedDict(
-    "DescribeDetectorResponseTypeDef",
-    {
-        "detector": "DetectorTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DetectorStateDefinitionTypeDef = TypedDict(
-    "DetectorStateDefinitionTypeDef",
-    {
-        "stateName": str,
-        "variables": List["VariableDefinitionTypeDef"],
-        "timers": List["TimerDefinitionTypeDef"],
-    },
-)
-
-DetectorStateSummaryTypeDef = TypedDict(
-    "DetectorStateSummaryTypeDef",
-    {
-        "stateName": str,
-    },
-    total=False,
-)
-
-DetectorStateTypeDef = TypedDict(
-    "DetectorStateTypeDef",
-    {
-        "stateName": str,
-        "variables": List["VariableTypeDef"],
-        "timers": List["TimerTypeDef"],
-    },
-)
-
-DetectorSummaryTypeDef = TypedDict(
-    "DetectorSummaryTypeDef",
-    {
-        "detectorModelName": str,
-        "keyValue": str,
-        "detectorModelVersion": str,
-        "state": "DetectorStateSummaryTypeDef",
-        "creationTime": datetime,
-        "lastUpdateTime": datetime,
-    },
-    total=False,
-)
-
-DetectorTypeDef = TypedDict(
-    "DetectorTypeDef",
-    {
-        "detectorModelName": str,
-        "keyValue": str,
-        "detectorModelVersion": str,
-        "state": "DetectorStateTypeDef",
-        "creationTime": datetime,
-        "lastUpdateTime": datetime,
-    },
-    total=False,
-)
-
-DisableActionConfigurationTypeDef = TypedDict(
-    "DisableActionConfigurationTypeDef",
-    {
-        "note": str,
-    },
-    total=False,
-)
-
-_RequiredDisableAlarmActionRequestTypeDef = TypedDict(
-    "_RequiredDisableAlarmActionRequestTypeDef",
-    {
-        "requestId": str,
-        "alarmModelName": str,
-    },
-)
-_OptionalDisableAlarmActionRequestTypeDef = TypedDict(
-    "_OptionalDisableAlarmActionRequestTypeDef",
-    {
-        "keyValue": str,
-        "note": str,
-    },
-    total=False,
-)
-
-class DisableAlarmActionRequestTypeDef(
-    _RequiredDisableAlarmActionRequestTypeDef, _OptionalDisableAlarmActionRequestTypeDef
-):
-    pass
-
-EnableActionConfigurationTypeDef = TypedDict(
-    "EnableActionConfigurationTypeDef",
-    {
-        "note": str,
-    },
-    total=False,
-)
-
-_RequiredEnableAlarmActionRequestTypeDef = TypedDict(
-    "_RequiredEnableAlarmActionRequestTypeDef",
-    {
-        "requestId": str,
-        "alarmModelName": str,
-    },
-)
-_OptionalEnableAlarmActionRequestTypeDef = TypedDict(
-    "_OptionalEnableAlarmActionRequestTypeDef",
-    {
-        "keyValue": str,
-        "note": str,
-    },
-    total=False,
-)
-
-class EnableAlarmActionRequestTypeDef(
-    _RequiredEnableAlarmActionRequestTypeDef, _OptionalEnableAlarmActionRequestTypeDef
-):
-    pass
-
-_RequiredListAlarmsRequestRequestTypeDef = TypedDict(
-    "_RequiredListAlarmsRequestRequestTypeDef",
-    {
-        "alarmModelName": str,
-    },
-)
-_OptionalListAlarmsRequestRequestTypeDef = TypedDict(
-    "_OptionalListAlarmsRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-class ListAlarmsRequestRequestTypeDef(
-    _RequiredListAlarmsRequestRequestTypeDef, _OptionalListAlarmsRequestRequestTypeDef
-):
-    pass
-
-ListAlarmsResponseTypeDef = TypedDict(
-    "ListAlarmsResponseTypeDef",
-    {
-        "alarmSummaries": List["AlarmSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListDetectorsRequestRequestTypeDef = TypedDict(
-    "_RequiredListDetectorsRequestRequestTypeDef",
-    {
-        "detectorModelName": str,
-    },
-)
-_OptionalListDetectorsRequestRequestTypeDef = TypedDict(
-    "_OptionalListDetectorsRequestRequestTypeDef",
-    {
-        "stateName": str,
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-class ListDetectorsRequestRequestTypeDef(
-    _RequiredListDetectorsRequestRequestTypeDef, _OptionalListDetectorsRequestRequestTypeDef
-):
-    pass
-
-ListDetectorsResponseTypeDef = TypedDict(
-    "ListDetectorsResponseTypeDef",
-    {
-        "detectorSummaries": List["DetectorSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredMessageTypeDef = TypedDict(
-    "_RequiredMessageTypeDef",
-    {
-        "messageId": str,
-        "inputName": str,
-        "payload": Union[bytes, IO[bytes], StreamingBody],
-    },
-)
-_OptionalMessageTypeDef = TypedDict(
-    "_OptionalMessageTypeDef",
-    {
-        "timestamp": "TimestampValueTypeDef",
-    },
-    total=False,
-)
-
-class MessageTypeDef(_RequiredMessageTypeDef, _OptionalMessageTypeDef):
-    pass
-
-ResetActionConfigurationTypeDef = TypedDict(
-    "ResetActionConfigurationTypeDef",
-    {
-        "note": str,
-    },
-    total=False,
-)
-
-_RequiredResetAlarmActionRequestTypeDef = TypedDict(
-    "_RequiredResetAlarmActionRequestTypeDef",
-    {
-        "requestId": str,
-        "alarmModelName": str,
-    },
-)
-_OptionalResetAlarmActionRequestTypeDef = TypedDict(
-    "_OptionalResetAlarmActionRequestTypeDef",
-    {
-        "keyValue": str,
-        "note": str,
-    },
-    total=False,
-)
-
-class ResetAlarmActionRequestTypeDef(
-    _RequiredResetAlarmActionRequestTypeDef, _OptionalResetAlarmActionRequestTypeDef
-):
-    pass
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-RuleEvaluationTypeDef = TypedDict(
-    "RuleEvaluationTypeDef",
-    {
-        "simpleRuleEvaluation": "SimpleRuleEvaluationTypeDef",
-    },
-    total=False,
-)
+class TimestampValueTypeDef(TypedDict):
+    timeInMillis: NotRequired[int]
 
 SimpleRuleEvaluationTypeDef = TypedDict(
     "SimpleRuleEvaluationTypeDef",
     {
-        "inputPropertyValue": str,
-        "operator": ComparisonOperatorType,
-        "thresholdValue": str,
-    },
-    total=False,
-)
-
-SnoozeActionConfigurationTypeDef = TypedDict(
-    "SnoozeActionConfigurationTypeDef",
-    {
-        "snoozeDuration": int,
-        "note": str,
-    },
-    total=False,
-)
-
-_RequiredSnoozeAlarmActionRequestTypeDef = TypedDict(
-    "_RequiredSnoozeAlarmActionRequestTypeDef",
-    {
-        "requestId": str,
-        "alarmModelName": str,
-        "snoozeDuration": int,
-    },
-)
-_OptionalSnoozeAlarmActionRequestTypeDef = TypedDict(
-    "_OptionalSnoozeAlarmActionRequestTypeDef",
-    {
-        "keyValue": str,
-        "note": str,
-    },
-    total=False,
-)
-
-class SnoozeAlarmActionRequestTypeDef(
-    _RequiredSnoozeAlarmActionRequestTypeDef, _OptionalSnoozeAlarmActionRequestTypeDef
-):
-    pass
-
-StateChangeConfigurationTypeDef = TypedDict(
-    "StateChangeConfigurationTypeDef",
-    {
-        "triggerType": Literal["SNOOZE_TIMEOUT"],
-    },
-    total=False,
-)
-
-SystemEventTypeDef = TypedDict(
-    "SystemEventTypeDef",
-    {
-        "eventType": Literal["STATE_CHANGE"],
-        "stateChangeConfiguration": "StateChangeConfigurationTypeDef",
-    },
-    total=False,
-)
-
-TimerDefinitionTypeDef = TypedDict(
-    "TimerDefinitionTypeDef",
-    {
-        "name": str,
-        "seconds": int,
+        "inputPropertyValue": NotRequired[str],
+        "operator": NotRequired[ComparisonOperatorType],
+        "thresholdValue": NotRequired[str],
     },
 )
 
-TimerTypeDef = TypedDict(
-    "TimerTypeDef",
-    {
-        "name": str,
-        "timestamp": datetime,
-    },
-)
+class StateChangeConfigurationTypeDef(TypedDict):
+    triggerType: NotRequired[Literal["SNOOZE_TIMEOUT"]]
 
-TimestampValueTypeDef = TypedDict(
-    "TimestampValueTypeDef",
-    {
-        "timeInMillis": int,
-    },
-    total=False,
-)
+class BatchAcknowledgeAlarmRequestTypeDef(TypedDict):
+    acknowledgeActionRequests: Sequence[AcknowledgeAlarmActionRequestTypeDef]
 
-_RequiredUpdateDetectorRequestTypeDef = TypedDict(
-    "_RequiredUpdateDetectorRequestTypeDef",
-    {
-        "messageId": str,
-        "detectorModelName": str,
-        "state": "DetectorStateDefinitionTypeDef",
-    },
-)
-_OptionalUpdateDetectorRequestTypeDef = TypedDict(
-    "_OptionalUpdateDetectorRequestTypeDef",
-    {
-        "keyValue": str,
-    },
-    total=False,
-)
+class BatchAcknowledgeAlarmResponseTypeDef(TypedDict):
+    errorEntries: List[BatchAlarmActionErrorEntryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateDetectorRequestTypeDef(
-    _RequiredUpdateDetectorRequestTypeDef, _OptionalUpdateDetectorRequestTypeDef
-):
-    pass
+class BatchDisableAlarmResponseTypeDef(TypedDict):
+    errorEntries: List[BatchAlarmActionErrorEntryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-VariableDefinitionTypeDef = TypedDict(
-    "VariableDefinitionTypeDef",
-    {
-        "name": str,
-        "value": str,
-    },
-)
+class BatchEnableAlarmResponseTypeDef(TypedDict):
+    errorEntries: List[BatchAlarmActionErrorEntryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-VariableTypeDef = TypedDict(
-    "VariableTypeDef",
-    {
-        "name": str,
-        "value": str,
-    },
-)
+class BatchResetAlarmResponseTypeDef(TypedDict):
+    errorEntries: List[BatchAlarmActionErrorEntryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class BatchSnoozeAlarmResponseTypeDef(TypedDict):
+    errorEntries: List[BatchAlarmActionErrorEntryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListAlarmsResponseTypeDef(TypedDict):
+    alarmSummaries: List[AlarmSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class BatchDeleteDetectorResponseTypeDef(TypedDict):
+    batchDeleteDetectorErrorEntries: List[BatchDeleteDetectorErrorEntryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class BatchDeleteDetectorRequestTypeDef(TypedDict):
+    detectors: Sequence[DeleteDetectorRequestTypeDef]
+
+class BatchDisableAlarmRequestTypeDef(TypedDict):
+    disableActionRequests: Sequence[DisableAlarmActionRequestTypeDef]
+
+class BatchEnableAlarmRequestTypeDef(TypedDict):
+    enableActionRequests: Sequence[EnableAlarmActionRequestTypeDef]
+
+class BatchPutMessageResponseTypeDef(TypedDict):
+    BatchPutMessageErrorEntries: List[BatchPutMessageErrorEntryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class BatchResetAlarmRequestTypeDef(TypedDict):
+    resetActionRequests: Sequence[ResetAlarmActionRequestTypeDef]
+
+class BatchSnoozeAlarmRequestTypeDef(TypedDict):
+    snoozeActionRequests: Sequence[SnoozeAlarmActionRequestTypeDef]
+
+class BatchUpdateDetectorResponseTypeDef(TypedDict):
+    batchUpdateDetectorErrorEntries: List[BatchUpdateDetectorErrorEntryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CustomerActionTypeDef(TypedDict):
+    actionName: NotRequired[CustomerActionNameType]
+    snoozeActionConfiguration: NotRequired[SnoozeActionConfigurationTypeDef]
+    enableActionConfiguration: NotRequired[EnableActionConfigurationTypeDef]
+    disableActionConfiguration: NotRequired[DisableActionConfigurationTypeDef]
+    acknowledgeActionConfiguration: NotRequired[AcknowledgeActionConfigurationTypeDef]
+    resetActionConfiguration: NotRequired[ResetActionConfigurationTypeDef]
+
+class DetectorStateDefinitionTypeDef(TypedDict):
+    stateName: str
+    variables: Sequence[VariableDefinitionTypeDef]
+    timers: Sequence[TimerDefinitionTypeDef]
+
+class DetectorSummaryTypeDef(TypedDict):
+    detectorModelName: NotRequired[str]
+    keyValue: NotRequired[str]
+    detectorModelVersion: NotRequired[str]
+    state: NotRequired[DetectorStateSummaryTypeDef]
+    creationTime: NotRequired[datetime]
+    lastUpdateTime: NotRequired[datetime]
+
+class DetectorStateTypeDef(TypedDict):
+    stateName: str
+    variables: List[VariableTypeDef]
+    timers: List[TimerTypeDef]
+
+class MessageTypeDef(TypedDict):
+    messageId: str
+    inputName: str
+    payload: BlobTypeDef
+    timestamp: NotRequired[TimestampValueTypeDef]
+
+class RuleEvaluationTypeDef(TypedDict):
+    simpleRuleEvaluation: NotRequired[SimpleRuleEvaluationTypeDef]
+
+class SystemEventTypeDef(TypedDict):
+    eventType: NotRequired[Literal["STATE_CHANGE"]]
+    stateChangeConfiguration: NotRequired[StateChangeConfigurationTypeDef]
+
+class UpdateDetectorRequestTypeDef(TypedDict):
+    messageId: str
+    detectorModelName: str
+    state: DetectorStateDefinitionTypeDef
+    keyValue: NotRequired[str]
+
+class ListDetectorsResponseTypeDef(TypedDict):
+    detectorSummaries: List[DetectorSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class DetectorTypeDef(TypedDict):
+    detectorModelName: NotRequired[str]
+    keyValue: NotRequired[str]
+    detectorModelVersion: NotRequired[str]
+    state: NotRequired[DetectorStateTypeDef]
+    creationTime: NotRequired[datetime]
+    lastUpdateTime: NotRequired[datetime]
+
+class BatchPutMessageRequestTypeDef(TypedDict):
+    messages: Sequence[MessageTypeDef]
+
+class AlarmStateTypeDef(TypedDict):
+    stateName: NotRequired[AlarmStateNameType]
+    ruleEvaluation: NotRequired[RuleEvaluationTypeDef]
+    customerAction: NotRequired[CustomerActionTypeDef]
+    systemEvent: NotRequired[SystemEventTypeDef]
+
+class BatchUpdateDetectorRequestTypeDef(TypedDict):
+    detectors: Sequence[UpdateDetectorRequestTypeDef]
+
+class DescribeDetectorResponseTypeDef(TypedDict):
+    detector: DetectorTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class AlarmTypeDef(TypedDict):
+    alarmModelName: NotRequired[str]
+    alarmModelVersion: NotRequired[str]
+    keyValue: NotRequired[str]
+    alarmState: NotRequired[AlarmStateTypeDef]
+    severity: NotRequired[int]
+    creationTime: NotRequired[datetime]
+    lastUpdateTime: NotRequired[datetime]
+
+class DescribeAlarmResponseTypeDef(TypedDict):
+    alarm: AlarmTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef

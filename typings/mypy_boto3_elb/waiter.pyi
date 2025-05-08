@@ -1,21 +1,24 @@
 """
 Type annotations for elb service client waiters.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elb/waiters.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_elb/waiters/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
 
-    from mypy_boto3_elb import ElasticLoadBalancingClient
+    from mypy_boto3_elb.client import ElasticLoadBalancingClient
     from mypy_boto3_elb.waiter import (
         AnyInstanceInServiceWaiter,
         InstanceDeregisteredWaiter,
         InstanceInServiceWaiter,
     )
 
-    client: ElasticLoadBalancingClient = boto3.client("elb")
+    session = Session()
+    client: ElasticLoadBalancingClient = session.client("elb")
 
     any_instance_in_service_waiter: AnyInstanceInServiceWaiter = client.get_waiter("any_instance_in_service")
     instance_deregistered_waiter: InstanceDeregisteredWaiter = client.get_waiter("instance_deregistered")
@@ -23,64 +26,60 @@ Usage::
     ```
 """
 
-from typing import List
+from __future__ import annotations
 
-from botocore.waiter import Waiter as Boto3Waiter
+import sys
 
-from .type_defs import InstanceTypeDef, WaiterConfigTypeDef
+from botocore.waiter import Waiter
+
+from .type_defs import (
+    DescribeEndPointStateInputWaitExtraExtraTypeDef,
+    DescribeEndPointStateInputWaitExtraTypeDef,
+    DescribeEndPointStateInputWaitTypeDef,
+)
+
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = ("AnyInstanceInServiceWaiter", "InstanceDeregisteredWaiter", "InstanceInServiceWaiter")
 
-class AnyInstanceInServiceWaiter(Boto3Waiter):
+class AnyInstanceInServiceWaiter(Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/elb.html#ElasticLoadBalancing.Waiter.AnyInstanceInService)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elb/waiters.html#anyinstanceinservicewaiter)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elb/waiter/AnyInstanceInService.html#ElasticLoadBalancing.Waiter.AnyInstanceInService)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_elb/waiters/#anyinstanceinservicewaiter)
     """
-
-    def wait(
-        self,
-        *,
-        LoadBalancerName: str,
-        Instances: List["InstanceTypeDef"] = None,
-        WaiterConfig: WaiterConfigTypeDef = None
+    def wait(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeEndPointStateInputWaitExtraTypeDef]
     ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/elb.html#ElasticLoadBalancing.Waiter.AnyInstanceInService.wait)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elb/waiters.html#anyinstanceinservicewaiter)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elb/waiter/AnyInstanceInService.html#ElasticLoadBalancing.Waiter.AnyInstanceInService.wait)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_elb/waiters/#anyinstanceinservicewaiter)
         """
 
-class InstanceDeregisteredWaiter(Boto3Waiter):
+class InstanceDeregisteredWaiter(Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/elb.html#ElasticLoadBalancing.Waiter.InstanceDeregistered)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elb/waiters.html#instancederegisteredwaiter)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elb/waiter/InstanceDeregistered.html#ElasticLoadBalancing.Waiter.InstanceDeregistered)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_elb/waiters/#instancederegisteredwaiter)
     """
-
-    def wait(
-        self,
-        *,
-        LoadBalancerName: str,
-        Instances: List["InstanceTypeDef"] = None,
-        WaiterConfig: WaiterConfigTypeDef = None
+    def wait(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeEndPointStateInputWaitTypeDef]
     ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/elb.html#ElasticLoadBalancing.Waiter.InstanceDeregistered.wait)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elb/waiters.html#instancederegisteredwaiter)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elb/waiter/InstanceDeregistered.html#ElasticLoadBalancing.Waiter.InstanceDeregistered.wait)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_elb/waiters/#instancederegisteredwaiter)
         """
 
-class InstanceInServiceWaiter(Boto3Waiter):
+class InstanceInServiceWaiter(Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/elb.html#ElasticLoadBalancing.Waiter.InstanceInService)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elb/waiters.html#instanceinservicewaiter)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elb/waiter/InstanceInService.html#ElasticLoadBalancing.Waiter.InstanceInService)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_elb/waiters/#instanceinservicewaiter)
     """
-
-    def wait(
-        self,
-        *,
-        LoadBalancerName: str,
-        Instances: List["InstanceTypeDef"] = None,
-        WaiterConfig: WaiterConfigTypeDef = None
+    def wait(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeEndPointStateInputWaitExtraExtraTypeDef]
     ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/elb.html#ElasticLoadBalancing.Waiter.InstanceInService.wait)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elb/waiters.html#instanceinservicewaiter)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elb/waiter/InstanceInService.html#ElasticLoadBalancing.Waiter.InstanceInService.wait)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_elb/waiters/#instanceinservicewaiter)
         """

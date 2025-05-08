@@ -1,20 +1,24 @@
 """
 Type annotations for migrationhuborchestrator service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migrationhuborchestrator/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_migrationhuborchestrator/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_migrationhuborchestrator.type_defs import CreateMigrationWorkflowRequestRequestTypeDef
+    from mypy_boto3_migrationhuborchestrator.type_defs import ResponseMetadataTypeDef
 
-    data: CreateMigrationWorkflowRequestRequestTypeDef = {...}
+    data: ResponseMetadataTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
+from typing import Union
 
 from .literals import (
     DataTypeType,
@@ -29,52 +33,65 @@ from .literals import (
     TemplateStatusType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
-    "CreateMigrationWorkflowRequestRequestTypeDef",
+    "CreateMigrationWorkflowRequestTypeDef",
     "CreateMigrationWorkflowResponseTypeDef",
-    "CreateTemplateRequestRequestTypeDef",
+    "CreateTemplateRequestTypeDef",
     "CreateTemplateResponseTypeDef",
-    "CreateWorkflowStepGroupRequestRequestTypeDef",
+    "CreateWorkflowStepGroupRequestTypeDef",
     "CreateWorkflowStepGroupResponseTypeDef",
-    "CreateWorkflowStepRequestRequestTypeDef",
+    "CreateWorkflowStepRequestTypeDef",
     "CreateWorkflowStepResponseTypeDef",
-    "DeleteMigrationWorkflowRequestRequestTypeDef",
+    "DeleteMigrationWorkflowRequestTypeDef",
     "DeleteMigrationWorkflowResponseTypeDef",
-    "DeleteTemplateRequestRequestTypeDef",
-    "DeleteWorkflowStepGroupRequestRequestTypeDef",
-    "DeleteWorkflowStepRequestRequestTypeDef",
-    "GetMigrationWorkflowRequestRequestTypeDef",
+    "DeleteTemplateRequestTypeDef",
+    "DeleteWorkflowStepGroupRequestTypeDef",
+    "DeleteWorkflowStepRequestTypeDef",
+    "GetMigrationWorkflowRequestTypeDef",
     "GetMigrationWorkflowResponseTypeDef",
-    "GetMigrationWorkflowTemplateRequestRequestTypeDef",
+    "GetMigrationWorkflowTemplateRequestTypeDef",
     "GetMigrationWorkflowTemplateResponseTypeDef",
-    "GetTemplateStepGroupRequestRequestTypeDef",
+    "GetTemplateStepGroupRequestTypeDef",
     "GetTemplateStepGroupResponseTypeDef",
-    "GetTemplateStepRequestRequestTypeDef",
+    "GetTemplateStepRequestTypeDef",
     "GetTemplateStepResponseTypeDef",
-    "GetWorkflowStepGroupRequestRequestTypeDef",
+    "GetWorkflowStepGroupRequestTypeDef",
     "GetWorkflowStepGroupResponseTypeDef",
-    "GetWorkflowStepRequestRequestTypeDef",
+    "GetWorkflowStepRequestTypeDef",
     "GetWorkflowStepResponseTypeDef",
-    "ListMigrationWorkflowTemplatesRequestRequestTypeDef",
+    "ListMigrationWorkflowTemplatesRequestPaginateTypeDef",
+    "ListMigrationWorkflowTemplatesRequestTypeDef",
     "ListMigrationWorkflowTemplatesResponseTypeDef",
-    "ListMigrationWorkflowsRequestRequestTypeDef",
+    "ListMigrationWorkflowsRequestPaginateTypeDef",
+    "ListMigrationWorkflowsRequestTypeDef",
     "ListMigrationWorkflowsResponseTypeDef",
-    "ListPluginsRequestRequestTypeDef",
+    "ListPluginsRequestPaginateTypeDef",
+    "ListPluginsRequestTypeDef",
     "ListPluginsResponseTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
-    "ListTemplateStepGroupsRequestRequestTypeDef",
+    "ListTemplateStepGroupsRequestPaginateTypeDef",
+    "ListTemplateStepGroupsRequestTypeDef",
     "ListTemplateStepGroupsResponseTypeDef",
-    "ListTemplateStepsRequestRequestTypeDef",
+    "ListTemplateStepsRequestPaginateTypeDef",
+    "ListTemplateStepsRequestTypeDef",
     "ListTemplateStepsResponseTypeDef",
-    "ListWorkflowStepGroupsRequestRequestTypeDef",
+    "ListWorkflowStepGroupsRequestPaginateTypeDef",
+    "ListWorkflowStepGroupsRequestTypeDef",
     "ListWorkflowStepGroupsResponseTypeDef",
-    "ListWorkflowStepsRequestRequestTypeDef",
+    "ListWorkflowStepsRequestPaginateTypeDef",
+    "ListWorkflowStepsRequestTypeDef",
     "ListWorkflowStepsResponseTypeDef",
     "MigrationWorkflowSummaryTypeDef",
     "PaginatorConfigTypeDef",
@@ -82,63 +99,448 @@ __all__ = (
     "PlatformScriptKeyTypeDef",
     "PluginSummaryTypeDef",
     "ResponseMetadataTypeDef",
-    "RetryWorkflowStepRequestRequestTypeDef",
+    "RetryWorkflowStepRequestTypeDef",
     "RetryWorkflowStepResponseTypeDef",
-    "StartMigrationWorkflowRequestRequestTypeDef",
+    "StartMigrationWorkflowRequestTypeDef",
     "StartMigrationWorkflowResponseTypeDef",
     "StepAutomationConfigurationTypeDef",
+    "StepInputOutputTypeDef",
     "StepInputTypeDef",
+    "StepInputUnionTypeDef",
     "StepOutputTypeDef",
-    "StopMigrationWorkflowRequestRequestTypeDef",
+    "StopMigrationWorkflowRequestTypeDef",
     "StopMigrationWorkflowResponseTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
     "TemplateInputTypeDef",
     "TemplateSourceTypeDef",
     "TemplateStepGroupSummaryTypeDef",
     "TemplateStepSummaryTypeDef",
     "TemplateSummaryTypeDef",
     "ToolTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateMigrationWorkflowRequestRequestTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateMigrationWorkflowRequestTypeDef",
     "UpdateMigrationWorkflowResponseTypeDef",
-    "UpdateTemplateRequestRequestTypeDef",
+    "UpdateTemplateRequestTypeDef",
     "UpdateTemplateResponseTypeDef",
-    "UpdateWorkflowStepGroupRequestRequestTypeDef",
+    "UpdateWorkflowStepGroupRequestTypeDef",
     "UpdateWorkflowStepGroupResponseTypeDef",
-    "UpdateWorkflowStepRequestRequestTypeDef",
+    "UpdateWorkflowStepRequestTypeDef",
     "UpdateWorkflowStepResponseTypeDef",
     "WorkflowStepAutomationConfigurationTypeDef",
+    "WorkflowStepExtraTypeDef",
     "WorkflowStepGroupSummaryTypeDef",
     "WorkflowStepOutputTypeDef",
+    "WorkflowStepOutputUnionOutputTypeDef",
     "WorkflowStepOutputUnionTypeDef",
+    "WorkflowStepOutputUnionUnionTypeDef",
     "WorkflowStepSummaryTypeDef",
+    "WorkflowStepUnionTypeDef",
 )
 
-_RequiredCreateMigrationWorkflowRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateMigrationWorkflowRequestRequestTypeDef",
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
+
+class StepInputOutputTypeDef(TypedDict):
+    integerValue: NotRequired[int]
+    stringValue: NotRequired[str]
+    listOfStringsValue: NotRequired[List[str]]
+    mapOfStringValue: NotRequired[Dict[str, str]]
+
+class TemplateSourceTypeDef(TypedDict):
+    workflowId: NotRequired[str]
+
+CreateWorkflowStepGroupRequestTypeDef = TypedDict(
+    "CreateWorkflowStepGroupRequestTypeDef",
     {
+        "workflowId": str,
         "name": str,
-        "templateId": str,
-        "inputParameters": Dict[str, "StepInputTypeDef"],
+        "description": NotRequired[str],
+        "next": NotRequired[Sequence[str]],
+        "previous": NotRequired[Sequence[str]],
     },
 )
-_OptionalCreateMigrationWorkflowRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateMigrationWorkflowRequestRequestTypeDef",
+
+class ToolTypeDef(TypedDict):
+    name: NotRequired[str]
+    url: NotRequired[str]
+
+DeleteMigrationWorkflowRequestTypeDef = TypedDict(
+    "DeleteMigrationWorkflowRequestTypeDef",
     {
-        "description": str,
-        "applicationConfigurationId": str,
-        "stepTargets": List[str],
-        "tags": Dict[str, str],
+        "id": str,
     },
-    total=False,
+)
+DeleteTemplateRequestTypeDef = TypedDict(
+    "DeleteTemplateRequestTypeDef",
+    {
+        "id": str,
+    },
+)
+DeleteWorkflowStepGroupRequestTypeDef = TypedDict(
+    "DeleteWorkflowStepGroupRequestTypeDef",
+    {
+        "workflowId": str,
+        "id": str,
+    },
+)
+DeleteWorkflowStepRequestTypeDef = TypedDict(
+    "DeleteWorkflowStepRequestTypeDef",
+    {
+        "id": str,
+        "stepGroupId": str,
+        "workflowId": str,
+    },
+)
+GetMigrationWorkflowRequestTypeDef = TypedDict(
+    "GetMigrationWorkflowRequestTypeDef",
+    {
+        "id": str,
+    },
+)
+GetMigrationWorkflowTemplateRequestTypeDef = TypedDict(
+    "GetMigrationWorkflowTemplateRequestTypeDef",
+    {
+        "id": str,
+    },
 )
 
-class CreateMigrationWorkflowRequestRequestTypeDef(
-    _RequiredCreateMigrationWorkflowRequestRequestTypeDef,
-    _OptionalCreateMigrationWorkflowRequestRequestTypeDef,
-):
-    pass
+class TemplateInputTypeDef(TypedDict):
+    inputName: NotRequired[str]
+    dataType: NotRequired[DataTypeType]
+    required: NotRequired[bool]
 
+GetTemplateStepGroupRequestTypeDef = TypedDict(
+    "GetTemplateStepGroupRequestTypeDef",
+    {
+        "templateId": str,
+        "id": str,
+    },
+)
+GetTemplateStepRequestTypeDef = TypedDict(
+    "GetTemplateStepRequestTypeDef",
+    {
+        "id": str,
+        "templateId": str,
+        "stepGroupId": str,
+    },
+)
+
+class StepOutputTypeDef(TypedDict):
+    name: NotRequired[str]
+    dataType: NotRequired[DataTypeType]
+    required: NotRequired[bool]
+
+GetWorkflowStepGroupRequestTypeDef = TypedDict(
+    "GetWorkflowStepGroupRequestTypeDef",
+    {
+        "id": str,
+        "workflowId": str,
+    },
+)
+GetWorkflowStepRequestTypeDef = TypedDict(
+    "GetWorkflowStepRequestTypeDef",
+    {
+        "workflowId": str,
+        "stepGroupId": str,
+        "id": str,
+    },
+)
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class ListMigrationWorkflowTemplatesRequestTypeDef(TypedDict):
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+    name: NotRequired[str]
+
+TemplateSummaryTypeDef = TypedDict(
+    "TemplateSummaryTypeDef",
+    {
+        "id": NotRequired[str],
+        "name": NotRequired[str],
+        "arn": NotRequired[str],
+        "description": NotRequired[str],
+    },
+)
+
+class ListMigrationWorkflowsRequestTypeDef(TypedDict):
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+    templateId: NotRequired[str]
+    adsApplicationConfigurationName: NotRequired[str]
+    status: NotRequired[MigrationWorkflowStatusEnumType]
+    name: NotRequired[str]
+
+MigrationWorkflowSummaryTypeDef = TypedDict(
+    "MigrationWorkflowSummaryTypeDef",
+    {
+        "id": NotRequired[str],
+        "name": NotRequired[str],
+        "templateId": NotRequired[str],
+        "adsApplicationConfigurationName": NotRequired[str],
+        "status": NotRequired[MigrationWorkflowStatusEnumType],
+        "creationTime": NotRequired[datetime],
+        "endTime": NotRequired[datetime],
+        "statusMessage": NotRequired[str],
+        "completedSteps": NotRequired[int],
+        "totalSteps": NotRequired[int],
+    },
+)
+
+class ListPluginsRequestTypeDef(TypedDict):
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class PluginSummaryTypeDef(TypedDict):
+    pluginId: NotRequired[str]
+    hostname: NotRequired[str]
+    status: NotRequired[PluginHealthType]
+    ipAddress: NotRequired[str]
+    version: NotRequired[str]
+    registeredTime: NotRequired[str]
+
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+
+class ListTemplateStepGroupsRequestTypeDef(TypedDict):
+    templateId: str
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+TemplateStepGroupSummaryTypeDef = TypedDict(
+    "TemplateStepGroupSummaryTypeDef",
+    {
+        "id": NotRequired[str],
+        "name": NotRequired[str],
+        "previous": NotRequired[List[str]],
+        "next": NotRequired[List[str]],
+    },
+)
+
+class ListTemplateStepsRequestTypeDef(TypedDict):
+    templateId: str
+    stepGroupId: str
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+TemplateStepSummaryTypeDef = TypedDict(
+    "TemplateStepSummaryTypeDef",
+    {
+        "id": NotRequired[str],
+        "stepGroupId": NotRequired[str],
+        "templateId": NotRequired[str],
+        "name": NotRequired[str],
+        "stepActionType": NotRequired[StepActionTypeType],
+        "targetType": NotRequired[TargetTypeType],
+        "owner": NotRequired[OwnerType],
+        "previous": NotRequired[List[str]],
+        "next": NotRequired[List[str]],
+    },
+)
+
+class ListWorkflowStepGroupsRequestTypeDef(TypedDict):
+    workflowId: str
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+WorkflowStepGroupSummaryTypeDef = TypedDict(
+    "WorkflowStepGroupSummaryTypeDef",
+    {
+        "id": NotRequired[str],
+        "name": NotRequired[str],
+        "owner": NotRequired[OwnerType],
+        "status": NotRequired[StepGroupStatusType],
+        "previous": NotRequired[List[str]],
+        "next": NotRequired[List[str]],
+    },
+)
+
+class ListWorkflowStepsRequestTypeDef(TypedDict):
+    workflowId: str
+    stepGroupId: str
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+WorkflowStepSummaryTypeDef = TypedDict(
+    "WorkflowStepSummaryTypeDef",
+    {
+        "stepId": NotRequired[str],
+        "name": NotRequired[str],
+        "stepActionType": NotRequired[StepActionTypeType],
+        "owner": NotRequired[OwnerType],
+        "previous": NotRequired[List[str]],
+        "next": NotRequired[List[str]],
+        "status": NotRequired[StepStatusType],
+        "statusMessage": NotRequired[str],
+        "noOfSrvCompleted": NotRequired[int],
+        "noOfSrvFailed": NotRequired[int],
+        "totalNoOfSrv": NotRequired[int],
+        "description": NotRequired[str],
+        "scriptLocation": NotRequired[str],
+    },
+)
+
+class PlatformCommandTypeDef(TypedDict):
+    linux: NotRequired[str]
+    windows: NotRequired[str]
+
+class PlatformScriptKeyTypeDef(TypedDict):
+    linux: NotRequired[str]
+    windows: NotRequired[str]
+
+RetryWorkflowStepRequestTypeDef = TypedDict(
+    "RetryWorkflowStepRequestTypeDef",
+    {
+        "workflowId": str,
+        "stepGroupId": str,
+        "id": str,
+    },
+)
+StartMigrationWorkflowRequestTypeDef = TypedDict(
+    "StartMigrationWorkflowRequestTypeDef",
+    {
+        "id": str,
+    },
+)
+
+class StepInputTypeDef(TypedDict):
+    integerValue: NotRequired[int]
+    stringValue: NotRequired[str]
+    listOfStringsValue: NotRequired[Sequence[str]]
+    mapOfStringValue: NotRequired[Mapping[str, str]]
+
+StopMigrationWorkflowRequestTypeDef = TypedDict(
+    "StopMigrationWorkflowRequestTypeDef",
+    {
+        "id": str,
+    },
+)
+
+class TagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tags: Mapping[str, str]
+
+class UntagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tagKeys: Sequence[str]
+
+UpdateTemplateRequestTypeDef = TypedDict(
+    "UpdateTemplateRequestTypeDef",
+    {
+        "id": str,
+        "templateName": NotRequired[str],
+        "templateDescription": NotRequired[str],
+        "clientToken": NotRequired[str],
+    },
+)
+UpdateWorkflowStepGroupRequestTypeDef = TypedDict(
+    "UpdateWorkflowStepGroupRequestTypeDef",
+    {
+        "workflowId": str,
+        "id": str,
+        "name": NotRequired[str],
+        "description": NotRequired[str],
+        "next": NotRequired[Sequence[str]],
+        "previous": NotRequired[Sequence[str]],
+    },
+)
+
+class WorkflowStepOutputUnionOutputTypeDef(TypedDict):
+    integerValue: NotRequired[int]
+    stringValue: NotRequired[str]
+    listOfStringValue: NotRequired[List[str]]
+
+class WorkflowStepOutputUnionTypeDef(TypedDict):
+    integerValue: NotRequired[int]
+    stringValue: NotRequired[str]
+    listOfStringValue: NotRequired[Sequence[str]]
+
+class CreateTemplateResponseTypeDef(TypedDict):
+    templateId: str
+    templateArn: str
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+CreateWorkflowStepResponseTypeDef = TypedDict(
+    "CreateWorkflowStepResponseTypeDef",
+    {
+        "id": str,
+        "stepGroupId": str,
+        "workflowId": str,
+        "name": str,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+DeleteMigrationWorkflowResponseTypeDef = TypedDict(
+    "DeleteMigrationWorkflowResponseTypeDef",
+    {
+        "id": str,
+        "arn": str,
+        "status": MigrationWorkflowStatusEnumType,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+RetryWorkflowStepResponseTypeDef = TypedDict(
+    "RetryWorkflowStepResponseTypeDef",
+    {
+        "stepGroupId": str,
+        "workflowId": str,
+        "id": str,
+        "status": StepStatusType,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+StartMigrationWorkflowResponseTypeDef = TypedDict(
+    "StartMigrationWorkflowResponseTypeDef",
+    {
+        "id": str,
+        "arn": str,
+        "status": MigrationWorkflowStatusEnumType,
+        "statusMessage": str,
+        "lastStartTime": datetime,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+StopMigrationWorkflowResponseTypeDef = TypedDict(
+    "StopMigrationWorkflowResponseTypeDef",
+    {
+        "id": str,
+        "arn": str,
+        "status": MigrationWorkflowStatusEnumType,
+        "statusMessage": str,
+        "lastStopTime": datetime,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+
+class UpdateTemplateResponseTypeDef(TypedDict):
+    templateId: str
+    templateArn: str
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+UpdateWorkflowStepResponseTypeDef = TypedDict(
+    "UpdateWorkflowStepResponseTypeDef",
+    {
+        "id": str,
+        "stepGroupId": str,
+        "workflowId": str,
+        "name": str,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
 CreateMigrationWorkflowResponseTypeDef = TypedDict(
     "CreateMigrationWorkflowResponseTypeDef",
     {
@@ -148,69 +550,39 @@ CreateMigrationWorkflowResponseTypeDef = TypedDict(
         "description": str,
         "templateId": str,
         "adsApplicationConfigurationId": str,
-        "workflowInputs": Dict[str, "StepInputTypeDef"],
+        "workflowInputs": Dict[str, StepInputOutputTypeDef],
         "stepTargets": List[str],
         "status": MigrationWorkflowStatusEnumType,
         "creationTime": datetime,
         "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
-
-_RequiredCreateTemplateRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateTemplateRequestRequestTypeDef",
+UpdateMigrationWorkflowResponseTypeDef = TypedDict(
+    "UpdateMigrationWorkflowResponseTypeDef",
     {
-        "templateName": str,
-        "templateSource": "TemplateSourceTypeDef",
-    },
-)
-_OptionalCreateTemplateRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateTemplateRequestRequestTypeDef",
-    {
-        "templateDescription": str,
-        "clientToken": str,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class CreateTemplateRequestRequestTypeDef(
-    _RequiredCreateTemplateRequestRequestTypeDef, _OptionalCreateTemplateRequestRequestTypeDef
-):
-    pass
-
-CreateTemplateResponseTypeDef = TypedDict(
-    "CreateTemplateResponseTypeDef",
-    {
-        "templateId": str,
-        "templateArn": str,
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateWorkflowStepGroupRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateWorkflowStepGroupRequestRequestTypeDef",
-    {
-        "workflowId": str,
+        "id": str,
+        "arn": str,
         "name": str,
-    },
-)
-_OptionalCreateWorkflowStepGroupRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateWorkflowStepGroupRequestRequestTypeDef",
-    {
         "description": str,
-        "next": List[str],
-        "previous": List[str],
+        "templateId": str,
+        "adsApplicationConfigurationId": str,
+        "workflowInputs": Dict[str, StepInputOutputTypeDef],
+        "stepTargets": List[str],
+        "status": MigrationWorkflowStatusEnumType,
+        "creationTime": datetime,
+        "lastModifiedTime": datetime,
+        "tags": Dict[str, str],
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
-    total=False,
 )
 
-class CreateWorkflowStepGroupRequestRequestTypeDef(
-    _RequiredCreateWorkflowStepGroupRequestRequestTypeDef,
-    _OptionalCreateWorkflowStepGroupRequestRequestTypeDef,
-):
-    pass
+class CreateTemplateRequestTypeDef(TypedDict):
+    templateName: str
+    templateSource: TemplateSourceTypeDef
+    templateDescription: NotRequired[str]
+    clientToken: NotRequired[str]
+    tags: NotRequired[Mapping[str, str]]
 
 CreateWorkflowStepGroupResponseTypeDef = TypedDict(
     "CreateWorkflowStepGroupResponseTypeDef",
@@ -219,101 +591,13 @@ CreateWorkflowStepGroupResponseTypeDef = TypedDict(
         "name": str,
         "id": str,
         "description": str,
-        "tools": List["ToolTypeDef"],
+        "tools": List[ToolTypeDef],
         "next": List[str],
         "previous": List[str],
         "creationTime": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
-
-_RequiredCreateWorkflowStepRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateWorkflowStepRequestRequestTypeDef",
-    {
-        "name": str,
-        "stepGroupId": str,
-        "workflowId": str,
-        "stepActionType": StepActionTypeType,
-    },
-)
-_OptionalCreateWorkflowStepRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateWorkflowStepRequestRequestTypeDef",
-    {
-        "description": str,
-        "workflowStepAutomationConfiguration": "WorkflowStepAutomationConfigurationTypeDef",
-        "stepTarget": List[str],
-        "outputs": List["WorkflowStepOutputTypeDef"],
-        "previous": List[str],
-        "next": List[str],
-    },
-    total=False,
-)
-
-class CreateWorkflowStepRequestRequestTypeDef(
-    _RequiredCreateWorkflowStepRequestRequestTypeDef,
-    _OptionalCreateWorkflowStepRequestRequestTypeDef,
-):
-    pass
-
-CreateWorkflowStepResponseTypeDef = TypedDict(
-    "CreateWorkflowStepResponseTypeDef",
-    {
-        "id": str,
-        "stepGroupId": str,
-        "workflowId": str,
-        "name": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteMigrationWorkflowRequestRequestTypeDef = TypedDict(
-    "DeleteMigrationWorkflowRequestRequestTypeDef",
-    {
-        "id": str,
-    },
-)
-
-DeleteMigrationWorkflowResponseTypeDef = TypedDict(
-    "DeleteMigrationWorkflowResponseTypeDef",
-    {
-        "id": str,
-        "arn": str,
-        "status": MigrationWorkflowStatusEnumType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteTemplateRequestRequestTypeDef = TypedDict(
-    "DeleteTemplateRequestRequestTypeDef",
-    {
-        "id": str,
-    },
-)
-
-DeleteWorkflowStepGroupRequestRequestTypeDef = TypedDict(
-    "DeleteWorkflowStepGroupRequestRequestTypeDef",
-    {
-        "workflowId": str,
-        "id": str,
-    },
-)
-
-DeleteWorkflowStepRequestRequestTypeDef = TypedDict(
-    "DeleteWorkflowStepRequestRequestTypeDef",
-    {
-        "id": str,
-        "stepGroupId": str,
-        "workflowId": str,
-    },
-)
-
-GetMigrationWorkflowRequestRequestTypeDef = TypedDict(
-    "GetMigrationWorkflowRequestRequestTypeDef",
-    {
-        "id": str,
-    },
-)
-
 GetMigrationWorkflowResponseTypeDef = TypedDict(
     "GetMigrationWorkflowResponseTypeDef",
     {
@@ -331,50 +615,15 @@ GetMigrationWorkflowResponseTypeDef = TypedDict(
         "lastStopTime": datetime,
         "lastModifiedTime": datetime,
         "endTime": datetime,
-        "tools": List["ToolTypeDef"],
+        "tools": List[ToolTypeDef],
         "totalSteps": int,
         "completedSteps": int,
-        "workflowInputs": Dict[str, "StepInputTypeDef"],
+        "workflowInputs": Dict[str, StepInputOutputTypeDef],
         "tags": Dict[str, str],
         "workflowBucket": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
-
-GetMigrationWorkflowTemplateRequestRequestTypeDef = TypedDict(
-    "GetMigrationWorkflowTemplateRequestRequestTypeDef",
-    {
-        "id": str,
-    },
-)
-
-GetMigrationWorkflowTemplateResponseTypeDef = TypedDict(
-    "GetMigrationWorkflowTemplateResponseTypeDef",
-    {
-        "id": str,
-        "templateArn": str,
-        "name": str,
-        "description": str,
-        "inputs": List["TemplateInputTypeDef"],
-        "tools": List["ToolTypeDef"],
-        "creationTime": datetime,
-        "owner": str,
-        "status": TemplateStatusType,
-        "statusMessage": str,
-        "templateClass": str,
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetTemplateStepGroupRequestRequestTypeDef = TypedDict(
-    "GetTemplateStepGroupRequestRequestTypeDef",
-    {
-        "templateId": str,
-        "id": str,
-    },
-)
-
 GetTemplateStepGroupResponseTypeDef = TypedDict(
     "GetTemplateStepGroupResponseTypeDef",
     {
@@ -385,48 +634,12 @@ GetTemplateStepGroupResponseTypeDef = TypedDict(
         "status": StepGroupStatusType,
         "creationTime": datetime,
         "lastModifiedTime": datetime,
-        "tools": List["ToolTypeDef"],
+        "tools": List[ToolTypeDef],
         "previous": List[str],
         "next": List[str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
-
-GetTemplateStepRequestRequestTypeDef = TypedDict(
-    "GetTemplateStepRequestRequestTypeDef",
-    {
-        "id": str,
-        "templateId": str,
-        "stepGroupId": str,
-    },
-)
-
-GetTemplateStepResponseTypeDef = TypedDict(
-    "GetTemplateStepResponseTypeDef",
-    {
-        "id": str,
-        "stepGroupId": str,
-        "templateId": str,
-        "name": str,
-        "description": str,
-        "stepActionType": StepActionTypeType,
-        "creationTime": str,
-        "previous": List[str],
-        "next": List[str],
-        "outputs": List["StepOutputTypeDef"],
-        "stepAutomationConfiguration": "StepAutomationConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetWorkflowStepGroupRequestRequestTypeDef = TypedDict(
-    "GetWorkflowStepGroupRequestRequestTypeDef",
-    {
-        "id": str,
-        "workflowId": str,
-    },
-)
-
 GetWorkflowStepGroupResponseTypeDef = TypedDict(
     "GetWorkflowStepGroupResponseTypeDef",
     {
@@ -439,22 +652,174 @@ GetWorkflowStepGroupResponseTypeDef = TypedDict(
         "creationTime": datetime,
         "lastModifiedTime": datetime,
         "endTime": datetime,
-        "tools": List["ToolTypeDef"],
+        "tools": List[ToolTypeDef],
         "previous": List[str],
         "next": List[str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
-
-GetWorkflowStepRequestRequestTypeDef = TypedDict(
-    "GetWorkflowStepRequestRequestTypeDef",
+UpdateWorkflowStepGroupResponseTypeDef = TypedDict(
+    "UpdateWorkflowStepGroupResponseTypeDef",
     {
         "workflowId": str,
-        "stepGroupId": str,
+        "name": str,
         "id": str,
+        "description": str,
+        "tools": List[ToolTypeDef],
+        "next": List[str],
+        "previous": List[str],
+        "lastModifiedTime": datetime,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+GetMigrationWorkflowTemplateResponseTypeDef = TypedDict(
+    "GetMigrationWorkflowTemplateResponseTypeDef",
+    {
+        "id": str,
+        "templateArn": str,
+        "name": str,
+        "description": str,
+        "inputs": List[TemplateInputTypeDef],
+        "tools": List[ToolTypeDef],
+        "creationTime": datetime,
+        "owner": str,
+        "status": TemplateStatusType,
+        "statusMessage": str,
+        "templateClass": str,
+        "tags": Dict[str, str],
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
 
+class ListMigrationWorkflowTemplatesRequestPaginateTypeDef(TypedDict):
+    name: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListMigrationWorkflowsRequestPaginateTypeDef(TypedDict):
+    templateId: NotRequired[str]
+    adsApplicationConfigurationName: NotRequired[str]
+    status: NotRequired[MigrationWorkflowStatusEnumType]
+    name: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListPluginsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListTemplateStepGroupsRequestPaginateTypeDef(TypedDict):
+    templateId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListTemplateStepsRequestPaginateTypeDef(TypedDict):
+    templateId: str
+    stepGroupId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListWorkflowStepGroupsRequestPaginateTypeDef(TypedDict):
+    workflowId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListWorkflowStepsRequestPaginateTypeDef(TypedDict):
+    workflowId: str
+    stepGroupId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListMigrationWorkflowTemplatesResponseTypeDef(TypedDict):
+    templateSummary: List[TemplateSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListMigrationWorkflowsResponseTypeDef(TypedDict):
+    migrationWorkflowSummary: List[MigrationWorkflowSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListPluginsResponseTypeDef(TypedDict):
+    plugins: List[PluginSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListTemplateStepGroupsResponseTypeDef(TypedDict):
+    templateStepGroupSummary: List[TemplateStepGroupSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListTemplateStepsResponseTypeDef(TypedDict):
+    templateStepSummaryList: List[TemplateStepSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListWorkflowStepGroupsResponseTypeDef(TypedDict):
+    workflowStepGroupsSummary: List[WorkflowStepGroupSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListWorkflowStepsResponseTypeDef(TypedDict):
+    workflowStepsSummary: List[WorkflowStepSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class StepAutomationConfigurationTypeDef(TypedDict):
+    scriptLocationS3Bucket: NotRequired[str]
+    scriptLocationS3Key: NotRequired[PlatformScriptKeyTypeDef]
+    command: NotRequired[PlatformCommandTypeDef]
+    runEnvironment: NotRequired[RunEnvironmentType]
+    targetType: NotRequired[TargetTypeType]
+
+class WorkflowStepAutomationConfigurationTypeDef(TypedDict):
+    scriptLocationS3Bucket: NotRequired[str]
+    scriptLocationS3Key: NotRequired[PlatformScriptKeyTypeDef]
+    command: NotRequired[PlatformCommandTypeDef]
+    runEnvironment: NotRequired[RunEnvironmentType]
+    targetType: NotRequired[TargetTypeType]
+
+StepInputUnionTypeDef = Union[StepInputTypeDef, StepInputOutputTypeDef]
+
+class WorkflowStepExtraTypeDef(TypedDict):
+    name: NotRequired[str]
+    dataType: NotRequired[DataTypeType]
+    required: NotRequired[bool]
+    value: NotRequired[WorkflowStepOutputUnionOutputTypeDef]
+
+WorkflowStepOutputUnionUnionTypeDef = Union[
+    WorkflowStepOutputUnionTypeDef, WorkflowStepOutputUnionOutputTypeDef
+]
+GetTemplateStepResponseTypeDef = TypedDict(
+    "GetTemplateStepResponseTypeDef",
+    {
+        "id": str,
+        "stepGroupId": str,
+        "templateId": str,
+        "name": str,
+        "description": str,
+        "stepActionType": StepActionTypeType,
+        "creationTime": str,
+        "previous": List[str],
+        "next": List[str],
+        "outputs": List[StepOutputTypeDef],
+        "stepAutomationConfiguration": StepAutomationConfigurationTypeDef,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+
+class CreateMigrationWorkflowRequestTypeDef(TypedDict):
+    name: str
+    templateId: str
+    inputParameters: Mapping[str, StepInputUnionTypeDef]
+    description: NotRequired[str]
+    applicationConfigurationId: NotRequired[str]
+    stepTargets: NotRequired[Sequence[str]]
+    tags: NotRequired[Mapping[str, str]]
+
+UpdateMigrationWorkflowRequestTypeDef = TypedDict(
+    "UpdateMigrationWorkflowRequestTypeDef",
+    {
+        "id": str,
+        "name": NotRequired[str],
+        "description": NotRequired[str],
+        "inputParameters": NotRequired[Mapping[str, StepInputUnionTypeDef]],
+        "stepTargets": NotRequired[Sequence[str]],
+    },
+)
 GetWorkflowStepResponseTypeDef = TypedDict(
     "GetWorkflowStepResponseTypeDef",
     {
@@ -465,9 +830,9 @@ GetWorkflowStepResponseTypeDef = TypedDict(
         "description": str,
         "stepActionType": StepActionTypeType,
         "owner": OwnerType,
-        "workflowStepAutomationConfiguration": "WorkflowStepAutomationConfigurationTypeDef",
+        "workflowStepAutomationConfiguration": WorkflowStepAutomationConfigurationTypeDef,
         "stepTarget": List[str],
-        "outputs": List["WorkflowStepOutputTypeDef"],
+        "outputs": List[WorkflowStepExtraTypeDef],
         "previous": List[str],
         "next": List[str],
         "status": StepStatusType,
@@ -479,660 +844,50 @@ GetWorkflowStepResponseTypeDef = TypedDict(
         "noOfSrvCompleted": int,
         "noOfSrvFailed": int,
         "totalNoOfSrv": int,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
 
-ListMigrationWorkflowTemplatesRequestRequestTypeDef = TypedDict(
-    "ListMigrationWorkflowTemplatesRequestRequestTypeDef",
+class WorkflowStepOutputTypeDef(TypedDict):
+    name: NotRequired[str]
+    dataType: NotRequired[DataTypeType]
+    required: NotRequired[bool]
+    value: NotRequired[WorkflowStepOutputUnionUnionTypeDef]
+
+WorkflowStepUnionTypeDef = Union[WorkflowStepOutputTypeDef, WorkflowStepExtraTypeDef]
+CreateWorkflowStepRequestTypeDef = TypedDict(
+    "CreateWorkflowStepRequestTypeDef",
     {
-        "maxResults": int,
-        "nextToken": str,
         "name": str,
-    },
-    total=False,
-)
-
-ListMigrationWorkflowTemplatesResponseTypeDef = TypedDict(
-    "ListMigrationWorkflowTemplatesResponseTypeDef",
-    {
-        "nextToken": str,
-        "templateSummary": List["TemplateSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListMigrationWorkflowsRequestRequestTypeDef = TypedDict(
-    "ListMigrationWorkflowsRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-        "templateId": str,
-        "adsApplicationConfigurationName": str,
-        "status": MigrationWorkflowStatusEnumType,
-        "name": str,
-    },
-    total=False,
-)
-
-ListMigrationWorkflowsResponseTypeDef = TypedDict(
-    "ListMigrationWorkflowsResponseTypeDef",
-    {
-        "nextToken": str,
-        "migrationWorkflowSummary": List["MigrationWorkflowSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListPluginsRequestRequestTypeDef = TypedDict(
-    "ListPluginsRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-ListPluginsResponseTypeDef = TypedDict(
-    "ListPluginsResponseTypeDef",
-    {
-        "nextToken": str,
-        "plugins": List["PluginSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-    },
-)
-
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListTemplateStepGroupsRequestRequestTypeDef = TypedDict(
-    "_RequiredListTemplateStepGroupsRequestRequestTypeDef",
-    {
-        "templateId": str,
-    },
-)
-_OptionalListTemplateStepGroupsRequestRequestTypeDef = TypedDict(
-    "_OptionalListTemplateStepGroupsRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListTemplateStepGroupsRequestRequestTypeDef(
-    _RequiredListTemplateStepGroupsRequestRequestTypeDef,
-    _OptionalListTemplateStepGroupsRequestRequestTypeDef,
-):
-    pass
-
-ListTemplateStepGroupsResponseTypeDef = TypedDict(
-    "ListTemplateStepGroupsResponseTypeDef",
-    {
-        "nextToken": str,
-        "templateStepGroupSummary": List["TemplateStepGroupSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListTemplateStepsRequestRequestTypeDef = TypedDict(
-    "_RequiredListTemplateStepsRequestRequestTypeDef",
-    {
-        "templateId": str,
-        "stepGroupId": str,
-    },
-)
-_OptionalListTemplateStepsRequestRequestTypeDef = TypedDict(
-    "_OptionalListTemplateStepsRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListTemplateStepsRequestRequestTypeDef(
-    _RequiredListTemplateStepsRequestRequestTypeDef, _OptionalListTemplateStepsRequestRequestTypeDef
-):
-    pass
-
-ListTemplateStepsResponseTypeDef = TypedDict(
-    "ListTemplateStepsResponseTypeDef",
-    {
-        "nextToken": str,
-        "templateStepSummaryList": List["TemplateStepSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListWorkflowStepGroupsRequestRequestTypeDef = TypedDict(
-    "_RequiredListWorkflowStepGroupsRequestRequestTypeDef",
-    {
-        "workflowId": str,
-    },
-)
-_OptionalListWorkflowStepGroupsRequestRequestTypeDef = TypedDict(
-    "_OptionalListWorkflowStepGroupsRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-class ListWorkflowStepGroupsRequestRequestTypeDef(
-    _RequiredListWorkflowStepGroupsRequestRequestTypeDef,
-    _OptionalListWorkflowStepGroupsRequestRequestTypeDef,
-):
-    pass
-
-ListWorkflowStepGroupsResponseTypeDef = TypedDict(
-    "ListWorkflowStepGroupsResponseTypeDef",
-    {
-        "nextToken": str,
-        "workflowStepGroupsSummary": List["WorkflowStepGroupSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListWorkflowStepsRequestRequestTypeDef = TypedDict(
-    "_RequiredListWorkflowStepsRequestRequestTypeDef",
-    {
-        "workflowId": str,
-        "stepGroupId": str,
-    },
-)
-_OptionalListWorkflowStepsRequestRequestTypeDef = TypedDict(
-    "_OptionalListWorkflowStepsRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-class ListWorkflowStepsRequestRequestTypeDef(
-    _RequiredListWorkflowStepsRequestRequestTypeDef, _OptionalListWorkflowStepsRequestRequestTypeDef
-):
-    pass
-
-ListWorkflowStepsResponseTypeDef = TypedDict(
-    "ListWorkflowStepsResponseTypeDef",
-    {
-        "nextToken": str,
-        "workflowStepsSummary": List["WorkflowStepSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-MigrationWorkflowSummaryTypeDef = TypedDict(
-    "MigrationWorkflowSummaryTypeDef",
-    {
-        "id": str,
-        "name": str,
-        "templateId": str,
-        "adsApplicationConfigurationName": str,
-        "status": MigrationWorkflowStatusEnumType,
-        "creationTime": datetime,
-        "endTime": datetime,
-        "statusMessage": str,
-        "completedSteps": int,
-        "totalSteps": int,
-    },
-    total=False,
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-PlatformCommandTypeDef = TypedDict(
-    "PlatformCommandTypeDef",
-    {
-        "linux": str,
-        "windows": str,
-    },
-    total=False,
-)
-
-PlatformScriptKeyTypeDef = TypedDict(
-    "PlatformScriptKeyTypeDef",
-    {
-        "linux": str,
-        "windows": str,
-    },
-    total=False,
-)
-
-PluginSummaryTypeDef = TypedDict(
-    "PluginSummaryTypeDef",
-    {
-        "pluginId": str,
-        "hostname": str,
-        "status": PluginHealthType,
-        "ipAddress": str,
-        "version": str,
-        "registeredTime": str,
-    },
-    total=False,
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-RetryWorkflowStepRequestRequestTypeDef = TypedDict(
-    "RetryWorkflowStepRequestRequestTypeDef",
-    {
-        "workflowId": str,
-        "stepGroupId": str,
-        "id": str,
-    },
-)
-
-RetryWorkflowStepResponseTypeDef = TypedDict(
-    "RetryWorkflowStepResponseTypeDef",
-    {
         "stepGroupId": str,
         "workflowId": str,
-        "id": str,
-        "status": StepStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-StartMigrationWorkflowRequestRequestTypeDef = TypedDict(
-    "StartMigrationWorkflowRequestRequestTypeDef",
-    {
-        "id": str,
-    },
-)
-
-StartMigrationWorkflowResponseTypeDef = TypedDict(
-    "StartMigrationWorkflowResponseTypeDef",
-    {
-        "id": str,
-        "arn": str,
-        "status": MigrationWorkflowStatusEnumType,
-        "statusMessage": str,
-        "lastStartTime": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-StepAutomationConfigurationTypeDef = TypedDict(
-    "StepAutomationConfigurationTypeDef",
-    {
-        "scriptLocationS3Bucket": str,
-        "scriptLocationS3Key": "PlatformScriptKeyTypeDef",
-        "command": "PlatformCommandTypeDef",
-        "runEnvironment": RunEnvironmentType,
-        "targetType": TargetTypeType,
-    },
-    total=False,
-)
-
-StepInputTypeDef = TypedDict(
-    "StepInputTypeDef",
-    {
-        "integerValue": int,
-        "stringValue": str,
-        "listOfStringsValue": List[str],
-        "mapOfStringValue": Dict[str, str],
-    },
-    total=False,
-)
-
-StepOutputTypeDef = TypedDict(
-    "StepOutputTypeDef",
-    {
-        "name": str,
-        "dataType": DataTypeType,
-        "required": bool,
-    },
-    total=False,
-)
-
-StopMigrationWorkflowRequestRequestTypeDef = TypedDict(
-    "StopMigrationWorkflowRequestRequestTypeDef",
-    {
-        "id": str,
-    },
-)
-
-StopMigrationWorkflowResponseTypeDef = TypedDict(
-    "StopMigrationWorkflowResponseTypeDef",
-    {
-        "id": str,
-        "arn": str,
-        "status": MigrationWorkflowStatusEnumType,
-        "statusMessage": str,
-        "lastStopTime": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tags": Dict[str, str],
-    },
-)
-
-TemplateInputTypeDef = TypedDict(
-    "TemplateInputTypeDef",
-    {
-        "inputName": str,
-        "dataType": DataTypeType,
-        "required": bool,
-    },
-    total=False,
-)
-
-TemplateSourceTypeDef = TypedDict(
-    "TemplateSourceTypeDef",
-    {
-        "workflowId": str,
-    },
-    total=False,
-)
-
-TemplateStepGroupSummaryTypeDef = TypedDict(
-    "TemplateStepGroupSummaryTypeDef",
-    {
-        "id": str,
-        "name": str,
-        "previous": List[str],
-        "next": List[str],
-    },
-    total=False,
-)
-
-TemplateStepSummaryTypeDef = TypedDict(
-    "TemplateStepSummaryTypeDef",
-    {
-        "id": str,
-        "stepGroupId": str,
-        "templateId": str,
-        "name": str,
         "stepActionType": StepActionTypeType,
-        "targetType": TargetTypeType,
-        "owner": OwnerType,
-        "previous": List[str],
-        "next": List[str],
-    },
-    total=False,
-)
-
-TemplateSummaryTypeDef = TypedDict(
-    "TemplateSummaryTypeDef",
-    {
-        "id": str,
-        "name": str,
-        "arn": str,
-        "description": str,
-    },
-    total=False,
-)
-
-ToolTypeDef = TypedDict(
-    "ToolTypeDef",
-    {
-        "name": str,
-        "url": str,
-    },
-    total=False,
-)
-
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tagKeys": List[str],
+        "description": NotRequired[str],
+        "workflowStepAutomationConfiguration": NotRequired[
+            WorkflowStepAutomationConfigurationTypeDef
+        ],
+        "stepTarget": NotRequired[Sequence[str]],
+        "outputs": NotRequired[Sequence[WorkflowStepUnionTypeDef]],
+        "previous": NotRequired[Sequence[str]],
+        "next": NotRequired[Sequence[str]],
     },
 )
-
-_RequiredUpdateMigrationWorkflowRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateMigrationWorkflowRequestRequestTypeDef",
-    {
-        "id": str,
-    },
-)
-_OptionalUpdateMigrationWorkflowRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateMigrationWorkflowRequestRequestTypeDef",
-    {
-        "name": str,
-        "description": str,
-        "inputParameters": Dict[str, "StepInputTypeDef"],
-        "stepTargets": List[str],
-    },
-    total=False,
-)
-
-class UpdateMigrationWorkflowRequestRequestTypeDef(
-    _RequiredUpdateMigrationWorkflowRequestRequestTypeDef,
-    _OptionalUpdateMigrationWorkflowRequestRequestTypeDef,
-):
-    pass
-
-UpdateMigrationWorkflowResponseTypeDef = TypedDict(
-    "UpdateMigrationWorkflowResponseTypeDef",
-    {
-        "id": str,
-        "arn": str,
-        "name": str,
-        "description": str,
-        "templateId": str,
-        "adsApplicationConfigurationId": str,
-        "workflowInputs": Dict[str, "StepInputTypeDef"],
-        "stepTargets": List[str],
-        "status": MigrationWorkflowStatusEnumType,
-        "creationTime": datetime,
-        "lastModifiedTime": datetime,
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateTemplateRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateTemplateRequestRequestTypeDef",
-    {
-        "id": str,
-    },
-)
-_OptionalUpdateTemplateRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateTemplateRequestRequestTypeDef",
-    {
-        "templateName": str,
-        "templateDescription": str,
-        "clientToken": str,
-    },
-    total=False,
-)
-
-class UpdateTemplateRequestRequestTypeDef(
-    _RequiredUpdateTemplateRequestRequestTypeDef, _OptionalUpdateTemplateRequestRequestTypeDef
-):
-    pass
-
-UpdateTemplateResponseTypeDef = TypedDict(
-    "UpdateTemplateResponseTypeDef",
-    {
-        "templateId": str,
-        "templateArn": str,
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateWorkflowStepGroupRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateWorkflowStepGroupRequestRequestTypeDef",
-    {
-        "workflowId": str,
-        "id": str,
-    },
-)
-_OptionalUpdateWorkflowStepGroupRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateWorkflowStepGroupRequestRequestTypeDef",
-    {
-        "name": str,
-        "description": str,
-        "next": List[str],
-        "previous": List[str],
-    },
-    total=False,
-)
-
-class UpdateWorkflowStepGroupRequestRequestTypeDef(
-    _RequiredUpdateWorkflowStepGroupRequestRequestTypeDef,
-    _OptionalUpdateWorkflowStepGroupRequestRequestTypeDef,
-):
-    pass
-
-UpdateWorkflowStepGroupResponseTypeDef = TypedDict(
-    "UpdateWorkflowStepGroupResponseTypeDef",
-    {
-        "workflowId": str,
-        "name": str,
-        "id": str,
-        "description": str,
-        "tools": List["ToolTypeDef"],
-        "next": List[str],
-        "previous": List[str],
-        "lastModifiedTime": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateWorkflowStepRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateWorkflowStepRequestRequestTypeDef",
+UpdateWorkflowStepRequestTypeDef = TypedDict(
+    "UpdateWorkflowStepRequestTypeDef",
     {
         "id": str,
         "stepGroupId": str,
         "workflowId": str,
+        "name": NotRequired[str],
+        "description": NotRequired[str],
+        "stepActionType": NotRequired[StepActionTypeType],
+        "workflowStepAutomationConfiguration": NotRequired[
+            WorkflowStepAutomationConfigurationTypeDef
+        ],
+        "stepTarget": NotRequired[Sequence[str]],
+        "outputs": NotRequired[Sequence[WorkflowStepUnionTypeDef]],
+        "previous": NotRequired[Sequence[str]],
+        "next": NotRequired[Sequence[str]],
+        "status": NotRequired[StepStatusType],
     },
-)
-_OptionalUpdateWorkflowStepRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateWorkflowStepRequestRequestTypeDef",
-    {
-        "name": str,
-        "description": str,
-        "stepActionType": StepActionTypeType,
-        "workflowStepAutomationConfiguration": "WorkflowStepAutomationConfigurationTypeDef",
-        "stepTarget": List[str],
-        "outputs": List["WorkflowStepOutputTypeDef"],
-        "previous": List[str],
-        "next": List[str],
-        "status": StepStatusType,
-    },
-    total=False,
-)
-
-class UpdateWorkflowStepRequestRequestTypeDef(
-    _RequiredUpdateWorkflowStepRequestRequestTypeDef,
-    _OptionalUpdateWorkflowStepRequestRequestTypeDef,
-):
-    pass
-
-UpdateWorkflowStepResponseTypeDef = TypedDict(
-    "UpdateWorkflowStepResponseTypeDef",
-    {
-        "id": str,
-        "stepGroupId": str,
-        "workflowId": str,
-        "name": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-WorkflowStepAutomationConfigurationTypeDef = TypedDict(
-    "WorkflowStepAutomationConfigurationTypeDef",
-    {
-        "scriptLocationS3Bucket": str,
-        "scriptLocationS3Key": "PlatformScriptKeyTypeDef",
-        "command": "PlatformCommandTypeDef",
-        "runEnvironment": RunEnvironmentType,
-        "targetType": TargetTypeType,
-    },
-    total=False,
-)
-
-WorkflowStepGroupSummaryTypeDef = TypedDict(
-    "WorkflowStepGroupSummaryTypeDef",
-    {
-        "id": str,
-        "name": str,
-        "owner": OwnerType,
-        "status": StepGroupStatusType,
-        "previous": List[str],
-        "next": List[str],
-    },
-    total=False,
-)
-
-WorkflowStepOutputTypeDef = TypedDict(
-    "WorkflowStepOutputTypeDef",
-    {
-        "name": str,
-        "dataType": DataTypeType,
-        "required": bool,
-        "value": "WorkflowStepOutputUnionTypeDef",
-    },
-    total=False,
-)
-
-WorkflowStepOutputUnionTypeDef = TypedDict(
-    "WorkflowStepOutputUnionTypeDef",
-    {
-        "integerValue": int,
-        "stringValue": str,
-        "listOfStringValue": List[str],
-    },
-    total=False,
-)
-
-WorkflowStepSummaryTypeDef = TypedDict(
-    "WorkflowStepSummaryTypeDef",
-    {
-        "stepId": str,
-        "name": str,
-        "stepActionType": StepActionTypeType,
-        "owner": OwnerType,
-        "previous": List[str],
-        "next": List[str],
-        "status": StepStatusType,
-        "statusMessage": str,
-        "noOfSrvCompleted": int,
-        "noOfSrvFailed": int,
-        "totalNoOfSrv": int,
-        "description": str,
-        "scriptLocation": str,
-    },
-    total=False,
 )

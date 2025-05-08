@@ -1,19 +1,21 @@
 """
 Main interface for appconfigdata service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appconfigdata/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_appconfigdata import (
         AppConfigDataClient,
         Client,
     )
 
-    session = boto3.Session()
-
-    client: AppConfigDataClient = boto3.client("appconfigdata")
-    session_client: AppConfigDataClient = session.client("appconfigdata")
+    session = Session()
+    client: AppConfigDataClient = session.client("appconfigdata")
     ```
 """
 

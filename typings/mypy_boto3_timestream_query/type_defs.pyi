@@ -1,740 +1,575 @@
 """
 Type annotations for timestream-query service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_timestream_query/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_timestream_query/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_timestream_query.type_defs import CancelQueryRequestRequestTypeDef
+    from mypy_boto3_timestream_query.type_defs import SnsConfigurationTypeDef
 
-    data: CancelQueryRequestRequestTypeDef = {...}
+    data: SnsConfigurationTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List, Union
+from typing import Any, Union
 
 from .literals import (
+    ComputeModeType,
+    LastUpdateStatusType,
     MeasureValueTypeType,
+    QueryInsightsModeType,
     QueryPricingModelType,
     S3EncryptionOptionType,
     ScalarMeasureValueTypeType,
     ScalarTypeType,
+    ScheduledQueryInsightsModeType,
     ScheduledQueryRunStatusType,
     ScheduledQueryStateType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
-    "CancelQueryRequestRequestTypeDef",
+    "AccountSettingsNotificationConfigurationTypeDef",
+    "CancelQueryRequestTypeDef",
     "CancelQueryResponseTypeDef",
+    "ColumnInfoPaginatorTypeDef",
     "ColumnInfoTypeDef",
-    "CreateScheduledQueryRequestRequestTypeDef",
+    "CreateScheduledQueryRequestTypeDef",
     "CreateScheduledQueryResponseTypeDef",
+    "DatumPaginatorTypeDef",
     "DatumTypeDef",
-    "DeleteScheduledQueryRequestRequestTypeDef",
+    "DeleteScheduledQueryRequestTypeDef",
     "DescribeAccountSettingsResponseTypeDef",
     "DescribeEndpointsResponseTypeDef",
-    "DescribeScheduledQueryRequestRequestTypeDef",
+    "DescribeScheduledQueryRequestTypeDef",
     "DescribeScheduledQueryResponseTypeDef",
     "DimensionMappingTypeDef",
+    "EmptyResponseMetadataTypeDef",
     "EndpointTypeDef",
     "ErrorReportConfigurationTypeDef",
     "ErrorReportLocationTypeDef",
-    "ExecuteScheduledQueryRequestRequestTypeDef",
+    "ExecuteScheduledQueryRequestTypeDef",
     "ExecutionStatsTypeDef",
-    "ListScheduledQueriesRequestRequestTypeDef",
+    "LastUpdateTypeDef",
+    "ListScheduledQueriesRequestPaginateTypeDef",
+    "ListScheduledQueriesRequestTypeDef",
     "ListScheduledQueriesResponseTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestPaginateTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
+    "MixedMeasureMappingOutputTypeDef",
     "MixedMeasureMappingTypeDef",
     "MultiMeasureAttributeMappingTypeDef",
+    "MultiMeasureMappingsOutputTypeDef",
     "MultiMeasureMappingsTypeDef",
     "NotificationConfigurationTypeDef",
     "PaginatorConfigTypeDef",
     "ParameterMappingTypeDef",
-    "PrepareQueryRequestRequestTypeDef",
+    "PrepareQueryRequestTypeDef",
     "PrepareQueryResponseTypeDef",
-    "QueryRequestRequestTypeDef",
+    "ProvisionedCapacityRequestTypeDef",
+    "ProvisionedCapacityResponseTypeDef",
+    "QueryComputeRequestTypeDef",
+    "QueryComputeResponseTypeDef",
+    "QueryInsightsResponseTypeDef",
+    "QueryInsightsTypeDef",
+    "QueryRequestPaginateTypeDef",
+    "QueryRequestTypeDef",
+    "QueryResponsePaginatorTypeDef",
     "QueryResponseTypeDef",
+    "QuerySpatialCoverageMaxTypeDef",
+    "QuerySpatialCoverageTypeDef",
     "QueryStatusTypeDef",
+    "QueryTemporalRangeMaxTypeDef",
+    "QueryTemporalRangeTypeDef",
     "ResponseMetadataTypeDef",
+    "RowPaginatorTypeDef",
     "RowTypeDef",
     "S3ConfigurationTypeDef",
     "S3ReportLocationTypeDef",
     "ScheduleConfigurationTypeDef",
     "ScheduledQueryDescriptionTypeDef",
+    "ScheduledQueryInsightsResponseTypeDef",
+    "ScheduledQueryInsightsTypeDef",
     "ScheduledQueryRunSummaryTypeDef",
     "ScheduledQueryTypeDef",
     "SelectColumnTypeDef",
     "SnsConfigurationTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
     "TagTypeDef",
+    "TargetConfigurationOutputTypeDef",
     "TargetConfigurationTypeDef",
+    "TargetConfigurationUnionTypeDef",
     "TargetDestinationTypeDef",
+    "TimeSeriesDataPointPaginatorTypeDef",
     "TimeSeriesDataPointTypeDef",
+    "TimestampTypeDef",
+    "TimestreamConfigurationOutputTypeDef",
     "TimestreamConfigurationTypeDef",
     "TimestreamDestinationTypeDef",
+    "TypePaginatorTypeDef",
     "TypeTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateAccountSettingsRequestRequestTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateAccountSettingsRequestTypeDef",
     "UpdateAccountSettingsResponseTypeDef",
-    "UpdateScheduledQueryRequestRequestTypeDef",
+    "UpdateScheduledQueryRequestTypeDef",
 )
 
-CancelQueryRequestRequestTypeDef = TypedDict(
-    "CancelQueryRequestRequestTypeDef",
-    {
-        "QueryId": str,
-    },
-)
+class SnsConfigurationTypeDef(TypedDict):
+    TopicArn: str
 
-CancelQueryResponseTypeDef = TypedDict(
-    "CancelQueryResponseTypeDef",
-    {
-        "CancellationMessage": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CancelQueryRequestTypeDef(TypedDict):
+    QueryId: str
 
-_RequiredColumnInfoTypeDef = TypedDict(
-    "_RequiredColumnInfoTypeDef",
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
+
+class TypePaginatorTypeDef(TypedDict):
+    ScalarType: NotRequired[ScalarTypeType]
+    ArrayColumnInfo: NotRequired[Dict[str, Any]]
+    TimeSeriesMeasureValueColumnInfo: NotRequired[Dict[str, Any]]
+    RowColumnInfo: NotRequired[List[Dict[str, Any]]]
+
+ColumnInfoTypeDef = TypedDict(
+    "ColumnInfoTypeDef",
     {
         "Type": Dict[str, Any],
-    },
-)
-_OptionalColumnInfoTypeDef = TypedDict(
-    "_OptionalColumnInfoTypeDef",
-    {
-        "Name": str,
-    },
-    total=False,
-)
-
-class ColumnInfoTypeDef(_RequiredColumnInfoTypeDef, _OptionalColumnInfoTypeDef):
-    pass
-
-_RequiredCreateScheduledQueryRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateScheduledQueryRequestRequestTypeDef",
-    {
-        "Name": str,
-        "QueryString": str,
-        "ScheduleConfiguration": "ScheduleConfigurationTypeDef",
-        "NotificationConfiguration": "NotificationConfigurationTypeDef",
-        "ScheduledQueryExecutionRoleArn": str,
-        "ErrorReportConfiguration": "ErrorReportConfigurationTypeDef",
-    },
-)
-_OptionalCreateScheduledQueryRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateScheduledQueryRequestRequestTypeDef",
-    {
-        "TargetConfiguration": "TargetConfigurationTypeDef",
-        "ClientToken": str,
-        "Tags": List["TagTypeDef"],
-        "KmsKeyId": str,
-    },
-    total=False,
-)
-
-class CreateScheduledQueryRequestRequestTypeDef(
-    _RequiredCreateScheduledQueryRequestRequestTypeDef,
-    _OptionalCreateScheduledQueryRequestRequestTypeDef,
-):
-    pass
-
-CreateScheduledQueryResponseTypeDef = TypedDict(
-    "CreateScheduledQueryResponseTypeDef",
-    {
-        "Arn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "Name": NotRequired[str],
     },
 )
 
-DatumTypeDef = TypedDict(
-    "DatumTypeDef",
-    {
-        "ScalarValue": str,
-        "TimeSeriesValue": List[Dict[str, Any]],
-        "ArrayValue": List[Dict[str, Any]],
-        "RowValue": Dict[str, Any],
-        "NullValue": bool,
-    },
-    total=False,
-)
+class ScheduleConfigurationTypeDef(TypedDict):
+    ScheduleExpression: str
 
-DeleteScheduledQueryRequestRequestTypeDef = TypedDict(
-    "DeleteScheduledQueryRequestRequestTypeDef",
-    {
-        "ScheduledQueryArn": str,
-    },
-)
+class TagTypeDef(TypedDict):
+    Key: str
+    Value: str
 
-DescribeAccountSettingsResponseTypeDef = TypedDict(
-    "DescribeAccountSettingsResponseTypeDef",
-    {
-        "MaxQueryTCU": int,
-        "QueryPricingModel": QueryPricingModelType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class TimeSeriesDataPointPaginatorTypeDef(TypedDict):
+    Time: str
+    Value: Dict[str, Any]
 
-DescribeEndpointsResponseTypeDef = TypedDict(
-    "DescribeEndpointsResponseTypeDef",
-    {
-        "Endpoints": List["EndpointTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class TimeSeriesDataPointTypeDef(TypedDict):
+    Time: str
+    Value: Dict[str, Any]
 
-DescribeScheduledQueryRequestRequestTypeDef = TypedDict(
-    "DescribeScheduledQueryRequestRequestTypeDef",
-    {
-        "ScheduledQueryArn": str,
-    },
-)
+class DeleteScheduledQueryRequestTypeDef(TypedDict):
+    ScheduledQueryArn: str
 
-DescribeScheduledQueryResponseTypeDef = TypedDict(
-    "DescribeScheduledQueryResponseTypeDef",
-    {
-        "ScheduledQuery": "ScheduledQueryDescriptionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class EndpointTypeDef(TypedDict):
+    Address: str
+    CachePeriodInMinutes: int
 
-DimensionMappingTypeDef = TypedDict(
-    "DimensionMappingTypeDef",
-    {
-        "Name": str,
-        "DimensionValueType": Literal["VARCHAR"],
-    },
-)
+class DescribeScheduledQueryRequestTypeDef(TypedDict):
+    ScheduledQueryArn: str
 
-EndpointTypeDef = TypedDict(
-    "EndpointTypeDef",
-    {
-        "Address": str,
-        "CachePeriodInMinutes": int,
-    },
-)
+class DimensionMappingTypeDef(TypedDict):
+    Name: str
+    DimensionValueType: Literal["VARCHAR"]
 
-ErrorReportConfigurationTypeDef = TypedDict(
-    "ErrorReportConfigurationTypeDef",
-    {
-        "S3Configuration": "S3ConfigurationTypeDef",
-    },
-)
+class S3ConfigurationTypeDef(TypedDict):
+    BucketName: str
+    ObjectKeyPrefix: NotRequired[str]
+    EncryptionOption: NotRequired[S3EncryptionOptionType]
 
-ErrorReportLocationTypeDef = TypedDict(
-    "ErrorReportLocationTypeDef",
-    {
-        "S3ReportLocation": "S3ReportLocationTypeDef",
-    },
-    total=False,
-)
+class S3ReportLocationTypeDef(TypedDict):
+    BucketName: NotRequired[str]
+    ObjectKey: NotRequired[str]
 
-_RequiredExecuteScheduledQueryRequestRequestTypeDef = TypedDict(
-    "_RequiredExecuteScheduledQueryRequestRequestTypeDef",
-    {
-        "ScheduledQueryArn": str,
-        "InvocationTime": Union[datetime, str],
-    },
-)
-_OptionalExecuteScheduledQueryRequestRequestTypeDef = TypedDict(
-    "_OptionalExecuteScheduledQueryRequestRequestTypeDef",
-    {
-        "ClientToken": str,
-    },
-    total=False,
-)
+class ScheduledQueryInsightsTypeDef(TypedDict):
+    Mode: ScheduledQueryInsightsModeType
 
-class ExecuteScheduledQueryRequestRequestTypeDef(
-    _RequiredExecuteScheduledQueryRequestRequestTypeDef,
-    _OptionalExecuteScheduledQueryRequestRequestTypeDef,
-):
-    pass
+TimestampTypeDef = Union[datetime, str]
 
-ExecutionStatsTypeDef = TypedDict(
-    "ExecutionStatsTypeDef",
-    {
-        "ExecutionTimeInMillis": int,
-        "DataWrites": int,
-        "BytesMetered": int,
-        "CumulativeBytesScanned": int,
-        "RecordsIngested": int,
-        "QueryResultRows": int,
-    },
-    total=False,
-)
+class ExecutionStatsTypeDef(TypedDict):
+    ExecutionTimeInMillis: NotRequired[int]
+    DataWrites: NotRequired[int]
+    BytesMetered: NotRequired[int]
+    CumulativeBytesScanned: NotRequired[int]
+    RecordsIngested: NotRequired[int]
+    QueryResultRows: NotRequired[int]
 
-ListScheduledQueriesRequestRequestTypeDef = TypedDict(
-    "ListScheduledQueriesRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
+class LastUpdateTypeDef(TypedDict):
+    TargetQueryTCU: NotRequired[int]
+    Status: NotRequired[LastUpdateStatusType]
+    StatusMessage: NotRequired[str]
 
-ListScheduledQueriesResponseTypeDef = TypedDict(
-    "ListScheduledQueriesResponseTypeDef",
-    {
-        "ScheduledQueries": List["ScheduledQueryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
 
-_RequiredListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "_RequiredListTagsForResourceRequestRequestTypeDef",
-    {
-        "ResourceARN": str,
-    },
-)
-_OptionalListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "_OptionalListTagsForResourceRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
+class ListScheduledQueriesRequestTypeDef(TypedDict):
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
 
-class ListTagsForResourceRequestRequestTypeDef(
-    _RequiredListTagsForResourceRequestRequestTypeDef,
-    _OptionalListTagsForResourceRequestRequestTypeDef,
-):
-    pass
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    ResourceARN: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
 
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
+class MultiMeasureAttributeMappingTypeDef(TypedDict):
+    SourceColumn: str
+    MeasureValueType: ScalarMeasureValueTypeType
+    TargetMultiMeasureAttributeName: NotRequired[str]
+
+class PrepareQueryRequestTypeDef(TypedDict):
+    QueryString: str
+    ValidateOnly: NotRequired[bool]
+
+class QueryInsightsTypeDef(TypedDict):
+    Mode: QueryInsightsModeType
+
+class QueryStatusTypeDef(TypedDict):
+    ProgressPercentage: NotRequired[float]
+    CumulativeBytesScanned: NotRequired[int]
+    CumulativeBytesMetered: NotRequired[int]
+
+class QuerySpatialCoverageMaxTypeDef(TypedDict):
+    Value: NotRequired[float]
+    TableArn: NotRequired[str]
+    PartitionKey: NotRequired[List[str]]
+
+class QueryTemporalRangeMaxTypeDef(TypedDict):
+    Value: NotRequired[int]
+    TableArn: NotRequired[str]
+
+class TimestreamDestinationTypeDef(TypedDict):
+    DatabaseName: NotRequired[str]
+    TableName: NotRequired[str]
+
+class UntagResourceRequestTypeDef(TypedDict):
+    ResourceARN: str
+    TagKeys: Sequence[str]
+
+class UpdateScheduledQueryRequestTypeDef(TypedDict):
+    ScheduledQueryArn: str
+    State: ScheduledQueryStateType
+
+class AccountSettingsNotificationConfigurationTypeDef(TypedDict):
+    RoleArn: str
+    SnsConfiguration: NotRequired[SnsConfigurationTypeDef]
+
+class NotificationConfigurationTypeDef(TypedDict):
+    SnsConfiguration: SnsConfigurationTypeDef
+
+class CancelQueryResponseTypeDef(TypedDict):
+    CancellationMessage: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateScheduledQueryResponseTypeDef(TypedDict):
+    Arn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class EmptyResponseMetadataTypeDef(TypedDict):
+    ResponseMetadata: ResponseMetadataTypeDef
+
+ColumnInfoPaginatorTypeDef = TypedDict(
+    "ColumnInfoPaginatorTypeDef",
     {
-        "Tags": List["TagTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "Type": TypePaginatorTypeDef,
+        "Name": NotRequired[str],
     },
 )
 
-_RequiredMixedMeasureMappingTypeDef = TypedDict(
-    "_RequiredMixedMeasureMappingTypeDef",
-    {
-        "MeasureValueType": MeasureValueTypeType,
-    },
-)
-_OptionalMixedMeasureMappingTypeDef = TypedDict(
-    "_OptionalMixedMeasureMappingTypeDef",
-    {
-        "MeasureName": str,
-        "SourceColumn": str,
-        "TargetMeasureName": str,
-        "MultiMeasureAttributeMappings": List["MultiMeasureAttributeMappingTypeDef"],
-    },
-    total=False,
-)
+class TypeTypeDef(TypedDict):
+    ScalarType: NotRequired[ScalarTypeType]
+    ArrayColumnInfo: NotRequired[Dict[str, Any]]
+    TimeSeriesMeasureValueColumnInfo: NotRequired[Dict[str, Any]]
+    RowColumnInfo: NotRequired[List[ColumnInfoTypeDef]]
 
-class MixedMeasureMappingTypeDef(
-    _RequiredMixedMeasureMappingTypeDef, _OptionalMixedMeasureMappingTypeDef
-):
-    pass
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    Tags: List[TagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-_RequiredMultiMeasureAttributeMappingTypeDef = TypedDict(
-    "_RequiredMultiMeasureAttributeMappingTypeDef",
-    {
-        "SourceColumn": str,
-        "MeasureValueType": ScalarMeasureValueTypeType,
-    },
-)
-_OptionalMultiMeasureAttributeMappingTypeDef = TypedDict(
-    "_OptionalMultiMeasureAttributeMappingTypeDef",
-    {
-        "TargetMultiMeasureAttributeName": str,
-    },
-    total=False,
-)
+class TagResourceRequestTypeDef(TypedDict):
+    ResourceARN: str
+    Tags: Sequence[TagTypeDef]
 
-class MultiMeasureAttributeMappingTypeDef(
-    _RequiredMultiMeasureAttributeMappingTypeDef, _OptionalMultiMeasureAttributeMappingTypeDef
-):
-    pass
+class DatumPaginatorTypeDef(TypedDict):
+    ScalarValue: NotRequired[str]
+    TimeSeriesValue: NotRequired[List[TimeSeriesDataPointPaginatorTypeDef]]
+    ArrayValue: NotRequired[List[Dict[str, Any]]]
+    RowValue: NotRequired[Dict[str, Any]]
+    NullValue: NotRequired[bool]
 
-_RequiredMultiMeasureMappingsTypeDef = TypedDict(
-    "_RequiredMultiMeasureMappingsTypeDef",
-    {
-        "MultiMeasureAttributeMappings": List["MultiMeasureAttributeMappingTypeDef"],
-    },
-)
-_OptionalMultiMeasureMappingsTypeDef = TypedDict(
-    "_OptionalMultiMeasureMappingsTypeDef",
-    {
-        "TargetMultiMeasureName": str,
-    },
-    total=False,
-)
+class DatumTypeDef(TypedDict):
+    ScalarValue: NotRequired[str]
+    TimeSeriesValue: NotRequired[List[TimeSeriesDataPointTypeDef]]
+    ArrayValue: NotRequired[List[Dict[str, Any]]]
+    RowValue: NotRequired[Dict[str, Any]]
+    NullValue: NotRequired[bool]
 
-class MultiMeasureMappingsTypeDef(
-    _RequiredMultiMeasureMappingsTypeDef, _OptionalMultiMeasureMappingsTypeDef
-):
-    pass
+class DescribeEndpointsResponseTypeDef(TypedDict):
+    Endpoints: List[EndpointTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-NotificationConfigurationTypeDef = TypedDict(
-    "NotificationConfigurationTypeDef",
-    {
-        "SnsConfiguration": "SnsConfigurationTypeDef",
-    },
-)
+class ErrorReportConfigurationTypeDef(TypedDict):
+    S3Configuration: S3ConfigurationTypeDef
 
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
+class ErrorReportLocationTypeDef(TypedDict):
+    S3ReportLocation: NotRequired[S3ReportLocationTypeDef]
+
+class ExecuteScheduledQueryRequestTypeDef(TypedDict):
+    ScheduledQueryArn: str
+    InvocationTime: TimestampTypeDef
+    ClientToken: NotRequired[str]
+    QueryInsights: NotRequired[ScheduledQueryInsightsTypeDef]
+
+class ListScheduledQueriesRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListTagsForResourceRequestPaginateTypeDef(TypedDict):
+    ResourceARN: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class MixedMeasureMappingOutputTypeDef(TypedDict):
+    MeasureValueType: MeasureValueTypeType
+    MeasureName: NotRequired[str]
+    SourceColumn: NotRequired[str]
+    TargetMeasureName: NotRequired[str]
+    MultiMeasureAttributeMappings: NotRequired[List[MultiMeasureAttributeMappingTypeDef]]
+
+class MixedMeasureMappingTypeDef(TypedDict):
+    MeasureValueType: MeasureValueTypeType
+    MeasureName: NotRequired[str]
+    SourceColumn: NotRequired[str]
+    TargetMeasureName: NotRequired[str]
+    MultiMeasureAttributeMappings: NotRequired[Sequence[MultiMeasureAttributeMappingTypeDef]]
+
+class MultiMeasureMappingsOutputTypeDef(TypedDict):
+    MultiMeasureAttributeMappings: List[MultiMeasureAttributeMappingTypeDef]
+    TargetMultiMeasureName: NotRequired[str]
+
+class MultiMeasureMappingsTypeDef(TypedDict):
+    MultiMeasureAttributeMappings: Sequence[MultiMeasureAttributeMappingTypeDef]
+    TargetMultiMeasureName: NotRequired[str]
+
+class QueryRequestPaginateTypeDef(TypedDict):
+    QueryString: str
+    ClientToken: NotRequired[str]
+    QueryInsights: NotRequired[QueryInsightsTypeDef]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class QueryRequestTypeDef(TypedDict):
+    QueryString: str
+    ClientToken: NotRequired[str]
+    NextToken: NotRequired[str]
+    MaxRows: NotRequired[int]
+    QueryInsights: NotRequired[QueryInsightsTypeDef]
+
+class QuerySpatialCoverageTypeDef(TypedDict):
+    Max: NotRequired[QuerySpatialCoverageMaxTypeDef]
+
+class QueryTemporalRangeTypeDef(TypedDict):
+    Max: NotRequired[QueryTemporalRangeMaxTypeDef]
+
+class TargetDestinationTypeDef(TypedDict):
+    TimestreamDestination: NotRequired[TimestreamDestinationTypeDef]
+
+class ProvisionedCapacityRequestTypeDef(TypedDict):
+    TargetQueryTCU: int
+    NotificationConfiguration: NotRequired[AccountSettingsNotificationConfigurationTypeDef]
+
+class ProvisionedCapacityResponseTypeDef(TypedDict):
+    ActiveQueryTCU: NotRequired[int]
+    NotificationConfiguration: NotRequired[AccountSettingsNotificationConfigurationTypeDef]
+    LastUpdate: NotRequired[LastUpdateTypeDef]
 
 ParameterMappingTypeDef = TypedDict(
     "ParameterMappingTypeDef",
     {
         "Name": str,
-        "Type": "TypeTypeDef",
+        "Type": TypeTypeDef,
     },
 )
-
-_RequiredPrepareQueryRequestRequestTypeDef = TypedDict(
-    "_RequiredPrepareQueryRequestRequestTypeDef",
-    {
-        "QueryString": str,
-    },
-)
-_OptionalPrepareQueryRequestRequestTypeDef = TypedDict(
-    "_OptionalPrepareQueryRequestRequestTypeDef",
-    {
-        "ValidateOnly": bool,
-    },
-    total=False,
-)
-
-class PrepareQueryRequestRequestTypeDef(
-    _RequiredPrepareQueryRequestRequestTypeDef, _OptionalPrepareQueryRequestRequestTypeDef
-):
-    pass
-
-PrepareQueryResponseTypeDef = TypedDict(
-    "PrepareQueryResponseTypeDef",
-    {
-        "QueryString": str,
-        "Columns": List["SelectColumnTypeDef"],
-        "Parameters": List["ParameterMappingTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredQueryRequestRequestTypeDef = TypedDict(
-    "_RequiredQueryRequestRequestTypeDef",
-    {
-        "QueryString": str,
-    },
-)
-_OptionalQueryRequestRequestTypeDef = TypedDict(
-    "_OptionalQueryRequestRequestTypeDef",
-    {
-        "ClientToken": str,
-        "NextToken": str,
-        "MaxRows": int,
-    },
-    total=False,
-)
-
-class QueryRequestRequestTypeDef(
-    _RequiredQueryRequestRequestTypeDef, _OptionalQueryRequestRequestTypeDef
-):
-    pass
-
-QueryResponseTypeDef = TypedDict(
-    "QueryResponseTypeDef",
-    {
-        "QueryId": str,
-        "NextToken": str,
-        "Rows": List["RowTypeDef"],
-        "ColumnInfo": List["ColumnInfoTypeDef"],
-        "QueryStatus": "QueryStatusTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-QueryStatusTypeDef = TypedDict(
-    "QueryStatusTypeDef",
-    {
-        "ProgressPercentage": float,
-        "CumulativeBytesScanned": int,
-        "CumulativeBytesMetered": int,
-    },
-    total=False,
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-RowTypeDef = TypedDict(
-    "RowTypeDef",
-    {
-        "Data": List["DatumTypeDef"],
-    },
-)
-
-_RequiredS3ConfigurationTypeDef = TypedDict(
-    "_RequiredS3ConfigurationTypeDef",
-    {
-        "BucketName": str,
-    },
-)
-_OptionalS3ConfigurationTypeDef = TypedDict(
-    "_OptionalS3ConfigurationTypeDef",
-    {
-        "ObjectKeyPrefix": str,
-        "EncryptionOption": S3EncryptionOptionType,
-    },
-    total=False,
-)
-
-class S3ConfigurationTypeDef(_RequiredS3ConfigurationTypeDef, _OptionalS3ConfigurationTypeDef):
-    pass
-
-S3ReportLocationTypeDef = TypedDict(
-    "S3ReportLocationTypeDef",
-    {
-        "BucketName": str,
-        "ObjectKey": str,
-    },
-    total=False,
-)
-
-ScheduleConfigurationTypeDef = TypedDict(
-    "ScheduleConfigurationTypeDef",
-    {
-        "ScheduleExpression": str,
-    },
-)
-
-_RequiredScheduledQueryDescriptionTypeDef = TypedDict(
-    "_RequiredScheduledQueryDescriptionTypeDef",
-    {
-        "Arn": str,
-        "Name": str,
-        "QueryString": str,
-        "State": ScheduledQueryStateType,
-        "ScheduleConfiguration": "ScheduleConfigurationTypeDef",
-        "NotificationConfiguration": "NotificationConfigurationTypeDef",
-    },
-)
-_OptionalScheduledQueryDescriptionTypeDef = TypedDict(
-    "_OptionalScheduledQueryDescriptionTypeDef",
-    {
-        "CreationTime": datetime,
-        "PreviousInvocationTime": datetime,
-        "NextInvocationTime": datetime,
-        "TargetConfiguration": "TargetConfigurationTypeDef",
-        "ScheduledQueryExecutionRoleArn": str,
-        "KmsKeyId": str,
-        "ErrorReportConfiguration": "ErrorReportConfigurationTypeDef",
-        "LastRunSummary": "ScheduledQueryRunSummaryTypeDef",
-        "RecentlyFailedRuns": List["ScheduledQueryRunSummaryTypeDef"],
-    },
-    total=False,
-)
-
-class ScheduledQueryDescriptionTypeDef(
-    _RequiredScheduledQueryDescriptionTypeDef, _OptionalScheduledQueryDescriptionTypeDef
-):
-    pass
-
-ScheduledQueryRunSummaryTypeDef = TypedDict(
-    "ScheduledQueryRunSummaryTypeDef",
-    {
-        "InvocationTime": datetime,
-        "TriggerTime": datetime,
-        "RunStatus": ScheduledQueryRunStatusType,
-        "ExecutionStats": "ExecutionStatsTypeDef",
-        "ErrorReportLocation": "ErrorReportLocationTypeDef",
-        "FailureReason": str,
-    },
-    total=False,
-)
-
-_RequiredScheduledQueryTypeDef = TypedDict(
-    "_RequiredScheduledQueryTypeDef",
-    {
-        "Arn": str,
-        "Name": str,
-        "State": ScheduledQueryStateType,
-    },
-)
-_OptionalScheduledQueryTypeDef = TypedDict(
-    "_OptionalScheduledQueryTypeDef",
-    {
-        "CreationTime": datetime,
-        "PreviousInvocationTime": datetime,
-        "NextInvocationTime": datetime,
-        "ErrorReportConfiguration": "ErrorReportConfigurationTypeDef",
-        "TargetDestination": "TargetDestinationTypeDef",
-        "LastRunStatus": ScheduledQueryRunStatusType,
-    },
-    total=False,
-)
-
-class ScheduledQueryTypeDef(_RequiredScheduledQueryTypeDef, _OptionalScheduledQueryTypeDef):
-    pass
-
 SelectColumnTypeDef = TypedDict(
     "SelectColumnTypeDef",
     {
-        "Name": str,
-        "Type": "TypeTypeDef",
-        "DatabaseName": str,
-        "TableName": str,
-        "Aliased": bool,
-    },
-    total=False,
-)
-
-SnsConfigurationTypeDef = TypedDict(
-    "SnsConfigurationTypeDef",
-    {
-        "TopicArn": str,
+        "Name": NotRequired[str],
+        "Type": NotRequired[TypeTypeDef],
+        "DatabaseName": NotRequired[str],
+        "TableName": NotRequired[str],
+        "Aliased": NotRequired[bool],
     },
 )
 
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "ResourceARN": str,
-        "Tags": List["TagTypeDef"],
-    },
-)
+class RowPaginatorTypeDef(TypedDict):
+    Data: List[DatumPaginatorTypeDef]
 
-TagTypeDef = TypedDict(
-    "TagTypeDef",
-    {
-        "Key": str,
-        "Value": str,
-    },
-)
+class RowTypeDef(TypedDict):
+    Data: List[DatumTypeDef]
 
-TargetConfigurationTypeDef = TypedDict(
-    "TargetConfigurationTypeDef",
-    {
-        "TimestreamConfiguration": "TimestreamConfigurationTypeDef",
-    },
-)
+class TimestreamConfigurationOutputTypeDef(TypedDict):
+    DatabaseName: str
+    TableName: str
+    TimeColumn: str
+    DimensionMappings: List[DimensionMappingTypeDef]
+    MultiMeasureMappings: NotRequired[MultiMeasureMappingsOutputTypeDef]
+    MixedMeasureMappings: NotRequired[List[MixedMeasureMappingOutputTypeDef]]
+    MeasureNameColumn: NotRequired[str]
 
-TargetDestinationTypeDef = TypedDict(
-    "TargetDestinationTypeDef",
-    {
-        "TimestreamDestination": "TimestreamDestinationTypeDef",
-    },
-    total=False,
-)
+class TimestreamConfigurationTypeDef(TypedDict):
+    DatabaseName: str
+    TableName: str
+    TimeColumn: str
+    DimensionMappings: Sequence[DimensionMappingTypeDef]
+    MultiMeasureMappings: NotRequired[MultiMeasureMappingsTypeDef]
+    MixedMeasureMappings: NotRequired[Sequence[MixedMeasureMappingTypeDef]]
+    MeasureNameColumn: NotRequired[str]
 
-TimeSeriesDataPointTypeDef = TypedDict(
-    "TimeSeriesDataPointTypeDef",
-    {
-        "Time": str,
-        "Value": "DatumTypeDef",
-    },
-)
+class QueryInsightsResponseTypeDef(TypedDict):
+    QuerySpatialCoverage: NotRequired[QuerySpatialCoverageTypeDef]
+    QueryTemporalRange: NotRequired[QueryTemporalRangeTypeDef]
+    QueryTableCount: NotRequired[int]
+    OutputRows: NotRequired[int]
+    OutputBytes: NotRequired[int]
+    UnloadPartitionCount: NotRequired[int]
+    UnloadWrittenRows: NotRequired[int]
+    UnloadWrittenBytes: NotRequired[int]
 
-_RequiredTimestreamConfigurationTypeDef = TypedDict(
-    "_RequiredTimestreamConfigurationTypeDef",
-    {
-        "DatabaseName": str,
-        "TableName": str,
-        "TimeColumn": str,
-        "DimensionMappings": List["DimensionMappingTypeDef"],
-    },
-)
-_OptionalTimestreamConfigurationTypeDef = TypedDict(
-    "_OptionalTimestreamConfigurationTypeDef",
-    {
-        "MultiMeasureMappings": "MultiMeasureMappingsTypeDef",
-        "MixedMeasureMappings": List["MixedMeasureMappingTypeDef"],
-        "MeasureNameColumn": str,
-    },
-    total=False,
-)
+class ScheduledQueryInsightsResponseTypeDef(TypedDict):
+    QuerySpatialCoverage: NotRequired[QuerySpatialCoverageTypeDef]
+    QueryTemporalRange: NotRequired[QueryTemporalRangeTypeDef]
+    QueryTableCount: NotRequired[int]
+    OutputRows: NotRequired[int]
+    OutputBytes: NotRequired[int]
 
-class TimestreamConfigurationTypeDef(
-    _RequiredTimestreamConfigurationTypeDef, _OptionalTimestreamConfigurationTypeDef
-):
-    pass
+class ScheduledQueryTypeDef(TypedDict):
+    Arn: str
+    Name: str
+    State: ScheduledQueryStateType
+    CreationTime: NotRequired[datetime]
+    PreviousInvocationTime: NotRequired[datetime]
+    NextInvocationTime: NotRequired[datetime]
+    ErrorReportConfiguration: NotRequired[ErrorReportConfigurationTypeDef]
+    TargetDestination: NotRequired[TargetDestinationTypeDef]
+    LastRunStatus: NotRequired[ScheduledQueryRunStatusType]
 
-TimestreamDestinationTypeDef = TypedDict(
-    "TimestreamDestinationTypeDef",
-    {
-        "DatabaseName": str,
-        "TableName": str,
-    },
-    total=False,
-)
+class QueryComputeRequestTypeDef(TypedDict):
+    ComputeMode: NotRequired[ComputeModeType]
+    ProvisionedCapacity: NotRequired[ProvisionedCapacityRequestTypeDef]
 
-TypeTypeDef = TypedDict(
-    "TypeTypeDef",
-    {
-        "ScalarType": ScalarTypeType,
-        "ArrayColumnInfo": Dict[str, Any],
-        "TimeSeriesMeasureValueColumnInfo": Dict[str, Any],
-        "RowColumnInfo": List[Dict[str, Any]],
-    },
-    total=False,
-)
+class QueryComputeResponseTypeDef(TypedDict):
+    ComputeMode: NotRequired[ComputeModeType]
+    ProvisionedCapacity: NotRequired[ProvisionedCapacityResponseTypeDef]
 
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "ResourceARN": str,
-        "TagKeys": List[str],
-    },
-)
+class PrepareQueryResponseTypeDef(TypedDict):
+    QueryString: str
+    Columns: List[SelectColumnTypeDef]
+    Parameters: List[ParameterMappingTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-UpdateAccountSettingsRequestRequestTypeDef = TypedDict(
-    "UpdateAccountSettingsRequestRequestTypeDef",
-    {
-        "MaxQueryTCU": int,
-        "QueryPricingModel": QueryPricingModelType,
-    },
-    total=False,
-)
+class TargetConfigurationOutputTypeDef(TypedDict):
+    TimestreamConfiguration: TimestreamConfigurationOutputTypeDef
 
-UpdateAccountSettingsResponseTypeDef = TypedDict(
-    "UpdateAccountSettingsResponseTypeDef",
-    {
-        "MaxQueryTCU": int,
-        "QueryPricingModel": QueryPricingModelType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class TargetConfigurationTypeDef(TypedDict):
+    TimestreamConfiguration: TimestreamConfigurationTypeDef
 
-UpdateScheduledQueryRequestRequestTypeDef = TypedDict(
-    "UpdateScheduledQueryRequestRequestTypeDef",
-    {
-        "ScheduledQueryArn": str,
-        "State": ScheduledQueryStateType,
-    },
-)
+class QueryResponsePaginatorTypeDef(TypedDict):
+    QueryId: str
+    Rows: List[RowPaginatorTypeDef]
+    ColumnInfo: List[ColumnInfoPaginatorTypeDef]
+    QueryStatus: QueryStatusTypeDef
+    QueryInsightsResponse: QueryInsightsResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class QueryResponseTypeDef(TypedDict):
+    QueryId: str
+    Rows: List[RowTypeDef]
+    ColumnInfo: List[ColumnInfoTypeDef]
+    QueryStatus: QueryStatusTypeDef
+    QueryInsightsResponse: QueryInsightsResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ScheduledQueryRunSummaryTypeDef(TypedDict):
+    InvocationTime: NotRequired[datetime]
+    TriggerTime: NotRequired[datetime]
+    RunStatus: NotRequired[ScheduledQueryRunStatusType]
+    ExecutionStats: NotRequired[ExecutionStatsTypeDef]
+    QueryInsightsResponse: NotRequired[ScheduledQueryInsightsResponseTypeDef]
+    ErrorReportLocation: NotRequired[ErrorReportLocationTypeDef]
+    FailureReason: NotRequired[str]
+
+class ListScheduledQueriesResponseTypeDef(TypedDict):
+    ScheduledQueries: List[ScheduledQueryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class UpdateAccountSettingsRequestTypeDef(TypedDict):
+    MaxQueryTCU: NotRequired[int]
+    QueryPricingModel: NotRequired[QueryPricingModelType]
+    QueryCompute: NotRequired[QueryComputeRequestTypeDef]
+
+class DescribeAccountSettingsResponseTypeDef(TypedDict):
+    MaxQueryTCU: int
+    QueryPricingModel: QueryPricingModelType
+    QueryCompute: QueryComputeResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateAccountSettingsResponseTypeDef(TypedDict):
+    MaxQueryTCU: int
+    QueryPricingModel: QueryPricingModelType
+    QueryCompute: QueryComputeResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+TargetConfigurationUnionTypeDef = Union[
+    TargetConfigurationTypeDef, TargetConfigurationOutputTypeDef
+]
+
+class ScheduledQueryDescriptionTypeDef(TypedDict):
+    Arn: str
+    Name: str
+    QueryString: str
+    State: ScheduledQueryStateType
+    ScheduleConfiguration: ScheduleConfigurationTypeDef
+    NotificationConfiguration: NotificationConfigurationTypeDef
+    CreationTime: NotRequired[datetime]
+    PreviousInvocationTime: NotRequired[datetime]
+    NextInvocationTime: NotRequired[datetime]
+    TargetConfiguration: NotRequired[TargetConfigurationOutputTypeDef]
+    ScheduledQueryExecutionRoleArn: NotRequired[str]
+    KmsKeyId: NotRequired[str]
+    ErrorReportConfiguration: NotRequired[ErrorReportConfigurationTypeDef]
+    LastRunSummary: NotRequired[ScheduledQueryRunSummaryTypeDef]
+    RecentlyFailedRuns: NotRequired[List[ScheduledQueryRunSummaryTypeDef]]
+
+class CreateScheduledQueryRequestTypeDef(TypedDict):
+    Name: str
+    QueryString: str
+    ScheduleConfiguration: ScheduleConfigurationTypeDef
+    NotificationConfiguration: NotificationConfigurationTypeDef
+    ScheduledQueryExecutionRoleArn: str
+    ErrorReportConfiguration: ErrorReportConfigurationTypeDef
+    TargetConfiguration: NotRequired[TargetConfigurationUnionTypeDef]
+    ClientToken: NotRequired[str]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+    KmsKeyId: NotRequired[str]
+
+class DescribeScheduledQueryResponseTypeDef(TypedDict):
+    ScheduledQuery: ScheduledQueryDescriptionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef

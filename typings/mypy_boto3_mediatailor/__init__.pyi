@@ -1,10 +1,14 @@
 """
 Main interface for mediatailor service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_mediatailor import (
         Client,
         GetChannelSchedulePaginator,
@@ -18,10 +22,8 @@ Usage::
         MediaTailorClient,
     )
 
-    session = boto3.Session()
-
-    client: MediaTailorClient = boto3.client("mediatailor")
-    session_client: MediaTailorClient = session.client("mediatailor")
+    session = Session()
+    client: MediaTailorClient = session.client("mediatailor")
 
     get_channel_schedule_paginator: GetChannelSchedulePaginator = client.get_paginator("get_channel_schedule")
     list_alerts_paginator: ListAlertsPaginator = client.get_paginator("list_alerts")

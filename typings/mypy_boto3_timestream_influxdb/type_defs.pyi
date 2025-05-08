@@ -1,96 +1,355 @@
 """
 Type annotations for timestream-influxdb service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_timestream_influxdb/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_timestream_influxdb/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_timestream_influxdb.type_defs import CreateDbInstanceInputRequestTypeDef
+    from mypy_boto3_timestream_influxdb.type_defs import ResponseMetadataTypeDef
 
-    data: CreateDbInstanceInputRequestTypeDef = {...}
+    data: ResponseMetadataTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from typing import Any, Dict, List
 
 from .literals import (
+    ClusterStatusType,
     DbInstanceTypeType,
     DbStorageTypeType,
     DeploymentTypeType,
+    DurationTypeType,
+    FailoverModeType,
+    InstanceModeType,
     LogLevelType,
+    NetworkTypeType,
     StatusType,
     TracingTypeType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
+else:
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
-    "CreateDbInstanceInputRequestTypeDef",
+    "CreateDbClusterInputTypeDef",
+    "CreateDbClusterOutputTypeDef",
+    "CreateDbInstanceInputTypeDef",
     "CreateDbInstanceOutputTypeDef",
-    "CreateDbParameterGroupInputRequestTypeDef",
+    "CreateDbParameterGroupInputTypeDef",
     "CreateDbParameterGroupOutputTypeDef",
+    "DbClusterSummaryTypeDef",
+    "DbInstanceForClusterSummaryTypeDef",
     "DbInstanceSummaryTypeDef",
     "DbParameterGroupSummaryTypeDef",
-    "DeleteDbInstanceInputRequestTypeDef",
+    "DeleteDbClusterInputTypeDef",
+    "DeleteDbClusterOutputTypeDef",
+    "DeleteDbInstanceInputTypeDef",
     "DeleteDbInstanceOutputTypeDef",
-    "GetDbInstanceInputRequestTypeDef",
+    "DurationTypeDef",
+    "EmptyResponseMetadataTypeDef",
+    "GetDbClusterInputTypeDef",
+    "GetDbClusterOutputTypeDef",
+    "GetDbInstanceInputTypeDef",
     "GetDbInstanceOutputTypeDef",
-    "GetDbParameterGroupInputRequestTypeDef",
+    "GetDbParameterGroupInputTypeDef",
     "GetDbParameterGroupOutputTypeDef",
     "InfluxDBv2ParametersTypeDef",
-    "ListDbInstancesInputRequestTypeDef",
+    "ListDbClustersInputPaginateTypeDef",
+    "ListDbClustersInputTypeDef",
+    "ListDbClustersOutputTypeDef",
+    "ListDbInstancesForClusterInputPaginateTypeDef",
+    "ListDbInstancesForClusterInputTypeDef",
+    "ListDbInstancesForClusterOutputTypeDef",
+    "ListDbInstancesInputPaginateTypeDef",
+    "ListDbInstancesInputTypeDef",
     "ListDbInstancesOutputTypeDef",
-    "ListDbParameterGroupsInputRequestTypeDef",
+    "ListDbParameterGroupsInputPaginateTypeDef",
+    "ListDbParameterGroupsInputTypeDef",
     "ListDbParameterGroupsOutputTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "LogDeliveryConfigurationTypeDef",
     "PaginatorConfigTypeDef",
     "ParametersTypeDef",
     "ResponseMetadataTypeDef",
     "S3ConfigurationTypeDef",
-    "TagResourceRequestRequestTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateDbInstanceInputRequestTypeDef",
+    "TagResourceRequestTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateDbClusterInputTypeDef",
+    "UpdateDbClusterOutputTypeDef",
+    "UpdateDbInstanceInputTypeDef",
     "UpdateDbInstanceOutputTypeDef",
 )
 
-_RequiredCreateDbInstanceInputRequestTypeDef = TypedDict(
-    "_RequiredCreateDbInstanceInputRequestTypeDef",
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
+
+DbClusterSummaryTypeDef = TypedDict(
+    "DbClusterSummaryTypeDef",
     {
+        "id": str,
         "name": str,
-        "password": str,
-        "dbInstanceType": DbInstanceTypeType,
-        "vpcSubnetIds": List[str],
-        "vpcSecurityGroupIds": List[str],
-        "allocatedStorage": int,
+        "arn": str,
+        "status": NotRequired[ClusterStatusType],
+        "endpoint": NotRequired[str],
+        "readerEndpoint": NotRequired[str],
+        "port": NotRequired[int],
+        "deploymentType": NotRequired[Literal["MULTI_NODE_READ_REPLICAS"]],
+        "dbInstanceType": NotRequired[DbInstanceTypeType],
+        "networkType": NotRequired[NetworkTypeType],
+        "dbStorageType": NotRequired[DbStorageTypeType],
+        "allocatedStorage": NotRequired[int],
     },
 )
-_OptionalCreateDbInstanceInputRequestTypeDef = TypedDict(
-    "_OptionalCreateDbInstanceInputRequestTypeDef",
+DbInstanceForClusterSummaryTypeDef = TypedDict(
+    "DbInstanceForClusterSummaryTypeDef",
     {
-        "username": str,
-        "organization": str,
-        "bucket": str,
-        "publiclyAccessible": bool,
-        "dbStorageType": DbStorageTypeType,
-        "dbParameterGroupIdentifier": str,
-        "deploymentType": DeploymentTypeType,
-        "logDeliveryConfiguration": "LogDeliveryConfigurationTypeDef",
-        "tags": Dict[str, str],
+        "id": str,
+        "name": str,
+        "arn": str,
+        "status": NotRequired[StatusType],
+        "endpoint": NotRequired[str],
+        "port": NotRequired[int],
+        "networkType": NotRequired[NetworkTypeType],
+        "dbInstanceType": NotRequired[DbInstanceTypeType],
+        "dbStorageType": NotRequired[DbStorageTypeType],
+        "allocatedStorage": NotRequired[int],
+        "deploymentType": NotRequired[DeploymentTypeType],
+        "instanceMode": NotRequired[InstanceModeType],
     },
-    total=False,
+)
+DbInstanceSummaryTypeDef = TypedDict(
+    "DbInstanceSummaryTypeDef",
+    {
+        "id": str,
+        "name": str,
+        "arn": str,
+        "status": NotRequired[StatusType],
+        "endpoint": NotRequired[str],
+        "port": NotRequired[int],
+        "networkType": NotRequired[NetworkTypeType],
+        "dbInstanceType": NotRequired[DbInstanceTypeType],
+        "dbStorageType": NotRequired[DbStorageTypeType],
+        "allocatedStorage": NotRequired[int],
+        "deploymentType": NotRequired[DeploymentTypeType],
+    },
+)
+DbParameterGroupSummaryTypeDef = TypedDict(
+    "DbParameterGroupSummaryTypeDef",
+    {
+        "id": str,
+        "name": str,
+        "arn": str,
+        "description": NotRequired[str],
+    },
 )
 
-class CreateDbInstanceInputRequestTypeDef(
-    _RequiredCreateDbInstanceInputRequestTypeDef, _OptionalCreateDbInstanceInputRequestTypeDef
-):
-    pass
+class DeleteDbClusterInputTypeDef(TypedDict):
+    dbClusterId: str
+
+class DeleteDbInstanceInputTypeDef(TypedDict):
+    identifier: str
+
+class DurationTypeDef(TypedDict):
+    durationType: DurationTypeType
+    value: int
+
+class GetDbClusterInputTypeDef(TypedDict):
+    dbClusterId: str
+
+class GetDbInstanceInputTypeDef(TypedDict):
+    identifier: str
+
+class GetDbParameterGroupInputTypeDef(TypedDict):
+    identifier: str
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class ListDbClustersInputTypeDef(TypedDict):
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class ListDbInstancesForClusterInputTypeDef(TypedDict):
+    dbClusterId: str
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class ListDbInstancesInputTypeDef(TypedDict):
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class ListDbParameterGroupsInputTypeDef(TypedDict):
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+
+class S3ConfigurationTypeDef(TypedDict):
+    bucketName: str
+    enabled: bool
+
+class TagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tags: Mapping[str, str]
+
+class UntagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tagKeys: Sequence[str]
+
+class CreateDbClusterOutputTypeDef(TypedDict):
+    dbClusterId: str
+    dbClusterStatus: ClusterStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteDbClusterOutputTypeDef(TypedDict):
+    dbClusterStatus: ClusterStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class EmptyResponseMetadataTypeDef(TypedDict):
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateDbClusterOutputTypeDef(TypedDict):
+    dbClusterStatus: ClusterStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListDbClustersOutputTypeDef(TypedDict):
+    items: List[DbClusterSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListDbInstancesForClusterOutputTypeDef(TypedDict):
+    items: List[DbInstanceForClusterSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListDbInstancesOutputTypeDef(TypedDict):
+    items: List[DbInstanceSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListDbParameterGroupsOutputTypeDef(TypedDict):
+    items: List[DbParameterGroupSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class InfluxDBv2ParametersTypeDef(TypedDict):
+    fluxLogEnabled: NotRequired[bool]
+    logLevel: NotRequired[LogLevelType]
+    noTasks: NotRequired[bool]
+    queryConcurrency: NotRequired[int]
+    queryQueueSize: NotRequired[int]
+    tracingType: NotRequired[TracingTypeType]
+    metricsDisabled: NotRequired[bool]
+    httpIdleTimeout: NotRequired[DurationTypeDef]
+    httpReadHeaderTimeout: NotRequired[DurationTypeDef]
+    httpReadTimeout: NotRequired[DurationTypeDef]
+    httpWriteTimeout: NotRequired[DurationTypeDef]
+    influxqlMaxSelectBuckets: NotRequired[int]
+    influxqlMaxSelectPoint: NotRequired[int]
+    influxqlMaxSelectSeries: NotRequired[int]
+    pprofDisabled: NotRequired[bool]
+    queryInitialMemoryBytes: NotRequired[int]
+    queryMaxMemoryBytes: NotRequired[int]
+    queryMemoryBytes: NotRequired[int]
+    sessionLength: NotRequired[int]
+    sessionRenewDisabled: NotRequired[bool]
+    storageCacheMaxMemorySize: NotRequired[int]
+    storageCacheSnapshotMemorySize: NotRequired[int]
+    storageCacheSnapshotWriteColdDuration: NotRequired[DurationTypeDef]
+    storageCompactFullWriteColdDuration: NotRequired[DurationTypeDef]
+    storageCompactThroughputBurst: NotRequired[int]
+    storageMaxConcurrentCompactions: NotRequired[int]
+    storageMaxIndexLogFileSize: NotRequired[int]
+    storageNoValidateFieldSize: NotRequired[bool]
+    storageRetentionCheckInterval: NotRequired[DurationTypeDef]
+    storageSeriesFileMaxConcurrentSnapshotCompactions: NotRequired[int]
+    storageSeriesIdSetCacheSize: NotRequired[int]
+    storageWalMaxConcurrentWrites: NotRequired[int]
+    storageWalMaxWriteDelay: NotRequired[DurationTypeDef]
+    uiDisabled: NotRequired[bool]
+
+class ListDbClustersInputPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListDbInstancesForClusterInputPaginateTypeDef(TypedDict):
+    dbClusterId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListDbInstancesInputPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListDbParameterGroupsInputPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class LogDeliveryConfigurationTypeDef(TypedDict):
+    s3Configuration: S3ConfigurationTypeDef
+
+class ParametersTypeDef(TypedDict):
+    InfluxDBv2: NotRequired[InfluxDBv2ParametersTypeDef]
+
+class CreateDbClusterInputTypeDef(TypedDict):
+    name: str
+    password: str
+    dbInstanceType: DbInstanceTypeType
+    allocatedStorage: int
+    vpcSubnetIds: Sequence[str]
+    vpcSecurityGroupIds: Sequence[str]
+    deploymentType: Literal["MULTI_NODE_READ_REPLICAS"]
+    username: NotRequired[str]
+    organization: NotRequired[str]
+    bucket: NotRequired[str]
+    port: NotRequired[int]
+    dbParameterGroupIdentifier: NotRequired[str]
+    dbStorageType: NotRequired[DbStorageTypeType]
+    networkType: NotRequired[NetworkTypeType]
+    publiclyAccessible: NotRequired[bool]
+    failoverMode: NotRequired[FailoverModeType]
+    logDeliveryConfiguration: NotRequired[LogDeliveryConfigurationTypeDef]
+    tags: NotRequired[Mapping[str, str]]
+
+class CreateDbInstanceInputTypeDef(TypedDict):
+    name: str
+    password: str
+    dbInstanceType: DbInstanceTypeType
+    vpcSubnetIds: Sequence[str]
+    vpcSecurityGroupIds: Sequence[str]
+    allocatedStorage: int
+    username: NotRequired[str]
+    organization: NotRequired[str]
+    bucket: NotRequired[str]
+    publiclyAccessible: NotRequired[bool]
+    dbStorageType: NotRequired[DbStorageTypeType]
+    dbParameterGroupIdentifier: NotRequired[str]
+    deploymentType: NotRequired[DeploymentTypeType]
+    logDeliveryConfiguration: NotRequired[LogDeliveryConfigurationTypeDef]
+    tags: NotRequired[Mapping[str, str]]
+    port: NotRequired[int]
+    networkType: NotRequired[NetworkTypeType]
 
 CreateDbInstanceOutputTypeDef = TypedDict(
     "CreateDbInstanceOutputTypeDef",
@@ -100,6 +359,8 @@ CreateDbInstanceOutputTypeDef = TypedDict(
         "arn": str,
         "status": StatusType,
         "endpoint": str,
+        "port": int,
+        "networkType": NetworkTypeType,
         "dbInstanceType": DbInstanceTypeType,
         "dbStorageType": DbStorageTypeType,
         "allocatedStorage": int,
@@ -110,100 +371,13 @@ CreateDbInstanceOutputTypeDef = TypedDict(
         "dbParameterGroupIdentifier": str,
         "availabilityZone": str,
         "secondaryAvailabilityZone": str,
-        "logDeliveryConfiguration": "LogDeliveryConfigurationTypeDef",
+        "logDeliveryConfiguration": LogDeliveryConfigurationTypeDef,
         "influxAuthParametersSecretArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "dbClusterId": str,
+        "instanceMode": InstanceModeType,
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
-
-_RequiredCreateDbParameterGroupInputRequestTypeDef = TypedDict(
-    "_RequiredCreateDbParameterGroupInputRequestTypeDef",
-    {
-        "name": str,
-    },
-)
-_OptionalCreateDbParameterGroupInputRequestTypeDef = TypedDict(
-    "_OptionalCreateDbParameterGroupInputRequestTypeDef",
-    {
-        "description": str,
-        "parameters": "ParametersTypeDef",
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class CreateDbParameterGroupInputRequestTypeDef(
-    _RequiredCreateDbParameterGroupInputRequestTypeDef,
-    _OptionalCreateDbParameterGroupInputRequestTypeDef,
-):
-    pass
-
-CreateDbParameterGroupOutputTypeDef = TypedDict(
-    "CreateDbParameterGroupOutputTypeDef",
-    {
-        "id": str,
-        "name": str,
-        "arn": str,
-        "description": str,
-        "parameters": "ParametersTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDbInstanceSummaryTypeDef = TypedDict(
-    "_RequiredDbInstanceSummaryTypeDef",
-    {
-        "id": str,
-        "name": str,
-        "arn": str,
-    },
-)
-_OptionalDbInstanceSummaryTypeDef = TypedDict(
-    "_OptionalDbInstanceSummaryTypeDef",
-    {
-        "status": StatusType,
-        "endpoint": str,
-        "dbInstanceType": DbInstanceTypeType,
-        "dbStorageType": DbStorageTypeType,
-        "allocatedStorage": int,
-        "deploymentType": DeploymentTypeType,
-    },
-    total=False,
-)
-
-class DbInstanceSummaryTypeDef(
-    _RequiredDbInstanceSummaryTypeDef, _OptionalDbInstanceSummaryTypeDef
-):
-    pass
-
-_RequiredDbParameterGroupSummaryTypeDef = TypedDict(
-    "_RequiredDbParameterGroupSummaryTypeDef",
-    {
-        "id": str,
-        "name": str,
-        "arn": str,
-    },
-)
-_OptionalDbParameterGroupSummaryTypeDef = TypedDict(
-    "_OptionalDbParameterGroupSummaryTypeDef",
-    {
-        "description": str,
-    },
-    total=False,
-)
-
-class DbParameterGroupSummaryTypeDef(
-    _RequiredDbParameterGroupSummaryTypeDef, _OptionalDbParameterGroupSummaryTypeDef
-):
-    pass
-
-DeleteDbInstanceInputRequestTypeDef = TypedDict(
-    "DeleteDbInstanceInputRequestTypeDef",
-    {
-        "identifier": str,
-    },
-)
-
 DeleteDbInstanceOutputTypeDef = TypedDict(
     "DeleteDbInstanceOutputTypeDef",
     {
@@ -212,6 +386,8 @@ DeleteDbInstanceOutputTypeDef = TypedDict(
         "arn": str,
         "status": StatusType,
         "endpoint": str,
+        "port": int,
+        "networkType": NetworkTypeType,
         "dbInstanceType": DbInstanceTypeType,
         "dbStorageType": DbStorageTypeType,
         "allocatedStorage": int,
@@ -222,19 +398,38 @@ DeleteDbInstanceOutputTypeDef = TypedDict(
         "dbParameterGroupIdentifier": str,
         "availabilityZone": str,
         "secondaryAvailabilityZone": str,
-        "logDeliveryConfiguration": "LogDeliveryConfigurationTypeDef",
+        "logDeliveryConfiguration": LogDeliveryConfigurationTypeDef,
         "influxAuthParametersSecretArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "dbClusterId": str,
+        "instanceMode": InstanceModeType,
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
-
-GetDbInstanceInputRequestTypeDef = TypedDict(
-    "GetDbInstanceInputRequestTypeDef",
+GetDbClusterOutputTypeDef = TypedDict(
+    "GetDbClusterOutputTypeDef",
     {
-        "identifier": str,
+        "id": str,
+        "name": str,
+        "arn": str,
+        "status": ClusterStatusType,
+        "endpoint": str,
+        "readerEndpoint": str,
+        "port": int,
+        "deploymentType": Literal["MULTI_NODE_READ_REPLICAS"],
+        "dbInstanceType": DbInstanceTypeType,
+        "networkType": NetworkTypeType,
+        "dbStorageType": DbStorageTypeType,
+        "allocatedStorage": int,
+        "publiclyAccessible": bool,
+        "dbParameterGroupIdentifier": str,
+        "logDeliveryConfiguration": LogDeliveryConfigurationTypeDef,
+        "influxAuthParametersSecretArn": str,
+        "vpcSubnetIds": List[str],
+        "vpcSecurityGroupIds": List[str],
+        "failoverMode": FailoverModeType,
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
-
 GetDbInstanceOutputTypeDef = TypedDict(
     "GetDbInstanceOutputTypeDef",
     {
@@ -243,6 +438,8 @@ GetDbInstanceOutputTypeDef = TypedDict(
         "arn": str,
         "status": StatusType,
         "endpoint": str,
+        "port": int,
+        "networkType": NetworkTypeType,
         "dbInstanceType": DbInstanceTypeType,
         "dbStorageType": DbStorageTypeType,
         "allocatedStorage": int,
@@ -253,175 +450,31 @@ GetDbInstanceOutputTypeDef = TypedDict(
         "dbParameterGroupIdentifier": str,
         "availabilityZone": str,
         "secondaryAvailabilityZone": str,
-        "logDeliveryConfiguration": "LogDeliveryConfigurationTypeDef",
+        "logDeliveryConfiguration": LogDeliveryConfigurationTypeDef,
         "influxAuthParametersSecretArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "dbClusterId": str,
+        "instanceMode": InstanceModeType,
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
 
-GetDbParameterGroupInputRequestTypeDef = TypedDict(
-    "GetDbParameterGroupInputRequestTypeDef",
-    {
-        "identifier": str,
-    },
-)
+class UpdateDbClusterInputTypeDef(TypedDict):
+    dbClusterId: str
+    logDeliveryConfiguration: NotRequired[LogDeliveryConfigurationTypeDef]
+    dbParameterGroupIdentifier: NotRequired[str]
+    port: NotRequired[int]
+    dbInstanceType: NotRequired[DbInstanceTypeType]
+    failoverMode: NotRequired[FailoverModeType]
 
-GetDbParameterGroupOutputTypeDef = TypedDict(
-    "GetDbParameterGroupOutputTypeDef",
-    {
-        "id": str,
-        "name": str,
-        "arn": str,
-        "description": str,
-        "parameters": "ParametersTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-InfluxDBv2ParametersTypeDef = TypedDict(
-    "InfluxDBv2ParametersTypeDef",
-    {
-        "fluxLogEnabled": bool,
-        "logLevel": LogLevelType,
-        "noTasks": bool,
-        "queryConcurrency": int,
-        "queryQueueSize": int,
-        "tracingType": TracingTypeType,
-        "metricsDisabled": bool,
-    },
-    total=False,
-)
-
-ListDbInstancesInputRequestTypeDef = TypedDict(
-    "ListDbInstancesInputRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-ListDbInstancesOutputTypeDef = TypedDict(
-    "ListDbInstancesOutputTypeDef",
-    {
-        "items": List["DbInstanceSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListDbParameterGroupsInputRequestTypeDef = TypedDict(
-    "ListDbParameterGroupsInputRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-ListDbParameterGroupsOutputTypeDef = TypedDict(
-    "ListDbParameterGroupsOutputTypeDef",
-    {
-        "items": List["DbParameterGroupSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-    },
-)
-
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-LogDeliveryConfigurationTypeDef = TypedDict(
-    "LogDeliveryConfigurationTypeDef",
-    {
-        "s3Configuration": "S3ConfigurationTypeDef",
-    },
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-ParametersTypeDef = TypedDict(
-    "ParametersTypeDef",
-    {
-        "InfluxDBv2": "InfluxDBv2ParametersTypeDef",
-    },
-    total=False,
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-S3ConfigurationTypeDef = TypedDict(
-    "S3ConfigurationTypeDef",
-    {
-        "bucketName": str,
-        "enabled": bool,
-    },
-)
-
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tags": Dict[str, str],
-    },
-)
-
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tagKeys": List[str],
-    },
-)
-
-_RequiredUpdateDbInstanceInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateDbInstanceInputRequestTypeDef",
-    {
-        "identifier": str,
-    },
-)
-_OptionalUpdateDbInstanceInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateDbInstanceInputRequestTypeDef",
-    {
-        "logDeliveryConfiguration": "LogDeliveryConfigurationTypeDef",
-        "dbParameterGroupIdentifier": str,
-    },
-    total=False,
-)
-
-class UpdateDbInstanceInputRequestTypeDef(
-    _RequiredUpdateDbInstanceInputRequestTypeDef, _OptionalUpdateDbInstanceInputRequestTypeDef
-):
-    pass
+class UpdateDbInstanceInputTypeDef(TypedDict):
+    identifier: str
+    logDeliveryConfiguration: NotRequired[LogDeliveryConfigurationTypeDef]
+    dbParameterGroupIdentifier: NotRequired[str]
+    port: NotRequired[int]
+    dbInstanceType: NotRequired[DbInstanceTypeType]
+    deploymentType: NotRequired[DeploymentTypeType]
+    dbStorageType: NotRequired[DbStorageTypeType]
+    allocatedStorage: NotRequired[int]
 
 UpdateDbInstanceOutputTypeDef = TypedDict(
     "UpdateDbInstanceOutputTypeDef",
@@ -431,6 +484,8 @@ UpdateDbInstanceOutputTypeDef = TypedDict(
         "arn": str,
         "status": StatusType,
         "endpoint": str,
+        "port": int,
+        "networkType": NetworkTypeType,
         "dbInstanceType": DbInstanceTypeType,
         "dbStorageType": DbStorageTypeType,
         "allocatedStorage": int,
@@ -441,8 +496,39 @@ UpdateDbInstanceOutputTypeDef = TypedDict(
         "dbParameterGroupIdentifier": str,
         "availabilityZone": str,
         "secondaryAvailabilityZone": str,
-        "logDeliveryConfiguration": "LogDeliveryConfigurationTypeDef",
+        "logDeliveryConfiguration": LogDeliveryConfigurationTypeDef,
         "influxAuthParametersSecretArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "dbClusterId": str,
+        "instanceMode": InstanceModeType,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+
+class CreateDbParameterGroupInputTypeDef(TypedDict):
+    name: str
+    description: NotRequired[str]
+    parameters: NotRequired[ParametersTypeDef]
+    tags: NotRequired[Mapping[str, str]]
+
+CreateDbParameterGroupOutputTypeDef = TypedDict(
+    "CreateDbParameterGroupOutputTypeDef",
+    {
+        "id": str,
+        "name": str,
+        "arn": str,
+        "description": str,
+        "parameters": ParametersTypeDef,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+GetDbParameterGroupOutputTypeDef = TypedDict(
+    "GetDbParameterGroupOutputTypeDef",
+    {
+        "id": str,
+        "name": str,
+        "arn": str,
+        "description": str,
+        "parameters": ParametersTypeDef,
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )

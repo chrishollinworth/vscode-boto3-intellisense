@@ -1,50 +1,64 @@
 """
 Type annotations for rolesanywhere service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rolesanywhere/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_rolesanywhere/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_rolesanywhere.type_defs import AttributeMappingTypeDef
+    from mypy_boto3_rolesanywhere.type_defs import MappingRuleTypeDef
 
-    data: AttributeMappingTypeDef = {...}
+    data: MappingRuleTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import IO, Any, Dict, List, Union
+from typing import IO, Any, Union
 
 from botocore.response import StreamingBody
 
 from .literals import CertificateFieldType, NotificationEventType, TrustAnchorTypeType
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
     "AttributeMappingTypeDef",
-    "CreateProfileRequestRequestTypeDef",
-    "CreateTrustAnchorRequestRequestTypeDef",
+    "BlobTypeDef",
+    "CreateProfileRequestTypeDef",
+    "CreateTrustAnchorRequestTypeDef",
     "CredentialSummaryTypeDef",
     "CrlDetailResponseTypeDef",
     "CrlDetailTypeDef",
-    "DeleteAttributeMappingRequestRequestTypeDef",
+    "DeleteAttributeMappingRequestTypeDef",
     "DeleteAttributeMappingResponseTypeDef",
-    "ImportCrlRequestRequestTypeDef",
+    "ImportCrlRequestTypeDef",
     "InstancePropertyTypeDef",
     "ListCrlsResponseTypeDef",
     "ListProfilesResponseTypeDef",
+    "ListRequestPaginateExtraExtraExtraTypeDef",
+    "ListRequestPaginateExtraExtraTypeDef",
+    "ListRequestPaginateExtraTypeDef",
+    "ListRequestPaginateTypeDef",
+    "ListRequestRequestExtraExtraTypeDef",
+    "ListRequestRequestExtraTypeDef",
     "ListRequestRequestTypeDef",
+    "ListRequestTypeDef",
     "ListSubjectsResponseTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "ListTrustAnchorsResponseTypeDef",
     "MappingRuleTypeDef",
@@ -54,602 +68,356 @@ __all__ = (
     "PaginatorConfigTypeDef",
     "ProfileDetailResponseTypeDef",
     "ProfileDetailTypeDef",
-    "PutAttributeMappingRequestRequestTypeDef",
+    "PutAttributeMappingRequestTypeDef",
     "PutAttributeMappingResponseTypeDef",
-    "PutNotificationSettingsRequestRequestTypeDef",
+    "PutNotificationSettingsRequestTypeDef",
     "PutNotificationSettingsResponseTypeDef",
-    "ResetNotificationSettingsRequestRequestTypeDef",
+    "ResetNotificationSettingsRequestTypeDef",
     "ResetNotificationSettingsResponseTypeDef",
     "ResponseMetadataTypeDef",
+    "ScalarCrlRequestRequestExtraExtraTypeDef",
+    "ScalarCrlRequestRequestExtraTypeDef",
     "ScalarCrlRequestRequestTypeDef",
+    "ScalarCrlRequestTypeDef",
+    "ScalarProfileRequestRequestExtraExtraTypeDef",
+    "ScalarProfileRequestRequestExtraTypeDef",
     "ScalarProfileRequestRequestTypeDef",
-    "ScalarSubjectRequestRequestTypeDef",
+    "ScalarProfileRequestTypeDef",
+    "ScalarSubjectRequestTypeDef",
+    "ScalarTrustAnchorRequestRequestExtraExtraTypeDef",
+    "ScalarTrustAnchorRequestRequestExtraTypeDef",
     "ScalarTrustAnchorRequestRequestTypeDef",
+    "ScalarTrustAnchorRequestTypeDef",
     "SourceDataTypeDef",
     "SourceTypeDef",
     "SubjectDetailResponseTypeDef",
     "SubjectDetailTypeDef",
     "SubjectSummaryTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
     "TagTypeDef",
     "TrustAnchorDetailResponseTypeDef",
     "TrustAnchorDetailTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateCrlRequestRequestTypeDef",
-    "UpdateProfileRequestRequestTypeDef",
-    "UpdateTrustAnchorRequestRequestTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateCrlRequestTypeDef",
+    "UpdateProfileRequestTypeDef",
+    "UpdateTrustAnchorRequestTypeDef",
 )
 
-AttributeMappingTypeDef = TypedDict(
-    "AttributeMappingTypeDef",
-    {
-        "certificateField": CertificateFieldType,
-        "mappingRules": List["MappingRuleTypeDef"],
-    },
-    total=False,
-)
+class MappingRuleTypeDef(TypedDict):
+    specifier: str
 
-_RequiredCreateProfileRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateProfileRequestRequestTypeDef",
-    {
-        "name": str,
-        "roleArns": List[str],
-    },
-)
-_OptionalCreateProfileRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateProfileRequestRequestTypeDef",
-    {
-        "durationSeconds": int,
-        "enabled": bool,
-        "managedPolicyArns": List[str],
-        "requireInstanceProperties": bool,
-        "sessionPolicy": str,
-        "tags": List["TagTypeDef"],
-    },
-    total=False,
-)
+BlobTypeDef = Union[str, bytes, IO[Any], StreamingBody]
 
-class CreateProfileRequestRequestTypeDef(
-    _RequiredCreateProfileRequestRequestTypeDef, _OptionalCreateProfileRequestRequestTypeDef
-):
-    pass
+class TagTypeDef(TypedDict):
+    key: str
+    value: str
 
-_RequiredCreateTrustAnchorRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateTrustAnchorRequestRequestTypeDef",
-    {
-        "name": str,
-        "source": "SourceTypeDef",
-    },
-)
-_OptionalCreateTrustAnchorRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateTrustAnchorRequestRequestTypeDef",
-    {
-        "enabled": bool,
-        "notificationSettings": List["NotificationSettingTypeDef"],
-        "tags": List["TagTypeDef"],
-    },
-    total=False,
-)
+class NotificationSettingTypeDef(TypedDict):
+    enabled: bool
+    event: NotificationEventType
+    channel: NotRequired[Literal["ALL"]]
+    threshold: NotRequired[int]
 
-class CreateTrustAnchorRequestRequestTypeDef(
-    _RequiredCreateTrustAnchorRequestRequestTypeDef, _OptionalCreateTrustAnchorRequestRequestTypeDef
-):
-    pass
+class CredentialSummaryTypeDef(TypedDict):
+    enabled: NotRequired[bool]
+    failed: NotRequired[bool]
+    issuer: NotRequired[str]
+    seenAt: NotRequired[datetime]
+    serialNumber: NotRequired[str]
+    x509CertificateData: NotRequired[str]
 
-CredentialSummaryTypeDef = TypedDict(
-    "CredentialSummaryTypeDef",
-    {
-        "enabled": bool,
-        "failed": bool,
-        "issuer": str,
-        "seenAt": datetime,
-        "serialNumber": str,
-        "x509CertificateData": str,
-    },
-    total=False,
-)
+class CrlDetailTypeDef(TypedDict):
+    createdAt: NotRequired[datetime]
+    crlArn: NotRequired[str]
+    crlData: NotRequired[bytes]
+    crlId: NotRequired[str]
+    enabled: NotRequired[bool]
+    name: NotRequired[str]
+    trustAnchorArn: NotRequired[str]
+    updatedAt: NotRequired[datetime]
 
-CrlDetailResponseTypeDef = TypedDict(
-    "CrlDetailResponseTypeDef",
-    {
-        "crl": "CrlDetailTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-CrlDetailTypeDef = TypedDict(
-    "CrlDetailTypeDef",
-    {
-        "createdAt": datetime,
-        "crlArn": str,
-        "crlData": bytes,
-        "crlId": str,
-        "enabled": bool,
-        "name": str,
-        "trustAnchorArn": str,
-        "updatedAt": datetime,
-    },
-    total=False,
-)
+class DeleteAttributeMappingRequestTypeDef(TypedDict):
+    certificateField: CertificateFieldType
+    profileId: str
+    specifiers: NotRequired[Sequence[str]]
 
-_RequiredDeleteAttributeMappingRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteAttributeMappingRequestRequestTypeDef",
-    {
-        "certificateField": CertificateFieldType,
-        "profileId": str,
-    },
-)
-_OptionalDeleteAttributeMappingRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteAttributeMappingRequestRequestTypeDef",
-    {
-        "specifiers": List[str],
-    },
-    total=False,
-)
+class InstancePropertyTypeDef(TypedDict):
+    failed: NotRequired[bool]
+    properties: NotRequired[Dict[str, str]]
+    seenAt: NotRequired[datetime]
 
-class DeleteAttributeMappingRequestRequestTypeDef(
-    _RequiredDeleteAttributeMappingRequestRequestTypeDef,
-    _OptionalDeleteAttributeMappingRequestRequestTypeDef,
-):
-    pass
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
 
-DeleteAttributeMappingResponseTypeDef = TypedDict(
-    "DeleteAttributeMappingResponseTypeDef",
-    {
-        "profile": "ProfileDetailTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListRequestRequestExtraExtraTypeDef(TypedDict):
+    nextToken: NotRequired[str]
+    pageSize: NotRequired[int]
 
-_RequiredImportCrlRequestRequestTypeDef = TypedDict(
-    "_RequiredImportCrlRequestRequestTypeDef",
-    {
-        "crlData": Union[bytes, IO[bytes], StreamingBody],
-        "name": str,
-        "trustAnchorArn": str,
-    },
-)
-_OptionalImportCrlRequestRequestTypeDef = TypedDict(
-    "_OptionalImportCrlRequestRequestTypeDef",
-    {
-        "enabled": bool,
-        "tags": List["TagTypeDef"],
-    },
-    total=False,
-)
+class ListRequestRequestExtraTypeDef(TypedDict):
+    nextToken: NotRequired[str]
+    pageSize: NotRequired[int]
 
-class ImportCrlRequestRequestTypeDef(
-    _RequiredImportCrlRequestRequestTypeDef, _OptionalImportCrlRequestRequestTypeDef
-):
-    pass
+class ListRequestRequestTypeDef(TypedDict):
+    nextToken: NotRequired[str]
+    pageSize: NotRequired[int]
 
-InstancePropertyTypeDef = TypedDict(
-    "InstancePropertyTypeDef",
-    {
-        "failed": bool,
-        "properties": Dict[str, str],
-        "seenAt": datetime,
-    },
-    total=False,
-)
+class ListRequestTypeDef(TypedDict):
+    nextToken: NotRequired[str]
+    pageSize: NotRequired[int]
 
-ListCrlsResponseTypeDef = TypedDict(
-    "ListCrlsResponseTypeDef",
-    {
-        "crls": List["CrlDetailTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class SubjectSummaryTypeDef(TypedDict):
+    createdAt: NotRequired[datetime]
+    enabled: NotRequired[bool]
+    lastSeenAt: NotRequired[datetime]
+    subjectArn: NotRequired[str]
+    subjectId: NotRequired[str]
+    updatedAt: NotRequired[datetime]
+    x509Subject: NotRequired[str]
 
-ListProfilesResponseTypeDef = TypedDict(
-    "ListProfilesResponseTypeDef",
-    {
-        "nextToken": str,
-        "profiles": List["ProfileDetailTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    resourceArn: str
 
-ListRequestRequestTypeDef = TypedDict(
-    "ListRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "pageSize": int,
-    },
-    total=False,
-)
+class NotificationSettingDetailTypeDef(TypedDict):
+    enabled: bool
+    event: NotificationEventType
+    channel: NotRequired[Literal["ALL"]]
+    configuredBy: NotRequired[str]
+    threshold: NotRequired[int]
 
-ListSubjectsResponseTypeDef = TypedDict(
-    "ListSubjectsResponseTypeDef",
-    {
-        "nextToken": str,
-        "subjects": List["SubjectSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class NotificationSettingKeyTypeDef(TypedDict):
+    event: NotificationEventType
+    channel: NotRequired[Literal["ALL"]]
 
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-    },
-)
+class ScalarCrlRequestRequestExtraExtraTypeDef(TypedDict):
+    crlId: str
 
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "tags": List["TagTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ScalarCrlRequestRequestExtraTypeDef(TypedDict):
+    crlId: str
 
-ListTrustAnchorsResponseTypeDef = TypedDict(
-    "ListTrustAnchorsResponseTypeDef",
-    {
-        "nextToken": str,
-        "trustAnchors": List["TrustAnchorDetailTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ScalarCrlRequestRequestTypeDef(TypedDict):
+    crlId: str
 
-MappingRuleTypeDef = TypedDict(
-    "MappingRuleTypeDef",
-    {
-        "specifier": str,
-    },
-)
+class ScalarCrlRequestTypeDef(TypedDict):
+    crlId: str
 
-_RequiredNotificationSettingDetailTypeDef = TypedDict(
-    "_RequiredNotificationSettingDetailTypeDef",
-    {
-        "enabled": bool,
-        "event": NotificationEventType,
-    },
-)
-_OptionalNotificationSettingDetailTypeDef = TypedDict(
-    "_OptionalNotificationSettingDetailTypeDef",
-    {
-        "channel": Literal["ALL"],
-        "configuredBy": str,
-        "threshold": int,
-    },
-    total=False,
-)
+class ScalarProfileRequestRequestExtraExtraTypeDef(TypedDict):
+    profileId: str
 
-class NotificationSettingDetailTypeDef(
-    _RequiredNotificationSettingDetailTypeDef, _OptionalNotificationSettingDetailTypeDef
-):
-    pass
+class ScalarProfileRequestRequestExtraTypeDef(TypedDict):
+    profileId: str
 
-_RequiredNotificationSettingKeyTypeDef = TypedDict(
-    "_RequiredNotificationSettingKeyTypeDef",
-    {
-        "event": NotificationEventType,
-    },
-)
-_OptionalNotificationSettingKeyTypeDef = TypedDict(
-    "_OptionalNotificationSettingKeyTypeDef",
-    {
-        "channel": Literal["ALL"],
-    },
-    total=False,
-)
+class ScalarProfileRequestRequestTypeDef(TypedDict):
+    profileId: str
 
-class NotificationSettingKeyTypeDef(
-    _RequiredNotificationSettingKeyTypeDef, _OptionalNotificationSettingKeyTypeDef
-):
-    pass
+class ScalarProfileRequestTypeDef(TypedDict):
+    profileId: str
 
-_RequiredNotificationSettingTypeDef = TypedDict(
-    "_RequiredNotificationSettingTypeDef",
-    {
-        "enabled": bool,
-        "event": NotificationEventType,
-    },
-)
-_OptionalNotificationSettingTypeDef = TypedDict(
-    "_OptionalNotificationSettingTypeDef",
-    {
-        "channel": Literal["ALL"],
-        "threshold": int,
-    },
-    total=False,
-)
+class ScalarSubjectRequestTypeDef(TypedDict):
+    subjectId: str
 
-class NotificationSettingTypeDef(
-    _RequiredNotificationSettingTypeDef, _OptionalNotificationSettingTypeDef
-):
-    pass
+class ScalarTrustAnchorRequestRequestExtraExtraTypeDef(TypedDict):
+    trustAnchorId: str
 
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
+class ScalarTrustAnchorRequestRequestExtraTypeDef(TypedDict):
+    trustAnchorId: str
 
-ProfileDetailResponseTypeDef = TypedDict(
-    "ProfileDetailResponseTypeDef",
-    {
-        "profile": "ProfileDetailTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ScalarTrustAnchorRequestRequestTypeDef(TypedDict):
+    trustAnchorId: str
 
-ProfileDetailTypeDef = TypedDict(
-    "ProfileDetailTypeDef",
-    {
-        "attributeMappings": List["AttributeMappingTypeDef"],
-        "createdAt": datetime,
-        "createdBy": str,
-        "durationSeconds": int,
-        "enabled": bool,
-        "managedPolicyArns": List[str],
-        "name": str,
-        "profileArn": str,
-        "profileId": str,
-        "requireInstanceProperties": bool,
-        "roleArns": List[str],
-        "sessionPolicy": str,
-        "updatedAt": datetime,
-    },
-    total=False,
-)
+class ScalarTrustAnchorRequestTypeDef(TypedDict):
+    trustAnchorId: str
 
-PutAttributeMappingRequestRequestTypeDef = TypedDict(
-    "PutAttributeMappingRequestRequestTypeDef",
-    {
-        "certificateField": CertificateFieldType,
-        "mappingRules": List["MappingRuleTypeDef"],
-        "profileId": str,
-    },
-)
+class SourceDataTypeDef(TypedDict):
+    acmPcaArn: NotRequired[str]
+    x509CertificateData: NotRequired[str]
 
-PutAttributeMappingResponseTypeDef = TypedDict(
-    "PutAttributeMappingResponseTypeDef",
-    {
-        "profile": "ProfileDetailTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class UntagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tagKeys: Sequence[str]
 
-PutNotificationSettingsRequestRequestTypeDef = TypedDict(
-    "PutNotificationSettingsRequestRequestTypeDef",
-    {
-        "notificationSettings": List["NotificationSettingTypeDef"],
-        "trustAnchorId": str,
-    },
-)
+class UpdateProfileRequestTypeDef(TypedDict):
+    profileId: str
+    acceptRoleSessionName: NotRequired[bool]
+    durationSeconds: NotRequired[int]
+    managedPolicyArns: NotRequired[Sequence[str]]
+    name: NotRequired[str]
+    roleArns: NotRequired[Sequence[str]]
+    sessionPolicy: NotRequired[str]
 
-PutNotificationSettingsResponseTypeDef = TypedDict(
-    "PutNotificationSettingsResponseTypeDef",
-    {
-        "trustAnchor": "TrustAnchorDetailTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class AttributeMappingTypeDef(TypedDict):
+    certificateField: NotRequired[CertificateFieldType]
+    mappingRules: NotRequired[List[MappingRuleTypeDef]]
 
-ResetNotificationSettingsRequestRequestTypeDef = TypedDict(
-    "ResetNotificationSettingsRequestRequestTypeDef",
-    {
-        "notificationSettingKeys": List["NotificationSettingKeyTypeDef"],
-        "trustAnchorId": str,
-    },
-)
+class PutAttributeMappingRequestTypeDef(TypedDict):
+    certificateField: CertificateFieldType
+    mappingRules: Sequence[MappingRuleTypeDef]
+    profileId: str
 
-ResetNotificationSettingsResponseTypeDef = TypedDict(
-    "ResetNotificationSettingsResponseTypeDef",
-    {
-        "trustAnchor": "TrustAnchorDetailTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class UpdateCrlRequestTypeDef(TypedDict):
+    crlId: str
+    crlData: NotRequired[BlobTypeDef]
+    name: NotRequired[str]
 
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
+class CreateProfileRequestTypeDef(TypedDict):
+    name: str
+    roleArns: Sequence[str]
+    acceptRoleSessionName: NotRequired[bool]
+    durationSeconds: NotRequired[int]
+    enabled: NotRequired[bool]
+    managedPolicyArns: NotRequired[Sequence[str]]
+    requireInstanceProperties: NotRequired[bool]
+    sessionPolicy: NotRequired[str]
+    tags: NotRequired[Sequence[TagTypeDef]]
 
-ScalarCrlRequestRequestTypeDef = TypedDict(
-    "ScalarCrlRequestRequestTypeDef",
-    {
-        "crlId": str,
-    },
-)
+class ImportCrlRequestTypeDef(TypedDict):
+    crlData: BlobTypeDef
+    name: str
+    trustAnchorArn: str
+    enabled: NotRequired[bool]
+    tags: NotRequired[Sequence[TagTypeDef]]
 
-ScalarProfileRequestRequestTypeDef = TypedDict(
-    "ScalarProfileRequestRequestTypeDef",
-    {
-        "profileId": str,
-    },
-)
+class TagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tags: Sequence[TagTypeDef]
 
-ScalarSubjectRequestRequestTypeDef = TypedDict(
-    "ScalarSubjectRequestRequestTypeDef",
-    {
-        "subjectId": str,
-    },
-)
+class PutNotificationSettingsRequestTypeDef(TypedDict):
+    notificationSettings: Sequence[NotificationSettingTypeDef]
+    trustAnchorId: str
 
-ScalarTrustAnchorRequestRequestTypeDef = TypedDict(
-    "ScalarTrustAnchorRequestRequestTypeDef",
-    {
-        "trustAnchorId": str,
-    },
-)
+class CrlDetailResponseTypeDef(TypedDict):
+    crl: CrlDetailTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-SourceDataTypeDef = TypedDict(
-    "SourceDataTypeDef",
-    {
-        "acmPcaArn": str,
-        "x509CertificateData": str,
-    },
-    total=False,
-)
+class ListCrlsResponseTypeDef(TypedDict):
+    crls: List[CrlDetailTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-SourceTypeDef = TypedDict(
-    "SourceTypeDef",
-    {
-        "sourceData": "SourceDataTypeDef",
-        "sourceType": TrustAnchorTypeType,
-    },
-    total=False,
-)
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    tags: List[TagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-SubjectDetailResponseTypeDef = TypedDict(
-    "SubjectDetailResponseTypeDef",
-    {
-        "subject": "SubjectDetailTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class SubjectDetailTypeDef(TypedDict):
+    createdAt: NotRequired[datetime]
+    credentials: NotRequired[List[CredentialSummaryTypeDef]]
+    enabled: NotRequired[bool]
+    instanceProperties: NotRequired[List[InstancePropertyTypeDef]]
+    lastSeenAt: NotRequired[datetime]
+    subjectArn: NotRequired[str]
+    subjectId: NotRequired[str]
+    updatedAt: NotRequired[datetime]
+    x509Subject: NotRequired[str]
 
-SubjectDetailTypeDef = TypedDict(
-    "SubjectDetailTypeDef",
-    {
-        "createdAt": datetime,
-        "credentials": List["CredentialSummaryTypeDef"],
-        "enabled": bool,
-        "instanceProperties": List["InstancePropertyTypeDef"],
-        "lastSeenAt": datetime,
-        "subjectArn": str,
-        "subjectId": str,
-        "updatedAt": datetime,
-        "x509Subject": str,
-    },
-    total=False,
-)
+class ListRequestPaginateExtraExtraExtraTypeDef(TypedDict):
+    pageSize: NotRequired[int]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-SubjectSummaryTypeDef = TypedDict(
-    "SubjectSummaryTypeDef",
-    {
-        "createdAt": datetime,
-        "enabled": bool,
-        "lastSeenAt": datetime,
-        "subjectArn": str,
-        "subjectId": str,
-        "updatedAt": datetime,
-        "x509Subject": str,
-    },
-    total=False,
-)
+class ListRequestPaginateExtraExtraTypeDef(TypedDict):
+    pageSize: NotRequired[int]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tags": List["TagTypeDef"],
-    },
-)
+class ListRequestPaginateExtraTypeDef(TypedDict):
+    pageSize: NotRequired[int]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-TagTypeDef = TypedDict(
-    "TagTypeDef",
-    {
-        "key": str,
-        "value": str,
-    },
-)
+class ListRequestPaginateTypeDef(TypedDict):
+    pageSize: NotRequired[int]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-TrustAnchorDetailResponseTypeDef = TypedDict(
-    "TrustAnchorDetailResponseTypeDef",
-    {
-        "trustAnchor": "TrustAnchorDetailTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListSubjectsResponseTypeDef(TypedDict):
+    subjects: List[SubjectSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-TrustAnchorDetailTypeDef = TypedDict(
-    "TrustAnchorDetailTypeDef",
-    {
-        "createdAt": datetime,
-        "enabled": bool,
-        "name": str,
-        "notificationSettings": List["NotificationSettingDetailTypeDef"],
-        "source": "SourceTypeDef",
-        "trustAnchorArn": str,
-        "trustAnchorId": str,
-        "updatedAt": datetime,
-    },
-    total=False,
-)
+class ResetNotificationSettingsRequestTypeDef(TypedDict):
+    notificationSettingKeys: Sequence[NotificationSettingKeyTypeDef]
+    trustAnchorId: str
 
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tagKeys": List[str],
-    },
-)
+class SourceTypeDef(TypedDict):
+    sourceData: NotRequired[SourceDataTypeDef]
+    sourceType: NotRequired[TrustAnchorTypeType]
 
-_RequiredUpdateCrlRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateCrlRequestRequestTypeDef",
-    {
-        "crlId": str,
-    },
-)
-_OptionalUpdateCrlRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateCrlRequestRequestTypeDef",
-    {
-        "crlData": Union[bytes, IO[bytes], StreamingBody],
-        "name": str,
-    },
-    total=False,
-)
+class ProfileDetailTypeDef(TypedDict):
+    acceptRoleSessionName: NotRequired[bool]
+    attributeMappings: NotRequired[List[AttributeMappingTypeDef]]
+    createdAt: NotRequired[datetime]
+    createdBy: NotRequired[str]
+    durationSeconds: NotRequired[int]
+    enabled: NotRequired[bool]
+    managedPolicyArns: NotRequired[List[str]]
+    name: NotRequired[str]
+    profileArn: NotRequired[str]
+    profileId: NotRequired[str]
+    requireInstanceProperties: NotRequired[bool]
+    roleArns: NotRequired[List[str]]
+    sessionPolicy: NotRequired[str]
+    updatedAt: NotRequired[datetime]
 
-class UpdateCrlRequestRequestTypeDef(
-    _RequiredUpdateCrlRequestRequestTypeDef, _OptionalUpdateCrlRequestRequestTypeDef
-):
-    pass
+class SubjectDetailResponseTypeDef(TypedDict):
+    subject: SubjectDetailTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredUpdateProfileRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateProfileRequestRequestTypeDef",
-    {
-        "profileId": str,
-    },
-)
-_OptionalUpdateProfileRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateProfileRequestRequestTypeDef",
-    {
-        "durationSeconds": int,
-        "managedPolicyArns": List[str],
-        "name": str,
-        "roleArns": List[str],
-        "sessionPolicy": str,
-    },
-    total=False,
-)
+class CreateTrustAnchorRequestTypeDef(TypedDict):
+    name: str
+    source: SourceTypeDef
+    enabled: NotRequired[bool]
+    notificationSettings: NotRequired[Sequence[NotificationSettingTypeDef]]
+    tags: NotRequired[Sequence[TagTypeDef]]
 
-class UpdateProfileRequestRequestTypeDef(
-    _RequiredUpdateProfileRequestRequestTypeDef, _OptionalUpdateProfileRequestRequestTypeDef
-):
-    pass
+class TrustAnchorDetailTypeDef(TypedDict):
+    createdAt: NotRequired[datetime]
+    enabled: NotRequired[bool]
+    name: NotRequired[str]
+    notificationSettings: NotRequired[List[NotificationSettingDetailTypeDef]]
+    source: NotRequired[SourceTypeDef]
+    trustAnchorArn: NotRequired[str]
+    trustAnchorId: NotRequired[str]
+    updatedAt: NotRequired[datetime]
 
-_RequiredUpdateTrustAnchorRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateTrustAnchorRequestRequestTypeDef",
-    {
-        "trustAnchorId": str,
-    },
-)
-_OptionalUpdateTrustAnchorRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateTrustAnchorRequestRequestTypeDef",
-    {
-        "name": str,
-        "source": "SourceTypeDef",
-    },
-    total=False,
-)
+class UpdateTrustAnchorRequestTypeDef(TypedDict):
+    trustAnchorId: str
+    name: NotRequired[str]
+    source: NotRequired[SourceTypeDef]
 
-class UpdateTrustAnchorRequestRequestTypeDef(
-    _RequiredUpdateTrustAnchorRequestRequestTypeDef, _OptionalUpdateTrustAnchorRequestRequestTypeDef
-):
-    pass
+class DeleteAttributeMappingResponseTypeDef(TypedDict):
+    profile: ProfileDetailTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListProfilesResponseTypeDef(TypedDict):
+    profiles: List[ProfileDetailTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ProfileDetailResponseTypeDef(TypedDict):
+    profile: ProfileDetailTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutAttributeMappingResponseTypeDef(TypedDict):
+    profile: ProfileDetailTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListTrustAnchorsResponseTypeDef(TypedDict):
+    trustAnchors: List[TrustAnchorDetailTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class PutNotificationSettingsResponseTypeDef(TypedDict):
+    trustAnchor: TrustAnchorDetailTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ResetNotificationSettingsResponseTypeDef(TypedDict):
+    trustAnchor: TrustAnchorDetailTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class TrustAnchorDetailResponseTypeDef(TypedDict):
+    trustAnchor: TrustAnchorDetailTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef

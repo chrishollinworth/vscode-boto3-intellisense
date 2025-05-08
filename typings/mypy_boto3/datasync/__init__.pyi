@@ -1,10 +1,14 @@
 """
 Main interface for datasync service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datasync/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_datasync import (
         Client,
         DataSyncClient,
@@ -18,10 +22,8 @@ Usage::
         ListTasksPaginator,
     )
 
-    session = boto3.Session()
-
-    client: DataSyncClient = boto3.client("datasync")
-    session_client: DataSyncClient = session.client("datasync")
+    session = Session()
+    client: DataSyncClient = session.client("datasync")
 
     describe_storage_system_resource_metrics_paginator: DescribeStorageSystemResourceMetricsPaginator = client.get_paginator("describe_storage_system_resource_metrics")
     list_agents_paginator: ListAgentsPaginator = client.get_paginator("list_agents")

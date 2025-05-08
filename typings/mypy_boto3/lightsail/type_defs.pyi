@@ -1,20 +1,24 @@
 """
 Type annotations for lightsail service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lightsail/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lightsail/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_lightsail.type_defs import AccessKeyLastUsedTypeDef
 
-    data: AccessKeyLastUsedTypeDef = {...}
+    data: AccessKeyLastUsedTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List, Union
+from typing import Union
 
 from .literals import (
     AccessDirectionType,
@@ -94,14 +98,16 @@ from .literals import (
     ViewerMinimumTlsProtocolVersionEnumType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
     "AccessKeyLastUsedTypeDef",
@@ -111,17 +117,17 @@ __all__ = (
     "AddOnRequestTypeDef",
     "AddOnTypeDef",
     "AlarmTypeDef",
-    "AllocateStaticIpRequestRequestTypeDef",
+    "AllocateStaticIpRequestTypeDef",
     "AllocateStaticIpResultTypeDef",
-    "AttachCertificateToDistributionRequestRequestTypeDef",
+    "AttachCertificateToDistributionRequestTypeDef",
     "AttachCertificateToDistributionResultTypeDef",
-    "AttachDiskRequestRequestTypeDef",
+    "AttachDiskRequestTypeDef",
     "AttachDiskResultTypeDef",
-    "AttachInstancesToLoadBalancerRequestRequestTypeDef",
+    "AttachInstancesToLoadBalancerRequestTypeDef",
     "AttachInstancesToLoadBalancerResultTypeDef",
-    "AttachLoadBalancerTlsCertificateRequestRequestTypeDef",
+    "AttachLoadBalancerTlsCertificateRequestTypeDef",
     "AttachLoadBalancerTlsCertificateResultTypeDef",
-    "AttachStaticIpRequestRequestTypeDef",
+    "AttachStaticIpRequestTypeDef",
     "AttachStaticIpResultTypeDef",
     "AttachedDiskTypeDef",
     "AutoSnapshotAddOnRequestTypeDef",
@@ -135,15 +141,18 @@ __all__ = (
     "BundleTypeDef",
     "CacheBehaviorPerPathTypeDef",
     "CacheBehaviorTypeDef",
+    "CacheSettingsOutputTypeDef",
     "CacheSettingsTypeDef",
+    "CacheSettingsUnionTypeDef",
     "CertificateSummaryTypeDef",
     "CertificateTypeDef",
-    "CloseInstancePublicPortsRequestRequestTypeDef",
+    "CloseInstancePublicPortsRequestTypeDef",
     "CloseInstancePublicPortsResultTypeDef",
     "CloudFormationStackRecordSourceInfoTypeDef",
     "CloudFormationStackRecordTypeDef",
     "ContactMethodTypeDef",
     "ContainerImageTypeDef",
+    "ContainerOutputTypeDef",
     "ContainerServiceDeploymentRequestTypeDef",
     "ContainerServiceDeploymentTypeDef",
     "ContainerServiceECRImagePullerRoleRequestTypeDef",
@@ -157,107 +166,109 @@ __all__ = (
     "ContainerServiceTypeDef",
     "ContainerServicesListResultTypeDef",
     "ContainerTypeDef",
+    "ContainerUnionTypeDef",
+    "CookieObjectOutputTypeDef",
     "CookieObjectTypeDef",
-    "CopySnapshotRequestRequestTypeDef",
+    "CopySnapshotRequestTypeDef",
     "CopySnapshotResultTypeDef",
     "CostEstimateTypeDef",
-    "CreateBucketAccessKeyRequestRequestTypeDef",
+    "CreateBucketAccessKeyRequestTypeDef",
     "CreateBucketAccessKeyResultTypeDef",
-    "CreateBucketRequestRequestTypeDef",
+    "CreateBucketRequestTypeDef",
     "CreateBucketResultTypeDef",
-    "CreateCertificateRequestRequestTypeDef",
+    "CreateCertificateRequestTypeDef",
     "CreateCertificateResultTypeDef",
-    "CreateCloudFormationStackRequestRequestTypeDef",
+    "CreateCloudFormationStackRequestTypeDef",
     "CreateCloudFormationStackResultTypeDef",
-    "CreateContactMethodRequestRequestTypeDef",
+    "CreateContactMethodRequestTypeDef",
     "CreateContactMethodResultTypeDef",
-    "CreateContainerServiceDeploymentRequestRequestTypeDef",
+    "CreateContainerServiceDeploymentRequestTypeDef",
     "CreateContainerServiceDeploymentResultTypeDef",
     "CreateContainerServiceRegistryLoginResultTypeDef",
-    "CreateContainerServiceRequestRequestTypeDef",
+    "CreateContainerServiceRequestTypeDef",
     "CreateContainerServiceResultTypeDef",
-    "CreateDiskFromSnapshotRequestRequestTypeDef",
+    "CreateDiskFromSnapshotRequestTypeDef",
     "CreateDiskFromSnapshotResultTypeDef",
-    "CreateDiskRequestRequestTypeDef",
+    "CreateDiskRequestTypeDef",
     "CreateDiskResultTypeDef",
-    "CreateDiskSnapshotRequestRequestTypeDef",
+    "CreateDiskSnapshotRequestTypeDef",
     "CreateDiskSnapshotResultTypeDef",
-    "CreateDistributionRequestRequestTypeDef",
+    "CreateDistributionRequestTypeDef",
     "CreateDistributionResultTypeDef",
-    "CreateDomainEntryRequestRequestTypeDef",
+    "CreateDomainEntryRequestTypeDef",
     "CreateDomainEntryResultTypeDef",
-    "CreateDomainRequestRequestTypeDef",
+    "CreateDomainRequestTypeDef",
     "CreateDomainResultTypeDef",
-    "CreateGUISessionAccessDetailsRequestRequestTypeDef",
+    "CreateGUISessionAccessDetailsRequestTypeDef",
     "CreateGUISessionAccessDetailsResultTypeDef",
-    "CreateInstanceSnapshotRequestRequestTypeDef",
+    "CreateInstanceSnapshotRequestTypeDef",
     "CreateInstanceSnapshotResultTypeDef",
-    "CreateInstancesFromSnapshotRequestRequestTypeDef",
+    "CreateInstancesFromSnapshotRequestTypeDef",
     "CreateInstancesFromSnapshotResultTypeDef",
-    "CreateInstancesRequestRequestTypeDef",
+    "CreateInstancesRequestTypeDef",
     "CreateInstancesResultTypeDef",
-    "CreateKeyPairRequestRequestTypeDef",
+    "CreateKeyPairRequestTypeDef",
     "CreateKeyPairResultTypeDef",
-    "CreateLoadBalancerRequestRequestTypeDef",
+    "CreateLoadBalancerRequestTypeDef",
     "CreateLoadBalancerResultTypeDef",
-    "CreateLoadBalancerTlsCertificateRequestRequestTypeDef",
+    "CreateLoadBalancerTlsCertificateRequestTypeDef",
     "CreateLoadBalancerTlsCertificateResultTypeDef",
-    "CreateRelationalDatabaseFromSnapshotRequestRequestTypeDef",
+    "CreateRelationalDatabaseFromSnapshotRequestTypeDef",
     "CreateRelationalDatabaseFromSnapshotResultTypeDef",
-    "CreateRelationalDatabaseRequestRequestTypeDef",
+    "CreateRelationalDatabaseRequestTypeDef",
     "CreateRelationalDatabaseResultTypeDef",
-    "CreateRelationalDatabaseSnapshotRequestRequestTypeDef",
+    "CreateRelationalDatabaseSnapshotRequestTypeDef",
     "CreateRelationalDatabaseSnapshotResultTypeDef",
-    "DeleteAlarmRequestRequestTypeDef",
+    "DeleteAlarmRequestTypeDef",
     "DeleteAlarmResultTypeDef",
-    "DeleteAutoSnapshotRequestRequestTypeDef",
+    "DeleteAutoSnapshotRequestTypeDef",
     "DeleteAutoSnapshotResultTypeDef",
-    "DeleteBucketAccessKeyRequestRequestTypeDef",
+    "DeleteBucketAccessKeyRequestTypeDef",
     "DeleteBucketAccessKeyResultTypeDef",
-    "DeleteBucketRequestRequestTypeDef",
+    "DeleteBucketRequestTypeDef",
     "DeleteBucketResultTypeDef",
-    "DeleteCertificateRequestRequestTypeDef",
+    "DeleteCertificateRequestTypeDef",
     "DeleteCertificateResultTypeDef",
-    "DeleteContactMethodRequestRequestTypeDef",
+    "DeleteContactMethodRequestTypeDef",
     "DeleteContactMethodResultTypeDef",
-    "DeleteContainerImageRequestRequestTypeDef",
-    "DeleteContainerServiceRequestRequestTypeDef",
-    "DeleteDiskRequestRequestTypeDef",
+    "DeleteContainerImageRequestTypeDef",
+    "DeleteContainerServiceRequestTypeDef",
+    "DeleteDiskRequestTypeDef",
     "DeleteDiskResultTypeDef",
-    "DeleteDiskSnapshotRequestRequestTypeDef",
+    "DeleteDiskSnapshotRequestTypeDef",
     "DeleteDiskSnapshotResultTypeDef",
-    "DeleteDistributionRequestRequestTypeDef",
+    "DeleteDistributionRequestTypeDef",
     "DeleteDistributionResultTypeDef",
-    "DeleteDomainEntryRequestRequestTypeDef",
+    "DeleteDomainEntryRequestTypeDef",
     "DeleteDomainEntryResultTypeDef",
-    "DeleteDomainRequestRequestTypeDef",
+    "DeleteDomainRequestTypeDef",
     "DeleteDomainResultTypeDef",
-    "DeleteInstanceRequestRequestTypeDef",
+    "DeleteInstanceRequestTypeDef",
     "DeleteInstanceResultTypeDef",
-    "DeleteInstanceSnapshotRequestRequestTypeDef",
+    "DeleteInstanceSnapshotRequestTypeDef",
     "DeleteInstanceSnapshotResultTypeDef",
-    "DeleteKeyPairRequestRequestTypeDef",
+    "DeleteKeyPairRequestTypeDef",
     "DeleteKeyPairResultTypeDef",
-    "DeleteKnownHostKeysRequestRequestTypeDef",
+    "DeleteKnownHostKeysRequestTypeDef",
     "DeleteKnownHostKeysResultTypeDef",
-    "DeleteLoadBalancerRequestRequestTypeDef",
+    "DeleteLoadBalancerRequestTypeDef",
     "DeleteLoadBalancerResultTypeDef",
-    "DeleteLoadBalancerTlsCertificateRequestRequestTypeDef",
+    "DeleteLoadBalancerTlsCertificateRequestTypeDef",
     "DeleteLoadBalancerTlsCertificateResultTypeDef",
-    "DeleteRelationalDatabaseRequestRequestTypeDef",
+    "DeleteRelationalDatabaseRequestTypeDef",
     "DeleteRelationalDatabaseResultTypeDef",
-    "DeleteRelationalDatabaseSnapshotRequestRequestTypeDef",
+    "DeleteRelationalDatabaseSnapshotRequestTypeDef",
     "DeleteRelationalDatabaseSnapshotResultTypeDef",
     "DestinationInfoTypeDef",
-    "DetachCertificateFromDistributionRequestRequestTypeDef",
+    "DetachCertificateFromDistributionRequestTypeDef",
     "DetachCertificateFromDistributionResultTypeDef",
-    "DetachDiskRequestRequestTypeDef",
+    "DetachDiskRequestTypeDef",
     "DetachDiskResultTypeDef",
-    "DetachInstancesFromLoadBalancerRequestRequestTypeDef",
+    "DetachInstancesFromLoadBalancerRequestTypeDef",
     "DetachInstancesFromLoadBalancerResultTypeDef",
-    "DetachStaticIpRequestRequestTypeDef",
+    "DetachStaticIpRequestTypeDef",
     "DetachStaticIpResultTypeDef",
-    "DisableAddOnRequestRequestTypeDef",
+    "DisableAddOnRequestTypeDef",
     "DisableAddOnResultTypeDef",
     "DiskInfoTypeDef",
     "DiskMapTypeDef",
@@ -266,147 +277,170 @@ __all__ = (
     "DiskTypeDef",
     "DistributionBundleTypeDef",
     "DnsRecordCreationStateTypeDef",
+    "DomainEntryOutputTypeDef",
     "DomainEntryTypeDef",
+    "DomainEntryUnionTypeDef",
     "DomainTypeDef",
     "DomainValidationRecordTypeDef",
     "DownloadDefaultKeyPairResultTypeDef",
-    "EnableAddOnRequestRequestTypeDef",
+    "EnableAddOnRequestTypeDef",
     "EnableAddOnResultTypeDef",
     "EndpointRequestTypeDef",
     "EstimateByTimeTypeDef",
     "ExportSnapshotRecordSourceInfoTypeDef",
     "ExportSnapshotRecordTypeDef",
-    "ExportSnapshotRequestRequestTypeDef",
+    "ExportSnapshotRequestTypeDef",
     "ExportSnapshotResultTypeDef",
-    "GetActiveNamesRequestRequestTypeDef",
+    "GetActiveNamesRequestPaginateTypeDef",
+    "GetActiveNamesRequestTypeDef",
     "GetActiveNamesResultTypeDef",
-    "GetAlarmsRequestRequestTypeDef",
+    "GetAlarmsRequestTypeDef",
     "GetAlarmsResultTypeDef",
-    "GetAutoSnapshotsRequestRequestTypeDef",
+    "GetAutoSnapshotsRequestTypeDef",
     "GetAutoSnapshotsResultTypeDef",
-    "GetBlueprintsRequestRequestTypeDef",
+    "GetBlueprintsRequestPaginateTypeDef",
+    "GetBlueprintsRequestTypeDef",
     "GetBlueprintsResultTypeDef",
-    "GetBucketAccessKeysRequestRequestTypeDef",
+    "GetBucketAccessKeysRequestTypeDef",
     "GetBucketAccessKeysResultTypeDef",
-    "GetBucketBundlesRequestRequestTypeDef",
+    "GetBucketBundlesRequestTypeDef",
     "GetBucketBundlesResultTypeDef",
-    "GetBucketMetricDataRequestRequestTypeDef",
+    "GetBucketMetricDataRequestTypeDef",
     "GetBucketMetricDataResultTypeDef",
-    "GetBucketsRequestRequestTypeDef",
+    "GetBucketsRequestTypeDef",
     "GetBucketsResultTypeDef",
-    "GetBundlesRequestRequestTypeDef",
+    "GetBundlesRequestPaginateTypeDef",
+    "GetBundlesRequestTypeDef",
     "GetBundlesResultTypeDef",
-    "GetCertificatesRequestRequestTypeDef",
+    "GetCertificatesRequestTypeDef",
     "GetCertificatesResultTypeDef",
-    "GetCloudFormationStackRecordsRequestRequestTypeDef",
+    "GetCloudFormationStackRecordsRequestPaginateTypeDef",
+    "GetCloudFormationStackRecordsRequestTypeDef",
     "GetCloudFormationStackRecordsResultTypeDef",
-    "GetContactMethodsRequestRequestTypeDef",
+    "GetContactMethodsRequestTypeDef",
     "GetContactMethodsResultTypeDef",
     "GetContainerAPIMetadataResultTypeDef",
-    "GetContainerImagesRequestRequestTypeDef",
+    "GetContainerImagesRequestTypeDef",
     "GetContainerImagesResultTypeDef",
-    "GetContainerLogRequestRequestTypeDef",
+    "GetContainerLogRequestTypeDef",
     "GetContainerLogResultTypeDef",
-    "GetContainerServiceDeploymentsRequestRequestTypeDef",
+    "GetContainerServiceDeploymentsRequestTypeDef",
     "GetContainerServiceDeploymentsResultTypeDef",
-    "GetContainerServiceMetricDataRequestRequestTypeDef",
+    "GetContainerServiceMetricDataRequestTypeDef",
     "GetContainerServiceMetricDataResultTypeDef",
     "GetContainerServicePowersResultTypeDef",
-    "GetContainerServicesRequestRequestTypeDef",
-    "GetCostEstimateRequestRequestTypeDef",
+    "GetContainerServicesRequestTypeDef",
+    "GetCostEstimateRequestTypeDef",
     "GetCostEstimateResultTypeDef",
-    "GetDiskRequestRequestTypeDef",
+    "GetDiskRequestTypeDef",
     "GetDiskResultTypeDef",
-    "GetDiskSnapshotRequestRequestTypeDef",
+    "GetDiskSnapshotRequestTypeDef",
     "GetDiskSnapshotResultTypeDef",
-    "GetDiskSnapshotsRequestRequestTypeDef",
+    "GetDiskSnapshotsRequestPaginateTypeDef",
+    "GetDiskSnapshotsRequestTypeDef",
     "GetDiskSnapshotsResultTypeDef",
-    "GetDisksRequestRequestTypeDef",
+    "GetDisksRequestPaginateTypeDef",
+    "GetDisksRequestTypeDef",
     "GetDisksResultTypeDef",
     "GetDistributionBundlesResultTypeDef",
-    "GetDistributionLatestCacheResetRequestRequestTypeDef",
+    "GetDistributionLatestCacheResetRequestTypeDef",
     "GetDistributionLatestCacheResetResultTypeDef",
-    "GetDistributionMetricDataRequestRequestTypeDef",
+    "GetDistributionMetricDataRequestTypeDef",
     "GetDistributionMetricDataResultTypeDef",
-    "GetDistributionsRequestRequestTypeDef",
+    "GetDistributionsRequestTypeDef",
     "GetDistributionsResultTypeDef",
-    "GetDomainRequestRequestTypeDef",
+    "GetDomainRequestTypeDef",
     "GetDomainResultTypeDef",
-    "GetDomainsRequestRequestTypeDef",
+    "GetDomainsRequestPaginateTypeDef",
+    "GetDomainsRequestTypeDef",
     "GetDomainsResultTypeDef",
-    "GetExportSnapshotRecordsRequestRequestTypeDef",
+    "GetExportSnapshotRecordsRequestPaginateTypeDef",
+    "GetExportSnapshotRecordsRequestTypeDef",
     "GetExportSnapshotRecordsResultTypeDef",
-    "GetInstanceAccessDetailsRequestRequestTypeDef",
+    "GetInstanceAccessDetailsRequestTypeDef",
     "GetInstanceAccessDetailsResultTypeDef",
-    "GetInstanceMetricDataRequestRequestTypeDef",
+    "GetInstanceMetricDataRequestTypeDef",
     "GetInstanceMetricDataResultTypeDef",
-    "GetInstancePortStatesRequestRequestTypeDef",
+    "GetInstancePortStatesRequestTypeDef",
     "GetInstancePortStatesResultTypeDef",
-    "GetInstanceRequestRequestTypeDef",
+    "GetInstanceRequestTypeDef",
     "GetInstanceResultTypeDef",
-    "GetInstanceSnapshotRequestRequestTypeDef",
+    "GetInstanceSnapshotRequestTypeDef",
     "GetInstanceSnapshotResultTypeDef",
-    "GetInstanceSnapshotsRequestRequestTypeDef",
+    "GetInstanceSnapshotsRequestPaginateTypeDef",
+    "GetInstanceSnapshotsRequestTypeDef",
     "GetInstanceSnapshotsResultTypeDef",
-    "GetInstanceStateRequestRequestTypeDef",
+    "GetInstanceStateRequestTypeDef",
     "GetInstanceStateResultTypeDef",
-    "GetInstancesRequestRequestTypeDef",
+    "GetInstancesRequestPaginateTypeDef",
+    "GetInstancesRequestTypeDef",
     "GetInstancesResultTypeDef",
-    "GetKeyPairRequestRequestTypeDef",
+    "GetKeyPairRequestTypeDef",
     "GetKeyPairResultTypeDef",
-    "GetKeyPairsRequestRequestTypeDef",
+    "GetKeyPairsRequestPaginateTypeDef",
+    "GetKeyPairsRequestTypeDef",
     "GetKeyPairsResultTypeDef",
-    "GetLoadBalancerMetricDataRequestRequestTypeDef",
+    "GetLoadBalancerMetricDataRequestTypeDef",
     "GetLoadBalancerMetricDataResultTypeDef",
-    "GetLoadBalancerRequestRequestTypeDef",
+    "GetLoadBalancerRequestTypeDef",
     "GetLoadBalancerResultTypeDef",
-    "GetLoadBalancerTlsCertificatesRequestRequestTypeDef",
+    "GetLoadBalancerTlsCertificatesRequestTypeDef",
     "GetLoadBalancerTlsCertificatesResultTypeDef",
-    "GetLoadBalancerTlsPoliciesRequestRequestTypeDef",
+    "GetLoadBalancerTlsPoliciesRequestTypeDef",
     "GetLoadBalancerTlsPoliciesResultTypeDef",
-    "GetLoadBalancersRequestRequestTypeDef",
+    "GetLoadBalancersRequestPaginateTypeDef",
+    "GetLoadBalancersRequestTypeDef",
     "GetLoadBalancersResultTypeDef",
-    "GetOperationRequestRequestTypeDef",
+    "GetOperationRequestTypeDef",
     "GetOperationResultTypeDef",
-    "GetOperationsForResourceRequestRequestTypeDef",
+    "GetOperationsForResourceRequestTypeDef",
     "GetOperationsForResourceResultTypeDef",
-    "GetOperationsRequestRequestTypeDef",
+    "GetOperationsRequestPaginateTypeDef",
+    "GetOperationsRequestTypeDef",
     "GetOperationsResultTypeDef",
-    "GetRegionsRequestRequestTypeDef",
+    "GetRegionsRequestTypeDef",
     "GetRegionsResultTypeDef",
-    "GetRelationalDatabaseBlueprintsRequestRequestTypeDef",
+    "GetRelationalDatabaseBlueprintsRequestPaginateTypeDef",
+    "GetRelationalDatabaseBlueprintsRequestTypeDef",
     "GetRelationalDatabaseBlueprintsResultTypeDef",
-    "GetRelationalDatabaseBundlesRequestRequestTypeDef",
+    "GetRelationalDatabaseBundlesRequestPaginateTypeDef",
+    "GetRelationalDatabaseBundlesRequestTypeDef",
     "GetRelationalDatabaseBundlesResultTypeDef",
-    "GetRelationalDatabaseEventsRequestRequestTypeDef",
+    "GetRelationalDatabaseEventsRequestPaginateTypeDef",
+    "GetRelationalDatabaseEventsRequestTypeDef",
     "GetRelationalDatabaseEventsResultTypeDef",
-    "GetRelationalDatabaseLogEventsRequestRequestTypeDef",
+    "GetRelationalDatabaseLogEventsRequestTypeDef",
     "GetRelationalDatabaseLogEventsResultTypeDef",
-    "GetRelationalDatabaseLogStreamsRequestRequestTypeDef",
+    "GetRelationalDatabaseLogStreamsRequestTypeDef",
     "GetRelationalDatabaseLogStreamsResultTypeDef",
-    "GetRelationalDatabaseMasterUserPasswordRequestRequestTypeDef",
+    "GetRelationalDatabaseMasterUserPasswordRequestTypeDef",
     "GetRelationalDatabaseMasterUserPasswordResultTypeDef",
-    "GetRelationalDatabaseMetricDataRequestRequestTypeDef",
+    "GetRelationalDatabaseMetricDataRequestTypeDef",
     "GetRelationalDatabaseMetricDataResultTypeDef",
-    "GetRelationalDatabaseParametersRequestRequestTypeDef",
+    "GetRelationalDatabaseParametersRequestPaginateTypeDef",
+    "GetRelationalDatabaseParametersRequestTypeDef",
     "GetRelationalDatabaseParametersResultTypeDef",
-    "GetRelationalDatabaseRequestRequestTypeDef",
+    "GetRelationalDatabaseRequestTypeDef",
     "GetRelationalDatabaseResultTypeDef",
-    "GetRelationalDatabaseSnapshotRequestRequestTypeDef",
+    "GetRelationalDatabaseSnapshotRequestTypeDef",
     "GetRelationalDatabaseSnapshotResultTypeDef",
-    "GetRelationalDatabaseSnapshotsRequestRequestTypeDef",
+    "GetRelationalDatabaseSnapshotsRequestPaginateTypeDef",
+    "GetRelationalDatabaseSnapshotsRequestTypeDef",
     "GetRelationalDatabaseSnapshotsResultTypeDef",
-    "GetRelationalDatabasesRequestRequestTypeDef",
+    "GetRelationalDatabasesRequestPaginateTypeDef",
+    "GetRelationalDatabasesRequestTypeDef",
     "GetRelationalDatabasesResultTypeDef",
-    "GetSetupHistoryRequestRequestTypeDef",
+    "GetSetupHistoryRequestTypeDef",
     "GetSetupHistoryResultTypeDef",
-    "GetStaticIpRequestRequestTypeDef",
+    "GetStaticIpRequestTypeDef",
     "GetStaticIpResultTypeDef",
-    "GetStaticIpsRequestRequestTypeDef",
+    "GetStaticIpsRequestPaginateTypeDef",
+    "GetStaticIpsRequestTypeDef",
     "GetStaticIpsResultTypeDef",
+    "HeaderObjectOutputTypeDef",
     "HeaderObjectTypeDef",
     "HostKeyAttributesTypeDef",
-    "ImportKeyPairRequestRequestTypeDef",
+    "ImportKeyPairRequestTypeDef",
     "ImportKeyPairResultTypeDef",
     "InputOriginTypeDef",
     "InstanceAccessDetailsTypeDef",
@@ -437,7 +471,7 @@ __all__ = (
     "MonitoredResourceInfoTypeDef",
     "MonthlyTransferTypeDef",
     "NameServersUpdateStateTypeDef",
-    "OpenInstancePublicPortsRequestRequestTypeDef",
+    "OpenInstancePublicPortsRequestTypeDef",
     "OpenInstancePublicPortsResultTypeDef",
     "OperationTypeDef",
     "OriginTypeDef",
@@ -449,18 +483,19 @@ __all__ = (
     "PortInfoTypeDef",
     "PrivateRegistryAccessRequestTypeDef",
     "PrivateRegistryAccessTypeDef",
-    "PutAlarmRequestRequestTypeDef",
+    "PutAlarmRequestTypeDef",
     "PutAlarmResultTypeDef",
-    "PutInstancePublicPortsRequestRequestTypeDef",
+    "PutInstancePublicPortsRequestTypeDef",
     "PutInstancePublicPortsResultTypeDef",
+    "QueryStringObjectOutputTypeDef",
     "QueryStringObjectTypeDef",
     "R53HostedZoneDeletionStateTypeDef",
-    "RebootInstanceRequestRequestTypeDef",
+    "RebootInstanceRequestTypeDef",
     "RebootInstanceResultTypeDef",
-    "RebootRelationalDatabaseRequestRequestTypeDef",
+    "RebootRelationalDatabaseRequestTypeDef",
     "RebootRelationalDatabaseResultTypeDef",
     "RegionTypeDef",
-    "RegisterContainerImageRequestRequestTypeDef",
+    "RegisterContainerImageRequestTypeDef",
     "RegisterContainerImageResultTypeDef",
     "RegisteredDomainDelegationInfoTypeDef",
     "RelationalDatabaseBlueprintTypeDef",
@@ -471,4869 +506,2582 @@ __all__ = (
     "RelationalDatabaseParameterTypeDef",
     "RelationalDatabaseSnapshotTypeDef",
     "RelationalDatabaseTypeDef",
-    "ReleaseStaticIpRequestRequestTypeDef",
+    "ReleaseStaticIpRequestTypeDef",
     "ReleaseStaticIpResultTypeDef",
     "RenewalSummaryTypeDef",
-    "ResetDistributionCacheRequestRequestTypeDef",
+    "ResetDistributionCacheRequestTypeDef",
     "ResetDistributionCacheResultTypeDef",
     "ResourceBudgetEstimateTypeDef",
     "ResourceLocationTypeDef",
     "ResourceReceivingAccessTypeDef",
     "ResourceRecordTypeDef",
     "ResponseMetadataTypeDef",
-    "SendContactMethodVerificationRequestRequestTypeDef",
+    "SendContactMethodVerificationRequestTypeDef",
     "SendContactMethodVerificationResultTypeDef",
     "SessionTypeDef",
-    "SetIpAddressTypeRequestRequestTypeDef",
+    "SetIpAddressTypeRequestTypeDef",
     "SetIpAddressTypeResultTypeDef",
-    "SetResourceAccessForBucketRequestRequestTypeDef",
+    "SetResourceAccessForBucketRequestTypeDef",
     "SetResourceAccessForBucketResultTypeDef",
     "SetupExecutionDetailsTypeDef",
     "SetupHistoryResourceTypeDef",
     "SetupHistoryTypeDef",
-    "SetupInstanceHttpsRequestRequestTypeDef",
+    "SetupInstanceHttpsRequestTypeDef",
     "SetupInstanceHttpsResultTypeDef",
     "SetupRequestTypeDef",
-    "StartGUISessionRequestRequestTypeDef",
+    "StartGUISessionRequestTypeDef",
     "StartGUISessionResultTypeDef",
-    "StartInstanceRequestRequestTypeDef",
+    "StartInstanceRequestTypeDef",
     "StartInstanceResultTypeDef",
-    "StartRelationalDatabaseRequestRequestTypeDef",
+    "StartRelationalDatabaseRequestTypeDef",
     "StartRelationalDatabaseResultTypeDef",
     "StaticIpTypeDef",
-    "StopGUISessionRequestRequestTypeDef",
+    "StopGUISessionRequestTypeDef",
     "StopGUISessionResultTypeDef",
     "StopInstanceOnIdleRequestTypeDef",
-    "StopInstanceRequestRequestTypeDef",
+    "StopInstanceRequestTypeDef",
     "StopInstanceResultTypeDef",
-    "StopRelationalDatabaseRequestRequestTypeDef",
+    "StopRelationalDatabaseRequestTypeDef",
     "StopRelationalDatabaseResultTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
     "TagResourceResultTypeDef",
     "TagTypeDef",
-    "TestAlarmRequestRequestTypeDef",
+    "TestAlarmRequestTypeDef",
     "TestAlarmResultTypeDef",
     "TimePeriodTypeDef",
+    "TimestampTypeDef",
     "UnpeerVpcResultTypeDef",
-    "UntagResourceRequestRequestTypeDef",
+    "UntagResourceRequestTypeDef",
     "UntagResourceResultTypeDef",
-    "UpdateBucketBundleRequestRequestTypeDef",
+    "UpdateBucketBundleRequestTypeDef",
     "UpdateBucketBundleResultTypeDef",
-    "UpdateBucketRequestRequestTypeDef",
+    "UpdateBucketRequestTypeDef",
     "UpdateBucketResultTypeDef",
-    "UpdateContainerServiceRequestRequestTypeDef",
+    "UpdateContainerServiceRequestTypeDef",
     "UpdateContainerServiceResultTypeDef",
-    "UpdateDistributionBundleRequestRequestTypeDef",
+    "UpdateDistributionBundleRequestTypeDef",
     "UpdateDistributionBundleResultTypeDef",
-    "UpdateDistributionRequestRequestTypeDef",
+    "UpdateDistributionRequestTypeDef",
     "UpdateDistributionResultTypeDef",
-    "UpdateDomainEntryRequestRequestTypeDef",
+    "UpdateDomainEntryRequestTypeDef",
     "UpdateDomainEntryResultTypeDef",
-    "UpdateInstanceMetadataOptionsRequestRequestTypeDef",
+    "UpdateInstanceMetadataOptionsRequestTypeDef",
     "UpdateInstanceMetadataOptionsResultTypeDef",
-    "UpdateLoadBalancerAttributeRequestRequestTypeDef",
+    "UpdateLoadBalancerAttributeRequestTypeDef",
     "UpdateLoadBalancerAttributeResultTypeDef",
-    "UpdateRelationalDatabaseParametersRequestRequestTypeDef",
+    "UpdateRelationalDatabaseParametersRequestTypeDef",
     "UpdateRelationalDatabaseParametersResultTypeDef",
-    "UpdateRelationalDatabaseRequestRequestTypeDef",
+    "UpdateRelationalDatabaseRequestTypeDef",
     "UpdateRelationalDatabaseResultTypeDef",
 )
 
-AccessKeyLastUsedTypeDef = TypedDict(
-    "AccessKeyLastUsedTypeDef",
-    {
-        "lastUsedDate": datetime,
-        "region": str,
-        "serviceName": str,
-    },
-    total=False,
-)
+class AccessKeyLastUsedTypeDef(TypedDict):
+    lastUsedDate: NotRequired[datetime]
+    region: NotRequired[str]
+    serviceName: NotRequired[str]
 
-AccessKeyTypeDef = TypedDict(
-    "AccessKeyTypeDef",
-    {
-        "accessKeyId": str,
-        "secretAccessKey": str,
-        "status": StatusTypeType,
-        "createdAt": datetime,
-        "lastUsed": "AccessKeyLastUsedTypeDef",
-    },
-    total=False,
-)
+class AccessRulesTypeDef(TypedDict):
+    getObject: NotRequired[AccessTypeType]
+    allowPublicOverrides: NotRequired[bool]
 
-AccessRulesTypeDef = TypedDict(
-    "AccessRulesTypeDef",
-    {
-        "getObject": AccessTypeType,
-        "allowPublicOverrides": bool,
-    },
-    total=False,
-)
+class AccountLevelBpaSyncTypeDef(TypedDict):
+    status: NotRequired[AccountLevelBpaSyncStatusType]
+    lastSyncedAt: NotRequired[datetime]
+    message: NotRequired[BPAStatusMessageType]
+    bpaImpactsLightsail: NotRequired[bool]
 
-AccountLevelBpaSyncTypeDef = TypedDict(
-    "AccountLevelBpaSyncTypeDef",
-    {
-        "status": AccountLevelBpaSyncStatusType,
-        "lastSyncedAt": datetime,
-        "message": BPAStatusMessageType,
-        "bpaImpactsLightsail": bool,
-    },
-    total=False,
-)
+class AutoSnapshotAddOnRequestTypeDef(TypedDict):
+    snapshotTimeOfDay: NotRequired[str]
 
-_RequiredAddOnRequestTypeDef = TypedDict(
-    "_RequiredAddOnRequestTypeDef",
-    {
-        "addOnType": AddOnTypeType,
-    },
-)
-_OptionalAddOnRequestTypeDef = TypedDict(
-    "_OptionalAddOnRequestTypeDef",
-    {
-        "autoSnapshotAddOnRequest": "AutoSnapshotAddOnRequestTypeDef",
-        "stopInstanceOnIdleRequest": "StopInstanceOnIdleRequestTypeDef",
-    },
-    total=False,
-)
+class StopInstanceOnIdleRequestTypeDef(TypedDict):
+    threshold: NotRequired[str]
+    duration: NotRequired[str]
 
-class AddOnRequestTypeDef(_RequiredAddOnRequestTypeDef, _OptionalAddOnRequestTypeDef):
-    pass
+class AddOnTypeDef(TypedDict):
+    name: NotRequired[str]
+    status: NotRequired[str]
+    snapshotTimeOfDay: NotRequired[str]
+    nextSnapshotTimeOfDay: NotRequired[str]
+    threshold: NotRequired[str]
+    duration: NotRequired[str]
 
-AddOnTypeDef = TypedDict(
-    "AddOnTypeDef",
-    {
-        "name": str,
-        "status": str,
-        "snapshotTimeOfDay": str,
-        "nextSnapshotTimeOfDay": str,
-        "threshold": str,
-        "duration": str,
-    },
-    total=False,
-)
+class MonitoredResourceInfoTypeDef(TypedDict):
+    arn: NotRequired[str]
+    name: NotRequired[str]
+    resourceType: NotRequired[ResourceTypeType]
 
-AlarmTypeDef = TypedDict(
-    "AlarmTypeDef",
-    {
-        "name": str,
-        "arn": str,
-        "createdAt": datetime,
-        "location": "ResourceLocationTypeDef",
-        "resourceType": ResourceTypeType,
-        "supportCode": str,
-        "monitoredResourceInfo": "MonitoredResourceInfoTypeDef",
-        "comparisonOperator": ComparisonOperatorType,
-        "evaluationPeriods": int,
-        "period": int,
-        "threshold": float,
-        "datapointsToAlarm": int,
-        "treatMissingData": TreatMissingDataType,
-        "statistic": MetricStatisticType,
-        "metricName": MetricNameType,
-        "state": AlarmStateType,
-        "unit": MetricUnitType,
-        "contactProtocols": List[ContactProtocolType],
-        "notificationTriggers": List[AlarmStateType],
-        "notificationEnabled": bool,
-    },
-    total=False,
-)
+class ResourceLocationTypeDef(TypedDict):
+    availabilityZone: NotRequired[str]
+    regionName: NotRequired[RegionNameType]
 
-AllocateStaticIpRequestRequestTypeDef = TypedDict(
-    "AllocateStaticIpRequestRequestTypeDef",
-    {
-        "staticIpName": str,
-    },
-)
+class AllocateStaticIpRequestTypeDef(TypedDict):
+    staticIpName: str
 
-AllocateStaticIpResultTypeDef = TypedDict(
-    "AllocateStaticIpResultTypeDef",
-    {
-        "operations": List["OperationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-AttachCertificateToDistributionRequestRequestTypeDef = TypedDict(
-    "AttachCertificateToDistributionRequestRequestTypeDef",
-    {
-        "distributionName": str,
-        "certificateName": str,
-    },
-)
+class AttachCertificateToDistributionRequestTypeDef(TypedDict):
+    distributionName: str
+    certificateName: str
 
-AttachCertificateToDistributionResultTypeDef = TypedDict(
-    "AttachCertificateToDistributionResultTypeDef",
-    {
-        "operation": "OperationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class AttachDiskRequestTypeDef(TypedDict):
+    diskName: str
+    instanceName: str
+    diskPath: str
+    autoMounting: NotRequired[bool]
 
-_RequiredAttachDiskRequestRequestTypeDef = TypedDict(
-    "_RequiredAttachDiskRequestRequestTypeDef",
-    {
-        "diskName": str,
-        "instanceName": str,
-        "diskPath": str,
-    },
-)
-_OptionalAttachDiskRequestRequestTypeDef = TypedDict(
-    "_OptionalAttachDiskRequestRequestTypeDef",
-    {
-        "autoMounting": bool,
-    },
-    total=False,
-)
+class AttachInstancesToLoadBalancerRequestTypeDef(TypedDict):
+    loadBalancerName: str
+    instanceNames: Sequence[str]
 
-class AttachDiskRequestRequestTypeDef(
-    _RequiredAttachDiskRequestRequestTypeDef, _OptionalAttachDiskRequestRequestTypeDef
-):
-    pass
+class AttachLoadBalancerTlsCertificateRequestTypeDef(TypedDict):
+    loadBalancerName: str
+    certificateName: str
 
-AttachDiskResultTypeDef = TypedDict(
-    "AttachDiskResultTypeDef",
-    {
-        "operations": List["OperationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class AttachStaticIpRequestTypeDef(TypedDict):
+    staticIpName: str
+    instanceName: str
 
-AttachInstancesToLoadBalancerRequestRequestTypeDef = TypedDict(
-    "AttachInstancesToLoadBalancerRequestRequestTypeDef",
-    {
-        "loadBalancerName": str,
-        "instanceNames": List[str],
-    },
-)
+class AttachedDiskTypeDef(TypedDict):
+    path: NotRequired[str]
+    sizeInGb: NotRequired[int]
 
-AttachInstancesToLoadBalancerResultTypeDef = TypedDict(
-    "AttachInstancesToLoadBalancerResultTypeDef",
-    {
-        "operations": List["OperationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-AttachLoadBalancerTlsCertificateRequestRequestTypeDef = TypedDict(
-    "AttachLoadBalancerTlsCertificateRequestRequestTypeDef",
-    {
-        "loadBalancerName": str,
-        "certificateName": str,
-    },
-)
-
-AttachLoadBalancerTlsCertificateResultTypeDef = TypedDict(
-    "AttachLoadBalancerTlsCertificateResultTypeDef",
-    {
-        "operations": List["OperationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-AttachStaticIpRequestRequestTypeDef = TypedDict(
-    "AttachStaticIpRequestRequestTypeDef",
-    {
-        "staticIpName": str,
-        "instanceName": str,
-    },
-)
-
-AttachStaticIpResultTypeDef = TypedDict(
-    "AttachStaticIpResultTypeDef",
-    {
-        "operations": List["OperationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-AttachedDiskTypeDef = TypedDict(
-    "AttachedDiskTypeDef",
-    {
-        "path": str,
-        "sizeInGb": int,
-    },
-    total=False,
-)
-
-AutoSnapshotAddOnRequestTypeDef = TypedDict(
-    "AutoSnapshotAddOnRequestTypeDef",
-    {
-        "snapshotTimeOfDay": str,
-    },
-    total=False,
-)
-
-AutoSnapshotDetailsTypeDef = TypedDict(
-    "AutoSnapshotDetailsTypeDef",
-    {
-        "date": str,
-        "createdAt": datetime,
-        "status": AutoSnapshotStatusType,
-        "fromAttachedDisks": List["AttachedDiskTypeDef"],
-    },
-    total=False,
-)
-
-AvailabilityZoneTypeDef = TypedDict(
-    "AvailabilityZoneTypeDef",
-    {
-        "zoneName": str,
-        "state": str,
-    },
-    total=False,
-)
+class AvailabilityZoneTypeDef(TypedDict):
+    zoneName: NotRequired[str]
+    state: NotRequired[str]
 
 BlueprintTypeDef = TypedDict(
     "BlueprintTypeDef",
     {
-        "blueprintId": str,
-        "name": str,
-        "group": str,
-        "type": BlueprintTypeType,
-        "description": str,
-        "isActive": bool,
-        "minPower": int,
-        "version": str,
-        "versionCode": str,
-        "productUrl": str,
-        "licenseUrl": str,
-        "platform": InstancePlatformType,
-        "appCategory": Literal["LfR"],
-    },
-    total=False,
-)
-
-_RequiredBucketAccessLogConfigTypeDef = TypedDict(
-    "_RequiredBucketAccessLogConfigTypeDef",
-    {
-        "enabled": bool,
-    },
-)
-_OptionalBucketAccessLogConfigTypeDef = TypedDict(
-    "_OptionalBucketAccessLogConfigTypeDef",
-    {
-        "destination": str,
-        "prefix": str,
-    },
-    total=False,
-)
-
-class BucketAccessLogConfigTypeDef(
-    _RequiredBucketAccessLogConfigTypeDef, _OptionalBucketAccessLogConfigTypeDef
-):
-    pass
-
-BucketBundleTypeDef = TypedDict(
-    "BucketBundleTypeDef",
-    {
-        "bundleId": str,
-        "name": str,
-        "price": float,
-        "storagePerMonthInGb": int,
-        "transferPerMonthInGb": int,
-        "isActive": bool,
-    },
-    total=False,
-)
-
-BucketStateTypeDef = TypedDict(
-    "BucketStateTypeDef",
-    {
-        "code": str,
-        "message": str,
-    },
-    total=False,
-)
-
-BucketTypeDef = TypedDict(
-    "BucketTypeDef",
-    {
-        "resourceType": str,
-        "accessRules": "AccessRulesTypeDef",
-        "arn": str,
-        "bundleId": str,
-        "createdAt": datetime,
-        "url": str,
-        "location": "ResourceLocationTypeDef",
-        "name": str,
-        "supportCode": str,
-        "tags": List["TagTypeDef"],
-        "objectVersioning": str,
-        "ableToUpdateBundle": bool,
-        "readonlyAccessAccounts": List[str],
-        "resourcesReceivingAccess": List["ResourceReceivingAccessTypeDef"],
-        "state": "BucketStateTypeDef",
-        "accessLogConfig": "BucketAccessLogConfigTypeDef",
-    },
-    total=False,
-)
-
-BundleTypeDef = TypedDict(
-    "BundleTypeDef",
-    {
-        "price": float,
-        "cpuCount": int,
-        "diskSizeInGb": int,
-        "bundleId": str,
-        "instanceType": str,
-        "isActive": bool,
-        "name": str,
-        "power": int,
-        "ramSizeInGb": float,
-        "transferPerMonthInGb": int,
-        "supportedPlatforms": List[InstancePlatformType],
-        "supportedAppCategories": List[Literal["LfR"]],
-        "publicIpv4AddressCount": int,
-    },
-    total=False,
-)
-
-CacheBehaviorPerPathTypeDef = TypedDict(
-    "CacheBehaviorPerPathTypeDef",
-    {
-        "path": str,
-        "behavior": BehaviorEnumType,
-    },
-    total=False,
-)
-
-CacheBehaviorTypeDef = TypedDict(
-    "CacheBehaviorTypeDef",
-    {
-        "behavior": BehaviorEnumType,
-    },
-    total=False,
-)
-
-CacheSettingsTypeDef = TypedDict(
-    "CacheSettingsTypeDef",
-    {
-        "defaultTTL": int,
-        "minimumTTL": int,
-        "maximumTTL": int,
-        "allowedHTTPMethods": str,
-        "cachedHTTPMethods": str,
-        "forwardedCookies": "CookieObjectTypeDef",
-        "forwardedHeaders": "HeaderObjectTypeDef",
-        "forwardedQueryStrings": "QueryStringObjectTypeDef",
-    },
-    total=False,
-)
-
-CertificateSummaryTypeDef = TypedDict(
-    "CertificateSummaryTypeDef",
-    {
-        "certificateArn": str,
-        "certificateName": str,
-        "domainName": str,
-        "certificateDetail": "CertificateTypeDef",
-        "tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-CertificateTypeDef = TypedDict(
-    "CertificateTypeDef",
-    {
-        "arn": str,
-        "name": str,
-        "domainName": str,
-        "status": CertificateStatusType,
-        "serialNumber": str,
-        "subjectAlternativeNames": List[str],
-        "domainValidationRecords": List["DomainValidationRecordTypeDef"],
-        "requestFailureReason": str,
-        "inUseResourceCount": int,
-        "keyAlgorithm": str,
-        "createdAt": datetime,
-        "issuedAt": datetime,
-        "issuerCA": str,
-        "notBefore": datetime,
-        "notAfter": datetime,
-        "eligibleToRenew": str,
-        "renewalSummary": "RenewalSummaryTypeDef",
-        "revokedAt": datetime,
-        "revocationReason": str,
-        "tags": List["TagTypeDef"],
-        "supportCode": str,
-    },
-    total=False,
-)
-
-CloseInstancePublicPortsRequestRequestTypeDef = TypedDict(
-    "CloseInstancePublicPortsRequestRequestTypeDef",
-    {
-        "portInfo": "PortInfoTypeDef",
-        "instanceName": str,
-    },
-)
-
-CloseInstancePublicPortsResultTypeDef = TypedDict(
-    "CloseInstancePublicPortsResultTypeDef",
-    {
-        "operation": "OperationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CloudFormationStackRecordSourceInfoTypeDef = TypedDict(
-    "CloudFormationStackRecordSourceInfoTypeDef",
-    {
-        "resourceType": Literal["ExportSnapshotRecord"],
-        "name": str,
-        "arn": str,
-    },
-    total=False,
-)
-
-CloudFormationStackRecordTypeDef = TypedDict(
-    "CloudFormationStackRecordTypeDef",
-    {
-        "name": str,
-        "arn": str,
-        "createdAt": datetime,
-        "location": "ResourceLocationTypeDef",
-        "resourceType": ResourceTypeType,
-        "state": RecordStateType,
-        "sourceInfo": List["CloudFormationStackRecordSourceInfoTypeDef"],
-        "destinationInfo": "DestinationInfoTypeDef",
-    },
-    total=False,
-)
-
-ContactMethodTypeDef = TypedDict(
-    "ContactMethodTypeDef",
-    {
-        "contactEndpoint": str,
-        "status": ContactMethodStatusType,
-        "protocol": ContactProtocolType,
-        "name": str,
-        "arn": str,
-        "createdAt": datetime,
-        "location": "ResourceLocationTypeDef",
-        "resourceType": ResourceTypeType,
-        "supportCode": str,
-    },
-    total=False,
-)
-
-ContainerImageTypeDef = TypedDict(
-    "ContainerImageTypeDef",
-    {
-        "image": str,
-        "digest": str,
-        "createdAt": datetime,
-    },
-    total=False,
-)
-
-ContainerServiceDeploymentRequestTypeDef = TypedDict(
-    "ContainerServiceDeploymentRequestTypeDef",
-    {
-        "containers": Dict[str, "ContainerTypeDef"],
-        "publicEndpoint": "EndpointRequestTypeDef",
-    },
-    total=False,
-)
-
-ContainerServiceDeploymentTypeDef = TypedDict(
-    "ContainerServiceDeploymentTypeDef",
-    {
-        "version": int,
-        "state": ContainerServiceDeploymentStateType,
-        "containers": Dict[str, "ContainerTypeDef"],
-        "publicEndpoint": "ContainerServiceEndpointTypeDef",
-        "createdAt": datetime,
-    },
-    total=False,
-)
-
-ContainerServiceECRImagePullerRoleRequestTypeDef = TypedDict(
-    "ContainerServiceECRImagePullerRoleRequestTypeDef",
-    {
-        "isActive": bool,
-    },
-    total=False,
-)
-
-ContainerServiceECRImagePullerRoleTypeDef = TypedDict(
-    "ContainerServiceECRImagePullerRoleTypeDef",
-    {
-        "isActive": bool,
-        "principalArn": str,
-    },
-    total=False,
-)
-
-ContainerServiceEndpointTypeDef = TypedDict(
-    "ContainerServiceEndpointTypeDef",
-    {
-        "containerName": str,
-        "containerPort": int,
-        "healthCheck": "ContainerServiceHealthCheckConfigTypeDef",
-    },
-    total=False,
-)
-
-ContainerServiceHealthCheckConfigTypeDef = TypedDict(
-    "ContainerServiceHealthCheckConfigTypeDef",
-    {
-        "healthyThreshold": int,
-        "unhealthyThreshold": int,
-        "timeoutSeconds": int,
-        "intervalSeconds": int,
-        "path": str,
-        "successCodes": str,
-    },
-    total=False,
-)
-
-ContainerServiceLogEventTypeDef = TypedDict(
-    "ContainerServiceLogEventTypeDef",
-    {
-        "createdAt": datetime,
-        "message": str,
-    },
-    total=False,
-)
-
-ContainerServicePowerTypeDef = TypedDict(
-    "ContainerServicePowerTypeDef",
-    {
-        "powerId": str,
-        "price": float,
-        "cpuCount": float,
-        "ramSizeInGb": float,
-        "name": str,
-        "isActive": bool,
-    },
-    total=False,
-)
-
-ContainerServiceRegistryLoginTypeDef = TypedDict(
-    "ContainerServiceRegistryLoginTypeDef",
-    {
-        "username": str,
-        "password": str,
-        "expiresAt": datetime,
-        "registry": str,
-    },
-    total=False,
-)
-
-ContainerServiceStateDetailTypeDef = TypedDict(
-    "ContainerServiceStateDetailTypeDef",
-    {
-        "code": ContainerServiceStateDetailCodeType,
-        "message": str,
-    },
-    total=False,
-)
-
-ContainerServiceTypeDef = TypedDict(
-    "ContainerServiceTypeDef",
-    {
-        "containerServiceName": str,
-        "arn": str,
-        "createdAt": datetime,
-        "location": "ResourceLocationTypeDef",
-        "resourceType": ResourceTypeType,
-        "tags": List["TagTypeDef"],
-        "power": ContainerServicePowerNameType,
-        "powerId": str,
-        "state": ContainerServiceStateType,
-        "stateDetail": "ContainerServiceStateDetailTypeDef",
-        "scale": int,
-        "currentDeployment": "ContainerServiceDeploymentTypeDef",
-        "nextDeployment": "ContainerServiceDeploymentTypeDef",
-        "isDisabled": bool,
-        "principalArn": str,
-        "privateDomainName": str,
-        "publicDomainNames": Dict[str, List[str]],
-        "url": str,
-        "privateRegistryAccess": "PrivateRegistryAccessTypeDef",
-    },
-    total=False,
-)
-
-ContainerServicesListResultTypeDef = TypedDict(
-    "ContainerServicesListResultTypeDef",
-    {
-        "containerServices": List["ContainerServiceTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ContainerTypeDef = TypedDict(
-    "ContainerTypeDef",
-    {
-        "image": str,
-        "command": List[str],
-        "environment": Dict[str, str],
-        "ports": Dict[str, ContainerServiceProtocolType],
-    },
-    total=False,
-)
-
-CookieObjectTypeDef = TypedDict(
-    "CookieObjectTypeDef",
-    {
-        "option": ForwardValuesType,
-        "cookiesAllowList": List[str],
-    },
-    total=False,
-)
-
-_RequiredCopySnapshotRequestRequestTypeDef = TypedDict(
-    "_RequiredCopySnapshotRequestRequestTypeDef",
-    {
-        "targetSnapshotName": str,
-        "sourceRegion": RegionNameType,
-    },
-)
-_OptionalCopySnapshotRequestRequestTypeDef = TypedDict(
-    "_OptionalCopySnapshotRequestRequestTypeDef",
-    {
-        "sourceSnapshotName": str,
-        "sourceResourceName": str,
-        "restoreDate": str,
-        "useLatestRestorableAutoSnapshot": bool,
-    },
-    total=False,
-)
-
-class CopySnapshotRequestRequestTypeDef(
-    _RequiredCopySnapshotRequestRequestTypeDef, _OptionalCopySnapshotRequestRequestTypeDef
-):
-    pass
-
-CopySnapshotResultTypeDef = TypedDict(
-    "CopySnapshotResultTypeDef",
-    {
-        "operations": List["OperationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CostEstimateTypeDef = TypedDict(
-    "CostEstimateTypeDef",
-    {
-        "usageType": str,
-        "resultsByTime": List["EstimateByTimeTypeDef"],
-    },
-    total=False,
-)
-
-CreateBucketAccessKeyRequestRequestTypeDef = TypedDict(
-    "CreateBucketAccessKeyRequestRequestTypeDef",
-    {
-        "bucketName": str,
-    },
-)
-
-CreateBucketAccessKeyResultTypeDef = TypedDict(
-    "CreateBucketAccessKeyResultTypeDef",
-    {
-        "accessKey": "AccessKeyTypeDef",
-        "operations": List["OperationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateBucketRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateBucketRequestRequestTypeDef",
-    {
-        "bucketName": str,
-        "bundleId": str,
-    },
-)
-_OptionalCreateBucketRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateBucketRequestRequestTypeDef",
-    {
-        "tags": List["TagTypeDef"],
-        "enableObjectVersioning": bool,
-    },
-    total=False,
-)
-
-class CreateBucketRequestRequestTypeDef(
-    _RequiredCreateBucketRequestRequestTypeDef, _OptionalCreateBucketRequestRequestTypeDef
-):
-    pass
-
-CreateBucketResultTypeDef = TypedDict(
-    "CreateBucketResultTypeDef",
-    {
-        "bucket": "BucketTypeDef",
-        "operations": List["OperationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateCertificateRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateCertificateRequestRequestTypeDef",
-    {
-        "certificateName": str,
-        "domainName": str,
-    },
-)
-_OptionalCreateCertificateRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateCertificateRequestRequestTypeDef",
-    {
-        "subjectAlternativeNames": List[str],
-        "tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateCertificateRequestRequestTypeDef(
-    _RequiredCreateCertificateRequestRequestTypeDef, _OptionalCreateCertificateRequestRequestTypeDef
-):
-    pass
-
-CreateCertificateResultTypeDef = TypedDict(
-    "CreateCertificateResultTypeDef",
-    {
-        "certificate": "CertificateSummaryTypeDef",
-        "operations": List["OperationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateCloudFormationStackRequestRequestTypeDef = TypedDict(
-    "CreateCloudFormationStackRequestRequestTypeDef",
-    {
-        "instances": List["InstanceEntryTypeDef"],
-    },
-)
-
-CreateCloudFormationStackResultTypeDef = TypedDict(
-    "CreateCloudFormationStackResultTypeDef",
-    {
-        "operations": List["OperationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateContactMethodRequestRequestTypeDef = TypedDict(
-    "CreateContactMethodRequestRequestTypeDef",
-    {
-        "protocol": ContactProtocolType,
-        "contactEndpoint": str,
-    },
-)
-
-CreateContactMethodResultTypeDef = TypedDict(
-    "CreateContactMethodResultTypeDef",
-    {
-        "operations": List["OperationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateContainerServiceDeploymentRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateContainerServiceDeploymentRequestRequestTypeDef",
-    {
-        "serviceName": str,
-    },
-)
-_OptionalCreateContainerServiceDeploymentRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateContainerServiceDeploymentRequestRequestTypeDef",
-    {
-        "containers": Dict[str, "ContainerTypeDef"],
-        "publicEndpoint": "EndpointRequestTypeDef",
-    },
-    total=False,
-)
-
-class CreateContainerServiceDeploymentRequestRequestTypeDef(
-    _RequiredCreateContainerServiceDeploymentRequestRequestTypeDef,
-    _OptionalCreateContainerServiceDeploymentRequestRequestTypeDef,
-):
-    pass
-
-CreateContainerServiceDeploymentResultTypeDef = TypedDict(
-    "CreateContainerServiceDeploymentResultTypeDef",
-    {
-        "containerService": "ContainerServiceTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateContainerServiceRegistryLoginResultTypeDef = TypedDict(
-    "CreateContainerServiceRegistryLoginResultTypeDef",
-    {
-        "registryLogin": "ContainerServiceRegistryLoginTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateContainerServiceRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateContainerServiceRequestRequestTypeDef",
-    {
-        "serviceName": str,
-        "power": ContainerServicePowerNameType,
-        "scale": int,
-    },
-)
-_OptionalCreateContainerServiceRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateContainerServiceRequestRequestTypeDef",
-    {
-        "tags": List["TagTypeDef"],
-        "publicDomainNames": Dict[str, List[str]],
-        "deployment": "ContainerServiceDeploymentRequestTypeDef",
-        "privateRegistryAccess": "PrivateRegistryAccessRequestTypeDef",
-    },
-    total=False,
-)
-
-class CreateContainerServiceRequestRequestTypeDef(
-    _RequiredCreateContainerServiceRequestRequestTypeDef,
-    _OptionalCreateContainerServiceRequestRequestTypeDef,
-):
-    pass
-
-CreateContainerServiceResultTypeDef = TypedDict(
-    "CreateContainerServiceResultTypeDef",
-    {
-        "containerService": "ContainerServiceTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateDiskFromSnapshotRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateDiskFromSnapshotRequestRequestTypeDef",
-    {
-        "diskName": str,
-        "availabilityZone": str,
-        "sizeInGb": int,
-    },
-)
-_OptionalCreateDiskFromSnapshotRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateDiskFromSnapshotRequestRequestTypeDef",
-    {
-        "diskSnapshotName": str,
-        "tags": List["TagTypeDef"],
-        "addOns": List["AddOnRequestTypeDef"],
-        "sourceDiskName": str,
-        "restoreDate": str,
-        "useLatestRestorableAutoSnapshot": bool,
-    },
-    total=False,
-)
-
-class CreateDiskFromSnapshotRequestRequestTypeDef(
-    _RequiredCreateDiskFromSnapshotRequestRequestTypeDef,
-    _OptionalCreateDiskFromSnapshotRequestRequestTypeDef,
-):
-    pass
-
-CreateDiskFromSnapshotResultTypeDef = TypedDict(
-    "CreateDiskFromSnapshotResultTypeDef",
-    {
-        "operations": List["OperationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateDiskRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateDiskRequestRequestTypeDef",
-    {
-        "diskName": str,
-        "availabilityZone": str,
-        "sizeInGb": int,
-    },
-)
-_OptionalCreateDiskRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateDiskRequestRequestTypeDef",
-    {
-        "tags": List["TagTypeDef"],
-        "addOns": List["AddOnRequestTypeDef"],
-    },
-    total=False,
-)
-
-class CreateDiskRequestRequestTypeDef(
-    _RequiredCreateDiskRequestRequestTypeDef, _OptionalCreateDiskRequestRequestTypeDef
-):
-    pass
-
-CreateDiskResultTypeDef = TypedDict(
-    "CreateDiskResultTypeDef",
-    {
-        "operations": List["OperationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateDiskSnapshotRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateDiskSnapshotRequestRequestTypeDef",
-    {
-        "diskSnapshotName": str,
-    },
-)
-_OptionalCreateDiskSnapshotRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateDiskSnapshotRequestRequestTypeDef",
-    {
-        "diskName": str,
-        "instanceName": str,
-        "tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateDiskSnapshotRequestRequestTypeDef(
-    _RequiredCreateDiskSnapshotRequestRequestTypeDef,
-    _OptionalCreateDiskSnapshotRequestRequestTypeDef,
-):
-    pass
-
-CreateDiskSnapshotResultTypeDef = TypedDict(
-    "CreateDiskSnapshotResultTypeDef",
-    {
-        "operations": List["OperationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateDistributionRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateDistributionRequestRequestTypeDef",
-    {
-        "distributionName": str,
-        "origin": "InputOriginTypeDef",
-        "defaultCacheBehavior": "CacheBehaviorTypeDef",
-        "bundleId": str,
-    },
-)
-_OptionalCreateDistributionRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateDistributionRequestRequestTypeDef",
-    {
-        "cacheBehaviorSettings": "CacheSettingsTypeDef",
-        "cacheBehaviors": List["CacheBehaviorPerPathTypeDef"],
-        "ipAddressType": IpAddressTypeType,
-        "tags": List["TagTypeDef"],
-        "certificateName": str,
-        "viewerMinimumTlsProtocolVersion": ViewerMinimumTlsProtocolVersionEnumType,
-    },
-    total=False,
-)
-
-class CreateDistributionRequestRequestTypeDef(
-    _RequiredCreateDistributionRequestRequestTypeDef,
-    _OptionalCreateDistributionRequestRequestTypeDef,
-):
-    pass
-
-CreateDistributionResultTypeDef = TypedDict(
-    "CreateDistributionResultTypeDef",
-    {
-        "distribution": "LightsailDistributionTypeDef",
-        "operation": "OperationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateDomainEntryRequestRequestTypeDef = TypedDict(
-    "CreateDomainEntryRequestRequestTypeDef",
-    {
-        "domainName": str,
-        "domainEntry": "DomainEntryTypeDef",
-    },
-)
-
-CreateDomainEntryResultTypeDef = TypedDict(
-    "CreateDomainEntryResultTypeDef",
-    {
-        "operation": "OperationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateDomainRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateDomainRequestRequestTypeDef",
-    {
-        "domainName": str,
-    },
-)
-_OptionalCreateDomainRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateDomainRequestRequestTypeDef",
-    {
-        "tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateDomainRequestRequestTypeDef(
-    _RequiredCreateDomainRequestRequestTypeDef, _OptionalCreateDomainRequestRequestTypeDef
-):
-    pass
-
-CreateDomainResultTypeDef = TypedDict(
-    "CreateDomainResultTypeDef",
-    {
-        "operation": "OperationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateGUISessionAccessDetailsRequestRequestTypeDef = TypedDict(
-    "CreateGUISessionAccessDetailsRequestRequestTypeDef",
-    {
-        "resourceName": str,
-    },
-)
-
-CreateGUISessionAccessDetailsResultTypeDef = TypedDict(
-    "CreateGUISessionAccessDetailsResultTypeDef",
-    {
-        "resourceName": str,
-        "status": StatusType,
-        "percentageComplete": int,
-        "failureReason": str,
-        "sessions": List["SessionTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateInstanceSnapshotRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateInstanceSnapshotRequestRequestTypeDef",
-    {
-        "instanceSnapshotName": str,
-        "instanceName": str,
-    },
-)
-_OptionalCreateInstanceSnapshotRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateInstanceSnapshotRequestRequestTypeDef",
-    {
-        "tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateInstanceSnapshotRequestRequestTypeDef(
-    _RequiredCreateInstanceSnapshotRequestRequestTypeDef,
-    _OptionalCreateInstanceSnapshotRequestRequestTypeDef,
-):
-    pass
-
-CreateInstanceSnapshotResultTypeDef = TypedDict(
-    "CreateInstanceSnapshotResultTypeDef",
-    {
-        "operations": List["OperationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateInstancesFromSnapshotRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateInstancesFromSnapshotRequestRequestTypeDef",
-    {
-        "instanceNames": List[str],
-        "availabilityZone": str,
-        "bundleId": str,
-    },
-)
-_OptionalCreateInstancesFromSnapshotRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateInstancesFromSnapshotRequestRequestTypeDef",
-    {
-        "attachedDiskMapping": Dict[str, List["DiskMapTypeDef"]],
-        "instanceSnapshotName": str,
-        "userData": str,
-        "keyPairName": str,
-        "tags": List["TagTypeDef"],
-        "addOns": List["AddOnRequestTypeDef"],
-        "ipAddressType": IpAddressTypeType,
-        "sourceInstanceName": str,
-        "restoreDate": str,
-        "useLatestRestorableAutoSnapshot": bool,
-    },
-    total=False,
-)
-
-class CreateInstancesFromSnapshotRequestRequestTypeDef(
-    _RequiredCreateInstancesFromSnapshotRequestRequestTypeDef,
-    _OptionalCreateInstancesFromSnapshotRequestRequestTypeDef,
-):
-    pass
-
-CreateInstancesFromSnapshotResultTypeDef = TypedDict(
-    "CreateInstancesFromSnapshotResultTypeDef",
-    {
-        "operations": List["OperationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateInstancesRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateInstancesRequestRequestTypeDef",
-    {
-        "instanceNames": List[str],
-        "availabilityZone": str,
-        "blueprintId": str,
-        "bundleId": str,
-    },
-)
-_OptionalCreateInstancesRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateInstancesRequestRequestTypeDef",
-    {
-        "customImageName": str,
-        "userData": str,
-        "keyPairName": str,
-        "tags": List["TagTypeDef"],
-        "addOns": List["AddOnRequestTypeDef"],
-        "ipAddressType": IpAddressTypeType,
-    },
-    total=False,
-)
-
-class CreateInstancesRequestRequestTypeDef(
-    _RequiredCreateInstancesRequestRequestTypeDef, _OptionalCreateInstancesRequestRequestTypeDef
-):
-    pass
-
-CreateInstancesResultTypeDef = TypedDict(
-    "CreateInstancesResultTypeDef",
-    {
-        "operations": List["OperationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateKeyPairRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateKeyPairRequestRequestTypeDef",
-    {
-        "keyPairName": str,
-    },
-)
-_OptionalCreateKeyPairRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateKeyPairRequestRequestTypeDef",
-    {
-        "tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateKeyPairRequestRequestTypeDef(
-    _RequiredCreateKeyPairRequestRequestTypeDef, _OptionalCreateKeyPairRequestRequestTypeDef
-):
-    pass
-
-CreateKeyPairResultTypeDef = TypedDict(
-    "CreateKeyPairResultTypeDef",
-    {
-        "keyPair": "KeyPairTypeDef",
-        "publicKeyBase64": str,
-        "privateKeyBase64": str,
-        "operation": "OperationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateLoadBalancerRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateLoadBalancerRequestRequestTypeDef",
-    {
-        "loadBalancerName": str,
-        "instancePort": int,
-    },
-)
-_OptionalCreateLoadBalancerRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateLoadBalancerRequestRequestTypeDef",
-    {
-        "healthCheckPath": str,
-        "certificateName": str,
-        "certificateDomainName": str,
-        "certificateAlternativeNames": List[str],
-        "tags": List["TagTypeDef"],
-        "ipAddressType": IpAddressTypeType,
-        "tlsPolicyName": str,
-    },
-    total=False,
-)
-
-class CreateLoadBalancerRequestRequestTypeDef(
-    _RequiredCreateLoadBalancerRequestRequestTypeDef,
-    _OptionalCreateLoadBalancerRequestRequestTypeDef,
-):
-    pass
-
-CreateLoadBalancerResultTypeDef = TypedDict(
-    "CreateLoadBalancerResultTypeDef",
-    {
-        "operations": List["OperationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateLoadBalancerTlsCertificateRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateLoadBalancerTlsCertificateRequestRequestTypeDef",
-    {
-        "loadBalancerName": str,
-        "certificateName": str,
-        "certificateDomainName": str,
-    },
-)
-_OptionalCreateLoadBalancerTlsCertificateRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateLoadBalancerTlsCertificateRequestRequestTypeDef",
-    {
-        "certificateAlternativeNames": List[str],
-        "tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateLoadBalancerTlsCertificateRequestRequestTypeDef(
-    _RequiredCreateLoadBalancerTlsCertificateRequestRequestTypeDef,
-    _OptionalCreateLoadBalancerTlsCertificateRequestRequestTypeDef,
-):
-    pass
-
-CreateLoadBalancerTlsCertificateResultTypeDef = TypedDict(
-    "CreateLoadBalancerTlsCertificateResultTypeDef",
-    {
-        "operations": List["OperationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateRelationalDatabaseFromSnapshotRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateRelationalDatabaseFromSnapshotRequestRequestTypeDef",
-    {
-        "relationalDatabaseName": str,
-    },
-)
-_OptionalCreateRelationalDatabaseFromSnapshotRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateRelationalDatabaseFromSnapshotRequestRequestTypeDef",
-    {
-        "availabilityZone": str,
-        "publiclyAccessible": bool,
-        "relationalDatabaseSnapshotName": str,
-        "relationalDatabaseBundleId": str,
-        "sourceRelationalDatabaseName": str,
-        "restoreTime": Union[datetime, str],
-        "useLatestRestorableTime": bool,
-        "tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateRelationalDatabaseFromSnapshotRequestRequestTypeDef(
-    _RequiredCreateRelationalDatabaseFromSnapshotRequestRequestTypeDef,
-    _OptionalCreateRelationalDatabaseFromSnapshotRequestRequestTypeDef,
-):
-    pass
-
-CreateRelationalDatabaseFromSnapshotResultTypeDef = TypedDict(
-    "CreateRelationalDatabaseFromSnapshotResultTypeDef",
-    {
-        "operations": List["OperationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateRelationalDatabaseRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateRelationalDatabaseRequestRequestTypeDef",
-    {
-        "relationalDatabaseName": str,
-        "relationalDatabaseBlueprintId": str,
-        "relationalDatabaseBundleId": str,
-        "masterDatabaseName": str,
-        "masterUsername": str,
-    },
-)
-_OptionalCreateRelationalDatabaseRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateRelationalDatabaseRequestRequestTypeDef",
-    {
-        "availabilityZone": str,
-        "masterUserPassword": str,
-        "preferredBackupWindow": str,
-        "preferredMaintenanceWindow": str,
-        "publiclyAccessible": bool,
-        "tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateRelationalDatabaseRequestRequestTypeDef(
-    _RequiredCreateRelationalDatabaseRequestRequestTypeDef,
-    _OptionalCreateRelationalDatabaseRequestRequestTypeDef,
-):
-    pass
-
-CreateRelationalDatabaseResultTypeDef = TypedDict(
-    "CreateRelationalDatabaseResultTypeDef",
-    {
-        "operations": List["OperationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateRelationalDatabaseSnapshotRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateRelationalDatabaseSnapshotRequestRequestTypeDef",
-    {
-        "relationalDatabaseName": str,
-        "relationalDatabaseSnapshotName": str,
-    },
-)
-_OptionalCreateRelationalDatabaseSnapshotRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateRelationalDatabaseSnapshotRequestRequestTypeDef",
-    {
-        "tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateRelationalDatabaseSnapshotRequestRequestTypeDef(
-    _RequiredCreateRelationalDatabaseSnapshotRequestRequestTypeDef,
-    _OptionalCreateRelationalDatabaseSnapshotRequestRequestTypeDef,
-):
-    pass
-
-CreateRelationalDatabaseSnapshotResultTypeDef = TypedDict(
-    "CreateRelationalDatabaseSnapshotResultTypeDef",
-    {
-        "operations": List["OperationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteAlarmRequestRequestTypeDef = TypedDict(
-    "DeleteAlarmRequestRequestTypeDef",
-    {
-        "alarmName": str,
-    },
-)
-
-DeleteAlarmResultTypeDef = TypedDict(
-    "DeleteAlarmResultTypeDef",
-    {
-        "operations": List["OperationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteAutoSnapshotRequestRequestTypeDef = TypedDict(
-    "DeleteAutoSnapshotRequestRequestTypeDef",
-    {
-        "resourceName": str,
-        "date": str,
-    },
-)
-
-DeleteAutoSnapshotResultTypeDef = TypedDict(
-    "DeleteAutoSnapshotResultTypeDef",
-    {
-        "operations": List["OperationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteBucketAccessKeyRequestRequestTypeDef = TypedDict(
-    "DeleteBucketAccessKeyRequestRequestTypeDef",
-    {
-        "bucketName": str,
-        "accessKeyId": str,
-    },
-)
-
-DeleteBucketAccessKeyResultTypeDef = TypedDict(
-    "DeleteBucketAccessKeyResultTypeDef",
-    {
-        "operations": List["OperationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDeleteBucketRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteBucketRequestRequestTypeDef",
-    {
-        "bucketName": str,
-    },
-)
-_OptionalDeleteBucketRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteBucketRequestRequestTypeDef",
-    {
-        "forceDelete": bool,
-    },
-    total=False,
-)
-
-class DeleteBucketRequestRequestTypeDef(
-    _RequiredDeleteBucketRequestRequestTypeDef, _OptionalDeleteBucketRequestRequestTypeDef
-):
-    pass
-
-DeleteBucketResultTypeDef = TypedDict(
-    "DeleteBucketResultTypeDef",
-    {
-        "operations": List["OperationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteCertificateRequestRequestTypeDef = TypedDict(
-    "DeleteCertificateRequestRequestTypeDef",
-    {
-        "certificateName": str,
-    },
-)
-
-DeleteCertificateResultTypeDef = TypedDict(
-    "DeleteCertificateResultTypeDef",
-    {
-        "operations": List["OperationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteContactMethodRequestRequestTypeDef = TypedDict(
-    "DeleteContactMethodRequestRequestTypeDef",
-    {
-        "protocol": ContactProtocolType,
-    },
-)
-
-DeleteContactMethodResultTypeDef = TypedDict(
-    "DeleteContactMethodResultTypeDef",
-    {
-        "operations": List["OperationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteContainerImageRequestRequestTypeDef = TypedDict(
-    "DeleteContainerImageRequestRequestTypeDef",
-    {
-        "serviceName": str,
-        "image": str,
-    },
-)
-
-DeleteContainerServiceRequestRequestTypeDef = TypedDict(
-    "DeleteContainerServiceRequestRequestTypeDef",
-    {
-        "serviceName": str,
-    },
-)
-
-_RequiredDeleteDiskRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteDiskRequestRequestTypeDef",
-    {
-        "diskName": str,
-    },
-)
-_OptionalDeleteDiskRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteDiskRequestRequestTypeDef",
-    {
-        "forceDeleteAddOns": bool,
-    },
-    total=False,
-)
-
-class DeleteDiskRequestRequestTypeDef(
-    _RequiredDeleteDiskRequestRequestTypeDef, _OptionalDeleteDiskRequestRequestTypeDef
-):
-    pass
-
-DeleteDiskResultTypeDef = TypedDict(
-    "DeleteDiskResultTypeDef",
-    {
-        "operations": List["OperationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteDiskSnapshotRequestRequestTypeDef = TypedDict(
-    "DeleteDiskSnapshotRequestRequestTypeDef",
-    {
-        "diskSnapshotName": str,
-    },
-)
-
-DeleteDiskSnapshotResultTypeDef = TypedDict(
-    "DeleteDiskSnapshotResultTypeDef",
-    {
-        "operations": List["OperationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteDistributionRequestRequestTypeDef = TypedDict(
-    "DeleteDistributionRequestRequestTypeDef",
-    {
-        "distributionName": str,
-    },
-    total=False,
-)
-
-DeleteDistributionResultTypeDef = TypedDict(
-    "DeleteDistributionResultTypeDef",
-    {
-        "operation": "OperationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteDomainEntryRequestRequestTypeDef = TypedDict(
-    "DeleteDomainEntryRequestRequestTypeDef",
-    {
-        "domainName": str,
-        "domainEntry": "DomainEntryTypeDef",
-    },
-)
-
-DeleteDomainEntryResultTypeDef = TypedDict(
-    "DeleteDomainEntryResultTypeDef",
-    {
-        "operation": "OperationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteDomainRequestRequestTypeDef = TypedDict(
-    "DeleteDomainRequestRequestTypeDef",
-    {
-        "domainName": str,
-    },
-)
-
-DeleteDomainResultTypeDef = TypedDict(
-    "DeleteDomainResultTypeDef",
-    {
-        "operation": "OperationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDeleteInstanceRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteInstanceRequestRequestTypeDef",
-    {
-        "instanceName": str,
-    },
-)
-_OptionalDeleteInstanceRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteInstanceRequestRequestTypeDef",
-    {
-        "forceDeleteAddOns": bool,
-    },
-    total=False,
-)
-
-class DeleteInstanceRequestRequestTypeDef(
-    _RequiredDeleteInstanceRequestRequestTypeDef, _OptionalDeleteInstanceRequestRequestTypeDef
-):
-    pass
-
-DeleteInstanceResultTypeDef = TypedDict(
-    "DeleteInstanceResultTypeDef",
-    {
-        "operations": List["OperationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteInstanceSnapshotRequestRequestTypeDef = TypedDict(
-    "DeleteInstanceSnapshotRequestRequestTypeDef",
-    {
-        "instanceSnapshotName": str,
-    },
-)
-
-DeleteInstanceSnapshotResultTypeDef = TypedDict(
-    "DeleteInstanceSnapshotResultTypeDef",
-    {
-        "operations": List["OperationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDeleteKeyPairRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteKeyPairRequestRequestTypeDef",
-    {
-        "keyPairName": str,
-    },
-)
-_OptionalDeleteKeyPairRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteKeyPairRequestRequestTypeDef",
-    {
-        "expectedFingerprint": str,
-    },
-    total=False,
-)
-
-class DeleteKeyPairRequestRequestTypeDef(
-    _RequiredDeleteKeyPairRequestRequestTypeDef, _OptionalDeleteKeyPairRequestRequestTypeDef
-):
-    pass
-
-DeleteKeyPairResultTypeDef = TypedDict(
-    "DeleteKeyPairResultTypeDef",
-    {
-        "operation": "OperationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteKnownHostKeysRequestRequestTypeDef = TypedDict(
-    "DeleteKnownHostKeysRequestRequestTypeDef",
-    {
-        "instanceName": str,
-    },
-)
-
-DeleteKnownHostKeysResultTypeDef = TypedDict(
-    "DeleteKnownHostKeysResultTypeDef",
-    {
-        "operations": List["OperationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteLoadBalancerRequestRequestTypeDef = TypedDict(
-    "DeleteLoadBalancerRequestRequestTypeDef",
-    {
-        "loadBalancerName": str,
-    },
-)
-
-DeleteLoadBalancerResultTypeDef = TypedDict(
-    "DeleteLoadBalancerResultTypeDef",
-    {
-        "operations": List["OperationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDeleteLoadBalancerTlsCertificateRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteLoadBalancerTlsCertificateRequestRequestTypeDef",
-    {
-        "loadBalancerName": str,
-        "certificateName": str,
-    },
-)
-_OptionalDeleteLoadBalancerTlsCertificateRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteLoadBalancerTlsCertificateRequestRequestTypeDef",
-    {
-        "force": bool,
-    },
-    total=False,
-)
-
-class DeleteLoadBalancerTlsCertificateRequestRequestTypeDef(
-    _RequiredDeleteLoadBalancerTlsCertificateRequestRequestTypeDef,
-    _OptionalDeleteLoadBalancerTlsCertificateRequestRequestTypeDef,
-):
-    pass
-
-DeleteLoadBalancerTlsCertificateResultTypeDef = TypedDict(
-    "DeleteLoadBalancerTlsCertificateResultTypeDef",
-    {
-        "operations": List["OperationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDeleteRelationalDatabaseRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteRelationalDatabaseRequestRequestTypeDef",
-    {
-        "relationalDatabaseName": str,
-    },
-)
-_OptionalDeleteRelationalDatabaseRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteRelationalDatabaseRequestRequestTypeDef",
-    {
-        "skipFinalSnapshot": bool,
-        "finalRelationalDatabaseSnapshotName": str,
-    },
-    total=False,
-)
-
-class DeleteRelationalDatabaseRequestRequestTypeDef(
-    _RequiredDeleteRelationalDatabaseRequestRequestTypeDef,
-    _OptionalDeleteRelationalDatabaseRequestRequestTypeDef,
-):
-    pass
-
-DeleteRelationalDatabaseResultTypeDef = TypedDict(
-    "DeleteRelationalDatabaseResultTypeDef",
-    {
-        "operations": List["OperationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteRelationalDatabaseSnapshotRequestRequestTypeDef = TypedDict(
-    "DeleteRelationalDatabaseSnapshotRequestRequestTypeDef",
-    {
-        "relationalDatabaseSnapshotName": str,
-    },
-)
-
-DeleteRelationalDatabaseSnapshotResultTypeDef = TypedDict(
-    "DeleteRelationalDatabaseSnapshotResultTypeDef",
-    {
-        "operations": List["OperationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+        "blueprintId": NotRequired[str],
+        "name": NotRequired[str],
+        "group": NotRequired[str],
+        "type": NotRequired[BlueprintTypeType],
+        "description": NotRequired[str],
+        "isActive": NotRequired[bool],
+        "minPower": NotRequired[int],
+        "version": NotRequired[str],
+        "versionCode": NotRequired[str],
+        "productUrl": NotRequired[str],
+        "licenseUrl": NotRequired[str],
+        "platform": NotRequired[InstancePlatformType],
+        "appCategory": NotRequired[Literal["LfR"]],
+    },
+)
+
+class BucketAccessLogConfigTypeDef(TypedDict):
+    enabled: bool
+    destination: NotRequired[str]
+    prefix: NotRequired[str]
+
+class BucketBundleTypeDef(TypedDict):
+    bundleId: NotRequired[str]
+    name: NotRequired[str]
+    price: NotRequired[float]
+    storagePerMonthInGb: NotRequired[int]
+    transferPerMonthInGb: NotRequired[int]
+    isActive: NotRequired[bool]
+
+class BucketStateTypeDef(TypedDict):
+    code: NotRequired[str]
+    message: NotRequired[str]
+
+class ResourceReceivingAccessTypeDef(TypedDict):
+    name: NotRequired[str]
+    resourceType: NotRequired[str]
+
+class TagTypeDef(TypedDict):
+    key: NotRequired[str]
+    value: NotRequired[str]
+
+class BundleTypeDef(TypedDict):
+    price: NotRequired[float]
+    cpuCount: NotRequired[int]
+    diskSizeInGb: NotRequired[int]
+    bundleId: NotRequired[str]
+    instanceType: NotRequired[str]
+    isActive: NotRequired[bool]
+    name: NotRequired[str]
+    power: NotRequired[int]
+    ramSizeInGb: NotRequired[float]
+    transferPerMonthInGb: NotRequired[int]
+    supportedPlatforms: NotRequired[List[InstancePlatformType]]
+    supportedAppCategories: NotRequired[List[Literal["LfR"]]]
+    publicIpv4AddressCount: NotRequired[int]
+
+class CacheBehaviorPerPathTypeDef(TypedDict):
+    path: NotRequired[str]
+    behavior: NotRequired[BehaviorEnumType]
+
+class CacheBehaviorTypeDef(TypedDict):
+    behavior: NotRequired[BehaviorEnumType]
+
+class CookieObjectOutputTypeDef(TypedDict):
+    option: NotRequired[ForwardValuesType]
+    cookiesAllowList: NotRequired[List[str]]
+
+class HeaderObjectOutputTypeDef(TypedDict):
+    option: NotRequired[ForwardValuesType]
+    headersAllowList: NotRequired[List[HeaderEnumType]]
+
+class QueryStringObjectOutputTypeDef(TypedDict):
+    option: NotRequired[bool]
+    queryStringsAllowList: NotRequired[List[str]]
+
+class CookieObjectTypeDef(TypedDict):
+    option: NotRequired[ForwardValuesType]
+    cookiesAllowList: NotRequired[Sequence[str]]
+
+class HeaderObjectTypeDef(TypedDict):
+    option: NotRequired[ForwardValuesType]
+    headersAllowList: NotRequired[Sequence[HeaderEnumType]]
+
+class QueryStringObjectTypeDef(TypedDict):
+    option: NotRequired[bool]
+    queryStringsAllowList: NotRequired[Sequence[str]]
+
+class PortInfoTypeDef(TypedDict):
+    fromPort: NotRequired[int]
+    toPort: NotRequired[int]
+    protocol: NotRequired[NetworkProtocolType]
+    cidrs: NotRequired[Sequence[str]]
+    ipv6Cidrs: NotRequired[Sequence[str]]
+    cidrListAliases: NotRequired[Sequence[str]]
+
+class CloudFormationStackRecordSourceInfoTypeDef(TypedDict):
+    resourceType: NotRequired[Literal["ExportSnapshotRecord"]]
+    name: NotRequired[str]
+    arn: NotRequired[str]
 
 DestinationInfoTypeDef = TypedDict(
     "DestinationInfoTypeDef",
     {
-        "id": str,
-        "service": str,
+        "id": NotRequired[str],
+        "service": NotRequired[str],
     },
-    total=False,
 )
 
-DetachCertificateFromDistributionRequestRequestTypeDef = TypedDict(
-    "DetachCertificateFromDistributionRequestRequestTypeDef",
+class ContainerImageTypeDef(TypedDict):
+    image: NotRequired[str]
+    digest: NotRequired[str]
+    createdAt: NotRequired[datetime]
+
+class ContainerOutputTypeDef(TypedDict):
+    image: NotRequired[str]
+    command: NotRequired[List[str]]
+    environment: NotRequired[Dict[str, str]]
+    ports: NotRequired[Dict[str, ContainerServiceProtocolType]]
+
+class ContainerServiceECRImagePullerRoleRequestTypeDef(TypedDict):
+    isActive: NotRequired[bool]
+
+class ContainerServiceECRImagePullerRoleTypeDef(TypedDict):
+    isActive: NotRequired[bool]
+    principalArn: NotRequired[str]
+
+class ContainerServiceHealthCheckConfigTypeDef(TypedDict):
+    healthyThreshold: NotRequired[int]
+    unhealthyThreshold: NotRequired[int]
+    timeoutSeconds: NotRequired[int]
+    intervalSeconds: NotRequired[int]
+    path: NotRequired[str]
+    successCodes: NotRequired[str]
+
+class ContainerServiceLogEventTypeDef(TypedDict):
+    createdAt: NotRequired[datetime]
+    message: NotRequired[str]
+
+class ContainerServicePowerTypeDef(TypedDict):
+    powerId: NotRequired[str]
+    price: NotRequired[float]
+    cpuCount: NotRequired[float]
+    ramSizeInGb: NotRequired[float]
+    name: NotRequired[str]
+    isActive: NotRequired[bool]
+
+class ContainerServiceRegistryLoginTypeDef(TypedDict):
+    username: NotRequired[str]
+    password: NotRequired[str]
+    expiresAt: NotRequired[datetime]
+    registry: NotRequired[str]
+
+class ContainerServiceStateDetailTypeDef(TypedDict):
+    code: NotRequired[ContainerServiceStateDetailCodeType]
+    message: NotRequired[str]
+
+class ContainerTypeDef(TypedDict):
+    image: NotRequired[str]
+    command: NotRequired[Sequence[str]]
+    environment: NotRequired[Mapping[str, str]]
+    ports: NotRequired[Mapping[str, ContainerServiceProtocolType]]
+
+class CopySnapshotRequestTypeDef(TypedDict):
+    targetSnapshotName: str
+    sourceRegion: RegionNameType
+    sourceSnapshotName: NotRequired[str]
+    sourceResourceName: NotRequired[str]
+    restoreDate: NotRequired[str]
+    useLatestRestorableAutoSnapshot: NotRequired[bool]
+
+class CreateBucketAccessKeyRequestTypeDef(TypedDict):
+    bucketName: str
+
+class InstanceEntryTypeDef(TypedDict):
+    sourceName: str
+    instanceType: str
+    portInfoSource: PortInfoSourceTypeType
+    availabilityZone: str
+    userData: NotRequired[str]
+
+class CreateContactMethodRequestTypeDef(TypedDict):
+    protocol: ContactProtocolType
+    contactEndpoint: str
+
+class InputOriginTypeDef(TypedDict):
+    name: NotRequired[str]
+    regionName: NotRequired[RegionNameType]
+    protocolPolicy: NotRequired[OriginProtocolPolicyEnumType]
+    responseTimeout: NotRequired[int]
+
+class CreateGUISessionAccessDetailsRequestTypeDef(TypedDict):
+    resourceName: str
+
+class SessionTypeDef(TypedDict):
+    name: NotRequired[str]
+    url: NotRequired[str]
+    isPrimary: NotRequired[bool]
+
+class DiskMapTypeDef(TypedDict):
+    originalDiskPath: NotRequired[str]
+    newDiskName: NotRequired[str]
+
+TimestampTypeDef = Union[datetime, str]
+
+class DeleteAlarmRequestTypeDef(TypedDict):
+    alarmName: str
+
+class DeleteAutoSnapshotRequestTypeDef(TypedDict):
+    resourceName: str
+    date: str
+
+class DeleteBucketAccessKeyRequestTypeDef(TypedDict):
+    bucketName: str
+    accessKeyId: str
+
+class DeleteBucketRequestTypeDef(TypedDict):
+    bucketName: str
+    forceDelete: NotRequired[bool]
+
+class DeleteCertificateRequestTypeDef(TypedDict):
+    certificateName: str
+
+class DeleteContactMethodRequestTypeDef(TypedDict):
+    protocol: ContactProtocolType
+
+class DeleteContainerImageRequestTypeDef(TypedDict):
+    serviceName: str
+    image: str
+
+class DeleteContainerServiceRequestTypeDef(TypedDict):
+    serviceName: str
+
+class DeleteDiskRequestTypeDef(TypedDict):
+    diskName: str
+    forceDeleteAddOns: NotRequired[bool]
+
+class DeleteDiskSnapshotRequestTypeDef(TypedDict):
+    diskSnapshotName: str
+
+class DeleteDistributionRequestTypeDef(TypedDict):
+    distributionName: NotRequired[str]
+
+class DeleteDomainRequestTypeDef(TypedDict):
+    domainName: str
+
+class DeleteInstanceRequestTypeDef(TypedDict):
+    instanceName: str
+    forceDeleteAddOns: NotRequired[bool]
+
+class DeleteInstanceSnapshotRequestTypeDef(TypedDict):
+    instanceSnapshotName: str
+
+class DeleteKeyPairRequestTypeDef(TypedDict):
+    keyPairName: str
+    expectedFingerprint: NotRequired[str]
+
+class DeleteKnownHostKeysRequestTypeDef(TypedDict):
+    instanceName: str
+
+class DeleteLoadBalancerRequestTypeDef(TypedDict):
+    loadBalancerName: str
+
+class DeleteLoadBalancerTlsCertificateRequestTypeDef(TypedDict):
+    loadBalancerName: str
+    certificateName: str
+    force: NotRequired[bool]
+
+class DeleteRelationalDatabaseRequestTypeDef(TypedDict):
+    relationalDatabaseName: str
+    skipFinalSnapshot: NotRequired[bool]
+    finalRelationalDatabaseSnapshotName: NotRequired[str]
+
+class DeleteRelationalDatabaseSnapshotRequestTypeDef(TypedDict):
+    relationalDatabaseSnapshotName: str
+
+class DetachCertificateFromDistributionRequestTypeDef(TypedDict):
+    distributionName: str
+
+class DetachDiskRequestTypeDef(TypedDict):
+    diskName: str
+
+class DetachInstancesFromLoadBalancerRequestTypeDef(TypedDict):
+    loadBalancerName: str
+    instanceNames: Sequence[str]
+
+class DetachStaticIpRequestTypeDef(TypedDict):
+    staticIpName: str
+
+class DisableAddOnRequestTypeDef(TypedDict):
+    addOnType: AddOnTypeType
+    resourceName: str
+
+class DiskInfoTypeDef(TypedDict):
+    name: NotRequired[str]
+    path: NotRequired[str]
+    sizeInGb: NotRequired[int]
+    isSystemDisk: NotRequired[bool]
+
+class DiskSnapshotInfoTypeDef(TypedDict):
+    sizeInGb: NotRequired[int]
+
+class DistributionBundleTypeDef(TypedDict):
+    bundleId: NotRequired[str]
+    name: NotRequired[str]
+    price: NotRequired[float]
+    transferPerMonthInGb: NotRequired[int]
+    isActive: NotRequired[bool]
+
+class DnsRecordCreationStateTypeDef(TypedDict):
+    code: NotRequired[DnsRecordCreationStateCodeType]
+    message: NotRequired[str]
+
+DomainEntryOutputTypeDef = TypedDict(
+    "DomainEntryOutputTypeDef",
     {
-        "distributionName": str,
+        "id": NotRequired[str],
+        "name": NotRequired[str],
+        "target": NotRequired[str],
+        "isAlias": NotRequired[bool],
+        "type": NotRequired[str],
+        "options": NotRequired[Dict[str, str]],
     },
 )
-
-DetachCertificateFromDistributionResultTypeDef = TypedDict(
-    "DetachCertificateFromDistributionResultTypeDef",
-    {
-        "operation": "OperationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DetachDiskRequestRequestTypeDef = TypedDict(
-    "DetachDiskRequestRequestTypeDef",
-    {
-        "diskName": str,
-    },
-)
-
-DetachDiskResultTypeDef = TypedDict(
-    "DetachDiskResultTypeDef",
-    {
-        "operations": List["OperationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DetachInstancesFromLoadBalancerRequestRequestTypeDef = TypedDict(
-    "DetachInstancesFromLoadBalancerRequestRequestTypeDef",
-    {
-        "loadBalancerName": str,
-        "instanceNames": List[str],
-    },
-)
-
-DetachInstancesFromLoadBalancerResultTypeDef = TypedDict(
-    "DetachInstancesFromLoadBalancerResultTypeDef",
-    {
-        "operations": List["OperationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DetachStaticIpRequestRequestTypeDef = TypedDict(
-    "DetachStaticIpRequestRequestTypeDef",
-    {
-        "staticIpName": str,
-    },
-)
-
-DetachStaticIpResultTypeDef = TypedDict(
-    "DetachStaticIpResultTypeDef",
-    {
-        "operations": List["OperationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DisableAddOnRequestRequestTypeDef = TypedDict(
-    "DisableAddOnRequestRequestTypeDef",
-    {
-        "addOnType": AddOnTypeType,
-        "resourceName": str,
-    },
-)
-
-DisableAddOnResultTypeDef = TypedDict(
-    "DisableAddOnResultTypeDef",
-    {
-        "operations": List["OperationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DiskInfoTypeDef = TypedDict(
-    "DiskInfoTypeDef",
-    {
-        "name": str,
-        "path": str,
-        "sizeInGb": int,
-        "isSystemDisk": bool,
-    },
-    total=False,
-)
-
-DiskMapTypeDef = TypedDict(
-    "DiskMapTypeDef",
-    {
-        "originalDiskPath": str,
-        "newDiskName": str,
-    },
-    total=False,
-)
-
-DiskSnapshotInfoTypeDef = TypedDict(
-    "DiskSnapshotInfoTypeDef",
-    {
-        "sizeInGb": int,
-    },
-    total=False,
-)
-
-DiskSnapshotTypeDef = TypedDict(
-    "DiskSnapshotTypeDef",
-    {
-        "name": str,
-        "arn": str,
-        "supportCode": str,
-        "createdAt": datetime,
-        "location": "ResourceLocationTypeDef",
-        "resourceType": ResourceTypeType,
-        "tags": List["TagTypeDef"],
-        "sizeInGb": int,
-        "state": DiskSnapshotStateType,
-        "progress": str,
-        "fromDiskName": str,
-        "fromDiskArn": str,
-        "fromInstanceName": str,
-        "fromInstanceArn": str,
-        "isFromAutoSnapshot": bool,
-    },
-    total=False,
-)
-
-DiskTypeDef = TypedDict(
-    "DiskTypeDef",
-    {
-        "name": str,
-        "arn": str,
-        "supportCode": str,
-        "createdAt": datetime,
-        "location": "ResourceLocationTypeDef",
-        "resourceType": ResourceTypeType,
-        "tags": List["TagTypeDef"],
-        "addOns": List["AddOnTypeDef"],
-        "sizeInGb": int,
-        "isSystemDisk": bool,
-        "iops": int,
-        "path": str,
-        "state": DiskStateType,
-        "attachedTo": str,
-        "isAttached": bool,
-        "attachmentState": str,
-        "gbInUse": int,
-        "autoMountStatus": AutoMountStatusType,
-    },
-    total=False,
-)
-
-DistributionBundleTypeDef = TypedDict(
-    "DistributionBundleTypeDef",
-    {
-        "bundleId": str,
-        "name": str,
-        "price": float,
-        "transferPerMonthInGb": int,
-        "isActive": bool,
-    },
-    total=False,
-)
-
-DnsRecordCreationStateTypeDef = TypedDict(
-    "DnsRecordCreationStateTypeDef",
-    {
-        "code": DnsRecordCreationStateCodeType,
-        "message": str,
-    },
-    total=False,
-)
-
 DomainEntryTypeDef = TypedDict(
     "DomainEntryTypeDef",
     {
-        "id": str,
-        "name": str,
-        "target": str,
-        "isAlias": bool,
-        "type": str,
-        "options": Dict[str, str],
+        "id": NotRequired[str],
+        "name": NotRequired[str],
+        "target": NotRequired[str],
+        "isAlias": NotRequired[bool],
+        "type": NotRequired[str],
+        "options": NotRequired[Mapping[str, str]],
     },
-    total=False,
 )
-
-DomainTypeDef = TypedDict(
-    "DomainTypeDef",
-    {
-        "name": str,
-        "arn": str,
-        "supportCode": str,
-        "createdAt": datetime,
-        "location": "ResourceLocationTypeDef",
-        "resourceType": ResourceTypeType,
-        "tags": List["TagTypeDef"],
-        "domainEntries": List["DomainEntryTypeDef"],
-        "registeredDomainDelegationInfo": "RegisteredDomainDelegationInfoTypeDef",
-    },
-    total=False,
-)
-
-DomainValidationRecordTypeDef = TypedDict(
-    "DomainValidationRecordTypeDef",
-    {
-        "domainName": str,
-        "resourceRecord": "ResourceRecordTypeDef",
-        "dnsRecordCreationState": "DnsRecordCreationStateTypeDef",
-        "validationStatus": CertificateDomainValidationStatusType,
-    },
-    total=False,
-)
-
-DownloadDefaultKeyPairResultTypeDef = TypedDict(
-    "DownloadDefaultKeyPairResultTypeDef",
-    {
-        "publicKeyBase64": str,
-        "privateKeyBase64": str,
-        "createdAt": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-EnableAddOnRequestRequestTypeDef = TypedDict(
-    "EnableAddOnRequestRequestTypeDef",
-    {
-        "resourceName": str,
-        "addOnRequest": "AddOnRequestTypeDef",
-    },
-)
-
-EnableAddOnResultTypeDef = TypedDict(
-    "EnableAddOnResultTypeDef",
-    {
-        "operations": List["OperationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredEndpointRequestTypeDef = TypedDict(
-    "_RequiredEndpointRequestTypeDef",
-    {
-        "containerName": str,
-        "containerPort": int,
-    },
-)
-_OptionalEndpointRequestTypeDef = TypedDict(
-    "_OptionalEndpointRequestTypeDef",
-    {
-        "healthCheck": "ContainerServiceHealthCheckConfigTypeDef",
-    },
-    total=False,
-)
-
-class EndpointRequestTypeDef(_RequiredEndpointRequestTypeDef, _OptionalEndpointRequestTypeDef):
-    pass
-
-EstimateByTimeTypeDef = TypedDict(
-    "EstimateByTimeTypeDef",
-    {
-        "usageCost": float,
-        "pricingUnit": PricingUnitType,
-        "unit": float,
-        "currency": Literal["USD"],
-        "timePeriod": "TimePeriodTypeDef",
-    },
-    total=False,
-)
-
-ExportSnapshotRecordSourceInfoTypeDef = TypedDict(
-    "ExportSnapshotRecordSourceInfoTypeDef",
-    {
-        "resourceType": ExportSnapshotRecordSourceTypeType,
-        "createdAt": datetime,
-        "name": str,
-        "arn": str,
-        "fromResourceName": str,
-        "fromResourceArn": str,
-        "instanceSnapshotInfo": "InstanceSnapshotInfoTypeDef",
-        "diskSnapshotInfo": "DiskSnapshotInfoTypeDef",
-    },
-    total=False,
-)
-
-ExportSnapshotRecordTypeDef = TypedDict(
-    "ExportSnapshotRecordTypeDef",
-    {
-        "name": str,
-        "arn": str,
-        "createdAt": datetime,
-        "location": "ResourceLocationTypeDef",
-        "resourceType": ResourceTypeType,
-        "state": RecordStateType,
-        "sourceInfo": "ExportSnapshotRecordSourceInfoTypeDef",
-        "destinationInfo": "DestinationInfoTypeDef",
-    },
-    total=False,
-)
-
-ExportSnapshotRequestRequestTypeDef = TypedDict(
-    "ExportSnapshotRequestRequestTypeDef",
-    {
-        "sourceSnapshotName": str,
-    },
-)
-
-ExportSnapshotResultTypeDef = TypedDict(
-    "ExportSnapshotResultTypeDef",
-    {
-        "operations": List["OperationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetActiveNamesRequestRequestTypeDef = TypedDict(
-    "GetActiveNamesRequestRequestTypeDef",
-    {
-        "pageToken": str,
-    },
-    total=False,
-)
-
-GetActiveNamesResultTypeDef = TypedDict(
-    "GetActiveNamesResultTypeDef",
-    {
-        "activeNames": List[str],
-        "nextPageToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetAlarmsRequestRequestTypeDef = TypedDict(
-    "GetAlarmsRequestRequestTypeDef",
-    {
-        "alarmName": str,
-        "pageToken": str,
-        "monitoredResourceName": str,
-    },
-    total=False,
-)
-
-GetAlarmsResultTypeDef = TypedDict(
-    "GetAlarmsResultTypeDef",
-    {
-        "alarms": List["AlarmTypeDef"],
-        "nextPageToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetAutoSnapshotsRequestRequestTypeDef = TypedDict(
-    "GetAutoSnapshotsRequestRequestTypeDef",
-    {
-        "resourceName": str,
-    },
-)
-
-GetAutoSnapshotsResultTypeDef = TypedDict(
-    "GetAutoSnapshotsResultTypeDef",
-    {
-        "resourceName": str,
-        "resourceType": ResourceTypeType,
-        "autoSnapshots": List["AutoSnapshotDetailsTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetBlueprintsRequestRequestTypeDef = TypedDict(
-    "GetBlueprintsRequestRequestTypeDef",
-    {
-        "includeInactive": bool,
-        "pageToken": str,
-        "appCategory": Literal["LfR"],
-    },
-    total=False,
-)
-
-GetBlueprintsResultTypeDef = TypedDict(
-    "GetBlueprintsResultTypeDef",
-    {
-        "blueprints": List["BlueprintTypeDef"],
-        "nextPageToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetBucketAccessKeysRequestRequestTypeDef = TypedDict(
-    "GetBucketAccessKeysRequestRequestTypeDef",
-    {
-        "bucketName": str,
-    },
-)
-
-GetBucketAccessKeysResultTypeDef = TypedDict(
-    "GetBucketAccessKeysResultTypeDef",
-    {
-        "accessKeys": List["AccessKeyTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetBucketBundlesRequestRequestTypeDef = TypedDict(
-    "GetBucketBundlesRequestRequestTypeDef",
-    {
-        "includeInactive": bool,
-    },
-    total=False,
-)
-
-GetBucketBundlesResultTypeDef = TypedDict(
-    "GetBucketBundlesResultTypeDef",
-    {
-        "bundles": List["BucketBundleTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetBucketMetricDataRequestRequestTypeDef = TypedDict(
-    "GetBucketMetricDataRequestRequestTypeDef",
-    {
-        "bucketName": str,
-        "metricName": BucketMetricNameType,
-        "startTime": Union[datetime, str],
-        "endTime": Union[datetime, str],
-        "period": int,
-        "statistics": List[MetricStatisticType],
-        "unit": MetricUnitType,
-    },
-)
-
-GetBucketMetricDataResultTypeDef = TypedDict(
-    "GetBucketMetricDataResultTypeDef",
-    {
-        "metricName": BucketMetricNameType,
-        "metricData": List["MetricDatapointTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetBucketsRequestRequestTypeDef = TypedDict(
-    "GetBucketsRequestRequestTypeDef",
-    {
-        "bucketName": str,
-        "pageToken": str,
-        "includeConnectedResources": bool,
-    },
-    total=False,
-)
-
-GetBucketsResultTypeDef = TypedDict(
-    "GetBucketsResultTypeDef",
-    {
-        "buckets": List["BucketTypeDef"],
-        "nextPageToken": str,
-        "accountLevelBpaSync": "AccountLevelBpaSyncTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetBundlesRequestRequestTypeDef = TypedDict(
-    "GetBundlesRequestRequestTypeDef",
-    {
-        "includeInactive": bool,
-        "pageToken": str,
-        "appCategory": Literal["LfR"],
-    },
-    total=False,
-)
-
-GetBundlesResultTypeDef = TypedDict(
-    "GetBundlesResultTypeDef",
-    {
-        "bundles": List["BundleTypeDef"],
-        "nextPageToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetCertificatesRequestRequestTypeDef = TypedDict(
-    "GetCertificatesRequestRequestTypeDef",
-    {
-        "certificateStatuses": List[CertificateStatusType],
-        "includeCertificateDetails": bool,
-        "certificateName": str,
-        "pageToken": str,
-    },
-    total=False,
-)
-
-GetCertificatesResultTypeDef = TypedDict(
-    "GetCertificatesResultTypeDef",
-    {
-        "certificates": List["CertificateSummaryTypeDef"],
-        "nextPageToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetCloudFormationStackRecordsRequestRequestTypeDef = TypedDict(
-    "GetCloudFormationStackRecordsRequestRequestTypeDef",
-    {
-        "pageToken": str,
-    },
-    total=False,
-)
-
-GetCloudFormationStackRecordsResultTypeDef = TypedDict(
-    "GetCloudFormationStackRecordsResultTypeDef",
-    {
-        "cloudFormationStackRecords": List["CloudFormationStackRecordTypeDef"],
-        "nextPageToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetContactMethodsRequestRequestTypeDef = TypedDict(
-    "GetContactMethodsRequestRequestTypeDef",
-    {
-        "protocols": List[ContactProtocolType],
-    },
-    total=False,
-)
-
-GetContactMethodsResultTypeDef = TypedDict(
-    "GetContactMethodsResultTypeDef",
-    {
-        "contactMethods": List["ContactMethodTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetContainerAPIMetadataResultTypeDef = TypedDict(
-    "GetContainerAPIMetadataResultTypeDef",
-    {
-        "metadata": List[Dict[str, str]],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetContainerImagesRequestRequestTypeDef = TypedDict(
-    "GetContainerImagesRequestRequestTypeDef",
-    {
-        "serviceName": str,
-    },
-)
-
-GetContainerImagesResultTypeDef = TypedDict(
-    "GetContainerImagesResultTypeDef",
-    {
-        "containerImages": List["ContainerImageTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetContainerLogRequestRequestTypeDef = TypedDict(
-    "_RequiredGetContainerLogRequestRequestTypeDef",
-    {
-        "serviceName": str,
-        "containerName": str,
-    },
-)
-_OptionalGetContainerLogRequestRequestTypeDef = TypedDict(
-    "_OptionalGetContainerLogRequestRequestTypeDef",
-    {
-        "startTime": Union[datetime, str],
-        "endTime": Union[datetime, str],
-        "filterPattern": str,
-        "pageToken": str,
-    },
-    total=False,
-)
-
-class GetContainerLogRequestRequestTypeDef(
-    _RequiredGetContainerLogRequestRequestTypeDef, _OptionalGetContainerLogRequestRequestTypeDef
-):
-    pass
-
-GetContainerLogResultTypeDef = TypedDict(
-    "GetContainerLogResultTypeDef",
-    {
-        "logEvents": List["ContainerServiceLogEventTypeDef"],
-        "nextPageToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetContainerServiceDeploymentsRequestRequestTypeDef = TypedDict(
-    "GetContainerServiceDeploymentsRequestRequestTypeDef",
-    {
-        "serviceName": str,
-    },
-)
-
-GetContainerServiceDeploymentsResultTypeDef = TypedDict(
-    "GetContainerServiceDeploymentsResultTypeDef",
-    {
-        "deployments": List["ContainerServiceDeploymentTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetContainerServiceMetricDataRequestRequestTypeDef = TypedDict(
-    "GetContainerServiceMetricDataRequestRequestTypeDef",
-    {
-        "serviceName": str,
-        "metricName": ContainerServiceMetricNameType,
-        "startTime": Union[datetime, str],
-        "endTime": Union[datetime, str],
-        "period": int,
-        "statistics": List[MetricStatisticType],
-    },
-)
-
-GetContainerServiceMetricDataResultTypeDef = TypedDict(
-    "GetContainerServiceMetricDataResultTypeDef",
-    {
-        "metricName": ContainerServiceMetricNameType,
-        "metricData": List["MetricDatapointTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetContainerServicePowersResultTypeDef = TypedDict(
-    "GetContainerServicePowersResultTypeDef",
-    {
-        "powers": List["ContainerServicePowerTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetContainerServicesRequestRequestTypeDef = TypedDict(
-    "GetContainerServicesRequestRequestTypeDef",
-    {
-        "serviceName": str,
-    },
-    total=False,
-)
-
-GetCostEstimateRequestRequestTypeDef = TypedDict(
-    "GetCostEstimateRequestRequestTypeDef",
-    {
-        "resourceName": str,
-        "startTime": Union[datetime, str],
-        "endTime": Union[datetime, str],
-    },
-)
-
-GetCostEstimateResultTypeDef = TypedDict(
-    "GetCostEstimateResultTypeDef",
-    {
-        "resourcesBudgetEstimate": List["ResourceBudgetEstimateTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetDiskRequestRequestTypeDef = TypedDict(
-    "GetDiskRequestRequestTypeDef",
-    {
-        "diskName": str,
-    },
-)
-
-GetDiskResultTypeDef = TypedDict(
-    "GetDiskResultTypeDef",
-    {
-        "disk": "DiskTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetDiskSnapshotRequestRequestTypeDef = TypedDict(
-    "GetDiskSnapshotRequestRequestTypeDef",
-    {
-        "diskSnapshotName": str,
-    },
-)
-
-GetDiskSnapshotResultTypeDef = TypedDict(
-    "GetDiskSnapshotResultTypeDef",
-    {
-        "diskSnapshot": "DiskSnapshotTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetDiskSnapshotsRequestRequestTypeDef = TypedDict(
-    "GetDiskSnapshotsRequestRequestTypeDef",
-    {
-        "pageToken": str,
-    },
-    total=False,
-)
-
-GetDiskSnapshotsResultTypeDef = TypedDict(
-    "GetDiskSnapshotsResultTypeDef",
-    {
-        "diskSnapshots": List["DiskSnapshotTypeDef"],
-        "nextPageToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetDisksRequestRequestTypeDef = TypedDict(
-    "GetDisksRequestRequestTypeDef",
-    {
-        "pageToken": str,
-    },
-    total=False,
-)
-
-GetDisksResultTypeDef = TypedDict(
-    "GetDisksResultTypeDef",
-    {
-        "disks": List["DiskTypeDef"],
-        "nextPageToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetDistributionBundlesResultTypeDef = TypedDict(
-    "GetDistributionBundlesResultTypeDef",
-    {
-        "bundles": List["DistributionBundleTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetDistributionLatestCacheResetRequestRequestTypeDef = TypedDict(
-    "GetDistributionLatestCacheResetRequestRequestTypeDef",
-    {
-        "distributionName": str,
-    },
-    total=False,
-)
-
-GetDistributionLatestCacheResetResultTypeDef = TypedDict(
-    "GetDistributionLatestCacheResetResultTypeDef",
-    {
-        "status": str,
-        "createTime": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetDistributionMetricDataRequestRequestTypeDef = TypedDict(
-    "GetDistributionMetricDataRequestRequestTypeDef",
-    {
-        "distributionName": str,
-        "metricName": DistributionMetricNameType,
-        "startTime": Union[datetime, str],
-        "endTime": Union[datetime, str],
-        "period": int,
-        "unit": MetricUnitType,
-        "statistics": List[MetricStatisticType],
-    },
-)
-
-GetDistributionMetricDataResultTypeDef = TypedDict(
-    "GetDistributionMetricDataResultTypeDef",
-    {
-        "metricName": DistributionMetricNameType,
-        "metricData": List["MetricDatapointTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetDistributionsRequestRequestTypeDef = TypedDict(
-    "GetDistributionsRequestRequestTypeDef",
-    {
-        "distributionName": str,
-        "pageToken": str,
-    },
-    total=False,
-)
-
-GetDistributionsResultTypeDef = TypedDict(
-    "GetDistributionsResultTypeDef",
-    {
-        "distributions": List["LightsailDistributionTypeDef"],
-        "nextPageToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetDomainRequestRequestTypeDef = TypedDict(
-    "GetDomainRequestRequestTypeDef",
-    {
-        "domainName": str,
-    },
-)
-
-GetDomainResultTypeDef = TypedDict(
-    "GetDomainResultTypeDef",
-    {
-        "domain": "DomainTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetDomainsRequestRequestTypeDef = TypedDict(
-    "GetDomainsRequestRequestTypeDef",
-    {
-        "pageToken": str,
-    },
-    total=False,
-)
-
-GetDomainsResultTypeDef = TypedDict(
-    "GetDomainsResultTypeDef",
-    {
-        "domains": List["DomainTypeDef"],
-        "nextPageToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetExportSnapshotRecordsRequestRequestTypeDef = TypedDict(
-    "GetExportSnapshotRecordsRequestRequestTypeDef",
-    {
-        "pageToken": str,
-    },
-    total=False,
-)
-
-GetExportSnapshotRecordsResultTypeDef = TypedDict(
-    "GetExportSnapshotRecordsResultTypeDef",
-    {
-        "exportSnapshotRecords": List["ExportSnapshotRecordTypeDef"],
-        "nextPageToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetInstanceAccessDetailsRequestRequestTypeDef = TypedDict(
-    "_RequiredGetInstanceAccessDetailsRequestRequestTypeDef",
-    {
-        "instanceName": str,
-    },
-)
-_OptionalGetInstanceAccessDetailsRequestRequestTypeDef = TypedDict(
-    "_OptionalGetInstanceAccessDetailsRequestRequestTypeDef",
-    {
-        "protocol": InstanceAccessProtocolType,
-    },
-    total=False,
-)
-
-class GetInstanceAccessDetailsRequestRequestTypeDef(
-    _RequiredGetInstanceAccessDetailsRequestRequestTypeDef,
-    _OptionalGetInstanceAccessDetailsRequestRequestTypeDef,
-):
-    pass
-
-GetInstanceAccessDetailsResultTypeDef = TypedDict(
-    "GetInstanceAccessDetailsResultTypeDef",
-    {
-        "accessDetails": "InstanceAccessDetailsTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetInstanceMetricDataRequestRequestTypeDef = TypedDict(
-    "GetInstanceMetricDataRequestRequestTypeDef",
-    {
-        "instanceName": str,
-        "metricName": InstanceMetricNameType,
-        "period": int,
-        "startTime": Union[datetime, str],
-        "endTime": Union[datetime, str],
-        "unit": MetricUnitType,
-        "statistics": List[MetricStatisticType],
-    },
-)
-
-GetInstanceMetricDataResultTypeDef = TypedDict(
-    "GetInstanceMetricDataResultTypeDef",
-    {
-        "metricName": InstanceMetricNameType,
-        "metricData": List["MetricDatapointTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetInstancePortStatesRequestRequestTypeDef = TypedDict(
-    "GetInstancePortStatesRequestRequestTypeDef",
-    {
-        "instanceName": str,
-    },
-)
-
-GetInstancePortStatesResultTypeDef = TypedDict(
-    "GetInstancePortStatesResultTypeDef",
-    {
-        "portStates": List["InstancePortStateTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetInstanceRequestRequestTypeDef = TypedDict(
-    "GetInstanceRequestRequestTypeDef",
-    {
-        "instanceName": str,
-    },
-)
-
-GetInstanceResultTypeDef = TypedDict(
-    "GetInstanceResultTypeDef",
-    {
-        "instance": "InstanceTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetInstanceSnapshotRequestRequestTypeDef = TypedDict(
-    "GetInstanceSnapshotRequestRequestTypeDef",
-    {
-        "instanceSnapshotName": str,
-    },
-)
-
-GetInstanceSnapshotResultTypeDef = TypedDict(
-    "GetInstanceSnapshotResultTypeDef",
-    {
-        "instanceSnapshot": "InstanceSnapshotTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetInstanceSnapshotsRequestRequestTypeDef = TypedDict(
-    "GetInstanceSnapshotsRequestRequestTypeDef",
-    {
-        "pageToken": str,
-    },
-    total=False,
-)
-
-GetInstanceSnapshotsResultTypeDef = TypedDict(
-    "GetInstanceSnapshotsResultTypeDef",
-    {
-        "instanceSnapshots": List["InstanceSnapshotTypeDef"],
-        "nextPageToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetInstanceStateRequestRequestTypeDef = TypedDict(
-    "GetInstanceStateRequestRequestTypeDef",
-    {
-        "instanceName": str,
-    },
-)
-
-GetInstanceStateResultTypeDef = TypedDict(
-    "GetInstanceStateResultTypeDef",
-    {
-        "state": "InstanceStateTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetInstancesRequestRequestTypeDef = TypedDict(
-    "GetInstancesRequestRequestTypeDef",
-    {
-        "pageToken": str,
-    },
-    total=False,
-)
-
-GetInstancesResultTypeDef = TypedDict(
-    "GetInstancesResultTypeDef",
-    {
-        "instances": List["InstanceTypeDef"],
-        "nextPageToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetKeyPairRequestRequestTypeDef = TypedDict(
-    "GetKeyPairRequestRequestTypeDef",
-    {
-        "keyPairName": str,
-    },
-)
-
-GetKeyPairResultTypeDef = TypedDict(
-    "GetKeyPairResultTypeDef",
-    {
-        "keyPair": "KeyPairTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetKeyPairsRequestRequestTypeDef = TypedDict(
-    "GetKeyPairsRequestRequestTypeDef",
-    {
-        "pageToken": str,
-        "includeDefaultKeyPair": bool,
-    },
-    total=False,
-)
-
-GetKeyPairsResultTypeDef = TypedDict(
-    "GetKeyPairsResultTypeDef",
-    {
-        "keyPairs": List["KeyPairTypeDef"],
-        "nextPageToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetLoadBalancerMetricDataRequestRequestTypeDef = TypedDict(
-    "GetLoadBalancerMetricDataRequestRequestTypeDef",
-    {
-        "loadBalancerName": str,
-        "metricName": LoadBalancerMetricNameType,
-        "period": int,
-        "startTime": Union[datetime, str],
-        "endTime": Union[datetime, str],
-        "unit": MetricUnitType,
-        "statistics": List[MetricStatisticType],
-    },
-)
-
-GetLoadBalancerMetricDataResultTypeDef = TypedDict(
-    "GetLoadBalancerMetricDataResultTypeDef",
-    {
-        "metricName": LoadBalancerMetricNameType,
-        "metricData": List["MetricDatapointTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetLoadBalancerRequestRequestTypeDef = TypedDict(
-    "GetLoadBalancerRequestRequestTypeDef",
-    {
-        "loadBalancerName": str,
-    },
-)
-
-GetLoadBalancerResultTypeDef = TypedDict(
-    "GetLoadBalancerResultTypeDef",
-    {
-        "loadBalancer": "LoadBalancerTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetLoadBalancerTlsCertificatesRequestRequestTypeDef = TypedDict(
-    "GetLoadBalancerTlsCertificatesRequestRequestTypeDef",
-    {
-        "loadBalancerName": str,
-    },
-)
-
-GetLoadBalancerTlsCertificatesResultTypeDef = TypedDict(
-    "GetLoadBalancerTlsCertificatesResultTypeDef",
-    {
-        "tlsCertificates": List["LoadBalancerTlsCertificateTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetLoadBalancerTlsPoliciesRequestRequestTypeDef = TypedDict(
-    "GetLoadBalancerTlsPoliciesRequestRequestTypeDef",
-    {
-        "pageToken": str,
-    },
-    total=False,
-)
-
-GetLoadBalancerTlsPoliciesResultTypeDef = TypedDict(
-    "GetLoadBalancerTlsPoliciesResultTypeDef",
-    {
-        "tlsPolicies": List["LoadBalancerTlsPolicyTypeDef"],
-        "nextPageToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetLoadBalancersRequestRequestTypeDef = TypedDict(
-    "GetLoadBalancersRequestRequestTypeDef",
-    {
-        "pageToken": str,
-    },
-    total=False,
-)
-
-GetLoadBalancersResultTypeDef = TypedDict(
-    "GetLoadBalancersResultTypeDef",
-    {
-        "loadBalancers": List["LoadBalancerTypeDef"],
-        "nextPageToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetOperationRequestRequestTypeDef = TypedDict(
-    "GetOperationRequestRequestTypeDef",
-    {
-        "operationId": str,
-    },
-)
-
-GetOperationResultTypeDef = TypedDict(
-    "GetOperationResultTypeDef",
-    {
-        "operation": "OperationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetOperationsForResourceRequestRequestTypeDef = TypedDict(
-    "_RequiredGetOperationsForResourceRequestRequestTypeDef",
-    {
-        "resourceName": str,
-    },
-)
-_OptionalGetOperationsForResourceRequestRequestTypeDef = TypedDict(
-    "_OptionalGetOperationsForResourceRequestRequestTypeDef",
-    {
-        "pageToken": str,
-    },
-    total=False,
-)
-
-class GetOperationsForResourceRequestRequestTypeDef(
-    _RequiredGetOperationsForResourceRequestRequestTypeDef,
-    _OptionalGetOperationsForResourceRequestRequestTypeDef,
-):
-    pass
-
-GetOperationsForResourceResultTypeDef = TypedDict(
-    "GetOperationsForResourceResultTypeDef",
-    {
-        "operations": List["OperationTypeDef"],
-        "nextPageCount": str,
-        "nextPageToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetOperationsRequestRequestTypeDef = TypedDict(
-    "GetOperationsRequestRequestTypeDef",
-    {
-        "pageToken": str,
-    },
-    total=False,
-)
-
-GetOperationsResultTypeDef = TypedDict(
-    "GetOperationsResultTypeDef",
-    {
-        "operations": List["OperationTypeDef"],
-        "nextPageToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetRegionsRequestRequestTypeDef = TypedDict(
-    "GetRegionsRequestRequestTypeDef",
-    {
-        "includeAvailabilityZones": bool,
-        "includeRelationalDatabaseAvailabilityZones": bool,
-    },
-    total=False,
-)
-
-GetRegionsResultTypeDef = TypedDict(
-    "GetRegionsResultTypeDef",
-    {
-        "regions": List["RegionTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetRelationalDatabaseBlueprintsRequestRequestTypeDef = TypedDict(
-    "GetRelationalDatabaseBlueprintsRequestRequestTypeDef",
-    {
-        "pageToken": str,
-    },
-    total=False,
-)
-
-GetRelationalDatabaseBlueprintsResultTypeDef = TypedDict(
-    "GetRelationalDatabaseBlueprintsResultTypeDef",
-    {
-        "blueprints": List["RelationalDatabaseBlueprintTypeDef"],
-        "nextPageToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetRelationalDatabaseBundlesRequestRequestTypeDef = TypedDict(
-    "GetRelationalDatabaseBundlesRequestRequestTypeDef",
-    {
-        "pageToken": str,
-        "includeInactive": bool,
-    },
-    total=False,
-)
-
-GetRelationalDatabaseBundlesResultTypeDef = TypedDict(
-    "GetRelationalDatabaseBundlesResultTypeDef",
-    {
-        "bundles": List["RelationalDatabaseBundleTypeDef"],
-        "nextPageToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetRelationalDatabaseEventsRequestRequestTypeDef = TypedDict(
-    "_RequiredGetRelationalDatabaseEventsRequestRequestTypeDef",
-    {
-        "relationalDatabaseName": str,
-    },
-)
-_OptionalGetRelationalDatabaseEventsRequestRequestTypeDef = TypedDict(
-    "_OptionalGetRelationalDatabaseEventsRequestRequestTypeDef",
-    {
-        "durationInMinutes": int,
-        "pageToken": str,
-    },
-    total=False,
-)
-
-class GetRelationalDatabaseEventsRequestRequestTypeDef(
-    _RequiredGetRelationalDatabaseEventsRequestRequestTypeDef,
-    _OptionalGetRelationalDatabaseEventsRequestRequestTypeDef,
-):
-    pass
-
-GetRelationalDatabaseEventsResultTypeDef = TypedDict(
-    "GetRelationalDatabaseEventsResultTypeDef",
-    {
-        "relationalDatabaseEvents": List["RelationalDatabaseEventTypeDef"],
-        "nextPageToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetRelationalDatabaseLogEventsRequestRequestTypeDef = TypedDict(
-    "_RequiredGetRelationalDatabaseLogEventsRequestRequestTypeDef",
-    {
-        "relationalDatabaseName": str,
-        "logStreamName": str,
-    },
-)
-_OptionalGetRelationalDatabaseLogEventsRequestRequestTypeDef = TypedDict(
-    "_OptionalGetRelationalDatabaseLogEventsRequestRequestTypeDef",
-    {
-        "startTime": Union[datetime, str],
-        "endTime": Union[datetime, str],
-        "startFromHead": bool,
-        "pageToken": str,
-    },
-    total=False,
-)
-
-class GetRelationalDatabaseLogEventsRequestRequestTypeDef(
-    _RequiredGetRelationalDatabaseLogEventsRequestRequestTypeDef,
-    _OptionalGetRelationalDatabaseLogEventsRequestRequestTypeDef,
-):
-    pass
-
-GetRelationalDatabaseLogEventsResultTypeDef = TypedDict(
-    "GetRelationalDatabaseLogEventsResultTypeDef",
-    {
-        "resourceLogEvents": List["LogEventTypeDef"],
-        "nextBackwardToken": str,
-        "nextForwardToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetRelationalDatabaseLogStreamsRequestRequestTypeDef = TypedDict(
-    "GetRelationalDatabaseLogStreamsRequestRequestTypeDef",
-    {
-        "relationalDatabaseName": str,
-    },
-)
-
-GetRelationalDatabaseLogStreamsResultTypeDef = TypedDict(
-    "GetRelationalDatabaseLogStreamsResultTypeDef",
-    {
-        "logStreams": List[str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetRelationalDatabaseMasterUserPasswordRequestRequestTypeDef = TypedDict(
-    "_RequiredGetRelationalDatabaseMasterUserPasswordRequestRequestTypeDef",
-    {
-        "relationalDatabaseName": str,
-    },
-)
-_OptionalGetRelationalDatabaseMasterUserPasswordRequestRequestTypeDef = TypedDict(
-    "_OptionalGetRelationalDatabaseMasterUserPasswordRequestRequestTypeDef",
-    {
-        "passwordVersion": RelationalDatabasePasswordVersionType,
-    },
-    total=False,
-)
-
-class GetRelationalDatabaseMasterUserPasswordRequestRequestTypeDef(
-    _RequiredGetRelationalDatabaseMasterUserPasswordRequestRequestTypeDef,
-    _OptionalGetRelationalDatabaseMasterUserPasswordRequestRequestTypeDef,
-):
-    pass
-
-GetRelationalDatabaseMasterUserPasswordResultTypeDef = TypedDict(
-    "GetRelationalDatabaseMasterUserPasswordResultTypeDef",
-    {
-        "masterUserPassword": str,
-        "createdAt": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetRelationalDatabaseMetricDataRequestRequestTypeDef = TypedDict(
-    "GetRelationalDatabaseMetricDataRequestRequestTypeDef",
-    {
-        "relationalDatabaseName": str,
-        "metricName": RelationalDatabaseMetricNameType,
-        "period": int,
-        "startTime": Union[datetime, str],
-        "endTime": Union[datetime, str],
-        "unit": MetricUnitType,
-        "statistics": List[MetricStatisticType],
-    },
-)
-
-GetRelationalDatabaseMetricDataResultTypeDef = TypedDict(
-    "GetRelationalDatabaseMetricDataResultTypeDef",
-    {
-        "metricName": RelationalDatabaseMetricNameType,
-        "metricData": List["MetricDatapointTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetRelationalDatabaseParametersRequestRequestTypeDef = TypedDict(
-    "_RequiredGetRelationalDatabaseParametersRequestRequestTypeDef",
-    {
-        "relationalDatabaseName": str,
-    },
-)
-_OptionalGetRelationalDatabaseParametersRequestRequestTypeDef = TypedDict(
-    "_OptionalGetRelationalDatabaseParametersRequestRequestTypeDef",
-    {
-        "pageToken": str,
-    },
-    total=False,
-)
-
-class GetRelationalDatabaseParametersRequestRequestTypeDef(
-    _RequiredGetRelationalDatabaseParametersRequestRequestTypeDef,
-    _OptionalGetRelationalDatabaseParametersRequestRequestTypeDef,
-):
-    pass
-
-GetRelationalDatabaseParametersResultTypeDef = TypedDict(
-    "GetRelationalDatabaseParametersResultTypeDef",
-    {
-        "parameters": List["RelationalDatabaseParameterTypeDef"],
-        "nextPageToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetRelationalDatabaseRequestRequestTypeDef = TypedDict(
-    "GetRelationalDatabaseRequestRequestTypeDef",
-    {
-        "relationalDatabaseName": str,
-    },
-)
-
-GetRelationalDatabaseResultTypeDef = TypedDict(
-    "GetRelationalDatabaseResultTypeDef",
-    {
-        "relationalDatabase": "RelationalDatabaseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetRelationalDatabaseSnapshotRequestRequestTypeDef = TypedDict(
-    "GetRelationalDatabaseSnapshotRequestRequestTypeDef",
-    {
-        "relationalDatabaseSnapshotName": str,
-    },
-)
-
-GetRelationalDatabaseSnapshotResultTypeDef = TypedDict(
-    "GetRelationalDatabaseSnapshotResultTypeDef",
-    {
-        "relationalDatabaseSnapshot": "RelationalDatabaseSnapshotTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetRelationalDatabaseSnapshotsRequestRequestTypeDef = TypedDict(
-    "GetRelationalDatabaseSnapshotsRequestRequestTypeDef",
-    {
-        "pageToken": str,
-    },
-    total=False,
-)
-
-GetRelationalDatabaseSnapshotsResultTypeDef = TypedDict(
-    "GetRelationalDatabaseSnapshotsResultTypeDef",
-    {
-        "relationalDatabaseSnapshots": List["RelationalDatabaseSnapshotTypeDef"],
-        "nextPageToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetRelationalDatabasesRequestRequestTypeDef = TypedDict(
-    "GetRelationalDatabasesRequestRequestTypeDef",
-    {
-        "pageToken": str,
-    },
-    total=False,
-)
-
-GetRelationalDatabasesResultTypeDef = TypedDict(
-    "GetRelationalDatabasesResultTypeDef",
-    {
-        "relationalDatabases": List["RelationalDatabaseTypeDef"],
-        "nextPageToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetSetupHistoryRequestRequestTypeDef = TypedDict(
-    "_RequiredGetSetupHistoryRequestRequestTypeDef",
-    {
-        "resourceName": str,
-    },
-)
-_OptionalGetSetupHistoryRequestRequestTypeDef = TypedDict(
-    "_OptionalGetSetupHistoryRequestRequestTypeDef",
-    {
-        "pageToken": str,
-    },
-    total=False,
-)
-
-class GetSetupHistoryRequestRequestTypeDef(
-    _RequiredGetSetupHistoryRequestRequestTypeDef, _OptionalGetSetupHistoryRequestRequestTypeDef
-):
-    pass
-
-GetSetupHistoryResultTypeDef = TypedDict(
-    "GetSetupHistoryResultTypeDef",
-    {
-        "setupHistory": List["SetupHistoryTypeDef"],
-        "nextPageToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetStaticIpRequestRequestTypeDef = TypedDict(
-    "GetStaticIpRequestRequestTypeDef",
-    {
-        "staticIpName": str,
-    },
-)
-
-GetStaticIpResultTypeDef = TypedDict(
-    "GetStaticIpResultTypeDef",
-    {
-        "staticIp": "StaticIpTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetStaticIpsRequestRequestTypeDef = TypedDict(
-    "GetStaticIpsRequestRequestTypeDef",
-    {
-        "pageToken": str,
-    },
-    total=False,
-)
-
-GetStaticIpsResultTypeDef = TypedDict(
-    "GetStaticIpsResultTypeDef",
-    {
-        "staticIps": List["StaticIpTypeDef"],
-        "nextPageToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-HeaderObjectTypeDef = TypedDict(
-    "HeaderObjectTypeDef",
-    {
-        "option": ForwardValuesType,
-        "headersAllowList": List[HeaderEnumType],
-    },
-    total=False,
-)
-
-HostKeyAttributesTypeDef = TypedDict(
-    "HostKeyAttributesTypeDef",
-    {
-        "algorithm": str,
-        "publicKey": str,
-        "witnessedAt": datetime,
-        "fingerprintSHA1": str,
-        "fingerprintSHA256": str,
-        "notValidBefore": datetime,
-        "notValidAfter": datetime,
-    },
-    total=False,
-)
-
-ImportKeyPairRequestRequestTypeDef = TypedDict(
-    "ImportKeyPairRequestRequestTypeDef",
-    {
-        "keyPairName": str,
-        "publicKeyBase64": str,
-    },
-)
-
-ImportKeyPairResultTypeDef = TypedDict(
-    "ImportKeyPairResultTypeDef",
-    {
-        "operation": "OperationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-InputOriginTypeDef = TypedDict(
-    "InputOriginTypeDef",
-    {
-        "name": str,
-        "regionName": RegionNameType,
-        "protocolPolicy": OriginProtocolPolicyEnumType,
-        "responseTimeout": int,
-    },
-    total=False,
-)
-
-InstanceAccessDetailsTypeDef = TypedDict(
-    "InstanceAccessDetailsTypeDef",
-    {
-        "certKey": str,
-        "expiresAt": datetime,
-        "ipAddress": str,
-        "ipv6Addresses": List[str],
-        "password": str,
-        "passwordData": "PasswordDataTypeDef",
-        "privateKey": str,
-        "protocol": InstanceAccessProtocolType,
-        "instanceName": str,
-        "username": str,
-        "hostKeys": List["HostKeyAttributesTypeDef"],
-    },
-    total=False,
-)
-
-_RequiredInstanceEntryTypeDef = TypedDict(
-    "_RequiredInstanceEntryTypeDef",
-    {
-        "sourceName": str,
-        "instanceType": str,
-        "portInfoSource": PortInfoSourceTypeType,
-        "availabilityZone": str,
-    },
-)
-_OptionalInstanceEntryTypeDef = TypedDict(
-    "_OptionalInstanceEntryTypeDef",
-    {
-        "userData": str,
-    },
-    total=False,
-)
-
-class InstanceEntryTypeDef(_RequiredInstanceEntryTypeDef, _OptionalInstanceEntryTypeDef):
-    pass
-
-InstanceHardwareTypeDef = TypedDict(
-    "InstanceHardwareTypeDef",
-    {
-        "cpuCount": int,
-        "disks": List["DiskTypeDef"],
-        "ramSizeInGb": float,
-    },
-    total=False,
-)
-
-InstanceHealthSummaryTypeDef = TypedDict(
-    "InstanceHealthSummaryTypeDef",
-    {
-        "instanceName": str,
-        "instanceHealth": InstanceHealthStateType,
-        "instanceHealthReason": InstanceHealthReasonType,
-    },
-    total=False,
-)
-
-InstanceMetadataOptionsTypeDef = TypedDict(
-    "InstanceMetadataOptionsTypeDef",
-    {
-        "state": InstanceMetadataStateType,
-        "httpTokens": HttpTokensType,
-        "httpEndpoint": HttpEndpointType,
-        "httpPutResponseHopLimit": int,
-        "httpProtocolIpv6": HttpProtocolIpv6Type,
-    },
-    total=False,
-)
-
-InstanceNetworkingTypeDef = TypedDict(
-    "InstanceNetworkingTypeDef",
-    {
-        "monthlyTransfer": "MonthlyTransferTypeDef",
-        "ports": List["InstancePortInfoTypeDef"],
-    },
-    total=False,
-)
-
-InstancePortInfoTypeDef = TypedDict(
-    "InstancePortInfoTypeDef",
-    {
-        "fromPort": int,
-        "toPort": int,
-        "protocol": NetworkProtocolType,
-        "accessFrom": str,
-        "accessType": PortAccessTypeType,
-        "commonName": str,
-        "accessDirection": AccessDirectionType,
-        "cidrs": List[str],
-        "ipv6Cidrs": List[str],
-        "cidrListAliases": List[str],
-    },
-    total=False,
-)
-
-InstancePortStateTypeDef = TypedDict(
-    "InstancePortStateTypeDef",
-    {
-        "fromPort": int,
-        "toPort": int,
-        "protocol": NetworkProtocolType,
-        "state": PortStateType,
-        "cidrs": List[str],
-        "ipv6Cidrs": List[str],
-        "cidrListAliases": List[str],
-    },
-    total=False,
-)
-
-InstanceSnapshotInfoTypeDef = TypedDict(
-    "InstanceSnapshotInfoTypeDef",
-    {
-        "fromBundleId": str,
-        "fromBlueprintId": str,
-        "fromDiskInfo": List["DiskInfoTypeDef"],
-    },
-    total=False,
-)
-
-InstanceSnapshotTypeDef = TypedDict(
-    "InstanceSnapshotTypeDef",
-    {
-        "name": str,
-        "arn": str,
-        "supportCode": str,
-        "createdAt": datetime,
-        "location": "ResourceLocationTypeDef",
-        "resourceType": ResourceTypeType,
-        "tags": List["TagTypeDef"],
-        "state": InstanceSnapshotStateType,
-        "progress": str,
-        "fromAttachedDisks": List["DiskTypeDef"],
-        "fromInstanceName": str,
-        "fromInstanceArn": str,
-        "fromBlueprintId": str,
-        "fromBundleId": str,
-        "isFromAutoSnapshot": bool,
-        "sizeInGb": int,
-    },
-    total=False,
-)
-
-InstanceStateTypeDef = TypedDict(
-    "InstanceStateTypeDef",
-    {
-        "code": int,
-        "name": str,
-    },
-    total=False,
-)
-
-InstanceTypeDef = TypedDict(
-    "InstanceTypeDef",
-    {
-        "name": str,
-        "arn": str,
-        "supportCode": str,
-        "createdAt": datetime,
-        "location": "ResourceLocationTypeDef",
-        "resourceType": ResourceTypeType,
-        "tags": List["TagTypeDef"],
-        "blueprintId": str,
-        "blueprintName": str,
-        "bundleId": str,
-        "addOns": List["AddOnTypeDef"],
-        "isStaticIp": bool,
-        "privateIpAddress": str,
-        "publicIpAddress": str,
-        "ipv6Addresses": List[str],
-        "ipAddressType": IpAddressTypeType,
-        "hardware": "InstanceHardwareTypeDef",
-        "networking": "InstanceNetworkingTypeDef",
-        "state": "InstanceStateTypeDef",
-        "username": str,
-        "sshKeyName": str,
-        "metadataOptions": "InstanceMetadataOptionsTypeDef",
-    },
-    total=False,
-)
-
-IsVpcPeeredResultTypeDef = TypedDict(
-    "IsVpcPeeredResultTypeDef",
-    {
-        "isPeered": bool,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-KeyPairTypeDef = TypedDict(
-    "KeyPairTypeDef",
-    {
-        "name": str,
-        "arn": str,
-        "supportCode": str,
-        "createdAt": datetime,
-        "location": "ResourceLocationTypeDef",
-        "resourceType": ResourceTypeType,
-        "tags": List["TagTypeDef"],
-        "fingerprint": str,
-    },
-    total=False,
-)
-
-LightsailDistributionTypeDef = TypedDict(
-    "LightsailDistributionTypeDef",
+ResourceRecordTypeDef = TypedDict(
+    "ResourceRecordTypeDef",
     {
-        "name": str,
-        "arn": str,
-        "supportCode": str,
-        "createdAt": datetime,
-        "location": "ResourceLocationTypeDef",
-        "resourceType": ResourceTypeType,
-        "alternativeDomainNames": List[str],
-        "status": str,
-        "isEnabled": bool,
-        "domainName": str,
-        "bundleId": str,
-        "certificateName": str,
-        "origin": "OriginTypeDef",
-        "originPublicDNS": str,
-        "defaultCacheBehavior": "CacheBehaviorTypeDef",
-        "cacheBehaviorSettings": "CacheSettingsTypeDef",
-        "cacheBehaviors": List["CacheBehaviorPerPathTypeDef"],
-        "ableToUpdateBundle": bool,
-        "ipAddressType": IpAddressTypeType,
-        "tags": List["TagTypeDef"],
-        "viewerMinimumTlsProtocolVersion": str,
+        "name": NotRequired[str],
+        "type": NotRequired[str],
+        "value": NotRequired[str],
     },
-    total=False,
 )
 
-LoadBalancerTlsCertificateDnsRecordCreationStateTypeDef = TypedDict(
-    "LoadBalancerTlsCertificateDnsRecordCreationStateTypeDef",
-    {
-        "code": LoadBalancerTlsCertificateDnsRecordCreationStateCodeType,
-        "message": str,
-    },
-    total=False,
-)
+class TimePeriodTypeDef(TypedDict):
+    start: NotRequired[datetime]
+    end: NotRequired[datetime]
 
-LoadBalancerTlsCertificateDomainValidationOptionTypeDef = TypedDict(
-    "LoadBalancerTlsCertificateDomainValidationOptionTypeDef",
-    {
-        "domainName": str,
-        "validationStatus": LoadBalancerTlsCertificateDomainStatusType,
-    },
-    total=False,
-)
+class ExportSnapshotRequestTypeDef(TypedDict):
+    sourceSnapshotName: str
 
-LoadBalancerTlsCertificateDomainValidationRecordTypeDef = TypedDict(
-    "LoadBalancerTlsCertificateDomainValidationRecordTypeDef",
-    {
-        "name": str,
-        "type": str,
-        "value": str,
-        "validationStatus": LoadBalancerTlsCertificateDomainStatusType,
-        "domainName": str,
-        "dnsRecordCreationState": "LoadBalancerTlsCertificateDnsRecordCreationStateTypeDef",
-    },
-    total=False,
-)
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
 
-LoadBalancerTlsCertificateRenewalSummaryTypeDef = TypedDict(
-    "LoadBalancerTlsCertificateRenewalSummaryTypeDef",
-    {
-        "renewalStatus": LoadBalancerTlsCertificateRenewalStatusType,
-        "domainValidationOptions": List["LoadBalancerTlsCertificateDomainValidationOptionTypeDef"],
-    },
-    total=False,
-)
+class GetActiveNamesRequestTypeDef(TypedDict):
+    pageToken: NotRequired[str]
 
-LoadBalancerTlsCertificateSummaryTypeDef = TypedDict(
-    "LoadBalancerTlsCertificateSummaryTypeDef",
-    {
-        "name": str,
-        "isAttached": bool,
-    },
-    total=False,
-)
+class GetAlarmsRequestTypeDef(TypedDict):
+    alarmName: NotRequired[str]
+    pageToken: NotRequired[str]
+    monitoredResourceName: NotRequired[str]
 
-LoadBalancerTlsCertificateTypeDef = TypedDict(
-    "LoadBalancerTlsCertificateTypeDef",
-    {
-        "name": str,
-        "arn": str,
-        "supportCode": str,
-        "createdAt": datetime,
-        "location": "ResourceLocationTypeDef",
-        "resourceType": ResourceTypeType,
-        "tags": List["TagTypeDef"],
-        "loadBalancerName": str,
-        "isAttached": bool,
-        "status": LoadBalancerTlsCertificateStatusType,
-        "domainName": str,
-        "domainValidationRecords": List["LoadBalancerTlsCertificateDomainValidationRecordTypeDef"],
-        "failureReason": LoadBalancerTlsCertificateFailureReasonType,
-        "issuedAt": datetime,
-        "issuer": str,
-        "keyAlgorithm": str,
-        "notAfter": datetime,
-        "notBefore": datetime,
-        "renewalSummary": "LoadBalancerTlsCertificateRenewalSummaryTypeDef",
-        "revocationReason": LoadBalancerTlsCertificateRevocationReasonType,
-        "revokedAt": datetime,
-        "serial": str,
-        "signatureAlgorithm": str,
-        "subject": str,
-        "subjectAlternativeNames": List[str],
-    },
-    total=False,
-)
+class GetAutoSnapshotsRequestTypeDef(TypedDict):
+    resourceName: str
 
-LoadBalancerTlsPolicyTypeDef = TypedDict(
-    "LoadBalancerTlsPolicyTypeDef",
-    {
-        "name": str,
-        "isDefault": bool,
-        "description": str,
-        "protocols": List[str],
-        "ciphers": List[str],
-    },
-    total=False,
-)
+class GetBlueprintsRequestTypeDef(TypedDict):
+    includeInactive: NotRequired[bool]
+    pageToken: NotRequired[str]
+    appCategory: NotRequired[Literal["LfR"]]
 
-LoadBalancerTypeDef = TypedDict(
-    "LoadBalancerTypeDef",
-    {
-        "name": str,
-        "arn": str,
-        "supportCode": str,
-        "createdAt": datetime,
-        "location": "ResourceLocationTypeDef",
-        "resourceType": ResourceTypeType,
-        "tags": List["TagTypeDef"],
-        "dnsName": str,
-        "state": LoadBalancerStateType,
-        "protocol": LoadBalancerProtocolType,
-        "publicPorts": List[int],
-        "healthCheckPath": str,
-        "instancePort": int,
-        "instanceHealthSummary": List["InstanceHealthSummaryTypeDef"],
-        "tlsCertificateSummaries": List["LoadBalancerTlsCertificateSummaryTypeDef"],
-        "configurationOptions": Dict[LoadBalancerAttributeNameType, str],
-        "ipAddressType": IpAddressTypeType,
-        "httpsRedirectionEnabled": bool,
-        "tlsPolicyName": str,
-    },
-    total=False,
-)
+class GetBucketAccessKeysRequestTypeDef(TypedDict):
+    bucketName: str
 
-LogEventTypeDef = TypedDict(
-    "LogEventTypeDef",
-    {
-        "createdAt": datetime,
-        "message": str,
-    },
-    total=False,
-)
+class GetBucketBundlesRequestTypeDef(TypedDict):
+    includeInactive: NotRequired[bool]
 
 MetricDatapointTypeDef = TypedDict(
     "MetricDatapointTypeDef",
     {
-        "average": float,
-        "maximum": float,
-        "minimum": float,
-        "sampleCount": float,
-        "sum": float,
-        "timestamp": datetime,
-        "unit": MetricUnitType,
-    },
-    total=False,
-)
-
-MonitoredResourceInfoTypeDef = TypedDict(
-    "MonitoredResourceInfoTypeDef",
-    {
-        "arn": str,
-        "name": str,
-        "resourceType": ResourceTypeType,
-    },
-    total=False,
-)
-
-MonthlyTransferTypeDef = TypedDict(
-    "MonthlyTransferTypeDef",
-    {
-        "gbPerMonthAllocated": int,
-    },
-    total=False,
-)
-
-NameServersUpdateStateTypeDef = TypedDict(
-    "NameServersUpdateStateTypeDef",
-    {
-        "code": NameServersUpdateStateCodeType,
-        "message": str,
-    },
-    total=False,
-)
-
-OpenInstancePublicPortsRequestRequestTypeDef = TypedDict(
-    "OpenInstancePublicPortsRequestRequestTypeDef",
-    {
-        "portInfo": "PortInfoTypeDef",
-        "instanceName": str,
+        "average": NotRequired[float],
+        "maximum": NotRequired[float],
+        "minimum": NotRequired[float],
+        "sampleCount": NotRequired[float],
+        "sum": NotRequired[float],
+        "timestamp": NotRequired[datetime],
+        "unit": NotRequired[MetricUnitType],
     },
 )
 
-OpenInstancePublicPortsResultTypeDef = TypedDict(
-    "OpenInstancePublicPortsResultTypeDef",
-    {
-        "operation": "OperationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetBucketsRequestTypeDef(TypedDict):
+    bucketName: NotRequired[str]
+    pageToken: NotRequired[str]
+    includeConnectedResources: NotRequired[bool]
+
+class GetBundlesRequestTypeDef(TypedDict):
+    includeInactive: NotRequired[bool]
+    pageToken: NotRequired[str]
+    appCategory: NotRequired[Literal["LfR"]]
+
+class GetCertificatesRequestTypeDef(TypedDict):
+    certificateStatuses: NotRequired[Sequence[CertificateStatusType]]
+    includeCertificateDetails: NotRequired[bool]
+    certificateName: NotRequired[str]
+    pageToken: NotRequired[str]
+
+class GetCloudFormationStackRecordsRequestTypeDef(TypedDict):
+    pageToken: NotRequired[str]
+
+class GetContactMethodsRequestTypeDef(TypedDict):
+    protocols: NotRequired[Sequence[ContactProtocolType]]
+
+class GetContainerImagesRequestTypeDef(TypedDict):
+    serviceName: str
+
+class GetContainerServiceDeploymentsRequestTypeDef(TypedDict):
+    serviceName: str
+
+class GetContainerServicesRequestTypeDef(TypedDict):
+    serviceName: NotRequired[str]
+
+class GetDiskRequestTypeDef(TypedDict):
+    diskName: str
+
+class GetDiskSnapshotRequestTypeDef(TypedDict):
+    diskSnapshotName: str
+
+class GetDiskSnapshotsRequestTypeDef(TypedDict):
+    pageToken: NotRequired[str]
+
+class GetDisksRequestTypeDef(TypedDict):
+    pageToken: NotRequired[str]
+
+class GetDistributionLatestCacheResetRequestTypeDef(TypedDict):
+    distributionName: NotRequired[str]
+
+class GetDistributionsRequestTypeDef(TypedDict):
+    distributionName: NotRequired[str]
+    pageToken: NotRequired[str]
+
+class GetDomainRequestTypeDef(TypedDict):
+    domainName: str
+
+class GetDomainsRequestTypeDef(TypedDict):
+    pageToken: NotRequired[str]
+
+class GetExportSnapshotRecordsRequestTypeDef(TypedDict):
+    pageToken: NotRequired[str]
+
+class GetInstanceAccessDetailsRequestTypeDef(TypedDict):
+    instanceName: str
+    protocol: NotRequired[InstanceAccessProtocolType]
+
+class GetInstancePortStatesRequestTypeDef(TypedDict):
+    instanceName: str
+
+class InstancePortStateTypeDef(TypedDict):
+    fromPort: NotRequired[int]
+    toPort: NotRequired[int]
+    protocol: NotRequired[NetworkProtocolType]
+    state: NotRequired[PortStateType]
+    cidrs: NotRequired[List[str]]
+    ipv6Cidrs: NotRequired[List[str]]
+    cidrListAliases: NotRequired[List[str]]
+
+class GetInstanceRequestTypeDef(TypedDict):
+    instanceName: str
+
+class GetInstanceSnapshotRequestTypeDef(TypedDict):
+    instanceSnapshotName: str
+
+class GetInstanceSnapshotsRequestTypeDef(TypedDict):
+    pageToken: NotRequired[str]
+
+class GetInstanceStateRequestTypeDef(TypedDict):
+    instanceName: str
+
+class InstanceStateTypeDef(TypedDict):
+    code: NotRequired[int]
+    name: NotRequired[str]
+
+class GetInstancesRequestTypeDef(TypedDict):
+    pageToken: NotRequired[str]
+
+class GetKeyPairRequestTypeDef(TypedDict):
+    keyPairName: str
+
+class GetKeyPairsRequestTypeDef(TypedDict):
+    pageToken: NotRequired[str]
+    includeDefaultKeyPair: NotRequired[bool]
+
+class GetLoadBalancerRequestTypeDef(TypedDict):
+    loadBalancerName: str
+
+class GetLoadBalancerTlsCertificatesRequestTypeDef(TypedDict):
+    loadBalancerName: str
+
+class GetLoadBalancerTlsPoliciesRequestTypeDef(TypedDict):
+    pageToken: NotRequired[str]
+
+class LoadBalancerTlsPolicyTypeDef(TypedDict):
+    name: NotRequired[str]
+    isDefault: NotRequired[bool]
+    description: NotRequired[str]
+    protocols: NotRequired[List[str]]
+    ciphers: NotRequired[List[str]]
+
+class GetLoadBalancersRequestTypeDef(TypedDict):
+    pageToken: NotRequired[str]
+
+class GetOperationRequestTypeDef(TypedDict):
+    operationId: str
+
+class GetOperationsForResourceRequestTypeDef(TypedDict):
+    resourceName: str
+    pageToken: NotRequired[str]
+
+class GetOperationsRequestTypeDef(TypedDict):
+    pageToken: NotRequired[str]
+
+class GetRegionsRequestTypeDef(TypedDict):
+    includeAvailabilityZones: NotRequired[bool]
+    includeRelationalDatabaseAvailabilityZones: NotRequired[bool]
+
+class GetRelationalDatabaseBlueprintsRequestTypeDef(TypedDict):
+    pageToken: NotRequired[str]
+
+class RelationalDatabaseBlueprintTypeDef(TypedDict):
+    blueprintId: NotRequired[str]
+    engine: NotRequired[Literal["mysql"]]
+    engineVersion: NotRequired[str]
+    engineDescription: NotRequired[str]
+    engineVersionDescription: NotRequired[str]
+    isEngineDefault: NotRequired[bool]
+
+class GetRelationalDatabaseBundlesRequestTypeDef(TypedDict):
+    pageToken: NotRequired[str]
+    includeInactive: NotRequired[bool]
+
+class RelationalDatabaseBundleTypeDef(TypedDict):
+    bundleId: NotRequired[str]
+    name: NotRequired[str]
+    price: NotRequired[float]
+    ramSizeInGb: NotRequired[float]
+    diskSizeInGb: NotRequired[int]
+    transferPerMonthInGb: NotRequired[int]
+    cpuCount: NotRequired[int]
+    isEncrypted: NotRequired[bool]
+    isActive: NotRequired[bool]
+
+class GetRelationalDatabaseEventsRequestTypeDef(TypedDict):
+    relationalDatabaseName: str
+    durationInMinutes: NotRequired[int]
+    pageToken: NotRequired[str]
+
+class RelationalDatabaseEventTypeDef(TypedDict):
+    resource: NotRequired[str]
+    createdAt: NotRequired[datetime]
+    message: NotRequired[str]
+    eventCategories: NotRequired[List[str]]
+
+class LogEventTypeDef(TypedDict):
+    createdAt: NotRequired[datetime]
+    message: NotRequired[str]
+
+class GetRelationalDatabaseLogStreamsRequestTypeDef(TypedDict):
+    relationalDatabaseName: str
+
+class GetRelationalDatabaseMasterUserPasswordRequestTypeDef(TypedDict):
+    relationalDatabaseName: str
+    passwordVersion: NotRequired[RelationalDatabasePasswordVersionType]
+
+class GetRelationalDatabaseParametersRequestTypeDef(TypedDict):
+    relationalDatabaseName: str
+    pageToken: NotRequired[str]
+
+class RelationalDatabaseParameterTypeDef(TypedDict):
+    allowedValues: NotRequired[str]
+    applyMethod: NotRequired[str]
+    applyType: NotRequired[str]
+    dataType: NotRequired[str]
+    description: NotRequired[str]
+    isModifiable: NotRequired[bool]
+    parameterName: NotRequired[str]
+    parameterValue: NotRequired[str]
+
+class GetRelationalDatabaseRequestTypeDef(TypedDict):
+    relationalDatabaseName: str
+
+class GetRelationalDatabaseSnapshotRequestTypeDef(TypedDict):
+    relationalDatabaseSnapshotName: str
+
+class GetRelationalDatabaseSnapshotsRequestTypeDef(TypedDict):
+    pageToken: NotRequired[str]
+
+class GetRelationalDatabasesRequestTypeDef(TypedDict):
+    pageToken: NotRequired[str]
+
+class GetSetupHistoryRequestTypeDef(TypedDict):
+    resourceName: str
+    pageToken: NotRequired[str]
+
+class GetStaticIpRequestTypeDef(TypedDict):
+    staticIpName: str
+
+class GetStaticIpsRequestTypeDef(TypedDict):
+    pageToken: NotRequired[str]
+
+class HostKeyAttributesTypeDef(TypedDict):
+    algorithm: NotRequired[str]
+    publicKey: NotRequired[str]
+    witnessedAt: NotRequired[datetime]
+    fingerprintSHA1: NotRequired[str]
+    fingerprintSHA256: NotRequired[str]
+    notValidBefore: NotRequired[datetime]
+    notValidAfter: NotRequired[datetime]
+
+class ImportKeyPairRequestTypeDef(TypedDict):
+    keyPairName: str
+    publicKeyBase64: str
+
+class PasswordDataTypeDef(TypedDict):
+    ciphertext: NotRequired[str]
+    keyPairName: NotRequired[str]
+
+class InstanceHealthSummaryTypeDef(TypedDict):
+    instanceName: NotRequired[str]
+    instanceHealth: NotRequired[InstanceHealthStateType]
+    instanceHealthReason: NotRequired[InstanceHealthReasonType]
+
+class InstanceMetadataOptionsTypeDef(TypedDict):
+    state: NotRequired[InstanceMetadataStateType]
+    httpTokens: NotRequired[HttpTokensType]
+    httpEndpoint: NotRequired[HttpEndpointType]
+    httpPutResponseHopLimit: NotRequired[int]
+    httpProtocolIpv6: NotRequired[HttpProtocolIpv6Type]
+
+class InstancePortInfoTypeDef(TypedDict):
+    fromPort: NotRequired[int]
+    toPort: NotRequired[int]
+    protocol: NotRequired[NetworkProtocolType]
+    accessFrom: NotRequired[str]
+    accessType: NotRequired[PortAccessTypeType]
+    commonName: NotRequired[str]
+    accessDirection: NotRequired[AccessDirectionType]
+    cidrs: NotRequired[List[str]]
+    ipv6Cidrs: NotRequired[List[str]]
+    cidrListAliases: NotRequired[List[str]]
+
+class MonthlyTransferTypeDef(TypedDict):
+    gbPerMonthAllocated: NotRequired[int]
+
+class OriginTypeDef(TypedDict):
+    name: NotRequired[str]
+    resourceType: NotRequired[ResourceTypeType]
+    regionName: NotRequired[RegionNameType]
+    protocolPolicy: NotRequired[OriginProtocolPolicyEnumType]
+    responseTimeout: NotRequired[int]
+
+class LoadBalancerTlsCertificateDnsRecordCreationStateTypeDef(TypedDict):
+    code: NotRequired[LoadBalancerTlsCertificateDnsRecordCreationStateCodeType]
+    message: NotRequired[str]
+
+class LoadBalancerTlsCertificateDomainValidationOptionTypeDef(TypedDict):
+    domainName: NotRequired[str]
+    validationStatus: NotRequired[LoadBalancerTlsCertificateDomainStatusType]
+
+class LoadBalancerTlsCertificateSummaryTypeDef(TypedDict):
+    name: NotRequired[str]
+    isAttached: NotRequired[bool]
+
+class NameServersUpdateStateTypeDef(TypedDict):
+    code: NotRequired[NameServersUpdateStateCodeType]
+    message: NotRequired[str]
+
+class PendingMaintenanceActionTypeDef(TypedDict):
+    action: NotRequired[str]
+    description: NotRequired[str]
+    currentApplyDate: NotRequired[datetime]
+
+class PendingModifiedRelationalDatabaseValuesTypeDef(TypedDict):
+    masterUserPassword: NotRequired[str]
+    engineVersion: NotRequired[str]
+    backupRetentionEnabled: NotRequired[bool]
+
+class PutAlarmRequestTypeDef(TypedDict):
+    alarmName: str
+    metricName: MetricNameType
+    monitoredResourceName: str
+    comparisonOperator: ComparisonOperatorType
+    threshold: float
+    evaluationPeriods: int
+    datapointsToAlarm: NotRequired[int]
+    treatMissingData: NotRequired[TreatMissingDataType]
+    contactProtocols: NotRequired[Sequence[ContactProtocolType]]
+    notificationTriggers: NotRequired[Sequence[AlarmStateType]]
+    notificationEnabled: NotRequired[bool]
+
+class R53HostedZoneDeletionStateTypeDef(TypedDict):
+    code: NotRequired[R53HostedZoneDeletionStateCodeType]
+    message: NotRequired[str]
+
+class RebootInstanceRequestTypeDef(TypedDict):
+    instanceName: str
+
+class RebootRelationalDatabaseRequestTypeDef(TypedDict):
+    relationalDatabaseName: str
+
+class RegisterContainerImageRequestTypeDef(TypedDict):
+    serviceName: str
+    label: str
+    digest: str
+
+class RelationalDatabaseEndpointTypeDef(TypedDict):
+    port: NotRequired[int]
+    address: NotRequired[str]
+
+class RelationalDatabaseHardwareTypeDef(TypedDict):
+    cpuCount: NotRequired[int]
+    diskSizeInGb: NotRequired[int]
+    ramSizeInGb: NotRequired[float]
+
+class ReleaseStaticIpRequestTypeDef(TypedDict):
+    staticIpName: str
+
+class ResetDistributionCacheRequestTypeDef(TypedDict):
+    distributionName: NotRequired[str]
+
+class SendContactMethodVerificationRequestTypeDef(TypedDict):
+    protocol: Literal["Email"]
+
+class SetIpAddressTypeRequestTypeDef(TypedDict):
+    resourceType: ResourceTypeType
+    resourceName: str
+    ipAddressType: IpAddressTypeType
+    acceptBundleUpdate: NotRequired[bool]
+
+class SetResourceAccessForBucketRequestTypeDef(TypedDict):
+    resourceName: str
+    bucketName: str
+    access: ResourceBucketAccessType
+
+class SetupExecutionDetailsTypeDef(TypedDict):
+    command: NotRequired[str]
+    dateTime: NotRequired[datetime]
+    name: NotRequired[str]
+    status: NotRequired[SetupStatusType]
+    standardError: NotRequired[str]
+    standardOutput: NotRequired[str]
+    version: NotRequired[str]
+
+class SetupRequestTypeDef(TypedDict):
+    instanceName: NotRequired[str]
+    domainNames: NotRequired[List[str]]
+    certificateProvider: NotRequired[Literal["LetsEncrypt"]]
+
+class SetupInstanceHttpsRequestTypeDef(TypedDict):
+    instanceName: str
+    emailAddress: str
+    domainNames: Sequence[str]
+    certificateProvider: Literal["LetsEncrypt"]
+
+class StartGUISessionRequestTypeDef(TypedDict):
+    resourceName: str
+
+class StartInstanceRequestTypeDef(TypedDict):
+    instanceName: str
+
+class StartRelationalDatabaseRequestTypeDef(TypedDict):
+    relationalDatabaseName: str
+
+class StopGUISessionRequestTypeDef(TypedDict):
+    resourceName: str
+
+class StopInstanceRequestTypeDef(TypedDict):
+    instanceName: str
+    force: NotRequired[bool]
+
+class StopRelationalDatabaseRequestTypeDef(TypedDict):
+    relationalDatabaseName: str
+    relationalDatabaseSnapshotName: NotRequired[str]
+
+class TestAlarmRequestTypeDef(TypedDict):
+    alarmName: str
+    state: AlarmStateType
+
+class UntagResourceRequestTypeDef(TypedDict):
+    resourceName: str
+    tagKeys: Sequence[str]
+    resourceArn: NotRequired[str]
+
+class UpdateBucketBundleRequestTypeDef(TypedDict):
+    bucketName: str
+    bundleId: str
+
+class UpdateDistributionBundleRequestTypeDef(TypedDict):
+    distributionName: NotRequired[str]
+    bundleId: NotRequired[str]
+
+class UpdateInstanceMetadataOptionsRequestTypeDef(TypedDict):
+    instanceName: str
+    httpTokens: NotRequired[HttpTokensType]
+    httpEndpoint: NotRequired[HttpEndpointType]
+    httpPutResponseHopLimit: NotRequired[int]
+    httpProtocolIpv6: NotRequired[HttpProtocolIpv6Type]
+
+class UpdateLoadBalancerAttributeRequestTypeDef(TypedDict):
+    loadBalancerName: str
+    attributeName: LoadBalancerAttributeNameType
+    attributeValue: str
+
+class UpdateRelationalDatabaseRequestTypeDef(TypedDict):
+    relationalDatabaseName: str
+    masterUserPassword: NotRequired[str]
+    rotateMasterUserPassword: NotRequired[bool]
+    preferredBackupWindow: NotRequired[str]
+    preferredMaintenanceWindow: NotRequired[str]
+    enableBackupRetention: NotRequired[bool]
+    disableBackupRetention: NotRequired[bool]
+    publiclyAccessible: NotRequired[bool]
+    applyImmediately: NotRequired[bool]
+    caCertificateIdentifier: NotRequired[str]
+    relationalDatabaseBlueprintId: NotRequired[str]
+
+class AccessKeyTypeDef(TypedDict):
+    accessKeyId: NotRequired[str]
+    secretAccessKey: NotRequired[str]
+    status: NotRequired[StatusTypeType]
+    createdAt: NotRequired[datetime]
+    lastUsed: NotRequired[AccessKeyLastUsedTypeDef]
+
+class AddOnRequestTypeDef(TypedDict):
+    addOnType: AddOnTypeType
+    autoSnapshotAddOnRequest: NotRequired[AutoSnapshotAddOnRequestTypeDef]
+    stopInstanceOnIdleRequest: NotRequired[StopInstanceOnIdleRequestTypeDef]
+
+class AlarmTypeDef(TypedDict):
+    name: NotRequired[str]
+    arn: NotRequired[str]
+    createdAt: NotRequired[datetime]
+    location: NotRequired[ResourceLocationTypeDef]
+    resourceType: NotRequired[ResourceTypeType]
+    supportCode: NotRequired[str]
+    monitoredResourceInfo: NotRequired[MonitoredResourceInfoTypeDef]
+    comparisonOperator: NotRequired[ComparisonOperatorType]
+    evaluationPeriods: NotRequired[int]
+    period: NotRequired[int]
+    threshold: NotRequired[float]
+    datapointsToAlarm: NotRequired[int]
+    treatMissingData: NotRequired[TreatMissingDataType]
+    statistic: NotRequired[MetricStatisticType]
+    metricName: NotRequired[MetricNameType]
+    state: NotRequired[AlarmStateType]
+    unit: NotRequired[MetricUnitType]
+    contactProtocols: NotRequired[List[ContactProtocolType]]
+    notificationTriggers: NotRequired[List[AlarmStateType]]
+    notificationEnabled: NotRequired[bool]
+
+class ContactMethodTypeDef(TypedDict):
+    contactEndpoint: NotRequired[str]
+    status: NotRequired[ContactMethodStatusType]
+    protocol: NotRequired[ContactProtocolType]
+    name: NotRequired[str]
+    arn: NotRequired[str]
+    createdAt: NotRequired[datetime]
+    location: NotRequired[ResourceLocationTypeDef]
+    resourceType: NotRequired[ResourceTypeType]
+    supportCode: NotRequired[str]
 
 OperationTypeDef = TypedDict(
     "OperationTypeDef",
     {
-        "id": str,
-        "resourceName": str,
-        "resourceType": ResourceTypeType,
-        "createdAt": datetime,
-        "location": "ResourceLocationTypeDef",
-        "isTerminal": bool,
-        "operationDetails": str,
-        "operationType": OperationTypeType,
-        "status": OperationStatusType,
-        "statusChangedAt": datetime,
-        "errorCode": str,
-        "errorDetails": str,
-    },
-    total=False,
-)
-
-OriginTypeDef = TypedDict(
-    "OriginTypeDef",
-    {
-        "name": str,
-        "resourceType": ResourceTypeType,
-        "regionName": RegionNameType,
-        "protocolPolicy": OriginProtocolPolicyEnumType,
-        "responseTimeout": int,
-    },
-    total=False,
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-PasswordDataTypeDef = TypedDict(
-    "PasswordDataTypeDef",
-    {
-        "ciphertext": str,
-        "keyPairName": str,
-    },
-    total=False,
-)
-
-PeerVpcResultTypeDef = TypedDict(
-    "PeerVpcResultTypeDef",
-    {
-        "operation": "OperationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-PendingMaintenanceActionTypeDef = TypedDict(
-    "PendingMaintenanceActionTypeDef",
-    {
-        "action": str,
-        "description": str,
-        "currentApplyDate": datetime,
-    },
-    total=False,
-)
-
-PendingModifiedRelationalDatabaseValuesTypeDef = TypedDict(
-    "PendingModifiedRelationalDatabaseValuesTypeDef",
-    {
-        "masterUserPassword": str,
-        "engineVersion": str,
-        "backupRetentionEnabled": bool,
-    },
-    total=False,
-)
-
-PortInfoTypeDef = TypedDict(
-    "PortInfoTypeDef",
-    {
-        "fromPort": int,
-        "toPort": int,
-        "protocol": NetworkProtocolType,
-        "cidrs": List[str],
-        "ipv6Cidrs": List[str],
-        "cidrListAliases": List[str],
-    },
-    total=False,
-)
-
-PrivateRegistryAccessRequestTypeDef = TypedDict(
-    "PrivateRegistryAccessRequestTypeDef",
-    {
-        "ecrImagePullerRole": "ContainerServiceECRImagePullerRoleRequestTypeDef",
-    },
-    total=False,
-)
-
-PrivateRegistryAccessTypeDef = TypedDict(
-    "PrivateRegistryAccessTypeDef",
-    {
-        "ecrImagePullerRole": "ContainerServiceECRImagePullerRoleTypeDef",
-    },
-    total=False,
-)
-
-_RequiredPutAlarmRequestRequestTypeDef = TypedDict(
-    "_RequiredPutAlarmRequestRequestTypeDef",
-    {
-        "alarmName": str,
-        "metricName": MetricNameType,
-        "monitoredResourceName": str,
-        "comparisonOperator": ComparisonOperatorType,
-        "threshold": float,
-        "evaluationPeriods": int,
-    },
-)
-_OptionalPutAlarmRequestRequestTypeDef = TypedDict(
-    "_OptionalPutAlarmRequestRequestTypeDef",
-    {
-        "datapointsToAlarm": int,
-        "treatMissingData": TreatMissingDataType,
-        "contactProtocols": List[ContactProtocolType],
-        "notificationTriggers": List[AlarmStateType],
-        "notificationEnabled": bool,
-    },
-    total=False,
-)
-
-class PutAlarmRequestRequestTypeDef(
-    _RequiredPutAlarmRequestRequestTypeDef, _OptionalPutAlarmRequestRequestTypeDef
-):
-    pass
-
-PutAlarmResultTypeDef = TypedDict(
-    "PutAlarmResultTypeDef",
-    {
-        "operations": List["OperationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-PutInstancePublicPortsRequestRequestTypeDef = TypedDict(
-    "PutInstancePublicPortsRequestRequestTypeDef",
-    {
-        "portInfos": List["PortInfoTypeDef"],
-        "instanceName": str,
-    },
-)
-
-PutInstancePublicPortsResultTypeDef = TypedDict(
-    "PutInstancePublicPortsResultTypeDef",
-    {
-        "operation": "OperationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-QueryStringObjectTypeDef = TypedDict(
-    "QueryStringObjectTypeDef",
-    {
-        "option": bool,
-        "queryStringsAllowList": List[str],
-    },
-    total=False,
-)
-
-R53HostedZoneDeletionStateTypeDef = TypedDict(
-    "R53HostedZoneDeletionStateTypeDef",
-    {
-        "code": R53HostedZoneDeletionStateCodeType,
-        "message": str,
-    },
-    total=False,
-)
-
-RebootInstanceRequestRequestTypeDef = TypedDict(
-    "RebootInstanceRequestRequestTypeDef",
-    {
-        "instanceName": str,
-    },
-)
-
-RebootInstanceResultTypeDef = TypedDict(
-    "RebootInstanceResultTypeDef",
-    {
-        "operations": List["OperationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-RebootRelationalDatabaseRequestRequestTypeDef = TypedDict(
-    "RebootRelationalDatabaseRequestRequestTypeDef",
-    {
-        "relationalDatabaseName": str,
-    },
-)
-
-RebootRelationalDatabaseResultTypeDef = TypedDict(
-    "RebootRelationalDatabaseResultTypeDef",
-    {
-        "operations": List["OperationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-RegionTypeDef = TypedDict(
-    "RegionTypeDef",
-    {
-        "continentCode": str,
-        "description": str,
-        "displayName": str,
-        "name": RegionNameType,
-        "availabilityZones": List["AvailabilityZoneTypeDef"],
-        "relationalDatabaseAvailabilityZones": List["AvailabilityZoneTypeDef"],
-    },
-    total=False,
-)
-
-RegisterContainerImageRequestRequestTypeDef = TypedDict(
-    "RegisterContainerImageRequestRequestTypeDef",
-    {
-        "serviceName": str,
-        "label": str,
-        "digest": str,
-    },
-)
-
-RegisterContainerImageResultTypeDef = TypedDict(
-    "RegisterContainerImageResultTypeDef",
-    {
-        "containerImage": "ContainerImageTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-RegisteredDomainDelegationInfoTypeDef = TypedDict(
-    "RegisteredDomainDelegationInfoTypeDef",
-    {
-        "nameServersUpdateState": "NameServersUpdateStateTypeDef",
-        "r53HostedZoneDeletionState": "R53HostedZoneDeletionStateTypeDef",
-    },
-    total=False,
-)
-
-RelationalDatabaseBlueprintTypeDef = TypedDict(
-    "RelationalDatabaseBlueprintTypeDef",
-    {
-        "blueprintId": str,
-        "engine": Literal["mysql"],
-        "engineVersion": str,
-        "engineDescription": str,
-        "engineVersionDescription": str,
-        "isEngineDefault": bool,
-    },
-    total=False,
-)
-
-RelationalDatabaseBundleTypeDef = TypedDict(
-    "RelationalDatabaseBundleTypeDef",
-    {
-        "bundleId": str,
-        "name": str,
-        "price": float,
-        "ramSizeInGb": float,
-        "diskSizeInGb": int,
-        "transferPerMonthInGb": int,
-        "cpuCount": int,
-        "isEncrypted": bool,
-        "isActive": bool,
-    },
-    total=False,
-)
-
-RelationalDatabaseEndpointTypeDef = TypedDict(
-    "RelationalDatabaseEndpointTypeDef",
-    {
-        "port": int,
-        "address": str,
-    },
-    total=False,
-)
-
-RelationalDatabaseEventTypeDef = TypedDict(
-    "RelationalDatabaseEventTypeDef",
-    {
-        "resource": str,
-        "createdAt": datetime,
-        "message": str,
-        "eventCategories": List[str],
-    },
-    total=False,
-)
-
-RelationalDatabaseHardwareTypeDef = TypedDict(
-    "RelationalDatabaseHardwareTypeDef",
-    {
-        "cpuCount": int,
-        "diskSizeInGb": int,
-        "ramSizeInGb": float,
-    },
-    total=False,
-)
-
-RelationalDatabaseParameterTypeDef = TypedDict(
-    "RelationalDatabaseParameterTypeDef",
-    {
-        "allowedValues": str,
-        "applyMethod": str,
-        "applyType": str,
-        "dataType": str,
-        "description": str,
-        "isModifiable": bool,
-        "parameterName": str,
-        "parameterValue": str,
-    },
-    total=False,
-)
-
-RelationalDatabaseSnapshotTypeDef = TypedDict(
-    "RelationalDatabaseSnapshotTypeDef",
-    {
-        "name": str,
-        "arn": str,
-        "supportCode": str,
-        "createdAt": datetime,
-        "location": "ResourceLocationTypeDef",
-        "resourceType": ResourceTypeType,
-        "tags": List["TagTypeDef"],
-        "engine": str,
-        "engineVersion": str,
-        "sizeInGb": int,
-        "state": str,
-        "fromRelationalDatabaseName": str,
-        "fromRelationalDatabaseArn": str,
-        "fromRelationalDatabaseBundleId": str,
-        "fromRelationalDatabaseBlueprintId": str,
-    },
-    total=False,
-)
-
-RelationalDatabaseTypeDef = TypedDict(
-    "RelationalDatabaseTypeDef",
-    {
-        "name": str,
-        "arn": str,
-        "supportCode": str,
-        "createdAt": datetime,
-        "location": "ResourceLocationTypeDef",
-        "resourceType": ResourceTypeType,
-        "tags": List["TagTypeDef"],
-        "relationalDatabaseBlueprintId": str,
-        "relationalDatabaseBundleId": str,
-        "masterDatabaseName": str,
-        "hardware": "RelationalDatabaseHardwareTypeDef",
-        "state": str,
-        "secondaryAvailabilityZone": str,
-        "backupRetentionEnabled": bool,
-        "pendingModifiedValues": "PendingModifiedRelationalDatabaseValuesTypeDef",
-        "engine": str,
-        "engineVersion": str,
-        "latestRestorableTime": datetime,
-        "masterUsername": str,
-        "parameterApplyStatus": str,
-        "preferredBackupWindow": str,
-        "preferredMaintenanceWindow": str,
-        "publiclyAccessible": bool,
-        "masterEndpoint": "RelationalDatabaseEndpointTypeDef",
-        "pendingMaintenanceActions": List["PendingMaintenanceActionTypeDef"],
-        "caCertificateIdentifier": str,
-    },
-    total=False,
-)
-
-ReleaseStaticIpRequestRequestTypeDef = TypedDict(
-    "ReleaseStaticIpRequestRequestTypeDef",
-    {
-        "staticIpName": str,
-    },
-)
-
-ReleaseStaticIpResultTypeDef = TypedDict(
-    "ReleaseStaticIpResultTypeDef",
-    {
-        "operations": List["OperationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-RenewalSummaryTypeDef = TypedDict(
-    "RenewalSummaryTypeDef",
-    {
-        "domainValidationRecords": List["DomainValidationRecordTypeDef"],
-        "renewalStatus": RenewalStatusType,
-        "renewalStatusReason": str,
-        "updatedAt": datetime,
-    },
-    total=False,
-)
-
-ResetDistributionCacheRequestRequestTypeDef = TypedDict(
-    "ResetDistributionCacheRequestRequestTypeDef",
-    {
-        "distributionName": str,
-    },
-    total=False,
-)
-
-ResetDistributionCacheResultTypeDef = TypedDict(
-    "ResetDistributionCacheResultTypeDef",
-    {
-        "status": str,
-        "createTime": datetime,
-        "operation": "OperationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ResourceBudgetEstimateTypeDef = TypedDict(
-    "ResourceBudgetEstimateTypeDef",
-    {
-        "resourceName": str,
-        "resourceType": ResourceTypeType,
-        "costEstimates": List["CostEstimateTypeDef"],
-        "startTime": datetime,
-        "endTime": datetime,
-    },
-    total=False,
-)
-
-ResourceLocationTypeDef = TypedDict(
-    "ResourceLocationTypeDef",
-    {
-        "availabilityZone": str,
-        "regionName": RegionNameType,
-    },
-    total=False,
-)
-
-ResourceReceivingAccessTypeDef = TypedDict(
-    "ResourceReceivingAccessTypeDef",
-    {
-        "name": str,
-        "resourceType": str,
-    },
-    total=False,
-)
-
-ResourceRecordTypeDef = TypedDict(
-    "ResourceRecordTypeDef",
-    {
-        "name": str,
-        "type": str,
-        "value": str,
-    },
-    total=False,
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-SendContactMethodVerificationRequestRequestTypeDef = TypedDict(
-    "SendContactMethodVerificationRequestRequestTypeDef",
-    {
-        "protocol": Literal["Email"],
-    },
-)
-
-SendContactMethodVerificationResultTypeDef = TypedDict(
-    "SendContactMethodVerificationResultTypeDef",
-    {
-        "operations": List["OperationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-SessionTypeDef = TypedDict(
-    "SessionTypeDef",
-    {
-        "name": str,
-        "url": str,
-        "isPrimary": bool,
-    },
-    total=False,
-)
-
-_RequiredSetIpAddressTypeRequestRequestTypeDef = TypedDict(
-    "_RequiredSetIpAddressTypeRequestRequestTypeDef",
-    {
-        "resourceType": ResourceTypeType,
-        "resourceName": str,
-        "ipAddressType": IpAddressTypeType,
-    },
-)
-_OptionalSetIpAddressTypeRequestRequestTypeDef = TypedDict(
-    "_OptionalSetIpAddressTypeRequestRequestTypeDef",
-    {
-        "acceptBundleUpdate": bool,
-    },
-    total=False,
-)
-
-class SetIpAddressTypeRequestRequestTypeDef(
-    _RequiredSetIpAddressTypeRequestRequestTypeDef, _OptionalSetIpAddressTypeRequestRequestTypeDef
-):
-    pass
-
-SetIpAddressTypeResultTypeDef = TypedDict(
-    "SetIpAddressTypeResultTypeDef",
-    {
-        "operations": List["OperationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-SetResourceAccessForBucketRequestRequestTypeDef = TypedDict(
-    "SetResourceAccessForBucketRequestRequestTypeDef",
-    {
-        "resourceName": str,
-        "bucketName": str,
-        "access": ResourceBucketAccessType,
-    },
-)
-
-SetResourceAccessForBucketResultTypeDef = TypedDict(
-    "SetResourceAccessForBucketResultTypeDef",
-    {
-        "operations": List["OperationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-SetupExecutionDetailsTypeDef = TypedDict(
-    "SetupExecutionDetailsTypeDef",
-    {
-        "command": str,
-        "dateTime": datetime,
-        "name": str,
-        "status": SetupStatusType,
-        "standardError": str,
-        "standardOutput": str,
-        "version": str,
-    },
-    total=False,
-)
-
-SetupHistoryResourceTypeDef = TypedDict(
-    "SetupHistoryResourceTypeDef",
-    {
-        "name": str,
-        "arn": str,
-        "createdAt": datetime,
-        "location": "ResourceLocationTypeDef",
-        "resourceType": ResourceTypeType,
-    },
-    total=False,
-)
-
-SetupHistoryTypeDef = TypedDict(
-    "SetupHistoryTypeDef",
-    {
-        "operationId": str,
-        "request": "SetupRequestTypeDef",
-        "resource": "SetupHistoryResourceTypeDef",
-        "executionDetails": List["SetupExecutionDetailsTypeDef"],
-        "status": SetupStatusType,
-    },
-    total=False,
-)
-
-SetupInstanceHttpsRequestRequestTypeDef = TypedDict(
-    "SetupInstanceHttpsRequestRequestTypeDef",
-    {
-        "instanceName": str,
-        "emailAddress": str,
-        "domainNames": List[str],
-        "certificateProvider": Literal["LetsEncrypt"],
-    },
-)
-
-SetupInstanceHttpsResultTypeDef = TypedDict(
-    "SetupInstanceHttpsResultTypeDef",
-    {
-        "operations": List["OperationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-SetupRequestTypeDef = TypedDict(
-    "SetupRequestTypeDef",
-    {
-        "instanceName": str,
-        "domainNames": List[str],
-        "certificateProvider": Literal["LetsEncrypt"],
-    },
-    total=False,
-)
-
-StartGUISessionRequestRequestTypeDef = TypedDict(
-    "StartGUISessionRequestRequestTypeDef",
-    {
-        "resourceName": str,
-    },
-)
-
-StartGUISessionResultTypeDef = TypedDict(
-    "StartGUISessionResultTypeDef",
-    {
-        "operations": List["OperationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-StartInstanceRequestRequestTypeDef = TypedDict(
-    "StartInstanceRequestRequestTypeDef",
-    {
-        "instanceName": str,
-    },
-)
-
-StartInstanceResultTypeDef = TypedDict(
-    "StartInstanceResultTypeDef",
-    {
-        "operations": List["OperationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-StartRelationalDatabaseRequestRequestTypeDef = TypedDict(
-    "StartRelationalDatabaseRequestRequestTypeDef",
-    {
-        "relationalDatabaseName": str,
-    },
-)
-
-StartRelationalDatabaseResultTypeDef = TypedDict(
-    "StartRelationalDatabaseResultTypeDef",
-    {
-        "operations": List["OperationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-StaticIpTypeDef = TypedDict(
-    "StaticIpTypeDef",
-    {
-        "name": str,
-        "arn": str,
-        "supportCode": str,
-        "createdAt": datetime,
-        "location": "ResourceLocationTypeDef",
-        "resourceType": ResourceTypeType,
-        "ipAddress": str,
-        "attachedTo": str,
-        "isAttached": bool,
-    },
-    total=False,
-)
-
-StopGUISessionRequestRequestTypeDef = TypedDict(
-    "StopGUISessionRequestRequestTypeDef",
-    {
-        "resourceName": str,
-    },
-)
-
-StopGUISessionResultTypeDef = TypedDict(
-    "StopGUISessionResultTypeDef",
-    {
-        "operations": List["OperationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-StopInstanceOnIdleRequestTypeDef = TypedDict(
-    "StopInstanceOnIdleRequestTypeDef",
-    {
-        "threshold": str,
-        "duration": str,
-    },
-    total=False,
-)
-
-_RequiredStopInstanceRequestRequestTypeDef = TypedDict(
-    "_RequiredStopInstanceRequestRequestTypeDef",
-    {
-        "instanceName": str,
-    },
-)
-_OptionalStopInstanceRequestRequestTypeDef = TypedDict(
-    "_OptionalStopInstanceRequestRequestTypeDef",
-    {
-        "force": bool,
-    },
-    total=False,
-)
-
-class StopInstanceRequestRequestTypeDef(
-    _RequiredStopInstanceRequestRequestTypeDef, _OptionalStopInstanceRequestRequestTypeDef
-):
-    pass
-
-StopInstanceResultTypeDef = TypedDict(
-    "StopInstanceResultTypeDef",
-    {
-        "operations": List["OperationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredStopRelationalDatabaseRequestRequestTypeDef = TypedDict(
-    "_RequiredStopRelationalDatabaseRequestRequestTypeDef",
-    {
-        "relationalDatabaseName": str,
-    },
-)
-_OptionalStopRelationalDatabaseRequestRequestTypeDef = TypedDict(
-    "_OptionalStopRelationalDatabaseRequestRequestTypeDef",
-    {
-        "relationalDatabaseSnapshotName": str,
-    },
-    total=False,
-)
-
-class StopRelationalDatabaseRequestRequestTypeDef(
-    _RequiredStopRelationalDatabaseRequestRequestTypeDef,
-    _OptionalStopRelationalDatabaseRequestRequestTypeDef,
-):
-    pass
-
-StopRelationalDatabaseResultTypeDef = TypedDict(
-    "StopRelationalDatabaseResultTypeDef",
-    {
-        "operations": List["OperationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredTagResourceRequestRequestTypeDef = TypedDict(
-    "_RequiredTagResourceRequestRequestTypeDef",
-    {
-        "resourceName": str,
-        "tags": List["TagTypeDef"],
-    },
-)
-_OptionalTagResourceRequestRequestTypeDef = TypedDict(
-    "_OptionalTagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-    },
-    total=False,
-)
-
-class TagResourceRequestRequestTypeDef(
-    _RequiredTagResourceRequestRequestTypeDef, _OptionalTagResourceRequestRequestTypeDef
-):
-    pass
-
-TagResourceResultTypeDef = TypedDict(
-    "TagResourceResultTypeDef",
-    {
-        "operations": List["OperationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-TagTypeDef = TypedDict(
-    "TagTypeDef",
-    {
-        "key": str,
-        "value": str,
-    },
-    total=False,
-)
-
-TestAlarmRequestRequestTypeDef = TypedDict(
-    "TestAlarmRequestRequestTypeDef",
-    {
-        "alarmName": str,
-        "state": AlarmStateType,
-    },
-)
-
-TestAlarmResultTypeDef = TypedDict(
-    "TestAlarmResultTypeDef",
-    {
-        "operations": List["OperationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-TimePeriodTypeDef = TypedDict(
-    "TimePeriodTypeDef",
-    {
-        "start": datetime,
-        "end": datetime,
-    },
-    total=False,
-)
-
-UnpeerVpcResultTypeDef = TypedDict(
-    "UnpeerVpcResultTypeDef",
-    {
-        "operation": "OperationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUntagResourceRequestRequestTypeDef = TypedDict(
-    "_RequiredUntagResourceRequestRequestTypeDef",
-    {
-        "resourceName": str,
-        "tagKeys": List[str],
-    },
-)
-_OptionalUntagResourceRequestRequestTypeDef = TypedDict(
-    "_OptionalUntagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-    },
-    total=False,
-)
-
-class UntagResourceRequestRequestTypeDef(
-    _RequiredUntagResourceRequestRequestTypeDef, _OptionalUntagResourceRequestRequestTypeDef
-):
-    pass
-
-UntagResourceResultTypeDef = TypedDict(
-    "UntagResourceResultTypeDef",
-    {
-        "operations": List["OperationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UpdateBucketBundleRequestRequestTypeDef = TypedDict(
-    "UpdateBucketBundleRequestRequestTypeDef",
-    {
-        "bucketName": str,
-        "bundleId": str,
-    },
-)
-
-UpdateBucketBundleResultTypeDef = TypedDict(
-    "UpdateBucketBundleResultTypeDef",
-    {
-        "operations": List["OperationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateBucketRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateBucketRequestRequestTypeDef",
-    {
-        "bucketName": str,
-    },
-)
-_OptionalUpdateBucketRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateBucketRequestRequestTypeDef",
-    {
-        "accessRules": "AccessRulesTypeDef",
-        "versioning": str,
-        "readonlyAccessAccounts": List[str],
-        "accessLogConfig": "BucketAccessLogConfigTypeDef",
-    },
-    total=False,
-)
-
-class UpdateBucketRequestRequestTypeDef(
-    _RequiredUpdateBucketRequestRequestTypeDef, _OptionalUpdateBucketRequestRequestTypeDef
-):
-    pass
-
-UpdateBucketResultTypeDef = TypedDict(
-    "UpdateBucketResultTypeDef",
-    {
-        "bucket": "BucketTypeDef",
-        "operations": List["OperationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateContainerServiceRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateContainerServiceRequestRequestTypeDef",
-    {
-        "serviceName": str,
-    },
-)
-_OptionalUpdateContainerServiceRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateContainerServiceRequestRequestTypeDef",
-    {
-        "power": ContainerServicePowerNameType,
-        "scale": int,
-        "isDisabled": bool,
-        "publicDomainNames": Dict[str, List[str]],
-        "privateRegistryAccess": "PrivateRegistryAccessRequestTypeDef",
-    },
-    total=False,
-)
-
-class UpdateContainerServiceRequestRequestTypeDef(
-    _RequiredUpdateContainerServiceRequestRequestTypeDef,
-    _OptionalUpdateContainerServiceRequestRequestTypeDef,
-):
-    pass
-
-UpdateContainerServiceResultTypeDef = TypedDict(
-    "UpdateContainerServiceResultTypeDef",
-    {
-        "containerService": "ContainerServiceTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UpdateDistributionBundleRequestRequestTypeDef = TypedDict(
-    "UpdateDistributionBundleRequestRequestTypeDef",
-    {
-        "distributionName": str,
-        "bundleId": str,
-    },
-    total=False,
-)
-
-UpdateDistributionBundleResultTypeDef = TypedDict(
-    "UpdateDistributionBundleResultTypeDef",
-    {
-        "operation": "OperationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateDistributionRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateDistributionRequestRequestTypeDef",
-    {
-        "distributionName": str,
-    },
-)
-_OptionalUpdateDistributionRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateDistributionRequestRequestTypeDef",
-    {
-        "origin": "InputOriginTypeDef",
-        "defaultCacheBehavior": "CacheBehaviorTypeDef",
-        "cacheBehaviorSettings": "CacheSettingsTypeDef",
-        "cacheBehaviors": List["CacheBehaviorPerPathTypeDef"],
-        "isEnabled": bool,
-        "viewerMinimumTlsProtocolVersion": ViewerMinimumTlsProtocolVersionEnumType,
-        "certificateName": str,
-        "useDefaultCertificate": bool,
-    },
-    total=False,
-)
-
-class UpdateDistributionRequestRequestTypeDef(
-    _RequiredUpdateDistributionRequestRequestTypeDef,
-    _OptionalUpdateDistributionRequestRequestTypeDef,
-):
-    pass
-
-UpdateDistributionResultTypeDef = TypedDict(
-    "UpdateDistributionResultTypeDef",
-    {
-        "operation": "OperationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UpdateDomainEntryRequestRequestTypeDef = TypedDict(
-    "UpdateDomainEntryRequestRequestTypeDef",
-    {
-        "domainName": str,
-        "domainEntry": "DomainEntryTypeDef",
-    },
-)
-
-UpdateDomainEntryResultTypeDef = TypedDict(
-    "UpdateDomainEntryResultTypeDef",
-    {
-        "operations": List["OperationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateInstanceMetadataOptionsRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateInstanceMetadataOptionsRequestRequestTypeDef",
-    {
-        "instanceName": str,
-    },
-)
-_OptionalUpdateInstanceMetadataOptionsRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateInstanceMetadataOptionsRequestRequestTypeDef",
-    {
-        "httpTokens": HttpTokensType,
-        "httpEndpoint": HttpEndpointType,
-        "httpPutResponseHopLimit": int,
-        "httpProtocolIpv6": HttpProtocolIpv6Type,
-    },
-    total=False,
-)
-
-class UpdateInstanceMetadataOptionsRequestRequestTypeDef(
-    _RequiredUpdateInstanceMetadataOptionsRequestRequestTypeDef,
-    _OptionalUpdateInstanceMetadataOptionsRequestRequestTypeDef,
-):
-    pass
-
-UpdateInstanceMetadataOptionsResultTypeDef = TypedDict(
-    "UpdateInstanceMetadataOptionsResultTypeDef",
-    {
-        "operation": "OperationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UpdateLoadBalancerAttributeRequestRequestTypeDef = TypedDict(
-    "UpdateLoadBalancerAttributeRequestRequestTypeDef",
-    {
-        "loadBalancerName": str,
-        "attributeName": LoadBalancerAttributeNameType,
-        "attributeValue": str,
-    },
-)
-
-UpdateLoadBalancerAttributeResultTypeDef = TypedDict(
-    "UpdateLoadBalancerAttributeResultTypeDef",
-    {
-        "operations": List["OperationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UpdateRelationalDatabaseParametersRequestRequestTypeDef = TypedDict(
-    "UpdateRelationalDatabaseParametersRequestRequestTypeDef",
-    {
-        "relationalDatabaseName": str,
-        "parameters": List["RelationalDatabaseParameterTypeDef"],
-    },
-)
-
-UpdateRelationalDatabaseParametersResultTypeDef = TypedDict(
-    "UpdateRelationalDatabaseParametersResultTypeDef",
-    {
-        "operations": List["OperationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateRelationalDatabaseRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateRelationalDatabaseRequestRequestTypeDef",
-    {
-        "relationalDatabaseName": str,
-    },
-)
-_OptionalUpdateRelationalDatabaseRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateRelationalDatabaseRequestRequestTypeDef",
-    {
-        "masterUserPassword": str,
-        "rotateMasterUserPassword": bool,
-        "preferredBackupWindow": str,
-        "preferredMaintenanceWindow": str,
-        "enableBackupRetention": bool,
-        "disableBackupRetention": bool,
-        "publiclyAccessible": bool,
-        "applyImmediately": bool,
-        "caCertificateIdentifier": str,
-        "relationalDatabaseBlueprintId": str,
-    },
-    total=False,
-)
-
-class UpdateRelationalDatabaseRequestRequestTypeDef(
-    _RequiredUpdateRelationalDatabaseRequestRequestTypeDef,
-    _OptionalUpdateRelationalDatabaseRequestRequestTypeDef,
-):
-    pass
-
-UpdateRelationalDatabaseResultTypeDef = TypedDict(
-    "UpdateRelationalDatabaseResultTypeDef",
-    {
-        "operations": List["OperationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+        "id": NotRequired[str],
+        "resourceName": NotRequired[str],
+        "resourceType": NotRequired[ResourceTypeType],
+        "createdAt": NotRequired[datetime],
+        "location": NotRequired[ResourceLocationTypeDef],
+        "isTerminal": NotRequired[bool],
+        "operationDetails": NotRequired[str],
+        "operationType": NotRequired[OperationTypeType],
+        "status": NotRequired[OperationStatusType],
+        "statusChangedAt": NotRequired[datetime],
+        "errorCode": NotRequired[str],
+        "errorDetails": NotRequired[str],
+    },
+)
+
+class SetupHistoryResourceTypeDef(TypedDict):
+    name: NotRequired[str]
+    arn: NotRequired[str]
+    createdAt: NotRequired[datetime]
+    location: NotRequired[ResourceLocationTypeDef]
+    resourceType: NotRequired[ResourceTypeType]
+
+class StaticIpTypeDef(TypedDict):
+    name: NotRequired[str]
+    arn: NotRequired[str]
+    supportCode: NotRequired[str]
+    createdAt: NotRequired[datetime]
+    location: NotRequired[ResourceLocationTypeDef]
+    resourceType: NotRequired[ResourceTypeType]
+    ipAddress: NotRequired[str]
+    attachedTo: NotRequired[str]
+    isAttached: NotRequired[bool]
+
+class DownloadDefaultKeyPairResultTypeDef(TypedDict):
+    publicKeyBase64: str
+    privateKeyBase64: str
+    createdAt: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetActiveNamesResultTypeDef(TypedDict):
+    activeNames: List[str]
+    nextPageToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetContainerAPIMetadataResultTypeDef(TypedDict):
+    metadata: List[Dict[str, str]]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetDistributionLatestCacheResetResultTypeDef(TypedDict):
+    status: str
+    createTime: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetRelationalDatabaseLogStreamsResultTypeDef(TypedDict):
+    logStreams: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetRelationalDatabaseMasterUserPasswordResultTypeDef(TypedDict):
+    masterUserPassword: str
+    createdAt: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class IsVpcPeeredResultTypeDef(TypedDict):
+    isPeered: bool
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class AutoSnapshotDetailsTypeDef(TypedDict):
+    date: NotRequired[str]
+    createdAt: NotRequired[datetime]
+    status: NotRequired[AutoSnapshotStatusType]
+    fromAttachedDisks: NotRequired[List[AttachedDiskTypeDef]]
+
+class RegionTypeDef(TypedDict):
+    continentCode: NotRequired[str]
+    description: NotRequired[str]
+    displayName: NotRequired[str]
+    name: NotRequired[RegionNameType]
+    availabilityZones: NotRequired[List[AvailabilityZoneTypeDef]]
+    relationalDatabaseAvailabilityZones: NotRequired[List[AvailabilityZoneTypeDef]]
+
+class GetBlueprintsResultTypeDef(TypedDict):
+    blueprints: List[BlueprintTypeDef]
+    nextPageToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateBucketRequestTypeDef(TypedDict):
+    bucketName: str
+    accessRules: NotRequired[AccessRulesTypeDef]
+    versioning: NotRequired[str]
+    readonlyAccessAccounts: NotRequired[Sequence[str]]
+    accessLogConfig: NotRequired[BucketAccessLogConfigTypeDef]
+
+class GetBucketBundlesResultTypeDef(TypedDict):
+    bundles: List[BucketBundleTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class BucketTypeDef(TypedDict):
+    resourceType: NotRequired[str]
+    accessRules: NotRequired[AccessRulesTypeDef]
+    arn: NotRequired[str]
+    bundleId: NotRequired[str]
+    createdAt: NotRequired[datetime]
+    url: NotRequired[str]
+    location: NotRequired[ResourceLocationTypeDef]
+    name: NotRequired[str]
+    supportCode: NotRequired[str]
+    tags: NotRequired[List[TagTypeDef]]
+    objectVersioning: NotRequired[str]
+    ableToUpdateBundle: NotRequired[bool]
+    readonlyAccessAccounts: NotRequired[List[str]]
+    resourcesReceivingAccess: NotRequired[List[ResourceReceivingAccessTypeDef]]
+    state: NotRequired[BucketStateTypeDef]
+    accessLogConfig: NotRequired[BucketAccessLogConfigTypeDef]
+
+class CreateBucketRequestTypeDef(TypedDict):
+    bucketName: str
+    bundleId: str
+    tags: NotRequired[Sequence[TagTypeDef]]
+    enableObjectVersioning: NotRequired[bool]
+
+class CreateCertificateRequestTypeDef(TypedDict):
+    certificateName: str
+    domainName: str
+    subjectAlternativeNames: NotRequired[Sequence[str]]
+    tags: NotRequired[Sequence[TagTypeDef]]
+
+class CreateDiskSnapshotRequestTypeDef(TypedDict):
+    diskSnapshotName: str
+    diskName: NotRequired[str]
+    instanceName: NotRequired[str]
+    tags: NotRequired[Sequence[TagTypeDef]]
+
+class CreateDomainRequestTypeDef(TypedDict):
+    domainName: str
+    tags: NotRequired[Sequence[TagTypeDef]]
+
+class CreateInstanceSnapshotRequestTypeDef(TypedDict):
+    instanceSnapshotName: str
+    instanceName: str
+    tags: NotRequired[Sequence[TagTypeDef]]
+
+class CreateKeyPairRequestTypeDef(TypedDict):
+    keyPairName: str
+    tags: NotRequired[Sequence[TagTypeDef]]
+
+class CreateLoadBalancerRequestTypeDef(TypedDict):
+    loadBalancerName: str
+    instancePort: int
+    healthCheckPath: NotRequired[str]
+    certificateName: NotRequired[str]
+    certificateDomainName: NotRequired[str]
+    certificateAlternativeNames: NotRequired[Sequence[str]]
+    tags: NotRequired[Sequence[TagTypeDef]]
+    ipAddressType: NotRequired[IpAddressTypeType]
+    tlsPolicyName: NotRequired[str]
+
+class CreateLoadBalancerTlsCertificateRequestTypeDef(TypedDict):
+    loadBalancerName: str
+    certificateName: str
+    certificateDomainName: str
+    certificateAlternativeNames: NotRequired[Sequence[str]]
+    tags: NotRequired[Sequence[TagTypeDef]]
+
+class CreateRelationalDatabaseRequestTypeDef(TypedDict):
+    relationalDatabaseName: str
+    relationalDatabaseBlueprintId: str
+    relationalDatabaseBundleId: str
+    masterDatabaseName: str
+    masterUsername: str
+    availabilityZone: NotRequired[str]
+    masterUserPassword: NotRequired[str]
+    preferredBackupWindow: NotRequired[str]
+    preferredMaintenanceWindow: NotRequired[str]
+    publiclyAccessible: NotRequired[bool]
+    tags: NotRequired[Sequence[TagTypeDef]]
+
+class CreateRelationalDatabaseSnapshotRequestTypeDef(TypedDict):
+    relationalDatabaseName: str
+    relationalDatabaseSnapshotName: str
+    tags: NotRequired[Sequence[TagTypeDef]]
+
+class DiskSnapshotTypeDef(TypedDict):
+    name: NotRequired[str]
+    arn: NotRequired[str]
+    supportCode: NotRequired[str]
+    createdAt: NotRequired[datetime]
+    location: NotRequired[ResourceLocationTypeDef]
+    resourceType: NotRequired[ResourceTypeType]
+    tags: NotRequired[List[TagTypeDef]]
+    sizeInGb: NotRequired[int]
+    state: NotRequired[DiskSnapshotStateType]
+    progress: NotRequired[str]
+    fromDiskName: NotRequired[str]
+    fromDiskArn: NotRequired[str]
+    fromInstanceName: NotRequired[str]
+    fromInstanceArn: NotRequired[str]
+    isFromAutoSnapshot: NotRequired[bool]
+
+class DiskTypeDef(TypedDict):
+    name: NotRequired[str]
+    arn: NotRequired[str]
+    supportCode: NotRequired[str]
+    createdAt: NotRequired[datetime]
+    location: NotRequired[ResourceLocationTypeDef]
+    resourceType: NotRequired[ResourceTypeType]
+    tags: NotRequired[List[TagTypeDef]]
+    addOns: NotRequired[List[AddOnTypeDef]]
+    sizeInGb: NotRequired[int]
+    isSystemDisk: NotRequired[bool]
+    iops: NotRequired[int]
+    path: NotRequired[str]
+    state: NotRequired[DiskStateType]
+    attachedTo: NotRequired[str]
+    isAttached: NotRequired[bool]
+    attachmentState: NotRequired[str]
+    gbInUse: NotRequired[int]
+    autoMountStatus: NotRequired[AutoMountStatusType]
+
+class KeyPairTypeDef(TypedDict):
+    name: NotRequired[str]
+    arn: NotRequired[str]
+    supportCode: NotRequired[str]
+    createdAt: NotRequired[datetime]
+    location: NotRequired[ResourceLocationTypeDef]
+    resourceType: NotRequired[ResourceTypeType]
+    tags: NotRequired[List[TagTypeDef]]
+    fingerprint: NotRequired[str]
+
+class RelationalDatabaseSnapshotTypeDef(TypedDict):
+    name: NotRequired[str]
+    arn: NotRequired[str]
+    supportCode: NotRequired[str]
+    createdAt: NotRequired[datetime]
+    location: NotRequired[ResourceLocationTypeDef]
+    resourceType: NotRequired[ResourceTypeType]
+    tags: NotRequired[List[TagTypeDef]]
+    engine: NotRequired[str]
+    engineVersion: NotRequired[str]
+    sizeInGb: NotRequired[int]
+    state: NotRequired[str]
+    fromRelationalDatabaseName: NotRequired[str]
+    fromRelationalDatabaseArn: NotRequired[str]
+    fromRelationalDatabaseBundleId: NotRequired[str]
+    fromRelationalDatabaseBlueprintId: NotRequired[str]
+
+class TagResourceRequestTypeDef(TypedDict):
+    resourceName: str
+    tags: Sequence[TagTypeDef]
+    resourceArn: NotRequired[str]
+
+class GetBundlesResultTypeDef(TypedDict):
+    bundles: List[BundleTypeDef]
+    nextPageToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CacheSettingsOutputTypeDef(TypedDict):
+    defaultTTL: NotRequired[int]
+    minimumTTL: NotRequired[int]
+    maximumTTL: NotRequired[int]
+    allowedHTTPMethods: NotRequired[str]
+    cachedHTTPMethods: NotRequired[str]
+    forwardedCookies: NotRequired[CookieObjectOutputTypeDef]
+    forwardedHeaders: NotRequired[HeaderObjectOutputTypeDef]
+    forwardedQueryStrings: NotRequired[QueryStringObjectOutputTypeDef]
+
+class CacheSettingsTypeDef(TypedDict):
+    defaultTTL: NotRequired[int]
+    minimumTTL: NotRequired[int]
+    maximumTTL: NotRequired[int]
+    allowedHTTPMethods: NotRequired[str]
+    cachedHTTPMethods: NotRequired[str]
+    forwardedCookies: NotRequired[CookieObjectTypeDef]
+    forwardedHeaders: NotRequired[HeaderObjectTypeDef]
+    forwardedQueryStrings: NotRequired[QueryStringObjectTypeDef]
+
+class CloseInstancePublicPortsRequestTypeDef(TypedDict):
+    portInfo: PortInfoTypeDef
+    instanceName: str
+
+class OpenInstancePublicPortsRequestTypeDef(TypedDict):
+    portInfo: PortInfoTypeDef
+    instanceName: str
+
+class PutInstancePublicPortsRequestTypeDef(TypedDict):
+    portInfos: Sequence[PortInfoTypeDef]
+    instanceName: str
+
+class CloudFormationStackRecordTypeDef(TypedDict):
+    name: NotRequired[str]
+    arn: NotRequired[str]
+    createdAt: NotRequired[datetime]
+    location: NotRequired[ResourceLocationTypeDef]
+    resourceType: NotRequired[ResourceTypeType]
+    state: NotRequired[RecordStateType]
+    sourceInfo: NotRequired[List[CloudFormationStackRecordSourceInfoTypeDef]]
+    destinationInfo: NotRequired[DestinationInfoTypeDef]
+
+class GetContainerImagesResultTypeDef(TypedDict):
+    containerImages: List[ContainerImageTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class RegisterContainerImageResultTypeDef(TypedDict):
+    containerImage: ContainerImageTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PrivateRegistryAccessRequestTypeDef(TypedDict):
+    ecrImagePullerRole: NotRequired[ContainerServiceECRImagePullerRoleRequestTypeDef]
+
+class PrivateRegistryAccessTypeDef(TypedDict):
+    ecrImagePullerRole: NotRequired[ContainerServiceECRImagePullerRoleTypeDef]
+
+class ContainerServiceEndpointTypeDef(TypedDict):
+    containerName: NotRequired[str]
+    containerPort: NotRequired[int]
+    healthCheck: NotRequired[ContainerServiceHealthCheckConfigTypeDef]
+
+class EndpointRequestTypeDef(TypedDict):
+    containerName: str
+    containerPort: int
+    healthCheck: NotRequired[ContainerServiceHealthCheckConfigTypeDef]
+
+class GetContainerLogResultTypeDef(TypedDict):
+    logEvents: List[ContainerServiceLogEventTypeDef]
+    nextPageToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetContainerServicePowersResultTypeDef(TypedDict):
+    powers: List[ContainerServicePowerTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateContainerServiceRegistryLoginResultTypeDef(TypedDict):
+    registryLogin: ContainerServiceRegistryLoginTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+ContainerUnionTypeDef = Union[ContainerTypeDef, ContainerOutputTypeDef]
+
+class CreateCloudFormationStackRequestTypeDef(TypedDict):
+    instances: Sequence[InstanceEntryTypeDef]
+
+class CreateGUISessionAccessDetailsResultTypeDef(TypedDict):
+    resourceName: str
+    status: StatusType
+    percentageComplete: int
+    failureReason: str
+    sessions: List[SessionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateRelationalDatabaseFromSnapshotRequestTypeDef(TypedDict):
+    relationalDatabaseName: str
+    availabilityZone: NotRequired[str]
+    publiclyAccessible: NotRequired[bool]
+    relationalDatabaseSnapshotName: NotRequired[str]
+    relationalDatabaseBundleId: NotRequired[str]
+    sourceRelationalDatabaseName: NotRequired[str]
+    restoreTime: NotRequired[TimestampTypeDef]
+    useLatestRestorableTime: NotRequired[bool]
+    tags: NotRequired[Sequence[TagTypeDef]]
+
+class GetBucketMetricDataRequestTypeDef(TypedDict):
+    bucketName: str
+    metricName: BucketMetricNameType
+    startTime: TimestampTypeDef
+    endTime: TimestampTypeDef
+    period: int
+    statistics: Sequence[MetricStatisticType]
+    unit: MetricUnitType
+
+class GetContainerLogRequestTypeDef(TypedDict):
+    serviceName: str
+    containerName: str
+    startTime: NotRequired[TimestampTypeDef]
+    endTime: NotRequired[TimestampTypeDef]
+    filterPattern: NotRequired[str]
+    pageToken: NotRequired[str]
+
+class GetContainerServiceMetricDataRequestTypeDef(TypedDict):
+    serviceName: str
+    metricName: ContainerServiceMetricNameType
+    startTime: TimestampTypeDef
+    endTime: TimestampTypeDef
+    period: int
+    statistics: Sequence[MetricStatisticType]
+
+class GetCostEstimateRequestTypeDef(TypedDict):
+    resourceName: str
+    startTime: TimestampTypeDef
+    endTime: TimestampTypeDef
+
+class GetDistributionMetricDataRequestTypeDef(TypedDict):
+    distributionName: str
+    metricName: DistributionMetricNameType
+    startTime: TimestampTypeDef
+    endTime: TimestampTypeDef
+    period: int
+    unit: MetricUnitType
+    statistics: Sequence[MetricStatisticType]
+
+class GetInstanceMetricDataRequestTypeDef(TypedDict):
+    instanceName: str
+    metricName: InstanceMetricNameType
+    period: int
+    startTime: TimestampTypeDef
+    endTime: TimestampTypeDef
+    unit: MetricUnitType
+    statistics: Sequence[MetricStatisticType]
+
+class GetLoadBalancerMetricDataRequestTypeDef(TypedDict):
+    loadBalancerName: str
+    metricName: LoadBalancerMetricNameType
+    period: int
+    startTime: TimestampTypeDef
+    endTime: TimestampTypeDef
+    unit: MetricUnitType
+    statistics: Sequence[MetricStatisticType]
+
+class GetRelationalDatabaseLogEventsRequestTypeDef(TypedDict):
+    relationalDatabaseName: str
+    logStreamName: str
+    startTime: NotRequired[TimestampTypeDef]
+    endTime: NotRequired[TimestampTypeDef]
+    startFromHead: NotRequired[bool]
+    pageToken: NotRequired[str]
+
+class GetRelationalDatabaseMetricDataRequestTypeDef(TypedDict):
+    relationalDatabaseName: str
+    metricName: RelationalDatabaseMetricNameType
+    period: int
+    startTime: TimestampTypeDef
+    endTime: TimestampTypeDef
+    unit: MetricUnitType
+    statistics: Sequence[MetricStatisticType]
+
+class InstanceSnapshotInfoTypeDef(TypedDict):
+    fromBundleId: NotRequired[str]
+    fromBlueprintId: NotRequired[str]
+    fromDiskInfo: NotRequired[List[DiskInfoTypeDef]]
+
+class GetDistributionBundlesResultTypeDef(TypedDict):
+    bundles: List[DistributionBundleTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+DomainEntryUnionTypeDef = Union[DomainEntryTypeDef, DomainEntryOutputTypeDef]
+
+class DomainValidationRecordTypeDef(TypedDict):
+    domainName: NotRequired[str]
+    resourceRecord: NotRequired[ResourceRecordTypeDef]
+    dnsRecordCreationState: NotRequired[DnsRecordCreationStateTypeDef]
+    validationStatus: NotRequired[CertificateDomainValidationStatusType]
+
+class EstimateByTimeTypeDef(TypedDict):
+    usageCost: NotRequired[float]
+    pricingUnit: NotRequired[PricingUnitType]
+    unit: NotRequired[float]
+    currency: NotRequired[Literal["USD"]]
+    timePeriod: NotRequired[TimePeriodTypeDef]
+
+class GetActiveNamesRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class GetBlueprintsRequestPaginateTypeDef(TypedDict):
+    includeInactive: NotRequired[bool]
+    appCategory: NotRequired[Literal["LfR"]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class GetBundlesRequestPaginateTypeDef(TypedDict):
+    includeInactive: NotRequired[bool]
+    appCategory: NotRequired[Literal["LfR"]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class GetCloudFormationStackRecordsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class GetDiskSnapshotsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class GetDisksRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class GetDomainsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class GetExportSnapshotRecordsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class GetInstanceSnapshotsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class GetInstancesRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class GetKeyPairsRequestPaginateTypeDef(TypedDict):
+    includeDefaultKeyPair: NotRequired[bool]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class GetLoadBalancersRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class GetOperationsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class GetRelationalDatabaseBlueprintsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class GetRelationalDatabaseBundlesRequestPaginateTypeDef(TypedDict):
+    includeInactive: NotRequired[bool]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class GetRelationalDatabaseEventsRequestPaginateTypeDef(TypedDict):
+    relationalDatabaseName: str
+    durationInMinutes: NotRequired[int]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class GetRelationalDatabaseParametersRequestPaginateTypeDef(TypedDict):
+    relationalDatabaseName: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class GetRelationalDatabaseSnapshotsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class GetRelationalDatabasesRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class GetStaticIpsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class GetBucketMetricDataResultTypeDef(TypedDict):
+    metricName: BucketMetricNameType
+    metricData: List[MetricDatapointTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetContainerServiceMetricDataResultTypeDef(TypedDict):
+    metricName: ContainerServiceMetricNameType
+    metricData: List[MetricDatapointTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetDistributionMetricDataResultTypeDef(TypedDict):
+    metricName: DistributionMetricNameType
+    metricData: List[MetricDatapointTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetInstanceMetricDataResultTypeDef(TypedDict):
+    metricName: InstanceMetricNameType
+    metricData: List[MetricDatapointTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetLoadBalancerMetricDataResultTypeDef(TypedDict):
+    metricName: LoadBalancerMetricNameType
+    metricData: List[MetricDatapointTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetRelationalDatabaseMetricDataResultTypeDef(TypedDict):
+    metricName: RelationalDatabaseMetricNameType
+    metricData: List[MetricDatapointTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetInstancePortStatesResultTypeDef(TypedDict):
+    portStates: List[InstancePortStateTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetInstanceStateResultTypeDef(TypedDict):
+    state: InstanceStateTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetLoadBalancerTlsPoliciesResultTypeDef(TypedDict):
+    tlsPolicies: List[LoadBalancerTlsPolicyTypeDef]
+    nextPageToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetRelationalDatabaseBlueprintsResultTypeDef(TypedDict):
+    blueprints: List[RelationalDatabaseBlueprintTypeDef]
+    nextPageToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetRelationalDatabaseBundlesResultTypeDef(TypedDict):
+    bundles: List[RelationalDatabaseBundleTypeDef]
+    nextPageToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetRelationalDatabaseEventsResultTypeDef(TypedDict):
+    relationalDatabaseEvents: List[RelationalDatabaseEventTypeDef]
+    nextPageToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetRelationalDatabaseLogEventsResultTypeDef(TypedDict):
+    resourceLogEvents: List[LogEventTypeDef]
+    nextBackwardToken: str
+    nextForwardToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetRelationalDatabaseParametersResultTypeDef(TypedDict):
+    parameters: List[RelationalDatabaseParameterTypeDef]
+    nextPageToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateRelationalDatabaseParametersRequestTypeDef(TypedDict):
+    relationalDatabaseName: str
+    parameters: Sequence[RelationalDatabaseParameterTypeDef]
+
+class InstanceAccessDetailsTypeDef(TypedDict):
+    certKey: NotRequired[str]
+    expiresAt: NotRequired[datetime]
+    ipAddress: NotRequired[str]
+    ipv6Addresses: NotRequired[List[str]]
+    password: NotRequired[str]
+    passwordData: NotRequired[PasswordDataTypeDef]
+    privateKey: NotRequired[str]
+    protocol: NotRequired[InstanceAccessProtocolType]
+    instanceName: NotRequired[str]
+    username: NotRequired[str]
+    hostKeys: NotRequired[List[HostKeyAttributesTypeDef]]
+
+class InstanceNetworkingTypeDef(TypedDict):
+    monthlyTransfer: NotRequired[MonthlyTransferTypeDef]
+    ports: NotRequired[List[InstancePortInfoTypeDef]]
+
+LoadBalancerTlsCertificateDomainValidationRecordTypeDef = TypedDict(
+    "LoadBalancerTlsCertificateDomainValidationRecordTypeDef",
+    {
+        "name": NotRequired[str],
+        "type": NotRequired[str],
+        "value": NotRequired[str],
+        "validationStatus": NotRequired[LoadBalancerTlsCertificateDomainStatusType],
+        "domainName": NotRequired[str],
+        "dnsRecordCreationState": NotRequired[
+            LoadBalancerTlsCertificateDnsRecordCreationStateTypeDef
+        ],
+    },
+)
+
+class LoadBalancerTlsCertificateRenewalSummaryTypeDef(TypedDict):
+    renewalStatus: NotRequired[LoadBalancerTlsCertificateRenewalStatusType]
+    domainValidationOptions: NotRequired[
+        List[LoadBalancerTlsCertificateDomainValidationOptionTypeDef]
+    ]
+
+class LoadBalancerTypeDef(TypedDict):
+    name: NotRequired[str]
+    arn: NotRequired[str]
+    supportCode: NotRequired[str]
+    createdAt: NotRequired[datetime]
+    location: NotRequired[ResourceLocationTypeDef]
+    resourceType: NotRequired[ResourceTypeType]
+    tags: NotRequired[List[TagTypeDef]]
+    dnsName: NotRequired[str]
+    state: NotRequired[LoadBalancerStateType]
+    protocol: NotRequired[LoadBalancerProtocolType]
+    publicPorts: NotRequired[List[int]]
+    healthCheckPath: NotRequired[str]
+    instancePort: NotRequired[int]
+    instanceHealthSummary: NotRequired[List[InstanceHealthSummaryTypeDef]]
+    tlsCertificateSummaries: NotRequired[List[LoadBalancerTlsCertificateSummaryTypeDef]]
+    configurationOptions: NotRequired[Dict[LoadBalancerAttributeNameType, str]]
+    ipAddressType: NotRequired[IpAddressTypeType]
+    httpsRedirectionEnabled: NotRequired[bool]
+    tlsPolicyName: NotRequired[str]
+
+class RegisteredDomainDelegationInfoTypeDef(TypedDict):
+    nameServersUpdateState: NotRequired[NameServersUpdateStateTypeDef]
+    r53HostedZoneDeletionState: NotRequired[R53HostedZoneDeletionStateTypeDef]
+
+class RelationalDatabaseTypeDef(TypedDict):
+    name: NotRequired[str]
+    arn: NotRequired[str]
+    supportCode: NotRequired[str]
+    createdAt: NotRequired[datetime]
+    location: NotRequired[ResourceLocationTypeDef]
+    resourceType: NotRequired[ResourceTypeType]
+    tags: NotRequired[List[TagTypeDef]]
+    relationalDatabaseBlueprintId: NotRequired[str]
+    relationalDatabaseBundleId: NotRequired[str]
+    masterDatabaseName: NotRequired[str]
+    hardware: NotRequired[RelationalDatabaseHardwareTypeDef]
+    state: NotRequired[str]
+    secondaryAvailabilityZone: NotRequired[str]
+    backupRetentionEnabled: NotRequired[bool]
+    pendingModifiedValues: NotRequired[PendingModifiedRelationalDatabaseValuesTypeDef]
+    engine: NotRequired[str]
+    engineVersion: NotRequired[str]
+    latestRestorableTime: NotRequired[datetime]
+    masterUsername: NotRequired[str]
+    parameterApplyStatus: NotRequired[str]
+    preferredBackupWindow: NotRequired[str]
+    preferredMaintenanceWindow: NotRequired[str]
+    publiclyAccessible: NotRequired[bool]
+    masterEndpoint: NotRequired[RelationalDatabaseEndpointTypeDef]
+    pendingMaintenanceActions: NotRequired[List[PendingMaintenanceActionTypeDef]]
+    caCertificateIdentifier: NotRequired[str]
+
+class GetBucketAccessKeysResultTypeDef(TypedDict):
+    accessKeys: List[AccessKeyTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateDiskFromSnapshotRequestTypeDef(TypedDict):
+    diskName: str
+    availabilityZone: str
+    sizeInGb: int
+    diskSnapshotName: NotRequired[str]
+    tags: NotRequired[Sequence[TagTypeDef]]
+    addOns: NotRequired[Sequence[AddOnRequestTypeDef]]
+    sourceDiskName: NotRequired[str]
+    restoreDate: NotRequired[str]
+    useLatestRestorableAutoSnapshot: NotRequired[bool]
+
+class CreateDiskRequestTypeDef(TypedDict):
+    diskName: str
+    availabilityZone: str
+    sizeInGb: int
+    tags: NotRequired[Sequence[TagTypeDef]]
+    addOns: NotRequired[Sequence[AddOnRequestTypeDef]]
+
+class CreateInstancesFromSnapshotRequestTypeDef(TypedDict):
+    instanceNames: Sequence[str]
+    availabilityZone: str
+    bundleId: str
+    attachedDiskMapping: NotRequired[Mapping[str, Sequence[DiskMapTypeDef]]]
+    instanceSnapshotName: NotRequired[str]
+    userData: NotRequired[str]
+    keyPairName: NotRequired[str]
+    tags: NotRequired[Sequence[TagTypeDef]]
+    addOns: NotRequired[Sequence[AddOnRequestTypeDef]]
+    ipAddressType: NotRequired[IpAddressTypeType]
+    sourceInstanceName: NotRequired[str]
+    restoreDate: NotRequired[str]
+    useLatestRestorableAutoSnapshot: NotRequired[bool]
+
+class CreateInstancesRequestTypeDef(TypedDict):
+    instanceNames: Sequence[str]
+    availabilityZone: str
+    blueprintId: str
+    bundleId: str
+    customImageName: NotRequired[str]
+    userData: NotRequired[str]
+    keyPairName: NotRequired[str]
+    tags: NotRequired[Sequence[TagTypeDef]]
+    addOns: NotRequired[Sequence[AddOnRequestTypeDef]]
+    ipAddressType: NotRequired[IpAddressTypeType]
+
+class EnableAddOnRequestTypeDef(TypedDict):
+    resourceName: str
+    addOnRequest: AddOnRequestTypeDef
+
+class GetAlarmsResultTypeDef(TypedDict):
+    alarms: List[AlarmTypeDef]
+    nextPageToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetContactMethodsResultTypeDef(TypedDict):
+    contactMethods: List[ContactMethodTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class AllocateStaticIpResultTypeDef(TypedDict):
+    operations: List[OperationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class AttachCertificateToDistributionResultTypeDef(TypedDict):
+    operation: OperationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class AttachDiskResultTypeDef(TypedDict):
+    operations: List[OperationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class AttachInstancesToLoadBalancerResultTypeDef(TypedDict):
+    operations: List[OperationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class AttachLoadBalancerTlsCertificateResultTypeDef(TypedDict):
+    operations: List[OperationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class AttachStaticIpResultTypeDef(TypedDict):
+    operations: List[OperationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CloseInstancePublicPortsResultTypeDef(TypedDict):
+    operation: OperationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CopySnapshotResultTypeDef(TypedDict):
+    operations: List[OperationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateBucketAccessKeyResultTypeDef(TypedDict):
+    accessKey: AccessKeyTypeDef
+    operations: List[OperationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateCloudFormationStackResultTypeDef(TypedDict):
+    operations: List[OperationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateContactMethodResultTypeDef(TypedDict):
+    operations: List[OperationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateDiskFromSnapshotResultTypeDef(TypedDict):
+    operations: List[OperationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateDiskResultTypeDef(TypedDict):
+    operations: List[OperationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateDiskSnapshotResultTypeDef(TypedDict):
+    operations: List[OperationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateDomainEntryResultTypeDef(TypedDict):
+    operation: OperationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateDomainResultTypeDef(TypedDict):
+    operation: OperationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateInstanceSnapshotResultTypeDef(TypedDict):
+    operations: List[OperationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateInstancesFromSnapshotResultTypeDef(TypedDict):
+    operations: List[OperationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateInstancesResultTypeDef(TypedDict):
+    operations: List[OperationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateLoadBalancerResultTypeDef(TypedDict):
+    operations: List[OperationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateLoadBalancerTlsCertificateResultTypeDef(TypedDict):
+    operations: List[OperationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateRelationalDatabaseFromSnapshotResultTypeDef(TypedDict):
+    operations: List[OperationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateRelationalDatabaseResultTypeDef(TypedDict):
+    operations: List[OperationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateRelationalDatabaseSnapshotResultTypeDef(TypedDict):
+    operations: List[OperationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteAlarmResultTypeDef(TypedDict):
+    operations: List[OperationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteAutoSnapshotResultTypeDef(TypedDict):
+    operations: List[OperationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteBucketAccessKeyResultTypeDef(TypedDict):
+    operations: List[OperationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteBucketResultTypeDef(TypedDict):
+    operations: List[OperationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteCertificateResultTypeDef(TypedDict):
+    operations: List[OperationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteContactMethodResultTypeDef(TypedDict):
+    operations: List[OperationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteDiskResultTypeDef(TypedDict):
+    operations: List[OperationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteDiskSnapshotResultTypeDef(TypedDict):
+    operations: List[OperationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteDistributionResultTypeDef(TypedDict):
+    operation: OperationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteDomainEntryResultTypeDef(TypedDict):
+    operation: OperationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteDomainResultTypeDef(TypedDict):
+    operation: OperationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteInstanceResultTypeDef(TypedDict):
+    operations: List[OperationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteInstanceSnapshotResultTypeDef(TypedDict):
+    operations: List[OperationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteKeyPairResultTypeDef(TypedDict):
+    operation: OperationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteKnownHostKeysResultTypeDef(TypedDict):
+    operations: List[OperationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteLoadBalancerResultTypeDef(TypedDict):
+    operations: List[OperationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteLoadBalancerTlsCertificateResultTypeDef(TypedDict):
+    operations: List[OperationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteRelationalDatabaseResultTypeDef(TypedDict):
+    operations: List[OperationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteRelationalDatabaseSnapshotResultTypeDef(TypedDict):
+    operations: List[OperationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DetachCertificateFromDistributionResultTypeDef(TypedDict):
+    operation: OperationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DetachDiskResultTypeDef(TypedDict):
+    operations: List[OperationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DetachInstancesFromLoadBalancerResultTypeDef(TypedDict):
+    operations: List[OperationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DetachStaticIpResultTypeDef(TypedDict):
+    operations: List[OperationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DisableAddOnResultTypeDef(TypedDict):
+    operations: List[OperationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class EnableAddOnResultTypeDef(TypedDict):
+    operations: List[OperationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ExportSnapshotResultTypeDef(TypedDict):
+    operations: List[OperationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetOperationResultTypeDef(TypedDict):
+    operation: OperationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetOperationsForResourceResultTypeDef(TypedDict):
+    operations: List[OperationTypeDef]
+    nextPageCount: str
+    nextPageToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetOperationsResultTypeDef(TypedDict):
+    operations: List[OperationTypeDef]
+    nextPageToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ImportKeyPairResultTypeDef(TypedDict):
+    operation: OperationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class OpenInstancePublicPortsResultTypeDef(TypedDict):
+    operation: OperationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PeerVpcResultTypeDef(TypedDict):
+    operation: OperationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutAlarmResultTypeDef(TypedDict):
+    operations: List[OperationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutInstancePublicPortsResultTypeDef(TypedDict):
+    operation: OperationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class RebootInstanceResultTypeDef(TypedDict):
+    operations: List[OperationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class RebootRelationalDatabaseResultTypeDef(TypedDict):
+    operations: List[OperationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ReleaseStaticIpResultTypeDef(TypedDict):
+    operations: List[OperationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ResetDistributionCacheResultTypeDef(TypedDict):
+    status: str
+    createTime: datetime
+    operation: OperationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class SendContactMethodVerificationResultTypeDef(TypedDict):
+    operations: List[OperationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class SetIpAddressTypeResultTypeDef(TypedDict):
+    operations: List[OperationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class SetResourceAccessForBucketResultTypeDef(TypedDict):
+    operations: List[OperationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class SetupInstanceHttpsResultTypeDef(TypedDict):
+    operations: List[OperationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartGUISessionResultTypeDef(TypedDict):
+    operations: List[OperationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartInstanceResultTypeDef(TypedDict):
+    operations: List[OperationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartRelationalDatabaseResultTypeDef(TypedDict):
+    operations: List[OperationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StopGUISessionResultTypeDef(TypedDict):
+    operations: List[OperationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StopInstanceResultTypeDef(TypedDict):
+    operations: List[OperationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StopRelationalDatabaseResultTypeDef(TypedDict):
+    operations: List[OperationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class TagResourceResultTypeDef(TypedDict):
+    operations: List[OperationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class TestAlarmResultTypeDef(TypedDict):
+    operations: List[OperationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UnpeerVpcResultTypeDef(TypedDict):
+    operation: OperationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UntagResourceResultTypeDef(TypedDict):
+    operations: List[OperationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateBucketBundleResultTypeDef(TypedDict):
+    operations: List[OperationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateDistributionBundleResultTypeDef(TypedDict):
+    operation: OperationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateDistributionResultTypeDef(TypedDict):
+    operation: OperationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateDomainEntryResultTypeDef(TypedDict):
+    operations: List[OperationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateInstanceMetadataOptionsResultTypeDef(TypedDict):
+    operation: OperationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateLoadBalancerAttributeResultTypeDef(TypedDict):
+    operations: List[OperationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateRelationalDatabaseParametersResultTypeDef(TypedDict):
+    operations: List[OperationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateRelationalDatabaseResultTypeDef(TypedDict):
+    operations: List[OperationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class SetupHistoryTypeDef(TypedDict):
+    operationId: NotRequired[str]
+    request: NotRequired[SetupRequestTypeDef]
+    resource: NotRequired[SetupHistoryResourceTypeDef]
+    executionDetails: NotRequired[List[SetupExecutionDetailsTypeDef]]
+    status: NotRequired[SetupStatusType]
+
+class GetStaticIpResultTypeDef(TypedDict):
+    staticIp: StaticIpTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetStaticIpsResultTypeDef(TypedDict):
+    staticIps: List[StaticIpTypeDef]
+    nextPageToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetAutoSnapshotsResultTypeDef(TypedDict):
+    resourceName: str
+    resourceType: ResourceTypeType
+    autoSnapshots: List[AutoSnapshotDetailsTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetRegionsResultTypeDef(TypedDict):
+    regions: List[RegionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateBucketResultTypeDef(TypedDict):
+    bucket: BucketTypeDef
+    operations: List[OperationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetBucketsResultTypeDef(TypedDict):
+    buckets: List[BucketTypeDef]
+    nextPageToken: str
+    accountLevelBpaSync: AccountLevelBpaSyncTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateBucketResultTypeDef(TypedDict):
+    bucket: BucketTypeDef
+    operations: List[OperationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetDiskSnapshotResultTypeDef(TypedDict):
+    diskSnapshot: DiskSnapshotTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetDiskSnapshotsResultTypeDef(TypedDict):
+    diskSnapshots: List[DiskSnapshotTypeDef]
+    nextPageToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetDiskResultTypeDef(TypedDict):
+    disk: DiskTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetDisksResultTypeDef(TypedDict):
+    disks: List[DiskTypeDef]
+    nextPageToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class InstanceHardwareTypeDef(TypedDict):
+    cpuCount: NotRequired[int]
+    disks: NotRequired[List[DiskTypeDef]]
+    ramSizeInGb: NotRequired[float]
+
+class InstanceSnapshotTypeDef(TypedDict):
+    name: NotRequired[str]
+    arn: NotRequired[str]
+    supportCode: NotRequired[str]
+    createdAt: NotRequired[datetime]
+    location: NotRequired[ResourceLocationTypeDef]
+    resourceType: NotRequired[ResourceTypeType]
+    tags: NotRequired[List[TagTypeDef]]
+    state: NotRequired[InstanceSnapshotStateType]
+    progress: NotRequired[str]
+    fromAttachedDisks: NotRequired[List[DiskTypeDef]]
+    fromInstanceName: NotRequired[str]
+    fromInstanceArn: NotRequired[str]
+    fromBlueprintId: NotRequired[str]
+    fromBundleId: NotRequired[str]
+    isFromAutoSnapshot: NotRequired[bool]
+    sizeInGb: NotRequired[int]
+
+class CreateKeyPairResultTypeDef(TypedDict):
+    keyPair: KeyPairTypeDef
+    publicKeyBase64: str
+    privateKeyBase64: str
+    operation: OperationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetKeyPairResultTypeDef(TypedDict):
+    keyPair: KeyPairTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetKeyPairsResultTypeDef(TypedDict):
+    keyPairs: List[KeyPairTypeDef]
+    nextPageToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetRelationalDatabaseSnapshotResultTypeDef(TypedDict):
+    relationalDatabaseSnapshot: RelationalDatabaseSnapshotTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetRelationalDatabaseSnapshotsResultTypeDef(TypedDict):
+    relationalDatabaseSnapshots: List[RelationalDatabaseSnapshotTypeDef]
+    nextPageToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class LightsailDistributionTypeDef(TypedDict):
+    name: NotRequired[str]
+    arn: NotRequired[str]
+    supportCode: NotRequired[str]
+    createdAt: NotRequired[datetime]
+    location: NotRequired[ResourceLocationTypeDef]
+    resourceType: NotRequired[ResourceTypeType]
+    alternativeDomainNames: NotRequired[List[str]]
+    status: NotRequired[str]
+    isEnabled: NotRequired[bool]
+    domainName: NotRequired[str]
+    bundleId: NotRequired[str]
+    certificateName: NotRequired[str]
+    origin: NotRequired[OriginTypeDef]
+    originPublicDNS: NotRequired[str]
+    defaultCacheBehavior: NotRequired[CacheBehaviorTypeDef]
+    cacheBehaviorSettings: NotRequired[CacheSettingsOutputTypeDef]
+    cacheBehaviors: NotRequired[List[CacheBehaviorPerPathTypeDef]]
+    ableToUpdateBundle: NotRequired[bool]
+    ipAddressType: NotRequired[IpAddressTypeType]
+    tags: NotRequired[List[TagTypeDef]]
+    viewerMinimumTlsProtocolVersion: NotRequired[str]
+
+CacheSettingsUnionTypeDef = Union[CacheSettingsTypeDef, CacheSettingsOutputTypeDef]
+
+class GetCloudFormationStackRecordsResultTypeDef(TypedDict):
+    cloudFormationStackRecords: List[CloudFormationStackRecordTypeDef]
+    nextPageToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateContainerServiceRequestTypeDef(TypedDict):
+    serviceName: str
+    power: NotRequired[ContainerServicePowerNameType]
+    scale: NotRequired[int]
+    isDisabled: NotRequired[bool]
+    publicDomainNames: NotRequired[Mapping[str, Sequence[str]]]
+    privateRegistryAccess: NotRequired[PrivateRegistryAccessRequestTypeDef]
+
+class ContainerServiceDeploymentTypeDef(TypedDict):
+    version: NotRequired[int]
+    state: NotRequired[ContainerServiceDeploymentStateType]
+    containers: NotRequired[Dict[str, ContainerOutputTypeDef]]
+    publicEndpoint: NotRequired[ContainerServiceEndpointTypeDef]
+    createdAt: NotRequired[datetime]
+
+class ContainerServiceDeploymentRequestTypeDef(TypedDict):
+    containers: NotRequired[Mapping[str, ContainerUnionTypeDef]]
+    publicEndpoint: NotRequired[EndpointRequestTypeDef]
+
+class CreateContainerServiceDeploymentRequestTypeDef(TypedDict):
+    serviceName: str
+    containers: NotRequired[Mapping[str, ContainerUnionTypeDef]]
+    publicEndpoint: NotRequired[EndpointRequestTypeDef]
+
+class ExportSnapshotRecordSourceInfoTypeDef(TypedDict):
+    resourceType: NotRequired[ExportSnapshotRecordSourceTypeType]
+    createdAt: NotRequired[datetime]
+    name: NotRequired[str]
+    arn: NotRequired[str]
+    fromResourceName: NotRequired[str]
+    fromResourceArn: NotRequired[str]
+    instanceSnapshotInfo: NotRequired[InstanceSnapshotInfoTypeDef]
+    diskSnapshotInfo: NotRequired[DiskSnapshotInfoTypeDef]
+
+class CreateDomainEntryRequestTypeDef(TypedDict):
+    domainName: str
+    domainEntry: DomainEntryUnionTypeDef
+
+class DeleteDomainEntryRequestTypeDef(TypedDict):
+    domainName: str
+    domainEntry: DomainEntryUnionTypeDef
+
+class UpdateDomainEntryRequestTypeDef(TypedDict):
+    domainName: str
+    domainEntry: DomainEntryUnionTypeDef
+
+class RenewalSummaryTypeDef(TypedDict):
+    domainValidationRecords: NotRequired[List[DomainValidationRecordTypeDef]]
+    renewalStatus: NotRequired[RenewalStatusType]
+    renewalStatusReason: NotRequired[str]
+    updatedAt: NotRequired[datetime]
+
+class CostEstimateTypeDef(TypedDict):
+    usageType: NotRequired[str]
+    resultsByTime: NotRequired[List[EstimateByTimeTypeDef]]
+
+class GetInstanceAccessDetailsResultTypeDef(TypedDict):
+    accessDetails: InstanceAccessDetailsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class LoadBalancerTlsCertificateTypeDef(TypedDict):
+    name: NotRequired[str]
+    arn: NotRequired[str]
+    supportCode: NotRequired[str]
+    createdAt: NotRequired[datetime]
+    location: NotRequired[ResourceLocationTypeDef]
+    resourceType: NotRequired[ResourceTypeType]
+    tags: NotRequired[List[TagTypeDef]]
+    loadBalancerName: NotRequired[str]
+    isAttached: NotRequired[bool]
+    status: NotRequired[LoadBalancerTlsCertificateStatusType]
+    domainName: NotRequired[str]
+    domainValidationRecords: NotRequired[
+        List[LoadBalancerTlsCertificateDomainValidationRecordTypeDef]
+    ]
+    failureReason: NotRequired[LoadBalancerTlsCertificateFailureReasonType]
+    issuedAt: NotRequired[datetime]
+    issuer: NotRequired[str]
+    keyAlgorithm: NotRequired[str]
+    notAfter: NotRequired[datetime]
+    notBefore: NotRequired[datetime]
+    renewalSummary: NotRequired[LoadBalancerTlsCertificateRenewalSummaryTypeDef]
+    revocationReason: NotRequired[LoadBalancerTlsCertificateRevocationReasonType]
+    revokedAt: NotRequired[datetime]
+    serial: NotRequired[str]
+    signatureAlgorithm: NotRequired[str]
+    subject: NotRequired[str]
+    subjectAlternativeNames: NotRequired[List[str]]
+
+class GetLoadBalancerResultTypeDef(TypedDict):
+    loadBalancer: LoadBalancerTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetLoadBalancersResultTypeDef(TypedDict):
+    loadBalancers: List[LoadBalancerTypeDef]
+    nextPageToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DomainTypeDef(TypedDict):
+    name: NotRequired[str]
+    arn: NotRequired[str]
+    supportCode: NotRequired[str]
+    createdAt: NotRequired[datetime]
+    location: NotRequired[ResourceLocationTypeDef]
+    resourceType: NotRequired[ResourceTypeType]
+    tags: NotRequired[List[TagTypeDef]]
+    domainEntries: NotRequired[List[DomainEntryOutputTypeDef]]
+    registeredDomainDelegationInfo: NotRequired[RegisteredDomainDelegationInfoTypeDef]
+
+class GetRelationalDatabaseResultTypeDef(TypedDict):
+    relationalDatabase: RelationalDatabaseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetRelationalDatabasesResultTypeDef(TypedDict):
+    relationalDatabases: List[RelationalDatabaseTypeDef]
+    nextPageToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetSetupHistoryResultTypeDef(TypedDict):
+    setupHistory: List[SetupHistoryTypeDef]
+    nextPageToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class InstanceTypeDef(TypedDict):
+    name: NotRequired[str]
+    arn: NotRequired[str]
+    supportCode: NotRequired[str]
+    createdAt: NotRequired[datetime]
+    location: NotRequired[ResourceLocationTypeDef]
+    resourceType: NotRequired[ResourceTypeType]
+    tags: NotRequired[List[TagTypeDef]]
+    blueprintId: NotRequired[str]
+    blueprintName: NotRequired[str]
+    bundleId: NotRequired[str]
+    addOns: NotRequired[List[AddOnTypeDef]]
+    isStaticIp: NotRequired[bool]
+    privateIpAddress: NotRequired[str]
+    publicIpAddress: NotRequired[str]
+    ipv6Addresses: NotRequired[List[str]]
+    ipAddressType: NotRequired[IpAddressTypeType]
+    hardware: NotRequired[InstanceHardwareTypeDef]
+    networking: NotRequired[InstanceNetworkingTypeDef]
+    state: NotRequired[InstanceStateTypeDef]
+    username: NotRequired[str]
+    sshKeyName: NotRequired[str]
+    metadataOptions: NotRequired[InstanceMetadataOptionsTypeDef]
+
+class GetInstanceSnapshotResultTypeDef(TypedDict):
+    instanceSnapshot: InstanceSnapshotTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetInstanceSnapshotsResultTypeDef(TypedDict):
+    instanceSnapshots: List[InstanceSnapshotTypeDef]
+    nextPageToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateDistributionResultTypeDef(TypedDict):
+    distribution: LightsailDistributionTypeDef
+    operation: OperationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetDistributionsResultTypeDef(TypedDict):
+    distributions: List[LightsailDistributionTypeDef]
+    nextPageToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateDistributionRequestTypeDef(TypedDict):
+    distributionName: str
+    origin: InputOriginTypeDef
+    defaultCacheBehavior: CacheBehaviorTypeDef
+    bundleId: str
+    cacheBehaviorSettings: NotRequired[CacheSettingsUnionTypeDef]
+    cacheBehaviors: NotRequired[Sequence[CacheBehaviorPerPathTypeDef]]
+    ipAddressType: NotRequired[IpAddressTypeType]
+    tags: NotRequired[Sequence[TagTypeDef]]
+    certificateName: NotRequired[str]
+    viewerMinimumTlsProtocolVersion: NotRequired[ViewerMinimumTlsProtocolVersionEnumType]
+
+class UpdateDistributionRequestTypeDef(TypedDict):
+    distributionName: str
+    origin: NotRequired[InputOriginTypeDef]
+    defaultCacheBehavior: NotRequired[CacheBehaviorTypeDef]
+    cacheBehaviorSettings: NotRequired[CacheSettingsUnionTypeDef]
+    cacheBehaviors: NotRequired[Sequence[CacheBehaviorPerPathTypeDef]]
+    isEnabled: NotRequired[bool]
+    viewerMinimumTlsProtocolVersion: NotRequired[ViewerMinimumTlsProtocolVersionEnumType]
+    certificateName: NotRequired[str]
+    useDefaultCertificate: NotRequired[bool]
+
+class ContainerServiceTypeDef(TypedDict):
+    containerServiceName: NotRequired[str]
+    arn: NotRequired[str]
+    createdAt: NotRequired[datetime]
+    location: NotRequired[ResourceLocationTypeDef]
+    resourceType: NotRequired[ResourceTypeType]
+    tags: NotRequired[List[TagTypeDef]]
+    power: NotRequired[ContainerServicePowerNameType]
+    powerId: NotRequired[str]
+    state: NotRequired[ContainerServiceStateType]
+    stateDetail: NotRequired[ContainerServiceStateDetailTypeDef]
+    scale: NotRequired[int]
+    currentDeployment: NotRequired[ContainerServiceDeploymentTypeDef]
+    nextDeployment: NotRequired[ContainerServiceDeploymentTypeDef]
+    isDisabled: NotRequired[bool]
+    principalArn: NotRequired[str]
+    privateDomainName: NotRequired[str]
+    publicDomainNames: NotRequired[Dict[str, List[str]]]
+    url: NotRequired[str]
+    privateRegistryAccess: NotRequired[PrivateRegistryAccessTypeDef]
+
+class GetContainerServiceDeploymentsResultTypeDef(TypedDict):
+    deployments: List[ContainerServiceDeploymentTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateContainerServiceRequestTypeDef(TypedDict):
+    serviceName: str
+    power: ContainerServicePowerNameType
+    scale: int
+    tags: NotRequired[Sequence[TagTypeDef]]
+    publicDomainNames: NotRequired[Mapping[str, Sequence[str]]]
+    deployment: NotRequired[ContainerServiceDeploymentRequestTypeDef]
+    privateRegistryAccess: NotRequired[PrivateRegistryAccessRequestTypeDef]
+
+class ExportSnapshotRecordTypeDef(TypedDict):
+    name: NotRequired[str]
+    arn: NotRequired[str]
+    createdAt: NotRequired[datetime]
+    location: NotRequired[ResourceLocationTypeDef]
+    resourceType: NotRequired[ResourceTypeType]
+    state: NotRequired[RecordStateType]
+    sourceInfo: NotRequired[ExportSnapshotRecordSourceInfoTypeDef]
+    destinationInfo: NotRequired[DestinationInfoTypeDef]
+
+class CertificateTypeDef(TypedDict):
+    arn: NotRequired[str]
+    name: NotRequired[str]
+    domainName: NotRequired[str]
+    status: NotRequired[CertificateStatusType]
+    serialNumber: NotRequired[str]
+    subjectAlternativeNames: NotRequired[List[str]]
+    domainValidationRecords: NotRequired[List[DomainValidationRecordTypeDef]]
+    requestFailureReason: NotRequired[str]
+    inUseResourceCount: NotRequired[int]
+    keyAlgorithm: NotRequired[str]
+    createdAt: NotRequired[datetime]
+    issuedAt: NotRequired[datetime]
+    issuerCA: NotRequired[str]
+    notBefore: NotRequired[datetime]
+    notAfter: NotRequired[datetime]
+    eligibleToRenew: NotRequired[str]
+    renewalSummary: NotRequired[RenewalSummaryTypeDef]
+    revokedAt: NotRequired[datetime]
+    revocationReason: NotRequired[str]
+    tags: NotRequired[List[TagTypeDef]]
+    supportCode: NotRequired[str]
+
+class ResourceBudgetEstimateTypeDef(TypedDict):
+    resourceName: NotRequired[str]
+    resourceType: NotRequired[ResourceTypeType]
+    costEstimates: NotRequired[List[CostEstimateTypeDef]]
+    startTime: NotRequired[datetime]
+    endTime: NotRequired[datetime]
+
+class GetLoadBalancerTlsCertificatesResultTypeDef(TypedDict):
+    tlsCertificates: List[LoadBalancerTlsCertificateTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetDomainResultTypeDef(TypedDict):
+    domain: DomainTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetDomainsResultTypeDef(TypedDict):
+    domains: List[DomainTypeDef]
+    nextPageToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetInstanceResultTypeDef(TypedDict):
+    instance: InstanceTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetInstancesResultTypeDef(TypedDict):
+    instances: List[InstanceTypeDef]
+    nextPageToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ContainerServicesListResultTypeDef(TypedDict):
+    containerServices: List[ContainerServiceTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateContainerServiceDeploymentResultTypeDef(TypedDict):
+    containerService: ContainerServiceTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateContainerServiceResultTypeDef(TypedDict):
+    containerService: ContainerServiceTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateContainerServiceResultTypeDef(TypedDict):
+    containerService: ContainerServiceTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetExportSnapshotRecordsResultTypeDef(TypedDict):
+    exportSnapshotRecords: List[ExportSnapshotRecordTypeDef]
+    nextPageToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CertificateSummaryTypeDef(TypedDict):
+    certificateArn: NotRequired[str]
+    certificateName: NotRequired[str]
+    domainName: NotRequired[str]
+    certificateDetail: NotRequired[CertificateTypeDef]
+    tags: NotRequired[List[TagTypeDef]]
+
+class GetCostEstimateResultTypeDef(TypedDict):
+    resourcesBudgetEstimate: List[ResourceBudgetEstimateTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateCertificateResultTypeDef(TypedDict):
+    certificate: CertificateSummaryTypeDef
+    operations: List[OperationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetCertificatesResultTypeDef(TypedDict):
+    certificates: List[CertificateSummaryTypeDef]
+    nextPageToken: str
+    ResponseMetadata: ResponseMetadataTypeDef

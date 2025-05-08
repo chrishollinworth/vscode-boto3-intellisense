@@ -1,10 +1,14 @@
 """
 Main interface for opsworks service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_opsworks/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_opsworks import (
         AppExistsWaiter,
         Client,
@@ -19,13 +23,10 @@ Usage::
         ServiceResource,
     )
 
-    session = boto3.Session()
+    session = Session()
+    client: OpsWorksClient = session.client("opsworks")
 
-    client: OpsWorksClient = boto3.client("opsworks")
-    session_client: OpsWorksClient = session.client("opsworks")
-
-    resource: OpsWorksServiceResource = boto3.resource("opsworks")
-    session_resource: OpsWorksServiceResource = session.resource("opsworks")
+    resource: OpsWorksServiceResource = session.resource("opsworks")
 
     app_exists_waiter: AppExistsWaiter = client.get_waiter("app_exists")
     deployment_successful_waiter: DeploymentSuccessfulWaiter = client.get_waiter("deployment_successful")
@@ -40,7 +41,6 @@ Usage::
 
 from .client import OpsWorksClient
 from .paginator import DescribeEcsClustersPaginator
-from .service_resource import OpsWorksServiceResource
 from .waiter import (
     AppExistsWaiter,
     DeploymentSuccessfulWaiter,
@@ -49,6 +49,11 @@ from .waiter import (
     InstanceStoppedWaiter,
     InstanceTerminatedWaiter,
 )
+
+try:
+    from .service_resource import OpsWorksServiceResource
+except ImportError:
+    from builtins import object as OpsWorksServiceResource  # type: ignore[assignment]
 
 Client = OpsWorksClient
 

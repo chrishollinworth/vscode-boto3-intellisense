@@ -1,14 +1,16 @@
 """
 Type annotations for snow-device-management service client paginators.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_snow_device_management/paginators.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_snow_device_management/paginators/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
 
-    from mypy_boto3_snow_device_management import SnowDeviceManagementClient
+    from mypy_boto3_snow_device_management.client import SnowDeviceManagementClient
     from mypy_boto3_snow_device_management.paginator import (
         ListDeviceResourcesPaginator,
         ListDevicesPaginator,
@@ -16,7 +18,8 @@ Usage::
         ListTasksPaginator,
     )
 
-    client: SnowDeviceManagementClient = boto3.client("snow-device-management")
+    session = Session()
+    client: SnowDeviceManagementClient = session.client("snow-device-management")
 
     list_device_resources_paginator: ListDeviceResourcesPaginator = client.get_paginator("list_device_resources")
     list_devices_paginator: ListDevicesPaginator = client.get_paginator("list_devices")
@@ -25,18 +28,28 @@ Usage::
     ```
 """
 
-from typing import Iterator
+from __future__ import annotations
 
-from botocore.paginate import Paginator as Boto3Paginator
+import sys
+from typing import TYPE_CHECKING
 
-from .literals import ExecutionStateType, TaskStateType
+from botocore.paginate import PageIterator, Paginator
+
 from .type_defs import (
+    ListDeviceResourcesInputPaginateTypeDef,
     ListDeviceResourcesOutputTypeDef,
+    ListDevicesInputPaginateTypeDef,
     ListDevicesOutputTypeDef,
+    ListExecutionsInputPaginateTypeDef,
     ListExecutionsOutputTypeDef,
+    ListTasksInputPaginateTypeDef,
     ListTasksOutputTypeDef,
-    PaginatorConfigTypeDef,
 )
+
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = (
     "ListDeviceResourcesPaginator",
@@ -45,66 +58,74 @@ __all__ = (
     "ListTasksPaginator",
 )
 
-class ListDeviceResourcesPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/snow-device-management.html#SnowDeviceManagement.Paginator.ListDeviceResources)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_snow_device_management/paginators.html#listdeviceresourcespaginator)
-    """
+if TYPE_CHECKING:
+    _ListDeviceResourcesPaginatorBase = Paginator[ListDeviceResourcesOutputTypeDef]
+else:
+    _ListDeviceResourcesPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        managedDeviceId: str,
-        type: str = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListDeviceResourcesOutputTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/snow-device-management.html#SnowDeviceManagement.Paginator.ListDeviceResources.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_snow_device_management/paginators.html#listdeviceresourcespaginator)
-        """
-
-class ListDevicesPaginator(Boto3Paginator):
+class ListDeviceResourcesPaginator(_ListDeviceResourcesPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/snow-device-management.html#SnowDeviceManagement.Paginator.ListDevices)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_snow_device_management/paginators.html#listdevicespaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/snow-device-management/paginator/ListDeviceResources.html#SnowDeviceManagement.Paginator.ListDeviceResources)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_snow_device_management/paginators/#listdeviceresourcespaginator)
     """
-
-    def paginate(
-        self, *, jobId: str = None, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListDevicesOutputTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListDeviceResourcesInputPaginateTypeDef]
+    ) -> PageIterator[ListDeviceResourcesOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/snow-device-management.html#SnowDeviceManagement.Paginator.ListDevices.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_snow_device_management/paginators.html#listdevicespaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/snow-device-management/paginator/ListDeviceResources.html#SnowDeviceManagement.Paginator.ListDeviceResources.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_snow_device_management/paginators/#listdeviceresourcespaginator)
         """
 
-class ListExecutionsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/snow-device-management.html#SnowDeviceManagement.Paginator.ListExecutions)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_snow_device_management/paginators.html#listexecutionspaginator)
-    """
+if TYPE_CHECKING:
+    _ListDevicesPaginatorBase = Paginator[ListDevicesOutputTypeDef]
+else:
+    _ListDevicesPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        taskId: str,
-        state: ExecutionStateType = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListExecutionsOutputTypeDef]:
+class ListDevicesPaginator(_ListDevicesPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/snow-device-management/paginator/ListDevices.html#SnowDeviceManagement.Paginator.ListDevices)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_snow_device_management/paginators/#listdevicespaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListDevicesInputPaginateTypeDef]
+    ) -> PageIterator[ListDevicesOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/snow-device-management.html#SnowDeviceManagement.Paginator.ListExecutions.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_snow_device_management/paginators.html#listexecutionspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/snow-device-management/paginator/ListDevices.html#SnowDeviceManagement.Paginator.ListDevices.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_snow_device_management/paginators/#listdevicespaginator)
         """
 
-class ListTasksPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/snow-device-management.html#SnowDeviceManagement.Paginator.ListTasks)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_snow_device_management/paginators.html#listtaskspaginator)
-    """
+if TYPE_CHECKING:
+    _ListExecutionsPaginatorBase = Paginator[ListExecutionsOutputTypeDef]
+else:
+    _ListExecutionsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, state: TaskStateType = None, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListTasksOutputTypeDef]:
+class ListExecutionsPaginator(_ListExecutionsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/snow-device-management/paginator/ListExecutions.html#SnowDeviceManagement.Paginator.ListExecutions)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_snow_device_management/paginators/#listexecutionspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListExecutionsInputPaginateTypeDef]
+    ) -> PageIterator[ListExecutionsOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/snow-device-management.html#SnowDeviceManagement.Paginator.ListTasks.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_snow_device_management/paginators.html#listtaskspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/snow-device-management/paginator/ListExecutions.html#SnowDeviceManagement.Paginator.ListExecutions.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_snow_device_management/paginators/#listexecutionspaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListTasksPaginatorBase = Paginator[ListTasksOutputTypeDef]
+else:
+    _ListTasksPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListTasksPaginator(_ListTasksPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/snow-device-management/paginator/ListTasks.html#SnowDeviceManagement.Paginator.ListTasks)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_snow_device_management/paginators/#listtaskspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListTasksInputPaginateTypeDef]
+    ) -> PageIterator[ListTasksOutputTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/snow-device-management/paginator/ListTasks.html#SnowDeviceManagement.Paginator.ListTasks.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_snow_device_management/paginators/#listtaskspaginator)
         """

@@ -1,14 +1,16 @@
 """
 Type annotations for fsx service client paginators.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fsx/paginators.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fsx/paginators/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
 
-    from mypy_boto3_fsx import FSxClient
+    from mypy_boto3_fsx.client import FSxClient
     from mypy_boto3_fsx.paginator import (
         DescribeBackupsPaginator,
         DescribeFileSystemsPaginator,
@@ -17,7 +19,8 @@ Usage::
         ListTagsForResourcePaginator,
     )
 
-    client: FSxClient = boto3.client("fsx")
+    session = Session()
+    client: FSxClient = session.client("fsx")
 
     describe_backups_paginator: DescribeBackupsPaginator = client.get_paginator("describe_backups")
     describe_file_systems_paginator: DescribeFileSystemsPaginator = client.get_paginator("describe_file_systems")
@@ -27,21 +30,31 @@ Usage::
     ```
 """
 
-from typing import Iterator, List
+from __future__ import annotations
 
-from botocore.paginate import Paginator as Boto3Paginator
+import sys
+from typing import TYPE_CHECKING
+
+from botocore.paginate import PageIterator, Paginator
 
 from .type_defs import (
+    DescribeBackupsRequestPaginateTypeDef,
+    DescribeBackupsResponsePaginatorTypeDef,
     DescribeBackupsResponseTypeDef,
-    DescribeFileSystemsResponseTypeDef,
+    DescribeFileSystemsRequestPaginateTypeDef,
+    DescribeFileSystemsResponsePaginatorTypeDef,
+    DescribeStorageVirtualMachinesRequestPaginateTypeDef,
     DescribeStorageVirtualMachinesResponseTypeDef,
-    DescribeVolumesResponseTypeDef,
-    FilterTypeDef,
+    DescribeVolumesRequestPaginateTypeDef,
+    DescribeVolumesResponsePaginatorTypeDef,
+    ListTagsForResourceRequestPaginateTypeDef,
     ListTagsForResourceResponseTypeDef,
-    PaginatorConfigTypeDef,
-    StorageVirtualMachineFilterTypeDef,
-    VolumeFilterTypeDef,
 )
+
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = (
     "DescribeBackupsPaginator",
@@ -51,84 +64,94 @@ __all__ = (
     "ListTagsForResourcePaginator",
 )
 
-class DescribeBackupsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fsx.html#FSx.Paginator.DescribeBackups)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fsx/paginators.html#describebackupspaginator)
-    """
+if TYPE_CHECKING:
+    _DescribeBackupsPaginatorBase = Paginator[DescribeBackupsResponseTypeDef]
+else:
+    _DescribeBackupsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        BackupIds: List[str] = None,
-        Filters: List["FilterTypeDef"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[DescribeBackupsResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fsx.html#FSx.Paginator.DescribeBackups.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fsx/paginators.html#describebackupspaginator)
-        """
-
-class DescribeFileSystemsPaginator(Boto3Paginator):
+class DescribeBackupsPaginator(_DescribeBackupsPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fsx.html#FSx.Paginator.DescribeFileSystems)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fsx/paginators.html#describefilesystemspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fsx/paginator/DescribeBackups.html#FSx.Paginator.DescribeBackups)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fsx/paginators/#describebackupspaginator)
     """
-
-    def paginate(
-        self, *, FileSystemIds: List[str] = None, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[DescribeFileSystemsResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeBackupsRequestPaginateTypeDef]
+    ) -> PageIterator[DescribeBackupsResponsePaginatorTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fsx.html#FSx.Paginator.DescribeFileSystems.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fsx/paginators.html#describefilesystemspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fsx/paginator/DescribeBackups.html#FSx.Paginator.DescribeBackups.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fsx/paginators/#describebackupspaginator)
         """
 
-class DescribeStorageVirtualMachinesPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fsx.html#FSx.Paginator.DescribeStorageVirtualMachines)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fsx/paginators.html#describestoragevirtualmachinespaginator)
-    """
+if TYPE_CHECKING:
+    _DescribeFileSystemsPaginatorBase = Paginator[DescribeFileSystemsResponsePaginatorTypeDef]
+else:
+    _DescribeFileSystemsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        StorageVirtualMachineIds: List[str] = None,
-        Filters: List["StorageVirtualMachineFilterTypeDef"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[DescribeStorageVirtualMachinesResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fsx.html#FSx.Paginator.DescribeStorageVirtualMachines.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fsx/paginators.html#describestoragevirtualmachinespaginator)
-        """
-
-class DescribeVolumesPaginator(Boto3Paginator):
+class DescribeFileSystemsPaginator(_DescribeFileSystemsPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fsx.html#FSx.Paginator.DescribeVolumes)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fsx/paginators.html#describevolumespaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fsx/paginator/DescribeFileSystems.html#FSx.Paginator.DescribeFileSystems)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fsx/paginators/#describefilesystemspaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        VolumeIds: List[str] = None,
-        Filters: List["VolumeFilterTypeDef"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[DescribeVolumesResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeFileSystemsRequestPaginateTypeDef]
+    ) -> PageIterator[DescribeFileSystemsResponsePaginatorTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fsx.html#FSx.Paginator.DescribeVolumes.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fsx/paginators.html#describevolumespaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fsx/paginator/DescribeFileSystems.html#FSx.Paginator.DescribeFileSystems.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fsx/paginators/#describefilesystemspaginator)
         """
 
-class ListTagsForResourcePaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fsx.html#FSx.Paginator.ListTagsForResource)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fsx/paginators.html#listtagsforresourcepaginator)
-    """
+if TYPE_CHECKING:
+    _DescribeStorageVirtualMachinesPaginatorBase = Paginator[
+        DescribeStorageVirtualMachinesResponseTypeDef
+    ]
+else:
+    _DescribeStorageVirtualMachinesPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, ResourceARN: str, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListTagsForResourceResponseTypeDef]:
+class DescribeStorageVirtualMachinesPaginator(_DescribeStorageVirtualMachinesPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fsx/paginator/DescribeStorageVirtualMachines.html#FSx.Paginator.DescribeStorageVirtualMachines)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fsx/paginators/#describestoragevirtualmachinespaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeStorageVirtualMachinesRequestPaginateTypeDef]
+    ) -> PageIterator[DescribeStorageVirtualMachinesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fsx.html#FSx.Paginator.ListTagsForResource.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fsx/paginators.html#listtagsforresourcepaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fsx/paginator/DescribeStorageVirtualMachines.html#FSx.Paginator.DescribeStorageVirtualMachines.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fsx/paginators/#describestoragevirtualmachinespaginator)
+        """
+
+if TYPE_CHECKING:
+    _DescribeVolumesPaginatorBase = Paginator[DescribeVolumesResponsePaginatorTypeDef]
+else:
+    _DescribeVolumesPaginatorBase = Paginator  # type: ignore[assignment]
+
+class DescribeVolumesPaginator(_DescribeVolumesPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fsx/paginator/DescribeVolumes.html#FSx.Paginator.DescribeVolumes)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fsx/paginators/#describevolumespaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeVolumesRequestPaginateTypeDef]
+    ) -> PageIterator[DescribeVolumesResponsePaginatorTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fsx/paginator/DescribeVolumes.html#FSx.Paginator.DescribeVolumes.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fsx/paginators/#describevolumespaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListTagsForResourcePaginatorBase = Paginator[ListTagsForResourceResponseTypeDef]
+else:
+    _ListTagsForResourcePaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListTagsForResourcePaginator(_ListTagsForResourcePaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fsx/paginator/ListTagsForResource.html#FSx.Paginator.ListTagsForResource)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fsx/paginators/#listtagsforresourcepaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListTagsForResourceRequestPaginateTypeDef]
+    ) -> PageIterator[ListTagsForResourceResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fsx/paginator/ListTagsForResource.html#FSx.Paginator.ListTagsForResource.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fsx/paginators/#listtagsforresourcepaginator)
         """

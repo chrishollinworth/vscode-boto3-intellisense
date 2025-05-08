@@ -1,14 +1,16 @@
 """
 Type annotations for elasticache service client waiters.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/waiters.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_elasticache/waiters/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
 
-    from mypy_boto3_elasticache import ElastiCacheClient
+    from mypy_boto3_elasticache.client import ElastiCacheClient
     from mypy_boto3_elasticache.waiter import (
         CacheClusterAvailableWaiter,
         CacheClusterDeletedWaiter,
@@ -16,7 +18,8 @@ Usage::
         ReplicationGroupDeletedWaiter,
     )
 
-    client: ElastiCacheClient = boto3.client("elasticache")
+    session = Session()
+    client: ElastiCacheClient = session.client("elasticache")
 
     cache_cluster_available_waiter: CacheClusterAvailableWaiter = client.get_waiter("cache_cluster_available")
     cache_cluster_deleted_waiter: CacheClusterDeletedWaiter = client.get_waiter("cache_cluster_deleted")
@@ -25,9 +28,23 @@ Usage::
     ```
 """
 
-from botocore.waiter import Waiter as Boto3Waiter
+from __future__ import annotations
 
-from .type_defs import WaiterConfigTypeDef
+import sys
+
+from botocore.waiter import Waiter
+
+from .type_defs import (
+    DescribeCacheClustersMessageWaitExtraTypeDef,
+    DescribeCacheClustersMessageWaitTypeDef,
+    DescribeReplicationGroupsMessageWaitExtraTypeDef,
+    DescribeReplicationGroupsMessageWaitTypeDef,
+)
+
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = (
     "CacheClusterAvailableWaiter",
@@ -36,82 +53,54 @@ __all__ = (
     "ReplicationGroupDeletedWaiter",
 )
 
-class CacheClusterAvailableWaiter(Boto3Waiter):
+class CacheClusterAvailableWaiter(Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/elasticache.html#ElastiCache.Waiter.CacheClusterAvailable)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/waiters.html#cacheclusteravailablewaiter)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elasticache/waiter/CacheClusterAvailable.html#ElastiCache.Waiter.CacheClusterAvailable)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_elasticache/waiters/#cacheclusteravailablewaiter)
     """
-
-    def wait(
-        self,
-        *,
-        CacheClusterId: str = None,
-        MaxRecords: int = None,
-        Marker: str = None,
-        ShowCacheNodeInfo: bool = None,
-        ShowCacheClustersNotInReplicationGroups: bool = None,
-        WaiterConfig: WaiterConfigTypeDef = None
+    def wait(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeCacheClustersMessageWaitTypeDef]
     ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/elasticache.html#ElastiCache.Waiter.CacheClusterAvailable.wait)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/waiters.html#cacheclusteravailablewaiter)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elasticache/waiter/CacheClusterAvailable.html#ElastiCache.Waiter.CacheClusterAvailable.wait)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_elasticache/waiters/#cacheclusteravailablewaiter)
         """
 
-class CacheClusterDeletedWaiter(Boto3Waiter):
+class CacheClusterDeletedWaiter(Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/elasticache.html#ElastiCache.Waiter.CacheClusterDeleted)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/waiters.html#cacheclusterdeletedwaiter)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elasticache/waiter/CacheClusterDeleted.html#ElastiCache.Waiter.CacheClusterDeleted)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_elasticache/waiters/#cacheclusterdeletedwaiter)
     """
-
-    def wait(
-        self,
-        *,
-        CacheClusterId: str = None,
-        MaxRecords: int = None,
-        Marker: str = None,
-        ShowCacheNodeInfo: bool = None,
-        ShowCacheClustersNotInReplicationGroups: bool = None,
-        WaiterConfig: WaiterConfigTypeDef = None
+    def wait(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeCacheClustersMessageWaitExtraTypeDef]
     ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/elasticache.html#ElastiCache.Waiter.CacheClusterDeleted.wait)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/waiters.html#cacheclusterdeletedwaiter)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elasticache/waiter/CacheClusterDeleted.html#ElastiCache.Waiter.CacheClusterDeleted.wait)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_elasticache/waiters/#cacheclusterdeletedwaiter)
         """
 
-class ReplicationGroupAvailableWaiter(Boto3Waiter):
+class ReplicationGroupAvailableWaiter(Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/elasticache.html#ElastiCache.Waiter.ReplicationGroupAvailable)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/waiters.html#replicationgroupavailablewaiter)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elasticache/waiter/ReplicationGroupAvailable.html#ElastiCache.Waiter.ReplicationGroupAvailable)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_elasticache/waiters/#replicationgroupavailablewaiter)
     """
-
-    def wait(
-        self,
-        *,
-        ReplicationGroupId: str = None,
-        MaxRecords: int = None,
-        Marker: str = None,
-        WaiterConfig: WaiterConfigTypeDef = None
+    def wait(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeReplicationGroupsMessageWaitTypeDef]
     ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/elasticache.html#ElastiCache.Waiter.ReplicationGroupAvailable.wait)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/waiters.html#replicationgroupavailablewaiter)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elasticache/waiter/ReplicationGroupAvailable.html#ElastiCache.Waiter.ReplicationGroupAvailable.wait)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_elasticache/waiters/#replicationgroupavailablewaiter)
         """
 
-class ReplicationGroupDeletedWaiter(Boto3Waiter):
+class ReplicationGroupDeletedWaiter(Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/elasticache.html#ElastiCache.Waiter.ReplicationGroupDeleted)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/waiters.html#replicationgroupdeletedwaiter)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elasticache/waiter/ReplicationGroupDeleted.html#ElastiCache.Waiter.ReplicationGroupDeleted)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_elasticache/waiters/#replicationgroupdeletedwaiter)
     """
-
-    def wait(
-        self,
-        *,
-        ReplicationGroupId: str = None,
-        MaxRecords: int = None,
-        Marker: str = None,
-        WaiterConfig: WaiterConfigTypeDef = None
+    def wait(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeReplicationGroupsMessageWaitExtraTypeDef]
     ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/elasticache.html#ElastiCache.Waiter.ReplicationGroupDeleted.wait)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/waiters.html#replicationgroupdeletedwaiter)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elasticache/waiter/ReplicationGroupDeleted.html#ElastiCache.Waiter.ReplicationGroupDeleted.wait)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_elasticache/waiters/#replicationgroupdeletedwaiter)
         """

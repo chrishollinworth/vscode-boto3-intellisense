@@ -1,14 +1,16 @@
 """
 Type annotations for amp service client waiters.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amp/waiters.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_amp/waiters/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
 
-    from mypy_boto3_amp import PrometheusServiceClient
+    from mypy_boto3_amp.client import PrometheusServiceClient
     from mypy_boto3_amp.waiter import (
         ScraperActiveWaiter,
         ScraperDeletedWaiter,
@@ -16,7 +18,8 @@ Usage::
         WorkspaceDeletedWaiter,
     )
 
-    client: PrometheusServiceClient = boto3.client("amp")
+    session = Session()
+    client: PrometheusServiceClient = session.client("amp")
 
     scraper_active_waiter: ScraperActiveWaiter = client.get_waiter("scraper_active")
     scraper_deleted_waiter: ScraperDeletedWaiter = client.get_waiter("scraper_deleted")
@@ -25,9 +28,23 @@ Usage::
     ```
 """
 
-from botocore.waiter import Waiter as Boto3Waiter
+from __future__ import annotations
 
-from .type_defs import WaiterConfigTypeDef
+import sys
+
+from botocore.waiter import Waiter
+
+from .type_defs import (
+    DescribeScraperRequestWaitExtraTypeDef,
+    DescribeScraperRequestWaitTypeDef,
+    DescribeWorkspaceRequestWaitExtraTypeDef,
+    DescribeWorkspaceRequestWaitTypeDef,
+)
+
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = (
     "ScraperActiveWaiter",
@@ -36,50 +53,54 @@ __all__ = (
     "WorkspaceDeletedWaiter",
 )
 
-class ScraperActiveWaiter(Boto3Waiter):
+class ScraperActiveWaiter(Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/amp.html#PrometheusService.Waiter.ScraperActive)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amp/waiters.html#scraperactivewaiter)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/amp/waiter/ScraperActive.html#PrometheusService.Waiter.ScraperActive)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_amp/waiters/#scraperactivewaiter)
     """
-
-    def wait(self, *, scraperId: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
+    def wait(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeScraperRequestWaitTypeDef]
+    ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/amp.html#PrometheusService.Waiter.ScraperActive.wait)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amp/waiters.html#scraperactivewaiter)
-        """
-
-class ScraperDeletedWaiter(Boto3Waiter):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/amp.html#PrometheusService.Waiter.ScraperDeleted)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amp/waiters.html#scraperdeletedwaiter)
-    """
-
-    def wait(self, *, scraperId: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/amp.html#PrometheusService.Waiter.ScraperDeleted.wait)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amp/waiters.html#scraperdeletedwaiter)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/amp/waiter/ScraperActive.html#PrometheusService.Waiter.ScraperActive.wait)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_amp/waiters/#scraperactivewaiter)
         """
 
-class WorkspaceActiveWaiter(Boto3Waiter):
+class ScraperDeletedWaiter(Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/amp.html#PrometheusService.Waiter.WorkspaceActive)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amp/waiters.html#workspaceactivewaiter)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/amp/waiter/ScraperDeleted.html#PrometheusService.Waiter.ScraperDeleted)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_amp/waiters/#scraperdeletedwaiter)
     """
-
-    def wait(self, *, workspaceId: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
+    def wait(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeScraperRequestWaitExtraTypeDef]
+    ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/amp.html#PrometheusService.Waiter.WorkspaceActive.wait)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amp/waiters.html#workspaceactivewaiter)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/amp/waiter/ScraperDeleted.html#PrometheusService.Waiter.ScraperDeleted.wait)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_amp/waiters/#scraperdeletedwaiter)
         """
 
-class WorkspaceDeletedWaiter(Boto3Waiter):
+class WorkspaceActiveWaiter(Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/amp.html#PrometheusService.Waiter.WorkspaceDeleted)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amp/waiters.html#workspacedeletedwaiter)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/amp/waiter/WorkspaceActive.html#PrometheusService.Waiter.WorkspaceActive)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_amp/waiters/#workspaceactivewaiter)
     """
-
-    def wait(self, *, workspaceId: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
+    def wait(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeWorkspaceRequestWaitTypeDef]
+    ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/amp.html#PrometheusService.Waiter.WorkspaceDeleted.wait)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amp/waiters.html#workspacedeletedwaiter)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/amp/waiter/WorkspaceActive.html#PrometheusService.Waiter.WorkspaceActive.wait)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_amp/waiters/#workspaceactivewaiter)
+        """
+
+class WorkspaceDeletedWaiter(Waiter):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/amp/waiter/WorkspaceDeleted.html#PrometheusService.Waiter.WorkspaceDeleted)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_amp/waiters/#workspacedeletedwaiter)
+    """
+    def wait(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeWorkspaceRequestWaitExtraTypeDef]
+    ) -> None:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/amp/waiter/WorkspaceDeleted.html#PrometheusService.Waiter.WorkspaceDeleted.wait)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_amp/waiters/#workspacedeletedwaiter)
         """

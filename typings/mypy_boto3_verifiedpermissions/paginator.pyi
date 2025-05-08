@@ -1,14 +1,16 @@
 """
 Type annotations for verifiedpermissions service client paginators.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_verifiedpermissions/paginators.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_verifiedpermissions/paginators/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
 
-    from mypy_boto3_verifiedpermissions import VerifiedPermissionsClient
+    from mypy_boto3_verifiedpermissions.client import VerifiedPermissionsClient
     from mypy_boto3_verifiedpermissions.paginator import (
         ListIdentitySourcesPaginator,
         ListPoliciesPaginator,
@@ -16,7 +18,8 @@ Usage::
         ListPolicyTemplatesPaginator,
     )
 
-    client: VerifiedPermissionsClient = boto3.client("verifiedpermissions")
+    session = Session()
+    client: VerifiedPermissionsClient = session.client("verifiedpermissions")
 
     list_identity_sources_paginator: ListIdentitySourcesPaginator = client.get_paginator("list_identity_sources")
     list_policies_paginator: ListPoliciesPaginator = client.get_paginator("list_policies")
@@ -25,19 +28,28 @@ Usage::
     ```
 """
 
-from typing import Iterator, List
+from __future__ import annotations
 
-from botocore.paginate import Paginator as Boto3Paginator
+import sys
+from typing import TYPE_CHECKING
+
+from botocore.paginate import PageIterator, Paginator
 
 from .type_defs import (
-    IdentitySourceFilterTypeDef,
+    ListIdentitySourcesInputPaginateTypeDef,
     ListIdentitySourcesOutputTypeDef,
+    ListPoliciesInputPaginateTypeDef,
     ListPoliciesOutputTypeDef,
+    ListPolicyStoresInputPaginateTypeDef,
     ListPolicyStoresOutputTypeDef,
+    ListPolicyTemplatesInputPaginateTypeDef,
     ListPolicyTemplatesOutputTypeDef,
-    PaginatorConfigTypeDef,
-    PolicyFilterTypeDef,
 )
+
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = (
     "ListIdentitySourcesPaginator",
@@ -46,66 +58,74 @@ __all__ = (
     "ListPolicyTemplatesPaginator",
 )
 
-class ListIdentitySourcesPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/verifiedpermissions.html#VerifiedPermissions.Paginator.ListIdentitySources)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_verifiedpermissions/paginators.html#listidentitysourcespaginator)
-    """
+if TYPE_CHECKING:
+    _ListIdentitySourcesPaginatorBase = Paginator[ListIdentitySourcesOutputTypeDef]
+else:
+    _ListIdentitySourcesPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        policyStoreId: str,
-        filters: List["IdentitySourceFilterTypeDef"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListIdentitySourcesOutputTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/verifiedpermissions.html#VerifiedPermissions.Paginator.ListIdentitySources.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_verifiedpermissions/paginators.html#listidentitysourcespaginator)
-        """
-
-class ListPoliciesPaginator(Boto3Paginator):
+class ListIdentitySourcesPaginator(_ListIdentitySourcesPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/verifiedpermissions.html#VerifiedPermissions.Paginator.ListPolicies)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_verifiedpermissions/paginators.html#listpoliciespaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/verifiedpermissions/paginator/ListIdentitySources.html#VerifiedPermissions.Paginator.ListIdentitySources)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_verifiedpermissions/paginators/#listidentitysourcespaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        policyStoreId: str,
-        filter: "PolicyFilterTypeDef" = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListPoliciesOutputTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListIdentitySourcesInputPaginateTypeDef]
+    ) -> PageIterator[ListIdentitySourcesOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/verifiedpermissions.html#VerifiedPermissions.Paginator.ListPolicies.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_verifiedpermissions/paginators.html#listpoliciespaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/verifiedpermissions/paginator/ListIdentitySources.html#VerifiedPermissions.Paginator.ListIdentitySources.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_verifiedpermissions/paginators/#listidentitysourcespaginator)
         """
 
-class ListPolicyStoresPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/verifiedpermissions.html#VerifiedPermissions.Paginator.ListPolicyStores)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_verifiedpermissions/paginators.html#listpolicystorespaginator)
-    """
+if TYPE_CHECKING:
+    _ListPoliciesPaginatorBase = Paginator[ListPoliciesOutputTypeDef]
+else:
+    _ListPoliciesPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListPolicyStoresOutputTypeDef]:
+class ListPoliciesPaginator(_ListPoliciesPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/verifiedpermissions/paginator/ListPolicies.html#VerifiedPermissions.Paginator.ListPolicies)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_verifiedpermissions/paginators/#listpoliciespaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListPoliciesInputPaginateTypeDef]
+    ) -> PageIterator[ListPoliciesOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/verifiedpermissions.html#VerifiedPermissions.Paginator.ListPolicyStores.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_verifiedpermissions/paginators.html#listpolicystorespaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/verifiedpermissions/paginator/ListPolicies.html#VerifiedPermissions.Paginator.ListPolicies.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_verifiedpermissions/paginators/#listpoliciespaginator)
         """
 
-class ListPolicyTemplatesPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/verifiedpermissions.html#VerifiedPermissions.Paginator.ListPolicyTemplates)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_verifiedpermissions/paginators.html#listpolicytemplatespaginator)
-    """
+if TYPE_CHECKING:
+    _ListPolicyStoresPaginatorBase = Paginator[ListPolicyStoresOutputTypeDef]
+else:
+    _ListPolicyStoresPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, policyStoreId: str, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListPolicyTemplatesOutputTypeDef]:
+class ListPolicyStoresPaginator(_ListPolicyStoresPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/verifiedpermissions/paginator/ListPolicyStores.html#VerifiedPermissions.Paginator.ListPolicyStores)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_verifiedpermissions/paginators/#listpolicystorespaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListPolicyStoresInputPaginateTypeDef]
+    ) -> PageIterator[ListPolicyStoresOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/verifiedpermissions.html#VerifiedPermissions.Paginator.ListPolicyTemplates.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_verifiedpermissions/paginators.html#listpolicytemplatespaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/verifiedpermissions/paginator/ListPolicyStores.html#VerifiedPermissions.Paginator.ListPolicyStores.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_verifiedpermissions/paginators/#listpolicystorespaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListPolicyTemplatesPaginatorBase = Paginator[ListPolicyTemplatesOutputTypeDef]
+else:
+    _ListPolicyTemplatesPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListPolicyTemplatesPaginator(_ListPolicyTemplatesPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/verifiedpermissions/paginator/ListPolicyTemplates.html#VerifiedPermissions.Paginator.ListPolicyTemplates)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_verifiedpermissions/paginators/#listpolicytemplatespaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListPolicyTemplatesInputPaginateTypeDef]
+    ) -> PageIterator[ListPolicyTemplatesOutputTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/verifiedpermissions/paginator/ListPolicyTemplates.html#VerifiedPermissions.Paginator.ListPolicyTemplates.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_verifiedpermissions/paginators/#listpolicytemplatespaginator)
         """

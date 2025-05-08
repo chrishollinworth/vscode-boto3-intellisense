@@ -1,45 +1,51 @@
 """
 Type annotations for ssm service client waiters.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/waiters.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/waiters/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
 
-    from mypy_boto3_ssm import SSMClient
+    from mypy_boto3_ssm.client import SSMClient
     from mypy_boto3_ssm.waiter import (
         CommandExecutedWaiter,
     )
 
-    client: SSMClient = boto3.client("ssm")
+    session = Session()
+    client: SSMClient = session.client("ssm")
 
     command_executed_waiter: CommandExecutedWaiter = client.get_waiter("command_executed")
     ```
 """
 
-from botocore.waiter import Waiter as Boto3Waiter
+from __future__ import annotations
 
-from .type_defs import WaiterConfigTypeDef
+import sys
+
+from botocore.waiter import Waiter
+
+from .type_defs import GetCommandInvocationRequestWaitTypeDef
+
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = ("CommandExecutedWaiter",)
 
-class CommandExecutedWaiter(Boto3Waiter):
+class CommandExecutedWaiter(Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm.html#SSM.Waiter.CommandExecuted)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/waiters.html#commandexecutedwaiter)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/waiter/CommandExecuted.html#SSM.Waiter.CommandExecuted)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/waiters/#commandexecutedwaiter)
     """
-
-    def wait(
-        self,
-        *,
-        CommandId: str,
-        InstanceId: str,
-        PluginName: str = None,
-        WaiterConfig: WaiterConfigTypeDef = None
+    def wait(  # type: ignore[override]
+        self, **kwargs: Unpack[GetCommandInvocationRequestWaitTypeDef]
     ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm.html#SSM.Waiter.CommandExecuted.wait)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/waiters.html#commandexecutedwaiter)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/waiter/CommandExecuted.html#SSM.Waiter.CommandExecuted.wait)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/waiters/#commandexecutedwaiter)
         """

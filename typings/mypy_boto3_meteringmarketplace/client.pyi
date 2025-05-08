@@ -1,42 +1,54 @@
 """
-Type annotations for meteringmarketplace service client.
+Type annotations for meteringmarketplace service Client.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_meteringmarketplace/client.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_meteringmarketplace/client/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
-    from mypy_boto3_meteringmarketplace import MarketplaceMeteringClient
+    from boto3.session import Session
+    from mypy_boto3_meteringmarketplace.client import MarketplaceMeteringClient
 
-    client: MarketplaceMeteringClient = boto3.client("meteringmarketplace")
+    session = Session()
+    client: MarketplaceMeteringClient = session.client("meteringmarketplace")
     ```
 """
 
-from datetime import datetime
-from typing import Any, Dict, List, Type, Union
+from __future__ import annotations
+
+import sys
+from typing import Any
 
 from botocore.client import BaseClient, ClientMeta
+from botocore.errorfactory import BaseClientExceptions
+from botocore.exceptions import ClientError as BotocoreClientError
 
 from .type_defs import (
+    BatchMeterUsageRequestTypeDef,
     BatchMeterUsageResultTypeDef,
+    MeterUsageRequestTypeDef,
     MeterUsageResultTypeDef,
+    RegisterUsageRequestTypeDef,
     RegisterUsageResultTypeDef,
+    ResolveCustomerRequestTypeDef,
     ResolveCustomerResultTypeDef,
-    UsageAllocationTypeDef,
-    UsageRecordTypeDef,
 )
+
+if sys.version_info >= (3, 9):
+    from builtins import type as Type
+    from collections.abc import Mapping
+else:
+    from typing import Mapping, Type
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = ("MarketplaceMeteringClient",)
 
-class BotocoreClientError(BaseException):
-    MSG_TEMPLATE: str
-
-    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
-        self.response: Dict[str, Any]
-        self.operation_name: str
-
-class Exceptions:
+class Exceptions(BaseClientExceptions):
     ClientError: Type[BotocoreClientError]
     CustomerNotEntitledException: Type[BotocoreClientError]
     DisabledApiException: Type[BotocoreClientError]
@@ -58,8 +70,8 @@ class Exceptions:
 
 class MarketplaceMeteringClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/meteringmarketplace.html#MarketplaceMetering.Client)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_meteringmarketplace/client.html)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/meteringmarketplace.html#MarketplaceMetering.Client)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_meteringmarketplace/client/)
     """
 
     meta: ClientMeta
@@ -68,83 +80,67 @@ class MarketplaceMeteringClient(BaseClient):
     def exceptions(self) -> Exceptions:
         """
         MarketplaceMeteringClient exceptions.
-        """
 
-    def batch_meter_usage(
-        self, *, UsageRecords: List["UsageRecordTypeDef"], ProductCode: str
-    ) -> BatchMeterUsageResultTypeDef:
-        """
-        `BatchMeterUsage` is called from a SaaS application listed on AWS Marketplace to
-        post metering records for a set of customers.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/meteringmarketplace.html#MarketplaceMetering.Client.batch_meter_usage)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_meteringmarketplace/client.html#batch_meter_usage)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/meteringmarketplace.html#MarketplaceMetering.Client)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_meteringmarketplace/client/#exceptions)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        Check if an operation can be paginated.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/meteringmarketplace.html#MarketplaceMetering.Client.can_paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_meteringmarketplace/client.html#can_paginate)
-        """
-
-    def close(self) -> None:
-        """
-        Closes underlying endpoint connections.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/meteringmarketplace.html#MarketplaceMetering.Client.close)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_meteringmarketplace/client.html#close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/meteringmarketplace/client/can_paginate.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_meteringmarketplace/client/#can_paginate)
         """
 
     def generate_presigned_url(
         self,
         ClientMethod: str,
-        Params: Dict[str, Any] = None,
+        Params: Mapping[str, Any] = ...,
         ExpiresIn: int = 3600,
-        HttpMethod: str = None,
+        HttpMethod: str = ...,
     ) -> str:
         """
-        Generate a presigned url given a client, its method, and arguments.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/meteringmarketplace.html#MarketplaceMetering.Client.generate_presigned_url)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_meteringmarketplace/client.html#generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/meteringmarketplace/client/generate_presigned_url.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_meteringmarketplace/client/#generate_presigned_url)
         """
 
-    def meter_usage(
-        self,
-        *,
-        ProductCode: str,
-        Timestamp: Union[datetime, str],
-        UsageDimension: str,
-        UsageQuantity: int = None,
-        DryRun: bool = None,
-        UsageAllocations: List["UsageAllocationTypeDef"] = None
-    ) -> MeterUsageResultTypeDef:
+    def batch_meter_usage(
+        self, **kwargs: Unpack[BatchMeterUsageRequestTypeDef]
+    ) -> BatchMeterUsageResultTypeDef:
+        """
+        The <code>CustomerIdentifier</code> parameter is scheduled for deprecation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/meteringmarketplace/client/batch_meter_usage.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_meteringmarketplace/client/#batch_meter_usage)
+        """
+
+    def meter_usage(self, **kwargs: Unpack[MeterUsageRequestTypeDef]) -> MeterUsageResultTypeDef:
         """
         API to emit metering records.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/meteringmarketplace.html#MarketplaceMetering.Client.meter_usage)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_meteringmarketplace/client.html#meter_usage)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/meteringmarketplace/client/meter_usage.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_meteringmarketplace/client/#meter_usage)
         """
 
     def register_usage(
-        self, *, ProductCode: str, PublicKeyVersion: int, Nonce: str = None
+        self, **kwargs: Unpack[RegisterUsageRequestTypeDef]
     ) -> RegisterUsageResultTypeDef:
         """
-        Paid container software products sold through AWS Marketplace must integrate
-        with the AWS Marketplace Metering Service and call the `RegisterUsage` operation
-        for software entitlement and metering.
+        Paid container software products sold through Amazon Web Services Marketplace
+        must integrate with the Amazon Web Services Marketplace Metering Service and
+        call the <code>RegisterUsage</code> operation for software entitlement and
+        metering.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/meteringmarketplace.html#MarketplaceMetering.Client.register_usage)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_meteringmarketplace/client.html#register_usage)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/meteringmarketplace/client/register_usage.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_meteringmarketplace/client/#register_usage)
         """
 
-    def resolve_customer(self, *, RegistrationToken: str) -> ResolveCustomerResultTypeDef:
+    def resolve_customer(
+        self, **kwargs: Unpack[ResolveCustomerRequestTypeDef]
+    ) -> ResolveCustomerResultTypeDef:
         """
-        `ResolveCustomer` is called by a SaaS application during the registration
-        process.
+        <code>ResolveCustomer</code> is called by a SaaS application during the
+        registration process.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/meteringmarketplace.html#MarketplaceMetering.Client.resolve_customer)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_meteringmarketplace/client.html#resolve_customer)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/meteringmarketplace/client/resolve_customer.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_meteringmarketplace/client/#resolve_customer)
         """

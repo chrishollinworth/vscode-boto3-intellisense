@@ -1,155 +1,102 @@
 """
 Type annotations for route53-recovery-cluster service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_cluster/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_cluster/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_route53_recovery_cluster.type_defs import GetRoutingControlStateRequestRequestTypeDef
+    from mypy_boto3_route53_recovery_cluster.type_defs import GetRoutingControlStateRequestTypeDef
 
-    data: GetRoutingControlStateRequestRequestTypeDef = {...}
+    data: GetRoutingControlStateRequestTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from typing import Any, Dict, List
 
 from .literals import RoutingControlStateType
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Sequence
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List, Sequence
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
-    "GetRoutingControlStateRequestRequestTypeDef",
+    "GetRoutingControlStateRequestTypeDef",
     "GetRoutingControlStateResponseTypeDef",
-    "ListRoutingControlsRequestRequestTypeDef",
+    "ListRoutingControlsRequestPaginateTypeDef",
+    "ListRoutingControlsRequestTypeDef",
     "ListRoutingControlsResponseTypeDef",
     "PaginatorConfigTypeDef",
     "ResponseMetadataTypeDef",
     "RoutingControlTypeDef",
     "UpdateRoutingControlStateEntryTypeDef",
-    "UpdateRoutingControlStateRequestRequestTypeDef",
-    "UpdateRoutingControlStatesRequestRequestTypeDef",
+    "UpdateRoutingControlStateRequestTypeDef",
+    "UpdateRoutingControlStatesRequestTypeDef",
 )
 
-GetRoutingControlStateRequestRequestTypeDef = TypedDict(
-    "GetRoutingControlStateRequestRequestTypeDef",
-    {
-        "RoutingControlArn": str,
-    },
-)
+class GetRoutingControlStateRequestTypeDef(TypedDict):
+    RoutingControlArn: str
 
-GetRoutingControlStateResponseTypeDef = TypedDict(
-    "GetRoutingControlStateResponseTypeDef",
-    {
-        "RoutingControlArn": str,
-        "RoutingControlState": RoutingControlStateType,
-        "RoutingControlName": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-ListRoutingControlsRequestRequestTypeDef = TypedDict(
-    "ListRoutingControlsRequestRequestTypeDef",
-    {
-        "ControlPanelArn": str,
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
 
-ListRoutingControlsResponseTypeDef = TypedDict(
-    "ListRoutingControlsResponseTypeDef",
-    {
-        "RoutingControls": List["RoutingControlTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListRoutingControlsRequestTypeDef(TypedDict):
+    ControlPanelArn: NotRequired[str]
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
 
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
+class RoutingControlTypeDef(TypedDict):
+    ControlPanelArn: NotRequired[str]
+    ControlPanelName: NotRequired[str]
+    RoutingControlArn: NotRequired[str]
+    RoutingControlName: NotRequired[str]
+    RoutingControlState: NotRequired[RoutingControlStateType]
+    Owner: NotRequired[str]
 
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
+class UpdateRoutingControlStateEntryTypeDef(TypedDict):
+    RoutingControlArn: str
+    RoutingControlState: RoutingControlStateType
 
-RoutingControlTypeDef = TypedDict(
-    "RoutingControlTypeDef",
-    {
-        "ControlPanelArn": str,
-        "ControlPanelName": str,
-        "RoutingControlArn": str,
-        "RoutingControlName": str,
-        "RoutingControlState": RoutingControlStateType,
-        "Owner": str,
-    },
-    total=False,
-)
+class UpdateRoutingControlStateRequestTypeDef(TypedDict):
+    RoutingControlArn: str
+    RoutingControlState: RoutingControlStateType
+    SafetyRulesToOverride: NotRequired[Sequence[str]]
 
-UpdateRoutingControlStateEntryTypeDef = TypedDict(
-    "UpdateRoutingControlStateEntryTypeDef",
-    {
-        "RoutingControlArn": str,
-        "RoutingControlState": RoutingControlStateType,
-    },
-)
+class GetRoutingControlStateResponseTypeDef(TypedDict):
+    RoutingControlArn: str
+    RoutingControlState: RoutingControlStateType
+    RoutingControlName: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredUpdateRoutingControlStateRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateRoutingControlStateRequestRequestTypeDef",
-    {
-        "RoutingControlArn": str,
-        "RoutingControlState": RoutingControlStateType,
-    },
-)
-_OptionalUpdateRoutingControlStateRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateRoutingControlStateRequestRequestTypeDef",
-    {
-        "SafetyRulesToOverride": List[str],
-    },
-    total=False,
-)
+class ListRoutingControlsRequestPaginateTypeDef(TypedDict):
+    ControlPanelArn: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-class UpdateRoutingControlStateRequestRequestTypeDef(
-    _RequiredUpdateRoutingControlStateRequestRequestTypeDef,
-    _OptionalUpdateRoutingControlStateRequestRequestTypeDef,
-):
-    pass
+class ListRoutingControlsResponseTypeDef(TypedDict):
+    RoutingControls: List[RoutingControlTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-_RequiredUpdateRoutingControlStatesRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateRoutingControlStatesRequestRequestTypeDef",
-    {
-        "UpdateRoutingControlStateEntries": List["UpdateRoutingControlStateEntryTypeDef"],
-    },
-)
-_OptionalUpdateRoutingControlStatesRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateRoutingControlStatesRequestRequestTypeDef",
-    {
-        "SafetyRulesToOverride": List[str],
-    },
-    total=False,
-)
-
-class UpdateRoutingControlStatesRequestRequestTypeDef(
-    _RequiredUpdateRoutingControlStatesRequestRequestTypeDef,
-    _OptionalUpdateRoutingControlStatesRequestRequestTypeDef,
-):
-    pass
+class UpdateRoutingControlStatesRequestTypeDef(TypedDict):
+    UpdateRoutingControlStateEntries: Sequence[UpdateRoutingControlStateEntryTypeDef]
+    SafetyRulesToOverride: NotRequired[Sequence[str]]

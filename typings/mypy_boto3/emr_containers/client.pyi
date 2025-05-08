@@ -1,25 +1,30 @@
 """
-Type annotations for emr-containers service client.
+Type annotations for emr-containers service Client.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
-    from mypy_boto3_emr_containers import EMRContainersClient
+    from boto3.session import Session
+    from mypy_boto3_emr_containers.client import EMRContainersClient
 
-    client: EMRContainersClient = boto3.client("emr-containers")
+    session = Session()
+    client: EMRContainersClient = session.client("emr-containers")
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from datetime import datetime
-from typing import Any, Dict, List, Type, Union, overload
+from typing import Any, overload
 
 from botocore.client import BaseClient, ClientMeta
+from botocore.errorfactory import BaseClientExceptions
+from botocore.exceptions import ClientError as BotocoreClientError
 
-from .literals import EndpointStateType, JobRunStateType, VirtualClusterStateType
 from .paginator import (
     ListJobRunsPaginator,
     ListJobTemplatesPaginator,
@@ -28,50 +33,66 @@ from .paginator import (
     ListVirtualClustersPaginator,
 )
 from .type_defs import (
+    CancelJobRunRequestTypeDef,
     CancelJobRunResponseTypeDef,
-    ConfigurationOverridesTypeDef,
-    ContainerProviderTypeDef,
+    CreateJobTemplateRequestTypeDef,
     CreateJobTemplateResponseTypeDef,
+    CreateManagedEndpointRequestTypeDef,
     CreateManagedEndpointResponseTypeDef,
+    CreateSecurityConfigurationRequestTypeDef,
     CreateSecurityConfigurationResponseTypeDef,
+    CreateVirtualClusterRequestTypeDef,
     CreateVirtualClusterResponseTypeDef,
+    DeleteJobTemplateRequestTypeDef,
     DeleteJobTemplateResponseTypeDef,
+    DeleteManagedEndpointRequestTypeDef,
     DeleteManagedEndpointResponseTypeDef,
+    DeleteVirtualClusterRequestTypeDef,
     DeleteVirtualClusterResponseTypeDef,
+    DescribeJobRunRequestTypeDef,
     DescribeJobRunResponseTypeDef,
+    DescribeJobTemplateRequestTypeDef,
     DescribeJobTemplateResponseTypeDef,
+    DescribeManagedEndpointRequestTypeDef,
     DescribeManagedEndpointResponseTypeDef,
+    DescribeSecurityConfigurationRequestTypeDef,
     DescribeSecurityConfigurationResponseTypeDef,
+    DescribeVirtualClusterRequestTypeDef,
     DescribeVirtualClusterResponseTypeDef,
+    GetManagedEndpointSessionCredentialsRequestTypeDef,
     GetManagedEndpointSessionCredentialsResponseTypeDef,
-    JobDriverTypeDef,
-    JobTemplateDataTypeDef,
+    ListJobRunsRequestTypeDef,
     ListJobRunsResponseTypeDef,
+    ListJobTemplatesRequestTypeDef,
     ListJobTemplatesResponseTypeDef,
+    ListManagedEndpointsRequestTypeDef,
     ListManagedEndpointsResponseTypeDef,
+    ListSecurityConfigurationsRequestTypeDef,
     ListSecurityConfigurationsResponseTypeDef,
+    ListTagsForResourceRequestTypeDef,
     ListTagsForResourceResponseTypeDef,
+    ListVirtualClustersRequestTypeDef,
     ListVirtualClustersResponseTypeDef,
-    RetryPolicyConfigurationTypeDef,
-    SecurityConfigurationDataTypeDef,
+    StartJobRunRequestTypeDef,
     StartJobRunResponseTypeDef,
+    TagResourceRequestTypeDef,
+    UntagResourceRequestTypeDef,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import type as Type
+    from collections.abc import Mapping
 else:
-    from typing_extensions import Literal
+    from typing import Dict, Mapping, Type
+if sys.version_info >= (3, 12):
+    from typing import Literal, Unpack
+else:
+    from typing_extensions import Literal, Unpack
 
 __all__ = ("EMRContainersClient",)
 
-class BotocoreClientError(BaseException):
-    MSG_TEMPLATE: str
-
-    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
-        self.response: Dict[str, Any]
-        self.operation_name: str
-
-class Exceptions:
+class Exceptions(BaseClientExceptions):
     ClientError: Type[BotocoreClientError]
     EKSRequestThrottledException: Type[BotocoreClientError]
     InternalServerException: Type[BotocoreClientError]
@@ -81,8 +102,8 @@ class Exceptions:
 
 class EMRContainersClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr-containers.html#EMRContainers.Client)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client.html)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/emr-containers.html#EMRContainers.Client)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client/)
     """
 
     meta: ClientMeta
@@ -91,371 +112,306 @@ class EMRContainersClient(BaseClient):
     def exceptions(self) -> Exceptions:
         """
         EMRContainersClient exceptions.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/emr-containers.html#EMRContainers.Client)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client/#exceptions)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        Check if an operation can be paginated.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr-containers.html#EMRContainers.Client.can_paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client.html#can_paginate)
-        """
-
-    def cancel_job_run(self, *, id: str, virtualClusterId: str) -> CancelJobRunResponseTypeDef:
-        """
-        Cancels a job run.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr-containers.html#EMRContainers.Client.cancel_job_run)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client.html#cancel_job_run)
-        """
-
-    def close(self) -> None:
-        """
-        Closes underlying endpoint connections.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr-containers.html#EMRContainers.Client.close)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client.html#close)
-        """
-
-    def create_job_template(
-        self,
-        *,
-        name: str,
-        clientToken: str,
-        jobTemplateData: "JobTemplateDataTypeDef",
-        tags: Dict[str, str] = None,
-        kmsKeyArn: str = None
-    ) -> CreateJobTemplateResponseTypeDef:
-        """
-        Creates a job template.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr-containers.html#EMRContainers.Client.create_job_template)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client.html#create_job_template)
-        """
-
-    def create_managed_endpoint(
-        self,
-        *,
-        name: str,
-        virtualClusterId: str,
-        type: str,
-        releaseLabel: str,
-        executionRoleArn: str,
-        clientToken: str,
-        certificateArn: str = None,
-        configurationOverrides: "ConfigurationOverridesTypeDef" = None,
-        tags: Dict[str, str] = None
-    ) -> CreateManagedEndpointResponseTypeDef:
-        """
-        Creates a managed endpoint.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr-containers.html#EMRContainers.Client.create_managed_endpoint)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client.html#create_managed_endpoint)
-        """
-
-    def create_security_configuration(
-        self,
-        *,
-        clientToken: str,
-        name: str,
-        securityConfigurationData: "SecurityConfigurationDataTypeDef",
-        tags: Dict[str, str] = None
-    ) -> CreateSecurityConfigurationResponseTypeDef:
-        """
-        Creates a security configuration.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr-containers.html#EMRContainers.Client.create_security_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client.html#create_security_configuration)
-        """
-
-    def create_virtual_cluster(
-        self,
-        *,
-        name: str,
-        containerProvider: "ContainerProviderTypeDef",
-        clientToken: str,
-        tags: Dict[str, str] = None,
-        securityConfigurationId: str = None
-    ) -> CreateVirtualClusterResponseTypeDef:
-        """
-        Creates a virtual cluster.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr-containers.html#EMRContainers.Client.create_virtual_cluster)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client.html#create_virtual_cluster)
-        """
-
-    def delete_job_template(self, *, id: str) -> DeleteJobTemplateResponseTypeDef:
-        """
-        Deletes a job template.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr-containers.html#EMRContainers.Client.delete_job_template)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client.html#delete_job_template)
-        """
-
-    def delete_managed_endpoint(
-        self, *, id: str, virtualClusterId: str
-    ) -> DeleteManagedEndpointResponseTypeDef:
-        """
-        Deletes a managed endpoint.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr-containers.html#EMRContainers.Client.delete_managed_endpoint)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client.html#delete_managed_endpoint)
-        """
-
-    def delete_virtual_cluster(self, *, id: str) -> DeleteVirtualClusterResponseTypeDef:
-        """
-        Deletes a virtual cluster.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr-containers.html#EMRContainers.Client.delete_virtual_cluster)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client.html#delete_virtual_cluster)
-        """
-
-    def describe_job_run(self, *, id: str, virtualClusterId: str) -> DescribeJobRunResponseTypeDef:
-        """
-        Displays detailed information about a job run.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr-containers.html#EMRContainers.Client.describe_job_run)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client.html#describe_job_run)
-        """
-
-    def describe_job_template(self, *, id: str) -> DescribeJobTemplateResponseTypeDef:
-        """
-        Displays detailed information about a specified job template.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr-containers.html#EMRContainers.Client.describe_job_template)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client.html#describe_job_template)
-        """
-
-    def describe_managed_endpoint(
-        self, *, id: str, virtualClusterId: str
-    ) -> DescribeManagedEndpointResponseTypeDef:
-        """
-        Displays detailed information about a managed endpoint.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr-containers.html#EMRContainers.Client.describe_managed_endpoint)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client.html#describe_managed_endpoint)
-        """
-
-    def describe_security_configuration(
-        self, *, id: str
-    ) -> DescribeSecurityConfigurationResponseTypeDef:
-        """
-        Displays detailed information about a specified security configuration.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr-containers.html#EMRContainers.Client.describe_security_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client.html#describe_security_configuration)
-        """
-
-    def describe_virtual_cluster(self, *, id: str) -> DescribeVirtualClusterResponseTypeDef:
-        """
-        Displays detailed information about a specified virtual cluster.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr-containers.html#EMRContainers.Client.describe_virtual_cluster)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client.html#describe_virtual_cluster)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/emr-containers/client/can_paginate.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client/#can_paginate)
         """
 
     def generate_presigned_url(
         self,
         ClientMethod: str,
-        Params: Dict[str, Any] = None,
+        Params: Mapping[str, Any] = ...,
         ExpiresIn: int = 3600,
-        HttpMethod: str = None,
+        HttpMethod: str = ...,
     ) -> str:
         """
-        Generate a presigned url given a client, its method, and arguments.
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/emr-containers/client/generate_presigned_url.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client/#generate_presigned_url)
+        """
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr-containers.html#EMRContainers.Client.generate_presigned_url)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client.html#generate_presigned_url)
+    def cancel_job_run(
+        self, **kwargs: Unpack[CancelJobRunRequestTypeDef]
+    ) -> CancelJobRunResponseTypeDef:
+        """
+        Cancels a job run.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/emr-containers/client/cancel_job_run.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client/#cancel_job_run)
+        """
+
+    def create_job_template(
+        self, **kwargs: Unpack[CreateJobTemplateRequestTypeDef]
+    ) -> CreateJobTemplateResponseTypeDef:
+        """
+        Creates a job template.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/emr-containers/client/create_job_template.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client/#create_job_template)
+        """
+
+    def create_managed_endpoint(
+        self, **kwargs: Unpack[CreateManagedEndpointRequestTypeDef]
+    ) -> CreateManagedEndpointResponseTypeDef:
+        """
+        Creates a managed endpoint.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/emr-containers/client/create_managed_endpoint.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client/#create_managed_endpoint)
+        """
+
+    def create_security_configuration(
+        self, **kwargs: Unpack[CreateSecurityConfigurationRequestTypeDef]
+    ) -> CreateSecurityConfigurationResponseTypeDef:
+        """
+        Creates a security configuration.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/emr-containers/client/create_security_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client/#create_security_configuration)
+        """
+
+    def create_virtual_cluster(
+        self, **kwargs: Unpack[CreateVirtualClusterRequestTypeDef]
+    ) -> CreateVirtualClusterResponseTypeDef:
+        """
+        Creates a virtual cluster.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/emr-containers/client/create_virtual_cluster.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client/#create_virtual_cluster)
+        """
+
+    def delete_job_template(
+        self, **kwargs: Unpack[DeleteJobTemplateRequestTypeDef]
+    ) -> DeleteJobTemplateResponseTypeDef:
+        """
+        Deletes a job template.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/emr-containers/client/delete_job_template.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client/#delete_job_template)
+        """
+
+    def delete_managed_endpoint(
+        self, **kwargs: Unpack[DeleteManagedEndpointRequestTypeDef]
+    ) -> DeleteManagedEndpointResponseTypeDef:
+        """
+        Deletes a managed endpoint.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/emr-containers/client/delete_managed_endpoint.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client/#delete_managed_endpoint)
+        """
+
+    def delete_virtual_cluster(
+        self, **kwargs: Unpack[DeleteVirtualClusterRequestTypeDef]
+    ) -> DeleteVirtualClusterResponseTypeDef:
+        """
+        Deletes a virtual cluster.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/emr-containers/client/delete_virtual_cluster.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client/#delete_virtual_cluster)
+        """
+
+    def describe_job_run(
+        self, **kwargs: Unpack[DescribeJobRunRequestTypeDef]
+    ) -> DescribeJobRunResponseTypeDef:
+        """
+        Displays detailed information about a job run.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/emr-containers/client/describe_job_run.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client/#describe_job_run)
+        """
+
+    def describe_job_template(
+        self, **kwargs: Unpack[DescribeJobTemplateRequestTypeDef]
+    ) -> DescribeJobTemplateResponseTypeDef:
+        """
+        Displays detailed information about a specified job template.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/emr-containers/client/describe_job_template.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client/#describe_job_template)
+        """
+
+    def describe_managed_endpoint(
+        self, **kwargs: Unpack[DescribeManagedEndpointRequestTypeDef]
+    ) -> DescribeManagedEndpointResponseTypeDef:
+        """
+        Displays detailed information about a managed endpoint.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/emr-containers/client/describe_managed_endpoint.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client/#describe_managed_endpoint)
+        """
+
+    def describe_security_configuration(
+        self, **kwargs: Unpack[DescribeSecurityConfigurationRequestTypeDef]
+    ) -> DescribeSecurityConfigurationResponseTypeDef:
+        """
+        Displays detailed information about a specified security configuration.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/emr-containers/client/describe_security_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client/#describe_security_configuration)
+        """
+
+    def describe_virtual_cluster(
+        self, **kwargs: Unpack[DescribeVirtualClusterRequestTypeDef]
+    ) -> DescribeVirtualClusterResponseTypeDef:
+        """
+        Displays detailed information about a specified virtual cluster.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/emr-containers/client/describe_virtual_cluster.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client/#describe_virtual_cluster)
         """
 
     def get_managed_endpoint_session_credentials(
-        self,
-        *,
-        endpointIdentifier: str,
-        virtualClusterIdentifier: str,
-        executionRoleArn: str,
-        credentialType: str,
-        durationInSeconds: int = None,
-        logContext: str = None,
-        clientToken: str = None
+        self, **kwargs: Unpack[GetManagedEndpointSessionCredentialsRequestTypeDef]
     ) -> GetManagedEndpointSessionCredentialsResponseTypeDef:
         """
         Generate a session token to connect to a managed endpoint.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr-containers.html#EMRContainers.Client.get_managed_endpoint_session_credentials)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client.html#get_managed_endpoint_session_credentials)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/emr-containers/client/get_managed_endpoint_session_credentials.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client/#get_managed_endpoint_session_credentials)
         """
 
     def list_job_runs(
-        self,
-        *,
-        virtualClusterId: str,
-        createdBefore: Union[datetime, str] = None,
-        createdAfter: Union[datetime, str] = None,
-        name: str = None,
-        states: List[JobRunStateType] = None,
-        maxResults: int = None,
-        nextToken: str = None
+        self, **kwargs: Unpack[ListJobRunsRequestTypeDef]
     ) -> ListJobRunsResponseTypeDef:
         """
         Lists job runs based on a set of parameters.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr-containers.html#EMRContainers.Client.list_job_runs)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client.html#list_job_runs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/emr-containers/client/list_job_runs.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client/#list_job_runs)
         """
 
     def list_job_templates(
-        self,
-        *,
-        createdAfter: Union[datetime, str] = None,
-        createdBefore: Union[datetime, str] = None,
-        maxResults: int = None,
-        nextToken: str = None
+        self, **kwargs: Unpack[ListJobTemplatesRequestTypeDef]
     ) -> ListJobTemplatesResponseTypeDef:
         """
         Lists job templates based on a set of parameters.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr-containers.html#EMRContainers.Client.list_job_templates)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client.html#list_job_templates)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/emr-containers/client/list_job_templates.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client/#list_job_templates)
         """
 
     def list_managed_endpoints(
-        self,
-        *,
-        virtualClusterId: str,
-        createdBefore: Union[datetime, str] = None,
-        createdAfter: Union[datetime, str] = None,
-        types: List[str] = None,
-        states: List[EndpointStateType] = None,
-        maxResults: int = None,
-        nextToken: str = None
+        self, **kwargs: Unpack[ListManagedEndpointsRequestTypeDef]
     ) -> ListManagedEndpointsResponseTypeDef:
         """
         Lists managed endpoints based on a set of parameters.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr-containers.html#EMRContainers.Client.list_managed_endpoints)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client.html#list_managed_endpoints)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/emr-containers/client/list_managed_endpoints.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client/#list_managed_endpoints)
         """
 
     def list_security_configurations(
-        self,
-        *,
-        createdAfter: Union[datetime, str] = None,
-        createdBefore: Union[datetime, str] = None,
-        maxResults: int = None,
-        nextToken: str = None
+        self, **kwargs: Unpack[ListSecurityConfigurationsRequestTypeDef]
     ) -> ListSecurityConfigurationsResponseTypeDef:
         """
         Lists security configurations based on a set of parameters.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr-containers.html#EMRContainers.Client.list_security_configurations)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client.html#list_security_configurations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/emr-containers/client/list_security_configurations.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client/#list_security_configurations)
         """
 
-    def list_tags_for_resource(self, *, resourceArn: str) -> ListTagsForResourceResponseTypeDef:
+    def list_tags_for_resource(
+        self, **kwargs: Unpack[ListTagsForResourceRequestTypeDef]
+    ) -> ListTagsForResourceResponseTypeDef:
         """
         Lists the tags assigned to the resources.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr-containers.html#EMRContainers.Client.list_tags_for_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client.html#list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/emr-containers/client/list_tags_for_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client/#list_tags_for_resource)
         """
 
     def list_virtual_clusters(
-        self,
-        *,
-        containerProviderId: str = None,
-        containerProviderType: Literal["EKS"] = None,
-        createdAfter: Union[datetime, str] = None,
-        createdBefore: Union[datetime, str] = None,
-        states: List[VirtualClusterStateType] = None,
-        maxResults: int = None,
-        nextToken: str = None,
-        eksAccessEntryIntegrated: bool = None
+        self, **kwargs: Unpack[ListVirtualClustersRequestTypeDef]
     ) -> ListVirtualClustersResponseTypeDef:
         """
         Lists information about the specified virtual cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr-containers.html#EMRContainers.Client.list_virtual_clusters)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client.html#list_virtual_clusters)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/emr-containers/client/list_virtual_clusters.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client/#list_virtual_clusters)
         """
 
     def start_job_run(
-        self,
-        *,
-        virtualClusterId: str,
-        clientToken: str,
-        name: str = None,
-        executionRoleArn: str = None,
-        releaseLabel: str = None,
-        jobDriver: "JobDriverTypeDef" = None,
-        configurationOverrides: "ConfigurationOverridesTypeDef" = None,
-        tags: Dict[str, str] = None,
-        jobTemplateId: str = None,
-        jobTemplateParameters: Dict[str, str] = None,
-        retryPolicyConfiguration: "RetryPolicyConfigurationTypeDef" = None
+        self, **kwargs: Unpack[StartJobRunRequestTypeDef]
     ) -> StartJobRunResponseTypeDef:
         """
         Starts a job run.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr-containers.html#EMRContainers.Client.start_job_run)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client.html#start_job_run)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/emr-containers/client/start_job_run.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client/#start_job_run)
         """
 
-    def tag_resource(self, *, resourceArn: str, tags: Dict[str, str]) -> Dict[str, Any]:
+    def tag_resource(self, **kwargs: Unpack[TagResourceRequestTypeDef]) -> Dict[str, Any]:
         """
         Assigns tags to resources.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr-containers.html#EMRContainers.Client.tag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client.html#tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/emr-containers/client/tag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client/#tag_resource)
         """
 
-    def untag_resource(self, *, resourceArn: str, tagKeys: List[str]) -> Dict[str, Any]:
+    def untag_resource(self, **kwargs: Unpack[UntagResourceRequestTypeDef]) -> Dict[str, Any]:
         """
         Removes tags from resources.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr-containers.html#EMRContainers.Client.untag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client.html#untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/emr-containers/client/untag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client/#untag_resource)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_job_runs"]) -> ListJobRunsPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_job_runs"]
+    ) -> ListJobRunsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr-containers.html#EMRContainers.Paginator.ListJobRuns)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/paginators.html#listjobrunspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/emr-containers/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_job_templates"]
     ) -> ListJobTemplatesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr-containers.html#EMRContainers.Paginator.ListJobTemplates)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/paginators.html#listjobtemplatespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/emr-containers/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_managed_endpoints"]
     ) -> ListManagedEndpointsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr-containers.html#EMRContainers.Paginator.ListManagedEndpoints)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/paginators.html#listmanagedendpointspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/emr-containers/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_security_configurations"]
     ) -> ListSecurityConfigurationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr-containers.html#EMRContainers.Paginator.ListSecurityConfigurations)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/paginators.html#listsecurityconfigurationspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/emr-containers/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_virtual_clusters"]
     ) -> ListVirtualClustersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr-containers.html#EMRContainers.Paginator.ListVirtualClusters)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/paginators.html#listvirtualclusterspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/emr-containers/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/client/#get_paginator)
         """

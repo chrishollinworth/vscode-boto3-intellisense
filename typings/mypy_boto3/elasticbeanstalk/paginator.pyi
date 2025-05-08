@@ -1,14 +1,16 @@
 """
 Type annotations for elasticbeanstalk service client paginators.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticbeanstalk/paginators.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_elasticbeanstalk/paginators/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
 
-    from mypy_boto3_elasticbeanstalk import ElasticBeanstalkClient
+    from mypy_boto3_elasticbeanstalk.client import ElasticBeanstalkClient
     from mypy_boto3_elasticbeanstalk.paginator import (
         DescribeApplicationVersionsPaginator,
         DescribeEnvironmentManagedActionHistoryPaginator,
@@ -17,7 +19,8 @@ Usage::
         ListPlatformVersionsPaginator,
     )
 
-    client: ElasticBeanstalkClient = boto3.client("elasticbeanstalk")
+    session = Session()
+    client: ElasticBeanstalkClient = session.client("elasticbeanstalk")
 
     describe_application_versions_paginator: DescribeApplicationVersionsPaginator = client.get_paginator("describe_application_versions")
     describe_environment_managed_action_history_paginator: DescribeEnvironmentManagedActionHistoryPaginator = client.get_paginator("describe_environment_managed_action_history")
@@ -27,21 +30,30 @@ Usage::
     ```
 """
 
-from datetime import datetime
-from typing import Iterator, List, Union
+from __future__ import annotations
 
-from botocore.paginate import Paginator as Boto3Paginator
+import sys
+from typing import TYPE_CHECKING
 
-from .literals import EventSeverityType
+from botocore.paginate import PageIterator, Paginator
+
 from .type_defs import (
     ApplicationVersionDescriptionsMessageTypeDef,
+    DescribeApplicationVersionsMessagePaginateTypeDef,
+    DescribeEnvironmentManagedActionHistoryRequestPaginateTypeDef,
     DescribeEnvironmentManagedActionHistoryResultTypeDef,
+    DescribeEnvironmentsMessagePaginateTypeDef,
+    DescribeEventsMessagePaginateTypeDef,
     EnvironmentDescriptionsMessageTypeDef,
     EventDescriptionsMessageTypeDef,
+    ListPlatformVersionsRequestPaginateTypeDef,
     ListPlatformVersionsResultTypeDef,
-    PaginatorConfigTypeDef,
-    PlatformFilterTypeDef,
 )
+
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = (
     "DescribeApplicationVersionsPaginator",
@@ -51,103 +63,98 @@ __all__ = (
     "ListPlatformVersionsPaginator",
 )
 
-class DescribeApplicationVersionsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Paginator.DescribeApplicationVersions)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticbeanstalk/paginators.html#describeapplicationversionspaginator)
-    """
+if TYPE_CHECKING:
+    _DescribeApplicationVersionsPaginatorBase = Paginator[
+        ApplicationVersionDescriptionsMessageTypeDef
+    ]
+else:
+    _DescribeApplicationVersionsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        ApplicationName: str = None,
-        VersionLabels: List[str] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ApplicationVersionDescriptionsMessageTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Paginator.DescribeApplicationVersions.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticbeanstalk/paginators.html#describeapplicationversionspaginator)
-        """
-
-class DescribeEnvironmentManagedActionHistoryPaginator(Boto3Paginator):
+class DescribeApplicationVersionsPaginator(_DescribeApplicationVersionsPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Paginator.DescribeEnvironmentManagedActionHistory)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticbeanstalk/paginators.html#describeenvironmentmanagedactionhistorypaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elasticbeanstalk/paginator/DescribeApplicationVersions.html#ElasticBeanstalk.Paginator.DescribeApplicationVersions)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_elasticbeanstalk/paginators/#describeapplicationversionspaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        EnvironmentId: str = None,
-        EnvironmentName: str = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[DescribeEnvironmentManagedActionHistoryResultTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeApplicationVersionsMessagePaginateTypeDef]
+    ) -> PageIterator[ApplicationVersionDescriptionsMessageTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Paginator.DescribeEnvironmentManagedActionHistory.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticbeanstalk/paginators.html#describeenvironmentmanagedactionhistorypaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elasticbeanstalk/paginator/DescribeApplicationVersions.html#ElasticBeanstalk.Paginator.DescribeApplicationVersions.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_elasticbeanstalk/paginators/#describeapplicationversionspaginator)
         """
 
-class DescribeEnvironmentsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Paginator.DescribeEnvironments)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticbeanstalk/paginators.html#describeenvironmentspaginator)
-    """
+if TYPE_CHECKING:
+    _DescribeEnvironmentManagedActionHistoryPaginatorBase = Paginator[
+        DescribeEnvironmentManagedActionHistoryResultTypeDef
+    ]
+else:
+    _DescribeEnvironmentManagedActionHistoryPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        ApplicationName: str = None,
-        VersionLabel: str = None,
-        EnvironmentIds: List[str] = None,
-        EnvironmentNames: List[str] = None,
-        IncludeDeleted: bool = None,
-        IncludedDeletedBackTo: Union[datetime, str] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[EnvironmentDescriptionsMessageTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Paginator.DescribeEnvironments.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticbeanstalk/paginators.html#describeenvironmentspaginator)
-        """
-
-class DescribeEventsPaginator(Boto3Paginator):
+class DescribeEnvironmentManagedActionHistoryPaginator(
+    _DescribeEnvironmentManagedActionHistoryPaginatorBase
+):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Paginator.DescribeEvents)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticbeanstalk/paginators.html#describeeventspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elasticbeanstalk/paginator/DescribeEnvironmentManagedActionHistory.html#ElasticBeanstalk.Paginator.DescribeEnvironmentManagedActionHistory)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_elasticbeanstalk/paginators/#describeenvironmentmanagedactionhistorypaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        ApplicationName: str = None,
-        VersionLabel: str = None,
-        TemplateName: str = None,
-        EnvironmentId: str = None,
-        EnvironmentName: str = None,
-        PlatformArn: str = None,
-        RequestId: str = None,
-        Severity: EventSeverityType = None,
-        StartTime: Union[datetime, str] = None,
-        EndTime: Union[datetime, str] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[EventDescriptionsMessageTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeEnvironmentManagedActionHistoryRequestPaginateTypeDef]
+    ) -> PageIterator[DescribeEnvironmentManagedActionHistoryResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Paginator.DescribeEvents.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticbeanstalk/paginators.html#describeeventspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elasticbeanstalk/paginator/DescribeEnvironmentManagedActionHistory.html#ElasticBeanstalk.Paginator.DescribeEnvironmentManagedActionHistory.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_elasticbeanstalk/paginators/#describeenvironmentmanagedactionhistorypaginator)
         """
 
-class ListPlatformVersionsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Paginator.ListPlatformVersions)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticbeanstalk/paginators.html#listplatformversionspaginator)
-    """
+if TYPE_CHECKING:
+    _DescribeEnvironmentsPaginatorBase = Paginator[EnvironmentDescriptionsMessageTypeDef]
+else:
+    _DescribeEnvironmentsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        Filters: List["PlatformFilterTypeDef"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListPlatformVersionsResultTypeDef]:
+class DescribeEnvironmentsPaginator(_DescribeEnvironmentsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elasticbeanstalk/paginator/DescribeEnvironments.html#ElasticBeanstalk.Paginator.DescribeEnvironments)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_elasticbeanstalk/paginators/#describeenvironmentspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeEnvironmentsMessagePaginateTypeDef]
+    ) -> PageIterator[EnvironmentDescriptionsMessageTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Paginator.ListPlatformVersions.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticbeanstalk/paginators.html#listplatformversionspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elasticbeanstalk/paginator/DescribeEnvironments.html#ElasticBeanstalk.Paginator.DescribeEnvironments.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_elasticbeanstalk/paginators/#describeenvironmentspaginator)
+        """
+
+if TYPE_CHECKING:
+    _DescribeEventsPaginatorBase = Paginator[EventDescriptionsMessageTypeDef]
+else:
+    _DescribeEventsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class DescribeEventsPaginator(_DescribeEventsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elasticbeanstalk/paginator/DescribeEvents.html#ElasticBeanstalk.Paginator.DescribeEvents)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_elasticbeanstalk/paginators/#describeeventspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeEventsMessagePaginateTypeDef]
+    ) -> PageIterator[EventDescriptionsMessageTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elasticbeanstalk/paginator/DescribeEvents.html#ElasticBeanstalk.Paginator.DescribeEvents.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_elasticbeanstalk/paginators/#describeeventspaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListPlatformVersionsPaginatorBase = Paginator[ListPlatformVersionsResultTypeDef]
+else:
+    _ListPlatformVersionsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListPlatformVersionsPaginator(_ListPlatformVersionsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elasticbeanstalk/paginator/ListPlatformVersions.html#ElasticBeanstalk.Paginator.ListPlatformVersions)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_elasticbeanstalk/paginators/#listplatformversionspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListPlatformVersionsRequestPaginateTypeDef]
+    ) -> PageIterator[ListPlatformVersionsResultTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elasticbeanstalk/paginator/ListPlatformVersions.html#ElasticBeanstalk.Paginator.ListPlatformVersions.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_elasticbeanstalk/paginators/#listplatformversionspaginator)
         """

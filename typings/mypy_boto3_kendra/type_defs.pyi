@@ -1,20 +1,24 @@
 """
 Type annotations for kendra service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kendra/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kendra/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_kendra.type_defs import AccessControlConfigurationSummaryTypeDef
 
-    data: AccessControlConfigurationSummaryTypeDef = {...}
+    data: AccessControlConfigurationSummaryTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import IO, Any, Dict, List, Union
+from typing import IO, Any, Union
 
 from botocore.response import StreamingBody
 
@@ -79,14 +83,16 @@ from .literals import (
     WebCrawlerModeType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
     "AccessControlConfigurationSummaryTypeDef",
@@ -94,122 +100,151 @@ __all__ = (
     "AclConfigurationTypeDef",
     "AdditionalResultAttributeTypeDef",
     "AdditionalResultAttributeValueTypeDef",
+    "AlfrescoConfigurationOutputTypeDef",
     "AlfrescoConfigurationTypeDef",
-    "AssociateEntitiesToExperienceRequestRequestTypeDef",
+    "AssociateEntitiesToExperienceRequestTypeDef",
     "AssociateEntitiesToExperienceResponseTypeDef",
-    "AssociatePersonasToEntitiesRequestRequestTypeDef",
+    "AssociatePersonasToEntitiesRequestTypeDef",
     "AssociatePersonasToEntitiesResponseTypeDef",
     "AttributeFilterTypeDef",
     "AttributeSuggestionsDescribeConfigTypeDef",
     "AttributeSuggestionsGetConfigTypeDef",
     "AttributeSuggestionsUpdateConfigTypeDef",
+    "AuthenticationConfigurationOutputTypeDef",
     "AuthenticationConfigurationTypeDef",
     "BasicAuthenticationConfigurationTypeDef",
-    "BatchDeleteDocumentRequestRequestTypeDef",
+    "BatchDeleteDocumentRequestTypeDef",
     "BatchDeleteDocumentResponseFailedDocumentTypeDef",
     "BatchDeleteDocumentResponseTypeDef",
     "BatchDeleteFeaturedResultsSetErrorTypeDef",
-    "BatchDeleteFeaturedResultsSetRequestRequestTypeDef",
+    "BatchDeleteFeaturedResultsSetRequestTypeDef",
     "BatchDeleteFeaturedResultsSetResponseTypeDef",
-    "BatchGetDocumentStatusRequestRequestTypeDef",
+    "BatchGetDocumentStatusRequestTypeDef",
     "BatchGetDocumentStatusResponseErrorTypeDef",
     "BatchGetDocumentStatusResponseTypeDef",
-    "BatchPutDocumentRequestRequestTypeDef",
+    "BatchPutDocumentRequestTypeDef",
     "BatchPutDocumentResponseFailedDocumentTypeDef",
     "BatchPutDocumentResponseTypeDef",
+    "BlobTypeDef",
+    "BoxConfigurationOutputTypeDef",
     "BoxConfigurationTypeDef",
     "CapacityUnitsConfigurationTypeDef",
-    "ClearQuerySuggestionsRequestRequestTypeDef",
+    "ClearQuerySuggestionsRequestTypeDef",
     "ClickFeedbackTypeDef",
     "CollapseConfigurationTypeDef",
     "CollapsedResultDetailTypeDef",
+    "ColumnConfigurationOutputTypeDef",
     "ColumnConfigurationTypeDef",
+    "ConfluenceAttachmentConfigurationOutputTypeDef",
     "ConfluenceAttachmentConfigurationTypeDef",
     "ConfluenceAttachmentToIndexFieldMappingTypeDef",
+    "ConfluenceBlogConfigurationOutputTypeDef",
     "ConfluenceBlogConfigurationTypeDef",
     "ConfluenceBlogToIndexFieldMappingTypeDef",
+    "ConfluenceConfigurationOutputTypeDef",
     "ConfluenceConfigurationTypeDef",
+    "ConfluencePageConfigurationOutputTypeDef",
     "ConfluencePageConfigurationTypeDef",
     "ConfluencePageToIndexFieldMappingTypeDef",
+    "ConfluenceSpaceConfigurationOutputTypeDef",
     "ConfluenceSpaceConfigurationTypeDef",
     "ConfluenceSpaceToIndexFieldMappingTypeDef",
     "ConnectionConfigurationTypeDef",
+    "ContentSourceConfigurationOutputTypeDef",
     "ContentSourceConfigurationTypeDef",
     "CorrectionTypeDef",
-    "CreateAccessControlConfigurationRequestRequestTypeDef",
+    "CreateAccessControlConfigurationRequestTypeDef",
     "CreateAccessControlConfigurationResponseTypeDef",
-    "CreateDataSourceRequestRequestTypeDef",
+    "CreateDataSourceRequestTypeDef",
     "CreateDataSourceResponseTypeDef",
-    "CreateExperienceRequestRequestTypeDef",
+    "CreateExperienceRequestTypeDef",
     "CreateExperienceResponseTypeDef",
-    "CreateFaqRequestRequestTypeDef",
+    "CreateFaqRequestTypeDef",
     "CreateFaqResponseTypeDef",
-    "CreateFeaturedResultsSetRequestRequestTypeDef",
+    "CreateFeaturedResultsSetRequestTypeDef",
     "CreateFeaturedResultsSetResponseTypeDef",
-    "CreateIndexRequestRequestTypeDef",
+    "CreateIndexRequestTypeDef",
     "CreateIndexResponseTypeDef",
-    "CreateQuerySuggestionsBlockListRequestRequestTypeDef",
+    "CreateQuerySuggestionsBlockListRequestTypeDef",
     "CreateQuerySuggestionsBlockListResponseTypeDef",
-    "CreateThesaurusRequestRequestTypeDef",
+    "CreateThesaurusRequestTypeDef",
     "CreateThesaurusResponseTypeDef",
+    "CustomDocumentEnrichmentConfigurationOutputTypeDef",
     "CustomDocumentEnrichmentConfigurationTypeDef",
+    "CustomDocumentEnrichmentConfigurationUnionTypeDef",
+    "DataSourceConfigurationOutputTypeDef",
     "DataSourceConfigurationTypeDef",
+    "DataSourceConfigurationUnionTypeDef",
     "DataSourceGroupTypeDef",
     "DataSourceSummaryTypeDef",
     "DataSourceSyncJobMetricTargetTypeDef",
     "DataSourceSyncJobMetricsTypeDef",
     "DataSourceSyncJobTypeDef",
     "DataSourceToIndexFieldMappingTypeDef",
+    "DataSourceVpcConfigurationOutputTypeDef",
     "DataSourceVpcConfigurationTypeDef",
+    "DataSourceVpcConfigurationUnionTypeDef",
+    "DatabaseConfigurationOutputTypeDef",
     "DatabaseConfigurationTypeDef",
-    "DeleteAccessControlConfigurationRequestRequestTypeDef",
-    "DeleteDataSourceRequestRequestTypeDef",
-    "DeleteExperienceRequestRequestTypeDef",
-    "DeleteFaqRequestRequestTypeDef",
-    "DeleteIndexRequestRequestTypeDef",
-    "DeletePrincipalMappingRequestRequestTypeDef",
-    "DeleteQuerySuggestionsBlockListRequestRequestTypeDef",
-    "DeleteThesaurusRequestRequestTypeDef",
-    "DescribeAccessControlConfigurationRequestRequestTypeDef",
+    "DeleteAccessControlConfigurationRequestTypeDef",
+    "DeleteDataSourceRequestTypeDef",
+    "DeleteExperienceRequestTypeDef",
+    "DeleteFaqRequestTypeDef",
+    "DeleteIndexRequestTypeDef",
+    "DeletePrincipalMappingRequestTypeDef",
+    "DeleteQuerySuggestionsBlockListRequestTypeDef",
+    "DeleteThesaurusRequestTypeDef",
+    "DescribeAccessControlConfigurationRequestTypeDef",
     "DescribeAccessControlConfigurationResponseTypeDef",
-    "DescribeDataSourceRequestRequestTypeDef",
+    "DescribeDataSourceRequestTypeDef",
     "DescribeDataSourceResponseTypeDef",
-    "DescribeExperienceRequestRequestTypeDef",
+    "DescribeExperienceRequestTypeDef",
     "DescribeExperienceResponseTypeDef",
-    "DescribeFaqRequestRequestTypeDef",
+    "DescribeFaqRequestTypeDef",
     "DescribeFaqResponseTypeDef",
-    "DescribeFeaturedResultsSetRequestRequestTypeDef",
+    "DescribeFeaturedResultsSetRequestTypeDef",
     "DescribeFeaturedResultsSetResponseTypeDef",
-    "DescribeIndexRequestRequestTypeDef",
+    "DescribeIndexRequestTypeDef",
     "DescribeIndexResponseTypeDef",
-    "DescribePrincipalMappingRequestRequestTypeDef",
+    "DescribePrincipalMappingRequestTypeDef",
     "DescribePrincipalMappingResponseTypeDef",
-    "DescribeQuerySuggestionsBlockListRequestRequestTypeDef",
+    "DescribeQuerySuggestionsBlockListRequestTypeDef",
     "DescribeQuerySuggestionsBlockListResponseTypeDef",
-    "DescribeQuerySuggestionsConfigRequestRequestTypeDef",
+    "DescribeQuerySuggestionsConfigRequestTypeDef",
     "DescribeQuerySuggestionsConfigResponseTypeDef",
-    "DescribeThesaurusRequestRequestTypeDef",
+    "DescribeThesaurusRequestTypeDef",
     "DescribeThesaurusResponseTypeDef",
-    "DisassociateEntitiesFromExperienceRequestRequestTypeDef",
+    "DisassociateEntitiesFromExperienceRequestTypeDef",
     "DisassociateEntitiesFromExperienceResponseTypeDef",
-    "DisassociatePersonasFromEntitiesRequestRequestTypeDef",
+    "DisassociatePersonasFromEntitiesRequestTypeDef",
     "DisassociatePersonasFromEntitiesResponseTypeDef",
+    "DocumentAttributeConditionOutputTypeDef",
     "DocumentAttributeConditionTypeDef",
+    "DocumentAttributeOutputTypeDef",
+    "DocumentAttributeTargetOutputTypeDef",
     "DocumentAttributeTargetTypeDef",
     "DocumentAttributeTypeDef",
+    "DocumentAttributeUnionTypeDef",
     "DocumentAttributeValueCountPairTypeDef",
+    "DocumentAttributeValueOutputTypeDef",
     "DocumentAttributeValueTypeDef",
+    "DocumentAttributeValueUnionTypeDef",
     "DocumentInfoTypeDef",
+    "DocumentMetadataConfigurationOutputTypeDef",
     "DocumentMetadataConfigurationTypeDef",
+    "DocumentMetadataConfigurationUnionTypeDef",
     "DocumentRelevanceConfigurationTypeDef",
     "DocumentTypeDef",
     "DocumentsMetadataConfigurationTypeDef",
+    "EmptyResponseMetadataTypeDef",
     "EntityConfigurationTypeDef",
     "EntityDisplayDataTypeDef",
     "EntityPersonaConfigurationTypeDef",
     "ExpandConfigurationTypeDef",
     "ExpandedResultItemTypeDef",
+    "ExperienceConfigurationOutputTypeDef",
     "ExperienceConfigurationTypeDef",
+    "ExperienceConfigurationUnionTypeDef",
     "ExperienceEndpointTypeDef",
     "ExperienceEntitiesSummaryTypeDef",
     "ExperiencesSummaryTypeDef",
@@ -224,102 +259,130 @@ __all__ = (
     "FeaturedResultsItemTypeDef",
     "FeaturedResultsSetSummaryTypeDef",
     "FeaturedResultsSetTypeDef",
+    "FsxConfigurationOutputTypeDef",
     "FsxConfigurationTypeDef",
-    "GetQuerySuggestionsRequestRequestTypeDef",
+    "GetQuerySuggestionsRequestTypeDef",
     "GetQuerySuggestionsResponseTypeDef",
-    "GetSnapshotsRequestRequestTypeDef",
+    "GetSnapshotsRequestTypeDef",
     "GetSnapshotsResponseTypeDef",
+    "GitHubConfigurationOutputTypeDef",
     "GitHubConfigurationTypeDef",
     "GitHubDocumentCrawlPropertiesTypeDef",
+    "GoogleDriveConfigurationOutputTypeDef",
     "GoogleDriveConfigurationTypeDef",
     "GroupMembersTypeDef",
     "GroupOrderingIdSummaryTypeDef",
     "GroupSummaryTypeDef",
+    "HierarchicalPrincipalOutputTypeDef",
     "HierarchicalPrincipalTypeDef",
+    "HierarchicalPrincipalUnionTypeDef",
     "HighlightTypeDef",
+    "HookConfigurationOutputTypeDef",
     "HookConfigurationTypeDef",
     "IndexConfigurationSummaryTypeDef",
     "IndexStatisticsTypeDef",
+    "InlineCustomDocumentEnrichmentConfigurationOutputTypeDef",
     "InlineCustomDocumentEnrichmentConfigurationTypeDef",
+    "JiraConfigurationOutputTypeDef",
     "JiraConfigurationTypeDef",
     "JsonTokenTypeConfigurationTypeDef",
     "JwtTokenTypeConfigurationTypeDef",
-    "ListAccessControlConfigurationsRequestRequestTypeDef",
+    "ListAccessControlConfigurationsRequestTypeDef",
     "ListAccessControlConfigurationsResponseTypeDef",
-    "ListDataSourceSyncJobsRequestRequestTypeDef",
+    "ListDataSourceSyncJobsRequestTypeDef",
     "ListDataSourceSyncJobsResponseTypeDef",
-    "ListDataSourcesRequestRequestTypeDef",
+    "ListDataSourcesRequestTypeDef",
     "ListDataSourcesResponseTypeDef",
-    "ListEntityPersonasRequestRequestTypeDef",
+    "ListEntityPersonasRequestTypeDef",
     "ListEntityPersonasResponseTypeDef",
-    "ListExperienceEntitiesRequestRequestTypeDef",
+    "ListExperienceEntitiesRequestTypeDef",
     "ListExperienceEntitiesResponseTypeDef",
-    "ListExperiencesRequestRequestTypeDef",
+    "ListExperiencesRequestTypeDef",
     "ListExperiencesResponseTypeDef",
-    "ListFaqsRequestRequestTypeDef",
+    "ListFaqsRequestTypeDef",
     "ListFaqsResponseTypeDef",
-    "ListFeaturedResultsSetsRequestRequestTypeDef",
+    "ListFeaturedResultsSetsRequestTypeDef",
     "ListFeaturedResultsSetsResponseTypeDef",
-    "ListGroupsOlderThanOrderingIdRequestRequestTypeDef",
+    "ListGroupsOlderThanOrderingIdRequestTypeDef",
     "ListGroupsOlderThanOrderingIdResponseTypeDef",
-    "ListIndicesRequestRequestTypeDef",
+    "ListIndicesRequestTypeDef",
     "ListIndicesResponseTypeDef",
-    "ListQuerySuggestionsBlockListsRequestRequestTypeDef",
+    "ListQuerySuggestionsBlockListsRequestTypeDef",
     "ListQuerySuggestionsBlockListsResponseTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
-    "ListThesauriRequestRequestTypeDef",
+    "ListThesauriRequestTypeDef",
     "ListThesauriResponseTypeDef",
     "MemberGroupTypeDef",
     "MemberUserTypeDef",
     "OnPremiseConfigurationTypeDef",
+    "OneDriveConfigurationOutputTypeDef",
     "OneDriveConfigurationTypeDef",
+    "OneDriveUsersOutputTypeDef",
     "OneDriveUsersTypeDef",
     "PersonasSummaryTypeDef",
     "PrincipalTypeDef",
     "ProxyConfigurationTypeDef",
-    "PutPrincipalMappingRequestRequestTypeDef",
-    "QueryRequestRequestTypeDef",
+    "PutPrincipalMappingRequestTypeDef",
+    "QueryRequestTypeDef",
     "QueryResultItemTypeDef",
     "QueryResultTypeDef",
     "QuerySuggestionsBlockListSummaryTypeDef",
+    "QuipConfigurationOutputTypeDef",
     "QuipConfigurationTypeDef",
     "RelevanceFeedbackTypeDef",
+    "RelevanceOutputTypeDef",
     "RelevanceTypeDef",
+    "RelevanceUnionTypeDef",
     "ResponseMetadataTypeDef",
-    "RetrieveRequestRequestTypeDef",
+    "RetrieveRequestTypeDef",
     "RetrieveResultItemTypeDef",
     "RetrieveResultTypeDef",
+    "S3DataSourceConfigurationOutputTypeDef",
     "S3DataSourceConfigurationTypeDef",
     "S3PathTypeDef",
     "SaaSConfigurationTypeDef",
+    "SalesforceChatterFeedConfigurationOutputTypeDef",
     "SalesforceChatterFeedConfigurationTypeDef",
+    "SalesforceConfigurationOutputTypeDef",
     "SalesforceConfigurationTypeDef",
+    "SalesforceCustomKnowledgeArticleTypeConfigurationOutputTypeDef",
     "SalesforceCustomKnowledgeArticleTypeConfigurationTypeDef",
+    "SalesforceKnowledgeArticleConfigurationOutputTypeDef",
     "SalesforceKnowledgeArticleConfigurationTypeDef",
+    "SalesforceStandardKnowledgeArticleTypeConfigurationOutputTypeDef",
     "SalesforceStandardKnowledgeArticleTypeConfigurationTypeDef",
+    "SalesforceStandardObjectAttachmentConfigurationOutputTypeDef",
     "SalesforceStandardObjectAttachmentConfigurationTypeDef",
+    "SalesforceStandardObjectConfigurationOutputTypeDef",
     "SalesforceStandardObjectConfigurationTypeDef",
     "ScoreAttributesTypeDef",
     "SearchTypeDef",
+    "SeedUrlConfigurationOutputTypeDef",
     "SeedUrlConfigurationTypeDef",
     "ServerSideEncryptionConfigurationTypeDef",
+    "ServiceNowConfigurationOutputTypeDef",
     "ServiceNowConfigurationTypeDef",
+    "ServiceNowKnowledgeArticleConfigurationOutputTypeDef",
     "ServiceNowKnowledgeArticleConfigurationTypeDef",
+    "ServiceNowServiceCatalogConfigurationOutputTypeDef",
     "ServiceNowServiceCatalogConfigurationTypeDef",
+    "SharePointConfigurationOutputTypeDef",
     "SharePointConfigurationTypeDef",
+    "SiteMapsConfigurationOutputTypeDef",
     "SiteMapsConfigurationTypeDef",
+    "SlackConfigurationOutputTypeDef",
     "SlackConfigurationTypeDef",
     "SortingConfigurationTypeDef",
     "SourceDocumentTypeDef",
     "SpellCorrectedQueryTypeDef",
     "SpellCorrectionConfigurationTypeDef",
     "SqlConfigurationTypeDef",
-    "StartDataSourceSyncJobRequestRequestTypeDef",
+    "StartDataSourceSyncJobRequestTypeDef",
     "StartDataSourceSyncJobResponseTypeDef",
     "StatusTypeDef",
-    "StopDataSourceSyncJobRequestRequestTypeDef",
-    "SubmitFeedbackRequestRequestTypeDef",
+    "StopDataSourceSyncJobRequestTypeDef",
+    "SubmitFeedbackRequestTypeDef",
     "SuggestableConfigTypeDef",
     "SuggestionHighlightTypeDef",
     "SuggestionTextWithHighlightsTypeDef",
@@ -328,1108 +391,2077 @@ __all__ = (
     "TableCellTypeDef",
     "TableExcerptTypeDef",
     "TableRowTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
     "TagTypeDef",
+    "TemplateConfigurationOutputTypeDef",
     "TemplateConfigurationTypeDef",
     "TextDocumentStatisticsTypeDef",
     "TextWithHighlightsTypeDef",
     "ThesaurusSummaryTypeDef",
+    "TimeRangeOutputTypeDef",
     "TimeRangeTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateAccessControlConfigurationRequestRequestTypeDef",
-    "UpdateDataSourceRequestRequestTypeDef",
-    "UpdateExperienceRequestRequestTypeDef",
-    "UpdateFeaturedResultsSetRequestRequestTypeDef",
+    "TimeRangeUnionTypeDef",
+    "TimestampTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateAccessControlConfigurationRequestTypeDef",
+    "UpdateDataSourceRequestTypeDef",
+    "UpdateExperienceRequestTypeDef",
+    "UpdateFeaturedResultsSetRequestTypeDef",
     "UpdateFeaturedResultsSetResponseTypeDef",
-    "UpdateIndexRequestRequestTypeDef",
-    "UpdateQuerySuggestionsBlockListRequestRequestTypeDef",
-    "UpdateQuerySuggestionsConfigRequestRequestTypeDef",
-    "UpdateThesaurusRequestRequestTypeDef",
+    "UpdateIndexRequestTypeDef",
+    "UpdateQuerySuggestionsBlockListRequestTypeDef",
+    "UpdateQuerySuggestionsConfigRequestTypeDef",
+    "UpdateThesaurusRequestTypeDef",
+    "UrlsOutputTypeDef",
     "UrlsTypeDef",
     "UserContextTypeDef",
     "UserGroupResolutionConfigurationTypeDef",
     "UserIdentityConfigurationTypeDef",
     "UserTokenConfigurationTypeDef",
     "WarningTypeDef",
+    "WebCrawlerConfigurationOutputTypeDef",
     "WebCrawlerConfigurationTypeDef",
+    "WorkDocsConfigurationOutputTypeDef",
     "WorkDocsConfigurationTypeDef",
 )
 
-AccessControlConfigurationSummaryTypeDef = TypedDict(
-    "AccessControlConfigurationSummaryTypeDef",
-    {
-        "Id": str,
-    },
-)
+class AccessControlConfigurationSummaryTypeDef(TypedDict):
+    Id: str
 
-AccessControlListConfigurationTypeDef = TypedDict(
-    "AccessControlListConfigurationTypeDef",
-    {
-        "KeyPath": str,
-    },
-    total=False,
-)
+class AccessControlListConfigurationTypeDef(TypedDict):
+    KeyPath: NotRequired[str]
 
-AclConfigurationTypeDef = TypedDict(
-    "AclConfigurationTypeDef",
-    {
-        "AllowedGroupsColumnName": str,
-    },
-)
+class AclConfigurationTypeDef(TypedDict):
+    AllowedGroupsColumnName: str
 
-AdditionalResultAttributeTypeDef = TypedDict(
-    "AdditionalResultAttributeTypeDef",
-    {
-        "Key": str,
-        "ValueType": Literal["TEXT_WITH_HIGHLIGHTS_VALUE"],
-        "Value": "AdditionalResultAttributeValueTypeDef",
-    },
-)
+class DataSourceToIndexFieldMappingTypeDef(TypedDict):
+    DataSourceFieldName: str
+    IndexFieldName: str
+    DateFieldFormat: NotRequired[str]
 
-AdditionalResultAttributeValueTypeDef = TypedDict(
-    "AdditionalResultAttributeValueTypeDef",
-    {
-        "TextWithHighlightsValue": "TextWithHighlightsTypeDef",
-    },
-    total=False,
-)
+class DataSourceVpcConfigurationOutputTypeDef(TypedDict):
+    SubnetIds: List[str]
+    SecurityGroupIds: List[str]
 
-_RequiredAlfrescoConfigurationTypeDef = TypedDict(
-    "_RequiredAlfrescoConfigurationTypeDef",
-    {
-        "SiteUrl": str,
-        "SiteId": str,
-        "SecretArn": str,
-        "SslCertificateS3Path": "S3PathTypeDef",
-    },
-)
-_OptionalAlfrescoConfigurationTypeDef = TypedDict(
-    "_OptionalAlfrescoConfigurationTypeDef",
-    {
-        "CrawlSystemFolders": bool,
-        "CrawlComments": bool,
-        "EntityFilter": List[AlfrescoEntityType],
-        "DocumentLibraryFieldMappings": List["DataSourceToIndexFieldMappingTypeDef"],
-        "BlogFieldMappings": List["DataSourceToIndexFieldMappingTypeDef"],
-        "WikiFieldMappings": List["DataSourceToIndexFieldMappingTypeDef"],
-        "InclusionPatterns": List[str],
-        "ExclusionPatterns": List[str],
-        "VpcConfiguration": "DataSourceVpcConfigurationTypeDef",
-    },
-    total=False,
-)
+class S3PathTypeDef(TypedDict):
+    Bucket: str
+    Key: str
 
-class AlfrescoConfigurationTypeDef(
-    _RequiredAlfrescoConfigurationTypeDef, _OptionalAlfrescoConfigurationTypeDef
-):
-    pass
+class DataSourceVpcConfigurationTypeDef(TypedDict):
+    SubnetIds: Sequence[str]
+    SecurityGroupIds: Sequence[str]
 
-AssociateEntitiesToExperienceRequestRequestTypeDef = TypedDict(
-    "AssociateEntitiesToExperienceRequestRequestTypeDef",
-    {
-        "Id": str,
-        "IndexId": str,
-        "EntityList": List["EntityConfigurationTypeDef"],
-    },
-)
+class EntityConfigurationTypeDef(TypedDict):
+    EntityId: str
+    EntityType: EntityTypeType
 
-AssociateEntitiesToExperienceResponseTypeDef = TypedDict(
-    "AssociateEntitiesToExperienceResponseTypeDef",
-    {
-        "FailedEntityList": List["FailedEntityTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class FailedEntityTypeDef(TypedDict):
+    EntityId: NotRequired[str]
+    ErrorMessage: NotRequired[str]
 
-AssociatePersonasToEntitiesRequestRequestTypeDef = TypedDict(
-    "AssociatePersonasToEntitiesRequestRequestTypeDef",
-    {
-        "Id": str,
-        "IndexId": str,
-        "Personas": List["EntityPersonaConfigurationTypeDef"],
-    },
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-AssociatePersonasToEntitiesResponseTypeDef = TypedDict(
-    "AssociatePersonasToEntitiesResponseTypeDef",
-    {
-        "FailedEntityList": List["FailedEntityTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class EntityPersonaConfigurationTypeDef(TypedDict):
+    EntityId: str
+    Persona: PersonaType
 
-AttributeFilterTypeDef = TypedDict(
-    "AttributeFilterTypeDef",
-    {
-        "AndAllFilters": List[Dict[str, Any]],
-        "OrAllFilters": List[Dict[str, Any]],
-        "NotFilter": Dict[str, Any],
-        "EqualsTo": "DocumentAttributeTypeDef",
-        "ContainsAll": "DocumentAttributeTypeDef",
-        "ContainsAny": "DocumentAttributeTypeDef",
-        "GreaterThan": "DocumentAttributeTypeDef",
-        "GreaterThanOrEquals": "DocumentAttributeTypeDef",
-        "LessThan": "DocumentAttributeTypeDef",
-        "LessThanOrEquals": "DocumentAttributeTypeDef",
-    },
-    total=False,
-)
+class SuggestableConfigTypeDef(TypedDict):
+    AttributeName: NotRequired[str]
+    Suggestable: NotRequired[bool]
 
-AttributeSuggestionsDescribeConfigTypeDef = TypedDict(
-    "AttributeSuggestionsDescribeConfigTypeDef",
-    {
-        "SuggestableConfigList": List["SuggestableConfigTypeDef"],
-        "AttributeSuggestionsMode": AttributeSuggestionsModeType,
-    },
-    total=False,
-)
+class BasicAuthenticationConfigurationTypeDef(TypedDict):
+    Host: str
+    Port: int
+    Credentials: str
 
-AttributeSuggestionsGetConfigTypeDef = TypedDict(
-    "AttributeSuggestionsGetConfigTypeDef",
-    {
-        "SuggestionAttributes": List[str],
-        "AdditionalResponseAttributes": List[str],
-        "AttributeFilter": "AttributeFilterTypeDef",
-        "UserContext": "UserContextTypeDef",
-    },
-    total=False,
-)
+class DataSourceSyncJobMetricTargetTypeDef(TypedDict):
+    DataSourceId: str
+    DataSourceSyncJobId: NotRequired[str]
 
-AttributeSuggestionsUpdateConfigTypeDef = TypedDict(
-    "AttributeSuggestionsUpdateConfigTypeDef",
-    {
-        "SuggestableConfigList": List["SuggestableConfigTypeDef"],
-        "AttributeSuggestionsMode": AttributeSuggestionsModeType,
-    },
-    total=False,
-)
+class BatchDeleteDocumentResponseFailedDocumentTypeDef(TypedDict):
+    Id: NotRequired[str]
+    DataSourceId: NotRequired[str]
+    ErrorCode: NotRequired[ErrorCodeType]
+    ErrorMessage: NotRequired[str]
 
-AuthenticationConfigurationTypeDef = TypedDict(
-    "AuthenticationConfigurationTypeDef",
-    {
-        "BasicAuthentication": List["BasicAuthenticationConfigurationTypeDef"],
-    },
-    total=False,
-)
+class BatchDeleteFeaturedResultsSetErrorTypeDef(TypedDict):
+    Id: str
+    ErrorCode: ErrorCodeType
+    ErrorMessage: str
 
-BasicAuthenticationConfigurationTypeDef = TypedDict(
-    "BasicAuthenticationConfigurationTypeDef",
-    {
-        "Host": str,
-        "Port": int,
-        "Credentials": str,
-    },
-)
+class BatchDeleteFeaturedResultsSetRequestTypeDef(TypedDict):
+    IndexId: str
+    FeaturedResultsSetIds: Sequence[str]
 
-_RequiredBatchDeleteDocumentRequestRequestTypeDef = TypedDict(
-    "_RequiredBatchDeleteDocumentRequestRequestTypeDef",
-    {
-        "IndexId": str,
-        "DocumentIdList": List[str],
-    },
-)
-_OptionalBatchDeleteDocumentRequestRequestTypeDef = TypedDict(
-    "_OptionalBatchDeleteDocumentRequestRequestTypeDef",
-    {
-        "DataSourceSyncJobMetricTarget": "DataSourceSyncJobMetricTargetTypeDef",
-    },
-    total=False,
-)
+class BatchGetDocumentStatusResponseErrorTypeDef(TypedDict):
+    DocumentId: NotRequired[str]
+    DataSourceId: NotRequired[str]
+    ErrorCode: NotRequired[ErrorCodeType]
+    ErrorMessage: NotRequired[str]
 
-class BatchDeleteDocumentRequestRequestTypeDef(
-    _RequiredBatchDeleteDocumentRequestRequestTypeDef,
-    _OptionalBatchDeleteDocumentRequestRequestTypeDef,
-):
-    pass
+class StatusTypeDef(TypedDict):
+    DocumentId: NotRequired[str]
+    DocumentStatus: NotRequired[DocumentStatusType]
+    FailureCode: NotRequired[str]
+    FailureReason: NotRequired[str]
 
-BatchDeleteDocumentResponseFailedDocumentTypeDef = TypedDict(
-    "BatchDeleteDocumentResponseFailedDocumentTypeDef",
-    {
-        "Id": str,
-        "ErrorCode": ErrorCodeType,
-        "ErrorMessage": str,
-    },
-    total=False,
-)
+class BatchPutDocumentResponseFailedDocumentTypeDef(TypedDict):
+    Id: NotRequired[str]
+    DataSourceId: NotRequired[str]
+    ErrorCode: NotRequired[ErrorCodeType]
+    ErrorMessage: NotRequired[str]
 
-BatchDeleteDocumentResponseTypeDef = TypedDict(
-    "BatchDeleteDocumentResponseTypeDef",
-    {
-        "FailedDocuments": List["BatchDeleteDocumentResponseFailedDocumentTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+BlobTypeDef = Union[str, bytes, IO[Any], StreamingBody]
 
-BatchDeleteFeaturedResultsSetErrorTypeDef = TypedDict(
-    "BatchDeleteFeaturedResultsSetErrorTypeDef",
-    {
-        "Id": str,
-        "ErrorCode": ErrorCodeType,
-        "ErrorMessage": str,
-    },
-)
+class CapacityUnitsConfigurationTypeDef(TypedDict):
+    StorageCapacityUnits: int
+    QueryCapacityUnits: int
 
-BatchDeleteFeaturedResultsSetRequestRequestTypeDef = TypedDict(
-    "BatchDeleteFeaturedResultsSetRequestRequestTypeDef",
-    {
-        "IndexId": str,
-        "FeaturedResultsSetIds": List[str],
-    },
-)
+class ClearQuerySuggestionsRequestTypeDef(TypedDict):
+    IndexId: str
 
-BatchDeleteFeaturedResultsSetResponseTypeDef = TypedDict(
-    "BatchDeleteFeaturedResultsSetResponseTypeDef",
-    {
-        "Errors": List["BatchDeleteFeaturedResultsSetErrorTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+TimestampTypeDef = Union[datetime, str]
 
-BatchGetDocumentStatusRequestRequestTypeDef = TypedDict(
-    "BatchGetDocumentStatusRequestRequestTypeDef",
-    {
-        "IndexId": str,
-        "DocumentInfoList": List["DocumentInfoTypeDef"],
-    },
-)
+class ExpandConfigurationTypeDef(TypedDict):
+    MaxResultItemsToExpand: NotRequired[int]
+    MaxExpandedResultsPerItem: NotRequired[int]
 
-BatchGetDocumentStatusResponseErrorTypeDef = TypedDict(
-    "BatchGetDocumentStatusResponseErrorTypeDef",
-    {
-        "DocumentId": str,
-        "ErrorCode": ErrorCodeType,
-        "ErrorMessage": str,
-    },
-    total=False,
-)
+class SortingConfigurationTypeDef(TypedDict):
+    DocumentAttributeKey: str
+    SortOrder: SortOrderType
 
-BatchGetDocumentStatusResponseTypeDef = TypedDict(
-    "BatchGetDocumentStatusResponseTypeDef",
-    {
-        "Errors": List["BatchGetDocumentStatusResponseErrorTypeDef"],
-        "DocumentStatusList": List["StatusTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ConfluenceAttachmentToIndexFieldMappingTypeDef(TypedDict):
+    DataSourceFieldName: NotRequired[ConfluenceAttachmentFieldNameType]
+    DateFieldFormat: NotRequired[str]
+    IndexFieldName: NotRequired[str]
 
-_RequiredBatchPutDocumentRequestRequestTypeDef = TypedDict(
-    "_RequiredBatchPutDocumentRequestRequestTypeDef",
-    {
-        "IndexId": str,
-        "Documents": List["DocumentTypeDef"],
-    },
-)
-_OptionalBatchPutDocumentRequestRequestTypeDef = TypedDict(
-    "_OptionalBatchPutDocumentRequestRequestTypeDef",
-    {
-        "RoleArn": str,
-        "CustomDocumentEnrichmentConfiguration": "CustomDocumentEnrichmentConfigurationTypeDef",
-    },
-    total=False,
-)
+class ConfluenceBlogToIndexFieldMappingTypeDef(TypedDict):
+    DataSourceFieldName: NotRequired[ConfluenceBlogFieldNameType]
+    DateFieldFormat: NotRequired[str]
+    IndexFieldName: NotRequired[str]
 
-class BatchPutDocumentRequestRequestTypeDef(
-    _RequiredBatchPutDocumentRequestRequestTypeDef, _OptionalBatchPutDocumentRequestRequestTypeDef
-):
-    pass
+class ProxyConfigurationTypeDef(TypedDict):
+    Host: str
+    Port: int
+    Credentials: NotRequired[str]
 
-BatchPutDocumentResponseFailedDocumentTypeDef = TypedDict(
-    "BatchPutDocumentResponseFailedDocumentTypeDef",
-    {
-        "Id": str,
-        "ErrorCode": ErrorCodeType,
-        "ErrorMessage": str,
-    },
-    total=False,
-)
+class ConfluencePageToIndexFieldMappingTypeDef(TypedDict):
+    DataSourceFieldName: NotRequired[ConfluencePageFieldNameType]
+    DateFieldFormat: NotRequired[str]
+    IndexFieldName: NotRequired[str]
 
-BatchPutDocumentResponseTypeDef = TypedDict(
-    "BatchPutDocumentResponseTypeDef",
-    {
-        "FailedDocuments": List["BatchPutDocumentResponseFailedDocumentTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ConfluenceSpaceToIndexFieldMappingTypeDef(TypedDict):
+    DataSourceFieldName: NotRequired[ConfluenceSpaceFieldNameType]
+    DateFieldFormat: NotRequired[str]
+    IndexFieldName: NotRequired[str]
 
-_RequiredBoxConfigurationTypeDef = TypedDict(
-    "_RequiredBoxConfigurationTypeDef",
-    {
-        "EnterpriseId": str,
-        "SecretArn": str,
-    },
-)
-_OptionalBoxConfigurationTypeDef = TypedDict(
-    "_OptionalBoxConfigurationTypeDef",
-    {
-        "UseChangeLog": bool,
-        "CrawlComments": bool,
-        "CrawlTasks": bool,
-        "CrawlWebLinks": bool,
-        "FileFieldMappings": List["DataSourceToIndexFieldMappingTypeDef"],
-        "TaskFieldMappings": List["DataSourceToIndexFieldMappingTypeDef"],
-        "CommentFieldMappings": List["DataSourceToIndexFieldMappingTypeDef"],
-        "WebLinkFieldMappings": List["DataSourceToIndexFieldMappingTypeDef"],
-        "InclusionPatterns": List[str],
-        "ExclusionPatterns": List[str],
-        "VpcConfiguration": "DataSourceVpcConfigurationTypeDef",
-    },
-    total=False,
-)
+class ConnectionConfigurationTypeDef(TypedDict):
+    DatabaseHost: str
+    DatabasePort: int
+    DatabaseName: str
+    TableName: str
+    SecretArn: str
 
-class BoxConfigurationTypeDef(_RequiredBoxConfigurationTypeDef, _OptionalBoxConfigurationTypeDef):
-    pass
+class ContentSourceConfigurationOutputTypeDef(TypedDict):
+    DataSourceIds: NotRequired[List[str]]
+    FaqIds: NotRequired[List[str]]
+    DirectPutContent: NotRequired[bool]
 
-CapacityUnitsConfigurationTypeDef = TypedDict(
-    "CapacityUnitsConfigurationTypeDef",
-    {
-        "StorageCapacityUnits": int,
-        "QueryCapacityUnits": int,
-    },
-)
+class ContentSourceConfigurationTypeDef(TypedDict):
+    DataSourceIds: NotRequired[Sequence[str]]
+    FaqIds: NotRequired[Sequence[str]]
+    DirectPutContent: NotRequired[bool]
 
-ClearQuerySuggestionsRequestRequestTypeDef = TypedDict(
-    "ClearQuerySuggestionsRequestRequestTypeDef",
-    {
-        "IndexId": str,
-    },
-)
+class CorrectionTypeDef(TypedDict):
+    BeginOffset: NotRequired[int]
+    EndOffset: NotRequired[int]
+    Term: NotRequired[str]
+    CorrectedTerm: NotRequired[str]
 
-ClickFeedbackTypeDef = TypedDict(
-    "ClickFeedbackTypeDef",
-    {
-        "ResultId": str,
-        "ClickTime": Union[datetime, str],
-    },
-)
-
-_RequiredCollapseConfigurationTypeDef = TypedDict(
-    "_RequiredCollapseConfigurationTypeDef",
-    {
-        "DocumentAttributeKey": str,
-    },
-)
-_OptionalCollapseConfigurationTypeDef = TypedDict(
-    "_OptionalCollapseConfigurationTypeDef",
-    {
-        "SortingConfigurations": List["SortingConfigurationTypeDef"],
-        "MissingAttributeKeyStrategy": MissingAttributeKeyStrategyType,
-        "Expand": bool,
-        "ExpandConfiguration": "ExpandConfigurationTypeDef",
-    },
-    total=False,
-)
-
-class CollapseConfigurationTypeDef(
-    _RequiredCollapseConfigurationTypeDef, _OptionalCollapseConfigurationTypeDef
-):
-    pass
-
-_RequiredCollapsedResultDetailTypeDef = TypedDict(
-    "_RequiredCollapsedResultDetailTypeDef",
-    {
-        "DocumentAttribute": "DocumentAttributeTypeDef",
-    },
-)
-_OptionalCollapsedResultDetailTypeDef = TypedDict(
-    "_OptionalCollapsedResultDetailTypeDef",
-    {
-        "ExpandedResults": List["ExpandedResultItemTypeDef"],
-    },
-    total=False,
-)
-
-class CollapsedResultDetailTypeDef(
-    _RequiredCollapsedResultDetailTypeDef, _OptionalCollapsedResultDetailTypeDef
-):
-    pass
-
-_RequiredColumnConfigurationTypeDef = TypedDict(
-    "_RequiredColumnConfigurationTypeDef",
-    {
-        "DocumentIdColumnName": str,
-        "DocumentDataColumnName": str,
-        "ChangeDetectingColumns": List[str],
-    },
-)
-_OptionalColumnConfigurationTypeDef = TypedDict(
-    "_OptionalColumnConfigurationTypeDef",
-    {
-        "DocumentTitleColumnName": str,
-        "FieldMappings": List["DataSourceToIndexFieldMappingTypeDef"],
-    },
-    total=False,
-)
-
-class ColumnConfigurationTypeDef(
-    _RequiredColumnConfigurationTypeDef, _OptionalColumnConfigurationTypeDef
-):
-    pass
-
-ConfluenceAttachmentConfigurationTypeDef = TypedDict(
-    "ConfluenceAttachmentConfigurationTypeDef",
-    {
-        "CrawlAttachments": bool,
-        "AttachmentFieldMappings": List["ConfluenceAttachmentToIndexFieldMappingTypeDef"],
-    },
-    total=False,
-)
-
-ConfluenceAttachmentToIndexFieldMappingTypeDef = TypedDict(
-    "ConfluenceAttachmentToIndexFieldMappingTypeDef",
-    {
-        "DataSourceFieldName": ConfluenceAttachmentFieldNameType,
-        "DateFieldFormat": str,
-        "IndexFieldName": str,
-    },
-    total=False,
-)
-
-ConfluenceBlogConfigurationTypeDef = TypedDict(
-    "ConfluenceBlogConfigurationTypeDef",
-    {
-        "BlogFieldMappings": List["ConfluenceBlogToIndexFieldMappingTypeDef"],
-    },
-    total=False,
-)
-
-ConfluenceBlogToIndexFieldMappingTypeDef = TypedDict(
-    "ConfluenceBlogToIndexFieldMappingTypeDef",
-    {
-        "DataSourceFieldName": ConfluenceBlogFieldNameType,
-        "DateFieldFormat": str,
-        "IndexFieldName": str,
-    },
-    total=False,
-)
-
-_RequiredConfluenceConfigurationTypeDef = TypedDict(
-    "_RequiredConfluenceConfigurationTypeDef",
-    {
-        "ServerUrl": str,
-        "SecretArn": str,
-        "Version": ConfluenceVersionType,
-    },
-)
-_OptionalConfluenceConfigurationTypeDef = TypedDict(
-    "_OptionalConfluenceConfigurationTypeDef",
-    {
-        "SpaceConfiguration": "ConfluenceSpaceConfigurationTypeDef",
-        "PageConfiguration": "ConfluencePageConfigurationTypeDef",
-        "BlogConfiguration": "ConfluenceBlogConfigurationTypeDef",
-        "AttachmentConfiguration": "ConfluenceAttachmentConfigurationTypeDef",
-        "VpcConfiguration": "DataSourceVpcConfigurationTypeDef",
-        "InclusionPatterns": List[str],
-        "ExclusionPatterns": List[str],
-        "ProxyConfiguration": "ProxyConfigurationTypeDef",
-        "AuthenticationType": ConfluenceAuthenticationTypeType,
-    },
-    total=False,
-)
-
-class ConfluenceConfigurationTypeDef(
-    _RequiredConfluenceConfigurationTypeDef, _OptionalConfluenceConfigurationTypeDef
-):
-    pass
-
-ConfluencePageConfigurationTypeDef = TypedDict(
-    "ConfluencePageConfigurationTypeDef",
-    {
-        "PageFieldMappings": List["ConfluencePageToIndexFieldMappingTypeDef"],
-    },
-    total=False,
-)
-
-ConfluencePageToIndexFieldMappingTypeDef = TypedDict(
-    "ConfluencePageToIndexFieldMappingTypeDef",
-    {
-        "DataSourceFieldName": ConfluencePageFieldNameType,
-        "DateFieldFormat": str,
-        "IndexFieldName": str,
-    },
-    total=False,
-)
-
-ConfluenceSpaceConfigurationTypeDef = TypedDict(
-    "ConfluenceSpaceConfigurationTypeDef",
-    {
-        "CrawlPersonalSpaces": bool,
-        "CrawlArchivedSpaces": bool,
-        "IncludeSpaces": List[str],
-        "ExcludeSpaces": List[str],
-        "SpaceFieldMappings": List["ConfluenceSpaceToIndexFieldMappingTypeDef"],
-    },
-    total=False,
-)
-
-ConfluenceSpaceToIndexFieldMappingTypeDef = TypedDict(
-    "ConfluenceSpaceToIndexFieldMappingTypeDef",
-    {
-        "DataSourceFieldName": ConfluenceSpaceFieldNameType,
-        "DateFieldFormat": str,
-        "IndexFieldName": str,
-    },
-    total=False,
-)
-
-ConnectionConfigurationTypeDef = TypedDict(
-    "ConnectionConfigurationTypeDef",
-    {
-        "DatabaseHost": str,
-        "DatabasePort": int,
-        "DatabaseName": str,
-        "TableName": str,
-        "SecretArn": str,
-    },
-)
-
-ContentSourceConfigurationTypeDef = TypedDict(
-    "ContentSourceConfigurationTypeDef",
-    {
-        "DataSourceIds": List[str],
-        "FaqIds": List[str],
-        "DirectPutContent": bool,
-    },
-    total=False,
-)
-
-CorrectionTypeDef = TypedDict(
-    "CorrectionTypeDef",
-    {
-        "BeginOffset": int,
-        "EndOffset": int,
-        "Term": str,
-        "CorrectedTerm": str,
-    },
-    total=False,
-)
-
-_RequiredCreateAccessControlConfigurationRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateAccessControlConfigurationRequestRequestTypeDef",
-    {
-        "IndexId": str,
-        "Name": str,
-    },
-)
-_OptionalCreateAccessControlConfigurationRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateAccessControlConfigurationRequestRequestTypeDef",
-    {
-        "Description": str,
-        "AccessControlList": List["PrincipalTypeDef"],
-        "HierarchicalAccessControlList": List["HierarchicalPrincipalTypeDef"],
-        "ClientToken": str,
-    },
-    total=False,
-)
-
-class CreateAccessControlConfigurationRequestRequestTypeDef(
-    _RequiredCreateAccessControlConfigurationRequestRequestTypeDef,
-    _OptionalCreateAccessControlConfigurationRequestRequestTypeDef,
-):
-    pass
-
-CreateAccessControlConfigurationResponseTypeDef = TypedDict(
-    "CreateAccessControlConfigurationResponseTypeDef",
-    {
-        "Id": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateDataSourceRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateDataSourceRequestRequestTypeDef",
+PrincipalTypeDef = TypedDict(
+    "PrincipalTypeDef",
     {
         "Name": str,
-        "IndexId": str,
-        "Type": DataSourceTypeType,
-    },
-)
-_OptionalCreateDataSourceRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateDataSourceRequestRequestTypeDef",
-    {
-        "Configuration": "DataSourceConfigurationTypeDef",
-        "VpcConfiguration": "DataSourceVpcConfigurationTypeDef",
-        "Description": str,
-        "Schedule": str,
-        "RoleArn": str,
-        "Tags": List["TagTypeDef"],
-        "ClientToken": str,
-        "LanguageCode": str,
-        "CustomDocumentEnrichmentConfiguration": "CustomDocumentEnrichmentConfigurationTypeDef",
-    },
-    total=False,
-)
-
-class CreateDataSourceRequestRequestTypeDef(
-    _RequiredCreateDataSourceRequestRequestTypeDef, _OptionalCreateDataSourceRequestRequestTypeDef
-):
-    pass
-
-CreateDataSourceResponseTypeDef = TypedDict(
-    "CreateDataSourceResponseTypeDef",
-    {
-        "Id": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "Type": PrincipalTypeType,
+        "Access": ReadAccessTypeType,
+        "DataSourceId": NotRequired[str],
     },
 )
 
-_RequiredCreateExperienceRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateExperienceRequestRequestTypeDef",
-    {
-        "Name": str,
-        "IndexId": str,
-    },
-)
-_OptionalCreateExperienceRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateExperienceRequestRequestTypeDef",
-    {
-        "RoleArn": str,
-        "Configuration": "ExperienceConfigurationTypeDef",
-        "Description": str,
-        "ClientToken": str,
-    },
-    total=False,
-)
+class TagTypeDef(TypedDict):
+    Key: str
+    Value: str
 
-class CreateExperienceRequestRequestTypeDef(
-    _RequiredCreateExperienceRequestRequestTypeDef, _OptionalCreateExperienceRequestRequestTypeDef
-):
-    pass
+class FeaturedDocumentTypeDef(TypedDict):
+    Id: NotRequired[str]
 
-CreateExperienceResponseTypeDef = TypedDict(
-    "CreateExperienceResponseTypeDef",
-    {
-        "Id": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ServerSideEncryptionConfigurationTypeDef(TypedDict):
+    KmsKeyId: NotRequired[str]
 
-_RequiredCreateFaqRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateFaqRequestRequestTypeDef",
-    {
-        "IndexId": str,
-        "Name": str,
-        "S3Path": "S3PathTypeDef",
-        "RoleArn": str,
-    },
-)
-_OptionalCreateFaqRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateFaqRequestRequestTypeDef",
-    {
-        "Description": str,
-        "Tags": List["TagTypeDef"],
-        "FileFormat": FaqFileFormatType,
-        "ClientToken": str,
-        "LanguageCode": str,
-    },
-    total=False,
-)
+class UserGroupResolutionConfigurationTypeDef(TypedDict):
+    UserGroupResolutionMode: UserGroupResolutionModeType
 
-class CreateFaqRequestRequestTypeDef(
-    _RequiredCreateFaqRequestRequestTypeDef, _OptionalCreateFaqRequestRequestTypeDef
-):
-    pass
+class TemplateConfigurationOutputTypeDef(TypedDict):
+    Template: NotRequired[Dict[str, Any]]
 
-CreateFaqResponseTypeDef = TypedDict(
-    "CreateFaqResponseTypeDef",
-    {
-        "Id": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class TemplateConfigurationTypeDef(TypedDict):
+    Template: NotRequired[Mapping[str, Any]]
 
-_RequiredCreateFeaturedResultsSetRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateFeaturedResultsSetRequestRequestTypeDef",
-    {
-        "IndexId": str,
-        "FeaturedResultsSetName": str,
-    },
-)
-_OptionalCreateFeaturedResultsSetRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateFeaturedResultsSetRequestRequestTypeDef",
-    {
-        "Description": str,
-        "ClientToken": str,
-        "Status": FeaturedResultsSetStatusType,
-        "QueryTexts": List[str],
-        "FeaturedDocuments": List["FeaturedDocumentTypeDef"],
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateFeaturedResultsSetRequestRequestTypeDef(
-    _RequiredCreateFeaturedResultsSetRequestRequestTypeDef,
-    _OptionalCreateFeaturedResultsSetRequestRequestTypeDef,
-):
-    pass
-
-CreateFeaturedResultsSetResponseTypeDef = TypedDict(
-    "CreateFeaturedResultsSetResponseTypeDef",
-    {
-        "FeaturedResultsSet": "FeaturedResultsSetTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateIndexRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateIndexRequestRequestTypeDef",
-    {
-        "Name": str,
-        "RoleArn": str,
-    },
-)
-_OptionalCreateIndexRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateIndexRequestRequestTypeDef",
-    {
-        "Edition": IndexEditionType,
-        "ServerSideEncryptionConfiguration": "ServerSideEncryptionConfigurationTypeDef",
-        "Description": str,
-        "ClientToken": str,
-        "Tags": List["TagTypeDef"],
-        "UserTokenConfigurations": List["UserTokenConfigurationTypeDef"],
-        "UserContextPolicy": UserContextPolicyType,
-        "UserGroupResolutionConfiguration": "UserGroupResolutionConfigurationTypeDef",
-    },
-    total=False,
-)
-
-class CreateIndexRequestRequestTypeDef(
-    _RequiredCreateIndexRequestRequestTypeDef, _OptionalCreateIndexRequestRequestTypeDef
-):
-    pass
-
-CreateIndexResponseTypeDef = TypedDict(
-    "CreateIndexResponseTypeDef",
-    {
-        "Id": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateQuerySuggestionsBlockListRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateQuerySuggestionsBlockListRequestRequestTypeDef",
-    {
-        "IndexId": str,
-        "Name": str,
-        "SourceS3Path": "S3PathTypeDef",
-        "RoleArn": str,
-    },
-)
-_OptionalCreateQuerySuggestionsBlockListRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateQuerySuggestionsBlockListRequestRequestTypeDef",
-    {
-        "Description": str,
-        "ClientToken": str,
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateQuerySuggestionsBlockListRequestRequestTypeDef(
-    _RequiredCreateQuerySuggestionsBlockListRequestRequestTypeDef,
-    _OptionalCreateQuerySuggestionsBlockListRequestRequestTypeDef,
-):
-    pass
-
-CreateQuerySuggestionsBlockListResponseTypeDef = TypedDict(
-    "CreateQuerySuggestionsBlockListResponseTypeDef",
-    {
-        "Id": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateThesaurusRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateThesaurusRequestRequestTypeDef",
-    {
-        "IndexId": str,
-        "Name": str,
-        "RoleArn": str,
-        "SourceS3Path": "S3PathTypeDef",
-    },
-)
-_OptionalCreateThesaurusRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateThesaurusRequestRequestTypeDef",
-    {
-        "Description": str,
-        "Tags": List["TagTypeDef"],
-        "ClientToken": str,
-    },
-    total=False,
-)
-
-class CreateThesaurusRequestRequestTypeDef(
-    _RequiredCreateThesaurusRequestRequestTypeDef, _OptionalCreateThesaurusRequestRequestTypeDef
-):
-    pass
-
-CreateThesaurusResponseTypeDef = TypedDict(
-    "CreateThesaurusResponseTypeDef",
-    {
-        "Id": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CustomDocumentEnrichmentConfigurationTypeDef = TypedDict(
-    "CustomDocumentEnrichmentConfigurationTypeDef",
-    {
-        "InlineConfigurations": List["InlineCustomDocumentEnrichmentConfigurationTypeDef"],
-        "PreExtractionHookConfiguration": "HookConfigurationTypeDef",
-        "PostExtractionHookConfiguration": "HookConfigurationTypeDef",
-        "RoleArn": str,
-    },
-    total=False,
-)
-
-DataSourceConfigurationTypeDef = TypedDict(
-    "DataSourceConfigurationTypeDef",
-    {
-        "S3Configuration": "S3DataSourceConfigurationTypeDef",
-        "SharePointConfiguration": "SharePointConfigurationTypeDef",
-        "DatabaseConfiguration": "DatabaseConfigurationTypeDef",
-        "SalesforceConfiguration": "SalesforceConfigurationTypeDef",
-        "OneDriveConfiguration": "OneDriveConfigurationTypeDef",
-        "ServiceNowConfiguration": "ServiceNowConfigurationTypeDef",
-        "ConfluenceConfiguration": "ConfluenceConfigurationTypeDef",
-        "GoogleDriveConfiguration": "GoogleDriveConfigurationTypeDef",
-        "WebCrawlerConfiguration": "WebCrawlerConfigurationTypeDef",
-        "WorkDocsConfiguration": "WorkDocsConfigurationTypeDef",
-        "FsxConfiguration": "FsxConfigurationTypeDef",
-        "SlackConfiguration": "SlackConfigurationTypeDef",
-        "BoxConfiguration": "BoxConfigurationTypeDef",
-        "QuipConfiguration": "QuipConfigurationTypeDef",
-        "JiraConfiguration": "JiraConfigurationTypeDef",
-        "GitHubConfiguration": "GitHubConfigurationTypeDef",
-        "AlfrescoConfiguration": "AlfrescoConfigurationTypeDef",
-        "TemplateConfiguration": "TemplateConfigurationTypeDef",
-    },
-    total=False,
-)
-
-DataSourceGroupTypeDef = TypedDict(
-    "DataSourceGroupTypeDef",
-    {
-        "GroupId": str,
-        "DataSourceId": str,
-    },
-)
+class DataSourceGroupTypeDef(TypedDict):
+    GroupId: str
+    DataSourceId: str
 
 DataSourceSummaryTypeDef = TypedDict(
     "DataSourceSummaryTypeDef",
     {
+        "Name": NotRequired[str],
+        "Id": NotRequired[str],
+        "Type": NotRequired[DataSourceTypeType],
+        "CreatedAt": NotRequired[datetime],
+        "UpdatedAt": NotRequired[datetime],
+        "Status": NotRequired[DataSourceStatusType],
+        "LanguageCode": NotRequired[str],
+    },
+)
+
+class DataSourceSyncJobMetricsTypeDef(TypedDict):
+    DocumentsAdded: NotRequired[str]
+    DocumentsModified: NotRequired[str]
+    DocumentsDeleted: NotRequired[str]
+    DocumentsFailed: NotRequired[str]
+    DocumentsScanned: NotRequired[str]
+
+class SqlConfigurationTypeDef(TypedDict):
+    QueryIdentifiersEnclosingOption: NotRequired[QueryIdentifiersEnclosingOptionType]
+
+class DeleteAccessControlConfigurationRequestTypeDef(TypedDict):
+    IndexId: str
+    Id: str
+
+class DeleteDataSourceRequestTypeDef(TypedDict):
+    Id: str
+    IndexId: str
+
+class DeleteExperienceRequestTypeDef(TypedDict):
+    Id: str
+    IndexId: str
+
+class DeleteFaqRequestTypeDef(TypedDict):
+    Id: str
+    IndexId: str
+
+class DeleteIndexRequestTypeDef(TypedDict):
+    Id: str
+
+class DeletePrincipalMappingRequestTypeDef(TypedDict):
+    IndexId: str
+    GroupId: str
+    DataSourceId: NotRequired[str]
+    OrderingId: NotRequired[int]
+
+class DeleteQuerySuggestionsBlockListRequestTypeDef(TypedDict):
+    IndexId: str
+    Id: str
+
+class DeleteThesaurusRequestTypeDef(TypedDict):
+    Id: str
+    IndexId: str
+
+class DescribeAccessControlConfigurationRequestTypeDef(TypedDict):
+    IndexId: str
+    Id: str
+
+class DescribeDataSourceRequestTypeDef(TypedDict):
+    Id: str
+    IndexId: str
+
+class DescribeExperienceRequestTypeDef(TypedDict):
+    Id: str
+    IndexId: str
+
+class ExperienceEndpointTypeDef(TypedDict):
+    EndpointType: NotRequired[Literal["HOME"]]
+    Endpoint: NotRequired[str]
+
+class DescribeFaqRequestTypeDef(TypedDict):
+    Id: str
+    IndexId: str
+
+class DescribeFeaturedResultsSetRequestTypeDef(TypedDict):
+    IndexId: str
+    FeaturedResultsSetId: str
+
+class FeaturedDocumentMissingTypeDef(TypedDict):
+    Id: NotRequired[str]
+
+class FeaturedDocumentWithMetadataTypeDef(TypedDict):
+    Id: NotRequired[str]
+    Title: NotRequired[str]
+    URI: NotRequired[str]
+
+class DescribeIndexRequestTypeDef(TypedDict):
+    Id: str
+
+class DescribePrincipalMappingRequestTypeDef(TypedDict):
+    IndexId: str
+    GroupId: str
+    DataSourceId: NotRequired[str]
+
+class GroupOrderingIdSummaryTypeDef(TypedDict):
+    Status: NotRequired[PrincipalMappingStatusType]
+    LastUpdatedAt: NotRequired[datetime]
+    ReceivedAt: NotRequired[datetime]
+    OrderingId: NotRequired[int]
+    FailureReason: NotRequired[str]
+
+class DescribeQuerySuggestionsBlockListRequestTypeDef(TypedDict):
+    IndexId: str
+    Id: str
+
+class DescribeQuerySuggestionsConfigRequestTypeDef(TypedDict):
+    IndexId: str
+
+class DescribeThesaurusRequestTypeDef(TypedDict):
+    Id: str
+    IndexId: str
+
+class DisassociatePersonasFromEntitiesRequestTypeDef(TypedDict):
+    Id: str
+    IndexId: str
+    EntityIds: Sequence[str]
+
+class DocumentAttributeValueOutputTypeDef(TypedDict):
+    StringValue: NotRequired[str]
+    StringListValue: NotRequired[List[str]]
+    LongValue: NotRequired[int]
+    DateValue: NotRequired[datetime]
+
+class RelevanceOutputTypeDef(TypedDict):
+    Freshness: NotRequired[bool]
+    Importance: NotRequired[int]
+    Duration: NotRequired[str]
+    RankOrder: NotRequired[OrderType]
+    ValueImportanceMap: NotRequired[Dict[str, int]]
+
+class SearchTypeDef(TypedDict):
+    Facetable: NotRequired[bool]
+    Searchable: NotRequired[bool]
+    Displayable: NotRequired[bool]
+    Sortable: NotRequired[bool]
+
+class DocumentsMetadataConfigurationTypeDef(TypedDict):
+    S3Prefix: NotRequired[str]
+
+class EntityDisplayDataTypeDef(TypedDict):
+    UserName: NotRequired[str]
+    GroupName: NotRequired[str]
+    IdentifiedUserName: NotRequired[str]
+    FirstName: NotRequired[str]
+    LastName: NotRequired[str]
+
+class UserIdentityConfigurationTypeDef(TypedDict):
+    IdentityAttributeName: NotRequired[str]
+
+class FacetTypeDef(TypedDict):
+    DocumentAttributeKey: NotRequired[str]
+    Facets: NotRequired[Sequence[Mapping[str, Any]]]
+    MaxResults: NotRequired[int]
+
+class FaqStatisticsTypeDef(TypedDict):
+    IndexedQuestionAnswersCount: int
+
+class FaqSummaryTypeDef(TypedDict):
+    Id: NotRequired[str]
+    Name: NotRequired[str]
+    Status: NotRequired[FaqStatusType]
+    CreatedAt: NotRequired[datetime]
+    UpdatedAt: NotRequired[datetime]
+    FileFormat: NotRequired[FaqFileFormatType]
+    LanguageCode: NotRequired[str]
+
+class FeaturedResultsSetSummaryTypeDef(TypedDict):
+    FeaturedResultsSetId: NotRequired[str]
+    FeaturedResultsSetName: NotRequired[str]
+    Status: NotRequired[FeaturedResultsSetStatusType]
+    LastUpdatedTimestamp: NotRequired[int]
+    CreationTimestamp: NotRequired[int]
+
+class GetSnapshotsRequestTypeDef(TypedDict):
+    IndexId: str
+    Interval: IntervalType
+    MetricType: MetricTypeType
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class TimeRangeOutputTypeDef(TypedDict):
+    StartTime: NotRequired[datetime]
+    EndTime: NotRequired[datetime]
+
+class GitHubDocumentCrawlPropertiesTypeDef(TypedDict):
+    CrawlRepositoryDocuments: NotRequired[bool]
+    CrawlIssue: NotRequired[bool]
+    CrawlIssueComment: NotRequired[bool]
+    CrawlIssueCommentAttachment: NotRequired[bool]
+    CrawlPullRequest: NotRequired[bool]
+    CrawlPullRequestComment: NotRequired[bool]
+    CrawlPullRequestCommentAttachment: NotRequired[bool]
+
+class SaaSConfigurationTypeDef(TypedDict):
+    OrganizationName: str
+    HostUrl: str
+
+class MemberGroupTypeDef(TypedDict):
+    GroupId: str
+    DataSourceId: NotRequired[str]
+
+class MemberUserTypeDef(TypedDict):
+    UserId: str
+
+class GroupSummaryTypeDef(TypedDict):
+    GroupId: NotRequired[str]
+    OrderingId: NotRequired[int]
+
+HighlightTypeDef = TypedDict(
+    "HighlightTypeDef",
+    {
+        "BeginOffset": int,
+        "EndOffset": int,
+        "TopAnswer": NotRequired[bool],
+        "Type": NotRequired[HighlightTypeType],
+    },
+)
+
+class IndexConfigurationSummaryTypeDef(TypedDict):
+    CreatedAt: datetime
+    UpdatedAt: datetime
+    Status: IndexStatusType
+    Name: NotRequired[str]
+    Id: NotRequired[str]
+    Edition: NotRequired[IndexEditionType]
+
+class TextDocumentStatisticsTypeDef(TypedDict):
+    IndexedTextDocumentsCount: int
+    IndexedTextBytes: int
+
+class JsonTokenTypeConfigurationTypeDef(TypedDict):
+    UserNameAttributeField: str
+    GroupAttributeField: str
+
+class JwtTokenTypeConfigurationTypeDef(TypedDict):
+    KeyLocation: KeyLocationType
+    URL: NotRequired[str]
+    SecretManagerArn: NotRequired[str]
+    UserNameAttributeField: NotRequired[str]
+    GroupAttributeField: NotRequired[str]
+    Issuer: NotRequired[str]
+    ClaimRegex: NotRequired[str]
+
+class ListAccessControlConfigurationsRequestTypeDef(TypedDict):
+    IndexId: str
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class ListDataSourcesRequestTypeDef(TypedDict):
+    IndexId: str
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class ListEntityPersonasRequestTypeDef(TypedDict):
+    Id: str
+    IndexId: str
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class PersonasSummaryTypeDef(TypedDict):
+    EntityId: NotRequired[str]
+    Persona: NotRequired[PersonaType]
+    CreatedAt: NotRequired[datetime]
+    UpdatedAt: NotRequired[datetime]
+
+class ListExperienceEntitiesRequestTypeDef(TypedDict):
+    Id: str
+    IndexId: str
+    NextToken: NotRequired[str]
+
+class ListExperiencesRequestTypeDef(TypedDict):
+    IndexId: str
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class ListFaqsRequestTypeDef(TypedDict):
+    IndexId: str
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class ListFeaturedResultsSetsRequestTypeDef(TypedDict):
+    IndexId: str
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class ListGroupsOlderThanOrderingIdRequestTypeDef(TypedDict):
+    IndexId: str
+    OrderingId: int
+    DataSourceId: NotRequired[str]
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class ListIndicesRequestTypeDef(TypedDict):
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class ListQuerySuggestionsBlockListsRequestTypeDef(TypedDict):
+    IndexId: str
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class QuerySuggestionsBlockListSummaryTypeDef(TypedDict):
+    Id: NotRequired[str]
+    Name: NotRequired[str]
+    Status: NotRequired[QuerySuggestionsBlockListStatusType]
+    CreatedAt: NotRequired[datetime]
+    UpdatedAt: NotRequired[datetime]
+    ItemCount: NotRequired[int]
+
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    ResourceARN: str
+
+class ListThesauriRequestTypeDef(TypedDict):
+    IndexId: str
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class ThesaurusSummaryTypeDef(TypedDict):
+    Id: NotRequired[str]
+    Name: NotRequired[str]
+    Status: NotRequired[ThesaurusStatusType]
+    CreatedAt: NotRequired[datetime]
+    UpdatedAt: NotRequired[datetime]
+
+class SpellCorrectionConfigurationTypeDef(TypedDict):
+    IncludeQuerySpellCheckSuggestions: bool
+
+class ScoreAttributesTypeDef(TypedDict):
+    ScoreConfidence: NotRequired[ScoreConfidenceType]
+
+class WarningTypeDef(TypedDict):
+    Message: NotRequired[str]
+    Code: NotRequired[Literal["QUERY_LANGUAGE_INVALID_SYNTAX"]]
+
+class RelevanceFeedbackTypeDef(TypedDict):
+    ResultId: str
+    RelevanceValue: RelevanceTypeType
+
+class RelevanceTypeDef(TypedDict):
+    Freshness: NotRequired[bool]
+    Importance: NotRequired[int]
+    Duration: NotRequired[str]
+    RankOrder: NotRequired[OrderType]
+    ValueImportanceMap: NotRequired[Mapping[str, int]]
+
+class SeedUrlConfigurationOutputTypeDef(TypedDict):
+    SeedUrls: List[str]
+    WebCrawlerMode: NotRequired[WebCrawlerModeType]
+
+class SeedUrlConfigurationTypeDef(TypedDict):
+    SeedUrls: Sequence[str]
+    WebCrawlerMode: NotRequired[WebCrawlerModeType]
+
+class SiteMapsConfigurationOutputTypeDef(TypedDict):
+    SiteMaps: List[str]
+
+class SiteMapsConfigurationTypeDef(TypedDict):
+    SiteMaps: Sequence[str]
+
+class StartDataSourceSyncJobRequestTypeDef(TypedDict):
+    Id: str
+    IndexId: str
+
+class StopDataSourceSyncJobRequestTypeDef(TypedDict):
+    Id: str
+    IndexId: str
+
+class SuggestionHighlightTypeDef(TypedDict):
+    BeginOffset: NotRequired[int]
+    EndOffset: NotRequired[int]
+
+class TableCellTypeDef(TypedDict):
+    Value: NotRequired[str]
+    TopAnswer: NotRequired[bool]
+    Highlighted: NotRequired[bool]
+    Header: NotRequired[bool]
+
+class UntagResourceRequestTypeDef(TypedDict):
+    ResourceARN: str
+    TagKeys: Sequence[str]
+
+class ColumnConfigurationOutputTypeDef(TypedDict):
+    DocumentIdColumnName: str
+    DocumentDataColumnName: str
+    ChangeDetectingColumns: List[str]
+    DocumentTitleColumnName: NotRequired[str]
+    FieldMappings: NotRequired[List[DataSourceToIndexFieldMappingTypeDef]]
+
+class ColumnConfigurationTypeDef(TypedDict):
+    DocumentIdColumnName: str
+    DocumentDataColumnName: str
+    ChangeDetectingColumns: Sequence[str]
+    DocumentTitleColumnName: NotRequired[str]
+    FieldMappings: NotRequired[Sequence[DataSourceToIndexFieldMappingTypeDef]]
+
+class GoogleDriveConfigurationOutputTypeDef(TypedDict):
+    SecretArn: str
+    InclusionPatterns: NotRequired[List[str]]
+    ExclusionPatterns: NotRequired[List[str]]
+    FieldMappings: NotRequired[List[DataSourceToIndexFieldMappingTypeDef]]
+    ExcludeMimeTypes: NotRequired[List[str]]
+    ExcludeUserAccounts: NotRequired[List[str]]
+    ExcludeSharedDrives: NotRequired[List[str]]
+
+class GoogleDriveConfigurationTypeDef(TypedDict):
+    SecretArn: str
+    InclusionPatterns: NotRequired[Sequence[str]]
+    ExclusionPatterns: NotRequired[Sequence[str]]
+    FieldMappings: NotRequired[Sequence[DataSourceToIndexFieldMappingTypeDef]]
+    ExcludeMimeTypes: NotRequired[Sequence[str]]
+    ExcludeUserAccounts: NotRequired[Sequence[str]]
+    ExcludeSharedDrives: NotRequired[Sequence[str]]
+
+class SalesforceChatterFeedConfigurationOutputTypeDef(TypedDict):
+    DocumentDataFieldName: str
+    DocumentTitleFieldName: NotRequired[str]
+    FieldMappings: NotRequired[List[DataSourceToIndexFieldMappingTypeDef]]
+    IncludeFilterTypes: NotRequired[List[SalesforceChatterFeedIncludeFilterTypeType]]
+
+class SalesforceChatterFeedConfigurationTypeDef(TypedDict):
+    DocumentDataFieldName: str
+    DocumentTitleFieldName: NotRequired[str]
+    FieldMappings: NotRequired[Sequence[DataSourceToIndexFieldMappingTypeDef]]
+    IncludeFilterTypes: NotRequired[Sequence[SalesforceChatterFeedIncludeFilterTypeType]]
+
+class SalesforceCustomKnowledgeArticleTypeConfigurationOutputTypeDef(TypedDict):
+    Name: str
+    DocumentDataFieldName: str
+    DocumentTitleFieldName: NotRequired[str]
+    FieldMappings: NotRequired[List[DataSourceToIndexFieldMappingTypeDef]]
+
+class SalesforceCustomKnowledgeArticleTypeConfigurationTypeDef(TypedDict):
+    Name: str
+    DocumentDataFieldName: str
+    DocumentTitleFieldName: NotRequired[str]
+    FieldMappings: NotRequired[Sequence[DataSourceToIndexFieldMappingTypeDef]]
+
+class SalesforceStandardKnowledgeArticleTypeConfigurationOutputTypeDef(TypedDict):
+    DocumentDataFieldName: str
+    DocumentTitleFieldName: NotRequired[str]
+    FieldMappings: NotRequired[List[DataSourceToIndexFieldMappingTypeDef]]
+
+class SalesforceStandardKnowledgeArticleTypeConfigurationTypeDef(TypedDict):
+    DocumentDataFieldName: str
+    DocumentTitleFieldName: NotRequired[str]
+    FieldMappings: NotRequired[Sequence[DataSourceToIndexFieldMappingTypeDef]]
+
+class SalesforceStandardObjectAttachmentConfigurationOutputTypeDef(TypedDict):
+    DocumentTitleFieldName: NotRequired[str]
+    FieldMappings: NotRequired[List[DataSourceToIndexFieldMappingTypeDef]]
+
+class SalesforceStandardObjectAttachmentConfigurationTypeDef(TypedDict):
+    DocumentTitleFieldName: NotRequired[str]
+    FieldMappings: NotRequired[Sequence[DataSourceToIndexFieldMappingTypeDef]]
+
+class SalesforceStandardObjectConfigurationOutputTypeDef(TypedDict):
+    Name: SalesforceStandardObjectNameType
+    DocumentDataFieldName: str
+    DocumentTitleFieldName: NotRequired[str]
+    FieldMappings: NotRequired[List[DataSourceToIndexFieldMappingTypeDef]]
+
+class SalesforceStandardObjectConfigurationTypeDef(TypedDict):
+    Name: SalesforceStandardObjectNameType
+    DocumentDataFieldName: str
+    DocumentTitleFieldName: NotRequired[str]
+    FieldMappings: NotRequired[Sequence[DataSourceToIndexFieldMappingTypeDef]]
+
+class ServiceNowKnowledgeArticleConfigurationOutputTypeDef(TypedDict):
+    DocumentDataFieldName: str
+    CrawlAttachments: NotRequired[bool]
+    IncludeAttachmentFilePatterns: NotRequired[List[str]]
+    ExcludeAttachmentFilePatterns: NotRequired[List[str]]
+    DocumentTitleFieldName: NotRequired[str]
+    FieldMappings: NotRequired[List[DataSourceToIndexFieldMappingTypeDef]]
+    FilterQuery: NotRequired[str]
+
+class ServiceNowKnowledgeArticleConfigurationTypeDef(TypedDict):
+    DocumentDataFieldName: str
+    CrawlAttachments: NotRequired[bool]
+    IncludeAttachmentFilePatterns: NotRequired[Sequence[str]]
+    ExcludeAttachmentFilePatterns: NotRequired[Sequence[str]]
+    DocumentTitleFieldName: NotRequired[str]
+    FieldMappings: NotRequired[Sequence[DataSourceToIndexFieldMappingTypeDef]]
+    FilterQuery: NotRequired[str]
+
+class ServiceNowServiceCatalogConfigurationOutputTypeDef(TypedDict):
+    DocumentDataFieldName: str
+    CrawlAttachments: NotRequired[bool]
+    IncludeAttachmentFilePatterns: NotRequired[List[str]]
+    ExcludeAttachmentFilePatterns: NotRequired[List[str]]
+    DocumentTitleFieldName: NotRequired[str]
+    FieldMappings: NotRequired[List[DataSourceToIndexFieldMappingTypeDef]]
+
+class ServiceNowServiceCatalogConfigurationTypeDef(TypedDict):
+    DocumentDataFieldName: str
+    CrawlAttachments: NotRequired[bool]
+    IncludeAttachmentFilePatterns: NotRequired[Sequence[str]]
+    ExcludeAttachmentFilePatterns: NotRequired[Sequence[str]]
+    DocumentTitleFieldName: NotRequired[str]
+    FieldMappings: NotRequired[Sequence[DataSourceToIndexFieldMappingTypeDef]]
+
+class WorkDocsConfigurationOutputTypeDef(TypedDict):
+    OrganizationId: str
+    CrawlComments: NotRequired[bool]
+    UseChangeLog: NotRequired[bool]
+    InclusionPatterns: NotRequired[List[str]]
+    ExclusionPatterns: NotRequired[List[str]]
+    FieldMappings: NotRequired[List[DataSourceToIndexFieldMappingTypeDef]]
+
+class WorkDocsConfigurationTypeDef(TypedDict):
+    OrganizationId: str
+    CrawlComments: NotRequired[bool]
+    UseChangeLog: NotRequired[bool]
+    InclusionPatterns: NotRequired[Sequence[str]]
+    ExclusionPatterns: NotRequired[Sequence[str]]
+    FieldMappings: NotRequired[Sequence[DataSourceToIndexFieldMappingTypeDef]]
+
+class BoxConfigurationOutputTypeDef(TypedDict):
+    EnterpriseId: str
+    SecretArn: str
+    UseChangeLog: NotRequired[bool]
+    CrawlComments: NotRequired[bool]
+    CrawlTasks: NotRequired[bool]
+    CrawlWebLinks: NotRequired[bool]
+    FileFieldMappings: NotRequired[List[DataSourceToIndexFieldMappingTypeDef]]
+    TaskFieldMappings: NotRequired[List[DataSourceToIndexFieldMappingTypeDef]]
+    CommentFieldMappings: NotRequired[List[DataSourceToIndexFieldMappingTypeDef]]
+    WebLinkFieldMappings: NotRequired[List[DataSourceToIndexFieldMappingTypeDef]]
+    InclusionPatterns: NotRequired[List[str]]
+    ExclusionPatterns: NotRequired[List[str]]
+    VpcConfiguration: NotRequired[DataSourceVpcConfigurationOutputTypeDef]
+
+class FsxConfigurationOutputTypeDef(TypedDict):
+    FileSystemId: str
+    FileSystemType: Literal["WINDOWS"]
+    VpcConfiguration: DataSourceVpcConfigurationOutputTypeDef
+    SecretArn: NotRequired[str]
+    InclusionPatterns: NotRequired[List[str]]
+    ExclusionPatterns: NotRequired[List[str]]
+    FieldMappings: NotRequired[List[DataSourceToIndexFieldMappingTypeDef]]
+
+class JiraConfigurationOutputTypeDef(TypedDict):
+    JiraAccountUrl: str
+    SecretArn: str
+    UseChangeLog: NotRequired[bool]
+    Project: NotRequired[List[str]]
+    IssueType: NotRequired[List[str]]
+    Status: NotRequired[List[str]]
+    IssueSubEntityFilter: NotRequired[List[IssueSubEntityType]]
+    AttachmentFieldMappings: NotRequired[List[DataSourceToIndexFieldMappingTypeDef]]
+    CommentFieldMappings: NotRequired[List[DataSourceToIndexFieldMappingTypeDef]]
+    IssueFieldMappings: NotRequired[List[DataSourceToIndexFieldMappingTypeDef]]
+    ProjectFieldMappings: NotRequired[List[DataSourceToIndexFieldMappingTypeDef]]
+    WorkLogFieldMappings: NotRequired[List[DataSourceToIndexFieldMappingTypeDef]]
+    InclusionPatterns: NotRequired[List[str]]
+    ExclusionPatterns: NotRequired[List[str]]
+    VpcConfiguration: NotRequired[DataSourceVpcConfigurationOutputTypeDef]
+
+class QuipConfigurationOutputTypeDef(TypedDict):
+    Domain: str
+    SecretArn: str
+    CrawlFileComments: NotRequired[bool]
+    CrawlChatRooms: NotRequired[bool]
+    CrawlAttachments: NotRequired[bool]
+    FolderIds: NotRequired[List[str]]
+    ThreadFieldMappings: NotRequired[List[DataSourceToIndexFieldMappingTypeDef]]
+    MessageFieldMappings: NotRequired[List[DataSourceToIndexFieldMappingTypeDef]]
+    AttachmentFieldMappings: NotRequired[List[DataSourceToIndexFieldMappingTypeDef]]
+    InclusionPatterns: NotRequired[List[str]]
+    ExclusionPatterns: NotRequired[List[str]]
+    VpcConfiguration: NotRequired[DataSourceVpcConfigurationOutputTypeDef]
+
+class SlackConfigurationOutputTypeDef(TypedDict):
+    TeamId: str
+    SecretArn: str
+    SlackEntityList: List[SlackEntityType]
+    SinceCrawlDate: str
+    VpcConfiguration: NotRequired[DataSourceVpcConfigurationOutputTypeDef]
+    UseChangeLog: NotRequired[bool]
+    CrawlBotMessage: NotRequired[bool]
+    ExcludeArchived: NotRequired[bool]
+    LookBackPeriod: NotRequired[int]
+    PrivateChannelFilter: NotRequired[List[str]]
+    PublicChannelFilter: NotRequired[List[str]]
+    InclusionPatterns: NotRequired[List[str]]
+    ExclusionPatterns: NotRequired[List[str]]
+    FieldMappings: NotRequired[List[DataSourceToIndexFieldMappingTypeDef]]
+
+class AlfrescoConfigurationOutputTypeDef(TypedDict):
+    SiteUrl: str
+    SiteId: str
+    SecretArn: str
+    SslCertificateS3Path: S3PathTypeDef
+    CrawlSystemFolders: NotRequired[bool]
+    CrawlComments: NotRequired[bool]
+    EntityFilter: NotRequired[List[AlfrescoEntityType]]
+    DocumentLibraryFieldMappings: NotRequired[List[DataSourceToIndexFieldMappingTypeDef]]
+    BlogFieldMappings: NotRequired[List[DataSourceToIndexFieldMappingTypeDef]]
+    WikiFieldMappings: NotRequired[List[DataSourceToIndexFieldMappingTypeDef]]
+    InclusionPatterns: NotRequired[List[str]]
+    ExclusionPatterns: NotRequired[List[str]]
+    VpcConfiguration: NotRequired[DataSourceVpcConfigurationOutputTypeDef]
+
+class OnPremiseConfigurationTypeDef(TypedDict):
+    HostUrl: str
+    OrganizationName: str
+    SslCertificateS3Path: S3PathTypeDef
+
+class OneDriveUsersOutputTypeDef(TypedDict):
+    OneDriveUserList: NotRequired[List[str]]
+    OneDriveUserS3Path: NotRequired[S3PathTypeDef]
+
+class OneDriveUsersTypeDef(TypedDict):
+    OneDriveUserList: NotRequired[Sequence[str]]
+    OneDriveUserS3Path: NotRequired[S3PathTypeDef]
+
+class UpdateQuerySuggestionsBlockListRequestTypeDef(TypedDict):
+    IndexId: str
+    Id: str
+    Name: NotRequired[str]
+    Description: NotRequired[str]
+    SourceS3Path: NotRequired[S3PathTypeDef]
+    RoleArn: NotRequired[str]
+
+class UpdateThesaurusRequestTypeDef(TypedDict):
+    Id: str
+    IndexId: str
+    Name: NotRequired[str]
+    Description: NotRequired[str]
+    RoleArn: NotRequired[str]
+    SourceS3Path: NotRequired[S3PathTypeDef]
+
+class AlfrescoConfigurationTypeDef(TypedDict):
+    SiteUrl: str
+    SiteId: str
+    SecretArn: str
+    SslCertificateS3Path: S3PathTypeDef
+    CrawlSystemFolders: NotRequired[bool]
+    CrawlComments: NotRequired[bool]
+    EntityFilter: NotRequired[Sequence[AlfrescoEntityType]]
+    DocumentLibraryFieldMappings: NotRequired[Sequence[DataSourceToIndexFieldMappingTypeDef]]
+    BlogFieldMappings: NotRequired[Sequence[DataSourceToIndexFieldMappingTypeDef]]
+    WikiFieldMappings: NotRequired[Sequence[DataSourceToIndexFieldMappingTypeDef]]
+    InclusionPatterns: NotRequired[Sequence[str]]
+    ExclusionPatterns: NotRequired[Sequence[str]]
+    VpcConfiguration: NotRequired[DataSourceVpcConfigurationTypeDef]
+
+class BoxConfigurationTypeDef(TypedDict):
+    EnterpriseId: str
+    SecretArn: str
+    UseChangeLog: NotRequired[bool]
+    CrawlComments: NotRequired[bool]
+    CrawlTasks: NotRequired[bool]
+    CrawlWebLinks: NotRequired[bool]
+    FileFieldMappings: NotRequired[Sequence[DataSourceToIndexFieldMappingTypeDef]]
+    TaskFieldMappings: NotRequired[Sequence[DataSourceToIndexFieldMappingTypeDef]]
+    CommentFieldMappings: NotRequired[Sequence[DataSourceToIndexFieldMappingTypeDef]]
+    WebLinkFieldMappings: NotRequired[Sequence[DataSourceToIndexFieldMappingTypeDef]]
+    InclusionPatterns: NotRequired[Sequence[str]]
+    ExclusionPatterns: NotRequired[Sequence[str]]
+    VpcConfiguration: NotRequired[DataSourceVpcConfigurationTypeDef]
+
+DataSourceVpcConfigurationUnionTypeDef = Union[
+    DataSourceVpcConfigurationTypeDef, DataSourceVpcConfigurationOutputTypeDef
+]
+
+class FsxConfigurationTypeDef(TypedDict):
+    FileSystemId: str
+    FileSystemType: Literal["WINDOWS"]
+    VpcConfiguration: DataSourceVpcConfigurationTypeDef
+    SecretArn: NotRequired[str]
+    InclusionPatterns: NotRequired[Sequence[str]]
+    ExclusionPatterns: NotRequired[Sequence[str]]
+    FieldMappings: NotRequired[Sequence[DataSourceToIndexFieldMappingTypeDef]]
+
+class JiraConfigurationTypeDef(TypedDict):
+    JiraAccountUrl: str
+    SecretArn: str
+    UseChangeLog: NotRequired[bool]
+    Project: NotRequired[Sequence[str]]
+    IssueType: NotRequired[Sequence[str]]
+    Status: NotRequired[Sequence[str]]
+    IssueSubEntityFilter: NotRequired[Sequence[IssueSubEntityType]]
+    AttachmentFieldMappings: NotRequired[Sequence[DataSourceToIndexFieldMappingTypeDef]]
+    CommentFieldMappings: NotRequired[Sequence[DataSourceToIndexFieldMappingTypeDef]]
+    IssueFieldMappings: NotRequired[Sequence[DataSourceToIndexFieldMappingTypeDef]]
+    ProjectFieldMappings: NotRequired[Sequence[DataSourceToIndexFieldMappingTypeDef]]
+    WorkLogFieldMappings: NotRequired[Sequence[DataSourceToIndexFieldMappingTypeDef]]
+    InclusionPatterns: NotRequired[Sequence[str]]
+    ExclusionPatterns: NotRequired[Sequence[str]]
+    VpcConfiguration: NotRequired[DataSourceVpcConfigurationTypeDef]
+
+class QuipConfigurationTypeDef(TypedDict):
+    Domain: str
+    SecretArn: str
+    CrawlFileComments: NotRequired[bool]
+    CrawlChatRooms: NotRequired[bool]
+    CrawlAttachments: NotRequired[bool]
+    FolderIds: NotRequired[Sequence[str]]
+    ThreadFieldMappings: NotRequired[Sequence[DataSourceToIndexFieldMappingTypeDef]]
+    MessageFieldMappings: NotRequired[Sequence[DataSourceToIndexFieldMappingTypeDef]]
+    AttachmentFieldMappings: NotRequired[Sequence[DataSourceToIndexFieldMappingTypeDef]]
+    InclusionPatterns: NotRequired[Sequence[str]]
+    ExclusionPatterns: NotRequired[Sequence[str]]
+    VpcConfiguration: NotRequired[DataSourceVpcConfigurationTypeDef]
+
+class SlackConfigurationTypeDef(TypedDict):
+    TeamId: str
+    SecretArn: str
+    SlackEntityList: Sequence[SlackEntityType]
+    SinceCrawlDate: str
+    VpcConfiguration: NotRequired[DataSourceVpcConfigurationTypeDef]
+    UseChangeLog: NotRequired[bool]
+    CrawlBotMessage: NotRequired[bool]
+    ExcludeArchived: NotRequired[bool]
+    LookBackPeriod: NotRequired[int]
+    PrivateChannelFilter: NotRequired[Sequence[str]]
+    PublicChannelFilter: NotRequired[Sequence[str]]
+    InclusionPatterns: NotRequired[Sequence[str]]
+    ExclusionPatterns: NotRequired[Sequence[str]]
+    FieldMappings: NotRequired[Sequence[DataSourceToIndexFieldMappingTypeDef]]
+
+class AssociateEntitiesToExperienceRequestTypeDef(TypedDict):
+    Id: str
+    IndexId: str
+    EntityList: Sequence[EntityConfigurationTypeDef]
+
+class DisassociateEntitiesFromExperienceRequestTypeDef(TypedDict):
+    Id: str
+    IndexId: str
+    EntityList: Sequence[EntityConfigurationTypeDef]
+
+class AssociateEntitiesToExperienceResponseTypeDef(TypedDict):
+    FailedEntityList: List[FailedEntityTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class AssociatePersonasToEntitiesResponseTypeDef(TypedDict):
+    FailedEntityList: List[FailedEntityTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateAccessControlConfigurationResponseTypeDef(TypedDict):
+    Id: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateDataSourceResponseTypeDef(TypedDict):
+    Id: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateExperienceResponseTypeDef(TypedDict):
+    Id: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateFaqResponseTypeDef(TypedDict):
+    Id: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateIndexResponseTypeDef(TypedDict):
+    Id: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateQuerySuggestionsBlockListResponseTypeDef(TypedDict):
+    Id: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateThesaurusResponseTypeDef(TypedDict):
+    Id: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeFaqResponseTypeDef(TypedDict):
+    Id: str
+    IndexId: str
+    Name: str
+    Description: str
+    CreatedAt: datetime
+    UpdatedAt: datetime
+    S3Path: S3PathTypeDef
+    Status: FaqStatusType
+    RoleArn: str
+    ErrorMessage: str
+    FileFormat: FaqFileFormatType
+    LanguageCode: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeQuerySuggestionsBlockListResponseTypeDef(TypedDict):
+    IndexId: str
+    Id: str
+    Name: str
+    Description: str
+    Status: QuerySuggestionsBlockListStatusType
+    ErrorMessage: str
+    CreatedAt: datetime
+    UpdatedAt: datetime
+    SourceS3Path: S3PathTypeDef
+    ItemCount: int
+    FileSizeBytes: int
+    RoleArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeThesaurusResponseTypeDef(TypedDict):
+    Id: str
+    IndexId: str
+    Name: str
+    Description: str
+    Status: ThesaurusStatusType
+    ErrorMessage: str
+    CreatedAt: datetime
+    UpdatedAt: datetime
+    RoleArn: str
+    SourceS3Path: S3PathTypeDef
+    FileSizeBytes: int
+    TermCount: int
+    SynonymRuleCount: int
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DisassociateEntitiesFromExperienceResponseTypeDef(TypedDict):
+    FailedEntityList: List[FailedEntityTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DisassociatePersonasFromEntitiesResponseTypeDef(TypedDict):
+    FailedEntityList: List[FailedEntityTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class EmptyResponseMetadataTypeDef(TypedDict):
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListAccessControlConfigurationsResponseTypeDef(TypedDict):
+    AccessControlConfigurations: List[AccessControlConfigurationSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class StartDataSourceSyncJobResponseTypeDef(TypedDict):
+    ExecutionId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class AssociatePersonasToEntitiesRequestTypeDef(TypedDict):
+    Id: str
+    IndexId: str
+    Personas: Sequence[EntityPersonaConfigurationTypeDef]
+
+class AttributeSuggestionsDescribeConfigTypeDef(TypedDict):
+    SuggestableConfigList: NotRequired[List[SuggestableConfigTypeDef]]
+    AttributeSuggestionsMode: NotRequired[AttributeSuggestionsModeType]
+
+class AttributeSuggestionsUpdateConfigTypeDef(TypedDict):
+    SuggestableConfigList: NotRequired[Sequence[SuggestableConfigTypeDef]]
+    AttributeSuggestionsMode: NotRequired[AttributeSuggestionsModeType]
+
+class AuthenticationConfigurationOutputTypeDef(TypedDict):
+    BasicAuthentication: NotRequired[List[BasicAuthenticationConfigurationTypeDef]]
+
+class AuthenticationConfigurationTypeDef(TypedDict):
+    BasicAuthentication: NotRequired[Sequence[BasicAuthenticationConfigurationTypeDef]]
+
+class BatchDeleteDocumentRequestTypeDef(TypedDict):
+    IndexId: str
+    DocumentIdList: Sequence[str]
+    DataSourceSyncJobMetricTarget: NotRequired[DataSourceSyncJobMetricTargetTypeDef]
+
+class BatchDeleteDocumentResponseTypeDef(TypedDict):
+    FailedDocuments: List[BatchDeleteDocumentResponseFailedDocumentTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class BatchDeleteFeaturedResultsSetResponseTypeDef(TypedDict):
+    Errors: List[BatchDeleteFeaturedResultsSetErrorTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class BatchGetDocumentStatusResponseTypeDef(TypedDict):
+    Errors: List[BatchGetDocumentStatusResponseErrorTypeDef]
+    DocumentStatusList: List[StatusTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class BatchPutDocumentResponseTypeDef(TypedDict):
+    FailedDocuments: List[BatchPutDocumentResponseFailedDocumentTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ClickFeedbackTypeDef(TypedDict):
+    ResultId: str
+    ClickTime: TimestampTypeDef
+
+class DocumentAttributeValueTypeDef(TypedDict):
+    StringValue: NotRequired[str]
+    StringListValue: NotRequired[Sequence[str]]
+    LongValue: NotRequired[int]
+    DateValue: NotRequired[TimestampTypeDef]
+
+class TimeRangeTypeDef(TypedDict):
+    StartTime: NotRequired[TimestampTypeDef]
+    EndTime: NotRequired[TimestampTypeDef]
+
+class CollapseConfigurationTypeDef(TypedDict):
+    DocumentAttributeKey: str
+    SortingConfigurations: NotRequired[Sequence[SortingConfigurationTypeDef]]
+    MissingAttributeKeyStrategy: NotRequired[MissingAttributeKeyStrategyType]
+    Expand: NotRequired[bool]
+    ExpandConfiguration: NotRequired[ExpandConfigurationTypeDef]
+
+class ConfluenceAttachmentConfigurationOutputTypeDef(TypedDict):
+    CrawlAttachments: NotRequired[bool]
+    AttachmentFieldMappings: NotRequired[List[ConfluenceAttachmentToIndexFieldMappingTypeDef]]
+
+class ConfluenceAttachmentConfigurationTypeDef(TypedDict):
+    CrawlAttachments: NotRequired[bool]
+    AttachmentFieldMappings: NotRequired[Sequence[ConfluenceAttachmentToIndexFieldMappingTypeDef]]
+
+class ConfluenceBlogConfigurationOutputTypeDef(TypedDict):
+    BlogFieldMappings: NotRequired[List[ConfluenceBlogToIndexFieldMappingTypeDef]]
+
+class ConfluenceBlogConfigurationTypeDef(TypedDict):
+    BlogFieldMappings: NotRequired[Sequence[ConfluenceBlogToIndexFieldMappingTypeDef]]
+
+class SharePointConfigurationOutputTypeDef(TypedDict):
+    SharePointVersion: SharePointVersionType
+    Urls: List[str]
+    SecretArn: str
+    CrawlAttachments: NotRequired[bool]
+    UseChangeLog: NotRequired[bool]
+    InclusionPatterns: NotRequired[List[str]]
+    ExclusionPatterns: NotRequired[List[str]]
+    VpcConfiguration: NotRequired[DataSourceVpcConfigurationOutputTypeDef]
+    FieldMappings: NotRequired[List[DataSourceToIndexFieldMappingTypeDef]]
+    DocumentTitleFieldName: NotRequired[str]
+    DisableLocalGroups: NotRequired[bool]
+    SslCertificateS3Path: NotRequired[S3PathTypeDef]
+    AuthenticationType: NotRequired[SharePointOnlineAuthenticationTypeType]
+    ProxyConfiguration: NotRequired[ProxyConfigurationTypeDef]
+
+class SharePointConfigurationTypeDef(TypedDict):
+    SharePointVersion: SharePointVersionType
+    Urls: Sequence[str]
+    SecretArn: str
+    CrawlAttachments: NotRequired[bool]
+    UseChangeLog: NotRequired[bool]
+    InclusionPatterns: NotRequired[Sequence[str]]
+    ExclusionPatterns: NotRequired[Sequence[str]]
+    VpcConfiguration: NotRequired[DataSourceVpcConfigurationTypeDef]
+    FieldMappings: NotRequired[Sequence[DataSourceToIndexFieldMappingTypeDef]]
+    DocumentTitleFieldName: NotRequired[str]
+    DisableLocalGroups: NotRequired[bool]
+    SslCertificateS3Path: NotRequired[S3PathTypeDef]
+    AuthenticationType: NotRequired[SharePointOnlineAuthenticationTypeType]
+    ProxyConfiguration: NotRequired[ProxyConfigurationTypeDef]
+
+class ConfluencePageConfigurationOutputTypeDef(TypedDict):
+    PageFieldMappings: NotRequired[List[ConfluencePageToIndexFieldMappingTypeDef]]
+
+class ConfluencePageConfigurationTypeDef(TypedDict):
+    PageFieldMappings: NotRequired[Sequence[ConfluencePageToIndexFieldMappingTypeDef]]
+
+class ConfluenceSpaceConfigurationOutputTypeDef(TypedDict):
+    CrawlPersonalSpaces: NotRequired[bool]
+    CrawlArchivedSpaces: NotRequired[bool]
+    IncludeSpaces: NotRequired[List[str]]
+    ExcludeSpaces: NotRequired[List[str]]
+    SpaceFieldMappings: NotRequired[List[ConfluenceSpaceToIndexFieldMappingTypeDef]]
+
+class ConfluenceSpaceConfigurationTypeDef(TypedDict):
+    CrawlPersonalSpaces: NotRequired[bool]
+    CrawlArchivedSpaces: NotRequired[bool]
+    IncludeSpaces: NotRequired[Sequence[str]]
+    ExcludeSpaces: NotRequired[Sequence[str]]
+    SpaceFieldMappings: NotRequired[Sequence[ConfluenceSpaceToIndexFieldMappingTypeDef]]
+
+class SpellCorrectedQueryTypeDef(TypedDict):
+    SuggestedQueryText: NotRequired[str]
+    Corrections: NotRequired[List[CorrectionTypeDef]]
+
+class HierarchicalPrincipalOutputTypeDef(TypedDict):
+    PrincipalList: List[PrincipalTypeDef]
+
+class HierarchicalPrincipalTypeDef(TypedDict):
+    PrincipalList: Sequence[PrincipalTypeDef]
+
+class CreateFaqRequestTypeDef(TypedDict):
+    IndexId: str
+    Name: str
+    S3Path: S3PathTypeDef
+    RoleArn: str
+    Description: NotRequired[str]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+    FileFormat: NotRequired[FaqFileFormatType]
+    ClientToken: NotRequired[str]
+    LanguageCode: NotRequired[str]
+
+class CreateQuerySuggestionsBlockListRequestTypeDef(TypedDict):
+    IndexId: str
+    Name: str
+    SourceS3Path: S3PathTypeDef
+    RoleArn: str
+    Description: NotRequired[str]
+    ClientToken: NotRequired[str]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+
+class CreateThesaurusRequestTypeDef(TypedDict):
+    IndexId: str
+    Name: str
+    RoleArn: str
+    SourceS3Path: S3PathTypeDef
+    Description: NotRequired[str]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+    ClientToken: NotRequired[str]
+
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    Tags: List[TagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class TagResourceRequestTypeDef(TypedDict):
+    ResourceARN: str
+    Tags: Sequence[TagTypeDef]
+
+class CreateFeaturedResultsSetRequestTypeDef(TypedDict):
+    IndexId: str
+    FeaturedResultsSetName: str
+    Description: NotRequired[str]
+    ClientToken: NotRequired[str]
+    Status: NotRequired[FeaturedResultsSetStatusType]
+    QueryTexts: NotRequired[Sequence[str]]
+    FeaturedDocuments: NotRequired[Sequence[FeaturedDocumentTypeDef]]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+
+class FeaturedResultsSetTypeDef(TypedDict):
+    FeaturedResultsSetId: NotRequired[str]
+    FeaturedResultsSetName: NotRequired[str]
+    Description: NotRequired[str]
+    Status: NotRequired[FeaturedResultsSetStatusType]
+    QueryTexts: NotRequired[List[str]]
+    FeaturedDocuments: NotRequired[List[FeaturedDocumentTypeDef]]
+    LastUpdatedTimestamp: NotRequired[int]
+    CreationTimestamp: NotRequired[int]
+
+class UpdateFeaturedResultsSetRequestTypeDef(TypedDict):
+    IndexId: str
+    FeaturedResultsSetId: str
+    FeaturedResultsSetName: NotRequired[str]
+    Description: NotRequired[str]
+    Status: NotRequired[FeaturedResultsSetStatusType]
+    QueryTexts: NotRequired[Sequence[str]]
+    FeaturedDocuments: NotRequired[Sequence[FeaturedDocumentTypeDef]]
+
+class UserContextTypeDef(TypedDict):
+    Token: NotRequired[str]
+    UserId: NotRequired[str]
+    Groups: NotRequired[Sequence[str]]
+    DataSourceGroups: NotRequired[Sequence[DataSourceGroupTypeDef]]
+
+class ListDataSourcesResponseTypeDef(TypedDict):
+    SummaryItems: List[DataSourceSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class DataSourceSyncJobTypeDef(TypedDict):
+    ExecutionId: NotRequired[str]
+    StartTime: NotRequired[datetime]
+    EndTime: NotRequired[datetime]
+    Status: NotRequired[DataSourceSyncJobStatusType]
+    ErrorMessage: NotRequired[str]
+    ErrorCode: NotRequired[ErrorCodeType]
+    DataSourceErrorCode: NotRequired[str]
+    Metrics: NotRequired[DataSourceSyncJobMetricsTypeDef]
+
+class ExperiencesSummaryTypeDef(TypedDict):
+    Name: NotRequired[str]
+    Id: NotRequired[str]
+    CreatedAt: NotRequired[datetime]
+    Status: NotRequired[ExperienceStatusType]
+    Endpoints: NotRequired[List[ExperienceEndpointTypeDef]]
+
+class DescribeFeaturedResultsSetResponseTypeDef(TypedDict):
+    FeaturedResultsSetId: str
+    FeaturedResultsSetName: str
+    Description: str
+    Status: FeaturedResultsSetStatusType
+    QueryTexts: List[str]
+    FeaturedDocumentsWithMetadata: List[FeaturedDocumentWithMetadataTypeDef]
+    FeaturedDocumentsMissing: List[FeaturedDocumentMissingTypeDef]
+    LastUpdatedTimestamp: int
+    CreationTimestamp: int
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribePrincipalMappingResponseTypeDef(TypedDict):
+    IndexId: str
+    DataSourceId: str
+    GroupId: str
+    GroupOrderingIdSummaries: List[GroupOrderingIdSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DocumentAttributeConditionOutputTypeDef(TypedDict):
+    ConditionDocumentAttributeKey: str
+    Operator: ConditionOperatorType
+    ConditionOnValue: NotRequired[DocumentAttributeValueOutputTypeDef]
+
+class DocumentAttributeOutputTypeDef(TypedDict):
+    Key: str
+    Value: DocumentAttributeValueOutputTypeDef
+
+class DocumentAttributeTargetOutputTypeDef(TypedDict):
+    TargetDocumentAttributeKey: NotRequired[str]
+    TargetDocumentAttributeValueDeletion: NotRequired[bool]
+    TargetDocumentAttributeValue: NotRequired[DocumentAttributeValueOutputTypeDef]
+
+class DocumentAttributeValueCountPairTypeDef(TypedDict):
+    DocumentAttributeValue: NotRequired[DocumentAttributeValueOutputTypeDef]
+    Count: NotRequired[int]
+    FacetResults: NotRequired[List[Dict[str, Any]]]
+
+DocumentMetadataConfigurationOutputTypeDef = TypedDict(
+    "DocumentMetadataConfigurationOutputTypeDef",
+    {
         "Name": str,
-        "Id": str,
-        "Type": DataSourceTypeType,
-        "CreatedAt": datetime,
-        "UpdatedAt": datetime,
-        "Status": DataSourceStatusType,
-        "LanguageCode": str,
+        "Type": DocumentAttributeValueTypeType,
+        "Relevance": NotRequired[RelevanceOutputTypeDef],
+        "Search": NotRequired[SearchTypeDef],
     },
-    total=False,
 )
 
-_RequiredDataSourceSyncJobMetricTargetTypeDef = TypedDict(
-    "_RequiredDataSourceSyncJobMetricTargetTypeDef",
+class S3DataSourceConfigurationOutputTypeDef(TypedDict):
+    BucketName: str
+    InclusionPrefixes: NotRequired[List[str]]
+    InclusionPatterns: NotRequired[List[str]]
+    ExclusionPatterns: NotRequired[List[str]]
+    DocumentsMetadataConfiguration: NotRequired[DocumentsMetadataConfigurationTypeDef]
+    AccessControlListConfiguration: NotRequired[AccessControlListConfigurationTypeDef]
+
+class S3DataSourceConfigurationTypeDef(TypedDict):
+    BucketName: str
+    InclusionPrefixes: NotRequired[Sequence[str]]
+    InclusionPatterns: NotRequired[Sequence[str]]
+    ExclusionPatterns: NotRequired[Sequence[str]]
+    DocumentsMetadataConfiguration: NotRequired[DocumentsMetadataConfigurationTypeDef]
+    AccessControlListConfiguration: NotRequired[AccessControlListConfigurationTypeDef]
+
+class ExperienceEntitiesSummaryTypeDef(TypedDict):
+    EntityId: NotRequired[str]
+    EntityType: NotRequired[EntityTypeType]
+    DisplayData: NotRequired[EntityDisplayDataTypeDef]
+
+class ExperienceConfigurationOutputTypeDef(TypedDict):
+    ContentSourceConfiguration: NotRequired[ContentSourceConfigurationOutputTypeDef]
+    UserIdentityConfiguration: NotRequired[UserIdentityConfigurationTypeDef]
+
+class ExperienceConfigurationTypeDef(TypedDict):
+    ContentSourceConfiguration: NotRequired[ContentSourceConfigurationTypeDef]
+    UserIdentityConfiguration: NotRequired[UserIdentityConfigurationTypeDef]
+
+class ListFaqsResponseTypeDef(TypedDict):
+    FaqSummaryItems: List[FaqSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListFeaturedResultsSetsResponseTypeDef(TypedDict):
+    FeaturedResultsSetSummaryItems: List[FeaturedResultsSetSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class GetSnapshotsResponseTypeDef(TypedDict):
+    SnapShotTimeFilter: TimeRangeOutputTypeDef
+    SnapshotsDataHeader: List[str]
+    SnapshotsData: List[List[str]]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class GroupMembersTypeDef(TypedDict):
+    MemberGroups: NotRequired[Sequence[MemberGroupTypeDef]]
+    MemberUsers: NotRequired[Sequence[MemberUserTypeDef]]
+    S3PathforGroupMembers: NotRequired[S3PathTypeDef]
+
+class ListGroupsOlderThanOrderingIdResponseTypeDef(TypedDict):
+    GroupsSummaries: List[GroupSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+TextWithHighlightsTypeDef = TypedDict(
+    "TextWithHighlightsTypeDef",
     {
-        "DataSourceId": str,
+        "Text": NotRequired[str],
+        "Highlights": NotRequired[List[HighlightTypeDef]],
     },
 )
-_OptionalDataSourceSyncJobMetricTargetTypeDef = TypedDict(
-    "_OptionalDataSourceSyncJobMetricTargetTypeDef",
+
+class ListIndicesResponseTypeDef(TypedDict):
+    IndexConfigurationSummaryItems: List[IndexConfigurationSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class IndexStatisticsTypeDef(TypedDict):
+    FaqStatistics: FaqStatisticsTypeDef
+    TextDocumentStatistics: TextDocumentStatisticsTypeDef
+
+class UserTokenConfigurationTypeDef(TypedDict):
+    JwtTokenTypeConfiguration: NotRequired[JwtTokenTypeConfigurationTypeDef]
+    JsonTokenTypeConfiguration: NotRequired[JsonTokenTypeConfigurationTypeDef]
+
+class ListEntityPersonasResponseTypeDef(TypedDict):
+    SummaryItems: List[PersonasSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListQuerySuggestionsBlockListsResponseTypeDef(TypedDict):
+    BlockListSummaryItems: List[QuerySuggestionsBlockListSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListThesauriResponseTypeDef(TypedDict):
+    ThesaurusSummaryItems: List[ThesaurusSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+RelevanceUnionTypeDef = Union[RelevanceTypeDef, RelevanceOutputTypeDef]
+
+class UrlsOutputTypeDef(TypedDict):
+    SeedUrlConfiguration: NotRequired[SeedUrlConfigurationOutputTypeDef]
+    SiteMapsConfiguration: NotRequired[SiteMapsConfigurationOutputTypeDef]
+
+class UrlsTypeDef(TypedDict):
+    SeedUrlConfiguration: NotRequired[SeedUrlConfigurationTypeDef]
+    SiteMapsConfiguration: NotRequired[SiteMapsConfigurationTypeDef]
+
+SuggestionTextWithHighlightsTypeDef = TypedDict(
+    "SuggestionTextWithHighlightsTypeDef",
     {
-        "DataSourceSyncJobId": str,
+        "Text": NotRequired[str],
+        "Highlights": NotRequired[List[SuggestionHighlightTypeDef]],
     },
-    total=False,
 )
 
-class DataSourceSyncJobMetricTargetTypeDef(
-    _RequiredDataSourceSyncJobMetricTargetTypeDef, _OptionalDataSourceSyncJobMetricTargetTypeDef
-):
-    pass
+class TableRowTypeDef(TypedDict):
+    Cells: NotRequired[List[TableCellTypeDef]]
 
-DataSourceSyncJobMetricsTypeDef = TypedDict(
-    "DataSourceSyncJobMetricsTypeDef",
+class DatabaseConfigurationOutputTypeDef(TypedDict):
+    DatabaseEngineType: DatabaseEngineTypeType
+    ConnectionConfiguration: ConnectionConfigurationTypeDef
+    ColumnConfiguration: ColumnConfigurationOutputTypeDef
+    VpcConfiguration: NotRequired[DataSourceVpcConfigurationOutputTypeDef]
+    AclConfiguration: NotRequired[AclConfigurationTypeDef]
+    SqlConfiguration: NotRequired[SqlConfigurationTypeDef]
+
+class DatabaseConfigurationTypeDef(TypedDict):
+    DatabaseEngineType: DatabaseEngineTypeType
+    ConnectionConfiguration: ConnectionConfigurationTypeDef
+    ColumnConfiguration: ColumnConfigurationTypeDef
+    VpcConfiguration: NotRequired[DataSourceVpcConfigurationTypeDef]
+    AclConfiguration: NotRequired[AclConfigurationTypeDef]
+    SqlConfiguration: NotRequired[SqlConfigurationTypeDef]
+
+class SalesforceKnowledgeArticleConfigurationOutputTypeDef(TypedDict):
+    IncludedStates: List[SalesforceKnowledgeArticleStateType]
+    StandardKnowledgeArticleTypeConfiguration: NotRequired[
+        SalesforceStandardKnowledgeArticleTypeConfigurationOutputTypeDef
+    ]
+    CustomKnowledgeArticleTypeConfigurations: NotRequired[
+        List[SalesforceCustomKnowledgeArticleTypeConfigurationOutputTypeDef]
+    ]
+
+class SalesforceKnowledgeArticleConfigurationTypeDef(TypedDict):
+    IncludedStates: Sequence[SalesforceKnowledgeArticleStateType]
+    StandardKnowledgeArticleTypeConfiguration: NotRequired[
+        SalesforceStandardKnowledgeArticleTypeConfigurationTypeDef
+    ]
+    CustomKnowledgeArticleTypeConfigurations: NotRequired[
+        Sequence[SalesforceCustomKnowledgeArticleTypeConfigurationTypeDef]
+    ]
+
+class ServiceNowConfigurationOutputTypeDef(TypedDict):
+    HostUrl: str
+    SecretArn: str
+    ServiceNowBuildVersion: ServiceNowBuildVersionTypeType
+    KnowledgeArticleConfiguration: NotRequired[ServiceNowKnowledgeArticleConfigurationOutputTypeDef]
+    ServiceCatalogConfiguration: NotRequired[ServiceNowServiceCatalogConfigurationOutputTypeDef]
+    AuthenticationType: NotRequired[ServiceNowAuthenticationTypeType]
+
+class ServiceNowConfigurationTypeDef(TypedDict):
+    HostUrl: str
+    SecretArn: str
+    ServiceNowBuildVersion: ServiceNowBuildVersionTypeType
+    KnowledgeArticleConfiguration: NotRequired[ServiceNowKnowledgeArticleConfigurationTypeDef]
+    ServiceCatalogConfiguration: NotRequired[ServiceNowServiceCatalogConfigurationTypeDef]
+    AuthenticationType: NotRequired[ServiceNowAuthenticationTypeType]
+
+GitHubConfigurationOutputTypeDef = TypedDict(
+    "GitHubConfigurationOutputTypeDef",
     {
-        "DocumentsAdded": str,
-        "DocumentsModified": str,
-        "DocumentsDeleted": str,
-        "DocumentsFailed": str,
-        "DocumentsScanned": str,
+        "SecretArn": str,
+        "SaaSConfiguration": NotRequired[SaaSConfigurationTypeDef],
+        "OnPremiseConfiguration": NotRequired[OnPremiseConfigurationTypeDef],
+        "Type": NotRequired[TypeType],
+        "UseChangeLog": NotRequired[bool],
+        "GitHubDocumentCrawlProperties": NotRequired[GitHubDocumentCrawlPropertiesTypeDef],
+        "RepositoryFilter": NotRequired[List[str]],
+        "InclusionFolderNamePatterns": NotRequired[List[str]],
+        "InclusionFileTypePatterns": NotRequired[List[str]],
+        "InclusionFileNamePatterns": NotRequired[List[str]],
+        "ExclusionFolderNamePatterns": NotRequired[List[str]],
+        "ExclusionFileTypePatterns": NotRequired[List[str]],
+        "ExclusionFileNamePatterns": NotRequired[List[str]],
+        "VpcConfiguration": NotRequired[DataSourceVpcConfigurationOutputTypeDef],
+        "GitHubRepositoryConfigurationFieldMappings": NotRequired[
+            List[DataSourceToIndexFieldMappingTypeDef]
+        ],
+        "GitHubCommitConfigurationFieldMappings": NotRequired[
+            List[DataSourceToIndexFieldMappingTypeDef]
+        ],
+        "GitHubIssueDocumentConfigurationFieldMappings": NotRequired[
+            List[DataSourceToIndexFieldMappingTypeDef]
+        ],
+        "GitHubIssueCommentConfigurationFieldMappings": NotRequired[
+            List[DataSourceToIndexFieldMappingTypeDef]
+        ],
+        "GitHubIssueAttachmentConfigurationFieldMappings": NotRequired[
+            List[DataSourceToIndexFieldMappingTypeDef]
+        ],
+        "GitHubPullRequestCommentConfigurationFieldMappings": NotRequired[
+            List[DataSourceToIndexFieldMappingTypeDef]
+        ],
+        "GitHubPullRequestDocumentConfigurationFieldMappings": NotRequired[
+            List[DataSourceToIndexFieldMappingTypeDef]
+        ],
+        "GitHubPullRequestDocumentAttachmentConfigurationFieldMappings": NotRequired[
+            List[DataSourceToIndexFieldMappingTypeDef]
+        ],
     },
-    total=False,
 )
-
-DataSourceSyncJobTypeDef = TypedDict(
-    "DataSourceSyncJobTypeDef",
+GitHubConfigurationTypeDef = TypedDict(
+    "GitHubConfigurationTypeDef",
     {
-        "ExecutionId": str,
-        "StartTime": datetime,
-        "EndTime": datetime,
-        "Status": DataSourceSyncJobStatusType,
-        "ErrorMessage": str,
-        "ErrorCode": ErrorCodeType,
-        "DataSourceErrorCode": str,
-        "Metrics": "DataSourceSyncJobMetricsTypeDef",
-    },
-    total=False,
-)
-
-_RequiredDataSourceToIndexFieldMappingTypeDef = TypedDict(
-    "_RequiredDataSourceToIndexFieldMappingTypeDef",
-    {
-        "DataSourceFieldName": str,
-        "IndexFieldName": str,
-    },
-)
-_OptionalDataSourceToIndexFieldMappingTypeDef = TypedDict(
-    "_OptionalDataSourceToIndexFieldMappingTypeDef",
-    {
-        "DateFieldFormat": str,
-    },
-    total=False,
-)
-
-class DataSourceToIndexFieldMappingTypeDef(
-    _RequiredDataSourceToIndexFieldMappingTypeDef, _OptionalDataSourceToIndexFieldMappingTypeDef
-):
-    pass
-
-DataSourceVpcConfigurationTypeDef = TypedDict(
-    "DataSourceVpcConfigurationTypeDef",
-    {
-        "SubnetIds": List[str],
-        "SecurityGroupIds": List[str],
-    },
-)
-
-_RequiredDatabaseConfigurationTypeDef = TypedDict(
-    "_RequiredDatabaseConfigurationTypeDef",
-    {
-        "DatabaseEngineType": DatabaseEngineTypeType,
-        "ConnectionConfiguration": "ConnectionConfigurationTypeDef",
-        "ColumnConfiguration": "ColumnConfigurationTypeDef",
-    },
-)
-_OptionalDatabaseConfigurationTypeDef = TypedDict(
-    "_OptionalDatabaseConfigurationTypeDef",
-    {
-        "VpcConfiguration": "DataSourceVpcConfigurationTypeDef",
-        "AclConfiguration": "AclConfigurationTypeDef",
-        "SqlConfiguration": "SqlConfigurationTypeDef",
-    },
-    total=False,
-)
-
-class DatabaseConfigurationTypeDef(
-    _RequiredDatabaseConfigurationTypeDef, _OptionalDatabaseConfigurationTypeDef
-):
-    pass
-
-DeleteAccessControlConfigurationRequestRequestTypeDef = TypedDict(
-    "DeleteAccessControlConfigurationRequestRequestTypeDef",
-    {
-        "IndexId": str,
-        "Id": str,
+        "SecretArn": str,
+        "SaaSConfiguration": NotRequired[SaaSConfigurationTypeDef],
+        "OnPremiseConfiguration": NotRequired[OnPremiseConfigurationTypeDef],
+        "Type": NotRequired[TypeType],
+        "UseChangeLog": NotRequired[bool],
+        "GitHubDocumentCrawlProperties": NotRequired[GitHubDocumentCrawlPropertiesTypeDef],
+        "RepositoryFilter": NotRequired[Sequence[str]],
+        "InclusionFolderNamePatterns": NotRequired[Sequence[str]],
+        "InclusionFileTypePatterns": NotRequired[Sequence[str]],
+        "InclusionFileNamePatterns": NotRequired[Sequence[str]],
+        "ExclusionFolderNamePatterns": NotRequired[Sequence[str]],
+        "ExclusionFileTypePatterns": NotRequired[Sequence[str]],
+        "ExclusionFileNamePatterns": NotRequired[Sequence[str]],
+        "VpcConfiguration": NotRequired[DataSourceVpcConfigurationTypeDef],
+        "GitHubRepositoryConfigurationFieldMappings": NotRequired[
+            Sequence[DataSourceToIndexFieldMappingTypeDef]
+        ],
+        "GitHubCommitConfigurationFieldMappings": NotRequired[
+            Sequence[DataSourceToIndexFieldMappingTypeDef]
+        ],
+        "GitHubIssueDocumentConfigurationFieldMappings": NotRequired[
+            Sequence[DataSourceToIndexFieldMappingTypeDef]
+        ],
+        "GitHubIssueCommentConfigurationFieldMappings": NotRequired[
+            Sequence[DataSourceToIndexFieldMappingTypeDef]
+        ],
+        "GitHubIssueAttachmentConfigurationFieldMappings": NotRequired[
+            Sequence[DataSourceToIndexFieldMappingTypeDef]
+        ],
+        "GitHubPullRequestCommentConfigurationFieldMappings": NotRequired[
+            Sequence[DataSourceToIndexFieldMappingTypeDef]
+        ],
+        "GitHubPullRequestDocumentConfigurationFieldMappings": NotRequired[
+            Sequence[DataSourceToIndexFieldMappingTypeDef]
+        ],
+        "GitHubPullRequestDocumentAttachmentConfigurationFieldMappings": NotRequired[
+            Sequence[DataSourceToIndexFieldMappingTypeDef]
+        ],
     },
 )
 
-DeleteDataSourceRequestRequestTypeDef = TypedDict(
-    "DeleteDataSourceRequestRequestTypeDef",
-    {
-        "Id": str,
-        "IndexId": str,
-    },
-)
+class OneDriveConfigurationOutputTypeDef(TypedDict):
+    TenantDomain: str
+    SecretArn: str
+    OneDriveUsers: OneDriveUsersOutputTypeDef
+    InclusionPatterns: NotRequired[List[str]]
+    ExclusionPatterns: NotRequired[List[str]]
+    FieldMappings: NotRequired[List[DataSourceToIndexFieldMappingTypeDef]]
+    DisableLocalGroups: NotRequired[bool]
 
-DeleteExperienceRequestRequestTypeDef = TypedDict(
-    "DeleteExperienceRequestRequestTypeDef",
-    {
-        "Id": str,
-        "IndexId": str,
-    },
-)
+class OneDriveConfigurationTypeDef(TypedDict):
+    TenantDomain: str
+    SecretArn: str
+    OneDriveUsers: OneDriveUsersTypeDef
+    InclusionPatterns: NotRequired[Sequence[str]]
+    ExclusionPatterns: NotRequired[Sequence[str]]
+    FieldMappings: NotRequired[Sequence[DataSourceToIndexFieldMappingTypeDef]]
+    DisableLocalGroups: NotRequired[bool]
 
-DeleteFaqRequestRequestTypeDef = TypedDict(
-    "DeleteFaqRequestRequestTypeDef",
-    {
-        "Id": str,
-        "IndexId": str,
-    },
-)
+class DescribeQuerySuggestionsConfigResponseTypeDef(TypedDict):
+    Mode: ModeType
+    Status: QuerySuggestionsStatusType
+    QueryLogLookBackWindowInDays: int
+    IncludeQueriesWithoutUserInformation: bool
+    MinimumNumberOfQueryingUsers: int
+    MinimumQueryCount: int
+    LastSuggestionsBuildTime: datetime
+    LastClearTime: datetime
+    TotalSuggestionsCount: int
+    AttributeSuggestionsConfig: AttributeSuggestionsDescribeConfigTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-DeleteIndexRequestRequestTypeDef = TypedDict(
-    "DeleteIndexRequestRequestTypeDef",
-    {
-        "Id": str,
-    },
-)
+class UpdateQuerySuggestionsConfigRequestTypeDef(TypedDict):
+    IndexId: str
+    Mode: NotRequired[ModeType]
+    QueryLogLookBackWindowInDays: NotRequired[int]
+    IncludeQueriesWithoutUserInformation: NotRequired[bool]
+    MinimumNumberOfQueryingUsers: NotRequired[int]
+    MinimumQueryCount: NotRequired[int]
+    AttributeSuggestionsConfig: NotRequired[AttributeSuggestionsUpdateConfigTypeDef]
 
-_RequiredDeletePrincipalMappingRequestRequestTypeDef = TypedDict(
-    "_RequiredDeletePrincipalMappingRequestRequestTypeDef",
-    {
-        "IndexId": str,
-        "GroupId": str,
-    },
-)
-_OptionalDeletePrincipalMappingRequestRequestTypeDef = TypedDict(
-    "_OptionalDeletePrincipalMappingRequestRequestTypeDef",
-    {
-        "DataSourceId": str,
-        "OrderingId": int,
-    },
-    total=False,
-)
+class SubmitFeedbackRequestTypeDef(TypedDict):
+    IndexId: str
+    QueryId: str
+    ClickFeedbackItems: NotRequired[Sequence[ClickFeedbackTypeDef]]
+    RelevanceFeedbackItems: NotRequired[Sequence[RelevanceFeedbackTypeDef]]
 
-class DeletePrincipalMappingRequestRequestTypeDef(
-    _RequiredDeletePrincipalMappingRequestRequestTypeDef,
-    _OptionalDeletePrincipalMappingRequestRequestTypeDef,
-):
-    pass
+class DocumentAttributeConditionTypeDef(TypedDict):
+    ConditionDocumentAttributeKey: str
+    Operator: ConditionOperatorType
+    ConditionOnValue: NotRequired[DocumentAttributeValueTypeDef]
 
-DeleteQuerySuggestionsBlockListRequestRequestTypeDef = TypedDict(
-    "DeleteQuerySuggestionsBlockListRequestRequestTypeDef",
-    {
-        "IndexId": str,
-        "Id": str,
-    },
-)
+class DocumentAttributeTargetTypeDef(TypedDict):
+    TargetDocumentAttributeKey: NotRequired[str]
+    TargetDocumentAttributeValueDeletion: NotRequired[bool]
+    TargetDocumentAttributeValue: NotRequired[DocumentAttributeValueTypeDef]
 
-DeleteThesaurusRequestRequestTypeDef = TypedDict(
-    "DeleteThesaurusRequestRequestTypeDef",
-    {
-        "Id": str,
-        "IndexId": str,
-    },
-)
+DocumentAttributeValueUnionTypeDef = Union[
+    DocumentAttributeValueTypeDef, DocumentAttributeValueOutputTypeDef
+]
+TimeRangeUnionTypeDef = Union[TimeRangeTypeDef, TimeRangeOutputTypeDef]
 
-DescribeAccessControlConfigurationRequestRequestTypeDef = TypedDict(
-    "DescribeAccessControlConfigurationRequestRequestTypeDef",
-    {
-        "IndexId": str,
-        "Id": str,
-    },
-)
+class ConfluenceConfigurationOutputTypeDef(TypedDict):
+    ServerUrl: str
+    SecretArn: str
+    Version: ConfluenceVersionType
+    SpaceConfiguration: NotRequired[ConfluenceSpaceConfigurationOutputTypeDef]
+    PageConfiguration: NotRequired[ConfluencePageConfigurationOutputTypeDef]
+    BlogConfiguration: NotRequired[ConfluenceBlogConfigurationOutputTypeDef]
+    AttachmentConfiguration: NotRequired[ConfluenceAttachmentConfigurationOutputTypeDef]
+    VpcConfiguration: NotRequired[DataSourceVpcConfigurationOutputTypeDef]
+    InclusionPatterns: NotRequired[List[str]]
+    ExclusionPatterns: NotRequired[List[str]]
+    ProxyConfiguration: NotRequired[ProxyConfigurationTypeDef]
+    AuthenticationType: NotRequired[ConfluenceAuthenticationTypeType]
 
-DescribeAccessControlConfigurationResponseTypeDef = TypedDict(
-    "DescribeAccessControlConfigurationResponseTypeDef",
+class ConfluenceConfigurationTypeDef(TypedDict):
+    ServerUrl: str
+    SecretArn: str
+    Version: ConfluenceVersionType
+    SpaceConfiguration: NotRequired[ConfluenceSpaceConfigurationTypeDef]
+    PageConfiguration: NotRequired[ConfluencePageConfigurationTypeDef]
+    BlogConfiguration: NotRequired[ConfluenceBlogConfigurationTypeDef]
+    AttachmentConfiguration: NotRequired[ConfluenceAttachmentConfigurationTypeDef]
+    VpcConfiguration: NotRequired[DataSourceVpcConfigurationTypeDef]
+    InclusionPatterns: NotRequired[Sequence[str]]
+    ExclusionPatterns: NotRequired[Sequence[str]]
+    ProxyConfiguration: NotRequired[ProxyConfigurationTypeDef]
+    AuthenticationType: NotRequired[ConfluenceAuthenticationTypeType]
+
+class DescribeAccessControlConfigurationResponseTypeDef(TypedDict):
+    Name: str
+    Description: str
+    ErrorMessage: str
+    AccessControlList: List[PrincipalTypeDef]
+    HierarchicalAccessControlList: List[HierarchicalPrincipalOutputTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+HierarchicalPrincipalUnionTypeDef = Union[
+    HierarchicalPrincipalTypeDef, HierarchicalPrincipalOutputTypeDef
+]
+
+class CreateFeaturedResultsSetResponseTypeDef(TypedDict):
+    FeaturedResultsSet: FeaturedResultsSetTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateFeaturedResultsSetResponseTypeDef(TypedDict):
+    FeaturedResultsSet: FeaturedResultsSetTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListDataSourceSyncJobsResponseTypeDef(TypedDict):
+    History: List[DataSourceSyncJobTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListExperiencesResponseTypeDef(TypedDict):
+    SummaryItems: List[ExperiencesSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class HookConfigurationOutputTypeDef(TypedDict):
+    LambdaArn: str
+    S3Bucket: str
+    InvocationCondition: NotRequired[DocumentAttributeConditionOutputTypeDef]
+
+class RetrieveResultItemTypeDef(TypedDict):
+    Id: NotRequired[str]
+    DocumentId: NotRequired[str]
+    DocumentTitle: NotRequired[str]
+    Content: NotRequired[str]
+    DocumentURI: NotRequired[str]
+    DocumentAttributes: NotRequired[List[DocumentAttributeOutputTypeDef]]
+    ScoreAttributes: NotRequired[ScoreAttributesTypeDef]
+
+class SourceDocumentTypeDef(TypedDict):
+    DocumentId: NotRequired[str]
+    SuggestionAttributes: NotRequired[List[str]]
+    AdditionalAttributes: NotRequired[List[DocumentAttributeOutputTypeDef]]
+
+class InlineCustomDocumentEnrichmentConfigurationOutputTypeDef(TypedDict):
+    Condition: NotRequired[DocumentAttributeConditionOutputTypeDef]
+    Target: NotRequired[DocumentAttributeTargetOutputTypeDef]
+    DocumentContentDeletion: NotRequired[bool]
+
+class FacetResultTypeDef(TypedDict):
+    DocumentAttributeKey: NotRequired[str]
+    DocumentAttributeValueType: NotRequired[DocumentAttributeValueTypeType]
+    DocumentAttributeValueCountPairs: NotRequired[List[DocumentAttributeValueCountPairTypeDef]]
+
+class ListExperienceEntitiesResponseTypeDef(TypedDict):
+    SummaryItems: List[ExperienceEntitiesSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class DescribeExperienceResponseTypeDef(TypedDict):
+    Id: str
+    IndexId: str
+    Name: str
+    Endpoints: List[ExperienceEndpointTypeDef]
+    Configuration: ExperienceConfigurationOutputTypeDef
+    CreatedAt: datetime
+    UpdatedAt: datetime
+    Description: str
+    Status: ExperienceStatusType
+    RoleArn: str
+    ErrorMessage: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+ExperienceConfigurationUnionTypeDef = Union[
+    ExperienceConfigurationTypeDef, ExperienceConfigurationOutputTypeDef
+]
+
+class PutPrincipalMappingRequestTypeDef(TypedDict):
+    IndexId: str
+    GroupId: str
+    GroupMembers: GroupMembersTypeDef
+    DataSourceId: NotRequired[str]
+    OrderingId: NotRequired[int]
+    RoleArn: NotRequired[str]
+
+class AdditionalResultAttributeValueTypeDef(TypedDict):
+    TextWithHighlightsValue: NotRequired[TextWithHighlightsTypeDef]
+
+class ExpandedResultItemTypeDef(TypedDict):
+    Id: NotRequired[str]
+    DocumentId: NotRequired[str]
+    DocumentTitle: NotRequired[TextWithHighlightsTypeDef]
+    DocumentExcerpt: NotRequired[TextWithHighlightsTypeDef]
+    DocumentURI: NotRequired[str]
+    DocumentAttributes: NotRequired[List[DocumentAttributeOutputTypeDef]]
+
+class CreateIndexRequestTypeDef(TypedDict):
+    Name: str
+    RoleArn: str
+    Edition: NotRequired[IndexEditionType]
+    ServerSideEncryptionConfiguration: NotRequired[ServerSideEncryptionConfigurationTypeDef]
+    Description: NotRequired[str]
+    ClientToken: NotRequired[str]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+    UserTokenConfigurations: NotRequired[Sequence[UserTokenConfigurationTypeDef]]
+    UserContextPolicy: NotRequired[UserContextPolicyType]
+    UserGroupResolutionConfiguration: NotRequired[UserGroupResolutionConfigurationTypeDef]
+
+class DescribeIndexResponseTypeDef(TypedDict):
+    Name: str
+    Id: str
+    Edition: IndexEditionType
+    RoleArn: str
+    ServerSideEncryptionConfiguration: ServerSideEncryptionConfigurationTypeDef
+    Status: IndexStatusType
+    Description: str
+    CreatedAt: datetime
+    UpdatedAt: datetime
+    DocumentMetadataConfigurations: List[DocumentMetadataConfigurationOutputTypeDef]
+    IndexStatistics: IndexStatisticsTypeDef
+    ErrorMessage: str
+    CapacityUnits: CapacityUnitsConfigurationTypeDef
+    UserTokenConfigurations: List[UserTokenConfigurationTypeDef]
+    UserContextPolicy: UserContextPolicyType
+    UserGroupResolutionConfiguration: UserGroupResolutionConfigurationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+DocumentMetadataConfigurationTypeDef = TypedDict(
+    "DocumentMetadataConfigurationTypeDef",
     {
         "Name": str,
-        "Description": str,
-        "ErrorMessage": str,
-        "AccessControlList": List["PrincipalTypeDef"],
-        "HierarchicalAccessControlList": List["HierarchicalPrincipalTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "Type": DocumentAttributeValueTypeType,
+        "Relevance": NotRequired[RelevanceUnionTypeDef],
+        "Search": NotRequired[SearchTypeDef],
     },
 )
 
-DescribeDataSourceRequestRequestTypeDef = TypedDict(
-    "DescribeDataSourceRequestRequestTypeDef",
+class DocumentRelevanceConfigurationTypeDef(TypedDict):
+    Name: str
+    Relevance: RelevanceUnionTypeDef
+
+class WebCrawlerConfigurationOutputTypeDef(TypedDict):
+    Urls: UrlsOutputTypeDef
+    CrawlDepth: NotRequired[int]
+    MaxLinksPerPage: NotRequired[int]
+    MaxContentSizePerPageInMegaBytes: NotRequired[float]
+    MaxUrlsPerMinuteCrawlRate: NotRequired[int]
+    UrlInclusionPatterns: NotRequired[List[str]]
+    UrlExclusionPatterns: NotRequired[List[str]]
+    ProxyConfiguration: NotRequired[ProxyConfigurationTypeDef]
+    AuthenticationConfiguration: NotRequired[AuthenticationConfigurationOutputTypeDef]
+
+class WebCrawlerConfigurationTypeDef(TypedDict):
+    Urls: UrlsTypeDef
+    CrawlDepth: NotRequired[int]
+    MaxLinksPerPage: NotRequired[int]
+    MaxContentSizePerPageInMegaBytes: NotRequired[float]
+    MaxUrlsPerMinuteCrawlRate: NotRequired[int]
+    UrlInclusionPatterns: NotRequired[Sequence[str]]
+    UrlExclusionPatterns: NotRequired[Sequence[str]]
+    ProxyConfiguration: NotRequired[ProxyConfigurationTypeDef]
+    AuthenticationConfiguration: NotRequired[AuthenticationConfigurationTypeDef]
+
+SuggestionValueTypeDef = TypedDict(
+    "SuggestionValueTypeDef",
     {
-        "Id": str,
-        "IndexId": str,
+        "Text": NotRequired[SuggestionTextWithHighlightsTypeDef],
     },
 )
+
+class TableExcerptTypeDef(TypedDict):
+    Rows: NotRequired[List[TableRowTypeDef]]
+    TotalNumberOfRows: NotRequired[int]
+
+class SalesforceConfigurationOutputTypeDef(TypedDict):
+    ServerUrl: str
+    SecretArn: str
+    StandardObjectConfigurations: NotRequired[
+        List[SalesforceStandardObjectConfigurationOutputTypeDef]
+    ]
+    KnowledgeArticleConfiguration: NotRequired[SalesforceKnowledgeArticleConfigurationOutputTypeDef]
+    ChatterFeedConfiguration: NotRequired[SalesforceChatterFeedConfigurationOutputTypeDef]
+    CrawlAttachments: NotRequired[bool]
+    StandardObjectAttachmentConfiguration: NotRequired[
+        SalesforceStandardObjectAttachmentConfigurationOutputTypeDef
+    ]
+    IncludeAttachmentFilePatterns: NotRequired[List[str]]
+    ExcludeAttachmentFilePatterns: NotRequired[List[str]]
+
+class SalesforceConfigurationTypeDef(TypedDict):
+    ServerUrl: str
+    SecretArn: str
+    StandardObjectConfigurations: NotRequired[
+        Sequence[SalesforceStandardObjectConfigurationTypeDef]
+    ]
+    KnowledgeArticleConfiguration: NotRequired[SalesforceKnowledgeArticleConfigurationTypeDef]
+    ChatterFeedConfiguration: NotRequired[SalesforceChatterFeedConfigurationTypeDef]
+    CrawlAttachments: NotRequired[bool]
+    StandardObjectAttachmentConfiguration: NotRequired[
+        SalesforceStandardObjectAttachmentConfigurationTypeDef
+    ]
+    IncludeAttachmentFilePatterns: NotRequired[Sequence[str]]
+    ExcludeAttachmentFilePatterns: NotRequired[Sequence[str]]
+
+class HookConfigurationTypeDef(TypedDict):
+    LambdaArn: str
+    S3Bucket: str
+    InvocationCondition: NotRequired[DocumentAttributeConditionTypeDef]
+
+class InlineCustomDocumentEnrichmentConfigurationTypeDef(TypedDict):
+    Condition: NotRequired[DocumentAttributeConditionTypeDef]
+    Target: NotRequired[DocumentAttributeTargetTypeDef]
+    DocumentContentDeletion: NotRequired[bool]
+
+class DocumentAttributeTypeDef(TypedDict):
+    Key: str
+    Value: DocumentAttributeValueUnionTypeDef
+
+class ListDataSourceSyncJobsRequestTypeDef(TypedDict):
+    Id: str
+    IndexId: str
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+    StartTimeFilter: NotRequired[TimeRangeUnionTypeDef]
+    StatusFilter: NotRequired[DataSourceSyncJobStatusType]
+
+class CreateAccessControlConfigurationRequestTypeDef(TypedDict):
+    IndexId: str
+    Name: str
+    Description: NotRequired[str]
+    AccessControlList: NotRequired[Sequence[PrincipalTypeDef]]
+    HierarchicalAccessControlList: NotRequired[Sequence[HierarchicalPrincipalUnionTypeDef]]
+    ClientToken: NotRequired[str]
+
+class UpdateAccessControlConfigurationRequestTypeDef(TypedDict):
+    IndexId: str
+    Id: str
+    Name: NotRequired[str]
+    Description: NotRequired[str]
+    AccessControlList: NotRequired[Sequence[PrincipalTypeDef]]
+    HierarchicalAccessControlList: NotRequired[Sequence[HierarchicalPrincipalUnionTypeDef]]
+
+class RetrieveResultTypeDef(TypedDict):
+    QueryId: str
+    ResultItems: List[RetrieveResultItemTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CustomDocumentEnrichmentConfigurationOutputTypeDef(TypedDict):
+    InlineConfigurations: NotRequired[
+        List[InlineCustomDocumentEnrichmentConfigurationOutputTypeDef]
+    ]
+    PreExtractionHookConfiguration: NotRequired[HookConfigurationOutputTypeDef]
+    PostExtractionHookConfiguration: NotRequired[HookConfigurationOutputTypeDef]
+    RoleArn: NotRequired[str]
+
+class CreateExperienceRequestTypeDef(TypedDict):
+    Name: str
+    IndexId: str
+    RoleArn: NotRequired[str]
+    Configuration: NotRequired[ExperienceConfigurationUnionTypeDef]
+    Description: NotRequired[str]
+    ClientToken: NotRequired[str]
+
+class UpdateExperienceRequestTypeDef(TypedDict):
+    Id: str
+    IndexId: str
+    Name: NotRequired[str]
+    RoleArn: NotRequired[str]
+    Configuration: NotRequired[ExperienceConfigurationUnionTypeDef]
+    Description: NotRequired[str]
+
+class AdditionalResultAttributeTypeDef(TypedDict):
+    Key: str
+    ValueType: Literal["TEXT_WITH_HIGHLIGHTS_VALUE"]
+    Value: AdditionalResultAttributeValueTypeDef
+
+class CollapsedResultDetailTypeDef(TypedDict):
+    DocumentAttribute: DocumentAttributeOutputTypeDef
+    ExpandedResults: NotRequired[List[ExpandedResultItemTypeDef]]
+
+DocumentMetadataConfigurationUnionTypeDef = Union[
+    DocumentMetadataConfigurationTypeDef, DocumentMetadataConfigurationOutputTypeDef
+]
+
+class SuggestionTypeDef(TypedDict):
+    Id: NotRequired[str]
+    Value: NotRequired[SuggestionValueTypeDef]
+    SourceDocuments: NotRequired[List[SourceDocumentTypeDef]]
+
+class DataSourceConfigurationOutputTypeDef(TypedDict):
+    S3Configuration: NotRequired[S3DataSourceConfigurationOutputTypeDef]
+    SharePointConfiguration: NotRequired[SharePointConfigurationOutputTypeDef]
+    DatabaseConfiguration: NotRequired[DatabaseConfigurationOutputTypeDef]
+    SalesforceConfiguration: NotRequired[SalesforceConfigurationOutputTypeDef]
+    OneDriveConfiguration: NotRequired[OneDriveConfigurationOutputTypeDef]
+    ServiceNowConfiguration: NotRequired[ServiceNowConfigurationOutputTypeDef]
+    ConfluenceConfiguration: NotRequired[ConfluenceConfigurationOutputTypeDef]
+    GoogleDriveConfiguration: NotRequired[GoogleDriveConfigurationOutputTypeDef]
+    WebCrawlerConfiguration: NotRequired[WebCrawlerConfigurationOutputTypeDef]
+    WorkDocsConfiguration: NotRequired[WorkDocsConfigurationOutputTypeDef]
+    FsxConfiguration: NotRequired[FsxConfigurationOutputTypeDef]
+    SlackConfiguration: NotRequired[SlackConfigurationOutputTypeDef]
+    BoxConfiguration: NotRequired[BoxConfigurationOutputTypeDef]
+    QuipConfiguration: NotRequired[QuipConfigurationOutputTypeDef]
+    JiraConfiguration: NotRequired[JiraConfigurationOutputTypeDef]
+    GitHubConfiguration: NotRequired[GitHubConfigurationOutputTypeDef]
+    AlfrescoConfiguration: NotRequired[AlfrescoConfigurationOutputTypeDef]
+    TemplateConfiguration: NotRequired[TemplateConfigurationOutputTypeDef]
+
+class DataSourceConfigurationTypeDef(TypedDict):
+    S3Configuration: NotRequired[S3DataSourceConfigurationTypeDef]
+    SharePointConfiguration: NotRequired[SharePointConfigurationTypeDef]
+    DatabaseConfiguration: NotRequired[DatabaseConfigurationTypeDef]
+    SalesforceConfiguration: NotRequired[SalesforceConfigurationTypeDef]
+    OneDriveConfiguration: NotRequired[OneDriveConfigurationTypeDef]
+    ServiceNowConfiguration: NotRequired[ServiceNowConfigurationTypeDef]
+    ConfluenceConfiguration: NotRequired[ConfluenceConfigurationTypeDef]
+    GoogleDriveConfiguration: NotRequired[GoogleDriveConfigurationTypeDef]
+    WebCrawlerConfiguration: NotRequired[WebCrawlerConfigurationTypeDef]
+    WorkDocsConfiguration: NotRequired[WorkDocsConfigurationTypeDef]
+    FsxConfiguration: NotRequired[FsxConfigurationTypeDef]
+    SlackConfiguration: NotRequired[SlackConfigurationTypeDef]
+    BoxConfiguration: NotRequired[BoxConfigurationTypeDef]
+    QuipConfiguration: NotRequired[QuipConfigurationTypeDef]
+    JiraConfiguration: NotRequired[JiraConfigurationTypeDef]
+    GitHubConfiguration: NotRequired[GitHubConfigurationTypeDef]
+    AlfrescoConfiguration: NotRequired[AlfrescoConfigurationTypeDef]
+    TemplateConfiguration: NotRequired[TemplateConfigurationTypeDef]
+
+class CustomDocumentEnrichmentConfigurationTypeDef(TypedDict):
+    InlineConfigurations: NotRequired[Sequence[InlineCustomDocumentEnrichmentConfigurationTypeDef]]
+    PreExtractionHookConfiguration: NotRequired[HookConfigurationTypeDef]
+    PostExtractionHookConfiguration: NotRequired[HookConfigurationTypeDef]
+    RoleArn: NotRequired[str]
+
+DocumentAttributeUnionTypeDef = Union[DocumentAttributeTypeDef, DocumentAttributeOutputTypeDef]
+FeaturedResultsItemTypeDef = TypedDict(
+    "FeaturedResultsItemTypeDef",
+    {
+        "Id": NotRequired[str],
+        "Type": NotRequired[QueryResultTypeType],
+        "AdditionalAttributes": NotRequired[List[AdditionalResultAttributeTypeDef]],
+        "DocumentId": NotRequired[str],
+        "DocumentTitle": NotRequired[TextWithHighlightsTypeDef],
+        "DocumentExcerpt": NotRequired[TextWithHighlightsTypeDef],
+        "DocumentURI": NotRequired[str],
+        "DocumentAttributes": NotRequired[List[DocumentAttributeOutputTypeDef]],
+        "FeedbackToken": NotRequired[str],
+    },
+)
+QueryResultItemTypeDef = TypedDict(
+    "QueryResultItemTypeDef",
+    {
+        "Id": NotRequired[str],
+        "Type": NotRequired[QueryResultTypeType],
+        "Format": NotRequired[QueryResultFormatType],
+        "AdditionalAttributes": NotRequired[List[AdditionalResultAttributeTypeDef]],
+        "DocumentId": NotRequired[str],
+        "DocumentTitle": NotRequired[TextWithHighlightsTypeDef],
+        "DocumentExcerpt": NotRequired[TextWithHighlightsTypeDef],
+        "DocumentURI": NotRequired[str],
+        "DocumentAttributes": NotRequired[List[DocumentAttributeOutputTypeDef]],
+        "ScoreAttributes": NotRequired[ScoreAttributesTypeDef],
+        "FeedbackToken": NotRequired[str],
+        "TableExcerpt": NotRequired[TableExcerptTypeDef],
+        "CollapsedResultDetail": NotRequired[CollapsedResultDetailTypeDef],
+    },
+)
+
+class UpdateIndexRequestTypeDef(TypedDict):
+    Id: str
+    Name: NotRequired[str]
+    RoleArn: NotRequired[str]
+    Description: NotRequired[str]
+    DocumentMetadataConfigurationUpdates: NotRequired[
+        Sequence[DocumentMetadataConfigurationUnionTypeDef]
+    ]
+    CapacityUnits: NotRequired[CapacityUnitsConfigurationTypeDef]
+    UserTokenConfigurations: NotRequired[Sequence[UserTokenConfigurationTypeDef]]
+    UserContextPolicy: NotRequired[UserContextPolicyType]
+    UserGroupResolutionConfiguration: NotRequired[UserGroupResolutionConfigurationTypeDef]
+
+class GetQuerySuggestionsResponseTypeDef(TypedDict):
+    QuerySuggestionsId: str
+    Suggestions: List[SuggestionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
 DescribeDataSourceResponseTypeDef = TypedDict(
     "DescribeDataSourceResponseTypeDef",
@@ -1438,8 +2470,8 @@ DescribeDataSourceResponseTypeDef = TypedDict(
         "IndexId": str,
         "Name": str,
         "Type": DataSourceTypeType,
-        "Configuration": "DataSourceConfigurationTypeDef",
-        "VpcConfiguration": "DataSourceVpcConfigurationTypeDef",
+        "Configuration": DataSourceConfigurationOutputTypeDef,
+        "VpcConfiguration": DataSourceVpcConfigurationOutputTypeDef,
         "CreatedAt": datetime,
         "UpdatedAt": datetime,
         "Description": str,
@@ -1448,2574 +2480,140 @@ DescribeDataSourceResponseTypeDef = TypedDict(
         "RoleArn": str,
         "ErrorMessage": str,
         "LanguageCode": str,
-        "CustomDocumentEnrichmentConfiguration": "CustomDocumentEnrichmentConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "CustomDocumentEnrichmentConfiguration": CustomDocumentEnrichmentConfigurationOutputTypeDef,
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
+DataSourceConfigurationUnionTypeDef = Union[
+    DataSourceConfigurationTypeDef, DataSourceConfigurationOutputTypeDef
+]
+CustomDocumentEnrichmentConfigurationUnionTypeDef = Union[
+    CustomDocumentEnrichmentConfigurationTypeDef, CustomDocumentEnrichmentConfigurationOutputTypeDef
+]
 
-DescribeExperienceRequestRequestTypeDef = TypedDict(
-    "DescribeExperienceRequestRequestTypeDef",
-    {
-        "Id": str,
-        "IndexId": str,
-    },
-)
+class AttributeFilterTypeDef(TypedDict):
+    AndAllFilters: NotRequired[Sequence[Mapping[str, Any]]]
+    OrAllFilters: NotRequired[Sequence[Mapping[str, Any]]]
+    NotFilter: NotRequired[Mapping[str, Any]]
+    EqualsTo: NotRequired[DocumentAttributeUnionTypeDef]
+    ContainsAll: NotRequired[DocumentAttributeUnionTypeDef]
+    ContainsAny: NotRequired[DocumentAttributeUnionTypeDef]
+    GreaterThan: NotRequired[DocumentAttributeUnionTypeDef]
+    GreaterThanOrEquals: NotRequired[DocumentAttributeUnionTypeDef]
+    LessThan: NotRequired[DocumentAttributeUnionTypeDef]
+    LessThanOrEquals: NotRequired[DocumentAttributeUnionTypeDef]
 
-DescribeExperienceResponseTypeDef = TypedDict(
-    "DescribeExperienceResponseTypeDef",
-    {
-        "Id": str,
-        "IndexId": str,
-        "Name": str,
-        "Endpoints": List["ExperienceEndpointTypeDef"],
-        "Configuration": "ExperienceConfigurationTypeDef",
-        "CreatedAt": datetime,
-        "UpdatedAt": datetime,
-        "Description": str,
-        "Status": ExperienceStatusType,
-        "RoleArn": str,
-        "ErrorMessage": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DocumentInfoTypeDef(TypedDict):
+    DocumentId: str
+    Attributes: NotRequired[Sequence[DocumentAttributeUnionTypeDef]]
 
-DescribeFaqRequestRequestTypeDef = TypedDict(
-    "DescribeFaqRequestRequestTypeDef",
-    {
-        "Id": str,
-        "IndexId": str,
-    },
-)
+class DocumentTypeDef(TypedDict):
+    Id: str
+    Title: NotRequired[str]
+    Blob: NotRequired[BlobTypeDef]
+    S3Path: NotRequired[S3PathTypeDef]
+    Attributes: NotRequired[Sequence[DocumentAttributeUnionTypeDef]]
+    AccessControlList: NotRequired[Sequence[PrincipalTypeDef]]
+    HierarchicalAccessControlList: NotRequired[Sequence[HierarchicalPrincipalUnionTypeDef]]
+    ContentType: NotRequired[ContentTypeType]
+    AccessControlConfigurationId: NotRequired[str]
 
-DescribeFaqResponseTypeDef = TypedDict(
-    "DescribeFaqResponseTypeDef",
-    {
-        "Id": str,
-        "IndexId": str,
-        "Name": str,
-        "Description": str,
-        "CreatedAt": datetime,
-        "UpdatedAt": datetime,
-        "S3Path": "S3PathTypeDef",
-        "Status": FaqStatusType,
-        "RoleArn": str,
-        "ErrorMessage": str,
-        "FileFormat": FaqFileFormatType,
-        "LanguageCode": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class QueryResultTypeDef(TypedDict):
+    QueryId: str
+    ResultItems: List[QueryResultItemTypeDef]
+    FacetResults: List[FacetResultTypeDef]
+    TotalNumberOfResults: int
+    Warnings: List[WarningTypeDef]
+    SpellCorrectedQueries: List[SpellCorrectedQueryTypeDef]
+    FeaturedResultsItems: List[FeaturedResultsItemTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-DescribeFeaturedResultsSetRequestRequestTypeDef = TypedDict(
-    "DescribeFeaturedResultsSetRequestRequestTypeDef",
-    {
-        "IndexId": str,
-        "FeaturedResultsSetId": str,
-    },
-)
-
-DescribeFeaturedResultsSetResponseTypeDef = TypedDict(
-    "DescribeFeaturedResultsSetResponseTypeDef",
-    {
-        "FeaturedResultsSetId": str,
-        "FeaturedResultsSetName": str,
-        "Description": str,
-        "Status": FeaturedResultsSetStatusType,
-        "QueryTexts": List[str],
-        "FeaturedDocumentsWithMetadata": List["FeaturedDocumentWithMetadataTypeDef"],
-        "FeaturedDocumentsMissing": List["FeaturedDocumentMissingTypeDef"],
-        "LastUpdatedTimestamp": int,
-        "CreationTimestamp": int,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeIndexRequestRequestTypeDef = TypedDict(
-    "DescribeIndexRequestRequestTypeDef",
-    {
-        "Id": str,
-    },
-)
-
-DescribeIndexResponseTypeDef = TypedDict(
-    "DescribeIndexResponseTypeDef",
+CreateDataSourceRequestTypeDef = TypedDict(
+    "CreateDataSourceRequestTypeDef",
     {
         "Name": str,
-        "Id": str,
-        "Edition": IndexEditionType,
-        "RoleArn": str,
-        "ServerSideEncryptionConfiguration": "ServerSideEncryptionConfigurationTypeDef",
-        "Status": IndexStatusType,
-        "Description": str,
-        "CreatedAt": datetime,
-        "UpdatedAt": datetime,
-        "DocumentMetadataConfigurations": List["DocumentMetadataConfigurationTypeDef"],
-        "IndexStatistics": "IndexStatisticsTypeDef",
-        "ErrorMessage": str,
-        "CapacityUnits": "CapacityUnitsConfigurationTypeDef",
-        "UserTokenConfigurations": List["UserTokenConfigurationTypeDef"],
-        "UserContextPolicy": UserContextPolicyType,
-        "UserGroupResolutionConfiguration": "UserGroupResolutionConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribePrincipalMappingRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribePrincipalMappingRequestRequestTypeDef",
-    {
         "IndexId": str,
-        "GroupId": str,
-    },
-)
-_OptionalDescribePrincipalMappingRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribePrincipalMappingRequestRequestTypeDef",
-    {
-        "DataSourceId": str,
-    },
-    total=False,
-)
-
-class DescribePrincipalMappingRequestRequestTypeDef(
-    _RequiredDescribePrincipalMappingRequestRequestTypeDef,
-    _OptionalDescribePrincipalMappingRequestRequestTypeDef,
-):
-    pass
-
-DescribePrincipalMappingResponseTypeDef = TypedDict(
-    "DescribePrincipalMappingResponseTypeDef",
-    {
-        "IndexId": str,
-        "DataSourceId": str,
-        "GroupId": str,
-        "GroupOrderingIdSummaries": List["GroupOrderingIdSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeQuerySuggestionsBlockListRequestRequestTypeDef = TypedDict(
-    "DescribeQuerySuggestionsBlockListRequestRequestTypeDef",
-    {
-        "IndexId": str,
-        "Id": str,
-    },
-)
-
-DescribeQuerySuggestionsBlockListResponseTypeDef = TypedDict(
-    "DescribeQuerySuggestionsBlockListResponseTypeDef",
-    {
-        "IndexId": str,
-        "Id": str,
-        "Name": str,
-        "Description": str,
-        "Status": QuerySuggestionsBlockListStatusType,
-        "ErrorMessage": str,
-        "CreatedAt": datetime,
-        "UpdatedAt": datetime,
-        "SourceS3Path": "S3PathTypeDef",
-        "ItemCount": int,
-        "FileSizeBytes": int,
-        "RoleArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeQuerySuggestionsConfigRequestRequestTypeDef = TypedDict(
-    "DescribeQuerySuggestionsConfigRequestRequestTypeDef",
-    {
-        "IndexId": str,
-    },
-)
-
-DescribeQuerySuggestionsConfigResponseTypeDef = TypedDict(
-    "DescribeQuerySuggestionsConfigResponseTypeDef",
-    {
-        "Mode": ModeType,
-        "Status": QuerySuggestionsStatusType,
-        "QueryLogLookBackWindowInDays": int,
-        "IncludeQueriesWithoutUserInformation": bool,
-        "MinimumNumberOfQueryingUsers": int,
-        "MinimumQueryCount": int,
-        "LastSuggestionsBuildTime": datetime,
-        "LastClearTime": datetime,
-        "TotalSuggestionsCount": int,
-        "AttributeSuggestionsConfig": "AttributeSuggestionsDescribeConfigTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeThesaurusRequestRequestTypeDef = TypedDict(
-    "DescribeThesaurusRequestRequestTypeDef",
-    {
-        "Id": str,
-        "IndexId": str,
-    },
-)
-
-DescribeThesaurusResponseTypeDef = TypedDict(
-    "DescribeThesaurusResponseTypeDef",
-    {
-        "Id": str,
-        "IndexId": str,
-        "Name": str,
-        "Description": str,
-        "Status": ThesaurusStatusType,
-        "ErrorMessage": str,
-        "CreatedAt": datetime,
-        "UpdatedAt": datetime,
-        "RoleArn": str,
-        "SourceS3Path": "S3PathTypeDef",
-        "FileSizeBytes": int,
-        "TermCount": int,
-        "SynonymRuleCount": int,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DisassociateEntitiesFromExperienceRequestRequestTypeDef = TypedDict(
-    "DisassociateEntitiesFromExperienceRequestRequestTypeDef",
-    {
-        "Id": str,
-        "IndexId": str,
-        "EntityList": List["EntityConfigurationTypeDef"],
-    },
-)
-
-DisassociateEntitiesFromExperienceResponseTypeDef = TypedDict(
-    "DisassociateEntitiesFromExperienceResponseTypeDef",
-    {
-        "FailedEntityList": List["FailedEntityTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DisassociatePersonasFromEntitiesRequestRequestTypeDef = TypedDict(
-    "DisassociatePersonasFromEntitiesRequestRequestTypeDef",
-    {
-        "Id": str,
-        "IndexId": str,
-        "EntityIds": List[str],
-    },
-)
-
-DisassociatePersonasFromEntitiesResponseTypeDef = TypedDict(
-    "DisassociatePersonasFromEntitiesResponseTypeDef",
-    {
-        "FailedEntityList": List["FailedEntityTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDocumentAttributeConditionTypeDef = TypedDict(
-    "_RequiredDocumentAttributeConditionTypeDef",
-    {
-        "ConditionDocumentAttributeKey": str,
-        "Operator": ConditionOperatorType,
-    },
-)
-_OptionalDocumentAttributeConditionTypeDef = TypedDict(
-    "_OptionalDocumentAttributeConditionTypeDef",
-    {
-        "ConditionOnValue": "DocumentAttributeValueTypeDef",
-    },
-    total=False,
-)
-
-class DocumentAttributeConditionTypeDef(
-    _RequiredDocumentAttributeConditionTypeDef, _OptionalDocumentAttributeConditionTypeDef
-):
-    pass
-
-DocumentAttributeTargetTypeDef = TypedDict(
-    "DocumentAttributeTargetTypeDef",
-    {
-        "TargetDocumentAttributeKey": str,
-        "TargetDocumentAttributeValueDeletion": bool,
-        "TargetDocumentAttributeValue": "DocumentAttributeValueTypeDef",
-    },
-    total=False,
-)
-
-DocumentAttributeTypeDef = TypedDict(
-    "DocumentAttributeTypeDef",
-    {
-        "Key": str,
-        "Value": "DocumentAttributeValueTypeDef",
-    },
-)
-
-DocumentAttributeValueCountPairTypeDef = TypedDict(
-    "DocumentAttributeValueCountPairTypeDef",
-    {
-        "DocumentAttributeValue": "DocumentAttributeValueTypeDef",
-        "Count": int,
-        "FacetResults": List[Dict[str, Any]],
-    },
-    total=False,
-)
-
-DocumentAttributeValueTypeDef = TypedDict(
-    "DocumentAttributeValueTypeDef",
-    {
-        "StringValue": str,
-        "StringListValue": List[str],
-        "LongValue": int,
-        "DateValue": Union[datetime, str],
-    },
-    total=False,
-)
-
-_RequiredDocumentInfoTypeDef = TypedDict(
-    "_RequiredDocumentInfoTypeDef",
-    {
-        "DocumentId": str,
-    },
-)
-_OptionalDocumentInfoTypeDef = TypedDict(
-    "_OptionalDocumentInfoTypeDef",
-    {
-        "Attributes": List["DocumentAttributeTypeDef"],
-    },
-    total=False,
-)
-
-class DocumentInfoTypeDef(_RequiredDocumentInfoTypeDef, _OptionalDocumentInfoTypeDef):
-    pass
-
-_RequiredDocumentMetadataConfigurationTypeDef = TypedDict(
-    "_RequiredDocumentMetadataConfigurationTypeDef",
-    {
-        "Name": str,
-        "Type": DocumentAttributeValueTypeType,
-    },
-)
-_OptionalDocumentMetadataConfigurationTypeDef = TypedDict(
-    "_OptionalDocumentMetadataConfigurationTypeDef",
-    {
-        "Relevance": "RelevanceTypeDef",
-        "Search": "SearchTypeDef",
-    },
-    total=False,
-)
-
-class DocumentMetadataConfigurationTypeDef(
-    _RequiredDocumentMetadataConfigurationTypeDef, _OptionalDocumentMetadataConfigurationTypeDef
-):
-    pass
-
-DocumentRelevanceConfigurationTypeDef = TypedDict(
-    "DocumentRelevanceConfigurationTypeDef",
-    {
-        "Name": str,
-        "Relevance": "RelevanceTypeDef",
-    },
-)
-
-_RequiredDocumentTypeDef = TypedDict(
-    "_RequiredDocumentTypeDef",
-    {
-        "Id": str,
-    },
-)
-_OptionalDocumentTypeDef = TypedDict(
-    "_OptionalDocumentTypeDef",
-    {
-        "Title": str,
-        "Blob": Union[bytes, IO[bytes], StreamingBody],
-        "S3Path": "S3PathTypeDef",
-        "Attributes": List["DocumentAttributeTypeDef"],
-        "AccessControlList": List["PrincipalTypeDef"],
-        "HierarchicalAccessControlList": List["HierarchicalPrincipalTypeDef"],
-        "ContentType": ContentTypeType,
-        "AccessControlConfigurationId": str,
-    },
-    total=False,
-)
-
-class DocumentTypeDef(_RequiredDocumentTypeDef, _OptionalDocumentTypeDef):
-    pass
-
-DocumentsMetadataConfigurationTypeDef = TypedDict(
-    "DocumentsMetadataConfigurationTypeDef",
-    {
-        "S3Prefix": str,
-    },
-    total=False,
-)
-
-EntityConfigurationTypeDef = TypedDict(
-    "EntityConfigurationTypeDef",
-    {
-        "EntityId": str,
-        "EntityType": EntityTypeType,
-    },
-)
-
-EntityDisplayDataTypeDef = TypedDict(
-    "EntityDisplayDataTypeDef",
-    {
-        "UserName": str,
-        "GroupName": str,
-        "IdentifiedUserName": str,
-        "FirstName": str,
-        "LastName": str,
-    },
-    total=False,
-)
-
-EntityPersonaConfigurationTypeDef = TypedDict(
-    "EntityPersonaConfigurationTypeDef",
-    {
-        "EntityId": str,
-        "Persona": PersonaType,
-    },
-)
-
-ExpandConfigurationTypeDef = TypedDict(
-    "ExpandConfigurationTypeDef",
-    {
-        "MaxResultItemsToExpand": int,
-        "MaxExpandedResultsPerItem": int,
-    },
-    total=False,
-)
-
-ExpandedResultItemTypeDef = TypedDict(
-    "ExpandedResultItemTypeDef",
-    {
-        "Id": str,
-        "DocumentId": str,
-        "DocumentTitle": "TextWithHighlightsTypeDef",
-        "DocumentExcerpt": "TextWithHighlightsTypeDef",
-        "DocumentURI": str,
-        "DocumentAttributes": List["DocumentAttributeTypeDef"],
-    },
-    total=False,
-)
-
-ExperienceConfigurationTypeDef = TypedDict(
-    "ExperienceConfigurationTypeDef",
-    {
-        "ContentSourceConfiguration": "ContentSourceConfigurationTypeDef",
-        "UserIdentityConfiguration": "UserIdentityConfigurationTypeDef",
-    },
-    total=False,
-)
-
-ExperienceEndpointTypeDef = TypedDict(
-    "ExperienceEndpointTypeDef",
-    {
-        "EndpointType": Literal["HOME"],
-        "Endpoint": str,
-    },
-    total=False,
-)
-
-ExperienceEntitiesSummaryTypeDef = TypedDict(
-    "ExperienceEntitiesSummaryTypeDef",
-    {
-        "EntityId": str,
-        "EntityType": EntityTypeType,
-        "DisplayData": "EntityDisplayDataTypeDef",
-    },
-    total=False,
-)
-
-ExperiencesSummaryTypeDef = TypedDict(
-    "ExperiencesSummaryTypeDef",
-    {
-        "Name": str,
-        "Id": str,
-        "CreatedAt": datetime,
-        "Status": ExperienceStatusType,
-        "Endpoints": List["ExperienceEndpointTypeDef"],
-    },
-    total=False,
-)
-
-FacetResultTypeDef = TypedDict(
-    "FacetResultTypeDef",
-    {
-        "DocumentAttributeKey": str,
-        "DocumentAttributeValueType": DocumentAttributeValueTypeType,
-        "DocumentAttributeValueCountPairs": List[Dict[str, Any]],
-    },
-    total=False,
-)
-
-FacetTypeDef = TypedDict(
-    "FacetTypeDef",
-    {
-        "DocumentAttributeKey": str,
-        "Facets": List[Dict[str, Any]],
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-FailedEntityTypeDef = TypedDict(
-    "FailedEntityTypeDef",
-    {
-        "EntityId": str,
-        "ErrorMessage": str,
-    },
-    total=False,
-)
-
-FaqStatisticsTypeDef = TypedDict(
-    "FaqStatisticsTypeDef",
-    {
-        "IndexedQuestionAnswersCount": int,
-    },
-)
-
-FaqSummaryTypeDef = TypedDict(
-    "FaqSummaryTypeDef",
-    {
-        "Id": str,
-        "Name": str,
-        "Status": FaqStatusType,
-        "CreatedAt": datetime,
-        "UpdatedAt": datetime,
-        "FileFormat": FaqFileFormatType,
-        "LanguageCode": str,
-    },
-    total=False,
-)
-
-FeaturedDocumentMissingTypeDef = TypedDict(
-    "FeaturedDocumentMissingTypeDef",
-    {
-        "Id": str,
-    },
-    total=False,
-)
-
-FeaturedDocumentTypeDef = TypedDict(
-    "FeaturedDocumentTypeDef",
-    {
-        "Id": str,
-    },
-    total=False,
-)
-
-FeaturedDocumentWithMetadataTypeDef = TypedDict(
-    "FeaturedDocumentWithMetadataTypeDef",
-    {
-        "Id": str,
-        "Title": str,
-        "URI": str,
-    },
-    total=False,
-)
-
-FeaturedResultsItemTypeDef = TypedDict(
-    "FeaturedResultsItemTypeDef",
-    {
-        "Id": str,
-        "Type": QueryResultTypeType,
-        "AdditionalAttributes": List["AdditionalResultAttributeTypeDef"],
-        "DocumentId": str,
-        "DocumentTitle": "TextWithHighlightsTypeDef",
-        "DocumentExcerpt": "TextWithHighlightsTypeDef",
-        "DocumentURI": str,
-        "DocumentAttributes": List["DocumentAttributeTypeDef"],
-        "FeedbackToken": str,
-    },
-    total=False,
-)
-
-FeaturedResultsSetSummaryTypeDef = TypedDict(
-    "FeaturedResultsSetSummaryTypeDef",
-    {
-        "FeaturedResultsSetId": str,
-        "FeaturedResultsSetName": str,
-        "Status": FeaturedResultsSetStatusType,
-        "LastUpdatedTimestamp": int,
-        "CreationTimestamp": int,
-    },
-    total=False,
-)
-
-FeaturedResultsSetTypeDef = TypedDict(
-    "FeaturedResultsSetTypeDef",
-    {
-        "FeaturedResultsSetId": str,
-        "FeaturedResultsSetName": str,
-        "Description": str,
-        "Status": FeaturedResultsSetStatusType,
-        "QueryTexts": List[str],
-        "FeaturedDocuments": List["FeaturedDocumentTypeDef"],
-        "LastUpdatedTimestamp": int,
-        "CreationTimestamp": int,
-    },
-    total=False,
-)
-
-_RequiredFsxConfigurationTypeDef = TypedDict(
-    "_RequiredFsxConfigurationTypeDef",
-    {
-        "FileSystemId": str,
-        "FileSystemType": Literal["WINDOWS"],
-        "VpcConfiguration": "DataSourceVpcConfigurationTypeDef",
-    },
-)
-_OptionalFsxConfigurationTypeDef = TypedDict(
-    "_OptionalFsxConfigurationTypeDef",
-    {
-        "SecretArn": str,
-        "InclusionPatterns": List[str],
-        "ExclusionPatterns": List[str],
-        "FieldMappings": List["DataSourceToIndexFieldMappingTypeDef"],
-    },
-    total=False,
-)
-
-class FsxConfigurationTypeDef(_RequiredFsxConfigurationTypeDef, _OptionalFsxConfigurationTypeDef):
-    pass
-
-_RequiredGetQuerySuggestionsRequestRequestTypeDef = TypedDict(
-    "_RequiredGetQuerySuggestionsRequestRequestTypeDef",
-    {
-        "IndexId": str,
-        "QueryText": str,
-    },
-)
-_OptionalGetQuerySuggestionsRequestRequestTypeDef = TypedDict(
-    "_OptionalGetQuerySuggestionsRequestRequestTypeDef",
-    {
-        "MaxSuggestionsCount": int,
-        "SuggestionTypes": List[SuggestionTypeType],
-        "AttributeSuggestionsConfig": "AttributeSuggestionsGetConfigTypeDef",
-    },
-    total=False,
-)
-
-class GetQuerySuggestionsRequestRequestTypeDef(
-    _RequiredGetQuerySuggestionsRequestRequestTypeDef,
-    _OptionalGetQuerySuggestionsRequestRequestTypeDef,
-):
-    pass
-
-GetQuerySuggestionsResponseTypeDef = TypedDict(
-    "GetQuerySuggestionsResponseTypeDef",
-    {
-        "QuerySuggestionsId": str,
-        "Suggestions": List["SuggestionTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetSnapshotsRequestRequestTypeDef = TypedDict(
-    "_RequiredGetSnapshotsRequestRequestTypeDef",
-    {
-        "IndexId": str,
-        "Interval": IntervalType,
-        "MetricType": MetricTypeType,
-    },
-)
-_OptionalGetSnapshotsRequestRequestTypeDef = TypedDict(
-    "_OptionalGetSnapshotsRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-class GetSnapshotsRequestRequestTypeDef(
-    _RequiredGetSnapshotsRequestRequestTypeDef, _OptionalGetSnapshotsRequestRequestTypeDef
-):
-    pass
-
-GetSnapshotsResponseTypeDef = TypedDict(
-    "GetSnapshotsResponseTypeDef",
-    {
-        "SnapShotTimeFilter": "TimeRangeTypeDef",
-        "SnapshotsDataHeader": List[str],
-        "SnapshotsData": List[List[str]],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGitHubConfigurationTypeDef = TypedDict(
-    "_RequiredGitHubConfigurationTypeDef",
-    {
-        "SecretArn": str,
-    },
-)
-_OptionalGitHubConfigurationTypeDef = TypedDict(
-    "_OptionalGitHubConfigurationTypeDef",
-    {
-        "SaaSConfiguration": "SaaSConfigurationTypeDef",
-        "OnPremiseConfiguration": "OnPremiseConfigurationTypeDef",
-        "Type": TypeType,
-        "UseChangeLog": bool,
-        "GitHubDocumentCrawlProperties": "GitHubDocumentCrawlPropertiesTypeDef",
-        "RepositoryFilter": List[str],
-        "InclusionFolderNamePatterns": List[str],
-        "InclusionFileTypePatterns": List[str],
-        "InclusionFileNamePatterns": List[str],
-        "ExclusionFolderNamePatterns": List[str],
-        "ExclusionFileTypePatterns": List[str],
-        "ExclusionFileNamePatterns": List[str],
-        "VpcConfiguration": "DataSourceVpcConfigurationTypeDef",
-        "GitHubRepositoryConfigurationFieldMappings": List["DataSourceToIndexFieldMappingTypeDef"],
-        "GitHubCommitConfigurationFieldMappings": List["DataSourceToIndexFieldMappingTypeDef"],
-        "GitHubIssueDocumentConfigurationFieldMappings": List[
-            "DataSourceToIndexFieldMappingTypeDef"
-        ],
-        "GitHubIssueCommentConfigurationFieldMappings": List[
-            "DataSourceToIndexFieldMappingTypeDef"
-        ],
-        "GitHubIssueAttachmentConfigurationFieldMappings": List[
-            "DataSourceToIndexFieldMappingTypeDef"
-        ],
-        "GitHubPullRequestCommentConfigurationFieldMappings": List[
-            "DataSourceToIndexFieldMappingTypeDef"
-        ],
-        "GitHubPullRequestDocumentConfigurationFieldMappings": List[
-            "DataSourceToIndexFieldMappingTypeDef"
-        ],
-        "GitHubPullRequestDocumentAttachmentConfigurationFieldMappings": List[
-            "DataSourceToIndexFieldMappingTypeDef"
+        "Type": DataSourceTypeType,
+        "Configuration": NotRequired[DataSourceConfigurationUnionTypeDef],
+        "VpcConfiguration": NotRequired[DataSourceVpcConfigurationUnionTypeDef],
+        "Description": NotRequired[str],
+        "Schedule": NotRequired[str],
+        "RoleArn": NotRequired[str],
+        "Tags": NotRequired[Sequence[TagTypeDef]],
+        "ClientToken": NotRequired[str],
+        "LanguageCode": NotRequired[str],
+        "CustomDocumentEnrichmentConfiguration": NotRequired[
+            CustomDocumentEnrichmentConfigurationUnionTypeDef
         ],
     },
-    total=False,
 )
 
-class GitHubConfigurationTypeDef(
-    _RequiredGitHubConfigurationTypeDef, _OptionalGitHubConfigurationTypeDef
-):
-    pass
-
-GitHubDocumentCrawlPropertiesTypeDef = TypedDict(
-    "GitHubDocumentCrawlPropertiesTypeDef",
-    {
-        "CrawlRepositoryDocuments": bool,
-        "CrawlIssue": bool,
-        "CrawlIssueComment": bool,
-        "CrawlIssueCommentAttachment": bool,
-        "CrawlPullRequest": bool,
-        "CrawlPullRequestComment": bool,
-        "CrawlPullRequestCommentAttachment": bool,
-    },
-    total=False,
-)
-
-_RequiredGoogleDriveConfigurationTypeDef = TypedDict(
-    "_RequiredGoogleDriveConfigurationTypeDef",
-    {
-        "SecretArn": str,
-    },
-)
-_OptionalGoogleDriveConfigurationTypeDef = TypedDict(
-    "_OptionalGoogleDriveConfigurationTypeDef",
-    {
-        "InclusionPatterns": List[str],
-        "ExclusionPatterns": List[str],
-        "FieldMappings": List["DataSourceToIndexFieldMappingTypeDef"],
-        "ExcludeMimeTypes": List[str],
-        "ExcludeUserAccounts": List[str],
-        "ExcludeSharedDrives": List[str],
-    },
-    total=False,
-)
-
-class GoogleDriveConfigurationTypeDef(
-    _RequiredGoogleDriveConfigurationTypeDef, _OptionalGoogleDriveConfigurationTypeDef
-):
-    pass
-
-GroupMembersTypeDef = TypedDict(
-    "GroupMembersTypeDef",
-    {
-        "MemberGroups": List["MemberGroupTypeDef"],
-        "MemberUsers": List["MemberUserTypeDef"],
-        "S3PathforGroupMembers": "S3PathTypeDef",
-    },
-    total=False,
-)
-
-GroupOrderingIdSummaryTypeDef = TypedDict(
-    "GroupOrderingIdSummaryTypeDef",
-    {
-        "Status": PrincipalMappingStatusType,
-        "LastUpdatedAt": datetime,
-        "ReceivedAt": datetime,
-        "OrderingId": int,
-        "FailureReason": str,
-    },
-    total=False,
-)
-
-GroupSummaryTypeDef = TypedDict(
-    "GroupSummaryTypeDef",
-    {
-        "GroupId": str,
-        "OrderingId": int,
-    },
-    total=False,
-)
-
-HierarchicalPrincipalTypeDef = TypedDict(
-    "HierarchicalPrincipalTypeDef",
-    {
-        "PrincipalList": List["PrincipalTypeDef"],
-    },
-)
-
-_RequiredHighlightTypeDef = TypedDict(
-    "_RequiredHighlightTypeDef",
-    {
-        "BeginOffset": int,
-        "EndOffset": int,
-    },
-)
-_OptionalHighlightTypeDef = TypedDict(
-    "_OptionalHighlightTypeDef",
-    {
-        "TopAnswer": bool,
-        "Type": HighlightTypeType,
-    },
-    total=False,
-)
-
-class HighlightTypeDef(_RequiredHighlightTypeDef, _OptionalHighlightTypeDef):
-    pass
-
-_RequiredHookConfigurationTypeDef = TypedDict(
-    "_RequiredHookConfigurationTypeDef",
-    {
-        "LambdaArn": str,
-        "S3Bucket": str,
-    },
-)
-_OptionalHookConfigurationTypeDef = TypedDict(
-    "_OptionalHookConfigurationTypeDef",
-    {
-        "InvocationCondition": "DocumentAttributeConditionTypeDef",
-    },
-    total=False,
-)
-
-class HookConfigurationTypeDef(
-    _RequiredHookConfigurationTypeDef, _OptionalHookConfigurationTypeDef
-):
-    pass
-
-_RequiredIndexConfigurationSummaryTypeDef = TypedDict(
-    "_RequiredIndexConfigurationSummaryTypeDef",
-    {
-        "CreatedAt": datetime,
-        "UpdatedAt": datetime,
-        "Status": IndexStatusType,
-    },
-)
-_OptionalIndexConfigurationSummaryTypeDef = TypedDict(
-    "_OptionalIndexConfigurationSummaryTypeDef",
-    {
-        "Name": str,
-        "Id": str,
-        "Edition": IndexEditionType,
-    },
-    total=False,
-)
-
-class IndexConfigurationSummaryTypeDef(
-    _RequiredIndexConfigurationSummaryTypeDef, _OptionalIndexConfigurationSummaryTypeDef
-):
-    pass
-
-IndexStatisticsTypeDef = TypedDict(
-    "IndexStatisticsTypeDef",
-    {
-        "FaqStatistics": "FaqStatisticsTypeDef",
-        "TextDocumentStatistics": "TextDocumentStatisticsTypeDef",
-    },
-)
-
-InlineCustomDocumentEnrichmentConfigurationTypeDef = TypedDict(
-    "InlineCustomDocumentEnrichmentConfigurationTypeDef",
-    {
-        "Condition": "DocumentAttributeConditionTypeDef",
-        "Target": "DocumentAttributeTargetTypeDef",
-        "DocumentContentDeletion": bool,
-    },
-    total=False,
-)
-
-_RequiredJiraConfigurationTypeDef = TypedDict(
-    "_RequiredJiraConfigurationTypeDef",
-    {
-        "JiraAccountUrl": str,
-        "SecretArn": str,
-    },
-)
-_OptionalJiraConfigurationTypeDef = TypedDict(
-    "_OptionalJiraConfigurationTypeDef",
-    {
-        "UseChangeLog": bool,
-        "Project": List[str],
-        "IssueType": List[str],
-        "Status": List[str],
-        "IssueSubEntityFilter": List[IssueSubEntityType],
-        "AttachmentFieldMappings": List["DataSourceToIndexFieldMappingTypeDef"],
-        "CommentFieldMappings": List["DataSourceToIndexFieldMappingTypeDef"],
-        "IssueFieldMappings": List["DataSourceToIndexFieldMappingTypeDef"],
-        "ProjectFieldMappings": List["DataSourceToIndexFieldMappingTypeDef"],
-        "WorkLogFieldMappings": List["DataSourceToIndexFieldMappingTypeDef"],
-        "InclusionPatterns": List[str],
-        "ExclusionPatterns": List[str],
-        "VpcConfiguration": "DataSourceVpcConfigurationTypeDef",
-    },
-    total=False,
-)
-
-class JiraConfigurationTypeDef(
-    _RequiredJiraConfigurationTypeDef, _OptionalJiraConfigurationTypeDef
-):
-    pass
-
-JsonTokenTypeConfigurationTypeDef = TypedDict(
-    "JsonTokenTypeConfigurationTypeDef",
-    {
-        "UserNameAttributeField": str,
-        "GroupAttributeField": str,
-    },
-)
-
-_RequiredJwtTokenTypeConfigurationTypeDef = TypedDict(
-    "_RequiredJwtTokenTypeConfigurationTypeDef",
-    {
-        "KeyLocation": KeyLocationType,
-    },
-)
-_OptionalJwtTokenTypeConfigurationTypeDef = TypedDict(
-    "_OptionalJwtTokenTypeConfigurationTypeDef",
-    {
-        "URL": str,
-        "SecretManagerArn": str,
-        "UserNameAttributeField": str,
-        "GroupAttributeField": str,
-        "Issuer": str,
-        "ClaimRegex": str,
-    },
-    total=False,
-)
-
-class JwtTokenTypeConfigurationTypeDef(
-    _RequiredJwtTokenTypeConfigurationTypeDef, _OptionalJwtTokenTypeConfigurationTypeDef
-):
-    pass
-
-_RequiredListAccessControlConfigurationsRequestRequestTypeDef = TypedDict(
-    "_RequiredListAccessControlConfigurationsRequestRequestTypeDef",
-    {
-        "IndexId": str,
-    },
-)
-_OptionalListAccessControlConfigurationsRequestRequestTypeDef = TypedDict(
-    "_OptionalListAccessControlConfigurationsRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-class ListAccessControlConfigurationsRequestRequestTypeDef(
-    _RequiredListAccessControlConfigurationsRequestRequestTypeDef,
-    _OptionalListAccessControlConfigurationsRequestRequestTypeDef,
-):
-    pass
-
-ListAccessControlConfigurationsResponseTypeDef = TypedDict(
-    "ListAccessControlConfigurationsResponseTypeDef",
-    {
-        "NextToken": str,
-        "AccessControlConfigurations": List["AccessControlConfigurationSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListDataSourceSyncJobsRequestRequestTypeDef = TypedDict(
-    "_RequiredListDataSourceSyncJobsRequestRequestTypeDef",
-    {
-        "Id": str,
-        "IndexId": str,
-    },
-)
-_OptionalListDataSourceSyncJobsRequestRequestTypeDef = TypedDict(
-    "_OptionalListDataSourceSyncJobsRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-        "StartTimeFilter": "TimeRangeTypeDef",
-        "StatusFilter": DataSourceSyncJobStatusType,
-    },
-    total=False,
-)
-
-class ListDataSourceSyncJobsRequestRequestTypeDef(
-    _RequiredListDataSourceSyncJobsRequestRequestTypeDef,
-    _OptionalListDataSourceSyncJobsRequestRequestTypeDef,
-):
-    pass
-
-ListDataSourceSyncJobsResponseTypeDef = TypedDict(
-    "ListDataSourceSyncJobsResponseTypeDef",
-    {
-        "History": List["DataSourceSyncJobTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListDataSourcesRequestRequestTypeDef = TypedDict(
-    "_RequiredListDataSourcesRequestRequestTypeDef",
-    {
-        "IndexId": str,
-    },
-)
-_OptionalListDataSourcesRequestRequestTypeDef = TypedDict(
-    "_OptionalListDataSourcesRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-class ListDataSourcesRequestRequestTypeDef(
-    _RequiredListDataSourcesRequestRequestTypeDef, _OptionalListDataSourcesRequestRequestTypeDef
-):
-    pass
-
-ListDataSourcesResponseTypeDef = TypedDict(
-    "ListDataSourcesResponseTypeDef",
-    {
-        "SummaryItems": List["DataSourceSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListEntityPersonasRequestRequestTypeDef = TypedDict(
-    "_RequiredListEntityPersonasRequestRequestTypeDef",
-    {
-        "Id": str,
-        "IndexId": str,
-    },
-)
-_OptionalListEntityPersonasRequestRequestTypeDef = TypedDict(
-    "_OptionalListEntityPersonasRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-class ListEntityPersonasRequestRequestTypeDef(
-    _RequiredListEntityPersonasRequestRequestTypeDef,
-    _OptionalListEntityPersonasRequestRequestTypeDef,
-):
-    pass
-
-ListEntityPersonasResponseTypeDef = TypedDict(
-    "ListEntityPersonasResponseTypeDef",
-    {
-        "SummaryItems": List["PersonasSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListExperienceEntitiesRequestRequestTypeDef = TypedDict(
-    "_RequiredListExperienceEntitiesRequestRequestTypeDef",
-    {
-        "Id": str,
-        "IndexId": str,
-    },
-)
-_OptionalListExperienceEntitiesRequestRequestTypeDef = TypedDict(
-    "_OptionalListExperienceEntitiesRequestRequestTypeDef",
-    {
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListExperienceEntitiesRequestRequestTypeDef(
-    _RequiredListExperienceEntitiesRequestRequestTypeDef,
-    _OptionalListExperienceEntitiesRequestRequestTypeDef,
-):
-    pass
-
-ListExperienceEntitiesResponseTypeDef = TypedDict(
-    "ListExperienceEntitiesResponseTypeDef",
-    {
-        "SummaryItems": List["ExperienceEntitiesSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListExperiencesRequestRequestTypeDef = TypedDict(
-    "_RequiredListExperiencesRequestRequestTypeDef",
-    {
-        "IndexId": str,
-    },
-)
-_OptionalListExperiencesRequestRequestTypeDef = TypedDict(
-    "_OptionalListExperiencesRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-class ListExperiencesRequestRequestTypeDef(
-    _RequiredListExperiencesRequestRequestTypeDef, _OptionalListExperiencesRequestRequestTypeDef
-):
-    pass
-
-ListExperiencesResponseTypeDef = TypedDict(
-    "ListExperiencesResponseTypeDef",
-    {
-        "SummaryItems": List["ExperiencesSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListFaqsRequestRequestTypeDef = TypedDict(
-    "_RequiredListFaqsRequestRequestTypeDef",
-    {
-        "IndexId": str,
-    },
-)
-_OptionalListFaqsRequestRequestTypeDef = TypedDict(
-    "_OptionalListFaqsRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-class ListFaqsRequestRequestTypeDef(
-    _RequiredListFaqsRequestRequestTypeDef, _OptionalListFaqsRequestRequestTypeDef
-):
-    pass
-
-ListFaqsResponseTypeDef = TypedDict(
-    "ListFaqsResponseTypeDef",
-    {
-        "NextToken": str,
-        "FaqSummaryItems": List["FaqSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListFeaturedResultsSetsRequestRequestTypeDef = TypedDict(
-    "_RequiredListFeaturedResultsSetsRequestRequestTypeDef",
-    {
-        "IndexId": str,
-    },
-)
-_OptionalListFeaturedResultsSetsRequestRequestTypeDef = TypedDict(
-    "_OptionalListFeaturedResultsSetsRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-class ListFeaturedResultsSetsRequestRequestTypeDef(
-    _RequiredListFeaturedResultsSetsRequestRequestTypeDef,
-    _OptionalListFeaturedResultsSetsRequestRequestTypeDef,
-):
-    pass
-
-ListFeaturedResultsSetsResponseTypeDef = TypedDict(
-    "ListFeaturedResultsSetsResponseTypeDef",
-    {
-        "FeaturedResultsSetSummaryItems": List["FeaturedResultsSetSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListGroupsOlderThanOrderingIdRequestRequestTypeDef = TypedDict(
-    "_RequiredListGroupsOlderThanOrderingIdRequestRequestTypeDef",
-    {
-        "IndexId": str,
-        "OrderingId": int,
-    },
-)
-_OptionalListGroupsOlderThanOrderingIdRequestRequestTypeDef = TypedDict(
-    "_OptionalListGroupsOlderThanOrderingIdRequestRequestTypeDef",
-    {
-        "DataSourceId": str,
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-class ListGroupsOlderThanOrderingIdRequestRequestTypeDef(
-    _RequiredListGroupsOlderThanOrderingIdRequestRequestTypeDef,
-    _OptionalListGroupsOlderThanOrderingIdRequestRequestTypeDef,
-):
-    pass
-
-ListGroupsOlderThanOrderingIdResponseTypeDef = TypedDict(
-    "ListGroupsOlderThanOrderingIdResponseTypeDef",
-    {
-        "GroupsSummaries": List["GroupSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListIndicesRequestRequestTypeDef = TypedDict(
-    "ListIndicesRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-ListIndicesResponseTypeDef = TypedDict(
-    "ListIndicesResponseTypeDef",
-    {
-        "IndexConfigurationSummaryItems": List["IndexConfigurationSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListQuerySuggestionsBlockListsRequestRequestTypeDef = TypedDict(
-    "_RequiredListQuerySuggestionsBlockListsRequestRequestTypeDef",
-    {
-        "IndexId": str,
-    },
-)
-_OptionalListQuerySuggestionsBlockListsRequestRequestTypeDef = TypedDict(
-    "_OptionalListQuerySuggestionsBlockListsRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-class ListQuerySuggestionsBlockListsRequestRequestTypeDef(
-    _RequiredListQuerySuggestionsBlockListsRequestRequestTypeDef,
-    _OptionalListQuerySuggestionsBlockListsRequestRequestTypeDef,
-):
-    pass
-
-ListQuerySuggestionsBlockListsResponseTypeDef = TypedDict(
-    "ListQuerySuggestionsBlockListsResponseTypeDef",
-    {
-        "BlockListSummaryItems": List["QuerySuggestionsBlockListSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "ResourceARN": str,
-    },
-)
-
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "Tags": List["TagTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListThesauriRequestRequestTypeDef = TypedDict(
-    "_RequiredListThesauriRequestRequestTypeDef",
-    {
-        "IndexId": str,
-    },
-)
-_OptionalListThesauriRequestRequestTypeDef = TypedDict(
-    "_OptionalListThesauriRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-class ListThesauriRequestRequestTypeDef(
-    _RequiredListThesauriRequestRequestTypeDef, _OptionalListThesauriRequestRequestTypeDef
-):
-    pass
-
-ListThesauriResponseTypeDef = TypedDict(
-    "ListThesauriResponseTypeDef",
-    {
-        "NextToken": str,
-        "ThesaurusSummaryItems": List["ThesaurusSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredMemberGroupTypeDef = TypedDict(
-    "_RequiredMemberGroupTypeDef",
-    {
-        "GroupId": str,
-    },
-)
-_OptionalMemberGroupTypeDef = TypedDict(
-    "_OptionalMemberGroupTypeDef",
-    {
-        "DataSourceId": str,
-    },
-    total=False,
-)
-
-class MemberGroupTypeDef(_RequiredMemberGroupTypeDef, _OptionalMemberGroupTypeDef):
-    pass
-
-MemberUserTypeDef = TypedDict(
-    "MemberUserTypeDef",
-    {
-        "UserId": str,
-    },
-)
-
-OnPremiseConfigurationTypeDef = TypedDict(
-    "OnPremiseConfigurationTypeDef",
-    {
-        "HostUrl": str,
-        "OrganizationName": str,
-        "SslCertificateS3Path": "S3PathTypeDef",
-    },
-)
-
-_RequiredOneDriveConfigurationTypeDef = TypedDict(
-    "_RequiredOneDriveConfigurationTypeDef",
-    {
-        "TenantDomain": str,
-        "SecretArn": str,
-        "OneDriveUsers": "OneDriveUsersTypeDef",
-    },
-)
-_OptionalOneDriveConfigurationTypeDef = TypedDict(
-    "_OptionalOneDriveConfigurationTypeDef",
-    {
-        "InclusionPatterns": List[str],
-        "ExclusionPatterns": List[str],
-        "FieldMappings": List["DataSourceToIndexFieldMappingTypeDef"],
-        "DisableLocalGroups": bool,
-    },
-    total=False,
-)
-
-class OneDriveConfigurationTypeDef(
-    _RequiredOneDriveConfigurationTypeDef, _OptionalOneDriveConfigurationTypeDef
-):
-    pass
-
-OneDriveUsersTypeDef = TypedDict(
-    "OneDriveUsersTypeDef",
-    {
-        "OneDriveUserList": List[str],
-        "OneDriveUserS3Path": "S3PathTypeDef",
-    },
-    total=False,
-)
-
-PersonasSummaryTypeDef = TypedDict(
-    "PersonasSummaryTypeDef",
-    {
-        "EntityId": str,
-        "Persona": PersonaType,
-        "CreatedAt": datetime,
-        "UpdatedAt": datetime,
-    },
-    total=False,
-)
-
-_RequiredPrincipalTypeDef = TypedDict(
-    "_RequiredPrincipalTypeDef",
-    {
-        "Name": str,
-        "Type": PrincipalTypeType,
-        "Access": ReadAccessTypeType,
-    },
-)
-_OptionalPrincipalTypeDef = TypedDict(
-    "_OptionalPrincipalTypeDef",
-    {
-        "DataSourceId": str,
-    },
-    total=False,
-)
-
-class PrincipalTypeDef(_RequiredPrincipalTypeDef, _OptionalPrincipalTypeDef):
-    pass
-
-_RequiredProxyConfigurationTypeDef = TypedDict(
-    "_RequiredProxyConfigurationTypeDef",
-    {
-        "Host": str,
-        "Port": int,
-    },
-)
-_OptionalProxyConfigurationTypeDef = TypedDict(
-    "_OptionalProxyConfigurationTypeDef",
-    {
-        "Credentials": str,
-    },
-    total=False,
-)
-
-class ProxyConfigurationTypeDef(
-    _RequiredProxyConfigurationTypeDef, _OptionalProxyConfigurationTypeDef
-):
-    pass
-
-_RequiredPutPrincipalMappingRequestRequestTypeDef = TypedDict(
-    "_RequiredPutPrincipalMappingRequestRequestTypeDef",
-    {
-        "IndexId": str,
-        "GroupId": str,
-        "GroupMembers": "GroupMembersTypeDef",
-    },
-)
-_OptionalPutPrincipalMappingRequestRequestTypeDef = TypedDict(
-    "_OptionalPutPrincipalMappingRequestRequestTypeDef",
-    {
-        "DataSourceId": str,
-        "OrderingId": int,
-        "RoleArn": str,
-    },
-    total=False,
-)
-
-class PutPrincipalMappingRequestRequestTypeDef(
-    _RequiredPutPrincipalMappingRequestRequestTypeDef,
-    _OptionalPutPrincipalMappingRequestRequestTypeDef,
-):
-    pass
-
-_RequiredQueryRequestRequestTypeDef = TypedDict(
-    "_RequiredQueryRequestRequestTypeDef",
-    {
-        "IndexId": str,
-    },
-)
-_OptionalQueryRequestRequestTypeDef = TypedDict(
-    "_OptionalQueryRequestRequestTypeDef",
-    {
-        "QueryText": str,
-        "AttributeFilter": "AttributeFilterTypeDef",
-        "Facets": List["FacetTypeDef"],
-        "RequestedDocumentAttributes": List[str],
-        "QueryResultTypeFilter": QueryResultTypeType,
-        "DocumentRelevanceOverrideConfigurations": List["DocumentRelevanceConfigurationTypeDef"],
-        "PageNumber": int,
-        "PageSize": int,
-        "SortingConfiguration": "SortingConfigurationTypeDef",
-        "SortingConfigurations": List["SortingConfigurationTypeDef"],
-        "UserContext": "UserContextTypeDef",
-        "VisitorId": str,
-        "SpellCorrectionConfiguration": "SpellCorrectionConfigurationTypeDef",
-        "CollapseConfiguration": "CollapseConfigurationTypeDef",
-    },
-    total=False,
-)
-
-class QueryRequestRequestTypeDef(
-    _RequiredQueryRequestRequestTypeDef, _OptionalQueryRequestRequestTypeDef
-):
-    pass
-
-QueryResultItemTypeDef = TypedDict(
-    "QueryResultItemTypeDef",
-    {
-        "Id": str,
-        "Type": QueryResultTypeType,
-        "Format": QueryResultFormatType,
-        "AdditionalAttributes": List["AdditionalResultAttributeTypeDef"],
-        "DocumentId": str,
-        "DocumentTitle": "TextWithHighlightsTypeDef",
-        "DocumentExcerpt": "TextWithHighlightsTypeDef",
-        "DocumentURI": str,
-        "DocumentAttributes": List["DocumentAttributeTypeDef"],
-        "ScoreAttributes": "ScoreAttributesTypeDef",
-        "FeedbackToken": str,
-        "TableExcerpt": "TableExcerptTypeDef",
-        "CollapsedResultDetail": "CollapsedResultDetailTypeDef",
-    },
-    total=False,
-)
-
-QueryResultTypeDef = TypedDict(
-    "QueryResultTypeDef",
-    {
-        "QueryId": str,
-        "ResultItems": List["QueryResultItemTypeDef"],
-        "FacetResults": List["FacetResultTypeDef"],
-        "TotalNumberOfResults": int,
-        "Warnings": List["WarningTypeDef"],
-        "SpellCorrectedQueries": List["SpellCorrectedQueryTypeDef"],
-        "FeaturedResultsItems": List["FeaturedResultsItemTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-QuerySuggestionsBlockListSummaryTypeDef = TypedDict(
-    "QuerySuggestionsBlockListSummaryTypeDef",
-    {
-        "Id": str,
-        "Name": str,
-        "Status": QuerySuggestionsBlockListStatusType,
-        "CreatedAt": datetime,
-        "UpdatedAt": datetime,
-        "ItemCount": int,
-    },
-    total=False,
-)
-
-_RequiredQuipConfigurationTypeDef = TypedDict(
-    "_RequiredQuipConfigurationTypeDef",
-    {
-        "Domain": str,
-        "SecretArn": str,
-    },
-)
-_OptionalQuipConfigurationTypeDef = TypedDict(
-    "_OptionalQuipConfigurationTypeDef",
-    {
-        "CrawlFileComments": bool,
-        "CrawlChatRooms": bool,
-        "CrawlAttachments": bool,
-        "FolderIds": List[str],
-        "ThreadFieldMappings": List["DataSourceToIndexFieldMappingTypeDef"],
-        "MessageFieldMappings": List["DataSourceToIndexFieldMappingTypeDef"],
-        "AttachmentFieldMappings": List["DataSourceToIndexFieldMappingTypeDef"],
-        "InclusionPatterns": List[str],
-        "ExclusionPatterns": List[str],
-        "VpcConfiguration": "DataSourceVpcConfigurationTypeDef",
-    },
-    total=False,
-)
-
-class QuipConfigurationTypeDef(
-    _RequiredQuipConfigurationTypeDef, _OptionalQuipConfigurationTypeDef
-):
-    pass
-
-RelevanceFeedbackTypeDef = TypedDict(
-    "RelevanceFeedbackTypeDef",
-    {
-        "ResultId": str,
-        "RelevanceValue": RelevanceTypeType,
-    },
-)
-
-RelevanceTypeDef = TypedDict(
-    "RelevanceTypeDef",
-    {
-        "Freshness": bool,
-        "Importance": int,
-        "Duration": str,
-        "RankOrder": OrderType,
-        "ValueImportanceMap": Dict[str, int],
-    },
-    total=False,
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-_RequiredRetrieveRequestRequestTypeDef = TypedDict(
-    "_RequiredRetrieveRequestRequestTypeDef",
-    {
-        "IndexId": str,
-        "QueryText": str,
-    },
-)
-_OptionalRetrieveRequestRequestTypeDef = TypedDict(
-    "_OptionalRetrieveRequestRequestTypeDef",
-    {
-        "AttributeFilter": "AttributeFilterTypeDef",
-        "RequestedDocumentAttributes": List[str],
-        "DocumentRelevanceOverrideConfigurations": List["DocumentRelevanceConfigurationTypeDef"],
-        "PageNumber": int,
-        "PageSize": int,
-        "UserContext": "UserContextTypeDef",
-    },
-    total=False,
-)
-
-class RetrieveRequestRequestTypeDef(
-    _RequiredRetrieveRequestRequestTypeDef, _OptionalRetrieveRequestRequestTypeDef
-):
-    pass
-
-RetrieveResultItemTypeDef = TypedDict(
-    "RetrieveResultItemTypeDef",
-    {
-        "Id": str,
-        "DocumentId": str,
-        "DocumentTitle": str,
-        "Content": str,
-        "DocumentURI": str,
-        "DocumentAttributes": List["DocumentAttributeTypeDef"],
-        "ScoreAttributes": "ScoreAttributesTypeDef",
-    },
-    total=False,
-)
-
-RetrieveResultTypeDef = TypedDict(
-    "RetrieveResultTypeDef",
-    {
-        "QueryId": str,
-        "ResultItems": List["RetrieveResultItemTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredS3DataSourceConfigurationTypeDef = TypedDict(
-    "_RequiredS3DataSourceConfigurationTypeDef",
-    {
-        "BucketName": str,
-    },
-)
-_OptionalS3DataSourceConfigurationTypeDef = TypedDict(
-    "_OptionalS3DataSourceConfigurationTypeDef",
-    {
-        "InclusionPrefixes": List[str],
-        "InclusionPatterns": List[str],
-        "ExclusionPatterns": List[str],
-        "DocumentsMetadataConfiguration": "DocumentsMetadataConfigurationTypeDef",
-        "AccessControlListConfiguration": "AccessControlListConfigurationTypeDef",
-    },
-    total=False,
-)
-
-class S3DataSourceConfigurationTypeDef(
-    _RequiredS3DataSourceConfigurationTypeDef, _OptionalS3DataSourceConfigurationTypeDef
-):
-    pass
-
-S3PathTypeDef = TypedDict(
-    "S3PathTypeDef",
-    {
-        "Bucket": str,
-        "Key": str,
-    },
-)
-
-SaaSConfigurationTypeDef = TypedDict(
-    "SaaSConfigurationTypeDef",
-    {
-        "OrganizationName": str,
-        "HostUrl": str,
-    },
-)
-
-_RequiredSalesforceChatterFeedConfigurationTypeDef = TypedDict(
-    "_RequiredSalesforceChatterFeedConfigurationTypeDef",
-    {
-        "DocumentDataFieldName": str,
-    },
-)
-_OptionalSalesforceChatterFeedConfigurationTypeDef = TypedDict(
-    "_OptionalSalesforceChatterFeedConfigurationTypeDef",
-    {
-        "DocumentTitleFieldName": str,
-        "FieldMappings": List["DataSourceToIndexFieldMappingTypeDef"],
-        "IncludeFilterTypes": List[SalesforceChatterFeedIncludeFilterTypeType],
-    },
-    total=False,
-)
-
-class SalesforceChatterFeedConfigurationTypeDef(
-    _RequiredSalesforceChatterFeedConfigurationTypeDef,
-    _OptionalSalesforceChatterFeedConfigurationTypeDef,
-):
-    pass
-
-_RequiredSalesforceConfigurationTypeDef = TypedDict(
-    "_RequiredSalesforceConfigurationTypeDef",
-    {
-        "ServerUrl": str,
-        "SecretArn": str,
-    },
-)
-_OptionalSalesforceConfigurationTypeDef = TypedDict(
-    "_OptionalSalesforceConfigurationTypeDef",
-    {
-        "StandardObjectConfigurations": List["SalesforceStandardObjectConfigurationTypeDef"],
-        "KnowledgeArticleConfiguration": "SalesforceKnowledgeArticleConfigurationTypeDef",
-        "ChatterFeedConfiguration": "SalesforceChatterFeedConfigurationTypeDef",
-        "CrawlAttachments": bool,
-        "StandardObjectAttachmentConfiguration": "SalesforceStandardObjectAttachmentConfigurationTypeDef",
-        "IncludeAttachmentFilePatterns": List[str],
-        "ExcludeAttachmentFilePatterns": List[str],
-    },
-    total=False,
-)
-
-class SalesforceConfigurationTypeDef(
-    _RequiredSalesforceConfigurationTypeDef, _OptionalSalesforceConfigurationTypeDef
-):
-    pass
-
-_RequiredSalesforceCustomKnowledgeArticleTypeConfigurationTypeDef = TypedDict(
-    "_RequiredSalesforceCustomKnowledgeArticleTypeConfigurationTypeDef",
-    {
-        "Name": str,
-        "DocumentDataFieldName": str,
-    },
-)
-_OptionalSalesforceCustomKnowledgeArticleTypeConfigurationTypeDef = TypedDict(
-    "_OptionalSalesforceCustomKnowledgeArticleTypeConfigurationTypeDef",
-    {
-        "DocumentTitleFieldName": str,
-        "FieldMappings": List["DataSourceToIndexFieldMappingTypeDef"],
-    },
-    total=False,
-)
-
-class SalesforceCustomKnowledgeArticleTypeConfigurationTypeDef(
-    _RequiredSalesforceCustomKnowledgeArticleTypeConfigurationTypeDef,
-    _OptionalSalesforceCustomKnowledgeArticleTypeConfigurationTypeDef,
-):
-    pass
-
-_RequiredSalesforceKnowledgeArticleConfigurationTypeDef = TypedDict(
-    "_RequiredSalesforceKnowledgeArticleConfigurationTypeDef",
-    {
-        "IncludedStates": List[SalesforceKnowledgeArticleStateType],
-    },
-)
-_OptionalSalesforceKnowledgeArticleConfigurationTypeDef = TypedDict(
-    "_OptionalSalesforceKnowledgeArticleConfigurationTypeDef",
-    {
-        "StandardKnowledgeArticleTypeConfiguration": "SalesforceStandardKnowledgeArticleTypeConfigurationTypeDef",
-        "CustomKnowledgeArticleTypeConfigurations": List[
-            "SalesforceCustomKnowledgeArticleTypeConfigurationTypeDef"
-        ],
-    },
-    total=False,
-)
-
-class SalesforceKnowledgeArticleConfigurationTypeDef(
-    _RequiredSalesforceKnowledgeArticleConfigurationTypeDef,
-    _OptionalSalesforceKnowledgeArticleConfigurationTypeDef,
-):
-    pass
-
-_RequiredSalesforceStandardKnowledgeArticleTypeConfigurationTypeDef = TypedDict(
-    "_RequiredSalesforceStandardKnowledgeArticleTypeConfigurationTypeDef",
-    {
-        "DocumentDataFieldName": str,
-    },
-)
-_OptionalSalesforceStandardKnowledgeArticleTypeConfigurationTypeDef = TypedDict(
-    "_OptionalSalesforceStandardKnowledgeArticleTypeConfigurationTypeDef",
-    {
-        "DocumentTitleFieldName": str,
-        "FieldMappings": List["DataSourceToIndexFieldMappingTypeDef"],
-    },
-    total=False,
-)
-
-class SalesforceStandardKnowledgeArticleTypeConfigurationTypeDef(
-    _RequiredSalesforceStandardKnowledgeArticleTypeConfigurationTypeDef,
-    _OptionalSalesforceStandardKnowledgeArticleTypeConfigurationTypeDef,
-):
-    pass
-
-SalesforceStandardObjectAttachmentConfigurationTypeDef = TypedDict(
-    "SalesforceStandardObjectAttachmentConfigurationTypeDef",
-    {
-        "DocumentTitleFieldName": str,
-        "FieldMappings": List["DataSourceToIndexFieldMappingTypeDef"],
-    },
-    total=False,
-)
-
-_RequiredSalesforceStandardObjectConfigurationTypeDef = TypedDict(
-    "_RequiredSalesforceStandardObjectConfigurationTypeDef",
-    {
-        "Name": SalesforceStandardObjectNameType,
-        "DocumentDataFieldName": str,
-    },
-)
-_OptionalSalesforceStandardObjectConfigurationTypeDef = TypedDict(
-    "_OptionalSalesforceStandardObjectConfigurationTypeDef",
-    {
-        "DocumentTitleFieldName": str,
-        "FieldMappings": List["DataSourceToIndexFieldMappingTypeDef"],
-    },
-    total=False,
-)
-
-class SalesforceStandardObjectConfigurationTypeDef(
-    _RequiredSalesforceStandardObjectConfigurationTypeDef,
-    _OptionalSalesforceStandardObjectConfigurationTypeDef,
-):
-    pass
-
-ScoreAttributesTypeDef = TypedDict(
-    "ScoreAttributesTypeDef",
-    {
-        "ScoreConfidence": ScoreConfidenceType,
-    },
-    total=False,
-)
-
-SearchTypeDef = TypedDict(
-    "SearchTypeDef",
-    {
-        "Facetable": bool,
-        "Searchable": bool,
-        "Displayable": bool,
-        "Sortable": bool,
-    },
-    total=False,
-)
-
-_RequiredSeedUrlConfigurationTypeDef = TypedDict(
-    "_RequiredSeedUrlConfigurationTypeDef",
-    {
-        "SeedUrls": List[str],
-    },
-)
-_OptionalSeedUrlConfigurationTypeDef = TypedDict(
-    "_OptionalSeedUrlConfigurationTypeDef",
-    {
-        "WebCrawlerMode": WebCrawlerModeType,
-    },
-    total=False,
-)
-
-class SeedUrlConfigurationTypeDef(
-    _RequiredSeedUrlConfigurationTypeDef, _OptionalSeedUrlConfigurationTypeDef
-):
-    pass
-
-ServerSideEncryptionConfigurationTypeDef = TypedDict(
-    "ServerSideEncryptionConfigurationTypeDef",
-    {
-        "KmsKeyId": str,
-    },
-    total=False,
-)
-
-_RequiredServiceNowConfigurationTypeDef = TypedDict(
-    "_RequiredServiceNowConfigurationTypeDef",
-    {
-        "HostUrl": str,
-        "SecretArn": str,
-        "ServiceNowBuildVersion": ServiceNowBuildVersionTypeType,
-    },
-)
-_OptionalServiceNowConfigurationTypeDef = TypedDict(
-    "_OptionalServiceNowConfigurationTypeDef",
-    {
-        "KnowledgeArticleConfiguration": "ServiceNowKnowledgeArticleConfigurationTypeDef",
-        "ServiceCatalogConfiguration": "ServiceNowServiceCatalogConfigurationTypeDef",
-        "AuthenticationType": ServiceNowAuthenticationTypeType,
-    },
-    total=False,
-)
-
-class ServiceNowConfigurationTypeDef(
-    _RequiredServiceNowConfigurationTypeDef, _OptionalServiceNowConfigurationTypeDef
-):
-    pass
-
-_RequiredServiceNowKnowledgeArticleConfigurationTypeDef = TypedDict(
-    "_RequiredServiceNowKnowledgeArticleConfigurationTypeDef",
-    {
-        "DocumentDataFieldName": str,
-    },
-)
-_OptionalServiceNowKnowledgeArticleConfigurationTypeDef = TypedDict(
-    "_OptionalServiceNowKnowledgeArticleConfigurationTypeDef",
-    {
-        "CrawlAttachments": bool,
-        "IncludeAttachmentFilePatterns": List[str],
-        "ExcludeAttachmentFilePatterns": List[str],
-        "DocumentTitleFieldName": str,
-        "FieldMappings": List["DataSourceToIndexFieldMappingTypeDef"],
-        "FilterQuery": str,
-    },
-    total=False,
-)
-
-class ServiceNowKnowledgeArticleConfigurationTypeDef(
-    _RequiredServiceNowKnowledgeArticleConfigurationTypeDef,
-    _OptionalServiceNowKnowledgeArticleConfigurationTypeDef,
-):
-    pass
-
-_RequiredServiceNowServiceCatalogConfigurationTypeDef = TypedDict(
-    "_RequiredServiceNowServiceCatalogConfigurationTypeDef",
-    {
-        "DocumentDataFieldName": str,
-    },
-)
-_OptionalServiceNowServiceCatalogConfigurationTypeDef = TypedDict(
-    "_OptionalServiceNowServiceCatalogConfigurationTypeDef",
-    {
-        "CrawlAttachments": bool,
-        "IncludeAttachmentFilePatterns": List[str],
-        "ExcludeAttachmentFilePatterns": List[str],
-        "DocumentTitleFieldName": str,
-        "FieldMappings": List["DataSourceToIndexFieldMappingTypeDef"],
-    },
-    total=False,
-)
-
-class ServiceNowServiceCatalogConfigurationTypeDef(
-    _RequiredServiceNowServiceCatalogConfigurationTypeDef,
-    _OptionalServiceNowServiceCatalogConfigurationTypeDef,
-):
-    pass
-
-_RequiredSharePointConfigurationTypeDef = TypedDict(
-    "_RequiredSharePointConfigurationTypeDef",
-    {
-        "SharePointVersion": SharePointVersionType,
-        "Urls": List[str],
-        "SecretArn": str,
-    },
-)
-_OptionalSharePointConfigurationTypeDef = TypedDict(
-    "_OptionalSharePointConfigurationTypeDef",
-    {
-        "CrawlAttachments": bool,
-        "UseChangeLog": bool,
-        "InclusionPatterns": List[str],
-        "ExclusionPatterns": List[str],
-        "VpcConfiguration": "DataSourceVpcConfigurationTypeDef",
-        "FieldMappings": List["DataSourceToIndexFieldMappingTypeDef"],
-        "DocumentTitleFieldName": str,
-        "DisableLocalGroups": bool,
-        "SslCertificateS3Path": "S3PathTypeDef",
-        "AuthenticationType": SharePointOnlineAuthenticationTypeType,
-        "ProxyConfiguration": "ProxyConfigurationTypeDef",
-    },
-    total=False,
-)
-
-class SharePointConfigurationTypeDef(
-    _RequiredSharePointConfigurationTypeDef, _OptionalSharePointConfigurationTypeDef
-):
-    pass
-
-SiteMapsConfigurationTypeDef = TypedDict(
-    "SiteMapsConfigurationTypeDef",
-    {
-        "SiteMaps": List[str],
-    },
-)
-
-_RequiredSlackConfigurationTypeDef = TypedDict(
-    "_RequiredSlackConfigurationTypeDef",
-    {
-        "TeamId": str,
-        "SecretArn": str,
-        "SlackEntityList": List[SlackEntityType],
-        "SinceCrawlDate": str,
-    },
-)
-_OptionalSlackConfigurationTypeDef = TypedDict(
-    "_OptionalSlackConfigurationTypeDef",
-    {
-        "VpcConfiguration": "DataSourceVpcConfigurationTypeDef",
-        "UseChangeLog": bool,
-        "CrawlBotMessage": bool,
-        "ExcludeArchived": bool,
-        "LookBackPeriod": int,
-        "PrivateChannelFilter": List[str],
-        "PublicChannelFilter": List[str],
-        "InclusionPatterns": List[str],
-        "ExclusionPatterns": List[str],
-        "FieldMappings": List["DataSourceToIndexFieldMappingTypeDef"],
-    },
-    total=False,
-)
-
-class SlackConfigurationTypeDef(
-    _RequiredSlackConfigurationTypeDef, _OptionalSlackConfigurationTypeDef
-):
-    pass
-
-SortingConfigurationTypeDef = TypedDict(
-    "SortingConfigurationTypeDef",
-    {
-        "DocumentAttributeKey": str,
-        "SortOrder": SortOrderType,
-    },
-)
-
-SourceDocumentTypeDef = TypedDict(
-    "SourceDocumentTypeDef",
-    {
-        "DocumentId": str,
-        "SuggestionAttributes": List[str],
-        "AdditionalAttributes": List["DocumentAttributeTypeDef"],
-    },
-    total=False,
-)
-
-SpellCorrectedQueryTypeDef = TypedDict(
-    "SpellCorrectedQueryTypeDef",
-    {
-        "SuggestedQueryText": str,
-        "Corrections": List["CorrectionTypeDef"],
-    },
-    total=False,
-)
-
-SpellCorrectionConfigurationTypeDef = TypedDict(
-    "SpellCorrectionConfigurationTypeDef",
-    {
-        "IncludeQuerySpellCheckSuggestions": bool,
-    },
-)
-
-SqlConfigurationTypeDef = TypedDict(
-    "SqlConfigurationTypeDef",
-    {
-        "QueryIdentifiersEnclosingOption": QueryIdentifiersEnclosingOptionType,
-    },
-    total=False,
-)
-
-StartDataSourceSyncJobRequestRequestTypeDef = TypedDict(
-    "StartDataSourceSyncJobRequestRequestTypeDef",
-    {
-        "Id": str,
-        "IndexId": str,
-    },
-)
-
-StartDataSourceSyncJobResponseTypeDef = TypedDict(
-    "StartDataSourceSyncJobResponseTypeDef",
-    {
-        "ExecutionId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-StatusTypeDef = TypedDict(
-    "StatusTypeDef",
-    {
-        "DocumentId": str,
-        "DocumentStatus": DocumentStatusType,
-        "FailureCode": str,
-        "FailureReason": str,
-    },
-    total=False,
-)
-
-StopDataSourceSyncJobRequestRequestTypeDef = TypedDict(
-    "StopDataSourceSyncJobRequestRequestTypeDef",
-    {
-        "Id": str,
-        "IndexId": str,
-    },
-)
-
-_RequiredSubmitFeedbackRequestRequestTypeDef = TypedDict(
-    "_RequiredSubmitFeedbackRequestRequestTypeDef",
-    {
-        "IndexId": str,
-        "QueryId": str,
-    },
-)
-_OptionalSubmitFeedbackRequestRequestTypeDef = TypedDict(
-    "_OptionalSubmitFeedbackRequestRequestTypeDef",
-    {
-        "ClickFeedbackItems": List["ClickFeedbackTypeDef"],
-        "RelevanceFeedbackItems": List["RelevanceFeedbackTypeDef"],
-    },
-    total=False,
-)
-
-class SubmitFeedbackRequestRequestTypeDef(
-    _RequiredSubmitFeedbackRequestRequestTypeDef, _OptionalSubmitFeedbackRequestRequestTypeDef
-):
-    pass
-
-SuggestableConfigTypeDef = TypedDict(
-    "SuggestableConfigTypeDef",
-    {
-        "AttributeName": str,
-        "Suggestable": bool,
-    },
-    total=False,
-)
-
-SuggestionHighlightTypeDef = TypedDict(
-    "SuggestionHighlightTypeDef",
-    {
-        "BeginOffset": int,
-        "EndOffset": int,
-    },
-    total=False,
-)
-
-SuggestionTextWithHighlightsTypeDef = TypedDict(
-    "SuggestionTextWithHighlightsTypeDef",
-    {
-        "Text": str,
-        "Highlights": List["SuggestionHighlightTypeDef"],
-    },
-    total=False,
-)
-
-SuggestionTypeDef = TypedDict(
-    "SuggestionTypeDef",
-    {
-        "Id": str,
-        "Value": "SuggestionValueTypeDef",
-        "SourceDocuments": List["SourceDocumentTypeDef"],
-    },
-    total=False,
-)
-
-SuggestionValueTypeDef = TypedDict(
-    "SuggestionValueTypeDef",
-    {
-        "Text": "SuggestionTextWithHighlightsTypeDef",
-    },
-    total=False,
-)
-
-TableCellTypeDef = TypedDict(
-    "TableCellTypeDef",
-    {
-        "Value": str,
-        "TopAnswer": bool,
-        "Highlighted": bool,
-        "Header": bool,
-    },
-    total=False,
-)
-
-TableExcerptTypeDef = TypedDict(
-    "TableExcerptTypeDef",
-    {
-        "Rows": List["TableRowTypeDef"],
-        "TotalNumberOfRows": int,
-    },
-    total=False,
-)
-
-TableRowTypeDef = TypedDict(
-    "TableRowTypeDef",
-    {
-        "Cells": List["TableCellTypeDef"],
-    },
-    total=False,
-)
-
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "ResourceARN": str,
-        "Tags": List["TagTypeDef"],
-    },
-)
-
-TagTypeDef = TypedDict(
-    "TagTypeDef",
-    {
-        "Key": str,
-        "Value": str,
-    },
-)
-
-TemplateConfigurationTypeDef = TypedDict(
-    "TemplateConfigurationTypeDef",
-    {
-        "Template": Dict[str, Any],
-    },
-    total=False,
-)
-
-TextDocumentStatisticsTypeDef = TypedDict(
-    "TextDocumentStatisticsTypeDef",
-    {
-        "IndexedTextDocumentsCount": int,
-        "IndexedTextBytes": int,
-    },
-)
-
-TextWithHighlightsTypeDef = TypedDict(
-    "TextWithHighlightsTypeDef",
-    {
-        "Text": str,
-        "Highlights": List["HighlightTypeDef"],
-    },
-    total=False,
-)
-
-ThesaurusSummaryTypeDef = TypedDict(
-    "ThesaurusSummaryTypeDef",
-    {
-        "Id": str,
-        "Name": str,
-        "Status": ThesaurusStatusType,
-        "CreatedAt": datetime,
-        "UpdatedAt": datetime,
-    },
-    total=False,
-)
-
-TimeRangeTypeDef = TypedDict(
-    "TimeRangeTypeDef",
-    {
-        "StartTime": datetime,
-        "EndTime": datetime,
-    },
-    total=False,
-)
-
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "ResourceARN": str,
-        "TagKeys": List[str],
-    },
-)
-
-_RequiredUpdateAccessControlConfigurationRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateAccessControlConfigurationRequestRequestTypeDef",
-    {
-        "IndexId": str,
-        "Id": str,
-    },
-)
-_OptionalUpdateAccessControlConfigurationRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateAccessControlConfigurationRequestRequestTypeDef",
-    {
-        "Name": str,
-        "Description": str,
-        "AccessControlList": List["PrincipalTypeDef"],
-        "HierarchicalAccessControlList": List["HierarchicalPrincipalTypeDef"],
-    },
-    total=False,
-)
-
-class UpdateAccessControlConfigurationRequestRequestTypeDef(
-    _RequiredUpdateAccessControlConfigurationRequestRequestTypeDef,
-    _OptionalUpdateAccessControlConfigurationRequestRequestTypeDef,
-):
-    pass
-
-_RequiredUpdateDataSourceRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateDataSourceRequestRequestTypeDef",
-    {
-        "Id": str,
-        "IndexId": str,
-    },
-)
-_OptionalUpdateDataSourceRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateDataSourceRequestRequestTypeDef",
-    {
-        "Name": str,
-        "Configuration": "DataSourceConfigurationTypeDef",
-        "VpcConfiguration": "DataSourceVpcConfigurationTypeDef",
-        "Description": str,
-        "Schedule": str,
-        "RoleArn": str,
-        "LanguageCode": str,
-        "CustomDocumentEnrichmentConfiguration": "CustomDocumentEnrichmentConfigurationTypeDef",
-    },
-    total=False,
-)
-
-class UpdateDataSourceRequestRequestTypeDef(
-    _RequiredUpdateDataSourceRequestRequestTypeDef, _OptionalUpdateDataSourceRequestRequestTypeDef
-):
-    pass
-
-_RequiredUpdateExperienceRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateExperienceRequestRequestTypeDef",
-    {
-        "Id": str,
-        "IndexId": str,
-    },
-)
-_OptionalUpdateExperienceRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateExperienceRequestRequestTypeDef",
-    {
-        "Name": str,
-        "RoleArn": str,
-        "Configuration": "ExperienceConfigurationTypeDef",
-        "Description": str,
-    },
-    total=False,
-)
-
-class UpdateExperienceRequestRequestTypeDef(
-    _RequiredUpdateExperienceRequestRequestTypeDef, _OptionalUpdateExperienceRequestRequestTypeDef
-):
-    pass
-
-_RequiredUpdateFeaturedResultsSetRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateFeaturedResultsSetRequestRequestTypeDef",
-    {
-        "IndexId": str,
-        "FeaturedResultsSetId": str,
-    },
-)
-_OptionalUpdateFeaturedResultsSetRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateFeaturedResultsSetRequestRequestTypeDef",
-    {
-        "FeaturedResultsSetName": str,
-        "Description": str,
-        "Status": FeaturedResultsSetStatusType,
-        "QueryTexts": List[str],
-        "FeaturedDocuments": List["FeaturedDocumentTypeDef"],
-    },
-    total=False,
-)
-
-class UpdateFeaturedResultsSetRequestRequestTypeDef(
-    _RequiredUpdateFeaturedResultsSetRequestRequestTypeDef,
-    _OptionalUpdateFeaturedResultsSetRequestRequestTypeDef,
-):
-    pass
-
-UpdateFeaturedResultsSetResponseTypeDef = TypedDict(
-    "UpdateFeaturedResultsSetResponseTypeDef",
-    {
-        "FeaturedResultsSet": "FeaturedResultsSetTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateIndexRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateIndexRequestRequestTypeDef",
-    {
-        "Id": str,
-    },
-)
-_OptionalUpdateIndexRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateIndexRequestRequestTypeDef",
-    {
-        "Name": str,
-        "RoleArn": str,
-        "Description": str,
-        "DocumentMetadataConfigurationUpdates": List["DocumentMetadataConfigurationTypeDef"],
-        "CapacityUnits": "CapacityUnitsConfigurationTypeDef",
-        "UserTokenConfigurations": List["UserTokenConfigurationTypeDef"],
-        "UserContextPolicy": UserContextPolicyType,
-        "UserGroupResolutionConfiguration": "UserGroupResolutionConfigurationTypeDef",
-    },
-    total=False,
-)
-
-class UpdateIndexRequestRequestTypeDef(
-    _RequiredUpdateIndexRequestRequestTypeDef, _OptionalUpdateIndexRequestRequestTypeDef
-):
-    pass
-
-_RequiredUpdateQuerySuggestionsBlockListRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateQuerySuggestionsBlockListRequestRequestTypeDef",
-    {
-        "IndexId": str,
-        "Id": str,
-    },
-)
-_OptionalUpdateQuerySuggestionsBlockListRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateQuerySuggestionsBlockListRequestRequestTypeDef",
-    {
-        "Name": str,
-        "Description": str,
-        "SourceS3Path": "S3PathTypeDef",
-        "RoleArn": str,
-    },
-    total=False,
-)
-
-class UpdateQuerySuggestionsBlockListRequestRequestTypeDef(
-    _RequiredUpdateQuerySuggestionsBlockListRequestRequestTypeDef,
-    _OptionalUpdateQuerySuggestionsBlockListRequestRequestTypeDef,
-):
-    pass
-
-_RequiredUpdateQuerySuggestionsConfigRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateQuerySuggestionsConfigRequestRequestTypeDef",
-    {
-        "IndexId": str,
-    },
-)
-_OptionalUpdateQuerySuggestionsConfigRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateQuerySuggestionsConfigRequestRequestTypeDef",
-    {
-        "Mode": ModeType,
-        "QueryLogLookBackWindowInDays": int,
-        "IncludeQueriesWithoutUserInformation": bool,
-        "MinimumNumberOfQueryingUsers": int,
-        "MinimumQueryCount": int,
-        "AttributeSuggestionsConfig": "AttributeSuggestionsUpdateConfigTypeDef",
-    },
-    total=False,
-)
-
-class UpdateQuerySuggestionsConfigRequestRequestTypeDef(
-    _RequiredUpdateQuerySuggestionsConfigRequestRequestTypeDef,
-    _OptionalUpdateQuerySuggestionsConfigRequestRequestTypeDef,
-):
-    pass
-
-_RequiredUpdateThesaurusRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateThesaurusRequestRequestTypeDef",
-    {
-        "Id": str,
-        "IndexId": str,
-    },
-)
-_OptionalUpdateThesaurusRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateThesaurusRequestRequestTypeDef",
-    {
-        "Name": str,
-        "Description": str,
-        "RoleArn": str,
-        "SourceS3Path": "S3PathTypeDef",
-    },
-    total=False,
-)
-
-class UpdateThesaurusRequestRequestTypeDef(
-    _RequiredUpdateThesaurusRequestRequestTypeDef, _OptionalUpdateThesaurusRequestRequestTypeDef
-):
-    pass
-
-UrlsTypeDef = TypedDict(
-    "UrlsTypeDef",
-    {
-        "SeedUrlConfiguration": "SeedUrlConfigurationTypeDef",
-        "SiteMapsConfiguration": "SiteMapsConfigurationTypeDef",
-    },
-    total=False,
-)
-
-UserContextTypeDef = TypedDict(
-    "UserContextTypeDef",
-    {
-        "Token": str,
-        "UserId": str,
-        "Groups": List[str],
-        "DataSourceGroups": List["DataSourceGroupTypeDef"],
-    },
-    total=False,
-)
-
-UserGroupResolutionConfigurationTypeDef = TypedDict(
-    "UserGroupResolutionConfigurationTypeDef",
-    {
-        "UserGroupResolutionMode": UserGroupResolutionModeType,
-    },
-)
-
-UserIdentityConfigurationTypeDef = TypedDict(
-    "UserIdentityConfigurationTypeDef",
-    {
-        "IdentityAttributeName": str,
-    },
-    total=False,
-)
-
-UserTokenConfigurationTypeDef = TypedDict(
-    "UserTokenConfigurationTypeDef",
-    {
-        "JwtTokenTypeConfiguration": "JwtTokenTypeConfigurationTypeDef",
-        "JsonTokenTypeConfiguration": "JsonTokenTypeConfigurationTypeDef",
-    },
-    total=False,
-)
-
-WarningTypeDef = TypedDict(
-    "WarningTypeDef",
-    {
-        "Message": str,
-        "Code": Literal["QUERY_LANGUAGE_INVALID_SYNTAX"],
-    },
-    total=False,
-)
-
-_RequiredWebCrawlerConfigurationTypeDef = TypedDict(
-    "_RequiredWebCrawlerConfigurationTypeDef",
-    {
-        "Urls": "UrlsTypeDef",
-    },
-)
-_OptionalWebCrawlerConfigurationTypeDef = TypedDict(
-    "_OptionalWebCrawlerConfigurationTypeDef",
-    {
-        "CrawlDepth": int,
-        "MaxLinksPerPage": int,
-        "MaxContentSizePerPageInMegaBytes": float,
-        "MaxUrlsPerMinuteCrawlRate": int,
-        "UrlInclusionPatterns": List[str],
-        "UrlExclusionPatterns": List[str],
-        "ProxyConfiguration": "ProxyConfigurationTypeDef",
-        "AuthenticationConfiguration": "AuthenticationConfigurationTypeDef",
-    },
-    total=False,
-)
-
-class WebCrawlerConfigurationTypeDef(
-    _RequiredWebCrawlerConfigurationTypeDef, _OptionalWebCrawlerConfigurationTypeDef
-):
-    pass
-
-_RequiredWorkDocsConfigurationTypeDef = TypedDict(
-    "_RequiredWorkDocsConfigurationTypeDef",
-    {
-        "OrganizationId": str,
-    },
-)
-_OptionalWorkDocsConfigurationTypeDef = TypedDict(
-    "_OptionalWorkDocsConfigurationTypeDef",
-    {
-        "CrawlComments": bool,
-        "UseChangeLog": bool,
-        "InclusionPatterns": List[str],
-        "ExclusionPatterns": List[str],
-        "FieldMappings": List["DataSourceToIndexFieldMappingTypeDef"],
-    },
-    total=False,
-)
-
-class WorkDocsConfigurationTypeDef(
-    _RequiredWorkDocsConfigurationTypeDef, _OptionalWorkDocsConfigurationTypeDef
-):
-    pass
+class UpdateDataSourceRequestTypeDef(TypedDict):
+    Id: str
+    IndexId: str
+    Name: NotRequired[str]
+    Configuration: NotRequired[DataSourceConfigurationUnionTypeDef]
+    VpcConfiguration: NotRequired[DataSourceVpcConfigurationUnionTypeDef]
+    Description: NotRequired[str]
+    Schedule: NotRequired[str]
+    RoleArn: NotRequired[str]
+    LanguageCode: NotRequired[str]
+    CustomDocumentEnrichmentConfiguration: NotRequired[
+        CustomDocumentEnrichmentConfigurationUnionTypeDef
+    ]
+
+class AttributeSuggestionsGetConfigTypeDef(TypedDict):
+    SuggestionAttributes: NotRequired[Sequence[str]]
+    AdditionalResponseAttributes: NotRequired[Sequence[str]]
+    AttributeFilter: NotRequired[AttributeFilterTypeDef]
+    UserContext: NotRequired[UserContextTypeDef]
+
+class QueryRequestTypeDef(TypedDict):
+    IndexId: str
+    QueryText: NotRequired[str]
+    AttributeFilter: NotRequired[AttributeFilterTypeDef]
+    Facets: NotRequired[Sequence[FacetTypeDef]]
+    RequestedDocumentAttributes: NotRequired[Sequence[str]]
+    QueryResultTypeFilter: NotRequired[QueryResultTypeType]
+    DocumentRelevanceOverrideConfigurations: NotRequired[
+        Sequence[DocumentRelevanceConfigurationTypeDef]
+    ]
+    PageNumber: NotRequired[int]
+    PageSize: NotRequired[int]
+    SortingConfiguration: NotRequired[SortingConfigurationTypeDef]
+    SortingConfigurations: NotRequired[Sequence[SortingConfigurationTypeDef]]
+    UserContext: NotRequired[UserContextTypeDef]
+    VisitorId: NotRequired[str]
+    SpellCorrectionConfiguration: NotRequired[SpellCorrectionConfigurationTypeDef]
+    CollapseConfiguration: NotRequired[CollapseConfigurationTypeDef]
+
+class RetrieveRequestTypeDef(TypedDict):
+    IndexId: str
+    QueryText: str
+    AttributeFilter: NotRequired[AttributeFilterTypeDef]
+    RequestedDocumentAttributes: NotRequired[Sequence[str]]
+    DocumentRelevanceOverrideConfigurations: NotRequired[
+        Sequence[DocumentRelevanceConfigurationTypeDef]
+    ]
+    PageNumber: NotRequired[int]
+    PageSize: NotRequired[int]
+    UserContext: NotRequired[UserContextTypeDef]
+
+class BatchGetDocumentStatusRequestTypeDef(TypedDict):
+    IndexId: str
+    DocumentInfoList: Sequence[DocumentInfoTypeDef]
+
+class BatchPutDocumentRequestTypeDef(TypedDict):
+    IndexId: str
+    Documents: Sequence[DocumentTypeDef]
+    RoleArn: NotRequired[str]
+    CustomDocumentEnrichmentConfiguration: NotRequired[
+        CustomDocumentEnrichmentConfigurationUnionTypeDef
+    ]
+
+class GetQuerySuggestionsRequestTypeDef(TypedDict):
+    IndexId: str
+    QueryText: str
+    MaxSuggestionsCount: NotRequired[int]
+    SuggestionTypes: NotRequired[Sequence[SuggestionTypeType]]
+    AttributeSuggestionsConfig: NotRequired[AttributeSuggestionsGetConfigTypeDef]

@@ -1,267 +1,164 @@
 """
 Type annotations for kendra-ranking service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kendra_ranking/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kendra_ranking/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_kendra_ranking.type_defs import CapacityUnitsConfigurationTypeDef
 
-    data: CapacityUnitsConfigurationTypeDef = {...}
+    data: CapacityUnitsConfigurationTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
 
 from .literals import RescoreExecutionPlanStatusType
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Sequence
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List, Sequence
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
     "CapacityUnitsConfigurationTypeDef",
-    "CreateRescoreExecutionPlanRequestRequestTypeDef",
+    "CreateRescoreExecutionPlanRequestTypeDef",
     "CreateRescoreExecutionPlanResponseTypeDef",
-    "DeleteRescoreExecutionPlanRequestRequestTypeDef",
-    "DescribeRescoreExecutionPlanRequestRequestTypeDef",
+    "DeleteRescoreExecutionPlanRequestTypeDef",
+    "DescribeRescoreExecutionPlanRequestTypeDef",
     "DescribeRescoreExecutionPlanResponseTypeDef",
     "DocumentTypeDef",
-    "ListRescoreExecutionPlansRequestRequestTypeDef",
+    "EmptyResponseMetadataTypeDef",
+    "ListRescoreExecutionPlansRequestTypeDef",
     "ListRescoreExecutionPlansResponseTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "RescoreExecutionPlanSummaryTypeDef",
-    "RescoreRequestRequestTypeDef",
+    "RescoreRequestTypeDef",
     "RescoreResultItemTypeDef",
     "RescoreResultTypeDef",
     "ResponseMetadataTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
     "TagTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateRescoreExecutionPlanRequestRequestTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateRescoreExecutionPlanRequestTypeDef",
 )
 
-CapacityUnitsConfigurationTypeDef = TypedDict(
-    "CapacityUnitsConfigurationTypeDef",
-    {
-        "RescoreCapacityUnits": int,
-    },
-)
+class CapacityUnitsConfigurationTypeDef(TypedDict):
+    RescoreCapacityUnits: int
 
-_RequiredCreateRescoreExecutionPlanRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateRescoreExecutionPlanRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
-_OptionalCreateRescoreExecutionPlanRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateRescoreExecutionPlanRequestRequestTypeDef",
-    {
-        "Description": str,
-        "CapacityUnits": "CapacityUnitsConfigurationTypeDef",
-        "Tags": List["TagTypeDef"],
-        "ClientToken": str,
-    },
-    total=False,
-)
+class TagTypeDef(TypedDict):
+    Key: str
+    Value: str
 
-class CreateRescoreExecutionPlanRequestRequestTypeDef(
-    _RequiredCreateRescoreExecutionPlanRequestRequestTypeDef,
-    _OptionalCreateRescoreExecutionPlanRequestRequestTypeDef,
-):
-    pass
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-CreateRescoreExecutionPlanResponseTypeDef = TypedDict(
-    "CreateRescoreExecutionPlanResponseTypeDef",
-    {
-        "Id": str,
-        "Arn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DeleteRescoreExecutionPlanRequestTypeDef(TypedDict):
+    Id: str
 
-DeleteRescoreExecutionPlanRequestRequestTypeDef = TypedDict(
-    "DeleteRescoreExecutionPlanRequestRequestTypeDef",
-    {
-        "Id": str,
-    },
-)
+class DescribeRescoreExecutionPlanRequestTypeDef(TypedDict):
+    Id: str
 
-DescribeRescoreExecutionPlanRequestRequestTypeDef = TypedDict(
-    "DescribeRescoreExecutionPlanRequestRequestTypeDef",
-    {
-        "Id": str,
-    },
-)
+class DocumentTypeDef(TypedDict):
+    Id: str
+    OriginalScore: float
+    GroupId: NotRequired[str]
+    Title: NotRequired[str]
+    Body: NotRequired[str]
+    TokenizedTitle: NotRequired[Sequence[str]]
+    TokenizedBody: NotRequired[Sequence[str]]
 
-DescribeRescoreExecutionPlanResponseTypeDef = TypedDict(
-    "DescribeRescoreExecutionPlanResponseTypeDef",
-    {
-        "Id": str,
-        "Arn": str,
-        "Name": str,
-        "Description": str,
-        "CapacityUnits": "CapacityUnitsConfigurationTypeDef",
-        "CreatedAt": datetime,
-        "UpdatedAt": datetime,
-        "Status": RescoreExecutionPlanStatusType,
-        "ErrorMessage": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListRescoreExecutionPlansRequestTypeDef(TypedDict):
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
 
-_RequiredDocumentTypeDef = TypedDict(
-    "_RequiredDocumentTypeDef",
-    {
-        "Id": str,
-        "OriginalScore": float,
-    },
-)
-_OptionalDocumentTypeDef = TypedDict(
-    "_OptionalDocumentTypeDef",
-    {
-        "GroupId": str,
-        "Title": str,
-        "Body": str,
-        "TokenizedTitle": List[str],
-        "TokenizedBody": List[str],
-    },
-    total=False,
-)
+class RescoreExecutionPlanSummaryTypeDef(TypedDict):
+    Name: NotRequired[str]
+    Id: NotRequired[str]
+    CreatedAt: NotRequired[datetime]
+    UpdatedAt: NotRequired[datetime]
+    Status: NotRequired[RescoreExecutionPlanStatusType]
 
-class DocumentTypeDef(_RequiredDocumentTypeDef, _OptionalDocumentTypeDef):
-    pass
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    ResourceARN: str
 
-ListRescoreExecutionPlansRequestRequestTypeDef = TypedDict(
-    "ListRescoreExecutionPlansRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
+class RescoreResultItemTypeDef(TypedDict):
+    DocumentId: NotRequired[str]
+    Score: NotRequired[float]
 
-ListRescoreExecutionPlansResponseTypeDef = TypedDict(
-    "ListRescoreExecutionPlansResponseTypeDef",
-    {
-        "SummaryItems": List["RescoreExecutionPlanSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class UntagResourceRequestTypeDef(TypedDict):
+    ResourceARN: str
+    TagKeys: Sequence[str]
 
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "ResourceARN": str,
-    },
-)
+class UpdateRescoreExecutionPlanRequestTypeDef(TypedDict):
+    Id: str
+    Name: NotRequired[str]
+    Description: NotRequired[str]
+    CapacityUnits: NotRequired[CapacityUnitsConfigurationTypeDef]
 
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "Tags": List["TagTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CreateRescoreExecutionPlanRequestTypeDef(TypedDict):
+    Name: str
+    Description: NotRequired[str]
+    CapacityUnits: NotRequired[CapacityUnitsConfigurationTypeDef]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+    ClientToken: NotRequired[str]
 
-RescoreExecutionPlanSummaryTypeDef = TypedDict(
-    "RescoreExecutionPlanSummaryTypeDef",
-    {
-        "Name": str,
-        "Id": str,
-        "CreatedAt": datetime,
-        "UpdatedAt": datetime,
-        "Status": RescoreExecutionPlanStatusType,
-    },
-    total=False,
-)
+class TagResourceRequestTypeDef(TypedDict):
+    ResourceARN: str
+    Tags: Sequence[TagTypeDef]
 
-RescoreRequestRequestTypeDef = TypedDict(
-    "RescoreRequestRequestTypeDef",
-    {
-        "RescoreExecutionPlanId": str,
-        "SearchQuery": str,
-        "Documents": List["DocumentTypeDef"],
-    },
-)
+class CreateRescoreExecutionPlanResponseTypeDef(TypedDict):
+    Id: str
+    Arn: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-RescoreResultItemTypeDef = TypedDict(
-    "RescoreResultItemTypeDef",
-    {
-        "DocumentId": str,
-        "Score": float,
-    },
-    total=False,
-)
+class DescribeRescoreExecutionPlanResponseTypeDef(TypedDict):
+    Id: str
+    Arn: str
+    Name: str
+    Description: str
+    CapacityUnits: CapacityUnitsConfigurationTypeDef
+    CreatedAt: datetime
+    UpdatedAt: datetime
+    Status: RescoreExecutionPlanStatusType
+    ErrorMessage: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-RescoreResultTypeDef = TypedDict(
-    "RescoreResultTypeDef",
-    {
-        "RescoreId": str,
-        "ResultItems": List["RescoreResultItemTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class EmptyResponseMetadataTypeDef(TypedDict):
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    Tags: List[TagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "ResourceARN": str,
-        "Tags": List["TagTypeDef"],
-    },
-)
+class RescoreRequestTypeDef(TypedDict):
+    RescoreExecutionPlanId: str
+    SearchQuery: str
+    Documents: Sequence[DocumentTypeDef]
 
-TagTypeDef = TypedDict(
-    "TagTypeDef",
-    {
-        "Key": str,
-        "Value": str,
-    },
-)
+class ListRescoreExecutionPlansResponseTypeDef(TypedDict):
+    SummaryItems: List[RescoreExecutionPlanSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "ResourceARN": str,
-        "TagKeys": List[str],
-    },
-)
-
-_RequiredUpdateRescoreExecutionPlanRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateRescoreExecutionPlanRequestRequestTypeDef",
-    {
-        "Id": str,
-    },
-)
-_OptionalUpdateRescoreExecutionPlanRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateRescoreExecutionPlanRequestRequestTypeDef",
-    {
-        "Name": str,
-        "Description": str,
-        "CapacityUnits": "CapacityUnitsConfigurationTypeDef",
-    },
-    total=False,
-)
-
-class UpdateRescoreExecutionPlanRequestRequestTypeDef(
-    _RequiredUpdateRescoreExecutionPlanRequestRequestTypeDef,
-    _OptionalUpdateRescoreExecutionPlanRequestRequestTypeDef,
-):
-    pass
+class RescoreResultTypeDef(TypedDict):
+    RescoreId: str
+    ResultItems: List[RescoreResultItemTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef

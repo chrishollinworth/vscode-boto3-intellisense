@@ -1,10 +1,14 @@
 """
 Main interface for schemas service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_schemas/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_schemas import (
         Client,
         CodeBindingExistsWaiter,
@@ -16,10 +20,8 @@ Usage::
         SearchSchemasPaginator,
     )
 
-    session = boto3.Session()
-
-    client: SchemasClient = boto3.client("schemas")
-    session_client: SchemasClient = session.client("schemas")
+    session = Session()
+    client: SchemasClient = session.client("schemas")
 
     code_binding_exists_waiter: CodeBindingExistsWaiter = client.get_waiter("code_binding_exists")
 

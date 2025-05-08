@@ -1,246 +1,142 @@
 """
 Type annotations for support-app service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_support_app/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_support_app/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_support_app.type_defs import CreateSlackChannelConfigurationRequestRequestTypeDef
+    from mypy_boto3_support_app.type_defs import CreateSlackChannelConfigurationRequestTypeDef
 
-    data: CreateSlackChannelConfigurationRequestRequestTypeDef = {...}
+    data: CreateSlackChannelConfigurationRequestTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from typing import Any, Dict, List
 
 from .literals import AccountTypeType, NotificationSeverityLevelType
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
-    "CreateSlackChannelConfigurationRequestRequestTypeDef",
-    "DeleteSlackChannelConfigurationRequestRequestTypeDef",
-    "DeleteSlackWorkspaceConfigurationRequestRequestTypeDef",
+    "CreateSlackChannelConfigurationRequestTypeDef",
+    "DeleteSlackChannelConfigurationRequestTypeDef",
+    "DeleteSlackWorkspaceConfigurationRequestTypeDef",
     "GetAccountAliasResultTypeDef",
-    "ListSlackChannelConfigurationsRequestRequestTypeDef",
+    "ListSlackChannelConfigurationsRequestTypeDef",
     "ListSlackChannelConfigurationsResultTypeDef",
-    "ListSlackWorkspaceConfigurationsRequestRequestTypeDef",
+    "ListSlackWorkspaceConfigurationsRequestTypeDef",
     "ListSlackWorkspaceConfigurationsResultTypeDef",
-    "PutAccountAliasRequestRequestTypeDef",
-    "RegisterSlackWorkspaceForOrganizationRequestRequestTypeDef",
+    "PutAccountAliasRequestTypeDef",
+    "RegisterSlackWorkspaceForOrganizationRequestTypeDef",
     "RegisterSlackWorkspaceForOrganizationResultTypeDef",
     "ResponseMetadataTypeDef",
     "SlackChannelConfigurationTypeDef",
     "SlackWorkspaceConfigurationTypeDef",
-    "UpdateSlackChannelConfigurationRequestRequestTypeDef",
+    "UpdateSlackChannelConfigurationRequestTypeDef",
     "UpdateSlackChannelConfigurationResultTypeDef",
 )
 
-_RequiredCreateSlackChannelConfigurationRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateSlackChannelConfigurationRequestRequestTypeDef",
-    {
-        "channelId": str,
-        "channelRoleArn": str,
-        "notifyOnCaseSeverity": NotificationSeverityLevelType,
-        "teamId": str,
-    },
-)
-_OptionalCreateSlackChannelConfigurationRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateSlackChannelConfigurationRequestRequestTypeDef",
-    {
-        "channelName": str,
-        "notifyOnAddCorrespondenceToCase": bool,
-        "notifyOnCreateOrReopenCase": bool,
-        "notifyOnResolveCase": bool,
-    },
-    total=False,
-)
+class CreateSlackChannelConfigurationRequestTypeDef(TypedDict):
+    channelId: str
+    channelRoleArn: str
+    notifyOnCaseSeverity: NotificationSeverityLevelType
+    teamId: str
+    channelName: NotRequired[str]
+    notifyOnAddCorrespondenceToCase: NotRequired[bool]
+    notifyOnCreateOrReopenCase: NotRequired[bool]
+    notifyOnResolveCase: NotRequired[bool]
 
-class CreateSlackChannelConfigurationRequestRequestTypeDef(
-    _RequiredCreateSlackChannelConfigurationRequestRequestTypeDef,
-    _OptionalCreateSlackChannelConfigurationRequestRequestTypeDef,
-):
-    pass
+class DeleteSlackChannelConfigurationRequestTypeDef(TypedDict):
+    channelId: str
+    teamId: str
 
-DeleteSlackChannelConfigurationRequestRequestTypeDef = TypedDict(
-    "DeleteSlackChannelConfigurationRequestRequestTypeDef",
-    {
-        "channelId": str,
-        "teamId": str,
-    },
-)
+class DeleteSlackWorkspaceConfigurationRequestTypeDef(TypedDict):
+    teamId: str
 
-DeleteSlackWorkspaceConfigurationRequestRequestTypeDef = TypedDict(
-    "DeleteSlackWorkspaceConfigurationRequestRequestTypeDef",
-    {
-        "teamId": str,
-    },
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-GetAccountAliasResultTypeDef = TypedDict(
-    "GetAccountAliasResultTypeDef",
-    {
-        "accountAlias": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListSlackChannelConfigurationsRequestTypeDef(TypedDict):
+    nextToken: NotRequired[str]
 
-ListSlackChannelConfigurationsRequestRequestTypeDef = TypedDict(
-    "ListSlackChannelConfigurationsRequestRequestTypeDef",
-    {
-        "nextToken": str,
-    },
-    total=False,
-)
+class SlackChannelConfigurationTypeDef(TypedDict):
+    channelId: str
+    teamId: str
+    channelName: NotRequired[str]
+    channelRoleArn: NotRequired[str]
+    notifyOnAddCorrespondenceToCase: NotRequired[bool]
+    notifyOnCaseSeverity: NotRequired[NotificationSeverityLevelType]
+    notifyOnCreateOrReopenCase: NotRequired[bool]
+    notifyOnResolveCase: NotRequired[bool]
 
-ListSlackChannelConfigurationsResultTypeDef = TypedDict(
-    "ListSlackChannelConfigurationsResultTypeDef",
-    {
-        "nextToken": str,
-        "slackChannelConfigurations": List["SlackChannelConfigurationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListSlackWorkspaceConfigurationsRequestTypeDef(TypedDict):
+    nextToken: NotRequired[str]
 
-ListSlackWorkspaceConfigurationsRequestRequestTypeDef = TypedDict(
-    "ListSlackWorkspaceConfigurationsRequestRequestTypeDef",
-    {
-        "nextToken": str,
-    },
-    total=False,
-)
+class SlackWorkspaceConfigurationTypeDef(TypedDict):
+    teamId: str
+    allowOrganizationMemberAccount: NotRequired[bool]
+    teamName: NotRequired[str]
 
-ListSlackWorkspaceConfigurationsResultTypeDef = TypedDict(
-    "ListSlackWorkspaceConfigurationsResultTypeDef",
-    {
-        "nextToken": str,
-        "slackWorkspaceConfigurations": List["SlackWorkspaceConfigurationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class PutAccountAliasRequestTypeDef(TypedDict):
+    accountAlias: str
 
-PutAccountAliasRequestRequestTypeDef = TypedDict(
-    "PutAccountAliasRequestRequestTypeDef",
-    {
-        "accountAlias": str,
-    },
-)
+class RegisterSlackWorkspaceForOrganizationRequestTypeDef(TypedDict):
+    teamId: str
 
-RegisterSlackWorkspaceForOrganizationRequestRequestTypeDef = TypedDict(
-    "RegisterSlackWorkspaceForOrganizationRequestRequestTypeDef",
-    {
-        "teamId": str,
-    },
-)
+class UpdateSlackChannelConfigurationRequestTypeDef(TypedDict):
+    channelId: str
+    teamId: str
+    channelName: NotRequired[str]
+    channelRoleArn: NotRequired[str]
+    notifyOnAddCorrespondenceToCase: NotRequired[bool]
+    notifyOnCaseSeverity: NotRequired[NotificationSeverityLevelType]
+    notifyOnCreateOrReopenCase: NotRequired[bool]
+    notifyOnResolveCase: NotRequired[bool]
 
-RegisterSlackWorkspaceForOrganizationResultTypeDef = TypedDict(
-    "RegisterSlackWorkspaceForOrganizationResultTypeDef",
-    {
-        "accountType": AccountTypeType,
-        "teamId": str,
-        "teamName": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetAccountAliasResultTypeDef(TypedDict):
+    accountAlias: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
+class RegisterSlackWorkspaceForOrganizationResultTypeDef(TypedDict):
+    accountType: AccountTypeType
+    teamId: str
+    teamName: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredSlackChannelConfigurationTypeDef = TypedDict(
-    "_RequiredSlackChannelConfigurationTypeDef",
-    {
-        "channelId": str,
-        "teamId": str,
-    },
-)
-_OptionalSlackChannelConfigurationTypeDef = TypedDict(
-    "_OptionalSlackChannelConfigurationTypeDef",
-    {
-        "channelName": str,
-        "channelRoleArn": str,
-        "notifyOnAddCorrespondenceToCase": bool,
-        "notifyOnCaseSeverity": NotificationSeverityLevelType,
-        "notifyOnCreateOrReopenCase": bool,
-        "notifyOnResolveCase": bool,
-    },
-    total=False,
-)
+class UpdateSlackChannelConfigurationResultTypeDef(TypedDict):
+    channelId: str
+    channelName: str
+    channelRoleArn: str
+    notifyOnAddCorrespondenceToCase: bool
+    notifyOnCaseSeverity: NotificationSeverityLevelType
+    notifyOnCreateOrReopenCase: bool
+    notifyOnResolveCase: bool
+    teamId: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class SlackChannelConfigurationTypeDef(
-    _RequiredSlackChannelConfigurationTypeDef, _OptionalSlackChannelConfigurationTypeDef
-):
-    pass
+class ListSlackChannelConfigurationsResultTypeDef(TypedDict):
+    slackChannelConfigurations: List[SlackChannelConfigurationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-_RequiredSlackWorkspaceConfigurationTypeDef = TypedDict(
-    "_RequiredSlackWorkspaceConfigurationTypeDef",
-    {
-        "teamId": str,
-    },
-)
-_OptionalSlackWorkspaceConfigurationTypeDef = TypedDict(
-    "_OptionalSlackWorkspaceConfigurationTypeDef",
-    {
-        "allowOrganizationMemberAccount": bool,
-        "teamName": str,
-    },
-    total=False,
-)
-
-class SlackWorkspaceConfigurationTypeDef(
-    _RequiredSlackWorkspaceConfigurationTypeDef, _OptionalSlackWorkspaceConfigurationTypeDef
-):
-    pass
-
-_RequiredUpdateSlackChannelConfigurationRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateSlackChannelConfigurationRequestRequestTypeDef",
-    {
-        "channelId": str,
-        "teamId": str,
-    },
-)
-_OptionalUpdateSlackChannelConfigurationRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateSlackChannelConfigurationRequestRequestTypeDef",
-    {
-        "channelName": str,
-        "channelRoleArn": str,
-        "notifyOnAddCorrespondenceToCase": bool,
-        "notifyOnCaseSeverity": NotificationSeverityLevelType,
-        "notifyOnCreateOrReopenCase": bool,
-        "notifyOnResolveCase": bool,
-    },
-    total=False,
-)
-
-class UpdateSlackChannelConfigurationRequestRequestTypeDef(
-    _RequiredUpdateSlackChannelConfigurationRequestRequestTypeDef,
-    _OptionalUpdateSlackChannelConfigurationRequestRequestTypeDef,
-):
-    pass
-
-UpdateSlackChannelConfigurationResultTypeDef = TypedDict(
-    "UpdateSlackChannelConfigurationResultTypeDef",
-    {
-        "channelId": str,
-        "channelName": str,
-        "channelRoleArn": str,
-        "notifyOnAddCorrespondenceToCase": bool,
-        "notifyOnCaseSeverity": NotificationSeverityLevelType,
-        "notifyOnCreateOrReopenCase": bool,
-        "notifyOnResolveCase": bool,
-        "teamId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListSlackWorkspaceConfigurationsResultTypeDef(TypedDict):
+    slackWorkspaceConfigurations: List[SlackWorkspaceConfigurationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]

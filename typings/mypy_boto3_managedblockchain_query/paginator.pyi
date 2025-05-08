@@ -1,14 +1,16 @@
 """
 Type annotations for managedblockchain-query service client paginators.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain_query/paginators.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain_query/paginators/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
 
-    from mypy_boto3_managedblockchain_query import ManagedBlockchainQueryClient
+    from mypy_boto3_managedblockchain_query.client import ManagedBlockchainQueryClient
     from mypy_boto3_managedblockchain_query.paginator import (
         ListAssetContractsPaginator,
         ListFilteredTransactionEventsPaginator,
@@ -17,7 +19,8 @@ Usage::
         ListTransactionsPaginator,
     )
 
-    client: ManagedBlockchainQueryClient = boto3.client("managedblockchain-query")
+    session = Session()
+    client: ManagedBlockchainQueryClient = session.client("managedblockchain-query")
 
     list_asset_contracts_paginator: ListAssetContractsPaginator = client.get_paginator("list_asset_contracts")
     list_filtered_transaction_events_paginator: ListFilteredTransactionEventsPaginator = client.get_paginator("list_filtered_transaction_events")
@@ -27,29 +30,30 @@ Usage::
     ```
 """
 
-from typing import Iterator
+from __future__ import annotations
 
-from botocore.paginate import Paginator as Boto3Paginator
+import sys
+from typing import TYPE_CHECKING
 
-from .literals import QueryNetworkType
+from botocore.paginate import PageIterator, Paginator
+
 from .type_defs import (
-    AddressIdentifierFilterTypeDef,
-    BlockchainInstantTypeDef,
-    ConfirmationStatusFilterTypeDef,
-    ContractFilterTypeDef,
+    ListAssetContractsInputPaginateTypeDef,
     ListAssetContractsOutputTypeDef,
+    ListFilteredTransactionEventsInputPaginateTypeDef,
     ListFilteredTransactionEventsOutputTypeDef,
-    ListFilteredTransactionEventsSortTypeDef,
+    ListTokenBalancesInputPaginateTypeDef,
     ListTokenBalancesOutputTypeDef,
+    ListTransactionEventsInputPaginateTypeDef,
     ListTransactionEventsOutputTypeDef,
+    ListTransactionsInputPaginateTypeDef,
     ListTransactionsOutputTypeDef,
-    ListTransactionsSortTypeDef,
-    OwnerFilterTypeDef,
-    PaginatorConfigTypeDef,
-    TimeFilterTypeDef,
-    TokenFilterTypeDef,
-    VoutFilterTypeDef,
 )
+
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = (
     "ListAssetContractsPaginator",
@@ -59,100 +63,94 @@ __all__ = (
     "ListTransactionsPaginator",
 )
 
-class ListAssetContractsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/managedblockchain-query.html#ManagedBlockchainQuery.Paginator.ListAssetContracts)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain_query/paginators.html#listassetcontractspaginator)
-    """
+if TYPE_CHECKING:
+    _ListAssetContractsPaginatorBase = Paginator[ListAssetContractsOutputTypeDef]
+else:
+    _ListAssetContractsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        contractFilter: "ContractFilterTypeDef",
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListAssetContractsOutputTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/managedblockchain-query.html#ManagedBlockchainQuery.Paginator.ListAssetContracts.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain_query/paginators.html#listassetcontractspaginator)
-        """
-
-class ListFilteredTransactionEventsPaginator(Boto3Paginator):
+class ListAssetContractsPaginator(_ListAssetContractsPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/managedblockchain-query.html#ManagedBlockchainQuery.Paginator.ListFilteredTransactionEvents)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain_query/paginators.html#listfilteredtransactioneventspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/managedblockchain-query/paginator/ListAssetContracts.html#ManagedBlockchainQuery.Paginator.ListAssetContracts)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain_query/paginators/#listassetcontractspaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        network: str,
-        addressIdentifierFilter: "AddressIdentifierFilterTypeDef",
-        timeFilter: "TimeFilterTypeDef" = None,
-        voutFilter: "VoutFilterTypeDef" = None,
-        confirmationStatusFilter: "ConfirmationStatusFilterTypeDef" = None,
-        sort: "ListFilteredTransactionEventsSortTypeDef" = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListFilteredTransactionEventsOutputTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListAssetContractsInputPaginateTypeDef]
+    ) -> PageIterator[ListAssetContractsOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/managedblockchain-query.html#ManagedBlockchainQuery.Paginator.ListFilteredTransactionEvents.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain_query/paginators.html#listfilteredtransactioneventspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/managedblockchain-query/paginator/ListAssetContracts.html#ManagedBlockchainQuery.Paginator.ListAssetContracts.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain_query/paginators/#listassetcontractspaginator)
         """
 
-class ListTokenBalancesPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/managedblockchain-query.html#ManagedBlockchainQuery.Paginator.ListTokenBalances)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain_query/paginators.html#listtokenbalancespaginator)
-    """
+if TYPE_CHECKING:
+    _ListFilteredTransactionEventsPaginatorBase = Paginator[
+        ListFilteredTransactionEventsOutputTypeDef
+    ]
+else:
+    _ListFilteredTransactionEventsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        tokenFilter: "TokenFilterTypeDef",
-        ownerFilter: "OwnerFilterTypeDef" = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListTokenBalancesOutputTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/managedblockchain-query.html#ManagedBlockchainQuery.Paginator.ListTokenBalances.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain_query/paginators.html#listtokenbalancespaginator)
-        """
-
-class ListTransactionEventsPaginator(Boto3Paginator):
+class ListFilteredTransactionEventsPaginator(_ListFilteredTransactionEventsPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/managedblockchain-query.html#ManagedBlockchainQuery.Paginator.ListTransactionEvents)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain_query/paginators.html#listtransactioneventspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/managedblockchain-query/paginator/ListFilteredTransactionEvents.html#ManagedBlockchainQuery.Paginator.ListFilteredTransactionEvents)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain_query/paginators/#listfilteredtransactioneventspaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        network: QueryNetworkType,
-        transactionHash: str = None,
-        transactionId: str = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListTransactionEventsOutputTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListFilteredTransactionEventsInputPaginateTypeDef]
+    ) -> PageIterator[ListFilteredTransactionEventsOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/managedblockchain-query.html#ManagedBlockchainQuery.Paginator.ListTransactionEvents.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain_query/paginators.html#listtransactioneventspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/managedblockchain-query/paginator/ListFilteredTransactionEvents.html#ManagedBlockchainQuery.Paginator.ListFilteredTransactionEvents.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain_query/paginators/#listfilteredtransactioneventspaginator)
         """
 
-class ListTransactionsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/managedblockchain-query.html#ManagedBlockchainQuery.Paginator.ListTransactions)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain_query/paginators.html#listtransactionspaginator)
-    """
+if TYPE_CHECKING:
+    _ListTokenBalancesPaginatorBase = Paginator[ListTokenBalancesOutputTypeDef]
+else:
+    _ListTokenBalancesPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        address: str,
-        network: QueryNetworkType,
-        fromBlockchainInstant: "BlockchainInstantTypeDef" = None,
-        toBlockchainInstant: "BlockchainInstantTypeDef" = None,
-        sort: "ListTransactionsSortTypeDef" = None,
-        confirmationStatusFilter: "ConfirmationStatusFilterTypeDef" = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListTransactionsOutputTypeDef]:
+class ListTokenBalancesPaginator(_ListTokenBalancesPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/managedblockchain-query/paginator/ListTokenBalances.html#ManagedBlockchainQuery.Paginator.ListTokenBalances)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain_query/paginators/#listtokenbalancespaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListTokenBalancesInputPaginateTypeDef]
+    ) -> PageIterator[ListTokenBalancesOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/managedblockchain-query.html#ManagedBlockchainQuery.Paginator.ListTransactions.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain_query/paginators.html#listtransactionspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/managedblockchain-query/paginator/ListTokenBalances.html#ManagedBlockchainQuery.Paginator.ListTokenBalances.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain_query/paginators/#listtokenbalancespaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListTransactionEventsPaginatorBase = Paginator[ListTransactionEventsOutputTypeDef]
+else:
+    _ListTransactionEventsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListTransactionEventsPaginator(_ListTransactionEventsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/managedblockchain-query/paginator/ListTransactionEvents.html#ManagedBlockchainQuery.Paginator.ListTransactionEvents)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain_query/paginators/#listtransactioneventspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListTransactionEventsInputPaginateTypeDef]
+    ) -> PageIterator[ListTransactionEventsOutputTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/managedblockchain-query/paginator/ListTransactionEvents.html#ManagedBlockchainQuery.Paginator.ListTransactionEvents.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain_query/paginators/#listtransactioneventspaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListTransactionsPaginatorBase = Paginator[ListTransactionsOutputTypeDef]
+else:
+    _ListTransactionsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListTransactionsPaginator(_ListTransactionsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/managedblockchain-query/paginator/ListTransactions.html#ManagedBlockchainQuery.Paginator.ListTransactions)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain_query/paginators/#listtransactionspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListTransactionsInputPaginateTypeDef]
+    ) -> PageIterator[ListTransactionsOutputTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/managedblockchain-query/paginator/ListTransactions.html#ManagedBlockchainQuery.Paginator.ListTransactions.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain_query/paginators/#listtransactionspaginator)
         """

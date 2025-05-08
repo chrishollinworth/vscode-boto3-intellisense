@@ -1,19 +1,21 @@
 """
 Main interface for pi service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_pi/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_pi import (
         Client,
         PIClient,
     )
 
-    session = boto3.Session()
-
-    client: PIClient = boto3.client("pi")
-    session_client: PIClient = session.client("pi")
+    session = Session()
+    client: PIClient = session.client("pi")
     ```
 """
 

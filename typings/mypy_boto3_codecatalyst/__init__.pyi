@@ -1,10 +1,14 @@
 """
 Main interface for codecatalyst service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codecatalyst/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_codecatalyst import (
         Client,
         CodeCatalystClient,
@@ -20,10 +24,8 @@ Usage::
         ListWorkflowsPaginator,
     )
 
-    session = boto3.Session()
-
-    client: CodeCatalystClient = boto3.client("codecatalyst")
-    session_client: CodeCatalystClient = session.client("codecatalyst")
+    session = Session()
+    client: CodeCatalystClient = session.client("codecatalyst")
 
     list_access_tokens_paginator: ListAccessTokensPaginator = client.get_paginator("list_access_tokens")
     list_dev_environment_sessions_paginator: ListDevEnvironmentSessionsPaginator = client.get_paginator("list_dev_environment_sessions")

@@ -1,34 +1,48 @@
 """
-Type annotations for eks-auth service client.
+Type annotations for eks-auth service Client.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks_auth/client.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks_auth/client/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
-    from mypy_boto3_eks_auth import EKSAuthClient
+    from boto3.session import Session
+    from mypy_boto3_eks_auth.client import EKSAuthClient
 
-    client: EKSAuthClient = boto3.client("eks-auth")
+    session = Session()
+    client: EKSAuthClient = session.client("eks-auth")
     ```
 """
 
-from typing import Any, Dict, Type
+from __future__ import annotations
+
+import sys
+from typing import Any
 
 from botocore.client import BaseClient, ClientMeta
+from botocore.errorfactory import BaseClientExceptions
+from botocore.exceptions import ClientError as BotocoreClientError
 
-from .type_defs import AssumeRoleForPodIdentityResponseTypeDef
+from .type_defs import (
+    AssumeRoleForPodIdentityRequestTypeDef,
+    AssumeRoleForPodIdentityResponseTypeDef,
+)
+
+if sys.version_info >= (3, 9):
+    from builtins import type as Type
+    from collections.abc import Mapping
+else:
+    from typing import Mapping, Type
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = ("EKSAuthClient",)
 
-class BotocoreClientError(BaseException):
-    MSG_TEMPLATE: str
-
-    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
-        self.response: Dict[str, Any]
-        self.operation_name: str
-
-class Exceptions:
+class Exceptions(BaseClientExceptions):
     AccessDeniedException: Type[BotocoreClientError]
     ClientError: Type[BotocoreClientError]
     ExpiredTokenException: Type[BotocoreClientError]
@@ -42,8 +56,8 @@ class Exceptions:
 
 class EKSAuthClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks-auth.html#EKSAuth.Client)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks_auth/client.html)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks-auth.html#EKSAuth.Client)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks_auth/client/)
     """
 
     meta: ClientMeta
@@ -52,45 +66,36 @@ class EKSAuthClient(BaseClient):
     def exceptions(self) -> Exceptions:
         """
         EKSAuthClient exceptions.
-        """
 
-    def assume_role_for_pod_identity(
-        self, *, clusterName: str, token: str
-    ) -> AssumeRoleForPodIdentityResponseTypeDef:
-        """
-        The Amazon EKS Auth API and the `AssumeRoleForPodIdentity` action are only used
-        by the EKS Pod Identity Agent.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks-auth.html#EKSAuth.Client.assume_role_for_pod_identity)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks_auth/client.html#assume_role_for_pod_identity)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks-auth.html#EKSAuth.Client)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks_auth/client/#exceptions)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        Check if an operation can be paginated.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks-auth.html#EKSAuth.Client.can_paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks_auth/client.html#can_paginate)
-        """
-
-    def close(self) -> None:
-        """
-        Closes underlying endpoint connections.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks-auth.html#EKSAuth.Client.close)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks_auth/client.html#close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks-auth/client/can_paginate.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks_auth/client/#can_paginate)
         """
 
     def generate_presigned_url(
         self,
         ClientMethod: str,
-        Params: Dict[str, Any] = None,
+        Params: Mapping[str, Any] = ...,
         ExpiresIn: int = 3600,
-        HttpMethod: str = None,
+        HttpMethod: str = ...,
     ) -> str:
         """
-        Generate a presigned url given a client, its method, and arguments.
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks-auth/client/generate_presigned_url.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks_auth/client/#generate_presigned_url)
+        """
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks-auth.html#EKSAuth.Client.generate_presigned_url)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks_auth/client.html#generate_presigned_url)
+    def assume_role_for_pod_identity(
+        self, **kwargs: Unpack[AssumeRoleForPodIdentityRequestTypeDef]
+    ) -> AssumeRoleForPodIdentityResponseTypeDef:
+        """
+        The Amazon EKS Auth API and the <code>AssumeRoleForPodIdentity</code> action
+        are only used by the EKS Pod Identity Agent.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks-auth/client/assume_role_for_pod_identity.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks_auth/client/#assume_role_for_pod_identity)
         """

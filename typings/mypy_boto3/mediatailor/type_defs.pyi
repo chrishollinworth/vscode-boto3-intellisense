@@ -1,141 +1,188 @@
 """
 Type annotations for mediatailor service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediatailor/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_mediatailor.type_defs import AccessConfigurationTypeDef
+    from mypy_boto3_mediatailor.type_defs import SecretsManagerAccessTokenConfigurationTypeDef
 
-    data: AccessConfigurationTypeDef = {...}
+    data: SecretsManagerAccessTokenConfigurationTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List, Union
+from typing import Union
 
 from .literals import (
     AccessTypeType,
     AdMarkupTypeType,
+    AdsInteractionExcludeEventTypeType,
     AlertCategoryType,
     ChannelStateType,
     FillPolicyType,
     InsertionModeType,
+    ListPrefetchScheduleTypeType,
+    LoggingStrategyType,
+    ManifestServiceExcludeEventTypeType,
     MessageTypeType,
     ModeType,
     OriginManifestTypeType,
     PlaybackModeType,
+    PrefetchScheduleTypeType,
     RelativePositionType,
     ScheduleEntryTypeType,
+    StreamingMediaFileConditioningType,
     TierType,
     TypeType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
     "AccessConfigurationTypeDef",
     "AdBreakOpportunityTypeDef",
+    "AdBreakOutputTypeDef",
     "AdBreakTypeDef",
+    "AdBreakUnionTypeDef",
+    "AdConditioningConfigurationTypeDef",
     "AdMarkerPassthroughTypeDef",
+    "AdsInteractionLogOutputTypeDef",
+    "AdsInteractionLogTypeDef",
+    "AdsInteractionLogUnionTypeDef",
     "AlertTypeDef",
+    "AlternateMediaOutputTypeDef",
     "AlternateMediaTypeDef",
+    "AlternateMediaUnionTypeDef",
+    "AudienceMediaOutputTypeDef",
     "AudienceMediaTypeDef",
+    "AudienceMediaUnionTypeDef",
     "AvailMatchingCriteriaTypeDef",
     "AvailSuppressionTypeDef",
     "BumperTypeDef",
     "CdnConfigurationTypeDef",
     "ChannelTypeDef",
     "ClipRangeTypeDef",
-    "ConfigureLogsForChannelRequestRequestTypeDef",
+    "ConfigureLogsForChannelRequestTypeDef",
     "ConfigureLogsForChannelResponseTypeDef",
-    "ConfigureLogsForPlaybackConfigurationRequestRequestTypeDef",
+    "ConfigureLogsForPlaybackConfigurationRequestTypeDef",
     "ConfigureLogsForPlaybackConfigurationResponseTypeDef",
-    "CreateChannelRequestRequestTypeDef",
+    "CreateChannelRequestTypeDef",
     "CreateChannelResponseTypeDef",
-    "CreateLiveSourceRequestRequestTypeDef",
+    "CreateLiveSourceRequestTypeDef",
     "CreateLiveSourceResponseTypeDef",
-    "CreatePrefetchScheduleRequestRequestTypeDef",
+    "CreatePrefetchScheduleRequestTypeDef",
     "CreatePrefetchScheduleResponseTypeDef",
-    "CreateProgramRequestRequestTypeDef",
+    "CreateProgramRequestTypeDef",
     "CreateProgramResponseTypeDef",
-    "CreateSourceLocationRequestRequestTypeDef",
+    "CreateSourceLocationRequestTypeDef",
     "CreateSourceLocationResponseTypeDef",
-    "CreateVodSourceRequestRequestTypeDef",
+    "CreateVodSourceRequestTypeDef",
     "CreateVodSourceResponseTypeDef",
     "DashConfigurationForPutTypeDef",
     "DashConfigurationTypeDef",
     "DashPlaylistSettingsTypeDef",
     "DefaultSegmentDeliveryConfigurationTypeDef",
-    "DeleteChannelPolicyRequestRequestTypeDef",
-    "DeleteChannelRequestRequestTypeDef",
-    "DeleteLiveSourceRequestRequestTypeDef",
-    "DeletePlaybackConfigurationRequestRequestTypeDef",
-    "DeletePrefetchScheduleRequestRequestTypeDef",
-    "DeleteProgramRequestRequestTypeDef",
-    "DeleteSourceLocationRequestRequestTypeDef",
-    "DeleteVodSourceRequestRequestTypeDef",
-    "DescribeChannelRequestRequestTypeDef",
+    "DeleteChannelPolicyRequestTypeDef",
+    "DeleteChannelRequestTypeDef",
+    "DeleteLiveSourceRequestTypeDef",
+    "DeletePlaybackConfigurationRequestTypeDef",
+    "DeletePrefetchScheduleRequestTypeDef",
+    "DeleteProgramRequestTypeDef",
+    "DeleteSourceLocationRequestTypeDef",
+    "DeleteVodSourceRequestTypeDef",
+    "DescribeChannelRequestTypeDef",
     "DescribeChannelResponseTypeDef",
-    "DescribeLiveSourceRequestRequestTypeDef",
+    "DescribeLiveSourceRequestTypeDef",
     "DescribeLiveSourceResponseTypeDef",
-    "DescribeProgramRequestRequestTypeDef",
+    "DescribeProgramRequestTypeDef",
     "DescribeProgramResponseTypeDef",
-    "DescribeSourceLocationRequestRequestTypeDef",
+    "DescribeSourceLocationRequestTypeDef",
     "DescribeSourceLocationResponseTypeDef",
-    "DescribeVodSourceRequestRequestTypeDef",
+    "DescribeVodSourceRequestTypeDef",
     "DescribeVodSourceResponseTypeDef",
-    "GetChannelPolicyRequestRequestTypeDef",
+    "EmptyResponseMetadataTypeDef",
+    "GetChannelPolicyRequestTypeDef",
     "GetChannelPolicyResponseTypeDef",
-    "GetChannelScheduleRequestRequestTypeDef",
+    "GetChannelScheduleRequestPaginateTypeDef",
+    "GetChannelScheduleRequestTypeDef",
     "GetChannelScheduleResponseTypeDef",
-    "GetPlaybackConfigurationRequestRequestTypeDef",
+    "GetPlaybackConfigurationRequestTypeDef",
     "GetPlaybackConfigurationResponseTypeDef",
-    "GetPrefetchScheduleRequestRequestTypeDef",
+    "GetPrefetchScheduleRequestTypeDef",
     "GetPrefetchScheduleResponseTypeDef",
     "HlsConfigurationTypeDef",
+    "HlsPlaylistSettingsOutputTypeDef",
     "HlsPlaylistSettingsTypeDef",
+    "HlsPlaylistSettingsUnionTypeDef",
     "HttpConfigurationTypeDef",
     "HttpPackageConfigurationTypeDef",
     "KeyValuePairTypeDef",
-    "ListAlertsRequestRequestTypeDef",
+    "ListAlertsRequestPaginateTypeDef",
+    "ListAlertsRequestTypeDef",
     "ListAlertsResponseTypeDef",
-    "ListChannelsRequestRequestTypeDef",
+    "ListChannelsRequestPaginateTypeDef",
+    "ListChannelsRequestTypeDef",
     "ListChannelsResponseTypeDef",
-    "ListLiveSourcesRequestRequestTypeDef",
+    "ListLiveSourcesRequestPaginateTypeDef",
+    "ListLiveSourcesRequestTypeDef",
     "ListLiveSourcesResponseTypeDef",
-    "ListPlaybackConfigurationsRequestRequestTypeDef",
+    "ListPlaybackConfigurationsRequestPaginateTypeDef",
+    "ListPlaybackConfigurationsRequestTypeDef",
     "ListPlaybackConfigurationsResponseTypeDef",
-    "ListPrefetchSchedulesRequestRequestTypeDef",
+    "ListPrefetchSchedulesRequestPaginateTypeDef",
+    "ListPrefetchSchedulesRequestTypeDef",
     "ListPrefetchSchedulesResponseTypeDef",
-    "ListSourceLocationsRequestRequestTypeDef",
+    "ListSourceLocationsRequestPaginateTypeDef",
+    "ListSourceLocationsRequestTypeDef",
     "ListSourceLocationsResponseTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
-    "ListVodSourcesRequestRequestTypeDef",
+    "ListVodSourcesRequestPaginateTypeDef",
+    "ListVodSourcesRequestTypeDef",
     "ListVodSourcesResponseTypeDef",
     "LivePreRollConfigurationTypeDef",
     "LiveSourceTypeDef",
     "LogConfigurationForChannelTypeDef",
     "LogConfigurationTypeDef",
     "ManifestProcessingRulesTypeDef",
+    "ManifestServiceInteractionLogOutputTypeDef",
+    "ManifestServiceInteractionLogTypeDef",
+    "ManifestServiceInteractionLogUnionTypeDef",
     "PaginatorConfigTypeDef",
     "PlaybackConfigurationTypeDef",
+    "PrefetchConsumptionOutputTypeDef",
     "PrefetchConsumptionTypeDef",
+    "PrefetchConsumptionUnionTypeDef",
+    "PrefetchRetrievalOutputTypeDef",
     "PrefetchRetrievalTypeDef",
+    "PrefetchRetrievalUnionTypeDef",
     "PrefetchScheduleTypeDef",
-    "PutChannelPolicyRequestRequestTypeDef",
-    "PutPlaybackConfigurationRequestRequestTypeDef",
+    "PutChannelPolicyRequestTypeDef",
+    "PutPlaybackConfigurationRequestTypeDef",
     "PutPlaybackConfigurationResponseTypeDef",
+    "RecurringConsumptionOutputTypeDef",
+    "RecurringConsumptionTypeDef",
+    "RecurringPrefetchConfigurationOutputTypeDef",
+    "RecurringPrefetchConfigurationTypeDef",
+    "RecurringPrefetchConfigurationUnionTypeDef",
+    "RecurringRetrievalOutputTypeDef",
+    "RecurringRetrievalTypeDef",
     "RequestOutputItemTypeDef",
     "ResponseMetadataTypeDef",
     "ResponseOutputItemTypeDef",
@@ -148,802 +195,116 @@ __all__ = (
     "SlateSourceTypeDef",
     "SourceLocationTypeDef",
     "SpliceInsertMessageTypeDef",
-    "StartChannelRequestRequestTypeDef",
-    "StopChannelRequestRequestTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "StartChannelRequestTypeDef",
+    "StopChannelRequestTypeDef",
+    "TagResourceRequestTypeDef",
     "TimeShiftConfigurationTypeDef",
+    "TimeSignalMessageOutputTypeDef",
     "TimeSignalMessageTypeDef",
+    "TimeSignalMessageUnionTypeDef",
+    "TimestampTypeDef",
+    "TrafficShapingRetrievalWindowTypeDef",
     "TransitionTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateChannelRequestRequestTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateChannelRequestTypeDef",
     "UpdateChannelResponseTypeDef",
-    "UpdateLiveSourceRequestRequestTypeDef",
+    "UpdateLiveSourceRequestTypeDef",
     "UpdateLiveSourceResponseTypeDef",
-    "UpdateProgramRequestRequestTypeDef",
+    "UpdateProgramRequestTypeDef",
     "UpdateProgramResponseTypeDef",
     "UpdateProgramScheduleConfigurationTypeDef",
     "UpdateProgramTransitionTypeDef",
-    "UpdateSourceLocationRequestRequestTypeDef",
+    "UpdateSourceLocationRequestTypeDef",
     "UpdateSourceLocationResponseTypeDef",
-    "UpdateVodSourceRequestRequestTypeDef",
+    "UpdateVodSourceRequestTypeDef",
     "UpdateVodSourceResponseTypeDef",
     "VodSourceTypeDef",
 )
 
-AccessConfigurationTypeDef = TypedDict(
-    "AccessConfigurationTypeDef",
-    {
-        "AccessType": AccessTypeType,
-        "SecretsManagerAccessTokenConfiguration": "SecretsManagerAccessTokenConfigurationTypeDef",
-    },
-    total=False,
-)
-
-AdBreakOpportunityTypeDef = TypedDict(
-    "AdBreakOpportunityTypeDef",
-    {
-        "OffsetMillis": int,
-    },
-)
-
-_RequiredAdBreakTypeDef = TypedDict(
-    "_RequiredAdBreakTypeDef",
-    {
-        "OffsetMillis": int,
-    },
-)
-_OptionalAdBreakTypeDef = TypedDict(
-    "_OptionalAdBreakTypeDef",
-    {
-        "AdBreakMetadata": List["KeyValuePairTypeDef"],
-        "MessageType": MessageTypeType,
-        "Slate": "SlateSourceTypeDef",
-        "SpliceInsertMessage": "SpliceInsertMessageTypeDef",
-        "TimeSignalMessage": "TimeSignalMessageTypeDef",
-    },
-    total=False,
-)
-
-class AdBreakTypeDef(_RequiredAdBreakTypeDef, _OptionalAdBreakTypeDef):
-    pass
-
-AdMarkerPassthroughTypeDef = TypedDict(
-    "AdMarkerPassthroughTypeDef",
-    {
-        "Enabled": bool,
-    },
-    total=False,
-)
-
-_RequiredAlertTypeDef = TypedDict(
-    "_RequiredAlertTypeDef",
-    {
-        "AlertCode": str,
-        "AlertMessage": str,
-        "LastModifiedTime": datetime,
-        "RelatedResourceArns": List[str],
-        "ResourceArn": str,
-    },
-)
-_OptionalAlertTypeDef = TypedDict(
-    "_OptionalAlertTypeDef",
-    {
-        "Category": AlertCategoryType,
-    },
-    total=False,
-)
-
-class AlertTypeDef(_RequiredAlertTypeDef, _OptionalAlertTypeDef):
-    pass
-
-AlternateMediaTypeDef = TypedDict(
-    "AlternateMediaTypeDef",
-    {
-        "AdBreaks": List["AdBreakTypeDef"],
-        "ClipRange": "ClipRangeTypeDef",
-        "DurationMillis": int,
-        "LiveSourceName": str,
-        "ScheduledStartTimeMillis": int,
-        "SourceLocationName": str,
-        "VodSourceName": str,
-    },
-    total=False,
-)
-
-AudienceMediaTypeDef = TypedDict(
-    "AudienceMediaTypeDef",
-    {
-        "AlternateMedia": List["AlternateMediaTypeDef"],
-        "Audience": str,
-    },
-    total=False,
-)
-
-AvailMatchingCriteriaTypeDef = TypedDict(
-    "AvailMatchingCriteriaTypeDef",
-    {
-        "DynamicVariable": str,
-        "Operator": Literal["EQUALS"],
-    },
-)
-
-AvailSuppressionTypeDef = TypedDict(
-    "AvailSuppressionTypeDef",
-    {
-        "FillPolicy": FillPolicyType,
-        "Mode": ModeType,
-        "Value": str,
-    },
-    total=False,
-)
-
-BumperTypeDef = TypedDict(
-    "BumperTypeDef",
-    {
-        "EndUrl": str,
-        "StartUrl": str,
-    },
-    total=False,
-)
-
-CdnConfigurationTypeDef = TypedDict(
-    "CdnConfigurationTypeDef",
-    {
-        "AdSegmentUrlPrefix": str,
-        "ContentSegmentUrlPrefix": str,
-    },
-    total=False,
-)
-
-_RequiredChannelTypeDef = TypedDict(
-    "_RequiredChannelTypeDef",
-    {
-        "Arn": str,
-        "ChannelName": str,
-        "ChannelState": str,
-        "LogConfiguration": "LogConfigurationForChannelTypeDef",
-        "Outputs": List["ResponseOutputItemTypeDef"],
-        "PlaybackMode": str,
-        "Tier": str,
-    },
-)
-_OptionalChannelTypeDef = TypedDict(
-    "_OptionalChannelTypeDef",
-    {
-        "Audiences": List[str],
-        "CreationTime": datetime,
-        "FillerSlate": "SlateSourceTypeDef",
-        "LastModifiedTime": datetime,
-        "Tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class ChannelTypeDef(_RequiredChannelTypeDef, _OptionalChannelTypeDef):
-    pass
-
-ClipRangeTypeDef = TypedDict(
-    "ClipRangeTypeDef",
-    {
-        "EndOffsetMillis": int,
-        "StartOffsetMillis": int,
-    },
-    total=False,
-)
-
-ConfigureLogsForChannelRequestRequestTypeDef = TypedDict(
-    "ConfigureLogsForChannelRequestRequestTypeDef",
-    {
-        "ChannelName": str,
-        "LogTypes": List[Literal["AS_RUN"]],
-    },
-)
-
-ConfigureLogsForChannelResponseTypeDef = TypedDict(
-    "ConfigureLogsForChannelResponseTypeDef",
-    {
-        "ChannelName": str,
-        "LogTypes": List[Literal["AS_RUN"]],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ConfigureLogsForPlaybackConfigurationRequestRequestTypeDef = TypedDict(
-    "ConfigureLogsForPlaybackConfigurationRequestRequestTypeDef",
-    {
-        "PercentEnabled": int,
-        "PlaybackConfigurationName": str,
-    },
-)
-
-ConfigureLogsForPlaybackConfigurationResponseTypeDef = TypedDict(
-    "ConfigureLogsForPlaybackConfigurationResponseTypeDef",
-    {
-        "PercentEnabled": int,
-        "PlaybackConfigurationName": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateChannelRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateChannelRequestRequestTypeDef",
-    {
-        "ChannelName": str,
-        "Outputs": List["RequestOutputItemTypeDef"],
-        "PlaybackMode": PlaybackModeType,
-    },
-)
-_OptionalCreateChannelRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateChannelRequestRequestTypeDef",
-    {
-        "Audiences": List[str],
-        "FillerSlate": "SlateSourceTypeDef",
-        "Tags": Dict[str, str],
-        "Tier": TierType,
-        "TimeShiftConfiguration": "TimeShiftConfigurationTypeDef",
-    },
-    total=False,
-)
-
-class CreateChannelRequestRequestTypeDef(
-    _RequiredCreateChannelRequestRequestTypeDef, _OptionalCreateChannelRequestRequestTypeDef
-):
-    pass
-
-CreateChannelResponseTypeDef = TypedDict(
-    "CreateChannelResponseTypeDef",
-    {
-        "Arn": str,
-        "Audiences": List[str],
-        "ChannelName": str,
-        "ChannelState": ChannelStateType,
-        "CreationTime": datetime,
-        "FillerSlate": "SlateSourceTypeDef",
-        "LastModifiedTime": datetime,
-        "Outputs": List["ResponseOutputItemTypeDef"],
-        "PlaybackMode": str,
-        "Tags": Dict[str, str],
-        "Tier": str,
-        "TimeShiftConfiguration": "TimeShiftConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateLiveSourceRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateLiveSourceRequestRequestTypeDef",
-    {
-        "HttpPackageConfigurations": List["HttpPackageConfigurationTypeDef"],
-        "LiveSourceName": str,
-        "SourceLocationName": str,
-    },
-)
-_OptionalCreateLiveSourceRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateLiveSourceRequestRequestTypeDef",
-    {
-        "Tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class CreateLiveSourceRequestRequestTypeDef(
-    _RequiredCreateLiveSourceRequestRequestTypeDef, _OptionalCreateLiveSourceRequestRequestTypeDef
-):
-    pass
-
-CreateLiveSourceResponseTypeDef = TypedDict(
-    "CreateLiveSourceResponseTypeDef",
-    {
-        "Arn": str,
-        "CreationTime": datetime,
-        "HttpPackageConfigurations": List["HttpPackageConfigurationTypeDef"],
-        "LastModifiedTime": datetime,
-        "LiveSourceName": str,
-        "SourceLocationName": str,
-        "Tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreatePrefetchScheduleRequestRequestTypeDef = TypedDict(
-    "_RequiredCreatePrefetchScheduleRequestRequestTypeDef",
-    {
-        "Consumption": "PrefetchConsumptionTypeDef",
-        "Name": str,
-        "PlaybackConfigurationName": str,
-        "Retrieval": "PrefetchRetrievalTypeDef",
-    },
-)
-_OptionalCreatePrefetchScheduleRequestRequestTypeDef = TypedDict(
-    "_OptionalCreatePrefetchScheduleRequestRequestTypeDef",
-    {
-        "StreamId": str,
-    },
-    total=False,
-)
-
-class CreatePrefetchScheduleRequestRequestTypeDef(
-    _RequiredCreatePrefetchScheduleRequestRequestTypeDef,
-    _OptionalCreatePrefetchScheduleRequestRequestTypeDef,
-):
-    pass
-
-CreatePrefetchScheduleResponseTypeDef = TypedDict(
-    "CreatePrefetchScheduleResponseTypeDef",
-    {
-        "Arn": str,
-        "Consumption": "PrefetchConsumptionTypeDef",
-        "Name": str,
-        "PlaybackConfigurationName": str,
-        "Retrieval": "PrefetchRetrievalTypeDef",
-        "StreamId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateProgramRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateProgramRequestRequestTypeDef",
-    {
-        "ChannelName": str,
-        "ProgramName": str,
-        "ScheduleConfiguration": "ScheduleConfigurationTypeDef",
-        "SourceLocationName": str,
-    },
-)
-_OptionalCreateProgramRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateProgramRequestRequestTypeDef",
-    {
-        "AdBreaks": List["AdBreakTypeDef"],
-        "AudienceMedia": List["AudienceMediaTypeDef"],
-        "LiveSourceName": str,
-        "VodSourceName": str,
-    },
-    total=False,
-)
-
-class CreateProgramRequestRequestTypeDef(
-    _RequiredCreateProgramRequestRequestTypeDef, _OptionalCreateProgramRequestRequestTypeDef
-):
-    pass
-
-CreateProgramResponseTypeDef = TypedDict(
-    "CreateProgramResponseTypeDef",
-    {
-        "AdBreaks": List["AdBreakTypeDef"],
-        "Arn": str,
-        "AudienceMedia": List["AudienceMediaTypeDef"],
-        "ChannelName": str,
-        "ClipRange": "ClipRangeTypeDef",
-        "CreationTime": datetime,
-        "DurationMillis": int,
-        "LiveSourceName": str,
-        "ProgramName": str,
-        "ScheduledStartTime": datetime,
-        "SourceLocationName": str,
-        "VodSourceName": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateSourceLocationRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateSourceLocationRequestRequestTypeDef",
-    {
-        "HttpConfiguration": "HttpConfigurationTypeDef",
-        "SourceLocationName": str,
-    },
-)
-_OptionalCreateSourceLocationRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateSourceLocationRequestRequestTypeDef",
-    {
-        "AccessConfiguration": "AccessConfigurationTypeDef",
-        "DefaultSegmentDeliveryConfiguration": "DefaultSegmentDeliveryConfigurationTypeDef",
-        "SegmentDeliveryConfigurations": List["SegmentDeliveryConfigurationTypeDef"],
-        "Tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class CreateSourceLocationRequestRequestTypeDef(
-    _RequiredCreateSourceLocationRequestRequestTypeDef,
-    _OptionalCreateSourceLocationRequestRequestTypeDef,
-):
-    pass
-
-CreateSourceLocationResponseTypeDef = TypedDict(
-    "CreateSourceLocationResponseTypeDef",
-    {
-        "AccessConfiguration": "AccessConfigurationTypeDef",
-        "Arn": str,
-        "CreationTime": datetime,
-        "DefaultSegmentDeliveryConfiguration": "DefaultSegmentDeliveryConfigurationTypeDef",
-        "HttpConfiguration": "HttpConfigurationTypeDef",
-        "LastModifiedTime": datetime,
-        "SegmentDeliveryConfigurations": List["SegmentDeliveryConfigurationTypeDef"],
-        "SourceLocationName": str,
-        "Tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateVodSourceRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateVodSourceRequestRequestTypeDef",
-    {
-        "HttpPackageConfigurations": List["HttpPackageConfigurationTypeDef"],
-        "SourceLocationName": str,
-        "VodSourceName": str,
-    },
-)
-_OptionalCreateVodSourceRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateVodSourceRequestRequestTypeDef",
-    {
-        "Tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class CreateVodSourceRequestRequestTypeDef(
-    _RequiredCreateVodSourceRequestRequestTypeDef, _OptionalCreateVodSourceRequestRequestTypeDef
-):
-    pass
-
-CreateVodSourceResponseTypeDef = TypedDict(
-    "CreateVodSourceResponseTypeDef",
-    {
-        "Arn": str,
-        "CreationTime": datetime,
-        "HttpPackageConfigurations": List["HttpPackageConfigurationTypeDef"],
-        "LastModifiedTime": datetime,
-        "SourceLocationName": str,
-        "Tags": Dict[str, str],
-        "VodSourceName": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DashConfigurationForPutTypeDef = TypedDict(
-    "DashConfigurationForPutTypeDef",
-    {
-        "MpdLocation": str,
-        "OriginManifestType": OriginManifestTypeType,
-    },
-    total=False,
-)
-
-DashConfigurationTypeDef = TypedDict(
-    "DashConfigurationTypeDef",
-    {
-        "ManifestEndpointPrefix": str,
-        "MpdLocation": str,
-        "OriginManifestType": OriginManifestTypeType,
-    },
-    total=False,
-)
-
-DashPlaylistSettingsTypeDef = TypedDict(
-    "DashPlaylistSettingsTypeDef",
-    {
-        "ManifestWindowSeconds": int,
-        "MinBufferTimeSeconds": int,
-        "MinUpdatePeriodSeconds": int,
-        "SuggestedPresentationDelaySeconds": int,
-    },
-    total=False,
-)
-
-DefaultSegmentDeliveryConfigurationTypeDef = TypedDict(
-    "DefaultSegmentDeliveryConfigurationTypeDef",
-    {
-        "BaseUrl": str,
-    },
-    total=False,
-)
-
-DeleteChannelPolicyRequestRequestTypeDef = TypedDict(
-    "DeleteChannelPolicyRequestRequestTypeDef",
-    {
-        "ChannelName": str,
-    },
-)
-
-DeleteChannelRequestRequestTypeDef = TypedDict(
-    "DeleteChannelRequestRequestTypeDef",
-    {
-        "ChannelName": str,
-    },
-)
-
-DeleteLiveSourceRequestRequestTypeDef = TypedDict(
-    "DeleteLiveSourceRequestRequestTypeDef",
-    {
-        "LiveSourceName": str,
-        "SourceLocationName": str,
-    },
-)
-
-DeletePlaybackConfigurationRequestRequestTypeDef = TypedDict(
-    "DeletePlaybackConfigurationRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
-
-DeletePrefetchScheduleRequestRequestTypeDef = TypedDict(
-    "DeletePrefetchScheduleRequestRequestTypeDef",
-    {
-        "Name": str,
-        "PlaybackConfigurationName": str,
-    },
-)
-
-DeleteProgramRequestRequestTypeDef = TypedDict(
-    "DeleteProgramRequestRequestTypeDef",
-    {
-        "ChannelName": str,
-        "ProgramName": str,
-    },
-)
-
-DeleteSourceLocationRequestRequestTypeDef = TypedDict(
-    "DeleteSourceLocationRequestRequestTypeDef",
-    {
-        "SourceLocationName": str,
-    },
-)
-
-DeleteVodSourceRequestRequestTypeDef = TypedDict(
-    "DeleteVodSourceRequestRequestTypeDef",
-    {
-        "SourceLocationName": str,
-        "VodSourceName": str,
-    },
-)
-
-DescribeChannelRequestRequestTypeDef = TypedDict(
-    "DescribeChannelRequestRequestTypeDef",
-    {
-        "ChannelName": str,
-    },
-)
-
-DescribeChannelResponseTypeDef = TypedDict(
-    "DescribeChannelResponseTypeDef",
-    {
-        "Arn": str,
-        "Audiences": List[str],
-        "ChannelName": str,
-        "ChannelState": ChannelStateType,
-        "CreationTime": datetime,
-        "FillerSlate": "SlateSourceTypeDef",
-        "LastModifiedTime": datetime,
-        "LogConfiguration": "LogConfigurationForChannelTypeDef",
-        "Outputs": List["ResponseOutputItemTypeDef"],
-        "PlaybackMode": str,
-        "Tags": Dict[str, str],
-        "Tier": str,
-        "TimeShiftConfiguration": "TimeShiftConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeLiveSourceRequestRequestTypeDef = TypedDict(
-    "DescribeLiveSourceRequestRequestTypeDef",
-    {
-        "LiveSourceName": str,
-        "SourceLocationName": str,
-    },
-)
-
-DescribeLiveSourceResponseTypeDef = TypedDict(
-    "DescribeLiveSourceResponseTypeDef",
-    {
-        "Arn": str,
-        "CreationTime": datetime,
-        "HttpPackageConfigurations": List["HttpPackageConfigurationTypeDef"],
-        "LastModifiedTime": datetime,
-        "LiveSourceName": str,
-        "SourceLocationName": str,
-        "Tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeProgramRequestRequestTypeDef = TypedDict(
-    "DescribeProgramRequestRequestTypeDef",
-    {
-        "ChannelName": str,
-        "ProgramName": str,
-    },
-)
-
-DescribeProgramResponseTypeDef = TypedDict(
-    "DescribeProgramResponseTypeDef",
-    {
-        "AdBreaks": List["AdBreakTypeDef"],
-        "Arn": str,
-        "AudienceMedia": List["AudienceMediaTypeDef"],
-        "ChannelName": str,
-        "ClipRange": "ClipRangeTypeDef",
-        "CreationTime": datetime,
-        "DurationMillis": int,
-        "LiveSourceName": str,
-        "ProgramName": str,
-        "ScheduledStartTime": datetime,
-        "SourceLocationName": str,
-        "VodSourceName": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeSourceLocationRequestRequestTypeDef = TypedDict(
-    "DescribeSourceLocationRequestRequestTypeDef",
-    {
-        "SourceLocationName": str,
-    },
-)
-
-DescribeSourceLocationResponseTypeDef = TypedDict(
-    "DescribeSourceLocationResponseTypeDef",
-    {
-        "AccessConfiguration": "AccessConfigurationTypeDef",
-        "Arn": str,
-        "CreationTime": datetime,
-        "DefaultSegmentDeliveryConfiguration": "DefaultSegmentDeliveryConfigurationTypeDef",
-        "HttpConfiguration": "HttpConfigurationTypeDef",
-        "LastModifiedTime": datetime,
-        "SegmentDeliveryConfigurations": List["SegmentDeliveryConfigurationTypeDef"],
-        "SourceLocationName": str,
-        "Tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeVodSourceRequestRequestTypeDef = TypedDict(
-    "DescribeVodSourceRequestRequestTypeDef",
-    {
-        "SourceLocationName": str,
-        "VodSourceName": str,
-    },
-)
-
-DescribeVodSourceResponseTypeDef = TypedDict(
-    "DescribeVodSourceResponseTypeDef",
-    {
-        "AdBreakOpportunities": List["AdBreakOpportunityTypeDef"],
-        "Arn": str,
-        "CreationTime": datetime,
-        "HttpPackageConfigurations": List["HttpPackageConfigurationTypeDef"],
-        "LastModifiedTime": datetime,
-        "SourceLocationName": str,
-        "Tags": Dict[str, str],
-        "VodSourceName": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetChannelPolicyRequestRequestTypeDef = TypedDict(
-    "GetChannelPolicyRequestRequestTypeDef",
-    {
-        "ChannelName": str,
-    },
-)
-
-GetChannelPolicyResponseTypeDef = TypedDict(
-    "GetChannelPolicyResponseTypeDef",
-    {
-        "Policy": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetChannelScheduleRequestRequestTypeDef = TypedDict(
-    "_RequiredGetChannelScheduleRequestRequestTypeDef",
-    {
-        "ChannelName": str,
-    },
-)
-_OptionalGetChannelScheduleRequestRequestTypeDef = TypedDict(
-    "_OptionalGetChannelScheduleRequestRequestTypeDef",
-    {
-        "Audience": str,
-        "DurationMinutes": str,
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class GetChannelScheduleRequestRequestTypeDef(
-    _RequiredGetChannelScheduleRequestRequestTypeDef,
-    _OptionalGetChannelScheduleRequestRequestTypeDef,
-):
-    pass
-
-GetChannelScheduleResponseTypeDef = TypedDict(
-    "GetChannelScheduleResponseTypeDef",
-    {
-        "Items": List["ScheduleEntryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetPlaybackConfigurationRequestRequestTypeDef = TypedDict(
-    "GetPlaybackConfigurationRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
-
-GetPlaybackConfigurationResponseTypeDef = TypedDict(
-    "GetPlaybackConfigurationResponseTypeDef",
-    {
-        "AdDecisionServerUrl": str,
-        "AvailSuppression": "AvailSuppressionTypeDef",
-        "Bumper": "BumperTypeDef",
-        "CdnConfiguration": "CdnConfigurationTypeDef",
-        "ConfigurationAliases": Dict[str, Dict[str, str]],
-        "DashConfiguration": "DashConfigurationTypeDef",
-        "HlsConfiguration": "HlsConfigurationTypeDef",
-        "InsertionMode": InsertionModeType,
-        "LivePreRollConfiguration": "LivePreRollConfigurationTypeDef",
-        "LogConfiguration": "LogConfigurationTypeDef",
-        "ManifestProcessingRules": "ManifestProcessingRulesTypeDef",
-        "Name": str,
-        "PersonalizationThresholdSeconds": int,
-        "PlaybackConfigurationArn": str,
-        "PlaybackEndpointPrefix": str,
-        "SessionInitializationEndpointPrefix": str,
-        "SlateAdUrl": str,
-        "Tags": Dict[str, str],
-        "TranscodeProfileName": str,
-        "VideoContentSourceUrl": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetPrefetchScheduleRequestRequestTypeDef = TypedDict(
-    "GetPrefetchScheduleRequestRequestTypeDef",
-    {
-        "Name": str,
-        "PlaybackConfigurationName": str,
-    },
-)
-
-GetPrefetchScheduleResponseTypeDef = TypedDict(
-    "GetPrefetchScheduleResponseTypeDef",
-    {
-        "Arn": str,
-        "Consumption": "PrefetchConsumptionTypeDef",
-        "Name": str,
-        "PlaybackConfigurationName": str,
-        "Retrieval": "PrefetchRetrievalTypeDef",
-        "StreamId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-HlsConfigurationTypeDef = TypedDict(
-    "HlsConfigurationTypeDef",
-    {
-        "ManifestEndpointPrefix": str,
-    },
-    total=False,
-)
-
-HlsPlaylistSettingsTypeDef = TypedDict(
-    "HlsPlaylistSettingsTypeDef",
-    {
-        "AdMarkupType": List[AdMarkupTypeType],
-        "ManifestWindowSeconds": int,
-    },
-    total=False,
-)
-
-HttpConfigurationTypeDef = TypedDict(
-    "HttpConfigurationTypeDef",
-    {
-        "BaseUrl": str,
-    },
-)
+class SecretsManagerAccessTokenConfigurationTypeDef(TypedDict):
+    HeaderName: NotRequired[str]
+    SecretArn: NotRequired[str]
+    SecretStringKey: NotRequired[str]
+
+class AdBreakOpportunityTypeDef(TypedDict):
+    OffsetMillis: int
+
+class KeyValuePairTypeDef(TypedDict):
+    Key: str
+    Value: str
+
+class SlateSourceTypeDef(TypedDict):
+    SourceLocationName: NotRequired[str]
+    VodSourceName: NotRequired[str]
+
+class SpliceInsertMessageTypeDef(TypedDict):
+    AvailNum: NotRequired[int]
+    AvailsExpected: NotRequired[int]
+    SpliceEventId: NotRequired[int]
+    UniqueProgramId: NotRequired[int]
+
+class AdConditioningConfigurationTypeDef(TypedDict):
+    StreamingMediaFileConditioning: StreamingMediaFileConditioningType
+
+class AdMarkerPassthroughTypeDef(TypedDict):
+    Enabled: NotRequired[bool]
+
+class AdsInteractionLogOutputTypeDef(TypedDict):
+    PublishOptInEventTypes: NotRequired[List[Literal["RAW_ADS_RESPONSE"]]]
+    ExcludeEventTypes: NotRequired[List[AdsInteractionExcludeEventTypeType]]
+
+class AdsInteractionLogTypeDef(TypedDict):
+    PublishOptInEventTypes: NotRequired[Sequence[Literal["RAW_ADS_RESPONSE"]]]
+    ExcludeEventTypes: NotRequired[Sequence[AdsInteractionExcludeEventTypeType]]
+
+class AlertTypeDef(TypedDict):
+    AlertCode: str
+    AlertMessage: str
+    LastModifiedTime: datetime
+    RelatedResourceArns: List[str]
+    ResourceArn: str
+    Category: NotRequired[AlertCategoryType]
+
+class ClipRangeTypeDef(TypedDict):
+    EndOffsetMillis: NotRequired[int]
+    StartOffsetMillis: NotRequired[int]
+
+class AvailMatchingCriteriaTypeDef(TypedDict):
+    DynamicVariable: str
+    Operator: Literal["EQUALS"]
+
+class AvailSuppressionTypeDef(TypedDict):
+    Mode: NotRequired[ModeType]
+    Value: NotRequired[str]
+    FillPolicy: NotRequired[FillPolicyType]
+
+class BumperTypeDef(TypedDict):
+    EndUrl: NotRequired[str]
+    StartUrl: NotRequired[str]
+
+class CdnConfigurationTypeDef(TypedDict):
+    AdSegmentUrlPrefix: NotRequired[str]
+    ContentSegmentUrlPrefix: NotRequired[str]
+
+class LogConfigurationForChannelTypeDef(TypedDict):
+    LogTypes: NotRequired[List[Literal["AS_RUN"]]]
+
+class ConfigureLogsForChannelRequestTypeDef(TypedDict):
+    ChannelName: str
+    LogTypes: Sequence[Literal["AS_RUN"]]
+
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
+
+class ManifestServiceInteractionLogOutputTypeDef(TypedDict):
+    ExcludeEventTypes: NotRequired[List[ManifestServiceExcludeEventTypeType]]
+
+class TimeShiftConfigurationTypeDef(TypedDict):
+    MaxTimeDelaySeconds: int
 
 HttpPackageConfigurationTypeDef = TypedDict(
     "HttpPackageConfigurationTypeDef",
@@ -954,877 +315,919 @@ HttpPackageConfigurationTypeDef = TypedDict(
     },
 )
 
-KeyValuePairTypeDef = TypedDict(
-    "KeyValuePairTypeDef",
-    {
-        "Key": str,
-        "Value": str,
-    },
-)
+class DefaultSegmentDeliveryConfigurationTypeDef(TypedDict):
+    BaseUrl: NotRequired[str]
 
-_RequiredListAlertsRequestRequestTypeDef = TypedDict(
-    "_RequiredListAlertsRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-    },
-)
-_OptionalListAlertsRequestRequestTypeDef = TypedDict(
-    "_OptionalListAlertsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
+class HttpConfigurationTypeDef(TypedDict):
+    BaseUrl: str
 
-class ListAlertsRequestRequestTypeDef(
-    _RequiredListAlertsRequestRequestTypeDef, _OptionalListAlertsRequestRequestTypeDef
-):
-    pass
+class SegmentDeliveryConfigurationTypeDef(TypedDict):
+    BaseUrl: NotRequired[str]
+    Name: NotRequired[str]
 
-ListAlertsResponseTypeDef = TypedDict(
-    "ListAlertsResponseTypeDef",
-    {
-        "Items": List["AlertTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DashConfigurationForPutTypeDef(TypedDict):
+    MpdLocation: NotRequired[str]
+    OriginManifestType: NotRequired[OriginManifestTypeType]
 
-ListChannelsRequestRequestTypeDef = TypedDict(
-    "ListChannelsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
+class DashConfigurationTypeDef(TypedDict):
+    ManifestEndpointPrefix: NotRequired[str]
+    MpdLocation: NotRequired[str]
+    OriginManifestType: NotRequired[OriginManifestTypeType]
 
-ListChannelsResponseTypeDef = TypedDict(
-    "ListChannelsResponseTypeDef",
-    {
-        "Items": List["ChannelTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DashPlaylistSettingsTypeDef(TypedDict):
+    ManifestWindowSeconds: NotRequired[int]
+    MinBufferTimeSeconds: NotRequired[int]
+    MinUpdatePeriodSeconds: NotRequired[int]
+    SuggestedPresentationDelaySeconds: NotRequired[int]
 
-_RequiredListLiveSourcesRequestRequestTypeDef = TypedDict(
-    "_RequiredListLiveSourcesRequestRequestTypeDef",
-    {
-        "SourceLocationName": str,
-    },
-)
-_OptionalListLiveSourcesRequestRequestTypeDef = TypedDict(
-    "_OptionalListLiveSourcesRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
+class DeleteChannelPolicyRequestTypeDef(TypedDict):
+    ChannelName: str
 
-class ListLiveSourcesRequestRequestTypeDef(
-    _RequiredListLiveSourcesRequestRequestTypeDef, _OptionalListLiveSourcesRequestRequestTypeDef
-):
-    pass
+class DeleteChannelRequestTypeDef(TypedDict):
+    ChannelName: str
 
-ListLiveSourcesResponseTypeDef = TypedDict(
-    "ListLiveSourcesResponseTypeDef",
-    {
-        "Items": List["LiveSourceTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DeleteLiveSourceRequestTypeDef(TypedDict):
+    LiveSourceName: str
+    SourceLocationName: str
 
-ListPlaybackConfigurationsRequestRequestTypeDef = TypedDict(
-    "ListPlaybackConfigurationsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
+class DeletePlaybackConfigurationRequestTypeDef(TypedDict):
+    Name: str
 
-ListPlaybackConfigurationsResponseTypeDef = TypedDict(
-    "ListPlaybackConfigurationsResponseTypeDef",
-    {
-        "Items": List["PlaybackConfigurationTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DeletePrefetchScheduleRequestTypeDef(TypedDict):
+    Name: str
+    PlaybackConfigurationName: str
 
-_RequiredListPrefetchSchedulesRequestRequestTypeDef = TypedDict(
-    "_RequiredListPrefetchSchedulesRequestRequestTypeDef",
-    {
-        "PlaybackConfigurationName": str,
-    },
-)
-_OptionalListPrefetchSchedulesRequestRequestTypeDef = TypedDict(
-    "_OptionalListPrefetchSchedulesRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-        "StreamId": str,
-    },
-    total=False,
-)
+class DeleteProgramRequestTypeDef(TypedDict):
+    ChannelName: str
+    ProgramName: str
 
-class ListPrefetchSchedulesRequestRequestTypeDef(
-    _RequiredListPrefetchSchedulesRequestRequestTypeDef,
-    _OptionalListPrefetchSchedulesRequestRequestTypeDef,
-):
-    pass
+class DeleteSourceLocationRequestTypeDef(TypedDict):
+    SourceLocationName: str
 
-ListPrefetchSchedulesResponseTypeDef = TypedDict(
-    "ListPrefetchSchedulesResponseTypeDef",
-    {
-        "Items": List["PrefetchScheduleTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DeleteVodSourceRequestTypeDef(TypedDict):
+    SourceLocationName: str
+    VodSourceName: str
 
-ListSourceLocationsRequestRequestTypeDef = TypedDict(
-    "ListSourceLocationsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
+class DescribeChannelRequestTypeDef(TypedDict):
+    ChannelName: str
 
-ListSourceLocationsResponseTypeDef = TypedDict(
-    "ListSourceLocationsResponseTypeDef",
-    {
-        "Items": List["SourceLocationTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DescribeLiveSourceRequestTypeDef(TypedDict):
+    LiveSourceName: str
+    SourceLocationName: str
 
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-    },
-)
+class DescribeProgramRequestTypeDef(TypedDict):
+    ChannelName: str
+    ProgramName: str
 
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "Tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DescribeSourceLocationRequestTypeDef(TypedDict):
+    SourceLocationName: str
 
-_RequiredListVodSourcesRequestRequestTypeDef = TypedDict(
-    "_RequiredListVodSourcesRequestRequestTypeDef",
-    {
-        "SourceLocationName": str,
-    },
-)
-_OptionalListVodSourcesRequestRequestTypeDef = TypedDict(
-    "_OptionalListVodSourcesRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
+class DescribeVodSourceRequestTypeDef(TypedDict):
+    SourceLocationName: str
+    VodSourceName: str
 
-class ListVodSourcesRequestRequestTypeDef(
-    _RequiredListVodSourcesRequestRequestTypeDef, _OptionalListVodSourcesRequestRequestTypeDef
-):
-    pass
+class GetChannelPolicyRequestTypeDef(TypedDict):
+    ChannelName: str
 
-ListVodSourcesResponseTypeDef = TypedDict(
-    "ListVodSourcesResponseTypeDef",
-    {
-        "Items": List["VodSourceTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
 
-LivePreRollConfigurationTypeDef = TypedDict(
-    "LivePreRollConfigurationTypeDef",
-    {
-        "AdDecisionServerUrl": str,
-        "MaxDurationSeconds": int,
-    },
-    total=False,
-)
+class GetChannelScheduleRequestTypeDef(TypedDict):
+    ChannelName: str
+    DurationMinutes: NotRequired[str]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+    Audience: NotRequired[str]
 
-_RequiredLiveSourceTypeDef = TypedDict(
-    "_RequiredLiveSourceTypeDef",
-    {
-        "Arn": str,
-        "HttpPackageConfigurations": List["HttpPackageConfigurationTypeDef"],
-        "LiveSourceName": str,
-        "SourceLocationName": str,
-    },
-)
-_OptionalLiveSourceTypeDef = TypedDict(
-    "_OptionalLiveSourceTypeDef",
-    {
-        "CreationTime": datetime,
-        "LastModifiedTime": datetime,
-        "Tags": Dict[str, str],
-    },
-    total=False,
-)
+class GetPlaybackConfigurationRequestTypeDef(TypedDict):
+    Name: str
 
-class LiveSourceTypeDef(_RequiredLiveSourceTypeDef, _OptionalLiveSourceTypeDef):
-    pass
+class HlsConfigurationTypeDef(TypedDict):
+    ManifestEndpointPrefix: NotRequired[str]
 
-LogConfigurationForChannelTypeDef = TypedDict(
-    "LogConfigurationForChannelTypeDef",
-    {
-        "LogTypes": List[Literal["AS_RUN"]],
-    },
-    total=False,
-)
+class LivePreRollConfigurationTypeDef(TypedDict):
+    AdDecisionServerUrl: NotRequired[str]
+    MaxDurationSeconds: NotRequired[int]
 
-LogConfigurationTypeDef = TypedDict(
-    "LogConfigurationTypeDef",
-    {
-        "PercentEnabled": int,
-    },
-)
+class GetPrefetchScheduleRequestTypeDef(TypedDict):
+    Name: str
+    PlaybackConfigurationName: str
 
-ManifestProcessingRulesTypeDef = TypedDict(
-    "ManifestProcessingRulesTypeDef",
-    {
-        "AdMarkerPassthrough": "AdMarkerPassthroughTypeDef",
-    },
-    total=False,
-)
+class HlsPlaylistSettingsOutputTypeDef(TypedDict):
+    ManifestWindowSeconds: NotRequired[int]
+    AdMarkupType: NotRequired[List[AdMarkupTypeType]]
 
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
+class HlsPlaylistSettingsTypeDef(TypedDict):
+    ManifestWindowSeconds: NotRequired[int]
+    AdMarkupType: NotRequired[Sequence[AdMarkupTypeType]]
 
-PlaybackConfigurationTypeDef = TypedDict(
-    "PlaybackConfigurationTypeDef",
-    {
-        "AdDecisionServerUrl": str,
-        "AvailSuppression": "AvailSuppressionTypeDef",
-        "Bumper": "BumperTypeDef",
-        "CdnConfiguration": "CdnConfigurationTypeDef",
-        "ConfigurationAliases": Dict[str, Dict[str, str]],
-        "DashConfiguration": "DashConfigurationTypeDef",
-        "HlsConfiguration": "HlsConfigurationTypeDef",
-        "InsertionMode": InsertionModeType,
-        "LivePreRollConfiguration": "LivePreRollConfigurationTypeDef",
-        "LogConfiguration": "LogConfigurationTypeDef",
-        "ManifestProcessingRules": "ManifestProcessingRulesTypeDef",
-        "Name": str,
-        "PersonalizationThresholdSeconds": int,
-        "PlaybackConfigurationArn": str,
-        "PlaybackEndpointPrefix": str,
-        "SessionInitializationEndpointPrefix": str,
-        "SlateAdUrl": str,
-        "Tags": Dict[str, str],
-        "TranscodeProfileName": str,
-        "VideoContentSourceUrl": str,
-    },
-    total=False,
-)
+class ListAlertsRequestTypeDef(TypedDict):
+    ResourceArn: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
 
-_RequiredPrefetchConsumptionTypeDef = TypedDict(
-    "_RequiredPrefetchConsumptionTypeDef",
-    {
-        "EndTime": Union[datetime, str],
-    },
-)
-_OptionalPrefetchConsumptionTypeDef = TypedDict(
-    "_OptionalPrefetchConsumptionTypeDef",
-    {
-        "AvailMatchingCriteria": List["AvailMatchingCriteriaTypeDef"],
-        "StartTime": Union[datetime, str],
-    },
-    total=False,
-)
+class ListChannelsRequestTypeDef(TypedDict):
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
 
-class PrefetchConsumptionTypeDef(
-    _RequiredPrefetchConsumptionTypeDef, _OptionalPrefetchConsumptionTypeDef
-):
-    pass
+class ListLiveSourcesRequestTypeDef(TypedDict):
+    SourceLocationName: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
 
-_RequiredPrefetchRetrievalTypeDef = TypedDict(
-    "_RequiredPrefetchRetrievalTypeDef",
-    {
-        "EndTime": Union[datetime, str],
-    },
-)
-_OptionalPrefetchRetrievalTypeDef = TypedDict(
-    "_OptionalPrefetchRetrievalTypeDef",
-    {
-        "DynamicVariables": Dict[str, str],
-        "StartTime": Union[datetime, str],
-    },
-    total=False,
-)
+class ListPlaybackConfigurationsRequestTypeDef(TypedDict):
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
 
-class PrefetchRetrievalTypeDef(
-    _RequiredPrefetchRetrievalTypeDef, _OptionalPrefetchRetrievalTypeDef
-):
-    pass
+class ListPrefetchSchedulesRequestTypeDef(TypedDict):
+    PlaybackConfigurationName: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+    ScheduleType: NotRequired[ListPrefetchScheduleTypeType]
+    StreamId: NotRequired[str]
 
-_RequiredPrefetchScheduleTypeDef = TypedDict(
-    "_RequiredPrefetchScheduleTypeDef",
-    {
-        "Arn": str,
-        "Consumption": "PrefetchConsumptionTypeDef",
-        "Name": str,
-        "PlaybackConfigurationName": str,
-        "Retrieval": "PrefetchRetrievalTypeDef",
-    },
-)
-_OptionalPrefetchScheduleTypeDef = TypedDict(
-    "_OptionalPrefetchScheduleTypeDef",
-    {
-        "StreamId": str,
-    },
-    total=False,
-)
+class ListSourceLocationsRequestTypeDef(TypedDict):
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
 
-class PrefetchScheduleTypeDef(_RequiredPrefetchScheduleTypeDef, _OptionalPrefetchScheduleTypeDef):
-    pass
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
 
-PutChannelPolicyRequestRequestTypeDef = TypedDict(
-    "PutChannelPolicyRequestRequestTypeDef",
-    {
-        "ChannelName": str,
-        "Policy": str,
-    },
-)
+class ListVodSourcesRequestTypeDef(TypedDict):
+    SourceLocationName: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
 
-_RequiredPutPlaybackConfigurationRequestRequestTypeDef = TypedDict(
-    "_RequiredPutPlaybackConfigurationRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
-_OptionalPutPlaybackConfigurationRequestRequestTypeDef = TypedDict(
-    "_OptionalPutPlaybackConfigurationRequestRequestTypeDef",
-    {
-        "AdDecisionServerUrl": str,
-        "AvailSuppression": "AvailSuppressionTypeDef",
-        "Bumper": "BumperTypeDef",
-        "CdnConfiguration": "CdnConfigurationTypeDef",
-        "ConfigurationAliases": Dict[str, Dict[str, str]],
-        "DashConfiguration": "DashConfigurationForPutTypeDef",
-        "InsertionMode": InsertionModeType,
-        "LivePreRollConfiguration": "LivePreRollConfigurationTypeDef",
-        "ManifestProcessingRules": "ManifestProcessingRulesTypeDef",
-        "PersonalizationThresholdSeconds": int,
-        "SlateAdUrl": str,
-        "Tags": Dict[str, str],
-        "TranscodeProfileName": str,
-        "VideoContentSourceUrl": str,
-    },
-    total=False,
-)
+class ManifestServiceInteractionLogTypeDef(TypedDict):
+    ExcludeEventTypes: NotRequired[Sequence[ManifestServiceExcludeEventTypeType]]
 
-class PutPlaybackConfigurationRequestRequestTypeDef(
-    _RequiredPutPlaybackConfigurationRequestRequestTypeDef,
-    _OptionalPutPlaybackConfigurationRequestRequestTypeDef,
-):
-    pass
+TimestampTypeDef = Union[datetime, str]
 
-PutPlaybackConfigurationResponseTypeDef = TypedDict(
-    "PutPlaybackConfigurationResponseTypeDef",
-    {
-        "AdDecisionServerUrl": str,
-        "AvailSuppression": "AvailSuppressionTypeDef",
-        "Bumper": "BumperTypeDef",
-        "CdnConfiguration": "CdnConfigurationTypeDef",
-        "ConfigurationAliases": Dict[str, Dict[str, str]],
-        "DashConfiguration": "DashConfigurationTypeDef",
-        "HlsConfiguration": "HlsConfigurationTypeDef",
-        "InsertionMode": InsertionModeType,
-        "LivePreRollConfiguration": "LivePreRollConfigurationTypeDef",
-        "LogConfiguration": "LogConfigurationTypeDef",
-        "ManifestProcessingRules": "ManifestProcessingRulesTypeDef",
-        "Name": str,
-        "PersonalizationThresholdSeconds": int,
-        "PlaybackConfigurationArn": str,
-        "PlaybackEndpointPrefix": str,
-        "SessionInitializationEndpointPrefix": str,
-        "SlateAdUrl": str,
-        "Tags": Dict[str, str],
-        "TranscodeProfileName": str,
-        "VideoContentSourceUrl": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class TrafficShapingRetrievalWindowTypeDef(TypedDict):
+    RetrievalWindowDurationSeconds: NotRequired[int]
 
-_RequiredRequestOutputItemTypeDef = TypedDict(
-    "_RequiredRequestOutputItemTypeDef",
-    {
-        "ManifestName": str,
-        "SourceGroup": str,
-    },
-)
-_OptionalRequestOutputItemTypeDef = TypedDict(
-    "_OptionalRequestOutputItemTypeDef",
-    {
-        "DashPlaylistSettings": "DashPlaylistSettingsTypeDef",
-        "HlsPlaylistSettings": "HlsPlaylistSettingsTypeDef",
-    },
-    total=False,
-)
+class PutChannelPolicyRequestTypeDef(TypedDict):
+    ChannelName: str
+    Policy: str
 
-class RequestOutputItemTypeDef(
-    _RequiredRequestOutputItemTypeDef, _OptionalRequestOutputItemTypeDef
-):
-    pass
+class ScheduleAdBreakTypeDef(TypedDict):
+    ApproximateDurationSeconds: NotRequired[int]
+    ApproximateStartTime: NotRequired[datetime]
+    SourceLocationName: NotRequired[str]
+    VodSourceName: NotRequired[str]
 
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-_RequiredResponseOutputItemTypeDef = TypedDict(
-    "_RequiredResponseOutputItemTypeDef",
-    {
-        "ManifestName": str,
-        "PlaybackUrl": str,
-        "SourceGroup": str,
-    },
-)
-_OptionalResponseOutputItemTypeDef = TypedDict(
-    "_OptionalResponseOutputItemTypeDef",
-    {
-        "DashPlaylistSettings": "DashPlaylistSettingsTypeDef",
-        "HlsPlaylistSettings": "HlsPlaylistSettingsTypeDef",
-    },
-    total=False,
-)
-
-class ResponseOutputItemTypeDef(
-    _RequiredResponseOutputItemTypeDef, _OptionalResponseOutputItemTypeDef
-):
-    pass
-
-ScheduleAdBreakTypeDef = TypedDict(
-    "ScheduleAdBreakTypeDef",
-    {
-        "ApproximateDurationSeconds": int,
-        "ApproximateStartTime": datetime,
-        "SourceLocationName": str,
-        "VodSourceName": str,
-    },
-    total=False,
-)
-
-_RequiredScheduleConfigurationTypeDef = TypedDict(
-    "_RequiredScheduleConfigurationTypeDef",
-    {
-        "Transition": "TransitionTypeDef",
-    },
-)
-_OptionalScheduleConfigurationTypeDef = TypedDict(
-    "_OptionalScheduleConfigurationTypeDef",
-    {
-        "ClipRange": "ClipRangeTypeDef",
-    },
-    total=False,
-)
-
-class ScheduleConfigurationTypeDef(
-    _RequiredScheduleConfigurationTypeDef, _OptionalScheduleConfigurationTypeDef
-):
-    pass
-
-_RequiredScheduleEntryTypeDef = TypedDict(
-    "_RequiredScheduleEntryTypeDef",
-    {
-        "Arn": str,
-        "ChannelName": str,
-        "ProgramName": str,
-        "SourceLocationName": str,
-    },
-)
-_OptionalScheduleEntryTypeDef = TypedDict(
-    "_OptionalScheduleEntryTypeDef",
-    {
-        "ApproximateDurationSeconds": int,
-        "ApproximateStartTime": datetime,
-        "Audiences": List[str],
-        "LiveSourceName": str,
-        "ScheduleAdBreaks": List["ScheduleAdBreakTypeDef"],
-        "ScheduleEntryType": ScheduleEntryTypeType,
-        "VodSourceName": str,
-    },
-    total=False,
-)
-
-class ScheduleEntryTypeDef(_RequiredScheduleEntryTypeDef, _OptionalScheduleEntryTypeDef):
-    pass
-
-SecretsManagerAccessTokenConfigurationTypeDef = TypedDict(
-    "SecretsManagerAccessTokenConfigurationTypeDef",
-    {
-        "HeaderName": str,
-        "SecretArn": str,
-        "SecretStringKey": str,
-    },
-    total=False,
-)
-
-SegmentDeliveryConfigurationTypeDef = TypedDict(
-    "SegmentDeliveryConfigurationTypeDef",
-    {
-        "BaseUrl": str,
-        "Name": str,
-    },
-    total=False,
-)
-
-SegmentationDescriptorTypeDef = TypedDict(
-    "SegmentationDescriptorTypeDef",
-    {
-        "SegmentNum": int,
-        "SegmentationEventId": int,
-        "SegmentationTypeId": int,
-        "SegmentationUpid": str,
-        "SegmentationUpidType": int,
-        "SegmentsExpected": int,
-        "SubSegmentNum": int,
-        "SubSegmentsExpected": int,
-    },
-    total=False,
-)
-
-SlateSourceTypeDef = TypedDict(
-    "SlateSourceTypeDef",
-    {
-        "SourceLocationName": str,
-        "VodSourceName": str,
-    },
-    total=False,
-)
-
-_RequiredSourceLocationTypeDef = TypedDict(
-    "_RequiredSourceLocationTypeDef",
-    {
-        "Arn": str,
-        "HttpConfiguration": "HttpConfigurationTypeDef",
-        "SourceLocationName": str,
-    },
-)
-_OptionalSourceLocationTypeDef = TypedDict(
-    "_OptionalSourceLocationTypeDef",
-    {
-        "AccessConfiguration": "AccessConfigurationTypeDef",
-        "CreationTime": datetime,
-        "DefaultSegmentDeliveryConfiguration": "DefaultSegmentDeliveryConfigurationTypeDef",
-        "LastModifiedTime": datetime,
-        "SegmentDeliveryConfigurations": List["SegmentDeliveryConfigurationTypeDef"],
-        "Tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class SourceLocationTypeDef(_RequiredSourceLocationTypeDef, _OptionalSourceLocationTypeDef):
-    pass
-
-SpliceInsertMessageTypeDef = TypedDict(
-    "SpliceInsertMessageTypeDef",
-    {
-        "AvailNum": int,
-        "AvailsExpected": int,
-        "SpliceEventId": int,
-        "UniqueProgramId": int,
-    },
-    total=False,
-)
-
-StartChannelRequestRequestTypeDef = TypedDict(
-    "StartChannelRequestRequestTypeDef",
-    {
-        "ChannelName": str,
-    },
-)
-
-StopChannelRequestRequestTypeDef = TypedDict(
-    "StopChannelRequestRequestTypeDef",
-    {
-        "ChannelName": str,
-    },
-)
-
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-        "Tags": Dict[str, str],
-    },
-)
-
-TimeShiftConfigurationTypeDef = TypedDict(
-    "TimeShiftConfigurationTypeDef",
-    {
-        "MaxTimeDelaySeconds": int,
-    },
-)
-
-TimeSignalMessageTypeDef = TypedDict(
-    "TimeSignalMessageTypeDef",
-    {
-        "SegmentationDescriptors": List["SegmentationDescriptorTypeDef"],
-    },
-    total=False,
-)
-
-_RequiredTransitionTypeDef = TypedDict(
-    "_RequiredTransitionTypeDef",
+TransitionTypeDef = TypedDict(
+    "TransitionTypeDef",
     {
         "RelativePosition": RelativePositionType,
         "Type": str,
-    },
-)
-_OptionalTransitionTypeDef = TypedDict(
-    "_OptionalTransitionTypeDef",
-    {
-        "DurationMillis": int,
-        "RelativeProgram": str,
-        "ScheduledStartTimeMillis": int,
-    },
-    total=False,
-)
-
-class TransitionTypeDef(_RequiredTransitionTypeDef, _OptionalTransitionTypeDef):
-    pass
-
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-        "TagKeys": List[str],
+        "DurationMillis": NotRequired[int],
+        "RelativeProgram": NotRequired[str],
+        "ScheduledStartTimeMillis": NotRequired[int],
     },
 )
 
-_RequiredUpdateChannelRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateChannelRequestRequestTypeDef",
-    {
-        "ChannelName": str,
-        "Outputs": List["RequestOutputItemTypeDef"],
-    },
-)
-_OptionalUpdateChannelRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateChannelRequestRequestTypeDef",
-    {
-        "Audiences": List[str],
-        "FillerSlate": "SlateSourceTypeDef",
-        "TimeShiftConfiguration": "TimeShiftConfigurationTypeDef",
-    },
-    total=False,
-)
+class SegmentationDescriptorTypeDef(TypedDict):
+    SegmentationEventId: NotRequired[int]
+    SegmentationUpidType: NotRequired[int]
+    SegmentationUpid: NotRequired[str]
+    SegmentationTypeId: NotRequired[int]
+    SegmentNum: NotRequired[int]
+    SegmentsExpected: NotRequired[int]
+    SubSegmentNum: NotRequired[int]
+    SubSegmentsExpected: NotRequired[int]
 
-class UpdateChannelRequestRequestTypeDef(
-    _RequiredUpdateChannelRequestRequestTypeDef, _OptionalUpdateChannelRequestRequestTypeDef
-):
-    pass
+class StartChannelRequestTypeDef(TypedDict):
+    ChannelName: str
 
-UpdateChannelResponseTypeDef = TypedDict(
-    "UpdateChannelResponseTypeDef",
-    {
-        "Arn": str,
-        "Audiences": List[str],
-        "ChannelName": str,
-        "ChannelState": ChannelStateType,
-        "CreationTime": datetime,
-        "FillerSlate": "SlateSourceTypeDef",
-        "LastModifiedTime": datetime,
-        "Outputs": List["ResponseOutputItemTypeDef"],
-        "PlaybackMode": str,
-        "Tags": Dict[str, str],
-        "Tier": str,
-        "TimeShiftConfiguration": "TimeShiftConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class StopChannelRequestTypeDef(TypedDict):
+    ChannelName: str
 
-UpdateLiveSourceRequestRequestTypeDef = TypedDict(
-    "UpdateLiveSourceRequestRequestTypeDef",
-    {
-        "HttpPackageConfigurations": List["HttpPackageConfigurationTypeDef"],
-        "LiveSourceName": str,
-        "SourceLocationName": str,
-    },
-)
+class TagResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+    Tags: Mapping[str, str]
 
-UpdateLiveSourceResponseTypeDef = TypedDict(
-    "UpdateLiveSourceResponseTypeDef",
-    {
-        "Arn": str,
-        "CreationTime": datetime,
-        "HttpPackageConfigurations": List["HttpPackageConfigurationTypeDef"],
-        "LastModifiedTime": datetime,
-        "LiveSourceName": str,
-        "SourceLocationName": str,
-        "Tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class UntagResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+    TagKeys: Sequence[str]
 
-_RequiredUpdateProgramRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateProgramRequestRequestTypeDef",
-    {
-        "ChannelName": str,
-        "ProgramName": str,
-        "ScheduleConfiguration": "UpdateProgramScheduleConfigurationTypeDef",
-    },
-)
-_OptionalUpdateProgramRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateProgramRequestRequestTypeDef",
-    {
-        "AdBreaks": List["AdBreakTypeDef"],
-        "AudienceMedia": List["AudienceMediaTypeDef"],
-    },
-    total=False,
-)
+class UpdateProgramTransitionTypeDef(TypedDict):
+    ScheduledStartTimeMillis: NotRequired[int]
+    DurationMillis: NotRequired[int]
 
-class UpdateProgramRequestRequestTypeDef(
-    _RequiredUpdateProgramRequestRequestTypeDef, _OptionalUpdateProgramRequestRequestTypeDef
-):
-    pass
+class AccessConfigurationTypeDef(TypedDict):
+    AccessType: NotRequired[AccessTypeType]
+    SecretsManagerAccessTokenConfiguration: NotRequired[
+        SecretsManagerAccessTokenConfigurationTypeDef
+    ]
 
-UpdateProgramResponseTypeDef = TypedDict(
-    "UpdateProgramResponseTypeDef",
-    {
-        "AdBreaks": List["AdBreakTypeDef"],
-        "Arn": str,
-        "AudienceMedia": List["AudienceMediaTypeDef"],
-        "ChannelName": str,
-        "ClipRange": "ClipRangeTypeDef",
-        "CreationTime": datetime,
-        "DurationMillis": int,
-        "LiveSourceName": str,
-        "ProgramName": str,
-        "ScheduledStartTime": datetime,
-        "SourceLocationName": str,
-        "VodSourceName": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ManifestProcessingRulesTypeDef(TypedDict):
+    AdMarkerPassthrough: NotRequired[AdMarkerPassthroughTypeDef]
 
-UpdateProgramScheduleConfigurationTypeDef = TypedDict(
-    "UpdateProgramScheduleConfigurationTypeDef",
-    {
-        "ClipRange": "ClipRangeTypeDef",
-        "Transition": "UpdateProgramTransitionTypeDef",
-    },
-    total=False,
-)
+AdsInteractionLogUnionTypeDef = Union[AdsInteractionLogTypeDef, AdsInteractionLogOutputTypeDef]
 
-UpdateProgramTransitionTypeDef = TypedDict(
-    "UpdateProgramTransitionTypeDef",
-    {
-        "DurationMillis": int,
-        "ScheduledStartTimeMillis": int,
-    },
-    total=False,
-)
+class PrefetchConsumptionOutputTypeDef(TypedDict):
+    EndTime: datetime
+    AvailMatchingCriteria: NotRequired[List[AvailMatchingCriteriaTypeDef]]
+    StartTime: NotRequired[datetime]
 
-_RequiredUpdateSourceLocationRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateSourceLocationRequestRequestTypeDef",
-    {
-        "HttpConfiguration": "HttpConfigurationTypeDef",
-        "SourceLocationName": str,
-    },
-)
-_OptionalUpdateSourceLocationRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateSourceLocationRequestRequestTypeDef",
-    {
-        "AccessConfiguration": "AccessConfigurationTypeDef",
-        "DefaultSegmentDeliveryConfiguration": "DefaultSegmentDeliveryConfigurationTypeDef",
-        "SegmentDeliveryConfigurations": List["SegmentDeliveryConfigurationTypeDef"],
-    },
-    total=False,
-)
+class RecurringConsumptionOutputTypeDef(TypedDict):
+    RetrievedAdExpirationSeconds: NotRequired[int]
+    AvailMatchingCriteria: NotRequired[List[AvailMatchingCriteriaTypeDef]]
 
-class UpdateSourceLocationRequestRequestTypeDef(
-    _RequiredUpdateSourceLocationRequestRequestTypeDef,
-    _OptionalUpdateSourceLocationRequestRequestTypeDef,
-):
-    pass
+class RecurringConsumptionTypeDef(TypedDict):
+    RetrievedAdExpirationSeconds: NotRequired[int]
+    AvailMatchingCriteria: NotRequired[Sequence[AvailMatchingCriteriaTypeDef]]
 
-UpdateSourceLocationResponseTypeDef = TypedDict(
-    "UpdateSourceLocationResponseTypeDef",
-    {
-        "AccessConfiguration": "AccessConfigurationTypeDef",
-        "Arn": str,
-        "CreationTime": datetime,
-        "DefaultSegmentDeliveryConfiguration": "DefaultSegmentDeliveryConfigurationTypeDef",
-        "HttpConfiguration": "HttpConfigurationTypeDef",
-        "LastModifiedTime": datetime,
-        "SegmentDeliveryConfigurations": List["SegmentDeliveryConfigurationTypeDef"],
-        "SourceLocationName": str,
-        "Tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ConfigureLogsForChannelResponseTypeDef(TypedDict):
+    ChannelName: str
+    LogTypes: List[Literal["AS_RUN"]]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-UpdateVodSourceRequestRequestTypeDef = TypedDict(
-    "UpdateVodSourceRequestRequestTypeDef",
-    {
-        "HttpPackageConfigurations": List["HttpPackageConfigurationTypeDef"],
-        "SourceLocationName": str,
-        "VodSourceName": str,
-    },
-)
+class EmptyResponseMetadataTypeDef(TypedDict):
+    ResponseMetadata: ResponseMetadataTypeDef
 
-UpdateVodSourceResponseTypeDef = TypedDict(
-    "UpdateVodSourceResponseTypeDef",
-    {
-        "Arn": str,
-        "CreationTime": datetime,
-        "HttpPackageConfigurations": List["HttpPackageConfigurationTypeDef"],
-        "LastModifiedTime": datetime,
-        "SourceLocationName": str,
-        "Tags": Dict[str, str],
-        "VodSourceName": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetChannelPolicyResponseTypeDef(TypedDict):
+    Policy: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredVodSourceTypeDef = TypedDict(
-    "_RequiredVodSourceTypeDef",
-    {
-        "Arn": str,
-        "HttpPackageConfigurations": List["HttpPackageConfigurationTypeDef"],
-        "SourceLocationName": str,
-        "VodSourceName": str,
-    },
-)
-_OptionalVodSourceTypeDef = TypedDict(
-    "_OptionalVodSourceTypeDef",
-    {
-        "CreationTime": datetime,
-        "LastModifiedTime": datetime,
-        "Tags": Dict[str, str],
-    },
-    total=False,
-)
+class ListAlertsResponseTypeDef(TypedDict):
+    Items: List[AlertTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-class VodSourceTypeDef(_RequiredVodSourceTypeDef, _OptionalVodSourceTypeDef):
-    pass
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    Tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ConfigureLogsForPlaybackConfigurationResponseTypeDef(TypedDict):
+    PercentEnabled: int
+    PlaybackConfigurationName: str
+    EnabledLoggingStrategies: List[LoggingStrategyType]
+    AdsInteractionLog: AdsInteractionLogOutputTypeDef
+    ManifestServiceInteractionLog: ManifestServiceInteractionLogOutputTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class LogConfigurationTypeDef(TypedDict):
+    PercentEnabled: int
+    EnabledLoggingStrategies: NotRequired[List[LoggingStrategyType]]
+    AdsInteractionLog: NotRequired[AdsInteractionLogOutputTypeDef]
+    ManifestServiceInteractionLog: NotRequired[ManifestServiceInteractionLogOutputTypeDef]
+
+class CreateLiveSourceRequestTypeDef(TypedDict):
+    HttpPackageConfigurations: Sequence[HttpPackageConfigurationTypeDef]
+    LiveSourceName: str
+    SourceLocationName: str
+    Tags: NotRequired[Mapping[str, str]]
+
+class CreateLiveSourceResponseTypeDef(TypedDict):
+    Arn: str
+    CreationTime: datetime
+    HttpPackageConfigurations: List[HttpPackageConfigurationTypeDef]
+    LastModifiedTime: datetime
+    LiveSourceName: str
+    SourceLocationName: str
+    Tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateVodSourceRequestTypeDef(TypedDict):
+    HttpPackageConfigurations: Sequence[HttpPackageConfigurationTypeDef]
+    SourceLocationName: str
+    VodSourceName: str
+    Tags: NotRequired[Mapping[str, str]]
+
+class CreateVodSourceResponseTypeDef(TypedDict):
+    Arn: str
+    CreationTime: datetime
+    HttpPackageConfigurations: List[HttpPackageConfigurationTypeDef]
+    LastModifiedTime: datetime
+    SourceLocationName: str
+    Tags: Dict[str, str]
+    VodSourceName: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeLiveSourceResponseTypeDef(TypedDict):
+    Arn: str
+    CreationTime: datetime
+    HttpPackageConfigurations: List[HttpPackageConfigurationTypeDef]
+    LastModifiedTime: datetime
+    LiveSourceName: str
+    SourceLocationName: str
+    Tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeVodSourceResponseTypeDef(TypedDict):
+    AdBreakOpportunities: List[AdBreakOpportunityTypeDef]
+    Arn: str
+    CreationTime: datetime
+    HttpPackageConfigurations: List[HttpPackageConfigurationTypeDef]
+    LastModifiedTime: datetime
+    SourceLocationName: str
+    Tags: Dict[str, str]
+    VodSourceName: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class LiveSourceTypeDef(TypedDict):
+    Arn: str
+    HttpPackageConfigurations: List[HttpPackageConfigurationTypeDef]
+    LiveSourceName: str
+    SourceLocationName: str
+    CreationTime: NotRequired[datetime]
+    LastModifiedTime: NotRequired[datetime]
+    Tags: NotRequired[Dict[str, str]]
+
+class UpdateLiveSourceRequestTypeDef(TypedDict):
+    HttpPackageConfigurations: Sequence[HttpPackageConfigurationTypeDef]
+    LiveSourceName: str
+    SourceLocationName: str
+
+class UpdateLiveSourceResponseTypeDef(TypedDict):
+    Arn: str
+    CreationTime: datetime
+    HttpPackageConfigurations: List[HttpPackageConfigurationTypeDef]
+    LastModifiedTime: datetime
+    LiveSourceName: str
+    SourceLocationName: str
+    Tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateVodSourceRequestTypeDef(TypedDict):
+    HttpPackageConfigurations: Sequence[HttpPackageConfigurationTypeDef]
+    SourceLocationName: str
+    VodSourceName: str
+
+class UpdateVodSourceResponseTypeDef(TypedDict):
+    Arn: str
+    CreationTime: datetime
+    HttpPackageConfigurations: List[HttpPackageConfigurationTypeDef]
+    LastModifiedTime: datetime
+    SourceLocationName: str
+    Tags: Dict[str, str]
+    VodSourceName: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class VodSourceTypeDef(TypedDict):
+    Arn: str
+    HttpPackageConfigurations: List[HttpPackageConfigurationTypeDef]
+    SourceLocationName: str
+    VodSourceName: str
+    CreationTime: NotRequired[datetime]
+    LastModifiedTime: NotRequired[datetime]
+    Tags: NotRequired[Dict[str, str]]
+
+class GetChannelScheduleRequestPaginateTypeDef(TypedDict):
+    ChannelName: str
+    DurationMinutes: NotRequired[str]
+    Audience: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListAlertsRequestPaginateTypeDef(TypedDict):
+    ResourceArn: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListChannelsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListLiveSourcesRequestPaginateTypeDef(TypedDict):
+    SourceLocationName: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListPlaybackConfigurationsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListPrefetchSchedulesRequestPaginateTypeDef(TypedDict):
+    PlaybackConfigurationName: str
+    ScheduleType: NotRequired[ListPrefetchScheduleTypeType]
+    StreamId: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListSourceLocationsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListVodSourcesRequestPaginateTypeDef(TypedDict):
+    SourceLocationName: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ResponseOutputItemTypeDef(TypedDict):
+    ManifestName: str
+    PlaybackUrl: str
+    SourceGroup: str
+    DashPlaylistSettings: NotRequired[DashPlaylistSettingsTypeDef]
+    HlsPlaylistSettings: NotRequired[HlsPlaylistSettingsOutputTypeDef]
+
+HlsPlaylistSettingsUnionTypeDef = Union[
+    HlsPlaylistSettingsTypeDef, HlsPlaylistSettingsOutputTypeDef
+]
+ManifestServiceInteractionLogUnionTypeDef = Union[
+    ManifestServiceInteractionLogTypeDef, ManifestServiceInteractionLogOutputTypeDef
+]
+
+class PrefetchConsumptionTypeDef(TypedDict):
+    EndTime: TimestampTypeDef
+    AvailMatchingCriteria: NotRequired[Sequence[AvailMatchingCriteriaTypeDef]]
+    StartTime: NotRequired[TimestampTypeDef]
+
+class PrefetchRetrievalOutputTypeDef(TypedDict):
+    EndTime: datetime
+    DynamicVariables: NotRequired[Dict[str, str]]
+    StartTime: NotRequired[datetime]
+    TrafficShapingType: NotRequired[Literal["RETRIEVAL_WINDOW"]]
+    TrafficShapingRetrievalWindow: NotRequired[TrafficShapingRetrievalWindowTypeDef]
+
+class PrefetchRetrievalTypeDef(TypedDict):
+    EndTime: TimestampTypeDef
+    DynamicVariables: NotRequired[Mapping[str, str]]
+    StartTime: NotRequired[TimestampTypeDef]
+    TrafficShapingType: NotRequired[Literal["RETRIEVAL_WINDOW"]]
+    TrafficShapingRetrievalWindow: NotRequired[TrafficShapingRetrievalWindowTypeDef]
+
+class RecurringRetrievalOutputTypeDef(TypedDict):
+    DynamicVariables: NotRequired[Dict[str, str]]
+    DelayAfterAvailEndSeconds: NotRequired[int]
+    TrafficShapingType: NotRequired[Literal["RETRIEVAL_WINDOW"]]
+    TrafficShapingRetrievalWindow: NotRequired[TrafficShapingRetrievalWindowTypeDef]
+
+class RecurringRetrievalTypeDef(TypedDict):
+    DynamicVariables: NotRequired[Mapping[str, str]]
+    DelayAfterAvailEndSeconds: NotRequired[int]
+    TrafficShapingType: NotRequired[Literal["RETRIEVAL_WINDOW"]]
+    TrafficShapingRetrievalWindow: NotRequired[TrafficShapingRetrievalWindowTypeDef]
+
+class ScheduleEntryTypeDef(TypedDict):
+    Arn: str
+    ChannelName: str
+    ProgramName: str
+    SourceLocationName: str
+    ApproximateDurationSeconds: NotRequired[int]
+    ApproximateStartTime: NotRequired[datetime]
+    LiveSourceName: NotRequired[str]
+    ScheduleAdBreaks: NotRequired[List[ScheduleAdBreakTypeDef]]
+    ScheduleEntryType: NotRequired[ScheduleEntryTypeType]
+    VodSourceName: NotRequired[str]
+    Audiences: NotRequired[List[str]]
+
+class ScheduleConfigurationTypeDef(TypedDict):
+    Transition: TransitionTypeDef
+    ClipRange: NotRequired[ClipRangeTypeDef]
+
+class TimeSignalMessageOutputTypeDef(TypedDict):
+    SegmentationDescriptors: NotRequired[List[SegmentationDescriptorTypeDef]]
+
+class TimeSignalMessageTypeDef(TypedDict):
+    SegmentationDescriptors: NotRequired[Sequence[SegmentationDescriptorTypeDef]]
+
+class UpdateProgramScheduleConfigurationTypeDef(TypedDict):
+    Transition: NotRequired[UpdateProgramTransitionTypeDef]
+    ClipRange: NotRequired[ClipRangeTypeDef]
+
+class CreateSourceLocationRequestTypeDef(TypedDict):
+    HttpConfiguration: HttpConfigurationTypeDef
+    SourceLocationName: str
+    AccessConfiguration: NotRequired[AccessConfigurationTypeDef]
+    DefaultSegmentDeliveryConfiguration: NotRequired[DefaultSegmentDeliveryConfigurationTypeDef]
+    SegmentDeliveryConfigurations: NotRequired[Sequence[SegmentDeliveryConfigurationTypeDef]]
+    Tags: NotRequired[Mapping[str, str]]
+
+class CreateSourceLocationResponseTypeDef(TypedDict):
+    AccessConfiguration: AccessConfigurationTypeDef
+    Arn: str
+    CreationTime: datetime
+    DefaultSegmentDeliveryConfiguration: DefaultSegmentDeliveryConfigurationTypeDef
+    HttpConfiguration: HttpConfigurationTypeDef
+    LastModifiedTime: datetime
+    SegmentDeliveryConfigurations: List[SegmentDeliveryConfigurationTypeDef]
+    SourceLocationName: str
+    Tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeSourceLocationResponseTypeDef(TypedDict):
+    AccessConfiguration: AccessConfigurationTypeDef
+    Arn: str
+    CreationTime: datetime
+    DefaultSegmentDeliveryConfiguration: DefaultSegmentDeliveryConfigurationTypeDef
+    HttpConfiguration: HttpConfigurationTypeDef
+    LastModifiedTime: datetime
+    SegmentDeliveryConfigurations: List[SegmentDeliveryConfigurationTypeDef]
+    SourceLocationName: str
+    Tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class SourceLocationTypeDef(TypedDict):
+    Arn: str
+    HttpConfiguration: HttpConfigurationTypeDef
+    SourceLocationName: str
+    AccessConfiguration: NotRequired[AccessConfigurationTypeDef]
+    CreationTime: NotRequired[datetime]
+    DefaultSegmentDeliveryConfiguration: NotRequired[DefaultSegmentDeliveryConfigurationTypeDef]
+    LastModifiedTime: NotRequired[datetime]
+    SegmentDeliveryConfigurations: NotRequired[List[SegmentDeliveryConfigurationTypeDef]]
+    Tags: NotRequired[Dict[str, str]]
+
+class UpdateSourceLocationRequestTypeDef(TypedDict):
+    HttpConfiguration: HttpConfigurationTypeDef
+    SourceLocationName: str
+    AccessConfiguration: NotRequired[AccessConfigurationTypeDef]
+    DefaultSegmentDeliveryConfiguration: NotRequired[DefaultSegmentDeliveryConfigurationTypeDef]
+    SegmentDeliveryConfigurations: NotRequired[Sequence[SegmentDeliveryConfigurationTypeDef]]
+
+class UpdateSourceLocationResponseTypeDef(TypedDict):
+    AccessConfiguration: AccessConfigurationTypeDef
+    Arn: str
+    CreationTime: datetime
+    DefaultSegmentDeliveryConfiguration: DefaultSegmentDeliveryConfigurationTypeDef
+    HttpConfiguration: HttpConfigurationTypeDef
+    LastModifiedTime: datetime
+    SegmentDeliveryConfigurations: List[SegmentDeliveryConfigurationTypeDef]
+    SourceLocationName: str
+    Tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutPlaybackConfigurationRequestTypeDef(TypedDict):
+    Name: str
+    AdDecisionServerUrl: NotRequired[str]
+    AvailSuppression: NotRequired[AvailSuppressionTypeDef]
+    Bumper: NotRequired[BumperTypeDef]
+    CdnConfiguration: NotRequired[CdnConfigurationTypeDef]
+    ConfigurationAliases: NotRequired[Mapping[str, Mapping[str, str]]]
+    DashConfiguration: NotRequired[DashConfigurationForPutTypeDef]
+    InsertionMode: NotRequired[InsertionModeType]
+    LivePreRollConfiguration: NotRequired[LivePreRollConfigurationTypeDef]
+    ManifestProcessingRules: NotRequired[ManifestProcessingRulesTypeDef]
+    PersonalizationThresholdSeconds: NotRequired[int]
+    SlateAdUrl: NotRequired[str]
+    Tags: NotRequired[Mapping[str, str]]
+    TranscodeProfileName: NotRequired[str]
+    VideoContentSourceUrl: NotRequired[str]
+    AdConditioningConfiguration: NotRequired[AdConditioningConfigurationTypeDef]
+
+class GetPlaybackConfigurationResponseTypeDef(TypedDict):
+    AdDecisionServerUrl: str
+    AvailSuppression: AvailSuppressionTypeDef
+    Bumper: BumperTypeDef
+    CdnConfiguration: CdnConfigurationTypeDef
+    ConfigurationAliases: Dict[str, Dict[str, str]]
+    DashConfiguration: DashConfigurationTypeDef
+    HlsConfiguration: HlsConfigurationTypeDef
+    InsertionMode: InsertionModeType
+    LivePreRollConfiguration: LivePreRollConfigurationTypeDef
+    LogConfiguration: LogConfigurationTypeDef
+    ManifestProcessingRules: ManifestProcessingRulesTypeDef
+    Name: str
+    PersonalizationThresholdSeconds: int
+    PlaybackConfigurationArn: str
+    PlaybackEndpointPrefix: str
+    SessionInitializationEndpointPrefix: str
+    SlateAdUrl: str
+    Tags: Dict[str, str]
+    TranscodeProfileName: str
+    VideoContentSourceUrl: str
+    AdConditioningConfiguration: AdConditioningConfigurationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PlaybackConfigurationTypeDef(TypedDict):
+    AdDecisionServerUrl: NotRequired[str]
+    AvailSuppression: NotRequired[AvailSuppressionTypeDef]
+    Bumper: NotRequired[BumperTypeDef]
+    CdnConfiguration: NotRequired[CdnConfigurationTypeDef]
+    ConfigurationAliases: NotRequired[Dict[str, Dict[str, str]]]
+    DashConfiguration: NotRequired[DashConfigurationTypeDef]
+    HlsConfiguration: NotRequired[HlsConfigurationTypeDef]
+    InsertionMode: NotRequired[InsertionModeType]
+    LivePreRollConfiguration: NotRequired[LivePreRollConfigurationTypeDef]
+    LogConfiguration: NotRequired[LogConfigurationTypeDef]
+    ManifestProcessingRules: NotRequired[ManifestProcessingRulesTypeDef]
+    Name: NotRequired[str]
+    PersonalizationThresholdSeconds: NotRequired[int]
+    PlaybackConfigurationArn: NotRequired[str]
+    PlaybackEndpointPrefix: NotRequired[str]
+    SessionInitializationEndpointPrefix: NotRequired[str]
+    SlateAdUrl: NotRequired[str]
+    Tags: NotRequired[Dict[str, str]]
+    TranscodeProfileName: NotRequired[str]
+    VideoContentSourceUrl: NotRequired[str]
+    AdConditioningConfiguration: NotRequired[AdConditioningConfigurationTypeDef]
+
+class PutPlaybackConfigurationResponseTypeDef(TypedDict):
+    AdDecisionServerUrl: str
+    AvailSuppression: AvailSuppressionTypeDef
+    Bumper: BumperTypeDef
+    CdnConfiguration: CdnConfigurationTypeDef
+    ConfigurationAliases: Dict[str, Dict[str, str]]
+    DashConfiguration: DashConfigurationTypeDef
+    HlsConfiguration: HlsConfigurationTypeDef
+    InsertionMode: InsertionModeType
+    LivePreRollConfiguration: LivePreRollConfigurationTypeDef
+    LogConfiguration: LogConfigurationTypeDef
+    ManifestProcessingRules: ManifestProcessingRulesTypeDef
+    Name: str
+    PersonalizationThresholdSeconds: int
+    PlaybackConfigurationArn: str
+    PlaybackEndpointPrefix: str
+    SessionInitializationEndpointPrefix: str
+    SlateAdUrl: str
+    Tags: Dict[str, str]
+    TranscodeProfileName: str
+    VideoContentSourceUrl: str
+    AdConditioningConfiguration: AdConditioningConfigurationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListLiveSourcesResponseTypeDef(TypedDict):
+    Items: List[LiveSourceTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListVodSourcesResponseTypeDef(TypedDict):
+    Items: List[VodSourceTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ChannelTypeDef(TypedDict):
+    Arn: str
+    ChannelName: str
+    ChannelState: str
+    Outputs: List[ResponseOutputItemTypeDef]
+    PlaybackMode: str
+    Tier: str
+    LogConfiguration: LogConfigurationForChannelTypeDef
+    CreationTime: NotRequired[datetime]
+    FillerSlate: NotRequired[SlateSourceTypeDef]
+    LastModifiedTime: NotRequired[datetime]
+    Tags: NotRequired[Dict[str, str]]
+    Audiences: NotRequired[List[str]]
+
+class CreateChannelResponseTypeDef(TypedDict):
+    Arn: str
+    ChannelName: str
+    ChannelState: ChannelStateType
+    CreationTime: datetime
+    FillerSlate: SlateSourceTypeDef
+    LastModifiedTime: datetime
+    Outputs: List[ResponseOutputItemTypeDef]
+    PlaybackMode: str
+    Tags: Dict[str, str]
+    Tier: str
+    TimeShiftConfiguration: TimeShiftConfigurationTypeDef
+    Audiences: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeChannelResponseTypeDef(TypedDict):
+    Arn: str
+    ChannelName: str
+    ChannelState: ChannelStateType
+    CreationTime: datetime
+    FillerSlate: SlateSourceTypeDef
+    LastModifiedTime: datetime
+    Outputs: List[ResponseOutputItemTypeDef]
+    PlaybackMode: str
+    Tags: Dict[str, str]
+    Tier: str
+    LogConfiguration: LogConfigurationForChannelTypeDef
+    TimeShiftConfiguration: TimeShiftConfigurationTypeDef
+    Audiences: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateChannelResponseTypeDef(TypedDict):
+    Arn: str
+    ChannelName: str
+    ChannelState: ChannelStateType
+    CreationTime: datetime
+    FillerSlate: SlateSourceTypeDef
+    LastModifiedTime: datetime
+    Outputs: List[ResponseOutputItemTypeDef]
+    PlaybackMode: str
+    Tags: Dict[str, str]
+    Tier: str
+    TimeShiftConfiguration: TimeShiftConfigurationTypeDef
+    Audiences: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class RequestOutputItemTypeDef(TypedDict):
+    ManifestName: str
+    SourceGroup: str
+    DashPlaylistSettings: NotRequired[DashPlaylistSettingsTypeDef]
+    HlsPlaylistSettings: NotRequired[HlsPlaylistSettingsUnionTypeDef]
+
+class ConfigureLogsForPlaybackConfigurationRequestTypeDef(TypedDict):
+    PercentEnabled: int
+    PlaybackConfigurationName: str
+    EnabledLoggingStrategies: NotRequired[Sequence[LoggingStrategyType]]
+    AdsInteractionLog: NotRequired[AdsInteractionLogUnionTypeDef]
+    ManifestServiceInteractionLog: NotRequired[ManifestServiceInteractionLogUnionTypeDef]
+
+PrefetchConsumptionUnionTypeDef = Union[
+    PrefetchConsumptionTypeDef, PrefetchConsumptionOutputTypeDef
+]
+PrefetchRetrievalUnionTypeDef = Union[PrefetchRetrievalTypeDef, PrefetchRetrievalOutputTypeDef]
+
+class RecurringPrefetchConfigurationOutputTypeDef(TypedDict):
+    EndTime: datetime
+    RecurringConsumption: RecurringConsumptionOutputTypeDef
+    RecurringRetrieval: RecurringRetrievalOutputTypeDef
+    StartTime: NotRequired[datetime]
+
+class RecurringPrefetchConfigurationTypeDef(TypedDict):
+    EndTime: TimestampTypeDef
+    RecurringConsumption: RecurringConsumptionTypeDef
+    RecurringRetrieval: RecurringRetrievalTypeDef
+    StartTime: NotRequired[TimestampTypeDef]
+
+class GetChannelScheduleResponseTypeDef(TypedDict):
+    Items: List[ScheduleEntryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class AdBreakOutputTypeDef(TypedDict):
+    OffsetMillis: int
+    MessageType: NotRequired[MessageTypeType]
+    Slate: NotRequired[SlateSourceTypeDef]
+    SpliceInsertMessage: NotRequired[SpliceInsertMessageTypeDef]
+    TimeSignalMessage: NotRequired[TimeSignalMessageOutputTypeDef]
+    AdBreakMetadata: NotRequired[List[KeyValuePairTypeDef]]
+
+TimeSignalMessageUnionTypeDef = Union[TimeSignalMessageTypeDef, TimeSignalMessageOutputTypeDef]
+
+class ListSourceLocationsResponseTypeDef(TypedDict):
+    Items: List[SourceLocationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListPlaybackConfigurationsResponseTypeDef(TypedDict):
+    Items: List[PlaybackConfigurationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListChannelsResponseTypeDef(TypedDict):
+    Items: List[ChannelTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class CreateChannelRequestTypeDef(TypedDict):
+    ChannelName: str
+    Outputs: Sequence[RequestOutputItemTypeDef]
+    PlaybackMode: PlaybackModeType
+    FillerSlate: NotRequired[SlateSourceTypeDef]
+    Tags: NotRequired[Mapping[str, str]]
+    Tier: NotRequired[TierType]
+    TimeShiftConfiguration: NotRequired[TimeShiftConfigurationTypeDef]
+    Audiences: NotRequired[Sequence[str]]
+
+class UpdateChannelRequestTypeDef(TypedDict):
+    ChannelName: str
+    Outputs: Sequence[RequestOutputItemTypeDef]
+    FillerSlate: NotRequired[SlateSourceTypeDef]
+    TimeShiftConfiguration: NotRequired[TimeShiftConfigurationTypeDef]
+    Audiences: NotRequired[Sequence[str]]
+
+class CreatePrefetchScheduleResponseTypeDef(TypedDict):
+    Arn: str
+    Consumption: PrefetchConsumptionOutputTypeDef
+    Name: str
+    PlaybackConfigurationName: str
+    Retrieval: PrefetchRetrievalOutputTypeDef
+    RecurringPrefetchConfiguration: RecurringPrefetchConfigurationOutputTypeDef
+    ScheduleType: PrefetchScheduleTypeType
+    StreamId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetPrefetchScheduleResponseTypeDef(TypedDict):
+    Arn: str
+    Consumption: PrefetchConsumptionOutputTypeDef
+    Name: str
+    PlaybackConfigurationName: str
+    Retrieval: PrefetchRetrievalOutputTypeDef
+    ScheduleType: PrefetchScheduleTypeType
+    RecurringPrefetchConfiguration: RecurringPrefetchConfigurationOutputTypeDef
+    StreamId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PrefetchScheduleTypeDef(TypedDict):
+    Arn: str
+    Name: str
+    PlaybackConfigurationName: str
+    Consumption: NotRequired[PrefetchConsumptionOutputTypeDef]
+    Retrieval: NotRequired[PrefetchRetrievalOutputTypeDef]
+    ScheduleType: NotRequired[PrefetchScheduleTypeType]
+    RecurringPrefetchConfiguration: NotRequired[RecurringPrefetchConfigurationOutputTypeDef]
+    StreamId: NotRequired[str]
+
+RecurringPrefetchConfigurationUnionTypeDef = Union[
+    RecurringPrefetchConfigurationTypeDef, RecurringPrefetchConfigurationOutputTypeDef
+]
+
+class AlternateMediaOutputTypeDef(TypedDict):
+    SourceLocationName: NotRequired[str]
+    LiveSourceName: NotRequired[str]
+    VodSourceName: NotRequired[str]
+    ClipRange: NotRequired[ClipRangeTypeDef]
+    ScheduledStartTimeMillis: NotRequired[int]
+    AdBreaks: NotRequired[List[AdBreakOutputTypeDef]]
+    DurationMillis: NotRequired[int]
+
+class AdBreakTypeDef(TypedDict):
+    OffsetMillis: int
+    MessageType: NotRequired[MessageTypeType]
+    Slate: NotRequired[SlateSourceTypeDef]
+    SpliceInsertMessage: NotRequired[SpliceInsertMessageTypeDef]
+    TimeSignalMessage: NotRequired[TimeSignalMessageUnionTypeDef]
+    AdBreakMetadata: NotRequired[Sequence[KeyValuePairTypeDef]]
+
+class ListPrefetchSchedulesResponseTypeDef(TypedDict):
+    Items: List[PrefetchScheduleTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class CreatePrefetchScheduleRequestTypeDef(TypedDict):
+    Name: str
+    PlaybackConfigurationName: str
+    Consumption: NotRequired[PrefetchConsumptionUnionTypeDef]
+    Retrieval: NotRequired[PrefetchRetrievalUnionTypeDef]
+    RecurringPrefetchConfiguration: NotRequired[RecurringPrefetchConfigurationUnionTypeDef]
+    ScheduleType: NotRequired[PrefetchScheduleTypeType]
+    StreamId: NotRequired[str]
+
+class AudienceMediaOutputTypeDef(TypedDict):
+    Audience: NotRequired[str]
+    AlternateMedia: NotRequired[List[AlternateMediaOutputTypeDef]]
+
+AdBreakUnionTypeDef = Union[AdBreakTypeDef, AdBreakOutputTypeDef]
+
+class CreateProgramResponseTypeDef(TypedDict):
+    AdBreaks: List[AdBreakOutputTypeDef]
+    Arn: str
+    ChannelName: str
+    CreationTime: datetime
+    LiveSourceName: str
+    ProgramName: str
+    ScheduledStartTime: datetime
+    SourceLocationName: str
+    VodSourceName: str
+    ClipRange: ClipRangeTypeDef
+    DurationMillis: int
+    AudienceMedia: List[AudienceMediaOutputTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeProgramResponseTypeDef(TypedDict):
+    AdBreaks: List[AdBreakOutputTypeDef]
+    Arn: str
+    ChannelName: str
+    CreationTime: datetime
+    LiveSourceName: str
+    ProgramName: str
+    ScheduledStartTime: datetime
+    SourceLocationName: str
+    VodSourceName: str
+    ClipRange: ClipRangeTypeDef
+    DurationMillis: int
+    AudienceMedia: List[AudienceMediaOutputTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateProgramResponseTypeDef(TypedDict):
+    AdBreaks: List[AdBreakOutputTypeDef]
+    Arn: str
+    ChannelName: str
+    CreationTime: datetime
+    ProgramName: str
+    SourceLocationName: str
+    VodSourceName: str
+    LiveSourceName: str
+    ClipRange: ClipRangeTypeDef
+    DurationMillis: int
+    ScheduledStartTime: datetime
+    AudienceMedia: List[AudienceMediaOutputTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class AlternateMediaTypeDef(TypedDict):
+    SourceLocationName: NotRequired[str]
+    LiveSourceName: NotRequired[str]
+    VodSourceName: NotRequired[str]
+    ClipRange: NotRequired[ClipRangeTypeDef]
+    ScheduledStartTimeMillis: NotRequired[int]
+    AdBreaks: NotRequired[Sequence[AdBreakUnionTypeDef]]
+    DurationMillis: NotRequired[int]
+
+AlternateMediaUnionTypeDef = Union[AlternateMediaTypeDef, AlternateMediaOutputTypeDef]
+
+class AudienceMediaTypeDef(TypedDict):
+    Audience: NotRequired[str]
+    AlternateMedia: NotRequired[Sequence[AlternateMediaUnionTypeDef]]
+
+AudienceMediaUnionTypeDef = Union[AudienceMediaTypeDef, AudienceMediaOutputTypeDef]
+
+class CreateProgramRequestTypeDef(TypedDict):
+    ChannelName: str
+    ProgramName: str
+    ScheduleConfiguration: ScheduleConfigurationTypeDef
+    SourceLocationName: str
+    AdBreaks: NotRequired[Sequence[AdBreakUnionTypeDef]]
+    LiveSourceName: NotRequired[str]
+    VodSourceName: NotRequired[str]
+    AudienceMedia: NotRequired[Sequence[AudienceMediaUnionTypeDef]]
+
+class UpdateProgramRequestTypeDef(TypedDict):
+    ChannelName: str
+    ProgramName: str
+    ScheduleConfiguration: UpdateProgramScheduleConfigurationTypeDef
+    AdBreaks: NotRequired[Sequence[AdBreakUnionTypeDef]]
+    AudienceMedia: NotRequired[Sequence[AudienceMediaUnionTypeDef]]

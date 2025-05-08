@@ -1,39 +1,30 @@
 """
-Type annotations for route53resolver service client.
+Type annotations for route53resolver service Client.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
-    from mypy_boto3_route53resolver import Route53ResolverClient
+    from boto3.session import Session
+    from mypy_boto3_route53resolver.client import Route53ResolverClient
 
-    client: Route53ResolverClient = boto3.client("route53resolver")
+    session = Session()
+    client: Route53ResolverClient = session.client("route53resolver")
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from typing import Any, Dict, List, Type, overload
+from typing import Any, overload
 
 from botocore.client import BaseClient, ClientMeta
+from botocore.errorfactory import BaseClientExceptions
+from botocore.exceptions import ClientError as BotocoreClientError
 
-from .literals import (
-    ActionType,
-    AutodefinedReverseFlagType,
-    BlockResponseType,
-    FirewallDomainRedirectionActionType,
-    FirewallDomainUpdateOperationType,
-    FirewallFailOpenStatusType,
-    FirewallRuleGroupAssociationStatusType,
-    MutationProtectionStatusType,
-    ProtocolType,
-    ResolverEndpointDirectionType,
-    ResolverEndpointTypeType,
-    RuleTypeOptionType,
-    SortOrderType,
-    ValidationType,
-)
 from .paginator import (
     ListFirewallConfigsPaginator,
     ListFirewallDomainListsPaginator,
@@ -53,96 +44,156 @@ from .paginator import (
     ListTagsForResourcePaginator,
 )
 from .type_defs import (
+    AssociateFirewallRuleGroupRequestTypeDef,
     AssociateFirewallRuleGroupResponseTypeDef,
+    AssociateResolverEndpointIpAddressRequestTypeDef,
     AssociateResolverEndpointIpAddressResponseTypeDef,
+    AssociateResolverQueryLogConfigRequestTypeDef,
     AssociateResolverQueryLogConfigResponseTypeDef,
+    AssociateResolverRuleRequestTypeDef,
     AssociateResolverRuleResponseTypeDef,
+    CreateFirewallDomainListRequestTypeDef,
     CreateFirewallDomainListResponseTypeDef,
+    CreateFirewallRuleGroupRequestTypeDef,
     CreateFirewallRuleGroupResponseTypeDef,
+    CreateFirewallRuleRequestTypeDef,
     CreateFirewallRuleResponseTypeDef,
+    CreateOutpostResolverRequestTypeDef,
     CreateOutpostResolverResponseTypeDef,
+    CreateResolverEndpointRequestTypeDef,
     CreateResolverEndpointResponseTypeDef,
+    CreateResolverQueryLogConfigRequestTypeDef,
     CreateResolverQueryLogConfigResponseTypeDef,
+    CreateResolverRuleRequestTypeDef,
     CreateResolverRuleResponseTypeDef,
+    DeleteFirewallDomainListRequestTypeDef,
     DeleteFirewallDomainListResponseTypeDef,
+    DeleteFirewallRuleGroupRequestTypeDef,
     DeleteFirewallRuleGroupResponseTypeDef,
+    DeleteFirewallRuleRequestTypeDef,
     DeleteFirewallRuleResponseTypeDef,
+    DeleteOutpostResolverRequestTypeDef,
     DeleteOutpostResolverResponseTypeDef,
+    DeleteResolverEndpointRequestTypeDef,
     DeleteResolverEndpointResponseTypeDef,
+    DeleteResolverQueryLogConfigRequestTypeDef,
     DeleteResolverQueryLogConfigResponseTypeDef,
+    DeleteResolverRuleRequestTypeDef,
     DeleteResolverRuleResponseTypeDef,
+    DisassociateFirewallRuleGroupRequestTypeDef,
     DisassociateFirewallRuleGroupResponseTypeDef,
+    DisassociateResolverEndpointIpAddressRequestTypeDef,
     DisassociateResolverEndpointIpAddressResponseTypeDef,
+    DisassociateResolverQueryLogConfigRequestTypeDef,
     DisassociateResolverQueryLogConfigResponseTypeDef,
+    DisassociateResolverRuleRequestTypeDef,
     DisassociateResolverRuleResponseTypeDef,
-    FilterTypeDef,
+    GetFirewallConfigRequestTypeDef,
     GetFirewallConfigResponseTypeDef,
+    GetFirewallDomainListRequestTypeDef,
     GetFirewallDomainListResponseTypeDef,
+    GetFirewallRuleGroupAssociationRequestTypeDef,
     GetFirewallRuleGroupAssociationResponseTypeDef,
+    GetFirewallRuleGroupPolicyRequestTypeDef,
     GetFirewallRuleGroupPolicyResponseTypeDef,
+    GetFirewallRuleGroupRequestTypeDef,
     GetFirewallRuleGroupResponseTypeDef,
+    GetOutpostResolverRequestTypeDef,
     GetOutpostResolverResponseTypeDef,
+    GetResolverConfigRequestTypeDef,
     GetResolverConfigResponseTypeDef,
+    GetResolverDnssecConfigRequestTypeDef,
     GetResolverDnssecConfigResponseTypeDef,
+    GetResolverEndpointRequestTypeDef,
     GetResolverEndpointResponseTypeDef,
+    GetResolverQueryLogConfigAssociationRequestTypeDef,
     GetResolverQueryLogConfigAssociationResponseTypeDef,
+    GetResolverQueryLogConfigPolicyRequestTypeDef,
     GetResolverQueryLogConfigPolicyResponseTypeDef,
+    GetResolverQueryLogConfigRequestTypeDef,
     GetResolverQueryLogConfigResponseTypeDef,
+    GetResolverRuleAssociationRequestTypeDef,
     GetResolverRuleAssociationResponseTypeDef,
+    GetResolverRulePolicyRequestTypeDef,
     GetResolverRulePolicyResponseTypeDef,
+    GetResolverRuleRequestTypeDef,
     GetResolverRuleResponseTypeDef,
+    ImportFirewallDomainsRequestTypeDef,
     ImportFirewallDomainsResponseTypeDef,
-    IpAddressRequestTypeDef,
-    IpAddressUpdateTypeDef,
+    ListFirewallConfigsRequestTypeDef,
     ListFirewallConfigsResponseTypeDef,
+    ListFirewallDomainListsRequestTypeDef,
     ListFirewallDomainListsResponseTypeDef,
+    ListFirewallDomainsRequestTypeDef,
     ListFirewallDomainsResponseTypeDef,
+    ListFirewallRuleGroupAssociationsRequestTypeDef,
     ListFirewallRuleGroupAssociationsResponseTypeDef,
+    ListFirewallRuleGroupsRequestTypeDef,
     ListFirewallRuleGroupsResponseTypeDef,
+    ListFirewallRulesRequestTypeDef,
     ListFirewallRulesResponseTypeDef,
+    ListOutpostResolversRequestTypeDef,
     ListOutpostResolversResponseTypeDef,
+    ListResolverConfigsRequestTypeDef,
     ListResolverConfigsResponseTypeDef,
+    ListResolverDnssecConfigsRequestTypeDef,
     ListResolverDnssecConfigsResponseTypeDef,
+    ListResolverEndpointIpAddressesRequestTypeDef,
     ListResolverEndpointIpAddressesResponseTypeDef,
+    ListResolverEndpointsRequestTypeDef,
     ListResolverEndpointsResponseTypeDef,
+    ListResolverQueryLogConfigAssociationsRequestTypeDef,
     ListResolverQueryLogConfigAssociationsResponseTypeDef,
+    ListResolverQueryLogConfigsRequestTypeDef,
     ListResolverQueryLogConfigsResponseTypeDef,
+    ListResolverRuleAssociationsRequestTypeDef,
     ListResolverRuleAssociationsResponseTypeDef,
+    ListResolverRulesRequestTypeDef,
     ListResolverRulesResponseTypeDef,
+    ListTagsForResourceRequestTypeDef,
     ListTagsForResourceResponseTypeDef,
+    PutFirewallRuleGroupPolicyRequestTypeDef,
     PutFirewallRuleGroupPolicyResponseTypeDef,
+    PutResolverQueryLogConfigPolicyRequestTypeDef,
     PutResolverQueryLogConfigPolicyResponseTypeDef,
+    PutResolverRulePolicyRequestTypeDef,
     PutResolverRulePolicyResponseTypeDef,
-    ResolverRuleConfigTypeDef,
-    TagTypeDef,
-    TargetAddressTypeDef,
+    TagResourceRequestTypeDef,
+    UntagResourceRequestTypeDef,
+    UpdateFirewallConfigRequestTypeDef,
     UpdateFirewallConfigResponseTypeDef,
+    UpdateFirewallDomainsRequestTypeDef,
     UpdateFirewallDomainsResponseTypeDef,
+    UpdateFirewallRuleGroupAssociationRequestTypeDef,
     UpdateFirewallRuleGroupAssociationResponseTypeDef,
+    UpdateFirewallRuleRequestTypeDef,
     UpdateFirewallRuleResponseTypeDef,
-    UpdateIpAddressTypeDef,
+    UpdateOutpostResolverRequestTypeDef,
     UpdateOutpostResolverResponseTypeDef,
+    UpdateResolverConfigRequestTypeDef,
     UpdateResolverConfigResponseTypeDef,
+    UpdateResolverDnssecConfigRequestTypeDef,
     UpdateResolverDnssecConfigResponseTypeDef,
+    UpdateResolverEndpointRequestTypeDef,
     UpdateResolverEndpointResponseTypeDef,
+    UpdateResolverRuleRequestTypeDef,
     UpdateResolverRuleResponseTypeDef,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import type as Type
+    from collections.abc import Mapping
 else:
-    from typing_extensions import Literal
+    from typing import Dict, Mapping, Type
+if sys.version_info >= (3, 12):
+    from typing import Literal, Unpack
+else:
+    from typing_extensions import Literal, Unpack
 
 __all__ = ("Route53ResolverClient",)
 
-class BotocoreClientError(BaseException):
-    MSG_TEMPLATE: str
-
-    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
-        self.response: Dict[str, Any]
-        self.operation_name: str
-
-class Exceptions:
+class Exceptions(BaseClientExceptions):
     AccessDeniedException: Type[BotocoreClientError]
     ClientError: Type[BotocoreClientError]
     ConflictException: Type[BotocoreClientError]
@@ -164,8 +215,8 @@ class Exceptions:
 
 class Route53ResolverClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53resolver.html#Route53Resolver.Client)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver.html#Route53Resolver.Client)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client/)
     """
 
     meta: ClientMeta
@@ -174,700 +225,612 @@ class Route53ResolverClient(BaseClient):
     def exceptions(self) -> Exceptions:
         """
         Route53ResolverClient exceptions.
-        """
 
-    def associate_firewall_rule_group(
-        self,
-        *,
-        CreatorRequestId: str,
-        FirewallRuleGroupId: str,
-        VpcId: str,
-        Priority: int,
-        Name: str,
-        MutationProtection: MutationProtectionStatusType = None,
-        Tags: List["TagTypeDef"] = None
-    ) -> AssociateFirewallRuleGroupResponseTypeDef:
-        """
-        Associates a  FirewallRuleGroup with a VPC, to provide DNS filtering for the
-        VPC.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53resolver.html#Route53Resolver.Client.associate_firewall_rule_group)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#associate_firewall_rule_group)
-        """
-
-    def associate_resolver_endpoint_ip_address(
-        self, *, ResolverEndpointId: str, IpAddress: "IpAddressUpdateTypeDef"
-    ) -> AssociateResolverEndpointIpAddressResponseTypeDef:
-        """
-        Adds IP addresses to an inbound or an outbound Resolver endpoint.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53resolver.html#Route53Resolver.Client.associate_resolver_endpoint_ip_address)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#associate_resolver_endpoint_ip_address)
-        """
-
-    def associate_resolver_query_log_config(
-        self, *, ResolverQueryLogConfigId: str, ResourceId: str
-    ) -> AssociateResolverQueryLogConfigResponseTypeDef:
-        """
-        Associates an Amazon VPC with a specified query logging configuration.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53resolver.html#Route53Resolver.Client.associate_resolver_query_log_config)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#associate_resolver_query_log_config)
-        """
-
-    def associate_resolver_rule(
-        self, *, ResolverRuleId: str, VPCId: str, Name: str = None
-    ) -> AssociateResolverRuleResponseTypeDef:
-        """
-        Associates a Resolver rule with a VPC.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53resolver.html#Route53Resolver.Client.associate_resolver_rule)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#associate_resolver_rule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver.html#Route53Resolver.Client)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client/#exceptions)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        Check if an operation can be paginated.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53resolver.html#Route53Resolver.Client.can_paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver/client/can_paginate.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client/#can_paginate)
         """
 
-    def close(self) -> None:
+    def generate_presigned_url(
+        self,
+        ClientMethod: str,
+        Params: Mapping[str, Any] = ...,
+        ExpiresIn: int = 3600,
+        HttpMethod: str = ...,
+    ) -> str:
         """
-        Closes underlying endpoint connections.
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver/client/generate_presigned_url.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client/#generate_presigned_url)
+        """
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53resolver.html#Route53Resolver.Client.close)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#close)
+    def associate_firewall_rule_group(
+        self, **kwargs: Unpack[AssociateFirewallRuleGroupRequestTypeDef]
+    ) -> AssociateFirewallRuleGroupResponseTypeDef:
+        """
+        Associates a <a>FirewallRuleGroup</a> with a VPC, to provide DNS filtering for
+        the VPC.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver/client/associate_firewall_rule_group.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client/#associate_firewall_rule_group)
+        """
+
+    def associate_resolver_endpoint_ip_address(
+        self, **kwargs: Unpack[AssociateResolverEndpointIpAddressRequestTypeDef]
+    ) -> AssociateResolverEndpointIpAddressResponseTypeDef:
+        """
+        Adds IP addresses to an inbound or an outbound Resolver endpoint.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver/client/associate_resolver_endpoint_ip_address.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client/#associate_resolver_endpoint_ip_address)
+        """
+
+    def associate_resolver_query_log_config(
+        self, **kwargs: Unpack[AssociateResolverQueryLogConfigRequestTypeDef]
+    ) -> AssociateResolverQueryLogConfigResponseTypeDef:
+        """
+        Associates an Amazon VPC with a specified query logging configuration.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver/client/associate_resolver_query_log_config.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client/#associate_resolver_query_log_config)
+        """
+
+    def associate_resolver_rule(
+        self, **kwargs: Unpack[AssociateResolverRuleRequestTypeDef]
+    ) -> AssociateResolverRuleResponseTypeDef:
+        """
+        Associates a Resolver rule with a VPC.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver/client/associate_resolver_rule.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client/#associate_resolver_rule)
         """
 
     def create_firewall_domain_list(
-        self, *, CreatorRequestId: str, Name: str, Tags: List["TagTypeDef"] = None
+        self, **kwargs: Unpack[CreateFirewallDomainListRequestTypeDef]
     ) -> CreateFirewallDomainListResponseTypeDef:
         """
         Creates an empty firewall domain list for use in DNS Firewall rules.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53resolver.html#Route53Resolver.Client.create_firewall_domain_list)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#create_firewall_domain_list)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver/client/create_firewall_domain_list.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client/#create_firewall_domain_list)
         """
 
     def create_firewall_rule(
-        self,
-        *,
-        CreatorRequestId: str,
-        FirewallRuleGroupId: str,
-        FirewallDomainListId: str,
-        Priority: int,
-        Action: ActionType,
-        Name: str,
-        BlockResponse: BlockResponseType = None,
-        BlockOverrideDomain: str = None,
-        BlockOverrideDnsType: Literal["CNAME"] = None,
-        BlockOverrideTtl: int = None,
-        FirewallDomainRedirectionAction: FirewallDomainRedirectionActionType = None,
-        Qtype: str = None
+        self, **kwargs: Unpack[CreateFirewallRuleRequestTypeDef]
     ) -> CreateFirewallRuleResponseTypeDef:
         """
         Creates a single DNS Firewall rule in the specified rule group, using the
         specified domain list.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53resolver.html#Route53Resolver.Client.create_firewall_rule)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#create_firewall_rule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver/client/create_firewall_rule.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client/#create_firewall_rule)
         """
 
     def create_firewall_rule_group(
-        self, *, CreatorRequestId: str, Name: str, Tags: List["TagTypeDef"] = None
+        self, **kwargs: Unpack[CreateFirewallRuleGroupRequestTypeDef]
     ) -> CreateFirewallRuleGroupResponseTypeDef:
         """
         Creates an empty DNS Firewall rule group for filtering DNS network traffic in a
         VPC.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53resolver.html#Route53Resolver.Client.create_firewall_rule_group)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#create_firewall_rule_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver/client/create_firewall_rule_group.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client/#create_firewall_rule_group)
         """
 
     def create_outpost_resolver(
-        self,
-        *,
-        CreatorRequestId: str,
-        Name: str,
-        PreferredInstanceType: str,
-        OutpostArn: str,
-        InstanceCount: int = None,
-        Tags: List["TagTypeDef"] = None
+        self, **kwargs: Unpack[CreateOutpostResolverRequestTypeDef]
     ) -> CreateOutpostResolverResponseTypeDef:
         """
         Creates a Route 53 Resolver on an Outpost.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53resolver.html#Route53Resolver.Client.create_outpost_resolver)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#create_outpost_resolver)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver/client/create_outpost_resolver.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client/#create_outpost_resolver)
         """
 
     def create_resolver_endpoint(
-        self,
-        *,
-        CreatorRequestId: str,
-        SecurityGroupIds: List[str],
-        Direction: ResolverEndpointDirectionType,
-        IpAddresses: List["IpAddressRequestTypeDef"],
-        Name: str = None,
-        OutpostArn: str = None,
-        PreferredInstanceType: str = None,
-        Tags: List["TagTypeDef"] = None,
-        ResolverEndpointType: ResolverEndpointTypeType = None,
-        Protocols: List[ProtocolType] = None
+        self, **kwargs: Unpack[CreateResolverEndpointRequestTypeDef]
     ) -> CreateResolverEndpointResponseTypeDef:
         """
         Creates a Resolver endpoint.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53resolver.html#Route53Resolver.Client.create_resolver_endpoint)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#create_resolver_endpoint)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver/client/create_resolver_endpoint.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client/#create_resolver_endpoint)
         """
 
     def create_resolver_query_log_config(
-        self,
-        *,
-        Name: str,
-        DestinationArn: str,
-        CreatorRequestId: str,
-        Tags: List["TagTypeDef"] = None
+        self, **kwargs: Unpack[CreateResolverQueryLogConfigRequestTypeDef]
     ) -> CreateResolverQueryLogConfigResponseTypeDef:
         """
         Creates a Resolver query logging configuration, which defines where you want
         Resolver to save DNS query logs that originate in your VPCs.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53resolver.html#Route53Resolver.Client.create_resolver_query_log_config)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#create_resolver_query_log_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver/client/create_resolver_query_log_config.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client/#create_resolver_query_log_config)
         """
 
     def create_resolver_rule(
-        self,
-        *,
-        CreatorRequestId: str,
-        RuleType: RuleTypeOptionType,
-        Name: str = None,
-        DomainName: str = None,
-        TargetIps: List["TargetAddressTypeDef"] = None,
-        ResolverEndpointId: str = None,
-        Tags: List["TagTypeDef"] = None
+        self, **kwargs: Unpack[CreateResolverRuleRequestTypeDef]
     ) -> CreateResolverRuleResponseTypeDef:
         """
         For DNS queries that originate in your VPCs, specifies which Resolver endpoint
         the queries pass through, one domain name that you want to forward to your
         network, and the IP addresses of the DNS resolvers in your network.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53resolver.html#Route53Resolver.Client.create_resolver_rule)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#create_resolver_rule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver/client/create_resolver_rule.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client/#create_resolver_rule)
         """
 
     def delete_firewall_domain_list(
-        self, *, FirewallDomainListId: str
+        self, **kwargs: Unpack[DeleteFirewallDomainListRequestTypeDef]
     ) -> DeleteFirewallDomainListResponseTypeDef:
         """
         Deletes the specified domain list.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53resolver.html#Route53Resolver.Client.delete_firewall_domain_list)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#delete_firewall_domain_list)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver/client/delete_firewall_domain_list.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client/#delete_firewall_domain_list)
         """
 
     def delete_firewall_rule(
-        self, *, FirewallRuleGroupId: str, FirewallDomainListId: str, Qtype: str = None
+        self, **kwargs: Unpack[DeleteFirewallRuleRequestTypeDef]
     ) -> DeleteFirewallRuleResponseTypeDef:
         """
         Deletes the specified firewall rule.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53resolver.html#Route53Resolver.Client.delete_firewall_rule)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#delete_firewall_rule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver/client/delete_firewall_rule.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client/#delete_firewall_rule)
         """
 
     def delete_firewall_rule_group(
-        self, *, FirewallRuleGroupId: str
+        self, **kwargs: Unpack[DeleteFirewallRuleGroupRequestTypeDef]
     ) -> DeleteFirewallRuleGroupResponseTypeDef:
         """
         Deletes the specified firewall rule group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53resolver.html#Route53Resolver.Client.delete_firewall_rule_group)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#delete_firewall_rule_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver/client/delete_firewall_rule_group.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client/#delete_firewall_rule_group)
         """
 
-    def delete_outpost_resolver(self, *, Id: str) -> DeleteOutpostResolverResponseTypeDef:
+    def delete_outpost_resolver(
+        self, **kwargs: Unpack[DeleteOutpostResolverRequestTypeDef]
+    ) -> DeleteOutpostResolverResponseTypeDef:
         """
         Deletes a Resolver on the Outpost.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53resolver.html#Route53Resolver.Client.delete_outpost_resolver)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#delete_outpost_resolver)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver/client/delete_outpost_resolver.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client/#delete_outpost_resolver)
         """
 
     def delete_resolver_endpoint(
-        self, *, ResolverEndpointId: str
+        self, **kwargs: Unpack[DeleteResolverEndpointRequestTypeDef]
     ) -> DeleteResolverEndpointResponseTypeDef:
         """
         Deletes a Resolver endpoint.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53resolver.html#Route53Resolver.Client.delete_resolver_endpoint)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#delete_resolver_endpoint)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver/client/delete_resolver_endpoint.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client/#delete_resolver_endpoint)
         """
 
     def delete_resolver_query_log_config(
-        self, *, ResolverQueryLogConfigId: str
+        self, **kwargs: Unpack[DeleteResolverQueryLogConfigRequestTypeDef]
     ) -> DeleteResolverQueryLogConfigResponseTypeDef:
         """
         Deletes a query logging configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53resolver.html#Route53Resolver.Client.delete_resolver_query_log_config)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#delete_resolver_query_log_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver/client/delete_resolver_query_log_config.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client/#delete_resolver_query_log_config)
         """
 
-    def delete_resolver_rule(self, *, ResolverRuleId: str) -> DeleteResolverRuleResponseTypeDef:
+    def delete_resolver_rule(
+        self, **kwargs: Unpack[DeleteResolverRuleRequestTypeDef]
+    ) -> DeleteResolverRuleResponseTypeDef:
         """
         Deletes a Resolver rule.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53resolver.html#Route53Resolver.Client.delete_resolver_rule)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#delete_resolver_rule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver/client/delete_resolver_rule.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client/#delete_resolver_rule)
         """
 
     def disassociate_firewall_rule_group(
-        self, *, FirewallRuleGroupAssociationId: str
+        self, **kwargs: Unpack[DisassociateFirewallRuleGroupRequestTypeDef]
     ) -> DisassociateFirewallRuleGroupResponseTypeDef:
         """
-        Disassociates a  FirewallRuleGroup from a VPC, to remove DNS filtering from the
-        VPC.
+        Disassociates a <a>FirewallRuleGroup</a> from a VPC, to remove DNS filtering
+        from the VPC.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53resolver.html#Route53Resolver.Client.disassociate_firewall_rule_group)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#disassociate_firewall_rule_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver/client/disassociate_firewall_rule_group.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client/#disassociate_firewall_rule_group)
         """
 
     def disassociate_resolver_endpoint_ip_address(
-        self, *, ResolverEndpointId: str, IpAddress: "IpAddressUpdateTypeDef"
+        self, **kwargs: Unpack[DisassociateResolverEndpointIpAddressRequestTypeDef]
     ) -> DisassociateResolverEndpointIpAddressResponseTypeDef:
         """
         Removes IP addresses from an inbound or an outbound Resolver endpoint.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53resolver.html#Route53Resolver.Client.disassociate_resolver_endpoint_ip_address)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#disassociate_resolver_endpoint_ip_address)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver/client/disassociate_resolver_endpoint_ip_address.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client/#disassociate_resolver_endpoint_ip_address)
         """
 
     def disassociate_resolver_query_log_config(
-        self, *, ResolverQueryLogConfigId: str, ResourceId: str
+        self, **kwargs: Unpack[DisassociateResolverQueryLogConfigRequestTypeDef]
     ) -> DisassociateResolverQueryLogConfigResponseTypeDef:
         """
         Disassociates a VPC from a query logging configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53resolver.html#Route53Resolver.Client.disassociate_resolver_query_log_config)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#disassociate_resolver_query_log_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver/client/disassociate_resolver_query_log_config.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client/#disassociate_resolver_query_log_config)
         """
 
     def disassociate_resolver_rule(
-        self, *, VPCId: str, ResolverRuleId: str
+        self, **kwargs: Unpack[DisassociateResolverRuleRequestTypeDef]
     ) -> DisassociateResolverRuleResponseTypeDef:
         """
         Removes the association between a specified Resolver rule and a specified VPC.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53resolver.html#Route53Resolver.Client.disassociate_resolver_rule)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#disassociate_resolver_rule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver/client/disassociate_resolver_rule.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client/#disassociate_resolver_rule)
         """
 
-    def generate_presigned_url(
-        self,
-        ClientMethod: str,
-        Params: Dict[str, Any] = None,
-        ExpiresIn: int = 3600,
-        HttpMethod: str = None,
-    ) -> str:
-        """
-        Generate a presigned url given a client, its method, and arguments.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53resolver.html#Route53Resolver.Client.generate_presigned_url)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#generate_presigned_url)
-        """
-
-    def get_firewall_config(self, *, ResourceId: str) -> GetFirewallConfigResponseTypeDef:
+    def get_firewall_config(
+        self, **kwargs: Unpack[GetFirewallConfigRequestTypeDef]
+    ) -> GetFirewallConfigResponseTypeDef:
         """
         Retrieves the configuration of the firewall behavior provided by DNS Firewall
         for a single VPC from Amazon Virtual Private Cloud (Amazon VPC).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53resolver.html#Route53Resolver.Client.get_firewall_config)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#get_firewall_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver/client/get_firewall_config.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client/#get_firewall_config)
         """
 
     def get_firewall_domain_list(
-        self, *, FirewallDomainListId: str
+        self, **kwargs: Unpack[GetFirewallDomainListRequestTypeDef]
     ) -> GetFirewallDomainListResponseTypeDef:
         """
         Retrieves the specified firewall domain list.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53resolver.html#Route53Resolver.Client.get_firewall_domain_list)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#get_firewall_domain_list)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver/client/get_firewall_domain_list.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client/#get_firewall_domain_list)
         """
 
     def get_firewall_rule_group(
-        self, *, FirewallRuleGroupId: str
+        self, **kwargs: Unpack[GetFirewallRuleGroupRequestTypeDef]
     ) -> GetFirewallRuleGroupResponseTypeDef:
         """
         Retrieves the specified firewall rule group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53resolver.html#Route53Resolver.Client.get_firewall_rule_group)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#get_firewall_rule_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver/client/get_firewall_rule_group.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client/#get_firewall_rule_group)
         """
 
     def get_firewall_rule_group_association(
-        self, *, FirewallRuleGroupAssociationId: str
+        self, **kwargs: Unpack[GetFirewallRuleGroupAssociationRequestTypeDef]
     ) -> GetFirewallRuleGroupAssociationResponseTypeDef:
         """
         Retrieves a firewall rule group association, which enables DNS filtering for a
         VPC with one rule group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53resolver.html#Route53Resolver.Client.get_firewall_rule_group_association)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#get_firewall_rule_group_association)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver/client/get_firewall_rule_group_association.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client/#get_firewall_rule_group_association)
         """
 
     def get_firewall_rule_group_policy(
-        self, *, Arn: str
+        self, **kwargs: Unpack[GetFirewallRuleGroupPolicyRequestTypeDef]
     ) -> GetFirewallRuleGroupPolicyResponseTypeDef:
         """
         Returns the Identity and Access Management (Amazon Web Services IAM) policy for
         sharing the specified rule group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53resolver.html#Route53Resolver.Client.get_firewall_rule_group_policy)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#get_firewall_rule_group_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver/client/get_firewall_rule_group_policy.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client/#get_firewall_rule_group_policy)
         """
 
-    def get_outpost_resolver(self, *, Id: str) -> GetOutpostResolverResponseTypeDef:
+    def get_outpost_resolver(
+        self, **kwargs: Unpack[GetOutpostResolverRequestTypeDef]
+    ) -> GetOutpostResolverResponseTypeDef:
         """
-        Gets information about a specified Resolver on the Outpost, such as its instance
-        count and type, name, and the current status of the Resolver.
+        Gets information about a specified Resolver on the Outpost, such as its
+        instance count and type, name, and the current status of the Resolver.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53resolver.html#Route53Resolver.Client.get_outpost_resolver)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#get_outpost_resolver)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver/client/get_outpost_resolver.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client/#get_outpost_resolver)
         """
 
-    def get_resolver_config(self, *, ResourceId: str) -> GetResolverConfigResponseTypeDef:
+    def get_resolver_config(
+        self, **kwargs: Unpack[GetResolverConfigRequestTypeDef]
+    ) -> GetResolverConfigResponseTypeDef:
         """
         Retrieves the behavior configuration of Route 53 Resolver behavior for a single
         VPC from Amazon Virtual Private Cloud.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53resolver.html#Route53Resolver.Client.get_resolver_config)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#get_resolver_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver/client/get_resolver_config.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client/#get_resolver_config)
         """
 
     def get_resolver_dnssec_config(
-        self, *, ResourceId: str
+        self, **kwargs: Unpack[GetResolverDnssecConfigRequestTypeDef]
     ) -> GetResolverDnssecConfigResponseTypeDef:
         """
         Gets DNSSEC validation information for a specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53resolver.html#Route53Resolver.Client.get_resolver_dnssec_config)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#get_resolver_dnssec_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver/client/get_resolver_dnssec_config.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client/#get_resolver_dnssec_config)
         """
 
     def get_resolver_endpoint(
-        self, *, ResolverEndpointId: str
+        self, **kwargs: Unpack[GetResolverEndpointRequestTypeDef]
     ) -> GetResolverEndpointResponseTypeDef:
         """
         Gets information about a specified Resolver endpoint, such as whether it's an
         inbound or an outbound Resolver endpoint, and the current status of the
         endpoint.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53resolver.html#Route53Resolver.Client.get_resolver_endpoint)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#get_resolver_endpoint)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver/client/get_resolver_endpoint.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client/#get_resolver_endpoint)
         """
 
     def get_resolver_query_log_config(
-        self, *, ResolverQueryLogConfigId: str
+        self, **kwargs: Unpack[GetResolverQueryLogConfigRequestTypeDef]
     ) -> GetResolverQueryLogConfigResponseTypeDef:
         """
-        Gets information about a specified Resolver query logging configuration, such as
-        the number of VPCs that the configuration is logging queries for and the
+        Gets information about a specified Resolver query logging configuration, such
+        as the number of VPCs that the configuration is logging queries for and the
         location that logs are sent to.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53resolver.html#Route53Resolver.Client.get_resolver_query_log_config)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#get_resolver_query_log_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver/client/get_resolver_query_log_config.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client/#get_resolver_query_log_config)
         """
 
     def get_resolver_query_log_config_association(
-        self, *, ResolverQueryLogConfigAssociationId: str
+        self, **kwargs: Unpack[GetResolverQueryLogConfigAssociationRequestTypeDef]
     ) -> GetResolverQueryLogConfigAssociationResponseTypeDef:
         """
         Gets information about a specified association between a Resolver query logging
         configuration and an Amazon VPC.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53resolver.html#Route53Resolver.Client.get_resolver_query_log_config_association)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#get_resolver_query_log_config_association)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver/client/get_resolver_query_log_config_association.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client/#get_resolver_query_log_config_association)
         """
 
     def get_resolver_query_log_config_policy(
-        self, *, Arn: str
+        self, **kwargs: Unpack[GetResolverQueryLogConfigPolicyRequestTypeDef]
     ) -> GetResolverQueryLogConfigPolicyResponseTypeDef:
         """
         Gets information about a query logging policy.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53resolver.html#Route53Resolver.Client.get_resolver_query_log_config_policy)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#get_resolver_query_log_config_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver/client/get_resolver_query_log_config_policy.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client/#get_resolver_query_log_config_policy)
         """
 
-    def get_resolver_rule(self, *, ResolverRuleId: str) -> GetResolverRuleResponseTypeDef:
+    def get_resolver_rule(
+        self, **kwargs: Unpack[GetResolverRuleRequestTypeDef]
+    ) -> GetResolverRuleResponseTypeDef:
         """
         Gets information about a specified Resolver rule, such as the domain name that
         the rule forwards DNS queries for and the ID of the outbound Resolver endpoint
         that the rule is associated with.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53resolver.html#Route53Resolver.Client.get_resolver_rule)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#get_resolver_rule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver/client/get_resolver_rule.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client/#get_resolver_rule)
         """
 
     def get_resolver_rule_association(
-        self, *, ResolverRuleAssociationId: str
+        self, **kwargs: Unpack[GetResolverRuleAssociationRequestTypeDef]
     ) -> GetResolverRuleAssociationResponseTypeDef:
         """
         Gets information about an association between a specified Resolver rule and a
         VPC.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53resolver.html#Route53Resolver.Client.get_resolver_rule_association)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#get_resolver_rule_association)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver/client/get_resolver_rule_association.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client/#get_resolver_rule_association)
         """
 
-    def get_resolver_rule_policy(self, *, Arn: str) -> GetResolverRulePolicyResponseTypeDef:
+    def get_resolver_rule_policy(
+        self, **kwargs: Unpack[GetResolverRulePolicyRequestTypeDef]
+    ) -> GetResolverRulePolicyResponseTypeDef:
         """
         Gets information about the Resolver rule policy for a specified rule.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53resolver.html#Route53Resolver.Client.get_resolver_rule_policy)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#get_resolver_rule_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver/client/get_resolver_rule_policy.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client/#get_resolver_rule_policy)
         """
 
     def import_firewall_domains(
-        self, *, FirewallDomainListId: str, Operation: Literal["REPLACE"], DomainFileUrl: str
+        self, **kwargs: Unpack[ImportFirewallDomainsRequestTypeDef]
     ) -> ImportFirewallDomainsResponseTypeDef:
         """
         Imports domain names from a file into a domain list, for use in a DNS firewall
         rule group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53resolver.html#Route53Resolver.Client.import_firewall_domains)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#import_firewall_domains)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver/client/import_firewall_domains.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client/#import_firewall_domains)
         """
 
     def list_firewall_configs(
-        self, *, MaxResults: int = None, NextToken: str = None
+        self, **kwargs: Unpack[ListFirewallConfigsRequestTypeDef]
     ) -> ListFirewallConfigsResponseTypeDef:
         """
         Retrieves the firewall configurations that you have defined.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53resolver.html#Route53Resolver.Client.list_firewall_configs)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#list_firewall_configs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver/client/list_firewall_configs.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client/#list_firewall_configs)
         """
 
     def list_firewall_domain_lists(
-        self, *, MaxResults: int = None, NextToken: str = None
+        self, **kwargs: Unpack[ListFirewallDomainListsRequestTypeDef]
     ) -> ListFirewallDomainListsResponseTypeDef:
         """
         Retrieves the firewall domain lists that you have defined.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53resolver.html#Route53Resolver.Client.list_firewall_domain_lists)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#list_firewall_domain_lists)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver/client/list_firewall_domain_lists.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client/#list_firewall_domain_lists)
         """
 
     def list_firewall_domains(
-        self, *, FirewallDomainListId: str, MaxResults: int = None, NextToken: str = None
+        self, **kwargs: Unpack[ListFirewallDomainsRequestTypeDef]
     ) -> ListFirewallDomainsResponseTypeDef:
         """
         Retrieves the domains that you have defined for the specified firewall domain
         list.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53resolver.html#Route53Resolver.Client.list_firewall_domains)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#list_firewall_domains)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver/client/list_firewall_domains.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client/#list_firewall_domains)
         """
 
     def list_firewall_rule_group_associations(
-        self,
-        *,
-        FirewallRuleGroupId: str = None,
-        VpcId: str = None,
-        Priority: int = None,
-        Status: FirewallRuleGroupAssociationStatusType = None,
-        MaxResults: int = None,
-        NextToken: str = None
+        self, **kwargs: Unpack[ListFirewallRuleGroupAssociationsRequestTypeDef]
     ) -> ListFirewallRuleGroupAssociationsResponseTypeDef:
         """
         Retrieves the firewall rule group associations that you have defined.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53resolver.html#Route53Resolver.Client.list_firewall_rule_group_associations)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#list_firewall_rule_group_associations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver/client/list_firewall_rule_group_associations.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client/#list_firewall_rule_group_associations)
         """
 
     def list_firewall_rule_groups(
-        self, *, MaxResults: int = None, NextToken: str = None
+        self, **kwargs: Unpack[ListFirewallRuleGroupsRequestTypeDef]
     ) -> ListFirewallRuleGroupsResponseTypeDef:
         """
         Retrieves the minimal high-level information for the rule groups that you have
         defined.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53resolver.html#Route53Resolver.Client.list_firewall_rule_groups)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#list_firewall_rule_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver/client/list_firewall_rule_groups.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client/#list_firewall_rule_groups)
         """
 
     def list_firewall_rules(
-        self,
-        *,
-        FirewallRuleGroupId: str,
-        Priority: int = None,
-        Action: ActionType = None,
-        MaxResults: int = None,
-        NextToken: str = None
+        self, **kwargs: Unpack[ListFirewallRulesRequestTypeDef]
     ) -> ListFirewallRulesResponseTypeDef:
         """
         Retrieves the firewall rules that you have defined for the specified firewall
         rule group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53resolver.html#Route53Resolver.Client.list_firewall_rules)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#list_firewall_rules)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver/client/list_firewall_rules.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client/#list_firewall_rules)
         """
 
     def list_outpost_resolvers(
-        self, *, OutpostArn: str = None, MaxResults: int = None, NextToken: str = None
+        self, **kwargs: Unpack[ListOutpostResolversRequestTypeDef]
     ) -> ListOutpostResolversResponseTypeDef:
         """
         Lists all the Resolvers on Outposts that were created using the current Amazon
         Web Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53resolver.html#Route53Resolver.Client.list_outpost_resolvers)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#list_outpost_resolvers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver/client/list_outpost_resolvers.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client/#list_outpost_resolvers)
         """
 
     def list_resolver_configs(
-        self, *, MaxResults: int = None, NextToken: str = None
+        self, **kwargs: Unpack[ListResolverConfigsRequestTypeDef]
     ) -> ListResolverConfigsResponseTypeDef:
         """
         Retrieves the Resolver configurations that you have defined.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53resolver.html#Route53Resolver.Client.list_resolver_configs)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#list_resolver_configs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver/client/list_resolver_configs.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client/#list_resolver_configs)
         """
 
     def list_resolver_dnssec_configs(
-        self,
-        *,
-        MaxResults: int = None,
-        NextToken: str = None,
-        Filters: List["FilterTypeDef"] = None
+        self, **kwargs: Unpack[ListResolverDnssecConfigsRequestTypeDef]
     ) -> ListResolverDnssecConfigsResponseTypeDef:
         """
         Lists the configurations for DNSSEC validation that are associated with the
         current Amazon Web Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53resolver.html#Route53Resolver.Client.list_resolver_dnssec_configs)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#list_resolver_dnssec_configs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver/client/list_resolver_dnssec_configs.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client/#list_resolver_dnssec_configs)
         """
 
     def list_resolver_endpoint_ip_addresses(
-        self, *, ResolverEndpointId: str, MaxResults: int = None, NextToken: str = None
+        self, **kwargs: Unpack[ListResolverEndpointIpAddressesRequestTypeDef]
     ) -> ListResolverEndpointIpAddressesResponseTypeDef:
         """
         Gets the IP addresses for a specified Resolver endpoint.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53resolver.html#Route53Resolver.Client.list_resolver_endpoint_ip_addresses)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#list_resolver_endpoint_ip_addresses)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver/client/list_resolver_endpoint_ip_addresses.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client/#list_resolver_endpoint_ip_addresses)
         """
 
     def list_resolver_endpoints(
-        self,
-        *,
-        MaxResults: int = None,
-        NextToken: str = None,
-        Filters: List["FilterTypeDef"] = None
+        self, **kwargs: Unpack[ListResolverEndpointsRequestTypeDef]
     ) -> ListResolverEndpointsResponseTypeDef:
         """
         Lists all the Resolver endpoints that were created using the current Amazon Web
         Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53resolver.html#Route53Resolver.Client.list_resolver_endpoints)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#list_resolver_endpoints)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver/client/list_resolver_endpoints.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client/#list_resolver_endpoints)
         """
 
     def list_resolver_query_log_config_associations(
-        self,
-        *,
-        MaxResults: int = None,
-        NextToken: str = None,
-        Filters: List["FilterTypeDef"] = None,
-        SortBy: str = None,
-        SortOrder: SortOrderType = None
+        self, **kwargs: Unpack[ListResolverQueryLogConfigAssociationsRequestTypeDef]
     ) -> ListResolverQueryLogConfigAssociationsResponseTypeDef:
         """
         Lists information about associations between Amazon VPCs and query logging
         configurations.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53resolver.html#Route53Resolver.Client.list_resolver_query_log_config_associations)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#list_resolver_query_log_config_associations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver/client/list_resolver_query_log_config_associations.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client/#list_resolver_query_log_config_associations)
         """
 
     def list_resolver_query_log_configs(
-        self,
-        *,
-        MaxResults: int = None,
-        NextToken: str = None,
-        Filters: List["FilterTypeDef"] = None,
-        SortBy: str = None,
-        SortOrder: SortOrderType = None
+        self, **kwargs: Unpack[ListResolverQueryLogConfigsRequestTypeDef]
     ) -> ListResolverQueryLogConfigsResponseTypeDef:
         """
         Lists information about the specified query logging configurations.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53resolver.html#Route53Resolver.Client.list_resolver_query_log_configs)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#list_resolver_query_log_configs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver/client/list_resolver_query_log_configs.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client/#list_resolver_query_log_configs)
         """
 
     def list_resolver_rule_associations(
-        self,
-        *,
-        MaxResults: int = None,
-        NextToken: str = None,
-        Filters: List["FilterTypeDef"] = None
+        self, **kwargs: Unpack[ListResolverRuleAssociationsRequestTypeDef]
     ) -> ListResolverRuleAssociationsResponseTypeDef:
         """
         Lists the associations that were created between Resolver rules and VPCs using
         the current Amazon Web Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53resolver.html#Route53Resolver.Client.list_resolver_rule_associations)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#list_resolver_rule_associations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver/client/list_resolver_rule_associations.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client/#list_resolver_rule_associations)
         """
 
     def list_resolver_rules(
-        self,
-        *,
-        MaxResults: int = None,
-        NextToken: str = None,
-        Filters: List["FilterTypeDef"] = None
+        self, **kwargs: Unpack[ListResolverRulesRequestTypeDef]
     ) -> ListResolverRulesResponseTypeDef:
         """
-        Lists the Resolver rules that were created using the current Amazon Web Services
-        account.
+        Lists the Resolver rules that were created using the current Amazon Web
+        Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53resolver.html#Route53Resolver.Client.list_resolver_rules)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#list_resolver_rules)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver/client/list_resolver_rules.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client/#list_resolver_rules)
         """
 
     def list_tags_for_resource(
-        self, *, ResourceArn: str, MaxResults: int = None, NextToken: str = None
+        self, **kwargs: Unpack[ListTagsForResourceRequestTypeDef]
     ) -> ListTagsForResourceResponseTypeDef:
         """
         Lists the tags that you associated with the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53resolver.html#Route53Resolver.Client.list_tags_for_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver/client/list_tags_for_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client/#list_tags_for_resource)
         """
 
     def put_firewall_rule_group_policy(
-        self, *, Arn: str, FirewallRuleGroupPolicy: str
+        self, **kwargs: Unpack[PutFirewallRuleGroupPolicyRequestTypeDef]
     ) -> PutFirewallRuleGroupPolicyResponseTypeDef:
         """
         Attaches an Identity and Access Management (Amazon Web Services IAM) policy for
         sharing the rule group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53resolver.html#Route53Resolver.Client.put_firewall_rule_group_policy)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#put_firewall_rule_group_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver/client/put_firewall_rule_group_policy.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client/#put_firewall_rule_group_policy)
         """
 
     def put_resolver_query_log_config_policy(
-        self, *, Arn: str, ResolverQueryLogConfigPolicy: str
+        self, **kwargs: Unpack[PutResolverQueryLogConfigPolicyRequestTypeDef]
     ) -> PutResolverQueryLogConfigPolicyResponseTypeDef:
         """
         Specifies an Amazon Web Services account that you want to share a query logging
@@ -875,304 +838,304 @@ class Route53ResolverClient(BaseClient):
         the operations that you want the account to be able to perform on the
         configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53resolver.html#Route53Resolver.Client.put_resolver_query_log_config_policy)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#put_resolver_query_log_config_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver/client/put_resolver_query_log_config_policy.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client/#put_resolver_query_log_config_policy)
         """
 
     def put_resolver_rule_policy(
-        self, *, Arn: str, ResolverRulePolicy: str
+        self, **kwargs: Unpack[PutResolverRulePolicyRequestTypeDef]
     ) -> PutResolverRulePolicyResponseTypeDef:
         """
         Specifies an Amazon Web Services rule that you want to share with another
         account, the account that you want to share the rule with, and the operations
         that you want the account to be able to perform on the rule.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53resolver.html#Route53Resolver.Client.put_resolver_rule_policy)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#put_resolver_rule_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver/client/put_resolver_rule_policy.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client/#put_resolver_rule_policy)
         """
 
-    def tag_resource(self, *, ResourceArn: str, Tags: List["TagTypeDef"]) -> Dict[str, Any]:
+    def tag_resource(self, **kwargs: Unpack[TagResourceRequestTypeDef]) -> Dict[str, Any]:
         """
         Adds one or more tags to a specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53resolver.html#Route53Resolver.Client.tag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver/client/tag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client/#tag_resource)
         """
 
-    def untag_resource(self, *, ResourceArn: str, TagKeys: List[str]) -> Dict[str, Any]:
+    def untag_resource(self, **kwargs: Unpack[UntagResourceRequestTypeDef]) -> Dict[str, Any]:
         """
         Removes one or more tags from a specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53resolver.html#Route53Resolver.Client.untag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver/client/untag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client/#untag_resource)
         """
 
     def update_firewall_config(
-        self, *, ResourceId: str, FirewallFailOpen: FirewallFailOpenStatusType
+        self, **kwargs: Unpack[UpdateFirewallConfigRequestTypeDef]
     ) -> UpdateFirewallConfigResponseTypeDef:
         """
         Updates the configuration of the firewall behavior provided by DNS Firewall for
         a single VPC from Amazon Virtual Private Cloud (Amazon VPC).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53resolver.html#Route53Resolver.Client.update_firewall_config)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#update_firewall_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver/client/update_firewall_config.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client/#update_firewall_config)
         """
 
     def update_firewall_domains(
-        self,
-        *,
-        FirewallDomainListId: str,
-        Operation: FirewallDomainUpdateOperationType,
-        Domains: List[str]
+        self, **kwargs: Unpack[UpdateFirewallDomainsRequestTypeDef]
     ) -> UpdateFirewallDomainsResponseTypeDef:
         """
         Updates the firewall domain list from an array of domain specifications.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53resolver.html#Route53Resolver.Client.update_firewall_domains)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#update_firewall_domains)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver/client/update_firewall_domains.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client/#update_firewall_domains)
         """
 
     def update_firewall_rule(
-        self,
-        *,
-        FirewallRuleGroupId: str,
-        FirewallDomainListId: str,
-        Priority: int = None,
-        Action: ActionType = None,
-        BlockResponse: BlockResponseType = None,
-        BlockOverrideDomain: str = None,
-        BlockOverrideDnsType: Literal["CNAME"] = None,
-        BlockOverrideTtl: int = None,
-        Name: str = None,
-        FirewallDomainRedirectionAction: FirewallDomainRedirectionActionType = None,
-        Qtype: str = None
+        self, **kwargs: Unpack[UpdateFirewallRuleRequestTypeDef]
     ) -> UpdateFirewallRuleResponseTypeDef:
         """
         Updates the specified firewall rule.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53resolver.html#Route53Resolver.Client.update_firewall_rule)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#update_firewall_rule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver/client/update_firewall_rule.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client/#update_firewall_rule)
         """
 
     def update_firewall_rule_group_association(
-        self,
-        *,
-        FirewallRuleGroupAssociationId: str,
-        Priority: int = None,
-        MutationProtection: MutationProtectionStatusType = None,
-        Name: str = None
+        self, **kwargs: Unpack[UpdateFirewallRuleGroupAssociationRequestTypeDef]
     ) -> UpdateFirewallRuleGroupAssociationResponseTypeDef:
         """
-        Changes the association of a  FirewallRuleGroup with a VPC.
+        Changes the association of a <a>FirewallRuleGroup</a> with a VPC.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53resolver.html#Route53Resolver.Client.update_firewall_rule_group_association)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#update_firewall_rule_group_association)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver/client/update_firewall_rule_group_association.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client/#update_firewall_rule_group_association)
         """
 
     def update_outpost_resolver(
-        self,
-        *,
-        Id: str,
-        Name: str = None,
-        InstanceCount: int = None,
-        PreferredInstanceType: str = None
+        self, **kwargs: Unpack[UpdateOutpostResolverRequestTypeDef]
     ) -> UpdateOutpostResolverResponseTypeDef:
         """
-        You can use `UpdateOutpostResolver` to update the instance count, type, or name
-        of a Resolver on an Outpost.
+        You can use <code>UpdateOutpostResolver</code> to update the instance count,
+        type, or name of a Resolver on an Outpost.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53resolver.html#Route53Resolver.Client.update_outpost_resolver)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#update_outpost_resolver)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver/client/update_outpost_resolver.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client/#update_outpost_resolver)
         """
 
     def update_resolver_config(
-        self, *, ResourceId: str, AutodefinedReverseFlag: AutodefinedReverseFlagType
+        self, **kwargs: Unpack[UpdateResolverConfigRequestTypeDef]
     ) -> UpdateResolverConfigResponseTypeDef:
         """
         Updates the behavior configuration of Route 53 Resolver behavior for a single
         VPC from Amazon Virtual Private Cloud.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53resolver.html#Route53Resolver.Client.update_resolver_config)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#update_resolver_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver/client/update_resolver_config.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client/#update_resolver_config)
         """
 
     def update_resolver_dnssec_config(
-        self, *, ResourceId: str, Validation: ValidationType
+        self, **kwargs: Unpack[UpdateResolverDnssecConfigRequestTypeDef]
     ) -> UpdateResolverDnssecConfigResponseTypeDef:
         """
         Updates an existing DNSSEC validation configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53resolver.html#Route53Resolver.Client.update_resolver_dnssec_config)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#update_resolver_dnssec_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver/client/update_resolver_dnssec_config.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client/#update_resolver_dnssec_config)
         """
 
     def update_resolver_endpoint(
-        self,
-        *,
-        ResolverEndpointId: str,
-        Name: str = None,
-        ResolverEndpointType: ResolverEndpointTypeType = None,
-        UpdateIpAddresses: List["UpdateIpAddressTypeDef"] = None,
-        Protocols: List[ProtocolType] = None
+        self, **kwargs: Unpack[UpdateResolverEndpointRequestTypeDef]
     ) -> UpdateResolverEndpointResponseTypeDef:
         """
         Updates the name, or endpoint type for an inbound or an outbound Resolver
         endpoint.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53resolver.html#Route53Resolver.Client.update_resolver_endpoint)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#update_resolver_endpoint)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver/client/update_resolver_endpoint.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client/#update_resolver_endpoint)
         """
 
     def update_resolver_rule(
-        self, *, ResolverRuleId: str, Config: "ResolverRuleConfigTypeDef"
+        self, **kwargs: Unpack[UpdateResolverRuleRequestTypeDef]
     ) -> UpdateResolverRuleResponseTypeDef:
         """
         Updates settings for a specified Resolver rule.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53resolver.html#Route53Resolver.Client.update_resolver_rule)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client.html#update_resolver_rule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver/client/update_resolver_rule.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client/#update_resolver_rule)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_firewall_configs"]
     ) -> ListFirewallConfigsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53resolver.html#Route53Resolver.Paginator.ListFirewallConfigs)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/paginators.html#listfirewallconfigspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_firewall_domain_lists"]
     ) -> ListFirewallDomainListsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53resolver.html#Route53Resolver.Paginator.ListFirewallDomainLists)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/paginators.html#listfirewalldomainlistspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_firewall_domains"]
     ) -> ListFirewallDomainsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53resolver.html#Route53Resolver.Paginator.ListFirewallDomains)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/paginators.html#listfirewalldomainspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_firewall_rule_group_associations"]
     ) -> ListFirewallRuleGroupAssociationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53resolver.html#Route53Resolver.Paginator.ListFirewallRuleGroupAssociations)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/paginators.html#listfirewallrulegroupassociationspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_firewall_rule_groups"]
     ) -> ListFirewallRuleGroupsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53resolver.html#Route53Resolver.Paginator.ListFirewallRuleGroups)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/paginators.html#listfirewallrulegroupspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_firewall_rules"]
     ) -> ListFirewallRulesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53resolver.html#Route53Resolver.Paginator.ListFirewallRules)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/paginators.html#listfirewallrulespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_outpost_resolvers"]
     ) -> ListOutpostResolversPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53resolver.html#Route53Resolver.Paginator.ListOutpostResolvers)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/paginators.html#listoutpostresolverspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_resolver_configs"]
     ) -> ListResolverConfigsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53resolver.html#Route53Resolver.Paginator.ListResolverConfigs)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/paginators.html#listresolverconfigspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_resolver_dnssec_configs"]
     ) -> ListResolverDnssecConfigsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53resolver.html#Route53Resolver.Paginator.ListResolverDnssecConfigs)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/paginators.html#listresolverdnssecconfigspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_resolver_endpoint_ip_addresses"]
     ) -> ListResolverEndpointIpAddressesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53resolver.html#Route53Resolver.Paginator.ListResolverEndpointIpAddresses)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/paginators.html#listresolverendpointipaddressespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_resolver_endpoints"]
     ) -> ListResolverEndpointsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53resolver.html#Route53Resolver.Paginator.ListResolverEndpoints)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/paginators.html#listresolverendpointspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_resolver_query_log_config_associations"]
     ) -> ListResolverQueryLogConfigAssociationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53resolver.html#Route53Resolver.Paginator.ListResolverQueryLogConfigAssociations)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/paginators.html#listresolverquerylogconfigassociationspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_resolver_query_log_configs"]
     ) -> ListResolverQueryLogConfigsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53resolver.html#Route53Resolver.Paginator.ListResolverQueryLogConfigs)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/paginators.html#listresolverquerylogconfigspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_resolver_rule_associations"]
     ) -> ListResolverRuleAssociationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53resolver.html#Route53Resolver.Paginator.ListResolverRuleAssociations)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/paginators.html#listresolverruleassociationspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_resolver_rules"]
     ) -> ListResolverRulesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53resolver.html#Route53Resolver.Paginator.ListResolverRules)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/paginators.html#listresolverrulespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_tags_for_resource"]
     ) -> ListTagsForResourcePaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53resolver.html#Route53Resolver.Paginator.ListTagsForResource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/paginators.html#listtagsforresourcepaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/client/#get_paginator)
         """

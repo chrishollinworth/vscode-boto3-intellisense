@@ -1,423 +1,258 @@
 """
 Type annotations for oam service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_oam/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_oam/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_oam.type_defs import CreateLinkInputRequestTypeDef
+    from mypy_boto3_oam.type_defs import ResponseMetadataTypeDef
 
-    data: CreateLinkInputRequestTypeDef = {...}
+    data: ResponseMetadataTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from typing import Any, Dict, List
 
 from .literals import ResourceTypeType
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
-    "CreateLinkInputRequestTypeDef",
+    "CreateLinkInputTypeDef",
     "CreateLinkOutputTypeDef",
-    "CreateSinkInputRequestTypeDef",
+    "CreateSinkInputTypeDef",
     "CreateSinkOutputTypeDef",
-    "DeleteLinkInputRequestTypeDef",
-    "DeleteSinkInputRequestTypeDef",
-    "GetLinkInputRequestTypeDef",
+    "DeleteLinkInputTypeDef",
+    "DeleteSinkInputTypeDef",
+    "GetLinkInputTypeDef",
     "GetLinkOutputTypeDef",
-    "GetSinkInputRequestTypeDef",
+    "GetSinkInputTypeDef",
     "GetSinkOutputTypeDef",
-    "GetSinkPolicyInputRequestTypeDef",
+    "GetSinkPolicyInputTypeDef",
     "GetSinkPolicyOutputTypeDef",
     "LinkConfigurationTypeDef",
-    "ListAttachedLinksInputRequestTypeDef",
+    "ListAttachedLinksInputPaginateTypeDef",
+    "ListAttachedLinksInputTypeDef",
     "ListAttachedLinksItemTypeDef",
     "ListAttachedLinksOutputTypeDef",
-    "ListLinksInputRequestTypeDef",
+    "ListLinksInputPaginateTypeDef",
+    "ListLinksInputTypeDef",
     "ListLinksItemTypeDef",
     "ListLinksOutputTypeDef",
-    "ListSinksInputRequestTypeDef",
+    "ListSinksInputPaginateTypeDef",
+    "ListSinksInputTypeDef",
     "ListSinksItemTypeDef",
     "ListSinksOutputTypeDef",
-    "ListTagsForResourceInputRequestTypeDef",
+    "ListTagsForResourceInputTypeDef",
     "ListTagsForResourceOutputTypeDef",
     "LogGroupConfigurationTypeDef",
     "MetricConfigurationTypeDef",
     "PaginatorConfigTypeDef",
-    "PutSinkPolicyInputRequestTypeDef",
+    "PutSinkPolicyInputTypeDef",
     "PutSinkPolicyOutputTypeDef",
     "ResponseMetadataTypeDef",
-    "TagResourceInputRequestTypeDef",
-    "UntagResourceInputRequestTypeDef",
-    "UpdateLinkInputRequestTypeDef",
+    "TagResourceInputTypeDef",
+    "UntagResourceInputTypeDef",
+    "UpdateLinkInputTypeDef",
     "UpdateLinkOutputTypeDef",
 )
 
-_RequiredCreateLinkInputRequestTypeDef = TypedDict(
-    "_RequiredCreateLinkInputRequestTypeDef",
-    {
-        "LabelTemplate": str,
-        "ResourceTypes": List[ResourceTypeType],
-        "SinkIdentifier": str,
-    },
-)
-_OptionalCreateLinkInputRequestTypeDef = TypedDict(
-    "_OptionalCreateLinkInputRequestTypeDef",
-    {
-        "LinkConfiguration": "LinkConfigurationTypeDef",
-        "Tags": Dict[str, str],
-    },
-    total=False,
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-class CreateLinkInputRequestTypeDef(
-    _RequiredCreateLinkInputRequestTypeDef, _OptionalCreateLinkInputRequestTypeDef
-):
-    pass
+class CreateSinkInputTypeDef(TypedDict):
+    Name: str
+    Tags: NotRequired[Mapping[str, str]]
 
-CreateLinkOutputTypeDef = TypedDict(
-    "CreateLinkOutputTypeDef",
-    {
-        "Arn": str,
-        "Id": str,
-        "Label": str,
-        "LabelTemplate": str,
-        "LinkConfiguration": "LinkConfigurationTypeDef",
-        "ResourceTypes": List[str],
-        "SinkArn": str,
-        "Tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DeleteLinkInputTypeDef(TypedDict):
+    Identifier: str
 
-_RequiredCreateSinkInputRequestTypeDef = TypedDict(
-    "_RequiredCreateSinkInputRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
-_OptionalCreateSinkInputRequestTypeDef = TypedDict(
-    "_OptionalCreateSinkInputRequestTypeDef",
-    {
-        "Tags": Dict[str, str],
-    },
-    total=False,
-)
+class DeleteSinkInputTypeDef(TypedDict):
+    Identifier: str
 
-class CreateSinkInputRequestTypeDef(
-    _RequiredCreateSinkInputRequestTypeDef, _OptionalCreateSinkInputRequestTypeDef
-):
-    pass
+class GetLinkInputTypeDef(TypedDict):
+    Identifier: str
 
-CreateSinkOutputTypeDef = TypedDict(
-    "CreateSinkOutputTypeDef",
-    {
-        "Arn": str,
-        "Id": str,
-        "Name": str,
-        "Tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetSinkInputTypeDef(TypedDict):
+    Identifier: str
 
-DeleteLinkInputRequestTypeDef = TypedDict(
-    "DeleteLinkInputRequestTypeDef",
-    {
-        "Identifier": str,
-    },
-)
+class GetSinkPolicyInputTypeDef(TypedDict):
+    SinkIdentifier: str
 
-DeleteSinkInputRequestTypeDef = TypedDict(
-    "DeleteSinkInputRequestTypeDef",
-    {
-        "Identifier": str,
-    },
-)
+class LogGroupConfigurationTypeDef(TypedDict):
+    Filter: str
 
-GetLinkInputRequestTypeDef = TypedDict(
-    "GetLinkInputRequestTypeDef",
-    {
-        "Identifier": str,
-    },
-)
+class MetricConfigurationTypeDef(TypedDict):
+    Filter: str
 
-GetLinkOutputTypeDef = TypedDict(
-    "GetLinkOutputTypeDef",
-    {
-        "Arn": str,
-        "Id": str,
-        "Label": str,
-        "LabelTemplate": str,
-        "LinkConfiguration": "LinkConfigurationTypeDef",
-        "ResourceTypes": List[str],
-        "SinkArn": str,
-        "Tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
 
-GetSinkInputRequestTypeDef = TypedDict(
-    "GetSinkInputRequestTypeDef",
-    {
-        "Identifier": str,
-    },
-)
+class ListAttachedLinksInputTypeDef(TypedDict):
+    SinkIdentifier: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
 
-GetSinkOutputTypeDef = TypedDict(
-    "GetSinkOutputTypeDef",
-    {
-        "Arn": str,
-        "Id": str,
-        "Name": str,
-        "Tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListAttachedLinksItemTypeDef(TypedDict):
+    Label: NotRequired[str]
+    LinkArn: NotRequired[str]
+    ResourceTypes: NotRequired[List[str]]
 
-GetSinkPolicyInputRequestTypeDef = TypedDict(
-    "GetSinkPolicyInputRequestTypeDef",
-    {
-        "SinkIdentifier": str,
-    },
-)
+class ListLinksInputTypeDef(TypedDict):
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
 
-GetSinkPolicyOutputTypeDef = TypedDict(
-    "GetSinkPolicyOutputTypeDef",
-    {
-        "Policy": str,
-        "SinkArn": str,
-        "SinkId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListLinksItemTypeDef(TypedDict):
+    Arn: NotRequired[str]
+    Id: NotRequired[str]
+    Label: NotRequired[str]
+    ResourceTypes: NotRequired[List[str]]
+    SinkArn: NotRequired[str]
 
-LinkConfigurationTypeDef = TypedDict(
-    "LinkConfigurationTypeDef",
-    {
-        "LogGroupConfiguration": "LogGroupConfigurationTypeDef",
-        "MetricConfiguration": "MetricConfigurationTypeDef",
-    },
-    total=False,
-)
+class ListSinksInputTypeDef(TypedDict):
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
 
-_RequiredListAttachedLinksInputRequestTypeDef = TypedDict(
-    "_RequiredListAttachedLinksInputRequestTypeDef",
-    {
-        "SinkIdentifier": str,
-    },
-)
-_OptionalListAttachedLinksInputRequestTypeDef = TypedDict(
-    "_OptionalListAttachedLinksInputRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
+class ListSinksItemTypeDef(TypedDict):
+    Arn: NotRequired[str]
+    Id: NotRequired[str]
+    Name: NotRequired[str]
 
-class ListAttachedLinksInputRequestTypeDef(
-    _RequiredListAttachedLinksInputRequestTypeDef, _OptionalListAttachedLinksInputRequestTypeDef
-):
-    pass
+class ListTagsForResourceInputTypeDef(TypedDict):
+    ResourceArn: str
 
-ListAttachedLinksItemTypeDef = TypedDict(
-    "ListAttachedLinksItemTypeDef",
-    {
-        "Label": str,
-        "LinkArn": str,
-        "ResourceTypes": List[str],
-    },
-    total=False,
-)
+class PutSinkPolicyInputTypeDef(TypedDict):
+    Policy: str
+    SinkIdentifier: str
 
-ListAttachedLinksOutputTypeDef = TypedDict(
-    "ListAttachedLinksOutputTypeDef",
-    {
-        "Items": List["ListAttachedLinksItemTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class TagResourceInputTypeDef(TypedDict):
+    ResourceArn: str
+    Tags: Mapping[str, str]
 
-ListLinksInputRequestTypeDef = TypedDict(
-    "ListLinksInputRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
+class UntagResourceInputTypeDef(TypedDict):
+    ResourceArn: str
+    TagKeys: Sequence[str]
 
-ListLinksItemTypeDef = TypedDict(
-    "ListLinksItemTypeDef",
-    {
-        "Arn": str,
-        "Id": str,
-        "Label": str,
-        "ResourceTypes": List[str],
-        "SinkArn": str,
-    },
-    total=False,
-)
+class CreateSinkOutputTypeDef(TypedDict):
+    Arn: str
+    Id: str
+    Name: str
+    Tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ListLinksOutputTypeDef = TypedDict(
-    "ListLinksOutputTypeDef",
-    {
-        "Items": List["ListLinksItemTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetSinkOutputTypeDef(TypedDict):
+    Arn: str
+    Id: str
+    Name: str
+    Tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ListSinksInputRequestTypeDef = TypedDict(
-    "ListSinksInputRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
+class GetSinkPolicyOutputTypeDef(TypedDict):
+    Policy: str
+    SinkArn: str
+    SinkId: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ListSinksItemTypeDef = TypedDict(
-    "ListSinksItemTypeDef",
-    {
-        "Arn": str,
-        "Id": str,
-        "Name": str,
-    },
-    total=False,
-)
+class ListTagsForResourceOutputTypeDef(TypedDict):
+    Tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ListSinksOutputTypeDef = TypedDict(
-    "ListSinksOutputTypeDef",
-    {
-        "Items": List["ListSinksItemTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class PutSinkPolicyOutputTypeDef(TypedDict):
+    Policy: str
+    SinkArn: str
+    SinkId: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ListTagsForResourceInputRequestTypeDef = TypedDict(
-    "ListTagsForResourceInputRequestTypeDef",
-    {
-        "ResourceArn": str,
-    },
-)
+class LinkConfigurationTypeDef(TypedDict):
+    LogGroupConfiguration: NotRequired[LogGroupConfigurationTypeDef]
+    MetricConfiguration: NotRequired[MetricConfigurationTypeDef]
 
-ListTagsForResourceOutputTypeDef = TypedDict(
-    "ListTagsForResourceOutputTypeDef",
-    {
-        "Tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListAttachedLinksInputPaginateTypeDef(TypedDict):
+    SinkIdentifier: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-LogGroupConfigurationTypeDef = TypedDict(
-    "LogGroupConfigurationTypeDef",
-    {
-        "Filter": str,
-    },
-)
+class ListLinksInputPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-MetricConfigurationTypeDef = TypedDict(
-    "MetricConfigurationTypeDef",
-    {
-        "Filter": str,
-    },
-)
+class ListSinksInputPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
+class ListAttachedLinksOutputTypeDef(TypedDict):
+    Items: List[ListAttachedLinksItemTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-PutSinkPolicyInputRequestTypeDef = TypedDict(
-    "PutSinkPolicyInputRequestTypeDef",
-    {
-        "Policy": str,
-        "SinkIdentifier": str,
-    },
-)
+class ListLinksOutputTypeDef(TypedDict):
+    Items: List[ListLinksItemTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-PutSinkPolicyOutputTypeDef = TypedDict(
-    "PutSinkPolicyOutputTypeDef",
-    {
-        "Policy": str,
-        "SinkArn": str,
-        "SinkId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListSinksOutputTypeDef(TypedDict):
+    Items: List[ListSinksItemTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
+class CreateLinkInputTypeDef(TypedDict):
+    LabelTemplate: str
+    ResourceTypes: Sequence[ResourceTypeType]
+    SinkIdentifier: str
+    LinkConfiguration: NotRequired[LinkConfigurationTypeDef]
+    Tags: NotRequired[Mapping[str, str]]
 
-TagResourceInputRequestTypeDef = TypedDict(
-    "TagResourceInputRequestTypeDef",
-    {
-        "ResourceArn": str,
-        "Tags": Dict[str, str],
-    },
-)
+class CreateLinkOutputTypeDef(TypedDict):
+    Arn: str
+    Id: str
+    Label: str
+    LabelTemplate: str
+    LinkConfiguration: LinkConfigurationTypeDef
+    ResourceTypes: List[str]
+    SinkArn: str
+    Tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-UntagResourceInputRequestTypeDef = TypedDict(
-    "UntagResourceInputRequestTypeDef",
-    {
-        "ResourceArn": str,
-        "TagKeys": List[str],
-    },
-)
+class GetLinkOutputTypeDef(TypedDict):
+    Arn: str
+    Id: str
+    Label: str
+    LabelTemplate: str
+    LinkConfiguration: LinkConfigurationTypeDef
+    ResourceTypes: List[str]
+    SinkArn: str
+    Tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredUpdateLinkInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateLinkInputRequestTypeDef",
-    {
-        "Identifier": str,
-        "ResourceTypes": List[ResourceTypeType],
-    },
-)
-_OptionalUpdateLinkInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateLinkInputRequestTypeDef",
-    {
-        "LinkConfiguration": "LinkConfigurationTypeDef",
-    },
-    total=False,
-)
+class UpdateLinkInputTypeDef(TypedDict):
+    Identifier: str
+    ResourceTypes: Sequence[ResourceTypeType]
+    LinkConfiguration: NotRequired[LinkConfigurationTypeDef]
 
-class UpdateLinkInputRequestTypeDef(
-    _RequiredUpdateLinkInputRequestTypeDef, _OptionalUpdateLinkInputRequestTypeDef
-):
-    pass
-
-UpdateLinkOutputTypeDef = TypedDict(
-    "UpdateLinkOutputTypeDef",
-    {
-        "Arn": str,
-        "Id": str,
-        "Label": str,
-        "LabelTemplate": str,
-        "LinkConfiguration": "LinkConfigurationTypeDef",
-        "ResourceTypes": List[str],
-        "SinkArn": str,
-        "Tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class UpdateLinkOutputTypeDef(TypedDict):
+    Arn: str
+    Id: str
+    Label: str
+    LabelTemplate: str
+    LinkConfiguration: LinkConfigurationTypeDef
+    ResourceTypes: List[str]
+    SinkArn: str
+    Tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef

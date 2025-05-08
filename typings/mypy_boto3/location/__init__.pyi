@@ -1,10 +1,14 @@
 """
 Main interface for location service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_location/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_location import (
         Client,
         ForecastGeofenceEventsPaginator,
@@ -21,10 +25,8 @@ Usage::
         LocationServiceClient,
     )
 
-    session = boto3.Session()
-
-    client: LocationServiceClient = boto3.client("location")
-    session_client: LocationServiceClient = session.client("location")
+    session = Session()
+    client: LocationServiceClient = session.client("location")
 
     forecast_geofence_events_paginator: ForecastGeofenceEventsPaginator = client.get_paginator("forecast_geofence_events")
     get_device_position_history_paginator: GetDevicePositionHistoryPaginator = client.get_paginator("get_device_position_history")

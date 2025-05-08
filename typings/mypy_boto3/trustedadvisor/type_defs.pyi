@@ -1,20 +1,24 @@
 """
 Type annotations for trustedadvisor service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_trustedadvisor/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_trustedadvisor/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_trustedadvisor.type_defs import AccountRecommendationLifecycleSummaryTypeDef
 
-    data: AccountRecommendationLifecycleSummaryTypeDef = {...}
+    data: AccountRecommendationLifecycleSummaryTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List, Union
+from typing import Union
 
 from .literals import (
     ExclusionStatusType,
@@ -29,31 +33,44 @@ from .literals import (
     UpdateRecommendationLifecycleStageType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Sequence
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List, Sequence
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
     "AccountRecommendationLifecycleSummaryTypeDef",
-    "BatchUpdateRecommendationResourceExclusionRequestRequestTypeDef",
+    "BatchUpdateRecommendationResourceExclusionRequestTypeDef",
     "BatchUpdateRecommendationResourceExclusionResponseTypeDef",
     "CheckSummaryTypeDef",
-    "GetOrganizationRecommendationRequestRequestTypeDef",
+    "EmptyResponseMetadataTypeDef",
+    "GetOrganizationRecommendationRequestTypeDef",
     "GetOrganizationRecommendationResponseTypeDef",
-    "GetRecommendationRequestRequestTypeDef",
+    "GetRecommendationRequestTypeDef",
     "GetRecommendationResponseTypeDef",
-    "ListChecksRequestRequestTypeDef",
+    "ListChecksRequestPaginateTypeDef",
+    "ListChecksRequestTypeDef",
     "ListChecksResponseTypeDef",
-    "ListOrganizationRecommendationAccountsRequestRequestTypeDef",
+    "ListOrganizationRecommendationAccountsRequestPaginateTypeDef",
+    "ListOrganizationRecommendationAccountsRequestTypeDef",
     "ListOrganizationRecommendationAccountsResponseTypeDef",
-    "ListOrganizationRecommendationResourcesRequestRequestTypeDef",
+    "ListOrganizationRecommendationResourcesRequestPaginateTypeDef",
+    "ListOrganizationRecommendationResourcesRequestTypeDef",
     "ListOrganizationRecommendationResourcesResponseTypeDef",
-    "ListOrganizationRecommendationsRequestRequestTypeDef",
+    "ListOrganizationRecommendationsRequestPaginateTypeDef",
+    "ListOrganizationRecommendationsRequestTypeDef",
     "ListOrganizationRecommendationsResponseTypeDef",
-    "ListRecommendationResourcesRequestRequestTypeDef",
+    "ListRecommendationResourcesRequestPaginateTypeDef",
+    "ListRecommendationResourcesRequestTypeDef",
     "ListRecommendationResourcesResponseTypeDef",
-    "ListRecommendationsRequestRequestTypeDef",
+    "ListRecommendationsRequestPaginateTypeDef",
+    "ListRecommendationsRequestTypeDef",
     "ListRecommendationsResponseTypeDef",
     "OrganizationRecommendationResourceSummaryTypeDef",
     "OrganizationRecommendationSummaryTypeDef",
@@ -67,42 +84,37 @@ __all__ = (
     "RecommendationSummaryTypeDef",
     "RecommendationTypeDef",
     "ResponseMetadataTypeDef",
-    "UpdateOrganizationRecommendationLifecycleRequestRequestTypeDef",
-    "UpdateRecommendationLifecycleRequestRequestTypeDef",
+    "TimestampTypeDef",
+    "UpdateOrganizationRecommendationLifecycleRequestTypeDef",
+    "UpdateRecommendationLifecycleRequestTypeDef",
     "UpdateRecommendationResourceExclusionErrorTypeDef",
 )
 
-AccountRecommendationLifecycleSummaryTypeDef = TypedDict(
-    "AccountRecommendationLifecycleSummaryTypeDef",
-    {
-        "accountId": str,
-        "accountRecommendationArn": str,
-        "lastUpdatedAt": datetime,
-        "lifecycleStage": RecommendationLifecycleStageType,
-        "updateReason": str,
-        "updateReasonCode": UpdateRecommendationLifecycleStageReasonCodeType,
-        "updatedOnBehalfOf": str,
-        "updatedOnBehalfOfJobTitle": str,
-    },
-    total=False,
-)
+class AccountRecommendationLifecycleSummaryTypeDef(TypedDict):
+    accountId: NotRequired[str]
+    accountRecommendationArn: NotRequired[str]
+    lastUpdatedAt: NotRequired[datetime]
+    lifecycleStage: NotRequired[RecommendationLifecycleStageType]
+    updateReason: NotRequired[str]
+    updateReasonCode: NotRequired[UpdateRecommendationLifecycleStageReasonCodeType]
+    updatedOnBehalfOf: NotRequired[str]
+    updatedOnBehalfOfJobTitle: NotRequired[str]
 
-BatchUpdateRecommendationResourceExclusionRequestRequestTypeDef = TypedDict(
-    "BatchUpdateRecommendationResourceExclusionRequestRequestTypeDef",
-    {
-        "recommendationResourceExclusions": List["RecommendationResourceExclusionTypeDef"],
-    },
-)
+class RecommendationResourceExclusionTypeDef(TypedDict):
+    arn: str
+    isExcluded: bool
 
-BatchUpdateRecommendationResourceExclusionResponseTypeDef = TypedDict(
-    "BatchUpdateRecommendationResourceExclusionResponseTypeDef",
-    {
-        "batchUpdateRecommendationResourceExclusionErrors": List[
-            "UpdateRecommendationResourceExclusionErrorTypeDef"
-        ],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
+
+class UpdateRecommendationResourceExclusionErrorTypeDef(TypedDict):
+    arn: NotRequired[str]
+    errorCode: NotRequired[str]
+    errorMessage: NotRequired[str]
 
 CheckSummaryTypeDef = TypedDict(
     "CheckSummaryTypeDef",
@@ -118,214 +130,42 @@ CheckSummaryTypeDef = TypedDict(
     },
 )
 
-GetOrganizationRecommendationRequestRequestTypeDef = TypedDict(
-    "GetOrganizationRecommendationRequestRequestTypeDef",
-    {
-        "organizationRecommendationIdentifier": str,
-    },
-)
+class GetOrganizationRecommendationRequestTypeDef(TypedDict):
+    organizationRecommendationIdentifier: str
 
-GetOrganizationRecommendationResponseTypeDef = TypedDict(
-    "GetOrganizationRecommendationResponseTypeDef",
-    {
-        "organizationRecommendation": "OrganizationRecommendationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetRecommendationRequestTypeDef(TypedDict):
+    recommendationIdentifier: str
 
-GetRecommendationRequestRequestTypeDef = TypedDict(
-    "GetRecommendationRequestRequestTypeDef",
-    {
-        "recommendationIdentifier": str,
-    },
-)
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
 
-GetRecommendationResponseTypeDef = TypedDict(
-    "GetRecommendationResponseTypeDef",
-    {
-        "recommendation": "RecommendationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListChecksRequestTypeDef(TypedDict):
+    awsService: NotRequired[str]
+    language: NotRequired[RecommendationLanguageType]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+    pillar: NotRequired[RecommendationPillarType]
+    source: NotRequired[RecommendationSourceType]
 
-ListChecksRequestRequestTypeDef = TypedDict(
-    "ListChecksRequestRequestTypeDef",
-    {
-        "awsService": str,
-        "language": RecommendationLanguageType,
-        "maxResults": int,
-        "nextToken": str,
-        "pillar": RecommendationPillarType,
-        "source": RecommendationSourceType,
-    },
-    total=False,
-)
+class ListOrganizationRecommendationAccountsRequestTypeDef(TypedDict):
+    organizationRecommendationIdentifier: str
+    affectedAccountId: NotRequired[str]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
 
-ListChecksResponseTypeDef = TypedDict(
-    "ListChecksResponseTypeDef",
-    {
-        "checkSummaries": List["CheckSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListOrganizationRecommendationResourcesRequestTypeDef(TypedDict):
+    organizationRecommendationIdentifier: str
+    affectedAccountId: NotRequired[str]
+    exclusionStatus: NotRequired[ExclusionStatusType]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+    regionCode: NotRequired[str]
+    status: NotRequired[ResourceStatusType]
 
-_RequiredListOrganizationRecommendationAccountsRequestRequestTypeDef = TypedDict(
-    "_RequiredListOrganizationRecommendationAccountsRequestRequestTypeDef",
-    {
-        "organizationRecommendationIdentifier": str,
-    },
-)
-_OptionalListOrganizationRecommendationAccountsRequestRequestTypeDef = TypedDict(
-    "_OptionalListOrganizationRecommendationAccountsRequestRequestTypeDef",
-    {
-        "affectedAccountId": str,
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListOrganizationRecommendationAccountsRequestRequestTypeDef(
-    _RequiredListOrganizationRecommendationAccountsRequestRequestTypeDef,
-    _OptionalListOrganizationRecommendationAccountsRequestRequestTypeDef,
-):
-    pass
-
-ListOrganizationRecommendationAccountsResponseTypeDef = TypedDict(
-    "ListOrganizationRecommendationAccountsResponseTypeDef",
-    {
-        "accountRecommendationLifecycleSummaries": List[
-            "AccountRecommendationLifecycleSummaryTypeDef"
-        ],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListOrganizationRecommendationResourcesRequestRequestTypeDef = TypedDict(
-    "_RequiredListOrganizationRecommendationResourcesRequestRequestTypeDef",
-    {
-        "organizationRecommendationIdentifier": str,
-    },
-)
-_OptionalListOrganizationRecommendationResourcesRequestRequestTypeDef = TypedDict(
-    "_OptionalListOrganizationRecommendationResourcesRequestRequestTypeDef",
-    {
-        "affectedAccountId": str,
-        "exclusionStatus": ExclusionStatusType,
-        "maxResults": int,
-        "nextToken": str,
-        "regionCode": str,
-        "status": ResourceStatusType,
-    },
-    total=False,
-)
-
-class ListOrganizationRecommendationResourcesRequestRequestTypeDef(
-    _RequiredListOrganizationRecommendationResourcesRequestRequestTypeDef,
-    _OptionalListOrganizationRecommendationResourcesRequestRequestTypeDef,
-):
-    pass
-
-ListOrganizationRecommendationResourcesResponseTypeDef = TypedDict(
-    "ListOrganizationRecommendationResourcesResponseTypeDef",
-    {
-        "nextToken": str,
-        "organizationRecommendationResourceSummaries": List[
-            "OrganizationRecommendationResourceSummaryTypeDef"
-        ],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListOrganizationRecommendationsRequestRequestTypeDef = TypedDict(
-    "ListOrganizationRecommendationsRequestRequestTypeDef",
-    {
-        "afterLastUpdatedAt": Union[datetime, str],
-        "awsService": str,
-        "beforeLastUpdatedAt": Union[datetime, str],
-        "checkIdentifier": str,
-        "maxResults": int,
-        "nextToken": str,
-        "pillar": RecommendationPillarType,
-        "source": RecommendationSourceType,
-        "status": RecommendationStatusType,
-        "type": RecommendationTypeType,
-    },
-    total=False,
-)
-
-ListOrganizationRecommendationsResponseTypeDef = TypedDict(
-    "ListOrganizationRecommendationsResponseTypeDef",
-    {
-        "nextToken": str,
-        "organizationRecommendationSummaries": List["OrganizationRecommendationSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListRecommendationResourcesRequestRequestTypeDef = TypedDict(
-    "_RequiredListRecommendationResourcesRequestRequestTypeDef",
-    {
-        "recommendationIdentifier": str,
-    },
-)
-_OptionalListRecommendationResourcesRequestRequestTypeDef = TypedDict(
-    "_OptionalListRecommendationResourcesRequestRequestTypeDef",
-    {
-        "exclusionStatus": ExclusionStatusType,
-        "maxResults": int,
-        "nextToken": str,
-        "regionCode": str,
-        "status": ResourceStatusType,
-    },
-    total=False,
-)
-
-class ListRecommendationResourcesRequestRequestTypeDef(
-    _RequiredListRecommendationResourcesRequestRequestTypeDef,
-    _OptionalListRecommendationResourcesRequestRequestTypeDef,
-):
-    pass
-
-ListRecommendationResourcesResponseTypeDef = TypedDict(
-    "ListRecommendationResourcesResponseTypeDef",
-    {
-        "nextToken": str,
-        "recommendationResourceSummaries": List["RecommendationResourceSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListRecommendationsRequestRequestTypeDef = TypedDict(
-    "ListRecommendationsRequestRequestTypeDef",
-    {
-        "afterLastUpdatedAt": Union[datetime, str],
-        "awsService": str,
-        "beforeLastUpdatedAt": Union[datetime, str],
-        "checkIdentifier": str,
-        "maxResults": int,
-        "nextToken": str,
-        "pillar": RecommendationPillarType,
-        "source": RecommendationSourceType,
-        "status": RecommendationStatusType,
-        "type": RecommendationTypeType,
-    },
-    total=False,
-)
-
-ListRecommendationsResponseTypeDef = TypedDict(
-    "ListRecommendationsResponseTypeDef",
-    {
-        "nextToken": str,
-        "recommendationSummaries": List["RecommendationSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredOrganizationRecommendationResourceSummaryTypeDef = TypedDict(
-    "_RequiredOrganizationRecommendationResourceSummaryTypeDef",
+OrganizationRecommendationResourceSummaryTypeDef = TypedDict(
+    "OrganizationRecommendationResourceSummaryTypeDef",
     {
         "arn": str,
         "awsResourceId": str,
@@ -335,129 +175,22 @@ _RequiredOrganizationRecommendationResourceSummaryTypeDef = TypedDict(
         "recommendationArn": str,
         "regionCode": str,
         "status": ResourceStatusType,
+        "accountId": NotRequired[str],
+        "exclusionStatus": NotRequired[ExclusionStatusType],
     },
 )
-_OptionalOrganizationRecommendationResourceSummaryTypeDef = TypedDict(
-    "_OptionalOrganizationRecommendationResourceSummaryTypeDef",
-    {
-        "accountId": str,
-        "exclusionStatus": ExclusionStatusType,
-    },
-    total=False,
-)
+TimestampTypeDef = Union[datetime, str]
 
-class OrganizationRecommendationResourceSummaryTypeDef(
-    _RequiredOrganizationRecommendationResourceSummaryTypeDef,
-    _OptionalOrganizationRecommendationResourceSummaryTypeDef,
-):
-    pass
+class ListRecommendationResourcesRequestTypeDef(TypedDict):
+    recommendationIdentifier: str
+    exclusionStatus: NotRequired[ExclusionStatusType]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+    regionCode: NotRequired[str]
+    status: NotRequired[ResourceStatusType]
 
-_RequiredOrganizationRecommendationSummaryTypeDef = TypedDict(
-    "_RequiredOrganizationRecommendationSummaryTypeDef",
-    {
-        "arn": str,
-        "id": str,
-        "name": str,
-        "pillars": List[RecommendationPillarType],
-        "resourcesAggregates": "RecommendationResourcesAggregatesTypeDef",
-        "source": RecommendationSourceType,
-        "status": RecommendationStatusType,
-        "type": RecommendationTypeType,
-    },
-)
-_OptionalOrganizationRecommendationSummaryTypeDef = TypedDict(
-    "_OptionalOrganizationRecommendationSummaryTypeDef",
-    {
-        "awsServices": List[str],
-        "checkArn": str,
-        "createdAt": datetime,
-        "lastUpdatedAt": datetime,
-        "lifecycleStage": RecommendationLifecycleStageType,
-        "pillarSpecificAggregates": "RecommendationPillarSpecificAggregatesTypeDef",
-    },
-    total=False,
-)
-
-class OrganizationRecommendationSummaryTypeDef(
-    _RequiredOrganizationRecommendationSummaryTypeDef,
-    _OptionalOrganizationRecommendationSummaryTypeDef,
-):
-    pass
-
-_RequiredOrganizationRecommendationTypeDef = TypedDict(
-    "_RequiredOrganizationRecommendationTypeDef",
-    {
-        "arn": str,
-        "description": str,
-        "id": str,
-        "name": str,
-        "pillars": List[RecommendationPillarType],
-        "resourcesAggregates": "RecommendationResourcesAggregatesTypeDef",
-        "source": RecommendationSourceType,
-        "status": RecommendationStatusType,
-        "type": RecommendationTypeType,
-    },
-)
-_OptionalOrganizationRecommendationTypeDef = TypedDict(
-    "_OptionalOrganizationRecommendationTypeDef",
-    {
-        "awsServices": List[str],
-        "checkArn": str,
-        "createdAt": datetime,
-        "createdBy": str,
-        "lastUpdatedAt": datetime,
-        "lifecycleStage": RecommendationLifecycleStageType,
-        "pillarSpecificAggregates": "RecommendationPillarSpecificAggregatesTypeDef",
-        "resolvedAt": datetime,
-        "updateReason": str,
-        "updateReasonCode": UpdateRecommendationLifecycleStageReasonCodeType,
-        "updatedOnBehalfOf": str,
-        "updatedOnBehalfOfJobTitle": str,
-    },
-    total=False,
-)
-
-class OrganizationRecommendationTypeDef(
-    _RequiredOrganizationRecommendationTypeDef, _OptionalOrganizationRecommendationTypeDef
-):
-    pass
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-RecommendationCostOptimizingAggregatesTypeDef = TypedDict(
-    "RecommendationCostOptimizingAggregatesTypeDef",
-    {
-        "estimatedMonthlySavings": float,
-        "estimatedPercentMonthlySavings": float,
-    },
-)
-
-RecommendationPillarSpecificAggregatesTypeDef = TypedDict(
-    "RecommendationPillarSpecificAggregatesTypeDef",
-    {
-        "costOptimizing": "RecommendationCostOptimizingAggregatesTypeDef",
-    },
-    total=False,
-)
-
-RecommendationResourceExclusionTypeDef = TypedDict(
-    "RecommendationResourceExclusionTypeDef",
-    {
-        "arn": str,
-        "isExcluded": bool,
-    },
-)
-
-_RequiredRecommendationResourceSummaryTypeDef = TypedDict(
-    "_RequiredRecommendationResourceSummaryTypeDef",
+RecommendationResourceSummaryTypeDef = TypedDict(
+    "RecommendationResourceSummaryTypeDef",
     {
         "arn": str,
         "awsResourceId": str,
@@ -467,158 +200,259 @@ _RequiredRecommendationResourceSummaryTypeDef = TypedDict(
         "recommendationArn": str,
         "regionCode": str,
         "status": ResourceStatusType,
+        "exclusionStatus": NotRequired[ExclusionStatusType],
     },
 )
-_OptionalRecommendationResourceSummaryTypeDef = TypedDict(
-    "_OptionalRecommendationResourceSummaryTypeDef",
+
+class RecommendationResourcesAggregatesTypeDef(TypedDict):
+    errorCount: int
+    okCount: int
+    warningCount: int
+
+class RecommendationCostOptimizingAggregatesTypeDef(TypedDict):
+    estimatedMonthlySavings: float
+    estimatedPercentMonthlySavings: float
+
+class UpdateOrganizationRecommendationLifecycleRequestTypeDef(TypedDict):
+    lifecycleStage: UpdateRecommendationLifecycleStageType
+    organizationRecommendationIdentifier: str
+    updateReason: NotRequired[str]
+    updateReasonCode: NotRequired[UpdateRecommendationLifecycleStageReasonCodeType]
+
+class UpdateRecommendationLifecycleRequestTypeDef(TypedDict):
+    lifecycleStage: UpdateRecommendationLifecycleStageType
+    recommendationIdentifier: str
+    updateReason: NotRequired[str]
+    updateReasonCode: NotRequired[UpdateRecommendationLifecycleStageReasonCodeType]
+
+class BatchUpdateRecommendationResourceExclusionRequestTypeDef(TypedDict):
+    recommendationResourceExclusions: Sequence[RecommendationResourceExclusionTypeDef]
+
+class EmptyResponseMetadataTypeDef(TypedDict):
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListOrganizationRecommendationAccountsResponseTypeDef(TypedDict):
+    accountRecommendationLifecycleSummaries: List[AccountRecommendationLifecycleSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class BatchUpdateRecommendationResourceExclusionResponseTypeDef(TypedDict):
+    batchUpdateRecommendationResourceExclusionErrors: List[
+        UpdateRecommendationResourceExclusionErrorTypeDef
+    ]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListChecksResponseTypeDef(TypedDict):
+    checkSummaries: List[CheckSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListChecksRequestPaginateTypeDef(TypedDict):
+    awsService: NotRequired[str]
+    language: NotRequired[RecommendationLanguageType]
+    pillar: NotRequired[RecommendationPillarType]
+    source: NotRequired[RecommendationSourceType]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListOrganizationRecommendationAccountsRequestPaginateTypeDef(TypedDict):
+    organizationRecommendationIdentifier: str
+    affectedAccountId: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListOrganizationRecommendationResourcesRequestPaginateTypeDef(TypedDict):
+    organizationRecommendationIdentifier: str
+    affectedAccountId: NotRequired[str]
+    exclusionStatus: NotRequired[ExclusionStatusType]
+    regionCode: NotRequired[str]
+    status: NotRequired[ResourceStatusType]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListRecommendationResourcesRequestPaginateTypeDef(TypedDict):
+    recommendationIdentifier: str
+    exclusionStatus: NotRequired[ExclusionStatusType]
+    regionCode: NotRequired[str]
+    status: NotRequired[ResourceStatusType]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListOrganizationRecommendationResourcesResponseTypeDef(TypedDict):
+    organizationRecommendationResourceSummaries: List[
+        OrganizationRecommendationResourceSummaryTypeDef
+    ]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+ListOrganizationRecommendationsRequestPaginateTypeDef = TypedDict(
+    "ListOrganizationRecommendationsRequestPaginateTypeDef",
     {
-        "exclusionStatus": ExclusionStatusType,
+        "afterLastUpdatedAt": NotRequired[TimestampTypeDef],
+        "awsService": NotRequired[str],
+        "beforeLastUpdatedAt": NotRequired[TimestampTypeDef],
+        "checkIdentifier": NotRequired[str],
+        "pillar": NotRequired[RecommendationPillarType],
+        "source": NotRequired[RecommendationSourceType],
+        "status": NotRequired[RecommendationStatusType],
+        "type": NotRequired[RecommendationTypeType],
+        "PaginationConfig": NotRequired[PaginatorConfigTypeDef],
     },
-    total=False,
 )
-
-class RecommendationResourceSummaryTypeDef(
-    _RequiredRecommendationResourceSummaryTypeDef, _OptionalRecommendationResourceSummaryTypeDef
-):
-    pass
-
-RecommendationResourcesAggregatesTypeDef = TypedDict(
-    "RecommendationResourcesAggregatesTypeDef",
+ListOrganizationRecommendationsRequestTypeDef = TypedDict(
+    "ListOrganizationRecommendationsRequestTypeDef",
     {
-        "errorCount": int,
-        "okCount": int,
-        "warningCount": int,
+        "afterLastUpdatedAt": NotRequired[TimestampTypeDef],
+        "awsService": NotRequired[str],
+        "beforeLastUpdatedAt": NotRequired[TimestampTypeDef],
+        "checkIdentifier": NotRequired[str],
+        "maxResults": NotRequired[int],
+        "nextToken": NotRequired[str],
+        "pillar": NotRequired[RecommendationPillarType],
+        "source": NotRequired[RecommendationSourceType],
+        "status": NotRequired[RecommendationStatusType],
+        "type": NotRequired[RecommendationTypeType],
+    },
+)
+ListRecommendationsRequestPaginateTypeDef = TypedDict(
+    "ListRecommendationsRequestPaginateTypeDef",
+    {
+        "afterLastUpdatedAt": NotRequired[TimestampTypeDef],
+        "awsService": NotRequired[str],
+        "beforeLastUpdatedAt": NotRequired[TimestampTypeDef],
+        "checkIdentifier": NotRequired[str],
+        "pillar": NotRequired[RecommendationPillarType],
+        "source": NotRequired[RecommendationSourceType],
+        "status": NotRequired[RecommendationStatusType],
+        "type": NotRequired[RecommendationTypeType],
+        "PaginationConfig": NotRequired[PaginatorConfigTypeDef],
+    },
+)
+ListRecommendationsRequestTypeDef = TypedDict(
+    "ListRecommendationsRequestTypeDef",
+    {
+        "afterLastUpdatedAt": NotRequired[TimestampTypeDef],
+        "awsService": NotRequired[str],
+        "beforeLastUpdatedAt": NotRequired[TimestampTypeDef],
+        "checkIdentifier": NotRequired[str],
+        "maxResults": NotRequired[int],
+        "nextToken": NotRequired[str],
+        "pillar": NotRequired[RecommendationPillarType],
+        "source": NotRequired[RecommendationSourceType],
+        "status": NotRequired[RecommendationStatusType],
+        "type": NotRequired[RecommendationTypeType],
     },
 )
 
-_RequiredRecommendationSummaryTypeDef = TypedDict(
-    "_RequiredRecommendationSummaryTypeDef",
+class ListRecommendationResourcesResponseTypeDef(TypedDict):
+    recommendationResourceSummaries: List[RecommendationResourceSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class RecommendationPillarSpecificAggregatesTypeDef(TypedDict):
+    costOptimizing: NotRequired[RecommendationCostOptimizingAggregatesTypeDef]
+
+OrganizationRecommendationSummaryTypeDef = TypedDict(
+    "OrganizationRecommendationSummaryTypeDef",
     {
         "arn": str,
         "id": str,
         "name": str,
         "pillars": List[RecommendationPillarType],
-        "resourcesAggregates": "RecommendationResourcesAggregatesTypeDef",
+        "resourcesAggregates": RecommendationResourcesAggregatesTypeDef,
         "source": RecommendationSourceType,
         "status": RecommendationStatusType,
         "type": RecommendationTypeType,
+        "awsServices": NotRequired[List[str]],
+        "checkArn": NotRequired[str],
+        "createdAt": NotRequired[datetime],
+        "lastUpdatedAt": NotRequired[datetime],
+        "lifecycleStage": NotRequired[RecommendationLifecycleStageType],
+        "pillarSpecificAggregates": NotRequired[RecommendationPillarSpecificAggregatesTypeDef],
     },
 )
-_OptionalRecommendationSummaryTypeDef = TypedDict(
-    "_OptionalRecommendationSummaryTypeDef",
-    {
-        "awsServices": List[str],
-        "checkArn": str,
-        "createdAt": datetime,
-        "lastUpdatedAt": datetime,
-        "lifecycleStage": RecommendationLifecycleStageType,
-        "pillarSpecificAggregates": "RecommendationPillarSpecificAggregatesTypeDef",
-    },
-    total=False,
-)
-
-class RecommendationSummaryTypeDef(
-    _RequiredRecommendationSummaryTypeDef, _OptionalRecommendationSummaryTypeDef
-):
-    pass
-
-_RequiredRecommendationTypeDef = TypedDict(
-    "_RequiredRecommendationTypeDef",
+OrganizationRecommendationTypeDef = TypedDict(
+    "OrganizationRecommendationTypeDef",
     {
         "arn": str,
         "description": str,
         "id": str,
         "name": str,
         "pillars": List[RecommendationPillarType],
-        "resourcesAggregates": "RecommendationResourcesAggregatesTypeDef",
+        "resourcesAggregates": RecommendationResourcesAggregatesTypeDef,
         "source": RecommendationSourceType,
         "status": RecommendationStatusType,
         "type": RecommendationTypeType,
+        "awsServices": NotRequired[List[str]],
+        "checkArn": NotRequired[str],
+        "createdAt": NotRequired[datetime],
+        "createdBy": NotRequired[str],
+        "lastUpdatedAt": NotRequired[datetime],
+        "lifecycleStage": NotRequired[RecommendationLifecycleStageType],
+        "pillarSpecificAggregates": NotRequired[RecommendationPillarSpecificAggregatesTypeDef],
+        "resolvedAt": NotRequired[datetime],
+        "updateReason": NotRequired[str],
+        "updateReasonCode": NotRequired[UpdateRecommendationLifecycleStageReasonCodeType],
+        "updatedOnBehalfOf": NotRequired[str],
+        "updatedOnBehalfOfJobTitle": NotRequired[str],
     },
 )
-_OptionalRecommendationTypeDef = TypedDict(
-    "_OptionalRecommendationTypeDef",
-    {
-        "awsServices": List[str],
-        "checkArn": str,
-        "createdAt": datetime,
-        "createdBy": str,
-        "lastUpdatedAt": datetime,
-        "lifecycleStage": RecommendationLifecycleStageType,
-        "pillarSpecificAggregates": "RecommendationPillarSpecificAggregatesTypeDef",
-        "resolvedAt": datetime,
-        "updateReason": str,
-        "updateReasonCode": UpdateRecommendationLifecycleStageReasonCodeType,
-        "updatedOnBehalfOf": str,
-        "updatedOnBehalfOfJobTitle": str,
-    },
-    total=False,
-)
-
-class RecommendationTypeDef(_RequiredRecommendationTypeDef, _OptionalRecommendationTypeDef):
-    pass
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-_RequiredUpdateOrganizationRecommendationLifecycleRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateOrganizationRecommendationLifecycleRequestRequestTypeDef",
-    {
-        "lifecycleStage": UpdateRecommendationLifecycleStageType,
-        "organizationRecommendationIdentifier": str,
-    },
-)
-_OptionalUpdateOrganizationRecommendationLifecycleRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateOrganizationRecommendationLifecycleRequestRequestTypeDef",
-    {
-        "updateReason": str,
-        "updateReasonCode": UpdateRecommendationLifecycleStageReasonCodeType,
-    },
-    total=False,
-)
-
-class UpdateOrganizationRecommendationLifecycleRequestRequestTypeDef(
-    _RequiredUpdateOrganizationRecommendationLifecycleRequestRequestTypeDef,
-    _OptionalUpdateOrganizationRecommendationLifecycleRequestRequestTypeDef,
-):
-    pass
-
-_RequiredUpdateRecommendationLifecycleRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateRecommendationLifecycleRequestRequestTypeDef",
-    {
-        "lifecycleStage": UpdateRecommendationLifecycleStageType,
-        "recommendationIdentifier": str,
-    },
-)
-_OptionalUpdateRecommendationLifecycleRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateRecommendationLifecycleRequestRequestTypeDef",
-    {
-        "updateReason": str,
-        "updateReasonCode": UpdateRecommendationLifecycleStageReasonCodeType,
-    },
-    total=False,
-)
-
-class UpdateRecommendationLifecycleRequestRequestTypeDef(
-    _RequiredUpdateRecommendationLifecycleRequestRequestTypeDef,
-    _OptionalUpdateRecommendationLifecycleRequestRequestTypeDef,
-):
-    pass
-
-UpdateRecommendationResourceExclusionErrorTypeDef = TypedDict(
-    "UpdateRecommendationResourceExclusionErrorTypeDef",
+RecommendationSummaryTypeDef = TypedDict(
+    "RecommendationSummaryTypeDef",
     {
         "arn": str,
-        "errorCode": str,
-        "errorMessage": str,
+        "id": str,
+        "name": str,
+        "pillars": List[RecommendationPillarType],
+        "resourcesAggregates": RecommendationResourcesAggregatesTypeDef,
+        "source": RecommendationSourceType,
+        "status": RecommendationStatusType,
+        "type": RecommendationTypeType,
+        "awsServices": NotRequired[List[str]],
+        "checkArn": NotRequired[str],
+        "createdAt": NotRequired[datetime],
+        "lastUpdatedAt": NotRequired[datetime],
+        "lifecycleStage": NotRequired[RecommendationLifecycleStageType],
+        "pillarSpecificAggregates": NotRequired[RecommendationPillarSpecificAggregatesTypeDef],
     },
-    total=False,
 )
+RecommendationTypeDef = TypedDict(
+    "RecommendationTypeDef",
+    {
+        "arn": str,
+        "description": str,
+        "id": str,
+        "name": str,
+        "pillars": List[RecommendationPillarType],
+        "resourcesAggregates": RecommendationResourcesAggregatesTypeDef,
+        "source": RecommendationSourceType,
+        "status": RecommendationStatusType,
+        "type": RecommendationTypeType,
+        "awsServices": NotRequired[List[str]],
+        "checkArn": NotRequired[str],
+        "createdAt": NotRequired[datetime],
+        "createdBy": NotRequired[str],
+        "lastUpdatedAt": NotRequired[datetime],
+        "lifecycleStage": NotRequired[RecommendationLifecycleStageType],
+        "pillarSpecificAggregates": NotRequired[RecommendationPillarSpecificAggregatesTypeDef],
+        "resolvedAt": NotRequired[datetime],
+        "updateReason": NotRequired[str],
+        "updateReasonCode": NotRequired[UpdateRecommendationLifecycleStageReasonCodeType],
+        "updatedOnBehalfOf": NotRequired[str],
+        "updatedOnBehalfOfJobTitle": NotRequired[str],
+    },
+)
+
+class ListOrganizationRecommendationsResponseTypeDef(TypedDict):
+    organizationRecommendationSummaries: List[OrganizationRecommendationSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class GetOrganizationRecommendationResponseTypeDef(TypedDict):
+    organizationRecommendation: OrganizationRecommendationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListRecommendationsResponseTypeDef(TypedDict):
+    recommendationSummaries: List[RecommendationSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class GetRecommendationResponseTypeDef(TypedDict):
+    recommendation: RecommendationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef

@@ -1,10 +1,14 @@
 """
 Main interface for ec2 service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ec2/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_ec2 import (
         BundleTaskCompleteWaiter,
         Client,
@@ -16,7 +20,10 @@ Usage::
         DescribeAddressesAttributePaginator,
         DescribeAwsNetworkPerformanceMetricSubscriptionsPaginator,
         DescribeByoipCidrsPaginator,
+        DescribeCapacityBlockExtensionHistoryPaginator,
+        DescribeCapacityBlockExtensionOfferingsPaginator,
         DescribeCapacityBlockOfferingsPaginator,
+        DescribeCapacityReservationBillingRequestsPaginator,
         DescribeCapacityReservationFleetsPaginator,
         DescribeCapacityReservationsPaginator,
         DescribeCarrierGatewaysPaginator,
@@ -45,6 +52,7 @@ Usage::
         DescribeInstanceConnectEndpointsPaginator,
         DescribeInstanceCreditSpecificationsPaginator,
         DescribeInstanceEventWindowsPaginator,
+        DescribeInstanceImageMetadataPaginator,
         DescribeInstanceStatusPaginator,
         DescribeInstanceTopologyPaginator,
         DescribeInstanceTypeOfferingsPaginator,
@@ -82,10 +90,14 @@ Usage::
         DescribeReplaceRootVolumeTasksPaginator,
         DescribeReservedInstancesModificationsPaginator,
         DescribeReservedInstancesOfferingsPaginator,
+        DescribeRouteServerEndpointsPaginator,
+        DescribeRouteServerPeersPaginator,
+        DescribeRouteServersPaginator,
         DescribeRouteTablesPaginator,
         DescribeScheduledInstanceAvailabilityPaginator,
         DescribeScheduledInstancesPaginator,
         DescribeSecurityGroupRulesPaginator,
+        DescribeSecurityGroupVpcAssociationsPaginator,
         DescribeSecurityGroupsPaginator,
         DescribeSnapshotTierStatusPaginator,
         DescribeSnapshotsPaginator,
@@ -190,13 +202,10 @@ Usage::
         VpnConnectionDeletedWaiter,
     )
 
-    session = boto3.Session()
+    session = Session()
+    client: EC2Client = session.client("ec2")
 
-    client: EC2Client = boto3.client("ec2")
-    session_client: EC2Client = session.client("ec2")
-
-    resource: EC2ServiceResource = boto3.resource("ec2")
-    session_resource: EC2ServiceResource = session.resource("ec2")
+    resource: EC2ServiceResource = session.resource("ec2")
 
     bundle_task_complete_waiter: BundleTaskCompleteWaiter = client.get_waiter("bundle_task_complete")
     conversion_task_cancelled_waiter: ConversionTaskCancelledWaiter = client.get_waiter("conversion_task_cancelled")
@@ -239,7 +248,10 @@ Usage::
     describe_addresses_attribute_paginator: DescribeAddressesAttributePaginator = client.get_paginator("describe_addresses_attribute")
     describe_aws_network_performance_metric_subscriptions_paginator: DescribeAwsNetworkPerformanceMetricSubscriptionsPaginator = client.get_paginator("describe_aws_network_performance_metric_subscriptions")
     describe_byoip_cidrs_paginator: DescribeByoipCidrsPaginator = client.get_paginator("describe_byoip_cidrs")
+    describe_capacity_block_extension_history_paginator: DescribeCapacityBlockExtensionHistoryPaginator = client.get_paginator("describe_capacity_block_extension_history")
+    describe_capacity_block_extension_offerings_paginator: DescribeCapacityBlockExtensionOfferingsPaginator = client.get_paginator("describe_capacity_block_extension_offerings")
     describe_capacity_block_offerings_paginator: DescribeCapacityBlockOfferingsPaginator = client.get_paginator("describe_capacity_block_offerings")
+    describe_capacity_reservation_billing_requests_paginator: DescribeCapacityReservationBillingRequestsPaginator = client.get_paginator("describe_capacity_reservation_billing_requests")
     describe_capacity_reservation_fleets_paginator: DescribeCapacityReservationFleetsPaginator = client.get_paginator("describe_capacity_reservation_fleets")
     describe_capacity_reservations_paginator: DescribeCapacityReservationsPaginator = client.get_paginator("describe_capacity_reservations")
     describe_carrier_gateways_paginator: DescribeCarrierGatewaysPaginator = client.get_paginator("describe_carrier_gateways")
@@ -268,6 +280,7 @@ Usage::
     describe_instance_connect_endpoints_paginator: DescribeInstanceConnectEndpointsPaginator = client.get_paginator("describe_instance_connect_endpoints")
     describe_instance_credit_specifications_paginator: DescribeInstanceCreditSpecificationsPaginator = client.get_paginator("describe_instance_credit_specifications")
     describe_instance_event_windows_paginator: DescribeInstanceEventWindowsPaginator = client.get_paginator("describe_instance_event_windows")
+    describe_instance_image_metadata_paginator: DescribeInstanceImageMetadataPaginator = client.get_paginator("describe_instance_image_metadata")
     describe_instance_status_paginator: DescribeInstanceStatusPaginator = client.get_paginator("describe_instance_status")
     describe_instance_topology_paginator: DescribeInstanceTopologyPaginator = client.get_paginator("describe_instance_topology")
     describe_instance_type_offerings_paginator: DescribeInstanceTypeOfferingsPaginator = client.get_paginator("describe_instance_type_offerings")
@@ -305,10 +318,14 @@ Usage::
     describe_replace_root_volume_tasks_paginator: DescribeReplaceRootVolumeTasksPaginator = client.get_paginator("describe_replace_root_volume_tasks")
     describe_reserved_instances_modifications_paginator: DescribeReservedInstancesModificationsPaginator = client.get_paginator("describe_reserved_instances_modifications")
     describe_reserved_instances_offerings_paginator: DescribeReservedInstancesOfferingsPaginator = client.get_paginator("describe_reserved_instances_offerings")
+    describe_route_server_endpoints_paginator: DescribeRouteServerEndpointsPaginator = client.get_paginator("describe_route_server_endpoints")
+    describe_route_server_peers_paginator: DescribeRouteServerPeersPaginator = client.get_paginator("describe_route_server_peers")
+    describe_route_servers_paginator: DescribeRouteServersPaginator = client.get_paginator("describe_route_servers")
     describe_route_tables_paginator: DescribeRouteTablesPaginator = client.get_paginator("describe_route_tables")
     describe_scheduled_instance_availability_paginator: DescribeScheduledInstanceAvailabilityPaginator = client.get_paginator("describe_scheduled_instance_availability")
     describe_scheduled_instances_paginator: DescribeScheduledInstancesPaginator = client.get_paginator("describe_scheduled_instances")
     describe_security_group_rules_paginator: DescribeSecurityGroupRulesPaginator = client.get_paginator("describe_security_group_rules")
+    describe_security_group_vpc_associations_paginator: DescribeSecurityGroupVpcAssociationsPaginator = client.get_paginator("describe_security_group_vpc_associations")
     describe_security_groups_paginator: DescribeSecurityGroupsPaginator = client.get_paginator("describe_security_groups")
     describe_snapshot_tier_status_paginator: DescribeSnapshotTierStatusPaginator = client.get_paginator("describe_snapshot_tier_status")
     describe_snapshots_paginator: DescribeSnapshotsPaginator = client.get_paginator("describe_snapshots")
@@ -340,8 +357,8 @@ Usage::
     describe_verified_access_instances_paginator: DescribeVerifiedAccessInstancesPaginator = client.get_paginator("describe_verified_access_instances")
     describe_verified_access_trust_providers_paginator: DescribeVerifiedAccessTrustProvidersPaginator = client.get_paginator("describe_verified_access_trust_providers")
     describe_volume_status_paginator: DescribeVolumeStatusPaginator = client.get_paginator("describe_volume_status")
-    describe_volumes_paginator: DescribeVolumesPaginator = client.get_paginator("describe_volumes")
     describe_volumes_modifications_paginator: DescribeVolumesModificationsPaginator = client.get_paginator("describe_volumes_modifications")
+    describe_volumes_paginator: DescribeVolumesPaginator = client.get_paginator("describe_volumes")
     describe_vpc_classic_link_dns_support_paginator: DescribeVpcClassicLinkDnsSupportPaginator = client.get_paginator("describe_vpc_classic_link_dns_support")
     describe_vpc_endpoint_connection_notifications_paginator: DescribeVpcEndpointConnectionNotificationsPaginator = client.get_paginator("describe_vpc_endpoint_connection_notifications")
     describe_vpc_endpoint_connections_paginator: DescribeVpcEndpointConnectionsPaginator = client.get_paginator("describe_vpc_endpoint_connections")
@@ -386,7 +403,10 @@ from .paginator import (
     DescribeAddressTransfersPaginator,
     DescribeAwsNetworkPerformanceMetricSubscriptionsPaginator,
     DescribeByoipCidrsPaginator,
+    DescribeCapacityBlockExtensionHistoryPaginator,
+    DescribeCapacityBlockExtensionOfferingsPaginator,
     DescribeCapacityBlockOfferingsPaginator,
+    DescribeCapacityReservationBillingRequestsPaginator,
     DescribeCapacityReservationFleetsPaginator,
     DescribeCapacityReservationsPaginator,
     DescribeCarrierGatewaysPaginator,
@@ -415,6 +435,7 @@ from .paginator import (
     DescribeInstanceConnectEndpointsPaginator,
     DescribeInstanceCreditSpecificationsPaginator,
     DescribeInstanceEventWindowsPaginator,
+    DescribeInstanceImageMetadataPaginator,
     DescribeInstancesPaginator,
     DescribeInstanceStatusPaginator,
     DescribeInstanceTopologyPaginator,
@@ -452,11 +473,15 @@ from .paginator import (
     DescribeReplaceRootVolumeTasksPaginator,
     DescribeReservedInstancesModificationsPaginator,
     DescribeReservedInstancesOfferingsPaginator,
+    DescribeRouteServerEndpointsPaginator,
+    DescribeRouteServerPeersPaginator,
+    DescribeRouteServersPaginator,
     DescribeRouteTablesPaginator,
     DescribeScheduledInstanceAvailabilityPaginator,
     DescribeScheduledInstancesPaginator,
     DescribeSecurityGroupRulesPaginator,
     DescribeSecurityGroupsPaginator,
+    DescribeSecurityGroupVpcAssociationsPaginator,
     DescribeSnapshotsPaginator,
     DescribeSnapshotTierStatusPaginator,
     DescribeSpotFleetInstancesPaginator,
@@ -525,7 +550,6 @@ from .paginator import (
     SearchLocalGatewayRoutesPaginator,
     SearchTransitGatewayMulticastGroupsPaginator,
 )
-from .service_resource import EC2ServiceResource
 from .waiter import (
     BundleTaskCompleteWaiter,
     ConversionTaskCancelledWaiter,
@@ -565,6 +589,11 @@ from .waiter import (
     VpnConnectionDeletedWaiter,
 )
 
+try:
+    from .service_resource import EC2ServiceResource
+except ImportError:
+    from builtins import object as EC2ServiceResource  # type: ignore[assignment]
+
 Client = EC2Client
 
 ServiceResource = EC2ServiceResource
@@ -580,7 +609,10 @@ __all__ = (
     "DescribeAddressesAttributePaginator",
     "DescribeAwsNetworkPerformanceMetricSubscriptionsPaginator",
     "DescribeByoipCidrsPaginator",
+    "DescribeCapacityBlockExtensionHistoryPaginator",
+    "DescribeCapacityBlockExtensionOfferingsPaginator",
     "DescribeCapacityBlockOfferingsPaginator",
+    "DescribeCapacityReservationBillingRequestsPaginator",
     "DescribeCapacityReservationFleetsPaginator",
     "DescribeCapacityReservationsPaginator",
     "DescribeCarrierGatewaysPaginator",
@@ -609,6 +641,7 @@ __all__ = (
     "DescribeInstanceConnectEndpointsPaginator",
     "DescribeInstanceCreditSpecificationsPaginator",
     "DescribeInstanceEventWindowsPaginator",
+    "DescribeInstanceImageMetadataPaginator",
     "DescribeInstanceStatusPaginator",
     "DescribeInstanceTopologyPaginator",
     "DescribeInstanceTypeOfferingsPaginator",
@@ -646,10 +679,14 @@ __all__ = (
     "DescribeReplaceRootVolumeTasksPaginator",
     "DescribeReservedInstancesModificationsPaginator",
     "DescribeReservedInstancesOfferingsPaginator",
+    "DescribeRouteServerEndpointsPaginator",
+    "DescribeRouteServerPeersPaginator",
+    "DescribeRouteServersPaginator",
     "DescribeRouteTablesPaginator",
     "DescribeScheduledInstanceAvailabilityPaginator",
     "DescribeScheduledInstancesPaginator",
     "DescribeSecurityGroupRulesPaginator",
+    "DescribeSecurityGroupVpcAssociationsPaginator",
     "DescribeSecurityGroupsPaginator",
     "DescribeSnapshotTierStatusPaginator",
     "DescribeSnapshotsPaginator",

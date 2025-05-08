@@ -1,19 +1,21 @@
 """
 Main interface for cloudtrail-data service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail_data/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_cloudtrail_data import (
         Client,
         CloudTrailDataServiceClient,
     )
 
-    session = boto3.Session()
-
-    client: CloudTrailDataServiceClient = boto3.client("cloudtrail-data")
-    session_client: CloudTrailDataServiceClient = session.client("cloudtrail-data")
+    session = Session()
+    client: CloudTrailDataServiceClient = session.client("cloudtrail-data")
     ```
 """
 

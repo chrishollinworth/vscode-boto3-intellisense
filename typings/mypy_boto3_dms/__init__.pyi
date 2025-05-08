@@ -1,15 +1,20 @@
 """
 Main interface for dms service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dms/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_dms import (
         Client,
         DatabaseMigrationServiceClient,
         DescribeCertificatesPaginator,
         DescribeConnectionsPaginator,
+        DescribeDataMigrationsPaginator,
         DescribeEndpointTypesPaginator,
         DescribeEndpointsPaginator,
         DescribeEventSubscriptionsPaginator,
@@ -31,10 +36,8 @@ Usage::
         TestConnectionSucceedsWaiter,
     )
 
-    session = boto3.Session()
-
-    client: DatabaseMigrationServiceClient = boto3.client("dms")
-    session_client: DatabaseMigrationServiceClient = session.client("dms")
+    session = Session()
+    client: DatabaseMigrationServiceClient = session.client("dms")
 
     endpoint_deleted_waiter: EndpointDeletedWaiter = client.get_waiter("endpoint_deleted")
     replication_instance_available_waiter: ReplicationInstanceAvailableWaiter = client.get_waiter("replication_instance_available")
@@ -47,6 +50,7 @@ Usage::
 
     describe_certificates_paginator: DescribeCertificatesPaginator = client.get_paginator("describe_certificates")
     describe_connections_paginator: DescribeConnectionsPaginator = client.get_paginator("describe_connections")
+    describe_data_migrations_paginator: DescribeDataMigrationsPaginator = client.get_paginator("describe_data_migrations")
     describe_endpoint_types_paginator: DescribeEndpointTypesPaginator = client.get_paginator("describe_endpoint_types")
     describe_endpoints_paginator: DescribeEndpointsPaginator = client.get_paginator("describe_endpoints")
     describe_event_subscriptions_paginator: DescribeEventSubscriptionsPaginator = client.get_paginator("describe_event_subscriptions")
@@ -65,6 +69,7 @@ from .client import DatabaseMigrationServiceClient
 from .paginator import (
     DescribeCertificatesPaginator,
     DescribeConnectionsPaginator,
+    DescribeDataMigrationsPaginator,
     DescribeEndpointsPaginator,
     DescribeEndpointTypesPaginator,
     DescribeEventsPaginator,
@@ -95,6 +100,7 @@ __all__ = (
     "DatabaseMigrationServiceClient",
     "DescribeCertificatesPaginator",
     "DescribeConnectionsPaginator",
+    "DescribeDataMigrationsPaginator",
     "DescribeEndpointTypesPaginator",
     "DescribeEndpointsPaginator",
     "DescribeEventSubscriptionsPaginator",

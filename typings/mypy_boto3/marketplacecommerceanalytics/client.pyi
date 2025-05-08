@@ -1,43 +1,57 @@
 """
-Type annotations for marketplacecommerceanalytics service client.
+Type annotations for marketplacecommerceanalytics service Client.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_marketplacecommerceanalytics/client.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_marketplacecommerceanalytics/client/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
-    from mypy_boto3_marketplacecommerceanalytics import MarketplaceCommerceAnalyticsClient
+    from boto3.session import Session
+    from mypy_boto3_marketplacecommerceanalytics.client import MarketplaceCommerceAnalyticsClient
 
-    client: MarketplaceCommerceAnalyticsClient = boto3.client("marketplacecommerceanalytics")
+    session = Session()
+    client: MarketplaceCommerceAnalyticsClient = session.client("marketplacecommerceanalytics")
     ```
 """
 
-from datetime import datetime
-from typing import Any, Dict, Type, Union
+from __future__ import annotations
+
+import sys
+from typing import Any
 
 from botocore.client import BaseClient, ClientMeta
+from botocore.errorfactory import BaseClientExceptions
+from botocore.exceptions import ClientError as BotocoreClientError
 
-from .literals import DataSetTypeType, SupportDataSetTypeType
-from .type_defs import GenerateDataSetResultTypeDef, StartSupportDataExportResultTypeDef
+from .type_defs import (
+    GenerateDataSetRequestTypeDef,
+    GenerateDataSetResultTypeDef,
+    StartSupportDataExportRequestTypeDef,
+    StartSupportDataExportResultTypeDef,
+)
+
+if sys.version_info >= (3, 9):
+    from builtins import type as Type
+    from collections.abc import Mapping
+else:
+    from typing import Mapping, Type
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = ("MarketplaceCommerceAnalyticsClient",)
 
-class BotocoreClientError(BaseException):
-    MSG_TEMPLATE: str
-
-    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
-        self.response: Dict[str, Any]
-        self.operation_name: str
-
-class Exceptions:
+class Exceptions(BaseClientExceptions):
     ClientError: Type[BotocoreClientError]
     MarketplaceCommerceAnalyticsException: Type[BotocoreClientError]
 
 class MarketplaceCommerceAnalyticsClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/marketplacecommerceanalytics.html#MarketplaceCommerceAnalytics.Client)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_marketplacecommerceanalytics/client.html)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/marketplacecommerceanalytics.html#MarketplaceCommerceAnalytics.Client)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_marketplacecommerceanalytics/client/)
     """
 
     meta: ClientMeta
@@ -46,74 +60,49 @@ class MarketplaceCommerceAnalyticsClient(BaseClient):
     def exceptions(self) -> Exceptions:
         """
         MarketplaceCommerceAnalyticsClient exceptions.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/marketplacecommerceanalytics.html#MarketplaceCommerceAnalytics.Client)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_marketplacecommerceanalytics/client/#exceptions)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        Check if an operation can be paginated.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/marketplacecommerceanalytics.html#MarketplaceCommerceAnalytics.Client.can_paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_marketplacecommerceanalytics/client.html#can_paginate)
-        """
-
-    def close(self) -> None:
-        """
-        Closes underlying endpoint connections.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/marketplacecommerceanalytics.html#MarketplaceCommerceAnalytics.Client.close)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_marketplacecommerceanalytics/client.html#close)
-        """
-
-    def generate_data_set(
-        self,
-        *,
-        dataSetType: DataSetTypeType,
-        dataSetPublicationDate: Union[datetime, str],
-        roleNameArn: str,
-        destinationS3BucketName: str,
-        snsTopicArn: str,
-        destinationS3Prefix: str = None,
-        customerDefinedValues: Dict[str, str] = None
-    ) -> GenerateDataSetResultTypeDef:
-        """
-        Given a data set type and data set publication date, asynchronously publishes
-        the requested data set to the specified S3 bucket and notifies the specified SNS
-        topic once the data is available.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/marketplacecommerceanalytics.html#MarketplaceCommerceAnalytics.Client.generate_data_set)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_marketplacecommerceanalytics/client.html#generate_data_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/marketplacecommerceanalytics/client/can_paginate.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_marketplacecommerceanalytics/client/#can_paginate)
         """
 
     def generate_presigned_url(
         self,
         ClientMethod: str,
-        Params: Dict[str, Any] = None,
+        Params: Mapping[str, Any] = ...,
         ExpiresIn: int = 3600,
-        HttpMethod: str = None,
+        HttpMethod: str = ...,
     ) -> str:
         """
-        Generate a presigned url given a client, its method, and arguments.
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/marketplacecommerceanalytics/client/generate_presigned_url.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_marketplacecommerceanalytics/client/#generate_presigned_url)
+        """
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/marketplacecommerceanalytics.html#MarketplaceCommerceAnalytics.Client.generate_presigned_url)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_marketplacecommerceanalytics/client.html#generate_presigned_url)
+    def generate_data_set(
+        self, **kwargs: Unpack[GenerateDataSetRequestTypeDef]
+    ) -> GenerateDataSetResultTypeDef:
+        """
+        Given a data set type and data set publication date, asynchronously publishes
+        the requested data set to the specified S3 bucket and notifies the specified
+        SNS topic once the data is available.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/marketplacecommerceanalytics/client/generate_data_set.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_marketplacecommerceanalytics/client/#generate_data_set)
         """
 
     def start_support_data_export(
-        self,
-        *,
-        dataSetType: SupportDataSetTypeType,
-        fromDate: Union[datetime, str],
-        roleNameArn: str,
-        destinationS3BucketName: str,
-        snsTopicArn: str,
-        destinationS3Prefix: str = None,
-        customerDefinedValues: Dict[str, str] = None
+        self, **kwargs: Unpack[StartSupportDataExportRequestTypeDef]
     ) -> StartSupportDataExportResultTypeDef:
         """
-        *This target has been deprecated.* Given a data set type and a from date,
-        asynchronously publishes the requested customer support data to the specified S3
-        bucket and notifies the specified SNS topic once the data is available.
+        <i>This target has been deprecated.</i> Given a data set type and a from date,
+        asynchronously publishes the requested customer support data to the specified
+        S3 bucket and notifies the specified SNS topic once the data is available.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/marketplacecommerceanalytics.html#MarketplaceCommerceAnalytics.Client.start_support_data_export)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_marketplacecommerceanalytics/client.html#start_support_data_export)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/marketplacecommerceanalytics/client/start_support_data_export.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_marketplacecommerceanalytics/client/#start_support_data_export)
         """

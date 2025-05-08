@@ -1,91 +1,118 @@
 """
 Type annotations for emr-serverless service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_serverless/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_emr_serverless/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_emr_serverless.type_defs import ApplicationSummaryTypeDef
 
-    data: ApplicationSummaryTypeDef = {...}
+    data: ApplicationSummaryTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List, Union
+from typing import Any, Union
 
 from .literals import ApplicationStateType, ArchitectureType, JobRunModeType, JobRunStateType
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
     "ApplicationSummaryTypeDef",
     "ApplicationTypeDef",
     "AutoStartConfigTypeDef",
     "AutoStopConfigTypeDef",
-    "CancelJobRunRequestRequestTypeDef",
+    "CancelJobRunRequestTypeDef",
     "CancelJobRunResponseTypeDef",
+    "CloudWatchLoggingConfigurationOutputTypeDef",
     "CloudWatchLoggingConfigurationTypeDef",
+    "ConfigurationOutputTypeDef",
+    "ConfigurationOverridesOutputTypeDef",
     "ConfigurationOverridesTypeDef",
+    "ConfigurationOverridesUnionTypeDef",
     "ConfigurationTypeDef",
-    "CreateApplicationRequestRequestTypeDef",
+    "ConfigurationUnionTypeDef",
+    "CreateApplicationRequestTypeDef",
     "CreateApplicationResponseTypeDef",
-    "DeleteApplicationRequestRequestTypeDef",
-    "GetApplicationRequestRequestTypeDef",
+    "DeleteApplicationRequestTypeDef",
+    "GetApplicationRequestTypeDef",
     "GetApplicationResponseTypeDef",
-    "GetDashboardForJobRunRequestRequestTypeDef",
+    "GetDashboardForJobRunRequestTypeDef",
     "GetDashboardForJobRunResponseTypeDef",
-    "GetJobRunRequestRequestTypeDef",
+    "GetJobRunRequestTypeDef",
     "GetJobRunResponseTypeDef",
     "HiveTypeDef",
     "ImageConfigurationInputTypeDef",
     "ImageConfigurationTypeDef",
     "InitialCapacityConfigTypeDef",
     "InteractiveConfigurationTypeDef",
+    "JobDriverOutputTypeDef",
     "JobDriverTypeDef",
+    "JobDriverUnionTypeDef",
     "JobRunAttemptSummaryTypeDef",
     "JobRunSummaryTypeDef",
     "JobRunTypeDef",
-    "ListApplicationsRequestRequestTypeDef",
+    "ListApplicationsRequestPaginateTypeDef",
+    "ListApplicationsRequestTypeDef",
     "ListApplicationsResponseTypeDef",
-    "ListJobRunAttemptsRequestRequestTypeDef",
+    "ListJobRunAttemptsRequestPaginateTypeDef",
+    "ListJobRunAttemptsRequestTypeDef",
     "ListJobRunAttemptsResponseTypeDef",
-    "ListJobRunsRequestRequestTypeDef",
+    "ListJobRunsRequestPaginateTypeDef",
+    "ListJobRunsRequestTypeDef",
     "ListJobRunsResponseTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "ManagedPersistenceMonitoringConfigurationTypeDef",
     "MaximumAllowedResourcesTypeDef",
+    "MonitoringConfigurationOutputTypeDef",
     "MonitoringConfigurationTypeDef",
+    "MonitoringConfigurationUnionTypeDef",
+    "NetworkConfigurationOutputTypeDef",
     "NetworkConfigurationTypeDef",
+    "NetworkConfigurationUnionTypeDef",
     "PaginatorConfigTypeDef",
     "PrometheusMonitoringConfigurationTypeDef",
     "ResourceUtilizationTypeDef",
     "ResponseMetadataTypeDef",
     "RetryPolicyTypeDef",
     "S3MonitoringConfigurationTypeDef",
+    "SchedulerConfigurationTypeDef",
+    "SparkSubmitOutputTypeDef",
     "SparkSubmitTypeDef",
-    "StartApplicationRequestRequestTypeDef",
-    "StartJobRunRequestRequestTypeDef",
+    "StartApplicationRequestTypeDef",
+    "StartJobRunRequestTypeDef",
     "StartJobRunResponseTypeDef",
-    "StopApplicationRequestRequestTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "StopApplicationRequestTypeDef",
+    "TagResourceRequestTypeDef",
+    "TimestampTypeDef",
     "TotalResourceUtilizationTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateApplicationRequestRequestTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateApplicationRequestTypeDef",
     "UpdateApplicationResponseTypeDef",
     "WorkerResourceConfigTypeDef",
     "WorkerTypeSpecificationInputTypeDef",
     "WorkerTypeSpecificationTypeDef",
 )
 
-_RequiredApplicationSummaryTypeDef = TypedDict(
-    "_RequiredApplicationSummaryTypeDef",
+ApplicationSummaryTypeDef = TypedDict(
+    "ApplicationSummaryTypeDef",
     {
         "id": str,
         "arn": str,
@@ -94,348 +121,118 @@ _RequiredApplicationSummaryTypeDef = TypedDict(
         "state": ApplicationStateType,
         "createdAt": datetime,
         "updatedAt": datetime,
-    },
-)
-_OptionalApplicationSummaryTypeDef = TypedDict(
-    "_OptionalApplicationSummaryTypeDef",
-    {
-        "name": str,
-        "stateDetails": str,
-        "architecture": ArchitectureType,
-    },
-    total=False,
-)
-
-class ApplicationSummaryTypeDef(
-    _RequiredApplicationSummaryTypeDef, _OptionalApplicationSummaryTypeDef
-):
-    pass
-
-_RequiredApplicationTypeDef = TypedDict(
-    "_RequiredApplicationTypeDef",
-    {
-        "applicationId": str,
-        "arn": str,
-        "releaseLabel": str,
-        "type": str,
-        "state": ApplicationStateType,
-        "createdAt": datetime,
-        "updatedAt": datetime,
-    },
-)
-_OptionalApplicationTypeDef = TypedDict(
-    "_OptionalApplicationTypeDef",
-    {
-        "name": str,
-        "stateDetails": str,
-        "initialCapacity": Dict[str, "InitialCapacityConfigTypeDef"],
-        "maximumCapacity": "MaximumAllowedResourcesTypeDef",
-        "tags": Dict[str, str],
-        "autoStartConfiguration": "AutoStartConfigTypeDef",
-        "autoStopConfiguration": "AutoStopConfigTypeDef",
-        "networkConfiguration": "NetworkConfigurationTypeDef",
-        "architecture": ArchitectureType,
-        "imageConfiguration": "ImageConfigurationTypeDef",
-        "workerTypeSpecifications": Dict[str, "WorkerTypeSpecificationTypeDef"],
-        "runtimeConfiguration": List["ConfigurationTypeDef"],
-        "monitoringConfiguration": "MonitoringConfigurationTypeDef",
-        "interactiveConfiguration": "InteractiveConfigurationTypeDef",
-    },
-    total=False,
-)
-
-class ApplicationTypeDef(_RequiredApplicationTypeDef, _OptionalApplicationTypeDef):
-    pass
-
-AutoStartConfigTypeDef = TypedDict(
-    "AutoStartConfigTypeDef",
-    {
-        "enabled": bool,
-    },
-    total=False,
-)
-
-AutoStopConfigTypeDef = TypedDict(
-    "AutoStopConfigTypeDef",
-    {
-        "enabled": bool,
-        "idleTimeoutMinutes": int,
-    },
-    total=False,
-)
-
-CancelJobRunRequestRequestTypeDef = TypedDict(
-    "CancelJobRunRequestRequestTypeDef",
-    {
-        "applicationId": str,
-        "jobRunId": str,
+        "name": NotRequired[str],
+        "stateDetails": NotRequired[str],
+        "architecture": NotRequired[ArchitectureType],
     },
 )
 
-CancelJobRunResponseTypeDef = TypedDict(
-    "CancelJobRunResponseTypeDef",
-    {
-        "applicationId": str,
-        "jobRunId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class AutoStartConfigTypeDef(TypedDict):
+    enabled: NotRequired[bool]
 
-_RequiredCloudWatchLoggingConfigurationTypeDef = TypedDict(
-    "_RequiredCloudWatchLoggingConfigurationTypeDef",
-    {
-        "enabled": bool,
-    },
-)
-_OptionalCloudWatchLoggingConfigurationTypeDef = TypedDict(
-    "_OptionalCloudWatchLoggingConfigurationTypeDef",
-    {
-        "logGroupName": str,
-        "logStreamNamePrefix": str,
-        "encryptionKeyArn": str,
-        "logTypes": Dict[str, List[str]],
-    },
-    total=False,
-)
+class AutoStopConfigTypeDef(TypedDict):
+    enabled: NotRequired[bool]
+    idleTimeoutMinutes: NotRequired[int]
 
-class CloudWatchLoggingConfigurationTypeDef(
-    _RequiredCloudWatchLoggingConfigurationTypeDef, _OptionalCloudWatchLoggingConfigurationTypeDef
-):
-    pass
+class ConfigurationOutputTypeDef(TypedDict):
+    classification: str
+    properties: NotRequired[Dict[str, str]]
+    configurations: NotRequired[List[Dict[str, Any]]]
 
-ConfigurationOverridesTypeDef = TypedDict(
-    "ConfigurationOverridesTypeDef",
-    {
-        "applicationConfiguration": List["ConfigurationTypeDef"],
-        "monitoringConfiguration": "MonitoringConfigurationTypeDef",
-    },
-    total=False,
-)
+class ImageConfigurationTypeDef(TypedDict):
+    imageUri: str
+    resolvedImageDigest: NotRequired[str]
 
-_RequiredConfigurationTypeDef = TypedDict(
-    "_RequiredConfigurationTypeDef",
-    {
-        "classification": str,
-    },
-)
-_OptionalConfigurationTypeDef = TypedDict(
-    "_OptionalConfigurationTypeDef",
-    {
-        "properties": Dict[str, str],
-        "configurations": List[Dict[str, Any]],
-    },
-    total=False,
-)
+class InteractiveConfigurationTypeDef(TypedDict):
+    studioEnabled: NotRequired[bool]
+    livyEndpointEnabled: NotRequired[bool]
 
-class ConfigurationTypeDef(_RequiredConfigurationTypeDef, _OptionalConfigurationTypeDef):
-    pass
+class MaximumAllowedResourcesTypeDef(TypedDict):
+    cpu: str
+    memory: str
+    disk: NotRequired[str]
 
-_RequiredCreateApplicationRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateApplicationRequestRequestTypeDef",
-    {
-        "releaseLabel": str,
-        "type": str,
-        "clientToken": str,
-    },
-)
-_OptionalCreateApplicationRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateApplicationRequestRequestTypeDef",
-    {
-        "name": str,
-        "initialCapacity": Dict[str, "InitialCapacityConfigTypeDef"],
-        "maximumCapacity": "MaximumAllowedResourcesTypeDef",
-        "tags": Dict[str, str],
-        "autoStartConfiguration": "AutoStartConfigTypeDef",
-        "autoStopConfiguration": "AutoStopConfigTypeDef",
-        "networkConfiguration": "NetworkConfigurationTypeDef",
-        "architecture": ArchitectureType,
-        "imageConfiguration": "ImageConfigurationInputTypeDef",
-        "workerTypeSpecifications": Dict[str, "WorkerTypeSpecificationInputTypeDef"],
-        "runtimeConfiguration": List["ConfigurationTypeDef"],
-        "monitoringConfiguration": "MonitoringConfigurationTypeDef",
-        "interactiveConfiguration": "InteractiveConfigurationTypeDef",
-    },
-    total=False,
-)
+class NetworkConfigurationOutputTypeDef(TypedDict):
+    subnetIds: NotRequired[List[str]]
+    securityGroupIds: NotRequired[List[str]]
 
-class CreateApplicationRequestRequestTypeDef(
-    _RequiredCreateApplicationRequestRequestTypeDef, _OptionalCreateApplicationRequestRequestTypeDef
-):
-    pass
+class SchedulerConfigurationTypeDef(TypedDict):
+    queueTimeoutMinutes: NotRequired[int]
+    maxConcurrentRuns: NotRequired[int]
 
-CreateApplicationResponseTypeDef = TypedDict(
-    "CreateApplicationResponseTypeDef",
-    {
-        "applicationId": str,
-        "name": str,
-        "arn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CancelJobRunRequestTypeDef(TypedDict):
+    applicationId: str
+    jobRunId: str
 
-DeleteApplicationRequestRequestTypeDef = TypedDict(
-    "DeleteApplicationRequestRequestTypeDef",
-    {
-        "applicationId": str,
-    },
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-GetApplicationRequestRequestTypeDef = TypedDict(
-    "GetApplicationRequestRequestTypeDef",
-    {
-        "applicationId": str,
-    },
-)
+class CloudWatchLoggingConfigurationOutputTypeDef(TypedDict):
+    enabled: bool
+    logGroupName: NotRequired[str]
+    logStreamNamePrefix: NotRequired[str]
+    encryptionKeyArn: NotRequired[str]
+    logTypes: NotRequired[Dict[str, List[str]]]
 
-GetApplicationResponseTypeDef = TypedDict(
-    "GetApplicationResponseTypeDef",
-    {
-        "application": "ApplicationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CloudWatchLoggingConfigurationTypeDef(TypedDict):
+    enabled: bool
+    logGroupName: NotRequired[str]
+    logStreamNamePrefix: NotRequired[str]
+    encryptionKeyArn: NotRequired[str]
+    logTypes: NotRequired[Mapping[str, Sequence[str]]]
 
-_RequiredGetDashboardForJobRunRequestRequestTypeDef = TypedDict(
-    "_RequiredGetDashboardForJobRunRequestRequestTypeDef",
-    {
-        "applicationId": str,
-        "jobRunId": str,
-    },
-)
-_OptionalGetDashboardForJobRunRequestRequestTypeDef = TypedDict(
-    "_OptionalGetDashboardForJobRunRequestRequestTypeDef",
-    {
-        "attempt": int,
-    },
-    total=False,
-)
+class ConfigurationTypeDef(TypedDict):
+    classification: str
+    properties: NotRequired[Mapping[str, str]]
+    configurations: NotRequired[Sequence[Mapping[str, Any]]]
 
-class GetDashboardForJobRunRequestRequestTypeDef(
-    _RequiredGetDashboardForJobRunRequestRequestTypeDef,
-    _OptionalGetDashboardForJobRunRequestRequestTypeDef,
-):
-    pass
+class ImageConfigurationInputTypeDef(TypedDict):
+    imageUri: NotRequired[str]
 
-GetDashboardForJobRunResponseTypeDef = TypedDict(
-    "GetDashboardForJobRunResponseTypeDef",
-    {
-        "url": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DeleteApplicationRequestTypeDef(TypedDict):
+    applicationId: str
 
-_RequiredGetJobRunRequestRequestTypeDef = TypedDict(
-    "_RequiredGetJobRunRequestRequestTypeDef",
-    {
-        "applicationId": str,
-        "jobRunId": str,
-    },
-)
-_OptionalGetJobRunRequestRequestTypeDef = TypedDict(
-    "_OptionalGetJobRunRequestRequestTypeDef",
-    {
-        "attempt": int,
-    },
-    total=False,
-)
+class GetApplicationRequestTypeDef(TypedDict):
+    applicationId: str
 
-class GetJobRunRequestRequestTypeDef(
-    _RequiredGetJobRunRequestRequestTypeDef, _OptionalGetJobRunRequestRequestTypeDef
-):
-    pass
+class GetDashboardForJobRunRequestTypeDef(TypedDict):
+    applicationId: str
+    jobRunId: str
+    attempt: NotRequired[int]
+    accessSystemProfileLogs: NotRequired[bool]
 
-GetJobRunResponseTypeDef = TypedDict(
-    "GetJobRunResponseTypeDef",
-    {
-        "jobRun": "JobRunTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetJobRunRequestTypeDef(TypedDict):
+    applicationId: str
+    jobRunId: str
+    attempt: NotRequired[int]
 
-_RequiredHiveTypeDef = TypedDict(
-    "_RequiredHiveTypeDef",
-    {
-        "query": str,
-    },
-)
-_OptionalHiveTypeDef = TypedDict(
-    "_OptionalHiveTypeDef",
-    {
-        "initQueryFile": str,
-        "parameters": str,
-    },
-    total=False,
-)
+class HiveTypeDef(TypedDict):
+    query: str
+    initQueryFile: NotRequired[str]
+    parameters: NotRequired[str]
 
-class HiveTypeDef(_RequiredHiveTypeDef, _OptionalHiveTypeDef):
-    pass
+class WorkerResourceConfigTypeDef(TypedDict):
+    cpu: str
+    memory: str
+    disk: NotRequired[str]
+    diskType: NotRequired[str]
 
-ImageConfigurationInputTypeDef = TypedDict(
-    "ImageConfigurationInputTypeDef",
-    {
-        "imageUri": str,
-    },
-    total=False,
-)
+class SparkSubmitOutputTypeDef(TypedDict):
+    entryPoint: str
+    entryPointArguments: NotRequired[List[str]]
+    sparkSubmitParameters: NotRequired[str]
 
-_RequiredImageConfigurationTypeDef = TypedDict(
-    "_RequiredImageConfigurationTypeDef",
-    {
-        "imageUri": str,
-    },
-)
-_OptionalImageConfigurationTypeDef = TypedDict(
-    "_OptionalImageConfigurationTypeDef",
-    {
-        "resolvedImageDigest": str,
-    },
-    total=False,
-)
+class SparkSubmitTypeDef(TypedDict):
+    entryPoint: str
+    entryPointArguments: NotRequired[Sequence[str]]
+    sparkSubmitParameters: NotRequired[str]
 
-class ImageConfigurationTypeDef(
-    _RequiredImageConfigurationTypeDef, _OptionalImageConfigurationTypeDef
-):
-    pass
-
-_RequiredInitialCapacityConfigTypeDef = TypedDict(
-    "_RequiredInitialCapacityConfigTypeDef",
-    {
-        "workerCount": int,
-    },
-)
-_OptionalInitialCapacityConfigTypeDef = TypedDict(
-    "_OptionalInitialCapacityConfigTypeDef",
-    {
-        "workerConfiguration": "WorkerResourceConfigTypeDef",
-    },
-    total=False,
-)
-
-class InitialCapacityConfigTypeDef(
-    _RequiredInitialCapacityConfigTypeDef, _OptionalInitialCapacityConfigTypeDef
-):
-    pass
-
-InteractiveConfigurationTypeDef = TypedDict(
-    "InteractiveConfigurationTypeDef",
-    {
-        "studioEnabled": bool,
-        "livyEndpointEnabled": bool,
-    },
-    total=False,
-)
-
-JobDriverTypeDef = TypedDict(
-    "JobDriverTypeDef",
-    {
-        "sparkSubmit": "SparkSubmitTypeDef",
-        "hive": "HiveTypeDef",
-    },
-    total=False,
-)
-
-_RequiredJobRunAttemptSummaryTypeDef = TypedDict(
-    "_RequiredJobRunAttemptSummaryTypeDef",
+JobRunAttemptSummaryTypeDef = TypedDict(
+    "JobRunAttemptSummaryTypeDef",
     {
         "applicationId": str,
         "id": str,
@@ -448,26 +245,14 @@ _RequiredJobRunAttemptSummaryTypeDef = TypedDict(
         "state": JobRunStateType,
         "stateDetails": str,
         "releaseLabel": str,
+        "name": NotRequired[str],
+        "mode": NotRequired[JobRunModeType],
+        "type": NotRequired[str],
+        "attempt": NotRequired[int],
     },
 )
-_OptionalJobRunAttemptSummaryTypeDef = TypedDict(
-    "_OptionalJobRunAttemptSummaryTypeDef",
-    {
-        "name": str,
-        "mode": JobRunModeType,
-        "type": str,
-        "attempt": int,
-    },
-    total=False,
-)
-
-class JobRunAttemptSummaryTypeDef(
-    _RequiredJobRunAttemptSummaryTypeDef, _OptionalJobRunAttemptSummaryTypeDef
-):
-    pass
-
-_RequiredJobRunSummaryTypeDef = TypedDict(
-    "_RequiredJobRunSummaryTypeDef",
+JobRunSummaryTypeDef = TypedDict(
+    "JobRunSummaryTypeDef",
     {
         "applicationId": str,
         "id": str,
@@ -479,434 +264,317 @@ _RequiredJobRunSummaryTypeDef = TypedDict(
         "state": JobRunStateType,
         "stateDetails": str,
         "releaseLabel": str,
+        "name": NotRequired[str],
+        "mode": NotRequired[JobRunModeType],
+        "type": NotRequired[str],
+        "attempt": NotRequired[int],
+        "attemptCreatedAt": NotRequired[datetime],
+        "attemptUpdatedAt": NotRequired[datetime],
     },
 )
-_OptionalJobRunSummaryTypeDef = TypedDict(
-    "_OptionalJobRunSummaryTypeDef",
-    {
-        "name": str,
-        "mode": JobRunModeType,
-        "type": str,
-        "attempt": int,
-        "attemptCreatedAt": datetime,
-        "attemptUpdatedAt": datetime,
-    },
-    total=False,
-)
 
-class JobRunSummaryTypeDef(_RequiredJobRunSummaryTypeDef, _OptionalJobRunSummaryTypeDef):
-    pass
+class ResourceUtilizationTypeDef(TypedDict):
+    vCPUHour: NotRequired[float]
+    memoryGBHour: NotRequired[float]
+    storageGBHour: NotRequired[float]
 
-_RequiredJobRunTypeDef = TypedDict(
-    "_RequiredJobRunTypeDef",
+class RetryPolicyTypeDef(TypedDict):
+    maxAttempts: NotRequired[int]
+    maxFailedAttemptsPerHour: NotRequired[int]
+
+class TotalResourceUtilizationTypeDef(TypedDict):
+    vCPUHour: NotRequired[float]
+    memoryGBHour: NotRequired[float]
+    storageGBHour: NotRequired[float]
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class ListApplicationsRequestTypeDef(TypedDict):
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+    states: NotRequired[Sequence[ApplicationStateType]]
+
+class ListJobRunAttemptsRequestTypeDef(TypedDict):
+    applicationId: str
+    jobRunId: str
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+TimestampTypeDef = Union[datetime, str]
+
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+
+class ManagedPersistenceMonitoringConfigurationTypeDef(TypedDict):
+    enabled: NotRequired[bool]
+    encryptionKeyArn: NotRequired[str]
+
+class PrometheusMonitoringConfigurationTypeDef(TypedDict):
+    remoteWriteUrl: NotRequired[str]
+
+class S3MonitoringConfigurationTypeDef(TypedDict):
+    logUri: NotRequired[str]
+    encryptionKeyArn: NotRequired[str]
+
+class NetworkConfigurationTypeDef(TypedDict):
+    subnetIds: NotRequired[Sequence[str]]
+    securityGroupIds: NotRequired[Sequence[str]]
+
+class StartApplicationRequestTypeDef(TypedDict):
+    applicationId: str
+
+class StopApplicationRequestTypeDef(TypedDict):
+    applicationId: str
+
+class TagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tags: Mapping[str, str]
+
+class UntagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tagKeys: Sequence[str]
+
+class WorkerTypeSpecificationTypeDef(TypedDict):
+    imageConfiguration: NotRequired[ImageConfigurationTypeDef]
+
+class CancelJobRunResponseTypeDef(TypedDict):
+    applicationId: str
+    jobRunId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateApplicationResponseTypeDef(TypedDict):
+    applicationId: str
+    name: str
+    arn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetDashboardForJobRunResponseTypeDef(TypedDict):
+    url: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListApplicationsResponseTypeDef(TypedDict):
+    applications: List[ApplicationSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartJobRunResponseTypeDef(TypedDict):
+    applicationId: str
+    jobRunId: str
+    arn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+ConfigurationUnionTypeDef = Union[ConfigurationTypeDef, ConfigurationOutputTypeDef]
+
+class WorkerTypeSpecificationInputTypeDef(TypedDict):
+    imageConfiguration: NotRequired[ImageConfigurationInputTypeDef]
+
+class InitialCapacityConfigTypeDef(TypedDict):
+    workerCount: int
+    workerConfiguration: NotRequired[WorkerResourceConfigTypeDef]
+
+class JobDriverOutputTypeDef(TypedDict):
+    sparkSubmit: NotRequired[SparkSubmitOutputTypeDef]
+    hive: NotRequired[HiveTypeDef]
+
+class JobDriverTypeDef(TypedDict):
+    sparkSubmit: NotRequired[SparkSubmitTypeDef]
+    hive: NotRequired[HiveTypeDef]
+
+class ListJobRunAttemptsResponseTypeDef(TypedDict):
+    jobRunAttempts: List[JobRunAttemptSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListJobRunsResponseTypeDef(TypedDict):
+    jobRuns: List[JobRunSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListApplicationsRequestPaginateTypeDef(TypedDict):
+    states: NotRequired[Sequence[ApplicationStateType]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListJobRunAttemptsRequestPaginateTypeDef(TypedDict):
+    applicationId: str
+    jobRunId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListJobRunsRequestPaginateTypeDef(TypedDict):
+    applicationId: str
+    createdAtAfter: NotRequired[TimestampTypeDef]
+    createdAtBefore: NotRequired[TimestampTypeDef]
+    states: NotRequired[Sequence[JobRunStateType]]
+    mode: NotRequired[JobRunModeType]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListJobRunsRequestTypeDef(TypedDict):
+    applicationId: str
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+    createdAtAfter: NotRequired[TimestampTypeDef]
+    createdAtBefore: NotRequired[TimestampTypeDef]
+    states: NotRequired[Sequence[JobRunStateType]]
+    mode: NotRequired[JobRunModeType]
+
+class MonitoringConfigurationOutputTypeDef(TypedDict):
+    s3MonitoringConfiguration: NotRequired[S3MonitoringConfigurationTypeDef]
+    managedPersistenceMonitoringConfiguration: NotRequired[
+        ManagedPersistenceMonitoringConfigurationTypeDef
+    ]
+    cloudWatchLoggingConfiguration: NotRequired[CloudWatchLoggingConfigurationOutputTypeDef]
+    prometheusMonitoringConfiguration: NotRequired[PrometheusMonitoringConfigurationTypeDef]
+
+class MonitoringConfigurationTypeDef(TypedDict):
+    s3MonitoringConfiguration: NotRequired[S3MonitoringConfigurationTypeDef]
+    managedPersistenceMonitoringConfiguration: NotRequired[
+        ManagedPersistenceMonitoringConfigurationTypeDef
+    ]
+    cloudWatchLoggingConfiguration: NotRequired[CloudWatchLoggingConfigurationTypeDef]
+    prometheusMonitoringConfiguration: NotRequired[PrometheusMonitoringConfigurationTypeDef]
+
+NetworkConfigurationUnionTypeDef = Union[
+    NetworkConfigurationTypeDef, NetworkConfigurationOutputTypeDef
+]
+JobDriverUnionTypeDef = Union[JobDriverTypeDef, JobDriverOutputTypeDef]
+ApplicationTypeDef = TypedDict(
+    "ApplicationTypeDef",
     {
         "applicationId": str,
-        "jobRunId": str,
         "arn": str,
-        "createdBy": str,
+        "releaseLabel": str,
+        "type": str,
+        "state": ApplicationStateType,
         "createdAt": datetime,
         "updatedAt": datetime,
-        "executionRole": str,
-        "state": JobRunStateType,
-        "stateDetails": str,
+        "name": NotRequired[str],
+        "stateDetails": NotRequired[str],
+        "initialCapacity": NotRequired[Dict[str, InitialCapacityConfigTypeDef]],
+        "maximumCapacity": NotRequired[MaximumAllowedResourcesTypeDef],
+        "tags": NotRequired[Dict[str, str]],
+        "autoStartConfiguration": NotRequired[AutoStartConfigTypeDef],
+        "autoStopConfiguration": NotRequired[AutoStopConfigTypeDef],
+        "networkConfiguration": NotRequired[NetworkConfigurationOutputTypeDef],
+        "architecture": NotRequired[ArchitectureType],
+        "imageConfiguration": NotRequired[ImageConfigurationTypeDef],
+        "workerTypeSpecifications": NotRequired[Dict[str, WorkerTypeSpecificationTypeDef]],
+        "runtimeConfiguration": NotRequired[List[ConfigurationOutputTypeDef]],
+        "monitoringConfiguration": NotRequired[MonitoringConfigurationOutputTypeDef],
+        "interactiveConfiguration": NotRequired[InteractiveConfigurationTypeDef],
+        "schedulerConfiguration": NotRequired[SchedulerConfigurationTypeDef],
+    },
+)
+
+class ConfigurationOverridesOutputTypeDef(TypedDict):
+    applicationConfiguration: NotRequired[List[ConfigurationOutputTypeDef]]
+    monitoringConfiguration: NotRequired[MonitoringConfigurationOutputTypeDef]
+
+class ConfigurationOverridesTypeDef(TypedDict):
+    applicationConfiguration: NotRequired[Sequence[ConfigurationTypeDef]]
+    monitoringConfiguration: NotRequired[MonitoringConfigurationTypeDef]
+
+MonitoringConfigurationUnionTypeDef = Union[
+    MonitoringConfigurationTypeDef, MonitoringConfigurationOutputTypeDef
+]
+
+class GetApplicationResponseTypeDef(TypedDict):
+    application: ApplicationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateApplicationResponseTypeDef(TypedDict):
+    application: ApplicationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class JobRunTypeDef(TypedDict):
+    applicationId: str
+    jobRunId: str
+    arn: str
+    createdBy: str
+    createdAt: datetime
+    updatedAt: datetime
+    executionRole: str
+    state: JobRunStateType
+    stateDetails: str
+    releaseLabel: str
+    jobDriver: JobDriverOutputTypeDef
+    name: NotRequired[str]
+    configurationOverrides: NotRequired[ConfigurationOverridesOutputTypeDef]
+    tags: NotRequired[Dict[str, str]]
+    totalResourceUtilization: NotRequired[TotalResourceUtilizationTypeDef]
+    networkConfiguration: NotRequired[NetworkConfigurationOutputTypeDef]
+    totalExecutionDurationSeconds: NotRequired[int]
+    executionTimeoutMinutes: NotRequired[int]
+    billedResourceUtilization: NotRequired[ResourceUtilizationTypeDef]
+    mode: NotRequired[JobRunModeType]
+    retryPolicy: NotRequired[RetryPolicyTypeDef]
+    attempt: NotRequired[int]
+    attemptCreatedAt: NotRequired[datetime]
+    attemptUpdatedAt: NotRequired[datetime]
+    startedAt: NotRequired[datetime]
+    endedAt: NotRequired[datetime]
+    queuedDurationMilliseconds: NotRequired[int]
+
+ConfigurationOverridesUnionTypeDef = Union[
+    ConfigurationOverridesTypeDef, ConfigurationOverridesOutputTypeDef
+]
+CreateApplicationRequestTypeDef = TypedDict(
+    "CreateApplicationRequestTypeDef",
+    {
         "releaseLabel": str,
-        "jobDriver": "JobDriverTypeDef",
-    },
-)
-_OptionalJobRunTypeDef = TypedDict(
-    "_OptionalJobRunTypeDef",
-    {
-        "name": str,
-        "configurationOverrides": "ConfigurationOverridesTypeDef",
-        "tags": Dict[str, str],
-        "totalResourceUtilization": "TotalResourceUtilizationTypeDef",
-        "networkConfiguration": "NetworkConfigurationTypeDef",
-        "totalExecutionDurationSeconds": int,
-        "executionTimeoutMinutes": int,
-        "billedResourceUtilization": "ResourceUtilizationTypeDef",
-        "mode": JobRunModeType,
-        "retryPolicy": "RetryPolicyTypeDef",
-        "attempt": int,
-        "attemptCreatedAt": datetime,
-        "attemptUpdatedAt": datetime,
-    },
-    total=False,
-)
-
-class JobRunTypeDef(_RequiredJobRunTypeDef, _OptionalJobRunTypeDef):
-    pass
-
-ListApplicationsRequestRequestTypeDef = TypedDict(
-    "ListApplicationsRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-        "states": List[ApplicationStateType],
-    },
-    total=False,
-)
-
-ListApplicationsResponseTypeDef = TypedDict(
-    "ListApplicationsResponseTypeDef",
-    {
-        "applications": List["ApplicationSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListJobRunAttemptsRequestRequestTypeDef = TypedDict(
-    "_RequiredListJobRunAttemptsRequestRequestTypeDef",
-    {
-        "applicationId": str,
-        "jobRunId": str,
-    },
-)
-_OptionalListJobRunAttemptsRequestRequestTypeDef = TypedDict(
-    "_OptionalListJobRunAttemptsRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-class ListJobRunAttemptsRequestRequestTypeDef(
-    _RequiredListJobRunAttemptsRequestRequestTypeDef,
-    _OptionalListJobRunAttemptsRequestRequestTypeDef,
-):
-    pass
-
-ListJobRunAttemptsResponseTypeDef = TypedDict(
-    "ListJobRunAttemptsResponseTypeDef",
-    {
-        "jobRunAttempts": List["JobRunAttemptSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListJobRunsRequestRequestTypeDef = TypedDict(
-    "_RequiredListJobRunsRequestRequestTypeDef",
-    {
-        "applicationId": str,
-    },
-)
-_OptionalListJobRunsRequestRequestTypeDef = TypedDict(
-    "_OptionalListJobRunsRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-        "createdAtAfter": Union[datetime, str],
-        "createdAtBefore": Union[datetime, str],
-        "states": List[JobRunStateType],
-        "mode": JobRunModeType,
-    },
-    total=False,
-)
-
-class ListJobRunsRequestRequestTypeDef(
-    _RequiredListJobRunsRequestRequestTypeDef, _OptionalListJobRunsRequestRequestTypeDef
-):
-    pass
-
-ListJobRunsResponseTypeDef = TypedDict(
-    "ListJobRunsResponseTypeDef",
-    {
-        "jobRuns": List["JobRunSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-    },
-)
-
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ManagedPersistenceMonitoringConfigurationTypeDef = TypedDict(
-    "ManagedPersistenceMonitoringConfigurationTypeDef",
-    {
-        "enabled": bool,
-        "encryptionKeyArn": str,
-    },
-    total=False,
-)
-
-_RequiredMaximumAllowedResourcesTypeDef = TypedDict(
-    "_RequiredMaximumAllowedResourcesTypeDef",
-    {
-        "cpu": str,
-        "memory": str,
-    },
-)
-_OptionalMaximumAllowedResourcesTypeDef = TypedDict(
-    "_OptionalMaximumAllowedResourcesTypeDef",
-    {
-        "disk": str,
-    },
-    total=False,
-)
-
-class MaximumAllowedResourcesTypeDef(
-    _RequiredMaximumAllowedResourcesTypeDef, _OptionalMaximumAllowedResourcesTypeDef
-):
-    pass
-
-MonitoringConfigurationTypeDef = TypedDict(
-    "MonitoringConfigurationTypeDef",
-    {
-        "s3MonitoringConfiguration": "S3MonitoringConfigurationTypeDef",
-        "managedPersistenceMonitoringConfiguration": "ManagedPersistenceMonitoringConfigurationTypeDef",
-        "cloudWatchLoggingConfiguration": "CloudWatchLoggingConfigurationTypeDef",
-        "prometheusMonitoringConfiguration": "PrometheusMonitoringConfigurationTypeDef",
-    },
-    total=False,
-)
-
-NetworkConfigurationTypeDef = TypedDict(
-    "NetworkConfigurationTypeDef",
-    {
-        "subnetIds": List[str],
-        "securityGroupIds": List[str],
-    },
-    total=False,
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-PrometheusMonitoringConfigurationTypeDef = TypedDict(
-    "PrometheusMonitoringConfigurationTypeDef",
-    {
-        "remoteWriteUrl": str,
-    },
-    total=False,
-)
-
-ResourceUtilizationTypeDef = TypedDict(
-    "ResourceUtilizationTypeDef",
-    {
-        "vCPUHour": float,
-        "memoryGBHour": float,
-        "storageGBHour": float,
-    },
-    total=False,
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-RetryPolicyTypeDef = TypedDict(
-    "RetryPolicyTypeDef",
-    {
-        "maxAttempts": int,
-        "maxFailedAttemptsPerHour": int,
-    },
-    total=False,
-)
-
-S3MonitoringConfigurationTypeDef = TypedDict(
-    "S3MonitoringConfigurationTypeDef",
-    {
-        "logUri": str,
-        "encryptionKeyArn": str,
-    },
-    total=False,
-)
-
-_RequiredSparkSubmitTypeDef = TypedDict(
-    "_RequiredSparkSubmitTypeDef",
-    {
-        "entryPoint": str,
-    },
-)
-_OptionalSparkSubmitTypeDef = TypedDict(
-    "_OptionalSparkSubmitTypeDef",
-    {
-        "entryPointArguments": List[str],
-        "sparkSubmitParameters": str,
-    },
-    total=False,
-)
-
-class SparkSubmitTypeDef(_RequiredSparkSubmitTypeDef, _OptionalSparkSubmitTypeDef):
-    pass
-
-StartApplicationRequestRequestTypeDef = TypedDict(
-    "StartApplicationRequestRequestTypeDef",
-    {
-        "applicationId": str,
-    },
-)
-
-_RequiredStartJobRunRequestRequestTypeDef = TypedDict(
-    "_RequiredStartJobRunRequestRequestTypeDef",
-    {
-        "applicationId": str,
+        "type": str,
         "clientToken": str,
-        "executionRoleArn": str,
-    },
-)
-_OptionalStartJobRunRequestRequestTypeDef = TypedDict(
-    "_OptionalStartJobRunRequestRequestTypeDef",
-    {
-        "jobDriver": "JobDriverTypeDef",
-        "configurationOverrides": "ConfigurationOverridesTypeDef",
-        "tags": Dict[str, str],
-        "executionTimeoutMinutes": int,
-        "name": str,
-        "mode": JobRunModeType,
-        "retryPolicy": "RetryPolicyTypeDef",
-    },
-    total=False,
-)
-
-class StartJobRunRequestRequestTypeDef(
-    _RequiredStartJobRunRequestRequestTypeDef, _OptionalStartJobRunRequestRequestTypeDef
-):
-    pass
-
-StartJobRunResponseTypeDef = TypedDict(
-    "StartJobRunResponseTypeDef",
-    {
-        "applicationId": str,
-        "jobRunId": str,
-        "arn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "name": NotRequired[str],
+        "initialCapacity": NotRequired[Mapping[str, InitialCapacityConfigTypeDef]],
+        "maximumCapacity": NotRequired[MaximumAllowedResourcesTypeDef],
+        "tags": NotRequired[Mapping[str, str]],
+        "autoStartConfiguration": NotRequired[AutoStartConfigTypeDef],
+        "autoStopConfiguration": NotRequired[AutoStopConfigTypeDef],
+        "networkConfiguration": NotRequired[NetworkConfigurationUnionTypeDef],
+        "architecture": NotRequired[ArchitectureType],
+        "imageConfiguration": NotRequired[ImageConfigurationInputTypeDef],
+        "workerTypeSpecifications": NotRequired[Mapping[str, WorkerTypeSpecificationInputTypeDef]],
+        "runtimeConfiguration": NotRequired[Sequence[ConfigurationUnionTypeDef]],
+        "monitoringConfiguration": NotRequired[MonitoringConfigurationUnionTypeDef],
+        "interactiveConfiguration": NotRequired[InteractiveConfigurationTypeDef],
+        "schedulerConfiguration": NotRequired[SchedulerConfigurationTypeDef],
     },
 )
 
-StopApplicationRequestRequestTypeDef = TypedDict(
-    "StopApplicationRequestRequestTypeDef",
-    {
-        "applicationId": str,
-    },
-)
+class UpdateApplicationRequestTypeDef(TypedDict):
+    applicationId: str
+    clientToken: str
+    initialCapacity: NotRequired[Mapping[str, InitialCapacityConfigTypeDef]]
+    maximumCapacity: NotRequired[MaximumAllowedResourcesTypeDef]
+    autoStartConfiguration: NotRequired[AutoStartConfigTypeDef]
+    autoStopConfiguration: NotRequired[AutoStopConfigTypeDef]
+    networkConfiguration: NotRequired[NetworkConfigurationUnionTypeDef]
+    architecture: NotRequired[ArchitectureType]
+    imageConfiguration: NotRequired[ImageConfigurationInputTypeDef]
+    workerTypeSpecifications: NotRequired[Mapping[str, WorkerTypeSpecificationInputTypeDef]]
+    interactiveConfiguration: NotRequired[InteractiveConfigurationTypeDef]
+    releaseLabel: NotRequired[str]
+    runtimeConfiguration: NotRequired[Sequence[ConfigurationUnionTypeDef]]
+    monitoringConfiguration: NotRequired[MonitoringConfigurationUnionTypeDef]
+    schedulerConfiguration: NotRequired[SchedulerConfigurationTypeDef]
 
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tags": Dict[str, str],
-    },
-)
+class GetJobRunResponseTypeDef(TypedDict):
+    jobRun: JobRunTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-TotalResourceUtilizationTypeDef = TypedDict(
-    "TotalResourceUtilizationTypeDef",
-    {
-        "vCPUHour": float,
-        "memoryGBHour": float,
-        "storageGBHour": float,
-    },
-    total=False,
-)
-
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tagKeys": List[str],
-    },
-)
-
-_RequiredUpdateApplicationRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateApplicationRequestRequestTypeDef",
-    {
-        "applicationId": str,
-        "clientToken": str,
-    },
-)
-_OptionalUpdateApplicationRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateApplicationRequestRequestTypeDef",
-    {
-        "initialCapacity": Dict[str, "InitialCapacityConfigTypeDef"],
-        "maximumCapacity": "MaximumAllowedResourcesTypeDef",
-        "autoStartConfiguration": "AutoStartConfigTypeDef",
-        "autoStopConfiguration": "AutoStopConfigTypeDef",
-        "networkConfiguration": "NetworkConfigurationTypeDef",
-        "architecture": ArchitectureType,
-        "imageConfiguration": "ImageConfigurationInputTypeDef",
-        "workerTypeSpecifications": Dict[str, "WorkerTypeSpecificationInputTypeDef"],
-        "interactiveConfiguration": "InteractiveConfigurationTypeDef",
-        "releaseLabel": str,
-        "runtimeConfiguration": List["ConfigurationTypeDef"],
-        "monitoringConfiguration": "MonitoringConfigurationTypeDef",
-    },
-    total=False,
-)
-
-class UpdateApplicationRequestRequestTypeDef(
-    _RequiredUpdateApplicationRequestRequestTypeDef, _OptionalUpdateApplicationRequestRequestTypeDef
-):
-    pass
-
-UpdateApplicationResponseTypeDef = TypedDict(
-    "UpdateApplicationResponseTypeDef",
-    {
-        "application": "ApplicationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredWorkerResourceConfigTypeDef = TypedDict(
-    "_RequiredWorkerResourceConfigTypeDef",
-    {
-        "cpu": str,
-        "memory": str,
-    },
-)
-_OptionalWorkerResourceConfigTypeDef = TypedDict(
-    "_OptionalWorkerResourceConfigTypeDef",
-    {
-        "disk": str,
-        "diskType": str,
-    },
-    total=False,
-)
-
-class WorkerResourceConfigTypeDef(
-    _RequiredWorkerResourceConfigTypeDef, _OptionalWorkerResourceConfigTypeDef
-):
-    pass
-
-WorkerTypeSpecificationInputTypeDef = TypedDict(
-    "WorkerTypeSpecificationInputTypeDef",
-    {
-        "imageConfiguration": "ImageConfigurationInputTypeDef",
-    },
-    total=False,
-)
-
-WorkerTypeSpecificationTypeDef = TypedDict(
-    "WorkerTypeSpecificationTypeDef",
-    {
-        "imageConfiguration": "ImageConfigurationTypeDef",
-    },
-    total=False,
-)
+class StartJobRunRequestTypeDef(TypedDict):
+    applicationId: str
+    clientToken: str
+    executionRoleArn: str
+    jobDriver: NotRequired[JobDriverUnionTypeDef]
+    configurationOverrides: NotRequired[ConfigurationOverridesUnionTypeDef]
+    tags: NotRequired[Mapping[str, str]]
+    executionTimeoutMinutes: NotRequired[int]
+    name: NotRequired[str]
+    mode: NotRequired[JobRunModeType]
+    retryPolicy: NotRequired[RetryPolicyTypeDef]

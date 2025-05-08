@@ -1,14 +1,16 @@
 """
 Type annotations for ssm service client paginators.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
 
-    from mypy_boto3_ssm import SSMClient
+    from mypy_boto3_ssm.client import SSMClient
     from mypy_boto3_ssm.paginator import (
         DescribeActivationsPaginator,
         DescribeAssociationExecutionTargetsPaginator,
@@ -20,8 +22,8 @@ Usage::
         DescribeEffectivePatchesForPatchBaselinePaginator,
         DescribeInstanceAssociationsStatusPaginator,
         DescribeInstanceInformationPaginator,
-        DescribeInstancePatchStatesPaginator,
         DescribeInstancePatchStatesForPatchGroupPaginator,
+        DescribeInstancePatchStatesPaginator,
         DescribeInstancePatchesPaginator,
         DescribeInstancePropertiesPaginator,
         DescribeInventoryDeletionsPaginator,
@@ -31,8 +33,8 @@ Usage::
         DescribeMaintenanceWindowSchedulePaginator,
         DescribeMaintenanceWindowTargetsPaginator,
         DescribeMaintenanceWindowTasksPaginator,
-        DescribeMaintenanceWindowsPaginator,
         DescribeMaintenanceWindowsForTargetPaginator,
+        DescribeMaintenanceWindowsPaginator,
         DescribeOpsItemsPaginator,
         DescribeParametersPaginator,
         DescribePatchBaselinesPaginator,
@@ -53,6 +55,8 @@ Usage::
         ListComplianceSummariesPaginator,
         ListDocumentVersionsPaginator,
         ListDocumentsPaginator,
+        ListNodesPaginator,
+        ListNodesSummaryPaginator,
         ListOpsItemEventsPaginator,
         ListOpsItemRelatedItemsPaginator,
         ListOpsMetadataPaginator,
@@ -60,7 +64,8 @@ Usage::
         ListResourceDataSyncPaginator,
     )
 
-    client: SSMClient = boto3.client("ssm")
+    session = Session()
+    client: SSMClient = session.client("ssm")
 
     describe_activations_paginator: DescribeActivationsPaginator = client.get_paginator("describe_activations")
     describe_association_execution_targets_paginator: DescribeAssociationExecutionTargetsPaginator = client.get_paginator("describe_association_execution_targets")
@@ -72,8 +77,8 @@ Usage::
     describe_effective_patches_for_patch_baseline_paginator: DescribeEffectivePatchesForPatchBaselinePaginator = client.get_paginator("describe_effective_patches_for_patch_baseline")
     describe_instance_associations_status_paginator: DescribeInstanceAssociationsStatusPaginator = client.get_paginator("describe_instance_associations_status")
     describe_instance_information_paginator: DescribeInstanceInformationPaginator = client.get_paginator("describe_instance_information")
-    describe_instance_patch_states_paginator: DescribeInstancePatchStatesPaginator = client.get_paginator("describe_instance_patch_states")
     describe_instance_patch_states_for_patch_group_paginator: DescribeInstancePatchStatesForPatchGroupPaginator = client.get_paginator("describe_instance_patch_states_for_patch_group")
+    describe_instance_patch_states_paginator: DescribeInstancePatchStatesPaginator = client.get_paginator("describe_instance_patch_states")
     describe_instance_patches_paginator: DescribeInstancePatchesPaginator = client.get_paginator("describe_instance_patches")
     describe_instance_properties_paginator: DescribeInstancePropertiesPaginator = client.get_paginator("describe_instance_properties")
     describe_inventory_deletions_paginator: DescribeInventoryDeletionsPaginator = client.get_paginator("describe_inventory_deletions")
@@ -83,8 +88,8 @@ Usage::
     describe_maintenance_window_schedule_paginator: DescribeMaintenanceWindowSchedulePaginator = client.get_paginator("describe_maintenance_window_schedule")
     describe_maintenance_window_targets_paginator: DescribeMaintenanceWindowTargetsPaginator = client.get_paginator("describe_maintenance_window_targets")
     describe_maintenance_window_tasks_paginator: DescribeMaintenanceWindowTasksPaginator = client.get_paginator("describe_maintenance_window_tasks")
-    describe_maintenance_windows_paginator: DescribeMaintenanceWindowsPaginator = client.get_paginator("describe_maintenance_windows")
     describe_maintenance_windows_for_target_paginator: DescribeMaintenanceWindowsForTargetPaginator = client.get_paginator("describe_maintenance_windows_for_target")
+    describe_maintenance_windows_paginator: DescribeMaintenanceWindowsPaginator = client.get_paginator("describe_maintenance_windows")
     describe_ops_items_paginator: DescribeOpsItemsPaginator = client.get_paginator("describe_ops_items")
     describe_parameters_paginator: DescribeParametersPaginator = client.get_paginator("describe_parameters")
     describe_patch_baselines_paginator: DescribePatchBaselinesPaginator = client.get_paginator("describe_patch_baselines")
@@ -105,6 +110,8 @@ Usage::
     list_compliance_summaries_paginator: ListComplianceSummariesPaginator = client.get_paginator("list_compliance_summaries")
     list_document_versions_paginator: ListDocumentVersionsPaginator = client.get_paginator("list_document_versions")
     list_documents_paginator: ListDocumentsPaginator = client.get_paginator("list_documents")
+    list_nodes_paginator: ListNodesPaginator = client.get_paginator("list_nodes")
+    list_nodes_summary_paginator: ListNodesSummaryPaginator = client.get_paginator("list_nodes_summary")
     list_ops_item_events_paginator: ListOpsItemEventsPaginator = client.get_paginator("list_ops_item_events")
     list_ops_item_related_items_paginator: ListOpsItemRelatedItemsPaginator = client.get_paginator("list_ops_item_related_items")
     list_ops_metadata_paginator: ListOpsMetadataPaginator = client.get_paginator("list_ops_metadata")
@@ -113,99 +120,120 @@ Usage::
     ```
 """
 
-from typing import Iterator, List
+from __future__ import annotations
 
-from botocore.paginate import Paginator as Boto3Paginator
+import sys
+from typing import TYPE_CHECKING
 
-from .literals import (
-    MaintenanceWindowResourceTypeType,
-    OperatingSystemType,
-    PatchPropertyType,
-    PatchSetType,
-    SessionStateType,
-)
+from botocore.paginate import PageIterator, Paginator
+
 from .type_defs import (
-    AssociationExecutionFilterTypeDef,
-    AssociationExecutionTargetsFilterTypeDef,
-    AssociationFilterTypeDef,
-    AutomationExecutionFilterTypeDef,
-    CommandFilterTypeDef,
-    ComplianceStringFilterTypeDef,
-    DescribeActivationsFilterTypeDef,
+    DescribeActivationsRequestPaginateTypeDef,
     DescribeActivationsResultTypeDef,
+    DescribeAssociationExecutionsRequestPaginateTypeDef,
     DescribeAssociationExecutionsResultTypeDef,
+    DescribeAssociationExecutionTargetsRequestPaginateTypeDef,
     DescribeAssociationExecutionTargetsResultTypeDef,
+    DescribeAutomationExecutionsRequestPaginateTypeDef,
     DescribeAutomationExecutionsResultTypeDef,
+    DescribeAutomationStepExecutionsRequestPaginateTypeDef,
     DescribeAutomationStepExecutionsResultTypeDef,
+    DescribeAvailablePatchesRequestPaginateTypeDef,
     DescribeAvailablePatchesResultTypeDef,
+    DescribeEffectiveInstanceAssociationsRequestPaginateTypeDef,
     DescribeEffectiveInstanceAssociationsResultTypeDef,
+    DescribeEffectivePatchesForPatchBaselineRequestPaginateTypeDef,
     DescribeEffectivePatchesForPatchBaselineResultTypeDef,
+    DescribeInstanceAssociationsStatusRequestPaginateTypeDef,
     DescribeInstanceAssociationsStatusResultTypeDef,
+    DescribeInstanceInformationRequestPaginateTypeDef,
     DescribeInstanceInformationResultTypeDef,
+    DescribeInstancePatchesRequestPaginateTypeDef,
     DescribeInstancePatchesResultTypeDef,
+    DescribeInstancePatchStatesForPatchGroupRequestPaginateTypeDef,
     DescribeInstancePatchStatesForPatchGroupResultTypeDef,
+    DescribeInstancePatchStatesRequestPaginateTypeDef,
     DescribeInstancePatchStatesResultTypeDef,
+    DescribeInstancePropertiesRequestPaginateTypeDef,
     DescribeInstancePropertiesResultTypeDef,
+    DescribeInventoryDeletionsRequestPaginateTypeDef,
     DescribeInventoryDeletionsResultTypeDef,
+    DescribeMaintenanceWindowExecutionsRequestPaginateTypeDef,
     DescribeMaintenanceWindowExecutionsResultTypeDef,
+    DescribeMaintenanceWindowExecutionTaskInvocationsRequestPaginateTypeDef,
     DescribeMaintenanceWindowExecutionTaskInvocationsResultTypeDef,
+    DescribeMaintenanceWindowExecutionTasksRequestPaginateTypeDef,
     DescribeMaintenanceWindowExecutionTasksResultTypeDef,
+    DescribeMaintenanceWindowScheduleRequestPaginateTypeDef,
     DescribeMaintenanceWindowScheduleResultTypeDef,
+    DescribeMaintenanceWindowsForTargetRequestPaginateTypeDef,
     DescribeMaintenanceWindowsForTargetResultTypeDef,
+    DescribeMaintenanceWindowsRequestPaginateTypeDef,
     DescribeMaintenanceWindowsResultTypeDef,
+    DescribeMaintenanceWindowTargetsRequestPaginateTypeDef,
     DescribeMaintenanceWindowTargetsResultTypeDef,
+    DescribeMaintenanceWindowTasksRequestPaginateTypeDef,
     DescribeMaintenanceWindowTasksResultTypeDef,
+    DescribeOpsItemsRequestPaginateTypeDef,
     DescribeOpsItemsResponseTypeDef,
+    DescribeParametersRequestPaginateTypeDef,
     DescribeParametersResultTypeDef,
+    DescribePatchBaselinesRequestPaginateTypeDef,
     DescribePatchBaselinesResultTypeDef,
+    DescribePatchGroupsRequestPaginateTypeDef,
     DescribePatchGroupsResultTypeDef,
+    DescribePatchPropertiesRequestPaginateTypeDef,
     DescribePatchPropertiesResultTypeDef,
+    DescribeSessionsRequestPaginateTypeDef,
     DescribeSessionsResponseTypeDef,
-    DocumentFilterTypeDef,
-    DocumentKeyValuesFilterTypeDef,
+    GetInventoryRequestPaginateTypeDef,
     GetInventoryResultTypeDef,
+    GetInventorySchemaRequestPaginateTypeDef,
     GetInventorySchemaResultTypeDef,
+    GetOpsSummaryRequestPaginateTypeDef,
     GetOpsSummaryResultTypeDef,
+    GetParameterHistoryRequestPaginateTypeDef,
     GetParameterHistoryResultTypeDef,
+    GetParametersByPathRequestPaginateTypeDef,
     GetParametersByPathResultTypeDef,
+    GetResourcePoliciesRequestPaginateTypeDef,
     GetResourcePoliciesResponseTypeDef,
-    InstanceInformationFilterTypeDef,
-    InstanceInformationStringFilterTypeDef,
-    InstancePatchStateFilterTypeDef,
-    InstancePropertyFilterTypeDef,
-    InstancePropertyStringFilterTypeDef,
-    InventoryAggregatorTypeDef,
-    InventoryFilterTypeDef,
+    ListAssociationsRequestPaginateTypeDef,
     ListAssociationsResultTypeDef,
+    ListAssociationVersionsRequestPaginateTypeDef,
     ListAssociationVersionsResultTypeDef,
+    ListCommandInvocationsRequestPaginateTypeDef,
     ListCommandInvocationsResultTypeDef,
+    ListCommandsRequestPaginateTypeDef,
     ListCommandsResultTypeDef,
+    ListComplianceItemsRequestPaginateTypeDef,
     ListComplianceItemsResultTypeDef,
+    ListComplianceSummariesRequestPaginateTypeDef,
     ListComplianceSummariesResultTypeDef,
+    ListDocumentsRequestPaginateTypeDef,
     ListDocumentsResultTypeDef,
+    ListDocumentVersionsRequestPaginateTypeDef,
     ListDocumentVersionsResultTypeDef,
+    ListNodesRequestPaginateTypeDef,
+    ListNodesResultTypeDef,
+    ListNodesSummaryRequestPaginateTypeDef,
+    ListNodesSummaryResultTypeDef,
+    ListOpsItemEventsRequestPaginateTypeDef,
     ListOpsItemEventsResponseTypeDef,
+    ListOpsItemRelatedItemsRequestPaginateTypeDef,
     ListOpsItemRelatedItemsResponseTypeDef,
+    ListOpsMetadataRequestPaginateTypeDef,
     ListOpsMetadataResultTypeDef,
+    ListResourceComplianceSummariesRequestPaginateTypeDef,
     ListResourceComplianceSummariesResultTypeDef,
+    ListResourceDataSyncRequestPaginateTypeDef,
     ListResourceDataSyncResultTypeDef,
-    MaintenanceWindowFilterTypeDef,
-    OpsAggregatorTypeDef,
-    OpsFilterTypeDef,
-    OpsItemEventFilterTypeDef,
-    OpsItemFilterTypeDef,
-    OpsItemRelatedItemsFilterTypeDef,
-    OpsMetadataFilterTypeDef,
-    OpsResultAttributeTypeDef,
-    PaginatorConfigTypeDef,
-    ParametersFilterTypeDef,
-    ParameterStringFilterTypeDef,
-    PatchOrchestratorFilterTypeDef,
-    ResultAttributeTypeDef,
-    SessionFilterTypeDef,
-    StepExecutionFilterTypeDef,
-    TargetTypeDef,
 )
+
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = (
     "DescribeActivationsPaginator",
@@ -218,8 +246,8 @@ __all__ = (
     "DescribeEffectivePatchesForPatchBaselinePaginator",
     "DescribeInstanceAssociationsStatusPaginator",
     "DescribeInstanceInformationPaginator",
-    "DescribeInstancePatchStatesPaginator",
     "DescribeInstancePatchStatesForPatchGroupPaginator",
+    "DescribeInstancePatchStatesPaginator",
     "DescribeInstancePatchesPaginator",
     "DescribeInstancePropertiesPaginator",
     "DescribeInventoryDeletionsPaginator",
@@ -229,8 +257,8 @@ __all__ = (
     "DescribeMaintenanceWindowSchedulePaginator",
     "DescribeMaintenanceWindowTargetsPaginator",
     "DescribeMaintenanceWindowTasksPaginator",
-    "DescribeMaintenanceWindowsPaginator",
     "DescribeMaintenanceWindowsForTargetPaginator",
+    "DescribeMaintenanceWindowsPaginator",
     "DescribeOpsItemsPaginator",
     "DescribeParametersPaginator",
     "DescribePatchBaselinesPaginator",
@@ -251,6 +279,8 @@ __all__ = (
     "ListComplianceSummariesPaginator",
     "ListDocumentVersionsPaginator",
     "ListDocumentsPaginator",
+    "ListNodesPaginator",
+    "ListNodesSummaryPaginator",
     "ListOpsItemEventsPaginator",
     "ListOpsItemRelatedItemsPaginator",
     "ListOpsMetadataPaginator",
@@ -258,835 +288,951 @@ __all__ = (
     "ListResourceDataSyncPaginator",
 )
 
-class DescribeActivationsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm.html#SSM.Paginator.DescribeActivations)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#describeactivationspaginator)
-    """
+if TYPE_CHECKING:
+    _DescribeActivationsPaginatorBase = Paginator[DescribeActivationsResultTypeDef]
+else:
+    _DescribeActivationsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
+class DescribeActivationsPaginator(_DescribeActivationsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/paginator/DescribeActivations.html#SSM.Paginator.DescribeActivations)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators/#describeactivationspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeActivationsRequestPaginateTypeDef]
+    ) -> PageIterator[DescribeActivationsResultTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/paginator/DescribeActivations.html#SSM.Paginator.DescribeActivations.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators/#describeactivationspaginator)
+        """
+
+if TYPE_CHECKING:
+    _DescribeAssociationExecutionTargetsPaginatorBase = Paginator[
+        DescribeAssociationExecutionTargetsResultTypeDef
+    ]
+else:
+    _DescribeAssociationExecutionTargetsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class DescribeAssociationExecutionTargetsPaginator(
+    _DescribeAssociationExecutionTargetsPaginatorBase
+):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/paginator/DescribeAssociationExecutionTargets.html#SSM.Paginator.DescribeAssociationExecutionTargets)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators/#describeassociationexecutiontargetspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeAssociationExecutionTargetsRequestPaginateTypeDef]
+    ) -> PageIterator[DescribeAssociationExecutionTargetsResultTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/paginator/DescribeAssociationExecutionTargets.html#SSM.Paginator.DescribeAssociationExecutionTargets.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators/#describeassociationexecutiontargetspaginator)
+        """
+
+if TYPE_CHECKING:
+    _DescribeAssociationExecutionsPaginatorBase = Paginator[
+        DescribeAssociationExecutionsResultTypeDef
+    ]
+else:
+    _DescribeAssociationExecutionsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class DescribeAssociationExecutionsPaginator(_DescribeAssociationExecutionsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/paginator/DescribeAssociationExecutions.html#SSM.Paginator.DescribeAssociationExecutions)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators/#describeassociationexecutionspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeAssociationExecutionsRequestPaginateTypeDef]
+    ) -> PageIterator[DescribeAssociationExecutionsResultTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/paginator/DescribeAssociationExecutions.html#SSM.Paginator.DescribeAssociationExecutions.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators/#describeassociationexecutionspaginator)
+        """
+
+if TYPE_CHECKING:
+    _DescribeAutomationExecutionsPaginatorBase = Paginator[
+        DescribeAutomationExecutionsResultTypeDef
+    ]
+else:
+    _DescribeAutomationExecutionsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class DescribeAutomationExecutionsPaginator(_DescribeAutomationExecutionsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/paginator/DescribeAutomationExecutions.html#SSM.Paginator.DescribeAutomationExecutions)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators/#describeautomationexecutionspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeAutomationExecutionsRequestPaginateTypeDef]
+    ) -> PageIterator[DescribeAutomationExecutionsResultTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/paginator/DescribeAutomationExecutions.html#SSM.Paginator.DescribeAutomationExecutions.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators/#describeautomationexecutionspaginator)
+        """
+
+if TYPE_CHECKING:
+    _DescribeAutomationStepExecutionsPaginatorBase = Paginator[
+        DescribeAutomationStepExecutionsResultTypeDef
+    ]
+else:
+    _DescribeAutomationStepExecutionsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class DescribeAutomationStepExecutionsPaginator(_DescribeAutomationStepExecutionsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/paginator/DescribeAutomationStepExecutions.html#SSM.Paginator.DescribeAutomationStepExecutions)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators/#describeautomationstepexecutionspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeAutomationStepExecutionsRequestPaginateTypeDef]
+    ) -> PageIterator[DescribeAutomationStepExecutionsResultTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/paginator/DescribeAutomationStepExecutions.html#SSM.Paginator.DescribeAutomationStepExecutions.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators/#describeautomationstepexecutionspaginator)
+        """
+
+if TYPE_CHECKING:
+    _DescribeAvailablePatchesPaginatorBase = Paginator[DescribeAvailablePatchesResultTypeDef]
+else:
+    _DescribeAvailablePatchesPaginatorBase = Paginator  # type: ignore[assignment]
+
+class DescribeAvailablePatchesPaginator(_DescribeAvailablePatchesPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/paginator/DescribeAvailablePatches.html#SSM.Paginator.DescribeAvailablePatches)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators/#describeavailablepatchespaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeAvailablePatchesRequestPaginateTypeDef]
+    ) -> PageIterator[DescribeAvailablePatchesResultTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/paginator/DescribeAvailablePatches.html#SSM.Paginator.DescribeAvailablePatches.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators/#describeavailablepatchespaginator)
+        """
+
+if TYPE_CHECKING:
+    _DescribeEffectiveInstanceAssociationsPaginatorBase = Paginator[
+        DescribeEffectiveInstanceAssociationsResultTypeDef
+    ]
+else:
+    _DescribeEffectiveInstanceAssociationsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class DescribeEffectiveInstanceAssociationsPaginator(
+    _DescribeEffectiveInstanceAssociationsPaginatorBase
+):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/paginator/DescribeEffectiveInstanceAssociations.html#SSM.Paginator.DescribeEffectiveInstanceAssociations)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators/#describeeffectiveinstanceassociationspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeEffectiveInstanceAssociationsRequestPaginateTypeDef]
+    ) -> PageIterator[DescribeEffectiveInstanceAssociationsResultTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/paginator/DescribeEffectiveInstanceAssociations.html#SSM.Paginator.DescribeEffectiveInstanceAssociations.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators/#describeeffectiveinstanceassociationspaginator)
+        """
+
+if TYPE_CHECKING:
+    _DescribeEffectivePatchesForPatchBaselinePaginatorBase = Paginator[
+        DescribeEffectivePatchesForPatchBaselineResultTypeDef
+    ]
+else:
+    _DescribeEffectivePatchesForPatchBaselinePaginatorBase = Paginator  # type: ignore[assignment]
+
+class DescribeEffectivePatchesForPatchBaselinePaginator(
+    _DescribeEffectivePatchesForPatchBaselinePaginatorBase
+):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/paginator/DescribeEffectivePatchesForPatchBaseline.html#SSM.Paginator.DescribeEffectivePatchesForPatchBaseline)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators/#describeeffectivepatchesforpatchbaselinepaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeEffectivePatchesForPatchBaselineRequestPaginateTypeDef]
+    ) -> PageIterator[DescribeEffectivePatchesForPatchBaselineResultTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/paginator/DescribeEffectivePatchesForPatchBaseline.html#SSM.Paginator.DescribeEffectivePatchesForPatchBaseline.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators/#describeeffectivepatchesforpatchbaselinepaginator)
+        """
+
+if TYPE_CHECKING:
+    _DescribeInstanceAssociationsStatusPaginatorBase = Paginator[
+        DescribeInstanceAssociationsStatusResultTypeDef
+    ]
+else:
+    _DescribeInstanceAssociationsStatusPaginatorBase = Paginator  # type: ignore[assignment]
+
+class DescribeInstanceAssociationsStatusPaginator(_DescribeInstanceAssociationsStatusPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/paginator/DescribeInstanceAssociationsStatus.html#SSM.Paginator.DescribeInstanceAssociationsStatus)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators/#describeinstanceassociationsstatuspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeInstanceAssociationsStatusRequestPaginateTypeDef]
+    ) -> PageIterator[DescribeInstanceAssociationsStatusResultTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/paginator/DescribeInstanceAssociationsStatus.html#SSM.Paginator.DescribeInstanceAssociationsStatus.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators/#describeinstanceassociationsstatuspaginator)
+        """
+
+if TYPE_CHECKING:
+    _DescribeInstanceInformationPaginatorBase = Paginator[DescribeInstanceInformationResultTypeDef]
+else:
+    _DescribeInstanceInformationPaginatorBase = Paginator  # type: ignore[assignment]
+
+class DescribeInstanceInformationPaginator(_DescribeInstanceInformationPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/paginator/DescribeInstanceInformation.html#SSM.Paginator.DescribeInstanceInformation)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators/#describeinstanceinformationpaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeInstanceInformationRequestPaginateTypeDef]
+    ) -> PageIterator[DescribeInstanceInformationResultTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/paginator/DescribeInstanceInformation.html#SSM.Paginator.DescribeInstanceInformation.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators/#describeinstanceinformationpaginator)
+        """
+
+if TYPE_CHECKING:
+    _DescribeInstancePatchStatesForPatchGroupPaginatorBase = Paginator[
+        DescribeInstancePatchStatesForPatchGroupResultTypeDef
+    ]
+else:
+    _DescribeInstancePatchStatesForPatchGroupPaginatorBase = Paginator  # type: ignore[assignment]
+
+class DescribeInstancePatchStatesForPatchGroupPaginator(
+    _DescribeInstancePatchStatesForPatchGroupPaginatorBase
+):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/paginator/DescribeInstancePatchStatesForPatchGroup.html#SSM.Paginator.DescribeInstancePatchStatesForPatchGroup)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators/#describeinstancepatchstatesforpatchgrouppaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeInstancePatchStatesForPatchGroupRequestPaginateTypeDef]
+    ) -> PageIterator[DescribeInstancePatchStatesForPatchGroupResultTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/paginator/DescribeInstancePatchStatesForPatchGroup.html#SSM.Paginator.DescribeInstancePatchStatesForPatchGroup.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators/#describeinstancepatchstatesforpatchgrouppaginator)
+        """
+
+if TYPE_CHECKING:
+    _DescribeInstancePatchStatesPaginatorBase = Paginator[DescribeInstancePatchStatesResultTypeDef]
+else:
+    _DescribeInstancePatchStatesPaginatorBase = Paginator  # type: ignore[assignment]
+
+class DescribeInstancePatchStatesPaginator(_DescribeInstancePatchStatesPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/paginator/DescribeInstancePatchStates.html#SSM.Paginator.DescribeInstancePatchStates)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators/#describeinstancepatchstatespaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeInstancePatchStatesRequestPaginateTypeDef]
+    ) -> PageIterator[DescribeInstancePatchStatesResultTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/paginator/DescribeInstancePatchStates.html#SSM.Paginator.DescribeInstancePatchStates.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators/#describeinstancepatchstatespaginator)
+        """
+
+if TYPE_CHECKING:
+    _DescribeInstancePatchesPaginatorBase = Paginator[DescribeInstancePatchesResultTypeDef]
+else:
+    _DescribeInstancePatchesPaginatorBase = Paginator  # type: ignore[assignment]
+
+class DescribeInstancePatchesPaginator(_DescribeInstancePatchesPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/paginator/DescribeInstancePatches.html#SSM.Paginator.DescribeInstancePatches)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators/#describeinstancepatchespaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeInstancePatchesRequestPaginateTypeDef]
+    ) -> PageIterator[DescribeInstancePatchesResultTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/paginator/DescribeInstancePatches.html#SSM.Paginator.DescribeInstancePatches.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators/#describeinstancepatchespaginator)
+        """
+
+if TYPE_CHECKING:
+    _DescribeInstancePropertiesPaginatorBase = Paginator[DescribeInstancePropertiesResultTypeDef]
+else:
+    _DescribeInstancePropertiesPaginatorBase = Paginator  # type: ignore[assignment]
+
+class DescribeInstancePropertiesPaginator(_DescribeInstancePropertiesPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/paginator/DescribeInstanceProperties.html#SSM.Paginator.DescribeInstanceProperties)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators/#describeinstancepropertiespaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeInstancePropertiesRequestPaginateTypeDef]
+    ) -> PageIterator[DescribeInstancePropertiesResultTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/paginator/DescribeInstanceProperties.html#SSM.Paginator.DescribeInstanceProperties.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators/#describeinstancepropertiespaginator)
+        """
+
+if TYPE_CHECKING:
+    _DescribeInventoryDeletionsPaginatorBase = Paginator[DescribeInventoryDeletionsResultTypeDef]
+else:
+    _DescribeInventoryDeletionsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class DescribeInventoryDeletionsPaginator(_DescribeInventoryDeletionsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/paginator/DescribeInventoryDeletions.html#SSM.Paginator.DescribeInventoryDeletions)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators/#describeinventorydeletionspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeInventoryDeletionsRequestPaginateTypeDef]
+    ) -> PageIterator[DescribeInventoryDeletionsResultTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/paginator/DescribeInventoryDeletions.html#SSM.Paginator.DescribeInventoryDeletions.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators/#describeinventorydeletionspaginator)
+        """
+
+if TYPE_CHECKING:
+    _DescribeMaintenanceWindowExecutionTaskInvocationsPaginatorBase = Paginator[
+        DescribeMaintenanceWindowExecutionTaskInvocationsResultTypeDef
+    ]
+else:
+    _DescribeMaintenanceWindowExecutionTaskInvocationsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class DescribeMaintenanceWindowExecutionTaskInvocationsPaginator(
+    _DescribeMaintenanceWindowExecutionTaskInvocationsPaginatorBase
+):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/paginator/DescribeMaintenanceWindowExecutionTaskInvocations.html#SSM.Paginator.DescribeMaintenanceWindowExecutionTaskInvocations)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators/#describemaintenancewindowexecutiontaskinvocationspaginator)
+    """
+    def paginate(  # type: ignore[override]
         self,
-        *,
-        Filters: List["DescribeActivationsFilterTypeDef"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[DescribeActivationsResultTypeDef]:
+        **kwargs: Unpack[DescribeMaintenanceWindowExecutionTaskInvocationsRequestPaginateTypeDef],
+    ) -> PageIterator[DescribeMaintenanceWindowExecutionTaskInvocationsResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm.html#SSM.Paginator.DescribeActivations.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#describeactivationspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/paginator/DescribeMaintenanceWindowExecutionTaskInvocations.html#SSM.Paginator.DescribeMaintenanceWindowExecutionTaskInvocations.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators/#describemaintenancewindowexecutiontaskinvocationspaginator)
         """
 
-class DescribeAssociationExecutionTargetsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm.html#SSM.Paginator.DescribeAssociationExecutionTargets)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#describeassociationexecutiontargetspaginator)
-    """
-
-    def paginate(
-        self,
-        *,
-        AssociationId: str,
-        ExecutionId: str,
-        Filters: List["AssociationExecutionTargetsFilterTypeDef"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[DescribeAssociationExecutionTargetsResultTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm.html#SSM.Paginator.DescribeAssociationExecutionTargets.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#describeassociationexecutiontargetspaginator)
-        """
+if TYPE_CHECKING:
+    _DescribeMaintenanceWindowExecutionTasksPaginatorBase = Paginator[
+        DescribeMaintenanceWindowExecutionTasksResultTypeDef
+    ]
+else:
+    _DescribeMaintenanceWindowExecutionTasksPaginatorBase = Paginator  # type: ignore[assignment]
 
-class DescribeAssociationExecutionsPaginator(Boto3Paginator):
+class DescribeMaintenanceWindowExecutionTasksPaginator(
+    _DescribeMaintenanceWindowExecutionTasksPaginatorBase
+):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm.html#SSM.Paginator.DescribeAssociationExecutions)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#describeassociationexecutionspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/paginator/DescribeMaintenanceWindowExecutionTasks.html#SSM.Paginator.DescribeMaintenanceWindowExecutionTasks)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators/#describemaintenancewindowexecutiontaskspaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        AssociationId: str,
-        Filters: List["AssociationExecutionFilterTypeDef"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[DescribeAssociationExecutionsResultTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeMaintenanceWindowExecutionTasksRequestPaginateTypeDef]
+    ) -> PageIterator[DescribeMaintenanceWindowExecutionTasksResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm.html#SSM.Paginator.DescribeAssociationExecutions.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#describeassociationexecutionspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/paginator/DescribeMaintenanceWindowExecutionTasks.html#SSM.Paginator.DescribeMaintenanceWindowExecutionTasks.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators/#describemaintenancewindowexecutiontaskspaginator)
         """
-
-class DescribeAutomationExecutionsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm.html#SSM.Paginator.DescribeAutomationExecutions)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#describeautomationexecutionspaginator)
-    """
 
-    def paginate(
-        self,
-        *,
-        Filters: List["AutomationExecutionFilterTypeDef"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[DescribeAutomationExecutionsResultTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm.html#SSM.Paginator.DescribeAutomationExecutions.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#describeautomationexecutionspaginator)
-        """
+if TYPE_CHECKING:
+    _DescribeMaintenanceWindowExecutionsPaginatorBase = Paginator[
+        DescribeMaintenanceWindowExecutionsResultTypeDef
+    ]
+else:
+    _DescribeMaintenanceWindowExecutionsPaginatorBase = Paginator  # type: ignore[assignment]
 
-class DescribeAutomationStepExecutionsPaginator(Boto3Paginator):
+class DescribeMaintenanceWindowExecutionsPaginator(
+    _DescribeMaintenanceWindowExecutionsPaginatorBase
+):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm.html#SSM.Paginator.DescribeAutomationStepExecutions)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#describeautomationstepexecutionspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/paginator/DescribeMaintenanceWindowExecutions.html#SSM.Paginator.DescribeMaintenanceWindowExecutions)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators/#describemaintenancewindowexecutionspaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        AutomationExecutionId: str,
-        Filters: List["StepExecutionFilterTypeDef"] = None,
-        ReverseOrder: bool = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[DescribeAutomationStepExecutionsResultTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeMaintenanceWindowExecutionsRequestPaginateTypeDef]
+    ) -> PageIterator[DescribeMaintenanceWindowExecutionsResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm.html#SSM.Paginator.DescribeAutomationStepExecutions.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#describeautomationstepexecutionspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/paginator/DescribeMaintenanceWindowExecutions.html#SSM.Paginator.DescribeMaintenanceWindowExecutions.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators/#describemaintenancewindowexecutionspaginator)
         """
-
-class DescribeAvailablePatchesPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm.html#SSM.Paginator.DescribeAvailablePatches)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#describeavailablepatchespaginator)
-    """
 
-    def paginate(
-        self,
-        *,
-        Filters: List["PatchOrchestratorFilterTypeDef"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[DescribeAvailablePatchesResultTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm.html#SSM.Paginator.DescribeAvailablePatches.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#describeavailablepatchespaginator)
-        """
+if TYPE_CHECKING:
+    _DescribeMaintenanceWindowSchedulePaginatorBase = Paginator[
+        DescribeMaintenanceWindowScheduleResultTypeDef
+    ]
+else:
+    _DescribeMaintenanceWindowSchedulePaginatorBase = Paginator  # type: ignore[assignment]
 
-class DescribeEffectiveInstanceAssociationsPaginator(Boto3Paginator):
+class DescribeMaintenanceWindowSchedulePaginator(_DescribeMaintenanceWindowSchedulePaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm.html#SSM.Paginator.DescribeEffectiveInstanceAssociations)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#describeeffectiveinstanceassociationspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/paginator/DescribeMaintenanceWindowSchedule.html#SSM.Paginator.DescribeMaintenanceWindowSchedule)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators/#describemaintenancewindowschedulepaginator)
     """
-
-    def paginate(
-        self, *, InstanceId: str, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[DescribeEffectiveInstanceAssociationsResultTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeMaintenanceWindowScheduleRequestPaginateTypeDef]
+    ) -> PageIterator[DescribeMaintenanceWindowScheduleResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm.html#SSM.Paginator.DescribeEffectiveInstanceAssociations.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#describeeffectiveinstanceassociationspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/paginator/DescribeMaintenanceWindowSchedule.html#SSM.Paginator.DescribeMaintenanceWindowSchedule.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators/#describemaintenancewindowschedulepaginator)
         """
 
-class DescribeEffectivePatchesForPatchBaselinePaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm.html#SSM.Paginator.DescribeEffectivePatchesForPatchBaseline)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#describeeffectivepatchesforpatchbaselinepaginator)
-    """
-
-    def paginate(
-        self, *, BaselineId: str, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[DescribeEffectivePatchesForPatchBaselineResultTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm.html#SSM.Paginator.DescribeEffectivePatchesForPatchBaseline.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#describeeffectivepatchesforpatchbaselinepaginator)
-        """
+if TYPE_CHECKING:
+    _DescribeMaintenanceWindowTargetsPaginatorBase = Paginator[
+        DescribeMaintenanceWindowTargetsResultTypeDef
+    ]
+else:
+    _DescribeMaintenanceWindowTargetsPaginatorBase = Paginator  # type: ignore[assignment]
 
-class DescribeInstanceAssociationsStatusPaginator(Boto3Paginator):
+class DescribeMaintenanceWindowTargetsPaginator(_DescribeMaintenanceWindowTargetsPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm.html#SSM.Paginator.DescribeInstanceAssociationsStatus)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#describeinstanceassociationsstatuspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/paginator/DescribeMaintenanceWindowTargets.html#SSM.Paginator.DescribeMaintenanceWindowTargets)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators/#describemaintenancewindowtargetspaginator)
     """
-
-    def paginate(
-        self, *, InstanceId: str, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[DescribeInstanceAssociationsStatusResultTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeMaintenanceWindowTargetsRequestPaginateTypeDef]
+    ) -> PageIterator[DescribeMaintenanceWindowTargetsResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm.html#SSM.Paginator.DescribeInstanceAssociationsStatus.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#describeinstanceassociationsstatuspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/paginator/DescribeMaintenanceWindowTargets.html#SSM.Paginator.DescribeMaintenanceWindowTargets.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators/#describemaintenancewindowtargetspaginator)
         """
-
-class DescribeInstanceInformationPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm.html#SSM.Paginator.DescribeInstanceInformation)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#describeinstanceinformationpaginator)
-    """
 
-    def paginate(
-        self,
-        *,
-        InstanceInformationFilterList: List["InstanceInformationFilterTypeDef"] = None,
-        Filters: List["InstanceInformationStringFilterTypeDef"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[DescribeInstanceInformationResultTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm.html#SSM.Paginator.DescribeInstanceInformation.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#describeinstanceinformationpaginator)
-        """
+if TYPE_CHECKING:
+    _DescribeMaintenanceWindowTasksPaginatorBase = Paginator[
+        DescribeMaintenanceWindowTasksResultTypeDef
+    ]
+else:
+    _DescribeMaintenanceWindowTasksPaginatorBase = Paginator  # type: ignore[assignment]
 
-class DescribeInstancePatchStatesPaginator(Boto3Paginator):
+class DescribeMaintenanceWindowTasksPaginator(_DescribeMaintenanceWindowTasksPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm.html#SSM.Paginator.DescribeInstancePatchStates)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#describeinstancepatchstatespaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/paginator/DescribeMaintenanceWindowTasks.html#SSM.Paginator.DescribeMaintenanceWindowTasks)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators/#describemaintenancewindowtaskspaginator)
     """
-
-    def paginate(
-        self, *, InstanceIds: List[str], PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[DescribeInstancePatchStatesResultTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeMaintenanceWindowTasksRequestPaginateTypeDef]
+    ) -> PageIterator[DescribeMaintenanceWindowTasksResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm.html#SSM.Paginator.DescribeInstancePatchStates.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#describeinstancepatchstatespaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/paginator/DescribeMaintenanceWindowTasks.html#SSM.Paginator.DescribeMaintenanceWindowTasks.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators/#describemaintenancewindowtaskspaginator)
         """
 
-class DescribeInstancePatchStatesForPatchGroupPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm.html#SSM.Paginator.DescribeInstancePatchStatesForPatchGroup)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#describeinstancepatchstatesforpatchgrouppaginator)
-    """
-
-    def paginate(
-        self,
-        *,
-        PatchGroup: str,
-        Filters: List["InstancePatchStateFilterTypeDef"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[DescribeInstancePatchStatesForPatchGroupResultTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm.html#SSM.Paginator.DescribeInstancePatchStatesForPatchGroup.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#describeinstancepatchstatesforpatchgrouppaginator)
-        """
+if TYPE_CHECKING:
+    _DescribeMaintenanceWindowsForTargetPaginatorBase = Paginator[
+        DescribeMaintenanceWindowsForTargetResultTypeDef
+    ]
+else:
+    _DescribeMaintenanceWindowsForTargetPaginatorBase = Paginator  # type: ignore[assignment]
 
-class DescribeInstancePatchesPaginator(Boto3Paginator):
+class DescribeMaintenanceWindowsForTargetPaginator(
+    _DescribeMaintenanceWindowsForTargetPaginatorBase
+):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm.html#SSM.Paginator.DescribeInstancePatches)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#describeinstancepatchespaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/paginator/DescribeMaintenanceWindowsForTarget.html#SSM.Paginator.DescribeMaintenanceWindowsForTarget)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators/#describemaintenancewindowsfortargetpaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        InstanceId: str,
-        Filters: List["PatchOrchestratorFilterTypeDef"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[DescribeInstancePatchesResultTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeMaintenanceWindowsForTargetRequestPaginateTypeDef]
+    ) -> PageIterator[DescribeMaintenanceWindowsForTargetResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm.html#SSM.Paginator.DescribeInstancePatches.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#describeinstancepatchespaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/paginator/DescribeMaintenanceWindowsForTarget.html#SSM.Paginator.DescribeMaintenanceWindowsForTarget.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators/#describemaintenancewindowsfortargetpaginator)
         """
-
-class DescribeInstancePropertiesPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm.html#SSM.Paginator.DescribeInstanceProperties)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#describeinstancepropertiespaginator)
-    """
 
-    def paginate(
-        self,
-        *,
-        InstancePropertyFilterList: List["InstancePropertyFilterTypeDef"] = None,
-        FiltersWithOperator: List["InstancePropertyStringFilterTypeDef"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[DescribeInstancePropertiesResultTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm.html#SSM.Paginator.DescribeInstanceProperties.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#describeinstancepropertiespaginator)
-        """
+if TYPE_CHECKING:
+    _DescribeMaintenanceWindowsPaginatorBase = Paginator[DescribeMaintenanceWindowsResultTypeDef]
+else:
+    _DescribeMaintenanceWindowsPaginatorBase = Paginator  # type: ignore[assignment]
 
-class DescribeInventoryDeletionsPaginator(Boto3Paginator):
+class DescribeMaintenanceWindowsPaginator(_DescribeMaintenanceWindowsPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm.html#SSM.Paginator.DescribeInventoryDeletions)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#describeinventorydeletionspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/paginator/DescribeMaintenanceWindows.html#SSM.Paginator.DescribeMaintenanceWindows)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators/#describemaintenancewindowspaginator)
     """
-
-    def paginate(
-        self, *, DeletionId: str = None, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[DescribeInventoryDeletionsResultTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeMaintenanceWindowsRequestPaginateTypeDef]
+    ) -> PageIterator[DescribeMaintenanceWindowsResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm.html#SSM.Paginator.DescribeInventoryDeletions.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#describeinventorydeletionspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/paginator/DescribeMaintenanceWindows.html#SSM.Paginator.DescribeMaintenanceWindows.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators/#describemaintenancewindowspaginator)
         """
-
-class DescribeMaintenanceWindowExecutionTaskInvocationsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm.html#SSM.Paginator.DescribeMaintenanceWindowExecutionTaskInvocations)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#describemaintenancewindowexecutiontaskinvocationspaginator)
-    """
 
-    def paginate(
-        self,
-        *,
-        WindowExecutionId: str,
-        TaskId: str,
-        Filters: List["MaintenanceWindowFilterTypeDef"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[DescribeMaintenanceWindowExecutionTaskInvocationsResultTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm.html#SSM.Paginator.DescribeMaintenanceWindowExecutionTaskInvocations.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#describemaintenancewindowexecutiontaskinvocationspaginator)
-        """
+if TYPE_CHECKING:
+    _DescribeOpsItemsPaginatorBase = Paginator[DescribeOpsItemsResponseTypeDef]
+else:
+    _DescribeOpsItemsPaginatorBase = Paginator  # type: ignore[assignment]
 
-class DescribeMaintenanceWindowExecutionTasksPaginator(Boto3Paginator):
+class DescribeOpsItemsPaginator(_DescribeOpsItemsPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm.html#SSM.Paginator.DescribeMaintenanceWindowExecutionTasks)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#describemaintenancewindowexecutiontaskspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/paginator/DescribeOpsItems.html#SSM.Paginator.DescribeOpsItems)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators/#describeopsitemspaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        WindowExecutionId: str,
-        Filters: List["MaintenanceWindowFilterTypeDef"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[DescribeMaintenanceWindowExecutionTasksResultTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeOpsItemsRequestPaginateTypeDef]
+    ) -> PageIterator[DescribeOpsItemsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm.html#SSM.Paginator.DescribeMaintenanceWindowExecutionTasks.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#describemaintenancewindowexecutiontaskspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/paginator/DescribeOpsItems.html#SSM.Paginator.DescribeOpsItems.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators/#describeopsitemspaginator)
         """
 
-class DescribeMaintenanceWindowExecutionsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm.html#SSM.Paginator.DescribeMaintenanceWindowExecutions)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#describemaintenancewindowexecutionspaginator)
-    """
-
-    def paginate(
-        self,
-        *,
-        WindowId: str,
-        Filters: List["MaintenanceWindowFilterTypeDef"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[DescribeMaintenanceWindowExecutionsResultTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm.html#SSM.Paginator.DescribeMaintenanceWindowExecutions.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#describemaintenancewindowexecutionspaginator)
-        """
+if TYPE_CHECKING:
+    _DescribeParametersPaginatorBase = Paginator[DescribeParametersResultTypeDef]
+else:
+    _DescribeParametersPaginatorBase = Paginator  # type: ignore[assignment]
 
-class DescribeMaintenanceWindowSchedulePaginator(Boto3Paginator):
+class DescribeParametersPaginator(_DescribeParametersPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm.html#SSM.Paginator.DescribeMaintenanceWindowSchedule)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#describemaintenancewindowschedulepaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/paginator/DescribeParameters.html#SSM.Paginator.DescribeParameters)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators/#describeparameterspaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        WindowId: str = None,
-        Targets: List["TargetTypeDef"] = None,
-        ResourceType: MaintenanceWindowResourceTypeType = None,
-        Filters: List["PatchOrchestratorFilterTypeDef"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[DescribeMaintenanceWindowScheduleResultTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeParametersRequestPaginateTypeDef]
+    ) -> PageIterator[DescribeParametersResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm.html#SSM.Paginator.DescribeMaintenanceWindowSchedule.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#describemaintenancewindowschedulepaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/paginator/DescribeParameters.html#SSM.Paginator.DescribeParameters.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators/#describeparameterspaginator)
         """
-
-class DescribeMaintenanceWindowTargetsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm.html#SSM.Paginator.DescribeMaintenanceWindowTargets)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#describemaintenancewindowtargetspaginator)
-    """
 
-    def paginate(
-        self,
-        *,
-        WindowId: str,
-        Filters: List["MaintenanceWindowFilterTypeDef"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[DescribeMaintenanceWindowTargetsResultTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm.html#SSM.Paginator.DescribeMaintenanceWindowTargets.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#describemaintenancewindowtargetspaginator)
-        """
+if TYPE_CHECKING:
+    _DescribePatchBaselinesPaginatorBase = Paginator[DescribePatchBaselinesResultTypeDef]
+else:
+    _DescribePatchBaselinesPaginatorBase = Paginator  # type: ignore[assignment]
 
-class DescribeMaintenanceWindowTasksPaginator(Boto3Paginator):
+class DescribePatchBaselinesPaginator(_DescribePatchBaselinesPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm.html#SSM.Paginator.DescribeMaintenanceWindowTasks)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#describemaintenancewindowtaskspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/paginator/DescribePatchBaselines.html#SSM.Paginator.DescribePatchBaselines)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators/#describepatchbaselinespaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        WindowId: str,
-        Filters: List["MaintenanceWindowFilterTypeDef"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[DescribeMaintenanceWindowTasksResultTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribePatchBaselinesRequestPaginateTypeDef]
+    ) -> PageIterator[DescribePatchBaselinesResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm.html#SSM.Paginator.DescribeMaintenanceWindowTasks.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#describemaintenancewindowtaskspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/paginator/DescribePatchBaselines.html#SSM.Paginator.DescribePatchBaselines.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators/#describepatchbaselinespaginator)
         """
 
-class DescribeMaintenanceWindowsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm.html#SSM.Paginator.DescribeMaintenanceWindows)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#describemaintenancewindowspaginator)
-    """
-
-    def paginate(
-        self,
-        *,
-        Filters: List["MaintenanceWindowFilterTypeDef"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[DescribeMaintenanceWindowsResultTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm.html#SSM.Paginator.DescribeMaintenanceWindows.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#describemaintenancewindowspaginator)
-        """
+if TYPE_CHECKING:
+    _DescribePatchGroupsPaginatorBase = Paginator[DescribePatchGroupsResultTypeDef]
+else:
+    _DescribePatchGroupsPaginatorBase = Paginator  # type: ignore[assignment]
 
-class DescribeMaintenanceWindowsForTargetPaginator(Boto3Paginator):
+class DescribePatchGroupsPaginator(_DescribePatchGroupsPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm.html#SSM.Paginator.DescribeMaintenanceWindowsForTarget)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#describemaintenancewindowsfortargetpaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/paginator/DescribePatchGroups.html#SSM.Paginator.DescribePatchGroups)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators/#describepatchgroupspaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        Targets: List["TargetTypeDef"],
-        ResourceType: MaintenanceWindowResourceTypeType,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[DescribeMaintenanceWindowsForTargetResultTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribePatchGroupsRequestPaginateTypeDef]
+    ) -> PageIterator[DescribePatchGroupsResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm.html#SSM.Paginator.DescribeMaintenanceWindowsForTarget.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#describemaintenancewindowsfortargetpaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/paginator/DescribePatchGroups.html#SSM.Paginator.DescribePatchGroups.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators/#describepatchgroupspaginator)
         """
-
-class DescribeOpsItemsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm.html#SSM.Paginator.DescribeOpsItems)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#describeopsitemspaginator)
-    """
 
-    def paginate(
-        self,
-        *,
-        OpsItemFilters: List["OpsItemFilterTypeDef"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[DescribeOpsItemsResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm.html#SSM.Paginator.DescribeOpsItems.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#describeopsitemspaginator)
-        """
+if TYPE_CHECKING:
+    _DescribePatchPropertiesPaginatorBase = Paginator[DescribePatchPropertiesResultTypeDef]
+else:
+    _DescribePatchPropertiesPaginatorBase = Paginator  # type: ignore[assignment]
 
-class DescribeParametersPaginator(Boto3Paginator):
+class DescribePatchPropertiesPaginator(_DescribePatchPropertiesPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm.html#SSM.Paginator.DescribeParameters)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#describeparameterspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/paginator/DescribePatchProperties.html#SSM.Paginator.DescribePatchProperties)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators/#describepatchpropertiespaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        Filters: List["ParametersFilterTypeDef"] = None,
-        ParameterFilters: List["ParameterStringFilterTypeDef"] = None,
-        Shared: bool = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[DescribeParametersResultTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribePatchPropertiesRequestPaginateTypeDef]
+    ) -> PageIterator[DescribePatchPropertiesResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm.html#SSM.Paginator.DescribeParameters.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#describeparameterspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/paginator/DescribePatchProperties.html#SSM.Paginator.DescribePatchProperties.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators/#describepatchpropertiespaginator)
         """
-
-class DescribePatchBaselinesPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm.html#SSM.Paginator.DescribePatchBaselines)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#describepatchbaselinespaginator)
-    """
 
-    def paginate(
-        self,
-        *,
-        Filters: List["PatchOrchestratorFilterTypeDef"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[DescribePatchBaselinesResultTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm.html#SSM.Paginator.DescribePatchBaselines.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#describepatchbaselinespaginator)
-        """
+if TYPE_CHECKING:
+    _DescribeSessionsPaginatorBase = Paginator[DescribeSessionsResponseTypeDef]
+else:
+    _DescribeSessionsPaginatorBase = Paginator  # type: ignore[assignment]
 
-class DescribePatchGroupsPaginator(Boto3Paginator):
+class DescribeSessionsPaginator(_DescribeSessionsPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm.html#SSM.Paginator.DescribePatchGroups)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#describepatchgroupspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/paginator/DescribeSessions.html#SSM.Paginator.DescribeSessions)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators/#describesessionspaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        Filters: List["PatchOrchestratorFilterTypeDef"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[DescribePatchGroupsResultTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeSessionsRequestPaginateTypeDef]
+    ) -> PageIterator[DescribeSessionsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm.html#SSM.Paginator.DescribePatchGroups.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#describepatchgroupspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/paginator/DescribeSessions.html#SSM.Paginator.DescribeSessions.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators/#describesessionspaginator)
         """
 
-class DescribePatchPropertiesPaginator(Boto3Paginator):
+if TYPE_CHECKING:
+    _GetInventoryPaginatorBase = Paginator[GetInventoryResultTypeDef]
+else:
+    _GetInventoryPaginatorBase = Paginator  # type: ignore[assignment]
+
+class GetInventoryPaginator(_GetInventoryPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm.html#SSM.Paginator.DescribePatchProperties)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#describepatchpropertiespaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/paginator/GetInventory.html#SSM.Paginator.GetInventory)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators/#getinventorypaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        OperatingSystem: OperatingSystemType,
-        Property: PatchPropertyType,
-        PatchSet: PatchSetType = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[DescribePatchPropertiesResultTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[GetInventoryRequestPaginateTypeDef]
+    ) -> PageIterator[GetInventoryResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm.html#SSM.Paginator.DescribePatchProperties.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#describepatchpropertiespaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/paginator/GetInventory.html#SSM.Paginator.GetInventory.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators/#getinventorypaginator)
         """
 
-class DescribeSessionsPaginator(Boto3Paginator):
+if TYPE_CHECKING:
+    _GetInventorySchemaPaginatorBase = Paginator[GetInventorySchemaResultTypeDef]
+else:
+    _GetInventorySchemaPaginatorBase = Paginator  # type: ignore[assignment]
+
+class GetInventorySchemaPaginator(_GetInventorySchemaPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm.html#SSM.Paginator.DescribeSessions)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#describesessionspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/paginator/GetInventorySchema.html#SSM.Paginator.GetInventorySchema)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators/#getinventoryschemapaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        State: SessionStateType,
-        Filters: List["SessionFilterTypeDef"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[DescribeSessionsResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[GetInventorySchemaRequestPaginateTypeDef]
+    ) -> PageIterator[GetInventorySchemaResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm.html#SSM.Paginator.DescribeSessions.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#describesessionspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/paginator/GetInventorySchema.html#SSM.Paginator.GetInventorySchema.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators/#getinventoryschemapaginator)
         """
 
-class GetInventoryPaginator(Boto3Paginator):
+if TYPE_CHECKING:
+    _GetOpsSummaryPaginatorBase = Paginator[GetOpsSummaryResultTypeDef]
+else:
+    _GetOpsSummaryPaginatorBase = Paginator  # type: ignore[assignment]
+
+class GetOpsSummaryPaginator(_GetOpsSummaryPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm.html#SSM.Paginator.GetInventory)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#getinventorypaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/paginator/GetOpsSummary.html#SSM.Paginator.GetOpsSummary)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators/#getopssummarypaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        Filters: List["InventoryFilterTypeDef"] = None,
-        Aggregators: List["InventoryAggregatorTypeDef"] = None,
-        ResultAttributes: List["ResultAttributeTypeDef"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[GetInventoryResultTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[GetOpsSummaryRequestPaginateTypeDef]
+    ) -> PageIterator[GetOpsSummaryResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm.html#SSM.Paginator.GetInventory.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#getinventorypaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/paginator/GetOpsSummary.html#SSM.Paginator.GetOpsSummary.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators/#getopssummarypaginator)
         """
 
-class GetInventorySchemaPaginator(Boto3Paginator):
+if TYPE_CHECKING:
+    _GetParameterHistoryPaginatorBase = Paginator[GetParameterHistoryResultTypeDef]
+else:
+    _GetParameterHistoryPaginatorBase = Paginator  # type: ignore[assignment]
+
+class GetParameterHistoryPaginator(_GetParameterHistoryPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm.html#SSM.Paginator.GetInventorySchema)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#getinventoryschemapaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/paginator/GetParameterHistory.html#SSM.Paginator.GetParameterHistory)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators/#getparameterhistorypaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        TypeName: str = None,
-        Aggregator: bool = None,
-        SubType: bool = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[GetInventorySchemaResultTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[GetParameterHistoryRequestPaginateTypeDef]
+    ) -> PageIterator[GetParameterHistoryResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm.html#SSM.Paginator.GetInventorySchema.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#getinventoryschemapaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/paginator/GetParameterHistory.html#SSM.Paginator.GetParameterHistory.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators/#getparameterhistorypaginator)
         """
 
-class GetOpsSummaryPaginator(Boto3Paginator):
+if TYPE_CHECKING:
+    _GetParametersByPathPaginatorBase = Paginator[GetParametersByPathResultTypeDef]
+else:
+    _GetParametersByPathPaginatorBase = Paginator  # type: ignore[assignment]
+
+class GetParametersByPathPaginator(_GetParametersByPathPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm.html#SSM.Paginator.GetOpsSummary)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#getopssummarypaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/paginator/GetParametersByPath.html#SSM.Paginator.GetParametersByPath)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators/#getparametersbypathpaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        SyncName: str = None,
-        Filters: List["OpsFilterTypeDef"] = None,
-        Aggregators: List["OpsAggregatorTypeDef"] = None,
-        ResultAttributes: List["OpsResultAttributeTypeDef"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[GetOpsSummaryResultTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[GetParametersByPathRequestPaginateTypeDef]
+    ) -> PageIterator[GetParametersByPathResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm.html#SSM.Paginator.GetOpsSummary.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#getopssummarypaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/paginator/GetParametersByPath.html#SSM.Paginator.GetParametersByPath.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators/#getparametersbypathpaginator)
         """
 
-class GetParameterHistoryPaginator(Boto3Paginator):
+if TYPE_CHECKING:
+    _GetResourcePoliciesPaginatorBase = Paginator[GetResourcePoliciesResponseTypeDef]
+else:
+    _GetResourcePoliciesPaginatorBase = Paginator  # type: ignore[assignment]
+
+class GetResourcePoliciesPaginator(_GetResourcePoliciesPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm.html#SSM.Paginator.GetParameterHistory)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#getparameterhistorypaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/paginator/GetResourcePolicies.html#SSM.Paginator.GetResourcePolicies)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators/#getresourcepoliciespaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        Name: str,
-        WithDecryption: bool = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[GetParameterHistoryResultTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[GetResourcePoliciesRequestPaginateTypeDef]
+    ) -> PageIterator[GetResourcePoliciesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm.html#SSM.Paginator.GetParameterHistory.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#getparameterhistorypaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/paginator/GetResourcePolicies.html#SSM.Paginator.GetResourcePolicies.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators/#getresourcepoliciespaginator)
         """
 
-class GetParametersByPathPaginator(Boto3Paginator):
+if TYPE_CHECKING:
+    _ListAssociationVersionsPaginatorBase = Paginator[ListAssociationVersionsResultTypeDef]
+else:
+    _ListAssociationVersionsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListAssociationVersionsPaginator(_ListAssociationVersionsPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm.html#SSM.Paginator.GetParametersByPath)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#getparametersbypathpaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/paginator/ListAssociationVersions.html#SSM.Paginator.ListAssociationVersions)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators/#listassociationversionspaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        Path: str,
-        Recursive: bool = None,
-        ParameterFilters: List["ParameterStringFilterTypeDef"] = None,
-        WithDecryption: bool = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[GetParametersByPathResultTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListAssociationVersionsRequestPaginateTypeDef]
+    ) -> PageIterator[ListAssociationVersionsResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm.html#SSM.Paginator.GetParametersByPath.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#getparametersbypathpaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/paginator/ListAssociationVersions.html#SSM.Paginator.ListAssociationVersions.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators/#listassociationversionspaginator)
         """
+
+if TYPE_CHECKING:
+    _ListAssociationsPaginatorBase = Paginator[ListAssociationsResultTypeDef]
+else:
+    _ListAssociationsPaginatorBase = Paginator  # type: ignore[assignment]
 
-class GetResourcePoliciesPaginator(Boto3Paginator):
+class ListAssociationsPaginator(_ListAssociationsPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm.html#SSM.Paginator.GetResourcePolicies)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#getresourcepoliciespaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/paginator/ListAssociations.html#SSM.Paginator.ListAssociations)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators/#listassociationspaginator)
     """
-
-    def paginate(
-        self, *, ResourceArn: str, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[GetResourcePoliciesResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListAssociationsRequestPaginateTypeDef]
+    ) -> PageIterator[ListAssociationsResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm.html#SSM.Paginator.GetResourcePolicies.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#getresourcepoliciespaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/paginator/ListAssociations.html#SSM.Paginator.ListAssociations.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators/#listassociationspaginator)
         """
+
+if TYPE_CHECKING:
+    _ListCommandInvocationsPaginatorBase = Paginator[ListCommandInvocationsResultTypeDef]
+else:
+    _ListCommandInvocationsPaginatorBase = Paginator  # type: ignore[assignment]
 
-class ListAssociationVersionsPaginator(Boto3Paginator):
+class ListCommandInvocationsPaginator(_ListCommandInvocationsPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm.html#SSM.Paginator.ListAssociationVersions)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#listassociationversionspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/paginator/ListCommandInvocations.html#SSM.Paginator.ListCommandInvocations)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators/#listcommandinvocationspaginator)
     """
-
-    def paginate(
-        self, *, AssociationId: str, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListAssociationVersionsResultTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListCommandInvocationsRequestPaginateTypeDef]
+    ) -> PageIterator[ListCommandInvocationsResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm.html#SSM.Paginator.ListAssociationVersions.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#listassociationversionspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/paginator/ListCommandInvocations.html#SSM.Paginator.ListCommandInvocations.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators/#listcommandinvocationspaginator)
         """
+
+if TYPE_CHECKING:
+    _ListCommandsPaginatorBase = Paginator[ListCommandsResultTypeDef]
+else:
+    _ListCommandsPaginatorBase = Paginator  # type: ignore[assignment]
 
-class ListAssociationsPaginator(Boto3Paginator):
+class ListCommandsPaginator(_ListCommandsPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm.html#SSM.Paginator.ListAssociations)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#listassociationspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/paginator/ListCommands.html#SSM.Paginator.ListCommands)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators/#listcommandspaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        AssociationFilterList: List["AssociationFilterTypeDef"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListAssociationsResultTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListCommandsRequestPaginateTypeDef]
+    ) -> PageIterator[ListCommandsResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm.html#SSM.Paginator.ListAssociations.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#listassociationspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/paginator/ListCommands.html#SSM.Paginator.ListCommands.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators/#listcommandspaginator)
         """
+
+if TYPE_CHECKING:
+    _ListComplianceItemsPaginatorBase = Paginator[ListComplianceItemsResultTypeDef]
+else:
+    _ListComplianceItemsPaginatorBase = Paginator  # type: ignore[assignment]
 
-class ListCommandInvocationsPaginator(Boto3Paginator):
+class ListComplianceItemsPaginator(_ListComplianceItemsPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm.html#SSM.Paginator.ListCommandInvocations)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#listcommandinvocationspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/paginator/ListComplianceItems.html#SSM.Paginator.ListComplianceItems)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators/#listcomplianceitemspaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        CommandId: str = None,
-        InstanceId: str = None,
-        Filters: List["CommandFilterTypeDef"] = None,
-        Details: bool = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListCommandInvocationsResultTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListComplianceItemsRequestPaginateTypeDef]
+    ) -> PageIterator[ListComplianceItemsResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm.html#SSM.Paginator.ListCommandInvocations.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#listcommandinvocationspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/paginator/ListComplianceItems.html#SSM.Paginator.ListComplianceItems.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators/#listcomplianceitemspaginator)
         """
+
+if TYPE_CHECKING:
+    _ListComplianceSummariesPaginatorBase = Paginator[ListComplianceSummariesResultTypeDef]
+else:
+    _ListComplianceSummariesPaginatorBase = Paginator  # type: ignore[assignment]
 
-class ListCommandsPaginator(Boto3Paginator):
+class ListComplianceSummariesPaginator(_ListComplianceSummariesPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm.html#SSM.Paginator.ListCommands)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#listcommandspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/paginator/ListComplianceSummaries.html#SSM.Paginator.ListComplianceSummaries)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators/#listcompliancesummariespaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        CommandId: str = None,
-        InstanceId: str = None,
-        Filters: List["CommandFilterTypeDef"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListCommandsResultTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListComplianceSummariesRequestPaginateTypeDef]
+    ) -> PageIterator[ListComplianceSummariesResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm.html#SSM.Paginator.ListCommands.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#listcommandspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/paginator/ListComplianceSummaries.html#SSM.Paginator.ListComplianceSummaries.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators/#listcompliancesummariespaginator)
         """
+
+if TYPE_CHECKING:
+    _ListDocumentVersionsPaginatorBase = Paginator[ListDocumentVersionsResultTypeDef]
+else:
+    _ListDocumentVersionsPaginatorBase = Paginator  # type: ignore[assignment]
 
-class ListComplianceItemsPaginator(Boto3Paginator):
+class ListDocumentVersionsPaginator(_ListDocumentVersionsPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm.html#SSM.Paginator.ListComplianceItems)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#listcomplianceitemspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/paginator/ListDocumentVersions.html#SSM.Paginator.ListDocumentVersions)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators/#listdocumentversionspaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        Filters: List["ComplianceStringFilterTypeDef"] = None,
-        ResourceIds: List[str] = None,
-        ResourceTypes: List[str] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListComplianceItemsResultTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListDocumentVersionsRequestPaginateTypeDef]
+    ) -> PageIterator[ListDocumentVersionsResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm.html#SSM.Paginator.ListComplianceItems.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#listcomplianceitemspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/paginator/ListDocumentVersions.html#SSM.Paginator.ListDocumentVersions.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators/#listdocumentversionspaginator)
         """
+
+if TYPE_CHECKING:
+    _ListDocumentsPaginatorBase = Paginator[ListDocumentsResultTypeDef]
+else:
+    _ListDocumentsPaginatorBase = Paginator  # type: ignore[assignment]
 
-class ListComplianceSummariesPaginator(Boto3Paginator):
+class ListDocumentsPaginator(_ListDocumentsPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm.html#SSM.Paginator.ListComplianceSummaries)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#listcompliancesummariespaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/paginator/ListDocuments.html#SSM.Paginator.ListDocuments)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators/#listdocumentspaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        Filters: List["ComplianceStringFilterTypeDef"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListComplianceSummariesResultTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListDocumentsRequestPaginateTypeDef]
+    ) -> PageIterator[ListDocumentsResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm.html#SSM.Paginator.ListComplianceSummaries.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#listcompliancesummariespaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/paginator/ListDocuments.html#SSM.Paginator.ListDocuments.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators/#listdocumentspaginator)
         """
 
-class ListDocumentVersionsPaginator(Boto3Paginator):
+if TYPE_CHECKING:
+    _ListNodesPaginatorBase = Paginator[ListNodesResultTypeDef]
+else:
+    _ListNodesPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListNodesPaginator(_ListNodesPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm.html#SSM.Paginator.ListDocumentVersions)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#listdocumentversionspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/paginator/ListNodes.html#SSM.Paginator.ListNodes)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators/#listnodespaginator)
     """
-
-    def paginate(
-        self, *, Name: str, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListDocumentVersionsResultTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListNodesRequestPaginateTypeDef]
+    ) -> PageIterator[ListNodesResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm.html#SSM.Paginator.ListDocumentVersions.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#listdocumentversionspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/paginator/ListNodes.html#SSM.Paginator.ListNodes.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators/#listnodespaginator)
         """
 
-class ListDocumentsPaginator(Boto3Paginator):
+if TYPE_CHECKING:
+    _ListNodesSummaryPaginatorBase = Paginator[ListNodesSummaryResultTypeDef]
+else:
+    _ListNodesSummaryPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListNodesSummaryPaginator(_ListNodesSummaryPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm.html#SSM.Paginator.ListDocuments)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#listdocumentspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/paginator/ListNodesSummary.html#SSM.Paginator.ListNodesSummary)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators/#listnodessummarypaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        DocumentFilterList: List["DocumentFilterTypeDef"] = None,
-        Filters: List["DocumentKeyValuesFilterTypeDef"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListDocumentsResultTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListNodesSummaryRequestPaginateTypeDef]
+    ) -> PageIterator[ListNodesSummaryResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm.html#SSM.Paginator.ListDocuments.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#listdocumentspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/paginator/ListNodesSummary.html#SSM.Paginator.ListNodesSummary.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators/#listnodessummarypaginator)
         """
 
-class ListOpsItemEventsPaginator(Boto3Paginator):
+if TYPE_CHECKING:
+    _ListOpsItemEventsPaginatorBase = Paginator[ListOpsItemEventsResponseTypeDef]
+else:
+    _ListOpsItemEventsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListOpsItemEventsPaginator(_ListOpsItemEventsPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm.html#SSM.Paginator.ListOpsItemEvents)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#listopsitemeventspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/paginator/ListOpsItemEvents.html#SSM.Paginator.ListOpsItemEvents)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators/#listopsitemeventspaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        Filters: List["OpsItemEventFilterTypeDef"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListOpsItemEventsResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListOpsItemEventsRequestPaginateTypeDef]
+    ) -> PageIterator[ListOpsItemEventsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm.html#SSM.Paginator.ListOpsItemEvents.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#listopsitemeventspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/paginator/ListOpsItemEvents.html#SSM.Paginator.ListOpsItemEvents.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators/#listopsitemeventspaginator)
         """
 
-class ListOpsItemRelatedItemsPaginator(Boto3Paginator):
+if TYPE_CHECKING:
+    _ListOpsItemRelatedItemsPaginatorBase = Paginator[ListOpsItemRelatedItemsResponseTypeDef]
+else:
+    _ListOpsItemRelatedItemsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListOpsItemRelatedItemsPaginator(_ListOpsItemRelatedItemsPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm.html#SSM.Paginator.ListOpsItemRelatedItems)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#listopsitemrelateditemspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/paginator/ListOpsItemRelatedItems.html#SSM.Paginator.ListOpsItemRelatedItems)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators/#listopsitemrelateditemspaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        OpsItemId: str = None,
-        Filters: List["OpsItemRelatedItemsFilterTypeDef"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListOpsItemRelatedItemsResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListOpsItemRelatedItemsRequestPaginateTypeDef]
+    ) -> PageIterator[ListOpsItemRelatedItemsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm.html#SSM.Paginator.ListOpsItemRelatedItems.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#listopsitemrelateditemspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/paginator/ListOpsItemRelatedItems.html#SSM.Paginator.ListOpsItemRelatedItems.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators/#listopsitemrelateditemspaginator)
         """
 
-class ListOpsMetadataPaginator(Boto3Paginator):
+if TYPE_CHECKING:
+    _ListOpsMetadataPaginatorBase = Paginator[ListOpsMetadataResultTypeDef]
+else:
+    _ListOpsMetadataPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListOpsMetadataPaginator(_ListOpsMetadataPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm.html#SSM.Paginator.ListOpsMetadata)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#listopsmetadatapaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/paginator/ListOpsMetadata.html#SSM.Paginator.ListOpsMetadata)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators/#listopsmetadatapaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        Filters: List["OpsMetadataFilterTypeDef"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListOpsMetadataResultTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListOpsMetadataRequestPaginateTypeDef]
+    ) -> PageIterator[ListOpsMetadataResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm.html#SSM.Paginator.ListOpsMetadata.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#listopsmetadatapaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/paginator/ListOpsMetadata.html#SSM.Paginator.ListOpsMetadata.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators/#listopsmetadatapaginator)
         """
 
-class ListResourceComplianceSummariesPaginator(Boto3Paginator):
+if TYPE_CHECKING:
+    _ListResourceComplianceSummariesPaginatorBase = Paginator[
+        ListResourceComplianceSummariesResultTypeDef
+    ]
+else:
+    _ListResourceComplianceSummariesPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListResourceComplianceSummariesPaginator(_ListResourceComplianceSummariesPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm.html#SSM.Paginator.ListResourceComplianceSummaries)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#listresourcecompliancesummariespaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/paginator/ListResourceComplianceSummaries.html#SSM.Paginator.ListResourceComplianceSummaries)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators/#listresourcecompliancesummariespaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        Filters: List["ComplianceStringFilterTypeDef"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListResourceComplianceSummariesResultTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListResourceComplianceSummariesRequestPaginateTypeDef]
+    ) -> PageIterator[ListResourceComplianceSummariesResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm.html#SSM.Paginator.ListResourceComplianceSummaries.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#listresourcecompliancesummariespaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/paginator/ListResourceComplianceSummaries.html#SSM.Paginator.ListResourceComplianceSummaries.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators/#listresourcecompliancesummariespaginator)
         """
 
-class ListResourceDataSyncPaginator(Boto3Paginator):
+if TYPE_CHECKING:
+    _ListResourceDataSyncPaginatorBase = Paginator[ListResourceDataSyncResultTypeDef]
+else:
+    _ListResourceDataSyncPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListResourceDataSyncPaginator(_ListResourceDataSyncPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm.html#SSM.Paginator.ListResourceDataSync)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#listresourcedatasyncpaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/paginator/ListResourceDataSync.html#SSM.Paginator.ListResourceDataSync)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators/#listresourcedatasyncpaginator)
     """
-
-    def paginate(
-        self, *, SyncType: str = None, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListResourceDataSyncResultTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListResourceDataSyncRequestPaginateTypeDef]
+    ) -> PageIterator[ListResourceDataSyncResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm.html#SSM.Paginator.ListResourceDataSync.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators.html#listresourcedatasyncpaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm/paginator/ListResourceDataSync.html#SSM.Paginator.ListResourceDataSync.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm/paginators/#listresourcedatasyncpaginator)
         """

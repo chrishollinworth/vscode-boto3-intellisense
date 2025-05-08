@@ -1,14 +1,16 @@
 """
 Type annotations for comprehend service client paginators.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/paginators.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_comprehend/paginators/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
 
-    from mypy_boto3_comprehend import ComprehendClient
+    from mypy_boto3_comprehend.client import ComprehendClient
     from mypy_boto3_comprehend.paginator import (
         ListDocumentClassificationJobsPaginator,
         ListDocumentClassifiersPaginator,
@@ -22,7 +24,8 @@ Usage::
         ListTopicsDetectionJobsPaginator,
     )
 
-    client: ComprehendClient = boto3.client("comprehend")
+    session = Session()
+    client: ComprehendClient = session.client("comprehend")
 
     list_document_classification_jobs_paginator: ListDocumentClassificationJobsPaginator = client.get_paginator("list_document_classification_jobs")
     list_document_classifiers_paginator: ListDocumentClassifiersPaginator = client.get_paginator("list_document_classifiers")
@@ -37,33 +40,40 @@ Usage::
     ```
 """
 
-from typing import Iterator
+from __future__ import annotations
 
-from botocore.paginate import Paginator as Boto3Paginator
+import sys
+from typing import TYPE_CHECKING
+
+from botocore.paginate import PageIterator, Paginator
 
 from .type_defs import (
-    DocumentClassificationJobFilterTypeDef,
-    DocumentClassifierFilterTypeDef,
-    DominantLanguageDetectionJobFilterTypeDef,
-    EndpointFilterTypeDef,
-    EntitiesDetectionJobFilterTypeDef,
-    EntityRecognizerFilterTypeDef,
-    KeyPhrasesDetectionJobFilterTypeDef,
+    ListDocumentClassificationJobsRequestPaginateTypeDef,
     ListDocumentClassificationJobsResponseTypeDef,
+    ListDocumentClassifiersRequestPaginateTypeDef,
     ListDocumentClassifiersResponseTypeDef,
+    ListDominantLanguageDetectionJobsRequestPaginateTypeDef,
     ListDominantLanguageDetectionJobsResponseTypeDef,
+    ListEndpointsRequestPaginateTypeDef,
     ListEndpointsResponseTypeDef,
+    ListEntitiesDetectionJobsRequestPaginateTypeDef,
     ListEntitiesDetectionJobsResponseTypeDef,
+    ListEntityRecognizersRequestPaginateTypeDef,
     ListEntityRecognizersResponseTypeDef,
+    ListKeyPhrasesDetectionJobsRequestPaginateTypeDef,
     ListKeyPhrasesDetectionJobsResponseTypeDef,
+    ListPiiEntitiesDetectionJobsRequestPaginateTypeDef,
     ListPiiEntitiesDetectionJobsResponseTypeDef,
+    ListSentimentDetectionJobsRequestPaginateTypeDef,
     ListSentimentDetectionJobsResponseTypeDef,
+    ListTopicsDetectionJobsRequestPaginateTypeDef,
     ListTopicsDetectionJobsResponseTypeDef,
-    PaginatorConfigTypeDef,
-    PiiEntitiesDetectionJobFilterTypeDef,
-    SentimentDetectionJobFilterTypeDef,
-    TopicsDetectionJobFilterTypeDef,
 )
+
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = (
     "ListDocumentClassificationJobsPaginator",
@@ -78,172 +88,190 @@ __all__ = (
     "ListTopicsDetectionJobsPaginator",
 )
 
-class ListDocumentClassificationJobsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/comprehend.html#Comprehend.Paginator.ListDocumentClassificationJobs)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/paginators.html#listdocumentclassificationjobspaginator)
-    """
+if TYPE_CHECKING:
+    _ListDocumentClassificationJobsPaginatorBase = Paginator[
+        ListDocumentClassificationJobsResponseTypeDef
+    ]
+else:
+    _ListDocumentClassificationJobsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        Filter: "DocumentClassificationJobFilterTypeDef" = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListDocumentClassificationJobsResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/comprehend.html#Comprehend.Paginator.ListDocumentClassificationJobs.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/paginators.html#listdocumentclassificationjobspaginator)
-        """
-
-class ListDocumentClassifiersPaginator(Boto3Paginator):
+class ListDocumentClassificationJobsPaginator(_ListDocumentClassificationJobsPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/comprehend.html#Comprehend.Paginator.ListDocumentClassifiers)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/paginators.html#listdocumentclassifierspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/comprehend/paginator/ListDocumentClassificationJobs.html#Comprehend.Paginator.ListDocumentClassificationJobs)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_comprehend/paginators/#listdocumentclassificationjobspaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        Filter: "DocumentClassifierFilterTypeDef" = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListDocumentClassifiersResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListDocumentClassificationJobsRequestPaginateTypeDef]
+    ) -> PageIterator[ListDocumentClassificationJobsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/comprehend.html#Comprehend.Paginator.ListDocumentClassifiers.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/paginators.html#listdocumentclassifierspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/comprehend/paginator/ListDocumentClassificationJobs.html#Comprehend.Paginator.ListDocumentClassificationJobs.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_comprehend/paginators/#listdocumentclassificationjobspaginator)
         """
 
-class ListDominantLanguageDetectionJobsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/comprehend.html#Comprehend.Paginator.ListDominantLanguageDetectionJobs)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/paginators.html#listdominantlanguagedetectionjobspaginator)
-    """
+if TYPE_CHECKING:
+    _ListDocumentClassifiersPaginatorBase = Paginator[ListDocumentClassifiersResponseTypeDef]
+else:
+    _ListDocumentClassifiersPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        Filter: "DominantLanguageDetectionJobFilterTypeDef" = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListDominantLanguageDetectionJobsResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/comprehend.html#Comprehend.Paginator.ListDominantLanguageDetectionJobs.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/paginators.html#listdominantlanguagedetectionjobspaginator)
-        """
-
-class ListEndpointsPaginator(Boto3Paginator):
+class ListDocumentClassifiersPaginator(_ListDocumentClassifiersPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/comprehend.html#Comprehend.Paginator.ListEndpoints)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/paginators.html#listendpointspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/comprehend/paginator/ListDocumentClassifiers.html#Comprehend.Paginator.ListDocumentClassifiers)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_comprehend/paginators/#listdocumentclassifierspaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        Filter: "EndpointFilterTypeDef" = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListEndpointsResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListDocumentClassifiersRequestPaginateTypeDef]
+    ) -> PageIterator[ListDocumentClassifiersResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/comprehend.html#Comprehend.Paginator.ListEndpoints.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/paginators.html#listendpointspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/comprehend/paginator/ListDocumentClassifiers.html#Comprehend.Paginator.ListDocumentClassifiers.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_comprehend/paginators/#listdocumentclassifierspaginator)
         """
 
-class ListEntitiesDetectionJobsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/comprehend.html#Comprehend.Paginator.ListEntitiesDetectionJobs)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/paginators.html#listentitiesdetectionjobspaginator)
-    """
+if TYPE_CHECKING:
+    _ListDominantLanguageDetectionJobsPaginatorBase = Paginator[
+        ListDominantLanguageDetectionJobsResponseTypeDef
+    ]
+else:
+    _ListDominantLanguageDetectionJobsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        Filter: "EntitiesDetectionJobFilterTypeDef" = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListEntitiesDetectionJobsResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/comprehend.html#Comprehend.Paginator.ListEntitiesDetectionJobs.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/paginators.html#listentitiesdetectionjobspaginator)
-        """
-
-class ListEntityRecognizersPaginator(Boto3Paginator):
+class ListDominantLanguageDetectionJobsPaginator(_ListDominantLanguageDetectionJobsPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/comprehend.html#Comprehend.Paginator.ListEntityRecognizers)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/paginators.html#listentityrecognizerspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/comprehend/paginator/ListDominantLanguageDetectionJobs.html#Comprehend.Paginator.ListDominantLanguageDetectionJobs)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_comprehend/paginators/#listdominantlanguagedetectionjobspaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        Filter: "EntityRecognizerFilterTypeDef" = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListEntityRecognizersResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListDominantLanguageDetectionJobsRequestPaginateTypeDef]
+    ) -> PageIterator[ListDominantLanguageDetectionJobsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/comprehend.html#Comprehend.Paginator.ListEntityRecognizers.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/paginators.html#listentityrecognizerspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/comprehend/paginator/ListDominantLanguageDetectionJobs.html#Comprehend.Paginator.ListDominantLanguageDetectionJobs.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_comprehend/paginators/#listdominantlanguagedetectionjobspaginator)
         """
 
-class ListKeyPhrasesDetectionJobsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/comprehend.html#Comprehend.Paginator.ListKeyPhrasesDetectionJobs)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/paginators.html#listkeyphrasesdetectionjobspaginator)
-    """
+if TYPE_CHECKING:
+    _ListEndpointsPaginatorBase = Paginator[ListEndpointsResponseTypeDef]
+else:
+    _ListEndpointsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        Filter: "KeyPhrasesDetectionJobFilterTypeDef" = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListKeyPhrasesDetectionJobsResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/comprehend.html#Comprehend.Paginator.ListKeyPhrasesDetectionJobs.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/paginators.html#listkeyphrasesdetectionjobspaginator)
-        """
-
-class ListPiiEntitiesDetectionJobsPaginator(Boto3Paginator):
+class ListEndpointsPaginator(_ListEndpointsPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/comprehend.html#Comprehend.Paginator.ListPiiEntitiesDetectionJobs)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/paginators.html#listpiientitiesdetectionjobspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/comprehend/paginator/ListEndpoints.html#Comprehend.Paginator.ListEndpoints)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_comprehend/paginators/#listendpointspaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        Filter: "PiiEntitiesDetectionJobFilterTypeDef" = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListPiiEntitiesDetectionJobsResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListEndpointsRequestPaginateTypeDef]
+    ) -> PageIterator[ListEndpointsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/comprehend.html#Comprehend.Paginator.ListPiiEntitiesDetectionJobs.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/paginators.html#listpiientitiesdetectionjobspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/comprehend/paginator/ListEndpoints.html#Comprehend.Paginator.ListEndpoints.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_comprehend/paginators/#listendpointspaginator)
         """
 
-class ListSentimentDetectionJobsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/comprehend.html#Comprehend.Paginator.ListSentimentDetectionJobs)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/paginators.html#listsentimentdetectionjobspaginator)
-    """
+if TYPE_CHECKING:
+    _ListEntitiesDetectionJobsPaginatorBase = Paginator[ListEntitiesDetectionJobsResponseTypeDef]
+else:
+    _ListEntitiesDetectionJobsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        Filter: "SentimentDetectionJobFilterTypeDef" = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListSentimentDetectionJobsResponseTypeDef]:
+class ListEntitiesDetectionJobsPaginator(_ListEntitiesDetectionJobsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/comprehend/paginator/ListEntitiesDetectionJobs.html#Comprehend.Paginator.ListEntitiesDetectionJobs)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_comprehend/paginators/#listentitiesdetectionjobspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListEntitiesDetectionJobsRequestPaginateTypeDef]
+    ) -> PageIterator[ListEntitiesDetectionJobsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/comprehend.html#Comprehend.Paginator.ListSentimentDetectionJobs.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/paginators.html#listsentimentdetectionjobspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/comprehend/paginator/ListEntitiesDetectionJobs.html#Comprehend.Paginator.ListEntitiesDetectionJobs.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_comprehend/paginators/#listentitiesdetectionjobspaginator)
         """
 
-class ListTopicsDetectionJobsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/comprehend.html#Comprehend.Paginator.ListTopicsDetectionJobs)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/paginators.html#listtopicsdetectionjobspaginator)
-    """
+if TYPE_CHECKING:
+    _ListEntityRecognizersPaginatorBase = Paginator[ListEntityRecognizersResponseTypeDef]
+else:
+    _ListEntityRecognizersPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        Filter: "TopicsDetectionJobFilterTypeDef" = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListTopicsDetectionJobsResponseTypeDef]:
+class ListEntityRecognizersPaginator(_ListEntityRecognizersPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/comprehend/paginator/ListEntityRecognizers.html#Comprehend.Paginator.ListEntityRecognizers)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_comprehend/paginators/#listentityrecognizerspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListEntityRecognizersRequestPaginateTypeDef]
+    ) -> PageIterator[ListEntityRecognizersResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/comprehend.html#Comprehend.Paginator.ListTopicsDetectionJobs.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_comprehend/paginators.html#listtopicsdetectionjobspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/comprehend/paginator/ListEntityRecognizers.html#Comprehend.Paginator.ListEntityRecognizers.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_comprehend/paginators/#listentityrecognizerspaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListKeyPhrasesDetectionJobsPaginatorBase = Paginator[
+        ListKeyPhrasesDetectionJobsResponseTypeDef
+    ]
+else:
+    _ListKeyPhrasesDetectionJobsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListKeyPhrasesDetectionJobsPaginator(_ListKeyPhrasesDetectionJobsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/comprehend/paginator/ListKeyPhrasesDetectionJobs.html#Comprehend.Paginator.ListKeyPhrasesDetectionJobs)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_comprehend/paginators/#listkeyphrasesdetectionjobspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListKeyPhrasesDetectionJobsRequestPaginateTypeDef]
+    ) -> PageIterator[ListKeyPhrasesDetectionJobsResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/comprehend/paginator/ListKeyPhrasesDetectionJobs.html#Comprehend.Paginator.ListKeyPhrasesDetectionJobs.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_comprehend/paginators/#listkeyphrasesdetectionjobspaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListPiiEntitiesDetectionJobsPaginatorBase = Paginator[
+        ListPiiEntitiesDetectionJobsResponseTypeDef
+    ]
+else:
+    _ListPiiEntitiesDetectionJobsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListPiiEntitiesDetectionJobsPaginator(_ListPiiEntitiesDetectionJobsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/comprehend/paginator/ListPiiEntitiesDetectionJobs.html#Comprehend.Paginator.ListPiiEntitiesDetectionJobs)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_comprehend/paginators/#listpiientitiesdetectionjobspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListPiiEntitiesDetectionJobsRequestPaginateTypeDef]
+    ) -> PageIterator[ListPiiEntitiesDetectionJobsResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/comprehend/paginator/ListPiiEntitiesDetectionJobs.html#Comprehend.Paginator.ListPiiEntitiesDetectionJobs.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_comprehend/paginators/#listpiientitiesdetectionjobspaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListSentimentDetectionJobsPaginatorBase = Paginator[ListSentimentDetectionJobsResponseTypeDef]
+else:
+    _ListSentimentDetectionJobsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListSentimentDetectionJobsPaginator(_ListSentimentDetectionJobsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/comprehend/paginator/ListSentimentDetectionJobs.html#Comprehend.Paginator.ListSentimentDetectionJobs)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_comprehend/paginators/#listsentimentdetectionjobspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListSentimentDetectionJobsRequestPaginateTypeDef]
+    ) -> PageIterator[ListSentimentDetectionJobsResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/comprehend/paginator/ListSentimentDetectionJobs.html#Comprehend.Paginator.ListSentimentDetectionJobs.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_comprehend/paginators/#listsentimentdetectionjobspaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListTopicsDetectionJobsPaginatorBase = Paginator[ListTopicsDetectionJobsResponseTypeDef]
+else:
+    _ListTopicsDetectionJobsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListTopicsDetectionJobsPaginator(_ListTopicsDetectionJobsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/comprehend/paginator/ListTopicsDetectionJobs.html#Comprehend.Paginator.ListTopicsDetectionJobs)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_comprehend/paginators/#listtopicsdetectionjobspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListTopicsDetectionJobsRequestPaginateTypeDef]
+    ) -> PageIterator[ListTopicsDetectionJobsResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/comprehend/paginator/ListTopicsDetectionJobs.html#Comprehend.Paginator.ListTopicsDetectionJobs.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_comprehend/paginators/#listtopicsdetectionjobspaginator)
         """

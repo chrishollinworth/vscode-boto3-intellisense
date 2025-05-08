@@ -1,14 +1,16 @@
 """
 Type annotations for mediaconnect service client paginators.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/paginators.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/paginators/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
 
-    from mypy_boto3_mediaconnect import MediaConnectClient
+    from mypy_boto3_mediaconnect.client import MediaConnectClient
     from mypy_boto3_mediaconnect.paginator import (
         ListBridgesPaginator,
         ListEntitlementsPaginator,
@@ -19,7 +21,8 @@ Usage::
         ListReservationsPaginator,
     )
 
-    client: MediaConnectClient = boto3.client("mediaconnect")
+    session = Session()
+    client: MediaConnectClient = session.client("mediaconnect")
 
     list_bridges_paginator: ListBridgesPaginator = client.get_paginator("list_bridges")
     list_entitlements_paginator: ListEntitlementsPaginator = client.get_paginator("list_entitlements")
@@ -31,20 +34,34 @@ Usage::
     ```
 """
 
-from typing import Iterator
+from __future__ import annotations
 
-from botocore.paginate import Paginator as Boto3Paginator
+import sys
+from typing import TYPE_CHECKING
+
+from botocore.paginate import PageIterator, Paginator
 
 from .type_defs import (
+    ListBridgesRequestPaginateTypeDef,
     ListBridgesResponseTypeDef,
+    ListEntitlementsRequestPaginateTypeDef,
     ListEntitlementsResponseTypeDef,
+    ListFlowsRequestPaginateTypeDef,
     ListFlowsResponseTypeDef,
+    ListGatewayInstancesRequestPaginateTypeDef,
     ListGatewayInstancesResponseTypeDef,
+    ListGatewaysRequestPaginateTypeDef,
     ListGatewaysResponseTypeDef,
+    ListOfferingsRequestPaginateTypeDef,
     ListOfferingsResponseTypeDef,
+    ListReservationsRequestPaginateTypeDef,
     ListReservationsResponseTypeDef,
-    PaginatorConfigTypeDef,
 )
+
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = (
     "ListBridgesPaginator",
@@ -56,100 +73,128 @@ __all__ = (
     "ListReservationsPaginator",
 )
 
-class ListBridgesPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Paginator.ListBridges)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/paginators.html#listbridgespaginator)
-    """
+if TYPE_CHECKING:
+    _ListBridgesPaginatorBase = Paginator[ListBridgesResponseTypeDef]
+else:
+    _ListBridgesPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, FilterArn: str = None, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListBridgesResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Paginator.ListBridges.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/paginators.html#listbridgespaginator)
-        """
-
-class ListEntitlementsPaginator(Boto3Paginator):
+class ListBridgesPaginator(_ListBridgesPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Paginator.ListEntitlements)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/paginators.html#listentitlementspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/paginator/ListBridges.html#MediaConnect.Paginator.ListBridges)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/paginators/#listbridgespaginator)
     """
-
-    def paginate(
-        self, *, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListEntitlementsResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListBridgesRequestPaginateTypeDef]
+    ) -> PageIterator[ListBridgesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Paginator.ListEntitlements.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/paginators.html#listentitlementspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/paginator/ListBridges.html#MediaConnect.Paginator.ListBridges.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/paginators/#listbridgespaginator)
         """
 
-class ListFlowsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Paginator.ListFlows)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/paginators.html#listflowspaginator)
-    """
+if TYPE_CHECKING:
+    _ListEntitlementsPaginatorBase = Paginator[ListEntitlementsResponseTypeDef]
+else:
+    _ListEntitlementsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListFlowsResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Paginator.ListFlows.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/paginators.html#listflowspaginator)
-        """
-
-class ListGatewayInstancesPaginator(Boto3Paginator):
+class ListEntitlementsPaginator(_ListEntitlementsPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Paginator.ListGatewayInstances)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/paginators.html#listgatewayinstancespaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/paginator/ListEntitlements.html#MediaConnect.Paginator.ListEntitlements)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/paginators/#listentitlementspaginator)
     """
-
-    def paginate(
-        self, *, FilterArn: str = None, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListGatewayInstancesResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListEntitlementsRequestPaginateTypeDef]
+    ) -> PageIterator[ListEntitlementsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Paginator.ListGatewayInstances.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/paginators.html#listgatewayinstancespaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/paginator/ListEntitlements.html#MediaConnect.Paginator.ListEntitlements.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/paginators/#listentitlementspaginator)
         """
 
-class ListGatewaysPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Paginator.ListGateways)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/paginators.html#listgatewayspaginator)
-    """
+if TYPE_CHECKING:
+    _ListFlowsPaginatorBase = Paginator[ListFlowsResponseTypeDef]
+else:
+    _ListFlowsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListGatewaysResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Paginator.ListGateways.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/paginators.html#listgatewayspaginator)
-        """
-
-class ListOfferingsPaginator(Boto3Paginator):
+class ListFlowsPaginator(_ListFlowsPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Paginator.ListOfferings)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/paginators.html#listofferingspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/paginator/ListFlows.html#MediaConnect.Paginator.ListFlows)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/paginators/#listflowspaginator)
     """
-
-    def paginate(
-        self, *, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListOfferingsResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListFlowsRequestPaginateTypeDef]
+    ) -> PageIterator[ListFlowsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Paginator.ListOfferings.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/paginators.html#listofferingspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/paginator/ListFlows.html#MediaConnect.Paginator.ListFlows.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/paginators/#listflowspaginator)
         """
 
-class ListReservationsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Paginator.ListReservations)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/paginators.html#listreservationspaginator)
-    """
+if TYPE_CHECKING:
+    _ListGatewayInstancesPaginatorBase = Paginator[ListGatewayInstancesResponseTypeDef]
+else:
+    _ListGatewayInstancesPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListReservationsResponseTypeDef]:
+class ListGatewayInstancesPaginator(_ListGatewayInstancesPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/paginator/ListGatewayInstances.html#MediaConnect.Paginator.ListGatewayInstances)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/paginators/#listgatewayinstancespaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListGatewayInstancesRequestPaginateTypeDef]
+    ) -> PageIterator[ListGatewayInstancesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Paginator.ListReservations.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/paginators.html#listreservationspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/paginator/ListGatewayInstances.html#MediaConnect.Paginator.ListGatewayInstances.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/paginators/#listgatewayinstancespaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListGatewaysPaginatorBase = Paginator[ListGatewaysResponseTypeDef]
+else:
+    _ListGatewaysPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListGatewaysPaginator(_ListGatewaysPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/paginator/ListGateways.html#MediaConnect.Paginator.ListGateways)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/paginators/#listgatewayspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListGatewaysRequestPaginateTypeDef]
+    ) -> PageIterator[ListGatewaysResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/paginator/ListGateways.html#MediaConnect.Paginator.ListGateways.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/paginators/#listgatewayspaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListOfferingsPaginatorBase = Paginator[ListOfferingsResponseTypeDef]
+else:
+    _ListOfferingsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListOfferingsPaginator(_ListOfferingsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/paginator/ListOfferings.html#MediaConnect.Paginator.ListOfferings)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/paginators/#listofferingspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListOfferingsRequestPaginateTypeDef]
+    ) -> PageIterator[ListOfferingsResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/paginator/ListOfferings.html#MediaConnect.Paginator.ListOfferings.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/paginators/#listofferingspaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListReservationsPaginatorBase = Paginator[ListReservationsResponseTypeDef]
+else:
+    _ListReservationsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListReservationsPaginator(_ListReservationsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/paginator/ListReservations.html#MediaConnect.Paginator.ListReservations)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/paginators/#listreservationspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListReservationsRequestPaginateTypeDef]
+    ) -> PageIterator[ListReservationsResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/paginator/ListReservations.html#MediaConnect.Paginator.ListReservations.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/paginators/#listreservationspaginator)
         """

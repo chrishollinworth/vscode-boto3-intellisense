@@ -1,20 +1,26 @@
 """
 Type annotations for transfer service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_transfer/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_transfer/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_transfer.type_defs import As2ConnectorConfigTypeDef
 
-    data: As2ConnectorConfigTypeDef = {...}
+    data: As2ConnectorConfigTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List, Union
+from typing import IO, Any, Union
+
+from botocore.response import StreamingBody
 
 from .literals import (
     AgreementStatusTypeType,
@@ -27,6 +33,7 @@ from .literals import (
     DomainType,
     EncryptionAlgType,
     EndpointTypeType,
+    EnforceMessageSigningTypeType,
     ExecutionErrorTypeType,
     ExecutionStatusType,
     HomeDirectoryTypeType,
@@ -35,6 +42,8 @@ from .literals import (
     MdnResponseType,
     MdnSigningAlgType,
     OverwriteExistingType,
+    PreserveContentTypeType,
+    PreserveFilenameTypeType,
     ProfileTypeType,
     ProtocolType,
     SecurityPolicyProtocolType,
@@ -44,69 +53,86 @@ from .literals import (
     SigningAlgType,
     StateType,
     TlsSessionResumptionModeType,
+    TransferTableStatusType,
+    WebAppEndpointPolicyType,
     WorkflowStepTypeType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
     "As2ConnectorConfigTypeDef",
+    "BlobTypeDef",
+    "ConnectorFileTransferResultTypeDef",
     "CopyStepDetailsTypeDef",
-    "CreateAccessRequestRequestTypeDef",
+    "CreateAccessRequestTypeDef",
     "CreateAccessResponseTypeDef",
-    "CreateAgreementRequestRequestTypeDef",
+    "CreateAgreementRequestTypeDef",
     "CreateAgreementResponseTypeDef",
-    "CreateConnectorRequestRequestTypeDef",
+    "CreateConnectorRequestTypeDef",
     "CreateConnectorResponseTypeDef",
-    "CreateProfileRequestRequestTypeDef",
+    "CreateProfileRequestTypeDef",
     "CreateProfileResponseTypeDef",
-    "CreateServerRequestRequestTypeDef",
+    "CreateServerRequestTypeDef",
     "CreateServerResponseTypeDef",
-    "CreateUserRequestRequestTypeDef",
+    "CreateUserRequestTypeDef",
     "CreateUserResponseTypeDef",
-    "CreateWorkflowRequestRequestTypeDef",
+    "CreateWebAppRequestTypeDef",
+    "CreateWebAppResponseTypeDef",
+    "CreateWorkflowRequestTypeDef",
     "CreateWorkflowResponseTypeDef",
+    "CustomDirectoriesTypeTypeDef",
     "CustomStepDetailsTypeDef",
     "DecryptStepDetailsTypeDef",
-    "DeleteAccessRequestRequestTypeDef",
-    "DeleteAgreementRequestRequestTypeDef",
-    "DeleteCertificateRequestRequestTypeDef",
-    "DeleteConnectorRequestRequestTypeDef",
-    "DeleteHostKeyRequestRequestTypeDef",
-    "DeleteProfileRequestRequestTypeDef",
-    "DeleteServerRequestRequestTypeDef",
-    "DeleteSshPublicKeyRequestRequestTypeDef",
+    "DeleteAccessRequestTypeDef",
+    "DeleteAgreementRequestTypeDef",
+    "DeleteCertificateRequestTypeDef",
+    "DeleteConnectorRequestTypeDef",
+    "DeleteHostKeyRequestTypeDef",
+    "DeleteProfileRequestTypeDef",
+    "DeleteServerRequestTypeDef",
+    "DeleteSshPublicKeyRequestTypeDef",
     "DeleteStepDetailsTypeDef",
-    "DeleteUserRequestRequestTypeDef",
-    "DeleteWorkflowRequestRequestTypeDef",
-    "DescribeAccessRequestRequestTypeDef",
+    "DeleteUserRequestTypeDef",
+    "DeleteWebAppCustomizationRequestTypeDef",
+    "DeleteWebAppRequestTypeDef",
+    "DeleteWorkflowRequestTypeDef",
+    "DescribeAccessRequestTypeDef",
     "DescribeAccessResponseTypeDef",
-    "DescribeAgreementRequestRequestTypeDef",
+    "DescribeAgreementRequestTypeDef",
     "DescribeAgreementResponseTypeDef",
-    "DescribeCertificateRequestRequestTypeDef",
+    "DescribeCertificateRequestTypeDef",
     "DescribeCertificateResponseTypeDef",
-    "DescribeConnectorRequestRequestTypeDef",
+    "DescribeConnectorRequestTypeDef",
     "DescribeConnectorResponseTypeDef",
-    "DescribeExecutionRequestRequestTypeDef",
+    "DescribeExecutionRequestTypeDef",
     "DescribeExecutionResponseTypeDef",
-    "DescribeHostKeyRequestRequestTypeDef",
+    "DescribeHostKeyRequestTypeDef",
     "DescribeHostKeyResponseTypeDef",
-    "DescribeProfileRequestRequestTypeDef",
+    "DescribeProfileRequestTypeDef",
     "DescribeProfileResponseTypeDef",
-    "DescribeSecurityPolicyRequestRequestTypeDef",
+    "DescribeSecurityPolicyRequestTypeDef",
     "DescribeSecurityPolicyResponseTypeDef",
-    "DescribeServerRequestRequestTypeDef",
+    "DescribeServerRequestTypeDef",
+    "DescribeServerRequestWaitExtraTypeDef",
+    "DescribeServerRequestWaitTypeDef",
     "DescribeServerResponseTypeDef",
-    "DescribeUserRequestRequestTypeDef",
+    "DescribeUserRequestTypeDef",
     "DescribeUserResponseTypeDef",
-    "DescribeWorkflowRequestRequestTypeDef",
+    "DescribeWebAppCustomizationRequestTypeDef",
+    "DescribeWebAppCustomizationResponseTypeDef",
+    "DescribeWebAppRequestTypeDef",
+    "DescribeWebAppResponseTypeDef",
+    "DescribeWorkflowRequestTypeDef",
     "DescribeWorkflowResponseTypeDef",
     "DescribedAccessTypeDef",
     "DescribedAgreementTypeDef",
@@ -114,49 +140,74 @@ __all__ = (
     "DescribedConnectorTypeDef",
     "DescribedExecutionTypeDef",
     "DescribedHostKeyTypeDef",
+    "DescribedIdentityCenterConfigTypeDef",
     "DescribedProfileTypeDef",
     "DescribedSecurityPolicyTypeDef",
     "DescribedServerTypeDef",
     "DescribedUserTypeDef",
+    "DescribedWebAppCustomizationTypeDef",
+    "DescribedWebAppIdentityProviderDetailsTypeDef",
+    "DescribedWebAppTypeDef",
     "DescribedWorkflowTypeDef",
     "EfsFileLocationTypeDef",
+    "EmptyResponseMetadataTypeDef",
+    "EndpointDetailsOutputTypeDef",
     "EndpointDetailsTypeDef",
+    "EndpointDetailsUnionTypeDef",
     "ExecutionErrorTypeDef",
     "ExecutionResultsTypeDef",
     "ExecutionStepResultTypeDef",
     "FileLocationTypeDef",
     "HomeDirectoryMapEntryTypeDef",
+    "IdentityCenterConfigTypeDef",
     "IdentityProviderDetailsTypeDef",
-    "ImportCertificateRequestRequestTypeDef",
+    "ImportCertificateRequestTypeDef",
     "ImportCertificateResponseTypeDef",
-    "ImportHostKeyRequestRequestTypeDef",
+    "ImportHostKeyRequestTypeDef",
     "ImportHostKeyResponseTypeDef",
-    "ImportSshPublicKeyRequestRequestTypeDef",
+    "ImportSshPublicKeyRequestTypeDef",
     "ImportSshPublicKeyResponseTypeDef",
     "InputFileLocationTypeDef",
-    "ListAccessesRequestRequestTypeDef",
+    "ListAccessesRequestPaginateTypeDef",
+    "ListAccessesRequestTypeDef",
     "ListAccessesResponseTypeDef",
-    "ListAgreementsRequestRequestTypeDef",
+    "ListAgreementsRequestPaginateTypeDef",
+    "ListAgreementsRequestTypeDef",
     "ListAgreementsResponseTypeDef",
-    "ListCertificatesRequestRequestTypeDef",
+    "ListCertificatesRequestPaginateTypeDef",
+    "ListCertificatesRequestTypeDef",
     "ListCertificatesResponseTypeDef",
-    "ListConnectorsRequestRequestTypeDef",
+    "ListConnectorsRequestPaginateTypeDef",
+    "ListConnectorsRequestTypeDef",
     "ListConnectorsResponseTypeDef",
-    "ListExecutionsRequestRequestTypeDef",
+    "ListExecutionsRequestPaginateTypeDef",
+    "ListExecutionsRequestTypeDef",
     "ListExecutionsResponseTypeDef",
-    "ListHostKeysRequestRequestTypeDef",
+    "ListFileTransferResultsRequestPaginateTypeDef",
+    "ListFileTransferResultsRequestTypeDef",
+    "ListFileTransferResultsResponseTypeDef",
+    "ListHostKeysRequestTypeDef",
     "ListHostKeysResponseTypeDef",
-    "ListProfilesRequestRequestTypeDef",
+    "ListProfilesRequestPaginateTypeDef",
+    "ListProfilesRequestTypeDef",
     "ListProfilesResponseTypeDef",
-    "ListSecurityPoliciesRequestRequestTypeDef",
+    "ListSecurityPoliciesRequestPaginateTypeDef",
+    "ListSecurityPoliciesRequestTypeDef",
     "ListSecurityPoliciesResponseTypeDef",
-    "ListServersRequestRequestTypeDef",
+    "ListServersRequestPaginateTypeDef",
+    "ListServersRequestTypeDef",
     "ListServersResponseTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestPaginateTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
-    "ListUsersRequestRequestTypeDef",
+    "ListUsersRequestPaginateTypeDef",
+    "ListUsersRequestTypeDef",
     "ListUsersResponseTypeDef",
-    "ListWorkflowsRequestRequestTypeDef",
+    "ListWebAppsRequestPaginateTypeDef",
+    "ListWebAppsRequestTypeDef",
+    "ListWebAppsResponseTypeDef",
+    "ListWorkflowsRequestPaginateTypeDef",
+    "ListWorkflowsRequestTypeDef",
     "ListWorkflowsResponseTypeDef",
     "ListedAccessTypeDef",
     "ListedAgreementTypeDef",
@@ -167,888 +218,313 @@ __all__ = (
     "ListedProfileTypeDef",
     "ListedServerTypeDef",
     "ListedUserTypeDef",
+    "ListedWebAppTypeDef",
     "ListedWorkflowTypeDef",
     "LoggingConfigurationTypeDef",
     "PaginatorConfigTypeDef",
+    "PosixProfileOutputTypeDef",
     "PosixProfileTypeDef",
+    "PosixProfileUnionTypeDef",
+    "ProtocolDetailsOutputTypeDef",
     "ProtocolDetailsTypeDef",
+    "ProtocolDetailsUnionTypeDef",
     "ResponseMetadataTypeDef",
     "S3FileLocationTypeDef",
     "S3InputFileLocationTypeDef",
     "S3StorageOptionsTypeDef",
     "S3TagTypeDef",
-    "SendWorkflowStepStateRequestRequestTypeDef",
+    "SendWorkflowStepStateRequestTypeDef",
     "ServiceMetadataTypeDef",
+    "SftpConnectorConfigOutputTypeDef",
     "SftpConnectorConfigTypeDef",
+    "SftpConnectorConfigUnionTypeDef",
+    "SftpConnectorConnectionDetailsTypeDef",
     "SshPublicKeyTypeDef",
-    "StartDirectoryListingRequestRequestTypeDef",
+    "StartDirectoryListingRequestTypeDef",
     "StartDirectoryListingResponseTypeDef",
-    "StartFileTransferRequestRequestTypeDef",
+    "StartFileTransferRequestTypeDef",
     "StartFileTransferResponseTypeDef",
-    "StartServerRequestRequestTypeDef",
-    "StopServerRequestRequestTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "StartRemoteDeleteRequestTypeDef",
+    "StartRemoteDeleteResponseTypeDef",
+    "StartRemoteMoveRequestTypeDef",
+    "StartRemoteMoveResponseTypeDef",
+    "StartServerRequestTypeDef",
+    "StopServerRequestTypeDef",
+    "TagResourceRequestTypeDef",
+    "TagStepDetailsOutputTypeDef",
     "TagStepDetailsTypeDef",
+    "TagStepDetailsUnionTypeDef",
     "TagTypeDef",
-    "TestConnectionRequestRequestTypeDef",
+    "TestConnectionRequestTypeDef",
     "TestConnectionResponseTypeDef",
-    "TestIdentityProviderRequestRequestTypeDef",
+    "TestIdentityProviderRequestTypeDef",
     "TestIdentityProviderResponseTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateAccessRequestRequestTypeDef",
+    "TimestampTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateAccessRequestTypeDef",
     "UpdateAccessResponseTypeDef",
-    "UpdateAgreementRequestRequestTypeDef",
+    "UpdateAgreementRequestTypeDef",
     "UpdateAgreementResponseTypeDef",
-    "UpdateCertificateRequestRequestTypeDef",
+    "UpdateCertificateRequestTypeDef",
     "UpdateCertificateResponseTypeDef",
-    "UpdateConnectorRequestRequestTypeDef",
+    "UpdateConnectorRequestTypeDef",
     "UpdateConnectorResponseTypeDef",
-    "UpdateHostKeyRequestRequestTypeDef",
+    "UpdateHostKeyRequestTypeDef",
     "UpdateHostKeyResponseTypeDef",
-    "UpdateProfileRequestRequestTypeDef",
+    "UpdateProfileRequestTypeDef",
     "UpdateProfileResponseTypeDef",
-    "UpdateServerRequestRequestTypeDef",
+    "UpdateServerRequestTypeDef",
     "UpdateServerResponseTypeDef",
-    "UpdateUserRequestRequestTypeDef",
+    "UpdateUserRequestTypeDef",
     "UpdateUserResponseTypeDef",
+    "UpdateWebAppCustomizationRequestTypeDef",
+    "UpdateWebAppCustomizationResponseTypeDef",
+    "UpdateWebAppIdentityCenterConfigTypeDef",
+    "UpdateWebAppIdentityProviderDetailsTypeDef",
+    "UpdateWebAppRequestTypeDef",
+    "UpdateWebAppResponseTypeDef",
     "UserDetailsTypeDef",
     "WaiterConfigTypeDef",
+    "WebAppIdentityProviderDetailsTypeDef",
+    "WebAppUnitsTypeDef",
     "WorkflowDetailTypeDef",
+    "WorkflowDetailsOutputTypeDef",
     "WorkflowDetailsTypeDef",
+    "WorkflowDetailsUnionTypeDef",
+    "WorkflowStepOutputTypeDef",
     "WorkflowStepTypeDef",
+    "WorkflowStepUnionTypeDef",
 )
 
-As2ConnectorConfigTypeDef = TypedDict(
-    "As2ConnectorConfigTypeDef",
-    {
-        "LocalProfileId": str,
-        "PartnerProfileId": str,
-        "MessageSubject": str,
-        "Compression": CompressionEnumType,
-        "EncryptionAlgorithm": EncryptionAlgType,
-        "SigningAlgorithm": SigningAlgType,
-        "MdnSigningAlgorithm": MdnSigningAlgType,
-        "MdnResponse": MdnResponseType,
-        "BasicAuthSecretId": str,
-    },
-    total=False,
-)
+class As2ConnectorConfigTypeDef(TypedDict):
+    LocalProfileId: NotRequired[str]
+    PartnerProfileId: NotRequired[str]
+    MessageSubject: NotRequired[str]
+    Compression: NotRequired[CompressionEnumType]
+    EncryptionAlgorithm: NotRequired[EncryptionAlgType]
+    SigningAlgorithm: NotRequired[SigningAlgType]
+    MdnSigningAlgorithm: NotRequired[MdnSigningAlgType]
+    MdnResponse: NotRequired[MdnResponseType]
+    BasicAuthSecretId: NotRequired[str]
+    PreserveContentType: NotRequired[PreserveContentTypeType]
 
-CopyStepDetailsTypeDef = TypedDict(
-    "CopyStepDetailsTypeDef",
-    {
-        "Name": str,
-        "DestinationFileLocation": "InputFileLocationTypeDef",
-        "OverwriteExisting": OverwriteExistingType,
-        "SourceFileLocation": str,
-    },
-    total=False,
-)
+BlobTypeDef = Union[str, bytes, IO[Any], StreamingBody]
 
-_RequiredCreateAccessRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateAccessRequestRequestTypeDef",
-    {
-        "Role": str,
-        "ServerId": str,
-        "ExternalId": str,
-    },
-)
-_OptionalCreateAccessRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateAccessRequestRequestTypeDef",
-    {
-        "HomeDirectory": str,
-        "HomeDirectoryType": HomeDirectoryTypeType,
-        "HomeDirectoryMappings": List["HomeDirectoryMapEntryTypeDef"],
-        "Policy": str,
-        "PosixProfile": "PosixProfileTypeDef",
-    },
-    total=False,
-)
+class ConnectorFileTransferResultTypeDef(TypedDict):
+    FilePath: str
+    StatusCode: TransferTableStatusType
+    FailureCode: NotRequired[str]
+    FailureMessage: NotRequired[str]
 
-class CreateAccessRequestRequestTypeDef(
-    _RequiredCreateAccessRequestRequestTypeDef, _OptionalCreateAccessRequestRequestTypeDef
-):
-    pass
-
-CreateAccessResponseTypeDef = TypedDict(
-    "CreateAccessResponseTypeDef",
+HomeDirectoryMapEntryTypeDef = TypedDict(
+    "HomeDirectoryMapEntryTypeDef",
     {
-        "ServerId": str,
-        "ExternalId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateAgreementRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateAgreementRequestRequestTypeDef",
-    {
-        "ServerId": str,
-        "LocalProfileId": str,
-        "PartnerProfileId": str,
-        "BaseDirectory": str,
-        "AccessRole": str,
-    },
-)
-_OptionalCreateAgreementRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateAgreementRequestRequestTypeDef",
-    {
-        "Description": str,
-        "Status": AgreementStatusTypeType,
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateAgreementRequestRequestTypeDef(
-    _RequiredCreateAgreementRequestRequestTypeDef, _OptionalCreateAgreementRequestRequestTypeDef
-):
-    pass
-
-CreateAgreementResponseTypeDef = TypedDict(
-    "CreateAgreementResponseTypeDef",
-    {
-        "AgreementId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateConnectorRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateConnectorRequestRequestTypeDef",
-    {
-        "Url": str,
-        "AccessRole": str,
-    },
-)
-_OptionalCreateConnectorRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateConnectorRequestRequestTypeDef",
-    {
-        "As2Config": "As2ConnectorConfigTypeDef",
-        "LoggingRole": str,
-        "Tags": List["TagTypeDef"],
-        "SftpConfig": "SftpConnectorConfigTypeDef",
-        "SecurityPolicyName": str,
-    },
-    total=False,
-)
-
-class CreateConnectorRequestRequestTypeDef(
-    _RequiredCreateConnectorRequestRequestTypeDef, _OptionalCreateConnectorRequestRequestTypeDef
-):
-    pass
-
-CreateConnectorResponseTypeDef = TypedDict(
-    "CreateConnectorResponseTypeDef",
-    {
-        "ConnectorId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateProfileRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateProfileRequestRequestTypeDef",
-    {
-        "As2Id": str,
-        "ProfileType": ProfileTypeType,
-    },
-)
-_OptionalCreateProfileRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateProfileRequestRequestTypeDef",
-    {
-        "CertificateIds": List[str],
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateProfileRequestRequestTypeDef(
-    _RequiredCreateProfileRequestRequestTypeDef, _OptionalCreateProfileRequestRequestTypeDef
-):
-    pass
-
-CreateProfileResponseTypeDef = TypedDict(
-    "CreateProfileResponseTypeDef",
-    {
-        "ProfileId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateServerRequestRequestTypeDef = TypedDict(
-    "CreateServerRequestRequestTypeDef",
-    {
-        "Certificate": str,
-        "Domain": DomainType,
-        "EndpointDetails": "EndpointDetailsTypeDef",
-        "EndpointType": EndpointTypeType,
-        "HostKey": str,
-        "IdentityProviderDetails": "IdentityProviderDetailsTypeDef",
-        "IdentityProviderType": IdentityProviderTypeType,
-        "LoggingRole": str,
-        "PostAuthenticationLoginBanner": str,
-        "PreAuthenticationLoginBanner": str,
-        "Protocols": List[ProtocolType],
-        "ProtocolDetails": "ProtocolDetailsTypeDef",
-        "SecurityPolicyName": str,
-        "Tags": List["TagTypeDef"],
-        "WorkflowDetails": "WorkflowDetailsTypeDef",
-        "StructuredLogDestinations": List[str],
-        "S3StorageOptions": "S3StorageOptionsTypeDef",
-    },
-    total=False,
-)
-
-CreateServerResponseTypeDef = TypedDict(
-    "CreateServerResponseTypeDef",
-    {
-        "ServerId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateUserRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateUserRequestRequestTypeDef",
-    {
-        "Role": str,
-        "ServerId": str,
-        "UserName": str,
-    },
-)
-_OptionalCreateUserRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateUserRequestRequestTypeDef",
-    {
-        "HomeDirectory": str,
-        "HomeDirectoryType": HomeDirectoryTypeType,
-        "HomeDirectoryMappings": List["HomeDirectoryMapEntryTypeDef"],
-        "Policy": str,
-        "PosixProfile": "PosixProfileTypeDef",
-        "SshPublicKeyBody": str,
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateUserRequestRequestTypeDef(
-    _RequiredCreateUserRequestRequestTypeDef, _OptionalCreateUserRequestRequestTypeDef
-):
-    pass
-
-CreateUserResponseTypeDef = TypedDict(
-    "CreateUserResponseTypeDef",
-    {
-        "ServerId": str,
-        "UserName": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateWorkflowRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateWorkflowRequestRequestTypeDef",
-    {
-        "Steps": List["WorkflowStepTypeDef"],
-    },
-)
-_OptionalCreateWorkflowRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateWorkflowRequestRequestTypeDef",
-    {
-        "Description": str,
-        "OnExceptionSteps": List["WorkflowStepTypeDef"],
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateWorkflowRequestRequestTypeDef(
-    _RequiredCreateWorkflowRequestRequestTypeDef, _OptionalCreateWorkflowRequestRequestTypeDef
-):
-    pass
-
-CreateWorkflowResponseTypeDef = TypedDict(
-    "CreateWorkflowResponseTypeDef",
-    {
-        "WorkflowId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CustomStepDetailsTypeDef = TypedDict(
-    "CustomStepDetailsTypeDef",
-    {
-        "Name": str,
+        "Entry": str,
         "Target": str,
-        "TimeoutSeconds": int,
-        "SourceFileLocation": str,
-    },
-    total=False,
-)
-
-_RequiredDecryptStepDetailsTypeDef = TypedDict(
-    "_RequiredDecryptStepDetailsTypeDef",
-    {
-        "Type": Literal["PGP"],
-        "DestinationFileLocation": "InputFileLocationTypeDef",
-    },
-)
-_OptionalDecryptStepDetailsTypeDef = TypedDict(
-    "_OptionalDecryptStepDetailsTypeDef",
-    {
-        "Name": str,
-        "SourceFileLocation": str,
-        "OverwriteExisting": OverwriteExistingType,
-    },
-    total=False,
-)
-
-class DecryptStepDetailsTypeDef(
-    _RequiredDecryptStepDetailsTypeDef, _OptionalDecryptStepDetailsTypeDef
-):
-    pass
-
-DeleteAccessRequestRequestTypeDef = TypedDict(
-    "DeleteAccessRequestRequestTypeDef",
-    {
-        "ServerId": str,
-        "ExternalId": str,
+        "Type": NotRequired[MapTypeType],
     },
 )
 
-DeleteAgreementRequestRequestTypeDef = TypedDict(
-    "DeleteAgreementRequestRequestTypeDef",
-    {
-        "AgreementId": str,
-        "ServerId": str,
-    },
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-DeleteCertificateRequestRequestTypeDef = TypedDict(
-    "DeleteCertificateRequestRequestTypeDef",
-    {
-        "CertificateId": str,
-    },
-)
+class CustomDirectoriesTypeTypeDef(TypedDict):
+    FailedFilesDirectory: str
+    MdnFilesDirectory: str
+    PayloadFilesDirectory: str
+    StatusFilesDirectory: str
+    TemporaryFilesDirectory: str
 
-DeleteConnectorRequestRequestTypeDef = TypedDict(
-    "DeleteConnectorRequestRequestTypeDef",
-    {
-        "ConnectorId": str,
-    },
-)
+class TagTypeDef(TypedDict):
+    Key: str
+    Value: str
 
-DeleteHostKeyRequestRequestTypeDef = TypedDict(
-    "DeleteHostKeyRequestRequestTypeDef",
-    {
-        "ServerId": str,
-        "HostKeyId": str,
-    },
-)
+class IdentityProviderDetailsTypeDef(TypedDict):
+    Url: NotRequired[str]
+    InvocationRole: NotRequired[str]
+    DirectoryId: NotRequired[str]
+    Function: NotRequired[str]
+    SftpAuthenticationMethods: NotRequired[SftpAuthenticationMethodsType]
 
-DeleteProfileRequestRequestTypeDef = TypedDict(
-    "DeleteProfileRequestRequestTypeDef",
-    {
-        "ProfileId": str,
-    },
-)
+class S3StorageOptionsTypeDef(TypedDict):
+    DirectoryListingOptimization: NotRequired[DirectoryListingOptimizationType]
 
-DeleteServerRequestRequestTypeDef = TypedDict(
-    "DeleteServerRequestRequestTypeDef",
-    {
-        "ServerId": str,
-    },
-)
+class WebAppUnitsTypeDef(TypedDict):
+    Provisioned: NotRequired[int]
 
-DeleteSshPublicKeyRequestRequestTypeDef = TypedDict(
-    "DeleteSshPublicKeyRequestRequestTypeDef",
-    {
-        "ServerId": str,
-        "SshPublicKeyId": str,
-        "UserName": str,
-    },
-)
+class CustomStepDetailsTypeDef(TypedDict):
+    Name: NotRequired[str]
+    Target: NotRequired[str]
+    TimeoutSeconds: NotRequired[int]
+    SourceFileLocation: NotRequired[str]
 
-DeleteStepDetailsTypeDef = TypedDict(
-    "DeleteStepDetailsTypeDef",
-    {
-        "Name": str,
-        "SourceFileLocation": str,
-    },
-    total=False,
-)
+class DeleteAccessRequestTypeDef(TypedDict):
+    ServerId: str
+    ExternalId: str
 
-DeleteUserRequestRequestTypeDef = TypedDict(
-    "DeleteUserRequestRequestTypeDef",
-    {
-        "ServerId": str,
-        "UserName": str,
-    },
-)
+class DeleteAgreementRequestTypeDef(TypedDict):
+    AgreementId: str
+    ServerId: str
 
-DeleteWorkflowRequestRequestTypeDef = TypedDict(
-    "DeleteWorkflowRequestRequestTypeDef",
-    {
-        "WorkflowId": str,
-    },
-)
+class DeleteCertificateRequestTypeDef(TypedDict):
+    CertificateId: str
 
-DescribeAccessRequestRequestTypeDef = TypedDict(
-    "DescribeAccessRequestRequestTypeDef",
-    {
-        "ServerId": str,
-        "ExternalId": str,
-    },
-)
+class DeleteConnectorRequestTypeDef(TypedDict):
+    ConnectorId: str
 
-DescribeAccessResponseTypeDef = TypedDict(
-    "DescribeAccessResponseTypeDef",
-    {
-        "ServerId": str,
-        "Access": "DescribedAccessTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DeleteHostKeyRequestTypeDef(TypedDict):
+    ServerId: str
+    HostKeyId: str
 
-DescribeAgreementRequestRequestTypeDef = TypedDict(
-    "DescribeAgreementRequestRequestTypeDef",
-    {
-        "AgreementId": str,
-        "ServerId": str,
-    },
-)
+class DeleteProfileRequestTypeDef(TypedDict):
+    ProfileId: str
 
-DescribeAgreementResponseTypeDef = TypedDict(
-    "DescribeAgreementResponseTypeDef",
-    {
-        "Agreement": "DescribedAgreementTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DeleteServerRequestTypeDef(TypedDict):
+    ServerId: str
 
-DescribeCertificateRequestRequestTypeDef = TypedDict(
-    "DescribeCertificateRequestRequestTypeDef",
-    {
-        "CertificateId": str,
-    },
-)
+class DeleteSshPublicKeyRequestTypeDef(TypedDict):
+    ServerId: str
+    SshPublicKeyId: str
+    UserName: str
 
-DescribeCertificateResponseTypeDef = TypedDict(
-    "DescribeCertificateResponseTypeDef",
-    {
-        "Certificate": "DescribedCertificateTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DeleteStepDetailsTypeDef(TypedDict):
+    Name: NotRequired[str]
+    SourceFileLocation: NotRequired[str]
 
-DescribeConnectorRequestRequestTypeDef = TypedDict(
-    "DescribeConnectorRequestRequestTypeDef",
-    {
-        "ConnectorId": str,
-    },
-)
+class DeleteUserRequestTypeDef(TypedDict):
+    ServerId: str
+    UserName: str
 
-DescribeConnectorResponseTypeDef = TypedDict(
-    "DescribeConnectorResponseTypeDef",
-    {
-        "Connector": "DescribedConnectorTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DeleteWebAppCustomizationRequestTypeDef(TypedDict):
+    WebAppId: str
 
-DescribeExecutionRequestRequestTypeDef = TypedDict(
-    "DescribeExecutionRequestRequestTypeDef",
-    {
-        "ExecutionId": str,
-        "WorkflowId": str,
-    },
-)
+class DeleteWebAppRequestTypeDef(TypedDict):
+    WebAppId: str
 
-DescribeExecutionResponseTypeDef = TypedDict(
-    "DescribeExecutionResponseTypeDef",
-    {
-        "WorkflowId": str,
-        "Execution": "DescribedExecutionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DeleteWorkflowRequestTypeDef(TypedDict):
+    WorkflowId: str
 
-DescribeHostKeyRequestRequestTypeDef = TypedDict(
-    "DescribeHostKeyRequestRequestTypeDef",
-    {
-        "ServerId": str,
-        "HostKeyId": str,
-    },
-)
+class DescribeAccessRequestTypeDef(TypedDict):
+    ServerId: str
+    ExternalId: str
 
-DescribeHostKeyResponseTypeDef = TypedDict(
-    "DescribeHostKeyResponseTypeDef",
-    {
-        "HostKey": "DescribedHostKeyTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DescribeAgreementRequestTypeDef(TypedDict):
+    AgreementId: str
+    ServerId: str
 
-DescribeProfileRequestRequestTypeDef = TypedDict(
-    "DescribeProfileRequestRequestTypeDef",
-    {
-        "ProfileId": str,
-    },
-)
+class DescribeCertificateRequestTypeDef(TypedDict):
+    CertificateId: str
 
-DescribeProfileResponseTypeDef = TypedDict(
-    "DescribeProfileResponseTypeDef",
-    {
-        "Profile": "DescribedProfileTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DescribeConnectorRequestTypeDef(TypedDict):
+    ConnectorId: str
 
-DescribeSecurityPolicyRequestRequestTypeDef = TypedDict(
-    "DescribeSecurityPolicyRequestRequestTypeDef",
+class DescribeExecutionRequestTypeDef(TypedDict):
+    ExecutionId: str
+    WorkflowId: str
+
+class DescribeHostKeyRequestTypeDef(TypedDict):
+    ServerId: str
+    HostKeyId: str
+
+class DescribeProfileRequestTypeDef(TypedDict):
+    ProfileId: str
+
+class DescribeSecurityPolicyRequestTypeDef(TypedDict):
+    SecurityPolicyName: str
+
+DescribedSecurityPolicyTypeDef = TypedDict(
+    "DescribedSecurityPolicyTypeDef",
     {
         "SecurityPolicyName": str,
+        "Fips": NotRequired[bool],
+        "SshCiphers": NotRequired[List[str]],
+        "SshKexs": NotRequired[List[str]],
+        "SshMacs": NotRequired[List[str]],
+        "TlsCiphers": NotRequired[List[str]],
+        "SshHostKeyAlgorithms": NotRequired[List[str]],
+        "Type": NotRequired[SecurityPolicyResourceTypeType],
+        "Protocols": NotRequired[List[SecurityPolicyProtocolType]],
     },
 )
 
-DescribeSecurityPolicyResponseTypeDef = TypedDict(
-    "DescribeSecurityPolicyResponseTypeDef",
-    {
-        "SecurityPolicy": "DescribedSecurityPolicyTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DescribeServerRequestTypeDef(TypedDict):
+    ServerId: str
 
-DescribeServerRequestRequestTypeDef = TypedDict(
-    "DescribeServerRequestRequestTypeDef",
-    {
-        "ServerId": str,
-    },
-)
+class WaiterConfigTypeDef(TypedDict):
+    Delay: NotRequired[int]
+    MaxAttempts: NotRequired[int]
 
-DescribeServerResponseTypeDef = TypedDict(
-    "DescribeServerResponseTypeDef",
-    {
-        "Server": "DescribedServerTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DescribeUserRequestTypeDef(TypedDict):
+    ServerId: str
+    UserName: str
 
-DescribeUserRequestRequestTypeDef = TypedDict(
-    "DescribeUserRequestRequestTypeDef",
-    {
-        "ServerId": str,
-        "UserName": str,
-    },
-)
+class DescribeWebAppCustomizationRequestTypeDef(TypedDict):
+    WebAppId: str
 
-DescribeUserResponseTypeDef = TypedDict(
-    "DescribeUserResponseTypeDef",
-    {
-        "ServerId": str,
-        "User": "DescribedUserTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DescribedWebAppCustomizationTypeDef(TypedDict):
+    Arn: str
+    WebAppId: str
+    Title: NotRequired[str]
+    LogoFile: NotRequired[bytes]
+    FaviconFile: NotRequired[bytes]
 
-DescribeWorkflowRequestRequestTypeDef = TypedDict(
-    "DescribeWorkflowRequestRequestTypeDef",
-    {
-        "WorkflowId": str,
-    },
-)
+class DescribeWebAppRequestTypeDef(TypedDict):
+    WebAppId: str
 
-DescribeWorkflowResponseTypeDef = TypedDict(
-    "DescribeWorkflowResponseTypeDef",
-    {
-        "Workflow": "DescribedWorkflowTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DescribeWorkflowRequestTypeDef(TypedDict):
+    WorkflowId: str
 
-DescribedAccessTypeDef = TypedDict(
-    "DescribedAccessTypeDef",
-    {
-        "HomeDirectory": str,
-        "HomeDirectoryMappings": List["HomeDirectoryMapEntryTypeDef"],
-        "HomeDirectoryType": HomeDirectoryTypeType,
-        "Policy": str,
-        "PosixProfile": "PosixProfileTypeDef",
-        "Role": str,
-        "ExternalId": str,
-    },
-    total=False,
-)
+class PosixProfileOutputTypeDef(TypedDict):
+    Uid: int
+    Gid: int
+    SecondaryGids: NotRequired[List[int]]
 
-_RequiredDescribedAgreementTypeDef = TypedDict(
-    "_RequiredDescribedAgreementTypeDef",
-    {
-        "Arn": str,
-    },
-)
-_OptionalDescribedAgreementTypeDef = TypedDict(
-    "_OptionalDescribedAgreementTypeDef",
-    {
-        "AgreementId": str,
-        "Description": str,
-        "Status": AgreementStatusTypeType,
-        "ServerId": str,
-        "LocalProfileId": str,
-        "PartnerProfileId": str,
-        "BaseDirectory": str,
-        "AccessRole": str,
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
+class SftpConnectorConfigOutputTypeDef(TypedDict):
+    UserSecretId: NotRequired[str]
+    TrustedHostKeys: NotRequired[List[str]]
+    MaxConcurrentConnections: NotRequired[int]
 
-class DescribedAgreementTypeDef(
-    _RequiredDescribedAgreementTypeDef, _OptionalDescribedAgreementTypeDef
-):
-    pass
+class LoggingConfigurationTypeDef(TypedDict):
+    LoggingRole: NotRequired[str]
+    LogGroupName: NotRequired[str]
 
-_RequiredDescribedCertificateTypeDef = TypedDict(
-    "_RequiredDescribedCertificateTypeDef",
-    {
-        "Arn": str,
-    },
-)
-_OptionalDescribedCertificateTypeDef = TypedDict(
-    "_OptionalDescribedCertificateTypeDef",
-    {
-        "CertificateId": str,
-        "Usage": CertificateUsageTypeType,
-        "Status": CertificateStatusTypeType,
-        "Certificate": str,
-        "CertificateChain": str,
-        "ActiveDate": datetime,
-        "InactiveDate": datetime,
-        "Serial": str,
-        "NotBeforeDate": datetime,
-        "NotAfterDate": datetime,
-        "Type": CertificateTypeType,
-        "Description": str,
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
+class DescribedIdentityCenterConfigTypeDef(TypedDict):
+    ApplicationArn: NotRequired[str]
+    InstanceArn: NotRequired[str]
+    Role: NotRequired[str]
 
-class DescribedCertificateTypeDef(
-    _RequiredDescribedCertificateTypeDef, _OptionalDescribedCertificateTypeDef
-):
-    pass
+class EndpointDetailsOutputTypeDef(TypedDict):
+    AddressAllocationIds: NotRequired[List[str]]
+    SubnetIds: NotRequired[List[str]]
+    VpcEndpointId: NotRequired[str]
+    VpcId: NotRequired[str]
+    SecurityGroupIds: NotRequired[List[str]]
 
-_RequiredDescribedConnectorTypeDef = TypedDict(
-    "_RequiredDescribedConnectorTypeDef",
-    {
-        "Arn": str,
-    },
-)
-_OptionalDescribedConnectorTypeDef = TypedDict(
-    "_OptionalDescribedConnectorTypeDef",
-    {
-        "ConnectorId": str,
-        "Url": str,
-        "As2Config": "As2ConnectorConfigTypeDef",
-        "AccessRole": str,
-        "LoggingRole": str,
-        "Tags": List["TagTypeDef"],
-        "SftpConfig": "SftpConnectorConfigTypeDef",
-        "ServiceManagedEgressIpAddresses": List[str],
-        "SecurityPolicyName": str,
-    },
-    total=False,
-)
+class ProtocolDetailsOutputTypeDef(TypedDict):
+    PassiveIp: NotRequired[str]
+    TlsSessionResumptionMode: NotRequired[TlsSessionResumptionModeType]
+    SetStatOption: NotRequired[SetStatOptionType]
+    As2Transports: NotRequired[List[Literal["HTTP"]]]
 
-class DescribedConnectorTypeDef(
-    _RequiredDescribedConnectorTypeDef, _OptionalDescribedConnectorTypeDef
-):
-    pass
+class SshPublicKeyTypeDef(TypedDict):
+    DateImported: datetime
+    SshPublicKeyBody: str
+    SshPublicKeyId: str
 
-DescribedExecutionTypeDef = TypedDict(
-    "DescribedExecutionTypeDef",
-    {
-        "ExecutionId": str,
-        "InitialFileLocation": "FileLocationTypeDef",
-        "ServiceMetadata": "ServiceMetadataTypeDef",
-        "ExecutionRole": str,
-        "LoggingConfiguration": "LoggingConfigurationTypeDef",
-        "PosixProfile": "PosixProfileTypeDef",
-        "Status": ExecutionStatusType,
-        "Results": "ExecutionResultsTypeDef",
-    },
-    total=False,
-)
+class EfsFileLocationTypeDef(TypedDict):
+    FileSystemId: NotRequired[str]
+    Path: NotRequired[str]
 
-_RequiredDescribedHostKeyTypeDef = TypedDict(
-    "_RequiredDescribedHostKeyTypeDef",
-    {
-        "Arn": str,
-    },
-)
-_OptionalDescribedHostKeyTypeDef = TypedDict(
-    "_OptionalDescribedHostKeyTypeDef",
-    {
-        "HostKeyId": str,
-        "HostKeyFingerprint": str,
-        "Description": str,
-        "Type": str,
-        "DateImported": datetime,
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class DescribedHostKeyTypeDef(_RequiredDescribedHostKeyTypeDef, _OptionalDescribedHostKeyTypeDef):
-    pass
-
-_RequiredDescribedProfileTypeDef = TypedDict(
-    "_RequiredDescribedProfileTypeDef",
-    {
-        "Arn": str,
-    },
-)
-_OptionalDescribedProfileTypeDef = TypedDict(
-    "_OptionalDescribedProfileTypeDef",
-    {
-        "ProfileId": str,
-        "ProfileType": ProfileTypeType,
-        "As2Id": str,
-        "CertificateIds": List[str],
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class DescribedProfileTypeDef(_RequiredDescribedProfileTypeDef, _OptionalDescribedProfileTypeDef):
-    pass
-
-_RequiredDescribedSecurityPolicyTypeDef = TypedDict(
-    "_RequiredDescribedSecurityPolicyTypeDef",
-    {
-        "SecurityPolicyName": str,
-    },
-)
-_OptionalDescribedSecurityPolicyTypeDef = TypedDict(
-    "_OptionalDescribedSecurityPolicyTypeDef",
-    {
-        "Fips": bool,
-        "SshCiphers": List[str],
-        "SshKexs": List[str],
-        "SshMacs": List[str],
-        "TlsCiphers": List[str],
-        "SshHostKeyAlgorithms": List[str],
-        "Type": SecurityPolicyResourceTypeType,
-        "Protocols": List[SecurityPolicyProtocolType],
-    },
-    total=False,
-)
-
-class DescribedSecurityPolicyTypeDef(
-    _RequiredDescribedSecurityPolicyTypeDef, _OptionalDescribedSecurityPolicyTypeDef
-):
-    pass
-
-_RequiredDescribedServerTypeDef = TypedDict(
-    "_RequiredDescribedServerTypeDef",
-    {
-        "Arn": str,
-    },
-)
-_OptionalDescribedServerTypeDef = TypedDict(
-    "_OptionalDescribedServerTypeDef",
-    {
-        "Certificate": str,
-        "ProtocolDetails": "ProtocolDetailsTypeDef",
-        "Domain": DomainType,
-        "EndpointDetails": "EndpointDetailsTypeDef",
-        "EndpointType": EndpointTypeType,
-        "HostKeyFingerprint": str,
-        "IdentityProviderDetails": "IdentityProviderDetailsTypeDef",
-        "IdentityProviderType": IdentityProviderTypeType,
-        "LoggingRole": str,
-        "PostAuthenticationLoginBanner": str,
-        "PreAuthenticationLoginBanner": str,
-        "Protocols": List[ProtocolType],
-        "SecurityPolicyName": str,
-        "ServerId": str,
-        "State": StateType,
-        "Tags": List["TagTypeDef"],
-        "UserCount": int,
-        "WorkflowDetails": "WorkflowDetailsTypeDef",
-        "StructuredLogDestinations": List[str],
-        "S3StorageOptions": "S3StorageOptionsTypeDef",
-        "As2ServiceManagedEgressIpAddresses": List[str],
-    },
-    total=False,
-)
-
-class DescribedServerTypeDef(_RequiredDescribedServerTypeDef, _OptionalDescribedServerTypeDef):
-    pass
-
-_RequiredDescribedUserTypeDef = TypedDict(
-    "_RequiredDescribedUserTypeDef",
-    {
-        "Arn": str,
-    },
-)
-_OptionalDescribedUserTypeDef = TypedDict(
-    "_OptionalDescribedUserTypeDef",
-    {
-        "HomeDirectory": str,
-        "HomeDirectoryMappings": List["HomeDirectoryMapEntryTypeDef"],
-        "HomeDirectoryType": HomeDirectoryTypeType,
-        "Policy": str,
-        "PosixProfile": "PosixProfileTypeDef",
-        "Role": str,
-        "SshPublicKeys": List["SshPublicKeyTypeDef"],
-        "Tags": List["TagTypeDef"],
-        "UserName": str,
-    },
-    total=False,
-)
-
-class DescribedUserTypeDef(_RequiredDescribedUserTypeDef, _OptionalDescribedUserTypeDef):
-    pass
-
-_RequiredDescribedWorkflowTypeDef = TypedDict(
-    "_RequiredDescribedWorkflowTypeDef",
-    {
-        "Arn": str,
-    },
-)
-_OptionalDescribedWorkflowTypeDef = TypedDict(
-    "_OptionalDescribedWorkflowTypeDef",
-    {
-        "Description": str,
-        "Steps": List["WorkflowStepTypeDef"],
-        "OnExceptionSteps": List["WorkflowStepTypeDef"],
-        "WorkflowId": str,
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class DescribedWorkflowTypeDef(
-    _RequiredDescribedWorkflowTypeDef, _OptionalDescribedWorkflowTypeDef
-):
-    pass
-
-EfsFileLocationTypeDef = TypedDict(
-    "EfsFileLocationTypeDef",
-    {
-        "FileSystemId": str,
-        "Path": str,
-    },
-    total=False,
-)
-
-EndpointDetailsTypeDef = TypedDict(
-    "EndpointDetailsTypeDef",
-    {
-        "AddressAllocationIds": List[str],
-        "SubnetIds": List[str],
-        "VpcEndpointId": str,
-        "VpcId": str,
-        "SecurityGroupIds": List[str],
-    },
-    total=False,
-)
+class EndpointDetailsTypeDef(TypedDict):
+    AddressAllocationIds: NotRequired[Sequence[str]]
+    SubnetIds: NotRequired[Sequence[str]]
+    VpcEndpointId: NotRequired[str]
+    VpcId: NotRequired[str]
+    SecurityGroupIds: NotRequired[Sequence[str]]
 
 ExecutionErrorTypeDef = TypedDict(
     "ExecutionErrorTypeDef",
@@ -1058,1183 +534,1004 @@ ExecutionErrorTypeDef = TypedDict(
     },
 )
 
-ExecutionResultsTypeDef = TypedDict(
-    "ExecutionResultsTypeDef",
-    {
-        "Steps": List["ExecutionStepResultTypeDef"],
-        "OnExceptionSteps": List["ExecutionStepResultTypeDef"],
-    },
-    total=False,
-)
+class S3FileLocationTypeDef(TypedDict):
+    Bucket: NotRequired[str]
+    Key: NotRequired[str]
+    VersionId: NotRequired[str]
+    Etag: NotRequired[str]
 
-ExecutionStepResultTypeDef = TypedDict(
-    "ExecutionStepResultTypeDef",
-    {
-        "StepType": WorkflowStepTypeType,
-        "Outputs": str,
-        "Error": "ExecutionErrorTypeDef",
-    },
-    total=False,
-)
+class IdentityCenterConfigTypeDef(TypedDict):
+    InstanceArn: NotRequired[str]
+    Role: NotRequired[str]
 
-FileLocationTypeDef = TypedDict(
-    "FileLocationTypeDef",
-    {
-        "S3FileLocation": "S3FileLocationTypeDef",
-        "EfsFileLocation": "EfsFileLocationTypeDef",
-    },
-    total=False,
-)
+TimestampTypeDef = Union[datetime, str]
 
-_RequiredHomeDirectoryMapEntryTypeDef = TypedDict(
-    "_RequiredHomeDirectoryMapEntryTypeDef",
-    {
-        "Entry": str,
-        "Target": str,
-    },
-)
-_OptionalHomeDirectoryMapEntryTypeDef = TypedDict(
-    "_OptionalHomeDirectoryMapEntryTypeDef",
-    {
-        "Type": MapTypeType,
-    },
-    total=False,
-)
+class ImportSshPublicKeyRequestTypeDef(TypedDict):
+    ServerId: str
+    SshPublicKeyBody: str
+    UserName: str
 
-class HomeDirectoryMapEntryTypeDef(
-    _RequiredHomeDirectoryMapEntryTypeDef, _OptionalHomeDirectoryMapEntryTypeDef
-):
-    pass
+class S3InputFileLocationTypeDef(TypedDict):
+    Bucket: NotRequired[str]
+    Key: NotRequired[str]
 
-IdentityProviderDetailsTypeDef = TypedDict(
-    "IdentityProviderDetailsTypeDef",
-    {
-        "Url": str,
-        "InvocationRole": str,
-        "DirectoryId": str,
-        "Function": str,
-        "SftpAuthenticationMethods": SftpAuthenticationMethodsType,
-    },
-    total=False,
-)
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
 
-_RequiredImportCertificateRequestRequestTypeDef = TypedDict(
-    "_RequiredImportCertificateRequestRequestTypeDef",
-    {
-        "Usage": CertificateUsageTypeType,
-        "Certificate": str,
-    },
-)
-_OptionalImportCertificateRequestRequestTypeDef = TypedDict(
-    "_OptionalImportCertificateRequestRequestTypeDef",
-    {
-        "CertificateChain": str,
-        "PrivateKey": str,
-        "ActiveDate": Union[datetime, str],
-        "InactiveDate": Union[datetime, str],
-        "Description": str,
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
+class ListAccessesRequestTypeDef(TypedDict):
+    ServerId: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
 
-class ImportCertificateRequestRequestTypeDef(
-    _RequiredImportCertificateRequestRequestTypeDef, _OptionalImportCertificateRequestRequestTypeDef
-):
-    pass
+class ListedAccessTypeDef(TypedDict):
+    HomeDirectory: NotRequired[str]
+    HomeDirectoryType: NotRequired[HomeDirectoryTypeType]
+    Role: NotRequired[str]
+    ExternalId: NotRequired[str]
 
-ImportCertificateResponseTypeDef = TypedDict(
-    "ImportCertificateResponseTypeDef",
-    {
-        "CertificateId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListAgreementsRequestTypeDef(TypedDict):
+    ServerId: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
 
-_RequiredImportHostKeyRequestRequestTypeDef = TypedDict(
-    "_RequiredImportHostKeyRequestRequestTypeDef",
-    {
-        "ServerId": str,
-        "HostKeyBody": str,
-    },
-)
-_OptionalImportHostKeyRequestRequestTypeDef = TypedDict(
-    "_OptionalImportHostKeyRequestRequestTypeDef",
-    {
-        "Description": str,
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
+class ListedAgreementTypeDef(TypedDict):
+    Arn: NotRequired[str]
+    AgreementId: NotRequired[str]
+    Description: NotRequired[str]
+    Status: NotRequired[AgreementStatusTypeType]
+    ServerId: NotRequired[str]
+    LocalProfileId: NotRequired[str]
+    PartnerProfileId: NotRequired[str]
 
-class ImportHostKeyRequestRequestTypeDef(
-    _RequiredImportHostKeyRequestRequestTypeDef, _OptionalImportHostKeyRequestRequestTypeDef
-):
-    pass
-
-ImportHostKeyResponseTypeDef = TypedDict(
-    "ImportHostKeyResponseTypeDef",
-    {
-        "ServerId": str,
-        "HostKeyId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ImportSshPublicKeyRequestRequestTypeDef = TypedDict(
-    "ImportSshPublicKeyRequestRequestTypeDef",
-    {
-        "ServerId": str,
-        "SshPublicKeyBody": str,
-        "UserName": str,
-    },
-)
-
-ImportSshPublicKeyResponseTypeDef = TypedDict(
-    "ImportSshPublicKeyResponseTypeDef",
-    {
-        "ServerId": str,
-        "SshPublicKeyId": str,
-        "UserName": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-InputFileLocationTypeDef = TypedDict(
-    "InputFileLocationTypeDef",
-    {
-        "S3FileLocation": "S3InputFileLocationTypeDef",
-        "EfsFileLocation": "EfsFileLocationTypeDef",
-    },
-    total=False,
-)
-
-_RequiredListAccessesRequestRequestTypeDef = TypedDict(
-    "_RequiredListAccessesRequestRequestTypeDef",
-    {
-        "ServerId": str,
-    },
-)
-_OptionalListAccessesRequestRequestTypeDef = TypedDict(
-    "_OptionalListAccessesRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListAccessesRequestRequestTypeDef(
-    _RequiredListAccessesRequestRequestTypeDef, _OptionalListAccessesRequestRequestTypeDef
-):
-    pass
-
-ListAccessesResponseTypeDef = TypedDict(
-    "ListAccessesResponseTypeDef",
-    {
-        "NextToken": str,
-        "ServerId": str,
-        "Accesses": List["ListedAccessTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListAgreementsRequestRequestTypeDef = TypedDict(
-    "_RequiredListAgreementsRequestRequestTypeDef",
-    {
-        "ServerId": str,
-    },
-)
-_OptionalListAgreementsRequestRequestTypeDef = TypedDict(
-    "_OptionalListAgreementsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListAgreementsRequestRequestTypeDef(
-    _RequiredListAgreementsRequestRequestTypeDef, _OptionalListAgreementsRequestRequestTypeDef
-):
-    pass
-
-ListAgreementsResponseTypeDef = TypedDict(
-    "ListAgreementsResponseTypeDef",
-    {
-        "NextToken": str,
-        "Agreements": List["ListedAgreementTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListCertificatesRequestRequestTypeDef = TypedDict(
-    "ListCertificatesRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListCertificatesResponseTypeDef = TypedDict(
-    "ListCertificatesResponseTypeDef",
-    {
-        "NextToken": str,
-        "Certificates": List["ListedCertificateTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListConnectorsRequestRequestTypeDef = TypedDict(
-    "ListConnectorsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListConnectorsResponseTypeDef = TypedDict(
-    "ListConnectorsResponseTypeDef",
-    {
-        "NextToken": str,
-        "Connectors": List["ListedConnectorTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListExecutionsRequestRequestTypeDef = TypedDict(
-    "_RequiredListExecutionsRequestRequestTypeDef",
-    {
-        "WorkflowId": str,
-    },
-)
-_OptionalListExecutionsRequestRequestTypeDef = TypedDict(
-    "_OptionalListExecutionsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListExecutionsRequestRequestTypeDef(
-    _RequiredListExecutionsRequestRequestTypeDef, _OptionalListExecutionsRequestRequestTypeDef
-):
-    pass
-
-ListExecutionsResponseTypeDef = TypedDict(
-    "ListExecutionsResponseTypeDef",
-    {
-        "NextToken": str,
-        "WorkflowId": str,
-        "Executions": List["ListedExecutionTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListHostKeysRequestRequestTypeDef = TypedDict(
-    "_RequiredListHostKeysRequestRequestTypeDef",
-    {
-        "ServerId": str,
-    },
-)
-_OptionalListHostKeysRequestRequestTypeDef = TypedDict(
-    "_OptionalListHostKeysRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListHostKeysRequestRequestTypeDef(
-    _RequiredListHostKeysRequestRequestTypeDef, _OptionalListHostKeysRequestRequestTypeDef
-):
-    pass
-
-ListHostKeysResponseTypeDef = TypedDict(
-    "ListHostKeysResponseTypeDef",
-    {
-        "NextToken": str,
-        "ServerId": str,
-        "HostKeys": List["ListedHostKeyTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListProfilesRequestRequestTypeDef = TypedDict(
-    "ListProfilesRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-        "ProfileType": ProfileTypeType,
-    },
-    total=False,
-)
-
-ListProfilesResponseTypeDef = TypedDict(
-    "ListProfilesResponseTypeDef",
-    {
-        "NextToken": str,
-        "Profiles": List["ListedProfileTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListSecurityPoliciesRequestRequestTypeDef = TypedDict(
-    "ListSecurityPoliciesRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListSecurityPoliciesResponseTypeDef = TypedDict(
-    "ListSecurityPoliciesResponseTypeDef",
-    {
-        "NextToken": str,
-        "SecurityPolicyNames": List[str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListServersRequestRequestTypeDef = TypedDict(
-    "ListServersRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListServersResponseTypeDef = TypedDict(
-    "ListServersResponseTypeDef",
-    {
-        "NextToken": str,
-        "Servers": List["ListedServerTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "_RequiredListTagsForResourceRequestRequestTypeDef",
-    {
-        "Arn": str,
-    },
-)
-_OptionalListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "_OptionalListTagsForResourceRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListTagsForResourceRequestRequestTypeDef(
-    _RequiredListTagsForResourceRequestRequestTypeDef,
-    _OptionalListTagsForResourceRequestRequestTypeDef,
-):
-    pass
-
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "Arn": str,
-        "NextToken": str,
-        "Tags": List["TagTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListUsersRequestRequestTypeDef = TypedDict(
-    "_RequiredListUsersRequestRequestTypeDef",
-    {
-        "ServerId": str,
-    },
-)
-_OptionalListUsersRequestRequestTypeDef = TypedDict(
-    "_OptionalListUsersRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListUsersRequestRequestTypeDef(
-    _RequiredListUsersRequestRequestTypeDef, _OptionalListUsersRequestRequestTypeDef
-):
-    pass
-
-ListUsersResponseTypeDef = TypedDict(
-    "ListUsersResponseTypeDef",
-    {
-        "NextToken": str,
-        "ServerId": str,
-        "Users": List["ListedUserTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListWorkflowsRequestRequestTypeDef = TypedDict(
-    "ListWorkflowsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListWorkflowsResponseTypeDef = TypedDict(
-    "ListWorkflowsResponseTypeDef",
-    {
-        "NextToken": str,
-        "Workflows": List["ListedWorkflowTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListedAccessTypeDef = TypedDict(
-    "ListedAccessTypeDef",
-    {
-        "HomeDirectory": str,
-        "HomeDirectoryType": HomeDirectoryTypeType,
-        "Role": str,
-        "ExternalId": str,
-    },
-    total=False,
-)
-
-ListedAgreementTypeDef = TypedDict(
-    "ListedAgreementTypeDef",
-    {
-        "Arn": str,
-        "AgreementId": str,
-        "Description": str,
-        "Status": AgreementStatusTypeType,
-        "ServerId": str,
-        "LocalProfileId": str,
-        "PartnerProfileId": str,
-    },
-    total=False,
-)
+class ListCertificatesRequestTypeDef(TypedDict):
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
 
 ListedCertificateTypeDef = TypedDict(
     "ListedCertificateTypeDef",
     {
-        "Arn": str,
-        "CertificateId": str,
-        "Usage": CertificateUsageTypeType,
-        "Status": CertificateStatusTypeType,
-        "ActiveDate": datetime,
-        "InactiveDate": datetime,
-        "Type": CertificateTypeType,
-        "Description": str,
+        "Arn": NotRequired[str],
+        "CertificateId": NotRequired[str],
+        "Usage": NotRequired[CertificateUsageTypeType],
+        "Status": NotRequired[CertificateStatusTypeType],
+        "ActiveDate": NotRequired[datetime],
+        "InactiveDate": NotRequired[datetime],
+        "Type": NotRequired[CertificateTypeType],
+        "Description": NotRequired[str],
     },
-    total=False,
 )
 
-ListedConnectorTypeDef = TypedDict(
-    "ListedConnectorTypeDef",
+class ListConnectorsRequestTypeDef(TypedDict):
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListedConnectorTypeDef(TypedDict):
+    Arn: NotRequired[str]
+    ConnectorId: NotRequired[str]
+    Url: NotRequired[str]
+
+class ListExecutionsRequestTypeDef(TypedDict):
+    WorkflowId: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListFileTransferResultsRequestTypeDef(TypedDict):
+    ConnectorId: str
+    TransferId: str
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class ListHostKeysRequestTypeDef(TypedDict):
+    ServerId: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+ListedHostKeyTypeDef = TypedDict(
+    "ListedHostKeyTypeDef",
     {
         "Arn": str,
-        "ConnectorId": str,
-        "Url": str,
-    },
-    total=False,
-)
-
-ListedExecutionTypeDef = TypedDict(
-    "ListedExecutionTypeDef",
-    {
-        "ExecutionId": str,
-        "InitialFileLocation": "FileLocationTypeDef",
-        "ServiceMetadata": "ServiceMetadataTypeDef",
-        "Status": ExecutionStatusType,
-    },
-    total=False,
-)
-
-_RequiredListedHostKeyTypeDef = TypedDict(
-    "_RequiredListedHostKeyTypeDef",
-    {
-        "Arn": str,
-    },
-)
-_OptionalListedHostKeyTypeDef = TypedDict(
-    "_OptionalListedHostKeyTypeDef",
-    {
-        "HostKeyId": str,
-        "Fingerprint": str,
-        "Description": str,
-        "Type": str,
-        "DateImported": datetime,
-    },
-    total=False,
-)
-
-class ListedHostKeyTypeDef(_RequiredListedHostKeyTypeDef, _OptionalListedHostKeyTypeDef):
-    pass
-
-ListedProfileTypeDef = TypedDict(
-    "ListedProfileTypeDef",
-    {
-        "Arn": str,
-        "ProfileId": str,
-        "As2Id": str,
-        "ProfileType": ProfileTypeType,
-    },
-    total=False,
-)
-
-_RequiredListedServerTypeDef = TypedDict(
-    "_RequiredListedServerTypeDef",
-    {
-        "Arn": str,
-    },
-)
-_OptionalListedServerTypeDef = TypedDict(
-    "_OptionalListedServerTypeDef",
-    {
-        "Domain": DomainType,
-        "IdentityProviderType": IdentityProviderTypeType,
-        "EndpointType": EndpointTypeType,
-        "LoggingRole": str,
-        "ServerId": str,
-        "State": StateType,
-        "UserCount": int,
-    },
-    total=False,
-)
-
-class ListedServerTypeDef(_RequiredListedServerTypeDef, _OptionalListedServerTypeDef):
-    pass
-
-_RequiredListedUserTypeDef = TypedDict(
-    "_RequiredListedUserTypeDef",
-    {
-        "Arn": str,
-    },
-)
-_OptionalListedUserTypeDef = TypedDict(
-    "_OptionalListedUserTypeDef",
-    {
-        "HomeDirectory": str,
-        "HomeDirectoryType": HomeDirectoryTypeType,
-        "Role": str,
-        "SshPublicKeyCount": int,
-        "UserName": str,
-    },
-    total=False,
-)
-
-class ListedUserTypeDef(_RequiredListedUserTypeDef, _OptionalListedUserTypeDef):
-    pass
-
-ListedWorkflowTypeDef = TypedDict(
-    "ListedWorkflowTypeDef",
-    {
-        "WorkflowId": str,
-        "Description": str,
-        "Arn": str,
-    },
-    total=False,
-)
-
-LoggingConfigurationTypeDef = TypedDict(
-    "LoggingConfigurationTypeDef",
-    {
-        "LoggingRole": str,
-        "LogGroupName": str,
-    },
-    total=False,
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-_RequiredPosixProfileTypeDef = TypedDict(
-    "_RequiredPosixProfileTypeDef",
-    {
-        "Uid": int,
-        "Gid": int,
-    },
-)
-_OptionalPosixProfileTypeDef = TypedDict(
-    "_OptionalPosixProfileTypeDef",
-    {
-        "SecondaryGids": List[int],
-    },
-    total=False,
-)
-
-class PosixProfileTypeDef(_RequiredPosixProfileTypeDef, _OptionalPosixProfileTypeDef):
-    pass
-
-ProtocolDetailsTypeDef = TypedDict(
-    "ProtocolDetailsTypeDef",
-    {
-        "PassiveIp": str,
-        "TlsSessionResumptionMode": TlsSessionResumptionModeType,
-        "SetStatOption": SetStatOptionType,
-        "As2Transports": List[Literal["HTTP"]],
-    },
-    total=False,
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
+        "HostKeyId": NotRequired[str],
+        "Fingerprint": NotRequired[str],
+        "Description": NotRequired[str],
+        "Type": NotRequired[str],
+        "DateImported": NotRequired[datetime],
     },
 )
 
-S3FileLocationTypeDef = TypedDict(
-    "S3FileLocationTypeDef",
-    {
-        "Bucket": str,
-        "Key": str,
-        "VersionId": str,
-        "Etag": str,
-    },
-    total=False,
-)
+class ListProfilesRequestTypeDef(TypedDict):
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+    ProfileType: NotRequired[ProfileTypeType]
 
-S3InputFileLocationTypeDef = TypedDict(
-    "S3InputFileLocationTypeDef",
-    {
-        "Bucket": str,
-        "Key": str,
-    },
-    total=False,
-)
+class ListedProfileTypeDef(TypedDict):
+    Arn: NotRequired[str]
+    ProfileId: NotRequired[str]
+    As2Id: NotRequired[str]
+    ProfileType: NotRequired[ProfileTypeType]
 
-S3StorageOptionsTypeDef = TypedDict(
-    "S3StorageOptionsTypeDef",
-    {
-        "DirectoryListingOptimization": DirectoryListingOptimizationType,
-    },
-    total=False,
-)
+class ListSecurityPoliciesRequestTypeDef(TypedDict):
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
 
-S3TagTypeDef = TypedDict(
-    "S3TagTypeDef",
-    {
-        "Key": str,
-        "Value": str,
-    },
-)
+class ListServersRequestTypeDef(TypedDict):
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
 
-SendWorkflowStepStateRequestRequestTypeDef = TypedDict(
-    "SendWorkflowStepStateRequestRequestTypeDef",
-    {
-        "WorkflowId": str,
-        "ExecutionId": str,
-        "Token": str,
-        "Status": CustomStepStatusType,
-    },
-)
+class ListedServerTypeDef(TypedDict):
+    Arn: str
+    Domain: NotRequired[DomainType]
+    IdentityProviderType: NotRequired[IdentityProviderTypeType]
+    EndpointType: NotRequired[EndpointTypeType]
+    LoggingRole: NotRequired[str]
+    ServerId: NotRequired[str]
+    State: NotRequired[StateType]
+    UserCount: NotRequired[int]
 
-ServiceMetadataTypeDef = TypedDict(
-    "ServiceMetadataTypeDef",
-    {
-        "UserDetails": "UserDetailsTypeDef",
-    },
-)
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    Arn: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
 
-SftpConnectorConfigTypeDef = TypedDict(
-    "SftpConnectorConfigTypeDef",
-    {
-        "UserSecretId": str,
-        "TrustedHostKeys": List[str],
-    },
-    total=False,
-)
+class ListUsersRequestTypeDef(TypedDict):
+    ServerId: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
 
-SshPublicKeyTypeDef = TypedDict(
-    "SshPublicKeyTypeDef",
-    {
-        "DateImported": datetime,
-        "SshPublicKeyBody": str,
-        "SshPublicKeyId": str,
-    },
-)
+class ListedUserTypeDef(TypedDict):
+    Arn: str
+    HomeDirectory: NotRequired[str]
+    HomeDirectoryType: NotRequired[HomeDirectoryTypeType]
+    Role: NotRequired[str]
+    SshPublicKeyCount: NotRequired[int]
+    UserName: NotRequired[str]
 
-_RequiredStartDirectoryListingRequestRequestTypeDef = TypedDict(
-    "_RequiredStartDirectoryListingRequestRequestTypeDef",
-    {
-        "ConnectorId": str,
-        "RemoteDirectoryPath": str,
-        "OutputDirectoryPath": str,
-    },
-)
-_OptionalStartDirectoryListingRequestRequestTypeDef = TypedDict(
-    "_OptionalStartDirectoryListingRequestRequestTypeDef",
-    {
-        "MaxItems": int,
-    },
-    total=False,
-)
+class ListWebAppsRequestTypeDef(TypedDict):
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
 
-class StartDirectoryListingRequestRequestTypeDef(
-    _RequiredStartDirectoryListingRequestRequestTypeDef,
-    _OptionalStartDirectoryListingRequestRequestTypeDef,
-):
-    pass
+class ListedWebAppTypeDef(TypedDict):
+    Arn: str
+    WebAppId: str
+    AccessEndpoint: NotRequired[str]
+    WebAppEndpoint: NotRequired[str]
 
-StartDirectoryListingResponseTypeDef = TypedDict(
-    "StartDirectoryListingResponseTypeDef",
-    {
-        "ListingId": str,
-        "OutputFileName": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListWorkflowsRequestTypeDef(TypedDict):
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
 
-_RequiredStartFileTransferRequestRequestTypeDef = TypedDict(
-    "_RequiredStartFileTransferRequestRequestTypeDef",
-    {
-        "ConnectorId": str,
-    },
-)
-_OptionalStartFileTransferRequestRequestTypeDef = TypedDict(
-    "_OptionalStartFileTransferRequestRequestTypeDef",
-    {
-        "SendFilePaths": List[str],
-        "RetrieveFilePaths": List[str],
-        "LocalDirectoryPath": str,
-        "RemoteDirectoryPath": str,
-    },
-    total=False,
-)
+class ListedWorkflowTypeDef(TypedDict):
+    WorkflowId: NotRequired[str]
+    Description: NotRequired[str]
+    Arn: NotRequired[str]
 
-class StartFileTransferRequestRequestTypeDef(
-    _RequiredStartFileTransferRequestRequestTypeDef, _OptionalStartFileTransferRequestRequestTypeDef
-):
-    pass
+class PosixProfileTypeDef(TypedDict):
+    Uid: int
+    Gid: int
+    SecondaryGids: NotRequired[Sequence[int]]
 
-StartFileTransferResponseTypeDef = TypedDict(
-    "StartFileTransferResponseTypeDef",
-    {
-        "TransferId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ProtocolDetailsTypeDef(TypedDict):
+    PassiveIp: NotRequired[str]
+    TlsSessionResumptionMode: NotRequired[TlsSessionResumptionModeType]
+    SetStatOption: NotRequired[SetStatOptionType]
+    As2Transports: NotRequired[Sequence[Literal["HTTP"]]]
 
-StartServerRequestRequestTypeDef = TypedDict(
-    "StartServerRequestRequestTypeDef",
-    {
-        "ServerId": str,
-    },
-)
+class S3TagTypeDef(TypedDict):
+    Key: str
+    Value: str
 
-StopServerRequestRequestTypeDef = TypedDict(
-    "StopServerRequestRequestTypeDef",
-    {
-        "ServerId": str,
-    },
-)
+class SendWorkflowStepStateRequestTypeDef(TypedDict):
+    WorkflowId: str
+    ExecutionId: str
+    Token: str
+    Status: CustomStepStatusType
 
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "Arn": str,
-        "Tags": List["TagTypeDef"],
-    },
-)
+class UserDetailsTypeDef(TypedDict):
+    UserName: str
+    ServerId: str
+    SessionId: NotRequired[str]
 
-TagStepDetailsTypeDef = TypedDict(
-    "TagStepDetailsTypeDef",
-    {
-        "Name": str,
-        "Tags": List["S3TagTypeDef"],
-        "SourceFileLocation": str,
-    },
-    total=False,
-)
+class SftpConnectorConfigTypeDef(TypedDict):
+    UserSecretId: NotRequired[str]
+    TrustedHostKeys: NotRequired[Sequence[str]]
+    MaxConcurrentConnections: NotRequired[int]
 
-TagTypeDef = TypedDict(
-    "TagTypeDef",
-    {
-        "Key": str,
-        "Value": str,
-    },
-)
+class SftpConnectorConnectionDetailsTypeDef(TypedDict):
+    HostKey: NotRequired[str]
 
-TestConnectionRequestRequestTypeDef = TypedDict(
-    "TestConnectionRequestRequestTypeDef",
-    {
-        "ConnectorId": str,
-    },
-)
+class StartDirectoryListingRequestTypeDef(TypedDict):
+    ConnectorId: str
+    RemoteDirectoryPath: str
+    OutputDirectoryPath: str
+    MaxItems: NotRequired[int]
 
-TestConnectionResponseTypeDef = TypedDict(
-    "TestConnectionResponseTypeDef",
-    {
-        "ConnectorId": str,
-        "Status": str,
-        "StatusMessage": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class StartFileTransferRequestTypeDef(TypedDict):
+    ConnectorId: str
+    SendFilePaths: NotRequired[Sequence[str]]
+    RetrieveFilePaths: NotRequired[Sequence[str]]
+    LocalDirectoryPath: NotRequired[str]
+    RemoteDirectoryPath: NotRequired[str]
 
-_RequiredTestIdentityProviderRequestRequestTypeDef = TypedDict(
-    "_RequiredTestIdentityProviderRequestRequestTypeDef",
-    {
-        "ServerId": str,
-        "UserName": str,
-    },
-)
-_OptionalTestIdentityProviderRequestRequestTypeDef = TypedDict(
-    "_OptionalTestIdentityProviderRequestRequestTypeDef",
-    {
-        "ServerProtocol": ProtocolType,
-        "SourceIp": str,
-        "UserPassword": str,
-    },
-    total=False,
-)
+class StartRemoteDeleteRequestTypeDef(TypedDict):
+    ConnectorId: str
+    DeletePath: str
 
-class TestIdentityProviderRequestRequestTypeDef(
-    _RequiredTestIdentityProviderRequestRequestTypeDef,
-    _OptionalTestIdentityProviderRequestRequestTypeDef,
-):
-    pass
+class StartRemoteMoveRequestTypeDef(TypedDict):
+    ConnectorId: str
+    SourcePath: str
+    TargetPath: str
 
-TestIdentityProviderResponseTypeDef = TypedDict(
-    "TestIdentityProviderResponseTypeDef",
-    {
-        "Response": str,
-        "StatusCode": int,
-        "Message": str,
-        "Url": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class StartServerRequestTypeDef(TypedDict):
+    ServerId: str
 
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
+class StopServerRequestTypeDef(TypedDict):
+    ServerId: str
+
+class TestConnectionRequestTypeDef(TypedDict):
+    ConnectorId: str
+
+class TestIdentityProviderRequestTypeDef(TypedDict):
+    ServerId: str
+    UserName: str
+    ServerProtocol: NotRequired[ProtocolType]
+    SourceIp: NotRequired[str]
+    UserPassword: NotRequired[str]
+
+class UntagResourceRequestTypeDef(TypedDict):
+    Arn: str
+    TagKeys: Sequence[str]
+
+class UpdateHostKeyRequestTypeDef(TypedDict):
+    ServerId: str
+    HostKeyId: str
+    Description: str
+
+class UpdateProfileRequestTypeDef(TypedDict):
+    ProfileId: str
+    CertificateIds: NotRequired[Sequence[str]]
+
+class UpdateWebAppIdentityCenterConfigTypeDef(TypedDict):
+    Role: NotRequired[str]
+
+class WorkflowDetailTypeDef(TypedDict):
+    WorkflowId: str
+    ExecutionRole: str
+
+class UpdateWebAppCustomizationRequestTypeDef(TypedDict):
+    WebAppId: str
+    Title: NotRequired[str]
+    LogoFile: NotRequired[BlobTypeDef]
+    FaviconFile: NotRequired[BlobTypeDef]
+
+class CreateAccessResponseTypeDef(TypedDict):
+    ServerId: str
+    ExternalId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateAgreementResponseTypeDef(TypedDict):
+    AgreementId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateConnectorResponseTypeDef(TypedDict):
+    ConnectorId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateProfileResponseTypeDef(TypedDict):
+    ProfileId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateServerResponseTypeDef(TypedDict):
+    ServerId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateUserResponseTypeDef(TypedDict):
+    ServerId: str
+    UserName: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateWebAppResponseTypeDef(TypedDict):
+    WebAppId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateWorkflowResponseTypeDef(TypedDict):
+    WorkflowId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class EmptyResponseMetadataTypeDef(TypedDict):
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ImportCertificateResponseTypeDef(TypedDict):
+    CertificateId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ImportHostKeyResponseTypeDef(TypedDict):
+    ServerId: str
+    HostKeyId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ImportSshPublicKeyResponseTypeDef(TypedDict):
+    ServerId: str
+    SshPublicKeyId: str
+    UserName: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListFileTransferResultsResponseTypeDef(TypedDict):
+    FileTransferResults: List[ConnectorFileTransferResultTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListSecurityPoliciesResponseTypeDef(TypedDict):
+    SecurityPolicyNames: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class StartDirectoryListingResponseTypeDef(TypedDict):
+    ListingId: str
+    OutputFileName: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartFileTransferResponseTypeDef(TypedDict):
+    TransferId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartRemoteDeleteResponseTypeDef(TypedDict):
+    DeleteId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartRemoteMoveResponseTypeDef(TypedDict):
+    MoveId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class TestIdentityProviderResponseTypeDef(TypedDict):
+    Response: str
+    StatusCode: int
+    Message: str
+    Url: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateAccessResponseTypeDef(TypedDict):
+    ServerId: str
+    ExternalId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateAgreementResponseTypeDef(TypedDict):
+    AgreementId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateCertificateResponseTypeDef(TypedDict):
+    CertificateId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateConnectorResponseTypeDef(TypedDict):
+    ConnectorId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateHostKeyResponseTypeDef(TypedDict):
+    ServerId: str
+    HostKeyId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateProfileResponseTypeDef(TypedDict):
+    ProfileId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateServerResponseTypeDef(TypedDict):
+    ServerId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateUserResponseTypeDef(TypedDict):
+    ServerId: str
+    UserName: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateWebAppCustomizationResponseTypeDef(TypedDict):
+    WebAppId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateWebAppResponseTypeDef(TypedDict):
+    WebAppId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateAgreementRequestTypeDef(TypedDict):
+    AgreementId: str
+    ServerId: str
+    Description: NotRequired[str]
+    Status: NotRequired[AgreementStatusTypeType]
+    LocalProfileId: NotRequired[str]
+    PartnerProfileId: NotRequired[str]
+    BaseDirectory: NotRequired[str]
+    AccessRole: NotRequired[str]
+    PreserveFilename: NotRequired[PreserveFilenameTypeType]
+    EnforceMessageSigning: NotRequired[EnforceMessageSigningTypeType]
+    CustomDirectories: NotRequired[CustomDirectoriesTypeTypeDef]
+
+class CreateAgreementRequestTypeDef(TypedDict):
+    ServerId: str
+    LocalProfileId: str
+    PartnerProfileId: str
+    AccessRole: str
+    Description: NotRequired[str]
+    BaseDirectory: NotRequired[str]
+    Status: NotRequired[AgreementStatusTypeType]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+    PreserveFilename: NotRequired[PreserveFilenameTypeType]
+    EnforceMessageSigning: NotRequired[EnforceMessageSigningTypeType]
+    CustomDirectories: NotRequired[CustomDirectoriesTypeTypeDef]
+
+class CreateProfileRequestTypeDef(TypedDict):
+    As2Id: str
+    ProfileType: ProfileTypeType
+    CertificateIds: NotRequired[Sequence[str]]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+
+class DescribedAgreementTypeDef(TypedDict):
+    Arn: str
+    AgreementId: NotRequired[str]
+    Description: NotRequired[str]
+    Status: NotRequired[AgreementStatusTypeType]
+    ServerId: NotRequired[str]
+    LocalProfileId: NotRequired[str]
+    PartnerProfileId: NotRequired[str]
+    BaseDirectory: NotRequired[str]
+    AccessRole: NotRequired[str]
+    Tags: NotRequired[List[TagTypeDef]]
+    PreserveFilename: NotRequired[PreserveFilenameTypeType]
+    EnforceMessageSigning: NotRequired[EnforceMessageSigningTypeType]
+    CustomDirectories: NotRequired[CustomDirectoriesTypeTypeDef]
+
+DescribedCertificateTypeDef = TypedDict(
+    "DescribedCertificateTypeDef",
     {
         "Arn": str,
-        "TagKeys": List[str],
+        "CertificateId": NotRequired[str],
+        "Usage": NotRequired[CertificateUsageTypeType],
+        "Status": NotRequired[CertificateStatusTypeType],
+        "Certificate": NotRequired[str],
+        "CertificateChain": NotRequired[str],
+        "ActiveDate": NotRequired[datetime],
+        "InactiveDate": NotRequired[datetime],
+        "Serial": NotRequired[str],
+        "NotBeforeDate": NotRequired[datetime],
+        "NotAfterDate": NotRequired[datetime],
+        "Type": NotRequired[CertificateTypeType],
+        "Description": NotRequired[str],
+        "Tags": NotRequired[List[TagTypeDef]],
     },
 )
-
-_RequiredUpdateAccessRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateAccessRequestRequestTypeDef",
+DescribedHostKeyTypeDef = TypedDict(
+    "DescribedHostKeyTypeDef",
     {
-        "ServerId": str,
-        "ExternalId": str,
+        "Arn": str,
+        "HostKeyId": NotRequired[str],
+        "HostKeyFingerprint": NotRequired[str],
+        "Description": NotRequired[str],
+        "Type": NotRequired[str],
+        "DateImported": NotRequired[datetime],
+        "Tags": NotRequired[List[TagTypeDef]],
     },
 )
-_OptionalUpdateAccessRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateAccessRequestRequestTypeDef",
+
+class DescribedProfileTypeDef(TypedDict):
+    Arn: str
+    ProfileId: NotRequired[str]
+    ProfileType: NotRequired[ProfileTypeType]
+    As2Id: NotRequired[str]
+    CertificateIds: NotRequired[List[str]]
+    Tags: NotRequired[List[TagTypeDef]]
+
+class ImportHostKeyRequestTypeDef(TypedDict):
+    ServerId: str
+    HostKeyBody: str
+    Description: NotRequired[str]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    Arn: str
+    Tags: List[TagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class TagResourceRequestTypeDef(TypedDict):
+    Arn: str
+    Tags: Sequence[TagTypeDef]
+
+class DescribeSecurityPolicyResponseTypeDef(TypedDict):
+    SecurityPolicy: DescribedSecurityPolicyTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeServerRequestWaitExtraTypeDef(TypedDict):
+    ServerId: str
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class DescribeServerRequestWaitTypeDef(TypedDict):
+    ServerId: str
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class DescribeWebAppCustomizationResponseTypeDef(TypedDict):
+    WebAppCustomization: DescribedWebAppCustomizationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribedAccessTypeDef(TypedDict):
+    HomeDirectory: NotRequired[str]
+    HomeDirectoryMappings: NotRequired[List[HomeDirectoryMapEntryTypeDef]]
+    HomeDirectoryType: NotRequired[HomeDirectoryTypeType]
+    Policy: NotRequired[str]
+    PosixProfile: NotRequired[PosixProfileOutputTypeDef]
+    Role: NotRequired[str]
+    ExternalId: NotRequired[str]
+
+class DescribedConnectorTypeDef(TypedDict):
+    Arn: str
+    ConnectorId: NotRequired[str]
+    Url: NotRequired[str]
+    As2Config: NotRequired[As2ConnectorConfigTypeDef]
+    AccessRole: NotRequired[str]
+    LoggingRole: NotRequired[str]
+    Tags: NotRequired[List[TagTypeDef]]
+    SftpConfig: NotRequired[SftpConnectorConfigOutputTypeDef]
+    ServiceManagedEgressIpAddresses: NotRequired[List[str]]
+    SecurityPolicyName: NotRequired[str]
+
+class DescribedWebAppIdentityProviderDetailsTypeDef(TypedDict):
+    IdentityCenterConfig: NotRequired[DescribedIdentityCenterConfigTypeDef]
+
+class DescribedUserTypeDef(TypedDict):
+    Arn: str
+    HomeDirectory: NotRequired[str]
+    HomeDirectoryMappings: NotRequired[List[HomeDirectoryMapEntryTypeDef]]
+    HomeDirectoryType: NotRequired[HomeDirectoryTypeType]
+    Policy: NotRequired[str]
+    PosixProfile: NotRequired[PosixProfileOutputTypeDef]
+    Role: NotRequired[str]
+    SshPublicKeys: NotRequired[List[SshPublicKeyTypeDef]]
+    Tags: NotRequired[List[TagTypeDef]]
+    UserName: NotRequired[str]
+
+EndpointDetailsUnionTypeDef = Union[EndpointDetailsTypeDef, EndpointDetailsOutputTypeDef]
+
+class ExecutionStepResultTypeDef(TypedDict):
+    StepType: NotRequired[WorkflowStepTypeType]
+    Outputs: NotRequired[str]
+    Error: NotRequired[ExecutionErrorTypeDef]
+
+class FileLocationTypeDef(TypedDict):
+    S3FileLocation: NotRequired[S3FileLocationTypeDef]
+    EfsFileLocation: NotRequired[EfsFileLocationTypeDef]
+
+class WebAppIdentityProviderDetailsTypeDef(TypedDict):
+    IdentityCenterConfig: NotRequired[IdentityCenterConfigTypeDef]
+
+class ImportCertificateRequestTypeDef(TypedDict):
+    Usage: CertificateUsageTypeType
+    Certificate: str
+    CertificateChain: NotRequired[str]
+    PrivateKey: NotRequired[str]
+    ActiveDate: NotRequired[TimestampTypeDef]
+    InactiveDate: NotRequired[TimestampTypeDef]
+    Description: NotRequired[str]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+
+class UpdateCertificateRequestTypeDef(TypedDict):
+    CertificateId: str
+    ActiveDate: NotRequired[TimestampTypeDef]
+    InactiveDate: NotRequired[TimestampTypeDef]
+    Description: NotRequired[str]
+
+class InputFileLocationTypeDef(TypedDict):
+    S3FileLocation: NotRequired[S3InputFileLocationTypeDef]
+    EfsFileLocation: NotRequired[EfsFileLocationTypeDef]
+
+class ListAccessesRequestPaginateTypeDef(TypedDict):
+    ServerId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListAgreementsRequestPaginateTypeDef(TypedDict):
+    ServerId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListCertificatesRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListConnectorsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListExecutionsRequestPaginateTypeDef(TypedDict):
+    WorkflowId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListFileTransferResultsRequestPaginateTypeDef(TypedDict):
+    ConnectorId: str
+    TransferId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListProfilesRequestPaginateTypeDef(TypedDict):
+    ProfileType: NotRequired[ProfileTypeType]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListSecurityPoliciesRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListServersRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListTagsForResourceRequestPaginateTypeDef(TypedDict):
+    Arn: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListUsersRequestPaginateTypeDef(TypedDict):
+    ServerId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListWebAppsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListWorkflowsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListAccessesResponseTypeDef(TypedDict):
+    ServerId: str
+    Accesses: List[ListedAccessTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListAgreementsResponseTypeDef(TypedDict):
+    Agreements: List[ListedAgreementTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListCertificatesResponseTypeDef(TypedDict):
+    Certificates: List[ListedCertificateTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListConnectorsResponseTypeDef(TypedDict):
+    Connectors: List[ListedConnectorTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListHostKeysResponseTypeDef(TypedDict):
+    ServerId: str
+    HostKeys: List[ListedHostKeyTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListProfilesResponseTypeDef(TypedDict):
+    Profiles: List[ListedProfileTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListServersResponseTypeDef(TypedDict):
+    Servers: List[ListedServerTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListUsersResponseTypeDef(TypedDict):
+    ServerId: str
+    Users: List[ListedUserTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListWebAppsResponseTypeDef(TypedDict):
+    WebApps: List[ListedWebAppTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListWorkflowsResponseTypeDef(TypedDict):
+    Workflows: List[ListedWorkflowTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+PosixProfileUnionTypeDef = Union[PosixProfileTypeDef, PosixProfileOutputTypeDef]
+ProtocolDetailsUnionTypeDef = Union[ProtocolDetailsTypeDef, ProtocolDetailsOutputTypeDef]
+
+class TagStepDetailsOutputTypeDef(TypedDict):
+    Name: NotRequired[str]
+    Tags: NotRequired[List[S3TagTypeDef]]
+    SourceFileLocation: NotRequired[str]
+
+class TagStepDetailsTypeDef(TypedDict):
+    Name: NotRequired[str]
+    Tags: NotRequired[Sequence[S3TagTypeDef]]
+    SourceFileLocation: NotRequired[str]
+
+class ServiceMetadataTypeDef(TypedDict):
+    UserDetails: UserDetailsTypeDef
+
+SftpConnectorConfigUnionTypeDef = Union[
+    SftpConnectorConfigTypeDef, SftpConnectorConfigOutputTypeDef
+]
+
+class TestConnectionResponseTypeDef(TypedDict):
+    ConnectorId: str
+    Status: str
+    StatusMessage: str
+    SftpConnectionDetails: SftpConnectorConnectionDetailsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateWebAppIdentityProviderDetailsTypeDef(TypedDict):
+    IdentityCenterConfig: NotRequired[UpdateWebAppIdentityCenterConfigTypeDef]
+
+class WorkflowDetailsOutputTypeDef(TypedDict):
+    OnUpload: NotRequired[List[WorkflowDetailTypeDef]]
+    OnPartialUpload: NotRequired[List[WorkflowDetailTypeDef]]
+
+class WorkflowDetailsTypeDef(TypedDict):
+    OnUpload: NotRequired[Sequence[WorkflowDetailTypeDef]]
+    OnPartialUpload: NotRequired[Sequence[WorkflowDetailTypeDef]]
+
+class DescribeAgreementResponseTypeDef(TypedDict):
+    Agreement: DescribedAgreementTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeCertificateResponseTypeDef(TypedDict):
+    Certificate: DescribedCertificateTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeHostKeyResponseTypeDef(TypedDict):
+    HostKey: DescribedHostKeyTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeProfileResponseTypeDef(TypedDict):
+    Profile: DescribedProfileTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeAccessResponseTypeDef(TypedDict):
+    ServerId: str
+    Access: DescribedAccessTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeConnectorResponseTypeDef(TypedDict):
+    Connector: DescribedConnectorTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribedWebAppTypeDef(TypedDict):
+    Arn: str
+    WebAppId: str
+    DescribedIdentityProviderDetails: NotRequired[DescribedWebAppIdentityProviderDetailsTypeDef]
+    AccessEndpoint: NotRequired[str]
+    WebAppEndpoint: NotRequired[str]
+    WebAppUnits: NotRequired[WebAppUnitsTypeDef]
+    Tags: NotRequired[List[TagTypeDef]]
+    WebAppEndpointPolicy: NotRequired[WebAppEndpointPolicyType]
+
+class DescribeUserResponseTypeDef(TypedDict):
+    ServerId: str
+    User: DescribedUserTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ExecutionResultsTypeDef(TypedDict):
+    Steps: NotRequired[List[ExecutionStepResultTypeDef]]
+    OnExceptionSteps: NotRequired[List[ExecutionStepResultTypeDef]]
+
+class CreateWebAppRequestTypeDef(TypedDict):
+    IdentityProviderDetails: WebAppIdentityProviderDetailsTypeDef
+    AccessEndpoint: NotRequired[str]
+    WebAppUnits: NotRequired[WebAppUnitsTypeDef]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+    WebAppEndpointPolicy: NotRequired[WebAppEndpointPolicyType]
+
+class CopyStepDetailsTypeDef(TypedDict):
+    Name: NotRequired[str]
+    DestinationFileLocation: NotRequired[InputFileLocationTypeDef]
+    OverwriteExisting: NotRequired[OverwriteExistingType]
+    SourceFileLocation: NotRequired[str]
+
+DecryptStepDetailsTypeDef = TypedDict(
+    "DecryptStepDetailsTypeDef",
     {
-        "HomeDirectory": str,
-        "HomeDirectoryType": HomeDirectoryTypeType,
-        "HomeDirectoryMappings": List["HomeDirectoryMapEntryTypeDef"],
-        "Policy": str,
-        "PosixProfile": "PosixProfileTypeDef",
-        "Role": str,
+        "Type": Literal["PGP"],
+        "DestinationFileLocation": InputFileLocationTypeDef,
+        "Name": NotRequired[str],
+        "SourceFileLocation": NotRequired[str],
+        "OverwriteExisting": NotRequired[OverwriteExistingType],
     },
-    total=False,
 )
 
-class UpdateAccessRequestRequestTypeDef(
-    _RequiredUpdateAccessRequestRequestTypeDef, _OptionalUpdateAccessRequestRequestTypeDef
-):
-    pass
+class CreateAccessRequestTypeDef(TypedDict):
+    Role: str
+    ServerId: str
+    ExternalId: str
+    HomeDirectory: NotRequired[str]
+    HomeDirectoryType: NotRequired[HomeDirectoryTypeType]
+    HomeDirectoryMappings: NotRequired[Sequence[HomeDirectoryMapEntryTypeDef]]
+    Policy: NotRequired[str]
+    PosixProfile: NotRequired[PosixProfileUnionTypeDef]
 
-UpdateAccessResponseTypeDef = TypedDict(
-    "UpdateAccessResponseTypeDef",
+class CreateUserRequestTypeDef(TypedDict):
+    Role: str
+    ServerId: str
+    UserName: str
+    HomeDirectory: NotRequired[str]
+    HomeDirectoryType: NotRequired[HomeDirectoryTypeType]
+    HomeDirectoryMappings: NotRequired[Sequence[HomeDirectoryMapEntryTypeDef]]
+    Policy: NotRequired[str]
+    PosixProfile: NotRequired[PosixProfileUnionTypeDef]
+    SshPublicKeyBody: NotRequired[str]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+
+class UpdateAccessRequestTypeDef(TypedDict):
+    ServerId: str
+    ExternalId: str
+    HomeDirectory: NotRequired[str]
+    HomeDirectoryType: NotRequired[HomeDirectoryTypeType]
+    HomeDirectoryMappings: NotRequired[Sequence[HomeDirectoryMapEntryTypeDef]]
+    Policy: NotRequired[str]
+    PosixProfile: NotRequired[PosixProfileUnionTypeDef]
+    Role: NotRequired[str]
+
+class UpdateUserRequestTypeDef(TypedDict):
+    ServerId: str
+    UserName: str
+    HomeDirectory: NotRequired[str]
+    HomeDirectoryType: NotRequired[HomeDirectoryTypeType]
+    HomeDirectoryMappings: NotRequired[Sequence[HomeDirectoryMapEntryTypeDef]]
+    Policy: NotRequired[str]
+    PosixProfile: NotRequired[PosixProfileUnionTypeDef]
+    Role: NotRequired[str]
+
+TagStepDetailsUnionTypeDef = Union[TagStepDetailsTypeDef, TagStepDetailsOutputTypeDef]
+
+class ListedExecutionTypeDef(TypedDict):
+    ExecutionId: NotRequired[str]
+    InitialFileLocation: NotRequired[FileLocationTypeDef]
+    ServiceMetadata: NotRequired[ServiceMetadataTypeDef]
+    Status: NotRequired[ExecutionStatusType]
+
+class CreateConnectorRequestTypeDef(TypedDict):
+    Url: str
+    AccessRole: str
+    As2Config: NotRequired[As2ConnectorConfigTypeDef]
+    LoggingRole: NotRequired[str]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+    SftpConfig: NotRequired[SftpConnectorConfigUnionTypeDef]
+    SecurityPolicyName: NotRequired[str]
+
+class UpdateConnectorRequestTypeDef(TypedDict):
+    ConnectorId: str
+    Url: NotRequired[str]
+    As2Config: NotRequired[As2ConnectorConfigTypeDef]
+    AccessRole: NotRequired[str]
+    LoggingRole: NotRequired[str]
+    SftpConfig: NotRequired[SftpConnectorConfigUnionTypeDef]
+    SecurityPolicyName: NotRequired[str]
+
+class UpdateWebAppRequestTypeDef(TypedDict):
+    WebAppId: str
+    IdentityProviderDetails: NotRequired[UpdateWebAppIdentityProviderDetailsTypeDef]
+    AccessEndpoint: NotRequired[str]
+    WebAppUnits: NotRequired[WebAppUnitsTypeDef]
+
+class DescribedServerTypeDef(TypedDict):
+    Arn: str
+    Certificate: NotRequired[str]
+    ProtocolDetails: NotRequired[ProtocolDetailsOutputTypeDef]
+    Domain: NotRequired[DomainType]
+    EndpointDetails: NotRequired[EndpointDetailsOutputTypeDef]
+    EndpointType: NotRequired[EndpointTypeType]
+    HostKeyFingerprint: NotRequired[str]
+    IdentityProviderDetails: NotRequired[IdentityProviderDetailsTypeDef]
+    IdentityProviderType: NotRequired[IdentityProviderTypeType]
+    LoggingRole: NotRequired[str]
+    PostAuthenticationLoginBanner: NotRequired[str]
+    PreAuthenticationLoginBanner: NotRequired[str]
+    Protocols: NotRequired[List[ProtocolType]]
+    SecurityPolicyName: NotRequired[str]
+    ServerId: NotRequired[str]
+    State: NotRequired[StateType]
+    Tags: NotRequired[List[TagTypeDef]]
+    UserCount: NotRequired[int]
+    WorkflowDetails: NotRequired[WorkflowDetailsOutputTypeDef]
+    StructuredLogDestinations: NotRequired[List[str]]
+    S3StorageOptions: NotRequired[S3StorageOptionsTypeDef]
+    As2ServiceManagedEgressIpAddresses: NotRequired[List[str]]
+
+WorkflowDetailsUnionTypeDef = Union[WorkflowDetailsTypeDef, WorkflowDetailsOutputTypeDef]
+
+class DescribeWebAppResponseTypeDef(TypedDict):
+    WebApp: DescribedWebAppTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribedExecutionTypeDef(TypedDict):
+    ExecutionId: NotRequired[str]
+    InitialFileLocation: NotRequired[FileLocationTypeDef]
+    ServiceMetadata: NotRequired[ServiceMetadataTypeDef]
+    ExecutionRole: NotRequired[str]
+    LoggingConfiguration: NotRequired[LoggingConfigurationTypeDef]
+    PosixProfile: NotRequired[PosixProfileOutputTypeDef]
+    Status: NotRequired[ExecutionStatusType]
+    Results: NotRequired[ExecutionResultsTypeDef]
+
+WorkflowStepOutputTypeDef = TypedDict(
+    "WorkflowStepOutputTypeDef",
     {
-        "ServerId": str,
-        "ExternalId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "Type": NotRequired[WorkflowStepTypeType],
+        "CopyStepDetails": NotRequired[CopyStepDetailsTypeDef],
+        "CustomStepDetails": NotRequired[CustomStepDetailsTypeDef],
+        "DeleteStepDetails": NotRequired[DeleteStepDetailsTypeDef],
+        "TagStepDetails": NotRequired[TagStepDetailsOutputTypeDef],
+        "DecryptStepDetails": NotRequired[DecryptStepDetailsTypeDef],
     },
 )
-
-_RequiredUpdateAgreementRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateAgreementRequestRequestTypeDef",
-    {
-        "AgreementId": str,
-        "ServerId": str,
-    },
-)
-_OptionalUpdateAgreementRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateAgreementRequestRequestTypeDef",
-    {
-        "Description": str,
-        "Status": AgreementStatusTypeType,
-        "LocalProfileId": str,
-        "PartnerProfileId": str,
-        "BaseDirectory": str,
-        "AccessRole": str,
-    },
-    total=False,
-)
-
-class UpdateAgreementRequestRequestTypeDef(
-    _RequiredUpdateAgreementRequestRequestTypeDef, _OptionalUpdateAgreementRequestRequestTypeDef
-):
-    pass
-
-UpdateAgreementResponseTypeDef = TypedDict(
-    "UpdateAgreementResponseTypeDef",
-    {
-        "AgreementId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateCertificateRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateCertificateRequestRequestTypeDef",
-    {
-        "CertificateId": str,
-    },
-)
-_OptionalUpdateCertificateRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateCertificateRequestRequestTypeDef",
-    {
-        "ActiveDate": Union[datetime, str],
-        "InactiveDate": Union[datetime, str],
-        "Description": str,
-    },
-    total=False,
-)
-
-class UpdateCertificateRequestRequestTypeDef(
-    _RequiredUpdateCertificateRequestRequestTypeDef, _OptionalUpdateCertificateRequestRequestTypeDef
-):
-    pass
-
-UpdateCertificateResponseTypeDef = TypedDict(
-    "UpdateCertificateResponseTypeDef",
-    {
-        "CertificateId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateConnectorRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateConnectorRequestRequestTypeDef",
-    {
-        "ConnectorId": str,
-    },
-)
-_OptionalUpdateConnectorRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateConnectorRequestRequestTypeDef",
-    {
-        "Url": str,
-        "As2Config": "As2ConnectorConfigTypeDef",
-        "AccessRole": str,
-        "LoggingRole": str,
-        "SftpConfig": "SftpConnectorConfigTypeDef",
-        "SecurityPolicyName": str,
-    },
-    total=False,
-)
-
-class UpdateConnectorRequestRequestTypeDef(
-    _RequiredUpdateConnectorRequestRequestTypeDef, _OptionalUpdateConnectorRequestRequestTypeDef
-):
-    pass
-
-UpdateConnectorResponseTypeDef = TypedDict(
-    "UpdateConnectorResponseTypeDef",
-    {
-        "ConnectorId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UpdateHostKeyRequestRequestTypeDef = TypedDict(
-    "UpdateHostKeyRequestRequestTypeDef",
-    {
-        "ServerId": str,
-        "HostKeyId": str,
-        "Description": str,
-    },
-)
-
-UpdateHostKeyResponseTypeDef = TypedDict(
-    "UpdateHostKeyResponseTypeDef",
-    {
-        "ServerId": str,
-        "HostKeyId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateProfileRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateProfileRequestRequestTypeDef",
-    {
-        "ProfileId": str,
-    },
-)
-_OptionalUpdateProfileRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateProfileRequestRequestTypeDef",
-    {
-        "CertificateIds": List[str],
-    },
-    total=False,
-)
-
-class UpdateProfileRequestRequestTypeDef(
-    _RequiredUpdateProfileRequestRequestTypeDef, _OptionalUpdateProfileRequestRequestTypeDef
-):
-    pass
-
-UpdateProfileResponseTypeDef = TypedDict(
-    "UpdateProfileResponseTypeDef",
-    {
-        "ProfileId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateServerRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateServerRequestRequestTypeDef",
-    {
-        "ServerId": str,
-    },
-)
-_OptionalUpdateServerRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateServerRequestRequestTypeDef",
-    {
-        "Certificate": str,
-        "ProtocolDetails": "ProtocolDetailsTypeDef",
-        "EndpointDetails": "EndpointDetailsTypeDef",
-        "EndpointType": EndpointTypeType,
-        "HostKey": str,
-        "IdentityProviderDetails": "IdentityProviderDetailsTypeDef",
-        "LoggingRole": str,
-        "PostAuthenticationLoginBanner": str,
-        "PreAuthenticationLoginBanner": str,
-        "Protocols": List[ProtocolType],
-        "SecurityPolicyName": str,
-        "WorkflowDetails": "WorkflowDetailsTypeDef",
-        "StructuredLogDestinations": List[str],
-        "S3StorageOptions": "S3StorageOptionsTypeDef",
-    },
-    total=False,
-)
-
-class UpdateServerRequestRequestTypeDef(
-    _RequiredUpdateServerRequestRequestTypeDef, _OptionalUpdateServerRequestRequestTypeDef
-):
-    pass
-
-UpdateServerResponseTypeDef = TypedDict(
-    "UpdateServerResponseTypeDef",
-    {
-        "ServerId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateUserRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateUserRequestRequestTypeDef",
-    {
-        "ServerId": str,
-        "UserName": str,
-    },
-)
-_OptionalUpdateUserRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateUserRequestRequestTypeDef",
-    {
-        "HomeDirectory": str,
-        "HomeDirectoryType": HomeDirectoryTypeType,
-        "HomeDirectoryMappings": List["HomeDirectoryMapEntryTypeDef"],
-        "Policy": str,
-        "PosixProfile": "PosixProfileTypeDef",
-        "Role": str,
-    },
-    total=False,
-)
-
-class UpdateUserRequestRequestTypeDef(
-    _RequiredUpdateUserRequestRequestTypeDef, _OptionalUpdateUserRequestRequestTypeDef
-):
-    pass
-
-UpdateUserResponseTypeDef = TypedDict(
-    "UpdateUserResponseTypeDef",
-    {
-        "ServerId": str,
-        "UserName": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUserDetailsTypeDef = TypedDict(
-    "_RequiredUserDetailsTypeDef",
-    {
-        "UserName": str,
-        "ServerId": str,
-    },
-)
-_OptionalUserDetailsTypeDef = TypedDict(
-    "_OptionalUserDetailsTypeDef",
-    {
-        "SessionId": str,
-    },
-    total=False,
-)
-
-class UserDetailsTypeDef(_RequiredUserDetailsTypeDef, _OptionalUserDetailsTypeDef):
-    pass
-
-WaiterConfigTypeDef = TypedDict(
-    "WaiterConfigTypeDef",
-    {
-        "Delay": int,
-        "MaxAttempts": int,
-    },
-    total=False,
-)
-
-WorkflowDetailTypeDef = TypedDict(
-    "WorkflowDetailTypeDef",
-    {
-        "WorkflowId": str,
-        "ExecutionRole": str,
-    },
-)
-
-WorkflowDetailsTypeDef = TypedDict(
-    "WorkflowDetailsTypeDef",
-    {
-        "OnUpload": List["WorkflowDetailTypeDef"],
-        "OnPartialUpload": List["WorkflowDetailTypeDef"],
-    },
-    total=False,
-)
-
 WorkflowStepTypeDef = TypedDict(
     "WorkflowStepTypeDef",
     {
-        "Type": WorkflowStepTypeType,
-        "CopyStepDetails": "CopyStepDetailsTypeDef",
-        "CustomStepDetails": "CustomStepDetailsTypeDef",
-        "DeleteStepDetails": "DeleteStepDetailsTypeDef",
-        "TagStepDetails": "TagStepDetailsTypeDef",
-        "DecryptStepDetails": "DecryptStepDetailsTypeDef",
+        "Type": NotRequired[WorkflowStepTypeType],
+        "CopyStepDetails": NotRequired[CopyStepDetailsTypeDef],
+        "CustomStepDetails": NotRequired[CustomStepDetailsTypeDef],
+        "DeleteStepDetails": NotRequired[DeleteStepDetailsTypeDef],
+        "TagStepDetails": NotRequired[TagStepDetailsUnionTypeDef],
+        "DecryptStepDetails": NotRequired[DecryptStepDetailsTypeDef],
     },
-    total=False,
 )
+
+class ListExecutionsResponseTypeDef(TypedDict):
+    WorkflowId: str
+    Executions: List[ListedExecutionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class DescribeServerResponseTypeDef(TypedDict):
+    Server: DescribedServerTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateServerRequestTypeDef(TypedDict):
+    Certificate: NotRequired[str]
+    Domain: NotRequired[DomainType]
+    EndpointDetails: NotRequired[EndpointDetailsUnionTypeDef]
+    EndpointType: NotRequired[EndpointTypeType]
+    HostKey: NotRequired[str]
+    IdentityProviderDetails: NotRequired[IdentityProviderDetailsTypeDef]
+    IdentityProviderType: NotRequired[IdentityProviderTypeType]
+    LoggingRole: NotRequired[str]
+    PostAuthenticationLoginBanner: NotRequired[str]
+    PreAuthenticationLoginBanner: NotRequired[str]
+    Protocols: NotRequired[Sequence[ProtocolType]]
+    ProtocolDetails: NotRequired[ProtocolDetailsUnionTypeDef]
+    SecurityPolicyName: NotRequired[str]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+    WorkflowDetails: NotRequired[WorkflowDetailsUnionTypeDef]
+    StructuredLogDestinations: NotRequired[Sequence[str]]
+    S3StorageOptions: NotRequired[S3StorageOptionsTypeDef]
+
+class UpdateServerRequestTypeDef(TypedDict):
+    ServerId: str
+    Certificate: NotRequired[str]
+    ProtocolDetails: NotRequired[ProtocolDetailsUnionTypeDef]
+    EndpointDetails: NotRequired[EndpointDetailsUnionTypeDef]
+    EndpointType: NotRequired[EndpointTypeType]
+    HostKey: NotRequired[str]
+    IdentityProviderDetails: NotRequired[IdentityProviderDetailsTypeDef]
+    LoggingRole: NotRequired[str]
+    PostAuthenticationLoginBanner: NotRequired[str]
+    PreAuthenticationLoginBanner: NotRequired[str]
+    Protocols: NotRequired[Sequence[ProtocolType]]
+    SecurityPolicyName: NotRequired[str]
+    WorkflowDetails: NotRequired[WorkflowDetailsUnionTypeDef]
+    StructuredLogDestinations: NotRequired[Sequence[str]]
+    S3StorageOptions: NotRequired[S3StorageOptionsTypeDef]
+
+class DescribeExecutionResponseTypeDef(TypedDict):
+    WorkflowId: str
+    Execution: DescribedExecutionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribedWorkflowTypeDef(TypedDict):
+    Arn: str
+    Description: NotRequired[str]
+    Steps: NotRequired[List[WorkflowStepOutputTypeDef]]
+    OnExceptionSteps: NotRequired[List[WorkflowStepOutputTypeDef]]
+    WorkflowId: NotRequired[str]
+    Tags: NotRequired[List[TagTypeDef]]
+
+WorkflowStepUnionTypeDef = Union[WorkflowStepTypeDef, WorkflowStepOutputTypeDef]
+
+class DescribeWorkflowResponseTypeDef(TypedDict):
+    Workflow: DescribedWorkflowTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateWorkflowRequestTypeDef(TypedDict):
+    Steps: Sequence[WorkflowStepUnionTypeDef]
+    Description: NotRequired[str]
+    OnExceptionSteps: NotRequired[Sequence[WorkflowStepUnionTypeDef]]
+    Tags: NotRequired[Sequence[TagTypeDef]]

@@ -1,14 +1,16 @@
 """
 Type annotations for cloudtrail service client paginators.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/paginators.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/paginators/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
 
-    from mypy_boto3_cloudtrail import CloudTrailClient
+    from mypy_boto3_cloudtrail.client import CloudTrailClient
     from mypy_boto3_cloudtrail.paginator import (
         ListImportFailuresPaginator,
         ListImportsPaginator,
@@ -18,7 +20,8 @@ Usage::
         LookupEventsPaginator,
     )
 
-    client: CloudTrailClient = boto3.client("cloudtrail")
+    session = Session()
+    client: CloudTrailClient = session.client("cloudtrail")
 
     list_import_failures_paginator: ListImportFailuresPaginator = client.get_paginator("list_import_failures")
     list_imports_paginator: ListImportsPaginator = client.get_paginator("list_imports")
@@ -29,28 +32,32 @@ Usage::
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from datetime import datetime
-from typing import Iterator, List, Union
+from typing import TYPE_CHECKING
 
-from botocore.paginate import Paginator as Boto3Paginator
+from botocore.paginate import PageIterator, Paginator
 
-from .literals import ImportStatusType
 from .type_defs import (
+    ListImportFailuresRequestPaginateTypeDef,
     ListImportFailuresResponseTypeDef,
+    ListImportsRequestPaginateTypeDef,
     ListImportsResponseTypeDef,
+    ListPublicKeysRequestPaginateTypeDef,
     ListPublicKeysResponseTypeDef,
+    ListTagsRequestPaginateTypeDef,
     ListTagsResponseTypeDef,
+    ListTrailsRequestPaginateTypeDef,
     ListTrailsResponseTypeDef,
-    LookupAttributeTypeDef,
+    LookupEventsRequestPaginateTypeDef,
     LookupEventsResponseTypeDef,
-    PaginatorConfigTypeDef,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 12):
+    from typing import Unpack
 else:
-    from typing_extensions import Literal
+    from typing_extensions import Unpack
 
 __all__ = (
     "ListImportFailuresPaginator",
@@ -61,100 +68,110 @@ __all__ = (
     "LookupEventsPaginator",
 )
 
-class ListImportFailuresPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudtrail.html#CloudTrail.Paginator.ListImportFailures)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/paginators.html#listimportfailurespaginator)
-    """
+if TYPE_CHECKING:
+    _ListImportFailuresPaginatorBase = Paginator[ListImportFailuresResponseTypeDef]
+else:
+    _ListImportFailuresPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, ImportId: str, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListImportFailuresResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudtrail.html#CloudTrail.Paginator.ListImportFailures.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/paginators.html#listimportfailurespaginator)
-        """
-
-class ListImportsPaginator(Boto3Paginator):
+class ListImportFailuresPaginator(_ListImportFailuresPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudtrail.html#CloudTrail.Paginator.ListImports)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/paginators.html#listimportspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudtrail/paginator/ListImportFailures.html#CloudTrail.Paginator.ListImportFailures)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/paginators/#listimportfailurespaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        Destination: str = None,
-        ImportStatus: ImportStatusType = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListImportsResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListImportFailuresRequestPaginateTypeDef]
+    ) -> PageIterator[ListImportFailuresResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudtrail.html#CloudTrail.Paginator.ListImports.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/paginators.html#listimportspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudtrail/paginator/ListImportFailures.html#CloudTrail.Paginator.ListImportFailures.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/paginators/#listimportfailurespaginator)
         """
 
-class ListPublicKeysPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudtrail.html#CloudTrail.Paginator.ListPublicKeys)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/paginators.html#listpublickeyspaginator)
-    """
+if TYPE_CHECKING:
+    _ListImportsPaginatorBase = Paginator[ListImportsResponseTypeDef]
+else:
+    _ListImportsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        StartTime: Union[datetime, str] = None,
-        EndTime: Union[datetime, str] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListPublicKeysResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudtrail.html#CloudTrail.Paginator.ListPublicKeys.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/paginators.html#listpublickeyspaginator)
-        """
-
-class ListTagsPaginator(Boto3Paginator):
+class ListImportsPaginator(_ListImportsPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudtrail.html#CloudTrail.Paginator.ListTags)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/paginators.html#listtagspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudtrail/paginator/ListImports.html#CloudTrail.Paginator.ListImports)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/paginators/#listimportspaginator)
     """
-
-    def paginate(
-        self, *, ResourceIdList: List[str], PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListTagsResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListImportsRequestPaginateTypeDef]
+    ) -> PageIterator[ListImportsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudtrail.html#CloudTrail.Paginator.ListTags.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/paginators.html#listtagspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudtrail/paginator/ListImports.html#CloudTrail.Paginator.ListImports.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/paginators/#listimportspaginator)
         """
 
-class ListTrailsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudtrail.html#CloudTrail.Paginator.ListTrails)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/paginators.html#listtrailspaginator)
-    """
+if TYPE_CHECKING:
+    _ListPublicKeysPaginatorBase = Paginator[ListPublicKeysResponseTypeDef]
+else:
+    _ListPublicKeysPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListTrailsResponseTypeDef]:
+class ListPublicKeysPaginator(_ListPublicKeysPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudtrail/paginator/ListPublicKeys.html#CloudTrail.Paginator.ListPublicKeys)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/paginators/#listpublickeyspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListPublicKeysRequestPaginateTypeDef]
+    ) -> PageIterator[ListPublicKeysResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudtrail.html#CloudTrail.Paginator.ListTrails.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/paginators.html#listtrailspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudtrail/paginator/ListPublicKeys.html#CloudTrail.Paginator.ListPublicKeys.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/paginators/#listpublickeyspaginator)
         """
 
-class LookupEventsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudtrail.html#CloudTrail.Paginator.LookupEvents)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/paginators.html#lookupeventspaginator)
-    """
+if TYPE_CHECKING:
+    _ListTagsPaginatorBase = Paginator[ListTagsResponseTypeDef]
+else:
+    _ListTagsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        LookupAttributes: List["LookupAttributeTypeDef"] = None,
-        StartTime: Union[datetime, str] = None,
-        EndTime: Union[datetime, str] = None,
-        EventCategory: Literal["insight"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[LookupEventsResponseTypeDef]:
+class ListTagsPaginator(_ListTagsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudtrail/paginator/ListTags.html#CloudTrail.Paginator.ListTags)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/paginators/#listtagspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListTagsRequestPaginateTypeDef]
+    ) -> PageIterator[ListTagsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudtrail.html#CloudTrail.Paginator.LookupEvents.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/paginators.html#lookupeventspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudtrail/paginator/ListTags.html#CloudTrail.Paginator.ListTags.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/paginators/#listtagspaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListTrailsPaginatorBase = Paginator[ListTrailsResponseTypeDef]
+else:
+    _ListTrailsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListTrailsPaginator(_ListTrailsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudtrail/paginator/ListTrails.html#CloudTrail.Paginator.ListTrails)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/paginators/#listtrailspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListTrailsRequestPaginateTypeDef]
+    ) -> PageIterator[ListTrailsResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudtrail/paginator/ListTrails.html#CloudTrail.Paginator.ListTrails.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/paginators/#listtrailspaginator)
+        """
+
+if TYPE_CHECKING:
+    _LookupEventsPaginatorBase = Paginator[LookupEventsResponseTypeDef]
+else:
+    _LookupEventsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class LookupEventsPaginator(_LookupEventsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudtrail/paginator/LookupEvents.html#CloudTrail.Paginator.LookupEvents)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/paginators/#lookupeventspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[LookupEventsRequestPaginateTypeDef]
+    ) -> PageIterator[LookupEventsResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudtrail/paginator/LookupEvents.html#CloudTrail.Paginator.LookupEvents.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudtrail/paginators/#lookupeventspaginator)
         """

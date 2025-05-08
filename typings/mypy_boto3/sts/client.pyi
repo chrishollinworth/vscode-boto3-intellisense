@@ -1,46 +1,63 @@
 """
-Type annotations for sts service client.
+Type annotations for sts service Client.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sts/client.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sts/client/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
-    from mypy_boto3_sts import STSClient
+    from boto3.session import Session
+    from mypy_boto3_sts.client import STSClient
 
-    client: STSClient = boto3.client("sts")
+    session = Session()
+    client: STSClient = session.client("sts")
     ```
 """
 
-from typing import Any, Dict, List, Type
+from __future__ import annotations
+
+import sys
+from typing import Any
 
 from botocore.client import BaseClient, ClientMeta
+from botocore.errorfactory import BaseClientExceptions
+from botocore.exceptions import ClientError as BotocoreClientError
 
 from .type_defs import (
+    AssumeRoleRequestTypeDef,
     AssumeRoleResponseTypeDef,
+    AssumeRoleWithSAMLRequestTypeDef,
     AssumeRoleWithSAMLResponseTypeDef,
+    AssumeRoleWithWebIdentityRequestTypeDef,
     AssumeRoleWithWebIdentityResponseTypeDef,
+    AssumeRootRequestTypeDef,
+    AssumeRootResponseTypeDef,
+    DecodeAuthorizationMessageRequestTypeDef,
     DecodeAuthorizationMessageResponseTypeDef,
+    GetAccessKeyInfoRequestTypeDef,
     GetAccessKeyInfoResponseTypeDef,
     GetCallerIdentityResponseTypeDef,
+    GetFederationTokenRequestTypeDef,
     GetFederationTokenResponseTypeDef,
+    GetSessionTokenRequestTypeDef,
     GetSessionTokenResponseTypeDef,
-    PolicyDescriptorTypeTypeDef,
-    ProvidedContextTypeDef,
-    TagTypeDef,
 )
+
+if sys.version_info >= (3, 9):
+    from builtins import type as Type
+    from collections.abc import Mapping
+else:
+    from typing import Mapping, Type
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = ("STSClient",)
 
-class BotocoreClientError(BaseException):
-    MSG_TEMPLATE: str
-
-    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
-        self.response: Dict[str, Any]
-        self.operation_name: str
-
-class Exceptions:
+class Exceptions(BaseClientExceptions):
     ClientError: Type[BotocoreClientError]
     ExpiredTokenException: Type[BotocoreClientError]
     IDPCommunicationErrorException: Type[BotocoreClientError]
@@ -53,8 +70,8 @@ class Exceptions:
 
 class STSClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sts.html#STS.Client)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sts/client.html)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sts.html#STS.Client)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sts/client/)
     """
 
     meta: ClientMeta
@@ -63,116 +80,88 @@ class STSClient(BaseClient):
     def exceptions(self) -> Exceptions:
         """
         STSClient exceptions.
-        """
 
-    def assume_role(
-        self,
-        *,
-        RoleArn: str,
-        RoleSessionName: str,
-        PolicyArns: List["PolicyDescriptorTypeTypeDef"] = None,
-        Policy: str = None,
-        DurationSeconds: int = None,
-        Tags: List["TagTypeDef"] = None,
-        TransitiveTagKeys: List[str] = None,
-        ExternalId: str = None,
-        SerialNumber: str = None,
-        TokenCode: str = None,
-        SourceIdentity: str = None,
-        ProvidedContexts: List["ProvidedContextTypeDef"] = None
-    ) -> AssumeRoleResponseTypeDef:
-        """
-        Returns a set of temporary security credentials that you can use to access
-        Amazon Web Services resources.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sts.html#STS.Client.assume_role)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sts/client.html#assume_role)
-        """
-
-    def assume_role_with_saml(
-        self,
-        *,
-        RoleArn: str,
-        PrincipalArn: str,
-        SAMLAssertion: str,
-        PolicyArns: List["PolicyDescriptorTypeTypeDef"] = None,
-        Policy: str = None,
-        DurationSeconds: int = None
-    ) -> AssumeRoleWithSAMLResponseTypeDef:
-        """
-        Returns a set of temporary security credentials for users who have been
-        authenticated via a SAML authentication response.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sts.html#STS.Client.assume_role_with_saml)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sts/client.html#assume_role_with_saml)
-        """
-
-    def assume_role_with_web_identity(
-        self,
-        *,
-        RoleArn: str,
-        RoleSessionName: str,
-        WebIdentityToken: str,
-        ProviderId: str = None,
-        PolicyArns: List["PolicyDescriptorTypeTypeDef"] = None,
-        Policy: str = None,
-        DurationSeconds: int = None
-    ) -> AssumeRoleWithWebIdentityResponseTypeDef:
-        """
-        Returns a set of temporary security credentials for users who have been
-        authenticated in a mobile or web application with a web identity provider.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sts.html#STS.Client.assume_role_with_web_identity)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sts/client.html#assume_role_with_web_identity)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sts.html#STS.Client)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sts/client/#exceptions)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        Check if an operation can be paginated.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sts.html#STS.Client.can_paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sts/client.html#can_paginate)
-        """
-
-    def close(self) -> None:
-        """
-        Closes underlying endpoint connections.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sts.html#STS.Client.close)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sts/client.html#close)
-        """
-
-    def decode_authorization_message(
-        self, *, EncodedMessage: str
-    ) -> DecodeAuthorizationMessageResponseTypeDef:
-        """
-        Decodes additional information about the authorization status of a request from
-        an encoded message returned in response to an Amazon Web Services request.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sts.html#STS.Client.decode_authorization_message)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sts/client.html#decode_authorization_message)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sts/client/can_paginate.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sts/client/#can_paginate)
         """
 
     def generate_presigned_url(
         self,
         ClientMethod: str,
-        Params: Dict[str, Any] = None,
+        Params: Mapping[str, Any] = ...,
         ExpiresIn: int = 3600,
-        HttpMethod: str = None,
+        HttpMethod: str = ...,
     ) -> str:
         """
-        Generate a presigned url given a client, its method, and arguments.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sts.html#STS.Client.generate_presigned_url)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sts/client.html#generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sts/client/generate_presigned_url.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sts/client/#generate_presigned_url)
         """
 
-    def get_access_key_info(self, *, AccessKeyId: str) -> GetAccessKeyInfoResponseTypeDef:
+    def assume_role(self, **kwargs: Unpack[AssumeRoleRequestTypeDef]) -> AssumeRoleResponseTypeDef:
+        """
+        Returns a set of temporary security credentials that you can use to access
+        Amazon Web Services resources.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sts/client/assume_role.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sts/client/#assume_role)
+        """
+
+    def assume_role_with_saml(
+        self, **kwargs: Unpack[AssumeRoleWithSAMLRequestTypeDef]
+    ) -> AssumeRoleWithSAMLResponseTypeDef:
+        """
+        Returns a set of temporary security credentials for users who have been
+        authenticated via a SAML authentication response.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sts/client/assume_role_with_saml.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sts/client/#assume_role_with_saml)
+        """
+
+    def assume_role_with_web_identity(
+        self, **kwargs: Unpack[AssumeRoleWithWebIdentityRequestTypeDef]
+    ) -> AssumeRoleWithWebIdentityResponseTypeDef:
+        """
+        Returns a set of temporary security credentials for users who have been
+        authenticated in a mobile or web application with a web identity provider.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sts/client/assume_role_with_web_identity.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sts/client/#assume_role_with_web_identity)
+        """
+
+    def assume_root(self, **kwargs: Unpack[AssumeRootRequestTypeDef]) -> AssumeRootResponseTypeDef:
+        """
+        Returns a set of short term credentials you can use to perform privileged tasks
+        on a member account in your organization.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sts/client/assume_root.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sts/client/#assume_root)
+        """
+
+    def decode_authorization_message(
+        self, **kwargs: Unpack[DecodeAuthorizationMessageRequestTypeDef]
+    ) -> DecodeAuthorizationMessageResponseTypeDef:
+        """
+        Decodes additional information about the authorization status of a request from
+        an encoded message returned in response to an Amazon Web Services request.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sts/client/decode_authorization_message.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sts/client/#decode_authorization_message)
+        """
+
+    def get_access_key_info(
+        self, **kwargs: Unpack[GetAccessKeyInfoRequestTypeDef]
+    ) -> GetAccessKeyInfoResponseTypeDef:
         """
         Returns the account identifier for the specified access key ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sts.html#STS.Client.get_access_key_info)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sts/client.html#get_access_key_info)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sts/client/get_access_key_info.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sts/client/#get_access_key_info)
         """
 
     def get_caller_identity(self) -> GetCallerIdentityResponseTypeDef:
@@ -180,34 +169,28 @@ class STSClient(BaseClient):
         Returns details about the IAM user or role whose credentials are used to call
         the operation.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sts.html#STS.Client.get_caller_identity)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sts/client.html#get_caller_identity)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sts/client/get_caller_identity.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sts/client/#get_caller_identity)
         """
 
     def get_federation_token(
-        self,
-        *,
-        Name: str,
-        Policy: str = None,
-        PolicyArns: List["PolicyDescriptorTypeTypeDef"] = None,
-        DurationSeconds: int = None,
-        Tags: List["TagTypeDef"] = None
+        self, **kwargs: Unpack[GetFederationTokenRequestTypeDef]
     ) -> GetFederationTokenResponseTypeDef:
         """
-        Returns a set of temporary security credentials (consisting of an access key ID,
-        a secret access key, and a security token) for a user.
+        Returns a set of temporary security credentials (consisting of an access key
+        ID, a secret access key, and a security token) for a user.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sts.html#STS.Client.get_federation_token)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sts/client.html#get_federation_token)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sts/client/get_federation_token.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sts/client/#get_federation_token)
         """
 
     def get_session_token(
-        self, *, DurationSeconds: int = None, SerialNumber: str = None, TokenCode: str = None
+        self, **kwargs: Unpack[GetSessionTokenRequestTypeDef]
     ) -> GetSessionTokenResponseTypeDef:
         """
-        Returns a set of temporary credentials for an Amazon Web Services account or IAM
-        user.
+        Returns a set of temporary credentials for an Amazon Web Services account or
+        IAM user.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sts.html#STS.Client.get_session_token)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sts/client.html#get_session_token)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sts/client/get_session_token.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sts/client/#get_session_token)
         """

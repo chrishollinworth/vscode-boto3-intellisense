@@ -1,317 +1,208 @@
 """
 Type annotations for cloudcontrol service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudcontrol/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudcontrol/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_cloudcontrol.type_defs import CancelResourceRequestInputRequestTypeDef
+    from mypy_boto3_cloudcontrol.type_defs import CancelResourceRequestInputTypeDef
 
-    data: CancelResourceRequestInputRequestTypeDef = {...}
+    data: CancelResourceRequestInputTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
 
 from .literals import HandlerErrorCodeType, OperationStatusType, OperationType
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Sequence
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List, Sequence
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
-    "CancelResourceRequestInputRequestTypeDef",
+    "CancelResourceRequestInputTypeDef",
     "CancelResourceRequestOutputTypeDef",
-    "CreateResourceInputRequestTypeDef",
+    "CreateResourceInputTypeDef",
     "CreateResourceOutputTypeDef",
-    "DeleteResourceInputRequestTypeDef",
+    "DeleteResourceInputTypeDef",
     "DeleteResourceOutputTypeDef",
-    "GetResourceInputRequestTypeDef",
+    "GetResourceInputTypeDef",
     "GetResourceOutputTypeDef",
-    "GetResourceRequestStatusInputRequestTypeDef",
+    "GetResourceRequestStatusInputTypeDef",
+    "GetResourceRequestStatusInputWaitTypeDef",
     "GetResourceRequestStatusOutputTypeDef",
-    "ListResourceRequestsInputRequestTypeDef",
+    "HookProgressEventTypeDef",
+    "ListResourceRequestsInputPaginateTypeDef",
+    "ListResourceRequestsInputTypeDef",
     "ListResourceRequestsOutputTypeDef",
-    "ListResourcesInputRequestTypeDef",
+    "ListResourcesInputPaginateTypeDef",
+    "ListResourcesInputTypeDef",
     "ListResourcesOutputTypeDef",
     "PaginatorConfigTypeDef",
     "ProgressEventTypeDef",
     "ResourceDescriptionTypeDef",
     "ResourceRequestStatusFilterTypeDef",
     "ResponseMetadataTypeDef",
-    "UpdateResourceInputRequestTypeDef",
+    "UpdateResourceInputTypeDef",
     "UpdateResourceOutputTypeDef",
     "WaiterConfigTypeDef",
 )
 
-CancelResourceRequestInputRequestTypeDef = TypedDict(
-    "CancelResourceRequestInputRequestTypeDef",
-    {
-        "RequestToken": str,
-    },
-)
+class CancelResourceRequestInputTypeDef(TypedDict):
+    RequestToken: str
 
-CancelResourceRequestOutputTypeDef = TypedDict(
-    "CancelResourceRequestOutputTypeDef",
-    {
-        "ProgressEvent": "ProgressEventTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ProgressEventTypeDef(TypedDict):
+    TypeName: NotRequired[str]
+    Identifier: NotRequired[str]
+    RequestToken: NotRequired[str]
+    HooksRequestToken: NotRequired[str]
+    Operation: NotRequired[OperationType]
+    OperationStatus: NotRequired[OperationStatusType]
+    EventTime: NotRequired[datetime]
+    ResourceModel: NotRequired[str]
+    StatusMessage: NotRequired[str]
+    ErrorCode: NotRequired[HandlerErrorCodeType]
+    RetryAfter: NotRequired[datetime]
 
-_RequiredCreateResourceInputRequestTypeDef = TypedDict(
-    "_RequiredCreateResourceInputRequestTypeDef",
-    {
-        "TypeName": str,
-        "DesiredState": str,
-    },
-)
-_OptionalCreateResourceInputRequestTypeDef = TypedDict(
-    "_OptionalCreateResourceInputRequestTypeDef",
-    {
-        "TypeVersionId": str,
-        "RoleArn": str,
-        "ClientToken": str,
-    },
-    total=False,
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-class CreateResourceInputRequestTypeDef(
-    _RequiredCreateResourceInputRequestTypeDef, _OptionalCreateResourceInputRequestTypeDef
-):
-    pass
+class CreateResourceInputTypeDef(TypedDict):
+    TypeName: str
+    DesiredState: str
+    TypeVersionId: NotRequired[str]
+    RoleArn: NotRequired[str]
+    ClientToken: NotRequired[str]
 
-CreateResourceOutputTypeDef = TypedDict(
-    "CreateResourceOutputTypeDef",
-    {
-        "ProgressEvent": "ProgressEventTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DeleteResourceInputTypeDef(TypedDict):
+    TypeName: str
+    Identifier: str
+    TypeVersionId: NotRequired[str]
+    RoleArn: NotRequired[str]
+    ClientToken: NotRequired[str]
 
-_RequiredDeleteResourceInputRequestTypeDef = TypedDict(
-    "_RequiredDeleteResourceInputRequestTypeDef",
-    {
-        "TypeName": str,
-        "Identifier": str,
-    },
-)
-_OptionalDeleteResourceInputRequestTypeDef = TypedDict(
-    "_OptionalDeleteResourceInputRequestTypeDef",
-    {
-        "TypeVersionId": str,
-        "RoleArn": str,
-        "ClientToken": str,
-    },
-    total=False,
-)
+class GetResourceInputTypeDef(TypedDict):
+    TypeName: str
+    Identifier: str
+    TypeVersionId: NotRequired[str]
+    RoleArn: NotRequired[str]
 
-class DeleteResourceInputRequestTypeDef(
-    _RequiredDeleteResourceInputRequestTypeDef, _OptionalDeleteResourceInputRequestTypeDef
-):
-    pass
+class ResourceDescriptionTypeDef(TypedDict):
+    Identifier: NotRequired[str]
+    Properties: NotRequired[str]
 
-DeleteResourceOutputTypeDef = TypedDict(
-    "DeleteResourceOutputTypeDef",
-    {
-        "ProgressEvent": "ProgressEventTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetResourceRequestStatusInputTypeDef(TypedDict):
+    RequestToken: str
 
-_RequiredGetResourceInputRequestTypeDef = TypedDict(
-    "_RequiredGetResourceInputRequestTypeDef",
-    {
-        "TypeName": str,
-        "Identifier": str,
-    },
-)
-_OptionalGetResourceInputRequestTypeDef = TypedDict(
-    "_OptionalGetResourceInputRequestTypeDef",
-    {
-        "TypeVersionId": str,
-        "RoleArn": str,
-    },
-    total=False,
-)
+class WaiterConfigTypeDef(TypedDict):
+    Delay: NotRequired[int]
+    MaxAttempts: NotRequired[int]
 
-class GetResourceInputRequestTypeDef(
-    _RequiredGetResourceInputRequestTypeDef, _OptionalGetResourceInputRequestTypeDef
-):
-    pass
+class HookProgressEventTypeDef(TypedDict):
+    HookTypeName: NotRequired[str]
+    HookTypeVersionId: NotRequired[str]
+    HookTypeArn: NotRequired[str]
+    InvocationPoint: NotRequired[str]
+    HookStatus: NotRequired[str]
+    HookEventTime: NotRequired[datetime]
+    HookStatusMessage: NotRequired[str]
+    FailureMode: NotRequired[str]
 
-GetResourceOutputTypeDef = TypedDict(
-    "GetResourceOutputTypeDef",
-    {
-        "TypeName": str,
-        "ResourceDescription": "ResourceDescriptionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
 
-GetResourceRequestStatusInputRequestTypeDef = TypedDict(
-    "GetResourceRequestStatusInputRequestTypeDef",
-    {
-        "RequestToken": str,
-    },
-)
+class ResourceRequestStatusFilterTypeDef(TypedDict):
+    Operations: NotRequired[Sequence[OperationType]]
+    OperationStatuses: NotRequired[Sequence[OperationStatusType]]
 
-GetResourceRequestStatusOutputTypeDef = TypedDict(
-    "GetResourceRequestStatusOutputTypeDef",
-    {
-        "ProgressEvent": "ProgressEventTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListResourcesInputTypeDef(TypedDict):
+    TypeName: str
+    TypeVersionId: NotRequired[str]
+    RoleArn: NotRequired[str]
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+    ResourceModel: NotRequired[str]
 
-ListResourceRequestsInputRequestTypeDef = TypedDict(
-    "ListResourceRequestsInputRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-        "ResourceRequestStatusFilter": "ResourceRequestStatusFilterTypeDef",
-    },
-    total=False,
-)
+class UpdateResourceInputTypeDef(TypedDict):
+    TypeName: str
+    Identifier: str
+    PatchDocument: str
+    TypeVersionId: NotRequired[str]
+    RoleArn: NotRequired[str]
+    ClientToken: NotRequired[str]
 
-ListResourceRequestsOutputTypeDef = TypedDict(
-    "ListResourceRequestsOutputTypeDef",
-    {
-        "ResourceRequestStatusSummaries": List["ProgressEventTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CancelResourceRequestOutputTypeDef(TypedDict):
+    ProgressEvent: ProgressEventTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredListResourcesInputRequestTypeDef = TypedDict(
-    "_RequiredListResourcesInputRequestTypeDef",
-    {
-        "TypeName": str,
-    },
-)
-_OptionalListResourcesInputRequestTypeDef = TypedDict(
-    "_OptionalListResourcesInputRequestTypeDef",
-    {
-        "TypeVersionId": str,
-        "RoleArn": str,
-        "NextToken": str,
-        "MaxResults": int,
-        "ResourceModel": str,
-    },
-    total=False,
-)
+class CreateResourceOutputTypeDef(TypedDict):
+    ProgressEvent: ProgressEventTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class ListResourcesInputRequestTypeDef(
-    _RequiredListResourcesInputRequestTypeDef, _OptionalListResourcesInputRequestTypeDef
-):
-    pass
+class DeleteResourceOutputTypeDef(TypedDict):
+    ProgressEvent: ProgressEventTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ListResourcesOutputTypeDef = TypedDict(
-    "ListResourcesOutputTypeDef",
-    {
-        "TypeName": str,
-        "ResourceDescriptions": List["ResourceDescriptionTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListResourceRequestsOutputTypeDef(TypedDict):
+    ResourceRequestStatusSummaries: List[ProgressEventTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
+class UpdateResourceOutputTypeDef(TypedDict):
+    ProgressEvent: ProgressEventTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ProgressEventTypeDef = TypedDict(
-    "ProgressEventTypeDef",
-    {
-        "TypeName": str,
-        "Identifier": str,
-        "RequestToken": str,
-        "Operation": OperationType,
-        "OperationStatus": OperationStatusType,
-        "EventTime": datetime,
-        "ResourceModel": str,
-        "StatusMessage": str,
-        "ErrorCode": HandlerErrorCodeType,
-        "RetryAfter": datetime,
-    },
-    total=False,
-)
+class GetResourceOutputTypeDef(TypedDict):
+    TypeName: str
+    ResourceDescription: ResourceDescriptionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ResourceDescriptionTypeDef = TypedDict(
-    "ResourceDescriptionTypeDef",
-    {
-        "Identifier": str,
-        "Properties": str,
-    },
-    total=False,
-)
+class ListResourcesOutputTypeDef(TypedDict):
+    TypeName: str
+    ResourceDescriptions: List[ResourceDescriptionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-ResourceRequestStatusFilterTypeDef = TypedDict(
-    "ResourceRequestStatusFilterTypeDef",
-    {
-        "Operations": List[OperationType],
-        "OperationStatuses": List[OperationStatusType],
-    },
-    total=False,
-)
+class GetResourceRequestStatusInputWaitTypeDef(TypedDict):
+    RequestToken: str
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
 
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
+class GetResourceRequestStatusOutputTypeDef(TypedDict):
+    ProgressEvent: ProgressEventTypeDef
+    HooksProgressEvent: List[HookProgressEventTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredUpdateResourceInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateResourceInputRequestTypeDef",
-    {
-        "TypeName": str,
-        "Identifier": str,
-        "PatchDocument": str,
-    },
-)
-_OptionalUpdateResourceInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateResourceInputRequestTypeDef",
-    {
-        "TypeVersionId": str,
-        "RoleArn": str,
-        "ClientToken": str,
-    },
-    total=False,
-)
+class ListResourcesInputPaginateTypeDef(TypedDict):
+    TypeName: str
+    TypeVersionId: NotRequired[str]
+    RoleArn: NotRequired[str]
+    ResourceModel: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-class UpdateResourceInputRequestTypeDef(
-    _RequiredUpdateResourceInputRequestTypeDef, _OptionalUpdateResourceInputRequestTypeDef
-):
-    pass
+class ListResourceRequestsInputPaginateTypeDef(TypedDict):
+    ResourceRequestStatusFilter: NotRequired[ResourceRequestStatusFilterTypeDef]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-UpdateResourceOutputTypeDef = TypedDict(
-    "UpdateResourceOutputTypeDef",
-    {
-        "ProgressEvent": "ProgressEventTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-WaiterConfigTypeDef = TypedDict(
-    "WaiterConfigTypeDef",
-    {
-        "Delay": int,
-        "MaxAttempts": int,
-    },
-    total=False,
-)
+class ListResourceRequestsInputTypeDef(TypedDict):
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+    ResourceRequestStatusFilter: NotRequired[ResourceRequestStatusFilterTypeDef]

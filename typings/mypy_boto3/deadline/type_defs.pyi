@@ -1,22 +1,27 @@
 """
 Type annotations for deadline service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_deadline/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_deadline.type_defs import AcceleratorCountRangeTypeDef
 
-    data: AcceleratorCountRangeTypeDef = {...}
+    data: AcceleratorCountRangeTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List, Union
+from typing import Any, Union
 
 from .literals import (
+    AcceleratorNameType,
     AutoScalingModeType,
     AutoScalingStatusType,
     BudgetActionTypeType,
@@ -45,8 +50,10 @@ from .literals import (
     PrincipalTypeType,
     QueueBlockedReasonType,
     QueueFleetAssociationStatusType,
+    QueueLimitAssociationStatusType,
     QueueStatusType,
     RunAsType,
+    SearchTermMatchingTypeType,
     ServiceManagedFleetOperatingSystemFamilyType,
     SessionActionStatusType,
     SessionLifecycleStatusType,
@@ -56,28 +63,36 @@ from .literals import (
     StepParameterTypeType,
     StepTargetTaskRunStatusType,
     StorageProfileOperatingSystemFamilyType,
+    TagPropagationModeType,
     TaskRunStatusType,
     TaskTargetRunStatusType,
     UpdatedWorkerStatusType,
     UpdateQueueFleetAssociationStatusType,
+    UpdateQueueLimitAssociationStatusType,
     UsageGroupByFieldType,
     UsageStatisticType,
     UsageTypeType,
     WorkerStatusType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
+    "AcceleratorCapabilitiesOutputTypeDef",
+    "AcceleratorCapabilitiesTypeDef",
     "AcceleratorCountRangeTypeDef",
+    "AcceleratorSelectionTypeDef",
     "AcceleratorTotalMemoryMiBRangeTypeDef",
+    "AcquiredLimitTypeDef",
     "AssignedEnvironmentEnterSessionActionDefinitionTypeDef",
     "AssignedEnvironmentExitSessionActionDefinitionTypeDef",
     "AssignedSessionActionDefinitionTypeDef",
@@ -85,71 +100,82 @@ __all__ = (
     "AssignedSessionTypeDef",
     "AssignedSyncInputJobAttachmentsSessionActionDefinitionTypeDef",
     "AssignedTaskRunSessionActionDefinitionTypeDef",
-    "AssociateMemberToFarmRequestRequestTypeDef",
-    "AssociateMemberToFleetRequestRequestTypeDef",
-    "AssociateMemberToJobRequestRequestTypeDef",
-    "AssociateMemberToQueueRequestRequestTypeDef",
-    "AssumeFleetRoleForReadRequestRequestTypeDef",
+    "AssociateMemberToFarmRequestTypeDef",
+    "AssociateMemberToFleetRequestTypeDef",
+    "AssociateMemberToJobRequestTypeDef",
+    "AssociateMemberToQueueRequestTypeDef",
+    "AssumeFleetRoleForReadRequestTypeDef",
     "AssumeFleetRoleForReadResponseTypeDef",
-    "AssumeFleetRoleForWorkerRequestRequestTypeDef",
+    "AssumeFleetRoleForWorkerRequestTypeDef",
     "AssumeFleetRoleForWorkerResponseTypeDef",
-    "AssumeQueueRoleForReadRequestRequestTypeDef",
+    "AssumeQueueRoleForReadRequestTypeDef",
     "AssumeQueueRoleForReadResponseTypeDef",
-    "AssumeQueueRoleForUserRequestRequestTypeDef",
+    "AssumeQueueRoleForUserRequestTypeDef",
     "AssumeQueueRoleForUserResponseTypeDef",
-    "AssumeQueueRoleForWorkerRequestRequestTypeDef",
+    "AssumeQueueRoleForWorkerRequestTypeDef",
     "AssumeQueueRoleForWorkerResponseTypeDef",
+    "AttachmentsOutputTypeDef",
     "AttachmentsTypeDef",
+    "AttachmentsUnionTypeDef",
     "AwsCredentialsTypeDef",
-    "BatchGetJobEntityRequestRequestTypeDef",
+    "BatchGetJobEntityRequestTypeDef",
     "BatchGetJobEntityResponseTypeDef",
     "BudgetActionToAddTypeDef",
     "BudgetActionToRemoveTypeDef",
+    "BudgetScheduleOutputTypeDef",
     "BudgetScheduleTypeDef",
+    "BudgetScheduleUnionTypeDef",
     "BudgetSummaryTypeDef",
     "ConsumedUsagesTypeDef",
-    "CopyJobTemplateRequestRequestTypeDef",
+    "CopyJobTemplateRequestTypeDef",
     "CopyJobTemplateResponseTypeDef",
-    "CreateBudgetRequestRequestTypeDef",
+    "CreateBudgetRequestTypeDef",
     "CreateBudgetResponseTypeDef",
-    "CreateFarmRequestRequestTypeDef",
+    "CreateFarmRequestTypeDef",
     "CreateFarmResponseTypeDef",
-    "CreateFleetRequestRequestTypeDef",
+    "CreateFleetRequestTypeDef",
     "CreateFleetResponseTypeDef",
-    "CreateJobRequestRequestTypeDef",
+    "CreateJobRequestTypeDef",
     "CreateJobResponseTypeDef",
-    "CreateLicenseEndpointRequestRequestTypeDef",
+    "CreateLicenseEndpointRequestTypeDef",
     "CreateLicenseEndpointResponseTypeDef",
-    "CreateMonitorRequestRequestTypeDef",
+    "CreateLimitRequestTypeDef",
+    "CreateLimitResponseTypeDef",
+    "CreateMonitorRequestTypeDef",
     "CreateMonitorResponseTypeDef",
-    "CreateQueueEnvironmentRequestRequestTypeDef",
+    "CreateQueueEnvironmentRequestTypeDef",
     "CreateQueueEnvironmentResponseTypeDef",
-    "CreateQueueFleetAssociationRequestRequestTypeDef",
-    "CreateQueueRequestRequestTypeDef",
+    "CreateQueueFleetAssociationRequestTypeDef",
+    "CreateQueueLimitAssociationRequestTypeDef",
+    "CreateQueueRequestTypeDef",
     "CreateQueueResponseTypeDef",
-    "CreateStorageProfileRequestRequestTypeDef",
+    "CreateStorageProfileRequestTypeDef",
     "CreateStorageProfileResponseTypeDef",
-    "CreateWorkerRequestRequestTypeDef",
+    "CreateWorkerRequestTypeDef",
     "CreateWorkerResponseTypeDef",
+    "CustomerManagedFleetConfigurationOutputTypeDef",
     "CustomerManagedFleetConfigurationTypeDef",
+    "CustomerManagedWorkerCapabilitiesOutputTypeDef",
     "CustomerManagedWorkerCapabilitiesTypeDef",
     "DateTimeFilterExpressionTypeDef",
-    "DeleteBudgetRequestRequestTypeDef",
-    "DeleteFarmRequestRequestTypeDef",
-    "DeleteFleetRequestRequestTypeDef",
-    "DeleteLicenseEndpointRequestRequestTypeDef",
-    "DeleteMeteredProductRequestRequestTypeDef",
-    "DeleteMonitorRequestRequestTypeDef",
-    "DeleteQueueEnvironmentRequestRequestTypeDef",
-    "DeleteQueueFleetAssociationRequestRequestTypeDef",
-    "DeleteQueueRequestRequestTypeDef",
-    "DeleteStorageProfileRequestRequestTypeDef",
-    "DeleteWorkerRequestRequestTypeDef",
+    "DeleteBudgetRequestTypeDef",
+    "DeleteFarmRequestTypeDef",
+    "DeleteFleetRequestTypeDef",
+    "DeleteLicenseEndpointRequestTypeDef",
+    "DeleteLimitRequestTypeDef",
+    "DeleteMeteredProductRequestTypeDef",
+    "DeleteMonitorRequestTypeDef",
+    "DeleteQueueEnvironmentRequestTypeDef",
+    "DeleteQueueFleetAssociationRequestTypeDef",
+    "DeleteQueueLimitAssociationRequestTypeDef",
+    "DeleteQueueRequestTypeDef",
+    "DeleteStorageProfileRequestTypeDef",
+    "DeleteWorkerRequestTypeDef",
     "DependencyCountsTypeDef",
-    "DisassociateMemberFromFarmRequestRequestTypeDef",
-    "DisassociateMemberFromFleetRequestRequestTypeDef",
-    "DisassociateMemberFromJobRequestRequestTypeDef",
-    "DisassociateMemberFromQueueRequestRequestTypeDef",
+    "DisassociateMemberFromFarmRequestTypeDef",
+    "DisassociateMemberFromFleetRequestTypeDef",
+    "DisassociateMemberFromJobRequestTypeDef",
+    "DisassociateMemberFromQueueRequestTypeDef",
     "Ec2EbsVolumeTypeDef",
     "EnvironmentDetailsEntityTypeDef",
     "EnvironmentDetailsErrorTypeDef",
@@ -162,51 +188,70 @@ __all__ = (
     "FarmSummaryTypeDef",
     "FieldSortExpressionTypeDef",
     "FileSystemLocationTypeDef",
+    "FixedBudgetScheduleOutputTypeDef",
     "FixedBudgetScheduleTypeDef",
     "FleetAmountCapabilityTypeDef",
+    "FleetAttributeCapabilityOutputTypeDef",
     "FleetAttributeCapabilityTypeDef",
     "FleetCapabilitiesTypeDef",
+    "FleetConfigurationOutputTypeDef",
     "FleetConfigurationTypeDef",
+    "FleetConfigurationUnionTypeDef",
     "FleetMemberTypeDef",
     "FleetSummaryTypeDef",
-    "GetBudgetRequestRequestTypeDef",
+    "GetBudgetRequestTypeDef",
     "GetBudgetResponseTypeDef",
-    "GetFarmRequestRequestTypeDef",
+    "GetFarmRequestTypeDef",
     "GetFarmResponseTypeDef",
-    "GetFleetRequestRequestTypeDef",
+    "GetFleetRequestTypeDef",
+    "GetFleetRequestWaitTypeDef",
     "GetFleetResponseTypeDef",
     "GetJobEntityErrorTypeDef",
-    "GetJobRequestRequestTypeDef",
+    "GetJobRequestTypeDef",
+    "GetJobRequestWaitTypeDef",
     "GetJobResponseTypeDef",
-    "GetLicenseEndpointRequestRequestTypeDef",
+    "GetLicenseEndpointRequestTypeDef",
+    "GetLicenseEndpointRequestWaitExtraTypeDef",
+    "GetLicenseEndpointRequestWaitTypeDef",
     "GetLicenseEndpointResponseTypeDef",
-    "GetMonitorRequestRequestTypeDef",
+    "GetLimitRequestTypeDef",
+    "GetLimitResponseTypeDef",
+    "GetMonitorRequestTypeDef",
     "GetMonitorResponseTypeDef",
-    "GetQueueEnvironmentRequestRequestTypeDef",
+    "GetQueueEnvironmentRequestTypeDef",
     "GetQueueEnvironmentResponseTypeDef",
-    "GetQueueFleetAssociationRequestRequestTypeDef",
+    "GetQueueFleetAssociationRequestTypeDef",
+    "GetQueueFleetAssociationRequestWaitTypeDef",
     "GetQueueFleetAssociationResponseTypeDef",
-    "GetQueueRequestRequestTypeDef",
+    "GetQueueLimitAssociationRequestTypeDef",
+    "GetQueueLimitAssociationRequestWaitTypeDef",
+    "GetQueueLimitAssociationResponseTypeDef",
+    "GetQueueRequestTypeDef",
+    "GetQueueRequestWaitExtraTypeDef",
+    "GetQueueRequestWaitTypeDef",
     "GetQueueResponseTypeDef",
-    "GetSessionActionRequestRequestTypeDef",
+    "GetSessionActionRequestTypeDef",
     "GetSessionActionResponseTypeDef",
-    "GetSessionRequestRequestTypeDef",
+    "GetSessionRequestTypeDef",
     "GetSessionResponseTypeDef",
-    "GetSessionsStatisticsAggregationRequestRequestTypeDef",
+    "GetSessionsStatisticsAggregationRequestPaginateTypeDef",
+    "GetSessionsStatisticsAggregationRequestTypeDef",
     "GetSessionsStatisticsAggregationResponseTypeDef",
-    "GetStepRequestRequestTypeDef",
+    "GetStepRequestTypeDef",
     "GetStepResponseTypeDef",
-    "GetStorageProfileForQueueRequestRequestTypeDef",
+    "GetStorageProfileForQueueRequestTypeDef",
     "GetStorageProfileForQueueResponseTypeDef",
-    "GetStorageProfileRequestRequestTypeDef",
+    "GetStorageProfileRequestTypeDef",
     "GetStorageProfileResponseTypeDef",
-    "GetTaskRequestRequestTypeDef",
+    "GetTaskRequestTypeDef",
     "GetTaskResponseTypeDef",
-    "GetWorkerRequestRequestTypeDef",
+    "GetWorkerRequestTypeDef",
     "GetWorkerResponseTypeDef",
     "HostPropertiesRequestTypeDef",
     "HostPropertiesResponseTypeDef",
+    "IpAddressesOutputTypeDef",
     "IpAddressesTypeDef",
+    "IpAddressesUnionTypeDef",
     "JobAttachmentDetailsEntityTypeDef",
     "JobAttachmentDetailsErrorTypeDef",
     "JobAttachmentDetailsIdentifiersTypeDef",
@@ -222,59 +267,95 @@ __all__ = (
     "JobSearchSummaryTypeDef",
     "JobSummaryTypeDef",
     "LicenseEndpointSummaryTypeDef",
-    "ListAvailableMeteredProductsRequestRequestTypeDef",
+    "LimitSummaryTypeDef",
+    "ListAvailableMeteredProductsRequestPaginateTypeDef",
+    "ListAvailableMeteredProductsRequestTypeDef",
     "ListAvailableMeteredProductsResponseTypeDef",
-    "ListBudgetsRequestRequestTypeDef",
+    "ListBudgetsRequestPaginateTypeDef",
+    "ListBudgetsRequestTypeDef",
     "ListBudgetsResponseTypeDef",
-    "ListFarmMembersRequestRequestTypeDef",
+    "ListFarmMembersRequestPaginateTypeDef",
+    "ListFarmMembersRequestTypeDef",
     "ListFarmMembersResponseTypeDef",
-    "ListFarmsRequestRequestTypeDef",
+    "ListFarmsRequestPaginateTypeDef",
+    "ListFarmsRequestTypeDef",
     "ListFarmsResponseTypeDef",
-    "ListFleetMembersRequestRequestTypeDef",
+    "ListFleetMembersRequestPaginateTypeDef",
+    "ListFleetMembersRequestTypeDef",
     "ListFleetMembersResponseTypeDef",
-    "ListFleetsRequestRequestTypeDef",
+    "ListFleetsRequestPaginateTypeDef",
+    "ListFleetsRequestTypeDef",
     "ListFleetsResponseTypeDef",
-    "ListJobMembersRequestRequestTypeDef",
+    "ListJobMembersRequestPaginateTypeDef",
+    "ListJobMembersRequestTypeDef",
     "ListJobMembersResponseTypeDef",
-    "ListJobsRequestRequestTypeDef",
+    "ListJobParameterDefinitionsRequestPaginateTypeDef",
+    "ListJobParameterDefinitionsRequestTypeDef",
+    "ListJobParameterDefinitionsResponseTypeDef",
+    "ListJobsRequestPaginateTypeDef",
+    "ListJobsRequestTypeDef",
     "ListJobsResponseTypeDef",
-    "ListLicenseEndpointsRequestRequestTypeDef",
+    "ListLicenseEndpointsRequestPaginateTypeDef",
+    "ListLicenseEndpointsRequestTypeDef",
     "ListLicenseEndpointsResponseTypeDef",
-    "ListMeteredProductsRequestRequestTypeDef",
+    "ListLimitsRequestPaginateTypeDef",
+    "ListLimitsRequestTypeDef",
+    "ListLimitsResponseTypeDef",
+    "ListMeteredProductsRequestPaginateTypeDef",
+    "ListMeteredProductsRequestTypeDef",
     "ListMeteredProductsResponseTypeDef",
-    "ListMonitorsRequestRequestTypeDef",
+    "ListMonitorsRequestPaginateTypeDef",
+    "ListMonitorsRequestTypeDef",
     "ListMonitorsResponseTypeDef",
-    "ListQueueEnvironmentsRequestRequestTypeDef",
+    "ListQueueEnvironmentsRequestPaginateTypeDef",
+    "ListQueueEnvironmentsRequestTypeDef",
     "ListQueueEnvironmentsResponseTypeDef",
-    "ListQueueFleetAssociationsRequestRequestTypeDef",
+    "ListQueueFleetAssociationsRequestPaginateTypeDef",
+    "ListQueueFleetAssociationsRequestTypeDef",
     "ListQueueFleetAssociationsResponseTypeDef",
-    "ListQueueMembersRequestRequestTypeDef",
+    "ListQueueLimitAssociationsRequestPaginateTypeDef",
+    "ListQueueLimitAssociationsRequestTypeDef",
+    "ListQueueLimitAssociationsResponseTypeDef",
+    "ListQueueMembersRequestPaginateTypeDef",
+    "ListQueueMembersRequestTypeDef",
     "ListQueueMembersResponseTypeDef",
-    "ListQueuesRequestRequestTypeDef",
+    "ListQueuesRequestPaginateTypeDef",
+    "ListQueuesRequestTypeDef",
     "ListQueuesResponseTypeDef",
-    "ListSessionActionsRequestRequestTypeDef",
+    "ListSessionActionsRequestPaginateTypeDef",
+    "ListSessionActionsRequestTypeDef",
     "ListSessionActionsResponseTypeDef",
-    "ListSessionsForWorkerRequestRequestTypeDef",
+    "ListSessionsForWorkerRequestPaginateTypeDef",
+    "ListSessionsForWorkerRequestTypeDef",
     "ListSessionsForWorkerResponseTypeDef",
-    "ListSessionsRequestRequestTypeDef",
+    "ListSessionsRequestPaginateTypeDef",
+    "ListSessionsRequestTypeDef",
     "ListSessionsResponseTypeDef",
-    "ListStepConsumersRequestRequestTypeDef",
+    "ListStepConsumersRequestPaginateTypeDef",
+    "ListStepConsumersRequestTypeDef",
     "ListStepConsumersResponseTypeDef",
-    "ListStepDependenciesRequestRequestTypeDef",
+    "ListStepDependenciesRequestPaginateTypeDef",
+    "ListStepDependenciesRequestTypeDef",
     "ListStepDependenciesResponseTypeDef",
-    "ListStepsRequestRequestTypeDef",
+    "ListStepsRequestPaginateTypeDef",
+    "ListStepsRequestTypeDef",
     "ListStepsResponseTypeDef",
-    "ListStorageProfilesForQueueRequestRequestTypeDef",
+    "ListStorageProfilesForQueueRequestPaginateTypeDef",
+    "ListStorageProfilesForQueueRequestTypeDef",
     "ListStorageProfilesForQueueResponseTypeDef",
-    "ListStorageProfilesRequestRequestTypeDef",
+    "ListStorageProfilesRequestPaginateTypeDef",
+    "ListStorageProfilesRequestTypeDef",
     "ListStorageProfilesResponseTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
-    "ListTasksRequestRequestTypeDef",
+    "ListTasksRequestPaginateTypeDef",
+    "ListTasksRequestTypeDef",
     "ListTasksResponseTypeDef",
-    "ListWorkersRequestRequestTypeDef",
+    "ListWorkersRequestPaginateTypeDef",
+    "ListWorkersRequestTypeDef",
     "ListWorkersResponseTypeDef",
     "LogConfigurationTypeDef",
+    "ManifestPropertiesOutputTypeDef",
     "ManifestPropertiesTypeDef",
     "MemoryMiBRangeTypeDef",
     "MeteredProductSummaryTypeDef",
@@ -285,9 +366,10 @@ __all__ = (
     "ParameterSpaceTypeDef",
     "PathMappingRuleTypeDef",
     "PosixUserTypeDef",
-    "PutMeteredProductRequestRequestTypeDef",
+    "PutMeteredProductRequestTypeDef",
     "QueueEnvironmentSummaryTypeDef",
     "QueueFleetAssociationSummaryTypeDef",
+    "QueueLimitAssociationSummaryTypeDef",
     "QueueMemberTypeDef",
     "QueueSummaryTypeDef",
     "ResponseBudgetActionTypeDef",
@@ -295,17 +377,19 @@ __all__ = (
     "S3LocationTypeDef",
     "SearchFilterExpressionTypeDef",
     "SearchGroupedFilterExpressionsTypeDef",
-    "SearchJobsRequestRequestTypeDef",
+    "SearchJobsRequestTypeDef",
     "SearchJobsResponseTypeDef",
     "SearchSortExpressionTypeDef",
-    "SearchStepsRequestRequestTypeDef",
+    "SearchStepsRequestTypeDef",
     "SearchStepsResponseTypeDef",
-    "SearchTasksRequestRequestTypeDef",
+    "SearchTasksRequestTypeDef",
     "SearchTasksResponseTypeDef",
     "SearchTermFilterExpressionTypeDef",
-    "SearchWorkersRequestRequestTypeDef",
+    "SearchWorkersRequestTypeDef",
     "SearchWorkersResponseTypeDef",
+    "ServiceManagedEc2FleetConfigurationOutputTypeDef",
     "ServiceManagedEc2FleetConfigurationTypeDef",
+    "ServiceManagedEc2InstanceCapabilitiesOutputTypeDef",
     "ServiceManagedEc2InstanceCapabilitiesTypeDef",
     "ServiceManagedEc2InstanceMarketOptionsTypeDef",
     "SessionActionDefinitionSummaryTypeDef",
@@ -313,7 +397,7 @@ __all__ = (
     "SessionActionSummaryTypeDef",
     "SessionSummaryTypeDef",
     "SessionsStatisticsResourcesTypeDef",
-    "StartSessionsStatisticsAggregationRequestRequestTypeDef",
+    "StartSessionsStatisticsAggregationRequestTypeDef",
     "StartSessionsStatisticsAggregationResponseTypeDef",
     "StatisticsTypeDef",
     "StatsTypeDef",
@@ -332,28 +416,31 @@ __all__ = (
     "StringFilterExpressionTypeDef",
     "SyncInputJobAttachmentsSessionActionDefinitionSummaryTypeDef",
     "SyncInputJobAttachmentsSessionActionDefinitionTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
     "TaskParameterValueTypeDef",
     "TaskRunSessionActionDefinitionSummaryTypeDef",
     "TaskRunSessionActionDefinitionTypeDef",
     "TaskSearchSummaryTypeDef",
     "TaskSummaryTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateBudgetRequestRequestTypeDef",
-    "UpdateFarmRequestRequestTypeDef",
-    "UpdateFleetRequestRequestTypeDef",
-    "UpdateJobRequestRequestTypeDef",
-    "UpdateMonitorRequestRequestTypeDef",
-    "UpdateQueueEnvironmentRequestRequestTypeDef",
-    "UpdateQueueFleetAssociationRequestRequestTypeDef",
-    "UpdateQueueRequestRequestTypeDef",
-    "UpdateSessionRequestRequestTypeDef",
-    "UpdateStepRequestRequestTypeDef",
-    "UpdateStorageProfileRequestRequestTypeDef",
-    "UpdateTaskRequestRequestTypeDef",
-    "UpdateWorkerRequestRequestTypeDef",
+    "TimestampTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateBudgetRequestTypeDef",
+    "UpdateFarmRequestTypeDef",
+    "UpdateFleetRequestTypeDef",
+    "UpdateJobRequestTypeDef",
+    "UpdateLimitRequestTypeDef",
+    "UpdateMonitorRequestTypeDef",
+    "UpdateQueueEnvironmentRequestTypeDef",
+    "UpdateQueueFleetAssociationRequestTypeDef",
+    "UpdateQueueLimitAssociationRequestTypeDef",
+    "UpdateQueueRequestTypeDef",
+    "UpdateSessionRequestTypeDef",
+    "UpdateStepRequestTypeDef",
+    "UpdateStorageProfileRequestTypeDef",
+    "UpdateTaskRequestTypeDef",
+    "UpdateWorkerRequestTypeDef",
     "UpdateWorkerResponseTypeDef",
-    "UpdateWorkerScheduleRequestRequestTypeDef",
+    "UpdateWorkerScheduleRequestTypeDef",
     "UpdateWorkerScheduleResponseTypeDef",
     "UpdatedSessionActionInfoTypeDef",
     "UsageTrackingResourceTypeDef",
@@ -369,1010 +456,229 @@ __all__ = (
     "WorkerSummaryTypeDef",
 )
 
-_RequiredAcceleratorCountRangeTypeDef = TypedDict(
-    "_RequiredAcceleratorCountRangeTypeDef",
+AcceleratorCountRangeTypeDef = TypedDict(
+    "AcceleratorCountRangeTypeDef",
     {
         "min": int,
+        "max": NotRequired[int],
     },
 )
-_OptionalAcceleratorCountRangeTypeDef = TypedDict(
-    "_OptionalAcceleratorCountRangeTypeDef",
-    {
-        "max": int,
-    },
-    total=False,
-)
 
-class AcceleratorCountRangeTypeDef(
-    _RequiredAcceleratorCountRangeTypeDef, _OptionalAcceleratorCountRangeTypeDef
-):
-    pass
+class AcceleratorSelectionTypeDef(TypedDict):
+    name: AcceleratorNameType
+    runtime: NotRequired[str]
 
-_RequiredAcceleratorTotalMemoryMiBRangeTypeDef = TypedDict(
-    "_RequiredAcceleratorTotalMemoryMiBRangeTypeDef",
+AcceleratorTotalMemoryMiBRangeTypeDef = TypedDict(
+    "AcceleratorTotalMemoryMiBRangeTypeDef",
     {
         "min": int,
-    },
-)
-_OptionalAcceleratorTotalMemoryMiBRangeTypeDef = TypedDict(
-    "_OptionalAcceleratorTotalMemoryMiBRangeTypeDef",
-    {
-        "max": int,
-    },
-    total=False,
-)
-
-class AcceleratorTotalMemoryMiBRangeTypeDef(
-    _RequiredAcceleratorTotalMemoryMiBRangeTypeDef, _OptionalAcceleratorTotalMemoryMiBRangeTypeDef
-):
-    pass
-
-AssignedEnvironmentEnterSessionActionDefinitionTypeDef = TypedDict(
-    "AssignedEnvironmentEnterSessionActionDefinitionTypeDef",
-    {
-        "environmentId": str,
+        "max": NotRequired[int],
     },
 )
 
-AssignedEnvironmentExitSessionActionDefinitionTypeDef = TypedDict(
-    "AssignedEnvironmentExitSessionActionDefinitionTypeDef",
+class AcquiredLimitTypeDef(TypedDict):
+    limitId: str
+    count: int
+
+class AssignedEnvironmentEnterSessionActionDefinitionTypeDef(TypedDict):
+    environmentId: str
+
+class AssignedEnvironmentExitSessionActionDefinitionTypeDef(TypedDict):
+    environmentId: str
+
+class AssignedSyncInputJobAttachmentsSessionActionDefinitionTypeDef(TypedDict):
+    stepId: NotRequired[str]
+
+class LogConfigurationTypeDef(TypedDict):
+    logDriver: str
+    options: NotRequired[Dict[str, str]]
+    parameters: NotRequired[Dict[str, str]]
+    error: NotRequired[str]
+
+TaskParameterValueTypeDef = TypedDict(
+    "TaskParameterValueTypeDef",
     {
-        "environmentId": str,
+        "int": NotRequired[str],
+        "float": NotRequired[str],
+        "string": NotRequired[str],
+        "path": NotRequired[str],
     },
 )
 
-AssignedSessionActionDefinitionTypeDef = TypedDict(
-    "AssignedSessionActionDefinitionTypeDef",
-    {
-        "envEnter": "AssignedEnvironmentEnterSessionActionDefinitionTypeDef",
-        "envExit": "AssignedEnvironmentExitSessionActionDefinitionTypeDef",
-        "syncInputJobAttachments": "AssignedSyncInputJobAttachmentsSessionActionDefinitionTypeDef",
-        "taskRun": "AssignedTaskRunSessionActionDefinitionTypeDef",
-    },
-    total=False,
-)
+class AssociateMemberToFarmRequestTypeDef(TypedDict):
+    farmId: str
+    principalId: str
+    principalType: PrincipalTypeType
+    identityStoreId: str
+    membershipLevel: MembershipLevelType
 
-AssignedSessionActionTypeDef = TypedDict(
-    "AssignedSessionActionTypeDef",
-    {
-        "definition": "AssignedSessionActionDefinitionTypeDef",
-        "sessionActionId": str,
-    },
-)
+class AssociateMemberToFleetRequestTypeDef(TypedDict):
+    farmId: str
+    fleetId: str
+    principalId: str
+    principalType: PrincipalTypeType
+    identityStoreId: str
+    membershipLevel: MembershipLevelType
 
-AssignedSessionTypeDef = TypedDict(
-    "AssignedSessionTypeDef",
-    {
-        "jobId": str,
-        "logConfiguration": "LogConfigurationTypeDef",
-        "queueId": str,
-        "sessionActions": List["AssignedSessionActionTypeDef"],
-    },
-)
+class AssociateMemberToJobRequestTypeDef(TypedDict):
+    farmId: str
+    queueId: str
+    jobId: str
+    principalId: str
+    principalType: PrincipalTypeType
+    identityStoreId: str
+    membershipLevel: MembershipLevelType
 
-AssignedSyncInputJobAttachmentsSessionActionDefinitionTypeDef = TypedDict(
-    "AssignedSyncInputJobAttachmentsSessionActionDefinitionTypeDef",
-    {
-        "stepId": str,
-    },
-    total=False,
-)
+class AssociateMemberToQueueRequestTypeDef(TypedDict):
+    farmId: str
+    queueId: str
+    principalId: str
+    principalType: PrincipalTypeType
+    identityStoreId: str
+    membershipLevel: MembershipLevelType
 
-AssignedTaskRunSessionActionDefinitionTypeDef = TypedDict(
-    "AssignedTaskRunSessionActionDefinitionTypeDef",
-    {
-        "parameters": Dict[str, "TaskParameterValueTypeDef"],
-        "stepId": str,
-        "taskId": str,
-    },
-)
+class AssumeFleetRoleForReadRequestTypeDef(TypedDict):
+    farmId: str
+    fleetId: str
 
-AssociateMemberToFarmRequestRequestTypeDef = TypedDict(
-    "AssociateMemberToFarmRequestRequestTypeDef",
-    {
-        "farmId": str,
-        "identityStoreId": str,
-        "membershipLevel": MembershipLevelType,
-        "principalId": str,
-        "principalType": PrincipalTypeType,
-    },
-)
+class AwsCredentialsTypeDef(TypedDict):
+    accessKeyId: str
+    secretAccessKey: str
+    sessionToken: str
+    expiration: datetime
 
-AssociateMemberToFleetRequestRequestTypeDef = TypedDict(
-    "AssociateMemberToFleetRequestRequestTypeDef",
-    {
-        "farmId": str,
-        "fleetId": str,
-        "identityStoreId": str,
-        "membershipLevel": MembershipLevelType,
-        "principalId": str,
-        "principalType": PrincipalTypeType,
-    },
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-AssociateMemberToJobRequestRequestTypeDef = TypedDict(
-    "AssociateMemberToJobRequestRequestTypeDef",
-    {
-        "farmId": str,
-        "identityStoreId": str,
-        "jobId": str,
-        "membershipLevel": MembershipLevelType,
-        "principalId": str,
-        "principalType": PrincipalTypeType,
-        "queueId": str,
-    },
-)
+class AssumeFleetRoleForWorkerRequestTypeDef(TypedDict):
+    farmId: str
+    fleetId: str
+    workerId: str
 
-AssociateMemberToQueueRequestRequestTypeDef = TypedDict(
-    "AssociateMemberToQueueRequestRequestTypeDef",
-    {
-        "farmId": str,
-        "identityStoreId": str,
-        "membershipLevel": MembershipLevelType,
-        "principalId": str,
-        "principalType": PrincipalTypeType,
-        "queueId": str,
-    },
-)
+class AssumeQueueRoleForReadRequestTypeDef(TypedDict):
+    farmId: str
+    queueId: str
 
-AssumeFleetRoleForReadRequestRequestTypeDef = TypedDict(
-    "AssumeFleetRoleForReadRequestRequestTypeDef",
-    {
-        "farmId": str,
-        "fleetId": str,
-    },
-)
+class AssumeQueueRoleForUserRequestTypeDef(TypedDict):
+    farmId: str
+    queueId: str
 
-AssumeFleetRoleForReadResponseTypeDef = TypedDict(
-    "AssumeFleetRoleForReadResponseTypeDef",
-    {
-        "credentials": "AwsCredentialsTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class AssumeQueueRoleForWorkerRequestTypeDef(TypedDict):
+    farmId: str
+    fleetId: str
+    workerId: str
+    queueId: str
 
-AssumeFleetRoleForWorkerRequestRequestTypeDef = TypedDict(
-    "AssumeFleetRoleForWorkerRequestRequestTypeDef",
-    {
-        "farmId": str,
-        "fleetId": str,
-        "workerId": str,
-    },
-)
+class ManifestPropertiesOutputTypeDef(TypedDict):
+    rootPath: str
+    rootPathFormat: PathFormatType
+    fileSystemLocationName: NotRequired[str]
+    outputRelativeDirectories: NotRequired[List[str]]
+    inputManifestPath: NotRequired[str]
+    inputManifestHash: NotRequired[str]
 
-AssumeFleetRoleForWorkerResponseTypeDef = TypedDict(
-    "AssumeFleetRoleForWorkerResponseTypeDef",
-    {
-        "credentials": "AwsCredentialsTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ManifestPropertiesTypeDef(TypedDict):
+    rootPath: str
+    rootPathFormat: PathFormatType
+    fileSystemLocationName: NotRequired[str]
+    outputRelativeDirectories: NotRequired[Sequence[str]]
+    inputManifestPath: NotRequired[str]
+    inputManifestHash: NotRequired[str]
 
-AssumeQueueRoleForReadRequestRequestTypeDef = TypedDict(
-    "AssumeQueueRoleForReadRequestRequestTypeDef",
+BudgetActionToAddTypeDef = TypedDict(
+    "BudgetActionToAddTypeDef",
     {
-        "farmId": str,
-        "queueId": str,
-    },
-)
-
-AssumeQueueRoleForReadResponseTypeDef = TypedDict(
-    "AssumeQueueRoleForReadResponseTypeDef",
-    {
-        "credentials": "AwsCredentialsTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-AssumeQueueRoleForUserRequestRequestTypeDef = TypedDict(
-    "AssumeQueueRoleForUserRequestRequestTypeDef",
-    {
-        "farmId": str,
-        "queueId": str,
-    },
-)
-
-AssumeQueueRoleForUserResponseTypeDef = TypedDict(
-    "AssumeQueueRoleForUserResponseTypeDef",
-    {
-        "credentials": "AwsCredentialsTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-AssumeQueueRoleForWorkerRequestRequestTypeDef = TypedDict(
-    "AssumeQueueRoleForWorkerRequestRequestTypeDef",
-    {
-        "farmId": str,
-        "fleetId": str,
-        "queueId": str,
-        "workerId": str,
-    },
-)
-
-AssumeQueueRoleForWorkerResponseTypeDef = TypedDict(
-    "AssumeQueueRoleForWorkerResponseTypeDef",
-    {
-        "credentials": "AwsCredentialsTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredAttachmentsTypeDef = TypedDict(
-    "_RequiredAttachmentsTypeDef",
-    {
-        "manifests": List["ManifestPropertiesTypeDef"],
-    },
-)
-_OptionalAttachmentsTypeDef = TypedDict(
-    "_OptionalAttachmentsTypeDef",
-    {
-        "fileSystem": JobAttachmentsFileSystemType,
-    },
-    total=False,
-)
-
-class AttachmentsTypeDef(_RequiredAttachmentsTypeDef, _OptionalAttachmentsTypeDef):
-    pass
-
-AwsCredentialsTypeDef = TypedDict(
-    "AwsCredentialsTypeDef",
-    {
-        "accessKeyId": str,
-        "expiration": datetime,
-        "secretAccessKey": str,
-        "sessionToken": str,
-    },
-)
-
-BatchGetJobEntityRequestRequestTypeDef = TypedDict(
-    "BatchGetJobEntityRequestRequestTypeDef",
-    {
-        "farmId": str,
-        "fleetId": str,
-        "identifiers": List["JobEntityIdentifiersUnionTypeDef"],
-        "workerId": str,
-    },
-)
-
-BatchGetJobEntityResponseTypeDef = TypedDict(
-    "BatchGetJobEntityResponseTypeDef",
-    {
-        "entities": List["JobEntityTypeDef"],
-        "errors": List["GetJobEntityErrorTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredBudgetActionToAddTypeDef = TypedDict(
-    "_RequiredBudgetActionToAddTypeDef",
-    {
-        "thresholdPercentage": float,
         "type": BudgetActionTypeType,
+        "thresholdPercentage": float,
+        "description": NotRequired[str],
     },
 )
-_OptionalBudgetActionToAddTypeDef = TypedDict(
-    "_OptionalBudgetActionToAddTypeDef",
-    {
-        "description": str,
-    },
-    total=False,
-)
-
-class BudgetActionToAddTypeDef(
-    _RequiredBudgetActionToAddTypeDef, _OptionalBudgetActionToAddTypeDef
-):
-    pass
-
 BudgetActionToRemoveTypeDef = TypedDict(
     "BudgetActionToRemoveTypeDef",
     {
-        "thresholdPercentage": float,
         "type": BudgetActionTypeType,
-    },
-)
-
-BudgetScheduleTypeDef = TypedDict(
-    "BudgetScheduleTypeDef",
-    {
-        "fixed": "FixedBudgetScheduleTypeDef",
-    },
-    total=False,
-)
-
-_RequiredBudgetSummaryTypeDef = TypedDict(
-    "_RequiredBudgetSummaryTypeDef",
-    {
-        "approximateDollarLimit": float,
-        "budgetId": str,
-        "createdAt": datetime,
-        "createdBy": str,
-        "displayName": str,
-        "status": BudgetStatusType,
-        "usageTrackingResource": "UsageTrackingResourceTypeDef",
-        "usages": "ConsumedUsagesTypeDef",
-    },
-)
-_OptionalBudgetSummaryTypeDef = TypedDict(
-    "_OptionalBudgetSummaryTypeDef",
-    {
-        "description": str,
-        "updatedAt": datetime,
-        "updatedBy": str,
-    },
-    total=False,
-)
-
-class BudgetSummaryTypeDef(_RequiredBudgetSummaryTypeDef, _OptionalBudgetSummaryTypeDef):
-    pass
-
-ConsumedUsagesTypeDef = TypedDict(
-    "ConsumedUsagesTypeDef",
-    {
-        "approximateDollarUsage": float,
-    },
-)
-
-CopyJobTemplateRequestRequestTypeDef = TypedDict(
-    "CopyJobTemplateRequestRequestTypeDef",
-    {
-        "farmId": str,
-        "jobId": str,
-        "queueId": str,
-        "targetS3Location": "S3LocationTypeDef",
-    },
-)
-
-CopyJobTemplateResponseTypeDef = TypedDict(
-    "CopyJobTemplateResponseTypeDef",
-    {
-        "templateType": JobTemplateTypeType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateBudgetRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateBudgetRequestRequestTypeDef",
-    {
-        "actions": List["BudgetActionToAddTypeDef"],
-        "approximateDollarLimit": float,
-        "displayName": str,
-        "farmId": str,
-        "schedule": "BudgetScheduleTypeDef",
-        "usageTrackingResource": "UsageTrackingResourceTypeDef",
-    },
-)
-_OptionalCreateBudgetRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateBudgetRequestRequestTypeDef",
-    {
-        "clientToken": str,
-        "description": str,
-    },
-    total=False,
-)
-
-class CreateBudgetRequestRequestTypeDef(
-    _RequiredCreateBudgetRequestRequestTypeDef, _OptionalCreateBudgetRequestRequestTypeDef
-):
-    pass
-
-CreateBudgetResponseTypeDef = TypedDict(
-    "CreateBudgetResponseTypeDef",
-    {
-        "budgetId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateFarmRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateFarmRequestRequestTypeDef",
-    {
-        "displayName": str,
-    },
-)
-_OptionalCreateFarmRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateFarmRequestRequestTypeDef",
-    {
-        "clientToken": str,
-        "description": str,
-        "kmsKeyArn": str,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class CreateFarmRequestRequestTypeDef(
-    _RequiredCreateFarmRequestRequestTypeDef, _OptionalCreateFarmRequestRequestTypeDef
-):
-    pass
-
-CreateFarmResponseTypeDef = TypedDict(
-    "CreateFarmResponseTypeDef",
-    {
-        "farmId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateFleetRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateFleetRequestRequestTypeDef",
-    {
-        "configuration": "FleetConfigurationTypeDef",
-        "displayName": str,
-        "farmId": str,
-        "maxWorkerCount": int,
-        "roleArn": str,
-    },
-)
-_OptionalCreateFleetRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateFleetRequestRequestTypeDef",
-    {
-        "clientToken": str,
-        "description": str,
-        "minWorkerCount": int,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class CreateFleetRequestRequestTypeDef(
-    _RequiredCreateFleetRequestRequestTypeDef, _OptionalCreateFleetRequestRequestTypeDef
-):
-    pass
-
-CreateFleetResponseTypeDef = TypedDict(
-    "CreateFleetResponseTypeDef",
-    {
-        "fleetId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateJobRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateJobRequestRequestTypeDef",
-    {
-        "farmId": str,
-        "priority": int,
-        "queueId": str,
-        "template": str,
-        "templateType": JobTemplateTypeType,
-    },
-)
-_OptionalCreateJobRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateJobRequestRequestTypeDef",
-    {
-        "attachments": "AttachmentsTypeDef",
-        "clientToken": str,
-        "maxFailedTasksCount": int,
-        "maxRetriesPerTask": int,
-        "parameters": Dict[str, "JobParameterTypeDef"],
-        "storageProfileId": str,
-        "targetTaskRunStatus": CreateJobTargetTaskRunStatusType,
-    },
-    total=False,
-)
-
-class CreateJobRequestRequestTypeDef(
-    _RequiredCreateJobRequestRequestTypeDef, _OptionalCreateJobRequestRequestTypeDef
-):
-    pass
-
-CreateJobResponseTypeDef = TypedDict(
-    "CreateJobResponseTypeDef",
-    {
-        "jobId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateLicenseEndpointRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateLicenseEndpointRequestRequestTypeDef",
-    {
-        "securityGroupIds": List[str],
-        "subnetIds": List[str],
-        "vpcId": str,
-    },
-)
-_OptionalCreateLicenseEndpointRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateLicenseEndpointRequestRequestTypeDef",
-    {
-        "clientToken": str,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class CreateLicenseEndpointRequestRequestTypeDef(
-    _RequiredCreateLicenseEndpointRequestRequestTypeDef,
-    _OptionalCreateLicenseEndpointRequestRequestTypeDef,
-):
-    pass
-
-CreateLicenseEndpointResponseTypeDef = TypedDict(
-    "CreateLicenseEndpointResponseTypeDef",
-    {
-        "licenseEndpointId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateMonitorRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateMonitorRequestRequestTypeDef",
-    {
-        "displayName": str,
-        "identityCenterInstanceArn": str,
-        "roleArn": str,
-        "subdomain": str,
-    },
-)
-_OptionalCreateMonitorRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateMonitorRequestRequestTypeDef",
-    {
-        "clientToken": str,
-    },
-    total=False,
-)
-
-class CreateMonitorRequestRequestTypeDef(
-    _RequiredCreateMonitorRequestRequestTypeDef, _OptionalCreateMonitorRequestRequestTypeDef
-):
-    pass
-
-CreateMonitorResponseTypeDef = TypedDict(
-    "CreateMonitorResponseTypeDef",
-    {
-        "identityCenterApplicationArn": str,
-        "monitorId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateQueueEnvironmentRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateQueueEnvironmentRequestRequestTypeDef",
-    {
-        "farmId": str,
-        "priority": int,
-        "queueId": str,
-        "template": str,
-        "templateType": EnvironmentTemplateTypeType,
-    },
-)
-_OptionalCreateQueueEnvironmentRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateQueueEnvironmentRequestRequestTypeDef",
-    {
-        "clientToken": str,
-    },
-    total=False,
-)
-
-class CreateQueueEnvironmentRequestRequestTypeDef(
-    _RequiredCreateQueueEnvironmentRequestRequestTypeDef,
-    _OptionalCreateQueueEnvironmentRequestRequestTypeDef,
-):
-    pass
-
-CreateQueueEnvironmentResponseTypeDef = TypedDict(
-    "CreateQueueEnvironmentResponseTypeDef",
-    {
-        "queueEnvironmentId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateQueueFleetAssociationRequestRequestTypeDef = TypedDict(
-    "CreateQueueFleetAssociationRequestRequestTypeDef",
-    {
-        "farmId": str,
-        "fleetId": str,
-        "queueId": str,
-    },
-)
-
-_RequiredCreateQueueRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateQueueRequestRequestTypeDef",
-    {
-        "displayName": str,
-        "farmId": str,
-    },
-)
-_OptionalCreateQueueRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateQueueRequestRequestTypeDef",
-    {
-        "allowedStorageProfileIds": List[str],
-        "clientToken": str,
-        "defaultBudgetAction": DefaultQueueBudgetActionType,
-        "description": str,
-        "jobAttachmentSettings": "JobAttachmentSettingsTypeDef",
-        "jobRunAsUser": "JobRunAsUserTypeDef",
-        "requiredFileSystemLocationNames": List[str],
-        "roleArn": str,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class CreateQueueRequestRequestTypeDef(
-    _RequiredCreateQueueRequestRequestTypeDef, _OptionalCreateQueueRequestRequestTypeDef
-):
-    pass
-
-CreateQueueResponseTypeDef = TypedDict(
-    "CreateQueueResponseTypeDef",
-    {
-        "queueId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateStorageProfileRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateStorageProfileRequestRequestTypeDef",
-    {
-        "displayName": str,
-        "farmId": str,
-        "osFamily": StorageProfileOperatingSystemFamilyType,
-    },
-)
-_OptionalCreateStorageProfileRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateStorageProfileRequestRequestTypeDef",
-    {
-        "clientToken": str,
-        "fileSystemLocations": List["FileSystemLocationTypeDef"],
-    },
-    total=False,
-)
-
-class CreateStorageProfileRequestRequestTypeDef(
-    _RequiredCreateStorageProfileRequestRequestTypeDef,
-    _OptionalCreateStorageProfileRequestRequestTypeDef,
-):
-    pass
-
-CreateStorageProfileResponseTypeDef = TypedDict(
-    "CreateStorageProfileResponseTypeDef",
-    {
-        "storageProfileId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateWorkerRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateWorkerRequestRequestTypeDef",
-    {
-        "farmId": str,
-        "fleetId": str,
-    },
-)
-_OptionalCreateWorkerRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateWorkerRequestRequestTypeDef",
-    {
-        "clientToken": str,
-        "hostProperties": "HostPropertiesRequestTypeDef",
-    },
-    total=False,
-)
-
-class CreateWorkerRequestRequestTypeDef(
-    _RequiredCreateWorkerRequestRequestTypeDef, _OptionalCreateWorkerRequestRequestTypeDef
-):
-    pass
-
-CreateWorkerResponseTypeDef = TypedDict(
-    "CreateWorkerResponseTypeDef",
-    {
-        "workerId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCustomerManagedFleetConfigurationTypeDef = TypedDict(
-    "_RequiredCustomerManagedFleetConfigurationTypeDef",
-    {
-        "mode": AutoScalingModeType,
-        "workerCapabilities": "CustomerManagedWorkerCapabilitiesTypeDef",
-    },
-)
-_OptionalCustomerManagedFleetConfigurationTypeDef = TypedDict(
-    "_OptionalCustomerManagedFleetConfigurationTypeDef",
-    {
-        "storageProfileId": str,
-    },
-    total=False,
-)
-
-class CustomerManagedFleetConfigurationTypeDef(
-    _RequiredCustomerManagedFleetConfigurationTypeDef,
-    _OptionalCustomerManagedFleetConfigurationTypeDef,
-):
-    pass
-
-_RequiredCustomerManagedWorkerCapabilitiesTypeDef = TypedDict(
-    "_RequiredCustomerManagedWorkerCapabilitiesTypeDef",
-    {
-        "cpuArchitectureType": CpuArchitectureTypeType,
-        "memoryMiB": "MemoryMiBRangeTypeDef",
-        "osFamily": CustomerManagedFleetOperatingSystemFamilyType,
-        "vCpuCount": "VCpuCountRangeTypeDef",
-    },
-)
-_OptionalCustomerManagedWorkerCapabilitiesTypeDef = TypedDict(
-    "_OptionalCustomerManagedWorkerCapabilitiesTypeDef",
-    {
-        "acceleratorCount": "AcceleratorCountRangeTypeDef",
-        "acceleratorTotalMemoryMiB": "AcceleratorTotalMemoryMiBRangeTypeDef",
-        "acceleratorTypes": List[Literal["gpu"]],
-        "customAmounts": List["FleetAmountCapabilityTypeDef"],
-        "customAttributes": List["FleetAttributeCapabilityTypeDef"],
-    },
-    total=False,
-)
-
-class CustomerManagedWorkerCapabilitiesTypeDef(
-    _RequiredCustomerManagedWorkerCapabilitiesTypeDef,
-    _OptionalCustomerManagedWorkerCapabilitiesTypeDef,
-):
-    pass
-
-DateTimeFilterExpressionTypeDef = TypedDict(
-    "DateTimeFilterExpressionTypeDef",
-    {
-        "dateTime": Union[datetime, str],
-        "name": str,
-        "operator": ComparisonOperatorType,
-    },
-)
-
-DeleteBudgetRequestRequestTypeDef = TypedDict(
-    "DeleteBudgetRequestRequestTypeDef",
-    {
-        "budgetId": str,
-        "farmId": str,
-    },
-)
-
-DeleteFarmRequestRequestTypeDef = TypedDict(
-    "DeleteFarmRequestRequestTypeDef",
-    {
-        "farmId": str,
-    },
-)
-
-_RequiredDeleteFleetRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteFleetRequestRequestTypeDef",
-    {
-        "farmId": str,
-        "fleetId": str,
-    },
-)
-_OptionalDeleteFleetRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteFleetRequestRequestTypeDef",
-    {
-        "clientToken": str,
-    },
-    total=False,
-)
-
-class DeleteFleetRequestRequestTypeDef(
-    _RequiredDeleteFleetRequestRequestTypeDef, _OptionalDeleteFleetRequestRequestTypeDef
-):
-    pass
-
-DeleteLicenseEndpointRequestRequestTypeDef = TypedDict(
-    "DeleteLicenseEndpointRequestRequestTypeDef",
-    {
-        "licenseEndpointId": str,
-    },
-)
-
-DeleteMeteredProductRequestRequestTypeDef = TypedDict(
-    "DeleteMeteredProductRequestRequestTypeDef",
-    {
-        "licenseEndpointId": str,
-        "productId": str,
-    },
-)
-
-DeleteMonitorRequestRequestTypeDef = TypedDict(
-    "DeleteMonitorRequestRequestTypeDef",
-    {
-        "monitorId": str,
-    },
-)
-
-DeleteQueueEnvironmentRequestRequestTypeDef = TypedDict(
-    "DeleteQueueEnvironmentRequestRequestTypeDef",
-    {
-        "farmId": str,
-        "queueEnvironmentId": str,
-        "queueId": str,
-    },
-)
-
-DeleteQueueFleetAssociationRequestRequestTypeDef = TypedDict(
-    "DeleteQueueFleetAssociationRequestRequestTypeDef",
-    {
-        "farmId": str,
-        "fleetId": str,
-        "queueId": str,
-    },
-)
-
-DeleteQueueRequestRequestTypeDef = TypedDict(
-    "DeleteQueueRequestRequestTypeDef",
-    {
-        "farmId": str,
-        "queueId": str,
-    },
-)
-
-DeleteStorageProfileRequestRequestTypeDef = TypedDict(
-    "DeleteStorageProfileRequestRequestTypeDef",
-    {
-        "farmId": str,
-        "storageProfileId": str,
-    },
-)
-
-DeleteWorkerRequestRequestTypeDef = TypedDict(
-    "DeleteWorkerRequestRequestTypeDef",
-    {
-        "farmId": str,
-        "fleetId": str,
-        "workerId": str,
-    },
-)
-
-DependencyCountsTypeDef = TypedDict(
-    "DependencyCountsTypeDef",
-    {
-        "consumersResolved": int,
-        "consumersUnresolved": int,
-        "dependenciesResolved": int,
-        "dependenciesUnresolved": int,
-    },
-)
-
-DisassociateMemberFromFarmRequestRequestTypeDef = TypedDict(
-    "DisassociateMemberFromFarmRequestRequestTypeDef",
-    {
-        "farmId": str,
-        "principalId": str,
-    },
-)
-
-DisassociateMemberFromFleetRequestRequestTypeDef = TypedDict(
-    "DisassociateMemberFromFleetRequestRequestTypeDef",
-    {
-        "farmId": str,
-        "fleetId": str,
-        "principalId": str,
-    },
-)
-
-DisassociateMemberFromJobRequestRequestTypeDef = TypedDict(
-    "DisassociateMemberFromJobRequestRequestTypeDef",
-    {
-        "farmId": str,
-        "jobId": str,
-        "principalId": str,
-        "queueId": str,
-    },
-)
-
-DisassociateMemberFromQueueRequestRequestTypeDef = TypedDict(
-    "DisassociateMemberFromQueueRequestRequestTypeDef",
-    {
-        "farmId": str,
-        "principalId": str,
-        "queueId": str,
-    },
-)
-
-Ec2EbsVolumeTypeDef = TypedDict(
-    "Ec2EbsVolumeTypeDef",
-    {
-        "iops": int,
-        "sizeGiB": int,
-        "throughputMiB": int,
-    },
-    total=False,
-)
-
-EnvironmentDetailsEntityTypeDef = TypedDict(
-    "EnvironmentDetailsEntityTypeDef",
-    {
-        "environmentId": str,
-        "jobId": str,
-        "schemaVersion": str,
-        "template": Dict[str, Any],
-    },
-)
-
-EnvironmentDetailsErrorTypeDef = TypedDict(
-    "EnvironmentDetailsErrorTypeDef",
-    {
-        "code": JobEntityErrorCodeType,
-        "environmentId": str,
-        "jobId": str,
-        "message": str,
-    },
-)
-
-EnvironmentDetailsIdentifiersTypeDef = TypedDict(
-    "EnvironmentDetailsIdentifiersTypeDef",
-    {
-        "environmentId": str,
-        "jobId": str,
-    },
-)
-
-EnvironmentEnterSessionActionDefinitionSummaryTypeDef = TypedDict(
-    "EnvironmentEnterSessionActionDefinitionSummaryTypeDef",
-    {
-        "environmentId": str,
-    },
-)
-
-EnvironmentEnterSessionActionDefinitionTypeDef = TypedDict(
-    "EnvironmentEnterSessionActionDefinitionTypeDef",
-    {
-        "environmentId": str,
-    },
-)
-
-EnvironmentExitSessionActionDefinitionSummaryTypeDef = TypedDict(
-    "EnvironmentExitSessionActionDefinitionSummaryTypeDef",
-    {
-        "environmentId": str,
-    },
-)
-
-EnvironmentExitSessionActionDefinitionTypeDef = TypedDict(
-    "EnvironmentExitSessionActionDefinitionTypeDef",
-    {
-        "environmentId": str,
-    },
-)
-
-FarmMemberTypeDef = TypedDict(
-    "FarmMemberTypeDef",
-    {
-        "farmId": str,
-        "identityStoreId": str,
-        "membershipLevel": MembershipLevelType,
-        "principalId": str,
-        "principalType": PrincipalTypeType,
-    },
-)
-
-_RequiredFarmSummaryTypeDef = TypedDict(
-    "_RequiredFarmSummaryTypeDef",
-    {
-        "createdAt": datetime,
-        "createdBy": str,
-        "displayName": str,
-        "farmId": str,
-    },
-)
-_OptionalFarmSummaryTypeDef = TypedDict(
-    "_OptionalFarmSummaryTypeDef",
-    {
-        "kmsKeyArn": str,
-        "updatedAt": datetime,
-        "updatedBy": str,
-    },
-    total=False,
-)
-
-class FarmSummaryTypeDef(_RequiredFarmSummaryTypeDef, _OptionalFarmSummaryTypeDef):
-    pass
-
-FieldSortExpressionTypeDef = TypedDict(
-    "FieldSortExpressionTypeDef",
-    {
-        "name": str,
-        "sortOrder": SortOrderType,
-    },
-)
+        "thresholdPercentage": float,
+    },
+)
+
+class FixedBudgetScheduleOutputTypeDef(TypedDict):
+    startTime: datetime
+    endTime: datetime
+
+class ConsumedUsagesTypeDef(TypedDict):
+    approximateDollarUsage: float
+
+class UsageTrackingResourceTypeDef(TypedDict):
+    queueId: NotRequired[str]
+
+class S3LocationTypeDef(TypedDict):
+    bucketName: str
+    key: str
+
+class CreateFarmRequestTypeDef(TypedDict):
+    displayName: str
+    clientToken: NotRequired[str]
+    description: NotRequired[str]
+    kmsKeyArn: NotRequired[str]
+    tags: NotRequired[Mapping[str, str]]
+
+JobParameterTypeDef = TypedDict(
+    "JobParameterTypeDef",
+    {
+        "int": NotRequired[str],
+        "float": NotRequired[str],
+        "string": NotRequired[str],
+        "path": NotRequired[str],
+    },
+)
+
+class CreateLicenseEndpointRequestTypeDef(TypedDict):
+    vpcId: str
+    subnetIds: Sequence[str]
+    securityGroupIds: Sequence[str]
+    clientToken: NotRequired[str]
+    tags: NotRequired[Mapping[str, str]]
+
+class CreateLimitRequestTypeDef(TypedDict):
+    displayName: str
+    amountRequirementName: str
+    maxCount: int
+    farmId: str
+    clientToken: NotRequired[str]
+    description: NotRequired[str]
+
+class CreateMonitorRequestTypeDef(TypedDict):
+    displayName: str
+    identityCenterInstanceArn: str
+    subdomain: str
+    roleArn: str
+    clientToken: NotRequired[str]
+
+class CreateQueueEnvironmentRequestTypeDef(TypedDict):
+    farmId: str
+    queueId: str
+    priority: int
+    templateType: EnvironmentTemplateTypeType
+    template: str
+    clientToken: NotRequired[str]
+
+class CreateQueueFleetAssociationRequestTypeDef(TypedDict):
+    farmId: str
+    queueId: str
+    fleetId: str
+
+class CreateQueueLimitAssociationRequestTypeDef(TypedDict):
+    farmId: str
+    queueId: str
+    limitId: str
+
+class JobAttachmentSettingsTypeDef(TypedDict):
+    s3BucketName: str
+    rootPrefix: str
 
 FileSystemLocationTypeDef = TypedDict(
     "FileSystemLocationTypeDef",
@@ -1382,1653 +688,664 @@ FileSystemLocationTypeDef = TypedDict(
         "type": FileSystemLocationTypeType,
     },
 )
-
-FixedBudgetScheduleTypeDef = TypedDict(
-    "FixedBudgetScheduleTypeDef",
+FleetAmountCapabilityTypeDef = TypedDict(
+    "FleetAmountCapabilityTypeDef",
     {
-        "endTime": Union[datetime, str],
-        "startTime": Union[datetime, str],
-    },
-)
-
-_RequiredFleetAmountCapabilityTypeDef = TypedDict(
-    "_RequiredFleetAmountCapabilityTypeDef",
-    {
+        "name": str,
         "min": float,
-        "name": str,
+        "max": NotRequired[float],
     },
 )
-_OptionalFleetAmountCapabilityTypeDef = TypedDict(
-    "_OptionalFleetAmountCapabilityTypeDef",
-    {
-        "max": float,
-    },
-    total=False,
-)
-
-class FleetAmountCapabilityTypeDef(
-    _RequiredFleetAmountCapabilityTypeDef, _OptionalFleetAmountCapabilityTypeDef
-):
-    pass
-
-FleetAttributeCapabilityTypeDef = TypedDict(
-    "FleetAttributeCapabilityTypeDef",
-    {
-        "name": str,
-        "values": List[str],
-    },
-)
-
-FleetCapabilitiesTypeDef = TypedDict(
-    "FleetCapabilitiesTypeDef",
-    {
-        "amounts": List["FleetAmountCapabilityTypeDef"],
-        "attributes": List["FleetAttributeCapabilityTypeDef"],
-    },
-    total=False,
-)
-
-FleetConfigurationTypeDef = TypedDict(
-    "FleetConfigurationTypeDef",
-    {
-        "customerManaged": "CustomerManagedFleetConfigurationTypeDef",
-        "serviceManagedEc2": "ServiceManagedEc2FleetConfigurationTypeDef",
-    },
-    total=False,
-)
-
-FleetMemberTypeDef = TypedDict(
-    "FleetMemberTypeDef",
-    {
-        "farmId": str,
-        "fleetId": str,
-        "identityStoreId": str,
-        "membershipLevel": MembershipLevelType,
-        "principalId": str,
-        "principalType": PrincipalTypeType,
-    },
-)
-
-_RequiredFleetSummaryTypeDef = TypedDict(
-    "_RequiredFleetSummaryTypeDef",
-    {
-        "configuration": "FleetConfigurationTypeDef",
-        "createdAt": datetime,
-        "createdBy": str,
-        "displayName": str,
-        "farmId": str,
-        "fleetId": str,
-        "maxWorkerCount": int,
-        "minWorkerCount": int,
-        "status": FleetStatusType,
-        "workerCount": int,
-    },
-)
-_OptionalFleetSummaryTypeDef = TypedDict(
-    "_OptionalFleetSummaryTypeDef",
-    {
-        "autoScalingStatus": AutoScalingStatusType,
-        "targetWorkerCount": int,
-        "updatedAt": datetime,
-        "updatedBy": str,
-    },
-    total=False,
-)
-
-class FleetSummaryTypeDef(_RequiredFleetSummaryTypeDef, _OptionalFleetSummaryTypeDef):
-    pass
-
-GetBudgetRequestRequestTypeDef = TypedDict(
-    "GetBudgetRequestRequestTypeDef",
-    {
-        "budgetId": str,
-        "farmId": str,
-    },
-)
-
-GetBudgetResponseTypeDef = TypedDict(
-    "GetBudgetResponseTypeDef",
-    {
-        "actions": List["ResponseBudgetActionTypeDef"],
-        "approximateDollarLimit": float,
-        "budgetId": str,
-        "createdAt": datetime,
-        "createdBy": str,
-        "description": str,
-        "displayName": str,
-        "queueStoppedAt": datetime,
-        "schedule": "BudgetScheduleTypeDef",
-        "status": BudgetStatusType,
-        "updatedAt": datetime,
-        "updatedBy": str,
-        "usageTrackingResource": "UsageTrackingResourceTypeDef",
-        "usages": "ConsumedUsagesTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetFarmRequestRequestTypeDef = TypedDict(
-    "GetFarmRequestRequestTypeDef",
-    {
-        "farmId": str,
-    },
-)
-
-GetFarmResponseTypeDef = TypedDict(
-    "GetFarmResponseTypeDef",
-    {
-        "createdAt": datetime,
-        "createdBy": str,
-        "description": str,
-        "displayName": str,
-        "farmId": str,
-        "kmsKeyArn": str,
-        "updatedAt": datetime,
-        "updatedBy": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetFleetRequestRequestTypeDef = TypedDict(
-    "GetFleetRequestRequestTypeDef",
-    {
-        "farmId": str,
-        "fleetId": str,
-    },
-)
-
-GetFleetResponseTypeDef = TypedDict(
-    "GetFleetResponseTypeDef",
-    {
-        "autoScalingStatus": AutoScalingStatusType,
-        "capabilities": "FleetCapabilitiesTypeDef",
-        "configuration": "FleetConfigurationTypeDef",
-        "createdAt": datetime,
-        "createdBy": str,
-        "description": str,
-        "displayName": str,
-        "farmId": str,
-        "fleetId": str,
-        "maxWorkerCount": int,
-        "minWorkerCount": int,
-        "roleArn": str,
-        "status": FleetStatusType,
-        "targetWorkerCount": int,
-        "updatedAt": datetime,
-        "updatedBy": str,
-        "workerCount": int,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetJobEntityErrorTypeDef = TypedDict(
-    "GetJobEntityErrorTypeDef",
-    {
-        "environmentDetails": "EnvironmentDetailsErrorTypeDef",
-        "jobAttachmentDetails": "JobAttachmentDetailsErrorTypeDef",
-        "jobDetails": "JobDetailsErrorTypeDef",
-        "stepDetails": "StepDetailsErrorTypeDef",
-    },
-    total=False,
-)
-
-GetJobRequestRequestTypeDef = TypedDict(
-    "GetJobRequestRequestTypeDef",
-    {
-        "farmId": str,
-        "jobId": str,
-        "queueId": str,
-    },
-)
-
-GetJobResponseTypeDef = TypedDict(
-    "GetJobResponseTypeDef",
-    {
-        "attachments": "AttachmentsTypeDef",
-        "createdAt": datetime,
-        "createdBy": str,
-        "description": str,
-        "endedAt": datetime,
-        "jobId": str,
-        "lifecycleStatus": JobLifecycleStatusType,
-        "lifecycleStatusMessage": str,
-        "maxFailedTasksCount": int,
-        "maxRetriesPerTask": int,
-        "name": str,
-        "parameters": Dict[str, "JobParameterTypeDef"],
-        "priority": int,
-        "startedAt": datetime,
-        "storageProfileId": str,
-        "targetTaskRunStatus": JobTargetTaskRunStatusType,
-        "taskRunStatus": TaskRunStatusType,
-        "taskRunStatusCounts": Dict[TaskRunStatusType, int],
-        "updatedAt": datetime,
-        "updatedBy": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetLicenseEndpointRequestRequestTypeDef = TypedDict(
-    "GetLicenseEndpointRequestRequestTypeDef",
-    {
-        "licenseEndpointId": str,
-    },
-)
-
-GetLicenseEndpointResponseTypeDef = TypedDict(
-    "GetLicenseEndpointResponseTypeDef",
-    {
-        "dnsName": str,
-        "licenseEndpointId": str,
-        "securityGroupIds": List[str],
-        "status": LicenseEndpointStatusType,
-        "statusMessage": str,
-        "subnetIds": List[str],
-        "vpcId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetMonitorRequestRequestTypeDef = TypedDict(
-    "GetMonitorRequestRequestTypeDef",
-    {
-        "monitorId": str,
-    },
-)
-
-GetMonitorResponseTypeDef = TypedDict(
-    "GetMonitorResponseTypeDef",
-    {
-        "createdAt": datetime,
-        "createdBy": str,
-        "displayName": str,
-        "identityCenterApplicationArn": str,
-        "identityCenterInstanceArn": str,
-        "monitorId": str,
-        "roleArn": str,
-        "subdomain": str,
-        "updatedAt": datetime,
-        "updatedBy": str,
-        "url": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetQueueEnvironmentRequestRequestTypeDef = TypedDict(
-    "GetQueueEnvironmentRequestRequestTypeDef",
-    {
-        "farmId": str,
-        "queueEnvironmentId": str,
-        "queueId": str,
-    },
-)
-
-GetQueueEnvironmentResponseTypeDef = TypedDict(
-    "GetQueueEnvironmentResponseTypeDef",
-    {
-        "createdAt": datetime,
-        "createdBy": str,
-        "name": str,
-        "priority": int,
-        "queueEnvironmentId": str,
-        "template": str,
-        "templateType": EnvironmentTemplateTypeType,
-        "updatedAt": datetime,
-        "updatedBy": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetQueueFleetAssociationRequestRequestTypeDef = TypedDict(
-    "GetQueueFleetAssociationRequestRequestTypeDef",
-    {
-        "farmId": str,
-        "fleetId": str,
-        "queueId": str,
-    },
-)
-
-GetQueueFleetAssociationResponseTypeDef = TypedDict(
-    "GetQueueFleetAssociationResponseTypeDef",
-    {
-        "createdAt": datetime,
-        "createdBy": str,
-        "fleetId": str,
-        "queueId": str,
-        "status": QueueFleetAssociationStatusType,
-        "updatedAt": datetime,
-        "updatedBy": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetQueueRequestRequestTypeDef = TypedDict(
-    "GetQueueRequestRequestTypeDef",
-    {
-        "farmId": str,
-        "queueId": str,
-    },
-)
-
-GetQueueResponseTypeDef = TypedDict(
-    "GetQueueResponseTypeDef",
-    {
-        "allowedStorageProfileIds": List[str],
-        "blockedReason": QueueBlockedReasonType,
-        "createdAt": datetime,
-        "createdBy": str,
-        "defaultBudgetAction": DefaultQueueBudgetActionType,
-        "description": str,
-        "displayName": str,
-        "farmId": str,
-        "jobAttachmentSettings": "JobAttachmentSettingsTypeDef",
-        "jobRunAsUser": "JobRunAsUserTypeDef",
-        "queueId": str,
-        "requiredFileSystemLocationNames": List[str],
-        "roleArn": str,
-        "status": QueueStatusType,
-        "updatedAt": datetime,
-        "updatedBy": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetSessionActionRequestRequestTypeDef = TypedDict(
-    "GetSessionActionRequestRequestTypeDef",
-    {
-        "farmId": str,
-        "jobId": str,
-        "queueId": str,
-        "sessionActionId": str,
-    },
-)
-
-GetSessionActionResponseTypeDef = TypedDict(
-    "GetSessionActionResponseTypeDef",
-    {
-        "definition": "SessionActionDefinitionTypeDef",
-        "endedAt": datetime,
-        "processExitCode": int,
-        "progressMessage": str,
-        "progressPercent": float,
-        "sessionActionId": str,
-        "sessionId": str,
-        "startedAt": datetime,
-        "status": SessionActionStatusType,
-        "workerUpdatedAt": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetSessionRequestRequestTypeDef = TypedDict(
-    "GetSessionRequestRequestTypeDef",
-    {
-        "farmId": str,
-        "jobId": str,
-        "queueId": str,
-        "sessionId": str,
-    },
-)
-
-GetSessionResponseTypeDef = TypedDict(
-    "GetSessionResponseTypeDef",
-    {
-        "endedAt": datetime,
-        "fleetId": str,
-        "hostProperties": "HostPropertiesResponseTypeDef",
-        "lifecycleStatus": SessionLifecycleStatusType,
-        "log": "LogConfigurationTypeDef",
-        "sessionId": str,
-        "startedAt": datetime,
-        "targetLifecycleStatus": Literal["ENDED"],
-        "updatedAt": datetime,
-        "updatedBy": str,
-        "workerId": str,
-        "workerLog": "LogConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetSessionsStatisticsAggregationRequestRequestTypeDef = TypedDict(
-    "_RequiredGetSessionsStatisticsAggregationRequestRequestTypeDef",
-    {
-        "aggregationId": str,
-        "farmId": str,
-    },
-)
-_OptionalGetSessionsStatisticsAggregationRequestRequestTypeDef = TypedDict(
-    "_OptionalGetSessionsStatisticsAggregationRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class GetSessionsStatisticsAggregationRequestRequestTypeDef(
-    _RequiredGetSessionsStatisticsAggregationRequestRequestTypeDef,
-    _OptionalGetSessionsStatisticsAggregationRequestRequestTypeDef,
-):
-    pass
-
-GetSessionsStatisticsAggregationResponseTypeDef = TypedDict(
-    "GetSessionsStatisticsAggregationResponseTypeDef",
-    {
-        "nextToken": str,
-        "statistics": List["StatisticsTypeDef"],
-        "status": SessionsStatisticsAggregationStatusType,
-        "statusMessage": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetStepRequestRequestTypeDef = TypedDict(
-    "GetStepRequestRequestTypeDef",
-    {
-        "farmId": str,
-        "jobId": str,
-        "queueId": str,
-        "stepId": str,
-    },
-)
-
-GetStepResponseTypeDef = TypedDict(
-    "GetStepResponseTypeDef",
-    {
-        "createdAt": datetime,
-        "createdBy": str,
-        "dependencyCounts": "DependencyCountsTypeDef",
-        "description": str,
-        "endedAt": datetime,
-        "lifecycleStatus": StepLifecycleStatusType,
-        "lifecycleStatusMessage": str,
-        "name": str,
-        "parameterSpace": "ParameterSpaceTypeDef",
-        "requiredCapabilities": "StepRequiredCapabilitiesTypeDef",
-        "startedAt": datetime,
-        "stepId": str,
-        "targetTaskRunStatus": StepTargetTaskRunStatusType,
-        "taskRunStatus": TaskRunStatusType,
-        "taskRunStatusCounts": Dict[TaskRunStatusType, int],
-        "updatedAt": datetime,
-        "updatedBy": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetStorageProfileForQueueRequestRequestTypeDef = TypedDict(
-    "GetStorageProfileForQueueRequestRequestTypeDef",
-    {
-        "farmId": str,
-        "queueId": str,
-        "storageProfileId": str,
-    },
-)
-
-GetStorageProfileForQueueResponseTypeDef = TypedDict(
-    "GetStorageProfileForQueueResponseTypeDef",
-    {
-        "displayName": str,
-        "fileSystemLocations": List["FileSystemLocationTypeDef"],
-        "osFamily": StorageProfileOperatingSystemFamilyType,
-        "storageProfileId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetStorageProfileRequestRequestTypeDef = TypedDict(
-    "GetStorageProfileRequestRequestTypeDef",
-    {
-        "farmId": str,
-        "storageProfileId": str,
-    },
-)
-
-GetStorageProfileResponseTypeDef = TypedDict(
-    "GetStorageProfileResponseTypeDef",
-    {
-        "createdAt": datetime,
-        "createdBy": str,
-        "displayName": str,
-        "fileSystemLocations": List["FileSystemLocationTypeDef"],
-        "osFamily": StorageProfileOperatingSystemFamilyType,
-        "storageProfileId": str,
-        "updatedAt": datetime,
-        "updatedBy": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetTaskRequestRequestTypeDef = TypedDict(
-    "GetTaskRequestRequestTypeDef",
-    {
-        "farmId": str,
-        "jobId": str,
-        "queueId": str,
-        "stepId": str,
-        "taskId": str,
-    },
-)
-
-GetTaskResponseTypeDef = TypedDict(
-    "GetTaskResponseTypeDef",
-    {
-        "createdAt": datetime,
-        "createdBy": str,
-        "endedAt": datetime,
-        "failureRetryCount": int,
-        "latestSessionActionId": str,
-        "parameters": Dict[str, "TaskParameterValueTypeDef"],
-        "runStatus": TaskRunStatusType,
-        "startedAt": datetime,
-        "targetRunStatus": TaskTargetRunStatusType,
-        "taskId": str,
-        "updatedAt": datetime,
-        "updatedBy": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetWorkerRequestRequestTypeDef = TypedDict(
-    "GetWorkerRequestRequestTypeDef",
-    {
-        "farmId": str,
-        "fleetId": str,
-        "workerId": str,
-    },
-)
-
-GetWorkerResponseTypeDef = TypedDict(
-    "GetWorkerResponseTypeDef",
-    {
-        "createdAt": datetime,
-        "createdBy": str,
-        "farmId": str,
-        "fleetId": str,
-        "hostProperties": "HostPropertiesResponseTypeDef",
-        "log": "LogConfigurationTypeDef",
-        "status": WorkerStatusType,
-        "updatedAt": datetime,
-        "updatedBy": str,
-        "workerId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-HostPropertiesRequestTypeDef = TypedDict(
-    "HostPropertiesRequestTypeDef",
-    {
-        "hostName": str,
-        "ipAddresses": "IpAddressesTypeDef",
-    },
-    total=False,
-)
-
-HostPropertiesResponseTypeDef = TypedDict(
-    "HostPropertiesResponseTypeDef",
-    {
-        "ec2InstanceArn": str,
-        "ec2InstanceType": str,
-        "hostName": str,
-        "ipAddresses": "IpAddressesTypeDef",
-    },
-    total=False,
-)
-
-IpAddressesTypeDef = TypedDict(
-    "IpAddressesTypeDef",
-    {
-        "ipV4Addresses": List[str],
-        "ipV6Addresses": List[str],
-    },
-    total=False,
-)
-
-JobAttachmentDetailsEntityTypeDef = TypedDict(
-    "JobAttachmentDetailsEntityTypeDef",
-    {
-        "attachments": "AttachmentsTypeDef",
-        "jobId": str,
-    },
-)
-
-JobAttachmentDetailsErrorTypeDef = TypedDict(
-    "JobAttachmentDetailsErrorTypeDef",
-    {
-        "code": JobEntityErrorCodeType,
-        "jobId": str,
-        "message": str,
-    },
-)
-
-JobAttachmentDetailsIdentifiersTypeDef = TypedDict(
-    "JobAttachmentDetailsIdentifiersTypeDef",
-    {
-        "jobId": str,
-    },
-)
-
-JobAttachmentSettingsTypeDef = TypedDict(
-    "JobAttachmentSettingsTypeDef",
-    {
-        "rootPrefix": str,
-        "s3BucketName": str,
-    },
-)
-
-_RequiredJobDetailsEntityTypeDef = TypedDict(
-    "_RequiredJobDetailsEntityTypeDef",
-    {
-        "jobId": str,
-        "logGroupName": str,
-        "schemaVersion": str,
-    },
-)
-_OptionalJobDetailsEntityTypeDef = TypedDict(
-    "_OptionalJobDetailsEntityTypeDef",
-    {
-        "jobAttachmentSettings": "JobAttachmentSettingsTypeDef",
-        "jobRunAsUser": "JobRunAsUserTypeDef",
-        "parameters": Dict[str, "JobParameterTypeDef"],
-        "pathMappingRules": List["PathMappingRuleTypeDef"],
-        "queueRoleArn": str,
-    },
-    total=False,
-)
-
-class JobDetailsEntityTypeDef(_RequiredJobDetailsEntityTypeDef, _OptionalJobDetailsEntityTypeDef):
-    pass
-
-JobDetailsErrorTypeDef = TypedDict(
-    "JobDetailsErrorTypeDef",
-    {
-        "code": JobEntityErrorCodeType,
-        "jobId": str,
-        "message": str,
-    },
-)
-
-JobDetailsIdentifiersTypeDef = TypedDict(
-    "JobDetailsIdentifiersTypeDef",
-    {
-        "jobId": str,
-    },
-)
-
-JobEntityIdentifiersUnionTypeDef = TypedDict(
-    "JobEntityIdentifiersUnionTypeDef",
-    {
-        "environmentDetails": "EnvironmentDetailsIdentifiersTypeDef",
-        "jobAttachmentDetails": "JobAttachmentDetailsIdentifiersTypeDef",
-        "jobDetails": "JobDetailsIdentifiersTypeDef",
-        "stepDetails": "StepDetailsIdentifiersTypeDef",
-    },
-    total=False,
-)
-
-JobEntityTypeDef = TypedDict(
-    "JobEntityTypeDef",
-    {
-        "environmentDetails": "EnvironmentDetailsEntityTypeDef",
-        "jobAttachmentDetails": "JobAttachmentDetailsEntityTypeDef",
-        "jobDetails": "JobDetailsEntityTypeDef",
-        "stepDetails": "StepDetailsEntityTypeDef",
-    },
-    total=False,
-)
-
-JobMemberTypeDef = TypedDict(
-    "JobMemberTypeDef",
-    {
-        "farmId": str,
-        "identityStoreId": str,
-        "jobId": str,
-        "membershipLevel": MembershipLevelType,
-        "principalId": str,
-        "principalType": PrincipalTypeType,
-        "queueId": str,
-    },
-)
-
-JobParameterTypeDef = TypedDict(
-    "JobParameterTypeDef",
-    {
-        "float": str,
-        "int": str,
-        "path": str,
-        "string": str,
-    },
-    total=False,
-)
-
-_RequiredJobRunAsUserTypeDef = TypedDict(
-    "_RequiredJobRunAsUserTypeDef",
-    {
-        "runAs": RunAsType,
-    },
-)
-_OptionalJobRunAsUserTypeDef = TypedDict(
-    "_OptionalJobRunAsUserTypeDef",
-    {
-        "posix": "PosixUserTypeDef",
-        "windows": "WindowsUserTypeDef",
-    },
-    total=False,
-)
-
-class JobRunAsUserTypeDef(_RequiredJobRunAsUserTypeDef, _OptionalJobRunAsUserTypeDef):
-    pass
-
-JobSearchSummaryTypeDef = TypedDict(
-    "JobSearchSummaryTypeDef",
-    {
-        "createdAt": datetime,
-        "createdBy": str,
-        "endedAt": datetime,
-        "jobId": str,
-        "jobParameters": Dict[str, "JobParameterTypeDef"],
-        "lifecycleStatus": JobLifecycleStatusType,
-        "lifecycleStatusMessage": str,
-        "maxFailedTasksCount": int,
-        "maxRetriesPerTask": int,
-        "name": str,
-        "priority": int,
-        "queueId": str,
-        "startedAt": datetime,
-        "targetTaskRunStatus": JobTargetTaskRunStatusType,
-        "taskRunStatus": TaskRunStatusType,
-        "taskRunStatusCounts": Dict[TaskRunStatusType, int],
-    },
-    total=False,
-)
-
-_RequiredJobSummaryTypeDef = TypedDict(
-    "_RequiredJobSummaryTypeDef",
-    {
-        "createdAt": datetime,
-        "createdBy": str,
-        "jobId": str,
-        "lifecycleStatus": JobLifecycleStatusType,
-        "lifecycleStatusMessage": str,
-        "name": str,
-        "priority": int,
-    },
-)
-_OptionalJobSummaryTypeDef = TypedDict(
-    "_OptionalJobSummaryTypeDef",
-    {
-        "endedAt": datetime,
-        "maxFailedTasksCount": int,
-        "maxRetriesPerTask": int,
-        "startedAt": datetime,
-        "targetTaskRunStatus": JobTargetTaskRunStatusType,
-        "taskRunStatus": TaskRunStatusType,
-        "taskRunStatusCounts": Dict[TaskRunStatusType, int],
-        "updatedAt": datetime,
-        "updatedBy": str,
-    },
-    total=False,
-)
-
-class JobSummaryTypeDef(_RequiredJobSummaryTypeDef, _OptionalJobSummaryTypeDef):
-    pass
-
-LicenseEndpointSummaryTypeDef = TypedDict(
-    "LicenseEndpointSummaryTypeDef",
-    {
-        "licenseEndpointId": str,
-        "status": LicenseEndpointStatusType,
-        "statusMessage": str,
-        "vpcId": str,
-    },
-    total=False,
-)
-
-ListAvailableMeteredProductsRequestRequestTypeDef = TypedDict(
-    "ListAvailableMeteredProductsRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-ListAvailableMeteredProductsResponseTypeDef = TypedDict(
-    "ListAvailableMeteredProductsResponseTypeDef",
-    {
-        "meteredProducts": List["MeteredProductSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListBudgetsRequestRequestTypeDef = TypedDict(
-    "_RequiredListBudgetsRequestRequestTypeDef",
-    {
-        "farmId": str,
-    },
-)
-_OptionalListBudgetsRequestRequestTypeDef = TypedDict(
-    "_OptionalListBudgetsRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-        "status": BudgetStatusType,
-    },
-    total=False,
-)
-
-class ListBudgetsRequestRequestTypeDef(
-    _RequiredListBudgetsRequestRequestTypeDef, _OptionalListBudgetsRequestRequestTypeDef
-):
-    pass
-
-ListBudgetsResponseTypeDef = TypedDict(
-    "ListBudgetsResponseTypeDef",
-    {
-        "budgets": List["BudgetSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListFarmMembersRequestRequestTypeDef = TypedDict(
-    "_RequiredListFarmMembersRequestRequestTypeDef",
-    {
-        "farmId": str,
-    },
-)
-_OptionalListFarmMembersRequestRequestTypeDef = TypedDict(
-    "_OptionalListFarmMembersRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListFarmMembersRequestRequestTypeDef(
-    _RequiredListFarmMembersRequestRequestTypeDef, _OptionalListFarmMembersRequestRequestTypeDef
-):
-    pass
-
-ListFarmMembersResponseTypeDef = TypedDict(
-    "ListFarmMembersResponseTypeDef",
-    {
-        "members": List["FarmMemberTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListFarmsRequestRequestTypeDef = TypedDict(
-    "ListFarmsRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-        "principalId": str,
-    },
-    total=False,
-)
-
-ListFarmsResponseTypeDef = TypedDict(
-    "ListFarmsResponseTypeDef",
-    {
-        "farms": List["FarmSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListFleetMembersRequestRequestTypeDef = TypedDict(
-    "_RequiredListFleetMembersRequestRequestTypeDef",
-    {
-        "farmId": str,
-        "fleetId": str,
-    },
-)
-_OptionalListFleetMembersRequestRequestTypeDef = TypedDict(
-    "_OptionalListFleetMembersRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListFleetMembersRequestRequestTypeDef(
-    _RequiredListFleetMembersRequestRequestTypeDef, _OptionalListFleetMembersRequestRequestTypeDef
-):
-    pass
-
-ListFleetMembersResponseTypeDef = TypedDict(
-    "ListFleetMembersResponseTypeDef",
-    {
-        "members": List["FleetMemberTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListFleetsRequestRequestTypeDef = TypedDict(
-    "_RequiredListFleetsRequestRequestTypeDef",
-    {
-        "farmId": str,
-    },
-)
-_OptionalListFleetsRequestRequestTypeDef = TypedDict(
-    "_OptionalListFleetsRequestRequestTypeDef",
-    {
-        "displayName": str,
-        "maxResults": int,
-        "nextToken": str,
-        "principalId": str,
-        "status": FleetStatusType,
-    },
-    total=False,
-)
-
-class ListFleetsRequestRequestTypeDef(
-    _RequiredListFleetsRequestRequestTypeDef, _OptionalListFleetsRequestRequestTypeDef
-):
-    pass
-
-ListFleetsResponseTypeDef = TypedDict(
-    "ListFleetsResponseTypeDef",
-    {
-        "fleets": List["FleetSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListJobMembersRequestRequestTypeDef = TypedDict(
-    "_RequiredListJobMembersRequestRequestTypeDef",
-    {
-        "farmId": str,
-        "jobId": str,
-        "queueId": str,
-    },
-)
-_OptionalListJobMembersRequestRequestTypeDef = TypedDict(
-    "_OptionalListJobMembersRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListJobMembersRequestRequestTypeDef(
-    _RequiredListJobMembersRequestRequestTypeDef, _OptionalListJobMembersRequestRequestTypeDef
-):
-    pass
-
-ListJobMembersResponseTypeDef = TypedDict(
-    "ListJobMembersResponseTypeDef",
-    {
-        "members": List["JobMemberTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListJobsRequestRequestTypeDef = TypedDict(
-    "_RequiredListJobsRequestRequestTypeDef",
-    {
-        "farmId": str,
-        "queueId": str,
-    },
-)
-_OptionalListJobsRequestRequestTypeDef = TypedDict(
-    "_OptionalListJobsRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-        "principalId": str,
-    },
-    total=False,
-)
-
-class ListJobsRequestRequestTypeDef(
-    _RequiredListJobsRequestRequestTypeDef, _OptionalListJobsRequestRequestTypeDef
-):
-    pass
-
-ListJobsResponseTypeDef = TypedDict(
-    "ListJobsResponseTypeDef",
-    {
-        "jobs": List["JobSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListLicenseEndpointsRequestRequestTypeDef = TypedDict(
-    "ListLicenseEndpointsRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-ListLicenseEndpointsResponseTypeDef = TypedDict(
-    "ListLicenseEndpointsResponseTypeDef",
-    {
-        "licenseEndpoints": List["LicenseEndpointSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListMeteredProductsRequestRequestTypeDef = TypedDict(
-    "_RequiredListMeteredProductsRequestRequestTypeDef",
-    {
-        "licenseEndpointId": str,
-    },
-)
-_OptionalListMeteredProductsRequestRequestTypeDef = TypedDict(
-    "_OptionalListMeteredProductsRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListMeteredProductsRequestRequestTypeDef(
-    _RequiredListMeteredProductsRequestRequestTypeDef,
-    _OptionalListMeteredProductsRequestRequestTypeDef,
-):
-    pass
-
-ListMeteredProductsResponseTypeDef = TypedDict(
-    "ListMeteredProductsResponseTypeDef",
-    {
-        "meteredProducts": List["MeteredProductSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListMonitorsRequestRequestTypeDef = TypedDict(
-    "ListMonitorsRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-ListMonitorsResponseTypeDef = TypedDict(
-    "ListMonitorsResponseTypeDef",
-    {
-        "monitors": List["MonitorSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListQueueEnvironmentsRequestRequestTypeDef = TypedDict(
-    "_RequiredListQueueEnvironmentsRequestRequestTypeDef",
-    {
-        "farmId": str,
-        "queueId": str,
-    },
-)
-_OptionalListQueueEnvironmentsRequestRequestTypeDef = TypedDict(
-    "_OptionalListQueueEnvironmentsRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListQueueEnvironmentsRequestRequestTypeDef(
-    _RequiredListQueueEnvironmentsRequestRequestTypeDef,
-    _OptionalListQueueEnvironmentsRequestRequestTypeDef,
-):
-    pass
-
-ListQueueEnvironmentsResponseTypeDef = TypedDict(
-    "ListQueueEnvironmentsResponseTypeDef",
-    {
-        "environments": List["QueueEnvironmentSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListQueueFleetAssociationsRequestRequestTypeDef = TypedDict(
-    "_RequiredListQueueFleetAssociationsRequestRequestTypeDef",
-    {
-        "farmId": str,
-    },
-)
-_OptionalListQueueFleetAssociationsRequestRequestTypeDef = TypedDict(
-    "_OptionalListQueueFleetAssociationsRequestRequestTypeDef",
-    {
-        "fleetId": str,
-        "maxResults": int,
-        "nextToken": str,
-        "queueId": str,
-    },
-    total=False,
-)
-
-class ListQueueFleetAssociationsRequestRequestTypeDef(
-    _RequiredListQueueFleetAssociationsRequestRequestTypeDef,
-    _OptionalListQueueFleetAssociationsRequestRequestTypeDef,
-):
-    pass
-
-ListQueueFleetAssociationsResponseTypeDef = TypedDict(
-    "ListQueueFleetAssociationsResponseTypeDef",
-    {
-        "nextToken": str,
-        "queueFleetAssociations": List["QueueFleetAssociationSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListQueueMembersRequestRequestTypeDef = TypedDict(
-    "_RequiredListQueueMembersRequestRequestTypeDef",
-    {
-        "farmId": str,
-        "queueId": str,
-    },
-)
-_OptionalListQueueMembersRequestRequestTypeDef = TypedDict(
-    "_OptionalListQueueMembersRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListQueueMembersRequestRequestTypeDef(
-    _RequiredListQueueMembersRequestRequestTypeDef, _OptionalListQueueMembersRequestRequestTypeDef
-):
-    pass
-
-ListQueueMembersResponseTypeDef = TypedDict(
-    "ListQueueMembersResponseTypeDef",
-    {
-        "members": List["QueueMemberTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListQueuesRequestRequestTypeDef = TypedDict(
-    "_RequiredListQueuesRequestRequestTypeDef",
-    {
-        "farmId": str,
-    },
-)
-_OptionalListQueuesRequestRequestTypeDef = TypedDict(
-    "_OptionalListQueuesRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-        "principalId": str,
-        "status": QueueStatusType,
-    },
-    total=False,
-)
-
-class ListQueuesRequestRequestTypeDef(
-    _RequiredListQueuesRequestRequestTypeDef, _OptionalListQueuesRequestRequestTypeDef
-):
-    pass
-
-ListQueuesResponseTypeDef = TypedDict(
-    "ListQueuesResponseTypeDef",
-    {
-        "nextToken": str,
-        "queues": List["QueueSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListSessionActionsRequestRequestTypeDef = TypedDict(
-    "_RequiredListSessionActionsRequestRequestTypeDef",
-    {
-        "farmId": str,
-        "jobId": str,
-        "queueId": str,
-    },
-)
-_OptionalListSessionActionsRequestRequestTypeDef = TypedDict(
-    "_OptionalListSessionActionsRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-        "sessionId": str,
-        "taskId": str,
-    },
-    total=False,
-)
-
-class ListSessionActionsRequestRequestTypeDef(
-    _RequiredListSessionActionsRequestRequestTypeDef,
-    _OptionalListSessionActionsRequestRequestTypeDef,
-):
-    pass
-
-ListSessionActionsResponseTypeDef = TypedDict(
-    "ListSessionActionsResponseTypeDef",
-    {
-        "nextToken": str,
-        "sessionActions": List["SessionActionSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListSessionsForWorkerRequestRequestTypeDef = TypedDict(
-    "_RequiredListSessionsForWorkerRequestRequestTypeDef",
-    {
-        "farmId": str,
-        "fleetId": str,
-        "workerId": str,
-    },
-)
-_OptionalListSessionsForWorkerRequestRequestTypeDef = TypedDict(
-    "_OptionalListSessionsForWorkerRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListSessionsForWorkerRequestRequestTypeDef(
-    _RequiredListSessionsForWorkerRequestRequestTypeDef,
-    _OptionalListSessionsForWorkerRequestRequestTypeDef,
-):
-    pass
-
-ListSessionsForWorkerResponseTypeDef = TypedDict(
-    "ListSessionsForWorkerResponseTypeDef",
-    {
-        "nextToken": str,
-        "sessions": List["WorkerSessionSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListSessionsRequestRequestTypeDef = TypedDict(
-    "_RequiredListSessionsRequestRequestTypeDef",
-    {
-        "farmId": str,
-        "jobId": str,
-        "queueId": str,
-    },
-)
-_OptionalListSessionsRequestRequestTypeDef = TypedDict(
-    "_OptionalListSessionsRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListSessionsRequestRequestTypeDef(
-    _RequiredListSessionsRequestRequestTypeDef, _OptionalListSessionsRequestRequestTypeDef
-):
-    pass
-
-ListSessionsResponseTypeDef = TypedDict(
-    "ListSessionsResponseTypeDef",
-    {
-        "nextToken": str,
-        "sessions": List["SessionSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListStepConsumersRequestRequestTypeDef = TypedDict(
-    "_RequiredListStepConsumersRequestRequestTypeDef",
-    {
-        "farmId": str,
-        "jobId": str,
-        "queueId": str,
-        "stepId": str,
-    },
-)
-_OptionalListStepConsumersRequestRequestTypeDef = TypedDict(
-    "_OptionalListStepConsumersRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListStepConsumersRequestRequestTypeDef(
-    _RequiredListStepConsumersRequestRequestTypeDef, _OptionalListStepConsumersRequestRequestTypeDef
-):
-    pass
-
-ListStepConsumersResponseTypeDef = TypedDict(
-    "ListStepConsumersResponseTypeDef",
-    {
-        "consumers": List["StepConsumerTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListStepDependenciesRequestRequestTypeDef = TypedDict(
-    "_RequiredListStepDependenciesRequestRequestTypeDef",
-    {
-        "farmId": str,
-        "jobId": str,
-        "queueId": str,
-        "stepId": str,
-    },
-)
-_OptionalListStepDependenciesRequestRequestTypeDef = TypedDict(
-    "_OptionalListStepDependenciesRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListStepDependenciesRequestRequestTypeDef(
-    _RequiredListStepDependenciesRequestRequestTypeDef,
-    _OptionalListStepDependenciesRequestRequestTypeDef,
-):
-    pass
-
-ListStepDependenciesResponseTypeDef = TypedDict(
-    "ListStepDependenciesResponseTypeDef",
-    {
-        "dependencies": List["StepDependencyTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListStepsRequestRequestTypeDef = TypedDict(
-    "_RequiredListStepsRequestRequestTypeDef",
-    {
-        "farmId": str,
-        "jobId": str,
-        "queueId": str,
-    },
-)
-_OptionalListStepsRequestRequestTypeDef = TypedDict(
-    "_OptionalListStepsRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListStepsRequestRequestTypeDef(
-    _RequiredListStepsRequestRequestTypeDef, _OptionalListStepsRequestRequestTypeDef
-):
-    pass
-
-ListStepsResponseTypeDef = TypedDict(
-    "ListStepsResponseTypeDef",
-    {
-        "nextToken": str,
-        "steps": List["StepSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListStorageProfilesForQueueRequestRequestTypeDef = TypedDict(
-    "_RequiredListStorageProfilesForQueueRequestRequestTypeDef",
-    {
-        "farmId": str,
-        "queueId": str,
-    },
-)
-_OptionalListStorageProfilesForQueueRequestRequestTypeDef = TypedDict(
-    "_OptionalListStorageProfilesForQueueRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListStorageProfilesForQueueRequestRequestTypeDef(
-    _RequiredListStorageProfilesForQueueRequestRequestTypeDef,
-    _OptionalListStorageProfilesForQueueRequestRequestTypeDef,
-):
-    pass
-
-ListStorageProfilesForQueueResponseTypeDef = TypedDict(
-    "ListStorageProfilesForQueueResponseTypeDef",
-    {
-        "nextToken": str,
-        "storageProfiles": List["StorageProfileSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListStorageProfilesRequestRequestTypeDef = TypedDict(
-    "_RequiredListStorageProfilesRequestRequestTypeDef",
-    {
-        "farmId": str,
-    },
-)
-_OptionalListStorageProfilesRequestRequestTypeDef = TypedDict(
-    "_OptionalListStorageProfilesRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListStorageProfilesRequestRequestTypeDef(
-    _RequiredListStorageProfilesRequestRequestTypeDef,
-    _OptionalListStorageProfilesRequestRequestTypeDef,
-):
-    pass
-
-ListStorageProfilesResponseTypeDef = TypedDict(
-    "ListStorageProfilesResponseTypeDef",
-    {
-        "nextToken": str,
-        "storageProfiles": List["StorageProfileSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-    },
-)
-
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListTasksRequestRequestTypeDef = TypedDict(
-    "_RequiredListTasksRequestRequestTypeDef",
-    {
-        "farmId": str,
-        "jobId": str,
-        "queueId": str,
-        "stepId": str,
-    },
-)
-_OptionalListTasksRequestRequestTypeDef = TypedDict(
-    "_OptionalListTasksRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListTasksRequestRequestTypeDef(
-    _RequiredListTasksRequestRequestTypeDef, _OptionalListTasksRequestRequestTypeDef
-):
-    pass
-
-ListTasksResponseTypeDef = TypedDict(
-    "ListTasksResponseTypeDef",
-    {
-        "nextToken": str,
-        "tasks": List["TaskSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListWorkersRequestRequestTypeDef = TypedDict(
-    "_RequiredListWorkersRequestRequestTypeDef",
-    {
-        "farmId": str,
-        "fleetId": str,
-    },
-)
-_OptionalListWorkersRequestRequestTypeDef = TypedDict(
-    "_OptionalListWorkersRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListWorkersRequestRequestTypeDef(
-    _RequiredListWorkersRequestRequestTypeDef, _OptionalListWorkersRequestRequestTypeDef
-):
-    pass
-
-ListWorkersResponseTypeDef = TypedDict(
-    "ListWorkersResponseTypeDef",
-    {
-        "nextToken": str,
-        "workers": List["WorkerSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredLogConfigurationTypeDef = TypedDict(
-    "_RequiredLogConfigurationTypeDef",
-    {
-        "logDriver": str,
-    },
-)
-_OptionalLogConfigurationTypeDef = TypedDict(
-    "_OptionalLogConfigurationTypeDef",
-    {
-        "error": str,
-        "options": Dict[str, str],
-        "parameters": Dict[str, str],
-    },
-    total=False,
-)
-
-class LogConfigurationTypeDef(_RequiredLogConfigurationTypeDef, _OptionalLogConfigurationTypeDef):
-    pass
-
-_RequiredManifestPropertiesTypeDef = TypedDict(
-    "_RequiredManifestPropertiesTypeDef",
-    {
-        "rootPath": str,
-        "rootPathFormat": PathFormatType,
-    },
-)
-_OptionalManifestPropertiesTypeDef = TypedDict(
-    "_OptionalManifestPropertiesTypeDef",
-    {
-        "fileSystemLocationName": str,
-        "inputManifestHash": str,
-        "inputManifestPath": str,
-        "outputRelativeDirectories": List[str],
-    },
-    total=False,
-)
 
-class ManifestPropertiesTypeDef(
-    _RequiredManifestPropertiesTypeDef, _OptionalManifestPropertiesTypeDef
-):
-    pass
+class FleetAttributeCapabilityOutputTypeDef(TypedDict):
+    name: str
+    values: List[str]
 
-_RequiredMemoryMiBRangeTypeDef = TypedDict(
-    "_RequiredMemoryMiBRangeTypeDef",
+MemoryMiBRangeTypeDef = TypedDict(
+    "MemoryMiBRangeTypeDef",
     {
         "min": int,
+        "max": NotRequired[int],
     },
 )
-_OptionalMemoryMiBRangeTypeDef = TypedDict(
-    "_OptionalMemoryMiBRangeTypeDef",
+VCpuCountRangeTypeDef = TypedDict(
+    "VCpuCountRangeTypeDef",
     {
-        "max": int,
-    },
-    total=False,
-)
-
-class MemoryMiBRangeTypeDef(_RequiredMemoryMiBRangeTypeDef, _OptionalMemoryMiBRangeTypeDef):
-    pass
-
-MeteredProductSummaryTypeDef = TypedDict(
-    "MeteredProductSummaryTypeDef",
-    {
-        "family": str,
-        "port": int,
-        "productId": str,
-        "vendor": str,
+        "min": int,
+        "max": NotRequired[int],
     },
 )
 
-_RequiredMonitorSummaryTypeDef = TypedDict(
-    "_RequiredMonitorSummaryTypeDef",
+class FleetAttributeCapabilityTypeDef(TypedDict):
+    name: str
+    values: Sequence[str]
+
+TimestampTypeDef = Union[datetime, str]
+
+class DeleteBudgetRequestTypeDef(TypedDict):
+    farmId: str
+    budgetId: str
+
+class DeleteFarmRequestTypeDef(TypedDict):
+    farmId: str
+
+class DeleteFleetRequestTypeDef(TypedDict):
+    farmId: str
+    fleetId: str
+    clientToken: NotRequired[str]
+
+class DeleteLicenseEndpointRequestTypeDef(TypedDict):
+    licenseEndpointId: str
+
+class DeleteLimitRequestTypeDef(TypedDict):
+    farmId: str
+    limitId: str
+
+class DeleteMeteredProductRequestTypeDef(TypedDict):
+    licenseEndpointId: str
+    productId: str
+
+class DeleteMonitorRequestTypeDef(TypedDict):
+    monitorId: str
+
+class DeleteQueueEnvironmentRequestTypeDef(TypedDict):
+    farmId: str
+    queueId: str
+    queueEnvironmentId: str
+
+class DeleteQueueFleetAssociationRequestTypeDef(TypedDict):
+    farmId: str
+    queueId: str
+    fleetId: str
+
+class DeleteQueueLimitAssociationRequestTypeDef(TypedDict):
+    farmId: str
+    queueId: str
+    limitId: str
+
+class DeleteQueueRequestTypeDef(TypedDict):
+    farmId: str
+    queueId: str
+
+class DeleteStorageProfileRequestTypeDef(TypedDict):
+    farmId: str
+    storageProfileId: str
+
+class DeleteWorkerRequestTypeDef(TypedDict):
+    farmId: str
+    fleetId: str
+    workerId: str
+
+class DependencyCountsTypeDef(TypedDict):
+    dependenciesResolved: int
+    dependenciesUnresolved: int
+    consumersResolved: int
+    consumersUnresolved: int
+
+class DisassociateMemberFromFarmRequestTypeDef(TypedDict):
+    farmId: str
+    principalId: str
+
+class DisassociateMemberFromFleetRequestTypeDef(TypedDict):
+    farmId: str
+    fleetId: str
+    principalId: str
+
+class DisassociateMemberFromJobRequestTypeDef(TypedDict):
+    farmId: str
+    queueId: str
+    jobId: str
+    principalId: str
+
+class DisassociateMemberFromQueueRequestTypeDef(TypedDict):
+    farmId: str
+    queueId: str
+    principalId: str
+
+class Ec2EbsVolumeTypeDef(TypedDict):
+    sizeGiB: NotRequired[int]
+    iops: NotRequired[int]
+    throughputMiB: NotRequired[int]
+
+class EnvironmentDetailsEntityTypeDef(TypedDict):
+    jobId: str
+    environmentId: str
+    schemaVersion: str
+    template: Dict[str, Any]
+
+class EnvironmentDetailsErrorTypeDef(TypedDict):
+    jobId: str
+    environmentId: str
+    code: JobEntityErrorCodeType
+    message: str
+
+class EnvironmentDetailsIdentifiersTypeDef(TypedDict):
+    jobId: str
+    environmentId: str
+
+class EnvironmentEnterSessionActionDefinitionSummaryTypeDef(TypedDict):
+    environmentId: str
+
+class EnvironmentEnterSessionActionDefinitionTypeDef(TypedDict):
+    environmentId: str
+
+class EnvironmentExitSessionActionDefinitionSummaryTypeDef(TypedDict):
+    environmentId: str
+
+class EnvironmentExitSessionActionDefinitionTypeDef(TypedDict):
+    environmentId: str
+
+class FarmMemberTypeDef(TypedDict):
+    farmId: str
+    principalId: str
+    principalType: PrincipalTypeType
+    identityStoreId: str
+    membershipLevel: MembershipLevelType
+
+class FarmSummaryTypeDef(TypedDict):
+    farmId: str
+    displayName: str
+    createdAt: datetime
+    createdBy: str
+    kmsKeyArn: NotRequired[str]
+    updatedAt: NotRequired[datetime]
+    updatedBy: NotRequired[str]
+
+class FieldSortExpressionTypeDef(TypedDict):
+    sortOrder: SortOrderType
+    name: str
+
+class FleetMemberTypeDef(TypedDict):
+    farmId: str
+    fleetId: str
+    principalId: str
+    principalType: PrincipalTypeType
+    identityStoreId: str
+    membershipLevel: MembershipLevelType
+
+class GetBudgetRequestTypeDef(TypedDict):
+    farmId: str
+    budgetId: str
+
+ResponseBudgetActionTypeDef = TypedDict(
+    "ResponseBudgetActionTypeDef",
     {
-        "createdAt": datetime,
-        "createdBy": str,
-        "displayName": str,
-        "identityCenterApplicationArn": str,
-        "identityCenterInstanceArn": str,
-        "monitorId": str,
-        "roleArn": str,
-        "subdomain": str,
-        "url": str,
+        "type": BudgetActionTypeType,
+        "thresholdPercentage": float,
+        "description": NotRequired[str],
     },
-)
-_OptionalMonitorSummaryTypeDef = TypedDict(
-    "_OptionalMonitorSummaryTypeDef",
-    {
-        "updatedAt": datetime,
-        "updatedBy": str,
-    },
-    total=False,
 )
 
-class MonitorSummaryTypeDef(_RequiredMonitorSummaryTypeDef, _OptionalMonitorSummaryTypeDef):
-    pass
+class GetFarmRequestTypeDef(TypedDict):
+    farmId: str
 
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
+class GetFleetRequestTypeDef(TypedDict):
+    farmId: str
+    fleetId: str
+
+class WaiterConfigTypeDef(TypedDict):
+    Delay: NotRequired[int]
+    MaxAttempts: NotRequired[int]
+
+class JobAttachmentDetailsErrorTypeDef(TypedDict):
+    jobId: str
+    code: JobEntityErrorCodeType
+    message: str
+
+class JobDetailsErrorTypeDef(TypedDict):
+    jobId: str
+    code: JobEntityErrorCodeType
+    message: str
+
+class StepDetailsErrorTypeDef(TypedDict):
+    jobId: str
+    stepId: str
+    code: JobEntityErrorCodeType
+    message: str
+
+class GetJobRequestTypeDef(TypedDict):
+    farmId: str
+    queueId: str
+    jobId: str
+
+class GetLicenseEndpointRequestTypeDef(TypedDict):
+    licenseEndpointId: str
+
+class GetLimitRequestTypeDef(TypedDict):
+    farmId: str
+    limitId: str
+
+class GetMonitorRequestTypeDef(TypedDict):
+    monitorId: str
+
+class GetQueueEnvironmentRequestTypeDef(TypedDict):
+    farmId: str
+    queueId: str
+    queueEnvironmentId: str
+
+class GetQueueFleetAssociationRequestTypeDef(TypedDict):
+    farmId: str
+    queueId: str
+    fleetId: str
+
+class GetQueueLimitAssociationRequestTypeDef(TypedDict):
+    farmId: str
+    queueId: str
+    limitId: str
+
+class GetQueueRequestTypeDef(TypedDict):
+    farmId: str
+    queueId: str
+
+class GetSessionActionRequestTypeDef(TypedDict):
+    farmId: str
+    queueId: str
+    jobId: str
+    sessionActionId: str
+
+class GetSessionRequestTypeDef(TypedDict):
+    farmId: str
+    queueId: str
+    jobId: str
+    sessionId: str
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class GetSessionsStatisticsAggregationRequestTypeDef(TypedDict):
+    farmId: str
+    aggregationId: str
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class GetStepRequestTypeDef(TypedDict):
+    farmId: str
+    queueId: str
+    jobId: str
+    stepId: str
+
+class GetStorageProfileForQueueRequestTypeDef(TypedDict):
+    farmId: str
+    queueId: str
+    storageProfileId: str
+
+class GetStorageProfileRequestTypeDef(TypedDict):
+    farmId: str
+    storageProfileId: str
+
+class GetTaskRequestTypeDef(TypedDict):
+    farmId: str
+    queueId: str
+    jobId: str
+    stepId: str
+    taskId: str
+
+class GetWorkerRequestTypeDef(TypedDict):
+    farmId: str
+    fleetId: str
+    workerId: str
+
+class IpAddressesOutputTypeDef(TypedDict):
+    ipV4Addresses: NotRequired[List[str]]
+    ipV6Addresses: NotRequired[List[str]]
+
+class IpAddressesTypeDef(TypedDict):
+    ipV4Addresses: NotRequired[Sequence[str]]
+    ipV6Addresses: NotRequired[Sequence[str]]
+
+class JobAttachmentDetailsIdentifiersTypeDef(TypedDict):
+    jobId: str
+
+class PathMappingRuleTypeDef(TypedDict):
+    sourcePathFormat: PathFormatType
+    sourcePath: str
+    destinationPath: str
+
+class JobDetailsIdentifiersTypeDef(TypedDict):
+    jobId: str
+
+class StepDetailsIdentifiersTypeDef(TypedDict):
+    jobId: str
+    stepId: str
+
+class StepDetailsEntityTypeDef(TypedDict):
+    jobId: str
+    stepId: str
+    schemaVersion: str
+    template: Dict[str, Any]
+    dependencies: List[str]
+
+class JobMemberTypeDef(TypedDict):
+    farmId: str
+    queueId: str
+    jobId: str
+    principalId: str
+    principalType: PrincipalTypeType
+    identityStoreId: str
+    membershipLevel: MembershipLevelType
+
+class PosixUserTypeDef(TypedDict):
+    user: str
+    group: str
+
+class WindowsUserTypeDef(TypedDict):
+    user: str
+    passwordArn: str
+
+class JobSummaryTypeDef(TypedDict):
+    jobId: str
+    name: str
+    lifecycleStatus: JobLifecycleStatusType
+    lifecycleStatusMessage: str
+    priority: int
+    createdAt: datetime
+    createdBy: str
+    updatedAt: NotRequired[datetime]
+    updatedBy: NotRequired[str]
+    startedAt: NotRequired[datetime]
+    endedAt: NotRequired[datetime]
+    taskRunStatus: NotRequired[TaskRunStatusType]
+    targetTaskRunStatus: NotRequired[JobTargetTaskRunStatusType]
+    taskRunStatusCounts: NotRequired[Dict[TaskRunStatusType, int]]
+    maxFailedTasksCount: NotRequired[int]
+    maxRetriesPerTask: NotRequired[int]
+    maxWorkerCount: NotRequired[int]
+    sourceJobId: NotRequired[str]
+
+class LicenseEndpointSummaryTypeDef(TypedDict):
+    licenseEndpointId: NotRequired[str]
+    status: NotRequired[LicenseEndpointStatusType]
+    statusMessage: NotRequired[str]
+    vpcId: NotRequired[str]
+
+class LimitSummaryTypeDef(TypedDict):
+    displayName: str
+    amountRequirementName: str
+    maxCount: int
+    createdAt: datetime
+    createdBy: str
+    farmId: str
+    limitId: str
+    currentCount: int
+    updatedAt: NotRequired[datetime]
+    updatedBy: NotRequired[str]
+
+class ListAvailableMeteredProductsRequestTypeDef(TypedDict):
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class MeteredProductSummaryTypeDef(TypedDict):
+    productId: str
+    family: str
+    vendor: str
+    port: int
+
+class ListBudgetsRequestTypeDef(TypedDict):
+    farmId: str
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+    status: NotRequired[BudgetStatusType]
+
+class ListFarmMembersRequestTypeDef(TypedDict):
+    farmId: str
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class ListFarmsRequestTypeDef(TypedDict):
+    nextToken: NotRequired[str]
+    principalId: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class ListFleetMembersRequestTypeDef(TypedDict):
+    farmId: str
+    fleetId: str
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class ListFleetsRequestTypeDef(TypedDict):
+    farmId: str
+    principalId: NotRequired[str]
+    displayName: NotRequired[str]
+    status: NotRequired[FleetStatusType]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class ListJobMembersRequestTypeDef(TypedDict):
+    farmId: str
+    queueId: str
+    jobId: str
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class ListJobParameterDefinitionsRequestTypeDef(TypedDict):
+    farmId: str
+    jobId: str
+    queueId: str
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class ListJobsRequestTypeDef(TypedDict):
+    farmId: str
+    queueId: str
+    principalId: NotRequired[str]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class ListLicenseEndpointsRequestTypeDef(TypedDict):
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class ListLimitsRequestTypeDef(TypedDict):
+    farmId: str
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class ListMeteredProductsRequestTypeDef(TypedDict):
+    licenseEndpointId: str
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class ListMonitorsRequestTypeDef(TypedDict):
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class MonitorSummaryTypeDef(TypedDict):
+    monitorId: str
+    displayName: str
+    subdomain: str
+    url: str
+    roleArn: str
+    identityCenterInstanceArn: str
+    identityCenterApplicationArn: str
+    createdAt: datetime
+    createdBy: str
+    updatedAt: NotRequired[datetime]
+    updatedBy: NotRequired[str]
+
+class ListQueueEnvironmentsRequestTypeDef(TypedDict):
+    farmId: str
+    queueId: str
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class QueueEnvironmentSummaryTypeDef(TypedDict):
+    queueEnvironmentId: str
+    name: str
+    priority: int
+
+class ListQueueFleetAssociationsRequestTypeDef(TypedDict):
+    farmId: str
+    queueId: NotRequired[str]
+    fleetId: NotRequired[str]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class QueueFleetAssociationSummaryTypeDef(TypedDict):
+    queueId: str
+    fleetId: str
+    status: QueueFleetAssociationStatusType
+    createdAt: datetime
+    createdBy: str
+    updatedAt: NotRequired[datetime]
+    updatedBy: NotRequired[str]
+
+class ListQueueLimitAssociationsRequestTypeDef(TypedDict):
+    farmId: str
+    queueId: NotRequired[str]
+    limitId: NotRequired[str]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class QueueLimitAssociationSummaryTypeDef(TypedDict):
+    createdAt: datetime
+    createdBy: str
+    queueId: str
+    limitId: str
+    status: QueueLimitAssociationStatusType
+    updatedAt: NotRequired[datetime]
+    updatedBy: NotRequired[str]
+
+class ListQueueMembersRequestTypeDef(TypedDict):
+    farmId: str
+    queueId: str
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class QueueMemberTypeDef(TypedDict):
+    farmId: str
+    queueId: str
+    principalId: str
+    principalType: PrincipalTypeType
+    identityStoreId: str
+    membershipLevel: MembershipLevelType
+
+class ListQueuesRequestTypeDef(TypedDict):
+    farmId: str
+    principalId: NotRequired[str]
+    status: NotRequired[QueueStatusType]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class QueueSummaryTypeDef(TypedDict):
+    farmId: str
+    queueId: str
+    displayName: str
+    status: QueueStatusType
+    defaultBudgetAction: DefaultQueueBudgetActionType
+    createdAt: datetime
+    createdBy: str
+    blockedReason: NotRequired[QueueBlockedReasonType]
+    updatedAt: NotRequired[datetime]
+    updatedBy: NotRequired[str]
+
+class ListSessionActionsRequestTypeDef(TypedDict):
+    farmId: str
+    queueId: str
+    jobId: str
+    sessionId: NotRequired[str]
+    taskId: NotRequired[str]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class ListSessionsForWorkerRequestTypeDef(TypedDict):
+    farmId: str
+    fleetId: str
+    workerId: str
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class WorkerSessionSummaryTypeDef(TypedDict):
+    sessionId: str
+    queueId: str
+    jobId: str
+    startedAt: datetime
+    lifecycleStatus: SessionLifecycleStatusType
+    endedAt: NotRequired[datetime]
+    targetLifecycleStatus: NotRequired[Literal["ENDED"]]
+
+class ListSessionsRequestTypeDef(TypedDict):
+    farmId: str
+    queueId: str
+    jobId: str
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class SessionSummaryTypeDef(TypedDict):
+    sessionId: str
+    fleetId: str
+    workerId: str
+    startedAt: datetime
+    lifecycleStatus: SessionLifecycleStatusType
+    endedAt: NotRequired[datetime]
+    updatedAt: NotRequired[datetime]
+    updatedBy: NotRequired[str]
+    targetLifecycleStatus: NotRequired[Literal["ENDED"]]
+
+class ListStepConsumersRequestTypeDef(TypedDict):
+    farmId: str
+    queueId: str
+    jobId: str
+    stepId: str
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class StepConsumerTypeDef(TypedDict):
+    stepId: str
+    status: DependencyConsumerResolutionStatusType
+
+class ListStepDependenciesRequestTypeDef(TypedDict):
+    farmId: str
+    queueId: str
+    jobId: str
+    stepId: str
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class StepDependencyTypeDef(TypedDict):
+    stepId: str
+    status: DependencyConsumerResolutionStatusType
+
+class ListStepsRequestTypeDef(TypedDict):
+    farmId: str
+    queueId: str
+    jobId: str
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class ListStorageProfilesForQueueRequestTypeDef(TypedDict):
+    farmId: str
+    queueId: str
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class StorageProfileSummaryTypeDef(TypedDict):
+    storageProfileId: str
+    displayName: str
+    osFamily: StorageProfileOperatingSystemFamilyType
+
+class ListStorageProfilesRequestTypeDef(TypedDict):
+    farmId: str
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+
+class ListTasksRequestTypeDef(TypedDict):
+    farmId: str
+    queueId: str
+    jobId: str
+    stepId: str
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class ListWorkersRequestTypeDef(TypedDict):
+    farmId: str
+    fleetId: str
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
 
 ParameterFilterExpressionTypeDef = TypedDict(
     "ParameterFilterExpressionTypeDef",
@@ -3039,615 +1356,9 @@ ParameterFilterExpressionTypeDef = TypedDict(
     },
 )
 
-ParameterSortExpressionTypeDef = TypedDict(
-    "ParameterSortExpressionTypeDef",
-    {
-        "name": str,
-        "sortOrder": SortOrderType,
-    },
-)
-
-_RequiredParameterSpaceTypeDef = TypedDict(
-    "_RequiredParameterSpaceTypeDef",
-    {
-        "parameters": List["StepParameterTypeDef"],
-    },
-)
-_OptionalParameterSpaceTypeDef = TypedDict(
-    "_OptionalParameterSpaceTypeDef",
-    {
-        "combination": str,
-    },
-    total=False,
-)
-
-class ParameterSpaceTypeDef(_RequiredParameterSpaceTypeDef, _OptionalParameterSpaceTypeDef):
-    pass
-
-PathMappingRuleTypeDef = TypedDict(
-    "PathMappingRuleTypeDef",
-    {
-        "destinationPath": str,
-        "sourcePath": str,
-        "sourcePathFormat": PathFormatType,
-    },
-)
-
-PosixUserTypeDef = TypedDict(
-    "PosixUserTypeDef",
-    {
-        "group": str,
-        "user": str,
-    },
-)
-
-PutMeteredProductRequestRequestTypeDef = TypedDict(
-    "PutMeteredProductRequestRequestTypeDef",
-    {
-        "licenseEndpointId": str,
-        "productId": str,
-    },
-)
-
-QueueEnvironmentSummaryTypeDef = TypedDict(
-    "QueueEnvironmentSummaryTypeDef",
-    {
-        "name": str,
-        "priority": int,
-        "queueEnvironmentId": str,
-    },
-)
-
-_RequiredQueueFleetAssociationSummaryTypeDef = TypedDict(
-    "_RequiredQueueFleetAssociationSummaryTypeDef",
-    {
-        "createdAt": datetime,
-        "createdBy": str,
-        "fleetId": str,
-        "queueId": str,
-        "status": QueueFleetAssociationStatusType,
-    },
-)
-_OptionalQueueFleetAssociationSummaryTypeDef = TypedDict(
-    "_OptionalQueueFleetAssociationSummaryTypeDef",
-    {
-        "updatedAt": datetime,
-        "updatedBy": str,
-    },
-    total=False,
-)
-
-class QueueFleetAssociationSummaryTypeDef(
-    _RequiredQueueFleetAssociationSummaryTypeDef, _OptionalQueueFleetAssociationSummaryTypeDef
-):
-    pass
-
-QueueMemberTypeDef = TypedDict(
-    "QueueMemberTypeDef",
-    {
-        "farmId": str,
-        "identityStoreId": str,
-        "membershipLevel": MembershipLevelType,
-        "principalId": str,
-        "principalType": PrincipalTypeType,
-        "queueId": str,
-    },
-)
-
-_RequiredQueueSummaryTypeDef = TypedDict(
-    "_RequiredQueueSummaryTypeDef",
-    {
-        "createdAt": datetime,
-        "createdBy": str,
-        "defaultBudgetAction": DefaultQueueBudgetActionType,
-        "displayName": str,
-        "farmId": str,
-        "queueId": str,
-        "status": QueueStatusType,
-    },
-)
-_OptionalQueueSummaryTypeDef = TypedDict(
-    "_OptionalQueueSummaryTypeDef",
-    {
-        "blockedReason": QueueBlockedReasonType,
-        "updatedAt": datetime,
-        "updatedBy": str,
-    },
-    total=False,
-)
-
-class QueueSummaryTypeDef(_RequiredQueueSummaryTypeDef, _OptionalQueueSummaryTypeDef):
-    pass
-
-_RequiredResponseBudgetActionTypeDef = TypedDict(
-    "_RequiredResponseBudgetActionTypeDef",
-    {
-        "thresholdPercentage": float,
-        "type": BudgetActionTypeType,
-    },
-)
-_OptionalResponseBudgetActionTypeDef = TypedDict(
-    "_OptionalResponseBudgetActionTypeDef",
-    {
-        "description": str,
-    },
-    total=False,
-)
-
-class ResponseBudgetActionTypeDef(
-    _RequiredResponseBudgetActionTypeDef, _OptionalResponseBudgetActionTypeDef
-):
-    pass
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-S3LocationTypeDef = TypedDict(
-    "S3LocationTypeDef",
-    {
-        "bucketName": str,
-        "key": str,
-    },
-)
-
-SearchFilterExpressionTypeDef = TypedDict(
-    "SearchFilterExpressionTypeDef",
-    {
-        "dateTimeFilter": "DateTimeFilterExpressionTypeDef",
-        "groupFilter": Dict[str, Any],
-        "parameterFilter": "ParameterFilterExpressionTypeDef",
-        "searchTermFilter": "SearchTermFilterExpressionTypeDef",
-        "stringFilter": "StringFilterExpressionTypeDef",
-    },
-    total=False,
-)
-
-SearchGroupedFilterExpressionsTypeDef = TypedDict(
-    "SearchGroupedFilterExpressionsTypeDef",
-    {
-        "filters": List[Dict[str, Any]],
-        "operator": LogicalOperatorType,
-    },
-)
-
-_RequiredSearchJobsRequestRequestTypeDef = TypedDict(
-    "_RequiredSearchJobsRequestRequestTypeDef",
-    {
-        "farmId": str,
-        "itemOffset": int,
-        "queueIds": List[str],
-    },
-)
-_OptionalSearchJobsRequestRequestTypeDef = TypedDict(
-    "_OptionalSearchJobsRequestRequestTypeDef",
-    {
-        "filterExpressions": "SearchGroupedFilterExpressionsTypeDef",
-        "pageSize": int,
-        "sortExpressions": List["SearchSortExpressionTypeDef"],
-    },
-    total=False,
-)
-
-class SearchJobsRequestRequestTypeDef(
-    _RequiredSearchJobsRequestRequestTypeDef, _OptionalSearchJobsRequestRequestTypeDef
-):
-    pass
-
-SearchJobsResponseTypeDef = TypedDict(
-    "SearchJobsResponseTypeDef",
-    {
-        "jobs": List["JobSearchSummaryTypeDef"],
-        "nextItemOffset": int,
-        "totalResults": int,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-SearchSortExpressionTypeDef = TypedDict(
-    "SearchSortExpressionTypeDef",
-    {
-        "fieldSort": "FieldSortExpressionTypeDef",
-        "parameterSort": "ParameterSortExpressionTypeDef",
-        "userJobsFirst": "UserJobsFirstTypeDef",
-    },
-    total=False,
-)
-
-_RequiredSearchStepsRequestRequestTypeDef = TypedDict(
-    "_RequiredSearchStepsRequestRequestTypeDef",
-    {
-        "farmId": str,
-        "itemOffset": int,
-        "queueIds": List[str],
-    },
-)
-_OptionalSearchStepsRequestRequestTypeDef = TypedDict(
-    "_OptionalSearchStepsRequestRequestTypeDef",
-    {
-        "filterExpressions": "SearchGroupedFilterExpressionsTypeDef",
-        "jobId": str,
-        "pageSize": int,
-        "sortExpressions": List["SearchSortExpressionTypeDef"],
-    },
-    total=False,
-)
-
-class SearchStepsRequestRequestTypeDef(
-    _RequiredSearchStepsRequestRequestTypeDef, _OptionalSearchStepsRequestRequestTypeDef
-):
-    pass
-
-SearchStepsResponseTypeDef = TypedDict(
-    "SearchStepsResponseTypeDef",
-    {
-        "nextItemOffset": int,
-        "steps": List["StepSearchSummaryTypeDef"],
-        "totalResults": int,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredSearchTasksRequestRequestTypeDef = TypedDict(
-    "_RequiredSearchTasksRequestRequestTypeDef",
-    {
-        "farmId": str,
-        "itemOffset": int,
-        "queueIds": List[str],
-    },
-)
-_OptionalSearchTasksRequestRequestTypeDef = TypedDict(
-    "_OptionalSearchTasksRequestRequestTypeDef",
-    {
-        "filterExpressions": "SearchGroupedFilterExpressionsTypeDef",
-        "jobId": str,
-        "pageSize": int,
-        "sortExpressions": List["SearchSortExpressionTypeDef"],
-    },
-    total=False,
-)
-
-class SearchTasksRequestRequestTypeDef(
-    _RequiredSearchTasksRequestRequestTypeDef, _OptionalSearchTasksRequestRequestTypeDef
-):
-    pass
-
-SearchTasksResponseTypeDef = TypedDict(
-    "SearchTasksResponseTypeDef",
-    {
-        "nextItemOffset": int,
-        "tasks": List["TaskSearchSummaryTypeDef"],
-        "totalResults": int,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-SearchTermFilterExpressionTypeDef = TypedDict(
-    "SearchTermFilterExpressionTypeDef",
-    {
-        "searchTerm": str,
-    },
-)
-
-_RequiredSearchWorkersRequestRequestTypeDef = TypedDict(
-    "_RequiredSearchWorkersRequestRequestTypeDef",
-    {
-        "farmId": str,
-        "fleetIds": List[str],
-        "itemOffset": int,
-    },
-)
-_OptionalSearchWorkersRequestRequestTypeDef = TypedDict(
-    "_OptionalSearchWorkersRequestRequestTypeDef",
-    {
-        "filterExpressions": "SearchGroupedFilterExpressionsTypeDef",
-        "pageSize": int,
-        "sortExpressions": List["SearchSortExpressionTypeDef"],
-    },
-    total=False,
-)
-
-class SearchWorkersRequestRequestTypeDef(
-    _RequiredSearchWorkersRequestRequestTypeDef, _OptionalSearchWorkersRequestRequestTypeDef
-):
-    pass
-
-SearchWorkersResponseTypeDef = TypedDict(
-    "SearchWorkersResponseTypeDef",
-    {
-        "nextItemOffset": int,
-        "totalResults": int,
-        "workers": List["WorkerSearchSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ServiceManagedEc2FleetConfigurationTypeDef = TypedDict(
-    "ServiceManagedEc2FleetConfigurationTypeDef",
-    {
-        "instanceCapabilities": "ServiceManagedEc2InstanceCapabilitiesTypeDef",
-        "instanceMarketOptions": "ServiceManagedEc2InstanceMarketOptionsTypeDef",
-    },
-)
-
-_RequiredServiceManagedEc2InstanceCapabilitiesTypeDef = TypedDict(
-    "_RequiredServiceManagedEc2InstanceCapabilitiesTypeDef",
-    {
-        "cpuArchitectureType": CpuArchitectureTypeType,
-        "memoryMiB": "MemoryMiBRangeTypeDef",
-        "osFamily": ServiceManagedFleetOperatingSystemFamilyType,
-        "vCpuCount": "VCpuCountRangeTypeDef",
-    },
-)
-_OptionalServiceManagedEc2InstanceCapabilitiesTypeDef = TypedDict(
-    "_OptionalServiceManagedEc2InstanceCapabilitiesTypeDef",
-    {
-        "allowedInstanceTypes": List[str],
-        "customAmounts": List["FleetAmountCapabilityTypeDef"],
-        "customAttributes": List["FleetAttributeCapabilityTypeDef"],
-        "excludedInstanceTypes": List[str],
-        "rootEbsVolume": "Ec2EbsVolumeTypeDef",
-    },
-    total=False,
-)
-
-class ServiceManagedEc2InstanceCapabilitiesTypeDef(
-    _RequiredServiceManagedEc2InstanceCapabilitiesTypeDef,
-    _OptionalServiceManagedEc2InstanceCapabilitiesTypeDef,
-):
-    pass
-
-ServiceManagedEc2InstanceMarketOptionsTypeDef = TypedDict(
-    "ServiceManagedEc2InstanceMarketOptionsTypeDef",
-    {
-        "type": Ec2MarketTypeType,
-    },
-)
-
-SessionActionDefinitionSummaryTypeDef = TypedDict(
-    "SessionActionDefinitionSummaryTypeDef",
-    {
-        "envEnter": "EnvironmentEnterSessionActionDefinitionSummaryTypeDef",
-        "envExit": "EnvironmentExitSessionActionDefinitionSummaryTypeDef",
-        "syncInputJobAttachments": "SyncInputJobAttachmentsSessionActionDefinitionSummaryTypeDef",
-        "taskRun": "TaskRunSessionActionDefinitionSummaryTypeDef",
-    },
-    total=False,
-)
-
-SessionActionDefinitionTypeDef = TypedDict(
-    "SessionActionDefinitionTypeDef",
-    {
-        "envEnter": "EnvironmentEnterSessionActionDefinitionTypeDef",
-        "envExit": "EnvironmentExitSessionActionDefinitionTypeDef",
-        "syncInputJobAttachments": "SyncInputJobAttachmentsSessionActionDefinitionTypeDef",
-        "taskRun": "TaskRunSessionActionDefinitionTypeDef",
-    },
-    total=False,
-)
-
-_RequiredSessionActionSummaryTypeDef = TypedDict(
-    "_RequiredSessionActionSummaryTypeDef",
-    {
-        "definition": "SessionActionDefinitionSummaryTypeDef",
-        "sessionActionId": str,
-        "status": SessionActionStatusType,
-    },
-)
-_OptionalSessionActionSummaryTypeDef = TypedDict(
-    "_OptionalSessionActionSummaryTypeDef",
-    {
-        "endedAt": datetime,
-        "progressPercent": float,
-        "startedAt": datetime,
-        "workerUpdatedAt": datetime,
-    },
-    total=False,
-)
-
-class SessionActionSummaryTypeDef(
-    _RequiredSessionActionSummaryTypeDef, _OptionalSessionActionSummaryTypeDef
-):
-    pass
-
-_RequiredSessionSummaryTypeDef = TypedDict(
-    "_RequiredSessionSummaryTypeDef",
-    {
-        "fleetId": str,
-        "lifecycleStatus": SessionLifecycleStatusType,
-        "sessionId": str,
-        "startedAt": datetime,
-        "workerId": str,
-    },
-)
-_OptionalSessionSummaryTypeDef = TypedDict(
-    "_OptionalSessionSummaryTypeDef",
-    {
-        "endedAt": datetime,
-        "targetLifecycleStatus": Literal["ENDED"],
-        "updatedAt": datetime,
-        "updatedBy": str,
-    },
-    total=False,
-)
-
-class SessionSummaryTypeDef(_RequiredSessionSummaryTypeDef, _OptionalSessionSummaryTypeDef):
-    pass
-
-SessionsStatisticsResourcesTypeDef = TypedDict(
-    "SessionsStatisticsResourcesTypeDef",
-    {
-        "fleetIds": List[str],
-        "queueIds": List[str],
-    },
-    total=False,
-)
-
-_RequiredStartSessionsStatisticsAggregationRequestRequestTypeDef = TypedDict(
-    "_RequiredStartSessionsStatisticsAggregationRequestRequestTypeDef",
-    {
-        "endTime": Union[datetime, str],
-        "farmId": str,
-        "groupBy": List[UsageGroupByFieldType],
-        "resourceIds": "SessionsStatisticsResourcesTypeDef",
-        "startTime": Union[datetime, str],
-        "statistics": List[UsageStatisticType],
-    },
-)
-_OptionalStartSessionsStatisticsAggregationRequestRequestTypeDef = TypedDict(
-    "_OptionalStartSessionsStatisticsAggregationRequestRequestTypeDef",
-    {
-        "period": PeriodType,
-        "timezone": str,
-    },
-    total=False,
-)
-
-class StartSessionsStatisticsAggregationRequestRequestTypeDef(
-    _RequiredStartSessionsStatisticsAggregationRequestRequestTypeDef,
-    _OptionalStartSessionsStatisticsAggregationRequestRequestTypeDef,
-):
-    pass
-
-StartSessionsStatisticsAggregationResponseTypeDef = TypedDict(
-    "StartSessionsStatisticsAggregationResponseTypeDef",
-    {
-        "aggregationId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredStatisticsTypeDef = TypedDict(
-    "_RequiredStatisticsTypeDef",
-    {
-        "costInUsd": "StatsTypeDef",
-        "count": int,
-        "runtimeInSeconds": "StatsTypeDef",
-    },
-)
-_OptionalStatisticsTypeDef = TypedDict(
-    "_OptionalStatisticsTypeDef",
-    {
-        "aggregationEndTime": datetime,
-        "aggregationStartTime": datetime,
-        "fleetId": str,
-        "instanceType": str,
-        "jobId": str,
-        "jobName": str,
-        "licenseProduct": str,
-        "queueId": str,
-        "usageType": UsageTypeType,
-        "userId": str,
-    },
-    total=False,
-)
-
-class StatisticsTypeDef(_RequiredStatisticsTypeDef, _OptionalStatisticsTypeDef):
-    pass
-
-StatsTypeDef = TypedDict(
-    "StatsTypeDef",
-    {
-        "avg": float,
-        "max": float,
-        "min": float,
-        "sum": float,
-    },
-    total=False,
-)
-
-_RequiredStepAmountCapabilityTypeDef = TypedDict(
-    "_RequiredStepAmountCapabilityTypeDef",
-    {
-        "name": str,
-    },
-)
-_OptionalStepAmountCapabilityTypeDef = TypedDict(
-    "_OptionalStepAmountCapabilityTypeDef",
-    {
-        "max": float,
-        "min": float,
-        "value": float,
-    },
-    total=False,
-)
-
-class StepAmountCapabilityTypeDef(
-    _RequiredStepAmountCapabilityTypeDef, _OptionalStepAmountCapabilityTypeDef
-):
-    pass
-
-_RequiredStepAttributeCapabilityTypeDef = TypedDict(
-    "_RequiredStepAttributeCapabilityTypeDef",
-    {
-        "name": str,
-    },
-)
-_OptionalStepAttributeCapabilityTypeDef = TypedDict(
-    "_OptionalStepAttributeCapabilityTypeDef",
-    {
-        "allOf": List[str],
-        "anyOf": List[str],
-    },
-    total=False,
-)
-
-class StepAttributeCapabilityTypeDef(
-    _RequiredStepAttributeCapabilityTypeDef, _OptionalStepAttributeCapabilityTypeDef
-):
-    pass
-
-StepConsumerTypeDef = TypedDict(
-    "StepConsumerTypeDef",
-    {
-        "status": DependencyConsumerResolutionStatusType,
-        "stepId": str,
-    },
-)
-
-StepDependencyTypeDef = TypedDict(
-    "StepDependencyTypeDef",
-    {
-        "status": DependencyConsumerResolutionStatusType,
-        "stepId": str,
-    },
-)
-
-StepDetailsEntityTypeDef = TypedDict(
-    "StepDetailsEntityTypeDef",
-    {
-        "dependencies": List[str],
-        "jobId": str,
-        "schemaVersion": str,
-        "stepId": str,
-        "template": Dict[str, Any],
-    },
-)
-
-StepDetailsErrorTypeDef = TypedDict(
-    "StepDetailsErrorTypeDef",
-    {
-        "code": JobEntityErrorCodeType,
-        "jobId": str,
-        "message": str,
-        "stepId": str,
-    },
-)
-
-StepDetailsIdentifiersTypeDef = TypedDict(
-    "StepDetailsIdentifiersTypeDef",
-    {
-        "jobId": str,
-        "stepId": str,
-    },
-)
+class ParameterSortExpressionTypeDef(TypedDict):
+    sortOrder: SortOrderType
+    name: str
 
 StepParameterTypeDef = TypedDict(
     "StepParameterTypeDef",
@@ -3657,71 +1368,13 @@ StepParameterTypeDef = TypedDict(
     },
 )
 
-StepRequiredCapabilitiesTypeDef = TypedDict(
-    "StepRequiredCapabilitiesTypeDef",
-    {
-        "amounts": List["StepAmountCapabilityTypeDef"],
-        "attributes": List["StepAttributeCapabilityTypeDef"],
-    },
-)
+class PutMeteredProductRequestTypeDef(TypedDict):
+    licenseEndpointId: str
+    productId: str
 
-StepSearchSummaryTypeDef = TypedDict(
-    "StepSearchSummaryTypeDef",
-    {
-        "createdAt": datetime,
-        "endedAt": datetime,
-        "jobId": str,
-        "lifecycleStatus": StepLifecycleStatusType,
-        "lifecycleStatusMessage": str,
-        "name": str,
-        "parameterSpace": "ParameterSpaceTypeDef",
-        "queueId": str,
-        "startedAt": datetime,
-        "stepId": str,
-        "targetTaskRunStatus": StepTargetTaskRunStatusType,
-        "taskRunStatus": TaskRunStatusType,
-        "taskRunStatusCounts": Dict[TaskRunStatusType, int],
-    },
-    total=False,
-)
-
-_RequiredStepSummaryTypeDef = TypedDict(
-    "_RequiredStepSummaryTypeDef",
-    {
-        "createdAt": datetime,
-        "createdBy": str,
-        "lifecycleStatus": StepLifecycleStatusType,
-        "name": str,
-        "stepId": str,
-        "taskRunStatus": TaskRunStatusType,
-        "taskRunStatusCounts": Dict[TaskRunStatusType, int],
-    },
-)
-_OptionalStepSummaryTypeDef = TypedDict(
-    "_OptionalStepSummaryTypeDef",
-    {
-        "dependencyCounts": "DependencyCountsTypeDef",
-        "endedAt": datetime,
-        "lifecycleStatusMessage": str,
-        "startedAt": datetime,
-        "targetTaskRunStatus": StepTargetTaskRunStatusType,
-        "updatedAt": datetime,
-        "updatedBy": str,
-    },
-    total=False,
-)
-
-class StepSummaryTypeDef(_RequiredStepSummaryTypeDef, _OptionalStepSummaryTypeDef):
-    pass
-
-StorageProfileSummaryTypeDef = TypedDict(
-    "StorageProfileSummaryTypeDef",
-    {
-        "displayName": str,
-        "osFamily": StorageProfileOperatingSystemFamilyType,
-        "storageProfileId": str,
-    },
-)
+class SearchTermFilterExpressionTypeDef(TypedDict):
+    searchTerm: str
+    matchType: NotRequired[SearchTermMatchingTypeType]
 
 StringFilterExpressionTypeDef = TypedDict(
     "StringFilterExpressionTypeDef",
@@ -3732,612 +1385,1441 @@ StringFilterExpressionTypeDef = TypedDict(
     },
 )
 
-SyncInputJobAttachmentsSessionActionDefinitionSummaryTypeDef = TypedDict(
-    "SyncInputJobAttachmentsSessionActionDefinitionSummaryTypeDef",
-    {
-        "stepId": str,
-    },
-    total=False,
-)
+class UserJobsFirstTypeDef(TypedDict):
+    userIdentityId: str
 
-SyncInputJobAttachmentsSessionActionDefinitionTypeDef = TypedDict(
-    "SyncInputJobAttachmentsSessionActionDefinitionTypeDef",
+ServiceManagedEc2InstanceMarketOptionsTypeDef = TypedDict(
+    "ServiceManagedEc2InstanceMarketOptionsTypeDef",
     {
-        "stepId": str,
-    },
-    total=False,
-)
-
-_RequiredTagResourceRequestRequestTypeDef = TypedDict(
-    "_RequiredTagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-    },
-)
-_OptionalTagResourceRequestRequestTypeDef = TypedDict(
-    "_OptionalTagResourceRequestRequestTypeDef",
-    {
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class TagResourceRequestRequestTypeDef(
-    _RequiredTagResourceRequestRequestTypeDef, _OptionalTagResourceRequestRequestTypeDef
-):
-    pass
-
-TaskParameterValueTypeDef = TypedDict(
-    "TaskParameterValueTypeDef",
-    {
-        "float": str,
-        "int": str,
-        "path": str,
-        "string": str,
-    },
-    total=False,
-)
-
-TaskRunSessionActionDefinitionSummaryTypeDef = TypedDict(
-    "TaskRunSessionActionDefinitionSummaryTypeDef",
-    {
-        "stepId": str,
-        "taskId": str,
+        "type": Ec2MarketTypeType,
     },
 )
 
-TaskRunSessionActionDefinitionTypeDef = TypedDict(
-    "TaskRunSessionActionDefinitionTypeDef",
+class SyncInputJobAttachmentsSessionActionDefinitionSummaryTypeDef(TypedDict):
+    stepId: NotRequired[str]
+
+class TaskRunSessionActionDefinitionSummaryTypeDef(TypedDict):
+    stepId: str
+    taskId: NotRequired[str]
+
+class SyncInputJobAttachmentsSessionActionDefinitionTypeDef(TypedDict):
+    stepId: NotRequired[str]
+
+class SessionsStatisticsResourcesTypeDef(TypedDict):
+    queueIds: NotRequired[Sequence[str]]
+    fleetIds: NotRequired[Sequence[str]]
+
+StatsTypeDef = TypedDict(
+    "StatsTypeDef",
     {
-        "parameters": Dict[str, "TaskParameterValueTypeDef"],
-        "stepId": str,
-        "taskId": str,
+        "min": NotRequired[float],
+        "max": NotRequired[float],
+        "avg": NotRequired[float],
+        "sum": NotRequired[float],
     },
 )
-
-TaskSearchSummaryTypeDef = TypedDict(
-    "TaskSearchSummaryTypeDef",
-    {
-        "endedAt": datetime,
-        "failureRetryCount": int,
-        "jobId": str,
-        "parameters": Dict[str, "TaskParameterValueTypeDef"],
-        "queueId": str,
-        "runStatus": TaskRunStatusType,
-        "startedAt": datetime,
-        "stepId": str,
-        "targetRunStatus": TaskTargetRunStatusType,
-        "taskId": str,
-    },
-    total=False,
-)
-
-_RequiredTaskSummaryTypeDef = TypedDict(
-    "_RequiredTaskSummaryTypeDef",
-    {
-        "createdAt": datetime,
-        "createdBy": str,
-        "runStatus": TaskRunStatusType,
-        "taskId": str,
-    },
-)
-_OptionalTaskSummaryTypeDef = TypedDict(
-    "_OptionalTaskSummaryTypeDef",
-    {
-        "endedAt": datetime,
-        "failureRetryCount": int,
-        "latestSessionActionId": str,
-        "parameters": Dict[str, "TaskParameterValueTypeDef"],
-        "startedAt": datetime,
-        "targetRunStatus": TaskTargetRunStatusType,
-        "updatedAt": datetime,
-        "updatedBy": str,
-    },
-    total=False,
-)
-
-class TaskSummaryTypeDef(_RequiredTaskSummaryTypeDef, _OptionalTaskSummaryTypeDef):
-    pass
-
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tagKeys": List[str],
-    },
-)
-
-_RequiredUpdateBudgetRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateBudgetRequestRequestTypeDef",
-    {
-        "budgetId": str,
-        "farmId": str,
-    },
-)
-_OptionalUpdateBudgetRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateBudgetRequestRequestTypeDef",
-    {
-        "actionsToAdd": List["BudgetActionToAddTypeDef"],
-        "actionsToRemove": List["BudgetActionToRemoveTypeDef"],
-        "approximateDollarLimit": float,
-        "clientToken": str,
-        "description": str,
-        "displayName": str,
-        "schedule": "BudgetScheduleTypeDef",
-        "status": BudgetStatusType,
-    },
-    total=False,
-)
-
-class UpdateBudgetRequestRequestTypeDef(
-    _RequiredUpdateBudgetRequestRequestTypeDef, _OptionalUpdateBudgetRequestRequestTypeDef
-):
-    pass
-
-_RequiredUpdateFarmRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateFarmRequestRequestTypeDef",
-    {
-        "farmId": str,
-    },
-)
-_OptionalUpdateFarmRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateFarmRequestRequestTypeDef",
-    {
-        "description": str,
-        "displayName": str,
-    },
-    total=False,
-)
-
-class UpdateFarmRequestRequestTypeDef(
-    _RequiredUpdateFarmRequestRequestTypeDef, _OptionalUpdateFarmRequestRequestTypeDef
-):
-    pass
-
-_RequiredUpdateFleetRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateFleetRequestRequestTypeDef",
-    {
-        "farmId": str,
-        "fleetId": str,
-    },
-)
-_OptionalUpdateFleetRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateFleetRequestRequestTypeDef",
-    {
-        "clientToken": str,
-        "configuration": "FleetConfigurationTypeDef",
-        "description": str,
-        "displayName": str,
-        "maxWorkerCount": int,
-        "minWorkerCount": int,
-        "roleArn": str,
-    },
-    total=False,
-)
-
-class UpdateFleetRequestRequestTypeDef(
-    _RequiredUpdateFleetRequestRequestTypeDef, _OptionalUpdateFleetRequestRequestTypeDef
-):
-    pass
-
-_RequiredUpdateJobRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateJobRequestRequestTypeDef",
-    {
-        "farmId": str,
-        "jobId": str,
-        "queueId": str,
-    },
-)
-_OptionalUpdateJobRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateJobRequestRequestTypeDef",
-    {
-        "clientToken": str,
-        "lifecycleStatus": Literal["ARCHIVED"],
-        "maxFailedTasksCount": int,
-        "maxRetriesPerTask": int,
-        "priority": int,
-        "targetTaskRunStatus": JobTargetTaskRunStatusType,
-    },
-    total=False,
-)
-
-class UpdateJobRequestRequestTypeDef(
-    _RequiredUpdateJobRequestRequestTypeDef, _OptionalUpdateJobRequestRequestTypeDef
-):
-    pass
-
-_RequiredUpdateMonitorRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateMonitorRequestRequestTypeDef",
-    {
-        "monitorId": str,
-    },
-)
-_OptionalUpdateMonitorRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateMonitorRequestRequestTypeDef",
-    {
-        "displayName": str,
-        "roleArn": str,
-        "subdomain": str,
-    },
-    total=False,
-)
-
-class UpdateMonitorRequestRequestTypeDef(
-    _RequiredUpdateMonitorRequestRequestTypeDef, _OptionalUpdateMonitorRequestRequestTypeDef
-):
-    pass
-
-_RequiredUpdateQueueEnvironmentRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateQueueEnvironmentRequestRequestTypeDef",
-    {
-        "farmId": str,
-        "queueEnvironmentId": str,
-        "queueId": str,
-    },
-)
-_OptionalUpdateQueueEnvironmentRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateQueueEnvironmentRequestRequestTypeDef",
-    {
-        "clientToken": str,
-        "priority": int,
-        "template": str,
-        "templateType": EnvironmentTemplateTypeType,
-    },
-    total=False,
-)
-
-class UpdateQueueEnvironmentRequestRequestTypeDef(
-    _RequiredUpdateQueueEnvironmentRequestRequestTypeDef,
-    _OptionalUpdateQueueEnvironmentRequestRequestTypeDef,
-):
-    pass
-
-UpdateQueueFleetAssociationRequestRequestTypeDef = TypedDict(
-    "UpdateQueueFleetAssociationRequestRequestTypeDef",
-    {
-        "farmId": str,
-        "fleetId": str,
-        "queueId": str,
-        "status": UpdateQueueFleetAssociationStatusType,
-    },
-)
-
-_RequiredUpdateQueueRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateQueueRequestRequestTypeDef",
-    {
-        "farmId": str,
-        "queueId": str,
-    },
-)
-_OptionalUpdateQueueRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateQueueRequestRequestTypeDef",
-    {
-        "allowedStorageProfileIdsToAdd": List[str],
-        "allowedStorageProfileIdsToRemove": List[str],
-        "clientToken": str,
-        "defaultBudgetAction": DefaultQueueBudgetActionType,
-        "description": str,
-        "displayName": str,
-        "jobAttachmentSettings": "JobAttachmentSettingsTypeDef",
-        "jobRunAsUser": "JobRunAsUserTypeDef",
-        "requiredFileSystemLocationNamesToAdd": List[str],
-        "requiredFileSystemLocationNamesToRemove": List[str],
-        "roleArn": str,
-    },
-    total=False,
-)
-
-class UpdateQueueRequestRequestTypeDef(
-    _RequiredUpdateQueueRequestRequestTypeDef, _OptionalUpdateQueueRequestRequestTypeDef
-):
-    pass
-
-_RequiredUpdateSessionRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateSessionRequestRequestTypeDef",
-    {
-        "farmId": str,
-        "jobId": str,
-        "queueId": str,
-        "sessionId": str,
-        "targetLifecycleStatus": Literal["ENDED"],
-    },
-)
-_OptionalUpdateSessionRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateSessionRequestRequestTypeDef",
-    {
-        "clientToken": str,
-    },
-    total=False,
-)
-
-class UpdateSessionRequestRequestTypeDef(
-    _RequiredUpdateSessionRequestRequestTypeDef, _OptionalUpdateSessionRequestRequestTypeDef
-):
-    pass
-
-_RequiredUpdateStepRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateStepRequestRequestTypeDef",
-    {
-        "farmId": str,
-        "jobId": str,
-        "queueId": str,
-        "stepId": str,
-        "targetTaskRunStatus": StepTargetTaskRunStatusType,
-    },
-)
-_OptionalUpdateStepRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateStepRequestRequestTypeDef",
-    {
-        "clientToken": str,
-    },
-    total=False,
-)
-
-class UpdateStepRequestRequestTypeDef(
-    _RequiredUpdateStepRequestRequestTypeDef, _OptionalUpdateStepRequestRequestTypeDef
-):
-    pass
-
-_RequiredUpdateStorageProfileRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateStorageProfileRequestRequestTypeDef",
-    {
-        "farmId": str,
-        "storageProfileId": str,
-    },
-)
-_OptionalUpdateStorageProfileRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateStorageProfileRequestRequestTypeDef",
-    {
-        "clientToken": str,
-        "displayName": str,
-        "fileSystemLocationsToAdd": List["FileSystemLocationTypeDef"],
-        "fileSystemLocationsToRemove": List["FileSystemLocationTypeDef"],
-        "osFamily": StorageProfileOperatingSystemFamilyType,
-    },
-    total=False,
-)
-
-class UpdateStorageProfileRequestRequestTypeDef(
-    _RequiredUpdateStorageProfileRequestRequestTypeDef,
-    _OptionalUpdateStorageProfileRequestRequestTypeDef,
-):
-    pass
-
-_RequiredUpdateTaskRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateTaskRequestRequestTypeDef",
-    {
-        "farmId": str,
-        "jobId": str,
-        "queueId": str,
-        "stepId": str,
-        "targetRunStatus": TaskTargetRunStatusType,
-        "taskId": str,
-    },
-)
-_OptionalUpdateTaskRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateTaskRequestRequestTypeDef",
-    {
-        "clientToken": str,
-    },
-    total=False,
-)
-
-class UpdateTaskRequestRequestTypeDef(
-    _RequiredUpdateTaskRequestRequestTypeDef, _OptionalUpdateTaskRequestRequestTypeDef
-):
-    pass
-
-_RequiredUpdateWorkerRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateWorkerRequestRequestTypeDef",
-    {
-        "farmId": str,
-        "fleetId": str,
-        "workerId": str,
-    },
-)
-_OptionalUpdateWorkerRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateWorkerRequestRequestTypeDef",
-    {
-        "capabilities": "WorkerCapabilitiesTypeDef",
-        "hostProperties": "HostPropertiesRequestTypeDef",
-        "status": UpdatedWorkerStatusType,
-    },
-    total=False,
-)
-
-class UpdateWorkerRequestRequestTypeDef(
-    _RequiredUpdateWorkerRequestRequestTypeDef, _OptionalUpdateWorkerRequestRequestTypeDef
-):
-    pass
-
-UpdateWorkerResponseTypeDef = TypedDict(
-    "UpdateWorkerResponseTypeDef",
-    {
-        "log": "LogConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateWorkerScheduleRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateWorkerScheduleRequestRequestTypeDef",
-    {
-        "farmId": str,
-        "fleetId": str,
-        "workerId": str,
-    },
-)
-_OptionalUpdateWorkerScheduleRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateWorkerScheduleRequestRequestTypeDef",
-    {
-        "updatedSessionActions": Dict[str, "UpdatedSessionActionInfoTypeDef"],
-    },
-    total=False,
-)
-
-class UpdateWorkerScheduleRequestRequestTypeDef(
-    _RequiredUpdateWorkerScheduleRequestRequestTypeDef,
-    _OptionalUpdateWorkerScheduleRequestRequestTypeDef,
-):
-    pass
-
-UpdateWorkerScheduleResponseTypeDef = TypedDict(
-    "UpdateWorkerScheduleResponseTypeDef",
-    {
-        "assignedSessions": Dict[str, "AssignedSessionTypeDef"],
-        "cancelSessionActions": Dict[str, List[str]],
-        "desiredWorkerStatus": Literal["STOPPED"],
-        "updateIntervalSeconds": int,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UpdatedSessionActionInfoTypeDef = TypedDict(
-    "UpdatedSessionActionInfoTypeDef",
-    {
-        "completedStatus": CompletedStatusType,
-        "endedAt": Union[datetime, str],
-        "processExitCode": int,
-        "progressMessage": str,
-        "progressPercent": float,
-        "startedAt": Union[datetime, str],
-        "updatedAt": Union[datetime, str],
-    },
-    total=False,
-)
-
-UsageTrackingResourceTypeDef = TypedDict(
-    "UsageTrackingResourceTypeDef",
-    {
-        "queueId": str,
-    },
-    total=False,
-)
-
-UserJobsFirstTypeDef = TypedDict(
-    "UserJobsFirstTypeDef",
-    {
-        "userIdentityId": str,
-    },
-)
-
-_RequiredVCpuCountRangeTypeDef = TypedDict(
-    "_RequiredVCpuCountRangeTypeDef",
-    {
-        "min": int,
-    },
-)
-_OptionalVCpuCountRangeTypeDef = TypedDict(
-    "_OptionalVCpuCountRangeTypeDef",
-    {
-        "max": int,
-    },
-    total=False,
-)
-
-class VCpuCountRangeTypeDef(_RequiredVCpuCountRangeTypeDef, _OptionalVCpuCountRangeTypeDef):
-    pass
-
-WaiterConfigTypeDef = TypedDict(
-    "WaiterConfigTypeDef",
-    {
-        "Delay": int,
-        "MaxAttempts": int,
-    },
-    total=False,
-)
-
-WindowsUserTypeDef = TypedDict(
-    "WindowsUserTypeDef",
-    {
-        "passwordArn": str,
-        "user": str,
-    },
-)
-
-WorkerAmountCapabilityTypeDef = TypedDict(
-    "WorkerAmountCapabilityTypeDef",
+StepAmountCapabilityTypeDef = TypedDict(
+    "StepAmountCapabilityTypeDef",
     {
         "name": str,
-        "value": float,
+        "min": NotRequired[float],
+        "max": NotRequired[float],
+        "value": NotRequired[float],
     },
 )
 
-WorkerAttributeCapabilityTypeDef = TypedDict(
-    "WorkerAttributeCapabilityTypeDef",
+class StepAttributeCapabilityTypeDef(TypedDict):
+    name: str
+    anyOf: NotRequired[List[str]]
+    allOf: NotRequired[List[str]]
+
+class TagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tags: NotRequired[Mapping[str, str]]
+
+class UntagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tagKeys: Sequence[str]
+
+class UpdateFarmRequestTypeDef(TypedDict):
+    farmId: str
+    displayName: NotRequired[str]
+    description: NotRequired[str]
+
+class UpdateJobRequestTypeDef(TypedDict):
+    farmId: str
+    queueId: str
+    jobId: str
+    clientToken: NotRequired[str]
+    targetTaskRunStatus: NotRequired[JobTargetTaskRunStatusType]
+    priority: NotRequired[int]
+    maxFailedTasksCount: NotRequired[int]
+    maxRetriesPerTask: NotRequired[int]
+    lifecycleStatus: NotRequired[Literal["ARCHIVED"]]
+    maxWorkerCount: NotRequired[int]
+
+class UpdateLimitRequestTypeDef(TypedDict):
+    farmId: str
+    limitId: str
+    displayName: NotRequired[str]
+    description: NotRequired[str]
+    maxCount: NotRequired[int]
+
+class UpdateMonitorRequestTypeDef(TypedDict):
+    monitorId: str
+    subdomain: NotRequired[str]
+    displayName: NotRequired[str]
+    roleArn: NotRequired[str]
+
+class UpdateQueueEnvironmentRequestTypeDef(TypedDict):
+    farmId: str
+    queueId: str
+    queueEnvironmentId: str
+    clientToken: NotRequired[str]
+    priority: NotRequired[int]
+    templateType: NotRequired[EnvironmentTemplateTypeType]
+    template: NotRequired[str]
+
+class UpdateQueueFleetAssociationRequestTypeDef(TypedDict):
+    farmId: str
+    queueId: str
+    fleetId: str
+    status: UpdateQueueFleetAssociationStatusType
+
+class UpdateQueueLimitAssociationRequestTypeDef(TypedDict):
+    farmId: str
+    queueId: str
+    limitId: str
+    status: UpdateQueueLimitAssociationStatusType
+
+class UpdateSessionRequestTypeDef(TypedDict):
+    targetLifecycleStatus: Literal["ENDED"]
+    farmId: str
+    queueId: str
+    jobId: str
+    sessionId: str
+    clientToken: NotRequired[str]
+
+class UpdateStepRequestTypeDef(TypedDict):
+    targetTaskRunStatus: StepTargetTaskRunStatusType
+    farmId: str
+    queueId: str
+    jobId: str
+    stepId: str
+    clientToken: NotRequired[str]
+
+class UpdateTaskRequestTypeDef(TypedDict):
+    targetRunStatus: TaskTargetRunStatusType
+    farmId: str
+    queueId: str
+    jobId: str
+    stepId: str
+    taskId: str
+    clientToken: NotRequired[str]
+
+class WorkerAmountCapabilityTypeDef(TypedDict):
+    name: str
+    value: float
+
+class WorkerAttributeCapabilityTypeDef(TypedDict):
+    name: str
+    values: Sequence[str]
+
+class AcceleratorCapabilitiesOutputTypeDef(TypedDict):
+    selections: List[AcceleratorSelectionTypeDef]
+    count: NotRequired[AcceleratorCountRangeTypeDef]
+
+class AcceleratorCapabilitiesTypeDef(TypedDict):
+    selections: Sequence[AcceleratorSelectionTypeDef]
+    count: NotRequired[AcceleratorCountRangeTypeDef]
+
+class AssignedTaskRunSessionActionDefinitionTypeDef(TypedDict):
+    stepId: str
+    parameters: Dict[str, TaskParameterValueTypeDef]
+    taskId: NotRequired[str]
+
+class TaskRunSessionActionDefinitionTypeDef(TypedDict):
+    stepId: str
+    parameters: Dict[str, TaskParameterValueTypeDef]
+    taskId: NotRequired[str]
+
+class TaskSearchSummaryTypeDef(TypedDict):
+    taskId: NotRequired[str]
+    stepId: NotRequired[str]
+    jobId: NotRequired[str]
+    queueId: NotRequired[str]
+    runStatus: NotRequired[TaskRunStatusType]
+    targetRunStatus: NotRequired[TaskTargetRunStatusType]
+    parameters: NotRequired[Dict[str, TaskParameterValueTypeDef]]
+    failureRetryCount: NotRequired[int]
+    startedAt: NotRequired[datetime]
+    endedAt: NotRequired[datetime]
+
+class TaskSummaryTypeDef(TypedDict):
+    taskId: str
+    createdAt: datetime
+    createdBy: str
+    runStatus: TaskRunStatusType
+    targetRunStatus: NotRequired[TaskTargetRunStatusType]
+    failureRetryCount: NotRequired[int]
+    parameters: NotRequired[Dict[str, TaskParameterValueTypeDef]]
+    startedAt: NotRequired[datetime]
+    endedAt: NotRequired[datetime]
+    updatedAt: NotRequired[datetime]
+    updatedBy: NotRequired[str]
+    latestSessionActionId: NotRequired[str]
+
+class AssumeFleetRoleForReadResponseTypeDef(TypedDict):
+    credentials: AwsCredentialsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class AssumeFleetRoleForWorkerResponseTypeDef(TypedDict):
+    credentials: AwsCredentialsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class AssumeQueueRoleForReadResponseTypeDef(TypedDict):
+    credentials: AwsCredentialsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class AssumeQueueRoleForUserResponseTypeDef(TypedDict):
+    credentials: AwsCredentialsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class AssumeQueueRoleForWorkerResponseTypeDef(TypedDict):
+    credentials: AwsCredentialsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CopyJobTemplateResponseTypeDef(TypedDict):
+    templateType: JobTemplateTypeType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateBudgetResponseTypeDef(TypedDict):
+    budgetId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateFarmResponseTypeDef(TypedDict):
+    farmId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateFleetResponseTypeDef(TypedDict):
+    fleetId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateJobResponseTypeDef(TypedDict):
+    jobId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateLicenseEndpointResponseTypeDef(TypedDict):
+    licenseEndpointId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateLimitResponseTypeDef(TypedDict):
+    limitId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateMonitorResponseTypeDef(TypedDict):
+    monitorId: str
+    identityCenterApplicationArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateQueueEnvironmentResponseTypeDef(TypedDict):
+    queueEnvironmentId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateQueueResponseTypeDef(TypedDict):
+    queueId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateStorageProfileResponseTypeDef(TypedDict):
+    storageProfileId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateWorkerResponseTypeDef(TypedDict):
+    workerId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetFarmResponseTypeDef(TypedDict):
+    farmId: str
+    displayName: str
+    description: str
+    kmsKeyArn: str
+    createdAt: datetime
+    createdBy: str
+    updatedAt: datetime
+    updatedBy: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetLicenseEndpointResponseTypeDef(TypedDict):
+    licenseEndpointId: str
+    status: LicenseEndpointStatusType
+    statusMessage: str
+    vpcId: str
+    dnsName: str
+    subnetIds: List[str]
+    securityGroupIds: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetLimitResponseTypeDef(TypedDict):
+    displayName: str
+    amountRequirementName: str
+    maxCount: int
+    createdAt: datetime
+    createdBy: str
+    updatedAt: datetime
+    updatedBy: str
+    farmId: str
+    limitId: str
+    currentCount: int
+    description: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetMonitorResponseTypeDef(TypedDict):
+    monitorId: str
+    displayName: str
+    subdomain: str
+    url: str
+    roleArn: str
+    identityCenterInstanceArn: str
+    identityCenterApplicationArn: str
+    createdAt: datetime
+    createdBy: str
+    updatedAt: datetime
+    updatedBy: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetQueueEnvironmentResponseTypeDef(TypedDict):
+    queueEnvironmentId: str
+    name: str
+    priority: int
+    templateType: EnvironmentTemplateTypeType
+    template: str
+    createdAt: datetime
+    createdBy: str
+    updatedAt: datetime
+    updatedBy: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetQueueFleetAssociationResponseTypeDef(TypedDict):
+    queueId: str
+    fleetId: str
+    status: QueueFleetAssociationStatusType
+    createdAt: datetime
+    createdBy: str
+    updatedAt: datetime
+    updatedBy: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetQueueLimitAssociationResponseTypeDef(TypedDict):
+    createdAt: datetime
+    createdBy: str
+    updatedAt: datetime
+    updatedBy: str
+    queueId: str
+    limitId: str
+    status: QueueLimitAssociationStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetTaskResponseTypeDef(TypedDict):
+    taskId: str
+    createdAt: datetime
+    createdBy: str
+    runStatus: TaskRunStatusType
+    targetRunStatus: TaskTargetRunStatusType
+    failureRetryCount: int
+    parameters: Dict[str, TaskParameterValueTypeDef]
+    startedAt: datetime
+    endedAt: datetime
+    updatedAt: datetime
+    updatedBy: str
+    latestSessionActionId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListJobParameterDefinitionsResponseTypeDef(TypedDict):
+    jobParameterDefinitions: List[Dict[str, Any]]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartSessionsStatisticsAggregationResponseTypeDef(TypedDict):
+    aggregationId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateWorkerResponseTypeDef(TypedDict):
+    log: LogConfigurationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class AttachmentsOutputTypeDef(TypedDict):
+    manifests: List[ManifestPropertiesOutputTypeDef]
+    fileSystem: NotRequired[JobAttachmentsFileSystemType]
+
+class AttachmentsTypeDef(TypedDict):
+    manifests: Sequence[ManifestPropertiesTypeDef]
+    fileSystem: NotRequired[JobAttachmentsFileSystemType]
+
+class BudgetScheduleOutputTypeDef(TypedDict):
+    fixed: NotRequired[FixedBudgetScheduleOutputTypeDef]
+
+class BudgetSummaryTypeDef(TypedDict):
+    budgetId: str
+    usageTrackingResource: UsageTrackingResourceTypeDef
+    status: BudgetStatusType
+    displayName: str
+    approximateDollarLimit: float
+    usages: ConsumedUsagesTypeDef
+    createdBy: str
+    createdAt: datetime
+    description: NotRequired[str]
+    updatedBy: NotRequired[str]
+    updatedAt: NotRequired[datetime]
+
+class CopyJobTemplateRequestTypeDef(TypedDict):
+    farmId: str
+    jobId: str
+    queueId: str
+    targetS3Location: S3LocationTypeDef
+
+class JobSearchSummaryTypeDef(TypedDict):
+    jobId: NotRequired[str]
+    queueId: NotRequired[str]
+    name: NotRequired[str]
+    lifecycleStatus: NotRequired[JobLifecycleStatusType]
+    lifecycleStatusMessage: NotRequired[str]
+    taskRunStatus: NotRequired[TaskRunStatusType]
+    targetTaskRunStatus: NotRequired[JobTargetTaskRunStatusType]
+    taskRunStatusCounts: NotRequired[Dict[TaskRunStatusType, int]]
+    priority: NotRequired[int]
+    maxFailedTasksCount: NotRequired[int]
+    maxRetriesPerTask: NotRequired[int]
+    createdBy: NotRequired[str]
+    createdAt: NotRequired[datetime]
+    endedAt: NotRequired[datetime]
+    startedAt: NotRequired[datetime]
+    jobParameters: NotRequired[Dict[str, JobParameterTypeDef]]
+    maxWorkerCount: NotRequired[int]
+    sourceJobId: NotRequired[str]
+
+class CreateStorageProfileRequestTypeDef(TypedDict):
+    farmId: str
+    displayName: str
+    osFamily: StorageProfileOperatingSystemFamilyType
+    clientToken: NotRequired[str]
+    fileSystemLocations: NotRequired[Sequence[FileSystemLocationTypeDef]]
+
+class GetStorageProfileForQueueResponseTypeDef(TypedDict):
+    storageProfileId: str
+    displayName: str
+    osFamily: StorageProfileOperatingSystemFamilyType
+    fileSystemLocations: List[FileSystemLocationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetStorageProfileResponseTypeDef(TypedDict):
+    storageProfileId: str
+    displayName: str
+    osFamily: StorageProfileOperatingSystemFamilyType
+    createdAt: datetime
+    createdBy: str
+    updatedAt: datetime
+    updatedBy: str
+    fileSystemLocations: List[FileSystemLocationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateStorageProfileRequestTypeDef(TypedDict):
+    farmId: str
+    storageProfileId: str
+    clientToken: NotRequired[str]
+    displayName: NotRequired[str]
+    osFamily: NotRequired[StorageProfileOperatingSystemFamilyType]
+    fileSystemLocationsToAdd: NotRequired[Sequence[FileSystemLocationTypeDef]]
+    fileSystemLocationsToRemove: NotRequired[Sequence[FileSystemLocationTypeDef]]
+
+class FleetCapabilitiesTypeDef(TypedDict):
+    amounts: NotRequired[List[FleetAmountCapabilityTypeDef]]
+    attributes: NotRequired[List[FleetAttributeCapabilityOutputTypeDef]]
+
+class CustomerManagedWorkerCapabilitiesOutputTypeDef(TypedDict):
+    vCpuCount: VCpuCountRangeTypeDef
+    memoryMiB: MemoryMiBRangeTypeDef
+    osFamily: CustomerManagedFleetOperatingSystemFamilyType
+    cpuArchitectureType: CpuArchitectureTypeType
+    acceleratorTypes: NotRequired[List[Literal["gpu"]]]
+    acceleratorCount: NotRequired[AcceleratorCountRangeTypeDef]
+    acceleratorTotalMemoryMiB: NotRequired[AcceleratorTotalMemoryMiBRangeTypeDef]
+    customAmounts: NotRequired[List[FleetAmountCapabilityTypeDef]]
+    customAttributes: NotRequired[List[FleetAttributeCapabilityOutputTypeDef]]
+
+class CustomerManagedWorkerCapabilitiesTypeDef(TypedDict):
+    vCpuCount: VCpuCountRangeTypeDef
+    memoryMiB: MemoryMiBRangeTypeDef
+    osFamily: CustomerManagedFleetOperatingSystemFamilyType
+    cpuArchitectureType: CpuArchitectureTypeType
+    acceleratorTypes: NotRequired[Sequence[Literal["gpu"]]]
+    acceleratorCount: NotRequired[AcceleratorCountRangeTypeDef]
+    acceleratorTotalMemoryMiB: NotRequired[AcceleratorTotalMemoryMiBRangeTypeDef]
+    customAmounts: NotRequired[Sequence[FleetAmountCapabilityTypeDef]]
+    customAttributes: NotRequired[Sequence[FleetAttributeCapabilityTypeDef]]
+
+DateTimeFilterExpressionTypeDef = TypedDict(
+    "DateTimeFilterExpressionTypeDef",
     {
         "name": str,
-        "values": List[str],
+        "operator": ComparisonOperatorType,
+        "dateTime": TimestampTypeDef,
     },
 )
 
-WorkerCapabilitiesTypeDef = TypedDict(
-    "WorkerCapabilitiesTypeDef",
-    {
-        "amounts": List["WorkerAmountCapabilityTypeDef"],
-        "attributes": List["WorkerAttributeCapabilityTypeDef"],
-    },
-)
+class FixedBudgetScheduleTypeDef(TypedDict):
+    startTime: TimestampTypeDef
+    endTime: TimestampTypeDef
 
-WorkerSearchSummaryTypeDef = TypedDict(
-    "WorkerSearchSummaryTypeDef",
-    {
-        "createdAt": datetime,
-        "createdBy": str,
-        "fleetId": str,
-        "hostProperties": "HostPropertiesResponseTypeDef",
-        "status": WorkerStatusType,
-        "updatedAt": datetime,
-        "updatedBy": str,
-        "workerId": str,
-    },
-    total=False,
-)
+class UpdatedSessionActionInfoTypeDef(TypedDict):
+    completedStatus: NotRequired[CompletedStatusType]
+    processExitCode: NotRequired[int]
+    progressMessage: NotRequired[str]
+    startedAt: NotRequired[TimestampTypeDef]
+    endedAt: NotRequired[TimestampTypeDef]
+    updatedAt: NotRequired[TimestampTypeDef]
+    progressPercent: NotRequired[float]
 
-_RequiredWorkerSessionSummaryTypeDef = TypedDict(
-    "_RequiredWorkerSessionSummaryTypeDef",
-    {
-        "jobId": str,
-        "lifecycleStatus": SessionLifecycleStatusType,
-        "queueId": str,
-        "sessionId": str,
-        "startedAt": datetime,
-    },
-)
-_OptionalWorkerSessionSummaryTypeDef = TypedDict(
-    "_OptionalWorkerSessionSummaryTypeDef",
-    {
-        "endedAt": datetime,
-        "targetLifecycleStatus": Literal["ENDED"],
-    },
-    total=False,
-)
+class StepSummaryTypeDef(TypedDict):
+    stepId: str
+    name: str
+    lifecycleStatus: StepLifecycleStatusType
+    taskRunStatus: TaskRunStatusType
+    taskRunStatusCounts: Dict[TaskRunStatusType, int]
+    createdAt: datetime
+    createdBy: str
+    lifecycleStatusMessage: NotRequired[str]
+    targetTaskRunStatus: NotRequired[StepTargetTaskRunStatusType]
+    updatedAt: NotRequired[datetime]
+    updatedBy: NotRequired[str]
+    startedAt: NotRequired[datetime]
+    endedAt: NotRequired[datetime]
+    dependencyCounts: NotRequired[DependencyCountsTypeDef]
 
-class WorkerSessionSummaryTypeDef(
-    _RequiredWorkerSessionSummaryTypeDef, _OptionalWorkerSessionSummaryTypeDef
-):
-    pass
+class ListFarmMembersResponseTypeDef(TypedDict):
+    members: List[FarmMemberTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-_RequiredWorkerSummaryTypeDef = TypedDict(
-    "_RequiredWorkerSummaryTypeDef",
+class ListFarmsResponseTypeDef(TypedDict):
+    farms: List[FarmSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListFleetMembersResponseTypeDef(TypedDict):
+    members: List[FleetMemberTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class GetFleetRequestWaitTypeDef(TypedDict):
+    farmId: str
+    fleetId: str
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class GetJobRequestWaitTypeDef(TypedDict):
+    farmId: str
+    queueId: str
+    jobId: str
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class GetLicenseEndpointRequestWaitExtraTypeDef(TypedDict):
+    licenseEndpointId: str
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class GetLicenseEndpointRequestWaitTypeDef(TypedDict):
+    licenseEndpointId: str
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class GetQueueFleetAssociationRequestWaitTypeDef(TypedDict):
+    farmId: str
+    queueId: str
+    fleetId: str
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class GetQueueLimitAssociationRequestWaitTypeDef(TypedDict):
+    farmId: str
+    queueId: str
+    limitId: str
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class GetQueueRequestWaitExtraTypeDef(TypedDict):
+    farmId: str
+    queueId: str
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class GetQueueRequestWaitTypeDef(TypedDict):
+    farmId: str
+    queueId: str
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class GetJobEntityErrorTypeDef(TypedDict):
+    jobDetails: NotRequired[JobDetailsErrorTypeDef]
+    jobAttachmentDetails: NotRequired[JobAttachmentDetailsErrorTypeDef]
+    stepDetails: NotRequired[StepDetailsErrorTypeDef]
+    environmentDetails: NotRequired[EnvironmentDetailsErrorTypeDef]
+
+class GetSessionsStatisticsAggregationRequestPaginateTypeDef(TypedDict):
+    farmId: str
+    aggregationId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListAvailableMeteredProductsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListBudgetsRequestPaginateTypeDef(TypedDict):
+    farmId: str
+    status: NotRequired[BudgetStatusType]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListFarmMembersRequestPaginateTypeDef(TypedDict):
+    farmId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListFarmsRequestPaginateTypeDef(TypedDict):
+    principalId: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListFleetMembersRequestPaginateTypeDef(TypedDict):
+    farmId: str
+    fleetId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListFleetsRequestPaginateTypeDef(TypedDict):
+    farmId: str
+    principalId: NotRequired[str]
+    displayName: NotRequired[str]
+    status: NotRequired[FleetStatusType]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListJobMembersRequestPaginateTypeDef(TypedDict):
+    farmId: str
+    queueId: str
+    jobId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListJobParameterDefinitionsRequestPaginateTypeDef(TypedDict):
+    farmId: str
+    jobId: str
+    queueId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListJobsRequestPaginateTypeDef(TypedDict):
+    farmId: str
+    queueId: str
+    principalId: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListLicenseEndpointsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListLimitsRequestPaginateTypeDef(TypedDict):
+    farmId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListMeteredProductsRequestPaginateTypeDef(TypedDict):
+    licenseEndpointId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListMonitorsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListQueueEnvironmentsRequestPaginateTypeDef(TypedDict):
+    farmId: str
+    queueId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListQueueFleetAssociationsRequestPaginateTypeDef(TypedDict):
+    farmId: str
+    queueId: NotRequired[str]
+    fleetId: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListQueueLimitAssociationsRequestPaginateTypeDef(TypedDict):
+    farmId: str
+    queueId: NotRequired[str]
+    limitId: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListQueueMembersRequestPaginateTypeDef(TypedDict):
+    farmId: str
+    queueId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListQueuesRequestPaginateTypeDef(TypedDict):
+    farmId: str
+    principalId: NotRequired[str]
+    status: NotRequired[QueueStatusType]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListSessionActionsRequestPaginateTypeDef(TypedDict):
+    farmId: str
+    queueId: str
+    jobId: str
+    sessionId: NotRequired[str]
+    taskId: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListSessionsForWorkerRequestPaginateTypeDef(TypedDict):
+    farmId: str
+    fleetId: str
+    workerId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListSessionsRequestPaginateTypeDef(TypedDict):
+    farmId: str
+    queueId: str
+    jobId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListStepConsumersRequestPaginateTypeDef(TypedDict):
+    farmId: str
+    queueId: str
+    jobId: str
+    stepId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListStepDependenciesRequestPaginateTypeDef(TypedDict):
+    farmId: str
+    queueId: str
+    jobId: str
+    stepId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListStepsRequestPaginateTypeDef(TypedDict):
+    farmId: str
+    queueId: str
+    jobId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListStorageProfilesForQueueRequestPaginateTypeDef(TypedDict):
+    farmId: str
+    queueId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListStorageProfilesRequestPaginateTypeDef(TypedDict):
+    farmId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListTasksRequestPaginateTypeDef(TypedDict):
+    farmId: str
+    queueId: str
+    jobId: str
+    stepId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListWorkersRequestPaginateTypeDef(TypedDict):
+    farmId: str
+    fleetId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class HostPropertiesResponseTypeDef(TypedDict):
+    ipAddresses: NotRequired[IpAddressesOutputTypeDef]
+    hostName: NotRequired[str]
+    ec2InstanceArn: NotRequired[str]
+    ec2InstanceType: NotRequired[str]
+
+IpAddressesUnionTypeDef = Union[IpAddressesTypeDef, IpAddressesOutputTypeDef]
+
+class JobEntityIdentifiersUnionTypeDef(TypedDict):
+    jobDetails: NotRequired[JobDetailsIdentifiersTypeDef]
+    jobAttachmentDetails: NotRequired[JobAttachmentDetailsIdentifiersTypeDef]
+    stepDetails: NotRequired[StepDetailsIdentifiersTypeDef]
+    environmentDetails: NotRequired[EnvironmentDetailsIdentifiersTypeDef]
+
+class ListJobMembersResponseTypeDef(TypedDict):
+    members: List[JobMemberTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class JobRunAsUserTypeDef(TypedDict):
+    runAs: RunAsType
+    posix: NotRequired[PosixUserTypeDef]
+    windows: NotRequired[WindowsUserTypeDef]
+
+class ListJobsResponseTypeDef(TypedDict):
+    jobs: List[JobSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListLicenseEndpointsResponseTypeDef(TypedDict):
+    licenseEndpoints: List[LicenseEndpointSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListLimitsResponseTypeDef(TypedDict):
+    limits: List[LimitSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListAvailableMeteredProductsResponseTypeDef(TypedDict):
+    meteredProducts: List[MeteredProductSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListMeteredProductsResponseTypeDef(TypedDict):
+    meteredProducts: List[MeteredProductSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListMonitorsResponseTypeDef(TypedDict):
+    monitors: List[MonitorSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListQueueEnvironmentsResponseTypeDef(TypedDict):
+    environments: List[QueueEnvironmentSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListQueueFleetAssociationsResponseTypeDef(TypedDict):
+    queueFleetAssociations: List[QueueFleetAssociationSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListQueueLimitAssociationsResponseTypeDef(TypedDict):
+    queueLimitAssociations: List[QueueLimitAssociationSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListQueueMembersResponseTypeDef(TypedDict):
+    members: List[QueueMemberTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListQueuesResponseTypeDef(TypedDict):
+    queues: List[QueueSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListSessionsForWorkerResponseTypeDef(TypedDict):
+    sessions: List[WorkerSessionSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListSessionsResponseTypeDef(TypedDict):
+    sessions: List[SessionSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListStepConsumersResponseTypeDef(TypedDict):
+    consumers: List[StepConsumerTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListStepDependenciesResponseTypeDef(TypedDict):
+    dependencies: List[StepDependencyTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListStorageProfilesForQueueResponseTypeDef(TypedDict):
+    storageProfiles: List[StorageProfileSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListStorageProfilesResponseTypeDef(TypedDict):
+    storageProfiles: List[StorageProfileSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ParameterSpaceTypeDef(TypedDict):
+    parameters: List[StepParameterTypeDef]
+    combination: NotRequired[str]
+
+class SearchSortExpressionTypeDef(TypedDict):
+    userJobsFirst: NotRequired[UserJobsFirstTypeDef]
+    fieldSort: NotRequired[FieldSortExpressionTypeDef]
+    parameterSort: NotRequired[ParameterSortExpressionTypeDef]
+
+class SessionActionDefinitionSummaryTypeDef(TypedDict):
+    envEnter: NotRequired[EnvironmentEnterSessionActionDefinitionSummaryTypeDef]
+    envExit: NotRequired[EnvironmentExitSessionActionDefinitionSummaryTypeDef]
+    taskRun: NotRequired[TaskRunSessionActionDefinitionSummaryTypeDef]
+    syncInputJobAttachments: NotRequired[
+        SyncInputJobAttachmentsSessionActionDefinitionSummaryTypeDef
+    ]
+
+class StartSessionsStatisticsAggregationRequestTypeDef(TypedDict):
+    farmId: str
+    resourceIds: SessionsStatisticsResourcesTypeDef
+    startTime: TimestampTypeDef
+    endTime: TimestampTypeDef
+    groupBy: Sequence[UsageGroupByFieldType]
+    statistics: Sequence[UsageStatisticType]
+    timezone: NotRequired[str]
+    period: NotRequired[PeriodType]
+
+class StatisticsTypeDef(TypedDict):
+    count: int
+    costInUsd: StatsTypeDef
+    runtimeInSeconds: StatsTypeDef
+    queueId: NotRequired[str]
+    fleetId: NotRequired[str]
+    jobId: NotRequired[str]
+    jobName: NotRequired[str]
+    userId: NotRequired[str]
+    usageType: NotRequired[UsageTypeType]
+    licenseProduct: NotRequired[str]
+    instanceType: NotRequired[str]
+    aggregationStartTime: NotRequired[datetime]
+    aggregationEndTime: NotRequired[datetime]
+
+class StepRequiredCapabilitiesTypeDef(TypedDict):
+    attributes: List[StepAttributeCapabilityTypeDef]
+    amounts: List[StepAmountCapabilityTypeDef]
+
+class WorkerCapabilitiesTypeDef(TypedDict):
+    amounts: Sequence[WorkerAmountCapabilityTypeDef]
+    attributes: Sequence[WorkerAttributeCapabilityTypeDef]
+
+class ServiceManagedEc2InstanceCapabilitiesOutputTypeDef(TypedDict):
+    vCpuCount: VCpuCountRangeTypeDef
+    memoryMiB: MemoryMiBRangeTypeDef
+    osFamily: ServiceManagedFleetOperatingSystemFamilyType
+    cpuArchitectureType: CpuArchitectureTypeType
+    rootEbsVolume: NotRequired[Ec2EbsVolumeTypeDef]
+    acceleratorCapabilities: NotRequired[AcceleratorCapabilitiesOutputTypeDef]
+    allowedInstanceTypes: NotRequired[List[str]]
+    excludedInstanceTypes: NotRequired[List[str]]
+    customAmounts: NotRequired[List[FleetAmountCapabilityTypeDef]]
+    customAttributes: NotRequired[List[FleetAttributeCapabilityOutputTypeDef]]
+
+class ServiceManagedEc2InstanceCapabilitiesTypeDef(TypedDict):
+    vCpuCount: VCpuCountRangeTypeDef
+    memoryMiB: MemoryMiBRangeTypeDef
+    osFamily: ServiceManagedFleetOperatingSystemFamilyType
+    cpuArchitectureType: CpuArchitectureTypeType
+    rootEbsVolume: NotRequired[Ec2EbsVolumeTypeDef]
+    acceleratorCapabilities: NotRequired[AcceleratorCapabilitiesTypeDef]
+    allowedInstanceTypes: NotRequired[Sequence[str]]
+    excludedInstanceTypes: NotRequired[Sequence[str]]
+    customAmounts: NotRequired[Sequence[FleetAmountCapabilityTypeDef]]
+    customAttributes: NotRequired[Sequence[FleetAttributeCapabilityTypeDef]]
+
+class AssignedSessionActionDefinitionTypeDef(TypedDict):
+    envEnter: NotRequired[AssignedEnvironmentEnterSessionActionDefinitionTypeDef]
+    envExit: NotRequired[AssignedEnvironmentExitSessionActionDefinitionTypeDef]
+    taskRun: NotRequired[AssignedTaskRunSessionActionDefinitionTypeDef]
+    syncInputJobAttachments: NotRequired[
+        AssignedSyncInputJobAttachmentsSessionActionDefinitionTypeDef
+    ]
+
+class SessionActionDefinitionTypeDef(TypedDict):
+    envEnter: NotRequired[EnvironmentEnterSessionActionDefinitionTypeDef]
+    envExit: NotRequired[EnvironmentExitSessionActionDefinitionTypeDef]
+    taskRun: NotRequired[TaskRunSessionActionDefinitionTypeDef]
+    syncInputJobAttachments: NotRequired[SyncInputJobAttachmentsSessionActionDefinitionTypeDef]
+
+class SearchTasksResponseTypeDef(TypedDict):
+    tasks: List[TaskSearchSummaryTypeDef]
+    nextItemOffset: int
+    totalResults: int
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListTasksResponseTypeDef(TypedDict):
+    tasks: List[TaskSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class GetJobResponseTypeDef(TypedDict):
+    jobId: str
+    name: str
+    lifecycleStatus: JobLifecycleStatusType
+    lifecycleStatusMessage: str
+    priority: int
+    createdAt: datetime
+    createdBy: str
+    updatedAt: datetime
+    updatedBy: str
+    startedAt: datetime
+    endedAt: datetime
+    taskRunStatus: TaskRunStatusType
+    targetTaskRunStatus: JobTargetTaskRunStatusType
+    taskRunStatusCounts: Dict[TaskRunStatusType, int]
+    storageProfileId: str
+    maxFailedTasksCount: int
+    maxRetriesPerTask: int
+    parameters: Dict[str, JobParameterTypeDef]
+    attachments: AttachmentsOutputTypeDef
+    description: str
+    maxWorkerCount: int
+    sourceJobId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class JobAttachmentDetailsEntityTypeDef(TypedDict):
+    jobId: str
+    attachments: AttachmentsOutputTypeDef
+
+AttachmentsUnionTypeDef = Union[AttachmentsTypeDef, AttachmentsOutputTypeDef]
+
+class GetBudgetResponseTypeDef(TypedDict):
+    budgetId: str
+    usageTrackingResource: UsageTrackingResourceTypeDef
+    status: BudgetStatusType
+    displayName: str
+    description: str
+    approximateDollarLimit: float
+    usages: ConsumedUsagesTypeDef
+    actions: List[ResponseBudgetActionTypeDef]
+    schedule: BudgetScheduleOutputTypeDef
+    createdBy: str
+    createdAt: datetime
+    updatedBy: str
+    updatedAt: datetime
+    queueStoppedAt: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListBudgetsResponseTypeDef(TypedDict):
+    budgets: List[BudgetSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class SearchJobsResponseTypeDef(TypedDict):
+    jobs: List[JobSearchSummaryTypeDef]
+    nextItemOffset: int
+    totalResults: int
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CustomerManagedFleetConfigurationOutputTypeDef(TypedDict):
+    mode: AutoScalingModeType
+    workerCapabilities: CustomerManagedWorkerCapabilitiesOutputTypeDef
+    storageProfileId: NotRequired[str]
+    tagPropagationMode: NotRequired[TagPropagationModeType]
+
+class CustomerManagedFleetConfigurationTypeDef(TypedDict):
+    mode: AutoScalingModeType
+    workerCapabilities: CustomerManagedWorkerCapabilitiesTypeDef
+    storageProfileId: NotRequired[str]
+    tagPropagationMode: NotRequired[TagPropagationModeType]
+
+class SearchFilterExpressionTypeDef(TypedDict):
+    dateTimeFilter: NotRequired[DateTimeFilterExpressionTypeDef]
+    parameterFilter: NotRequired[ParameterFilterExpressionTypeDef]
+    searchTermFilter: NotRequired[SearchTermFilterExpressionTypeDef]
+    stringFilter: NotRequired[StringFilterExpressionTypeDef]
+    groupFilter: NotRequired[Mapping[str, Any]]
+
+class BudgetScheduleTypeDef(TypedDict):
+    fixed: NotRequired[FixedBudgetScheduleTypeDef]
+
+class UpdateWorkerScheduleRequestTypeDef(TypedDict):
+    farmId: str
+    fleetId: str
+    workerId: str
+    updatedSessionActions: NotRequired[Mapping[str, UpdatedSessionActionInfoTypeDef]]
+
+class ListStepsResponseTypeDef(TypedDict):
+    steps: List[StepSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class GetSessionResponseTypeDef(TypedDict):
+    sessionId: str
+    fleetId: str
+    workerId: str
+    startedAt: datetime
+    log: LogConfigurationTypeDef
+    lifecycleStatus: SessionLifecycleStatusType
+    endedAt: datetime
+    updatedAt: datetime
+    updatedBy: str
+    targetLifecycleStatus: Literal["ENDED"]
+    hostProperties: HostPropertiesResponseTypeDef
+    workerLog: LogConfigurationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetWorkerResponseTypeDef(TypedDict):
+    farmId: str
+    fleetId: str
+    workerId: str
+    hostProperties: HostPropertiesResponseTypeDef
+    status: WorkerStatusType
+    log: LogConfigurationTypeDef
+    createdAt: datetime
+    createdBy: str
+    updatedAt: datetime
+    updatedBy: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class WorkerSearchSummaryTypeDef(TypedDict):
+    fleetId: NotRequired[str]
+    workerId: NotRequired[str]
+    status: NotRequired[WorkerStatusType]
+    hostProperties: NotRequired[HostPropertiesResponseTypeDef]
+    createdBy: NotRequired[str]
+    createdAt: NotRequired[datetime]
+    updatedBy: NotRequired[str]
+    updatedAt: NotRequired[datetime]
+
+class WorkerSummaryTypeDef(TypedDict):
+    workerId: str
+    farmId: str
+    fleetId: str
+    status: WorkerStatusType
+    createdAt: datetime
+    createdBy: str
+    hostProperties: NotRequired[HostPropertiesResponseTypeDef]
+    log: NotRequired[LogConfigurationTypeDef]
+    updatedAt: NotRequired[datetime]
+    updatedBy: NotRequired[str]
+
+class HostPropertiesRequestTypeDef(TypedDict):
+    ipAddresses: NotRequired[IpAddressesUnionTypeDef]
+    hostName: NotRequired[str]
+
+class BatchGetJobEntityRequestTypeDef(TypedDict):
+    farmId: str
+    fleetId: str
+    workerId: str
+    identifiers: Sequence[JobEntityIdentifiersUnionTypeDef]
+
+class CreateQueueRequestTypeDef(TypedDict):
+    farmId: str
+    displayName: str
+    clientToken: NotRequired[str]
+    description: NotRequired[str]
+    defaultBudgetAction: NotRequired[DefaultQueueBudgetActionType]
+    jobAttachmentSettings: NotRequired[JobAttachmentSettingsTypeDef]
+    roleArn: NotRequired[str]
+    jobRunAsUser: NotRequired[JobRunAsUserTypeDef]
+    requiredFileSystemLocationNames: NotRequired[Sequence[str]]
+    allowedStorageProfileIds: NotRequired[Sequence[str]]
+    tags: NotRequired[Mapping[str, str]]
+
+class GetQueueResponseTypeDef(TypedDict):
+    queueId: str
+    displayName: str
+    description: str
+    farmId: str
+    status: QueueStatusType
+    defaultBudgetAction: DefaultQueueBudgetActionType
+    blockedReason: QueueBlockedReasonType
+    jobAttachmentSettings: JobAttachmentSettingsTypeDef
+    roleArn: str
+    requiredFileSystemLocationNames: List[str]
+    allowedStorageProfileIds: List[str]
+    jobRunAsUser: JobRunAsUserTypeDef
+    createdAt: datetime
+    createdBy: str
+    updatedAt: datetime
+    updatedBy: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class JobDetailsEntityTypeDef(TypedDict):
+    jobId: str
+    logGroupName: str
+    schemaVersion: str
+    jobAttachmentSettings: NotRequired[JobAttachmentSettingsTypeDef]
+    jobRunAsUser: NotRequired[JobRunAsUserTypeDef]
+    queueRoleArn: NotRequired[str]
+    parameters: NotRequired[Dict[str, JobParameterTypeDef]]
+    pathMappingRules: NotRequired[List[PathMappingRuleTypeDef]]
+
+class UpdateQueueRequestTypeDef(TypedDict):
+    farmId: str
+    queueId: str
+    clientToken: NotRequired[str]
+    displayName: NotRequired[str]
+    description: NotRequired[str]
+    defaultBudgetAction: NotRequired[DefaultQueueBudgetActionType]
+    jobAttachmentSettings: NotRequired[JobAttachmentSettingsTypeDef]
+    roleArn: NotRequired[str]
+    jobRunAsUser: NotRequired[JobRunAsUserTypeDef]
+    requiredFileSystemLocationNamesToAdd: NotRequired[Sequence[str]]
+    requiredFileSystemLocationNamesToRemove: NotRequired[Sequence[str]]
+    allowedStorageProfileIdsToAdd: NotRequired[Sequence[str]]
+    allowedStorageProfileIdsToRemove: NotRequired[Sequence[str]]
+
+class StepSearchSummaryTypeDef(TypedDict):
+    stepId: NotRequired[str]
+    jobId: NotRequired[str]
+    queueId: NotRequired[str]
+    name: NotRequired[str]
+    lifecycleStatus: NotRequired[StepLifecycleStatusType]
+    lifecycleStatusMessage: NotRequired[str]
+    taskRunStatus: NotRequired[TaskRunStatusType]
+    targetTaskRunStatus: NotRequired[StepTargetTaskRunStatusType]
+    taskRunStatusCounts: NotRequired[Dict[TaskRunStatusType, int]]
+    createdAt: NotRequired[datetime]
+    startedAt: NotRequired[datetime]
+    endedAt: NotRequired[datetime]
+    parameterSpace: NotRequired[ParameterSpaceTypeDef]
+
+class SessionActionSummaryTypeDef(TypedDict):
+    sessionActionId: str
+    status: SessionActionStatusType
+    definition: SessionActionDefinitionSummaryTypeDef
+    startedAt: NotRequired[datetime]
+    endedAt: NotRequired[datetime]
+    workerUpdatedAt: NotRequired[datetime]
+    progressPercent: NotRequired[float]
+
+class GetSessionsStatisticsAggregationResponseTypeDef(TypedDict):
+    statistics: List[StatisticsTypeDef]
+    status: SessionsStatisticsAggregationStatusType
+    statusMessage: str
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class GetStepResponseTypeDef(TypedDict):
+    stepId: str
+    name: str
+    lifecycleStatus: StepLifecycleStatusType
+    lifecycleStatusMessage: str
+    taskRunStatus: TaskRunStatusType
+    taskRunStatusCounts: Dict[TaskRunStatusType, int]
+    targetTaskRunStatus: StepTargetTaskRunStatusType
+    createdAt: datetime
+    createdBy: str
+    updatedAt: datetime
+    updatedBy: str
+    startedAt: datetime
+    endedAt: datetime
+    dependencyCounts: DependencyCountsTypeDef
+    requiredCapabilities: StepRequiredCapabilitiesTypeDef
+    parameterSpace: ParameterSpaceTypeDef
+    description: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ServiceManagedEc2FleetConfigurationOutputTypeDef(TypedDict):
+    instanceCapabilities: ServiceManagedEc2InstanceCapabilitiesOutputTypeDef
+    instanceMarketOptions: ServiceManagedEc2InstanceMarketOptionsTypeDef
+
+class ServiceManagedEc2FleetConfigurationTypeDef(TypedDict):
+    instanceCapabilities: ServiceManagedEc2InstanceCapabilitiesTypeDef
+    instanceMarketOptions: ServiceManagedEc2InstanceMarketOptionsTypeDef
+
+class AssignedSessionActionTypeDef(TypedDict):
+    sessionActionId: str
+    definition: AssignedSessionActionDefinitionTypeDef
+
+class GetSessionActionResponseTypeDef(TypedDict):
+    sessionActionId: str
+    status: SessionActionStatusType
+    startedAt: datetime
+    endedAt: datetime
+    workerUpdatedAt: datetime
+    progressPercent: float
+    sessionId: str
+    processExitCode: int
+    progressMessage: str
+    definition: SessionActionDefinitionTypeDef
+    acquiredLimits: List[AcquiredLimitTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateJobRequestTypeDef(TypedDict):
+    farmId: str
+    queueId: str
+    priority: int
+    clientToken: NotRequired[str]
+    template: NotRequired[str]
+    templateType: NotRequired[JobTemplateTypeType]
+    parameters: NotRequired[Mapping[str, JobParameterTypeDef]]
+    attachments: NotRequired[AttachmentsUnionTypeDef]
+    storageProfileId: NotRequired[str]
+    targetTaskRunStatus: NotRequired[CreateJobTargetTaskRunStatusType]
+    maxFailedTasksCount: NotRequired[int]
+    maxRetriesPerTask: NotRequired[int]
+    maxWorkerCount: NotRequired[int]
+    sourceJobId: NotRequired[str]
+
+SearchGroupedFilterExpressionsTypeDef = TypedDict(
+    "SearchGroupedFilterExpressionsTypeDef",
     {
-        "createdAt": datetime,
-        "createdBy": str,
-        "farmId": str,
-        "fleetId": str,
-        "status": WorkerStatusType,
-        "workerId": str,
+        "filters": Sequence[SearchFilterExpressionTypeDef],
+        "operator": LogicalOperatorType,
     },
 )
-_OptionalWorkerSummaryTypeDef = TypedDict(
-    "_OptionalWorkerSummaryTypeDef",
-    {
-        "hostProperties": "HostPropertiesResponseTypeDef",
-        "log": "LogConfigurationTypeDef",
-        "updatedAt": datetime,
-        "updatedBy": str,
-    },
-    total=False,
-)
+BudgetScheduleUnionTypeDef = Union[BudgetScheduleTypeDef, BudgetScheduleOutputTypeDef]
 
-class WorkerSummaryTypeDef(_RequiredWorkerSummaryTypeDef, _OptionalWorkerSummaryTypeDef):
-    pass
+class SearchWorkersResponseTypeDef(TypedDict):
+    workers: List[WorkerSearchSummaryTypeDef]
+    nextItemOffset: int
+    totalResults: int
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListWorkersResponseTypeDef(TypedDict):
+    workers: List[WorkerSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class CreateWorkerRequestTypeDef(TypedDict):
+    farmId: str
+    fleetId: str
+    hostProperties: NotRequired[HostPropertiesRequestTypeDef]
+    clientToken: NotRequired[str]
+    tags: NotRequired[Mapping[str, str]]
+
+class UpdateWorkerRequestTypeDef(TypedDict):
+    farmId: str
+    fleetId: str
+    workerId: str
+    status: NotRequired[UpdatedWorkerStatusType]
+    capabilities: NotRequired[WorkerCapabilitiesTypeDef]
+    hostProperties: NotRequired[HostPropertiesRequestTypeDef]
+
+class JobEntityTypeDef(TypedDict):
+    jobDetails: NotRequired[JobDetailsEntityTypeDef]
+    jobAttachmentDetails: NotRequired[JobAttachmentDetailsEntityTypeDef]
+    stepDetails: NotRequired[StepDetailsEntityTypeDef]
+    environmentDetails: NotRequired[EnvironmentDetailsEntityTypeDef]
+
+class SearchStepsResponseTypeDef(TypedDict):
+    steps: List[StepSearchSummaryTypeDef]
+    nextItemOffset: int
+    totalResults: int
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListSessionActionsResponseTypeDef(TypedDict):
+    sessionActions: List[SessionActionSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class FleetConfigurationOutputTypeDef(TypedDict):
+    customerManaged: NotRequired[CustomerManagedFleetConfigurationOutputTypeDef]
+    serviceManagedEc2: NotRequired[ServiceManagedEc2FleetConfigurationOutputTypeDef]
+
+class FleetConfigurationTypeDef(TypedDict):
+    customerManaged: NotRequired[CustomerManagedFleetConfigurationTypeDef]
+    serviceManagedEc2: NotRequired[ServiceManagedEc2FleetConfigurationTypeDef]
+
+class AssignedSessionTypeDef(TypedDict):
+    queueId: str
+    jobId: str
+    sessionActions: List[AssignedSessionActionTypeDef]
+    logConfiguration: LogConfigurationTypeDef
+
+class SearchJobsRequestTypeDef(TypedDict):
+    farmId: str
+    queueIds: Sequence[str]
+    itemOffset: int
+    filterExpressions: NotRequired[SearchGroupedFilterExpressionsTypeDef]
+    sortExpressions: NotRequired[Sequence[SearchSortExpressionTypeDef]]
+    pageSize: NotRequired[int]
+
+class SearchStepsRequestTypeDef(TypedDict):
+    farmId: str
+    queueIds: Sequence[str]
+    itemOffset: int
+    jobId: NotRequired[str]
+    filterExpressions: NotRequired[SearchGroupedFilterExpressionsTypeDef]
+    sortExpressions: NotRequired[Sequence[SearchSortExpressionTypeDef]]
+    pageSize: NotRequired[int]
+
+class SearchTasksRequestTypeDef(TypedDict):
+    farmId: str
+    queueIds: Sequence[str]
+    itemOffset: int
+    jobId: NotRequired[str]
+    filterExpressions: NotRequired[SearchGroupedFilterExpressionsTypeDef]
+    sortExpressions: NotRequired[Sequence[SearchSortExpressionTypeDef]]
+    pageSize: NotRequired[int]
+
+class SearchWorkersRequestTypeDef(TypedDict):
+    farmId: str
+    fleetIds: Sequence[str]
+    itemOffset: int
+    filterExpressions: NotRequired[SearchGroupedFilterExpressionsTypeDef]
+    sortExpressions: NotRequired[Sequence[SearchSortExpressionTypeDef]]
+    pageSize: NotRequired[int]
+
+class CreateBudgetRequestTypeDef(TypedDict):
+    farmId: str
+    usageTrackingResource: UsageTrackingResourceTypeDef
+    displayName: str
+    approximateDollarLimit: float
+    actions: Sequence[BudgetActionToAddTypeDef]
+    schedule: BudgetScheduleUnionTypeDef
+    clientToken: NotRequired[str]
+    description: NotRequired[str]
+
+class UpdateBudgetRequestTypeDef(TypedDict):
+    farmId: str
+    budgetId: str
+    clientToken: NotRequired[str]
+    displayName: NotRequired[str]
+    description: NotRequired[str]
+    status: NotRequired[BudgetStatusType]
+    approximateDollarLimit: NotRequired[float]
+    actionsToAdd: NotRequired[Sequence[BudgetActionToAddTypeDef]]
+    actionsToRemove: NotRequired[Sequence[BudgetActionToRemoveTypeDef]]
+    schedule: NotRequired[BudgetScheduleUnionTypeDef]
+
+class BatchGetJobEntityResponseTypeDef(TypedDict):
+    entities: List[JobEntityTypeDef]
+    errors: List[GetJobEntityErrorTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class FleetSummaryTypeDef(TypedDict):
+    fleetId: str
+    farmId: str
+    displayName: str
+    status: FleetStatusType
+    workerCount: int
+    minWorkerCount: int
+    maxWorkerCount: int
+    configuration: FleetConfigurationOutputTypeDef
+    createdAt: datetime
+    createdBy: str
+    autoScalingStatus: NotRequired[AutoScalingStatusType]
+    targetWorkerCount: NotRequired[int]
+    updatedAt: NotRequired[datetime]
+    updatedBy: NotRequired[str]
+
+class GetFleetResponseTypeDef(TypedDict):
+    fleetId: str
+    farmId: str
+    displayName: str
+    description: str
+    status: FleetStatusType
+    autoScalingStatus: AutoScalingStatusType
+    targetWorkerCount: int
+    workerCount: int
+    minWorkerCount: int
+    maxWorkerCount: int
+    configuration: FleetConfigurationOutputTypeDef
+    capabilities: FleetCapabilitiesTypeDef
+    roleArn: str
+    createdAt: datetime
+    createdBy: str
+    updatedAt: datetime
+    updatedBy: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+FleetConfigurationUnionTypeDef = Union[FleetConfigurationTypeDef, FleetConfigurationOutputTypeDef]
+
+class UpdateWorkerScheduleResponseTypeDef(TypedDict):
+    assignedSessions: Dict[str, AssignedSessionTypeDef]
+    cancelSessionActions: Dict[str, List[str]]
+    desiredWorkerStatus: Literal["STOPPED"]
+    updateIntervalSeconds: int
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListFleetsResponseTypeDef(TypedDict):
+    fleets: List[FleetSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class CreateFleetRequestTypeDef(TypedDict):
+    farmId: str
+    displayName: str
+    roleArn: str
+    maxWorkerCount: int
+    configuration: FleetConfigurationUnionTypeDef
+    clientToken: NotRequired[str]
+    description: NotRequired[str]
+    minWorkerCount: NotRequired[int]
+    tags: NotRequired[Mapping[str, str]]
+
+class UpdateFleetRequestTypeDef(TypedDict):
+    farmId: str
+    fleetId: str
+    clientToken: NotRequired[str]
+    displayName: NotRequired[str]
+    description: NotRequired[str]
+    roleArn: NotRequired[str]
+    minWorkerCount: NotRequired[int]
+    maxWorkerCount: NotRequired[int]
+    configuration: NotRequired[FleetConfigurationUnionTypeDef]

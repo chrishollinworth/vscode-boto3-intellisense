@@ -1,10 +1,14 @@
 """
 Main interface for mediaconvert service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconvert/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_mediaconvert import (
         Client,
         DescribeEndpointsPaginator,
@@ -12,20 +16,20 @@ Usage::
         ListJobsPaginator,
         ListPresetsPaginator,
         ListQueuesPaginator,
+        ListVersionsPaginator,
         MediaConvertClient,
         SearchJobsPaginator,
     )
 
-    session = boto3.Session()
-
-    client: MediaConvertClient = boto3.client("mediaconvert")
-    session_client: MediaConvertClient = session.client("mediaconvert")
+    session = Session()
+    client: MediaConvertClient = session.client("mediaconvert")
 
     describe_endpoints_paginator: DescribeEndpointsPaginator = client.get_paginator("describe_endpoints")
     list_job_templates_paginator: ListJobTemplatesPaginator = client.get_paginator("list_job_templates")
     list_jobs_paginator: ListJobsPaginator = client.get_paginator("list_jobs")
     list_presets_paginator: ListPresetsPaginator = client.get_paginator("list_presets")
     list_queues_paginator: ListQueuesPaginator = client.get_paginator("list_queues")
+    list_versions_paginator: ListVersionsPaginator = client.get_paginator("list_versions")
     search_jobs_paginator: SearchJobsPaginator = client.get_paginator("search_jobs")
     ```
 """
@@ -37,6 +41,7 @@ from .paginator import (
     ListJobTemplatesPaginator,
     ListPresetsPaginator,
     ListQueuesPaginator,
+    ListVersionsPaginator,
     SearchJobsPaginator,
 )
 
@@ -49,6 +54,7 @@ __all__ = (
     "ListJobsPaginator",
     "ListPresetsPaginator",
     "ListQueuesPaginator",
+    "ListVersionsPaginator",
     "MediaConvertClient",
     "SearchJobsPaginator",
 )

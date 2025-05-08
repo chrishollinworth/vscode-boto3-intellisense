@@ -1,10 +1,14 @@
 """
 Main interface for ram service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ram/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_ram import (
         Client,
         GetResourcePoliciesPaginator,
@@ -16,10 +20,8 @@ Usage::
         RAMClient,
     )
 
-    session = boto3.Session()
-
-    client: RAMClient = boto3.client("ram")
-    session_client: RAMClient = session.client("ram")
+    session = Session()
+    client: RAMClient = session.client("ram")
 
     get_resource_policies_paginator: GetResourcePoliciesPaginator = client.get_paginator("get_resource_policies")
     get_resource_share_associations_paginator: GetResourceShareAssociationsPaginator = client.get_paginator("get_resource_share_associations")

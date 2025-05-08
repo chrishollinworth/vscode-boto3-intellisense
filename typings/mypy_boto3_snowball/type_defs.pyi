@@ -1,20 +1,24 @@
 """
 Type annotations for snowball service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_snowball/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_snowball/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_snowball.type_defs import AddressTypeDef
 
-    data: AddressTypeDef = {...}
+    data: AddressTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List, Union
+from typing import Union
 
 from .literals import (
     AddressTypeType,
@@ -34,84 +38,100 @@ from .literals import (
     TransferOptionType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
     "AddressTypeDef",
-    "CancelClusterRequestRequestTypeDef",
-    "CancelJobRequestRequestTypeDef",
+    "CancelClusterRequestTypeDef",
+    "CancelJobRequestTypeDef",
     "ClusterListEntryTypeDef",
     "ClusterMetadataTypeDef",
     "CompatibleImageTypeDef",
-    "CreateAddressRequestRequestTypeDef",
+    "CreateAddressRequestTypeDef",
     "CreateAddressResultTypeDef",
-    "CreateClusterRequestRequestTypeDef",
+    "CreateClusterRequestTypeDef",
     "CreateClusterResultTypeDef",
-    "CreateJobRequestRequestTypeDef",
+    "CreateJobRequestTypeDef",
     "CreateJobResultTypeDef",
-    "CreateLongTermPricingRequestRequestTypeDef",
+    "CreateLongTermPricingRequestTypeDef",
     "CreateLongTermPricingResultTypeDef",
-    "CreateReturnShippingLabelRequestRequestTypeDef",
+    "CreateReturnShippingLabelRequestTypeDef",
     "CreateReturnShippingLabelResultTypeDef",
     "DataTransferTypeDef",
     "DependentServiceTypeDef",
-    "DescribeAddressRequestRequestTypeDef",
+    "DescribeAddressRequestTypeDef",
     "DescribeAddressResultTypeDef",
-    "DescribeAddressesRequestRequestTypeDef",
+    "DescribeAddressesRequestPaginateTypeDef",
+    "DescribeAddressesRequestTypeDef",
     "DescribeAddressesResultTypeDef",
-    "DescribeClusterRequestRequestTypeDef",
+    "DescribeClusterRequestTypeDef",
     "DescribeClusterResultTypeDef",
-    "DescribeJobRequestRequestTypeDef",
+    "DescribeJobRequestTypeDef",
     "DescribeJobResultTypeDef",
-    "DescribeReturnShippingLabelRequestRequestTypeDef",
+    "DescribeReturnShippingLabelRequestTypeDef",
     "DescribeReturnShippingLabelResultTypeDef",
     "DeviceConfigurationTypeDef",
     "EKSOnDeviceServiceConfigurationTypeDef",
     "Ec2AmiResourceTypeDef",
     "EventTriggerDefinitionTypeDef",
-    "GetJobManifestRequestRequestTypeDef",
+    "GetJobManifestRequestTypeDef",
     "GetJobManifestResultTypeDef",
-    "GetJobUnlockCodeRequestRequestTypeDef",
+    "GetJobUnlockCodeRequestTypeDef",
     "GetJobUnlockCodeResultTypeDef",
     "GetSnowballUsageResultTypeDef",
-    "GetSoftwareUpdatesRequestRequestTypeDef",
+    "GetSoftwareUpdatesRequestTypeDef",
     "GetSoftwareUpdatesResultTypeDef",
     "INDTaxDocumentsTypeDef",
     "JobListEntryTypeDef",
     "JobLogsTypeDef",
     "JobMetadataTypeDef",
+    "JobResourceOutputTypeDef",
     "JobResourceTypeDef",
+    "JobResourceUnionTypeDef",
     "KeyRangeTypeDef",
+    "LambdaResourceOutputTypeDef",
     "LambdaResourceTypeDef",
-    "ListClusterJobsRequestRequestTypeDef",
+    "ListClusterJobsRequestPaginateTypeDef",
+    "ListClusterJobsRequestTypeDef",
     "ListClusterJobsResultTypeDef",
-    "ListClustersRequestRequestTypeDef",
+    "ListClustersRequestPaginateTypeDef",
+    "ListClustersRequestTypeDef",
     "ListClustersResultTypeDef",
-    "ListCompatibleImagesRequestRequestTypeDef",
+    "ListCompatibleImagesRequestPaginateTypeDef",
+    "ListCompatibleImagesRequestTypeDef",
     "ListCompatibleImagesResultTypeDef",
-    "ListJobsRequestRequestTypeDef",
+    "ListJobsRequestPaginateTypeDef",
+    "ListJobsRequestTypeDef",
     "ListJobsResultTypeDef",
-    "ListLongTermPricingRequestRequestTypeDef",
+    "ListLongTermPricingRequestPaginateTypeDef",
+    "ListLongTermPricingRequestTypeDef",
     "ListLongTermPricingResultTypeDef",
-    "ListPickupLocationsRequestRequestTypeDef",
+    "ListPickupLocationsRequestTypeDef",
     "ListPickupLocationsResultTypeDef",
-    "ListServiceVersionsRequestRequestTypeDef",
+    "ListServiceVersionsRequestTypeDef",
     "ListServiceVersionsResultTypeDef",
     "LongTermPricingListEntryTypeDef",
     "NFSOnDeviceServiceConfigurationTypeDef",
+    "NotificationOutputTypeDef",
     "NotificationTypeDef",
+    "NotificationUnionTypeDef",
     "OnDeviceServiceConfigurationTypeDef",
     "PaginatorConfigTypeDef",
+    "PickupDetailsOutputTypeDef",
     "PickupDetailsTypeDef",
+    "PickupDetailsUnionTypeDef",
     "ResponseMetadataTypeDef",
     "S3OnDeviceServiceConfigurationTypeDef",
+    "S3ResourceOutputTypeDef",
     "S3ResourceTypeDef",
     "ServiceVersionTypeDef",
     "ShipmentTypeDef",
@@ -120,933 +140,543 @@ __all__ = (
     "TGWOnDeviceServiceConfigurationTypeDef",
     "TargetOnDeviceServiceTypeDef",
     "TaxDocumentsTypeDef",
-    "UpdateClusterRequestRequestTypeDef",
-    "UpdateJobRequestRequestTypeDef",
-    "UpdateJobShipmentStateRequestRequestTypeDef",
-    "UpdateLongTermPricingRequestRequestTypeDef",
+    "TimestampTypeDef",
+    "UpdateClusterRequestTypeDef",
+    "UpdateJobRequestTypeDef",
+    "UpdateJobShipmentStateRequestTypeDef",
+    "UpdateLongTermPricingRequestTypeDef",
     "WirelessConnectionTypeDef",
 )
 
 AddressTypeDef = TypedDict(
     "AddressTypeDef",
     {
-        "AddressId": str,
-        "Name": str,
-        "Company": str,
-        "Street1": str,
-        "Street2": str,
-        "Street3": str,
-        "City": str,
-        "StateOrProvince": str,
-        "PrefectureOrDistrict": str,
-        "Landmark": str,
-        "Country": str,
-        "PostalCode": str,
-        "PhoneNumber": str,
-        "IsRestricted": bool,
-        "Type": AddressTypeType,
-    },
-    total=False,
-)
-
-CancelClusterRequestRequestTypeDef = TypedDict(
-    "CancelClusterRequestRequestTypeDef",
-    {
-        "ClusterId": str,
+        "AddressId": NotRequired[str],
+        "Name": NotRequired[str],
+        "Company": NotRequired[str],
+        "Street1": NotRequired[str],
+        "Street2": NotRequired[str],
+        "Street3": NotRequired[str],
+        "City": NotRequired[str],
+        "StateOrProvince": NotRequired[str],
+        "PrefectureOrDistrict": NotRequired[str],
+        "Landmark": NotRequired[str],
+        "Country": NotRequired[str],
+        "PostalCode": NotRequired[str],
+        "PhoneNumber": NotRequired[str],
+        "IsRestricted": NotRequired[bool],
+        "Type": NotRequired[AddressTypeType],
     },
 )
 
-CancelJobRequestRequestTypeDef = TypedDict(
-    "CancelJobRequestRequestTypeDef",
+class CancelClusterRequestTypeDef(TypedDict):
+    ClusterId: str
+
+class CancelJobRequestTypeDef(TypedDict):
+    JobId: str
+
+class ClusterListEntryTypeDef(TypedDict):
+    ClusterId: NotRequired[str]
+    ClusterState: NotRequired[ClusterStateType]
+    CreationDate: NotRequired[datetime]
+    Description: NotRequired[str]
+
+class NotificationOutputTypeDef(TypedDict):
+    SnsTopicARN: NotRequired[str]
+    JobStatesToNotify: NotRequired[List[JobStateType]]
+    NotifyAll: NotRequired[bool]
+    DevicePickupSnsTopicARN: NotRequired[str]
+
+class CompatibleImageTypeDef(TypedDict):
+    AmiId: NotRequired[str]
+    Name: NotRequired[str]
+
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
+
+class JobListEntryTypeDef(TypedDict):
+    JobId: NotRequired[str]
+    JobState: NotRequired[JobStateType]
+    IsMaster: NotRequired[bool]
+    JobType: NotRequired[JobTypeType]
+    SnowballType: NotRequired[SnowballTypeType]
+    CreationDate: NotRequired[datetime]
+    Description: NotRequired[str]
+
+class CreateLongTermPricingRequestTypeDef(TypedDict):
+    LongTermPricingType: LongTermPricingTypeType
+    SnowballType: SnowballTypeType
+    IsLongTermPricingAutoRenew: NotRequired[bool]
+
+class CreateReturnShippingLabelRequestTypeDef(TypedDict):
+    JobId: str
+    ShippingOption: NotRequired[ShippingOptionType]
+
+class DataTransferTypeDef(TypedDict):
+    BytesTransferred: NotRequired[int]
+    ObjectsTransferred: NotRequired[int]
+    TotalBytes: NotRequired[int]
+    TotalObjects: NotRequired[int]
+
+class ServiceVersionTypeDef(TypedDict):
+    Version: NotRequired[str]
+
+class DescribeAddressRequestTypeDef(TypedDict):
+    AddressId: str
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class DescribeAddressesRequestTypeDef(TypedDict):
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class DescribeClusterRequestTypeDef(TypedDict):
+    ClusterId: str
+
+class DescribeJobRequestTypeDef(TypedDict):
+    JobId: str
+
+class DescribeReturnShippingLabelRequestTypeDef(TypedDict):
+    JobId: str
+
+class EKSOnDeviceServiceConfigurationTypeDef(TypedDict):
+    KubernetesVersion: NotRequired[str]
+    EKSAnywhereVersion: NotRequired[str]
+
+class Ec2AmiResourceTypeDef(TypedDict):
+    AmiId: str
+    SnowballAmiId: NotRequired[str]
+
+class EventTriggerDefinitionTypeDef(TypedDict):
+    EventResourceARN: NotRequired[str]
+
+class GetJobManifestRequestTypeDef(TypedDict):
+    JobId: str
+
+class GetJobUnlockCodeRequestTypeDef(TypedDict):
+    JobId: str
+
+class GetSoftwareUpdatesRequestTypeDef(TypedDict):
+    JobId: str
+
+class INDTaxDocumentsTypeDef(TypedDict):
+    GSTIN: NotRequired[str]
+
+class JobLogsTypeDef(TypedDict):
+    JobCompletionReportURI: NotRequired[str]
+    JobSuccessLogURI: NotRequired[str]
+    JobFailureLogURI: NotRequired[str]
+
+class PickupDetailsOutputTypeDef(TypedDict):
+    Name: NotRequired[str]
+    PhoneNumber: NotRequired[str]
+    Email: NotRequired[str]
+    IdentificationNumber: NotRequired[str]
+    IdentificationExpirationDate: NotRequired[datetime]
+    IdentificationIssuingOrg: NotRequired[str]
+    DevicePickupId: NotRequired[str]
+
+class KeyRangeTypeDef(TypedDict):
+    BeginMarker: NotRequired[str]
+    EndMarker: NotRequired[str]
+
+class ListClusterJobsRequestTypeDef(TypedDict):
+    ClusterId: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListClustersRequestTypeDef(TypedDict):
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListCompatibleImagesRequestTypeDef(TypedDict):
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListJobsRequestTypeDef(TypedDict):
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListLongTermPricingRequestTypeDef(TypedDict):
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class LongTermPricingListEntryTypeDef(TypedDict):
+    LongTermPricingId: NotRequired[str]
+    LongTermPricingEndDate: NotRequired[datetime]
+    LongTermPricingStartDate: NotRequired[datetime]
+    LongTermPricingType: NotRequired[LongTermPricingTypeType]
+    CurrentActiveJob: NotRequired[str]
+    ReplacementJob: NotRequired[str]
+    IsLongTermPricingAutoRenew: NotRequired[bool]
+    LongTermPricingStatus: NotRequired[str]
+    SnowballType: NotRequired[SnowballTypeType]
+    JobIds: NotRequired[List[str]]
+
+class ListPickupLocationsRequestTypeDef(TypedDict):
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class NFSOnDeviceServiceConfigurationTypeDef(TypedDict):
+    StorageLimit: NotRequired[int]
+    StorageUnit: NotRequired[Literal["TB"]]
+
+class NotificationTypeDef(TypedDict):
+    SnsTopicARN: NotRequired[str]
+    JobStatesToNotify: NotRequired[Sequence[JobStateType]]
+    NotifyAll: NotRequired[bool]
+    DevicePickupSnsTopicARN: NotRequired[str]
+
+class S3OnDeviceServiceConfigurationTypeDef(TypedDict):
+    StorageLimit: NotRequired[float]
+    StorageUnit: NotRequired[Literal["TB"]]
+    ServiceSize: NotRequired[int]
+    FaultTolerance: NotRequired[int]
+
+class TGWOnDeviceServiceConfigurationTypeDef(TypedDict):
+    StorageLimit: NotRequired[int]
+    StorageUnit: NotRequired[Literal["TB"]]
+
+TimestampTypeDef = Union[datetime, str]
+TargetOnDeviceServiceTypeDef = TypedDict(
+    "TargetOnDeviceServiceTypeDef",
     {
-        "JobId": str,
+        "ServiceName": NotRequired[DeviceServiceNameType],
+        "TransferOption": NotRequired[TransferOptionType],
     },
 )
 
-ClusterListEntryTypeDef = TypedDict(
-    "ClusterListEntryTypeDef",
-    {
-        "ClusterId": str,
-        "ClusterState": ClusterStateType,
-        "CreationDate": datetime,
-        "Description": str,
-    },
-    total=False,
-)
+class ShipmentTypeDef(TypedDict):
+    Status: NotRequired[str]
+    TrackingNumber: NotRequired[str]
 
-ClusterMetadataTypeDef = TypedDict(
-    "ClusterMetadataTypeDef",
-    {
-        "ClusterId": str,
-        "Description": str,
-        "KmsKeyARN": str,
-        "RoleARN": str,
-        "ClusterState": ClusterStateType,
-        "JobType": JobTypeType,
-        "SnowballType": SnowballTypeType,
-        "CreationDate": datetime,
-        "Resources": "JobResourceTypeDef",
-        "AddressId": str,
-        "ShippingOption": ShippingOptionType,
-        "Notification": "NotificationTypeDef",
-        "ForwardingAddressId": str,
-        "TaxDocuments": "TaxDocumentsTypeDef",
-        "OnDeviceServiceConfiguration": "OnDeviceServiceConfigurationTypeDef",
-    },
-    total=False,
-)
+class WirelessConnectionTypeDef(TypedDict):
+    IsWifiEnabled: NotRequired[bool]
 
-CompatibleImageTypeDef = TypedDict(
-    "CompatibleImageTypeDef",
-    {
-        "AmiId": str,
-        "Name": str,
-    },
-    total=False,
-)
+class UpdateJobShipmentStateRequestTypeDef(TypedDict):
+    JobId: str
+    ShipmentState: ShipmentStateType
 
-CreateAddressRequestRequestTypeDef = TypedDict(
-    "CreateAddressRequestRequestTypeDef",
-    {
-        "Address": "AddressTypeDef",
-    },
-)
+class UpdateLongTermPricingRequestTypeDef(TypedDict):
+    LongTermPricingId: str
+    ReplacementJob: NotRequired[str]
+    IsLongTermPricingAutoRenew: NotRequired[bool]
 
-CreateAddressResultTypeDef = TypedDict(
-    "CreateAddressResultTypeDef",
-    {
-        "AddressId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CreateAddressRequestTypeDef(TypedDict):
+    Address: AddressTypeDef
 
-_RequiredCreateClusterRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateClusterRequestRequestTypeDef",
-    {
-        "JobType": JobTypeType,
-        "AddressId": str,
-        "SnowballType": SnowballTypeType,
-        "ShippingOption": ShippingOptionType,
-    },
-)
-_OptionalCreateClusterRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateClusterRequestRequestTypeDef",
-    {
-        "Resources": "JobResourceTypeDef",
-        "OnDeviceServiceConfiguration": "OnDeviceServiceConfigurationTypeDef",
-        "Description": str,
-        "KmsKeyARN": str,
-        "RoleARN": str,
-        "Notification": "NotificationTypeDef",
-        "ForwardingAddressId": str,
-        "TaxDocuments": "TaxDocumentsTypeDef",
-        "RemoteManagement": RemoteManagementType,
-        "InitialClusterSize": int,
-        "ForceCreateJobs": bool,
-        "LongTermPricingIds": List[str],
-        "SnowballCapacityPreference": SnowballCapacityType,
-    },
-    total=False,
-)
+class CreateAddressResultTypeDef(TypedDict):
+    AddressId: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateClusterRequestRequestTypeDef(
-    _RequiredCreateClusterRequestRequestTypeDef, _OptionalCreateClusterRequestRequestTypeDef
-):
-    pass
+class CreateJobResultTypeDef(TypedDict):
+    JobId: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-CreateClusterResultTypeDef = TypedDict(
-    "CreateClusterResultTypeDef",
-    {
-        "ClusterId": str,
-        "JobListEntries": List["JobListEntryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CreateLongTermPricingResultTypeDef(TypedDict):
+    LongTermPricingId: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-CreateJobRequestRequestTypeDef = TypedDict(
-    "CreateJobRequestRequestTypeDef",
-    {
-        "JobType": JobTypeType,
-        "Resources": "JobResourceTypeDef",
-        "OnDeviceServiceConfiguration": "OnDeviceServiceConfigurationTypeDef",
-        "Description": str,
-        "AddressId": str,
-        "KmsKeyARN": str,
-        "RoleARN": str,
-        "SnowballCapacityPreference": SnowballCapacityType,
-        "ShippingOption": ShippingOptionType,
-        "Notification": "NotificationTypeDef",
-        "ClusterId": str,
-        "SnowballType": SnowballTypeType,
-        "ForwardingAddressId": str,
-        "TaxDocuments": "TaxDocumentsTypeDef",
-        "DeviceConfiguration": "DeviceConfigurationTypeDef",
-        "RemoteManagement": RemoteManagementType,
-        "LongTermPricingId": str,
-        "ImpactLevel": ImpactLevelType,
-        "PickupDetails": "PickupDetailsTypeDef",
-    },
-    total=False,
-)
+class CreateReturnShippingLabelResultTypeDef(TypedDict):
+    Status: ShippingLabelStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
 
-CreateJobResultTypeDef = TypedDict(
-    "CreateJobResultTypeDef",
-    {
-        "JobId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DescribeAddressResultTypeDef(TypedDict):
+    Address: AddressTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredCreateLongTermPricingRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateLongTermPricingRequestRequestTypeDef",
-    {
-        "LongTermPricingType": LongTermPricingTypeType,
-        "SnowballType": SnowballTypeType,
-    },
-)
-_OptionalCreateLongTermPricingRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateLongTermPricingRequestRequestTypeDef",
-    {
-        "IsLongTermPricingAutoRenew": bool,
-    },
-    total=False,
-)
+class DescribeAddressesResultTypeDef(TypedDict):
+    Addresses: List[AddressTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-class CreateLongTermPricingRequestRequestTypeDef(
-    _RequiredCreateLongTermPricingRequestRequestTypeDef,
-    _OptionalCreateLongTermPricingRequestRequestTypeDef,
-):
-    pass
+class DescribeReturnShippingLabelResultTypeDef(TypedDict):
+    Status: ShippingLabelStatusType
+    ExpirationDate: datetime
+    ReturnShippingLabelURI: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-CreateLongTermPricingResultTypeDef = TypedDict(
-    "CreateLongTermPricingResultTypeDef",
-    {
-        "LongTermPricingId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetJobManifestResultTypeDef(TypedDict):
+    ManifestURI: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredCreateReturnShippingLabelRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateReturnShippingLabelRequestRequestTypeDef",
-    {
-        "JobId": str,
-    },
-)
-_OptionalCreateReturnShippingLabelRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateReturnShippingLabelRequestRequestTypeDef",
-    {
-        "ShippingOption": ShippingOptionType,
-    },
-    total=False,
-)
+class GetJobUnlockCodeResultTypeDef(TypedDict):
+    UnlockCode: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateReturnShippingLabelRequestRequestTypeDef(
-    _RequiredCreateReturnShippingLabelRequestRequestTypeDef,
-    _OptionalCreateReturnShippingLabelRequestRequestTypeDef,
-):
-    pass
+class GetSnowballUsageResultTypeDef(TypedDict):
+    SnowballLimit: int
+    SnowballsInUse: int
+    ResponseMetadata: ResponseMetadataTypeDef
 
-CreateReturnShippingLabelResultTypeDef = TypedDict(
-    "CreateReturnShippingLabelResultTypeDef",
-    {
-        "Status": ShippingLabelStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetSoftwareUpdatesResultTypeDef(TypedDict):
+    UpdatesURI: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-DataTransferTypeDef = TypedDict(
-    "DataTransferTypeDef",
-    {
-        "BytesTransferred": int,
-        "ObjectsTransferred": int,
-        "TotalBytes": int,
-        "TotalObjects": int,
-    },
-    total=False,
-)
+class ListClustersResultTypeDef(TypedDict):
+    ClusterListEntries: List[ClusterListEntryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListCompatibleImagesResultTypeDef(TypedDict):
+    CompatibleImages: List[CompatibleImageTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListPickupLocationsResultTypeDef(TypedDict):
+    Addresses: List[AddressTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class CreateClusterResultTypeDef(TypedDict):
+    ClusterId: str
+    JobListEntries: List[JobListEntryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListClusterJobsResultTypeDef(TypedDict):
+    JobListEntries: List[JobListEntryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListJobsResultTypeDef(TypedDict):
+    JobListEntries: List[JobListEntryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
 DependentServiceTypeDef = TypedDict(
     "DependentServiceTypeDef",
     {
-        "ServiceName": ServiceNameType,
-        "ServiceVersion": "ServiceVersionTypeDef",
-    },
-    total=False,
-)
-
-DescribeAddressRequestRequestTypeDef = TypedDict(
-    "DescribeAddressRequestRequestTypeDef",
-    {
-        "AddressId": str,
+        "ServiceName": NotRequired[ServiceNameType],
+        "ServiceVersion": NotRequired[ServiceVersionTypeDef],
     },
 )
 
-DescribeAddressResultTypeDef = TypedDict(
-    "DescribeAddressResultTypeDef",
-    {
-        "Address": "AddressTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DescribeAddressesRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-DescribeAddressesRequestRequestTypeDef = TypedDict(
-    "DescribeAddressesRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
+class ListClusterJobsRequestPaginateTypeDef(TypedDict):
+    ClusterId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-DescribeAddressesResultTypeDef = TypedDict(
-    "DescribeAddressesResultTypeDef",
-    {
-        "Addresses": List["AddressTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListClustersRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-DescribeClusterRequestRequestTypeDef = TypedDict(
-    "DescribeClusterRequestRequestTypeDef",
-    {
-        "ClusterId": str,
-    },
-)
+class ListCompatibleImagesRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-DescribeClusterResultTypeDef = TypedDict(
-    "DescribeClusterResultTypeDef",
-    {
-        "ClusterMetadata": "ClusterMetadataTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListJobsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-DescribeJobRequestRequestTypeDef = TypedDict(
-    "DescribeJobRequestRequestTypeDef",
-    {
-        "JobId": str,
-    },
-)
+class ListLongTermPricingRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-DescribeJobResultTypeDef = TypedDict(
-    "DescribeJobResultTypeDef",
-    {
-        "JobMetadata": "JobMetadataTypeDef",
-        "SubJobMetadata": List["JobMetadataTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class LambdaResourceOutputTypeDef(TypedDict):
+    LambdaArn: NotRequired[str]
+    EventTriggers: NotRequired[List[EventTriggerDefinitionTypeDef]]
 
-DescribeReturnShippingLabelRequestRequestTypeDef = TypedDict(
-    "DescribeReturnShippingLabelRequestRequestTypeDef",
-    {
-        "JobId": str,
-    },
-)
+class LambdaResourceTypeDef(TypedDict):
+    LambdaArn: NotRequired[str]
+    EventTriggers: NotRequired[Sequence[EventTriggerDefinitionTypeDef]]
 
-DescribeReturnShippingLabelResultTypeDef = TypedDict(
-    "DescribeReturnShippingLabelResultTypeDef",
-    {
-        "Status": ShippingLabelStatusType,
-        "ExpirationDate": datetime,
-        "ReturnShippingLabelURI": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class TaxDocumentsTypeDef(TypedDict):
+    IND: NotRequired[INDTaxDocumentsTypeDef]
 
-DeviceConfigurationTypeDef = TypedDict(
-    "DeviceConfigurationTypeDef",
-    {
-        "SnowconeDeviceConfiguration": "SnowconeDeviceConfigurationTypeDef",
-    },
-    total=False,
-)
+class ListLongTermPricingResultTypeDef(TypedDict):
+    LongTermPricingEntries: List[LongTermPricingListEntryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-EKSOnDeviceServiceConfigurationTypeDef = TypedDict(
-    "EKSOnDeviceServiceConfigurationTypeDef",
-    {
-        "KubernetesVersion": str,
-        "EKSAnywhereVersion": str,
-    },
-    total=False,
-)
+NotificationUnionTypeDef = Union[NotificationTypeDef, NotificationOutputTypeDef]
 
-_RequiredEc2AmiResourceTypeDef = TypedDict(
-    "_RequiredEc2AmiResourceTypeDef",
-    {
-        "AmiId": str,
-    },
-)
-_OptionalEc2AmiResourceTypeDef = TypedDict(
-    "_OptionalEc2AmiResourceTypeDef",
-    {
-        "SnowballAmiId": str,
-    },
-    total=False,
-)
+class OnDeviceServiceConfigurationTypeDef(TypedDict):
+    NFSOnDeviceService: NotRequired[NFSOnDeviceServiceConfigurationTypeDef]
+    TGWOnDeviceService: NotRequired[TGWOnDeviceServiceConfigurationTypeDef]
+    EKSOnDeviceService: NotRequired[EKSOnDeviceServiceConfigurationTypeDef]
+    S3OnDeviceService: NotRequired[S3OnDeviceServiceConfigurationTypeDef]
 
-class Ec2AmiResourceTypeDef(_RequiredEc2AmiResourceTypeDef, _OptionalEc2AmiResourceTypeDef):
-    pass
+class PickupDetailsTypeDef(TypedDict):
+    Name: NotRequired[str]
+    PhoneNumber: NotRequired[str]
+    Email: NotRequired[str]
+    IdentificationNumber: NotRequired[str]
+    IdentificationExpirationDate: NotRequired[TimestampTypeDef]
+    IdentificationIssuingOrg: NotRequired[str]
+    DevicePickupId: NotRequired[str]
 
-EventTriggerDefinitionTypeDef = TypedDict(
-    "EventTriggerDefinitionTypeDef",
-    {
-        "EventResourceARN": str,
-    },
-    total=False,
-)
+class S3ResourceOutputTypeDef(TypedDict):
+    BucketArn: NotRequired[str]
+    KeyRange: NotRequired[KeyRangeTypeDef]
+    TargetOnDeviceServices: NotRequired[List[TargetOnDeviceServiceTypeDef]]
 
-GetJobManifestRequestRequestTypeDef = TypedDict(
-    "GetJobManifestRequestRequestTypeDef",
-    {
-        "JobId": str,
-    },
-)
+class S3ResourceTypeDef(TypedDict):
+    BucketArn: NotRequired[str]
+    KeyRange: NotRequired[KeyRangeTypeDef]
+    TargetOnDeviceServices: NotRequired[Sequence[TargetOnDeviceServiceTypeDef]]
 
-GetJobManifestResultTypeDef = TypedDict(
-    "GetJobManifestResultTypeDef",
-    {
-        "ManifestURI": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ShippingDetailsTypeDef(TypedDict):
+    ShippingOption: NotRequired[ShippingOptionType]
+    InboundShipment: NotRequired[ShipmentTypeDef]
+    OutboundShipment: NotRequired[ShipmentTypeDef]
 
-GetJobUnlockCodeRequestRequestTypeDef = TypedDict(
-    "GetJobUnlockCodeRequestRequestTypeDef",
-    {
-        "JobId": str,
-    },
-)
+class SnowconeDeviceConfigurationTypeDef(TypedDict):
+    WirelessConnection: NotRequired[WirelessConnectionTypeDef]
 
-GetJobUnlockCodeResultTypeDef = TypedDict(
-    "GetJobUnlockCodeResultTypeDef",
-    {
-        "UnlockCode": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetSnowballUsageResultTypeDef = TypedDict(
-    "GetSnowballUsageResultTypeDef",
-    {
-        "SnowballLimit": int,
-        "SnowballsInUse": int,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetSoftwareUpdatesRequestRequestTypeDef = TypedDict(
-    "GetSoftwareUpdatesRequestRequestTypeDef",
-    {
-        "JobId": str,
-    },
-)
-
-GetSoftwareUpdatesResultTypeDef = TypedDict(
-    "GetSoftwareUpdatesResultTypeDef",
-    {
-        "UpdatesURI": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-INDTaxDocumentsTypeDef = TypedDict(
-    "INDTaxDocumentsTypeDef",
-    {
-        "GSTIN": str,
-    },
-    total=False,
-)
-
-JobListEntryTypeDef = TypedDict(
-    "JobListEntryTypeDef",
-    {
-        "JobId": str,
-        "JobState": JobStateType,
-        "IsMaster": bool,
-        "JobType": JobTypeType,
-        "SnowballType": SnowballTypeType,
-        "CreationDate": datetime,
-        "Description": str,
-    },
-    total=False,
-)
-
-JobLogsTypeDef = TypedDict(
-    "JobLogsTypeDef",
-    {
-        "JobCompletionReportURI": str,
-        "JobSuccessLogURI": str,
-        "JobFailureLogURI": str,
-    },
-    total=False,
-)
-
-JobMetadataTypeDef = TypedDict(
-    "JobMetadataTypeDef",
-    {
-        "JobId": str,
-        "JobState": JobStateType,
-        "JobType": JobTypeType,
-        "SnowballType": SnowballTypeType,
-        "CreationDate": datetime,
-        "Resources": "JobResourceTypeDef",
-        "Description": str,
-        "KmsKeyARN": str,
-        "RoleARN": str,
-        "AddressId": str,
-        "ShippingDetails": "ShippingDetailsTypeDef",
-        "SnowballCapacityPreference": SnowballCapacityType,
-        "Notification": "NotificationTypeDef",
-        "DataTransferProgress": "DataTransferTypeDef",
-        "JobLogInfo": "JobLogsTypeDef",
-        "ClusterId": str,
-        "ForwardingAddressId": str,
-        "TaxDocuments": "TaxDocumentsTypeDef",
-        "DeviceConfiguration": "DeviceConfigurationTypeDef",
-        "RemoteManagement": RemoteManagementType,
-        "LongTermPricingId": str,
-        "OnDeviceServiceConfiguration": "OnDeviceServiceConfigurationTypeDef",
-        "ImpactLevel": ImpactLevelType,
-        "PickupDetails": "PickupDetailsTypeDef",
-        "SnowballId": str,
-    },
-    total=False,
-)
-
-JobResourceTypeDef = TypedDict(
-    "JobResourceTypeDef",
-    {
-        "S3Resources": List["S3ResourceTypeDef"],
-        "LambdaResources": List["LambdaResourceTypeDef"],
-        "Ec2AmiResources": List["Ec2AmiResourceTypeDef"],
-    },
-    total=False,
-)
-
-KeyRangeTypeDef = TypedDict(
-    "KeyRangeTypeDef",
-    {
-        "BeginMarker": str,
-        "EndMarker": str,
-    },
-    total=False,
-)
-
-LambdaResourceTypeDef = TypedDict(
-    "LambdaResourceTypeDef",
-    {
-        "LambdaArn": str,
-        "EventTriggers": List["EventTriggerDefinitionTypeDef"],
-    },
-    total=False,
-)
-
-_RequiredListClusterJobsRequestRequestTypeDef = TypedDict(
-    "_RequiredListClusterJobsRequestRequestTypeDef",
-    {
-        "ClusterId": str,
-    },
-)
-_OptionalListClusterJobsRequestRequestTypeDef = TypedDict(
-    "_OptionalListClusterJobsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListClusterJobsRequestRequestTypeDef(
-    _RequiredListClusterJobsRequestRequestTypeDef, _OptionalListClusterJobsRequestRequestTypeDef
-):
-    pass
-
-ListClusterJobsResultTypeDef = TypedDict(
-    "ListClusterJobsResultTypeDef",
-    {
-        "JobListEntries": List["JobListEntryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListClustersRequestRequestTypeDef = TypedDict(
-    "ListClustersRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListClustersResultTypeDef = TypedDict(
-    "ListClustersResultTypeDef",
-    {
-        "ClusterListEntries": List["ClusterListEntryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListCompatibleImagesRequestRequestTypeDef = TypedDict(
-    "ListCompatibleImagesRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListCompatibleImagesResultTypeDef = TypedDict(
-    "ListCompatibleImagesResultTypeDef",
-    {
-        "CompatibleImages": List["CompatibleImageTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListJobsRequestRequestTypeDef = TypedDict(
-    "ListJobsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListJobsResultTypeDef = TypedDict(
-    "ListJobsResultTypeDef",
-    {
-        "JobListEntries": List["JobListEntryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListLongTermPricingRequestRequestTypeDef = TypedDict(
-    "ListLongTermPricingRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListLongTermPricingResultTypeDef = TypedDict(
-    "ListLongTermPricingResultTypeDef",
-    {
-        "LongTermPricingEntries": List["LongTermPricingListEntryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListPickupLocationsRequestRequestTypeDef = TypedDict(
-    "ListPickupLocationsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListPickupLocationsResultTypeDef = TypedDict(
-    "ListPickupLocationsResultTypeDef",
-    {
-        "Addresses": List["AddressTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListServiceVersionsRequestRequestTypeDef = TypedDict(
-    "_RequiredListServiceVersionsRequestRequestTypeDef",
+ListServiceVersionsRequestTypeDef = TypedDict(
+    "ListServiceVersionsRequestTypeDef",
     {
         "ServiceName": ServiceNameType,
+        "DependentServices": NotRequired[Sequence[DependentServiceTypeDef]],
+        "MaxResults": NotRequired[int],
+        "NextToken": NotRequired[str],
     },
 )
-_OptionalListServiceVersionsRequestRequestTypeDef = TypedDict(
-    "_OptionalListServiceVersionsRequestRequestTypeDef",
-    {
-        "DependentServices": List["DependentServiceTypeDef"],
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListServiceVersionsRequestRequestTypeDef(
-    _RequiredListServiceVersionsRequestRequestTypeDef,
-    _OptionalListServiceVersionsRequestRequestTypeDef,
-):
-    pass
-
 ListServiceVersionsResultTypeDef = TypedDict(
     "ListServiceVersionsResultTypeDef",
     {
-        "ServiceVersions": List["ServiceVersionTypeDef"],
+        "ServiceVersions": List[ServiceVersionTypeDef],
         "ServiceName": ServiceNameType,
-        "DependentServices": List["DependentServiceTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "DependentServices": List[DependentServiceTypeDef],
+        "ResponseMetadata": ResponseMetadataTypeDef,
+        "NextToken": NotRequired[str],
     },
 )
+PickupDetailsUnionTypeDef = Union[PickupDetailsTypeDef, PickupDetailsOutputTypeDef]
 
-LongTermPricingListEntryTypeDef = TypedDict(
-    "LongTermPricingListEntryTypeDef",
-    {
-        "LongTermPricingId": str,
-        "LongTermPricingEndDate": datetime,
-        "LongTermPricingStartDate": datetime,
-        "LongTermPricingType": LongTermPricingTypeType,
-        "CurrentActiveJob": str,
-        "ReplacementJob": str,
-        "IsLongTermPricingAutoRenew": bool,
-        "LongTermPricingStatus": str,
-        "SnowballType": SnowballTypeType,
-        "JobIds": List[str],
-    },
-    total=False,
-)
+class JobResourceOutputTypeDef(TypedDict):
+    S3Resources: NotRequired[List[S3ResourceOutputTypeDef]]
+    LambdaResources: NotRequired[List[LambdaResourceOutputTypeDef]]
+    Ec2AmiResources: NotRequired[List[Ec2AmiResourceTypeDef]]
 
-NFSOnDeviceServiceConfigurationTypeDef = TypedDict(
-    "NFSOnDeviceServiceConfigurationTypeDef",
-    {
-        "StorageLimit": int,
-        "StorageUnit": Literal["TB"],
-    },
-    total=False,
-)
+class JobResourceTypeDef(TypedDict):
+    S3Resources: NotRequired[Sequence[S3ResourceTypeDef]]
+    LambdaResources: NotRequired[Sequence[LambdaResourceTypeDef]]
+    Ec2AmiResources: NotRequired[Sequence[Ec2AmiResourceTypeDef]]
 
-NotificationTypeDef = TypedDict(
-    "NotificationTypeDef",
-    {
-        "SnsTopicARN": str,
-        "JobStatesToNotify": List[JobStateType],
-        "NotifyAll": bool,
-        "DevicePickupSnsTopicARN": str,
-    },
-    total=False,
-)
+class DeviceConfigurationTypeDef(TypedDict):
+    SnowconeDeviceConfiguration: NotRequired[SnowconeDeviceConfigurationTypeDef]
 
-OnDeviceServiceConfigurationTypeDef = TypedDict(
-    "OnDeviceServiceConfigurationTypeDef",
-    {
-        "NFSOnDeviceService": "NFSOnDeviceServiceConfigurationTypeDef",
-        "TGWOnDeviceService": "TGWOnDeviceServiceConfigurationTypeDef",
-        "EKSOnDeviceService": "EKSOnDeviceServiceConfigurationTypeDef",
-        "S3OnDeviceService": "S3OnDeviceServiceConfigurationTypeDef",
-    },
-    total=False,
-)
+class ClusterMetadataTypeDef(TypedDict):
+    ClusterId: NotRequired[str]
+    Description: NotRequired[str]
+    KmsKeyARN: NotRequired[str]
+    RoleARN: NotRequired[str]
+    ClusterState: NotRequired[ClusterStateType]
+    JobType: NotRequired[JobTypeType]
+    SnowballType: NotRequired[SnowballTypeType]
+    CreationDate: NotRequired[datetime]
+    Resources: NotRequired[JobResourceOutputTypeDef]
+    AddressId: NotRequired[str]
+    ShippingOption: NotRequired[ShippingOptionType]
+    Notification: NotRequired[NotificationOutputTypeDef]
+    ForwardingAddressId: NotRequired[str]
+    TaxDocuments: NotRequired[TaxDocumentsTypeDef]
+    OnDeviceServiceConfiguration: NotRequired[OnDeviceServiceConfigurationTypeDef]
 
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
+JobResourceUnionTypeDef = Union[JobResourceTypeDef, JobResourceOutputTypeDef]
 
-PickupDetailsTypeDef = TypedDict(
-    "PickupDetailsTypeDef",
-    {
-        "Name": str,
-        "PhoneNumber": str,
-        "Email": str,
-        "IdentificationNumber": str,
-        "IdentificationExpirationDate": Union[datetime, str],
-        "IdentificationIssuingOrg": str,
-        "DevicePickupId": str,
-    },
-    total=False,
-)
+class JobMetadataTypeDef(TypedDict):
+    JobId: NotRequired[str]
+    JobState: NotRequired[JobStateType]
+    JobType: NotRequired[JobTypeType]
+    SnowballType: NotRequired[SnowballTypeType]
+    CreationDate: NotRequired[datetime]
+    Resources: NotRequired[JobResourceOutputTypeDef]
+    Description: NotRequired[str]
+    KmsKeyARN: NotRequired[str]
+    RoleARN: NotRequired[str]
+    AddressId: NotRequired[str]
+    ShippingDetails: NotRequired[ShippingDetailsTypeDef]
+    SnowballCapacityPreference: NotRequired[SnowballCapacityType]
+    Notification: NotRequired[NotificationOutputTypeDef]
+    DataTransferProgress: NotRequired[DataTransferTypeDef]
+    JobLogInfo: NotRequired[JobLogsTypeDef]
+    ClusterId: NotRequired[str]
+    ForwardingAddressId: NotRequired[str]
+    TaxDocuments: NotRequired[TaxDocumentsTypeDef]
+    DeviceConfiguration: NotRequired[DeviceConfigurationTypeDef]
+    RemoteManagement: NotRequired[RemoteManagementType]
+    LongTermPricingId: NotRequired[str]
+    OnDeviceServiceConfiguration: NotRequired[OnDeviceServiceConfigurationTypeDef]
+    ImpactLevel: NotRequired[ImpactLevelType]
+    PickupDetails: NotRequired[PickupDetailsOutputTypeDef]
+    SnowballId: NotRequired[str]
 
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
+class DescribeClusterResultTypeDef(TypedDict):
+    ClusterMetadata: ClusterMetadataTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-S3OnDeviceServiceConfigurationTypeDef = TypedDict(
-    "S3OnDeviceServiceConfigurationTypeDef",
-    {
-        "StorageLimit": float,
-        "StorageUnit": Literal["TB"],
-        "ServiceSize": int,
-        "FaultTolerance": int,
-    },
-    total=False,
-)
+class CreateClusterRequestTypeDef(TypedDict):
+    JobType: JobTypeType
+    AddressId: str
+    SnowballType: SnowballTypeType
+    ShippingOption: ShippingOptionType
+    Resources: NotRequired[JobResourceUnionTypeDef]
+    OnDeviceServiceConfiguration: NotRequired[OnDeviceServiceConfigurationTypeDef]
+    Description: NotRequired[str]
+    KmsKeyARN: NotRequired[str]
+    RoleARN: NotRequired[str]
+    Notification: NotRequired[NotificationUnionTypeDef]
+    ForwardingAddressId: NotRequired[str]
+    TaxDocuments: NotRequired[TaxDocumentsTypeDef]
+    RemoteManagement: NotRequired[RemoteManagementType]
+    InitialClusterSize: NotRequired[int]
+    ForceCreateJobs: NotRequired[bool]
+    LongTermPricingIds: NotRequired[Sequence[str]]
+    SnowballCapacityPreference: NotRequired[SnowballCapacityType]
 
-S3ResourceTypeDef = TypedDict(
-    "S3ResourceTypeDef",
-    {
-        "BucketArn": str,
-        "KeyRange": "KeyRangeTypeDef",
-        "TargetOnDeviceServices": List["TargetOnDeviceServiceTypeDef"],
-    },
-    total=False,
-)
+class CreateJobRequestTypeDef(TypedDict):
+    JobType: NotRequired[JobTypeType]
+    Resources: NotRequired[JobResourceUnionTypeDef]
+    OnDeviceServiceConfiguration: NotRequired[OnDeviceServiceConfigurationTypeDef]
+    Description: NotRequired[str]
+    AddressId: NotRequired[str]
+    KmsKeyARN: NotRequired[str]
+    RoleARN: NotRequired[str]
+    SnowballCapacityPreference: NotRequired[SnowballCapacityType]
+    ShippingOption: NotRequired[ShippingOptionType]
+    Notification: NotRequired[NotificationUnionTypeDef]
+    ClusterId: NotRequired[str]
+    SnowballType: NotRequired[SnowballTypeType]
+    ForwardingAddressId: NotRequired[str]
+    TaxDocuments: NotRequired[TaxDocumentsTypeDef]
+    DeviceConfiguration: NotRequired[DeviceConfigurationTypeDef]
+    RemoteManagement: NotRequired[RemoteManagementType]
+    LongTermPricingId: NotRequired[str]
+    ImpactLevel: NotRequired[ImpactLevelType]
+    PickupDetails: NotRequired[PickupDetailsUnionTypeDef]
 
-ServiceVersionTypeDef = TypedDict(
-    "ServiceVersionTypeDef",
-    {
-        "Version": str,
-    },
-    total=False,
-)
+class UpdateClusterRequestTypeDef(TypedDict):
+    ClusterId: str
+    RoleARN: NotRequired[str]
+    Description: NotRequired[str]
+    Resources: NotRequired[JobResourceUnionTypeDef]
+    OnDeviceServiceConfiguration: NotRequired[OnDeviceServiceConfigurationTypeDef]
+    AddressId: NotRequired[str]
+    ShippingOption: NotRequired[ShippingOptionType]
+    Notification: NotRequired[NotificationUnionTypeDef]
+    ForwardingAddressId: NotRequired[str]
 
-ShipmentTypeDef = TypedDict(
-    "ShipmentTypeDef",
-    {
-        "Status": str,
-        "TrackingNumber": str,
-    },
-    total=False,
-)
+class UpdateJobRequestTypeDef(TypedDict):
+    JobId: str
+    RoleARN: NotRequired[str]
+    Notification: NotRequired[NotificationUnionTypeDef]
+    Resources: NotRequired[JobResourceUnionTypeDef]
+    OnDeviceServiceConfiguration: NotRequired[OnDeviceServiceConfigurationTypeDef]
+    AddressId: NotRequired[str]
+    ShippingOption: NotRequired[ShippingOptionType]
+    Description: NotRequired[str]
+    SnowballCapacityPreference: NotRequired[SnowballCapacityType]
+    ForwardingAddressId: NotRequired[str]
+    PickupDetails: NotRequired[PickupDetailsUnionTypeDef]
 
-ShippingDetailsTypeDef = TypedDict(
-    "ShippingDetailsTypeDef",
-    {
-        "ShippingOption": ShippingOptionType,
-        "InboundShipment": "ShipmentTypeDef",
-        "OutboundShipment": "ShipmentTypeDef",
-    },
-    total=False,
-)
-
-SnowconeDeviceConfigurationTypeDef = TypedDict(
-    "SnowconeDeviceConfigurationTypeDef",
-    {
-        "WirelessConnection": "WirelessConnectionTypeDef",
-    },
-    total=False,
-)
-
-TGWOnDeviceServiceConfigurationTypeDef = TypedDict(
-    "TGWOnDeviceServiceConfigurationTypeDef",
-    {
-        "StorageLimit": int,
-        "StorageUnit": Literal["TB"],
-    },
-    total=False,
-)
-
-TargetOnDeviceServiceTypeDef = TypedDict(
-    "TargetOnDeviceServiceTypeDef",
-    {
-        "ServiceName": DeviceServiceNameType,
-        "TransferOption": TransferOptionType,
-    },
-    total=False,
-)
-
-TaxDocumentsTypeDef = TypedDict(
-    "TaxDocumentsTypeDef",
-    {
-        "IND": "INDTaxDocumentsTypeDef",
-    },
-    total=False,
-)
-
-_RequiredUpdateClusterRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateClusterRequestRequestTypeDef",
-    {
-        "ClusterId": str,
-    },
-)
-_OptionalUpdateClusterRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateClusterRequestRequestTypeDef",
-    {
-        "RoleARN": str,
-        "Description": str,
-        "Resources": "JobResourceTypeDef",
-        "OnDeviceServiceConfiguration": "OnDeviceServiceConfigurationTypeDef",
-        "AddressId": str,
-        "ShippingOption": ShippingOptionType,
-        "Notification": "NotificationTypeDef",
-        "ForwardingAddressId": str,
-    },
-    total=False,
-)
-
-class UpdateClusterRequestRequestTypeDef(
-    _RequiredUpdateClusterRequestRequestTypeDef, _OptionalUpdateClusterRequestRequestTypeDef
-):
-    pass
-
-_RequiredUpdateJobRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateJobRequestRequestTypeDef",
-    {
-        "JobId": str,
-    },
-)
-_OptionalUpdateJobRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateJobRequestRequestTypeDef",
-    {
-        "RoleARN": str,
-        "Notification": "NotificationTypeDef",
-        "Resources": "JobResourceTypeDef",
-        "OnDeviceServiceConfiguration": "OnDeviceServiceConfigurationTypeDef",
-        "AddressId": str,
-        "ShippingOption": ShippingOptionType,
-        "Description": str,
-        "SnowballCapacityPreference": SnowballCapacityType,
-        "ForwardingAddressId": str,
-        "PickupDetails": "PickupDetailsTypeDef",
-    },
-    total=False,
-)
-
-class UpdateJobRequestRequestTypeDef(
-    _RequiredUpdateJobRequestRequestTypeDef, _OptionalUpdateJobRequestRequestTypeDef
-):
-    pass
-
-UpdateJobShipmentStateRequestRequestTypeDef = TypedDict(
-    "UpdateJobShipmentStateRequestRequestTypeDef",
-    {
-        "JobId": str,
-        "ShipmentState": ShipmentStateType,
-    },
-)
-
-_RequiredUpdateLongTermPricingRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateLongTermPricingRequestRequestTypeDef",
-    {
-        "LongTermPricingId": str,
-    },
-)
-_OptionalUpdateLongTermPricingRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateLongTermPricingRequestRequestTypeDef",
-    {
-        "ReplacementJob": str,
-        "IsLongTermPricingAutoRenew": bool,
-    },
-    total=False,
-)
-
-class UpdateLongTermPricingRequestRequestTypeDef(
-    _RequiredUpdateLongTermPricingRequestRequestTypeDef,
-    _OptionalUpdateLongTermPricingRequestRequestTypeDef,
-):
-    pass
-
-WirelessConnectionTypeDef = TypedDict(
-    "WirelessConnectionTypeDef",
-    {
-        "IsWifiEnabled": bool,
-    },
-    total=False,
-)
+class DescribeJobResultTypeDef(TypedDict):
+    JobMetadata: JobMetadataTypeDef
+    SubJobMetadata: List[JobMetadataTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef

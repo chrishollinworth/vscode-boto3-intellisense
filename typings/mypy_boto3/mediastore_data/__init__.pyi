@@ -1,20 +1,22 @@
 """
 Main interface for mediastore-data service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediastore_data/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_mediastore_data import (
         Client,
         ListItemsPaginator,
         MediaStoreDataClient,
     )
 
-    session = boto3.Session()
-
-    client: MediaStoreDataClient = boto3.client("mediastore-data")
-    session_client: MediaStoreDataClient = session.client("mediastore-data")
+    session = Session()
+    client: MediaStoreDataClient = session.client("mediastore-data")
 
     list_items_paginator: ListItemsPaginator = client.get_paginator("list_items")
     ```

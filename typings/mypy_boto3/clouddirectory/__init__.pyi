@@ -1,10 +1,14 @@
 """
 Main interface for clouddirectory service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_clouddirectory import (
         Client,
         CloudDirectoryClient,
@@ -29,10 +33,8 @@ Usage::
         LookupPolicyPaginator,
     )
 
-    session = boto3.Session()
-
-    client: CloudDirectoryClient = boto3.client("clouddirectory")
-    session_client: CloudDirectoryClient = session.client("clouddirectory")
+    session = Session()
+    client: CloudDirectoryClient = session.client("clouddirectory")
 
     list_applied_schema_arns_paginator: ListAppliedSchemaArnsPaginator = client.get_paginator("list_applied_schema_arns")
     list_attached_indices_paginator: ListAttachedIndicesPaginator = client.get_paginator("list_attached_indices")

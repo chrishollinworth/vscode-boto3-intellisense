@@ -1,26 +1,32 @@
 """
 Type annotations for athena service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_athena/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_athena/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_athena.type_defs import AclConfigurationTypeDef
 
-    data: AclConfigurationTypeDef = {...}
+    data: AclConfigurationTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
+from typing import Any, Union
 
 from .literals import (
     CalculationExecutionStateType,
     CapacityAllocationStatusType,
     CapacityReservationStatusType,
     ColumnNullableType,
+    ConnectionTypeType,
+    DataCatalogStatusType,
     DataCatalogTypeType,
     EncryptionOptionType,
     ExecutorStateType,
@@ -31,133 +37,148 @@ from .literals import (
     WorkGroupStateType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
     "AclConfigurationTypeDef",
     "ApplicationDPUSizesTypeDef",
     "AthenaErrorTypeDef",
-    "BatchGetNamedQueryInputRequestTypeDef",
+    "BatchGetNamedQueryInputTypeDef",
     "BatchGetNamedQueryOutputTypeDef",
-    "BatchGetPreparedStatementInputRequestTypeDef",
+    "BatchGetPreparedStatementInputTypeDef",
     "BatchGetPreparedStatementOutputTypeDef",
-    "BatchGetQueryExecutionInputRequestTypeDef",
+    "BatchGetQueryExecutionInputTypeDef",
     "BatchGetQueryExecutionOutputTypeDef",
     "CalculationConfigurationTypeDef",
     "CalculationResultTypeDef",
     "CalculationStatisticsTypeDef",
     "CalculationStatusTypeDef",
     "CalculationSummaryTypeDef",
-    "CancelCapacityReservationInputRequestTypeDef",
+    "CancelCapacityReservationInputTypeDef",
     "CapacityAllocationTypeDef",
     "CapacityAssignmentConfigurationTypeDef",
+    "CapacityAssignmentOutputTypeDef",
     "CapacityAssignmentTypeDef",
+    "CapacityAssignmentUnionTypeDef",
     "CapacityReservationTypeDef",
     "ColumnInfoTypeDef",
     "ColumnTypeDef",
-    "CreateCapacityReservationInputRequestTypeDef",
-    "CreateDataCatalogInputRequestTypeDef",
-    "CreateNamedQueryInputRequestTypeDef",
+    "CreateCapacityReservationInputTypeDef",
+    "CreateDataCatalogInputTypeDef",
+    "CreateDataCatalogOutputTypeDef",
+    "CreateNamedQueryInputTypeDef",
     "CreateNamedQueryOutputTypeDef",
-    "CreateNotebookInputRequestTypeDef",
+    "CreateNotebookInputTypeDef",
     "CreateNotebookOutputTypeDef",
-    "CreatePreparedStatementInputRequestTypeDef",
-    "CreatePresignedNotebookUrlRequestRequestTypeDef",
+    "CreatePreparedStatementInputTypeDef",
+    "CreatePresignedNotebookUrlRequestTypeDef",
     "CreatePresignedNotebookUrlResponseTypeDef",
-    "CreateWorkGroupInputRequestTypeDef",
+    "CreateWorkGroupInputTypeDef",
     "CustomerContentEncryptionConfigurationTypeDef",
     "DataCatalogSummaryTypeDef",
     "DataCatalogTypeDef",
     "DatabaseTypeDef",
     "DatumTypeDef",
-    "DeleteCapacityReservationInputRequestTypeDef",
-    "DeleteDataCatalogInputRequestTypeDef",
-    "DeleteNamedQueryInputRequestTypeDef",
-    "DeleteNotebookInputRequestTypeDef",
-    "DeletePreparedStatementInputRequestTypeDef",
-    "DeleteWorkGroupInputRequestTypeDef",
+    "DeleteCapacityReservationInputTypeDef",
+    "DeleteDataCatalogInputTypeDef",
+    "DeleteDataCatalogOutputTypeDef",
+    "DeleteNamedQueryInputTypeDef",
+    "DeleteNotebookInputTypeDef",
+    "DeletePreparedStatementInputTypeDef",
+    "DeleteWorkGroupInputTypeDef",
     "EncryptionConfigurationTypeDef",
+    "EngineConfigurationOutputTypeDef",
     "EngineConfigurationTypeDef",
+    "EngineConfigurationUnionTypeDef",
     "EngineVersionTypeDef",
     "ExecutorsSummaryTypeDef",
-    "ExportNotebookInputRequestTypeDef",
+    "ExportNotebookInputTypeDef",
     "ExportNotebookOutputTypeDef",
     "FilterDefinitionTypeDef",
-    "GetCalculationExecutionCodeRequestRequestTypeDef",
+    "GetCalculationExecutionCodeRequestTypeDef",
     "GetCalculationExecutionCodeResponseTypeDef",
-    "GetCalculationExecutionRequestRequestTypeDef",
+    "GetCalculationExecutionRequestTypeDef",
     "GetCalculationExecutionResponseTypeDef",
-    "GetCalculationExecutionStatusRequestRequestTypeDef",
+    "GetCalculationExecutionStatusRequestTypeDef",
     "GetCalculationExecutionStatusResponseTypeDef",
-    "GetCapacityAssignmentConfigurationInputRequestTypeDef",
+    "GetCapacityAssignmentConfigurationInputTypeDef",
     "GetCapacityAssignmentConfigurationOutputTypeDef",
-    "GetCapacityReservationInputRequestTypeDef",
+    "GetCapacityReservationInputTypeDef",
     "GetCapacityReservationOutputTypeDef",
-    "GetDataCatalogInputRequestTypeDef",
+    "GetDataCatalogInputTypeDef",
     "GetDataCatalogOutputTypeDef",
-    "GetDatabaseInputRequestTypeDef",
+    "GetDatabaseInputTypeDef",
     "GetDatabaseOutputTypeDef",
-    "GetNamedQueryInputRequestTypeDef",
+    "GetNamedQueryInputTypeDef",
     "GetNamedQueryOutputTypeDef",
-    "GetNotebookMetadataInputRequestTypeDef",
+    "GetNotebookMetadataInputTypeDef",
     "GetNotebookMetadataOutputTypeDef",
-    "GetPreparedStatementInputRequestTypeDef",
+    "GetPreparedStatementInputTypeDef",
     "GetPreparedStatementOutputTypeDef",
-    "GetQueryExecutionInputRequestTypeDef",
+    "GetQueryExecutionInputTypeDef",
     "GetQueryExecutionOutputTypeDef",
-    "GetQueryResultsInputRequestTypeDef",
+    "GetQueryResultsInputPaginateTypeDef",
+    "GetQueryResultsInputTypeDef",
     "GetQueryResultsOutputTypeDef",
-    "GetQueryRuntimeStatisticsInputRequestTypeDef",
+    "GetQueryRuntimeStatisticsInputTypeDef",
     "GetQueryRuntimeStatisticsOutputTypeDef",
-    "GetSessionRequestRequestTypeDef",
+    "GetSessionRequestTypeDef",
     "GetSessionResponseTypeDef",
-    "GetSessionStatusRequestRequestTypeDef",
+    "GetSessionStatusRequestTypeDef",
     "GetSessionStatusResponseTypeDef",
-    "GetTableMetadataInputRequestTypeDef",
+    "GetTableMetadataInputTypeDef",
     "GetTableMetadataOutputTypeDef",
-    "GetWorkGroupInputRequestTypeDef",
+    "GetWorkGroupInputTypeDef",
     "GetWorkGroupOutputTypeDef",
     "IdentityCenterConfigurationTypeDef",
-    "ImportNotebookInputRequestTypeDef",
+    "ImportNotebookInputTypeDef",
     "ImportNotebookOutputTypeDef",
-    "ListApplicationDPUSizesInputRequestTypeDef",
+    "ListApplicationDPUSizesInputTypeDef",
     "ListApplicationDPUSizesOutputTypeDef",
-    "ListCalculationExecutionsRequestRequestTypeDef",
+    "ListCalculationExecutionsRequestTypeDef",
     "ListCalculationExecutionsResponseTypeDef",
-    "ListCapacityReservationsInputRequestTypeDef",
+    "ListCapacityReservationsInputTypeDef",
     "ListCapacityReservationsOutputTypeDef",
-    "ListDataCatalogsInputRequestTypeDef",
+    "ListDataCatalogsInputPaginateTypeDef",
+    "ListDataCatalogsInputTypeDef",
     "ListDataCatalogsOutputTypeDef",
-    "ListDatabasesInputRequestTypeDef",
+    "ListDatabasesInputPaginateTypeDef",
+    "ListDatabasesInputTypeDef",
     "ListDatabasesOutputTypeDef",
-    "ListEngineVersionsInputRequestTypeDef",
+    "ListEngineVersionsInputTypeDef",
     "ListEngineVersionsOutputTypeDef",
-    "ListExecutorsRequestRequestTypeDef",
+    "ListExecutorsRequestTypeDef",
     "ListExecutorsResponseTypeDef",
-    "ListNamedQueriesInputRequestTypeDef",
+    "ListNamedQueriesInputPaginateTypeDef",
+    "ListNamedQueriesInputTypeDef",
     "ListNamedQueriesOutputTypeDef",
-    "ListNotebookMetadataInputRequestTypeDef",
+    "ListNotebookMetadataInputTypeDef",
     "ListNotebookMetadataOutputTypeDef",
-    "ListNotebookSessionsRequestRequestTypeDef",
+    "ListNotebookSessionsRequestTypeDef",
     "ListNotebookSessionsResponseTypeDef",
-    "ListPreparedStatementsInputRequestTypeDef",
+    "ListPreparedStatementsInputTypeDef",
     "ListPreparedStatementsOutputTypeDef",
-    "ListQueryExecutionsInputRequestTypeDef",
+    "ListQueryExecutionsInputPaginateTypeDef",
+    "ListQueryExecutionsInputTypeDef",
     "ListQueryExecutionsOutputTypeDef",
-    "ListSessionsRequestRequestTypeDef",
+    "ListSessionsRequestTypeDef",
     "ListSessionsResponseTypeDef",
-    "ListTableMetadataInputRequestTypeDef",
+    "ListTableMetadataInputPaginateTypeDef",
+    "ListTableMetadataInputTypeDef",
     "ListTableMetadataOutputTypeDef",
-    "ListTagsForResourceInputRequestTypeDef",
+    "ListTagsForResourceInputPaginateTypeDef",
+    "ListTagsForResourceInputTypeDef",
     "ListTagsForResourceOutputTypeDef",
-    "ListWorkGroupsInputRequestTypeDef",
+    "ListWorkGroupsInputTypeDef",
     "ListWorkGroupsOutputTypeDef",
     "NamedQueryTypeDef",
     "NotebookMetadataTypeDef",
@@ -165,7 +186,7 @@ __all__ = (
     "PaginatorConfigTypeDef",
     "PreparedStatementSummaryTypeDef",
     "PreparedStatementTypeDef",
-    "PutCapacityAssignmentConfigurationInputRequestTypeDef",
+    "PutCapacityAssignmentConfigurationInputTypeDef",
     "QueryExecutionContextTypeDef",
     "QueryExecutionStatisticsTypeDef",
     "QueryExecutionStatusTypeDef",
@@ -189,2192 +210,1062 @@ __all__ = (
     "SessionStatisticsTypeDef",
     "SessionStatusTypeDef",
     "SessionSummaryTypeDef",
-    "StartCalculationExecutionRequestRequestTypeDef",
+    "StartCalculationExecutionRequestTypeDef",
     "StartCalculationExecutionResponseTypeDef",
-    "StartQueryExecutionInputRequestTypeDef",
+    "StartQueryExecutionInputTypeDef",
     "StartQueryExecutionOutputTypeDef",
-    "StartSessionRequestRequestTypeDef",
+    "StartSessionRequestTypeDef",
     "StartSessionResponseTypeDef",
-    "StopCalculationExecutionRequestRequestTypeDef",
+    "StopCalculationExecutionRequestTypeDef",
     "StopCalculationExecutionResponseTypeDef",
-    "StopQueryExecutionInputRequestTypeDef",
+    "StopQueryExecutionInputTypeDef",
     "TableMetadataTypeDef",
-    "TagResourceInputRequestTypeDef",
+    "TagResourceInputTypeDef",
     "TagTypeDef",
-    "TerminateSessionRequestRequestTypeDef",
+    "TerminateSessionRequestTypeDef",
     "TerminateSessionResponseTypeDef",
     "UnprocessedNamedQueryIdTypeDef",
     "UnprocessedPreparedStatementNameTypeDef",
     "UnprocessedQueryExecutionIdTypeDef",
-    "UntagResourceInputRequestTypeDef",
-    "UpdateCapacityReservationInputRequestTypeDef",
-    "UpdateDataCatalogInputRequestTypeDef",
-    "UpdateNamedQueryInputRequestTypeDef",
-    "UpdateNotebookInputRequestTypeDef",
-    "UpdateNotebookMetadataInputRequestTypeDef",
-    "UpdatePreparedStatementInputRequestTypeDef",
-    "UpdateWorkGroupInputRequestTypeDef",
+    "UntagResourceInputTypeDef",
+    "UpdateCapacityReservationInputTypeDef",
+    "UpdateDataCatalogInputTypeDef",
+    "UpdateNamedQueryInputTypeDef",
+    "UpdateNotebookInputTypeDef",
+    "UpdateNotebookMetadataInputTypeDef",
+    "UpdatePreparedStatementInputTypeDef",
+    "UpdateWorkGroupInputTypeDef",
     "WorkGroupConfigurationTypeDef",
     "WorkGroupConfigurationUpdatesTypeDef",
     "WorkGroupSummaryTypeDef",
     "WorkGroupTypeDef",
 )
 
-AclConfigurationTypeDef = TypedDict(
-    "AclConfigurationTypeDef",
-    {
-        "S3AclOption": Literal["BUCKET_OWNER_FULL_CONTROL"],
-    },
-)
+class AclConfigurationTypeDef(TypedDict):
+    S3AclOption: Literal["BUCKET_OWNER_FULL_CONTROL"]
 
-ApplicationDPUSizesTypeDef = TypedDict(
-    "ApplicationDPUSizesTypeDef",
-    {
-        "ApplicationRuntimeId": str,
-        "SupportedDPUSizes": List[int],
-    },
-    total=False,
-)
+class ApplicationDPUSizesTypeDef(TypedDict):
+    ApplicationRuntimeId: NotRequired[str]
+    SupportedDPUSizes: NotRequired[List[int]]
 
-AthenaErrorTypeDef = TypedDict(
-    "AthenaErrorTypeDef",
-    {
-        "ErrorCategory": int,
-        "ErrorType": int,
-        "Retryable": bool,
-        "ErrorMessage": str,
-    },
-    total=False,
-)
+class AthenaErrorTypeDef(TypedDict):
+    ErrorCategory: NotRequired[int]
+    ErrorType: NotRequired[int]
+    Retryable: NotRequired[bool]
+    ErrorMessage: NotRequired[str]
 
-BatchGetNamedQueryInputRequestTypeDef = TypedDict(
-    "BatchGetNamedQueryInputRequestTypeDef",
-    {
-        "NamedQueryIds": List[str],
-    },
-)
+class BatchGetNamedQueryInputTypeDef(TypedDict):
+    NamedQueryIds: Sequence[str]
 
-BatchGetNamedQueryOutputTypeDef = TypedDict(
-    "BatchGetNamedQueryOutputTypeDef",
-    {
-        "NamedQueries": List["NamedQueryTypeDef"],
-        "UnprocessedNamedQueryIds": List["UnprocessedNamedQueryIdTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class NamedQueryTypeDef(TypedDict):
+    Name: str
+    Database: str
+    QueryString: str
+    Description: NotRequired[str]
+    NamedQueryId: NotRequired[str]
+    WorkGroup: NotRequired[str]
 
-BatchGetPreparedStatementInputRequestTypeDef = TypedDict(
-    "BatchGetPreparedStatementInputRequestTypeDef",
-    {
-        "PreparedStatementNames": List[str],
-        "WorkGroup": str,
-    },
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-BatchGetPreparedStatementOutputTypeDef = TypedDict(
-    "BatchGetPreparedStatementOutputTypeDef",
-    {
-        "PreparedStatements": List["PreparedStatementTypeDef"],
-        "UnprocessedPreparedStatementNames": List["UnprocessedPreparedStatementNameTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class UnprocessedNamedQueryIdTypeDef(TypedDict):
+    NamedQueryId: NotRequired[str]
+    ErrorCode: NotRequired[str]
+    ErrorMessage: NotRequired[str]
 
-BatchGetQueryExecutionInputRequestTypeDef = TypedDict(
-    "BatchGetQueryExecutionInputRequestTypeDef",
-    {
-        "QueryExecutionIds": List[str],
-    },
-)
+class BatchGetPreparedStatementInputTypeDef(TypedDict):
+    PreparedStatementNames: Sequence[str]
+    WorkGroup: str
 
-BatchGetQueryExecutionOutputTypeDef = TypedDict(
-    "BatchGetQueryExecutionOutputTypeDef",
-    {
-        "QueryExecutions": List["QueryExecutionTypeDef"],
-        "UnprocessedQueryExecutionIds": List["UnprocessedQueryExecutionIdTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class PreparedStatementTypeDef(TypedDict):
+    StatementName: NotRequired[str]
+    QueryStatement: NotRequired[str]
+    WorkGroupName: NotRequired[str]
+    Description: NotRequired[str]
+    LastModifiedTime: NotRequired[datetime]
 
-CalculationConfigurationTypeDef = TypedDict(
-    "CalculationConfigurationTypeDef",
-    {
-        "CodeBlock": str,
-    },
-    total=False,
-)
+class UnprocessedPreparedStatementNameTypeDef(TypedDict):
+    StatementName: NotRequired[str]
+    ErrorCode: NotRequired[str]
+    ErrorMessage: NotRequired[str]
 
-CalculationResultTypeDef = TypedDict(
-    "CalculationResultTypeDef",
-    {
-        "StdOutS3Uri": str,
-        "StdErrorS3Uri": str,
-        "ResultS3Uri": str,
-        "ResultType": str,
-    },
-    total=False,
-)
+class BatchGetQueryExecutionInputTypeDef(TypedDict):
+    QueryExecutionIds: Sequence[str]
 
-CalculationStatisticsTypeDef = TypedDict(
-    "CalculationStatisticsTypeDef",
-    {
-        "DpuExecutionInMillis": int,
-        "Progress": str,
-    },
-    total=False,
-)
+class UnprocessedQueryExecutionIdTypeDef(TypedDict):
+    QueryExecutionId: NotRequired[str]
+    ErrorCode: NotRequired[str]
+    ErrorMessage: NotRequired[str]
 
-CalculationStatusTypeDef = TypedDict(
-    "CalculationStatusTypeDef",
-    {
-        "SubmissionDateTime": datetime,
-        "CompletionDateTime": datetime,
-        "State": CalculationExecutionStateType,
-        "StateChangeReason": str,
-    },
-    total=False,
-)
+class CalculationConfigurationTypeDef(TypedDict):
+    CodeBlock: NotRequired[str]
 
-CalculationSummaryTypeDef = TypedDict(
-    "CalculationSummaryTypeDef",
-    {
-        "CalculationExecutionId": str,
-        "Description": str,
-        "Status": "CalculationStatusTypeDef",
-    },
-    total=False,
-)
+class CalculationResultTypeDef(TypedDict):
+    StdOutS3Uri: NotRequired[str]
+    StdErrorS3Uri: NotRequired[str]
+    ResultS3Uri: NotRequired[str]
+    ResultType: NotRequired[str]
 
-CancelCapacityReservationInputRequestTypeDef = TypedDict(
-    "CancelCapacityReservationInputRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
+class CalculationStatisticsTypeDef(TypedDict):
+    DpuExecutionInMillis: NotRequired[int]
+    Progress: NotRequired[str]
 
-_RequiredCapacityAllocationTypeDef = TypedDict(
-    "_RequiredCapacityAllocationTypeDef",
-    {
-        "Status": CapacityAllocationStatusType,
-        "RequestTime": datetime,
-    },
-)
-_OptionalCapacityAllocationTypeDef = TypedDict(
-    "_OptionalCapacityAllocationTypeDef",
-    {
-        "StatusMessage": str,
-        "RequestCompletionTime": datetime,
-    },
-    total=False,
-)
+class CalculationStatusTypeDef(TypedDict):
+    SubmissionDateTime: NotRequired[datetime]
+    CompletionDateTime: NotRequired[datetime]
+    State: NotRequired[CalculationExecutionStateType]
+    StateChangeReason: NotRequired[str]
 
-class CapacityAllocationTypeDef(
-    _RequiredCapacityAllocationTypeDef, _OptionalCapacityAllocationTypeDef
-):
-    pass
+class CancelCapacityReservationInputTypeDef(TypedDict):
+    Name: str
 
-CapacityAssignmentConfigurationTypeDef = TypedDict(
-    "CapacityAssignmentConfigurationTypeDef",
-    {
-        "CapacityReservationName": str,
-        "CapacityAssignments": List["CapacityAssignmentTypeDef"],
-    },
-    total=False,
-)
+class CapacityAllocationTypeDef(TypedDict):
+    Status: CapacityAllocationStatusType
+    RequestTime: datetime
+    StatusMessage: NotRequired[str]
+    RequestCompletionTime: NotRequired[datetime]
 
-CapacityAssignmentTypeDef = TypedDict(
-    "CapacityAssignmentTypeDef",
-    {
-        "WorkGroupNames": List[str],
-    },
-    total=False,
-)
+class CapacityAssignmentOutputTypeDef(TypedDict):
+    WorkGroupNames: NotRequired[List[str]]
 
-_RequiredCapacityReservationTypeDef = TypedDict(
-    "_RequiredCapacityReservationTypeDef",
-    {
-        "Name": str,
-        "Status": CapacityReservationStatusType,
-        "TargetDpus": int,
-        "AllocatedDpus": int,
-        "CreationTime": datetime,
-    },
-)
-_OptionalCapacityReservationTypeDef = TypedDict(
-    "_OptionalCapacityReservationTypeDef",
-    {
-        "LastAllocation": "CapacityAllocationTypeDef",
-        "LastSuccessfulAllocationTime": datetime,
-    },
-    total=False,
-)
+class CapacityAssignmentTypeDef(TypedDict):
+    WorkGroupNames: NotRequired[Sequence[str]]
 
-class CapacityReservationTypeDef(
-    _RequiredCapacityReservationTypeDef, _OptionalCapacityReservationTypeDef
-):
-    pass
-
-_RequiredColumnInfoTypeDef = TypedDict(
-    "_RequiredColumnInfoTypeDef",
+ColumnInfoTypeDef = TypedDict(
+    "ColumnInfoTypeDef",
     {
         "Name": str,
         "Type": str,
+        "CatalogName": NotRequired[str],
+        "SchemaName": NotRequired[str],
+        "TableName": NotRequired[str],
+        "Label": NotRequired[str],
+        "Precision": NotRequired[int],
+        "Scale": NotRequired[int],
+        "Nullable": NotRequired[ColumnNullableType],
+        "CaseSensitive": NotRequired[bool],
     },
 )
-_OptionalColumnInfoTypeDef = TypedDict(
-    "_OptionalColumnInfoTypeDef",
-    {
-        "CatalogName": str,
-        "SchemaName": str,
-        "TableName": str,
-        "Label": str,
-        "Precision": int,
-        "Scale": int,
-        "Nullable": ColumnNullableType,
-        "CaseSensitive": bool,
-    },
-    total=False,
-)
-
-class ColumnInfoTypeDef(_RequiredColumnInfoTypeDef, _OptionalColumnInfoTypeDef):
-    pass
-
-_RequiredColumnTypeDef = TypedDict(
-    "_RequiredColumnTypeDef",
+ColumnTypeDef = TypedDict(
+    "ColumnTypeDef",
     {
         "Name": str,
+        "Type": NotRequired[str],
+        "Comment": NotRequired[str],
     },
 )
-_OptionalColumnTypeDef = TypedDict(
-    "_OptionalColumnTypeDef",
-    {
-        "Type": str,
-        "Comment": str,
-    },
-    total=False,
-)
 
-class ColumnTypeDef(_RequiredColumnTypeDef, _OptionalColumnTypeDef):
-    pass
+class TagTypeDef(TypedDict):
+    Key: NotRequired[str]
+    Value: NotRequired[str]
 
-_RequiredCreateCapacityReservationInputRequestTypeDef = TypedDict(
-    "_RequiredCreateCapacityReservationInputRequestTypeDef",
-    {
-        "TargetDpus": int,
-        "Name": str,
-    },
-)
-_OptionalCreateCapacityReservationInputRequestTypeDef = TypedDict(
-    "_OptionalCreateCapacityReservationInputRequestTypeDef",
-    {
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateCapacityReservationInputRequestTypeDef(
-    _RequiredCreateCapacityReservationInputRequestTypeDef,
-    _OptionalCreateCapacityReservationInputRequestTypeDef,
-):
-    pass
-
-_RequiredCreateDataCatalogInputRequestTypeDef = TypedDict(
-    "_RequiredCreateDataCatalogInputRequestTypeDef",
+DataCatalogTypeDef = TypedDict(
+    "DataCatalogTypeDef",
     {
         "Name": str,
         "Type": DataCatalogTypeType,
-    },
-)
-_OptionalCreateDataCatalogInputRequestTypeDef = TypedDict(
-    "_OptionalCreateDataCatalogInputRequestTypeDef",
-    {
-        "Description": str,
-        "Parameters": Dict[str, str],
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateDataCatalogInputRequestTypeDef(
-    _RequiredCreateDataCatalogInputRequestTypeDef, _OptionalCreateDataCatalogInputRequestTypeDef
-):
-    pass
-
-_RequiredCreateNamedQueryInputRequestTypeDef = TypedDict(
-    "_RequiredCreateNamedQueryInputRequestTypeDef",
-    {
-        "Name": str,
-        "Database": str,
-        "QueryString": str,
-    },
-)
-_OptionalCreateNamedQueryInputRequestTypeDef = TypedDict(
-    "_OptionalCreateNamedQueryInputRequestTypeDef",
-    {
-        "Description": str,
-        "ClientRequestToken": str,
-        "WorkGroup": str,
-    },
-    total=False,
-)
-
-class CreateNamedQueryInputRequestTypeDef(
-    _RequiredCreateNamedQueryInputRequestTypeDef, _OptionalCreateNamedQueryInputRequestTypeDef
-):
-    pass
-
-CreateNamedQueryOutputTypeDef = TypedDict(
-    "CreateNamedQueryOutputTypeDef",
-    {
-        "NamedQueryId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "Description": NotRequired[str],
+        "Parameters": NotRequired[Dict[str, str]],
+        "Status": NotRequired[DataCatalogStatusType],
+        "ConnectionType": NotRequired[ConnectionTypeType],
+        "Error": NotRequired[str],
     },
 )
 
-_RequiredCreateNotebookInputRequestTypeDef = TypedDict(
-    "_RequiredCreateNotebookInputRequestTypeDef",
-    {
-        "WorkGroup": str,
-        "Name": str,
-    },
-)
-_OptionalCreateNotebookInputRequestTypeDef = TypedDict(
-    "_OptionalCreateNotebookInputRequestTypeDef",
-    {
-        "ClientRequestToken": str,
-    },
-    total=False,
-)
+class CreateNamedQueryInputTypeDef(TypedDict):
+    Name: str
+    Database: str
+    QueryString: str
+    Description: NotRequired[str]
+    ClientRequestToken: NotRequired[str]
+    WorkGroup: NotRequired[str]
 
-class CreateNotebookInputRequestTypeDef(
-    _RequiredCreateNotebookInputRequestTypeDef, _OptionalCreateNotebookInputRequestTypeDef
-):
-    pass
+class CreateNotebookInputTypeDef(TypedDict):
+    WorkGroup: str
+    Name: str
+    ClientRequestToken: NotRequired[str]
 
-CreateNotebookOutputTypeDef = TypedDict(
-    "CreateNotebookOutputTypeDef",
-    {
-        "NotebookId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CreatePreparedStatementInputTypeDef(TypedDict):
+    StatementName: str
+    WorkGroup: str
+    QueryStatement: str
+    Description: NotRequired[str]
 
-_RequiredCreatePreparedStatementInputRequestTypeDef = TypedDict(
-    "_RequiredCreatePreparedStatementInputRequestTypeDef",
-    {
-        "StatementName": str,
-        "WorkGroup": str,
-        "QueryStatement": str,
-    },
-)
-_OptionalCreatePreparedStatementInputRequestTypeDef = TypedDict(
-    "_OptionalCreatePreparedStatementInputRequestTypeDef",
-    {
-        "Description": str,
-    },
-    total=False,
-)
+class CreatePresignedNotebookUrlRequestTypeDef(TypedDict):
+    SessionId: str
 
-class CreatePreparedStatementInputRequestTypeDef(
-    _RequiredCreatePreparedStatementInputRequestTypeDef,
-    _OptionalCreatePreparedStatementInputRequestTypeDef,
-):
-    pass
-
-CreatePresignedNotebookUrlRequestRequestTypeDef = TypedDict(
-    "CreatePresignedNotebookUrlRequestRequestTypeDef",
-    {
-        "SessionId": str,
-    },
-)
-
-CreatePresignedNotebookUrlResponseTypeDef = TypedDict(
-    "CreatePresignedNotebookUrlResponseTypeDef",
-    {
-        "NotebookUrl": str,
-        "AuthToken": str,
-        "AuthTokenExpirationTime": int,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateWorkGroupInputRequestTypeDef = TypedDict(
-    "_RequiredCreateWorkGroupInputRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
-_OptionalCreateWorkGroupInputRequestTypeDef = TypedDict(
-    "_OptionalCreateWorkGroupInputRequestTypeDef",
-    {
-        "Configuration": "WorkGroupConfigurationTypeDef",
-        "Description": str,
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateWorkGroupInputRequestTypeDef(
-    _RequiredCreateWorkGroupInputRequestTypeDef, _OptionalCreateWorkGroupInputRequestTypeDef
-):
-    pass
-
-CustomerContentEncryptionConfigurationTypeDef = TypedDict(
-    "CustomerContentEncryptionConfigurationTypeDef",
-    {
-        "KmsKey": str,
-    },
-)
+class CustomerContentEncryptionConfigurationTypeDef(TypedDict):
+    KmsKey: str
 
 DataCatalogSummaryTypeDef = TypedDict(
     "DataCatalogSummaryTypeDef",
     {
-        "CatalogName": str,
-        "Type": DataCatalogTypeType,
-    },
-    total=False,
-)
-
-_RequiredDataCatalogTypeDef = TypedDict(
-    "_RequiredDataCatalogTypeDef",
-    {
-        "Name": str,
-        "Type": DataCatalogTypeType,
-    },
-)
-_OptionalDataCatalogTypeDef = TypedDict(
-    "_OptionalDataCatalogTypeDef",
-    {
-        "Description": str,
-        "Parameters": Dict[str, str],
-    },
-    total=False,
-)
-
-class DataCatalogTypeDef(_RequiredDataCatalogTypeDef, _OptionalDataCatalogTypeDef):
-    pass
-
-_RequiredDatabaseTypeDef = TypedDict(
-    "_RequiredDatabaseTypeDef",
-    {
-        "Name": str,
-    },
-)
-_OptionalDatabaseTypeDef = TypedDict(
-    "_OptionalDatabaseTypeDef",
-    {
-        "Description": str,
-        "Parameters": Dict[str, str],
-    },
-    total=False,
-)
-
-class DatabaseTypeDef(_RequiredDatabaseTypeDef, _OptionalDatabaseTypeDef):
-    pass
-
-DatumTypeDef = TypedDict(
-    "DatumTypeDef",
-    {
-        "VarCharValue": str,
-    },
-    total=False,
-)
-
-DeleteCapacityReservationInputRequestTypeDef = TypedDict(
-    "DeleteCapacityReservationInputRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
-
-DeleteDataCatalogInputRequestTypeDef = TypedDict(
-    "DeleteDataCatalogInputRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
-
-DeleteNamedQueryInputRequestTypeDef = TypedDict(
-    "DeleteNamedQueryInputRequestTypeDef",
-    {
-        "NamedQueryId": str,
-    },
-)
-
-DeleteNotebookInputRequestTypeDef = TypedDict(
-    "DeleteNotebookInputRequestTypeDef",
-    {
-        "NotebookId": str,
-    },
-)
-
-DeletePreparedStatementInputRequestTypeDef = TypedDict(
-    "DeletePreparedStatementInputRequestTypeDef",
-    {
-        "StatementName": str,
-        "WorkGroup": str,
-    },
-)
-
-_RequiredDeleteWorkGroupInputRequestTypeDef = TypedDict(
-    "_RequiredDeleteWorkGroupInputRequestTypeDef",
-    {
-        "WorkGroup": str,
-    },
-)
-_OptionalDeleteWorkGroupInputRequestTypeDef = TypedDict(
-    "_OptionalDeleteWorkGroupInputRequestTypeDef",
-    {
-        "RecursiveDeleteOption": bool,
-    },
-    total=False,
-)
-
-class DeleteWorkGroupInputRequestTypeDef(
-    _RequiredDeleteWorkGroupInputRequestTypeDef, _OptionalDeleteWorkGroupInputRequestTypeDef
-):
-    pass
-
-_RequiredEncryptionConfigurationTypeDef = TypedDict(
-    "_RequiredEncryptionConfigurationTypeDef",
-    {
-        "EncryptionOption": EncryptionOptionType,
-    },
-)
-_OptionalEncryptionConfigurationTypeDef = TypedDict(
-    "_OptionalEncryptionConfigurationTypeDef",
-    {
-        "KmsKey": str,
-    },
-    total=False,
-)
-
-class EncryptionConfigurationTypeDef(
-    _RequiredEncryptionConfigurationTypeDef, _OptionalEncryptionConfigurationTypeDef
-):
-    pass
-
-_RequiredEngineConfigurationTypeDef = TypedDict(
-    "_RequiredEngineConfigurationTypeDef",
-    {
-        "MaxConcurrentDpus": int,
-    },
-)
-_OptionalEngineConfigurationTypeDef = TypedDict(
-    "_OptionalEngineConfigurationTypeDef",
-    {
-        "CoordinatorDpuSize": int,
-        "DefaultExecutorDpuSize": int,
-        "AdditionalConfigs": Dict[str, str],
-        "SparkProperties": Dict[str, str],
-    },
-    total=False,
-)
-
-class EngineConfigurationTypeDef(
-    _RequiredEngineConfigurationTypeDef, _OptionalEngineConfigurationTypeDef
-):
-    pass
-
-EngineVersionTypeDef = TypedDict(
-    "EngineVersionTypeDef",
-    {
-        "SelectedEngineVersion": str,
-        "EffectiveEngineVersion": str,
-    },
-    total=False,
-)
-
-_RequiredExecutorsSummaryTypeDef = TypedDict(
-    "_RequiredExecutorsSummaryTypeDef",
-    {
-        "ExecutorId": str,
-    },
-)
-_OptionalExecutorsSummaryTypeDef = TypedDict(
-    "_OptionalExecutorsSummaryTypeDef",
-    {
-        "ExecutorType": ExecutorTypeType,
-        "StartDateTime": int,
-        "TerminationDateTime": int,
-        "ExecutorState": ExecutorStateType,
-        "ExecutorSize": int,
-    },
-    total=False,
-)
-
-class ExecutorsSummaryTypeDef(_RequiredExecutorsSummaryTypeDef, _OptionalExecutorsSummaryTypeDef):
-    pass
-
-ExportNotebookInputRequestTypeDef = TypedDict(
-    "ExportNotebookInputRequestTypeDef",
-    {
-        "NotebookId": str,
-    },
-)
-
-ExportNotebookOutputTypeDef = TypedDict(
-    "ExportNotebookOutputTypeDef",
-    {
-        "NotebookMetadata": "NotebookMetadataTypeDef",
-        "Payload": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-FilterDefinitionTypeDef = TypedDict(
-    "FilterDefinitionTypeDef",
-    {
-        "Name": str,
-    },
-    total=False,
-)
-
-GetCalculationExecutionCodeRequestRequestTypeDef = TypedDict(
-    "GetCalculationExecutionCodeRequestRequestTypeDef",
-    {
-        "CalculationExecutionId": str,
-    },
-)
-
-GetCalculationExecutionCodeResponseTypeDef = TypedDict(
-    "GetCalculationExecutionCodeResponseTypeDef",
-    {
-        "CodeBlock": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetCalculationExecutionRequestRequestTypeDef = TypedDict(
-    "GetCalculationExecutionRequestRequestTypeDef",
-    {
-        "CalculationExecutionId": str,
-    },
-)
-
-GetCalculationExecutionResponseTypeDef = TypedDict(
-    "GetCalculationExecutionResponseTypeDef",
-    {
-        "CalculationExecutionId": str,
-        "SessionId": str,
-        "Description": str,
-        "WorkingDirectory": str,
-        "Status": "CalculationStatusTypeDef",
-        "Statistics": "CalculationStatisticsTypeDef",
-        "Result": "CalculationResultTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetCalculationExecutionStatusRequestRequestTypeDef = TypedDict(
-    "GetCalculationExecutionStatusRequestRequestTypeDef",
-    {
-        "CalculationExecutionId": str,
-    },
-)
-
-GetCalculationExecutionStatusResponseTypeDef = TypedDict(
-    "GetCalculationExecutionStatusResponseTypeDef",
-    {
-        "Status": "CalculationStatusTypeDef",
-        "Statistics": "CalculationStatisticsTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetCapacityAssignmentConfigurationInputRequestTypeDef = TypedDict(
-    "GetCapacityAssignmentConfigurationInputRequestTypeDef",
-    {
-        "CapacityReservationName": str,
-    },
-)
-
-GetCapacityAssignmentConfigurationOutputTypeDef = TypedDict(
-    "GetCapacityAssignmentConfigurationOutputTypeDef",
-    {
-        "CapacityAssignmentConfiguration": "CapacityAssignmentConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetCapacityReservationInputRequestTypeDef = TypedDict(
-    "GetCapacityReservationInputRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
-
-GetCapacityReservationOutputTypeDef = TypedDict(
-    "GetCapacityReservationOutputTypeDef",
-    {
-        "CapacityReservation": "CapacityReservationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetDataCatalogInputRequestTypeDef = TypedDict(
-    "_RequiredGetDataCatalogInputRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
-_OptionalGetDataCatalogInputRequestTypeDef = TypedDict(
-    "_OptionalGetDataCatalogInputRequestTypeDef",
-    {
-        "WorkGroup": str,
-    },
-    total=False,
-)
-
-class GetDataCatalogInputRequestTypeDef(
-    _RequiredGetDataCatalogInputRequestTypeDef, _OptionalGetDataCatalogInputRequestTypeDef
-):
-    pass
-
-GetDataCatalogOutputTypeDef = TypedDict(
-    "GetDataCatalogOutputTypeDef",
-    {
-        "DataCatalog": "DataCatalogTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetDatabaseInputRequestTypeDef = TypedDict(
-    "_RequiredGetDatabaseInputRequestTypeDef",
-    {
-        "CatalogName": str,
-        "DatabaseName": str,
-    },
-)
-_OptionalGetDatabaseInputRequestTypeDef = TypedDict(
-    "_OptionalGetDatabaseInputRequestTypeDef",
-    {
-        "WorkGroup": str,
-    },
-    total=False,
-)
-
-class GetDatabaseInputRequestTypeDef(
-    _RequiredGetDatabaseInputRequestTypeDef, _OptionalGetDatabaseInputRequestTypeDef
-):
-    pass
-
-GetDatabaseOutputTypeDef = TypedDict(
-    "GetDatabaseOutputTypeDef",
-    {
-        "Database": "DatabaseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetNamedQueryInputRequestTypeDef = TypedDict(
-    "GetNamedQueryInputRequestTypeDef",
-    {
-        "NamedQueryId": str,
-    },
-)
-
-GetNamedQueryOutputTypeDef = TypedDict(
-    "GetNamedQueryOutputTypeDef",
-    {
-        "NamedQuery": "NamedQueryTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetNotebookMetadataInputRequestTypeDef = TypedDict(
-    "GetNotebookMetadataInputRequestTypeDef",
-    {
-        "NotebookId": str,
-    },
-)
-
-GetNotebookMetadataOutputTypeDef = TypedDict(
-    "GetNotebookMetadataOutputTypeDef",
-    {
-        "NotebookMetadata": "NotebookMetadataTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetPreparedStatementInputRequestTypeDef = TypedDict(
-    "GetPreparedStatementInputRequestTypeDef",
-    {
-        "StatementName": str,
-        "WorkGroup": str,
-    },
-)
-
-GetPreparedStatementOutputTypeDef = TypedDict(
-    "GetPreparedStatementOutputTypeDef",
-    {
-        "PreparedStatement": "PreparedStatementTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetQueryExecutionInputRequestTypeDef = TypedDict(
-    "GetQueryExecutionInputRequestTypeDef",
-    {
-        "QueryExecutionId": str,
-    },
-)
-
-GetQueryExecutionOutputTypeDef = TypedDict(
-    "GetQueryExecutionOutputTypeDef",
-    {
-        "QueryExecution": "QueryExecutionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetQueryResultsInputRequestTypeDef = TypedDict(
-    "_RequiredGetQueryResultsInputRequestTypeDef",
-    {
-        "QueryExecutionId": str,
-    },
-)
-_OptionalGetQueryResultsInputRequestTypeDef = TypedDict(
-    "_OptionalGetQueryResultsInputRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-class GetQueryResultsInputRequestTypeDef(
-    _RequiredGetQueryResultsInputRequestTypeDef, _OptionalGetQueryResultsInputRequestTypeDef
-):
-    pass
-
-GetQueryResultsOutputTypeDef = TypedDict(
-    "GetQueryResultsOutputTypeDef",
-    {
-        "UpdateCount": int,
-        "ResultSet": "ResultSetTypeDef",
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetQueryRuntimeStatisticsInputRequestTypeDef = TypedDict(
-    "GetQueryRuntimeStatisticsInputRequestTypeDef",
-    {
-        "QueryExecutionId": str,
-    },
-)
-
-GetQueryRuntimeStatisticsOutputTypeDef = TypedDict(
-    "GetQueryRuntimeStatisticsOutputTypeDef",
-    {
-        "QueryRuntimeStatistics": "QueryRuntimeStatisticsTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetSessionRequestRequestTypeDef = TypedDict(
-    "GetSessionRequestRequestTypeDef",
-    {
-        "SessionId": str,
-    },
-)
-
-GetSessionResponseTypeDef = TypedDict(
-    "GetSessionResponseTypeDef",
-    {
-        "SessionId": str,
-        "Description": str,
-        "WorkGroup": str,
-        "EngineVersion": str,
-        "EngineConfiguration": "EngineConfigurationTypeDef",
-        "NotebookVersion": str,
-        "SessionConfiguration": "SessionConfigurationTypeDef",
-        "Status": "SessionStatusTypeDef",
-        "Statistics": "SessionStatisticsTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetSessionStatusRequestRequestTypeDef = TypedDict(
-    "GetSessionStatusRequestRequestTypeDef",
-    {
-        "SessionId": str,
-    },
-)
-
-GetSessionStatusResponseTypeDef = TypedDict(
-    "GetSessionStatusResponseTypeDef",
-    {
-        "SessionId": str,
-        "Status": "SessionStatusTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetTableMetadataInputRequestTypeDef = TypedDict(
-    "_RequiredGetTableMetadataInputRequestTypeDef",
-    {
-        "CatalogName": str,
-        "DatabaseName": str,
-        "TableName": str,
-    },
-)
-_OptionalGetTableMetadataInputRequestTypeDef = TypedDict(
-    "_OptionalGetTableMetadataInputRequestTypeDef",
-    {
-        "WorkGroup": str,
-    },
-    total=False,
-)
-
-class GetTableMetadataInputRequestTypeDef(
-    _RequiredGetTableMetadataInputRequestTypeDef, _OptionalGetTableMetadataInputRequestTypeDef
-):
-    pass
-
-GetTableMetadataOutputTypeDef = TypedDict(
-    "GetTableMetadataOutputTypeDef",
-    {
-        "TableMetadata": "TableMetadataTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetWorkGroupInputRequestTypeDef = TypedDict(
-    "GetWorkGroupInputRequestTypeDef",
-    {
-        "WorkGroup": str,
-    },
-)
-
-GetWorkGroupOutputTypeDef = TypedDict(
-    "GetWorkGroupOutputTypeDef",
-    {
-        "WorkGroup": "WorkGroupTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-IdentityCenterConfigurationTypeDef = TypedDict(
-    "IdentityCenterConfigurationTypeDef",
-    {
-        "EnableIdentityCenter": bool,
-        "IdentityCenterInstanceArn": str,
-    },
-    total=False,
-)
-
-_RequiredImportNotebookInputRequestTypeDef = TypedDict(
-    "_RequiredImportNotebookInputRequestTypeDef",
-    {
-        "WorkGroup": str,
-        "Name": str,
-        "Type": Literal["IPYNB"],
-    },
-)
-_OptionalImportNotebookInputRequestTypeDef = TypedDict(
-    "_OptionalImportNotebookInputRequestTypeDef",
-    {
-        "Payload": str,
-        "NotebookS3LocationUri": str,
-        "ClientRequestToken": str,
-    },
-    total=False,
-)
-
-class ImportNotebookInputRequestTypeDef(
-    _RequiredImportNotebookInputRequestTypeDef, _OptionalImportNotebookInputRequestTypeDef
-):
-    pass
-
-ImportNotebookOutputTypeDef = TypedDict(
-    "ImportNotebookOutputTypeDef",
-    {
-        "NotebookId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListApplicationDPUSizesInputRequestTypeDef = TypedDict(
-    "ListApplicationDPUSizesInputRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListApplicationDPUSizesOutputTypeDef = TypedDict(
-    "ListApplicationDPUSizesOutputTypeDef",
-    {
-        "ApplicationDPUSizes": List["ApplicationDPUSizesTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListCalculationExecutionsRequestRequestTypeDef = TypedDict(
-    "_RequiredListCalculationExecutionsRequestRequestTypeDef",
-    {
-        "SessionId": str,
-    },
-)
-_OptionalListCalculationExecutionsRequestRequestTypeDef = TypedDict(
-    "_OptionalListCalculationExecutionsRequestRequestTypeDef",
-    {
-        "StateFilter": CalculationExecutionStateType,
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListCalculationExecutionsRequestRequestTypeDef(
-    _RequiredListCalculationExecutionsRequestRequestTypeDef,
-    _OptionalListCalculationExecutionsRequestRequestTypeDef,
-):
-    pass
-
-ListCalculationExecutionsResponseTypeDef = TypedDict(
-    "ListCalculationExecutionsResponseTypeDef",
-    {
-        "NextToken": str,
-        "Calculations": List["CalculationSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListCapacityReservationsInputRequestTypeDef = TypedDict(
-    "ListCapacityReservationsInputRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-ListCapacityReservationsOutputTypeDef = TypedDict(
-    "ListCapacityReservationsOutputTypeDef",
-    {
-        "NextToken": str,
-        "CapacityReservations": List["CapacityReservationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListDataCatalogsInputRequestTypeDef = TypedDict(
-    "ListDataCatalogsInputRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-        "WorkGroup": str,
-    },
-    total=False,
-)
-
-ListDataCatalogsOutputTypeDef = TypedDict(
-    "ListDataCatalogsOutputTypeDef",
-    {
-        "DataCatalogsSummary": List["DataCatalogSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListDatabasesInputRequestTypeDef = TypedDict(
-    "_RequiredListDatabasesInputRequestTypeDef",
-    {
-        "CatalogName": str,
-    },
-)
-_OptionalListDatabasesInputRequestTypeDef = TypedDict(
-    "_OptionalListDatabasesInputRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-        "WorkGroup": str,
-    },
-    total=False,
-)
-
-class ListDatabasesInputRequestTypeDef(
-    _RequiredListDatabasesInputRequestTypeDef, _OptionalListDatabasesInputRequestTypeDef
-):
-    pass
-
-ListDatabasesOutputTypeDef = TypedDict(
-    "ListDatabasesOutputTypeDef",
-    {
-        "DatabaseList": List["DatabaseTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListEngineVersionsInputRequestTypeDef = TypedDict(
-    "ListEngineVersionsInputRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-ListEngineVersionsOutputTypeDef = TypedDict(
-    "ListEngineVersionsOutputTypeDef",
-    {
-        "EngineVersions": List["EngineVersionTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListExecutorsRequestRequestTypeDef = TypedDict(
-    "_RequiredListExecutorsRequestRequestTypeDef",
-    {
-        "SessionId": str,
-    },
-)
-_OptionalListExecutorsRequestRequestTypeDef = TypedDict(
-    "_OptionalListExecutorsRequestRequestTypeDef",
-    {
-        "ExecutorStateFilter": ExecutorStateType,
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListExecutorsRequestRequestTypeDef(
-    _RequiredListExecutorsRequestRequestTypeDef, _OptionalListExecutorsRequestRequestTypeDef
-):
-    pass
-
-ListExecutorsResponseTypeDef = TypedDict(
-    "ListExecutorsResponseTypeDef",
-    {
-        "SessionId": str,
-        "NextToken": str,
-        "ExecutorsSummary": List["ExecutorsSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListNamedQueriesInputRequestTypeDef = TypedDict(
-    "ListNamedQueriesInputRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-        "WorkGroup": str,
-    },
-    total=False,
-)
-
-ListNamedQueriesOutputTypeDef = TypedDict(
-    "ListNamedQueriesOutputTypeDef",
-    {
-        "NamedQueryIds": List[str],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListNotebookMetadataInputRequestTypeDef = TypedDict(
-    "_RequiredListNotebookMetadataInputRequestTypeDef",
-    {
-        "WorkGroup": str,
-    },
-)
-_OptionalListNotebookMetadataInputRequestTypeDef = TypedDict(
-    "_OptionalListNotebookMetadataInputRequestTypeDef",
-    {
-        "Filters": "FilterDefinitionTypeDef",
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-class ListNotebookMetadataInputRequestTypeDef(
-    _RequiredListNotebookMetadataInputRequestTypeDef,
-    _OptionalListNotebookMetadataInputRequestTypeDef,
-):
-    pass
-
-ListNotebookMetadataOutputTypeDef = TypedDict(
-    "ListNotebookMetadataOutputTypeDef",
-    {
-        "NextToken": str,
-        "NotebookMetadataList": List["NotebookMetadataTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListNotebookSessionsRequestRequestTypeDef = TypedDict(
-    "_RequiredListNotebookSessionsRequestRequestTypeDef",
-    {
-        "NotebookId": str,
-    },
-)
-_OptionalListNotebookSessionsRequestRequestTypeDef = TypedDict(
-    "_OptionalListNotebookSessionsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListNotebookSessionsRequestRequestTypeDef(
-    _RequiredListNotebookSessionsRequestRequestTypeDef,
-    _OptionalListNotebookSessionsRequestRequestTypeDef,
-):
-    pass
-
-ListNotebookSessionsResponseTypeDef = TypedDict(
-    "ListNotebookSessionsResponseTypeDef",
-    {
-        "NotebookSessionsList": List["NotebookSessionSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListPreparedStatementsInputRequestTypeDef = TypedDict(
-    "_RequiredListPreparedStatementsInputRequestTypeDef",
-    {
-        "WorkGroup": str,
-    },
-)
-_OptionalListPreparedStatementsInputRequestTypeDef = TypedDict(
-    "_OptionalListPreparedStatementsInputRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-class ListPreparedStatementsInputRequestTypeDef(
-    _RequiredListPreparedStatementsInputRequestTypeDef,
-    _OptionalListPreparedStatementsInputRequestTypeDef,
-):
-    pass
-
-ListPreparedStatementsOutputTypeDef = TypedDict(
-    "ListPreparedStatementsOutputTypeDef",
-    {
-        "PreparedStatements": List["PreparedStatementSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListQueryExecutionsInputRequestTypeDef = TypedDict(
-    "ListQueryExecutionsInputRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-        "WorkGroup": str,
-    },
-    total=False,
-)
-
-ListQueryExecutionsOutputTypeDef = TypedDict(
-    "ListQueryExecutionsOutputTypeDef",
-    {
-        "QueryExecutionIds": List[str],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListSessionsRequestRequestTypeDef = TypedDict(
-    "_RequiredListSessionsRequestRequestTypeDef",
-    {
-        "WorkGroup": str,
-    },
-)
-_OptionalListSessionsRequestRequestTypeDef = TypedDict(
-    "_OptionalListSessionsRequestRequestTypeDef",
-    {
-        "StateFilter": SessionStateType,
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListSessionsRequestRequestTypeDef(
-    _RequiredListSessionsRequestRequestTypeDef, _OptionalListSessionsRequestRequestTypeDef
-):
-    pass
-
-ListSessionsResponseTypeDef = TypedDict(
-    "ListSessionsResponseTypeDef",
-    {
-        "NextToken": str,
-        "Sessions": List["SessionSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListTableMetadataInputRequestTypeDef = TypedDict(
-    "_RequiredListTableMetadataInputRequestTypeDef",
-    {
-        "CatalogName": str,
-        "DatabaseName": str,
-    },
-)
-_OptionalListTableMetadataInputRequestTypeDef = TypedDict(
-    "_OptionalListTableMetadataInputRequestTypeDef",
-    {
-        "Expression": str,
-        "NextToken": str,
-        "MaxResults": int,
-        "WorkGroup": str,
-    },
-    total=False,
-)
-
-class ListTableMetadataInputRequestTypeDef(
-    _RequiredListTableMetadataInputRequestTypeDef, _OptionalListTableMetadataInputRequestTypeDef
-):
-    pass
-
-ListTableMetadataOutputTypeDef = TypedDict(
-    "ListTableMetadataOutputTypeDef",
-    {
-        "TableMetadataList": List["TableMetadataTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListTagsForResourceInputRequestTypeDef = TypedDict(
-    "_RequiredListTagsForResourceInputRequestTypeDef",
-    {
-        "ResourceARN": str,
-    },
-)
-_OptionalListTagsForResourceInputRequestTypeDef = TypedDict(
-    "_OptionalListTagsForResourceInputRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-class ListTagsForResourceInputRequestTypeDef(
-    _RequiredListTagsForResourceInputRequestTypeDef, _OptionalListTagsForResourceInputRequestTypeDef
-):
-    pass
-
-ListTagsForResourceOutputTypeDef = TypedDict(
-    "ListTagsForResourceOutputTypeDef",
-    {
-        "Tags": List["TagTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListWorkGroupsInputRequestTypeDef = TypedDict(
-    "ListWorkGroupsInputRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-ListWorkGroupsOutputTypeDef = TypedDict(
-    "ListWorkGroupsOutputTypeDef",
-    {
-        "WorkGroups": List["WorkGroupSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredNamedQueryTypeDef = TypedDict(
-    "_RequiredNamedQueryTypeDef",
-    {
-        "Name": str,
-        "Database": str,
-        "QueryString": str,
-    },
-)
-_OptionalNamedQueryTypeDef = TypedDict(
-    "_OptionalNamedQueryTypeDef",
-    {
-        "Description": str,
-        "NamedQueryId": str,
-        "WorkGroup": str,
-    },
-    total=False,
-)
-
-class NamedQueryTypeDef(_RequiredNamedQueryTypeDef, _OptionalNamedQueryTypeDef):
-    pass
+        "CatalogName": NotRequired[str],
+        "Type": NotRequired[DataCatalogTypeType],
+        "Status": NotRequired[DataCatalogStatusType],
+        "ConnectionType": NotRequired[ConnectionTypeType],
+        "Error": NotRequired[str],
+    },
+)
+
+class DatabaseTypeDef(TypedDict):
+    Name: str
+    Description: NotRequired[str]
+    Parameters: NotRequired[Dict[str, str]]
+
+class DatumTypeDef(TypedDict):
+    VarCharValue: NotRequired[str]
+
+class DeleteCapacityReservationInputTypeDef(TypedDict):
+    Name: str
+
+class DeleteDataCatalogInputTypeDef(TypedDict):
+    Name: str
+    DeleteCatalogOnly: NotRequired[bool]
+
+class DeleteNamedQueryInputTypeDef(TypedDict):
+    NamedQueryId: str
+
+class DeleteNotebookInputTypeDef(TypedDict):
+    NotebookId: str
+
+class DeletePreparedStatementInputTypeDef(TypedDict):
+    StatementName: str
+    WorkGroup: str
+
+class DeleteWorkGroupInputTypeDef(TypedDict):
+    WorkGroup: str
+    RecursiveDeleteOption: NotRequired[bool]
+
+class EncryptionConfigurationTypeDef(TypedDict):
+    EncryptionOption: EncryptionOptionType
+    KmsKey: NotRequired[str]
+
+class EngineConfigurationOutputTypeDef(TypedDict):
+    MaxConcurrentDpus: int
+    CoordinatorDpuSize: NotRequired[int]
+    DefaultExecutorDpuSize: NotRequired[int]
+    AdditionalConfigs: NotRequired[Dict[str, str]]
+    SparkProperties: NotRequired[Dict[str, str]]
+
+class EngineConfigurationTypeDef(TypedDict):
+    MaxConcurrentDpus: int
+    CoordinatorDpuSize: NotRequired[int]
+    DefaultExecutorDpuSize: NotRequired[int]
+    AdditionalConfigs: NotRequired[Mapping[str, str]]
+    SparkProperties: NotRequired[Mapping[str, str]]
+
+class EngineVersionTypeDef(TypedDict):
+    SelectedEngineVersion: NotRequired[str]
+    EffectiveEngineVersion: NotRequired[str]
+
+class ExecutorsSummaryTypeDef(TypedDict):
+    ExecutorId: str
+    ExecutorType: NotRequired[ExecutorTypeType]
+    StartDateTime: NotRequired[int]
+    TerminationDateTime: NotRequired[int]
+    ExecutorState: NotRequired[ExecutorStateType]
+    ExecutorSize: NotRequired[int]
+
+class ExportNotebookInputTypeDef(TypedDict):
+    NotebookId: str
 
 NotebookMetadataTypeDef = TypedDict(
     "NotebookMetadataTypeDef",
     {
-        "NotebookId": str,
-        "Name": str,
+        "NotebookId": NotRequired[str],
+        "Name": NotRequired[str],
+        "WorkGroup": NotRequired[str],
+        "CreationTime": NotRequired[datetime],
+        "Type": NotRequired[Literal["IPYNB"]],
+        "LastModifiedTime": NotRequired[datetime],
+    },
+)
+
+class FilterDefinitionTypeDef(TypedDict):
+    Name: NotRequired[str]
+
+class GetCalculationExecutionCodeRequestTypeDef(TypedDict):
+    CalculationExecutionId: str
+
+class GetCalculationExecutionRequestTypeDef(TypedDict):
+    CalculationExecutionId: str
+
+class GetCalculationExecutionStatusRequestTypeDef(TypedDict):
+    CalculationExecutionId: str
+
+class GetCapacityAssignmentConfigurationInputTypeDef(TypedDict):
+    CapacityReservationName: str
+
+class GetCapacityReservationInputTypeDef(TypedDict):
+    Name: str
+
+class GetDataCatalogInputTypeDef(TypedDict):
+    Name: str
+    WorkGroup: NotRequired[str]
+
+class GetDatabaseInputTypeDef(TypedDict):
+    CatalogName: str
+    DatabaseName: str
+    WorkGroup: NotRequired[str]
+
+class GetNamedQueryInputTypeDef(TypedDict):
+    NamedQueryId: str
+
+class GetNotebookMetadataInputTypeDef(TypedDict):
+    NotebookId: str
+
+class GetPreparedStatementInputTypeDef(TypedDict):
+    StatementName: str
+    WorkGroup: str
+
+class GetQueryExecutionInputTypeDef(TypedDict):
+    QueryExecutionId: str
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class GetQueryResultsInputTypeDef(TypedDict):
+    QueryExecutionId: str
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class GetQueryRuntimeStatisticsInputTypeDef(TypedDict):
+    QueryExecutionId: str
+
+class GetSessionRequestTypeDef(TypedDict):
+    SessionId: str
+
+class SessionStatisticsTypeDef(TypedDict):
+    DpuExecutionInMillis: NotRequired[int]
+
+class SessionStatusTypeDef(TypedDict):
+    StartDateTime: NotRequired[datetime]
+    LastModifiedDateTime: NotRequired[datetime]
+    EndDateTime: NotRequired[datetime]
+    IdleSinceDateTime: NotRequired[datetime]
+    State: NotRequired[SessionStateType]
+    StateChangeReason: NotRequired[str]
+
+class GetSessionStatusRequestTypeDef(TypedDict):
+    SessionId: str
+
+class GetTableMetadataInputTypeDef(TypedDict):
+    CatalogName: str
+    DatabaseName: str
+    TableName: str
+    WorkGroup: NotRequired[str]
+
+class GetWorkGroupInputTypeDef(TypedDict):
+    WorkGroup: str
+
+class IdentityCenterConfigurationTypeDef(TypedDict):
+    EnableIdentityCenter: NotRequired[bool]
+    IdentityCenterInstanceArn: NotRequired[str]
+
+ImportNotebookInputTypeDef = TypedDict(
+    "ImportNotebookInputTypeDef",
+    {
         "WorkGroup": str,
-        "CreationTime": datetime,
+        "Name": str,
         "Type": Literal["IPYNB"],
-        "LastModifiedTime": datetime,
-    },
-    total=False,
-)
-
-NotebookSessionSummaryTypeDef = TypedDict(
-    "NotebookSessionSummaryTypeDef",
-    {
-        "SessionId": str,
-        "CreationTime": datetime,
-    },
-    total=False,
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-PreparedStatementSummaryTypeDef = TypedDict(
-    "PreparedStatementSummaryTypeDef",
-    {
-        "StatementName": str,
-        "LastModifiedTime": datetime,
-    },
-    total=False,
-)
-
-PreparedStatementTypeDef = TypedDict(
-    "PreparedStatementTypeDef",
-    {
-        "StatementName": str,
-        "QueryStatement": str,
-        "WorkGroupName": str,
-        "Description": str,
-        "LastModifiedTime": datetime,
-    },
-    total=False,
-)
-
-PutCapacityAssignmentConfigurationInputRequestTypeDef = TypedDict(
-    "PutCapacityAssignmentConfigurationInputRequestTypeDef",
-    {
-        "CapacityReservationName": str,
-        "CapacityAssignments": List["CapacityAssignmentTypeDef"],
+        "Payload": NotRequired[str],
+        "NotebookS3LocationUri": NotRequired[str],
+        "ClientRequestToken": NotRequired[str],
     },
 )
 
-QueryExecutionContextTypeDef = TypedDict(
-    "QueryExecutionContextTypeDef",
-    {
-        "Database": str,
-        "Catalog": str,
-    },
-    total=False,
-)
+class ListApplicationDPUSizesInputTypeDef(TypedDict):
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
 
-QueryExecutionStatisticsTypeDef = TypedDict(
-    "QueryExecutionStatisticsTypeDef",
-    {
-        "EngineExecutionTimeInMillis": int,
-        "DataScannedInBytes": int,
-        "DataManifestLocation": str,
-        "TotalExecutionTimeInMillis": int,
-        "QueryQueueTimeInMillis": int,
-        "ServicePreProcessingTimeInMillis": int,
-        "QueryPlanningTimeInMillis": int,
-        "ServiceProcessingTimeInMillis": int,
-        "ResultReuseInformation": "ResultReuseInformationTypeDef",
-    },
-    total=False,
-)
+class ListCalculationExecutionsRequestTypeDef(TypedDict):
+    SessionId: str
+    StateFilter: NotRequired[CalculationExecutionStateType]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
 
-QueryExecutionStatusTypeDef = TypedDict(
-    "QueryExecutionStatusTypeDef",
-    {
-        "State": QueryExecutionStateType,
-        "StateChangeReason": str,
-        "SubmissionDateTime": datetime,
-        "CompletionDateTime": datetime,
-        "AthenaError": "AthenaErrorTypeDef",
-    },
-    total=False,
-)
+class ListCapacityReservationsInputTypeDef(TypedDict):
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
 
-QueryExecutionTypeDef = TypedDict(
-    "QueryExecutionTypeDef",
-    {
-        "QueryExecutionId": str,
-        "Query": str,
-        "StatementType": StatementTypeType,
-        "ResultConfiguration": "ResultConfigurationTypeDef",
-        "ResultReuseConfiguration": "ResultReuseConfigurationTypeDef",
-        "QueryExecutionContext": "QueryExecutionContextTypeDef",
-        "Status": "QueryExecutionStatusTypeDef",
-        "Statistics": "QueryExecutionStatisticsTypeDef",
-        "WorkGroup": str,
-        "EngineVersion": "EngineVersionTypeDef",
-        "ExecutionParameters": List[str],
-        "SubstatementType": str,
-        "QueryResultsS3AccessGrantsConfiguration": "QueryResultsS3AccessGrantsConfigurationTypeDef",
-    },
-    total=False,
-)
+class ListDataCatalogsInputTypeDef(TypedDict):
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+    WorkGroup: NotRequired[str]
 
-_RequiredQueryResultsS3AccessGrantsConfigurationTypeDef = TypedDict(
-    "_RequiredQueryResultsS3AccessGrantsConfigurationTypeDef",
-    {
-        "EnableS3AccessGrants": bool,
-        "AuthenticationType": Literal["DIRECTORY_IDENTITY"],
-    },
-)
-_OptionalQueryResultsS3AccessGrantsConfigurationTypeDef = TypedDict(
-    "_OptionalQueryResultsS3AccessGrantsConfigurationTypeDef",
-    {
-        "CreateUserLevelPrefix": bool,
-    },
-    total=False,
-)
+class ListDatabasesInputTypeDef(TypedDict):
+    CatalogName: str
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+    WorkGroup: NotRequired[str]
 
-class QueryResultsS3AccessGrantsConfigurationTypeDef(
-    _RequiredQueryResultsS3AccessGrantsConfigurationTypeDef,
-    _OptionalQueryResultsS3AccessGrantsConfigurationTypeDef,
-):
-    pass
+class ListEngineVersionsInputTypeDef(TypedDict):
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
 
-QueryRuntimeStatisticsRowsTypeDef = TypedDict(
-    "QueryRuntimeStatisticsRowsTypeDef",
-    {
-        "InputRows": int,
-        "InputBytes": int,
-        "OutputBytes": int,
-        "OutputRows": int,
-    },
-    total=False,
-)
+class ListExecutorsRequestTypeDef(TypedDict):
+    SessionId: str
+    ExecutorStateFilter: NotRequired[ExecutorStateType]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
 
-QueryRuntimeStatisticsTimelineTypeDef = TypedDict(
-    "QueryRuntimeStatisticsTimelineTypeDef",
-    {
-        "QueryQueueTimeInMillis": int,
-        "ServicePreProcessingTimeInMillis": int,
-        "QueryPlanningTimeInMillis": int,
-        "EngineExecutionTimeInMillis": int,
-        "ServiceProcessingTimeInMillis": int,
-        "TotalExecutionTimeInMillis": int,
-    },
-    total=False,
-)
+class ListNamedQueriesInputTypeDef(TypedDict):
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+    WorkGroup: NotRequired[str]
 
-QueryRuntimeStatisticsTypeDef = TypedDict(
-    "QueryRuntimeStatisticsTypeDef",
-    {
-        "Timeline": "QueryRuntimeStatisticsTimelineTypeDef",
-        "Rows": "QueryRuntimeStatisticsRowsTypeDef",
-        "OutputStage": "QueryStageTypeDef",
-    },
-    total=False,
-)
+class ListNotebookSessionsRequestTypeDef(TypedDict):
+    NotebookId: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
 
-QueryStagePlanNodeTypeDef = TypedDict(
-    "QueryStagePlanNodeTypeDef",
-    {
-        "Name": str,
-        "Identifier": str,
-        "Children": List[Dict[str, Any]],
-        "RemoteSources": List[str],
-    },
-    total=False,
-)
+class NotebookSessionSummaryTypeDef(TypedDict):
+    SessionId: NotRequired[str]
+    CreationTime: NotRequired[datetime]
 
-QueryStageTypeDef = TypedDict(
-    "QueryStageTypeDef",
-    {
-        "StageId": int,
-        "State": str,
-        "OutputBytes": int,
-        "OutputRows": int,
-        "InputBytes": int,
-        "InputRows": int,
-        "ExecutionTime": int,
-        "QueryStagePlan": "QueryStagePlanNodeTypeDef",
-        "SubStages": List[Dict[str, Any]],
-    },
-    total=False,
-)
+class ListPreparedStatementsInputTypeDef(TypedDict):
+    WorkGroup: str
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
 
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
+class PreparedStatementSummaryTypeDef(TypedDict):
+    StatementName: NotRequired[str]
+    LastModifiedTime: NotRequired[datetime]
 
-ResultConfigurationTypeDef = TypedDict(
-    "ResultConfigurationTypeDef",
-    {
-        "OutputLocation": str,
-        "EncryptionConfiguration": "EncryptionConfigurationTypeDef",
-        "ExpectedBucketOwner": str,
-        "AclConfiguration": "AclConfigurationTypeDef",
-    },
-    total=False,
-)
+class ListQueryExecutionsInputTypeDef(TypedDict):
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+    WorkGroup: NotRequired[str]
 
-ResultConfigurationUpdatesTypeDef = TypedDict(
-    "ResultConfigurationUpdatesTypeDef",
-    {
-        "OutputLocation": str,
-        "RemoveOutputLocation": bool,
-        "EncryptionConfiguration": "EncryptionConfigurationTypeDef",
-        "RemoveEncryptionConfiguration": bool,
-        "ExpectedBucketOwner": str,
-        "RemoveExpectedBucketOwner": bool,
-        "AclConfiguration": "AclConfigurationTypeDef",
-        "RemoveAclConfiguration": bool,
-    },
-    total=False,
-)
+class ListSessionsRequestTypeDef(TypedDict):
+    WorkGroup: str
+    StateFilter: NotRequired[SessionStateType]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
 
-_RequiredResultReuseByAgeConfigurationTypeDef = TypedDict(
-    "_RequiredResultReuseByAgeConfigurationTypeDef",
-    {
-        "Enabled": bool,
-    },
-)
-_OptionalResultReuseByAgeConfigurationTypeDef = TypedDict(
-    "_OptionalResultReuseByAgeConfigurationTypeDef",
-    {
-        "MaxAgeInMinutes": int,
-    },
-    total=False,
-)
+class ListTableMetadataInputTypeDef(TypedDict):
+    CatalogName: str
+    DatabaseName: str
+    Expression: NotRequired[str]
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+    WorkGroup: NotRequired[str]
 
-class ResultReuseByAgeConfigurationTypeDef(
-    _RequiredResultReuseByAgeConfigurationTypeDef, _OptionalResultReuseByAgeConfigurationTypeDef
-):
-    pass
+class ListTagsForResourceInputTypeDef(TypedDict):
+    ResourceARN: str
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
 
-ResultReuseConfigurationTypeDef = TypedDict(
-    "ResultReuseConfigurationTypeDef",
-    {
-        "ResultReuseByAgeConfiguration": "ResultReuseByAgeConfigurationTypeDef",
-    },
-    total=False,
-)
+class ListWorkGroupsInputTypeDef(TypedDict):
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
 
-ResultReuseInformationTypeDef = TypedDict(
-    "ResultReuseInformationTypeDef",
-    {
-        "ReusedPreviousResult": bool,
-    },
-)
+class QueryExecutionContextTypeDef(TypedDict):
+    Database: NotRequired[str]
+    Catalog: NotRequired[str]
 
-ResultSetMetadataTypeDef = TypedDict(
-    "ResultSetMetadataTypeDef",
-    {
-        "ColumnInfo": List["ColumnInfoTypeDef"],
-    },
-    total=False,
-)
+class ResultReuseInformationTypeDef(TypedDict):
+    ReusedPreviousResult: bool
 
-ResultSetTypeDef = TypedDict(
-    "ResultSetTypeDef",
-    {
-        "Rows": List["RowTypeDef"],
-        "ResultSetMetadata": "ResultSetMetadataTypeDef",
-    },
-    total=False,
-)
+class QueryResultsS3AccessGrantsConfigurationTypeDef(TypedDict):
+    EnableS3AccessGrants: bool
+    AuthenticationType: Literal["DIRECTORY_IDENTITY"]
+    CreateUserLevelPrefix: NotRequired[bool]
 
-RowTypeDef = TypedDict(
-    "RowTypeDef",
-    {
-        "Data": List["DatumTypeDef"],
-    },
-    total=False,
-)
+class QueryRuntimeStatisticsRowsTypeDef(TypedDict):
+    InputRows: NotRequired[int]
+    InputBytes: NotRequired[int]
+    OutputBytes: NotRequired[int]
+    OutputRows: NotRequired[int]
 
-SessionConfigurationTypeDef = TypedDict(
-    "SessionConfigurationTypeDef",
-    {
-        "ExecutionRole": str,
-        "WorkingDirectory": str,
-        "IdleTimeoutSeconds": int,
-        "EncryptionConfiguration": "EncryptionConfigurationTypeDef",
-    },
-    total=False,
-)
+class QueryRuntimeStatisticsTimelineTypeDef(TypedDict):
+    QueryQueueTimeInMillis: NotRequired[int]
+    ServicePreProcessingTimeInMillis: NotRequired[int]
+    QueryPlanningTimeInMillis: NotRequired[int]
+    EngineExecutionTimeInMillis: NotRequired[int]
+    ServiceProcessingTimeInMillis: NotRequired[int]
+    TotalExecutionTimeInMillis: NotRequired[int]
 
-SessionStatisticsTypeDef = TypedDict(
-    "SessionStatisticsTypeDef",
-    {
-        "DpuExecutionInMillis": int,
-    },
-    total=False,
-)
+class QueryStagePlanNodeTypeDef(TypedDict):
+    Name: NotRequired[str]
+    Identifier: NotRequired[str]
+    Children: NotRequired[List[Dict[str, Any]]]
+    RemoteSources: NotRequired[List[str]]
 
-SessionStatusTypeDef = TypedDict(
-    "SessionStatusTypeDef",
-    {
-        "StartDateTime": datetime,
-        "LastModifiedDateTime": datetime,
-        "EndDateTime": datetime,
-        "IdleSinceDateTime": datetime,
-        "State": SessionStateType,
-        "StateChangeReason": str,
-    },
-    total=False,
-)
+class ResultReuseByAgeConfigurationTypeDef(TypedDict):
+    Enabled: bool
+    MaxAgeInMinutes: NotRequired[int]
 
-SessionSummaryTypeDef = TypedDict(
-    "SessionSummaryTypeDef",
-    {
-        "SessionId": str,
-        "Description": str,
-        "EngineVersion": "EngineVersionTypeDef",
-        "NotebookVersion": str,
-        "Status": "SessionStatusTypeDef",
-    },
-    total=False,
-)
+class StopCalculationExecutionRequestTypeDef(TypedDict):
+    CalculationExecutionId: str
 
-_RequiredStartCalculationExecutionRequestRequestTypeDef = TypedDict(
-    "_RequiredStartCalculationExecutionRequestRequestTypeDef",
-    {
-        "SessionId": str,
-    },
-)
-_OptionalStartCalculationExecutionRequestRequestTypeDef = TypedDict(
-    "_OptionalStartCalculationExecutionRequestRequestTypeDef",
-    {
-        "Description": str,
-        "CalculationConfiguration": "CalculationConfigurationTypeDef",
-        "CodeBlock": str,
-        "ClientRequestToken": str,
-    },
-    total=False,
-)
+class StopQueryExecutionInputTypeDef(TypedDict):
+    QueryExecutionId: str
 
-class StartCalculationExecutionRequestRequestTypeDef(
-    _RequiredStartCalculationExecutionRequestRequestTypeDef,
-    _OptionalStartCalculationExecutionRequestRequestTypeDef,
-):
-    pass
+class TerminateSessionRequestTypeDef(TypedDict):
+    SessionId: str
 
-StartCalculationExecutionResponseTypeDef = TypedDict(
-    "StartCalculationExecutionResponseTypeDef",
-    {
-        "CalculationExecutionId": str,
-        "State": CalculationExecutionStateType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class UntagResourceInputTypeDef(TypedDict):
+    ResourceARN: str
+    TagKeys: Sequence[str]
 
-_RequiredStartQueryExecutionInputRequestTypeDef = TypedDict(
-    "_RequiredStartQueryExecutionInputRequestTypeDef",
-    {
-        "QueryString": str,
-    },
-)
-_OptionalStartQueryExecutionInputRequestTypeDef = TypedDict(
-    "_OptionalStartQueryExecutionInputRequestTypeDef",
-    {
-        "ClientRequestToken": str,
-        "QueryExecutionContext": "QueryExecutionContextTypeDef",
-        "ResultConfiguration": "ResultConfigurationTypeDef",
-        "WorkGroup": str,
-        "ExecutionParameters": List[str],
-        "ResultReuseConfiguration": "ResultReuseConfigurationTypeDef",
-    },
-    total=False,
-)
+class UpdateCapacityReservationInputTypeDef(TypedDict):
+    TargetDpus: int
+    Name: str
 
-class StartQueryExecutionInputRequestTypeDef(
-    _RequiredStartQueryExecutionInputRequestTypeDef, _OptionalStartQueryExecutionInputRequestTypeDef
-):
-    pass
-
-StartQueryExecutionOutputTypeDef = TypedDict(
-    "StartQueryExecutionOutputTypeDef",
-    {
-        "QueryExecutionId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredStartSessionRequestRequestTypeDef = TypedDict(
-    "_RequiredStartSessionRequestRequestTypeDef",
-    {
-        "WorkGroup": str,
-        "EngineConfiguration": "EngineConfigurationTypeDef",
-    },
-)
-_OptionalStartSessionRequestRequestTypeDef = TypedDict(
-    "_OptionalStartSessionRequestRequestTypeDef",
-    {
-        "Description": str,
-        "NotebookVersion": str,
-        "SessionIdleTimeoutInMinutes": int,
-        "ClientRequestToken": str,
-    },
-    total=False,
-)
-
-class StartSessionRequestRequestTypeDef(
-    _RequiredStartSessionRequestRequestTypeDef, _OptionalStartSessionRequestRequestTypeDef
-):
-    pass
-
-StartSessionResponseTypeDef = TypedDict(
-    "StartSessionResponseTypeDef",
-    {
-        "SessionId": str,
-        "State": SessionStateType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-StopCalculationExecutionRequestRequestTypeDef = TypedDict(
-    "StopCalculationExecutionRequestRequestTypeDef",
-    {
-        "CalculationExecutionId": str,
-    },
-)
-
-StopCalculationExecutionResponseTypeDef = TypedDict(
-    "StopCalculationExecutionResponseTypeDef",
-    {
-        "State": CalculationExecutionStateType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-StopQueryExecutionInputRequestTypeDef = TypedDict(
-    "StopQueryExecutionInputRequestTypeDef",
-    {
-        "QueryExecutionId": str,
-    },
-)
-
-_RequiredTableMetadataTypeDef = TypedDict(
-    "_RequiredTableMetadataTypeDef",
-    {
-        "Name": str,
-    },
-)
-_OptionalTableMetadataTypeDef = TypedDict(
-    "_OptionalTableMetadataTypeDef",
-    {
-        "CreateTime": datetime,
-        "LastAccessTime": datetime,
-        "TableType": str,
-        "Columns": List["ColumnTypeDef"],
-        "PartitionKeys": List["ColumnTypeDef"],
-        "Parameters": Dict[str, str],
-    },
-    total=False,
-)
-
-class TableMetadataTypeDef(_RequiredTableMetadataTypeDef, _OptionalTableMetadataTypeDef):
-    pass
-
-TagResourceInputRequestTypeDef = TypedDict(
-    "TagResourceInputRequestTypeDef",
-    {
-        "ResourceARN": str,
-        "Tags": List["TagTypeDef"],
-    },
-)
-
-TagTypeDef = TypedDict(
-    "TagTypeDef",
-    {
-        "Key": str,
-        "Value": str,
-    },
-    total=False,
-)
-
-TerminateSessionRequestRequestTypeDef = TypedDict(
-    "TerminateSessionRequestRequestTypeDef",
-    {
-        "SessionId": str,
-    },
-)
-
-TerminateSessionResponseTypeDef = TypedDict(
-    "TerminateSessionResponseTypeDef",
-    {
-        "State": SessionStateType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UnprocessedNamedQueryIdTypeDef = TypedDict(
-    "UnprocessedNamedQueryIdTypeDef",
-    {
-        "NamedQueryId": str,
-        "ErrorCode": str,
-        "ErrorMessage": str,
-    },
-    total=False,
-)
-
-UnprocessedPreparedStatementNameTypeDef = TypedDict(
-    "UnprocessedPreparedStatementNameTypeDef",
-    {
-        "StatementName": str,
-        "ErrorCode": str,
-        "ErrorMessage": str,
-    },
-    total=False,
-)
-
-UnprocessedQueryExecutionIdTypeDef = TypedDict(
-    "UnprocessedQueryExecutionIdTypeDef",
-    {
-        "QueryExecutionId": str,
-        "ErrorCode": str,
-        "ErrorMessage": str,
-    },
-    total=False,
-)
-
-UntagResourceInputRequestTypeDef = TypedDict(
-    "UntagResourceInputRequestTypeDef",
-    {
-        "ResourceARN": str,
-        "TagKeys": List[str],
-    },
-)
-
-UpdateCapacityReservationInputRequestTypeDef = TypedDict(
-    "UpdateCapacityReservationInputRequestTypeDef",
-    {
-        "TargetDpus": int,
-        "Name": str,
-    },
-)
-
-_RequiredUpdateDataCatalogInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateDataCatalogInputRequestTypeDef",
+UpdateDataCatalogInputTypeDef = TypedDict(
+    "UpdateDataCatalogInputTypeDef",
     {
         "Name": str,
         "Type": DataCatalogTypeType,
+        "Description": NotRequired[str],
+        "Parameters": NotRequired[Mapping[str, str]],
     },
 )
-_OptionalUpdateDataCatalogInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateDataCatalogInputRequestTypeDef",
-    {
-        "Description": str,
-        "Parameters": Dict[str, str],
-    },
-    total=False,
-)
 
-class UpdateDataCatalogInputRequestTypeDef(
-    _RequiredUpdateDataCatalogInputRequestTypeDef, _OptionalUpdateDataCatalogInputRequestTypeDef
-):
-    pass
+class UpdateNamedQueryInputTypeDef(TypedDict):
+    NamedQueryId: str
+    Name: str
+    QueryString: str
+    Description: NotRequired[str]
 
-_RequiredUpdateNamedQueryInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateNamedQueryInputRequestTypeDef",
-    {
-        "NamedQueryId": str,
-        "Name": str,
-        "QueryString": str,
-    },
-)
-_OptionalUpdateNamedQueryInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateNamedQueryInputRequestTypeDef",
-    {
-        "Description": str,
-    },
-    total=False,
-)
-
-class UpdateNamedQueryInputRequestTypeDef(
-    _RequiredUpdateNamedQueryInputRequestTypeDef, _OptionalUpdateNamedQueryInputRequestTypeDef
-):
-    pass
-
-_RequiredUpdateNotebookInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateNotebookInputRequestTypeDef",
+UpdateNotebookInputTypeDef = TypedDict(
+    "UpdateNotebookInputTypeDef",
     {
         "NotebookId": str,
         "Payload": str,
         "Type": Literal["IPYNB"],
+        "SessionId": NotRequired[str],
+        "ClientRequestToken": NotRequired[str],
     },
 )
-_OptionalUpdateNotebookInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateNotebookInputRequestTypeDef",
-    {
-        "SessionId": str,
-        "ClientRequestToken": str,
-    },
-    total=False,
-)
 
-class UpdateNotebookInputRequestTypeDef(
-    _RequiredUpdateNotebookInputRequestTypeDef, _OptionalUpdateNotebookInputRequestTypeDef
-):
-    pass
+class UpdateNotebookMetadataInputTypeDef(TypedDict):
+    NotebookId: str
+    Name: str
+    ClientRequestToken: NotRequired[str]
 
-_RequiredUpdateNotebookMetadataInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateNotebookMetadataInputRequestTypeDef",
+class UpdatePreparedStatementInputTypeDef(TypedDict):
+    StatementName: str
+    WorkGroup: str
+    QueryStatement: str
+    Description: NotRequired[str]
+
+class QueryExecutionStatusTypeDef(TypedDict):
+    State: NotRequired[QueryExecutionStateType]
+    StateChangeReason: NotRequired[str]
+    SubmissionDateTime: NotRequired[datetime]
+    CompletionDateTime: NotRequired[datetime]
+    AthenaError: NotRequired[AthenaErrorTypeDef]
+
+class CreateNamedQueryOutputTypeDef(TypedDict):
+    NamedQueryId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateNotebookOutputTypeDef(TypedDict):
+    NotebookId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreatePresignedNotebookUrlResponseTypeDef(TypedDict):
+    NotebookUrl: str
+    AuthToken: str
+    AuthTokenExpirationTime: int
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetCalculationExecutionCodeResponseTypeDef(TypedDict):
+    CodeBlock: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetNamedQueryOutputTypeDef(TypedDict):
+    NamedQuery: NamedQueryTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ImportNotebookOutputTypeDef(TypedDict):
+    NotebookId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListApplicationDPUSizesOutputTypeDef(TypedDict):
+    ApplicationDPUSizes: List[ApplicationDPUSizesTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListNamedQueriesOutputTypeDef(TypedDict):
+    NamedQueryIds: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListQueryExecutionsOutputTypeDef(TypedDict):
+    QueryExecutionIds: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class StartCalculationExecutionResponseTypeDef(TypedDict):
+    CalculationExecutionId: str
+    State: CalculationExecutionStateType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartQueryExecutionOutputTypeDef(TypedDict):
+    QueryExecutionId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartSessionResponseTypeDef(TypedDict):
+    SessionId: str
+    State: SessionStateType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StopCalculationExecutionResponseTypeDef(TypedDict):
+    State: CalculationExecutionStateType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class TerminateSessionResponseTypeDef(TypedDict):
+    State: SessionStateType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class BatchGetNamedQueryOutputTypeDef(TypedDict):
+    NamedQueries: List[NamedQueryTypeDef]
+    UnprocessedNamedQueryIds: List[UnprocessedNamedQueryIdTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetPreparedStatementOutputTypeDef(TypedDict):
+    PreparedStatement: PreparedStatementTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class BatchGetPreparedStatementOutputTypeDef(TypedDict):
+    PreparedStatements: List[PreparedStatementTypeDef]
+    UnprocessedPreparedStatementNames: List[UnprocessedPreparedStatementNameTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartCalculationExecutionRequestTypeDef(TypedDict):
+    SessionId: str
+    Description: NotRequired[str]
+    CalculationConfiguration: NotRequired[CalculationConfigurationTypeDef]
+    CodeBlock: NotRequired[str]
+    ClientRequestToken: NotRequired[str]
+
+class CalculationSummaryTypeDef(TypedDict):
+    CalculationExecutionId: NotRequired[str]
+    Description: NotRequired[str]
+    Status: NotRequired[CalculationStatusTypeDef]
+
+class GetCalculationExecutionResponseTypeDef(TypedDict):
+    CalculationExecutionId: str
+    SessionId: str
+    Description: str
+    WorkingDirectory: str
+    Status: CalculationStatusTypeDef
+    Statistics: CalculationStatisticsTypeDef
+    Result: CalculationResultTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetCalculationExecutionStatusResponseTypeDef(TypedDict):
+    Status: CalculationStatusTypeDef
+    Statistics: CalculationStatisticsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CapacityReservationTypeDef(TypedDict):
+    Name: str
+    Status: CapacityReservationStatusType
+    TargetDpus: int
+    AllocatedDpus: int
+    CreationTime: datetime
+    LastAllocation: NotRequired[CapacityAllocationTypeDef]
+    LastSuccessfulAllocationTime: NotRequired[datetime]
+
+class CapacityAssignmentConfigurationTypeDef(TypedDict):
+    CapacityReservationName: NotRequired[str]
+    CapacityAssignments: NotRequired[List[CapacityAssignmentOutputTypeDef]]
+
+CapacityAssignmentUnionTypeDef = Union[CapacityAssignmentTypeDef, CapacityAssignmentOutputTypeDef]
+
+class ResultSetMetadataTypeDef(TypedDict):
+    ColumnInfo: NotRequired[List[ColumnInfoTypeDef]]
+
+class TableMetadataTypeDef(TypedDict):
+    Name: str
+    CreateTime: NotRequired[datetime]
+    LastAccessTime: NotRequired[datetime]
+    TableType: NotRequired[str]
+    Columns: NotRequired[List[ColumnTypeDef]]
+    PartitionKeys: NotRequired[List[ColumnTypeDef]]
+    Parameters: NotRequired[Dict[str, str]]
+
+class CreateCapacityReservationInputTypeDef(TypedDict):
+    TargetDpus: int
+    Name: str
+    Tags: NotRequired[Sequence[TagTypeDef]]
+
+CreateDataCatalogInputTypeDef = TypedDict(
+    "CreateDataCatalogInputTypeDef",
     {
-        "NotebookId": str,
         "Name": str,
+        "Type": DataCatalogTypeType,
+        "Description": NotRequired[str],
+        "Parameters": NotRequired[Mapping[str, str]],
+        "Tags": NotRequired[Sequence[TagTypeDef]],
     },
-)
-_OptionalUpdateNotebookMetadataInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateNotebookMetadataInputRequestTypeDef",
-    {
-        "ClientRequestToken": str,
-    },
-    total=False,
 )
 
-class UpdateNotebookMetadataInputRequestTypeDef(
-    _RequiredUpdateNotebookMetadataInputRequestTypeDef,
-    _OptionalUpdateNotebookMetadataInputRequestTypeDef,
-):
-    pass
+class ListTagsForResourceOutputTypeDef(TypedDict):
+    Tags: List[TagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-_RequiredUpdatePreparedStatementInputRequestTypeDef = TypedDict(
-    "_RequiredUpdatePreparedStatementInputRequestTypeDef",
-    {
-        "StatementName": str,
-        "WorkGroup": str,
-        "QueryStatement": str,
-    },
-)
-_OptionalUpdatePreparedStatementInputRequestTypeDef = TypedDict(
-    "_OptionalUpdatePreparedStatementInputRequestTypeDef",
-    {
-        "Description": str,
-    },
-    total=False,
-)
+class TagResourceInputTypeDef(TypedDict):
+    ResourceARN: str
+    Tags: Sequence[TagTypeDef]
 
-class UpdatePreparedStatementInputRequestTypeDef(
-    _RequiredUpdatePreparedStatementInputRequestTypeDef,
-    _OptionalUpdatePreparedStatementInputRequestTypeDef,
-):
-    pass
+class CreateDataCatalogOutputTypeDef(TypedDict):
+    DataCatalog: DataCatalogTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredUpdateWorkGroupInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateWorkGroupInputRequestTypeDef",
-    {
-        "WorkGroup": str,
-    },
-)
-_OptionalUpdateWorkGroupInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateWorkGroupInputRequestTypeDef",
-    {
-        "Description": str,
-        "ConfigurationUpdates": "WorkGroupConfigurationUpdatesTypeDef",
-        "State": WorkGroupStateType,
-    },
-    total=False,
-)
+class DeleteDataCatalogOutputTypeDef(TypedDict):
+    DataCatalog: DataCatalogTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateWorkGroupInputRequestTypeDef(
-    _RequiredUpdateWorkGroupInputRequestTypeDef, _OptionalUpdateWorkGroupInputRequestTypeDef
-):
-    pass
+class GetDataCatalogOutputTypeDef(TypedDict):
+    DataCatalog: DataCatalogTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-WorkGroupConfigurationTypeDef = TypedDict(
-    "WorkGroupConfigurationTypeDef",
-    {
-        "ResultConfiguration": "ResultConfigurationTypeDef",
-        "EnforceWorkGroupConfiguration": bool,
-        "PublishCloudWatchMetricsEnabled": bool,
-        "BytesScannedCutoffPerQuery": int,
-        "RequesterPaysEnabled": bool,
-        "EngineVersion": "EngineVersionTypeDef",
-        "AdditionalConfiguration": str,
-        "ExecutionRole": str,
-        "CustomerContentEncryptionConfiguration": "CustomerContentEncryptionConfigurationTypeDef",
-        "EnableMinimumEncryptionConfiguration": bool,
-        "IdentityCenterConfiguration": "IdentityCenterConfigurationTypeDef",
-        "QueryResultsS3AccessGrantsConfiguration": "QueryResultsS3AccessGrantsConfigurationTypeDef",
-    },
-    total=False,
-)
+class ListDataCatalogsOutputTypeDef(TypedDict):
+    DataCatalogsSummary: List[DataCatalogSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-WorkGroupConfigurationUpdatesTypeDef = TypedDict(
-    "WorkGroupConfigurationUpdatesTypeDef",
-    {
-        "EnforceWorkGroupConfiguration": bool,
-        "ResultConfigurationUpdates": "ResultConfigurationUpdatesTypeDef",
-        "PublishCloudWatchMetricsEnabled": bool,
-        "BytesScannedCutoffPerQuery": int,
-        "RemoveBytesScannedCutoffPerQuery": bool,
-        "RequesterPaysEnabled": bool,
-        "EngineVersion": "EngineVersionTypeDef",
-        "RemoveCustomerContentEncryptionConfiguration": bool,
-        "AdditionalConfiguration": str,
-        "ExecutionRole": str,
-        "CustomerContentEncryptionConfiguration": "CustomerContentEncryptionConfigurationTypeDef",
-        "EnableMinimumEncryptionConfiguration": bool,
-        "QueryResultsS3AccessGrantsConfiguration": "QueryResultsS3AccessGrantsConfigurationTypeDef",
-    },
-    total=False,
-)
+class GetDatabaseOutputTypeDef(TypedDict):
+    Database: DatabaseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-WorkGroupSummaryTypeDef = TypedDict(
-    "WorkGroupSummaryTypeDef",
-    {
-        "Name": str,
-        "State": WorkGroupStateType,
-        "Description": str,
-        "CreationTime": datetime,
-        "EngineVersion": "EngineVersionTypeDef",
-        "IdentityCenterApplicationArn": str,
-    },
-    total=False,
-)
+class ListDatabasesOutputTypeDef(TypedDict):
+    DatabaseList: List[DatabaseTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-_RequiredWorkGroupTypeDef = TypedDict(
-    "_RequiredWorkGroupTypeDef",
-    {
-        "Name": str,
-    },
-)
-_OptionalWorkGroupTypeDef = TypedDict(
-    "_OptionalWorkGroupTypeDef",
-    {
-        "State": WorkGroupStateType,
-        "Configuration": "WorkGroupConfigurationTypeDef",
-        "Description": str,
-        "CreationTime": datetime,
-        "IdentityCenterApplicationArn": str,
-    },
-    total=False,
-)
+class RowTypeDef(TypedDict):
+    Data: NotRequired[List[DatumTypeDef]]
 
-class WorkGroupTypeDef(_RequiredWorkGroupTypeDef, _OptionalWorkGroupTypeDef):
-    pass
+class ResultConfigurationTypeDef(TypedDict):
+    OutputLocation: NotRequired[str]
+    EncryptionConfiguration: NotRequired[EncryptionConfigurationTypeDef]
+    ExpectedBucketOwner: NotRequired[str]
+    AclConfiguration: NotRequired[AclConfigurationTypeDef]
+
+class ResultConfigurationUpdatesTypeDef(TypedDict):
+    OutputLocation: NotRequired[str]
+    RemoveOutputLocation: NotRequired[bool]
+    EncryptionConfiguration: NotRequired[EncryptionConfigurationTypeDef]
+    RemoveEncryptionConfiguration: NotRequired[bool]
+    ExpectedBucketOwner: NotRequired[str]
+    RemoveExpectedBucketOwner: NotRequired[bool]
+    AclConfiguration: NotRequired[AclConfigurationTypeDef]
+    RemoveAclConfiguration: NotRequired[bool]
+
+class SessionConfigurationTypeDef(TypedDict):
+    ExecutionRole: NotRequired[str]
+    WorkingDirectory: NotRequired[str]
+    IdleTimeoutSeconds: NotRequired[int]
+    EncryptionConfiguration: NotRequired[EncryptionConfigurationTypeDef]
+
+EngineConfigurationUnionTypeDef = Union[
+    EngineConfigurationTypeDef, EngineConfigurationOutputTypeDef
+]
+
+class ListEngineVersionsOutputTypeDef(TypedDict):
+    EngineVersions: List[EngineVersionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class WorkGroupSummaryTypeDef(TypedDict):
+    Name: NotRequired[str]
+    State: NotRequired[WorkGroupStateType]
+    Description: NotRequired[str]
+    CreationTime: NotRequired[datetime]
+    EngineVersion: NotRequired[EngineVersionTypeDef]
+    IdentityCenterApplicationArn: NotRequired[str]
+
+class ListExecutorsResponseTypeDef(TypedDict):
+    SessionId: str
+    ExecutorsSummary: List[ExecutorsSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ExportNotebookOutputTypeDef(TypedDict):
+    NotebookMetadata: NotebookMetadataTypeDef
+    Payload: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetNotebookMetadataOutputTypeDef(TypedDict):
+    NotebookMetadata: NotebookMetadataTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListNotebookMetadataOutputTypeDef(TypedDict):
+    NotebookMetadataList: List[NotebookMetadataTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListNotebookMetadataInputTypeDef(TypedDict):
+    WorkGroup: str
+    Filters: NotRequired[FilterDefinitionTypeDef]
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class GetQueryResultsInputPaginateTypeDef(TypedDict):
+    QueryExecutionId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListDataCatalogsInputPaginateTypeDef(TypedDict):
+    WorkGroup: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListDatabasesInputPaginateTypeDef(TypedDict):
+    CatalogName: str
+    WorkGroup: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListNamedQueriesInputPaginateTypeDef(TypedDict):
+    WorkGroup: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListQueryExecutionsInputPaginateTypeDef(TypedDict):
+    WorkGroup: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListTableMetadataInputPaginateTypeDef(TypedDict):
+    CatalogName: str
+    DatabaseName: str
+    Expression: NotRequired[str]
+    WorkGroup: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListTagsForResourceInputPaginateTypeDef(TypedDict):
+    ResourceARN: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class GetSessionStatusResponseTypeDef(TypedDict):
+    SessionId: str
+    Status: SessionStatusTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class SessionSummaryTypeDef(TypedDict):
+    SessionId: NotRequired[str]
+    Description: NotRequired[str]
+    EngineVersion: NotRequired[EngineVersionTypeDef]
+    NotebookVersion: NotRequired[str]
+    Status: NotRequired[SessionStatusTypeDef]
+
+class ListNotebookSessionsResponseTypeDef(TypedDict):
+    NotebookSessionsList: List[NotebookSessionSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListPreparedStatementsOutputTypeDef(TypedDict):
+    PreparedStatements: List[PreparedStatementSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class QueryExecutionStatisticsTypeDef(TypedDict):
+    EngineExecutionTimeInMillis: NotRequired[int]
+    DataScannedInBytes: NotRequired[int]
+    DataManifestLocation: NotRequired[str]
+    TotalExecutionTimeInMillis: NotRequired[int]
+    QueryQueueTimeInMillis: NotRequired[int]
+    ServicePreProcessingTimeInMillis: NotRequired[int]
+    QueryPlanningTimeInMillis: NotRequired[int]
+    ServiceProcessingTimeInMillis: NotRequired[int]
+    ResultReuseInformation: NotRequired[ResultReuseInformationTypeDef]
+
+class QueryStageTypeDef(TypedDict):
+    StageId: NotRequired[int]
+    State: NotRequired[str]
+    OutputBytes: NotRequired[int]
+    OutputRows: NotRequired[int]
+    InputBytes: NotRequired[int]
+    InputRows: NotRequired[int]
+    ExecutionTime: NotRequired[int]
+    QueryStagePlan: NotRequired[QueryStagePlanNodeTypeDef]
+    SubStages: NotRequired[List[Dict[str, Any]]]
+
+class ResultReuseConfigurationTypeDef(TypedDict):
+    ResultReuseByAgeConfiguration: NotRequired[ResultReuseByAgeConfigurationTypeDef]
+
+class ListCalculationExecutionsResponseTypeDef(TypedDict):
+    Calculations: List[CalculationSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class GetCapacityReservationOutputTypeDef(TypedDict):
+    CapacityReservation: CapacityReservationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListCapacityReservationsOutputTypeDef(TypedDict):
+    CapacityReservations: List[CapacityReservationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class GetCapacityAssignmentConfigurationOutputTypeDef(TypedDict):
+    CapacityAssignmentConfiguration: CapacityAssignmentConfigurationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutCapacityAssignmentConfigurationInputTypeDef(TypedDict):
+    CapacityReservationName: str
+    CapacityAssignments: Sequence[CapacityAssignmentUnionTypeDef]
+
+class GetTableMetadataOutputTypeDef(TypedDict):
+    TableMetadata: TableMetadataTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListTableMetadataOutputTypeDef(TypedDict):
+    TableMetadataList: List[TableMetadataTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ResultSetTypeDef(TypedDict):
+    Rows: NotRequired[List[RowTypeDef]]
+    ResultSetMetadata: NotRequired[ResultSetMetadataTypeDef]
+
+class WorkGroupConfigurationTypeDef(TypedDict):
+    ResultConfiguration: NotRequired[ResultConfigurationTypeDef]
+    EnforceWorkGroupConfiguration: NotRequired[bool]
+    PublishCloudWatchMetricsEnabled: NotRequired[bool]
+    BytesScannedCutoffPerQuery: NotRequired[int]
+    RequesterPaysEnabled: NotRequired[bool]
+    EngineVersion: NotRequired[EngineVersionTypeDef]
+    AdditionalConfiguration: NotRequired[str]
+    ExecutionRole: NotRequired[str]
+    CustomerContentEncryptionConfiguration: NotRequired[
+        CustomerContentEncryptionConfigurationTypeDef
+    ]
+    EnableMinimumEncryptionConfiguration: NotRequired[bool]
+    IdentityCenterConfiguration: NotRequired[IdentityCenterConfigurationTypeDef]
+    QueryResultsS3AccessGrantsConfiguration: NotRequired[
+        QueryResultsS3AccessGrantsConfigurationTypeDef
+    ]
+
+class WorkGroupConfigurationUpdatesTypeDef(TypedDict):
+    EnforceWorkGroupConfiguration: NotRequired[bool]
+    ResultConfigurationUpdates: NotRequired[ResultConfigurationUpdatesTypeDef]
+    PublishCloudWatchMetricsEnabled: NotRequired[bool]
+    BytesScannedCutoffPerQuery: NotRequired[int]
+    RemoveBytesScannedCutoffPerQuery: NotRequired[bool]
+    RequesterPaysEnabled: NotRequired[bool]
+    EngineVersion: NotRequired[EngineVersionTypeDef]
+    RemoveCustomerContentEncryptionConfiguration: NotRequired[bool]
+    AdditionalConfiguration: NotRequired[str]
+    ExecutionRole: NotRequired[str]
+    CustomerContentEncryptionConfiguration: NotRequired[
+        CustomerContentEncryptionConfigurationTypeDef
+    ]
+    EnableMinimumEncryptionConfiguration: NotRequired[bool]
+    QueryResultsS3AccessGrantsConfiguration: NotRequired[
+        QueryResultsS3AccessGrantsConfigurationTypeDef
+    ]
+
+class GetSessionResponseTypeDef(TypedDict):
+    SessionId: str
+    Description: str
+    WorkGroup: str
+    EngineVersion: str
+    EngineConfiguration: EngineConfigurationOutputTypeDef
+    NotebookVersion: str
+    SessionConfiguration: SessionConfigurationTypeDef
+    Status: SessionStatusTypeDef
+    Statistics: SessionStatisticsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartSessionRequestTypeDef(TypedDict):
+    WorkGroup: str
+    EngineConfiguration: EngineConfigurationUnionTypeDef
+    Description: NotRequired[str]
+    NotebookVersion: NotRequired[str]
+    SessionIdleTimeoutInMinutes: NotRequired[int]
+    ClientRequestToken: NotRequired[str]
+
+class ListWorkGroupsOutputTypeDef(TypedDict):
+    WorkGroups: List[WorkGroupSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListSessionsResponseTypeDef(TypedDict):
+    Sessions: List[SessionSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class QueryRuntimeStatisticsTypeDef(TypedDict):
+    Timeline: NotRequired[QueryRuntimeStatisticsTimelineTypeDef]
+    Rows: NotRequired[QueryRuntimeStatisticsRowsTypeDef]
+    OutputStage: NotRequired[QueryStageTypeDef]
+
+class QueryExecutionTypeDef(TypedDict):
+    QueryExecutionId: NotRequired[str]
+    Query: NotRequired[str]
+    StatementType: NotRequired[StatementTypeType]
+    ResultConfiguration: NotRequired[ResultConfigurationTypeDef]
+    ResultReuseConfiguration: NotRequired[ResultReuseConfigurationTypeDef]
+    QueryExecutionContext: NotRequired[QueryExecutionContextTypeDef]
+    Status: NotRequired[QueryExecutionStatusTypeDef]
+    Statistics: NotRequired[QueryExecutionStatisticsTypeDef]
+    WorkGroup: NotRequired[str]
+    EngineVersion: NotRequired[EngineVersionTypeDef]
+    ExecutionParameters: NotRequired[List[str]]
+    SubstatementType: NotRequired[str]
+    QueryResultsS3AccessGrantsConfiguration: NotRequired[
+        QueryResultsS3AccessGrantsConfigurationTypeDef
+    ]
+
+class StartQueryExecutionInputTypeDef(TypedDict):
+    QueryString: str
+    ClientRequestToken: NotRequired[str]
+    QueryExecutionContext: NotRequired[QueryExecutionContextTypeDef]
+    ResultConfiguration: NotRequired[ResultConfigurationTypeDef]
+    WorkGroup: NotRequired[str]
+    ExecutionParameters: NotRequired[Sequence[str]]
+    ResultReuseConfiguration: NotRequired[ResultReuseConfigurationTypeDef]
+
+class GetQueryResultsOutputTypeDef(TypedDict):
+    UpdateCount: int
+    ResultSet: ResultSetTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class CreateWorkGroupInputTypeDef(TypedDict):
+    Name: str
+    Configuration: NotRequired[WorkGroupConfigurationTypeDef]
+    Description: NotRequired[str]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+
+class WorkGroupTypeDef(TypedDict):
+    Name: str
+    State: NotRequired[WorkGroupStateType]
+    Configuration: NotRequired[WorkGroupConfigurationTypeDef]
+    Description: NotRequired[str]
+    CreationTime: NotRequired[datetime]
+    IdentityCenterApplicationArn: NotRequired[str]
+
+class UpdateWorkGroupInputTypeDef(TypedDict):
+    WorkGroup: str
+    Description: NotRequired[str]
+    ConfigurationUpdates: NotRequired[WorkGroupConfigurationUpdatesTypeDef]
+    State: NotRequired[WorkGroupStateType]
+
+class GetQueryRuntimeStatisticsOutputTypeDef(TypedDict):
+    QueryRuntimeStatistics: QueryRuntimeStatisticsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class BatchGetQueryExecutionOutputTypeDef(TypedDict):
+    QueryExecutions: List[QueryExecutionTypeDef]
+    UnprocessedQueryExecutionIds: List[UnprocessedQueryExecutionIdTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetQueryExecutionOutputTypeDef(TypedDict):
+    QueryExecution: QueryExecutionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetWorkGroupOutputTypeDef(TypedDict):
+    WorkGroup: WorkGroupTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef

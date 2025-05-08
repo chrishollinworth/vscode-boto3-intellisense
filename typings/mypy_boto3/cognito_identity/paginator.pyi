@@ -1,42 +1,57 @@
 """
 Type annotations for cognito-identity service client paginators.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_identity/paginators.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cognito_identity/paginators/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
 
-    from mypy_boto3_cognito_identity import CognitoIdentityClient
+    from mypy_boto3_cognito_identity.client import CognitoIdentityClient
     from mypy_boto3_cognito_identity.paginator import (
         ListIdentityPoolsPaginator,
     )
 
-    client: CognitoIdentityClient = boto3.client("cognito-identity")
+    session = Session()
+    client: CognitoIdentityClient = session.client("cognito-identity")
 
     list_identity_pools_paginator: ListIdentityPoolsPaginator = client.get_paginator("list_identity_pools")
     ```
 """
 
-from typing import Iterator
+from __future__ import annotations
 
-from botocore.paginate import Paginator as Boto3Paginator
+import sys
+from typing import TYPE_CHECKING
 
-from .type_defs import ListIdentityPoolsResponseTypeDef, PaginatorConfigTypeDef
+from botocore.paginate import PageIterator, Paginator
+
+from .type_defs import ListIdentityPoolsInputPaginateTypeDef, ListIdentityPoolsResponseTypeDef
+
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = ("ListIdentityPoolsPaginator",)
 
-class ListIdentityPoolsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-identity.html#CognitoIdentity.Paginator.ListIdentityPools)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_identity/paginators.html#listidentitypoolspaginator)
-    """
+if TYPE_CHECKING:
+    _ListIdentityPoolsPaginatorBase = Paginator[ListIdentityPoolsResponseTypeDef]
+else:
+    _ListIdentityPoolsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListIdentityPoolsResponseTypeDef]:
+class ListIdentityPoolsPaginator(_ListIdentityPoolsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cognito-identity/paginator/ListIdentityPools.html#CognitoIdentity.Paginator.ListIdentityPools)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cognito_identity/paginators/#listidentitypoolspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListIdentityPoolsInputPaginateTypeDef]
+    ) -> PageIterator[ListIdentityPoolsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cognito-identity.html#CognitoIdentity.Paginator.ListIdentityPools.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_identity/paginators.html#listidentitypoolspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cognito-identity/paginator/ListIdentityPools.html#CognitoIdentity.Paginator.ListIdentityPools.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cognito_identity/paginators/#listidentitypoolspaginator)
         """

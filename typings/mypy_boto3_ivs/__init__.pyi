@@ -1,10 +1,14 @@
 """
 Main interface for ivs service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ivs/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_ivs import (
         Client,
         IVSClient,
@@ -15,10 +19,8 @@ Usage::
         ListStreamsPaginator,
     )
 
-    session = boto3.Session()
-
-    client: IVSClient = boto3.client("ivs")
-    session_client: IVSClient = session.client("ivs")
+    session = Session()
+    client: IVSClient = session.client("ivs")
 
     list_channels_paginator: ListChannelsPaginator = client.get_paginator("list_channels")
     list_playback_key_pairs_paginator: ListPlaybackKeyPairsPaginator = client.get_paginator("list_playback_key_pairs")

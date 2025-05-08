@@ -1,10 +1,14 @@
 """
 Main interface for managedblockchain-query service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain_query/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_managedblockchain_query import (
         Client,
         ListAssetContractsPaginator,
@@ -15,10 +19,8 @@ Usage::
         ManagedBlockchainQueryClient,
     )
 
-    session = boto3.Session()
-
-    client: ManagedBlockchainQueryClient = boto3.client("managedblockchain-query")
-    session_client: ManagedBlockchainQueryClient = session.client("managedblockchain-query")
+    session = Session()
+    client: ManagedBlockchainQueryClient = session.client("managedblockchain-query")
 
     list_asset_contracts_paginator: ListAssetContractsPaginator = client.get_paginator("list_asset_contracts")
     list_filtered_transaction_events_paginator: ListFilteredTransactionEventsPaginator = client.get_paginator("list_filtered_transaction_events")

@@ -1,73 +1,56 @@
 """
-Type annotations for datazone service client.
+Type annotations for datazone service Client.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
-    from mypy_boto3_datazone import DataZoneClient
+    from boto3.session import Session
+    from mypy_boto3_datazone.client import DataZoneClient
 
-    client: DataZoneClient = boto3.client("datazone")
+    session = Session()
+    client: DataZoneClient = session.client("datazone")
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from datetime import datetime
-from typing import IO, Any, Dict, List, Type, Union, overload
+from typing import Any, overload
 
 from botocore.client import BaseClient, ClientMeta
-from botocore.response import StreamingBody
+from botocore.errorfactory import BaseClientExceptions
+from botocore.exceptions import ClientError as BotocoreClientError
 
-from .literals import (
-    ChangeActionType,
-    DataAssetActivityStatusType,
-    DataSourceRunStatusType,
-    DataSourceStatusType,
-    DomainStatusType,
-    EdgeDirectionType,
-    EnableSettingType,
-    EnvironmentStatusType,
-    FormTypeStatusType,
-    GlossaryStatusType,
-    GlossaryTermStatusType,
-    GroupProfileStatusType,
-    GroupSearchTypeType,
-    InventorySearchScopeType,
-    MetadataGenerationRunStatusType,
-    NotificationTypeType,
-    SearchOutputAdditionalAttributeType,
-    SortKeyType,
-    SortOrderType,
-    SubscriptionGrantStatusType,
-    SubscriptionRequestStatusType,
-    SubscriptionStatusType,
-    TaskStatusType,
-    TimeSeriesEntityTypeType,
-    TypesSearchScopeType,
-    UserDesignationType,
-    UserProfileStatusType,
-    UserProfileTypeType,
-    UserSearchTypeType,
-    UserTypeType,
-)
 from .paginator import (
+    ListAssetFiltersPaginator,
     ListAssetRevisionsPaginator,
+    ListConnectionsPaginator,
+    ListDataProductRevisionsPaginator,
     ListDataSourceRunActivitiesPaginator,
     ListDataSourceRunsPaginator,
     ListDataSourcesPaginator,
     ListDomainsPaginator,
+    ListDomainUnitsForParentPaginator,
+    ListEntityOwnersPaginator,
     ListEnvironmentActionsPaginator,
     ListEnvironmentBlueprintConfigurationsPaginator,
     ListEnvironmentBlueprintsPaginator,
     ListEnvironmentProfilesPaginator,
     ListEnvironmentsPaginator,
+    ListJobRunsPaginator,
+    ListLineageEventsPaginator,
     ListLineageNodeHistoryPaginator,
     ListMetadataGenerationRunsPaginator,
     ListNotificationsPaginator,
+    ListPolicyGrantsPaginator,
     ListProjectMembershipsPaginator,
+    ListProjectProfilesPaginator,
     ListProjectsPaginator,
+    ListRulesPaginator,
     ListSubscriptionGrantsPaginator,
     ListSubscriptionRequestsPaginator,
     ListSubscriptionsPaginator,
@@ -80,145 +63,309 @@ from .paginator import (
     SearchUserProfilesPaginator,
 )
 from .type_defs import (
-    AcceptChoiceTypeDef,
+    AcceptPredictionsInputTypeDef,
     AcceptPredictionsOutputTypeDef,
-    AcceptRuleTypeDef,
+    AcceptSubscriptionRequestInputTypeDef,
     AcceptSubscriptionRequestOutputTypeDef,
-    ActionParametersTypeDef,
-    AssetTargetNameMapTypeDef,
+    AddEntityOwnerInputTypeDef,
+    AddPolicyGrantInputTypeDef,
+    AssociateEnvironmentRoleInputTypeDef,
+    CancelMetadataGenerationRunInputTypeDef,
+    CancelSubscriptionInputTypeDef,
     CancelSubscriptionOutputTypeDef,
+    CreateAssetFilterInputTypeDef,
+    CreateAssetFilterOutputTypeDef,
+    CreateAssetInputTypeDef,
     CreateAssetOutputTypeDef,
+    CreateAssetRevisionInputTypeDef,
     CreateAssetRevisionOutputTypeDef,
+    CreateAssetTypeInputTypeDef,
     CreateAssetTypeOutputTypeDef,
+    CreateConnectionInputTypeDef,
+    CreateConnectionOutputTypeDef,
+    CreateDataProductInputTypeDef,
+    CreateDataProductOutputTypeDef,
+    CreateDataProductRevisionInputTypeDef,
+    CreateDataProductRevisionOutputTypeDef,
+    CreateDataSourceInputTypeDef,
     CreateDataSourceOutputTypeDef,
+    CreateDomainInputTypeDef,
     CreateDomainOutputTypeDef,
+    CreateDomainUnitInputTypeDef,
+    CreateDomainUnitOutputTypeDef,
+    CreateEnvironmentActionInputTypeDef,
     CreateEnvironmentActionOutputTypeDef,
+    CreateEnvironmentInputTypeDef,
     CreateEnvironmentOutputTypeDef,
+    CreateEnvironmentProfileInputTypeDef,
     CreateEnvironmentProfileOutputTypeDef,
+    CreateFormTypeInputTypeDef,
     CreateFormTypeOutputTypeDef,
+    CreateGlossaryInputTypeDef,
     CreateGlossaryOutputTypeDef,
+    CreateGlossaryTermInputTypeDef,
     CreateGlossaryTermOutputTypeDef,
+    CreateGroupProfileInputTypeDef,
     CreateGroupProfileOutputTypeDef,
+    CreateListingChangeSetInputTypeDef,
     CreateListingChangeSetOutputTypeDef,
+    CreateProjectInputTypeDef,
+    CreateProjectMembershipInputTypeDef,
     CreateProjectOutputTypeDef,
+    CreateProjectProfileInputTypeDef,
+    CreateProjectProfileOutputTypeDef,
+    CreateRuleInputTypeDef,
+    CreateRuleOutputTypeDef,
+    CreateSubscriptionGrantInputTypeDef,
     CreateSubscriptionGrantOutputTypeDef,
+    CreateSubscriptionRequestInputTypeDef,
     CreateSubscriptionRequestOutputTypeDef,
+    CreateSubscriptionTargetInputTypeDef,
     CreateSubscriptionTargetOutputTypeDef,
+    CreateUserProfileInputTypeDef,
     CreateUserProfileOutputTypeDef,
-    DataSourceConfigurationInputTypeDef,
+    DeleteAssetFilterInputTypeDef,
+    DeleteAssetInputTypeDef,
+    DeleteAssetTypeInputTypeDef,
+    DeleteConnectionInputTypeDef,
+    DeleteConnectionOutputTypeDef,
+    DeleteDataProductInputTypeDef,
+    DeleteDataSourceInputTypeDef,
     DeleteDataSourceOutputTypeDef,
+    DeleteDomainInputTypeDef,
     DeleteDomainOutputTypeDef,
+    DeleteDomainUnitInputTypeDef,
+    DeleteEnvironmentActionInputTypeDef,
+    DeleteEnvironmentBlueprintConfigurationInputTypeDef,
+    DeleteEnvironmentInputTypeDef,
+    DeleteEnvironmentProfileInputTypeDef,
+    DeleteFormTypeInputTypeDef,
+    DeleteGlossaryInputTypeDef,
+    DeleteGlossaryTermInputTypeDef,
+    DeleteListingInputTypeDef,
+    DeleteProjectInputTypeDef,
+    DeleteProjectMembershipInputTypeDef,
+    DeleteProjectProfileInputTypeDef,
+    DeleteRuleInputTypeDef,
+    DeleteSubscriptionGrantInputTypeDef,
     DeleteSubscriptionGrantOutputTypeDef,
-    EnvironmentParameterTypeDef,
-    FailureCauseTypeDef,
-    FilterClauseTypeDef,
-    FormEntryInputTypeDef,
-    FormInputTypeDef,
+    DeleteSubscriptionRequestInputTypeDef,
+    DeleteSubscriptionTargetInputTypeDef,
+    DeleteTimeSeriesDataPointsInputTypeDef,
+    DisassociateEnvironmentRoleInputTypeDef,
+    EmptyResponseMetadataTypeDef,
+    GetAssetFilterInputTypeDef,
+    GetAssetFilterOutputTypeDef,
+    GetAssetInputTypeDef,
     GetAssetOutputTypeDef,
+    GetAssetTypeInputTypeDef,
     GetAssetTypeOutputTypeDef,
+    GetConnectionInputTypeDef,
+    GetConnectionOutputTypeDef,
+    GetDataProductInputTypeDef,
+    GetDataProductOutputTypeDef,
+    GetDataSourceInputTypeDef,
     GetDataSourceOutputTypeDef,
+    GetDataSourceRunInputTypeDef,
     GetDataSourceRunOutputTypeDef,
+    GetDomainInputTypeDef,
     GetDomainOutputTypeDef,
+    GetDomainUnitInputTypeDef,
+    GetDomainUnitOutputTypeDef,
+    GetEnvironmentActionInputTypeDef,
     GetEnvironmentActionOutputTypeDef,
+    GetEnvironmentBlueprintConfigurationInputTypeDef,
     GetEnvironmentBlueprintConfigurationOutputTypeDef,
+    GetEnvironmentBlueprintInputTypeDef,
     GetEnvironmentBlueprintOutputTypeDef,
+    GetEnvironmentCredentialsInputTypeDef,
+    GetEnvironmentCredentialsOutputTypeDef,
+    GetEnvironmentInputTypeDef,
     GetEnvironmentOutputTypeDef,
+    GetEnvironmentProfileInputTypeDef,
     GetEnvironmentProfileOutputTypeDef,
+    GetFormTypeInputTypeDef,
     GetFormTypeOutputTypeDef,
+    GetGlossaryInputTypeDef,
     GetGlossaryOutputTypeDef,
+    GetGlossaryTermInputTypeDef,
     GetGlossaryTermOutputTypeDef,
+    GetGroupProfileInputTypeDef,
     GetGroupProfileOutputTypeDef,
+    GetIamPortalLoginUrlInputTypeDef,
     GetIamPortalLoginUrlOutputTypeDef,
+    GetJobRunInputTypeDef,
+    GetJobRunOutputTypeDef,
+    GetLineageEventInputTypeDef,
+    GetLineageEventOutputTypeDef,
+    GetLineageNodeInputTypeDef,
     GetLineageNodeOutputTypeDef,
+    GetListingInputTypeDef,
     GetListingOutputTypeDef,
+    GetMetadataGenerationRunInputTypeDef,
     GetMetadataGenerationRunOutputTypeDef,
+    GetProjectInputTypeDef,
     GetProjectOutputTypeDef,
+    GetProjectProfileInputTypeDef,
+    GetProjectProfileOutputTypeDef,
+    GetRuleInputTypeDef,
+    GetRuleOutputTypeDef,
+    GetSubscriptionGrantInputTypeDef,
     GetSubscriptionGrantOutputTypeDef,
+    GetSubscriptionInputTypeDef,
     GetSubscriptionOutputTypeDef,
+    GetSubscriptionRequestDetailsInputTypeDef,
     GetSubscriptionRequestDetailsOutputTypeDef,
+    GetSubscriptionTargetInputTypeDef,
     GetSubscriptionTargetOutputTypeDef,
+    GetTimeSeriesDataPointInputTypeDef,
     GetTimeSeriesDataPointOutputTypeDef,
+    GetUserProfileInputTypeDef,
     GetUserProfileOutputTypeDef,
-    GrantedEntityInputTypeDef,
+    ListAssetFiltersInputTypeDef,
+    ListAssetFiltersOutputTypeDef,
+    ListAssetRevisionsInputTypeDef,
     ListAssetRevisionsOutputTypeDef,
+    ListConnectionsInputTypeDef,
+    ListConnectionsOutputTypeDef,
+    ListDataProductRevisionsInputTypeDef,
+    ListDataProductRevisionsOutputTypeDef,
+    ListDataSourceRunActivitiesInputTypeDef,
     ListDataSourceRunActivitiesOutputTypeDef,
+    ListDataSourceRunsInputTypeDef,
     ListDataSourceRunsOutputTypeDef,
+    ListDataSourcesInputTypeDef,
     ListDataSourcesOutputTypeDef,
+    ListDomainsInputTypeDef,
     ListDomainsOutputTypeDef,
+    ListDomainUnitsForParentInputTypeDef,
+    ListDomainUnitsForParentOutputTypeDef,
+    ListEntityOwnersInputTypeDef,
+    ListEntityOwnersOutputTypeDef,
+    ListEnvironmentActionsInputTypeDef,
     ListEnvironmentActionsOutputTypeDef,
+    ListEnvironmentBlueprintConfigurationsInputTypeDef,
     ListEnvironmentBlueprintConfigurationsOutputTypeDef,
+    ListEnvironmentBlueprintsInputTypeDef,
     ListEnvironmentBlueprintsOutputTypeDef,
+    ListEnvironmentProfilesInputTypeDef,
     ListEnvironmentProfilesOutputTypeDef,
+    ListEnvironmentsInputTypeDef,
     ListEnvironmentsOutputTypeDef,
+    ListJobRunsInputTypeDef,
+    ListJobRunsOutputTypeDef,
+    ListLineageEventsInputTypeDef,
+    ListLineageEventsOutputTypeDef,
+    ListLineageNodeHistoryInputTypeDef,
     ListLineageNodeHistoryOutputTypeDef,
+    ListMetadataGenerationRunsInputTypeDef,
     ListMetadataGenerationRunsOutputTypeDef,
+    ListNotificationsInputTypeDef,
     ListNotificationsOutputTypeDef,
+    ListPolicyGrantsInputTypeDef,
+    ListPolicyGrantsOutputTypeDef,
+    ListProjectMembershipsInputTypeDef,
     ListProjectMembershipsOutputTypeDef,
+    ListProjectProfilesInputTypeDef,
+    ListProjectProfilesOutputTypeDef,
+    ListProjectsInputTypeDef,
     ListProjectsOutputTypeDef,
+    ListRulesInputTypeDef,
+    ListRulesOutputTypeDef,
+    ListSubscriptionGrantsInputTypeDef,
     ListSubscriptionGrantsOutputTypeDef,
+    ListSubscriptionRequestsInputTypeDef,
     ListSubscriptionRequestsOutputTypeDef,
+    ListSubscriptionsInputTypeDef,
     ListSubscriptionsOutputTypeDef,
+    ListSubscriptionTargetsInputTypeDef,
     ListSubscriptionTargetsOutputTypeDef,
+    ListTagsForResourceRequestTypeDef,
     ListTagsForResourceResponseTypeDef,
+    ListTimeSeriesDataPointsInputTypeDef,
     ListTimeSeriesDataPointsOutputTypeDef,
-    MemberTypeDef,
-    MetadataGenerationRunTargetTypeDef,
-    ModelTypeDef,
+    PostLineageEventInputTypeDef,
+    PostLineageEventOutputTypeDef,
+    PostTimeSeriesDataPointsInputTypeDef,
     PostTimeSeriesDataPointsOutputTypeDef,
-    PredictionConfigurationTypeDef,
+    PutEnvironmentBlueprintConfigurationInputTypeDef,
     PutEnvironmentBlueprintConfigurationOutputTypeDef,
-    RecommendationConfigurationTypeDef,
-    RejectChoiceTypeDef,
+    RejectPredictionsInputTypeDef,
     RejectPredictionsOutputTypeDef,
-    RejectRuleTypeDef,
+    RejectSubscriptionRequestInputTypeDef,
     RejectSubscriptionRequestOutputTypeDef,
+    RemoveEntityOwnerInputTypeDef,
+    RemovePolicyGrantInputTypeDef,
+    RevokeSubscriptionInputTypeDef,
     RevokeSubscriptionOutputTypeDef,
-    ScheduleConfigurationTypeDef,
+    SearchGroupProfilesInputTypeDef,
     SearchGroupProfilesOutputTypeDef,
-    SearchInItemTypeDef,
+    SearchInputTypeDef,
+    SearchListingsInputTypeDef,
     SearchListingsOutputTypeDef,
     SearchOutputTypeDef,
-    SearchSortTypeDef,
+    SearchTypesInputTypeDef,
     SearchTypesOutputTypeDef,
+    SearchUserProfilesInputTypeDef,
     SearchUserProfilesOutputTypeDef,
-    SingleSignOnTypeDef,
+    StartDataSourceRunInputTypeDef,
     StartDataSourceRunOutputTypeDef,
+    StartMetadataGenerationRunInputTypeDef,
     StartMetadataGenerationRunOutputTypeDef,
-    SubscribedListingInputTypeDef,
-    SubscribedPrincipalInputTypeDef,
-    SubscriptionTargetFormTypeDef,
-    TermRelationsTypeDef,
-    TimeSeriesDataPointFormInputTypeDef,
+    TagResourceRequestTypeDef,
+    UntagResourceRequestTypeDef,
+    UpdateAssetFilterInputTypeDef,
+    UpdateAssetFilterOutputTypeDef,
+    UpdateConnectionInputTypeDef,
+    UpdateConnectionOutputTypeDef,
+    UpdateDataSourceInputTypeDef,
     UpdateDataSourceOutputTypeDef,
+    UpdateDomainInputTypeDef,
     UpdateDomainOutputTypeDef,
+    UpdateDomainUnitInputTypeDef,
+    UpdateDomainUnitOutputTypeDef,
+    UpdateEnvironmentActionInputTypeDef,
     UpdateEnvironmentActionOutputTypeDef,
+    UpdateEnvironmentInputTypeDef,
     UpdateEnvironmentOutputTypeDef,
+    UpdateEnvironmentProfileInputTypeDef,
     UpdateEnvironmentProfileOutputTypeDef,
+    UpdateGlossaryInputTypeDef,
     UpdateGlossaryOutputTypeDef,
+    UpdateGlossaryTermInputTypeDef,
     UpdateGlossaryTermOutputTypeDef,
+    UpdateGroupProfileInputTypeDef,
     UpdateGroupProfileOutputTypeDef,
+    UpdateProjectInputTypeDef,
     UpdateProjectOutputTypeDef,
+    UpdateProjectProfileInputTypeDef,
+    UpdateProjectProfileOutputTypeDef,
+    UpdateRuleInputTypeDef,
+    UpdateRuleOutputTypeDef,
+    UpdateSubscriptionGrantStatusInputTypeDef,
     UpdateSubscriptionGrantStatusOutputTypeDef,
+    UpdateSubscriptionRequestInputTypeDef,
     UpdateSubscriptionRequestOutputTypeDef,
+    UpdateSubscriptionTargetInputTypeDef,
     UpdateSubscriptionTargetOutputTypeDef,
+    UpdateUserProfileInputTypeDef,
     UpdateUserProfileOutputTypeDef,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import type as Type
+    from collections.abc import Mapping
 else:
-    from typing_extensions import Literal
+    from typing import Dict, Mapping, Type
+if sys.version_info >= (3, 12):
+    from typing import Literal, Unpack
+else:
+    from typing_extensions import Literal, Unpack
 
 __all__ = ("DataZoneClient",)
 
-class BotocoreClientError(BaseException):
-    MSG_TEMPLATE: str
-
-    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
-        self.response: Dict[str, Any]
-        self.operation_name: str
-
-class Exceptions:
+class Exceptions(BaseClientExceptions):
     AccessDeniedException: Type[BotocoreClientError]
     ClientError: Type[BotocoreClientError]
     ConflictException: Type[BotocoreClientError]
@@ -231,8 +378,8 @@ class Exceptions:
 
 class DataZoneClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone.html#DataZone.Client)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/)
     """
 
     meta: ClientMeta
@@ -241,1864 +388,1942 @@ class DataZoneClient(BaseClient):
     def exceptions(self) -> Exceptions:
         """
         DataZoneClient exceptions.
-        """
 
-    def accept_predictions(
-        self,
-        *,
-        domainIdentifier: str,
-        identifier: str,
-        acceptChoices: List["AcceptChoiceTypeDef"] = None,
-        acceptRule: "AcceptRuleTypeDef" = None,
-        clientToken: str = None,
-        revision: str = None
-    ) -> AcceptPredictionsOutputTypeDef:
-        """
-        Accepts automatically generated business-friendly metadata for your Amazon
-        DataZone assets.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.accept_predictions)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#accept_predictions)
-        """
-
-    def accept_subscription_request(
-        self, *, domainIdentifier: str, identifier: str, decisionComment: str = None
-    ) -> AcceptSubscriptionRequestOutputTypeDef:
-        """
-        Accepts a subscription request to a specific asset.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.accept_subscription_request)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#accept_subscription_request)
-        """
-
-    def associate_environment_role(
-        self, *, domainIdentifier: str, environmentIdentifier: str, environmentRoleArn: str
-    ) -> Dict[str, Any]:
-        """
-        Associates the environment role in Amazon DataZone.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.associate_environment_role)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#associate_environment_role)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone.html#DataZone.Client)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#exceptions)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        Check if an operation can be paginated.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.can_paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#can_paginate)
-        """
-
-    def cancel_metadata_generation_run(
-        self, *, domainIdentifier: str, identifier: str
-    ) -> Dict[str, Any]:
-        """
-        Cancels the metadata generation run.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.cancel_metadata_generation_run)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#cancel_metadata_generation_run)
-        """
-
-    def cancel_subscription(
-        self, *, domainIdentifier: str, identifier: str
-    ) -> CancelSubscriptionOutputTypeDef:
-        """
-        Cancels the subscription to the specified asset.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.cancel_subscription)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#cancel_subscription)
-        """
-
-    def close(self) -> None:
-        """
-        Closes underlying endpoint connections.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.close)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#close)
-        """
-
-    def create_asset(
-        self,
-        *,
-        domainIdentifier: str,
-        name: str,
-        owningProjectIdentifier: str,
-        typeIdentifier: str,
-        clientToken: str = None,
-        description: str = None,
-        externalIdentifier: str = None,
-        formsInput: List["FormInputTypeDef"] = None,
-        glossaryTerms: List[str] = None,
-        predictionConfiguration: "PredictionConfigurationTypeDef" = None,
-        typeRevision: str = None
-    ) -> CreateAssetOutputTypeDef:
-        """
-        Creates an asset in Amazon DataZone catalog.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.create_asset)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#create_asset)
-        """
-
-    def create_asset_revision(
-        self,
-        *,
-        domainIdentifier: str,
-        identifier: str,
-        name: str,
-        clientToken: str = None,
-        description: str = None,
-        formsInput: List["FormInputTypeDef"] = None,
-        glossaryTerms: List[str] = None,
-        predictionConfiguration: "PredictionConfigurationTypeDef" = None,
-        typeRevision: str = None
-    ) -> CreateAssetRevisionOutputTypeDef:
-        """
-        Creates a revision of the asset.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.create_asset_revision)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#create_asset_revision)
-        """
-
-    def create_asset_type(
-        self,
-        *,
-        domainIdentifier: str,
-        formsInput: Dict[str, "FormEntryInputTypeDef"],
-        name: str,
-        owningProjectIdentifier: str,
-        description: str = None
-    ) -> CreateAssetTypeOutputTypeDef:
-        """
-        Creates a custom asset type.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.create_asset_type)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#create_asset_type)
-        """
-
-    def create_data_source(
-        self,
-        *,
-        domainIdentifier: str,
-        environmentIdentifier: str,
-        name: str,
-        projectIdentifier: str,
-        type: str,
-        assetFormsInput: List["FormInputTypeDef"] = None,
-        clientToken: str = None,
-        configuration: "DataSourceConfigurationInputTypeDef" = None,
-        description: str = None,
-        enableSetting: EnableSettingType = None,
-        publishOnImport: bool = None,
-        recommendation: "RecommendationConfigurationTypeDef" = None,
-        schedule: "ScheduleConfigurationTypeDef" = None
-    ) -> CreateDataSourceOutputTypeDef:
-        """
-        Creates an Amazon DataZone data source.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.create_data_source)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#create_data_source)
-        """
-
-    def create_domain(
-        self,
-        *,
-        domainExecutionRole: str,
-        name: str,
-        clientToken: str = None,
-        description: str = None,
-        kmsKeyIdentifier: str = None,
-        singleSignOn: "SingleSignOnTypeDef" = None,
-        tags: Dict[str, str] = None
-    ) -> CreateDomainOutputTypeDef:
-        """
-        Creates an Amazon DataZone domain.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.create_domain)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#create_domain)
-        """
-
-    def create_environment(
-        self,
-        *,
-        domainIdentifier: str,
-        environmentProfileIdentifier: str,
-        name: str,
-        projectIdentifier: str,
-        description: str = None,
-        environmentAccountIdentifier: str = None,
-        environmentAccountRegion: str = None,
-        environmentBlueprintIdentifier: str = None,
-        glossaryTerms: List[str] = None,
-        userParameters: List["EnvironmentParameterTypeDef"] = None
-    ) -> CreateEnvironmentOutputTypeDef:
-        """
-        Create an Amazon DataZone environment.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.create_environment)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#create_environment)
-        """
-
-    def create_environment_action(
-        self,
-        *,
-        domainIdentifier: str,
-        environmentIdentifier: str,
-        name: str,
-        parameters: "ActionParametersTypeDef",
-        description: str = None
-    ) -> CreateEnvironmentActionOutputTypeDef:
-        """
-        Creates an action for the environment, for example, creates a console link for
-        an analytics tool that is available in this environment.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.create_environment_action)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#create_environment_action)
-        """
-
-    def create_environment_profile(
-        self,
-        *,
-        domainIdentifier: str,
-        environmentBlueprintIdentifier: str,
-        name: str,
-        projectIdentifier: str,
-        awsAccountId: str = None,
-        awsAccountRegion: str = None,
-        description: str = None,
-        userParameters: List["EnvironmentParameterTypeDef"] = None
-    ) -> CreateEnvironmentProfileOutputTypeDef:
-        """
-        Creates an Amazon DataZone environment profile.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.create_environment_profile)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#create_environment_profile)
-        """
-
-    def create_form_type(
-        self,
-        *,
-        domainIdentifier: str,
-        model: "ModelTypeDef",
-        name: str,
-        owningProjectIdentifier: str,
-        description: str = None,
-        status: FormTypeStatusType = None
-    ) -> CreateFormTypeOutputTypeDef:
-        """
-        Creates a metadata form type.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.create_form_type)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#create_form_type)
-        """
-
-    def create_glossary(
-        self,
-        *,
-        domainIdentifier: str,
-        name: str,
-        owningProjectIdentifier: str,
-        clientToken: str = None,
-        description: str = None,
-        status: GlossaryStatusType = None
-    ) -> CreateGlossaryOutputTypeDef:
-        """
-        Creates an Amazon DataZone business glossary.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.create_glossary)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#create_glossary)
-        """
-
-    def create_glossary_term(
-        self,
-        *,
-        domainIdentifier: str,
-        glossaryIdentifier: str,
-        name: str,
-        clientToken: str = None,
-        longDescription: str = None,
-        shortDescription: str = None,
-        status: GlossaryTermStatusType = None,
-        termRelations: "TermRelationsTypeDef" = None
-    ) -> CreateGlossaryTermOutputTypeDef:
-        """
-        Creates a business glossary term.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.create_glossary_term)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#create_glossary_term)
-        """
-
-    def create_group_profile(
-        self, *, domainIdentifier: str, groupIdentifier: str, clientToken: str = None
-    ) -> CreateGroupProfileOutputTypeDef:
-        """
-        Creates a group profile in Amazon DataZone.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.create_group_profile)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#create_group_profile)
-        """
-
-    def create_listing_change_set(
-        self,
-        *,
-        action: ChangeActionType,
-        domainIdentifier: str,
-        entityIdentifier: str,
-        entityType: Literal["ASSET"],
-        clientToken: str = None,
-        entityRevision: str = None
-    ) -> CreateListingChangeSetOutputTypeDef:
-        """
-        Publishes a listing (a record of an asset at a given time) or removes a listing
-        from the catalog.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.create_listing_change_set)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#create_listing_change_set)
-        """
-
-    def create_project(
-        self,
-        *,
-        domainIdentifier: str,
-        name: str,
-        description: str = None,
-        glossaryTerms: List[str] = None
-    ) -> CreateProjectOutputTypeDef:
-        """
-        Creates an Amazon DataZone project.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.create_project)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#create_project)
-        """
-
-    def create_project_membership(
-        self,
-        *,
-        designation: UserDesignationType,
-        domainIdentifier: str,
-        member: "MemberTypeDef",
-        projectIdentifier: str
-    ) -> Dict[str, Any]:
-        """
-        Creates a project membership in Amazon DataZone.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.create_project_membership)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#create_project_membership)
-        """
-
-    def create_subscription_grant(
-        self,
-        *,
-        domainIdentifier: str,
-        environmentIdentifier: str,
-        grantedEntity: "GrantedEntityInputTypeDef",
-        subscriptionTargetIdentifier: str,
-        assetTargetNames: List["AssetTargetNameMapTypeDef"] = None,
-        clientToken: str = None
-    ) -> CreateSubscriptionGrantOutputTypeDef:
-        """
-        Creates a subsscription grant in Amazon DataZone.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.create_subscription_grant)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#create_subscription_grant)
-        """
-
-    def create_subscription_request(
-        self,
-        *,
-        domainIdentifier: str,
-        requestReason: str,
-        subscribedListings: List["SubscribedListingInputTypeDef"],
-        subscribedPrincipals: List["SubscribedPrincipalInputTypeDef"],
-        clientToken: str = None
-    ) -> CreateSubscriptionRequestOutputTypeDef:
-        """
-        Creates a subscription request in Amazon DataZone.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.create_subscription_request)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#create_subscription_request)
-        """
-
-    def create_subscription_target(
-        self,
-        *,
-        applicableAssetTypes: List[str],
-        authorizedPrincipals: List[str],
-        domainIdentifier: str,
-        environmentIdentifier: str,
-        manageAccessRole: str,
-        name: str,
-        subscriptionTargetConfig: List["SubscriptionTargetFormTypeDef"],
-        type: str,
-        clientToken: str = None,
-        provider: str = None
-    ) -> CreateSubscriptionTargetOutputTypeDef:
-        """
-        Creates a subscription target in Amazon DataZone.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.create_subscription_target)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#create_subscription_target)
-        """
-
-    def create_user_profile(
-        self,
-        *,
-        domainIdentifier: str,
-        userIdentifier: str,
-        clientToken: str = None,
-        userType: UserTypeType = None
-    ) -> CreateUserProfileOutputTypeDef:
-        """
-        Creates a user profile in Amazon DataZone.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.create_user_profile)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#create_user_profile)
-        """
-
-    def delete_asset(self, *, domainIdentifier: str, identifier: str) -> Dict[str, Any]:
-        """
-        Delets an asset in Amazon DataZone.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.delete_asset)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#delete_asset)
-        """
-
-    def delete_asset_type(self, *, domainIdentifier: str, identifier: str) -> Dict[str, Any]:
-        """
-        Deletes an asset type in Amazon DataZone.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.delete_asset_type)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#delete_asset_type)
-        """
-
-    def delete_data_source(
-        self,
-        *,
-        domainIdentifier: str,
-        identifier: str,
-        clientToken: str = None,
-        retainPermissionsOnRevokeFailure: bool = None
-    ) -> DeleteDataSourceOutputTypeDef:
-        """
-        Deletes a data source in Amazon DataZone.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.delete_data_source)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#delete_data_source)
-        """
-
-    def delete_domain(
-        self, *, identifier: str, clientToken: str = None, skipDeletionCheck: bool = None
-    ) -> DeleteDomainOutputTypeDef:
-        """
-        Deletes a Amazon DataZone domain.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.delete_domain)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#delete_domain)
-        """
-
-    def delete_environment(self, *, domainIdentifier: str, identifier: str) -> None:
-        """
-        Deletes an environment in Amazon DataZone.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.delete_environment)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#delete_environment)
-        """
-
-    def delete_environment_action(
-        self, *, domainIdentifier: str, environmentIdentifier: str, identifier: str
-    ) -> None:
-        """
-        Deletes an action for the environment, for example, deletes a console link for
-        an analytics tool that is available in this environment.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.delete_environment_action)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#delete_environment_action)
-        """
-
-    def delete_environment_blueprint_configuration(
-        self, *, domainIdentifier: str, environmentBlueprintIdentifier: str
-    ) -> Dict[str, Any]:
-        """
-        Deletes the blueprint configuration in Amazon DataZone.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.delete_environment_blueprint_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#delete_environment_blueprint_configuration)
-        """
-
-    def delete_environment_profile(self, *, domainIdentifier: str, identifier: str) -> None:
-        """
-        Deletes an environment profile in Amazon DataZone.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.delete_environment_profile)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#delete_environment_profile)
-        """
-
-    def delete_form_type(self, *, domainIdentifier: str, formTypeIdentifier: str) -> Dict[str, Any]:
-        """
-        Delets and metadata form type in Amazon DataZone.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.delete_form_type)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#delete_form_type)
-        """
-
-    def delete_glossary(self, *, domainIdentifier: str, identifier: str) -> Dict[str, Any]:
-        """
-        Deletes a business glossary in Amazon DataZone.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.delete_glossary)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#delete_glossary)
-        """
-
-    def delete_glossary_term(self, *, domainIdentifier: str, identifier: str) -> Dict[str, Any]:
-        """
-        Deletes a business glossary term in Amazon DataZone.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.delete_glossary_term)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#delete_glossary_term)
-        """
-
-    def delete_listing(self, *, domainIdentifier: str, identifier: str) -> Dict[str, Any]:
-        """
-        Deletes a listing (a record of an asset at a given time).
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.delete_listing)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#delete_listing)
-        """
-
-    def delete_project(
-        self, *, domainIdentifier: str, identifier: str, skipDeletionCheck: bool = None
-    ) -> Dict[str, Any]:
-        """
-        Deletes a project in Amazon DataZone.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.delete_project)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#delete_project)
-        """
-
-    def delete_project_membership(
-        self, *, domainIdentifier: str, member: "MemberTypeDef", projectIdentifier: str
-    ) -> Dict[str, Any]:
-        """
-        Deletes project membership in Amazon DataZone.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.delete_project_membership)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#delete_project_membership)
-        """
-
-    def delete_subscription_grant(
-        self, *, domainIdentifier: str, identifier: str
-    ) -> DeleteSubscriptionGrantOutputTypeDef:
-        """
-        Deletes and subscription grant in Amazon DataZone.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.delete_subscription_grant)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#delete_subscription_grant)
-        """
-
-    def delete_subscription_request(self, *, domainIdentifier: str, identifier: str) -> None:
-        """
-        Deletes a subscription request in Amazon DataZone.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.delete_subscription_request)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#delete_subscription_request)
-        """
-
-    def delete_subscription_target(
-        self, *, domainIdentifier: str, environmentIdentifier: str, identifier: str
-    ) -> None:
-        """
-        Deletes a subscription target in Amazon DataZone.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.delete_subscription_target)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#delete_subscription_target)
-        """
-
-    def delete_time_series_data_points(
-        self,
-        *,
-        domainIdentifier: str,
-        entityIdentifier: str,
-        entityType: TimeSeriesEntityTypeType,
-        formName: str,
-        clientToken: str = None
-    ) -> Dict[str, Any]:
-        """
-        Deletes the specified time series form for the specified asset.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.delete_time_series_data_points)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#delete_time_series_data_points)
-        """
-
-    def disassociate_environment_role(
-        self, *, domainIdentifier: str, environmentIdentifier: str, environmentRoleArn: str
-    ) -> Dict[str, Any]:
-        """
-        Disassociates the environment role in Amazon DataZone.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.disassociate_environment_role)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#disassociate_environment_role)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/can_paginate.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#can_paginate)
         """
 
     def generate_presigned_url(
         self,
         ClientMethod: str,
-        Params: Dict[str, Any] = None,
+        Params: Mapping[str, Any] = ...,
         ExpiresIn: int = 3600,
-        HttpMethod: str = None,
+        HttpMethod: str = ...,
     ) -> str:
         """
-        Generate a presigned url given a client, its method, and arguments.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.generate_presigned_url)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/generate_presigned_url.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#generate_presigned_url)
         """
 
-    def get_asset(
-        self, *, domainIdentifier: str, identifier: str, revision: str = None
-    ) -> GetAssetOutputTypeDef:
+    def accept_predictions(
+        self, **kwargs: Unpack[AcceptPredictionsInputTypeDef]
+    ) -> AcceptPredictionsOutputTypeDef:
+        """
+        Accepts automatically generated business-friendly metadata for your Amazon
+        DataZone assets.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/accept_predictions.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#accept_predictions)
+        """
+
+    def accept_subscription_request(
+        self, **kwargs: Unpack[AcceptSubscriptionRequestInputTypeDef]
+    ) -> AcceptSubscriptionRequestOutputTypeDef:
+        """
+        Accepts a subscription request to a specific asset.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/accept_subscription_request.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#accept_subscription_request)
+        """
+
+    def add_entity_owner(self, **kwargs: Unpack[AddEntityOwnerInputTypeDef]) -> Dict[str, Any]:
+        """
+        Adds the owner of an entity (a domain unit).
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/add_entity_owner.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#add_entity_owner)
+        """
+
+    def add_policy_grant(self, **kwargs: Unpack[AddPolicyGrantInputTypeDef]) -> Dict[str, Any]:
+        """
+        Adds a policy grant (an authorization policy) to a specified entity, including
+        domain units, environment blueprint configurations, or environment profiles.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/add_policy_grant.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#add_policy_grant)
+        """
+
+    def associate_environment_role(
+        self, **kwargs: Unpack[AssociateEnvironmentRoleInputTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Associates the environment role in Amazon DataZone.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/associate_environment_role.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#associate_environment_role)
+        """
+
+    def cancel_metadata_generation_run(
+        self, **kwargs: Unpack[CancelMetadataGenerationRunInputTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Cancels the metadata generation run.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/cancel_metadata_generation_run.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#cancel_metadata_generation_run)
+        """
+
+    def cancel_subscription(
+        self, **kwargs: Unpack[CancelSubscriptionInputTypeDef]
+    ) -> CancelSubscriptionOutputTypeDef:
+        """
+        Cancels the subscription to the specified asset.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/cancel_subscription.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#cancel_subscription)
+        """
+
+    def create_asset(self, **kwargs: Unpack[CreateAssetInputTypeDef]) -> CreateAssetOutputTypeDef:
+        """
+        Creates an asset in Amazon DataZone catalog.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/create_asset.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#create_asset)
+        """
+
+    def create_asset_filter(
+        self, **kwargs: Unpack[CreateAssetFilterInputTypeDef]
+    ) -> CreateAssetFilterOutputTypeDef:
+        """
+        Creates a data asset filter.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/create_asset_filter.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#create_asset_filter)
+        """
+
+    def create_asset_revision(
+        self, **kwargs: Unpack[CreateAssetRevisionInputTypeDef]
+    ) -> CreateAssetRevisionOutputTypeDef:
+        """
+        Creates a revision of the asset.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/create_asset_revision.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#create_asset_revision)
+        """
+
+    def create_asset_type(
+        self, **kwargs: Unpack[CreateAssetTypeInputTypeDef]
+    ) -> CreateAssetTypeOutputTypeDef:
+        """
+        Creates a custom asset type.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/create_asset_type.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#create_asset_type)
+        """
+
+    def create_connection(
+        self, **kwargs: Unpack[CreateConnectionInputTypeDef]
+    ) -> CreateConnectionOutputTypeDef:
+        """
+        Creates a new connection.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/create_connection.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#create_connection)
+        """
+
+    def create_data_product(
+        self, **kwargs: Unpack[CreateDataProductInputTypeDef]
+    ) -> CreateDataProductOutputTypeDef:
+        """
+        Creates a data product.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/create_data_product.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#create_data_product)
+        """
+
+    def create_data_product_revision(
+        self, **kwargs: Unpack[CreateDataProductRevisionInputTypeDef]
+    ) -> CreateDataProductRevisionOutputTypeDef:
+        """
+        Creates a data product revision.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/create_data_product_revision.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#create_data_product_revision)
+        """
+
+    def create_data_source(
+        self, **kwargs: Unpack[CreateDataSourceInputTypeDef]
+    ) -> CreateDataSourceOutputTypeDef:
+        """
+        Creates an Amazon DataZone data source.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/create_data_source.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#create_data_source)
+        """
+
+    def create_domain(
+        self, **kwargs: Unpack[CreateDomainInputTypeDef]
+    ) -> CreateDomainOutputTypeDef:
+        """
+        Creates an Amazon DataZone domain.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/create_domain.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#create_domain)
+        """
+
+    def create_domain_unit(
+        self, **kwargs: Unpack[CreateDomainUnitInputTypeDef]
+    ) -> CreateDomainUnitOutputTypeDef:
+        """
+        Creates a domain unit in Amazon DataZone.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/create_domain_unit.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#create_domain_unit)
+        """
+
+    def create_environment(
+        self, **kwargs: Unpack[CreateEnvironmentInputTypeDef]
+    ) -> CreateEnvironmentOutputTypeDef:
+        """
+        Create an Amazon DataZone environment.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/create_environment.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#create_environment)
+        """
+
+    def create_environment_action(
+        self, **kwargs: Unpack[CreateEnvironmentActionInputTypeDef]
+    ) -> CreateEnvironmentActionOutputTypeDef:
+        """
+        Creates an action for the environment, for example, creates a console link for
+        an analytics tool that is available in this environment.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/create_environment_action.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#create_environment_action)
+        """
+
+    def create_environment_profile(
+        self, **kwargs: Unpack[CreateEnvironmentProfileInputTypeDef]
+    ) -> CreateEnvironmentProfileOutputTypeDef:
+        """
+        Creates an Amazon DataZone environment profile.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/create_environment_profile.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#create_environment_profile)
+        """
+
+    def create_form_type(
+        self, **kwargs: Unpack[CreateFormTypeInputTypeDef]
+    ) -> CreateFormTypeOutputTypeDef:
+        """
+        Creates a metadata form type.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/create_form_type.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#create_form_type)
+        """
+
+    def create_glossary(
+        self, **kwargs: Unpack[CreateGlossaryInputTypeDef]
+    ) -> CreateGlossaryOutputTypeDef:
+        """
+        Creates an Amazon DataZone business glossary.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/create_glossary.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#create_glossary)
+        """
+
+    def create_glossary_term(
+        self, **kwargs: Unpack[CreateGlossaryTermInputTypeDef]
+    ) -> CreateGlossaryTermOutputTypeDef:
+        """
+        Creates a business glossary term.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/create_glossary_term.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#create_glossary_term)
+        """
+
+    def create_group_profile(
+        self, **kwargs: Unpack[CreateGroupProfileInputTypeDef]
+    ) -> CreateGroupProfileOutputTypeDef:
+        """
+        Creates a group profile in Amazon DataZone.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/create_group_profile.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#create_group_profile)
+        """
+
+    def create_listing_change_set(
+        self, **kwargs: Unpack[CreateListingChangeSetInputTypeDef]
+    ) -> CreateListingChangeSetOutputTypeDef:
+        """
+        Publishes a listing (a record of an asset at a given time) or removes a listing
+        from the catalog.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/create_listing_change_set.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#create_listing_change_set)
+        """
+
+    def create_project(
+        self, **kwargs: Unpack[CreateProjectInputTypeDef]
+    ) -> CreateProjectOutputTypeDef:
+        """
+        Creates an Amazon DataZone project.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/create_project.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#create_project)
+        """
+
+    def create_project_membership(
+        self, **kwargs: Unpack[CreateProjectMembershipInputTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Creates a project membership in Amazon DataZone.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/create_project_membership.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#create_project_membership)
+        """
+
+    def create_project_profile(
+        self, **kwargs: Unpack[CreateProjectProfileInputTypeDef]
+    ) -> CreateProjectProfileOutputTypeDef:
+        """
+        Creates a project profile.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/create_project_profile.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#create_project_profile)
+        """
+
+    def create_rule(self, **kwargs: Unpack[CreateRuleInputTypeDef]) -> CreateRuleOutputTypeDef:
+        """
+        Creates a rule in Amazon DataZone.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/create_rule.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#create_rule)
+        """
+
+    def create_subscription_grant(
+        self, **kwargs: Unpack[CreateSubscriptionGrantInputTypeDef]
+    ) -> CreateSubscriptionGrantOutputTypeDef:
+        """
+        Creates a subsscription grant in Amazon DataZone.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/create_subscription_grant.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#create_subscription_grant)
+        """
+
+    def create_subscription_request(
+        self, **kwargs: Unpack[CreateSubscriptionRequestInputTypeDef]
+    ) -> CreateSubscriptionRequestOutputTypeDef:
+        """
+        Creates a subscription request in Amazon DataZone.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/create_subscription_request.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#create_subscription_request)
+        """
+
+    def create_subscription_target(
+        self, **kwargs: Unpack[CreateSubscriptionTargetInputTypeDef]
+    ) -> CreateSubscriptionTargetOutputTypeDef:
+        """
+        Creates a subscription target in Amazon DataZone.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/create_subscription_target.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#create_subscription_target)
+        """
+
+    def create_user_profile(
+        self, **kwargs: Unpack[CreateUserProfileInputTypeDef]
+    ) -> CreateUserProfileOutputTypeDef:
+        """
+        Creates a user profile in Amazon DataZone.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/create_user_profile.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#create_user_profile)
+        """
+
+    def delete_asset(self, **kwargs: Unpack[DeleteAssetInputTypeDef]) -> Dict[str, Any]:
+        """
+        Deletes an asset in Amazon DataZone.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/delete_asset.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#delete_asset)
+        """
+
+    def delete_asset_filter(
+        self, **kwargs: Unpack[DeleteAssetFilterInputTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Deletes an asset filter.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/delete_asset_filter.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#delete_asset_filter)
+        """
+
+    def delete_asset_type(self, **kwargs: Unpack[DeleteAssetTypeInputTypeDef]) -> Dict[str, Any]:
+        """
+        Deletes an asset type in Amazon DataZone.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/delete_asset_type.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#delete_asset_type)
+        """
+
+    def delete_connection(
+        self, **kwargs: Unpack[DeleteConnectionInputTypeDef]
+    ) -> DeleteConnectionOutputTypeDef:
+        """
+        Deletes and connection.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/delete_connection.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#delete_connection)
+        """
+
+    def delete_data_product(
+        self, **kwargs: Unpack[DeleteDataProductInputTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Deletes a data product in Amazon DataZone.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/delete_data_product.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#delete_data_product)
+        """
+
+    def delete_data_source(
+        self, **kwargs: Unpack[DeleteDataSourceInputTypeDef]
+    ) -> DeleteDataSourceOutputTypeDef:
+        """
+        Deletes a data source in Amazon DataZone.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/delete_data_source.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#delete_data_source)
+        """
+
+    def delete_domain(
+        self, **kwargs: Unpack[DeleteDomainInputTypeDef]
+    ) -> DeleteDomainOutputTypeDef:
+        """
+        Deletes a Amazon DataZone domain.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/delete_domain.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#delete_domain)
+        """
+
+    def delete_domain_unit(self, **kwargs: Unpack[DeleteDomainUnitInputTypeDef]) -> Dict[str, Any]:
+        """
+        Deletes a domain unit.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/delete_domain_unit.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#delete_domain_unit)
+        """
+
+    def delete_environment(
+        self, **kwargs: Unpack[DeleteEnvironmentInputTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Deletes an environment in Amazon DataZone.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/delete_environment.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#delete_environment)
+        """
+
+    def delete_environment_action(
+        self, **kwargs: Unpack[DeleteEnvironmentActionInputTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Deletes an action for the environment, for example, deletes a console link for
+        an analytics tool that is available in this environment.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/delete_environment_action.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#delete_environment_action)
+        """
+
+    def delete_environment_blueprint_configuration(
+        self, **kwargs: Unpack[DeleteEnvironmentBlueprintConfigurationInputTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Deletes the blueprint configuration in Amazon DataZone.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/delete_environment_blueprint_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#delete_environment_blueprint_configuration)
+        """
+
+    def delete_environment_profile(
+        self, **kwargs: Unpack[DeleteEnvironmentProfileInputTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Deletes an environment profile in Amazon DataZone.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/delete_environment_profile.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#delete_environment_profile)
+        """
+
+    def delete_form_type(self, **kwargs: Unpack[DeleteFormTypeInputTypeDef]) -> Dict[str, Any]:
+        """
+        Delets and metadata form type in Amazon DataZone.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/delete_form_type.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#delete_form_type)
+        """
+
+    def delete_glossary(self, **kwargs: Unpack[DeleteGlossaryInputTypeDef]) -> Dict[str, Any]:
+        """
+        Deletes a business glossary in Amazon DataZone.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/delete_glossary.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#delete_glossary)
+        """
+
+    def delete_glossary_term(
+        self, **kwargs: Unpack[DeleteGlossaryTermInputTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Deletes a business glossary term in Amazon DataZone.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/delete_glossary_term.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#delete_glossary_term)
+        """
+
+    def delete_listing(self, **kwargs: Unpack[DeleteListingInputTypeDef]) -> Dict[str, Any]:
+        """
+        Deletes a listing (a record of an asset at a given time).
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/delete_listing.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#delete_listing)
+        """
+
+    def delete_project(self, **kwargs: Unpack[DeleteProjectInputTypeDef]) -> Dict[str, Any]:
+        """
+        Deletes a project in Amazon DataZone.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/delete_project.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#delete_project)
+        """
+
+    def delete_project_membership(
+        self, **kwargs: Unpack[DeleteProjectMembershipInputTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Deletes project membership in Amazon DataZone.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/delete_project_membership.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#delete_project_membership)
+        """
+
+    def delete_project_profile(
+        self, **kwargs: Unpack[DeleteProjectProfileInputTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Deletes a project profile.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/delete_project_profile.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#delete_project_profile)
+        """
+
+    def delete_rule(self, **kwargs: Unpack[DeleteRuleInputTypeDef]) -> Dict[str, Any]:
+        """
+        Deletes a rule in Amazon DataZone.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/delete_rule.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#delete_rule)
+        """
+
+    def delete_subscription_grant(
+        self, **kwargs: Unpack[DeleteSubscriptionGrantInputTypeDef]
+    ) -> DeleteSubscriptionGrantOutputTypeDef:
+        """
+        Deletes and subscription grant in Amazon DataZone.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/delete_subscription_grant.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#delete_subscription_grant)
+        """
+
+    def delete_subscription_request(
+        self, **kwargs: Unpack[DeleteSubscriptionRequestInputTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Deletes a subscription request in Amazon DataZone.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/delete_subscription_request.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#delete_subscription_request)
+        """
+
+    def delete_subscription_target(
+        self, **kwargs: Unpack[DeleteSubscriptionTargetInputTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Deletes a subscription target in Amazon DataZone.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/delete_subscription_target.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#delete_subscription_target)
+        """
+
+    def delete_time_series_data_points(
+        self, **kwargs: Unpack[DeleteTimeSeriesDataPointsInputTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Deletes the specified time series form for the specified asset.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/delete_time_series_data_points.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#delete_time_series_data_points)
+        """
+
+    def disassociate_environment_role(
+        self, **kwargs: Unpack[DisassociateEnvironmentRoleInputTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Disassociates the environment role in Amazon DataZone.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/disassociate_environment_role.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#disassociate_environment_role)
+        """
+
+    def get_asset(self, **kwargs: Unpack[GetAssetInputTypeDef]) -> GetAssetOutputTypeDef:
         """
         Gets an Amazon DataZone asset.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.get_asset)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#get_asset)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/get_asset.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#get_asset)
+        """
+
+    def get_asset_filter(
+        self, **kwargs: Unpack[GetAssetFilterInputTypeDef]
+    ) -> GetAssetFilterOutputTypeDef:
+        """
+        Gets an asset filter.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/get_asset_filter.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#get_asset_filter)
         """
 
     def get_asset_type(
-        self, *, domainIdentifier: str, identifier: str, revision: str = None
+        self, **kwargs: Unpack[GetAssetTypeInputTypeDef]
     ) -> GetAssetTypeOutputTypeDef:
         """
         Gets an Amazon DataZone asset type.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.get_asset_type)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#get_asset_type)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/get_asset_type.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#get_asset_type)
+        """
+
+    def get_connection(
+        self, **kwargs: Unpack[GetConnectionInputTypeDef]
+    ) -> GetConnectionOutputTypeDef:
+        """
+        Gets a connection.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/get_connection.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#get_connection)
+        """
+
+    def get_data_product(
+        self, **kwargs: Unpack[GetDataProductInputTypeDef]
+    ) -> GetDataProductOutputTypeDef:
+        """
+        Gets the data product.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/get_data_product.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#get_data_product)
         """
 
     def get_data_source(
-        self, *, domainIdentifier: str, identifier: str
+        self, **kwargs: Unpack[GetDataSourceInputTypeDef]
     ) -> GetDataSourceOutputTypeDef:
         """
         Gets an Amazon DataZone data source.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.get_data_source)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#get_data_source)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/get_data_source.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#get_data_source)
         """
 
     def get_data_source_run(
-        self, *, domainIdentifier: str, identifier: str
+        self, **kwargs: Unpack[GetDataSourceRunInputTypeDef]
     ) -> GetDataSourceRunOutputTypeDef:
         """
         Gets an Amazon DataZone data source run.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.get_data_source_run)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#get_data_source_run)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/get_data_source_run.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#get_data_source_run)
         """
 
-    def get_domain(self, *, identifier: str) -> GetDomainOutputTypeDef:
+    def get_domain(self, **kwargs: Unpack[GetDomainInputTypeDef]) -> GetDomainOutputTypeDef:
         """
         Gets an Amazon DataZone domain.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.get_domain)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#get_domain)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/get_domain.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#get_domain)
+        """
+
+    def get_domain_unit(
+        self, **kwargs: Unpack[GetDomainUnitInputTypeDef]
+    ) -> GetDomainUnitOutputTypeDef:
+        """
+        Gets the details of the specified domain unit.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/get_domain_unit.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#get_domain_unit)
         """
 
     def get_environment(
-        self, *, domainIdentifier: str, identifier: str
+        self, **kwargs: Unpack[GetEnvironmentInputTypeDef]
     ) -> GetEnvironmentOutputTypeDef:
         """
         Gets an Amazon DataZone environment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.get_environment)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#get_environment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/get_environment.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#get_environment)
         """
 
     def get_environment_action(
-        self, *, domainIdentifier: str, environmentIdentifier: str, identifier: str
+        self, **kwargs: Unpack[GetEnvironmentActionInputTypeDef]
     ) -> GetEnvironmentActionOutputTypeDef:
         """
         Gets the specified environment action.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.get_environment_action)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#get_environment_action)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/get_environment_action.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#get_environment_action)
         """
 
     def get_environment_blueprint(
-        self, *, domainIdentifier: str, identifier: str
+        self, **kwargs: Unpack[GetEnvironmentBlueprintInputTypeDef]
     ) -> GetEnvironmentBlueprintOutputTypeDef:
         """
         Gets an Amazon DataZone blueprint.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.get_environment_blueprint)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#get_environment_blueprint)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/get_environment_blueprint.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#get_environment_blueprint)
         """
 
     def get_environment_blueprint_configuration(
-        self, *, domainIdentifier: str, environmentBlueprintIdentifier: str
+        self, **kwargs: Unpack[GetEnvironmentBlueprintConfigurationInputTypeDef]
     ) -> GetEnvironmentBlueprintConfigurationOutputTypeDef:
         """
         Gets the blueprint configuration in Amazon DataZone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.get_environment_blueprint_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#get_environment_blueprint_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/get_environment_blueprint_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#get_environment_blueprint_configuration)
+        """
+
+    def get_environment_credentials(
+        self, **kwargs: Unpack[GetEnvironmentCredentialsInputTypeDef]
+    ) -> GetEnvironmentCredentialsOutputTypeDef:
+        """
+        Gets the credentials of an environment in Amazon DataZone.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/get_environment_credentials.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#get_environment_credentials)
         """
 
     def get_environment_profile(
-        self, *, domainIdentifier: str, identifier: str
+        self, **kwargs: Unpack[GetEnvironmentProfileInputTypeDef]
     ) -> GetEnvironmentProfileOutputTypeDef:
         """
         Gets an evinronment profile in Amazon DataZone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.get_environment_profile)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#get_environment_profile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/get_environment_profile.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#get_environment_profile)
         """
 
-    def get_form_type(
-        self, *, domainIdentifier: str, formTypeIdentifier: str, revision: str = None
-    ) -> GetFormTypeOutputTypeDef:
+    def get_form_type(self, **kwargs: Unpack[GetFormTypeInputTypeDef]) -> GetFormTypeOutputTypeDef:
         """
         Gets a metadata form type in Amazon DataZone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.get_form_type)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#get_form_type)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/get_form_type.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#get_form_type)
         """
 
-    def get_glossary(self, *, domainIdentifier: str, identifier: str) -> GetGlossaryOutputTypeDef:
+    def get_glossary(self, **kwargs: Unpack[GetGlossaryInputTypeDef]) -> GetGlossaryOutputTypeDef:
         """
         Gets a business glossary in Amazon DataZone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.get_glossary)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#get_glossary)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/get_glossary.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#get_glossary)
         """
 
     def get_glossary_term(
-        self, *, domainIdentifier: str, identifier: str
+        self, **kwargs: Unpack[GetGlossaryTermInputTypeDef]
     ) -> GetGlossaryTermOutputTypeDef:
         """
         Gets a business glossary term in Amazon DataZone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.get_glossary_term)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#get_glossary_term)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/get_glossary_term.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#get_glossary_term)
         """
 
     def get_group_profile(
-        self, *, domainIdentifier: str, groupIdentifier: str
+        self, **kwargs: Unpack[GetGroupProfileInputTypeDef]
     ) -> GetGroupProfileOutputTypeDef:
         """
         Gets a group profile in Amazon DataZone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.get_group_profile)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#get_group_profile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/get_group_profile.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#get_group_profile)
         """
 
     def get_iam_portal_login_url(
-        self, *, domainIdentifier: str
+        self, **kwargs: Unpack[GetIamPortalLoginUrlInputTypeDef]
     ) -> GetIamPortalLoginUrlOutputTypeDef:
         """
         Gets the data portal URL for the specified Amazon DataZone domain.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.get_iam_portal_login_url)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#get_iam_portal_login_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/get_iam_portal_login_url.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#get_iam_portal_login_url)
+        """
+
+    def get_job_run(self, **kwargs: Unpack[GetJobRunInputTypeDef]) -> GetJobRunOutputTypeDef:
+        """
+        The details of the job run.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/get_job_run.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#get_job_run)
+        """
+
+    def get_lineage_event(
+        self, **kwargs: Unpack[GetLineageEventInputTypeDef]
+    ) -> GetLineageEventOutputTypeDef:
+        """
+        Describes the lineage event.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/get_lineage_event.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#get_lineage_event)
         """
 
     def get_lineage_node(
-        self, *, domainIdentifier: str, identifier: str, eventTimestamp: Union[datetime, str] = None
+        self, **kwargs: Unpack[GetLineageNodeInputTypeDef]
     ) -> GetLineageNodeOutputTypeDef:
         """
         Gets the data lineage node.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.get_lineage_node)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#get_lineage_node)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/get_lineage_node.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#get_lineage_node)
         """
 
-    def get_listing(
-        self, *, domainIdentifier: str, identifier: str, listingRevision: str = None
-    ) -> GetListingOutputTypeDef:
+    def get_listing(self, **kwargs: Unpack[GetListingInputTypeDef]) -> GetListingOutputTypeDef:
         """
         Gets a listing (a record of an asset at a given time).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.get_listing)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#get_listing)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/get_listing.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#get_listing)
         """
 
     def get_metadata_generation_run(
-        self, *, domainIdentifier: str, identifier: str
+        self, **kwargs: Unpack[GetMetadataGenerationRunInputTypeDef]
     ) -> GetMetadataGenerationRunOutputTypeDef:
         """
         Gets a metadata generation run in Amazon DataZone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.get_metadata_generation_run)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#get_metadata_generation_run)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/get_metadata_generation_run.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#get_metadata_generation_run)
         """
 
-    def get_project(self, *, domainIdentifier: str, identifier: str) -> GetProjectOutputTypeDef:
+    def get_project(self, **kwargs: Unpack[GetProjectInputTypeDef]) -> GetProjectOutputTypeDef:
         """
         Gets a project in Amazon DataZone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.get_project)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#get_project)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/get_project.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#get_project)
+        """
+
+    def get_project_profile(
+        self, **kwargs: Unpack[GetProjectProfileInputTypeDef]
+    ) -> GetProjectProfileOutputTypeDef:
+        """
+        The details of the project profile.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/get_project_profile.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#get_project_profile)
+        """
+
+    def get_rule(self, **kwargs: Unpack[GetRuleInputTypeDef]) -> GetRuleOutputTypeDef:
+        """
+        Gets the details of a rule in Amazon DataZone.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/get_rule.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#get_rule)
         """
 
     def get_subscription(
-        self, *, domainIdentifier: str, identifier: str
+        self, **kwargs: Unpack[GetSubscriptionInputTypeDef]
     ) -> GetSubscriptionOutputTypeDef:
         """
         Gets a subscription in Amazon DataZone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.get_subscription)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#get_subscription)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/get_subscription.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#get_subscription)
         """
 
     def get_subscription_grant(
-        self, *, domainIdentifier: str, identifier: str
+        self, **kwargs: Unpack[GetSubscriptionGrantInputTypeDef]
     ) -> GetSubscriptionGrantOutputTypeDef:
         """
         Gets the subscription grant in Amazon DataZone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.get_subscription_grant)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#get_subscription_grant)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/get_subscription_grant.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#get_subscription_grant)
         """
 
     def get_subscription_request_details(
-        self, *, domainIdentifier: str, identifier: str
+        self, **kwargs: Unpack[GetSubscriptionRequestDetailsInputTypeDef]
     ) -> GetSubscriptionRequestDetailsOutputTypeDef:
         """
         Gets the details of the specified subscription request.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.get_subscription_request_details)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#get_subscription_request_details)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/get_subscription_request_details.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#get_subscription_request_details)
         """
 
     def get_subscription_target(
-        self, *, domainIdentifier: str, environmentIdentifier: str, identifier: str
+        self, **kwargs: Unpack[GetSubscriptionTargetInputTypeDef]
     ) -> GetSubscriptionTargetOutputTypeDef:
         """
         Gets the subscription target in Amazon DataZone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.get_subscription_target)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#get_subscription_target)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/get_subscription_target.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#get_subscription_target)
         """
 
     def get_time_series_data_point(
-        self,
-        *,
-        domainIdentifier: str,
-        entityIdentifier: str,
-        entityType: TimeSeriesEntityTypeType,
-        formName: str,
-        identifier: str
+        self, **kwargs: Unpack[GetTimeSeriesDataPointInputTypeDef]
     ) -> GetTimeSeriesDataPointOutputTypeDef:
         """
         Gets the existing data point for the asset.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.get_time_series_data_point)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#get_time_series_data_point)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/get_time_series_data_point.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#get_time_series_data_point)
         """
 
     def get_user_profile(
-        self, *, domainIdentifier: str, userIdentifier: str, type: UserProfileTypeType = None
+        self, **kwargs: Unpack[GetUserProfileInputTypeDef]
     ) -> GetUserProfileOutputTypeDef:
         """
         Gets a user profile in Amazon DataZone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.get_user_profile)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#get_user_profile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/get_user_profile.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#get_user_profile)
+        """
+
+    def list_asset_filters(
+        self, **kwargs: Unpack[ListAssetFiltersInputTypeDef]
+    ) -> ListAssetFiltersOutputTypeDef:
+        """
+        Lists asset filters.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/list_asset_filters.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#list_asset_filters)
         """
 
     def list_asset_revisions(
-        self,
-        *,
-        domainIdentifier: str,
-        identifier: str,
-        maxResults: int = None,
-        nextToken: str = None
+        self, **kwargs: Unpack[ListAssetRevisionsInputTypeDef]
     ) -> ListAssetRevisionsOutputTypeDef:
         """
         Lists the revisions for the asset.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.list_asset_revisions)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#list_asset_revisions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/list_asset_revisions.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#list_asset_revisions)
+        """
+
+    def list_connections(
+        self, **kwargs: Unpack[ListConnectionsInputTypeDef]
+    ) -> ListConnectionsOutputTypeDef:
+        """
+        Lists connections.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/list_connections.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#list_connections)
+        """
+
+    def list_data_product_revisions(
+        self, **kwargs: Unpack[ListDataProductRevisionsInputTypeDef]
+    ) -> ListDataProductRevisionsOutputTypeDef:
+        """
+        Lists data product revisions.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/list_data_product_revisions.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#list_data_product_revisions)
         """
 
     def list_data_source_run_activities(
-        self,
-        *,
-        domainIdentifier: str,
-        identifier: str,
-        maxResults: int = None,
-        nextToken: str = None,
-        status: DataAssetActivityStatusType = None
+        self, **kwargs: Unpack[ListDataSourceRunActivitiesInputTypeDef]
     ) -> ListDataSourceRunActivitiesOutputTypeDef:
         """
         Lists data source run activities.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.list_data_source_run_activities)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#list_data_source_run_activities)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/list_data_source_run_activities.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#list_data_source_run_activities)
         """
 
     def list_data_source_runs(
-        self,
-        *,
-        dataSourceIdentifier: str,
-        domainIdentifier: str,
-        maxResults: int = None,
-        nextToken: str = None,
-        status: DataSourceRunStatusType = None
+        self, **kwargs: Unpack[ListDataSourceRunsInputTypeDef]
     ) -> ListDataSourceRunsOutputTypeDef:
         """
         Lists data source runs in Amazon DataZone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.list_data_source_runs)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#list_data_source_runs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/list_data_source_runs.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#list_data_source_runs)
         """
 
     def list_data_sources(
-        self,
-        *,
-        domainIdentifier: str,
-        projectIdentifier: str,
-        environmentIdentifier: str = None,
-        maxResults: int = None,
-        name: str = None,
-        nextToken: str = None,
-        status: DataSourceStatusType = None,
-        type: str = None
+        self, **kwargs: Unpack[ListDataSourcesInputTypeDef]
     ) -> ListDataSourcesOutputTypeDef:
         """
         Lists data sources in Amazon DataZone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.list_data_sources)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#list_data_sources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/list_data_sources.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#list_data_sources)
         """
 
-    def list_domains(
-        self, *, maxResults: int = None, nextToken: str = None, status: DomainStatusType = None
-    ) -> ListDomainsOutputTypeDef:
+    def list_domain_units_for_parent(
+        self, **kwargs: Unpack[ListDomainUnitsForParentInputTypeDef]
+    ) -> ListDomainUnitsForParentOutputTypeDef:
+        """
+        Lists child domain units for the specified parent domain unit.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/list_domain_units_for_parent.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#list_domain_units_for_parent)
+        """
+
+    def list_domains(self, **kwargs: Unpack[ListDomainsInputTypeDef]) -> ListDomainsOutputTypeDef:
         """
         Lists Amazon DataZone domains.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.list_domains)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#list_domains)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/list_domains.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#list_domains)
+        """
+
+    def list_entity_owners(
+        self, **kwargs: Unpack[ListEntityOwnersInputTypeDef]
+    ) -> ListEntityOwnersOutputTypeDef:
+        """
+        Lists the entity (domain units) owners.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/list_entity_owners.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#list_entity_owners)
         """
 
     def list_environment_actions(
-        self,
-        *,
-        domainIdentifier: str,
-        environmentIdentifier: str,
-        maxResults: int = None,
-        nextToken: str = None
+        self, **kwargs: Unpack[ListEnvironmentActionsInputTypeDef]
     ) -> ListEnvironmentActionsOutputTypeDef:
         """
         Lists existing environment actions.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.list_environment_actions)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#list_environment_actions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/list_environment_actions.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#list_environment_actions)
         """
 
     def list_environment_blueprint_configurations(
-        self, *, domainIdentifier: str, maxResults: int = None, nextToken: str = None
+        self, **kwargs: Unpack[ListEnvironmentBlueprintConfigurationsInputTypeDef]
     ) -> ListEnvironmentBlueprintConfigurationsOutputTypeDef:
         """
         Lists blueprint configurations for a Amazon DataZone environment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.list_environment_blueprint_configurations)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#list_environment_blueprint_configurations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/list_environment_blueprint_configurations.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#list_environment_blueprint_configurations)
         """
 
     def list_environment_blueprints(
-        self,
-        *,
-        domainIdentifier: str,
-        managed: bool = None,
-        maxResults: int = None,
-        name: str = None,
-        nextToken: str = None
+        self, **kwargs: Unpack[ListEnvironmentBlueprintsInputTypeDef]
     ) -> ListEnvironmentBlueprintsOutputTypeDef:
         """
         Lists blueprints in an Amazon DataZone environment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.list_environment_blueprints)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#list_environment_blueprints)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/list_environment_blueprints.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#list_environment_blueprints)
         """
 
     def list_environment_profiles(
-        self,
-        *,
-        domainIdentifier: str,
-        awsAccountId: str = None,
-        awsAccountRegion: str = None,
-        environmentBlueprintIdentifier: str = None,
-        maxResults: int = None,
-        name: str = None,
-        nextToken: str = None,
-        projectIdentifier: str = None
+        self, **kwargs: Unpack[ListEnvironmentProfilesInputTypeDef]
     ) -> ListEnvironmentProfilesOutputTypeDef:
         """
         Lists Amazon DataZone environment profiles.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.list_environment_profiles)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#list_environment_profiles)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/list_environment_profiles.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#list_environment_profiles)
         """
 
     def list_environments(
-        self,
-        *,
-        domainIdentifier: str,
-        projectIdentifier: str,
-        awsAccountId: str = None,
-        awsAccountRegion: str = None,
-        environmentBlueprintIdentifier: str = None,
-        environmentProfileIdentifier: str = None,
-        maxResults: int = None,
-        name: str = None,
-        nextToken: str = None,
-        provider: str = None,
-        status: EnvironmentStatusType = None
+        self, **kwargs: Unpack[ListEnvironmentsInputTypeDef]
     ) -> ListEnvironmentsOutputTypeDef:
         """
         Lists Amazon DataZone environments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.list_environments)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#list_environments)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/list_environments.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#list_environments)
+        """
+
+    def list_job_runs(self, **kwargs: Unpack[ListJobRunsInputTypeDef]) -> ListJobRunsOutputTypeDef:
+        """
+        Lists job runs.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/list_job_runs.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#list_job_runs)
+        """
+
+    def list_lineage_events(
+        self, **kwargs: Unpack[ListLineageEventsInputTypeDef]
+    ) -> ListLineageEventsOutputTypeDef:
+        """
+        Lists lineage events.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/list_lineage_events.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#list_lineage_events)
         """
 
     def list_lineage_node_history(
-        self,
-        *,
-        domainIdentifier: str,
-        identifier: str,
-        direction: EdgeDirectionType = None,
-        eventTimestampGTE: Union[datetime, str] = None,
-        eventTimestampLTE: Union[datetime, str] = None,
-        maxResults: int = None,
-        nextToken: str = None,
-        sortOrder: SortOrderType = None
+        self, **kwargs: Unpack[ListLineageNodeHistoryInputTypeDef]
     ) -> ListLineageNodeHistoryOutputTypeDef:
         """
         Lists the history of the specified data lineage node.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.list_lineage_node_history)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#list_lineage_node_history)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/list_lineage_node_history.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#list_lineage_node_history)
         """
 
     def list_metadata_generation_runs(
-        self,
-        *,
-        domainIdentifier: str,
-        maxResults: int = None,
-        nextToken: str = None,
-        status: MetadataGenerationRunStatusType = None,
-        type: Literal["BUSINESS_DESCRIPTIONS"] = None
+        self, **kwargs: Unpack[ListMetadataGenerationRunsInputTypeDef]
     ) -> ListMetadataGenerationRunsOutputTypeDef:
         """
         Lists all metadata generation runs.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.list_metadata_generation_runs)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#list_metadata_generation_runs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/list_metadata_generation_runs.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#list_metadata_generation_runs)
         """
 
     def list_notifications(
-        self,
-        *,
-        domainIdentifier: str,
-        type: NotificationTypeType,
-        afterTimestamp: Union[datetime, str] = None,
-        beforeTimestamp: Union[datetime, str] = None,
-        maxResults: int = None,
-        nextToken: str = None,
-        subjects: List[str] = None,
-        taskStatus: TaskStatusType = None
+        self, **kwargs: Unpack[ListNotificationsInputTypeDef]
     ) -> ListNotificationsOutputTypeDef:
         """
         Lists all Amazon DataZone notifications.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.list_notifications)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#list_notifications)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/list_notifications.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#list_notifications)
+        """
+
+    def list_policy_grants(
+        self, **kwargs: Unpack[ListPolicyGrantsInputTypeDef]
+    ) -> ListPolicyGrantsOutputTypeDef:
+        """
+        Lists policy grants.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/list_policy_grants.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#list_policy_grants)
         """
 
     def list_project_memberships(
-        self,
-        *,
-        domainIdentifier: str,
-        projectIdentifier: str,
-        maxResults: int = None,
-        nextToken: str = None,
-        sortBy: Literal["NAME"] = None,
-        sortOrder: SortOrderType = None
+        self, **kwargs: Unpack[ListProjectMembershipsInputTypeDef]
     ) -> ListProjectMembershipsOutputTypeDef:
         """
         Lists all members of the specified project.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.list_project_memberships)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#list_project_memberships)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/list_project_memberships.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#list_project_memberships)
+        """
+
+    def list_project_profiles(
+        self, **kwargs: Unpack[ListProjectProfilesInputTypeDef]
+    ) -> ListProjectProfilesOutputTypeDef:
+        """
+        Lists project profiles.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/list_project_profiles.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#list_project_profiles)
         """
 
     def list_projects(
-        self,
-        *,
-        domainIdentifier: str,
-        groupIdentifier: str = None,
-        maxResults: int = None,
-        name: str = None,
-        nextToken: str = None,
-        userIdentifier: str = None
+        self, **kwargs: Unpack[ListProjectsInputTypeDef]
     ) -> ListProjectsOutputTypeDef:
         """
         Lists Amazon DataZone projects.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.list_projects)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#list_projects)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/list_projects.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#list_projects)
+        """
+
+    def list_rules(self, **kwargs: Unpack[ListRulesInputTypeDef]) -> ListRulesOutputTypeDef:
+        """
+        Lists existing rules.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/list_rules.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#list_rules)
         """
 
     def list_subscription_grants(
-        self,
-        *,
-        domainIdentifier: str,
-        environmentId: str = None,
-        maxResults: int = None,
-        nextToken: str = None,
-        sortBy: SortKeyType = None,
-        sortOrder: SortOrderType = None,
-        subscribedListingId: str = None,
-        subscriptionId: str = None,
-        subscriptionTargetId: str = None
+        self, **kwargs: Unpack[ListSubscriptionGrantsInputTypeDef]
     ) -> ListSubscriptionGrantsOutputTypeDef:
         """
         Lists subscription grants.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.list_subscription_grants)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#list_subscription_grants)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/list_subscription_grants.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#list_subscription_grants)
         """
 
     def list_subscription_requests(
-        self,
-        *,
-        domainIdentifier: str,
-        approverProjectId: str = None,
-        maxResults: int = None,
-        nextToken: str = None,
-        owningProjectId: str = None,
-        sortBy: SortKeyType = None,
-        sortOrder: SortOrderType = None,
-        status: SubscriptionRequestStatusType = None,
-        subscribedListingId: str = None
+        self, **kwargs: Unpack[ListSubscriptionRequestsInputTypeDef]
     ) -> ListSubscriptionRequestsOutputTypeDef:
         """
         Lists Amazon DataZone subscription requests.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.list_subscription_requests)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#list_subscription_requests)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/list_subscription_requests.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#list_subscription_requests)
         """
 
     def list_subscription_targets(
-        self,
-        *,
-        domainIdentifier: str,
-        environmentIdentifier: str,
-        maxResults: int = None,
-        nextToken: str = None,
-        sortBy: SortKeyType = None,
-        sortOrder: SortOrderType = None
+        self, **kwargs: Unpack[ListSubscriptionTargetsInputTypeDef]
     ) -> ListSubscriptionTargetsOutputTypeDef:
         """
         Lists subscription targets in Amazon DataZone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.list_subscription_targets)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#list_subscription_targets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/list_subscription_targets.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#list_subscription_targets)
         """
 
     def list_subscriptions(
-        self,
-        *,
-        domainIdentifier: str,
-        approverProjectId: str = None,
-        maxResults: int = None,
-        nextToken: str = None,
-        owningProjectId: str = None,
-        sortBy: SortKeyType = None,
-        sortOrder: SortOrderType = None,
-        status: SubscriptionStatusType = None,
-        subscribedListingId: str = None,
-        subscriptionRequestIdentifier: str = None
+        self, **kwargs: Unpack[ListSubscriptionsInputTypeDef]
     ) -> ListSubscriptionsOutputTypeDef:
         """
         Lists subscriptions in Amazon DataZone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.list_subscriptions)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#list_subscriptions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/list_subscriptions.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#list_subscriptions)
         """
 
-    def list_tags_for_resource(self, *, resourceArn: str) -> ListTagsForResourceResponseTypeDef:
+    def list_tags_for_resource(
+        self, **kwargs: Unpack[ListTagsForResourceRequestTypeDef]
+    ) -> ListTagsForResourceResponseTypeDef:
         """
         Lists tags for the specified resource in Amazon DataZone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.list_tags_for_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/list_tags_for_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#list_tags_for_resource)
         """
 
     def list_time_series_data_points(
-        self,
-        *,
-        domainIdentifier: str,
-        entityIdentifier: str,
-        entityType: TimeSeriesEntityTypeType,
-        formName: str,
-        endedAt: Union[datetime, str] = None,
-        maxResults: int = None,
-        nextToken: str = None,
-        startedAt: Union[datetime, str] = None
+        self, **kwargs: Unpack[ListTimeSeriesDataPointsInputTypeDef]
     ) -> ListTimeSeriesDataPointsOutputTypeDef:
         """
         Lists time series data points.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.list_time_series_data_points)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#list_time_series_data_points)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/list_time_series_data_points.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#list_time_series_data_points)
         """
 
     def post_lineage_event(
-        self,
-        *,
-        domainIdentifier: str,
-        event: Union[bytes, IO[bytes], StreamingBody],
-        clientToken: str = None
-    ) -> Dict[str, Any]:
+        self, **kwargs: Unpack[PostLineageEventInputTypeDef]
+    ) -> PostLineageEventOutputTypeDef:
         """
         Posts a data lineage event.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.post_lineage_event)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#post_lineage_event)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/post_lineage_event.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#post_lineage_event)
         """
 
     def post_time_series_data_points(
-        self,
-        *,
-        domainIdentifier: str,
-        entityIdentifier: str,
-        entityType: TimeSeriesEntityTypeType,
-        forms: List["TimeSeriesDataPointFormInputTypeDef"],
-        clientToken: str = None
+        self, **kwargs: Unpack[PostTimeSeriesDataPointsInputTypeDef]
     ) -> PostTimeSeriesDataPointsOutputTypeDef:
         """
         Posts time series data points to Amazon DataZone for the specified asset.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.post_time_series_data_points)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#post_time_series_data_points)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/post_time_series_data_points.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#post_time_series_data_points)
         """
 
     def put_environment_blueprint_configuration(
-        self,
-        *,
-        domainIdentifier: str,
-        enabledRegions: List[str],
-        environmentBlueprintIdentifier: str,
-        manageAccessRoleArn: str = None,
-        provisioningRoleArn: str = None,
-        regionalParameters: Dict[str, Dict[str, str]] = None
+        self, **kwargs: Unpack[PutEnvironmentBlueprintConfigurationInputTypeDef]
     ) -> PutEnvironmentBlueprintConfigurationOutputTypeDef:
         """
         Writes the configuration for the specified environment blueprint in Amazon
         DataZone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.put_environment_blueprint_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#put_environment_blueprint_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/put_environment_blueprint_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#put_environment_blueprint_configuration)
         """
 
     def reject_predictions(
-        self,
-        *,
-        domainIdentifier: str,
-        identifier: str,
-        clientToken: str = None,
-        rejectChoices: List["RejectChoiceTypeDef"] = None,
-        rejectRule: "RejectRuleTypeDef" = None,
-        revision: str = None
+        self, **kwargs: Unpack[RejectPredictionsInputTypeDef]
     ) -> RejectPredictionsOutputTypeDef:
         """
         Rejects automatically generated business-friendly metadata for your Amazon
         DataZone assets.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.reject_predictions)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#reject_predictions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/reject_predictions.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#reject_predictions)
         """
 
     def reject_subscription_request(
-        self, *, domainIdentifier: str, identifier: str, decisionComment: str = None
+        self, **kwargs: Unpack[RejectSubscriptionRequestInputTypeDef]
     ) -> RejectSubscriptionRequestOutputTypeDef:
         """
         Rejects the specified subscription request.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.reject_subscription_request)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#reject_subscription_request)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/reject_subscription_request.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#reject_subscription_request)
+        """
+
+    def remove_entity_owner(
+        self, **kwargs: Unpack[RemoveEntityOwnerInputTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Removes an owner from an entity.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/remove_entity_owner.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#remove_entity_owner)
+        """
+
+    def remove_policy_grant(
+        self, **kwargs: Unpack[RemovePolicyGrantInputTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Removes a policy grant.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/remove_policy_grant.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#remove_policy_grant)
         """
 
     def revoke_subscription(
-        self, *, domainIdentifier: str, identifier: str, retainPermissions: bool = None
+        self, **kwargs: Unpack[RevokeSubscriptionInputTypeDef]
     ) -> RevokeSubscriptionOutputTypeDef:
         """
         Revokes a specified subscription in Amazon DataZone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.revoke_subscription)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#revoke_subscription)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/revoke_subscription.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#revoke_subscription)
         """
 
-    def search(
-        self,
-        *,
-        domainIdentifier: str,
-        searchScope: InventorySearchScopeType,
-        additionalAttributes: List[SearchOutputAdditionalAttributeType] = None,
-        filters: "FilterClauseTypeDef" = None,
-        maxResults: int = None,
-        nextToken: str = None,
-        owningProjectIdentifier: str = None,
-        searchIn: List["SearchInItemTypeDef"] = None,
-        searchText: str = None,
-        sort: "SearchSortTypeDef" = None
-    ) -> SearchOutputTypeDef:
+    def search(self, **kwargs: Unpack[SearchInputTypeDef]) -> SearchOutputTypeDef:
         """
         Searches for assets in Amazon DataZone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.search)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#search)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/search.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#search)
         """
 
     def search_group_profiles(
-        self,
-        *,
-        domainIdentifier: str,
-        groupType: GroupSearchTypeType,
-        maxResults: int = None,
-        nextToken: str = None,
-        searchText: str = None
+        self, **kwargs: Unpack[SearchGroupProfilesInputTypeDef]
     ) -> SearchGroupProfilesOutputTypeDef:
         """
         Searches group profiles in Amazon DataZone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.search_group_profiles)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#search_group_profiles)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/search_group_profiles.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#search_group_profiles)
         """
 
     def search_listings(
-        self,
-        *,
-        domainIdentifier: str,
-        additionalAttributes: List[SearchOutputAdditionalAttributeType] = None,
-        filters: "FilterClauseTypeDef" = None,
-        maxResults: int = None,
-        nextToken: str = None,
-        searchIn: List["SearchInItemTypeDef"] = None,
-        searchText: str = None,
-        sort: "SearchSortTypeDef" = None
+        self, **kwargs: Unpack[SearchListingsInputTypeDef]
     ) -> SearchListingsOutputTypeDef:
         """
         Searches listings (records of an asset at a given time) in Amazon DataZone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.search_listings)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#search_listings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/search_listings.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#search_listings)
         """
 
-    def search_types(
-        self,
-        *,
-        domainIdentifier: str,
-        managed: bool,
-        searchScope: TypesSearchScopeType,
-        filters: "FilterClauseTypeDef" = None,
-        maxResults: int = None,
-        nextToken: str = None,
-        searchIn: List["SearchInItemTypeDef"] = None,
-        searchText: str = None,
-        sort: "SearchSortTypeDef" = None
-    ) -> SearchTypesOutputTypeDef:
+    def search_types(self, **kwargs: Unpack[SearchTypesInputTypeDef]) -> SearchTypesOutputTypeDef:
         """
         Searches for types in Amazon DataZone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.search_types)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#search_types)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/search_types.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#search_types)
         """
 
     def search_user_profiles(
-        self,
-        *,
-        domainIdentifier: str,
-        userType: UserSearchTypeType,
-        maxResults: int = None,
-        nextToken: str = None,
-        searchText: str = None
+        self, **kwargs: Unpack[SearchUserProfilesInputTypeDef]
     ) -> SearchUserProfilesOutputTypeDef:
         """
         Searches user profiles in Amazon DataZone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.search_user_profiles)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#search_user_profiles)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/search_user_profiles.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#search_user_profiles)
         """
 
     def start_data_source_run(
-        self, *, dataSourceIdentifier: str, domainIdentifier: str, clientToken: str = None
+        self, **kwargs: Unpack[StartDataSourceRunInputTypeDef]
     ) -> StartDataSourceRunOutputTypeDef:
         """
         Start the run of the specified data source in Amazon DataZone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.start_data_source_run)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#start_data_source_run)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/start_data_source_run.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#start_data_source_run)
         """
 
     def start_metadata_generation_run(
-        self,
-        *,
-        domainIdentifier: str,
-        owningProjectIdentifier: str,
-        target: "MetadataGenerationRunTargetTypeDef",
-        type: Literal["BUSINESS_DESCRIPTIONS"],
-        clientToken: str = None
+        self, **kwargs: Unpack[StartMetadataGenerationRunInputTypeDef]
     ) -> StartMetadataGenerationRunOutputTypeDef:
         """
         Starts the metadata generation run.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.start_metadata_generation_run)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#start_metadata_generation_run)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/start_metadata_generation_run.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#start_metadata_generation_run)
         """
 
-    def tag_resource(self, *, resourceArn: str, tags: Dict[str, str]) -> Dict[str, Any]:
+    def tag_resource(self, **kwargs: Unpack[TagResourceRequestTypeDef]) -> Dict[str, Any]:
         """
         Tags a resource in Amazon DataZone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.tag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/tag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#tag_resource)
         """
 
-    def untag_resource(self, *, resourceArn: str, tagKeys: List[str]) -> Dict[str, Any]:
+    def untag_resource(self, **kwargs: Unpack[UntagResourceRequestTypeDef]) -> Dict[str, Any]:
         """
         Untags a resource in Amazon DataZone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.untag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/untag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#untag_resource)
+        """
+
+    def update_asset_filter(
+        self, **kwargs: Unpack[UpdateAssetFilterInputTypeDef]
+    ) -> UpdateAssetFilterOutputTypeDef:
+        """
+        Updates an asset filter.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/update_asset_filter.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#update_asset_filter)
+        """
+
+    def update_connection(
+        self, **kwargs: Unpack[UpdateConnectionInputTypeDef]
+    ) -> UpdateConnectionOutputTypeDef:
+        """
+        Updates a connection.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/update_connection.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#update_connection)
         """
 
     def update_data_source(
-        self,
-        *,
-        domainIdentifier: str,
-        identifier: str,
-        assetFormsInput: List["FormInputTypeDef"] = None,
-        configuration: "DataSourceConfigurationInputTypeDef" = None,
-        description: str = None,
-        enableSetting: EnableSettingType = None,
-        name: str = None,
-        publishOnImport: bool = None,
-        recommendation: "RecommendationConfigurationTypeDef" = None,
-        retainPermissionsOnRevokeFailure: bool = None,
-        schedule: "ScheduleConfigurationTypeDef" = None
+        self, **kwargs: Unpack[UpdateDataSourceInputTypeDef]
     ) -> UpdateDataSourceOutputTypeDef:
         """
         Updates the specified data source in Amazon DataZone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.update_data_source)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#update_data_source)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/update_data_source.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#update_data_source)
         """
 
     def update_domain(
-        self,
-        *,
-        identifier: str,
-        clientToken: str = None,
-        description: str = None,
-        domainExecutionRole: str = None,
-        name: str = None,
-        singleSignOn: "SingleSignOnTypeDef" = None
+        self, **kwargs: Unpack[UpdateDomainInputTypeDef]
     ) -> UpdateDomainOutputTypeDef:
         """
         Updates a Amazon DataZone domain.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.update_domain)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#update_domain)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/update_domain.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#update_domain)
+        """
+
+    def update_domain_unit(
+        self, **kwargs: Unpack[UpdateDomainUnitInputTypeDef]
+    ) -> UpdateDomainUnitOutputTypeDef:
+        """
+        Updates the domain unit.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/update_domain_unit.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#update_domain_unit)
         """
 
     def update_environment(
-        self,
-        *,
-        domainIdentifier: str,
-        identifier: str,
-        description: str = None,
-        glossaryTerms: List[str] = None,
-        name: str = None
+        self, **kwargs: Unpack[UpdateEnvironmentInputTypeDef]
     ) -> UpdateEnvironmentOutputTypeDef:
         """
         Updates the specified environment in Amazon DataZone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.update_environment)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#update_environment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/update_environment.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#update_environment)
         """
 
     def update_environment_action(
-        self,
-        *,
-        domainIdentifier: str,
-        environmentIdentifier: str,
-        identifier: str,
-        description: str = None,
-        name: str = None,
-        parameters: "ActionParametersTypeDef" = None
+        self, **kwargs: Unpack[UpdateEnvironmentActionInputTypeDef]
     ) -> UpdateEnvironmentActionOutputTypeDef:
         """
         Updates an environment action.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.update_environment_action)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#update_environment_action)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/update_environment_action.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#update_environment_action)
         """
 
     def update_environment_profile(
-        self,
-        *,
-        domainIdentifier: str,
-        identifier: str,
-        awsAccountId: str = None,
-        awsAccountRegion: str = None,
-        description: str = None,
-        name: str = None,
-        userParameters: List["EnvironmentParameterTypeDef"] = None
+        self, **kwargs: Unpack[UpdateEnvironmentProfileInputTypeDef]
     ) -> UpdateEnvironmentProfileOutputTypeDef:
         """
         Updates the specified environment profile in Amazon DataZone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.update_environment_profile)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#update_environment_profile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/update_environment_profile.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#update_environment_profile)
         """
 
     def update_glossary(
-        self,
-        *,
-        domainIdentifier: str,
-        identifier: str,
-        clientToken: str = None,
-        description: str = None,
-        name: str = None,
-        status: GlossaryStatusType = None
+        self, **kwargs: Unpack[UpdateGlossaryInputTypeDef]
     ) -> UpdateGlossaryOutputTypeDef:
         """
         Updates the business glossary in Amazon DataZone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.update_glossary)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#update_glossary)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/update_glossary.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#update_glossary)
         """
 
     def update_glossary_term(
-        self,
-        *,
-        domainIdentifier: str,
-        identifier: str,
-        glossaryIdentifier: str = None,
-        longDescription: str = None,
-        name: str = None,
-        shortDescription: str = None,
-        status: GlossaryTermStatusType = None,
-        termRelations: "TermRelationsTypeDef" = None
+        self, **kwargs: Unpack[UpdateGlossaryTermInputTypeDef]
     ) -> UpdateGlossaryTermOutputTypeDef:
         """
         Updates a business glossary term in Amazon DataZone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.update_glossary_term)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#update_glossary_term)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/update_glossary_term.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#update_glossary_term)
         """
 
     def update_group_profile(
-        self, *, domainIdentifier: str, groupIdentifier: str, status: GroupProfileStatusType
+        self, **kwargs: Unpack[UpdateGroupProfileInputTypeDef]
     ) -> UpdateGroupProfileOutputTypeDef:
         """
         Updates the specified group profile in Amazon DataZone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.update_group_profile)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#update_group_profile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/update_group_profile.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#update_group_profile)
         """
 
     def update_project(
-        self,
-        *,
-        domainIdentifier: str,
-        identifier: str,
-        description: str = None,
-        glossaryTerms: List[str] = None,
-        name: str = None
+        self, **kwargs: Unpack[UpdateProjectInputTypeDef]
     ) -> UpdateProjectOutputTypeDef:
         """
         Updates the specified project in Amazon DataZone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.update_project)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#update_project)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/update_project.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#update_project)
+        """
+
+    def update_project_profile(
+        self, **kwargs: Unpack[UpdateProjectProfileInputTypeDef]
+    ) -> UpdateProjectProfileOutputTypeDef:
+        """
+        Updates a project profile.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/update_project_profile.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#update_project_profile)
+        """
+
+    def update_rule(self, **kwargs: Unpack[UpdateRuleInputTypeDef]) -> UpdateRuleOutputTypeDef:
+        """
+        Updates a rule.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/update_rule.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#update_rule)
         """
 
     def update_subscription_grant_status(
-        self,
-        *,
-        assetIdentifier: str,
-        domainIdentifier: str,
-        identifier: str,
-        status: SubscriptionGrantStatusType,
-        failureCause: "FailureCauseTypeDef" = None,
-        targetName: str = None
+        self, **kwargs: Unpack[UpdateSubscriptionGrantStatusInputTypeDef]
     ) -> UpdateSubscriptionGrantStatusOutputTypeDef:
         """
         Updates the status of the specified subscription grant status in Amazon
         DataZone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.update_subscription_grant_status)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#update_subscription_grant_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/update_subscription_grant_status.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#update_subscription_grant_status)
         """
 
     def update_subscription_request(
-        self, *, domainIdentifier: str, identifier: str, requestReason: str
+        self, **kwargs: Unpack[UpdateSubscriptionRequestInputTypeDef]
     ) -> UpdateSubscriptionRequestOutputTypeDef:
         """
         Updates a specified subscription request in Amazon DataZone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.update_subscription_request)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#update_subscription_request)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/update_subscription_request.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#update_subscription_request)
         """
 
     def update_subscription_target(
-        self,
-        *,
-        domainIdentifier: str,
-        environmentIdentifier: str,
-        identifier: str,
-        applicableAssetTypes: List[str] = None,
-        authorizedPrincipals: List[str] = None,
-        manageAccessRole: str = None,
-        name: str = None,
-        provider: str = None,
-        subscriptionTargetConfig: List["SubscriptionTargetFormTypeDef"] = None
+        self, **kwargs: Unpack[UpdateSubscriptionTargetInputTypeDef]
     ) -> UpdateSubscriptionTargetOutputTypeDef:
         """
         Updates the specified subscription target in Amazon DataZone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.update_subscription_target)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#update_subscription_target)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/update_subscription_target.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#update_subscription_target)
         """
 
     def update_user_profile(
-        self,
-        *,
-        domainIdentifier: str,
-        status: UserProfileStatusType,
-        userIdentifier: str,
-        type: UserProfileTypeType = None
+        self, **kwargs: Unpack[UpdateUserProfileInputTypeDef]
     ) -> UpdateUserProfileOutputTypeDef:
         """
         Updates the specified user profile in Amazon DataZone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Client.update_user_profile)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/client.html#update_user_profile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/update_user_profile.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#update_user_profile)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_asset_filters"]
+    ) -> ListAssetFiltersPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_asset_revisions"]
     ) -> ListAssetRevisionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Paginator.ListAssetRevisions)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/paginators.html#listassetrevisionspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_connections"]
+    ) -> ListConnectionsPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_data_product_revisions"]
+    ) -> ListDataProductRevisionsPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_data_source_run_activities"]
     ) -> ListDataSourceRunActivitiesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Paginator.ListDataSourceRunActivities)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/paginators.html#listdatasourcerunactivitiespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_data_source_runs"]
     ) -> ListDataSourceRunsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Paginator.ListDataSourceRuns)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/paginators.html#listdatasourcerunspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_data_sources"]
     ) -> ListDataSourcesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Paginator.ListDataSources)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/paginators.html#listdatasourcespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_domains"]) -> ListDomainsPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_domain_units_for_parent"]
+    ) -> ListDomainUnitsForParentPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Paginator.ListDomains)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/paginators.html#listdomainspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_domains"]
+    ) -> ListDomainsPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_entity_owners"]
+    ) -> ListEntityOwnersPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_environment_actions"]
     ) -> ListEnvironmentActionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Paginator.ListEnvironmentActions)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/paginators.html#listenvironmentactionspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_environment_blueprint_configurations"]
     ) -> ListEnvironmentBlueprintConfigurationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Paginator.ListEnvironmentBlueprintConfigurations)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/paginators.html#listenvironmentblueprintconfigurationspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_environment_blueprints"]
     ) -> ListEnvironmentBlueprintsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Paginator.ListEnvironmentBlueprints)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/paginators.html#listenvironmentblueprintspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_environment_profiles"]
     ) -> ListEnvironmentProfilesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Paginator.ListEnvironmentProfiles)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/paginators.html#listenvironmentprofilespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_environments"]
     ) -> ListEnvironmentsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Paginator.ListEnvironments)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/paginators.html#listenvironmentspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_job_runs"]
+    ) -> ListJobRunsPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_lineage_events"]
+    ) -> ListLineageEventsPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_lineage_node_history"]
     ) -> ListLineageNodeHistoryPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Paginator.ListLineageNodeHistory)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/paginators.html#listlineagenodehistorypaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_metadata_generation_runs"]
     ) -> ListMetadataGenerationRunsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Paginator.ListMetadataGenerationRuns)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/paginators.html#listmetadatagenerationrunspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_notifications"]
     ) -> ListNotificationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Paginator.ListNotifications)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/paginators.html#listnotificationspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_policy_grants"]
+    ) -> ListPolicyGrantsPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_project_memberships"]
     ) -> ListProjectMembershipsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Paginator.ListProjectMemberships)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/paginators.html#listprojectmembershipspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_projects"]) -> ListProjectsPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_project_profiles"]
+    ) -> ListProjectProfilesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Paginator.ListProjects)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/paginators.html#listprojectspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_projects"]
+    ) -> ListProjectsPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_rules"]
+    ) -> ListRulesPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_subscription_grants"]
     ) -> ListSubscriptionGrantsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Paginator.ListSubscriptionGrants)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/paginators.html#listsubscriptiongrantspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_subscription_requests"]
     ) -> ListSubscriptionRequestsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Paginator.ListSubscriptionRequests)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/paginators.html#listsubscriptionrequestspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_subscription_targets"]
     ) -> ListSubscriptionTargetsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Paginator.ListSubscriptionTargets)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/paginators.html#listsubscriptiontargetspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_subscriptions"]
     ) -> ListSubscriptionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Paginator.ListSubscriptions)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/paginators.html#listsubscriptionspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_time_series_data_points"]
     ) -> ListTimeSeriesDataPointsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Paginator.ListTimeSeriesDataPoints)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/paginators.html#listtimeseriesdatapointspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["search"]) -> SearchPaginator:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Paginator.Search)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/paginators.html#searchpaginator)
-        """
-
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["search_group_profiles"]
     ) -> SearchGroupProfilesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Paginator.SearchGroupProfiles)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/paginators.html#searchgroupprofilespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["search_listings"]) -> SearchListingsPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["search_listings"]
+    ) -> SearchListingsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Paginator.SearchListings)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/paginators.html#searchlistingspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["search_types"]) -> SearchTypesPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["search"]
+    ) -> SearchPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Paginator.SearchTypes)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/paginators.html#searchtypespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["search_types"]
+    ) -> SearchTypesPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["search_user_profiles"]
     ) -> SearchUserProfilesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datazone.html#DataZone.Paginator.SearchUserProfiles)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/paginators.html#searchuserprofilespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datazone/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/client/#get_paginator)
         """

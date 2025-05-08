@@ -1,78 +1,104 @@
 """
 Type annotations for connectcases service client paginators.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connectcases/paginators.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connectcases/paginators/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
 
-    from mypy_boto3_connectcases import ConnectCasesClient
+    from mypy_boto3_connectcases.client import ConnectCasesClient
     from mypy_boto3_connectcases.paginator import (
+        ListCaseRulesPaginator,
         SearchCasesPaginator,
         SearchRelatedItemsPaginator,
     )
 
-    client: ConnectCasesClient = boto3.client("connectcases")
+    session = Session()
+    client: ConnectCasesClient = session.client("connectcases")
 
+    list_case_rules_paginator: ListCaseRulesPaginator = client.get_paginator("list_case_rules")
     search_cases_paginator: SearchCasesPaginator = client.get_paginator("search_cases")
     search_related_items_paginator: SearchRelatedItemsPaginator = client.get_paginator("search_related_items")
     ```
 """
 
-from typing import Iterator, List
+from __future__ import annotations
 
-from botocore.paginate import Paginator as Boto3Paginator
+import sys
+from typing import TYPE_CHECKING
+
+from botocore.paginate import PageIterator, Paginator
 
 from .type_defs import (
-    CaseFilterTypeDef,
-    FieldIdentifierTypeDef,
-    PaginatorConfigTypeDef,
-    RelatedItemTypeFilterTypeDef,
+    ListCaseRulesRequestPaginateTypeDef,
+    ListCaseRulesResponseTypeDef,
+    SearchCasesRequestPaginateTypeDef,
     SearchCasesResponseTypeDef,
+    SearchRelatedItemsRequestPaginateTypeDef,
     SearchRelatedItemsResponseTypeDef,
-    SortTypeDef,
 )
 
-__all__ = ("SearchCasesPaginator", "SearchRelatedItemsPaginator")
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
-class SearchCasesPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connectcases.html#ConnectCases.Paginator.SearchCases)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connectcases/paginators.html#searchcasespaginator)
-    """
+__all__ = ("ListCaseRulesPaginator", "SearchCasesPaginator", "SearchRelatedItemsPaginator")
 
-    def paginate(
-        self,
-        *,
-        domainId: str,
-        fields: List["FieldIdentifierTypeDef"] = None,
-        filter: "CaseFilterTypeDef" = None,
-        searchTerm: str = None,
-        sorts: List["SortTypeDef"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[SearchCasesResponseTypeDef]:
+if TYPE_CHECKING:
+    _ListCaseRulesPaginatorBase = Paginator[ListCaseRulesResponseTypeDef]
+else:
+    _ListCaseRulesPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListCaseRulesPaginator(_ListCaseRulesPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connectcases/paginator/ListCaseRules.html#ConnectCases.Paginator.ListCaseRules)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connectcases/paginators/#listcaserulespaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListCaseRulesRequestPaginateTypeDef]
+    ) -> PageIterator[ListCaseRulesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connectcases.html#ConnectCases.Paginator.SearchCases.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connectcases/paginators.html#searchcasespaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connectcases/paginator/ListCaseRules.html#ConnectCases.Paginator.ListCaseRules.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connectcases/paginators/#listcaserulespaginator)
         """
 
-class SearchRelatedItemsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connectcases.html#ConnectCases.Paginator.SearchRelatedItems)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connectcases/paginators.html#searchrelateditemspaginator)
-    """
+if TYPE_CHECKING:
+    _SearchCasesPaginatorBase = Paginator[SearchCasesResponseTypeDef]
+else:
+    _SearchCasesPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        caseId: str,
-        domainId: str,
-        filters: List["RelatedItemTypeFilterTypeDef"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[SearchRelatedItemsResponseTypeDef]:
+class SearchCasesPaginator(_SearchCasesPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connectcases/paginator/SearchCases.html#ConnectCases.Paginator.SearchCases)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connectcases/paginators/#searchcasespaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[SearchCasesRequestPaginateTypeDef]
+    ) -> PageIterator[SearchCasesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connectcases.html#ConnectCases.Paginator.SearchRelatedItems.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connectcases/paginators.html#searchrelateditemspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connectcases/paginator/SearchCases.html#ConnectCases.Paginator.SearchCases.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connectcases/paginators/#searchcasespaginator)
+        """
+
+if TYPE_CHECKING:
+    _SearchRelatedItemsPaginatorBase = Paginator[SearchRelatedItemsResponseTypeDef]
+else:
+    _SearchRelatedItemsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class SearchRelatedItemsPaginator(_SearchRelatedItemsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connectcases/paginator/SearchRelatedItems.html#ConnectCases.Paginator.SearchRelatedItems)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connectcases/paginators/#searchrelateditemspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[SearchRelatedItemsRequestPaginateTypeDef]
+    ) -> PageIterator[SearchRelatedItemsResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connectcases/paginator/SearchRelatedItems.html#ConnectCases.Paginator.SearchRelatedItems.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connectcases/paginators/#searchrelateditemspaginator)
         """

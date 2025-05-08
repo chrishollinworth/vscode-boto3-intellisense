@@ -1,20 +1,24 @@
 """
 Type annotations for cognito-identity service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cognito_identity/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cognito_identity/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_cognito_identity.type_defs import CognitoIdentityProviderTypeDef
 
-    data: CognitoIdentityProviderTypeDef = {...}
+    data: CognitoIdentityProviderTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
+from typing import Union
 
 from .literals import (
     AmbiguousRoleResolutionTypeType,
@@ -23,649 +27,354 @@ from .literals import (
     RoleMappingTypeType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
     "CognitoIdentityProviderTypeDef",
-    "CreateIdentityPoolInputRequestTypeDef",
+    "CreateIdentityPoolInputTypeDef",
     "CredentialsTypeDef",
-    "DeleteIdentitiesInputRequestTypeDef",
+    "DeleteIdentitiesInputTypeDef",
     "DeleteIdentitiesResponseTypeDef",
-    "DeleteIdentityPoolInputRequestTypeDef",
-    "DescribeIdentityInputRequestTypeDef",
-    "DescribeIdentityPoolInputRequestTypeDef",
-    "GetCredentialsForIdentityInputRequestTypeDef",
+    "DeleteIdentityPoolInputTypeDef",
+    "DescribeIdentityInputTypeDef",
+    "DescribeIdentityPoolInputTypeDef",
+    "EmptyResponseMetadataTypeDef",
+    "GetCredentialsForIdentityInputTypeDef",
     "GetCredentialsForIdentityResponseTypeDef",
-    "GetIdInputRequestTypeDef",
+    "GetIdInputTypeDef",
     "GetIdResponseTypeDef",
-    "GetIdentityPoolRolesInputRequestTypeDef",
+    "GetIdentityPoolRolesInputTypeDef",
     "GetIdentityPoolRolesResponseTypeDef",
-    "GetOpenIdTokenForDeveloperIdentityInputRequestTypeDef",
+    "GetOpenIdTokenForDeveloperIdentityInputTypeDef",
     "GetOpenIdTokenForDeveloperIdentityResponseTypeDef",
-    "GetOpenIdTokenInputRequestTypeDef",
+    "GetOpenIdTokenInputTypeDef",
     "GetOpenIdTokenResponseTypeDef",
-    "GetPrincipalTagAttributeMapInputRequestTypeDef",
+    "GetPrincipalTagAttributeMapInputTypeDef",
     "GetPrincipalTagAttributeMapResponseTypeDef",
-    "IdentityDescriptionResponseMetadataTypeDef",
+    "IdentityDescriptionResponseTypeDef",
     "IdentityDescriptionTypeDef",
     "IdentityPoolRequestTypeDef",
     "IdentityPoolShortDescriptionTypeDef",
     "IdentityPoolTypeDef",
-    "ListIdentitiesInputRequestTypeDef",
+    "ListIdentitiesInputTypeDef",
     "ListIdentitiesResponseTypeDef",
-    "ListIdentityPoolsInputRequestTypeDef",
+    "ListIdentityPoolsInputPaginateTypeDef",
+    "ListIdentityPoolsInputTypeDef",
     "ListIdentityPoolsResponseTypeDef",
-    "ListTagsForResourceInputRequestTypeDef",
+    "ListTagsForResourceInputTypeDef",
     "ListTagsForResourceResponseTypeDef",
-    "LookupDeveloperIdentityInputRequestTypeDef",
+    "LookupDeveloperIdentityInputTypeDef",
     "LookupDeveloperIdentityResponseTypeDef",
     "MappingRuleTypeDef",
-    "MergeDeveloperIdentitiesInputRequestTypeDef",
+    "MergeDeveloperIdentitiesInputTypeDef",
     "MergeDeveloperIdentitiesResponseTypeDef",
     "PaginatorConfigTypeDef",
     "ResponseMetadataTypeDef",
+    "RoleMappingOutputTypeDef",
     "RoleMappingTypeDef",
+    "RoleMappingUnionTypeDef",
+    "RulesConfigurationTypeOutputTypeDef",
     "RulesConfigurationTypeTypeDef",
-    "SetIdentityPoolRolesInputRequestTypeDef",
-    "SetPrincipalTagAttributeMapInputRequestTypeDef",
+    "RulesConfigurationTypeUnionTypeDef",
+    "SetIdentityPoolRolesInputTypeDef",
+    "SetPrincipalTagAttributeMapInputTypeDef",
     "SetPrincipalTagAttributeMapResponseTypeDef",
-    "TagResourceInputRequestTypeDef",
-    "UnlinkDeveloperIdentityInputRequestTypeDef",
-    "UnlinkIdentityInputRequestTypeDef",
+    "TagResourceInputTypeDef",
+    "UnlinkDeveloperIdentityInputTypeDef",
+    "UnlinkIdentityInputTypeDef",
     "UnprocessedIdentityIdTypeDef",
-    "UntagResourceInputRequestTypeDef",
+    "UntagResourceInputTypeDef",
 )
 
-CognitoIdentityProviderTypeDef = TypedDict(
-    "CognitoIdentityProviderTypeDef",
-    {
-        "ProviderName": str,
-        "ClientId": str,
-        "ServerSideTokenCheck": bool,
-    },
-    total=False,
-)
+class CognitoIdentityProviderTypeDef(TypedDict):
+    ProviderName: NotRequired[str]
+    ClientId: NotRequired[str]
+    ServerSideTokenCheck: NotRequired[bool]
 
-_RequiredCreateIdentityPoolInputRequestTypeDef = TypedDict(
-    "_RequiredCreateIdentityPoolInputRequestTypeDef",
-    {
-        "IdentityPoolName": str,
-        "AllowUnauthenticatedIdentities": bool,
-    },
-)
-_OptionalCreateIdentityPoolInputRequestTypeDef = TypedDict(
-    "_OptionalCreateIdentityPoolInputRequestTypeDef",
-    {
-        "AllowClassicFlow": bool,
-        "SupportedLoginProviders": Dict[str, str],
-        "DeveloperProviderName": str,
-        "OpenIdConnectProviderARNs": List[str],
-        "CognitoIdentityProviders": List["CognitoIdentityProviderTypeDef"],
-        "SamlProviderARNs": List[str],
-        "IdentityPoolTags": Dict[str, str],
-    },
-    total=False,
-)
+class CredentialsTypeDef(TypedDict):
+    AccessKeyId: NotRequired[str]
+    SecretKey: NotRequired[str]
+    SessionToken: NotRequired[str]
+    Expiration: NotRequired[datetime]
 
-class CreateIdentityPoolInputRequestTypeDef(
-    _RequiredCreateIdentityPoolInputRequestTypeDef, _OptionalCreateIdentityPoolInputRequestTypeDef
-):
-    pass
+class DeleteIdentitiesInputTypeDef(TypedDict):
+    IdentityIdsToDelete: Sequence[str]
 
-CredentialsTypeDef = TypedDict(
-    "CredentialsTypeDef",
-    {
-        "AccessKeyId": str,
-        "SecretKey": str,
-        "SessionToken": str,
-        "Expiration": datetime,
-    },
-    total=False,
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-DeleteIdentitiesInputRequestTypeDef = TypedDict(
-    "DeleteIdentitiesInputRequestTypeDef",
-    {
-        "IdentityIdsToDelete": List[str],
-    },
-)
+class UnprocessedIdentityIdTypeDef(TypedDict):
+    IdentityId: NotRequired[str]
+    ErrorCode: NotRequired[ErrorCodeType]
 
-DeleteIdentitiesResponseTypeDef = TypedDict(
-    "DeleteIdentitiesResponseTypeDef",
-    {
-        "UnprocessedIdentityIds": List["UnprocessedIdentityIdTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DeleteIdentityPoolInputTypeDef(TypedDict):
+    IdentityPoolId: str
 
-DeleteIdentityPoolInputRequestTypeDef = TypedDict(
-    "DeleteIdentityPoolInputRequestTypeDef",
-    {
-        "IdentityPoolId": str,
-    },
-)
+class DescribeIdentityInputTypeDef(TypedDict):
+    IdentityId: str
 
-DescribeIdentityInputRequestTypeDef = TypedDict(
-    "DescribeIdentityInputRequestTypeDef",
-    {
-        "IdentityId": str,
-    },
-)
+class DescribeIdentityPoolInputTypeDef(TypedDict):
+    IdentityPoolId: str
 
-DescribeIdentityPoolInputRequestTypeDef = TypedDict(
-    "DescribeIdentityPoolInputRequestTypeDef",
-    {
-        "IdentityPoolId": str,
-    },
-)
+class GetCredentialsForIdentityInputTypeDef(TypedDict):
+    IdentityId: str
+    Logins: NotRequired[Mapping[str, str]]
+    CustomRoleArn: NotRequired[str]
 
-_RequiredGetCredentialsForIdentityInputRequestTypeDef = TypedDict(
-    "_RequiredGetCredentialsForIdentityInputRequestTypeDef",
-    {
-        "IdentityId": str,
-    },
-)
-_OptionalGetCredentialsForIdentityInputRequestTypeDef = TypedDict(
-    "_OptionalGetCredentialsForIdentityInputRequestTypeDef",
-    {
-        "Logins": Dict[str, str],
-        "CustomRoleArn": str,
-    },
-    total=False,
-)
+class GetIdInputTypeDef(TypedDict):
+    IdentityPoolId: str
+    AccountId: NotRequired[str]
+    Logins: NotRequired[Mapping[str, str]]
 
-class GetCredentialsForIdentityInputRequestTypeDef(
-    _RequiredGetCredentialsForIdentityInputRequestTypeDef,
-    _OptionalGetCredentialsForIdentityInputRequestTypeDef,
-):
-    pass
+class GetIdentityPoolRolesInputTypeDef(TypedDict):
+    IdentityPoolId: str
 
-GetCredentialsForIdentityResponseTypeDef = TypedDict(
-    "GetCredentialsForIdentityResponseTypeDef",
-    {
-        "IdentityId": str,
-        "Credentials": "CredentialsTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetOpenIdTokenForDeveloperIdentityInputTypeDef(TypedDict):
+    IdentityPoolId: str
+    Logins: Mapping[str, str]
+    IdentityId: NotRequired[str]
+    PrincipalTags: NotRequired[Mapping[str, str]]
+    TokenDuration: NotRequired[int]
 
-_RequiredGetIdInputRequestTypeDef = TypedDict(
-    "_RequiredGetIdInputRequestTypeDef",
-    {
-        "IdentityPoolId": str,
-    },
-)
-_OptionalGetIdInputRequestTypeDef = TypedDict(
-    "_OptionalGetIdInputRequestTypeDef",
-    {
-        "AccountId": str,
-        "Logins": Dict[str, str],
-    },
-    total=False,
-)
+class GetOpenIdTokenInputTypeDef(TypedDict):
+    IdentityId: str
+    Logins: NotRequired[Mapping[str, str]]
 
-class GetIdInputRequestTypeDef(
-    _RequiredGetIdInputRequestTypeDef, _OptionalGetIdInputRequestTypeDef
-):
-    pass
+class GetPrincipalTagAttributeMapInputTypeDef(TypedDict):
+    IdentityPoolId: str
+    IdentityProviderName: str
 
-GetIdResponseTypeDef = TypedDict(
-    "GetIdResponseTypeDef",
-    {
-        "IdentityId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class IdentityDescriptionTypeDef(TypedDict):
+    IdentityId: NotRequired[str]
+    Logins: NotRequired[List[str]]
+    CreationDate: NotRequired[datetime]
+    LastModifiedDate: NotRequired[datetime]
 
-GetIdentityPoolRolesInputRequestTypeDef = TypedDict(
-    "GetIdentityPoolRolesInputRequestTypeDef",
-    {
-        "IdentityPoolId": str,
-    },
-)
+class IdentityPoolShortDescriptionTypeDef(TypedDict):
+    IdentityPoolId: NotRequired[str]
+    IdentityPoolName: NotRequired[str]
 
-GetIdentityPoolRolesResponseTypeDef = TypedDict(
-    "GetIdentityPoolRolesResponseTypeDef",
-    {
-        "IdentityPoolId": str,
-        "Roles": Dict[str, str],
-        "RoleMappings": Dict[str, "RoleMappingTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListIdentitiesInputTypeDef(TypedDict):
+    IdentityPoolId: str
+    MaxResults: int
+    NextToken: NotRequired[str]
+    HideDisabled: NotRequired[bool]
 
-_RequiredGetOpenIdTokenForDeveloperIdentityInputRequestTypeDef = TypedDict(
-    "_RequiredGetOpenIdTokenForDeveloperIdentityInputRequestTypeDef",
-    {
-        "IdentityPoolId": str,
-        "Logins": Dict[str, str],
-    },
-)
-_OptionalGetOpenIdTokenForDeveloperIdentityInputRequestTypeDef = TypedDict(
-    "_OptionalGetOpenIdTokenForDeveloperIdentityInputRequestTypeDef",
-    {
-        "IdentityId": str,
-        "PrincipalTags": Dict[str, str],
-        "TokenDuration": int,
-    },
-    total=False,
-)
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
 
-class GetOpenIdTokenForDeveloperIdentityInputRequestTypeDef(
-    _RequiredGetOpenIdTokenForDeveloperIdentityInputRequestTypeDef,
-    _OptionalGetOpenIdTokenForDeveloperIdentityInputRequestTypeDef,
-):
-    pass
+class ListIdentityPoolsInputTypeDef(TypedDict):
+    MaxResults: int
+    NextToken: NotRequired[str]
 
-GetOpenIdTokenForDeveloperIdentityResponseTypeDef = TypedDict(
-    "GetOpenIdTokenForDeveloperIdentityResponseTypeDef",
-    {
-        "IdentityId": str,
-        "Token": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListTagsForResourceInputTypeDef(TypedDict):
+    ResourceArn: str
 
-_RequiredGetOpenIdTokenInputRequestTypeDef = TypedDict(
-    "_RequiredGetOpenIdTokenInputRequestTypeDef",
-    {
-        "IdentityId": str,
-    },
-)
-_OptionalGetOpenIdTokenInputRequestTypeDef = TypedDict(
-    "_OptionalGetOpenIdTokenInputRequestTypeDef",
-    {
-        "Logins": Dict[str, str],
-    },
-    total=False,
-)
+class LookupDeveloperIdentityInputTypeDef(TypedDict):
+    IdentityPoolId: str
+    IdentityId: NotRequired[str]
+    DeveloperUserIdentifier: NotRequired[str]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
 
-class GetOpenIdTokenInputRequestTypeDef(
-    _RequiredGetOpenIdTokenInputRequestTypeDef, _OptionalGetOpenIdTokenInputRequestTypeDef
-):
-    pass
+class MappingRuleTypeDef(TypedDict):
+    Claim: str
+    MatchType: MappingRuleMatchTypeType
+    Value: str
+    RoleARN: str
 
-GetOpenIdTokenResponseTypeDef = TypedDict(
-    "GetOpenIdTokenResponseTypeDef",
-    {
-        "IdentityId": str,
-        "Token": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class MergeDeveloperIdentitiesInputTypeDef(TypedDict):
+    SourceUserIdentifier: str
+    DestinationUserIdentifier: str
+    DeveloperProviderName: str
+    IdentityPoolId: str
 
-GetPrincipalTagAttributeMapInputRequestTypeDef = TypedDict(
-    "GetPrincipalTagAttributeMapInputRequestTypeDef",
-    {
-        "IdentityPoolId": str,
-        "IdentityProviderName": str,
-    },
-)
+class SetPrincipalTagAttributeMapInputTypeDef(TypedDict):
+    IdentityPoolId: str
+    IdentityProviderName: str
+    UseDefaults: NotRequired[bool]
+    PrincipalTags: NotRequired[Mapping[str, str]]
 
-GetPrincipalTagAttributeMapResponseTypeDef = TypedDict(
-    "GetPrincipalTagAttributeMapResponseTypeDef",
-    {
-        "IdentityPoolId": str,
-        "IdentityProviderName": str,
-        "UseDefaults": bool,
-        "PrincipalTags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class TagResourceInputTypeDef(TypedDict):
+    ResourceArn: str
+    Tags: Mapping[str, str]
 
-IdentityDescriptionResponseMetadataTypeDef = TypedDict(
-    "IdentityDescriptionResponseMetadataTypeDef",
-    {
-        "IdentityId": str,
-        "Logins": List[str],
-        "CreationDate": datetime,
-        "LastModifiedDate": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class UnlinkDeveloperIdentityInputTypeDef(TypedDict):
+    IdentityId: str
+    IdentityPoolId: str
+    DeveloperProviderName: str
+    DeveloperUserIdentifier: str
 
-IdentityDescriptionTypeDef = TypedDict(
-    "IdentityDescriptionTypeDef",
-    {
-        "IdentityId": str,
-        "Logins": List[str],
-        "CreationDate": datetime,
-        "LastModifiedDate": datetime,
-    },
-    total=False,
-)
+class UnlinkIdentityInputTypeDef(TypedDict):
+    IdentityId: str
+    Logins: Mapping[str, str]
+    LoginsToRemove: Sequence[str]
 
-_RequiredIdentityPoolRequestTypeDef = TypedDict(
-    "_RequiredIdentityPoolRequestTypeDef",
-    {
-        "IdentityPoolId": str,
-        "IdentityPoolName": str,
-        "AllowUnauthenticatedIdentities": bool,
-    },
-)
-_OptionalIdentityPoolRequestTypeDef = TypedDict(
-    "_OptionalIdentityPoolRequestTypeDef",
-    {
-        "AllowClassicFlow": bool,
-        "SupportedLoginProviders": Dict[str, str],
-        "DeveloperProviderName": str,
-        "OpenIdConnectProviderARNs": List[str],
-        "CognitoIdentityProviders": List["CognitoIdentityProviderTypeDef"],
-        "SamlProviderARNs": List[str],
-        "IdentityPoolTags": Dict[str, str],
-    },
-    total=False,
-)
+class UntagResourceInputTypeDef(TypedDict):
+    ResourceArn: str
+    TagKeys: Sequence[str]
 
-class IdentityPoolRequestTypeDef(
-    _RequiredIdentityPoolRequestTypeDef, _OptionalIdentityPoolRequestTypeDef
-):
-    pass
+class CreateIdentityPoolInputTypeDef(TypedDict):
+    IdentityPoolName: str
+    AllowUnauthenticatedIdentities: bool
+    AllowClassicFlow: NotRequired[bool]
+    SupportedLoginProviders: NotRequired[Mapping[str, str]]
+    DeveloperProviderName: NotRequired[str]
+    OpenIdConnectProviderARNs: NotRequired[Sequence[str]]
+    CognitoIdentityProviders: NotRequired[Sequence[CognitoIdentityProviderTypeDef]]
+    SamlProviderARNs: NotRequired[Sequence[str]]
+    IdentityPoolTags: NotRequired[Mapping[str, str]]
 
-IdentityPoolShortDescriptionTypeDef = TypedDict(
-    "IdentityPoolShortDescriptionTypeDef",
-    {
-        "IdentityPoolId": str,
-        "IdentityPoolName": str,
-    },
-    total=False,
-)
+class IdentityPoolRequestTypeDef(TypedDict):
+    IdentityPoolId: str
+    IdentityPoolName: str
+    AllowUnauthenticatedIdentities: bool
+    AllowClassicFlow: NotRequired[bool]
+    SupportedLoginProviders: NotRequired[Mapping[str, str]]
+    DeveloperProviderName: NotRequired[str]
+    OpenIdConnectProviderARNs: NotRequired[Sequence[str]]
+    CognitoIdentityProviders: NotRequired[Sequence[CognitoIdentityProviderTypeDef]]
+    SamlProviderARNs: NotRequired[Sequence[str]]
+    IdentityPoolTags: NotRequired[Mapping[str, str]]
 
-IdentityPoolTypeDef = TypedDict(
-    "IdentityPoolTypeDef",
-    {
-        "IdentityPoolId": str,
-        "IdentityPoolName": str,
-        "AllowUnauthenticatedIdentities": bool,
-        "AllowClassicFlow": bool,
-        "SupportedLoginProviders": Dict[str, str],
-        "DeveloperProviderName": str,
-        "OpenIdConnectProviderARNs": List[str],
-        "CognitoIdentityProviders": List["CognitoIdentityProviderTypeDef"],
-        "SamlProviderARNs": List[str],
-        "IdentityPoolTags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class EmptyResponseMetadataTypeDef(TypedDict):
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredListIdentitiesInputRequestTypeDef = TypedDict(
-    "_RequiredListIdentitiesInputRequestTypeDef",
-    {
-        "IdentityPoolId": str,
-        "MaxResults": int,
-    },
-)
-_OptionalListIdentitiesInputRequestTypeDef = TypedDict(
-    "_OptionalListIdentitiesInputRequestTypeDef",
-    {
-        "NextToken": str,
-        "HideDisabled": bool,
-    },
-    total=False,
-)
+class GetCredentialsForIdentityResponseTypeDef(TypedDict):
+    IdentityId: str
+    Credentials: CredentialsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class ListIdentitiesInputRequestTypeDef(
-    _RequiredListIdentitiesInputRequestTypeDef, _OptionalListIdentitiesInputRequestTypeDef
-):
-    pass
+class GetIdResponseTypeDef(TypedDict):
+    IdentityId: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ListIdentitiesResponseTypeDef = TypedDict(
-    "ListIdentitiesResponseTypeDef",
-    {
-        "IdentityPoolId": str,
-        "Identities": List["IdentityDescriptionTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetOpenIdTokenForDeveloperIdentityResponseTypeDef(TypedDict):
+    IdentityId: str
+    Token: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredListIdentityPoolsInputRequestTypeDef = TypedDict(
-    "_RequiredListIdentityPoolsInputRequestTypeDef",
-    {
-        "MaxResults": int,
-    },
-)
-_OptionalListIdentityPoolsInputRequestTypeDef = TypedDict(
-    "_OptionalListIdentityPoolsInputRequestTypeDef",
-    {
-        "NextToken": str,
-    },
-    total=False,
-)
+class GetOpenIdTokenResponseTypeDef(TypedDict):
+    IdentityId: str
+    Token: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class ListIdentityPoolsInputRequestTypeDef(
-    _RequiredListIdentityPoolsInputRequestTypeDef, _OptionalListIdentityPoolsInputRequestTypeDef
-):
-    pass
+class GetPrincipalTagAttributeMapResponseTypeDef(TypedDict):
+    IdentityPoolId: str
+    IdentityProviderName: str
+    UseDefaults: bool
+    PrincipalTags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ListIdentityPoolsResponseTypeDef = TypedDict(
-    "ListIdentityPoolsResponseTypeDef",
-    {
-        "IdentityPools": List["IdentityPoolShortDescriptionTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class IdentityDescriptionResponseTypeDef(TypedDict):
+    IdentityId: str
+    Logins: List[str]
+    CreationDate: datetime
+    LastModifiedDate: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ListTagsForResourceInputRequestTypeDef = TypedDict(
-    "ListTagsForResourceInputRequestTypeDef",
-    {
-        "ResourceArn": str,
-    },
-)
+class IdentityPoolTypeDef(TypedDict):
+    IdentityPoolId: str
+    IdentityPoolName: str
+    AllowUnauthenticatedIdentities: bool
+    AllowClassicFlow: bool
+    SupportedLoginProviders: Dict[str, str]
+    DeveloperProviderName: str
+    OpenIdConnectProviderARNs: List[str]
+    CognitoIdentityProviders: List[CognitoIdentityProviderTypeDef]
+    SamlProviderARNs: List[str]
+    IdentityPoolTags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "Tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    Tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredLookupDeveloperIdentityInputRequestTypeDef = TypedDict(
-    "_RequiredLookupDeveloperIdentityInputRequestTypeDef",
-    {
-        "IdentityPoolId": str,
-    },
-)
-_OptionalLookupDeveloperIdentityInputRequestTypeDef = TypedDict(
-    "_OptionalLookupDeveloperIdentityInputRequestTypeDef",
-    {
-        "IdentityId": str,
-        "DeveloperUserIdentifier": str,
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
+class LookupDeveloperIdentityResponseTypeDef(TypedDict):
+    IdentityId: str
+    DeveloperUserIdentifierList: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-class LookupDeveloperIdentityInputRequestTypeDef(
-    _RequiredLookupDeveloperIdentityInputRequestTypeDef,
-    _OptionalLookupDeveloperIdentityInputRequestTypeDef,
-):
-    pass
+class MergeDeveloperIdentitiesResponseTypeDef(TypedDict):
+    IdentityId: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-LookupDeveloperIdentityResponseTypeDef = TypedDict(
-    "LookupDeveloperIdentityResponseTypeDef",
-    {
-        "IdentityId": str,
-        "DeveloperUserIdentifierList": List[str],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class SetPrincipalTagAttributeMapResponseTypeDef(TypedDict):
+    IdentityPoolId: str
+    IdentityProviderName: str
+    UseDefaults: bool
+    PrincipalTags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-MappingRuleTypeDef = TypedDict(
-    "MappingRuleTypeDef",
-    {
-        "Claim": str,
-        "MatchType": MappingRuleMatchTypeType,
-        "Value": str,
-        "RoleARN": str,
-    },
-)
+class DeleteIdentitiesResponseTypeDef(TypedDict):
+    UnprocessedIdentityIds: List[UnprocessedIdentityIdTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-MergeDeveloperIdentitiesInputRequestTypeDef = TypedDict(
-    "MergeDeveloperIdentitiesInputRequestTypeDef",
-    {
-        "SourceUserIdentifier": str,
-        "DestinationUserIdentifier": str,
-        "DeveloperProviderName": str,
-        "IdentityPoolId": str,
-    },
-)
+class ListIdentitiesResponseTypeDef(TypedDict):
+    IdentityPoolId: str
+    Identities: List[IdentityDescriptionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-MergeDeveloperIdentitiesResponseTypeDef = TypedDict(
-    "MergeDeveloperIdentitiesResponseTypeDef",
-    {
-        "IdentityId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListIdentityPoolsResponseTypeDef(TypedDict):
+    IdentityPools: List[IdentityPoolShortDescriptionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
+class ListIdentityPoolsInputPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
+class RulesConfigurationTypeOutputTypeDef(TypedDict):
+    Rules: List[MappingRuleTypeDef]
 
-_RequiredRoleMappingTypeDef = TypedDict(
-    "_RequiredRoleMappingTypeDef",
+class RulesConfigurationTypeTypeDef(TypedDict):
+    Rules: Sequence[MappingRuleTypeDef]
+
+RoleMappingOutputTypeDef = TypedDict(
+    "RoleMappingOutputTypeDef",
     {
         "Type": RoleMappingTypeType,
+        "AmbiguousRoleResolution": NotRequired[AmbiguousRoleResolutionTypeType],
+        "RulesConfiguration": NotRequired[RulesConfigurationTypeOutputTypeDef],
     },
 )
-_OptionalRoleMappingTypeDef = TypedDict(
-    "_OptionalRoleMappingTypeDef",
-    {
-        "AmbiguousRoleResolution": AmbiguousRoleResolutionTypeType,
-        "RulesConfiguration": "RulesConfigurationTypeTypeDef",
-    },
-    total=False,
-)
+RulesConfigurationTypeUnionTypeDef = Union[
+    RulesConfigurationTypeTypeDef, RulesConfigurationTypeOutputTypeDef
+]
 
-class RoleMappingTypeDef(_RequiredRoleMappingTypeDef, _OptionalRoleMappingTypeDef):
-    pass
+class GetIdentityPoolRolesResponseTypeDef(TypedDict):
+    IdentityPoolId: str
+    Roles: Dict[str, str]
+    RoleMappings: Dict[str, RoleMappingOutputTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-RulesConfigurationTypeTypeDef = TypedDict(
-    "RulesConfigurationTypeTypeDef",
+RoleMappingTypeDef = TypedDict(
+    "RoleMappingTypeDef",
     {
-        "Rules": List["MappingRuleTypeDef"],
+        "Type": RoleMappingTypeType,
+        "AmbiguousRoleResolution": NotRequired[AmbiguousRoleResolutionTypeType],
+        "RulesConfiguration": NotRequired[RulesConfigurationTypeUnionTypeDef],
     },
 )
+RoleMappingUnionTypeDef = Union[RoleMappingTypeDef, RoleMappingOutputTypeDef]
 
-_RequiredSetIdentityPoolRolesInputRequestTypeDef = TypedDict(
-    "_RequiredSetIdentityPoolRolesInputRequestTypeDef",
-    {
-        "IdentityPoolId": str,
-        "Roles": Dict[str, str],
-    },
-)
-_OptionalSetIdentityPoolRolesInputRequestTypeDef = TypedDict(
-    "_OptionalSetIdentityPoolRolesInputRequestTypeDef",
-    {
-        "RoleMappings": Dict[str, "RoleMappingTypeDef"],
-    },
-    total=False,
-)
-
-class SetIdentityPoolRolesInputRequestTypeDef(
-    _RequiredSetIdentityPoolRolesInputRequestTypeDef,
-    _OptionalSetIdentityPoolRolesInputRequestTypeDef,
-):
-    pass
-
-_RequiredSetPrincipalTagAttributeMapInputRequestTypeDef = TypedDict(
-    "_RequiredSetPrincipalTagAttributeMapInputRequestTypeDef",
-    {
-        "IdentityPoolId": str,
-        "IdentityProviderName": str,
-    },
-)
-_OptionalSetPrincipalTagAttributeMapInputRequestTypeDef = TypedDict(
-    "_OptionalSetPrincipalTagAttributeMapInputRequestTypeDef",
-    {
-        "UseDefaults": bool,
-        "PrincipalTags": Dict[str, str],
-    },
-    total=False,
-)
-
-class SetPrincipalTagAttributeMapInputRequestTypeDef(
-    _RequiredSetPrincipalTagAttributeMapInputRequestTypeDef,
-    _OptionalSetPrincipalTagAttributeMapInputRequestTypeDef,
-):
-    pass
-
-SetPrincipalTagAttributeMapResponseTypeDef = TypedDict(
-    "SetPrincipalTagAttributeMapResponseTypeDef",
-    {
-        "IdentityPoolId": str,
-        "IdentityProviderName": str,
-        "UseDefaults": bool,
-        "PrincipalTags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-TagResourceInputRequestTypeDef = TypedDict(
-    "TagResourceInputRequestTypeDef",
-    {
-        "ResourceArn": str,
-        "Tags": Dict[str, str],
-    },
-)
-
-UnlinkDeveloperIdentityInputRequestTypeDef = TypedDict(
-    "UnlinkDeveloperIdentityInputRequestTypeDef",
-    {
-        "IdentityId": str,
-        "IdentityPoolId": str,
-        "DeveloperProviderName": str,
-        "DeveloperUserIdentifier": str,
-    },
-)
-
-UnlinkIdentityInputRequestTypeDef = TypedDict(
-    "UnlinkIdentityInputRequestTypeDef",
-    {
-        "IdentityId": str,
-        "Logins": Dict[str, str],
-        "LoginsToRemove": List[str],
-    },
-)
-
-UnprocessedIdentityIdTypeDef = TypedDict(
-    "UnprocessedIdentityIdTypeDef",
-    {
-        "IdentityId": str,
-        "ErrorCode": ErrorCodeType,
-    },
-    total=False,
-)
-
-UntagResourceInputRequestTypeDef = TypedDict(
-    "UntagResourceInputRequestTypeDef",
-    {
-        "ResourceArn": str,
-        "TagKeys": List[str],
-    },
-)
+class SetIdentityPoolRolesInputTypeDef(TypedDict):
+    IdentityPoolId: str
+    Roles: Mapping[str, str]
+    RoleMappings: NotRequired[Mapping[str, RoleMappingUnionTypeDef]]

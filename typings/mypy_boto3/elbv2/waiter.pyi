@@ -1,14 +1,16 @@
 """
 Type annotations for elbv2 service client waiters.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elbv2/waiters.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_elbv2/waiters/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
 
-    from mypy_boto3_elbv2 import ElasticLoadBalancingv2Client
+    from mypy_boto3_elbv2.client import ElasticLoadBalancingv2Client
     from mypy_boto3_elbv2.waiter import (
         LoadBalancerAvailableWaiter,
         LoadBalancerExistsWaiter,
@@ -17,7 +19,8 @@ Usage::
         TargetInServiceWaiter,
     )
 
-    client: ElasticLoadBalancingv2Client = boto3.client("elbv2")
+    session = Session()
+    client: ElasticLoadBalancingv2Client = session.client("elbv2")
 
     load_balancer_available_waiter: LoadBalancerAvailableWaiter = client.get_waiter("load_balancer_available")
     load_balancer_exists_waiter: LoadBalancerExistsWaiter = client.get_waiter("load_balancer_exists")
@@ -27,12 +30,24 @@ Usage::
     ```
 """
 
-from typing import List
+from __future__ import annotations
 
-from botocore.waiter import Waiter as Boto3Waiter
+import sys
 
-from .literals import DescribeTargetHealthInputIncludeEnumType
-from .type_defs import TargetDescriptionTypeDef, WaiterConfigTypeDef
+from botocore.waiter import Waiter
+
+from .type_defs import (
+    DescribeLoadBalancersInputWaitExtraExtraTypeDef,
+    DescribeLoadBalancersInputWaitExtraTypeDef,
+    DescribeLoadBalancersInputWaitTypeDef,
+    DescribeTargetHealthInputWaitExtraTypeDef,
+    DescribeTargetHealthInputWaitTypeDef,
+)
+
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = (
     "LoadBalancerAvailableWaiter",
@@ -42,100 +57,67 @@ __all__ = (
     "TargetInServiceWaiter",
 )
 
-class LoadBalancerAvailableWaiter(Boto3Waiter):
+class LoadBalancerAvailableWaiter(Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/elbv2.html#ElasticLoadBalancingv2.Waiter.LoadBalancerAvailable)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elbv2/waiters.html#loadbalanceravailablewaiter)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elbv2/waiter/LoadBalancerAvailable.html#ElasticLoadBalancingv2.Waiter.LoadBalancerAvailable)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_elbv2/waiters/#loadbalanceravailablewaiter)
     """
-
-    def wait(
-        self,
-        *,
-        LoadBalancerArns: List[str] = None,
-        Names: List[str] = None,
-        Marker: str = None,
-        PageSize: int = None,
-        WaiterConfig: WaiterConfigTypeDef = None
+    def wait(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeLoadBalancersInputWaitExtraTypeDef]
     ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/elbv2.html#ElasticLoadBalancingv2.Waiter.LoadBalancerAvailable.wait)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elbv2/waiters.html#loadbalanceravailablewaiter)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elbv2/waiter/LoadBalancerAvailable.html#ElasticLoadBalancingv2.Waiter.LoadBalancerAvailable.wait)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_elbv2/waiters/#loadbalanceravailablewaiter)
         """
 
-class LoadBalancerExistsWaiter(Boto3Waiter):
+class LoadBalancerExistsWaiter(Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/elbv2.html#ElasticLoadBalancingv2.Waiter.LoadBalancerExists)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elbv2/waiters.html#loadbalancerexistswaiter)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elbv2/waiter/LoadBalancerExists.html#ElasticLoadBalancingv2.Waiter.LoadBalancerExists)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_elbv2/waiters/#loadbalancerexistswaiter)
     """
-
-    def wait(
-        self,
-        *,
-        LoadBalancerArns: List[str] = None,
-        Names: List[str] = None,
-        Marker: str = None,
-        PageSize: int = None,
-        WaiterConfig: WaiterConfigTypeDef = None
+    def wait(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeLoadBalancersInputWaitTypeDef]
     ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/elbv2.html#ElasticLoadBalancingv2.Waiter.LoadBalancerExists.wait)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elbv2/waiters.html#loadbalancerexistswaiter)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elbv2/waiter/LoadBalancerExists.html#ElasticLoadBalancingv2.Waiter.LoadBalancerExists.wait)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_elbv2/waiters/#loadbalancerexistswaiter)
         """
 
-class LoadBalancersDeletedWaiter(Boto3Waiter):
+class LoadBalancersDeletedWaiter(Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/elbv2.html#ElasticLoadBalancingv2.Waiter.LoadBalancersDeleted)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elbv2/waiters.html#loadbalancersdeletedwaiter)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elbv2/waiter/LoadBalancersDeleted.html#ElasticLoadBalancingv2.Waiter.LoadBalancersDeleted)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_elbv2/waiters/#loadbalancersdeletedwaiter)
     """
-
-    def wait(
-        self,
-        *,
-        LoadBalancerArns: List[str] = None,
-        Names: List[str] = None,
-        Marker: str = None,
-        PageSize: int = None,
-        WaiterConfig: WaiterConfigTypeDef = None
+    def wait(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeLoadBalancersInputWaitExtraExtraTypeDef]
     ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/elbv2.html#ElasticLoadBalancingv2.Waiter.LoadBalancersDeleted.wait)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elbv2/waiters.html#loadbalancersdeletedwaiter)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elbv2/waiter/LoadBalancersDeleted.html#ElasticLoadBalancingv2.Waiter.LoadBalancersDeleted.wait)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_elbv2/waiters/#loadbalancersdeletedwaiter)
         """
 
-class TargetDeregisteredWaiter(Boto3Waiter):
+class TargetDeregisteredWaiter(Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/elbv2.html#ElasticLoadBalancingv2.Waiter.TargetDeregistered)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elbv2/waiters.html#targetderegisteredwaiter)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elbv2/waiter/TargetDeregistered.html#ElasticLoadBalancingv2.Waiter.TargetDeregistered)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_elbv2/waiters/#targetderegisteredwaiter)
     """
-
-    def wait(
-        self,
-        *,
-        TargetGroupArn: str,
-        Targets: List["TargetDescriptionTypeDef"] = None,
-        Include: List[DescribeTargetHealthInputIncludeEnumType] = None,
-        WaiterConfig: WaiterConfigTypeDef = None
+    def wait(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeTargetHealthInputWaitExtraTypeDef]
     ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/elbv2.html#ElasticLoadBalancingv2.Waiter.TargetDeregistered.wait)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elbv2/waiters.html#targetderegisteredwaiter)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elbv2/waiter/TargetDeregistered.html#ElasticLoadBalancingv2.Waiter.TargetDeregistered.wait)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_elbv2/waiters/#targetderegisteredwaiter)
         """
 
-class TargetInServiceWaiter(Boto3Waiter):
+class TargetInServiceWaiter(Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/elbv2.html#ElasticLoadBalancingv2.Waiter.TargetInService)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elbv2/waiters.html#targetinservicewaiter)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elbv2/waiter/TargetInService.html#ElasticLoadBalancingv2.Waiter.TargetInService)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_elbv2/waiters/#targetinservicewaiter)
     """
-
-    def wait(
-        self,
-        *,
-        TargetGroupArn: str,
-        Targets: List["TargetDescriptionTypeDef"] = None,
-        Include: List[DescribeTargetHealthInputIncludeEnumType] = None,
-        WaiterConfig: WaiterConfigTypeDef = None
+    def wait(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeTargetHealthInputWaitTypeDef]
     ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/elbv2.html#ElasticLoadBalancingv2.Waiter.TargetInService.wait)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elbv2/waiters.html#targetinservicewaiter)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elbv2/waiter/TargetInService.html#ElasticLoadBalancingv2.Waiter.TargetInService.wait)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_elbv2/waiters/#targetinservicewaiter)
         """

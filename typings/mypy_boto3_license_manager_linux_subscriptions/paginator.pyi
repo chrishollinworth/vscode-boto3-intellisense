@@ -1,69 +1,114 @@
 """
 Type annotations for license-manager-linux-subscriptions service client paginators.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_license_manager_linux_subscriptions/paginators.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_license_manager_linux_subscriptions/paginators/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
 
-    from mypy_boto3_license_manager_linux_subscriptions import LicenseManagerLinuxSubscriptionsClient
+    from mypy_boto3_license_manager_linux_subscriptions.client import LicenseManagerLinuxSubscriptionsClient
     from mypy_boto3_license_manager_linux_subscriptions.paginator import (
         ListLinuxSubscriptionInstancesPaginator,
         ListLinuxSubscriptionsPaginator,
+        ListRegisteredSubscriptionProvidersPaginator,
     )
 
-    client: LicenseManagerLinuxSubscriptionsClient = boto3.client("license-manager-linux-subscriptions")
+    session = Session()
+    client: LicenseManagerLinuxSubscriptionsClient = session.client("license-manager-linux-subscriptions")
 
     list_linux_subscription_instances_paginator: ListLinuxSubscriptionInstancesPaginator = client.get_paginator("list_linux_subscription_instances")
     list_linux_subscriptions_paginator: ListLinuxSubscriptionsPaginator = client.get_paginator("list_linux_subscriptions")
+    list_registered_subscription_providers_paginator: ListRegisteredSubscriptionProvidersPaginator = client.get_paginator("list_registered_subscription_providers")
     ```
 """
 
-from typing import Iterator, List
+from __future__ import annotations
 
-from botocore.paginate import Paginator as Boto3Paginator
+import sys
+from typing import TYPE_CHECKING
+
+from botocore.paginate import PageIterator, Paginator
 
 from .type_defs import (
-    FilterTypeDef,
+    ListLinuxSubscriptionInstancesRequestPaginateTypeDef,
     ListLinuxSubscriptionInstancesResponseTypeDef,
+    ListLinuxSubscriptionsRequestPaginateTypeDef,
     ListLinuxSubscriptionsResponseTypeDef,
-    PaginatorConfigTypeDef,
+    ListRegisteredSubscriptionProvidersRequestPaginateTypeDef,
+    ListRegisteredSubscriptionProvidersResponseTypeDef,
 )
 
-__all__ = ("ListLinuxSubscriptionInstancesPaginator", "ListLinuxSubscriptionsPaginator")
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
-class ListLinuxSubscriptionInstancesPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/license-manager-linux-subscriptions.html#LicenseManagerLinuxSubscriptions.Paginator.ListLinuxSubscriptionInstances)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_license_manager_linux_subscriptions/paginators.html#listlinuxsubscriptioninstancespaginator)
-    """
+__all__ = (
+    "ListLinuxSubscriptionInstancesPaginator",
+    "ListLinuxSubscriptionsPaginator",
+    "ListRegisteredSubscriptionProvidersPaginator",
+)
 
-    def paginate(
-        self,
-        *,
-        Filters: List["FilterTypeDef"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListLinuxSubscriptionInstancesResponseTypeDef]:
+if TYPE_CHECKING:
+    _ListLinuxSubscriptionInstancesPaginatorBase = Paginator[
+        ListLinuxSubscriptionInstancesResponseTypeDef
+    ]
+else:
+    _ListLinuxSubscriptionInstancesPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListLinuxSubscriptionInstancesPaginator(_ListLinuxSubscriptionInstancesPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/license-manager-linux-subscriptions/paginator/ListLinuxSubscriptionInstances.html#LicenseManagerLinuxSubscriptions.Paginator.ListLinuxSubscriptionInstances)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_license_manager_linux_subscriptions/paginators/#listlinuxsubscriptioninstancespaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListLinuxSubscriptionInstancesRequestPaginateTypeDef]
+    ) -> PageIterator[ListLinuxSubscriptionInstancesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/license-manager-linux-subscriptions.html#LicenseManagerLinuxSubscriptions.Paginator.ListLinuxSubscriptionInstances.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_license_manager_linux_subscriptions/paginators.html#listlinuxsubscriptioninstancespaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/license-manager-linux-subscriptions/paginator/ListLinuxSubscriptionInstances.html#LicenseManagerLinuxSubscriptions.Paginator.ListLinuxSubscriptionInstances.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_license_manager_linux_subscriptions/paginators/#listlinuxsubscriptioninstancespaginator)
         """
 
-class ListLinuxSubscriptionsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/license-manager-linux-subscriptions.html#LicenseManagerLinuxSubscriptions.Paginator.ListLinuxSubscriptions)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_license_manager_linux_subscriptions/paginators.html#listlinuxsubscriptionspaginator)
-    """
+if TYPE_CHECKING:
+    _ListLinuxSubscriptionsPaginatorBase = Paginator[ListLinuxSubscriptionsResponseTypeDef]
+else:
+    _ListLinuxSubscriptionsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        Filters: List["FilterTypeDef"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListLinuxSubscriptionsResponseTypeDef]:
+class ListLinuxSubscriptionsPaginator(_ListLinuxSubscriptionsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/license-manager-linux-subscriptions/paginator/ListLinuxSubscriptions.html#LicenseManagerLinuxSubscriptions.Paginator.ListLinuxSubscriptions)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_license_manager_linux_subscriptions/paginators/#listlinuxsubscriptionspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListLinuxSubscriptionsRequestPaginateTypeDef]
+    ) -> PageIterator[ListLinuxSubscriptionsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/license-manager-linux-subscriptions.html#LicenseManagerLinuxSubscriptions.Paginator.ListLinuxSubscriptions.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_license_manager_linux_subscriptions/paginators.html#listlinuxsubscriptionspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/license-manager-linux-subscriptions/paginator/ListLinuxSubscriptions.html#LicenseManagerLinuxSubscriptions.Paginator.ListLinuxSubscriptions.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_license_manager_linux_subscriptions/paginators/#listlinuxsubscriptionspaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListRegisteredSubscriptionProvidersPaginatorBase = Paginator[
+        ListRegisteredSubscriptionProvidersResponseTypeDef
+    ]
+else:
+    _ListRegisteredSubscriptionProvidersPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListRegisteredSubscriptionProvidersPaginator(
+    _ListRegisteredSubscriptionProvidersPaginatorBase
+):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/license-manager-linux-subscriptions/paginator/ListRegisteredSubscriptionProviders.html#LicenseManagerLinuxSubscriptions.Paginator.ListRegisteredSubscriptionProviders)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_license_manager_linux_subscriptions/paginators/#listregisteredsubscriptionproviderspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListRegisteredSubscriptionProvidersRequestPaginateTypeDef]
+    ) -> PageIterator[ListRegisteredSubscriptionProvidersResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/license-manager-linux-subscriptions/paginator/ListRegisteredSubscriptionProviders.html#LicenseManagerLinuxSubscriptions.Paginator.ListRegisteredSubscriptionProviders.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_license_manager_linux_subscriptions/paginators/#listregisteredsubscriptionproviderspaginator)
         """

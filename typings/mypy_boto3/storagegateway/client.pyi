@@ -1,36 +1,36 @@
 """
-Type annotations for storagegateway service client.
+Type annotations for storagegateway service Client.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
-    from mypy_boto3_storagegateway import StorageGatewayClient
+    from boto3.session import Session
+    from mypy_boto3_storagegateway.client import StorageGatewayClient
 
-    client: StorageGatewayClient = boto3.client("storagegateway")
+    session = Session()
+    client: StorageGatewayClient = session.client("storagegateway")
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from typing import Any, Dict, List, Type, overload
+from typing import Any, overload
 
 from botocore.client import BaseClient, ClientMeta
+from botocore.errorfactory import BaseClientExceptions
+from botocore.exceptions import ClientError as BotocoreClientError
 
-from .literals import (
-    CaseSensitivityType,
-    GatewayCapacityType,
-    ObjectACLType,
-    RetentionLockTypeType,
-    SMBSecurityStrategyType,
-    TapeStorageClassType,
-)
 from .paginator import (
     DescribeTapeArchivesPaginator,
     DescribeTapeRecoveryPointsPaginator,
     DescribeTapesPaginator,
     DescribeVTLDevicesPaginator,
+    ListCacheReportsPaginator,
     ListFileSharesPaginator,
     ListFileSystemAssociationsPaginator,
     ListGatewaysPaginator,
@@ -40,121 +40,213 @@ from .paginator import (
     ListVolumesPaginator,
 )
 from .type_defs import (
+    ActivateGatewayInputTypeDef,
     ActivateGatewayOutputTypeDef,
+    AddCacheInputTypeDef,
     AddCacheOutputTypeDef,
+    AddTagsToResourceInputTypeDef,
     AddTagsToResourceOutputTypeDef,
+    AddUploadBufferInputTypeDef,
     AddUploadBufferOutputTypeDef,
+    AddWorkingStorageInputTypeDef,
     AddWorkingStorageOutputTypeDef,
+    AssignTapePoolInputTypeDef,
     AssignTapePoolOutputTypeDef,
+    AssociateFileSystemInputTypeDef,
     AssociateFileSystemOutputTypeDef,
+    AttachVolumeInputTypeDef,
     AttachVolumeOutputTypeDef,
-    AutomaticTapeCreationRuleTypeDef,
-    BandwidthRateLimitIntervalTypeDef,
-    CacheAttributesTypeDef,
+    CancelArchivalInputTypeDef,
     CancelArchivalOutputTypeDef,
+    CancelCacheReportInputTypeDef,
+    CancelCacheReportOutputTypeDef,
+    CancelRetrievalInputTypeDef,
     CancelRetrievalOutputTypeDef,
+    CreateCachediSCSIVolumeInputTypeDef,
     CreateCachediSCSIVolumeOutputTypeDef,
+    CreateNFSFileShareInputTypeDef,
     CreateNFSFileShareOutputTypeDef,
+    CreateSMBFileShareInputTypeDef,
     CreateSMBFileShareOutputTypeDef,
+    CreateSnapshotFromVolumeRecoveryPointInputTypeDef,
     CreateSnapshotFromVolumeRecoveryPointOutputTypeDef,
+    CreateSnapshotInputTypeDef,
     CreateSnapshotOutputTypeDef,
+    CreateStorediSCSIVolumeInputTypeDef,
     CreateStorediSCSIVolumeOutputTypeDef,
+    CreateTapePoolInputTypeDef,
     CreateTapePoolOutputTypeDef,
+    CreateTapesInputTypeDef,
     CreateTapesOutputTypeDef,
+    CreateTapeWithBarcodeInputTypeDef,
     CreateTapeWithBarcodeOutputTypeDef,
+    DeleteAutomaticTapeCreationPolicyInputTypeDef,
     DeleteAutomaticTapeCreationPolicyOutputTypeDef,
+    DeleteBandwidthRateLimitInputTypeDef,
     DeleteBandwidthRateLimitOutputTypeDef,
+    DeleteCacheReportInputTypeDef,
+    DeleteCacheReportOutputTypeDef,
+    DeleteChapCredentialsInputTypeDef,
     DeleteChapCredentialsOutputTypeDef,
+    DeleteFileShareInputTypeDef,
     DeleteFileShareOutputTypeDef,
+    DeleteGatewayInputTypeDef,
     DeleteGatewayOutputTypeDef,
+    DeleteSnapshotScheduleInputTypeDef,
     DeleteSnapshotScheduleOutputTypeDef,
+    DeleteTapeArchiveInputTypeDef,
     DeleteTapeArchiveOutputTypeDef,
+    DeleteTapeInputTypeDef,
     DeleteTapeOutputTypeDef,
+    DeleteTapePoolInputTypeDef,
     DeleteTapePoolOutputTypeDef,
+    DeleteVolumeInputTypeDef,
     DeleteVolumeOutputTypeDef,
+    DescribeAvailabilityMonitorTestInputTypeDef,
     DescribeAvailabilityMonitorTestOutputTypeDef,
+    DescribeBandwidthRateLimitInputTypeDef,
     DescribeBandwidthRateLimitOutputTypeDef,
+    DescribeBandwidthRateLimitScheduleInputTypeDef,
     DescribeBandwidthRateLimitScheduleOutputTypeDef,
+    DescribeCachediSCSIVolumesInputTypeDef,
     DescribeCachediSCSIVolumesOutputTypeDef,
+    DescribeCacheInputTypeDef,
     DescribeCacheOutputTypeDef,
+    DescribeCacheReportInputTypeDef,
+    DescribeCacheReportOutputTypeDef,
+    DescribeChapCredentialsInputTypeDef,
     DescribeChapCredentialsOutputTypeDef,
+    DescribeFileSystemAssociationsInputTypeDef,
     DescribeFileSystemAssociationsOutputTypeDef,
+    DescribeGatewayInformationInputTypeDef,
     DescribeGatewayInformationOutputTypeDef,
+    DescribeMaintenanceStartTimeInputTypeDef,
     DescribeMaintenanceStartTimeOutputTypeDef,
+    DescribeNFSFileSharesInputTypeDef,
     DescribeNFSFileSharesOutputTypeDef,
+    DescribeSMBFileSharesInputTypeDef,
     DescribeSMBFileSharesOutputTypeDef,
+    DescribeSMBSettingsInputTypeDef,
     DescribeSMBSettingsOutputTypeDef,
+    DescribeSnapshotScheduleInputTypeDef,
     DescribeSnapshotScheduleOutputTypeDef,
+    DescribeStorediSCSIVolumesInputTypeDef,
     DescribeStorediSCSIVolumesOutputTypeDef,
+    DescribeTapeArchivesInputTypeDef,
     DescribeTapeArchivesOutputTypeDef,
+    DescribeTapeRecoveryPointsInputTypeDef,
     DescribeTapeRecoveryPointsOutputTypeDef,
+    DescribeTapesInputTypeDef,
     DescribeTapesOutputTypeDef,
+    DescribeUploadBufferInputTypeDef,
     DescribeUploadBufferOutputTypeDef,
+    DescribeVTLDevicesInputTypeDef,
     DescribeVTLDevicesOutputTypeDef,
+    DescribeWorkingStorageInputTypeDef,
     DescribeWorkingStorageOutputTypeDef,
+    DetachVolumeInputTypeDef,
     DetachVolumeOutputTypeDef,
+    DisableGatewayInputTypeDef,
     DisableGatewayOutputTypeDef,
+    DisassociateFileSystemInputTypeDef,
     DisassociateFileSystemOutputTypeDef,
-    EndpointNetworkConfigurationTypeDef,
+    EvictFilesFailingUploadInputTypeDef,
+    EvictFilesFailingUploadOutputTypeDef,
+    JoinDomainInputTypeDef,
     JoinDomainOutputTypeDef,
+    ListAutomaticTapeCreationPoliciesInputTypeDef,
     ListAutomaticTapeCreationPoliciesOutputTypeDef,
+    ListCacheReportsInputTypeDef,
+    ListCacheReportsOutputTypeDef,
+    ListFileSharesInputTypeDef,
     ListFileSharesOutputTypeDef,
+    ListFileSystemAssociationsInputTypeDef,
     ListFileSystemAssociationsOutputTypeDef,
+    ListGatewaysInputTypeDef,
     ListGatewaysOutputTypeDef,
+    ListLocalDisksInputTypeDef,
     ListLocalDisksOutputTypeDef,
+    ListTagsForResourceInputTypeDef,
     ListTagsForResourceOutputTypeDef,
+    ListTapePoolsInputTypeDef,
     ListTapePoolsOutputTypeDef,
+    ListTapesInputTypeDef,
     ListTapesOutputTypeDef,
+    ListVolumeInitiatorsInputTypeDef,
     ListVolumeInitiatorsOutputTypeDef,
+    ListVolumeRecoveryPointsInputTypeDef,
     ListVolumeRecoveryPointsOutputTypeDef,
+    ListVolumesInputTypeDef,
     ListVolumesOutputTypeDef,
-    NFSFileShareDefaultsTypeDef,
+    NotifyWhenUploadedInputTypeDef,
     NotifyWhenUploadedOutputTypeDef,
+    RefreshCacheInputTypeDef,
     RefreshCacheOutputTypeDef,
+    RemoveTagsFromResourceInputTypeDef,
     RemoveTagsFromResourceOutputTypeDef,
+    ResetCacheInputTypeDef,
     ResetCacheOutputTypeDef,
+    RetrieveTapeArchiveInputTypeDef,
     RetrieveTapeArchiveOutputTypeDef,
+    RetrieveTapeRecoveryPointInputTypeDef,
     RetrieveTapeRecoveryPointOutputTypeDef,
+    SetLocalConsolePasswordInputTypeDef,
     SetLocalConsolePasswordOutputTypeDef,
+    SetSMBGuestPasswordInputTypeDef,
     SetSMBGuestPasswordOutputTypeDef,
+    ShutdownGatewayInputTypeDef,
     ShutdownGatewayOutputTypeDef,
-    SMBLocalGroupsTypeDef,
-    SoftwareUpdatePreferencesTypeDef,
+    StartAvailabilityMonitorTestInputTypeDef,
     StartAvailabilityMonitorTestOutputTypeDef,
+    StartCacheReportInputTypeDef,
+    StartCacheReportOutputTypeDef,
+    StartGatewayInputTypeDef,
     StartGatewayOutputTypeDef,
-    TagTypeDef,
+    UpdateAutomaticTapeCreationPolicyInputTypeDef,
     UpdateAutomaticTapeCreationPolicyOutputTypeDef,
+    UpdateBandwidthRateLimitInputTypeDef,
     UpdateBandwidthRateLimitOutputTypeDef,
+    UpdateBandwidthRateLimitScheduleInputTypeDef,
     UpdateBandwidthRateLimitScheduleOutputTypeDef,
+    UpdateChapCredentialsInputTypeDef,
     UpdateChapCredentialsOutputTypeDef,
+    UpdateFileSystemAssociationInputTypeDef,
     UpdateFileSystemAssociationOutputTypeDef,
+    UpdateGatewayInformationInputTypeDef,
     UpdateGatewayInformationOutputTypeDef,
+    UpdateGatewaySoftwareNowInputTypeDef,
     UpdateGatewaySoftwareNowOutputTypeDef,
+    UpdateMaintenanceStartTimeInputTypeDef,
     UpdateMaintenanceStartTimeOutputTypeDef,
+    UpdateNFSFileShareInputTypeDef,
     UpdateNFSFileShareOutputTypeDef,
+    UpdateSMBFileShareInputTypeDef,
     UpdateSMBFileShareOutputTypeDef,
+    UpdateSMBFileShareVisibilityInputTypeDef,
     UpdateSMBFileShareVisibilityOutputTypeDef,
+    UpdateSMBLocalGroupsInputTypeDef,
     UpdateSMBLocalGroupsOutputTypeDef,
+    UpdateSMBSecurityStrategyInputTypeDef,
     UpdateSMBSecurityStrategyOutputTypeDef,
+    UpdateSnapshotScheduleInputTypeDef,
     UpdateSnapshotScheduleOutputTypeDef,
+    UpdateVTLDeviceTypeInputTypeDef,
     UpdateVTLDeviceTypeOutputTypeDef,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import type as Type
+    from collections.abc import Mapping
 else:
-    from typing_extensions import Literal
+    from typing import Mapping, Type
+if sys.version_info >= (3, 12):
+    from typing import Literal, Unpack
+else:
+    from typing_extensions import Literal, Unpack
 
 __all__ = ("StorageGatewayClient",)
 
-class BotocoreClientError(BaseException):
-    MSG_TEMPLATE: str
-
-    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
-        self.response: Dict[str, Any]
-        self.operation_name: str
-
-class Exceptions:
+class Exceptions(BaseClientExceptions):
     ClientError: Type[BotocoreClientError]
     InternalServerError: Type[BotocoreClientError]
     InvalidGatewayRequestException: Type[BotocoreClientError]
@@ -162,8 +254,8 @@ class Exceptions:
 
 class StorageGatewayClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Client)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client.html)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway.html#StorageGateway.Client)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/)
     """
 
     meta: ClientMeta
@@ -172,1224 +264,1141 @@ class StorageGatewayClient(BaseClient):
     def exceptions(self) -> Exceptions:
         """
         StorageGatewayClient exceptions.
-        """
 
-    def activate_gateway(
-        self,
-        *,
-        ActivationKey: str,
-        GatewayName: str,
-        GatewayTimezone: str,
-        GatewayRegion: str,
-        GatewayType: str = None,
-        TapeDriveType: str = None,
-        MediumChangerType: str = None,
-        Tags: List["TagTypeDef"] = None
-    ) -> ActivateGatewayOutputTypeDef:
-        """
-        Activates the gateway you previously deployed on your host.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Client.activate_gateway)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client.html#activate_gateway)
-        """
-
-    def add_cache(self, *, GatewayARN: str, DiskIds: List[str]) -> AddCacheOutputTypeDef:
-        """
-        Configures one or more gateway local disks as cache for a gateway.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Client.add_cache)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client.html#add_cache)
-        """
-
-    def add_tags_to_resource(
-        self, *, ResourceARN: str, Tags: List["TagTypeDef"]
-    ) -> AddTagsToResourceOutputTypeDef:
-        """
-        Adds one or more tags to the specified resource.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Client.add_tags_to_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client.html#add_tags_to_resource)
-        """
-
-    def add_upload_buffer(
-        self, *, GatewayARN: str, DiskIds: List[str]
-    ) -> AddUploadBufferOutputTypeDef:
-        """
-        Configures one or more gateway local disks as upload buffer for a specified
-        gateway.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Client.add_upload_buffer)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client.html#add_upload_buffer)
-        """
-
-    def add_working_storage(
-        self, *, GatewayARN: str, DiskIds: List[str]
-    ) -> AddWorkingStorageOutputTypeDef:
-        """
-        Configures one or more gateway local disks as working storage for a gateway.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Client.add_working_storage)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client.html#add_working_storage)
-        """
-
-    def assign_tape_pool(
-        self, *, TapeARN: str, PoolId: str, BypassGovernanceRetention: bool = None
-    ) -> AssignTapePoolOutputTypeDef:
-        """
-        Assigns a tape to a tape pool for archiving.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Client.assign_tape_pool)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client.html#assign_tape_pool)
-        """
-
-    def associate_file_system(
-        self,
-        *,
-        UserName: str,
-        Password: str,
-        ClientToken: str,
-        GatewayARN: str,
-        LocationARN: str,
-        Tags: List["TagTypeDef"] = None,
-        AuditDestinationARN: str = None,
-        CacheAttributes: "CacheAttributesTypeDef" = None,
-        EndpointNetworkConfiguration: "EndpointNetworkConfigurationTypeDef" = None
-    ) -> AssociateFileSystemOutputTypeDef:
-        """
-        Associate an Amazon FSx file system with the FSx File Gateway.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Client.associate_file_system)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client.html#associate_file_system)
-        """
-
-    def attach_volume(
-        self,
-        *,
-        GatewayARN: str,
-        VolumeARN: str,
-        NetworkInterfaceId: str,
-        TargetName: str = None,
-        DiskId: str = None
-    ) -> AttachVolumeOutputTypeDef:
-        """
-        Connects a volume to an iSCSI connection and then attaches the volume to the
-        specified gateway.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Client.attach_volume)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client.html#attach_volume)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway.html#StorageGateway.Client)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#exceptions)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        Check if an operation can be paginated.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Client.can_paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client.html#can_paginate)
-        """
-
-    def cancel_archival(self, *, GatewayARN: str, TapeARN: str) -> CancelArchivalOutputTypeDef:
-        """
-        Cancels archiving of a virtual tape to the virtual tape shelf (VTS) after the
-        archiving process is initiated.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Client.cancel_archival)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client.html#cancel_archival)
-        """
-
-    def cancel_retrieval(self, *, GatewayARN: str, TapeARN: str) -> CancelRetrievalOutputTypeDef:
-        """
-        Cancels retrieval of a virtual tape from the virtual tape shelf (VTS) to a
-        gateway after the retrieval process is initiated.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Client.cancel_retrieval)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client.html#cancel_retrieval)
-        """
-
-    def close(self) -> None:
-        """
-        Closes underlying endpoint connections.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Client.close)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client.html#close)
-        """
-
-    def create_cached_iscsi_volume(
-        self,
-        *,
-        GatewayARN: str,
-        VolumeSizeInBytes: int,
-        TargetName: str,
-        NetworkInterfaceId: str,
-        ClientToken: str,
-        SnapshotId: str = None,
-        SourceVolumeARN: str = None,
-        KMSEncrypted: bool = None,
-        KMSKey: str = None,
-        Tags: List["TagTypeDef"] = None
-    ) -> CreateCachediSCSIVolumeOutputTypeDef:
-        """
-        Creates a cached volume on a specified cached volume gateway.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Client.create_cached_iscsi_volume)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client.html#create_cached_iscsi_volume)
-        """
-
-    def create_nfs_file_share(
-        self,
-        *,
-        ClientToken: str,
-        GatewayARN: str,
-        Role: str,
-        LocationARN: str,
-        NFSFileShareDefaults: "NFSFileShareDefaultsTypeDef" = None,
-        KMSEncrypted: bool = None,
-        KMSKey: str = None,
-        DefaultStorageClass: str = None,
-        ObjectACL: ObjectACLType = None,
-        ClientList: List[str] = None,
-        Squash: str = None,
-        ReadOnly: bool = None,
-        GuessMIMETypeEnabled: bool = None,
-        RequesterPays: bool = None,
-        Tags: List["TagTypeDef"] = None,
-        FileShareName: str = None,
-        CacheAttributes: "CacheAttributesTypeDef" = None,
-        NotificationPolicy: str = None,
-        VPCEndpointDNSName: str = None,
-        BucketRegion: str = None,
-        AuditDestinationARN: str = None
-    ) -> CreateNFSFileShareOutputTypeDef:
-        """
-        Creates a Network File System (NFS) file share on an existing S3 File Gateway.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Client.create_nfs_file_share)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client.html#create_nfs_file_share)
-        """
-
-    def create_smb_file_share(
-        self,
-        *,
-        ClientToken: str,
-        GatewayARN: str,
-        Role: str,
-        LocationARN: str,
-        KMSEncrypted: bool = None,
-        KMSKey: str = None,
-        DefaultStorageClass: str = None,
-        ObjectACL: ObjectACLType = None,
-        ReadOnly: bool = None,
-        GuessMIMETypeEnabled: bool = None,
-        RequesterPays: bool = None,
-        SMBACLEnabled: bool = None,
-        AccessBasedEnumeration: bool = None,
-        AdminUserList: List[str] = None,
-        ValidUserList: List[str] = None,
-        InvalidUserList: List[str] = None,
-        AuditDestinationARN: str = None,
-        Authentication: str = None,
-        CaseSensitivity: CaseSensitivityType = None,
-        Tags: List["TagTypeDef"] = None,
-        FileShareName: str = None,
-        CacheAttributes: "CacheAttributesTypeDef" = None,
-        NotificationPolicy: str = None,
-        VPCEndpointDNSName: str = None,
-        BucketRegion: str = None,
-        OplocksEnabled: bool = None
-    ) -> CreateSMBFileShareOutputTypeDef:
-        """
-        Creates a Server Message Block (SMB) file share on an existing S3 File Gateway.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Client.create_smb_file_share)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client.html#create_smb_file_share)
-        """
-
-    def create_snapshot(
-        self, *, VolumeARN: str, SnapshotDescription: str, Tags: List["TagTypeDef"] = None
-    ) -> CreateSnapshotOutputTypeDef:
-        """
-        Initiates a snapshot of a volume.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Client.create_snapshot)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client.html#create_snapshot)
-        """
-
-    def create_snapshot_from_volume_recovery_point(
-        self, *, VolumeARN: str, SnapshotDescription: str, Tags: List["TagTypeDef"] = None
-    ) -> CreateSnapshotFromVolumeRecoveryPointOutputTypeDef:
-        """
-        Initiates a snapshot of a gateway from a volume recovery point.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Client.create_snapshot_from_volume_recovery_point)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client.html#create_snapshot_from_volume_recovery_point)
-        """
-
-    def create_stored_iscsi_volume(
-        self,
-        *,
-        GatewayARN: str,
-        DiskId: str,
-        PreserveExistingData: bool,
-        TargetName: str,
-        NetworkInterfaceId: str,
-        SnapshotId: str = None,
-        KMSEncrypted: bool = None,
-        KMSKey: str = None,
-        Tags: List["TagTypeDef"] = None
-    ) -> CreateStorediSCSIVolumeOutputTypeDef:
-        """
-        Creates a volume on a specified gateway.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Client.create_stored_iscsi_volume)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client.html#create_stored_iscsi_volume)
-        """
-
-    def create_tape_pool(
-        self,
-        *,
-        PoolName: str,
-        StorageClass: TapeStorageClassType,
-        RetentionLockType: RetentionLockTypeType = None,
-        RetentionLockTimeInDays: int = None,
-        Tags: List["TagTypeDef"] = None
-    ) -> CreateTapePoolOutputTypeDef:
-        """
-        Creates a new custom tape pool.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Client.create_tape_pool)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client.html#create_tape_pool)
-        """
-
-    def create_tape_with_barcode(
-        self,
-        *,
-        GatewayARN: str,
-        TapeSizeInBytes: int,
-        TapeBarcode: str,
-        KMSEncrypted: bool = None,
-        KMSKey: str = None,
-        PoolId: str = None,
-        Worm: bool = None,
-        Tags: List["TagTypeDef"] = None
-    ) -> CreateTapeWithBarcodeOutputTypeDef:
-        """
-        Creates a virtual tape by using your own barcode.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Client.create_tape_with_barcode)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client.html#create_tape_with_barcode)
-        """
-
-    def create_tapes(
-        self,
-        *,
-        GatewayARN: str,
-        TapeSizeInBytes: int,
-        ClientToken: str,
-        NumTapesToCreate: int,
-        TapeBarcodePrefix: str,
-        KMSEncrypted: bool = None,
-        KMSKey: str = None,
-        PoolId: str = None,
-        Worm: bool = None,
-        Tags: List["TagTypeDef"] = None
-    ) -> CreateTapesOutputTypeDef:
-        """
-        Creates one or more virtual tapes.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Client.create_tapes)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client.html#create_tapes)
-        """
-
-    def delete_automatic_tape_creation_policy(
-        self, *, GatewayARN: str
-    ) -> DeleteAutomaticTapeCreationPolicyOutputTypeDef:
-        """
-        Deletes the automatic tape creation policy of a gateway.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Client.delete_automatic_tape_creation_policy)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client.html#delete_automatic_tape_creation_policy)
-        """
-
-    def delete_bandwidth_rate_limit(
-        self, *, GatewayARN: str, BandwidthType: str
-    ) -> DeleteBandwidthRateLimitOutputTypeDef:
-        """
-        Deletes the bandwidth rate limits of a gateway.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Client.delete_bandwidth_rate_limit)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client.html#delete_bandwidth_rate_limit)
-        """
-
-    def delete_chap_credentials(
-        self, *, TargetARN: str, InitiatorName: str
-    ) -> DeleteChapCredentialsOutputTypeDef:
-        """
-        Deletes Challenge-Handshake Authentication Protocol (CHAP) credentials for a
-        specified iSCSI target and initiator pair.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Client.delete_chap_credentials)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client.html#delete_chap_credentials)
-        """
-
-    def delete_file_share(
-        self, *, FileShareARN: str, ForceDelete: bool = None
-    ) -> DeleteFileShareOutputTypeDef:
-        """
-        Deletes a file share from an S3 File Gateway.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Client.delete_file_share)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client.html#delete_file_share)
-        """
-
-    def delete_gateway(self, *, GatewayARN: str) -> DeleteGatewayOutputTypeDef:
-        """
-        Deletes a gateway.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Client.delete_gateway)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client.html#delete_gateway)
-        """
-
-    def delete_snapshot_schedule(self, *, VolumeARN: str) -> DeleteSnapshotScheduleOutputTypeDef:
-        """
-        Deletes a snapshot of a volume.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Client.delete_snapshot_schedule)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client.html#delete_snapshot_schedule)
-        """
-
-    def delete_tape(
-        self, *, GatewayARN: str, TapeARN: str, BypassGovernanceRetention: bool = None
-    ) -> DeleteTapeOutputTypeDef:
-        """
-        Deletes the specified virtual tape.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Client.delete_tape)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client.html#delete_tape)
-        """
-
-    def delete_tape_archive(
-        self, *, TapeARN: str, BypassGovernanceRetention: bool = None
-    ) -> DeleteTapeArchiveOutputTypeDef:
-        """
-        Deletes the specified virtual tape from the virtual tape shelf (VTS).
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Client.delete_tape_archive)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client.html#delete_tape_archive)
-        """
-
-    def delete_tape_pool(self, *, PoolARN: str) -> DeleteTapePoolOutputTypeDef:
-        """
-        Delete a custom tape pool.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Client.delete_tape_pool)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client.html#delete_tape_pool)
-        """
-
-    def delete_volume(self, *, VolumeARN: str) -> DeleteVolumeOutputTypeDef:
-        """
-        Deletes the specified storage volume that you previously created using the
-        CreateCachediSCSIVolume or  CreateStorediSCSIVolume API.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Client.delete_volume)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client.html#delete_volume)
-        """
-
-    def describe_availability_monitor_test(
-        self, *, GatewayARN: str
-    ) -> DescribeAvailabilityMonitorTestOutputTypeDef:
-        """
-        Returns information about the most recent high availability monitoring test that
-        was performed on the host in a cluster.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Client.describe_availability_monitor_test)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client.html#describe_availability_monitor_test)
-        """
-
-    def describe_bandwidth_rate_limit(
-        self, *, GatewayARN: str
-    ) -> DescribeBandwidthRateLimitOutputTypeDef:
-        """
-        Returns the bandwidth rate limits of a gateway.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Client.describe_bandwidth_rate_limit)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client.html#describe_bandwidth_rate_limit)
-        """
-
-    def describe_bandwidth_rate_limit_schedule(
-        self, *, GatewayARN: str
-    ) -> DescribeBandwidthRateLimitScheduleOutputTypeDef:
-        """
-        Returns information about the bandwidth rate limit schedule of a gateway.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Client.describe_bandwidth_rate_limit_schedule)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client.html#describe_bandwidth_rate_limit_schedule)
-        """
-
-    def describe_cache(self, *, GatewayARN: str) -> DescribeCacheOutputTypeDef:
-        """
-        Returns information about the cache of a gateway.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Client.describe_cache)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client.html#describe_cache)
-        """
-
-    def describe_cached_iscsi_volumes(
-        self, *, VolumeARNs: List[str]
-    ) -> DescribeCachediSCSIVolumesOutputTypeDef:
-        """
-        Returns a description of the gateway volumes specified in the request.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Client.describe_cached_iscsi_volumes)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client.html#describe_cached_iscsi_volumes)
-        """
-
-    def describe_chap_credentials(self, *, TargetARN: str) -> DescribeChapCredentialsOutputTypeDef:
-        """
-        Returns an array of Challenge-Handshake Authentication Protocol (CHAP)
-        credentials information for a specified iSCSI target, one for each target-
-        initiator pair.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Client.describe_chap_credentials)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client.html#describe_chap_credentials)
-        """
-
-    def describe_file_system_associations(
-        self, *, FileSystemAssociationARNList: List[str]
-    ) -> DescribeFileSystemAssociationsOutputTypeDef:
-        """
-        Gets the file system association information.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Client.describe_file_system_associations)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client.html#describe_file_system_associations)
-        """
-
-    def describe_gateway_information(
-        self, *, GatewayARN: str
-    ) -> DescribeGatewayInformationOutputTypeDef:
-        """
-        Returns metadata about a gateway such as its name, network interfaces, time
-        zone, status, and software version.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Client.describe_gateway_information)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client.html#describe_gateway_information)
-        """
-
-    def describe_maintenance_start_time(
-        self, *, GatewayARN: str
-    ) -> DescribeMaintenanceStartTimeOutputTypeDef:
-        """
-        Returns your gateway's maintenance window schedule information, with values for
-        monthly or weekly cadence, specific day and time to begin maintenance, and which
-        types of updates to apply.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Client.describe_maintenance_start_time)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client.html#describe_maintenance_start_time)
-        """
-
-    def describe_nfs_file_shares(
-        self, *, FileShareARNList: List[str]
-    ) -> DescribeNFSFileSharesOutputTypeDef:
-        """
-        Gets a description for one or more Network File System (NFS) file shares from an
-        S3 File Gateway.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Client.describe_nfs_file_shares)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client.html#describe_nfs_file_shares)
-        """
-
-    def describe_smb_file_shares(
-        self, *, FileShareARNList: List[str]
-    ) -> DescribeSMBFileSharesOutputTypeDef:
-        """
-        Gets a description for one or more Server Message Block (SMB) file shares from a
-        S3 File Gateway.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Client.describe_smb_file_shares)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client.html#describe_smb_file_shares)
-        """
-
-    def describe_smb_settings(self, *, GatewayARN: str) -> DescribeSMBSettingsOutputTypeDef:
-        """
-        Gets a description of a Server Message Block (SMB) file share settings from a
-        file gateway.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Client.describe_smb_settings)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client.html#describe_smb_settings)
-        """
-
-    def describe_snapshot_schedule(
-        self, *, VolumeARN: str
-    ) -> DescribeSnapshotScheduleOutputTypeDef:
-        """
-        Describes the snapshot schedule for the specified gateway volume.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Client.describe_snapshot_schedule)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client.html#describe_snapshot_schedule)
-        """
-
-    def describe_stored_iscsi_volumes(
-        self, *, VolumeARNs: List[str]
-    ) -> DescribeStorediSCSIVolumesOutputTypeDef:
-        """
-        Returns the description of the gateway volumes specified in the request.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Client.describe_stored_iscsi_volumes)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client.html#describe_stored_iscsi_volumes)
-        """
-
-    def describe_tape_archives(
-        self, *, TapeARNs: List[str] = None, Marker: str = None, Limit: int = None
-    ) -> DescribeTapeArchivesOutputTypeDef:
-        """
-        Returns a description of specified virtual tapes in the virtual tape shelf
-        (VTS).
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Client.describe_tape_archives)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client.html#describe_tape_archives)
-        """
-
-    def describe_tape_recovery_points(
-        self, *, GatewayARN: str, Marker: str = None, Limit: int = None
-    ) -> DescribeTapeRecoveryPointsOutputTypeDef:
-        """
-        Returns a list of virtual tape recovery points that are available for the
-        specified tape gateway.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Client.describe_tape_recovery_points)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client.html#describe_tape_recovery_points)
-        """
-
-    def describe_tapes(
-        self, *, GatewayARN: str, TapeARNs: List[str] = None, Marker: str = None, Limit: int = None
-    ) -> DescribeTapesOutputTypeDef:
-        """
-        Returns a description of virtual tapes that correspond to the specified Amazon
-        Resource Names (ARNs).
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Client.describe_tapes)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client.html#describe_tapes)
-        """
-
-    def describe_upload_buffer(self, *, GatewayARN: str) -> DescribeUploadBufferOutputTypeDef:
-        """
-        Returns information about the upload buffer of a gateway.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Client.describe_upload_buffer)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client.html#describe_upload_buffer)
-        """
-
-    def describe_vtl_devices(
-        self,
-        *,
-        GatewayARN: str,
-        VTLDeviceARNs: List[str] = None,
-        Marker: str = None,
-        Limit: int = None
-    ) -> DescribeVTLDevicesOutputTypeDef:
-        """
-        Returns a description of virtual tape library (VTL) devices for the specified
-        tape gateway.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Client.describe_vtl_devices)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client.html#describe_vtl_devices)
-        """
-
-    def describe_working_storage(self, *, GatewayARN: str) -> DescribeWorkingStorageOutputTypeDef:
-        """
-        Returns information about the working storage of a gateway.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Client.describe_working_storage)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client.html#describe_working_storage)
-        """
-
-    def detach_volume(
-        self, *, VolumeARN: str, ForceDetach: bool = None
-    ) -> DetachVolumeOutputTypeDef:
-        """
-        Disconnects a volume from an iSCSI connection and then detaches the volume from
-        the specified gateway.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Client.detach_volume)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client.html#detach_volume)
-        """
-
-    def disable_gateway(self, *, GatewayARN: str) -> DisableGatewayOutputTypeDef:
-        """
-        Disables a tape gateway when the gateway is no longer functioning.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Client.disable_gateway)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client.html#disable_gateway)
-        """
-
-    def disassociate_file_system(
-        self, *, FileSystemAssociationARN: str, ForceDelete: bool = None
-    ) -> DisassociateFileSystemOutputTypeDef:
-        """
-        Disassociates an Amazon FSx file system from the specified gateway.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Client.disassociate_file_system)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client.html#disassociate_file_system)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/can_paginate.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#can_paginate)
         """
 
     def generate_presigned_url(
         self,
         ClientMethod: str,
-        Params: Dict[str, Any] = None,
+        Params: Mapping[str, Any] = ...,
         ExpiresIn: int = 3600,
-        HttpMethod: str = None,
+        HttpMethod: str = ...,
     ) -> str:
         """
-        Generate a presigned url given a client, its method, and arguments.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Client.generate_presigned_url)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client.html#generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/generate_presigned_url.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#generate_presigned_url)
         """
 
-    def join_domain(
-        self,
-        *,
-        GatewayARN: str,
-        DomainName: str,
-        UserName: str,
-        Password: str,
-        OrganizationalUnit: str = None,
-        DomainControllers: List[str] = None,
-        TimeoutInSeconds: int = None
-    ) -> JoinDomainOutputTypeDef:
+    def activate_gateway(
+        self, **kwargs: Unpack[ActivateGatewayInputTypeDef]
+    ) -> ActivateGatewayOutputTypeDef:
+        """
+        Activates the gateway you previously deployed on your host.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/activate_gateway.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#activate_gateway)
+        """
+
+    def add_cache(self, **kwargs: Unpack[AddCacheInputTypeDef]) -> AddCacheOutputTypeDef:
+        """
+        Configures one or more gateway local disks as cache for a gateway.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/add_cache.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#add_cache)
+        """
+
+    def add_tags_to_resource(
+        self, **kwargs: Unpack[AddTagsToResourceInputTypeDef]
+    ) -> AddTagsToResourceOutputTypeDef:
+        """
+        Adds one or more tags to the specified resource.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/add_tags_to_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#add_tags_to_resource)
+        """
+
+    def add_upload_buffer(
+        self, **kwargs: Unpack[AddUploadBufferInputTypeDef]
+    ) -> AddUploadBufferOutputTypeDef:
+        """
+        Configures one or more gateway local disks as upload buffer for a specified
+        gateway.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/add_upload_buffer.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#add_upload_buffer)
+        """
+
+    def add_working_storage(
+        self, **kwargs: Unpack[AddWorkingStorageInputTypeDef]
+    ) -> AddWorkingStorageOutputTypeDef:
+        """
+        Configures one or more gateway local disks as working storage for a gateway.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/add_working_storage.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#add_working_storage)
+        """
+
+    def assign_tape_pool(
+        self, **kwargs: Unpack[AssignTapePoolInputTypeDef]
+    ) -> AssignTapePoolOutputTypeDef:
+        """
+        Assigns a tape to a tape pool for archiving.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/assign_tape_pool.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#assign_tape_pool)
+        """
+
+    def associate_file_system(
+        self, **kwargs: Unpack[AssociateFileSystemInputTypeDef]
+    ) -> AssociateFileSystemOutputTypeDef:
+        """
+        Associate an Amazon FSx file system with the FSx File Gateway.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/associate_file_system.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#associate_file_system)
+        """
+
+    def attach_volume(
+        self, **kwargs: Unpack[AttachVolumeInputTypeDef]
+    ) -> AttachVolumeOutputTypeDef:
+        """
+        Connects a volume to an iSCSI connection and then attaches the volume to the
+        specified gateway.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/attach_volume.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#attach_volume)
+        """
+
+    def cancel_archival(
+        self, **kwargs: Unpack[CancelArchivalInputTypeDef]
+    ) -> CancelArchivalOutputTypeDef:
+        """
+        Cancels archiving of a virtual tape to the virtual tape shelf (VTS) after the
+        archiving process is initiated.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/cancel_archival.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#cancel_archival)
+        """
+
+    def cancel_cache_report(
+        self, **kwargs: Unpack[CancelCacheReportInputTypeDef]
+    ) -> CancelCacheReportOutputTypeDef:
+        """
+        Cancels generation of a specified cache report.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/cancel_cache_report.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#cancel_cache_report)
+        """
+
+    def cancel_retrieval(
+        self, **kwargs: Unpack[CancelRetrievalInputTypeDef]
+    ) -> CancelRetrievalOutputTypeDef:
+        """
+        Cancels retrieval of a virtual tape from the virtual tape shelf (VTS) to a
+        gateway after the retrieval process is initiated.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/cancel_retrieval.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#cancel_retrieval)
+        """
+
+    def create_cached_iscsi_volume(
+        self, **kwargs: Unpack[CreateCachediSCSIVolumeInputTypeDef]
+    ) -> CreateCachediSCSIVolumeOutputTypeDef:
+        """
+        Creates a cached volume on a specified cached volume gateway.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/create_cached_iscsi_volume.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#create_cached_iscsi_volume)
+        """
+
+    def create_nfs_file_share(
+        self, **kwargs: Unpack[CreateNFSFileShareInputTypeDef]
+    ) -> CreateNFSFileShareOutputTypeDef:
+        """
+        Creates a Network File System (NFS) file share on an existing S3 File Gateway.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/create_nfs_file_share.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#create_nfs_file_share)
+        """
+
+    def create_smb_file_share(
+        self, **kwargs: Unpack[CreateSMBFileShareInputTypeDef]
+    ) -> CreateSMBFileShareOutputTypeDef:
+        """
+        Creates a Server Message Block (SMB) file share on an existing S3 File Gateway.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/create_smb_file_share.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#create_smb_file_share)
+        """
+
+    def create_snapshot(
+        self, **kwargs: Unpack[CreateSnapshotInputTypeDef]
+    ) -> CreateSnapshotOutputTypeDef:
+        """
+        Initiates a snapshot of a volume.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/create_snapshot.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#create_snapshot)
+        """
+
+    def create_snapshot_from_volume_recovery_point(
+        self, **kwargs: Unpack[CreateSnapshotFromVolumeRecoveryPointInputTypeDef]
+    ) -> CreateSnapshotFromVolumeRecoveryPointOutputTypeDef:
+        """
+        Initiates a snapshot of a gateway from a volume recovery point.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/create_snapshot_from_volume_recovery_point.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#create_snapshot_from_volume_recovery_point)
+        """
+
+    def create_stored_iscsi_volume(
+        self, **kwargs: Unpack[CreateStorediSCSIVolumeInputTypeDef]
+    ) -> CreateStorediSCSIVolumeOutputTypeDef:
+        """
+        Creates a volume on a specified gateway.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/create_stored_iscsi_volume.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#create_stored_iscsi_volume)
+        """
+
+    def create_tape_pool(
+        self, **kwargs: Unpack[CreateTapePoolInputTypeDef]
+    ) -> CreateTapePoolOutputTypeDef:
+        """
+        Creates a new custom tape pool.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/create_tape_pool.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#create_tape_pool)
+        """
+
+    def create_tape_with_barcode(
+        self, **kwargs: Unpack[CreateTapeWithBarcodeInputTypeDef]
+    ) -> CreateTapeWithBarcodeOutputTypeDef:
+        """
+        Creates a virtual tape by using your own barcode.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/create_tape_with_barcode.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#create_tape_with_barcode)
+        """
+
+    def create_tapes(self, **kwargs: Unpack[CreateTapesInputTypeDef]) -> CreateTapesOutputTypeDef:
+        """
+        Creates one or more virtual tapes.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/create_tapes.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#create_tapes)
+        """
+
+    def delete_automatic_tape_creation_policy(
+        self, **kwargs: Unpack[DeleteAutomaticTapeCreationPolicyInputTypeDef]
+    ) -> DeleteAutomaticTapeCreationPolicyOutputTypeDef:
+        """
+        Deletes the automatic tape creation policy of a gateway.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/delete_automatic_tape_creation_policy.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#delete_automatic_tape_creation_policy)
+        """
+
+    def delete_bandwidth_rate_limit(
+        self, **kwargs: Unpack[DeleteBandwidthRateLimitInputTypeDef]
+    ) -> DeleteBandwidthRateLimitOutputTypeDef:
+        """
+        Deletes the bandwidth rate limits of a gateway.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/delete_bandwidth_rate_limit.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#delete_bandwidth_rate_limit)
+        """
+
+    def delete_cache_report(
+        self, **kwargs: Unpack[DeleteCacheReportInputTypeDef]
+    ) -> DeleteCacheReportOutputTypeDef:
+        """
+        Deletes the specified cache report and any associated tags from the Storage
+        Gateway database.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/delete_cache_report.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#delete_cache_report)
+        """
+
+    def delete_chap_credentials(
+        self, **kwargs: Unpack[DeleteChapCredentialsInputTypeDef]
+    ) -> DeleteChapCredentialsOutputTypeDef:
+        """
+        Deletes Challenge-Handshake Authentication Protocol (CHAP) credentials for a
+        specified iSCSI target and initiator pair.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/delete_chap_credentials.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#delete_chap_credentials)
+        """
+
+    def delete_file_share(
+        self, **kwargs: Unpack[DeleteFileShareInputTypeDef]
+    ) -> DeleteFileShareOutputTypeDef:
+        """
+        Deletes a file share from an S3 File Gateway.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/delete_file_share.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#delete_file_share)
+        """
+
+    def delete_gateway(
+        self, **kwargs: Unpack[DeleteGatewayInputTypeDef]
+    ) -> DeleteGatewayOutputTypeDef:
+        """
+        Deletes a gateway.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/delete_gateway.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#delete_gateway)
+        """
+
+    def delete_snapshot_schedule(
+        self, **kwargs: Unpack[DeleteSnapshotScheduleInputTypeDef]
+    ) -> DeleteSnapshotScheduleOutputTypeDef:
+        """
+        Deletes a snapshot of a volume.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/delete_snapshot_schedule.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#delete_snapshot_schedule)
+        """
+
+    def delete_tape(self, **kwargs: Unpack[DeleteTapeInputTypeDef]) -> DeleteTapeOutputTypeDef:
+        """
+        Deletes the specified virtual tape.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/delete_tape.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#delete_tape)
+        """
+
+    def delete_tape_archive(
+        self, **kwargs: Unpack[DeleteTapeArchiveInputTypeDef]
+    ) -> DeleteTapeArchiveOutputTypeDef:
+        """
+        Deletes the specified virtual tape from the virtual tape shelf (VTS).
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/delete_tape_archive.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#delete_tape_archive)
+        """
+
+    def delete_tape_pool(
+        self, **kwargs: Unpack[DeleteTapePoolInputTypeDef]
+    ) -> DeleteTapePoolOutputTypeDef:
+        """
+        Delete a custom tape pool.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/delete_tape_pool.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#delete_tape_pool)
+        """
+
+    def delete_volume(
+        self, **kwargs: Unpack[DeleteVolumeInputTypeDef]
+    ) -> DeleteVolumeOutputTypeDef:
+        """
+        Deletes the specified storage volume that you previously created using the
+        <a>CreateCachediSCSIVolume</a> or <a>CreateStorediSCSIVolume</a> API.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/delete_volume.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#delete_volume)
+        """
+
+    def describe_availability_monitor_test(
+        self, **kwargs: Unpack[DescribeAvailabilityMonitorTestInputTypeDef]
+    ) -> DescribeAvailabilityMonitorTestOutputTypeDef:
+        """
+        Returns information about the most recent high availability monitoring test
+        that was performed on the host in a cluster.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/describe_availability_monitor_test.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#describe_availability_monitor_test)
+        """
+
+    def describe_bandwidth_rate_limit(
+        self, **kwargs: Unpack[DescribeBandwidthRateLimitInputTypeDef]
+    ) -> DescribeBandwidthRateLimitOutputTypeDef:
+        """
+        Returns the bandwidth rate limits of a gateway.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/describe_bandwidth_rate_limit.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#describe_bandwidth_rate_limit)
+        """
+
+    def describe_bandwidth_rate_limit_schedule(
+        self, **kwargs: Unpack[DescribeBandwidthRateLimitScheduleInputTypeDef]
+    ) -> DescribeBandwidthRateLimitScheduleOutputTypeDef:
+        """
+        Returns information about the bandwidth rate limit schedule of a gateway.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/describe_bandwidth_rate_limit_schedule.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#describe_bandwidth_rate_limit_schedule)
+        """
+
+    def describe_cache(
+        self, **kwargs: Unpack[DescribeCacheInputTypeDef]
+    ) -> DescribeCacheOutputTypeDef:
+        """
+        Returns information about the cache of a gateway.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/describe_cache.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#describe_cache)
+        """
+
+    def describe_cache_report(
+        self, **kwargs: Unpack[DescribeCacheReportInputTypeDef]
+    ) -> DescribeCacheReportOutputTypeDef:
+        """
+        Returns information about the specified cache report, including completion
+        status and generation progress.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/describe_cache_report.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#describe_cache_report)
+        """
+
+    def describe_cached_iscsi_volumes(
+        self, **kwargs: Unpack[DescribeCachediSCSIVolumesInputTypeDef]
+    ) -> DescribeCachediSCSIVolumesOutputTypeDef:
+        """
+        Returns a description of the gateway volumes specified in the request.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/describe_cached_iscsi_volumes.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#describe_cached_iscsi_volumes)
+        """
+
+    def describe_chap_credentials(
+        self, **kwargs: Unpack[DescribeChapCredentialsInputTypeDef]
+    ) -> DescribeChapCredentialsOutputTypeDef:
+        """
+        Returns an array of Challenge-Handshake Authentication Protocol (CHAP)
+        credentials information for a specified iSCSI target, one for each
+        target-initiator pair.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/describe_chap_credentials.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#describe_chap_credentials)
+        """
+
+    def describe_file_system_associations(
+        self, **kwargs: Unpack[DescribeFileSystemAssociationsInputTypeDef]
+    ) -> DescribeFileSystemAssociationsOutputTypeDef:
+        """
+        Gets the file system association information.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/describe_file_system_associations.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#describe_file_system_associations)
+        """
+
+    def describe_gateway_information(
+        self, **kwargs: Unpack[DescribeGatewayInformationInputTypeDef]
+    ) -> DescribeGatewayInformationOutputTypeDef:
+        """
+        Returns metadata about a gateway such as its name, network interfaces, time
+        zone, status, and software version.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/describe_gateway_information.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#describe_gateway_information)
+        """
+
+    def describe_maintenance_start_time(
+        self, **kwargs: Unpack[DescribeMaintenanceStartTimeInputTypeDef]
+    ) -> DescribeMaintenanceStartTimeOutputTypeDef:
+        """
+        Returns your gateway's maintenance window schedule information, with values for
+        monthly or weekly cadence, specific day and time to begin maintenance, and
+        which types of updates to apply.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/describe_maintenance_start_time.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#describe_maintenance_start_time)
+        """
+
+    def describe_nfs_file_shares(
+        self, **kwargs: Unpack[DescribeNFSFileSharesInputTypeDef]
+    ) -> DescribeNFSFileSharesOutputTypeDef:
+        """
+        Gets a description for one or more Network File System (NFS) file shares from
+        an S3 File Gateway.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/describe_nfs_file_shares.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#describe_nfs_file_shares)
+        """
+
+    def describe_smb_file_shares(
+        self, **kwargs: Unpack[DescribeSMBFileSharesInputTypeDef]
+    ) -> DescribeSMBFileSharesOutputTypeDef:
+        """
+        Gets a description for one or more Server Message Block (SMB) file shares from
+        a S3 File Gateway.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/describe_smb_file_shares.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#describe_smb_file_shares)
+        """
+
+    def describe_smb_settings(
+        self, **kwargs: Unpack[DescribeSMBSettingsInputTypeDef]
+    ) -> DescribeSMBSettingsOutputTypeDef:
+        """
+        Gets a description of a Server Message Block (SMB) file share settings from a
+        file gateway.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/describe_smb_settings.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#describe_smb_settings)
+        """
+
+    def describe_snapshot_schedule(
+        self, **kwargs: Unpack[DescribeSnapshotScheduleInputTypeDef]
+    ) -> DescribeSnapshotScheduleOutputTypeDef:
+        """
+        Describes the snapshot schedule for the specified gateway volume.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/describe_snapshot_schedule.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#describe_snapshot_schedule)
+        """
+
+    def describe_stored_iscsi_volumes(
+        self, **kwargs: Unpack[DescribeStorediSCSIVolumesInputTypeDef]
+    ) -> DescribeStorediSCSIVolumesOutputTypeDef:
+        """
+        Returns the description of the gateway volumes specified in the request.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/describe_stored_iscsi_volumes.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#describe_stored_iscsi_volumes)
+        """
+
+    def describe_tape_archives(
+        self, **kwargs: Unpack[DescribeTapeArchivesInputTypeDef]
+    ) -> DescribeTapeArchivesOutputTypeDef:
+        """
+        Returns a description of specified virtual tapes in the virtual tape shelf
+        (VTS).
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/describe_tape_archives.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#describe_tape_archives)
+        """
+
+    def describe_tape_recovery_points(
+        self, **kwargs: Unpack[DescribeTapeRecoveryPointsInputTypeDef]
+    ) -> DescribeTapeRecoveryPointsOutputTypeDef:
+        """
+        Returns a list of virtual tape recovery points that are available for the
+        specified tape gateway.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/describe_tape_recovery_points.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#describe_tape_recovery_points)
+        """
+
+    def describe_tapes(
+        self, **kwargs: Unpack[DescribeTapesInputTypeDef]
+    ) -> DescribeTapesOutputTypeDef:
+        """
+        Returns a description of virtual tapes that correspond to the specified Amazon
+        Resource Names (ARNs).
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/describe_tapes.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#describe_tapes)
+        """
+
+    def describe_upload_buffer(
+        self, **kwargs: Unpack[DescribeUploadBufferInputTypeDef]
+    ) -> DescribeUploadBufferOutputTypeDef:
+        """
+        Returns information about the upload buffer of a gateway.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/describe_upload_buffer.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#describe_upload_buffer)
+        """
+
+    def describe_vtl_devices(
+        self, **kwargs: Unpack[DescribeVTLDevicesInputTypeDef]
+    ) -> DescribeVTLDevicesOutputTypeDef:
+        """
+        Returns a description of virtual tape library (VTL) devices for the specified
+        tape gateway.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/describe_vtl_devices.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#describe_vtl_devices)
+        """
+
+    def describe_working_storage(
+        self, **kwargs: Unpack[DescribeWorkingStorageInputTypeDef]
+    ) -> DescribeWorkingStorageOutputTypeDef:
+        """
+        Returns information about the working storage of a gateway.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/describe_working_storage.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#describe_working_storage)
+        """
+
+    def detach_volume(
+        self, **kwargs: Unpack[DetachVolumeInputTypeDef]
+    ) -> DetachVolumeOutputTypeDef:
+        """
+        Disconnects a volume from an iSCSI connection and then detaches the volume from
+        the specified gateway.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/detach_volume.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#detach_volume)
+        """
+
+    def disable_gateway(
+        self, **kwargs: Unpack[DisableGatewayInputTypeDef]
+    ) -> DisableGatewayOutputTypeDef:
+        """
+        Disables a tape gateway when the gateway is no longer functioning.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/disable_gateway.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#disable_gateway)
+        """
+
+    def disassociate_file_system(
+        self, **kwargs: Unpack[DisassociateFileSystemInputTypeDef]
+    ) -> DisassociateFileSystemOutputTypeDef:
+        """
+        Disassociates an Amazon FSx file system from the specified gateway.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/disassociate_file_system.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#disassociate_file_system)
+        """
+
+    def evict_files_failing_upload(
+        self, **kwargs: Unpack[EvictFilesFailingUploadInputTypeDef]
+    ) -> EvictFilesFailingUploadOutputTypeDef:
+        """
+        Starts a process that cleans the specified file share's cache of file entries
+        that are failing upload to Amazon S3.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/evict_files_failing_upload.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#evict_files_failing_upload)
+        """
+
+    def join_domain(self, **kwargs: Unpack[JoinDomainInputTypeDef]) -> JoinDomainOutputTypeDef:
         """
         Adds a file gateway to an Active Directory domain.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Client.join_domain)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client.html#join_domain)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/join_domain.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#join_domain)
         """
 
     def list_automatic_tape_creation_policies(
-        self, *, GatewayARN: str = None
+        self, **kwargs: Unpack[ListAutomaticTapeCreationPoliciesInputTypeDef]
     ) -> ListAutomaticTapeCreationPoliciesOutputTypeDef:
         """
         Lists the automatic tape creation policies for a gateway.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Client.list_automatic_tape_creation_policies)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client.html#list_automatic_tape_creation_policies)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/list_automatic_tape_creation_policies.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#list_automatic_tape_creation_policies)
+        """
+
+    def list_cache_reports(
+        self, **kwargs: Unpack[ListCacheReportsInputTypeDef]
+    ) -> ListCacheReportsOutputTypeDef:
+        """
+        Returns a list of existing cache reports for all file shares associated with
+        your Amazon Web Services account.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/list_cache_reports.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#list_cache_reports)
         """
 
     def list_file_shares(
-        self, *, GatewayARN: str = None, Limit: int = None, Marker: str = None
+        self, **kwargs: Unpack[ListFileSharesInputTypeDef]
     ) -> ListFileSharesOutputTypeDef:
         """
         Gets a list of the file shares for a specific S3 File Gateway, or the list of
         file shares that belong to the calling Amazon Web Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Client.list_file_shares)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client.html#list_file_shares)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/list_file_shares.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#list_file_shares)
         """
 
     def list_file_system_associations(
-        self, *, GatewayARN: str = None, Limit: int = None, Marker: str = None
+        self, **kwargs: Unpack[ListFileSystemAssociationsInputTypeDef]
     ) -> ListFileSystemAssociationsOutputTypeDef:
         """
-        Gets a list of `FileSystemAssociationSummary` objects.
+        Gets a list of <code>FileSystemAssociationSummary</code> objects.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Client.list_file_system_associations)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client.html#list_file_system_associations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/list_file_system_associations.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#list_file_system_associations)
         """
 
-    def list_gateways(self, *, Marker: str = None, Limit: int = None) -> ListGatewaysOutputTypeDef:
+    def list_gateways(
+        self, **kwargs: Unpack[ListGatewaysInputTypeDef]
+    ) -> ListGatewaysOutputTypeDef:
         """
-        Lists gateways owned by an Amazon Web Services account in an Amazon Web Services
-        Region specified in the request.
+        Lists gateways owned by an Amazon Web Services account in an Amazon Web
+        Services Region specified in the request.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Client.list_gateways)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client.html#list_gateways)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/list_gateways.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#list_gateways)
         """
 
-    def list_local_disks(self, *, GatewayARN: str) -> ListLocalDisksOutputTypeDef:
+    def list_local_disks(
+        self, **kwargs: Unpack[ListLocalDisksInputTypeDef]
+    ) -> ListLocalDisksOutputTypeDef:
         """
         Returns a list of the gateway's local disks.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Client.list_local_disks)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client.html#list_local_disks)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/list_local_disks.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#list_local_disks)
         """
 
     def list_tags_for_resource(
-        self, *, ResourceARN: str, Marker: str = None, Limit: int = None
+        self, **kwargs: Unpack[ListTagsForResourceInputTypeDef]
     ) -> ListTagsForResourceOutputTypeDef:
         """
         Lists the tags that have been added to the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Client.list_tags_for_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client.html#list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/list_tags_for_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#list_tags_for_resource)
         """
 
     def list_tape_pools(
-        self, *, PoolARNs: List[str] = None, Marker: str = None, Limit: int = None
+        self, **kwargs: Unpack[ListTapePoolsInputTypeDef]
     ) -> ListTapePoolsOutputTypeDef:
         """
         Lists custom tape pools.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Client.list_tape_pools)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client.html#list_tape_pools)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/list_tape_pools.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#list_tape_pools)
         """
 
-    def list_tapes(
-        self, *, TapeARNs: List[str] = None, Marker: str = None, Limit: int = None
-    ) -> ListTapesOutputTypeDef:
+    def list_tapes(self, **kwargs: Unpack[ListTapesInputTypeDef]) -> ListTapesOutputTypeDef:
         """
         Lists virtual tapes in your virtual tape library (VTL) and your virtual tape
         shelf (VTS).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Client.list_tapes)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client.html#list_tapes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/list_tapes.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#list_tapes)
         """
 
-    def list_volume_initiators(self, *, VolumeARN: str) -> ListVolumeInitiatorsOutputTypeDef:
+    def list_volume_initiators(
+        self, **kwargs: Unpack[ListVolumeInitiatorsInputTypeDef]
+    ) -> ListVolumeInitiatorsOutputTypeDef:
         """
         Lists iSCSI initiators that are connected to a volume.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Client.list_volume_initiators)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client.html#list_volume_initiators)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/list_volume_initiators.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#list_volume_initiators)
         """
 
     def list_volume_recovery_points(
-        self, *, GatewayARN: str
+        self, **kwargs: Unpack[ListVolumeRecoveryPointsInputTypeDef]
     ) -> ListVolumeRecoveryPointsOutputTypeDef:
         """
         Lists the recovery points for a specified gateway.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Client.list_volume_recovery_points)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client.html#list_volume_recovery_points)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/list_volume_recovery_points.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#list_volume_recovery_points)
         """
 
-    def list_volumes(
-        self, *, GatewayARN: str = None, Marker: str = None, Limit: int = None
-    ) -> ListVolumesOutputTypeDef:
+    def list_volumes(self, **kwargs: Unpack[ListVolumesInputTypeDef]) -> ListVolumesOutputTypeDef:
         """
         Lists the iSCSI stored volumes of a gateway.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Client.list_volumes)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client.html#list_volumes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/list_volumes.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#list_volumes)
         """
 
-    def notify_when_uploaded(self, *, FileShareARN: str) -> NotifyWhenUploadedOutputTypeDef:
+    def notify_when_uploaded(
+        self, **kwargs: Unpack[NotifyWhenUploadedInputTypeDef]
+    ) -> NotifyWhenUploadedOutputTypeDef:
         """
-        Sends you notification through CloudWatch Events when all files written to your
-        file share have been uploaded to Amazon S3.
+        Sends you notification through Amazon EventBridge when all files written to
+        your file share have been uploaded to Amazon S3.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Client.notify_when_uploaded)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client.html#notify_when_uploaded)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/notify_when_uploaded.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#notify_when_uploaded)
         """
 
     def refresh_cache(
-        self, *, FileShareARN: str, FolderList: List[str] = None, Recursive: bool = None
+        self, **kwargs: Unpack[RefreshCacheInputTypeDef]
     ) -> RefreshCacheOutputTypeDef:
         """
         Refreshes the cached inventory of objects for the specified file share.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Client.refresh_cache)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client.html#refresh_cache)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/refresh_cache.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#refresh_cache)
         """
 
     def remove_tags_from_resource(
-        self, *, ResourceARN: str, TagKeys: List[str]
+        self, **kwargs: Unpack[RemoveTagsFromResourceInputTypeDef]
     ) -> RemoveTagsFromResourceOutputTypeDef:
         """
         Removes one or more tags from the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Client.remove_tags_from_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client.html#remove_tags_from_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/remove_tags_from_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#remove_tags_from_resource)
         """
 
-    def reset_cache(self, *, GatewayARN: str) -> ResetCacheOutputTypeDef:
+    def reset_cache(self, **kwargs: Unpack[ResetCacheInputTypeDef]) -> ResetCacheOutputTypeDef:
         """
         Resets all cache disks that have encountered an error and makes the disks
         available for reconfiguration as cache storage.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Client.reset_cache)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client.html#reset_cache)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/reset_cache.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#reset_cache)
         """
 
     def retrieve_tape_archive(
-        self, *, TapeARN: str, GatewayARN: str
+        self, **kwargs: Unpack[RetrieveTapeArchiveInputTypeDef]
     ) -> RetrieveTapeArchiveOutputTypeDef:
         """
         Retrieves an archived virtual tape from the virtual tape shelf (VTS) to a tape
         gateway.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Client.retrieve_tape_archive)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client.html#retrieve_tape_archive)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/retrieve_tape_archive.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#retrieve_tape_archive)
         """
 
     def retrieve_tape_recovery_point(
-        self, *, TapeARN: str, GatewayARN: str
+        self, **kwargs: Unpack[RetrieveTapeRecoveryPointInputTypeDef]
     ) -> RetrieveTapeRecoveryPointOutputTypeDef:
         """
         Retrieves the recovery point for the specified virtual tape.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Client.retrieve_tape_recovery_point)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client.html#retrieve_tape_recovery_point)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/retrieve_tape_recovery_point.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#retrieve_tape_recovery_point)
         """
 
     def set_local_console_password(
-        self, *, GatewayARN: str, LocalConsolePassword: str
+        self, **kwargs: Unpack[SetLocalConsolePasswordInputTypeDef]
     ) -> SetLocalConsolePasswordOutputTypeDef:
         """
         Sets the password for your VM local console.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Client.set_local_console_password)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client.html#set_local_console_password)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/set_local_console_password.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#set_local_console_password)
         """
 
     def set_smb_guest_password(
-        self, *, GatewayARN: str, Password: str
+        self, **kwargs: Unpack[SetSMBGuestPasswordInputTypeDef]
     ) -> SetSMBGuestPasswordOutputTypeDef:
         """
-        Sets the password for the guest user `smbguest`.
+        Sets the password for the guest user <code>smbguest</code>.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Client.set_smb_guest_password)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client.html#set_smb_guest_password)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/set_smb_guest_password.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#set_smb_guest_password)
         """
 
-    def shutdown_gateway(self, *, GatewayARN: str) -> ShutdownGatewayOutputTypeDef:
+    def shutdown_gateway(
+        self, **kwargs: Unpack[ShutdownGatewayInputTypeDef]
+    ) -> ShutdownGatewayOutputTypeDef:
         """
         Shuts down a Tape Gateway or Volume Gateway.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Client.shutdown_gateway)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client.html#shutdown_gateway)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/shutdown_gateway.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#shutdown_gateway)
         """
 
     def start_availability_monitor_test(
-        self, *, GatewayARN: str
+        self, **kwargs: Unpack[StartAvailabilityMonitorTestInputTypeDef]
     ) -> StartAvailabilityMonitorTestOutputTypeDef:
         """
         Start a test that verifies that the specified gateway is configured for High
         Availability monitoring in your host environment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Client.start_availability_monitor_test)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client.html#start_availability_monitor_test)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/start_availability_monitor_test.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#start_availability_monitor_test)
         """
 
-    def start_gateway(self, *, GatewayARN: str) -> StartGatewayOutputTypeDef:
+    def start_cache_report(
+        self, **kwargs: Unpack[StartCacheReportInputTypeDef]
+    ) -> StartCacheReportOutputTypeDef:
         """
-        Starts a gateway that you previously shut down (see  ShutdownGateway).
+        Starts generating a report of the file metadata currently cached by an S3 File
+        Gateway for a specific file share.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Client.start_gateway)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client.html#start_gateway)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/start_cache_report.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#start_cache_report)
+        """
+
+    def start_gateway(
+        self, **kwargs: Unpack[StartGatewayInputTypeDef]
+    ) -> StartGatewayOutputTypeDef:
+        """
+        Starts a gateway that you previously shut down (see <a>ShutdownGateway</a>).
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/start_gateway.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#start_gateway)
         """
 
     def update_automatic_tape_creation_policy(
-        self,
-        *,
-        AutomaticTapeCreationRules: List["AutomaticTapeCreationRuleTypeDef"],
-        GatewayARN: str
+        self, **kwargs: Unpack[UpdateAutomaticTapeCreationPolicyInputTypeDef]
     ) -> UpdateAutomaticTapeCreationPolicyOutputTypeDef:
         """
         Updates the automatic tape creation policy of a gateway.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Client.update_automatic_tape_creation_policy)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client.html#update_automatic_tape_creation_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/update_automatic_tape_creation_policy.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#update_automatic_tape_creation_policy)
         """
 
     def update_bandwidth_rate_limit(
-        self,
-        *,
-        GatewayARN: str,
-        AverageUploadRateLimitInBitsPerSec: int = None,
-        AverageDownloadRateLimitInBitsPerSec: int = None
+        self, **kwargs: Unpack[UpdateBandwidthRateLimitInputTypeDef]
     ) -> UpdateBandwidthRateLimitOutputTypeDef:
         """
         Updates the bandwidth rate limits of a gateway.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Client.update_bandwidth_rate_limit)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client.html#update_bandwidth_rate_limit)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/update_bandwidth_rate_limit.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#update_bandwidth_rate_limit)
         """
 
     def update_bandwidth_rate_limit_schedule(
-        self,
-        *,
-        GatewayARN: str,
-        BandwidthRateLimitIntervals: List["BandwidthRateLimitIntervalTypeDef"]
+        self, **kwargs: Unpack[UpdateBandwidthRateLimitScheduleInputTypeDef]
     ) -> UpdateBandwidthRateLimitScheduleOutputTypeDef:
         """
         Updates the bandwidth rate limit schedule for a specified gateway.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Client.update_bandwidth_rate_limit_schedule)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client.html#update_bandwidth_rate_limit_schedule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/update_bandwidth_rate_limit_schedule.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#update_bandwidth_rate_limit_schedule)
         """
 
     def update_chap_credentials(
-        self,
-        *,
-        TargetARN: str,
-        SecretToAuthenticateInitiator: str,
-        InitiatorName: str,
-        SecretToAuthenticateTarget: str = None
+        self, **kwargs: Unpack[UpdateChapCredentialsInputTypeDef]
     ) -> UpdateChapCredentialsOutputTypeDef:
         """
-        Updates the Challenge-Handshake Authentication Protocol (CHAP) credentials for a
-        specified iSCSI target.
+        Updates the Challenge-Handshake Authentication Protocol (CHAP) credentials for
+        a specified iSCSI target.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Client.update_chap_credentials)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client.html#update_chap_credentials)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/update_chap_credentials.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#update_chap_credentials)
         """
 
     def update_file_system_association(
-        self,
-        *,
-        FileSystemAssociationARN: str,
-        UserName: str = None,
-        Password: str = None,
-        AuditDestinationARN: str = None,
-        CacheAttributes: "CacheAttributesTypeDef" = None
+        self, **kwargs: Unpack[UpdateFileSystemAssociationInputTypeDef]
     ) -> UpdateFileSystemAssociationOutputTypeDef:
         """
         Updates a file system association.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Client.update_file_system_association)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client.html#update_file_system_association)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/update_file_system_association.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#update_file_system_association)
         """
 
     def update_gateway_information(
-        self,
-        *,
-        GatewayARN: str,
-        GatewayName: str = None,
-        GatewayTimezone: str = None,
-        CloudWatchLogGroupARN: str = None,
-        GatewayCapacity: GatewayCapacityType = None
+        self, **kwargs: Unpack[UpdateGatewayInformationInputTypeDef]
     ) -> UpdateGatewayInformationOutputTypeDef:
         """
         Updates a gateway's metadata, which includes the gateway's name, time zone, and
         metadata cache size.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Client.update_gateway_information)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client.html#update_gateway_information)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/update_gateway_information.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#update_gateway_information)
         """
 
     def update_gateway_software_now(
-        self, *, GatewayARN: str
+        self, **kwargs: Unpack[UpdateGatewaySoftwareNowInputTypeDef]
     ) -> UpdateGatewaySoftwareNowOutputTypeDef:
         """
         Updates the gateway virtual machine (VM) software.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Client.update_gateway_software_now)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client.html#update_gateway_software_now)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/update_gateway_software_now.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#update_gateway_software_now)
         """
 
     def update_maintenance_start_time(
-        self,
-        *,
-        GatewayARN: str,
-        HourOfDay: int = None,
-        MinuteOfHour: int = None,
-        DayOfWeek: int = None,
-        DayOfMonth: int = None,
-        SoftwareUpdatePreferences: "SoftwareUpdatePreferencesTypeDef" = None
+        self, **kwargs: Unpack[UpdateMaintenanceStartTimeInputTypeDef]
     ) -> UpdateMaintenanceStartTimeOutputTypeDef:
         """
         Updates a gateway's maintenance window schedule, with settings for monthly or
         weekly cadence, specific day and time to begin maintenance, and which types of
         updates to apply.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Client.update_maintenance_start_time)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client.html#update_maintenance_start_time)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/update_maintenance_start_time.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#update_maintenance_start_time)
         """
 
     def update_nfs_file_share(
-        self,
-        *,
-        FileShareARN: str,
-        KMSEncrypted: bool = None,
-        KMSKey: str = None,
-        NFSFileShareDefaults: "NFSFileShareDefaultsTypeDef" = None,
-        DefaultStorageClass: str = None,
-        ObjectACL: ObjectACLType = None,
-        ClientList: List[str] = None,
-        Squash: str = None,
-        ReadOnly: bool = None,
-        GuessMIMETypeEnabled: bool = None,
-        RequesterPays: bool = None,
-        FileShareName: str = None,
-        CacheAttributes: "CacheAttributesTypeDef" = None,
-        NotificationPolicy: str = None,
-        AuditDestinationARN: str = None
+        self, **kwargs: Unpack[UpdateNFSFileShareInputTypeDef]
     ) -> UpdateNFSFileShareOutputTypeDef:
         """
         Updates a Network File System (NFS) file share.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Client.update_nfs_file_share)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client.html#update_nfs_file_share)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/update_nfs_file_share.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#update_nfs_file_share)
         """
 
     def update_smb_file_share(
-        self,
-        *,
-        FileShareARN: str,
-        KMSEncrypted: bool = None,
-        KMSKey: str = None,
-        DefaultStorageClass: str = None,
-        ObjectACL: ObjectACLType = None,
-        ReadOnly: bool = None,
-        GuessMIMETypeEnabled: bool = None,
-        RequesterPays: bool = None,
-        SMBACLEnabled: bool = None,
-        AccessBasedEnumeration: bool = None,
-        AdminUserList: List[str] = None,
-        ValidUserList: List[str] = None,
-        InvalidUserList: List[str] = None,
-        AuditDestinationARN: str = None,
-        CaseSensitivity: CaseSensitivityType = None,
-        FileShareName: str = None,
-        CacheAttributes: "CacheAttributesTypeDef" = None,
-        NotificationPolicy: str = None,
-        OplocksEnabled: bool = None
+        self, **kwargs: Unpack[UpdateSMBFileShareInputTypeDef]
     ) -> UpdateSMBFileShareOutputTypeDef:
         """
         Updates a Server Message Block (SMB) file share.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Client.update_smb_file_share)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client.html#update_smb_file_share)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/update_smb_file_share.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#update_smb_file_share)
         """
 
     def update_smb_file_share_visibility(
-        self, *, GatewayARN: str, FileSharesVisible: bool
+        self, **kwargs: Unpack[UpdateSMBFileShareVisibilityInputTypeDef]
     ) -> UpdateSMBFileShareVisibilityOutputTypeDef:
         """
         Controls whether the shares on an S3 File Gateway are visible in a net view or
         browse list.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Client.update_smb_file_share_visibility)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client.html#update_smb_file_share_visibility)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/update_smb_file_share_visibility.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#update_smb_file_share_visibility)
         """
 
     def update_smb_local_groups(
-        self, *, GatewayARN: str, SMBLocalGroups: "SMBLocalGroupsTypeDef"
+        self, **kwargs: Unpack[UpdateSMBLocalGroupsInputTypeDef]
     ) -> UpdateSMBLocalGroupsOutputTypeDef:
         """
         Updates the list of Active Directory users and groups that have special
         permissions for SMB file shares on the gateway.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Client.update_smb_local_groups)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client.html#update_smb_local_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/update_smb_local_groups.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#update_smb_local_groups)
         """
 
     def update_smb_security_strategy(
-        self, *, GatewayARN: str, SMBSecurityStrategy: SMBSecurityStrategyType
+        self, **kwargs: Unpack[UpdateSMBSecurityStrategyInputTypeDef]
     ) -> UpdateSMBSecurityStrategyOutputTypeDef:
         """
         Updates the SMB security strategy level for an Amazon S3 file gateway.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Client.update_smb_security_strategy)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client.html#update_smb_security_strategy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/update_smb_security_strategy.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#update_smb_security_strategy)
         """
 
     def update_snapshot_schedule(
-        self,
-        *,
-        VolumeARN: str,
-        StartAt: int,
-        RecurrenceInHours: int,
-        Description: str = None,
-        Tags: List["TagTypeDef"] = None
+        self, **kwargs: Unpack[UpdateSnapshotScheduleInputTypeDef]
     ) -> UpdateSnapshotScheduleOutputTypeDef:
         """
         Updates a snapshot schedule configured for a gateway volume.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Client.update_snapshot_schedule)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client.html#update_snapshot_schedule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/update_snapshot_schedule.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#update_snapshot_schedule)
         """
 
     def update_vtl_device_type(
-        self, *, VTLDeviceARN: str, DeviceType: str
+        self, **kwargs: Unpack[UpdateVTLDeviceTypeInputTypeDef]
     ) -> UpdateVTLDeviceTypeOutputTypeDef:
         """
         Updates the type of medium changer in a tape gateway.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Client.update_vtl_device_type)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client.html#update_vtl_device_type)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/update_vtl_device_type.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#update_vtl_device_type)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["describe_tape_archives"]
     ) -> DescribeTapeArchivesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Paginator.DescribeTapeArchives)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/paginators.html#describetapearchivespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["describe_tape_recovery_points"]
     ) -> DescribeTapeRecoveryPointsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Paginator.DescribeTapeRecoveryPoints)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/paginators.html#describetaperecoverypointspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["describe_tapes"]) -> DescribeTapesPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["describe_tapes"]
+    ) -> DescribeTapesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Paginator.DescribeTapes)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/paginators.html#describetapespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["describe_vtl_devices"]
     ) -> DescribeVTLDevicesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Paginator.DescribeVTLDevices)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/paginators.html#describevtldevicespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_file_shares"]) -> ListFileSharesPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_cache_reports"]
+    ) -> ListCacheReportsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Paginator.ListFileShares)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/paginators.html#listfilesharespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_file_shares"]
+    ) -> ListFileSharesPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_file_system_associations"]
     ) -> ListFileSystemAssociationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Paginator.ListFileSystemAssociations)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/paginators.html#listfilesystemassociationspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_gateways"]) -> ListGatewaysPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_gateways"]
+    ) -> ListGatewaysPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Paginator.ListGateways)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/paginators.html#listgatewayspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_tags_for_resource"]
     ) -> ListTagsForResourcePaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Paginator.ListTagsForResource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/paginators.html#listtagsforresourcepaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_tape_pools"]) -> ListTapePoolsPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_tape_pools"]
+    ) -> ListTapePoolsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Paginator.ListTapePools)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/paginators.html#listtapepoolspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_tapes"]) -> ListTapesPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_tapes"]
+    ) -> ListTapesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Paginator.ListTapes)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/paginators.html#listtapespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_volumes"]) -> ListVolumesPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_volumes"]
+    ) -> ListVolumesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/storagegateway.html#StorageGateway.Paginator.ListVolumes)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/paginators.html#listvolumespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/client/#get_paginator)
         """

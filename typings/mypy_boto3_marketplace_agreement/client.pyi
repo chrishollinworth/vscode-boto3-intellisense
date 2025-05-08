@@ -1,40 +1,52 @@
 """
-Type annotations for marketplace-agreement service client.
+Type annotations for marketplace-agreement service Client.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_marketplace_agreement/client.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_marketplace_agreement/client/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
-    from mypy_boto3_marketplace_agreement import AgreementServiceClient
+    from boto3.session import Session
+    from mypy_boto3_marketplace_agreement.client import AgreementServiceClient
 
-    client: AgreementServiceClient = boto3.client("marketplace-agreement")
+    session = Session()
+    client: AgreementServiceClient = session.client("marketplace-agreement")
     ```
 """
 
-from typing import Any, Dict, List, Type
+from __future__ import annotations
+
+import sys
+from typing import Any
 
 from botocore.client import BaseClient, ClientMeta
+from botocore.errorfactory import BaseClientExceptions
+from botocore.exceptions import ClientError as BotocoreClientError
 
 from .type_defs import (
+    DescribeAgreementInputTypeDef,
     DescribeAgreementOutputTypeDef,
-    FilterTypeDef,
+    GetAgreementTermsInputTypeDef,
     GetAgreementTermsOutputTypeDef,
+    SearchAgreementsInputTypeDef,
     SearchAgreementsOutputTypeDef,
-    SortTypeDef,
 )
+
+if sys.version_info >= (3, 9):
+    from builtins import type as Type
+    from collections.abc import Mapping
+else:
+    from typing import Mapping, Type
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = ("AgreementServiceClient",)
 
-class BotocoreClientError(BaseException):
-    MSG_TEMPLATE: str
-
-    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
-        self.response: Dict[str, Any]
-        self.operation_name: str
-
-class Exceptions:
+class Exceptions(BaseClientExceptions):
     AccessDeniedException: Type[BotocoreClientError]
     ClientError: Type[BotocoreClientError]
     InternalServerException: Type[BotocoreClientError]
@@ -44,8 +56,8 @@ class Exceptions:
 
 class AgreementServiceClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/marketplace-agreement.html#AgreementService.Client)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_marketplace_agreement/client.html)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/marketplace-agreement.html#AgreementService.Client)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_marketplace_agreement/client/)
     """
 
     meta: ClientMeta
@@ -54,71 +66,58 @@ class AgreementServiceClient(BaseClient):
     def exceptions(self) -> Exceptions:
         """
         AgreementServiceClient exceptions.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/marketplace-agreement.html#AgreementService.Client)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_marketplace_agreement/client/#exceptions)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        Check if an operation can be paginated.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/marketplace-agreement.html#AgreementService.Client.can_paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_marketplace_agreement/client.html#can_paginate)
-        """
-
-    def close(self) -> None:
-        """
-        Closes underlying endpoint connections.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/marketplace-agreement.html#AgreementService.Client.close)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_marketplace_agreement/client.html#close)
-        """
-
-    def describe_agreement(self, *, agreementId: str) -> DescribeAgreementOutputTypeDef:
-        """
-        Provides details about an agreement, such as the proposer, acceptor, start date,
-        and end date.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/marketplace-agreement.html#AgreementService.Client.describe_agreement)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_marketplace_agreement/client.html#describe_agreement)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/marketplace-agreement/client/can_paginate.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_marketplace_agreement/client/#can_paginate)
         """
 
     def generate_presigned_url(
         self,
         ClientMethod: str,
-        Params: Dict[str, Any] = None,
+        Params: Mapping[str, Any] = ...,
         ExpiresIn: int = 3600,
-        HttpMethod: str = None,
+        HttpMethod: str = ...,
     ) -> str:
         """
-        Generate a presigned url given a client, its method, and arguments.
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/marketplace-agreement/client/generate_presigned_url.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_marketplace_agreement/client/#generate_presigned_url)
+        """
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/marketplace-agreement.html#AgreementService.Client.generate_presigned_url)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_marketplace_agreement/client.html#generate_presigned_url)
+    def describe_agreement(
+        self, **kwargs: Unpack[DescribeAgreementInputTypeDef]
+    ) -> DescribeAgreementOutputTypeDef:
+        """
+        Provides details about an agreement, such as the proposer, acceptor, start
+        date, and end date.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/marketplace-agreement/client/describe_agreement.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_marketplace_agreement/client/#describe_agreement)
         """
 
     def get_agreement_terms(
-        self, *, agreementId: str, maxResults: int = None, nextToken: str = None
+        self, **kwargs: Unpack[GetAgreementTermsInputTypeDef]
     ) -> GetAgreementTermsOutputTypeDef:
         """
         Obtains details about the terms in an agreement that you participated in as
         proposer or acceptor.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/marketplace-agreement.html#AgreementService.Client.get_agreement_terms)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_marketplace_agreement/client.html#get_agreement_terms)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/marketplace-agreement/client/get_agreement_terms.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_marketplace_agreement/client/#get_agreement_terms)
         """
 
     def search_agreements(
-        self,
-        *,
-        catalog: str = None,
-        filters: List["FilterTypeDef"] = None,
-        maxResults: int = None,
-        nextToken: str = None,
-        sort: "SortTypeDef" = None
+        self, **kwargs: Unpack[SearchAgreementsInputTypeDef]
     ) -> SearchAgreementsOutputTypeDef:
         """
         Searches across all agreements that a proposer or an acceptor has in AWS
         Marketplace.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/marketplace-agreement.html#AgreementService.Client.search_agreements)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_marketplace_agreement/client.html#search_agreements)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/marketplace-agreement/client/search_agreements.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_marketplace_agreement/client/#search_agreements)
         """

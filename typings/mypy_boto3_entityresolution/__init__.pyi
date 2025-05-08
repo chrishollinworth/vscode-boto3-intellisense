@@ -1,10 +1,14 @@
 """
 Main interface for entityresolution service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_entityresolution/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_entityresolution import (
         Client,
         EntityResolutionClient,
@@ -17,10 +21,8 @@ Usage::
         ListSchemaMappingsPaginator,
     )
 
-    session = boto3.Session()
-
-    client: EntityResolutionClient = boto3.client("entityresolution")
-    session_client: EntityResolutionClient = session.client("entityresolution")
+    session = Session()
+    client: EntityResolutionClient = session.client("entityresolution")
 
     list_id_mapping_jobs_paginator: ListIdMappingJobsPaginator = client.get_paginator("list_id_mapping_jobs")
     list_id_mapping_workflows_paginator: ListIdMappingWorkflowsPaginator = client.get_paginator("list_id_mapping_workflows")

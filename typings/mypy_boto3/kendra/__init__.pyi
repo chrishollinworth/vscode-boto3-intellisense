@@ -1,24 +1,26 @@
 """
 Main interface for kendra service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kendra/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_kendra import (
         Client,
-        kendraClient,
+        KendraClient,
     )
 
-    session = boto3.Session()
-
-    client: kendraClient = boto3.client("kendra")
-    session_client: kendraClient = session.client("kendra")
+    session = Session()
+    client: KendraClient = session.client("kendra")
     ```
 """
 
-from .client import kendraClient
+from .client import KendraClient
 
-Client = kendraClient
+Client = KendraClient
 
-__all__ = ("Client", "kendraClient")
+__all__ = ("Client", "KendraClient")

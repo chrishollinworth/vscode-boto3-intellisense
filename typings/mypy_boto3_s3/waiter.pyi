@@ -1,14 +1,16 @@
 """
 Type annotations for s3 service client waiters.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/waiters.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_s3/waiters/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
 
-    from mypy_boto3_s3 import S3Client
+    from mypy_boto3_s3.client import S3Client
     from mypy_boto3_s3.waiter import (
         BucketExistsWaiter,
         BucketNotExistsWaiter,
@@ -16,7 +18,8 @@ Usage::
         ObjectNotExistsWaiter,
     )
 
-    client: S3Client = boto3.client("s3")
+    session = Session()
+    client: S3Client = session.client("s3")
 
     bucket_exists_waiter: BucketExistsWaiter = client.get_waiter("bucket_exists")
     bucket_not_exists_waiter: BucketNotExistsWaiter = client.get_waiter("bucket_not_exists")
@@ -25,18 +28,23 @@ Usage::
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from datetime import datetime
-from typing import Union
 
-from botocore.waiter import Waiter as Boto3Waiter
+from botocore.waiter import Waiter
 
-from .type_defs import WaiterConfigTypeDef
+from .type_defs import (
+    HeadBucketRequestWaitExtraTypeDef,
+    HeadBucketRequestWaitTypeDef,
+    HeadObjectRequestWaitExtraTypeDef,
+    HeadObjectRequestWaitTypeDef,
+)
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 12):
+    from typing import Unpack
 else:
-    from typing_extensions import Literal
+    from typing_extensions import Unpack
 
 __all__ = (
     "BucketExistsWaiter",
@@ -45,112 +53,54 @@ __all__ = (
     "ObjectNotExistsWaiter",
 )
 
-class BucketExistsWaiter(Boto3Waiter):
+class BucketExistsWaiter(Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.Waiter.BucketExists)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/waiters.html#bucketexistswaiter)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3/waiter/BucketExists.html#S3.Waiter.BucketExists)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_s3/waiters/#bucketexistswaiter)
     """
-
-    def wait(
-        self,
-        *,
-        Bucket: str,
-        ExpectedBucketOwner: str = None,
-        WaiterConfig: WaiterConfigTypeDef = None
+    def wait(  # type: ignore[override]
+        self, **kwargs: Unpack[HeadBucketRequestWaitTypeDef]
     ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.Waiter.BucketExists.wait)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/waiters.html#bucketexistswaiter)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3/waiter/BucketExists.html#S3.Waiter.BucketExists.wait)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_s3/waiters/#bucketexistswaiter)
         """
 
-class BucketNotExistsWaiter(Boto3Waiter):
+class BucketNotExistsWaiter(Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.Waiter.BucketNotExists)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/waiters.html#bucketnotexistswaiter)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3/waiter/BucketNotExists.html#S3.Waiter.BucketNotExists)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_s3/waiters/#bucketnotexistswaiter)
     """
-
-    def wait(
-        self,
-        *,
-        Bucket: str,
-        ExpectedBucketOwner: str = None,
-        WaiterConfig: WaiterConfigTypeDef = None
+    def wait(  # type: ignore[override]
+        self, **kwargs: Unpack[HeadBucketRequestWaitExtraTypeDef]
     ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.Waiter.BucketNotExists.wait)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/waiters.html#bucketnotexistswaiter)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3/waiter/BucketNotExists.html#S3.Waiter.BucketNotExists.wait)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_s3/waiters/#bucketnotexistswaiter)
         """
 
-class ObjectExistsWaiter(Boto3Waiter):
+class ObjectExistsWaiter(Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.Waiter.ObjectExists)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/waiters.html#objectexistswaiter)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3/waiter/ObjectExists.html#S3.Waiter.ObjectExists)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_s3/waiters/#objectexistswaiter)
     """
-
-    def wait(
-        self,
-        *,
-        Bucket: str,
-        Key: str,
-        IfMatch: str = None,
-        IfModifiedSince: Union[datetime, str] = None,
-        IfNoneMatch: str = None,
-        IfUnmodifiedSince: Union[datetime, str] = None,
-        Range: str = None,
-        ResponseCacheControl: str = None,
-        ResponseContentDisposition: str = None,
-        ResponseContentEncoding: str = None,
-        ResponseContentLanguage: str = None,
-        ResponseContentType: str = None,
-        ResponseExpires: Union[datetime, str] = None,
-        VersionId: str = None,
-        SSECustomerAlgorithm: str = None,
-        SSECustomerKey: str = None,
-        SSECustomerKeyMD5: str = None,
-        RequestPayer: Literal["requester"] = None,
-        PartNumber: int = None,
-        ExpectedBucketOwner: str = None,
-        ChecksumMode: Literal["ENABLED"] = None,
-        WaiterConfig: WaiterConfigTypeDef = None
+    def wait(  # type: ignore[override]
+        self, **kwargs: Unpack[HeadObjectRequestWaitTypeDef]
     ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.Waiter.ObjectExists.wait)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/waiters.html#objectexistswaiter)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3/waiter/ObjectExists.html#S3.Waiter.ObjectExists.wait)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_s3/waiters/#objectexistswaiter)
         """
 
-class ObjectNotExistsWaiter(Boto3Waiter):
+class ObjectNotExistsWaiter(Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.Waiter.ObjectNotExists)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/waiters.html#objectnotexistswaiter)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3/waiter/ObjectNotExists.html#S3.Waiter.ObjectNotExists)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_s3/waiters/#objectnotexistswaiter)
     """
-
-    def wait(
-        self,
-        *,
-        Bucket: str,
-        Key: str,
-        IfMatch: str = None,
-        IfModifiedSince: Union[datetime, str] = None,
-        IfNoneMatch: str = None,
-        IfUnmodifiedSince: Union[datetime, str] = None,
-        Range: str = None,
-        ResponseCacheControl: str = None,
-        ResponseContentDisposition: str = None,
-        ResponseContentEncoding: str = None,
-        ResponseContentLanguage: str = None,
-        ResponseContentType: str = None,
-        ResponseExpires: Union[datetime, str] = None,
-        VersionId: str = None,
-        SSECustomerAlgorithm: str = None,
-        SSECustomerKey: str = None,
-        SSECustomerKeyMD5: str = None,
-        RequestPayer: Literal["requester"] = None,
-        PartNumber: int = None,
-        ExpectedBucketOwner: str = None,
-        ChecksumMode: Literal["ENABLED"] = None,
-        WaiterConfig: WaiterConfigTypeDef = None
+    def wait(  # type: ignore[override]
+        self, **kwargs: Unpack[HeadObjectRequestWaitExtraTypeDef]
     ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3.html#S3.Waiter.ObjectNotExists.wait)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/waiters.html#objectnotexistswaiter)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3/waiter/ObjectNotExists.html#S3.Waiter.ObjectNotExists.wait)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_s3/waiters/#objectnotexistswaiter)
         """

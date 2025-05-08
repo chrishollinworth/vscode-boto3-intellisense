@@ -1,45 +1,57 @@
 """
 Type annotations for connectcampaigns service client paginators.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connectcampaigns/paginators.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connectcampaigns/paginators/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
 
-    from mypy_boto3_connectcampaigns import ConnectCampaignServiceClient
+    from mypy_boto3_connectcampaigns.client import ConnectCampaignServiceClient
     from mypy_boto3_connectcampaigns.paginator import (
         ListCampaignsPaginator,
     )
 
-    client: ConnectCampaignServiceClient = boto3.client("connectcampaigns")
+    session = Session()
+    client: ConnectCampaignServiceClient = session.client("connectcampaigns")
 
     list_campaigns_paginator: ListCampaignsPaginator = client.get_paginator("list_campaigns")
     ```
 """
 
-from typing import Iterator
+from __future__ import annotations
 
-from botocore.paginate import Paginator as Boto3Paginator
+import sys
+from typing import TYPE_CHECKING
 
-from .type_defs import CampaignFiltersTypeDef, ListCampaignsResponseTypeDef, PaginatorConfigTypeDef
+from botocore.paginate import PageIterator, Paginator
+
+from .type_defs import ListCampaignsRequestPaginateTypeDef, ListCampaignsResponseTypeDef
+
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = ("ListCampaignsPaginator",)
 
-class ListCampaignsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connectcampaigns.html#ConnectCampaignService.Paginator.ListCampaigns)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connectcampaigns/paginators.html#listcampaignspaginator)
-    """
+if TYPE_CHECKING:
+    _ListCampaignsPaginatorBase = Paginator[ListCampaignsResponseTypeDef]
+else:
+    _ListCampaignsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        filters: "CampaignFiltersTypeDef" = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListCampaignsResponseTypeDef]:
+class ListCampaignsPaginator(_ListCampaignsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connectcampaigns/paginator/ListCampaigns.html#ConnectCampaignService.Paginator.ListCampaigns)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connectcampaigns/paginators/#listcampaignspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListCampaignsRequestPaginateTypeDef]
+    ) -> PageIterator[ListCampaignsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connectcampaigns.html#ConnectCampaignService.Paginator.ListCampaigns.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connectcampaigns/paginators.html#listcampaignspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connectcampaigns/paginator/ListCampaigns.html#ConnectCampaignService.Paginator.ListCampaigns.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connectcampaigns/paginators/#listcampaignspaginator)
         """

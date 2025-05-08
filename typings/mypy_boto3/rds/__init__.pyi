@@ -1,10 +1,14 @@
 """
 Main interface for rds service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_rds/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_rds import (
         Client,
         DBClusterAvailableWaiter,
@@ -61,10 +65,8 @@ Usage::
         TenantDatabaseDeletedWaiter,
     )
 
-    session = boto3.Session()
-
-    client: RDSClient = boto3.client("rds")
-    session_client: RDSClient = session.client("rds")
+    session = Session()
+    client: RDSClient = session.client("rds")
 
     db_cluster_available_waiter: DBClusterAvailableWaiter = client.get_waiter("db_cluster_available")
     db_cluster_deleted_waiter: DBClusterDeletedWaiter = client.get_waiter("db_cluster_deleted")
@@ -113,8 +115,8 @@ Usage::
     describe_option_groups_paginator: DescribeOptionGroupsPaginator = client.get_paginator("describe_option_groups")
     describe_orderable_db_instance_options_paginator: DescribeOrderableDBInstanceOptionsPaginator = client.get_paginator("describe_orderable_db_instance_options")
     describe_pending_maintenance_actions_paginator: DescribePendingMaintenanceActionsPaginator = client.get_paginator("describe_pending_maintenance_actions")
-    describe_reserved_db_instances_paginator: DescribeReservedDBInstancesPaginator = client.get_paginator("describe_reserved_db_instances")
     describe_reserved_db_instances_offerings_paginator: DescribeReservedDBInstancesOfferingsPaginator = client.get_paginator("describe_reserved_db_instances_offerings")
+    describe_reserved_db_instances_paginator: DescribeReservedDBInstancesPaginator = client.get_paginator("describe_reserved_db_instances")
     describe_source_regions_paginator: DescribeSourceRegionsPaginator = client.get_paginator("describe_source_regions")
     describe_tenant_databases_paginator: DescribeTenantDatabasesPaginator = client.get_paginator("describe_tenant_databases")
     download_db_log_file_portion_paginator: DownloadDBLogFilePortionPaginator = client.get_paginator("download_db_log_file_portion")

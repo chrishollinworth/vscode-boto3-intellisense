@@ -1,10 +1,14 @@
 """
 Main interface for voice-id service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_voice_id/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_voice_id import (
         Client,
         ListDomainsPaginator,
@@ -16,10 +20,8 @@ Usage::
         VoiceIDClient,
     )
 
-    session = boto3.Session()
-
-    client: VoiceIDClient = boto3.client("voice-id")
-    session_client: VoiceIDClient = session.client("voice-id")
+    session = Session()
+    client: VoiceIDClient = session.client("voice-id")
 
     list_domains_paginator: ListDomainsPaginator = client.get_paginator("list_domains")
     list_fraudster_registration_jobs_paginator: ListFraudsterRegistrationJobsPaginator = client.get_paginator("list_fraudster_registration_jobs")

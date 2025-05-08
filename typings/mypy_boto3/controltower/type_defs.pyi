@@ -1,20 +1,24 @@
 """
 Type annotations for controltower service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controltower/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_controltower/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_controltower.type_defs import BaselineOperationTypeDef
 
-    data: BaselineOperationTypeDef = {...}
+    data: BaselineOperationTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
+from typing import Any
 
 from .literals import (
     BaselineOperationStatusType,
@@ -29,10 +33,16 @@ from .literals import (
     LandingZoneStatusType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
     "BaselineOperationTypeDef",
@@ -40,18 +50,18 @@ __all__ = (
     "ControlOperationFilterTypeDef",
     "ControlOperationSummaryTypeDef",
     "ControlOperationTypeDef",
-    "CreateLandingZoneInputRequestTypeDef",
+    "CreateLandingZoneInputTypeDef",
     "CreateLandingZoneOutputTypeDef",
-    "DeleteLandingZoneInputRequestTypeDef",
+    "DeleteLandingZoneInputTypeDef",
     "DeleteLandingZoneOutputTypeDef",
-    "DisableBaselineInputRequestTypeDef",
+    "DisableBaselineInputTypeDef",
     "DisableBaselineOutputTypeDef",
-    "DisableControlInputRequestTypeDef",
+    "DisableControlInputTypeDef",
     "DisableControlOutputTypeDef",
     "DriftStatusSummaryTypeDef",
-    "EnableBaselineInputRequestTypeDef",
+    "EnableBaselineInputTypeDef",
     "EnableBaselineOutputTypeDef",
-    "EnableControlInputRequestTypeDef",
+    "EnableControlInputTypeDef",
     "EnableControlOutputTypeDef",
     "EnabledBaselineDetailsTypeDef",
     "EnabledBaselineFilterTypeDef",
@@ -64,18 +74,18 @@ __all__ = (
     "EnabledControlParameterTypeDef",
     "EnabledControlSummaryTypeDef",
     "EnablementStatusSummaryTypeDef",
-    "GetBaselineInputRequestTypeDef",
-    "GetBaselineOperationInputRequestTypeDef",
+    "GetBaselineInputTypeDef",
+    "GetBaselineOperationInputTypeDef",
     "GetBaselineOperationOutputTypeDef",
     "GetBaselineOutputTypeDef",
-    "GetControlOperationInputRequestTypeDef",
+    "GetControlOperationInputTypeDef",
     "GetControlOperationOutputTypeDef",
-    "GetEnabledBaselineInputRequestTypeDef",
+    "GetEnabledBaselineInputTypeDef",
     "GetEnabledBaselineOutputTypeDef",
-    "GetEnabledControlInputRequestTypeDef",
+    "GetEnabledControlInputTypeDef",
     "GetEnabledControlOutputTypeDef",
-    "GetLandingZoneInputRequestTypeDef",
-    "GetLandingZoneOperationInputRequestTypeDef",
+    "GetLandingZoneInputTypeDef",
+    "GetLandingZoneOperationInputTypeDef",
     "GetLandingZoneOperationOutputTypeDef",
     "GetLandingZoneOutputTypeDef",
     "LandingZoneDetailTypeDef",
@@ -84,826 +94,480 @@ __all__ = (
     "LandingZoneOperationFilterTypeDef",
     "LandingZoneOperationSummaryTypeDef",
     "LandingZoneSummaryTypeDef",
-    "ListBaselinesInputRequestTypeDef",
+    "ListBaselinesInputPaginateTypeDef",
+    "ListBaselinesInputTypeDef",
     "ListBaselinesOutputTypeDef",
-    "ListControlOperationsInputRequestTypeDef",
+    "ListControlOperationsInputPaginateTypeDef",
+    "ListControlOperationsInputTypeDef",
     "ListControlOperationsOutputTypeDef",
-    "ListEnabledBaselinesInputRequestTypeDef",
+    "ListEnabledBaselinesInputPaginateTypeDef",
+    "ListEnabledBaselinesInputTypeDef",
     "ListEnabledBaselinesOutputTypeDef",
-    "ListEnabledControlsInputRequestTypeDef",
+    "ListEnabledControlsInputPaginateTypeDef",
+    "ListEnabledControlsInputTypeDef",
     "ListEnabledControlsOutputTypeDef",
-    "ListLandingZoneOperationsInputRequestTypeDef",
+    "ListLandingZoneOperationsInputPaginateTypeDef",
+    "ListLandingZoneOperationsInputTypeDef",
     "ListLandingZoneOperationsOutputTypeDef",
-    "ListLandingZonesInputRequestTypeDef",
+    "ListLandingZonesInputPaginateTypeDef",
+    "ListLandingZonesInputTypeDef",
     "ListLandingZonesOutputTypeDef",
-    "ListTagsForResourceInputRequestTypeDef",
+    "ListTagsForResourceInputTypeDef",
     "ListTagsForResourceOutputTypeDef",
     "PaginatorConfigTypeDef",
     "RegionTypeDef",
-    "ResetEnabledBaselineInputRequestTypeDef",
+    "ResetEnabledBaselineInputTypeDef",
     "ResetEnabledBaselineOutputTypeDef",
-    "ResetLandingZoneInputRequestTypeDef",
+    "ResetEnabledControlInputTypeDef",
+    "ResetEnabledControlOutputTypeDef",
+    "ResetLandingZoneInputTypeDef",
     "ResetLandingZoneOutputTypeDef",
     "ResponseMetadataTypeDef",
-    "TagResourceInputRequestTypeDef",
-    "UntagResourceInputRequestTypeDef",
-    "UpdateEnabledBaselineInputRequestTypeDef",
+    "TagResourceInputTypeDef",
+    "UntagResourceInputTypeDef",
+    "UpdateEnabledBaselineInputTypeDef",
     "UpdateEnabledBaselineOutputTypeDef",
-    "UpdateEnabledControlInputRequestTypeDef",
+    "UpdateEnabledControlInputTypeDef",
     "UpdateEnabledControlOutputTypeDef",
-    "UpdateLandingZoneInputRequestTypeDef",
+    "UpdateLandingZoneInputTypeDef",
     "UpdateLandingZoneOutputTypeDef",
 )
 
-BaselineOperationTypeDef = TypedDict(
-    "BaselineOperationTypeDef",
-    {
-        "endTime": datetime,
-        "operationIdentifier": str,
-        "operationType": BaselineOperationTypeType,
-        "startTime": datetime,
-        "status": BaselineOperationStatusType,
-        "statusMessage": str,
-    },
-    total=False,
-)
+class BaselineOperationTypeDef(TypedDict):
+    endTime: NotRequired[datetime]
+    operationIdentifier: NotRequired[str]
+    operationType: NotRequired[BaselineOperationTypeType]
+    startTime: NotRequired[datetime]
+    status: NotRequired[BaselineOperationStatusType]
+    statusMessage: NotRequired[str]
 
-_RequiredBaselineSummaryTypeDef = TypedDict(
-    "_RequiredBaselineSummaryTypeDef",
-    {
-        "arn": str,
-        "name": str,
-    },
-)
-_OptionalBaselineSummaryTypeDef = TypedDict(
-    "_OptionalBaselineSummaryTypeDef",
-    {
-        "description": str,
-    },
-    total=False,
-)
+class BaselineSummaryTypeDef(TypedDict):
+    arn: str
+    name: str
+    description: NotRequired[str]
 
-class BaselineSummaryTypeDef(_RequiredBaselineSummaryTypeDef, _OptionalBaselineSummaryTypeDef):
-    pass
+class ControlOperationFilterTypeDef(TypedDict):
+    controlIdentifiers: NotRequired[Sequence[str]]
+    controlOperationTypes: NotRequired[Sequence[ControlOperationTypeType]]
+    enabledControlIdentifiers: NotRequired[Sequence[str]]
+    statuses: NotRequired[Sequence[ControlOperationStatusType]]
+    targetIdentifiers: NotRequired[Sequence[str]]
 
-ControlOperationFilterTypeDef = TypedDict(
-    "ControlOperationFilterTypeDef",
-    {
-        "controlIdentifiers": List[str],
-        "controlOperationTypes": List[ControlOperationTypeType],
-        "enabledControlIdentifiers": List[str],
-        "statuses": List[ControlOperationStatusType],
-        "targetIdentifiers": List[str],
-    },
-    total=False,
-)
+class ControlOperationSummaryTypeDef(TypedDict):
+    controlIdentifier: NotRequired[str]
+    enabledControlIdentifier: NotRequired[str]
+    endTime: NotRequired[datetime]
+    operationIdentifier: NotRequired[str]
+    operationType: NotRequired[ControlOperationTypeType]
+    startTime: NotRequired[datetime]
+    status: NotRequired[ControlOperationStatusType]
+    statusMessage: NotRequired[str]
+    targetIdentifier: NotRequired[str]
 
-ControlOperationSummaryTypeDef = TypedDict(
-    "ControlOperationSummaryTypeDef",
-    {
-        "controlIdentifier": str,
-        "enabledControlIdentifier": str,
-        "endTime": datetime,
-        "operationIdentifier": str,
-        "operationType": ControlOperationTypeType,
-        "startTime": datetime,
-        "status": ControlOperationStatusType,
-        "statusMessage": str,
-        "targetIdentifier": str,
-    },
-    total=False,
-)
+class ControlOperationTypeDef(TypedDict):
+    controlIdentifier: NotRequired[str]
+    enabledControlIdentifier: NotRequired[str]
+    endTime: NotRequired[datetime]
+    operationIdentifier: NotRequired[str]
+    operationType: NotRequired[ControlOperationTypeType]
+    startTime: NotRequired[datetime]
+    status: NotRequired[ControlOperationStatusType]
+    statusMessage: NotRequired[str]
+    targetIdentifier: NotRequired[str]
 
-ControlOperationTypeDef = TypedDict(
-    "ControlOperationTypeDef",
-    {
-        "controlIdentifier": str,
-        "enabledControlIdentifier": str,
-        "endTime": datetime,
-        "operationIdentifier": str,
-        "operationType": ControlOperationTypeType,
-        "startTime": datetime,
-        "status": ControlOperationStatusType,
-        "statusMessage": str,
-        "targetIdentifier": str,
-    },
-    total=False,
-)
+class CreateLandingZoneInputTypeDef(TypedDict):
+    manifest: Mapping[str, Any]
+    version: str
+    tags: NotRequired[Mapping[str, str]]
 
-_RequiredCreateLandingZoneInputRequestTypeDef = TypedDict(
-    "_RequiredCreateLandingZoneInputRequestTypeDef",
-    {
-        "manifest": Dict[str, Any],
-        "version": str,
-    },
-)
-_OptionalCreateLandingZoneInputRequestTypeDef = TypedDict(
-    "_OptionalCreateLandingZoneInputRequestTypeDef",
-    {
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-class CreateLandingZoneInputRequestTypeDef(
-    _RequiredCreateLandingZoneInputRequestTypeDef, _OptionalCreateLandingZoneInputRequestTypeDef
-):
-    pass
+class DeleteLandingZoneInputTypeDef(TypedDict):
+    landingZoneIdentifier: str
 
-CreateLandingZoneOutputTypeDef = TypedDict(
-    "CreateLandingZoneOutputTypeDef",
-    {
-        "arn": str,
-        "operationIdentifier": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DisableBaselineInputTypeDef(TypedDict):
+    enabledBaselineIdentifier: str
 
-DeleteLandingZoneInputRequestTypeDef = TypedDict(
-    "DeleteLandingZoneInputRequestTypeDef",
-    {
-        "landingZoneIdentifier": str,
-    },
-)
+class DisableControlInputTypeDef(TypedDict):
+    controlIdentifier: str
+    targetIdentifier: str
 
-DeleteLandingZoneOutputTypeDef = TypedDict(
-    "DeleteLandingZoneOutputTypeDef",
-    {
-        "operationIdentifier": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DriftStatusSummaryTypeDef(TypedDict):
+    driftStatus: NotRequired[DriftStatusType]
 
-DisableBaselineInputRequestTypeDef = TypedDict(
-    "DisableBaselineInputRequestTypeDef",
-    {
-        "enabledBaselineIdentifier": str,
-    },
-)
+class EnabledBaselineParameterTypeDef(TypedDict):
+    key: str
+    value: Mapping[str, Any]
 
-DisableBaselineOutputTypeDef = TypedDict(
-    "DisableBaselineOutputTypeDef",
-    {
-        "operationIdentifier": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class EnabledControlParameterTypeDef(TypedDict):
+    key: str
+    value: Mapping[str, Any]
 
-DisableControlInputRequestTypeDef = TypedDict(
-    "DisableControlInputRequestTypeDef",
-    {
-        "controlIdentifier": str,
-        "targetIdentifier": str,
-    },
-)
+class EnabledBaselineParameterSummaryTypeDef(TypedDict):
+    key: str
+    value: Dict[str, Any]
 
-DisableControlOutputTypeDef = TypedDict(
-    "DisableControlOutputTypeDef",
-    {
-        "operationIdentifier": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class EnablementStatusSummaryTypeDef(TypedDict):
+    lastOperationIdentifier: NotRequired[str]
+    status: NotRequired[EnablementStatusType]
 
-DriftStatusSummaryTypeDef = TypedDict(
-    "DriftStatusSummaryTypeDef",
-    {
-        "driftStatus": DriftStatusType,
-    },
-    total=False,
-)
+class EnabledBaselineFilterTypeDef(TypedDict):
+    baselineIdentifiers: NotRequired[Sequence[str]]
+    parentIdentifiers: NotRequired[Sequence[str]]
+    targetIdentifiers: NotRequired[Sequence[str]]
 
-_RequiredEnableBaselineInputRequestTypeDef = TypedDict(
-    "_RequiredEnableBaselineInputRequestTypeDef",
-    {
-        "baselineIdentifier": str,
-        "baselineVersion": str,
-        "targetIdentifier": str,
-    },
-)
-_OptionalEnableBaselineInputRequestTypeDef = TypedDict(
-    "_OptionalEnableBaselineInputRequestTypeDef",
-    {
-        "parameters": List["EnabledBaselineParameterTypeDef"],
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
+class EnabledControlParameterSummaryTypeDef(TypedDict):
+    key: str
+    value: Dict[str, Any]
 
-class EnableBaselineInputRequestTypeDef(
-    _RequiredEnableBaselineInputRequestTypeDef, _OptionalEnableBaselineInputRequestTypeDef
-):
-    pass
+class RegionTypeDef(TypedDict):
+    name: NotRequired[str]
 
-EnableBaselineOutputTypeDef = TypedDict(
-    "EnableBaselineOutputTypeDef",
-    {
-        "arn": str,
-        "operationIdentifier": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class EnabledControlFilterTypeDef(TypedDict):
+    controlIdentifiers: NotRequired[Sequence[str]]
+    driftStatuses: NotRequired[Sequence[DriftStatusType]]
+    statuses: NotRequired[Sequence[EnablementStatusType]]
 
-_RequiredEnableControlInputRequestTypeDef = TypedDict(
-    "_RequiredEnableControlInputRequestTypeDef",
-    {
-        "controlIdentifier": str,
-        "targetIdentifier": str,
-    },
-)
-_OptionalEnableControlInputRequestTypeDef = TypedDict(
-    "_OptionalEnableControlInputRequestTypeDef",
-    {
-        "parameters": List["EnabledControlParameterTypeDef"],
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
+class GetBaselineInputTypeDef(TypedDict):
+    baselineIdentifier: str
 
-class EnableControlInputRequestTypeDef(
-    _RequiredEnableControlInputRequestTypeDef, _OptionalEnableControlInputRequestTypeDef
-):
-    pass
+class GetBaselineOperationInputTypeDef(TypedDict):
+    operationIdentifier: str
 
-EnableControlOutputTypeDef = TypedDict(
-    "EnableControlOutputTypeDef",
-    {
-        "arn": str,
-        "operationIdentifier": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetControlOperationInputTypeDef(TypedDict):
+    operationIdentifier: str
 
-_RequiredEnabledBaselineDetailsTypeDef = TypedDict(
-    "_RequiredEnabledBaselineDetailsTypeDef",
-    {
-        "arn": str,
-        "baselineIdentifier": str,
-        "statusSummary": "EnablementStatusSummaryTypeDef",
-        "targetIdentifier": str,
-    },
-)
-_OptionalEnabledBaselineDetailsTypeDef = TypedDict(
-    "_OptionalEnabledBaselineDetailsTypeDef",
-    {
-        "baselineVersion": str,
-        "parameters": List["EnabledBaselineParameterSummaryTypeDef"],
-    },
-    total=False,
-)
+class GetEnabledBaselineInputTypeDef(TypedDict):
+    enabledBaselineIdentifier: str
 
-class EnabledBaselineDetailsTypeDef(
-    _RequiredEnabledBaselineDetailsTypeDef, _OptionalEnabledBaselineDetailsTypeDef
-):
-    pass
+class GetEnabledControlInputTypeDef(TypedDict):
+    enabledControlIdentifier: str
 
-EnabledBaselineFilterTypeDef = TypedDict(
-    "EnabledBaselineFilterTypeDef",
-    {
-        "baselineIdentifiers": List[str],
-        "targetIdentifiers": List[str],
-    },
-    total=False,
-)
+class GetLandingZoneInputTypeDef(TypedDict):
+    landingZoneIdentifier: str
 
-EnabledBaselineParameterSummaryTypeDef = TypedDict(
-    "EnabledBaselineParameterSummaryTypeDef",
-    {
-        "key": str,
-        "value": Dict[str, Any],
-    },
-)
+class GetLandingZoneOperationInputTypeDef(TypedDict):
+    operationIdentifier: str
 
-EnabledBaselineParameterTypeDef = TypedDict(
-    "EnabledBaselineParameterTypeDef",
-    {
-        "key": str,
-        "value": Dict[str, Any],
-    },
-)
+class LandingZoneOperationDetailTypeDef(TypedDict):
+    endTime: NotRequired[datetime]
+    operationIdentifier: NotRequired[str]
+    operationType: NotRequired[LandingZoneOperationTypeType]
+    startTime: NotRequired[datetime]
+    status: NotRequired[LandingZoneOperationStatusType]
+    statusMessage: NotRequired[str]
 
-_RequiredEnabledBaselineSummaryTypeDef = TypedDict(
-    "_RequiredEnabledBaselineSummaryTypeDef",
-    {
-        "arn": str,
-        "baselineIdentifier": str,
-        "statusSummary": "EnablementStatusSummaryTypeDef",
-        "targetIdentifier": str,
-    },
-)
-_OptionalEnabledBaselineSummaryTypeDef = TypedDict(
-    "_OptionalEnabledBaselineSummaryTypeDef",
-    {
-        "baselineVersion": str,
-    },
-    total=False,
-)
-
-class EnabledBaselineSummaryTypeDef(
-    _RequiredEnabledBaselineSummaryTypeDef, _OptionalEnabledBaselineSummaryTypeDef
-):
-    pass
-
-EnabledControlDetailsTypeDef = TypedDict(
-    "EnabledControlDetailsTypeDef",
-    {
-        "arn": str,
-        "controlIdentifier": str,
-        "driftStatusSummary": "DriftStatusSummaryTypeDef",
-        "parameters": List["EnabledControlParameterSummaryTypeDef"],
-        "statusSummary": "EnablementStatusSummaryTypeDef",
-        "targetIdentifier": str,
-        "targetRegions": List["RegionTypeDef"],
-    },
-    total=False,
-)
-
-EnabledControlFilterTypeDef = TypedDict(
-    "EnabledControlFilterTypeDef",
-    {
-        "controlIdentifiers": List[str],
-        "driftStatuses": List[DriftStatusType],
-        "statuses": List[EnablementStatusType],
-    },
-    total=False,
-)
-
-EnabledControlParameterSummaryTypeDef = TypedDict(
-    "EnabledControlParameterSummaryTypeDef",
-    {
-        "key": str,
-        "value": Dict[str, Any],
-    },
-)
-
-EnabledControlParameterTypeDef = TypedDict(
-    "EnabledControlParameterTypeDef",
-    {
-        "key": str,
-        "value": Dict[str, Any],
-    },
-)
-
-EnabledControlSummaryTypeDef = TypedDict(
-    "EnabledControlSummaryTypeDef",
-    {
-        "arn": str,
-        "controlIdentifier": str,
-        "driftStatusSummary": "DriftStatusSummaryTypeDef",
-        "statusSummary": "EnablementStatusSummaryTypeDef",
-        "targetIdentifier": str,
-    },
-    total=False,
-)
-
-EnablementStatusSummaryTypeDef = TypedDict(
-    "EnablementStatusSummaryTypeDef",
-    {
-        "lastOperationIdentifier": str,
-        "status": EnablementStatusType,
-    },
-    total=False,
-)
-
-GetBaselineInputRequestTypeDef = TypedDict(
-    "GetBaselineInputRequestTypeDef",
-    {
-        "baselineIdentifier": str,
-    },
-)
-
-GetBaselineOperationInputRequestTypeDef = TypedDict(
-    "GetBaselineOperationInputRequestTypeDef",
-    {
-        "operationIdentifier": str,
-    },
-)
-
-GetBaselineOperationOutputTypeDef = TypedDict(
-    "GetBaselineOperationOutputTypeDef",
-    {
-        "baselineOperation": "BaselineOperationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetBaselineOutputTypeDef = TypedDict(
-    "GetBaselineOutputTypeDef",
-    {
-        "arn": str,
-        "description": str,
-        "name": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetControlOperationInputRequestTypeDef = TypedDict(
-    "GetControlOperationInputRequestTypeDef",
-    {
-        "operationIdentifier": str,
-    },
-)
-
-GetControlOperationOutputTypeDef = TypedDict(
-    "GetControlOperationOutputTypeDef",
-    {
-        "controlOperation": "ControlOperationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetEnabledBaselineInputRequestTypeDef = TypedDict(
-    "GetEnabledBaselineInputRequestTypeDef",
-    {
-        "enabledBaselineIdentifier": str,
-    },
-)
-
-GetEnabledBaselineOutputTypeDef = TypedDict(
-    "GetEnabledBaselineOutputTypeDef",
-    {
-        "enabledBaselineDetails": "EnabledBaselineDetailsTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetEnabledControlInputRequestTypeDef = TypedDict(
-    "GetEnabledControlInputRequestTypeDef",
-    {
-        "enabledControlIdentifier": str,
-    },
-)
-
-GetEnabledControlOutputTypeDef = TypedDict(
-    "GetEnabledControlOutputTypeDef",
-    {
-        "enabledControlDetails": "EnabledControlDetailsTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetLandingZoneInputRequestTypeDef = TypedDict(
-    "GetLandingZoneInputRequestTypeDef",
-    {
-        "landingZoneIdentifier": str,
-    },
-)
-
-GetLandingZoneOperationInputRequestTypeDef = TypedDict(
-    "GetLandingZoneOperationInputRequestTypeDef",
-    {
-        "operationIdentifier": str,
-    },
-)
-
-GetLandingZoneOperationOutputTypeDef = TypedDict(
-    "GetLandingZoneOperationOutputTypeDef",
-    {
-        "operationDetails": "LandingZoneOperationDetailTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetLandingZoneOutputTypeDef = TypedDict(
-    "GetLandingZoneOutputTypeDef",
-    {
-        "landingZone": "LandingZoneDetailTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredLandingZoneDetailTypeDef = TypedDict(
-    "_RequiredLandingZoneDetailTypeDef",
-    {
-        "manifest": Dict[str, Any],
-        "version": str,
-    },
-)
-_OptionalLandingZoneDetailTypeDef = TypedDict(
-    "_OptionalLandingZoneDetailTypeDef",
-    {
-        "arn": str,
-        "driftStatus": "LandingZoneDriftStatusSummaryTypeDef",
-        "latestAvailableVersion": str,
-        "status": LandingZoneStatusType,
-    },
-    total=False,
-)
-
-class LandingZoneDetailTypeDef(
-    _RequiredLandingZoneDetailTypeDef, _OptionalLandingZoneDetailTypeDef
-):
-    pass
-
-LandingZoneDriftStatusSummaryTypeDef = TypedDict(
-    "LandingZoneDriftStatusSummaryTypeDef",
-    {
-        "status": LandingZoneDriftStatusType,
-    },
-    total=False,
-)
-
-LandingZoneOperationDetailTypeDef = TypedDict(
-    "LandingZoneOperationDetailTypeDef",
-    {
-        "endTime": datetime,
-        "operationIdentifier": str,
-        "operationType": LandingZoneOperationTypeType,
-        "startTime": datetime,
-        "status": LandingZoneOperationStatusType,
-        "statusMessage": str,
-    },
-    total=False,
-)
+class LandingZoneDriftStatusSummaryTypeDef(TypedDict):
+    status: NotRequired[LandingZoneDriftStatusType]
 
 LandingZoneOperationFilterTypeDef = TypedDict(
     "LandingZoneOperationFilterTypeDef",
     {
-        "statuses": List[LandingZoneOperationStatusType],
-        "types": List[LandingZoneOperationTypeType],
-    },
-    total=False,
-)
-
-LandingZoneOperationSummaryTypeDef = TypedDict(
-    "LandingZoneOperationSummaryTypeDef",
-    {
-        "operationIdentifier": str,
-        "operationType": LandingZoneOperationTypeType,
-        "status": LandingZoneOperationStatusType,
-    },
-    total=False,
-)
-
-LandingZoneSummaryTypeDef = TypedDict(
-    "LandingZoneSummaryTypeDef",
-    {
-        "arn": str,
-    },
-    total=False,
-)
-
-ListBaselinesInputRequestTypeDef = TypedDict(
-    "ListBaselinesInputRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-ListBaselinesOutputTypeDef = TypedDict(
-    "ListBaselinesOutputTypeDef",
-    {
-        "baselines": List["BaselineSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "statuses": NotRequired[Sequence[LandingZoneOperationStatusType]],
+        "types": NotRequired[Sequence[LandingZoneOperationTypeType]],
     },
 )
 
-ListControlOperationsInputRequestTypeDef = TypedDict(
-    "ListControlOperationsInputRequestTypeDef",
-    {
-        "filter": "ControlOperationFilterTypeDef",
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
+class LandingZoneOperationSummaryTypeDef(TypedDict):
+    operationIdentifier: NotRequired[str]
+    operationType: NotRequired[LandingZoneOperationTypeType]
+    status: NotRequired[LandingZoneOperationStatusType]
 
-ListControlOperationsOutputTypeDef = TypedDict(
-    "ListControlOperationsOutputTypeDef",
-    {
-        "controlOperations": List["ControlOperationSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class LandingZoneSummaryTypeDef(TypedDict):
+    arn: NotRequired[str]
 
-ListEnabledBaselinesInputRequestTypeDef = TypedDict(
-    "ListEnabledBaselinesInputRequestTypeDef",
-    {
-        "filter": "EnabledBaselineFilterTypeDef",
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
 
-ListEnabledBaselinesOutputTypeDef = TypedDict(
-    "ListEnabledBaselinesOutputTypeDef",
-    {
-        "enabledBaselines": List["EnabledBaselineSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListBaselinesInputTypeDef(TypedDict):
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
 
-ListEnabledControlsInputRequestTypeDef = TypedDict(
-    "ListEnabledControlsInputRequestTypeDef",
-    {
-        "filter": "EnabledControlFilterTypeDef",
-        "maxResults": int,
-        "nextToken": str,
-        "targetIdentifier": str,
-    },
-    total=False,
-)
+class ListLandingZonesInputTypeDef(TypedDict):
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
 
-ListEnabledControlsOutputTypeDef = TypedDict(
-    "ListEnabledControlsOutputTypeDef",
+class ListTagsForResourceInputTypeDef(TypedDict):
+    resourceArn: str
+
+class ResetEnabledBaselineInputTypeDef(TypedDict):
+    enabledBaselineIdentifier: str
+
+class ResetEnabledControlInputTypeDef(TypedDict):
+    enabledControlIdentifier: str
+
+class ResetLandingZoneInputTypeDef(TypedDict):
+    landingZoneIdentifier: str
+
+class TagResourceInputTypeDef(TypedDict):
+    resourceArn: str
+    tags: Mapping[str, str]
+
+class UntagResourceInputTypeDef(TypedDict):
+    resourceArn: str
+    tagKeys: Sequence[str]
+
+class UpdateLandingZoneInputTypeDef(TypedDict):
+    landingZoneIdentifier: str
+    manifest: Mapping[str, Any]
+    version: str
+
+ListControlOperationsInputTypeDef = TypedDict(
+    "ListControlOperationsInputTypeDef",
     {
-        "enabledControls": List["EnabledControlSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "filter": NotRequired[ControlOperationFilterTypeDef],
+        "maxResults": NotRequired[int],
+        "nextToken": NotRequired[str],
     },
 )
 
-ListLandingZoneOperationsInputRequestTypeDef = TypedDict(
-    "ListLandingZoneOperationsInputRequestTypeDef",
-    {
-        "filter": "LandingZoneOperationFilterTypeDef",
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
+class CreateLandingZoneOutputTypeDef(TypedDict):
+    arn: str
+    operationIdentifier: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ListLandingZoneOperationsOutputTypeDef = TypedDict(
-    "ListLandingZoneOperationsOutputTypeDef",
-    {
-        "landingZoneOperations": List["LandingZoneOperationSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DeleteLandingZoneOutputTypeDef(TypedDict):
+    operationIdentifier: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ListLandingZonesInputRequestTypeDef = TypedDict(
-    "ListLandingZonesInputRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
+class DisableBaselineOutputTypeDef(TypedDict):
+    operationIdentifier: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ListLandingZonesOutputTypeDef = TypedDict(
-    "ListLandingZonesOutputTypeDef",
-    {
-        "landingZones": List["LandingZoneSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DisableControlOutputTypeDef(TypedDict):
+    operationIdentifier: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ListTagsForResourceInputRequestTypeDef = TypedDict(
-    "ListTagsForResourceInputRequestTypeDef",
-    {
-        "resourceArn": str,
-    },
-)
+class EnableBaselineOutputTypeDef(TypedDict):
+    arn: str
+    operationIdentifier: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ListTagsForResourceOutputTypeDef = TypedDict(
-    "ListTagsForResourceOutputTypeDef",
-    {
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class EnableControlOutputTypeDef(TypedDict):
+    arn: str
+    operationIdentifier: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
+class GetBaselineOperationOutputTypeDef(TypedDict):
+    baselineOperation: BaselineOperationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-RegionTypeDef = TypedDict(
-    "RegionTypeDef",
-    {
-        "name": str,
-    },
-    total=False,
-)
+class GetBaselineOutputTypeDef(TypedDict):
+    arn: str
+    description: str
+    name: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ResetEnabledBaselineInputRequestTypeDef = TypedDict(
-    "ResetEnabledBaselineInputRequestTypeDef",
-    {
-        "enabledBaselineIdentifier": str,
-    },
-)
+class GetControlOperationOutputTypeDef(TypedDict):
+    controlOperation: ControlOperationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ResetEnabledBaselineOutputTypeDef = TypedDict(
-    "ResetEnabledBaselineOutputTypeDef",
-    {
-        "operationIdentifier": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListBaselinesOutputTypeDef(TypedDict):
+    baselines: List[BaselineSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-ResetLandingZoneInputRequestTypeDef = TypedDict(
-    "ResetLandingZoneInputRequestTypeDef",
-    {
-        "landingZoneIdentifier": str,
-    },
-)
+class ListControlOperationsOutputTypeDef(TypedDict):
+    controlOperations: List[ControlOperationSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-ResetLandingZoneOutputTypeDef = TypedDict(
-    "ResetLandingZoneOutputTypeDef",
-    {
-        "operationIdentifier": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListTagsForResourceOutputTypeDef(TypedDict):
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
+class ResetEnabledBaselineOutputTypeDef(TypedDict):
+    operationIdentifier: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-TagResourceInputRequestTypeDef = TypedDict(
-    "TagResourceInputRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tags": Dict[str, str],
-    },
-)
+class ResetEnabledControlOutputTypeDef(TypedDict):
+    operationIdentifier: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-UntagResourceInputRequestTypeDef = TypedDict(
-    "UntagResourceInputRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tagKeys": List[str],
-    },
-)
+class ResetLandingZoneOutputTypeDef(TypedDict):
+    operationIdentifier: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredUpdateEnabledBaselineInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateEnabledBaselineInputRequestTypeDef",
-    {
-        "baselineVersion": str,
-        "enabledBaselineIdentifier": str,
-    },
-)
-_OptionalUpdateEnabledBaselineInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateEnabledBaselineInputRequestTypeDef",
-    {
-        "parameters": List["EnabledBaselineParameterTypeDef"],
-    },
-    total=False,
-)
+class UpdateEnabledBaselineOutputTypeDef(TypedDict):
+    operationIdentifier: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateEnabledBaselineInputRequestTypeDef(
-    _RequiredUpdateEnabledBaselineInputRequestTypeDef,
-    _OptionalUpdateEnabledBaselineInputRequestTypeDef,
-):
-    pass
+class UpdateEnabledControlOutputTypeDef(TypedDict):
+    operationIdentifier: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-UpdateEnabledBaselineOutputTypeDef = TypedDict(
-    "UpdateEnabledBaselineOutputTypeDef",
+class UpdateLandingZoneOutputTypeDef(TypedDict):
+    operationIdentifier: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class EnableBaselineInputTypeDef(TypedDict):
+    baselineIdentifier: str
+    baselineVersion: str
+    targetIdentifier: str
+    parameters: NotRequired[Sequence[EnabledBaselineParameterTypeDef]]
+    tags: NotRequired[Mapping[str, str]]
+
+class UpdateEnabledBaselineInputTypeDef(TypedDict):
+    baselineVersion: str
+    enabledBaselineIdentifier: str
+    parameters: NotRequired[Sequence[EnabledBaselineParameterTypeDef]]
+
+class EnableControlInputTypeDef(TypedDict):
+    controlIdentifier: str
+    targetIdentifier: str
+    parameters: NotRequired[Sequence[EnabledControlParameterTypeDef]]
+    tags: NotRequired[Mapping[str, str]]
+
+class UpdateEnabledControlInputTypeDef(TypedDict):
+    enabledControlIdentifier: str
+    parameters: Sequence[EnabledControlParameterTypeDef]
+
+class EnabledBaselineDetailsTypeDef(TypedDict):
+    arn: str
+    baselineIdentifier: str
+    statusSummary: EnablementStatusSummaryTypeDef
+    targetIdentifier: str
+    baselineVersion: NotRequired[str]
+    parameters: NotRequired[List[EnabledBaselineParameterSummaryTypeDef]]
+    parentIdentifier: NotRequired[str]
+
+class EnabledBaselineSummaryTypeDef(TypedDict):
+    arn: str
+    baselineIdentifier: str
+    statusSummary: EnablementStatusSummaryTypeDef
+    targetIdentifier: str
+    baselineVersion: NotRequired[str]
+    parentIdentifier: NotRequired[str]
+
+class EnabledControlSummaryTypeDef(TypedDict):
+    arn: NotRequired[str]
+    controlIdentifier: NotRequired[str]
+    driftStatusSummary: NotRequired[DriftStatusSummaryTypeDef]
+    statusSummary: NotRequired[EnablementStatusSummaryTypeDef]
+    targetIdentifier: NotRequired[str]
+
+ListEnabledBaselinesInputTypeDef = TypedDict(
+    "ListEnabledBaselinesInputTypeDef",
     {
-        "operationIdentifier": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "filter": NotRequired[EnabledBaselineFilterTypeDef],
+        "includeChildren": NotRequired[bool],
+        "maxResults": NotRequired[int],
+        "nextToken": NotRequired[str],
     },
 )
 
-UpdateEnabledControlInputRequestTypeDef = TypedDict(
-    "UpdateEnabledControlInputRequestTypeDef",
+class EnabledControlDetailsTypeDef(TypedDict):
+    arn: NotRequired[str]
+    controlIdentifier: NotRequired[str]
+    driftStatusSummary: NotRequired[DriftStatusSummaryTypeDef]
+    parameters: NotRequired[List[EnabledControlParameterSummaryTypeDef]]
+    statusSummary: NotRequired[EnablementStatusSummaryTypeDef]
+    targetIdentifier: NotRequired[str]
+    targetRegions: NotRequired[List[RegionTypeDef]]
+
+ListEnabledControlsInputTypeDef = TypedDict(
+    "ListEnabledControlsInputTypeDef",
     {
-        "enabledControlIdentifier": str,
-        "parameters": List["EnabledControlParameterTypeDef"],
+        "filter": NotRequired[EnabledControlFilterTypeDef],
+        "maxResults": NotRequired[int],
+        "nextToken": NotRequired[str],
+        "targetIdentifier": NotRequired[str],
     },
 )
 
-UpdateEnabledControlOutputTypeDef = TypedDict(
-    "UpdateEnabledControlOutputTypeDef",
+class GetLandingZoneOperationOutputTypeDef(TypedDict):
+    operationDetails: LandingZoneOperationDetailTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class LandingZoneDetailTypeDef(TypedDict):
+    manifest: Dict[str, Any]
+    version: str
+    arn: NotRequired[str]
+    driftStatus: NotRequired[LandingZoneDriftStatusSummaryTypeDef]
+    latestAvailableVersion: NotRequired[str]
+    status: NotRequired[LandingZoneStatusType]
+
+ListLandingZoneOperationsInputTypeDef = TypedDict(
+    "ListLandingZoneOperationsInputTypeDef",
     {
-        "operationIdentifier": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "filter": NotRequired[LandingZoneOperationFilterTypeDef],
+        "maxResults": NotRequired[int],
+        "nextToken": NotRequired[str],
     },
 )
 
-UpdateLandingZoneInputRequestTypeDef = TypedDict(
-    "UpdateLandingZoneInputRequestTypeDef",
+class ListLandingZoneOperationsOutputTypeDef(TypedDict):
+    landingZoneOperations: List[LandingZoneOperationSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListLandingZonesOutputTypeDef(TypedDict):
+    landingZones: List[LandingZoneSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListBaselinesInputPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+ListControlOperationsInputPaginateTypeDef = TypedDict(
+    "ListControlOperationsInputPaginateTypeDef",
     {
-        "landingZoneIdentifier": str,
-        "manifest": Dict[str, Any],
-        "version": str,
+        "filter": NotRequired[ControlOperationFilterTypeDef],
+        "PaginationConfig": NotRequired[PaginatorConfigTypeDef],
+    },
+)
+ListEnabledBaselinesInputPaginateTypeDef = TypedDict(
+    "ListEnabledBaselinesInputPaginateTypeDef",
+    {
+        "filter": NotRequired[EnabledBaselineFilterTypeDef],
+        "includeChildren": NotRequired[bool],
+        "PaginationConfig": NotRequired[PaginatorConfigTypeDef],
+    },
+)
+ListEnabledControlsInputPaginateTypeDef = TypedDict(
+    "ListEnabledControlsInputPaginateTypeDef",
+    {
+        "filter": NotRequired[EnabledControlFilterTypeDef],
+        "targetIdentifier": NotRequired[str],
+        "PaginationConfig": NotRequired[PaginatorConfigTypeDef],
+    },
+)
+ListLandingZoneOperationsInputPaginateTypeDef = TypedDict(
+    "ListLandingZoneOperationsInputPaginateTypeDef",
+    {
+        "filter": NotRequired[LandingZoneOperationFilterTypeDef],
+        "PaginationConfig": NotRequired[PaginatorConfigTypeDef],
     },
 )
 
-UpdateLandingZoneOutputTypeDef = TypedDict(
-    "UpdateLandingZoneOutputTypeDef",
-    {
-        "operationIdentifier": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListLandingZonesInputPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class GetEnabledBaselineOutputTypeDef(TypedDict):
+    enabledBaselineDetails: EnabledBaselineDetailsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListEnabledBaselinesOutputTypeDef(TypedDict):
+    enabledBaselines: List[EnabledBaselineSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListEnabledControlsOutputTypeDef(TypedDict):
+    enabledControls: List[EnabledControlSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class GetEnabledControlOutputTypeDef(TypedDict):
+    enabledControlDetails: EnabledControlDetailsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetLandingZoneOutputTypeDef(TypedDict):
+    landingZone: LandingZoneDetailTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef

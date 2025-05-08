@@ -1,24 +1,31 @@
 """
 Type annotations for dataexchange service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dataexchange/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dataexchange/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_dataexchange.type_defs import ActionTypeDef
+    from mypy_boto3_dataexchange.type_defs import AcceptDataGrantRequestTypeDef
 
-    data: ActionTypeDef = {...}
+    data: AcceptDataGrantRequestTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List, Union
+from typing import Union
 
 from .literals import (
+    AcceptanceStateFilterValueType,
     AssetTypeType,
     CodeType,
+    DataGrantAcceptanceStateType,
+    GrantDistributionScopeType,
     JobErrorLimitNameType,
     JobErrorResourceTypesType,
     LFPermissionType,
@@ -32,16 +39,20 @@ from .literals import (
     TypeType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
+    "AcceptDataGrantRequestTypeDef",
+    "AcceptDataGrantResponseTypeDef",
     "ActionTypeDef",
     "ApiGatewayApiAssetTypeDef",
     "AssetDestinationEntryTypeDef",
@@ -50,27 +61,34 @@ __all__ = (
     "AssetSourceEntryTypeDef",
     "AutoExportRevisionDestinationEntryTypeDef",
     "AutoExportRevisionToS3RequestDetailsTypeDef",
-    "CancelJobRequestRequestTypeDef",
-    "CreateDataSetRequestRequestTypeDef",
+    "CancelJobRequestTypeDef",
+    "CreateDataGrantRequestTypeDef",
+    "CreateDataGrantResponseTypeDef",
+    "CreateDataSetRequestTypeDef",
     "CreateDataSetResponseTypeDef",
-    "CreateEventActionRequestRequestTypeDef",
+    "CreateEventActionRequestTypeDef",
     "CreateEventActionResponseTypeDef",
-    "CreateJobRequestRequestTypeDef",
+    "CreateJobRequestTypeDef",
     "CreateJobResponseTypeDef",
-    "CreateRevisionRequestRequestTypeDef",
+    "CreateRevisionRequestTypeDef",
     "CreateRevisionResponseTypeDef",
     "CreateS3DataAccessFromS3BucketRequestDetailsTypeDef",
     "CreateS3DataAccessFromS3BucketResponseDetailsTypeDef",
+    "DataGrantSummaryEntryTypeDef",
     "DataSetEntryTypeDef",
     "DataUpdateRequestDetailsTypeDef",
+    "DatabaseLFTagPolicyAndPermissionsOutputTypeDef",
     "DatabaseLFTagPolicyAndPermissionsTypeDef",
+    "DatabaseLFTagPolicyAndPermissionsUnionTypeDef",
     "DatabaseLFTagPolicyTypeDef",
-    "DeleteAssetRequestRequestTypeDef",
-    "DeleteDataSetRequestRequestTypeDef",
-    "DeleteEventActionRequestRequestTypeDef",
-    "DeleteRevisionRequestRequestTypeDef",
+    "DeleteAssetRequestTypeDef",
+    "DeleteDataGrantRequestTypeDef",
+    "DeleteDataSetRequestTypeDef",
+    "DeleteEventActionRequestTypeDef",
+    "DeleteRevisionRequestTypeDef",
     "DeprecationRequestDetailsTypeDef",
     "DetailsTypeDef",
+    "EmptyResponseMetadataTypeDef",
     "EventActionEntryTypeDef",
     "EventTypeDef",
     "ExportAssetToSignedUrlRequestDetailsTypeDef",
@@ -80,15 +98,19 @@ __all__ = (
     "ExportRevisionsToS3RequestDetailsTypeDef",
     "ExportRevisionsToS3ResponseDetailsTypeDef",
     "ExportServerSideEncryptionTypeDef",
-    "GetAssetRequestRequestTypeDef",
+    "GetAssetRequestTypeDef",
     "GetAssetResponseTypeDef",
-    "GetDataSetRequestRequestTypeDef",
+    "GetDataGrantRequestTypeDef",
+    "GetDataGrantResponseTypeDef",
+    "GetDataSetRequestTypeDef",
     "GetDataSetResponseTypeDef",
-    "GetEventActionRequestRequestTypeDef",
+    "GetEventActionRequestTypeDef",
     "GetEventActionResponseTypeDef",
-    "GetJobRequestRequestTypeDef",
+    "GetJobRequestTypeDef",
     "GetJobResponseTypeDef",
-    "GetRevisionRequestRequestTypeDef",
+    "GetReceivedDataGrantRequestTypeDef",
+    "GetReceivedDataGrantResponseTypeDef",
+    "GetRevisionRequestTypeDef",
     "GetRevisionResponseTypeDef",
     "ImportAssetFromApiGatewayApiRequestDetailsTypeDef",
     "ImportAssetFromApiGatewayApiResponseDetailsTypeDef",
@@ -105,26 +127,40 @@ __all__ = (
     "JobErrorTypeDef",
     "KmsKeyToGrantTypeDef",
     "LFResourceDetailsTypeDef",
+    "LFTagOutputTypeDef",
     "LFTagPolicyDetailsTypeDef",
     "LFTagTypeDef",
+    "LFTagUnionTypeDef",
     "LakeFormationDataPermissionAssetTypeDef",
     "LakeFormationDataPermissionDetailsTypeDef",
     "LakeFormationTagPolicyDetailsTypeDef",
-    "ListDataSetRevisionsRequestRequestTypeDef",
+    "ListDataGrantsRequestPaginateTypeDef",
+    "ListDataGrantsRequestTypeDef",
+    "ListDataGrantsResponseTypeDef",
+    "ListDataSetRevisionsRequestPaginateTypeDef",
+    "ListDataSetRevisionsRequestTypeDef",
     "ListDataSetRevisionsResponseTypeDef",
-    "ListDataSetsRequestRequestTypeDef",
+    "ListDataSetsRequestPaginateTypeDef",
+    "ListDataSetsRequestTypeDef",
     "ListDataSetsResponseTypeDef",
-    "ListEventActionsRequestRequestTypeDef",
+    "ListEventActionsRequestPaginateTypeDef",
+    "ListEventActionsRequestTypeDef",
     "ListEventActionsResponseTypeDef",
-    "ListJobsRequestRequestTypeDef",
+    "ListJobsRequestPaginateTypeDef",
+    "ListJobsRequestTypeDef",
     "ListJobsResponseTypeDef",
-    "ListRevisionAssetsRequestRequestTypeDef",
+    "ListReceivedDataGrantsRequestPaginateTypeDef",
+    "ListReceivedDataGrantsRequestTypeDef",
+    "ListReceivedDataGrantsResponseTypeDef",
+    "ListRevisionAssetsRequestPaginateTypeDef",
+    "ListRevisionAssetsRequestTypeDef",
     "ListRevisionAssetsResponseTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "NotificationDetailsTypeDef",
     "OriginDetailsTypeDef",
     "PaginatorConfigTypeDef",
+    "ReceivedDataGrantSummariesEntryTypeDef",
     "RedshiftDataShareAssetSourceEntryTypeDef",
     "RedshiftDataShareAssetTypeDef",
     "RedshiftDataShareDetailsTypeDef",
@@ -134,1636 +170,1005 @@ __all__ = (
     "RevisionDestinationEntryTypeDef",
     "RevisionEntryTypeDef",
     "RevisionPublishedTypeDef",
-    "RevokeRevisionRequestRequestTypeDef",
+    "RevokeRevisionRequestTypeDef",
     "RevokeRevisionResponseTypeDef",
+    "S3DataAccessAssetSourceEntryOutputTypeDef",
     "S3DataAccessAssetSourceEntryTypeDef",
+    "S3DataAccessAssetSourceEntryUnionTypeDef",
     "S3DataAccessAssetTypeDef",
     "S3DataAccessDetailsTypeDef",
     "S3SnapshotAssetTypeDef",
     "SchemaChangeDetailsTypeDef",
     "SchemaChangeRequestDetailsTypeDef",
     "ScopeDetailsTypeDef",
-    "SendApiAssetRequestRequestTypeDef",
+    "SendApiAssetRequestTypeDef",
     "SendApiAssetResponseTypeDef",
-    "SendDataSetNotificationRequestRequestTypeDef",
-    "StartJobRequestRequestTypeDef",
+    "SendDataSetNotificationRequestTypeDef",
+    "StartJobRequestTypeDef",
+    "TableLFTagPolicyAndPermissionsOutputTypeDef",
     "TableLFTagPolicyAndPermissionsTypeDef",
+    "TableLFTagPolicyAndPermissionsUnionTypeDef",
     "TableLFTagPolicyTypeDef",
-    "TagResourceRequestRequestTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateAssetRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
+    "TimestampTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateAssetRequestTypeDef",
     "UpdateAssetResponseTypeDef",
-    "UpdateDataSetRequestRequestTypeDef",
+    "UpdateDataSetRequestTypeDef",
     "UpdateDataSetResponseTypeDef",
-    "UpdateEventActionRequestRequestTypeDef",
+    "UpdateEventActionRequestTypeDef",
     "UpdateEventActionResponseTypeDef",
-    "UpdateRevisionRequestRequestTypeDef",
+    "UpdateRevisionRequestTypeDef",
     "UpdateRevisionResponseTypeDef",
 )
 
-ActionTypeDef = TypedDict(
-    "ActionTypeDef",
+class AcceptDataGrantRequestTypeDef(TypedDict):
+    DataGrantArn: str
+
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
+
+class ApiGatewayApiAssetTypeDef(TypedDict):
+    ApiDescription: NotRequired[str]
+    ApiEndpoint: NotRequired[str]
+    ApiId: NotRequired[str]
+    ApiKey: NotRequired[str]
+    ApiName: NotRequired[str]
+    ApiSpecificationDownloadUrl: NotRequired[str]
+    ApiSpecificationDownloadUrlExpiresAt: NotRequired[datetime]
+    ProtocolType: NotRequired[Literal["REST"]]
+    Stage: NotRequired[str]
+
+class AssetDestinationEntryTypeDef(TypedDict):
+    AssetId: str
+    Bucket: str
+    Key: NotRequired[str]
+
+class RedshiftDataShareAssetTypeDef(TypedDict):
+    Arn: str
+
+class S3SnapshotAssetTypeDef(TypedDict):
+    Size: float
+
+class AssetSourceEntryTypeDef(TypedDict):
+    Bucket: str
+    Key: str
+
+class AutoExportRevisionDestinationEntryTypeDef(TypedDict):
+    Bucket: str
+    KeyPattern: NotRequired[str]
+
+ExportServerSideEncryptionTypeDef = TypedDict(
+    "ExportServerSideEncryptionTypeDef",
     {
-        "ExportRevisionToS3": "AutoExportRevisionToS3RequestDetailsTypeDef",
+        "Type": ServerSideEncryptionTypesType,
+        "KmsKeyArn": NotRequired[str],
     },
-    total=False,
 )
 
-ApiGatewayApiAssetTypeDef = TypedDict(
-    "ApiGatewayApiAssetTypeDef",
+class CancelJobRequestTypeDef(TypedDict):
+    JobId: str
+
+TimestampTypeDef = Union[datetime, str]
+
+class CreateDataSetRequestTypeDef(TypedDict):
+    AssetType: AssetTypeType
+    Description: str
+    Name: str
+    Tags: NotRequired[Mapping[str, str]]
+
+class OriginDetailsTypeDef(TypedDict):
+    ProductId: NotRequired[str]
+    DataGrantId: NotRequired[str]
+
+class CreateRevisionRequestTypeDef(TypedDict):
+    DataSetId: str
+    Comment: NotRequired[str]
+    Tags: NotRequired[Mapping[str, str]]
+
+class DataGrantSummaryEntryTypeDef(TypedDict):
+    Name: str
+    SenderPrincipal: str
+    ReceiverPrincipal: str
+    AcceptanceState: DataGrantAcceptanceStateType
+    DataSetId: str
+    SourceDataSetId: str
+    Id: str
+    Arn: str
+    CreatedAt: datetime
+    UpdatedAt: datetime
+    AcceptedAt: NotRequired[datetime]
+    EndsAt: NotRequired[datetime]
+
+class LFTagOutputTypeDef(TypedDict):
+    TagKey: str
+    TagValues: List[str]
+
+class LFTagTypeDef(TypedDict):
+    TagKey: str
+    TagValues: Sequence[str]
+
+class DeleteAssetRequestTypeDef(TypedDict):
+    AssetId: str
+    DataSetId: str
+    RevisionId: str
+
+class DeleteDataGrantRequestTypeDef(TypedDict):
+    DataGrantId: str
+
+class DeleteDataSetRequestTypeDef(TypedDict):
+    DataSetId: str
+
+class DeleteEventActionRequestTypeDef(TypedDict):
+    EventActionId: str
+
+class DeleteRevisionRequestTypeDef(TypedDict):
+    DataSetId: str
+    RevisionId: str
+
+class ImportAssetFromSignedUrlJobErrorDetailsTypeDef(TypedDict):
+    AssetName: str
+
+class RevisionPublishedTypeDef(TypedDict):
+    DataSetId: str
+
+class ExportAssetToSignedUrlRequestDetailsTypeDef(TypedDict):
+    AssetId: str
+    DataSetId: str
+    RevisionId: str
+
+class ExportAssetToSignedUrlResponseDetailsTypeDef(TypedDict):
+    AssetId: str
+    DataSetId: str
+    RevisionId: str
+    SignedUrl: NotRequired[str]
+    SignedUrlExpiresAt: NotRequired[datetime]
+
+class RevisionDestinationEntryTypeDef(TypedDict):
+    Bucket: str
+    RevisionId: str
+    KeyPattern: NotRequired[str]
+
+class GetAssetRequestTypeDef(TypedDict):
+    AssetId: str
+    DataSetId: str
+    RevisionId: str
+
+class GetDataGrantRequestTypeDef(TypedDict):
+    DataGrantId: str
+
+class GetDataSetRequestTypeDef(TypedDict):
+    DataSetId: str
+
+class GetEventActionRequestTypeDef(TypedDict):
+    EventActionId: str
+
+class GetJobRequestTypeDef(TypedDict):
+    JobId: str
+
+class GetReceivedDataGrantRequestTypeDef(TypedDict):
+    DataGrantArn: str
+
+class GetRevisionRequestTypeDef(TypedDict):
+    DataSetId: str
+    RevisionId: str
+
+class ImportAssetFromApiGatewayApiRequestDetailsTypeDef(TypedDict):
+    ApiId: str
+    ApiName: str
+    ApiSpecificationMd5Hash: str
+    DataSetId: str
+    ProtocolType: Literal["REST"]
+    RevisionId: str
+    Stage: str
+    ApiDescription: NotRequired[str]
+    ApiKey: NotRequired[str]
+
+class ImportAssetFromApiGatewayApiResponseDetailsTypeDef(TypedDict):
+    ApiId: str
+    ApiName: str
+    ApiSpecificationMd5Hash: str
+    ApiSpecificationUploadUrl: str
+    ApiSpecificationUploadUrlExpiresAt: datetime
+    DataSetId: str
+    ProtocolType: Literal["REST"]
+    RevisionId: str
+    Stage: str
+    ApiDescription: NotRequired[str]
+    ApiKey: NotRequired[str]
+
+class ImportAssetFromSignedUrlRequestDetailsTypeDef(TypedDict):
+    AssetName: str
+    DataSetId: str
+    Md5Hash: str
+    RevisionId: str
+
+class ImportAssetFromSignedUrlResponseDetailsTypeDef(TypedDict):
+    AssetName: str
+    DataSetId: str
+    RevisionId: str
+    Md5Hash: NotRequired[str]
+    SignedUrl: NotRequired[str]
+    SignedUrlExpiresAt: NotRequired[datetime]
+
+class RedshiftDataShareAssetSourceEntryTypeDef(TypedDict):
+    DataShareArn: str
+
+class KmsKeyToGrantTypeDef(TypedDict):
+    KmsKeyArn: str
+
+class LakeFormationTagPolicyDetailsTypeDef(TypedDict):
+    Database: NotRequired[str]
+    Table: NotRequired[str]
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class ListDataGrantsRequestTypeDef(TypedDict):
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListDataSetRevisionsRequestTypeDef(TypedDict):
+    DataSetId: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class RevisionEntryTypeDef(TypedDict):
+    Arn: str
+    CreatedAt: datetime
+    DataSetId: str
+    Id: str
+    UpdatedAt: datetime
+    Comment: NotRequired[str]
+    Finalized: NotRequired[bool]
+    SourceId: NotRequired[str]
+    RevocationComment: NotRequired[str]
+    Revoked: NotRequired[bool]
+    RevokedAt: NotRequired[datetime]
+
+class ListDataSetsRequestTypeDef(TypedDict):
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+    Origin: NotRequired[str]
+
+class ListEventActionsRequestTypeDef(TypedDict):
+    EventSourceId: NotRequired[str]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListJobsRequestTypeDef(TypedDict):
+    DataSetId: NotRequired[str]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+    RevisionId: NotRequired[str]
+
+class ListReceivedDataGrantsRequestTypeDef(TypedDict):
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+    AcceptanceState: NotRequired[Sequence[AcceptanceStateFilterValueType]]
+
+class ReceivedDataGrantSummariesEntryTypeDef(TypedDict):
+    Name: str
+    SenderPrincipal: str
+    ReceiverPrincipal: str
+    AcceptanceState: DataGrantAcceptanceStateType
+    DataSetId: str
+    Id: str
+    Arn: str
+    CreatedAt: datetime
+    UpdatedAt: datetime
+    AcceptedAt: NotRequired[datetime]
+    EndsAt: NotRequired[datetime]
+
+class ListRevisionAssetsRequestTypeDef(TypedDict):
+    DataSetId: str
+    RevisionId: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+
+class RedshiftDataShareDetailsTypeDef(TypedDict):
+    Arn: str
+    Database: str
+    Function: NotRequired[str]
+    Table: NotRequired[str]
+    Schema: NotRequired[str]
+    View: NotRequired[str]
+
+class RevokeRevisionRequestTypeDef(TypedDict):
+    DataSetId: str
+    RevisionId: str
+    RevocationComment: str
+
+class S3DataAccessDetailsTypeDef(TypedDict):
+    KeyPrefixes: NotRequired[Sequence[str]]
+    Keys: NotRequired[Sequence[str]]
+
+SchemaChangeDetailsTypeDef = TypedDict(
+    "SchemaChangeDetailsTypeDef",
     {
-        "ApiDescription": str,
-        "ApiEndpoint": str,
-        "ApiId": str,
-        "ApiKey": str,
-        "ApiName": str,
-        "ApiSpecificationDownloadUrl": str,
-        "ApiSpecificationDownloadUrlExpiresAt": datetime,
-        "ProtocolType": Literal["REST"],
-        "Stage": str,
+        "Name": str,
+        "Type": SchemaChangeTypeType,
+        "Description": NotRequired[str],
     },
-    total=False,
 )
 
-_RequiredAssetDestinationEntryTypeDef = TypedDict(
-    "_RequiredAssetDestinationEntryTypeDef",
-    {
-        "AssetId": str,
-        "Bucket": str,
-    },
-)
-_OptionalAssetDestinationEntryTypeDef = TypedDict(
-    "_OptionalAssetDestinationEntryTypeDef",
-    {
-        "Key": str,
-    },
-    total=False,
-)
+class SendApiAssetRequestTypeDef(TypedDict):
+    AssetId: str
+    DataSetId: str
+    RevisionId: str
+    Body: NotRequired[str]
+    QueryStringParameters: NotRequired[Mapping[str, str]]
+    RequestHeaders: NotRequired[Mapping[str, str]]
+    Method: NotRequired[str]
+    Path: NotRequired[str]
 
-class AssetDestinationEntryTypeDef(
-    _RequiredAssetDestinationEntryTypeDef, _OptionalAssetDestinationEntryTypeDef
-):
-    pass
+class StartJobRequestTypeDef(TypedDict):
+    JobId: str
 
-AssetDetailsTypeDef = TypedDict(
-    "AssetDetailsTypeDef",
-    {
-        "S3SnapshotAsset": "S3SnapshotAssetTypeDef",
-        "RedshiftDataShareAsset": "RedshiftDataShareAssetTypeDef",
-        "ApiGatewayApiAsset": "ApiGatewayApiAssetTypeDef",
-        "S3DataAccessAsset": "S3DataAccessAssetTypeDef",
-        "LakeFormationDataPermissionAsset": "LakeFormationDataPermissionAssetTypeDef",
-    },
-    total=False,
-)
+class TagResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+    Tags: Mapping[str, str]
 
-_RequiredAssetEntryTypeDef = TypedDict(
-    "_RequiredAssetEntryTypeDef",
+class UntagResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+    TagKeys: Sequence[str]
+
+class UpdateAssetRequestTypeDef(TypedDict):
+    AssetId: str
+    DataSetId: str
+    Name: str
+    RevisionId: str
+
+class UpdateDataSetRequestTypeDef(TypedDict):
+    DataSetId: str
+    Description: NotRequired[str]
+    Name: NotRequired[str]
+
+class UpdateRevisionRequestTypeDef(TypedDict):
+    DataSetId: str
+    RevisionId: str
+    Comment: NotRequired[str]
+    Finalized: NotRequired[bool]
+
+class AcceptDataGrantResponseTypeDef(TypedDict):
+    Name: str
+    SenderPrincipal: str
+    ReceiverPrincipal: str
+    Description: str
+    AcceptanceState: DataGrantAcceptanceStateType
+    AcceptedAt: datetime
+    EndsAt: datetime
+    GrantDistributionScope: GrantDistributionScopeType
+    DataSetId: str
+    Id: str
+    Arn: str
+    CreatedAt: datetime
+    UpdatedAt: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateDataGrantResponseTypeDef(TypedDict):
+    Name: str
+    SenderPrincipal: str
+    ReceiverPrincipal: str
+    Description: str
+    AcceptanceState: DataGrantAcceptanceStateType
+    AcceptedAt: datetime
+    EndsAt: datetime
+    GrantDistributionScope: GrantDistributionScopeType
+    DataSetId: str
+    SourceDataSetId: str
+    Id: str
+    Arn: str
+    CreatedAt: datetime
+    UpdatedAt: datetime
+    Tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateRevisionResponseTypeDef(TypedDict):
+    Arn: str
+    Comment: str
+    CreatedAt: datetime
+    DataSetId: str
+    Finalized: bool
+    Id: str
+    SourceId: str
+    Tags: Dict[str, str]
+    UpdatedAt: datetime
+    RevocationComment: str
+    Revoked: bool
+    RevokedAt: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class EmptyResponseMetadataTypeDef(TypedDict):
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetDataGrantResponseTypeDef(TypedDict):
+    Name: str
+    SenderPrincipal: str
+    ReceiverPrincipal: str
+    Description: str
+    AcceptanceState: DataGrantAcceptanceStateType
+    AcceptedAt: datetime
+    EndsAt: datetime
+    GrantDistributionScope: GrantDistributionScopeType
+    DataSetId: str
+    SourceDataSetId: str
+    Id: str
+    Arn: str
+    CreatedAt: datetime
+    UpdatedAt: datetime
+    Tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetReceivedDataGrantResponseTypeDef(TypedDict):
+    Name: str
+    SenderPrincipal: str
+    ReceiverPrincipal: str
+    Description: str
+    AcceptanceState: DataGrantAcceptanceStateType
+    AcceptedAt: datetime
+    EndsAt: datetime
+    GrantDistributionScope: GrantDistributionScopeType
+    DataSetId: str
+    Id: str
+    Arn: str
+    CreatedAt: datetime
+    UpdatedAt: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetRevisionResponseTypeDef(TypedDict):
+    Arn: str
+    Comment: str
+    CreatedAt: datetime
+    DataSetId: str
+    Finalized: bool
+    Id: str
+    SourceId: str
+    Tags: Dict[str, str]
+    UpdatedAt: datetime
+    RevocationComment: str
+    Revoked: bool
+    RevokedAt: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    Tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class RevokeRevisionResponseTypeDef(TypedDict):
+    Arn: str
+    Comment: str
+    CreatedAt: datetime
+    DataSetId: str
+    Finalized: bool
+    Id: str
+    SourceId: str
+    UpdatedAt: datetime
+    RevocationComment: str
+    Revoked: bool
+    RevokedAt: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class SendApiAssetResponseTypeDef(TypedDict):
+    Body: str
+    ResponseHeaders: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateRevisionResponseTypeDef(TypedDict):
+    Arn: str
+    Comment: str
+    CreatedAt: datetime
+    DataSetId: str
+    Finalized: bool
+    Id: str
+    SourceId: str
+    UpdatedAt: datetime
+    RevocationComment: str
+    Revoked: bool
+    RevokedAt: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ImportAssetsFromS3RequestDetailsTypeDef(TypedDict):
+    AssetSources: Sequence[AssetSourceEntryTypeDef]
+    DataSetId: str
+    RevisionId: str
+
+class ImportAssetsFromS3ResponseDetailsTypeDef(TypedDict):
+    AssetSources: List[AssetSourceEntryTypeDef]
+    DataSetId: str
+    RevisionId: str
+
+class AutoExportRevisionToS3RequestDetailsTypeDef(TypedDict):
+    RevisionDestination: AutoExportRevisionDestinationEntryTypeDef
+    Encryption: NotRequired[ExportServerSideEncryptionTypeDef]
+
+class ExportAssetsToS3RequestDetailsTypeDef(TypedDict):
+    AssetDestinations: Sequence[AssetDestinationEntryTypeDef]
+    DataSetId: str
+    RevisionId: str
+    Encryption: NotRequired[ExportServerSideEncryptionTypeDef]
+
+class ExportAssetsToS3ResponseDetailsTypeDef(TypedDict):
+    AssetDestinations: List[AssetDestinationEntryTypeDef]
+    DataSetId: str
+    RevisionId: str
+    Encryption: NotRequired[ExportServerSideEncryptionTypeDef]
+
+class CreateDataGrantRequestTypeDef(TypedDict):
+    Name: str
+    GrantDistributionScope: GrantDistributionScopeType
+    ReceiverPrincipal: str
+    SourceDataSetId: str
+    EndsAt: NotRequired[TimestampTypeDef]
+    Description: NotRequired[str]
+    Tags: NotRequired[Mapping[str, str]]
+
+class DataUpdateRequestDetailsTypeDef(TypedDict):
+    DataUpdatedAt: NotRequired[TimestampTypeDef]
+
+class DeprecationRequestDetailsTypeDef(TypedDict):
+    DeprecationAt: TimestampTypeDef
+
+class CreateDataSetResponseTypeDef(TypedDict):
+    Arn: str
+    AssetType: AssetTypeType
+    CreatedAt: datetime
+    Description: str
+    Id: str
+    Name: str
+    Origin: OriginType
+    OriginDetails: OriginDetailsTypeDef
+    SourceId: str
+    Tags: Dict[str, str]
+    UpdatedAt: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DataSetEntryTypeDef(TypedDict):
+    Arn: str
+    AssetType: AssetTypeType
+    CreatedAt: datetime
+    Description: str
+    Id: str
+    Name: str
+    Origin: OriginType
+    UpdatedAt: datetime
+    OriginDetails: NotRequired[OriginDetailsTypeDef]
+    SourceId: NotRequired[str]
+
+class GetDataSetResponseTypeDef(TypedDict):
+    Arn: str
+    AssetType: AssetTypeType
+    CreatedAt: datetime
+    Description: str
+    Id: str
+    Name: str
+    Origin: OriginType
+    OriginDetails: OriginDetailsTypeDef
+    SourceId: str
+    Tags: Dict[str, str]
+    UpdatedAt: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateDataSetResponseTypeDef(TypedDict):
+    Arn: str
+    AssetType: AssetTypeType
+    CreatedAt: datetime
+    Description: str
+    Id: str
+    Name: str
+    Origin: OriginType
+    OriginDetails: OriginDetailsTypeDef
+    SourceId: str
+    UpdatedAt: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListDataGrantsResponseTypeDef(TypedDict):
+    DataGrantSummaries: List[DataGrantSummaryEntryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class DatabaseLFTagPolicyAndPermissionsOutputTypeDef(TypedDict):
+    Expression: List[LFTagOutputTypeDef]
+    Permissions: List[Literal["DESCRIBE"]]
+
+class DatabaseLFTagPolicyTypeDef(TypedDict):
+    Expression: List[LFTagOutputTypeDef]
+
+class TableLFTagPolicyAndPermissionsOutputTypeDef(TypedDict):
+    Expression: List[LFTagOutputTypeDef]
+    Permissions: List[TableTagPolicyLFPermissionType]
+
+class TableLFTagPolicyTypeDef(TypedDict):
+    Expression: List[LFTagOutputTypeDef]
+
+class DatabaseLFTagPolicyAndPermissionsTypeDef(TypedDict):
+    Expression: Sequence[LFTagTypeDef]
+    Permissions: Sequence[Literal["DESCRIBE"]]
+
+LFTagUnionTypeDef = Union[LFTagTypeDef, LFTagOutputTypeDef]
+
+class DetailsTypeDef(TypedDict):
+    ImportAssetFromSignedUrlJobErrorDetails: NotRequired[
+        ImportAssetFromSignedUrlJobErrorDetailsTypeDef
+    ]
+    ImportAssetsFromS3JobErrorDetails: NotRequired[List[AssetSourceEntryTypeDef]]
+
+class EventTypeDef(TypedDict):
+    RevisionPublished: NotRequired[RevisionPublishedTypeDef]
+
+class ExportRevisionsToS3RequestDetailsTypeDef(TypedDict):
+    DataSetId: str
+    RevisionDestinations: Sequence[RevisionDestinationEntryTypeDef]
+    Encryption: NotRequired[ExportServerSideEncryptionTypeDef]
+
+class ExportRevisionsToS3ResponseDetailsTypeDef(TypedDict):
+    DataSetId: str
+    RevisionDestinations: List[RevisionDestinationEntryTypeDef]
+    Encryption: NotRequired[ExportServerSideEncryptionTypeDef]
+    EventActionArn: NotRequired[str]
+
+class ImportAssetsFromRedshiftDataSharesRequestDetailsTypeDef(TypedDict):
+    AssetSources: Sequence[RedshiftDataShareAssetSourceEntryTypeDef]
+    DataSetId: str
+    RevisionId: str
+
+class ImportAssetsFromRedshiftDataSharesResponseDetailsTypeDef(TypedDict):
+    AssetSources: List[RedshiftDataShareAssetSourceEntryTypeDef]
+    DataSetId: str
+    RevisionId: str
+
+class S3DataAccessAssetSourceEntryOutputTypeDef(TypedDict):
+    Bucket: str
+    KeyPrefixes: NotRequired[List[str]]
+    Keys: NotRequired[List[str]]
+    KmsKeysToGrant: NotRequired[List[KmsKeyToGrantTypeDef]]
+
+class S3DataAccessAssetSourceEntryTypeDef(TypedDict):
+    Bucket: str
+    KeyPrefixes: NotRequired[Sequence[str]]
+    Keys: NotRequired[Sequence[str]]
+    KmsKeysToGrant: NotRequired[Sequence[KmsKeyToGrantTypeDef]]
+
+class S3DataAccessAssetTypeDef(TypedDict):
+    Bucket: str
+    KeyPrefixes: NotRequired[List[str]]
+    Keys: NotRequired[List[str]]
+    S3AccessPointAlias: NotRequired[str]
+    S3AccessPointArn: NotRequired[str]
+    KmsKeysToGrant: NotRequired[List[KmsKeyToGrantTypeDef]]
+
+class ListDataGrantsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListDataSetRevisionsRequestPaginateTypeDef(TypedDict):
+    DataSetId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListDataSetsRequestPaginateTypeDef(TypedDict):
+    Origin: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListEventActionsRequestPaginateTypeDef(TypedDict):
+    EventSourceId: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListJobsRequestPaginateTypeDef(TypedDict):
+    DataSetId: NotRequired[str]
+    RevisionId: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListReceivedDataGrantsRequestPaginateTypeDef(TypedDict):
+    AcceptanceState: NotRequired[Sequence[AcceptanceStateFilterValueType]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListRevisionAssetsRequestPaginateTypeDef(TypedDict):
+    DataSetId: str
+    RevisionId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListDataSetRevisionsResponseTypeDef(TypedDict):
+    Revisions: List[RevisionEntryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListReceivedDataGrantsResponseTypeDef(TypedDict):
+    DataGrantSummaries: List[ReceivedDataGrantSummariesEntryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ScopeDetailsTypeDef(TypedDict):
+    LakeFormationTagPolicies: NotRequired[Sequence[LakeFormationTagPolicyDetailsTypeDef]]
+    RedshiftDataShares: NotRequired[Sequence[RedshiftDataShareDetailsTypeDef]]
+    S3DataAccesses: NotRequired[Sequence[S3DataAccessDetailsTypeDef]]
+
+class SchemaChangeRequestDetailsTypeDef(TypedDict):
+    SchemaChangeAt: TimestampTypeDef
+    Changes: NotRequired[Sequence[SchemaChangeDetailsTypeDef]]
+
+class ActionTypeDef(TypedDict):
+    ExportRevisionToS3: NotRequired[AutoExportRevisionToS3RequestDetailsTypeDef]
+
+class ListDataSetsResponseTypeDef(TypedDict):
+    DataSets: List[DataSetEntryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ImportAssetsFromLakeFormationTagPolicyResponseDetailsTypeDef(TypedDict):
+    CatalogId: str
+    RoleArn: str
+    DataSetId: str
+    RevisionId: str
+    Database: NotRequired[DatabaseLFTagPolicyAndPermissionsOutputTypeDef]
+    Table: NotRequired[TableLFTagPolicyAndPermissionsOutputTypeDef]
+
+class LFResourceDetailsTypeDef(TypedDict):
+    Database: NotRequired[DatabaseLFTagPolicyTypeDef]
+    Table: NotRequired[TableLFTagPolicyTypeDef]
+
+DatabaseLFTagPolicyAndPermissionsUnionTypeDef = Union[
+    DatabaseLFTagPolicyAndPermissionsTypeDef, DatabaseLFTagPolicyAndPermissionsOutputTypeDef
+]
+
+class TableLFTagPolicyAndPermissionsTypeDef(TypedDict):
+    Expression: Sequence[LFTagUnionTypeDef]
+    Permissions: Sequence[TableTagPolicyLFPermissionType]
+
+class JobErrorTypeDef(TypedDict):
+    Code: CodeType
+    Message: str
+    Details: NotRequired[DetailsTypeDef]
+    LimitName: NotRequired[JobErrorLimitNameType]
+    LimitValue: NotRequired[float]
+    ResourceId: NotRequired[str]
+    ResourceType: NotRequired[JobErrorResourceTypesType]
+
+class CreateS3DataAccessFromS3BucketResponseDetailsTypeDef(TypedDict):
+    AssetSource: S3DataAccessAssetSourceEntryOutputTypeDef
+    DataSetId: str
+    RevisionId: str
+
+S3DataAccessAssetSourceEntryUnionTypeDef = Union[
+    S3DataAccessAssetSourceEntryTypeDef, S3DataAccessAssetSourceEntryOutputTypeDef
+]
+
+class NotificationDetailsTypeDef(TypedDict):
+    DataUpdate: NotRequired[DataUpdateRequestDetailsTypeDef]
+    Deprecation: NotRequired[DeprecationRequestDetailsTypeDef]
+    SchemaChange: NotRequired[SchemaChangeRequestDetailsTypeDef]
+
+class CreateEventActionRequestTypeDef(TypedDict):
+    Action: ActionTypeDef
+    Event: EventTypeDef
+
+class CreateEventActionResponseTypeDef(TypedDict):
+    Action: ActionTypeDef
+    Arn: str
+    CreatedAt: datetime
+    Event: EventTypeDef
+    Id: str
+    UpdatedAt: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class EventActionEntryTypeDef(TypedDict):
+    Action: ActionTypeDef
+    Arn: str
+    CreatedAt: datetime
+    Event: EventTypeDef
+    Id: str
+    UpdatedAt: datetime
+
+class GetEventActionResponseTypeDef(TypedDict):
+    Action: ActionTypeDef
+    Arn: str
+    CreatedAt: datetime
+    Event: EventTypeDef
+    Id: str
+    UpdatedAt: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateEventActionRequestTypeDef(TypedDict):
+    EventActionId: str
+    Action: NotRequired[ActionTypeDef]
+
+class UpdateEventActionResponseTypeDef(TypedDict):
+    Action: ActionTypeDef
+    Arn: str
+    CreatedAt: datetime
+    Event: EventTypeDef
+    Id: str
+    UpdatedAt: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class LFTagPolicyDetailsTypeDef(TypedDict):
+    CatalogId: str
+    ResourceType: LFResourceTypeType
+    ResourceDetails: LFResourceDetailsTypeDef
+
+TableLFTagPolicyAndPermissionsUnionTypeDef = Union[
+    TableLFTagPolicyAndPermissionsTypeDef, TableLFTagPolicyAndPermissionsOutputTypeDef
+]
+
+class ResponseDetailsTypeDef(TypedDict):
+    ExportAssetToSignedUrl: NotRequired[ExportAssetToSignedUrlResponseDetailsTypeDef]
+    ExportAssetsToS3: NotRequired[ExportAssetsToS3ResponseDetailsTypeDef]
+    ExportRevisionsToS3: NotRequired[ExportRevisionsToS3ResponseDetailsTypeDef]
+    ImportAssetFromSignedUrl: NotRequired[ImportAssetFromSignedUrlResponseDetailsTypeDef]
+    ImportAssetsFromS3: NotRequired[ImportAssetsFromS3ResponseDetailsTypeDef]
+    ImportAssetsFromRedshiftDataShares: NotRequired[
+        ImportAssetsFromRedshiftDataSharesResponseDetailsTypeDef
+    ]
+    ImportAssetFromApiGatewayApi: NotRequired[ImportAssetFromApiGatewayApiResponseDetailsTypeDef]
+    CreateS3DataAccessFromS3Bucket: NotRequired[
+        CreateS3DataAccessFromS3BucketResponseDetailsTypeDef
+    ]
+    ImportAssetsFromLakeFormationTagPolicy: NotRequired[
+        ImportAssetsFromLakeFormationTagPolicyResponseDetailsTypeDef
+    ]
+
+class CreateS3DataAccessFromS3BucketRequestDetailsTypeDef(TypedDict):
+    AssetSource: S3DataAccessAssetSourceEntryUnionTypeDef
+    DataSetId: str
+    RevisionId: str
+
+SendDataSetNotificationRequestTypeDef = TypedDict(
+    "SendDataSetNotificationRequestTypeDef",
     {
-        "Arn": str,
-        "AssetDetails": "AssetDetailsTypeDef",
-        "AssetType": AssetTypeType,
-        "CreatedAt": datetime,
         "DataSetId": str,
-        "Id": str,
-        "Name": str,
-        "RevisionId": str,
-        "UpdatedAt": datetime,
-    },
-)
-_OptionalAssetEntryTypeDef = TypedDict(
-    "_OptionalAssetEntryTypeDef",
-    {
-        "SourceId": str,
-    },
-    total=False,
-)
-
-class AssetEntryTypeDef(_RequiredAssetEntryTypeDef, _OptionalAssetEntryTypeDef):
-    pass
-
-AssetSourceEntryTypeDef = TypedDict(
-    "AssetSourceEntryTypeDef",
-    {
-        "Bucket": str,
-        "Key": str,
+        "Type": NotificationTypeType,
+        "Scope": NotRequired[ScopeDetailsTypeDef],
+        "ClientToken": NotRequired[str],
+        "Comment": NotRequired[str],
+        "Details": NotRequired[NotificationDetailsTypeDef],
     },
 )
 
-_RequiredAutoExportRevisionDestinationEntryTypeDef = TypedDict(
-    "_RequiredAutoExportRevisionDestinationEntryTypeDef",
-    {
-        "Bucket": str,
-    },
-)
-_OptionalAutoExportRevisionDestinationEntryTypeDef = TypedDict(
-    "_OptionalAutoExportRevisionDestinationEntryTypeDef",
-    {
-        "KeyPattern": str,
-    },
-    total=False,
-)
+class ListEventActionsResponseTypeDef(TypedDict):
+    EventActions: List[EventActionEntryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-class AutoExportRevisionDestinationEntryTypeDef(
-    _RequiredAutoExportRevisionDestinationEntryTypeDef,
-    _OptionalAutoExportRevisionDestinationEntryTypeDef,
-):
-    pass
+class LakeFormationDataPermissionDetailsTypeDef(TypedDict):
+    LFTagPolicy: NotRequired[LFTagPolicyDetailsTypeDef]
 
-_RequiredAutoExportRevisionToS3RequestDetailsTypeDef = TypedDict(
-    "_RequiredAutoExportRevisionToS3RequestDetailsTypeDef",
-    {
-        "RevisionDestination": "AutoExportRevisionDestinationEntryTypeDef",
-    },
-)
-_OptionalAutoExportRevisionToS3RequestDetailsTypeDef = TypedDict(
-    "_OptionalAutoExportRevisionToS3RequestDetailsTypeDef",
-    {
-        "Encryption": "ExportServerSideEncryptionTypeDef",
-    },
-    total=False,
-)
-
-class AutoExportRevisionToS3RequestDetailsTypeDef(
-    _RequiredAutoExportRevisionToS3RequestDetailsTypeDef,
-    _OptionalAutoExportRevisionToS3RequestDetailsTypeDef,
-):
-    pass
-
-CancelJobRequestRequestTypeDef = TypedDict(
-    "CancelJobRequestRequestTypeDef",
-    {
-        "JobId": str,
-    },
-)
-
-_RequiredCreateDataSetRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateDataSetRequestRequestTypeDef",
-    {
-        "AssetType": AssetTypeType,
-        "Description": str,
-        "Name": str,
-    },
-)
-_OptionalCreateDataSetRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateDataSetRequestRequestTypeDef",
-    {
-        "Tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class CreateDataSetRequestRequestTypeDef(
-    _RequiredCreateDataSetRequestRequestTypeDef, _OptionalCreateDataSetRequestRequestTypeDef
-):
-    pass
-
-CreateDataSetResponseTypeDef = TypedDict(
-    "CreateDataSetResponseTypeDef",
-    {
-        "Arn": str,
-        "AssetType": AssetTypeType,
-        "CreatedAt": datetime,
-        "Description": str,
-        "Id": str,
-        "Name": str,
-        "Origin": OriginType,
-        "OriginDetails": "OriginDetailsTypeDef",
-        "SourceId": str,
-        "Tags": Dict[str, str],
-        "UpdatedAt": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateEventActionRequestRequestTypeDef = TypedDict(
-    "CreateEventActionRequestRequestTypeDef",
-    {
-        "Action": "ActionTypeDef",
-        "Event": "EventTypeDef",
-    },
-)
-
-CreateEventActionResponseTypeDef = TypedDict(
-    "CreateEventActionResponseTypeDef",
-    {
-        "Action": "ActionTypeDef",
-        "Arn": str,
-        "CreatedAt": datetime,
-        "Event": "EventTypeDef",
-        "Id": str,
-        "UpdatedAt": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateJobRequestRequestTypeDef = TypedDict(
-    "CreateJobRequestRequestTypeDef",
-    {
-        "Details": "RequestDetailsTypeDef",
-        "Type": TypeType,
-    },
-)
+class ImportAssetsFromLakeFormationTagPolicyRequestDetailsTypeDef(TypedDict):
+    CatalogId: str
+    RoleArn: str
+    DataSetId: str
+    RevisionId: str
+    Database: NotRequired[DatabaseLFTagPolicyAndPermissionsUnionTypeDef]
+    Table: NotRequired[TableLFTagPolicyAndPermissionsUnionTypeDef]
 
 CreateJobResponseTypeDef = TypedDict(
     "CreateJobResponseTypeDef",
     {
         "Arn": str,
         "CreatedAt": datetime,
-        "Details": "ResponseDetailsTypeDef",
-        "Errors": List["JobErrorTypeDef"],
+        "Details": ResponseDetailsTypeDef,
+        "Errors": List[JobErrorTypeDef],
         "Id": str,
         "State": StateType,
         "Type": TypeType,
         "UpdatedAt": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
-
-_RequiredCreateRevisionRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateRevisionRequestRequestTypeDef",
-    {
-        "DataSetId": str,
-    },
-)
-_OptionalCreateRevisionRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateRevisionRequestRequestTypeDef",
-    {
-        "Comment": str,
-        "Tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class CreateRevisionRequestRequestTypeDef(
-    _RequiredCreateRevisionRequestRequestTypeDef, _OptionalCreateRevisionRequestRequestTypeDef
-):
-    pass
-
-CreateRevisionResponseTypeDef = TypedDict(
-    "CreateRevisionResponseTypeDef",
-    {
-        "Arn": str,
-        "Comment": str,
-        "CreatedAt": datetime,
-        "DataSetId": str,
-        "Finalized": bool,
-        "Id": str,
-        "SourceId": str,
-        "Tags": Dict[str, str],
-        "UpdatedAt": datetime,
-        "RevocationComment": str,
-        "Revoked": bool,
-        "RevokedAt": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateS3DataAccessFromS3BucketRequestDetailsTypeDef = TypedDict(
-    "CreateS3DataAccessFromS3BucketRequestDetailsTypeDef",
-    {
-        "AssetSource": "S3DataAccessAssetSourceEntryTypeDef",
-        "DataSetId": str,
-        "RevisionId": str,
-    },
-)
-
-CreateS3DataAccessFromS3BucketResponseDetailsTypeDef = TypedDict(
-    "CreateS3DataAccessFromS3BucketResponseDetailsTypeDef",
-    {
-        "AssetSource": "S3DataAccessAssetSourceEntryTypeDef",
-        "DataSetId": str,
-        "RevisionId": str,
-    },
-)
-
-_RequiredDataSetEntryTypeDef = TypedDict(
-    "_RequiredDataSetEntryTypeDef",
-    {
-        "Arn": str,
-        "AssetType": AssetTypeType,
-        "CreatedAt": datetime,
-        "Description": str,
-        "Id": str,
-        "Name": str,
-        "Origin": OriginType,
-        "UpdatedAt": datetime,
-    },
-)
-_OptionalDataSetEntryTypeDef = TypedDict(
-    "_OptionalDataSetEntryTypeDef",
-    {
-        "OriginDetails": "OriginDetailsTypeDef",
-        "SourceId": str,
-    },
-    total=False,
-)
-
-class DataSetEntryTypeDef(_RequiredDataSetEntryTypeDef, _OptionalDataSetEntryTypeDef):
-    pass
-
-DataUpdateRequestDetailsTypeDef = TypedDict(
-    "DataUpdateRequestDetailsTypeDef",
-    {
-        "DataUpdatedAt": Union[datetime, str],
-    },
-    total=False,
-)
-
-DatabaseLFTagPolicyAndPermissionsTypeDef = TypedDict(
-    "DatabaseLFTagPolicyAndPermissionsTypeDef",
-    {
-        "Expression": List["LFTagTypeDef"],
-        "Permissions": List[Literal["DESCRIBE"]],
-    },
-)
-
-DatabaseLFTagPolicyTypeDef = TypedDict(
-    "DatabaseLFTagPolicyTypeDef",
-    {
-        "Expression": List["LFTagTypeDef"],
-    },
-)
-
-DeleteAssetRequestRequestTypeDef = TypedDict(
-    "DeleteAssetRequestRequestTypeDef",
-    {
-        "AssetId": str,
-        "DataSetId": str,
-        "RevisionId": str,
-    },
-)
-
-DeleteDataSetRequestRequestTypeDef = TypedDict(
-    "DeleteDataSetRequestRequestTypeDef",
-    {
-        "DataSetId": str,
-    },
-)
-
-DeleteEventActionRequestRequestTypeDef = TypedDict(
-    "DeleteEventActionRequestRequestTypeDef",
-    {
-        "EventActionId": str,
-    },
-)
-
-DeleteRevisionRequestRequestTypeDef = TypedDict(
-    "DeleteRevisionRequestRequestTypeDef",
-    {
-        "DataSetId": str,
-        "RevisionId": str,
-    },
-)
-
-DeprecationRequestDetailsTypeDef = TypedDict(
-    "DeprecationRequestDetailsTypeDef",
-    {
-        "DeprecationAt": Union[datetime, str],
-    },
-)
-
-DetailsTypeDef = TypedDict(
-    "DetailsTypeDef",
-    {
-        "ImportAssetFromSignedUrlJobErrorDetails": "ImportAssetFromSignedUrlJobErrorDetailsTypeDef",
-        "ImportAssetsFromS3JobErrorDetails": List["AssetSourceEntryTypeDef"],
-    },
-    total=False,
-)
-
-EventActionEntryTypeDef = TypedDict(
-    "EventActionEntryTypeDef",
-    {
-        "Action": "ActionTypeDef",
-        "Arn": str,
-        "CreatedAt": datetime,
-        "Event": "EventTypeDef",
-        "Id": str,
-        "UpdatedAt": datetime,
-    },
-)
-
-EventTypeDef = TypedDict(
-    "EventTypeDef",
-    {
-        "RevisionPublished": "RevisionPublishedTypeDef",
-    },
-    total=False,
-)
-
-ExportAssetToSignedUrlRequestDetailsTypeDef = TypedDict(
-    "ExportAssetToSignedUrlRequestDetailsTypeDef",
-    {
-        "AssetId": str,
-        "DataSetId": str,
-        "RevisionId": str,
-    },
-)
-
-_RequiredExportAssetToSignedUrlResponseDetailsTypeDef = TypedDict(
-    "_RequiredExportAssetToSignedUrlResponseDetailsTypeDef",
-    {
-        "AssetId": str,
-        "DataSetId": str,
-        "RevisionId": str,
-    },
-)
-_OptionalExportAssetToSignedUrlResponseDetailsTypeDef = TypedDict(
-    "_OptionalExportAssetToSignedUrlResponseDetailsTypeDef",
-    {
-        "SignedUrl": str,
-        "SignedUrlExpiresAt": datetime,
-    },
-    total=False,
-)
-
-class ExportAssetToSignedUrlResponseDetailsTypeDef(
-    _RequiredExportAssetToSignedUrlResponseDetailsTypeDef,
-    _OptionalExportAssetToSignedUrlResponseDetailsTypeDef,
-):
-    pass
-
-_RequiredExportAssetsToS3RequestDetailsTypeDef = TypedDict(
-    "_RequiredExportAssetsToS3RequestDetailsTypeDef",
-    {
-        "AssetDestinations": List["AssetDestinationEntryTypeDef"],
-        "DataSetId": str,
-        "RevisionId": str,
-    },
-)
-_OptionalExportAssetsToS3RequestDetailsTypeDef = TypedDict(
-    "_OptionalExportAssetsToS3RequestDetailsTypeDef",
-    {
-        "Encryption": "ExportServerSideEncryptionTypeDef",
-    },
-    total=False,
-)
-
-class ExportAssetsToS3RequestDetailsTypeDef(
-    _RequiredExportAssetsToS3RequestDetailsTypeDef, _OptionalExportAssetsToS3RequestDetailsTypeDef
-):
-    pass
-
-_RequiredExportAssetsToS3ResponseDetailsTypeDef = TypedDict(
-    "_RequiredExportAssetsToS3ResponseDetailsTypeDef",
-    {
-        "AssetDestinations": List["AssetDestinationEntryTypeDef"],
-        "DataSetId": str,
-        "RevisionId": str,
-    },
-)
-_OptionalExportAssetsToS3ResponseDetailsTypeDef = TypedDict(
-    "_OptionalExportAssetsToS3ResponseDetailsTypeDef",
-    {
-        "Encryption": "ExportServerSideEncryptionTypeDef",
-    },
-    total=False,
-)
-
-class ExportAssetsToS3ResponseDetailsTypeDef(
-    _RequiredExportAssetsToS3ResponseDetailsTypeDef, _OptionalExportAssetsToS3ResponseDetailsTypeDef
-):
-    pass
-
-_RequiredExportRevisionsToS3RequestDetailsTypeDef = TypedDict(
-    "_RequiredExportRevisionsToS3RequestDetailsTypeDef",
-    {
-        "DataSetId": str,
-        "RevisionDestinations": List["RevisionDestinationEntryTypeDef"],
-    },
-)
-_OptionalExportRevisionsToS3RequestDetailsTypeDef = TypedDict(
-    "_OptionalExportRevisionsToS3RequestDetailsTypeDef",
-    {
-        "Encryption": "ExportServerSideEncryptionTypeDef",
-    },
-    total=False,
-)
-
-class ExportRevisionsToS3RequestDetailsTypeDef(
-    _RequiredExportRevisionsToS3RequestDetailsTypeDef,
-    _OptionalExportRevisionsToS3RequestDetailsTypeDef,
-):
-    pass
-
-_RequiredExportRevisionsToS3ResponseDetailsTypeDef = TypedDict(
-    "_RequiredExportRevisionsToS3ResponseDetailsTypeDef",
-    {
-        "DataSetId": str,
-        "RevisionDestinations": List["RevisionDestinationEntryTypeDef"],
-    },
-)
-_OptionalExportRevisionsToS3ResponseDetailsTypeDef = TypedDict(
-    "_OptionalExportRevisionsToS3ResponseDetailsTypeDef",
-    {
-        "Encryption": "ExportServerSideEncryptionTypeDef",
-        "EventActionArn": str,
-    },
-    total=False,
-)
-
-class ExportRevisionsToS3ResponseDetailsTypeDef(
-    _RequiredExportRevisionsToS3ResponseDetailsTypeDef,
-    _OptionalExportRevisionsToS3ResponseDetailsTypeDef,
-):
-    pass
-
-_RequiredExportServerSideEncryptionTypeDef = TypedDict(
-    "_RequiredExportServerSideEncryptionTypeDef",
-    {
-        "Type": ServerSideEncryptionTypesType,
-    },
-)
-_OptionalExportServerSideEncryptionTypeDef = TypedDict(
-    "_OptionalExportServerSideEncryptionTypeDef",
-    {
-        "KmsKeyArn": str,
-    },
-    total=False,
-)
-
-class ExportServerSideEncryptionTypeDef(
-    _RequiredExportServerSideEncryptionTypeDef, _OptionalExportServerSideEncryptionTypeDef
-):
-    pass
-
-GetAssetRequestRequestTypeDef = TypedDict(
-    "GetAssetRequestRequestTypeDef",
-    {
-        "AssetId": str,
-        "DataSetId": str,
-        "RevisionId": str,
-    },
-)
-
-GetAssetResponseTypeDef = TypedDict(
-    "GetAssetResponseTypeDef",
-    {
-        "Arn": str,
-        "AssetDetails": "AssetDetailsTypeDef",
-        "AssetType": AssetTypeType,
-        "CreatedAt": datetime,
-        "DataSetId": str,
-        "Id": str,
-        "Name": str,
-        "RevisionId": str,
-        "SourceId": str,
-        "UpdatedAt": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetDataSetRequestRequestTypeDef = TypedDict(
-    "GetDataSetRequestRequestTypeDef",
-    {
-        "DataSetId": str,
-    },
-)
-
-GetDataSetResponseTypeDef = TypedDict(
-    "GetDataSetResponseTypeDef",
-    {
-        "Arn": str,
-        "AssetType": AssetTypeType,
-        "CreatedAt": datetime,
-        "Description": str,
-        "Id": str,
-        "Name": str,
-        "Origin": OriginType,
-        "OriginDetails": "OriginDetailsTypeDef",
-        "SourceId": str,
-        "Tags": Dict[str, str],
-        "UpdatedAt": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetEventActionRequestRequestTypeDef = TypedDict(
-    "GetEventActionRequestRequestTypeDef",
-    {
-        "EventActionId": str,
-    },
-)
-
-GetEventActionResponseTypeDef = TypedDict(
-    "GetEventActionResponseTypeDef",
-    {
-        "Action": "ActionTypeDef",
-        "Arn": str,
-        "CreatedAt": datetime,
-        "Event": "EventTypeDef",
-        "Id": str,
-        "UpdatedAt": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetJobRequestRequestTypeDef = TypedDict(
-    "GetJobRequestRequestTypeDef",
-    {
-        "JobId": str,
-    },
-)
-
 GetJobResponseTypeDef = TypedDict(
     "GetJobResponseTypeDef",
     {
         "Arn": str,
         "CreatedAt": datetime,
-        "Details": "ResponseDetailsTypeDef",
-        "Errors": List["JobErrorTypeDef"],
+        "Details": ResponseDetailsTypeDef,
+        "Errors": List[JobErrorTypeDef],
         "Id": str,
         "State": StateType,
         "Type": TypeType,
         "UpdatedAt": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
-
-GetRevisionRequestRequestTypeDef = TypedDict(
-    "GetRevisionRequestRequestTypeDef",
-    {
-        "DataSetId": str,
-        "RevisionId": str,
-    },
-)
-
-GetRevisionResponseTypeDef = TypedDict(
-    "GetRevisionResponseTypeDef",
-    {
-        "Arn": str,
-        "Comment": str,
-        "CreatedAt": datetime,
-        "DataSetId": str,
-        "Finalized": bool,
-        "Id": str,
-        "SourceId": str,
-        "Tags": Dict[str, str],
-        "UpdatedAt": datetime,
-        "RevocationComment": str,
-        "Revoked": bool,
-        "RevokedAt": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredImportAssetFromApiGatewayApiRequestDetailsTypeDef = TypedDict(
-    "_RequiredImportAssetFromApiGatewayApiRequestDetailsTypeDef",
-    {
-        "ApiId": str,
-        "ApiName": str,
-        "ApiSpecificationMd5Hash": str,
-        "DataSetId": str,
-        "ProtocolType": Literal["REST"],
-        "RevisionId": str,
-        "Stage": str,
-    },
-)
-_OptionalImportAssetFromApiGatewayApiRequestDetailsTypeDef = TypedDict(
-    "_OptionalImportAssetFromApiGatewayApiRequestDetailsTypeDef",
-    {
-        "ApiDescription": str,
-        "ApiKey": str,
-    },
-    total=False,
-)
-
-class ImportAssetFromApiGatewayApiRequestDetailsTypeDef(
-    _RequiredImportAssetFromApiGatewayApiRequestDetailsTypeDef,
-    _OptionalImportAssetFromApiGatewayApiRequestDetailsTypeDef,
-):
-    pass
-
-_RequiredImportAssetFromApiGatewayApiResponseDetailsTypeDef = TypedDict(
-    "_RequiredImportAssetFromApiGatewayApiResponseDetailsTypeDef",
-    {
-        "ApiId": str,
-        "ApiName": str,
-        "ApiSpecificationMd5Hash": str,
-        "ApiSpecificationUploadUrl": str,
-        "ApiSpecificationUploadUrlExpiresAt": datetime,
-        "DataSetId": str,
-        "ProtocolType": Literal["REST"],
-        "RevisionId": str,
-        "Stage": str,
-    },
-)
-_OptionalImportAssetFromApiGatewayApiResponseDetailsTypeDef = TypedDict(
-    "_OptionalImportAssetFromApiGatewayApiResponseDetailsTypeDef",
-    {
-        "ApiDescription": str,
-        "ApiKey": str,
-    },
-    total=False,
-)
-
-class ImportAssetFromApiGatewayApiResponseDetailsTypeDef(
-    _RequiredImportAssetFromApiGatewayApiResponseDetailsTypeDef,
-    _OptionalImportAssetFromApiGatewayApiResponseDetailsTypeDef,
-):
-    pass
-
-ImportAssetFromSignedUrlJobErrorDetailsTypeDef = TypedDict(
-    "ImportAssetFromSignedUrlJobErrorDetailsTypeDef",
-    {
-        "AssetName": str,
-    },
-)
-
-ImportAssetFromSignedUrlRequestDetailsTypeDef = TypedDict(
-    "ImportAssetFromSignedUrlRequestDetailsTypeDef",
-    {
-        "AssetName": str,
-        "DataSetId": str,
-        "Md5Hash": str,
-        "RevisionId": str,
-    },
-)
-
-_RequiredImportAssetFromSignedUrlResponseDetailsTypeDef = TypedDict(
-    "_RequiredImportAssetFromSignedUrlResponseDetailsTypeDef",
-    {
-        "AssetName": str,
-        "DataSetId": str,
-        "RevisionId": str,
-    },
-)
-_OptionalImportAssetFromSignedUrlResponseDetailsTypeDef = TypedDict(
-    "_OptionalImportAssetFromSignedUrlResponseDetailsTypeDef",
-    {
-        "Md5Hash": str,
-        "SignedUrl": str,
-        "SignedUrlExpiresAt": datetime,
-    },
-    total=False,
-)
-
-class ImportAssetFromSignedUrlResponseDetailsTypeDef(
-    _RequiredImportAssetFromSignedUrlResponseDetailsTypeDef,
-    _OptionalImportAssetFromSignedUrlResponseDetailsTypeDef,
-):
-    pass
-
-_RequiredImportAssetsFromLakeFormationTagPolicyRequestDetailsTypeDef = TypedDict(
-    "_RequiredImportAssetsFromLakeFormationTagPolicyRequestDetailsTypeDef",
-    {
-        "CatalogId": str,
-        "RoleArn": str,
-        "DataSetId": str,
-        "RevisionId": str,
-    },
-)
-_OptionalImportAssetsFromLakeFormationTagPolicyRequestDetailsTypeDef = TypedDict(
-    "_OptionalImportAssetsFromLakeFormationTagPolicyRequestDetailsTypeDef",
-    {
-        "Database": "DatabaseLFTagPolicyAndPermissionsTypeDef",
-        "Table": "TableLFTagPolicyAndPermissionsTypeDef",
-    },
-    total=False,
-)
-
-class ImportAssetsFromLakeFormationTagPolicyRequestDetailsTypeDef(
-    _RequiredImportAssetsFromLakeFormationTagPolicyRequestDetailsTypeDef,
-    _OptionalImportAssetsFromLakeFormationTagPolicyRequestDetailsTypeDef,
-):
-    pass
-
-_RequiredImportAssetsFromLakeFormationTagPolicyResponseDetailsTypeDef = TypedDict(
-    "_RequiredImportAssetsFromLakeFormationTagPolicyResponseDetailsTypeDef",
-    {
-        "CatalogId": str,
-        "RoleArn": str,
-        "DataSetId": str,
-        "RevisionId": str,
-    },
-)
-_OptionalImportAssetsFromLakeFormationTagPolicyResponseDetailsTypeDef = TypedDict(
-    "_OptionalImportAssetsFromLakeFormationTagPolicyResponseDetailsTypeDef",
-    {
-        "Database": "DatabaseLFTagPolicyAndPermissionsTypeDef",
-        "Table": "TableLFTagPolicyAndPermissionsTypeDef",
-    },
-    total=False,
-)
-
-class ImportAssetsFromLakeFormationTagPolicyResponseDetailsTypeDef(
-    _RequiredImportAssetsFromLakeFormationTagPolicyResponseDetailsTypeDef,
-    _OptionalImportAssetsFromLakeFormationTagPolicyResponseDetailsTypeDef,
-):
-    pass
-
-ImportAssetsFromRedshiftDataSharesRequestDetailsTypeDef = TypedDict(
-    "ImportAssetsFromRedshiftDataSharesRequestDetailsTypeDef",
-    {
-        "AssetSources": List["RedshiftDataShareAssetSourceEntryTypeDef"],
-        "DataSetId": str,
-        "RevisionId": str,
-    },
-)
-
-ImportAssetsFromRedshiftDataSharesResponseDetailsTypeDef = TypedDict(
-    "ImportAssetsFromRedshiftDataSharesResponseDetailsTypeDef",
-    {
-        "AssetSources": List["RedshiftDataShareAssetSourceEntryTypeDef"],
-        "DataSetId": str,
-        "RevisionId": str,
-    },
-)
-
-ImportAssetsFromS3RequestDetailsTypeDef = TypedDict(
-    "ImportAssetsFromS3RequestDetailsTypeDef",
-    {
-        "AssetSources": List["AssetSourceEntryTypeDef"],
-        "DataSetId": str,
-        "RevisionId": str,
-    },
-)
-
-ImportAssetsFromS3ResponseDetailsTypeDef = TypedDict(
-    "ImportAssetsFromS3ResponseDetailsTypeDef",
-    {
-        "AssetSources": List["AssetSourceEntryTypeDef"],
-        "DataSetId": str,
-        "RevisionId": str,
-    },
-)
-
-_RequiredJobEntryTypeDef = TypedDict(
-    "_RequiredJobEntryTypeDef",
+JobEntryTypeDef = TypedDict(
+    "JobEntryTypeDef",
     {
         "Arn": str,
         "CreatedAt": datetime,
-        "Details": "ResponseDetailsTypeDef",
+        "Details": ResponseDetailsTypeDef,
         "Id": str,
         "State": StateType,
         "Type": TypeType,
         "UpdatedAt": datetime,
-    },
-)
-_OptionalJobEntryTypeDef = TypedDict(
-    "_OptionalJobEntryTypeDef",
-    {
-        "Errors": List["JobErrorTypeDef"],
-    },
-    total=False,
-)
-
-class JobEntryTypeDef(_RequiredJobEntryTypeDef, _OptionalJobEntryTypeDef):
-    pass
-
-_RequiredJobErrorTypeDef = TypedDict(
-    "_RequiredJobErrorTypeDef",
-    {
-        "Code": CodeType,
-        "Message": str,
-    },
-)
-_OptionalJobErrorTypeDef = TypedDict(
-    "_OptionalJobErrorTypeDef",
-    {
-        "Details": "DetailsTypeDef",
-        "LimitName": JobErrorLimitNameType,
-        "LimitValue": float,
-        "ResourceId": str,
-        "ResourceType": JobErrorResourceTypesType,
-    },
-    total=False,
-)
-
-class JobErrorTypeDef(_RequiredJobErrorTypeDef, _OptionalJobErrorTypeDef):
-    pass
-
-KmsKeyToGrantTypeDef = TypedDict(
-    "KmsKeyToGrantTypeDef",
-    {
-        "KmsKeyArn": str,
-    },
-)
-
-LFResourceDetailsTypeDef = TypedDict(
-    "LFResourceDetailsTypeDef",
-    {
-        "Database": "DatabaseLFTagPolicyTypeDef",
-        "Table": "TableLFTagPolicyTypeDef",
-    },
-    total=False,
-)
-
-LFTagPolicyDetailsTypeDef = TypedDict(
-    "LFTagPolicyDetailsTypeDef",
-    {
-        "CatalogId": str,
-        "ResourceType": LFResourceTypeType,
-        "ResourceDetails": "LFResourceDetailsTypeDef",
-    },
-)
-
-LFTagTypeDef = TypedDict(
-    "LFTagTypeDef",
-    {
-        "TagKey": str,
-        "TagValues": List[str],
-    },
-)
-
-_RequiredLakeFormationDataPermissionAssetTypeDef = TypedDict(
-    "_RequiredLakeFormationDataPermissionAssetTypeDef",
-    {
-        "LakeFormationDataPermissionDetails": "LakeFormationDataPermissionDetailsTypeDef",
-        "LakeFormationDataPermissionType": Literal["LFTagPolicy"],
-        "Permissions": List[LFPermissionType],
-    },
-)
-_OptionalLakeFormationDataPermissionAssetTypeDef = TypedDict(
-    "_OptionalLakeFormationDataPermissionAssetTypeDef",
-    {
-        "RoleArn": str,
-    },
-    total=False,
-)
-
-class LakeFormationDataPermissionAssetTypeDef(
-    _RequiredLakeFormationDataPermissionAssetTypeDef,
-    _OptionalLakeFormationDataPermissionAssetTypeDef,
-):
-    pass
-
-LakeFormationDataPermissionDetailsTypeDef = TypedDict(
-    "LakeFormationDataPermissionDetailsTypeDef",
-    {
-        "LFTagPolicy": "LFTagPolicyDetailsTypeDef",
-    },
-    total=False,
-)
-
-LakeFormationTagPolicyDetailsTypeDef = TypedDict(
-    "LakeFormationTagPolicyDetailsTypeDef",
-    {
-        "Database": str,
-        "Table": str,
-    },
-    total=False,
-)
-
-_RequiredListDataSetRevisionsRequestRequestTypeDef = TypedDict(
-    "_RequiredListDataSetRevisionsRequestRequestTypeDef",
-    {
-        "DataSetId": str,
-    },
-)
-_OptionalListDataSetRevisionsRequestRequestTypeDef = TypedDict(
-    "_OptionalListDataSetRevisionsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListDataSetRevisionsRequestRequestTypeDef(
-    _RequiredListDataSetRevisionsRequestRequestTypeDef,
-    _OptionalListDataSetRevisionsRequestRequestTypeDef,
-):
-    pass
-
-ListDataSetRevisionsResponseTypeDef = TypedDict(
-    "ListDataSetRevisionsResponseTypeDef",
-    {
-        "NextToken": str,
-        "Revisions": List["RevisionEntryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListDataSetsRequestRequestTypeDef = TypedDict(
-    "ListDataSetsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-        "Origin": str,
-    },
-    total=False,
-)
-
-ListDataSetsResponseTypeDef = TypedDict(
-    "ListDataSetsResponseTypeDef",
-    {
-        "DataSets": List["DataSetEntryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListEventActionsRequestRequestTypeDef = TypedDict(
-    "ListEventActionsRequestRequestTypeDef",
-    {
-        "EventSourceId": str,
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListEventActionsResponseTypeDef = TypedDict(
-    "ListEventActionsResponseTypeDef",
-    {
-        "EventActions": List["EventActionEntryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListJobsRequestRequestTypeDef = TypedDict(
-    "ListJobsRequestRequestTypeDef",
-    {
-        "DataSetId": str,
-        "MaxResults": int,
-        "NextToken": str,
-        "RevisionId": str,
-    },
-    total=False,
-)
-
-ListJobsResponseTypeDef = TypedDict(
-    "ListJobsResponseTypeDef",
-    {
-        "Jobs": List["JobEntryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListRevisionAssetsRequestRequestTypeDef = TypedDict(
-    "_RequiredListRevisionAssetsRequestRequestTypeDef",
-    {
-        "DataSetId": str,
-        "RevisionId": str,
-    },
-)
-_OptionalListRevisionAssetsRequestRequestTypeDef = TypedDict(
-    "_OptionalListRevisionAssetsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListRevisionAssetsRequestRequestTypeDef(
-    _RequiredListRevisionAssetsRequestRequestTypeDef,
-    _OptionalListRevisionAssetsRequestRequestTypeDef,
-):
-    pass
-
-ListRevisionAssetsResponseTypeDef = TypedDict(
-    "ListRevisionAssetsResponseTypeDef",
-    {
-        "Assets": List["AssetEntryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-    },
-)
-
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "Tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-NotificationDetailsTypeDef = TypedDict(
-    "NotificationDetailsTypeDef",
-    {
-        "DataUpdate": "DataUpdateRequestDetailsTypeDef",
-        "Deprecation": "DeprecationRequestDetailsTypeDef",
-        "SchemaChange": "SchemaChangeRequestDetailsTypeDef",
-    },
-    total=False,
-)
-
-OriginDetailsTypeDef = TypedDict(
-    "OriginDetailsTypeDef",
-    {
-        "ProductId": str,
-    },
-    total=False,
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-RedshiftDataShareAssetSourceEntryTypeDef = TypedDict(
-    "RedshiftDataShareAssetSourceEntryTypeDef",
-    {
-        "DataShareArn": str,
-    },
-)
-
-RedshiftDataShareAssetTypeDef = TypedDict(
-    "RedshiftDataShareAssetTypeDef",
-    {
-        "Arn": str,
-    },
-)
-
-_RequiredRedshiftDataShareDetailsTypeDef = TypedDict(
-    "_RequiredRedshiftDataShareDetailsTypeDef",
-    {
-        "Arn": str,
-        "Database": str,
-    },
-)
-_OptionalRedshiftDataShareDetailsTypeDef = TypedDict(
-    "_OptionalRedshiftDataShareDetailsTypeDef",
-    {
-        "Function": str,
-        "Table": str,
-        "Schema": str,
-        "View": str,
-    },
-    total=False,
-)
-
-class RedshiftDataShareDetailsTypeDef(
-    _RequiredRedshiftDataShareDetailsTypeDef, _OptionalRedshiftDataShareDetailsTypeDef
-):
-    pass
-
-RequestDetailsTypeDef = TypedDict(
-    "RequestDetailsTypeDef",
-    {
-        "ExportAssetToSignedUrl": "ExportAssetToSignedUrlRequestDetailsTypeDef",
-        "ExportAssetsToS3": "ExportAssetsToS3RequestDetailsTypeDef",
-        "ExportRevisionsToS3": "ExportRevisionsToS3RequestDetailsTypeDef",
-        "ImportAssetFromSignedUrl": "ImportAssetFromSignedUrlRequestDetailsTypeDef",
-        "ImportAssetsFromS3": "ImportAssetsFromS3RequestDetailsTypeDef",
-        "ImportAssetsFromRedshiftDataShares": "ImportAssetsFromRedshiftDataSharesRequestDetailsTypeDef",
-        "ImportAssetFromApiGatewayApi": "ImportAssetFromApiGatewayApiRequestDetailsTypeDef",
-        "CreateS3DataAccessFromS3Bucket": "CreateS3DataAccessFromS3BucketRequestDetailsTypeDef",
-        "ImportAssetsFromLakeFormationTagPolicy": "ImportAssetsFromLakeFormationTagPolicyRequestDetailsTypeDef",
-    },
-    total=False,
-)
-
-ResponseDetailsTypeDef = TypedDict(
-    "ResponseDetailsTypeDef",
-    {
-        "ExportAssetToSignedUrl": "ExportAssetToSignedUrlResponseDetailsTypeDef",
-        "ExportAssetsToS3": "ExportAssetsToS3ResponseDetailsTypeDef",
-        "ExportRevisionsToS3": "ExportRevisionsToS3ResponseDetailsTypeDef",
-        "ImportAssetFromSignedUrl": "ImportAssetFromSignedUrlResponseDetailsTypeDef",
-        "ImportAssetsFromS3": "ImportAssetsFromS3ResponseDetailsTypeDef",
-        "ImportAssetsFromRedshiftDataShares": "ImportAssetsFromRedshiftDataSharesResponseDetailsTypeDef",
-        "ImportAssetFromApiGatewayApi": "ImportAssetFromApiGatewayApiResponseDetailsTypeDef",
-        "CreateS3DataAccessFromS3Bucket": "CreateS3DataAccessFromS3BucketResponseDetailsTypeDef",
-        "ImportAssetsFromLakeFormationTagPolicy": "ImportAssetsFromLakeFormationTagPolicyResponseDetailsTypeDef",
-    },
-    total=False,
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-_RequiredRevisionDestinationEntryTypeDef = TypedDict(
-    "_RequiredRevisionDestinationEntryTypeDef",
-    {
-        "Bucket": str,
-        "RevisionId": str,
-    },
-)
-_OptionalRevisionDestinationEntryTypeDef = TypedDict(
-    "_OptionalRevisionDestinationEntryTypeDef",
-    {
-        "KeyPattern": str,
-    },
-    total=False,
-)
-
-class RevisionDestinationEntryTypeDef(
-    _RequiredRevisionDestinationEntryTypeDef, _OptionalRevisionDestinationEntryTypeDef
-):
-    pass
-
-_RequiredRevisionEntryTypeDef = TypedDict(
-    "_RequiredRevisionEntryTypeDef",
-    {
-        "Arn": str,
-        "CreatedAt": datetime,
-        "DataSetId": str,
-        "Id": str,
-        "UpdatedAt": datetime,
-    },
-)
-_OptionalRevisionEntryTypeDef = TypedDict(
-    "_OptionalRevisionEntryTypeDef",
-    {
-        "Comment": str,
-        "Finalized": bool,
-        "SourceId": str,
-        "RevocationComment": str,
-        "Revoked": bool,
-        "RevokedAt": datetime,
-    },
-    total=False,
-)
-
-class RevisionEntryTypeDef(_RequiredRevisionEntryTypeDef, _OptionalRevisionEntryTypeDef):
-    pass
-
-RevisionPublishedTypeDef = TypedDict(
-    "RevisionPublishedTypeDef",
-    {
-        "DataSetId": str,
-    },
-)
-
-RevokeRevisionRequestRequestTypeDef = TypedDict(
-    "RevokeRevisionRequestRequestTypeDef",
-    {
-        "DataSetId": str,
-        "RevisionId": str,
-        "RevocationComment": str,
-    },
-)
-
-RevokeRevisionResponseTypeDef = TypedDict(
-    "RevokeRevisionResponseTypeDef",
-    {
-        "Arn": str,
-        "Comment": str,
-        "CreatedAt": datetime,
-        "DataSetId": str,
-        "Finalized": bool,
-        "Id": str,
-        "SourceId": str,
-        "UpdatedAt": datetime,
-        "RevocationComment": str,
-        "Revoked": bool,
-        "RevokedAt": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredS3DataAccessAssetSourceEntryTypeDef = TypedDict(
-    "_RequiredS3DataAccessAssetSourceEntryTypeDef",
-    {
-        "Bucket": str,
-    },
-)
-_OptionalS3DataAccessAssetSourceEntryTypeDef = TypedDict(
-    "_OptionalS3DataAccessAssetSourceEntryTypeDef",
-    {
-        "KeyPrefixes": List[str],
-        "Keys": List[str],
-        "KmsKeysToGrant": List["KmsKeyToGrantTypeDef"],
-    },
-    total=False,
-)
-
-class S3DataAccessAssetSourceEntryTypeDef(
-    _RequiredS3DataAccessAssetSourceEntryTypeDef, _OptionalS3DataAccessAssetSourceEntryTypeDef
-):
-    pass
-
-_RequiredS3DataAccessAssetTypeDef = TypedDict(
-    "_RequiredS3DataAccessAssetTypeDef",
-    {
-        "Bucket": str,
-    },
-)
-_OptionalS3DataAccessAssetTypeDef = TypedDict(
-    "_OptionalS3DataAccessAssetTypeDef",
-    {
-        "KeyPrefixes": List[str],
-        "Keys": List[str],
-        "S3AccessPointAlias": str,
-        "S3AccessPointArn": str,
-        "KmsKeysToGrant": List["KmsKeyToGrantTypeDef"],
-    },
-    total=False,
-)
-
-class S3DataAccessAssetTypeDef(
-    _RequiredS3DataAccessAssetTypeDef, _OptionalS3DataAccessAssetTypeDef
-):
-    pass
-
-S3DataAccessDetailsTypeDef = TypedDict(
-    "S3DataAccessDetailsTypeDef",
-    {
-        "KeyPrefixes": List[str],
-        "Keys": List[str],
-    },
-    total=False,
-)
-
-S3SnapshotAssetTypeDef = TypedDict(
-    "S3SnapshotAssetTypeDef",
-    {
-        "Size": float,
-    },
-)
-
-_RequiredSchemaChangeDetailsTypeDef = TypedDict(
-    "_RequiredSchemaChangeDetailsTypeDef",
-    {
-        "Name": str,
-        "Type": SchemaChangeTypeType,
-    },
-)
-_OptionalSchemaChangeDetailsTypeDef = TypedDict(
-    "_OptionalSchemaChangeDetailsTypeDef",
-    {
-        "Description": str,
-    },
-    total=False,
-)
-
-class SchemaChangeDetailsTypeDef(
-    _RequiredSchemaChangeDetailsTypeDef, _OptionalSchemaChangeDetailsTypeDef
-):
-    pass
-
-_RequiredSchemaChangeRequestDetailsTypeDef = TypedDict(
-    "_RequiredSchemaChangeRequestDetailsTypeDef",
-    {
-        "SchemaChangeAt": Union[datetime, str],
-    },
-)
-_OptionalSchemaChangeRequestDetailsTypeDef = TypedDict(
-    "_OptionalSchemaChangeRequestDetailsTypeDef",
-    {
-        "Changes": List["SchemaChangeDetailsTypeDef"],
-    },
-    total=False,
-)
-
-class SchemaChangeRequestDetailsTypeDef(
-    _RequiredSchemaChangeRequestDetailsTypeDef, _OptionalSchemaChangeRequestDetailsTypeDef
-):
-    pass
-
-ScopeDetailsTypeDef = TypedDict(
-    "ScopeDetailsTypeDef",
-    {
-        "LakeFormationTagPolicies": List["LakeFormationTagPolicyDetailsTypeDef"],
-        "RedshiftDataShares": List["RedshiftDataShareDetailsTypeDef"],
-        "S3DataAccesses": List["S3DataAccessDetailsTypeDef"],
-    },
-    total=False,
-)
-
-_RequiredSendApiAssetRequestRequestTypeDef = TypedDict(
-    "_RequiredSendApiAssetRequestRequestTypeDef",
-    {
-        "AssetId": str,
-        "DataSetId": str,
-        "RevisionId": str,
-    },
-)
-_OptionalSendApiAssetRequestRequestTypeDef = TypedDict(
-    "_OptionalSendApiAssetRequestRequestTypeDef",
-    {
-        "Body": str,
-        "QueryStringParameters": Dict[str, str],
-        "RequestHeaders": Dict[str, str],
-        "Method": str,
-        "Path": str,
-    },
-    total=False,
-)
-
-class SendApiAssetRequestRequestTypeDef(
-    _RequiredSendApiAssetRequestRequestTypeDef, _OptionalSendApiAssetRequestRequestTypeDef
-):
-    pass
-
-SendApiAssetResponseTypeDef = TypedDict(
-    "SendApiAssetResponseTypeDef",
-    {
-        "Body": str,
-        "ResponseHeaders": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredSendDataSetNotificationRequestRequestTypeDef = TypedDict(
-    "_RequiredSendDataSetNotificationRequestRequestTypeDef",
-    {
-        "DataSetId": str,
-        "Type": NotificationTypeType,
-    },
-)
-_OptionalSendDataSetNotificationRequestRequestTypeDef = TypedDict(
-    "_OptionalSendDataSetNotificationRequestRequestTypeDef",
-    {
-        "Scope": "ScopeDetailsTypeDef",
-        "ClientToken": str,
-        "Comment": str,
-        "Details": "NotificationDetailsTypeDef",
-    },
-    total=False,
-)
-
-class SendDataSetNotificationRequestRequestTypeDef(
-    _RequiredSendDataSetNotificationRequestRequestTypeDef,
-    _OptionalSendDataSetNotificationRequestRequestTypeDef,
-):
-    pass
-
-StartJobRequestRequestTypeDef = TypedDict(
-    "StartJobRequestRequestTypeDef",
-    {
-        "JobId": str,
-    },
-)
-
-TableLFTagPolicyAndPermissionsTypeDef = TypedDict(
-    "TableLFTagPolicyAndPermissionsTypeDef",
-    {
-        "Expression": List["LFTagTypeDef"],
-        "Permissions": List[TableTagPolicyLFPermissionType],
-    },
-)
-
-TableLFTagPolicyTypeDef = TypedDict(
-    "TableLFTagPolicyTypeDef",
-    {
-        "Expression": List["LFTagTypeDef"],
-    },
-)
-
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-        "Tags": Dict[str, str],
-    },
-)
-
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-        "TagKeys": List[str],
-    },
-)
-
-UpdateAssetRequestRequestTypeDef = TypedDict(
-    "UpdateAssetRequestRequestTypeDef",
-    {
-        "AssetId": str,
-        "DataSetId": str,
-        "Name": str,
-        "RevisionId": str,
-    },
-)
-
-UpdateAssetResponseTypeDef = TypedDict(
-    "UpdateAssetResponseTypeDef",
-    {
-        "Arn": str,
-        "AssetDetails": "AssetDetailsTypeDef",
-        "AssetType": AssetTypeType,
-        "CreatedAt": datetime,
-        "DataSetId": str,
-        "Id": str,
-        "Name": str,
-        "RevisionId": str,
-        "SourceId": str,
-        "UpdatedAt": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateDataSetRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateDataSetRequestRequestTypeDef",
-    {
-        "DataSetId": str,
-    },
-)
-_OptionalUpdateDataSetRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateDataSetRequestRequestTypeDef",
-    {
-        "Description": str,
-        "Name": str,
-    },
-    total=False,
-)
-
-class UpdateDataSetRequestRequestTypeDef(
-    _RequiredUpdateDataSetRequestRequestTypeDef, _OptionalUpdateDataSetRequestRequestTypeDef
-):
-    pass
-
-UpdateDataSetResponseTypeDef = TypedDict(
-    "UpdateDataSetResponseTypeDef",
-    {
-        "Arn": str,
-        "AssetType": AssetTypeType,
-        "CreatedAt": datetime,
-        "Description": str,
-        "Id": str,
-        "Name": str,
-        "Origin": OriginType,
-        "OriginDetails": "OriginDetailsTypeDef",
-        "SourceId": str,
-        "UpdatedAt": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateEventActionRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateEventActionRequestRequestTypeDef",
-    {
-        "EventActionId": str,
-    },
-)
-_OptionalUpdateEventActionRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateEventActionRequestRequestTypeDef",
-    {
-        "Action": "ActionTypeDef",
-    },
-    total=False,
-)
-
-class UpdateEventActionRequestRequestTypeDef(
-    _RequiredUpdateEventActionRequestRequestTypeDef, _OptionalUpdateEventActionRequestRequestTypeDef
-):
-    pass
-
-UpdateEventActionResponseTypeDef = TypedDict(
-    "UpdateEventActionResponseTypeDef",
-    {
-        "Action": "ActionTypeDef",
-        "Arn": str,
-        "CreatedAt": datetime,
-        "Event": "EventTypeDef",
-        "Id": str,
-        "UpdatedAt": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateRevisionRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateRevisionRequestRequestTypeDef",
-    {
-        "DataSetId": str,
-        "RevisionId": str,
-    },
-)
-_OptionalUpdateRevisionRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateRevisionRequestRequestTypeDef",
-    {
-        "Comment": str,
-        "Finalized": bool,
-    },
-    total=False,
-)
-
-class UpdateRevisionRequestRequestTypeDef(
-    _RequiredUpdateRevisionRequestRequestTypeDef, _OptionalUpdateRevisionRequestRequestTypeDef
-):
-    pass
-
-UpdateRevisionResponseTypeDef = TypedDict(
-    "UpdateRevisionResponseTypeDef",
-    {
-        "Arn": str,
-        "Comment": str,
-        "CreatedAt": datetime,
-        "DataSetId": str,
-        "Finalized": bool,
-        "Id": str,
-        "SourceId": str,
-        "UpdatedAt": datetime,
-        "RevocationComment": str,
-        "Revoked": bool,
-        "RevokedAt": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+        "Errors": NotRequired[List[JobErrorTypeDef]],
+    },
+)
+
+class LakeFormationDataPermissionAssetTypeDef(TypedDict):
+    LakeFormationDataPermissionDetails: LakeFormationDataPermissionDetailsTypeDef
+    LakeFormationDataPermissionType: Literal["LFTagPolicy"]
+    Permissions: List[LFPermissionType]
+    RoleArn: NotRequired[str]
+
+class RequestDetailsTypeDef(TypedDict):
+    ExportAssetToSignedUrl: NotRequired[ExportAssetToSignedUrlRequestDetailsTypeDef]
+    ExportAssetsToS3: NotRequired[ExportAssetsToS3RequestDetailsTypeDef]
+    ExportRevisionsToS3: NotRequired[ExportRevisionsToS3RequestDetailsTypeDef]
+    ImportAssetFromSignedUrl: NotRequired[ImportAssetFromSignedUrlRequestDetailsTypeDef]
+    ImportAssetsFromS3: NotRequired[ImportAssetsFromS3RequestDetailsTypeDef]
+    ImportAssetsFromRedshiftDataShares: NotRequired[
+        ImportAssetsFromRedshiftDataSharesRequestDetailsTypeDef
+    ]
+    ImportAssetFromApiGatewayApi: NotRequired[ImportAssetFromApiGatewayApiRequestDetailsTypeDef]
+    CreateS3DataAccessFromS3Bucket: NotRequired[CreateS3DataAccessFromS3BucketRequestDetailsTypeDef]
+    ImportAssetsFromLakeFormationTagPolicy: NotRequired[
+        ImportAssetsFromLakeFormationTagPolicyRequestDetailsTypeDef
+    ]
+
+class ListJobsResponseTypeDef(TypedDict):
+    Jobs: List[JobEntryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class AssetDetailsTypeDef(TypedDict):
+    S3SnapshotAsset: NotRequired[S3SnapshotAssetTypeDef]
+    RedshiftDataShareAsset: NotRequired[RedshiftDataShareAssetTypeDef]
+    ApiGatewayApiAsset: NotRequired[ApiGatewayApiAssetTypeDef]
+    S3DataAccessAsset: NotRequired[S3DataAccessAssetTypeDef]
+    LakeFormationDataPermissionAsset: NotRequired[LakeFormationDataPermissionAssetTypeDef]
+
+CreateJobRequestTypeDef = TypedDict(
+    "CreateJobRequestTypeDef",
+    {
+        "Details": RequestDetailsTypeDef,
+        "Type": TypeType,
+    },
+)
+
+class AssetEntryTypeDef(TypedDict):
+    Arn: str
+    AssetDetails: AssetDetailsTypeDef
+    AssetType: AssetTypeType
+    CreatedAt: datetime
+    DataSetId: str
+    Id: str
+    Name: str
+    RevisionId: str
+    UpdatedAt: datetime
+    SourceId: NotRequired[str]
+
+class GetAssetResponseTypeDef(TypedDict):
+    Arn: str
+    AssetDetails: AssetDetailsTypeDef
+    AssetType: AssetTypeType
+    CreatedAt: datetime
+    DataSetId: str
+    Id: str
+    Name: str
+    RevisionId: str
+    SourceId: str
+    UpdatedAt: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateAssetResponseTypeDef(TypedDict):
+    Arn: str
+    AssetDetails: AssetDetailsTypeDef
+    AssetType: AssetTypeType
+    CreatedAt: datetime
+    DataSetId: str
+    Id: str
+    Name: str
+    RevisionId: str
+    SourceId: str
+    UpdatedAt: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListRevisionAssetsResponseTypeDef(TypedDict):
+    Assets: List[AssetEntryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]

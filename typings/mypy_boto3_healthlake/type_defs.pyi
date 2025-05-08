@@ -1,20 +1,24 @@
 """
 Type annotations for healthlake service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_healthlake/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_healthlake/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_healthlake.type_defs import CreateFHIRDatastoreRequestRequestTypeDef
+    from mypy_boto3_healthlake.type_defs import IdentityProviderConfigurationTypeDef
 
-    data: CreateFHIRDatastoreRequestRequestTypeDef = {...}
+    data: IdentityProviderConfigurationTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List, Union
+from typing import Union
 
 from .literals import (
     AuthorizationStrategyType,
@@ -24,27 +28,29 @@ from .literals import (
     JobStatusType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
-    "CreateFHIRDatastoreRequestRequestTypeDef",
+    "CreateFHIRDatastoreRequestTypeDef",
     "CreateFHIRDatastoreResponseTypeDef",
     "DatastoreFilterTypeDef",
     "DatastorePropertiesTypeDef",
-    "DeleteFHIRDatastoreRequestRequestTypeDef",
+    "DeleteFHIRDatastoreRequestTypeDef",
     "DeleteFHIRDatastoreResponseTypeDef",
-    "DescribeFHIRDatastoreRequestRequestTypeDef",
+    "DescribeFHIRDatastoreRequestTypeDef",
     "DescribeFHIRDatastoreResponseTypeDef",
-    "DescribeFHIRExportJobRequestRequestTypeDef",
+    "DescribeFHIRExportJobRequestTypeDef",
     "DescribeFHIRExportJobResponseTypeDef",
-    "DescribeFHIRImportJobRequestRequestTypeDef",
+    "DescribeFHIRImportJobRequestTypeDef",
     "DescribeFHIRImportJobResponseTypeDef",
     "ErrorCauseTypeDef",
     "ExportJobPropertiesTypeDef",
@@ -53,524 +59,250 @@ __all__ = (
     "InputDataConfigTypeDef",
     "JobProgressReportTypeDef",
     "KmsEncryptionConfigTypeDef",
-    "ListFHIRDatastoresRequestRequestTypeDef",
+    "ListFHIRDatastoresRequestTypeDef",
     "ListFHIRDatastoresResponseTypeDef",
-    "ListFHIRExportJobsRequestRequestTypeDef",
+    "ListFHIRExportJobsRequestTypeDef",
     "ListFHIRExportJobsResponseTypeDef",
-    "ListFHIRImportJobsRequestRequestTypeDef",
+    "ListFHIRImportJobsRequestTypeDef",
     "ListFHIRImportJobsResponseTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "OutputDataConfigTypeDef",
     "PreloadDataConfigTypeDef",
     "ResponseMetadataTypeDef",
     "S3ConfigurationTypeDef",
     "SseConfigurationTypeDef",
-    "StartFHIRExportJobRequestRequestTypeDef",
+    "StartFHIRExportJobRequestTypeDef",
     "StartFHIRExportJobResponseTypeDef",
-    "StartFHIRImportJobRequestRequestTypeDef",
+    "StartFHIRImportJobRequestTypeDef",
     "StartFHIRImportJobResponseTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
     "TagTypeDef",
-    "UntagResourceRequestRequestTypeDef",
+    "TimestampTypeDef",
+    "UntagResourceRequestTypeDef",
 )
 
-_RequiredCreateFHIRDatastoreRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateFHIRDatastoreRequestRequestTypeDef",
-    {
-        "DatastoreTypeVersion": Literal["R4"],
-    },
-)
-_OptionalCreateFHIRDatastoreRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateFHIRDatastoreRequestRequestTypeDef",
-    {
-        "DatastoreName": str,
-        "SseConfiguration": "SseConfigurationTypeDef",
-        "PreloadDataConfig": "PreloadDataConfigTypeDef",
-        "ClientToken": str,
-        "Tags": List["TagTypeDef"],
-        "IdentityProviderConfiguration": "IdentityProviderConfigurationTypeDef",
-    },
-    total=False,
-)
+class IdentityProviderConfigurationTypeDef(TypedDict):
+    AuthorizationStrategy: AuthorizationStrategyType
+    FineGrainedAuthorizationEnabled: NotRequired[bool]
+    Metadata: NotRequired[str]
+    IdpLambdaArn: NotRequired[str]
 
-class CreateFHIRDatastoreRequestRequestTypeDef(
-    _RequiredCreateFHIRDatastoreRequestRequestTypeDef,
-    _OptionalCreateFHIRDatastoreRequestRequestTypeDef,
-):
-    pass
+class PreloadDataConfigTypeDef(TypedDict):
+    PreloadDataType: Literal["SYNTHEA"]
 
-CreateFHIRDatastoreResponseTypeDef = TypedDict(
-    "CreateFHIRDatastoreResponseTypeDef",
-    {
-        "DatastoreId": str,
-        "DatastoreArn": str,
-        "DatastoreStatus": DatastoreStatusType,
-        "DatastoreEndpoint": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class TagTypeDef(TypedDict):
+    Key: str
+    Value: str
 
-DatastoreFilterTypeDef = TypedDict(
-    "DatastoreFilterTypeDef",
-    {
-        "DatastoreName": str,
-        "DatastoreStatus": DatastoreStatusType,
-        "CreatedBefore": Union[datetime, str],
-        "CreatedAfter": Union[datetime, str],
-    },
-    total=False,
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-_RequiredDatastorePropertiesTypeDef = TypedDict(
-    "_RequiredDatastorePropertiesTypeDef",
-    {
-        "DatastoreId": str,
-        "DatastoreArn": str,
-        "DatastoreStatus": DatastoreStatusType,
-        "DatastoreTypeVersion": Literal["R4"],
-        "DatastoreEndpoint": str,
-    },
-)
-_OptionalDatastorePropertiesTypeDef = TypedDict(
-    "_OptionalDatastorePropertiesTypeDef",
-    {
-        "DatastoreName": str,
-        "CreatedAt": datetime,
-        "SseConfiguration": "SseConfigurationTypeDef",
-        "PreloadDataConfig": "PreloadDataConfigTypeDef",
-        "IdentityProviderConfiguration": "IdentityProviderConfigurationTypeDef",
-        "ErrorCause": "ErrorCauseTypeDef",
-    },
-    total=False,
-)
+TimestampTypeDef = Union[datetime, str]
 
-class DatastorePropertiesTypeDef(
-    _RequiredDatastorePropertiesTypeDef, _OptionalDatastorePropertiesTypeDef
-):
-    pass
+class ErrorCauseTypeDef(TypedDict):
+    ErrorMessage: NotRequired[str]
+    ErrorCategory: NotRequired[ErrorCategoryType]
 
-DeleteFHIRDatastoreRequestRequestTypeDef = TypedDict(
-    "DeleteFHIRDatastoreRequestRequestTypeDef",
-    {
-        "DatastoreId": str,
-    },
-)
+class DeleteFHIRDatastoreRequestTypeDef(TypedDict):
+    DatastoreId: str
 
-DeleteFHIRDatastoreResponseTypeDef = TypedDict(
-    "DeleteFHIRDatastoreResponseTypeDef",
-    {
-        "DatastoreId": str,
-        "DatastoreArn": str,
-        "DatastoreStatus": DatastoreStatusType,
-        "DatastoreEndpoint": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DescribeFHIRDatastoreRequestTypeDef(TypedDict):
+    DatastoreId: str
 
-DescribeFHIRDatastoreRequestRequestTypeDef = TypedDict(
-    "DescribeFHIRDatastoreRequestRequestTypeDef",
-    {
-        "DatastoreId": str,
-    },
-)
+class DescribeFHIRExportJobRequestTypeDef(TypedDict):
+    DatastoreId: str
+    JobId: str
 
-DescribeFHIRDatastoreResponseTypeDef = TypedDict(
-    "DescribeFHIRDatastoreResponseTypeDef",
-    {
-        "DatastoreProperties": "DatastorePropertiesTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DescribeFHIRImportJobRequestTypeDef(TypedDict):
+    DatastoreId: str
+    JobId: str
 
-DescribeFHIRExportJobRequestRequestTypeDef = TypedDict(
-    "DescribeFHIRExportJobRequestRequestTypeDef",
-    {
-        "DatastoreId": str,
-        "JobId": str,
-    },
-)
+class InputDataConfigTypeDef(TypedDict):
+    S3Uri: NotRequired[str]
 
-DescribeFHIRExportJobResponseTypeDef = TypedDict(
-    "DescribeFHIRExportJobResponseTypeDef",
-    {
-        "ExportJobProperties": "ExportJobPropertiesTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class JobProgressReportTypeDef(TypedDict):
+    TotalNumberOfScannedFiles: NotRequired[int]
+    TotalSizeOfScannedFilesInMB: NotRequired[float]
+    TotalNumberOfImportedFiles: NotRequired[int]
+    TotalNumberOfResourcesScanned: NotRequired[int]
+    TotalNumberOfResourcesImported: NotRequired[int]
+    TotalNumberOfResourcesWithCustomerError: NotRequired[int]
+    TotalNumberOfFilesReadWithCustomerError: NotRequired[int]
+    Throughput: NotRequired[float]
 
-DescribeFHIRImportJobRequestRequestTypeDef = TypedDict(
-    "DescribeFHIRImportJobRequestRequestTypeDef",
-    {
-        "DatastoreId": str,
-        "JobId": str,
-    },
-)
+class KmsEncryptionConfigTypeDef(TypedDict):
+    CmkType: CmkTypeType
+    KmsKeyId: NotRequired[str]
 
-DescribeFHIRImportJobResponseTypeDef = TypedDict(
-    "DescribeFHIRImportJobResponseTypeDef",
-    {
-        "ImportJobProperties": "ImportJobPropertiesTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    ResourceARN: str
 
-ErrorCauseTypeDef = TypedDict(
-    "ErrorCauseTypeDef",
-    {
-        "ErrorMessage": str,
-        "ErrorCategory": ErrorCategoryType,
-    },
-    total=False,
-)
+class S3ConfigurationTypeDef(TypedDict):
+    S3Uri: str
+    KmsKeyId: str
 
-_RequiredExportJobPropertiesTypeDef = TypedDict(
-    "_RequiredExportJobPropertiesTypeDef",
-    {
-        "JobId": str,
-        "JobStatus": JobStatusType,
-        "SubmitTime": datetime,
-        "DatastoreId": str,
-        "OutputDataConfig": "OutputDataConfigTypeDef",
-    },
-)
-_OptionalExportJobPropertiesTypeDef = TypedDict(
-    "_OptionalExportJobPropertiesTypeDef",
-    {
-        "JobName": str,
-        "EndTime": datetime,
-        "DataAccessRoleArn": str,
-        "Message": str,
-    },
-    total=False,
-)
+class UntagResourceRequestTypeDef(TypedDict):
+    ResourceARN: str
+    TagKeys: Sequence[str]
 
-class ExportJobPropertiesTypeDef(
-    _RequiredExportJobPropertiesTypeDef, _OptionalExportJobPropertiesTypeDef
-):
-    pass
+class TagResourceRequestTypeDef(TypedDict):
+    ResourceARN: str
+    Tags: Sequence[TagTypeDef]
 
-_RequiredIdentityProviderConfigurationTypeDef = TypedDict(
-    "_RequiredIdentityProviderConfigurationTypeDef",
-    {
-        "AuthorizationStrategy": AuthorizationStrategyType,
-    },
-)
-_OptionalIdentityProviderConfigurationTypeDef = TypedDict(
-    "_OptionalIdentityProviderConfigurationTypeDef",
-    {
-        "FineGrainedAuthorizationEnabled": bool,
-        "Metadata": str,
-        "IdpLambdaArn": str,
-    },
-    total=False,
-)
+class CreateFHIRDatastoreResponseTypeDef(TypedDict):
+    DatastoreId: str
+    DatastoreArn: str
+    DatastoreStatus: DatastoreStatusType
+    DatastoreEndpoint: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class IdentityProviderConfigurationTypeDef(
-    _RequiredIdentityProviderConfigurationTypeDef, _OptionalIdentityProviderConfigurationTypeDef
-):
-    pass
+class DeleteFHIRDatastoreResponseTypeDef(TypedDict):
+    DatastoreId: str
+    DatastoreArn: str
+    DatastoreStatus: DatastoreStatusType
+    DatastoreEndpoint: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredImportJobPropertiesTypeDef = TypedDict(
-    "_RequiredImportJobPropertiesTypeDef",
-    {
-        "JobId": str,
-        "JobStatus": JobStatusType,
-        "SubmitTime": datetime,
-        "DatastoreId": str,
-        "InputDataConfig": "InputDataConfigTypeDef",
-    },
-)
-_OptionalImportJobPropertiesTypeDef = TypedDict(
-    "_OptionalImportJobPropertiesTypeDef",
-    {
-        "JobName": str,
-        "EndTime": datetime,
-        "JobOutputDataConfig": "OutputDataConfigTypeDef",
-        "JobProgressReport": "JobProgressReportTypeDef",
-        "DataAccessRoleArn": str,
-        "Message": str,
-    },
-    total=False,
-)
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    Tags: List[TagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class ImportJobPropertiesTypeDef(
-    _RequiredImportJobPropertiesTypeDef, _OptionalImportJobPropertiesTypeDef
-):
-    pass
+class StartFHIRExportJobResponseTypeDef(TypedDict):
+    JobId: str
+    JobStatus: JobStatusType
+    DatastoreId: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-InputDataConfigTypeDef = TypedDict(
-    "InputDataConfigTypeDef",
-    {
-        "S3Uri": str,
-    },
-    total=False,
-)
+class StartFHIRImportJobResponseTypeDef(TypedDict):
+    JobId: str
+    JobStatus: JobStatusType
+    DatastoreId: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-JobProgressReportTypeDef = TypedDict(
-    "JobProgressReportTypeDef",
-    {
-        "TotalNumberOfScannedFiles": int,
-        "TotalSizeOfScannedFilesInMB": float,
-        "TotalNumberOfImportedFiles": int,
-        "TotalNumberOfResourcesScanned": int,
-        "TotalNumberOfResourcesImported": int,
-        "TotalNumberOfResourcesWithCustomerError": int,
-        "TotalNumberOfFilesReadWithCustomerError": int,
-        "Throughput": float,
-    },
-    total=False,
-)
+class DatastoreFilterTypeDef(TypedDict):
+    DatastoreName: NotRequired[str]
+    DatastoreStatus: NotRequired[DatastoreStatusType]
+    CreatedBefore: NotRequired[TimestampTypeDef]
+    CreatedAfter: NotRequired[TimestampTypeDef]
 
-_RequiredKmsEncryptionConfigTypeDef = TypedDict(
-    "_RequiredKmsEncryptionConfigTypeDef",
-    {
-        "CmkType": CmkTypeType,
-    },
-)
-_OptionalKmsEncryptionConfigTypeDef = TypedDict(
-    "_OptionalKmsEncryptionConfigTypeDef",
-    {
-        "KmsKeyId": str,
-    },
-    total=False,
-)
+class ListFHIRExportJobsRequestTypeDef(TypedDict):
+    DatastoreId: str
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+    JobName: NotRequired[str]
+    JobStatus: NotRequired[JobStatusType]
+    SubmittedBefore: NotRequired[TimestampTypeDef]
+    SubmittedAfter: NotRequired[TimestampTypeDef]
 
-class KmsEncryptionConfigTypeDef(
-    _RequiredKmsEncryptionConfigTypeDef, _OptionalKmsEncryptionConfigTypeDef
-):
-    pass
+class ListFHIRImportJobsRequestTypeDef(TypedDict):
+    DatastoreId: str
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+    JobName: NotRequired[str]
+    JobStatus: NotRequired[JobStatusType]
+    SubmittedBefore: NotRequired[TimestampTypeDef]
+    SubmittedAfter: NotRequired[TimestampTypeDef]
 
-ListFHIRDatastoresRequestRequestTypeDef = TypedDict(
-    "ListFHIRDatastoresRequestRequestTypeDef",
-    {
-        "Filter": "DatastoreFilterTypeDef",
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
+class SseConfigurationTypeDef(TypedDict):
+    KmsEncryptionConfig: KmsEncryptionConfigTypeDef
 
-ListFHIRDatastoresResponseTypeDef = TypedDict(
-    "ListFHIRDatastoresResponseTypeDef",
-    {
-        "DatastorePropertiesList": List["DatastorePropertiesTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class OutputDataConfigTypeDef(TypedDict):
+    S3Configuration: NotRequired[S3ConfigurationTypeDef]
 
-_RequiredListFHIRExportJobsRequestRequestTypeDef = TypedDict(
-    "_RequiredListFHIRExportJobsRequestRequestTypeDef",
-    {
-        "DatastoreId": str,
-    },
-)
-_OptionalListFHIRExportJobsRequestRequestTypeDef = TypedDict(
-    "_OptionalListFHIRExportJobsRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-        "JobName": str,
-        "JobStatus": JobStatusType,
-        "SubmittedBefore": Union[datetime, str],
-        "SubmittedAfter": Union[datetime, str],
-    },
-    total=False,
-)
+class ListFHIRDatastoresRequestTypeDef(TypedDict):
+    Filter: NotRequired[DatastoreFilterTypeDef]
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
 
-class ListFHIRExportJobsRequestRequestTypeDef(
-    _RequiredListFHIRExportJobsRequestRequestTypeDef,
-    _OptionalListFHIRExportJobsRequestRequestTypeDef,
-):
-    pass
+class CreateFHIRDatastoreRequestTypeDef(TypedDict):
+    DatastoreTypeVersion: Literal["R4"]
+    DatastoreName: NotRequired[str]
+    SseConfiguration: NotRequired[SseConfigurationTypeDef]
+    PreloadDataConfig: NotRequired[PreloadDataConfigTypeDef]
+    ClientToken: NotRequired[str]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+    IdentityProviderConfiguration: NotRequired[IdentityProviderConfigurationTypeDef]
 
-ListFHIRExportJobsResponseTypeDef = TypedDict(
-    "ListFHIRExportJobsResponseTypeDef",
-    {
-        "ExportJobPropertiesList": List["ExportJobPropertiesTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DatastorePropertiesTypeDef(TypedDict):
+    DatastoreId: str
+    DatastoreArn: str
+    DatastoreStatus: DatastoreStatusType
+    DatastoreTypeVersion: Literal["R4"]
+    DatastoreEndpoint: str
+    DatastoreName: NotRequired[str]
+    CreatedAt: NotRequired[datetime]
+    SseConfiguration: NotRequired[SseConfigurationTypeDef]
+    PreloadDataConfig: NotRequired[PreloadDataConfigTypeDef]
+    IdentityProviderConfiguration: NotRequired[IdentityProviderConfigurationTypeDef]
+    ErrorCause: NotRequired[ErrorCauseTypeDef]
 
-_RequiredListFHIRImportJobsRequestRequestTypeDef = TypedDict(
-    "_RequiredListFHIRImportJobsRequestRequestTypeDef",
-    {
-        "DatastoreId": str,
-    },
-)
-_OptionalListFHIRImportJobsRequestRequestTypeDef = TypedDict(
-    "_OptionalListFHIRImportJobsRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-        "JobName": str,
-        "JobStatus": JobStatusType,
-        "SubmittedBefore": Union[datetime, str],
-        "SubmittedAfter": Union[datetime, str],
-    },
-    total=False,
-)
+class ExportJobPropertiesTypeDef(TypedDict):
+    JobId: str
+    JobStatus: JobStatusType
+    SubmitTime: datetime
+    DatastoreId: str
+    OutputDataConfig: OutputDataConfigTypeDef
+    JobName: NotRequired[str]
+    EndTime: NotRequired[datetime]
+    DataAccessRoleArn: NotRequired[str]
+    Message: NotRequired[str]
 
-class ListFHIRImportJobsRequestRequestTypeDef(
-    _RequiredListFHIRImportJobsRequestRequestTypeDef,
-    _OptionalListFHIRImportJobsRequestRequestTypeDef,
-):
-    pass
+class ImportJobPropertiesTypeDef(TypedDict):
+    JobId: str
+    JobStatus: JobStatusType
+    SubmitTime: datetime
+    DatastoreId: str
+    InputDataConfig: InputDataConfigTypeDef
+    JobName: NotRequired[str]
+    EndTime: NotRequired[datetime]
+    JobOutputDataConfig: NotRequired[OutputDataConfigTypeDef]
+    JobProgressReport: NotRequired[JobProgressReportTypeDef]
+    DataAccessRoleArn: NotRequired[str]
+    Message: NotRequired[str]
 
-ListFHIRImportJobsResponseTypeDef = TypedDict(
-    "ListFHIRImportJobsResponseTypeDef",
-    {
-        "ImportJobPropertiesList": List["ImportJobPropertiesTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class StartFHIRExportJobRequestTypeDef(TypedDict):
+    OutputDataConfig: OutputDataConfigTypeDef
+    DatastoreId: str
+    DataAccessRoleArn: str
+    JobName: NotRequired[str]
+    ClientToken: NotRequired[str]
 
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "ResourceARN": str,
-    },
-)
+class StartFHIRImportJobRequestTypeDef(TypedDict):
+    InputDataConfig: InputDataConfigTypeDef
+    JobOutputDataConfig: OutputDataConfigTypeDef
+    DatastoreId: str
+    DataAccessRoleArn: str
+    JobName: NotRequired[str]
+    ClientToken: NotRequired[str]
 
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "Tags": List["TagTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DescribeFHIRDatastoreResponseTypeDef(TypedDict):
+    DatastoreProperties: DatastorePropertiesTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-OutputDataConfigTypeDef = TypedDict(
-    "OutputDataConfigTypeDef",
-    {
-        "S3Configuration": "S3ConfigurationTypeDef",
-    },
-    total=False,
-)
+class ListFHIRDatastoresResponseTypeDef(TypedDict):
+    DatastorePropertiesList: List[DatastorePropertiesTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-PreloadDataConfigTypeDef = TypedDict(
-    "PreloadDataConfigTypeDef",
-    {
-        "PreloadDataType": Literal["SYNTHEA"],
-    },
-)
+class DescribeFHIRExportJobResponseTypeDef(TypedDict):
+    ExportJobProperties: ExportJobPropertiesTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
+class ListFHIRExportJobsResponseTypeDef(TypedDict):
+    ExportJobPropertiesList: List[ExportJobPropertiesTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-S3ConfigurationTypeDef = TypedDict(
-    "S3ConfigurationTypeDef",
-    {
-        "S3Uri": str,
-        "KmsKeyId": str,
-    },
-)
+class DescribeFHIRImportJobResponseTypeDef(TypedDict):
+    ImportJobProperties: ImportJobPropertiesTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-SseConfigurationTypeDef = TypedDict(
-    "SseConfigurationTypeDef",
-    {
-        "KmsEncryptionConfig": "KmsEncryptionConfigTypeDef",
-    },
-)
-
-_RequiredStartFHIRExportJobRequestRequestTypeDef = TypedDict(
-    "_RequiredStartFHIRExportJobRequestRequestTypeDef",
-    {
-        "OutputDataConfig": "OutputDataConfigTypeDef",
-        "DatastoreId": str,
-        "DataAccessRoleArn": str,
-        "ClientToken": str,
-    },
-)
-_OptionalStartFHIRExportJobRequestRequestTypeDef = TypedDict(
-    "_OptionalStartFHIRExportJobRequestRequestTypeDef",
-    {
-        "JobName": str,
-    },
-    total=False,
-)
-
-class StartFHIRExportJobRequestRequestTypeDef(
-    _RequiredStartFHIRExportJobRequestRequestTypeDef,
-    _OptionalStartFHIRExportJobRequestRequestTypeDef,
-):
-    pass
-
-StartFHIRExportJobResponseTypeDef = TypedDict(
-    "StartFHIRExportJobResponseTypeDef",
-    {
-        "JobId": str,
-        "JobStatus": JobStatusType,
-        "DatastoreId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredStartFHIRImportJobRequestRequestTypeDef = TypedDict(
-    "_RequiredStartFHIRImportJobRequestRequestTypeDef",
-    {
-        "InputDataConfig": "InputDataConfigTypeDef",
-        "JobOutputDataConfig": "OutputDataConfigTypeDef",
-        "DatastoreId": str,
-        "DataAccessRoleArn": str,
-        "ClientToken": str,
-    },
-)
-_OptionalStartFHIRImportJobRequestRequestTypeDef = TypedDict(
-    "_OptionalStartFHIRImportJobRequestRequestTypeDef",
-    {
-        "JobName": str,
-    },
-    total=False,
-)
-
-class StartFHIRImportJobRequestRequestTypeDef(
-    _RequiredStartFHIRImportJobRequestRequestTypeDef,
-    _OptionalStartFHIRImportJobRequestRequestTypeDef,
-):
-    pass
-
-StartFHIRImportJobResponseTypeDef = TypedDict(
-    "StartFHIRImportJobResponseTypeDef",
-    {
-        "JobId": str,
-        "JobStatus": JobStatusType,
-        "DatastoreId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "ResourceARN": str,
-        "Tags": List["TagTypeDef"],
-    },
-)
-
-TagTypeDef = TypedDict(
-    "TagTypeDef",
-    {
-        "Key": str,
-        "Value": str,
-    },
-)
-
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "ResourceARN": str,
-        "TagKeys": List[str],
-    },
-)
+class ListFHIRImportJobsResponseTypeDef(TypedDict):
+    ImportJobPropertiesList: List[ImportJobPropertiesTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]

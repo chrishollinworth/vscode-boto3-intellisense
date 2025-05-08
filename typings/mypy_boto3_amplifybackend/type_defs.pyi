@@ -1,19 +1,23 @@
 """
 Type annotations for amplifybackend service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_amplifybackend/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_amplifybackend/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_amplifybackend.type_defs import BackendAPIAppSyncAuthSettingsTypeDef
 
-    data: BackendAPIAppSyncAuthSettingsTypeDef = {...}
+    data: BackendAPIAppSyncAuthSettingsTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from typing import Any, Dict, List
+from typing import Any, Union
 
 from .literals import (
     AdditionalConstraintsElementType,
@@ -32,655 +36,235 @@ from .literals import (
     UnAuthenticatedElementType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
     "BackendAPIAppSyncAuthSettingsTypeDef",
     "BackendAPIAuthTypeTypeDef",
     "BackendAPIConflictResolutionTypeDef",
+    "BackendAPIResourceConfigOutputTypeDef",
     "BackendAPIResourceConfigTypeDef",
+    "BackendAPIResourceConfigUnionTypeDef",
     "BackendAuthAppleProviderConfigTypeDef",
     "BackendAuthSocialProviderConfigTypeDef",
     "BackendJobRespObjTypeDef",
+    "BackendStoragePermissionsOutputTypeDef",
     "BackendStoragePermissionsTypeDef",
-    "CloneBackendRequestRequestTypeDef",
+    "BackendStoragePermissionsUnionTypeDef",
+    "CloneBackendRequestTypeDef",
     "CloneBackendResponseTypeDef",
-    "CreateBackendAPIRequestRequestTypeDef",
+    "CreateBackendAPIRequestTypeDef",
     "CreateBackendAPIResponseTypeDef",
     "CreateBackendAuthForgotPasswordConfigTypeDef",
     "CreateBackendAuthIdentityPoolConfigTypeDef",
+    "CreateBackendAuthMFAConfigOutputTypeDef",
     "CreateBackendAuthMFAConfigTypeDef",
+    "CreateBackendAuthOAuthConfigOutputTypeDef",
     "CreateBackendAuthOAuthConfigTypeDef",
+    "CreateBackendAuthPasswordPolicyConfigOutputTypeDef",
     "CreateBackendAuthPasswordPolicyConfigTypeDef",
-    "CreateBackendAuthRequestRequestTypeDef",
+    "CreateBackendAuthRequestTypeDef",
+    "CreateBackendAuthResourceConfigOutputTypeDef",
     "CreateBackendAuthResourceConfigTypeDef",
+    "CreateBackendAuthResourceConfigUnionTypeDef",
     "CreateBackendAuthResponseTypeDef",
+    "CreateBackendAuthUserPoolConfigOutputTypeDef",
     "CreateBackendAuthUserPoolConfigTypeDef",
     "CreateBackendAuthVerificationMessageConfigTypeDef",
-    "CreateBackendConfigRequestRequestTypeDef",
+    "CreateBackendConfigRequestTypeDef",
     "CreateBackendConfigResponseTypeDef",
-    "CreateBackendRequestRequestTypeDef",
+    "CreateBackendRequestTypeDef",
     "CreateBackendResponseTypeDef",
-    "CreateBackendStorageRequestRequestTypeDef",
+    "CreateBackendStorageRequestTypeDef",
     "CreateBackendStorageResourceConfigTypeDef",
     "CreateBackendStorageResponseTypeDef",
-    "CreateTokenRequestRequestTypeDef",
+    "CreateTokenRequestTypeDef",
     "CreateTokenResponseTypeDef",
-    "DeleteBackendAPIRequestRequestTypeDef",
+    "DeleteBackendAPIRequestTypeDef",
     "DeleteBackendAPIResponseTypeDef",
-    "DeleteBackendAuthRequestRequestTypeDef",
+    "DeleteBackendAuthRequestTypeDef",
     "DeleteBackendAuthResponseTypeDef",
-    "DeleteBackendRequestRequestTypeDef",
+    "DeleteBackendRequestTypeDef",
     "DeleteBackendResponseTypeDef",
-    "DeleteBackendStorageRequestRequestTypeDef",
+    "DeleteBackendStorageRequestTypeDef",
     "DeleteBackendStorageResponseTypeDef",
-    "DeleteTokenRequestRequestTypeDef",
+    "DeleteTokenRequestTypeDef",
     "DeleteTokenResponseTypeDef",
     "EmailSettingsTypeDef",
-    "GenerateBackendAPIModelsRequestRequestTypeDef",
+    "GenerateBackendAPIModelsRequestTypeDef",
     "GenerateBackendAPIModelsResponseTypeDef",
-    "GetBackendAPIModelsRequestRequestTypeDef",
+    "GetBackendAPIModelsRequestTypeDef",
     "GetBackendAPIModelsResponseTypeDef",
-    "GetBackendAPIRequestRequestTypeDef",
+    "GetBackendAPIRequestTypeDef",
     "GetBackendAPIResponseTypeDef",
-    "GetBackendAuthRequestRequestTypeDef",
+    "GetBackendAuthRequestTypeDef",
     "GetBackendAuthResponseTypeDef",
-    "GetBackendJobRequestRequestTypeDef",
+    "GetBackendJobRequestTypeDef",
     "GetBackendJobResponseTypeDef",
-    "GetBackendRequestRequestTypeDef",
+    "GetBackendRequestTypeDef",
     "GetBackendResponseTypeDef",
-    "GetBackendStorageRequestRequestTypeDef",
+    "GetBackendStorageRequestTypeDef",
     "GetBackendStorageResourceConfigTypeDef",
     "GetBackendStorageResponseTypeDef",
-    "GetTokenRequestRequestTypeDef",
+    "GetTokenRequestTypeDef",
     "GetTokenResponseTypeDef",
-    "ImportBackendAuthRequestRequestTypeDef",
+    "ImportBackendAuthRequestTypeDef",
     "ImportBackendAuthResponseTypeDef",
-    "ImportBackendStorageRequestRequestTypeDef",
+    "ImportBackendStorageRequestTypeDef",
     "ImportBackendStorageResponseTypeDef",
-    "ListBackendJobsRequestRequestTypeDef",
+    "ListBackendJobsRequestPaginateTypeDef",
+    "ListBackendJobsRequestTypeDef",
     "ListBackendJobsResponseTypeDef",
-    "ListS3BucketsRequestRequestTypeDef",
+    "ListS3BucketsRequestTypeDef",
     "ListS3BucketsResponseTypeDef",
     "LoginAuthConfigReqObjTypeDef",
     "PaginatorConfigTypeDef",
-    "RemoveAllBackendsRequestRequestTypeDef",
+    "RemoveAllBackendsRequestTypeDef",
     "RemoveAllBackendsResponseTypeDef",
-    "RemoveBackendConfigRequestRequestTypeDef",
+    "RemoveBackendConfigRequestTypeDef",
     "RemoveBackendConfigResponseTypeDef",
     "ResponseMetadataTypeDef",
     "S3BucketInfoTypeDef",
+    "SettingsOutputTypeDef",
     "SettingsTypeDef",
+    "SettingsUnionTypeDef",
     "SmsSettingsTypeDef",
     "SocialProviderSettingsTypeDef",
-    "UpdateBackendAPIRequestRequestTypeDef",
+    "UpdateBackendAPIRequestTypeDef",
     "UpdateBackendAPIResponseTypeDef",
     "UpdateBackendAuthForgotPasswordConfigTypeDef",
     "UpdateBackendAuthIdentityPoolConfigTypeDef",
     "UpdateBackendAuthMFAConfigTypeDef",
     "UpdateBackendAuthOAuthConfigTypeDef",
     "UpdateBackendAuthPasswordPolicyConfigTypeDef",
-    "UpdateBackendAuthRequestRequestTypeDef",
+    "UpdateBackendAuthRequestTypeDef",
     "UpdateBackendAuthResourceConfigTypeDef",
     "UpdateBackendAuthResponseTypeDef",
     "UpdateBackendAuthUserPoolConfigTypeDef",
     "UpdateBackendAuthVerificationMessageConfigTypeDef",
-    "UpdateBackendConfigRequestRequestTypeDef",
+    "UpdateBackendConfigRequestTypeDef",
     "UpdateBackendConfigResponseTypeDef",
-    "UpdateBackendJobRequestRequestTypeDef",
+    "UpdateBackendJobRequestTypeDef",
     "UpdateBackendJobResponseTypeDef",
-    "UpdateBackendStorageRequestRequestTypeDef",
+    "UpdateBackendStorageRequestTypeDef",
     "UpdateBackendStorageResourceConfigTypeDef",
     "UpdateBackendStorageResponseTypeDef",
 )
 
-BackendAPIAppSyncAuthSettingsTypeDef = TypedDict(
-    "BackendAPIAppSyncAuthSettingsTypeDef",
-    {
-        "CognitoUserPoolId": str,
-        "Description": str,
-        "ExpirationTime": float,
-        "OpenIDAuthTTL": str,
-        "OpenIDClientId": str,
-        "OpenIDIatTTL": str,
-        "OpenIDIssueURL": str,
-        "OpenIDProviderName": str,
-    },
-    total=False,
-)
+class BackendAPIAppSyncAuthSettingsTypeDef(TypedDict):
+    CognitoUserPoolId: NotRequired[str]
+    Description: NotRequired[str]
+    ExpirationTime: NotRequired[float]
+    OpenIDAuthTTL: NotRequired[str]
+    OpenIDClientId: NotRequired[str]
+    OpenIDIatTTL: NotRequired[str]
+    OpenIDIssueURL: NotRequired[str]
+    OpenIDProviderName: NotRequired[str]
 
-BackendAPIAuthTypeTypeDef = TypedDict(
-    "BackendAPIAuthTypeTypeDef",
-    {
-        "Mode": ModeType,
-        "Settings": "BackendAPIAppSyncAuthSettingsTypeDef",
-    },
-    total=False,
-)
+class BackendAPIConflictResolutionTypeDef(TypedDict):
+    ResolutionStrategy: NotRequired[ResolutionStrategyType]
 
-BackendAPIConflictResolutionTypeDef = TypedDict(
-    "BackendAPIConflictResolutionTypeDef",
-    {
-        "ResolutionStrategy": ResolutionStrategyType,
-    },
-    total=False,
-)
+class BackendAuthAppleProviderConfigTypeDef(TypedDict):
+    ClientId: NotRequired[str]
+    KeyId: NotRequired[str]
+    PrivateKey: NotRequired[str]
+    TeamId: NotRequired[str]
 
-BackendAPIResourceConfigTypeDef = TypedDict(
-    "BackendAPIResourceConfigTypeDef",
-    {
-        "AdditionalAuthTypes": List["BackendAPIAuthTypeTypeDef"],
-        "ApiName": str,
-        "ConflictResolution": "BackendAPIConflictResolutionTypeDef",
-        "DefaultAuthType": "BackendAPIAuthTypeTypeDef",
-        "Service": str,
-        "TransformSchema": str,
-    },
-    total=False,
-)
+class BackendAuthSocialProviderConfigTypeDef(TypedDict):
+    ClientId: NotRequired[str]
+    ClientSecret: NotRequired[str]
 
-BackendAuthAppleProviderConfigTypeDef = TypedDict(
-    "BackendAuthAppleProviderConfigTypeDef",
-    {
-        "ClientId": str,
-        "KeyId": str,
-        "PrivateKey": str,
-        "TeamId": str,
-    },
-    total=False,
-)
+class BackendJobRespObjTypeDef(TypedDict):
+    AppId: str
+    BackendEnvironmentName: str
+    CreateTime: NotRequired[str]
+    Error: NotRequired[str]
+    JobId: NotRequired[str]
+    Operation: NotRequired[str]
+    Status: NotRequired[str]
+    UpdateTime: NotRequired[str]
 
-BackendAuthSocialProviderConfigTypeDef = TypedDict(
-    "BackendAuthSocialProviderConfigTypeDef",
-    {
-        "ClientId": str,
-        "ClientSecret": str,
-    },
-    total=False,
-)
+class BackendStoragePermissionsOutputTypeDef(TypedDict):
+    Authenticated: List[AuthenticatedElementType]
+    UnAuthenticated: NotRequired[List[UnAuthenticatedElementType]]
 
-_RequiredBackendJobRespObjTypeDef = TypedDict(
-    "_RequiredBackendJobRespObjTypeDef",
-    {
-        "AppId": str,
-        "BackendEnvironmentName": str,
-    },
-)
-_OptionalBackendJobRespObjTypeDef = TypedDict(
-    "_OptionalBackendJobRespObjTypeDef",
-    {
-        "CreateTime": str,
-        "Error": str,
-        "JobId": str,
-        "Operation": str,
-        "Status": str,
-        "UpdateTime": str,
-    },
-    total=False,
-)
+class BackendStoragePermissionsTypeDef(TypedDict):
+    Authenticated: Sequence[AuthenticatedElementType]
+    UnAuthenticated: NotRequired[Sequence[UnAuthenticatedElementType]]
 
-class BackendJobRespObjTypeDef(
-    _RequiredBackendJobRespObjTypeDef, _OptionalBackendJobRespObjTypeDef
-):
-    pass
+class CloneBackendRequestTypeDef(TypedDict):
+    AppId: str
+    BackendEnvironmentName: str
+    TargetEnvironmentName: str
 
-_RequiredBackendStoragePermissionsTypeDef = TypedDict(
-    "_RequiredBackendStoragePermissionsTypeDef",
-    {
-        "Authenticated": List[AuthenticatedElementType],
-    },
-)
-_OptionalBackendStoragePermissionsTypeDef = TypedDict(
-    "_OptionalBackendStoragePermissionsTypeDef",
-    {
-        "UnAuthenticated": List[UnAuthenticatedElementType],
-    },
-    total=False,
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-class BackendStoragePermissionsTypeDef(
-    _RequiredBackendStoragePermissionsTypeDef, _OptionalBackendStoragePermissionsTypeDef
-):
-    pass
+class EmailSettingsTypeDef(TypedDict):
+    EmailMessage: NotRequired[str]
+    EmailSubject: NotRequired[str]
 
-CloneBackendRequestRequestTypeDef = TypedDict(
-    "CloneBackendRequestRequestTypeDef",
-    {
-        "AppId": str,
-        "BackendEnvironmentName": str,
-        "TargetEnvironmentName": str,
-    },
-)
+class SmsSettingsTypeDef(TypedDict):
+    SmsMessage: NotRequired[str]
 
-CloneBackendResponseTypeDef = TypedDict(
-    "CloneBackendResponseTypeDef",
-    {
-        "AppId": str,
-        "BackendEnvironmentName": str,
-        "Error": str,
-        "JobId": str,
-        "Operation": str,
-        "Status": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CreateBackendAuthIdentityPoolConfigTypeDef(TypedDict):
+    IdentityPoolName: str
+    UnauthenticatedLogin: bool
 
-CreateBackendAPIRequestRequestTypeDef = TypedDict(
-    "CreateBackendAPIRequestRequestTypeDef",
-    {
-        "AppId": str,
-        "BackendEnvironmentName": str,
-        "ResourceConfig": "BackendAPIResourceConfigTypeDef",
-        "ResourceName": str,
-    },
-)
+class SettingsOutputTypeDef(TypedDict):
+    MfaTypes: NotRequired[List[MfaTypesElementType]]
+    SmsMessage: NotRequired[str]
 
-CreateBackendAPIResponseTypeDef = TypedDict(
-    "CreateBackendAPIResponseTypeDef",
-    {
-        "AppId": str,
-        "BackendEnvironmentName": str,
-        "Error": str,
-        "JobId": str,
-        "Operation": str,
-        "Status": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class SettingsTypeDef(TypedDict):
+    MfaTypes: NotRequired[Sequence[MfaTypesElementType]]
+    SmsMessage: NotRequired[str]
 
-_RequiredCreateBackendAuthForgotPasswordConfigTypeDef = TypedDict(
-    "_RequiredCreateBackendAuthForgotPasswordConfigTypeDef",
-    {
-        "DeliveryMethod": DeliveryMethodType,
-    },
-)
-_OptionalCreateBackendAuthForgotPasswordConfigTypeDef = TypedDict(
-    "_OptionalCreateBackendAuthForgotPasswordConfigTypeDef",
-    {
-        "EmailSettings": "EmailSettingsTypeDef",
-        "SmsSettings": "SmsSettingsTypeDef",
-    },
-    total=False,
-)
+class CreateBackendAuthPasswordPolicyConfigOutputTypeDef(TypedDict):
+    MinimumLength: float
+    AdditionalConstraints: NotRequired[List[AdditionalConstraintsElementType]]
 
-class CreateBackendAuthForgotPasswordConfigTypeDef(
-    _RequiredCreateBackendAuthForgotPasswordConfigTypeDef,
-    _OptionalCreateBackendAuthForgotPasswordConfigTypeDef,
-):
-    pass
+class CreateBackendAuthPasswordPolicyConfigTypeDef(TypedDict):
+    MinimumLength: float
+    AdditionalConstraints: NotRequired[Sequence[AdditionalConstraintsElementType]]
 
-CreateBackendAuthIdentityPoolConfigTypeDef = TypedDict(
-    "CreateBackendAuthIdentityPoolConfigTypeDef",
-    {
-        "IdentityPoolName": str,
-        "UnauthenticatedLogin": bool,
-    },
-)
+class CreateBackendConfigRequestTypeDef(TypedDict):
+    AppId: str
+    BackendManagerAppId: NotRequired[str]
 
-_RequiredCreateBackendAuthMFAConfigTypeDef = TypedDict(
-    "_RequiredCreateBackendAuthMFAConfigTypeDef",
-    {
-        "MFAMode": MFAModeType,
-    },
-)
-_OptionalCreateBackendAuthMFAConfigTypeDef = TypedDict(
-    "_OptionalCreateBackendAuthMFAConfigTypeDef",
-    {
-        "Settings": "SettingsTypeDef",
-    },
-    total=False,
-)
+class CreateBackendRequestTypeDef(TypedDict):
+    AppId: str
+    AppName: str
+    BackendEnvironmentName: str
+    ResourceConfig: NotRequired[Mapping[str, Any]]
+    ResourceName: NotRequired[str]
 
-class CreateBackendAuthMFAConfigTypeDef(
-    _RequiredCreateBackendAuthMFAConfigTypeDef, _OptionalCreateBackendAuthMFAConfigTypeDef
-):
-    pass
+class CreateTokenRequestTypeDef(TypedDict):
+    AppId: str
 
-_RequiredCreateBackendAuthOAuthConfigTypeDef = TypedDict(
-    "_RequiredCreateBackendAuthOAuthConfigTypeDef",
-    {
-        "OAuthGrantType": OAuthGrantTypeType,
-        "OAuthScopes": List[OAuthScopesElementType],
-        "RedirectSignInURIs": List[str],
-        "RedirectSignOutURIs": List[str],
-    },
-)
-_OptionalCreateBackendAuthOAuthConfigTypeDef = TypedDict(
-    "_OptionalCreateBackendAuthOAuthConfigTypeDef",
-    {
-        "DomainPrefix": str,
-        "SocialProviderSettings": "SocialProviderSettingsTypeDef",
-    },
-    total=False,
-)
+class DeleteBackendAuthRequestTypeDef(TypedDict):
+    AppId: str
+    BackendEnvironmentName: str
+    ResourceName: str
 
-class CreateBackendAuthOAuthConfigTypeDef(
-    _RequiredCreateBackendAuthOAuthConfigTypeDef, _OptionalCreateBackendAuthOAuthConfigTypeDef
-):
-    pass
+class DeleteBackendRequestTypeDef(TypedDict):
+    AppId: str
+    BackendEnvironmentName: str
 
-_RequiredCreateBackendAuthPasswordPolicyConfigTypeDef = TypedDict(
-    "_RequiredCreateBackendAuthPasswordPolicyConfigTypeDef",
-    {
-        "MinimumLength": float,
-    },
-)
-_OptionalCreateBackendAuthPasswordPolicyConfigTypeDef = TypedDict(
-    "_OptionalCreateBackendAuthPasswordPolicyConfigTypeDef",
-    {
-        "AdditionalConstraints": List[AdditionalConstraintsElementType],
-    },
-    total=False,
-)
-
-class CreateBackendAuthPasswordPolicyConfigTypeDef(
-    _RequiredCreateBackendAuthPasswordPolicyConfigTypeDef,
-    _OptionalCreateBackendAuthPasswordPolicyConfigTypeDef,
-):
-    pass
-
-CreateBackendAuthRequestRequestTypeDef = TypedDict(
-    "CreateBackendAuthRequestRequestTypeDef",
-    {
-        "AppId": str,
-        "BackendEnvironmentName": str,
-        "ResourceConfig": "CreateBackendAuthResourceConfigTypeDef",
-        "ResourceName": str,
-    },
-)
-
-_RequiredCreateBackendAuthResourceConfigTypeDef = TypedDict(
-    "_RequiredCreateBackendAuthResourceConfigTypeDef",
-    {
-        "AuthResources": AuthResourcesType,
-        "Service": Literal["COGNITO"],
-        "UserPoolConfigs": "CreateBackendAuthUserPoolConfigTypeDef",
-    },
-)
-_OptionalCreateBackendAuthResourceConfigTypeDef = TypedDict(
-    "_OptionalCreateBackendAuthResourceConfigTypeDef",
-    {
-        "IdentityPoolConfigs": "CreateBackendAuthIdentityPoolConfigTypeDef",
-    },
-    total=False,
-)
-
-class CreateBackendAuthResourceConfigTypeDef(
-    _RequiredCreateBackendAuthResourceConfigTypeDef, _OptionalCreateBackendAuthResourceConfigTypeDef
-):
-    pass
-
-CreateBackendAuthResponseTypeDef = TypedDict(
-    "CreateBackendAuthResponseTypeDef",
-    {
-        "AppId": str,
-        "BackendEnvironmentName": str,
-        "Error": str,
-        "JobId": str,
-        "Operation": str,
-        "Status": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateBackendAuthUserPoolConfigTypeDef = TypedDict(
-    "_RequiredCreateBackendAuthUserPoolConfigTypeDef",
-    {
-        "RequiredSignUpAttributes": List[RequiredSignUpAttributesElementType],
-        "SignInMethod": SignInMethodType,
-        "UserPoolName": str,
-    },
-)
-_OptionalCreateBackendAuthUserPoolConfigTypeDef = TypedDict(
-    "_OptionalCreateBackendAuthUserPoolConfigTypeDef",
-    {
-        "ForgotPassword": "CreateBackendAuthForgotPasswordConfigTypeDef",
-        "Mfa": "CreateBackendAuthMFAConfigTypeDef",
-        "OAuth": "CreateBackendAuthOAuthConfigTypeDef",
-        "PasswordPolicy": "CreateBackendAuthPasswordPolicyConfigTypeDef",
-        "VerificationMessage": "CreateBackendAuthVerificationMessageConfigTypeDef",
-    },
-    total=False,
-)
-
-class CreateBackendAuthUserPoolConfigTypeDef(
-    _RequiredCreateBackendAuthUserPoolConfigTypeDef, _OptionalCreateBackendAuthUserPoolConfigTypeDef
-):
-    pass
-
-_RequiredCreateBackendAuthVerificationMessageConfigTypeDef = TypedDict(
-    "_RequiredCreateBackendAuthVerificationMessageConfigTypeDef",
-    {
-        "DeliveryMethod": DeliveryMethodType,
-    },
-)
-_OptionalCreateBackendAuthVerificationMessageConfigTypeDef = TypedDict(
-    "_OptionalCreateBackendAuthVerificationMessageConfigTypeDef",
-    {
-        "EmailSettings": "EmailSettingsTypeDef",
-        "SmsSettings": "SmsSettingsTypeDef",
-    },
-    total=False,
-)
-
-class CreateBackendAuthVerificationMessageConfigTypeDef(
-    _RequiredCreateBackendAuthVerificationMessageConfigTypeDef,
-    _OptionalCreateBackendAuthVerificationMessageConfigTypeDef,
-):
-    pass
-
-_RequiredCreateBackendConfigRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateBackendConfigRequestRequestTypeDef",
-    {
-        "AppId": str,
-    },
-)
-_OptionalCreateBackendConfigRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateBackendConfigRequestRequestTypeDef",
-    {
-        "BackendManagerAppId": str,
-    },
-    total=False,
-)
-
-class CreateBackendConfigRequestRequestTypeDef(
-    _RequiredCreateBackendConfigRequestRequestTypeDef,
-    _OptionalCreateBackendConfigRequestRequestTypeDef,
-):
-    pass
-
-CreateBackendConfigResponseTypeDef = TypedDict(
-    "CreateBackendConfigResponseTypeDef",
-    {
-        "AppId": str,
-        "BackendEnvironmentName": str,
-        "JobId": str,
-        "Status": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateBackendRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateBackendRequestRequestTypeDef",
-    {
-        "AppId": str,
-        "AppName": str,
-        "BackendEnvironmentName": str,
-    },
-)
-_OptionalCreateBackendRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateBackendRequestRequestTypeDef",
-    {
-        "ResourceConfig": Dict[str, Any],
-        "ResourceName": str,
-    },
-    total=False,
-)
-
-class CreateBackendRequestRequestTypeDef(
-    _RequiredCreateBackendRequestRequestTypeDef, _OptionalCreateBackendRequestRequestTypeDef
-):
-    pass
-
-CreateBackendResponseTypeDef = TypedDict(
-    "CreateBackendResponseTypeDef",
-    {
-        "AppId": str,
-        "BackendEnvironmentName": str,
-        "Error": str,
-        "JobId": str,
-        "Operation": str,
-        "Status": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateBackendStorageRequestRequestTypeDef = TypedDict(
-    "CreateBackendStorageRequestRequestTypeDef",
-    {
-        "AppId": str,
-        "BackendEnvironmentName": str,
-        "ResourceConfig": "CreateBackendStorageResourceConfigTypeDef",
-        "ResourceName": str,
-    },
-)
-
-_RequiredCreateBackendStorageResourceConfigTypeDef = TypedDict(
-    "_RequiredCreateBackendStorageResourceConfigTypeDef",
-    {
-        "Permissions": "BackendStoragePermissionsTypeDef",
-        "ServiceName": Literal["S3"],
-    },
-)
-_OptionalCreateBackendStorageResourceConfigTypeDef = TypedDict(
-    "_OptionalCreateBackendStorageResourceConfigTypeDef",
-    {
-        "BucketName": str,
-    },
-    total=False,
-)
-
-class CreateBackendStorageResourceConfigTypeDef(
-    _RequiredCreateBackendStorageResourceConfigTypeDef,
-    _OptionalCreateBackendStorageResourceConfigTypeDef,
-):
-    pass
-
-CreateBackendStorageResponseTypeDef = TypedDict(
-    "CreateBackendStorageResponseTypeDef",
-    {
-        "AppId": str,
-        "BackendEnvironmentName": str,
-        "JobId": str,
-        "Status": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateTokenRequestRequestTypeDef = TypedDict(
-    "CreateTokenRequestRequestTypeDef",
-    {
-        "AppId": str,
-    },
-)
-
-CreateTokenResponseTypeDef = TypedDict(
-    "CreateTokenResponseTypeDef",
-    {
-        "AppId": str,
-        "ChallengeCode": str,
-        "SessionId": str,
-        "Ttl": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDeleteBackendAPIRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteBackendAPIRequestRequestTypeDef",
-    {
-        "AppId": str,
-        "BackendEnvironmentName": str,
-        "ResourceName": str,
-    },
-)
-_OptionalDeleteBackendAPIRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteBackendAPIRequestRequestTypeDef",
-    {
-        "ResourceConfig": "BackendAPIResourceConfigTypeDef",
-    },
-    total=False,
-)
-
-class DeleteBackendAPIRequestRequestTypeDef(
-    _RequiredDeleteBackendAPIRequestRequestTypeDef, _OptionalDeleteBackendAPIRequestRequestTypeDef
-):
-    pass
-
-DeleteBackendAPIResponseTypeDef = TypedDict(
-    "DeleteBackendAPIResponseTypeDef",
-    {
-        "AppId": str,
-        "BackendEnvironmentName": str,
-        "Error": str,
-        "JobId": str,
-        "Operation": str,
-        "Status": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteBackendAuthRequestRequestTypeDef = TypedDict(
-    "DeleteBackendAuthRequestRequestTypeDef",
-    {
-        "AppId": str,
-        "BackendEnvironmentName": str,
-        "ResourceName": str,
-    },
-)
-
-DeleteBackendAuthResponseTypeDef = TypedDict(
-    "DeleteBackendAuthResponseTypeDef",
-    {
-        "AppId": str,
-        "BackendEnvironmentName": str,
-        "Error": str,
-        "JobId": str,
-        "Operation": str,
-        "Status": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteBackendRequestRequestTypeDef = TypedDict(
-    "DeleteBackendRequestRequestTypeDef",
-    {
-        "AppId": str,
-        "BackendEnvironmentName": str,
-    },
-)
-
-DeleteBackendResponseTypeDef = TypedDict(
-    "DeleteBackendResponseTypeDef",
-    {
-        "AppId": str,
-        "BackendEnvironmentName": str,
-        "Error": str,
-        "JobId": str,
-        "Operation": str,
-        "Status": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteBackendStorageRequestRequestTypeDef = TypedDict(
-    "DeleteBackendStorageRequestRequestTypeDef",
+DeleteBackendStorageRequestTypeDef = TypedDict(
+    "DeleteBackendStorageRequestTypeDef",
     {
         "AppId": str,
         "BackendEnvironmentName": str,
@@ -689,741 +273,573 @@ DeleteBackendStorageRequestRequestTypeDef = TypedDict(
     },
 )
 
-DeleteBackendStorageResponseTypeDef = TypedDict(
-    "DeleteBackendStorageResponseTypeDef",
+class DeleteTokenRequestTypeDef(TypedDict):
+    AppId: str
+    SessionId: str
+
+class GenerateBackendAPIModelsRequestTypeDef(TypedDict):
+    AppId: str
+    BackendEnvironmentName: str
+    ResourceName: str
+
+class GetBackendAPIModelsRequestTypeDef(TypedDict):
+    AppId: str
+    BackendEnvironmentName: str
+    ResourceName: str
+
+class GetBackendAuthRequestTypeDef(TypedDict):
+    AppId: str
+    BackendEnvironmentName: str
+    ResourceName: str
+
+class GetBackendJobRequestTypeDef(TypedDict):
+    AppId: str
+    BackendEnvironmentName: str
+    JobId: str
+
+class GetBackendRequestTypeDef(TypedDict):
+    AppId: str
+    BackendEnvironmentName: NotRequired[str]
+
+class GetBackendStorageRequestTypeDef(TypedDict):
+    AppId: str
+    BackendEnvironmentName: str
+    ResourceName: str
+
+class GetTokenRequestTypeDef(TypedDict):
+    AppId: str
+    SessionId: str
+
+class ImportBackendAuthRequestTypeDef(TypedDict):
+    AppId: str
+    BackendEnvironmentName: str
+    NativeClientId: str
+    UserPoolId: str
+    WebClientId: str
+    IdentityPoolId: NotRequired[str]
+
+ImportBackendStorageRequestTypeDef = TypedDict(
+    "ImportBackendStorageRequestTypeDef",
     {
         "AppId": str,
         "BackendEnvironmentName": str,
-        "JobId": str,
-        "Status": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ServiceName": Literal["S3"],
+        "BucketName": NotRequired[str],
     },
 )
 
-DeleteTokenRequestRequestTypeDef = TypedDict(
-    "DeleteTokenRequestRequestTypeDef",
-    {
-        "AppId": str,
-        "SessionId": str,
-    },
-)
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
 
-DeleteTokenResponseTypeDef = TypedDict(
-    "DeleteTokenResponseTypeDef",
-    {
-        "IsSuccess": bool,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListBackendJobsRequestTypeDef(TypedDict):
+    AppId: str
+    BackendEnvironmentName: str
+    JobId: NotRequired[str]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+    Operation: NotRequired[str]
+    Status: NotRequired[str]
 
-EmailSettingsTypeDef = TypedDict(
-    "EmailSettingsTypeDef",
-    {
-        "EmailMessage": str,
-        "EmailSubject": str,
-    },
-    total=False,
-)
+class ListS3BucketsRequestTypeDef(TypedDict):
+    NextToken: NotRequired[str]
 
-GenerateBackendAPIModelsRequestRequestTypeDef = TypedDict(
-    "GenerateBackendAPIModelsRequestRequestTypeDef",
-    {
-        "AppId": str,
-        "BackendEnvironmentName": str,
-        "ResourceName": str,
-    },
-)
+class S3BucketInfoTypeDef(TypedDict):
+    CreationDate: NotRequired[str]
+    Name: NotRequired[str]
 
-GenerateBackendAPIModelsResponseTypeDef = TypedDict(
-    "GenerateBackendAPIModelsResponseTypeDef",
-    {
-        "AppId": str,
-        "BackendEnvironmentName": str,
-        "Error": str,
-        "JobId": str,
-        "Operation": str,
-        "Status": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class LoginAuthConfigReqObjTypeDef(TypedDict):
+    AwsCognitoIdentityPoolId: NotRequired[str]
+    AwsCognitoRegion: NotRequired[str]
+    AwsUserPoolsId: NotRequired[str]
+    AwsUserPoolsWebClientId: NotRequired[str]
 
-GetBackendAPIModelsRequestRequestTypeDef = TypedDict(
-    "GetBackendAPIModelsRequestRequestTypeDef",
-    {
-        "AppId": str,
-        "BackendEnvironmentName": str,
-        "ResourceName": str,
-    },
-)
+class RemoveAllBackendsRequestTypeDef(TypedDict):
+    AppId: str
+    CleanAmplifyApp: NotRequired[bool]
 
-GetBackendAPIModelsResponseTypeDef = TypedDict(
-    "GetBackendAPIModelsResponseTypeDef",
-    {
-        "Models": str,
-        "Status": StatusType,
-        "ModelIntrospectionSchema": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class RemoveBackendConfigRequestTypeDef(TypedDict):
+    AppId: str
 
-_RequiredGetBackendAPIRequestRequestTypeDef = TypedDict(
-    "_RequiredGetBackendAPIRequestRequestTypeDef",
-    {
-        "AppId": str,
-        "BackendEnvironmentName": str,
-        "ResourceName": str,
-    },
-)
-_OptionalGetBackendAPIRequestRequestTypeDef = TypedDict(
-    "_OptionalGetBackendAPIRequestRequestTypeDef",
-    {
-        "ResourceConfig": "BackendAPIResourceConfigTypeDef",
-    },
-    total=False,
-)
+class UpdateBackendAuthIdentityPoolConfigTypeDef(TypedDict):
+    UnauthenticatedLogin: NotRequired[bool]
 
-class GetBackendAPIRequestRequestTypeDef(
-    _RequiredGetBackendAPIRequestRequestTypeDef, _OptionalGetBackendAPIRequestRequestTypeDef
-):
-    pass
+class UpdateBackendAuthPasswordPolicyConfigTypeDef(TypedDict):
+    AdditionalConstraints: NotRequired[Sequence[AdditionalConstraintsElementType]]
+    MinimumLength: NotRequired[float]
 
-GetBackendAPIResponseTypeDef = TypedDict(
-    "GetBackendAPIResponseTypeDef",
-    {
-        "AppId": str,
-        "BackendEnvironmentName": str,
-        "Error": str,
-        "ResourceConfig": "BackendAPIResourceConfigTypeDef",
-        "ResourceName": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class UpdateBackendJobRequestTypeDef(TypedDict):
+    AppId: str
+    BackendEnvironmentName: str
+    JobId: str
+    Operation: NotRequired[str]
+    Status: NotRequired[str]
 
-GetBackendAuthRequestRequestTypeDef = TypedDict(
-    "GetBackendAuthRequestRequestTypeDef",
-    {
-        "AppId": str,
-        "BackendEnvironmentName": str,
-        "ResourceName": str,
-    },
-)
+class BackendAPIAuthTypeTypeDef(TypedDict):
+    Mode: NotRequired[ModeType]
+    Settings: NotRequired[BackendAPIAppSyncAuthSettingsTypeDef]
 
-GetBackendAuthResponseTypeDef = TypedDict(
-    "GetBackendAuthResponseTypeDef",
-    {
-        "AppId": str,
-        "BackendEnvironmentName": str,
-        "Error": str,
-        "ResourceConfig": "CreateBackendAuthResourceConfigTypeDef",
-        "ResourceName": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class SocialProviderSettingsTypeDef(TypedDict):
+    Facebook: NotRequired[BackendAuthSocialProviderConfigTypeDef]
+    Google: NotRequired[BackendAuthSocialProviderConfigTypeDef]
+    LoginWithAmazon: NotRequired[BackendAuthSocialProviderConfigTypeDef]
+    SignInWithApple: NotRequired[BackendAuthAppleProviderConfigTypeDef]
 
-GetBackendJobRequestRequestTypeDef = TypedDict(
-    "GetBackendJobRequestRequestTypeDef",
-    {
-        "AppId": str,
-        "BackendEnvironmentName": str,
-        "JobId": str,
-    },
-)
-
-GetBackendJobResponseTypeDef = TypedDict(
-    "GetBackendJobResponseTypeDef",
-    {
-        "AppId": str,
-        "BackendEnvironmentName": str,
-        "CreateTime": str,
-        "Error": str,
-        "JobId": str,
-        "Operation": str,
-        "Status": str,
-        "UpdateTime": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetBackendRequestRequestTypeDef = TypedDict(
-    "_RequiredGetBackendRequestRequestTypeDef",
-    {
-        "AppId": str,
-    },
-)
-_OptionalGetBackendRequestRequestTypeDef = TypedDict(
-    "_OptionalGetBackendRequestRequestTypeDef",
-    {
-        "BackendEnvironmentName": str,
-    },
-    total=False,
-)
-
-class GetBackendRequestRequestTypeDef(
-    _RequiredGetBackendRequestRequestTypeDef, _OptionalGetBackendRequestRequestTypeDef
-):
-    pass
-
-GetBackendResponseTypeDef = TypedDict(
-    "GetBackendResponseTypeDef",
-    {
-        "AmplifyFeatureFlags": str,
-        "AmplifyMetaConfig": str,
-        "AppId": str,
-        "AppName": str,
-        "BackendEnvironmentList": List[str],
-        "BackendEnvironmentName": str,
-        "Error": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetBackendStorageRequestRequestTypeDef = TypedDict(
-    "GetBackendStorageRequestRequestTypeDef",
-    {
-        "AppId": str,
-        "BackendEnvironmentName": str,
-        "ResourceName": str,
-    },
-)
-
-_RequiredGetBackendStorageResourceConfigTypeDef = TypedDict(
-    "_RequiredGetBackendStorageResourceConfigTypeDef",
+GetBackendStorageResourceConfigTypeDef = TypedDict(
+    "GetBackendStorageResourceConfigTypeDef",
     {
         "Imported": bool,
         "ServiceName": Literal["S3"],
+        "BucketName": NotRequired[str],
+        "Permissions": NotRequired[BackendStoragePermissionsOutputTypeDef],
     },
 )
-_OptionalGetBackendStorageResourceConfigTypeDef = TypedDict(
-    "_OptionalGetBackendStorageResourceConfigTypeDef",
-    {
-        "BucketName": str,
-        "Permissions": "BackendStoragePermissionsTypeDef",
-    },
-    total=False,
-)
+BackendStoragePermissionsUnionTypeDef = Union[
+    BackendStoragePermissionsTypeDef, BackendStoragePermissionsOutputTypeDef
+]
 
-class GetBackendStorageResourceConfigTypeDef(
-    _RequiredGetBackendStorageResourceConfigTypeDef, _OptionalGetBackendStorageResourceConfigTypeDef
-):
-    pass
+class CloneBackendResponseTypeDef(TypedDict):
+    AppId: str
+    BackendEnvironmentName: str
+    Error: str
+    JobId: str
+    Operation: str
+    Status: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-GetBackendStorageResponseTypeDef = TypedDict(
-    "GetBackendStorageResponseTypeDef",
-    {
-        "AppId": str,
-        "BackendEnvironmentName": str,
-        "ResourceConfig": "GetBackendStorageResourceConfigTypeDef",
-        "ResourceName": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CreateBackendAPIResponseTypeDef(TypedDict):
+    AppId: str
+    BackendEnvironmentName: str
+    Error: str
+    JobId: str
+    Operation: str
+    Status: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-GetTokenRequestRequestTypeDef = TypedDict(
-    "GetTokenRequestRequestTypeDef",
-    {
-        "AppId": str,
-        "SessionId": str,
-    },
-)
+class CreateBackendAuthResponseTypeDef(TypedDict):
+    AppId: str
+    BackendEnvironmentName: str
+    Error: str
+    JobId: str
+    Operation: str
+    Status: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-GetTokenResponseTypeDef = TypedDict(
-    "GetTokenResponseTypeDef",
-    {
-        "AppId": str,
-        "ChallengeCode": str,
-        "SessionId": str,
-        "Ttl": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CreateBackendConfigResponseTypeDef(TypedDict):
+    AppId: str
+    BackendEnvironmentName: str
+    JobId: str
+    Status: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredImportBackendAuthRequestRequestTypeDef = TypedDict(
-    "_RequiredImportBackendAuthRequestRequestTypeDef",
-    {
-        "AppId": str,
-        "BackendEnvironmentName": str,
-        "NativeClientId": str,
-        "UserPoolId": str,
-        "WebClientId": str,
-    },
-)
-_OptionalImportBackendAuthRequestRequestTypeDef = TypedDict(
-    "_OptionalImportBackendAuthRequestRequestTypeDef",
-    {
-        "IdentityPoolId": str,
-    },
-    total=False,
-)
+class CreateBackendResponseTypeDef(TypedDict):
+    AppId: str
+    BackendEnvironmentName: str
+    Error: str
+    JobId: str
+    Operation: str
+    Status: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class ImportBackendAuthRequestRequestTypeDef(
-    _RequiredImportBackendAuthRequestRequestTypeDef, _OptionalImportBackendAuthRequestRequestTypeDef
-):
-    pass
+class CreateBackendStorageResponseTypeDef(TypedDict):
+    AppId: str
+    BackendEnvironmentName: str
+    JobId: str
+    Status: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ImportBackendAuthResponseTypeDef = TypedDict(
-    "ImportBackendAuthResponseTypeDef",
-    {
-        "AppId": str,
-        "BackendEnvironmentName": str,
-        "Error": str,
-        "JobId": str,
-        "Operation": str,
-        "Status": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CreateTokenResponseTypeDef(TypedDict):
+    AppId: str
+    ChallengeCode: str
+    SessionId: str
+    Ttl: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredImportBackendStorageRequestRequestTypeDef = TypedDict(
-    "_RequiredImportBackendStorageRequestRequestTypeDef",
+class DeleteBackendAPIResponseTypeDef(TypedDict):
+    AppId: str
+    BackendEnvironmentName: str
+    Error: str
+    JobId: str
+    Operation: str
+    Status: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteBackendAuthResponseTypeDef(TypedDict):
+    AppId: str
+    BackendEnvironmentName: str
+    Error: str
+    JobId: str
+    Operation: str
+    Status: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteBackendResponseTypeDef(TypedDict):
+    AppId: str
+    BackendEnvironmentName: str
+    Error: str
+    JobId: str
+    Operation: str
+    Status: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteBackendStorageResponseTypeDef(TypedDict):
+    AppId: str
+    BackendEnvironmentName: str
+    JobId: str
+    Status: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteTokenResponseTypeDef(TypedDict):
+    IsSuccess: bool
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GenerateBackendAPIModelsResponseTypeDef(TypedDict):
+    AppId: str
+    BackendEnvironmentName: str
+    Error: str
+    JobId: str
+    Operation: str
+    Status: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetBackendAPIModelsResponseTypeDef(TypedDict):
+    Models: str
+    Status: StatusType
+    ModelIntrospectionSchema: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetBackendJobResponseTypeDef(TypedDict):
+    AppId: str
+    BackendEnvironmentName: str
+    CreateTime: str
+    Error: str
+    JobId: str
+    Operation: str
+    Status: str
+    UpdateTime: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetBackendResponseTypeDef(TypedDict):
+    AmplifyFeatureFlags: str
+    AmplifyMetaConfig: str
+    AppId: str
+    AppName: str
+    BackendEnvironmentList: List[str]
+    BackendEnvironmentName: str
+    Error: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetTokenResponseTypeDef(TypedDict):
+    AppId: str
+    ChallengeCode: str
+    SessionId: str
+    Ttl: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ImportBackendAuthResponseTypeDef(TypedDict):
+    AppId: str
+    BackendEnvironmentName: str
+    Error: str
+    JobId: str
+    Operation: str
+    Status: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ImportBackendStorageResponseTypeDef(TypedDict):
+    AppId: str
+    BackendEnvironmentName: str
+    JobId: str
+    Status: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListBackendJobsResponseTypeDef(TypedDict):
+    Jobs: List[BackendJobRespObjTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class RemoveAllBackendsResponseTypeDef(TypedDict):
+    AppId: str
+    Error: str
+    JobId: str
+    Operation: str
+    Status: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class RemoveBackendConfigResponseTypeDef(TypedDict):
+    Error: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateBackendAPIResponseTypeDef(TypedDict):
+    AppId: str
+    BackendEnvironmentName: str
+    Error: str
+    JobId: str
+    Operation: str
+    Status: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateBackendAuthResponseTypeDef(TypedDict):
+    AppId: str
+    BackendEnvironmentName: str
+    Error: str
+    JobId: str
+    Operation: str
+    Status: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateBackendJobResponseTypeDef(TypedDict):
+    AppId: str
+    BackendEnvironmentName: str
+    CreateTime: str
+    Error: str
+    JobId: str
+    Operation: str
+    Status: str
+    UpdateTime: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateBackendStorageResponseTypeDef(TypedDict):
+    AppId: str
+    BackendEnvironmentName: str
+    JobId: str
+    Status: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateBackendAuthForgotPasswordConfigTypeDef(TypedDict):
+    DeliveryMethod: DeliveryMethodType
+    EmailSettings: NotRequired[EmailSettingsTypeDef]
+    SmsSettings: NotRequired[SmsSettingsTypeDef]
+
+class CreateBackendAuthVerificationMessageConfigTypeDef(TypedDict):
+    DeliveryMethod: DeliveryMethodType
+    EmailSettings: NotRequired[EmailSettingsTypeDef]
+    SmsSettings: NotRequired[SmsSettingsTypeDef]
+
+class UpdateBackendAuthForgotPasswordConfigTypeDef(TypedDict):
+    DeliveryMethod: NotRequired[DeliveryMethodType]
+    EmailSettings: NotRequired[EmailSettingsTypeDef]
+    SmsSettings: NotRequired[SmsSettingsTypeDef]
+
+class UpdateBackendAuthVerificationMessageConfigTypeDef(TypedDict):
+    DeliveryMethod: DeliveryMethodType
+    EmailSettings: NotRequired[EmailSettingsTypeDef]
+    SmsSettings: NotRequired[SmsSettingsTypeDef]
+
+class CreateBackendAuthMFAConfigOutputTypeDef(TypedDict):
+    MFAMode: MFAModeType
+    Settings: NotRequired[SettingsOutputTypeDef]
+
+class CreateBackendAuthMFAConfigTypeDef(TypedDict):
+    MFAMode: MFAModeType
+    Settings: NotRequired[SettingsTypeDef]
+
+SettingsUnionTypeDef = Union[SettingsTypeDef, SettingsOutputTypeDef]
+
+class ListBackendJobsRequestPaginateTypeDef(TypedDict):
+    AppId: str
+    BackendEnvironmentName: str
+    JobId: NotRequired[str]
+    Operation: NotRequired[str]
+    Status: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListS3BucketsResponseTypeDef(TypedDict):
+    Buckets: List[S3BucketInfoTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class UpdateBackendConfigRequestTypeDef(TypedDict):
+    AppId: str
+    LoginAuthConfig: NotRequired[LoginAuthConfigReqObjTypeDef]
+
+class UpdateBackendConfigResponseTypeDef(TypedDict):
+    AppId: str
+    BackendManagerAppId: str
+    Error: str
+    LoginAuthConfig: LoginAuthConfigReqObjTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class BackendAPIResourceConfigOutputTypeDef(TypedDict):
+    AdditionalAuthTypes: NotRequired[List[BackendAPIAuthTypeTypeDef]]
+    ApiName: NotRequired[str]
+    ConflictResolution: NotRequired[BackendAPIConflictResolutionTypeDef]
+    DefaultAuthType: NotRequired[BackendAPIAuthTypeTypeDef]
+    Service: NotRequired[str]
+    TransformSchema: NotRequired[str]
+
+class BackendAPIResourceConfigTypeDef(TypedDict):
+    AdditionalAuthTypes: NotRequired[Sequence[BackendAPIAuthTypeTypeDef]]
+    ApiName: NotRequired[str]
+    ConflictResolution: NotRequired[BackendAPIConflictResolutionTypeDef]
+    DefaultAuthType: NotRequired[BackendAPIAuthTypeTypeDef]
+    Service: NotRequired[str]
+    TransformSchema: NotRequired[str]
+
+class CreateBackendAuthOAuthConfigOutputTypeDef(TypedDict):
+    OAuthGrantType: OAuthGrantTypeType
+    OAuthScopes: List[OAuthScopesElementType]
+    RedirectSignInURIs: List[str]
+    RedirectSignOutURIs: List[str]
+    DomainPrefix: NotRequired[str]
+    SocialProviderSettings: NotRequired[SocialProviderSettingsTypeDef]
+
+class CreateBackendAuthOAuthConfigTypeDef(TypedDict):
+    OAuthGrantType: OAuthGrantTypeType
+    OAuthScopes: Sequence[OAuthScopesElementType]
+    RedirectSignInURIs: Sequence[str]
+    RedirectSignOutURIs: Sequence[str]
+    DomainPrefix: NotRequired[str]
+    SocialProviderSettings: NotRequired[SocialProviderSettingsTypeDef]
+
+class UpdateBackendAuthOAuthConfigTypeDef(TypedDict):
+    DomainPrefix: NotRequired[str]
+    OAuthGrantType: NotRequired[OAuthGrantTypeType]
+    OAuthScopes: NotRequired[Sequence[OAuthScopesElementType]]
+    RedirectSignInURIs: NotRequired[Sequence[str]]
+    RedirectSignOutURIs: NotRequired[Sequence[str]]
+    SocialProviderSettings: NotRequired[SocialProviderSettingsTypeDef]
+
+class GetBackendStorageResponseTypeDef(TypedDict):
+    AppId: str
+    BackendEnvironmentName: str
+    ResourceConfig: GetBackendStorageResourceConfigTypeDef
+    ResourceName: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+CreateBackendStorageResourceConfigTypeDef = TypedDict(
+    "CreateBackendStorageResourceConfigTypeDef",
     {
-        "AppId": str,
-        "BackendEnvironmentName": str,
+        "Permissions": BackendStoragePermissionsUnionTypeDef,
         "ServiceName": Literal["S3"],
+        "BucketName": NotRequired[str],
     },
 )
-_OptionalImportBackendStorageRequestRequestTypeDef = TypedDict(
-    "_OptionalImportBackendStorageRequestRequestTypeDef",
-    {
-        "BucketName": str,
-    },
-    total=False,
-)
-
-class ImportBackendStorageRequestRequestTypeDef(
-    _RequiredImportBackendStorageRequestRequestTypeDef,
-    _OptionalImportBackendStorageRequestRequestTypeDef,
-):
-    pass
-
-ImportBackendStorageResponseTypeDef = TypedDict(
-    "ImportBackendStorageResponseTypeDef",
-    {
-        "AppId": str,
-        "BackendEnvironmentName": str,
-        "JobId": str,
-        "Status": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListBackendJobsRequestRequestTypeDef = TypedDict(
-    "_RequiredListBackendJobsRequestRequestTypeDef",
-    {
-        "AppId": str,
-        "BackendEnvironmentName": str,
-    },
-)
-_OptionalListBackendJobsRequestRequestTypeDef = TypedDict(
-    "_OptionalListBackendJobsRequestRequestTypeDef",
-    {
-        "JobId": str,
-        "MaxResults": int,
-        "NextToken": str,
-        "Operation": str,
-        "Status": str,
-    },
-    total=False,
-)
-
-class ListBackendJobsRequestRequestTypeDef(
-    _RequiredListBackendJobsRequestRequestTypeDef, _OptionalListBackendJobsRequestRequestTypeDef
-):
-    pass
-
-ListBackendJobsResponseTypeDef = TypedDict(
-    "ListBackendJobsResponseTypeDef",
-    {
-        "Jobs": List["BackendJobRespObjTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListS3BucketsRequestRequestTypeDef = TypedDict(
-    "ListS3BucketsRequestRequestTypeDef",
-    {
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListS3BucketsResponseTypeDef = TypedDict(
-    "ListS3BucketsResponseTypeDef",
-    {
-        "Buckets": List["S3BucketInfoTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-LoginAuthConfigReqObjTypeDef = TypedDict(
-    "LoginAuthConfigReqObjTypeDef",
-    {
-        "AwsCognitoIdentityPoolId": str,
-        "AwsCognitoRegion": str,
-        "AwsUserPoolsId": str,
-        "AwsUserPoolsWebClientId": str,
-    },
-    total=False,
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-_RequiredRemoveAllBackendsRequestRequestTypeDef = TypedDict(
-    "_RequiredRemoveAllBackendsRequestRequestTypeDef",
-    {
-        "AppId": str,
-    },
-)
-_OptionalRemoveAllBackendsRequestRequestTypeDef = TypedDict(
-    "_OptionalRemoveAllBackendsRequestRequestTypeDef",
-    {
-        "CleanAmplifyApp": bool,
-    },
-    total=False,
-)
-
-class RemoveAllBackendsRequestRequestTypeDef(
-    _RequiredRemoveAllBackendsRequestRequestTypeDef, _OptionalRemoveAllBackendsRequestRequestTypeDef
-):
-    pass
-
-RemoveAllBackendsResponseTypeDef = TypedDict(
-    "RemoveAllBackendsResponseTypeDef",
-    {
-        "AppId": str,
-        "Error": str,
-        "JobId": str,
-        "Operation": str,
-        "Status": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-RemoveBackendConfigRequestRequestTypeDef = TypedDict(
-    "RemoveBackendConfigRequestRequestTypeDef",
-    {
-        "AppId": str,
-    },
-)
-
-RemoveBackendConfigResponseTypeDef = TypedDict(
-    "RemoveBackendConfigResponseTypeDef",
-    {
-        "Error": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-S3BucketInfoTypeDef = TypedDict(
-    "S3BucketInfoTypeDef",
-    {
-        "CreationDate": str,
-        "Name": str,
-    },
-    total=False,
-)
-
-SettingsTypeDef = TypedDict(
-    "SettingsTypeDef",
-    {
-        "MfaTypes": List[MfaTypesElementType],
-        "SmsMessage": str,
-    },
-    total=False,
-)
-
-SmsSettingsTypeDef = TypedDict(
-    "SmsSettingsTypeDef",
-    {
-        "SmsMessage": str,
-    },
-    total=False,
-)
-
-SocialProviderSettingsTypeDef = TypedDict(
-    "SocialProviderSettingsTypeDef",
-    {
-        "Facebook": "BackendAuthSocialProviderConfigTypeDef",
-        "Google": "BackendAuthSocialProviderConfigTypeDef",
-        "LoginWithAmazon": "BackendAuthSocialProviderConfigTypeDef",
-        "SignInWithApple": "BackendAuthAppleProviderConfigTypeDef",
-    },
-    total=False,
-)
-
-_RequiredUpdateBackendAPIRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateBackendAPIRequestRequestTypeDef",
-    {
-        "AppId": str,
-        "BackendEnvironmentName": str,
-        "ResourceName": str,
-    },
-)
-_OptionalUpdateBackendAPIRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateBackendAPIRequestRequestTypeDef",
-    {
-        "ResourceConfig": "BackendAPIResourceConfigTypeDef",
-    },
-    total=False,
-)
-
-class UpdateBackendAPIRequestRequestTypeDef(
-    _RequiredUpdateBackendAPIRequestRequestTypeDef, _OptionalUpdateBackendAPIRequestRequestTypeDef
-):
-    pass
-
-UpdateBackendAPIResponseTypeDef = TypedDict(
-    "UpdateBackendAPIResponseTypeDef",
-    {
-        "AppId": str,
-        "BackendEnvironmentName": str,
-        "Error": str,
-        "JobId": str,
-        "Operation": str,
-        "Status": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UpdateBackendAuthForgotPasswordConfigTypeDef = TypedDict(
-    "UpdateBackendAuthForgotPasswordConfigTypeDef",
-    {
-        "DeliveryMethod": DeliveryMethodType,
-        "EmailSettings": "EmailSettingsTypeDef",
-        "SmsSettings": "SmsSettingsTypeDef",
-    },
-    total=False,
-)
-
-UpdateBackendAuthIdentityPoolConfigTypeDef = TypedDict(
-    "UpdateBackendAuthIdentityPoolConfigTypeDef",
-    {
-        "UnauthenticatedLogin": bool,
-    },
-    total=False,
-)
-
-UpdateBackendAuthMFAConfigTypeDef = TypedDict(
-    "UpdateBackendAuthMFAConfigTypeDef",
-    {
-        "MFAMode": MFAModeType,
-        "Settings": "SettingsTypeDef",
-    },
-    total=False,
-)
-
-UpdateBackendAuthOAuthConfigTypeDef = TypedDict(
-    "UpdateBackendAuthOAuthConfigTypeDef",
-    {
-        "DomainPrefix": str,
-        "OAuthGrantType": OAuthGrantTypeType,
-        "OAuthScopes": List[OAuthScopesElementType],
-        "RedirectSignInURIs": List[str],
-        "RedirectSignOutURIs": List[str],
-        "SocialProviderSettings": "SocialProviderSettingsTypeDef",
-    },
-    total=False,
-)
-
-UpdateBackendAuthPasswordPolicyConfigTypeDef = TypedDict(
-    "UpdateBackendAuthPasswordPolicyConfigTypeDef",
-    {
-        "AdditionalConstraints": List[AdditionalConstraintsElementType],
-        "MinimumLength": float,
-    },
-    total=False,
-)
-
-UpdateBackendAuthRequestRequestTypeDef = TypedDict(
-    "UpdateBackendAuthRequestRequestTypeDef",
-    {
-        "AppId": str,
-        "BackendEnvironmentName": str,
-        "ResourceConfig": "UpdateBackendAuthResourceConfigTypeDef",
-        "ResourceName": str,
-    },
-)
-
-_RequiredUpdateBackendAuthResourceConfigTypeDef = TypedDict(
-    "_RequiredUpdateBackendAuthResourceConfigTypeDef",
-    {
-        "AuthResources": AuthResourcesType,
-        "Service": Literal["COGNITO"],
-        "UserPoolConfigs": "UpdateBackendAuthUserPoolConfigTypeDef",
-    },
-)
-_OptionalUpdateBackendAuthResourceConfigTypeDef = TypedDict(
-    "_OptionalUpdateBackendAuthResourceConfigTypeDef",
-    {
-        "IdentityPoolConfigs": "UpdateBackendAuthIdentityPoolConfigTypeDef",
-    },
-    total=False,
-)
-
-class UpdateBackendAuthResourceConfigTypeDef(
-    _RequiredUpdateBackendAuthResourceConfigTypeDef, _OptionalUpdateBackendAuthResourceConfigTypeDef
-):
-    pass
-
-UpdateBackendAuthResponseTypeDef = TypedDict(
-    "UpdateBackendAuthResponseTypeDef",
-    {
-        "AppId": str,
-        "BackendEnvironmentName": str,
-        "Error": str,
-        "JobId": str,
-        "Operation": str,
-        "Status": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UpdateBackendAuthUserPoolConfigTypeDef = TypedDict(
-    "UpdateBackendAuthUserPoolConfigTypeDef",
-    {
-        "ForgotPassword": "UpdateBackendAuthForgotPasswordConfigTypeDef",
-        "Mfa": "UpdateBackendAuthMFAConfigTypeDef",
-        "OAuth": "UpdateBackendAuthOAuthConfigTypeDef",
-        "PasswordPolicy": "UpdateBackendAuthPasswordPolicyConfigTypeDef",
-        "VerificationMessage": "UpdateBackendAuthVerificationMessageConfigTypeDef",
-    },
-    total=False,
-)
-
-_RequiredUpdateBackendAuthVerificationMessageConfigTypeDef = TypedDict(
-    "_RequiredUpdateBackendAuthVerificationMessageConfigTypeDef",
-    {
-        "DeliveryMethod": DeliveryMethodType,
-    },
-)
-_OptionalUpdateBackendAuthVerificationMessageConfigTypeDef = TypedDict(
-    "_OptionalUpdateBackendAuthVerificationMessageConfigTypeDef",
-    {
-        "EmailSettings": "EmailSettingsTypeDef",
-        "SmsSettings": "SmsSettingsTypeDef",
-    },
-    total=False,
-)
-
-class UpdateBackendAuthVerificationMessageConfigTypeDef(
-    _RequiredUpdateBackendAuthVerificationMessageConfigTypeDef,
-    _OptionalUpdateBackendAuthVerificationMessageConfigTypeDef,
-):
-    pass
-
-_RequiredUpdateBackendConfigRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateBackendConfigRequestRequestTypeDef",
-    {
-        "AppId": str,
-    },
-)
-_OptionalUpdateBackendConfigRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateBackendConfigRequestRequestTypeDef",
-    {
-        "LoginAuthConfig": "LoginAuthConfigReqObjTypeDef",
-    },
-    total=False,
-)
-
-class UpdateBackendConfigRequestRequestTypeDef(
-    _RequiredUpdateBackendConfigRequestRequestTypeDef,
-    _OptionalUpdateBackendConfigRequestRequestTypeDef,
-):
-    pass
-
-UpdateBackendConfigResponseTypeDef = TypedDict(
-    "UpdateBackendConfigResponseTypeDef",
-    {
-        "AppId": str,
-        "BackendManagerAppId": str,
-        "Error": str,
-        "LoginAuthConfig": "LoginAuthConfigReqObjTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateBackendJobRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateBackendJobRequestRequestTypeDef",
-    {
-        "AppId": str,
-        "BackendEnvironmentName": str,
-        "JobId": str,
-    },
-)
-_OptionalUpdateBackendJobRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateBackendJobRequestRequestTypeDef",
-    {
-        "Operation": str,
-        "Status": str,
-    },
-    total=False,
-)
-
-class UpdateBackendJobRequestRequestTypeDef(
-    _RequiredUpdateBackendJobRequestRequestTypeDef, _OptionalUpdateBackendJobRequestRequestTypeDef
-):
-    pass
-
-UpdateBackendJobResponseTypeDef = TypedDict(
-    "UpdateBackendJobResponseTypeDef",
-    {
-        "AppId": str,
-        "BackendEnvironmentName": str,
-        "CreateTime": str,
-        "Error": str,
-        "JobId": str,
-        "Operation": str,
-        "Status": str,
-        "UpdateTime": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UpdateBackendStorageRequestRequestTypeDef = TypedDict(
-    "UpdateBackendStorageRequestRequestTypeDef",
-    {
-        "AppId": str,
-        "BackendEnvironmentName": str,
-        "ResourceConfig": "UpdateBackendStorageResourceConfigTypeDef",
-        "ResourceName": str,
-    },
-)
-
 UpdateBackendStorageResourceConfigTypeDef = TypedDict(
     "UpdateBackendStorageResourceConfigTypeDef",
     {
-        "Permissions": "BackendStoragePermissionsTypeDef",
+        "Permissions": BackendStoragePermissionsUnionTypeDef,
         "ServiceName": Literal["S3"],
     },
 )
 
-UpdateBackendStorageResponseTypeDef = TypedDict(
-    "UpdateBackendStorageResponseTypeDef",
-    {
-        "AppId": str,
-        "BackendEnvironmentName": str,
-        "JobId": str,
-        "Status": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class UpdateBackendAuthMFAConfigTypeDef(TypedDict):
+    MFAMode: NotRequired[MFAModeType]
+    Settings: NotRequired[SettingsUnionTypeDef]
+
+class GetBackendAPIResponseTypeDef(TypedDict):
+    AppId: str
+    BackendEnvironmentName: str
+    Error: str
+    ResourceConfig: BackendAPIResourceConfigOutputTypeDef
+    ResourceName: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+BackendAPIResourceConfigUnionTypeDef = Union[
+    BackendAPIResourceConfigTypeDef, BackendAPIResourceConfigOutputTypeDef
+]
+
+class CreateBackendAuthUserPoolConfigOutputTypeDef(TypedDict):
+    RequiredSignUpAttributes: List[RequiredSignUpAttributesElementType]
+    SignInMethod: SignInMethodType
+    UserPoolName: str
+    ForgotPassword: NotRequired[CreateBackendAuthForgotPasswordConfigTypeDef]
+    Mfa: NotRequired[CreateBackendAuthMFAConfigOutputTypeDef]
+    OAuth: NotRequired[CreateBackendAuthOAuthConfigOutputTypeDef]
+    PasswordPolicy: NotRequired[CreateBackendAuthPasswordPolicyConfigOutputTypeDef]
+    VerificationMessage: NotRequired[CreateBackendAuthVerificationMessageConfigTypeDef]
+
+class CreateBackendAuthUserPoolConfigTypeDef(TypedDict):
+    RequiredSignUpAttributes: Sequence[RequiredSignUpAttributesElementType]
+    SignInMethod: SignInMethodType
+    UserPoolName: str
+    ForgotPassword: NotRequired[CreateBackendAuthForgotPasswordConfigTypeDef]
+    Mfa: NotRequired[CreateBackendAuthMFAConfigTypeDef]
+    OAuth: NotRequired[CreateBackendAuthOAuthConfigTypeDef]
+    PasswordPolicy: NotRequired[CreateBackendAuthPasswordPolicyConfigTypeDef]
+    VerificationMessage: NotRequired[CreateBackendAuthVerificationMessageConfigTypeDef]
+
+class CreateBackendStorageRequestTypeDef(TypedDict):
+    AppId: str
+    BackendEnvironmentName: str
+    ResourceConfig: CreateBackendStorageResourceConfigTypeDef
+    ResourceName: str
+
+class UpdateBackendStorageRequestTypeDef(TypedDict):
+    AppId: str
+    BackendEnvironmentName: str
+    ResourceConfig: UpdateBackendStorageResourceConfigTypeDef
+    ResourceName: str
+
+class UpdateBackendAuthUserPoolConfigTypeDef(TypedDict):
+    ForgotPassword: NotRequired[UpdateBackendAuthForgotPasswordConfigTypeDef]
+    Mfa: NotRequired[UpdateBackendAuthMFAConfigTypeDef]
+    OAuth: NotRequired[UpdateBackendAuthOAuthConfigTypeDef]
+    PasswordPolicy: NotRequired[UpdateBackendAuthPasswordPolicyConfigTypeDef]
+    VerificationMessage: NotRequired[UpdateBackendAuthVerificationMessageConfigTypeDef]
+
+class CreateBackendAPIRequestTypeDef(TypedDict):
+    AppId: str
+    BackendEnvironmentName: str
+    ResourceConfig: BackendAPIResourceConfigUnionTypeDef
+    ResourceName: str
+
+class DeleteBackendAPIRequestTypeDef(TypedDict):
+    AppId: str
+    BackendEnvironmentName: str
+    ResourceName: str
+    ResourceConfig: NotRequired[BackendAPIResourceConfigUnionTypeDef]
+
+class GetBackendAPIRequestTypeDef(TypedDict):
+    AppId: str
+    BackendEnvironmentName: str
+    ResourceName: str
+    ResourceConfig: NotRequired[BackendAPIResourceConfigUnionTypeDef]
+
+class UpdateBackendAPIRequestTypeDef(TypedDict):
+    AppId: str
+    BackendEnvironmentName: str
+    ResourceName: str
+    ResourceConfig: NotRequired[BackendAPIResourceConfigUnionTypeDef]
+
+class CreateBackendAuthResourceConfigOutputTypeDef(TypedDict):
+    AuthResources: AuthResourcesType
+    Service: Literal["COGNITO"]
+    UserPoolConfigs: CreateBackendAuthUserPoolConfigOutputTypeDef
+    IdentityPoolConfigs: NotRequired[CreateBackendAuthIdentityPoolConfigTypeDef]
+
+class CreateBackendAuthResourceConfigTypeDef(TypedDict):
+    AuthResources: AuthResourcesType
+    Service: Literal["COGNITO"]
+    UserPoolConfigs: CreateBackendAuthUserPoolConfigTypeDef
+    IdentityPoolConfigs: NotRequired[CreateBackendAuthIdentityPoolConfigTypeDef]
+
+class UpdateBackendAuthResourceConfigTypeDef(TypedDict):
+    AuthResources: AuthResourcesType
+    Service: Literal["COGNITO"]
+    UserPoolConfigs: UpdateBackendAuthUserPoolConfigTypeDef
+    IdentityPoolConfigs: NotRequired[UpdateBackendAuthIdentityPoolConfigTypeDef]
+
+class GetBackendAuthResponseTypeDef(TypedDict):
+    AppId: str
+    BackendEnvironmentName: str
+    Error: str
+    ResourceConfig: CreateBackendAuthResourceConfigOutputTypeDef
+    ResourceName: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+CreateBackendAuthResourceConfigUnionTypeDef = Union[
+    CreateBackendAuthResourceConfigTypeDef, CreateBackendAuthResourceConfigOutputTypeDef
+]
+
+class UpdateBackendAuthRequestTypeDef(TypedDict):
+    AppId: str
+    BackendEnvironmentName: str
+    ResourceConfig: UpdateBackendAuthResourceConfigTypeDef
+    ResourceName: str
+
+class CreateBackendAuthRequestTypeDef(TypedDict):
+    AppId: str
+    BackendEnvironmentName: str
+    ResourceConfig: CreateBackendAuthResourceConfigUnionTypeDef
+    ResourceName: str

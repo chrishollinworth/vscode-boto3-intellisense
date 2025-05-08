@@ -1,20 +1,23 @@
 """
 Type annotations for braket service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_braket/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_braket/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_braket.type_defs import AlgorithmSpecificationTypeDef
+    from mypy_boto3_braket.type_defs import ContainerImageTypeDef
 
-    data: AlgorithmSpecificationTypeDef = {...}
+    data: ContainerImageTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
 
 from .literals import (
     CancellationStatusType,
@@ -31,36 +34,38 @@ from .literals import (
     SearchQuantumTasksFilterOperatorType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
     "AlgorithmSpecificationTypeDef",
     "AssociationTypeDef",
-    "CancelJobRequestRequestTypeDef",
+    "CancelJobRequestTypeDef",
     "CancelJobResponseTypeDef",
-    "CancelQuantumTaskRequestRequestTypeDef",
+    "CancelQuantumTaskRequestTypeDef",
     "CancelQuantumTaskResponseTypeDef",
     "ContainerImageTypeDef",
-    "CreateJobRequestRequestTypeDef",
+    "CreateJobRequestTypeDef",
     "CreateJobResponseTypeDef",
-    "CreateQuantumTaskRequestRequestTypeDef",
+    "CreateQuantumTaskRequestTypeDef",
     "CreateQuantumTaskResponseTypeDef",
     "DataSourceTypeDef",
     "DeviceConfigTypeDef",
     "DeviceQueueInfoTypeDef",
     "DeviceSummaryTypeDef",
-    "GetDeviceRequestRequestTypeDef",
+    "GetDeviceRequestTypeDef",
     "GetDeviceResponseTypeDef",
-    "GetJobRequestRequestTypeDef",
+    "GetJobRequestTypeDef",
     "GetJobResponseTypeDef",
-    "GetQuantumTaskRequestRequestTypeDef",
+    "GetQuantumTaskRequestTypeDef",
     "GetQuantumTaskResponseTypeDef",
     "HybridJobQueueInfoTypeDef",
     "InputFileConfigTypeDef",
@@ -70,7 +75,7 @@ __all__ = (
     "JobOutputDataConfigTypeDef",
     "JobStoppingConditionTypeDef",
     "JobSummaryTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "PaginatorConfigTypeDef",
     "QuantumTaskQueueInfoTypeDef",
@@ -79,26 +84,28 @@ __all__ = (
     "S3DataSourceTypeDef",
     "ScriptModeConfigTypeDef",
     "SearchDevicesFilterTypeDef",
-    "SearchDevicesRequestRequestTypeDef",
+    "SearchDevicesRequestPaginateTypeDef",
+    "SearchDevicesRequestTypeDef",
     "SearchDevicesResponseTypeDef",
     "SearchJobsFilterTypeDef",
-    "SearchJobsRequestRequestTypeDef",
+    "SearchJobsRequestPaginateTypeDef",
+    "SearchJobsRequestTypeDef",
     "SearchJobsResponseTypeDef",
     "SearchQuantumTasksFilterTypeDef",
-    "SearchQuantumTasksRequestRequestTypeDef",
+    "SearchQuantumTasksRequestPaginateTypeDef",
+    "SearchQuantumTasksRequestTypeDef",
     "SearchQuantumTasksResponseTypeDef",
-    "TagResourceRequestRequestTypeDef",
-    "UntagResourceRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
+    "UntagResourceRequestTypeDef",
 )
 
-AlgorithmSpecificationTypeDef = TypedDict(
-    "AlgorithmSpecificationTypeDef",
-    {
-        "containerImage": "ContainerImageTypeDef",
-        "scriptModeConfig": "ScriptModeConfigTypeDef",
-    },
-    total=False,
-)
+class ContainerImageTypeDef(TypedDict):
+    uri: str
+
+class ScriptModeConfigTypeDef(TypedDict):
+    entryPoint: str
+    s3Uri: str
+    compressionType: NotRequired[CompressionTypeType]
 
 AssociationTypeDef = TypedDict(
     "AssociationTypeDef",
@@ -108,639 +115,289 @@ AssociationTypeDef = TypedDict(
     },
 )
 
-CancelJobRequestRequestTypeDef = TypedDict(
-    "CancelJobRequestRequestTypeDef",
-    {
-        "jobArn": str,
-    },
-)
+class CancelJobRequestTypeDef(TypedDict):
+    jobArn: str
 
-CancelJobResponseTypeDef = TypedDict(
-    "CancelJobResponseTypeDef",
-    {
-        "cancellationStatus": CancellationStatusType,
-        "jobArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-CancelQuantumTaskRequestRequestTypeDef = TypedDict(
-    "CancelQuantumTaskRequestRequestTypeDef",
-    {
-        "clientToken": str,
-        "quantumTaskArn": str,
-    },
-)
+class CancelQuantumTaskRequestTypeDef(TypedDict):
+    clientToken: str
+    quantumTaskArn: str
 
-CancelQuantumTaskResponseTypeDef = TypedDict(
-    "CancelQuantumTaskResponseTypeDef",
-    {
-        "cancellationStatus": CancellationStatusType,
-        "quantumTaskArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DeviceConfigTypeDef(TypedDict):
+    device: str
 
-ContainerImageTypeDef = TypedDict(
-    "ContainerImageTypeDef",
-    {
-        "uri": str,
-    },
-)
+class InstanceConfigTypeDef(TypedDict):
+    instanceType: InstanceTypeType
+    volumeSizeInGb: int
+    instanceCount: NotRequired[int]
 
-_RequiredCreateJobRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateJobRequestRequestTypeDef",
-    {
-        "algorithmSpecification": "AlgorithmSpecificationTypeDef",
-        "clientToken": str,
-        "deviceConfig": "DeviceConfigTypeDef",
-        "instanceConfig": "InstanceConfigTypeDef",
-        "jobName": str,
-        "outputDataConfig": "JobOutputDataConfigTypeDef",
-        "roleArn": str,
-    },
-)
-_OptionalCreateJobRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateJobRequestRequestTypeDef",
-    {
-        "associations": List["AssociationTypeDef"],
-        "checkpointConfig": "JobCheckpointConfigTypeDef",
-        "hyperParameters": Dict[str, str],
-        "inputDataConfig": List["InputFileConfigTypeDef"],
-        "stoppingCondition": "JobStoppingConditionTypeDef",
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
+class JobCheckpointConfigTypeDef(TypedDict):
+    s3Uri: str
+    localPath: NotRequired[str]
 
-class CreateJobRequestRequestTypeDef(
-    _RequiredCreateJobRequestRequestTypeDef, _OptionalCreateJobRequestRequestTypeDef
-):
-    pass
+class JobOutputDataConfigTypeDef(TypedDict):
+    s3Path: str
+    kmsKeyId: NotRequired[str]
 
-CreateJobResponseTypeDef = TypedDict(
-    "CreateJobResponseTypeDef",
-    {
-        "jobArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class JobStoppingConditionTypeDef(TypedDict):
+    maxRuntimeInSeconds: NotRequired[int]
 
-_RequiredCreateQuantumTaskRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateQuantumTaskRequestRequestTypeDef",
-    {
-        "action": str,
-        "clientToken": str,
-        "deviceArn": str,
-        "outputS3Bucket": str,
-        "outputS3KeyPrefix": str,
-        "shots": int,
-    },
-)
-_OptionalCreateQuantumTaskRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateQuantumTaskRequestRequestTypeDef",
-    {
-        "associations": List["AssociationTypeDef"],
-        "deviceParameters": str,
-        "jobToken": str,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
+class S3DataSourceTypeDef(TypedDict):
+    s3Uri: str
 
-class CreateQuantumTaskRequestRequestTypeDef(
-    _RequiredCreateQuantumTaskRequestRequestTypeDef, _OptionalCreateQuantumTaskRequestRequestTypeDef
-):
-    pass
+class DeviceQueueInfoTypeDef(TypedDict):
+    queue: QueueNameType
+    queueSize: str
+    queuePriority: NotRequired[QueuePriorityType]
 
-CreateQuantumTaskResponseTypeDef = TypedDict(
-    "CreateQuantumTaskResponseTypeDef",
-    {
-        "quantumTaskArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DeviceSummaryTypeDef(TypedDict):
+    deviceArn: str
+    deviceName: str
+    deviceStatus: DeviceStatusType
+    deviceType: DeviceTypeType
+    providerName: str
 
-DataSourceTypeDef = TypedDict(
-    "DataSourceTypeDef",
-    {
-        "s3DataSource": "S3DataSourceTypeDef",
-    },
-)
+class GetDeviceRequestTypeDef(TypedDict):
+    deviceArn: str
 
-DeviceConfigTypeDef = TypedDict(
-    "DeviceConfigTypeDef",
-    {
-        "device": str,
-    },
-)
+class GetJobRequestTypeDef(TypedDict):
+    jobArn: str
+    additionalAttributeNames: NotRequired[Sequence[Literal["QueueInfo"]]]
 
-_RequiredDeviceQueueInfoTypeDef = TypedDict(
-    "_RequiredDeviceQueueInfoTypeDef",
-    {
-        "queue": QueueNameType,
-        "queueSize": str,
-    },
-)
-_OptionalDeviceQueueInfoTypeDef = TypedDict(
-    "_OptionalDeviceQueueInfoTypeDef",
-    {
-        "queuePriority": QueuePriorityType,
-    },
-    total=False,
-)
+class HybridJobQueueInfoTypeDef(TypedDict):
+    position: str
+    queue: QueueNameType
+    message: NotRequired[str]
 
-class DeviceQueueInfoTypeDef(_RequiredDeviceQueueInfoTypeDef, _OptionalDeviceQueueInfoTypeDef):
-    pass
+class JobEventDetailsTypeDef(TypedDict):
+    eventType: NotRequired[JobEventTypeType]
+    message: NotRequired[str]
+    timeOfEvent: NotRequired[datetime]
 
-DeviceSummaryTypeDef = TypedDict(
-    "DeviceSummaryTypeDef",
-    {
-        "deviceArn": str,
-        "deviceName": str,
-        "deviceStatus": DeviceStatusType,
-        "deviceType": DeviceTypeType,
-        "providerName": str,
-    },
-)
+class GetQuantumTaskRequestTypeDef(TypedDict):
+    quantumTaskArn: str
+    additionalAttributeNames: NotRequired[Sequence[Literal["QueueInfo"]]]
 
-GetDeviceRequestRequestTypeDef = TypedDict(
-    "GetDeviceRequestRequestTypeDef",
-    {
-        "deviceArn": str,
-    },
-)
+class QuantumTaskQueueInfoTypeDef(TypedDict):
+    position: str
+    queue: QueueNameType
+    message: NotRequired[str]
+    queuePriority: NotRequired[QueuePriorityType]
 
-GetDeviceResponseTypeDef = TypedDict(
-    "GetDeviceResponseTypeDef",
-    {
-        "deviceArn": str,
-        "deviceCapabilities": str,
-        "deviceName": str,
-        "deviceQueueInfo": List["DeviceQueueInfoTypeDef"],
-        "deviceStatus": DeviceStatusType,
-        "deviceType": DeviceTypeType,
-        "providerName": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class JobSummaryTypeDef(TypedDict):
+    createdAt: datetime
+    device: str
+    jobArn: str
+    jobName: str
+    status: JobPrimaryStatusType
+    endedAt: NotRequired[datetime]
+    startedAt: NotRequired[datetime]
+    tags: NotRequired[Dict[str, str]]
 
-_RequiredGetJobRequestRequestTypeDef = TypedDict(
-    "_RequiredGetJobRequestRequestTypeDef",
-    {
-        "jobArn": str,
-    },
-)
-_OptionalGetJobRequestRequestTypeDef = TypedDict(
-    "_OptionalGetJobRequestRequestTypeDef",
-    {
-        "additionalAttributeNames": List[Literal["QueueInfo"]],
-    },
-    total=False,
-)
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    resourceArn: str
 
-class GetJobRequestRequestTypeDef(
-    _RequiredGetJobRequestRequestTypeDef, _OptionalGetJobRequestRequestTypeDef
-):
-    pass
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
 
-GetJobResponseTypeDef = TypedDict(
-    "GetJobResponseTypeDef",
-    {
-        "algorithmSpecification": "AlgorithmSpecificationTypeDef",
-        "associations": List["AssociationTypeDef"],
-        "billableDuration": int,
-        "checkpointConfig": "JobCheckpointConfigTypeDef",
-        "createdAt": datetime,
-        "deviceConfig": "DeviceConfigTypeDef",
-        "endedAt": datetime,
-        "events": List["JobEventDetailsTypeDef"],
-        "failureReason": str,
-        "hyperParameters": Dict[str, str],
-        "inputDataConfig": List["InputFileConfigTypeDef"],
-        "instanceConfig": "InstanceConfigTypeDef",
-        "jobArn": str,
-        "jobName": str,
-        "outputDataConfig": "JobOutputDataConfigTypeDef",
-        "queueInfo": "HybridJobQueueInfoTypeDef",
-        "roleArn": str,
-        "startedAt": datetime,
-        "status": JobPrimaryStatusType,
-        "stoppingCondition": "JobStoppingConditionTypeDef",
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class QuantumTaskSummaryTypeDef(TypedDict):
+    createdAt: datetime
+    deviceArn: str
+    outputS3Bucket: str
+    outputS3Directory: str
+    quantumTaskArn: str
+    shots: int
+    status: QuantumTaskStatusType
+    endedAt: NotRequired[datetime]
+    tags: NotRequired[Dict[str, str]]
 
-_RequiredGetQuantumTaskRequestRequestTypeDef = TypedDict(
-    "_RequiredGetQuantumTaskRequestRequestTypeDef",
-    {
-        "quantumTaskArn": str,
-    },
-)
-_OptionalGetQuantumTaskRequestRequestTypeDef = TypedDict(
-    "_OptionalGetQuantumTaskRequestRequestTypeDef",
-    {
-        "additionalAttributeNames": List[Literal["QueueInfo"]],
-    },
-    total=False,
-)
-
-class GetQuantumTaskRequestRequestTypeDef(
-    _RequiredGetQuantumTaskRequestRequestTypeDef, _OptionalGetQuantumTaskRequestRequestTypeDef
-):
-    pass
-
-GetQuantumTaskResponseTypeDef = TypedDict(
-    "GetQuantumTaskResponseTypeDef",
-    {
-        "associations": List["AssociationTypeDef"],
-        "createdAt": datetime,
-        "deviceArn": str,
-        "deviceParameters": str,
-        "endedAt": datetime,
-        "failureReason": str,
-        "jobArn": str,
-        "outputS3Bucket": str,
-        "outputS3Directory": str,
-        "quantumTaskArn": str,
-        "queueInfo": "QuantumTaskQueueInfoTypeDef",
-        "shots": int,
-        "status": QuantumTaskStatusType,
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredHybridJobQueueInfoTypeDef = TypedDict(
-    "_RequiredHybridJobQueueInfoTypeDef",
-    {
-        "position": str,
-        "queue": QueueNameType,
-    },
-)
-_OptionalHybridJobQueueInfoTypeDef = TypedDict(
-    "_OptionalHybridJobQueueInfoTypeDef",
-    {
-        "message": str,
-    },
-    total=False,
-)
-
-class HybridJobQueueInfoTypeDef(
-    _RequiredHybridJobQueueInfoTypeDef, _OptionalHybridJobQueueInfoTypeDef
-):
-    pass
-
-_RequiredInputFileConfigTypeDef = TypedDict(
-    "_RequiredInputFileConfigTypeDef",
-    {
-        "channelName": str,
-        "dataSource": "DataSourceTypeDef",
-    },
-)
-_OptionalInputFileConfigTypeDef = TypedDict(
-    "_OptionalInputFileConfigTypeDef",
-    {
-        "contentType": str,
-    },
-    total=False,
-)
-
-class InputFileConfigTypeDef(_RequiredInputFileConfigTypeDef, _OptionalInputFileConfigTypeDef):
-    pass
-
-_RequiredInstanceConfigTypeDef = TypedDict(
-    "_RequiredInstanceConfigTypeDef",
-    {
-        "instanceType": InstanceTypeType,
-        "volumeSizeInGb": int,
-    },
-)
-_OptionalInstanceConfigTypeDef = TypedDict(
-    "_OptionalInstanceConfigTypeDef",
-    {
-        "instanceCount": int,
-    },
-    total=False,
-)
-
-class InstanceConfigTypeDef(_RequiredInstanceConfigTypeDef, _OptionalInstanceConfigTypeDef):
-    pass
-
-_RequiredJobCheckpointConfigTypeDef = TypedDict(
-    "_RequiredJobCheckpointConfigTypeDef",
-    {
-        "s3Uri": str,
-    },
-)
-_OptionalJobCheckpointConfigTypeDef = TypedDict(
-    "_OptionalJobCheckpointConfigTypeDef",
-    {
-        "localPath": str,
-    },
-    total=False,
-)
-
-class JobCheckpointConfigTypeDef(
-    _RequiredJobCheckpointConfigTypeDef, _OptionalJobCheckpointConfigTypeDef
-):
-    pass
-
-JobEventDetailsTypeDef = TypedDict(
-    "JobEventDetailsTypeDef",
-    {
-        "eventType": JobEventTypeType,
-        "message": str,
-        "timeOfEvent": datetime,
-    },
-    total=False,
-)
-
-_RequiredJobOutputDataConfigTypeDef = TypedDict(
-    "_RequiredJobOutputDataConfigTypeDef",
-    {
-        "s3Path": str,
-    },
-)
-_OptionalJobOutputDataConfigTypeDef = TypedDict(
-    "_OptionalJobOutputDataConfigTypeDef",
-    {
-        "kmsKeyId": str,
-    },
-    total=False,
-)
-
-class JobOutputDataConfigTypeDef(
-    _RequiredJobOutputDataConfigTypeDef, _OptionalJobOutputDataConfigTypeDef
-):
-    pass
-
-JobStoppingConditionTypeDef = TypedDict(
-    "JobStoppingConditionTypeDef",
-    {
-        "maxRuntimeInSeconds": int,
-    },
-    total=False,
-)
-
-_RequiredJobSummaryTypeDef = TypedDict(
-    "_RequiredJobSummaryTypeDef",
-    {
-        "createdAt": datetime,
-        "device": str,
-        "jobArn": str,
-        "jobName": str,
-        "status": JobPrimaryStatusType,
-    },
-)
-_OptionalJobSummaryTypeDef = TypedDict(
-    "_OptionalJobSummaryTypeDef",
-    {
-        "endedAt": datetime,
-        "startedAt": datetime,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class JobSummaryTypeDef(_RequiredJobSummaryTypeDef, _OptionalJobSummaryTypeDef):
-    pass
-
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-    },
-)
-
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-_RequiredQuantumTaskQueueInfoTypeDef = TypedDict(
-    "_RequiredQuantumTaskQueueInfoTypeDef",
-    {
-        "position": str,
-        "queue": QueueNameType,
-    },
-)
-_OptionalQuantumTaskQueueInfoTypeDef = TypedDict(
-    "_OptionalQuantumTaskQueueInfoTypeDef",
-    {
-        "message": str,
-        "queuePriority": QueuePriorityType,
-    },
-    total=False,
-)
-
-class QuantumTaskQueueInfoTypeDef(
-    _RequiredQuantumTaskQueueInfoTypeDef, _OptionalQuantumTaskQueueInfoTypeDef
-):
-    pass
-
-_RequiredQuantumTaskSummaryTypeDef = TypedDict(
-    "_RequiredQuantumTaskSummaryTypeDef",
-    {
-        "createdAt": datetime,
-        "deviceArn": str,
-        "outputS3Bucket": str,
-        "outputS3Directory": str,
-        "quantumTaskArn": str,
-        "shots": int,
-        "status": QuantumTaskStatusType,
-    },
-)
-_OptionalQuantumTaskSummaryTypeDef = TypedDict(
-    "_OptionalQuantumTaskSummaryTypeDef",
-    {
-        "endedAt": datetime,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class QuantumTaskSummaryTypeDef(
-    _RequiredQuantumTaskSummaryTypeDef, _OptionalQuantumTaskSummaryTypeDef
-):
-    pass
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-S3DataSourceTypeDef = TypedDict(
-    "S3DataSourceTypeDef",
-    {
-        "s3Uri": str,
-    },
-)
-
-_RequiredScriptModeConfigTypeDef = TypedDict(
-    "_RequiredScriptModeConfigTypeDef",
-    {
-        "entryPoint": str,
-        "s3Uri": str,
-    },
-)
-_OptionalScriptModeConfigTypeDef = TypedDict(
-    "_OptionalScriptModeConfigTypeDef",
-    {
-        "compressionType": CompressionTypeType,
-    },
-    total=False,
-)
-
-class ScriptModeConfigTypeDef(_RequiredScriptModeConfigTypeDef, _OptionalScriptModeConfigTypeDef):
-    pass
-
-SearchDevicesFilterTypeDef = TypedDict(
-    "SearchDevicesFilterTypeDef",
-    {
-        "name": str,
-        "values": List[str],
-    },
-)
-
-_RequiredSearchDevicesRequestRequestTypeDef = TypedDict(
-    "_RequiredSearchDevicesRequestRequestTypeDef",
-    {
-        "filters": List["SearchDevicesFilterTypeDef"],
-    },
-)
-_OptionalSearchDevicesRequestRequestTypeDef = TypedDict(
-    "_OptionalSearchDevicesRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class SearchDevicesRequestRequestTypeDef(
-    _RequiredSearchDevicesRequestRequestTypeDef, _OptionalSearchDevicesRequestRequestTypeDef
-):
-    pass
-
-SearchDevicesResponseTypeDef = TypedDict(
-    "SearchDevicesResponseTypeDef",
-    {
-        "devices": List["DeviceSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class SearchDevicesFilterTypeDef(TypedDict):
+    name: str
+    values: Sequence[str]
 
 SearchJobsFilterTypeDef = TypedDict(
     "SearchJobsFilterTypeDef",
     {
         "name": str,
         "operator": SearchJobsFilterOperatorType,
-        "values": List[str],
+        "values": Sequence[str],
     },
 )
-
-_RequiredSearchJobsRequestRequestTypeDef = TypedDict(
-    "_RequiredSearchJobsRequestRequestTypeDef",
-    {
-        "filters": List["SearchJobsFilterTypeDef"],
-    },
-)
-_OptionalSearchJobsRequestRequestTypeDef = TypedDict(
-    "_OptionalSearchJobsRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class SearchJobsRequestRequestTypeDef(
-    _RequiredSearchJobsRequestRequestTypeDef, _OptionalSearchJobsRequestRequestTypeDef
-):
-    pass
-
-SearchJobsResponseTypeDef = TypedDict(
-    "SearchJobsResponseTypeDef",
-    {
-        "jobs": List["JobSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
 SearchQuantumTasksFilterTypeDef = TypedDict(
     "SearchQuantumTasksFilterTypeDef",
     {
         "name": str,
         "operator": SearchQuantumTasksFilterOperatorType,
-        "values": List[str],
+        "values": Sequence[str],
     },
 )
 
-_RequiredSearchQuantumTasksRequestRequestTypeDef = TypedDict(
-    "_RequiredSearchQuantumTasksRequestRequestTypeDef",
-    {
-        "filters": List["SearchQuantumTasksFilterTypeDef"],
-    },
-)
-_OptionalSearchQuantumTasksRequestRequestTypeDef = TypedDict(
-    "_OptionalSearchQuantumTasksRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
+class TagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tags: Mapping[str, str]
 
-class SearchQuantumTasksRequestRequestTypeDef(
-    _RequiredSearchQuantumTasksRequestRequestTypeDef,
-    _OptionalSearchQuantumTasksRequestRequestTypeDef,
-):
-    pass
+class UntagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tagKeys: Sequence[str]
 
-SearchQuantumTasksResponseTypeDef = TypedDict(
-    "SearchQuantumTasksResponseTypeDef",
-    {
-        "nextToken": str,
-        "quantumTasks": List["QuantumTaskSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class AlgorithmSpecificationTypeDef(TypedDict):
+    containerImage: NotRequired[ContainerImageTypeDef]
+    scriptModeConfig: NotRequired[ScriptModeConfigTypeDef]
 
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tags": Dict[str, str],
-    },
-)
+class CreateQuantumTaskRequestTypeDef(TypedDict):
+    action: str
+    clientToken: str
+    deviceArn: str
+    outputS3Bucket: str
+    outputS3KeyPrefix: str
+    shots: int
+    associations: NotRequired[Sequence[AssociationTypeDef]]
+    deviceParameters: NotRequired[str]
+    jobToken: NotRequired[str]
+    tags: NotRequired[Mapping[str, str]]
 
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tagKeys": List[str],
-    },
-)
+class CancelJobResponseTypeDef(TypedDict):
+    cancellationStatus: CancellationStatusType
+    jobArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CancelQuantumTaskResponseTypeDef(TypedDict):
+    cancellationStatus: CancellationStatusType
+    quantumTaskArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateJobResponseTypeDef(TypedDict):
+    jobArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateQuantumTaskResponseTypeDef(TypedDict):
+    quantumTaskArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DataSourceTypeDef(TypedDict):
+    s3DataSource: S3DataSourceTypeDef
+
+class GetDeviceResponseTypeDef(TypedDict):
+    deviceArn: str
+    deviceCapabilities: str
+    deviceName: str
+    deviceQueueInfo: List[DeviceQueueInfoTypeDef]
+    deviceStatus: DeviceStatusType
+    deviceType: DeviceTypeType
+    providerName: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class SearchDevicesResponseTypeDef(TypedDict):
+    devices: List[DeviceSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class GetQuantumTaskResponseTypeDef(TypedDict):
+    associations: List[AssociationTypeDef]
+    createdAt: datetime
+    deviceArn: str
+    deviceParameters: str
+    endedAt: datetime
+    failureReason: str
+    jobArn: str
+    outputS3Bucket: str
+    outputS3Directory: str
+    quantumTaskArn: str
+    queueInfo: QuantumTaskQueueInfoTypeDef
+    shots: int
+    status: QuantumTaskStatusType
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class SearchJobsResponseTypeDef(TypedDict):
+    jobs: List[JobSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class SearchQuantumTasksResponseTypeDef(TypedDict):
+    quantumTasks: List[QuantumTaskSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class SearchDevicesRequestPaginateTypeDef(TypedDict):
+    filters: Sequence[SearchDevicesFilterTypeDef]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class SearchDevicesRequestTypeDef(TypedDict):
+    filters: Sequence[SearchDevicesFilterTypeDef]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class SearchJobsRequestPaginateTypeDef(TypedDict):
+    filters: Sequence[SearchJobsFilterTypeDef]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class SearchJobsRequestTypeDef(TypedDict):
+    filters: Sequence[SearchJobsFilterTypeDef]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class SearchQuantumTasksRequestPaginateTypeDef(TypedDict):
+    filters: Sequence[SearchQuantumTasksFilterTypeDef]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class SearchQuantumTasksRequestTypeDef(TypedDict):
+    filters: Sequence[SearchQuantumTasksFilterTypeDef]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class InputFileConfigTypeDef(TypedDict):
+    channelName: str
+    dataSource: DataSourceTypeDef
+    contentType: NotRequired[str]
+
+class CreateJobRequestTypeDef(TypedDict):
+    algorithmSpecification: AlgorithmSpecificationTypeDef
+    clientToken: str
+    deviceConfig: DeviceConfigTypeDef
+    instanceConfig: InstanceConfigTypeDef
+    jobName: str
+    outputDataConfig: JobOutputDataConfigTypeDef
+    roleArn: str
+    associations: NotRequired[Sequence[AssociationTypeDef]]
+    checkpointConfig: NotRequired[JobCheckpointConfigTypeDef]
+    hyperParameters: NotRequired[Mapping[str, str]]
+    inputDataConfig: NotRequired[Sequence[InputFileConfigTypeDef]]
+    stoppingCondition: NotRequired[JobStoppingConditionTypeDef]
+    tags: NotRequired[Mapping[str, str]]
+
+class GetJobResponseTypeDef(TypedDict):
+    algorithmSpecification: AlgorithmSpecificationTypeDef
+    associations: List[AssociationTypeDef]
+    billableDuration: int
+    checkpointConfig: JobCheckpointConfigTypeDef
+    createdAt: datetime
+    deviceConfig: DeviceConfigTypeDef
+    endedAt: datetime
+    events: List[JobEventDetailsTypeDef]
+    failureReason: str
+    hyperParameters: Dict[str, str]
+    inputDataConfig: List[InputFileConfigTypeDef]
+    instanceConfig: InstanceConfigTypeDef
+    jobArn: str
+    jobName: str
+    outputDataConfig: JobOutputDataConfigTypeDef
+    queueInfo: HybridJobQueueInfoTypeDef
+    roleArn: str
+    startedAt: datetime
+    status: JobPrimaryStatusType
+    stoppingCondition: JobStoppingConditionTypeDef
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef

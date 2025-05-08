@@ -1,20 +1,24 @@
 """
 Type annotations for lexv2-models service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_lexv2_models.type_defs import ActiveContextTypeDef
 
-    data: ActiveContextTypeDef = {...}
+    data: ActiveContextTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List, Union
+from typing import Any, Union
 
 from .literals import (
     AggregatedUtterancesFilterOperatorType,
@@ -41,6 +45,7 @@ from .literals import (
     AnalyticsUtteranceFilterNameType,
     AnalyticsUtteranceMetricNameType,
     AssociatedTranscriptFilterNameType,
+    BedrockTraceStatusType,
     BotAliasReplicationStatusType,
     BotAliasStatusType,
     BotFilterNameType,
@@ -101,14 +106,16 @@ from .literals import (
     VoiceEngineType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
     "ActiveContextTypeDef",
@@ -155,13 +162,15 @@ __all__ = (
     "AudioLogDestinationTypeDef",
     "AudioLogSettingTypeDef",
     "AudioSpecificationTypeDef",
-    "BatchCreateCustomVocabularyItemRequestRequestTypeDef",
+    "BatchCreateCustomVocabularyItemRequestTypeDef",
     "BatchCreateCustomVocabularyItemResponseTypeDef",
-    "BatchDeleteCustomVocabularyItemRequestRequestTypeDef",
+    "BatchDeleteCustomVocabularyItemRequestTypeDef",
     "BatchDeleteCustomVocabularyItemResponseTypeDef",
-    "BatchUpdateCustomVocabularyItemRequestRequestTypeDef",
+    "BatchUpdateCustomVocabularyItemRequestTypeDef",
     "BatchUpdateCustomVocabularyItemResponseTypeDef",
+    "BedrockGuardrailConfigurationTypeDef",
     "BedrockKnowledgeStoreConfigurationTypeDef",
+    "BedrockKnowledgeStoreExactResponseFieldsTypeDef",
     "BedrockModelSpecificationTypeDef",
     "BotAliasHistoryEventTypeDef",
     "BotAliasLocaleSettingsTypeDef",
@@ -170,6 +179,7 @@ __all__ = (
     "BotAliasTestExecutionTargetTypeDef",
     "BotExportSpecificationTypeDef",
     "BotFilterTypeDef",
+    "BotImportSpecificationOutputTypeDef",
     "BotImportSpecificationTypeDef",
     "BotLocaleExportSpecificationTypeDef",
     "BotLocaleFilterTypeDef",
@@ -189,7 +199,7 @@ __all__ = (
     "BotVersionReplicaSummaryTypeDef",
     "BotVersionSortByTypeDef",
     "BotVersionSummaryTypeDef",
-    "BuildBotLocaleRequestRequestTypeDef",
+    "BuildBotLocaleRequestTypeDef",
     "BuildBotLocaleResponseTypeDef",
     "BuildtimeSettingsTypeDef",
     "BuiltInIntentSortByTypeDef",
@@ -199,9 +209,13 @@ __all__ = (
     "ButtonTypeDef",
     "CloudWatchLogGroupLogDestinationTypeDef",
     "CodeHookSpecificationTypeDef",
+    "CompositeSlotTypeSettingOutputTypeDef",
     "CompositeSlotTypeSettingTypeDef",
+    "CompositeSlotTypeSettingUnionTypeDef",
     "ConditionTypeDef",
+    "ConditionalBranchOutputTypeDef",
     "ConditionalBranchTypeDef",
+    "ConditionalSpecificationOutputTypeDef",
     "ConditionalSpecificationTypeDef",
     "ConversationLevelIntentClassificationResultItemTypeDef",
     "ConversationLevelResultDetailTypeDef",
@@ -209,32 +223,36 @@ __all__ = (
     "ConversationLevelTestResultItemTypeDef",
     "ConversationLevelTestResultsFilterByTypeDef",
     "ConversationLevelTestResultsTypeDef",
+    "ConversationLogSettingsOutputTypeDef",
     "ConversationLogSettingsTypeDef",
+    "ConversationLogSettingsUnionTypeDef",
+    "ConversationLogsDataSourceFilterByOutputTypeDef",
     "ConversationLogsDataSourceFilterByTypeDef",
+    "ConversationLogsDataSourceOutputTypeDef",
     "ConversationLogsDataSourceTypeDef",
-    "CreateBotAliasRequestRequestTypeDef",
+    "CreateBotAliasRequestTypeDef",
     "CreateBotAliasResponseTypeDef",
-    "CreateBotLocaleRequestRequestTypeDef",
+    "CreateBotLocaleRequestTypeDef",
     "CreateBotLocaleResponseTypeDef",
-    "CreateBotReplicaRequestRequestTypeDef",
+    "CreateBotReplicaRequestTypeDef",
     "CreateBotReplicaResponseTypeDef",
-    "CreateBotRequestRequestTypeDef",
+    "CreateBotRequestTypeDef",
     "CreateBotResponseTypeDef",
-    "CreateBotVersionRequestRequestTypeDef",
+    "CreateBotVersionRequestTypeDef",
     "CreateBotVersionResponseTypeDef",
-    "CreateExportRequestRequestTypeDef",
+    "CreateExportRequestTypeDef",
     "CreateExportResponseTypeDef",
-    "CreateIntentRequestRequestTypeDef",
+    "CreateIntentRequestTypeDef",
     "CreateIntentResponseTypeDef",
-    "CreateResourcePolicyRequestRequestTypeDef",
+    "CreateResourcePolicyRequestTypeDef",
     "CreateResourcePolicyResponseTypeDef",
-    "CreateResourcePolicyStatementRequestRequestTypeDef",
+    "CreateResourcePolicyStatementRequestTypeDef",
     "CreateResourcePolicyStatementResponseTypeDef",
-    "CreateSlotRequestRequestTypeDef",
+    "CreateSlotRequestTypeDef",
     "CreateSlotResponseTypeDef",
-    "CreateSlotTypeRequestRequestTypeDef",
+    "CreateSlotTypeRequestTypeDef",
     "CreateSlotTypeResponseTypeDef",
-    "CreateTestSetDiscrepancyReportRequestRequestTypeDef",
+    "CreateTestSetDiscrepancyReportRequestTypeDef",
     "CreateTestSetDiscrepancyReportResponseTypeDef",
     "CreateUploadUrlResponseTypeDef",
     "CustomPayloadTypeDef",
@@ -244,77 +262,92 @@ __all__ = (
     "CustomVocabularyItemTypeDef",
     "DTMFSpecificationTypeDef",
     "DataPrivacyTypeDef",
+    "DataSourceConfigurationOutputTypeDef",
     "DataSourceConfigurationTypeDef",
+    "DateRangeFilterOutputTypeDef",
     "DateRangeFilterTypeDef",
+    "DefaultConditionalBranchOutputTypeDef",
     "DefaultConditionalBranchTypeDef",
-    "DeleteBotAliasRequestRequestTypeDef",
+    "DeleteBotAliasRequestTypeDef",
     "DeleteBotAliasResponseTypeDef",
-    "DeleteBotLocaleRequestRequestTypeDef",
+    "DeleteBotLocaleRequestTypeDef",
     "DeleteBotLocaleResponseTypeDef",
-    "DeleteBotReplicaRequestRequestTypeDef",
+    "DeleteBotReplicaRequestTypeDef",
     "DeleteBotReplicaResponseTypeDef",
-    "DeleteBotRequestRequestTypeDef",
+    "DeleteBotRequestTypeDef",
     "DeleteBotResponseTypeDef",
-    "DeleteBotVersionRequestRequestTypeDef",
+    "DeleteBotVersionRequestTypeDef",
     "DeleteBotVersionResponseTypeDef",
-    "DeleteCustomVocabularyRequestRequestTypeDef",
+    "DeleteCustomVocabularyRequestTypeDef",
     "DeleteCustomVocabularyResponseTypeDef",
-    "DeleteExportRequestRequestTypeDef",
+    "DeleteExportRequestTypeDef",
     "DeleteExportResponseTypeDef",
-    "DeleteImportRequestRequestTypeDef",
+    "DeleteImportRequestTypeDef",
     "DeleteImportResponseTypeDef",
-    "DeleteIntentRequestRequestTypeDef",
-    "DeleteResourcePolicyRequestRequestTypeDef",
+    "DeleteIntentRequestTypeDef",
+    "DeleteResourcePolicyRequestTypeDef",
     "DeleteResourcePolicyResponseTypeDef",
-    "DeleteResourcePolicyStatementRequestRequestTypeDef",
+    "DeleteResourcePolicyStatementRequestTypeDef",
     "DeleteResourcePolicyStatementResponseTypeDef",
-    "DeleteSlotRequestRequestTypeDef",
-    "DeleteSlotTypeRequestRequestTypeDef",
-    "DeleteTestSetRequestRequestTypeDef",
-    "DeleteUtterancesRequestRequestTypeDef",
-    "DescribeBotAliasRequestRequestTypeDef",
+    "DeleteSlotRequestTypeDef",
+    "DeleteSlotTypeRequestTypeDef",
+    "DeleteTestSetRequestTypeDef",
+    "DeleteUtterancesRequestTypeDef",
+    "DescribeBotAliasRequestTypeDef",
+    "DescribeBotAliasRequestWaitTypeDef",
     "DescribeBotAliasResponseTypeDef",
-    "DescribeBotLocaleRequestRequestTypeDef",
+    "DescribeBotLocaleRequestTypeDef",
+    "DescribeBotLocaleRequestWaitExtraExtraTypeDef",
+    "DescribeBotLocaleRequestWaitExtraTypeDef",
+    "DescribeBotLocaleRequestWaitTypeDef",
     "DescribeBotLocaleResponseTypeDef",
-    "DescribeBotRecommendationRequestRequestTypeDef",
+    "DescribeBotRecommendationRequestTypeDef",
     "DescribeBotRecommendationResponseTypeDef",
-    "DescribeBotReplicaRequestRequestTypeDef",
+    "DescribeBotReplicaRequestTypeDef",
     "DescribeBotReplicaResponseTypeDef",
-    "DescribeBotRequestRequestTypeDef",
-    "DescribeBotResourceGenerationRequestRequestTypeDef",
+    "DescribeBotRequestTypeDef",
+    "DescribeBotRequestWaitTypeDef",
+    "DescribeBotResourceGenerationRequestTypeDef",
     "DescribeBotResourceGenerationResponseTypeDef",
     "DescribeBotResponseTypeDef",
-    "DescribeBotVersionRequestRequestTypeDef",
+    "DescribeBotVersionRequestTypeDef",
+    "DescribeBotVersionRequestWaitTypeDef",
     "DescribeBotVersionResponseTypeDef",
-    "DescribeCustomVocabularyMetadataRequestRequestTypeDef",
+    "DescribeCustomVocabularyMetadataRequestTypeDef",
     "DescribeCustomVocabularyMetadataResponseTypeDef",
-    "DescribeExportRequestRequestTypeDef",
+    "DescribeExportRequestTypeDef",
+    "DescribeExportRequestWaitTypeDef",
     "DescribeExportResponseTypeDef",
-    "DescribeImportRequestRequestTypeDef",
+    "DescribeImportRequestTypeDef",
+    "DescribeImportRequestWaitTypeDef",
     "DescribeImportResponseTypeDef",
-    "DescribeIntentRequestRequestTypeDef",
+    "DescribeIntentRequestTypeDef",
     "DescribeIntentResponseTypeDef",
-    "DescribeResourcePolicyRequestRequestTypeDef",
+    "DescribeResourcePolicyRequestTypeDef",
     "DescribeResourcePolicyResponseTypeDef",
-    "DescribeSlotRequestRequestTypeDef",
+    "DescribeSlotRequestTypeDef",
     "DescribeSlotResponseTypeDef",
-    "DescribeSlotTypeRequestRequestTypeDef",
+    "DescribeSlotTypeRequestTypeDef",
     "DescribeSlotTypeResponseTypeDef",
-    "DescribeTestExecutionRequestRequestTypeDef",
+    "DescribeTestExecutionRequestTypeDef",
     "DescribeTestExecutionResponseTypeDef",
-    "DescribeTestSetDiscrepancyReportRequestRequestTypeDef",
+    "DescribeTestSetDiscrepancyReportRequestTypeDef",
     "DescribeTestSetDiscrepancyReportResponseTypeDef",
-    "DescribeTestSetGenerationRequestRequestTypeDef",
+    "DescribeTestSetGenerationRequestTypeDef",
     "DescribeTestSetGenerationResponseTypeDef",
-    "DescribeTestSetRequestRequestTypeDef",
+    "DescribeTestSetRequestTypeDef",
     "DescribeTestSetResponseTypeDef",
     "DescriptiveBotBuilderSpecificationTypeDef",
     "DialogActionTypeDef",
+    "DialogCodeHookInvocationSettingOutputTypeDef",
     "DialogCodeHookInvocationSettingTypeDef",
     "DialogCodeHookSettingsTypeDef",
+    "DialogStateOutputTypeDef",
     "DialogStateTypeDef",
     "ElicitationCodeHookInvocationSettingTypeDef",
+    "EmptyResponseMetadataTypeDef",
     "EncryptionSettingTypeDef",
+    "ErrorLogSettingsTypeDef",
     "ExactResponseFieldsTypeDef",
     "ExecutionErrorDetailsTypeDef",
     "ExportFilterTypeDef",
@@ -323,35 +356,50 @@ __all__ = (
     "ExportSummaryTypeDef",
     "ExternalSourceSettingTypeDef",
     "FailedCustomVocabularyItemTypeDef",
+    "FulfillmentCodeHookSettingsOutputTypeDef",
     "FulfillmentCodeHookSettingsTypeDef",
+    "FulfillmentCodeHookSettingsUnionTypeDef",
+    "FulfillmentStartResponseSpecificationOutputTypeDef",
     "FulfillmentStartResponseSpecificationTypeDef",
+    "FulfillmentUpdateResponseSpecificationOutputTypeDef",
     "FulfillmentUpdateResponseSpecificationTypeDef",
+    "FulfillmentUpdatesSpecificationOutputTypeDef",
     "FulfillmentUpdatesSpecificationTypeDef",
-    "GenerateBotElementRequestRequestTypeDef",
+    "GenerateBotElementRequestTypeDef",
     "GenerateBotElementResponseTypeDef",
     "GenerationSortByTypeDef",
     "GenerationSummaryTypeDef",
     "GenerativeAISettingsTypeDef",
-    "GetTestExecutionArtifactsUrlRequestRequestTypeDef",
+    "GetTestExecutionArtifactsUrlRequestTypeDef",
     "GetTestExecutionArtifactsUrlResponseTypeDef",
     "GrammarSlotTypeSettingTypeDef",
     "GrammarSlotTypeSourceTypeDef",
+    "ImageResponseCardOutputTypeDef",
     "ImageResponseCardTypeDef",
     "ImportFilterTypeDef",
+    "ImportResourceSpecificationOutputTypeDef",
     "ImportResourceSpecificationTypeDef",
+    "ImportResourceSpecificationUnionTypeDef",
     "ImportSortByTypeDef",
     "ImportSummaryTypeDef",
+    "InitialResponseSettingOutputTypeDef",
     "InitialResponseSettingTypeDef",
+    "InitialResponseSettingUnionTypeDef",
     "InputContextTypeDef",
     "InputSessionStateSpecificationTypeDef",
     "IntentClassificationTestResultItemCountsTypeDef",
     "IntentClassificationTestResultItemTypeDef",
     "IntentClassificationTestResultsTypeDef",
+    "IntentClosingSettingOutputTypeDef",
     "IntentClosingSettingTypeDef",
+    "IntentClosingSettingUnionTypeDef",
+    "IntentConfirmationSettingOutputTypeDef",
     "IntentConfirmationSettingTypeDef",
+    "IntentConfirmationSettingUnionTypeDef",
     "IntentFilterTypeDef",
     "IntentLevelSlotResolutionTestResultItemTypeDef",
     "IntentLevelSlotResolutionTestResultsTypeDef",
+    "IntentOverrideOutputTypeDef",
     "IntentOverrideTypeDef",
     "IntentSortByTypeDef",
     "IntentStatisticsTypeDef",
@@ -359,108 +407,124 @@ __all__ = (
     "InvokedIntentSampleTypeDef",
     "KendraConfigurationTypeDef",
     "LambdaCodeHookTypeDef",
+    "LexTranscriptFilterOutputTypeDef",
     "LexTranscriptFilterTypeDef",
-    "ListAggregatedUtterancesRequestRequestTypeDef",
+    "ListAggregatedUtterancesRequestTypeDef",
     "ListAggregatedUtterancesResponseTypeDef",
-    "ListBotAliasReplicasRequestRequestTypeDef",
+    "ListBotAliasReplicasRequestTypeDef",
     "ListBotAliasReplicasResponseTypeDef",
-    "ListBotAliasesRequestRequestTypeDef",
+    "ListBotAliasesRequestTypeDef",
     "ListBotAliasesResponseTypeDef",
-    "ListBotLocalesRequestRequestTypeDef",
+    "ListBotLocalesRequestTypeDef",
     "ListBotLocalesResponseTypeDef",
-    "ListBotRecommendationsRequestRequestTypeDef",
+    "ListBotRecommendationsRequestTypeDef",
     "ListBotRecommendationsResponseTypeDef",
-    "ListBotReplicasRequestRequestTypeDef",
+    "ListBotReplicasRequestTypeDef",
     "ListBotReplicasResponseTypeDef",
-    "ListBotResourceGenerationsRequestRequestTypeDef",
+    "ListBotResourceGenerationsRequestTypeDef",
     "ListBotResourceGenerationsResponseTypeDef",
-    "ListBotVersionReplicasRequestRequestTypeDef",
+    "ListBotVersionReplicasRequestTypeDef",
     "ListBotVersionReplicasResponseTypeDef",
-    "ListBotVersionsRequestRequestTypeDef",
+    "ListBotVersionsRequestTypeDef",
     "ListBotVersionsResponseTypeDef",
-    "ListBotsRequestRequestTypeDef",
+    "ListBotsRequestTypeDef",
     "ListBotsResponseTypeDef",
-    "ListBuiltInIntentsRequestRequestTypeDef",
+    "ListBuiltInIntentsRequestTypeDef",
     "ListBuiltInIntentsResponseTypeDef",
-    "ListBuiltInSlotTypesRequestRequestTypeDef",
+    "ListBuiltInSlotTypesRequestTypeDef",
     "ListBuiltInSlotTypesResponseTypeDef",
-    "ListCustomVocabularyItemsRequestRequestTypeDef",
+    "ListCustomVocabularyItemsRequestTypeDef",
     "ListCustomVocabularyItemsResponseTypeDef",
-    "ListExportsRequestRequestTypeDef",
+    "ListExportsRequestTypeDef",
     "ListExportsResponseTypeDef",
-    "ListImportsRequestRequestTypeDef",
+    "ListImportsRequestTypeDef",
     "ListImportsResponseTypeDef",
-    "ListIntentMetricsRequestRequestTypeDef",
+    "ListIntentMetricsRequestTypeDef",
     "ListIntentMetricsResponseTypeDef",
-    "ListIntentPathsRequestRequestTypeDef",
+    "ListIntentPathsRequestTypeDef",
     "ListIntentPathsResponseTypeDef",
-    "ListIntentStageMetricsRequestRequestTypeDef",
+    "ListIntentStageMetricsRequestTypeDef",
     "ListIntentStageMetricsResponseTypeDef",
-    "ListIntentsRequestRequestTypeDef",
+    "ListIntentsRequestTypeDef",
     "ListIntentsResponseTypeDef",
-    "ListRecommendedIntentsRequestRequestTypeDef",
+    "ListRecommendedIntentsRequestTypeDef",
     "ListRecommendedIntentsResponseTypeDef",
-    "ListSessionAnalyticsDataRequestRequestTypeDef",
+    "ListSessionAnalyticsDataRequestTypeDef",
     "ListSessionAnalyticsDataResponseTypeDef",
-    "ListSessionMetricsRequestRequestTypeDef",
+    "ListSessionMetricsRequestTypeDef",
     "ListSessionMetricsResponseTypeDef",
-    "ListSlotTypesRequestRequestTypeDef",
+    "ListSlotTypesRequestTypeDef",
     "ListSlotTypesResponseTypeDef",
-    "ListSlotsRequestRequestTypeDef",
+    "ListSlotsRequestTypeDef",
     "ListSlotsResponseTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
-    "ListTestExecutionResultItemsRequestRequestTypeDef",
+    "ListTestExecutionResultItemsRequestTypeDef",
     "ListTestExecutionResultItemsResponseTypeDef",
-    "ListTestExecutionsRequestRequestTypeDef",
+    "ListTestExecutionsRequestTypeDef",
     "ListTestExecutionsResponseTypeDef",
-    "ListTestSetRecordsRequestRequestTypeDef",
+    "ListTestSetRecordsRequestTypeDef",
     "ListTestSetRecordsResponseTypeDef",
-    "ListTestSetsRequestRequestTypeDef",
+    "ListTestSetsRequestTypeDef",
     "ListTestSetsResponseTypeDef",
-    "ListUtteranceAnalyticsDataRequestRequestTypeDef",
+    "ListUtteranceAnalyticsDataRequestTypeDef",
     "ListUtteranceAnalyticsDataResponseTypeDef",
-    "ListUtteranceMetricsRequestRequestTypeDef",
+    "ListUtteranceMetricsRequestTypeDef",
     "ListUtteranceMetricsResponseTypeDef",
+    "MessageGroupOutputTypeDef",
     "MessageGroupTypeDef",
+    "MessageOutputTypeDef",
     "MessageTypeDef",
     "MultipleValuesSettingTypeDef",
     "NewCustomVocabularyItemTypeDef",
     "ObfuscationSettingTypeDef",
+    "OpensearchConfigurationOutputTypeDef",
     "OpensearchConfigurationTypeDef",
     "OutputContextTypeDef",
     "OverallTestResultItemTypeDef",
     "OverallTestResultsTypeDef",
     "ParentBotNetworkTypeDef",
+    "PathFormatOutputTypeDef",
     "PathFormatTypeDef",
     "PlainTextMessageTypeDef",
+    "PostDialogCodeHookInvocationSpecificationOutputTypeDef",
     "PostDialogCodeHookInvocationSpecificationTypeDef",
+    "PostFulfillmentStatusSpecificationOutputTypeDef",
     "PostFulfillmentStatusSpecificationTypeDef",
     "PrincipalTypeDef",
     "PromptAttemptSpecificationTypeDef",
+    "PromptSpecificationOutputTypeDef",
     "PromptSpecificationTypeDef",
+    "QInConnectAssistantConfigurationTypeDef",
+    "QInConnectIntentConfigurationTypeDef",
+    "QnAIntentConfigurationOutputTypeDef",
     "QnAIntentConfigurationTypeDef",
+    "QnAIntentConfigurationUnionTypeDef",
     "QnAKendraConfigurationTypeDef",
     "RecommendedIntentSummaryTypeDef",
     "RelativeAggregationDurationTypeDef",
     "ResponseMetadataTypeDef",
+    "ResponseSpecificationOutputTypeDef",
     "ResponseSpecificationTypeDef",
     "RuntimeHintDetailsTypeDef",
     "RuntimeHintValueTypeDef",
     "RuntimeHintsTypeDef",
     "RuntimeSettingsTypeDef",
     "S3BucketLogDestinationTypeDef",
+    "S3BucketTranscriptSourceOutputTypeDef",
     "S3BucketTranscriptSourceTypeDef",
     "SSMLMessageTypeDef",
     "SampleUtteranceGenerationSpecificationTypeDef",
     "SampleUtteranceTypeDef",
     "SampleValueTypeDef",
-    "SearchAssociatedTranscriptsRequestRequestTypeDef",
+    "SearchAssociatedTranscriptsRequestTypeDef",
     "SearchAssociatedTranscriptsResponseTypeDef",
     "SentimentAnalysisSettingsTypeDef",
     "SessionDataSortByTypeDef",
     "SessionSpecificationTypeDef",
+    "SlotCaptureSettingOutputTypeDef",
     "SlotCaptureSettingTypeDef",
+    "SlotDefaultValueSpecificationOutputTypeDef",
     "SlotDefaultValueSpecificationTypeDef",
     "SlotDefaultValueTypeDef",
     "SlotFilterTypeDef",
@@ -475,30 +539,40 @@ __all__ = (
     "SlotTypeSortByTypeDef",
     "SlotTypeStatisticsTypeDef",
     "SlotTypeSummaryTypeDef",
+    "SlotTypeValueOutputTypeDef",
     "SlotTypeValueTypeDef",
+    "SlotTypeValueUnionTypeDef",
+    "SlotValueElicitationSettingOutputTypeDef",
     "SlotValueElicitationSettingTypeDef",
+    "SlotValueElicitationSettingUnionTypeDef",
+    "SlotValueOverrideOutputTypeDef",
     "SlotValueOverrideTypeDef",
     "SlotValueRegexFilterTypeDef",
     "SlotValueSelectionSettingTypeDef",
     "SlotValueTypeDef",
+    "SpecificationsOutputTypeDef",
     "SpecificationsTypeDef",
-    "StartBotRecommendationRequestRequestTypeDef",
+    "StartBotRecommendationRequestTypeDef",
     "StartBotRecommendationResponseTypeDef",
-    "StartBotResourceGenerationRequestRequestTypeDef",
+    "StartBotResourceGenerationRequestTypeDef",
     "StartBotResourceGenerationResponseTypeDef",
-    "StartImportRequestRequestTypeDef",
+    "StartImportRequestTypeDef",
     "StartImportResponseTypeDef",
-    "StartTestExecutionRequestRequestTypeDef",
+    "StartTestExecutionRequestTypeDef",
     "StartTestExecutionResponseTypeDef",
-    "StartTestSetGenerationRequestRequestTypeDef",
+    "StartTestSetGenerationRequestTypeDef",
     "StartTestSetGenerationResponseTypeDef",
+    "StillWaitingResponseSpecificationOutputTypeDef",
     "StillWaitingResponseSpecificationTypeDef",
-    "StopBotRecommendationRequestRequestTypeDef",
+    "StopBotRecommendationRequestTypeDef",
     "StopBotRecommendationResponseTypeDef",
+    "SubSlotSettingOutputTypeDef",
     "SubSlotSettingTypeDef",
+    "SubSlotSettingUnionTypeDef",
     "SubSlotTypeCompositionTypeDef",
+    "SubSlotValueElicitationSettingOutputTypeDef",
     "SubSlotValueElicitationSettingTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
     "TestExecutionResultFilterByTypeDef",
     "TestExecutionResultItemsTypeDef",
     "TestExecutionSortByTypeDef",
@@ -508,8 +582,11 @@ __all__ = (
     "TestSetDiscrepancyReportBotAliasTargetTypeDef",
     "TestSetDiscrepancyReportResourceTargetTypeDef",
     "TestSetExportSpecificationTypeDef",
+    "TestSetGenerationDataSourceOutputTypeDef",
     "TestSetGenerationDataSourceTypeDef",
+    "TestSetGenerationDataSourceUnionTypeDef",
     "TestSetImportInputLocationTypeDef",
+    "TestSetImportResourceSpecificationOutputTypeDef",
     "TestSetImportResourceSpecificationTypeDef",
     "TestSetIntentDiscrepancyItemTypeDef",
     "TestSetSlotDiscrepancyItemTypeDef",
@@ -521,29 +598,33 @@ __all__ = (
     "TextInputSpecificationTypeDef",
     "TextLogDestinationTypeDef",
     "TextLogSettingTypeDef",
+    "TimestampTypeDef",
+    "TranscriptFilterOutputTypeDef",
     "TranscriptFilterTypeDef",
+    "TranscriptSourceSettingOutputTypeDef",
     "TranscriptSourceSettingTypeDef",
+    "TranscriptSourceSettingUnionTypeDef",
     "TurnSpecificationTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateBotAliasRequestRequestTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateBotAliasRequestTypeDef",
     "UpdateBotAliasResponseTypeDef",
-    "UpdateBotLocaleRequestRequestTypeDef",
+    "UpdateBotLocaleRequestTypeDef",
     "UpdateBotLocaleResponseTypeDef",
-    "UpdateBotRecommendationRequestRequestTypeDef",
+    "UpdateBotRecommendationRequestTypeDef",
     "UpdateBotRecommendationResponseTypeDef",
-    "UpdateBotRequestRequestTypeDef",
+    "UpdateBotRequestTypeDef",
     "UpdateBotResponseTypeDef",
-    "UpdateExportRequestRequestTypeDef",
+    "UpdateExportRequestTypeDef",
     "UpdateExportResponseTypeDef",
-    "UpdateIntentRequestRequestTypeDef",
+    "UpdateIntentRequestTypeDef",
     "UpdateIntentResponseTypeDef",
-    "UpdateResourcePolicyRequestRequestTypeDef",
+    "UpdateResourcePolicyRequestTypeDef",
     "UpdateResourcePolicyResponseTypeDef",
-    "UpdateSlotRequestRequestTypeDef",
+    "UpdateSlotRequestTypeDef",
     "UpdateSlotResponseTypeDef",
-    "UpdateSlotTypeRequestRequestTypeDef",
+    "UpdateSlotTypeRequestTypeDef",
     "UpdateSlotTypeResponseTypeDef",
-    "UpdateTestSetRequestRequestTypeDef",
+    "UpdateTestSetRequestTypeDef",
     "UpdateTestSetResponseTypeDef",
     "UserTurnInputSpecificationTypeDef",
     "UserTurnIntentOutputTypeDef",
@@ -560,1093 +641,2095 @@ __all__ = (
     "UtteranceLevelTestResultsTypeDef",
     "UtteranceSpecificationTypeDef",
     "VoiceSettingsTypeDef",
+    "WaitAndContinueSpecificationOutputTypeDef",
     "WaitAndContinueSpecificationTypeDef",
     "WaiterConfigTypeDef",
 )
 
-ActiveContextTypeDef = TypedDict(
-    "ActiveContextTypeDef",
-    {
-        "name": str,
-    },
-)
+class ActiveContextTypeDef(TypedDict):
+    name: str
 
-AdvancedRecognitionSettingTypeDef = TypedDict(
-    "AdvancedRecognitionSettingTypeDef",
-    {
-        "audioRecognitionStrategy": Literal["UseSlotValuesAsCustomVocabulary"],
-    },
-    total=False,
-)
+class AdvancedRecognitionSettingTypeDef(TypedDict):
+    audioRecognitionStrategy: NotRequired[Literal["UseSlotValuesAsCustomVocabulary"]]
 
-_RequiredAgentTurnResultTypeDef = TypedDict(
-    "_RequiredAgentTurnResultTypeDef",
-    {
-        "expectedAgentPrompt": str,
-    },
-)
-_OptionalAgentTurnResultTypeDef = TypedDict(
-    "_OptionalAgentTurnResultTypeDef",
-    {
-        "actualAgentPrompt": str,
-        "errorDetails": "ExecutionErrorDetailsTypeDef",
-        "actualElicitedSlot": str,
-        "actualIntent": str,
-    },
-    total=False,
-)
+class ExecutionErrorDetailsTypeDef(TypedDict):
+    errorCode: str
+    errorMessage: str
 
-class AgentTurnResultTypeDef(_RequiredAgentTurnResultTypeDef, _OptionalAgentTurnResultTypeDef):
-    pass
-
-AgentTurnSpecificationTypeDef = TypedDict(
-    "AgentTurnSpecificationTypeDef",
-    {
-        "agentPrompt": str,
-    },
-)
+class AgentTurnSpecificationTypeDef(TypedDict):
+    agentPrompt: str
 
 AggregatedUtterancesFilterTypeDef = TypedDict(
     "AggregatedUtterancesFilterTypeDef",
     {
         "name": Literal["Utterance"],
-        "values": List[str],
+        "values": Sequence[str],
         "operator": AggregatedUtterancesFilterOperatorType,
     },
 )
 
-AggregatedUtterancesSortByTypeDef = TypedDict(
-    "AggregatedUtterancesSortByTypeDef",
-    {
-        "attribute": AggregatedUtterancesSortAttributeType,
-        "order": SortOrderType,
-    },
-)
+class AggregatedUtterancesSortByTypeDef(TypedDict):
+    attribute: AggregatedUtterancesSortAttributeType
+    order: SortOrderType
 
-AggregatedUtterancesSummaryTypeDef = TypedDict(
-    "AggregatedUtterancesSummaryTypeDef",
-    {
-        "utterance": str,
-        "hitCount": int,
-        "missedCount": int,
-        "utteranceFirstRecordedInAggregationDuration": datetime,
-        "utteranceLastRecordedInAggregationDuration": datetime,
-        "containsDataFromDeletedResources": bool,
-    },
-    total=False,
-)
+class AggregatedUtterancesSummaryTypeDef(TypedDict):
+    utterance: NotRequired[str]
+    hitCount: NotRequired[int]
+    missedCount: NotRequired[int]
+    utteranceFirstRecordedInAggregationDuration: NotRequired[datetime]
+    utteranceLastRecordedInAggregationDuration: NotRequired[datetime]
+    containsDataFromDeletedResources: NotRequired[bool]
 
-AllowedInputTypesTypeDef = TypedDict(
-    "AllowedInputTypesTypeDef",
-    {
-        "allowAudioInput": bool,
-        "allowDTMFInput": bool,
-    },
-)
+class AllowedInputTypesTypeDef(TypedDict):
+    allowAudioInput: bool
+    allowDTMFInput: bool
 
-_RequiredAnalyticsBinBySpecificationTypeDef = TypedDict(
-    "_RequiredAnalyticsBinBySpecificationTypeDef",
-    {
-        "name": AnalyticsBinByNameType,
-        "interval": AnalyticsIntervalType,
-    },
-)
-_OptionalAnalyticsBinBySpecificationTypeDef = TypedDict(
-    "_OptionalAnalyticsBinBySpecificationTypeDef",
-    {
-        "order": AnalyticsSortOrderType,
-    },
-    total=False,
-)
+class AnalyticsBinBySpecificationTypeDef(TypedDict):
+    name: AnalyticsBinByNameType
+    interval: AnalyticsIntervalType
+    order: NotRequired[AnalyticsSortOrderType]
 
-class AnalyticsBinBySpecificationTypeDef(
-    _RequiredAnalyticsBinBySpecificationTypeDef, _OptionalAnalyticsBinBySpecificationTypeDef
-):
-    pass
-
-AnalyticsBinKeyTypeDef = TypedDict(
-    "AnalyticsBinKeyTypeDef",
-    {
-        "name": AnalyticsBinByNameType,
-        "value": int,
-    },
-    total=False,
-)
+class AnalyticsBinKeyTypeDef(TypedDict):
+    name: NotRequired[AnalyticsBinByNameType]
+    value: NotRequired[int]
 
 AnalyticsIntentFilterTypeDef = TypedDict(
     "AnalyticsIntentFilterTypeDef",
     {
         "name": AnalyticsIntentFilterNameType,
         "operator": AnalyticsFilterOperatorType,
-        "values": List[str],
+        "values": Sequence[str],
     },
 )
 
-AnalyticsIntentGroupByKeyTypeDef = TypedDict(
-    "AnalyticsIntentGroupByKeyTypeDef",
-    {
-        "name": AnalyticsIntentFieldType,
-        "value": str,
-    },
-    total=False,
-)
+class AnalyticsIntentGroupByKeyTypeDef(TypedDict):
+    name: NotRequired[AnalyticsIntentFieldType]
+    value: NotRequired[str]
 
-AnalyticsIntentGroupBySpecificationTypeDef = TypedDict(
-    "AnalyticsIntentGroupBySpecificationTypeDef",
-    {
-        "name": AnalyticsIntentFieldType,
-    },
-)
+class AnalyticsIntentGroupBySpecificationTypeDef(TypedDict):
+    name: AnalyticsIntentFieldType
 
-AnalyticsIntentMetricResultTypeDef = TypedDict(
-    "AnalyticsIntentMetricResultTypeDef",
-    {
-        "name": AnalyticsIntentMetricNameType,
-        "statistic": AnalyticsMetricStatisticType,
-        "value": float,
-    },
-    total=False,
-)
+class AnalyticsIntentMetricResultTypeDef(TypedDict):
+    name: NotRequired[AnalyticsIntentMetricNameType]
+    statistic: NotRequired[AnalyticsMetricStatisticType]
+    value: NotRequired[float]
 
-_RequiredAnalyticsIntentMetricTypeDef = TypedDict(
-    "_RequiredAnalyticsIntentMetricTypeDef",
-    {
-        "name": AnalyticsIntentMetricNameType,
-        "statistic": AnalyticsMetricStatisticType,
-    },
-)
-_OptionalAnalyticsIntentMetricTypeDef = TypedDict(
-    "_OptionalAnalyticsIntentMetricTypeDef",
-    {
-        "order": AnalyticsSortOrderType,
-    },
-    total=False,
-)
+class AnalyticsIntentMetricTypeDef(TypedDict):
+    name: AnalyticsIntentMetricNameType
+    statistic: AnalyticsMetricStatisticType
+    order: NotRequired[AnalyticsSortOrderType]
 
-class AnalyticsIntentMetricTypeDef(
-    _RequiredAnalyticsIntentMetricTypeDef, _OptionalAnalyticsIntentMetricTypeDef
-):
-    pass
-
-AnalyticsIntentNodeSummaryTypeDef = TypedDict(
-    "AnalyticsIntentNodeSummaryTypeDef",
-    {
-        "intentName": str,
-        "intentPath": str,
-        "intentCount": int,
-        "intentLevel": int,
-        "nodeType": AnalyticsNodeTypeType,
-    },
-    total=False,
-)
-
-AnalyticsIntentResultTypeDef = TypedDict(
-    "AnalyticsIntentResultTypeDef",
-    {
-        "binKeys": List["AnalyticsBinKeyTypeDef"],
-        "groupByKeys": List["AnalyticsIntentGroupByKeyTypeDef"],
-        "metricsResults": List["AnalyticsIntentMetricResultTypeDef"],
-    },
-    total=False,
-)
+class AnalyticsIntentNodeSummaryTypeDef(TypedDict):
+    intentName: NotRequired[str]
+    intentPath: NotRequired[str]
+    intentCount: NotRequired[int]
+    intentLevel: NotRequired[int]
+    nodeType: NotRequired[AnalyticsNodeTypeType]
 
 AnalyticsIntentStageFilterTypeDef = TypedDict(
     "AnalyticsIntentStageFilterTypeDef",
     {
         "name": AnalyticsIntentStageFilterNameType,
         "operator": AnalyticsFilterOperatorType,
-        "values": List[str],
+        "values": Sequence[str],
     },
 )
 
-AnalyticsIntentStageGroupByKeyTypeDef = TypedDict(
-    "AnalyticsIntentStageGroupByKeyTypeDef",
-    {
-        "name": AnalyticsIntentStageFieldType,
-        "value": str,
-    },
-    total=False,
-)
+class AnalyticsIntentStageGroupByKeyTypeDef(TypedDict):
+    name: NotRequired[AnalyticsIntentStageFieldType]
+    value: NotRequired[str]
 
-AnalyticsIntentStageGroupBySpecificationTypeDef = TypedDict(
-    "AnalyticsIntentStageGroupBySpecificationTypeDef",
-    {
-        "name": AnalyticsIntentStageFieldType,
-    },
-)
+class AnalyticsIntentStageGroupBySpecificationTypeDef(TypedDict):
+    name: AnalyticsIntentStageFieldType
 
-AnalyticsIntentStageMetricResultTypeDef = TypedDict(
-    "AnalyticsIntentStageMetricResultTypeDef",
-    {
-        "name": AnalyticsIntentStageMetricNameType,
-        "statistic": AnalyticsMetricStatisticType,
-        "value": float,
-    },
-    total=False,
-)
+class AnalyticsIntentStageMetricResultTypeDef(TypedDict):
+    name: NotRequired[AnalyticsIntentStageMetricNameType]
+    statistic: NotRequired[AnalyticsMetricStatisticType]
+    value: NotRequired[float]
 
-_RequiredAnalyticsIntentStageMetricTypeDef = TypedDict(
-    "_RequiredAnalyticsIntentStageMetricTypeDef",
-    {
-        "name": AnalyticsIntentStageMetricNameType,
-        "statistic": AnalyticsMetricStatisticType,
-    },
-)
-_OptionalAnalyticsIntentStageMetricTypeDef = TypedDict(
-    "_OptionalAnalyticsIntentStageMetricTypeDef",
-    {
-        "order": AnalyticsSortOrderType,
-    },
-    total=False,
-)
-
-class AnalyticsIntentStageMetricTypeDef(
-    _RequiredAnalyticsIntentStageMetricTypeDef, _OptionalAnalyticsIntentStageMetricTypeDef
-):
-    pass
-
-AnalyticsIntentStageResultTypeDef = TypedDict(
-    "AnalyticsIntentStageResultTypeDef",
-    {
-        "binKeys": List["AnalyticsBinKeyTypeDef"],
-        "groupByKeys": List["AnalyticsIntentStageGroupByKeyTypeDef"],
-        "metricsResults": List["AnalyticsIntentStageMetricResultTypeDef"],
-    },
-    total=False,
-)
+class AnalyticsIntentStageMetricTypeDef(TypedDict):
+    name: AnalyticsIntentStageMetricNameType
+    statistic: AnalyticsMetricStatisticType
+    order: NotRequired[AnalyticsSortOrderType]
 
 AnalyticsPathFilterTypeDef = TypedDict(
     "AnalyticsPathFilterTypeDef",
     {
         "name": AnalyticsCommonFilterNameType,
         "operator": AnalyticsFilterOperatorType,
-        "values": List[str],
+        "values": Sequence[str],
     },
 )
-
 AnalyticsSessionFilterTypeDef = TypedDict(
     "AnalyticsSessionFilterTypeDef",
     {
         "name": AnalyticsSessionFilterNameType,
         "operator": AnalyticsFilterOperatorType,
-        "values": List[str],
+        "values": Sequence[str],
     },
 )
 
-AnalyticsSessionGroupByKeyTypeDef = TypedDict(
-    "AnalyticsSessionGroupByKeyTypeDef",
-    {
-        "name": AnalyticsSessionFieldType,
-        "value": str,
-    },
-    total=False,
-)
+class AnalyticsSessionGroupByKeyTypeDef(TypedDict):
+    name: NotRequired[AnalyticsSessionFieldType]
+    value: NotRequired[str]
 
-AnalyticsSessionGroupBySpecificationTypeDef = TypedDict(
-    "AnalyticsSessionGroupBySpecificationTypeDef",
-    {
-        "name": AnalyticsSessionFieldType,
-    },
-)
+class AnalyticsSessionGroupBySpecificationTypeDef(TypedDict):
+    name: AnalyticsSessionFieldType
 
-AnalyticsSessionMetricResultTypeDef = TypedDict(
-    "AnalyticsSessionMetricResultTypeDef",
-    {
-        "name": AnalyticsSessionMetricNameType,
-        "statistic": AnalyticsMetricStatisticType,
-        "value": float,
-    },
-    total=False,
-)
+class AnalyticsSessionMetricResultTypeDef(TypedDict):
+    name: NotRequired[AnalyticsSessionMetricNameType]
+    statistic: NotRequired[AnalyticsMetricStatisticType]
+    value: NotRequired[float]
 
-_RequiredAnalyticsSessionMetricTypeDef = TypedDict(
-    "_RequiredAnalyticsSessionMetricTypeDef",
-    {
-        "name": AnalyticsSessionMetricNameType,
-        "statistic": AnalyticsMetricStatisticType,
-    },
-)
-_OptionalAnalyticsSessionMetricTypeDef = TypedDict(
-    "_OptionalAnalyticsSessionMetricTypeDef",
-    {
-        "order": AnalyticsSortOrderType,
-    },
-    total=False,
-)
+class AnalyticsSessionMetricTypeDef(TypedDict):
+    name: AnalyticsSessionMetricNameType
+    statistic: AnalyticsMetricStatisticType
+    order: NotRequired[AnalyticsSortOrderType]
 
-class AnalyticsSessionMetricTypeDef(
-    _RequiredAnalyticsSessionMetricTypeDef, _OptionalAnalyticsSessionMetricTypeDef
-):
-    pass
+class AnalyticsUtteranceAttributeResultTypeDef(TypedDict):
+    lastUsedIntent: NotRequired[str]
 
-AnalyticsSessionResultTypeDef = TypedDict(
-    "AnalyticsSessionResultTypeDef",
-    {
-        "binKeys": List["AnalyticsBinKeyTypeDef"],
-        "groupByKeys": List["AnalyticsSessionGroupByKeyTypeDef"],
-        "metricsResults": List["AnalyticsSessionMetricResultTypeDef"],
-    },
-    total=False,
-)
-
-AnalyticsUtteranceAttributeResultTypeDef = TypedDict(
-    "AnalyticsUtteranceAttributeResultTypeDef",
-    {
-        "lastUsedIntent": str,
-    },
-    total=False,
-)
-
-AnalyticsUtteranceAttributeTypeDef = TypedDict(
-    "AnalyticsUtteranceAttributeTypeDef",
-    {
-        "name": Literal["LastUsedIntent"],
-    },
-)
+class AnalyticsUtteranceAttributeTypeDef(TypedDict):
+    name: Literal["LastUsedIntent"]
 
 AnalyticsUtteranceFilterTypeDef = TypedDict(
     "AnalyticsUtteranceFilterTypeDef",
     {
         "name": AnalyticsUtteranceFilterNameType,
         "operator": AnalyticsFilterOperatorType,
-        "values": List[str],
+        "values": Sequence[str],
     },
 )
 
-AnalyticsUtteranceGroupByKeyTypeDef = TypedDict(
-    "AnalyticsUtteranceGroupByKeyTypeDef",
-    {
-        "name": AnalyticsUtteranceFieldType,
-        "value": str,
-    },
-    total=False,
-)
+class AnalyticsUtteranceGroupByKeyTypeDef(TypedDict):
+    name: NotRequired[AnalyticsUtteranceFieldType]
+    value: NotRequired[str]
 
-AnalyticsUtteranceGroupBySpecificationTypeDef = TypedDict(
-    "AnalyticsUtteranceGroupBySpecificationTypeDef",
-    {
-        "name": AnalyticsUtteranceFieldType,
-    },
-)
+class AnalyticsUtteranceGroupBySpecificationTypeDef(TypedDict):
+    name: AnalyticsUtteranceFieldType
 
-AnalyticsUtteranceMetricResultTypeDef = TypedDict(
-    "AnalyticsUtteranceMetricResultTypeDef",
-    {
-        "name": AnalyticsUtteranceMetricNameType,
-        "statistic": AnalyticsMetricStatisticType,
-        "value": float,
-    },
-    total=False,
-)
+class AnalyticsUtteranceMetricResultTypeDef(TypedDict):
+    name: NotRequired[AnalyticsUtteranceMetricNameType]
+    statistic: NotRequired[AnalyticsMetricStatisticType]
+    value: NotRequired[float]
 
-_RequiredAnalyticsUtteranceMetricTypeDef = TypedDict(
-    "_RequiredAnalyticsUtteranceMetricTypeDef",
-    {
-        "name": AnalyticsUtteranceMetricNameType,
-        "statistic": AnalyticsMetricStatisticType,
-    },
-)
-_OptionalAnalyticsUtteranceMetricTypeDef = TypedDict(
-    "_OptionalAnalyticsUtteranceMetricTypeDef",
-    {
-        "order": AnalyticsSortOrderType,
-    },
-    total=False,
-)
+class AnalyticsUtteranceMetricTypeDef(TypedDict):
+    name: AnalyticsUtteranceMetricNameType
+    statistic: AnalyticsMetricStatisticType
+    order: NotRequired[AnalyticsSortOrderType]
 
-class AnalyticsUtteranceMetricTypeDef(
-    _RequiredAnalyticsUtteranceMetricTypeDef, _OptionalAnalyticsUtteranceMetricTypeDef
-):
-    pass
+class AssociatedTranscriptFilterTypeDef(TypedDict):
+    name: AssociatedTranscriptFilterNameType
+    values: Sequence[str]
 
-AnalyticsUtteranceResultTypeDef = TypedDict(
-    "AnalyticsUtteranceResultTypeDef",
-    {
-        "binKeys": List["AnalyticsBinKeyTypeDef"],
-        "groupByKeys": List["AnalyticsUtteranceGroupByKeyTypeDef"],
-        "metricsResults": List["AnalyticsUtteranceMetricResultTypeDef"],
-        "attributeResults": List["AnalyticsUtteranceAttributeResultTypeDef"],
-    },
-    total=False,
-)
+class AssociatedTranscriptTypeDef(TypedDict):
+    transcript: NotRequired[str]
 
-AssociatedTranscriptFilterTypeDef = TypedDict(
-    "AssociatedTranscriptFilterTypeDef",
-    {
-        "name": AssociatedTranscriptFilterNameType,
-        "values": List[str],
-    },
-)
+class AudioSpecificationTypeDef(TypedDict):
+    maxLengthMs: int
+    endTimeoutMs: int
 
-AssociatedTranscriptTypeDef = TypedDict(
-    "AssociatedTranscriptTypeDef",
-    {
-        "transcript": str,
-    },
-    total=False,
-)
+class DTMFSpecificationTypeDef(TypedDict):
+    maxLength: int
+    endTimeoutMs: int
+    deletionCharacter: str
+    endCharacter: str
 
-_RequiredAudioAndDTMFInputSpecificationTypeDef = TypedDict(
-    "_RequiredAudioAndDTMFInputSpecificationTypeDef",
-    {
-        "startTimeoutMs": int,
-    },
-)
-_OptionalAudioAndDTMFInputSpecificationTypeDef = TypedDict(
-    "_OptionalAudioAndDTMFInputSpecificationTypeDef",
-    {
-        "audioSpecification": "AudioSpecificationTypeDef",
-        "dtmfSpecification": "DTMFSpecificationTypeDef",
-    },
-    total=False,
-)
+class S3BucketLogDestinationTypeDef(TypedDict):
+    s3BucketArn: str
+    logPrefix: str
+    kmsKeyArn: NotRequired[str]
 
-class AudioAndDTMFInputSpecificationTypeDef(
-    _RequiredAudioAndDTMFInputSpecificationTypeDef, _OptionalAudioAndDTMFInputSpecificationTypeDef
-):
-    pass
+class NewCustomVocabularyItemTypeDef(TypedDict):
+    phrase: str
+    weight: NotRequired[int]
+    displayAs: NotRequired[str]
 
-AudioLogDestinationTypeDef = TypedDict(
-    "AudioLogDestinationTypeDef",
-    {
-        "s3Bucket": "S3BucketLogDestinationTypeDef",
-    },
-)
+class CustomVocabularyItemTypeDef(TypedDict):
+    itemId: str
+    phrase: str
+    weight: NotRequired[int]
+    displayAs: NotRequired[str]
 
-_RequiredAudioLogSettingTypeDef = TypedDict(
-    "_RequiredAudioLogSettingTypeDef",
-    {
-        "enabled": bool,
-        "destination": "AudioLogDestinationTypeDef",
-    },
-)
-_OptionalAudioLogSettingTypeDef = TypedDict(
-    "_OptionalAudioLogSettingTypeDef",
-    {
-        "selectiveLoggingEnabled": bool,
-    },
-    total=False,
-)
+class FailedCustomVocabularyItemTypeDef(TypedDict):
+    itemId: NotRequired[str]
+    errorMessage: NotRequired[str]
+    errorCode: NotRequired[ErrorCodeType]
 
-class AudioLogSettingTypeDef(_RequiredAudioLogSettingTypeDef, _OptionalAudioLogSettingTypeDef):
-    pass
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-AudioSpecificationTypeDef = TypedDict(
-    "AudioSpecificationTypeDef",
-    {
-        "maxLengthMs": int,
-        "endTimeoutMs": int,
-    },
-)
+class CustomVocabularyEntryIdTypeDef(TypedDict):
+    itemId: str
 
-BatchCreateCustomVocabularyItemRequestRequestTypeDef = TypedDict(
-    "BatchCreateCustomVocabularyItemRequestRequestTypeDef",
-    {
-        "botId": str,
-        "botVersion": str,
-        "localeId": str,
-        "customVocabularyItemList": List["NewCustomVocabularyItemTypeDef"],
-    },
-)
+class BedrockGuardrailConfigurationTypeDef(TypedDict):
+    identifier: str
+    version: str
 
-BatchCreateCustomVocabularyItemResponseTypeDef = TypedDict(
-    "BatchCreateCustomVocabularyItemResponseTypeDef",
-    {
-        "botId": str,
-        "botVersion": str,
-        "localeId": str,
-        "errors": List["FailedCustomVocabularyItemTypeDef"],
-        "resources": List["CustomVocabularyItemTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class BedrockKnowledgeStoreExactResponseFieldsTypeDef(TypedDict):
+    answerField: NotRequired[str]
 
-BatchDeleteCustomVocabularyItemRequestRequestTypeDef = TypedDict(
-    "BatchDeleteCustomVocabularyItemRequestRequestTypeDef",
-    {
-        "botId": str,
-        "botVersion": str,
-        "localeId": str,
-        "customVocabularyItemList": List["CustomVocabularyEntryIdTypeDef"],
-    },
-)
+class BotAliasHistoryEventTypeDef(TypedDict):
+    botVersion: NotRequired[str]
+    startDate: NotRequired[datetime]
+    endDate: NotRequired[datetime]
 
-BatchDeleteCustomVocabularyItemResponseTypeDef = TypedDict(
-    "BatchDeleteCustomVocabularyItemResponseTypeDef",
-    {
-        "botId": str,
-        "botVersion": str,
-        "localeId": str,
-        "errors": List["FailedCustomVocabularyItemTypeDef"],
-        "resources": List["CustomVocabularyItemTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class BotAliasReplicaSummaryTypeDef(TypedDict):
+    botAliasId: NotRequired[str]
+    botAliasReplicationStatus: NotRequired[BotAliasReplicationStatusType]
+    botVersion: NotRequired[str]
+    creationDateTime: NotRequired[datetime]
+    lastUpdatedDateTime: NotRequired[datetime]
+    failureReasons: NotRequired[List[str]]
 
-BatchUpdateCustomVocabularyItemRequestRequestTypeDef = TypedDict(
-    "BatchUpdateCustomVocabularyItemRequestRequestTypeDef",
-    {
-        "botId": str,
-        "botVersion": str,
-        "localeId": str,
-        "customVocabularyItemList": List["CustomVocabularyItemTypeDef"],
-    },
-)
+class BotAliasSummaryTypeDef(TypedDict):
+    botAliasId: NotRequired[str]
+    botAliasName: NotRequired[str]
+    description: NotRequired[str]
+    botVersion: NotRequired[str]
+    botAliasStatus: NotRequired[BotAliasStatusType]
+    creationDateTime: NotRequired[datetime]
+    lastUpdatedDateTime: NotRequired[datetime]
 
-BatchUpdateCustomVocabularyItemResponseTypeDef = TypedDict(
-    "BatchUpdateCustomVocabularyItemResponseTypeDef",
-    {
-        "botId": str,
-        "botVersion": str,
-        "localeId": str,
-        "errors": List["FailedCustomVocabularyItemTypeDef"],
-        "resources": List["CustomVocabularyItemTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class BotAliasTestExecutionTargetTypeDef(TypedDict):
+    botId: str
+    botAliasId: str
+    localeId: str
 
-BedrockKnowledgeStoreConfigurationTypeDef = TypedDict(
-    "BedrockKnowledgeStoreConfigurationTypeDef",
-    {
-        "bedrockKnowledgeBaseArn": str,
-    },
-)
-
-BedrockModelSpecificationTypeDef = TypedDict(
-    "BedrockModelSpecificationTypeDef",
-    {
-        "modelArn": str,
-    },
-)
-
-BotAliasHistoryEventTypeDef = TypedDict(
-    "BotAliasHistoryEventTypeDef",
-    {
-        "botVersion": str,
-        "startDate": datetime,
-        "endDate": datetime,
-    },
-    total=False,
-)
-
-_RequiredBotAliasLocaleSettingsTypeDef = TypedDict(
-    "_RequiredBotAliasLocaleSettingsTypeDef",
-    {
-        "enabled": bool,
-    },
-)
-_OptionalBotAliasLocaleSettingsTypeDef = TypedDict(
-    "_OptionalBotAliasLocaleSettingsTypeDef",
-    {
-        "codeHookSpecification": "CodeHookSpecificationTypeDef",
-    },
-    total=False,
-)
-
-class BotAliasLocaleSettingsTypeDef(
-    _RequiredBotAliasLocaleSettingsTypeDef, _OptionalBotAliasLocaleSettingsTypeDef
-):
-    pass
-
-BotAliasReplicaSummaryTypeDef = TypedDict(
-    "BotAliasReplicaSummaryTypeDef",
-    {
-        "botAliasId": str,
-        "botAliasReplicationStatus": BotAliasReplicationStatusType,
-        "botVersion": str,
-        "creationDateTime": datetime,
-        "lastUpdatedDateTime": datetime,
-        "failureReasons": List[str],
-    },
-    total=False,
-)
-
-BotAliasSummaryTypeDef = TypedDict(
-    "BotAliasSummaryTypeDef",
-    {
-        "botAliasId": str,
-        "botAliasName": str,
-        "description": str,
-        "botVersion": str,
-        "botAliasStatus": BotAliasStatusType,
-        "creationDateTime": datetime,
-        "lastUpdatedDateTime": datetime,
-    },
-    total=False,
-)
-
-BotAliasTestExecutionTargetTypeDef = TypedDict(
-    "BotAliasTestExecutionTargetTypeDef",
-    {
-        "botId": str,
-        "botAliasId": str,
-        "localeId": str,
-    },
-)
-
-BotExportSpecificationTypeDef = TypedDict(
-    "BotExportSpecificationTypeDef",
-    {
-        "botId": str,
-        "botVersion": str,
-    },
-)
+class BotExportSpecificationTypeDef(TypedDict):
+    botId: str
+    botVersion: str
 
 BotFilterTypeDef = TypedDict(
     "BotFilterTypeDef",
     {
         "name": BotFilterNameType,
-        "values": List[str],
+        "values": Sequence[str],
         "operator": BotFilterOperatorType,
     },
 )
 
-_RequiredBotImportSpecificationTypeDef = TypedDict(
-    "_RequiredBotImportSpecificationTypeDef",
-    {
-        "botName": str,
-        "roleArn": str,
-        "dataPrivacy": "DataPrivacyTypeDef",
-    },
-)
-_OptionalBotImportSpecificationTypeDef = TypedDict(
-    "_OptionalBotImportSpecificationTypeDef",
-    {
-        "idleSessionTTLInSeconds": int,
-        "botTags": Dict[str, str],
-        "testBotAliasTags": Dict[str, str],
-    },
-    total=False,
-)
+class DataPrivacyTypeDef(TypedDict):
+    childDirected: bool
 
-class BotImportSpecificationTypeDef(
-    _RequiredBotImportSpecificationTypeDef, _OptionalBotImportSpecificationTypeDef
-):
-    pass
+class ErrorLogSettingsTypeDef(TypedDict):
+    enabled: bool
 
-BotLocaleExportSpecificationTypeDef = TypedDict(
-    "BotLocaleExportSpecificationTypeDef",
-    {
-        "botId": str,
-        "botVersion": str,
-        "localeId": str,
-    },
-)
+class BotLocaleExportSpecificationTypeDef(TypedDict):
+    botId: str
+    botVersion: str
+    localeId: str
 
 BotLocaleFilterTypeDef = TypedDict(
     "BotLocaleFilterTypeDef",
     {
         "name": Literal["BotLocaleName"],
-        "values": List[str],
+        "values": Sequence[str],
         "operator": BotLocaleFilterOperatorType,
     },
 )
 
-BotLocaleHistoryEventTypeDef = TypedDict(
-    "BotLocaleHistoryEventTypeDef",
+class BotLocaleHistoryEventTypeDef(TypedDict):
+    event: str
+    eventDate: datetime
+
+class VoiceSettingsTypeDef(TypedDict):
+    voiceId: str
+    engine: NotRequired[VoiceEngineType]
+
+class BotLocaleSortByTypeDef(TypedDict):
+    attribute: Literal["BotLocaleName"]
+    order: SortOrderType
+
+class BotLocaleSummaryTypeDef(TypedDict):
+    localeId: NotRequired[str]
+    localeName: NotRequired[str]
+    description: NotRequired[str]
+    botLocaleStatus: NotRequired[BotLocaleStatusType]
+    lastUpdatedDateTime: NotRequired[datetime]
+    lastBuildSubmittedDateTime: NotRequired[datetime]
+
+class BotMemberTypeDef(TypedDict):
+    botMemberId: str
+    botMemberName: str
+    botMemberAliasId: str
+    botMemberAliasName: str
+    botMemberVersion: str
+
+class IntentStatisticsTypeDef(TypedDict):
+    discoveredIntentCount: NotRequired[int]
+
+class SlotTypeStatisticsTypeDef(TypedDict):
+    discoveredSlotTypeCount: NotRequired[int]
+
+class BotRecommendationSummaryTypeDef(TypedDict):
+    botRecommendationStatus: BotRecommendationStatusType
+    botRecommendationId: str
+    creationDateTime: NotRequired[datetime]
+    lastUpdatedDateTime: NotRequired[datetime]
+
+class BotReplicaSummaryTypeDef(TypedDict):
+    replicaRegion: NotRequired[str]
+    creationDateTime: NotRequired[datetime]
+    botReplicaStatus: NotRequired[BotReplicaStatusType]
+    failureReasons: NotRequired[List[str]]
+
+class BotSortByTypeDef(TypedDict):
+    attribute: Literal["BotName"]
+    order: SortOrderType
+
+class BotSummaryTypeDef(TypedDict):
+    botId: NotRequired[str]
+    botName: NotRequired[str]
+    description: NotRequired[str]
+    botStatus: NotRequired[BotStatusType]
+    latestBotVersion: NotRequired[str]
+    lastUpdatedDateTime: NotRequired[datetime]
+    botType: NotRequired[BotTypeType]
+
+class BotVersionLocaleDetailsTypeDef(TypedDict):
+    sourceBotVersion: str
+
+class BotVersionReplicaSortByTypeDef(TypedDict):
+    attribute: Literal["BotVersion"]
+    order: SortOrderType
+
+class BotVersionReplicaSummaryTypeDef(TypedDict):
+    botVersion: NotRequired[str]
+    botVersionReplicationStatus: NotRequired[BotVersionReplicationStatusType]
+    creationDateTime: NotRequired[datetime]
+    failureReasons: NotRequired[List[str]]
+
+class BotVersionSortByTypeDef(TypedDict):
+    attribute: Literal["BotVersion"]
+    order: SortOrderType
+
+class BotVersionSummaryTypeDef(TypedDict):
+    botName: NotRequired[str]
+    botVersion: NotRequired[str]
+    description: NotRequired[str]
+    botStatus: NotRequired[BotStatusType]
+    creationDateTime: NotRequired[datetime]
+
+class BuildBotLocaleRequestTypeDef(TypedDict):
+    botId: str
+    botVersion: str
+    localeId: str
+
+class BuiltInIntentSortByTypeDef(TypedDict):
+    attribute: Literal["IntentSignature"]
+    order: SortOrderType
+
+class BuiltInIntentSummaryTypeDef(TypedDict):
+    intentSignature: NotRequired[str]
+    description: NotRequired[str]
+
+class BuiltInSlotTypeSortByTypeDef(TypedDict):
+    attribute: Literal["SlotTypeSignature"]
+    order: SortOrderType
+
+class BuiltInSlotTypeSummaryTypeDef(TypedDict):
+    slotTypeSignature: NotRequired[str]
+    description: NotRequired[str]
+
+class ButtonTypeDef(TypedDict):
+    text: str
+    value: str
+
+class CloudWatchLogGroupLogDestinationTypeDef(TypedDict):
+    cloudWatchLogGroupArn: str
+    logPrefix: str
+
+class LambdaCodeHookTypeDef(TypedDict):
+    lambdaARN: str
+    codeHookInterfaceVersion: str
+
+class SubSlotTypeCompositionTypeDef(TypedDict):
+    name: str
+    slotTypeId: str
+
+class ConditionTypeDef(TypedDict):
+    expressionString: str
+
+class ConversationLevelIntentClassificationResultItemTypeDef(TypedDict):
+    intentName: str
+    matchResult: TestResultMatchStatusType
+
+class ConversationLevelResultDetailTypeDef(TypedDict):
+    endToEndResult: TestResultMatchStatusType
+    speechTranscriptionResult: NotRequired[TestResultMatchStatusType]
+
+class ConversationLevelSlotResolutionResultItemTypeDef(TypedDict):
+    intentName: str
+    slotName: str
+    matchResult: TestResultMatchStatusType
+
+class ConversationLevelTestResultsFilterByTypeDef(TypedDict):
+    endToEndResult: NotRequired[TestResultMatchStatusType]
+
+class ConversationLogsDataSourceFilterByOutputTypeDef(TypedDict):
+    startTime: datetime
+    endTime: datetime
+    inputMode: ConversationLogsInputModeFilterType
+
+TimestampTypeDef = Union[datetime, str]
+
+class SentimentAnalysisSettingsTypeDef(TypedDict):
+    detectSentiment: bool
+
+class CreateBotReplicaRequestTypeDef(TypedDict):
+    botId: str
+    replicaRegion: str
+
+class DialogCodeHookSettingsTypeDef(TypedDict):
+    enabled: bool
+
+class InputContextTypeDef(TypedDict):
+    name: str
+
+class KendraConfigurationTypeDef(TypedDict):
+    kendraIndex: str
+    queryFilterStringEnabled: NotRequired[bool]
+    queryFilterString: NotRequired[str]
+
+class OutputContextTypeDef(TypedDict):
+    name: str
+    timeToLiveInSeconds: int
+    turnsToLive: int
+
+class SampleUtteranceTypeDef(TypedDict):
+    utterance: str
+
+class CreateResourcePolicyRequestTypeDef(TypedDict):
+    resourceArn: str
+    policy: str
+
+class PrincipalTypeDef(TypedDict):
+    service: NotRequired[str]
+    arn: NotRequired[str]
+
+class MultipleValuesSettingTypeDef(TypedDict):
+    allowMultipleValues: NotRequired[bool]
+
+class ObfuscationSettingTypeDef(TypedDict):
+    obfuscationSettingType: ObfuscationSettingTypeType
+
+class CustomPayloadTypeDef(TypedDict):
+    value: str
+
+class CustomVocabularyExportSpecificationTypeDef(TypedDict):
+    botId: str
+    botVersion: str
+    localeId: str
+
+class CustomVocabularyImportSpecificationTypeDef(TypedDict):
+    botId: str
+    botVersion: str
+    localeId: str
+
+class QnAKendraConfigurationTypeDef(TypedDict):
+    kendraIndex: str
+    queryFilterStringEnabled: NotRequired[bool]
+    queryFilterString: NotRequired[str]
+    exactResponse: NotRequired[bool]
+
+class DateRangeFilterOutputTypeDef(TypedDict):
+    startDateTime: datetime
+    endDateTime: datetime
+
+class DeleteBotAliasRequestTypeDef(TypedDict):
+    botAliasId: str
+    botId: str
+    skipResourceInUseCheck: NotRequired[bool]
+
+class DeleteBotLocaleRequestTypeDef(TypedDict):
+    botId: str
+    botVersion: str
+    localeId: str
+
+class DeleteBotReplicaRequestTypeDef(TypedDict):
+    botId: str
+    replicaRegion: str
+
+class DeleteBotRequestTypeDef(TypedDict):
+    botId: str
+    skipResourceInUseCheck: NotRequired[bool]
+
+class DeleteBotVersionRequestTypeDef(TypedDict):
+    botId: str
+    botVersion: str
+    skipResourceInUseCheck: NotRequired[bool]
+
+class DeleteCustomVocabularyRequestTypeDef(TypedDict):
+    botId: str
+    botVersion: str
+    localeId: str
+
+class DeleteExportRequestTypeDef(TypedDict):
+    exportId: str
+
+class DeleteImportRequestTypeDef(TypedDict):
+    importId: str
+
+class DeleteIntentRequestTypeDef(TypedDict):
+    intentId: str
+    botId: str
+    botVersion: str
+    localeId: str
+
+class DeleteResourcePolicyRequestTypeDef(TypedDict):
+    resourceArn: str
+    expectedRevisionId: NotRequired[str]
+
+class DeleteResourcePolicyStatementRequestTypeDef(TypedDict):
+    resourceArn: str
+    statementId: str
+    expectedRevisionId: NotRequired[str]
+
+class DeleteSlotRequestTypeDef(TypedDict):
+    slotId: str
+    botId: str
+    botVersion: str
+    localeId: str
+    intentId: str
+
+class DeleteSlotTypeRequestTypeDef(TypedDict):
+    slotTypeId: str
+    botId: str
+    botVersion: str
+    localeId: str
+    skipResourceInUseCheck: NotRequired[bool]
+
+class DeleteTestSetRequestTypeDef(TypedDict):
+    testSetId: str
+
+class DeleteUtterancesRequestTypeDef(TypedDict):
+    botId: str
+    localeId: NotRequired[str]
+    sessionId: NotRequired[str]
+
+class DescribeBotAliasRequestTypeDef(TypedDict):
+    botAliasId: str
+    botId: str
+
+class WaiterConfigTypeDef(TypedDict):
+    Delay: NotRequired[int]
+    MaxAttempts: NotRequired[int]
+
+class ParentBotNetworkTypeDef(TypedDict):
+    botId: str
+    botVersion: str
+
+class DescribeBotLocaleRequestTypeDef(TypedDict):
+    botId: str
+    botVersion: str
+    localeId: str
+
+class DescribeBotRecommendationRequestTypeDef(TypedDict):
+    botId: str
+    botVersion: str
+    localeId: str
+    botRecommendationId: str
+
+class EncryptionSettingTypeDef(TypedDict):
+    kmsKeyArn: NotRequired[str]
+    botLocaleExportPassword: NotRequired[str]
+    associatedTranscriptsPassword: NotRequired[str]
+
+class DescribeBotReplicaRequestTypeDef(TypedDict):
+    botId: str
+    replicaRegion: str
+
+class DescribeBotRequestTypeDef(TypedDict):
+    botId: str
+
+class DescribeBotResourceGenerationRequestTypeDef(TypedDict):
+    botId: str
+    botVersion: str
+    localeId: str
+    generationId: str
+
+class DescribeBotVersionRequestTypeDef(TypedDict):
+    botId: str
+    botVersion: str
+
+class DescribeCustomVocabularyMetadataRequestTypeDef(TypedDict):
+    botId: str
+    botVersion: str
+    localeId: str
+
+class DescribeExportRequestTypeDef(TypedDict):
+    exportId: str
+
+class DescribeImportRequestTypeDef(TypedDict):
+    importId: str
+
+class DescribeIntentRequestTypeDef(TypedDict):
+    intentId: str
+    botId: str
+    botVersion: str
+    localeId: str
+
+class SlotPriorityTypeDef(TypedDict):
+    priority: int
+    slotId: str
+
+class DescribeResourcePolicyRequestTypeDef(TypedDict):
+    resourceArn: str
+
+class DescribeSlotRequestTypeDef(TypedDict):
+    slotId: str
+    botId: str
+    botVersion: str
+    localeId: str
+    intentId: str
+
+class DescribeSlotTypeRequestTypeDef(TypedDict):
+    slotTypeId: str
+    botId: str
+    botVersion: str
+    localeId: str
+
+class DescribeTestExecutionRequestTypeDef(TypedDict):
+    testExecutionId: str
+
+class DescribeTestSetDiscrepancyReportRequestTypeDef(TypedDict):
+    testSetDiscrepancyReportId: str
+
+class DescribeTestSetGenerationRequestTypeDef(TypedDict):
+    testSetGenerationId: str
+
+class TestSetStorageLocationTypeDef(TypedDict):
+    s3BucketName: str
+    s3Path: str
+    kmsKeyArn: NotRequired[str]
+
+class DescribeTestSetRequestTypeDef(TypedDict):
+    testSetId: str
+
+DialogActionTypeDef = TypedDict(
+    "DialogActionTypeDef",
     {
-        "event": str,
-        "eventDate": datetime,
+        "type": DialogActionTypeType,
+        "slotToElicit": NotRequired[str],
+        "suppressNextMessage": NotRequired[bool],
     },
 )
 
-_RequiredBotLocaleImportSpecificationTypeDef = TypedDict(
-    "_RequiredBotLocaleImportSpecificationTypeDef",
+class ElicitationCodeHookInvocationSettingTypeDef(TypedDict):
+    enableCodeHookInvocation: bool
+    invocationLabel: NotRequired[str]
+
+class ExactResponseFieldsTypeDef(TypedDict):
+    questionField: str
+    answerField: str
+
+ExportFilterTypeDef = TypedDict(
+    "ExportFilterTypeDef",
+    {
+        "name": Literal["ExportResourceType"],
+        "values": Sequence[str],
+        "operator": ExportFilterOperatorType,
+    },
+)
+
+class TestSetExportSpecificationTypeDef(TypedDict):
+    testSetId: str
+
+class ExportSortByTypeDef(TypedDict):
+    attribute: Literal["LastUpdatedDateTime"]
+    order: SortOrderType
+
+class GenerateBotElementRequestTypeDef(TypedDict):
+    intentId: str
+    botId: str
+    botVersion: str
+    localeId: str
+
+class GenerationSortByTypeDef(TypedDict):
+    attribute: GenerationSortByAttributeType
+    order: SortOrderType
+
+class GenerationSummaryTypeDef(TypedDict):
+    generationId: NotRequired[str]
+    generationStatus: NotRequired[GenerationStatusType]
+    creationDateTime: NotRequired[datetime]
+    lastUpdatedDateTime: NotRequired[datetime]
+
+class GetTestExecutionArtifactsUrlRequestTypeDef(TypedDict):
+    testExecutionId: str
+
+class GrammarSlotTypeSourceTypeDef(TypedDict):
+    s3BucketName: str
+    s3ObjectKey: str
+    kmsKeyArn: NotRequired[str]
+
+ImportFilterTypeDef = TypedDict(
+    "ImportFilterTypeDef",
+    {
+        "name": Literal["ImportResourceType"],
+        "values": Sequence[str],
+        "operator": ImportFilterOperatorType,
+    },
+)
+
+class ImportSortByTypeDef(TypedDict):
+    attribute: Literal["LastUpdatedDateTime"]
+    order: SortOrderType
+
+class ImportSummaryTypeDef(TypedDict):
+    importId: NotRequired[str]
+    importedResourceId: NotRequired[str]
+    importedResourceName: NotRequired[str]
+    importStatus: NotRequired[ImportStatusType]
+    mergeStrategy: NotRequired[MergeStrategyType]
+    creationDateTime: NotRequired[datetime]
+    lastUpdatedDateTime: NotRequired[datetime]
+    importedResourceType: NotRequired[ImportResourceTypeType]
+
+class IntentClassificationTestResultItemCountsTypeDef(TypedDict):
+    totalResultCount: int
+    intentMatchResultCounts: Dict[TestResultMatchStatusType, int]
+    speechTranscriptionResultCounts: NotRequired[Dict[TestResultMatchStatusType, int]]
+
+IntentFilterTypeDef = TypedDict(
+    "IntentFilterTypeDef",
+    {
+        "name": Literal["IntentName"],
+        "values": Sequence[str],
+        "operator": IntentFilterOperatorType,
+    },
+)
+
+class IntentSortByTypeDef(TypedDict):
+    attribute: IntentSortAttributeType
+    order: SortOrderType
+
+class InvokedIntentSampleTypeDef(TypedDict):
+    intentName: NotRequired[str]
+
+class ListBotAliasReplicasRequestTypeDef(TypedDict):
+    botId: str
+    replicaRegion: str
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListBotAliasesRequestTypeDef(TypedDict):
+    botId: str
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListBotRecommendationsRequestTypeDef(TypedDict):
+    botId: str
+    botVersion: str
+    localeId: str
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListBotReplicasRequestTypeDef(TypedDict):
+    botId: str
+
+class ListCustomVocabularyItemsRequestTypeDef(TypedDict):
+    botId: str
+    botVersion: str
+    localeId: str
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListRecommendedIntentsRequestTypeDef(TypedDict):
+    botId: str
+    botVersion: str
+    localeId: str
+    botRecommendationId: str
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class RecommendedIntentSummaryTypeDef(TypedDict):
+    intentId: NotRequired[str]
+    intentName: NotRequired[str]
+    sampleUtterancesCount: NotRequired[int]
+
+class SessionDataSortByTypeDef(TypedDict):
+    name: AnalyticsSessionSortByNameType
+    order: AnalyticsSortOrderType
+
+SlotTypeFilterTypeDef = TypedDict(
+    "SlotTypeFilterTypeDef",
+    {
+        "name": SlotTypeFilterNameType,
+        "values": Sequence[str],
+        "operator": SlotTypeFilterOperatorType,
+    },
+)
+
+class SlotTypeSortByTypeDef(TypedDict):
+    attribute: SlotTypeSortAttributeType
+    order: SortOrderType
+
+class SlotTypeSummaryTypeDef(TypedDict):
+    slotTypeId: NotRequired[str]
+    slotTypeName: NotRequired[str]
+    description: NotRequired[str]
+    parentSlotTypeSignature: NotRequired[str]
+    lastUpdatedDateTime: NotRequired[datetime]
+    slotTypeCategory: NotRequired[SlotTypeCategoryType]
+
+SlotFilterTypeDef = TypedDict(
+    "SlotFilterTypeDef",
+    {
+        "name": Literal["SlotName"],
+        "values": Sequence[str],
+        "operator": SlotFilterOperatorType,
+    },
+)
+
+class SlotSortByTypeDef(TypedDict):
+    attribute: SlotSortAttributeType
+    order: SortOrderType
+
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    resourceARN: str
+
+class TestExecutionSortByTypeDef(TypedDict):
+    attribute: TestExecutionSortAttributeType
+    order: SortOrderType
+
+class ListTestSetRecordsRequestTypeDef(TypedDict):
+    testSetId: str
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class TestSetSortByTypeDef(TypedDict):
+    attribute: TestSetSortAttributeType
+    order: SortOrderType
+
+class UtteranceDataSortByTypeDef(TypedDict):
+    name: Literal["UtteranceTimestamp"]
+    order: AnalyticsSortOrderType
+
+class PlainTextMessageTypeDef(TypedDict):
+    value: str
+
+class SSMLMessageTypeDef(TypedDict):
+    value: str
+
+class OverallTestResultItemTypeDef(TypedDict):
+    multiTurnConversation: bool
+    totalResultCount: int
+    endToEndResultCounts: Dict[TestResultMatchStatusType, int]
+    speechTranscriptionResultCounts: NotRequired[Dict[TestResultMatchStatusType, int]]
+
+class PathFormatOutputTypeDef(TypedDict):
+    objectPrefixes: NotRequired[List[str]]
+
+class PathFormatTypeDef(TypedDict):
+    objectPrefixes: NotRequired[Sequence[str]]
+
+class TextInputSpecificationTypeDef(TypedDict):
+    startTimeoutMs: int
+
+class QInConnectAssistantConfigurationTypeDef(TypedDict):
+    assistantArn: str
+
+class RelativeAggregationDurationTypeDef(TypedDict):
+    timeDimension: TimeDimensionType
+    timeValue: int
+
+class RuntimeHintValueTypeDef(TypedDict):
+    phrase: str
+
+class SampleValueTypeDef(TypedDict):
+    value: str
+
+class SlotDefaultValueTypeDef(TypedDict):
+    defaultValue: str
+
+class SlotResolutionSettingTypeDef(TypedDict):
+    slotResolutionStrategy: SlotResolutionStrategyType
+
+class SlotResolutionTestResultItemCountsTypeDef(TypedDict):
+    totalResultCount: int
+    slotMatchResultCounts: Dict[TestResultMatchStatusType, int]
+    speechTranscriptionResultCounts: NotRequired[Dict[TestResultMatchStatusType, int]]
+
+class SlotValueTypeDef(TypedDict):
+    interpretedValue: NotRequired[str]
+
+class SlotValueRegexFilterTypeDef(TypedDict):
+    pattern: str
+
+class StartBotResourceGenerationRequestTypeDef(TypedDict):
+    generationInputPrompt: str
+    botId: str
+    botVersion: str
+    localeId: str
+
+class StopBotRecommendationRequestTypeDef(TypedDict):
+    botId: str
+    botVersion: str
+    localeId: str
+    botRecommendationId: str
+
+class TagResourceRequestTypeDef(TypedDict):
+    resourceARN: str
+    tags: Mapping[str, str]
+
+class TestSetIntentDiscrepancyItemTypeDef(TypedDict):
+    intentName: str
+    errorMessage: str
+
+class TestSetSlotDiscrepancyItemTypeDef(TypedDict):
+    intentName: str
+    slotName: str
+    errorMessage: str
+
+class TestSetDiscrepancyReportBotAliasTargetTypeDef(TypedDict):
+    botId: str
+    botAliasId: str
+    localeId: str
+
+class TestSetImportInputLocationTypeDef(TypedDict):
+    s3BucketName: str
+    s3Path: str
+
+class UntagResourceRequestTypeDef(TypedDict):
+    resourceARN: str
+    tagKeys: Sequence[str]
+
+class UpdateExportRequestTypeDef(TypedDict):
+    exportId: str
+    filePassword: NotRequired[str]
+
+class UpdateResourcePolicyRequestTypeDef(TypedDict):
+    resourceArn: str
+    policy: str
+    expectedRevisionId: NotRequired[str]
+
+class UpdateTestSetRequestTypeDef(TypedDict):
+    testSetId: str
+    testSetName: str
+    description: NotRequired[str]
+
+class UserTurnSlotOutputTypeDef(TypedDict):
+    value: NotRequired[str]
+    values: NotRequired[List[Dict[str, Any]]]
+    subSlots: NotRequired[Dict[str, Dict[str, Any]]]
+
+class UtteranceAudioInputSpecificationTypeDef(TypedDict):
+    audioFileS3Location: str
+
+class AgentTurnResultTypeDef(TypedDict):
+    expectedAgentPrompt: str
+    actualAgentPrompt: NotRequired[str]
+    errorDetails: NotRequired[ExecutionErrorDetailsTypeDef]
+    actualElicitedSlot: NotRequired[str]
+    actualIntent: NotRequired[str]
+
+class AnalyticsIntentResultTypeDef(TypedDict):
+    binKeys: NotRequired[List[AnalyticsBinKeyTypeDef]]
+    groupByKeys: NotRequired[List[AnalyticsIntentGroupByKeyTypeDef]]
+    metricsResults: NotRequired[List[AnalyticsIntentMetricResultTypeDef]]
+
+class AnalyticsIntentStageResultTypeDef(TypedDict):
+    binKeys: NotRequired[List[AnalyticsBinKeyTypeDef]]
+    groupByKeys: NotRequired[List[AnalyticsIntentStageGroupByKeyTypeDef]]
+    metricsResults: NotRequired[List[AnalyticsIntentStageMetricResultTypeDef]]
+
+class AnalyticsSessionResultTypeDef(TypedDict):
+    binKeys: NotRequired[List[AnalyticsBinKeyTypeDef]]
+    groupByKeys: NotRequired[List[AnalyticsSessionGroupByKeyTypeDef]]
+    metricsResults: NotRequired[List[AnalyticsSessionMetricResultTypeDef]]
+
+class AnalyticsUtteranceResultTypeDef(TypedDict):
+    binKeys: NotRequired[List[AnalyticsBinKeyTypeDef]]
+    groupByKeys: NotRequired[List[AnalyticsUtteranceGroupByKeyTypeDef]]
+    metricsResults: NotRequired[List[AnalyticsUtteranceMetricResultTypeDef]]
+    attributeResults: NotRequired[List[AnalyticsUtteranceAttributeResultTypeDef]]
+
+class SearchAssociatedTranscriptsRequestTypeDef(TypedDict):
+    botId: str
+    botVersion: str
+    localeId: str
+    botRecommendationId: str
+    filters: Sequence[AssociatedTranscriptFilterTypeDef]
+    searchOrder: NotRequired[SearchOrderType]
+    maxResults: NotRequired[int]
+    nextIndex: NotRequired[int]
+
+class AudioAndDTMFInputSpecificationTypeDef(TypedDict):
+    startTimeoutMs: int
+    audioSpecification: NotRequired[AudioSpecificationTypeDef]
+    dtmfSpecification: NotRequired[DTMFSpecificationTypeDef]
+
+class AudioLogDestinationTypeDef(TypedDict):
+    s3Bucket: S3BucketLogDestinationTypeDef
+
+class BatchCreateCustomVocabularyItemRequestTypeDef(TypedDict):
+    botId: str
+    botVersion: str
+    localeId: str
+    customVocabularyItemList: Sequence[NewCustomVocabularyItemTypeDef]
+
+class BatchUpdateCustomVocabularyItemRequestTypeDef(TypedDict):
+    botId: str
+    botVersion: str
+    localeId: str
+    customVocabularyItemList: Sequence[CustomVocabularyItemTypeDef]
+
+class BatchCreateCustomVocabularyItemResponseTypeDef(TypedDict):
+    botId: str
+    botVersion: str
+    localeId: str
+    errors: List[FailedCustomVocabularyItemTypeDef]
+    resources: List[CustomVocabularyItemTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class BatchDeleteCustomVocabularyItemResponseTypeDef(TypedDict):
+    botId: str
+    botVersion: str
+    localeId: str
+    errors: List[FailedCustomVocabularyItemTypeDef]
+    resources: List[CustomVocabularyItemTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class BatchUpdateCustomVocabularyItemResponseTypeDef(TypedDict):
+    botId: str
+    botVersion: str
+    localeId: str
+    errors: List[FailedCustomVocabularyItemTypeDef]
+    resources: List[CustomVocabularyItemTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class BuildBotLocaleResponseTypeDef(TypedDict):
+    botId: str
+    botVersion: str
+    localeId: str
+    botLocaleStatus: BotLocaleStatusType
+    lastBuildSubmittedDateTime: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateBotReplicaResponseTypeDef(TypedDict):
+    botId: str
+    replicaRegion: str
+    sourceRegion: str
+    creationDateTime: datetime
+    botReplicaStatus: BotReplicaStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateResourcePolicyResponseTypeDef(TypedDict):
+    resourceArn: str
+    revisionId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateResourcePolicyStatementResponseTypeDef(TypedDict):
+    resourceArn: str
+    revisionId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateUploadUrlResponseTypeDef(TypedDict):
+    importId: str
+    uploadUrl: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteBotAliasResponseTypeDef(TypedDict):
+    botAliasId: str
+    botId: str
+    botAliasStatus: BotAliasStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteBotLocaleResponseTypeDef(TypedDict):
+    botId: str
+    botVersion: str
+    localeId: str
+    botLocaleStatus: BotLocaleStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteBotReplicaResponseTypeDef(TypedDict):
+    botId: str
+    replicaRegion: str
+    botReplicaStatus: BotReplicaStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteBotResponseTypeDef(TypedDict):
+    botId: str
+    botStatus: BotStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteBotVersionResponseTypeDef(TypedDict):
+    botId: str
+    botVersion: str
+    botStatus: BotStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteCustomVocabularyResponseTypeDef(TypedDict):
+    botId: str
+    botVersion: str
+    localeId: str
+    customVocabularyStatus: CustomVocabularyStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteExportResponseTypeDef(TypedDict):
+    exportId: str
+    exportStatus: ExportStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteImportResponseTypeDef(TypedDict):
+    importId: str
+    importStatus: ImportStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteResourcePolicyResponseTypeDef(TypedDict):
+    resourceArn: str
+    revisionId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteResourcePolicyStatementResponseTypeDef(TypedDict):
+    resourceArn: str
+    revisionId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeBotReplicaResponseTypeDef(TypedDict):
+    botId: str
+    replicaRegion: str
+    sourceRegion: str
+    creationDateTime: datetime
+    botReplicaStatus: BotReplicaStatusType
+    failureReasons: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeBotResourceGenerationResponseTypeDef(TypedDict):
+    botId: str
+    botVersion: str
+    localeId: str
+    generationId: str
+    failureReasons: List[str]
+    generationStatus: GenerationStatusType
+    generationInputPrompt: str
+    generatedBotLocaleUrl: str
+    creationDateTime: datetime
+    modelArn: str
+    lastUpdatedDateTime: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeCustomVocabularyMetadataResponseTypeDef(TypedDict):
+    botId: str
+    botVersion: str
+    localeId: str
+    customVocabularyStatus: CustomVocabularyStatusType
+    creationDateTime: datetime
+    lastUpdatedDateTime: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeResourcePolicyResponseTypeDef(TypedDict):
+    resourceArn: str
+    policy: str
+    revisionId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class EmptyResponseMetadataTypeDef(TypedDict):
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetTestExecutionArtifactsUrlResponseTypeDef(TypedDict):
+    testExecutionId: str
+    downloadArtifactsUrl: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListCustomVocabularyItemsResponseTypeDef(TypedDict):
+    botId: str
+    botVersion: str
+    localeId: str
+    customVocabularyItems: List[CustomVocabularyItemTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListIntentPathsResponseTypeDef(TypedDict):
+    nodeSummaries: List[AnalyticsIntentNodeSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class SearchAssociatedTranscriptsResponseTypeDef(TypedDict):
+    botId: str
+    botVersion: str
+    localeId: str
+    botRecommendationId: str
+    nextIndex: int
+    associatedTranscripts: List[AssociatedTranscriptTypeDef]
+    totalResults: int
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartBotResourceGenerationResponseTypeDef(TypedDict):
+    generationInputPrompt: str
+    generationId: str
+    botId: str
+    botVersion: str
+    localeId: str
+    generationStatus: GenerationStatusType
+    creationDateTime: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StopBotRecommendationResponseTypeDef(TypedDict):
+    botId: str
+    botVersion: str
+    localeId: str
+    botRecommendationStatus: BotRecommendationStatusType
+    botRecommendationId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateResourcePolicyResponseTypeDef(TypedDict):
+    resourceArn: str
+    revisionId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class BatchDeleteCustomVocabularyItemRequestTypeDef(TypedDict):
+    botId: str
+    botVersion: str
+    localeId: str
+    customVocabularyItemList: Sequence[CustomVocabularyEntryIdTypeDef]
+
+class BedrockModelSpecificationTypeDef(TypedDict):
+    modelArn: str
+    guardrail: NotRequired[BedrockGuardrailConfigurationTypeDef]
+    traceStatus: NotRequired[BedrockTraceStatusType]
+    customPrompt: NotRequired[str]
+
+class BedrockKnowledgeStoreConfigurationTypeDef(TypedDict):
+    bedrockKnowledgeBaseArn: str
+    exactResponse: NotRequired[bool]
+    exactResponseFields: NotRequired[BedrockKnowledgeStoreExactResponseFieldsTypeDef]
+
+class ListBotAliasReplicasResponseTypeDef(TypedDict):
+    botId: str
+    sourceRegion: str
+    replicaRegion: str
+    botAliasReplicaSummaries: List[BotAliasReplicaSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListBotAliasesResponseTypeDef(TypedDict):
+    botAliasSummaries: List[BotAliasSummaryTypeDef]
+    botId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class TestExecutionTargetTypeDef(TypedDict):
+    botAliasTarget: NotRequired[BotAliasTestExecutionTargetTypeDef]
+
+class BotImportSpecificationOutputTypeDef(TypedDict):
+    botName: str
+    roleArn: str
+    dataPrivacy: DataPrivacyTypeDef
+    errorLogSettings: NotRequired[ErrorLogSettingsTypeDef]
+    idleSessionTTLInSeconds: NotRequired[int]
+    botTags: NotRequired[Dict[str, str]]
+    testBotAliasTags: NotRequired[Dict[str, str]]
+
+class BotImportSpecificationTypeDef(TypedDict):
+    botName: str
+    roleArn: str
+    dataPrivacy: DataPrivacyTypeDef
+    errorLogSettings: NotRequired[ErrorLogSettingsTypeDef]
+    idleSessionTTLInSeconds: NotRequired[int]
+    botTags: NotRequired[Mapping[str, str]]
+    testBotAliasTags: NotRequired[Mapping[str, str]]
+
+class BotLocaleImportSpecificationTypeDef(TypedDict):
+    botId: str
+    botVersion: str
+    localeId: str
+    nluIntentConfidenceThreshold: NotRequired[float]
+    voiceSettings: NotRequired[VoiceSettingsTypeDef]
+
+class ListBotLocalesRequestTypeDef(TypedDict):
+    botId: str
+    botVersion: str
+    sortBy: NotRequired[BotLocaleSortByTypeDef]
+    filters: NotRequired[Sequence[BotLocaleFilterTypeDef]]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListBotLocalesResponseTypeDef(TypedDict):
+    botId: str
+    botVersion: str
+    botLocaleSummaries: List[BotLocaleSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class CreateBotRequestTypeDef(TypedDict):
+    botName: str
+    roleArn: str
+    dataPrivacy: DataPrivacyTypeDef
+    idleSessionTTLInSeconds: int
+    description: NotRequired[str]
+    botTags: NotRequired[Mapping[str, str]]
+    testBotAliasTags: NotRequired[Mapping[str, str]]
+    botType: NotRequired[BotTypeType]
+    botMembers: NotRequired[Sequence[BotMemberTypeDef]]
+    errorLogSettings: NotRequired[ErrorLogSettingsTypeDef]
+
+class CreateBotResponseTypeDef(TypedDict):
+    botId: str
+    botName: str
+    description: str
+    roleArn: str
+    dataPrivacy: DataPrivacyTypeDef
+    idleSessionTTLInSeconds: int
+    botStatus: BotStatusType
+    creationDateTime: datetime
+    botTags: Dict[str, str]
+    testBotAliasTags: Dict[str, str]
+    botType: BotTypeType
+    botMembers: List[BotMemberTypeDef]
+    errorLogSettings: ErrorLogSettingsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeBotResponseTypeDef(TypedDict):
+    botId: str
+    botName: str
+    description: str
+    roleArn: str
+    dataPrivacy: DataPrivacyTypeDef
+    idleSessionTTLInSeconds: int
+    botStatus: BotStatusType
+    creationDateTime: datetime
+    lastUpdatedDateTime: datetime
+    botType: BotTypeType
+    botMembers: List[BotMemberTypeDef]
+    failureReasons: List[str]
+    errorLogSettings: ErrorLogSettingsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateBotRequestTypeDef(TypedDict):
+    botId: str
+    botName: str
+    roleArn: str
+    dataPrivacy: DataPrivacyTypeDef
+    idleSessionTTLInSeconds: int
+    description: NotRequired[str]
+    botType: NotRequired[BotTypeType]
+    botMembers: NotRequired[Sequence[BotMemberTypeDef]]
+    errorLogSettings: NotRequired[ErrorLogSettingsTypeDef]
+
+class UpdateBotResponseTypeDef(TypedDict):
+    botId: str
+    botName: str
+    description: str
+    roleArn: str
+    dataPrivacy: DataPrivacyTypeDef
+    idleSessionTTLInSeconds: int
+    botStatus: BotStatusType
+    creationDateTime: datetime
+    lastUpdatedDateTime: datetime
+    botType: BotTypeType
+    botMembers: List[BotMemberTypeDef]
+    errorLogSettings: ErrorLogSettingsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class BotRecommendationResultStatisticsTypeDef(TypedDict):
+    intents: NotRequired[IntentStatisticsTypeDef]
+    slotTypes: NotRequired[SlotTypeStatisticsTypeDef]
+
+class ListBotRecommendationsResponseTypeDef(TypedDict):
+    botId: str
+    botVersion: str
+    localeId: str
+    botRecommendationSummaries: List[BotRecommendationSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListBotReplicasResponseTypeDef(TypedDict):
+    botId: str
+    sourceRegion: str
+    botReplicaSummaries: List[BotReplicaSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListBotsRequestTypeDef(TypedDict):
+    sortBy: NotRequired[BotSortByTypeDef]
+    filters: NotRequired[Sequence[BotFilterTypeDef]]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListBotsResponseTypeDef(TypedDict):
+    botSummaries: List[BotSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class CreateBotVersionRequestTypeDef(TypedDict):
+    botId: str
+    botVersionLocaleSpecification: Mapping[str, BotVersionLocaleDetailsTypeDef]
+    description: NotRequired[str]
+
+class CreateBotVersionResponseTypeDef(TypedDict):
+    botId: str
+    description: str
+    botVersion: str
+    botVersionLocaleSpecification: Dict[str, BotVersionLocaleDetailsTypeDef]
+    botStatus: BotStatusType
+    creationDateTime: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListBotVersionReplicasRequestTypeDef(TypedDict):
+    botId: str
+    replicaRegion: str
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+    sortBy: NotRequired[BotVersionReplicaSortByTypeDef]
+
+class ListBotVersionReplicasResponseTypeDef(TypedDict):
+    botId: str
+    sourceRegion: str
+    replicaRegion: str
+    botVersionReplicaSummaries: List[BotVersionReplicaSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListBotVersionsRequestTypeDef(TypedDict):
+    botId: str
+    sortBy: NotRequired[BotVersionSortByTypeDef]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListBotVersionsResponseTypeDef(TypedDict):
+    botId: str
+    botVersionSummaries: List[BotVersionSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListBuiltInIntentsRequestTypeDef(TypedDict):
+    localeId: str
+    sortBy: NotRequired[BuiltInIntentSortByTypeDef]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListBuiltInIntentsResponseTypeDef(TypedDict):
+    builtInIntentSummaries: List[BuiltInIntentSummaryTypeDef]
+    localeId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListBuiltInSlotTypesRequestTypeDef(TypedDict):
+    localeId: str
+    sortBy: NotRequired[BuiltInSlotTypeSortByTypeDef]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListBuiltInSlotTypesResponseTypeDef(TypedDict):
+    builtInSlotTypeSummaries: List[BuiltInSlotTypeSummaryTypeDef]
+    localeId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ImageResponseCardOutputTypeDef(TypedDict):
+    title: str
+    subtitle: NotRequired[str]
+    imageUrl: NotRequired[str]
+    buttons: NotRequired[List[ButtonTypeDef]]
+
+class ImageResponseCardTypeDef(TypedDict):
+    title: str
+    subtitle: NotRequired[str]
+    imageUrl: NotRequired[str]
+    buttons: NotRequired[Sequence[ButtonTypeDef]]
+
+class TextLogDestinationTypeDef(TypedDict):
+    cloudWatch: CloudWatchLogGroupLogDestinationTypeDef
+
+class CodeHookSpecificationTypeDef(TypedDict):
+    lambdaCodeHook: LambdaCodeHookTypeDef
+
+class CompositeSlotTypeSettingOutputTypeDef(TypedDict):
+    subSlots: NotRequired[List[SubSlotTypeCompositionTypeDef]]
+
+class CompositeSlotTypeSettingTypeDef(TypedDict):
+    subSlots: NotRequired[Sequence[SubSlotTypeCompositionTypeDef]]
+
+class ConversationLevelTestResultItemTypeDef(TypedDict):
+    conversationId: str
+    endToEndResult: TestResultMatchStatusType
+    intentClassificationResults: List[ConversationLevelIntentClassificationResultItemTypeDef]
+    slotResolutionResults: List[ConversationLevelSlotResolutionResultItemTypeDef]
+    speechTranscriptionResult: NotRequired[TestResultMatchStatusType]
+
+class TestExecutionResultFilterByTypeDef(TypedDict):
+    resultTypeFilter: TestResultTypeFilterType
+    conversationLevelTestResultsFilterBy: NotRequired[ConversationLevelTestResultsFilterByTypeDef]
+
+ConversationLogsDataSourceOutputTypeDef = TypedDict(
+    "ConversationLogsDataSourceOutputTypeDef",
     {
         "botId": str,
-        "botVersion": str,
+        "botAliasId": str,
         "localeId": str,
-    },
-)
-_OptionalBotLocaleImportSpecificationTypeDef = TypedDict(
-    "_OptionalBotLocaleImportSpecificationTypeDef",
-    {
-        "nluIntentConfidenceThreshold": float,
-        "voiceSettings": "VoiceSettingsTypeDef",
-    },
-    total=False,
-)
-
-class BotLocaleImportSpecificationTypeDef(
-    _RequiredBotLocaleImportSpecificationTypeDef, _OptionalBotLocaleImportSpecificationTypeDef
-):
-    pass
-
-BotLocaleSortByTypeDef = TypedDict(
-    "BotLocaleSortByTypeDef",
-    {
-        "attribute": Literal["BotLocaleName"],
-        "order": SortOrderType,
+        "filter": ConversationLogsDataSourceFilterByOutputTypeDef,
     },
 )
 
-BotLocaleSummaryTypeDef = TypedDict(
-    "BotLocaleSummaryTypeDef",
-    {
-        "localeId": str,
-        "localeName": str,
-        "description": str,
-        "botLocaleStatus": BotLocaleStatusType,
-        "lastUpdatedDateTime": datetime,
-        "lastBuildSubmittedDateTime": datetime,
-    },
-    total=False,
-)
+class ConversationLogsDataSourceFilterByTypeDef(TypedDict):
+    startTime: TimestampTypeDef
+    endTime: TimestampTypeDef
+    inputMode: ConversationLogsInputModeFilterType
 
-BotMemberTypeDef = TypedDict(
-    "BotMemberTypeDef",
-    {
-        "botMemberId": str,
-        "botMemberName": str,
-        "botMemberAliasId": str,
-        "botMemberAliasName": str,
-        "botMemberVersion": str,
-    },
-)
+class DateRangeFilterTypeDef(TypedDict):
+    startDateTime: TimestampTypeDef
+    endDateTime: TimestampTypeDef
 
-BotRecommendationResultStatisticsTypeDef = TypedDict(
-    "BotRecommendationResultStatisticsTypeDef",
-    {
-        "intents": "IntentStatisticsTypeDef",
-        "slotTypes": "SlotTypeStatisticsTypeDef",
-    },
-    total=False,
-)
+class ListIntentMetricsRequestTypeDef(TypedDict):
+    botId: str
+    startDateTime: TimestampTypeDef
+    endDateTime: TimestampTypeDef
+    metrics: Sequence[AnalyticsIntentMetricTypeDef]
+    binBy: NotRequired[Sequence[AnalyticsBinBySpecificationTypeDef]]
+    groupBy: NotRequired[Sequence[AnalyticsIntentGroupBySpecificationTypeDef]]
+    filters: NotRequired[Sequence[AnalyticsIntentFilterTypeDef]]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
 
-BotRecommendationResultsTypeDef = TypedDict(
-    "BotRecommendationResultsTypeDef",
-    {
-        "botLocaleExportUrl": str,
-        "associatedTranscriptsUrl": str,
-        "statistics": "BotRecommendationResultStatisticsTypeDef",
-    },
-    total=False,
-)
+class ListIntentPathsRequestTypeDef(TypedDict):
+    botId: str
+    startDateTime: TimestampTypeDef
+    endDateTime: TimestampTypeDef
+    intentPath: str
+    filters: NotRequired[Sequence[AnalyticsPathFilterTypeDef]]
 
-_RequiredBotRecommendationSummaryTypeDef = TypedDict(
-    "_RequiredBotRecommendationSummaryTypeDef",
-    {
-        "botRecommendationStatus": BotRecommendationStatusType,
-        "botRecommendationId": str,
-    },
-)
-_OptionalBotRecommendationSummaryTypeDef = TypedDict(
-    "_OptionalBotRecommendationSummaryTypeDef",
-    {
-        "creationDateTime": datetime,
-        "lastUpdatedDateTime": datetime,
-    },
-    total=False,
-)
+class ListIntentStageMetricsRequestTypeDef(TypedDict):
+    botId: str
+    startDateTime: TimestampTypeDef
+    endDateTime: TimestampTypeDef
+    metrics: Sequence[AnalyticsIntentStageMetricTypeDef]
+    binBy: NotRequired[Sequence[AnalyticsBinBySpecificationTypeDef]]
+    groupBy: NotRequired[Sequence[AnalyticsIntentStageGroupBySpecificationTypeDef]]
+    filters: NotRequired[Sequence[AnalyticsIntentStageFilterTypeDef]]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
 
-class BotRecommendationSummaryTypeDef(
-    _RequiredBotRecommendationSummaryTypeDef, _OptionalBotRecommendationSummaryTypeDef
-):
-    pass
+class ListSessionMetricsRequestTypeDef(TypedDict):
+    botId: str
+    startDateTime: TimestampTypeDef
+    endDateTime: TimestampTypeDef
+    metrics: Sequence[AnalyticsSessionMetricTypeDef]
+    binBy: NotRequired[Sequence[AnalyticsBinBySpecificationTypeDef]]
+    groupBy: NotRequired[Sequence[AnalyticsSessionGroupBySpecificationTypeDef]]
+    filters: NotRequired[Sequence[AnalyticsSessionFilterTypeDef]]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
 
-BotReplicaSummaryTypeDef = TypedDict(
-    "BotReplicaSummaryTypeDef",
-    {
-        "replicaRegion": str,
-        "creationDateTime": datetime,
-        "botReplicaStatus": BotReplicaStatusType,
-        "failureReasons": List[str],
-    },
-    total=False,
-)
+class ListUtteranceMetricsRequestTypeDef(TypedDict):
+    botId: str
+    startDateTime: TimestampTypeDef
+    endDateTime: TimestampTypeDef
+    metrics: Sequence[AnalyticsUtteranceMetricTypeDef]
+    binBy: NotRequired[Sequence[AnalyticsBinBySpecificationTypeDef]]
+    groupBy: NotRequired[Sequence[AnalyticsUtteranceGroupBySpecificationTypeDef]]
+    attributes: NotRequired[Sequence[AnalyticsUtteranceAttributeTypeDef]]
+    filters: NotRequired[Sequence[AnalyticsUtteranceFilterTypeDef]]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
 
-BotSortByTypeDef = TypedDict(
-    "BotSortByTypeDef",
-    {
-        "attribute": Literal["BotName"],
-        "order": SortOrderType,
-    },
-)
+class IntentSummaryTypeDef(TypedDict):
+    intentId: NotRequired[str]
+    intentName: NotRequired[str]
+    description: NotRequired[str]
+    parentIntentSignature: NotRequired[str]
+    inputContexts: NotRequired[List[InputContextTypeDef]]
+    outputContexts: NotRequired[List[OutputContextTypeDef]]
+    lastUpdatedDateTime: NotRequired[datetime]
 
-BotSummaryTypeDef = TypedDict(
-    "BotSummaryTypeDef",
-    {
-        "botId": str,
-        "botName": str,
-        "description": str,
-        "botStatus": BotStatusType,
-        "latestBotVersion": str,
-        "lastUpdatedDateTime": datetime,
-        "botType": BotTypeType,
-    },
-    total=False,
-)
+class GenerateBotElementResponseTypeDef(TypedDict):
+    botId: str
+    botVersion: str
+    localeId: str
+    intentId: str
+    sampleUtterances: List[SampleUtteranceTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-BotVersionLocaleDetailsTypeDef = TypedDict(
-    "BotVersionLocaleDetailsTypeDef",
-    {
-        "sourceBotVersion": str,
-    },
-)
+class CreateResourcePolicyStatementRequestTypeDef(TypedDict):
+    resourceArn: str
+    statementId: str
+    effect: EffectType
+    principal: Sequence[PrincipalTypeDef]
+    action: Sequence[str]
+    condition: NotRequired[Mapping[str, Mapping[str, str]]]
+    expectedRevisionId: NotRequired[str]
 
-BotVersionReplicaSortByTypeDef = TypedDict(
-    "BotVersionReplicaSortByTypeDef",
-    {
-        "attribute": Literal["BotVersion"],
-        "order": SortOrderType,
-    },
-)
+class LexTranscriptFilterOutputTypeDef(TypedDict):
+    dateRangeFilter: NotRequired[DateRangeFilterOutputTypeDef]
 
-BotVersionReplicaSummaryTypeDef = TypedDict(
-    "BotVersionReplicaSummaryTypeDef",
-    {
-        "botVersion": str,
-        "botVersionReplicationStatus": BotVersionReplicationStatusType,
-        "creationDateTime": datetime,
-        "failureReasons": List[str],
-    },
-    total=False,
-)
+class DescribeBotAliasRequestWaitTypeDef(TypedDict):
+    botAliasId: str
+    botId: str
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
 
-BotVersionSortByTypeDef = TypedDict(
-    "BotVersionSortByTypeDef",
-    {
-        "attribute": Literal["BotVersion"],
-        "order": SortOrderType,
-    },
-)
+class DescribeBotLocaleRequestWaitExtraExtraTypeDef(TypedDict):
+    botId: str
+    botVersion: str
+    localeId: str
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
 
-BotVersionSummaryTypeDef = TypedDict(
-    "BotVersionSummaryTypeDef",
-    {
-        "botName": str,
-        "botVersion": str,
-        "description": str,
-        "botStatus": BotStatusType,
-        "creationDateTime": datetime,
-    },
-    total=False,
-)
+class DescribeBotLocaleRequestWaitExtraTypeDef(TypedDict):
+    botId: str
+    botVersion: str
+    localeId: str
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
 
-BuildBotLocaleRequestRequestTypeDef = TypedDict(
-    "BuildBotLocaleRequestRequestTypeDef",
-    {
-        "botId": str,
-        "botVersion": str,
-        "localeId": str,
-    },
-)
+class DescribeBotLocaleRequestWaitTypeDef(TypedDict):
+    botId: str
+    botVersion: str
+    localeId: str
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
 
-BuildBotLocaleResponseTypeDef = TypedDict(
-    "BuildBotLocaleResponseTypeDef",
-    {
-        "botId": str,
-        "botVersion": str,
-        "localeId": str,
-        "botLocaleStatus": BotLocaleStatusType,
-        "lastBuildSubmittedDateTime": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DescribeBotRequestWaitTypeDef(TypedDict):
+    botId: str
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
 
-BuildtimeSettingsTypeDef = TypedDict(
-    "BuildtimeSettingsTypeDef",
-    {
-        "descriptiveBotBuilder": "DescriptiveBotBuilderSpecificationTypeDef",
-        "sampleUtteranceGeneration": "SampleUtteranceGenerationSpecificationTypeDef",
-    },
-    total=False,
-)
+class DescribeBotVersionRequestWaitTypeDef(TypedDict):
+    botId: str
+    botVersion: str
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
 
-BuiltInIntentSortByTypeDef = TypedDict(
-    "BuiltInIntentSortByTypeDef",
-    {
-        "attribute": Literal["IntentSignature"],
-        "order": SortOrderType,
-    },
-)
+class DescribeExportRequestWaitTypeDef(TypedDict):
+    exportId: str
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
 
-BuiltInIntentSummaryTypeDef = TypedDict(
-    "BuiltInIntentSummaryTypeDef",
-    {
-        "intentSignature": str,
-        "description": str,
-    },
-    total=False,
-)
+class DescribeImportRequestWaitTypeDef(TypedDict):
+    importId: str
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
 
-BuiltInSlotTypeSortByTypeDef = TypedDict(
-    "BuiltInSlotTypeSortByTypeDef",
-    {
-        "attribute": Literal["SlotTypeSignature"],
-        "order": SortOrderType,
-    },
-)
+class DescribeBotVersionResponseTypeDef(TypedDict):
+    botId: str
+    botName: str
+    botVersion: str
+    description: str
+    roleArn: str
+    dataPrivacy: DataPrivacyTypeDef
+    idleSessionTTLInSeconds: int
+    botStatus: BotStatusType
+    failureReasons: List[str]
+    creationDateTime: datetime
+    parentBotNetworks: List[ParentBotNetworkTypeDef]
+    botType: BotTypeType
+    botMembers: List[BotMemberTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-BuiltInSlotTypeSummaryTypeDef = TypedDict(
-    "BuiltInSlotTypeSummaryTypeDef",
-    {
-        "slotTypeSignature": str,
-        "description": str,
-    },
-    total=False,
-)
+class UpdateBotRecommendationRequestTypeDef(TypedDict):
+    botId: str
+    botVersion: str
+    localeId: str
+    botRecommendationId: str
+    encryptionSetting: EncryptionSettingTypeDef
 
-ButtonTypeDef = TypedDict(
-    "ButtonTypeDef",
-    {
-        "text": str,
-        "value": str,
-    },
-)
+class DescribeTestSetResponseTypeDef(TypedDict):
+    testSetId: str
+    testSetName: str
+    description: str
+    modality: TestSetModalityType
+    status: TestSetStatusType
+    roleArn: str
+    numTurns: int
+    storageLocation: TestSetStorageLocationTypeDef
+    creationDateTime: datetime
+    lastUpdatedDateTime: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
 
-CloudWatchLogGroupLogDestinationTypeDef = TypedDict(
-    "CloudWatchLogGroupLogDestinationTypeDef",
-    {
-        "cloudWatchLogGroupArn": str,
-        "logPrefix": str,
-    },
-)
+class TestSetSummaryTypeDef(TypedDict):
+    testSetId: NotRequired[str]
+    testSetName: NotRequired[str]
+    description: NotRequired[str]
+    modality: NotRequired[TestSetModalityType]
+    status: NotRequired[TestSetStatusType]
+    roleArn: NotRequired[str]
+    numTurns: NotRequired[int]
+    storageLocation: NotRequired[TestSetStorageLocationTypeDef]
+    creationDateTime: NotRequired[datetime]
+    lastUpdatedDateTime: NotRequired[datetime]
 
-CodeHookSpecificationTypeDef = TypedDict(
-    "CodeHookSpecificationTypeDef",
-    {
-        "lambdaCodeHook": "LambdaCodeHookTypeDef",
-    },
-)
+class UpdateTestSetResponseTypeDef(TypedDict):
+    testSetId: str
+    testSetName: str
+    description: str
+    modality: TestSetModalityType
+    status: TestSetStatusType
+    roleArn: str
+    numTurns: int
+    storageLocation: TestSetStorageLocationTypeDef
+    creationDateTime: datetime
+    lastUpdatedDateTime: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
 
-CompositeSlotTypeSettingTypeDef = TypedDict(
-    "CompositeSlotTypeSettingTypeDef",
-    {
-        "subSlots": List["SubSlotTypeCompositionTypeDef"],
-    },
-    total=False,
-)
+class OpensearchConfigurationOutputTypeDef(TypedDict):
+    domainEndpoint: str
+    indexName: str
+    exactResponse: NotRequired[bool]
+    exactResponseFields: NotRequired[ExactResponseFieldsTypeDef]
+    includeFields: NotRequired[List[str]]
 
-ConditionTypeDef = TypedDict(
-    "ConditionTypeDef",
-    {
-        "expressionString": str,
-    },
-)
+class OpensearchConfigurationTypeDef(TypedDict):
+    domainEndpoint: str
+    indexName: str
+    exactResponse: NotRequired[bool]
+    exactResponseFields: NotRequired[ExactResponseFieldsTypeDef]
+    includeFields: NotRequired[Sequence[str]]
 
-_RequiredConditionalBranchTypeDef = TypedDict(
-    "_RequiredConditionalBranchTypeDef",
-    {
-        "name": str,
-        "condition": "ConditionTypeDef",
-        "nextStep": "DialogStateTypeDef",
-    },
-)
-_OptionalConditionalBranchTypeDef = TypedDict(
-    "_OptionalConditionalBranchTypeDef",
-    {
-        "response": "ResponseSpecificationTypeDef",
-    },
-    total=False,
-)
+class ExportResourceSpecificationTypeDef(TypedDict):
+    botExportSpecification: NotRequired[BotExportSpecificationTypeDef]
+    botLocaleExportSpecification: NotRequired[BotLocaleExportSpecificationTypeDef]
+    customVocabularyExportSpecification: NotRequired[CustomVocabularyExportSpecificationTypeDef]
+    testSetExportSpecification: NotRequired[TestSetExportSpecificationTypeDef]
 
-class ConditionalBranchTypeDef(
-    _RequiredConditionalBranchTypeDef, _OptionalConditionalBranchTypeDef
-):
-    pass
+class ListExportsRequestTypeDef(TypedDict):
+    botId: NotRequired[str]
+    botVersion: NotRequired[str]
+    sortBy: NotRequired[ExportSortByTypeDef]
+    filters: NotRequired[Sequence[ExportFilterTypeDef]]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+    localeId: NotRequired[str]
 
-ConditionalSpecificationTypeDef = TypedDict(
-    "ConditionalSpecificationTypeDef",
-    {
-        "active": bool,
-        "conditionalBranches": List["ConditionalBranchTypeDef"],
-        "defaultBranch": "DefaultConditionalBranchTypeDef",
-    },
-)
+class ListBotResourceGenerationsRequestTypeDef(TypedDict):
+    botId: str
+    botVersion: str
+    localeId: str
+    sortBy: NotRequired[GenerationSortByTypeDef]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
 
-ConversationLevelIntentClassificationResultItemTypeDef = TypedDict(
-    "ConversationLevelIntentClassificationResultItemTypeDef",
-    {
-        "intentName": str,
-        "matchResult": TestResultMatchStatusType,
-    },
-)
+class ListBotResourceGenerationsResponseTypeDef(TypedDict):
+    botId: str
+    botVersion: str
+    localeId: str
+    generationSummaries: List[GenerationSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-_RequiredConversationLevelResultDetailTypeDef = TypedDict(
-    "_RequiredConversationLevelResultDetailTypeDef",
-    {
-        "endToEndResult": TestResultMatchStatusType,
-    },
-)
-_OptionalConversationLevelResultDetailTypeDef = TypedDict(
-    "_OptionalConversationLevelResultDetailTypeDef",
-    {
-        "speechTranscriptionResult": TestResultMatchStatusType,
-    },
-    total=False,
-)
+class GrammarSlotTypeSettingTypeDef(TypedDict):
+    source: NotRequired[GrammarSlotTypeSourceTypeDef]
 
-class ConversationLevelResultDetailTypeDef(
-    _RequiredConversationLevelResultDetailTypeDef, _OptionalConversationLevelResultDetailTypeDef
-):
-    pass
+class ListImportsRequestTypeDef(TypedDict):
+    botId: NotRequired[str]
+    botVersion: NotRequired[str]
+    sortBy: NotRequired[ImportSortByTypeDef]
+    filters: NotRequired[Sequence[ImportFilterTypeDef]]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+    localeId: NotRequired[str]
 
-ConversationLevelSlotResolutionResultItemTypeDef = TypedDict(
-    "ConversationLevelSlotResolutionResultItemTypeDef",
-    {
-        "intentName": str,
-        "slotName": str,
-        "matchResult": TestResultMatchStatusType,
-    },
-)
+class ListImportsResponseTypeDef(TypedDict):
+    botId: str
+    botVersion: str
+    importSummaries: List[ImportSummaryTypeDef]
+    localeId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-_RequiredConversationLevelTestResultItemTypeDef = TypedDict(
-    "_RequiredConversationLevelTestResultItemTypeDef",
-    {
-        "conversationId": str,
-        "endToEndResult": TestResultMatchStatusType,
-        "intentClassificationResults": List[
-            "ConversationLevelIntentClassificationResultItemTypeDef"
-        ],
-        "slotResolutionResults": List["ConversationLevelSlotResolutionResultItemTypeDef"],
-    },
-)
-_OptionalConversationLevelTestResultItemTypeDef = TypedDict(
-    "_OptionalConversationLevelTestResultItemTypeDef",
-    {
-        "speechTranscriptionResult": TestResultMatchStatusType,
-    },
-    total=False,
-)
+class IntentClassificationTestResultItemTypeDef(TypedDict):
+    intentName: str
+    multiTurnConversation: bool
+    resultCounts: IntentClassificationTestResultItemCountsTypeDef
 
-class ConversationLevelTestResultItemTypeDef(
-    _RequiredConversationLevelTestResultItemTypeDef, _OptionalConversationLevelTestResultItemTypeDef
-):
-    pass
+class ListIntentsRequestTypeDef(TypedDict):
+    botId: str
+    botVersion: str
+    localeId: str
+    sortBy: NotRequired[IntentSortByTypeDef]
+    filters: NotRequired[Sequence[IntentFilterTypeDef]]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
 
-ConversationLevelTestResultsFilterByTypeDef = TypedDict(
-    "ConversationLevelTestResultsFilterByTypeDef",
-    {
-        "endToEndResult": TestResultMatchStatusType,
-    },
-    total=False,
-)
+class SessionSpecificationTypeDef(TypedDict):
+    botAliasId: NotRequired[str]
+    botVersion: NotRequired[str]
+    localeId: NotRequired[str]
+    channel: NotRequired[str]
+    sessionId: NotRequired[str]
+    conversationStartTime: NotRequired[datetime]
+    conversationEndTime: NotRequired[datetime]
+    conversationDurationSeconds: NotRequired[int]
+    conversationEndState: NotRequired[ConversationEndStateType]
+    mode: NotRequired[AnalyticsModalityType]
+    numberOfTurns: NotRequired[int]
+    invokedIntentSamples: NotRequired[List[InvokedIntentSampleTypeDef]]
+    originatingRequestId: NotRequired[str]
 
-ConversationLevelTestResultsTypeDef = TypedDict(
-    "ConversationLevelTestResultsTypeDef",
-    {
-        "items": List["ConversationLevelTestResultItemTypeDef"],
-    },
-)
+class ListRecommendedIntentsResponseTypeDef(TypedDict):
+    botId: str
+    botVersion: str
+    localeId: str
+    botRecommendationId: str
+    summaryList: List[RecommendedIntentSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-ConversationLogSettingsTypeDef = TypedDict(
-    "ConversationLogSettingsTypeDef",
-    {
-        "textLogSettings": List["TextLogSettingTypeDef"],
-        "audioLogSettings": List["AudioLogSettingTypeDef"],
-    },
-    total=False,
-)
+class ListSessionAnalyticsDataRequestTypeDef(TypedDict):
+    botId: str
+    startDateTime: TimestampTypeDef
+    endDateTime: TimestampTypeDef
+    sortBy: NotRequired[SessionDataSortByTypeDef]
+    filters: NotRequired[Sequence[AnalyticsSessionFilterTypeDef]]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
 
-ConversationLogsDataSourceFilterByTypeDef = TypedDict(
-    "ConversationLogsDataSourceFilterByTypeDef",
-    {
-        "startTime": datetime,
-        "endTime": datetime,
-        "inputMode": ConversationLogsInputModeFilterType,
-    },
-)
+class ListSlotTypesRequestTypeDef(TypedDict):
+    botId: str
+    botVersion: str
+    localeId: str
+    sortBy: NotRequired[SlotTypeSortByTypeDef]
+    filters: NotRequired[Sequence[SlotTypeFilterTypeDef]]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListSlotTypesResponseTypeDef(TypedDict):
+    botId: str
+    botVersion: str
+    localeId: str
+    slotTypeSummaries: List[SlotTypeSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListSlotsRequestTypeDef(TypedDict):
+    botId: str
+    botVersion: str
+    localeId: str
+    intentId: str
+    sortBy: NotRequired[SlotSortByTypeDef]
+    filters: NotRequired[Sequence[SlotFilterTypeDef]]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListTestExecutionsRequestTypeDef(TypedDict):
+    sortBy: NotRequired[TestExecutionSortByTypeDef]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListTestSetsRequestTypeDef(TypedDict):
+    sortBy: NotRequired[TestSetSortByTypeDef]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListUtteranceAnalyticsDataRequestTypeDef(TypedDict):
+    botId: str
+    startDateTime: TimestampTypeDef
+    endDateTime: TimestampTypeDef
+    sortBy: NotRequired[UtteranceDataSortByTypeDef]
+    filters: NotRequired[Sequence[AnalyticsUtteranceFilterTypeDef]]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class OverallTestResultsTypeDef(TypedDict):
+    items: List[OverallTestResultItemTypeDef]
+
+class QInConnectIntentConfigurationTypeDef(TypedDict):
+    qInConnectAssistantConfiguration: NotRequired[QInConnectAssistantConfigurationTypeDef]
+
+class UtteranceAggregationDurationTypeDef(TypedDict):
+    relativeAggregationDuration: RelativeAggregationDurationTypeDef
+
+class RuntimeHintDetailsTypeDef(TypedDict):
+    runtimeHintValues: NotRequired[List[RuntimeHintValueTypeDef]]
+    subSlotHints: NotRequired[Dict[str, Dict[str, Any]]]
+
+class SlotTypeValueOutputTypeDef(TypedDict):
+    sampleValue: NotRequired[SampleValueTypeDef]
+    synonyms: NotRequired[List[SampleValueTypeDef]]
+
+class SlotTypeValueTypeDef(TypedDict):
+    sampleValue: NotRequired[SampleValueTypeDef]
+    synonyms: NotRequired[Sequence[SampleValueTypeDef]]
+
+class SlotDefaultValueSpecificationOutputTypeDef(TypedDict):
+    defaultValueList: List[SlotDefaultValueTypeDef]
+
+class SlotDefaultValueSpecificationTypeDef(TypedDict):
+    defaultValueList: Sequence[SlotDefaultValueTypeDef]
+
+class SlotResolutionTestResultItemTypeDef(TypedDict):
+    slotName: str
+    resultCounts: SlotResolutionTestResultItemCountsTypeDef
+
+class SlotValueOverrideOutputTypeDef(TypedDict):
+    shape: NotRequired[SlotShapeType]
+    value: NotRequired[SlotValueTypeDef]
+    values: NotRequired[List[Dict[str, Any]]]
+
+class SlotValueOverrideTypeDef(TypedDict):
+    shape: NotRequired[SlotShapeType]
+    value: NotRequired[SlotValueTypeDef]
+    values: NotRequired[Sequence[Mapping[str, Any]]]
+
+class SlotValueSelectionSettingTypeDef(TypedDict):
+    resolutionStrategy: SlotValueResolutionStrategyType
+    regexFilter: NotRequired[SlotValueRegexFilterTypeDef]
+    advancedRecognitionSetting: NotRequired[AdvancedRecognitionSettingTypeDef]
+
+class TestSetDiscrepancyErrorsTypeDef(TypedDict):
+    intentDiscrepancies: List[TestSetIntentDiscrepancyItemTypeDef]
+    slotDiscrepancies: List[TestSetSlotDiscrepancyItemTypeDef]
+
+class TestSetDiscrepancyReportResourceTargetTypeDef(TypedDict):
+    botAliasTarget: NotRequired[TestSetDiscrepancyReportBotAliasTargetTypeDef]
+
+class TestSetImportResourceSpecificationOutputTypeDef(TypedDict):
+    testSetName: str
+    roleArn: str
+    storageLocation: TestSetStorageLocationTypeDef
+    importInputLocation: TestSetImportInputLocationTypeDef
+    modality: TestSetModalityType
+    description: NotRequired[str]
+    testSetTags: NotRequired[Dict[str, str]]
+
+class TestSetImportResourceSpecificationTypeDef(TypedDict):
+    testSetName: str
+    roleArn: str
+    storageLocation: TestSetStorageLocationTypeDef
+    importInputLocation: TestSetImportInputLocationTypeDef
+    modality: TestSetModalityType
+    description: NotRequired[str]
+    testSetTags: NotRequired[Mapping[str, str]]
+
+class UserTurnIntentOutputTypeDef(TypedDict):
+    name: str
+    slots: NotRequired[Dict[str, UserTurnSlotOutputTypeDef]]
+
+class UtteranceInputSpecificationTypeDef(TypedDict):
+    textInput: NotRequired[str]
+    audioInput: NotRequired[UtteranceAudioInputSpecificationTypeDef]
+
+class ListIntentMetricsResponseTypeDef(TypedDict):
+    botId: str
+    results: List[AnalyticsIntentResultTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListIntentStageMetricsResponseTypeDef(TypedDict):
+    botId: str
+    results: List[AnalyticsIntentStageResultTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListSessionMetricsResponseTypeDef(TypedDict):
+    botId: str
+    results: List[AnalyticsSessionResultTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListUtteranceMetricsResponseTypeDef(TypedDict):
+    botId: str
+    results: List[AnalyticsUtteranceResultTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class PromptAttemptSpecificationTypeDef(TypedDict):
+    allowedInputTypes: AllowedInputTypesTypeDef
+    allowInterrupt: NotRequired[bool]
+    audioAndDTMFInputSpecification: NotRequired[AudioAndDTMFInputSpecificationTypeDef]
+    textInputSpecification: NotRequired[TextInputSpecificationTypeDef]
+
+class AudioLogSettingTypeDef(TypedDict):
+    enabled: bool
+    destination: AudioLogDestinationTypeDef
+    selectiveLoggingEnabled: NotRequired[bool]
+
+class DescriptiveBotBuilderSpecificationTypeDef(TypedDict):
+    enabled: bool
+    bedrockModelSpecification: NotRequired[BedrockModelSpecificationTypeDef]
+
+class SampleUtteranceGenerationSpecificationTypeDef(TypedDict):
+    enabled: bool
+    bedrockModelSpecification: NotRequired[BedrockModelSpecificationTypeDef]
+
+class SlotResolutionImprovementSpecificationTypeDef(TypedDict):
+    enabled: bool
+    bedrockModelSpecification: NotRequired[BedrockModelSpecificationTypeDef]
+
+class DescribeTestExecutionResponseTypeDef(TypedDict):
+    testExecutionId: str
+    creationDateTime: datetime
+    lastUpdatedDateTime: datetime
+    testExecutionStatus: TestExecutionStatusType
+    testSetId: str
+    testSetName: str
+    target: TestExecutionTargetTypeDef
+    apiMode: TestExecutionApiModeType
+    testExecutionModality: TestExecutionModalityType
+    failureReasons: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartTestExecutionRequestTypeDef(TypedDict):
+    testSetId: str
+    target: TestExecutionTargetTypeDef
+    apiMode: TestExecutionApiModeType
+    testExecutionModality: NotRequired[TestExecutionModalityType]
+
+class StartTestExecutionResponseTypeDef(TypedDict):
+    testExecutionId: str
+    creationDateTime: datetime
+    testSetId: str
+    target: TestExecutionTargetTypeDef
+    apiMode: TestExecutionApiModeType
+    testExecutionModality: TestExecutionModalityType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class TestExecutionSummaryTypeDef(TypedDict):
+    testExecutionId: NotRequired[str]
+    creationDateTime: NotRequired[datetime]
+    lastUpdatedDateTime: NotRequired[datetime]
+    testExecutionStatus: NotRequired[TestExecutionStatusType]
+    testSetId: NotRequired[str]
+    testSetName: NotRequired[str]
+    target: NotRequired[TestExecutionTargetTypeDef]
+    apiMode: NotRequired[TestExecutionApiModeType]
+    testExecutionModality: NotRequired[TestExecutionModalityType]
+
+class BotRecommendationResultsTypeDef(TypedDict):
+    botLocaleExportUrl: NotRequired[str]
+    associatedTranscriptsUrl: NotRequired[str]
+    statistics: NotRequired[BotRecommendationResultStatisticsTypeDef]
+
+class MessageOutputTypeDef(TypedDict):
+    plainTextMessage: NotRequired[PlainTextMessageTypeDef]
+    customPayload: NotRequired[CustomPayloadTypeDef]
+    ssmlMessage: NotRequired[SSMLMessageTypeDef]
+    imageResponseCard: NotRequired[ImageResponseCardOutputTypeDef]
+
+class UtteranceBotResponseTypeDef(TypedDict):
+    content: NotRequired[str]
+    contentType: NotRequired[UtteranceContentTypeType]
+    imageResponseCard: NotRequired[ImageResponseCardOutputTypeDef]
+
+class MessageTypeDef(TypedDict):
+    plainTextMessage: NotRequired[PlainTextMessageTypeDef]
+    customPayload: NotRequired[CustomPayloadTypeDef]
+    ssmlMessage: NotRequired[SSMLMessageTypeDef]
+    imageResponseCard: NotRequired[ImageResponseCardTypeDef]
+
+class TextLogSettingTypeDef(TypedDict):
+    enabled: bool
+    destination: TextLogDestinationTypeDef
+    selectiveLoggingEnabled: NotRequired[bool]
+
+class BotAliasLocaleSettingsTypeDef(TypedDict):
+    enabled: bool
+    codeHookSpecification: NotRequired[CodeHookSpecificationTypeDef]
+
+CompositeSlotTypeSettingUnionTypeDef = Union[
+    CompositeSlotTypeSettingTypeDef, CompositeSlotTypeSettingOutputTypeDef
+]
+
+class ConversationLevelTestResultsTypeDef(TypedDict):
+    items: List[ConversationLevelTestResultItemTypeDef]
+
+class ListTestExecutionResultItemsRequestTypeDef(TypedDict):
+    testExecutionId: str
+    resultFilterBy: TestExecutionResultFilterByTypeDef
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class TestSetGenerationDataSourceOutputTypeDef(TypedDict):
+    conversationLogsDataSource: NotRequired[ConversationLogsDataSourceOutputTypeDef]
 
 ConversationLogsDataSourceTypeDef = TypedDict(
     "ConversationLogsDataSourceTypeDef",
@@ -1654,4898 +2737,1209 @@ ConversationLogsDataSourceTypeDef = TypedDict(
         "botId": str,
         "botAliasId": str,
         "localeId": str,
-        "filter": "ConversationLogsDataSourceFilterByTypeDef",
+        "filter": ConversationLogsDataSourceFilterByTypeDef,
+    },
+)
+
+class LexTranscriptFilterTypeDef(TypedDict):
+    dateRangeFilter: NotRequired[DateRangeFilterTypeDef]
+
+class ListIntentsResponseTypeDef(TypedDict):
+    botId: str
+    botVersion: str
+    localeId: str
+    intentSummaries: List[IntentSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class TranscriptFilterOutputTypeDef(TypedDict):
+    lexTranscriptFilter: NotRequired[LexTranscriptFilterOutputTypeDef]
+
+class ListTestSetsResponseTypeDef(TypedDict):
+    testSets: List[TestSetSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class DataSourceConfigurationOutputTypeDef(TypedDict):
+    opensearchConfiguration: NotRequired[OpensearchConfigurationOutputTypeDef]
+    kendraConfiguration: NotRequired[QnAKendraConfigurationTypeDef]
+    bedrockKnowledgeStoreConfiguration: NotRequired[BedrockKnowledgeStoreConfigurationTypeDef]
+
+class DataSourceConfigurationTypeDef(TypedDict):
+    opensearchConfiguration: NotRequired[OpensearchConfigurationTypeDef]
+    kendraConfiguration: NotRequired[QnAKendraConfigurationTypeDef]
+    bedrockKnowledgeStoreConfiguration: NotRequired[BedrockKnowledgeStoreConfigurationTypeDef]
+
+class CreateExportRequestTypeDef(TypedDict):
+    resourceSpecification: ExportResourceSpecificationTypeDef
+    fileFormat: ImportExportFileFormatType
+    filePassword: NotRequired[str]
+
+class CreateExportResponseTypeDef(TypedDict):
+    exportId: str
+    resourceSpecification: ExportResourceSpecificationTypeDef
+    fileFormat: ImportExportFileFormatType
+    exportStatus: ExportStatusType
+    creationDateTime: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeExportResponseTypeDef(TypedDict):
+    exportId: str
+    resourceSpecification: ExportResourceSpecificationTypeDef
+    fileFormat: ImportExportFileFormatType
+    exportStatus: ExportStatusType
+    failureReasons: List[str]
+    downloadUrl: str
+    creationDateTime: datetime
+    lastUpdatedDateTime: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ExportSummaryTypeDef(TypedDict):
+    exportId: NotRequired[str]
+    resourceSpecification: NotRequired[ExportResourceSpecificationTypeDef]
+    fileFormat: NotRequired[ImportExportFileFormatType]
+    exportStatus: NotRequired[ExportStatusType]
+    creationDateTime: NotRequired[datetime]
+    lastUpdatedDateTime: NotRequired[datetime]
+
+class UpdateExportResponseTypeDef(TypedDict):
+    exportId: str
+    resourceSpecification: ExportResourceSpecificationTypeDef
+    fileFormat: ImportExportFileFormatType
+    exportStatus: ExportStatusType
+    creationDateTime: datetime
+    lastUpdatedDateTime: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ExternalSourceSettingTypeDef(TypedDict):
+    grammarSlotTypeSetting: NotRequired[GrammarSlotTypeSettingTypeDef]
+
+class IntentClassificationTestResultsTypeDef(TypedDict):
+    items: List[IntentClassificationTestResultItemTypeDef]
+
+class ListSessionAnalyticsDataResponseTypeDef(TypedDict):
+    botId: str
+    sessions: List[SessionSpecificationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListAggregatedUtterancesRequestTypeDef(TypedDict):
+    botId: str
+    localeId: str
+    aggregationDuration: UtteranceAggregationDurationTypeDef
+    botAliasId: NotRequired[str]
+    botVersion: NotRequired[str]
+    sortBy: NotRequired[AggregatedUtterancesSortByTypeDef]
+    filters: NotRequired[Sequence[AggregatedUtterancesFilterTypeDef]]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListAggregatedUtterancesResponseTypeDef(TypedDict):
+    botId: str
+    botAliasId: str
+    botVersion: str
+    localeId: str
+    aggregationDuration: UtteranceAggregationDurationTypeDef
+    aggregationWindowStartTime: datetime
+    aggregationWindowEndTime: datetime
+    aggregationLastRefreshedDateTime: datetime
+    aggregatedUtterancesSummaries: List[AggregatedUtterancesSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class RuntimeHintsTypeDef(TypedDict):
+    slotHints: NotRequired[Dict[str, Dict[str, RuntimeHintDetailsTypeDef]]]
+
+SlotTypeValueUnionTypeDef = Union[SlotTypeValueTypeDef, SlotTypeValueOutputTypeDef]
+
+class IntentLevelSlotResolutionTestResultItemTypeDef(TypedDict):
+    intentName: str
+    multiTurnConversation: bool
+    slotResolutionResults: List[SlotResolutionTestResultItemTypeDef]
+
+class IntentOverrideOutputTypeDef(TypedDict):
+    name: NotRequired[str]
+    slots: NotRequired[Dict[str, SlotValueOverrideOutputTypeDef]]
+
+class IntentOverrideTypeDef(TypedDict):
+    name: NotRequired[str]
+    slots: NotRequired[Mapping[str, SlotValueOverrideTypeDef]]
+
+class CreateTestSetDiscrepancyReportRequestTypeDef(TypedDict):
+    testSetId: str
+    target: TestSetDiscrepancyReportResourceTargetTypeDef
+
+class CreateTestSetDiscrepancyReportResponseTypeDef(TypedDict):
+    testSetDiscrepancyReportId: str
+    creationDateTime: datetime
+    testSetId: str
+    target: TestSetDiscrepancyReportResourceTargetTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeTestSetDiscrepancyReportResponseTypeDef(TypedDict):
+    testSetDiscrepancyReportId: str
+    testSetId: str
+    creationDateTime: datetime
+    target: TestSetDiscrepancyReportResourceTargetTypeDef
+    testSetDiscrepancyReportStatus: TestSetDiscrepancyReportStatusType
+    lastUpdatedDataTime: datetime
+    testSetDiscrepancyTopErrors: TestSetDiscrepancyErrorsTypeDef
+    testSetDiscrepancyRawOutputUrl: str
+    failureReasons: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ImportResourceSpecificationOutputTypeDef(TypedDict):
+    botImportSpecification: NotRequired[BotImportSpecificationOutputTypeDef]
+    botLocaleImportSpecification: NotRequired[BotLocaleImportSpecificationTypeDef]
+    customVocabularyImportSpecification: NotRequired[CustomVocabularyImportSpecificationTypeDef]
+    testSetImportResourceSpecification: NotRequired[TestSetImportResourceSpecificationOutputTypeDef]
+
+class ImportResourceSpecificationTypeDef(TypedDict):
+    botImportSpecification: NotRequired[BotImportSpecificationTypeDef]
+    botLocaleImportSpecification: NotRequired[BotLocaleImportSpecificationTypeDef]
+    customVocabularyImportSpecification: NotRequired[CustomVocabularyImportSpecificationTypeDef]
+    testSetImportResourceSpecification: NotRequired[TestSetImportResourceSpecificationTypeDef]
+
+class UserTurnOutputSpecificationTypeDef(TypedDict):
+    intent: UserTurnIntentOutputTypeDef
+    activeContexts: NotRequired[List[ActiveContextTypeDef]]
+    transcript: NotRequired[str]
+
+class BuildtimeSettingsTypeDef(TypedDict):
+    descriptiveBotBuilder: NotRequired[DescriptiveBotBuilderSpecificationTypeDef]
+    sampleUtteranceGeneration: NotRequired[SampleUtteranceGenerationSpecificationTypeDef]
+
+class RuntimeSettingsTypeDef(TypedDict):
+    slotResolutionImprovement: NotRequired[SlotResolutionImprovementSpecificationTypeDef]
+
+class ListTestExecutionsResponseTypeDef(TypedDict):
+    testExecutions: List[TestExecutionSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class MessageGroupOutputTypeDef(TypedDict):
+    message: MessageOutputTypeDef
+    variations: NotRequired[List[MessageOutputTypeDef]]
+
+class UtteranceSpecificationTypeDef(TypedDict):
+    botAliasId: NotRequired[str]
+    botVersion: NotRequired[str]
+    localeId: NotRequired[str]
+    sessionId: NotRequired[str]
+    channel: NotRequired[str]
+    mode: NotRequired[AnalyticsModalityType]
+    conversationStartTime: NotRequired[datetime]
+    conversationEndTime: NotRequired[datetime]
+    utterance: NotRequired[str]
+    utteranceTimestamp: NotRequired[datetime]
+    audioVoiceDurationMillis: NotRequired[int]
+    utteranceUnderstood: NotRequired[bool]
+    inputType: NotRequired[str]
+    outputType: NotRequired[str]
+    associatedIntentName: NotRequired[str]
+    associatedSlotName: NotRequired[str]
+    intentState: NotRequired[IntentStateType]
+    dialogActionType: NotRequired[str]
+    botResponseAudioVoiceId: NotRequired[str]
+    slotsFilledInSession: NotRequired[str]
+    utteranceRequestId: NotRequired[str]
+    botResponses: NotRequired[List[UtteranceBotResponseTypeDef]]
+
+class MessageGroupTypeDef(TypedDict):
+    message: MessageTypeDef
+    variations: NotRequired[Sequence[MessageTypeDef]]
+
+class ConversationLogSettingsOutputTypeDef(TypedDict):
+    textLogSettings: NotRequired[List[TextLogSettingTypeDef]]
+    audioLogSettings: NotRequired[List[AudioLogSettingTypeDef]]
+
+class ConversationLogSettingsTypeDef(TypedDict):
+    textLogSettings: NotRequired[Sequence[TextLogSettingTypeDef]]
+    audioLogSettings: NotRequired[Sequence[AudioLogSettingTypeDef]]
+
+class DescribeTestSetGenerationResponseTypeDef(TypedDict):
+    testSetGenerationId: str
+    testSetGenerationStatus: TestSetGenerationStatusType
+    failureReasons: List[str]
+    testSetId: str
+    testSetName: str
+    description: str
+    storageLocation: TestSetStorageLocationTypeDef
+    generationDataSource: TestSetGenerationDataSourceOutputTypeDef
+    roleArn: str
+    creationDateTime: datetime
+    lastUpdatedDateTime: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartTestSetGenerationResponseTypeDef(TypedDict):
+    testSetGenerationId: str
+    creationDateTime: datetime
+    testSetGenerationStatus: TestSetGenerationStatusType
+    testSetName: str
+    description: str
+    storageLocation: TestSetStorageLocationTypeDef
+    generationDataSource: TestSetGenerationDataSourceOutputTypeDef
+    roleArn: str
+    testSetTags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class TestSetGenerationDataSourceTypeDef(TypedDict):
+    conversationLogsDataSource: NotRequired[ConversationLogsDataSourceTypeDef]
+
+class TranscriptFilterTypeDef(TypedDict):
+    lexTranscriptFilter: NotRequired[LexTranscriptFilterTypeDef]
+
+class S3BucketTranscriptSourceOutputTypeDef(TypedDict):
+    s3BucketName: str
+    transcriptFormat: Literal["Lex"]
+    pathFormat: NotRequired[PathFormatOutputTypeDef]
+    transcriptFilter: NotRequired[TranscriptFilterOutputTypeDef]
+    kmsKeyArn: NotRequired[str]
+
+class QnAIntentConfigurationOutputTypeDef(TypedDict):
+    dataSourceConfiguration: NotRequired[DataSourceConfigurationOutputTypeDef]
+    bedrockModelConfiguration: NotRequired[BedrockModelSpecificationTypeDef]
+
+class QnAIntentConfigurationTypeDef(TypedDict):
+    dataSourceConfiguration: NotRequired[DataSourceConfigurationTypeDef]
+    bedrockModelConfiguration: NotRequired[BedrockModelSpecificationTypeDef]
+
+class ListExportsResponseTypeDef(TypedDict):
+    botId: str
+    botVersion: str
+    exportSummaries: List[ExportSummaryTypeDef]
+    localeId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class CreateSlotTypeResponseTypeDef(TypedDict):
+    slotTypeId: str
+    slotTypeName: str
+    description: str
+    slotTypeValues: List[SlotTypeValueOutputTypeDef]
+    valueSelectionSetting: SlotValueSelectionSettingTypeDef
+    parentSlotTypeSignature: str
+    botId: str
+    botVersion: str
+    localeId: str
+    creationDateTime: datetime
+    externalSourceSetting: ExternalSourceSettingTypeDef
+    compositeSlotTypeSetting: CompositeSlotTypeSettingOutputTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeSlotTypeResponseTypeDef(TypedDict):
+    slotTypeId: str
+    slotTypeName: str
+    description: str
+    slotTypeValues: List[SlotTypeValueOutputTypeDef]
+    valueSelectionSetting: SlotValueSelectionSettingTypeDef
+    parentSlotTypeSignature: str
+    botId: str
+    botVersion: str
+    localeId: str
+    creationDateTime: datetime
+    lastUpdatedDateTime: datetime
+    externalSourceSetting: ExternalSourceSettingTypeDef
+    compositeSlotTypeSetting: CompositeSlotTypeSettingOutputTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateSlotTypeResponseTypeDef(TypedDict):
+    slotTypeId: str
+    slotTypeName: str
+    description: str
+    slotTypeValues: List[SlotTypeValueOutputTypeDef]
+    valueSelectionSetting: SlotValueSelectionSettingTypeDef
+    parentSlotTypeSignature: str
+    botId: str
+    botVersion: str
+    localeId: str
+    creationDateTime: datetime
+    lastUpdatedDateTime: datetime
+    externalSourceSetting: ExternalSourceSettingTypeDef
+    compositeSlotTypeSetting: CompositeSlotTypeSettingOutputTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class InputSessionStateSpecificationTypeDef(TypedDict):
+    sessionAttributes: NotRequired[Dict[str, str]]
+    activeContexts: NotRequired[List[ActiveContextTypeDef]]
+    runtimeHints: NotRequired[RuntimeHintsTypeDef]
+
+class CreateSlotTypeRequestTypeDef(TypedDict):
+    slotTypeName: str
+    botId: str
+    botVersion: str
+    localeId: str
+    description: NotRequired[str]
+    slotTypeValues: NotRequired[Sequence[SlotTypeValueUnionTypeDef]]
+    valueSelectionSetting: NotRequired[SlotValueSelectionSettingTypeDef]
+    parentSlotTypeSignature: NotRequired[str]
+    externalSourceSetting: NotRequired[ExternalSourceSettingTypeDef]
+    compositeSlotTypeSetting: NotRequired[CompositeSlotTypeSettingUnionTypeDef]
+
+class UpdateSlotTypeRequestTypeDef(TypedDict):
+    slotTypeId: str
+    slotTypeName: str
+    botId: str
+    botVersion: str
+    localeId: str
+    description: NotRequired[str]
+    slotTypeValues: NotRequired[Sequence[SlotTypeValueUnionTypeDef]]
+    valueSelectionSetting: NotRequired[SlotValueSelectionSettingTypeDef]
+    parentSlotTypeSignature: NotRequired[str]
+    externalSourceSetting: NotRequired[ExternalSourceSettingTypeDef]
+    compositeSlotTypeSetting: NotRequired[CompositeSlotTypeSettingUnionTypeDef]
+
+class IntentLevelSlotResolutionTestResultsTypeDef(TypedDict):
+    items: List[IntentLevelSlotResolutionTestResultItemTypeDef]
+
+class DialogStateOutputTypeDef(TypedDict):
+    dialogAction: NotRequired[DialogActionTypeDef]
+    intent: NotRequired[IntentOverrideOutputTypeDef]
+    sessionAttributes: NotRequired[Dict[str, str]]
+
+class DialogStateTypeDef(TypedDict):
+    dialogAction: NotRequired[DialogActionTypeDef]
+    intent: NotRequired[IntentOverrideTypeDef]
+    sessionAttributes: NotRequired[Mapping[str, str]]
+
+class DescribeImportResponseTypeDef(TypedDict):
+    importId: str
+    resourceSpecification: ImportResourceSpecificationOutputTypeDef
+    importedResourceId: str
+    importedResourceName: str
+    mergeStrategy: MergeStrategyType
+    importStatus: ImportStatusType
+    failureReasons: List[str]
+    creationDateTime: datetime
+    lastUpdatedDateTime: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartImportResponseTypeDef(TypedDict):
+    importId: str
+    resourceSpecification: ImportResourceSpecificationOutputTypeDef
+    mergeStrategy: MergeStrategyType
+    importStatus: ImportStatusType
+    creationDateTime: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+ImportResourceSpecificationUnionTypeDef = Union[
+    ImportResourceSpecificationTypeDef, ImportResourceSpecificationOutputTypeDef
+]
+
+class GenerativeAISettingsTypeDef(TypedDict):
+    runtimeSettings: NotRequired[RuntimeSettingsTypeDef]
+    buildtimeSettings: NotRequired[BuildtimeSettingsTypeDef]
+
+class FulfillmentStartResponseSpecificationOutputTypeDef(TypedDict):
+    delayInSeconds: int
+    messageGroups: List[MessageGroupOutputTypeDef]
+    allowInterrupt: NotRequired[bool]
+
+class FulfillmentUpdateResponseSpecificationOutputTypeDef(TypedDict):
+    frequencyInSeconds: int
+    messageGroups: List[MessageGroupOutputTypeDef]
+    allowInterrupt: NotRequired[bool]
+
+class PromptSpecificationOutputTypeDef(TypedDict):
+    messageGroups: List[MessageGroupOutputTypeDef]
+    maxRetries: int
+    allowInterrupt: NotRequired[bool]
+    messageSelectionStrategy: NotRequired[MessageSelectionStrategyType]
+    promptAttemptsSpecification: NotRequired[
+        Dict[PromptAttemptType, PromptAttemptSpecificationTypeDef]
+    ]
+
+class ResponseSpecificationOutputTypeDef(TypedDict):
+    messageGroups: List[MessageGroupOutputTypeDef]
+    allowInterrupt: NotRequired[bool]
+
+class StillWaitingResponseSpecificationOutputTypeDef(TypedDict):
+    messageGroups: List[MessageGroupOutputTypeDef]
+    frequencyInSeconds: int
+    timeoutInSeconds: int
+    allowInterrupt: NotRequired[bool]
+
+class ListUtteranceAnalyticsDataResponseTypeDef(TypedDict):
+    botId: str
+    utterances: List[UtteranceSpecificationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class FulfillmentStartResponseSpecificationTypeDef(TypedDict):
+    delayInSeconds: int
+    messageGroups: Sequence[MessageGroupTypeDef]
+    allowInterrupt: NotRequired[bool]
+
+class FulfillmentUpdateResponseSpecificationTypeDef(TypedDict):
+    frequencyInSeconds: int
+    messageGroups: Sequence[MessageGroupTypeDef]
+    allowInterrupt: NotRequired[bool]
+
+class PromptSpecificationTypeDef(TypedDict):
+    messageGroups: Sequence[MessageGroupTypeDef]
+    maxRetries: int
+    allowInterrupt: NotRequired[bool]
+    messageSelectionStrategy: NotRequired[MessageSelectionStrategyType]
+    promptAttemptsSpecification: NotRequired[
+        Mapping[PromptAttemptType, PromptAttemptSpecificationTypeDef]
+    ]
+
+class ResponseSpecificationTypeDef(TypedDict):
+    messageGroups: Sequence[MessageGroupTypeDef]
+    allowInterrupt: NotRequired[bool]
+
+class StillWaitingResponseSpecificationTypeDef(TypedDict):
+    messageGroups: Sequence[MessageGroupTypeDef]
+    frequencyInSeconds: int
+    timeoutInSeconds: int
+    allowInterrupt: NotRequired[bool]
+
+class CreateBotAliasResponseTypeDef(TypedDict):
+    botAliasId: str
+    botAliasName: str
+    description: str
+    botVersion: str
+    botAliasLocaleSettings: Dict[str, BotAliasLocaleSettingsTypeDef]
+    conversationLogSettings: ConversationLogSettingsOutputTypeDef
+    sentimentAnalysisSettings: SentimentAnalysisSettingsTypeDef
+    botAliasStatus: BotAliasStatusType
+    botId: str
+    creationDateTime: datetime
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeBotAliasResponseTypeDef(TypedDict):
+    botAliasId: str
+    botAliasName: str
+    description: str
+    botVersion: str
+    botAliasLocaleSettings: Dict[str, BotAliasLocaleSettingsTypeDef]
+    conversationLogSettings: ConversationLogSettingsOutputTypeDef
+    sentimentAnalysisSettings: SentimentAnalysisSettingsTypeDef
+    botAliasHistoryEvents: List[BotAliasHistoryEventTypeDef]
+    botAliasStatus: BotAliasStatusType
+    botId: str
+    creationDateTime: datetime
+    lastUpdatedDateTime: datetime
+    parentBotNetworks: List[ParentBotNetworkTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateBotAliasResponseTypeDef(TypedDict):
+    botAliasId: str
+    botAliasName: str
+    description: str
+    botVersion: str
+    botAliasLocaleSettings: Dict[str, BotAliasLocaleSettingsTypeDef]
+    conversationLogSettings: ConversationLogSettingsOutputTypeDef
+    sentimentAnalysisSettings: SentimentAnalysisSettingsTypeDef
+    botAliasStatus: BotAliasStatusType
+    botId: str
+    creationDateTime: datetime
+    lastUpdatedDateTime: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+ConversationLogSettingsUnionTypeDef = Union[
+    ConversationLogSettingsTypeDef, ConversationLogSettingsOutputTypeDef
+]
+TestSetGenerationDataSourceUnionTypeDef = Union[
+    TestSetGenerationDataSourceTypeDef, TestSetGenerationDataSourceOutputTypeDef
+]
+
+class S3BucketTranscriptSourceTypeDef(TypedDict):
+    s3BucketName: str
+    transcriptFormat: Literal["Lex"]
+    pathFormat: NotRequired[PathFormatTypeDef]
+    transcriptFilter: NotRequired[TranscriptFilterTypeDef]
+    kmsKeyArn: NotRequired[str]
+
+class TranscriptSourceSettingOutputTypeDef(TypedDict):
+    s3BucketTranscriptSource: NotRequired[S3BucketTranscriptSourceOutputTypeDef]
+
+QnAIntentConfigurationUnionTypeDef = Union[
+    QnAIntentConfigurationTypeDef, QnAIntentConfigurationOutputTypeDef
+]
+
+class UserTurnInputSpecificationTypeDef(TypedDict):
+    utteranceInput: UtteranceInputSpecificationTypeDef
+    requestAttributes: NotRequired[Dict[str, str]]
+    sessionState: NotRequired[InputSessionStateSpecificationTypeDef]
+
+class StartImportRequestTypeDef(TypedDict):
+    importId: str
+    resourceSpecification: ImportResourceSpecificationUnionTypeDef
+    mergeStrategy: MergeStrategyType
+    filePassword: NotRequired[str]
+
+class CreateBotLocaleRequestTypeDef(TypedDict):
+    botId: str
+    botVersion: str
+    localeId: str
+    nluIntentConfidenceThreshold: float
+    description: NotRequired[str]
+    voiceSettings: NotRequired[VoiceSettingsTypeDef]
+    generativeAISettings: NotRequired[GenerativeAISettingsTypeDef]
+
+class CreateBotLocaleResponseTypeDef(TypedDict):
+    botId: str
+    botVersion: str
+    localeName: str
+    localeId: str
+    description: str
+    nluIntentConfidenceThreshold: float
+    voiceSettings: VoiceSettingsTypeDef
+    botLocaleStatus: BotLocaleStatusType
+    creationDateTime: datetime
+    generativeAISettings: GenerativeAISettingsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeBotLocaleResponseTypeDef(TypedDict):
+    botId: str
+    botVersion: str
+    localeId: str
+    localeName: str
+    description: str
+    nluIntentConfidenceThreshold: float
+    voiceSettings: VoiceSettingsTypeDef
+    intentsCount: int
+    slotTypesCount: int
+    botLocaleStatus: BotLocaleStatusType
+    failureReasons: List[str]
+    creationDateTime: datetime
+    lastUpdatedDateTime: datetime
+    lastBuildSubmittedDateTime: datetime
+    botLocaleHistoryEvents: List[BotLocaleHistoryEventTypeDef]
+    recommendedActions: List[str]
+    generativeAISettings: GenerativeAISettingsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateBotLocaleRequestTypeDef(TypedDict):
+    botId: str
+    botVersion: str
+    localeId: str
+    nluIntentConfidenceThreshold: float
+    description: NotRequired[str]
+    voiceSettings: NotRequired[VoiceSettingsTypeDef]
+    generativeAISettings: NotRequired[GenerativeAISettingsTypeDef]
+
+class UpdateBotLocaleResponseTypeDef(TypedDict):
+    botId: str
+    botVersion: str
+    localeId: str
+    localeName: str
+    description: str
+    nluIntentConfidenceThreshold: float
+    voiceSettings: VoiceSettingsTypeDef
+    botLocaleStatus: BotLocaleStatusType
+    failureReasons: List[str]
+    creationDateTime: datetime
+    lastUpdatedDateTime: datetime
+    recommendedActions: List[str]
+    generativeAISettings: GenerativeAISettingsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class FulfillmentUpdatesSpecificationOutputTypeDef(TypedDict):
+    active: bool
+    startResponse: NotRequired[FulfillmentStartResponseSpecificationOutputTypeDef]
+    updateResponse: NotRequired[FulfillmentUpdateResponseSpecificationOutputTypeDef]
+    timeoutInSeconds: NotRequired[int]
+
+class SlotSummaryTypeDef(TypedDict):
+    slotId: NotRequired[str]
+    slotName: NotRequired[str]
+    description: NotRequired[str]
+    slotConstraint: NotRequired[SlotConstraintType]
+    slotTypeId: NotRequired[str]
+    valueElicitationPromptSpecification: NotRequired[PromptSpecificationOutputTypeDef]
+    lastUpdatedDateTime: NotRequired[datetime]
+
+class ConditionalBranchOutputTypeDef(TypedDict):
+    name: str
+    condition: ConditionTypeDef
+    nextStep: DialogStateOutputTypeDef
+    response: NotRequired[ResponseSpecificationOutputTypeDef]
+
+class DefaultConditionalBranchOutputTypeDef(TypedDict):
+    nextStep: NotRequired[DialogStateOutputTypeDef]
+    response: NotRequired[ResponseSpecificationOutputTypeDef]
+
+class WaitAndContinueSpecificationOutputTypeDef(TypedDict):
+    waitingResponse: ResponseSpecificationOutputTypeDef
+    continueResponse: ResponseSpecificationOutputTypeDef
+    stillWaitingResponse: NotRequired[StillWaitingResponseSpecificationOutputTypeDef]
+    active: NotRequired[bool]
+
+class FulfillmentUpdatesSpecificationTypeDef(TypedDict):
+    active: bool
+    startResponse: NotRequired[FulfillmentStartResponseSpecificationTypeDef]
+    updateResponse: NotRequired[FulfillmentUpdateResponseSpecificationTypeDef]
+    timeoutInSeconds: NotRequired[int]
+
+class ConditionalBranchTypeDef(TypedDict):
+    name: str
+    condition: ConditionTypeDef
+    nextStep: DialogStateTypeDef
+    response: NotRequired[ResponseSpecificationTypeDef]
+
+class DefaultConditionalBranchTypeDef(TypedDict):
+    nextStep: NotRequired[DialogStateTypeDef]
+    response: NotRequired[ResponseSpecificationTypeDef]
+
+class WaitAndContinueSpecificationTypeDef(TypedDict):
+    waitingResponse: ResponseSpecificationTypeDef
+    continueResponse: ResponseSpecificationTypeDef
+    stillWaitingResponse: NotRequired[StillWaitingResponseSpecificationTypeDef]
+    active: NotRequired[bool]
+
+class CreateBotAliasRequestTypeDef(TypedDict):
+    botAliasName: str
+    botId: str
+    description: NotRequired[str]
+    botVersion: NotRequired[str]
+    botAliasLocaleSettings: NotRequired[Mapping[str, BotAliasLocaleSettingsTypeDef]]
+    conversationLogSettings: NotRequired[ConversationLogSettingsUnionTypeDef]
+    sentimentAnalysisSettings: NotRequired[SentimentAnalysisSettingsTypeDef]
+    tags: NotRequired[Mapping[str, str]]
+
+class UpdateBotAliasRequestTypeDef(TypedDict):
+    botAliasId: str
+    botAliasName: str
+    botId: str
+    description: NotRequired[str]
+    botVersion: NotRequired[str]
+    botAliasLocaleSettings: NotRequired[Mapping[str, BotAliasLocaleSettingsTypeDef]]
+    conversationLogSettings: NotRequired[ConversationLogSettingsUnionTypeDef]
+    sentimentAnalysisSettings: NotRequired[SentimentAnalysisSettingsTypeDef]
+
+class StartTestSetGenerationRequestTypeDef(TypedDict):
+    testSetName: str
+    storageLocation: TestSetStorageLocationTypeDef
+    generationDataSource: TestSetGenerationDataSourceUnionTypeDef
+    roleArn: str
+    description: NotRequired[str]
+    testSetTags: NotRequired[Mapping[str, str]]
+
+class TranscriptSourceSettingTypeDef(TypedDict):
+    s3BucketTranscriptSource: NotRequired[S3BucketTranscriptSourceTypeDef]
+
+class DescribeBotRecommendationResponseTypeDef(TypedDict):
+    botId: str
+    botVersion: str
+    localeId: str
+    botRecommendationStatus: BotRecommendationStatusType
+    botRecommendationId: str
+    failureReasons: List[str]
+    creationDateTime: datetime
+    lastUpdatedDateTime: datetime
+    transcriptSourceSetting: TranscriptSourceSettingOutputTypeDef
+    encryptionSetting: EncryptionSettingTypeDef
+    botRecommendationResults: BotRecommendationResultsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartBotRecommendationResponseTypeDef(TypedDict):
+    botId: str
+    botVersion: str
+    localeId: str
+    botRecommendationStatus: BotRecommendationStatusType
+    botRecommendationId: str
+    creationDateTime: datetime
+    transcriptSourceSetting: TranscriptSourceSettingOutputTypeDef
+    encryptionSetting: EncryptionSettingTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateBotRecommendationResponseTypeDef(TypedDict):
+    botId: str
+    botVersion: str
+    localeId: str
+    botRecommendationStatus: BotRecommendationStatusType
+    botRecommendationId: str
+    creationDateTime: datetime
+    lastUpdatedDateTime: datetime
+    transcriptSourceSetting: TranscriptSourceSettingOutputTypeDef
+    encryptionSetting: EncryptionSettingTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+UserTurnResultTypeDef = TypedDict(
+    "UserTurnResultTypeDef",
+    {
+        "input": UserTurnInputSpecificationTypeDef,
+        "expectedOutput": UserTurnOutputSpecificationTypeDef,
+        "actualOutput": NotRequired[UserTurnOutputSpecificationTypeDef],
+        "errorDetails": NotRequired[ExecutionErrorDetailsTypeDef],
+        "endToEndResult": NotRequired[TestResultMatchStatusType],
+        "intentMatchResult": NotRequired[TestResultMatchStatusType],
+        "slotMatchResult": NotRequired[TestResultMatchStatusType],
+        "speechTranscriptionResult": NotRequired[TestResultMatchStatusType],
+        "conversationLevelResult": NotRequired[ConversationLevelResultDetailTypeDef],
     },
 )
-
-_RequiredCreateBotAliasRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateBotAliasRequestRequestTypeDef",
-    {
-        "botAliasName": str,
-        "botId": str,
-    },
-)
-_OptionalCreateBotAliasRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateBotAliasRequestRequestTypeDef",
-    {
-        "description": str,
-        "botVersion": str,
-        "botAliasLocaleSettings": Dict[str, "BotAliasLocaleSettingsTypeDef"],
-        "conversationLogSettings": "ConversationLogSettingsTypeDef",
-        "sentimentAnalysisSettings": "SentimentAnalysisSettingsTypeDef",
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class CreateBotAliasRequestRequestTypeDef(
-    _RequiredCreateBotAliasRequestRequestTypeDef, _OptionalCreateBotAliasRequestRequestTypeDef
-):
-    pass
-
-CreateBotAliasResponseTypeDef = TypedDict(
-    "CreateBotAliasResponseTypeDef",
-    {
-        "botAliasId": str,
-        "botAliasName": str,
-        "description": str,
-        "botVersion": str,
-        "botAliasLocaleSettings": Dict[str, "BotAliasLocaleSettingsTypeDef"],
-        "conversationLogSettings": "ConversationLogSettingsTypeDef",
-        "sentimentAnalysisSettings": "SentimentAnalysisSettingsTypeDef",
-        "botAliasStatus": BotAliasStatusType,
-        "botId": str,
-        "creationDateTime": datetime,
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateBotLocaleRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateBotLocaleRequestRequestTypeDef",
-    {
-        "botId": str,
-        "botVersion": str,
-        "localeId": str,
-        "nluIntentConfidenceThreshold": float,
-    },
-)
-_OptionalCreateBotLocaleRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateBotLocaleRequestRequestTypeDef",
-    {
-        "description": str,
-        "voiceSettings": "VoiceSettingsTypeDef",
-        "generativeAISettings": "GenerativeAISettingsTypeDef",
-    },
-    total=False,
-)
-
-class CreateBotLocaleRequestRequestTypeDef(
-    _RequiredCreateBotLocaleRequestRequestTypeDef, _OptionalCreateBotLocaleRequestRequestTypeDef
-):
-    pass
-
-CreateBotLocaleResponseTypeDef = TypedDict(
-    "CreateBotLocaleResponseTypeDef",
-    {
-        "botId": str,
-        "botVersion": str,
-        "localeName": str,
-        "localeId": str,
-        "description": str,
-        "nluIntentConfidenceThreshold": float,
-        "voiceSettings": "VoiceSettingsTypeDef",
-        "botLocaleStatus": BotLocaleStatusType,
-        "creationDateTime": datetime,
-        "generativeAISettings": "GenerativeAISettingsTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateBotReplicaRequestRequestTypeDef = TypedDict(
-    "CreateBotReplicaRequestRequestTypeDef",
-    {
-        "botId": str,
-        "replicaRegion": str,
-    },
-)
-
-CreateBotReplicaResponseTypeDef = TypedDict(
-    "CreateBotReplicaResponseTypeDef",
-    {
-        "botId": str,
-        "replicaRegion": str,
-        "sourceRegion": str,
-        "creationDateTime": datetime,
-        "botReplicaStatus": BotReplicaStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateBotRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateBotRequestRequestTypeDef",
-    {
-        "botName": str,
-        "roleArn": str,
-        "dataPrivacy": "DataPrivacyTypeDef",
-        "idleSessionTTLInSeconds": int,
-    },
-)
-_OptionalCreateBotRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateBotRequestRequestTypeDef",
-    {
-        "description": str,
-        "botTags": Dict[str, str],
-        "testBotAliasTags": Dict[str, str],
-        "botType": BotTypeType,
-        "botMembers": List["BotMemberTypeDef"],
-    },
-    total=False,
-)
-
-class CreateBotRequestRequestTypeDef(
-    _RequiredCreateBotRequestRequestTypeDef, _OptionalCreateBotRequestRequestTypeDef
-):
-    pass
-
-CreateBotResponseTypeDef = TypedDict(
-    "CreateBotResponseTypeDef",
-    {
-        "botId": str,
-        "botName": str,
-        "description": str,
-        "roleArn": str,
-        "dataPrivacy": "DataPrivacyTypeDef",
-        "idleSessionTTLInSeconds": int,
-        "botStatus": BotStatusType,
-        "creationDateTime": datetime,
-        "botTags": Dict[str, str],
-        "testBotAliasTags": Dict[str, str],
-        "botType": BotTypeType,
-        "botMembers": List["BotMemberTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateBotVersionRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateBotVersionRequestRequestTypeDef",
-    {
-        "botId": str,
-        "botVersionLocaleSpecification": Dict[str, "BotVersionLocaleDetailsTypeDef"],
-    },
-)
-_OptionalCreateBotVersionRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateBotVersionRequestRequestTypeDef",
-    {
-        "description": str,
-    },
-    total=False,
-)
-
-class CreateBotVersionRequestRequestTypeDef(
-    _RequiredCreateBotVersionRequestRequestTypeDef, _OptionalCreateBotVersionRequestRequestTypeDef
-):
-    pass
-
-CreateBotVersionResponseTypeDef = TypedDict(
-    "CreateBotVersionResponseTypeDef",
-    {
-        "botId": str,
-        "description": str,
-        "botVersion": str,
-        "botVersionLocaleSpecification": Dict[str, "BotVersionLocaleDetailsTypeDef"],
-        "botStatus": BotStatusType,
-        "creationDateTime": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateExportRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateExportRequestRequestTypeDef",
-    {
-        "resourceSpecification": "ExportResourceSpecificationTypeDef",
-        "fileFormat": ImportExportFileFormatType,
-    },
-)
-_OptionalCreateExportRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateExportRequestRequestTypeDef",
-    {
-        "filePassword": str,
-    },
-    total=False,
-)
-
-class CreateExportRequestRequestTypeDef(
-    _RequiredCreateExportRequestRequestTypeDef, _OptionalCreateExportRequestRequestTypeDef
-):
-    pass
-
-CreateExportResponseTypeDef = TypedDict(
-    "CreateExportResponseTypeDef",
-    {
-        "exportId": str,
-        "resourceSpecification": "ExportResourceSpecificationTypeDef",
-        "fileFormat": ImportExportFileFormatType,
-        "exportStatus": ExportStatusType,
-        "creationDateTime": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateIntentRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateIntentRequestRequestTypeDef",
-    {
-        "intentName": str,
-        "botId": str,
-        "botVersion": str,
-        "localeId": str,
-    },
-)
-_OptionalCreateIntentRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateIntentRequestRequestTypeDef",
-    {
-        "description": str,
-        "parentIntentSignature": str,
-        "sampleUtterances": List["SampleUtteranceTypeDef"],
-        "dialogCodeHook": "DialogCodeHookSettingsTypeDef",
-        "fulfillmentCodeHook": "FulfillmentCodeHookSettingsTypeDef",
-        "intentConfirmationSetting": "IntentConfirmationSettingTypeDef",
-        "intentClosingSetting": "IntentClosingSettingTypeDef",
-        "inputContexts": List["InputContextTypeDef"],
-        "outputContexts": List["OutputContextTypeDef"],
-        "kendraConfiguration": "KendraConfigurationTypeDef",
-        "initialResponseSetting": "InitialResponseSettingTypeDef",
-        "qnAIntentConfiguration": "QnAIntentConfigurationTypeDef",
-    },
-    total=False,
-)
-
-class CreateIntentRequestRequestTypeDef(
-    _RequiredCreateIntentRequestRequestTypeDef, _OptionalCreateIntentRequestRequestTypeDef
-):
-    pass
-
-CreateIntentResponseTypeDef = TypedDict(
-    "CreateIntentResponseTypeDef",
-    {
-        "intentId": str,
-        "intentName": str,
-        "description": str,
-        "parentIntentSignature": str,
-        "sampleUtterances": List["SampleUtteranceTypeDef"],
-        "dialogCodeHook": "DialogCodeHookSettingsTypeDef",
-        "fulfillmentCodeHook": "FulfillmentCodeHookSettingsTypeDef",
-        "intentConfirmationSetting": "IntentConfirmationSettingTypeDef",
-        "intentClosingSetting": "IntentClosingSettingTypeDef",
-        "inputContexts": List["InputContextTypeDef"],
-        "outputContexts": List["OutputContextTypeDef"],
-        "kendraConfiguration": "KendraConfigurationTypeDef",
-        "botId": str,
-        "botVersion": str,
-        "localeId": str,
-        "creationDateTime": datetime,
-        "initialResponseSetting": "InitialResponseSettingTypeDef",
-        "qnAIntentConfiguration": "QnAIntentConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateResourcePolicyRequestRequestTypeDef = TypedDict(
-    "CreateResourcePolicyRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "policy": str,
-    },
-)
-
-CreateResourcePolicyResponseTypeDef = TypedDict(
-    "CreateResourcePolicyResponseTypeDef",
-    {
-        "resourceArn": str,
-        "revisionId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateResourcePolicyStatementRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateResourcePolicyStatementRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "statementId": str,
-        "effect": EffectType,
-        "principal": List["PrincipalTypeDef"],
-        "action": List[str],
-    },
-)
-_OptionalCreateResourcePolicyStatementRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateResourcePolicyStatementRequestRequestTypeDef",
-    {
-        "condition": Dict[str, Dict[str, str]],
-        "expectedRevisionId": str,
-    },
-    total=False,
-)
-
-class CreateResourcePolicyStatementRequestRequestTypeDef(
-    _RequiredCreateResourcePolicyStatementRequestRequestTypeDef,
-    _OptionalCreateResourcePolicyStatementRequestRequestTypeDef,
-):
-    pass
-
-CreateResourcePolicyStatementResponseTypeDef = TypedDict(
-    "CreateResourcePolicyStatementResponseTypeDef",
-    {
-        "resourceArn": str,
-        "revisionId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateSlotRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateSlotRequestRequestTypeDef",
-    {
-        "slotName": str,
-        "valueElicitationSetting": "SlotValueElicitationSettingTypeDef",
-        "botId": str,
-        "botVersion": str,
-        "localeId": str,
-        "intentId": str,
-    },
-)
-_OptionalCreateSlotRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateSlotRequestRequestTypeDef",
-    {
-        "description": str,
-        "slotTypeId": str,
-        "obfuscationSetting": "ObfuscationSettingTypeDef",
-        "multipleValuesSetting": "MultipleValuesSettingTypeDef",
-        "subSlotSetting": "SubSlotSettingTypeDef",
-    },
-    total=False,
-)
-
-class CreateSlotRequestRequestTypeDef(
-    _RequiredCreateSlotRequestRequestTypeDef, _OptionalCreateSlotRequestRequestTypeDef
-):
-    pass
-
-CreateSlotResponseTypeDef = TypedDict(
-    "CreateSlotResponseTypeDef",
-    {
-        "slotId": str,
-        "slotName": str,
-        "description": str,
-        "slotTypeId": str,
-        "valueElicitationSetting": "SlotValueElicitationSettingTypeDef",
-        "obfuscationSetting": "ObfuscationSettingTypeDef",
-        "botId": str,
-        "botVersion": str,
-        "localeId": str,
-        "intentId": str,
-        "creationDateTime": datetime,
-        "multipleValuesSetting": "MultipleValuesSettingTypeDef",
-        "subSlotSetting": "SubSlotSettingTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateSlotTypeRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateSlotTypeRequestRequestTypeDef",
-    {
-        "slotTypeName": str,
-        "botId": str,
-        "botVersion": str,
-        "localeId": str,
-    },
-)
-_OptionalCreateSlotTypeRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateSlotTypeRequestRequestTypeDef",
-    {
-        "description": str,
-        "slotTypeValues": List["SlotTypeValueTypeDef"],
-        "valueSelectionSetting": "SlotValueSelectionSettingTypeDef",
-        "parentSlotTypeSignature": str,
-        "externalSourceSetting": "ExternalSourceSettingTypeDef",
-        "compositeSlotTypeSetting": "CompositeSlotTypeSettingTypeDef",
-    },
-    total=False,
-)
-
-class CreateSlotTypeRequestRequestTypeDef(
-    _RequiredCreateSlotTypeRequestRequestTypeDef, _OptionalCreateSlotTypeRequestRequestTypeDef
-):
-    pass
-
-CreateSlotTypeResponseTypeDef = TypedDict(
-    "CreateSlotTypeResponseTypeDef",
-    {
-        "slotTypeId": str,
-        "slotTypeName": str,
-        "description": str,
-        "slotTypeValues": List["SlotTypeValueTypeDef"],
-        "valueSelectionSetting": "SlotValueSelectionSettingTypeDef",
-        "parentSlotTypeSignature": str,
-        "botId": str,
-        "botVersion": str,
-        "localeId": str,
-        "creationDateTime": datetime,
-        "externalSourceSetting": "ExternalSourceSettingTypeDef",
-        "compositeSlotTypeSetting": "CompositeSlotTypeSettingTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateTestSetDiscrepancyReportRequestRequestTypeDef = TypedDict(
-    "CreateTestSetDiscrepancyReportRequestRequestTypeDef",
-    {
-        "testSetId": str,
-        "target": "TestSetDiscrepancyReportResourceTargetTypeDef",
-    },
-)
-
-CreateTestSetDiscrepancyReportResponseTypeDef = TypedDict(
-    "CreateTestSetDiscrepancyReportResponseTypeDef",
-    {
-        "testSetDiscrepancyReportId": str,
-        "creationDateTime": datetime,
-        "testSetId": str,
-        "target": "TestSetDiscrepancyReportResourceTargetTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateUploadUrlResponseTypeDef = TypedDict(
-    "CreateUploadUrlResponseTypeDef",
-    {
-        "importId": str,
-        "uploadUrl": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CustomPayloadTypeDef = TypedDict(
-    "CustomPayloadTypeDef",
-    {
-        "value": str,
-    },
-)
-
-CustomVocabularyEntryIdTypeDef = TypedDict(
-    "CustomVocabularyEntryIdTypeDef",
-    {
-        "itemId": str,
-    },
-)
-
-CustomVocabularyExportSpecificationTypeDef = TypedDict(
-    "CustomVocabularyExportSpecificationTypeDef",
-    {
-        "botId": str,
-        "botVersion": str,
-        "localeId": str,
-    },
-)
-
-CustomVocabularyImportSpecificationTypeDef = TypedDict(
-    "CustomVocabularyImportSpecificationTypeDef",
-    {
-        "botId": str,
-        "botVersion": str,
-        "localeId": str,
-    },
-)
-
-_RequiredCustomVocabularyItemTypeDef = TypedDict(
-    "_RequiredCustomVocabularyItemTypeDef",
-    {
-        "itemId": str,
-        "phrase": str,
-    },
-)
-_OptionalCustomVocabularyItemTypeDef = TypedDict(
-    "_OptionalCustomVocabularyItemTypeDef",
-    {
-        "weight": int,
-        "displayAs": str,
-    },
-    total=False,
-)
-
-class CustomVocabularyItemTypeDef(
-    _RequiredCustomVocabularyItemTypeDef, _OptionalCustomVocabularyItemTypeDef
-):
-    pass
-
-DTMFSpecificationTypeDef = TypedDict(
-    "DTMFSpecificationTypeDef",
-    {
-        "maxLength": int,
-        "endTimeoutMs": int,
-        "deletionCharacter": str,
-        "endCharacter": str,
-    },
-)
-
-DataPrivacyTypeDef = TypedDict(
-    "DataPrivacyTypeDef",
-    {
-        "childDirected": bool,
-    },
-)
-
-DataSourceConfigurationTypeDef = TypedDict(
-    "DataSourceConfigurationTypeDef",
-    {
-        "opensearchConfiguration": "OpensearchConfigurationTypeDef",
-        "kendraConfiguration": "QnAKendraConfigurationTypeDef",
-        "bedrockKnowledgeStoreConfiguration": "BedrockKnowledgeStoreConfigurationTypeDef",
-    },
-    total=False,
-)
-
-DateRangeFilterTypeDef = TypedDict(
-    "DateRangeFilterTypeDef",
-    {
-        "startDateTime": datetime,
-        "endDateTime": datetime,
-    },
-)
-
-DefaultConditionalBranchTypeDef = TypedDict(
-    "DefaultConditionalBranchTypeDef",
-    {
-        "nextStep": "DialogStateTypeDef",
-        "response": "ResponseSpecificationTypeDef",
-    },
-    total=False,
-)
-
-_RequiredDeleteBotAliasRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteBotAliasRequestRequestTypeDef",
-    {
-        "botAliasId": str,
-        "botId": str,
-    },
-)
-_OptionalDeleteBotAliasRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteBotAliasRequestRequestTypeDef",
-    {
-        "skipResourceInUseCheck": bool,
-    },
-    total=False,
-)
-
-class DeleteBotAliasRequestRequestTypeDef(
-    _RequiredDeleteBotAliasRequestRequestTypeDef, _OptionalDeleteBotAliasRequestRequestTypeDef
-):
-    pass
-
-DeleteBotAliasResponseTypeDef = TypedDict(
-    "DeleteBotAliasResponseTypeDef",
-    {
-        "botAliasId": str,
-        "botId": str,
-        "botAliasStatus": BotAliasStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteBotLocaleRequestRequestTypeDef = TypedDict(
-    "DeleteBotLocaleRequestRequestTypeDef",
-    {
-        "botId": str,
-        "botVersion": str,
-        "localeId": str,
-    },
-)
-
-DeleteBotLocaleResponseTypeDef = TypedDict(
-    "DeleteBotLocaleResponseTypeDef",
-    {
-        "botId": str,
-        "botVersion": str,
-        "localeId": str,
-        "botLocaleStatus": BotLocaleStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteBotReplicaRequestRequestTypeDef = TypedDict(
-    "DeleteBotReplicaRequestRequestTypeDef",
-    {
-        "botId": str,
-        "replicaRegion": str,
-    },
-)
-
-DeleteBotReplicaResponseTypeDef = TypedDict(
-    "DeleteBotReplicaResponseTypeDef",
-    {
-        "botId": str,
-        "replicaRegion": str,
-        "botReplicaStatus": BotReplicaStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDeleteBotRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteBotRequestRequestTypeDef",
-    {
-        "botId": str,
-    },
-)
-_OptionalDeleteBotRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteBotRequestRequestTypeDef",
-    {
-        "skipResourceInUseCheck": bool,
-    },
-    total=False,
-)
-
-class DeleteBotRequestRequestTypeDef(
-    _RequiredDeleteBotRequestRequestTypeDef, _OptionalDeleteBotRequestRequestTypeDef
-):
-    pass
-
-DeleteBotResponseTypeDef = TypedDict(
-    "DeleteBotResponseTypeDef",
-    {
-        "botId": str,
-        "botStatus": BotStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDeleteBotVersionRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteBotVersionRequestRequestTypeDef",
-    {
-        "botId": str,
-        "botVersion": str,
-    },
-)
-_OptionalDeleteBotVersionRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteBotVersionRequestRequestTypeDef",
-    {
-        "skipResourceInUseCheck": bool,
-    },
-    total=False,
-)
-
-class DeleteBotVersionRequestRequestTypeDef(
-    _RequiredDeleteBotVersionRequestRequestTypeDef, _OptionalDeleteBotVersionRequestRequestTypeDef
-):
-    pass
-
-DeleteBotVersionResponseTypeDef = TypedDict(
-    "DeleteBotVersionResponseTypeDef",
-    {
-        "botId": str,
-        "botVersion": str,
-        "botStatus": BotStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteCustomVocabularyRequestRequestTypeDef = TypedDict(
-    "DeleteCustomVocabularyRequestRequestTypeDef",
-    {
-        "botId": str,
-        "botVersion": str,
-        "localeId": str,
-    },
-)
-
-DeleteCustomVocabularyResponseTypeDef = TypedDict(
-    "DeleteCustomVocabularyResponseTypeDef",
-    {
-        "botId": str,
-        "botVersion": str,
-        "localeId": str,
-        "customVocabularyStatus": CustomVocabularyStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteExportRequestRequestTypeDef = TypedDict(
-    "DeleteExportRequestRequestTypeDef",
-    {
-        "exportId": str,
-    },
-)
-
-DeleteExportResponseTypeDef = TypedDict(
-    "DeleteExportResponseTypeDef",
-    {
-        "exportId": str,
-        "exportStatus": ExportStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteImportRequestRequestTypeDef = TypedDict(
-    "DeleteImportRequestRequestTypeDef",
-    {
-        "importId": str,
-    },
-)
-
-DeleteImportResponseTypeDef = TypedDict(
-    "DeleteImportResponseTypeDef",
-    {
-        "importId": str,
-        "importStatus": ImportStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteIntentRequestRequestTypeDef = TypedDict(
-    "DeleteIntentRequestRequestTypeDef",
-    {
-        "intentId": str,
-        "botId": str,
-        "botVersion": str,
-        "localeId": str,
-    },
-)
-
-_RequiredDeleteResourcePolicyRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteResourcePolicyRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-    },
-)
-_OptionalDeleteResourcePolicyRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteResourcePolicyRequestRequestTypeDef",
-    {
-        "expectedRevisionId": str,
-    },
-    total=False,
-)
-
-class DeleteResourcePolicyRequestRequestTypeDef(
-    _RequiredDeleteResourcePolicyRequestRequestTypeDef,
-    _OptionalDeleteResourcePolicyRequestRequestTypeDef,
-):
-    pass
-
-DeleteResourcePolicyResponseTypeDef = TypedDict(
-    "DeleteResourcePolicyResponseTypeDef",
-    {
-        "resourceArn": str,
-        "revisionId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDeleteResourcePolicyStatementRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteResourcePolicyStatementRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "statementId": str,
-    },
-)
-_OptionalDeleteResourcePolicyStatementRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteResourcePolicyStatementRequestRequestTypeDef",
-    {
-        "expectedRevisionId": str,
-    },
-    total=False,
-)
-
-class DeleteResourcePolicyStatementRequestRequestTypeDef(
-    _RequiredDeleteResourcePolicyStatementRequestRequestTypeDef,
-    _OptionalDeleteResourcePolicyStatementRequestRequestTypeDef,
-):
-    pass
-
-DeleteResourcePolicyStatementResponseTypeDef = TypedDict(
-    "DeleteResourcePolicyStatementResponseTypeDef",
-    {
-        "resourceArn": str,
-        "revisionId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteSlotRequestRequestTypeDef = TypedDict(
-    "DeleteSlotRequestRequestTypeDef",
-    {
-        "slotId": str,
-        "botId": str,
-        "botVersion": str,
-        "localeId": str,
-        "intentId": str,
-    },
-)
-
-_RequiredDeleteSlotTypeRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteSlotTypeRequestRequestTypeDef",
-    {
-        "slotTypeId": str,
-        "botId": str,
-        "botVersion": str,
-        "localeId": str,
-    },
-)
-_OptionalDeleteSlotTypeRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteSlotTypeRequestRequestTypeDef",
-    {
-        "skipResourceInUseCheck": bool,
-    },
-    total=False,
-)
-
-class DeleteSlotTypeRequestRequestTypeDef(
-    _RequiredDeleteSlotTypeRequestRequestTypeDef, _OptionalDeleteSlotTypeRequestRequestTypeDef
-):
-    pass
-
-DeleteTestSetRequestRequestTypeDef = TypedDict(
-    "DeleteTestSetRequestRequestTypeDef",
-    {
-        "testSetId": str,
-    },
-)
-
-_RequiredDeleteUtterancesRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteUtterancesRequestRequestTypeDef",
-    {
-        "botId": str,
-    },
-)
-_OptionalDeleteUtterancesRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteUtterancesRequestRequestTypeDef",
-    {
-        "localeId": str,
-        "sessionId": str,
-    },
-    total=False,
-)
-
-class DeleteUtterancesRequestRequestTypeDef(
-    _RequiredDeleteUtterancesRequestRequestTypeDef, _OptionalDeleteUtterancesRequestRequestTypeDef
-):
-    pass
-
-DescribeBotAliasRequestRequestTypeDef = TypedDict(
-    "DescribeBotAliasRequestRequestTypeDef",
-    {
-        "botAliasId": str,
-        "botId": str,
-    },
-)
-
-DescribeBotAliasResponseTypeDef = TypedDict(
-    "DescribeBotAliasResponseTypeDef",
-    {
-        "botAliasId": str,
-        "botAliasName": str,
-        "description": str,
-        "botVersion": str,
-        "botAliasLocaleSettings": Dict[str, "BotAliasLocaleSettingsTypeDef"],
-        "conversationLogSettings": "ConversationLogSettingsTypeDef",
-        "sentimentAnalysisSettings": "SentimentAnalysisSettingsTypeDef",
-        "botAliasHistoryEvents": List["BotAliasHistoryEventTypeDef"],
-        "botAliasStatus": BotAliasStatusType,
-        "botId": str,
-        "creationDateTime": datetime,
-        "lastUpdatedDateTime": datetime,
-        "parentBotNetworks": List["ParentBotNetworkTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeBotLocaleRequestRequestTypeDef = TypedDict(
-    "DescribeBotLocaleRequestRequestTypeDef",
-    {
-        "botId": str,
-        "botVersion": str,
-        "localeId": str,
-    },
-)
-
-DescribeBotLocaleResponseTypeDef = TypedDict(
-    "DescribeBotLocaleResponseTypeDef",
-    {
-        "botId": str,
-        "botVersion": str,
-        "localeId": str,
-        "localeName": str,
-        "description": str,
-        "nluIntentConfidenceThreshold": float,
-        "voiceSettings": "VoiceSettingsTypeDef",
-        "intentsCount": int,
-        "slotTypesCount": int,
-        "botLocaleStatus": BotLocaleStatusType,
-        "failureReasons": List[str],
-        "creationDateTime": datetime,
-        "lastUpdatedDateTime": datetime,
-        "lastBuildSubmittedDateTime": datetime,
-        "botLocaleHistoryEvents": List["BotLocaleHistoryEventTypeDef"],
-        "recommendedActions": List[str],
-        "generativeAISettings": "GenerativeAISettingsTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeBotRecommendationRequestRequestTypeDef = TypedDict(
-    "DescribeBotRecommendationRequestRequestTypeDef",
-    {
-        "botId": str,
-        "botVersion": str,
-        "localeId": str,
-        "botRecommendationId": str,
-    },
-)
-
-DescribeBotRecommendationResponseTypeDef = TypedDict(
-    "DescribeBotRecommendationResponseTypeDef",
-    {
-        "botId": str,
-        "botVersion": str,
-        "localeId": str,
-        "botRecommendationStatus": BotRecommendationStatusType,
-        "botRecommendationId": str,
-        "failureReasons": List[str],
-        "creationDateTime": datetime,
-        "lastUpdatedDateTime": datetime,
-        "transcriptSourceSetting": "TranscriptSourceSettingTypeDef",
-        "encryptionSetting": "EncryptionSettingTypeDef",
-        "botRecommendationResults": "BotRecommendationResultsTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeBotReplicaRequestRequestTypeDef = TypedDict(
-    "DescribeBotReplicaRequestRequestTypeDef",
-    {
-        "botId": str,
-        "replicaRegion": str,
-    },
-)
-
-DescribeBotReplicaResponseTypeDef = TypedDict(
-    "DescribeBotReplicaResponseTypeDef",
-    {
-        "botId": str,
-        "replicaRegion": str,
-        "sourceRegion": str,
-        "creationDateTime": datetime,
-        "botReplicaStatus": BotReplicaStatusType,
-        "failureReasons": List[str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeBotRequestRequestTypeDef = TypedDict(
-    "DescribeBotRequestRequestTypeDef",
-    {
-        "botId": str,
-    },
-)
-
-DescribeBotResourceGenerationRequestRequestTypeDef = TypedDict(
-    "DescribeBotResourceGenerationRequestRequestTypeDef",
-    {
-        "botId": str,
-        "botVersion": str,
-        "localeId": str,
-        "generationId": str,
-    },
-)
-
-DescribeBotResourceGenerationResponseTypeDef = TypedDict(
-    "DescribeBotResourceGenerationResponseTypeDef",
-    {
-        "botId": str,
-        "botVersion": str,
-        "localeId": str,
-        "generationId": str,
-        "failureReasons": List[str],
-        "generationStatus": GenerationStatusType,
-        "generationInputPrompt": str,
-        "generatedBotLocaleUrl": str,
-        "creationDateTime": datetime,
-        "modelArn": str,
-        "lastUpdatedDateTime": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeBotResponseTypeDef = TypedDict(
-    "DescribeBotResponseTypeDef",
-    {
-        "botId": str,
-        "botName": str,
-        "description": str,
-        "roleArn": str,
-        "dataPrivacy": "DataPrivacyTypeDef",
-        "idleSessionTTLInSeconds": int,
-        "botStatus": BotStatusType,
-        "creationDateTime": datetime,
-        "lastUpdatedDateTime": datetime,
-        "botType": BotTypeType,
-        "botMembers": List["BotMemberTypeDef"],
-        "failureReasons": List[str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeBotVersionRequestRequestTypeDef = TypedDict(
-    "DescribeBotVersionRequestRequestTypeDef",
-    {
-        "botId": str,
-        "botVersion": str,
-    },
-)
-
-DescribeBotVersionResponseTypeDef = TypedDict(
-    "DescribeBotVersionResponseTypeDef",
-    {
-        "botId": str,
-        "botName": str,
-        "botVersion": str,
-        "description": str,
-        "roleArn": str,
-        "dataPrivacy": "DataPrivacyTypeDef",
-        "idleSessionTTLInSeconds": int,
-        "botStatus": BotStatusType,
-        "failureReasons": List[str],
-        "creationDateTime": datetime,
-        "parentBotNetworks": List["ParentBotNetworkTypeDef"],
-        "botType": BotTypeType,
-        "botMembers": List["BotMemberTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeCustomVocabularyMetadataRequestRequestTypeDef = TypedDict(
-    "DescribeCustomVocabularyMetadataRequestRequestTypeDef",
-    {
-        "botId": str,
-        "botVersion": str,
-        "localeId": str,
-    },
-)
-
-DescribeCustomVocabularyMetadataResponseTypeDef = TypedDict(
-    "DescribeCustomVocabularyMetadataResponseTypeDef",
-    {
-        "botId": str,
-        "botVersion": str,
-        "localeId": str,
-        "customVocabularyStatus": CustomVocabularyStatusType,
-        "creationDateTime": datetime,
-        "lastUpdatedDateTime": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeExportRequestRequestTypeDef = TypedDict(
-    "DescribeExportRequestRequestTypeDef",
-    {
-        "exportId": str,
-    },
-)
-
-DescribeExportResponseTypeDef = TypedDict(
-    "DescribeExportResponseTypeDef",
-    {
-        "exportId": str,
-        "resourceSpecification": "ExportResourceSpecificationTypeDef",
-        "fileFormat": ImportExportFileFormatType,
-        "exportStatus": ExportStatusType,
-        "failureReasons": List[str],
-        "downloadUrl": str,
-        "creationDateTime": datetime,
-        "lastUpdatedDateTime": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeImportRequestRequestTypeDef = TypedDict(
-    "DescribeImportRequestRequestTypeDef",
-    {
-        "importId": str,
-    },
-)
-
-DescribeImportResponseTypeDef = TypedDict(
-    "DescribeImportResponseTypeDef",
-    {
-        "importId": str,
-        "resourceSpecification": "ImportResourceSpecificationTypeDef",
-        "importedResourceId": str,
-        "importedResourceName": str,
-        "mergeStrategy": MergeStrategyType,
-        "importStatus": ImportStatusType,
-        "failureReasons": List[str],
-        "creationDateTime": datetime,
-        "lastUpdatedDateTime": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeIntentRequestRequestTypeDef = TypedDict(
-    "DescribeIntentRequestRequestTypeDef",
-    {
-        "intentId": str,
-        "botId": str,
-        "botVersion": str,
-        "localeId": str,
-    },
-)
-
-DescribeIntentResponseTypeDef = TypedDict(
-    "DescribeIntentResponseTypeDef",
-    {
-        "intentId": str,
-        "intentName": str,
-        "description": str,
-        "parentIntentSignature": str,
-        "sampleUtterances": List["SampleUtteranceTypeDef"],
-        "dialogCodeHook": "DialogCodeHookSettingsTypeDef",
-        "fulfillmentCodeHook": "FulfillmentCodeHookSettingsTypeDef",
-        "slotPriorities": List["SlotPriorityTypeDef"],
-        "intentConfirmationSetting": "IntentConfirmationSettingTypeDef",
-        "intentClosingSetting": "IntentClosingSettingTypeDef",
-        "inputContexts": List["InputContextTypeDef"],
-        "outputContexts": List["OutputContextTypeDef"],
-        "kendraConfiguration": "KendraConfigurationTypeDef",
-        "botId": str,
-        "botVersion": str,
-        "localeId": str,
-        "creationDateTime": datetime,
-        "lastUpdatedDateTime": datetime,
-        "initialResponseSetting": "InitialResponseSettingTypeDef",
-        "qnAIntentConfiguration": "QnAIntentConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeResourcePolicyRequestRequestTypeDef = TypedDict(
-    "DescribeResourcePolicyRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-    },
-)
-
-DescribeResourcePolicyResponseTypeDef = TypedDict(
-    "DescribeResourcePolicyResponseTypeDef",
-    {
-        "resourceArn": str,
-        "policy": str,
-        "revisionId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeSlotRequestRequestTypeDef = TypedDict(
-    "DescribeSlotRequestRequestTypeDef",
-    {
-        "slotId": str,
-        "botId": str,
-        "botVersion": str,
-        "localeId": str,
-        "intentId": str,
-    },
-)
-
-DescribeSlotResponseTypeDef = TypedDict(
-    "DescribeSlotResponseTypeDef",
-    {
-        "slotId": str,
-        "slotName": str,
-        "description": str,
-        "slotTypeId": str,
-        "valueElicitationSetting": "SlotValueElicitationSettingTypeDef",
-        "obfuscationSetting": "ObfuscationSettingTypeDef",
-        "botId": str,
-        "botVersion": str,
-        "localeId": str,
-        "intentId": str,
-        "creationDateTime": datetime,
-        "lastUpdatedDateTime": datetime,
-        "multipleValuesSetting": "MultipleValuesSettingTypeDef",
-        "subSlotSetting": "SubSlotSettingTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeSlotTypeRequestRequestTypeDef = TypedDict(
-    "DescribeSlotTypeRequestRequestTypeDef",
-    {
-        "slotTypeId": str,
-        "botId": str,
-        "botVersion": str,
-        "localeId": str,
-    },
-)
-
-DescribeSlotTypeResponseTypeDef = TypedDict(
-    "DescribeSlotTypeResponseTypeDef",
-    {
-        "slotTypeId": str,
-        "slotTypeName": str,
-        "description": str,
-        "slotTypeValues": List["SlotTypeValueTypeDef"],
-        "valueSelectionSetting": "SlotValueSelectionSettingTypeDef",
-        "parentSlotTypeSignature": str,
-        "botId": str,
-        "botVersion": str,
-        "localeId": str,
-        "creationDateTime": datetime,
-        "lastUpdatedDateTime": datetime,
-        "externalSourceSetting": "ExternalSourceSettingTypeDef",
-        "compositeSlotTypeSetting": "CompositeSlotTypeSettingTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeTestExecutionRequestRequestTypeDef = TypedDict(
-    "DescribeTestExecutionRequestRequestTypeDef",
-    {
-        "testExecutionId": str,
-    },
-)
-
-DescribeTestExecutionResponseTypeDef = TypedDict(
-    "DescribeTestExecutionResponseTypeDef",
-    {
-        "testExecutionId": str,
-        "creationDateTime": datetime,
-        "lastUpdatedDateTime": datetime,
-        "testExecutionStatus": TestExecutionStatusType,
-        "testSetId": str,
-        "testSetName": str,
-        "target": "TestExecutionTargetTypeDef",
-        "apiMode": TestExecutionApiModeType,
-        "testExecutionModality": TestExecutionModalityType,
-        "failureReasons": List[str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeTestSetDiscrepancyReportRequestRequestTypeDef = TypedDict(
-    "DescribeTestSetDiscrepancyReportRequestRequestTypeDef",
-    {
-        "testSetDiscrepancyReportId": str,
-    },
-)
-
-DescribeTestSetDiscrepancyReportResponseTypeDef = TypedDict(
-    "DescribeTestSetDiscrepancyReportResponseTypeDef",
-    {
-        "testSetDiscrepancyReportId": str,
-        "testSetId": str,
-        "creationDateTime": datetime,
-        "target": "TestSetDiscrepancyReportResourceTargetTypeDef",
-        "testSetDiscrepancyReportStatus": TestSetDiscrepancyReportStatusType,
-        "lastUpdatedDataTime": datetime,
-        "testSetDiscrepancyTopErrors": "TestSetDiscrepancyErrorsTypeDef",
-        "testSetDiscrepancyRawOutputUrl": str,
-        "failureReasons": List[str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeTestSetGenerationRequestRequestTypeDef = TypedDict(
-    "DescribeTestSetGenerationRequestRequestTypeDef",
-    {
-        "testSetGenerationId": str,
-    },
-)
-
-DescribeTestSetGenerationResponseTypeDef = TypedDict(
-    "DescribeTestSetGenerationResponseTypeDef",
-    {
-        "testSetGenerationId": str,
-        "testSetGenerationStatus": TestSetGenerationStatusType,
-        "failureReasons": List[str],
-        "testSetId": str,
-        "testSetName": str,
-        "description": str,
-        "storageLocation": "TestSetStorageLocationTypeDef",
-        "generationDataSource": "TestSetGenerationDataSourceTypeDef",
-        "roleArn": str,
-        "creationDateTime": datetime,
-        "lastUpdatedDateTime": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeTestSetRequestRequestTypeDef = TypedDict(
-    "DescribeTestSetRequestRequestTypeDef",
-    {
-        "testSetId": str,
-    },
-)
-
-DescribeTestSetResponseTypeDef = TypedDict(
-    "DescribeTestSetResponseTypeDef",
-    {
-        "testSetId": str,
-        "testSetName": str,
-        "description": str,
-        "modality": TestSetModalityType,
-        "status": TestSetStatusType,
-        "roleArn": str,
-        "numTurns": int,
-        "storageLocation": "TestSetStorageLocationTypeDef",
-        "creationDateTime": datetime,
-        "lastUpdatedDateTime": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescriptiveBotBuilderSpecificationTypeDef = TypedDict(
-    "_RequiredDescriptiveBotBuilderSpecificationTypeDef",
-    {
-        "enabled": bool,
-    },
-)
-_OptionalDescriptiveBotBuilderSpecificationTypeDef = TypedDict(
-    "_OptionalDescriptiveBotBuilderSpecificationTypeDef",
-    {
-        "bedrockModelSpecification": "BedrockModelSpecificationTypeDef",
-    },
-    total=False,
-)
-
-class DescriptiveBotBuilderSpecificationTypeDef(
-    _RequiredDescriptiveBotBuilderSpecificationTypeDef,
-    _OptionalDescriptiveBotBuilderSpecificationTypeDef,
-):
-    pass
-
-_RequiredDialogActionTypeDef = TypedDict(
-    "_RequiredDialogActionTypeDef",
-    {
-        "type": DialogActionTypeType,
-    },
-)
-_OptionalDialogActionTypeDef = TypedDict(
-    "_OptionalDialogActionTypeDef",
-    {
-        "slotToElicit": str,
-        "suppressNextMessage": bool,
-    },
-    total=False,
-)
-
-class DialogActionTypeDef(_RequiredDialogActionTypeDef, _OptionalDialogActionTypeDef):
-    pass
-
-_RequiredDialogCodeHookInvocationSettingTypeDef = TypedDict(
-    "_RequiredDialogCodeHookInvocationSettingTypeDef",
-    {
-        "enableCodeHookInvocation": bool,
-        "active": bool,
-        "postCodeHookSpecification": "PostDialogCodeHookInvocationSpecificationTypeDef",
-    },
-)
-_OptionalDialogCodeHookInvocationSettingTypeDef = TypedDict(
-    "_OptionalDialogCodeHookInvocationSettingTypeDef",
-    {
-        "invocationLabel": str,
-    },
-    total=False,
-)
-
-class DialogCodeHookInvocationSettingTypeDef(
-    _RequiredDialogCodeHookInvocationSettingTypeDef, _OptionalDialogCodeHookInvocationSettingTypeDef
-):
-    pass
-
-DialogCodeHookSettingsTypeDef = TypedDict(
-    "DialogCodeHookSettingsTypeDef",
-    {
-        "enabled": bool,
-    },
-)
-
-DialogStateTypeDef = TypedDict(
-    "DialogStateTypeDef",
-    {
-        "dialogAction": "DialogActionTypeDef",
-        "intent": "IntentOverrideTypeDef",
-        "sessionAttributes": Dict[str, str],
-    },
-    total=False,
-)
-
-_RequiredElicitationCodeHookInvocationSettingTypeDef = TypedDict(
-    "_RequiredElicitationCodeHookInvocationSettingTypeDef",
-    {
-        "enableCodeHookInvocation": bool,
-    },
-)
-_OptionalElicitationCodeHookInvocationSettingTypeDef = TypedDict(
-    "_OptionalElicitationCodeHookInvocationSettingTypeDef",
-    {
-        "invocationLabel": str,
-    },
-    total=False,
-)
-
-class ElicitationCodeHookInvocationSettingTypeDef(
-    _RequiredElicitationCodeHookInvocationSettingTypeDef,
-    _OptionalElicitationCodeHookInvocationSettingTypeDef,
-):
-    pass
-
-EncryptionSettingTypeDef = TypedDict(
-    "EncryptionSettingTypeDef",
-    {
-        "kmsKeyArn": str,
-        "botLocaleExportPassword": str,
-        "associatedTranscriptsPassword": str,
-    },
-    total=False,
-)
-
-ExactResponseFieldsTypeDef = TypedDict(
-    "ExactResponseFieldsTypeDef",
-    {
-        "questionField": str,
-        "answerField": str,
-    },
-)
-
-ExecutionErrorDetailsTypeDef = TypedDict(
-    "ExecutionErrorDetailsTypeDef",
-    {
-        "errorCode": str,
-        "errorMessage": str,
-    },
-)
-
-ExportFilterTypeDef = TypedDict(
-    "ExportFilterTypeDef",
-    {
-        "name": Literal["ExportResourceType"],
-        "values": List[str],
-        "operator": ExportFilterOperatorType,
-    },
-)
-
-ExportResourceSpecificationTypeDef = TypedDict(
-    "ExportResourceSpecificationTypeDef",
-    {
-        "botExportSpecification": "BotExportSpecificationTypeDef",
-        "botLocaleExportSpecification": "BotLocaleExportSpecificationTypeDef",
-        "customVocabularyExportSpecification": "CustomVocabularyExportSpecificationTypeDef",
-        "testSetExportSpecification": "TestSetExportSpecificationTypeDef",
-    },
-    total=False,
-)
-
-ExportSortByTypeDef = TypedDict(
-    "ExportSortByTypeDef",
-    {
-        "attribute": Literal["LastUpdatedDateTime"],
-        "order": SortOrderType,
-    },
-)
-
-ExportSummaryTypeDef = TypedDict(
-    "ExportSummaryTypeDef",
-    {
-        "exportId": str,
-        "resourceSpecification": "ExportResourceSpecificationTypeDef",
-        "fileFormat": ImportExportFileFormatType,
-        "exportStatus": ExportStatusType,
-        "creationDateTime": datetime,
-        "lastUpdatedDateTime": datetime,
-    },
-    total=False,
-)
-
-ExternalSourceSettingTypeDef = TypedDict(
-    "ExternalSourceSettingTypeDef",
-    {
-        "grammarSlotTypeSetting": "GrammarSlotTypeSettingTypeDef",
-    },
-    total=False,
-)
-
-FailedCustomVocabularyItemTypeDef = TypedDict(
-    "FailedCustomVocabularyItemTypeDef",
-    {
-        "itemId": str,
-        "errorMessage": str,
-        "errorCode": ErrorCodeType,
-    },
-    total=False,
-)
-
-_RequiredFulfillmentCodeHookSettingsTypeDef = TypedDict(
-    "_RequiredFulfillmentCodeHookSettingsTypeDef",
-    {
-        "enabled": bool,
-    },
-)
-_OptionalFulfillmentCodeHookSettingsTypeDef = TypedDict(
-    "_OptionalFulfillmentCodeHookSettingsTypeDef",
-    {
-        "postFulfillmentStatusSpecification": "PostFulfillmentStatusSpecificationTypeDef",
-        "fulfillmentUpdatesSpecification": "FulfillmentUpdatesSpecificationTypeDef",
-        "active": bool,
-    },
-    total=False,
-)
-
-class FulfillmentCodeHookSettingsTypeDef(
-    _RequiredFulfillmentCodeHookSettingsTypeDef, _OptionalFulfillmentCodeHookSettingsTypeDef
-):
-    pass
-
-_RequiredFulfillmentStartResponseSpecificationTypeDef = TypedDict(
-    "_RequiredFulfillmentStartResponseSpecificationTypeDef",
-    {
-        "delayInSeconds": int,
-        "messageGroups": List["MessageGroupTypeDef"],
-    },
-)
-_OptionalFulfillmentStartResponseSpecificationTypeDef = TypedDict(
-    "_OptionalFulfillmentStartResponseSpecificationTypeDef",
-    {
-        "allowInterrupt": bool,
-    },
-    total=False,
-)
-
-class FulfillmentStartResponseSpecificationTypeDef(
-    _RequiredFulfillmentStartResponseSpecificationTypeDef,
-    _OptionalFulfillmentStartResponseSpecificationTypeDef,
-):
-    pass
-
-_RequiredFulfillmentUpdateResponseSpecificationTypeDef = TypedDict(
-    "_RequiredFulfillmentUpdateResponseSpecificationTypeDef",
-    {
-        "frequencyInSeconds": int,
-        "messageGroups": List["MessageGroupTypeDef"],
-    },
-)
-_OptionalFulfillmentUpdateResponseSpecificationTypeDef = TypedDict(
-    "_OptionalFulfillmentUpdateResponseSpecificationTypeDef",
-    {
-        "allowInterrupt": bool,
-    },
-    total=False,
-)
-
-class FulfillmentUpdateResponseSpecificationTypeDef(
-    _RequiredFulfillmentUpdateResponseSpecificationTypeDef,
-    _OptionalFulfillmentUpdateResponseSpecificationTypeDef,
-):
-    pass
-
-_RequiredFulfillmentUpdatesSpecificationTypeDef = TypedDict(
-    "_RequiredFulfillmentUpdatesSpecificationTypeDef",
-    {
-        "active": bool,
-    },
-)
-_OptionalFulfillmentUpdatesSpecificationTypeDef = TypedDict(
-    "_OptionalFulfillmentUpdatesSpecificationTypeDef",
-    {
-        "startResponse": "FulfillmentStartResponseSpecificationTypeDef",
-        "updateResponse": "FulfillmentUpdateResponseSpecificationTypeDef",
-        "timeoutInSeconds": int,
-    },
-    total=False,
-)
-
-class FulfillmentUpdatesSpecificationTypeDef(
-    _RequiredFulfillmentUpdatesSpecificationTypeDef, _OptionalFulfillmentUpdatesSpecificationTypeDef
-):
-    pass
-
-GenerateBotElementRequestRequestTypeDef = TypedDict(
-    "GenerateBotElementRequestRequestTypeDef",
-    {
-        "intentId": str,
-        "botId": str,
-        "botVersion": str,
-        "localeId": str,
-    },
-)
-
-GenerateBotElementResponseTypeDef = TypedDict(
-    "GenerateBotElementResponseTypeDef",
-    {
-        "botId": str,
-        "botVersion": str,
-        "localeId": str,
-        "intentId": str,
-        "sampleUtterances": List["SampleUtteranceTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GenerationSortByTypeDef = TypedDict(
-    "GenerationSortByTypeDef",
-    {
-        "attribute": GenerationSortByAttributeType,
-        "order": SortOrderType,
-    },
-)
-
-GenerationSummaryTypeDef = TypedDict(
-    "GenerationSummaryTypeDef",
-    {
-        "generationId": str,
-        "generationStatus": GenerationStatusType,
-        "creationDateTime": datetime,
-        "lastUpdatedDateTime": datetime,
-    },
-    total=False,
-)
-
-GenerativeAISettingsTypeDef = TypedDict(
-    "GenerativeAISettingsTypeDef",
-    {
-        "runtimeSettings": "RuntimeSettingsTypeDef",
-        "buildtimeSettings": "BuildtimeSettingsTypeDef",
-    },
-    total=False,
-)
-
-GetTestExecutionArtifactsUrlRequestRequestTypeDef = TypedDict(
-    "GetTestExecutionArtifactsUrlRequestRequestTypeDef",
-    {
-        "testExecutionId": str,
-    },
-)
-
-GetTestExecutionArtifactsUrlResponseTypeDef = TypedDict(
-    "GetTestExecutionArtifactsUrlResponseTypeDef",
-    {
-        "testExecutionId": str,
-        "downloadArtifactsUrl": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GrammarSlotTypeSettingTypeDef = TypedDict(
-    "GrammarSlotTypeSettingTypeDef",
-    {
-        "source": "GrammarSlotTypeSourceTypeDef",
-    },
-    total=False,
-)
-
-_RequiredGrammarSlotTypeSourceTypeDef = TypedDict(
-    "_RequiredGrammarSlotTypeSourceTypeDef",
-    {
-        "s3BucketName": str,
-        "s3ObjectKey": str,
-    },
-)
-_OptionalGrammarSlotTypeSourceTypeDef = TypedDict(
-    "_OptionalGrammarSlotTypeSourceTypeDef",
-    {
-        "kmsKeyArn": str,
-    },
-    total=False,
-)
-
-class GrammarSlotTypeSourceTypeDef(
-    _RequiredGrammarSlotTypeSourceTypeDef, _OptionalGrammarSlotTypeSourceTypeDef
-):
-    pass
-
-_RequiredImageResponseCardTypeDef = TypedDict(
-    "_RequiredImageResponseCardTypeDef",
-    {
-        "title": str,
-    },
-)
-_OptionalImageResponseCardTypeDef = TypedDict(
-    "_OptionalImageResponseCardTypeDef",
-    {
-        "subtitle": str,
-        "imageUrl": str,
-        "buttons": List["ButtonTypeDef"],
-    },
-    total=False,
-)
-
-class ImageResponseCardTypeDef(
-    _RequiredImageResponseCardTypeDef, _OptionalImageResponseCardTypeDef
-):
-    pass
-
-ImportFilterTypeDef = TypedDict(
-    "ImportFilterTypeDef",
-    {
-        "name": Literal["ImportResourceType"],
-        "values": List[str],
-        "operator": ImportFilterOperatorType,
-    },
-)
-
-ImportResourceSpecificationTypeDef = TypedDict(
-    "ImportResourceSpecificationTypeDef",
-    {
-        "botImportSpecification": "BotImportSpecificationTypeDef",
-        "botLocaleImportSpecification": "BotLocaleImportSpecificationTypeDef",
-        "customVocabularyImportSpecification": "CustomVocabularyImportSpecificationTypeDef",
-        "testSetImportResourceSpecification": "TestSetImportResourceSpecificationTypeDef",
-    },
-    total=False,
-)
-
-ImportSortByTypeDef = TypedDict(
-    "ImportSortByTypeDef",
-    {
-        "attribute": Literal["LastUpdatedDateTime"],
-        "order": SortOrderType,
-    },
-)
-
-ImportSummaryTypeDef = TypedDict(
-    "ImportSummaryTypeDef",
-    {
-        "importId": str,
-        "importedResourceId": str,
-        "importedResourceName": str,
-        "importStatus": ImportStatusType,
-        "mergeStrategy": MergeStrategyType,
-        "creationDateTime": datetime,
-        "lastUpdatedDateTime": datetime,
-        "importedResourceType": ImportResourceTypeType,
-    },
-    total=False,
-)
-
-InitialResponseSettingTypeDef = TypedDict(
-    "InitialResponseSettingTypeDef",
-    {
-        "initialResponse": "ResponseSpecificationTypeDef",
-        "nextStep": "DialogStateTypeDef",
-        "conditional": "ConditionalSpecificationTypeDef",
-        "codeHook": "DialogCodeHookInvocationSettingTypeDef",
-    },
-    total=False,
-)
-
-InputContextTypeDef = TypedDict(
-    "InputContextTypeDef",
-    {
-        "name": str,
-    },
-)
-
-InputSessionStateSpecificationTypeDef = TypedDict(
-    "InputSessionStateSpecificationTypeDef",
-    {
-        "sessionAttributes": Dict[str, str],
-        "activeContexts": List["ActiveContextTypeDef"],
-        "runtimeHints": "RuntimeHintsTypeDef",
-    },
-    total=False,
-)
-
-_RequiredIntentClassificationTestResultItemCountsTypeDef = TypedDict(
-    "_RequiredIntentClassificationTestResultItemCountsTypeDef",
-    {
-        "totalResultCount": int,
-        "intentMatchResultCounts": Dict[TestResultMatchStatusType, int],
-    },
-)
-_OptionalIntentClassificationTestResultItemCountsTypeDef = TypedDict(
-    "_OptionalIntentClassificationTestResultItemCountsTypeDef",
-    {
-        "speechTranscriptionResultCounts": Dict[TestResultMatchStatusType, int],
-    },
-    total=False,
-)
-
-class IntentClassificationTestResultItemCountsTypeDef(
-    _RequiredIntentClassificationTestResultItemCountsTypeDef,
-    _OptionalIntentClassificationTestResultItemCountsTypeDef,
-):
-    pass
-
-IntentClassificationTestResultItemTypeDef = TypedDict(
-    "IntentClassificationTestResultItemTypeDef",
-    {
-        "intentName": str,
-        "multiTurnConversation": bool,
-        "resultCounts": "IntentClassificationTestResultItemCountsTypeDef",
-    },
-)
-
-IntentClassificationTestResultsTypeDef = TypedDict(
-    "IntentClassificationTestResultsTypeDef",
-    {
-        "items": List["IntentClassificationTestResultItemTypeDef"],
-    },
-)
-
-IntentClosingSettingTypeDef = TypedDict(
-    "IntentClosingSettingTypeDef",
-    {
-        "closingResponse": "ResponseSpecificationTypeDef",
-        "active": bool,
-        "nextStep": "DialogStateTypeDef",
-        "conditional": "ConditionalSpecificationTypeDef",
-    },
-    total=False,
-)
-
-_RequiredIntentConfirmationSettingTypeDef = TypedDict(
-    "_RequiredIntentConfirmationSettingTypeDef",
-    {
-        "promptSpecification": "PromptSpecificationTypeDef",
-    },
-)
-_OptionalIntentConfirmationSettingTypeDef = TypedDict(
-    "_OptionalIntentConfirmationSettingTypeDef",
-    {
-        "declinationResponse": "ResponseSpecificationTypeDef",
-        "active": bool,
-        "confirmationResponse": "ResponseSpecificationTypeDef",
-        "confirmationNextStep": "DialogStateTypeDef",
-        "confirmationConditional": "ConditionalSpecificationTypeDef",
-        "declinationNextStep": "DialogStateTypeDef",
-        "declinationConditional": "ConditionalSpecificationTypeDef",
-        "failureResponse": "ResponseSpecificationTypeDef",
-        "failureNextStep": "DialogStateTypeDef",
-        "failureConditional": "ConditionalSpecificationTypeDef",
-        "codeHook": "DialogCodeHookInvocationSettingTypeDef",
-        "elicitationCodeHook": "ElicitationCodeHookInvocationSettingTypeDef",
-    },
-    total=False,
-)
-
-class IntentConfirmationSettingTypeDef(
-    _RequiredIntentConfirmationSettingTypeDef, _OptionalIntentConfirmationSettingTypeDef
-):
-    pass
-
-IntentFilterTypeDef = TypedDict(
-    "IntentFilterTypeDef",
-    {
-        "name": Literal["IntentName"],
-        "values": List[str],
-        "operator": IntentFilterOperatorType,
-    },
-)
-
-IntentLevelSlotResolutionTestResultItemTypeDef = TypedDict(
-    "IntentLevelSlotResolutionTestResultItemTypeDef",
-    {
-        "intentName": str,
-        "multiTurnConversation": bool,
-        "slotResolutionResults": List["SlotResolutionTestResultItemTypeDef"],
-    },
-)
-
-IntentLevelSlotResolutionTestResultsTypeDef = TypedDict(
-    "IntentLevelSlotResolutionTestResultsTypeDef",
-    {
-        "items": List["IntentLevelSlotResolutionTestResultItemTypeDef"],
-    },
-)
-
-IntentOverrideTypeDef = TypedDict(
-    "IntentOverrideTypeDef",
-    {
-        "name": str,
-        "slots": Dict[str, "SlotValueOverrideTypeDef"],
-    },
-    total=False,
-)
-
-IntentSortByTypeDef = TypedDict(
-    "IntentSortByTypeDef",
-    {
-        "attribute": IntentSortAttributeType,
-        "order": SortOrderType,
-    },
-)
-
-IntentStatisticsTypeDef = TypedDict(
-    "IntentStatisticsTypeDef",
-    {
-        "discoveredIntentCount": int,
-    },
-    total=False,
-)
-
-IntentSummaryTypeDef = TypedDict(
-    "IntentSummaryTypeDef",
-    {
-        "intentId": str,
-        "intentName": str,
-        "description": str,
-        "parentIntentSignature": str,
-        "inputContexts": List["InputContextTypeDef"],
-        "outputContexts": List["OutputContextTypeDef"],
-        "lastUpdatedDateTime": datetime,
-    },
-    total=False,
-)
-
-InvokedIntentSampleTypeDef = TypedDict(
-    "InvokedIntentSampleTypeDef",
-    {
-        "intentName": str,
-    },
-    total=False,
-)
-
-_RequiredKendraConfigurationTypeDef = TypedDict(
-    "_RequiredKendraConfigurationTypeDef",
-    {
-        "kendraIndex": str,
-    },
-)
-_OptionalKendraConfigurationTypeDef = TypedDict(
-    "_OptionalKendraConfigurationTypeDef",
-    {
-        "queryFilterStringEnabled": bool,
-        "queryFilterString": str,
-    },
-    total=False,
-)
-
-class KendraConfigurationTypeDef(
-    _RequiredKendraConfigurationTypeDef, _OptionalKendraConfigurationTypeDef
-):
-    pass
-
-LambdaCodeHookTypeDef = TypedDict(
-    "LambdaCodeHookTypeDef",
-    {
-        "lambdaARN": str,
-        "codeHookInterfaceVersion": str,
-    },
-)
-
-LexTranscriptFilterTypeDef = TypedDict(
-    "LexTranscriptFilterTypeDef",
-    {
-        "dateRangeFilter": "DateRangeFilterTypeDef",
-    },
-    total=False,
-)
-
-_RequiredListAggregatedUtterancesRequestRequestTypeDef = TypedDict(
-    "_RequiredListAggregatedUtterancesRequestRequestTypeDef",
-    {
-        "botId": str,
-        "localeId": str,
-        "aggregationDuration": "UtteranceAggregationDurationTypeDef",
-    },
-)
-_OptionalListAggregatedUtterancesRequestRequestTypeDef = TypedDict(
-    "_OptionalListAggregatedUtterancesRequestRequestTypeDef",
-    {
-        "botAliasId": str,
-        "botVersion": str,
-        "sortBy": "AggregatedUtterancesSortByTypeDef",
-        "filters": List["AggregatedUtterancesFilterTypeDef"],
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListAggregatedUtterancesRequestRequestTypeDef(
-    _RequiredListAggregatedUtterancesRequestRequestTypeDef,
-    _OptionalListAggregatedUtterancesRequestRequestTypeDef,
-):
-    pass
-
-ListAggregatedUtterancesResponseTypeDef = TypedDict(
-    "ListAggregatedUtterancesResponseTypeDef",
-    {
-        "botId": str,
-        "botAliasId": str,
-        "botVersion": str,
-        "localeId": str,
-        "aggregationDuration": "UtteranceAggregationDurationTypeDef",
-        "aggregationWindowStartTime": datetime,
-        "aggregationWindowEndTime": datetime,
-        "aggregationLastRefreshedDateTime": datetime,
-        "aggregatedUtterancesSummaries": List["AggregatedUtterancesSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListBotAliasReplicasRequestRequestTypeDef = TypedDict(
-    "_RequiredListBotAliasReplicasRequestRequestTypeDef",
-    {
-        "botId": str,
-        "replicaRegion": str,
-    },
-)
-_OptionalListBotAliasReplicasRequestRequestTypeDef = TypedDict(
-    "_OptionalListBotAliasReplicasRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListBotAliasReplicasRequestRequestTypeDef(
-    _RequiredListBotAliasReplicasRequestRequestTypeDef,
-    _OptionalListBotAliasReplicasRequestRequestTypeDef,
-):
-    pass
-
-ListBotAliasReplicasResponseTypeDef = TypedDict(
-    "ListBotAliasReplicasResponseTypeDef",
-    {
-        "botId": str,
-        "sourceRegion": str,
-        "replicaRegion": str,
-        "botAliasReplicaSummaries": List["BotAliasReplicaSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListBotAliasesRequestRequestTypeDef = TypedDict(
-    "_RequiredListBotAliasesRequestRequestTypeDef",
-    {
-        "botId": str,
-    },
-)
-_OptionalListBotAliasesRequestRequestTypeDef = TypedDict(
-    "_OptionalListBotAliasesRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListBotAliasesRequestRequestTypeDef(
-    _RequiredListBotAliasesRequestRequestTypeDef, _OptionalListBotAliasesRequestRequestTypeDef
-):
-    pass
-
-ListBotAliasesResponseTypeDef = TypedDict(
-    "ListBotAliasesResponseTypeDef",
-    {
-        "botAliasSummaries": List["BotAliasSummaryTypeDef"],
-        "nextToken": str,
-        "botId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListBotLocalesRequestRequestTypeDef = TypedDict(
-    "_RequiredListBotLocalesRequestRequestTypeDef",
-    {
-        "botId": str,
-        "botVersion": str,
-    },
-)
-_OptionalListBotLocalesRequestRequestTypeDef = TypedDict(
-    "_OptionalListBotLocalesRequestRequestTypeDef",
-    {
-        "sortBy": "BotLocaleSortByTypeDef",
-        "filters": List["BotLocaleFilterTypeDef"],
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListBotLocalesRequestRequestTypeDef(
-    _RequiredListBotLocalesRequestRequestTypeDef, _OptionalListBotLocalesRequestRequestTypeDef
-):
-    pass
-
-ListBotLocalesResponseTypeDef = TypedDict(
-    "ListBotLocalesResponseTypeDef",
-    {
-        "botId": str,
-        "botVersion": str,
-        "nextToken": str,
-        "botLocaleSummaries": List["BotLocaleSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListBotRecommendationsRequestRequestTypeDef = TypedDict(
-    "_RequiredListBotRecommendationsRequestRequestTypeDef",
-    {
-        "botId": str,
-        "botVersion": str,
-        "localeId": str,
-    },
-)
-_OptionalListBotRecommendationsRequestRequestTypeDef = TypedDict(
-    "_OptionalListBotRecommendationsRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListBotRecommendationsRequestRequestTypeDef(
-    _RequiredListBotRecommendationsRequestRequestTypeDef,
-    _OptionalListBotRecommendationsRequestRequestTypeDef,
-):
-    pass
-
-ListBotRecommendationsResponseTypeDef = TypedDict(
-    "ListBotRecommendationsResponseTypeDef",
-    {
-        "botId": str,
-        "botVersion": str,
-        "localeId": str,
-        "botRecommendationSummaries": List["BotRecommendationSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListBotReplicasRequestRequestTypeDef = TypedDict(
-    "ListBotReplicasRequestRequestTypeDef",
-    {
-        "botId": str,
-    },
-)
-
-ListBotReplicasResponseTypeDef = TypedDict(
-    "ListBotReplicasResponseTypeDef",
-    {
-        "botId": str,
-        "sourceRegion": str,
-        "botReplicaSummaries": List["BotReplicaSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListBotResourceGenerationsRequestRequestTypeDef = TypedDict(
-    "_RequiredListBotResourceGenerationsRequestRequestTypeDef",
-    {
-        "botId": str,
-        "botVersion": str,
-        "localeId": str,
-    },
-)
-_OptionalListBotResourceGenerationsRequestRequestTypeDef = TypedDict(
-    "_OptionalListBotResourceGenerationsRequestRequestTypeDef",
-    {
-        "sortBy": "GenerationSortByTypeDef",
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListBotResourceGenerationsRequestRequestTypeDef(
-    _RequiredListBotResourceGenerationsRequestRequestTypeDef,
-    _OptionalListBotResourceGenerationsRequestRequestTypeDef,
-):
-    pass
-
-ListBotResourceGenerationsResponseTypeDef = TypedDict(
-    "ListBotResourceGenerationsResponseTypeDef",
-    {
-        "botId": str,
-        "botVersion": str,
-        "localeId": str,
-        "generationSummaries": List["GenerationSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListBotVersionReplicasRequestRequestTypeDef = TypedDict(
-    "_RequiredListBotVersionReplicasRequestRequestTypeDef",
-    {
-        "botId": str,
-        "replicaRegion": str,
-    },
-)
-_OptionalListBotVersionReplicasRequestRequestTypeDef = TypedDict(
-    "_OptionalListBotVersionReplicasRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-        "sortBy": "BotVersionReplicaSortByTypeDef",
-    },
-    total=False,
-)
-
-class ListBotVersionReplicasRequestRequestTypeDef(
-    _RequiredListBotVersionReplicasRequestRequestTypeDef,
-    _OptionalListBotVersionReplicasRequestRequestTypeDef,
-):
-    pass
-
-ListBotVersionReplicasResponseTypeDef = TypedDict(
-    "ListBotVersionReplicasResponseTypeDef",
-    {
-        "botId": str,
-        "sourceRegion": str,
-        "replicaRegion": str,
-        "botVersionReplicaSummaries": List["BotVersionReplicaSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListBotVersionsRequestRequestTypeDef = TypedDict(
-    "_RequiredListBotVersionsRequestRequestTypeDef",
-    {
-        "botId": str,
-    },
-)
-_OptionalListBotVersionsRequestRequestTypeDef = TypedDict(
-    "_OptionalListBotVersionsRequestRequestTypeDef",
-    {
-        "sortBy": "BotVersionSortByTypeDef",
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListBotVersionsRequestRequestTypeDef(
-    _RequiredListBotVersionsRequestRequestTypeDef, _OptionalListBotVersionsRequestRequestTypeDef
-):
-    pass
-
-ListBotVersionsResponseTypeDef = TypedDict(
-    "ListBotVersionsResponseTypeDef",
-    {
-        "botId": str,
-        "botVersionSummaries": List["BotVersionSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListBotsRequestRequestTypeDef = TypedDict(
-    "ListBotsRequestRequestTypeDef",
-    {
-        "sortBy": "BotSortByTypeDef",
-        "filters": List["BotFilterTypeDef"],
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-ListBotsResponseTypeDef = TypedDict(
-    "ListBotsResponseTypeDef",
-    {
-        "botSummaries": List["BotSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListBuiltInIntentsRequestRequestTypeDef = TypedDict(
-    "_RequiredListBuiltInIntentsRequestRequestTypeDef",
-    {
-        "localeId": str,
-    },
-)
-_OptionalListBuiltInIntentsRequestRequestTypeDef = TypedDict(
-    "_OptionalListBuiltInIntentsRequestRequestTypeDef",
-    {
-        "sortBy": "BuiltInIntentSortByTypeDef",
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListBuiltInIntentsRequestRequestTypeDef(
-    _RequiredListBuiltInIntentsRequestRequestTypeDef,
-    _OptionalListBuiltInIntentsRequestRequestTypeDef,
-):
-    pass
-
-ListBuiltInIntentsResponseTypeDef = TypedDict(
-    "ListBuiltInIntentsResponseTypeDef",
-    {
-        "builtInIntentSummaries": List["BuiltInIntentSummaryTypeDef"],
-        "nextToken": str,
-        "localeId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListBuiltInSlotTypesRequestRequestTypeDef = TypedDict(
-    "_RequiredListBuiltInSlotTypesRequestRequestTypeDef",
-    {
-        "localeId": str,
-    },
-)
-_OptionalListBuiltInSlotTypesRequestRequestTypeDef = TypedDict(
-    "_OptionalListBuiltInSlotTypesRequestRequestTypeDef",
-    {
-        "sortBy": "BuiltInSlotTypeSortByTypeDef",
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListBuiltInSlotTypesRequestRequestTypeDef(
-    _RequiredListBuiltInSlotTypesRequestRequestTypeDef,
-    _OptionalListBuiltInSlotTypesRequestRequestTypeDef,
-):
-    pass
-
-ListBuiltInSlotTypesResponseTypeDef = TypedDict(
-    "ListBuiltInSlotTypesResponseTypeDef",
-    {
-        "builtInSlotTypeSummaries": List["BuiltInSlotTypeSummaryTypeDef"],
-        "nextToken": str,
-        "localeId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListCustomVocabularyItemsRequestRequestTypeDef = TypedDict(
-    "_RequiredListCustomVocabularyItemsRequestRequestTypeDef",
-    {
-        "botId": str,
-        "botVersion": str,
-        "localeId": str,
-    },
-)
-_OptionalListCustomVocabularyItemsRequestRequestTypeDef = TypedDict(
-    "_OptionalListCustomVocabularyItemsRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListCustomVocabularyItemsRequestRequestTypeDef(
-    _RequiredListCustomVocabularyItemsRequestRequestTypeDef,
-    _OptionalListCustomVocabularyItemsRequestRequestTypeDef,
-):
-    pass
-
-ListCustomVocabularyItemsResponseTypeDef = TypedDict(
-    "ListCustomVocabularyItemsResponseTypeDef",
-    {
-        "botId": str,
-        "botVersion": str,
-        "localeId": str,
-        "customVocabularyItems": List["CustomVocabularyItemTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListExportsRequestRequestTypeDef = TypedDict(
-    "ListExportsRequestRequestTypeDef",
-    {
-        "botId": str,
-        "botVersion": str,
-        "sortBy": "ExportSortByTypeDef",
-        "filters": List["ExportFilterTypeDef"],
-        "maxResults": int,
-        "nextToken": str,
-        "localeId": str,
-    },
-    total=False,
-)
-
-ListExportsResponseTypeDef = TypedDict(
-    "ListExportsResponseTypeDef",
-    {
-        "botId": str,
-        "botVersion": str,
-        "exportSummaries": List["ExportSummaryTypeDef"],
-        "nextToken": str,
-        "localeId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListImportsRequestRequestTypeDef = TypedDict(
-    "ListImportsRequestRequestTypeDef",
-    {
-        "botId": str,
-        "botVersion": str,
-        "sortBy": "ImportSortByTypeDef",
-        "filters": List["ImportFilterTypeDef"],
-        "maxResults": int,
-        "nextToken": str,
-        "localeId": str,
-    },
-    total=False,
-)
-
-ListImportsResponseTypeDef = TypedDict(
-    "ListImportsResponseTypeDef",
-    {
-        "botId": str,
-        "botVersion": str,
-        "importSummaries": List["ImportSummaryTypeDef"],
-        "nextToken": str,
-        "localeId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListIntentMetricsRequestRequestTypeDef = TypedDict(
-    "_RequiredListIntentMetricsRequestRequestTypeDef",
-    {
-        "botId": str,
-        "startDateTime": Union[datetime, str],
-        "endDateTime": Union[datetime, str],
-        "metrics": List["AnalyticsIntentMetricTypeDef"],
-    },
-)
-_OptionalListIntentMetricsRequestRequestTypeDef = TypedDict(
-    "_OptionalListIntentMetricsRequestRequestTypeDef",
-    {
-        "binBy": List["AnalyticsBinBySpecificationTypeDef"],
-        "groupBy": List["AnalyticsIntentGroupBySpecificationTypeDef"],
-        "filters": List["AnalyticsIntentFilterTypeDef"],
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListIntentMetricsRequestRequestTypeDef(
-    _RequiredListIntentMetricsRequestRequestTypeDef, _OptionalListIntentMetricsRequestRequestTypeDef
-):
-    pass
-
-ListIntentMetricsResponseTypeDef = TypedDict(
-    "ListIntentMetricsResponseTypeDef",
-    {
-        "botId": str,
-        "results": List["AnalyticsIntentResultTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListIntentPathsRequestRequestTypeDef = TypedDict(
-    "_RequiredListIntentPathsRequestRequestTypeDef",
-    {
-        "botId": str,
-        "startDateTime": Union[datetime, str],
-        "endDateTime": Union[datetime, str],
-        "intentPath": str,
-    },
-)
-_OptionalListIntentPathsRequestRequestTypeDef = TypedDict(
-    "_OptionalListIntentPathsRequestRequestTypeDef",
-    {
-        "filters": List["AnalyticsPathFilterTypeDef"],
-    },
-    total=False,
-)
-
-class ListIntentPathsRequestRequestTypeDef(
-    _RequiredListIntentPathsRequestRequestTypeDef, _OptionalListIntentPathsRequestRequestTypeDef
-):
-    pass
-
-ListIntentPathsResponseTypeDef = TypedDict(
-    "ListIntentPathsResponseTypeDef",
-    {
-        "nodeSummaries": List["AnalyticsIntentNodeSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListIntentStageMetricsRequestRequestTypeDef = TypedDict(
-    "_RequiredListIntentStageMetricsRequestRequestTypeDef",
-    {
-        "botId": str,
-        "startDateTime": Union[datetime, str],
-        "endDateTime": Union[datetime, str],
-        "metrics": List["AnalyticsIntentStageMetricTypeDef"],
-    },
-)
-_OptionalListIntentStageMetricsRequestRequestTypeDef = TypedDict(
-    "_OptionalListIntentStageMetricsRequestRequestTypeDef",
-    {
-        "binBy": List["AnalyticsBinBySpecificationTypeDef"],
-        "groupBy": List["AnalyticsIntentStageGroupBySpecificationTypeDef"],
-        "filters": List["AnalyticsIntentStageFilterTypeDef"],
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListIntentStageMetricsRequestRequestTypeDef(
-    _RequiredListIntentStageMetricsRequestRequestTypeDef,
-    _OptionalListIntentStageMetricsRequestRequestTypeDef,
-):
-    pass
-
-ListIntentStageMetricsResponseTypeDef = TypedDict(
-    "ListIntentStageMetricsResponseTypeDef",
-    {
-        "botId": str,
-        "results": List["AnalyticsIntentStageResultTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListIntentsRequestRequestTypeDef = TypedDict(
-    "_RequiredListIntentsRequestRequestTypeDef",
-    {
-        "botId": str,
-        "botVersion": str,
-        "localeId": str,
-    },
-)
-_OptionalListIntentsRequestRequestTypeDef = TypedDict(
-    "_OptionalListIntentsRequestRequestTypeDef",
-    {
-        "sortBy": "IntentSortByTypeDef",
-        "filters": List["IntentFilterTypeDef"],
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListIntentsRequestRequestTypeDef(
-    _RequiredListIntentsRequestRequestTypeDef, _OptionalListIntentsRequestRequestTypeDef
-):
-    pass
-
-ListIntentsResponseTypeDef = TypedDict(
-    "ListIntentsResponseTypeDef",
-    {
-        "botId": str,
-        "botVersion": str,
-        "localeId": str,
-        "intentSummaries": List["IntentSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListRecommendedIntentsRequestRequestTypeDef = TypedDict(
-    "_RequiredListRecommendedIntentsRequestRequestTypeDef",
-    {
-        "botId": str,
-        "botVersion": str,
-        "localeId": str,
-        "botRecommendationId": str,
-    },
-)
-_OptionalListRecommendedIntentsRequestRequestTypeDef = TypedDict(
-    "_OptionalListRecommendedIntentsRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-class ListRecommendedIntentsRequestRequestTypeDef(
-    _RequiredListRecommendedIntentsRequestRequestTypeDef,
-    _OptionalListRecommendedIntentsRequestRequestTypeDef,
-):
-    pass
-
-ListRecommendedIntentsResponseTypeDef = TypedDict(
-    "ListRecommendedIntentsResponseTypeDef",
-    {
-        "botId": str,
-        "botVersion": str,
-        "localeId": str,
-        "botRecommendationId": str,
-        "summaryList": List["RecommendedIntentSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListSessionAnalyticsDataRequestRequestTypeDef = TypedDict(
-    "_RequiredListSessionAnalyticsDataRequestRequestTypeDef",
-    {
-        "botId": str,
-        "startDateTime": Union[datetime, str],
-        "endDateTime": Union[datetime, str],
-    },
-)
-_OptionalListSessionAnalyticsDataRequestRequestTypeDef = TypedDict(
-    "_OptionalListSessionAnalyticsDataRequestRequestTypeDef",
-    {
-        "sortBy": "SessionDataSortByTypeDef",
-        "filters": List["AnalyticsSessionFilterTypeDef"],
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListSessionAnalyticsDataRequestRequestTypeDef(
-    _RequiredListSessionAnalyticsDataRequestRequestTypeDef,
-    _OptionalListSessionAnalyticsDataRequestRequestTypeDef,
-):
-    pass
-
-ListSessionAnalyticsDataResponseTypeDef = TypedDict(
-    "ListSessionAnalyticsDataResponseTypeDef",
-    {
-        "botId": str,
-        "nextToken": str,
-        "sessions": List["SessionSpecificationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListSessionMetricsRequestRequestTypeDef = TypedDict(
-    "_RequiredListSessionMetricsRequestRequestTypeDef",
-    {
-        "botId": str,
-        "startDateTime": Union[datetime, str],
-        "endDateTime": Union[datetime, str],
-        "metrics": List["AnalyticsSessionMetricTypeDef"],
-    },
-)
-_OptionalListSessionMetricsRequestRequestTypeDef = TypedDict(
-    "_OptionalListSessionMetricsRequestRequestTypeDef",
-    {
-        "binBy": List["AnalyticsBinBySpecificationTypeDef"],
-        "groupBy": List["AnalyticsSessionGroupBySpecificationTypeDef"],
-        "filters": List["AnalyticsSessionFilterTypeDef"],
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListSessionMetricsRequestRequestTypeDef(
-    _RequiredListSessionMetricsRequestRequestTypeDef,
-    _OptionalListSessionMetricsRequestRequestTypeDef,
-):
-    pass
-
-ListSessionMetricsResponseTypeDef = TypedDict(
-    "ListSessionMetricsResponseTypeDef",
-    {
-        "botId": str,
-        "results": List["AnalyticsSessionResultTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListSlotTypesRequestRequestTypeDef = TypedDict(
-    "_RequiredListSlotTypesRequestRequestTypeDef",
-    {
-        "botId": str,
-        "botVersion": str,
-        "localeId": str,
-    },
-)
-_OptionalListSlotTypesRequestRequestTypeDef = TypedDict(
-    "_OptionalListSlotTypesRequestRequestTypeDef",
-    {
-        "sortBy": "SlotTypeSortByTypeDef",
-        "filters": List["SlotTypeFilterTypeDef"],
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListSlotTypesRequestRequestTypeDef(
-    _RequiredListSlotTypesRequestRequestTypeDef, _OptionalListSlotTypesRequestRequestTypeDef
-):
-    pass
-
-ListSlotTypesResponseTypeDef = TypedDict(
-    "ListSlotTypesResponseTypeDef",
-    {
-        "botId": str,
-        "botVersion": str,
-        "localeId": str,
-        "slotTypeSummaries": List["SlotTypeSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListSlotsRequestRequestTypeDef = TypedDict(
-    "_RequiredListSlotsRequestRequestTypeDef",
-    {
-        "botId": str,
-        "botVersion": str,
-        "localeId": str,
-        "intentId": str,
-    },
-)
-_OptionalListSlotsRequestRequestTypeDef = TypedDict(
-    "_OptionalListSlotsRequestRequestTypeDef",
-    {
-        "sortBy": "SlotSortByTypeDef",
-        "filters": List["SlotFilterTypeDef"],
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListSlotsRequestRequestTypeDef(
-    _RequiredListSlotsRequestRequestTypeDef, _OptionalListSlotsRequestRequestTypeDef
-):
-    pass
-
-ListSlotsResponseTypeDef = TypedDict(
-    "ListSlotsResponseTypeDef",
-    {
-        "botId": str,
-        "botVersion": str,
-        "localeId": str,
-        "intentId": str,
-        "slotSummaries": List["SlotSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "resourceARN": str,
-    },
-)
-
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListTestExecutionResultItemsRequestRequestTypeDef = TypedDict(
-    "_RequiredListTestExecutionResultItemsRequestRequestTypeDef",
-    {
-        "testExecutionId": str,
-        "resultFilterBy": "TestExecutionResultFilterByTypeDef",
-    },
-)
-_OptionalListTestExecutionResultItemsRequestRequestTypeDef = TypedDict(
-    "_OptionalListTestExecutionResultItemsRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListTestExecutionResultItemsRequestRequestTypeDef(
-    _RequiredListTestExecutionResultItemsRequestRequestTypeDef,
-    _OptionalListTestExecutionResultItemsRequestRequestTypeDef,
-):
-    pass
-
-ListTestExecutionResultItemsResponseTypeDef = TypedDict(
-    "ListTestExecutionResultItemsResponseTypeDef",
-    {
-        "testExecutionResults": "TestExecutionResultItemsTypeDef",
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTestExecutionsRequestRequestTypeDef = TypedDict(
-    "ListTestExecutionsRequestRequestTypeDef",
-    {
-        "sortBy": "TestExecutionSortByTypeDef",
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-ListTestExecutionsResponseTypeDef = TypedDict(
-    "ListTestExecutionsResponseTypeDef",
-    {
-        "testExecutions": List["TestExecutionSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListTestSetRecordsRequestRequestTypeDef = TypedDict(
-    "_RequiredListTestSetRecordsRequestRequestTypeDef",
-    {
-        "testSetId": str,
-    },
-)
-_OptionalListTestSetRecordsRequestRequestTypeDef = TypedDict(
-    "_OptionalListTestSetRecordsRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListTestSetRecordsRequestRequestTypeDef(
-    _RequiredListTestSetRecordsRequestRequestTypeDef,
-    _OptionalListTestSetRecordsRequestRequestTypeDef,
-):
-    pass
-
-ListTestSetRecordsResponseTypeDef = TypedDict(
-    "ListTestSetRecordsResponseTypeDef",
-    {
-        "testSetRecords": List["TestSetTurnRecordTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTestSetsRequestRequestTypeDef = TypedDict(
-    "ListTestSetsRequestRequestTypeDef",
-    {
-        "sortBy": "TestSetSortByTypeDef",
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-ListTestSetsResponseTypeDef = TypedDict(
-    "ListTestSetsResponseTypeDef",
-    {
-        "testSets": List["TestSetSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListUtteranceAnalyticsDataRequestRequestTypeDef = TypedDict(
-    "_RequiredListUtteranceAnalyticsDataRequestRequestTypeDef",
-    {
-        "botId": str,
-        "startDateTime": Union[datetime, str],
-        "endDateTime": Union[datetime, str],
-    },
-)
-_OptionalListUtteranceAnalyticsDataRequestRequestTypeDef = TypedDict(
-    "_OptionalListUtteranceAnalyticsDataRequestRequestTypeDef",
-    {
-        "sortBy": "UtteranceDataSortByTypeDef",
-        "filters": List["AnalyticsUtteranceFilterTypeDef"],
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListUtteranceAnalyticsDataRequestRequestTypeDef(
-    _RequiredListUtteranceAnalyticsDataRequestRequestTypeDef,
-    _OptionalListUtteranceAnalyticsDataRequestRequestTypeDef,
-):
-    pass
-
-ListUtteranceAnalyticsDataResponseTypeDef = TypedDict(
-    "ListUtteranceAnalyticsDataResponseTypeDef",
-    {
-        "botId": str,
-        "nextToken": str,
-        "utterances": List["UtteranceSpecificationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListUtteranceMetricsRequestRequestTypeDef = TypedDict(
-    "_RequiredListUtteranceMetricsRequestRequestTypeDef",
-    {
-        "botId": str,
-        "startDateTime": Union[datetime, str],
-        "endDateTime": Union[datetime, str],
-        "metrics": List["AnalyticsUtteranceMetricTypeDef"],
-    },
-)
-_OptionalListUtteranceMetricsRequestRequestTypeDef = TypedDict(
-    "_OptionalListUtteranceMetricsRequestRequestTypeDef",
-    {
-        "binBy": List["AnalyticsBinBySpecificationTypeDef"],
-        "groupBy": List["AnalyticsUtteranceGroupBySpecificationTypeDef"],
-        "attributes": List["AnalyticsUtteranceAttributeTypeDef"],
-        "filters": List["AnalyticsUtteranceFilterTypeDef"],
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListUtteranceMetricsRequestRequestTypeDef(
-    _RequiredListUtteranceMetricsRequestRequestTypeDef,
-    _OptionalListUtteranceMetricsRequestRequestTypeDef,
-):
-    pass
-
-ListUtteranceMetricsResponseTypeDef = TypedDict(
-    "ListUtteranceMetricsResponseTypeDef",
-    {
-        "botId": str,
-        "results": List["AnalyticsUtteranceResultTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredMessageGroupTypeDef = TypedDict(
-    "_RequiredMessageGroupTypeDef",
-    {
-        "message": "MessageTypeDef",
-    },
-)
-_OptionalMessageGroupTypeDef = TypedDict(
-    "_OptionalMessageGroupTypeDef",
-    {
-        "variations": List["MessageTypeDef"],
-    },
-    total=False,
-)
-
-class MessageGroupTypeDef(_RequiredMessageGroupTypeDef, _OptionalMessageGroupTypeDef):
-    pass
-
-MessageTypeDef = TypedDict(
-    "MessageTypeDef",
-    {
-        "plainTextMessage": "PlainTextMessageTypeDef",
-        "customPayload": "CustomPayloadTypeDef",
-        "ssmlMessage": "SSMLMessageTypeDef",
-        "imageResponseCard": "ImageResponseCardTypeDef",
-    },
-    total=False,
-)
-
-MultipleValuesSettingTypeDef = TypedDict(
-    "MultipleValuesSettingTypeDef",
-    {
-        "allowMultipleValues": bool,
-    },
-    total=False,
-)
-
-_RequiredNewCustomVocabularyItemTypeDef = TypedDict(
-    "_RequiredNewCustomVocabularyItemTypeDef",
-    {
-        "phrase": str,
-    },
-)
-_OptionalNewCustomVocabularyItemTypeDef = TypedDict(
-    "_OptionalNewCustomVocabularyItemTypeDef",
-    {
-        "weight": int,
-        "displayAs": str,
-    },
-    total=False,
-)
-
-class NewCustomVocabularyItemTypeDef(
-    _RequiredNewCustomVocabularyItemTypeDef, _OptionalNewCustomVocabularyItemTypeDef
-):
-    pass
-
-ObfuscationSettingTypeDef = TypedDict(
-    "ObfuscationSettingTypeDef",
-    {
-        "obfuscationSettingType": ObfuscationSettingTypeType,
-    },
-)
-
-_RequiredOpensearchConfigurationTypeDef = TypedDict(
-    "_RequiredOpensearchConfigurationTypeDef",
-    {
-        "domainEndpoint": str,
-        "indexName": str,
-    },
-)
-_OptionalOpensearchConfigurationTypeDef = TypedDict(
-    "_OptionalOpensearchConfigurationTypeDef",
-    {
-        "exactResponse": bool,
-        "exactResponseFields": "ExactResponseFieldsTypeDef",
-        "includeFields": List[str],
-    },
-    total=False,
-)
-
-class OpensearchConfigurationTypeDef(
-    _RequiredOpensearchConfigurationTypeDef, _OptionalOpensearchConfigurationTypeDef
-):
-    pass
-
-OutputContextTypeDef = TypedDict(
-    "OutputContextTypeDef",
-    {
-        "name": str,
-        "timeToLiveInSeconds": int,
-        "turnsToLive": int,
-    },
-)
-
-_RequiredOverallTestResultItemTypeDef = TypedDict(
-    "_RequiredOverallTestResultItemTypeDef",
-    {
-        "multiTurnConversation": bool,
-        "totalResultCount": int,
-        "endToEndResultCounts": Dict[TestResultMatchStatusType, int],
-    },
-)
-_OptionalOverallTestResultItemTypeDef = TypedDict(
-    "_OptionalOverallTestResultItemTypeDef",
-    {
-        "speechTranscriptionResultCounts": Dict[TestResultMatchStatusType, int],
-    },
-    total=False,
-)
-
-class OverallTestResultItemTypeDef(
-    _RequiredOverallTestResultItemTypeDef, _OptionalOverallTestResultItemTypeDef
-):
-    pass
-
-OverallTestResultsTypeDef = TypedDict(
-    "OverallTestResultsTypeDef",
-    {
-        "items": List["OverallTestResultItemTypeDef"],
-    },
-)
-
-ParentBotNetworkTypeDef = TypedDict(
-    "ParentBotNetworkTypeDef",
-    {
-        "botId": str,
-        "botVersion": str,
-    },
-)
-
-PathFormatTypeDef = TypedDict(
-    "PathFormatTypeDef",
-    {
-        "objectPrefixes": List[str],
-    },
-    total=False,
-)
-
-PlainTextMessageTypeDef = TypedDict(
-    "PlainTextMessageTypeDef",
-    {
-        "value": str,
-    },
-)
-
-PostDialogCodeHookInvocationSpecificationTypeDef = TypedDict(
-    "PostDialogCodeHookInvocationSpecificationTypeDef",
-    {
-        "successResponse": "ResponseSpecificationTypeDef",
-        "successNextStep": "DialogStateTypeDef",
-        "successConditional": "ConditionalSpecificationTypeDef",
-        "failureResponse": "ResponseSpecificationTypeDef",
-        "failureNextStep": "DialogStateTypeDef",
-        "failureConditional": "ConditionalSpecificationTypeDef",
-        "timeoutResponse": "ResponseSpecificationTypeDef",
-        "timeoutNextStep": "DialogStateTypeDef",
-        "timeoutConditional": "ConditionalSpecificationTypeDef",
-    },
-    total=False,
-)
-
-PostFulfillmentStatusSpecificationTypeDef = TypedDict(
-    "PostFulfillmentStatusSpecificationTypeDef",
-    {
-        "successResponse": "ResponseSpecificationTypeDef",
-        "failureResponse": "ResponseSpecificationTypeDef",
-        "timeoutResponse": "ResponseSpecificationTypeDef",
-        "successNextStep": "DialogStateTypeDef",
-        "successConditional": "ConditionalSpecificationTypeDef",
-        "failureNextStep": "DialogStateTypeDef",
-        "failureConditional": "ConditionalSpecificationTypeDef",
-        "timeoutNextStep": "DialogStateTypeDef",
-        "timeoutConditional": "ConditionalSpecificationTypeDef",
-    },
-    total=False,
-)
-
-PrincipalTypeDef = TypedDict(
-    "PrincipalTypeDef",
-    {
-        "service": str,
-        "arn": str,
-    },
-    total=False,
-)
-
-_RequiredPromptAttemptSpecificationTypeDef = TypedDict(
-    "_RequiredPromptAttemptSpecificationTypeDef",
-    {
-        "allowedInputTypes": "AllowedInputTypesTypeDef",
-    },
-)
-_OptionalPromptAttemptSpecificationTypeDef = TypedDict(
-    "_OptionalPromptAttemptSpecificationTypeDef",
-    {
-        "allowInterrupt": bool,
-        "audioAndDTMFInputSpecification": "AudioAndDTMFInputSpecificationTypeDef",
-        "textInputSpecification": "TextInputSpecificationTypeDef",
-    },
-    total=False,
-)
-
-class PromptAttemptSpecificationTypeDef(
-    _RequiredPromptAttemptSpecificationTypeDef, _OptionalPromptAttemptSpecificationTypeDef
-):
-    pass
-
-_RequiredPromptSpecificationTypeDef = TypedDict(
-    "_RequiredPromptSpecificationTypeDef",
-    {
-        "messageGroups": List["MessageGroupTypeDef"],
-        "maxRetries": int,
-    },
-)
-_OptionalPromptSpecificationTypeDef = TypedDict(
-    "_OptionalPromptSpecificationTypeDef",
-    {
-        "allowInterrupt": bool,
-        "messageSelectionStrategy": MessageSelectionStrategyType,
-        "promptAttemptsSpecification": Dict[PromptAttemptType, "PromptAttemptSpecificationTypeDef"],
-    },
-    total=False,
-)
-
-class PromptSpecificationTypeDef(
-    _RequiredPromptSpecificationTypeDef, _OptionalPromptSpecificationTypeDef
-):
-    pass
-
-QnAIntentConfigurationTypeDef = TypedDict(
-    "QnAIntentConfigurationTypeDef",
-    {
-        "dataSourceConfiguration": "DataSourceConfigurationTypeDef",
-        "bedrockModelConfiguration": "BedrockModelSpecificationTypeDef",
-    },
-    total=False,
-)
-
-_RequiredQnAKendraConfigurationTypeDef = TypedDict(
-    "_RequiredQnAKendraConfigurationTypeDef",
-    {
-        "kendraIndex": str,
-    },
-)
-_OptionalQnAKendraConfigurationTypeDef = TypedDict(
-    "_OptionalQnAKendraConfigurationTypeDef",
-    {
-        "queryFilterStringEnabled": bool,
-        "queryFilterString": str,
-        "exactResponse": bool,
-    },
-    total=False,
-)
-
-class QnAKendraConfigurationTypeDef(
-    _RequiredQnAKendraConfigurationTypeDef, _OptionalQnAKendraConfigurationTypeDef
-):
-    pass
-
-RecommendedIntentSummaryTypeDef = TypedDict(
-    "RecommendedIntentSummaryTypeDef",
-    {
-        "intentId": str,
-        "intentName": str,
-        "sampleUtterancesCount": int,
-    },
-    total=False,
-)
-
-RelativeAggregationDurationTypeDef = TypedDict(
-    "RelativeAggregationDurationTypeDef",
-    {
-        "timeDimension": TimeDimensionType,
-        "timeValue": int,
-    },
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-_RequiredResponseSpecificationTypeDef = TypedDict(
-    "_RequiredResponseSpecificationTypeDef",
-    {
-        "messageGroups": List["MessageGroupTypeDef"],
-    },
-)
-_OptionalResponseSpecificationTypeDef = TypedDict(
-    "_OptionalResponseSpecificationTypeDef",
-    {
-        "allowInterrupt": bool,
-    },
-    total=False,
-)
-
-class ResponseSpecificationTypeDef(
-    _RequiredResponseSpecificationTypeDef, _OptionalResponseSpecificationTypeDef
-):
-    pass
-
-RuntimeHintDetailsTypeDef = TypedDict(
-    "RuntimeHintDetailsTypeDef",
-    {
-        "runtimeHintValues": List["RuntimeHintValueTypeDef"],
-        "subSlotHints": Dict[str, Dict[str, Any]],
-    },
-    total=False,
-)
-
-RuntimeHintValueTypeDef = TypedDict(
-    "RuntimeHintValueTypeDef",
-    {
-        "phrase": str,
-    },
-)
-
-RuntimeHintsTypeDef = TypedDict(
-    "RuntimeHintsTypeDef",
-    {
-        "slotHints": Dict[str, Dict[str, "RuntimeHintDetailsTypeDef"]],
-    },
-    total=False,
-)
-
-RuntimeSettingsTypeDef = TypedDict(
-    "RuntimeSettingsTypeDef",
-    {
-        "slotResolutionImprovement": "SlotResolutionImprovementSpecificationTypeDef",
-    },
-    total=False,
-)
-
-_RequiredS3BucketLogDestinationTypeDef = TypedDict(
-    "_RequiredS3BucketLogDestinationTypeDef",
-    {
-        "s3BucketArn": str,
-        "logPrefix": str,
-    },
-)
-_OptionalS3BucketLogDestinationTypeDef = TypedDict(
-    "_OptionalS3BucketLogDestinationTypeDef",
-    {
-        "kmsKeyArn": str,
-    },
-    total=False,
-)
-
-class S3BucketLogDestinationTypeDef(
-    _RequiredS3BucketLogDestinationTypeDef, _OptionalS3BucketLogDestinationTypeDef
-):
-    pass
-
-_RequiredS3BucketTranscriptSourceTypeDef = TypedDict(
-    "_RequiredS3BucketTranscriptSourceTypeDef",
-    {
-        "s3BucketName": str,
-        "transcriptFormat": Literal["Lex"],
-    },
-)
-_OptionalS3BucketTranscriptSourceTypeDef = TypedDict(
-    "_OptionalS3BucketTranscriptSourceTypeDef",
-    {
-        "pathFormat": "PathFormatTypeDef",
-        "transcriptFilter": "TranscriptFilterTypeDef",
-        "kmsKeyArn": str,
-    },
-    total=False,
-)
-
-class S3BucketTranscriptSourceTypeDef(
-    _RequiredS3BucketTranscriptSourceTypeDef, _OptionalS3BucketTranscriptSourceTypeDef
-):
-    pass
-
-SSMLMessageTypeDef = TypedDict(
-    "SSMLMessageTypeDef",
-    {
-        "value": str,
-    },
-)
-
-_RequiredSampleUtteranceGenerationSpecificationTypeDef = TypedDict(
-    "_RequiredSampleUtteranceGenerationSpecificationTypeDef",
-    {
-        "enabled": bool,
-    },
-)
-_OptionalSampleUtteranceGenerationSpecificationTypeDef = TypedDict(
-    "_OptionalSampleUtteranceGenerationSpecificationTypeDef",
-    {
-        "bedrockModelSpecification": "BedrockModelSpecificationTypeDef",
-    },
-    total=False,
-)
-
-class SampleUtteranceGenerationSpecificationTypeDef(
-    _RequiredSampleUtteranceGenerationSpecificationTypeDef,
-    _OptionalSampleUtteranceGenerationSpecificationTypeDef,
-):
-    pass
-
-SampleUtteranceTypeDef = TypedDict(
-    "SampleUtteranceTypeDef",
-    {
-        "utterance": str,
-    },
-)
-
-SampleValueTypeDef = TypedDict(
-    "SampleValueTypeDef",
-    {
-        "value": str,
-    },
-)
-
-_RequiredSearchAssociatedTranscriptsRequestRequestTypeDef = TypedDict(
-    "_RequiredSearchAssociatedTranscriptsRequestRequestTypeDef",
-    {
-        "botId": str,
-        "botVersion": str,
-        "localeId": str,
-        "botRecommendationId": str,
-        "filters": List["AssociatedTranscriptFilterTypeDef"],
-    },
-)
-_OptionalSearchAssociatedTranscriptsRequestRequestTypeDef = TypedDict(
-    "_OptionalSearchAssociatedTranscriptsRequestRequestTypeDef",
-    {
-        "searchOrder": SearchOrderType,
-        "maxResults": int,
-        "nextIndex": int,
-    },
-    total=False,
-)
-
-class SearchAssociatedTranscriptsRequestRequestTypeDef(
-    _RequiredSearchAssociatedTranscriptsRequestRequestTypeDef,
-    _OptionalSearchAssociatedTranscriptsRequestRequestTypeDef,
-):
-    pass
-
-SearchAssociatedTranscriptsResponseTypeDef = TypedDict(
-    "SearchAssociatedTranscriptsResponseTypeDef",
-    {
-        "botId": str,
-        "botVersion": str,
-        "localeId": str,
-        "botRecommendationId": str,
-        "nextIndex": int,
-        "associatedTranscripts": List["AssociatedTranscriptTypeDef"],
-        "totalResults": int,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-SentimentAnalysisSettingsTypeDef = TypedDict(
-    "SentimentAnalysisSettingsTypeDef",
-    {
-        "detectSentiment": bool,
-    },
-)
-
-SessionDataSortByTypeDef = TypedDict(
-    "SessionDataSortByTypeDef",
-    {
-        "name": AnalyticsSessionSortByNameType,
-        "order": AnalyticsSortOrderType,
-    },
-)
-
-SessionSpecificationTypeDef = TypedDict(
-    "SessionSpecificationTypeDef",
-    {
-        "botAliasId": str,
-        "botVersion": str,
-        "localeId": str,
-        "channel": str,
-        "sessionId": str,
-        "conversationStartTime": datetime,
-        "conversationEndTime": datetime,
-        "conversationDurationSeconds": int,
-        "conversationEndState": ConversationEndStateType,
-        "mode": AnalyticsModalityType,
-        "numberOfTurns": int,
-        "invokedIntentSamples": List["InvokedIntentSampleTypeDef"],
-        "originatingRequestId": str,
-    },
-    total=False,
-)
-
-SlotCaptureSettingTypeDef = TypedDict(
-    "SlotCaptureSettingTypeDef",
-    {
-        "captureResponse": "ResponseSpecificationTypeDef",
-        "captureNextStep": "DialogStateTypeDef",
-        "captureConditional": "ConditionalSpecificationTypeDef",
-        "failureResponse": "ResponseSpecificationTypeDef",
-        "failureNextStep": "DialogStateTypeDef",
-        "failureConditional": "ConditionalSpecificationTypeDef",
-        "codeHook": "DialogCodeHookInvocationSettingTypeDef",
-        "elicitationCodeHook": "ElicitationCodeHookInvocationSettingTypeDef",
-    },
-    total=False,
-)
-
-SlotDefaultValueSpecificationTypeDef = TypedDict(
-    "SlotDefaultValueSpecificationTypeDef",
-    {
-        "defaultValueList": List["SlotDefaultValueTypeDef"],
-    },
-)
-
-SlotDefaultValueTypeDef = TypedDict(
-    "SlotDefaultValueTypeDef",
-    {
-        "defaultValue": str,
-    },
-)
-
-SlotFilterTypeDef = TypedDict(
-    "SlotFilterTypeDef",
-    {
-        "name": Literal["SlotName"],
-        "values": List[str],
-        "operator": SlotFilterOperatorType,
-    },
-)
-
-SlotPriorityTypeDef = TypedDict(
-    "SlotPriorityTypeDef",
-    {
-        "priority": int,
-        "slotId": str,
-    },
-)
-
-_RequiredSlotResolutionImprovementSpecificationTypeDef = TypedDict(
-    "_RequiredSlotResolutionImprovementSpecificationTypeDef",
-    {
-        "enabled": bool,
-    },
-)
-_OptionalSlotResolutionImprovementSpecificationTypeDef = TypedDict(
-    "_OptionalSlotResolutionImprovementSpecificationTypeDef",
-    {
-        "bedrockModelSpecification": "BedrockModelSpecificationTypeDef",
-    },
-    total=False,
-)
-
-class SlotResolutionImprovementSpecificationTypeDef(
-    _RequiredSlotResolutionImprovementSpecificationTypeDef,
-    _OptionalSlotResolutionImprovementSpecificationTypeDef,
-):
-    pass
-
-SlotResolutionSettingTypeDef = TypedDict(
-    "SlotResolutionSettingTypeDef",
-    {
-        "slotResolutionStrategy": SlotResolutionStrategyType,
-    },
-)
-
-_RequiredSlotResolutionTestResultItemCountsTypeDef = TypedDict(
-    "_RequiredSlotResolutionTestResultItemCountsTypeDef",
-    {
-        "totalResultCount": int,
-        "slotMatchResultCounts": Dict[TestResultMatchStatusType, int],
-    },
-)
-_OptionalSlotResolutionTestResultItemCountsTypeDef = TypedDict(
-    "_OptionalSlotResolutionTestResultItemCountsTypeDef",
-    {
-        "speechTranscriptionResultCounts": Dict[TestResultMatchStatusType, int],
-    },
-    total=False,
-)
-
-class SlotResolutionTestResultItemCountsTypeDef(
-    _RequiredSlotResolutionTestResultItemCountsTypeDef,
-    _OptionalSlotResolutionTestResultItemCountsTypeDef,
-):
-    pass
-
-SlotResolutionTestResultItemTypeDef = TypedDict(
-    "SlotResolutionTestResultItemTypeDef",
-    {
-        "slotName": str,
-        "resultCounts": "SlotResolutionTestResultItemCountsTypeDef",
-    },
-)
-
-SlotSortByTypeDef = TypedDict(
-    "SlotSortByTypeDef",
-    {
-        "attribute": SlotSortAttributeType,
-        "order": SortOrderType,
-    },
-)
-
-SlotSummaryTypeDef = TypedDict(
-    "SlotSummaryTypeDef",
-    {
-        "slotId": str,
-        "slotName": str,
-        "description": str,
-        "slotConstraint": SlotConstraintType,
-        "slotTypeId": str,
-        "valueElicitationPromptSpecification": "PromptSpecificationTypeDef",
-        "lastUpdatedDateTime": datetime,
-    },
-    total=False,
-)
-
-SlotTypeFilterTypeDef = TypedDict(
-    "SlotTypeFilterTypeDef",
-    {
-        "name": SlotTypeFilterNameType,
-        "values": List[str],
-        "operator": SlotTypeFilterOperatorType,
-    },
-)
-
-SlotTypeSortByTypeDef = TypedDict(
-    "SlotTypeSortByTypeDef",
-    {
-        "attribute": SlotTypeSortAttributeType,
-        "order": SortOrderType,
-    },
-)
-
-SlotTypeStatisticsTypeDef = TypedDict(
-    "SlotTypeStatisticsTypeDef",
-    {
-        "discoveredSlotTypeCount": int,
-    },
-    total=False,
-)
-
-SlotTypeSummaryTypeDef = TypedDict(
-    "SlotTypeSummaryTypeDef",
-    {
-        "slotTypeId": str,
-        "slotTypeName": str,
-        "description": str,
-        "parentSlotTypeSignature": str,
-        "lastUpdatedDateTime": datetime,
-        "slotTypeCategory": SlotTypeCategoryType,
-    },
-    total=False,
-)
-
-SlotTypeValueTypeDef = TypedDict(
-    "SlotTypeValueTypeDef",
-    {
-        "sampleValue": "SampleValueTypeDef",
-        "synonyms": List["SampleValueTypeDef"],
-    },
-    total=False,
-)
-
-_RequiredSlotValueElicitationSettingTypeDef = TypedDict(
-    "_RequiredSlotValueElicitationSettingTypeDef",
-    {
-        "slotConstraint": SlotConstraintType,
-    },
-)
-_OptionalSlotValueElicitationSettingTypeDef = TypedDict(
-    "_OptionalSlotValueElicitationSettingTypeDef",
-    {
-        "defaultValueSpecification": "SlotDefaultValueSpecificationTypeDef",
-        "promptSpecification": "PromptSpecificationTypeDef",
-        "sampleUtterances": List["SampleUtteranceTypeDef"],
-        "waitAndContinueSpecification": "WaitAndContinueSpecificationTypeDef",
-        "slotCaptureSetting": "SlotCaptureSettingTypeDef",
-        "slotResolutionSetting": "SlotResolutionSettingTypeDef",
-    },
-    total=False,
-)
-
-class SlotValueElicitationSettingTypeDef(
-    _RequiredSlotValueElicitationSettingTypeDef, _OptionalSlotValueElicitationSettingTypeDef
-):
-    pass
-
-SlotValueOverrideTypeDef = TypedDict(
-    "SlotValueOverrideTypeDef",
-    {
-        "shape": SlotShapeType,
-        "value": "SlotValueTypeDef",
-        "values": List[Dict[str, Any]],
-    },
-    total=False,
-)
-
-SlotValueRegexFilterTypeDef = TypedDict(
-    "SlotValueRegexFilterTypeDef",
-    {
-        "pattern": str,
-    },
-)
-
-_RequiredSlotValueSelectionSettingTypeDef = TypedDict(
-    "_RequiredSlotValueSelectionSettingTypeDef",
-    {
-        "resolutionStrategy": SlotValueResolutionStrategyType,
-    },
-)
-_OptionalSlotValueSelectionSettingTypeDef = TypedDict(
-    "_OptionalSlotValueSelectionSettingTypeDef",
-    {
-        "regexFilter": "SlotValueRegexFilterTypeDef",
-        "advancedRecognitionSetting": "AdvancedRecognitionSettingTypeDef",
-    },
-    total=False,
-)
-
-class SlotValueSelectionSettingTypeDef(
-    _RequiredSlotValueSelectionSettingTypeDef, _OptionalSlotValueSelectionSettingTypeDef
-):
-    pass
-
-SlotValueTypeDef = TypedDict(
-    "SlotValueTypeDef",
-    {
-        "interpretedValue": str,
-    },
-    total=False,
-)
-
-SpecificationsTypeDef = TypedDict(
-    "SpecificationsTypeDef",
-    {
-        "slotTypeId": str,
-        "valueElicitationSetting": "SubSlotValueElicitationSettingTypeDef",
-    },
-)
-
-_RequiredStartBotRecommendationRequestRequestTypeDef = TypedDict(
-    "_RequiredStartBotRecommendationRequestRequestTypeDef",
-    {
-        "botId": str,
-        "botVersion": str,
-        "localeId": str,
-        "transcriptSourceSetting": "TranscriptSourceSettingTypeDef",
-    },
-)
-_OptionalStartBotRecommendationRequestRequestTypeDef = TypedDict(
-    "_OptionalStartBotRecommendationRequestRequestTypeDef",
-    {
-        "encryptionSetting": "EncryptionSettingTypeDef",
-    },
-    total=False,
-)
-
-class StartBotRecommendationRequestRequestTypeDef(
-    _RequiredStartBotRecommendationRequestRequestTypeDef,
-    _OptionalStartBotRecommendationRequestRequestTypeDef,
-):
-    pass
-
-StartBotRecommendationResponseTypeDef = TypedDict(
-    "StartBotRecommendationResponseTypeDef",
-    {
-        "botId": str,
-        "botVersion": str,
-        "localeId": str,
-        "botRecommendationStatus": BotRecommendationStatusType,
-        "botRecommendationId": str,
-        "creationDateTime": datetime,
-        "transcriptSourceSetting": "TranscriptSourceSettingTypeDef",
-        "encryptionSetting": "EncryptionSettingTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-StartBotResourceGenerationRequestRequestTypeDef = TypedDict(
-    "StartBotResourceGenerationRequestRequestTypeDef",
-    {
-        "generationInputPrompt": str,
-        "botId": str,
-        "botVersion": str,
-        "localeId": str,
-    },
-)
-
-StartBotResourceGenerationResponseTypeDef = TypedDict(
-    "StartBotResourceGenerationResponseTypeDef",
-    {
-        "generationInputPrompt": str,
-        "generationId": str,
-        "botId": str,
-        "botVersion": str,
-        "localeId": str,
-        "generationStatus": GenerationStatusType,
-        "creationDateTime": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredStartImportRequestRequestTypeDef = TypedDict(
-    "_RequiredStartImportRequestRequestTypeDef",
-    {
-        "importId": str,
-        "resourceSpecification": "ImportResourceSpecificationTypeDef",
-        "mergeStrategy": MergeStrategyType,
-    },
-)
-_OptionalStartImportRequestRequestTypeDef = TypedDict(
-    "_OptionalStartImportRequestRequestTypeDef",
-    {
-        "filePassword": str,
-    },
-    total=False,
-)
-
-class StartImportRequestRequestTypeDef(
-    _RequiredStartImportRequestRequestTypeDef, _OptionalStartImportRequestRequestTypeDef
-):
-    pass
-
-StartImportResponseTypeDef = TypedDict(
-    "StartImportResponseTypeDef",
-    {
-        "importId": str,
-        "resourceSpecification": "ImportResourceSpecificationTypeDef",
-        "mergeStrategy": MergeStrategyType,
-        "importStatus": ImportStatusType,
-        "creationDateTime": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredStartTestExecutionRequestRequestTypeDef = TypedDict(
-    "_RequiredStartTestExecutionRequestRequestTypeDef",
-    {
-        "testSetId": str,
-        "target": "TestExecutionTargetTypeDef",
-        "apiMode": TestExecutionApiModeType,
-    },
-)
-_OptionalStartTestExecutionRequestRequestTypeDef = TypedDict(
-    "_OptionalStartTestExecutionRequestRequestTypeDef",
-    {
-        "testExecutionModality": TestExecutionModalityType,
-    },
-    total=False,
-)
-
-class StartTestExecutionRequestRequestTypeDef(
-    _RequiredStartTestExecutionRequestRequestTypeDef,
-    _OptionalStartTestExecutionRequestRequestTypeDef,
-):
-    pass
-
-StartTestExecutionResponseTypeDef = TypedDict(
-    "StartTestExecutionResponseTypeDef",
-    {
-        "testExecutionId": str,
-        "creationDateTime": datetime,
-        "testSetId": str,
-        "target": "TestExecutionTargetTypeDef",
-        "apiMode": TestExecutionApiModeType,
-        "testExecutionModality": TestExecutionModalityType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredStartTestSetGenerationRequestRequestTypeDef = TypedDict(
-    "_RequiredStartTestSetGenerationRequestRequestTypeDef",
-    {
-        "testSetName": str,
-        "storageLocation": "TestSetStorageLocationTypeDef",
-        "generationDataSource": "TestSetGenerationDataSourceTypeDef",
-        "roleArn": str,
-    },
-)
-_OptionalStartTestSetGenerationRequestRequestTypeDef = TypedDict(
-    "_OptionalStartTestSetGenerationRequestRequestTypeDef",
-    {
-        "description": str,
-        "testSetTags": Dict[str, str],
-    },
-    total=False,
-)
-
-class StartTestSetGenerationRequestRequestTypeDef(
-    _RequiredStartTestSetGenerationRequestRequestTypeDef,
-    _OptionalStartTestSetGenerationRequestRequestTypeDef,
-):
-    pass
-
-StartTestSetGenerationResponseTypeDef = TypedDict(
-    "StartTestSetGenerationResponseTypeDef",
-    {
-        "testSetGenerationId": str,
-        "creationDateTime": datetime,
-        "testSetGenerationStatus": TestSetGenerationStatusType,
-        "testSetName": str,
-        "description": str,
-        "storageLocation": "TestSetStorageLocationTypeDef",
-        "generationDataSource": "TestSetGenerationDataSourceTypeDef",
-        "roleArn": str,
-        "testSetTags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredStillWaitingResponseSpecificationTypeDef = TypedDict(
-    "_RequiredStillWaitingResponseSpecificationTypeDef",
-    {
-        "messageGroups": List["MessageGroupTypeDef"],
-        "frequencyInSeconds": int,
-        "timeoutInSeconds": int,
-    },
-)
-_OptionalStillWaitingResponseSpecificationTypeDef = TypedDict(
-    "_OptionalStillWaitingResponseSpecificationTypeDef",
-    {
-        "allowInterrupt": bool,
-    },
-    total=False,
-)
-
-class StillWaitingResponseSpecificationTypeDef(
-    _RequiredStillWaitingResponseSpecificationTypeDef,
-    _OptionalStillWaitingResponseSpecificationTypeDef,
-):
-    pass
-
-StopBotRecommendationRequestRequestTypeDef = TypedDict(
-    "StopBotRecommendationRequestRequestTypeDef",
-    {
-        "botId": str,
-        "botVersion": str,
-        "localeId": str,
-        "botRecommendationId": str,
-    },
-)
-
-StopBotRecommendationResponseTypeDef = TypedDict(
-    "StopBotRecommendationResponseTypeDef",
-    {
-        "botId": str,
-        "botVersion": str,
-        "localeId": str,
-        "botRecommendationStatus": BotRecommendationStatusType,
-        "botRecommendationId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-SubSlotSettingTypeDef = TypedDict(
-    "SubSlotSettingTypeDef",
-    {
-        "expression": str,
-        "slotSpecifications": Dict[str, "SpecificationsTypeDef"],
-    },
-    total=False,
-)
-
-SubSlotTypeCompositionTypeDef = TypedDict(
-    "SubSlotTypeCompositionTypeDef",
-    {
-        "name": str,
-        "slotTypeId": str,
-    },
-)
-
-_RequiredSubSlotValueElicitationSettingTypeDef = TypedDict(
-    "_RequiredSubSlotValueElicitationSettingTypeDef",
-    {
-        "promptSpecification": "PromptSpecificationTypeDef",
-    },
-)
-_OptionalSubSlotValueElicitationSettingTypeDef = TypedDict(
-    "_OptionalSubSlotValueElicitationSettingTypeDef",
-    {
-        "defaultValueSpecification": "SlotDefaultValueSpecificationTypeDef",
-        "sampleUtterances": List["SampleUtteranceTypeDef"],
-        "waitAndContinueSpecification": "WaitAndContinueSpecificationTypeDef",
-    },
-    total=False,
-)
-
-class SubSlotValueElicitationSettingTypeDef(
-    _RequiredSubSlotValueElicitationSettingTypeDef, _OptionalSubSlotValueElicitationSettingTypeDef
-):
-    pass
-
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "resourceARN": str,
-        "tags": Dict[str, str],
-    },
-)
-
-_RequiredTestExecutionResultFilterByTypeDef = TypedDict(
-    "_RequiredTestExecutionResultFilterByTypeDef",
-    {
-        "resultTypeFilter": TestResultTypeFilterType,
-    },
-)
-_OptionalTestExecutionResultFilterByTypeDef = TypedDict(
-    "_OptionalTestExecutionResultFilterByTypeDef",
-    {
-        "conversationLevelTestResultsFilterBy": "ConversationLevelTestResultsFilterByTypeDef",
-    },
-    total=False,
-)
-
-class TestExecutionResultFilterByTypeDef(
-    _RequiredTestExecutionResultFilterByTypeDef, _OptionalTestExecutionResultFilterByTypeDef
-):
-    pass
-
-TestExecutionResultItemsTypeDef = TypedDict(
-    "TestExecutionResultItemsTypeDef",
-    {
-        "overallTestResults": "OverallTestResultsTypeDef",
-        "conversationLevelTestResults": "ConversationLevelTestResultsTypeDef",
-        "intentClassificationTestResults": "IntentClassificationTestResultsTypeDef",
-        "intentLevelSlotResolutionTestResults": "IntentLevelSlotResolutionTestResultsTypeDef",
-        "utteranceLevelTestResults": "UtteranceLevelTestResultsTypeDef",
-    },
-    total=False,
-)
-
-TestExecutionSortByTypeDef = TypedDict(
-    "TestExecutionSortByTypeDef",
-    {
-        "attribute": TestExecutionSortAttributeType,
-        "order": SortOrderType,
-    },
-)
-
-TestExecutionSummaryTypeDef = TypedDict(
-    "TestExecutionSummaryTypeDef",
-    {
-        "testExecutionId": str,
-        "creationDateTime": datetime,
-        "lastUpdatedDateTime": datetime,
-        "testExecutionStatus": TestExecutionStatusType,
-        "testSetId": str,
-        "testSetName": str,
-        "target": "TestExecutionTargetTypeDef",
-        "apiMode": TestExecutionApiModeType,
-        "testExecutionModality": TestExecutionModalityType,
-    },
-    total=False,
-)
-
-TestExecutionTargetTypeDef = TypedDict(
-    "TestExecutionTargetTypeDef",
-    {
-        "botAliasTarget": "BotAliasTestExecutionTargetTypeDef",
-    },
-    total=False,
-)
-
-TestSetDiscrepancyErrorsTypeDef = TypedDict(
-    "TestSetDiscrepancyErrorsTypeDef",
-    {
-        "intentDiscrepancies": List["TestSetIntentDiscrepancyItemTypeDef"],
-        "slotDiscrepancies": List["TestSetSlotDiscrepancyItemTypeDef"],
-    },
-)
-
-TestSetDiscrepancyReportBotAliasTargetTypeDef = TypedDict(
-    "TestSetDiscrepancyReportBotAliasTargetTypeDef",
-    {
-        "botId": str,
-        "botAliasId": str,
-        "localeId": str,
-    },
-)
-
-TestSetDiscrepancyReportResourceTargetTypeDef = TypedDict(
-    "TestSetDiscrepancyReportResourceTargetTypeDef",
-    {
-        "botAliasTarget": "TestSetDiscrepancyReportBotAliasTargetTypeDef",
-    },
-    total=False,
-)
-
-TestSetExportSpecificationTypeDef = TypedDict(
-    "TestSetExportSpecificationTypeDef",
-    {
-        "testSetId": str,
-    },
-)
-
-TestSetGenerationDataSourceTypeDef = TypedDict(
-    "TestSetGenerationDataSourceTypeDef",
-    {
-        "conversationLogsDataSource": "ConversationLogsDataSourceTypeDef",
-    },
-    total=False,
-)
-
-TestSetImportInputLocationTypeDef = TypedDict(
-    "TestSetImportInputLocationTypeDef",
-    {
-        "s3BucketName": str,
-        "s3Path": str,
-    },
-)
-
-_RequiredTestSetImportResourceSpecificationTypeDef = TypedDict(
-    "_RequiredTestSetImportResourceSpecificationTypeDef",
-    {
-        "testSetName": str,
-        "roleArn": str,
-        "storageLocation": "TestSetStorageLocationTypeDef",
-        "importInputLocation": "TestSetImportInputLocationTypeDef",
-        "modality": TestSetModalityType,
-    },
-)
-_OptionalTestSetImportResourceSpecificationTypeDef = TypedDict(
-    "_OptionalTestSetImportResourceSpecificationTypeDef",
-    {
-        "description": str,
-        "testSetTags": Dict[str, str],
-    },
-    total=False,
-)
-
-class TestSetImportResourceSpecificationTypeDef(
-    _RequiredTestSetImportResourceSpecificationTypeDef,
-    _OptionalTestSetImportResourceSpecificationTypeDef,
-):
-    pass
-
-TestSetIntentDiscrepancyItemTypeDef = TypedDict(
-    "TestSetIntentDiscrepancyItemTypeDef",
-    {
-        "intentName": str,
-        "errorMessage": str,
-    },
-)
-
-TestSetSlotDiscrepancyItemTypeDef = TypedDict(
-    "TestSetSlotDiscrepancyItemTypeDef",
-    {
-        "intentName": str,
-        "slotName": str,
-        "errorMessage": str,
-    },
-)
-
-TestSetSortByTypeDef = TypedDict(
-    "TestSetSortByTypeDef",
-    {
-        "attribute": TestSetSortAttributeType,
-        "order": SortOrderType,
-    },
-)
-
-_RequiredTestSetStorageLocationTypeDef = TypedDict(
-    "_RequiredTestSetStorageLocationTypeDef",
-    {
-        "s3BucketName": str,
-        "s3Path": str,
-    },
-)
-_OptionalTestSetStorageLocationTypeDef = TypedDict(
-    "_OptionalTestSetStorageLocationTypeDef",
-    {
-        "kmsKeyArn": str,
-    },
-    total=False,
-)
-
-class TestSetStorageLocationTypeDef(
-    _RequiredTestSetStorageLocationTypeDef, _OptionalTestSetStorageLocationTypeDef
-):
-    pass
-
-TestSetSummaryTypeDef = TypedDict(
-    "TestSetSummaryTypeDef",
-    {
-        "testSetId": str,
-        "testSetName": str,
-        "description": str,
-        "modality": TestSetModalityType,
-        "status": TestSetStatusType,
-        "roleArn": str,
-        "numTurns": int,
-        "storageLocation": "TestSetStorageLocationTypeDef",
-        "creationDateTime": datetime,
-        "lastUpdatedDateTime": datetime,
-    },
-    total=False,
-)
-
-_RequiredTestSetTurnRecordTypeDef = TypedDict(
-    "_RequiredTestSetTurnRecordTypeDef",
-    {
-        "recordNumber": int,
-        "turnSpecification": "TurnSpecificationTypeDef",
-    },
-)
-_OptionalTestSetTurnRecordTypeDef = TypedDict(
-    "_OptionalTestSetTurnRecordTypeDef",
-    {
-        "conversationId": str,
-        "turnNumber": int,
-    },
-    total=False,
-)
-
-class TestSetTurnRecordTypeDef(
-    _RequiredTestSetTurnRecordTypeDef, _OptionalTestSetTurnRecordTypeDef
-):
-    pass
-
-TestSetTurnResultTypeDef = TypedDict(
-    "TestSetTurnResultTypeDef",
-    {
-        "agent": "AgentTurnResultTypeDef",
-        "user": "UserTurnResultTypeDef",
-    },
-    total=False,
-)
-
-TextInputSpecificationTypeDef = TypedDict(
-    "TextInputSpecificationTypeDef",
-    {
-        "startTimeoutMs": int,
-    },
-)
-
-TextLogDestinationTypeDef = TypedDict(
-    "TextLogDestinationTypeDef",
-    {
-        "cloudWatch": "CloudWatchLogGroupLogDestinationTypeDef",
-    },
-)
-
-_RequiredTextLogSettingTypeDef = TypedDict(
-    "_RequiredTextLogSettingTypeDef",
-    {
-        "enabled": bool,
-        "destination": "TextLogDestinationTypeDef",
-    },
-)
-_OptionalTextLogSettingTypeDef = TypedDict(
-    "_OptionalTextLogSettingTypeDef",
-    {
-        "selectiveLoggingEnabled": bool,
-    },
-    total=False,
-)
-
-class TextLogSettingTypeDef(_RequiredTextLogSettingTypeDef, _OptionalTextLogSettingTypeDef):
-    pass
-
-TranscriptFilterTypeDef = TypedDict(
-    "TranscriptFilterTypeDef",
-    {
-        "lexTranscriptFilter": "LexTranscriptFilterTypeDef",
-    },
-    total=False,
-)
-
-TranscriptSourceSettingTypeDef = TypedDict(
-    "TranscriptSourceSettingTypeDef",
-    {
-        "s3BucketTranscriptSource": "S3BucketTranscriptSourceTypeDef",
-    },
-    total=False,
-)
-
-TurnSpecificationTypeDef = TypedDict(
-    "TurnSpecificationTypeDef",
-    {
-        "agentTurn": "AgentTurnSpecificationTypeDef",
-        "userTurn": "UserTurnSpecificationTypeDef",
-    },
-    total=False,
-)
-
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "resourceARN": str,
-        "tagKeys": List[str],
-    },
-)
-
-_RequiredUpdateBotAliasRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateBotAliasRequestRequestTypeDef",
-    {
-        "botAliasId": str,
-        "botAliasName": str,
-        "botId": str,
-    },
-)
-_OptionalUpdateBotAliasRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateBotAliasRequestRequestTypeDef",
-    {
-        "description": str,
-        "botVersion": str,
-        "botAliasLocaleSettings": Dict[str, "BotAliasLocaleSettingsTypeDef"],
-        "conversationLogSettings": "ConversationLogSettingsTypeDef",
-        "sentimentAnalysisSettings": "SentimentAnalysisSettingsTypeDef",
-    },
-    total=False,
-)
-
-class UpdateBotAliasRequestRequestTypeDef(
-    _RequiredUpdateBotAliasRequestRequestTypeDef, _OptionalUpdateBotAliasRequestRequestTypeDef
-):
-    pass
-
-UpdateBotAliasResponseTypeDef = TypedDict(
-    "UpdateBotAliasResponseTypeDef",
-    {
-        "botAliasId": str,
-        "botAliasName": str,
-        "description": str,
-        "botVersion": str,
-        "botAliasLocaleSettings": Dict[str, "BotAliasLocaleSettingsTypeDef"],
-        "conversationLogSettings": "ConversationLogSettingsTypeDef",
-        "sentimentAnalysisSettings": "SentimentAnalysisSettingsTypeDef",
-        "botAliasStatus": BotAliasStatusType,
-        "botId": str,
-        "creationDateTime": datetime,
-        "lastUpdatedDateTime": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateBotLocaleRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateBotLocaleRequestRequestTypeDef",
-    {
-        "botId": str,
-        "botVersion": str,
-        "localeId": str,
-        "nluIntentConfidenceThreshold": float,
-    },
-)
-_OptionalUpdateBotLocaleRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateBotLocaleRequestRequestTypeDef",
-    {
-        "description": str,
-        "voiceSettings": "VoiceSettingsTypeDef",
-        "generativeAISettings": "GenerativeAISettingsTypeDef",
-    },
-    total=False,
-)
-
-class UpdateBotLocaleRequestRequestTypeDef(
-    _RequiredUpdateBotLocaleRequestRequestTypeDef, _OptionalUpdateBotLocaleRequestRequestTypeDef
-):
-    pass
-
-UpdateBotLocaleResponseTypeDef = TypedDict(
-    "UpdateBotLocaleResponseTypeDef",
-    {
-        "botId": str,
-        "botVersion": str,
-        "localeId": str,
-        "localeName": str,
-        "description": str,
-        "nluIntentConfidenceThreshold": float,
-        "voiceSettings": "VoiceSettingsTypeDef",
-        "botLocaleStatus": BotLocaleStatusType,
-        "failureReasons": List[str],
-        "creationDateTime": datetime,
-        "lastUpdatedDateTime": datetime,
-        "recommendedActions": List[str],
-        "generativeAISettings": "GenerativeAISettingsTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UpdateBotRecommendationRequestRequestTypeDef = TypedDict(
-    "UpdateBotRecommendationRequestRequestTypeDef",
-    {
-        "botId": str,
-        "botVersion": str,
-        "localeId": str,
-        "botRecommendationId": str,
-        "encryptionSetting": "EncryptionSettingTypeDef",
-    },
-)
-
-UpdateBotRecommendationResponseTypeDef = TypedDict(
-    "UpdateBotRecommendationResponseTypeDef",
-    {
-        "botId": str,
-        "botVersion": str,
-        "localeId": str,
-        "botRecommendationStatus": BotRecommendationStatusType,
-        "botRecommendationId": str,
-        "creationDateTime": datetime,
-        "lastUpdatedDateTime": datetime,
-        "transcriptSourceSetting": "TranscriptSourceSettingTypeDef",
-        "encryptionSetting": "EncryptionSettingTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateBotRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateBotRequestRequestTypeDef",
-    {
-        "botId": str,
-        "botName": str,
-        "roleArn": str,
-        "dataPrivacy": "DataPrivacyTypeDef",
-        "idleSessionTTLInSeconds": int,
-    },
-)
-_OptionalUpdateBotRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateBotRequestRequestTypeDef",
-    {
-        "description": str,
-        "botType": BotTypeType,
-        "botMembers": List["BotMemberTypeDef"],
-    },
-    total=False,
-)
-
-class UpdateBotRequestRequestTypeDef(
-    _RequiredUpdateBotRequestRequestTypeDef, _OptionalUpdateBotRequestRequestTypeDef
-):
-    pass
-
-UpdateBotResponseTypeDef = TypedDict(
-    "UpdateBotResponseTypeDef",
-    {
-        "botId": str,
-        "botName": str,
-        "description": str,
-        "roleArn": str,
-        "dataPrivacy": "DataPrivacyTypeDef",
-        "idleSessionTTLInSeconds": int,
-        "botStatus": BotStatusType,
-        "creationDateTime": datetime,
-        "lastUpdatedDateTime": datetime,
-        "botType": BotTypeType,
-        "botMembers": List["BotMemberTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateExportRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateExportRequestRequestTypeDef",
-    {
-        "exportId": str,
-    },
-)
-_OptionalUpdateExportRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateExportRequestRequestTypeDef",
-    {
-        "filePassword": str,
-    },
-    total=False,
-)
-
-class UpdateExportRequestRequestTypeDef(
-    _RequiredUpdateExportRequestRequestTypeDef, _OptionalUpdateExportRequestRequestTypeDef
-):
-    pass
-
-UpdateExportResponseTypeDef = TypedDict(
-    "UpdateExportResponseTypeDef",
-    {
-        "exportId": str,
-        "resourceSpecification": "ExportResourceSpecificationTypeDef",
-        "fileFormat": ImportExportFileFormatType,
-        "exportStatus": ExportStatusType,
-        "creationDateTime": datetime,
-        "lastUpdatedDateTime": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateIntentRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateIntentRequestRequestTypeDef",
-    {
-        "intentId": str,
-        "intentName": str,
-        "botId": str,
-        "botVersion": str,
-        "localeId": str,
-    },
-)
-_OptionalUpdateIntentRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateIntentRequestRequestTypeDef",
-    {
-        "description": str,
-        "parentIntentSignature": str,
-        "sampleUtterances": List["SampleUtteranceTypeDef"],
-        "dialogCodeHook": "DialogCodeHookSettingsTypeDef",
-        "fulfillmentCodeHook": "FulfillmentCodeHookSettingsTypeDef",
-        "slotPriorities": List["SlotPriorityTypeDef"],
-        "intentConfirmationSetting": "IntentConfirmationSettingTypeDef",
-        "intentClosingSetting": "IntentClosingSettingTypeDef",
-        "inputContexts": List["InputContextTypeDef"],
-        "outputContexts": List["OutputContextTypeDef"],
-        "kendraConfiguration": "KendraConfigurationTypeDef",
-        "initialResponseSetting": "InitialResponseSettingTypeDef",
-        "qnAIntentConfiguration": "QnAIntentConfigurationTypeDef",
-    },
-    total=False,
-)
-
-class UpdateIntentRequestRequestTypeDef(
-    _RequiredUpdateIntentRequestRequestTypeDef, _OptionalUpdateIntentRequestRequestTypeDef
-):
-    pass
-
-UpdateIntentResponseTypeDef = TypedDict(
-    "UpdateIntentResponseTypeDef",
-    {
-        "intentId": str,
-        "intentName": str,
-        "description": str,
-        "parentIntentSignature": str,
-        "sampleUtterances": List["SampleUtteranceTypeDef"],
-        "dialogCodeHook": "DialogCodeHookSettingsTypeDef",
-        "fulfillmentCodeHook": "FulfillmentCodeHookSettingsTypeDef",
-        "slotPriorities": List["SlotPriorityTypeDef"],
-        "intentConfirmationSetting": "IntentConfirmationSettingTypeDef",
-        "intentClosingSetting": "IntentClosingSettingTypeDef",
-        "inputContexts": List["InputContextTypeDef"],
-        "outputContexts": List["OutputContextTypeDef"],
-        "kendraConfiguration": "KendraConfigurationTypeDef",
-        "botId": str,
-        "botVersion": str,
-        "localeId": str,
-        "creationDateTime": datetime,
-        "lastUpdatedDateTime": datetime,
-        "initialResponseSetting": "InitialResponseSettingTypeDef",
-        "qnAIntentConfiguration": "QnAIntentConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateResourcePolicyRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateResourcePolicyRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "policy": str,
-    },
-)
-_OptionalUpdateResourcePolicyRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateResourcePolicyRequestRequestTypeDef",
-    {
-        "expectedRevisionId": str,
-    },
-    total=False,
-)
-
-class UpdateResourcePolicyRequestRequestTypeDef(
-    _RequiredUpdateResourcePolicyRequestRequestTypeDef,
-    _OptionalUpdateResourcePolicyRequestRequestTypeDef,
-):
-    pass
-
-UpdateResourcePolicyResponseTypeDef = TypedDict(
-    "UpdateResourcePolicyResponseTypeDef",
-    {
-        "resourceArn": str,
-        "revisionId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateSlotRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateSlotRequestRequestTypeDef",
-    {
-        "slotId": str,
-        "slotName": str,
-        "valueElicitationSetting": "SlotValueElicitationSettingTypeDef",
-        "botId": str,
-        "botVersion": str,
-        "localeId": str,
-        "intentId": str,
-    },
-)
-_OptionalUpdateSlotRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateSlotRequestRequestTypeDef",
-    {
-        "description": str,
-        "slotTypeId": str,
-        "obfuscationSetting": "ObfuscationSettingTypeDef",
-        "multipleValuesSetting": "MultipleValuesSettingTypeDef",
-        "subSlotSetting": "SubSlotSettingTypeDef",
-    },
-    total=False,
-)
-
-class UpdateSlotRequestRequestTypeDef(
-    _RequiredUpdateSlotRequestRequestTypeDef, _OptionalUpdateSlotRequestRequestTypeDef
-):
-    pass
-
-UpdateSlotResponseTypeDef = TypedDict(
-    "UpdateSlotResponseTypeDef",
-    {
-        "slotId": str,
-        "slotName": str,
-        "description": str,
-        "slotTypeId": str,
-        "valueElicitationSetting": "SlotValueElicitationSettingTypeDef",
-        "obfuscationSetting": "ObfuscationSettingTypeDef",
-        "botId": str,
-        "botVersion": str,
-        "localeId": str,
-        "intentId": str,
-        "creationDateTime": datetime,
-        "lastUpdatedDateTime": datetime,
-        "multipleValuesSetting": "MultipleValuesSettingTypeDef",
-        "subSlotSetting": "SubSlotSettingTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateSlotTypeRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateSlotTypeRequestRequestTypeDef",
-    {
-        "slotTypeId": str,
-        "slotTypeName": str,
-        "botId": str,
-        "botVersion": str,
-        "localeId": str,
-    },
-)
-_OptionalUpdateSlotTypeRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateSlotTypeRequestRequestTypeDef",
-    {
-        "description": str,
-        "slotTypeValues": List["SlotTypeValueTypeDef"],
-        "valueSelectionSetting": "SlotValueSelectionSettingTypeDef",
-        "parentSlotTypeSignature": str,
-        "externalSourceSetting": "ExternalSourceSettingTypeDef",
-        "compositeSlotTypeSetting": "CompositeSlotTypeSettingTypeDef",
-    },
-    total=False,
-)
-
-class UpdateSlotTypeRequestRequestTypeDef(
-    _RequiredUpdateSlotTypeRequestRequestTypeDef, _OptionalUpdateSlotTypeRequestRequestTypeDef
-):
-    pass
-
-UpdateSlotTypeResponseTypeDef = TypedDict(
-    "UpdateSlotTypeResponseTypeDef",
-    {
-        "slotTypeId": str,
-        "slotTypeName": str,
-        "description": str,
-        "slotTypeValues": List["SlotTypeValueTypeDef"],
-        "valueSelectionSetting": "SlotValueSelectionSettingTypeDef",
-        "parentSlotTypeSignature": str,
-        "botId": str,
-        "botVersion": str,
-        "localeId": str,
-        "creationDateTime": datetime,
-        "lastUpdatedDateTime": datetime,
-        "externalSourceSetting": "ExternalSourceSettingTypeDef",
-        "compositeSlotTypeSetting": "CompositeSlotTypeSettingTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateTestSetRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateTestSetRequestRequestTypeDef",
-    {
-        "testSetId": str,
-        "testSetName": str,
-    },
-)
-_OptionalUpdateTestSetRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateTestSetRequestRequestTypeDef",
-    {
-        "description": str,
-    },
-    total=False,
-)
-
-class UpdateTestSetRequestRequestTypeDef(
-    _RequiredUpdateTestSetRequestRequestTypeDef, _OptionalUpdateTestSetRequestRequestTypeDef
-):
-    pass
-
-UpdateTestSetResponseTypeDef = TypedDict(
-    "UpdateTestSetResponseTypeDef",
-    {
-        "testSetId": str,
-        "testSetName": str,
-        "description": str,
-        "modality": TestSetModalityType,
-        "status": TestSetStatusType,
-        "roleArn": str,
-        "numTurns": int,
-        "storageLocation": "TestSetStorageLocationTypeDef",
-        "creationDateTime": datetime,
-        "lastUpdatedDateTime": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUserTurnInputSpecificationTypeDef = TypedDict(
-    "_RequiredUserTurnInputSpecificationTypeDef",
-    {
-        "utteranceInput": "UtteranceInputSpecificationTypeDef",
-    },
-)
-_OptionalUserTurnInputSpecificationTypeDef = TypedDict(
-    "_OptionalUserTurnInputSpecificationTypeDef",
-    {
-        "requestAttributes": Dict[str, str],
-        "sessionState": "InputSessionStateSpecificationTypeDef",
-    },
-    total=False,
-)
-
-class UserTurnInputSpecificationTypeDef(
-    _RequiredUserTurnInputSpecificationTypeDef, _OptionalUserTurnInputSpecificationTypeDef
-):
-    pass
-
-_RequiredUserTurnIntentOutputTypeDef = TypedDict(
-    "_RequiredUserTurnIntentOutputTypeDef",
-    {
-        "name": str,
-    },
-)
-_OptionalUserTurnIntentOutputTypeDef = TypedDict(
-    "_OptionalUserTurnIntentOutputTypeDef",
-    {
-        "slots": Dict[str, "UserTurnSlotOutputTypeDef"],
-    },
-    total=False,
-)
-
-class UserTurnIntentOutputTypeDef(
-    _RequiredUserTurnIntentOutputTypeDef, _OptionalUserTurnIntentOutputTypeDef
-):
-    pass
-
-_RequiredUserTurnOutputSpecificationTypeDef = TypedDict(
-    "_RequiredUserTurnOutputSpecificationTypeDef",
-    {
-        "intent": "UserTurnIntentOutputTypeDef",
-    },
-)
-_OptionalUserTurnOutputSpecificationTypeDef = TypedDict(
-    "_OptionalUserTurnOutputSpecificationTypeDef",
-    {
-        "activeContexts": List["ActiveContextTypeDef"],
-        "transcript": str,
-    },
-    total=False,
-)
-
-class UserTurnOutputSpecificationTypeDef(
-    _RequiredUserTurnOutputSpecificationTypeDef, _OptionalUserTurnOutputSpecificationTypeDef
-):
-    pass
-
-_RequiredUserTurnResultTypeDef = TypedDict(
-    "_RequiredUserTurnResultTypeDef",
-    {
-        "input": "UserTurnInputSpecificationTypeDef",
-        "expectedOutput": "UserTurnOutputSpecificationTypeDef",
-    },
-)
-_OptionalUserTurnResultTypeDef = TypedDict(
-    "_OptionalUserTurnResultTypeDef",
-    {
-        "actualOutput": "UserTurnOutputSpecificationTypeDef",
-        "errorDetails": "ExecutionErrorDetailsTypeDef",
-        "endToEndResult": TestResultMatchStatusType,
-        "intentMatchResult": TestResultMatchStatusType,
-        "slotMatchResult": TestResultMatchStatusType,
-        "speechTranscriptionResult": TestResultMatchStatusType,
-        "conversationLevelResult": "ConversationLevelResultDetailTypeDef",
-    },
-    total=False,
-)
-
-class UserTurnResultTypeDef(_RequiredUserTurnResultTypeDef, _OptionalUserTurnResultTypeDef):
-    pass
-
-UserTurnSlotOutputTypeDef = TypedDict(
-    "UserTurnSlotOutputTypeDef",
-    {
-        "value": str,
-        "values": List[Dict[str, Any]],
-        "subSlots": Dict[str, Dict[str, Any]],
-    },
-    total=False,
-)
-
 UserTurnSpecificationTypeDef = TypedDict(
     "UserTurnSpecificationTypeDef",
     {
-        "input": "UserTurnInputSpecificationTypeDef",
-        "expected": "UserTurnOutputSpecificationTypeDef",
+        "input": UserTurnInputSpecificationTypeDef,
+        "expected": UserTurnOutputSpecificationTypeDef,
     },
 )
 
-UtteranceAggregationDurationTypeDef = TypedDict(
-    "UtteranceAggregationDurationTypeDef",
-    {
-        "relativeAggregationDuration": "RelativeAggregationDurationTypeDef",
-    },
-)
+class ListSlotsResponseTypeDef(TypedDict):
+    botId: str
+    botVersion: str
+    localeId: str
+    intentId: str
+    slotSummaries: List[SlotSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-UtteranceAudioInputSpecificationTypeDef = TypedDict(
-    "UtteranceAudioInputSpecificationTypeDef",
-    {
-        "audioFileS3Location": str,
-    },
-)
+class ConditionalSpecificationOutputTypeDef(TypedDict):
+    active: bool
+    conditionalBranches: List[ConditionalBranchOutputTypeDef]
+    defaultBranch: DefaultConditionalBranchOutputTypeDef
 
-UtteranceBotResponseTypeDef = TypedDict(
-    "UtteranceBotResponseTypeDef",
-    {
-        "content": str,
-        "contentType": UtteranceContentTypeType,
-        "imageResponseCard": "ImageResponseCardTypeDef",
-    },
-    total=False,
-)
+class SubSlotValueElicitationSettingOutputTypeDef(TypedDict):
+    promptSpecification: PromptSpecificationOutputTypeDef
+    defaultValueSpecification: NotRequired[SlotDefaultValueSpecificationOutputTypeDef]
+    sampleUtterances: NotRequired[List[SampleUtteranceTypeDef]]
+    waitAndContinueSpecification: NotRequired[WaitAndContinueSpecificationOutputTypeDef]
 
-UtteranceDataSortByTypeDef = TypedDict(
-    "UtteranceDataSortByTypeDef",
-    {
-        "name": Literal["UtteranceTimestamp"],
-        "order": AnalyticsSortOrderType,
-    },
-)
+class ConditionalSpecificationTypeDef(TypedDict):
+    active: bool
+    conditionalBranches: Sequence[ConditionalBranchTypeDef]
+    defaultBranch: DefaultConditionalBranchTypeDef
 
-UtteranceInputSpecificationTypeDef = TypedDict(
-    "UtteranceInputSpecificationTypeDef",
-    {
-        "textInput": str,
-        "audioInput": "UtteranceAudioInputSpecificationTypeDef",
-    },
-    total=False,
-)
+class SubSlotValueElicitationSettingTypeDef(TypedDict):
+    promptSpecification: PromptSpecificationTypeDef
+    defaultValueSpecification: NotRequired[SlotDefaultValueSpecificationTypeDef]
+    sampleUtterances: NotRequired[Sequence[SampleUtteranceTypeDef]]
+    waitAndContinueSpecification: NotRequired[WaitAndContinueSpecificationTypeDef]
 
-_RequiredUtteranceLevelTestResultItemTypeDef = TypedDict(
-    "_RequiredUtteranceLevelTestResultItemTypeDef",
-    {
-        "recordNumber": int,
-        "turnResult": "TestSetTurnResultTypeDef",
-    },
-)
-_OptionalUtteranceLevelTestResultItemTypeDef = TypedDict(
-    "_OptionalUtteranceLevelTestResultItemTypeDef",
-    {
-        "conversationId": str,
-    },
-    total=False,
-)
+TranscriptSourceSettingUnionTypeDef = Union[
+    TranscriptSourceSettingTypeDef, TranscriptSourceSettingOutputTypeDef
+]
 
-class UtteranceLevelTestResultItemTypeDef(
-    _RequiredUtteranceLevelTestResultItemTypeDef, _OptionalUtteranceLevelTestResultItemTypeDef
-):
-    pass
+class TestSetTurnResultTypeDef(TypedDict):
+    agent: NotRequired[AgentTurnResultTypeDef]
+    user: NotRequired[UserTurnResultTypeDef]
 
-UtteranceLevelTestResultsTypeDef = TypedDict(
-    "UtteranceLevelTestResultsTypeDef",
-    {
-        "items": List["UtteranceLevelTestResultItemTypeDef"],
-    },
-)
+class TurnSpecificationTypeDef(TypedDict):
+    agentTurn: NotRequired[AgentTurnSpecificationTypeDef]
+    userTurn: NotRequired[UserTurnSpecificationTypeDef]
 
-UtteranceSpecificationTypeDef = TypedDict(
-    "UtteranceSpecificationTypeDef",
-    {
-        "botAliasId": str,
-        "botVersion": str,
-        "localeId": str,
-        "sessionId": str,
-        "channel": str,
-        "mode": AnalyticsModalityType,
-        "conversationStartTime": datetime,
-        "conversationEndTime": datetime,
-        "utterance": str,
-        "utteranceTimestamp": datetime,
-        "audioVoiceDurationMillis": int,
-        "utteranceUnderstood": bool,
-        "inputType": str,
-        "outputType": str,
-        "associatedIntentName": str,
-        "associatedSlotName": str,
-        "intentState": IntentStateType,
-        "dialogActionType": str,
-        "botResponseAudioVoiceId": str,
-        "slotsFilledInSession": str,
-        "utteranceRequestId": str,
-        "botResponses": List["UtteranceBotResponseTypeDef"],
-    },
-    total=False,
-)
+class IntentClosingSettingOutputTypeDef(TypedDict):
+    closingResponse: NotRequired[ResponseSpecificationOutputTypeDef]
+    active: NotRequired[bool]
+    nextStep: NotRequired[DialogStateOutputTypeDef]
+    conditional: NotRequired[ConditionalSpecificationOutputTypeDef]
 
-_RequiredVoiceSettingsTypeDef = TypedDict(
-    "_RequiredVoiceSettingsTypeDef",
-    {
-        "voiceId": str,
-    },
-)
-_OptionalVoiceSettingsTypeDef = TypedDict(
-    "_OptionalVoiceSettingsTypeDef",
-    {
-        "engine": VoiceEngineType,
-    },
-    total=False,
-)
+class PostDialogCodeHookInvocationSpecificationOutputTypeDef(TypedDict):
+    successResponse: NotRequired[ResponseSpecificationOutputTypeDef]
+    successNextStep: NotRequired[DialogStateOutputTypeDef]
+    successConditional: NotRequired[ConditionalSpecificationOutputTypeDef]
+    failureResponse: NotRequired[ResponseSpecificationOutputTypeDef]
+    failureNextStep: NotRequired[DialogStateOutputTypeDef]
+    failureConditional: NotRequired[ConditionalSpecificationOutputTypeDef]
+    timeoutResponse: NotRequired[ResponseSpecificationOutputTypeDef]
+    timeoutNextStep: NotRequired[DialogStateOutputTypeDef]
+    timeoutConditional: NotRequired[ConditionalSpecificationOutputTypeDef]
 
-class VoiceSettingsTypeDef(_RequiredVoiceSettingsTypeDef, _OptionalVoiceSettingsTypeDef):
-    pass
+class PostFulfillmentStatusSpecificationOutputTypeDef(TypedDict):
+    successResponse: NotRequired[ResponseSpecificationOutputTypeDef]
+    failureResponse: NotRequired[ResponseSpecificationOutputTypeDef]
+    timeoutResponse: NotRequired[ResponseSpecificationOutputTypeDef]
+    successNextStep: NotRequired[DialogStateOutputTypeDef]
+    successConditional: NotRequired[ConditionalSpecificationOutputTypeDef]
+    failureNextStep: NotRequired[DialogStateOutputTypeDef]
+    failureConditional: NotRequired[ConditionalSpecificationOutputTypeDef]
+    timeoutNextStep: NotRequired[DialogStateOutputTypeDef]
+    timeoutConditional: NotRequired[ConditionalSpecificationOutputTypeDef]
 
-_RequiredWaitAndContinueSpecificationTypeDef = TypedDict(
-    "_RequiredWaitAndContinueSpecificationTypeDef",
-    {
-        "waitingResponse": "ResponseSpecificationTypeDef",
-        "continueResponse": "ResponseSpecificationTypeDef",
-    },
-)
-_OptionalWaitAndContinueSpecificationTypeDef = TypedDict(
-    "_OptionalWaitAndContinueSpecificationTypeDef",
-    {
-        "stillWaitingResponse": "StillWaitingResponseSpecificationTypeDef",
-        "active": bool,
-    },
-    total=False,
-)
+class SpecificationsOutputTypeDef(TypedDict):
+    slotTypeId: str
+    valueElicitationSetting: SubSlotValueElicitationSettingOutputTypeDef
 
-class WaitAndContinueSpecificationTypeDef(
-    _RequiredWaitAndContinueSpecificationTypeDef, _OptionalWaitAndContinueSpecificationTypeDef
-):
-    pass
+class IntentClosingSettingTypeDef(TypedDict):
+    closingResponse: NotRequired[ResponseSpecificationTypeDef]
+    active: NotRequired[bool]
+    nextStep: NotRequired[DialogStateTypeDef]
+    conditional: NotRequired[ConditionalSpecificationTypeDef]
 
-WaiterConfigTypeDef = TypedDict(
-    "WaiterConfigTypeDef",
-    {
-        "Delay": int,
-        "MaxAttempts": int,
-    },
-    total=False,
-)
+class PostDialogCodeHookInvocationSpecificationTypeDef(TypedDict):
+    successResponse: NotRequired[ResponseSpecificationTypeDef]
+    successNextStep: NotRequired[DialogStateTypeDef]
+    successConditional: NotRequired[ConditionalSpecificationTypeDef]
+    failureResponse: NotRequired[ResponseSpecificationTypeDef]
+    failureNextStep: NotRequired[DialogStateTypeDef]
+    failureConditional: NotRequired[ConditionalSpecificationTypeDef]
+    timeoutResponse: NotRequired[ResponseSpecificationTypeDef]
+    timeoutNextStep: NotRequired[DialogStateTypeDef]
+    timeoutConditional: NotRequired[ConditionalSpecificationTypeDef]
+
+class PostFulfillmentStatusSpecificationTypeDef(TypedDict):
+    successResponse: NotRequired[ResponseSpecificationTypeDef]
+    failureResponse: NotRequired[ResponseSpecificationTypeDef]
+    timeoutResponse: NotRequired[ResponseSpecificationTypeDef]
+    successNextStep: NotRequired[DialogStateTypeDef]
+    successConditional: NotRequired[ConditionalSpecificationTypeDef]
+    failureNextStep: NotRequired[DialogStateTypeDef]
+    failureConditional: NotRequired[ConditionalSpecificationTypeDef]
+    timeoutNextStep: NotRequired[DialogStateTypeDef]
+    timeoutConditional: NotRequired[ConditionalSpecificationTypeDef]
+
+class SpecificationsTypeDef(TypedDict):
+    slotTypeId: str
+    valueElicitationSetting: SubSlotValueElicitationSettingTypeDef
+
+class StartBotRecommendationRequestTypeDef(TypedDict):
+    botId: str
+    botVersion: str
+    localeId: str
+    transcriptSourceSetting: TranscriptSourceSettingUnionTypeDef
+    encryptionSetting: NotRequired[EncryptionSettingTypeDef]
+
+class UtteranceLevelTestResultItemTypeDef(TypedDict):
+    recordNumber: int
+    turnResult: TestSetTurnResultTypeDef
+    conversationId: NotRequired[str]
+
+class TestSetTurnRecordTypeDef(TypedDict):
+    recordNumber: int
+    turnSpecification: TurnSpecificationTypeDef
+    conversationId: NotRequired[str]
+    turnNumber: NotRequired[int]
+
+class DialogCodeHookInvocationSettingOutputTypeDef(TypedDict):
+    enableCodeHookInvocation: bool
+    active: bool
+    postCodeHookSpecification: PostDialogCodeHookInvocationSpecificationOutputTypeDef
+    invocationLabel: NotRequired[str]
+
+class FulfillmentCodeHookSettingsOutputTypeDef(TypedDict):
+    enabled: bool
+    postFulfillmentStatusSpecification: NotRequired[PostFulfillmentStatusSpecificationOutputTypeDef]
+    fulfillmentUpdatesSpecification: NotRequired[FulfillmentUpdatesSpecificationOutputTypeDef]
+    active: NotRequired[bool]
+
+class SubSlotSettingOutputTypeDef(TypedDict):
+    expression: NotRequired[str]
+    slotSpecifications: NotRequired[Dict[str, SpecificationsOutputTypeDef]]
+
+IntentClosingSettingUnionTypeDef = Union[
+    IntentClosingSettingTypeDef, IntentClosingSettingOutputTypeDef
+]
+
+class DialogCodeHookInvocationSettingTypeDef(TypedDict):
+    enableCodeHookInvocation: bool
+    active: bool
+    postCodeHookSpecification: PostDialogCodeHookInvocationSpecificationTypeDef
+    invocationLabel: NotRequired[str]
+
+class FulfillmentCodeHookSettingsTypeDef(TypedDict):
+    enabled: bool
+    postFulfillmentStatusSpecification: NotRequired[PostFulfillmentStatusSpecificationTypeDef]
+    fulfillmentUpdatesSpecification: NotRequired[FulfillmentUpdatesSpecificationTypeDef]
+    active: NotRequired[bool]
+
+class SubSlotSettingTypeDef(TypedDict):
+    expression: NotRequired[str]
+    slotSpecifications: NotRequired[Mapping[str, SpecificationsTypeDef]]
+
+class UtteranceLevelTestResultsTypeDef(TypedDict):
+    items: List[UtteranceLevelTestResultItemTypeDef]
+
+class ListTestSetRecordsResponseTypeDef(TypedDict):
+    testSetRecords: List[TestSetTurnRecordTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class InitialResponseSettingOutputTypeDef(TypedDict):
+    initialResponse: NotRequired[ResponseSpecificationOutputTypeDef]
+    nextStep: NotRequired[DialogStateOutputTypeDef]
+    conditional: NotRequired[ConditionalSpecificationOutputTypeDef]
+    codeHook: NotRequired[DialogCodeHookInvocationSettingOutputTypeDef]
+
+class IntentConfirmationSettingOutputTypeDef(TypedDict):
+    promptSpecification: PromptSpecificationOutputTypeDef
+    declinationResponse: NotRequired[ResponseSpecificationOutputTypeDef]
+    active: NotRequired[bool]
+    confirmationResponse: NotRequired[ResponseSpecificationOutputTypeDef]
+    confirmationNextStep: NotRequired[DialogStateOutputTypeDef]
+    confirmationConditional: NotRequired[ConditionalSpecificationOutputTypeDef]
+    declinationNextStep: NotRequired[DialogStateOutputTypeDef]
+    declinationConditional: NotRequired[ConditionalSpecificationOutputTypeDef]
+    failureResponse: NotRequired[ResponseSpecificationOutputTypeDef]
+    failureNextStep: NotRequired[DialogStateOutputTypeDef]
+    failureConditional: NotRequired[ConditionalSpecificationOutputTypeDef]
+    codeHook: NotRequired[DialogCodeHookInvocationSettingOutputTypeDef]
+    elicitationCodeHook: NotRequired[ElicitationCodeHookInvocationSettingTypeDef]
+
+class SlotCaptureSettingOutputTypeDef(TypedDict):
+    captureResponse: NotRequired[ResponseSpecificationOutputTypeDef]
+    captureNextStep: NotRequired[DialogStateOutputTypeDef]
+    captureConditional: NotRequired[ConditionalSpecificationOutputTypeDef]
+    failureResponse: NotRequired[ResponseSpecificationOutputTypeDef]
+    failureNextStep: NotRequired[DialogStateOutputTypeDef]
+    failureConditional: NotRequired[ConditionalSpecificationOutputTypeDef]
+    codeHook: NotRequired[DialogCodeHookInvocationSettingOutputTypeDef]
+    elicitationCodeHook: NotRequired[ElicitationCodeHookInvocationSettingTypeDef]
+
+class InitialResponseSettingTypeDef(TypedDict):
+    initialResponse: NotRequired[ResponseSpecificationTypeDef]
+    nextStep: NotRequired[DialogStateTypeDef]
+    conditional: NotRequired[ConditionalSpecificationTypeDef]
+    codeHook: NotRequired[DialogCodeHookInvocationSettingTypeDef]
+
+class IntentConfirmationSettingTypeDef(TypedDict):
+    promptSpecification: PromptSpecificationTypeDef
+    declinationResponse: NotRequired[ResponseSpecificationTypeDef]
+    active: NotRequired[bool]
+    confirmationResponse: NotRequired[ResponseSpecificationTypeDef]
+    confirmationNextStep: NotRequired[DialogStateTypeDef]
+    confirmationConditional: NotRequired[ConditionalSpecificationTypeDef]
+    declinationNextStep: NotRequired[DialogStateTypeDef]
+    declinationConditional: NotRequired[ConditionalSpecificationTypeDef]
+    failureResponse: NotRequired[ResponseSpecificationTypeDef]
+    failureNextStep: NotRequired[DialogStateTypeDef]
+    failureConditional: NotRequired[ConditionalSpecificationTypeDef]
+    codeHook: NotRequired[DialogCodeHookInvocationSettingTypeDef]
+    elicitationCodeHook: NotRequired[ElicitationCodeHookInvocationSettingTypeDef]
+
+class SlotCaptureSettingTypeDef(TypedDict):
+    captureResponse: NotRequired[ResponseSpecificationTypeDef]
+    captureNextStep: NotRequired[DialogStateTypeDef]
+    captureConditional: NotRequired[ConditionalSpecificationTypeDef]
+    failureResponse: NotRequired[ResponseSpecificationTypeDef]
+    failureNextStep: NotRequired[DialogStateTypeDef]
+    failureConditional: NotRequired[ConditionalSpecificationTypeDef]
+    codeHook: NotRequired[DialogCodeHookInvocationSettingTypeDef]
+    elicitationCodeHook: NotRequired[ElicitationCodeHookInvocationSettingTypeDef]
+
+FulfillmentCodeHookSettingsUnionTypeDef = Union[
+    FulfillmentCodeHookSettingsTypeDef, FulfillmentCodeHookSettingsOutputTypeDef
+]
+SubSlotSettingUnionTypeDef = Union[SubSlotSettingTypeDef, SubSlotSettingOutputTypeDef]
+
+class TestExecutionResultItemsTypeDef(TypedDict):
+    overallTestResults: NotRequired[OverallTestResultsTypeDef]
+    conversationLevelTestResults: NotRequired[ConversationLevelTestResultsTypeDef]
+    intentClassificationTestResults: NotRequired[IntentClassificationTestResultsTypeDef]
+    intentLevelSlotResolutionTestResults: NotRequired[IntentLevelSlotResolutionTestResultsTypeDef]
+    utteranceLevelTestResults: NotRequired[UtteranceLevelTestResultsTypeDef]
+
+class CreateIntentResponseTypeDef(TypedDict):
+    intentId: str
+    intentName: str
+    description: str
+    parentIntentSignature: str
+    sampleUtterances: List[SampleUtteranceTypeDef]
+    dialogCodeHook: DialogCodeHookSettingsTypeDef
+    fulfillmentCodeHook: FulfillmentCodeHookSettingsOutputTypeDef
+    intentConfirmationSetting: IntentConfirmationSettingOutputTypeDef
+    intentClosingSetting: IntentClosingSettingOutputTypeDef
+    inputContexts: List[InputContextTypeDef]
+    outputContexts: List[OutputContextTypeDef]
+    kendraConfiguration: KendraConfigurationTypeDef
+    botId: str
+    botVersion: str
+    localeId: str
+    creationDateTime: datetime
+    initialResponseSetting: InitialResponseSettingOutputTypeDef
+    qnAIntentConfiguration: QnAIntentConfigurationOutputTypeDef
+    qInConnectIntentConfiguration: QInConnectIntentConfigurationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeIntentResponseTypeDef(TypedDict):
+    intentId: str
+    intentName: str
+    description: str
+    parentIntentSignature: str
+    sampleUtterances: List[SampleUtteranceTypeDef]
+    dialogCodeHook: DialogCodeHookSettingsTypeDef
+    fulfillmentCodeHook: FulfillmentCodeHookSettingsOutputTypeDef
+    slotPriorities: List[SlotPriorityTypeDef]
+    intentConfirmationSetting: IntentConfirmationSettingOutputTypeDef
+    intentClosingSetting: IntentClosingSettingOutputTypeDef
+    inputContexts: List[InputContextTypeDef]
+    outputContexts: List[OutputContextTypeDef]
+    kendraConfiguration: KendraConfigurationTypeDef
+    botId: str
+    botVersion: str
+    localeId: str
+    creationDateTime: datetime
+    lastUpdatedDateTime: datetime
+    initialResponseSetting: InitialResponseSettingOutputTypeDef
+    qnAIntentConfiguration: QnAIntentConfigurationOutputTypeDef
+    qInConnectIntentConfiguration: QInConnectIntentConfigurationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateIntentResponseTypeDef(TypedDict):
+    intentId: str
+    intentName: str
+    description: str
+    parentIntentSignature: str
+    sampleUtterances: List[SampleUtteranceTypeDef]
+    dialogCodeHook: DialogCodeHookSettingsTypeDef
+    fulfillmentCodeHook: FulfillmentCodeHookSettingsOutputTypeDef
+    slotPriorities: List[SlotPriorityTypeDef]
+    intentConfirmationSetting: IntentConfirmationSettingOutputTypeDef
+    intentClosingSetting: IntentClosingSettingOutputTypeDef
+    inputContexts: List[InputContextTypeDef]
+    outputContexts: List[OutputContextTypeDef]
+    kendraConfiguration: KendraConfigurationTypeDef
+    botId: str
+    botVersion: str
+    localeId: str
+    creationDateTime: datetime
+    lastUpdatedDateTime: datetime
+    initialResponseSetting: InitialResponseSettingOutputTypeDef
+    qnAIntentConfiguration: QnAIntentConfigurationOutputTypeDef
+    qInConnectIntentConfiguration: QInConnectIntentConfigurationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class SlotValueElicitationSettingOutputTypeDef(TypedDict):
+    slotConstraint: SlotConstraintType
+    defaultValueSpecification: NotRequired[SlotDefaultValueSpecificationOutputTypeDef]
+    promptSpecification: NotRequired[PromptSpecificationOutputTypeDef]
+    sampleUtterances: NotRequired[List[SampleUtteranceTypeDef]]
+    waitAndContinueSpecification: NotRequired[WaitAndContinueSpecificationOutputTypeDef]
+    slotCaptureSetting: NotRequired[SlotCaptureSettingOutputTypeDef]
+    slotResolutionSetting: NotRequired[SlotResolutionSettingTypeDef]
+
+InitialResponseSettingUnionTypeDef = Union[
+    InitialResponseSettingTypeDef, InitialResponseSettingOutputTypeDef
+]
+IntentConfirmationSettingUnionTypeDef = Union[
+    IntentConfirmationSettingTypeDef, IntentConfirmationSettingOutputTypeDef
+]
+
+class SlotValueElicitationSettingTypeDef(TypedDict):
+    slotConstraint: SlotConstraintType
+    defaultValueSpecification: NotRequired[SlotDefaultValueSpecificationTypeDef]
+    promptSpecification: NotRequired[PromptSpecificationTypeDef]
+    sampleUtterances: NotRequired[Sequence[SampleUtteranceTypeDef]]
+    waitAndContinueSpecification: NotRequired[WaitAndContinueSpecificationTypeDef]
+    slotCaptureSetting: NotRequired[SlotCaptureSettingTypeDef]
+    slotResolutionSetting: NotRequired[SlotResolutionSettingTypeDef]
+
+class ListTestExecutionResultItemsResponseTypeDef(TypedDict):
+    testExecutionResults: TestExecutionResultItemsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class CreateSlotResponseTypeDef(TypedDict):
+    slotId: str
+    slotName: str
+    description: str
+    slotTypeId: str
+    valueElicitationSetting: SlotValueElicitationSettingOutputTypeDef
+    obfuscationSetting: ObfuscationSettingTypeDef
+    botId: str
+    botVersion: str
+    localeId: str
+    intentId: str
+    creationDateTime: datetime
+    multipleValuesSetting: MultipleValuesSettingTypeDef
+    subSlotSetting: SubSlotSettingOutputTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeSlotResponseTypeDef(TypedDict):
+    slotId: str
+    slotName: str
+    description: str
+    slotTypeId: str
+    valueElicitationSetting: SlotValueElicitationSettingOutputTypeDef
+    obfuscationSetting: ObfuscationSettingTypeDef
+    botId: str
+    botVersion: str
+    localeId: str
+    intentId: str
+    creationDateTime: datetime
+    lastUpdatedDateTime: datetime
+    multipleValuesSetting: MultipleValuesSettingTypeDef
+    subSlotSetting: SubSlotSettingOutputTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateSlotResponseTypeDef(TypedDict):
+    slotId: str
+    slotName: str
+    description: str
+    slotTypeId: str
+    valueElicitationSetting: SlotValueElicitationSettingOutputTypeDef
+    obfuscationSetting: ObfuscationSettingTypeDef
+    botId: str
+    botVersion: str
+    localeId: str
+    intentId: str
+    creationDateTime: datetime
+    lastUpdatedDateTime: datetime
+    multipleValuesSetting: MultipleValuesSettingTypeDef
+    subSlotSetting: SubSlotSettingOutputTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateIntentRequestTypeDef(TypedDict):
+    intentName: str
+    botId: str
+    botVersion: str
+    localeId: str
+    description: NotRequired[str]
+    parentIntentSignature: NotRequired[str]
+    sampleUtterances: NotRequired[Sequence[SampleUtteranceTypeDef]]
+    dialogCodeHook: NotRequired[DialogCodeHookSettingsTypeDef]
+    fulfillmentCodeHook: NotRequired[FulfillmentCodeHookSettingsUnionTypeDef]
+    intentConfirmationSetting: NotRequired[IntentConfirmationSettingUnionTypeDef]
+    intentClosingSetting: NotRequired[IntentClosingSettingUnionTypeDef]
+    inputContexts: NotRequired[Sequence[InputContextTypeDef]]
+    outputContexts: NotRequired[Sequence[OutputContextTypeDef]]
+    kendraConfiguration: NotRequired[KendraConfigurationTypeDef]
+    initialResponseSetting: NotRequired[InitialResponseSettingUnionTypeDef]
+    qnAIntentConfiguration: NotRequired[QnAIntentConfigurationUnionTypeDef]
+    qInConnectIntentConfiguration: NotRequired[QInConnectIntentConfigurationTypeDef]
+
+class UpdateIntentRequestTypeDef(TypedDict):
+    intentId: str
+    intentName: str
+    botId: str
+    botVersion: str
+    localeId: str
+    description: NotRequired[str]
+    parentIntentSignature: NotRequired[str]
+    sampleUtterances: NotRequired[Sequence[SampleUtteranceTypeDef]]
+    dialogCodeHook: NotRequired[DialogCodeHookSettingsTypeDef]
+    fulfillmentCodeHook: NotRequired[FulfillmentCodeHookSettingsUnionTypeDef]
+    slotPriorities: NotRequired[Sequence[SlotPriorityTypeDef]]
+    intentConfirmationSetting: NotRequired[IntentConfirmationSettingUnionTypeDef]
+    intentClosingSetting: NotRequired[IntentClosingSettingUnionTypeDef]
+    inputContexts: NotRequired[Sequence[InputContextTypeDef]]
+    outputContexts: NotRequired[Sequence[OutputContextTypeDef]]
+    kendraConfiguration: NotRequired[KendraConfigurationTypeDef]
+    initialResponseSetting: NotRequired[InitialResponseSettingUnionTypeDef]
+    qnAIntentConfiguration: NotRequired[QnAIntentConfigurationUnionTypeDef]
+    qInConnectIntentConfiguration: NotRequired[QInConnectIntentConfigurationTypeDef]
+
+SlotValueElicitationSettingUnionTypeDef = Union[
+    SlotValueElicitationSettingTypeDef, SlotValueElicitationSettingOutputTypeDef
+]
+
+class CreateSlotRequestTypeDef(TypedDict):
+    slotName: str
+    valueElicitationSetting: SlotValueElicitationSettingUnionTypeDef
+    botId: str
+    botVersion: str
+    localeId: str
+    intentId: str
+    description: NotRequired[str]
+    slotTypeId: NotRequired[str]
+    obfuscationSetting: NotRequired[ObfuscationSettingTypeDef]
+    multipleValuesSetting: NotRequired[MultipleValuesSettingTypeDef]
+    subSlotSetting: NotRequired[SubSlotSettingUnionTypeDef]
+
+class UpdateSlotRequestTypeDef(TypedDict):
+    slotId: str
+    slotName: str
+    valueElicitationSetting: SlotValueElicitationSettingUnionTypeDef
+    botId: str
+    botVersion: str
+    localeId: str
+    intentId: str
+    description: NotRequired[str]
+    slotTypeId: NotRequired[str]
+    obfuscationSetting: NotRequired[ObfuscationSettingTypeDef]
+    multipleValuesSetting: NotRequired[MultipleValuesSettingTypeDef]
+    subSlotSetting: NotRequired[SubSlotSettingUnionTypeDef]

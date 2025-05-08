@@ -1,20 +1,24 @@
 """
 Type annotations for accessanalyzer service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_accessanalyzer/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_accessanalyzer/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_accessanalyzer.type_defs import AccessPreviewFindingTypeDef
+    from mypy_boto3_accessanalyzer.type_defs import AccessPreviewStatusReasonTypeDef
 
-    data: AccessPreviewFindingTypeDef = {...}
+    data: AccessPreviewStatusReasonTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List, Union
+from typing import Any, Union
 
 from .literals import (
     AccessCheckPolicyTypeType,
@@ -39,6 +43,7 @@ from .literals import (
     PolicyTypeType,
     ReasonCodeType,
     RecommendedRemediationActionType,
+    ResourceControlPolicyRestrictionType,
     ResourceTypeType,
     StatusType,
     TypeType,
@@ -46,14 +51,16 @@ from .literals import (
     ValidatePolicyResourceTypeType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
     "AccessPreviewFindingTypeDef",
@@ -62,138 +69,933 @@ __all__ = (
     "AccessPreviewTypeDef",
     "AccessTypeDef",
     "AclGranteeTypeDef",
+    "AnalysisRuleCriteriaOutputTypeDef",
+    "AnalysisRuleCriteriaTypeDef",
+    "AnalysisRuleOutputTypeDef",
+    "AnalysisRuleTypeDef",
     "AnalyzedResourceSummaryTypeDef",
     "AnalyzedResourceTypeDef",
+    "AnalyzerConfigurationOutputTypeDef",
     "AnalyzerConfigurationTypeDef",
+    "AnalyzerConfigurationUnionTypeDef",
     "AnalyzerSummaryTypeDef",
-    "ApplyArchiveRuleRequestRequestTypeDef",
+    "ApplyArchiveRuleRequestTypeDef",
     "ArchiveRuleSummaryTypeDef",
-    "CancelPolicyGenerationRequestRequestTypeDef",
-    "CheckAccessNotGrantedRequestRequestTypeDef",
+    "CancelPolicyGenerationRequestTypeDef",
+    "CheckAccessNotGrantedRequestTypeDef",
     "CheckAccessNotGrantedResponseTypeDef",
-    "CheckNoNewAccessRequestRequestTypeDef",
+    "CheckNoNewAccessRequestTypeDef",
     "CheckNoNewAccessResponseTypeDef",
-    "CheckNoPublicAccessRequestRequestTypeDef",
+    "CheckNoPublicAccessRequestTypeDef",
     "CheckNoPublicAccessResponseTypeDef",
     "CloudTrailDetailsTypeDef",
     "CloudTrailPropertiesTypeDef",
+    "ConfigurationOutputTypeDef",
     "ConfigurationTypeDef",
-    "CreateAccessPreviewRequestRequestTypeDef",
+    "ConfigurationUnionTypeDef",
+    "CreateAccessPreviewRequestTypeDef",
     "CreateAccessPreviewResponseTypeDef",
-    "CreateAnalyzerRequestRequestTypeDef",
+    "CreateAnalyzerRequestTypeDef",
     "CreateAnalyzerResponseTypeDef",
-    "CreateArchiveRuleRequestRequestTypeDef",
+    "CreateArchiveRuleRequestTypeDef",
+    "CriterionOutputTypeDef",
     "CriterionTypeDef",
-    "DeleteAnalyzerRequestRequestTypeDef",
-    "DeleteArchiveRuleRequestRequestTypeDef",
+    "CriterionUnionTypeDef",
+    "DeleteAnalyzerRequestTypeDef",
+    "DeleteArchiveRuleRequestTypeDef",
     "DynamodbStreamConfigurationTypeDef",
     "DynamodbTableConfigurationTypeDef",
+    "EbsSnapshotConfigurationOutputTypeDef",
     "EbsSnapshotConfigurationTypeDef",
+    "EbsSnapshotConfigurationUnionTypeDef",
     "EcrRepositoryConfigurationTypeDef",
     "EfsFileSystemConfigurationTypeDef",
+    "EmptyResponseMetadataTypeDef",
     "ExternalAccessDetailsTypeDef",
+    "ExternalAccessFindingsStatisticsTypeDef",
+    "FindingAggregationAccountDetailsTypeDef",
     "FindingDetailsTypeDef",
     "FindingSourceDetailTypeDef",
     "FindingSourceTypeDef",
     "FindingSummaryTypeDef",
     "FindingSummaryV2TypeDef",
     "FindingTypeDef",
-    "GenerateFindingRecommendationRequestRequestTypeDef",
+    "FindingsStatisticsTypeDef",
+    "GenerateFindingRecommendationRequestTypeDef",
     "GeneratedPolicyPropertiesTypeDef",
     "GeneratedPolicyResultTypeDef",
     "GeneratedPolicyTypeDef",
-    "GetAccessPreviewRequestRequestTypeDef",
+    "GetAccessPreviewRequestTypeDef",
     "GetAccessPreviewResponseTypeDef",
-    "GetAnalyzedResourceRequestRequestTypeDef",
+    "GetAnalyzedResourceRequestTypeDef",
     "GetAnalyzedResourceResponseTypeDef",
-    "GetAnalyzerRequestRequestTypeDef",
+    "GetAnalyzerRequestTypeDef",
     "GetAnalyzerResponseTypeDef",
-    "GetArchiveRuleRequestRequestTypeDef",
+    "GetArchiveRuleRequestTypeDef",
     "GetArchiveRuleResponseTypeDef",
-    "GetFindingRecommendationRequestRequestTypeDef",
+    "GetFindingRecommendationRequestPaginateTypeDef",
+    "GetFindingRecommendationRequestTypeDef",
     "GetFindingRecommendationResponseTypeDef",
-    "GetFindingRequestRequestTypeDef",
+    "GetFindingRequestTypeDef",
     "GetFindingResponseTypeDef",
-    "GetFindingV2RequestRequestTypeDef",
+    "GetFindingV2RequestPaginateTypeDef",
+    "GetFindingV2RequestTypeDef",
     "GetFindingV2ResponseTypeDef",
-    "GetGeneratedPolicyRequestRequestTypeDef",
+    "GetFindingsStatisticsRequestTypeDef",
+    "GetFindingsStatisticsResponseTypeDef",
+    "GetGeneratedPolicyRequestTypeDef",
     "GetGeneratedPolicyResponseTypeDef",
     "IamRoleConfigurationTypeDef",
     "InlineArchiveRuleTypeDef",
     "JobDetailsTypeDef",
     "JobErrorTypeDef",
+    "KmsGrantConfigurationOutputTypeDef",
     "KmsGrantConfigurationTypeDef",
+    "KmsGrantConfigurationUnionTypeDef",
+    "KmsGrantConstraintsOutputTypeDef",
     "KmsGrantConstraintsTypeDef",
+    "KmsGrantConstraintsUnionTypeDef",
+    "KmsKeyConfigurationOutputTypeDef",
     "KmsKeyConfigurationTypeDef",
-    "ListAccessPreviewFindingsRequestRequestTypeDef",
+    "KmsKeyConfigurationUnionTypeDef",
+    "ListAccessPreviewFindingsRequestPaginateTypeDef",
+    "ListAccessPreviewFindingsRequestTypeDef",
     "ListAccessPreviewFindingsResponseTypeDef",
-    "ListAccessPreviewsRequestRequestTypeDef",
+    "ListAccessPreviewsRequestPaginateTypeDef",
+    "ListAccessPreviewsRequestTypeDef",
     "ListAccessPreviewsResponseTypeDef",
-    "ListAnalyzedResourcesRequestRequestTypeDef",
+    "ListAnalyzedResourcesRequestPaginateTypeDef",
+    "ListAnalyzedResourcesRequestTypeDef",
     "ListAnalyzedResourcesResponseTypeDef",
-    "ListAnalyzersRequestRequestTypeDef",
+    "ListAnalyzersRequestPaginateTypeDef",
+    "ListAnalyzersRequestTypeDef",
     "ListAnalyzersResponseTypeDef",
-    "ListArchiveRulesRequestRequestTypeDef",
+    "ListArchiveRulesRequestPaginateTypeDef",
+    "ListArchiveRulesRequestTypeDef",
     "ListArchiveRulesResponseTypeDef",
-    "ListFindingsRequestRequestTypeDef",
+    "ListFindingsRequestPaginateTypeDef",
+    "ListFindingsRequestTypeDef",
     "ListFindingsResponseTypeDef",
-    "ListFindingsV2RequestRequestTypeDef",
+    "ListFindingsV2RequestPaginateTypeDef",
+    "ListFindingsV2RequestTypeDef",
     "ListFindingsV2ResponseTypeDef",
-    "ListPolicyGenerationsRequestRequestTypeDef",
+    "ListPolicyGenerationsRequestPaginateTypeDef",
+    "ListPolicyGenerationsRequestTypeDef",
     "ListPolicyGenerationsResponseTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "LocationTypeDef",
+    "NetworkOriginConfigurationOutputTypeDef",
     "NetworkOriginConfigurationTypeDef",
+    "NetworkOriginConfigurationUnionTypeDef",
     "PaginatorConfigTypeDef",
     "PathElementTypeDef",
     "PolicyGenerationDetailsTypeDef",
     "PolicyGenerationTypeDef",
     "PositionTypeDef",
+    "RdsDbClusterSnapshotAttributeValueOutputTypeDef",
     "RdsDbClusterSnapshotAttributeValueTypeDef",
+    "RdsDbClusterSnapshotAttributeValueUnionTypeDef",
+    "RdsDbClusterSnapshotConfigurationOutputTypeDef",
     "RdsDbClusterSnapshotConfigurationTypeDef",
+    "RdsDbClusterSnapshotConfigurationUnionTypeDef",
+    "RdsDbSnapshotAttributeValueOutputTypeDef",
     "RdsDbSnapshotAttributeValueTypeDef",
+    "RdsDbSnapshotAttributeValueUnionTypeDef",
+    "RdsDbSnapshotConfigurationOutputTypeDef",
     "RdsDbSnapshotConfigurationTypeDef",
+    "RdsDbSnapshotConfigurationUnionTypeDef",
     "ReasonSummaryTypeDef",
     "RecommendationErrorTypeDef",
     "RecommendedStepTypeDef",
+    "ResourceTypeDetailsTypeDef",
     "ResponseMetadataTypeDef",
+    "S3AccessPointConfigurationOutputTypeDef",
     "S3AccessPointConfigurationTypeDef",
+    "S3AccessPointConfigurationUnionTypeDef",
     "S3BucketAclGrantConfigurationTypeDef",
+    "S3BucketConfigurationOutputTypeDef",
     "S3BucketConfigurationTypeDef",
+    "S3BucketConfigurationUnionTypeDef",
+    "S3ExpressDirectoryAccessPointConfigurationOutputTypeDef",
+    "S3ExpressDirectoryAccessPointConfigurationTypeDef",
+    "S3ExpressDirectoryAccessPointConfigurationUnionTypeDef",
+    "S3ExpressDirectoryBucketConfigurationOutputTypeDef",
     "S3ExpressDirectoryBucketConfigurationTypeDef",
+    "S3ExpressDirectoryBucketConfigurationUnionTypeDef",
     "S3PublicAccessBlockConfigurationTypeDef",
     "SecretsManagerSecretConfigurationTypeDef",
     "SnsTopicConfigurationTypeDef",
     "SortCriteriaTypeDef",
     "SpanTypeDef",
     "SqsQueueConfigurationTypeDef",
-    "StartPolicyGenerationRequestRequestTypeDef",
+    "StartPolicyGenerationRequestTypeDef",
     "StartPolicyGenerationResponseTypeDef",
-    "StartResourceScanRequestRequestTypeDef",
+    "StartResourceScanRequestTypeDef",
     "StatusReasonTypeDef",
     "SubstringTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
+    "TimestampTypeDef",
     "TrailPropertiesTypeDef",
     "TrailTypeDef",
-    "UntagResourceRequestRequestTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UnusedAccessConfigurationOutputTypeDef",
     "UnusedAccessConfigurationTypeDef",
+    "UnusedAccessFindingsStatisticsTypeDef",
+    "UnusedAccessTypeStatisticsTypeDef",
     "UnusedActionTypeDef",
     "UnusedIamRoleDetailsTypeDef",
     "UnusedIamUserAccessKeyDetailsTypeDef",
     "UnusedIamUserPasswordDetailsTypeDef",
     "UnusedPermissionDetailsTypeDef",
     "UnusedPermissionsRecommendedStepTypeDef",
-    "UpdateArchiveRuleRequestRequestTypeDef",
-    "UpdateFindingsRequestRequestTypeDef",
+    "UpdateAnalyzerRequestTypeDef",
+    "UpdateAnalyzerResponseTypeDef",
+    "UpdateArchiveRuleRequestTypeDef",
+    "UpdateFindingsRequestTypeDef",
     "ValidatePolicyFindingTypeDef",
-    "ValidatePolicyRequestRequestTypeDef",
+    "ValidatePolicyRequestPaginateTypeDef",
+    "ValidatePolicyRequestTypeDef",
     "ValidatePolicyResponseTypeDef",
     "VpcConfigurationTypeDef",
 )
 
-_RequiredAccessPreviewFindingTypeDef = TypedDict(
-    "_RequiredAccessPreviewFindingTypeDef",
+class AccessPreviewStatusReasonTypeDef(TypedDict):
+    code: AccessPreviewStatusReasonCodeType
+
+class AccessTypeDef(TypedDict):
+    actions: NotRequired[Sequence[str]]
+    resources: NotRequired[Sequence[str]]
+
+AclGranteeTypeDef = TypedDict(
+    "AclGranteeTypeDef",
+    {
+        "id": NotRequired[str],
+        "uri": NotRequired[str],
+    },
+)
+
+class AnalysisRuleCriteriaOutputTypeDef(TypedDict):
+    accountIds: NotRequired[List[str]]
+    resourceTags: NotRequired[List[Dict[str, str]]]
+
+class AnalysisRuleCriteriaTypeDef(TypedDict):
+    accountIds: NotRequired[Sequence[str]]
+    resourceTags: NotRequired[Sequence[Mapping[str, str]]]
+
+class AnalyzedResourceSummaryTypeDef(TypedDict):
+    resourceArn: str
+    resourceOwnerAccount: str
+    resourceType: ResourceTypeType
+
+class AnalyzedResourceTypeDef(TypedDict):
+    resourceArn: str
+    resourceType: ResourceTypeType
+    createdAt: datetime
+    analyzedAt: datetime
+    updatedAt: datetime
+    isPublic: bool
+    resourceOwnerAccount: str
+    actions: NotRequired[List[str]]
+    sharedVia: NotRequired[List[str]]
+    status: NotRequired[FindingStatusType]
+    error: NotRequired[str]
+
+class StatusReasonTypeDef(TypedDict):
+    code: ReasonCodeType
+
+class ApplyArchiveRuleRequestTypeDef(TypedDict):
+    analyzerArn: str
+    ruleName: str
+    clientToken: NotRequired[str]
+
+class CriterionOutputTypeDef(TypedDict):
+    eq: NotRequired[List[str]]
+    neq: NotRequired[List[str]]
+    contains: NotRequired[List[str]]
+    exists: NotRequired[bool]
+
+class CancelPolicyGenerationRequestTypeDef(TypedDict):
+    jobId: str
+
+class ReasonSummaryTypeDef(TypedDict):
+    description: NotRequired[str]
+    statementIndex: NotRequired[int]
+    statementId: NotRequired[str]
+
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
+
+class CheckNoNewAccessRequestTypeDef(TypedDict):
+    newPolicyDocument: str
+    existingPolicyDocument: str
+    policyType: AccessCheckPolicyTypeType
+
+class CheckNoPublicAccessRequestTypeDef(TypedDict):
+    policyDocument: str
+    resourceType: AccessCheckResourceTypeType
+
+TimestampTypeDef = Union[datetime, str]
+
+class TrailTypeDef(TypedDict):
+    cloudTrailArn: str
+    regions: NotRequired[Sequence[str]]
+    allRegions: NotRequired[bool]
+
+class TrailPropertiesTypeDef(TypedDict):
+    cloudTrailArn: str
+    regions: NotRequired[List[str]]
+    allRegions: NotRequired[bool]
+
+class DynamodbStreamConfigurationTypeDef(TypedDict):
+    streamPolicy: NotRequired[str]
+
+class DynamodbTableConfigurationTypeDef(TypedDict):
+    tablePolicy: NotRequired[str]
+
+class EbsSnapshotConfigurationOutputTypeDef(TypedDict):
+    userIds: NotRequired[List[str]]
+    groups: NotRequired[List[str]]
+    kmsKeyId: NotRequired[str]
+
+class EcrRepositoryConfigurationTypeDef(TypedDict):
+    repositoryPolicy: NotRequired[str]
+
+class EfsFileSystemConfigurationTypeDef(TypedDict):
+    fileSystemPolicy: NotRequired[str]
+
+class IamRoleConfigurationTypeDef(TypedDict):
+    trustPolicy: NotRequired[str]
+
+class SecretsManagerSecretConfigurationTypeDef(TypedDict):
+    kmsKeyId: NotRequired[str]
+    secretPolicy: NotRequired[str]
+
+class SnsTopicConfigurationTypeDef(TypedDict):
+    topicPolicy: NotRequired[str]
+
+class SqsQueueConfigurationTypeDef(TypedDict):
+    queuePolicy: NotRequired[str]
+
+class CriterionTypeDef(TypedDict):
+    eq: NotRequired[Sequence[str]]
+    neq: NotRequired[Sequence[str]]
+    contains: NotRequired[Sequence[str]]
+    exists: NotRequired[bool]
+
+class DeleteAnalyzerRequestTypeDef(TypedDict):
+    analyzerName: str
+    clientToken: NotRequired[str]
+
+class DeleteArchiveRuleRequestTypeDef(TypedDict):
+    analyzerName: str
+    ruleName: str
+    clientToken: NotRequired[str]
+
+class EbsSnapshotConfigurationTypeDef(TypedDict):
+    userIds: NotRequired[Sequence[str]]
+    groups: NotRequired[Sequence[str]]
+    kmsKeyId: NotRequired[str]
+
+class ResourceTypeDetailsTypeDef(TypedDict):
+    totalActivePublic: NotRequired[int]
+    totalActiveCrossAccount: NotRequired[int]
+
+class FindingAggregationAccountDetailsTypeDef(TypedDict):
+    account: NotRequired[str]
+    numberOfActiveFindings: NotRequired[int]
+    details: NotRequired[Dict[str, int]]
+
+class UnusedIamRoleDetailsTypeDef(TypedDict):
+    lastAccessed: NotRequired[datetime]
+
+class UnusedIamUserAccessKeyDetailsTypeDef(TypedDict):
+    accessKeyId: str
+    lastAccessed: NotRequired[datetime]
+
+class UnusedIamUserPasswordDetailsTypeDef(TypedDict):
+    lastAccessed: NotRequired[datetime]
+
+class FindingSourceDetailTypeDef(TypedDict):
+    accessPointArn: NotRequired[str]
+    accessPointAccount: NotRequired[str]
+
+FindingSummaryV2TypeDef = TypedDict(
+    "FindingSummaryV2TypeDef",
+    {
+        "analyzedAt": datetime,
+        "createdAt": datetime,
+        "id": str,
+        "resourceType": ResourceTypeType,
+        "resourceOwnerAccount": str,
+        "status": FindingStatusType,
+        "updatedAt": datetime,
+        "error": NotRequired[str],
+        "resource": NotRequired[str],
+        "findingType": NotRequired[FindingTypeType],
+    },
+)
+GenerateFindingRecommendationRequestTypeDef = TypedDict(
+    "GenerateFindingRecommendationRequestTypeDef",
+    {
+        "analyzerArn": str,
+        "id": str,
+    },
+)
+
+class GeneratedPolicyTypeDef(TypedDict):
+    policy: str
+
+class GetAccessPreviewRequestTypeDef(TypedDict):
+    accessPreviewId: str
+    analyzerArn: str
+
+class GetAnalyzedResourceRequestTypeDef(TypedDict):
+    analyzerArn: str
+    resourceArn: str
+
+class GetAnalyzerRequestTypeDef(TypedDict):
+    analyzerName: str
+
+class GetArchiveRuleRequestTypeDef(TypedDict):
+    analyzerName: str
+    ruleName: str
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+GetFindingRecommendationRequestTypeDef = TypedDict(
+    "GetFindingRecommendationRequestTypeDef",
+    {
+        "analyzerArn": str,
+        "id": str,
+        "maxResults": NotRequired[int],
+        "nextToken": NotRequired[str],
+    },
+)
+
+class RecommendationErrorTypeDef(TypedDict):
+    code: str
+    message: str
+
+GetFindingRequestTypeDef = TypedDict(
+    "GetFindingRequestTypeDef",
+    {
+        "analyzerArn": str,
+        "id": str,
+    },
+)
+GetFindingV2RequestTypeDef = TypedDict(
+    "GetFindingV2RequestTypeDef",
+    {
+        "analyzerArn": str,
+        "id": str,
+        "maxResults": NotRequired[int],
+        "nextToken": NotRequired[str],
+    },
+)
+
+class GetFindingsStatisticsRequestTypeDef(TypedDict):
+    analyzerArn: str
+
+class GetGeneratedPolicyRequestTypeDef(TypedDict):
+    jobId: str
+    includeResourcePlaceholders: NotRequired[bool]
+    includeServiceLevelTemplate: NotRequired[bool]
+
+class JobErrorTypeDef(TypedDict):
+    code: JobErrorCodeType
+    message: str
+
+class KmsGrantConstraintsOutputTypeDef(TypedDict):
+    encryptionContextEquals: NotRequired[Dict[str, str]]
+    encryptionContextSubset: NotRequired[Dict[str, str]]
+
+class KmsGrantConstraintsTypeDef(TypedDict):
+    encryptionContextEquals: NotRequired[Mapping[str, str]]
+    encryptionContextSubset: NotRequired[Mapping[str, str]]
+
+class ListAccessPreviewsRequestTypeDef(TypedDict):
+    analyzerArn: str
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class ListAnalyzedResourcesRequestTypeDef(TypedDict):
+    analyzerArn: str
+    resourceType: NotRequired[ResourceTypeType]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+ListAnalyzersRequestTypeDef = TypedDict(
+    "ListAnalyzersRequestTypeDef",
+    {
+        "nextToken": NotRequired[str],
+        "maxResults": NotRequired[int],
+        "type": NotRequired[TypeType],
+    },
+)
+
+class ListArchiveRulesRequestTypeDef(TypedDict):
+    analyzerName: str
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class SortCriteriaTypeDef(TypedDict):
+    attributeName: NotRequired[str]
+    orderBy: NotRequired[OrderByType]
+
+class ListPolicyGenerationsRequestTypeDef(TypedDict):
+    principalArn: NotRequired[str]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class PolicyGenerationTypeDef(TypedDict):
+    jobId: str
+    principalArn: str
+    status: JobStatusType
+    startedOn: datetime
+    completedOn: NotRequired[datetime]
+
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+
+class VpcConfigurationTypeDef(TypedDict):
+    vpcId: str
+
+class SubstringTypeDef(TypedDict):
+    start: int
+    length: int
+
+class PolicyGenerationDetailsTypeDef(TypedDict):
+    principalArn: str
+
+class PositionTypeDef(TypedDict):
+    line: int
+    column: int
+    offset: int
+
+class RdsDbClusterSnapshotAttributeValueOutputTypeDef(TypedDict):
+    accountIds: NotRequired[List[str]]
+
+class RdsDbClusterSnapshotAttributeValueTypeDef(TypedDict):
+    accountIds: NotRequired[Sequence[str]]
+
+class RdsDbSnapshotAttributeValueOutputTypeDef(TypedDict):
+    accountIds: NotRequired[List[str]]
+
+class RdsDbSnapshotAttributeValueTypeDef(TypedDict):
+    accountIds: NotRequired[Sequence[str]]
+
+class UnusedPermissionsRecommendedStepTypeDef(TypedDict):
+    recommendedAction: RecommendedRemediationActionType
+    policyUpdatedAt: NotRequired[datetime]
+    recommendedPolicy: NotRequired[str]
+    existingPolicyId: NotRequired[str]
+
+class S3PublicAccessBlockConfigurationTypeDef(TypedDict):
+    ignorePublicAcls: bool
+    restrictPublicBuckets: bool
+
+class StartResourceScanRequestTypeDef(TypedDict):
+    analyzerArn: str
+    resourceArn: str
+    resourceOwnerAccount: NotRequired[str]
+
+class TagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tags: Mapping[str, str]
+
+class UntagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tagKeys: Sequence[str]
+
+class UnusedAccessTypeStatisticsTypeDef(TypedDict):
+    unusedAccessType: NotRequired[str]
+    total: NotRequired[int]
+
+class UnusedActionTypeDef(TypedDict):
+    action: str
+    lastAccessed: NotRequired[datetime]
+
+class UpdateFindingsRequestTypeDef(TypedDict):
+    analyzerArn: str
+    status: FindingStatusUpdateType
+    ids: NotRequired[Sequence[str]]
+    resourceArn: NotRequired[str]
+    clientToken: NotRequired[str]
+
+class ValidatePolicyRequestTypeDef(TypedDict):
+    policyDocument: str
+    policyType: PolicyTypeType
+    locale: NotRequired[LocaleType]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+    validatePolicyResourceType: NotRequired[ValidatePolicyResourceTypeType]
+
+AccessPreviewSummaryTypeDef = TypedDict(
+    "AccessPreviewSummaryTypeDef",
+    {
+        "id": str,
+        "analyzerArn": str,
+        "createdAt": datetime,
+        "status": AccessPreviewStatusType,
+        "statusReason": NotRequired[AccessPreviewStatusReasonTypeDef],
+    },
+)
+
+class CheckAccessNotGrantedRequestTypeDef(TypedDict):
+    policyDocument: str
+    access: Sequence[AccessTypeDef]
+    policyType: AccessCheckPolicyTypeType
+
+class S3BucketAclGrantConfigurationTypeDef(TypedDict):
+    permission: AclPermissionType
+    grantee: AclGranteeTypeDef
+
+class AnalysisRuleOutputTypeDef(TypedDict):
+    exclusions: NotRequired[List[AnalysisRuleCriteriaOutputTypeDef]]
+
+class AnalysisRuleTypeDef(TypedDict):
+    exclusions: NotRequired[Sequence[AnalysisRuleCriteriaTypeDef]]
+
+ArchiveRuleSummaryTypeDef = TypedDict(
+    "ArchiveRuleSummaryTypeDef",
+    {
+        "ruleName": str,
+        "filter": Dict[str, CriterionOutputTypeDef],
+        "createdAt": datetime,
+        "updatedAt": datetime,
+    },
+)
+
+class CheckAccessNotGrantedResponseTypeDef(TypedDict):
+    result: CheckAccessNotGrantedResultType
+    message: str
+    reasons: List[ReasonSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CheckNoNewAccessResponseTypeDef(TypedDict):
+    result: CheckNoNewAccessResultType
+    message: str
+    reasons: List[ReasonSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CheckNoPublicAccessResponseTypeDef(TypedDict):
+    result: CheckNoPublicAccessResultType
+    message: str
+    reasons: List[ReasonSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+CreateAccessPreviewResponseTypeDef = TypedDict(
+    "CreateAccessPreviewResponseTypeDef",
+    {
+        "id": str,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+
+class CreateAnalyzerResponseTypeDef(TypedDict):
+    arn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class EmptyResponseMetadataTypeDef(TypedDict):
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetAnalyzedResourceResponseTypeDef(TypedDict):
+    resource: AnalyzedResourceTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListAnalyzedResourcesResponseTypeDef(TypedDict):
+    analyzedResources: List[AnalyzedResourceSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartPolicyGenerationResponseTypeDef(TypedDict):
+    jobId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CloudTrailDetailsTypeDef(TypedDict):
+    trails: Sequence[TrailTypeDef]
+    accessRole: str
+    startTime: TimestampTypeDef
+    endTime: NotRequired[TimestampTypeDef]
+
+class CloudTrailPropertiesTypeDef(TypedDict):
+    trailProperties: List[TrailPropertiesTypeDef]
+    startTime: datetime
+    endTime: datetime
+
+CriterionUnionTypeDef = Union[CriterionTypeDef, CriterionOutputTypeDef]
+EbsSnapshotConfigurationUnionTypeDef = Union[
+    EbsSnapshotConfigurationTypeDef, EbsSnapshotConfigurationOutputTypeDef
+]
+
+class ExternalAccessFindingsStatisticsTypeDef(TypedDict):
+    resourceTypeStatistics: NotRequired[Dict[ResourceTypeType, ResourceTypeDetailsTypeDef]]
+    totalActiveFindings: NotRequired[int]
+    totalArchivedFindings: NotRequired[int]
+    totalResolvedFindings: NotRequired[int]
+
+FindingSourceTypeDef = TypedDict(
+    "FindingSourceTypeDef",
+    {
+        "type": FindingSourceTypeType,
+        "detail": NotRequired[FindingSourceDetailTypeDef],
+    },
+)
+
+class ListFindingsV2ResponseTypeDef(TypedDict):
+    findings: List[FindingSummaryV2TypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+GetFindingRecommendationRequestPaginateTypeDef = TypedDict(
+    "GetFindingRecommendationRequestPaginateTypeDef",
+    {
+        "analyzerArn": str,
+        "id": str,
+        "PaginationConfig": NotRequired[PaginatorConfigTypeDef],
+    },
+)
+GetFindingV2RequestPaginateTypeDef = TypedDict(
+    "GetFindingV2RequestPaginateTypeDef",
+    {
+        "analyzerArn": str,
+        "id": str,
+        "PaginationConfig": NotRequired[PaginatorConfigTypeDef],
+    },
+)
+
+class ListAccessPreviewsRequestPaginateTypeDef(TypedDict):
+    analyzerArn: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListAnalyzedResourcesRequestPaginateTypeDef(TypedDict):
+    analyzerArn: str
+    resourceType: NotRequired[ResourceTypeType]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+ListAnalyzersRequestPaginateTypeDef = TypedDict(
+    "ListAnalyzersRequestPaginateTypeDef",
+    {
+        "type": NotRequired[TypeType],
+        "PaginationConfig": NotRequired[PaginatorConfigTypeDef],
+    },
+)
+
+class ListArchiveRulesRequestPaginateTypeDef(TypedDict):
+    analyzerName: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListPolicyGenerationsRequestPaginateTypeDef(TypedDict):
+    principalArn: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ValidatePolicyRequestPaginateTypeDef(TypedDict):
+    policyDocument: str
+    policyType: PolicyTypeType
+    locale: NotRequired[LocaleType]
+    validatePolicyResourceType: NotRequired[ValidatePolicyResourceTypeType]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class JobDetailsTypeDef(TypedDict):
+    jobId: str
+    status: JobStatusType
+    startedOn: datetime
+    completedOn: NotRequired[datetime]
+    jobError: NotRequired[JobErrorTypeDef]
+
+class KmsGrantConfigurationOutputTypeDef(TypedDict):
+    operations: List[KmsGrantOperationType]
+    granteePrincipal: str
+    issuingAccount: str
+    retiringPrincipal: NotRequired[str]
+    constraints: NotRequired[KmsGrantConstraintsOutputTypeDef]
+
+KmsGrantConstraintsUnionTypeDef = Union[
+    KmsGrantConstraintsTypeDef, KmsGrantConstraintsOutputTypeDef
+]
+
+class ListPolicyGenerationsResponseTypeDef(TypedDict):
+    policyGenerations: List[PolicyGenerationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class NetworkOriginConfigurationOutputTypeDef(TypedDict):
+    vpcConfiguration: NotRequired[VpcConfigurationTypeDef]
+    internetConfiguration: NotRequired[Dict[str, Any]]
+
+class NetworkOriginConfigurationTypeDef(TypedDict):
+    vpcConfiguration: NotRequired[VpcConfigurationTypeDef]
+    internetConfiguration: NotRequired[Mapping[str, Any]]
+
+class PathElementTypeDef(TypedDict):
+    index: NotRequired[int]
+    key: NotRequired[str]
+    substring: NotRequired[SubstringTypeDef]
+    value: NotRequired[str]
+
+class SpanTypeDef(TypedDict):
+    start: PositionTypeDef
+    end: PositionTypeDef
+
+class RdsDbClusterSnapshotConfigurationOutputTypeDef(TypedDict):
+    attributes: NotRequired[Dict[str, RdsDbClusterSnapshotAttributeValueOutputTypeDef]]
+    kmsKeyId: NotRequired[str]
+
+RdsDbClusterSnapshotAttributeValueUnionTypeDef = Union[
+    RdsDbClusterSnapshotAttributeValueTypeDef, RdsDbClusterSnapshotAttributeValueOutputTypeDef
+]
+
+class RdsDbSnapshotConfigurationOutputTypeDef(TypedDict):
+    attributes: NotRequired[Dict[str, RdsDbSnapshotAttributeValueOutputTypeDef]]
+    kmsKeyId: NotRequired[str]
+
+RdsDbSnapshotAttributeValueUnionTypeDef = Union[
+    RdsDbSnapshotAttributeValueTypeDef, RdsDbSnapshotAttributeValueOutputTypeDef
+]
+
+class RecommendedStepTypeDef(TypedDict):
+    unusedPermissionsRecommendedStep: NotRequired[UnusedPermissionsRecommendedStepTypeDef]
+
+class UnusedAccessFindingsStatisticsTypeDef(TypedDict):
+    unusedAccessTypeStatistics: NotRequired[List[UnusedAccessTypeStatisticsTypeDef]]
+    topAccounts: NotRequired[List[FindingAggregationAccountDetailsTypeDef]]
+    totalActiveFindings: NotRequired[int]
+    totalArchivedFindings: NotRequired[int]
+    totalResolvedFindings: NotRequired[int]
+
+class UnusedPermissionDetailsTypeDef(TypedDict):
+    serviceNamespace: str
+    actions: NotRequired[List[UnusedActionTypeDef]]
+    lastAccessed: NotRequired[datetime]
+
+class ListAccessPreviewsResponseTypeDef(TypedDict):
+    accessPreviews: List[AccessPreviewSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class UnusedAccessConfigurationOutputTypeDef(TypedDict):
+    unusedAccessAge: NotRequired[int]
+    analysisRule: NotRequired[AnalysisRuleOutputTypeDef]
+
+class UnusedAccessConfigurationTypeDef(TypedDict):
+    unusedAccessAge: NotRequired[int]
+    analysisRule: NotRequired[AnalysisRuleTypeDef]
+
+class GetArchiveRuleResponseTypeDef(TypedDict):
+    archiveRule: ArchiveRuleSummaryTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListArchiveRulesResponseTypeDef(TypedDict):
+    archiveRules: List[ArchiveRuleSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class StartPolicyGenerationRequestTypeDef(TypedDict):
+    policyGenerationDetails: PolicyGenerationDetailsTypeDef
+    cloudTrailDetails: NotRequired[CloudTrailDetailsTypeDef]
+    clientToken: NotRequired[str]
+
+class GeneratedPolicyPropertiesTypeDef(TypedDict):
+    principalArn: str
+    isComplete: NotRequired[bool]
+    cloudTrailProperties: NotRequired[CloudTrailPropertiesTypeDef]
+
+CreateArchiveRuleRequestTypeDef = TypedDict(
+    "CreateArchiveRuleRequestTypeDef",
+    {
+        "analyzerName": str,
+        "ruleName": str,
+        "filter": Mapping[str, CriterionUnionTypeDef],
+        "clientToken": NotRequired[str],
+    },
+)
+InlineArchiveRuleTypeDef = TypedDict(
+    "InlineArchiveRuleTypeDef",
+    {
+        "ruleName": str,
+        "filter": Mapping[str, CriterionUnionTypeDef],
+    },
+)
+ListAccessPreviewFindingsRequestPaginateTypeDef = TypedDict(
+    "ListAccessPreviewFindingsRequestPaginateTypeDef",
+    {
+        "accessPreviewId": str,
+        "analyzerArn": str,
+        "filter": NotRequired[Mapping[str, CriterionUnionTypeDef]],
+        "PaginationConfig": NotRequired[PaginatorConfigTypeDef],
+    },
+)
+ListAccessPreviewFindingsRequestTypeDef = TypedDict(
+    "ListAccessPreviewFindingsRequestTypeDef",
+    {
+        "accessPreviewId": str,
+        "analyzerArn": str,
+        "filter": NotRequired[Mapping[str, CriterionUnionTypeDef]],
+        "nextToken": NotRequired[str],
+        "maxResults": NotRequired[int],
+    },
+)
+ListFindingsRequestPaginateTypeDef = TypedDict(
+    "ListFindingsRequestPaginateTypeDef",
+    {
+        "analyzerArn": str,
+        "filter": NotRequired[Mapping[str, CriterionUnionTypeDef]],
+        "sort": NotRequired[SortCriteriaTypeDef],
+        "PaginationConfig": NotRequired[PaginatorConfigTypeDef],
+    },
+)
+ListFindingsRequestTypeDef = TypedDict(
+    "ListFindingsRequestTypeDef",
+    {
+        "analyzerArn": str,
+        "filter": NotRequired[Mapping[str, CriterionUnionTypeDef]],
+        "sort": NotRequired[SortCriteriaTypeDef],
+        "nextToken": NotRequired[str],
+        "maxResults": NotRequired[int],
+    },
+)
+ListFindingsV2RequestPaginateTypeDef = TypedDict(
+    "ListFindingsV2RequestPaginateTypeDef",
+    {
+        "analyzerArn": str,
+        "filter": NotRequired[Mapping[str, CriterionUnionTypeDef]],
+        "sort": NotRequired[SortCriteriaTypeDef],
+        "PaginationConfig": NotRequired[PaginatorConfigTypeDef],
+    },
+)
+ListFindingsV2RequestTypeDef = TypedDict(
+    "ListFindingsV2RequestTypeDef",
+    {
+        "analyzerArn": str,
+        "filter": NotRequired[Mapping[str, CriterionUnionTypeDef]],
+        "maxResults": NotRequired[int],
+        "nextToken": NotRequired[str],
+        "sort": NotRequired[SortCriteriaTypeDef],
+    },
+)
+UpdateArchiveRuleRequestTypeDef = TypedDict(
+    "UpdateArchiveRuleRequestTypeDef",
+    {
+        "analyzerName": str,
+        "ruleName": str,
+        "filter": Mapping[str, CriterionUnionTypeDef],
+        "clientToken": NotRequired[str],
+    },
+)
+AccessPreviewFindingTypeDef = TypedDict(
+    "AccessPreviewFindingTypeDef",
     {
         "id": str,
         "resourceType": ResourceTypeType,
@@ -201,815 +1003,220 @@ _RequiredAccessPreviewFindingTypeDef = TypedDict(
         "changeType": FindingChangeTypeType,
         "status": FindingStatusType,
         "resourceOwnerAccount": str,
+        "existingFindingId": NotRequired[str],
+        "existingFindingStatus": NotRequired[FindingStatusType],
+        "principal": NotRequired[Dict[str, str]],
+        "action": NotRequired[List[str]],
+        "condition": NotRequired[Dict[str, str]],
+        "resource": NotRequired[str],
+        "isPublic": NotRequired[bool],
+        "error": NotRequired[str],
+        "sources": NotRequired[List[FindingSourceTypeDef]],
+        "resourceControlPolicyRestriction": NotRequired[ResourceControlPolicyRestrictionType],
     },
 )
-_OptionalAccessPreviewFindingTypeDef = TypedDict(
-    "_OptionalAccessPreviewFindingTypeDef",
+
+class ExternalAccessDetailsTypeDef(TypedDict):
+    condition: Dict[str, str]
+    action: NotRequired[List[str]]
+    isPublic: NotRequired[bool]
+    principal: NotRequired[Dict[str, str]]
+    sources: NotRequired[List[FindingSourceTypeDef]]
+    resourceControlPolicyRestriction: NotRequired[ResourceControlPolicyRestrictionType]
+
+FindingSummaryTypeDef = TypedDict(
+    "FindingSummaryTypeDef",
     {
-        "existingFindingId": str,
-        "existingFindingStatus": FindingStatusType,
-        "principal": Dict[str, str],
-        "action": List[str],
+        "id": str,
+        "resourceType": ResourceTypeType,
         "condition": Dict[str, str],
-        "resource": str,
-        "isPublic": bool,
-        "error": str,
-        "sources": List["FindingSourceTypeDef"],
-    },
-    total=False,
-)
-
-class AccessPreviewFindingTypeDef(
-    _RequiredAccessPreviewFindingTypeDef, _OptionalAccessPreviewFindingTypeDef
-):
-    pass
-
-AccessPreviewStatusReasonTypeDef = TypedDict(
-    "AccessPreviewStatusReasonTypeDef",
-    {
-        "code": AccessPreviewStatusReasonCodeType,
-    },
-)
-
-_RequiredAccessPreviewSummaryTypeDef = TypedDict(
-    "_RequiredAccessPreviewSummaryTypeDef",
-    {
-        "id": str,
-        "analyzerArn": str,
-        "createdAt": datetime,
-        "status": AccessPreviewStatusType,
-    },
-)
-_OptionalAccessPreviewSummaryTypeDef = TypedDict(
-    "_OptionalAccessPreviewSummaryTypeDef",
-    {
-        "statusReason": "AccessPreviewStatusReasonTypeDef",
-    },
-    total=False,
-)
-
-class AccessPreviewSummaryTypeDef(
-    _RequiredAccessPreviewSummaryTypeDef, _OptionalAccessPreviewSummaryTypeDef
-):
-    pass
-
-_RequiredAccessPreviewTypeDef = TypedDict(
-    "_RequiredAccessPreviewTypeDef",
-    {
-        "id": str,
-        "analyzerArn": str,
-        "configurations": Dict[str, "ConfigurationTypeDef"],
-        "createdAt": datetime,
-        "status": AccessPreviewStatusType,
-    },
-)
-_OptionalAccessPreviewTypeDef = TypedDict(
-    "_OptionalAccessPreviewTypeDef",
-    {
-        "statusReason": "AccessPreviewStatusReasonTypeDef",
-    },
-    total=False,
-)
-
-class AccessPreviewTypeDef(_RequiredAccessPreviewTypeDef, _OptionalAccessPreviewTypeDef):
-    pass
-
-AccessTypeDef = TypedDict(
-    "AccessTypeDef",
-    {
-        "actions": List[str],
-        "resources": List[str],
-    },
-    total=False,
-)
-
-AclGranteeTypeDef = TypedDict(
-    "AclGranteeTypeDef",
-    {
-        "id": str,
-        "uri": str,
-    },
-    total=False,
-)
-
-AnalyzedResourceSummaryTypeDef = TypedDict(
-    "AnalyzedResourceSummaryTypeDef",
-    {
-        "resourceArn": str,
-        "resourceOwnerAccount": str,
-        "resourceType": ResourceTypeType,
-    },
-)
-
-_RequiredAnalyzedResourceTypeDef = TypedDict(
-    "_RequiredAnalyzedResourceTypeDef",
-    {
-        "resourceArn": str,
-        "resourceType": ResourceTypeType,
         "createdAt": datetime,
         "analyzedAt": datetime,
         "updatedAt": datetime,
-        "isPublic": bool,
-        "resourceOwnerAccount": str,
-    },
-)
-_OptionalAnalyzedResourceTypeDef = TypedDict(
-    "_OptionalAnalyzedResourceTypeDef",
-    {
-        "actions": List[str],
-        "sharedVia": List[str],
         "status": FindingStatusType,
-        "error": str,
+        "resourceOwnerAccount": str,
+        "principal": NotRequired[Dict[str, str]],
+        "action": NotRequired[List[str]],
+        "resource": NotRequired[str],
+        "isPublic": NotRequired[bool],
+        "error": NotRequired[str],
+        "sources": NotRequired[List[FindingSourceTypeDef]],
+        "resourceControlPolicyRestriction": NotRequired[ResourceControlPolicyRestrictionType],
     },
-    total=False,
 )
-
-class AnalyzedResourceTypeDef(_RequiredAnalyzedResourceTypeDef, _OptionalAnalyzedResourceTypeDef):
-    pass
-
-AnalyzerConfigurationTypeDef = TypedDict(
-    "AnalyzerConfigurationTypeDef",
+FindingTypeDef = TypedDict(
+    "FindingTypeDef",
     {
-        "unusedAccess": "UnusedAccessConfigurationTypeDef",
+        "id": str,
+        "resourceType": ResourceTypeType,
+        "condition": Dict[str, str],
+        "createdAt": datetime,
+        "analyzedAt": datetime,
+        "updatedAt": datetime,
+        "status": FindingStatusType,
+        "resourceOwnerAccount": str,
+        "principal": NotRequired[Dict[str, str]],
+        "action": NotRequired[List[str]],
+        "resource": NotRequired[str],
+        "isPublic": NotRequired[bool],
+        "error": NotRequired[str],
+        "sources": NotRequired[List[FindingSourceTypeDef]],
+        "resourceControlPolicyRestriction": NotRequired[ResourceControlPolicyRestrictionType],
     },
-    total=False,
 )
 
-_RequiredAnalyzerSummaryTypeDef = TypedDict(
-    "_RequiredAnalyzerSummaryTypeDef",
+class KmsKeyConfigurationOutputTypeDef(TypedDict):
+    keyPolicies: NotRequired[Dict[str, str]]
+    grants: NotRequired[List[KmsGrantConfigurationOutputTypeDef]]
+
+class KmsGrantConfigurationTypeDef(TypedDict):
+    operations: Sequence[KmsGrantOperationType]
+    granteePrincipal: str
+    issuingAccount: str
+    retiringPrincipal: NotRequired[str]
+    constraints: NotRequired[KmsGrantConstraintsUnionTypeDef]
+
+class S3AccessPointConfigurationOutputTypeDef(TypedDict):
+    accessPointPolicy: NotRequired[str]
+    publicAccessBlock: NotRequired[S3PublicAccessBlockConfigurationTypeDef]
+    networkOrigin: NotRequired[NetworkOriginConfigurationOutputTypeDef]
+
+class S3ExpressDirectoryAccessPointConfigurationOutputTypeDef(TypedDict):
+    accessPointPolicy: NotRequired[str]
+    networkOrigin: NotRequired[NetworkOriginConfigurationOutputTypeDef]
+
+NetworkOriginConfigurationUnionTypeDef = Union[
+    NetworkOriginConfigurationTypeDef, NetworkOriginConfigurationOutputTypeDef
+]
+
+class LocationTypeDef(TypedDict):
+    path: List[PathElementTypeDef]
+    span: SpanTypeDef
+
+class RdsDbClusterSnapshotConfigurationTypeDef(TypedDict):
+    attributes: NotRequired[Mapping[str, RdsDbClusterSnapshotAttributeValueUnionTypeDef]]
+    kmsKeyId: NotRequired[str]
+
+class RdsDbSnapshotConfigurationTypeDef(TypedDict):
+    attributes: NotRequired[Mapping[str, RdsDbSnapshotAttributeValueUnionTypeDef]]
+    kmsKeyId: NotRequired[str]
+
+class GetFindingRecommendationResponseTypeDef(TypedDict):
+    startedAt: datetime
+    completedAt: datetime
+    error: RecommendationErrorTypeDef
+    resourceArn: str
+    recommendedSteps: List[RecommendedStepTypeDef]
+    recommendationType: Literal["UnusedPermissionRecommendation"]
+    status: StatusType
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class FindingsStatisticsTypeDef(TypedDict):
+    externalAccessFindingsStatistics: NotRequired[ExternalAccessFindingsStatisticsTypeDef]
+    unusedAccessFindingsStatistics: NotRequired[UnusedAccessFindingsStatisticsTypeDef]
+
+class AnalyzerConfigurationOutputTypeDef(TypedDict):
+    unusedAccess: NotRequired[UnusedAccessConfigurationOutputTypeDef]
+
+class AnalyzerConfigurationTypeDef(TypedDict):
+    unusedAccess: NotRequired[UnusedAccessConfigurationTypeDef]
+
+class GeneratedPolicyResultTypeDef(TypedDict):
+    properties: GeneratedPolicyPropertiesTypeDef
+    generatedPolicies: NotRequired[List[GeneratedPolicyTypeDef]]
+
+class ListAccessPreviewFindingsResponseTypeDef(TypedDict):
+    findings: List[AccessPreviewFindingTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class FindingDetailsTypeDef(TypedDict):
+    externalAccessDetails: NotRequired[ExternalAccessDetailsTypeDef]
+    unusedPermissionDetails: NotRequired[UnusedPermissionDetailsTypeDef]
+    unusedIamUserAccessKeyDetails: NotRequired[UnusedIamUserAccessKeyDetailsTypeDef]
+    unusedIamRoleDetails: NotRequired[UnusedIamRoleDetailsTypeDef]
+    unusedIamUserPasswordDetails: NotRequired[UnusedIamUserPasswordDetailsTypeDef]
+
+class ListFindingsResponseTypeDef(TypedDict):
+    findings: List[FindingSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class GetFindingResponseTypeDef(TypedDict):
+    finding: FindingTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+KmsGrantConfigurationUnionTypeDef = Union[
+    KmsGrantConfigurationTypeDef, KmsGrantConfigurationOutputTypeDef
+]
+
+class S3BucketConfigurationOutputTypeDef(TypedDict):
+    bucketPolicy: NotRequired[str]
+    bucketAclGrants: NotRequired[List[S3BucketAclGrantConfigurationTypeDef]]
+    bucketPublicAccessBlock: NotRequired[S3PublicAccessBlockConfigurationTypeDef]
+    accessPoints: NotRequired[Dict[str, S3AccessPointConfigurationOutputTypeDef]]
+
+class S3ExpressDirectoryBucketConfigurationOutputTypeDef(TypedDict):
+    bucketPolicy: NotRequired[str]
+    accessPoints: NotRequired[Dict[str, S3ExpressDirectoryAccessPointConfigurationOutputTypeDef]]
+
+class S3AccessPointConfigurationTypeDef(TypedDict):
+    accessPointPolicy: NotRequired[str]
+    publicAccessBlock: NotRequired[S3PublicAccessBlockConfigurationTypeDef]
+    networkOrigin: NotRequired[NetworkOriginConfigurationUnionTypeDef]
+
+class S3ExpressDirectoryAccessPointConfigurationTypeDef(TypedDict):
+    accessPointPolicy: NotRequired[str]
+    networkOrigin: NotRequired[NetworkOriginConfigurationUnionTypeDef]
+
+class ValidatePolicyFindingTypeDef(TypedDict):
+    findingDetails: str
+    findingType: ValidatePolicyFindingTypeType
+    issueCode: str
+    learnMoreLink: str
+    locations: List[LocationTypeDef]
+
+RdsDbClusterSnapshotConfigurationUnionTypeDef = Union[
+    RdsDbClusterSnapshotConfigurationTypeDef, RdsDbClusterSnapshotConfigurationOutputTypeDef
+]
+RdsDbSnapshotConfigurationUnionTypeDef = Union[
+    RdsDbSnapshotConfigurationTypeDef, RdsDbSnapshotConfigurationOutputTypeDef
+]
+
+class GetFindingsStatisticsResponseTypeDef(TypedDict):
+    findingsStatistics: List[FindingsStatisticsTypeDef]
+    lastUpdatedAt: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+AnalyzerSummaryTypeDef = TypedDict(
+    "AnalyzerSummaryTypeDef",
     {
         "arn": str,
         "name": str,
         "type": TypeType,
         "createdAt": datetime,
         "status": AnalyzerStatusType,
+        "lastResourceAnalyzed": NotRequired[str],
+        "lastResourceAnalyzedAt": NotRequired[datetime],
+        "tags": NotRequired[Dict[str, str]],
+        "statusReason": NotRequired[StatusReasonTypeDef],
+        "configuration": NotRequired[AnalyzerConfigurationOutputTypeDef],
     },
 )
-_OptionalAnalyzerSummaryTypeDef = TypedDict(
-    "_OptionalAnalyzerSummaryTypeDef",
-    {
-        "lastResourceAnalyzed": str,
-        "lastResourceAnalyzedAt": datetime,
-        "tags": Dict[str, str],
-        "statusReason": "StatusReasonTypeDef",
-        "configuration": "AnalyzerConfigurationTypeDef",
-    },
-    total=False,
-)
-
-class AnalyzerSummaryTypeDef(_RequiredAnalyzerSummaryTypeDef, _OptionalAnalyzerSummaryTypeDef):
-    pass
-
-_RequiredApplyArchiveRuleRequestRequestTypeDef = TypedDict(
-    "_RequiredApplyArchiveRuleRequestRequestTypeDef",
-    {
-        "analyzerArn": str,
-        "ruleName": str,
-    },
-)
-_OptionalApplyArchiveRuleRequestRequestTypeDef = TypedDict(
-    "_OptionalApplyArchiveRuleRequestRequestTypeDef",
-    {
-        "clientToken": str,
-    },
-    total=False,
-)
-
-class ApplyArchiveRuleRequestRequestTypeDef(
-    _RequiredApplyArchiveRuleRequestRequestTypeDef, _OptionalApplyArchiveRuleRequestRequestTypeDef
-):
-    pass
-
-ArchiveRuleSummaryTypeDef = TypedDict(
-    "ArchiveRuleSummaryTypeDef",
-    {
-        "ruleName": str,
-        "filter": Dict[str, "CriterionTypeDef"],
-        "createdAt": datetime,
-        "updatedAt": datetime,
-    },
-)
-
-CancelPolicyGenerationRequestRequestTypeDef = TypedDict(
-    "CancelPolicyGenerationRequestRequestTypeDef",
-    {
-        "jobId": str,
-    },
-)
-
-CheckAccessNotGrantedRequestRequestTypeDef = TypedDict(
-    "CheckAccessNotGrantedRequestRequestTypeDef",
-    {
-        "policyDocument": str,
-        "access": List["AccessTypeDef"],
-        "policyType": AccessCheckPolicyTypeType,
-    },
-)
-
-CheckAccessNotGrantedResponseTypeDef = TypedDict(
-    "CheckAccessNotGrantedResponseTypeDef",
-    {
-        "result": CheckAccessNotGrantedResultType,
-        "message": str,
-        "reasons": List["ReasonSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CheckNoNewAccessRequestRequestTypeDef = TypedDict(
-    "CheckNoNewAccessRequestRequestTypeDef",
-    {
-        "newPolicyDocument": str,
-        "existingPolicyDocument": str,
-        "policyType": AccessCheckPolicyTypeType,
-    },
-)
-
-CheckNoNewAccessResponseTypeDef = TypedDict(
-    "CheckNoNewAccessResponseTypeDef",
-    {
-        "result": CheckNoNewAccessResultType,
-        "message": str,
-        "reasons": List["ReasonSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CheckNoPublicAccessRequestRequestTypeDef = TypedDict(
-    "CheckNoPublicAccessRequestRequestTypeDef",
-    {
-        "policyDocument": str,
-        "resourceType": AccessCheckResourceTypeType,
-    },
-)
-
-CheckNoPublicAccessResponseTypeDef = TypedDict(
-    "CheckNoPublicAccessResponseTypeDef",
-    {
-        "result": CheckNoPublicAccessResultType,
-        "message": str,
-        "reasons": List["ReasonSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCloudTrailDetailsTypeDef = TypedDict(
-    "_RequiredCloudTrailDetailsTypeDef",
-    {
-        "trails": List["TrailTypeDef"],
-        "accessRole": str,
-        "startTime": Union[datetime, str],
-    },
-)
-_OptionalCloudTrailDetailsTypeDef = TypedDict(
-    "_OptionalCloudTrailDetailsTypeDef",
-    {
-        "endTime": Union[datetime, str],
-    },
-    total=False,
-)
-
-class CloudTrailDetailsTypeDef(
-    _RequiredCloudTrailDetailsTypeDef, _OptionalCloudTrailDetailsTypeDef
-):
-    pass
-
-CloudTrailPropertiesTypeDef = TypedDict(
-    "CloudTrailPropertiesTypeDef",
-    {
-        "trailProperties": List["TrailPropertiesTypeDef"],
-        "startTime": datetime,
-        "endTime": datetime,
-    },
-)
-
-ConfigurationTypeDef = TypedDict(
-    "ConfigurationTypeDef",
-    {
-        "ebsSnapshot": "EbsSnapshotConfigurationTypeDef",
-        "ecrRepository": "EcrRepositoryConfigurationTypeDef",
-        "iamRole": "IamRoleConfigurationTypeDef",
-        "efsFileSystem": "EfsFileSystemConfigurationTypeDef",
-        "kmsKey": "KmsKeyConfigurationTypeDef",
-        "rdsDbClusterSnapshot": "RdsDbClusterSnapshotConfigurationTypeDef",
-        "rdsDbSnapshot": "RdsDbSnapshotConfigurationTypeDef",
-        "secretsManagerSecret": "SecretsManagerSecretConfigurationTypeDef",
-        "s3Bucket": "S3BucketConfigurationTypeDef",
-        "snsTopic": "SnsTopicConfigurationTypeDef",
-        "sqsQueue": "SqsQueueConfigurationTypeDef",
-        "s3ExpressDirectoryBucket": "S3ExpressDirectoryBucketConfigurationTypeDef",
-        "dynamodbStream": "DynamodbStreamConfigurationTypeDef",
-        "dynamodbTable": "DynamodbTableConfigurationTypeDef",
-    },
-    total=False,
-)
-
-_RequiredCreateAccessPreviewRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateAccessPreviewRequestRequestTypeDef",
-    {
-        "analyzerArn": str,
-        "configurations": Dict[str, "ConfigurationTypeDef"],
-    },
-)
-_OptionalCreateAccessPreviewRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateAccessPreviewRequestRequestTypeDef",
-    {
-        "clientToken": str,
-    },
-    total=False,
-)
-
-class CreateAccessPreviewRequestRequestTypeDef(
-    _RequiredCreateAccessPreviewRequestRequestTypeDef,
-    _OptionalCreateAccessPreviewRequestRequestTypeDef,
-):
-    pass
-
-CreateAccessPreviewResponseTypeDef = TypedDict(
-    "CreateAccessPreviewResponseTypeDef",
-    {
-        "id": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateAnalyzerRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateAnalyzerRequestRequestTypeDef",
-    {
-        "analyzerName": str,
-        "type": TypeType,
-    },
-)
-_OptionalCreateAnalyzerRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateAnalyzerRequestRequestTypeDef",
-    {
-        "archiveRules": List["InlineArchiveRuleTypeDef"],
-        "tags": Dict[str, str],
-        "clientToken": str,
-        "configuration": "AnalyzerConfigurationTypeDef",
-    },
-    total=False,
-)
-
-class CreateAnalyzerRequestRequestTypeDef(
-    _RequiredCreateAnalyzerRequestRequestTypeDef, _OptionalCreateAnalyzerRequestRequestTypeDef
-):
-    pass
-
-CreateAnalyzerResponseTypeDef = TypedDict(
-    "CreateAnalyzerResponseTypeDef",
-    {
-        "arn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateArchiveRuleRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateArchiveRuleRequestRequestTypeDef",
-    {
-        "analyzerName": str,
-        "ruleName": str,
-        "filter": Dict[str, "CriterionTypeDef"],
-    },
-)
-_OptionalCreateArchiveRuleRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateArchiveRuleRequestRequestTypeDef",
-    {
-        "clientToken": str,
-    },
-    total=False,
-)
-
-class CreateArchiveRuleRequestRequestTypeDef(
-    _RequiredCreateArchiveRuleRequestRequestTypeDef, _OptionalCreateArchiveRuleRequestRequestTypeDef
-):
-    pass
-
-CriterionTypeDef = TypedDict(
-    "CriterionTypeDef",
-    {
-        "eq": List[str],
-        "neq": List[str],
-        "contains": List[str],
-        "exists": bool,
-    },
-    total=False,
-)
-
-_RequiredDeleteAnalyzerRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteAnalyzerRequestRequestTypeDef",
-    {
-        "analyzerName": str,
-    },
-)
-_OptionalDeleteAnalyzerRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteAnalyzerRequestRequestTypeDef",
-    {
-        "clientToken": str,
-    },
-    total=False,
-)
-
-class DeleteAnalyzerRequestRequestTypeDef(
-    _RequiredDeleteAnalyzerRequestRequestTypeDef, _OptionalDeleteAnalyzerRequestRequestTypeDef
-):
-    pass
-
-_RequiredDeleteArchiveRuleRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteArchiveRuleRequestRequestTypeDef",
-    {
-        "analyzerName": str,
-        "ruleName": str,
-    },
-)
-_OptionalDeleteArchiveRuleRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteArchiveRuleRequestRequestTypeDef",
-    {
-        "clientToken": str,
-    },
-    total=False,
-)
-
-class DeleteArchiveRuleRequestRequestTypeDef(
-    _RequiredDeleteArchiveRuleRequestRequestTypeDef, _OptionalDeleteArchiveRuleRequestRequestTypeDef
-):
-    pass
-
-DynamodbStreamConfigurationTypeDef = TypedDict(
-    "DynamodbStreamConfigurationTypeDef",
-    {
-        "streamPolicy": str,
-    },
-    total=False,
-)
-
-DynamodbTableConfigurationTypeDef = TypedDict(
-    "DynamodbTableConfigurationTypeDef",
-    {
-        "tablePolicy": str,
-    },
-    total=False,
-)
-
-EbsSnapshotConfigurationTypeDef = TypedDict(
-    "EbsSnapshotConfigurationTypeDef",
-    {
-        "userIds": List[str],
-        "groups": List[str],
-        "kmsKeyId": str,
-    },
-    total=False,
-)
-
-EcrRepositoryConfigurationTypeDef = TypedDict(
-    "EcrRepositoryConfigurationTypeDef",
-    {
-        "repositoryPolicy": str,
-    },
-    total=False,
-)
-
-EfsFileSystemConfigurationTypeDef = TypedDict(
-    "EfsFileSystemConfigurationTypeDef",
-    {
-        "fileSystemPolicy": str,
-    },
-    total=False,
-)
-
-_RequiredExternalAccessDetailsTypeDef = TypedDict(
-    "_RequiredExternalAccessDetailsTypeDef",
-    {
-        "condition": Dict[str, str],
-    },
-)
-_OptionalExternalAccessDetailsTypeDef = TypedDict(
-    "_OptionalExternalAccessDetailsTypeDef",
-    {
-        "action": List[str],
-        "isPublic": bool,
-        "principal": Dict[str, str],
-        "sources": List["FindingSourceTypeDef"],
-    },
-    total=False,
-)
-
-class ExternalAccessDetailsTypeDef(
-    _RequiredExternalAccessDetailsTypeDef, _OptionalExternalAccessDetailsTypeDef
-):
-    pass
-
-FindingDetailsTypeDef = TypedDict(
-    "FindingDetailsTypeDef",
-    {
-        "externalAccessDetails": "ExternalAccessDetailsTypeDef",
-        "unusedPermissionDetails": "UnusedPermissionDetailsTypeDef",
-        "unusedIamUserAccessKeyDetails": "UnusedIamUserAccessKeyDetailsTypeDef",
-        "unusedIamRoleDetails": "UnusedIamRoleDetailsTypeDef",
-        "unusedIamUserPasswordDetails": "UnusedIamUserPasswordDetailsTypeDef",
-    },
-    total=False,
-)
-
-FindingSourceDetailTypeDef = TypedDict(
-    "FindingSourceDetailTypeDef",
-    {
-        "accessPointArn": str,
-        "accessPointAccount": str,
-    },
-    total=False,
-)
-
-_RequiredFindingSourceTypeDef = TypedDict(
-    "_RequiredFindingSourceTypeDef",
-    {
-        "type": FindingSourceTypeType,
-    },
-)
-_OptionalFindingSourceTypeDef = TypedDict(
-    "_OptionalFindingSourceTypeDef",
-    {
-        "detail": "FindingSourceDetailTypeDef",
-    },
-    total=False,
-)
-
-class FindingSourceTypeDef(_RequiredFindingSourceTypeDef, _OptionalFindingSourceTypeDef):
-    pass
-
-_RequiredFindingSummaryTypeDef = TypedDict(
-    "_RequiredFindingSummaryTypeDef",
-    {
-        "id": str,
-        "resourceType": ResourceTypeType,
-        "condition": Dict[str, str],
-        "createdAt": datetime,
-        "analyzedAt": datetime,
-        "updatedAt": datetime,
-        "status": FindingStatusType,
-        "resourceOwnerAccount": str,
-    },
-)
-_OptionalFindingSummaryTypeDef = TypedDict(
-    "_OptionalFindingSummaryTypeDef",
-    {
-        "principal": Dict[str, str],
-        "action": List[str],
-        "resource": str,
-        "isPublic": bool,
-        "error": str,
-        "sources": List["FindingSourceTypeDef"],
-    },
-    total=False,
-)
-
-class FindingSummaryTypeDef(_RequiredFindingSummaryTypeDef, _OptionalFindingSummaryTypeDef):
-    pass
-
-_RequiredFindingSummaryV2TypeDef = TypedDict(
-    "_RequiredFindingSummaryV2TypeDef",
-    {
-        "analyzedAt": datetime,
-        "createdAt": datetime,
-        "id": str,
-        "resourceType": ResourceTypeType,
-        "resourceOwnerAccount": str,
-        "status": FindingStatusType,
-        "updatedAt": datetime,
-    },
-)
-_OptionalFindingSummaryV2TypeDef = TypedDict(
-    "_OptionalFindingSummaryV2TypeDef",
-    {
-        "error": str,
-        "resource": str,
-        "findingType": FindingTypeType,
-    },
-    total=False,
-)
-
-class FindingSummaryV2TypeDef(_RequiredFindingSummaryV2TypeDef, _OptionalFindingSummaryV2TypeDef):
-    pass
-
-_RequiredFindingTypeDef = TypedDict(
-    "_RequiredFindingTypeDef",
-    {
-        "id": str,
-        "resourceType": ResourceTypeType,
-        "condition": Dict[str, str],
-        "createdAt": datetime,
-        "analyzedAt": datetime,
-        "updatedAt": datetime,
-        "status": FindingStatusType,
-        "resourceOwnerAccount": str,
-    },
-)
-_OptionalFindingTypeDef = TypedDict(
-    "_OptionalFindingTypeDef",
-    {
-        "principal": Dict[str, str],
-        "action": List[str],
-        "resource": str,
-        "isPublic": bool,
-        "error": str,
-        "sources": List["FindingSourceTypeDef"],
-    },
-    total=False,
-)
-
-class FindingTypeDef(_RequiredFindingTypeDef, _OptionalFindingTypeDef):
-    pass
-
-GenerateFindingRecommendationRequestRequestTypeDef = TypedDict(
-    "GenerateFindingRecommendationRequestRequestTypeDef",
-    {
-        "analyzerArn": str,
-        "id": str,
-    },
-)
-
-_RequiredGeneratedPolicyPropertiesTypeDef = TypedDict(
-    "_RequiredGeneratedPolicyPropertiesTypeDef",
-    {
-        "principalArn": str,
-    },
-)
-_OptionalGeneratedPolicyPropertiesTypeDef = TypedDict(
-    "_OptionalGeneratedPolicyPropertiesTypeDef",
-    {
-        "isComplete": bool,
-        "cloudTrailProperties": "CloudTrailPropertiesTypeDef",
-    },
-    total=False,
-)
-
-class GeneratedPolicyPropertiesTypeDef(
-    _RequiredGeneratedPolicyPropertiesTypeDef, _OptionalGeneratedPolicyPropertiesTypeDef
-):
-    pass
-
-_RequiredGeneratedPolicyResultTypeDef = TypedDict(
-    "_RequiredGeneratedPolicyResultTypeDef",
-    {
-        "properties": "GeneratedPolicyPropertiesTypeDef",
-    },
-)
-_OptionalGeneratedPolicyResultTypeDef = TypedDict(
-    "_OptionalGeneratedPolicyResultTypeDef",
-    {
-        "generatedPolicies": List["GeneratedPolicyTypeDef"],
-    },
-    total=False,
-)
-
-class GeneratedPolicyResultTypeDef(
-    _RequiredGeneratedPolicyResultTypeDef, _OptionalGeneratedPolicyResultTypeDef
-):
-    pass
-
-GeneratedPolicyTypeDef = TypedDict(
-    "GeneratedPolicyTypeDef",
-    {
-        "policy": str,
-    },
-)
-
-GetAccessPreviewRequestRequestTypeDef = TypedDict(
-    "GetAccessPreviewRequestRequestTypeDef",
-    {
-        "accessPreviewId": str,
-        "analyzerArn": str,
-    },
-)
-
-GetAccessPreviewResponseTypeDef = TypedDict(
-    "GetAccessPreviewResponseTypeDef",
-    {
-        "accessPreview": "AccessPreviewTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetAnalyzedResourceRequestRequestTypeDef = TypedDict(
-    "GetAnalyzedResourceRequestRequestTypeDef",
-    {
-        "analyzerArn": str,
-        "resourceArn": str,
-    },
-)
-
-GetAnalyzedResourceResponseTypeDef = TypedDict(
-    "GetAnalyzedResourceResponseTypeDef",
-    {
-        "resource": "AnalyzedResourceTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetAnalyzerRequestRequestTypeDef = TypedDict(
-    "GetAnalyzerRequestRequestTypeDef",
-    {
-        "analyzerName": str,
-    },
-)
-
-GetAnalyzerResponseTypeDef = TypedDict(
-    "GetAnalyzerResponseTypeDef",
-    {
-        "analyzer": "AnalyzerSummaryTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetArchiveRuleRequestRequestTypeDef = TypedDict(
-    "GetArchiveRuleRequestRequestTypeDef",
-    {
-        "analyzerName": str,
-        "ruleName": str,
-    },
-)
-
-GetArchiveRuleResponseTypeDef = TypedDict(
-    "GetArchiveRuleResponseTypeDef",
-    {
-        "archiveRule": "ArchiveRuleSummaryTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetFindingRecommendationRequestRequestTypeDef = TypedDict(
-    "_RequiredGetFindingRecommendationRequestRequestTypeDef",
-    {
-        "analyzerArn": str,
-        "id": str,
-    },
-)
-_OptionalGetFindingRecommendationRequestRequestTypeDef = TypedDict(
-    "_OptionalGetFindingRecommendationRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
 
-class GetFindingRecommendationRequestRequestTypeDef(
-    _RequiredGetFindingRecommendationRequestRequestTypeDef,
-    _OptionalGetFindingRecommendationRequestRequestTypeDef,
-):
-    pass
+class UpdateAnalyzerResponseTypeDef(TypedDict):
+    configuration: AnalyzerConfigurationOutputTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-GetFindingRecommendationResponseTypeDef = TypedDict(
-    "GetFindingRecommendationResponseTypeDef",
-    {
-        "startedAt": datetime,
-        "completedAt": datetime,
-        "nextToken": str,
-        "error": "RecommendationErrorTypeDef",
-        "resourceArn": str,
-        "recommendedSteps": List["RecommendedStepTypeDef"],
-        "recommendationType": Literal["UnusedPermissionRecommendation"],
-        "status": StatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetFindingRequestRequestTypeDef = TypedDict(
-    "GetFindingRequestRequestTypeDef",
-    {
-        "analyzerArn": str,
-        "id": str,
-    },
-)
-
-GetFindingResponseTypeDef = TypedDict(
-    "GetFindingResponseTypeDef",
-    {
-        "finding": "FindingTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetFindingV2RequestRequestTypeDef = TypedDict(
-    "_RequiredGetFindingV2RequestRequestTypeDef",
-    {
-        "analyzerArn": str,
-        "id": str,
-    },
-)
-_OptionalGetFindingV2RequestRequestTypeDef = TypedDict(
-    "_OptionalGetFindingV2RequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
+AnalyzerConfigurationUnionTypeDef = Union[
+    AnalyzerConfigurationTypeDef, AnalyzerConfigurationOutputTypeDef
+]
 
-class GetFindingV2RequestRequestTypeDef(
-    _RequiredGetFindingV2RequestRequestTypeDef, _OptionalGetFindingV2RequestRequestTypeDef
-):
-    pass
+class GetGeneratedPolicyResponseTypeDef(TypedDict):
+    jobDetails: JobDetailsTypeDef
+    generatedPolicyResult: GeneratedPolicyResultTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
 GetFindingV2ResponseTypeDef = TypedDict(
     "GetFindingV2ResponseTypeDef",
@@ -1018,908 +1225,131 @@ GetFindingV2ResponseTypeDef = TypedDict(
         "createdAt": datetime,
         "error": str,
         "id": str,
-        "nextToken": str,
         "resource": str,
         "resourceType": ResourceTypeType,
         "resourceOwnerAccount": str,
         "status": FindingStatusType,
         "updatedAt": datetime,
-        "findingDetails": List["FindingDetailsTypeDef"],
+        "findingDetails": List[FindingDetailsTypeDef],
         "findingType": FindingTypeType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
+        "nextToken": NotRequired[str],
     },
 )
 
-_RequiredGetGeneratedPolicyRequestRequestTypeDef = TypedDict(
-    "_RequiredGetGeneratedPolicyRequestRequestTypeDef",
-    {
-        "jobId": str,
-    },
-)
-_OptionalGetGeneratedPolicyRequestRequestTypeDef = TypedDict(
-    "_OptionalGetGeneratedPolicyRequestRequestTypeDef",
-    {
-        "includeResourcePlaceholders": bool,
-        "includeServiceLevelTemplate": bool,
-    },
-    total=False,
-)
+class KmsKeyConfigurationTypeDef(TypedDict):
+    keyPolicies: NotRequired[Mapping[str, str]]
+    grants: NotRequired[Sequence[KmsGrantConfigurationUnionTypeDef]]
 
-class GetGeneratedPolicyRequestRequestTypeDef(
-    _RequiredGetGeneratedPolicyRequestRequestTypeDef,
-    _OptionalGetGeneratedPolicyRequestRequestTypeDef,
-):
-    pass
+class ConfigurationOutputTypeDef(TypedDict):
+    ebsSnapshot: NotRequired[EbsSnapshotConfigurationOutputTypeDef]
+    ecrRepository: NotRequired[EcrRepositoryConfigurationTypeDef]
+    iamRole: NotRequired[IamRoleConfigurationTypeDef]
+    efsFileSystem: NotRequired[EfsFileSystemConfigurationTypeDef]
+    kmsKey: NotRequired[KmsKeyConfigurationOutputTypeDef]
+    rdsDbClusterSnapshot: NotRequired[RdsDbClusterSnapshotConfigurationOutputTypeDef]
+    rdsDbSnapshot: NotRequired[RdsDbSnapshotConfigurationOutputTypeDef]
+    secretsManagerSecret: NotRequired[SecretsManagerSecretConfigurationTypeDef]
+    s3Bucket: NotRequired[S3BucketConfigurationOutputTypeDef]
+    snsTopic: NotRequired[SnsTopicConfigurationTypeDef]
+    sqsQueue: NotRequired[SqsQueueConfigurationTypeDef]
+    s3ExpressDirectoryBucket: NotRequired[S3ExpressDirectoryBucketConfigurationOutputTypeDef]
+    dynamodbStream: NotRequired[DynamodbStreamConfigurationTypeDef]
+    dynamodbTable: NotRequired[DynamodbTableConfigurationTypeDef]
 
-GetGeneratedPolicyResponseTypeDef = TypedDict(
-    "GetGeneratedPolicyResponseTypeDef",
-    {
-        "jobDetails": "JobDetailsTypeDef",
-        "generatedPolicyResult": "GeneratedPolicyResultTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+S3AccessPointConfigurationUnionTypeDef = Union[
+    S3AccessPointConfigurationTypeDef, S3AccessPointConfigurationOutputTypeDef
+]
+S3ExpressDirectoryAccessPointConfigurationUnionTypeDef = Union[
+    S3ExpressDirectoryAccessPointConfigurationTypeDef,
+    S3ExpressDirectoryAccessPointConfigurationOutputTypeDef,
+]
 
-IamRoleConfigurationTypeDef = TypedDict(
-    "IamRoleConfigurationTypeDef",
-    {
-        "trustPolicy": str,
-    },
-    total=False,
-)
+class ValidatePolicyResponseTypeDef(TypedDict):
+    findings: List[ValidatePolicyFindingTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-InlineArchiveRuleTypeDef = TypedDict(
-    "InlineArchiveRuleTypeDef",
-    {
-        "ruleName": str,
-        "filter": Dict[str, "CriterionTypeDef"],
-    },
-)
+class GetAnalyzerResponseTypeDef(TypedDict):
+    analyzer: AnalyzerSummaryTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredJobDetailsTypeDef = TypedDict(
-    "_RequiredJobDetailsTypeDef",
-    {
-        "jobId": str,
-        "status": JobStatusType,
-        "startedOn": datetime,
-    },
-)
-_OptionalJobDetailsTypeDef = TypedDict(
-    "_OptionalJobDetailsTypeDef",
-    {
-        "completedOn": datetime,
-        "jobError": "JobErrorTypeDef",
-    },
-    total=False,
-)
+class ListAnalyzersResponseTypeDef(TypedDict):
+    analyzers: List[AnalyzerSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-class JobDetailsTypeDef(_RequiredJobDetailsTypeDef, _OptionalJobDetailsTypeDef):
-    pass
-
-JobErrorTypeDef = TypedDict(
-    "JobErrorTypeDef",
+CreateAnalyzerRequestTypeDef = TypedDict(
+    "CreateAnalyzerRequestTypeDef",
     {
-        "code": JobErrorCodeType,
-        "message": str,
-    },
-)
-
-_RequiredKmsGrantConfigurationTypeDef = TypedDict(
-    "_RequiredKmsGrantConfigurationTypeDef",
-    {
-        "operations": List[KmsGrantOperationType],
-        "granteePrincipal": str,
-        "issuingAccount": str,
-    },
-)
-_OptionalKmsGrantConfigurationTypeDef = TypedDict(
-    "_OptionalKmsGrantConfigurationTypeDef",
-    {
-        "retiringPrincipal": str,
-        "constraints": "KmsGrantConstraintsTypeDef",
-    },
-    total=False,
-)
-
-class KmsGrantConfigurationTypeDef(
-    _RequiredKmsGrantConfigurationTypeDef, _OptionalKmsGrantConfigurationTypeDef
-):
-    pass
-
-KmsGrantConstraintsTypeDef = TypedDict(
-    "KmsGrantConstraintsTypeDef",
-    {
-        "encryptionContextEquals": Dict[str, str],
-        "encryptionContextSubset": Dict[str, str],
-    },
-    total=False,
-)
-
-KmsKeyConfigurationTypeDef = TypedDict(
-    "KmsKeyConfigurationTypeDef",
-    {
-        "keyPolicies": Dict[str, str],
-        "grants": List["KmsGrantConfigurationTypeDef"],
-    },
-    total=False,
-)
-
-_RequiredListAccessPreviewFindingsRequestRequestTypeDef = TypedDict(
-    "_RequiredListAccessPreviewFindingsRequestRequestTypeDef",
-    {
-        "accessPreviewId": str,
-        "analyzerArn": str,
-    },
-)
-_OptionalListAccessPreviewFindingsRequestRequestTypeDef = TypedDict(
-    "_OptionalListAccessPreviewFindingsRequestRequestTypeDef",
-    {
-        "filter": Dict[str, "CriterionTypeDef"],
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-class ListAccessPreviewFindingsRequestRequestTypeDef(
-    _RequiredListAccessPreviewFindingsRequestRequestTypeDef,
-    _OptionalListAccessPreviewFindingsRequestRequestTypeDef,
-):
-    pass
-
-ListAccessPreviewFindingsResponseTypeDef = TypedDict(
-    "ListAccessPreviewFindingsResponseTypeDef",
-    {
-        "findings": List["AccessPreviewFindingTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListAccessPreviewsRequestRequestTypeDef = TypedDict(
-    "_RequiredListAccessPreviewsRequestRequestTypeDef",
-    {
-        "analyzerArn": str,
-    },
-)
-_OptionalListAccessPreviewsRequestRequestTypeDef = TypedDict(
-    "_OptionalListAccessPreviewsRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-class ListAccessPreviewsRequestRequestTypeDef(
-    _RequiredListAccessPreviewsRequestRequestTypeDef,
-    _OptionalListAccessPreviewsRequestRequestTypeDef,
-):
-    pass
-
-ListAccessPreviewsResponseTypeDef = TypedDict(
-    "ListAccessPreviewsResponseTypeDef",
-    {
-        "accessPreviews": List["AccessPreviewSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListAnalyzedResourcesRequestRequestTypeDef = TypedDict(
-    "_RequiredListAnalyzedResourcesRequestRequestTypeDef",
-    {
-        "analyzerArn": str,
-    },
-)
-_OptionalListAnalyzedResourcesRequestRequestTypeDef = TypedDict(
-    "_OptionalListAnalyzedResourcesRequestRequestTypeDef",
-    {
-        "resourceType": ResourceTypeType,
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-class ListAnalyzedResourcesRequestRequestTypeDef(
-    _RequiredListAnalyzedResourcesRequestRequestTypeDef,
-    _OptionalListAnalyzedResourcesRequestRequestTypeDef,
-):
-    pass
-
-ListAnalyzedResourcesResponseTypeDef = TypedDict(
-    "ListAnalyzedResourcesResponseTypeDef",
-    {
-        "analyzedResources": List["AnalyzedResourceSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListAnalyzersRequestRequestTypeDef = TypedDict(
-    "ListAnalyzersRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
+        "analyzerName": str,
         "type": TypeType,
-    },
-    total=False,
-)
-
-ListAnalyzersResponseTypeDef = TypedDict(
-    "ListAnalyzersResponseTypeDef",
-    {
-        "analyzers": List["AnalyzerSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "archiveRules": NotRequired[Sequence[InlineArchiveRuleTypeDef]],
+        "tags": NotRequired[Mapping[str, str]],
+        "clientToken": NotRequired[str],
+        "configuration": NotRequired[AnalyzerConfigurationUnionTypeDef],
     },
 )
 
-_RequiredListArchiveRulesRequestRequestTypeDef = TypedDict(
-    "_RequiredListArchiveRulesRequestRequestTypeDef",
-    {
-        "analyzerName": str,
-    },
-)
-_OptionalListArchiveRulesRequestRequestTypeDef = TypedDict(
-    "_OptionalListArchiveRulesRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
+class UpdateAnalyzerRequestTypeDef(TypedDict):
+    analyzerName: str
+    configuration: NotRequired[AnalyzerConfigurationUnionTypeDef]
 
-class ListArchiveRulesRequestRequestTypeDef(
-    _RequiredListArchiveRulesRequestRequestTypeDef, _OptionalListArchiveRulesRequestRequestTypeDef
-):
-    pass
-
-ListArchiveRulesResponseTypeDef = TypedDict(
-    "ListArchiveRulesResponseTypeDef",
+KmsKeyConfigurationUnionTypeDef = Union[
+    KmsKeyConfigurationTypeDef, KmsKeyConfigurationOutputTypeDef
+]
+AccessPreviewTypeDef = TypedDict(
+    "AccessPreviewTypeDef",
     {
-        "archiveRules": List["ArchiveRuleSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListFindingsRequestRequestTypeDef = TypedDict(
-    "_RequiredListFindingsRequestRequestTypeDef",
-    {
+        "id": str,
         "analyzerArn": str,
-    },
-)
-_OptionalListFindingsRequestRequestTypeDef = TypedDict(
-    "_OptionalListFindingsRequestRequestTypeDef",
-    {
-        "filter": Dict[str, "CriterionTypeDef"],
-        "sort": "SortCriteriaTypeDef",
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-class ListFindingsRequestRequestTypeDef(
-    _RequiredListFindingsRequestRequestTypeDef, _OptionalListFindingsRequestRequestTypeDef
-):
-    pass
-
-ListFindingsResponseTypeDef = TypedDict(
-    "ListFindingsResponseTypeDef",
-    {
-        "findings": List["FindingSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListFindingsV2RequestRequestTypeDef = TypedDict(
-    "_RequiredListFindingsV2RequestRequestTypeDef",
-    {
-        "analyzerArn": str,
-    },
-)
-_OptionalListFindingsV2RequestRequestTypeDef = TypedDict(
-    "_OptionalListFindingsV2RequestRequestTypeDef",
-    {
-        "filter": Dict[str, "CriterionTypeDef"],
-        "maxResults": int,
-        "nextToken": str,
-        "sort": "SortCriteriaTypeDef",
-    },
-    total=False,
-)
-
-class ListFindingsV2RequestRequestTypeDef(
-    _RequiredListFindingsV2RequestRequestTypeDef, _OptionalListFindingsV2RequestRequestTypeDef
-):
-    pass
-
-ListFindingsV2ResponseTypeDef = TypedDict(
-    "ListFindingsV2ResponseTypeDef",
-    {
-        "findings": List["FindingSummaryV2TypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListPolicyGenerationsRequestRequestTypeDef = TypedDict(
-    "ListPolicyGenerationsRequestRequestTypeDef",
-    {
-        "principalArn": str,
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-ListPolicyGenerationsResponseTypeDef = TypedDict(
-    "ListPolicyGenerationsResponseTypeDef",
-    {
-        "policyGenerations": List["PolicyGenerationTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-    },
-)
-
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-LocationTypeDef = TypedDict(
-    "LocationTypeDef",
-    {
-        "path": List["PathElementTypeDef"],
-        "span": "SpanTypeDef",
-    },
-)
-
-NetworkOriginConfigurationTypeDef = TypedDict(
-    "NetworkOriginConfigurationTypeDef",
-    {
-        "vpcConfiguration": "VpcConfigurationTypeDef",
-        "internetConfiguration": Dict[str, Any],
-    },
-    total=False,
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-PathElementTypeDef = TypedDict(
-    "PathElementTypeDef",
-    {
-        "index": int,
-        "key": str,
-        "substring": "SubstringTypeDef",
-        "value": str,
-    },
-    total=False,
-)
-
-PolicyGenerationDetailsTypeDef = TypedDict(
-    "PolicyGenerationDetailsTypeDef",
-    {
-        "principalArn": str,
-    },
-)
-
-_RequiredPolicyGenerationTypeDef = TypedDict(
-    "_RequiredPolicyGenerationTypeDef",
-    {
-        "jobId": str,
-        "principalArn": str,
-        "status": JobStatusType,
-        "startedOn": datetime,
-    },
-)
-_OptionalPolicyGenerationTypeDef = TypedDict(
-    "_OptionalPolicyGenerationTypeDef",
-    {
-        "completedOn": datetime,
-    },
-    total=False,
-)
-
-class PolicyGenerationTypeDef(_RequiredPolicyGenerationTypeDef, _OptionalPolicyGenerationTypeDef):
-    pass
-
-PositionTypeDef = TypedDict(
-    "PositionTypeDef",
-    {
-        "line": int,
-        "column": int,
-        "offset": int,
-    },
-)
-
-RdsDbClusterSnapshotAttributeValueTypeDef = TypedDict(
-    "RdsDbClusterSnapshotAttributeValueTypeDef",
-    {
-        "accountIds": List[str],
-    },
-    total=False,
-)
-
-RdsDbClusterSnapshotConfigurationTypeDef = TypedDict(
-    "RdsDbClusterSnapshotConfigurationTypeDef",
-    {
-        "attributes": Dict[str, "RdsDbClusterSnapshotAttributeValueTypeDef"],
-        "kmsKeyId": str,
-    },
-    total=False,
-)
-
-RdsDbSnapshotAttributeValueTypeDef = TypedDict(
-    "RdsDbSnapshotAttributeValueTypeDef",
-    {
-        "accountIds": List[str],
-    },
-    total=False,
-)
-
-RdsDbSnapshotConfigurationTypeDef = TypedDict(
-    "RdsDbSnapshotConfigurationTypeDef",
-    {
-        "attributes": Dict[str, "RdsDbSnapshotAttributeValueTypeDef"],
-        "kmsKeyId": str,
-    },
-    total=False,
-)
-
-ReasonSummaryTypeDef = TypedDict(
-    "ReasonSummaryTypeDef",
-    {
-        "description": str,
-        "statementIndex": int,
-        "statementId": str,
-    },
-    total=False,
-)
-
-RecommendationErrorTypeDef = TypedDict(
-    "RecommendationErrorTypeDef",
-    {
-        "code": str,
-        "message": str,
-    },
-)
-
-RecommendedStepTypeDef = TypedDict(
-    "RecommendedStepTypeDef",
-    {
-        "unusedPermissionsRecommendedStep": "UnusedPermissionsRecommendedStepTypeDef",
-    },
-    total=False,
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-S3AccessPointConfigurationTypeDef = TypedDict(
-    "S3AccessPointConfigurationTypeDef",
-    {
-        "accessPointPolicy": str,
-        "publicAccessBlock": "S3PublicAccessBlockConfigurationTypeDef",
-        "networkOrigin": "NetworkOriginConfigurationTypeDef",
-    },
-    total=False,
-)
-
-S3BucketAclGrantConfigurationTypeDef = TypedDict(
-    "S3BucketAclGrantConfigurationTypeDef",
-    {
-        "permission": AclPermissionType,
-        "grantee": "AclGranteeTypeDef",
-    },
-)
-
-S3BucketConfigurationTypeDef = TypedDict(
-    "S3BucketConfigurationTypeDef",
-    {
-        "bucketPolicy": str,
-        "bucketAclGrants": List["S3BucketAclGrantConfigurationTypeDef"],
-        "bucketPublicAccessBlock": "S3PublicAccessBlockConfigurationTypeDef",
-        "accessPoints": Dict[str, "S3AccessPointConfigurationTypeDef"],
-    },
-    total=False,
-)
-
-S3ExpressDirectoryBucketConfigurationTypeDef = TypedDict(
-    "S3ExpressDirectoryBucketConfigurationTypeDef",
-    {
-        "bucketPolicy": str,
-    },
-    total=False,
-)
-
-S3PublicAccessBlockConfigurationTypeDef = TypedDict(
-    "S3PublicAccessBlockConfigurationTypeDef",
-    {
-        "ignorePublicAcls": bool,
-        "restrictPublicBuckets": bool,
-    },
-)
-
-SecretsManagerSecretConfigurationTypeDef = TypedDict(
-    "SecretsManagerSecretConfigurationTypeDef",
-    {
-        "kmsKeyId": str,
-        "secretPolicy": str,
-    },
-    total=False,
-)
-
-SnsTopicConfigurationTypeDef = TypedDict(
-    "SnsTopicConfigurationTypeDef",
-    {
-        "topicPolicy": str,
-    },
-    total=False,
-)
-
-SortCriteriaTypeDef = TypedDict(
-    "SortCriteriaTypeDef",
-    {
-        "attributeName": str,
-        "orderBy": OrderByType,
-    },
-    total=False,
-)
-
-SpanTypeDef = TypedDict(
-    "SpanTypeDef",
-    {
-        "start": "PositionTypeDef",
-        "end": "PositionTypeDef",
-    },
-)
-
-SqsQueueConfigurationTypeDef = TypedDict(
-    "SqsQueueConfigurationTypeDef",
-    {
-        "queuePolicy": str,
-    },
-    total=False,
-)
-
-_RequiredStartPolicyGenerationRequestRequestTypeDef = TypedDict(
-    "_RequiredStartPolicyGenerationRequestRequestTypeDef",
-    {
-        "policyGenerationDetails": "PolicyGenerationDetailsTypeDef",
-    },
-)
-_OptionalStartPolicyGenerationRequestRequestTypeDef = TypedDict(
-    "_OptionalStartPolicyGenerationRequestRequestTypeDef",
-    {
-        "cloudTrailDetails": "CloudTrailDetailsTypeDef",
-        "clientToken": str,
-    },
-    total=False,
-)
-
-class StartPolicyGenerationRequestRequestTypeDef(
-    _RequiredStartPolicyGenerationRequestRequestTypeDef,
-    _OptionalStartPolicyGenerationRequestRequestTypeDef,
-):
-    pass
-
-StartPolicyGenerationResponseTypeDef = TypedDict(
-    "StartPolicyGenerationResponseTypeDef",
-    {
-        "jobId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredStartResourceScanRequestRequestTypeDef = TypedDict(
-    "_RequiredStartResourceScanRequestRequestTypeDef",
-    {
-        "analyzerArn": str,
-        "resourceArn": str,
-    },
-)
-_OptionalStartResourceScanRequestRequestTypeDef = TypedDict(
-    "_OptionalStartResourceScanRequestRequestTypeDef",
-    {
-        "resourceOwnerAccount": str,
-    },
-    total=False,
-)
-
-class StartResourceScanRequestRequestTypeDef(
-    _RequiredStartResourceScanRequestRequestTypeDef, _OptionalStartResourceScanRequestRequestTypeDef
-):
-    pass
-
-StatusReasonTypeDef = TypedDict(
-    "StatusReasonTypeDef",
-    {
-        "code": ReasonCodeType,
-    },
-)
-
-SubstringTypeDef = TypedDict(
-    "SubstringTypeDef",
-    {
-        "start": int,
-        "length": int,
-    },
-)
-
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tags": Dict[str, str],
-    },
-)
-
-_RequiredTrailPropertiesTypeDef = TypedDict(
-    "_RequiredTrailPropertiesTypeDef",
-    {
-        "cloudTrailArn": str,
-    },
-)
-_OptionalTrailPropertiesTypeDef = TypedDict(
-    "_OptionalTrailPropertiesTypeDef",
-    {
-        "regions": List[str],
-        "allRegions": bool,
-    },
-    total=False,
-)
-
-class TrailPropertiesTypeDef(_RequiredTrailPropertiesTypeDef, _OptionalTrailPropertiesTypeDef):
-    pass
-
-_RequiredTrailTypeDef = TypedDict(
-    "_RequiredTrailTypeDef",
-    {
-        "cloudTrailArn": str,
-    },
-)
-_OptionalTrailTypeDef = TypedDict(
-    "_OptionalTrailTypeDef",
-    {
-        "regions": List[str],
-        "allRegions": bool,
-    },
-    total=False,
-)
-
-class TrailTypeDef(_RequiredTrailTypeDef, _OptionalTrailTypeDef):
-    pass
-
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tagKeys": List[str],
-    },
-)
-
-UnusedAccessConfigurationTypeDef = TypedDict(
-    "UnusedAccessConfigurationTypeDef",
-    {
-        "unusedAccessAge": int,
-    },
-    total=False,
-)
-
-_RequiredUnusedActionTypeDef = TypedDict(
-    "_RequiredUnusedActionTypeDef",
-    {
-        "action": str,
-    },
-)
-_OptionalUnusedActionTypeDef = TypedDict(
-    "_OptionalUnusedActionTypeDef",
-    {
-        "lastAccessed": datetime,
-    },
-    total=False,
-)
-
-class UnusedActionTypeDef(_RequiredUnusedActionTypeDef, _OptionalUnusedActionTypeDef):
-    pass
-
-UnusedIamRoleDetailsTypeDef = TypedDict(
-    "UnusedIamRoleDetailsTypeDef",
-    {
-        "lastAccessed": datetime,
-    },
-    total=False,
-)
-
-_RequiredUnusedIamUserAccessKeyDetailsTypeDef = TypedDict(
-    "_RequiredUnusedIamUserAccessKeyDetailsTypeDef",
-    {
-        "accessKeyId": str,
-    },
-)
-_OptionalUnusedIamUserAccessKeyDetailsTypeDef = TypedDict(
-    "_OptionalUnusedIamUserAccessKeyDetailsTypeDef",
-    {
-        "lastAccessed": datetime,
-    },
-    total=False,
-)
-
-class UnusedIamUserAccessKeyDetailsTypeDef(
-    _RequiredUnusedIamUserAccessKeyDetailsTypeDef, _OptionalUnusedIamUserAccessKeyDetailsTypeDef
-):
-    pass
-
-UnusedIamUserPasswordDetailsTypeDef = TypedDict(
-    "UnusedIamUserPasswordDetailsTypeDef",
-    {
-        "lastAccessed": datetime,
-    },
-    total=False,
-)
-
-_RequiredUnusedPermissionDetailsTypeDef = TypedDict(
-    "_RequiredUnusedPermissionDetailsTypeDef",
-    {
-        "serviceNamespace": str,
-    },
-)
-_OptionalUnusedPermissionDetailsTypeDef = TypedDict(
-    "_OptionalUnusedPermissionDetailsTypeDef",
-    {
-        "actions": List["UnusedActionTypeDef"],
-        "lastAccessed": datetime,
-    },
-    total=False,
-)
-
-class UnusedPermissionDetailsTypeDef(
-    _RequiredUnusedPermissionDetailsTypeDef, _OptionalUnusedPermissionDetailsTypeDef
-):
-    pass
-
-_RequiredUnusedPermissionsRecommendedStepTypeDef = TypedDict(
-    "_RequiredUnusedPermissionsRecommendedStepTypeDef",
-    {
-        "recommendedAction": RecommendedRemediationActionType,
-    },
-)
-_OptionalUnusedPermissionsRecommendedStepTypeDef = TypedDict(
-    "_OptionalUnusedPermissionsRecommendedStepTypeDef",
-    {
-        "policyUpdatedAt": datetime,
-        "recommendedPolicy": str,
-        "existingPolicyId": str,
-    },
-    total=False,
-)
-
-class UnusedPermissionsRecommendedStepTypeDef(
-    _RequiredUnusedPermissionsRecommendedStepTypeDef,
-    _OptionalUnusedPermissionsRecommendedStepTypeDef,
-):
-    pass
-
-_RequiredUpdateArchiveRuleRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateArchiveRuleRequestRequestTypeDef",
-    {
-        "analyzerName": str,
-        "ruleName": str,
-        "filter": Dict[str, "CriterionTypeDef"],
-    },
-)
-_OptionalUpdateArchiveRuleRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateArchiveRuleRequestRequestTypeDef",
-    {
-        "clientToken": str,
-    },
-    total=False,
-)
-
-class UpdateArchiveRuleRequestRequestTypeDef(
-    _RequiredUpdateArchiveRuleRequestRequestTypeDef, _OptionalUpdateArchiveRuleRequestRequestTypeDef
-):
-    pass
-
-_RequiredUpdateFindingsRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateFindingsRequestRequestTypeDef",
-    {
-        "analyzerArn": str,
-        "status": FindingStatusUpdateType,
-    },
-)
-_OptionalUpdateFindingsRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateFindingsRequestRequestTypeDef",
-    {
-        "ids": List[str],
-        "resourceArn": str,
-        "clientToken": str,
-    },
-    total=False,
-)
-
-class UpdateFindingsRequestRequestTypeDef(
-    _RequiredUpdateFindingsRequestRequestTypeDef, _OptionalUpdateFindingsRequestRequestTypeDef
-):
-    pass
-
-ValidatePolicyFindingTypeDef = TypedDict(
-    "ValidatePolicyFindingTypeDef",
-    {
-        "findingDetails": str,
-        "findingType": ValidatePolicyFindingTypeType,
-        "issueCode": str,
-        "learnMoreLink": str,
-        "locations": List["LocationTypeDef"],
-    },
-)
-
-_RequiredValidatePolicyRequestRequestTypeDef = TypedDict(
-    "_RequiredValidatePolicyRequestRequestTypeDef",
-    {
-        "policyDocument": str,
-        "policyType": PolicyTypeType,
-    },
-)
-_OptionalValidatePolicyRequestRequestTypeDef = TypedDict(
-    "_OptionalValidatePolicyRequestRequestTypeDef",
-    {
-        "locale": LocaleType,
-        "maxResults": int,
-        "nextToken": str,
-        "validatePolicyResourceType": ValidatePolicyResourceTypeType,
-    },
-    total=False,
-)
-
-class ValidatePolicyRequestRequestTypeDef(
-    _RequiredValidatePolicyRequestRequestTypeDef, _OptionalValidatePolicyRequestRequestTypeDef
-):
-    pass
-
-ValidatePolicyResponseTypeDef = TypedDict(
-    "ValidatePolicyResponseTypeDef",
-    {
-        "findings": List["ValidatePolicyFindingTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-VpcConfigurationTypeDef = TypedDict(
-    "VpcConfigurationTypeDef",
-    {
-        "vpcId": str,
-    },
-)
+        "configurations": Dict[str, ConfigurationOutputTypeDef],
+        "createdAt": datetime,
+        "status": AccessPreviewStatusType,
+        "statusReason": NotRequired[AccessPreviewStatusReasonTypeDef],
+    },
+)
+
+class S3BucketConfigurationTypeDef(TypedDict):
+    bucketPolicy: NotRequired[str]
+    bucketAclGrants: NotRequired[Sequence[S3BucketAclGrantConfigurationTypeDef]]
+    bucketPublicAccessBlock: NotRequired[S3PublicAccessBlockConfigurationTypeDef]
+    accessPoints: NotRequired[Mapping[str, S3AccessPointConfigurationUnionTypeDef]]
+
+class S3ExpressDirectoryBucketConfigurationTypeDef(TypedDict):
+    bucketPolicy: NotRequired[str]
+    accessPoints: NotRequired[Mapping[str, S3ExpressDirectoryAccessPointConfigurationUnionTypeDef]]
+
+class GetAccessPreviewResponseTypeDef(TypedDict):
+    accessPreview: AccessPreviewTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+S3BucketConfigurationUnionTypeDef = Union[
+    S3BucketConfigurationTypeDef, S3BucketConfigurationOutputTypeDef
+]
+S3ExpressDirectoryBucketConfigurationUnionTypeDef = Union[
+    S3ExpressDirectoryBucketConfigurationTypeDef, S3ExpressDirectoryBucketConfigurationOutputTypeDef
+]
+
+class ConfigurationTypeDef(TypedDict):
+    ebsSnapshot: NotRequired[EbsSnapshotConfigurationUnionTypeDef]
+    ecrRepository: NotRequired[EcrRepositoryConfigurationTypeDef]
+    iamRole: NotRequired[IamRoleConfigurationTypeDef]
+    efsFileSystem: NotRequired[EfsFileSystemConfigurationTypeDef]
+    kmsKey: NotRequired[KmsKeyConfigurationUnionTypeDef]
+    rdsDbClusterSnapshot: NotRequired[RdsDbClusterSnapshotConfigurationUnionTypeDef]
+    rdsDbSnapshot: NotRequired[RdsDbSnapshotConfigurationUnionTypeDef]
+    secretsManagerSecret: NotRequired[SecretsManagerSecretConfigurationTypeDef]
+    s3Bucket: NotRequired[S3BucketConfigurationUnionTypeDef]
+    snsTopic: NotRequired[SnsTopicConfigurationTypeDef]
+    sqsQueue: NotRequired[SqsQueueConfigurationTypeDef]
+    s3ExpressDirectoryBucket: NotRequired[S3ExpressDirectoryBucketConfigurationUnionTypeDef]
+    dynamodbStream: NotRequired[DynamodbStreamConfigurationTypeDef]
+    dynamodbTable: NotRequired[DynamodbTableConfigurationTypeDef]
+
+ConfigurationUnionTypeDef = Union[ConfigurationTypeDef, ConfigurationOutputTypeDef]
+
+class CreateAccessPreviewRequestTypeDef(TypedDict):
+    analyzerArn: str
+    configurations: Mapping[str, ConfigurationUnionTypeDef]
+    clientToken: NotRequired[str]

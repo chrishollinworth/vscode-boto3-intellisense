@@ -1,20 +1,23 @@
 """
 Type annotations for servicecatalog service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_servicecatalog.type_defs import AcceptPortfolioShareInputRequestTypeDef
+    from mypy_boto3_servicecatalog.type_defs import AcceptPortfolioShareInputTypeDef
 
-    data: AcceptPortfolioShareInputRequestTypeDef = {...}
+    data: AcceptPortfolioShareInputTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
 
 from .literals import (
     AccessLevelFilterKeyType,
@@ -49,152 +52,168 @@ from .literals import (
     StatusType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
-    "AcceptPortfolioShareInputRequestTypeDef",
+    "AcceptPortfolioShareInputTypeDef",
     "AccessLevelFilterTypeDef",
-    "AssociateBudgetWithResourceInputRequestTypeDef",
-    "AssociatePrincipalWithPortfolioInputRequestTypeDef",
-    "AssociateProductWithPortfolioInputRequestTypeDef",
-    "AssociateServiceActionWithProvisioningArtifactInputRequestTypeDef",
-    "AssociateTagOptionWithResourceInputRequestTypeDef",
-    "BatchAssociateServiceActionWithProvisioningArtifactInputRequestTypeDef",
+    "AssociateBudgetWithResourceInputTypeDef",
+    "AssociatePrincipalWithPortfolioInputTypeDef",
+    "AssociateProductWithPortfolioInputTypeDef",
+    "AssociateServiceActionWithProvisioningArtifactInputTypeDef",
+    "AssociateTagOptionWithResourceInputTypeDef",
+    "BatchAssociateServiceActionWithProvisioningArtifactInputTypeDef",
     "BatchAssociateServiceActionWithProvisioningArtifactOutputTypeDef",
-    "BatchDisassociateServiceActionFromProvisioningArtifactInputRequestTypeDef",
+    "BatchDisassociateServiceActionFromProvisioningArtifactInputTypeDef",
     "BatchDisassociateServiceActionFromProvisioningArtifactOutputTypeDef",
     "BudgetDetailTypeDef",
     "CloudWatchDashboardTypeDef",
     "CodeStarParametersTypeDef",
     "ConstraintDetailTypeDef",
     "ConstraintSummaryTypeDef",
-    "CopyProductInputRequestTypeDef",
+    "CopyProductInputTypeDef",
     "CopyProductOutputTypeDef",
-    "CreateConstraintInputRequestTypeDef",
+    "CreateConstraintInputTypeDef",
     "CreateConstraintOutputTypeDef",
-    "CreatePortfolioInputRequestTypeDef",
+    "CreatePortfolioInputTypeDef",
     "CreatePortfolioOutputTypeDef",
-    "CreatePortfolioShareInputRequestTypeDef",
+    "CreatePortfolioShareInputTypeDef",
     "CreatePortfolioShareOutputTypeDef",
-    "CreateProductInputRequestTypeDef",
+    "CreateProductInputTypeDef",
     "CreateProductOutputTypeDef",
-    "CreateProvisionedProductPlanInputRequestTypeDef",
+    "CreateProvisionedProductPlanInputTypeDef",
     "CreateProvisionedProductPlanOutputTypeDef",
-    "CreateProvisioningArtifactInputRequestTypeDef",
+    "CreateProvisioningArtifactInputTypeDef",
     "CreateProvisioningArtifactOutputTypeDef",
-    "CreateServiceActionInputRequestTypeDef",
+    "CreateServiceActionInputTypeDef",
     "CreateServiceActionOutputTypeDef",
-    "CreateTagOptionInputRequestTypeDef",
+    "CreateTagOptionInputTypeDef",
     "CreateTagOptionOutputTypeDef",
-    "DeleteConstraintInputRequestTypeDef",
-    "DeletePortfolioInputRequestTypeDef",
-    "DeletePortfolioShareInputRequestTypeDef",
+    "DeleteConstraintInputTypeDef",
+    "DeletePortfolioInputTypeDef",
+    "DeletePortfolioShareInputTypeDef",
     "DeletePortfolioShareOutputTypeDef",
-    "DeleteProductInputRequestTypeDef",
-    "DeleteProvisionedProductPlanInputRequestTypeDef",
-    "DeleteProvisioningArtifactInputRequestTypeDef",
-    "DeleteServiceActionInputRequestTypeDef",
-    "DeleteTagOptionInputRequestTypeDef",
-    "DescribeConstraintInputRequestTypeDef",
+    "DeleteProductInputTypeDef",
+    "DeleteProvisionedProductPlanInputTypeDef",
+    "DeleteProvisioningArtifactInputTypeDef",
+    "DeleteServiceActionInputTypeDef",
+    "DeleteTagOptionInputTypeDef",
+    "DescribeConstraintInputTypeDef",
     "DescribeConstraintOutputTypeDef",
-    "DescribeCopyProductStatusInputRequestTypeDef",
+    "DescribeCopyProductStatusInputTypeDef",
     "DescribeCopyProductStatusOutputTypeDef",
-    "DescribePortfolioInputRequestTypeDef",
+    "DescribePortfolioInputTypeDef",
     "DescribePortfolioOutputTypeDef",
-    "DescribePortfolioShareStatusInputRequestTypeDef",
+    "DescribePortfolioShareStatusInputTypeDef",
     "DescribePortfolioShareStatusOutputTypeDef",
-    "DescribePortfolioSharesInputRequestTypeDef",
+    "DescribePortfolioSharesInputTypeDef",
     "DescribePortfolioSharesOutputTypeDef",
-    "DescribeProductAsAdminInputRequestTypeDef",
+    "DescribeProductAsAdminInputTypeDef",
     "DescribeProductAsAdminOutputTypeDef",
-    "DescribeProductInputRequestTypeDef",
+    "DescribeProductInputTypeDef",
     "DescribeProductOutputTypeDef",
-    "DescribeProductViewInputRequestTypeDef",
+    "DescribeProductViewInputTypeDef",
     "DescribeProductViewOutputTypeDef",
-    "DescribeProvisionedProductInputRequestTypeDef",
+    "DescribeProvisionedProductInputTypeDef",
     "DescribeProvisionedProductOutputTypeDef",
-    "DescribeProvisionedProductPlanInputRequestTypeDef",
+    "DescribeProvisionedProductPlanInputTypeDef",
     "DescribeProvisionedProductPlanOutputTypeDef",
-    "DescribeProvisioningArtifactInputRequestTypeDef",
+    "DescribeProvisioningArtifactInputTypeDef",
     "DescribeProvisioningArtifactOutputTypeDef",
-    "DescribeProvisioningParametersInputRequestTypeDef",
+    "DescribeProvisioningParametersInputTypeDef",
     "DescribeProvisioningParametersOutputTypeDef",
-    "DescribeRecordInputRequestTypeDef",
+    "DescribeRecordInputTypeDef",
     "DescribeRecordOutputTypeDef",
-    "DescribeServiceActionExecutionParametersInputRequestTypeDef",
+    "DescribeServiceActionExecutionParametersInputTypeDef",
     "DescribeServiceActionExecutionParametersOutputTypeDef",
-    "DescribeServiceActionInputRequestTypeDef",
+    "DescribeServiceActionInputTypeDef",
     "DescribeServiceActionOutputTypeDef",
-    "DescribeTagOptionInputRequestTypeDef",
+    "DescribeTagOptionInputTypeDef",
     "DescribeTagOptionOutputTypeDef",
-    "DisassociateBudgetFromResourceInputRequestTypeDef",
-    "DisassociatePrincipalFromPortfolioInputRequestTypeDef",
-    "DisassociateProductFromPortfolioInputRequestTypeDef",
-    "DisassociateServiceActionFromProvisioningArtifactInputRequestTypeDef",
-    "DisassociateTagOptionFromResourceInputRequestTypeDef",
+    "DisassociateBudgetFromResourceInputTypeDef",
+    "DisassociatePrincipalFromPortfolioInputTypeDef",
+    "DisassociateProductFromPortfolioInputTypeDef",
+    "DisassociateServiceActionFromProvisioningArtifactInputTypeDef",
+    "DisassociateTagOptionFromResourceInputTypeDef",
     "EngineWorkflowResourceIdentifierTypeDef",
-    "ExecuteProvisionedProductPlanInputRequestTypeDef",
+    "ExecuteProvisionedProductPlanInputTypeDef",
     "ExecuteProvisionedProductPlanOutputTypeDef",
-    "ExecuteProvisionedProductServiceActionInputRequestTypeDef",
+    "ExecuteProvisionedProductServiceActionInputTypeDef",
     "ExecuteProvisionedProductServiceActionOutputTypeDef",
     "ExecutionParameterTypeDef",
     "FailedServiceActionAssociationTypeDef",
     "GetAWSOrganizationsAccessStatusOutputTypeDef",
-    "GetProvisionedProductOutputsInputRequestTypeDef",
+    "GetProvisionedProductOutputsInputTypeDef",
     "GetProvisionedProductOutputsOutputTypeDef",
-    "ImportAsProvisionedProductInputRequestTypeDef",
+    "ImportAsProvisionedProductInputTypeDef",
     "ImportAsProvisionedProductOutputTypeDef",
     "LastSyncTypeDef",
     "LaunchPathSummaryTypeDef",
     "LaunchPathTypeDef",
-    "ListAcceptedPortfolioSharesInputRequestTypeDef",
+    "ListAcceptedPortfolioSharesInputPaginateTypeDef",
+    "ListAcceptedPortfolioSharesInputTypeDef",
     "ListAcceptedPortfolioSharesOutputTypeDef",
-    "ListBudgetsForResourceInputRequestTypeDef",
+    "ListBudgetsForResourceInputTypeDef",
     "ListBudgetsForResourceOutputTypeDef",
-    "ListConstraintsForPortfolioInputRequestTypeDef",
+    "ListConstraintsForPortfolioInputPaginateTypeDef",
+    "ListConstraintsForPortfolioInputTypeDef",
     "ListConstraintsForPortfolioOutputTypeDef",
-    "ListLaunchPathsInputRequestTypeDef",
+    "ListLaunchPathsInputPaginateTypeDef",
+    "ListLaunchPathsInputTypeDef",
     "ListLaunchPathsOutputTypeDef",
-    "ListOrganizationPortfolioAccessInputRequestTypeDef",
+    "ListOrganizationPortfolioAccessInputPaginateTypeDef",
+    "ListOrganizationPortfolioAccessInputTypeDef",
     "ListOrganizationPortfolioAccessOutputTypeDef",
-    "ListPortfolioAccessInputRequestTypeDef",
+    "ListPortfolioAccessInputTypeDef",
     "ListPortfolioAccessOutputTypeDef",
-    "ListPortfoliosForProductInputRequestTypeDef",
+    "ListPortfoliosForProductInputPaginateTypeDef",
+    "ListPortfoliosForProductInputTypeDef",
     "ListPortfoliosForProductOutputTypeDef",
-    "ListPortfoliosInputRequestTypeDef",
+    "ListPortfoliosInputPaginateTypeDef",
+    "ListPortfoliosInputTypeDef",
     "ListPortfoliosOutputTypeDef",
-    "ListPrincipalsForPortfolioInputRequestTypeDef",
+    "ListPrincipalsForPortfolioInputPaginateTypeDef",
+    "ListPrincipalsForPortfolioInputTypeDef",
     "ListPrincipalsForPortfolioOutputTypeDef",
-    "ListProvisionedProductPlansInputRequestTypeDef",
+    "ListProvisionedProductPlansInputPaginateTypeDef",
+    "ListProvisionedProductPlansInputTypeDef",
     "ListProvisionedProductPlansOutputTypeDef",
-    "ListProvisioningArtifactsForServiceActionInputRequestTypeDef",
+    "ListProvisioningArtifactsForServiceActionInputPaginateTypeDef",
+    "ListProvisioningArtifactsForServiceActionInputTypeDef",
     "ListProvisioningArtifactsForServiceActionOutputTypeDef",
-    "ListProvisioningArtifactsInputRequestTypeDef",
+    "ListProvisioningArtifactsInputTypeDef",
     "ListProvisioningArtifactsOutputTypeDef",
-    "ListRecordHistoryInputRequestTypeDef",
+    "ListRecordHistoryInputPaginateTypeDef",
+    "ListRecordHistoryInputTypeDef",
     "ListRecordHistoryOutputTypeDef",
     "ListRecordHistorySearchFilterTypeDef",
-    "ListResourcesForTagOptionInputRequestTypeDef",
+    "ListResourcesForTagOptionInputPaginateTypeDef",
+    "ListResourcesForTagOptionInputTypeDef",
     "ListResourcesForTagOptionOutputTypeDef",
-    "ListServiceActionsForProvisioningArtifactInputRequestTypeDef",
+    "ListServiceActionsForProvisioningArtifactInputPaginateTypeDef",
+    "ListServiceActionsForProvisioningArtifactInputTypeDef",
     "ListServiceActionsForProvisioningArtifactOutputTypeDef",
-    "ListServiceActionsInputRequestTypeDef",
+    "ListServiceActionsInputPaginateTypeDef",
+    "ListServiceActionsInputTypeDef",
     "ListServiceActionsOutputTypeDef",
-    "ListStackInstancesForProvisionedProductInputRequestTypeDef",
+    "ListStackInstancesForProvisionedProductInputTypeDef",
     "ListStackInstancesForProvisionedProductOutputTypeDef",
     "ListTagOptionsFiltersTypeDef",
-    "ListTagOptionsInputRequestTypeDef",
+    "ListTagOptionsInputPaginateTypeDef",
+    "ListTagOptionsInputTypeDef",
     "ListTagOptionsOutputTypeDef",
-    "NotifyProvisionProductEngineWorkflowResultInputRequestTypeDef",
-    "NotifyTerminateProvisionedProductEngineWorkflowResultInputRequestTypeDef",
-    "NotifyUpdateProvisionedProductEngineWorkflowResultInputRequestTypeDef",
+    "NotifyProvisionProductEngineWorkflowResultInputTypeDef",
+    "NotifyTerminateProvisionedProductEngineWorkflowResultInputTypeDef",
+    "NotifyUpdateProvisionedProductEngineWorkflowResultInputTypeDef",
     "OrganizationNodeTypeDef",
     "PaginatorConfigTypeDef",
     "ParameterConstraintsTypeDef",
@@ -204,7 +223,7 @@ __all__ = (
     "ProductViewAggregationValueTypeDef",
     "ProductViewDetailTypeDef",
     "ProductViewSummaryTypeDef",
-    "ProvisionProductInputRequestTypeDef",
+    "ProvisionProductInputTypeDef",
     "ProvisionProductOutputTypeDef",
     "ProvisionedProductAttributeTypeDef",
     "ProvisionedProductDetailTypeDef",
@@ -224,19 +243,21 @@ __all__ = (
     "RecordErrorTypeDef",
     "RecordOutputTypeDef",
     "RecordTagTypeDef",
-    "RejectPortfolioShareInputRequestTypeDef",
+    "RejectPortfolioShareInputTypeDef",
     "ResourceChangeDetailTypeDef",
     "ResourceChangeTypeDef",
     "ResourceDetailTypeDef",
     "ResourceTargetDefinitionTypeDef",
     "ResponseMetadataTypeDef",
-    "ScanProvisionedProductsInputRequestTypeDef",
+    "ScanProvisionedProductsInputPaginateTypeDef",
+    "ScanProvisionedProductsInputTypeDef",
     "ScanProvisionedProductsOutputTypeDef",
-    "SearchProductsAsAdminInputRequestTypeDef",
+    "SearchProductsAsAdminInputPaginateTypeDef",
+    "SearchProductsAsAdminInputTypeDef",
     "SearchProductsAsAdminOutputTypeDef",
-    "SearchProductsInputRequestTypeDef",
+    "SearchProductsInputTypeDef",
     "SearchProductsOutputTypeDef",
-    "SearchProvisionedProductsInputRequestTypeDef",
+    "SearchProvisionedProductsInputTypeDef",
     "SearchProvisionedProductsOutputTypeDef",
     "ServiceActionAssociationTypeDef",
     "ServiceActionDetailTypeDef",
@@ -250,3010 +271,1474 @@ __all__ = (
     "TagOptionDetailTypeDef",
     "TagOptionSummaryTypeDef",
     "TagTypeDef",
-    "TerminateProvisionedProductInputRequestTypeDef",
+    "TerminateProvisionedProductInputTypeDef",
     "TerminateProvisionedProductOutputTypeDef",
     "UniqueTagResourceIdentifierTypeDef",
-    "UpdateConstraintInputRequestTypeDef",
+    "UpdateConstraintInputTypeDef",
     "UpdateConstraintOutputTypeDef",
-    "UpdatePortfolioInputRequestTypeDef",
+    "UpdatePortfolioInputTypeDef",
     "UpdatePortfolioOutputTypeDef",
-    "UpdatePortfolioShareInputRequestTypeDef",
+    "UpdatePortfolioShareInputTypeDef",
     "UpdatePortfolioShareOutputTypeDef",
-    "UpdateProductInputRequestTypeDef",
+    "UpdateProductInputTypeDef",
     "UpdateProductOutputTypeDef",
-    "UpdateProvisionedProductInputRequestTypeDef",
+    "UpdateProvisionedProductInputTypeDef",
     "UpdateProvisionedProductOutputTypeDef",
-    "UpdateProvisionedProductPropertiesInputRequestTypeDef",
+    "UpdateProvisionedProductPropertiesInputTypeDef",
     "UpdateProvisionedProductPropertiesOutputTypeDef",
-    "UpdateProvisioningArtifactInputRequestTypeDef",
+    "UpdateProvisioningArtifactInputTypeDef",
     "UpdateProvisioningArtifactOutputTypeDef",
     "UpdateProvisioningParameterTypeDef",
     "UpdateProvisioningPreferencesTypeDef",
-    "UpdateServiceActionInputRequestTypeDef",
+    "UpdateServiceActionInputTypeDef",
     "UpdateServiceActionOutputTypeDef",
-    "UpdateTagOptionInputRequestTypeDef",
+    "UpdateTagOptionInputTypeDef",
     "UpdateTagOptionOutputTypeDef",
     "UsageInstructionTypeDef",
 )
 
-_RequiredAcceptPortfolioShareInputRequestTypeDef = TypedDict(
-    "_RequiredAcceptPortfolioShareInputRequestTypeDef",
-    {
-        "PortfolioId": str,
-    },
-)
-_OptionalAcceptPortfolioShareInputRequestTypeDef = TypedDict(
-    "_OptionalAcceptPortfolioShareInputRequestTypeDef",
-    {
-        "AcceptLanguage": str,
-        "PortfolioShareType": PortfolioShareTypeType,
-    },
-    total=False,
-)
+class AcceptPortfolioShareInputTypeDef(TypedDict):
+    PortfolioId: str
+    AcceptLanguage: NotRequired[str]
+    PortfolioShareType: NotRequired[PortfolioShareTypeType]
 
-class AcceptPortfolioShareInputRequestTypeDef(
-    _RequiredAcceptPortfolioShareInputRequestTypeDef,
-    _OptionalAcceptPortfolioShareInputRequestTypeDef,
-):
-    pass
+class AccessLevelFilterTypeDef(TypedDict):
+    Key: NotRequired[AccessLevelFilterKeyType]
+    Value: NotRequired[str]
 
-AccessLevelFilterTypeDef = TypedDict(
-    "AccessLevelFilterTypeDef",
-    {
-        "Key": AccessLevelFilterKeyType,
-        "Value": str,
-    },
-    total=False,
-)
+class AssociateBudgetWithResourceInputTypeDef(TypedDict):
+    BudgetName: str
+    ResourceId: str
 
-AssociateBudgetWithResourceInputRequestTypeDef = TypedDict(
-    "AssociateBudgetWithResourceInputRequestTypeDef",
-    {
-        "BudgetName": str,
-        "ResourceId": str,
-    },
-)
+class AssociatePrincipalWithPortfolioInputTypeDef(TypedDict):
+    PortfolioId: str
+    PrincipalARN: str
+    PrincipalType: PrincipalTypeType
+    AcceptLanguage: NotRequired[str]
 
-_RequiredAssociatePrincipalWithPortfolioInputRequestTypeDef = TypedDict(
-    "_RequiredAssociatePrincipalWithPortfolioInputRequestTypeDef",
-    {
-        "PortfolioId": str,
-        "PrincipalARN": str,
-        "PrincipalType": PrincipalTypeType,
-    },
-)
-_OptionalAssociatePrincipalWithPortfolioInputRequestTypeDef = TypedDict(
-    "_OptionalAssociatePrincipalWithPortfolioInputRequestTypeDef",
-    {
-        "AcceptLanguage": str,
-    },
-    total=False,
-)
+class AssociateProductWithPortfolioInputTypeDef(TypedDict):
+    ProductId: str
+    PortfolioId: str
+    AcceptLanguage: NotRequired[str]
+    SourcePortfolioId: NotRequired[str]
 
-class AssociatePrincipalWithPortfolioInputRequestTypeDef(
-    _RequiredAssociatePrincipalWithPortfolioInputRequestTypeDef,
-    _OptionalAssociatePrincipalWithPortfolioInputRequestTypeDef,
-):
-    pass
+class AssociateServiceActionWithProvisioningArtifactInputTypeDef(TypedDict):
+    ProductId: str
+    ProvisioningArtifactId: str
+    ServiceActionId: str
+    AcceptLanguage: NotRequired[str]
+    IdempotencyToken: NotRequired[str]
 
-_RequiredAssociateProductWithPortfolioInputRequestTypeDef = TypedDict(
-    "_RequiredAssociateProductWithPortfolioInputRequestTypeDef",
-    {
-        "ProductId": str,
-        "PortfolioId": str,
-    },
-)
-_OptionalAssociateProductWithPortfolioInputRequestTypeDef = TypedDict(
-    "_OptionalAssociateProductWithPortfolioInputRequestTypeDef",
-    {
-        "AcceptLanguage": str,
-        "SourcePortfolioId": str,
-    },
-    total=False,
-)
+class AssociateTagOptionWithResourceInputTypeDef(TypedDict):
+    ResourceId: str
+    TagOptionId: str
 
-class AssociateProductWithPortfolioInputRequestTypeDef(
-    _RequiredAssociateProductWithPortfolioInputRequestTypeDef,
-    _OptionalAssociateProductWithPortfolioInputRequestTypeDef,
-):
-    pass
+class ServiceActionAssociationTypeDef(TypedDict):
+    ServiceActionId: str
+    ProductId: str
+    ProvisioningArtifactId: str
 
-_RequiredAssociateServiceActionWithProvisioningArtifactInputRequestTypeDef = TypedDict(
-    "_RequiredAssociateServiceActionWithProvisioningArtifactInputRequestTypeDef",
-    {
-        "ProductId": str,
-        "ProvisioningArtifactId": str,
-        "ServiceActionId": str,
-    },
-)
-_OptionalAssociateServiceActionWithProvisioningArtifactInputRequestTypeDef = TypedDict(
-    "_OptionalAssociateServiceActionWithProvisioningArtifactInputRequestTypeDef",
-    {
-        "AcceptLanguage": str,
-        "IdempotencyToken": str,
-    },
-    total=False,
-)
+class FailedServiceActionAssociationTypeDef(TypedDict):
+    ServiceActionId: NotRequired[str]
+    ProductId: NotRequired[str]
+    ProvisioningArtifactId: NotRequired[str]
+    ErrorCode: NotRequired[ServiceActionAssociationErrorCodeType]
+    ErrorMessage: NotRequired[str]
 
-class AssociateServiceActionWithProvisioningArtifactInputRequestTypeDef(
-    _RequiredAssociateServiceActionWithProvisioningArtifactInputRequestTypeDef,
-    _OptionalAssociateServiceActionWithProvisioningArtifactInputRequestTypeDef,
-):
-    pass
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-AssociateTagOptionWithResourceInputRequestTypeDef = TypedDict(
-    "AssociateTagOptionWithResourceInputRequestTypeDef",
-    {
-        "ResourceId": str,
-        "TagOptionId": str,
-    },
-)
+class BudgetDetailTypeDef(TypedDict):
+    BudgetName: NotRequired[str]
 
-_RequiredBatchAssociateServiceActionWithProvisioningArtifactInputRequestTypeDef = TypedDict(
-    "_RequiredBatchAssociateServiceActionWithProvisioningArtifactInputRequestTypeDef",
-    {
-        "ServiceActionAssociations": List["ServiceActionAssociationTypeDef"],
-    },
-)
-_OptionalBatchAssociateServiceActionWithProvisioningArtifactInputRequestTypeDef = TypedDict(
-    "_OptionalBatchAssociateServiceActionWithProvisioningArtifactInputRequestTypeDef",
-    {
-        "AcceptLanguage": str,
-    },
-    total=False,
-)
+class CloudWatchDashboardTypeDef(TypedDict):
+    Name: NotRequired[str]
 
-class BatchAssociateServiceActionWithProvisioningArtifactInputRequestTypeDef(
-    _RequiredBatchAssociateServiceActionWithProvisioningArtifactInputRequestTypeDef,
-    _OptionalBatchAssociateServiceActionWithProvisioningArtifactInputRequestTypeDef,
-):
-    pass
-
-BatchAssociateServiceActionWithProvisioningArtifactOutputTypeDef = TypedDict(
-    "BatchAssociateServiceActionWithProvisioningArtifactOutputTypeDef",
-    {
-        "FailedServiceActionAssociations": List["FailedServiceActionAssociationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredBatchDisassociateServiceActionFromProvisioningArtifactInputRequestTypeDef = TypedDict(
-    "_RequiredBatchDisassociateServiceActionFromProvisioningArtifactInputRequestTypeDef",
-    {
-        "ServiceActionAssociations": List["ServiceActionAssociationTypeDef"],
-    },
-)
-_OptionalBatchDisassociateServiceActionFromProvisioningArtifactInputRequestTypeDef = TypedDict(
-    "_OptionalBatchDisassociateServiceActionFromProvisioningArtifactInputRequestTypeDef",
-    {
-        "AcceptLanguage": str,
-    },
-    total=False,
-)
-
-class BatchDisassociateServiceActionFromProvisioningArtifactInputRequestTypeDef(
-    _RequiredBatchDisassociateServiceActionFromProvisioningArtifactInputRequestTypeDef,
-    _OptionalBatchDisassociateServiceActionFromProvisioningArtifactInputRequestTypeDef,
-):
-    pass
-
-BatchDisassociateServiceActionFromProvisioningArtifactOutputTypeDef = TypedDict(
-    "BatchDisassociateServiceActionFromProvisioningArtifactOutputTypeDef",
-    {
-        "FailedServiceActionAssociations": List["FailedServiceActionAssociationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-BudgetDetailTypeDef = TypedDict(
-    "BudgetDetailTypeDef",
-    {
-        "BudgetName": str,
-    },
-    total=False,
-)
-
-CloudWatchDashboardTypeDef = TypedDict(
-    "CloudWatchDashboardTypeDef",
-    {
-        "Name": str,
-    },
-    total=False,
-)
-
-CodeStarParametersTypeDef = TypedDict(
-    "CodeStarParametersTypeDef",
-    {
-        "ConnectionArn": str,
-        "Repository": str,
-        "Branch": str,
-        "ArtifactPath": str,
-    },
-)
+class CodeStarParametersTypeDef(TypedDict):
+    ConnectionArn: str
+    Repository: str
+    Branch: str
+    ArtifactPath: str
 
 ConstraintDetailTypeDef = TypedDict(
     "ConstraintDetailTypeDef",
     {
-        "ConstraintId": str,
-        "Type": str,
-        "Description": str,
-        "Owner": str,
-        "ProductId": str,
-        "PortfolioId": str,
+        "ConstraintId": NotRequired[str],
+        "Type": NotRequired[str],
+        "Description": NotRequired[str],
+        "Owner": NotRequired[str],
+        "ProductId": NotRequired[str],
+        "PortfolioId": NotRequired[str],
     },
-    total=False,
 )
-
 ConstraintSummaryTypeDef = TypedDict(
     "ConstraintSummaryTypeDef",
     {
-        "Type": str,
-        "Description": str,
-    },
-    total=False,
-)
-
-_RequiredCopyProductInputRequestTypeDef = TypedDict(
-    "_RequiredCopyProductInputRequestTypeDef",
-    {
-        "SourceProductArn": str,
-        "IdempotencyToken": str,
-    },
-)
-_OptionalCopyProductInputRequestTypeDef = TypedDict(
-    "_OptionalCopyProductInputRequestTypeDef",
-    {
-        "AcceptLanguage": str,
-        "TargetProductId": str,
-        "TargetProductName": str,
-        "SourceProvisioningArtifactIdentifiers": List[Dict[Literal["Id"], str]],
-        "CopyOptions": List[Literal["CopyTags"]],
-    },
-    total=False,
-)
-
-class CopyProductInputRequestTypeDef(
-    _RequiredCopyProductInputRequestTypeDef, _OptionalCopyProductInputRequestTypeDef
-):
-    pass
-
-CopyProductOutputTypeDef = TypedDict(
-    "CopyProductOutputTypeDef",
-    {
-        "CopyProductToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "Type": NotRequired[str],
+        "Description": NotRequired[str],
     },
 )
 
-_RequiredCreateConstraintInputRequestTypeDef = TypedDict(
-    "_RequiredCreateConstraintInputRequestTypeDef",
+class CopyProductInputTypeDef(TypedDict):
+    SourceProductArn: str
+    IdempotencyToken: str
+    AcceptLanguage: NotRequired[str]
+    TargetProductId: NotRequired[str]
+    TargetProductName: NotRequired[str]
+    SourceProvisioningArtifactIdentifiers: NotRequired[Sequence[Mapping[Literal["Id"], str]]]
+    CopyOptions: NotRequired[Sequence[Literal["CopyTags"]]]
+
+CreateConstraintInputTypeDef = TypedDict(
+    "CreateConstraintInputTypeDef",
     {
         "PortfolioId": str,
         "ProductId": str,
         "Parameters": str,
         "Type": str,
         "IdempotencyToken": str,
+        "AcceptLanguage": NotRequired[str],
+        "Description": NotRequired[str],
     },
 )
-_OptionalCreateConstraintInputRequestTypeDef = TypedDict(
-    "_OptionalCreateConstraintInputRequestTypeDef",
-    {
-        "AcceptLanguage": str,
-        "Description": str,
-    },
-    total=False,
-)
-
-class CreateConstraintInputRequestTypeDef(
-    _RequiredCreateConstraintInputRequestTypeDef, _OptionalCreateConstraintInputRequestTypeDef
-):
-    pass
-
-CreateConstraintOutputTypeDef = TypedDict(
-    "CreateConstraintOutputTypeDef",
-    {
-        "ConstraintDetail": "ConstraintDetailTypeDef",
-        "ConstraintParameters": str,
-        "Status": StatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreatePortfolioInputRequestTypeDef = TypedDict(
-    "_RequiredCreatePortfolioInputRequestTypeDef",
-    {
-        "DisplayName": str,
-        "ProviderName": str,
-        "IdempotencyToken": str,
-    },
-)
-_OptionalCreatePortfolioInputRequestTypeDef = TypedDict(
-    "_OptionalCreatePortfolioInputRequestTypeDef",
-    {
-        "AcceptLanguage": str,
-        "Description": str,
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreatePortfolioInputRequestTypeDef(
-    _RequiredCreatePortfolioInputRequestTypeDef, _OptionalCreatePortfolioInputRequestTypeDef
-):
-    pass
-
-CreatePortfolioOutputTypeDef = TypedDict(
-    "CreatePortfolioOutputTypeDef",
-    {
-        "PortfolioDetail": "PortfolioDetailTypeDef",
-        "Tags": List["TagTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreatePortfolioShareInputRequestTypeDef = TypedDict(
-    "_RequiredCreatePortfolioShareInputRequestTypeDef",
-    {
-        "PortfolioId": str,
-    },
-)
-_OptionalCreatePortfolioShareInputRequestTypeDef = TypedDict(
-    "_OptionalCreatePortfolioShareInputRequestTypeDef",
-    {
-        "AcceptLanguage": str,
-        "AccountId": str,
-        "OrganizationNode": "OrganizationNodeTypeDef",
-        "ShareTagOptions": bool,
-        "SharePrincipals": bool,
-    },
-    total=False,
-)
-
-class CreatePortfolioShareInputRequestTypeDef(
-    _RequiredCreatePortfolioShareInputRequestTypeDef,
-    _OptionalCreatePortfolioShareInputRequestTypeDef,
-):
-    pass
-
-CreatePortfolioShareOutputTypeDef = TypedDict(
-    "CreatePortfolioShareOutputTypeDef",
-    {
-        "PortfolioShareToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateProductInputRequestTypeDef = TypedDict(
-    "_RequiredCreateProductInputRequestTypeDef",
-    {
-        "Name": str,
-        "Owner": str,
-        "ProductType": ProductTypeType,
-        "IdempotencyToken": str,
-    },
-)
-_OptionalCreateProductInputRequestTypeDef = TypedDict(
-    "_OptionalCreateProductInputRequestTypeDef",
-    {
-        "AcceptLanguage": str,
-        "Description": str,
-        "Distributor": str,
-        "SupportDescription": str,
-        "SupportEmail": str,
-        "SupportUrl": str,
-        "Tags": List["TagTypeDef"],
-        "ProvisioningArtifactParameters": "ProvisioningArtifactPropertiesTypeDef",
-        "SourceConnection": "SourceConnectionTypeDef",
-    },
-    total=False,
-)
-
-class CreateProductInputRequestTypeDef(
-    _RequiredCreateProductInputRequestTypeDef, _OptionalCreateProductInputRequestTypeDef
-):
-    pass
-
-CreateProductOutputTypeDef = TypedDict(
-    "CreateProductOutputTypeDef",
-    {
-        "ProductViewDetail": "ProductViewDetailTypeDef",
-        "ProvisioningArtifactDetail": "ProvisioningArtifactDetailTypeDef",
-        "Tags": List["TagTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateProvisionedProductPlanInputRequestTypeDef = TypedDict(
-    "_RequiredCreateProvisionedProductPlanInputRequestTypeDef",
-    {
-        "PlanName": str,
-        "PlanType": Literal["CLOUDFORMATION"],
-        "ProductId": str,
-        "ProvisionedProductName": str,
-        "ProvisioningArtifactId": str,
-        "IdempotencyToken": str,
-    },
-)
-_OptionalCreateProvisionedProductPlanInputRequestTypeDef = TypedDict(
-    "_OptionalCreateProvisionedProductPlanInputRequestTypeDef",
-    {
-        "AcceptLanguage": str,
-        "NotificationArns": List[str],
-        "PathId": str,
-        "ProvisioningParameters": List["UpdateProvisioningParameterTypeDef"],
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateProvisionedProductPlanInputRequestTypeDef(
-    _RequiredCreateProvisionedProductPlanInputRequestTypeDef,
-    _OptionalCreateProvisionedProductPlanInputRequestTypeDef,
-):
-    pass
-
-CreateProvisionedProductPlanOutputTypeDef = TypedDict(
-    "CreateProvisionedProductPlanOutputTypeDef",
-    {
-        "PlanName": str,
-        "PlanId": str,
-        "ProvisionProductId": str,
-        "ProvisionedProductName": str,
-        "ProvisioningArtifactId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateProvisioningArtifactInputRequestTypeDef = TypedDict(
-    "_RequiredCreateProvisioningArtifactInputRequestTypeDef",
-    {
-        "ProductId": str,
-        "Parameters": "ProvisioningArtifactPropertiesTypeDef",
-        "IdempotencyToken": str,
-    },
-)
-_OptionalCreateProvisioningArtifactInputRequestTypeDef = TypedDict(
-    "_OptionalCreateProvisioningArtifactInputRequestTypeDef",
-    {
-        "AcceptLanguage": str,
-    },
-    total=False,
-)
-
-class CreateProvisioningArtifactInputRequestTypeDef(
-    _RequiredCreateProvisioningArtifactInputRequestTypeDef,
-    _OptionalCreateProvisioningArtifactInputRequestTypeDef,
-):
-    pass
-
-CreateProvisioningArtifactOutputTypeDef = TypedDict(
-    "CreateProvisioningArtifactOutputTypeDef",
-    {
-        "ProvisioningArtifactDetail": "ProvisioningArtifactDetailTypeDef",
-        "Info": Dict[str, str],
-        "Status": StatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateServiceActionInputRequestTypeDef = TypedDict(
-    "_RequiredCreateServiceActionInputRequestTypeDef",
-    {
-        "Name": str,
-        "DefinitionType": Literal["SSM_AUTOMATION"],
-        "Definition": Dict[ServiceActionDefinitionKeyType, str],
-        "IdempotencyToken": str,
-    },
-)
-_OptionalCreateServiceActionInputRequestTypeDef = TypedDict(
-    "_OptionalCreateServiceActionInputRequestTypeDef",
-    {
-        "Description": str,
-        "AcceptLanguage": str,
-    },
-    total=False,
-)
-
-class CreateServiceActionInputRequestTypeDef(
-    _RequiredCreateServiceActionInputRequestTypeDef, _OptionalCreateServiceActionInputRequestTypeDef
-):
-    pass
-
-CreateServiceActionOutputTypeDef = TypedDict(
-    "CreateServiceActionOutputTypeDef",
-    {
-        "ServiceActionDetail": "ServiceActionDetailTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateTagOptionInputRequestTypeDef = TypedDict(
-    "CreateTagOptionInputRequestTypeDef",
-    {
-        "Key": str,
-        "Value": str,
-    },
-)
-
-CreateTagOptionOutputTypeDef = TypedDict(
-    "CreateTagOptionOutputTypeDef",
-    {
-        "TagOptionDetail": "TagOptionDetailTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDeleteConstraintInputRequestTypeDef = TypedDict(
-    "_RequiredDeleteConstraintInputRequestTypeDef",
-    {
-        "Id": str,
-    },
-)
-_OptionalDeleteConstraintInputRequestTypeDef = TypedDict(
-    "_OptionalDeleteConstraintInputRequestTypeDef",
-    {
-        "AcceptLanguage": str,
-    },
-    total=False,
-)
-
-class DeleteConstraintInputRequestTypeDef(
-    _RequiredDeleteConstraintInputRequestTypeDef, _OptionalDeleteConstraintInputRequestTypeDef
-):
-    pass
-
-_RequiredDeletePortfolioInputRequestTypeDef = TypedDict(
-    "_RequiredDeletePortfolioInputRequestTypeDef",
-    {
-        "Id": str,
-    },
-)
-_OptionalDeletePortfolioInputRequestTypeDef = TypedDict(
-    "_OptionalDeletePortfolioInputRequestTypeDef",
-    {
-        "AcceptLanguage": str,
-    },
-    total=False,
-)
-
-class DeletePortfolioInputRequestTypeDef(
-    _RequiredDeletePortfolioInputRequestTypeDef, _OptionalDeletePortfolioInputRequestTypeDef
-):
-    pass
-
-_RequiredDeletePortfolioShareInputRequestTypeDef = TypedDict(
-    "_RequiredDeletePortfolioShareInputRequestTypeDef",
-    {
-        "PortfolioId": str,
-    },
-)
-_OptionalDeletePortfolioShareInputRequestTypeDef = TypedDict(
-    "_OptionalDeletePortfolioShareInputRequestTypeDef",
-    {
-        "AcceptLanguage": str,
-        "AccountId": str,
-        "OrganizationNode": "OrganizationNodeTypeDef",
-    },
-    total=False,
-)
-
-class DeletePortfolioShareInputRequestTypeDef(
-    _RequiredDeletePortfolioShareInputRequestTypeDef,
-    _OptionalDeletePortfolioShareInputRequestTypeDef,
-):
-    pass
-
-DeletePortfolioShareOutputTypeDef = TypedDict(
-    "DeletePortfolioShareOutputTypeDef",
-    {
-        "PortfolioShareToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDeleteProductInputRequestTypeDef = TypedDict(
-    "_RequiredDeleteProductInputRequestTypeDef",
-    {
-        "Id": str,
-    },
-)
-_OptionalDeleteProductInputRequestTypeDef = TypedDict(
-    "_OptionalDeleteProductInputRequestTypeDef",
-    {
-        "AcceptLanguage": str,
-    },
-    total=False,
-)
-
-class DeleteProductInputRequestTypeDef(
-    _RequiredDeleteProductInputRequestTypeDef, _OptionalDeleteProductInputRequestTypeDef
-):
-    pass
-
-_RequiredDeleteProvisionedProductPlanInputRequestTypeDef = TypedDict(
-    "_RequiredDeleteProvisionedProductPlanInputRequestTypeDef",
-    {
-        "PlanId": str,
-    },
-)
-_OptionalDeleteProvisionedProductPlanInputRequestTypeDef = TypedDict(
-    "_OptionalDeleteProvisionedProductPlanInputRequestTypeDef",
-    {
-        "AcceptLanguage": str,
-        "IgnoreErrors": bool,
-    },
-    total=False,
-)
-
-class DeleteProvisionedProductPlanInputRequestTypeDef(
-    _RequiredDeleteProvisionedProductPlanInputRequestTypeDef,
-    _OptionalDeleteProvisionedProductPlanInputRequestTypeDef,
-):
-    pass
-
-_RequiredDeleteProvisioningArtifactInputRequestTypeDef = TypedDict(
-    "_RequiredDeleteProvisioningArtifactInputRequestTypeDef",
-    {
-        "ProductId": str,
-        "ProvisioningArtifactId": str,
-    },
-)
-_OptionalDeleteProvisioningArtifactInputRequestTypeDef = TypedDict(
-    "_OptionalDeleteProvisioningArtifactInputRequestTypeDef",
-    {
-        "AcceptLanguage": str,
-    },
-    total=False,
-)
-
-class DeleteProvisioningArtifactInputRequestTypeDef(
-    _RequiredDeleteProvisioningArtifactInputRequestTypeDef,
-    _OptionalDeleteProvisioningArtifactInputRequestTypeDef,
-):
-    pass
-
-_RequiredDeleteServiceActionInputRequestTypeDef = TypedDict(
-    "_RequiredDeleteServiceActionInputRequestTypeDef",
-    {
-        "Id": str,
-    },
-)
-_OptionalDeleteServiceActionInputRequestTypeDef = TypedDict(
-    "_OptionalDeleteServiceActionInputRequestTypeDef",
-    {
-        "AcceptLanguage": str,
-        "IdempotencyToken": str,
-    },
-    total=False,
-)
-
-class DeleteServiceActionInputRequestTypeDef(
-    _RequiredDeleteServiceActionInputRequestTypeDef, _OptionalDeleteServiceActionInputRequestTypeDef
-):
-    pass
-
-DeleteTagOptionInputRequestTypeDef = TypedDict(
-    "DeleteTagOptionInputRequestTypeDef",
-    {
-        "Id": str,
-    },
-)
-
-_RequiredDescribeConstraintInputRequestTypeDef = TypedDict(
-    "_RequiredDescribeConstraintInputRequestTypeDef",
-    {
-        "Id": str,
-    },
-)
-_OptionalDescribeConstraintInputRequestTypeDef = TypedDict(
-    "_OptionalDescribeConstraintInputRequestTypeDef",
-    {
-        "AcceptLanguage": str,
-    },
-    total=False,
-)
-
-class DescribeConstraintInputRequestTypeDef(
-    _RequiredDescribeConstraintInputRequestTypeDef, _OptionalDescribeConstraintInputRequestTypeDef
-):
-    pass
-
-DescribeConstraintOutputTypeDef = TypedDict(
-    "DescribeConstraintOutputTypeDef",
-    {
-        "ConstraintDetail": "ConstraintDetailTypeDef",
-        "ConstraintParameters": str,
-        "Status": StatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribeCopyProductStatusInputRequestTypeDef = TypedDict(
-    "_RequiredDescribeCopyProductStatusInputRequestTypeDef",
-    {
-        "CopyProductToken": str,
-    },
-)
-_OptionalDescribeCopyProductStatusInputRequestTypeDef = TypedDict(
-    "_OptionalDescribeCopyProductStatusInputRequestTypeDef",
-    {
-        "AcceptLanguage": str,
-    },
-    total=False,
-)
-
-class DescribeCopyProductStatusInputRequestTypeDef(
-    _RequiredDescribeCopyProductStatusInputRequestTypeDef,
-    _OptionalDescribeCopyProductStatusInputRequestTypeDef,
-):
-    pass
-
-DescribeCopyProductStatusOutputTypeDef = TypedDict(
-    "DescribeCopyProductStatusOutputTypeDef",
-    {
-        "CopyProductStatus": CopyProductStatusType,
-        "TargetProductId": str,
-        "StatusDetail": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribePortfolioInputRequestTypeDef = TypedDict(
-    "_RequiredDescribePortfolioInputRequestTypeDef",
-    {
-        "Id": str,
-    },
-)
-_OptionalDescribePortfolioInputRequestTypeDef = TypedDict(
-    "_OptionalDescribePortfolioInputRequestTypeDef",
-    {
-        "AcceptLanguage": str,
-    },
-    total=False,
-)
-
-class DescribePortfolioInputRequestTypeDef(
-    _RequiredDescribePortfolioInputRequestTypeDef, _OptionalDescribePortfolioInputRequestTypeDef
-):
-    pass
-
-DescribePortfolioOutputTypeDef = TypedDict(
-    "DescribePortfolioOutputTypeDef",
-    {
-        "PortfolioDetail": "PortfolioDetailTypeDef",
-        "Tags": List["TagTypeDef"],
-        "TagOptions": List["TagOptionDetailTypeDef"],
-        "Budgets": List["BudgetDetailTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribePortfolioShareStatusInputRequestTypeDef = TypedDict(
-    "DescribePortfolioShareStatusInputRequestTypeDef",
-    {
-        "PortfolioShareToken": str,
-    },
-)
-
-DescribePortfolioShareStatusOutputTypeDef = TypedDict(
-    "DescribePortfolioShareStatusOutputTypeDef",
-    {
-        "PortfolioShareToken": str,
-        "PortfolioId": str,
-        "OrganizationNodeValue": str,
-        "Status": ShareStatusType,
-        "ShareDetails": "ShareDetailsTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribePortfolioSharesInputRequestTypeDef = TypedDict(
-    "_RequiredDescribePortfolioSharesInputRequestTypeDef",
-    {
-        "PortfolioId": str,
-        "Type": DescribePortfolioShareTypeType,
-    },
-)
-_OptionalDescribePortfolioSharesInputRequestTypeDef = TypedDict(
-    "_OptionalDescribePortfolioSharesInputRequestTypeDef",
-    {
-        "PageToken": str,
-        "PageSize": int,
-    },
-    total=False,
-)
-
-class DescribePortfolioSharesInputRequestTypeDef(
-    _RequiredDescribePortfolioSharesInputRequestTypeDef,
-    _OptionalDescribePortfolioSharesInputRequestTypeDef,
-):
-    pass
-
-DescribePortfolioSharesOutputTypeDef = TypedDict(
-    "DescribePortfolioSharesOutputTypeDef",
-    {
-        "NextPageToken": str,
-        "PortfolioShareDetails": List["PortfolioShareDetailTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeProductAsAdminInputRequestTypeDef = TypedDict(
-    "DescribeProductAsAdminInputRequestTypeDef",
-    {
-        "AcceptLanguage": str,
-        "Id": str,
-        "Name": str,
-        "SourcePortfolioId": str,
-    },
-    total=False,
-)
-
-DescribeProductAsAdminOutputTypeDef = TypedDict(
-    "DescribeProductAsAdminOutputTypeDef",
-    {
-        "ProductViewDetail": "ProductViewDetailTypeDef",
-        "ProvisioningArtifactSummaries": List["ProvisioningArtifactSummaryTypeDef"],
-        "Tags": List["TagTypeDef"],
-        "TagOptions": List["TagOptionDetailTypeDef"],
-        "Budgets": List["BudgetDetailTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeProductInputRequestTypeDef = TypedDict(
-    "DescribeProductInputRequestTypeDef",
-    {
-        "AcceptLanguage": str,
-        "Id": str,
-        "Name": str,
-    },
-    total=False,
-)
-
-DescribeProductOutputTypeDef = TypedDict(
-    "DescribeProductOutputTypeDef",
-    {
-        "ProductViewSummary": "ProductViewSummaryTypeDef",
-        "ProvisioningArtifacts": List["ProvisioningArtifactTypeDef"],
-        "Budgets": List["BudgetDetailTypeDef"],
-        "LaunchPaths": List["LaunchPathTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribeProductViewInputRequestTypeDef = TypedDict(
-    "_RequiredDescribeProductViewInputRequestTypeDef",
-    {
-        "Id": str,
-    },
-)
-_OptionalDescribeProductViewInputRequestTypeDef = TypedDict(
-    "_OptionalDescribeProductViewInputRequestTypeDef",
-    {
-        "AcceptLanguage": str,
-    },
-    total=False,
-)
-
-class DescribeProductViewInputRequestTypeDef(
-    _RequiredDescribeProductViewInputRequestTypeDef, _OptionalDescribeProductViewInputRequestTypeDef
-):
-    pass
-
-DescribeProductViewOutputTypeDef = TypedDict(
-    "DescribeProductViewOutputTypeDef",
-    {
-        "ProductViewSummary": "ProductViewSummaryTypeDef",
-        "ProvisioningArtifacts": List["ProvisioningArtifactTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeProvisionedProductInputRequestTypeDef = TypedDict(
-    "DescribeProvisionedProductInputRequestTypeDef",
-    {
-        "AcceptLanguage": str,
-        "Id": str,
-        "Name": str,
-    },
-    total=False,
-)
-
-DescribeProvisionedProductOutputTypeDef = TypedDict(
-    "DescribeProvisionedProductOutputTypeDef",
-    {
-        "ProvisionedProductDetail": "ProvisionedProductDetailTypeDef",
-        "CloudWatchDashboards": List["CloudWatchDashboardTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribeProvisionedProductPlanInputRequestTypeDef = TypedDict(
-    "_RequiredDescribeProvisionedProductPlanInputRequestTypeDef",
-    {
-        "PlanId": str,
-    },
-)
-_OptionalDescribeProvisionedProductPlanInputRequestTypeDef = TypedDict(
-    "_OptionalDescribeProvisionedProductPlanInputRequestTypeDef",
-    {
-        "AcceptLanguage": str,
-        "PageSize": int,
-        "PageToken": str,
-    },
-    total=False,
-)
-
-class DescribeProvisionedProductPlanInputRequestTypeDef(
-    _RequiredDescribeProvisionedProductPlanInputRequestTypeDef,
-    _OptionalDescribeProvisionedProductPlanInputRequestTypeDef,
-):
-    pass
-
-DescribeProvisionedProductPlanOutputTypeDef = TypedDict(
-    "DescribeProvisionedProductPlanOutputTypeDef",
-    {
-        "ProvisionedProductPlanDetails": "ProvisionedProductPlanDetailsTypeDef",
-        "ResourceChanges": List["ResourceChangeTypeDef"],
-        "NextPageToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeProvisioningArtifactInputRequestTypeDef = TypedDict(
-    "DescribeProvisioningArtifactInputRequestTypeDef",
-    {
-        "AcceptLanguage": str,
-        "ProvisioningArtifactId": str,
-        "ProductId": str,
-        "ProvisioningArtifactName": str,
-        "ProductName": str,
-        "Verbose": bool,
-        "IncludeProvisioningArtifactParameters": bool,
-    },
-    total=False,
-)
-
-DescribeProvisioningArtifactOutputTypeDef = TypedDict(
-    "DescribeProvisioningArtifactOutputTypeDef",
-    {
-        "ProvisioningArtifactDetail": "ProvisioningArtifactDetailTypeDef",
-        "Info": Dict[str, str],
-        "Status": StatusType,
-        "ProvisioningArtifactParameters": List["ProvisioningArtifactParameterTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeProvisioningParametersInputRequestTypeDef = TypedDict(
-    "DescribeProvisioningParametersInputRequestTypeDef",
-    {
-        "AcceptLanguage": str,
-        "ProductId": str,
-        "ProductName": str,
-        "ProvisioningArtifactId": str,
-        "ProvisioningArtifactName": str,
-        "PathId": str,
-        "PathName": str,
-    },
-    total=False,
-)
-
-DescribeProvisioningParametersOutputTypeDef = TypedDict(
-    "DescribeProvisioningParametersOutputTypeDef",
-    {
-        "ProvisioningArtifactParameters": List["ProvisioningArtifactParameterTypeDef"],
-        "ConstraintSummaries": List["ConstraintSummaryTypeDef"],
-        "UsageInstructions": List["UsageInstructionTypeDef"],
-        "TagOptions": List["TagOptionSummaryTypeDef"],
-        "ProvisioningArtifactPreferences": "ProvisioningArtifactPreferencesTypeDef",
-        "ProvisioningArtifactOutputs": List["ProvisioningArtifactOutputTypeDef"],
-        "ProvisioningArtifactOutputKeys": List["ProvisioningArtifactOutputTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribeRecordInputRequestTypeDef = TypedDict(
-    "_RequiredDescribeRecordInputRequestTypeDef",
-    {
-        "Id": str,
-    },
-)
-_OptionalDescribeRecordInputRequestTypeDef = TypedDict(
-    "_OptionalDescribeRecordInputRequestTypeDef",
-    {
-        "AcceptLanguage": str,
-        "PageToken": str,
-        "PageSize": int,
-    },
-    total=False,
-)
-
-class DescribeRecordInputRequestTypeDef(
-    _RequiredDescribeRecordInputRequestTypeDef, _OptionalDescribeRecordInputRequestTypeDef
-):
-    pass
-
-DescribeRecordOutputTypeDef = TypedDict(
-    "DescribeRecordOutputTypeDef",
-    {
-        "RecordDetail": "RecordDetailTypeDef",
-        "RecordOutputs": List["RecordOutputTypeDef"],
-        "NextPageToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribeServiceActionExecutionParametersInputRequestTypeDef = TypedDict(
-    "_RequiredDescribeServiceActionExecutionParametersInputRequestTypeDef",
-    {
-        "ProvisionedProductId": str,
-        "ServiceActionId": str,
-    },
-)
-_OptionalDescribeServiceActionExecutionParametersInputRequestTypeDef = TypedDict(
-    "_OptionalDescribeServiceActionExecutionParametersInputRequestTypeDef",
-    {
-        "AcceptLanguage": str,
-    },
-    total=False,
-)
-
-class DescribeServiceActionExecutionParametersInputRequestTypeDef(
-    _RequiredDescribeServiceActionExecutionParametersInputRequestTypeDef,
-    _OptionalDescribeServiceActionExecutionParametersInputRequestTypeDef,
-):
-    pass
-
-DescribeServiceActionExecutionParametersOutputTypeDef = TypedDict(
-    "DescribeServiceActionExecutionParametersOutputTypeDef",
-    {
-        "ServiceActionParameters": List["ExecutionParameterTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribeServiceActionInputRequestTypeDef = TypedDict(
-    "_RequiredDescribeServiceActionInputRequestTypeDef",
-    {
-        "Id": str,
-    },
-)
-_OptionalDescribeServiceActionInputRequestTypeDef = TypedDict(
-    "_OptionalDescribeServiceActionInputRequestTypeDef",
-    {
-        "AcceptLanguage": str,
-    },
-    total=False,
-)
-
-class DescribeServiceActionInputRequestTypeDef(
-    _RequiredDescribeServiceActionInputRequestTypeDef,
-    _OptionalDescribeServiceActionInputRequestTypeDef,
-):
-    pass
-
-DescribeServiceActionOutputTypeDef = TypedDict(
-    "DescribeServiceActionOutputTypeDef",
-    {
-        "ServiceActionDetail": "ServiceActionDetailTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeTagOptionInputRequestTypeDef = TypedDict(
-    "DescribeTagOptionInputRequestTypeDef",
-    {
-        "Id": str,
-    },
-)
-
-DescribeTagOptionOutputTypeDef = TypedDict(
-    "DescribeTagOptionOutputTypeDef",
-    {
-        "TagOptionDetail": "TagOptionDetailTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DisassociateBudgetFromResourceInputRequestTypeDef = TypedDict(
-    "DisassociateBudgetFromResourceInputRequestTypeDef",
-    {
-        "BudgetName": str,
-        "ResourceId": str,
-    },
-)
 
-_RequiredDisassociatePrincipalFromPortfolioInputRequestTypeDef = TypedDict(
-    "_RequiredDisassociatePrincipalFromPortfolioInputRequestTypeDef",
-    {
-        "PortfolioId": str,
-        "PrincipalARN": str,
-    },
-)
-_OptionalDisassociatePrincipalFromPortfolioInputRequestTypeDef = TypedDict(
-    "_OptionalDisassociatePrincipalFromPortfolioInputRequestTypeDef",
-    {
-        "AcceptLanguage": str,
-        "PrincipalType": PrincipalTypeType,
-    },
-    total=False,
-)
-
-class DisassociatePrincipalFromPortfolioInputRequestTypeDef(
-    _RequiredDisassociatePrincipalFromPortfolioInputRequestTypeDef,
-    _OptionalDisassociatePrincipalFromPortfolioInputRequestTypeDef,
-):
-    pass
-
-_RequiredDisassociateProductFromPortfolioInputRequestTypeDef = TypedDict(
-    "_RequiredDisassociateProductFromPortfolioInputRequestTypeDef",
-    {
-        "ProductId": str,
-        "PortfolioId": str,
-    },
-)
-_OptionalDisassociateProductFromPortfolioInputRequestTypeDef = TypedDict(
-    "_OptionalDisassociateProductFromPortfolioInputRequestTypeDef",
-    {
-        "AcceptLanguage": str,
-    },
-    total=False,
-)
-
-class DisassociateProductFromPortfolioInputRequestTypeDef(
-    _RequiredDisassociateProductFromPortfolioInputRequestTypeDef,
-    _OptionalDisassociateProductFromPortfolioInputRequestTypeDef,
-):
-    pass
-
-_RequiredDisassociateServiceActionFromProvisioningArtifactInputRequestTypeDef = TypedDict(
-    "_RequiredDisassociateServiceActionFromProvisioningArtifactInputRequestTypeDef",
-    {
-        "ProductId": str,
-        "ProvisioningArtifactId": str,
-        "ServiceActionId": str,
-    },
-)
-_OptionalDisassociateServiceActionFromProvisioningArtifactInputRequestTypeDef = TypedDict(
-    "_OptionalDisassociateServiceActionFromProvisioningArtifactInputRequestTypeDef",
-    {
-        "AcceptLanguage": str,
-        "IdempotencyToken": str,
-    },
-    total=False,
-)
-
-class DisassociateServiceActionFromProvisioningArtifactInputRequestTypeDef(
-    _RequiredDisassociateServiceActionFromProvisioningArtifactInputRequestTypeDef,
-    _OptionalDisassociateServiceActionFromProvisioningArtifactInputRequestTypeDef,
-):
-    pass
-
-DisassociateTagOptionFromResourceInputRequestTypeDef = TypedDict(
-    "DisassociateTagOptionFromResourceInputRequestTypeDef",
-    {
-        "ResourceId": str,
-        "TagOptionId": str,
-    },
-)
-
-EngineWorkflowResourceIdentifierTypeDef = TypedDict(
-    "EngineWorkflowResourceIdentifierTypeDef",
-    {
-        "UniqueTag": "UniqueTagResourceIdentifierTypeDef",
-    },
-    total=False,
-)
-
-_RequiredExecuteProvisionedProductPlanInputRequestTypeDef = TypedDict(
-    "_RequiredExecuteProvisionedProductPlanInputRequestTypeDef",
-    {
-        "PlanId": str,
-        "IdempotencyToken": str,
-    },
-)
-_OptionalExecuteProvisionedProductPlanInputRequestTypeDef = TypedDict(
-    "_OptionalExecuteProvisionedProductPlanInputRequestTypeDef",
-    {
-        "AcceptLanguage": str,
-    },
-    total=False,
-)
-
-class ExecuteProvisionedProductPlanInputRequestTypeDef(
-    _RequiredExecuteProvisionedProductPlanInputRequestTypeDef,
-    _OptionalExecuteProvisionedProductPlanInputRequestTypeDef,
-):
-    pass
-
-ExecuteProvisionedProductPlanOutputTypeDef = TypedDict(
-    "ExecuteProvisionedProductPlanOutputTypeDef",
-    {
-        "RecordDetail": "RecordDetailTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredExecuteProvisionedProductServiceActionInputRequestTypeDef = TypedDict(
-    "_RequiredExecuteProvisionedProductServiceActionInputRequestTypeDef",
-    {
-        "ProvisionedProductId": str,
-        "ServiceActionId": str,
-        "ExecuteToken": str,
-    },
-)
-_OptionalExecuteProvisionedProductServiceActionInputRequestTypeDef = TypedDict(
-    "_OptionalExecuteProvisionedProductServiceActionInputRequestTypeDef",
-    {
-        "AcceptLanguage": str,
-        "Parameters": Dict[str, List[str]],
-    },
-    total=False,
-)
-
-class ExecuteProvisionedProductServiceActionInputRequestTypeDef(
-    _RequiredExecuteProvisionedProductServiceActionInputRequestTypeDef,
-    _OptionalExecuteProvisionedProductServiceActionInputRequestTypeDef,
-):
-    pass
-
-ExecuteProvisionedProductServiceActionOutputTypeDef = TypedDict(
-    "ExecuteProvisionedProductServiceActionOutputTypeDef",
-    {
-        "RecordDetail": "RecordDetailTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ExecutionParameterTypeDef = TypedDict(
-    "ExecutionParameterTypeDef",
-    {
-        "Name": str,
-        "Type": str,
-        "DefaultValues": List[str],
-    },
-    total=False,
-)
-
-FailedServiceActionAssociationTypeDef = TypedDict(
-    "FailedServiceActionAssociationTypeDef",
-    {
-        "ServiceActionId": str,
-        "ProductId": str,
-        "ProvisioningArtifactId": str,
-        "ErrorCode": ServiceActionAssociationErrorCodeType,
-        "ErrorMessage": str,
-    },
-    total=False,
-)
-
-GetAWSOrganizationsAccessStatusOutputTypeDef = TypedDict(
-    "GetAWSOrganizationsAccessStatusOutputTypeDef",
-    {
-        "AccessStatus": AccessStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetProvisionedProductOutputsInputRequestTypeDef = TypedDict(
-    "GetProvisionedProductOutputsInputRequestTypeDef",
-    {
-        "AcceptLanguage": str,
-        "ProvisionedProductId": str,
-        "ProvisionedProductName": str,
-        "OutputKeys": List[str],
-        "PageSize": int,
-        "PageToken": str,
-    },
-    total=False,
-)
-
-GetProvisionedProductOutputsOutputTypeDef = TypedDict(
-    "GetProvisionedProductOutputsOutputTypeDef",
-    {
-        "Outputs": List["RecordOutputTypeDef"],
-        "NextPageToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredImportAsProvisionedProductInputRequestTypeDef = TypedDict(
-    "_RequiredImportAsProvisionedProductInputRequestTypeDef",
-    {
-        "ProductId": str,
-        "ProvisioningArtifactId": str,
-        "ProvisionedProductName": str,
-        "PhysicalId": str,
-        "IdempotencyToken": str,
-    },
-)
-_OptionalImportAsProvisionedProductInputRequestTypeDef = TypedDict(
-    "_OptionalImportAsProvisionedProductInputRequestTypeDef",
-    {
-        "AcceptLanguage": str,
-    },
-    total=False,
-)
-
-class ImportAsProvisionedProductInputRequestTypeDef(
-    _RequiredImportAsProvisionedProductInputRequestTypeDef,
-    _OptionalImportAsProvisionedProductInputRequestTypeDef,
-):
-    pass
-
-ImportAsProvisionedProductOutputTypeDef = TypedDict(
-    "ImportAsProvisionedProductOutputTypeDef",
-    {
-        "RecordDetail": "RecordDetailTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-LastSyncTypeDef = TypedDict(
-    "LastSyncTypeDef",
-    {
-        "LastSyncTime": datetime,
-        "LastSyncStatus": LastSyncStatusType,
-        "LastSyncStatusMessage": str,
-        "LastSuccessfulSyncTime": datetime,
-        "LastSuccessfulSyncProvisioningArtifactId": str,
-    },
-    total=False,
-)
-
-LaunchPathSummaryTypeDef = TypedDict(
-    "LaunchPathSummaryTypeDef",
-    {
-        "Id": str,
-        "ConstraintSummaries": List["ConstraintSummaryTypeDef"],
-        "Tags": List["TagTypeDef"],
-        "Name": str,
-    },
-    total=False,
-)
-
-LaunchPathTypeDef = TypedDict(
-    "LaunchPathTypeDef",
-    {
-        "Id": str,
-        "Name": str,
-    },
-    total=False,
-)
-
-ListAcceptedPortfolioSharesInputRequestTypeDef = TypedDict(
-    "ListAcceptedPortfolioSharesInputRequestTypeDef",
-    {
-        "AcceptLanguage": str,
-        "PageToken": str,
-        "PageSize": int,
-        "PortfolioShareType": PortfolioShareTypeType,
-    },
-    total=False,
-)
-
-ListAcceptedPortfolioSharesOutputTypeDef = TypedDict(
-    "ListAcceptedPortfolioSharesOutputTypeDef",
-    {
-        "PortfolioDetails": List["PortfolioDetailTypeDef"],
-        "NextPageToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListBudgetsForResourceInputRequestTypeDef = TypedDict(
-    "_RequiredListBudgetsForResourceInputRequestTypeDef",
-    {
-        "ResourceId": str,
-    },
-)
-_OptionalListBudgetsForResourceInputRequestTypeDef = TypedDict(
-    "_OptionalListBudgetsForResourceInputRequestTypeDef",
-    {
-        "AcceptLanguage": str,
-        "PageSize": int,
-        "PageToken": str,
-    },
-    total=False,
-)
-
-class ListBudgetsForResourceInputRequestTypeDef(
-    _RequiredListBudgetsForResourceInputRequestTypeDef,
-    _OptionalListBudgetsForResourceInputRequestTypeDef,
-):
-    pass
-
-ListBudgetsForResourceOutputTypeDef = TypedDict(
-    "ListBudgetsForResourceOutputTypeDef",
-    {
-        "Budgets": List["BudgetDetailTypeDef"],
-        "NextPageToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListConstraintsForPortfolioInputRequestTypeDef = TypedDict(
-    "_RequiredListConstraintsForPortfolioInputRequestTypeDef",
-    {
-        "PortfolioId": str,
-    },
-)
-_OptionalListConstraintsForPortfolioInputRequestTypeDef = TypedDict(
-    "_OptionalListConstraintsForPortfolioInputRequestTypeDef",
-    {
-        "AcceptLanguage": str,
-        "ProductId": str,
-        "PageSize": int,
-        "PageToken": str,
-    },
-    total=False,
-)
-
-class ListConstraintsForPortfolioInputRequestTypeDef(
-    _RequiredListConstraintsForPortfolioInputRequestTypeDef,
-    _OptionalListConstraintsForPortfolioInputRequestTypeDef,
-):
-    pass
-
-ListConstraintsForPortfolioOutputTypeDef = TypedDict(
-    "ListConstraintsForPortfolioOutputTypeDef",
-    {
-        "ConstraintDetails": List["ConstraintDetailTypeDef"],
-        "NextPageToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListLaunchPathsInputRequestTypeDef = TypedDict(
-    "_RequiredListLaunchPathsInputRequestTypeDef",
-    {
-        "ProductId": str,
-    },
-)
-_OptionalListLaunchPathsInputRequestTypeDef = TypedDict(
-    "_OptionalListLaunchPathsInputRequestTypeDef",
-    {
-        "AcceptLanguage": str,
-        "PageSize": int,
-        "PageToken": str,
-    },
-    total=False,
-)
-
-class ListLaunchPathsInputRequestTypeDef(
-    _RequiredListLaunchPathsInputRequestTypeDef, _OptionalListLaunchPathsInputRequestTypeDef
-):
-    pass
-
-ListLaunchPathsOutputTypeDef = TypedDict(
-    "ListLaunchPathsOutputTypeDef",
-    {
-        "LaunchPathSummaries": List["LaunchPathSummaryTypeDef"],
-        "NextPageToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListOrganizationPortfolioAccessInputRequestTypeDef = TypedDict(
-    "_RequiredListOrganizationPortfolioAccessInputRequestTypeDef",
-    {
-        "PortfolioId": str,
-        "OrganizationNodeType": OrganizationNodeTypeType,
-    },
-)
-_OptionalListOrganizationPortfolioAccessInputRequestTypeDef = TypedDict(
-    "_OptionalListOrganizationPortfolioAccessInputRequestTypeDef",
-    {
-        "AcceptLanguage": str,
-        "PageToken": str,
-        "PageSize": int,
-    },
-    total=False,
-)
-
-class ListOrganizationPortfolioAccessInputRequestTypeDef(
-    _RequiredListOrganizationPortfolioAccessInputRequestTypeDef,
-    _OptionalListOrganizationPortfolioAccessInputRequestTypeDef,
-):
-    pass
-
-ListOrganizationPortfolioAccessOutputTypeDef = TypedDict(
-    "ListOrganizationPortfolioAccessOutputTypeDef",
-    {
-        "OrganizationNodes": List["OrganizationNodeTypeDef"],
-        "NextPageToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListPortfolioAccessInputRequestTypeDef = TypedDict(
-    "_RequiredListPortfolioAccessInputRequestTypeDef",
-    {
-        "PortfolioId": str,
-    },
-)
-_OptionalListPortfolioAccessInputRequestTypeDef = TypedDict(
-    "_OptionalListPortfolioAccessInputRequestTypeDef",
-    {
-        "AcceptLanguage": str,
-        "OrganizationParentId": str,
-        "PageToken": str,
-        "PageSize": int,
-    },
-    total=False,
-)
-
-class ListPortfolioAccessInputRequestTypeDef(
-    _RequiredListPortfolioAccessInputRequestTypeDef, _OptionalListPortfolioAccessInputRequestTypeDef
-):
-    pass
-
-ListPortfolioAccessOutputTypeDef = TypedDict(
-    "ListPortfolioAccessOutputTypeDef",
-    {
-        "AccountIds": List[str],
-        "NextPageToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListPortfoliosForProductInputRequestTypeDef = TypedDict(
-    "_RequiredListPortfoliosForProductInputRequestTypeDef",
-    {
-        "ProductId": str,
-    },
-)
-_OptionalListPortfoliosForProductInputRequestTypeDef = TypedDict(
-    "_OptionalListPortfoliosForProductInputRequestTypeDef",
-    {
-        "AcceptLanguage": str,
-        "PageToken": str,
-        "PageSize": int,
-    },
-    total=False,
-)
-
-class ListPortfoliosForProductInputRequestTypeDef(
-    _RequiredListPortfoliosForProductInputRequestTypeDef,
-    _OptionalListPortfoliosForProductInputRequestTypeDef,
-):
-    pass
-
-ListPortfoliosForProductOutputTypeDef = TypedDict(
-    "ListPortfoliosForProductOutputTypeDef",
-    {
-        "PortfolioDetails": List["PortfolioDetailTypeDef"],
-        "NextPageToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListPortfoliosInputRequestTypeDef = TypedDict(
-    "ListPortfoliosInputRequestTypeDef",
-    {
-        "AcceptLanguage": str,
-        "PageToken": str,
-        "PageSize": int,
-    },
-    total=False,
-)
-
-ListPortfoliosOutputTypeDef = TypedDict(
-    "ListPortfoliosOutputTypeDef",
-    {
-        "PortfolioDetails": List["PortfolioDetailTypeDef"],
-        "NextPageToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListPrincipalsForPortfolioInputRequestTypeDef = TypedDict(
-    "_RequiredListPrincipalsForPortfolioInputRequestTypeDef",
-    {
-        "PortfolioId": str,
-    },
-)
-_OptionalListPrincipalsForPortfolioInputRequestTypeDef = TypedDict(
-    "_OptionalListPrincipalsForPortfolioInputRequestTypeDef",
-    {
-        "AcceptLanguage": str,
-        "PageSize": int,
-        "PageToken": str,
-    },
-    total=False,
-)
-
-class ListPrincipalsForPortfolioInputRequestTypeDef(
-    _RequiredListPrincipalsForPortfolioInputRequestTypeDef,
-    _OptionalListPrincipalsForPortfolioInputRequestTypeDef,
-):
-    pass
-
-ListPrincipalsForPortfolioOutputTypeDef = TypedDict(
-    "ListPrincipalsForPortfolioOutputTypeDef",
-    {
-        "Principals": List["PrincipalTypeDef"],
-        "NextPageToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListProvisionedProductPlansInputRequestTypeDef = TypedDict(
-    "ListProvisionedProductPlansInputRequestTypeDef",
-    {
-        "AcceptLanguage": str,
-        "ProvisionProductId": str,
-        "PageSize": int,
-        "PageToken": str,
-        "AccessLevelFilter": "AccessLevelFilterTypeDef",
-    },
-    total=False,
-)
-
-ListProvisionedProductPlansOutputTypeDef = TypedDict(
-    "ListProvisionedProductPlansOutputTypeDef",
-    {
-        "ProvisionedProductPlans": List["ProvisionedProductPlanSummaryTypeDef"],
-        "NextPageToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListProvisioningArtifactsForServiceActionInputRequestTypeDef = TypedDict(
-    "_RequiredListProvisioningArtifactsForServiceActionInputRequestTypeDef",
-    {
-        "ServiceActionId": str,
-    },
-)
-_OptionalListProvisioningArtifactsForServiceActionInputRequestTypeDef = TypedDict(
-    "_OptionalListProvisioningArtifactsForServiceActionInputRequestTypeDef",
-    {
-        "PageSize": int,
-        "PageToken": str,
-        "AcceptLanguage": str,
-    },
-    total=False,
-)
-
-class ListProvisioningArtifactsForServiceActionInputRequestTypeDef(
-    _RequiredListProvisioningArtifactsForServiceActionInputRequestTypeDef,
-    _OptionalListProvisioningArtifactsForServiceActionInputRequestTypeDef,
-):
-    pass
-
-ListProvisioningArtifactsForServiceActionOutputTypeDef = TypedDict(
-    "ListProvisioningArtifactsForServiceActionOutputTypeDef",
-    {
-        "ProvisioningArtifactViews": List["ProvisioningArtifactViewTypeDef"],
-        "NextPageToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListProvisioningArtifactsInputRequestTypeDef = TypedDict(
-    "_RequiredListProvisioningArtifactsInputRequestTypeDef",
-    {
-        "ProductId": str,
-    },
-)
-_OptionalListProvisioningArtifactsInputRequestTypeDef = TypedDict(
-    "_OptionalListProvisioningArtifactsInputRequestTypeDef",
-    {
-        "AcceptLanguage": str,
-    },
-    total=False,
-)
-
-class ListProvisioningArtifactsInputRequestTypeDef(
-    _RequiredListProvisioningArtifactsInputRequestTypeDef,
-    _OptionalListProvisioningArtifactsInputRequestTypeDef,
-):
-    pass
-
-ListProvisioningArtifactsOutputTypeDef = TypedDict(
-    "ListProvisioningArtifactsOutputTypeDef",
-    {
-        "ProvisioningArtifactDetails": List["ProvisioningArtifactDetailTypeDef"],
-        "NextPageToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListRecordHistoryInputRequestTypeDef = TypedDict(
-    "ListRecordHistoryInputRequestTypeDef",
-    {
-        "AcceptLanguage": str,
-        "AccessLevelFilter": "AccessLevelFilterTypeDef",
-        "SearchFilter": "ListRecordHistorySearchFilterTypeDef",
-        "PageSize": int,
-        "PageToken": str,
-    },
-    total=False,
-)
-
-ListRecordHistoryOutputTypeDef = TypedDict(
-    "ListRecordHistoryOutputTypeDef",
-    {
-        "RecordDetails": List["RecordDetailTypeDef"],
-        "NextPageToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListRecordHistorySearchFilterTypeDef = TypedDict(
-    "ListRecordHistorySearchFilterTypeDef",
-    {
-        "Key": str,
-        "Value": str,
-    },
-    total=False,
-)
-
-_RequiredListResourcesForTagOptionInputRequestTypeDef = TypedDict(
-    "_RequiredListResourcesForTagOptionInputRequestTypeDef",
-    {
-        "TagOptionId": str,
-    },
-)
-_OptionalListResourcesForTagOptionInputRequestTypeDef = TypedDict(
-    "_OptionalListResourcesForTagOptionInputRequestTypeDef",
-    {
-        "ResourceType": str,
-        "PageSize": int,
-        "PageToken": str,
-    },
-    total=False,
-)
-
-class ListResourcesForTagOptionInputRequestTypeDef(
-    _RequiredListResourcesForTagOptionInputRequestTypeDef,
-    _OptionalListResourcesForTagOptionInputRequestTypeDef,
-):
-    pass
-
-ListResourcesForTagOptionOutputTypeDef = TypedDict(
-    "ListResourcesForTagOptionOutputTypeDef",
-    {
-        "ResourceDetails": List["ResourceDetailTypeDef"],
-        "PageToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListServiceActionsForProvisioningArtifactInputRequestTypeDef = TypedDict(
-    "_RequiredListServiceActionsForProvisioningArtifactInputRequestTypeDef",
-    {
-        "ProductId": str,
-        "ProvisioningArtifactId": str,
-    },
-)
-_OptionalListServiceActionsForProvisioningArtifactInputRequestTypeDef = TypedDict(
-    "_OptionalListServiceActionsForProvisioningArtifactInputRequestTypeDef",
-    {
-        "PageSize": int,
-        "PageToken": str,
-        "AcceptLanguage": str,
-    },
-    total=False,
-)
-
-class ListServiceActionsForProvisioningArtifactInputRequestTypeDef(
-    _RequiredListServiceActionsForProvisioningArtifactInputRequestTypeDef,
-    _OptionalListServiceActionsForProvisioningArtifactInputRequestTypeDef,
-):
-    pass
-
-ListServiceActionsForProvisioningArtifactOutputTypeDef = TypedDict(
-    "ListServiceActionsForProvisioningArtifactOutputTypeDef",
-    {
-        "ServiceActionSummaries": List["ServiceActionSummaryTypeDef"],
-        "NextPageToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListServiceActionsInputRequestTypeDef = TypedDict(
-    "ListServiceActionsInputRequestTypeDef",
-    {
-        "AcceptLanguage": str,
-        "PageSize": int,
-        "PageToken": str,
-    },
-    total=False,
-)
-
-ListServiceActionsOutputTypeDef = TypedDict(
-    "ListServiceActionsOutputTypeDef",
-    {
-        "ServiceActionSummaries": List["ServiceActionSummaryTypeDef"],
-        "NextPageToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListStackInstancesForProvisionedProductInputRequestTypeDef = TypedDict(
-    "_RequiredListStackInstancesForProvisionedProductInputRequestTypeDef",
-    {
-        "ProvisionedProductId": str,
-    },
-)
-_OptionalListStackInstancesForProvisionedProductInputRequestTypeDef = TypedDict(
-    "_OptionalListStackInstancesForProvisionedProductInputRequestTypeDef",
-    {
-        "AcceptLanguage": str,
-        "PageToken": str,
-        "PageSize": int,
-    },
-    total=False,
-)
-
-class ListStackInstancesForProvisionedProductInputRequestTypeDef(
-    _RequiredListStackInstancesForProvisionedProductInputRequestTypeDef,
-    _OptionalListStackInstancesForProvisionedProductInputRequestTypeDef,
-):
-    pass
-
-ListStackInstancesForProvisionedProductOutputTypeDef = TypedDict(
-    "ListStackInstancesForProvisionedProductOutputTypeDef",
-    {
-        "StackInstances": List["StackInstanceTypeDef"],
-        "NextPageToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTagOptionsFiltersTypeDef = TypedDict(
-    "ListTagOptionsFiltersTypeDef",
-    {
-        "Key": str,
-        "Value": str,
-        "Active": bool,
-    },
-    total=False,
-)
-
-ListTagOptionsInputRequestTypeDef = TypedDict(
-    "ListTagOptionsInputRequestTypeDef",
-    {
-        "Filters": "ListTagOptionsFiltersTypeDef",
-        "PageSize": int,
-        "PageToken": str,
-    },
-    total=False,
-)
-
-ListTagOptionsOutputTypeDef = TypedDict(
-    "ListTagOptionsOutputTypeDef",
-    {
-        "TagOptionDetails": List["TagOptionDetailTypeDef"],
-        "PageToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredNotifyProvisionProductEngineWorkflowResultInputRequestTypeDef = TypedDict(
-    "_RequiredNotifyProvisionProductEngineWorkflowResultInputRequestTypeDef",
-    {
-        "WorkflowToken": str,
-        "RecordId": str,
-        "Status": EngineWorkflowStatusType,
-        "IdempotencyToken": str,
-    },
-)
-_OptionalNotifyProvisionProductEngineWorkflowResultInputRequestTypeDef = TypedDict(
-    "_OptionalNotifyProvisionProductEngineWorkflowResultInputRequestTypeDef",
-    {
-        "FailureReason": str,
-        "ResourceIdentifier": "EngineWorkflowResourceIdentifierTypeDef",
-        "Outputs": List["RecordOutputTypeDef"],
-    },
-    total=False,
-)
-
-class NotifyProvisionProductEngineWorkflowResultInputRequestTypeDef(
-    _RequiredNotifyProvisionProductEngineWorkflowResultInputRequestTypeDef,
-    _OptionalNotifyProvisionProductEngineWorkflowResultInputRequestTypeDef,
-):
-    pass
-
-_RequiredNotifyTerminateProvisionedProductEngineWorkflowResultInputRequestTypeDef = TypedDict(
-    "_RequiredNotifyTerminateProvisionedProductEngineWorkflowResultInputRequestTypeDef",
-    {
-        "WorkflowToken": str,
-        "RecordId": str,
-        "Status": EngineWorkflowStatusType,
-        "IdempotencyToken": str,
-    },
-)
-_OptionalNotifyTerminateProvisionedProductEngineWorkflowResultInputRequestTypeDef = TypedDict(
-    "_OptionalNotifyTerminateProvisionedProductEngineWorkflowResultInputRequestTypeDef",
-    {
-        "FailureReason": str,
-    },
-    total=False,
-)
-
-class NotifyTerminateProvisionedProductEngineWorkflowResultInputRequestTypeDef(
-    _RequiredNotifyTerminateProvisionedProductEngineWorkflowResultInputRequestTypeDef,
-    _OptionalNotifyTerminateProvisionedProductEngineWorkflowResultInputRequestTypeDef,
-):
-    pass
-
-_RequiredNotifyUpdateProvisionedProductEngineWorkflowResultInputRequestTypeDef = TypedDict(
-    "_RequiredNotifyUpdateProvisionedProductEngineWorkflowResultInputRequestTypeDef",
-    {
-        "WorkflowToken": str,
-        "RecordId": str,
-        "Status": EngineWorkflowStatusType,
-        "IdempotencyToken": str,
-    },
-)
-_OptionalNotifyUpdateProvisionedProductEngineWorkflowResultInputRequestTypeDef = TypedDict(
-    "_OptionalNotifyUpdateProvisionedProductEngineWorkflowResultInputRequestTypeDef",
-    {
-        "FailureReason": str,
-        "Outputs": List["RecordOutputTypeDef"],
-    },
-    total=False,
-)
+class TagTypeDef(TypedDict):
+    Key: str
+    Value: str
 
-class NotifyUpdateProvisionedProductEngineWorkflowResultInputRequestTypeDef(
-    _RequiredNotifyUpdateProvisionedProductEngineWorkflowResultInputRequestTypeDef,
-    _OptionalNotifyUpdateProvisionedProductEngineWorkflowResultInputRequestTypeDef,
-):
-    pass
+class PortfolioDetailTypeDef(TypedDict):
+    Id: NotRequired[str]
+    ARN: NotRequired[str]
+    DisplayName: NotRequired[str]
+    Description: NotRequired[str]
+    CreatedTime: NotRequired[datetime]
+    ProviderName: NotRequired[str]
 
 OrganizationNodeTypeDef = TypedDict(
     "OrganizationNodeTypeDef",
     {
-        "Type": OrganizationNodeTypeType,
-        "Value": str,
+        "Type": NotRequired[OrganizationNodeTypeType],
+        "Value": NotRequired[str],
     },
-    total=False,
 )
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
+ProvisioningArtifactPropertiesTypeDef = TypedDict(
+    "ProvisioningArtifactPropertiesTypeDef",
     {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
+        "Name": NotRequired[str],
+        "Description": NotRequired[str],
+        "Info": NotRequired[Mapping[str, str]],
+        "Type": NotRequired[ProvisioningArtifactTypeType],
+        "DisableTemplateValidation": NotRequired[bool],
     },
-    total=False,
 )
-
-ParameterConstraintsTypeDef = TypedDict(
-    "ParameterConstraintsTypeDef",
+ProvisioningArtifactDetailTypeDef = TypedDict(
+    "ProvisioningArtifactDetailTypeDef",
     {
-        "AllowedValues": List[str],
-        "AllowedPattern": str,
-        "ConstraintDescription": str,
-        "MaxLength": str,
-        "MinLength": str,
-        "MaxValue": str,
-        "MinValue": str,
+        "Id": NotRequired[str],
+        "Name": NotRequired[str],
+        "Description": NotRequired[str],
+        "Type": NotRequired[ProvisioningArtifactTypeType],
+        "CreatedTime": NotRequired[datetime],
+        "Active": NotRequired[bool],
+        "Guidance": NotRequired[ProvisioningArtifactGuidanceType],
+        "SourceRevision": NotRequired[str],
     },
-    total=False,
 )
 
-PortfolioDetailTypeDef = TypedDict(
-    "PortfolioDetailTypeDef",
+class UpdateProvisioningParameterTypeDef(TypedDict):
+    Key: NotRequired[str]
+    Value: NotRequired[str]
+    UsePreviousValue: NotRequired[bool]
+
+class CreateServiceActionInputTypeDef(TypedDict):
+    Name: str
+    DefinitionType: Literal["SSM_AUTOMATION"]
+    Definition: Mapping[ServiceActionDefinitionKeyType, str]
+    IdempotencyToken: str
+    Description: NotRequired[str]
+    AcceptLanguage: NotRequired[str]
+
+class CreateTagOptionInputTypeDef(TypedDict):
+    Key: str
+    Value: str
+
+class TagOptionDetailTypeDef(TypedDict):
+    Key: NotRequired[str]
+    Value: NotRequired[str]
+    Active: NotRequired[bool]
+    Id: NotRequired[str]
+    Owner: NotRequired[str]
+
+class DeleteConstraintInputTypeDef(TypedDict):
+    Id: str
+    AcceptLanguage: NotRequired[str]
+
+class DeletePortfolioInputTypeDef(TypedDict):
+    Id: str
+    AcceptLanguage: NotRequired[str]
+
+class DeleteProductInputTypeDef(TypedDict):
+    Id: str
+    AcceptLanguage: NotRequired[str]
+
+class DeleteProvisionedProductPlanInputTypeDef(TypedDict):
+    PlanId: str
+    AcceptLanguage: NotRequired[str]
+    IgnoreErrors: NotRequired[bool]
+
+class DeleteProvisioningArtifactInputTypeDef(TypedDict):
+    ProductId: str
+    ProvisioningArtifactId: str
+    AcceptLanguage: NotRequired[str]
+
+class DeleteServiceActionInputTypeDef(TypedDict):
+    Id: str
+    AcceptLanguage: NotRequired[str]
+    IdempotencyToken: NotRequired[str]
+
+class DeleteTagOptionInputTypeDef(TypedDict):
+    Id: str
+
+class DescribeConstraintInputTypeDef(TypedDict):
+    Id: str
+    AcceptLanguage: NotRequired[str]
+
+class DescribeCopyProductStatusInputTypeDef(TypedDict):
+    CopyProductToken: str
+    AcceptLanguage: NotRequired[str]
+
+class DescribePortfolioInputTypeDef(TypedDict):
+    Id: str
+    AcceptLanguage: NotRequired[str]
+
+class DescribePortfolioShareStatusInputTypeDef(TypedDict):
+    PortfolioShareToken: str
+
+DescribePortfolioSharesInputTypeDef = TypedDict(
+    "DescribePortfolioSharesInputTypeDef",
     {
-        "Id": str,
-        "ARN": str,
-        "DisplayName": str,
-        "Description": str,
-        "CreatedTime": datetime,
-        "ProviderName": str,
+        "PortfolioId": str,
+        "Type": DescribePortfolioShareTypeType,
+        "PageToken": NotRequired[str],
+        "PageSize": NotRequired[int],
     },
-    total=False,
 )
-
 PortfolioShareDetailTypeDef = TypedDict(
     "PortfolioShareDetailTypeDef",
     {
-        "PrincipalId": str,
-        "Type": DescribePortfolioShareTypeType,
-        "Accepted": bool,
-        "ShareTagOptions": bool,
-        "SharePrincipals": bool,
+        "PrincipalId": NotRequired[str],
+        "Type": NotRequired[DescribePortfolioShareTypeType],
+        "Accepted": NotRequired[bool],
+        "ShareTagOptions": NotRequired[bool],
+        "SharePrincipals": NotRequired[bool],
     },
-    total=False,
 )
 
-PrincipalTypeDef = TypedDict(
-    "PrincipalTypeDef",
-    {
-        "PrincipalARN": str,
-        "PrincipalType": PrincipalTypeType,
-    },
-    total=False,
-)
+class DescribeProductAsAdminInputTypeDef(TypedDict):
+    AcceptLanguage: NotRequired[str]
+    Id: NotRequired[str]
+    Name: NotRequired[str]
+    SourcePortfolioId: NotRequired[str]
 
-ProductViewAggregationValueTypeDef = TypedDict(
-    "ProductViewAggregationValueTypeDef",
-    {
-        "Value": str,
-        "ApproximateCount": int,
-    },
-    total=False,
-)
+class ProvisioningArtifactSummaryTypeDef(TypedDict):
+    Id: NotRequired[str]
+    Name: NotRequired[str]
+    Description: NotRequired[str]
+    CreatedTime: NotRequired[datetime]
+    ProvisioningArtifactMetadata: NotRequired[Dict[str, str]]
 
-ProductViewDetailTypeDef = TypedDict(
-    "ProductViewDetailTypeDef",
-    {
-        "ProductViewSummary": "ProductViewSummaryTypeDef",
-        "Status": StatusType,
-        "ProductARN": str,
-        "CreatedTime": datetime,
-        "SourceConnection": "SourceConnectionDetailTypeDef",
-    },
-    total=False,
-)
+class DescribeProductInputTypeDef(TypedDict):
+    AcceptLanguage: NotRequired[str]
+    Id: NotRequired[str]
+    Name: NotRequired[str]
+
+class LaunchPathTypeDef(TypedDict):
+    Id: NotRequired[str]
+    Name: NotRequired[str]
 
 ProductViewSummaryTypeDef = TypedDict(
     "ProductViewSummaryTypeDef",
     {
-        "Id": str,
-        "ProductId": str,
-        "Name": str,
-        "Owner": str,
-        "ShortDescription": str,
-        "Type": ProductTypeType,
-        "Distributor": str,
-        "HasDefaultPath": bool,
-        "SupportEmail": str,
-        "SupportDescription": str,
-        "SupportUrl": str,
-    },
-    total=False,
-)
-
-_RequiredProvisionProductInputRequestTypeDef = TypedDict(
-    "_RequiredProvisionProductInputRequestTypeDef",
-    {
-        "ProvisionedProductName": str,
-        "ProvisionToken": str,
-    },
-)
-_OptionalProvisionProductInputRequestTypeDef = TypedDict(
-    "_OptionalProvisionProductInputRequestTypeDef",
-    {
-        "AcceptLanguage": str,
-        "ProductId": str,
-        "ProductName": str,
-        "ProvisioningArtifactId": str,
-        "ProvisioningArtifactName": str,
-        "PathId": str,
-        "PathName": str,
-        "ProvisioningParameters": List["ProvisioningParameterTypeDef"],
-        "ProvisioningPreferences": "ProvisioningPreferencesTypeDef",
-        "Tags": List["TagTypeDef"],
-        "NotificationArns": List[str],
-    },
-    total=False,
-)
-
-class ProvisionProductInputRequestTypeDef(
-    _RequiredProvisionProductInputRequestTypeDef, _OptionalProvisionProductInputRequestTypeDef
-):
-    pass
-
-ProvisionProductOutputTypeDef = TypedDict(
-    "ProvisionProductOutputTypeDef",
-    {
-        "RecordDetail": "RecordDetailTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "Id": NotRequired[str],
+        "ProductId": NotRequired[str],
+        "Name": NotRequired[str],
+        "Owner": NotRequired[str],
+        "ShortDescription": NotRequired[str],
+        "Type": NotRequired[ProductTypeType],
+        "Distributor": NotRequired[str],
+        "HasDefaultPath": NotRequired[bool],
+        "SupportEmail": NotRequired[str],
+        "SupportDescription": NotRequired[str],
+        "SupportUrl": NotRequired[str],
     },
 )
 
-ProvisionedProductAttributeTypeDef = TypedDict(
-    "ProvisionedProductAttributeTypeDef",
-    {
-        "Name": str,
-        "Arn": str,
-        "Type": str,
-        "Id": str,
-        "Status": ProvisionedProductStatusType,
-        "StatusMessage": str,
-        "CreatedTime": datetime,
-        "IdempotencyToken": str,
-        "LastRecordId": str,
-        "LastProvisioningRecordId": str,
-        "LastSuccessfulProvisioningRecordId": str,
-        "Tags": List["TagTypeDef"],
-        "PhysicalId": str,
-        "ProductId": str,
-        "ProductName": str,
-        "ProvisioningArtifactId": str,
-        "ProvisioningArtifactName": str,
-        "UserArn": str,
-        "UserArnSession": str,
-    },
-    total=False,
-)
+class ProvisioningArtifactTypeDef(TypedDict):
+    Id: NotRequired[str]
+    Name: NotRequired[str]
+    Description: NotRequired[str]
+    CreatedTime: NotRequired[datetime]
+    Guidance: NotRequired[ProvisioningArtifactGuidanceType]
+
+class DescribeProductViewInputTypeDef(TypedDict):
+    Id: str
+    AcceptLanguage: NotRequired[str]
+
+class DescribeProvisionedProductInputTypeDef(TypedDict):
+    AcceptLanguage: NotRequired[str]
+    Id: NotRequired[str]
+    Name: NotRequired[str]
 
 ProvisionedProductDetailTypeDef = TypedDict(
     "ProvisionedProductDetailTypeDef",
     {
-        "Name": str,
-        "Arn": str,
-        "Type": str,
-        "Id": str,
-        "Status": ProvisionedProductStatusType,
-        "StatusMessage": str,
-        "CreatedTime": datetime,
-        "IdempotencyToken": str,
-        "LastRecordId": str,
-        "LastProvisioningRecordId": str,
-        "LastSuccessfulProvisioningRecordId": str,
-        "ProductId": str,
-        "ProvisioningArtifactId": str,
-        "LaunchRoleArn": str,
-    },
-    total=False,
-)
-
-ProvisionedProductPlanDetailsTypeDef = TypedDict(
-    "ProvisionedProductPlanDetailsTypeDef",
-    {
-        "CreatedTime": datetime,
-        "PathId": str,
-        "ProductId": str,
-        "PlanName": str,
-        "PlanId": str,
-        "ProvisionProductId": str,
-        "ProvisionProductName": str,
-        "PlanType": Literal["CLOUDFORMATION"],
-        "ProvisioningArtifactId": str,
-        "Status": ProvisionedProductPlanStatusType,
-        "UpdatedTime": datetime,
-        "NotificationArns": List[str],
-        "ProvisioningParameters": List["UpdateProvisioningParameterTypeDef"],
-        "Tags": List["TagTypeDef"],
-        "StatusMessage": str,
-    },
-    total=False,
-)
-
-ProvisionedProductPlanSummaryTypeDef = TypedDict(
-    "ProvisionedProductPlanSummaryTypeDef",
-    {
-        "PlanName": str,
-        "PlanId": str,
-        "ProvisionProductId": str,
-        "ProvisionProductName": str,
-        "PlanType": Literal["CLOUDFORMATION"],
-        "ProvisioningArtifactId": str,
-    },
-    total=False,
-)
-
-ProvisioningArtifactDetailTypeDef = TypedDict(
-    "ProvisioningArtifactDetailTypeDef",
-    {
-        "Id": str,
-        "Name": str,
-        "Description": str,
-        "Type": ProvisioningArtifactTypeType,
-        "CreatedTime": datetime,
-        "Active": bool,
-        "Guidance": ProvisioningArtifactGuidanceType,
-        "SourceRevision": str,
-    },
-    total=False,
-)
-
-ProvisioningArtifactOutputTypeDef = TypedDict(
-    "ProvisioningArtifactOutputTypeDef",
-    {
-        "Key": str,
-        "Description": str,
-    },
-    total=False,
-)
-
-ProvisioningArtifactParameterTypeDef = TypedDict(
-    "ProvisioningArtifactParameterTypeDef",
-    {
-        "ParameterKey": str,
-        "DefaultValue": str,
-        "ParameterType": str,
-        "IsNoEcho": bool,
-        "Description": str,
-        "ParameterConstraints": "ParameterConstraintsTypeDef",
-    },
-    total=False,
-)
-
-ProvisioningArtifactPreferencesTypeDef = TypedDict(
-    "ProvisioningArtifactPreferencesTypeDef",
-    {
-        "StackSetAccounts": List[str],
-        "StackSetRegions": List[str],
-    },
-    total=False,
-)
-
-ProvisioningArtifactPropertiesTypeDef = TypedDict(
-    "ProvisioningArtifactPropertiesTypeDef",
-    {
-        "Name": str,
-        "Description": str,
-        "Info": Dict[str, str],
-        "Type": ProvisioningArtifactTypeType,
-        "DisableTemplateValidation": bool,
-    },
-    total=False,
-)
-
-ProvisioningArtifactSummaryTypeDef = TypedDict(
-    "ProvisioningArtifactSummaryTypeDef",
-    {
-        "Id": str,
-        "Name": str,
-        "Description": str,
-        "CreatedTime": datetime,
-        "ProvisioningArtifactMetadata": Dict[str, str],
-    },
-    total=False,
-)
-
-ProvisioningArtifactTypeDef = TypedDict(
-    "ProvisioningArtifactTypeDef",
-    {
-        "Id": str,
-        "Name": str,
-        "Description": str,
-        "CreatedTime": datetime,
-        "Guidance": ProvisioningArtifactGuidanceType,
-    },
-    total=False,
-)
-
-ProvisioningArtifactViewTypeDef = TypedDict(
-    "ProvisioningArtifactViewTypeDef",
-    {
-        "ProductViewSummary": "ProductViewSummaryTypeDef",
-        "ProvisioningArtifact": "ProvisioningArtifactTypeDef",
-    },
-    total=False,
-)
-
-ProvisioningParameterTypeDef = TypedDict(
-    "ProvisioningParameterTypeDef",
-    {
-        "Key": str,
-        "Value": str,
-    },
-    total=False,
-)
-
-ProvisioningPreferencesTypeDef = TypedDict(
-    "ProvisioningPreferencesTypeDef",
-    {
-        "StackSetAccounts": List[str],
-        "StackSetRegions": List[str],
-        "StackSetFailureToleranceCount": int,
-        "StackSetFailureTolerancePercentage": int,
-        "StackSetMaxConcurrencyCount": int,
-        "StackSetMaxConcurrencyPercentage": int,
-    },
-    total=False,
-)
-
-RecordDetailTypeDef = TypedDict(
-    "RecordDetailTypeDef",
-    {
-        "RecordId": str,
-        "ProvisionedProductName": str,
-        "Status": RecordStatusType,
-        "CreatedTime": datetime,
-        "UpdatedTime": datetime,
-        "ProvisionedProductType": str,
-        "RecordType": str,
-        "ProvisionedProductId": str,
-        "ProductId": str,
-        "ProvisioningArtifactId": str,
-        "PathId": str,
-        "RecordErrors": List["RecordErrorTypeDef"],
-        "RecordTags": List["RecordTagTypeDef"],
-        "LaunchRoleArn": str,
-    },
-    total=False,
-)
-
-RecordErrorTypeDef = TypedDict(
-    "RecordErrorTypeDef",
-    {
-        "Code": str,
-        "Description": str,
-    },
-    total=False,
-)
-
-RecordOutputTypeDef = TypedDict(
-    "RecordOutputTypeDef",
-    {
-        "OutputKey": str,
-        "OutputValue": str,
-        "Description": str,
-    },
-    total=False,
-)
-
-RecordTagTypeDef = TypedDict(
-    "RecordTagTypeDef",
-    {
-        "Key": str,
-        "Value": str,
-    },
-    total=False,
-)
-
-_RequiredRejectPortfolioShareInputRequestTypeDef = TypedDict(
-    "_RequiredRejectPortfolioShareInputRequestTypeDef",
-    {
-        "PortfolioId": str,
-    },
-)
-_OptionalRejectPortfolioShareInputRequestTypeDef = TypedDict(
-    "_OptionalRejectPortfolioShareInputRequestTypeDef",
-    {
-        "AcceptLanguage": str,
-        "PortfolioShareType": PortfolioShareTypeType,
-    },
-    total=False,
-)
-
-class RejectPortfolioShareInputRequestTypeDef(
-    _RequiredRejectPortfolioShareInputRequestTypeDef,
-    _OptionalRejectPortfolioShareInputRequestTypeDef,
-):
-    pass
-
-ResourceChangeDetailTypeDef = TypedDict(
-    "ResourceChangeDetailTypeDef",
-    {
-        "Target": "ResourceTargetDefinitionTypeDef",
-        "Evaluation": EvaluationTypeType,
-        "CausingEntity": str,
-    },
-    total=False,
-)
-
-ResourceChangeTypeDef = TypedDict(
-    "ResourceChangeTypeDef",
-    {
-        "Action": ChangeActionType,
-        "LogicalResourceId": str,
-        "PhysicalResourceId": str,
-        "ResourceType": str,
-        "Replacement": ReplacementType,
-        "Scope": List[ResourceAttributeType],
-        "Details": List["ResourceChangeDetailTypeDef"],
-    },
-    total=False,
-)
-
-ResourceDetailTypeDef = TypedDict(
-    "ResourceDetailTypeDef",
-    {
-        "Id": str,
-        "ARN": str,
-        "Name": str,
-        "Description": str,
-        "CreatedTime": datetime,
-    },
-    total=False,
-)
-
-ResourceTargetDefinitionTypeDef = TypedDict(
-    "ResourceTargetDefinitionTypeDef",
-    {
-        "Attribute": ResourceAttributeType,
-        "Name": str,
-        "RequiresRecreation": RequiresRecreationType,
-    },
-    total=False,
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-ScanProvisionedProductsInputRequestTypeDef = TypedDict(
-    "ScanProvisionedProductsInputRequestTypeDef",
-    {
-        "AcceptLanguage": str,
-        "AccessLevelFilter": "AccessLevelFilterTypeDef",
-        "PageSize": int,
-        "PageToken": str,
-    },
-    total=False,
-)
-
-ScanProvisionedProductsOutputTypeDef = TypedDict(
-    "ScanProvisionedProductsOutputTypeDef",
-    {
-        "ProvisionedProducts": List["ProvisionedProductDetailTypeDef"],
-        "NextPageToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-SearchProductsAsAdminInputRequestTypeDef = TypedDict(
-    "SearchProductsAsAdminInputRequestTypeDef",
-    {
-        "AcceptLanguage": str,
-        "PortfolioId": str,
-        "Filters": Dict[ProductViewFilterByType, List[str]],
-        "SortBy": ProductViewSortByType,
-        "SortOrder": SortOrderType,
-        "PageToken": str,
-        "PageSize": int,
-        "ProductSource": Literal["ACCOUNT"],
-    },
-    total=False,
-)
-
-SearchProductsAsAdminOutputTypeDef = TypedDict(
-    "SearchProductsAsAdminOutputTypeDef",
-    {
-        "ProductViewDetails": List["ProductViewDetailTypeDef"],
-        "NextPageToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-SearchProductsInputRequestTypeDef = TypedDict(
-    "SearchProductsInputRequestTypeDef",
-    {
-        "AcceptLanguage": str,
-        "Filters": Dict[ProductViewFilterByType, List[str]],
-        "PageSize": int,
-        "SortBy": ProductViewSortByType,
-        "SortOrder": SortOrderType,
-        "PageToken": str,
-    },
-    total=False,
-)
-
-SearchProductsOutputTypeDef = TypedDict(
-    "SearchProductsOutputTypeDef",
-    {
-        "ProductViewSummaries": List["ProductViewSummaryTypeDef"],
-        "ProductViewAggregations": Dict[str, List["ProductViewAggregationValueTypeDef"]],
-        "NextPageToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-SearchProvisionedProductsInputRequestTypeDef = TypedDict(
-    "SearchProvisionedProductsInputRequestTypeDef",
-    {
-        "AcceptLanguage": str,
-        "AccessLevelFilter": "AccessLevelFilterTypeDef",
-        "Filters": Dict[Literal["SearchQuery"], List[str]],
-        "SortBy": str,
-        "SortOrder": SortOrderType,
-        "PageSize": int,
-        "PageToken": str,
-    },
-    total=False,
-)
-
-SearchProvisionedProductsOutputTypeDef = TypedDict(
-    "SearchProvisionedProductsOutputTypeDef",
-    {
-        "ProvisionedProducts": List["ProvisionedProductAttributeTypeDef"],
-        "TotalResultsCount": int,
-        "NextPageToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ServiceActionAssociationTypeDef = TypedDict(
-    "ServiceActionAssociationTypeDef",
-    {
-        "ServiceActionId": str,
-        "ProductId": str,
-        "ProvisioningArtifactId": str,
-    },
-)
-
-ServiceActionDetailTypeDef = TypedDict(
-    "ServiceActionDetailTypeDef",
-    {
-        "ServiceActionSummary": "ServiceActionSummaryTypeDef",
-        "Definition": Dict[ServiceActionDefinitionKeyType, str],
-    },
-    total=False,
-)
-
-ServiceActionSummaryTypeDef = TypedDict(
-    "ServiceActionSummaryTypeDef",
-    {
-        "Id": str,
-        "Name": str,
-        "Description": str,
-        "DefinitionType": Literal["SSM_AUTOMATION"],
-    },
-    total=False,
-)
-
-ShareDetailsTypeDef = TypedDict(
-    "ShareDetailsTypeDef",
-    {
-        "SuccessfulShares": List[str],
-        "ShareErrors": List["ShareErrorTypeDef"],
-    },
-    total=False,
-)
-
-ShareErrorTypeDef = TypedDict(
-    "ShareErrorTypeDef",
-    {
-        "Accounts": List[str],
-        "Message": str,
-        "Error": str,
-    },
-    total=False,
-)
-
-SourceConnectionDetailTypeDef = TypedDict(
-    "SourceConnectionDetailTypeDef",
-    {
-        "Type": Literal["CODESTAR"],
-        "ConnectionParameters": "SourceConnectionParametersTypeDef",
-        "LastSync": "LastSyncTypeDef",
-    },
-    total=False,
-)
-
-SourceConnectionParametersTypeDef = TypedDict(
-    "SourceConnectionParametersTypeDef",
-    {
-        "CodeStar": "CodeStarParametersTypeDef",
-    },
-    total=False,
-)
-
-_RequiredSourceConnectionTypeDef = TypedDict(
-    "_RequiredSourceConnectionTypeDef",
-    {
-        "ConnectionParameters": "SourceConnectionParametersTypeDef",
-    },
-)
-_OptionalSourceConnectionTypeDef = TypedDict(
-    "_OptionalSourceConnectionTypeDef",
-    {
-        "Type": Literal["CODESTAR"],
-    },
-    total=False,
-)
-
-class SourceConnectionTypeDef(_RequiredSourceConnectionTypeDef, _OptionalSourceConnectionTypeDef):
-    pass
-
-StackInstanceTypeDef = TypedDict(
-    "StackInstanceTypeDef",
-    {
-        "Account": str,
-        "Region": str,
-        "StackInstanceStatus": StackInstanceStatusType,
-    },
-    total=False,
-)
-
-TagOptionDetailTypeDef = TypedDict(
-    "TagOptionDetailTypeDef",
-    {
-        "Key": str,
-        "Value": str,
-        "Active": bool,
-        "Id": str,
-        "Owner": str,
-    },
-    total=False,
-)
-
-TagOptionSummaryTypeDef = TypedDict(
-    "TagOptionSummaryTypeDef",
-    {
-        "Key": str,
-        "Values": List[str],
-    },
-    total=False,
-)
-
-TagTypeDef = TypedDict(
-    "TagTypeDef",
-    {
-        "Key": str,
-        "Value": str,
-    },
-)
-
-_RequiredTerminateProvisionedProductInputRequestTypeDef = TypedDict(
-    "_RequiredTerminateProvisionedProductInputRequestTypeDef",
-    {
-        "TerminateToken": str,
-    },
-)
-_OptionalTerminateProvisionedProductInputRequestTypeDef = TypedDict(
-    "_OptionalTerminateProvisionedProductInputRequestTypeDef",
-    {
-        "ProvisionedProductName": str,
-        "ProvisionedProductId": str,
-        "IgnoreErrors": bool,
-        "AcceptLanguage": str,
-        "RetainPhysicalResources": bool,
-    },
-    total=False,
-)
-
-class TerminateProvisionedProductInputRequestTypeDef(
-    _RequiredTerminateProvisionedProductInputRequestTypeDef,
-    _OptionalTerminateProvisionedProductInputRequestTypeDef,
-):
-    pass
-
-TerminateProvisionedProductOutputTypeDef = TypedDict(
-    "TerminateProvisionedProductOutputTypeDef",
-    {
-        "RecordDetail": "RecordDetailTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UniqueTagResourceIdentifierTypeDef = TypedDict(
-    "UniqueTagResourceIdentifierTypeDef",
-    {
-        "Key": str,
-        "Value": str,
-    },
-    total=False,
-)
-
-_RequiredUpdateConstraintInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateConstraintInputRequestTypeDef",
-    {
-        "Id": str,
-    },
-)
-_OptionalUpdateConstraintInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateConstraintInputRequestTypeDef",
-    {
-        "AcceptLanguage": str,
-        "Description": str,
-        "Parameters": str,
-    },
-    total=False,
-)
-
-class UpdateConstraintInputRequestTypeDef(
-    _RequiredUpdateConstraintInputRequestTypeDef, _OptionalUpdateConstraintInputRequestTypeDef
-):
-    pass
-
-UpdateConstraintOutputTypeDef = TypedDict(
-    "UpdateConstraintOutputTypeDef",
-    {
-        "ConstraintDetail": "ConstraintDetailTypeDef",
-        "ConstraintParameters": str,
-        "Status": StatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdatePortfolioInputRequestTypeDef = TypedDict(
-    "_RequiredUpdatePortfolioInputRequestTypeDef",
-    {
-        "Id": str,
-    },
-)
-_OptionalUpdatePortfolioInputRequestTypeDef = TypedDict(
-    "_OptionalUpdatePortfolioInputRequestTypeDef",
-    {
-        "AcceptLanguage": str,
-        "DisplayName": str,
-        "Description": str,
-        "ProviderName": str,
-        "AddTags": List["TagTypeDef"],
-        "RemoveTags": List[str],
-    },
-    total=False,
-)
-
-class UpdatePortfolioInputRequestTypeDef(
-    _RequiredUpdatePortfolioInputRequestTypeDef, _OptionalUpdatePortfolioInputRequestTypeDef
-):
-    pass
-
-UpdatePortfolioOutputTypeDef = TypedDict(
-    "UpdatePortfolioOutputTypeDef",
-    {
-        "PortfolioDetail": "PortfolioDetailTypeDef",
-        "Tags": List["TagTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdatePortfolioShareInputRequestTypeDef = TypedDict(
-    "_RequiredUpdatePortfolioShareInputRequestTypeDef",
-    {
-        "PortfolioId": str,
-    },
-)
-_OptionalUpdatePortfolioShareInputRequestTypeDef = TypedDict(
-    "_OptionalUpdatePortfolioShareInputRequestTypeDef",
-    {
-        "AcceptLanguage": str,
-        "AccountId": str,
-        "OrganizationNode": "OrganizationNodeTypeDef",
-        "ShareTagOptions": bool,
-        "SharePrincipals": bool,
-    },
-    total=False,
-)
-
-class UpdatePortfolioShareInputRequestTypeDef(
-    _RequiredUpdatePortfolioShareInputRequestTypeDef,
-    _OptionalUpdatePortfolioShareInputRequestTypeDef,
-):
-    pass
-
-UpdatePortfolioShareOutputTypeDef = TypedDict(
-    "UpdatePortfolioShareOutputTypeDef",
-    {
-        "PortfolioShareToken": str,
-        "Status": ShareStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateProductInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateProductInputRequestTypeDef",
-    {
-        "Id": str,
-    },
-)
-_OptionalUpdateProductInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateProductInputRequestTypeDef",
-    {
-        "AcceptLanguage": str,
-        "Name": str,
-        "Owner": str,
-        "Description": str,
-        "Distributor": str,
-        "SupportDescription": str,
-        "SupportEmail": str,
-        "SupportUrl": str,
-        "AddTags": List["TagTypeDef"],
-        "RemoveTags": List[str],
-        "SourceConnection": "SourceConnectionTypeDef",
-    },
-    total=False,
-)
-
-class UpdateProductInputRequestTypeDef(
-    _RequiredUpdateProductInputRequestTypeDef, _OptionalUpdateProductInputRequestTypeDef
-):
-    pass
-
-UpdateProductOutputTypeDef = TypedDict(
-    "UpdateProductOutputTypeDef",
-    {
-        "ProductViewDetail": "ProductViewDetailTypeDef",
-        "Tags": List["TagTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateProvisionedProductInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateProvisionedProductInputRequestTypeDef",
-    {
-        "UpdateToken": str,
-    },
-)
-_OptionalUpdateProvisionedProductInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateProvisionedProductInputRequestTypeDef",
-    {
-        "AcceptLanguage": str,
-        "ProvisionedProductName": str,
-        "ProvisionedProductId": str,
-        "ProductId": str,
-        "ProductName": str,
-        "ProvisioningArtifactId": str,
-        "ProvisioningArtifactName": str,
-        "PathId": str,
-        "PathName": str,
-        "ProvisioningParameters": List["UpdateProvisioningParameterTypeDef"],
-        "ProvisioningPreferences": "UpdateProvisioningPreferencesTypeDef",
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class UpdateProvisionedProductInputRequestTypeDef(
-    _RequiredUpdateProvisionedProductInputRequestTypeDef,
-    _OptionalUpdateProvisionedProductInputRequestTypeDef,
-):
-    pass
-
-UpdateProvisionedProductOutputTypeDef = TypedDict(
-    "UpdateProvisionedProductOutputTypeDef",
-    {
-        "RecordDetail": "RecordDetailTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateProvisionedProductPropertiesInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateProvisionedProductPropertiesInputRequestTypeDef",
-    {
-        "ProvisionedProductId": str,
-        "ProvisionedProductProperties": Dict[PropertyKeyType, str],
-        "IdempotencyToken": str,
-    },
-)
-_OptionalUpdateProvisionedProductPropertiesInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateProvisionedProductPropertiesInputRequestTypeDef",
-    {
-        "AcceptLanguage": str,
-    },
-    total=False,
-)
-
-class UpdateProvisionedProductPropertiesInputRequestTypeDef(
-    _RequiredUpdateProvisionedProductPropertiesInputRequestTypeDef,
-    _OptionalUpdateProvisionedProductPropertiesInputRequestTypeDef,
-):
-    pass
-
-UpdateProvisionedProductPropertiesOutputTypeDef = TypedDict(
-    "UpdateProvisionedProductPropertiesOutputTypeDef",
-    {
-        "ProvisionedProductId": str,
-        "ProvisionedProductProperties": Dict[PropertyKeyType, str],
-        "RecordId": str,
-        "Status": RecordStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateProvisioningArtifactInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateProvisioningArtifactInputRequestTypeDef",
-    {
-        "ProductId": str,
-        "ProvisioningArtifactId": str,
-    },
-)
-_OptionalUpdateProvisioningArtifactInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateProvisioningArtifactInputRequestTypeDef",
-    {
-        "AcceptLanguage": str,
-        "Name": str,
-        "Description": str,
-        "Active": bool,
-        "Guidance": ProvisioningArtifactGuidanceType,
-    },
-    total=False,
-)
-
-class UpdateProvisioningArtifactInputRequestTypeDef(
-    _RequiredUpdateProvisioningArtifactInputRequestTypeDef,
-    _OptionalUpdateProvisioningArtifactInputRequestTypeDef,
-):
-    pass
-
-UpdateProvisioningArtifactOutputTypeDef = TypedDict(
-    "UpdateProvisioningArtifactOutputTypeDef",
-    {
-        "ProvisioningArtifactDetail": "ProvisioningArtifactDetailTypeDef",
-        "Info": Dict[str, str],
-        "Status": StatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UpdateProvisioningParameterTypeDef = TypedDict(
-    "UpdateProvisioningParameterTypeDef",
-    {
-        "Key": str,
-        "Value": str,
-        "UsePreviousValue": bool,
-    },
-    total=False,
-)
-
-UpdateProvisioningPreferencesTypeDef = TypedDict(
-    "UpdateProvisioningPreferencesTypeDef",
-    {
-        "StackSetAccounts": List[str],
-        "StackSetRegions": List[str],
-        "StackSetFailureToleranceCount": int,
-        "StackSetFailureTolerancePercentage": int,
-        "StackSetMaxConcurrencyCount": int,
-        "StackSetMaxConcurrencyPercentage": int,
-        "StackSetOperationType": StackSetOperationTypeType,
-    },
-    total=False,
-)
-
-_RequiredUpdateServiceActionInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateServiceActionInputRequestTypeDef",
-    {
-        "Id": str,
-    },
-)
-_OptionalUpdateServiceActionInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateServiceActionInputRequestTypeDef",
-    {
-        "Name": str,
-        "Definition": Dict[ServiceActionDefinitionKeyType, str],
-        "Description": str,
-        "AcceptLanguage": str,
-    },
-    total=False,
-)
-
-class UpdateServiceActionInputRequestTypeDef(
-    _RequiredUpdateServiceActionInputRequestTypeDef, _OptionalUpdateServiceActionInputRequestTypeDef
-):
-    pass
-
-UpdateServiceActionOutputTypeDef = TypedDict(
-    "UpdateServiceActionOutputTypeDef",
-    {
-        "ServiceActionDetail": "ServiceActionDetailTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateTagOptionInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateTagOptionInputRequestTypeDef",
-    {
-        "Id": str,
-    },
-)
-_OptionalUpdateTagOptionInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateTagOptionInputRequestTypeDef",
-    {
-        "Value": str,
-        "Active": bool,
-    },
-    total=False,
-)
-
-class UpdateTagOptionInputRequestTypeDef(
-    _RequiredUpdateTagOptionInputRequestTypeDef, _OptionalUpdateTagOptionInputRequestTypeDef
-):
-    pass
-
-UpdateTagOptionOutputTypeDef = TypedDict(
-    "UpdateTagOptionOutputTypeDef",
-    {
-        "TagOptionDetail": "TagOptionDetailTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+        "Name": NotRequired[str],
+        "Arn": NotRequired[str],
+        "Type": NotRequired[str],
+        "Id": NotRequired[str],
+        "Status": NotRequired[ProvisionedProductStatusType],
+        "StatusMessage": NotRequired[str],
+        "CreatedTime": NotRequired[datetime],
+        "IdempotencyToken": NotRequired[str],
+        "LastRecordId": NotRequired[str],
+        "LastProvisioningRecordId": NotRequired[str],
+        "LastSuccessfulProvisioningRecordId": NotRequired[str],
+        "ProductId": NotRequired[str],
+        "ProvisioningArtifactId": NotRequired[str],
+        "LaunchRoleArn": NotRequired[str],
+    },
+)
+
+class DescribeProvisionedProductPlanInputTypeDef(TypedDict):
+    PlanId: str
+    AcceptLanguage: NotRequired[str]
+    PageSize: NotRequired[int]
+    PageToken: NotRequired[str]
+
+class DescribeProvisioningArtifactInputTypeDef(TypedDict):
+    AcceptLanguage: NotRequired[str]
+    ProvisioningArtifactId: NotRequired[str]
+    ProductId: NotRequired[str]
+    ProvisioningArtifactName: NotRequired[str]
+    ProductName: NotRequired[str]
+    Verbose: NotRequired[bool]
+    IncludeProvisioningArtifactParameters: NotRequired[bool]
+
+class DescribeProvisioningParametersInputTypeDef(TypedDict):
+    AcceptLanguage: NotRequired[str]
+    ProductId: NotRequired[str]
+    ProductName: NotRequired[str]
+    ProvisioningArtifactId: NotRequired[str]
+    ProvisioningArtifactName: NotRequired[str]
+    PathId: NotRequired[str]
+    PathName: NotRequired[str]
+
+class ProvisioningArtifactOutputTypeDef(TypedDict):
+    Key: NotRequired[str]
+    Description: NotRequired[str]
+
+class ProvisioningArtifactPreferencesTypeDef(TypedDict):
+    StackSetAccounts: NotRequired[List[str]]
+    StackSetRegions: NotRequired[List[str]]
+
+class TagOptionSummaryTypeDef(TypedDict):
+    Key: NotRequired[str]
+    Values: NotRequired[List[str]]
 
 UsageInstructionTypeDef = TypedDict(
     "UsageInstructionTypeDef",
     {
-        "Type": str,
-        "Value": str,
+        "Type": NotRequired[str],
+        "Value": NotRequired[str],
     },
-    total=False,
 )
+
+class DescribeRecordInputTypeDef(TypedDict):
+    Id: str
+    AcceptLanguage: NotRequired[str]
+    PageToken: NotRequired[str]
+    PageSize: NotRequired[int]
+
+class RecordOutputTypeDef(TypedDict):
+    OutputKey: NotRequired[str]
+    OutputValue: NotRequired[str]
+    Description: NotRequired[str]
+
+class DescribeServiceActionExecutionParametersInputTypeDef(TypedDict):
+    ProvisionedProductId: str
+    ServiceActionId: str
+    AcceptLanguage: NotRequired[str]
+
+ExecutionParameterTypeDef = TypedDict(
+    "ExecutionParameterTypeDef",
+    {
+        "Name": NotRequired[str],
+        "Type": NotRequired[str],
+        "DefaultValues": NotRequired[List[str]],
+    },
+)
+
+class DescribeServiceActionInputTypeDef(TypedDict):
+    Id: str
+    AcceptLanguage: NotRequired[str]
+
+class DescribeTagOptionInputTypeDef(TypedDict):
+    Id: str
+
+class DisassociateBudgetFromResourceInputTypeDef(TypedDict):
+    BudgetName: str
+    ResourceId: str
+
+class DisassociatePrincipalFromPortfolioInputTypeDef(TypedDict):
+    PortfolioId: str
+    PrincipalARN: str
+    AcceptLanguage: NotRequired[str]
+    PrincipalType: NotRequired[PrincipalTypeType]
+
+class DisassociateProductFromPortfolioInputTypeDef(TypedDict):
+    ProductId: str
+    PortfolioId: str
+    AcceptLanguage: NotRequired[str]
+
+class DisassociateServiceActionFromProvisioningArtifactInputTypeDef(TypedDict):
+    ProductId: str
+    ProvisioningArtifactId: str
+    ServiceActionId: str
+    AcceptLanguage: NotRequired[str]
+    IdempotencyToken: NotRequired[str]
+
+class DisassociateTagOptionFromResourceInputTypeDef(TypedDict):
+    ResourceId: str
+    TagOptionId: str
+
+class UniqueTagResourceIdentifierTypeDef(TypedDict):
+    Key: NotRequired[str]
+    Value: NotRequired[str]
+
+class ExecuteProvisionedProductPlanInputTypeDef(TypedDict):
+    PlanId: str
+    IdempotencyToken: str
+    AcceptLanguage: NotRequired[str]
+
+class ExecuteProvisionedProductServiceActionInputTypeDef(TypedDict):
+    ProvisionedProductId: str
+    ServiceActionId: str
+    ExecuteToken: str
+    AcceptLanguage: NotRequired[str]
+    Parameters: NotRequired[Mapping[str, Sequence[str]]]
+
+class GetProvisionedProductOutputsInputTypeDef(TypedDict):
+    AcceptLanguage: NotRequired[str]
+    ProvisionedProductId: NotRequired[str]
+    ProvisionedProductName: NotRequired[str]
+    OutputKeys: NotRequired[Sequence[str]]
+    PageSize: NotRequired[int]
+    PageToken: NotRequired[str]
+
+class ImportAsProvisionedProductInputTypeDef(TypedDict):
+    ProductId: str
+    ProvisioningArtifactId: str
+    ProvisionedProductName: str
+    PhysicalId: str
+    IdempotencyToken: str
+    AcceptLanguage: NotRequired[str]
+
+class LastSyncTypeDef(TypedDict):
+    LastSyncTime: NotRequired[datetime]
+    LastSyncStatus: NotRequired[LastSyncStatusType]
+    LastSyncStatusMessage: NotRequired[str]
+    LastSuccessfulSyncTime: NotRequired[datetime]
+    LastSuccessfulSyncProvisioningArtifactId: NotRequired[str]
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class ListAcceptedPortfolioSharesInputTypeDef(TypedDict):
+    AcceptLanguage: NotRequired[str]
+    PageToken: NotRequired[str]
+    PageSize: NotRequired[int]
+    PortfolioShareType: NotRequired[PortfolioShareTypeType]
+
+class ListBudgetsForResourceInputTypeDef(TypedDict):
+    ResourceId: str
+    AcceptLanguage: NotRequired[str]
+    PageSize: NotRequired[int]
+    PageToken: NotRequired[str]
+
+class ListConstraintsForPortfolioInputTypeDef(TypedDict):
+    PortfolioId: str
+    AcceptLanguage: NotRequired[str]
+    ProductId: NotRequired[str]
+    PageSize: NotRequired[int]
+    PageToken: NotRequired[str]
+
+class ListLaunchPathsInputTypeDef(TypedDict):
+    ProductId: str
+    AcceptLanguage: NotRequired[str]
+    PageSize: NotRequired[int]
+    PageToken: NotRequired[str]
+
+class ListOrganizationPortfolioAccessInputTypeDef(TypedDict):
+    PortfolioId: str
+    OrganizationNodeType: OrganizationNodeTypeType
+    AcceptLanguage: NotRequired[str]
+    PageToken: NotRequired[str]
+    PageSize: NotRequired[int]
+
+class ListPortfolioAccessInputTypeDef(TypedDict):
+    PortfolioId: str
+    AcceptLanguage: NotRequired[str]
+    OrganizationParentId: NotRequired[str]
+    PageToken: NotRequired[str]
+    PageSize: NotRequired[int]
+
+class ListPortfoliosForProductInputTypeDef(TypedDict):
+    ProductId: str
+    AcceptLanguage: NotRequired[str]
+    PageToken: NotRequired[str]
+    PageSize: NotRequired[int]
+
+class ListPortfoliosInputTypeDef(TypedDict):
+    AcceptLanguage: NotRequired[str]
+    PageToken: NotRequired[str]
+    PageSize: NotRequired[int]
+
+class ListPrincipalsForPortfolioInputTypeDef(TypedDict):
+    PortfolioId: str
+    AcceptLanguage: NotRequired[str]
+    PageSize: NotRequired[int]
+    PageToken: NotRequired[str]
+
+class PrincipalTypeDef(TypedDict):
+    PrincipalARN: NotRequired[str]
+    PrincipalType: NotRequired[PrincipalTypeType]
+
+class ProvisionedProductPlanSummaryTypeDef(TypedDict):
+    PlanName: NotRequired[str]
+    PlanId: NotRequired[str]
+    ProvisionProductId: NotRequired[str]
+    ProvisionProductName: NotRequired[str]
+    PlanType: NotRequired[Literal["CLOUDFORMATION"]]
+    ProvisioningArtifactId: NotRequired[str]
+
+class ListProvisioningArtifactsForServiceActionInputTypeDef(TypedDict):
+    ServiceActionId: str
+    PageSize: NotRequired[int]
+    PageToken: NotRequired[str]
+    AcceptLanguage: NotRequired[str]
+
+class ListProvisioningArtifactsInputTypeDef(TypedDict):
+    ProductId: str
+    AcceptLanguage: NotRequired[str]
+
+class ListRecordHistorySearchFilterTypeDef(TypedDict):
+    Key: NotRequired[str]
+    Value: NotRequired[str]
+
+class ListResourcesForTagOptionInputTypeDef(TypedDict):
+    TagOptionId: str
+    ResourceType: NotRequired[str]
+    PageSize: NotRequired[int]
+    PageToken: NotRequired[str]
+
+class ResourceDetailTypeDef(TypedDict):
+    Id: NotRequired[str]
+    ARN: NotRequired[str]
+    Name: NotRequired[str]
+    Description: NotRequired[str]
+    CreatedTime: NotRequired[datetime]
+
+class ListServiceActionsForProvisioningArtifactInputTypeDef(TypedDict):
+    ProductId: str
+    ProvisioningArtifactId: str
+    PageSize: NotRequired[int]
+    PageToken: NotRequired[str]
+    AcceptLanguage: NotRequired[str]
+
+class ServiceActionSummaryTypeDef(TypedDict):
+    Id: NotRequired[str]
+    Name: NotRequired[str]
+    Description: NotRequired[str]
+    DefinitionType: NotRequired[Literal["SSM_AUTOMATION"]]
+
+class ListServiceActionsInputTypeDef(TypedDict):
+    AcceptLanguage: NotRequired[str]
+    PageSize: NotRequired[int]
+    PageToken: NotRequired[str]
+
+class ListStackInstancesForProvisionedProductInputTypeDef(TypedDict):
+    ProvisionedProductId: str
+    AcceptLanguage: NotRequired[str]
+    PageToken: NotRequired[str]
+    PageSize: NotRequired[int]
+
+class StackInstanceTypeDef(TypedDict):
+    Account: NotRequired[str]
+    Region: NotRequired[str]
+    StackInstanceStatus: NotRequired[StackInstanceStatusType]
+
+class ListTagOptionsFiltersTypeDef(TypedDict):
+    Key: NotRequired[str]
+    Value: NotRequired[str]
+    Active: NotRequired[bool]
+
+class NotifyTerminateProvisionedProductEngineWorkflowResultInputTypeDef(TypedDict):
+    WorkflowToken: str
+    RecordId: str
+    Status: EngineWorkflowStatusType
+    IdempotencyToken: str
+    FailureReason: NotRequired[str]
+
+class ParameterConstraintsTypeDef(TypedDict):
+    AllowedValues: NotRequired[List[str]]
+    AllowedPattern: NotRequired[str]
+    ConstraintDescription: NotRequired[str]
+    MaxLength: NotRequired[str]
+    MinLength: NotRequired[str]
+    MaxValue: NotRequired[str]
+    MinValue: NotRequired[str]
+
+class ProductViewAggregationValueTypeDef(TypedDict):
+    Value: NotRequired[str]
+    ApproximateCount: NotRequired[int]
+
+class ProvisioningParameterTypeDef(TypedDict):
+    Key: NotRequired[str]
+    Value: NotRequired[str]
+
+class ProvisioningPreferencesTypeDef(TypedDict):
+    StackSetAccounts: NotRequired[Sequence[str]]
+    StackSetRegions: NotRequired[Sequence[str]]
+    StackSetFailureToleranceCount: NotRequired[int]
+    StackSetFailureTolerancePercentage: NotRequired[int]
+    StackSetMaxConcurrencyCount: NotRequired[int]
+    StackSetMaxConcurrencyPercentage: NotRequired[int]
+
+class RecordErrorTypeDef(TypedDict):
+    Code: NotRequired[str]
+    Description: NotRequired[str]
+
+class RecordTagTypeDef(TypedDict):
+    Key: NotRequired[str]
+    Value: NotRequired[str]
+
+class RejectPortfolioShareInputTypeDef(TypedDict):
+    PortfolioId: str
+    AcceptLanguage: NotRequired[str]
+    PortfolioShareType: NotRequired[PortfolioShareTypeType]
+
+class ResourceTargetDefinitionTypeDef(TypedDict):
+    Attribute: NotRequired[ResourceAttributeType]
+    Name: NotRequired[str]
+    RequiresRecreation: NotRequired[RequiresRecreationType]
+
+class SearchProductsAsAdminInputTypeDef(TypedDict):
+    AcceptLanguage: NotRequired[str]
+    PortfolioId: NotRequired[str]
+    Filters: NotRequired[Mapping[ProductViewFilterByType, Sequence[str]]]
+    SortBy: NotRequired[ProductViewSortByType]
+    SortOrder: NotRequired[SortOrderType]
+    PageToken: NotRequired[str]
+    PageSize: NotRequired[int]
+    ProductSource: NotRequired[Literal["ACCOUNT"]]
+
+class SearchProductsInputTypeDef(TypedDict):
+    AcceptLanguage: NotRequired[str]
+    Filters: NotRequired[Mapping[ProductViewFilterByType, Sequence[str]]]
+    PageSize: NotRequired[int]
+    SortBy: NotRequired[ProductViewSortByType]
+    SortOrder: NotRequired[SortOrderType]
+    PageToken: NotRequired[str]
+
+class ShareErrorTypeDef(TypedDict):
+    Accounts: NotRequired[List[str]]
+    Message: NotRequired[str]
+    Error: NotRequired[str]
+
+class TerminateProvisionedProductInputTypeDef(TypedDict):
+    TerminateToken: str
+    ProvisionedProductName: NotRequired[str]
+    ProvisionedProductId: NotRequired[str]
+    IgnoreErrors: NotRequired[bool]
+    AcceptLanguage: NotRequired[str]
+    RetainPhysicalResources: NotRequired[bool]
+
+class UpdateConstraintInputTypeDef(TypedDict):
+    Id: str
+    AcceptLanguage: NotRequired[str]
+    Description: NotRequired[str]
+    Parameters: NotRequired[str]
+
+class UpdateProvisioningPreferencesTypeDef(TypedDict):
+    StackSetAccounts: NotRequired[Sequence[str]]
+    StackSetRegions: NotRequired[Sequence[str]]
+    StackSetFailureToleranceCount: NotRequired[int]
+    StackSetFailureTolerancePercentage: NotRequired[int]
+    StackSetMaxConcurrencyCount: NotRequired[int]
+    StackSetMaxConcurrencyPercentage: NotRequired[int]
+    StackSetOperationType: NotRequired[StackSetOperationTypeType]
+
+class UpdateProvisionedProductPropertiesInputTypeDef(TypedDict):
+    ProvisionedProductId: str
+    ProvisionedProductProperties: Mapping[PropertyKeyType, str]
+    IdempotencyToken: str
+    AcceptLanguage: NotRequired[str]
+
+class UpdateProvisioningArtifactInputTypeDef(TypedDict):
+    ProductId: str
+    ProvisioningArtifactId: str
+    AcceptLanguage: NotRequired[str]
+    Name: NotRequired[str]
+    Description: NotRequired[str]
+    Active: NotRequired[bool]
+    Guidance: NotRequired[ProvisioningArtifactGuidanceType]
+
+class UpdateServiceActionInputTypeDef(TypedDict):
+    Id: str
+    Name: NotRequired[str]
+    Definition: NotRequired[Mapping[ServiceActionDefinitionKeyType, str]]
+    Description: NotRequired[str]
+    AcceptLanguage: NotRequired[str]
+
+class UpdateTagOptionInputTypeDef(TypedDict):
+    Id: str
+    Value: NotRequired[str]
+    Active: NotRequired[bool]
+
+class ListProvisionedProductPlansInputTypeDef(TypedDict):
+    AcceptLanguage: NotRequired[str]
+    ProvisionProductId: NotRequired[str]
+    PageSize: NotRequired[int]
+    PageToken: NotRequired[str]
+    AccessLevelFilter: NotRequired[AccessLevelFilterTypeDef]
+
+class ScanProvisionedProductsInputTypeDef(TypedDict):
+    AcceptLanguage: NotRequired[str]
+    AccessLevelFilter: NotRequired[AccessLevelFilterTypeDef]
+    PageSize: NotRequired[int]
+    PageToken: NotRequired[str]
+
+class SearchProvisionedProductsInputTypeDef(TypedDict):
+    AcceptLanguage: NotRequired[str]
+    AccessLevelFilter: NotRequired[AccessLevelFilterTypeDef]
+    Filters: NotRequired[Mapping[Literal["SearchQuery"], Sequence[str]]]
+    SortBy: NotRequired[str]
+    SortOrder: NotRequired[SortOrderType]
+    PageSize: NotRequired[int]
+    PageToken: NotRequired[str]
+
+class BatchAssociateServiceActionWithProvisioningArtifactInputTypeDef(TypedDict):
+    ServiceActionAssociations: Sequence[ServiceActionAssociationTypeDef]
+    AcceptLanguage: NotRequired[str]
+
+class BatchDisassociateServiceActionFromProvisioningArtifactInputTypeDef(TypedDict):
+    ServiceActionAssociations: Sequence[ServiceActionAssociationTypeDef]
+    AcceptLanguage: NotRequired[str]
+
+class BatchAssociateServiceActionWithProvisioningArtifactOutputTypeDef(TypedDict):
+    FailedServiceActionAssociations: List[FailedServiceActionAssociationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class BatchDisassociateServiceActionFromProvisioningArtifactOutputTypeDef(TypedDict):
+    FailedServiceActionAssociations: List[FailedServiceActionAssociationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CopyProductOutputTypeDef(TypedDict):
+    CopyProductToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreatePortfolioShareOutputTypeDef(TypedDict):
+    PortfolioShareToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateProvisionedProductPlanOutputTypeDef(TypedDict):
+    PlanName: str
+    PlanId: str
+    ProvisionProductId: str
+    ProvisionedProductName: str
+    ProvisioningArtifactId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeletePortfolioShareOutputTypeDef(TypedDict):
+    PortfolioShareToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeCopyProductStatusOutputTypeDef(TypedDict):
+    CopyProductStatus: CopyProductStatusType
+    TargetProductId: str
+    StatusDetail: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetAWSOrganizationsAccessStatusOutputTypeDef(TypedDict):
+    AccessStatus: AccessStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListPortfolioAccessOutputTypeDef(TypedDict):
+    AccountIds: List[str]
+    NextPageToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdatePortfolioShareOutputTypeDef(TypedDict):
+    PortfolioShareToken: str
+    Status: ShareStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateProvisionedProductPropertiesOutputTypeDef(TypedDict):
+    ProvisionedProductId: str
+    ProvisionedProductProperties: Dict[PropertyKeyType, str]
+    RecordId: str
+    Status: RecordStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListBudgetsForResourceOutputTypeDef(TypedDict):
+    Budgets: List[BudgetDetailTypeDef]
+    NextPageToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class SourceConnectionParametersTypeDef(TypedDict):
+    CodeStar: NotRequired[CodeStarParametersTypeDef]
+
+class CreateConstraintOutputTypeDef(TypedDict):
+    ConstraintDetail: ConstraintDetailTypeDef
+    ConstraintParameters: str
+    Status: StatusType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeConstraintOutputTypeDef(TypedDict):
+    ConstraintDetail: ConstraintDetailTypeDef
+    ConstraintParameters: str
+    Status: StatusType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListConstraintsForPortfolioOutputTypeDef(TypedDict):
+    ConstraintDetails: List[ConstraintDetailTypeDef]
+    NextPageToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateConstraintOutputTypeDef(TypedDict):
+    ConstraintDetail: ConstraintDetailTypeDef
+    ConstraintParameters: str
+    Status: StatusType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreatePortfolioInputTypeDef(TypedDict):
+    DisplayName: str
+    ProviderName: str
+    IdempotencyToken: str
+    AcceptLanguage: NotRequired[str]
+    Description: NotRequired[str]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+
+class LaunchPathSummaryTypeDef(TypedDict):
+    Id: NotRequired[str]
+    ConstraintSummaries: NotRequired[List[ConstraintSummaryTypeDef]]
+    Tags: NotRequired[List[TagTypeDef]]
+    Name: NotRequired[str]
+
+ProvisionedProductAttributeTypeDef = TypedDict(
+    "ProvisionedProductAttributeTypeDef",
+    {
+        "Name": NotRequired[str],
+        "Arn": NotRequired[str],
+        "Type": NotRequired[str],
+        "Id": NotRequired[str],
+        "Status": NotRequired[ProvisionedProductStatusType],
+        "StatusMessage": NotRequired[str],
+        "CreatedTime": NotRequired[datetime],
+        "IdempotencyToken": NotRequired[str],
+        "LastRecordId": NotRequired[str],
+        "LastProvisioningRecordId": NotRequired[str],
+        "LastSuccessfulProvisioningRecordId": NotRequired[str],
+        "Tags": NotRequired[List[TagTypeDef]],
+        "PhysicalId": NotRequired[str],
+        "ProductId": NotRequired[str],
+        "ProductName": NotRequired[str],
+        "ProvisioningArtifactId": NotRequired[str],
+        "ProvisioningArtifactName": NotRequired[str],
+        "UserArn": NotRequired[str],
+        "UserArnSession": NotRequired[str],
+    },
+)
+
+class UpdatePortfolioInputTypeDef(TypedDict):
+    Id: str
+    AcceptLanguage: NotRequired[str]
+    DisplayName: NotRequired[str]
+    Description: NotRequired[str]
+    ProviderName: NotRequired[str]
+    AddTags: NotRequired[Sequence[TagTypeDef]]
+    RemoveTags: NotRequired[Sequence[str]]
+
+class CreatePortfolioOutputTypeDef(TypedDict):
+    PortfolioDetail: PortfolioDetailTypeDef
+    Tags: List[TagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListAcceptedPortfolioSharesOutputTypeDef(TypedDict):
+    PortfolioDetails: List[PortfolioDetailTypeDef]
+    NextPageToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListPortfoliosForProductOutputTypeDef(TypedDict):
+    PortfolioDetails: List[PortfolioDetailTypeDef]
+    NextPageToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListPortfoliosOutputTypeDef(TypedDict):
+    PortfolioDetails: List[PortfolioDetailTypeDef]
+    NextPageToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdatePortfolioOutputTypeDef(TypedDict):
+    PortfolioDetail: PortfolioDetailTypeDef
+    Tags: List[TagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreatePortfolioShareInputTypeDef(TypedDict):
+    PortfolioId: str
+    AcceptLanguage: NotRequired[str]
+    AccountId: NotRequired[str]
+    OrganizationNode: NotRequired[OrganizationNodeTypeDef]
+    ShareTagOptions: NotRequired[bool]
+    SharePrincipals: NotRequired[bool]
+
+class DeletePortfolioShareInputTypeDef(TypedDict):
+    PortfolioId: str
+    AcceptLanguage: NotRequired[str]
+    AccountId: NotRequired[str]
+    OrganizationNode: NotRequired[OrganizationNodeTypeDef]
+
+class ListOrganizationPortfolioAccessOutputTypeDef(TypedDict):
+    OrganizationNodes: List[OrganizationNodeTypeDef]
+    NextPageToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdatePortfolioShareInputTypeDef(TypedDict):
+    PortfolioId: str
+    AcceptLanguage: NotRequired[str]
+    AccountId: NotRequired[str]
+    OrganizationNode: NotRequired[OrganizationNodeTypeDef]
+    ShareTagOptions: NotRequired[bool]
+    SharePrincipals: NotRequired[bool]
+
+class CreateProvisioningArtifactInputTypeDef(TypedDict):
+    ProductId: str
+    Parameters: ProvisioningArtifactPropertiesTypeDef
+    IdempotencyToken: str
+    AcceptLanguage: NotRequired[str]
+
+class CreateProvisioningArtifactOutputTypeDef(TypedDict):
+    ProvisioningArtifactDetail: ProvisioningArtifactDetailTypeDef
+    Info: Dict[str, str]
+    Status: StatusType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListProvisioningArtifactsOutputTypeDef(TypedDict):
+    ProvisioningArtifactDetails: List[ProvisioningArtifactDetailTypeDef]
+    NextPageToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateProvisioningArtifactOutputTypeDef(TypedDict):
+    ProvisioningArtifactDetail: ProvisioningArtifactDetailTypeDef
+    Info: Dict[str, str]
+    Status: StatusType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateProvisionedProductPlanInputTypeDef(TypedDict):
+    PlanName: str
+    PlanType: Literal["CLOUDFORMATION"]
+    ProductId: str
+    ProvisionedProductName: str
+    ProvisioningArtifactId: str
+    IdempotencyToken: str
+    AcceptLanguage: NotRequired[str]
+    NotificationArns: NotRequired[Sequence[str]]
+    PathId: NotRequired[str]
+    ProvisioningParameters: NotRequired[Sequence[UpdateProvisioningParameterTypeDef]]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+
+class ProvisionedProductPlanDetailsTypeDef(TypedDict):
+    CreatedTime: NotRequired[datetime]
+    PathId: NotRequired[str]
+    ProductId: NotRequired[str]
+    PlanName: NotRequired[str]
+    PlanId: NotRequired[str]
+    ProvisionProductId: NotRequired[str]
+    ProvisionProductName: NotRequired[str]
+    PlanType: NotRequired[Literal["CLOUDFORMATION"]]
+    ProvisioningArtifactId: NotRequired[str]
+    Status: NotRequired[ProvisionedProductPlanStatusType]
+    UpdatedTime: NotRequired[datetime]
+    NotificationArns: NotRequired[List[str]]
+    ProvisioningParameters: NotRequired[List[UpdateProvisioningParameterTypeDef]]
+    Tags: NotRequired[List[TagTypeDef]]
+    StatusMessage: NotRequired[str]
+
+class CreateTagOptionOutputTypeDef(TypedDict):
+    TagOptionDetail: TagOptionDetailTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribePortfolioOutputTypeDef(TypedDict):
+    PortfolioDetail: PortfolioDetailTypeDef
+    Tags: List[TagTypeDef]
+    TagOptions: List[TagOptionDetailTypeDef]
+    Budgets: List[BudgetDetailTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeTagOptionOutputTypeDef(TypedDict):
+    TagOptionDetail: TagOptionDetailTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListTagOptionsOutputTypeDef(TypedDict):
+    TagOptionDetails: List[TagOptionDetailTypeDef]
+    PageToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateTagOptionOutputTypeDef(TypedDict):
+    TagOptionDetail: TagOptionDetailTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribePortfolioSharesOutputTypeDef(TypedDict):
+    NextPageToken: str
+    PortfolioShareDetails: List[PortfolioShareDetailTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeProductOutputTypeDef(TypedDict):
+    ProductViewSummary: ProductViewSummaryTypeDef
+    ProvisioningArtifacts: List[ProvisioningArtifactTypeDef]
+    Budgets: List[BudgetDetailTypeDef]
+    LaunchPaths: List[LaunchPathTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeProductViewOutputTypeDef(TypedDict):
+    ProductViewSummary: ProductViewSummaryTypeDef
+    ProvisioningArtifacts: List[ProvisioningArtifactTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ProvisioningArtifactViewTypeDef(TypedDict):
+    ProductViewSummary: NotRequired[ProductViewSummaryTypeDef]
+    ProvisioningArtifact: NotRequired[ProvisioningArtifactTypeDef]
+
+class DescribeProvisionedProductOutputTypeDef(TypedDict):
+    ProvisionedProductDetail: ProvisionedProductDetailTypeDef
+    CloudWatchDashboards: List[CloudWatchDashboardTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ScanProvisionedProductsOutputTypeDef(TypedDict):
+    ProvisionedProducts: List[ProvisionedProductDetailTypeDef]
+    NextPageToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetProvisionedProductOutputsOutputTypeDef(TypedDict):
+    Outputs: List[RecordOutputTypeDef]
+    NextPageToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class NotifyUpdateProvisionedProductEngineWorkflowResultInputTypeDef(TypedDict):
+    WorkflowToken: str
+    RecordId: str
+    Status: EngineWorkflowStatusType
+    IdempotencyToken: str
+    FailureReason: NotRequired[str]
+    Outputs: NotRequired[Sequence[RecordOutputTypeDef]]
+
+class DescribeServiceActionExecutionParametersOutputTypeDef(TypedDict):
+    ServiceActionParameters: List[ExecutionParameterTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class EngineWorkflowResourceIdentifierTypeDef(TypedDict):
+    UniqueTag: NotRequired[UniqueTagResourceIdentifierTypeDef]
+
+class ListAcceptedPortfolioSharesInputPaginateTypeDef(TypedDict):
+    AcceptLanguage: NotRequired[str]
+    PortfolioShareType: NotRequired[PortfolioShareTypeType]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListConstraintsForPortfolioInputPaginateTypeDef(TypedDict):
+    PortfolioId: str
+    AcceptLanguage: NotRequired[str]
+    ProductId: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListLaunchPathsInputPaginateTypeDef(TypedDict):
+    ProductId: str
+    AcceptLanguage: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListOrganizationPortfolioAccessInputPaginateTypeDef(TypedDict):
+    PortfolioId: str
+    OrganizationNodeType: OrganizationNodeTypeType
+    AcceptLanguage: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListPortfoliosForProductInputPaginateTypeDef(TypedDict):
+    ProductId: str
+    AcceptLanguage: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListPortfoliosInputPaginateTypeDef(TypedDict):
+    AcceptLanguage: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListPrincipalsForPortfolioInputPaginateTypeDef(TypedDict):
+    PortfolioId: str
+    AcceptLanguage: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListProvisionedProductPlansInputPaginateTypeDef(TypedDict):
+    AcceptLanguage: NotRequired[str]
+    ProvisionProductId: NotRequired[str]
+    AccessLevelFilter: NotRequired[AccessLevelFilterTypeDef]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListProvisioningArtifactsForServiceActionInputPaginateTypeDef(TypedDict):
+    ServiceActionId: str
+    AcceptLanguage: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListResourcesForTagOptionInputPaginateTypeDef(TypedDict):
+    TagOptionId: str
+    ResourceType: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListServiceActionsForProvisioningArtifactInputPaginateTypeDef(TypedDict):
+    ProductId: str
+    ProvisioningArtifactId: str
+    AcceptLanguage: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListServiceActionsInputPaginateTypeDef(TypedDict):
+    AcceptLanguage: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ScanProvisionedProductsInputPaginateTypeDef(TypedDict):
+    AcceptLanguage: NotRequired[str]
+    AccessLevelFilter: NotRequired[AccessLevelFilterTypeDef]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class SearchProductsAsAdminInputPaginateTypeDef(TypedDict):
+    AcceptLanguage: NotRequired[str]
+    PortfolioId: NotRequired[str]
+    Filters: NotRequired[Mapping[ProductViewFilterByType, Sequence[str]]]
+    SortBy: NotRequired[ProductViewSortByType]
+    SortOrder: NotRequired[SortOrderType]
+    ProductSource: NotRequired[Literal["ACCOUNT"]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListPrincipalsForPortfolioOutputTypeDef(TypedDict):
+    Principals: List[PrincipalTypeDef]
+    NextPageToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListProvisionedProductPlansOutputTypeDef(TypedDict):
+    ProvisionedProductPlans: List[ProvisionedProductPlanSummaryTypeDef]
+    NextPageToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListRecordHistoryInputPaginateTypeDef(TypedDict):
+    AcceptLanguage: NotRequired[str]
+    AccessLevelFilter: NotRequired[AccessLevelFilterTypeDef]
+    SearchFilter: NotRequired[ListRecordHistorySearchFilterTypeDef]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListRecordHistoryInputTypeDef(TypedDict):
+    AcceptLanguage: NotRequired[str]
+    AccessLevelFilter: NotRequired[AccessLevelFilterTypeDef]
+    SearchFilter: NotRequired[ListRecordHistorySearchFilterTypeDef]
+    PageSize: NotRequired[int]
+    PageToken: NotRequired[str]
+
+class ListResourcesForTagOptionOutputTypeDef(TypedDict):
+    ResourceDetails: List[ResourceDetailTypeDef]
+    PageToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListServiceActionsForProvisioningArtifactOutputTypeDef(TypedDict):
+    ServiceActionSummaries: List[ServiceActionSummaryTypeDef]
+    NextPageToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListServiceActionsOutputTypeDef(TypedDict):
+    ServiceActionSummaries: List[ServiceActionSummaryTypeDef]
+    NextPageToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ServiceActionDetailTypeDef(TypedDict):
+    ServiceActionSummary: NotRequired[ServiceActionSummaryTypeDef]
+    Definition: NotRequired[Dict[ServiceActionDefinitionKeyType, str]]
+
+class ListStackInstancesForProvisionedProductOutputTypeDef(TypedDict):
+    StackInstances: List[StackInstanceTypeDef]
+    NextPageToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListTagOptionsInputPaginateTypeDef(TypedDict):
+    Filters: NotRequired[ListTagOptionsFiltersTypeDef]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListTagOptionsInputTypeDef(TypedDict):
+    Filters: NotRequired[ListTagOptionsFiltersTypeDef]
+    PageSize: NotRequired[int]
+    PageToken: NotRequired[str]
+
+class ProvisioningArtifactParameterTypeDef(TypedDict):
+    ParameterKey: NotRequired[str]
+    DefaultValue: NotRequired[str]
+    ParameterType: NotRequired[str]
+    IsNoEcho: NotRequired[bool]
+    Description: NotRequired[str]
+    ParameterConstraints: NotRequired[ParameterConstraintsTypeDef]
+
+class SearchProductsOutputTypeDef(TypedDict):
+    ProductViewSummaries: List[ProductViewSummaryTypeDef]
+    ProductViewAggregations: Dict[str, List[ProductViewAggregationValueTypeDef]]
+    NextPageToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ProvisionProductInputTypeDef(TypedDict):
+    ProvisionedProductName: str
+    ProvisionToken: str
+    AcceptLanguage: NotRequired[str]
+    ProductId: NotRequired[str]
+    ProductName: NotRequired[str]
+    ProvisioningArtifactId: NotRequired[str]
+    ProvisioningArtifactName: NotRequired[str]
+    PathId: NotRequired[str]
+    PathName: NotRequired[str]
+    ProvisioningParameters: NotRequired[Sequence[ProvisioningParameterTypeDef]]
+    ProvisioningPreferences: NotRequired[ProvisioningPreferencesTypeDef]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+    NotificationArns: NotRequired[Sequence[str]]
+
+class RecordDetailTypeDef(TypedDict):
+    RecordId: NotRequired[str]
+    ProvisionedProductName: NotRequired[str]
+    Status: NotRequired[RecordStatusType]
+    CreatedTime: NotRequired[datetime]
+    UpdatedTime: NotRequired[datetime]
+    ProvisionedProductType: NotRequired[str]
+    RecordType: NotRequired[str]
+    ProvisionedProductId: NotRequired[str]
+    ProductId: NotRequired[str]
+    ProvisioningArtifactId: NotRequired[str]
+    PathId: NotRequired[str]
+    RecordErrors: NotRequired[List[RecordErrorTypeDef]]
+    RecordTags: NotRequired[List[RecordTagTypeDef]]
+    LaunchRoleArn: NotRequired[str]
+
+class ResourceChangeDetailTypeDef(TypedDict):
+    Target: NotRequired[ResourceTargetDefinitionTypeDef]
+    Evaluation: NotRequired[EvaluationTypeType]
+    CausingEntity: NotRequired[str]
+
+class ShareDetailsTypeDef(TypedDict):
+    SuccessfulShares: NotRequired[List[str]]
+    ShareErrors: NotRequired[List[ShareErrorTypeDef]]
+
+class UpdateProvisionedProductInputTypeDef(TypedDict):
+    UpdateToken: str
+    AcceptLanguage: NotRequired[str]
+    ProvisionedProductName: NotRequired[str]
+    ProvisionedProductId: NotRequired[str]
+    ProductId: NotRequired[str]
+    ProductName: NotRequired[str]
+    ProvisioningArtifactId: NotRequired[str]
+    ProvisioningArtifactName: NotRequired[str]
+    PathId: NotRequired[str]
+    PathName: NotRequired[str]
+    ProvisioningParameters: NotRequired[Sequence[UpdateProvisioningParameterTypeDef]]
+    ProvisioningPreferences: NotRequired[UpdateProvisioningPreferencesTypeDef]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+
+SourceConnectionDetailTypeDef = TypedDict(
+    "SourceConnectionDetailTypeDef",
+    {
+        "Type": NotRequired[Literal["CODESTAR"]],
+        "ConnectionParameters": NotRequired[SourceConnectionParametersTypeDef],
+        "LastSync": NotRequired[LastSyncTypeDef],
+    },
+)
+SourceConnectionTypeDef = TypedDict(
+    "SourceConnectionTypeDef",
+    {
+        "ConnectionParameters": SourceConnectionParametersTypeDef,
+        "Type": NotRequired[Literal["CODESTAR"]],
+    },
+)
+
+class ListLaunchPathsOutputTypeDef(TypedDict):
+    LaunchPathSummaries: List[LaunchPathSummaryTypeDef]
+    NextPageToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class SearchProvisionedProductsOutputTypeDef(TypedDict):
+    ProvisionedProducts: List[ProvisionedProductAttributeTypeDef]
+    TotalResultsCount: int
+    NextPageToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListProvisioningArtifactsForServiceActionOutputTypeDef(TypedDict):
+    ProvisioningArtifactViews: List[ProvisioningArtifactViewTypeDef]
+    NextPageToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class NotifyProvisionProductEngineWorkflowResultInputTypeDef(TypedDict):
+    WorkflowToken: str
+    RecordId: str
+    Status: EngineWorkflowStatusType
+    IdempotencyToken: str
+    FailureReason: NotRequired[str]
+    ResourceIdentifier: NotRequired[EngineWorkflowResourceIdentifierTypeDef]
+    Outputs: NotRequired[Sequence[RecordOutputTypeDef]]
+
+class CreateServiceActionOutputTypeDef(TypedDict):
+    ServiceActionDetail: ServiceActionDetailTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeServiceActionOutputTypeDef(TypedDict):
+    ServiceActionDetail: ServiceActionDetailTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateServiceActionOutputTypeDef(TypedDict):
+    ServiceActionDetail: ServiceActionDetailTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeProvisioningArtifactOutputTypeDef(TypedDict):
+    ProvisioningArtifactDetail: ProvisioningArtifactDetailTypeDef
+    Info: Dict[str, str]
+    Status: StatusType
+    ProvisioningArtifactParameters: List[ProvisioningArtifactParameterTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeProvisioningParametersOutputTypeDef(TypedDict):
+    ProvisioningArtifactParameters: List[ProvisioningArtifactParameterTypeDef]
+    ConstraintSummaries: List[ConstraintSummaryTypeDef]
+    UsageInstructions: List[UsageInstructionTypeDef]
+    TagOptions: List[TagOptionSummaryTypeDef]
+    ProvisioningArtifactPreferences: ProvisioningArtifactPreferencesTypeDef
+    ProvisioningArtifactOutputs: List[ProvisioningArtifactOutputTypeDef]
+    ProvisioningArtifactOutputKeys: List[ProvisioningArtifactOutputTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeRecordOutputTypeDef(TypedDict):
+    RecordDetail: RecordDetailTypeDef
+    RecordOutputs: List[RecordOutputTypeDef]
+    NextPageToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ExecuteProvisionedProductPlanOutputTypeDef(TypedDict):
+    RecordDetail: RecordDetailTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ExecuteProvisionedProductServiceActionOutputTypeDef(TypedDict):
+    RecordDetail: RecordDetailTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ImportAsProvisionedProductOutputTypeDef(TypedDict):
+    RecordDetail: RecordDetailTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListRecordHistoryOutputTypeDef(TypedDict):
+    RecordDetails: List[RecordDetailTypeDef]
+    NextPageToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ProvisionProductOutputTypeDef(TypedDict):
+    RecordDetail: RecordDetailTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class TerminateProvisionedProductOutputTypeDef(TypedDict):
+    RecordDetail: RecordDetailTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateProvisionedProductOutputTypeDef(TypedDict):
+    RecordDetail: RecordDetailTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ResourceChangeTypeDef(TypedDict):
+    Action: NotRequired[ChangeActionType]
+    LogicalResourceId: NotRequired[str]
+    PhysicalResourceId: NotRequired[str]
+    ResourceType: NotRequired[str]
+    Replacement: NotRequired[ReplacementType]
+    Scope: NotRequired[List[ResourceAttributeType]]
+    Details: NotRequired[List[ResourceChangeDetailTypeDef]]
+
+class DescribePortfolioShareStatusOutputTypeDef(TypedDict):
+    PortfolioShareToken: str
+    PortfolioId: str
+    OrganizationNodeValue: str
+    Status: ShareStatusType
+    ShareDetails: ShareDetailsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ProductViewDetailTypeDef(TypedDict):
+    ProductViewSummary: NotRequired[ProductViewSummaryTypeDef]
+    Status: NotRequired[StatusType]
+    ProductARN: NotRequired[str]
+    CreatedTime: NotRequired[datetime]
+    SourceConnection: NotRequired[SourceConnectionDetailTypeDef]
+
+class CreateProductInputTypeDef(TypedDict):
+    Name: str
+    Owner: str
+    ProductType: ProductTypeType
+    IdempotencyToken: str
+    AcceptLanguage: NotRequired[str]
+    Description: NotRequired[str]
+    Distributor: NotRequired[str]
+    SupportDescription: NotRequired[str]
+    SupportEmail: NotRequired[str]
+    SupportUrl: NotRequired[str]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+    ProvisioningArtifactParameters: NotRequired[ProvisioningArtifactPropertiesTypeDef]
+    SourceConnection: NotRequired[SourceConnectionTypeDef]
+
+class UpdateProductInputTypeDef(TypedDict):
+    Id: str
+    AcceptLanguage: NotRequired[str]
+    Name: NotRequired[str]
+    Owner: NotRequired[str]
+    Description: NotRequired[str]
+    Distributor: NotRequired[str]
+    SupportDescription: NotRequired[str]
+    SupportEmail: NotRequired[str]
+    SupportUrl: NotRequired[str]
+    AddTags: NotRequired[Sequence[TagTypeDef]]
+    RemoveTags: NotRequired[Sequence[str]]
+    SourceConnection: NotRequired[SourceConnectionTypeDef]
+
+class DescribeProvisionedProductPlanOutputTypeDef(TypedDict):
+    ProvisionedProductPlanDetails: ProvisionedProductPlanDetailsTypeDef
+    ResourceChanges: List[ResourceChangeTypeDef]
+    NextPageToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateProductOutputTypeDef(TypedDict):
+    ProductViewDetail: ProductViewDetailTypeDef
+    ProvisioningArtifactDetail: ProvisioningArtifactDetailTypeDef
+    Tags: List[TagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeProductAsAdminOutputTypeDef(TypedDict):
+    ProductViewDetail: ProductViewDetailTypeDef
+    ProvisioningArtifactSummaries: List[ProvisioningArtifactSummaryTypeDef]
+    Tags: List[TagTypeDef]
+    TagOptions: List[TagOptionDetailTypeDef]
+    Budgets: List[BudgetDetailTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class SearchProductsAsAdminOutputTypeDef(TypedDict):
+    ProductViewDetails: List[ProductViewDetailTypeDef]
+    NextPageToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateProductOutputTypeDef(TypedDict):
+    ProductViewDetail: ProductViewDetailTypeDef
+    Tags: List[TagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef

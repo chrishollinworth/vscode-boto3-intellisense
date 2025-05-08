@@ -1,14 +1,16 @@
 """
 Type annotations for ds service client paginators.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/paginators.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ds/paginators/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
 
-    from mypy_boto3_ds import DirectoryServiceClient
+    from mypy_boto3_ds.client import DirectoryServiceClient
     from mypy_boto3_ds.paginator import (
         DescribeClientAuthenticationSettingsPaginator,
         DescribeDirectoriesPaginator,
@@ -26,7 +28,8 @@ Usage::
         ListTagsForResourcePaginator,
     )
 
-    client: DirectoryServiceClient = boto3.client("ds")
+    session = Session()
+    client: DirectoryServiceClient = session.client("ds")
 
     describe_client_authentication_settings_paginator: DescribeClientAuthenticationSettingsPaginator = client.get_paginator("describe_client_authentication_settings")
     describe_directories_paginator: DescribeDirectoriesPaginator = client.get_paginator("describe_directories")
@@ -45,34 +48,48 @@ Usage::
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from typing import Iterator, List
+from typing import TYPE_CHECKING
 
-from botocore.paginate import Paginator as Boto3Paginator
+from botocore.paginate import PageIterator, Paginator
 
-from .literals import ClientAuthenticationTypeType
 from .type_defs import (
+    DescribeClientAuthenticationSettingsRequestPaginateTypeDef,
     DescribeClientAuthenticationSettingsResultTypeDef,
+    DescribeDirectoriesRequestPaginateTypeDef,
     DescribeDirectoriesResultTypeDef,
+    DescribeDomainControllersRequestPaginateTypeDef,
     DescribeDomainControllersResultTypeDef,
+    DescribeLDAPSSettingsRequestPaginateTypeDef,
     DescribeLDAPSSettingsResultTypeDef,
+    DescribeRegionsRequestPaginateTypeDef,
     DescribeRegionsResultTypeDef,
+    DescribeSharedDirectoriesRequestPaginateTypeDef,
     DescribeSharedDirectoriesResultTypeDef,
+    DescribeSnapshotsRequestPaginateTypeDef,
     DescribeSnapshotsResultTypeDef,
+    DescribeTrustsRequestPaginateTypeDef,
     DescribeTrustsResultTypeDef,
+    DescribeUpdateDirectoryRequestPaginateTypeDef,
     DescribeUpdateDirectoryResultTypeDef,
+    ListCertificatesRequestPaginateTypeDef,
     ListCertificatesResultTypeDef,
+    ListIpRoutesRequestPaginateTypeDef,
     ListIpRoutesResultTypeDef,
+    ListLogSubscriptionsRequestPaginateTypeDef,
     ListLogSubscriptionsResultTypeDef,
+    ListSchemaExtensionsRequestPaginateTypeDef,
     ListSchemaExtensionsResultTypeDef,
+    ListTagsForResourceRequestPaginateTypeDef,
     ListTagsForResourceResultTypeDef,
-    PaginatorConfigTypeDef,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 12):
+    from typing import Unpack
 else:
-    from typing_extensions import Literal
+    from typing_extensions import Unpack
 
 __all__ = (
     "DescribeClientAuthenticationSettingsPaginator",
@@ -91,231 +108,258 @@ __all__ = (
     "ListTagsForResourcePaginator",
 )
 
-class DescribeClientAuthenticationSettingsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ds.html#DirectoryService.Paginator.DescribeClientAuthenticationSettings)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/paginators.html#describeclientauthenticationsettingspaginator)
-    """
+if TYPE_CHECKING:
+    _DescribeClientAuthenticationSettingsPaginatorBase = Paginator[
+        DescribeClientAuthenticationSettingsResultTypeDef
+    ]
+else:
+    _DescribeClientAuthenticationSettingsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        DirectoryId: str,
-        Type: ClientAuthenticationTypeType = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[DescribeClientAuthenticationSettingsResultTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ds.html#DirectoryService.Paginator.DescribeClientAuthenticationSettings.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/paginators.html#describeclientauthenticationsettingspaginator)
-        """
-
-class DescribeDirectoriesPaginator(Boto3Paginator):
+class DescribeClientAuthenticationSettingsPaginator(
+    _DescribeClientAuthenticationSettingsPaginatorBase
+):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ds.html#DirectoryService.Paginator.DescribeDirectories)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/paginators.html#describedirectoriespaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ds/paginator/DescribeClientAuthenticationSettings.html#DirectoryService.Paginator.DescribeClientAuthenticationSettings)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ds/paginators/#describeclientauthenticationsettingspaginator)
     """
-
-    def paginate(
-        self, *, DirectoryIds: List[str] = None, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[DescribeDirectoriesResultTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeClientAuthenticationSettingsRequestPaginateTypeDef]
+    ) -> PageIterator[DescribeClientAuthenticationSettingsResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ds.html#DirectoryService.Paginator.DescribeDirectories.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/paginators.html#describedirectoriespaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ds/paginator/DescribeClientAuthenticationSettings.html#DirectoryService.Paginator.DescribeClientAuthenticationSettings.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ds/paginators/#describeclientauthenticationsettingspaginator)
         """
 
-class DescribeDomainControllersPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ds.html#DirectoryService.Paginator.DescribeDomainControllers)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/paginators.html#describedomaincontrollerspaginator)
-    """
+if TYPE_CHECKING:
+    _DescribeDirectoriesPaginatorBase = Paginator[DescribeDirectoriesResultTypeDef]
+else:
+    _DescribeDirectoriesPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        DirectoryId: str,
-        DomainControllerIds: List[str] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[DescribeDomainControllersResultTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ds.html#DirectoryService.Paginator.DescribeDomainControllers.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/paginators.html#describedomaincontrollerspaginator)
-        """
-
-class DescribeLDAPSSettingsPaginator(Boto3Paginator):
+class DescribeDirectoriesPaginator(_DescribeDirectoriesPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ds.html#DirectoryService.Paginator.DescribeLDAPSSettings)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/paginators.html#describeldapssettingspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ds/paginator/DescribeDirectories.html#DirectoryService.Paginator.DescribeDirectories)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ds/paginators/#describedirectoriespaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        DirectoryId: str,
-        Type: Literal["Client"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[DescribeLDAPSSettingsResultTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeDirectoriesRequestPaginateTypeDef]
+    ) -> PageIterator[DescribeDirectoriesResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ds.html#DirectoryService.Paginator.DescribeLDAPSSettings.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/paginators.html#describeldapssettingspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ds/paginator/DescribeDirectories.html#DirectoryService.Paginator.DescribeDirectories.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ds/paginators/#describedirectoriespaginator)
         """
 
-class DescribeRegionsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ds.html#DirectoryService.Paginator.DescribeRegions)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/paginators.html#describeregionspaginator)
-    """
+if TYPE_CHECKING:
+    _DescribeDomainControllersPaginatorBase = Paginator[DescribeDomainControllersResultTypeDef]
+else:
+    _DescribeDomainControllersPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        DirectoryId: str,
-        RegionName: str = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[DescribeRegionsResultTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ds.html#DirectoryService.Paginator.DescribeRegions.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/paginators.html#describeregionspaginator)
-        """
-
-class DescribeSharedDirectoriesPaginator(Boto3Paginator):
+class DescribeDomainControllersPaginator(_DescribeDomainControllersPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ds.html#DirectoryService.Paginator.DescribeSharedDirectories)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/paginators.html#describeshareddirectoriespaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ds/paginator/DescribeDomainControllers.html#DirectoryService.Paginator.DescribeDomainControllers)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ds/paginators/#describedomaincontrollerspaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        OwnerDirectoryId: str,
-        SharedDirectoryIds: List[str] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[DescribeSharedDirectoriesResultTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeDomainControllersRequestPaginateTypeDef]
+    ) -> PageIterator[DescribeDomainControllersResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ds.html#DirectoryService.Paginator.DescribeSharedDirectories.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/paginators.html#describeshareddirectoriespaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ds/paginator/DescribeDomainControllers.html#DirectoryService.Paginator.DescribeDomainControllers.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ds/paginators/#describedomaincontrollerspaginator)
         """
 
-class DescribeSnapshotsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ds.html#DirectoryService.Paginator.DescribeSnapshots)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/paginators.html#describesnapshotspaginator)
-    """
+if TYPE_CHECKING:
+    _DescribeLDAPSSettingsPaginatorBase = Paginator[DescribeLDAPSSettingsResultTypeDef]
+else:
+    _DescribeLDAPSSettingsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        DirectoryId: str = None,
-        SnapshotIds: List[str] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[DescribeSnapshotsResultTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ds.html#DirectoryService.Paginator.DescribeSnapshots.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/paginators.html#describesnapshotspaginator)
-        """
-
-class DescribeTrustsPaginator(Boto3Paginator):
+class DescribeLDAPSSettingsPaginator(_DescribeLDAPSSettingsPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ds.html#DirectoryService.Paginator.DescribeTrusts)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/paginators.html#describetrustspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ds/paginator/DescribeLDAPSSettings.html#DirectoryService.Paginator.DescribeLDAPSSettings)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ds/paginators/#describeldapssettingspaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        DirectoryId: str = None,
-        TrustIds: List[str] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[DescribeTrustsResultTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeLDAPSSettingsRequestPaginateTypeDef]
+    ) -> PageIterator[DescribeLDAPSSettingsResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ds.html#DirectoryService.Paginator.DescribeTrusts.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/paginators.html#describetrustspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ds/paginator/DescribeLDAPSSettings.html#DirectoryService.Paginator.DescribeLDAPSSettings.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ds/paginators/#describeldapssettingspaginator)
         """
 
-class DescribeUpdateDirectoryPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ds.html#DirectoryService.Paginator.DescribeUpdateDirectory)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/paginators.html#describeupdatedirectorypaginator)
-    """
+if TYPE_CHECKING:
+    _DescribeRegionsPaginatorBase = Paginator[DescribeRegionsResultTypeDef]
+else:
+    _DescribeRegionsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        DirectoryId: str,
-        UpdateType: Literal["OS"],
-        RegionName: str = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[DescribeUpdateDirectoryResultTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ds.html#DirectoryService.Paginator.DescribeUpdateDirectory.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/paginators.html#describeupdatedirectorypaginator)
-        """
-
-class ListCertificatesPaginator(Boto3Paginator):
+class DescribeRegionsPaginator(_DescribeRegionsPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ds.html#DirectoryService.Paginator.ListCertificates)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/paginators.html#listcertificatespaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ds/paginator/DescribeRegions.html#DirectoryService.Paginator.DescribeRegions)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ds/paginators/#describeregionspaginator)
     """
-
-    def paginate(
-        self, *, DirectoryId: str, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListCertificatesResultTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeRegionsRequestPaginateTypeDef]
+    ) -> PageIterator[DescribeRegionsResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ds.html#DirectoryService.Paginator.ListCertificates.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/paginators.html#listcertificatespaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ds/paginator/DescribeRegions.html#DirectoryService.Paginator.DescribeRegions.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ds/paginators/#describeregionspaginator)
         """
 
-class ListIpRoutesPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ds.html#DirectoryService.Paginator.ListIpRoutes)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/paginators.html#listiproutespaginator)
-    """
+if TYPE_CHECKING:
+    _DescribeSharedDirectoriesPaginatorBase = Paginator[DescribeSharedDirectoriesResultTypeDef]
+else:
+    _DescribeSharedDirectoriesPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, DirectoryId: str, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListIpRoutesResultTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ds.html#DirectoryService.Paginator.ListIpRoutes.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/paginators.html#listiproutespaginator)
-        """
-
-class ListLogSubscriptionsPaginator(Boto3Paginator):
+class DescribeSharedDirectoriesPaginator(_DescribeSharedDirectoriesPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ds.html#DirectoryService.Paginator.ListLogSubscriptions)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/paginators.html#listlogsubscriptionspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ds/paginator/DescribeSharedDirectories.html#DirectoryService.Paginator.DescribeSharedDirectories)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ds/paginators/#describeshareddirectoriespaginator)
     """
-
-    def paginate(
-        self, *, DirectoryId: str = None, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListLogSubscriptionsResultTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeSharedDirectoriesRequestPaginateTypeDef]
+    ) -> PageIterator[DescribeSharedDirectoriesResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ds.html#DirectoryService.Paginator.ListLogSubscriptions.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/paginators.html#listlogsubscriptionspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ds/paginator/DescribeSharedDirectories.html#DirectoryService.Paginator.DescribeSharedDirectories.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ds/paginators/#describeshareddirectoriespaginator)
         """
 
-class ListSchemaExtensionsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ds.html#DirectoryService.Paginator.ListSchemaExtensions)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/paginators.html#listschemaextensionspaginator)
-    """
+if TYPE_CHECKING:
+    _DescribeSnapshotsPaginatorBase = Paginator[DescribeSnapshotsResultTypeDef]
+else:
+    _DescribeSnapshotsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, DirectoryId: str, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListSchemaExtensionsResultTypeDef]:
+class DescribeSnapshotsPaginator(_DescribeSnapshotsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ds/paginator/DescribeSnapshots.html#DirectoryService.Paginator.DescribeSnapshots)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ds/paginators/#describesnapshotspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeSnapshotsRequestPaginateTypeDef]
+    ) -> PageIterator[DescribeSnapshotsResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ds.html#DirectoryService.Paginator.ListSchemaExtensions.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/paginators.html#listschemaextensionspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ds/paginator/DescribeSnapshots.html#DirectoryService.Paginator.DescribeSnapshots.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ds/paginators/#describesnapshotspaginator)
         """
 
-class ListTagsForResourcePaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ds.html#DirectoryService.Paginator.ListTagsForResource)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/paginators.html#listtagsforresourcepaginator)
-    """
+if TYPE_CHECKING:
+    _DescribeTrustsPaginatorBase = Paginator[DescribeTrustsResultTypeDef]
+else:
+    _DescribeTrustsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, ResourceId: str, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListTagsForResourceResultTypeDef]:
+class DescribeTrustsPaginator(_DescribeTrustsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ds/paginator/DescribeTrusts.html#DirectoryService.Paginator.DescribeTrusts)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ds/paginators/#describetrustspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeTrustsRequestPaginateTypeDef]
+    ) -> PageIterator[DescribeTrustsResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ds.html#DirectoryService.Paginator.ListTagsForResource.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/paginators.html#listtagsforresourcepaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ds/paginator/DescribeTrusts.html#DirectoryService.Paginator.DescribeTrusts.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ds/paginators/#describetrustspaginator)
+        """
+
+if TYPE_CHECKING:
+    _DescribeUpdateDirectoryPaginatorBase = Paginator[DescribeUpdateDirectoryResultTypeDef]
+else:
+    _DescribeUpdateDirectoryPaginatorBase = Paginator  # type: ignore[assignment]
+
+class DescribeUpdateDirectoryPaginator(_DescribeUpdateDirectoryPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ds/paginator/DescribeUpdateDirectory.html#DirectoryService.Paginator.DescribeUpdateDirectory)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ds/paginators/#describeupdatedirectorypaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeUpdateDirectoryRequestPaginateTypeDef]
+    ) -> PageIterator[DescribeUpdateDirectoryResultTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ds/paginator/DescribeUpdateDirectory.html#DirectoryService.Paginator.DescribeUpdateDirectory.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ds/paginators/#describeupdatedirectorypaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListCertificatesPaginatorBase = Paginator[ListCertificatesResultTypeDef]
+else:
+    _ListCertificatesPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListCertificatesPaginator(_ListCertificatesPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ds/paginator/ListCertificates.html#DirectoryService.Paginator.ListCertificates)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ds/paginators/#listcertificatespaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListCertificatesRequestPaginateTypeDef]
+    ) -> PageIterator[ListCertificatesResultTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ds/paginator/ListCertificates.html#DirectoryService.Paginator.ListCertificates.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ds/paginators/#listcertificatespaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListIpRoutesPaginatorBase = Paginator[ListIpRoutesResultTypeDef]
+else:
+    _ListIpRoutesPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListIpRoutesPaginator(_ListIpRoutesPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ds/paginator/ListIpRoutes.html#DirectoryService.Paginator.ListIpRoutes)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ds/paginators/#listiproutespaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListIpRoutesRequestPaginateTypeDef]
+    ) -> PageIterator[ListIpRoutesResultTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ds/paginator/ListIpRoutes.html#DirectoryService.Paginator.ListIpRoutes.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ds/paginators/#listiproutespaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListLogSubscriptionsPaginatorBase = Paginator[ListLogSubscriptionsResultTypeDef]
+else:
+    _ListLogSubscriptionsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListLogSubscriptionsPaginator(_ListLogSubscriptionsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ds/paginator/ListLogSubscriptions.html#DirectoryService.Paginator.ListLogSubscriptions)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ds/paginators/#listlogsubscriptionspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListLogSubscriptionsRequestPaginateTypeDef]
+    ) -> PageIterator[ListLogSubscriptionsResultTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ds/paginator/ListLogSubscriptions.html#DirectoryService.Paginator.ListLogSubscriptions.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ds/paginators/#listlogsubscriptionspaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListSchemaExtensionsPaginatorBase = Paginator[ListSchemaExtensionsResultTypeDef]
+else:
+    _ListSchemaExtensionsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListSchemaExtensionsPaginator(_ListSchemaExtensionsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ds/paginator/ListSchemaExtensions.html#DirectoryService.Paginator.ListSchemaExtensions)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ds/paginators/#listschemaextensionspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListSchemaExtensionsRequestPaginateTypeDef]
+    ) -> PageIterator[ListSchemaExtensionsResultTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ds/paginator/ListSchemaExtensions.html#DirectoryService.Paginator.ListSchemaExtensions.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ds/paginators/#listschemaextensionspaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListTagsForResourcePaginatorBase = Paginator[ListTagsForResourceResultTypeDef]
+else:
+    _ListTagsForResourcePaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListTagsForResourcePaginator(_ListTagsForResourcePaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ds/paginator/ListTagsForResource.html#DirectoryService.Paginator.ListTagsForResource)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ds/paginators/#listtagsforresourcepaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListTagsForResourceRequestPaginateTypeDef]
+    ) -> PageIterator[ListTagsForResourceResultTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ds/paginator/ListTagsForResource.html#DirectoryService.Paginator.ListTagsForResource.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ds/paginators/#listtagsforresourcepaginator)
         """

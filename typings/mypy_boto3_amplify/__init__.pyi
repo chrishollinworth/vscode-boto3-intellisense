@@ -1,10 +1,14 @@
 """
 Main interface for amplify service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_amplify/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_amplify import (
         AmplifyClient,
         Client,
@@ -14,10 +18,8 @@ Usage::
         ListJobsPaginator,
     )
 
-    session = boto3.Session()
-
-    client: AmplifyClient = boto3.client("amplify")
-    session_client: AmplifyClient = session.client("amplify")
+    session = Session()
+    client: AmplifyClient = session.client("amplify")
 
     list_apps_paginator: ListAppsPaginator = client.get_paginator("list_apps")
     list_branches_paginator: ListBranchesPaginator = client.get_paginator("list_branches")

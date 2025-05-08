@@ -1,10 +1,14 @@
 """
 Main interface for servicediscovery service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_servicediscovery/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_servicediscovery import (
         Client,
         ListInstancesPaginator,
@@ -14,10 +18,8 @@ Usage::
         ServiceDiscoveryClient,
     )
 
-    session = boto3.Session()
-
-    client: ServiceDiscoveryClient = boto3.client("servicediscovery")
-    session_client: ServiceDiscoveryClient = session.client("servicediscovery")
+    session = Session()
+    client: ServiceDiscoveryClient = session.client("servicediscovery")
 
     list_instances_paginator: ListInstancesPaginator = client.get_paginator("list_instances")
     list_namespaces_paginator: ListNamespacesPaginator = client.get_paginator("list_namespaces")

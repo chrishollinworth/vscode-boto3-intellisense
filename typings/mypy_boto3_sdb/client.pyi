@@ -1,51 +1,62 @@
 """
-Type annotations for sdb service client.
+Type annotations for sdb service Client.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sdb/client.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sdb/client/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
-    from mypy_boto3_sdb import SimpleDBClient
+    from boto3.session import Session
+    from mypy_boto3_sdb.client import SimpleDBClient
 
-    client: SimpleDBClient = boto3.client("sdb")
+    session = Session()
+    client: SimpleDBClient = session.client("sdb")
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from typing import Any, Dict, List, Type, overload
+from typing import Any, overload
 
 from botocore.client import BaseClient, ClientMeta
+from botocore.errorfactory import BaseClientExceptions
+from botocore.exceptions import ClientError as BotocoreClientError
 
 from .paginator import ListDomainsPaginator, SelectPaginator
 from .type_defs import (
-    AttributeTypeDef,
-    DeletableItemTypeDef,
+    BatchDeleteAttributesRequestTypeDef,
+    BatchPutAttributesRequestTypeDef,
+    CreateDomainRequestTypeDef,
+    DeleteAttributesRequestTypeDef,
+    DeleteDomainRequestTypeDef,
+    DomainMetadataRequestTypeDef,
     DomainMetadataResultTypeDef,
+    EmptyResponseMetadataTypeDef,
+    GetAttributesRequestTypeDef,
     GetAttributesResultTypeDef,
+    ListDomainsRequestTypeDef,
     ListDomainsResultTypeDef,
-    ReplaceableAttributeTypeDef,
-    ReplaceableItemTypeDef,
+    PutAttributesRequestTypeDef,
+    SelectRequestTypeDef,
     SelectResultTypeDef,
-    UpdateConditionTypeDef,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import type as Type
+    from collections.abc import Mapping
 else:
-    from typing_extensions import Literal
+    from typing import Mapping, Type
+if sys.version_info >= (3, 12):
+    from typing import Literal, Unpack
+else:
+    from typing_extensions import Literal, Unpack
 
 __all__ = ("SimpleDBClient",)
 
-class BotocoreClientError(BaseException):
-    MSG_TEMPLATE: str
-
-    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
-        self.response: Dict[str, Any]
-        self.operation_name: str
-
-class Exceptions:
+class Exceptions(BaseClientExceptions):
     AttributeDoesNotExist: Type[BotocoreClientError]
     ClientError: Type[BotocoreClientError]
     DuplicateItemName: Type[BotocoreClientError]
@@ -67,8 +78,8 @@ class Exceptions:
 
 class SimpleDBClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sdb.html#SimpleDB.Client)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sdb/client.html)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sdb.html#SimpleDB.Client)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sdb/client/)
     """
 
     meta: ClientMeta
@@ -77,162 +88,149 @@ class SimpleDBClient(BaseClient):
     def exceptions(self) -> Exceptions:
         """
         SimpleDBClient exceptions.
-        """
 
-    def batch_delete_attributes(
-        self, *, DomainName: str, Items: List["DeletableItemTypeDef"]
-    ) -> None:
-        """
-        Performs multiple DeleteAttributes operations in a single call, which reduces
-        round trips and latencies.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sdb.html#SimpleDB.Client.batch_delete_attributes)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sdb/client.html#batch_delete_attributes)
-        """
-
-    def batch_put_attributes(
-        self, *, DomainName: str, Items: List["ReplaceableItemTypeDef"]
-    ) -> None:
-        """
-        The `BatchPutAttributes` operation creates or replaces attributes within one or
-        more items.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sdb.html#SimpleDB.Client.batch_put_attributes)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sdb/client.html#batch_put_attributes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sdb.html#SimpleDB.Client)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sdb/client/#exceptions)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        Check if an operation can be paginated.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sdb.html#SimpleDB.Client.can_paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sdb/client.html#can_paginate)
-        """
-
-    def close(self) -> None:
-        """
-        Closes underlying endpoint connections.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sdb.html#SimpleDB.Client.close)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sdb/client.html#close)
-        """
-
-    def create_domain(self, *, DomainName: str) -> None:
-        """
-        The `CreateDomain` operation creates a new domain.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sdb.html#SimpleDB.Client.create_domain)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sdb/client.html#create_domain)
-        """
-
-    def delete_attributes(
-        self,
-        *,
-        DomainName: str,
-        ItemName: str,
-        Attributes: List["AttributeTypeDef"] = None,
-        Expected: "UpdateConditionTypeDef" = None
-    ) -> None:
-        """
-        Deletes one or more attributes associated with an item.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sdb.html#SimpleDB.Client.delete_attributes)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sdb/client.html#delete_attributes)
-        """
-
-    def delete_domain(self, *, DomainName: str) -> None:
-        """
-        The `DeleteDomain` operation deletes a domain.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sdb.html#SimpleDB.Client.delete_domain)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sdb/client.html#delete_domain)
-        """
-
-    def domain_metadata(self, *, DomainName: str) -> DomainMetadataResultTypeDef:
-        """
-        Returns information about the domain, including when the domain was created, the
-        number of items and attributes in the domain, and the size of the attribute
-        names and values.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sdb.html#SimpleDB.Client.domain_metadata)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sdb/client.html#domain_metadata)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sdb/client/can_paginate.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sdb/client/#can_paginate)
         """
 
     def generate_presigned_url(
         self,
         ClientMethod: str,
-        Params: Dict[str, Any] = None,
+        Params: Mapping[str, Any] = ...,
         ExpiresIn: int = 3600,
-        HttpMethod: str = None,
+        HttpMethod: str = ...,
     ) -> str:
         """
-        Generate a presigned url given a client, its method, and arguments.
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sdb/client/generate_presigned_url.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sdb/client/#generate_presigned_url)
+        """
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sdb.html#SimpleDB.Client.generate_presigned_url)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sdb/client.html#generate_presigned_url)
+    def batch_delete_attributes(
+        self, **kwargs: Unpack[BatchDeleteAttributesRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Performs multiple DeleteAttributes operations in a single call, which reduces
+        round trips and latencies.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sdb/client/batch_delete_attributes.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sdb/client/#batch_delete_attributes)
+        """
+
+    def batch_put_attributes(
+        self, **kwargs: Unpack[BatchPutAttributesRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        The <code>BatchPutAttributes</code> operation creates or replaces attributes
+        within one or more items.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sdb/client/batch_put_attributes.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sdb/client/#batch_put_attributes)
+        """
+
+    def create_domain(
+        self, **kwargs: Unpack[CreateDomainRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        The <code>CreateDomain</code> operation creates a new domain.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sdb/client/create_domain.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sdb/client/#create_domain)
+        """
+
+    def delete_attributes(
+        self, **kwargs: Unpack[DeleteAttributesRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Deletes one or more attributes associated with an item.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sdb/client/delete_attributes.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sdb/client/#delete_attributes)
+        """
+
+    def delete_domain(
+        self, **kwargs: Unpack[DeleteDomainRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        The <code>DeleteDomain</code> operation deletes a domain.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sdb/client/delete_domain.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sdb/client/#delete_domain)
+        """
+
+    def domain_metadata(
+        self, **kwargs: Unpack[DomainMetadataRequestTypeDef]
+    ) -> DomainMetadataResultTypeDef:
+        """
+        Returns information about the domain, including when the domain was created,
+        the number of items and attributes in the domain, and the size of the attribute
+        names and values.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sdb/client/domain_metadata.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sdb/client/#domain_metadata)
         """
 
     def get_attributes(
-        self,
-        *,
-        DomainName: str,
-        ItemName: str,
-        AttributeNames: List[str] = None,
-        ConsistentRead: bool = None
+        self, **kwargs: Unpack[GetAttributesRequestTypeDef]
     ) -> GetAttributesResultTypeDef:
         """
         Returns all of the attributes associated with the specified item.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sdb.html#SimpleDB.Client.get_attributes)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sdb/client.html#get_attributes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sdb/client/get_attributes.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sdb/client/#get_attributes)
         """
 
-    def list_domains(
-        self, *, MaxNumberOfDomains: int = None, NextToken: str = None
-    ) -> ListDomainsResultTypeDef:
+    def list_domains(self, **kwargs: Unpack[ListDomainsRequestTypeDef]) -> ListDomainsResultTypeDef:
         """
-        The `ListDomains` operation lists all domains associated with the Access Key ID.
+        The <code>ListDomains</code> operation lists all domains associated with the
+        Access Key ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sdb.html#SimpleDB.Client.list_domains)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sdb/client.html#list_domains)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sdb/client/list_domains.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sdb/client/#list_domains)
         """
 
     def put_attributes(
-        self,
-        *,
-        DomainName: str,
-        ItemName: str,
-        Attributes: List["ReplaceableAttributeTypeDef"],
-        Expected: "UpdateConditionTypeDef" = None
-    ) -> None:
+        self, **kwargs: Unpack[PutAttributesRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         The PutAttributes operation creates or replaces attributes in an item.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sdb.html#SimpleDB.Client.put_attributes)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sdb/client.html#put_attributes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sdb/client/put_attributes.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sdb/client/#put_attributes)
         """
 
-    def select(
-        self, *, SelectExpression: str, NextToken: str = None, ConsistentRead: bool = None
-    ) -> SelectResultTypeDef:
+    def select(self, **kwargs: Unpack[SelectRequestTypeDef]) -> SelectResultTypeDef:
         """
-        The `Select` operation returns a set of attributes for `ItemNames` that match
-        the select expression.
+        The <code>Select</code> operation returns a set of attributes for
+        <code>ItemNames</code> that match the select expression.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sdb.html#SimpleDB.Client.select)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sdb/client.html#select)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sdb/client/select.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sdb/client/#select)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_domains"]) -> ListDomainsPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_domains"]
+    ) -> ListDomainsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sdb.html#SimpleDB.Paginator.ListDomains)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sdb/paginators.html#listdomainspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sdb/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sdb/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["select"]) -> SelectPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["select"]
+    ) -> SelectPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sdb.html#SimpleDB.Paginator.Select)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sdb/paginators.html#selectpaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sdb/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sdb/client/#get_paginator)
         """

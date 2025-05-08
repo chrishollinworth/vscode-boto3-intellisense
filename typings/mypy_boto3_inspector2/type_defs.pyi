@@ -1,20 +1,24 @@
 """
 Type annotations for inspector2 service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector2/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_inspector2/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_inspector2.type_defs import AccountAggregationResponseTypeDef
+    from mypy_boto3_inspector2.type_defs import SeverityCountsTypeDef
 
-    data: AccountAggregationResponseTypeDef = {...}
+    data: SeverityCountsTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import IO, Any, Dict, List, Union
+from typing import IO, Any, Union
 
 from botocore.response import StreamingBody
 
@@ -102,14 +106,16 @@ from .literals import (
     UsageTypeType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
     "AccountAggregationResponseTypeDef",
@@ -120,7 +126,7 @@ __all__ = (
     "AggregationResponseTypeDef",
     "AmiAggregationResponseTypeDef",
     "AmiAggregationTypeDef",
-    "AssociateMemberRequestRequestTypeDef",
+    "AssociateMemberRequestTypeDef",
     "AssociateMemberResponseTypeDef",
     "AtigDataTypeDef",
     "AutoEnableTypeDef",
@@ -129,21 +135,22 @@ __all__ = (
     "AwsEcrContainerAggregationTypeDef",
     "AwsEcrContainerImageDetailsTypeDef",
     "AwsLambdaFunctionDetailsTypeDef",
-    "BatchGetAccountStatusRequestRequestTypeDef",
+    "BatchGetAccountStatusRequestTypeDef",
     "BatchGetAccountStatusResponseTypeDef",
-    "BatchGetCodeSnippetRequestRequestTypeDef",
+    "BatchGetCodeSnippetRequestTypeDef",
     "BatchGetCodeSnippetResponseTypeDef",
-    "BatchGetFindingDetailsRequestRequestTypeDef",
+    "BatchGetFindingDetailsRequestTypeDef",
     "BatchGetFindingDetailsResponseTypeDef",
-    "BatchGetFreeTrialInfoRequestRequestTypeDef",
+    "BatchGetFreeTrialInfoRequestTypeDef",
     "BatchGetFreeTrialInfoResponseTypeDef",
-    "BatchGetMemberEc2DeepInspectionStatusRequestRequestTypeDef",
+    "BatchGetMemberEc2DeepInspectionStatusRequestTypeDef",
     "BatchGetMemberEc2DeepInspectionStatusResponseTypeDef",
-    "BatchUpdateMemberEc2DeepInspectionStatusRequestRequestTypeDef",
+    "BatchUpdateMemberEc2DeepInspectionStatusRequestTypeDef",
     "BatchUpdateMemberEc2DeepInspectionStatusResponseTypeDef",
-    "CancelFindingsReportRequestRequestTypeDef",
+    "BlobTypeDef",
+    "CancelFindingsReportRequestTypeDef",
     "CancelFindingsReportResponseTypeDef",
-    "CancelSbomExportRequestRequestTypeDef",
+    "CancelSbomExportRequestTypeDef",
     "CancelSbomExportResponseTypeDef",
     "CisCheckAggregationTypeDef",
     "CisDateFilterTypeDef",
@@ -177,14 +184,14 @@ __all__ = (
     "CoverageMapFilterTypeDef",
     "CoverageStringFilterTypeDef",
     "CoveredResourceTypeDef",
-    "CreateCisScanConfigurationRequestRequestTypeDef",
+    "CreateCisScanConfigurationRequestTypeDef",
     "CreateCisScanConfigurationResponseTypeDef",
     "CreateCisTargetsTypeDef",
-    "CreateFilterRequestRequestTypeDef",
+    "CreateFilterRequestTypeDef",
     "CreateFilterResponseTypeDef",
-    "CreateFindingsReportRequestRequestTypeDef",
+    "CreateFindingsReportRequestTypeDef",
     "CreateFindingsReportResponseTypeDef",
-    "CreateSbomExportRequestRequestTypeDef",
+    "CreateSbomExportRequestTypeDef",
     "CreateSbomExportResponseTypeDef",
     "Cvss2TypeDef",
     "Cvss3TypeDef",
@@ -192,20 +199,21 @@ __all__ = (
     "CvssScoreDetailsTypeDef",
     "CvssScoreTypeDef",
     "DailyScheduleTypeDef",
+    "DateFilterOutputTypeDef",
     "DateFilterTypeDef",
     "DelegatedAdminAccountTypeDef",
     "DelegatedAdminTypeDef",
-    "DeleteCisScanConfigurationRequestRequestTypeDef",
+    "DeleteCisScanConfigurationRequestTypeDef",
     "DeleteCisScanConfigurationResponseTypeDef",
-    "DeleteFilterRequestRequestTypeDef",
+    "DeleteFilterRequestTypeDef",
     "DeleteFilterResponseTypeDef",
     "DescribeOrganizationConfigurationResponseTypeDef",
     "DestinationTypeDef",
-    "DisableDelegatedAdminAccountRequestRequestTypeDef",
+    "DisableDelegatedAdminAccountRequestTypeDef",
     "DisableDelegatedAdminAccountResponseTypeDef",
-    "DisableRequestRequestTypeDef",
+    "DisableRequestTypeDef",
     "DisableResponseTypeDef",
-    "DisassociateMemberRequestRequestTypeDef",
+    "DisassociateMemberRequestTypeDef",
     "DisassociateMemberResponseTypeDef",
     "Ec2ConfigurationStateTypeDef",
     "Ec2ConfigurationTypeDef",
@@ -218,9 +226,9 @@ __all__ = (
     "EcrContainerImageMetadataTypeDef",
     "EcrRepositoryMetadataTypeDef",
     "EcrRescanDurationStateTypeDef",
-    "EnableDelegatedAdminAccountRequestRequestTypeDef",
+    "EnableDelegatedAdminAccountRequestTypeDef",
     "EnableDelegatedAdminAccountResponseTypeDef",
-    "EnableRequestRequestTypeDef",
+    "EnableRequestTypeDef",
     "EnableResponseTypeDef",
     "EpssDetailsTypeDef",
     "EpssTypeDef",
@@ -229,7 +237,9 @@ __all__ = (
     "ExploitabilityDetailsTypeDef",
     "FailedAccountTypeDef",
     "FailedMemberAccountEc2DeepInspectionStatusStateTypeDef",
+    "FilterCriteriaOutputTypeDef",
     "FilterCriteriaTypeDef",
+    "FilterCriteriaUnionTypeDef",
     "FilterTypeDef",
     "FindingDetailTypeDef",
     "FindingDetailsErrorTypeDef",
@@ -239,20 +249,21 @@ __all__ = (
     "FreeTrialAccountInfoTypeDef",
     "FreeTrialInfoErrorTypeDef",
     "FreeTrialInfoTypeDef",
-    "GetCisScanReportRequestRequestTypeDef",
+    "GetCisScanReportRequestTypeDef",
     "GetCisScanReportResponseTypeDef",
-    "GetCisScanResultDetailsRequestRequestTypeDef",
+    "GetCisScanResultDetailsRequestPaginateTypeDef",
+    "GetCisScanResultDetailsRequestTypeDef",
     "GetCisScanResultDetailsResponseTypeDef",
     "GetConfigurationResponseTypeDef",
     "GetDelegatedAdminAccountResponseTypeDef",
     "GetEc2DeepInspectionConfigurationResponseTypeDef",
-    "GetEncryptionKeyRequestRequestTypeDef",
+    "GetEncryptionKeyRequestTypeDef",
     "GetEncryptionKeyResponseTypeDef",
-    "GetFindingsReportStatusRequestRequestTypeDef",
+    "GetFindingsReportStatusRequestTypeDef",
     "GetFindingsReportStatusResponseTypeDef",
-    "GetMemberRequestRequestTypeDef",
+    "GetMemberRequestTypeDef",
     "GetMemberResponseTypeDef",
-    "GetSbomExportRequestRequestTypeDef",
+    "GetSbomExportRequestTypeDef",
     "GetSbomExportResponseTypeDef",
     "ImageLayerAggregationResponseTypeDef",
     "ImageLayerAggregationTypeDef",
@@ -263,35 +274,48 @@ __all__ = (
     "LambdaLayerAggregationResponseTypeDef",
     "LambdaLayerAggregationTypeDef",
     "LambdaVpcConfigTypeDef",
-    "ListAccountPermissionsRequestRequestTypeDef",
+    "ListAccountPermissionsRequestPaginateTypeDef",
+    "ListAccountPermissionsRequestTypeDef",
     "ListAccountPermissionsResponseTypeDef",
     "ListCisScanConfigurationsFilterCriteriaTypeDef",
-    "ListCisScanConfigurationsRequestRequestTypeDef",
+    "ListCisScanConfigurationsRequestPaginateTypeDef",
+    "ListCisScanConfigurationsRequestTypeDef",
     "ListCisScanConfigurationsResponseTypeDef",
-    "ListCisScanResultsAggregatedByChecksRequestRequestTypeDef",
+    "ListCisScanResultsAggregatedByChecksRequestPaginateTypeDef",
+    "ListCisScanResultsAggregatedByChecksRequestTypeDef",
     "ListCisScanResultsAggregatedByChecksResponseTypeDef",
-    "ListCisScanResultsAggregatedByTargetResourceRequestRequestTypeDef",
+    "ListCisScanResultsAggregatedByTargetResourceRequestPaginateTypeDef",
+    "ListCisScanResultsAggregatedByTargetResourceRequestTypeDef",
     "ListCisScanResultsAggregatedByTargetResourceResponseTypeDef",
     "ListCisScansFilterCriteriaTypeDef",
-    "ListCisScansRequestRequestTypeDef",
+    "ListCisScansRequestPaginateTypeDef",
+    "ListCisScansRequestTypeDef",
     "ListCisScansResponseTypeDef",
-    "ListCoverageRequestRequestTypeDef",
+    "ListCoverageRequestPaginateTypeDef",
+    "ListCoverageRequestTypeDef",
     "ListCoverageResponseTypeDef",
-    "ListCoverageStatisticsRequestRequestTypeDef",
+    "ListCoverageStatisticsRequestPaginateTypeDef",
+    "ListCoverageStatisticsRequestTypeDef",
     "ListCoverageStatisticsResponseTypeDef",
-    "ListDelegatedAdminAccountsRequestRequestTypeDef",
+    "ListDelegatedAdminAccountsRequestPaginateTypeDef",
+    "ListDelegatedAdminAccountsRequestTypeDef",
     "ListDelegatedAdminAccountsResponseTypeDef",
-    "ListFiltersRequestRequestTypeDef",
+    "ListFiltersRequestPaginateTypeDef",
+    "ListFiltersRequestTypeDef",
     "ListFiltersResponseTypeDef",
-    "ListFindingAggregationsRequestRequestTypeDef",
+    "ListFindingAggregationsRequestPaginateTypeDef",
+    "ListFindingAggregationsRequestTypeDef",
     "ListFindingAggregationsResponseTypeDef",
-    "ListFindingsRequestRequestTypeDef",
+    "ListFindingsRequestPaginateTypeDef",
+    "ListFindingsRequestTypeDef",
     "ListFindingsResponseTypeDef",
-    "ListMembersRequestRequestTypeDef",
+    "ListMembersRequestPaginateTypeDef",
+    "ListMembersRequestTypeDef",
     "ListMembersResponseTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
-    "ListUsageTotalsRequestRequestTypeDef",
+    "ListUsageTotalsRequestPaginateTypeDef",
+    "ListUsageTotalsRequestTypeDef",
     "ListUsageTotalsResponseTypeDef",
     "MapFilterTypeDef",
     "MemberAccountEc2DeepInspectionStatusStateTypeDef",
@@ -313,9 +337,11 @@ __all__ = (
     "RemediationTypeDef",
     "RepositoryAggregationResponseTypeDef",
     "RepositoryAggregationTypeDef",
-    "ResetEncryptionKeyRequestRequestTypeDef",
+    "ResetEncryptionKeyRequestTypeDef",
     "ResourceDetailsTypeDef",
+    "ResourceFilterCriteriaOutputTypeDef",
     "ResourceFilterCriteriaTypeDef",
+    "ResourceFilterCriteriaUnionTypeDef",
     "ResourceMapFilterTypeDef",
     "ResourceScanMetadataTypeDef",
     "ResourceStateTypeDef",
@@ -324,1632 +350,434 @@ __all__ = (
     "ResourceTypeDef",
     "ResponseMetadataTypeDef",
     "ScanStatusTypeDef",
+    "ScheduleOutputTypeDef",
     "ScheduleTypeDef",
+    "ScheduleUnionTypeDef",
     "SearchVulnerabilitiesFilterCriteriaTypeDef",
-    "SearchVulnerabilitiesRequestRequestTypeDef",
+    "SearchVulnerabilitiesRequestPaginateTypeDef",
+    "SearchVulnerabilitiesRequestTypeDef",
     "SearchVulnerabilitiesResponseTypeDef",
-    "SendCisSessionHealthRequestRequestTypeDef",
-    "SendCisSessionTelemetryRequestRequestTypeDef",
+    "SendCisSessionHealthRequestTypeDef",
+    "SendCisSessionTelemetryRequestTypeDef",
     "SeverityCountsTypeDef",
     "SortCriteriaTypeDef",
     "StartCisSessionMessageTypeDef",
-    "StartCisSessionRequestRequestTypeDef",
+    "StartCisSessionRequestTypeDef",
     "StateTypeDef",
     "StatusCountsTypeDef",
     "StepTypeDef",
     "StopCisMessageProgressTypeDef",
     "StopCisSessionMessageTypeDef",
-    "StopCisSessionRequestRequestTypeDef",
+    "StopCisSessionRequestTypeDef",
     "StringFilterTypeDef",
     "SuggestedFixTypeDef",
     "TagFilterTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
     "TimeTypeDef",
+    "TimestampTypeDef",
     "TitleAggregationResponseTypeDef",
     "TitleAggregationTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateCisScanConfigurationRequestRequestTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateCisScanConfigurationRequestTypeDef",
     "UpdateCisScanConfigurationResponseTypeDef",
     "UpdateCisTargetsTypeDef",
-    "UpdateConfigurationRequestRequestTypeDef",
-    "UpdateEc2DeepInspectionConfigurationRequestRequestTypeDef",
+    "UpdateConfigurationRequestTypeDef",
+    "UpdateEc2DeepInspectionConfigurationRequestTypeDef",
     "UpdateEc2DeepInspectionConfigurationResponseTypeDef",
-    "UpdateEncryptionKeyRequestRequestTypeDef",
-    "UpdateFilterRequestRequestTypeDef",
+    "UpdateEncryptionKeyRequestTypeDef",
+    "UpdateFilterRequestTypeDef",
     "UpdateFilterResponseTypeDef",
-    "UpdateOrgEc2DeepInspectionConfigurationRequestRequestTypeDef",
-    "UpdateOrganizationConfigurationRequestRequestTypeDef",
+    "UpdateOrgEc2DeepInspectionConfigurationRequestTypeDef",
+    "UpdateOrganizationConfigurationRequestTypeDef",
     "UpdateOrganizationConfigurationResponseTypeDef",
     "UsageTotalTypeDef",
     "UsageTypeDef",
     "VulnerabilityTypeDef",
     "VulnerablePackageTypeDef",
+    "WeeklyScheduleOutputTypeDef",
     "WeeklyScheduleTypeDef",
 )
 
-AccountAggregationResponseTypeDef = TypedDict(
-    "AccountAggregationResponseTypeDef",
+SeverityCountsTypeDef = TypedDict(
+    "SeverityCountsTypeDef",
     {
-        "accountId": str,
-        "severityCounts": "SeverityCountsTypeDef",
-    },
-    total=False,
-)
-
-AccountAggregationTypeDef = TypedDict(
-    "AccountAggregationTypeDef",
-    {
-        "findingType": AggregationFindingTypeType,
-        "resourceType": AggregationResourceTypeType,
-        "sortBy": AccountSortByType,
-        "sortOrder": SortOrderType,
-    },
-    total=False,
-)
-
-AccountStateTypeDef = TypedDict(
-    "AccountStateTypeDef",
-    {
-        "accountId": str,
-        "resourceState": "ResourceStateTypeDef",
-        "state": "StateTypeDef",
+        "all": NotRequired[int],
+        "critical": NotRequired[int],
+        "high": NotRequired[int],
+        "medium": NotRequired[int],
     },
 )
 
-AccountTypeDef = TypedDict(
-    "AccountTypeDef",
+class AccountAggregationTypeDef(TypedDict):
+    findingType: NotRequired[AggregationFindingTypeType]
+    resourceType: NotRequired[AggregationResourceTypeType]
+    sortBy: NotRequired[AccountSortByType]
+    sortOrder: NotRequired[SortOrderType]
+
+class StateTypeDef(TypedDict):
+    errorCode: ErrorCodeType
+    errorMessage: str
+    status: StatusType
+
+ResourceStatusTypeDef = TypedDict(
+    "ResourceStatusTypeDef",
     {
-        "accountId": str,
-        "resourceStatus": "ResourceStatusTypeDef",
-        "status": StatusType,
+        "ec2": StatusType,
+        "ecr": StatusType,
+        "lambda": NotRequired[StatusType],
+        "lambdaCode": NotRequired[StatusType],
     },
 )
 
-AggregationRequestTypeDef = TypedDict(
-    "AggregationRequestTypeDef",
-    {
-        "accountAggregation": "AccountAggregationTypeDef",
-        "amiAggregation": "AmiAggregationTypeDef",
-        "awsEcrContainerAggregation": "AwsEcrContainerAggregationTypeDef",
-        "ec2InstanceAggregation": "Ec2InstanceAggregationTypeDef",
-        "findingTypeAggregation": "FindingTypeAggregationTypeDef",
-        "imageLayerAggregation": "ImageLayerAggregationTypeDef",
-        "lambdaFunctionAggregation": "LambdaFunctionAggregationTypeDef",
-        "lambdaLayerAggregation": "LambdaLayerAggregationTypeDef",
-        "packageAggregation": "PackageAggregationTypeDef",
-        "repositoryAggregation": "RepositoryAggregationTypeDef",
-        "titleAggregation": "TitleAggregationTypeDef",
-    },
-    total=False,
-)
+class FindingTypeAggregationTypeDef(TypedDict):
+    findingType: NotRequired[AggregationFindingTypeType]
+    resourceType: NotRequired[AggregationResourceTypeType]
+    sortBy: NotRequired[FindingTypeSortByType]
+    sortOrder: NotRequired[SortOrderType]
 
-AggregationResponseTypeDef = TypedDict(
-    "AggregationResponseTypeDef",
-    {
-        "accountAggregation": "AccountAggregationResponseTypeDef",
-        "amiAggregation": "AmiAggregationResponseTypeDef",
-        "awsEcrContainerAggregation": "AwsEcrContainerAggregationResponseTypeDef",
-        "ec2InstanceAggregation": "Ec2InstanceAggregationResponseTypeDef",
-        "findingTypeAggregation": "FindingTypeAggregationResponseTypeDef",
-        "imageLayerAggregation": "ImageLayerAggregationResponseTypeDef",
-        "lambdaFunctionAggregation": "LambdaFunctionAggregationResponseTypeDef",
-        "lambdaLayerAggregation": "LambdaLayerAggregationResponseTypeDef",
-        "packageAggregation": "PackageAggregationResponseTypeDef",
-        "repositoryAggregation": "RepositoryAggregationResponseTypeDef",
-        "titleAggregation": "TitleAggregationResponseTypeDef",
-    },
-    total=False,
-)
+class StringFilterTypeDef(TypedDict):
+    comparison: StringComparisonType
+    value: str
 
-_RequiredAmiAggregationResponseTypeDef = TypedDict(
-    "_RequiredAmiAggregationResponseTypeDef",
-    {
-        "ami": str,
-    },
-)
-_OptionalAmiAggregationResponseTypeDef = TypedDict(
-    "_OptionalAmiAggregationResponseTypeDef",
-    {
-        "accountId": str,
-        "affectedInstances": int,
-        "severityCounts": "SeverityCountsTypeDef",
-    },
-    total=False,
-)
+class AssociateMemberRequestTypeDef(TypedDict):
+    accountId: str
 
-class AmiAggregationResponseTypeDef(
-    _RequiredAmiAggregationResponseTypeDef, _OptionalAmiAggregationResponseTypeDef
-):
-    pass
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-AmiAggregationTypeDef = TypedDict(
-    "AmiAggregationTypeDef",
-    {
-        "amis": List["StringFilterTypeDef"],
-        "sortBy": AmiSortByType,
-        "sortOrder": SortOrderType,
-    },
-    total=False,
-)
+class AtigDataTypeDef(TypedDict):
+    firstSeen: NotRequired[datetime]
+    lastSeen: NotRequired[datetime]
+    targets: NotRequired[List[str]]
+    ttps: NotRequired[List[str]]
 
-AssociateMemberRequestRequestTypeDef = TypedDict(
-    "AssociateMemberRequestRequestTypeDef",
-    {
-        "accountId": str,
-    },
-)
-
-AssociateMemberResponseTypeDef = TypedDict(
-    "AssociateMemberResponseTypeDef",
-    {
-        "accountId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-AtigDataTypeDef = TypedDict(
-    "AtigDataTypeDef",
-    {
-        "firstSeen": datetime,
-        "lastSeen": datetime,
-        "targets": List[str],
-        "ttps": List[str],
-    },
-    total=False,
-)
-
-_RequiredAutoEnableTypeDef = TypedDict(
-    "_RequiredAutoEnableTypeDef",
+AutoEnableTypeDef = TypedDict(
+    "AutoEnableTypeDef",
     {
         "ec2": bool,
         "ecr": bool,
+        "lambda": NotRequired[bool],
+        "lambdaCode": NotRequired[bool],
     },
 )
-_OptionalAutoEnableTypeDef = TypedDict(
-    "_OptionalAutoEnableTypeDef",
-    {
-        "lambda": bool,
-        "lambdaCode": bool,
-    },
-    total=False,
-)
-
-class AutoEnableTypeDef(_RequiredAutoEnableTypeDef, _OptionalAutoEnableTypeDef):
-    pass
-
 AwsEc2InstanceDetailsTypeDef = TypedDict(
     "AwsEc2InstanceDetailsTypeDef",
     {
-        "iamInstanceProfileArn": str,
-        "imageId": str,
-        "ipV4Addresses": List[str],
-        "ipV6Addresses": List[str],
-        "keyName": str,
-        "launchedAt": datetime,
-        "platform": str,
-        "subnetId": str,
-        "type": str,
-        "vpcId": str,
-    },
-    total=False,
-)
-
-_RequiredAwsEcrContainerAggregationResponseTypeDef = TypedDict(
-    "_RequiredAwsEcrContainerAggregationResponseTypeDef",
-    {
-        "resourceId": str,
-    },
-)
-_OptionalAwsEcrContainerAggregationResponseTypeDef = TypedDict(
-    "_OptionalAwsEcrContainerAggregationResponseTypeDef",
-    {
-        "accountId": str,
-        "architecture": str,
-        "imageSha": str,
-        "imageTags": List[str],
-        "repository": str,
-        "severityCounts": "SeverityCountsTypeDef",
-    },
-    total=False,
-)
-
-class AwsEcrContainerAggregationResponseTypeDef(
-    _RequiredAwsEcrContainerAggregationResponseTypeDef,
-    _OptionalAwsEcrContainerAggregationResponseTypeDef,
-):
-    pass
-
-AwsEcrContainerAggregationTypeDef = TypedDict(
-    "AwsEcrContainerAggregationTypeDef",
-    {
-        "architectures": List["StringFilterTypeDef"],
-        "imageShas": List["StringFilterTypeDef"],
-        "imageTags": List["StringFilterTypeDef"],
-        "repositories": List["StringFilterTypeDef"],
-        "resourceIds": List["StringFilterTypeDef"],
-        "sortBy": AwsEcrContainerSortByType,
-        "sortOrder": SortOrderType,
-    },
-    total=False,
-)
-
-_RequiredAwsEcrContainerImageDetailsTypeDef = TypedDict(
-    "_RequiredAwsEcrContainerImageDetailsTypeDef",
-    {
-        "imageHash": str,
-        "registry": str,
-        "repositoryName": str,
-    },
-)
-_OptionalAwsEcrContainerImageDetailsTypeDef = TypedDict(
-    "_OptionalAwsEcrContainerImageDetailsTypeDef",
-    {
-        "architecture": str,
-        "author": str,
-        "imageTags": List[str],
-        "platform": str,
-        "pushedAt": datetime,
-    },
-    total=False,
-)
-
-class AwsEcrContainerImageDetailsTypeDef(
-    _RequiredAwsEcrContainerImageDetailsTypeDef, _OptionalAwsEcrContainerImageDetailsTypeDef
-):
-    pass
-
-_RequiredAwsLambdaFunctionDetailsTypeDef = TypedDict(
-    "_RequiredAwsLambdaFunctionDetailsTypeDef",
-    {
-        "codeSha256": str,
-        "executionRoleArn": str,
-        "functionName": str,
-        "runtime": RuntimeType,
-        "version": str,
-    },
-)
-_OptionalAwsLambdaFunctionDetailsTypeDef = TypedDict(
-    "_OptionalAwsLambdaFunctionDetailsTypeDef",
-    {
-        "architectures": List[ArchitectureType],
-        "lastModifiedAt": datetime,
-        "layers": List[str],
-        "packageType": PackageTypeType,
-        "vpcConfig": "LambdaVpcConfigTypeDef",
-    },
-    total=False,
-)
-
-class AwsLambdaFunctionDetailsTypeDef(
-    _RequiredAwsLambdaFunctionDetailsTypeDef, _OptionalAwsLambdaFunctionDetailsTypeDef
-):
-    pass
-
-BatchGetAccountStatusRequestRequestTypeDef = TypedDict(
-    "BatchGetAccountStatusRequestRequestTypeDef",
-    {
-        "accountIds": List[str],
-    },
-    total=False,
-)
-
-BatchGetAccountStatusResponseTypeDef = TypedDict(
-    "BatchGetAccountStatusResponseTypeDef",
-    {
-        "accounts": List["AccountStateTypeDef"],
-        "failedAccounts": List["FailedAccountTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-BatchGetCodeSnippetRequestRequestTypeDef = TypedDict(
-    "BatchGetCodeSnippetRequestRequestTypeDef",
-    {
-        "findingArns": List[str],
-    },
-)
-
-BatchGetCodeSnippetResponseTypeDef = TypedDict(
-    "BatchGetCodeSnippetResponseTypeDef",
-    {
-        "codeSnippetResults": List["CodeSnippetResultTypeDef"],
-        "errors": List["CodeSnippetErrorTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-BatchGetFindingDetailsRequestRequestTypeDef = TypedDict(
-    "BatchGetFindingDetailsRequestRequestTypeDef",
-    {
-        "findingArns": List[str],
-    },
-)
-
-BatchGetFindingDetailsResponseTypeDef = TypedDict(
-    "BatchGetFindingDetailsResponseTypeDef",
-    {
-        "errors": List["FindingDetailsErrorTypeDef"],
-        "findingDetails": List["FindingDetailTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-BatchGetFreeTrialInfoRequestRequestTypeDef = TypedDict(
-    "BatchGetFreeTrialInfoRequestRequestTypeDef",
-    {
-        "accountIds": List[str],
-    },
-)
-
-BatchGetFreeTrialInfoResponseTypeDef = TypedDict(
-    "BatchGetFreeTrialInfoResponseTypeDef",
-    {
-        "accounts": List["FreeTrialAccountInfoTypeDef"],
-        "failedAccounts": List["FreeTrialInfoErrorTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-BatchGetMemberEc2DeepInspectionStatusRequestRequestTypeDef = TypedDict(
-    "BatchGetMemberEc2DeepInspectionStatusRequestRequestTypeDef",
-    {
-        "accountIds": List[str],
-    },
-    total=False,
-)
-
-BatchGetMemberEc2DeepInspectionStatusResponseTypeDef = TypedDict(
-    "BatchGetMemberEc2DeepInspectionStatusResponseTypeDef",
-    {
-        "accountIds": List["MemberAccountEc2DeepInspectionStatusStateTypeDef"],
-        "failedAccountIds": List["FailedMemberAccountEc2DeepInspectionStatusStateTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-BatchUpdateMemberEc2DeepInspectionStatusRequestRequestTypeDef = TypedDict(
-    "BatchUpdateMemberEc2DeepInspectionStatusRequestRequestTypeDef",
-    {
-        "accountIds": List["MemberAccountEc2DeepInspectionStatusTypeDef"],
-    },
-)
-
-BatchUpdateMemberEc2DeepInspectionStatusResponseTypeDef = TypedDict(
-    "BatchUpdateMemberEc2DeepInspectionStatusResponseTypeDef",
-    {
-        "accountIds": List["MemberAccountEc2DeepInspectionStatusStateTypeDef"],
-        "failedAccountIds": List["FailedMemberAccountEc2DeepInspectionStatusStateTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CancelFindingsReportRequestRequestTypeDef = TypedDict(
-    "CancelFindingsReportRequestRequestTypeDef",
-    {
-        "reportId": str,
-    },
-)
-
-CancelFindingsReportResponseTypeDef = TypedDict(
-    "CancelFindingsReportResponseTypeDef",
-    {
-        "reportId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CancelSbomExportRequestRequestTypeDef = TypedDict(
-    "CancelSbomExportRequestRequestTypeDef",
-    {
-        "reportId": str,
-    },
-)
-
-CancelSbomExportResponseTypeDef = TypedDict(
-    "CancelSbomExportResponseTypeDef",
-    {
-        "reportId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCisCheckAggregationTypeDef = TypedDict(
-    "_RequiredCisCheckAggregationTypeDef",
-    {
-        "scanArn": str,
-    },
-)
-_OptionalCisCheckAggregationTypeDef = TypedDict(
-    "_OptionalCisCheckAggregationTypeDef",
-    {
-        "accountId": str,
-        "checkDescription": str,
-        "checkId": str,
-        "level": CisSecurityLevelType,
-        "platform": str,
-        "statusCounts": "StatusCountsTypeDef",
-        "title": str,
-    },
-    total=False,
-)
-
-class CisCheckAggregationTypeDef(
-    _RequiredCisCheckAggregationTypeDef, _OptionalCisCheckAggregationTypeDef
-):
-    pass
-
-CisDateFilterTypeDef = TypedDict(
-    "CisDateFilterTypeDef",
-    {
-        "earliestScanStartTime": Union[datetime, str],
-        "latestScanStartTime": Union[datetime, str],
-    },
-    total=False,
-)
-
-CisFindingStatusFilterTypeDef = TypedDict(
-    "CisFindingStatusFilterTypeDef",
-    {
-        "comparison": Literal["EQUALS"],
-        "value": CisFindingStatusType,
-    },
-)
-
-CisNumberFilterTypeDef = TypedDict(
-    "CisNumberFilterTypeDef",
-    {
-        "lowerInclusive": int,
-        "upperInclusive": int,
-    },
-    total=False,
-)
-
-CisResultStatusFilterTypeDef = TypedDict(
-    "CisResultStatusFilterTypeDef",
-    {
-        "comparison": Literal["EQUALS"],
-        "value": CisResultStatusType,
-    },
-)
-
-_RequiredCisScanConfigurationTypeDef = TypedDict(
-    "_RequiredCisScanConfigurationTypeDef",
-    {
-        "scanConfigurationArn": str,
-    },
-)
-_OptionalCisScanConfigurationTypeDef = TypedDict(
-    "_OptionalCisScanConfigurationTypeDef",
-    {
-        "ownerId": str,
-        "scanName": str,
-        "schedule": "ScheduleTypeDef",
-        "securityLevel": CisSecurityLevelType,
-        "tags": Dict[str, str],
-        "targets": "CisTargetsTypeDef",
-    },
-    total=False,
-)
-
-class CisScanConfigurationTypeDef(
-    _RequiredCisScanConfigurationTypeDef, _OptionalCisScanConfigurationTypeDef
-):
-    pass
-
-CisScanResultDetailsFilterCriteriaTypeDef = TypedDict(
-    "CisScanResultDetailsFilterCriteriaTypeDef",
-    {
-        "checkIdFilters": List["CisStringFilterTypeDef"],
-        "findingArnFilters": List["CisStringFilterTypeDef"],
-        "findingStatusFilters": List["CisFindingStatusFilterTypeDef"],
-        "securityLevelFilters": List["CisSecurityLevelFilterTypeDef"],
-        "titleFilters": List["CisStringFilterTypeDef"],
-    },
-    total=False,
-)
-
-_RequiredCisScanResultDetailsTypeDef = TypedDict(
-    "_RequiredCisScanResultDetailsTypeDef",
-    {
-        "scanArn": str,
-    },
-)
-_OptionalCisScanResultDetailsTypeDef = TypedDict(
-    "_OptionalCisScanResultDetailsTypeDef",
-    {
-        "accountId": str,
-        "checkDescription": str,
-        "checkId": str,
-        "findingArn": str,
-        "level": CisSecurityLevelType,
-        "platform": str,
-        "remediation": str,
-        "status": CisFindingStatusType,
-        "statusReason": str,
-        "targetResourceId": str,
-        "title": str,
-    },
-    total=False,
-)
-
-class CisScanResultDetailsTypeDef(
-    _RequiredCisScanResultDetailsTypeDef, _OptionalCisScanResultDetailsTypeDef
-):
-    pass
-
-CisScanResultsAggregatedByChecksFilterCriteriaTypeDef = TypedDict(
-    "CisScanResultsAggregatedByChecksFilterCriteriaTypeDef",
-    {
-        "accountIdFilters": List["CisStringFilterTypeDef"],
-        "checkIdFilters": List["CisStringFilterTypeDef"],
-        "failedResourcesFilters": List["CisNumberFilterTypeDef"],
-        "platformFilters": List["CisStringFilterTypeDef"],
-        "securityLevelFilters": List["CisSecurityLevelFilterTypeDef"],
-        "titleFilters": List["CisStringFilterTypeDef"],
-    },
-    total=False,
-)
-
-CisScanResultsAggregatedByTargetResourceFilterCriteriaTypeDef = TypedDict(
-    "CisScanResultsAggregatedByTargetResourceFilterCriteriaTypeDef",
-    {
-        "accountIdFilters": List["CisStringFilterTypeDef"],
-        "checkIdFilters": List["CisStringFilterTypeDef"],
-        "failedChecksFilters": List["CisNumberFilterTypeDef"],
-        "platformFilters": List["CisStringFilterTypeDef"],
-        "statusFilters": List["CisResultStatusFilterTypeDef"],
-        "targetResourceIdFilters": List["CisStringFilterTypeDef"],
-        "targetResourceTagFilters": List["TagFilterTypeDef"],
-        "targetStatusFilters": List["CisTargetStatusFilterTypeDef"],
-        "targetStatusReasonFilters": List["CisTargetStatusReasonFilterTypeDef"],
-    },
-    total=False,
-)
-
-CisScanStatusFilterTypeDef = TypedDict(
-    "CisScanStatusFilterTypeDef",
-    {
-        "comparison": Literal["EQUALS"],
-        "value": CisScanStatusType,
-    },
-)
-
-_RequiredCisScanTypeDef = TypedDict(
-    "_RequiredCisScanTypeDef",
-    {
-        "scanArn": str,
-        "scanConfigurationArn": str,
-    },
-)
-_OptionalCisScanTypeDef = TypedDict(
-    "_OptionalCisScanTypeDef",
-    {
-        "failedChecks": int,
-        "scanDate": datetime,
-        "scanName": str,
-        "scheduledBy": str,
-        "securityLevel": CisSecurityLevelType,
-        "status": CisScanStatusType,
-        "targets": "CisTargetsTypeDef",
-        "totalChecks": int,
-    },
-    total=False,
-)
-
-class CisScanTypeDef(_RequiredCisScanTypeDef, _OptionalCisScanTypeDef):
-    pass
-
-CisSecurityLevelFilterTypeDef = TypedDict(
-    "CisSecurityLevelFilterTypeDef",
-    {
-        "comparison": Literal["EQUALS"],
-        "value": CisSecurityLevelType,
-    },
-)
-
-CisSessionMessageTypeDef = TypedDict(
-    "CisSessionMessageTypeDef",
-    {
-        "cisRuleDetails": Union[bytes, IO[bytes], StreamingBody],
-        "ruleId": str,
-        "status": CisRuleStatusType,
-    },
-)
-
-CisStringFilterTypeDef = TypedDict(
-    "CisStringFilterTypeDef",
-    {
-        "comparison": CisStringComparisonType,
-        "value": str,
-    },
-)
-
-_RequiredCisTargetResourceAggregationTypeDef = TypedDict(
-    "_RequiredCisTargetResourceAggregationTypeDef",
-    {
-        "scanArn": str,
-    },
-)
-_OptionalCisTargetResourceAggregationTypeDef = TypedDict(
-    "_OptionalCisTargetResourceAggregationTypeDef",
-    {
-        "accountId": str,
-        "platform": str,
-        "statusCounts": "StatusCountsTypeDef",
-        "targetResourceId": str,
-        "targetResourceTags": Dict[str, List[str]],
-        "targetStatus": CisTargetStatusType,
-        "targetStatusReason": CisTargetStatusReasonType,
-    },
-    total=False,
-)
-
-class CisTargetResourceAggregationTypeDef(
-    _RequiredCisTargetResourceAggregationTypeDef, _OptionalCisTargetResourceAggregationTypeDef
-):
-    pass
-
-CisTargetStatusFilterTypeDef = TypedDict(
-    "CisTargetStatusFilterTypeDef",
-    {
-        "comparison": Literal["EQUALS"],
-        "value": CisTargetStatusType,
-    },
-)
-
-CisTargetStatusReasonFilterTypeDef = TypedDict(
-    "CisTargetStatusReasonFilterTypeDef",
-    {
-        "comparison": Literal["EQUALS"],
-        "value": CisTargetStatusReasonType,
-    },
-)
-
-CisTargetsTypeDef = TypedDict(
-    "CisTargetsTypeDef",
-    {
-        "accountIds": List[str],
-        "targetResourceTags": Dict[str, List[str]],
-    },
-    total=False,
-)
-
-CisaDataTypeDef = TypedDict(
-    "CisaDataTypeDef",
-    {
-        "action": str,
-        "dateAdded": datetime,
-        "dateDue": datetime,
-    },
-    total=False,
-)
-
-CodeFilePathTypeDef = TypedDict(
-    "CodeFilePathTypeDef",
-    {
-        "endLine": int,
-        "fileName": str,
-        "filePath": str,
-        "startLine": int,
-    },
-)
-
-CodeLineTypeDef = TypedDict(
-    "CodeLineTypeDef",
-    {
-        "content": str,
-        "lineNumber": int,
-    },
-)
-
-CodeSnippetErrorTypeDef = TypedDict(
-    "CodeSnippetErrorTypeDef",
-    {
-        "errorCode": CodeSnippetErrorCodeType,
-        "errorMessage": str,
-        "findingArn": str,
-    },
-)
-
-CodeSnippetResultTypeDef = TypedDict(
-    "CodeSnippetResultTypeDef",
-    {
-        "codeSnippet": List["CodeLineTypeDef"],
-        "endLine": int,
-        "findingArn": str,
-        "startLine": int,
-        "suggestedFixes": List["SuggestedFixTypeDef"],
-    },
-    total=False,
-)
-
-_RequiredCodeVulnerabilityDetailsTypeDef = TypedDict(
-    "_RequiredCodeVulnerabilityDetailsTypeDef",
-    {
-        "cwes": List[str],
-        "detectorId": str,
-        "detectorName": str,
-        "filePath": "CodeFilePathTypeDef",
-    },
-)
-_OptionalCodeVulnerabilityDetailsTypeDef = TypedDict(
-    "_OptionalCodeVulnerabilityDetailsTypeDef",
-    {
-        "detectorTags": List[str],
-        "referenceUrls": List[str],
-        "ruleId": str,
-        "sourceLambdaLayerArn": str,
-    },
-    total=False,
-)
-
-class CodeVulnerabilityDetailsTypeDef(
-    _RequiredCodeVulnerabilityDetailsTypeDef, _OptionalCodeVulnerabilityDetailsTypeDef
-):
-    pass
-
-ComputePlatformTypeDef = TypedDict(
-    "ComputePlatformTypeDef",
-    {
-        "product": str,
-        "vendor": str,
-        "version": str,
-    },
-    total=False,
-)
-
-CountsTypeDef = TypedDict(
-    "CountsTypeDef",
-    {
-        "count": int,
-        "groupKey": GroupKeyType,
-    },
-    total=False,
-)
-
-CoverageDateFilterTypeDef = TypedDict(
-    "CoverageDateFilterTypeDef",
-    {
-        "endInclusive": Union[datetime, str],
-        "startInclusive": Union[datetime, str],
-    },
-    total=False,
-)
-
-CoverageFilterCriteriaTypeDef = TypedDict(
-    "CoverageFilterCriteriaTypeDef",
-    {
-        "accountId": List["CoverageStringFilterTypeDef"],
-        "ec2InstanceTags": List["CoverageMapFilterTypeDef"],
-        "ecrImageTags": List["CoverageStringFilterTypeDef"],
-        "ecrRepositoryName": List["CoverageStringFilterTypeDef"],
-        "imagePulledAt": List["CoverageDateFilterTypeDef"],
-        "lambdaFunctionName": List["CoverageStringFilterTypeDef"],
-        "lambdaFunctionRuntime": List["CoverageStringFilterTypeDef"],
-        "lambdaFunctionTags": List["CoverageMapFilterTypeDef"],
-        "lastScannedAt": List["CoverageDateFilterTypeDef"],
-        "resourceId": List["CoverageStringFilterTypeDef"],
-        "resourceType": List["CoverageStringFilterTypeDef"],
-        "scanMode": List["CoverageStringFilterTypeDef"],
-        "scanStatusCode": List["CoverageStringFilterTypeDef"],
-        "scanStatusReason": List["CoverageStringFilterTypeDef"],
-        "scanType": List["CoverageStringFilterTypeDef"],
-    },
-    total=False,
-)
-
-_RequiredCoverageMapFilterTypeDef = TypedDict(
-    "_RequiredCoverageMapFilterTypeDef",
-    {
-        "comparison": Literal["EQUALS"],
-        "key": str,
-    },
-)
-_OptionalCoverageMapFilterTypeDef = TypedDict(
-    "_OptionalCoverageMapFilterTypeDef",
-    {
-        "value": str,
-    },
-    total=False,
-)
-
-class CoverageMapFilterTypeDef(
-    _RequiredCoverageMapFilterTypeDef, _OptionalCoverageMapFilterTypeDef
-):
-    pass
-
-CoverageStringFilterTypeDef = TypedDict(
-    "CoverageStringFilterTypeDef",
-    {
-        "comparison": CoverageStringComparisonType,
-        "value": str,
-    },
-)
-
-_RequiredCoveredResourceTypeDef = TypedDict(
-    "_RequiredCoveredResourceTypeDef",
-    {
-        "accountId": str,
-        "resourceId": str,
-        "resourceType": CoverageResourceTypeType,
-        "scanType": ScanTypeType,
-    },
-)
-_OptionalCoveredResourceTypeDef = TypedDict(
-    "_OptionalCoveredResourceTypeDef",
-    {
-        "lastScannedAt": datetime,
-        "resourceMetadata": "ResourceScanMetadataTypeDef",
-        "scanMode": ScanModeType,
-        "scanStatus": "ScanStatusTypeDef",
-    },
-    total=False,
-)
-
-class CoveredResourceTypeDef(_RequiredCoveredResourceTypeDef, _OptionalCoveredResourceTypeDef):
-    pass
-
-_RequiredCreateCisScanConfigurationRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateCisScanConfigurationRequestRequestTypeDef",
-    {
-        "scanName": str,
-        "schedule": "ScheduleTypeDef",
-        "securityLevel": CisSecurityLevelType,
-        "targets": "CreateCisTargetsTypeDef",
-    },
-)
-_OptionalCreateCisScanConfigurationRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateCisScanConfigurationRequestRequestTypeDef",
-    {
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class CreateCisScanConfigurationRequestRequestTypeDef(
-    _RequiredCreateCisScanConfigurationRequestRequestTypeDef,
-    _OptionalCreateCisScanConfigurationRequestRequestTypeDef,
-):
-    pass
-
-CreateCisScanConfigurationResponseTypeDef = TypedDict(
-    "CreateCisScanConfigurationResponseTypeDef",
-    {
-        "scanConfigurationArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateCisTargetsTypeDef = TypedDict(
-    "CreateCisTargetsTypeDef",
-    {
-        "accountIds": List[str],
-        "targetResourceTags": Dict[str, List[str]],
-    },
-)
-
-_RequiredCreateFilterRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateFilterRequestRequestTypeDef",
-    {
-        "action": FilterActionType,
-        "filterCriteria": "FilterCriteriaTypeDef",
-        "name": str,
-    },
-)
-_OptionalCreateFilterRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateFilterRequestRequestTypeDef",
-    {
-        "description": str,
-        "reason": str,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class CreateFilterRequestRequestTypeDef(
-    _RequiredCreateFilterRequestRequestTypeDef, _OptionalCreateFilterRequestRequestTypeDef
-):
-    pass
-
-CreateFilterResponseTypeDef = TypedDict(
-    "CreateFilterResponseTypeDef",
-    {
-        "arn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateFindingsReportRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateFindingsReportRequestRequestTypeDef",
-    {
-        "reportFormat": ReportFormatType,
-        "s3Destination": "DestinationTypeDef",
-    },
-)
-_OptionalCreateFindingsReportRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateFindingsReportRequestRequestTypeDef",
-    {
-        "filterCriteria": "FilterCriteriaTypeDef",
-    },
-    total=False,
-)
-
-class CreateFindingsReportRequestRequestTypeDef(
-    _RequiredCreateFindingsReportRequestRequestTypeDef,
-    _OptionalCreateFindingsReportRequestRequestTypeDef,
-):
-    pass
-
-CreateFindingsReportResponseTypeDef = TypedDict(
-    "CreateFindingsReportResponseTypeDef",
-    {
-        "reportId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateSbomExportRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateSbomExportRequestRequestTypeDef",
-    {
-        "reportFormat": SbomReportFormatType,
-        "s3Destination": "DestinationTypeDef",
-    },
-)
-_OptionalCreateSbomExportRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateSbomExportRequestRequestTypeDef",
-    {
-        "resourceFilterCriteria": "ResourceFilterCriteriaTypeDef",
-    },
-    total=False,
-)
-
-class CreateSbomExportRequestRequestTypeDef(
-    _RequiredCreateSbomExportRequestRequestTypeDef, _OptionalCreateSbomExportRequestRequestTypeDef
-):
-    pass
-
-CreateSbomExportResponseTypeDef = TypedDict(
-    "CreateSbomExportResponseTypeDef",
-    {
-        "reportId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-Cvss2TypeDef = TypedDict(
-    "Cvss2TypeDef",
-    {
-        "baseScore": float,
-        "scoringVector": str,
-    },
-    total=False,
-)
-
-Cvss3TypeDef = TypedDict(
-    "Cvss3TypeDef",
-    {
-        "baseScore": float,
-        "scoringVector": str,
-    },
-    total=False,
-)
-
-CvssScoreAdjustmentTypeDef = TypedDict(
-    "CvssScoreAdjustmentTypeDef",
-    {
-        "metric": str,
-        "reason": str,
-    },
-)
-
-_RequiredCvssScoreDetailsTypeDef = TypedDict(
-    "_RequiredCvssScoreDetailsTypeDef",
-    {
-        "score": float,
-        "scoreSource": str,
-        "scoringVector": str,
-        "version": str,
-    },
-)
-_OptionalCvssScoreDetailsTypeDef = TypedDict(
-    "_OptionalCvssScoreDetailsTypeDef",
-    {
-        "adjustments": List["CvssScoreAdjustmentTypeDef"],
-        "cvssSource": str,
-    },
-    total=False,
-)
-
-class CvssScoreDetailsTypeDef(_RequiredCvssScoreDetailsTypeDef, _OptionalCvssScoreDetailsTypeDef):
-    pass
-
-CvssScoreTypeDef = TypedDict(
-    "CvssScoreTypeDef",
-    {
-        "baseScore": float,
-        "scoringVector": str,
-        "source": str,
-        "version": str,
-    },
-)
-
-DailyScheduleTypeDef = TypedDict(
-    "DailyScheduleTypeDef",
-    {
-        "startTime": "TimeTypeDef",
-    },
-)
-
-DateFilterTypeDef = TypedDict(
-    "DateFilterTypeDef",
-    {
-        "endInclusive": Union[datetime, str],
-        "startInclusive": Union[datetime, str],
-    },
-    total=False,
-)
-
-DelegatedAdminAccountTypeDef = TypedDict(
-    "DelegatedAdminAccountTypeDef",
-    {
-        "accountId": str,
-        "status": DelegatedAdminStatusType,
-    },
-    total=False,
-)
-
-DelegatedAdminTypeDef = TypedDict(
-    "DelegatedAdminTypeDef",
-    {
-        "accountId": str,
-        "relationshipStatus": RelationshipStatusType,
-    },
-    total=False,
-)
-
-DeleteCisScanConfigurationRequestRequestTypeDef = TypedDict(
-    "DeleteCisScanConfigurationRequestRequestTypeDef",
-    {
-        "scanConfigurationArn": str,
-    },
-)
-
-DeleteCisScanConfigurationResponseTypeDef = TypedDict(
-    "DeleteCisScanConfigurationResponseTypeDef",
-    {
-        "scanConfigurationArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteFilterRequestRequestTypeDef = TypedDict(
-    "DeleteFilterRequestRequestTypeDef",
-    {
-        "arn": str,
-    },
-)
-
-DeleteFilterResponseTypeDef = TypedDict(
-    "DeleteFilterResponseTypeDef",
-    {
-        "arn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeOrganizationConfigurationResponseTypeDef = TypedDict(
-    "DescribeOrganizationConfigurationResponseTypeDef",
-    {
-        "autoEnable": "AutoEnableTypeDef",
-        "maxAccountLimitReached": bool,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDestinationTypeDef = TypedDict(
-    "_RequiredDestinationTypeDef",
-    {
-        "bucketName": str,
-        "kmsKeyArn": str,
-    },
-)
-_OptionalDestinationTypeDef = TypedDict(
-    "_OptionalDestinationTypeDef",
-    {
-        "keyPrefix": str,
-    },
-    total=False,
-)
-
-class DestinationTypeDef(_RequiredDestinationTypeDef, _OptionalDestinationTypeDef):
-    pass
-
-DisableDelegatedAdminAccountRequestRequestTypeDef = TypedDict(
-    "DisableDelegatedAdminAccountRequestRequestTypeDef",
-    {
-        "delegatedAdminAccountId": str,
-    },
-)
-
-DisableDelegatedAdminAccountResponseTypeDef = TypedDict(
-    "DisableDelegatedAdminAccountResponseTypeDef",
-    {
-        "delegatedAdminAccountId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DisableRequestRequestTypeDef = TypedDict(
-    "DisableRequestRequestTypeDef",
-    {
-        "accountIds": List[str],
-        "resourceTypes": List[ResourceScanTypeType],
-    },
-    total=False,
-)
-
-DisableResponseTypeDef = TypedDict(
-    "DisableResponseTypeDef",
-    {
-        "accounts": List["AccountTypeDef"],
-        "failedAccounts": List["FailedAccountTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DisassociateMemberRequestRequestTypeDef = TypedDict(
-    "DisassociateMemberRequestRequestTypeDef",
-    {
-        "accountId": str,
-    },
-)
-
-DisassociateMemberResponseTypeDef = TypedDict(
-    "DisassociateMemberResponseTypeDef",
-    {
-        "accountId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-Ec2ConfigurationStateTypeDef = TypedDict(
-    "Ec2ConfigurationStateTypeDef",
-    {
-        "scanModeState": "Ec2ScanModeStateTypeDef",
-    },
-    total=False,
-)
-
-Ec2ConfigurationTypeDef = TypedDict(
-    "Ec2ConfigurationTypeDef",
-    {
-        "scanMode": Ec2ScanModeType,
-    },
-)
-
-_RequiredEc2InstanceAggregationResponseTypeDef = TypedDict(
-    "_RequiredEc2InstanceAggregationResponseTypeDef",
-    {
-        "instanceId": str,
-    },
-)
-_OptionalEc2InstanceAggregationResponseTypeDef = TypedDict(
-    "_OptionalEc2InstanceAggregationResponseTypeDef",
-    {
-        "accountId": str,
-        "ami": str,
-        "instanceTags": Dict[str, str],
-        "networkFindings": int,
-        "operatingSystem": str,
-        "severityCounts": "SeverityCountsTypeDef",
-    },
-    total=False,
-)
-
-class Ec2InstanceAggregationResponseTypeDef(
-    _RequiredEc2InstanceAggregationResponseTypeDef, _OptionalEc2InstanceAggregationResponseTypeDef
-):
-    pass
-
-Ec2InstanceAggregationTypeDef = TypedDict(
-    "Ec2InstanceAggregationTypeDef",
-    {
-        "amis": List["StringFilterTypeDef"],
-        "instanceIds": List["StringFilterTypeDef"],
-        "instanceTags": List["MapFilterTypeDef"],
-        "operatingSystems": List["StringFilterTypeDef"],
-        "sortBy": Ec2InstanceSortByType,
-        "sortOrder": SortOrderType,
-    },
-    total=False,
-)
-
-Ec2MetadataTypeDef = TypedDict(
-    "Ec2MetadataTypeDef",
-    {
-        "amiId": str,
-        "platform": Ec2PlatformType,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-Ec2ScanModeStateTypeDef = TypedDict(
-    "Ec2ScanModeStateTypeDef",
-    {
-        "scanMode": Ec2ScanModeType,
-        "scanModeStatus": Ec2ScanModeStatusType,
-    },
-    total=False,
-)
-
-EcrConfigurationStateTypeDef = TypedDict(
-    "EcrConfigurationStateTypeDef",
-    {
-        "rescanDurationState": "EcrRescanDurationStateTypeDef",
-    },
-    total=False,
-)
-
-_RequiredEcrConfigurationTypeDef = TypedDict(
-    "_RequiredEcrConfigurationTypeDef",
-    {
-        "rescanDuration": EcrRescanDurationType,
-    },
-)
-_OptionalEcrConfigurationTypeDef = TypedDict(
-    "_OptionalEcrConfigurationTypeDef",
-    {
-        "pullDateRescanDuration": EcrPullDateRescanDurationType,
-    },
-    total=False,
-)
-
-class EcrConfigurationTypeDef(_RequiredEcrConfigurationTypeDef, _OptionalEcrConfigurationTypeDef):
-    pass
-
-EcrContainerImageMetadataTypeDef = TypedDict(
-    "EcrContainerImageMetadataTypeDef",
-    {
-        "imagePulledAt": datetime,
-        "tags": List[str],
-    },
-    total=False,
-)
-
-EcrRepositoryMetadataTypeDef = TypedDict(
-    "EcrRepositoryMetadataTypeDef",
-    {
-        "name": str,
-        "scanFrequency": EcrScanFrequencyType,
-    },
-    total=False,
-)
-
-EcrRescanDurationStateTypeDef = TypedDict(
-    "EcrRescanDurationStateTypeDef",
-    {
-        "pullDateRescanDuration": EcrPullDateRescanDurationType,
-        "rescanDuration": EcrRescanDurationType,
-        "status": EcrRescanDurationStatusType,
-        "updatedAt": datetime,
-    },
-    total=False,
-)
-
-_RequiredEnableDelegatedAdminAccountRequestRequestTypeDef = TypedDict(
-    "_RequiredEnableDelegatedAdminAccountRequestRequestTypeDef",
-    {
-        "delegatedAdminAccountId": str,
-    },
-)
-_OptionalEnableDelegatedAdminAccountRequestRequestTypeDef = TypedDict(
-    "_OptionalEnableDelegatedAdminAccountRequestRequestTypeDef",
-    {
-        "clientToken": str,
-    },
-    total=False,
-)
-
-class EnableDelegatedAdminAccountRequestRequestTypeDef(
-    _RequiredEnableDelegatedAdminAccountRequestRequestTypeDef,
-    _OptionalEnableDelegatedAdminAccountRequestRequestTypeDef,
-):
-    pass
-
-EnableDelegatedAdminAccountResponseTypeDef = TypedDict(
-    "EnableDelegatedAdminAccountResponseTypeDef",
-    {
-        "delegatedAdminAccountId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredEnableRequestRequestTypeDef = TypedDict(
-    "_RequiredEnableRequestRequestTypeDef",
-    {
-        "resourceTypes": List[ResourceScanTypeType],
-    },
-)
-_OptionalEnableRequestRequestTypeDef = TypedDict(
-    "_OptionalEnableRequestRequestTypeDef",
-    {
-        "accountIds": List[str],
-        "clientToken": str,
-    },
-    total=False,
-)
-
-class EnableRequestRequestTypeDef(
-    _RequiredEnableRequestRequestTypeDef, _OptionalEnableRequestRequestTypeDef
-):
-    pass
-
-EnableResponseTypeDef = TypedDict(
-    "EnableResponseTypeDef",
-    {
-        "accounts": List["AccountTypeDef"],
-        "failedAccounts": List["FailedAccountTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-EpssDetailsTypeDef = TypedDict(
-    "EpssDetailsTypeDef",
-    {
-        "score": float,
-    },
-    total=False,
-)
-
-EpssTypeDef = TypedDict(
-    "EpssTypeDef",
-    {
-        "score": float,
-    },
-    total=False,
-)
-
-EvidenceTypeDef = TypedDict(
-    "EvidenceTypeDef",
-    {
-        "evidenceDetail": str,
-        "evidenceRule": str,
-        "severity": str,
-    },
-    total=False,
-)
-
-ExploitObservedTypeDef = TypedDict(
-    "ExploitObservedTypeDef",
-    {
-        "firstSeen": datetime,
-        "lastSeen": datetime,
-    },
-    total=False,
-)
-
-ExploitabilityDetailsTypeDef = TypedDict(
-    "ExploitabilityDetailsTypeDef",
-    {
-        "lastKnownExploitAt": datetime,
-    },
-    total=False,
-)
-
-_RequiredFailedAccountTypeDef = TypedDict(
-    "_RequiredFailedAccountTypeDef",
-    {
-        "accountId": str,
-        "errorCode": ErrorCodeType,
-        "errorMessage": str,
-    },
-)
-_OptionalFailedAccountTypeDef = TypedDict(
-    "_OptionalFailedAccountTypeDef",
-    {
-        "resourceStatus": "ResourceStatusTypeDef",
-        "status": StatusType,
-    },
-    total=False,
-)
-
-class FailedAccountTypeDef(_RequiredFailedAccountTypeDef, _OptionalFailedAccountTypeDef):
-    pass
-
-_RequiredFailedMemberAccountEc2DeepInspectionStatusStateTypeDef = TypedDict(
-    "_RequiredFailedMemberAccountEc2DeepInspectionStatusStateTypeDef",
-    {
-        "accountId": str,
-    },
-)
-_OptionalFailedMemberAccountEc2DeepInspectionStatusStateTypeDef = TypedDict(
-    "_OptionalFailedMemberAccountEc2DeepInspectionStatusStateTypeDef",
-    {
-        "ec2ScanStatus": StatusType,
-        "errorMessage": str,
-    },
-    total=False,
-)
-
-class FailedMemberAccountEc2DeepInspectionStatusStateTypeDef(
-    _RequiredFailedMemberAccountEc2DeepInspectionStatusStateTypeDef,
-    _OptionalFailedMemberAccountEc2DeepInspectionStatusStateTypeDef,
-):
-    pass
-
-FilterCriteriaTypeDef = TypedDict(
-    "FilterCriteriaTypeDef",
-    {
-        "awsAccountId": List["StringFilterTypeDef"],
-        "codeVulnerabilityDetectorName": List["StringFilterTypeDef"],
-        "codeVulnerabilityDetectorTags": List["StringFilterTypeDef"],
-        "codeVulnerabilityFilePath": List["StringFilterTypeDef"],
-        "componentId": List["StringFilterTypeDef"],
-        "componentType": List["StringFilterTypeDef"],
-        "ec2InstanceImageId": List["StringFilterTypeDef"],
-        "ec2InstanceSubnetId": List["StringFilterTypeDef"],
-        "ec2InstanceVpcId": List["StringFilterTypeDef"],
-        "ecrImageArchitecture": List["StringFilterTypeDef"],
-        "ecrImageHash": List["StringFilterTypeDef"],
-        "ecrImagePushedAt": List["DateFilterTypeDef"],
-        "ecrImageRegistry": List["StringFilterTypeDef"],
-        "ecrImageRepositoryName": List["StringFilterTypeDef"],
-        "ecrImageTags": List["StringFilterTypeDef"],
-        "epssScore": List["NumberFilterTypeDef"],
-        "exploitAvailable": List["StringFilterTypeDef"],
-        "findingArn": List["StringFilterTypeDef"],
-        "findingStatus": List["StringFilterTypeDef"],
-        "findingType": List["StringFilterTypeDef"],
-        "firstObservedAt": List["DateFilterTypeDef"],
-        "fixAvailable": List["StringFilterTypeDef"],
-        "inspectorScore": List["NumberFilterTypeDef"],
-        "lambdaFunctionExecutionRoleArn": List["StringFilterTypeDef"],
-        "lambdaFunctionLastModifiedAt": List["DateFilterTypeDef"],
-        "lambdaFunctionLayers": List["StringFilterTypeDef"],
-        "lambdaFunctionName": List["StringFilterTypeDef"],
-        "lambdaFunctionRuntime": List["StringFilterTypeDef"],
-        "lastObservedAt": List["DateFilterTypeDef"],
-        "networkProtocol": List["StringFilterTypeDef"],
-        "portRange": List["PortRangeFilterTypeDef"],
-        "relatedVulnerabilities": List["StringFilterTypeDef"],
-        "resourceId": List["StringFilterTypeDef"],
-        "resourceTags": List["MapFilterTypeDef"],
-        "resourceType": List["StringFilterTypeDef"],
-        "severity": List["StringFilterTypeDef"],
-        "title": List["StringFilterTypeDef"],
-        "updatedAt": List["DateFilterTypeDef"],
-        "vendorSeverity": List["StringFilterTypeDef"],
-        "vulnerabilityId": List["StringFilterTypeDef"],
-        "vulnerabilitySource": List["StringFilterTypeDef"],
-        "vulnerablePackages": List["PackageFilterTypeDef"],
-    },
-    total=False,
-)
-
-_RequiredFilterTypeDef = TypedDict(
-    "_RequiredFilterTypeDef",
-    {
-        "action": FilterActionType,
-        "arn": str,
-        "createdAt": datetime,
-        "criteria": "FilterCriteriaTypeDef",
-        "name": str,
-        "ownerId": str,
-        "updatedAt": datetime,
-    },
-)
-_OptionalFilterTypeDef = TypedDict(
-    "_OptionalFilterTypeDef",
-    {
-        "description": str,
-        "reason": str,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class FilterTypeDef(_RequiredFilterTypeDef, _OptionalFilterTypeDef):
-    pass
-
-FindingDetailTypeDef = TypedDict(
-    "FindingDetailTypeDef",
-    {
-        "cisaData": "CisaDataTypeDef",
-        "cwes": List[str],
-        "epssScore": float,
-        "evidences": List["EvidenceTypeDef"],
-        "exploitObserved": "ExploitObservedTypeDef",
-        "findingArn": str,
-        "referenceUrls": List[str],
-        "riskScore": int,
-        "tools": List[str],
-        "ttps": List[str],
-    },
-    total=False,
-)
-
-FindingDetailsErrorTypeDef = TypedDict(
-    "FindingDetailsErrorTypeDef",
-    {
-        "errorCode": FindingDetailsErrorCodeType,
-        "errorMessage": str,
-        "findingArn": str,
-    },
-)
-
-FindingTypeAggregationResponseTypeDef = TypedDict(
-    "FindingTypeAggregationResponseTypeDef",
-    {
-        "accountId": str,
-        "severityCounts": "SeverityCountsTypeDef",
-    },
-    total=False,
-)
-
-FindingTypeAggregationTypeDef = TypedDict(
-    "FindingTypeAggregationTypeDef",
-    {
-        "findingType": AggregationFindingTypeType,
-        "resourceType": AggregationResourceTypeType,
-        "sortBy": FindingTypeSortByType,
-        "sortOrder": SortOrderType,
-    },
-    total=False,
-)
-
-_RequiredFindingTypeDef = TypedDict(
-    "_RequiredFindingTypeDef",
-    {
-        "awsAccountId": str,
-        "description": str,
-        "findingArn": str,
-        "firstObservedAt": datetime,
-        "lastObservedAt": datetime,
-        "remediation": "RemediationTypeDef",
-        "resources": List["ResourceTypeDef"],
-        "severity": SeverityType,
-        "status": FindingStatusType,
-        "type": FindingTypeType,
-    },
-)
-_OptionalFindingTypeDef = TypedDict(
-    "_OptionalFindingTypeDef",
-    {
-        "codeVulnerabilityDetails": "CodeVulnerabilityDetailsTypeDef",
-        "epss": "EpssDetailsTypeDef",
-        "exploitAvailable": ExploitAvailableType,
-        "exploitabilityDetails": "ExploitabilityDetailsTypeDef",
-        "fixAvailable": FixAvailableType,
-        "inspectorScore": float,
-        "inspectorScoreDetails": "InspectorScoreDetailsTypeDef",
-        "networkReachabilityDetails": "NetworkReachabilityDetailsTypeDef",
-        "packageVulnerabilityDetails": "PackageVulnerabilityDetailsTypeDef",
-        "title": str,
-        "updatedAt": datetime,
-    },
-    total=False,
-)
-
-class FindingTypeDef(_RequiredFindingTypeDef, _OptionalFindingTypeDef):
-    pass
-
-FreeTrialAccountInfoTypeDef = TypedDict(
-    "FreeTrialAccountInfoTypeDef",
-    {
-        "accountId": str,
-        "freeTrialInfo": List["FreeTrialInfoTypeDef"],
-    },
-)
-
-FreeTrialInfoErrorTypeDef = TypedDict(
-    "FreeTrialInfoErrorTypeDef",
-    {
-        "accountId": str,
-        "code": FreeTrialInfoErrorCodeType,
-        "message": str,
-    },
-)
+        "iamInstanceProfileArn": NotRequired[str],
+        "imageId": NotRequired[str],
+        "ipV4Addresses": NotRequired[List[str]],
+        "ipV6Addresses": NotRequired[List[str]],
+        "keyName": NotRequired[str],
+        "launchedAt": NotRequired[datetime],
+        "platform": NotRequired[str],
+        "subnetId": NotRequired[str],
+        "type": NotRequired[str],
+        "vpcId": NotRequired[str],
+    },
+)
+
+class AwsEcrContainerImageDetailsTypeDef(TypedDict):
+    imageHash: str
+    registry: str
+    repositoryName: str
+    architecture: NotRequired[str]
+    author: NotRequired[str]
+    imageTags: NotRequired[List[str]]
+    platform: NotRequired[str]
+    pushedAt: NotRequired[datetime]
+
+class LambdaVpcConfigTypeDef(TypedDict):
+    securityGroupIds: NotRequired[List[str]]
+    subnetIds: NotRequired[List[str]]
+    vpcId: NotRequired[str]
+
+class BatchGetAccountStatusRequestTypeDef(TypedDict):
+    accountIds: NotRequired[Sequence[str]]
+
+class BatchGetCodeSnippetRequestTypeDef(TypedDict):
+    findingArns: Sequence[str]
+
+class CodeSnippetErrorTypeDef(TypedDict):
+    errorCode: CodeSnippetErrorCodeType
+    errorMessage: str
+    findingArn: str
+
+class BatchGetFindingDetailsRequestTypeDef(TypedDict):
+    findingArns: Sequence[str]
+
+class FindingDetailsErrorTypeDef(TypedDict):
+    errorCode: FindingDetailsErrorCodeType
+    errorMessage: str
+    findingArn: str
+
+class BatchGetFreeTrialInfoRequestTypeDef(TypedDict):
+    accountIds: Sequence[str]
+
+class FreeTrialInfoErrorTypeDef(TypedDict):
+    accountId: str
+    code: FreeTrialInfoErrorCodeType
+    message: str
+
+class BatchGetMemberEc2DeepInspectionStatusRequestTypeDef(TypedDict):
+    accountIds: NotRequired[Sequence[str]]
+
+class FailedMemberAccountEc2DeepInspectionStatusStateTypeDef(TypedDict):
+    accountId: str
+    ec2ScanStatus: NotRequired[StatusType]
+    errorMessage: NotRequired[str]
+
+class MemberAccountEc2DeepInspectionStatusStateTypeDef(TypedDict):
+    accountId: str
+    errorMessage: NotRequired[str]
+    status: NotRequired[Ec2DeepInspectionStatusType]
+
+class MemberAccountEc2DeepInspectionStatusTypeDef(TypedDict):
+    accountId: str
+    activateDeepInspection: bool
+
+BlobTypeDef = Union[str, bytes, IO[Any], StreamingBody]
+
+class CancelFindingsReportRequestTypeDef(TypedDict):
+    reportId: str
+
+class CancelSbomExportRequestTypeDef(TypedDict):
+    reportId: str
+
+class StatusCountsTypeDef(TypedDict):
+    failed: NotRequired[int]
+    passed: NotRequired[int]
+    skipped: NotRequired[int]
+
+TimestampTypeDef = Union[datetime, str]
+
+class CisFindingStatusFilterTypeDef(TypedDict):
+    comparison: Literal["EQUALS"]
+    value: CisFindingStatusType
+
+class CisNumberFilterTypeDef(TypedDict):
+    lowerInclusive: NotRequired[int]
+    upperInclusive: NotRequired[int]
+
+class CisResultStatusFilterTypeDef(TypedDict):
+    comparison: Literal["EQUALS"]
+    value: CisResultStatusType
+
+class CisTargetsTypeDef(TypedDict):
+    accountIds: NotRequired[List[str]]
+    targetResourceTags: NotRequired[Dict[str, List[str]]]
+
+class CisSecurityLevelFilterTypeDef(TypedDict):
+    comparison: Literal["EQUALS"]
+    value: CisSecurityLevelType
+
+class CisStringFilterTypeDef(TypedDict):
+    comparison: CisStringComparisonType
+    value: str
+
+class CisScanResultDetailsTypeDef(TypedDict):
+    scanArn: str
+    accountId: NotRequired[str]
+    checkDescription: NotRequired[str]
+    checkId: NotRequired[str]
+    findingArn: NotRequired[str]
+    level: NotRequired[CisSecurityLevelType]
+    platform: NotRequired[str]
+    remediation: NotRequired[str]
+    status: NotRequired[CisFindingStatusType]
+    statusReason: NotRequired[str]
+    targetResourceId: NotRequired[str]
+    title: NotRequired[str]
+
+class CisTargetStatusFilterTypeDef(TypedDict):
+    comparison: Literal["EQUALS"]
+    value: CisTargetStatusType
+
+class CisTargetStatusReasonFilterTypeDef(TypedDict):
+    comparison: Literal["EQUALS"]
+    value: CisTargetStatusReasonType
+
+class TagFilterTypeDef(TypedDict):
+    comparison: Literal["EQUALS"]
+    key: str
+    value: str
+
+class CisScanStatusFilterTypeDef(TypedDict):
+    comparison: Literal["EQUALS"]
+    value: CisScanStatusType
+
+class CisaDataTypeDef(TypedDict):
+    action: NotRequired[str]
+    dateAdded: NotRequired[datetime]
+    dateDue: NotRequired[datetime]
+
+class CodeFilePathTypeDef(TypedDict):
+    endLine: int
+    fileName: str
+    filePath: str
+    startLine: int
+
+class CodeLineTypeDef(TypedDict):
+    content: str
+    lineNumber: int
+
+class SuggestedFixTypeDef(TypedDict):
+    code: NotRequired[str]
+    description: NotRequired[str]
+
+class ComputePlatformTypeDef(TypedDict):
+    product: NotRequired[str]
+    vendor: NotRequired[str]
+    version: NotRequired[str]
+
+class CountsTypeDef(TypedDict):
+    count: NotRequired[int]
+    groupKey: NotRequired[GroupKeyType]
+
+class CoverageMapFilterTypeDef(TypedDict):
+    comparison: Literal["EQUALS"]
+    key: str
+    value: NotRequired[str]
+
+class CoverageStringFilterTypeDef(TypedDict):
+    comparison: CoverageStringComparisonType
+    value: str
+
+class ScanStatusTypeDef(TypedDict):
+    reason: ScanStatusReasonType
+    statusCode: ScanStatusCodeType
+
+class CreateCisTargetsTypeDef(TypedDict):
+    accountIds: Sequence[str]
+    targetResourceTags: Mapping[str, Sequence[str]]
+
+class DestinationTypeDef(TypedDict):
+    bucketName: str
+    kmsKeyArn: str
+    keyPrefix: NotRequired[str]
+
+class Cvss2TypeDef(TypedDict):
+    baseScore: NotRequired[float]
+    scoringVector: NotRequired[str]
+
+class Cvss3TypeDef(TypedDict):
+    baseScore: NotRequired[float]
+    scoringVector: NotRequired[str]
+
+class CvssScoreAdjustmentTypeDef(TypedDict):
+    metric: str
+    reason: str
+
+class CvssScoreTypeDef(TypedDict):
+    baseScore: float
+    scoringVector: str
+    source: str
+    version: str
+
+class TimeTypeDef(TypedDict):
+    timeOfDay: str
+    timezone: str
+
+class DateFilterOutputTypeDef(TypedDict):
+    endInclusive: NotRequired[datetime]
+    startInclusive: NotRequired[datetime]
+
+class DelegatedAdminAccountTypeDef(TypedDict):
+    accountId: NotRequired[str]
+    status: NotRequired[DelegatedAdminStatusType]
+
+class DelegatedAdminTypeDef(TypedDict):
+    accountId: NotRequired[str]
+    relationshipStatus: NotRequired[RelationshipStatusType]
+
+class DeleteCisScanConfigurationRequestTypeDef(TypedDict):
+    scanConfigurationArn: str
+
+class DeleteFilterRequestTypeDef(TypedDict):
+    arn: str
+
+class DisableDelegatedAdminAccountRequestTypeDef(TypedDict):
+    delegatedAdminAccountId: str
+
+class DisableRequestTypeDef(TypedDict):
+    accountIds: NotRequired[Sequence[str]]
+    resourceTypes: NotRequired[Sequence[ResourceScanTypeType]]
+
+class DisassociateMemberRequestTypeDef(TypedDict):
+    accountId: str
+
+class Ec2ScanModeStateTypeDef(TypedDict):
+    scanMode: NotRequired[Ec2ScanModeType]
+    scanModeStatus: NotRequired[Ec2ScanModeStatusType]
+
+class Ec2ConfigurationTypeDef(TypedDict):
+    scanMode: Ec2ScanModeType
+
+class MapFilterTypeDef(TypedDict):
+    comparison: Literal["EQUALS"]
+    key: str
+    value: NotRequired[str]
+
+class Ec2MetadataTypeDef(TypedDict):
+    amiId: NotRequired[str]
+    platform: NotRequired[Ec2PlatformType]
+    tags: NotRequired[Dict[str, str]]
+
+class EcrRescanDurationStateTypeDef(TypedDict):
+    pullDateRescanDuration: NotRequired[EcrPullDateRescanDurationType]
+    rescanDuration: NotRequired[EcrRescanDurationType]
+    status: NotRequired[EcrRescanDurationStatusType]
+    updatedAt: NotRequired[datetime]
+
+class EcrConfigurationTypeDef(TypedDict):
+    rescanDuration: EcrRescanDurationType
+    pullDateRescanDuration: NotRequired[EcrPullDateRescanDurationType]
+
+class EcrContainerImageMetadataTypeDef(TypedDict):
+    imagePulledAt: NotRequired[datetime]
+    tags: NotRequired[List[str]]
+
+class EcrRepositoryMetadataTypeDef(TypedDict):
+    name: NotRequired[str]
+    scanFrequency: NotRequired[EcrScanFrequencyType]
+
+class EnableDelegatedAdminAccountRequestTypeDef(TypedDict):
+    delegatedAdminAccountId: str
+    clientToken: NotRequired[str]
+
+class EnableRequestTypeDef(TypedDict):
+    resourceTypes: Sequence[ResourceScanTypeType]
+    accountIds: NotRequired[Sequence[str]]
+    clientToken: NotRequired[str]
+
+class EpssDetailsTypeDef(TypedDict):
+    score: NotRequired[float]
+
+class EpssTypeDef(TypedDict):
+    score: NotRequired[float]
+
+class EvidenceTypeDef(TypedDict):
+    evidenceDetail: NotRequired[str]
+    evidenceRule: NotRequired[str]
+    severity: NotRequired[str]
+
+class ExploitObservedTypeDef(TypedDict):
+    firstSeen: NotRequired[datetime]
+    lastSeen: NotRequired[datetime]
+
+class ExploitabilityDetailsTypeDef(TypedDict):
+    lastKnownExploitAt: NotRequired[datetime]
+
+class NumberFilterTypeDef(TypedDict):
+    lowerInclusive: NotRequired[float]
+    upperInclusive: NotRequired[float]
+
+class PortRangeFilterTypeDef(TypedDict):
+    beginInclusive: NotRequired[int]
+    endInclusive: NotRequired[int]
 
 FreeTrialInfoTypeDef = TypedDict(
     "FreeTrialInfoTypeDef",
@@ -1961,1511 +789,1276 @@ FreeTrialInfoTypeDef = TypedDict(
     },
 )
 
-_RequiredGetCisScanReportRequestRequestTypeDef = TypedDict(
-    "_RequiredGetCisScanReportRequestRequestTypeDef",
+class GetCisScanReportRequestTypeDef(TypedDict):
+    scanArn: str
+    reportFormat: NotRequired[CisReportFormatType]
+    targetAccounts: NotRequired[Sequence[str]]
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class GetEncryptionKeyRequestTypeDef(TypedDict):
+    resourceType: ResourceTypeType
+    scanType: ScanTypeType
+
+class GetFindingsReportStatusRequestTypeDef(TypedDict):
+    reportId: NotRequired[str]
+
+class GetMemberRequestTypeDef(TypedDict):
+    accountId: str
+
+class MemberTypeDef(TypedDict):
+    accountId: NotRequired[str]
+    delegatedAdminAccountId: NotRequired[str]
+    relationshipStatus: NotRequired[RelationshipStatusType]
+    updatedAt: NotRequired[datetime]
+
+class GetSbomExportRequestTypeDef(TypedDict):
+    reportId: str
+
+class LambdaFunctionMetadataTypeDef(TypedDict):
+    functionName: NotRequired[str]
+    functionTags: NotRequired[Dict[str, str]]
+    layers: NotRequired[List[str]]
+    runtime: NotRequired[RuntimeType]
+
+class ListAccountPermissionsRequestTypeDef(TypedDict):
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+    service: NotRequired[ServiceType]
+
+class PermissionTypeDef(TypedDict):
+    operation: OperationType
+    service: ServiceType
+
+class ListDelegatedAdminAccountsRequestTypeDef(TypedDict):
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListFiltersRequestTypeDef(TypedDict):
+    action: NotRequired[FilterActionType]
+    arns: NotRequired[Sequence[str]]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class SortCriteriaTypeDef(TypedDict):
+    field: SortFieldType
+    sortOrder: SortOrderType
+
+class ListMembersRequestTypeDef(TypedDict):
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+    onlyAssociated: NotRequired[bool]
+
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+
+class ListUsageTotalsRequestTypeDef(TypedDict):
+    accountIds: NotRequired[Sequence[str]]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class StepTypeDef(TypedDict):
+    componentId: str
+    componentType: str
+    componentArn: NotRequired[str]
+
+class PortRangeTypeDef(TypedDict):
+    begin: int
+    end: int
+
+class VulnerablePackageTypeDef(TypedDict):
+    name: str
+    version: str
+    arch: NotRequired[str]
+    epoch: NotRequired[int]
+    filePath: NotRequired[str]
+    fixedInVersion: NotRequired[str]
+    packageManager: NotRequired[PackageManagerType]
+    release: NotRequired[str]
+    remediation: NotRequired[str]
+    sourceLambdaLayerArn: NotRequired[str]
+    sourceLayerHash: NotRequired[str]
+
+class RecommendationTypeDef(TypedDict):
+    Url: NotRequired[str]
+    text: NotRequired[str]
+
+class ResetEncryptionKeyRequestTypeDef(TypedDict):
+    resourceType: ResourceTypeType
+    scanType: ScanTypeType
+
+class ResourceMapFilterTypeDef(TypedDict):
+    comparison: Literal["EQUALS"]
+    key: str
+    value: NotRequired[str]
+
+class ResourceStringFilterTypeDef(TypedDict):
+    comparison: ResourceStringComparisonType
+    value: str
+
+class SearchVulnerabilitiesFilterCriteriaTypeDef(TypedDict):
+    vulnerabilityIds: Sequence[str]
+
+class SendCisSessionHealthRequestTypeDef(TypedDict):
+    scanJobId: str
+    sessionToken: str
+
+class StartCisSessionMessageTypeDef(TypedDict):
+    sessionToken: str
+
+class StopCisMessageProgressTypeDef(TypedDict):
+    errorChecks: NotRequired[int]
+    failedChecks: NotRequired[int]
+    informationalChecks: NotRequired[int]
+    notApplicableChecks: NotRequired[int]
+    notEvaluatedChecks: NotRequired[int]
+    successfulChecks: NotRequired[int]
+    totalChecks: NotRequired[int]
+    unknownChecks: NotRequired[int]
+
+class TagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tags: Mapping[str, str]
+
+class UntagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tagKeys: Sequence[str]
+
+class UpdateCisTargetsTypeDef(TypedDict):
+    accountIds: NotRequired[Sequence[str]]
+    targetResourceTags: NotRequired[Mapping[str, Sequence[str]]]
+
+class UpdateEc2DeepInspectionConfigurationRequestTypeDef(TypedDict):
+    activateDeepInspection: NotRequired[bool]
+    packagePaths: NotRequired[Sequence[str]]
+
+class UpdateEncryptionKeyRequestTypeDef(TypedDict):
+    kmsKeyId: str
+    resourceType: ResourceTypeType
+    scanType: ScanTypeType
+
+class UpdateOrgEc2DeepInspectionConfigurationRequestTypeDef(TypedDict):
+    orgPackagePaths: Sequence[str]
+
+UsageTypeDef = TypedDict(
+    "UsageTypeDef",
     {
-        "scanArn": str,
+        "currency": NotRequired[Literal["USD"]],
+        "estimatedMonthlyCost": NotRequired[float],
+        "total": NotRequired[float],
+        "type": NotRequired[UsageTypeType],
     },
-)
-_OptionalGetCisScanReportRequestRequestTypeDef = TypedDict(
-    "_OptionalGetCisScanReportRequestRequestTypeDef",
-    {
-        "reportFormat": CisReportFormatType,
-        "targetAccounts": List[str],
-    },
-    total=False,
 )
 
-class GetCisScanReportRequestRequestTypeDef(
-    _RequiredGetCisScanReportRequestRequestTypeDef, _OptionalGetCisScanReportRequestRequestTypeDef
-):
-    pass
+class AccountAggregationResponseTypeDef(TypedDict):
+    accountId: NotRequired[str]
+    exploitAvailableCount: NotRequired[int]
+    fixAvailableCount: NotRequired[int]
+    severityCounts: NotRequired[SeverityCountsTypeDef]
 
-GetCisScanReportResponseTypeDef = TypedDict(
-    "GetCisScanReportResponseTypeDef",
+class AmiAggregationResponseTypeDef(TypedDict):
+    ami: str
+    accountId: NotRequired[str]
+    affectedInstances: NotRequired[int]
+    severityCounts: NotRequired[SeverityCountsTypeDef]
+
+class AwsEcrContainerAggregationResponseTypeDef(TypedDict):
+    resourceId: str
+    accountId: NotRequired[str]
+    architecture: NotRequired[str]
+    imageSha: NotRequired[str]
+    imageTags: NotRequired[List[str]]
+    repository: NotRequired[str]
+    severityCounts: NotRequired[SeverityCountsTypeDef]
+
+class Ec2InstanceAggregationResponseTypeDef(TypedDict):
+    instanceId: str
+    accountId: NotRequired[str]
+    ami: NotRequired[str]
+    instanceTags: NotRequired[Dict[str, str]]
+    networkFindings: NotRequired[int]
+    operatingSystem: NotRequired[str]
+    severityCounts: NotRequired[SeverityCountsTypeDef]
+
+class FindingTypeAggregationResponseTypeDef(TypedDict):
+    accountId: NotRequired[str]
+    exploitAvailableCount: NotRequired[int]
+    fixAvailableCount: NotRequired[int]
+    severityCounts: NotRequired[SeverityCountsTypeDef]
+
+class ImageLayerAggregationResponseTypeDef(TypedDict):
+    accountId: str
+    layerHash: str
+    repository: str
+    resourceId: str
+    severityCounts: NotRequired[SeverityCountsTypeDef]
+
+class LambdaFunctionAggregationResponseTypeDef(TypedDict):
+    resourceId: str
+    accountId: NotRequired[str]
+    functionName: NotRequired[str]
+    lambdaTags: NotRequired[Dict[str, str]]
+    lastModifiedAt: NotRequired[datetime]
+    runtime: NotRequired[str]
+    severityCounts: NotRequired[SeverityCountsTypeDef]
+
+class LambdaLayerAggregationResponseTypeDef(TypedDict):
+    accountId: str
+    functionName: str
+    layerArn: str
+    resourceId: str
+    severityCounts: NotRequired[SeverityCountsTypeDef]
+
+class PackageAggregationResponseTypeDef(TypedDict):
+    packageName: str
+    accountId: NotRequired[str]
+    severityCounts: NotRequired[SeverityCountsTypeDef]
+
+class RepositoryAggregationResponseTypeDef(TypedDict):
+    repository: str
+    accountId: NotRequired[str]
+    affectedImages: NotRequired[int]
+    severityCounts: NotRequired[SeverityCountsTypeDef]
+
+class TitleAggregationResponseTypeDef(TypedDict):
+    title: str
+    accountId: NotRequired[str]
+    severityCounts: NotRequired[SeverityCountsTypeDef]
+    vulnerabilityId: NotRequired[str]
+
+ResourceStateTypeDef = TypedDict(
+    "ResourceStateTypeDef",
     {
-        "status": CisReportStatusType,
-        "url": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ec2": StateTypeDef,
+        "ecr": StateTypeDef,
+        "lambda": NotRequired[StateTypeDef],
+        "lambdaCode": NotRequired[StateTypeDef],
     },
 )
 
-_RequiredGetCisScanResultDetailsRequestRequestTypeDef = TypedDict(
-    "_RequiredGetCisScanResultDetailsRequestRequestTypeDef",
+class AccountTypeDef(TypedDict):
+    accountId: str
+    resourceStatus: ResourceStatusTypeDef
+    status: StatusType
+
+class FailedAccountTypeDef(TypedDict):
+    accountId: str
+    errorCode: ErrorCodeType
+    errorMessage: str
+    resourceStatus: NotRequired[ResourceStatusTypeDef]
+    status: NotRequired[StatusType]
+
+class AmiAggregationTypeDef(TypedDict):
+    amis: NotRequired[Sequence[StringFilterTypeDef]]
+    sortBy: NotRequired[AmiSortByType]
+    sortOrder: NotRequired[SortOrderType]
+
+class AwsEcrContainerAggregationTypeDef(TypedDict):
+    architectures: NotRequired[Sequence[StringFilterTypeDef]]
+    imageShas: NotRequired[Sequence[StringFilterTypeDef]]
+    imageTags: NotRequired[Sequence[StringFilterTypeDef]]
+    repositories: NotRequired[Sequence[StringFilterTypeDef]]
+    resourceIds: NotRequired[Sequence[StringFilterTypeDef]]
+    sortBy: NotRequired[AwsEcrContainerSortByType]
+    sortOrder: NotRequired[SortOrderType]
+
+class ImageLayerAggregationTypeDef(TypedDict):
+    layerHashes: NotRequired[Sequence[StringFilterTypeDef]]
+    repositories: NotRequired[Sequence[StringFilterTypeDef]]
+    resourceIds: NotRequired[Sequence[StringFilterTypeDef]]
+    sortBy: NotRequired[ImageLayerSortByType]
+    sortOrder: NotRequired[SortOrderType]
+
+class LambdaLayerAggregationTypeDef(TypedDict):
+    functionNames: NotRequired[Sequence[StringFilterTypeDef]]
+    layerArns: NotRequired[Sequence[StringFilterTypeDef]]
+    resourceIds: NotRequired[Sequence[StringFilterTypeDef]]
+    sortBy: NotRequired[LambdaLayerSortByType]
+    sortOrder: NotRequired[SortOrderType]
+
+class PackageAggregationTypeDef(TypedDict):
+    packageNames: NotRequired[Sequence[StringFilterTypeDef]]
+    sortBy: NotRequired[PackageSortByType]
+    sortOrder: NotRequired[SortOrderType]
+
+class RepositoryAggregationTypeDef(TypedDict):
+    repositories: NotRequired[Sequence[StringFilterTypeDef]]
+    sortBy: NotRequired[RepositorySortByType]
+    sortOrder: NotRequired[SortOrderType]
+
+class TitleAggregationTypeDef(TypedDict):
+    findingType: NotRequired[AggregationFindingTypeType]
+    resourceType: NotRequired[AggregationResourceTypeType]
+    sortBy: NotRequired[TitleSortByType]
+    sortOrder: NotRequired[SortOrderType]
+    titles: NotRequired[Sequence[StringFilterTypeDef]]
+    vulnerabilityIds: NotRequired[Sequence[StringFilterTypeDef]]
+
+class AssociateMemberResponseTypeDef(TypedDict):
+    accountId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CancelFindingsReportResponseTypeDef(TypedDict):
+    reportId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CancelSbomExportResponseTypeDef(TypedDict):
+    reportId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateCisScanConfigurationResponseTypeDef(TypedDict):
+    scanConfigurationArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateFilterResponseTypeDef(TypedDict):
+    arn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateFindingsReportResponseTypeDef(TypedDict):
+    reportId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateSbomExportResponseTypeDef(TypedDict):
+    reportId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteCisScanConfigurationResponseTypeDef(TypedDict):
+    scanConfigurationArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteFilterResponseTypeDef(TypedDict):
+    arn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DisableDelegatedAdminAccountResponseTypeDef(TypedDict):
+    delegatedAdminAccountId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DisassociateMemberResponseTypeDef(TypedDict):
+    accountId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class EnableDelegatedAdminAccountResponseTypeDef(TypedDict):
+    delegatedAdminAccountId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetCisScanReportResponseTypeDef(TypedDict):
+    status: CisReportStatusType
+    url: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetEc2DeepInspectionConfigurationResponseTypeDef(TypedDict):
+    errorMessage: str
+    orgPackagePaths: List[str]
+    packagePaths: List[str]
+    status: Ec2DeepInspectionStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetEncryptionKeyResponseTypeDef(TypedDict):
+    kmsKeyId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateCisScanConfigurationResponseTypeDef(TypedDict):
+    scanConfigurationArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateEc2DeepInspectionConfigurationResponseTypeDef(TypedDict):
+    errorMessage: str
+    orgPackagePaths: List[str]
+    packagePaths: List[str]
+    status: Ec2DeepInspectionStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateFilterResponseTypeDef(TypedDict):
+    arn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeOrganizationConfigurationResponseTypeDef(TypedDict):
+    autoEnable: AutoEnableTypeDef
+    maxAccountLimitReached: bool
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateOrganizationConfigurationRequestTypeDef(TypedDict):
+    autoEnable: AutoEnableTypeDef
+
+class UpdateOrganizationConfigurationResponseTypeDef(TypedDict):
+    autoEnable: AutoEnableTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class AwsLambdaFunctionDetailsTypeDef(TypedDict):
+    codeSha256: str
+    executionRoleArn: str
+    functionName: str
+    runtime: RuntimeType
+    version: str
+    architectures: NotRequired[List[ArchitectureType]]
+    lastModifiedAt: NotRequired[datetime]
+    layers: NotRequired[List[str]]
+    packageType: NotRequired[PackageTypeType]
+    vpcConfig: NotRequired[LambdaVpcConfigTypeDef]
+
+class BatchGetMemberEc2DeepInspectionStatusResponseTypeDef(TypedDict):
+    accountIds: List[MemberAccountEc2DeepInspectionStatusStateTypeDef]
+    failedAccountIds: List[FailedMemberAccountEc2DeepInspectionStatusStateTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class BatchUpdateMemberEc2DeepInspectionStatusResponseTypeDef(TypedDict):
+    accountIds: List[MemberAccountEc2DeepInspectionStatusStateTypeDef]
+    failedAccountIds: List[FailedMemberAccountEc2DeepInspectionStatusStateTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class BatchUpdateMemberEc2DeepInspectionStatusRequestTypeDef(TypedDict):
+    accountIds: Sequence[MemberAccountEc2DeepInspectionStatusTypeDef]
+
+class CisSessionMessageTypeDef(TypedDict):
+    cisRuleDetails: BlobTypeDef
+    ruleId: str
+    status: CisRuleStatusType
+
+class CisCheckAggregationTypeDef(TypedDict):
+    scanArn: str
+    accountId: NotRequired[str]
+    checkDescription: NotRequired[str]
+    checkId: NotRequired[str]
+    level: NotRequired[CisSecurityLevelType]
+    platform: NotRequired[str]
+    statusCounts: NotRequired[StatusCountsTypeDef]
+    title: NotRequired[str]
+
+class CisTargetResourceAggregationTypeDef(TypedDict):
+    scanArn: str
+    accountId: NotRequired[str]
+    platform: NotRequired[str]
+    statusCounts: NotRequired[StatusCountsTypeDef]
+    targetResourceId: NotRequired[str]
+    targetResourceTags: NotRequired[Dict[str, List[str]]]
+    targetStatus: NotRequired[CisTargetStatusType]
+    targetStatusReason: NotRequired[CisTargetStatusReasonType]
+
+class CisDateFilterTypeDef(TypedDict):
+    earliestScanStartTime: NotRequired[TimestampTypeDef]
+    latestScanStartTime: NotRequired[TimestampTypeDef]
+
+class CoverageDateFilterTypeDef(TypedDict):
+    endInclusive: NotRequired[TimestampTypeDef]
+    startInclusive: NotRequired[TimestampTypeDef]
+
+class DateFilterTypeDef(TypedDict):
+    endInclusive: NotRequired[TimestampTypeDef]
+    startInclusive: NotRequired[TimestampTypeDef]
+
+class CisScanTypeDef(TypedDict):
+    scanArn: str
+    scanConfigurationArn: str
+    failedChecks: NotRequired[int]
+    scanDate: NotRequired[datetime]
+    scanName: NotRequired[str]
+    scheduledBy: NotRequired[str]
+    securityLevel: NotRequired[CisSecurityLevelType]
+    status: NotRequired[CisScanStatusType]
+    targets: NotRequired[CisTargetsTypeDef]
+    totalChecks: NotRequired[int]
+
+class CisScanResultDetailsFilterCriteriaTypeDef(TypedDict):
+    checkIdFilters: NotRequired[Sequence[CisStringFilterTypeDef]]
+    findingArnFilters: NotRequired[Sequence[CisStringFilterTypeDef]]
+    findingStatusFilters: NotRequired[Sequence[CisFindingStatusFilterTypeDef]]
+    securityLevelFilters: NotRequired[Sequence[CisSecurityLevelFilterTypeDef]]
+    titleFilters: NotRequired[Sequence[CisStringFilterTypeDef]]
+
+class CisScanResultsAggregatedByChecksFilterCriteriaTypeDef(TypedDict):
+    accountIdFilters: NotRequired[Sequence[CisStringFilterTypeDef]]
+    checkIdFilters: NotRequired[Sequence[CisStringFilterTypeDef]]
+    failedResourcesFilters: NotRequired[Sequence[CisNumberFilterTypeDef]]
+    platformFilters: NotRequired[Sequence[CisStringFilterTypeDef]]
+    securityLevelFilters: NotRequired[Sequence[CisSecurityLevelFilterTypeDef]]
+    titleFilters: NotRequired[Sequence[CisStringFilterTypeDef]]
+
+class GetCisScanResultDetailsResponseTypeDef(TypedDict):
+    scanResultDetails: List[CisScanResultDetailsTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class CisScanResultsAggregatedByTargetResourceFilterCriteriaTypeDef(TypedDict):
+    accountIdFilters: NotRequired[Sequence[CisStringFilterTypeDef]]
+    checkIdFilters: NotRequired[Sequence[CisStringFilterTypeDef]]
+    failedChecksFilters: NotRequired[Sequence[CisNumberFilterTypeDef]]
+    platformFilters: NotRequired[Sequence[CisStringFilterTypeDef]]
+    statusFilters: NotRequired[Sequence[CisResultStatusFilterTypeDef]]
+    targetResourceIdFilters: NotRequired[Sequence[CisStringFilterTypeDef]]
+    targetResourceTagFilters: NotRequired[Sequence[TagFilterTypeDef]]
+    targetStatusFilters: NotRequired[Sequence[CisTargetStatusFilterTypeDef]]
+    targetStatusReasonFilters: NotRequired[Sequence[CisTargetStatusReasonFilterTypeDef]]
+
+class ListCisScanConfigurationsFilterCriteriaTypeDef(TypedDict):
+    scanConfigurationArnFilters: NotRequired[Sequence[CisStringFilterTypeDef]]
+    scanNameFilters: NotRequired[Sequence[CisStringFilterTypeDef]]
+    targetResourceTagFilters: NotRequired[Sequence[TagFilterTypeDef]]
+
+class CodeVulnerabilityDetailsTypeDef(TypedDict):
+    cwes: List[str]
+    detectorId: str
+    detectorName: str
+    filePath: CodeFilePathTypeDef
+    detectorTags: NotRequired[List[str]]
+    referenceUrls: NotRequired[List[str]]
+    ruleId: NotRequired[str]
+    sourceLambdaLayerArn: NotRequired[str]
+
+class CodeSnippetResultTypeDef(TypedDict):
+    codeSnippet: NotRequired[List[CodeLineTypeDef]]
+    endLine: NotRequired[int]
+    findingArn: NotRequired[str]
+    startLine: NotRequired[int]
+    suggestedFixes: NotRequired[List[SuggestedFixTypeDef]]
+
+class ListCoverageStatisticsResponseTypeDef(TypedDict):
+    countsByGroup: List[CountsTypeDef]
+    totalCounts: int
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class CvssScoreDetailsTypeDef(TypedDict):
+    score: float
+    scoreSource: str
+    scoringVector: str
+    version: str
+    adjustments: NotRequired[List[CvssScoreAdjustmentTypeDef]]
+    cvssSource: NotRequired[str]
+
+class DailyScheduleTypeDef(TypedDict):
+    startTime: TimeTypeDef
+
+class MonthlyScheduleTypeDef(TypedDict):
+    day: DayType
+    startTime: TimeTypeDef
+
+class WeeklyScheduleOutputTypeDef(TypedDict):
+    days: List[DayType]
+    startTime: TimeTypeDef
+
+class WeeklyScheduleTypeDef(TypedDict):
+    days: Sequence[DayType]
+    startTime: TimeTypeDef
+
+class ListDelegatedAdminAccountsResponseTypeDef(TypedDict):
+    delegatedAdminAccounts: List[DelegatedAdminAccountTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class GetDelegatedAdminAccountResponseTypeDef(TypedDict):
+    delegatedAdmin: DelegatedAdminTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class Ec2ConfigurationStateTypeDef(TypedDict):
+    scanModeState: NotRequired[Ec2ScanModeStateTypeDef]
+
+class Ec2InstanceAggregationTypeDef(TypedDict):
+    amis: NotRequired[Sequence[StringFilterTypeDef]]
+    instanceIds: NotRequired[Sequence[StringFilterTypeDef]]
+    instanceTags: NotRequired[Sequence[MapFilterTypeDef]]
+    operatingSystems: NotRequired[Sequence[StringFilterTypeDef]]
+    sortBy: NotRequired[Ec2InstanceSortByType]
+    sortOrder: NotRequired[SortOrderType]
+
+class LambdaFunctionAggregationTypeDef(TypedDict):
+    functionNames: NotRequired[Sequence[StringFilterTypeDef]]
+    functionTags: NotRequired[Sequence[MapFilterTypeDef]]
+    resourceIds: NotRequired[Sequence[StringFilterTypeDef]]
+    runtimes: NotRequired[Sequence[StringFilterTypeDef]]
+    sortBy: NotRequired[LambdaFunctionSortByType]
+    sortOrder: NotRequired[SortOrderType]
+
+class EcrConfigurationStateTypeDef(TypedDict):
+    rescanDurationState: NotRequired[EcrRescanDurationStateTypeDef]
+
+class UpdateConfigurationRequestTypeDef(TypedDict):
+    ec2Configuration: NotRequired[Ec2ConfigurationTypeDef]
+    ecrConfiguration: NotRequired[EcrConfigurationTypeDef]
+
+class FindingDetailTypeDef(TypedDict):
+    cisaData: NotRequired[CisaDataTypeDef]
+    cwes: NotRequired[List[str]]
+    epssScore: NotRequired[float]
+    evidences: NotRequired[List[EvidenceTypeDef]]
+    exploitObserved: NotRequired[ExploitObservedTypeDef]
+    findingArn: NotRequired[str]
+    referenceUrls: NotRequired[List[str]]
+    riskScore: NotRequired[int]
+    tools: NotRequired[List[str]]
+    ttps: NotRequired[List[str]]
+
+VulnerabilityTypeDef = TypedDict(
+    "VulnerabilityTypeDef",
     {
-        "accountId": str,
-        "scanArn": str,
-        "targetResourceId": str,
+        "id": str,
+        "atigData": NotRequired[AtigDataTypeDef],
+        "cisaData": NotRequired[CisaDataTypeDef],
+        "cvss2": NotRequired[Cvss2TypeDef],
+        "cvss3": NotRequired[Cvss3TypeDef],
+        "cwes": NotRequired[List[str]],
+        "description": NotRequired[str],
+        "detectionPlatforms": NotRequired[List[str]],
+        "epss": NotRequired[EpssTypeDef],
+        "exploitObserved": NotRequired[ExploitObservedTypeDef],
+        "referenceUrls": NotRequired[List[str]],
+        "relatedVulnerabilities": NotRequired[List[str]],
+        "source": NotRequired[Literal["NVD"]],
+        "sourceUrl": NotRequired[str],
+        "vendorCreatedAt": NotRequired[datetime],
+        "vendorSeverity": NotRequired[str],
+        "vendorUpdatedAt": NotRequired[datetime],
     },
-)
-_OptionalGetCisScanResultDetailsRequestRequestTypeDef = TypedDict(
-    "_OptionalGetCisScanResultDetailsRequestRequestTypeDef",
-    {
-        "filterCriteria": "CisScanResultDetailsFilterCriteriaTypeDef",
-        "maxResults": int,
-        "nextToken": str,
-        "sortBy": CisScanResultDetailsSortByType,
-        "sortOrder": CisSortOrderType,
-    },
-    total=False,
 )
 
-class GetCisScanResultDetailsRequestRequestTypeDef(
-    _RequiredGetCisScanResultDetailsRequestRequestTypeDef,
-    _OptionalGetCisScanResultDetailsRequestRequestTypeDef,
-):
-    pass
+class PackageFilterTypeDef(TypedDict):
+    architecture: NotRequired[StringFilterTypeDef]
+    epoch: NotRequired[NumberFilterTypeDef]
+    filePath: NotRequired[StringFilterTypeDef]
+    name: NotRequired[StringFilterTypeDef]
+    release: NotRequired[StringFilterTypeDef]
+    sourceLambdaLayerArn: NotRequired[StringFilterTypeDef]
+    sourceLayerHash: NotRequired[StringFilterTypeDef]
+    version: NotRequired[StringFilterTypeDef]
 
-GetCisScanResultDetailsResponseTypeDef = TypedDict(
-    "GetCisScanResultDetailsResponseTypeDef",
-    {
-        "nextToken": str,
-        "scanResultDetails": List["CisScanResultDetailsTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class FreeTrialAccountInfoTypeDef(TypedDict):
+    accountId: str
+    freeTrialInfo: List[FreeTrialInfoTypeDef]
 
-GetConfigurationResponseTypeDef = TypedDict(
-    "GetConfigurationResponseTypeDef",
-    {
-        "ec2Configuration": "Ec2ConfigurationStateTypeDef",
-        "ecrConfiguration": "EcrConfigurationStateTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListAccountPermissionsRequestPaginateTypeDef(TypedDict):
+    service: NotRequired[ServiceType]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-GetDelegatedAdminAccountResponseTypeDef = TypedDict(
-    "GetDelegatedAdminAccountResponseTypeDef",
-    {
-        "delegatedAdmin": "DelegatedAdminTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListDelegatedAdminAccountsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-GetEc2DeepInspectionConfigurationResponseTypeDef = TypedDict(
-    "GetEc2DeepInspectionConfigurationResponseTypeDef",
-    {
-        "errorMessage": str,
-        "orgPackagePaths": List[str],
-        "packagePaths": List[str],
-        "status": Ec2DeepInspectionStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListFiltersRequestPaginateTypeDef(TypedDict):
+    action: NotRequired[FilterActionType]
+    arns: NotRequired[Sequence[str]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-GetEncryptionKeyRequestRequestTypeDef = TypedDict(
-    "GetEncryptionKeyRequestRequestTypeDef",
-    {
-        "resourceType": ResourceTypeType,
-        "scanType": ScanTypeType,
-    },
-)
+class ListMembersRequestPaginateTypeDef(TypedDict):
+    onlyAssociated: NotRequired[bool]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-GetEncryptionKeyResponseTypeDef = TypedDict(
-    "GetEncryptionKeyResponseTypeDef",
-    {
-        "kmsKeyId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListUsageTotalsRequestPaginateTypeDef(TypedDict):
+    accountIds: NotRequired[Sequence[str]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-GetFindingsReportStatusRequestRequestTypeDef = TypedDict(
-    "GetFindingsReportStatusRequestRequestTypeDef",
-    {
-        "reportId": str,
-    },
-    total=False,
-)
+class GetMemberResponseTypeDef(TypedDict):
+    member: MemberTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-GetFindingsReportStatusResponseTypeDef = TypedDict(
-    "GetFindingsReportStatusResponseTypeDef",
-    {
-        "destination": "DestinationTypeDef",
-        "errorCode": ReportingErrorCodeType,
-        "errorMessage": str,
-        "filterCriteria": "FilterCriteriaTypeDef",
-        "reportId": str,
-        "status": ExternalReportStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListMembersResponseTypeDef(TypedDict):
+    members: List[MemberTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-GetMemberRequestRequestTypeDef = TypedDict(
-    "GetMemberRequestRequestTypeDef",
-    {
-        "accountId": str,
-    },
-)
+class ResourceScanMetadataTypeDef(TypedDict):
+    ec2: NotRequired[Ec2MetadataTypeDef]
+    ecrImage: NotRequired[EcrContainerImageMetadataTypeDef]
+    ecrRepository: NotRequired[EcrRepositoryMetadataTypeDef]
+    lambdaFunction: NotRequired[LambdaFunctionMetadataTypeDef]
 
-GetMemberResponseTypeDef = TypedDict(
-    "GetMemberResponseTypeDef",
-    {
-        "member": "MemberTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListAccountPermissionsResponseTypeDef(TypedDict):
+    permissions: List[PermissionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-GetSbomExportRequestRequestTypeDef = TypedDict(
-    "GetSbomExportRequestRequestTypeDef",
-    {
-        "reportId": str,
-    },
-)
+class NetworkPathTypeDef(TypedDict):
+    steps: NotRequired[List[StepTypeDef]]
+
+class PackageVulnerabilityDetailsTypeDef(TypedDict):
+    source: str
+    vulnerabilityId: str
+    cvss: NotRequired[List[CvssScoreTypeDef]]
+    referenceUrls: NotRequired[List[str]]
+    relatedVulnerabilities: NotRequired[List[str]]
+    sourceUrl: NotRequired[str]
+    vendorCreatedAt: NotRequired[datetime]
+    vendorSeverity: NotRequired[str]
+    vendorUpdatedAt: NotRequired[datetime]
+    vulnerablePackages: NotRequired[List[VulnerablePackageTypeDef]]
+
+class RemediationTypeDef(TypedDict):
+    recommendation: NotRequired[RecommendationTypeDef]
+
+class ResourceFilterCriteriaOutputTypeDef(TypedDict):
+    accountId: NotRequired[List[ResourceStringFilterTypeDef]]
+    ec2InstanceTags: NotRequired[List[ResourceMapFilterTypeDef]]
+    ecrImageTags: NotRequired[List[ResourceStringFilterTypeDef]]
+    ecrRepositoryName: NotRequired[List[ResourceStringFilterTypeDef]]
+    lambdaFunctionName: NotRequired[List[ResourceStringFilterTypeDef]]
+    lambdaFunctionTags: NotRequired[List[ResourceMapFilterTypeDef]]
+    resourceId: NotRequired[List[ResourceStringFilterTypeDef]]
+    resourceType: NotRequired[List[ResourceStringFilterTypeDef]]
+
+class ResourceFilterCriteriaTypeDef(TypedDict):
+    accountId: NotRequired[Sequence[ResourceStringFilterTypeDef]]
+    ec2InstanceTags: NotRequired[Sequence[ResourceMapFilterTypeDef]]
+    ecrImageTags: NotRequired[Sequence[ResourceStringFilterTypeDef]]
+    ecrRepositoryName: NotRequired[Sequence[ResourceStringFilterTypeDef]]
+    lambdaFunctionName: NotRequired[Sequence[ResourceStringFilterTypeDef]]
+    lambdaFunctionTags: NotRequired[Sequence[ResourceMapFilterTypeDef]]
+    resourceId: NotRequired[Sequence[ResourceStringFilterTypeDef]]
+    resourceType: NotRequired[Sequence[ResourceStringFilterTypeDef]]
+
+class SearchVulnerabilitiesRequestPaginateTypeDef(TypedDict):
+    filterCriteria: SearchVulnerabilitiesFilterCriteriaTypeDef
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class SearchVulnerabilitiesRequestTypeDef(TypedDict):
+    filterCriteria: SearchVulnerabilitiesFilterCriteriaTypeDef
+    nextToken: NotRequired[str]
+
+class StartCisSessionRequestTypeDef(TypedDict):
+    message: StartCisSessionMessageTypeDef
+    scanJobId: str
+
+class StopCisSessionMessageTypeDef(TypedDict):
+    progress: StopCisMessageProgressTypeDef
+    status: StopCisSessionStatusType
+    benchmarkProfile: NotRequired[str]
+    benchmarkVersion: NotRequired[str]
+    computePlatform: NotRequired[ComputePlatformTypeDef]
+    reason: NotRequired[str]
+
+class UsageTotalTypeDef(TypedDict):
+    accountId: NotRequired[str]
+    usage: NotRequired[List[UsageTypeDef]]
+
+class AggregationResponseTypeDef(TypedDict):
+    accountAggregation: NotRequired[AccountAggregationResponseTypeDef]
+    amiAggregation: NotRequired[AmiAggregationResponseTypeDef]
+    awsEcrContainerAggregation: NotRequired[AwsEcrContainerAggregationResponseTypeDef]
+    ec2InstanceAggregation: NotRequired[Ec2InstanceAggregationResponseTypeDef]
+    findingTypeAggregation: NotRequired[FindingTypeAggregationResponseTypeDef]
+    imageLayerAggregation: NotRequired[ImageLayerAggregationResponseTypeDef]
+    lambdaFunctionAggregation: NotRequired[LambdaFunctionAggregationResponseTypeDef]
+    lambdaLayerAggregation: NotRequired[LambdaLayerAggregationResponseTypeDef]
+    packageAggregation: NotRequired[PackageAggregationResponseTypeDef]
+    repositoryAggregation: NotRequired[RepositoryAggregationResponseTypeDef]
+    titleAggregation: NotRequired[TitleAggregationResponseTypeDef]
+
+class AccountStateTypeDef(TypedDict):
+    accountId: str
+    resourceState: ResourceStateTypeDef
+    state: StateTypeDef
+
+class DisableResponseTypeDef(TypedDict):
+    accounts: List[AccountTypeDef]
+    failedAccounts: List[FailedAccountTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class EnableResponseTypeDef(TypedDict):
+    accounts: List[AccountTypeDef]
+    failedAccounts: List[FailedAccountTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ResourceDetailsTypeDef(TypedDict):
+    awsEc2Instance: NotRequired[AwsEc2InstanceDetailsTypeDef]
+    awsEcrContainerImage: NotRequired[AwsEcrContainerImageDetailsTypeDef]
+    awsLambdaFunction: NotRequired[AwsLambdaFunctionDetailsTypeDef]
+
+class SendCisSessionTelemetryRequestTypeDef(TypedDict):
+    messages: Sequence[CisSessionMessageTypeDef]
+    scanJobId: str
+    sessionToken: str
+
+class ListCisScanResultsAggregatedByChecksResponseTypeDef(TypedDict):
+    checkAggregations: List[CisCheckAggregationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListCisScanResultsAggregatedByTargetResourceResponseTypeDef(TypedDict):
+    targetResourceAggregations: List[CisTargetResourceAggregationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListCisScansFilterCriteriaTypeDef(TypedDict):
+    failedChecksFilters: NotRequired[Sequence[CisNumberFilterTypeDef]]
+    scanArnFilters: NotRequired[Sequence[CisStringFilterTypeDef]]
+    scanAtFilters: NotRequired[Sequence[CisDateFilterTypeDef]]
+    scanConfigurationArnFilters: NotRequired[Sequence[CisStringFilterTypeDef]]
+    scanNameFilters: NotRequired[Sequence[CisStringFilterTypeDef]]
+    scanStatusFilters: NotRequired[Sequence[CisScanStatusFilterTypeDef]]
+    scheduledByFilters: NotRequired[Sequence[CisStringFilterTypeDef]]
+    targetAccountIdFilters: NotRequired[Sequence[CisStringFilterTypeDef]]
+    targetResourceIdFilters: NotRequired[Sequence[CisStringFilterTypeDef]]
+    targetResourceTagFilters: NotRequired[Sequence[TagFilterTypeDef]]
+
+class CoverageFilterCriteriaTypeDef(TypedDict):
+    accountId: NotRequired[Sequence[CoverageStringFilterTypeDef]]
+    ec2InstanceTags: NotRequired[Sequence[CoverageMapFilterTypeDef]]
+    ecrImageTags: NotRequired[Sequence[CoverageStringFilterTypeDef]]
+    ecrRepositoryName: NotRequired[Sequence[CoverageStringFilterTypeDef]]
+    imagePulledAt: NotRequired[Sequence[CoverageDateFilterTypeDef]]
+    lambdaFunctionName: NotRequired[Sequence[CoverageStringFilterTypeDef]]
+    lambdaFunctionRuntime: NotRequired[Sequence[CoverageStringFilterTypeDef]]
+    lambdaFunctionTags: NotRequired[Sequence[CoverageMapFilterTypeDef]]
+    lastScannedAt: NotRequired[Sequence[CoverageDateFilterTypeDef]]
+    resourceId: NotRequired[Sequence[CoverageStringFilterTypeDef]]
+    resourceType: NotRequired[Sequence[CoverageStringFilterTypeDef]]
+    scanMode: NotRequired[Sequence[CoverageStringFilterTypeDef]]
+    scanStatusCode: NotRequired[Sequence[CoverageStringFilterTypeDef]]
+    scanStatusReason: NotRequired[Sequence[CoverageStringFilterTypeDef]]
+    scanType: NotRequired[Sequence[CoverageStringFilterTypeDef]]
+
+class ListCisScansResponseTypeDef(TypedDict):
+    scans: List[CisScanTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class GetCisScanResultDetailsRequestPaginateTypeDef(TypedDict):
+    accountId: str
+    scanArn: str
+    targetResourceId: str
+    filterCriteria: NotRequired[CisScanResultDetailsFilterCriteriaTypeDef]
+    sortBy: NotRequired[CisScanResultDetailsSortByType]
+    sortOrder: NotRequired[CisSortOrderType]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class GetCisScanResultDetailsRequestTypeDef(TypedDict):
+    accountId: str
+    scanArn: str
+    targetResourceId: str
+    filterCriteria: NotRequired[CisScanResultDetailsFilterCriteriaTypeDef]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+    sortBy: NotRequired[CisScanResultDetailsSortByType]
+    sortOrder: NotRequired[CisSortOrderType]
+
+class ListCisScanResultsAggregatedByChecksRequestPaginateTypeDef(TypedDict):
+    scanArn: str
+    filterCriteria: NotRequired[CisScanResultsAggregatedByChecksFilterCriteriaTypeDef]
+    sortBy: NotRequired[CisScanResultsAggregatedByChecksSortByType]
+    sortOrder: NotRequired[CisSortOrderType]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListCisScanResultsAggregatedByChecksRequestTypeDef(TypedDict):
+    scanArn: str
+    filterCriteria: NotRequired[CisScanResultsAggregatedByChecksFilterCriteriaTypeDef]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+    sortBy: NotRequired[CisScanResultsAggregatedByChecksSortByType]
+    sortOrder: NotRequired[CisSortOrderType]
+
+class ListCisScanResultsAggregatedByTargetResourceRequestPaginateTypeDef(TypedDict):
+    scanArn: str
+    filterCriteria: NotRequired[CisScanResultsAggregatedByTargetResourceFilterCriteriaTypeDef]
+    sortBy: NotRequired[CisScanResultsAggregatedByTargetResourceSortByType]
+    sortOrder: NotRequired[CisSortOrderType]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListCisScanResultsAggregatedByTargetResourceRequestTypeDef(TypedDict):
+    scanArn: str
+    filterCriteria: NotRequired[CisScanResultsAggregatedByTargetResourceFilterCriteriaTypeDef]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+    sortBy: NotRequired[CisScanResultsAggregatedByTargetResourceSortByType]
+    sortOrder: NotRequired[CisSortOrderType]
+
+class ListCisScanConfigurationsRequestPaginateTypeDef(TypedDict):
+    filterCriteria: NotRequired[ListCisScanConfigurationsFilterCriteriaTypeDef]
+    sortBy: NotRequired[CisScanConfigurationsSortByType]
+    sortOrder: NotRequired[CisSortOrderType]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListCisScanConfigurationsRequestTypeDef(TypedDict):
+    filterCriteria: NotRequired[ListCisScanConfigurationsFilterCriteriaTypeDef]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+    sortBy: NotRequired[CisScanConfigurationsSortByType]
+    sortOrder: NotRequired[CisSortOrderType]
+
+class BatchGetCodeSnippetResponseTypeDef(TypedDict):
+    codeSnippetResults: List[CodeSnippetResultTypeDef]
+    errors: List[CodeSnippetErrorTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class InspectorScoreDetailsTypeDef(TypedDict):
+    adjustedCvss: NotRequired[CvssScoreDetailsTypeDef]
+
+class ScheduleOutputTypeDef(TypedDict):
+    daily: NotRequired[DailyScheduleTypeDef]
+    monthly: NotRequired[MonthlyScheduleTypeDef]
+    oneTime: NotRequired[Dict[str, Any]]
+    weekly: NotRequired[WeeklyScheduleOutputTypeDef]
+
+class ScheduleTypeDef(TypedDict):
+    daily: NotRequired[DailyScheduleTypeDef]
+    monthly: NotRequired[MonthlyScheduleTypeDef]
+    oneTime: NotRequired[Mapping[str, Any]]
+    weekly: NotRequired[WeeklyScheduleTypeDef]
+
+class AggregationRequestTypeDef(TypedDict):
+    accountAggregation: NotRequired[AccountAggregationTypeDef]
+    amiAggregation: NotRequired[AmiAggregationTypeDef]
+    awsEcrContainerAggregation: NotRequired[AwsEcrContainerAggregationTypeDef]
+    ec2InstanceAggregation: NotRequired[Ec2InstanceAggregationTypeDef]
+    findingTypeAggregation: NotRequired[FindingTypeAggregationTypeDef]
+    imageLayerAggregation: NotRequired[ImageLayerAggregationTypeDef]
+    lambdaFunctionAggregation: NotRequired[LambdaFunctionAggregationTypeDef]
+    lambdaLayerAggregation: NotRequired[LambdaLayerAggregationTypeDef]
+    packageAggregation: NotRequired[PackageAggregationTypeDef]
+    repositoryAggregation: NotRequired[RepositoryAggregationTypeDef]
+    titleAggregation: NotRequired[TitleAggregationTypeDef]
+
+class GetConfigurationResponseTypeDef(TypedDict):
+    ec2Configuration: Ec2ConfigurationStateTypeDef
+    ecrConfiguration: EcrConfigurationStateTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class BatchGetFindingDetailsResponseTypeDef(TypedDict):
+    errors: List[FindingDetailsErrorTypeDef]
+    findingDetails: List[FindingDetailTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class SearchVulnerabilitiesResponseTypeDef(TypedDict):
+    vulnerabilities: List[VulnerabilityTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class FilterCriteriaOutputTypeDef(TypedDict):
+    awsAccountId: NotRequired[List[StringFilterTypeDef]]
+    codeVulnerabilityDetectorName: NotRequired[List[StringFilterTypeDef]]
+    codeVulnerabilityDetectorTags: NotRequired[List[StringFilterTypeDef]]
+    codeVulnerabilityFilePath: NotRequired[List[StringFilterTypeDef]]
+    componentId: NotRequired[List[StringFilterTypeDef]]
+    componentType: NotRequired[List[StringFilterTypeDef]]
+    ec2InstanceImageId: NotRequired[List[StringFilterTypeDef]]
+    ec2InstanceSubnetId: NotRequired[List[StringFilterTypeDef]]
+    ec2InstanceVpcId: NotRequired[List[StringFilterTypeDef]]
+    ecrImageArchitecture: NotRequired[List[StringFilterTypeDef]]
+    ecrImageHash: NotRequired[List[StringFilterTypeDef]]
+    ecrImagePushedAt: NotRequired[List[DateFilterOutputTypeDef]]
+    ecrImageRegistry: NotRequired[List[StringFilterTypeDef]]
+    ecrImageRepositoryName: NotRequired[List[StringFilterTypeDef]]
+    ecrImageTags: NotRequired[List[StringFilterTypeDef]]
+    epssScore: NotRequired[List[NumberFilterTypeDef]]
+    exploitAvailable: NotRequired[List[StringFilterTypeDef]]
+    findingArn: NotRequired[List[StringFilterTypeDef]]
+    findingStatus: NotRequired[List[StringFilterTypeDef]]
+    findingType: NotRequired[List[StringFilterTypeDef]]
+    firstObservedAt: NotRequired[List[DateFilterOutputTypeDef]]
+    fixAvailable: NotRequired[List[StringFilterTypeDef]]
+    inspectorScore: NotRequired[List[NumberFilterTypeDef]]
+    lambdaFunctionExecutionRoleArn: NotRequired[List[StringFilterTypeDef]]
+    lambdaFunctionLastModifiedAt: NotRequired[List[DateFilterOutputTypeDef]]
+    lambdaFunctionLayers: NotRequired[List[StringFilterTypeDef]]
+    lambdaFunctionName: NotRequired[List[StringFilterTypeDef]]
+    lambdaFunctionRuntime: NotRequired[List[StringFilterTypeDef]]
+    lastObservedAt: NotRequired[List[DateFilterOutputTypeDef]]
+    networkProtocol: NotRequired[List[StringFilterTypeDef]]
+    portRange: NotRequired[List[PortRangeFilterTypeDef]]
+    relatedVulnerabilities: NotRequired[List[StringFilterTypeDef]]
+    resourceId: NotRequired[List[StringFilterTypeDef]]
+    resourceTags: NotRequired[List[MapFilterTypeDef]]
+    resourceType: NotRequired[List[StringFilterTypeDef]]
+    severity: NotRequired[List[StringFilterTypeDef]]
+    title: NotRequired[List[StringFilterTypeDef]]
+    updatedAt: NotRequired[List[DateFilterOutputTypeDef]]
+    vendorSeverity: NotRequired[List[StringFilterTypeDef]]
+    vulnerabilityId: NotRequired[List[StringFilterTypeDef]]
+    vulnerabilitySource: NotRequired[List[StringFilterTypeDef]]
+    vulnerablePackages: NotRequired[List[PackageFilterTypeDef]]
+
+class FilterCriteriaTypeDef(TypedDict):
+    awsAccountId: NotRequired[Sequence[StringFilterTypeDef]]
+    codeVulnerabilityDetectorName: NotRequired[Sequence[StringFilterTypeDef]]
+    codeVulnerabilityDetectorTags: NotRequired[Sequence[StringFilterTypeDef]]
+    codeVulnerabilityFilePath: NotRequired[Sequence[StringFilterTypeDef]]
+    componentId: NotRequired[Sequence[StringFilterTypeDef]]
+    componentType: NotRequired[Sequence[StringFilterTypeDef]]
+    ec2InstanceImageId: NotRequired[Sequence[StringFilterTypeDef]]
+    ec2InstanceSubnetId: NotRequired[Sequence[StringFilterTypeDef]]
+    ec2InstanceVpcId: NotRequired[Sequence[StringFilterTypeDef]]
+    ecrImageArchitecture: NotRequired[Sequence[StringFilterTypeDef]]
+    ecrImageHash: NotRequired[Sequence[StringFilterTypeDef]]
+    ecrImagePushedAt: NotRequired[Sequence[DateFilterTypeDef]]
+    ecrImageRegistry: NotRequired[Sequence[StringFilterTypeDef]]
+    ecrImageRepositoryName: NotRequired[Sequence[StringFilterTypeDef]]
+    ecrImageTags: NotRequired[Sequence[StringFilterTypeDef]]
+    epssScore: NotRequired[Sequence[NumberFilterTypeDef]]
+    exploitAvailable: NotRequired[Sequence[StringFilterTypeDef]]
+    findingArn: NotRequired[Sequence[StringFilterTypeDef]]
+    findingStatus: NotRequired[Sequence[StringFilterTypeDef]]
+    findingType: NotRequired[Sequence[StringFilterTypeDef]]
+    firstObservedAt: NotRequired[Sequence[DateFilterTypeDef]]
+    fixAvailable: NotRequired[Sequence[StringFilterTypeDef]]
+    inspectorScore: NotRequired[Sequence[NumberFilterTypeDef]]
+    lambdaFunctionExecutionRoleArn: NotRequired[Sequence[StringFilterTypeDef]]
+    lambdaFunctionLastModifiedAt: NotRequired[Sequence[DateFilterTypeDef]]
+    lambdaFunctionLayers: NotRequired[Sequence[StringFilterTypeDef]]
+    lambdaFunctionName: NotRequired[Sequence[StringFilterTypeDef]]
+    lambdaFunctionRuntime: NotRequired[Sequence[StringFilterTypeDef]]
+    lastObservedAt: NotRequired[Sequence[DateFilterTypeDef]]
+    networkProtocol: NotRequired[Sequence[StringFilterTypeDef]]
+    portRange: NotRequired[Sequence[PortRangeFilterTypeDef]]
+    relatedVulnerabilities: NotRequired[Sequence[StringFilterTypeDef]]
+    resourceId: NotRequired[Sequence[StringFilterTypeDef]]
+    resourceTags: NotRequired[Sequence[MapFilterTypeDef]]
+    resourceType: NotRequired[Sequence[StringFilterTypeDef]]
+    severity: NotRequired[Sequence[StringFilterTypeDef]]
+    title: NotRequired[Sequence[StringFilterTypeDef]]
+    updatedAt: NotRequired[Sequence[DateFilterTypeDef]]
+    vendorSeverity: NotRequired[Sequence[StringFilterTypeDef]]
+    vulnerabilityId: NotRequired[Sequence[StringFilterTypeDef]]
+    vulnerabilitySource: NotRequired[Sequence[StringFilterTypeDef]]
+    vulnerablePackages: NotRequired[Sequence[PackageFilterTypeDef]]
+
+class BatchGetFreeTrialInfoResponseTypeDef(TypedDict):
+    accounts: List[FreeTrialAccountInfoTypeDef]
+    failedAccounts: List[FreeTrialInfoErrorTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CoveredResourceTypeDef(TypedDict):
+    accountId: str
+    resourceId: str
+    resourceType: CoverageResourceTypeType
+    scanType: ScanTypeType
+    lastScannedAt: NotRequired[datetime]
+    resourceMetadata: NotRequired[ResourceScanMetadataTypeDef]
+    scanMode: NotRequired[ScanModeType]
+    scanStatus: NotRequired[ScanStatusTypeDef]
+
+class NetworkReachabilityDetailsTypeDef(TypedDict):
+    networkPath: NetworkPathTypeDef
+    openPortRange: PortRangeTypeDef
+    protocol: NetworkProtocolType
 
 GetSbomExportResponseTypeDef = TypedDict(
     "GetSbomExportResponseTypeDef",
     {
         "errorCode": ReportingErrorCodeType,
         "errorMessage": str,
-        "filterCriteria": "ResourceFilterCriteriaTypeDef",
+        "filterCriteria": ResourceFilterCriteriaOutputTypeDef,
         "format": SbomReportFormatType,
         "reportId": str,
-        "s3Destination": "DestinationTypeDef",
+        "s3Destination": DestinationTypeDef,
         "status": ExternalReportStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredImageLayerAggregationResponseTypeDef = TypedDict(
-    "_RequiredImageLayerAggregationResponseTypeDef",
-    {
-        "accountId": str,
-        "layerHash": str,
-        "repository": str,
-        "resourceId": str,
-    },
-)
-_OptionalImageLayerAggregationResponseTypeDef = TypedDict(
-    "_OptionalImageLayerAggregationResponseTypeDef",
-    {
-        "severityCounts": "SeverityCountsTypeDef",
-    },
-    total=False,
-)
-
-class ImageLayerAggregationResponseTypeDef(
-    _RequiredImageLayerAggregationResponseTypeDef, _OptionalImageLayerAggregationResponseTypeDef
-):
-    pass
-
-ImageLayerAggregationTypeDef = TypedDict(
-    "ImageLayerAggregationTypeDef",
-    {
-        "layerHashes": List["StringFilterTypeDef"],
-        "repositories": List["StringFilterTypeDef"],
-        "resourceIds": List["StringFilterTypeDef"],
-        "sortBy": ImageLayerSortByType,
-        "sortOrder": SortOrderType,
-    },
-    total=False,
-)
-
-InspectorScoreDetailsTypeDef = TypedDict(
-    "InspectorScoreDetailsTypeDef",
-    {
-        "adjustedCvss": "CvssScoreDetailsTypeDef",
-    },
-    total=False,
-)
-
-_RequiredLambdaFunctionAggregationResponseTypeDef = TypedDict(
-    "_RequiredLambdaFunctionAggregationResponseTypeDef",
-    {
-        "resourceId": str,
-    },
-)
-_OptionalLambdaFunctionAggregationResponseTypeDef = TypedDict(
-    "_OptionalLambdaFunctionAggregationResponseTypeDef",
-    {
-        "accountId": str,
-        "functionName": str,
-        "lambdaTags": Dict[str, str],
-        "lastModifiedAt": datetime,
-        "runtime": str,
-        "severityCounts": "SeverityCountsTypeDef",
-    },
-    total=False,
-)
-
-class LambdaFunctionAggregationResponseTypeDef(
-    _RequiredLambdaFunctionAggregationResponseTypeDef,
-    _OptionalLambdaFunctionAggregationResponseTypeDef,
-):
-    pass
-
-LambdaFunctionAggregationTypeDef = TypedDict(
-    "LambdaFunctionAggregationTypeDef",
-    {
-        "functionNames": List["StringFilterTypeDef"],
-        "functionTags": List["MapFilterTypeDef"],
-        "resourceIds": List["StringFilterTypeDef"],
-        "runtimes": List["StringFilterTypeDef"],
-        "sortBy": LambdaFunctionSortByType,
-        "sortOrder": SortOrderType,
-    },
-    total=False,
-)
-
-LambdaFunctionMetadataTypeDef = TypedDict(
-    "LambdaFunctionMetadataTypeDef",
-    {
-        "functionName": str,
-        "functionTags": Dict[str, str],
-        "layers": List[str],
-        "runtime": RuntimeType,
-    },
-    total=False,
-)
-
-_RequiredLambdaLayerAggregationResponseTypeDef = TypedDict(
-    "_RequiredLambdaLayerAggregationResponseTypeDef",
-    {
-        "accountId": str,
-        "functionName": str,
-        "layerArn": str,
-        "resourceId": str,
-    },
-)
-_OptionalLambdaLayerAggregationResponseTypeDef = TypedDict(
-    "_OptionalLambdaLayerAggregationResponseTypeDef",
-    {
-        "severityCounts": "SeverityCountsTypeDef",
-    },
-    total=False,
-)
-
-class LambdaLayerAggregationResponseTypeDef(
-    _RequiredLambdaLayerAggregationResponseTypeDef, _OptionalLambdaLayerAggregationResponseTypeDef
-):
-    pass
-
-LambdaLayerAggregationTypeDef = TypedDict(
-    "LambdaLayerAggregationTypeDef",
-    {
-        "functionNames": List["StringFilterTypeDef"],
-        "layerArns": List["StringFilterTypeDef"],
-        "resourceIds": List["StringFilterTypeDef"],
-        "sortBy": LambdaLayerSortByType,
-        "sortOrder": SortOrderType,
-    },
-    total=False,
-)
-
-LambdaVpcConfigTypeDef = TypedDict(
-    "LambdaVpcConfigTypeDef",
-    {
-        "securityGroupIds": List[str],
-        "subnetIds": List[str],
-        "vpcId": str,
-    },
-    total=False,
-)
-
-ListAccountPermissionsRequestRequestTypeDef = TypedDict(
-    "ListAccountPermissionsRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-        "service": ServiceType,
-    },
-    total=False,
-)
-
-ListAccountPermissionsResponseTypeDef = TypedDict(
-    "ListAccountPermissionsResponseTypeDef",
-    {
-        "nextToken": str,
-        "permissions": List["PermissionTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListCisScanConfigurationsFilterCriteriaTypeDef = TypedDict(
-    "ListCisScanConfigurationsFilterCriteriaTypeDef",
-    {
-        "scanConfigurationArnFilters": List["CisStringFilterTypeDef"],
-        "scanNameFilters": List["CisStringFilterTypeDef"],
-        "targetResourceTagFilters": List["TagFilterTypeDef"],
-    },
-    total=False,
-)
-
-ListCisScanConfigurationsRequestRequestTypeDef = TypedDict(
-    "ListCisScanConfigurationsRequestRequestTypeDef",
-    {
-        "filterCriteria": "ListCisScanConfigurationsFilterCriteriaTypeDef",
-        "maxResults": int,
-        "nextToken": str,
-        "sortBy": CisScanConfigurationsSortByType,
-        "sortOrder": CisSortOrderType,
-    },
-    total=False,
-)
-
-ListCisScanConfigurationsResponseTypeDef = TypedDict(
-    "ListCisScanConfigurationsResponseTypeDef",
-    {
-        "nextToken": str,
-        "scanConfigurations": List["CisScanConfigurationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListCisScanResultsAggregatedByChecksRequestRequestTypeDef = TypedDict(
-    "_RequiredListCisScanResultsAggregatedByChecksRequestRequestTypeDef",
-    {
-        "scanArn": str,
-    },
-)
-_OptionalListCisScanResultsAggregatedByChecksRequestRequestTypeDef = TypedDict(
-    "_OptionalListCisScanResultsAggregatedByChecksRequestRequestTypeDef",
-    {
-        "filterCriteria": "CisScanResultsAggregatedByChecksFilterCriteriaTypeDef",
-        "maxResults": int,
-        "nextToken": str,
-        "sortBy": CisScanResultsAggregatedByChecksSortByType,
-        "sortOrder": CisSortOrderType,
-    },
-    total=False,
-)
-
-class ListCisScanResultsAggregatedByChecksRequestRequestTypeDef(
-    _RequiredListCisScanResultsAggregatedByChecksRequestRequestTypeDef,
-    _OptionalListCisScanResultsAggregatedByChecksRequestRequestTypeDef,
-):
-    pass
-
-ListCisScanResultsAggregatedByChecksResponseTypeDef = TypedDict(
-    "ListCisScanResultsAggregatedByChecksResponseTypeDef",
-    {
-        "checkAggregations": List["CisCheckAggregationTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListCisScanResultsAggregatedByTargetResourceRequestRequestTypeDef = TypedDict(
-    "_RequiredListCisScanResultsAggregatedByTargetResourceRequestRequestTypeDef",
-    {
-        "scanArn": str,
-    },
-)
-_OptionalListCisScanResultsAggregatedByTargetResourceRequestRequestTypeDef = TypedDict(
-    "_OptionalListCisScanResultsAggregatedByTargetResourceRequestRequestTypeDef",
-    {
-        "filterCriteria": "CisScanResultsAggregatedByTargetResourceFilterCriteriaTypeDef",
-        "maxResults": int,
-        "nextToken": str,
-        "sortBy": CisScanResultsAggregatedByTargetResourceSortByType,
-        "sortOrder": CisSortOrderType,
-    },
-    total=False,
-)
-
-class ListCisScanResultsAggregatedByTargetResourceRequestRequestTypeDef(
-    _RequiredListCisScanResultsAggregatedByTargetResourceRequestRequestTypeDef,
-    _OptionalListCisScanResultsAggregatedByTargetResourceRequestRequestTypeDef,
-):
-    pass
-
-ListCisScanResultsAggregatedByTargetResourceResponseTypeDef = TypedDict(
-    "ListCisScanResultsAggregatedByTargetResourceResponseTypeDef",
-    {
-        "nextToken": str,
-        "targetResourceAggregations": List["CisTargetResourceAggregationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListCisScansFilterCriteriaTypeDef = TypedDict(
-    "ListCisScansFilterCriteriaTypeDef",
-    {
-        "failedChecksFilters": List["CisNumberFilterTypeDef"],
-        "scanArnFilters": List["CisStringFilterTypeDef"],
-        "scanAtFilters": List["CisDateFilterTypeDef"],
-        "scanConfigurationArnFilters": List["CisStringFilterTypeDef"],
-        "scanNameFilters": List["CisStringFilterTypeDef"],
-        "scanStatusFilters": List["CisScanStatusFilterTypeDef"],
-        "scheduledByFilters": List["CisStringFilterTypeDef"],
-        "targetAccountIdFilters": List["CisStringFilterTypeDef"],
-        "targetResourceIdFilters": List["CisStringFilterTypeDef"],
-        "targetResourceTagFilters": List["TagFilterTypeDef"],
-    },
-    total=False,
-)
-
-ListCisScansRequestRequestTypeDef = TypedDict(
-    "ListCisScansRequestRequestTypeDef",
-    {
-        "detailLevel": ListCisScansDetailLevelType,
-        "filterCriteria": "ListCisScansFilterCriteriaTypeDef",
-        "maxResults": int,
-        "nextToken": str,
-        "sortBy": ListCisScansSortByType,
-        "sortOrder": CisSortOrderType,
-    },
-    total=False,
-)
-
-ListCisScansResponseTypeDef = TypedDict(
-    "ListCisScansResponseTypeDef",
-    {
-        "nextToken": str,
-        "scans": List["CisScanTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListCoverageRequestRequestTypeDef = TypedDict(
-    "ListCoverageRequestRequestTypeDef",
-    {
-        "filterCriteria": "CoverageFilterCriteriaTypeDef",
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-ListCoverageResponseTypeDef = TypedDict(
-    "ListCoverageResponseTypeDef",
-    {
-        "coveredResources": List["CoveredResourceTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListCoverageStatisticsRequestRequestTypeDef = TypedDict(
-    "ListCoverageStatisticsRequestRequestTypeDef",
-    {
-        "filterCriteria": "CoverageFilterCriteriaTypeDef",
-        "groupBy": GroupKeyType,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-ListCoverageStatisticsResponseTypeDef = TypedDict(
-    "ListCoverageStatisticsResponseTypeDef",
-    {
-        "countsByGroup": List["CountsTypeDef"],
-        "nextToken": str,
-        "totalCounts": int,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListDelegatedAdminAccountsRequestRequestTypeDef = TypedDict(
-    "ListDelegatedAdminAccountsRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-ListDelegatedAdminAccountsResponseTypeDef = TypedDict(
-    "ListDelegatedAdminAccountsResponseTypeDef",
-    {
-        "delegatedAdminAccounts": List["DelegatedAdminAccountTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListFiltersRequestRequestTypeDef = TypedDict(
-    "ListFiltersRequestRequestTypeDef",
-    {
-        "action": FilterActionType,
-        "arns": List[str],
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-ListFiltersResponseTypeDef = TypedDict(
-    "ListFiltersResponseTypeDef",
-    {
-        "filters": List["FilterTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListFindingAggregationsRequestRequestTypeDef = TypedDict(
-    "_RequiredListFindingAggregationsRequestRequestTypeDef",
-    {
-        "aggregationType": AggregationTypeType,
-    },
-)
-_OptionalListFindingAggregationsRequestRequestTypeDef = TypedDict(
-    "_OptionalListFindingAggregationsRequestRequestTypeDef",
-    {
-        "accountIds": List["StringFilterTypeDef"],
-        "aggregationRequest": "AggregationRequestTypeDef",
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListFindingAggregationsRequestRequestTypeDef(
-    _RequiredListFindingAggregationsRequestRequestTypeDef,
-    _OptionalListFindingAggregationsRequestRequestTypeDef,
-):
-    pass
-
-ListFindingAggregationsResponseTypeDef = TypedDict(
-    "ListFindingAggregationsResponseTypeDef",
-    {
-        "aggregationType": AggregationTypeType,
-        "nextToken": str,
-        "responses": List["AggregationResponseTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListFindingsRequestRequestTypeDef = TypedDict(
-    "ListFindingsRequestRequestTypeDef",
-    {
-        "filterCriteria": "FilterCriteriaTypeDef",
-        "maxResults": int,
-        "nextToken": str,
-        "sortCriteria": "SortCriteriaTypeDef",
-    },
-    total=False,
-)
-
-ListFindingsResponseTypeDef = TypedDict(
-    "ListFindingsResponseTypeDef",
-    {
-        "findings": List["FindingTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListMembersRequestRequestTypeDef = TypedDict(
-    "ListMembersRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-        "onlyAssociated": bool,
-    },
-    total=False,
-)
-
-ListMembersResponseTypeDef = TypedDict(
-    "ListMembersResponseTypeDef",
-    {
-        "members": List["MemberTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-    },
-)
-
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListUsageTotalsRequestRequestTypeDef = TypedDict(
-    "ListUsageTotalsRequestRequestTypeDef",
-    {
-        "accountIds": List[str],
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-ListUsageTotalsResponseTypeDef = TypedDict(
-    "ListUsageTotalsResponseTypeDef",
-    {
-        "nextToken": str,
-        "totals": List["UsageTotalTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredMapFilterTypeDef = TypedDict(
-    "_RequiredMapFilterTypeDef",
-    {
-        "comparison": Literal["EQUALS"],
-        "key": str,
-    },
-)
-_OptionalMapFilterTypeDef = TypedDict(
-    "_OptionalMapFilterTypeDef",
-    {
-        "value": str,
-    },
-    total=False,
-)
-
-class MapFilterTypeDef(_RequiredMapFilterTypeDef, _OptionalMapFilterTypeDef):
-    pass
-
-_RequiredMemberAccountEc2DeepInspectionStatusStateTypeDef = TypedDict(
-    "_RequiredMemberAccountEc2DeepInspectionStatusStateTypeDef",
-    {
-        "accountId": str,
-    },
-)
-_OptionalMemberAccountEc2DeepInspectionStatusStateTypeDef = TypedDict(
-    "_OptionalMemberAccountEc2DeepInspectionStatusStateTypeDef",
-    {
-        "errorMessage": str,
-        "status": Ec2DeepInspectionStatusType,
-    },
-    total=False,
-)
-
-class MemberAccountEc2DeepInspectionStatusStateTypeDef(
-    _RequiredMemberAccountEc2DeepInspectionStatusStateTypeDef,
-    _OptionalMemberAccountEc2DeepInspectionStatusStateTypeDef,
-):
-    pass
-
-MemberAccountEc2DeepInspectionStatusTypeDef = TypedDict(
-    "MemberAccountEc2DeepInspectionStatusTypeDef",
-    {
-        "accountId": str,
-        "activateDeepInspection": bool,
-    },
-)
-
-MemberTypeDef = TypedDict(
-    "MemberTypeDef",
-    {
-        "accountId": str,
-        "delegatedAdminAccountId": str,
-        "relationshipStatus": RelationshipStatusType,
-        "updatedAt": datetime,
-    },
-    total=False,
-)
-
-MonthlyScheduleTypeDef = TypedDict(
-    "MonthlyScheduleTypeDef",
-    {
-        "day": DayType,
-        "startTime": "TimeTypeDef",
-    },
-)
-
-NetworkPathTypeDef = TypedDict(
-    "NetworkPathTypeDef",
-    {
-        "steps": List["StepTypeDef"],
-    },
-    total=False,
-)
-
-NetworkReachabilityDetailsTypeDef = TypedDict(
-    "NetworkReachabilityDetailsTypeDef",
-    {
-        "networkPath": "NetworkPathTypeDef",
-        "openPortRange": "PortRangeTypeDef",
-        "protocol": NetworkProtocolType,
-    },
-)
-
-NumberFilterTypeDef = TypedDict(
-    "NumberFilterTypeDef",
-    {
-        "lowerInclusive": float,
-        "upperInclusive": float,
-    },
-    total=False,
-)
-
-_RequiredPackageAggregationResponseTypeDef = TypedDict(
-    "_RequiredPackageAggregationResponseTypeDef",
-    {
-        "packageName": str,
-    },
-)
-_OptionalPackageAggregationResponseTypeDef = TypedDict(
-    "_OptionalPackageAggregationResponseTypeDef",
-    {
-        "accountId": str,
-        "severityCounts": "SeverityCountsTypeDef",
-    },
-    total=False,
-)
-
-class PackageAggregationResponseTypeDef(
-    _RequiredPackageAggregationResponseTypeDef, _OptionalPackageAggregationResponseTypeDef
-):
-    pass
-
-PackageAggregationTypeDef = TypedDict(
-    "PackageAggregationTypeDef",
-    {
-        "packageNames": List["StringFilterTypeDef"],
-        "sortBy": PackageSortByType,
-        "sortOrder": SortOrderType,
-    },
-    total=False,
-)
-
-PackageFilterTypeDef = TypedDict(
-    "PackageFilterTypeDef",
-    {
-        "architecture": "StringFilterTypeDef",
-        "epoch": "NumberFilterTypeDef",
-        "name": "StringFilterTypeDef",
-        "release": "StringFilterTypeDef",
-        "sourceLambdaLayerArn": "StringFilterTypeDef",
-        "sourceLayerHash": "StringFilterTypeDef",
-        "version": "StringFilterTypeDef",
-    },
-    total=False,
-)
-
-_RequiredPackageVulnerabilityDetailsTypeDef = TypedDict(
-    "_RequiredPackageVulnerabilityDetailsTypeDef",
-    {
-        "source": str,
-        "vulnerabilityId": str,
-    },
-)
-_OptionalPackageVulnerabilityDetailsTypeDef = TypedDict(
-    "_OptionalPackageVulnerabilityDetailsTypeDef",
-    {
-        "cvss": List["CvssScoreTypeDef"],
-        "referenceUrls": List[str],
-        "relatedVulnerabilities": List[str],
-        "sourceUrl": str,
-        "vendorCreatedAt": datetime,
-        "vendorSeverity": str,
-        "vendorUpdatedAt": datetime,
-        "vulnerablePackages": List["VulnerablePackageTypeDef"],
-    },
-    total=False,
-)
-
-class PackageVulnerabilityDetailsTypeDef(
-    _RequiredPackageVulnerabilityDetailsTypeDef, _OptionalPackageVulnerabilityDetailsTypeDef
-):
-    pass
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-PermissionTypeDef = TypedDict(
-    "PermissionTypeDef",
-    {
-        "operation": OperationType,
-        "service": ServiceType,
-    },
-)
-
-PortRangeFilterTypeDef = TypedDict(
-    "PortRangeFilterTypeDef",
-    {
-        "beginInclusive": int,
-        "endInclusive": int,
-    },
-    total=False,
-)
-
-PortRangeTypeDef = TypedDict(
-    "PortRangeTypeDef",
-    {
-        "begin": int,
-        "end": int,
-    },
-)
-
-RecommendationTypeDef = TypedDict(
-    "RecommendationTypeDef",
-    {
-        "Url": str,
-        "text": str,
-    },
-    total=False,
-)
-
-RemediationTypeDef = TypedDict(
-    "RemediationTypeDef",
-    {
-        "recommendation": "RecommendationTypeDef",
-    },
-    total=False,
-)
-
-_RequiredRepositoryAggregationResponseTypeDef = TypedDict(
-    "_RequiredRepositoryAggregationResponseTypeDef",
-    {
-        "repository": str,
-    },
-)
-_OptionalRepositoryAggregationResponseTypeDef = TypedDict(
-    "_OptionalRepositoryAggregationResponseTypeDef",
-    {
-        "accountId": str,
-        "affectedImages": int,
-        "severityCounts": "SeverityCountsTypeDef",
-    },
-    total=False,
-)
-
-class RepositoryAggregationResponseTypeDef(
-    _RequiredRepositoryAggregationResponseTypeDef, _OptionalRepositoryAggregationResponseTypeDef
-):
-    pass
-
-RepositoryAggregationTypeDef = TypedDict(
-    "RepositoryAggregationTypeDef",
-    {
-        "repositories": List["StringFilterTypeDef"],
-        "sortBy": RepositorySortByType,
-        "sortOrder": SortOrderType,
-    },
-    total=False,
-)
-
-ResetEncryptionKeyRequestRequestTypeDef = TypedDict(
-    "ResetEncryptionKeyRequestRequestTypeDef",
-    {
-        "resourceType": ResourceTypeType,
-        "scanType": ScanTypeType,
-    },
-)
-
-ResourceDetailsTypeDef = TypedDict(
-    "ResourceDetailsTypeDef",
-    {
-        "awsEc2Instance": "AwsEc2InstanceDetailsTypeDef",
-        "awsEcrContainerImage": "AwsEcrContainerImageDetailsTypeDef",
-        "awsLambdaFunction": "AwsLambdaFunctionDetailsTypeDef",
-    },
-    total=False,
-)
-
-ResourceFilterCriteriaTypeDef = TypedDict(
-    "ResourceFilterCriteriaTypeDef",
-    {
-        "accountId": List["ResourceStringFilterTypeDef"],
-        "ec2InstanceTags": List["ResourceMapFilterTypeDef"],
-        "ecrImageTags": List["ResourceStringFilterTypeDef"],
-        "ecrRepositoryName": List["ResourceStringFilterTypeDef"],
-        "lambdaFunctionName": List["ResourceStringFilterTypeDef"],
-        "lambdaFunctionTags": List["ResourceMapFilterTypeDef"],
-        "resourceId": List["ResourceStringFilterTypeDef"],
-        "resourceType": List["ResourceStringFilterTypeDef"],
-    },
-    total=False,
-)
-
-_RequiredResourceMapFilterTypeDef = TypedDict(
-    "_RequiredResourceMapFilterTypeDef",
-    {
-        "comparison": Literal["EQUALS"],
-        "key": str,
-    },
-)
-_OptionalResourceMapFilterTypeDef = TypedDict(
-    "_OptionalResourceMapFilterTypeDef",
-    {
-        "value": str,
-    },
-    total=False,
-)
-
-class ResourceMapFilterTypeDef(
-    _RequiredResourceMapFilterTypeDef, _OptionalResourceMapFilterTypeDef
-):
-    pass
-
-ResourceScanMetadataTypeDef = TypedDict(
-    "ResourceScanMetadataTypeDef",
-    {
-        "ec2": "Ec2MetadataTypeDef",
-        "ecrImage": "EcrContainerImageMetadataTypeDef",
-        "ecrRepository": "EcrRepositoryMetadataTypeDef",
-        "lambdaFunction": "LambdaFunctionMetadataTypeDef",
-    },
-    total=False,
-)
-
-_RequiredResourceStateTypeDef = TypedDict(
-    "_RequiredResourceStateTypeDef",
-    {
-        "ec2": "StateTypeDef",
-        "ecr": "StateTypeDef",
-    },
-)
-_OptionalResourceStateTypeDef = TypedDict(
-    "_OptionalResourceStateTypeDef",
-    {
-        "lambda": "StateTypeDef",
-        "lambdaCode": "StateTypeDef",
-    },
-    total=False,
-)
-
-class ResourceStateTypeDef(_RequiredResourceStateTypeDef, _OptionalResourceStateTypeDef):
-    pass
-
-_RequiredResourceStatusTypeDef = TypedDict(
-    "_RequiredResourceStatusTypeDef",
-    {
-        "ec2": StatusType,
-        "ecr": StatusType,
-    },
-)
-_OptionalResourceStatusTypeDef = TypedDict(
-    "_OptionalResourceStatusTypeDef",
-    {
-        "lambda": StatusType,
-        "lambdaCode": StatusType,
-    },
-    total=False,
-)
-
-class ResourceStatusTypeDef(_RequiredResourceStatusTypeDef, _OptionalResourceStatusTypeDef):
-    pass
-
-ResourceStringFilterTypeDef = TypedDict(
-    "ResourceStringFilterTypeDef",
-    {
-        "comparison": ResourceStringComparisonType,
-        "value": str,
-    },
-)
-
-_RequiredResourceTypeDef = TypedDict(
-    "_RequiredResourceTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+ResourceFilterCriteriaUnionTypeDef = Union[
+    ResourceFilterCriteriaTypeDef, ResourceFilterCriteriaOutputTypeDef
+]
+
+class StopCisSessionRequestTypeDef(TypedDict):
+    message: StopCisSessionMessageTypeDef
+    scanJobId: str
+    sessionToken: str
+
+class ListUsageTotalsResponseTypeDef(TypedDict):
+    totals: List[UsageTotalTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListFindingAggregationsResponseTypeDef(TypedDict):
+    aggregationType: AggregationTypeType
+    responses: List[AggregationResponseTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class BatchGetAccountStatusResponseTypeDef(TypedDict):
+    accounts: List[AccountStateTypeDef]
+    failedAccounts: List[FailedAccountTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+ResourceTypeDef = TypedDict(
+    "ResourceTypeDef",
     {
         "id": str,
         "type": ResourceTypeType,
-    },
-)
-_OptionalResourceTypeDef = TypedDict(
-    "_OptionalResourceTypeDef",
-    {
-        "details": "ResourceDetailsTypeDef",
-        "partition": str,
-        "region": str,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class ResourceTypeDef(_RequiredResourceTypeDef, _OptionalResourceTypeDef):
-    pass
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
+        "details": NotRequired[ResourceDetailsTypeDef],
+        "partition": NotRequired[str],
+        "region": NotRequired[str],
+        "tags": NotRequired[Dict[str, str]],
     },
 )
 
-ScanStatusTypeDef = TypedDict(
-    "ScanStatusTypeDef",
-    {
-        "reason": ScanStatusReasonType,
-        "statusCode": ScanStatusCodeType,
-    },
-)
+class ListCisScansRequestPaginateTypeDef(TypedDict):
+    detailLevel: NotRequired[ListCisScansDetailLevelType]
+    filterCriteria: NotRequired[ListCisScansFilterCriteriaTypeDef]
+    sortBy: NotRequired[ListCisScansSortByType]
+    sortOrder: NotRequired[CisSortOrderType]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-ScheduleTypeDef = TypedDict(
-    "ScheduleTypeDef",
-    {
-        "daily": "DailyScheduleTypeDef",
-        "monthly": "MonthlyScheduleTypeDef",
-        "oneTime": Dict[str, Any],
-        "weekly": "WeeklyScheduleTypeDef",
-    },
-    total=False,
-)
+class ListCisScansRequestTypeDef(TypedDict):
+    detailLevel: NotRequired[ListCisScansDetailLevelType]
+    filterCriteria: NotRequired[ListCisScansFilterCriteriaTypeDef]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+    sortBy: NotRequired[ListCisScansSortByType]
+    sortOrder: NotRequired[CisSortOrderType]
 
-SearchVulnerabilitiesFilterCriteriaTypeDef = TypedDict(
-    "SearchVulnerabilitiesFilterCriteriaTypeDef",
-    {
-        "vulnerabilityIds": List[str],
-    },
-)
+class ListCoverageRequestPaginateTypeDef(TypedDict):
+    filterCriteria: NotRequired[CoverageFilterCriteriaTypeDef]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-_RequiredSearchVulnerabilitiesRequestRequestTypeDef = TypedDict(
-    "_RequiredSearchVulnerabilitiesRequestRequestTypeDef",
-    {
-        "filterCriteria": "SearchVulnerabilitiesFilterCriteriaTypeDef",
-    },
-)
-_OptionalSearchVulnerabilitiesRequestRequestTypeDef = TypedDict(
-    "_OptionalSearchVulnerabilitiesRequestRequestTypeDef",
-    {
-        "nextToken": str,
-    },
-    total=False,
-)
+class ListCoverageRequestTypeDef(TypedDict):
+    filterCriteria: NotRequired[CoverageFilterCriteriaTypeDef]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
 
-class SearchVulnerabilitiesRequestRequestTypeDef(
-    _RequiredSearchVulnerabilitiesRequestRequestTypeDef,
-    _OptionalSearchVulnerabilitiesRequestRequestTypeDef,
-):
-    pass
+class ListCoverageStatisticsRequestPaginateTypeDef(TypedDict):
+    filterCriteria: NotRequired[CoverageFilterCriteriaTypeDef]
+    groupBy: NotRequired[GroupKeyType]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-SearchVulnerabilitiesResponseTypeDef = TypedDict(
-    "SearchVulnerabilitiesResponseTypeDef",
-    {
-        "nextToken": str,
-        "vulnerabilities": List["VulnerabilityTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListCoverageStatisticsRequestTypeDef(TypedDict):
+    filterCriteria: NotRequired[CoverageFilterCriteriaTypeDef]
+    groupBy: NotRequired[GroupKeyType]
+    nextToken: NotRequired[str]
 
-SendCisSessionHealthRequestRequestTypeDef = TypedDict(
-    "SendCisSessionHealthRequestRequestTypeDef",
-    {
-        "scanJobId": str,
-        "sessionToken": str,
-    },
-)
+class CisScanConfigurationTypeDef(TypedDict):
+    scanConfigurationArn: str
+    ownerId: NotRequired[str]
+    scanName: NotRequired[str]
+    schedule: NotRequired[ScheduleOutputTypeDef]
+    securityLevel: NotRequired[CisSecurityLevelType]
+    tags: NotRequired[Dict[str, str]]
+    targets: NotRequired[CisTargetsTypeDef]
 
-SendCisSessionTelemetryRequestRequestTypeDef = TypedDict(
-    "SendCisSessionTelemetryRequestRequestTypeDef",
-    {
-        "messages": List["CisSessionMessageTypeDef"],
-        "scanJobId": str,
-        "sessionToken": str,
-    },
-)
+ScheduleUnionTypeDef = Union[ScheduleTypeDef, ScheduleOutputTypeDef]
 
-SeverityCountsTypeDef = TypedDict(
-    "SeverityCountsTypeDef",
-    {
-        "all": int,
-        "critical": int,
-        "high": int,
-        "medium": int,
-    },
-    total=False,
-)
+class ListFindingAggregationsRequestPaginateTypeDef(TypedDict):
+    aggregationType: AggregationTypeType
+    accountIds: NotRequired[Sequence[StringFilterTypeDef]]
+    aggregationRequest: NotRequired[AggregationRequestTypeDef]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-SortCriteriaTypeDef = TypedDict(
-    "SortCriteriaTypeDef",
-    {
-        "field": SortFieldType,
-        "sortOrder": SortOrderType,
-    },
-)
+class ListFindingAggregationsRequestTypeDef(TypedDict):
+    aggregationType: AggregationTypeType
+    accountIds: NotRequired[Sequence[StringFilterTypeDef]]
+    aggregationRequest: NotRequired[AggregationRequestTypeDef]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
 
-StartCisSessionMessageTypeDef = TypedDict(
-    "StartCisSessionMessageTypeDef",
-    {
-        "sessionToken": str,
-    },
-)
+class FilterTypeDef(TypedDict):
+    action: FilterActionType
+    arn: str
+    createdAt: datetime
+    criteria: FilterCriteriaOutputTypeDef
+    name: str
+    ownerId: str
+    updatedAt: datetime
+    description: NotRequired[str]
+    reason: NotRequired[str]
+    tags: NotRequired[Dict[str, str]]
 
-StartCisSessionRequestRequestTypeDef = TypedDict(
-    "StartCisSessionRequestRequestTypeDef",
-    {
-        "message": "StartCisSessionMessageTypeDef",
-        "scanJobId": str,
-    },
-)
+class GetFindingsReportStatusResponseTypeDef(TypedDict):
+    destination: DestinationTypeDef
+    errorCode: ReportingErrorCodeType
+    errorMessage: str
+    filterCriteria: FilterCriteriaOutputTypeDef
+    reportId: str
+    status: ExternalReportStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
 
-StateTypeDef = TypedDict(
-    "StateTypeDef",
-    {
-        "errorCode": ErrorCodeType,
-        "errorMessage": str,
-        "status": StatusType,
-    },
-)
+FilterCriteriaUnionTypeDef = Union[FilterCriteriaTypeDef, FilterCriteriaOutputTypeDef]
 
-StatusCountsTypeDef = TypedDict(
-    "StatusCountsTypeDef",
-    {
-        "failed": int,
-        "passed": int,
-        "skipped": int,
-    },
-    total=False,
-)
+class ListCoverageResponseTypeDef(TypedDict):
+    coveredResources: List[CoveredResourceTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-StepTypeDef = TypedDict(
-    "StepTypeDef",
-    {
-        "componentId": str,
-        "componentType": str,
-    },
-)
+class CreateSbomExportRequestTypeDef(TypedDict):
+    reportFormat: SbomReportFormatType
+    s3Destination: DestinationTypeDef
+    resourceFilterCriteria: NotRequired[ResourceFilterCriteriaUnionTypeDef]
 
-StopCisMessageProgressTypeDef = TypedDict(
-    "StopCisMessageProgressTypeDef",
+FindingTypeDef = TypedDict(
+    "FindingTypeDef",
     {
-        "errorChecks": int,
-        "failedChecks": int,
-        "informationalChecks": int,
-        "notApplicableChecks": int,
-        "notEvaluatedChecks": int,
-        "successfulChecks": int,
-        "totalChecks": int,
-        "unknownChecks": int,
-    },
-    total=False,
-)
-
-_RequiredStopCisSessionMessageTypeDef = TypedDict(
-    "_RequiredStopCisSessionMessageTypeDef",
-    {
-        "progress": "StopCisMessageProgressTypeDef",
-        "status": StopCisSessionStatusType,
-    },
-)
-_OptionalStopCisSessionMessageTypeDef = TypedDict(
-    "_OptionalStopCisSessionMessageTypeDef",
-    {
-        "benchmarkProfile": str,
-        "benchmarkVersion": str,
-        "computePlatform": "ComputePlatformTypeDef",
-        "reason": str,
-    },
-    total=False,
-)
-
-class StopCisSessionMessageTypeDef(
-    _RequiredStopCisSessionMessageTypeDef, _OptionalStopCisSessionMessageTypeDef
-):
-    pass
-
-StopCisSessionRequestRequestTypeDef = TypedDict(
-    "StopCisSessionRequestRequestTypeDef",
-    {
-        "message": "StopCisSessionMessageTypeDef",
-        "scanJobId": str,
-        "sessionToken": str,
-    },
-)
-
-StringFilterTypeDef = TypedDict(
-    "StringFilterTypeDef",
-    {
-        "comparison": StringComparisonType,
-        "value": str,
-    },
-)
-
-SuggestedFixTypeDef = TypedDict(
-    "SuggestedFixTypeDef",
-    {
-        "code": str,
+        "awsAccountId": str,
         "description": str,
-    },
-    total=False,
-)
-
-TagFilterTypeDef = TypedDict(
-    "TagFilterTypeDef",
-    {
-        "comparison": Literal["EQUALS"],
-        "key": str,
-        "value": str,
-    },
-)
-
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tags": Dict[str, str],
-    },
-)
-
-TimeTypeDef = TypedDict(
-    "TimeTypeDef",
-    {
-        "timeOfDay": str,
-        "timezone": str,
+        "findingArn": str,
+        "firstObservedAt": datetime,
+        "lastObservedAt": datetime,
+        "remediation": RemediationTypeDef,
+        "resources": List[ResourceTypeDef],
+        "severity": SeverityType,
+        "status": FindingStatusType,
+        "type": FindingTypeType,
+        "codeVulnerabilityDetails": NotRequired[CodeVulnerabilityDetailsTypeDef],
+        "epss": NotRequired[EpssDetailsTypeDef],
+        "exploitAvailable": NotRequired[ExploitAvailableType],
+        "exploitabilityDetails": NotRequired[ExploitabilityDetailsTypeDef],
+        "fixAvailable": NotRequired[FixAvailableType],
+        "inspectorScore": NotRequired[float],
+        "inspectorScoreDetails": NotRequired[InspectorScoreDetailsTypeDef],
+        "networkReachabilityDetails": NotRequired[NetworkReachabilityDetailsTypeDef],
+        "packageVulnerabilityDetails": NotRequired[PackageVulnerabilityDetailsTypeDef],
+        "title": NotRequired[str],
+        "updatedAt": NotRequired[datetime],
     },
 )
 
-_RequiredTitleAggregationResponseTypeDef = TypedDict(
-    "_RequiredTitleAggregationResponseTypeDef",
-    {
-        "title": str,
-    },
-)
-_OptionalTitleAggregationResponseTypeDef = TypedDict(
-    "_OptionalTitleAggregationResponseTypeDef",
-    {
-        "accountId": str,
-        "severityCounts": "SeverityCountsTypeDef",
-        "vulnerabilityId": str,
-    },
-    total=False,
-)
+class ListCisScanConfigurationsResponseTypeDef(TypedDict):
+    scanConfigurations: List[CisScanConfigurationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-class TitleAggregationResponseTypeDef(
-    _RequiredTitleAggregationResponseTypeDef, _OptionalTitleAggregationResponseTypeDef
-):
-    pass
+class CreateCisScanConfigurationRequestTypeDef(TypedDict):
+    scanName: str
+    schedule: ScheduleUnionTypeDef
+    securityLevel: CisSecurityLevelType
+    targets: CreateCisTargetsTypeDef
+    tags: NotRequired[Mapping[str, str]]
 
-TitleAggregationTypeDef = TypedDict(
-    "TitleAggregationTypeDef",
-    {
-        "findingType": AggregationFindingTypeType,
-        "resourceType": AggregationResourceTypeType,
-        "sortBy": TitleSortByType,
-        "sortOrder": SortOrderType,
-        "titles": List["StringFilterTypeDef"],
-        "vulnerabilityIds": List["StringFilterTypeDef"],
-    },
-    total=False,
-)
+class UpdateCisScanConfigurationRequestTypeDef(TypedDict):
+    scanConfigurationArn: str
+    scanName: NotRequired[str]
+    schedule: NotRequired[ScheduleUnionTypeDef]
+    securityLevel: NotRequired[CisSecurityLevelType]
+    targets: NotRequired[UpdateCisTargetsTypeDef]
 
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tagKeys": List[str],
-    },
-)
+class ListFiltersResponseTypeDef(TypedDict):
+    filters: List[FilterTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-_RequiredUpdateCisScanConfigurationRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateCisScanConfigurationRequestRequestTypeDef",
-    {
-        "scanConfigurationArn": str,
-    },
-)
-_OptionalUpdateCisScanConfigurationRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateCisScanConfigurationRequestRequestTypeDef",
-    {
-        "scanName": str,
-        "schedule": "ScheduleTypeDef",
-        "securityLevel": CisSecurityLevelType,
-        "targets": "UpdateCisTargetsTypeDef",
-    },
-    total=False,
-)
+class CreateFilterRequestTypeDef(TypedDict):
+    action: FilterActionType
+    filterCriteria: FilterCriteriaUnionTypeDef
+    name: str
+    description: NotRequired[str]
+    reason: NotRequired[str]
+    tags: NotRequired[Mapping[str, str]]
 
-class UpdateCisScanConfigurationRequestRequestTypeDef(
-    _RequiredUpdateCisScanConfigurationRequestRequestTypeDef,
-    _OptionalUpdateCisScanConfigurationRequestRequestTypeDef,
-):
-    pass
+class CreateFindingsReportRequestTypeDef(TypedDict):
+    reportFormat: ReportFormatType
+    s3Destination: DestinationTypeDef
+    filterCriteria: NotRequired[FilterCriteriaUnionTypeDef]
 
-UpdateCisScanConfigurationResponseTypeDef = TypedDict(
-    "UpdateCisScanConfigurationResponseTypeDef",
-    {
-        "scanConfigurationArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListFindingsRequestPaginateTypeDef(TypedDict):
+    filterCriteria: NotRequired[FilterCriteriaUnionTypeDef]
+    sortCriteria: NotRequired[SortCriteriaTypeDef]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-UpdateCisTargetsTypeDef = TypedDict(
-    "UpdateCisTargetsTypeDef",
-    {
-        "accountIds": List[str],
-        "targetResourceTags": Dict[str, List[str]],
-    },
-    total=False,
-)
+class ListFindingsRequestTypeDef(TypedDict):
+    filterCriteria: NotRequired[FilterCriteriaUnionTypeDef]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+    sortCriteria: NotRequired[SortCriteriaTypeDef]
 
-UpdateConfigurationRequestRequestTypeDef = TypedDict(
-    "UpdateConfigurationRequestRequestTypeDef",
-    {
-        "ec2Configuration": "Ec2ConfigurationTypeDef",
-        "ecrConfiguration": "EcrConfigurationTypeDef",
-    },
-    total=False,
-)
+class UpdateFilterRequestTypeDef(TypedDict):
+    filterArn: str
+    action: NotRequired[FilterActionType]
+    description: NotRequired[str]
+    filterCriteria: NotRequired[FilterCriteriaUnionTypeDef]
+    name: NotRequired[str]
+    reason: NotRequired[str]
 
-UpdateEc2DeepInspectionConfigurationRequestRequestTypeDef = TypedDict(
-    "UpdateEc2DeepInspectionConfigurationRequestRequestTypeDef",
-    {
-        "activateDeepInspection": bool,
-        "packagePaths": List[str],
-    },
-    total=False,
-)
-
-UpdateEc2DeepInspectionConfigurationResponseTypeDef = TypedDict(
-    "UpdateEc2DeepInspectionConfigurationResponseTypeDef",
-    {
-        "errorMessage": str,
-        "orgPackagePaths": List[str],
-        "packagePaths": List[str],
-        "status": Ec2DeepInspectionStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UpdateEncryptionKeyRequestRequestTypeDef = TypedDict(
-    "UpdateEncryptionKeyRequestRequestTypeDef",
-    {
-        "kmsKeyId": str,
-        "resourceType": ResourceTypeType,
-        "scanType": ScanTypeType,
-    },
-)
-
-_RequiredUpdateFilterRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateFilterRequestRequestTypeDef",
-    {
-        "filterArn": str,
-    },
-)
-_OptionalUpdateFilterRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateFilterRequestRequestTypeDef",
-    {
-        "action": FilterActionType,
-        "description": str,
-        "filterCriteria": "FilterCriteriaTypeDef",
-        "name": str,
-        "reason": str,
-    },
-    total=False,
-)
-
-class UpdateFilterRequestRequestTypeDef(
-    _RequiredUpdateFilterRequestRequestTypeDef, _OptionalUpdateFilterRequestRequestTypeDef
-):
-    pass
-
-UpdateFilterResponseTypeDef = TypedDict(
-    "UpdateFilterResponseTypeDef",
-    {
-        "arn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UpdateOrgEc2DeepInspectionConfigurationRequestRequestTypeDef = TypedDict(
-    "UpdateOrgEc2DeepInspectionConfigurationRequestRequestTypeDef",
-    {
-        "orgPackagePaths": List[str],
-    },
-)
-
-UpdateOrganizationConfigurationRequestRequestTypeDef = TypedDict(
-    "UpdateOrganizationConfigurationRequestRequestTypeDef",
-    {
-        "autoEnable": "AutoEnableTypeDef",
-    },
-)
-
-UpdateOrganizationConfigurationResponseTypeDef = TypedDict(
-    "UpdateOrganizationConfigurationResponseTypeDef",
-    {
-        "autoEnable": "AutoEnableTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UsageTotalTypeDef = TypedDict(
-    "UsageTotalTypeDef",
-    {
-        "accountId": str,
-        "usage": List["UsageTypeDef"],
-    },
-    total=False,
-)
-
-UsageTypeDef = TypedDict(
-    "UsageTypeDef",
-    {
-        "currency": Literal["USD"],
-        "estimatedMonthlyCost": float,
-        "total": float,
-        "type": UsageTypeType,
-    },
-    total=False,
-)
-
-_RequiredVulnerabilityTypeDef = TypedDict(
-    "_RequiredVulnerabilityTypeDef",
-    {
-        "id": str,
-    },
-)
-_OptionalVulnerabilityTypeDef = TypedDict(
-    "_OptionalVulnerabilityTypeDef",
-    {
-        "atigData": "AtigDataTypeDef",
-        "cisaData": "CisaDataTypeDef",
-        "cvss2": "Cvss2TypeDef",
-        "cvss3": "Cvss3TypeDef",
-        "cwes": List[str],
-        "description": str,
-        "detectionPlatforms": List[str],
-        "epss": "EpssTypeDef",
-        "exploitObserved": "ExploitObservedTypeDef",
-        "referenceUrls": List[str],
-        "relatedVulnerabilities": List[str],
-        "source": Literal["NVD"],
-        "sourceUrl": str,
-        "vendorCreatedAt": datetime,
-        "vendorSeverity": str,
-        "vendorUpdatedAt": datetime,
-    },
-    total=False,
-)
-
-class VulnerabilityTypeDef(_RequiredVulnerabilityTypeDef, _OptionalVulnerabilityTypeDef):
-    pass
-
-_RequiredVulnerablePackageTypeDef = TypedDict(
-    "_RequiredVulnerablePackageTypeDef",
-    {
-        "name": str,
-        "version": str,
-    },
-)
-_OptionalVulnerablePackageTypeDef = TypedDict(
-    "_OptionalVulnerablePackageTypeDef",
-    {
-        "arch": str,
-        "epoch": int,
-        "filePath": str,
-        "fixedInVersion": str,
-        "packageManager": PackageManagerType,
-        "release": str,
-        "remediation": str,
-        "sourceLambdaLayerArn": str,
-        "sourceLayerHash": str,
-    },
-    total=False,
-)
-
-class VulnerablePackageTypeDef(
-    _RequiredVulnerablePackageTypeDef, _OptionalVulnerablePackageTypeDef
-):
-    pass
-
-WeeklyScheduleTypeDef = TypedDict(
-    "WeeklyScheduleTypeDef",
-    {
-        "days": List[DayType],
-        "startTime": "TimeTypeDef",
-    },
-)
+class ListFindingsResponseTypeDef(TypedDict):
+    findings: List[FindingTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]

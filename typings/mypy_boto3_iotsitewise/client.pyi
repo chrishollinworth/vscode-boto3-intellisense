@@ -1,45 +1,30 @@
 """
-Type annotations for iotsitewise service client.
+Type annotations for iotsitewise service Client.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
-    from mypy_boto3_iotsitewise import IoTSiteWiseClient
+    from boto3.session import Session
+    from mypy_boto3_iotsitewise.client import IoTSiteWiseClient
 
-    client: IoTSiteWiseClient = boto3.client("iotsitewise")
+    session = Session()
+    client: IoTSiteWiseClient = session.client("iotsitewise")
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from datetime import datetime
-from typing import Any, Dict, List, Type, Union, overload
+from typing import Any, overload
 
 from botocore.client import BaseClient, ClientMeta
+from botocore.errorfactory import BaseClientExceptions
+from botocore.exceptions import ClientError as BotocoreClientError
 
-from .literals import (
-    AggregateTypeType,
-    AssetModelTypeType,
-    AuthModeType,
-    DisassociatedDataStorageStateType,
-    EncryptionTypeType,
-    IdentityTypeType,
-    ListAssetModelPropertiesFilterType,
-    ListAssetPropertiesFilterType,
-    ListAssetsFilterType,
-    ListBulkImportJobsFilterType,
-    ListTimeSeriesTypeType,
-    PermissionType,
-    PropertyNotificationStateType,
-    QualityType,
-    ResourceTypeType,
-    StorageTypeType,
-    TimeOrderingType,
-    TraversalDirectionType,
-    WarmTierStateType,
-)
 from .paginator import (
     ExecuteQueryPaginator,
     GetAssetPropertyAggregatesPaginator,
@@ -57,6 +42,7 @@ from .paginator import (
     ListBulkImportJobsPaginator,
     ListCompositionRelationshipsPaginator,
     ListDashboardsPaginator,
+    ListDatasetsPaginator,
     ListGatewaysPaginator,
     ListPortalsPaginator,
     ListProjectAssetsPaginator,
@@ -64,98 +50,167 @@ from .paginator import (
     ListTimeSeriesPaginator,
 )
 from .type_defs import (
-    ActionPayloadTypeDef,
-    AlarmsTypeDef,
-    AssetModelCompositeModelDefinitionTypeDef,
-    AssetModelCompositeModelTypeDef,
-    AssetModelHierarchyDefinitionTypeDef,
-    AssetModelHierarchyTypeDef,
-    AssetModelPropertyDefinitionTypeDef,
-    AssetModelPropertyTypeDef,
+    AssociateAssetsRequestTypeDef,
+    AssociateTimeSeriesToAssetPropertyRequestTypeDef,
+    BatchAssociateProjectAssetsRequestTypeDef,
     BatchAssociateProjectAssetsResponseTypeDef,
+    BatchDisassociateProjectAssetsRequestTypeDef,
     BatchDisassociateProjectAssetsResponseTypeDef,
-    BatchGetAssetPropertyAggregatesEntryTypeDef,
+    BatchGetAssetPropertyAggregatesRequestTypeDef,
     BatchGetAssetPropertyAggregatesResponseTypeDef,
-    BatchGetAssetPropertyValueEntryTypeDef,
-    BatchGetAssetPropertyValueHistoryEntryTypeDef,
+    BatchGetAssetPropertyValueHistoryRequestTypeDef,
     BatchGetAssetPropertyValueHistoryResponseTypeDef,
+    BatchGetAssetPropertyValueRequestTypeDef,
     BatchGetAssetPropertyValueResponseTypeDef,
+    BatchPutAssetPropertyValueRequestTypeDef,
     BatchPutAssetPropertyValueResponseTypeDef,
+    CreateAccessPolicyRequestTypeDef,
     CreateAccessPolicyResponseTypeDef,
+    CreateAssetModelCompositeModelRequestTypeDef,
     CreateAssetModelCompositeModelResponseTypeDef,
+    CreateAssetModelRequestTypeDef,
     CreateAssetModelResponseTypeDef,
+    CreateAssetRequestTypeDef,
     CreateAssetResponseTypeDef,
+    CreateBulkImportJobRequestTypeDef,
     CreateBulkImportJobResponseTypeDef,
+    CreateDashboardRequestTypeDef,
     CreateDashboardResponseTypeDef,
+    CreateDatasetRequestTypeDef,
+    CreateDatasetResponseTypeDef,
+    CreateGatewayRequestTypeDef,
     CreateGatewayResponseTypeDef,
+    CreatePortalRequestTypeDef,
     CreatePortalResponseTypeDef,
+    CreateProjectRequestTypeDef,
     CreateProjectResponseTypeDef,
+    DeleteAccessPolicyRequestTypeDef,
+    DeleteAssetModelCompositeModelRequestTypeDef,
     DeleteAssetModelCompositeModelResponseTypeDef,
+    DeleteAssetModelRequestTypeDef,
     DeleteAssetModelResponseTypeDef,
+    DeleteAssetRequestTypeDef,
     DeleteAssetResponseTypeDef,
+    DeleteDashboardRequestTypeDef,
+    DeleteDatasetRequestTypeDef,
+    DeleteDatasetResponseTypeDef,
+    DeleteGatewayRequestTypeDef,
+    DeletePortalRequestTypeDef,
     DeletePortalResponseTypeDef,
+    DeleteProjectRequestTypeDef,
+    DeleteTimeSeriesRequestTypeDef,
+    DescribeAccessPolicyRequestTypeDef,
     DescribeAccessPolicyResponseTypeDef,
+    DescribeActionRequestTypeDef,
     DescribeActionResponseTypeDef,
+    DescribeAssetCompositeModelRequestTypeDef,
     DescribeAssetCompositeModelResponseTypeDef,
+    DescribeAssetModelCompositeModelRequestTypeDef,
     DescribeAssetModelCompositeModelResponseTypeDef,
+    DescribeAssetModelRequestTypeDef,
     DescribeAssetModelResponseTypeDef,
+    DescribeAssetPropertyRequestTypeDef,
     DescribeAssetPropertyResponseTypeDef,
+    DescribeAssetRequestTypeDef,
     DescribeAssetResponseTypeDef,
+    DescribeBulkImportJobRequestTypeDef,
     DescribeBulkImportJobResponseTypeDef,
+    DescribeDashboardRequestTypeDef,
     DescribeDashboardResponseTypeDef,
+    DescribeDatasetRequestTypeDef,
+    DescribeDatasetResponseTypeDef,
     DescribeDefaultEncryptionConfigurationResponseTypeDef,
+    DescribeGatewayCapabilityConfigurationRequestTypeDef,
     DescribeGatewayCapabilityConfigurationResponseTypeDef,
+    DescribeGatewayRequestTypeDef,
     DescribeGatewayResponseTypeDef,
     DescribeLoggingOptionsResponseTypeDef,
+    DescribePortalRequestTypeDef,
     DescribePortalResponseTypeDef,
+    DescribeProjectRequestTypeDef,
     DescribeProjectResponseTypeDef,
     DescribeStorageConfigurationResponseTypeDef,
+    DescribeTimeSeriesRequestTypeDef,
     DescribeTimeSeriesResponseTypeDef,
-    ErrorReportLocationTypeDef,
+    DisassociateAssetsRequestTypeDef,
+    DisassociateTimeSeriesFromAssetPropertyRequestTypeDef,
+    EmptyResponseMetadataTypeDef,
+    ExecuteActionRequestTypeDef,
     ExecuteActionResponseTypeDef,
+    ExecuteQueryRequestTypeDef,
     ExecuteQueryResponseTypeDef,
-    FileTypeDef,
-    GatewayPlatformTypeDef,
+    GetAssetPropertyAggregatesRequestTypeDef,
     GetAssetPropertyAggregatesResponseTypeDef,
+    GetAssetPropertyValueHistoryRequestTypeDef,
     GetAssetPropertyValueHistoryResponseTypeDef,
+    GetAssetPropertyValueRequestTypeDef,
     GetAssetPropertyValueResponseTypeDef,
+    GetInterpolatedAssetPropertyValuesRequestTypeDef,
     GetInterpolatedAssetPropertyValuesResponseTypeDef,
-    IdentityTypeDef,
-    ImageFileTypeDef,
-    ImageTypeDef,
-    JobConfigurationTypeDef,
+    InvokeAssistantRequestTypeDef,
+    InvokeAssistantResponseTypeDef,
+    ListAccessPoliciesRequestTypeDef,
     ListAccessPoliciesResponseTypeDef,
+    ListActionsRequestTypeDef,
     ListActionsResponseTypeDef,
+    ListAssetModelCompositeModelsRequestTypeDef,
     ListAssetModelCompositeModelsResponseTypeDef,
+    ListAssetModelPropertiesRequestTypeDef,
     ListAssetModelPropertiesResponseTypeDef,
+    ListAssetModelsRequestTypeDef,
     ListAssetModelsResponseTypeDef,
+    ListAssetPropertiesRequestTypeDef,
     ListAssetPropertiesResponseTypeDef,
+    ListAssetRelationshipsRequestTypeDef,
     ListAssetRelationshipsResponseTypeDef,
+    ListAssetsRequestTypeDef,
     ListAssetsResponseTypeDef,
+    ListAssociatedAssetsRequestTypeDef,
     ListAssociatedAssetsResponseTypeDef,
+    ListBulkImportJobsRequestTypeDef,
     ListBulkImportJobsResponseTypeDef,
+    ListCompositionRelationshipsRequestTypeDef,
     ListCompositionRelationshipsResponseTypeDef,
+    ListDashboardsRequestTypeDef,
     ListDashboardsResponseTypeDef,
+    ListDatasetsRequestTypeDef,
+    ListDatasetsResponseTypeDef,
+    ListGatewaysRequestTypeDef,
     ListGatewaysResponseTypeDef,
+    ListPortalsRequestTypeDef,
     ListPortalsResponseTypeDef,
+    ListProjectAssetsRequestTypeDef,
     ListProjectAssetsResponseTypeDef,
+    ListProjectsRequestTypeDef,
     ListProjectsResponseTypeDef,
+    ListTagsForResourceRequestTypeDef,
     ListTagsForResourceResponseTypeDef,
+    ListTimeSeriesRequestTypeDef,
     ListTimeSeriesResponseTypeDef,
-    LoggingOptionsTypeDef,
-    MultiLayerStorageTypeDef,
-    PutAssetPropertyValueEntryTypeDef,
+    PutDefaultEncryptionConfigurationRequestTypeDef,
     PutDefaultEncryptionConfigurationResponseTypeDef,
+    PutLoggingOptionsRequestTypeDef,
+    PutStorageConfigurationRequestTypeDef,
     PutStorageConfigurationResponseTypeDef,
-    ResourceTypeDef,
-    RetentionPeriodTypeDef,
-    TargetResourceTypeDef,
+    TagResourceRequestTypeDef,
+    UntagResourceRequestTypeDef,
+    UpdateAccessPolicyRequestTypeDef,
+    UpdateAssetModelCompositeModelRequestTypeDef,
     UpdateAssetModelCompositeModelResponseTypeDef,
+    UpdateAssetModelRequestTypeDef,
     UpdateAssetModelResponseTypeDef,
+    UpdateAssetPropertyRequestTypeDef,
+    UpdateAssetRequestTypeDef,
     UpdateAssetResponseTypeDef,
+    UpdateDashboardRequestTypeDef,
+    UpdateDatasetRequestTypeDef,
+    UpdateDatasetResponseTypeDef,
+    UpdateGatewayCapabilityConfigurationRequestTypeDef,
     UpdateGatewayCapabilityConfigurationResponseTypeDef,
+    UpdateGatewayRequestTypeDef,
+    UpdatePortalRequestTypeDef,
     UpdatePortalResponseTypeDef,
-    WarmTierRetentionPeriodTypeDef,
+    UpdateProjectRequestTypeDef,
 )
 from .waiter import (
     AssetActiveWaiter,
@@ -166,27 +221,27 @@ from .waiter import (
     PortalNotExistsWaiter,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import type as Type
+    from collections.abc import Mapping
 else:
-    from typing_extensions import Literal
+    from typing import Dict, Mapping, Type
+if sys.version_info >= (3, 12):
+    from typing import Literal, Unpack
+else:
+    from typing_extensions import Literal, Unpack
 
 __all__ = ("IoTSiteWiseClient",)
 
-class BotocoreClientError(BaseException):
-    MSG_TEMPLATE: str
-
-    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
-        self.response: Dict[str, Any]
-        self.operation_name: str
-
-class Exceptions:
+class Exceptions(BaseClientExceptions):
     AccessDeniedException: Type[BotocoreClientError]
     ClientError: Type[BotocoreClientError]
     ConflictingOperationException: Type[BotocoreClientError]
     InternalFailureException: Type[BotocoreClientError]
     InvalidRequestException: Type[BotocoreClientError]
     LimitExceededException: Type[BotocoreClientError]
+    PreconditionFailedException: Type[BotocoreClientError]
     QueryTimeoutException: Type[BotocoreClientError]
     ResourceAlreadyExistsException: Type[BotocoreClientError]
     ResourceNotFoundException: Type[BotocoreClientError]
@@ -198,8 +253,8 @@ class Exceptions:
 
 class IoTSiteWiseClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Client)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client.html)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise.html#IoTSiteWise.Client)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/)
     """
 
     meta: ClientMeta
@@ -208,451 +263,413 @@ class IoTSiteWiseClient(BaseClient):
     def exceptions(self) -> Exceptions:
         """
         IoTSiteWiseClient exceptions.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise.html#IoTSiteWise.Client)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#exceptions)
+        """
+
+    def can_paginate(self, operation_name: str) -> bool:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/can_paginate.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#can_paginate)
+        """
+
+    def generate_presigned_url(
+        self,
+        ClientMethod: str,
+        Params: Mapping[str, Any] = ...,
+        ExpiresIn: int = 3600,
+        HttpMethod: str = ...,
+    ) -> str:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/generate_presigned_url.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#generate_presigned_url)
         """
 
     def associate_assets(
-        self, *, assetId: str, hierarchyId: str, childAssetId: str, clientToken: str = None
-    ) -> None:
+        self, **kwargs: Unpack[AssociateAssetsRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
-        Associates a child asset with the given parent asset through a hierarchy defined
-        in the parent asset's model.
+        Associates a child asset with the given parent asset through a hierarchy
+        defined in the parent asset's model.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Client.associate_assets)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client.html#associate_assets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/associate_assets.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#associate_assets)
         """
 
     def associate_time_series_to_asset_property(
-        self, *, alias: str, assetId: str, propertyId: str, clientToken: str = None
-    ) -> None:
+        self, **kwargs: Unpack[AssociateTimeSeriesToAssetPropertyRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Associates a time series (data stream) with an asset property.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Client.associate_time_series_to_asset_property)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client.html#associate_time_series_to_asset_property)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/associate_time_series_to_asset_property.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#associate_time_series_to_asset_property)
         """
 
     def batch_associate_project_assets(
-        self, *, projectId: str, assetIds: List[str], clientToken: str = None
+        self, **kwargs: Unpack[BatchAssociateProjectAssetsRequestTypeDef]
     ) -> BatchAssociateProjectAssetsResponseTypeDef:
         """
         Associates a group (batch) of assets with an IoT SiteWise Monitor project.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Client.batch_associate_project_assets)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client.html#batch_associate_project_assets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/batch_associate_project_assets.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#batch_associate_project_assets)
         """
 
     def batch_disassociate_project_assets(
-        self, *, projectId: str, assetIds: List[str], clientToken: str = None
+        self, **kwargs: Unpack[BatchDisassociateProjectAssetsRequestTypeDef]
     ) -> BatchDisassociateProjectAssetsResponseTypeDef:
         """
         Disassociates a group (batch) of assets from an IoT SiteWise Monitor project.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Client.batch_disassociate_project_assets)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client.html#batch_disassociate_project_assets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/batch_disassociate_project_assets.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#batch_disassociate_project_assets)
         """
 
     def batch_get_asset_property_aggregates(
-        self,
-        *,
-        entries: List["BatchGetAssetPropertyAggregatesEntryTypeDef"],
-        nextToken: str = None,
-        maxResults: int = None
+        self, **kwargs: Unpack[BatchGetAssetPropertyAggregatesRequestTypeDef]
     ) -> BatchGetAssetPropertyAggregatesResponseTypeDef:
         """
         Gets aggregated values (for example, average, minimum, and maximum) for one or
         more asset properties.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Client.batch_get_asset_property_aggregates)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client.html#batch_get_asset_property_aggregates)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/batch_get_asset_property_aggregates.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#batch_get_asset_property_aggregates)
         """
 
     def batch_get_asset_property_value(
-        self, *, entries: List["BatchGetAssetPropertyValueEntryTypeDef"], nextToken: str = None
+        self, **kwargs: Unpack[BatchGetAssetPropertyValueRequestTypeDef]
     ) -> BatchGetAssetPropertyValueResponseTypeDef:
         """
         Gets the current value for one or more asset properties.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Client.batch_get_asset_property_value)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client.html#batch_get_asset_property_value)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/batch_get_asset_property_value.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#batch_get_asset_property_value)
         """
 
     def batch_get_asset_property_value_history(
-        self,
-        *,
-        entries: List["BatchGetAssetPropertyValueHistoryEntryTypeDef"],
-        nextToken: str = None,
-        maxResults: int = None
+        self, **kwargs: Unpack[BatchGetAssetPropertyValueHistoryRequestTypeDef]
     ) -> BatchGetAssetPropertyValueHistoryResponseTypeDef:
         """
         Gets the historical values for one or more asset properties.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Client.batch_get_asset_property_value_history)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client.html#batch_get_asset_property_value_history)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/batch_get_asset_property_value_history.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#batch_get_asset_property_value_history)
         """
 
     def batch_put_asset_property_value(
-        self, *, entries: List["PutAssetPropertyValueEntryTypeDef"]
+        self, **kwargs: Unpack[BatchPutAssetPropertyValueRequestTypeDef]
     ) -> BatchPutAssetPropertyValueResponseTypeDef:
         """
         Sends a list of asset property values to IoT SiteWise.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Client.batch_put_asset_property_value)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client.html#batch_put_asset_property_value)
-        """
-
-    def can_paginate(self, operation_name: str) -> bool:
-        """
-        Check if an operation can be paginated.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Client.can_paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client.html#can_paginate)
-        """
-
-    def close(self) -> None:
-        """
-        Closes underlying endpoint connections.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Client.close)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client.html#close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/batch_put_asset_property_value.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#batch_put_asset_property_value)
         """
 
     def create_access_policy(
-        self,
-        *,
-        accessPolicyIdentity: "IdentityTypeDef",
-        accessPolicyResource: "ResourceTypeDef",
-        accessPolicyPermission: PermissionType,
-        clientToken: str = None,
-        tags: Dict[str, str] = None
+        self, **kwargs: Unpack[CreateAccessPolicyRequestTypeDef]
     ) -> CreateAccessPolicyResponseTypeDef:
         """
-        Creates an access policy that grants the specified identity (IAM Identity Center
-        user, IAM Identity Center group, or IAM user) access to the specified IoT
-        SiteWise Monitor portal or project resource.
+        Creates an access policy that grants the specified identity (IAM Identity
+        Center user, IAM Identity Center group, or IAM user) access to the specified
+        IoT SiteWise Monitor portal or project resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Client.create_access_policy)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client.html#create_access_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/create_access_policy.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#create_access_policy)
         """
 
     def create_asset(
-        self,
-        *,
-        assetName: str,
-        assetModelId: str,
-        clientToken: str = None,
-        tags: Dict[str, str] = None,
-        assetDescription: str = None,
-        assetId: str = None,
-        assetExternalId: str = None
+        self, **kwargs: Unpack[CreateAssetRequestTypeDef]
     ) -> CreateAssetResponseTypeDef:
         """
         Creates an asset from an existing asset model.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Client.create_asset)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client.html#create_asset)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/create_asset.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#create_asset)
         """
 
     def create_asset_model(
-        self,
-        *,
-        assetModelName: str,
-        assetModelDescription: str = None,
-        assetModelProperties: List["AssetModelPropertyDefinitionTypeDef"] = None,
-        assetModelHierarchies: List["AssetModelHierarchyDefinitionTypeDef"] = None,
-        assetModelCompositeModels: List["AssetModelCompositeModelDefinitionTypeDef"] = None,
-        clientToken: str = None,
-        tags: Dict[str, str] = None,
-        assetModelId: str = None,
-        assetModelExternalId: str = None,
-        assetModelType: AssetModelTypeType = None
+        self, **kwargs: Unpack[CreateAssetModelRequestTypeDef]
     ) -> CreateAssetModelResponseTypeDef:
         """
         Creates an asset model from specified property and hierarchy definitions.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Client.create_asset_model)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client.html#create_asset_model)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/create_asset_model.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#create_asset_model)
         """
 
     def create_asset_model_composite_model(
-        self,
-        *,
-        assetModelId: str,
-        assetModelCompositeModelName: str,
-        assetModelCompositeModelType: str,
-        parentAssetModelCompositeModelId: str = None,
-        assetModelCompositeModelExternalId: str = None,
-        assetModelCompositeModelId: str = None,
-        assetModelCompositeModelDescription: str = None,
-        clientToken: str = None,
-        composedAssetModelId: str = None,
-        assetModelCompositeModelProperties: List["AssetModelPropertyDefinitionTypeDef"] = None
+        self, **kwargs: Unpack[CreateAssetModelCompositeModelRequestTypeDef]
     ) -> CreateAssetModelCompositeModelResponseTypeDef:
         """
         Creates a custom composite model from specified property and hierarchy
         definitions.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Client.create_asset_model_composite_model)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client.html#create_asset_model_composite_model)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/create_asset_model_composite_model.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#create_asset_model_composite_model)
         """
 
     def create_bulk_import_job(
-        self,
-        *,
-        jobName: str,
-        jobRoleArn: str,
-        files: List["FileTypeDef"],
-        errorReportLocation: "ErrorReportLocationTypeDef",
-        jobConfiguration: "JobConfigurationTypeDef",
-        adaptiveIngestion: bool = None,
-        deleteFilesAfterImport: bool = None
+        self, **kwargs: Unpack[CreateBulkImportJobRequestTypeDef]
     ) -> CreateBulkImportJobResponseTypeDef:
         """
         Defines a job to ingest data to IoT SiteWise from Amazon S3.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Client.create_bulk_import_job)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client.html#create_bulk_import_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/create_bulk_import_job.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#create_bulk_import_job)
         """
 
     def create_dashboard(
-        self,
-        *,
-        projectId: str,
-        dashboardName: str,
-        dashboardDefinition: str,
-        dashboardDescription: str = None,
-        clientToken: str = None,
-        tags: Dict[str, str] = None
+        self, **kwargs: Unpack[CreateDashboardRequestTypeDef]
     ) -> CreateDashboardResponseTypeDef:
         """
         Creates a dashboard in an IoT SiteWise Monitor project.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Client.create_dashboard)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client.html#create_dashboard)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/create_dashboard.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#create_dashboard)
+        """
+
+    def create_dataset(
+        self, **kwargs: Unpack[CreateDatasetRequestTypeDef]
+    ) -> CreateDatasetResponseTypeDef:
+        """
+        Creates a dataset to connect an external datasource.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/create_dataset.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#create_dataset)
         """
 
     def create_gateway(
-        self,
-        *,
-        gatewayName: str,
-        gatewayPlatform: "GatewayPlatformTypeDef",
-        tags: Dict[str, str] = None
+        self, **kwargs: Unpack[CreateGatewayRequestTypeDef]
     ) -> CreateGatewayResponseTypeDef:
         """
         Creates a gateway, which is a virtual or edge device that delivers industrial
         data streams from local servers to IoT SiteWise.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Client.create_gateway)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client.html#create_gateway)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/create_gateway.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#create_gateway)
         """
 
     def create_portal(
-        self,
-        *,
-        portalName: str,
-        portalContactEmail: str,
-        roleArn: str,
-        portalDescription: str = None,
-        clientToken: str = None,
-        portalLogoImageFile: "ImageFileTypeDef" = None,
-        tags: Dict[str, str] = None,
-        portalAuthMode: AuthModeType = None,
-        notificationSenderEmail: str = None,
-        alarms: "AlarmsTypeDef" = None
+        self, **kwargs: Unpack[CreatePortalRequestTypeDef]
     ) -> CreatePortalResponseTypeDef:
         """
         Creates a portal, which can contain projects and dashboards.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Client.create_portal)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client.html#create_portal)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/create_portal.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#create_portal)
         """
 
     def create_project(
-        self,
-        *,
-        portalId: str,
-        projectName: str,
-        projectDescription: str = None,
-        clientToken: str = None,
-        tags: Dict[str, str] = None
+        self, **kwargs: Unpack[CreateProjectRequestTypeDef]
     ) -> CreateProjectResponseTypeDef:
         """
         Creates a project in the specified portal.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Client.create_project)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client.html#create_project)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/create_project.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#create_project)
         """
 
     def delete_access_policy(
-        self, *, accessPolicyId: str, clientToken: str = None
+        self, **kwargs: Unpack[DeleteAccessPolicyRequestTypeDef]
     ) -> Dict[str, Any]:
         """
         Deletes an access policy that grants the specified identity access to the
         specified IoT SiteWise Monitor resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Client.delete_access_policy)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client.html#delete_access_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/delete_access_policy.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#delete_access_policy)
         """
 
-    def delete_asset(self, *, assetId: str, clientToken: str = None) -> DeleteAssetResponseTypeDef:
+    def delete_asset(
+        self, **kwargs: Unpack[DeleteAssetRequestTypeDef]
+    ) -> DeleteAssetResponseTypeDef:
         """
         Deletes an asset.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Client.delete_asset)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client.html#delete_asset)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/delete_asset.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#delete_asset)
         """
 
     def delete_asset_model(
-        self, *, assetModelId: str, clientToken: str = None
+        self, **kwargs: Unpack[DeleteAssetModelRequestTypeDef]
     ) -> DeleteAssetModelResponseTypeDef:
         """
         Deletes an asset model.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Client.delete_asset_model)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client.html#delete_asset_model)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/delete_asset_model.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#delete_asset_model)
         """
 
     def delete_asset_model_composite_model(
-        self, *, assetModelId: str, assetModelCompositeModelId: str, clientToken: str = None
+        self, **kwargs: Unpack[DeleteAssetModelCompositeModelRequestTypeDef]
     ) -> DeleteAssetModelCompositeModelResponseTypeDef:
         """
         Deletes a composite model.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Client.delete_asset_model_composite_model)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client.html#delete_asset_model_composite_model)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/delete_asset_model_composite_model.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#delete_asset_model_composite_model)
         """
 
-    def delete_dashboard(self, *, dashboardId: str, clientToken: str = None) -> Dict[str, Any]:
+    def delete_dashboard(self, **kwargs: Unpack[DeleteDashboardRequestTypeDef]) -> Dict[str, Any]:
         """
         Deletes a dashboard from IoT SiteWise Monitor.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Client.delete_dashboard)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client.html#delete_dashboard)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/delete_dashboard.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#delete_dashboard)
         """
 
-    def delete_gateway(self, *, gatewayId: str) -> None:
+    def delete_dataset(
+        self, **kwargs: Unpack[DeleteDatasetRequestTypeDef]
+    ) -> DeleteDatasetResponseTypeDef:
+        """
+        Deletes a dataset.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/delete_dataset.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#delete_dataset)
+        """
+
+    def delete_gateway(
+        self, **kwargs: Unpack[DeleteGatewayRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Deletes a gateway from IoT SiteWise.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Client.delete_gateway)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client.html#delete_gateway)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/delete_gateway.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#delete_gateway)
         """
 
     def delete_portal(
-        self, *, portalId: str, clientToken: str = None
+        self, **kwargs: Unpack[DeletePortalRequestTypeDef]
     ) -> DeletePortalResponseTypeDef:
         """
         Deletes a portal from IoT SiteWise Monitor.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Client.delete_portal)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client.html#delete_portal)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/delete_portal.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#delete_portal)
         """
 
-    def delete_project(self, *, projectId: str, clientToken: str = None) -> Dict[str, Any]:
+    def delete_project(self, **kwargs: Unpack[DeleteProjectRequestTypeDef]) -> Dict[str, Any]:
         """
         Deletes a project from IoT SiteWise Monitor.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Client.delete_project)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client.html#delete_project)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/delete_project.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#delete_project)
         """
 
     def delete_time_series(
-        self,
-        *,
-        alias: str = None,
-        assetId: str = None,
-        propertyId: str = None,
-        clientToken: str = None
-    ) -> None:
+        self, **kwargs: Unpack[DeleteTimeSeriesRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Deletes a time series (data stream).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Client.delete_time_series)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client.html#delete_time_series)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/delete_time_series.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#delete_time_series)
         """
 
-    def describe_access_policy(self, *, accessPolicyId: str) -> DescribeAccessPolicyResponseTypeDef:
+    def describe_access_policy(
+        self, **kwargs: Unpack[DescribeAccessPolicyRequestTypeDef]
+    ) -> DescribeAccessPolicyResponseTypeDef:
         """
         Describes an access policy, which specifies an identity's access to an IoT
         SiteWise Monitor portal or project.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Client.describe_access_policy)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client.html#describe_access_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/describe_access_policy.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#describe_access_policy)
         """
 
-    def describe_action(self, *, actionId: str) -> DescribeActionResponseTypeDef:
+    def describe_action(
+        self, **kwargs: Unpack[DescribeActionRequestTypeDef]
+    ) -> DescribeActionResponseTypeDef:
         """
         Retrieves information about an action.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Client.describe_action)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client.html#describe_action)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/describe_action.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#describe_action)
         """
 
     def describe_asset(
-        self, *, assetId: str, excludeProperties: bool = None
+        self, **kwargs: Unpack[DescribeAssetRequestTypeDef]
     ) -> DescribeAssetResponseTypeDef:
         """
         Retrieves information about an asset.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Client.describe_asset)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client.html#describe_asset)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/describe_asset.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#describe_asset)
         """
 
     def describe_asset_composite_model(
-        self, *, assetId: str, assetCompositeModelId: str
+        self, **kwargs: Unpack[DescribeAssetCompositeModelRequestTypeDef]
     ) -> DescribeAssetCompositeModelResponseTypeDef:
         """
         Retrieves information about an asset composite model (also known as an asset
         component).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Client.describe_asset_composite_model)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client.html#describe_asset_composite_model)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/describe_asset_composite_model.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#describe_asset_composite_model)
         """
 
     def describe_asset_model(
-        self, *, assetModelId: str, excludeProperties: bool = None
+        self, **kwargs: Unpack[DescribeAssetModelRequestTypeDef]
     ) -> DescribeAssetModelResponseTypeDef:
         """
         Retrieves information about an asset model.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Client.describe_asset_model)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client.html#describe_asset_model)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/describe_asset_model.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#describe_asset_model)
         """
 
     def describe_asset_model_composite_model(
-        self, *, assetModelId: str, assetModelCompositeModelId: str
+        self, **kwargs: Unpack[DescribeAssetModelCompositeModelRequestTypeDef]
     ) -> DescribeAssetModelCompositeModelResponseTypeDef:
         """
         Retrieves information about an asset model composite model (also known as an
         asset model component).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Client.describe_asset_model_composite_model)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client.html#describe_asset_model_composite_model)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/describe_asset_model_composite_model.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#describe_asset_model_composite_model)
         """
 
     def describe_asset_property(
-        self, *, assetId: str, propertyId: str
+        self, **kwargs: Unpack[DescribeAssetPropertyRequestTypeDef]
     ) -> DescribeAssetPropertyResponseTypeDef:
         """
         Retrieves information about an asset property.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Client.describe_asset_property)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client.html#describe_asset_property)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/describe_asset_property.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#describe_asset_property)
         """
 
-    def describe_bulk_import_job(self, *, jobId: str) -> DescribeBulkImportJobResponseTypeDef:
+    def describe_bulk_import_job(
+        self, **kwargs: Unpack[DescribeBulkImportJobRequestTypeDef]
+    ) -> DescribeBulkImportJobResponseTypeDef:
         """
         Retrieves information about a bulk import job request.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Client.describe_bulk_import_job)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client.html#describe_bulk_import_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/describe_bulk_import_job.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#describe_bulk_import_job)
         """
 
-    def describe_dashboard(self, *, dashboardId: str) -> DescribeDashboardResponseTypeDef:
+    def describe_dashboard(
+        self, **kwargs: Unpack[DescribeDashboardRequestTypeDef]
+    ) -> DescribeDashboardResponseTypeDef:
         """
         Retrieves information about a dashboard.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Client.describe_dashboard)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client.html#describe_dashboard)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/describe_dashboard.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#describe_dashboard)
+        """
+
+    def describe_dataset(
+        self, **kwargs: Unpack[DescribeDatasetRequestTypeDef]
+    ) -> DescribeDatasetResponseTypeDef:
+        """
+        Retrieves information about a dataset.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/describe_dataset.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#describe_dataset)
         """
 
     def describe_default_encryption_configuration(
@@ -662,868 +679,820 @@ class IoTSiteWiseClient(BaseClient):
         Retrieves information about the default encryption configuration for the Amazon
         Web Services account in the default or specified Region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Client.describe_default_encryption_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client.html#describe_default_encryption_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/describe_default_encryption_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#describe_default_encryption_configuration)
         """
 
-    def describe_gateway(self, *, gatewayId: str) -> DescribeGatewayResponseTypeDef:
+    def describe_gateway(
+        self, **kwargs: Unpack[DescribeGatewayRequestTypeDef]
+    ) -> DescribeGatewayResponseTypeDef:
         """
         Retrieves information about a gateway.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Client.describe_gateway)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client.html#describe_gateway)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/describe_gateway.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#describe_gateway)
         """
 
     def describe_gateway_capability_configuration(
-        self, *, gatewayId: str, capabilityNamespace: str
+        self, **kwargs: Unpack[DescribeGatewayCapabilityConfigurationRequestTypeDef]
     ) -> DescribeGatewayCapabilityConfigurationResponseTypeDef:
         """
         Retrieves information about a gateway capability configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Client.describe_gateway_capability_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client.html#describe_gateway_capability_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/describe_gateway_capability_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#describe_gateway_capability_configuration)
         """
 
     def describe_logging_options(self) -> DescribeLoggingOptionsResponseTypeDef:
         """
         Retrieves the current IoT SiteWise logging options.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Client.describe_logging_options)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client.html#describe_logging_options)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/describe_logging_options.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#describe_logging_options)
         """
 
-    def describe_portal(self, *, portalId: str) -> DescribePortalResponseTypeDef:
+    def describe_portal(
+        self, **kwargs: Unpack[DescribePortalRequestTypeDef]
+    ) -> DescribePortalResponseTypeDef:
         """
         Retrieves information about a portal.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Client.describe_portal)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client.html#describe_portal)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/describe_portal.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#describe_portal)
         """
 
-    def describe_project(self, *, projectId: str) -> DescribeProjectResponseTypeDef:
+    def describe_project(
+        self, **kwargs: Unpack[DescribeProjectRequestTypeDef]
+    ) -> DescribeProjectResponseTypeDef:
         """
         Retrieves information about a project.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Client.describe_project)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client.html#describe_project)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/describe_project.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#describe_project)
         """
 
     def describe_storage_configuration(self) -> DescribeStorageConfigurationResponseTypeDef:
         """
         Retrieves information about the storage configuration for IoT SiteWise.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Client.describe_storage_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client.html#describe_storage_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/describe_storage_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#describe_storage_configuration)
         """
 
     def describe_time_series(
-        self, *, alias: str = None, assetId: str = None, propertyId: str = None
+        self, **kwargs: Unpack[DescribeTimeSeriesRequestTypeDef]
     ) -> DescribeTimeSeriesResponseTypeDef:
         """
         Retrieves information about a time series (data stream).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Client.describe_time_series)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client.html#describe_time_series)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/describe_time_series.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#describe_time_series)
         """
 
     def disassociate_assets(
-        self, *, assetId: str, hierarchyId: str, childAssetId: str, clientToken: str = None
-    ) -> None:
+        self, **kwargs: Unpack[DisassociateAssetsRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Disassociates a child asset from the given parent asset through a hierarchy
         defined in the parent asset's model.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Client.disassociate_assets)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client.html#disassociate_assets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/disassociate_assets.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#disassociate_assets)
         """
 
     def disassociate_time_series_from_asset_property(
-        self, *, alias: str, assetId: str, propertyId: str, clientToken: str = None
-    ) -> None:
+        self, **kwargs: Unpack[DisassociateTimeSeriesFromAssetPropertyRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Disassociates a time series (data stream) from an asset property.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Client.disassociate_time_series_from_asset_property)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client.html#disassociate_time_series_from_asset_property)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/disassociate_time_series_from_asset_property.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#disassociate_time_series_from_asset_property)
         """
 
     def execute_action(
-        self,
-        *,
-        targetResource: "TargetResourceTypeDef",
-        actionDefinitionId: str,
-        actionPayload: "ActionPayloadTypeDef",
-        clientToken: str = None
+        self, **kwargs: Unpack[ExecuteActionRequestTypeDef]
     ) -> ExecuteActionResponseTypeDef:
         """
         Executes an action on a target resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Client.execute_action)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client.html#execute_action)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/execute_action.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#execute_action)
         """
 
     def execute_query(
-        self, *, queryStatement: str, nextToken: str = None, maxResults: int = None
+        self, **kwargs: Unpack[ExecuteQueryRequestTypeDef]
     ) -> ExecuteQueryResponseTypeDef:
         """
         Run SQL queries to retrieve metadata and time-series data from asset models,
         assets, measurements, metrics, transforms, and aggregates.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Client.execute_query)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client.html#execute_query)
-        """
-
-    def generate_presigned_url(
-        self,
-        ClientMethod: str,
-        Params: Dict[str, Any] = None,
-        ExpiresIn: int = 3600,
-        HttpMethod: str = None,
-    ) -> str:
-        """
-        Generate a presigned url given a client, its method, and arguments.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Client.generate_presigned_url)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client.html#generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/execute_query.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#execute_query)
         """
 
     def get_asset_property_aggregates(
-        self,
-        *,
-        aggregateTypes: List[AggregateTypeType],
-        resolution: str,
-        startDate: Union[datetime, str],
-        endDate: Union[datetime, str],
-        assetId: str = None,
-        propertyId: str = None,
-        propertyAlias: str = None,
-        qualities: List[QualityType] = None,
-        timeOrdering: TimeOrderingType = None,
-        nextToken: str = None,
-        maxResults: int = None
+        self, **kwargs: Unpack[GetAssetPropertyAggregatesRequestTypeDef]
     ) -> GetAssetPropertyAggregatesResponseTypeDef:
         """
         Gets aggregated values for an asset property.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Client.get_asset_property_aggregates)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client.html#get_asset_property_aggregates)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/get_asset_property_aggregates.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#get_asset_property_aggregates)
         """
 
     def get_asset_property_value(
-        self, *, assetId: str = None, propertyId: str = None, propertyAlias: str = None
+        self, **kwargs: Unpack[GetAssetPropertyValueRequestTypeDef]
     ) -> GetAssetPropertyValueResponseTypeDef:
         """
         Gets an asset property's current value.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Client.get_asset_property_value)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client.html#get_asset_property_value)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/get_asset_property_value.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#get_asset_property_value)
         """
 
     def get_asset_property_value_history(
-        self,
-        *,
-        assetId: str = None,
-        propertyId: str = None,
-        propertyAlias: str = None,
-        startDate: Union[datetime, str] = None,
-        endDate: Union[datetime, str] = None,
-        qualities: List[QualityType] = None,
-        timeOrdering: TimeOrderingType = None,
-        nextToken: str = None,
-        maxResults: int = None
+        self, **kwargs: Unpack[GetAssetPropertyValueHistoryRequestTypeDef]
     ) -> GetAssetPropertyValueHistoryResponseTypeDef:
         """
         Gets the history of an asset property's values.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Client.get_asset_property_value_history)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client.html#get_asset_property_value_history)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/get_asset_property_value_history.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#get_asset_property_value_history)
         """
 
     def get_interpolated_asset_property_values(
-        self,
-        *,
-        startTimeInSeconds: int,
-        endTimeInSeconds: int,
-        quality: QualityType,
-        intervalInSeconds: int,
-        type: str,
-        assetId: str = None,
-        propertyId: str = None,
-        propertyAlias: str = None,
-        startTimeOffsetInNanos: int = None,
-        endTimeOffsetInNanos: int = None,
-        nextToken: str = None,
-        maxResults: int = None,
-        intervalWindowInSeconds: int = None
+        self, **kwargs: Unpack[GetInterpolatedAssetPropertyValuesRequestTypeDef]
     ) -> GetInterpolatedAssetPropertyValuesResponseTypeDef:
         """
         Get interpolated values for an asset property for a specified time interval,
         during a period of time.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Client.get_interpolated_asset_property_values)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client.html#get_interpolated_asset_property_values)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/get_interpolated_asset_property_values.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#get_interpolated_asset_property_values)
+        """
+
+    def invoke_assistant(
+        self, **kwargs: Unpack[InvokeAssistantRequestTypeDef]
+    ) -> InvokeAssistantResponseTypeDef:
+        """
+        Invokes SiteWise Assistant to start or continue a conversation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/invoke_assistant.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#invoke_assistant)
         """
 
     def list_access_policies(
-        self,
-        *,
-        identityType: IdentityTypeType = None,
-        identityId: str = None,
-        resourceType: ResourceTypeType = None,
-        resourceId: str = None,
-        iamArn: str = None,
-        nextToken: str = None,
-        maxResults: int = None
+        self, **kwargs: Unpack[ListAccessPoliciesRequestTypeDef]
     ) -> ListAccessPoliciesResponseTypeDef:
         """
         Retrieves a paginated list of access policies for an identity (an IAM Identity
         Center user, an IAM Identity Center group, or an IAM user) or an IoT SiteWise
         Monitor resource (a portal or project).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Client.list_access_policies)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client.html#list_access_policies)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/list_access_policies.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#list_access_policies)
         """
 
     def list_actions(
-        self,
-        *,
-        targetResourceType: Literal["ASSET"],
-        targetResourceId: str,
-        nextToken: str = None,
-        maxResults: int = None
+        self, **kwargs: Unpack[ListActionsRequestTypeDef]
     ) -> ListActionsResponseTypeDef:
         """
         Retrieves a paginated list of actions for a specific target resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Client.list_actions)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client.html#list_actions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/list_actions.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#list_actions)
         """
 
     def list_asset_model_composite_models(
-        self, *, assetModelId: str, nextToken: str = None, maxResults: int = None
+        self, **kwargs: Unpack[ListAssetModelCompositeModelsRequestTypeDef]
     ) -> ListAssetModelCompositeModelsResponseTypeDef:
         """
-        Retrieves a paginated list of composite models associated with the asset model
-        See also: `AWS API Documentation <https://docs.aws.amazon.com/goto/WebAPI/iotsit
-        ewise-2019-12-02/ListAssetModelCompositeModels>`_ **Request Syntax** response =
-        client.list_asset_model_composite_models( ...
+        Retrieves a paginated list of composite models associated with the asset model.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Client.list_asset_model_composite_models)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client.html#list_asset_model_composite_models)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/list_asset_model_composite_models.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#list_asset_model_composite_models)
         """
 
     def list_asset_model_properties(
-        self,
-        *,
-        assetModelId: str,
-        nextToken: str = None,
-        maxResults: int = None,
-        filter: ListAssetModelPropertiesFilterType = None
+        self, **kwargs: Unpack[ListAssetModelPropertiesRequestTypeDef]
     ) -> ListAssetModelPropertiesResponseTypeDef:
         """
         Retrieves a paginated list of properties associated with an asset model.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Client.list_asset_model_properties)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client.html#list_asset_model_properties)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/list_asset_model_properties.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#list_asset_model_properties)
         """
 
     def list_asset_models(
-        self,
-        *,
-        nextToken: str = None,
-        maxResults: int = None,
-        assetModelTypes: List[AssetModelTypeType] = None
+        self, **kwargs: Unpack[ListAssetModelsRequestTypeDef]
     ) -> ListAssetModelsResponseTypeDef:
         """
         Retrieves a paginated list of summaries of all asset models.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Client.list_asset_models)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client.html#list_asset_models)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/list_asset_models.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#list_asset_models)
         """
 
     def list_asset_properties(
-        self,
-        *,
-        assetId: str,
-        nextToken: str = None,
-        maxResults: int = None,
-        filter: ListAssetPropertiesFilterType = None
+        self, **kwargs: Unpack[ListAssetPropertiesRequestTypeDef]
     ) -> ListAssetPropertiesResponseTypeDef:
         """
         Retrieves a paginated list of properties associated with an asset.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Client.list_asset_properties)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client.html#list_asset_properties)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/list_asset_properties.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#list_asset_properties)
         """
 
     def list_asset_relationships(
-        self,
-        *,
-        assetId: str,
-        traversalType: Literal["PATH_TO_ROOT"],
-        nextToken: str = None,
-        maxResults: int = None
+        self, **kwargs: Unpack[ListAssetRelationshipsRequestTypeDef]
     ) -> ListAssetRelationshipsResponseTypeDef:
         """
         Retrieves a paginated list of asset relationships for an asset.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Client.list_asset_relationships)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client.html#list_asset_relationships)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/list_asset_relationships.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#list_asset_relationships)
         """
 
-    def list_assets(
-        self,
-        *,
-        nextToken: str = None,
-        maxResults: int = None,
-        assetModelId: str = None,
-        filter: ListAssetsFilterType = None
-    ) -> ListAssetsResponseTypeDef:
+    def list_assets(self, **kwargs: Unpack[ListAssetsRequestTypeDef]) -> ListAssetsResponseTypeDef:
         """
         Retrieves a paginated list of asset summaries.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Client.list_assets)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client.html#list_assets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/list_assets.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#list_assets)
         """
 
     def list_associated_assets(
-        self,
-        *,
-        assetId: str,
-        hierarchyId: str = None,
-        traversalDirection: TraversalDirectionType = None,
-        nextToken: str = None,
-        maxResults: int = None
+        self, **kwargs: Unpack[ListAssociatedAssetsRequestTypeDef]
     ) -> ListAssociatedAssetsResponseTypeDef:
         """
         Retrieves a paginated list of associated assets.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Client.list_associated_assets)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client.html#list_associated_assets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/list_associated_assets.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#list_associated_assets)
         """
 
     def list_bulk_import_jobs(
-        self,
-        *,
-        nextToken: str = None,
-        maxResults: int = None,
-        filter: ListBulkImportJobsFilterType = None
+        self, **kwargs: Unpack[ListBulkImportJobsRequestTypeDef]
     ) -> ListBulkImportJobsResponseTypeDef:
         """
         Retrieves a paginated list of bulk import job requests.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Client.list_bulk_import_jobs)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client.html#list_bulk_import_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/list_bulk_import_jobs.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#list_bulk_import_jobs)
         """
 
     def list_composition_relationships(
-        self, *, assetModelId: str, nextToken: str = None, maxResults: int = None
+        self, **kwargs: Unpack[ListCompositionRelationshipsRequestTypeDef]
     ) -> ListCompositionRelationshipsResponseTypeDef:
         """
         Retrieves a paginated list of composition relationships for an asset model of
-        type `COMPONENT_MODEL`.
+        type <code>COMPONENT_MODEL</code>.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Client.list_composition_relationships)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client.html#list_composition_relationships)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/list_composition_relationships.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#list_composition_relationships)
         """
 
     def list_dashboards(
-        self, *, projectId: str, nextToken: str = None, maxResults: int = None
+        self, **kwargs: Unpack[ListDashboardsRequestTypeDef]
     ) -> ListDashboardsResponseTypeDef:
         """
         Retrieves a paginated list of dashboards for an IoT SiteWise Monitor project.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Client.list_dashboards)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client.html#list_dashboards)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/list_dashboards.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#list_dashboards)
+        """
+
+    def list_datasets(
+        self, **kwargs: Unpack[ListDatasetsRequestTypeDef]
+    ) -> ListDatasetsResponseTypeDef:
+        """
+        Retrieves a paginated list of datasets for a specific target resource.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/list_datasets.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#list_datasets)
         """
 
     def list_gateways(
-        self, *, nextToken: str = None, maxResults: int = None
+        self, **kwargs: Unpack[ListGatewaysRequestTypeDef]
     ) -> ListGatewaysResponseTypeDef:
         """
         Retrieves a paginated list of gateways.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Client.list_gateways)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client.html#list_gateways)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/list_gateways.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#list_gateways)
         """
 
     def list_portals(
-        self, *, nextToken: str = None, maxResults: int = None
+        self, **kwargs: Unpack[ListPortalsRequestTypeDef]
     ) -> ListPortalsResponseTypeDef:
         """
         Retrieves a paginated list of IoT SiteWise Monitor portals.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Client.list_portals)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client.html#list_portals)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/list_portals.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#list_portals)
         """
 
     def list_project_assets(
-        self, *, projectId: str, nextToken: str = None, maxResults: int = None
+        self, **kwargs: Unpack[ListProjectAssetsRequestTypeDef]
     ) -> ListProjectAssetsResponseTypeDef:
         """
         Retrieves a paginated list of assets associated with an IoT SiteWise Monitor
         project.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Client.list_project_assets)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client.html#list_project_assets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/list_project_assets.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#list_project_assets)
         """
 
     def list_projects(
-        self, *, portalId: str, nextToken: str = None, maxResults: int = None
+        self, **kwargs: Unpack[ListProjectsRequestTypeDef]
     ) -> ListProjectsResponseTypeDef:
         """
         Retrieves a paginated list of projects for an IoT SiteWise Monitor portal.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Client.list_projects)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client.html#list_projects)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/list_projects.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#list_projects)
         """
 
-    def list_tags_for_resource(self, *, resourceArn: str) -> ListTagsForResourceResponseTypeDef:
+    def list_tags_for_resource(
+        self, **kwargs: Unpack[ListTagsForResourceRequestTypeDef]
+    ) -> ListTagsForResourceResponseTypeDef:
         """
         Retrieves the list of tags for an IoT SiteWise resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Client.list_tags_for_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client.html#list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/list_tags_for_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#list_tags_for_resource)
         """
 
     def list_time_series(
-        self,
-        *,
-        nextToken: str = None,
-        maxResults: int = None,
-        assetId: str = None,
-        aliasPrefix: str = None,
-        timeSeriesType: ListTimeSeriesTypeType = None
+        self, **kwargs: Unpack[ListTimeSeriesRequestTypeDef]
     ) -> ListTimeSeriesResponseTypeDef:
         """
         Retrieves a paginated list of time series (data streams).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Client.list_time_series)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client.html#list_time_series)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/list_time_series.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#list_time_series)
         """
 
     def put_default_encryption_configuration(
-        self, *, encryptionType: EncryptionTypeType, kmsKeyId: str = None
+        self, **kwargs: Unpack[PutDefaultEncryptionConfigurationRequestTypeDef]
     ) -> PutDefaultEncryptionConfigurationResponseTypeDef:
         """
         Sets the default encryption configuration for the Amazon Web Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Client.put_default_encryption_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client.html#put_default_encryption_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/put_default_encryption_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#put_default_encryption_configuration)
         """
 
-    def put_logging_options(self, *, loggingOptions: "LoggingOptionsTypeDef") -> Dict[str, Any]:
+    def put_logging_options(
+        self, **kwargs: Unpack[PutLoggingOptionsRequestTypeDef]
+    ) -> Dict[str, Any]:
         """
         Sets logging options for IoT SiteWise.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Client.put_logging_options)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client.html#put_logging_options)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/put_logging_options.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#put_logging_options)
         """
 
     def put_storage_configuration(
-        self,
-        *,
-        storageType: StorageTypeType,
-        multiLayerStorage: "MultiLayerStorageTypeDef" = None,
-        disassociatedDataStorage: DisassociatedDataStorageStateType = None,
-        retentionPeriod: "RetentionPeriodTypeDef" = None,
-        warmTier: WarmTierStateType = None,
-        warmTierRetentionPeriod: "WarmTierRetentionPeriodTypeDef" = None
+        self, **kwargs: Unpack[PutStorageConfigurationRequestTypeDef]
     ) -> PutStorageConfigurationResponseTypeDef:
         """
         Configures storage settings for IoT SiteWise.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Client.put_storage_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client.html#put_storage_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/put_storage_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#put_storage_configuration)
         """
 
-    def tag_resource(self, *, resourceArn: str, tags: Dict[str, str]) -> Dict[str, Any]:
+    def tag_resource(self, **kwargs: Unpack[TagResourceRequestTypeDef]) -> Dict[str, Any]:
         """
         Adds tags to an IoT SiteWise resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Client.tag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client.html#tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/tag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#tag_resource)
         """
 
-    def untag_resource(self, *, resourceArn: str, tagKeys: List[str]) -> Dict[str, Any]:
+    def untag_resource(self, **kwargs: Unpack[UntagResourceRequestTypeDef]) -> Dict[str, Any]:
         """
         Removes a tag from an IoT SiteWise resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Client.untag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client.html#untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/untag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#untag_resource)
         """
 
     def update_access_policy(
-        self,
-        *,
-        accessPolicyId: str,
-        accessPolicyIdentity: "IdentityTypeDef",
-        accessPolicyResource: "ResourceTypeDef",
-        accessPolicyPermission: PermissionType,
-        clientToken: str = None
+        self, **kwargs: Unpack[UpdateAccessPolicyRequestTypeDef]
     ) -> Dict[str, Any]:
         """
         Updates an existing access policy that specifies an identity's access to an IoT
         SiteWise Monitor portal or project resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Client.update_access_policy)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client.html#update_access_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/update_access_policy.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#update_access_policy)
         """
 
     def update_asset(
-        self,
-        *,
-        assetId: str,
-        assetName: str,
-        clientToken: str = None,
-        assetDescription: str = None,
-        assetExternalId: str = None
+        self, **kwargs: Unpack[UpdateAssetRequestTypeDef]
     ) -> UpdateAssetResponseTypeDef:
         """
         Updates an asset's name.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Client.update_asset)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client.html#update_asset)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/update_asset.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#update_asset)
         """
 
     def update_asset_model(
-        self,
-        *,
-        assetModelId: str,
-        assetModelName: str,
-        assetModelDescription: str = None,
-        assetModelProperties: List["AssetModelPropertyTypeDef"] = None,
-        assetModelHierarchies: List["AssetModelHierarchyTypeDef"] = None,
-        assetModelCompositeModels: List["AssetModelCompositeModelTypeDef"] = None,
-        clientToken: str = None,
-        assetModelExternalId: str = None
+        self, **kwargs: Unpack[UpdateAssetModelRequestTypeDef]
     ) -> UpdateAssetModelResponseTypeDef:
         """
         Updates an asset model and all of the assets that were created from the model.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Client.update_asset_model)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client.html#update_asset_model)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/update_asset_model.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#update_asset_model)
         """
 
     def update_asset_model_composite_model(
-        self,
-        *,
-        assetModelId: str,
-        assetModelCompositeModelId: str,
-        assetModelCompositeModelName: str,
-        assetModelCompositeModelExternalId: str = None,
-        assetModelCompositeModelDescription: str = None,
-        clientToken: str = None,
-        assetModelCompositeModelProperties: List["AssetModelPropertyTypeDef"] = None
+        self, **kwargs: Unpack[UpdateAssetModelCompositeModelRequestTypeDef]
     ) -> UpdateAssetModelCompositeModelResponseTypeDef:
         """
         Updates a composite model and all of the assets that were created from the
         model.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Client.update_asset_model_composite_model)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client.html#update_asset_model_composite_model)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/update_asset_model_composite_model.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#update_asset_model_composite_model)
         """
 
     def update_asset_property(
-        self,
-        *,
-        assetId: str,
-        propertyId: str,
-        propertyAlias: str = None,
-        propertyNotificationState: PropertyNotificationStateType = None,
-        clientToken: str = None,
-        propertyUnit: str = None
-    ) -> None:
+        self, **kwargs: Unpack[UpdateAssetPropertyRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Updates an asset property's alias and notification state.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Client.update_asset_property)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client.html#update_asset_property)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/update_asset_property.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#update_asset_property)
         """
 
-    def update_dashboard(
-        self,
-        *,
-        dashboardId: str,
-        dashboardName: str,
-        dashboardDefinition: str,
-        dashboardDescription: str = None,
-        clientToken: str = None
-    ) -> Dict[str, Any]:
+    def update_dashboard(self, **kwargs: Unpack[UpdateDashboardRequestTypeDef]) -> Dict[str, Any]:
         """
         Updates an IoT SiteWise Monitor dashboard.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Client.update_dashboard)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client.html#update_dashboard)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/update_dashboard.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#update_dashboard)
         """
 
-    def update_gateway(self, *, gatewayId: str, gatewayName: str) -> None:
+    def update_dataset(
+        self, **kwargs: Unpack[UpdateDatasetRequestTypeDef]
+    ) -> UpdateDatasetResponseTypeDef:
+        """
+        Updates a dataset.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/update_dataset.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#update_dataset)
+        """
+
+    def update_gateway(
+        self, **kwargs: Unpack[UpdateGatewayRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Updates a gateway's name.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Client.update_gateway)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client.html#update_gateway)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/update_gateway.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#update_gateway)
         """
 
     def update_gateway_capability_configuration(
-        self, *, gatewayId: str, capabilityNamespace: str, capabilityConfiguration: str
+        self, **kwargs: Unpack[UpdateGatewayCapabilityConfigurationRequestTypeDef]
     ) -> UpdateGatewayCapabilityConfigurationResponseTypeDef:
         """
         Updates a gateway capability configuration or defines a new capability
         configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Client.update_gateway_capability_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client.html#update_gateway_capability_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/update_gateway_capability_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#update_gateway_capability_configuration)
         """
 
     def update_portal(
-        self,
-        *,
-        portalId: str,
-        portalName: str,
-        portalContactEmail: str,
-        roleArn: str,
-        portalDescription: str = None,
-        portalLogoImage: "ImageTypeDef" = None,
-        clientToken: str = None,
-        notificationSenderEmail: str = None,
-        alarms: "AlarmsTypeDef" = None
+        self, **kwargs: Unpack[UpdatePortalRequestTypeDef]
     ) -> UpdatePortalResponseTypeDef:
         """
         Updates an IoT SiteWise Monitor portal.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Client.update_portal)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client.html#update_portal)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/update_portal.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#update_portal)
         """
 
-    def update_project(
-        self,
-        *,
-        projectId: str,
-        projectName: str,
-        projectDescription: str = None,
-        clientToken: str = None
-    ) -> Dict[str, Any]:
+    def update_project(self, **kwargs: Unpack[UpdateProjectRequestTypeDef]) -> Dict[str, Any]:
         """
         Updates an IoT SiteWise Monitor project.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Client.update_project)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client.html#update_project)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/update_project.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#update_project)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["execute_query"]) -> ExecuteQueryPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["execute_query"]
+    ) -> ExecuteQueryPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Paginator.ExecuteQuery)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/paginators.html#executequerypaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["get_asset_property_aggregates"]
     ) -> GetAssetPropertyAggregatesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Paginator.GetAssetPropertyAggregates)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/paginators.html#getassetpropertyaggregatespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["get_asset_property_value_history"]
     ) -> GetAssetPropertyValueHistoryPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Paginator.GetAssetPropertyValueHistory)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/paginators.html#getassetpropertyvaluehistorypaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["get_interpolated_asset_property_values"]
     ) -> GetInterpolatedAssetPropertyValuesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Paginator.GetInterpolatedAssetPropertyValues)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/paginators.html#getinterpolatedassetpropertyvaluespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_access_policies"]
     ) -> ListAccessPoliciesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Paginator.ListAccessPolicies)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/paginators.html#listaccesspoliciespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_actions"]) -> ListActionsPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_actions"]
+    ) -> ListActionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Paginator.ListActions)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/paginators.html#listactionspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_asset_model_composite_models"]
     ) -> ListAssetModelCompositeModelsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Paginator.ListAssetModelCompositeModels)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/paginators.html#listassetmodelcompositemodelspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_asset_model_properties"]
     ) -> ListAssetModelPropertiesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Paginator.ListAssetModelProperties)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/paginators.html#listassetmodelpropertiespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_asset_models"]
     ) -> ListAssetModelsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Paginator.ListAssetModels)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/paginators.html#listassetmodelspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_asset_properties"]
     ) -> ListAssetPropertiesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Paginator.ListAssetProperties)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/paginators.html#listassetpropertiespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_asset_relationships"]
     ) -> ListAssetRelationshipsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Paginator.ListAssetRelationships)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/paginators.html#listassetrelationshipspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_assets"]) -> ListAssetsPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_assets"]
+    ) -> ListAssetsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Paginator.ListAssets)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/paginators.html#listassetspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_associated_assets"]
     ) -> ListAssociatedAssetsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Paginator.ListAssociatedAssets)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/paginators.html#listassociatedassetspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_bulk_import_jobs"]
     ) -> ListBulkImportJobsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Paginator.ListBulkImportJobs)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/paginators.html#listbulkimportjobspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_composition_relationships"]
     ) -> ListCompositionRelationshipsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Paginator.ListCompositionRelationships)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/paginators.html#listcompositionrelationshipspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_dashboards"]) -> ListDashboardsPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_dashboards"]
+    ) -> ListDashboardsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Paginator.ListDashboards)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/paginators.html#listdashboardspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_gateways"]) -> ListGatewaysPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_datasets"]
+    ) -> ListDatasetsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Paginator.ListGateways)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/paginators.html#listgatewayspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_portals"]) -> ListPortalsPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_gateways"]
+    ) -> ListGatewaysPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Paginator.ListPortals)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/paginators.html#listportalspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_portals"]
+    ) -> ListPortalsPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_project_assets"]
     ) -> ListProjectAssetsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Paginator.ListProjectAssets)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/paginators.html#listprojectassetspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_projects"]) -> ListProjectsPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_projects"]
+    ) -> ListProjectsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Paginator.ListProjects)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/paginators.html#listprojectspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_time_series"]) -> ListTimeSeriesPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_time_series"]
+    ) -> ListTimeSeriesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Paginator.ListTimeSeries)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/paginators.html#listtimeseriespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#get_paginator)
         """
 
-    @overload
-    def get_waiter(self, waiter_name: Literal["asset_active"]) -> AssetActiveWaiter:
+    @overload  # type: ignore[override]
+    def get_waiter(  # type: ignore[override]
+        self, waiter_name: Literal["asset_active"]
+    ) -> AssetActiveWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Waiter.AssetActive)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/waiters.html#assetactivewaiter)
+        Returns an object that can wait for some condition.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/get_waiter.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#get_waiter)
         """
 
-    @overload
-    def get_waiter(self, waiter_name: Literal["asset_model_active"]) -> AssetModelActiveWaiter:
+    @overload  # type: ignore[override]
+    def get_waiter(  # type: ignore[override]
+        self, waiter_name: Literal["asset_model_active"]
+    ) -> AssetModelActiveWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Waiter.AssetModelActive)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/waiters.html#assetmodelactivewaiter)
+        Returns an object that can wait for some condition.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/get_waiter.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#get_waiter)
         """
 
-    @overload
-    def get_waiter(
+    @overload  # type: ignore[override]
+    def get_waiter(  # type: ignore[override]
         self, waiter_name: Literal["asset_model_not_exists"]
     ) -> AssetModelNotExistsWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Waiter.AssetModelNotExists)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/waiters.html#assetmodelnotexistswaiter)
+        Returns an object that can wait for some condition.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/get_waiter.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#get_waiter)
         """
 
-    @overload
-    def get_waiter(self, waiter_name: Literal["asset_not_exists"]) -> AssetNotExistsWaiter:
+    @overload  # type: ignore[override]
+    def get_waiter(  # type: ignore[override]
+        self, waiter_name: Literal["asset_not_exists"]
+    ) -> AssetNotExistsWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Waiter.AssetNotExists)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/waiters.html#assetnotexistswaiter)
+        Returns an object that can wait for some condition.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/get_waiter.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#get_waiter)
         """
 
-    @overload
-    def get_waiter(self, waiter_name: Literal["portal_active"]) -> PortalActiveWaiter:
+    @overload  # type: ignore[override]
+    def get_waiter(  # type: ignore[override]
+        self, waiter_name: Literal["portal_active"]
+    ) -> PortalActiveWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Waiter.PortalActive)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/waiters.html#portalactivewaiter)
+        Returns an object that can wait for some condition.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/get_waiter.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#get_waiter)
         """
 
-    @overload
-    def get_waiter(self, waiter_name: Literal["portal_not_exists"]) -> PortalNotExistsWaiter:
+    @overload  # type: ignore[override]
+    def get_waiter(  # type: ignore[override]
+        self, waiter_name: Literal["portal_not_exists"]
+    ) -> PortalNotExistsWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotsitewise.html#IoTSiteWise.Waiter.PortalNotExists)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/waiters.html#portalnotexistswaiter)
+        Returns an object that can wait for some condition.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise/client/get_waiter.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsitewise/client/#get_waiter)
         """

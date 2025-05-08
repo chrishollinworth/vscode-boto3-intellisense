@@ -1,20 +1,24 @@
 """
 Type annotations for codeartifact service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeartifact/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codeartifact/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_codeartifact.type_defs import AssetSummaryTypeDef
 
-    data: AssetSummaryTypeDef = {...}
+    data: AssetSummaryTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import IO, Any, Dict, List, Union
+from typing import IO, Any, Union
 
 from botocore.response import StreamingBody
 
@@ -22,6 +26,7 @@ from .literals import (
     AllowPublishType,
     AllowUpstreamType,
     DomainStatusType,
+    EndpointTypeType,
     HashAlgorithmType,
     PackageFormatType,
     PackageGroupAllowedRepositoryUpdateTypeType,
@@ -33,97 +38,110 @@ from .literals import (
     PackageVersionStatusType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
     "AssetSummaryTypeDef",
-    "AssociateExternalConnectionRequestRequestTypeDef",
+    "AssociateExternalConnectionRequestTypeDef",
     "AssociateExternalConnectionResultTypeDef",
     "AssociatedPackageTypeDef",
-    "CopyPackageVersionsRequestRequestTypeDef",
+    "BlobTypeDef",
+    "CopyPackageVersionsRequestTypeDef",
     "CopyPackageVersionsResultTypeDef",
-    "CreateDomainRequestRequestTypeDef",
+    "CreateDomainRequestTypeDef",
     "CreateDomainResultTypeDef",
-    "CreatePackageGroupRequestRequestTypeDef",
+    "CreatePackageGroupRequestTypeDef",
     "CreatePackageGroupResultTypeDef",
-    "CreateRepositoryRequestRequestTypeDef",
+    "CreateRepositoryRequestTypeDef",
     "CreateRepositoryResultTypeDef",
-    "DeleteDomainPermissionsPolicyRequestRequestTypeDef",
+    "DeleteDomainPermissionsPolicyRequestTypeDef",
     "DeleteDomainPermissionsPolicyResultTypeDef",
-    "DeleteDomainRequestRequestTypeDef",
+    "DeleteDomainRequestTypeDef",
     "DeleteDomainResultTypeDef",
-    "DeletePackageGroupRequestRequestTypeDef",
+    "DeletePackageGroupRequestTypeDef",
     "DeletePackageGroupResultTypeDef",
-    "DeletePackageRequestRequestTypeDef",
+    "DeletePackageRequestTypeDef",
     "DeletePackageResultTypeDef",
-    "DeletePackageVersionsRequestRequestTypeDef",
+    "DeletePackageVersionsRequestTypeDef",
     "DeletePackageVersionsResultTypeDef",
-    "DeleteRepositoryPermissionsPolicyRequestRequestTypeDef",
+    "DeleteRepositoryPermissionsPolicyRequestTypeDef",
     "DeleteRepositoryPermissionsPolicyResultTypeDef",
-    "DeleteRepositoryRequestRequestTypeDef",
+    "DeleteRepositoryRequestTypeDef",
     "DeleteRepositoryResultTypeDef",
-    "DescribeDomainRequestRequestTypeDef",
+    "DescribeDomainRequestTypeDef",
     "DescribeDomainResultTypeDef",
-    "DescribePackageGroupRequestRequestTypeDef",
+    "DescribePackageGroupRequestTypeDef",
     "DescribePackageGroupResultTypeDef",
-    "DescribePackageRequestRequestTypeDef",
+    "DescribePackageRequestTypeDef",
     "DescribePackageResultTypeDef",
-    "DescribePackageVersionRequestRequestTypeDef",
+    "DescribePackageVersionRequestTypeDef",
     "DescribePackageVersionResultTypeDef",
-    "DescribeRepositoryRequestRequestTypeDef",
+    "DescribeRepositoryRequestTypeDef",
     "DescribeRepositoryResultTypeDef",
-    "DisassociateExternalConnectionRequestRequestTypeDef",
+    "DisassociateExternalConnectionRequestTypeDef",
     "DisassociateExternalConnectionResultTypeDef",
-    "DisposePackageVersionsRequestRequestTypeDef",
+    "DisposePackageVersionsRequestTypeDef",
     "DisposePackageVersionsResultTypeDef",
     "DomainDescriptionTypeDef",
     "DomainEntryPointTypeDef",
     "DomainSummaryTypeDef",
-    "GetAssociatedPackageGroupRequestRequestTypeDef",
+    "GetAssociatedPackageGroupRequestTypeDef",
     "GetAssociatedPackageGroupResultTypeDef",
-    "GetAuthorizationTokenRequestRequestTypeDef",
+    "GetAuthorizationTokenRequestTypeDef",
     "GetAuthorizationTokenResultTypeDef",
-    "GetDomainPermissionsPolicyRequestRequestTypeDef",
+    "GetDomainPermissionsPolicyRequestTypeDef",
     "GetDomainPermissionsPolicyResultTypeDef",
-    "GetPackageVersionAssetRequestRequestTypeDef",
+    "GetPackageVersionAssetRequestTypeDef",
     "GetPackageVersionAssetResultTypeDef",
-    "GetPackageVersionReadmeRequestRequestTypeDef",
+    "GetPackageVersionReadmeRequestTypeDef",
     "GetPackageVersionReadmeResultTypeDef",
-    "GetRepositoryEndpointRequestRequestTypeDef",
+    "GetRepositoryEndpointRequestTypeDef",
     "GetRepositoryEndpointResultTypeDef",
-    "GetRepositoryPermissionsPolicyRequestRequestTypeDef",
+    "GetRepositoryPermissionsPolicyRequestTypeDef",
     "GetRepositoryPermissionsPolicyResultTypeDef",
     "LicenseInfoTypeDef",
-    "ListAllowedRepositoriesForGroupRequestRequestTypeDef",
+    "ListAllowedRepositoriesForGroupRequestPaginateTypeDef",
+    "ListAllowedRepositoriesForGroupRequestTypeDef",
     "ListAllowedRepositoriesForGroupResultTypeDef",
-    "ListAssociatedPackagesRequestRequestTypeDef",
+    "ListAssociatedPackagesRequestPaginateTypeDef",
+    "ListAssociatedPackagesRequestTypeDef",
     "ListAssociatedPackagesResultTypeDef",
-    "ListDomainsRequestRequestTypeDef",
+    "ListDomainsRequestPaginateTypeDef",
+    "ListDomainsRequestTypeDef",
     "ListDomainsResultTypeDef",
-    "ListPackageGroupsRequestRequestTypeDef",
+    "ListPackageGroupsRequestPaginateTypeDef",
+    "ListPackageGroupsRequestTypeDef",
     "ListPackageGroupsResultTypeDef",
-    "ListPackageVersionAssetsRequestRequestTypeDef",
+    "ListPackageVersionAssetsRequestPaginateTypeDef",
+    "ListPackageVersionAssetsRequestTypeDef",
     "ListPackageVersionAssetsResultTypeDef",
-    "ListPackageVersionDependenciesRequestRequestTypeDef",
+    "ListPackageVersionDependenciesRequestTypeDef",
     "ListPackageVersionDependenciesResultTypeDef",
-    "ListPackageVersionsRequestRequestTypeDef",
+    "ListPackageVersionsRequestPaginateTypeDef",
+    "ListPackageVersionsRequestTypeDef",
     "ListPackageVersionsResultTypeDef",
-    "ListPackagesRequestRequestTypeDef",
+    "ListPackagesRequestPaginateTypeDef",
+    "ListPackagesRequestTypeDef",
     "ListPackagesResultTypeDef",
-    "ListRepositoriesInDomainRequestRequestTypeDef",
+    "ListRepositoriesInDomainRequestPaginateTypeDef",
+    "ListRepositoriesInDomainRequestTypeDef",
     "ListRepositoriesInDomainResultTypeDef",
-    "ListRepositoriesRequestRequestTypeDef",
+    "ListRepositoriesRequestPaginateTypeDef",
+    "ListRepositoriesRequestTypeDef",
     "ListRepositoriesResultTypeDef",
-    "ListSubPackageGroupsRequestRequestTypeDef",
+    "ListSubPackageGroupsRequestPaginateTypeDef",
+    "ListSubPackageGroupsRequestTypeDef",
     "ListSubPackageGroupsResultTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResultTypeDef",
     "PackageDependencyTypeDef",
     "PackageDescriptionTypeDef",
@@ -141,13 +159,13 @@ __all__ = (
     "PackageVersionOriginTypeDef",
     "PackageVersionSummaryTypeDef",
     "PaginatorConfigTypeDef",
-    "PublishPackageVersionRequestRequestTypeDef",
+    "PublishPackageVersionRequestTypeDef",
     "PublishPackageVersionResultTypeDef",
-    "PutDomainPermissionsPolicyRequestRequestTypeDef",
+    "PutDomainPermissionsPolicyRequestTypeDef",
     "PutDomainPermissionsPolicyResultTypeDef",
-    "PutPackageOriginConfigurationRequestRequestTypeDef",
+    "PutPackageOriginConfigurationRequestTypeDef",
     "PutPackageOriginConfigurationResultTypeDef",
-    "PutRepositoryPermissionsPolicyRequestRequestTypeDef",
+    "PutRepositoryPermissionsPolicyRequestTypeDef",
     "PutRepositoryPermissionsPolicyResultTypeDef",
     "RepositoryDescriptionTypeDef",
     "RepositoryExternalConnectionInfoTypeDef",
@@ -155,763 +173,240 @@ __all__ = (
     "ResourcePolicyTypeDef",
     "ResponseMetadataTypeDef",
     "SuccessfulPackageVersionInfoTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
     "TagTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdatePackageGroupOriginConfigurationRequestRequestTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdatePackageGroupOriginConfigurationRequestTypeDef",
     "UpdatePackageGroupOriginConfigurationResultTypeDef",
-    "UpdatePackageGroupRequestRequestTypeDef",
+    "UpdatePackageGroupRequestTypeDef",
     "UpdatePackageGroupResultTypeDef",
-    "UpdatePackageVersionsStatusRequestRequestTypeDef",
+    "UpdatePackageVersionsStatusRequestTypeDef",
     "UpdatePackageVersionsStatusResultTypeDef",
-    "UpdateRepositoryRequestRequestTypeDef",
+    "UpdateRepositoryRequestTypeDef",
     "UpdateRepositoryResultTypeDef",
     "UpstreamRepositoryInfoTypeDef",
     "UpstreamRepositoryTypeDef",
 )
 
-_RequiredAssetSummaryTypeDef = TypedDict(
-    "_RequiredAssetSummaryTypeDef",
-    {
-        "name": str,
-    },
-)
-_OptionalAssetSummaryTypeDef = TypedDict(
-    "_OptionalAssetSummaryTypeDef",
-    {
-        "size": int,
-        "hashes": Dict[HashAlgorithmType, str],
-    },
-    total=False,
-)
+class AssetSummaryTypeDef(TypedDict):
+    name: str
+    size: NotRequired[int]
+    hashes: NotRequired[Dict[HashAlgorithmType, str]]
 
-class AssetSummaryTypeDef(_RequiredAssetSummaryTypeDef, _OptionalAssetSummaryTypeDef):
-    pass
+class AssociateExternalConnectionRequestTypeDef(TypedDict):
+    domain: str
+    repository: str
+    externalConnection: str
+    domainOwner: NotRequired[str]
 
-_RequiredAssociateExternalConnectionRequestRequestTypeDef = TypedDict(
-    "_RequiredAssociateExternalConnectionRequestRequestTypeDef",
-    {
-        "domain": str,
-        "repository": str,
-        "externalConnection": str,
-    },
-)
-_OptionalAssociateExternalConnectionRequestRequestTypeDef = TypedDict(
-    "_OptionalAssociateExternalConnectionRequestRequestTypeDef",
-    {
-        "domainOwner": str,
-    },
-    total=False,
-)
-
-class AssociateExternalConnectionRequestRequestTypeDef(
-    _RequiredAssociateExternalConnectionRequestRequestTypeDef,
-    _OptionalAssociateExternalConnectionRequestRequestTypeDef,
-):
-    pass
-
-AssociateExternalConnectionResultTypeDef = TypedDict(
-    "AssociateExternalConnectionResultTypeDef",
-    {
-        "repository": "RepositoryDescriptionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
 AssociatedPackageTypeDef = TypedDict(
     "AssociatedPackageTypeDef",
     {
-        "format": PackageFormatType,
-        "namespace": str,
-        "package": str,
-        "associationType": PackageGroupAssociationTypeType,
+        "format": NotRequired[PackageFormatType],
+        "namespace": NotRequired[str],
+        "package": NotRequired[str],
+        "associationType": NotRequired[PackageGroupAssociationTypeType],
     },
-    total=False,
 )
-
-_RequiredCopyPackageVersionsRequestRequestTypeDef = TypedDict(
-    "_RequiredCopyPackageVersionsRequestRequestTypeDef",
+BlobTypeDef = Union[str, bytes, IO[Any], StreamingBody]
+CopyPackageVersionsRequestTypeDef = TypedDict(
+    "CopyPackageVersionsRequestTypeDef",
     {
         "domain": str,
         "sourceRepository": str,
         "destinationRepository": str,
         "format": PackageFormatType,
         "package": str,
-    },
-)
-_OptionalCopyPackageVersionsRequestRequestTypeDef = TypedDict(
-    "_OptionalCopyPackageVersionsRequestRequestTypeDef",
-    {
-        "domainOwner": str,
-        "namespace": str,
-        "versions": List[str],
-        "versionRevisions": Dict[str, str],
-        "allowOverwrite": bool,
-        "includeFromUpstream": bool,
-    },
-    total=False,
-)
-
-class CopyPackageVersionsRequestRequestTypeDef(
-    _RequiredCopyPackageVersionsRequestRequestTypeDef,
-    _OptionalCopyPackageVersionsRequestRequestTypeDef,
-):
-    pass
-
-CopyPackageVersionsResultTypeDef = TypedDict(
-    "CopyPackageVersionsResultTypeDef",
-    {
-        "successfulVersions": Dict[str, "SuccessfulPackageVersionInfoTypeDef"],
-        "failedVersions": Dict[str, "PackageVersionErrorTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "domainOwner": NotRequired[str],
+        "namespace": NotRequired[str],
+        "versions": NotRequired[Sequence[str]],
+        "versionRevisions": NotRequired[Mapping[str, str]],
+        "allowOverwrite": NotRequired[bool],
+        "includeFromUpstream": NotRequired[bool],
     },
 )
 
-_RequiredCreateDomainRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateDomainRequestRequestTypeDef",
-    {
-        "domain": str,
-    },
-)
-_OptionalCreateDomainRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateDomainRequestRequestTypeDef",
-    {
-        "encryptionKey": str,
-        "tags": List["TagTypeDef"],
-    },
-    total=False,
-)
+class PackageVersionErrorTypeDef(TypedDict):
+    errorCode: NotRequired[PackageVersionErrorCodeType]
+    errorMessage: NotRequired[str]
 
-class CreateDomainRequestRequestTypeDef(
-    _RequiredCreateDomainRequestRequestTypeDef, _OptionalCreateDomainRequestRequestTypeDef
-):
-    pass
+class SuccessfulPackageVersionInfoTypeDef(TypedDict):
+    revision: NotRequired[str]
+    status: NotRequired[PackageVersionStatusType]
 
-CreateDomainResultTypeDef = TypedDict(
-    "CreateDomainResultTypeDef",
-    {
-        "domain": "DomainDescriptionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class TagTypeDef(TypedDict):
+    key: str
+    value: str
 
-_RequiredCreatePackageGroupRequestRequestTypeDef = TypedDict(
-    "_RequiredCreatePackageGroupRequestRequestTypeDef",
-    {
-        "domain": str,
-        "packageGroup": str,
-    },
-)
-_OptionalCreatePackageGroupRequestRequestTypeDef = TypedDict(
-    "_OptionalCreatePackageGroupRequestRequestTypeDef",
-    {
-        "domainOwner": str,
-        "contactInfo": str,
-        "description": str,
-        "tags": List["TagTypeDef"],
-    },
-    total=False,
-)
+class DomainDescriptionTypeDef(TypedDict):
+    name: NotRequired[str]
+    owner: NotRequired[str]
+    arn: NotRequired[str]
+    status: NotRequired[DomainStatusType]
+    createdTime: NotRequired[datetime]
+    encryptionKey: NotRequired[str]
+    repositoryCount: NotRequired[int]
+    assetSizeBytes: NotRequired[int]
+    s3BucketArn: NotRequired[str]
 
-class CreatePackageGroupRequestRequestTypeDef(
-    _RequiredCreatePackageGroupRequestRequestTypeDef,
-    _OptionalCreatePackageGroupRequestRequestTypeDef,
-):
-    pass
+class UpstreamRepositoryTypeDef(TypedDict):
+    repositoryName: str
 
-CreatePackageGroupResultTypeDef = TypedDict(
-    "CreatePackageGroupResultTypeDef",
-    {
-        "packageGroup": "PackageGroupDescriptionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DeleteDomainPermissionsPolicyRequestTypeDef(TypedDict):
+    domain: str
+    domainOwner: NotRequired[str]
+    policyRevision: NotRequired[str]
 
-_RequiredCreateRepositoryRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateRepositoryRequestRequestTypeDef",
-    {
-        "domain": str,
-        "repository": str,
-    },
-)
-_OptionalCreateRepositoryRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateRepositoryRequestRequestTypeDef",
-    {
-        "domainOwner": str,
-        "description": str,
-        "upstreams": List["UpstreamRepositoryTypeDef"],
-        "tags": List["TagTypeDef"],
-    },
-    total=False,
-)
+class ResourcePolicyTypeDef(TypedDict):
+    resourceArn: NotRequired[str]
+    revision: NotRequired[str]
+    document: NotRequired[str]
 
-class CreateRepositoryRequestRequestTypeDef(
-    _RequiredCreateRepositoryRequestRequestTypeDef, _OptionalCreateRepositoryRequestRequestTypeDef
-):
-    pass
+class DeleteDomainRequestTypeDef(TypedDict):
+    domain: str
+    domainOwner: NotRequired[str]
 
-CreateRepositoryResultTypeDef = TypedDict(
-    "CreateRepositoryResultTypeDef",
-    {
-        "repository": "RepositoryDescriptionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DeletePackageGroupRequestTypeDef(TypedDict):
+    domain: str
+    packageGroup: str
+    domainOwner: NotRequired[str]
 
-_RequiredDeleteDomainPermissionsPolicyRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteDomainPermissionsPolicyRequestRequestTypeDef",
-    {
-        "domain": str,
-    },
-)
-_OptionalDeleteDomainPermissionsPolicyRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteDomainPermissionsPolicyRequestRequestTypeDef",
-    {
-        "domainOwner": str,
-        "policyRevision": str,
-    },
-    total=False,
-)
-
-class DeleteDomainPermissionsPolicyRequestRequestTypeDef(
-    _RequiredDeleteDomainPermissionsPolicyRequestRequestTypeDef,
-    _OptionalDeleteDomainPermissionsPolicyRequestRequestTypeDef,
-):
-    pass
-
-DeleteDomainPermissionsPolicyResultTypeDef = TypedDict(
-    "DeleteDomainPermissionsPolicyResultTypeDef",
-    {
-        "policy": "ResourcePolicyTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDeleteDomainRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteDomainRequestRequestTypeDef",
-    {
-        "domain": str,
-    },
-)
-_OptionalDeleteDomainRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteDomainRequestRequestTypeDef",
-    {
-        "domainOwner": str,
-    },
-    total=False,
-)
-
-class DeleteDomainRequestRequestTypeDef(
-    _RequiredDeleteDomainRequestRequestTypeDef, _OptionalDeleteDomainRequestRequestTypeDef
-):
-    pass
-
-DeleteDomainResultTypeDef = TypedDict(
-    "DeleteDomainResultTypeDef",
-    {
-        "domain": "DomainDescriptionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDeletePackageGroupRequestRequestTypeDef = TypedDict(
-    "_RequiredDeletePackageGroupRequestRequestTypeDef",
-    {
-        "domain": str,
-        "packageGroup": str,
-    },
-)
-_OptionalDeletePackageGroupRequestRequestTypeDef = TypedDict(
-    "_OptionalDeletePackageGroupRequestRequestTypeDef",
-    {
-        "domainOwner": str,
-    },
-    total=False,
-)
-
-class DeletePackageGroupRequestRequestTypeDef(
-    _RequiredDeletePackageGroupRequestRequestTypeDef,
-    _OptionalDeletePackageGroupRequestRequestTypeDef,
-):
-    pass
-
-DeletePackageGroupResultTypeDef = TypedDict(
-    "DeletePackageGroupResultTypeDef",
-    {
-        "packageGroup": "PackageGroupDescriptionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDeletePackageRequestRequestTypeDef = TypedDict(
-    "_RequiredDeletePackageRequestRequestTypeDef",
+DeletePackageRequestTypeDef = TypedDict(
+    "DeletePackageRequestTypeDef",
     {
         "domain": str,
         "repository": str,
         "format": PackageFormatType,
         "package": str,
+        "domainOwner": NotRequired[str],
+        "namespace": NotRequired[str],
     },
 )
-_OptionalDeletePackageRequestRequestTypeDef = TypedDict(
-    "_OptionalDeletePackageRequestRequestTypeDef",
-    {
-        "domainOwner": str,
-        "namespace": str,
-    },
-    total=False,
-)
-
-class DeletePackageRequestRequestTypeDef(
-    _RequiredDeletePackageRequestRequestTypeDef, _OptionalDeletePackageRequestRequestTypeDef
-):
-    pass
-
-DeletePackageResultTypeDef = TypedDict(
-    "DeletePackageResultTypeDef",
-    {
-        "deletedPackage": "PackageSummaryTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDeletePackageVersionsRequestRequestTypeDef = TypedDict(
-    "_RequiredDeletePackageVersionsRequestRequestTypeDef",
+DeletePackageVersionsRequestTypeDef = TypedDict(
+    "DeletePackageVersionsRequestTypeDef",
     {
         "domain": str,
         "repository": str,
         "format": PackageFormatType,
         "package": str,
-        "versions": List[str],
-    },
-)
-_OptionalDeletePackageVersionsRequestRequestTypeDef = TypedDict(
-    "_OptionalDeletePackageVersionsRequestRequestTypeDef",
-    {
-        "domainOwner": str,
-        "namespace": str,
-        "expectedStatus": PackageVersionStatusType,
-    },
-    total=False,
-)
-
-class DeletePackageVersionsRequestRequestTypeDef(
-    _RequiredDeletePackageVersionsRequestRequestTypeDef,
-    _OptionalDeletePackageVersionsRequestRequestTypeDef,
-):
-    pass
-
-DeletePackageVersionsResultTypeDef = TypedDict(
-    "DeletePackageVersionsResultTypeDef",
-    {
-        "successfulVersions": Dict[str, "SuccessfulPackageVersionInfoTypeDef"],
-        "failedVersions": Dict[str, "PackageVersionErrorTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "versions": Sequence[str],
+        "domainOwner": NotRequired[str],
+        "namespace": NotRequired[str],
+        "expectedStatus": NotRequired[PackageVersionStatusType],
     },
 )
 
-_RequiredDeleteRepositoryPermissionsPolicyRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteRepositoryPermissionsPolicyRequestRequestTypeDef",
-    {
-        "domain": str,
-        "repository": str,
-    },
-)
-_OptionalDeleteRepositoryPermissionsPolicyRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteRepositoryPermissionsPolicyRequestRequestTypeDef",
-    {
-        "domainOwner": str,
-        "policyRevision": str,
-    },
-    total=False,
-)
+class DeleteRepositoryPermissionsPolicyRequestTypeDef(TypedDict):
+    domain: str
+    repository: str
+    domainOwner: NotRequired[str]
+    policyRevision: NotRequired[str]
 
-class DeleteRepositoryPermissionsPolicyRequestRequestTypeDef(
-    _RequiredDeleteRepositoryPermissionsPolicyRequestRequestTypeDef,
-    _OptionalDeleteRepositoryPermissionsPolicyRequestRequestTypeDef,
-):
-    pass
+class DeleteRepositoryRequestTypeDef(TypedDict):
+    domain: str
+    repository: str
+    domainOwner: NotRequired[str]
 
-DeleteRepositoryPermissionsPolicyResultTypeDef = TypedDict(
-    "DeleteRepositoryPermissionsPolicyResultTypeDef",
-    {
-        "policy": "ResourcePolicyTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DescribeDomainRequestTypeDef(TypedDict):
+    domain: str
+    domainOwner: NotRequired[str]
 
-_RequiredDeleteRepositoryRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteRepositoryRequestRequestTypeDef",
-    {
-        "domain": str,
-        "repository": str,
-    },
-)
-_OptionalDeleteRepositoryRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteRepositoryRequestRequestTypeDef",
-    {
-        "domainOwner": str,
-    },
-    total=False,
-)
+class DescribePackageGroupRequestTypeDef(TypedDict):
+    domain: str
+    packageGroup: str
+    domainOwner: NotRequired[str]
 
-class DeleteRepositoryRequestRequestTypeDef(
-    _RequiredDeleteRepositoryRequestRequestTypeDef, _OptionalDeleteRepositoryRequestRequestTypeDef
-):
-    pass
-
-DeleteRepositoryResultTypeDef = TypedDict(
-    "DeleteRepositoryResultTypeDef",
-    {
-        "repository": "RepositoryDescriptionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribeDomainRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeDomainRequestRequestTypeDef",
-    {
-        "domain": str,
-    },
-)
-_OptionalDescribeDomainRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeDomainRequestRequestTypeDef",
-    {
-        "domainOwner": str,
-    },
-    total=False,
-)
-
-class DescribeDomainRequestRequestTypeDef(
-    _RequiredDescribeDomainRequestRequestTypeDef, _OptionalDescribeDomainRequestRequestTypeDef
-):
-    pass
-
-DescribeDomainResultTypeDef = TypedDict(
-    "DescribeDomainResultTypeDef",
-    {
-        "domain": "DomainDescriptionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribePackageGroupRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribePackageGroupRequestRequestTypeDef",
-    {
-        "domain": str,
-        "packageGroup": str,
-    },
-)
-_OptionalDescribePackageGroupRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribePackageGroupRequestRequestTypeDef",
-    {
-        "domainOwner": str,
-    },
-    total=False,
-)
-
-class DescribePackageGroupRequestRequestTypeDef(
-    _RequiredDescribePackageGroupRequestRequestTypeDef,
-    _OptionalDescribePackageGroupRequestRequestTypeDef,
-):
-    pass
-
-DescribePackageGroupResultTypeDef = TypedDict(
-    "DescribePackageGroupResultTypeDef",
-    {
-        "packageGroup": "PackageGroupDescriptionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribePackageRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribePackageRequestRequestTypeDef",
+DescribePackageRequestTypeDef = TypedDict(
+    "DescribePackageRequestTypeDef",
     {
         "domain": str,
         "repository": str,
         "format": PackageFormatType,
         "package": str,
+        "domainOwner": NotRequired[str],
+        "namespace": NotRequired[str],
     },
 )
-_OptionalDescribePackageRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribePackageRequestRequestTypeDef",
-    {
-        "domainOwner": str,
-        "namespace": str,
-    },
-    total=False,
-)
-
-class DescribePackageRequestRequestTypeDef(
-    _RequiredDescribePackageRequestRequestTypeDef, _OptionalDescribePackageRequestRequestTypeDef
-):
-    pass
-
-DescribePackageResultTypeDef = TypedDict(
-    "DescribePackageResultTypeDef",
-    {
-        "package": "PackageDescriptionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribePackageVersionRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribePackageVersionRequestRequestTypeDef",
+DescribePackageVersionRequestTypeDef = TypedDict(
+    "DescribePackageVersionRequestTypeDef",
     {
         "domain": str,
         "repository": str,
         "format": PackageFormatType,
         "package": str,
         "packageVersion": str,
-    },
-)
-_OptionalDescribePackageVersionRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribePackageVersionRequestRequestTypeDef",
-    {
-        "domainOwner": str,
-        "namespace": str,
-    },
-    total=False,
-)
-
-class DescribePackageVersionRequestRequestTypeDef(
-    _RequiredDescribePackageVersionRequestRequestTypeDef,
-    _OptionalDescribePackageVersionRequestRequestTypeDef,
-):
-    pass
-
-DescribePackageVersionResultTypeDef = TypedDict(
-    "DescribePackageVersionResultTypeDef",
-    {
-        "packageVersion": "PackageVersionDescriptionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "domainOwner": NotRequired[str],
+        "namespace": NotRequired[str],
     },
 )
 
-_RequiredDescribeRepositoryRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeRepositoryRequestRequestTypeDef",
-    {
-        "domain": str,
-        "repository": str,
-    },
-)
-_OptionalDescribeRepositoryRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeRepositoryRequestRequestTypeDef",
-    {
-        "domainOwner": str,
-    },
-    total=False,
-)
+class DescribeRepositoryRequestTypeDef(TypedDict):
+    domain: str
+    repository: str
+    domainOwner: NotRequired[str]
 
-class DescribeRepositoryRequestRequestTypeDef(
-    _RequiredDescribeRepositoryRequestRequestTypeDef,
-    _OptionalDescribeRepositoryRequestRequestTypeDef,
-):
-    pass
+class DisassociateExternalConnectionRequestTypeDef(TypedDict):
+    domain: str
+    repository: str
+    externalConnection: str
+    domainOwner: NotRequired[str]
 
-DescribeRepositoryResultTypeDef = TypedDict(
-    "DescribeRepositoryResultTypeDef",
-    {
-        "repository": "RepositoryDescriptionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDisassociateExternalConnectionRequestRequestTypeDef = TypedDict(
-    "_RequiredDisassociateExternalConnectionRequestRequestTypeDef",
-    {
-        "domain": str,
-        "repository": str,
-        "externalConnection": str,
-    },
-)
-_OptionalDisassociateExternalConnectionRequestRequestTypeDef = TypedDict(
-    "_OptionalDisassociateExternalConnectionRequestRequestTypeDef",
-    {
-        "domainOwner": str,
-    },
-    total=False,
-)
-
-class DisassociateExternalConnectionRequestRequestTypeDef(
-    _RequiredDisassociateExternalConnectionRequestRequestTypeDef,
-    _OptionalDisassociateExternalConnectionRequestRequestTypeDef,
-):
-    pass
-
-DisassociateExternalConnectionResultTypeDef = TypedDict(
-    "DisassociateExternalConnectionResultTypeDef",
-    {
-        "repository": "RepositoryDescriptionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDisposePackageVersionsRequestRequestTypeDef = TypedDict(
-    "_RequiredDisposePackageVersionsRequestRequestTypeDef",
+DisposePackageVersionsRequestTypeDef = TypedDict(
+    "DisposePackageVersionsRequestTypeDef",
     {
         "domain": str,
         "repository": str,
         "format": PackageFormatType,
         "package": str,
-        "versions": List[str],
-    },
-)
-_OptionalDisposePackageVersionsRequestRequestTypeDef = TypedDict(
-    "_OptionalDisposePackageVersionsRequestRequestTypeDef",
-    {
-        "domainOwner": str,
-        "namespace": str,
-        "versionRevisions": Dict[str, str],
-        "expectedStatus": PackageVersionStatusType,
-    },
-    total=False,
-)
-
-class DisposePackageVersionsRequestRequestTypeDef(
-    _RequiredDisposePackageVersionsRequestRequestTypeDef,
-    _OptionalDisposePackageVersionsRequestRequestTypeDef,
-):
-    pass
-
-DisposePackageVersionsResultTypeDef = TypedDict(
-    "DisposePackageVersionsResultTypeDef",
-    {
-        "successfulVersions": Dict[str, "SuccessfulPackageVersionInfoTypeDef"],
-        "failedVersions": Dict[str, "PackageVersionErrorTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "versions": Sequence[str],
+        "domainOwner": NotRequired[str],
+        "namespace": NotRequired[str],
+        "versionRevisions": NotRequired[Mapping[str, str]],
+        "expectedStatus": NotRequired[PackageVersionStatusType],
     },
 )
 
-DomainDescriptionTypeDef = TypedDict(
-    "DomainDescriptionTypeDef",
-    {
-        "name": str,
-        "owner": str,
-        "arn": str,
-        "status": DomainStatusType,
-        "createdTime": datetime,
-        "encryptionKey": str,
-        "repositoryCount": int,
-        "assetSizeBytes": int,
-        "s3BucketArn": str,
-    },
-    total=False,
-)
+class DomainEntryPointTypeDef(TypedDict):
+    repositoryName: NotRequired[str]
+    externalConnectionName: NotRequired[str]
 
-DomainEntryPointTypeDef = TypedDict(
-    "DomainEntryPointTypeDef",
-    {
-        "repositoryName": str,
-        "externalConnectionName": str,
-    },
-    total=False,
-)
+class DomainSummaryTypeDef(TypedDict):
+    name: NotRequired[str]
+    owner: NotRequired[str]
+    arn: NotRequired[str]
+    status: NotRequired[DomainStatusType]
+    createdTime: NotRequired[datetime]
+    encryptionKey: NotRequired[str]
 
-DomainSummaryTypeDef = TypedDict(
-    "DomainSummaryTypeDef",
-    {
-        "name": str,
-        "owner": str,
-        "arn": str,
-        "status": DomainStatusType,
-        "createdTime": datetime,
-        "encryptionKey": str,
-    },
-    total=False,
-)
-
-_RequiredGetAssociatedPackageGroupRequestRequestTypeDef = TypedDict(
-    "_RequiredGetAssociatedPackageGroupRequestRequestTypeDef",
+GetAssociatedPackageGroupRequestTypeDef = TypedDict(
+    "GetAssociatedPackageGroupRequestTypeDef",
     {
         "domain": str,
         "format": PackageFormatType,
         "package": str,
-    },
-)
-_OptionalGetAssociatedPackageGroupRequestRequestTypeDef = TypedDict(
-    "_OptionalGetAssociatedPackageGroupRequestRequestTypeDef",
-    {
-        "domainOwner": str,
-        "namespace": str,
-    },
-    total=False,
-)
-
-class GetAssociatedPackageGroupRequestRequestTypeDef(
-    _RequiredGetAssociatedPackageGroupRequestRequestTypeDef,
-    _OptionalGetAssociatedPackageGroupRequestRequestTypeDef,
-):
-    pass
-
-GetAssociatedPackageGroupResultTypeDef = TypedDict(
-    "GetAssociatedPackageGroupResultTypeDef",
-    {
-        "packageGroup": "PackageGroupDescriptionTypeDef",
-        "associationType": PackageGroupAssociationTypeType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "domainOwner": NotRequired[str],
+        "namespace": NotRequired[str],
     },
 )
 
-_RequiredGetAuthorizationTokenRequestRequestTypeDef = TypedDict(
-    "_RequiredGetAuthorizationTokenRequestRequestTypeDef",
-    {
-        "domain": str,
-    },
-)
-_OptionalGetAuthorizationTokenRequestRequestTypeDef = TypedDict(
-    "_OptionalGetAuthorizationTokenRequestRequestTypeDef",
-    {
-        "domainOwner": str,
-        "durationSeconds": int,
-    },
-    total=False,
-)
+class GetAuthorizationTokenRequestTypeDef(TypedDict):
+    domain: str
+    domainOwner: NotRequired[str]
+    durationSeconds: NotRequired[int]
 
-class GetAuthorizationTokenRequestRequestTypeDef(
-    _RequiredGetAuthorizationTokenRequestRequestTypeDef,
-    _OptionalGetAuthorizationTokenRequestRequestTypeDef,
-):
-    pass
+class GetDomainPermissionsPolicyRequestTypeDef(TypedDict):
+    domain: str
+    domainOwner: NotRequired[str]
 
-GetAuthorizationTokenResultTypeDef = TypedDict(
-    "GetAuthorizationTokenResultTypeDef",
-    {
-        "authorizationToken": str,
-        "expiration": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetDomainPermissionsPolicyRequestRequestTypeDef = TypedDict(
-    "_RequiredGetDomainPermissionsPolicyRequestRequestTypeDef",
-    {
-        "domain": str,
-    },
-)
-_OptionalGetDomainPermissionsPolicyRequestRequestTypeDef = TypedDict(
-    "_OptionalGetDomainPermissionsPolicyRequestRequestTypeDef",
-    {
-        "domainOwner": str,
-    },
-    total=False,
-)
-
-class GetDomainPermissionsPolicyRequestRequestTypeDef(
-    _RequiredGetDomainPermissionsPolicyRequestRequestTypeDef,
-    _OptionalGetDomainPermissionsPolicyRequestRequestTypeDef,
-):
-    pass
-
-GetDomainPermissionsPolicyResultTypeDef = TypedDict(
-    "GetDomainPermissionsPolicyResultTypeDef",
-    {
-        "policy": "ResourcePolicyTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetPackageVersionAssetRequestRequestTypeDef = TypedDict(
-    "_RequiredGetPackageVersionAssetRequestRequestTypeDef",
+GetPackageVersionAssetRequestTypeDef = TypedDict(
+    "GetPackageVersionAssetRequestTypeDef",
     {
         "domain": str,
         "repository": str,
@@ -919,59 +414,244 @@ _RequiredGetPackageVersionAssetRequestRequestTypeDef = TypedDict(
         "package": str,
         "packageVersion": str,
         "asset": str,
+        "domainOwner": NotRequired[str],
+        "namespace": NotRequired[str],
+        "packageVersionRevision": NotRequired[str],
     },
 )
-_OptionalGetPackageVersionAssetRequestRequestTypeDef = TypedDict(
-    "_OptionalGetPackageVersionAssetRequestRequestTypeDef",
-    {
-        "domainOwner": str,
-        "namespace": str,
-        "packageVersionRevision": str,
-    },
-    total=False,
-)
-
-class GetPackageVersionAssetRequestRequestTypeDef(
-    _RequiredGetPackageVersionAssetRequestRequestTypeDef,
-    _OptionalGetPackageVersionAssetRequestRequestTypeDef,
-):
-    pass
-
-GetPackageVersionAssetResultTypeDef = TypedDict(
-    "GetPackageVersionAssetResultTypeDef",
-    {
-        "asset": StreamingBody,
-        "assetName": str,
-        "packageVersion": str,
-        "packageVersionRevision": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetPackageVersionReadmeRequestRequestTypeDef = TypedDict(
-    "_RequiredGetPackageVersionReadmeRequestRequestTypeDef",
+GetPackageVersionReadmeRequestTypeDef = TypedDict(
+    "GetPackageVersionReadmeRequestTypeDef",
     {
         "domain": str,
         "repository": str,
         "format": PackageFormatType,
         "package": str,
         "packageVersion": str,
+        "domainOwner": NotRequired[str],
+        "namespace": NotRequired[str],
     },
 )
-_OptionalGetPackageVersionReadmeRequestRequestTypeDef = TypedDict(
-    "_OptionalGetPackageVersionReadmeRequestRequestTypeDef",
+GetRepositoryEndpointRequestTypeDef = TypedDict(
+    "GetRepositoryEndpointRequestTypeDef",
     {
-        "domainOwner": str,
-        "namespace": str,
+        "domain": str,
+        "repository": str,
+        "format": PackageFormatType,
+        "domainOwner": NotRequired[str],
+        "endpointType": NotRequired[EndpointTypeType],
     },
-    total=False,
 )
 
-class GetPackageVersionReadmeRequestRequestTypeDef(
-    _RequiredGetPackageVersionReadmeRequestRequestTypeDef,
-    _OptionalGetPackageVersionReadmeRequestRequestTypeDef,
-):
-    pass
+class GetRepositoryPermissionsPolicyRequestTypeDef(TypedDict):
+    domain: str
+    repository: str
+    domainOwner: NotRequired[str]
+
+class LicenseInfoTypeDef(TypedDict):
+    name: NotRequired[str]
+    url: NotRequired[str]
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class ListAllowedRepositoriesForGroupRequestTypeDef(TypedDict):
+    domain: str
+    packageGroup: str
+    originRestrictionType: PackageGroupOriginRestrictionTypeType
+    domainOwner: NotRequired[str]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListAssociatedPackagesRequestTypeDef(TypedDict):
+    domain: str
+    packageGroup: str
+    domainOwner: NotRequired[str]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+    preview: NotRequired[bool]
+
+class ListDomainsRequestTypeDef(TypedDict):
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListPackageGroupsRequestTypeDef(TypedDict):
+    domain: str
+    domainOwner: NotRequired[str]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+    prefix: NotRequired[str]
+
+ListPackageVersionAssetsRequestTypeDef = TypedDict(
+    "ListPackageVersionAssetsRequestTypeDef",
+    {
+        "domain": str,
+        "repository": str,
+        "format": PackageFormatType,
+        "package": str,
+        "packageVersion": str,
+        "domainOwner": NotRequired[str],
+        "namespace": NotRequired[str],
+        "maxResults": NotRequired[int],
+        "nextToken": NotRequired[str],
+    },
+)
+ListPackageVersionDependenciesRequestTypeDef = TypedDict(
+    "ListPackageVersionDependenciesRequestTypeDef",
+    {
+        "domain": str,
+        "repository": str,
+        "format": PackageFormatType,
+        "package": str,
+        "packageVersion": str,
+        "domainOwner": NotRequired[str],
+        "namespace": NotRequired[str],
+        "nextToken": NotRequired[str],
+    },
+)
+
+class PackageDependencyTypeDef(TypedDict):
+    namespace: NotRequired[str]
+    package: NotRequired[str]
+    dependencyType: NotRequired[str]
+    versionRequirement: NotRequired[str]
+
+ListPackageVersionsRequestTypeDef = TypedDict(
+    "ListPackageVersionsRequestTypeDef",
+    {
+        "domain": str,
+        "repository": str,
+        "format": PackageFormatType,
+        "package": str,
+        "domainOwner": NotRequired[str],
+        "namespace": NotRequired[str],
+        "status": NotRequired[PackageVersionStatusType],
+        "sortBy": NotRequired[Literal["PUBLISHED_TIME"]],
+        "maxResults": NotRequired[int],
+        "nextToken": NotRequired[str],
+        "originType": NotRequired[PackageVersionOriginTypeType],
+    },
+)
+ListPackagesRequestTypeDef = TypedDict(
+    "ListPackagesRequestTypeDef",
+    {
+        "domain": str,
+        "repository": str,
+        "domainOwner": NotRequired[str],
+        "format": NotRequired[PackageFormatType],
+        "namespace": NotRequired[str],
+        "packagePrefix": NotRequired[str],
+        "maxResults": NotRequired[int],
+        "nextToken": NotRequired[str],
+        "publish": NotRequired[AllowPublishType],
+        "upstream": NotRequired[AllowUpstreamType],
+    },
+)
+
+class ListRepositoriesInDomainRequestTypeDef(TypedDict):
+    domain: str
+    domainOwner: NotRequired[str]
+    administratorAccount: NotRequired[str]
+    repositoryPrefix: NotRequired[str]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class RepositorySummaryTypeDef(TypedDict):
+    name: NotRequired[str]
+    administratorAccount: NotRequired[str]
+    domainName: NotRequired[str]
+    domainOwner: NotRequired[str]
+    arn: NotRequired[str]
+    description: NotRequired[str]
+    createdTime: NotRequired[datetime]
+
+class ListRepositoriesRequestTypeDef(TypedDict):
+    repositoryPrefix: NotRequired[str]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListSubPackageGroupsRequestTypeDef(TypedDict):
+    domain: str
+    packageGroup: str
+    domainOwner: NotRequired[str]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+
+class PackageGroupAllowedRepositoryTypeDef(TypedDict):
+    repositoryName: NotRequired[str]
+    originRestrictionType: NotRequired[PackageGroupOriginRestrictionTypeType]
+
+class PackageGroupReferenceTypeDef(TypedDict):
+    arn: NotRequired[str]
+    pattern: NotRequired[str]
+
+class PackageOriginRestrictionsTypeDef(TypedDict):
+    publish: AllowPublishType
+    upstream: AllowUpstreamType
+
+class PutDomainPermissionsPolicyRequestTypeDef(TypedDict):
+    domain: str
+    policyDocument: str
+    domainOwner: NotRequired[str]
+    policyRevision: NotRequired[str]
+
+class PutRepositoryPermissionsPolicyRequestTypeDef(TypedDict):
+    domain: str
+    repository: str
+    policyDocument: str
+    domainOwner: NotRequired[str]
+    policyRevision: NotRequired[str]
+
+class RepositoryExternalConnectionInfoTypeDef(TypedDict):
+    externalConnectionName: NotRequired[str]
+    packageFormat: NotRequired[PackageFormatType]
+    status: NotRequired[Literal["Available"]]
+
+class UpstreamRepositoryInfoTypeDef(TypedDict):
+    repositoryName: NotRequired[str]
+
+class UntagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tagKeys: Sequence[str]
+
+class UpdatePackageGroupRequestTypeDef(TypedDict):
+    domain: str
+    packageGroup: str
+    domainOwner: NotRequired[str]
+    contactInfo: NotRequired[str]
+    description: NotRequired[str]
+
+UpdatePackageVersionsStatusRequestTypeDef = TypedDict(
+    "UpdatePackageVersionsStatusRequestTypeDef",
+    {
+        "domain": str,
+        "repository": str,
+        "format": PackageFormatType,
+        "package": str,
+        "versions": Sequence[str],
+        "targetStatus": PackageVersionStatusType,
+        "domainOwner": NotRequired[str],
+        "namespace": NotRequired[str],
+        "versionRevisions": NotRequired[Mapping[str, str]],
+        "expectedStatus": NotRequired[PackageVersionStatusType],
+    },
+)
+
+class GetAuthorizationTokenResultTypeDef(TypedDict):
+    authorizationToken: str
+    expiration: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetPackageVersionAssetResultTypeDef(TypedDict):
+    asset: StreamingBody
+    assetName: str
+    packageVersion: str
+    packageVersionRevision: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
 GetPackageVersionReadmeResultTypeDef = TypedDict(
     "GetPackageVersionReadmeResultTypeDef",
@@ -982,219 +662,18 @@ GetPackageVersionReadmeResultTypeDef = TypedDict(
         "version": str,
         "versionRevision": str,
         "readme": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
 
-_RequiredGetRepositoryEndpointRequestRequestTypeDef = TypedDict(
-    "_RequiredGetRepositoryEndpointRequestRequestTypeDef",
-    {
-        "domain": str,
-        "repository": str,
-        "format": PackageFormatType,
-    },
-)
-_OptionalGetRepositoryEndpointRequestRequestTypeDef = TypedDict(
-    "_OptionalGetRepositoryEndpointRequestRequestTypeDef",
-    {
-        "domainOwner": str,
-    },
-    total=False,
-)
+class GetRepositoryEndpointResultTypeDef(TypedDict):
+    repositoryEndpoint: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class GetRepositoryEndpointRequestRequestTypeDef(
-    _RequiredGetRepositoryEndpointRequestRequestTypeDef,
-    _OptionalGetRepositoryEndpointRequestRequestTypeDef,
-):
-    pass
-
-GetRepositoryEndpointResultTypeDef = TypedDict(
-    "GetRepositoryEndpointResultTypeDef",
-    {
-        "repositoryEndpoint": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetRepositoryPermissionsPolicyRequestRequestTypeDef = TypedDict(
-    "_RequiredGetRepositoryPermissionsPolicyRequestRequestTypeDef",
-    {
-        "domain": str,
-        "repository": str,
-    },
-)
-_OptionalGetRepositoryPermissionsPolicyRequestRequestTypeDef = TypedDict(
-    "_OptionalGetRepositoryPermissionsPolicyRequestRequestTypeDef",
-    {
-        "domainOwner": str,
-    },
-    total=False,
-)
-
-class GetRepositoryPermissionsPolicyRequestRequestTypeDef(
-    _RequiredGetRepositoryPermissionsPolicyRequestRequestTypeDef,
-    _OptionalGetRepositoryPermissionsPolicyRequestRequestTypeDef,
-):
-    pass
-
-GetRepositoryPermissionsPolicyResultTypeDef = TypedDict(
-    "GetRepositoryPermissionsPolicyResultTypeDef",
-    {
-        "policy": "ResourcePolicyTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-LicenseInfoTypeDef = TypedDict(
-    "LicenseInfoTypeDef",
-    {
-        "name": str,
-        "url": str,
-    },
-    total=False,
-)
-
-_RequiredListAllowedRepositoriesForGroupRequestRequestTypeDef = TypedDict(
-    "_RequiredListAllowedRepositoriesForGroupRequestRequestTypeDef",
-    {
-        "domain": str,
-        "packageGroup": str,
-        "originRestrictionType": PackageGroupOriginRestrictionTypeType,
-    },
-)
-_OptionalListAllowedRepositoriesForGroupRequestRequestTypeDef = TypedDict(
-    "_OptionalListAllowedRepositoriesForGroupRequestRequestTypeDef",
-    {
-        "domainOwner": str,
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListAllowedRepositoriesForGroupRequestRequestTypeDef(
-    _RequiredListAllowedRepositoriesForGroupRequestRequestTypeDef,
-    _OptionalListAllowedRepositoriesForGroupRequestRequestTypeDef,
-):
-    pass
-
-ListAllowedRepositoriesForGroupResultTypeDef = TypedDict(
-    "ListAllowedRepositoriesForGroupResultTypeDef",
-    {
-        "allowedRepositories": List[str],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListAssociatedPackagesRequestRequestTypeDef = TypedDict(
-    "_RequiredListAssociatedPackagesRequestRequestTypeDef",
-    {
-        "domain": str,
-        "packageGroup": str,
-    },
-)
-_OptionalListAssociatedPackagesRequestRequestTypeDef = TypedDict(
-    "_OptionalListAssociatedPackagesRequestRequestTypeDef",
-    {
-        "domainOwner": str,
-        "maxResults": int,
-        "nextToken": str,
-        "preview": bool,
-    },
-    total=False,
-)
-
-class ListAssociatedPackagesRequestRequestTypeDef(
-    _RequiredListAssociatedPackagesRequestRequestTypeDef,
-    _OptionalListAssociatedPackagesRequestRequestTypeDef,
-):
-    pass
-
-ListAssociatedPackagesResultTypeDef = TypedDict(
-    "ListAssociatedPackagesResultTypeDef",
-    {
-        "packages": List["AssociatedPackageTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListDomainsRequestRequestTypeDef = TypedDict(
-    "ListDomainsRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-ListDomainsResultTypeDef = TypedDict(
-    "ListDomainsResultTypeDef",
-    {
-        "domains": List["DomainSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListPackageGroupsRequestRequestTypeDef = TypedDict(
-    "_RequiredListPackageGroupsRequestRequestTypeDef",
-    {
-        "domain": str,
-    },
-)
-_OptionalListPackageGroupsRequestRequestTypeDef = TypedDict(
-    "_OptionalListPackageGroupsRequestRequestTypeDef",
-    {
-        "domainOwner": str,
-        "maxResults": int,
-        "nextToken": str,
-        "prefix": str,
-    },
-    total=False,
-)
-
-class ListPackageGroupsRequestRequestTypeDef(
-    _RequiredListPackageGroupsRequestRequestTypeDef, _OptionalListPackageGroupsRequestRequestTypeDef
-):
-    pass
-
-ListPackageGroupsResultTypeDef = TypedDict(
-    "ListPackageGroupsResultTypeDef",
-    {
-        "packageGroups": List["PackageGroupSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListPackageVersionAssetsRequestRequestTypeDef = TypedDict(
-    "_RequiredListPackageVersionAssetsRequestRequestTypeDef",
-    {
-        "domain": str,
-        "repository": str,
-        "format": PackageFormatType,
-        "package": str,
-        "packageVersion": str,
-    },
-)
-_OptionalListPackageVersionAssetsRequestRequestTypeDef = TypedDict(
-    "_OptionalListPackageVersionAssetsRequestRequestTypeDef",
-    {
-        "domainOwner": str,
-        "namespace": str,
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListPackageVersionAssetsRequestRequestTypeDef(
-    _RequiredListPackageVersionAssetsRequestRequestTypeDef,
-    _OptionalListPackageVersionAssetsRequestRequestTypeDef,
-):
-    pass
+class ListAllowedRepositoriesForGroupResultTypeDef(TypedDict):
+    allowedRepositories: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
 ListPackageVersionAssetsResultTypeDef = TypedDict(
     "ListPackageVersionAssetsResultTypeDef",
@@ -1204,447 +683,11 @@ ListPackageVersionAssetsResultTypeDef = TypedDict(
         "package": str,
         "version": str,
         "versionRevision": str,
-        "nextToken": str,
-        "assets": List["AssetSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "assets": List[AssetSummaryTypeDef],
+        "ResponseMetadata": ResponseMetadataTypeDef,
+        "nextToken": NotRequired[str],
     },
 )
-
-_RequiredListPackageVersionDependenciesRequestRequestTypeDef = TypedDict(
-    "_RequiredListPackageVersionDependenciesRequestRequestTypeDef",
-    {
-        "domain": str,
-        "repository": str,
-        "format": PackageFormatType,
-        "package": str,
-        "packageVersion": str,
-    },
-)
-_OptionalListPackageVersionDependenciesRequestRequestTypeDef = TypedDict(
-    "_OptionalListPackageVersionDependenciesRequestRequestTypeDef",
-    {
-        "domainOwner": str,
-        "namespace": str,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListPackageVersionDependenciesRequestRequestTypeDef(
-    _RequiredListPackageVersionDependenciesRequestRequestTypeDef,
-    _OptionalListPackageVersionDependenciesRequestRequestTypeDef,
-):
-    pass
-
-ListPackageVersionDependenciesResultTypeDef = TypedDict(
-    "ListPackageVersionDependenciesResultTypeDef",
-    {
-        "format": PackageFormatType,
-        "namespace": str,
-        "package": str,
-        "version": str,
-        "versionRevision": str,
-        "nextToken": str,
-        "dependencies": List["PackageDependencyTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListPackageVersionsRequestRequestTypeDef = TypedDict(
-    "_RequiredListPackageVersionsRequestRequestTypeDef",
-    {
-        "domain": str,
-        "repository": str,
-        "format": PackageFormatType,
-        "package": str,
-    },
-)
-_OptionalListPackageVersionsRequestRequestTypeDef = TypedDict(
-    "_OptionalListPackageVersionsRequestRequestTypeDef",
-    {
-        "domainOwner": str,
-        "namespace": str,
-        "status": PackageVersionStatusType,
-        "sortBy": Literal["PUBLISHED_TIME"],
-        "maxResults": int,
-        "nextToken": str,
-        "originType": PackageVersionOriginTypeType,
-    },
-    total=False,
-)
-
-class ListPackageVersionsRequestRequestTypeDef(
-    _RequiredListPackageVersionsRequestRequestTypeDef,
-    _OptionalListPackageVersionsRequestRequestTypeDef,
-):
-    pass
-
-ListPackageVersionsResultTypeDef = TypedDict(
-    "ListPackageVersionsResultTypeDef",
-    {
-        "defaultDisplayVersion": str,
-        "format": PackageFormatType,
-        "namespace": str,
-        "package": str,
-        "versions": List["PackageVersionSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListPackagesRequestRequestTypeDef = TypedDict(
-    "_RequiredListPackagesRequestRequestTypeDef",
-    {
-        "domain": str,
-        "repository": str,
-    },
-)
-_OptionalListPackagesRequestRequestTypeDef = TypedDict(
-    "_OptionalListPackagesRequestRequestTypeDef",
-    {
-        "domainOwner": str,
-        "format": PackageFormatType,
-        "namespace": str,
-        "packagePrefix": str,
-        "maxResults": int,
-        "nextToken": str,
-        "publish": AllowPublishType,
-        "upstream": AllowUpstreamType,
-    },
-    total=False,
-)
-
-class ListPackagesRequestRequestTypeDef(
-    _RequiredListPackagesRequestRequestTypeDef, _OptionalListPackagesRequestRequestTypeDef
-):
-    pass
-
-ListPackagesResultTypeDef = TypedDict(
-    "ListPackagesResultTypeDef",
-    {
-        "packages": List["PackageSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListRepositoriesInDomainRequestRequestTypeDef = TypedDict(
-    "_RequiredListRepositoriesInDomainRequestRequestTypeDef",
-    {
-        "domain": str,
-    },
-)
-_OptionalListRepositoriesInDomainRequestRequestTypeDef = TypedDict(
-    "_OptionalListRepositoriesInDomainRequestRequestTypeDef",
-    {
-        "domainOwner": str,
-        "administratorAccount": str,
-        "repositoryPrefix": str,
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListRepositoriesInDomainRequestRequestTypeDef(
-    _RequiredListRepositoriesInDomainRequestRequestTypeDef,
-    _OptionalListRepositoriesInDomainRequestRequestTypeDef,
-):
-    pass
-
-ListRepositoriesInDomainResultTypeDef = TypedDict(
-    "ListRepositoriesInDomainResultTypeDef",
-    {
-        "repositories": List["RepositorySummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListRepositoriesRequestRequestTypeDef = TypedDict(
-    "ListRepositoriesRequestRequestTypeDef",
-    {
-        "repositoryPrefix": str,
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-ListRepositoriesResultTypeDef = TypedDict(
-    "ListRepositoriesResultTypeDef",
-    {
-        "repositories": List["RepositorySummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListSubPackageGroupsRequestRequestTypeDef = TypedDict(
-    "_RequiredListSubPackageGroupsRequestRequestTypeDef",
-    {
-        "domain": str,
-        "packageGroup": str,
-    },
-)
-_OptionalListSubPackageGroupsRequestRequestTypeDef = TypedDict(
-    "_OptionalListSubPackageGroupsRequestRequestTypeDef",
-    {
-        "domainOwner": str,
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListSubPackageGroupsRequestRequestTypeDef(
-    _RequiredListSubPackageGroupsRequestRequestTypeDef,
-    _OptionalListSubPackageGroupsRequestRequestTypeDef,
-):
-    pass
-
-ListSubPackageGroupsResultTypeDef = TypedDict(
-    "ListSubPackageGroupsResultTypeDef",
-    {
-        "packageGroups": List["PackageGroupSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-    },
-)
-
-ListTagsForResourceResultTypeDef = TypedDict(
-    "ListTagsForResourceResultTypeDef",
-    {
-        "tags": List["TagTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-PackageDependencyTypeDef = TypedDict(
-    "PackageDependencyTypeDef",
-    {
-        "namespace": str,
-        "package": str,
-        "dependencyType": str,
-        "versionRequirement": str,
-    },
-    total=False,
-)
-
-PackageDescriptionTypeDef = TypedDict(
-    "PackageDescriptionTypeDef",
-    {
-        "format": PackageFormatType,
-        "namespace": str,
-        "name": str,
-        "originConfiguration": "PackageOriginConfigurationTypeDef",
-    },
-    total=False,
-)
-
-PackageGroupAllowedRepositoryTypeDef = TypedDict(
-    "PackageGroupAllowedRepositoryTypeDef",
-    {
-        "repositoryName": str,
-        "originRestrictionType": PackageGroupOriginRestrictionTypeType,
-    },
-    total=False,
-)
-
-PackageGroupDescriptionTypeDef = TypedDict(
-    "PackageGroupDescriptionTypeDef",
-    {
-        "arn": str,
-        "pattern": str,
-        "domainName": str,
-        "domainOwner": str,
-        "createdTime": datetime,
-        "contactInfo": str,
-        "description": str,
-        "originConfiguration": "PackageGroupOriginConfigurationTypeDef",
-        "parent": "PackageGroupReferenceTypeDef",
-    },
-    total=False,
-)
-
-PackageGroupOriginConfigurationTypeDef = TypedDict(
-    "PackageGroupOriginConfigurationTypeDef",
-    {
-        "restrictions": Dict[
-            PackageGroupOriginRestrictionTypeType, "PackageGroupOriginRestrictionTypeDef"
-        ],
-    },
-    total=False,
-)
-
-PackageGroupOriginRestrictionTypeDef = TypedDict(
-    "PackageGroupOriginRestrictionTypeDef",
-    {
-        "mode": PackageGroupOriginRestrictionModeType,
-        "effectiveMode": PackageGroupOriginRestrictionModeType,
-        "inheritedFrom": "PackageGroupReferenceTypeDef",
-        "repositoriesCount": int,
-    },
-    total=False,
-)
-
-PackageGroupReferenceTypeDef = TypedDict(
-    "PackageGroupReferenceTypeDef",
-    {
-        "arn": str,
-        "pattern": str,
-    },
-    total=False,
-)
-
-PackageGroupSummaryTypeDef = TypedDict(
-    "PackageGroupSummaryTypeDef",
-    {
-        "arn": str,
-        "pattern": str,
-        "domainName": str,
-        "domainOwner": str,
-        "createdTime": datetime,
-        "contactInfo": str,
-        "description": str,
-        "originConfiguration": "PackageGroupOriginConfigurationTypeDef",
-        "parent": "PackageGroupReferenceTypeDef",
-    },
-    total=False,
-)
-
-PackageOriginConfigurationTypeDef = TypedDict(
-    "PackageOriginConfigurationTypeDef",
-    {
-        "restrictions": "PackageOriginRestrictionsTypeDef",
-    },
-    total=False,
-)
-
-PackageOriginRestrictionsTypeDef = TypedDict(
-    "PackageOriginRestrictionsTypeDef",
-    {
-        "publish": AllowPublishType,
-        "upstream": AllowUpstreamType,
-    },
-)
-
-PackageSummaryTypeDef = TypedDict(
-    "PackageSummaryTypeDef",
-    {
-        "format": PackageFormatType,
-        "namespace": str,
-        "package": str,
-        "originConfiguration": "PackageOriginConfigurationTypeDef",
-    },
-    total=False,
-)
-
-PackageVersionDescriptionTypeDef = TypedDict(
-    "PackageVersionDescriptionTypeDef",
-    {
-        "format": PackageFormatType,
-        "namespace": str,
-        "packageName": str,
-        "displayName": str,
-        "version": str,
-        "summary": str,
-        "homePage": str,
-        "sourceCodeRepository": str,
-        "publishedTime": datetime,
-        "licenses": List["LicenseInfoTypeDef"],
-        "revision": str,
-        "status": PackageVersionStatusType,
-        "origin": "PackageVersionOriginTypeDef",
-    },
-    total=False,
-)
-
-PackageVersionErrorTypeDef = TypedDict(
-    "PackageVersionErrorTypeDef",
-    {
-        "errorCode": PackageVersionErrorCodeType,
-        "errorMessage": str,
-    },
-    total=False,
-)
-
-PackageVersionOriginTypeDef = TypedDict(
-    "PackageVersionOriginTypeDef",
-    {
-        "domainEntryPoint": "DomainEntryPointTypeDef",
-        "originType": PackageVersionOriginTypeType,
-    },
-    total=False,
-)
-
-_RequiredPackageVersionSummaryTypeDef = TypedDict(
-    "_RequiredPackageVersionSummaryTypeDef",
-    {
-        "version": str,
-        "status": PackageVersionStatusType,
-    },
-)
-_OptionalPackageVersionSummaryTypeDef = TypedDict(
-    "_OptionalPackageVersionSummaryTypeDef",
-    {
-        "revision": str,
-        "origin": "PackageVersionOriginTypeDef",
-    },
-    total=False,
-)
-
-class PackageVersionSummaryTypeDef(
-    _RequiredPackageVersionSummaryTypeDef, _OptionalPackageVersionSummaryTypeDef
-):
-    pass
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-_RequiredPublishPackageVersionRequestRequestTypeDef = TypedDict(
-    "_RequiredPublishPackageVersionRequestRequestTypeDef",
-    {
-        "domain": str,
-        "repository": str,
-        "format": PackageFormatType,
-        "package": str,
-        "packageVersion": str,
-        "assetContent": Union[bytes, IO[bytes], StreamingBody],
-        "assetName": str,
-        "assetSHA256": str,
-    },
-)
-_OptionalPublishPackageVersionRequestRequestTypeDef = TypedDict(
-    "_OptionalPublishPackageVersionRequestRequestTypeDef",
-    {
-        "domainOwner": str,
-        "namespace": str,
-        "unfinished": bool,
-    },
-    total=False,
-)
-
-class PublishPackageVersionRequestRequestTypeDef(
-    _RequiredPublishPackageVersionRequestRequestTypeDef,
-    _OptionalPublishPackageVersionRequestRequestTypeDef,
-):
-    pass
-
 PublishPackageVersionResultTypeDef = TypedDict(
     "PublishPackageVersionResultTypeDef",
     {
@@ -1654,346 +697,448 @@ PublishPackageVersionResultTypeDef = TypedDict(
         "version": str,
         "versionRevision": str,
         "status": PackageVersionStatusType,
-        "asset": "AssetSummaryTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "asset": AssetSummaryTypeDef,
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
 
-_RequiredPutDomainPermissionsPolicyRequestRequestTypeDef = TypedDict(
-    "_RequiredPutDomainPermissionsPolicyRequestRequestTypeDef",
-    {
-        "domain": str,
-        "policyDocument": str,
-    },
-)
-_OptionalPutDomainPermissionsPolicyRequestRequestTypeDef = TypedDict(
-    "_OptionalPutDomainPermissionsPolicyRequestRequestTypeDef",
-    {
-        "domainOwner": str,
-        "policyRevision": str,
-    },
-    total=False,
-)
+class ListAssociatedPackagesResultTypeDef(TypedDict):
+    packages: List[AssociatedPackageTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-class PutDomainPermissionsPolicyRequestRequestTypeDef(
-    _RequiredPutDomainPermissionsPolicyRequestRequestTypeDef,
-    _OptionalPutDomainPermissionsPolicyRequestRequestTypeDef,
-):
-    pass
-
-PutDomainPermissionsPolicyResultTypeDef = TypedDict(
-    "PutDomainPermissionsPolicyResultTypeDef",
-    {
-        "policy": "ResourcePolicyTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredPutPackageOriginConfigurationRequestRequestTypeDef = TypedDict(
-    "_RequiredPutPackageOriginConfigurationRequestRequestTypeDef",
+PublishPackageVersionRequestTypeDef = TypedDict(
+    "PublishPackageVersionRequestTypeDef",
     {
         "domain": str,
         "repository": str,
         "format": PackageFormatType,
         "package": str,
-        "restrictions": "PackageOriginRestrictionsTypeDef",
-    },
-)
-_OptionalPutPackageOriginConfigurationRequestRequestTypeDef = TypedDict(
-    "_OptionalPutPackageOriginConfigurationRequestRequestTypeDef",
-    {
-        "domainOwner": str,
-        "namespace": str,
-    },
-    total=False,
-)
-
-class PutPackageOriginConfigurationRequestRequestTypeDef(
-    _RequiredPutPackageOriginConfigurationRequestRequestTypeDef,
-    _OptionalPutPackageOriginConfigurationRequestRequestTypeDef,
-):
-    pass
-
-PutPackageOriginConfigurationResultTypeDef = TypedDict(
-    "PutPackageOriginConfigurationResultTypeDef",
-    {
-        "originConfiguration": "PackageOriginConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "packageVersion": str,
+        "assetContent": BlobTypeDef,
+        "assetName": str,
+        "assetSHA256": str,
+        "domainOwner": NotRequired[str],
+        "namespace": NotRequired[str],
+        "unfinished": NotRequired[bool],
     },
 )
 
-_RequiredPutRepositoryPermissionsPolicyRequestRequestTypeDef = TypedDict(
-    "_RequiredPutRepositoryPermissionsPolicyRequestRequestTypeDef",
-    {
-        "domain": str,
-        "repository": str,
-        "policyDocument": str,
-    },
-)
-_OptionalPutRepositoryPermissionsPolicyRequestRequestTypeDef = TypedDict(
-    "_OptionalPutRepositoryPermissionsPolicyRequestRequestTypeDef",
-    {
-        "domainOwner": str,
-        "policyRevision": str,
-    },
-    total=False,
-)
+class CopyPackageVersionsResultTypeDef(TypedDict):
+    successfulVersions: Dict[str, SuccessfulPackageVersionInfoTypeDef]
+    failedVersions: Dict[str, PackageVersionErrorTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class PutRepositoryPermissionsPolicyRequestRequestTypeDef(
-    _RequiredPutRepositoryPermissionsPolicyRequestRequestTypeDef,
-    _OptionalPutRepositoryPermissionsPolicyRequestRequestTypeDef,
-):
-    pass
+class DeletePackageVersionsResultTypeDef(TypedDict):
+    successfulVersions: Dict[str, SuccessfulPackageVersionInfoTypeDef]
+    failedVersions: Dict[str, PackageVersionErrorTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-PutRepositoryPermissionsPolicyResultTypeDef = TypedDict(
-    "PutRepositoryPermissionsPolicyResultTypeDef",
-    {
-        "policy": "ResourcePolicyTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DisposePackageVersionsResultTypeDef(TypedDict):
+    successfulVersions: Dict[str, SuccessfulPackageVersionInfoTypeDef]
+    failedVersions: Dict[str, PackageVersionErrorTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-RepositoryDescriptionTypeDef = TypedDict(
-    "RepositoryDescriptionTypeDef",
-    {
-        "name": str,
-        "administratorAccount": str,
-        "domainName": str,
-        "domainOwner": str,
-        "arn": str,
-        "description": str,
-        "upstreams": List["UpstreamRepositoryInfoTypeDef"],
-        "externalConnections": List["RepositoryExternalConnectionInfoTypeDef"],
-        "createdTime": datetime,
-    },
-    total=False,
-)
+class UpdatePackageVersionsStatusResultTypeDef(TypedDict):
+    successfulVersions: Dict[str, SuccessfulPackageVersionInfoTypeDef]
+    failedVersions: Dict[str, PackageVersionErrorTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-RepositoryExternalConnectionInfoTypeDef = TypedDict(
-    "RepositoryExternalConnectionInfoTypeDef",
-    {
-        "externalConnectionName": str,
-        "packageFormat": PackageFormatType,
-        "status": Literal["Available"],
-    },
-    total=False,
-)
+class CreateDomainRequestTypeDef(TypedDict):
+    domain: str
+    encryptionKey: NotRequired[str]
+    tags: NotRequired[Sequence[TagTypeDef]]
 
-RepositorySummaryTypeDef = TypedDict(
-    "RepositorySummaryTypeDef",
-    {
-        "name": str,
-        "administratorAccount": str,
-        "domainName": str,
-        "domainOwner": str,
-        "arn": str,
-        "description": str,
-        "createdTime": datetime,
-    },
-    total=False,
-)
+class CreatePackageGroupRequestTypeDef(TypedDict):
+    domain: str
+    packageGroup: str
+    domainOwner: NotRequired[str]
+    contactInfo: NotRequired[str]
+    description: NotRequired[str]
+    tags: NotRequired[Sequence[TagTypeDef]]
 
-ResourcePolicyTypeDef = TypedDict(
-    "ResourcePolicyTypeDef",
-    {
-        "resourceArn": str,
-        "revision": str,
-        "document": str,
-    },
-    total=False,
-)
+class ListTagsForResourceResultTypeDef(TypedDict):
+    tags: List[TagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
+class TagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tags: Sequence[TagTypeDef]
 
-SuccessfulPackageVersionInfoTypeDef = TypedDict(
-    "SuccessfulPackageVersionInfoTypeDef",
-    {
-        "revision": str,
-        "status": PackageVersionStatusType,
-    },
-    total=False,
-)
+class CreateDomainResultTypeDef(TypedDict):
+    domain: DomainDescriptionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tags": List["TagTypeDef"],
-    },
-)
+class DeleteDomainResultTypeDef(TypedDict):
+    domain: DomainDescriptionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-TagTypeDef = TypedDict(
-    "TagTypeDef",
-    {
-        "key": str,
-        "value": str,
-    },
-)
+class DescribeDomainResultTypeDef(TypedDict):
+    domain: DomainDescriptionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tagKeys": List[str],
-    },
-)
+class CreateRepositoryRequestTypeDef(TypedDict):
+    domain: str
+    repository: str
+    domainOwner: NotRequired[str]
+    description: NotRequired[str]
+    upstreams: NotRequired[Sequence[UpstreamRepositoryTypeDef]]
+    tags: NotRequired[Sequence[TagTypeDef]]
 
-_RequiredUpdatePackageGroupOriginConfigurationRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdatePackageGroupOriginConfigurationRequestRequestTypeDef",
-    {
-        "domain": str,
-        "packageGroup": str,
-    },
-)
-_OptionalUpdatePackageGroupOriginConfigurationRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdatePackageGroupOriginConfigurationRequestRequestTypeDef",
-    {
-        "domainOwner": str,
-        "restrictions": Dict[
-            PackageGroupOriginRestrictionTypeType, PackageGroupOriginRestrictionModeType
-        ],
-        "addAllowedRepositories": List["PackageGroupAllowedRepositoryTypeDef"],
-        "removeAllowedRepositories": List["PackageGroupAllowedRepositoryTypeDef"],
-    },
-    total=False,
-)
+class UpdateRepositoryRequestTypeDef(TypedDict):
+    domain: str
+    repository: str
+    domainOwner: NotRequired[str]
+    description: NotRequired[str]
+    upstreams: NotRequired[Sequence[UpstreamRepositoryTypeDef]]
 
-class UpdatePackageGroupOriginConfigurationRequestRequestTypeDef(
-    _RequiredUpdatePackageGroupOriginConfigurationRequestRequestTypeDef,
-    _OptionalUpdatePackageGroupOriginConfigurationRequestRequestTypeDef,
-):
-    pass
+class DeleteDomainPermissionsPolicyResultTypeDef(TypedDict):
+    policy: ResourcePolicyTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-UpdatePackageGroupOriginConfigurationResultTypeDef = TypedDict(
-    "UpdatePackageGroupOriginConfigurationResultTypeDef",
-    {
-        "packageGroup": "PackageGroupDescriptionTypeDef",
-        "allowedRepositoryUpdates": Dict[
-            PackageGroupOriginRestrictionTypeType,
-            Dict[PackageGroupAllowedRepositoryUpdateTypeType, List[str]],
-        ],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DeleteRepositoryPermissionsPolicyResultTypeDef(TypedDict):
+    policy: ResourcePolicyTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredUpdatePackageGroupRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdatePackageGroupRequestRequestTypeDef",
-    {
-        "domain": str,
-        "packageGroup": str,
-    },
-)
-_OptionalUpdatePackageGroupRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdatePackageGroupRequestRequestTypeDef",
-    {
-        "domainOwner": str,
-        "contactInfo": str,
-        "description": str,
-    },
-    total=False,
-)
+class GetDomainPermissionsPolicyResultTypeDef(TypedDict):
+    policy: ResourcePolicyTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdatePackageGroupRequestRequestTypeDef(
-    _RequiredUpdatePackageGroupRequestRequestTypeDef,
-    _OptionalUpdatePackageGroupRequestRequestTypeDef,
-):
-    pass
+class GetRepositoryPermissionsPolicyResultTypeDef(TypedDict):
+    policy: ResourcePolicyTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-UpdatePackageGroupResultTypeDef = TypedDict(
-    "UpdatePackageGroupResultTypeDef",
-    {
-        "packageGroup": "PackageGroupDescriptionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class PutDomainPermissionsPolicyResultTypeDef(TypedDict):
+    policy: ResourcePolicyTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredUpdatePackageVersionsStatusRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdatePackageVersionsStatusRequestRequestTypeDef",
+class PutRepositoryPermissionsPolicyResultTypeDef(TypedDict):
+    policy: ResourcePolicyTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PackageVersionOriginTypeDef(TypedDict):
+    domainEntryPoint: NotRequired[DomainEntryPointTypeDef]
+    originType: NotRequired[PackageVersionOriginTypeType]
+
+class ListDomainsResultTypeDef(TypedDict):
+    domains: List[DomainSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListAllowedRepositoriesForGroupRequestPaginateTypeDef(TypedDict):
+    domain: str
+    packageGroup: str
+    originRestrictionType: PackageGroupOriginRestrictionTypeType
+    domainOwner: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListAssociatedPackagesRequestPaginateTypeDef(TypedDict):
+    domain: str
+    packageGroup: str
+    domainOwner: NotRequired[str]
+    preview: NotRequired[bool]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListDomainsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListPackageGroupsRequestPaginateTypeDef(TypedDict):
+    domain: str
+    domainOwner: NotRequired[str]
+    prefix: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+ListPackageVersionAssetsRequestPaginateTypeDef = TypedDict(
+    "ListPackageVersionAssetsRequestPaginateTypeDef",
     {
         "domain": str,
         "repository": str,
         "format": PackageFormatType,
         "package": str,
-        "versions": List[str],
-        "targetStatus": PackageVersionStatusType,
+        "packageVersion": str,
+        "domainOwner": NotRequired[str],
+        "namespace": NotRequired[str],
+        "PaginationConfig": NotRequired[PaginatorConfigTypeDef],
     },
 )
-_OptionalUpdatePackageVersionsStatusRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdatePackageVersionsStatusRequestRequestTypeDef",
-    {
-        "domainOwner": str,
-        "namespace": str,
-        "versionRevisions": Dict[str, str],
-        "expectedStatus": PackageVersionStatusType,
-    },
-    total=False,
-)
-
-class UpdatePackageVersionsStatusRequestRequestTypeDef(
-    _RequiredUpdatePackageVersionsStatusRequestRequestTypeDef,
-    _OptionalUpdatePackageVersionsStatusRequestRequestTypeDef,
-):
-    pass
-
-UpdatePackageVersionsStatusResultTypeDef = TypedDict(
-    "UpdatePackageVersionsStatusResultTypeDef",
-    {
-        "successfulVersions": Dict[str, "SuccessfulPackageVersionInfoTypeDef"],
-        "failedVersions": Dict[str, "PackageVersionErrorTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateRepositoryRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateRepositoryRequestRequestTypeDef",
+ListPackageVersionsRequestPaginateTypeDef = TypedDict(
+    "ListPackageVersionsRequestPaginateTypeDef",
     {
         "domain": str,
         "repository": str,
+        "format": PackageFormatType,
+        "package": str,
+        "domainOwner": NotRequired[str],
+        "namespace": NotRequired[str],
+        "status": NotRequired[PackageVersionStatusType],
+        "sortBy": NotRequired[Literal["PUBLISHED_TIME"]],
+        "originType": NotRequired[PackageVersionOriginTypeType],
+        "PaginationConfig": NotRequired[PaginatorConfigTypeDef],
     },
 )
-_OptionalUpdateRepositoryRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateRepositoryRequestRequestTypeDef",
+ListPackagesRequestPaginateTypeDef = TypedDict(
+    "ListPackagesRequestPaginateTypeDef",
     {
-        "domainOwner": str,
-        "description": str,
-        "upstreams": List["UpstreamRepositoryTypeDef"],
+        "domain": str,
+        "repository": str,
+        "domainOwner": NotRequired[str],
+        "format": NotRequired[PackageFormatType],
+        "namespace": NotRequired[str],
+        "packagePrefix": NotRequired[str],
+        "publish": NotRequired[AllowPublishType],
+        "upstream": NotRequired[AllowUpstreamType],
+        "PaginationConfig": NotRequired[PaginatorConfigTypeDef],
     },
-    total=False,
 )
 
-class UpdateRepositoryRequestRequestTypeDef(
-    _RequiredUpdateRepositoryRequestRequestTypeDef, _OptionalUpdateRepositoryRequestRequestTypeDef
-):
-    pass
+class ListRepositoriesInDomainRequestPaginateTypeDef(TypedDict):
+    domain: str
+    domainOwner: NotRequired[str]
+    administratorAccount: NotRequired[str]
+    repositoryPrefix: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-UpdateRepositoryResultTypeDef = TypedDict(
-    "UpdateRepositoryResultTypeDef",
+class ListRepositoriesRequestPaginateTypeDef(TypedDict):
+    repositoryPrefix: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListSubPackageGroupsRequestPaginateTypeDef(TypedDict):
+    domain: str
+    packageGroup: str
+    domainOwner: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+ListPackageVersionDependenciesResultTypeDef = TypedDict(
+    "ListPackageVersionDependenciesResultTypeDef",
     {
-        "repository": "RepositoryDescriptionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "format": PackageFormatType,
+        "namespace": str,
+        "package": str,
+        "version": str,
+        "versionRevision": str,
+        "dependencies": List[PackageDependencyTypeDef],
+        "ResponseMetadata": ResponseMetadataTypeDef,
+        "nextToken": NotRequired[str],
     },
 )
 
-UpstreamRepositoryInfoTypeDef = TypedDict(
-    "UpstreamRepositoryInfoTypeDef",
+class ListRepositoriesInDomainResultTypeDef(TypedDict):
+    repositories: List[RepositorySummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListRepositoriesResultTypeDef(TypedDict):
+    repositories: List[RepositorySummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class UpdatePackageGroupOriginConfigurationRequestTypeDef(TypedDict):
+    domain: str
+    packageGroup: str
+    domainOwner: NotRequired[str]
+    restrictions: NotRequired[
+        Mapping[PackageGroupOriginRestrictionTypeType, PackageGroupOriginRestrictionModeType]
+    ]
+    addAllowedRepositories: NotRequired[Sequence[PackageGroupAllowedRepositoryTypeDef]]
+    removeAllowedRepositories: NotRequired[Sequence[PackageGroupAllowedRepositoryTypeDef]]
+
+class PackageGroupOriginRestrictionTypeDef(TypedDict):
+    mode: NotRequired[PackageGroupOriginRestrictionModeType]
+    effectiveMode: NotRequired[PackageGroupOriginRestrictionModeType]
+    inheritedFrom: NotRequired[PackageGroupReferenceTypeDef]
+    repositoriesCount: NotRequired[int]
+
+class PackageOriginConfigurationTypeDef(TypedDict):
+    restrictions: NotRequired[PackageOriginRestrictionsTypeDef]
+
+PutPackageOriginConfigurationRequestTypeDef = TypedDict(
+    "PutPackageOriginConfigurationRequestTypeDef",
     {
-        "repositoryName": str,
+        "domain": str,
+        "repository": str,
+        "format": PackageFormatType,
+        "package": str,
+        "restrictions": PackageOriginRestrictionsTypeDef,
+        "domainOwner": NotRequired[str],
+        "namespace": NotRequired[str],
     },
-    total=False,
 )
 
-UpstreamRepositoryTypeDef = TypedDict(
-    "UpstreamRepositoryTypeDef",
+class RepositoryDescriptionTypeDef(TypedDict):
+    name: NotRequired[str]
+    administratorAccount: NotRequired[str]
+    domainName: NotRequired[str]
+    domainOwner: NotRequired[str]
+    arn: NotRequired[str]
+    description: NotRequired[str]
+    upstreams: NotRequired[List[UpstreamRepositoryInfoTypeDef]]
+    externalConnections: NotRequired[List[RepositoryExternalConnectionInfoTypeDef]]
+    createdTime: NotRequired[datetime]
+
+PackageVersionDescriptionTypeDef = TypedDict(
+    "PackageVersionDescriptionTypeDef",
     {
-        "repositoryName": str,
+        "format": NotRequired[PackageFormatType],
+        "namespace": NotRequired[str],
+        "packageName": NotRequired[str],
+        "displayName": NotRequired[str],
+        "version": NotRequired[str],
+        "summary": NotRequired[str],
+        "homePage": NotRequired[str],
+        "sourceCodeRepository": NotRequired[str],
+        "publishedTime": NotRequired[datetime],
+        "licenses": NotRequired[List[LicenseInfoTypeDef]],
+        "revision": NotRequired[str],
+        "status": NotRequired[PackageVersionStatusType],
+        "origin": NotRequired[PackageVersionOriginTypeDef],
     },
 )
+
+class PackageVersionSummaryTypeDef(TypedDict):
+    version: str
+    status: PackageVersionStatusType
+    revision: NotRequired[str]
+    origin: NotRequired[PackageVersionOriginTypeDef]
+
+class PackageGroupOriginConfigurationTypeDef(TypedDict):
+    restrictions: NotRequired[
+        Dict[PackageGroupOriginRestrictionTypeType, PackageGroupOriginRestrictionTypeDef]
+    ]
+
+PackageDescriptionTypeDef = TypedDict(
+    "PackageDescriptionTypeDef",
+    {
+        "format": NotRequired[PackageFormatType],
+        "namespace": NotRequired[str],
+        "name": NotRequired[str],
+        "originConfiguration": NotRequired[PackageOriginConfigurationTypeDef],
+    },
+)
+PackageSummaryTypeDef = TypedDict(
+    "PackageSummaryTypeDef",
+    {
+        "format": NotRequired[PackageFormatType],
+        "namespace": NotRequired[str],
+        "package": NotRequired[str],
+        "originConfiguration": NotRequired[PackageOriginConfigurationTypeDef],
+    },
+)
+
+class PutPackageOriginConfigurationResultTypeDef(TypedDict):
+    originConfiguration: PackageOriginConfigurationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class AssociateExternalConnectionResultTypeDef(TypedDict):
+    repository: RepositoryDescriptionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateRepositoryResultTypeDef(TypedDict):
+    repository: RepositoryDescriptionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteRepositoryResultTypeDef(TypedDict):
+    repository: RepositoryDescriptionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeRepositoryResultTypeDef(TypedDict):
+    repository: RepositoryDescriptionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DisassociateExternalConnectionResultTypeDef(TypedDict):
+    repository: RepositoryDescriptionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateRepositoryResultTypeDef(TypedDict):
+    repository: RepositoryDescriptionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribePackageVersionResultTypeDef(TypedDict):
+    packageVersion: PackageVersionDescriptionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+ListPackageVersionsResultTypeDef = TypedDict(
+    "ListPackageVersionsResultTypeDef",
+    {
+        "defaultDisplayVersion": str,
+        "format": PackageFormatType,
+        "namespace": str,
+        "package": str,
+        "versions": List[PackageVersionSummaryTypeDef],
+        "ResponseMetadata": ResponseMetadataTypeDef,
+        "nextToken": NotRequired[str],
+    },
+)
+
+class PackageGroupDescriptionTypeDef(TypedDict):
+    arn: NotRequired[str]
+    pattern: NotRequired[str]
+    domainName: NotRequired[str]
+    domainOwner: NotRequired[str]
+    createdTime: NotRequired[datetime]
+    contactInfo: NotRequired[str]
+    description: NotRequired[str]
+    originConfiguration: NotRequired[PackageGroupOriginConfigurationTypeDef]
+    parent: NotRequired[PackageGroupReferenceTypeDef]
+
+class PackageGroupSummaryTypeDef(TypedDict):
+    arn: NotRequired[str]
+    pattern: NotRequired[str]
+    domainName: NotRequired[str]
+    domainOwner: NotRequired[str]
+    createdTime: NotRequired[datetime]
+    contactInfo: NotRequired[str]
+    description: NotRequired[str]
+    originConfiguration: NotRequired[PackageGroupOriginConfigurationTypeDef]
+    parent: NotRequired[PackageGroupReferenceTypeDef]
+
+class DescribePackageResultTypeDef(TypedDict):
+    package: PackageDescriptionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeletePackageResultTypeDef(TypedDict):
+    deletedPackage: PackageSummaryTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListPackagesResultTypeDef(TypedDict):
+    packages: List[PackageSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class CreatePackageGroupResultTypeDef(TypedDict):
+    packageGroup: PackageGroupDescriptionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeletePackageGroupResultTypeDef(TypedDict):
+    packageGroup: PackageGroupDescriptionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribePackageGroupResultTypeDef(TypedDict):
+    packageGroup: PackageGroupDescriptionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetAssociatedPackageGroupResultTypeDef(TypedDict):
+    packageGroup: PackageGroupDescriptionTypeDef
+    associationType: PackageGroupAssociationTypeType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdatePackageGroupOriginConfigurationResultTypeDef(TypedDict):
+    packageGroup: PackageGroupDescriptionTypeDef
+    allowedRepositoryUpdates: Dict[
+        PackageGroupOriginRestrictionTypeType,
+        Dict[PackageGroupAllowedRepositoryUpdateTypeType, List[str]],
+    ]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdatePackageGroupResultTypeDef(TypedDict):
+    packageGroup: PackageGroupDescriptionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListPackageGroupsResultTypeDef(TypedDict):
+    packageGroups: List[PackageGroupSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListSubPackageGroupsResultTypeDef(TypedDict):
+    packageGroups: List[PackageGroupSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]

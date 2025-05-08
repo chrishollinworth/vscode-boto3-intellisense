@@ -1,32 +1,30 @@
 """
-Type annotations for grafana service client.
+Type annotations for grafana service Client.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/client.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_grafana/client/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
-    from mypy_boto3_grafana import ManagedGrafanaClient
+    from boto3.session import Session
+    from mypy_boto3_grafana.client import ManagedGrafanaClient
 
-    client: ManagedGrafanaClient = boto3.client("grafana")
+    session = Session()
+    client: ManagedGrafanaClient = session.client("grafana")
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from typing import Any, Dict, List, Type, overload
+from typing import Any, overload
 
 from botocore.client import BaseClient, ClientMeta
+from botocore.errorfactory import BaseClientExceptions
+from botocore.exceptions import ClientError as BotocoreClientError
 
-from .literals import (
-    AccountAccessTypeType,
-    AuthenticationProviderTypesType,
-    DataSourceTypeType,
-    LicenseTypeType,
-    PermissionTypeType,
-    RoleType,
-    UserTypeType,
-)
 from .paginator import (
     ListPermissionsPaginator,
     ListVersionsPaginator,
@@ -35,49 +33,69 @@ from .paginator import (
     ListWorkspacesPaginator,
 )
 from .type_defs import (
+    AssociateLicenseRequestTypeDef,
     AssociateLicenseResponseTypeDef,
+    CreateWorkspaceApiKeyRequestTypeDef,
     CreateWorkspaceApiKeyResponseTypeDef,
+    CreateWorkspaceRequestTypeDef,
     CreateWorkspaceResponseTypeDef,
+    CreateWorkspaceServiceAccountRequestTypeDef,
     CreateWorkspaceServiceAccountResponseTypeDef,
+    CreateWorkspaceServiceAccountTokenRequestTypeDef,
     CreateWorkspaceServiceAccountTokenResponseTypeDef,
+    DeleteWorkspaceApiKeyRequestTypeDef,
     DeleteWorkspaceApiKeyResponseTypeDef,
+    DeleteWorkspaceRequestTypeDef,
     DeleteWorkspaceResponseTypeDef,
+    DeleteWorkspaceServiceAccountRequestTypeDef,
     DeleteWorkspaceServiceAccountResponseTypeDef,
+    DeleteWorkspaceServiceAccountTokenRequestTypeDef,
     DeleteWorkspaceServiceAccountTokenResponseTypeDef,
+    DescribeWorkspaceAuthenticationRequestTypeDef,
     DescribeWorkspaceAuthenticationResponseTypeDef,
+    DescribeWorkspaceConfigurationRequestTypeDef,
     DescribeWorkspaceConfigurationResponseTypeDef,
+    DescribeWorkspaceRequestTypeDef,
     DescribeWorkspaceResponseTypeDef,
+    DisassociateLicenseRequestTypeDef,
     DisassociateLicenseResponseTypeDef,
+    ListPermissionsRequestTypeDef,
     ListPermissionsResponseTypeDef,
+    ListTagsForResourceRequestTypeDef,
     ListTagsForResourceResponseTypeDef,
+    ListVersionsRequestTypeDef,
     ListVersionsResponseTypeDef,
+    ListWorkspaceServiceAccountsRequestTypeDef,
     ListWorkspaceServiceAccountsResponseTypeDef,
+    ListWorkspaceServiceAccountTokensRequestTypeDef,
     ListWorkspaceServiceAccountTokensResponseTypeDef,
+    ListWorkspacesRequestTypeDef,
     ListWorkspacesResponseTypeDef,
-    NetworkAccessConfigurationTypeDef,
-    SamlConfigurationTypeDef,
-    UpdateInstructionTypeDef,
+    TagResourceRequestTypeDef,
+    UntagResourceRequestTypeDef,
+    UpdatePermissionsRequestTypeDef,
     UpdatePermissionsResponseTypeDef,
+    UpdateWorkspaceAuthenticationRequestTypeDef,
     UpdateWorkspaceAuthenticationResponseTypeDef,
+    UpdateWorkspaceConfigurationRequestTypeDef,
+    UpdateWorkspaceRequestTypeDef,
     UpdateWorkspaceResponseTypeDef,
-    VpcConfigurationTypeDef,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import type as Type
+    from collections.abc import Mapping
 else:
-    from typing_extensions import Literal
+    from typing import Dict, Mapping, Type
+if sys.version_info >= (3, 12):
+    from typing import Literal, Unpack
+else:
+    from typing_extensions import Literal, Unpack
 
 __all__ = ("ManagedGrafanaClient",)
 
-class BotocoreClientError(BaseException):
-    MSG_TEMPLATE: str
-
-    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
-        self.response: Dict[str, Any]
-        self.operation_name: str
-
-class Exceptions:
+class Exceptions(BaseClientExceptions):
     AccessDeniedException: Type[BotocoreClientError]
     ClientError: Type[BotocoreClientError]
     ConflictException: Type[BotocoreClientError]
@@ -89,8 +107,8 @@ class Exceptions:
 
 class ManagedGrafanaClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/grafana.html#ManagedGrafana.Client)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/client.html)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/grafana.html#ManagedGrafana.Client)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_grafana/client/)
     """
 
     meta: ClientMeta
@@ -99,377 +117,338 @@ class ManagedGrafanaClient(BaseClient):
     def exceptions(self) -> Exceptions:
         """
         ManagedGrafanaClient exceptions.
-        """
 
-    def associate_license(
-        self, *, licenseType: LicenseTypeType, workspaceId: str, grafanaToken: str = None
-    ) -> AssociateLicenseResponseTypeDef:
-        """
-        Assigns a Grafana Enterprise license to a workspace.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/grafana.html#ManagedGrafana.Client.associate_license)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/client.html#associate_license)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/grafana.html#ManagedGrafana.Client)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_grafana/client/#exceptions)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        Check if an operation can be paginated.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/grafana.html#ManagedGrafana.Client.can_paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/client.html#can_paginate)
-        """
-
-    def close(self) -> None:
-        """
-        Closes underlying endpoint connections.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/grafana.html#ManagedGrafana.Client.close)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/client.html#close)
-        """
-
-    def create_workspace(
-        self,
-        *,
-        accountAccessType: AccountAccessTypeType,
-        authenticationProviders: List[AuthenticationProviderTypesType],
-        permissionType: PermissionTypeType,
-        clientToken: str = None,
-        configuration: str = None,
-        grafanaVersion: str = None,
-        networkAccessControl: "NetworkAccessConfigurationTypeDef" = None,
-        organizationRoleName: str = None,
-        stackSetName: str = None,
-        tags: Dict[str, str] = None,
-        vpcConfiguration: "VpcConfigurationTypeDef" = None,
-        workspaceDataSources: List[DataSourceTypeType] = None,
-        workspaceDescription: str = None,
-        workspaceName: str = None,
-        workspaceNotificationDestinations: List[Literal["SNS"]] = None,
-        workspaceOrganizationalUnits: List[str] = None,
-        workspaceRoleArn: str = None
-    ) -> CreateWorkspaceResponseTypeDef:
-        """
-        Creates a *workspace*.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/grafana.html#ManagedGrafana.Client.create_workspace)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/client.html#create_workspace)
-        """
-
-    def create_workspace_api_key(
-        self, *, keyName: str, keyRole: str, secondsToLive: int, workspaceId: str
-    ) -> CreateWorkspaceApiKeyResponseTypeDef:
-        """
-        Creates a Grafana API key for the workspace.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/grafana.html#ManagedGrafana.Client.create_workspace_api_key)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/client.html#create_workspace_api_key)
-        """
-
-    def create_workspace_service_account(
-        self, *, grafanaRole: RoleType, name: str, workspaceId: str
-    ) -> CreateWorkspaceServiceAccountResponseTypeDef:
-        """
-        Creates a service account for the workspace.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/grafana.html#ManagedGrafana.Client.create_workspace_service_account)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/client.html#create_workspace_service_account)
-        """
-
-    def create_workspace_service_account_token(
-        self, *, name: str, secondsToLive: int, serviceAccountId: str, workspaceId: str
-    ) -> CreateWorkspaceServiceAccountTokenResponseTypeDef:
-        """
-        Creates a token that can be used to authenticate and authorize Grafana HTTP API
-        operations for the given `workspace service account
-        <https://docs.aws.amazon.com/grafana/latest/userguide/service-accounts.html>`__.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/grafana.html#ManagedGrafana.Client.create_workspace_service_account_token)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/client.html#create_workspace_service_account_token)
-        """
-
-    def delete_workspace(self, *, workspaceId: str) -> DeleteWorkspaceResponseTypeDef:
-        """
-        Deletes an Amazon Managed Grafana workspace.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/grafana.html#ManagedGrafana.Client.delete_workspace)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/client.html#delete_workspace)
-        """
-
-    def delete_workspace_api_key(
-        self, *, keyName: str, workspaceId: str
-    ) -> DeleteWorkspaceApiKeyResponseTypeDef:
-        """
-        Deletes a Grafana API key for the workspace.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/grafana.html#ManagedGrafana.Client.delete_workspace_api_key)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/client.html#delete_workspace_api_key)
-        """
-
-    def delete_workspace_service_account(
-        self, *, serviceAccountId: str, workspaceId: str
-    ) -> DeleteWorkspaceServiceAccountResponseTypeDef:
-        """
-        Deletes a workspace service account from the workspace.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/grafana.html#ManagedGrafana.Client.delete_workspace_service_account)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/client.html#delete_workspace_service_account)
-        """
-
-    def delete_workspace_service_account_token(
-        self, *, serviceAccountId: str, tokenId: str, workspaceId: str
-    ) -> DeleteWorkspaceServiceAccountTokenResponseTypeDef:
-        """
-        Deletes a token for the workspace service account.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/grafana.html#ManagedGrafana.Client.delete_workspace_service_account_token)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/client.html#delete_workspace_service_account_token)
-        """
-
-    def describe_workspace(self, *, workspaceId: str) -> DescribeWorkspaceResponseTypeDef:
-        """
-        Displays information about one Amazon Managed Grafana workspace.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/grafana.html#ManagedGrafana.Client.describe_workspace)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/client.html#describe_workspace)
-        """
-
-    def describe_workspace_authentication(
-        self, *, workspaceId: str
-    ) -> DescribeWorkspaceAuthenticationResponseTypeDef:
-        """
-        Displays information about the authentication methods used in one Amazon Managed
-        Grafana workspace.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/grafana.html#ManagedGrafana.Client.describe_workspace_authentication)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/client.html#describe_workspace_authentication)
-        """
-
-    def describe_workspace_configuration(
-        self, *, workspaceId: str
-    ) -> DescribeWorkspaceConfigurationResponseTypeDef:
-        """
-        Gets the current configuration string for the given workspace.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/grafana.html#ManagedGrafana.Client.describe_workspace_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/client.html#describe_workspace_configuration)
-        """
-
-    def disassociate_license(
-        self, *, licenseType: LicenseTypeType, workspaceId: str
-    ) -> DisassociateLicenseResponseTypeDef:
-        """
-        Removes the Grafana Enterprise license from a workspace.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/grafana.html#ManagedGrafana.Client.disassociate_license)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/client.html#disassociate_license)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/grafana/client/can_paginate.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_grafana/client/#can_paginate)
         """
 
     def generate_presigned_url(
         self,
         ClientMethod: str,
-        Params: Dict[str, Any] = None,
+        Params: Mapping[str, Any] = ...,
         ExpiresIn: int = 3600,
-        HttpMethod: str = None,
+        HttpMethod: str = ...,
     ) -> str:
         """
-        Generate a presigned url given a client, its method, and arguments.
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/grafana/client/generate_presigned_url.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_grafana/client/#generate_presigned_url)
+        """
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/grafana.html#ManagedGrafana.Client.generate_presigned_url)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/client.html#generate_presigned_url)
+    def associate_license(
+        self, **kwargs: Unpack[AssociateLicenseRequestTypeDef]
+    ) -> AssociateLicenseResponseTypeDef:
+        """
+        Assigns a Grafana Enterprise license to a workspace.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/grafana/client/associate_license.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_grafana/client/#associate_license)
+        """
+
+    def create_workspace(
+        self, **kwargs: Unpack[CreateWorkspaceRequestTypeDef]
+    ) -> CreateWorkspaceResponseTypeDef:
+        """
+        Creates a <i>workspace</i>.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/grafana/client/create_workspace.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_grafana/client/#create_workspace)
+        """
+
+    def create_workspace_api_key(
+        self, **kwargs: Unpack[CreateWorkspaceApiKeyRequestTypeDef]
+    ) -> CreateWorkspaceApiKeyResponseTypeDef:
+        """
+        Creates a Grafana API key for the workspace.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/grafana/client/create_workspace_api_key.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_grafana/client/#create_workspace_api_key)
+        """
+
+    def create_workspace_service_account(
+        self, **kwargs: Unpack[CreateWorkspaceServiceAccountRequestTypeDef]
+    ) -> CreateWorkspaceServiceAccountResponseTypeDef:
+        """
+        Creates a service account for the workspace.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/grafana/client/create_workspace_service_account.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_grafana/client/#create_workspace_service_account)
+        """
+
+    def create_workspace_service_account_token(
+        self, **kwargs: Unpack[CreateWorkspaceServiceAccountTokenRequestTypeDef]
+    ) -> CreateWorkspaceServiceAccountTokenResponseTypeDef:
+        """
+        Creates a token that can be used to authenticate and authorize Grafana HTTP API
+        operations for the given <a
+        href="https://docs.aws.amazon.com/grafana/latest/userguide/service-accounts.html">workspace
+        service account</a>.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/grafana/client/create_workspace_service_account_token.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_grafana/client/#create_workspace_service_account_token)
+        """
+
+    def delete_workspace(
+        self, **kwargs: Unpack[DeleteWorkspaceRequestTypeDef]
+    ) -> DeleteWorkspaceResponseTypeDef:
+        """
+        Deletes an Amazon Managed Grafana workspace.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/grafana/client/delete_workspace.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_grafana/client/#delete_workspace)
+        """
+
+    def delete_workspace_api_key(
+        self, **kwargs: Unpack[DeleteWorkspaceApiKeyRequestTypeDef]
+    ) -> DeleteWorkspaceApiKeyResponseTypeDef:
+        """
+        Deletes a Grafana API key for the workspace.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/grafana/client/delete_workspace_api_key.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_grafana/client/#delete_workspace_api_key)
+        """
+
+    def delete_workspace_service_account(
+        self, **kwargs: Unpack[DeleteWorkspaceServiceAccountRequestTypeDef]
+    ) -> DeleteWorkspaceServiceAccountResponseTypeDef:
+        """
+        Deletes a workspace service account from the workspace.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/grafana/client/delete_workspace_service_account.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_grafana/client/#delete_workspace_service_account)
+        """
+
+    def delete_workspace_service_account_token(
+        self, **kwargs: Unpack[DeleteWorkspaceServiceAccountTokenRequestTypeDef]
+    ) -> DeleteWorkspaceServiceAccountTokenResponseTypeDef:
+        """
+        Deletes a token for the workspace service account.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/grafana/client/delete_workspace_service_account_token.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_grafana/client/#delete_workspace_service_account_token)
+        """
+
+    def describe_workspace(
+        self, **kwargs: Unpack[DescribeWorkspaceRequestTypeDef]
+    ) -> DescribeWorkspaceResponseTypeDef:
+        """
+        Displays information about one Amazon Managed Grafana workspace.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/grafana/client/describe_workspace.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_grafana/client/#describe_workspace)
+        """
+
+    def describe_workspace_authentication(
+        self, **kwargs: Unpack[DescribeWorkspaceAuthenticationRequestTypeDef]
+    ) -> DescribeWorkspaceAuthenticationResponseTypeDef:
+        """
+        Displays information about the authentication methods used in one Amazon
+        Managed Grafana workspace.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/grafana/client/describe_workspace_authentication.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_grafana/client/#describe_workspace_authentication)
+        """
+
+    def describe_workspace_configuration(
+        self, **kwargs: Unpack[DescribeWorkspaceConfigurationRequestTypeDef]
+    ) -> DescribeWorkspaceConfigurationResponseTypeDef:
+        """
+        Gets the current configuration string for the given workspace.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/grafana/client/describe_workspace_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_grafana/client/#describe_workspace_configuration)
+        """
+
+    def disassociate_license(
+        self, **kwargs: Unpack[DisassociateLicenseRequestTypeDef]
+    ) -> DisassociateLicenseResponseTypeDef:
+        """
+        Removes the Grafana Enterprise license from a workspace.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/grafana/client/disassociate_license.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_grafana/client/#disassociate_license)
         """
 
     def list_permissions(
-        self,
-        *,
-        workspaceId: str,
-        groupId: str = None,
-        maxResults: int = None,
-        nextToken: str = None,
-        userId: str = None,
-        userType: UserTypeType = None
+        self, **kwargs: Unpack[ListPermissionsRequestTypeDef]
     ) -> ListPermissionsResponseTypeDef:
         """
-        Lists the users and groups who have the Grafana `Admin` and `Editor` roles in
-        this workspace.
+        Lists the users and groups who have the Grafana <code>Admin</code> and
+        <code>Editor</code> roles in this workspace.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/grafana.html#ManagedGrafana.Client.list_permissions)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/client.html#list_permissions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/grafana/client/list_permissions.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_grafana/client/#list_permissions)
         """
 
-    def list_tags_for_resource(self, *, resourceArn: str) -> ListTagsForResourceResponseTypeDef:
+    def list_tags_for_resource(
+        self, **kwargs: Unpack[ListTagsForResourceRequestTypeDef]
+    ) -> ListTagsForResourceResponseTypeDef:
         """
-        The `ListTagsForResource` operation returns the tags that are associated with
-        the Amazon Managed Service for Grafana resource specified by the `resourceArn`.
+        The <code>ListTagsForResource</code> operation returns the tags that are
+        associated with the Amazon Managed Service for Grafana resource specified by
+        the <code>resourceArn</code>.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/grafana.html#ManagedGrafana.Client.list_tags_for_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/client.html#list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/grafana/client/list_tags_for_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_grafana/client/#list_tags_for_resource)
         """
 
     def list_versions(
-        self, *, maxResults: int = None, nextToken: str = None, workspaceId: str = None
+        self, **kwargs: Unpack[ListVersionsRequestTypeDef]
     ) -> ListVersionsResponseTypeDef:
         """
         Lists available versions of Grafana.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/grafana.html#ManagedGrafana.Client.list_versions)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/client.html#list_versions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/grafana/client/list_versions.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_grafana/client/#list_versions)
         """
 
     def list_workspace_service_account_tokens(
-        self,
-        *,
-        serviceAccountId: str,
-        workspaceId: str,
-        maxResults: int = None,
-        nextToken: str = None
+        self, **kwargs: Unpack[ListWorkspaceServiceAccountTokensRequestTypeDef]
     ) -> ListWorkspaceServiceAccountTokensResponseTypeDef:
         """
         Returns a list of tokens for a workspace service account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/grafana.html#ManagedGrafana.Client.list_workspace_service_account_tokens)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/client.html#list_workspace_service_account_tokens)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/grafana/client/list_workspace_service_account_tokens.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_grafana/client/#list_workspace_service_account_tokens)
         """
 
     def list_workspace_service_accounts(
-        self, *, workspaceId: str, maxResults: int = None, nextToken: str = None
+        self, **kwargs: Unpack[ListWorkspaceServiceAccountsRequestTypeDef]
     ) -> ListWorkspaceServiceAccountsResponseTypeDef:
         """
         Returns a list of service accounts for a workspace.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/grafana.html#ManagedGrafana.Client.list_workspace_service_accounts)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/client.html#list_workspace_service_accounts)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/grafana/client/list_workspace_service_accounts.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_grafana/client/#list_workspace_service_accounts)
         """
 
     def list_workspaces(
-        self, *, maxResults: int = None, nextToken: str = None
+        self, **kwargs: Unpack[ListWorkspacesRequestTypeDef]
     ) -> ListWorkspacesResponseTypeDef:
         """
         Returns a list of Amazon Managed Grafana workspaces in the account, with some
         information about each workspace.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/grafana.html#ManagedGrafana.Client.list_workspaces)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/client.html#list_workspaces)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/grafana/client/list_workspaces.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_grafana/client/#list_workspaces)
         """
 
-    def tag_resource(self, *, resourceArn: str, tags: Dict[str, str]) -> Dict[str, Any]:
+    def tag_resource(self, **kwargs: Unpack[TagResourceRequestTypeDef]) -> Dict[str, Any]:
         """
-        The `TagResource` operation associates tags with an Amazon Managed Grafana
-        resource.
+        The <code>TagResource</code> operation associates tags with an Amazon Managed
+        Grafana resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/grafana.html#ManagedGrafana.Client.tag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/client.html#tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/grafana/client/tag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_grafana/client/#tag_resource)
         """
 
-    def untag_resource(self, *, resourceArn: str, tagKeys: List[str]) -> Dict[str, Any]:
+    def untag_resource(self, **kwargs: Unpack[UntagResourceRequestTypeDef]) -> Dict[str, Any]:
         """
-        The `UntagResource` operation removes the association of the tag with the Amazon
-        Managed Grafana resource.
+        The <code>UntagResource</code> operation removes the association of the tag
+        with the Amazon Managed Grafana resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/grafana.html#ManagedGrafana.Client.untag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/client.html#untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/grafana/client/untag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_grafana/client/#untag_resource)
         """
 
     def update_permissions(
-        self, *, updateInstructionBatch: List["UpdateInstructionTypeDef"], workspaceId: str
+        self, **kwargs: Unpack[UpdatePermissionsRequestTypeDef]
     ) -> UpdatePermissionsResponseTypeDef:
         """
-        Updates which users in a workspace have the Grafana `Admin` or `Editor` roles.
+        Updates which users in a workspace have the Grafana <code>Admin</code> or
+        <code>Editor</code> roles.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/grafana.html#ManagedGrafana.Client.update_permissions)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/client.html#update_permissions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/grafana/client/update_permissions.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_grafana/client/#update_permissions)
         """
 
     def update_workspace(
-        self,
-        *,
-        workspaceId: str,
-        accountAccessType: AccountAccessTypeType = None,
-        networkAccessControl: "NetworkAccessConfigurationTypeDef" = None,
-        organizationRoleName: str = None,
-        permissionType: PermissionTypeType = None,
-        removeNetworkAccessConfiguration: bool = None,
-        removeVpcConfiguration: bool = None,
-        stackSetName: str = None,
-        vpcConfiguration: "VpcConfigurationTypeDef" = None,
-        workspaceDataSources: List[DataSourceTypeType] = None,
-        workspaceDescription: str = None,
-        workspaceName: str = None,
-        workspaceNotificationDestinations: List[Literal["SNS"]] = None,
-        workspaceOrganizationalUnits: List[str] = None,
-        workspaceRoleArn: str = None
+        self, **kwargs: Unpack[UpdateWorkspaceRequestTypeDef]
     ) -> UpdateWorkspaceResponseTypeDef:
         """
         Modifies an existing Amazon Managed Grafana workspace.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/grafana.html#ManagedGrafana.Client.update_workspace)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/client.html#update_workspace)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/grafana/client/update_workspace.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_grafana/client/#update_workspace)
         """
 
     def update_workspace_authentication(
-        self,
-        *,
-        authenticationProviders: List[AuthenticationProviderTypesType],
-        workspaceId: str,
-        samlConfiguration: "SamlConfigurationTypeDef" = None
+        self, **kwargs: Unpack[UpdateWorkspaceAuthenticationRequestTypeDef]
     ) -> UpdateWorkspaceAuthenticationResponseTypeDef:
         """
         Use this operation to define the identity provider (IdP) that this workspace
         authenticates users from, using SAML.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/grafana.html#ManagedGrafana.Client.update_workspace_authentication)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/client.html#update_workspace_authentication)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/grafana/client/update_workspace_authentication.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_grafana/client/#update_workspace_authentication)
         """
 
     def update_workspace_configuration(
-        self, *, configuration: str, workspaceId: str, grafanaVersion: str = None
+        self, **kwargs: Unpack[UpdateWorkspaceConfigurationRequestTypeDef]
     ) -> Dict[str, Any]:
         """
-        Updates the configuration string for the given workspace See also: `AWS API
-        Documentation <https://docs.aws.amazon.com/goto/WebAPI/grafana-2020-08-
-        18/UpdateWorkspaceConfiguration>`_ **Request Syntax** response =
-        client.update_workspace_configuration( configuration='string', ...
+        Updates the configuration string for the given workspace.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/grafana.html#ManagedGrafana.Client.update_workspace_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/client.html#update_workspace_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/grafana/client/update_workspace_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_grafana/client/#update_workspace_configuration)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_permissions"]
     ) -> ListPermissionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/grafana.html#ManagedGrafana.Paginator.ListPermissions)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/paginators.html#listpermissionspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/grafana/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_grafana/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_versions"]) -> ListVersionsPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_versions"]
+    ) -> ListVersionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/grafana.html#ManagedGrafana.Paginator.ListVersions)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/paginators.html#listversionspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/grafana/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_grafana/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_workspace_service_account_tokens"]
     ) -> ListWorkspaceServiceAccountTokensPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/grafana.html#ManagedGrafana.Paginator.ListWorkspaceServiceAccountTokens)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/paginators.html#listworkspaceserviceaccounttokenspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/grafana/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_grafana/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_workspace_service_accounts"]
     ) -> ListWorkspaceServiceAccountsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/grafana.html#ManagedGrafana.Paginator.ListWorkspaceServiceAccounts)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/paginators.html#listworkspaceserviceaccountspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/grafana/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_grafana/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_workspaces"]) -> ListWorkspacesPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_workspaces"]
+    ) -> ListWorkspacesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/grafana.html#ManagedGrafana.Paginator.ListWorkspaces)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/paginators.html#listworkspacespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/grafana/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_grafana/client/#get_paginator)
         """

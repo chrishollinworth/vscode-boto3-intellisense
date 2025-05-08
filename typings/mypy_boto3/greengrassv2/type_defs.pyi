@@ -1,20 +1,24 @@
 """
 Type annotations for greengrassv2 service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_greengrassv2/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_greengrassv2/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_greengrassv2.type_defs import AssociateClientDeviceWithCoreDeviceEntryTypeDef
 
-    data: AssociateClientDeviceWithCoreDeviceEntryTypeDef = {...}
+    data: AssociateClientDeviceWithCoreDeviceEntryTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import IO, Any, Dict, List, Union
+from typing import IO, Any, Union
 
 from botocore.response import StreamingBody
 
@@ -41,70 +45,83 @@ from .literals import (
     VendorGuidanceType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
     "AssociateClientDeviceWithCoreDeviceEntryTypeDef",
     "AssociateClientDeviceWithCoreDeviceErrorEntryTypeDef",
-    "AssociateServiceRoleToAccountRequestRequestTypeDef",
+    "AssociateServiceRoleToAccountRequestTypeDef",
     "AssociateServiceRoleToAccountResponseTypeDef",
     "AssociatedClientDeviceTypeDef",
-    "BatchAssociateClientDeviceWithCoreDeviceRequestRequestTypeDef",
+    "BatchAssociateClientDeviceWithCoreDeviceRequestTypeDef",
     "BatchAssociateClientDeviceWithCoreDeviceResponseTypeDef",
-    "BatchDisassociateClientDeviceFromCoreDeviceRequestRequestTypeDef",
+    "BatchDisassociateClientDeviceFromCoreDeviceRequestTypeDef",
     "BatchDisassociateClientDeviceFromCoreDeviceResponseTypeDef",
-    "CancelDeploymentRequestRequestTypeDef",
+    "BlobTypeDef",
+    "CancelDeploymentRequestTypeDef",
     "CancelDeploymentResponseTypeDef",
     "CloudComponentStatusTypeDef",
     "ComponentCandidateTypeDef",
+    "ComponentConfigurationUpdateOutputTypeDef",
     "ComponentConfigurationUpdateTypeDef",
+    "ComponentConfigurationUpdateUnionTypeDef",
     "ComponentDependencyRequirementTypeDef",
+    "ComponentDeploymentSpecificationOutputTypeDef",
     "ComponentDeploymentSpecificationTypeDef",
+    "ComponentDeploymentSpecificationUnionTypeDef",
     "ComponentLatestVersionTypeDef",
+    "ComponentPlatformOutputTypeDef",
     "ComponentPlatformTypeDef",
+    "ComponentPlatformUnionTypeDef",
     "ComponentRunWithTypeDef",
     "ComponentTypeDef",
     "ComponentVersionListItemTypeDef",
     "ConnectivityInfoTypeDef",
     "CoreDeviceTypeDef",
-    "CreateComponentVersionRequestRequestTypeDef",
+    "CreateComponentVersionRequestTypeDef",
     "CreateComponentVersionResponseTypeDef",
-    "CreateDeploymentRequestRequestTypeDef",
+    "CreateDeploymentRequestTypeDef",
     "CreateDeploymentResponseTypeDef",
-    "DeleteComponentRequestRequestTypeDef",
-    "DeleteCoreDeviceRequestRequestTypeDef",
-    "DeleteDeploymentRequestRequestTypeDef",
+    "DeleteComponentRequestTypeDef",
+    "DeleteCoreDeviceRequestTypeDef",
+    "DeleteDeploymentRequestTypeDef",
     "DeploymentComponentUpdatePolicyTypeDef",
     "DeploymentConfigurationValidationPolicyTypeDef",
+    "DeploymentIoTJobConfigurationOutputTypeDef",
     "DeploymentIoTJobConfigurationTypeDef",
+    "DeploymentIoTJobConfigurationUnionTypeDef",
     "DeploymentPoliciesTypeDef",
     "DeploymentTypeDef",
-    "DescribeComponentRequestRequestTypeDef",
+    "DescribeComponentRequestTypeDef",
     "DescribeComponentResponseTypeDef",
     "DisassociateClientDeviceFromCoreDeviceEntryTypeDef",
     "DisassociateClientDeviceFromCoreDeviceErrorEntryTypeDef",
     "DisassociateServiceRoleFromAccountResponseTypeDef",
     "EffectiveDeploymentStatusDetailsTypeDef",
     "EffectiveDeploymentTypeDef",
-    "GetComponentRequestRequestTypeDef",
+    "EmptyResponseMetadataTypeDef",
+    "GetComponentRequestTypeDef",
     "GetComponentResponseTypeDef",
-    "GetComponentVersionArtifactRequestRequestTypeDef",
+    "GetComponentVersionArtifactRequestTypeDef",
     "GetComponentVersionArtifactResponseTypeDef",
-    "GetConnectivityInfoRequestRequestTypeDef",
+    "GetConnectivityInfoRequestTypeDef",
     "GetConnectivityInfoResponseTypeDef",
-    "GetCoreDeviceRequestRequestTypeDef",
+    "GetCoreDeviceRequestTypeDef",
     "GetCoreDeviceResponseTypeDef",
-    "GetDeploymentRequestRequestTypeDef",
+    "GetDeploymentRequestTypeDef",
     "GetDeploymentResponseTypeDef",
     "GetServiceRoleForAccountResponseTypeDef",
     "InstalledComponentTypeDef",
+    "IoTJobAbortConfigOutputTypeDef",
     "IoTJobAbortConfigTypeDef",
     "IoTJobAbortCriteriaTypeDef",
     "IoTJobExecutionsRolloutConfigTypeDef",
@@ -118,727 +135,221 @@ __all__ = (
     "LambdaFunctionRecipeSourceTypeDef",
     "LambdaLinuxProcessParamsTypeDef",
     "LambdaVolumeMountTypeDef",
-    "ListClientDevicesAssociatedWithCoreDeviceRequestRequestTypeDef",
+    "ListClientDevicesAssociatedWithCoreDeviceRequestPaginateTypeDef",
+    "ListClientDevicesAssociatedWithCoreDeviceRequestTypeDef",
     "ListClientDevicesAssociatedWithCoreDeviceResponseTypeDef",
-    "ListComponentVersionsRequestRequestTypeDef",
+    "ListComponentVersionsRequestPaginateTypeDef",
+    "ListComponentVersionsRequestTypeDef",
     "ListComponentVersionsResponseTypeDef",
-    "ListComponentsRequestRequestTypeDef",
+    "ListComponentsRequestPaginateTypeDef",
+    "ListComponentsRequestTypeDef",
     "ListComponentsResponseTypeDef",
-    "ListCoreDevicesRequestRequestTypeDef",
+    "ListCoreDevicesRequestPaginateTypeDef",
+    "ListCoreDevicesRequestTypeDef",
     "ListCoreDevicesResponseTypeDef",
-    "ListDeploymentsRequestRequestTypeDef",
+    "ListDeploymentsRequestPaginateTypeDef",
+    "ListDeploymentsRequestTypeDef",
     "ListDeploymentsResponseTypeDef",
-    "ListEffectiveDeploymentsRequestRequestTypeDef",
+    "ListEffectiveDeploymentsRequestPaginateTypeDef",
+    "ListEffectiveDeploymentsRequestTypeDef",
     "ListEffectiveDeploymentsResponseTypeDef",
-    "ListInstalledComponentsRequestRequestTypeDef",
+    "ListInstalledComponentsRequestPaginateTypeDef",
+    "ListInstalledComponentsRequestTypeDef",
     "ListInstalledComponentsResponseTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "PaginatorConfigTypeDef",
-    "ResolveComponentCandidatesRequestRequestTypeDef",
+    "ResolveComponentCandidatesRequestTypeDef",
     "ResolveComponentCandidatesResponseTypeDef",
     "ResolvedComponentVersionTypeDef",
     "ResponseMetadataTypeDef",
     "SystemResourceLimitsTypeDef",
-    "TagResourceRequestRequestTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateConnectivityInfoRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateConnectivityInfoRequestTypeDef",
     "UpdateConnectivityInfoResponseTypeDef",
 )
 
-AssociateClientDeviceWithCoreDeviceEntryTypeDef = TypedDict(
-    "AssociateClientDeviceWithCoreDeviceEntryTypeDef",
-    {
-        "thingName": str,
-    },
-)
+class AssociateClientDeviceWithCoreDeviceEntryTypeDef(TypedDict):
+    thingName: str
 
-AssociateClientDeviceWithCoreDeviceErrorEntryTypeDef = TypedDict(
-    "AssociateClientDeviceWithCoreDeviceErrorEntryTypeDef",
-    {
-        "thingName": str,
-        "code": str,
-        "message": str,
-    },
-    total=False,
-)
+class AssociateClientDeviceWithCoreDeviceErrorEntryTypeDef(TypedDict):
+    thingName: NotRequired[str]
+    code: NotRequired[str]
+    message: NotRequired[str]
 
-AssociateServiceRoleToAccountRequestRequestTypeDef = TypedDict(
-    "AssociateServiceRoleToAccountRequestRequestTypeDef",
-    {
-        "roleArn": str,
-    },
-)
+class AssociateServiceRoleToAccountRequestTypeDef(TypedDict):
+    roleArn: str
 
-AssociateServiceRoleToAccountResponseTypeDef = TypedDict(
-    "AssociateServiceRoleToAccountResponseTypeDef",
-    {
-        "associatedAt": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-AssociatedClientDeviceTypeDef = TypedDict(
-    "AssociatedClientDeviceTypeDef",
-    {
-        "thingName": str,
-        "associationTimestamp": datetime,
-    },
-    total=False,
-)
+class AssociatedClientDeviceTypeDef(TypedDict):
+    thingName: NotRequired[str]
+    associationTimestamp: NotRequired[datetime]
 
-_RequiredBatchAssociateClientDeviceWithCoreDeviceRequestRequestTypeDef = TypedDict(
-    "_RequiredBatchAssociateClientDeviceWithCoreDeviceRequestRequestTypeDef",
-    {
-        "coreDeviceThingName": str,
-    },
-)
-_OptionalBatchAssociateClientDeviceWithCoreDeviceRequestRequestTypeDef = TypedDict(
-    "_OptionalBatchAssociateClientDeviceWithCoreDeviceRequestRequestTypeDef",
-    {
-        "entries": List["AssociateClientDeviceWithCoreDeviceEntryTypeDef"],
-    },
-    total=False,
-)
+class DisassociateClientDeviceFromCoreDeviceEntryTypeDef(TypedDict):
+    thingName: str
 
-class BatchAssociateClientDeviceWithCoreDeviceRequestRequestTypeDef(
-    _RequiredBatchAssociateClientDeviceWithCoreDeviceRequestRequestTypeDef,
-    _OptionalBatchAssociateClientDeviceWithCoreDeviceRequestRequestTypeDef,
-):
-    pass
+class DisassociateClientDeviceFromCoreDeviceErrorEntryTypeDef(TypedDict):
+    thingName: NotRequired[str]
+    code: NotRequired[str]
+    message: NotRequired[str]
 
-BatchAssociateClientDeviceWithCoreDeviceResponseTypeDef = TypedDict(
-    "BatchAssociateClientDeviceWithCoreDeviceResponseTypeDef",
-    {
-        "errorEntries": List["AssociateClientDeviceWithCoreDeviceErrorEntryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+BlobTypeDef = Union[str, bytes, IO[Any], StreamingBody]
 
-_RequiredBatchDisassociateClientDeviceFromCoreDeviceRequestRequestTypeDef = TypedDict(
-    "_RequiredBatchDisassociateClientDeviceFromCoreDeviceRequestRequestTypeDef",
-    {
-        "coreDeviceThingName": str,
-    },
-)
-_OptionalBatchDisassociateClientDeviceFromCoreDeviceRequestRequestTypeDef = TypedDict(
-    "_OptionalBatchDisassociateClientDeviceFromCoreDeviceRequestRequestTypeDef",
-    {
-        "entries": List["DisassociateClientDeviceFromCoreDeviceEntryTypeDef"],
-    },
-    total=False,
-)
+class CancelDeploymentRequestTypeDef(TypedDict):
+    deploymentId: str
 
-class BatchDisassociateClientDeviceFromCoreDeviceRequestRequestTypeDef(
-    _RequiredBatchDisassociateClientDeviceFromCoreDeviceRequestRequestTypeDef,
-    _OptionalBatchDisassociateClientDeviceFromCoreDeviceRequestRequestTypeDef,
-):
-    pass
+class CloudComponentStatusTypeDef(TypedDict):
+    componentState: NotRequired[CloudComponentStateType]
+    message: NotRequired[str]
+    errors: NotRequired[Dict[str, str]]
+    vendorGuidance: NotRequired[VendorGuidanceType]
+    vendorGuidanceMessage: NotRequired[str]
 
-BatchDisassociateClientDeviceFromCoreDeviceResponseTypeDef = TypedDict(
-    "BatchDisassociateClientDeviceFromCoreDeviceResponseTypeDef",
-    {
-        "errorEntries": List["DisassociateClientDeviceFromCoreDeviceErrorEntryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ComponentCandidateTypeDef(TypedDict):
+    componentName: NotRequired[str]
+    componentVersion: NotRequired[str]
+    versionRequirements: NotRequired[Mapping[str, str]]
 
-CancelDeploymentRequestRequestTypeDef = TypedDict(
-    "CancelDeploymentRequestRequestTypeDef",
-    {
-        "deploymentId": str,
-    },
-)
+class ComponentConfigurationUpdateOutputTypeDef(TypedDict):
+    merge: NotRequired[str]
+    reset: NotRequired[List[str]]
 
-CancelDeploymentResponseTypeDef = TypedDict(
-    "CancelDeploymentResponseTypeDef",
-    {
-        "message": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ComponentConfigurationUpdateTypeDef(TypedDict):
+    merge: NotRequired[str]
+    reset: NotRequired[Sequence[str]]
 
-CloudComponentStatusTypeDef = TypedDict(
-    "CloudComponentStatusTypeDef",
-    {
-        "componentState": CloudComponentStateType,
-        "message": str,
-        "errors": Dict[str, str],
-        "vendorGuidance": VendorGuidanceType,
-        "vendorGuidanceMessage": str,
-    },
-    total=False,
-)
+class ComponentDependencyRequirementTypeDef(TypedDict):
+    versionRequirement: NotRequired[str]
+    dependencyType: NotRequired[ComponentDependencyTypeType]
 
-ComponentCandidateTypeDef = TypedDict(
-    "ComponentCandidateTypeDef",
-    {
-        "componentName": str,
-        "componentVersion": str,
-        "versionRequirements": Dict[str, str],
-    },
-    total=False,
-)
+class ComponentPlatformOutputTypeDef(TypedDict):
+    name: NotRequired[str]
+    attributes: NotRequired[Dict[str, str]]
 
-ComponentConfigurationUpdateTypeDef = TypedDict(
-    "ComponentConfigurationUpdateTypeDef",
-    {
-        "merge": str,
-        "reset": List[str],
-    },
-    total=False,
-)
+class ComponentPlatformTypeDef(TypedDict):
+    name: NotRequired[str]
+    attributes: NotRequired[Mapping[str, str]]
 
-ComponentDependencyRequirementTypeDef = TypedDict(
-    "ComponentDependencyRequirementTypeDef",
-    {
-        "versionRequirement": str,
-        "dependencyType": ComponentDependencyTypeType,
-    },
-    total=False,
-)
+class SystemResourceLimitsTypeDef(TypedDict):
+    memory: NotRequired[int]
+    cpus: NotRequired[float]
 
-_RequiredComponentDeploymentSpecificationTypeDef = TypedDict(
-    "_RequiredComponentDeploymentSpecificationTypeDef",
-    {
-        "componentVersion": str,
-    },
-)
-_OptionalComponentDeploymentSpecificationTypeDef = TypedDict(
-    "_OptionalComponentDeploymentSpecificationTypeDef",
-    {
-        "configurationUpdate": "ComponentConfigurationUpdateTypeDef",
-        "runWith": "ComponentRunWithTypeDef",
-    },
-    total=False,
-)
-
-class ComponentDeploymentSpecificationTypeDef(
-    _RequiredComponentDeploymentSpecificationTypeDef,
-    _OptionalComponentDeploymentSpecificationTypeDef,
-):
-    pass
-
-ComponentLatestVersionTypeDef = TypedDict(
-    "ComponentLatestVersionTypeDef",
-    {
-        "arn": str,
-        "componentVersion": str,
-        "creationTimestamp": datetime,
-        "description": str,
-        "publisher": str,
-        "platforms": List["ComponentPlatformTypeDef"],
-    },
-    total=False,
-)
-
-ComponentPlatformTypeDef = TypedDict(
-    "ComponentPlatformTypeDef",
-    {
-        "name": str,
-        "attributes": Dict[str, str],
-    },
-    total=False,
-)
-
-ComponentRunWithTypeDef = TypedDict(
-    "ComponentRunWithTypeDef",
-    {
-        "posixUser": str,
-        "systemResourceLimits": "SystemResourceLimitsTypeDef",
-        "windowsUser": str,
-    },
-    total=False,
-)
-
-ComponentTypeDef = TypedDict(
-    "ComponentTypeDef",
-    {
-        "arn": str,
-        "componentName": str,
-        "latestVersion": "ComponentLatestVersionTypeDef",
-    },
-    total=False,
-)
-
-ComponentVersionListItemTypeDef = TypedDict(
-    "ComponentVersionListItemTypeDef",
-    {
-        "componentName": str,
-        "componentVersion": str,
-        "arn": str,
-    },
-    total=False,
-)
+class ComponentVersionListItemTypeDef(TypedDict):
+    componentName: NotRequired[str]
+    componentVersion: NotRequired[str]
+    arn: NotRequired[str]
 
 ConnectivityInfoTypeDef = TypedDict(
     "ConnectivityInfoTypeDef",
     {
-        "id": str,
-        "hostAddress": str,
-        "portNumber": int,
-        "metadata": str,
-    },
-    total=False,
-)
-
-CoreDeviceTypeDef = TypedDict(
-    "CoreDeviceTypeDef",
-    {
-        "coreDeviceThingName": str,
-        "status": CoreDeviceStatusType,
-        "lastStatusUpdateTimestamp": datetime,
-    },
-    total=False,
-)
-
-CreateComponentVersionRequestRequestTypeDef = TypedDict(
-    "CreateComponentVersionRequestRequestTypeDef",
-    {
-        "inlineRecipe": Union[bytes, IO[bytes], StreamingBody],
-        "lambdaFunction": "LambdaFunctionRecipeSourceTypeDef",
-        "tags": Dict[str, str],
-        "clientToken": str,
-    },
-    total=False,
-)
-
-CreateComponentVersionResponseTypeDef = TypedDict(
-    "CreateComponentVersionResponseTypeDef",
-    {
-        "arn": str,
-        "componentName": str,
-        "componentVersion": str,
-        "creationTimestamp": datetime,
-        "status": "CloudComponentStatusTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "id": NotRequired[str],
+        "hostAddress": NotRequired[str],
+        "portNumber": NotRequired[int],
+        "metadata": NotRequired[str],
     },
 )
 
-_RequiredCreateDeploymentRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateDeploymentRequestRequestTypeDef",
-    {
-        "targetArn": str,
-    },
-)
-_OptionalCreateDeploymentRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateDeploymentRequestRequestTypeDef",
-    {
-        "deploymentName": str,
-        "components": Dict[str, "ComponentDeploymentSpecificationTypeDef"],
-        "iotJobConfiguration": "DeploymentIoTJobConfigurationTypeDef",
-        "deploymentPolicies": "DeploymentPoliciesTypeDef",
-        "parentTargetArn": str,
-        "tags": Dict[str, str],
-        "clientToken": str,
-    },
-    total=False,
-)
+class CoreDeviceTypeDef(TypedDict):
+    coreDeviceThingName: NotRequired[str]
+    status: NotRequired[CoreDeviceStatusType]
+    lastStatusUpdateTimestamp: NotRequired[datetime]
+    platform: NotRequired[str]
+    architecture: NotRequired[str]
+    runtime: NotRequired[str]
 
-class CreateDeploymentRequestRequestTypeDef(
-    _RequiredCreateDeploymentRequestRequestTypeDef, _OptionalCreateDeploymentRequestRequestTypeDef
-):
-    pass
+class DeleteComponentRequestTypeDef(TypedDict):
+    arn: str
 
-CreateDeploymentResponseTypeDef = TypedDict(
-    "CreateDeploymentResponseTypeDef",
-    {
-        "deploymentId": str,
-        "iotJobId": str,
-        "iotJobArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DeleteCoreDeviceRequestTypeDef(TypedDict):
+    coreDeviceThingName: str
 
-DeleteComponentRequestRequestTypeDef = TypedDict(
-    "DeleteComponentRequestRequestTypeDef",
-    {
-        "arn": str,
-    },
-)
+class DeleteDeploymentRequestTypeDef(TypedDict):
+    deploymentId: str
 
-DeleteCoreDeviceRequestRequestTypeDef = TypedDict(
-    "DeleteCoreDeviceRequestRequestTypeDef",
-    {
-        "coreDeviceThingName": str,
-    },
-)
+class DeploymentComponentUpdatePolicyTypeDef(TypedDict):
+    timeoutInSeconds: NotRequired[int]
+    action: NotRequired[DeploymentComponentUpdatePolicyActionType]
 
-DeleteDeploymentRequestRequestTypeDef = TypedDict(
-    "DeleteDeploymentRequestRequestTypeDef",
-    {
-        "deploymentId": str,
-    },
-)
+class DeploymentConfigurationValidationPolicyTypeDef(TypedDict):
+    timeoutInSeconds: NotRequired[int]
 
-DeploymentComponentUpdatePolicyTypeDef = TypedDict(
-    "DeploymentComponentUpdatePolicyTypeDef",
-    {
-        "timeoutInSeconds": int,
-        "action": DeploymentComponentUpdatePolicyActionType,
-    },
-    total=False,
-)
+class IoTJobTimeoutConfigTypeDef(TypedDict):
+    inProgressTimeoutInMinutes: NotRequired[int]
 
-DeploymentConfigurationValidationPolicyTypeDef = TypedDict(
-    "DeploymentConfigurationValidationPolicyTypeDef",
-    {
-        "timeoutInSeconds": int,
-    },
-    total=False,
-)
+class DeploymentTypeDef(TypedDict):
+    targetArn: NotRequired[str]
+    revisionId: NotRequired[str]
+    deploymentId: NotRequired[str]
+    deploymentName: NotRequired[str]
+    creationTimestamp: NotRequired[datetime]
+    deploymentStatus: NotRequired[DeploymentStatusType]
+    isLatestForTarget: NotRequired[bool]
+    parentTargetArn: NotRequired[str]
 
-DeploymentIoTJobConfigurationTypeDef = TypedDict(
-    "DeploymentIoTJobConfigurationTypeDef",
-    {
-        "jobExecutionsRolloutConfig": "IoTJobExecutionsRolloutConfigTypeDef",
-        "abortConfig": "IoTJobAbortConfigTypeDef",
-        "timeoutConfig": "IoTJobTimeoutConfigTypeDef",
-    },
-    total=False,
-)
+class DescribeComponentRequestTypeDef(TypedDict):
+    arn: str
 
-DeploymentPoliciesTypeDef = TypedDict(
-    "DeploymentPoliciesTypeDef",
-    {
-        "failureHandlingPolicy": DeploymentFailureHandlingPolicyType,
-        "componentUpdatePolicy": "DeploymentComponentUpdatePolicyTypeDef",
-        "configurationValidationPolicy": "DeploymentConfigurationValidationPolicyTypeDef",
-    },
-    total=False,
-)
+class EffectiveDeploymentStatusDetailsTypeDef(TypedDict):
+    errorStack: NotRequired[List[str]]
+    errorTypes: NotRequired[List[str]]
 
-DeploymentTypeDef = TypedDict(
-    "DeploymentTypeDef",
-    {
-        "targetArn": str,
-        "revisionId": str,
-        "deploymentId": str,
-        "deploymentName": str,
-        "creationTimestamp": datetime,
-        "deploymentStatus": DeploymentStatusType,
-        "isLatestForTarget": bool,
-        "parentTargetArn": str,
-    },
-    total=False,
-)
+class GetComponentRequestTypeDef(TypedDict):
+    arn: str
+    recipeOutputFormat: NotRequired[RecipeOutputFormatType]
 
-DescribeComponentRequestRequestTypeDef = TypedDict(
-    "DescribeComponentRequestRequestTypeDef",
-    {
-        "arn": str,
-    },
-)
+class GetComponentVersionArtifactRequestTypeDef(TypedDict):
+    arn: str
+    artifactName: str
+    s3EndpointType: NotRequired[S3EndpointTypeType]
+    iotEndpointType: NotRequired[IotEndpointTypeType]
 
-DescribeComponentResponseTypeDef = TypedDict(
-    "DescribeComponentResponseTypeDef",
-    {
-        "arn": str,
-        "componentName": str,
-        "componentVersion": str,
-        "creationTimestamp": datetime,
-        "publisher": str,
-        "description": str,
-        "status": "CloudComponentStatusTypeDef",
-        "platforms": List["ComponentPlatformTypeDef"],
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetConnectivityInfoRequestTypeDef(TypedDict):
+    thingName: str
 
-DisassociateClientDeviceFromCoreDeviceEntryTypeDef = TypedDict(
-    "DisassociateClientDeviceFromCoreDeviceEntryTypeDef",
-    {
-        "thingName": str,
-    },
-)
+class GetCoreDeviceRequestTypeDef(TypedDict):
+    coreDeviceThingName: str
 
-DisassociateClientDeviceFromCoreDeviceErrorEntryTypeDef = TypedDict(
-    "DisassociateClientDeviceFromCoreDeviceErrorEntryTypeDef",
-    {
-        "thingName": str,
-        "code": str,
-        "message": str,
-    },
-    total=False,
-)
+class GetDeploymentRequestTypeDef(TypedDict):
+    deploymentId: str
 
-DisassociateServiceRoleFromAccountResponseTypeDef = TypedDict(
-    "DisassociateServiceRoleFromAccountResponseTypeDef",
-    {
-        "disassociatedAt": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class InstalledComponentTypeDef(TypedDict):
+    componentName: NotRequired[str]
+    componentVersion: NotRequired[str]
+    lifecycleState: NotRequired[InstalledComponentLifecycleStateType]
+    lifecycleStateDetails: NotRequired[str]
+    isRoot: NotRequired[bool]
+    lastStatusChangeTimestamp: NotRequired[datetime]
+    lastReportedTimestamp: NotRequired[datetime]
+    lastInstallationSource: NotRequired[str]
+    lifecycleStatusCodes: NotRequired[List[str]]
 
-EffectiveDeploymentStatusDetailsTypeDef = TypedDict(
-    "EffectiveDeploymentStatusDetailsTypeDef",
-    {
-        "errorStack": List[str],
-        "errorTypes": List[str],
-    },
-    total=False,
-)
+class IoTJobAbortCriteriaTypeDef(TypedDict):
+    failureType: IoTJobExecutionFailureTypeType
+    action: Literal["CANCEL"]
+    thresholdPercentage: float
+    minNumberOfExecutedThings: int
 
-_RequiredEffectiveDeploymentTypeDef = TypedDict(
-    "_RequiredEffectiveDeploymentTypeDef",
-    {
-        "deploymentId": str,
-        "deploymentName": str,
-        "targetArn": str,
-        "coreDeviceExecutionStatus": EffectiveDeploymentExecutionStatusType,
-        "creationTimestamp": datetime,
-        "modifiedTimestamp": datetime,
-    },
-)
-_OptionalEffectiveDeploymentTypeDef = TypedDict(
-    "_OptionalEffectiveDeploymentTypeDef",
-    {
-        "iotJobId": str,
-        "iotJobArn": str,
-        "description": str,
-        "reason": str,
-        "statusDetails": "EffectiveDeploymentStatusDetailsTypeDef",
-    },
-    total=False,
-)
+class IoTJobRateIncreaseCriteriaTypeDef(TypedDict):
+    numberOfNotifiedThings: NotRequired[int]
+    numberOfSucceededThings: NotRequired[int]
 
-class EffectiveDeploymentTypeDef(
-    _RequiredEffectiveDeploymentTypeDef, _OptionalEffectiveDeploymentTypeDef
-):
-    pass
+class LambdaDeviceMountTypeDef(TypedDict):
+    path: str
+    permission: NotRequired[LambdaFilesystemPermissionType]
+    addGroupOwner: NotRequired[bool]
 
-_RequiredGetComponentRequestRequestTypeDef = TypedDict(
-    "_RequiredGetComponentRequestRequestTypeDef",
-    {
-        "arn": str,
-    },
-)
-_OptionalGetComponentRequestRequestTypeDef = TypedDict(
-    "_OptionalGetComponentRequestRequestTypeDef",
-    {
-        "recipeOutputFormat": RecipeOutputFormatType,
-    },
-    total=False,
-)
-
-class GetComponentRequestRequestTypeDef(
-    _RequiredGetComponentRequestRequestTypeDef, _OptionalGetComponentRequestRequestTypeDef
-):
-    pass
-
-GetComponentResponseTypeDef = TypedDict(
-    "GetComponentResponseTypeDef",
-    {
-        "recipeOutputFormat": RecipeOutputFormatType,
-        "recipe": bytes,
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetComponentVersionArtifactRequestRequestTypeDef = TypedDict(
-    "_RequiredGetComponentVersionArtifactRequestRequestTypeDef",
-    {
-        "arn": str,
-        "artifactName": str,
-    },
-)
-_OptionalGetComponentVersionArtifactRequestRequestTypeDef = TypedDict(
-    "_OptionalGetComponentVersionArtifactRequestRequestTypeDef",
-    {
-        "s3EndpointType": S3EndpointTypeType,
-        "iotEndpointType": IotEndpointTypeType,
-    },
-    total=False,
-)
-
-class GetComponentVersionArtifactRequestRequestTypeDef(
-    _RequiredGetComponentVersionArtifactRequestRequestTypeDef,
-    _OptionalGetComponentVersionArtifactRequestRequestTypeDef,
-):
-    pass
-
-GetComponentVersionArtifactResponseTypeDef = TypedDict(
-    "GetComponentVersionArtifactResponseTypeDef",
-    {
-        "preSignedUrl": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetConnectivityInfoRequestRequestTypeDef = TypedDict(
-    "GetConnectivityInfoRequestRequestTypeDef",
-    {
-        "thingName": str,
-    },
-)
-
-GetConnectivityInfoResponseTypeDef = TypedDict(
-    "GetConnectivityInfoResponseTypeDef",
-    {
-        "connectivityInfo": List["ConnectivityInfoTypeDef"],
-        "message": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetCoreDeviceRequestRequestTypeDef = TypedDict(
-    "GetCoreDeviceRequestRequestTypeDef",
-    {
-        "coreDeviceThingName": str,
-    },
-)
-
-GetCoreDeviceResponseTypeDef = TypedDict(
-    "GetCoreDeviceResponseTypeDef",
-    {
-        "coreDeviceThingName": str,
-        "coreVersion": str,
-        "platform": str,
-        "architecture": str,
-        "status": CoreDeviceStatusType,
-        "lastStatusUpdateTimestamp": datetime,
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetDeploymentRequestRequestTypeDef = TypedDict(
-    "GetDeploymentRequestRequestTypeDef",
-    {
-        "deploymentId": str,
-    },
-)
-
-GetDeploymentResponseTypeDef = TypedDict(
-    "GetDeploymentResponseTypeDef",
-    {
-        "targetArn": str,
-        "revisionId": str,
-        "deploymentId": str,
-        "deploymentName": str,
-        "deploymentStatus": DeploymentStatusType,
-        "iotJobId": str,
-        "iotJobArn": str,
-        "components": Dict[str, "ComponentDeploymentSpecificationTypeDef"],
-        "deploymentPolicies": "DeploymentPoliciesTypeDef",
-        "iotJobConfiguration": "DeploymentIoTJobConfigurationTypeDef",
-        "creationTimestamp": datetime,
-        "isLatestForTarget": bool,
-        "parentTargetArn": str,
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetServiceRoleForAccountResponseTypeDef = TypedDict(
-    "GetServiceRoleForAccountResponseTypeDef",
-    {
-        "associatedAt": str,
-        "roleArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-InstalledComponentTypeDef = TypedDict(
-    "InstalledComponentTypeDef",
-    {
-        "componentName": str,
-        "componentVersion": str,
-        "lifecycleState": InstalledComponentLifecycleStateType,
-        "lifecycleStateDetails": str,
-        "isRoot": bool,
-        "lastStatusChangeTimestamp": datetime,
-        "lastReportedTimestamp": datetime,
-        "lastInstallationSource": str,
-        "lifecycleStatusCodes": List[str],
-    },
-    total=False,
-)
-
-IoTJobAbortConfigTypeDef = TypedDict(
-    "IoTJobAbortConfigTypeDef",
-    {
-        "criteriaList": List["IoTJobAbortCriteriaTypeDef"],
-    },
-)
-
-IoTJobAbortCriteriaTypeDef = TypedDict(
-    "IoTJobAbortCriteriaTypeDef",
-    {
-        "failureType": IoTJobExecutionFailureTypeType,
-        "action": Literal["CANCEL"],
-        "thresholdPercentage": float,
-        "minNumberOfExecutedThings": int,
-    },
-)
-
-IoTJobExecutionsRolloutConfigTypeDef = TypedDict(
-    "IoTJobExecutionsRolloutConfigTypeDef",
-    {
-        "exponentialRate": "IoTJobExponentialRolloutRateTypeDef",
-        "maximumPerMinute": int,
-    },
-    total=False,
-)
-
-IoTJobExponentialRolloutRateTypeDef = TypedDict(
-    "IoTJobExponentialRolloutRateTypeDef",
-    {
-        "baseRatePerMinute": int,
-        "incrementFactor": float,
-        "rateIncreaseCriteria": "IoTJobRateIncreaseCriteriaTypeDef",
-    },
-)
-
-IoTJobRateIncreaseCriteriaTypeDef = TypedDict(
-    "IoTJobRateIncreaseCriteriaTypeDef",
-    {
-        "numberOfNotifiedThings": int,
-        "numberOfSucceededThings": int,
-    },
-    total=False,
-)
-
-IoTJobTimeoutConfigTypeDef = TypedDict(
-    "IoTJobTimeoutConfigTypeDef",
-    {
-        "inProgressTimeoutInMinutes": int,
-    },
-    total=False,
-)
-
-LambdaContainerParamsTypeDef = TypedDict(
-    "LambdaContainerParamsTypeDef",
-    {
-        "memorySizeInKB": int,
-        "mountROSysfs": bool,
-        "volumes": List["LambdaVolumeMountTypeDef"],
-        "devices": List["LambdaDeviceMountTypeDef"],
-    },
-    total=False,
-)
-
-_RequiredLambdaDeviceMountTypeDef = TypedDict(
-    "_RequiredLambdaDeviceMountTypeDef",
-    {
-        "path": str,
-    },
-)
-_OptionalLambdaDeviceMountTypeDef = TypedDict(
-    "_OptionalLambdaDeviceMountTypeDef",
-    {
-        "permission": LambdaFilesystemPermissionType,
-        "addGroupOwner": bool,
-    },
-    total=False,
-)
-
-class LambdaDeviceMountTypeDef(
-    _RequiredLambdaDeviceMountTypeDef, _OptionalLambdaDeviceMountTypeDef
-):
-    pass
+class LambdaVolumeMountTypeDef(TypedDict):
+    sourcePath: str
+    destinationPath: str
+    permission: NotRequired[LambdaFilesystemPermissionType]
+    addGroupOwner: NotRequired[bool]
 
 LambdaEventSourceTypeDef = TypedDict(
     "LambdaEventSourceTypeDef",
@@ -848,362 +359,392 @@ LambdaEventSourceTypeDef = TypedDict(
     },
 )
 
-LambdaExecutionParametersTypeDef = TypedDict(
-    "LambdaExecutionParametersTypeDef",
-    {
-        "eventSources": List["LambdaEventSourceTypeDef"],
-        "maxQueueSize": int,
-        "maxInstancesCount": int,
-        "maxIdleTimeInSeconds": int,
-        "timeoutInSeconds": int,
-        "statusTimeoutInSeconds": int,
-        "pinned": bool,
-        "inputPayloadEncodingType": LambdaInputPayloadEncodingTypeType,
-        "execArgs": List[str],
-        "environmentVariables": Dict[str, str],
-        "linuxProcessParams": "LambdaLinuxProcessParamsTypeDef",
-    },
-    total=False,
-)
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
 
-_RequiredLambdaFunctionRecipeSourceTypeDef = TypedDict(
-    "_RequiredLambdaFunctionRecipeSourceTypeDef",
-    {
-        "lambdaArn": str,
-    },
-)
-_OptionalLambdaFunctionRecipeSourceTypeDef = TypedDict(
-    "_OptionalLambdaFunctionRecipeSourceTypeDef",
-    {
-        "componentName": str,
-        "componentVersion": str,
-        "componentPlatforms": List["ComponentPlatformTypeDef"],
-        "componentDependencies": Dict[str, "ComponentDependencyRequirementTypeDef"],
-        "componentLambdaParameters": "LambdaExecutionParametersTypeDef",
-    },
-    total=False,
-)
+class ListClientDevicesAssociatedWithCoreDeviceRequestTypeDef(TypedDict):
+    coreDeviceThingName: str
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
 
-class LambdaFunctionRecipeSourceTypeDef(
-    _RequiredLambdaFunctionRecipeSourceTypeDef, _OptionalLambdaFunctionRecipeSourceTypeDef
-):
-    pass
+class ListComponentVersionsRequestTypeDef(TypedDict):
+    arn: str
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
 
-LambdaLinuxProcessParamsTypeDef = TypedDict(
-    "LambdaLinuxProcessParamsTypeDef",
-    {
-        "isolationMode": LambdaIsolationModeType,
-        "containerParams": "LambdaContainerParamsTypeDef",
-    },
-    total=False,
-)
+class ListComponentsRequestTypeDef(TypedDict):
+    scope: NotRequired[ComponentVisibilityScopeType]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
 
-_RequiredLambdaVolumeMountTypeDef = TypedDict(
-    "_RequiredLambdaVolumeMountTypeDef",
-    {
-        "sourcePath": str,
-        "destinationPath": str,
-    },
-)
-_OptionalLambdaVolumeMountTypeDef = TypedDict(
-    "_OptionalLambdaVolumeMountTypeDef",
-    {
-        "permission": LambdaFilesystemPermissionType,
-        "addGroupOwner": bool,
-    },
-    total=False,
-)
+class ListCoreDevicesRequestTypeDef(TypedDict):
+    thingGroupArn: NotRequired[str]
+    status: NotRequired[CoreDeviceStatusType]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+    runtime: NotRequired[str]
 
-class LambdaVolumeMountTypeDef(
-    _RequiredLambdaVolumeMountTypeDef, _OptionalLambdaVolumeMountTypeDef
-):
-    pass
+class ListDeploymentsRequestTypeDef(TypedDict):
+    targetArn: NotRequired[str]
+    historyFilter: NotRequired[DeploymentHistoryFilterType]
+    parentTargetArn: NotRequired[str]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
 
-_RequiredListClientDevicesAssociatedWithCoreDeviceRequestRequestTypeDef = TypedDict(
-    "_RequiredListClientDevicesAssociatedWithCoreDeviceRequestRequestTypeDef",
-    {
-        "coreDeviceThingName": str,
-    },
-)
-_OptionalListClientDevicesAssociatedWithCoreDeviceRequestRequestTypeDef = TypedDict(
-    "_OptionalListClientDevicesAssociatedWithCoreDeviceRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
+class ListEffectiveDeploymentsRequestTypeDef(TypedDict):
+    coreDeviceThingName: str
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
 
-class ListClientDevicesAssociatedWithCoreDeviceRequestRequestTypeDef(
-    _RequiredListClientDevicesAssociatedWithCoreDeviceRequestRequestTypeDef,
-    _OptionalListClientDevicesAssociatedWithCoreDeviceRequestRequestTypeDef,
-):
-    pass
+class ListInstalledComponentsRequestTypeDef(TypedDict):
+    coreDeviceThingName: str
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+    topologyFilter: NotRequired[InstalledComponentTopologyFilterType]
 
-ListClientDevicesAssociatedWithCoreDeviceResponseTypeDef = TypedDict(
-    "ListClientDevicesAssociatedWithCoreDeviceResponseTypeDef",
-    {
-        "associatedClientDevices": List["AssociatedClientDeviceTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    resourceArn: str
 
-_RequiredListComponentVersionsRequestRequestTypeDef = TypedDict(
-    "_RequiredListComponentVersionsRequestRequestTypeDef",
-    {
-        "arn": str,
-    },
-)
-_OptionalListComponentVersionsRequestRequestTypeDef = TypedDict(
-    "_OptionalListComponentVersionsRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
+class ResolvedComponentVersionTypeDef(TypedDict):
+    arn: NotRequired[str]
+    componentName: NotRequired[str]
+    componentVersion: NotRequired[str]
+    recipe: NotRequired[bytes]
+    vendorGuidance: NotRequired[VendorGuidanceType]
+    message: NotRequired[str]
 
-class ListComponentVersionsRequestRequestTypeDef(
-    _RequiredListComponentVersionsRequestRequestTypeDef,
-    _OptionalListComponentVersionsRequestRequestTypeDef,
-):
-    pass
+class TagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tags: Mapping[str, str]
 
-ListComponentVersionsResponseTypeDef = TypedDict(
-    "ListComponentVersionsResponseTypeDef",
-    {
-        "componentVersions": List["ComponentVersionListItemTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class UntagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tagKeys: Sequence[str]
 
-ListComponentsRequestRequestTypeDef = TypedDict(
-    "ListComponentsRequestRequestTypeDef",
-    {
-        "scope": ComponentVisibilityScopeType,
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
+class BatchAssociateClientDeviceWithCoreDeviceRequestTypeDef(TypedDict):
+    coreDeviceThingName: str
+    entries: NotRequired[Sequence[AssociateClientDeviceWithCoreDeviceEntryTypeDef]]
 
-ListComponentsResponseTypeDef = TypedDict(
-    "ListComponentsResponseTypeDef",
-    {
-        "components": List["ComponentTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class AssociateServiceRoleToAccountResponseTypeDef(TypedDict):
+    associatedAt: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ListCoreDevicesRequestRequestTypeDef = TypedDict(
-    "ListCoreDevicesRequestRequestTypeDef",
-    {
-        "thingGroupArn": str,
-        "status": CoreDeviceStatusType,
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
+class BatchAssociateClientDeviceWithCoreDeviceResponseTypeDef(TypedDict):
+    errorEntries: List[AssociateClientDeviceWithCoreDeviceErrorEntryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ListCoreDevicesResponseTypeDef = TypedDict(
-    "ListCoreDevicesResponseTypeDef",
-    {
-        "coreDevices": List["CoreDeviceTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CancelDeploymentResponseTypeDef(TypedDict):
+    message: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ListDeploymentsRequestRequestTypeDef = TypedDict(
-    "ListDeploymentsRequestRequestTypeDef",
-    {
-        "targetArn": str,
-        "historyFilter": DeploymentHistoryFilterType,
-        "parentTargetArn": str,
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
+class CreateDeploymentResponseTypeDef(TypedDict):
+    deploymentId: str
+    iotJobId: str
+    iotJobArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ListDeploymentsResponseTypeDef = TypedDict(
-    "ListDeploymentsResponseTypeDef",
-    {
-        "deployments": List["DeploymentTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DisassociateServiceRoleFromAccountResponseTypeDef(TypedDict):
+    disassociatedAt: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredListEffectiveDeploymentsRequestRequestTypeDef = TypedDict(
-    "_RequiredListEffectiveDeploymentsRequestRequestTypeDef",
-    {
-        "coreDeviceThingName": str,
-    },
-)
-_OptionalListEffectiveDeploymentsRequestRequestTypeDef = TypedDict(
-    "_OptionalListEffectiveDeploymentsRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
+class EmptyResponseMetadataTypeDef(TypedDict):
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class ListEffectiveDeploymentsRequestRequestTypeDef(
-    _RequiredListEffectiveDeploymentsRequestRequestTypeDef,
-    _OptionalListEffectiveDeploymentsRequestRequestTypeDef,
-):
-    pass
+class GetComponentResponseTypeDef(TypedDict):
+    recipeOutputFormat: RecipeOutputFormatType
+    recipe: bytes
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ListEffectiveDeploymentsResponseTypeDef = TypedDict(
-    "ListEffectiveDeploymentsResponseTypeDef",
-    {
-        "effectiveDeployments": List["EffectiveDeploymentTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetComponentVersionArtifactResponseTypeDef(TypedDict):
+    preSignedUrl: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredListInstalledComponentsRequestRequestTypeDef = TypedDict(
-    "_RequiredListInstalledComponentsRequestRequestTypeDef",
-    {
-        "coreDeviceThingName": str,
-    },
-)
-_OptionalListInstalledComponentsRequestRequestTypeDef = TypedDict(
-    "_OptionalListInstalledComponentsRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-        "topologyFilter": InstalledComponentTopologyFilterType,
-    },
-    total=False,
-)
+class GetCoreDeviceResponseTypeDef(TypedDict):
+    coreDeviceThingName: str
+    coreVersion: str
+    platform: str
+    architecture: str
+    runtime: str
+    status: CoreDeviceStatusType
+    lastStatusUpdateTimestamp: datetime
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class ListInstalledComponentsRequestRequestTypeDef(
-    _RequiredListInstalledComponentsRequestRequestTypeDef,
-    _OptionalListInstalledComponentsRequestRequestTypeDef,
-):
-    pass
+class GetServiceRoleForAccountResponseTypeDef(TypedDict):
+    associatedAt: str
+    roleArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ListInstalledComponentsResponseTypeDef = TypedDict(
-    "ListInstalledComponentsResponseTypeDef",
-    {
-        "installedComponents": List["InstalledComponentTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-    },
-)
+class UpdateConnectivityInfoResponseTypeDef(TypedDict):
+    version: str
+    message: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListClientDevicesAssociatedWithCoreDeviceResponseTypeDef(TypedDict):
+    associatedClientDevices: List[AssociatedClientDeviceTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
+class BatchDisassociateClientDeviceFromCoreDeviceRequestTypeDef(TypedDict):
+    coreDeviceThingName: str
+    entries: NotRequired[Sequence[DisassociateClientDeviceFromCoreDeviceEntryTypeDef]]
 
-ResolveComponentCandidatesRequestRequestTypeDef = TypedDict(
-    "ResolveComponentCandidatesRequestRequestTypeDef",
-    {
-        "platform": "ComponentPlatformTypeDef",
-        "componentCandidates": List["ComponentCandidateTypeDef"],
-    },
-    total=False,
-)
+class BatchDisassociateClientDeviceFromCoreDeviceResponseTypeDef(TypedDict):
+    errorEntries: List[DisassociateClientDeviceFromCoreDeviceErrorEntryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ResolveComponentCandidatesResponseTypeDef = TypedDict(
-    "ResolveComponentCandidatesResponseTypeDef",
-    {
-        "resolvedComponentVersions": List["ResolvedComponentVersionTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CreateComponentVersionResponseTypeDef(TypedDict):
+    arn: str
+    componentName: str
+    componentVersion: str
+    creationTimestamp: datetime
+    status: CloudComponentStatusTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ResolvedComponentVersionTypeDef = TypedDict(
-    "ResolvedComponentVersionTypeDef",
-    {
-        "arn": str,
-        "componentName": str,
-        "componentVersion": str,
-        "recipe": bytes,
-        "vendorGuidance": VendorGuidanceType,
-        "message": str,
-    },
-    total=False,
-)
+ComponentConfigurationUpdateUnionTypeDef = Union[
+    ComponentConfigurationUpdateTypeDef, ComponentConfigurationUpdateOutputTypeDef
+]
 
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
+class ComponentLatestVersionTypeDef(TypedDict):
+    arn: NotRequired[str]
+    componentVersion: NotRequired[str]
+    creationTimestamp: NotRequired[datetime]
+    description: NotRequired[str]
+    publisher: NotRequired[str]
+    platforms: NotRequired[List[ComponentPlatformOutputTypeDef]]
 
-SystemResourceLimitsTypeDef = TypedDict(
-    "SystemResourceLimitsTypeDef",
-    {
-        "memory": int,
-        "cpus": float,
-    },
-    total=False,
-)
+class DescribeComponentResponseTypeDef(TypedDict):
+    arn: str
+    componentName: str
+    componentVersion: str
+    creationTimestamp: datetime
+    publisher: str
+    description: str
+    status: CloudComponentStatusTypeDef
+    platforms: List[ComponentPlatformOutputTypeDef]
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tags": Dict[str, str],
-    },
-)
+ComponentPlatformUnionTypeDef = Union[ComponentPlatformTypeDef, ComponentPlatformOutputTypeDef]
 
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tagKeys": List[str],
-    },
-)
+class ComponentRunWithTypeDef(TypedDict):
+    posixUser: NotRequired[str]
+    systemResourceLimits: NotRequired[SystemResourceLimitsTypeDef]
+    windowsUser: NotRequired[str]
 
-UpdateConnectivityInfoRequestRequestTypeDef = TypedDict(
-    "UpdateConnectivityInfoRequestRequestTypeDef",
-    {
-        "thingName": str,
-        "connectivityInfo": List["ConnectivityInfoTypeDef"],
-    },
-)
+class ListComponentVersionsResponseTypeDef(TypedDict):
+    componentVersions: List[ComponentVersionListItemTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-UpdateConnectivityInfoResponseTypeDef = TypedDict(
-    "UpdateConnectivityInfoResponseTypeDef",
-    {
-        "version": str,
-        "message": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetConnectivityInfoResponseTypeDef(TypedDict):
+    connectivityInfo: List[ConnectivityInfoTypeDef]
+    message: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateConnectivityInfoRequestTypeDef(TypedDict):
+    thingName: str
+    connectivityInfo: Sequence[ConnectivityInfoTypeDef]
+
+class ListCoreDevicesResponseTypeDef(TypedDict):
+    coreDevices: List[CoreDeviceTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class DeploymentPoliciesTypeDef(TypedDict):
+    failureHandlingPolicy: NotRequired[DeploymentFailureHandlingPolicyType]
+    componentUpdatePolicy: NotRequired[DeploymentComponentUpdatePolicyTypeDef]
+    configurationValidationPolicy: NotRequired[DeploymentConfigurationValidationPolicyTypeDef]
+
+class ListDeploymentsResponseTypeDef(TypedDict):
+    deployments: List[DeploymentTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class EffectiveDeploymentTypeDef(TypedDict):
+    deploymentId: str
+    deploymentName: str
+    targetArn: str
+    coreDeviceExecutionStatus: EffectiveDeploymentExecutionStatusType
+    creationTimestamp: datetime
+    modifiedTimestamp: datetime
+    iotJobId: NotRequired[str]
+    iotJobArn: NotRequired[str]
+    description: NotRequired[str]
+    reason: NotRequired[str]
+    statusDetails: NotRequired[EffectiveDeploymentStatusDetailsTypeDef]
+
+class ListInstalledComponentsResponseTypeDef(TypedDict):
+    installedComponents: List[InstalledComponentTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class IoTJobAbortConfigOutputTypeDef(TypedDict):
+    criteriaList: List[IoTJobAbortCriteriaTypeDef]
+
+class IoTJobAbortConfigTypeDef(TypedDict):
+    criteriaList: Sequence[IoTJobAbortCriteriaTypeDef]
+
+class IoTJobExponentialRolloutRateTypeDef(TypedDict):
+    baseRatePerMinute: int
+    incrementFactor: float
+    rateIncreaseCriteria: IoTJobRateIncreaseCriteriaTypeDef
+
+class LambdaContainerParamsTypeDef(TypedDict):
+    memorySizeInKB: NotRequired[int]
+    mountROSysfs: NotRequired[bool]
+    volumes: NotRequired[Sequence[LambdaVolumeMountTypeDef]]
+    devices: NotRequired[Sequence[LambdaDeviceMountTypeDef]]
+
+class ListClientDevicesAssociatedWithCoreDeviceRequestPaginateTypeDef(TypedDict):
+    coreDeviceThingName: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListComponentVersionsRequestPaginateTypeDef(TypedDict):
+    arn: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListComponentsRequestPaginateTypeDef(TypedDict):
+    scope: NotRequired[ComponentVisibilityScopeType]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListCoreDevicesRequestPaginateTypeDef(TypedDict):
+    thingGroupArn: NotRequired[str]
+    status: NotRequired[CoreDeviceStatusType]
+    runtime: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListDeploymentsRequestPaginateTypeDef(TypedDict):
+    targetArn: NotRequired[str]
+    historyFilter: NotRequired[DeploymentHistoryFilterType]
+    parentTargetArn: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListEffectiveDeploymentsRequestPaginateTypeDef(TypedDict):
+    coreDeviceThingName: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListInstalledComponentsRequestPaginateTypeDef(TypedDict):
+    coreDeviceThingName: str
+    topologyFilter: NotRequired[InstalledComponentTopologyFilterType]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ResolveComponentCandidatesResponseTypeDef(TypedDict):
+    resolvedComponentVersions: List[ResolvedComponentVersionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ComponentTypeDef(TypedDict):
+    arn: NotRequired[str]
+    componentName: NotRequired[str]
+    latestVersion: NotRequired[ComponentLatestVersionTypeDef]
+
+class ResolveComponentCandidatesRequestTypeDef(TypedDict):
+    platform: NotRequired[ComponentPlatformUnionTypeDef]
+    componentCandidates: NotRequired[Sequence[ComponentCandidateTypeDef]]
+
+class ComponentDeploymentSpecificationOutputTypeDef(TypedDict):
+    componentVersion: str
+    configurationUpdate: NotRequired[ComponentConfigurationUpdateOutputTypeDef]
+    runWith: NotRequired[ComponentRunWithTypeDef]
+
+class ComponentDeploymentSpecificationTypeDef(TypedDict):
+    componentVersion: str
+    configurationUpdate: NotRequired[ComponentConfigurationUpdateUnionTypeDef]
+    runWith: NotRequired[ComponentRunWithTypeDef]
+
+class ListEffectiveDeploymentsResponseTypeDef(TypedDict):
+    effectiveDeployments: List[EffectiveDeploymentTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class IoTJobExecutionsRolloutConfigTypeDef(TypedDict):
+    exponentialRate: NotRequired[IoTJobExponentialRolloutRateTypeDef]
+    maximumPerMinute: NotRequired[int]
+
+class LambdaLinuxProcessParamsTypeDef(TypedDict):
+    isolationMode: NotRequired[LambdaIsolationModeType]
+    containerParams: NotRequired[LambdaContainerParamsTypeDef]
+
+class ListComponentsResponseTypeDef(TypedDict):
+    components: List[ComponentTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+ComponentDeploymentSpecificationUnionTypeDef = Union[
+    ComponentDeploymentSpecificationTypeDef, ComponentDeploymentSpecificationOutputTypeDef
+]
+
+class DeploymentIoTJobConfigurationOutputTypeDef(TypedDict):
+    jobExecutionsRolloutConfig: NotRequired[IoTJobExecutionsRolloutConfigTypeDef]
+    abortConfig: NotRequired[IoTJobAbortConfigOutputTypeDef]
+    timeoutConfig: NotRequired[IoTJobTimeoutConfigTypeDef]
+
+class DeploymentIoTJobConfigurationTypeDef(TypedDict):
+    jobExecutionsRolloutConfig: NotRequired[IoTJobExecutionsRolloutConfigTypeDef]
+    abortConfig: NotRequired[IoTJobAbortConfigTypeDef]
+    timeoutConfig: NotRequired[IoTJobTimeoutConfigTypeDef]
+
+class LambdaExecutionParametersTypeDef(TypedDict):
+    eventSources: NotRequired[Sequence[LambdaEventSourceTypeDef]]
+    maxQueueSize: NotRequired[int]
+    maxInstancesCount: NotRequired[int]
+    maxIdleTimeInSeconds: NotRequired[int]
+    timeoutInSeconds: NotRequired[int]
+    statusTimeoutInSeconds: NotRequired[int]
+    pinned: NotRequired[bool]
+    inputPayloadEncodingType: NotRequired[LambdaInputPayloadEncodingTypeType]
+    execArgs: NotRequired[Sequence[str]]
+    environmentVariables: NotRequired[Mapping[str, str]]
+    linuxProcessParams: NotRequired[LambdaLinuxProcessParamsTypeDef]
+
+class GetDeploymentResponseTypeDef(TypedDict):
+    targetArn: str
+    revisionId: str
+    deploymentId: str
+    deploymentName: str
+    deploymentStatus: DeploymentStatusType
+    iotJobId: str
+    iotJobArn: str
+    components: Dict[str, ComponentDeploymentSpecificationOutputTypeDef]
+    deploymentPolicies: DeploymentPoliciesTypeDef
+    iotJobConfiguration: DeploymentIoTJobConfigurationOutputTypeDef
+    creationTimestamp: datetime
+    isLatestForTarget: bool
+    parentTargetArn: str
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+DeploymentIoTJobConfigurationUnionTypeDef = Union[
+    DeploymentIoTJobConfigurationTypeDef, DeploymentIoTJobConfigurationOutputTypeDef
+]
+
+class LambdaFunctionRecipeSourceTypeDef(TypedDict):
+    lambdaArn: str
+    componentName: NotRequired[str]
+    componentVersion: NotRequired[str]
+    componentPlatforms: NotRequired[Sequence[ComponentPlatformUnionTypeDef]]
+    componentDependencies: NotRequired[Mapping[str, ComponentDependencyRequirementTypeDef]]
+    componentLambdaParameters: NotRequired[LambdaExecutionParametersTypeDef]
+
+class CreateDeploymentRequestTypeDef(TypedDict):
+    targetArn: str
+    deploymentName: NotRequired[str]
+    components: NotRequired[Mapping[str, ComponentDeploymentSpecificationUnionTypeDef]]
+    iotJobConfiguration: NotRequired[DeploymentIoTJobConfigurationUnionTypeDef]
+    deploymentPolicies: NotRequired[DeploymentPoliciesTypeDef]
+    parentTargetArn: NotRequired[str]
+    tags: NotRequired[Mapping[str, str]]
+    clientToken: NotRequired[str]
+
+class CreateComponentVersionRequestTypeDef(TypedDict):
+    inlineRecipe: NotRequired[BlobTypeDef]
+    lambdaFunction: NotRequired[LambdaFunctionRecipeSourceTypeDef]
+    tags: NotRequired[Mapping[str, str]]
+    clientToken: NotRequired[str]

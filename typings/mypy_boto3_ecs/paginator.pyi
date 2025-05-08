@@ -1,247 +1,246 @@
 """
 Type annotations for ecs service client paginators.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/paginators.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ecs/paginators/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
 
-    from mypy_boto3_ecs import ECSClient
+    from mypy_boto3_ecs.client import ECSClient
     from mypy_boto3_ecs.paginator import (
         ListAccountSettingsPaginator,
         ListAttributesPaginator,
         ListClustersPaginator,
         ListContainerInstancesPaginator,
-        ListServicesPaginator,
         ListServicesByNamespacePaginator,
+        ListServicesPaginator,
         ListTaskDefinitionFamiliesPaginator,
         ListTaskDefinitionsPaginator,
         ListTasksPaginator,
     )
 
-    client: ECSClient = boto3.client("ecs")
+    session = Session()
+    client: ECSClient = session.client("ecs")
 
     list_account_settings_paginator: ListAccountSettingsPaginator = client.get_paginator("list_account_settings")
     list_attributes_paginator: ListAttributesPaginator = client.get_paginator("list_attributes")
     list_clusters_paginator: ListClustersPaginator = client.get_paginator("list_clusters")
     list_container_instances_paginator: ListContainerInstancesPaginator = client.get_paginator("list_container_instances")
-    list_services_paginator: ListServicesPaginator = client.get_paginator("list_services")
     list_services_by_namespace_paginator: ListServicesByNamespacePaginator = client.get_paginator("list_services_by_namespace")
+    list_services_paginator: ListServicesPaginator = client.get_paginator("list_services")
     list_task_definition_families_paginator: ListTaskDefinitionFamiliesPaginator = client.get_paginator("list_task_definition_families")
     list_task_definitions_paginator: ListTaskDefinitionsPaginator = client.get_paginator("list_task_definitions")
     list_tasks_paginator: ListTasksPaginator = client.get_paginator("list_tasks")
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from typing import Iterator
+from typing import TYPE_CHECKING
 
-from botocore.paginate import Paginator as Boto3Paginator
+from botocore.paginate import PageIterator, Paginator
 
-from .literals import (
-    ContainerInstanceStatusType,
-    DesiredStatusType,
-    LaunchTypeType,
-    SchedulingStrategyType,
-    SettingNameType,
-    SortOrderType,
-    TaskDefinitionFamilyStatusType,
-    TaskDefinitionStatusType,
-)
 from .type_defs import (
+    ListAccountSettingsRequestPaginateTypeDef,
     ListAccountSettingsResponseTypeDef,
+    ListAttributesRequestPaginateTypeDef,
     ListAttributesResponseTypeDef,
+    ListClustersRequestPaginateTypeDef,
     ListClustersResponseTypeDef,
+    ListContainerInstancesRequestPaginateTypeDef,
     ListContainerInstancesResponseTypeDef,
+    ListServicesByNamespaceRequestPaginateTypeDef,
     ListServicesByNamespaceResponseTypeDef,
+    ListServicesRequestPaginateTypeDef,
     ListServicesResponseTypeDef,
+    ListTaskDefinitionFamiliesRequestPaginateTypeDef,
     ListTaskDefinitionFamiliesResponseTypeDef,
+    ListTaskDefinitionsRequestPaginateTypeDef,
     ListTaskDefinitionsResponseTypeDef,
+    ListTasksRequestPaginateTypeDef,
     ListTasksResponseTypeDef,
-    PaginatorConfigTypeDef,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 12):
+    from typing import Unpack
 else:
-    from typing_extensions import Literal
+    from typing_extensions import Unpack
 
 __all__ = (
     "ListAccountSettingsPaginator",
     "ListAttributesPaginator",
     "ListClustersPaginator",
     "ListContainerInstancesPaginator",
-    "ListServicesPaginator",
     "ListServicesByNamespacePaginator",
+    "ListServicesPaginator",
     "ListTaskDefinitionFamiliesPaginator",
     "ListTaskDefinitionsPaginator",
     "ListTasksPaginator",
 )
 
-class ListAccountSettingsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ecs.html#ECS.Paginator.ListAccountSettings)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/paginators.html#listaccountsettingspaginator)
-    """
+if TYPE_CHECKING:
+    _ListAccountSettingsPaginatorBase = Paginator[ListAccountSettingsResponseTypeDef]
+else:
+    _ListAccountSettingsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        name: SettingNameType = None,
-        value: str = None,
-        principalArn: str = None,
-        effectiveSettings: bool = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListAccountSettingsResponseTypeDef]:
+class ListAccountSettingsPaginator(_ListAccountSettingsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ecs/paginator/ListAccountSettings.html#ECS.Paginator.ListAccountSettings)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ecs/paginators/#listaccountsettingspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListAccountSettingsRequestPaginateTypeDef]
+    ) -> PageIterator[ListAccountSettingsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ecs.html#ECS.Paginator.ListAccountSettings.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/paginators.html#listaccountsettingspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ecs/paginator/ListAccountSettings.html#ECS.Paginator.ListAccountSettings.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ecs/paginators/#listaccountsettingspaginator)
         """
 
-class ListAttributesPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ecs.html#ECS.Paginator.ListAttributes)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/paginators.html#listattributespaginator)
-    """
+if TYPE_CHECKING:
+    _ListAttributesPaginatorBase = Paginator[ListAttributesResponseTypeDef]
+else:
+    _ListAttributesPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        targetType: Literal["container-instance"],
-        cluster: str = None,
-        attributeName: str = None,
-        attributeValue: str = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListAttributesResponseTypeDef]:
+class ListAttributesPaginator(_ListAttributesPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ecs/paginator/ListAttributes.html#ECS.Paginator.ListAttributes)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ecs/paginators/#listattributespaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListAttributesRequestPaginateTypeDef]
+    ) -> PageIterator[ListAttributesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ecs.html#ECS.Paginator.ListAttributes.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/paginators.html#listattributespaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ecs/paginator/ListAttributes.html#ECS.Paginator.ListAttributes.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ecs/paginators/#listattributespaginator)
         """
 
-class ListClustersPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ecs.html#ECS.Paginator.ListClusters)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/paginators.html#listclusterspaginator)
-    """
+if TYPE_CHECKING:
+    _ListClustersPaginatorBase = Paginator[ListClustersResponseTypeDef]
+else:
+    _ListClustersPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListClustersResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ecs.html#ECS.Paginator.ListClusters.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/paginators.html#listclusterspaginator)
-        """
-
-class ListContainerInstancesPaginator(Boto3Paginator):
+class ListClustersPaginator(_ListClustersPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ecs.html#ECS.Paginator.ListContainerInstances)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/paginators.html#listcontainerinstancespaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ecs/paginator/ListClusters.html#ECS.Paginator.ListClusters)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ecs/paginators/#listclusterspaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        cluster: str = None,
-        filter: str = None,
-        status: ContainerInstanceStatusType = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListContainerInstancesResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListClustersRequestPaginateTypeDef]
+    ) -> PageIterator[ListClustersResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ecs.html#ECS.Paginator.ListContainerInstances.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/paginators.html#listcontainerinstancespaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ecs/paginator/ListClusters.html#ECS.Paginator.ListClusters.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ecs/paginators/#listclusterspaginator)
         """
 
-class ListServicesPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ecs.html#ECS.Paginator.ListServices)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/paginators.html#listservicespaginator)
-    """
+if TYPE_CHECKING:
+    _ListContainerInstancesPaginatorBase = Paginator[ListContainerInstancesResponseTypeDef]
+else:
+    _ListContainerInstancesPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        cluster: str = None,
-        launchType: LaunchTypeType = None,
-        schedulingStrategy: SchedulingStrategyType = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListServicesResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ecs.html#ECS.Paginator.ListServices.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/paginators.html#listservicespaginator)
-        """
-
-class ListServicesByNamespacePaginator(Boto3Paginator):
+class ListContainerInstancesPaginator(_ListContainerInstancesPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ecs.html#ECS.Paginator.ListServicesByNamespace)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/paginators.html#listservicesbynamespacepaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ecs/paginator/ListContainerInstances.html#ECS.Paginator.ListContainerInstances)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ecs/paginators/#listcontainerinstancespaginator)
     """
-
-    def paginate(
-        self, *, namespace: str, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListServicesByNamespaceResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListContainerInstancesRequestPaginateTypeDef]
+    ) -> PageIterator[ListContainerInstancesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ecs.html#ECS.Paginator.ListServicesByNamespace.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/paginators.html#listservicesbynamespacepaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ecs/paginator/ListContainerInstances.html#ECS.Paginator.ListContainerInstances.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ecs/paginators/#listcontainerinstancespaginator)
         """
 
-class ListTaskDefinitionFamiliesPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ecs.html#ECS.Paginator.ListTaskDefinitionFamilies)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/paginators.html#listtaskdefinitionfamiliespaginator)
-    """
+if TYPE_CHECKING:
+    _ListServicesByNamespacePaginatorBase = Paginator[ListServicesByNamespaceResponseTypeDef]
+else:
+    _ListServicesByNamespacePaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        familyPrefix: str = None,
-        status: TaskDefinitionFamilyStatusType = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListTaskDefinitionFamiliesResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ecs.html#ECS.Paginator.ListTaskDefinitionFamilies.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/paginators.html#listtaskdefinitionfamiliespaginator)
-        """
-
-class ListTaskDefinitionsPaginator(Boto3Paginator):
+class ListServicesByNamespacePaginator(_ListServicesByNamespacePaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ecs.html#ECS.Paginator.ListTaskDefinitions)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/paginators.html#listtaskdefinitionspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ecs/paginator/ListServicesByNamespace.html#ECS.Paginator.ListServicesByNamespace)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ecs/paginators/#listservicesbynamespacepaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        familyPrefix: str = None,
-        status: TaskDefinitionStatusType = None,
-        sort: SortOrderType = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListTaskDefinitionsResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListServicesByNamespaceRequestPaginateTypeDef]
+    ) -> PageIterator[ListServicesByNamespaceResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ecs.html#ECS.Paginator.ListTaskDefinitions.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/paginators.html#listtaskdefinitionspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ecs/paginator/ListServicesByNamespace.html#ECS.Paginator.ListServicesByNamespace.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ecs/paginators/#listservicesbynamespacepaginator)
         """
 
-class ListTasksPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ecs.html#ECS.Paginator.ListTasks)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/paginators.html#listtaskspaginator)
-    """
+if TYPE_CHECKING:
+    _ListServicesPaginatorBase = Paginator[ListServicesResponseTypeDef]
+else:
+    _ListServicesPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        cluster: str = None,
-        containerInstance: str = None,
-        family: str = None,
-        startedBy: str = None,
-        serviceName: str = None,
-        desiredStatus: DesiredStatusType = None,
-        launchType: LaunchTypeType = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListTasksResponseTypeDef]:
+class ListServicesPaginator(_ListServicesPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ecs/paginator/ListServices.html#ECS.Paginator.ListServices)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ecs/paginators/#listservicespaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListServicesRequestPaginateTypeDef]
+    ) -> PageIterator[ListServicesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ecs.html#ECS.Paginator.ListTasks.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/paginators.html#listtaskspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ecs/paginator/ListServices.html#ECS.Paginator.ListServices.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ecs/paginators/#listservicespaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListTaskDefinitionFamiliesPaginatorBase = Paginator[ListTaskDefinitionFamiliesResponseTypeDef]
+else:
+    _ListTaskDefinitionFamiliesPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListTaskDefinitionFamiliesPaginator(_ListTaskDefinitionFamiliesPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ecs/paginator/ListTaskDefinitionFamilies.html#ECS.Paginator.ListTaskDefinitionFamilies)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ecs/paginators/#listtaskdefinitionfamiliespaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListTaskDefinitionFamiliesRequestPaginateTypeDef]
+    ) -> PageIterator[ListTaskDefinitionFamiliesResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ecs/paginator/ListTaskDefinitionFamilies.html#ECS.Paginator.ListTaskDefinitionFamilies.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ecs/paginators/#listtaskdefinitionfamiliespaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListTaskDefinitionsPaginatorBase = Paginator[ListTaskDefinitionsResponseTypeDef]
+else:
+    _ListTaskDefinitionsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListTaskDefinitionsPaginator(_ListTaskDefinitionsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ecs/paginator/ListTaskDefinitions.html#ECS.Paginator.ListTaskDefinitions)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ecs/paginators/#listtaskdefinitionspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListTaskDefinitionsRequestPaginateTypeDef]
+    ) -> PageIterator[ListTaskDefinitionsResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ecs/paginator/ListTaskDefinitions.html#ECS.Paginator.ListTaskDefinitions.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ecs/paginators/#listtaskdefinitionspaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListTasksPaginatorBase = Paginator[ListTasksResponseTypeDef]
+else:
+    _ListTasksPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListTasksPaginator(_ListTasksPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ecs/paginator/ListTasks.html#ECS.Paginator.ListTasks)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ecs/paginators/#listtaskspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListTasksRequestPaginateTypeDef]
+    ) -> PageIterator[ListTasksResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ecs/paginator/ListTasks.html#ECS.Paginator.ListTasks.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ecs/paginators/#listtaskspaginator)
         """

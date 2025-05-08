@@ -1,456 +1,329 @@
 """
 Type annotations for mwaa service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mwaa/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mwaa/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_mwaa.type_defs import CreateCliTokenRequestRequestTypeDef
+    from mypy_boto3_mwaa.type_defs import CreateCliTokenRequestTypeDef
 
-    data: CreateCliTokenRequestRequestTypeDef = {...}
+    data: CreateCliTokenRequestTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List, Union
+from typing import Any, Union
 
 from .literals import (
     EndpointManagementType,
     EnvironmentStatusType,
     LoggingLevelType,
+    RestApiMethodType,
     UnitType,
     UpdateStatusType,
     WebserverAccessModeType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
-    "CreateCliTokenRequestRequestTypeDef",
+    "CreateCliTokenRequestTypeDef",
     "CreateCliTokenResponseTypeDef",
-    "CreateEnvironmentInputRequestTypeDef",
+    "CreateEnvironmentInputTypeDef",
     "CreateEnvironmentOutputTypeDef",
-    "CreateWebLoginTokenRequestRequestTypeDef",
+    "CreateWebLoginTokenRequestTypeDef",
     "CreateWebLoginTokenResponseTypeDef",
-    "DeleteEnvironmentInputRequestTypeDef",
+    "DeleteEnvironmentInputTypeDef",
     "DimensionTypeDef",
     "EnvironmentTypeDef",
-    "GetEnvironmentInputRequestTypeDef",
+    "GetEnvironmentInputTypeDef",
     "GetEnvironmentOutputTypeDef",
+    "InvokeRestApiRequestTypeDef",
+    "InvokeRestApiResponseTypeDef",
     "LastUpdateTypeDef",
-    "ListEnvironmentsInputRequestTypeDef",
+    "ListEnvironmentsInputPaginateTypeDef",
+    "ListEnvironmentsInputTypeDef",
     "ListEnvironmentsOutputTypeDef",
-    "ListTagsForResourceInputRequestTypeDef",
+    "ListTagsForResourceInputTypeDef",
     "ListTagsForResourceOutputTypeDef",
     "LoggingConfigurationInputTypeDef",
     "LoggingConfigurationTypeDef",
     "MetricDatumTypeDef",
     "ModuleLoggingConfigurationInputTypeDef",
     "ModuleLoggingConfigurationTypeDef",
+    "NetworkConfigurationOutputTypeDef",
     "NetworkConfigurationTypeDef",
+    "NetworkConfigurationUnionTypeDef",
     "PaginatorConfigTypeDef",
-    "PublishMetricsInputRequestTypeDef",
+    "PublishMetricsInputTypeDef",
     "ResponseMetadataTypeDef",
     "StatisticSetTypeDef",
-    "TagResourceInputRequestTypeDef",
-    "UntagResourceInputRequestTypeDef",
-    "UpdateEnvironmentInputRequestTypeDef",
+    "TagResourceInputTypeDef",
+    "TimestampTypeDef",
+    "UntagResourceInputTypeDef",
+    "UpdateEnvironmentInputTypeDef",
     "UpdateEnvironmentOutputTypeDef",
     "UpdateErrorTypeDef",
     "UpdateNetworkConfigurationInputTypeDef",
 )
 
-CreateCliTokenRequestRequestTypeDef = TypedDict(
-    "CreateCliTokenRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
+class CreateCliTokenRequestTypeDef(TypedDict):
+    Name: str
 
-CreateCliTokenResponseTypeDef = TypedDict(
-    "CreateCliTokenResponseTypeDef",
-    {
-        "CliToken": str,
-        "WebServerHostname": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-_RequiredCreateEnvironmentInputRequestTypeDef = TypedDict(
-    "_RequiredCreateEnvironmentInputRequestTypeDef",
-    {
-        "Name": str,
-        "ExecutionRoleArn": str,
-        "SourceBucketArn": str,
-        "DagS3Path": str,
-        "NetworkConfiguration": "NetworkConfigurationTypeDef",
-    },
-)
-_OptionalCreateEnvironmentInputRequestTypeDef = TypedDict(
-    "_OptionalCreateEnvironmentInputRequestTypeDef",
-    {
-        "PluginsS3Path": str,
-        "PluginsS3ObjectVersion": str,
-        "RequirementsS3Path": str,
-        "RequirementsS3ObjectVersion": str,
-        "StartupScriptS3Path": str,
-        "StartupScriptS3ObjectVersion": str,
-        "AirflowConfigurationOptions": Dict[str, str],
-        "EnvironmentClass": str,
-        "MaxWorkers": int,
-        "KmsKey": str,
-        "AirflowVersion": str,
-        "LoggingConfiguration": "LoggingConfigurationInputTypeDef",
-        "WeeklyMaintenanceWindowStart": str,
-        "Tags": Dict[str, str],
-        "WebserverAccessMode": WebserverAccessModeType,
-        "MinWorkers": int,
-        "Schedulers": int,
-        "EndpointManagement": EndpointManagementType,
-        "MinWebservers": int,
-        "MaxWebservers": int,
-    },
-    total=False,
-)
+class CreateWebLoginTokenRequestTypeDef(TypedDict):
+    Name: str
 
-class CreateEnvironmentInputRequestTypeDef(
-    _RequiredCreateEnvironmentInputRequestTypeDef, _OptionalCreateEnvironmentInputRequestTypeDef
-):
-    pass
+class DeleteEnvironmentInputTypeDef(TypedDict):
+    Name: str
 
-CreateEnvironmentOutputTypeDef = TypedDict(
-    "CreateEnvironmentOutputTypeDef",
-    {
-        "Arn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DimensionTypeDef(TypedDict):
+    Name: str
+    Value: str
 
-CreateWebLoginTokenRequestRequestTypeDef = TypedDict(
-    "CreateWebLoginTokenRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
+class NetworkConfigurationOutputTypeDef(TypedDict):
+    SubnetIds: NotRequired[List[str]]
+    SecurityGroupIds: NotRequired[List[str]]
 
-CreateWebLoginTokenResponseTypeDef = TypedDict(
-    "CreateWebLoginTokenResponseTypeDef",
-    {
-        "WebToken": str,
-        "WebServerHostname": str,
-        "IamIdentity": str,
-        "AirflowIdentity": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetEnvironmentInputTypeDef(TypedDict):
+    Name: str
 
-DeleteEnvironmentInputRequestTypeDef = TypedDict(
-    "DeleteEnvironmentInputRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
+class InvokeRestApiRequestTypeDef(TypedDict):
+    Name: str
+    Path: str
+    Method: RestApiMethodType
+    QueryParameters: NotRequired[Mapping[str, Any]]
+    Body: NotRequired[Mapping[str, Any]]
 
-DimensionTypeDef = TypedDict(
-    "DimensionTypeDef",
-    {
-        "Name": str,
-        "Value": str,
-    },
-)
+class UpdateErrorTypeDef(TypedDict):
+    ErrorCode: NotRequired[str]
+    ErrorMessage: NotRequired[str]
 
-EnvironmentTypeDef = TypedDict(
-    "EnvironmentTypeDef",
-    {
-        "Name": str,
-        "Status": EnvironmentStatusType,
-        "Arn": str,
-        "CreatedAt": datetime,
-        "WebserverUrl": str,
-        "ExecutionRoleArn": str,
-        "ServiceRoleArn": str,
-        "KmsKey": str,
-        "AirflowVersion": str,
-        "SourceBucketArn": str,
-        "DagS3Path": str,
-        "PluginsS3Path": str,
-        "PluginsS3ObjectVersion": str,
-        "RequirementsS3Path": str,
-        "RequirementsS3ObjectVersion": str,
-        "StartupScriptS3Path": str,
-        "StartupScriptS3ObjectVersion": str,
-        "AirflowConfigurationOptions": Dict[str, str],
-        "EnvironmentClass": str,
-        "MaxWorkers": int,
-        "NetworkConfiguration": "NetworkConfigurationTypeDef",
-        "LoggingConfiguration": "LoggingConfigurationTypeDef",
-        "LastUpdate": "LastUpdateTypeDef",
-        "WeeklyMaintenanceWindowStart": str,
-        "Tags": Dict[str, str],
-        "WebserverAccessMode": WebserverAccessModeType,
-        "MinWorkers": int,
-        "Schedulers": int,
-        "WebserverVpcEndpointService": str,
-        "DatabaseVpcEndpointService": str,
-        "CeleryExecutorQueue": str,
-        "EndpointManagement": EndpointManagementType,
-        "MinWebservers": int,
-        "MaxWebservers": int,
-    },
-    total=False,
-)
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
 
-GetEnvironmentInputRequestTypeDef = TypedDict(
-    "GetEnvironmentInputRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
+class ListEnvironmentsInputTypeDef(TypedDict):
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
 
-GetEnvironmentOutputTypeDef = TypedDict(
-    "GetEnvironmentOutputTypeDef",
-    {
-        "Environment": "EnvironmentTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListTagsForResourceInputTypeDef(TypedDict):
+    ResourceArn: str
 
-LastUpdateTypeDef = TypedDict(
-    "LastUpdateTypeDef",
-    {
-        "Status": UpdateStatusType,
-        "CreatedAt": datetime,
-        "Error": "UpdateErrorTypeDef",
-        "Source": str,
-    },
-    total=False,
-)
+class ModuleLoggingConfigurationInputTypeDef(TypedDict):
+    Enabled: bool
+    LogLevel: LoggingLevelType
 
-ListEnvironmentsInputRequestTypeDef = TypedDict(
-    "ListEnvironmentsInputRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
+class ModuleLoggingConfigurationTypeDef(TypedDict):
+    Enabled: NotRequired[bool]
+    LogLevel: NotRequired[LoggingLevelType]
+    CloudWatchLogGroupArn: NotRequired[str]
 
-ListEnvironmentsOutputTypeDef = TypedDict(
-    "ListEnvironmentsOutputTypeDef",
-    {
-        "Environments": List[str],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class StatisticSetTypeDef(TypedDict):
+    SampleCount: NotRequired[int]
+    Sum: NotRequired[float]
+    Minimum: NotRequired[float]
+    Maximum: NotRequired[float]
 
-ListTagsForResourceInputRequestTypeDef = TypedDict(
-    "ListTagsForResourceInputRequestTypeDef",
-    {
-        "ResourceArn": str,
-    },
-)
+TimestampTypeDef = Union[datetime, str]
 
-ListTagsForResourceOutputTypeDef = TypedDict(
-    "ListTagsForResourceOutputTypeDef",
-    {
-        "Tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class NetworkConfigurationTypeDef(TypedDict):
+    SubnetIds: NotRequired[Sequence[str]]
+    SecurityGroupIds: NotRequired[Sequence[str]]
 
-LoggingConfigurationInputTypeDef = TypedDict(
-    "LoggingConfigurationInputTypeDef",
-    {
-        "DagProcessingLogs": "ModuleLoggingConfigurationInputTypeDef",
-        "SchedulerLogs": "ModuleLoggingConfigurationInputTypeDef",
-        "WebserverLogs": "ModuleLoggingConfigurationInputTypeDef",
-        "WorkerLogs": "ModuleLoggingConfigurationInputTypeDef",
-        "TaskLogs": "ModuleLoggingConfigurationInputTypeDef",
-    },
-    total=False,
-)
+class TagResourceInputTypeDef(TypedDict):
+    ResourceArn: str
+    Tags: Mapping[str, str]
 
-LoggingConfigurationTypeDef = TypedDict(
-    "LoggingConfigurationTypeDef",
-    {
-        "DagProcessingLogs": "ModuleLoggingConfigurationTypeDef",
-        "SchedulerLogs": "ModuleLoggingConfigurationTypeDef",
-        "WebserverLogs": "ModuleLoggingConfigurationTypeDef",
-        "WorkerLogs": "ModuleLoggingConfigurationTypeDef",
-        "TaskLogs": "ModuleLoggingConfigurationTypeDef",
-    },
-    total=False,
-)
+class UntagResourceInputTypeDef(TypedDict):
+    ResourceArn: str
+    tagKeys: Sequence[str]
 
-_RequiredMetricDatumTypeDef = TypedDict(
-    "_RequiredMetricDatumTypeDef",
-    {
-        "MetricName": str,
-        "Timestamp": Union[datetime, str],
-    },
-)
-_OptionalMetricDatumTypeDef = TypedDict(
-    "_OptionalMetricDatumTypeDef",
-    {
-        "Dimensions": List["DimensionTypeDef"],
-        "Value": float,
-        "Unit": UnitType,
-        "StatisticValues": "StatisticSetTypeDef",
-    },
-    total=False,
-)
+class UpdateNetworkConfigurationInputTypeDef(TypedDict):
+    SecurityGroupIds: Sequence[str]
 
-class MetricDatumTypeDef(_RequiredMetricDatumTypeDef, _OptionalMetricDatumTypeDef):
-    pass
+class CreateCliTokenResponseTypeDef(TypedDict):
+    CliToken: str
+    WebServerHostname: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ModuleLoggingConfigurationInputTypeDef = TypedDict(
-    "ModuleLoggingConfigurationInputTypeDef",
-    {
-        "Enabled": bool,
-        "LogLevel": LoggingLevelType,
-    },
-)
+class CreateEnvironmentOutputTypeDef(TypedDict):
+    Arn: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ModuleLoggingConfigurationTypeDef = TypedDict(
-    "ModuleLoggingConfigurationTypeDef",
-    {
-        "Enabled": bool,
-        "LogLevel": LoggingLevelType,
-        "CloudWatchLogGroupArn": str,
-    },
-    total=False,
-)
+class CreateWebLoginTokenResponseTypeDef(TypedDict):
+    WebToken: str
+    WebServerHostname: str
+    IamIdentity: str
+    AirflowIdentity: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-NetworkConfigurationTypeDef = TypedDict(
-    "NetworkConfigurationTypeDef",
-    {
-        "SubnetIds": List[str],
-        "SecurityGroupIds": List[str],
-    },
-    total=False,
-)
+class InvokeRestApiResponseTypeDef(TypedDict):
+    RestApiStatusCode: int
+    RestApiResponse: Dict[str, Any]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
+class ListEnvironmentsOutputTypeDef(TypedDict):
+    Environments: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-PublishMetricsInputRequestTypeDef = TypedDict(
-    "PublishMetricsInputRequestTypeDef",
-    {
-        "EnvironmentName": str,
-        "MetricData": List["MetricDatumTypeDef"],
-    },
-)
+class ListTagsForResourceOutputTypeDef(TypedDict):
+    Tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
+class UpdateEnvironmentOutputTypeDef(TypedDict):
+    Arn: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-StatisticSetTypeDef = TypedDict(
-    "StatisticSetTypeDef",
-    {
-        "SampleCount": int,
-        "Sum": float,
-        "Minimum": float,
-        "Maximum": float,
-    },
-    total=False,
-)
+class LastUpdateTypeDef(TypedDict):
+    Status: NotRequired[UpdateStatusType]
+    CreatedAt: NotRequired[datetime]
+    Error: NotRequired[UpdateErrorTypeDef]
+    Source: NotRequired[str]
 
-TagResourceInputRequestTypeDef = TypedDict(
-    "TagResourceInputRequestTypeDef",
-    {
-        "ResourceArn": str,
-        "Tags": Dict[str, str],
-    },
-)
+class ListEnvironmentsInputPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-UntagResourceInputRequestTypeDef = TypedDict(
-    "UntagResourceInputRequestTypeDef",
-    {
-        "ResourceArn": str,
-        "tagKeys": List[str],
-    },
-)
+class LoggingConfigurationInputTypeDef(TypedDict):
+    DagProcessingLogs: NotRequired[ModuleLoggingConfigurationInputTypeDef]
+    SchedulerLogs: NotRequired[ModuleLoggingConfigurationInputTypeDef]
+    WebserverLogs: NotRequired[ModuleLoggingConfigurationInputTypeDef]
+    WorkerLogs: NotRequired[ModuleLoggingConfigurationInputTypeDef]
+    TaskLogs: NotRequired[ModuleLoggingConfigurationInputTypeDef]
 
-_RequiredUpdateEnvironmentInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateEnvironmentInputRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
-_OptionalUpdateEnvironmentInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateEnvironmentInputRequestTypeDef",
-    {
-        "ExecutionRoleArn": str,
-        "AirflowVersion": str,
-        "SourceBucketArn": str,
-        "DagS3Path": str,
-        "PluginsS3Path": str,
-        "PluginsS3ObjectVersion": str,
-        "RequirementsS3Path": str,
-        "RequirementsS3ObjectVersion": str,
-        "StartupScriptS3Path": str,
-        "StartupScriptS3ObjectVersion": str,
-        "AirflowConfigurationOptions": Dict[str, str],
-        "EnvironmentClass": str,
-        "MaxWorkers": int,
-        "NetworkConfiguration": "UpdateNetworkConfigurationInputTypeDef",
-        "LoggingConfiguration": "LoggingConfigurationInputTypeDef",
-        "WeeklyMaintenanceWindowStart": str,
-        "WebserverAccessMode": WebserverAccessModeType,
-        "MinWorkers": int,
-        "Schedulers": int,
-        "MinWebservers": int,
-        "MaxWebservers": int,
-    },
-    total=False,
-)
+class LoggingConfigurationTypeDef(TypedDict):
+    DagProcessingLogs: NotRequired[ModuleLoggingConfigurationTypeDef]
+    SchedulerLogs: NotRequired[ModuleLoggingConfigurationTypeDef]
+    WebserverLogs: NotRequired[ModuleLoggingConfigurationTypeDef]
+    WorkerLogs: NotRequired[ModuleLoggingConfigurationTypeDef]
+    TaskLogs: NotRequired[ModuleLoggingConfigurationTypeDef]
 
-class UpdateEnvironmentInputRequestTypeDef(
-    _RequiredUpdateEnvironmentInputRequestTypeDef, _OptionalUpdateEnvironmentInputRequestTypeDef
-):
-    pass
+class MetricDatumTypeDef(TypedDict):
+    MetricName: str
+    Timestamp: TimestampTypeDef
+    Dimensions: NotRequired[Sequence[DimensionTypeDef]]
+    Value: NotRequired[float]
+    Unit: NotRequired[UnitType]
+    StatisticValues: NotRequired[StatisticSetTypeDef]
 
-UpdateEnvironmentOutputTypeDef = TypedDict(
-    "UpdateEnvironmentOutputTypeDef",
-    {
-        "Arn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+NetworkConfigurationUnionTypeDef = Union[
+    NetworkConfigurationTypeDef, NetworkConfigurationOutputTypeDef
+]
 
-UpdateErrorTypeDef = TypedDict(
-    "UpdateErrorTypeDef",
-    {
-        "ErrorCode": str,
-        "ErrorMessage": str,
-    },
-    total=False,
-)
+class UpdateEnvironmentInputTypeDef(TypedDict):
+    Name: str
+    ExecutionRoleArn: NotRequired[str]
+    AirflowVersion: NotRequired[str]
+    SourceBucketArn: NotRequired[str]
+    DagS3Path: NotRequired[str]
+    PluginsS3Path: NotRequired[str]
+    PluginsS3ObjectVersion: NotRequired[str]
+    RequirementsS3Path: NotRequired[str]
+    RequirementsS3ObjectVersion: NotRequired[str]
+    StartupScriptS3Path: NotRequired[str]
+    StartupScriptS3ObjectVersion: NotRequired[str]
+    AirflowConfigurationOptions: NotRequired[Mapping[str, str]]
+    EnvironmentClass: NotRequired[str]
+    MaxWorkers: NotRequired[int]
+    NetworkConfiguration: NotRequired[UpdateNetworkConfigurationInputTypeDef]
+    LoggingConfiguration: NotRequired[LoggingConfigurationInputTypeDef]
+    WeeklyMaintenanceWindowStart: NotRequired[str]
+    WebserverAccessMode: NotRequired[WebserverAccessModeType]
+    MinWorkers: NotRequired[int]
+    Schedulers: NotRequired[int]
+    MinWebservers: NotRequired[int]
+    MaxWebservers: NotRequired[int]
 
-UpdateNetworkConfigurationInputTypeDef = TypedDict(
-    "UpdateNetworkConfigurationInputTypeDef",
-    {
-        "SecurityGroupIds": List[str],
-    },
-)
+class EnvironmentTypeDef(TypedDict):
+    Name: NotRequired[str]
+    Status: NotRequired[EnvironmentStatusType]
+    Arn: NotRequired[str]
+    CreatedAt: NotRequired[datetime]
+    WebserverUrl: NotRequired[str]
+    ExecutionRoleArn: NotRequired[str]
+    ServiceRoleArn: NotRequired[str]
+    KmsKey: NotRequired[str]
+    AirflowVersion: NotRequired[str]
+    SourceBucketArn: NotRequired[str]
+    DagS3Path: NotRequired[str]
+    PluginsS3Path: NotRequired[str]
+    PluginsS3ObjectVersion: NotRequired[str]
+    RequirementsS3Path: NotRequired[str]
+    RequirementsS3ObjectVersion: NotRequired[str]
+    StartupScriptS3Path: NotRequired[str]
+    StartupScriptS3ObjectVersion: NotRequired[str]
+    AirflowConfigurationOptions: NotRequired[Dict[str, str]]
+    EnvironmentClass: NotRequired[str]
+    MaxWorkers: NotRequired[int]
+    NetworkConfiguration: NotRequired[NetworkConfigurationOutputTypeDef]
+    LoggingConfiguration: NotRequired[LoggingConfigurationTypeDef]
+    LastUpdate: NotRequired[LastUpdateTypeDef]
+    WeeklyMaintenanceWindowStart: NotRequired[str]
+    Tags: NotRequired[Dict[str, str]]
+    WebserverAccessMode: NotRequired[WebserverAccessModeType]
+    MinWorkers: NotRequired[int]
+    Schedulers: NotRequired[int]
+    WebserverVpcEndpointService: NotRequired[str]
+    DatabaseVpcEndpointService: NotRequired[str]
+    CeleryExecutorQueue: NotRequired[str]
+    EndpointManagement: NotRequired[EndpointManagementType]
+    MinWebservers: NotRequired[int]
+    MaxWebservers: NotRequired[int]
+
+class PublishMetricsInputTypeDef(TypedDict):
+    EnvironmentName: str
+    MetricData: Sequence[MetricDatumTypeDef]
+
+class CreateEnvironmentInputTypeDef(TypedDict):
+    Name: str
+    ExecutionRoleArn: str
+    SourceBucketArn: str
+    DagS3Path: str
+    NetworkConfiguration: NetworkConfigurationUnionTypeDef
+    PluginsS3Path: NotRequired[str]
+    PluginsS3ObjectVersion: NotRequired[str]
+    RequirementsS3Path: NotRequired[str]
+    RequirementsS3ObjectVersion: NotRequired[str]
+    StartupScriptS3Path: NotRequired[str]
+    StartupScriptS3ObjectVersion: NotRequired[str]
+    AirflowConfigurationOptions: NotRequired[Mapping[str, str]]
+    EnvironmentClass: NotRequired[str]
+    MaxWorkers: NotRequired[int]
+    KmsKey: NotRequired[str]
+    AirflowVersion: NotRequired[str]
+    LoggingConfiguration: NotRequired[LoggingConfigurationInputTypeDef]
+    WeeklyMaintenanceWindowStart: NotRequired[str]
+    Tags: NotRequired[Mapping[str, str]]
+    WebserverAccessMode: NotRequired[WebserverAccessModeType]
+    MinWorkers: NotRequired[int]
+    Schedulers: NotRequired[int]
+    EndpointManagement: NotRequired[EndpointManagementType]
+    MinWebservers: NotRequired[int]
+    MaxWebservers: NotRequired[int]
+
+class GetEnvironmentOutputTypeDef(TypedDict):
+    Environment: EnvironmentTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef

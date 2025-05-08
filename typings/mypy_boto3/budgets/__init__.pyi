@@ -1,10 +1,14 @@
 """
 Main interface for budgets service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_budgets/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_budgets import (
         BudgetsClient,
         Client,
@@ -18,10 +22,8 @@ Usage::
         DescribeSubscribersForNotificationPaginator,
     )
 
-    session = boto3.Session()
-
-    client: BudgetsClient = boto3.client("budgets")
-    session_client: BudgetsClient = session.client("budgets")
+    session = Session()
+    client: BudgetsClient = session.client("budgets")
 
     describe_budget_action_histories_paginator: DescribeBudgetActionHistoriesPaginator = client.get_paginator("describe_budget_action_histories")
     describe_budget_actions_for_account_paginator: DescribeBudgetActionsForAccountPaginator = client.get_paginator("describe_budget_actions_for_account")

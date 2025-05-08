@@ -1,69 +1,87 @@
 """
-Type annotations for signer service client.
+Type annotations for signer service Client.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_signer/client.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_signer/client/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
-    from mypy_boto3_signer import signerClient
+    from boto3.session import Session
+    from mypy_boto3_signer.client import SignerClient
 
-    client: signerClient = boto3.client("signer")
+    session = Session()
+    client: SignerClient = session.client("signer")
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from datetime import datetime
-from typing import IO, Any, Dict, List, Type, Union, overload
+from typing import Any, overload
 
 from botocore.client import BaseClient, ClientMeta
-from botocore.response import StreamingBody
+from botocore.errorfactory import BaseClientExceptions
+from botocore.exceptions import ClientError as BotocoreClientError
 
-from .literals import SigningProfileStatusType, SigningStatusType
 from .paginator import (
     ListSigningJobsPaginator,
     ListSigningPlatformsPaginator,
     ListSigningProfilesPaginator,
 )
 from .type_defs import (
+    AddProfilePermissionRequestTypeDef,
     AddProfilePermissionResponseTypeDef,
+    CancelSigningProfileRequestTypeDef,
+    DescribeSigningJobRequestTypeDef,
     DescribeSigningJobResponseTypeDef,
-    DestinationTypeDef,
+    EmptyResponseMetadataTypeDef,
+    GetRevocationStatusRequestTypeDef,
     GetRevocationStatusResponseTypeDef,
+    GetSigningPlatformRequestTypeDef,
     GetSigningPlatformResponseTypeDef,
+    GetSigningProfileRequestTypeDef,
     GetSigningProfileResponseTypeDef,
+    ListProfilePermissionsRequestTypeDef,
     ListProfilePermissionsResponseTypeDef,
+    ListSigningJobsRequestTypeDef,
     ListSigningJobsResponseTypeDef,
+    ListSigningPlatformsRequestTypeDef,
     ListSigningPlatformsResponseTypeDef,
+    ListSigningProfilesRequestTypeDef,
     ListSigningProfilesResponseTypeDef,
+    ListTagsForResourceRequestTypeDef,
     ListTagsForResourceResponseTypeDef,
+    PutSigningProfileRequestTypeDef,
     PutSigningProfileResponseTypeDef,
+    RemoveProfilePermissionRequestTypeDef,
     RemoveProfilePermissionResponseTypeDef,
-    SignatureValidityPeriodTypeDef,
-    SigningMaterialTypeDef,
-    SigningPlatformOverridesTypeDef,
+    RevokeSignatureRequestTypeDef,
+    RevokeSigningProfileRequestTypeDef,
+    SignPayloadRequestTypeDef,
     SignPayloadResponseTypeDef,
-    SourceTypeDef,
+    StartSigningJobRequestTypeDef,
     StartSigningJobResponseTypeDef,
+    TagResourceRequestTypeDef,
+    UntagResourceRequestTypeDef,
 )
 from .waiter import SuccessfulSigningJobWaiter
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import type as Type
+    from collections.abc import Mapping
 else:
-    from typing_extensions import Literal
+    from typing import Dict, Mapping, Type
+if sys.version_info >= (3, 12):
+    from typing import Literal, Unpack
+else:
+    from typing_extensions import Literal, Unpack
 
-__all__ = ("signerClient",)
+__all__ = ("SignerClient",)
 
-class BotocoreClientError(BaseException):
-    MSG_TEMPLATE: str
-
-    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
-        self.response: Dict[str, Any]
-        self.operation_name: str
-
-class Exceptions:
+class Exceptions(BaseClientExceptions):
     AccessDeniedException: Type[BotocoreClientError]
     BadRequestException: Type[BotocoreClientError]
     ClientError: Type[BotocoreClientError]
@@ -76,10 +94,10 @@ class Exceptions:
     TooManyRequestsException: Type[BotocoreClientError]
     ValidationException: Type[BotocoreClientError]
 
-class signerClient(BaseClient):
+class SignerClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/signer.html#signer.Client)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_signer/client.html)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/signer.html#Signer.Client)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_signer/client/)
     """
 
     meta: ClientMeta
@@ -87,307 +105,258 @@ class signerClient(BaseClient):
     @property
     def exceptions(self) -> Exceptions:
         """
-        signerClient exceptions.
-        """
+        SignerClient exceptions.
 
-    def add_profile_permission(
-        self,
-        *,
-        profileName: str,
-        action: str,
-        principal: str,
-        statementId: str,
-        profileVersion: str = None,
-        revisionId: str = None
-    ) -> AddProfilePermissionResponseTypeDef:
-        """
-        Adds cross-account permissions to a signing profile.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/signer.html#signer.Client.add_profile_permission)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_signer/client.html#add_profile_permission)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/signer.html#Signer.Client)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_signer/client/#exceptions)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        Check if an operation can be paginated.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/signer.html#signer.Client.can_paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_signer/client.html#can_paginate)
-        """
-
-    def cancel_signing_profile(self, *, profileName: str) -> None:
-        """
-        Changes the state of an `ACTIVE` signing profile to `CANCELED`.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/signer.html#signer.Client.cancel_signing_profile)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_signer/client.html#cancel_signing_profile)
-        """
-
-    def close(self) -> None:
-        """
-        Closes underlying endpoint connections.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/signer.html#signer.Client.close)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_signer/client.html#close)
-        """
-
-    def describe_signing_job(self, *, jobId: str) -> DescribeSigningJobResponseTypeDef:
-        """
-        Returns information about a specific code signing job.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/signer.html#signer.Client.describe_signing_job)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_signer/client.html#describe_signing_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/signer/client/can_paginate.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_signer/client/#can_paginate)
         """
 
     def generate_presigned_url(
         self,
         ClientMethod: str,
-        Params: Dict[str, Any] = None,
+        Params: Mapping[str, Any] = ...,
         ExpiresIn: int = 3600,
-        HttpMethod: str = None,
+        HttpMethod: str = ...,
     ) -> str:
         """
-        Generate a presigned url given a client, its method, and arguments.
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/signer/client/generate_presigned_url.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_signer/client/#generate_presigned_url)
+        """
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/signer.html#signer.Client.generate_presigned_url)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_signer/client.html#generate_presigned_url)
+    def add_profile_permission(
+        self, **kwargs: Unpack[AddProfilePermissionRequestTypeDef]
+    ) -> AddProfilePermissionResponseTypeDef:
+        """
+        Adds cross-account permissions to a signing profile.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/signer/client/add_profile_permission.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_signer/client/#add_profile_permission)
+        """
+
+    def cancel_signing_profile(
+        self, **kwargs: Unpack[CancelSigningProfileRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Changes the state of an <code>ACTIVE</code> signing profile to
+        <code>CANCELED</code>.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/signer/client/cancel_signing_profile.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_signer/client/#cancel_signing_profile)
+        """
+
+    def describe_signing_job(
+        self, **kwargs: Unpack[DescribeSigningJobRequestTypeDef]
+    ) -> DescribeSigningJobResponseTypeDef:
+        """
+        Returns information about a specific code signing job.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/signer/client/describe_signing_job.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_signer/client/#describe_signing_job)
         """
 
     def get_revocation_status(
-        self,
-        *,
-        signatureTimestamp: Union[datetime, str],
-        platformId: str,
-        profileVersionArn: str,
-        jobArn: str,
-        certificateHashes: List[str]
+        self, **kwargs: Unpack[GetRevocationStatusRequestTypeDef]
     ) -> GetRevocationStatusResponseTypeDef:
         """
         Retrieves the revocation status of one or more of the signing profile, signing
         job, and signing certificate.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/signer.html#signer.Client.get_revocation_status)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_signer/client.html#get_revocation_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/signer/client/get_revocation_status.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_signer/client/#get_revocation_status)
         """
 
-    def get_signing_platform(self, *, platformId: str) -> GetSigningPlatformResponseTypeDef:
+    def get_signing_platform(
+        self, **kwargs: Unpack[GetSigningPlatformRequestTypeDef]
+    ) -> GetSigningPlatformResponseTypeDef:
         """
         Returns information on a specific signing platform.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/signer.html#signer.Client.get_signing_platform)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_signer/client.html#get_signing_platform)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/signer/client/get_signing_platform.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_signer/client/#get_signing_platform)
         """
 
     def get_signing_profile(
-        self, *, profileName: str, profileOwner: str = None
+        self, **kwargs: Unpack[GetSigningProfileRequestTypeDef]
     ) -> GetSigningProfileResponseTypeDef:
         """
         Returns information on a specific signing profile.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/signer.html#signer.Client.get_signing_profile)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_signer/client.html#get_signing_profile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/signer/client/get_signing_profile.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_signer/client/#get_signing_profile)
         """
 
     def list_profile_permissions(
-        self, *, profileName: str, nextToken: str = None
+        self, **kwargs: Unpack[ListProfilePermissionsRequestTypeDef]
     ) -> ListProfilePermissionsResponseTypeDef:
         """
         Lists the cross-account permissions associated with a signing profile.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/signer.html#signer.Client.list_profile_permissions)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_signer/client.html#list_profile_permissions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/signer/client/list_profile_permissions.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_signer/client/#list_profile_permissions)
         """
 
     def list_signing_jobs(
-        self,
-        *,
-        status: SigningStatusType = None,
-        platformId: str = None,
-        requestedBy: str = None,
-        maxResults: int = None,
-        nextToken: str = None,
-        isRevoked: bool = None,
-        signatureExpiresBefore: Union[datetime, str] = None,
-        signatureExpiresAfter: Union[datetime, str] = None,
-        jobInvoker: str = None
+        self, **kwargs: Unpack[ListSigningJobsRequestTypeDef]
     ) -> ListSigningJobsResponseTypeDef:
         """
         Lists all your signing jobs.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/signer.html#signer.Client.list_signing_jobs)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_signer/client.html#list_signing_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/signer/client/list_signing_jobs.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_signer/client/#list_signing_jobs)
         """
 
     def list_signing_platforms(
-        self,
-        *,
-        category: str = None,
-        partner: str = None,
-        target: str = None,
-        maxResults: int = None,
-        nextToken: str = None
+        self, **kwargs: Unpack[ListSigningPlatformsRequestTypeDef]
     ) -> ListSigningPlatformsResponseTypeDef:
         """
         Lists all signing platforms available in AWS Signer that match the request
         parameters.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/signer.html#signer.Client.list_signing_platforms)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_signer/client.html#list_signing_platforms)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/signer/client/list_signing_platforms.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_signer/client/#list_signing_platforms)
         """
 
     def list_signing_profiles(
-        self,
-        *,
-        includeCanceled: bool = None,
-        maxResults: int = None,
-        nextToken: str = None,
-        platformId: str = None,
-        statuses: List[SigningProfileStatusType] = None
+        self, **kwargs: Unpack[ListSigningProfilesRequestTypeDef]
     ) -> ListSigningProfilesResponseTypeDef:
         """
         Lists all available signing profiles in your AWS account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/signer.html#signer.Client.list_signing_profiles)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_signer/client.html#list_signing_profiles)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/signer/client/list_signing_profiles.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_signer/client/#list_signing_profiles)
         """
 
-    def list_tags_for_resource(self, *, resourceArn: str) -> ListTagsForResourceResponseTypeDef:
+    def list_tags_for_resource(
+        self, **kwargs: Unpack[ListTagsForResourceRequestTypeDef]
+    ) -> ListTagsForResourceResponseTypeDef:
         """
         Returns a list of the tags associated with a signing profile resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/signer.html#signer.Client.list_tags_for_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_signer/client.html#list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/signer/client/list_tags_for_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_signer/client/#list_tags_for_resource)
         """
 
     def put_signing_profile(
-        self,
-        *,
-        profileName: str,
-        platformId: str,
-        signingMaterial: "SigningMaterialTypeDef" = None,
-        signatureValidityPeriod: "SignatureValidityPeriodTypeDef" = None,
-        overrides: "SigningPlatformOverridesTypeDef" = None,
-        signingParameters: Dict[str, str] = None,
-        tags: Dict[str, str] = None
+        self, **kwargs: Unpack[PutSigningProfileRequestTypeDef]
     ) -> PutSigningProfileResponseTypeDef:
         """
         Creates a signing profile.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/signer.html#signer.Client.put_signing_profile)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_signer/client.html#put_signing_profile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/signer/client/put_signing_profile.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_signer/client/#put_signing_profile)
         """
 
     def remove_profile_permission(
-        self, *, profileName: str, revisionId: str, statementId: str
+        self, **kwargs: Unpack[RemoveProfilePermissionRequestTypeDef]
     ) -> RemoveProfilePermissionResponseTypeDef:
         """
         Removes cross-account permissions from a signing profile.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/signer.html#signer.Client.remove_profile_permission)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_signer/client.html#remove_profile_permission)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/signer/client/remove_profile_permission.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_signer/client/#remove_profile_permission)
         """
 
-    def revoke_signature(self, *, jobId: str, reason: str, jobOwner: str = None) -> None:
+    def revoke_signature(
+        self, **kwargs: Unpack[RevokeSignatureRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Changes the state of a signing job to REVOKED.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/signer.html#signer.Client.revoke_signature)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_signer/client.html#revoke_signature)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/signer/client/revoke_signature.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_signer/client/#revoke_signature)
         """
 
     def revoke_signing_profile(
-        self,
-        *,
-        profileName: str,
-        profileVersion: str,
-        reason: str,
-        effectiveTime: Union[datetime, str]
-    ) -> None:
+        self, **kwargs: Unpack[RevokeSigningProfileRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Changes the state of a signing profile to REVOKED.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/signer.html#signer.Client.revoke_signing_profile)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_signer/client.html#revoke_signing_profile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/signer/client/revoke_signing_profile.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_signer/client/#revoke_signing_profile)
         """
 
     def sign_payload(
-        self,
-        *,
-        profileName: str,
-        payload: Union[bytes, IO[bytes], StreamingBody],
-        payloadFormat: str,
-        profileOwner: str = None
+        self, **kwargs: Unpack[SignPayloadRequestTypeDef]
     ) -> SignPayloadResponseTypeDef:
         """
         Signs a binary payload and returns a signature envelope.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/signer.html#signer.Client.sign_payload)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_signer/client.html#sign_payload)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/signer/client/sign_payload.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_signer/client/#sign_payload)
         """
 
     def start_signing_job(
-        self,
-        *,
-        source: "SourceTypeDef",
-        destination: "DestinationTypeDef",
-        profileName: str,
-        clientRequestToken: str,
-        profileOwner: str = None
+        self, **kwargs: Unpack[StartSigningJobRequestTypeDef]
     ) -> StartSigningJobResponseTypeDef:
         """
         Initiates a signing job to be performed on the code provided.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/signer.html#signer.Client.start_signing_job)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_signer/client.html#start_signing_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/signer/client/start_signing_job.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_signer/client/#start_signing_job)
         """
 
-    def tag_resource(self, *, resourceArn: str, tags: Dict[str, str]) -> Dict[str, Any]:
+    def tag_resource(self, **kwargs: Unpack[TagResourceRequestTypeDef]) -> Dict[str, Any]:
         """
         Adds one or more tags to a signing profile.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/signer.html#signer.Client.tag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_signer/client.html#tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/signer/client/tag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_signer/client/#tag_resource)
         """
 
-    def untag_resource(self, *, resourceArn: str, tagKeys: List[str]) -> Dict[str, Any]:
+    def untag_resource(self, **kwargs: Unpack[UntagResourceRequestTypeDef]) -> Dict[str, Any]:
         """
         Removes one or more tags from a signing profile.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/signer.html#signer.Client.untag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_signer/client.html#untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/signer/client/untag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_signer/client/#untag_resource)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_signing_jobs"]
     ) -> ListSigningJobsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/signer.html#signer.Paginator.ListSigningJobs)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_signer/paginators.html#listsigningjobspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/signer/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_signer/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_signing_platforms"]
     ) -> ListSigningPlatformsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/signer.html#signer.Paginator.ListSigningPlatforms)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_signer/paginators.html#listsigningplatformspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/signer/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_signer/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_signing_profiles"]
     ) -> ListSigningProfilesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/signer.html#signer.Paginator.ListSigningProfiles)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_signer/paginators.html#listsigningprofilespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/signer/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_signer/client/#get_paginator)
         """
 
-    def get_waiter(
+    def get_waiter(  # type: ignore[override]
         self, waiter_name: Literal["successful_signing_job"]
     ) -> SuccessfulSigningJobWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/signer.html#signer.Waiter.SuccessfulSigningJob)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_signer/waiters.html#successfulsigningjobwaiter)
+        Returns an object that can wait for some condition.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/signer/client/get_waiter.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_signer/client/#get_waiter)
         """

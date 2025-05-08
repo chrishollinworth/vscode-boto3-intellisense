@@ -1,10 +1,14 @@
 """
 Main interface for waf service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_waf/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_waf import (
         Client,
         GetRateBasedRuleManagedKeysPaginator,
@@ -26,10 +30,8 @@ Usage::
         WAFClient,
     )
 
-    session = boto3.Session()
-
-    client: WAFClient = boto3.client("waf")
-    session_client: WAFClient = session.client("waf")
+    session = Session()
+    client: WAFClient = session.client("waf")
 
     get_rate_based_rule_managed_keys_paginator: GetRateBasedRuleManagedKeysPaginator = client.get_paginator("get_rate_based_rule_managed_keys")
     list_activated_rules_in_rule_group_paginator: ListActivatedRulesInRuleGroupPaginator = client.get_paginator("list_activated_rules_in_rule_group")

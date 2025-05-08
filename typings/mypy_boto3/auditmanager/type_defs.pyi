@@ -1,20 +1,24 @@
 """
 Type annotations for auditmanager service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_auditmanager/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_auditmanager/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_auditmanager.type_defs import AWSAccountTypeDef
 
-    data: AWSAccountTypeDef = {...}
+    data: AWSAccountTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
+from typing import Union
 
 from .literals import (
     AccountStatusType,
@@ -44,14 +48,16 @@ from .literals import (
     SourceTypeType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
     "AWSAccountTypeDef",
@@ -69,19 +75,19 @@ __all__ = (
     "AssessmentReportTypeDef",
     "AssessmentReportsDestinationTypeDef",
     "AssessmentTypeDef",
-    "AssociateAssessmentReportEvidenceFolderRequestRequestTypeDef",
-    "BatchAssociateAssessmentReportEvidenceRequestRequestTypeDef",
+    "AssociateAssessmentReportEvidenceFolderRequestTypeDef",
+    "BatchAssociateAssessmentReportEvidenceRequestTypeDef",
     "BatchAssociateAssessmentReportEvidenceResponseTypeDef",
     "BatchCreateDelegationByAssessmentErrorTypeDef",
-    "BatchCreateDelegationByAssessmentRequestRequestTypeDef",
+    "BatchCreateDelegationByAssessmentRequestTypeDef",
     "BatchCreateDelegationByAssessmentResponseTypeDef",
     "BatchDeleteDelegationByAssessmentErrorTypeDef",
-    "BatchDeleteDelegationByAssessmentRequestRequestTypeDef",
+    "BatchDeleteDelegationByAssessmentRequestTypeDef",
     "BatchDeleteDelegationByAssessmentResponseTypeDef",
-    "BatchDisassociateAssessmentReportEvidenceRequestRequestTypeDef",
+    "BatchDisassociateAssessmentReportEvidenceRequestTypeDef",
     "BatchDisassociateAssessmentReportEvidenceResponseTypeDef",
     "BatchImportEvidenceToAssessmentControlErrorTypeDef",
-    "BatchImportEvidenceToAssessmentControlRequestRequestTypeDef",
+    "BatchImportEvidenceToAssessmentControlRequestTypeDef",
     "BatchImportEvidenceToAssessmentControlResponseTypeDef",
     "ChangeLogTypeDef",
     "ControlCommentTypeDef",
@@ -94,614 +100,341 @@ __all__ = (
     "ControlTypeDef",
     "CreateAssessmentFrameworkControlSetTypeDef",
     "CreateAssessmentFrameworkControlTypeDef",
-    "CreateAssessmentFrameworkRequestRequestTypeDef",
+    "CreateAssessmentFrameworkRequestTypeDef",
     "CreateAssessmentFrameworkResponseTypeDef",
-    "CreateAssessmentReportRequestRequestTypeDef",
+    "CreateAssessmentReportRequestTypeDef",
     "CreateAssessmentReportResponseTypeDef",
-    "CreateAssessmentRequestRequestTypeDef",
+    "CreateAssessmentRequestTypeDef",
     "CreateAssessmentResponseTypeDef",
     "CreateControlMappingSourceTypeDef",
-    "CreateControlRequestRequestTypeDef",
+    "CreateControlRequestTypeDef",
     "CreateControlResponseTypeDef",
     "CreateDelegationRequestTypeDef",
     "DefaultExportDestinationTypeDef",
     "DelegationMetadataTypeDef",
     "DelegationTypeDef",
-    "DeleteAssessmentFrameworkRequestRequestTypeDef",
-    "DeleteAssessmentFrameworkShareRequestRequestTypeDef",
-    "DeleteAssessmentReportRequestRequestTypeDef",
-    "DeleteAssessmentRequestRequestTypeDef",
-    "DeleteControlRequestRequestTypeDef",
+    "DeleteAssessmentFrameworkRequestTypeDef",
+    "DeleteAssessmentFrameworkShareRequestTypeDef",
+    "DeleteAssessmentReportRequestTypeDef",
+    "DeleteAssessmentRequestTypeDef",
+    "DeleteControlRequestTypeDef",
     "DeregisterAccountResponseTypeDef",
-    "DeregisterOrganizationAdminAccountRequestRequestTypeDef",
+    "DeregisterOrganizationAdminAccountRequestTypeDef",
     "DeregistrationPolicyTypeDef",
-    "DisassociateAssessmentReportEvidenceFolderRequestRequestTypeDef",
+    "DisassociateAssessmentReportEvidenceFolderRequestTypeDef",
     "EvidenceFinderEnablementTypeDef",
     "EvidenceInsightsTypeDef",
     "EvidenceTypeDef",
     "FrameworkMetadataTypeDef",
     "FrameworkTypeDef",
     "GetAccountStatusResponseTypeDef",
-    "GetAssessmentFrameworkRequestRequestTypeDef",
+    "GetAssessmentFrameworkRequestTypeDef",
     "GetAssessmentFrameworkResponseTypeDef",
-    "GetAssessmentReportUrlRequestRequestTypeDef",
+    "GetAssessmentReportUrlRequestTypeDef",
     "GetAssessmentReportUrlResponseTypeDef",
-    "GetAssessmentRequestRequestTypeDef",
+    "GetAssessmentRequestTypeDef",
     "GetAssessmentResponseTypeDef",
-    "GetChangeLogsRequestRequestTypeDef",
+    "GetChangeLogsRequestTypeDef",
     "GetChangeLogsResponseTypeDef",
-    "GetControlRequestRequestTypeDef",
+    "GetControlRequestTypeDef",
     "GetControlResponseTypeDef",
-    "GetDelegationsRequestRequestTypeDef",
+    "GetDelegationsRequestTypeDef",
     "GetDelegationsResponseTypeDef",
-    "GetEvidenceByEvidenceFolderRequestRequestTypeDef",
+    "GetEvidenceByEvidenceFolderRequestTypeDef",
     "GetEvidenceByEvidenceFolderResponseTypeDef",
-    "GetEvidenceFileUploadUrlRequestRequestTypeDef",
+    "GetEvidenceFileUploadUrlRequestTypeDef",
     "GetEvidenceFileUploadUrlResponseTypeDef",
-    "GetEvidenceFolderRequestRequestTypeDef",
+    "GetEvidenceFolderRequestTypeDef",
     "GetEvidenceFolderResponseTypeDef",
-    "GetEvidenceFoldersByAssessmentControlRequestRequestTypeDef",
+    "GetEvidenceFoldersByAssessmentControlRequestTypeDef",
     "GetEvidenceFoldersByAssessmentControlResponseTypeDef",
-    "GetEvidenceFoldersByAssessmentRequestRequestTypeDef",
+    "GetEvidenceFoldersByAssessmentRequestTypeDef",
     "GetEvidenceFoldersByAssessmentResponseTypeDef",
-    "GetEvidenceRequestRequestTypeDef",
+    "GetEvidenceRequestTypeDef",
     "GetEvidenceResponseTypeDef",
-    "GetInsightsByAssessmentRequestRequestTypeDef",
+    "GetInsightsByAssessmentRequestTypeDef",
     "GetInsightsByAssessmentResponseTypeDef",
     "GetInsightsResponseTypeDef",
     "GetOrganizationAdminAccountResponseTypeDef",
     "GetServicesInScopeResponseTypeDef",
-    "GetSettingsRequestRequestTypeDef",
+    "GetSettingsRequestTypeDef",
     "GetSettingsResponseTypeDef",
     "InsightsByAssessmentTypeDef",
     "InsightsTypeDef",
-    "ListAssessmentControlInsightsByControlDomainRequestRequestTypeDef",
+    "ListAssessmentControlInsightsByControlDomainRequestTypeDef",
     "ListAssessmentControlInsightsByControlDomainResponseTypeDef",
-    "ListAssessmentFrameworkShareRequestsRequestRequestTypeDef",
+    "ListAssessmentFrameworkShareRequestsRequestTypeDef",
     "ListAssessmentFrameworkShareRequestsResponseTypeDef",
-    "ListAssessmentFrameworksRequestRequestTypeDef",
+    "ListAssessmentFrameworksRequestTypeDef",
     "ListAssessmentFrameworksResponseTypeDef",
-    "ListAssessmentReportsRequestRequestTypeDef",
+    "ListAssessmentReportsRequestTypeDef",
     "ListAssessmentReportsResponseTypeDef",
-    "ListAssessmentsRequestRequestTypeDef",
+    "ListAssessmentsRequestTypeDef",
     "ListAssessmentsResponseTypeDef",
-    "ListControlDomainInsightsByAssessmentRequestRequestTypeDef",
+    "ListControlDomainInsightsByAssessmentRequestTypeDef",
     "ListControlDomainInsightsByAssessmentResponseTypeDef",
-    "ListControlDomainInsightsRequestRequestTypeDef",
+    "ListControlDomainInsightsRequestTypeDef",
     "ListControlDomainInsightsResponseTypeDef",
-    "ListControlInsightsByControlDomainRequestRequestTypeDef",
+    "ListControlInsightsByControlDomainRequestTypeDef",
     "ListControlInsightsByControlDomainResponseTypeDef",
-    "ListControlsRequestRequestTypeDef",
+    "ListControlsRequestTypeDef",
     "ListControlsResponseTypeDef",
-    "ListKeywordsForDataSourceRequestRequestTypeDef",
+    "ListKeywordsForDataSourceRequestTypeDef",
     "ListKeywordsForDataSourceResponseTypeDef",
-    "ListNotificationsRequestRequestTypeDef",
+    "ListNotificationsRequestTypeDef",
     "ListNotificationsResponseTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "ManualEvidenceTypeDef",
     "NotificationTypeDef",
-    "RegisterAccountRequestRequestTypeDef",
+    "RegisterAccountRequestTypeDef",
     "RegisterAccountResponseTypeDef",
-    "RegisterOrganizationAdminAccountRequestRequestTypeDef",
+    "RegisterOrganizationAdminAccountRequestTypeDef",
     "RegisterOrganizationAdminAccountResponseTypeDef",
     "ResourceTypeDef",
     "ResponseMetadataTypeDef",
     "RoleTypeDef",
+    "ScopeOutputTypeDef",
     "ScopeTypeDef",
+    "ScopeUnionTypeDef",
     "ServiceMetadataTypeDef",
     "SettingsTypeDef",
     "SourceKeywordTypeDef",
-    "StartAssessmentFrameworkShareRequestRequestTypeDef",
+    "StartAssessmentFrameworkShareRequestTypeDef",
     "StartAssessmentFrameworkShareResponseTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
     "URLTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateAssessmentControlRequestRequestTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateAssessmentControlRequestTypeDef",
     "UpdateAssessmentControlResponseTypeDef",
-    "UpdateAssessmentControlSetStatusRequestRequestTypeDef",
+    "UpdateAssessmentControlSetStatusRequestTypeDef",
     "UpdateAssessmentControlSetStatusResponseTypeDef",
     "UpdateAssessmentFrameworkControlSetTypeDef",
-    "UpdateAssessmentFrameworkRequestRequestTypeDef",
+    "UpdateAssessmentFrameworkRequestTypeDef",
     "UpdateAssessmentFrameworkResponseTypeDef",
-    "UpdateAssessmentFrameworkShareRequestRequestTypeDef",
+    "UpdateAssessmentFrameworkShareRequestTypeDef",
     "UpdateAssessmentFrameworkShareResponseTypeDef",
-    "UpdateAssessmentRequestRequestTypeDef",
+    "UpdateAssessmentRequestTypeDef",
     "UpdateAssessmentResponseTypeDef",
-    "UpdateAssessmentStatusRequestRequestTypeDef",
+    "UpdateAssessmentStatusRequestTypeDef",
     "UpdateAssessmentStatusResponseTypeDef",
-    "UpdateControlRequestRequestTypeDef",
+    "UpdateControlRequestTypeDef",
     "UpdateControlResponseTypeDef",
-    "UpdateSettingsRequestRequestTypeDef",
+    "UpdateSettingsRequestTypeDef",
     "UpdateSettingsResponseTypeDef",
-    "ValidateAssessmentReportIntegrityRequestRequestTypeDef",
+    "ValidateAssessmentReportIntegrityRequestTypeDef",
     "ValidateAssessmentReportIntegrityResponseTypeDef",
 )
 
 AWSAccountTypeDef = TypedDict(
     "AWSAccountTypeDef",
     {
-        "id": str,
-        "emailAddress": str,
-        "name": str,
+        "id": NotRequired[str],
+        "emailAddress": NotRequired[str],
+        "name": NotRequired[str],
     },
-    total=False,
 )
 
-AWSServiceTypeDef = TypedDict(
-    "AWSServiceTypeDef",
+class AWSServiceTypeDef(TypedDict):
+    serviceName: NotRequired[str]
+
+DelegationTypeDef = TypedDict(
+    "DelegationTypeDef",
     {
-        "serviceName": str,
+        "id": NotRequired[str],
+        "assessmentName": NotRequired[str],
+        "assessmentId": NotRequired[str],
+        "status": NotRequired[DelegationStatusType],
+        "roleArn": NotRequired[str],
+        "roleType": NotRequired[RoleTypeType],
+        "creationTime": NotRequired[datetime],
+        "lastUpdated": NotRequired[datetime],
+        "controlSetId": NotRequired[str],
+        "comment": NotRequired[str],
+        "createdBy": NotRequired[str],
     },
-    total=False,
 )
 
-AssessmentControlSetTypeDef = TypedDict(
-    "AssessmentControlSetTypeDef",
-    {
-        "id": str,
-        "description": str,
-        "status": ControlSetStatusType,
-        "roles": List["RoleTypeDef"],
-        "controls": List["AssessmentControlTypeDef"],
-        "delegations": List["DelegationTypeDef"],
-        "systemEvidenceCount": int,
-        "manualEvidenceCount": int,
-    },
-    total=False,
-)
+class RoleTypeDef(TypedDict):
+    roleType: RoleTypeType
+    roleArn: str
 
-AssessmentControlTypeDef = TypedDict(
-    "AssessmentControlTypeDef",
-    {
-        "id": str,
-        "name": str,
-        "description": str,
-        "status": ControlStatusType,
-        "response": ControlResponseType,
-        "comments": List["ControlCommentTypeDef"],
-        "evidenceSources": List[str],
-        "evidenceCount": int,
-        "assessmentReportEvidenceCount": int,
-    },
-    total=False,
-)
+class ControlCommentTypeDef(TypedDict):
+    authorName: NotRequired[str]
+    commentBody: NotRequired[str]
+    postedDate: NotRequired[datetime]
 
 AssessmentEvidenceFolderTypeDef = TypedDict(
     "AssessmentEvidenceFolderTypeDef",
     {
-        "name": str,
-        "date": datetime,
-        "assessmentId": str,
-        "controlSetId": str,
-        "controlId": str,
-        "id": str,
-        "dataSource": str,
-        "author": str,
-        "totalEvidence": int,
-        "assessmentReportSelectionCount": int,
-        "controlName": str,
-        "evidenceResourcesIncludedCount": int,
-        "evidenceByTypeConfigurationDataCount": int,
-        "evidenceByTypeManualCount": int,
-        "evidenceByTypeComplianceCheckCount": int,
-        "evidenceByTypeComplianceCheckIssuesCount": int,
-        "evidenceByTypeUserActivityCount": int,
-        "evidenceAwsServiceSourceCount": int,
+        "name": NotRequired[str],
+        "date": NotRequired[datetime],
+        "assessmentId": NotRequired[str],
+        "controlSetId": NotRequired[str],
+        "controlId": NotRequired[str],
+        "id": NotRequired[str],
+        "dataSource": NotRequired[str],
+        "author": NotRequired[str],
+        "totalEvidence": NotRequired[int],
+        "assessmentReportSelectionCount": NotRequired[int],
+        "controlName": NotRequired[str],
+        "evidenceResourcesIncludedCount": NotRequired[int],
+        "evidenceByTypeConfigurationDataCount": NotRequired[int],
+        "evidenceByTypeManualCount": NotRequired[int],
+        "evidenceByTypeComplianceCheckCount": NotRequired[int],
+        "evidenceByTypeComplianceCheckIssuesCount": NotRequired[int],
+        "evidenceByTypeUserActivityCount": NotRequired[int],
+        "evidenceAwsServiceSourceCount": NotRequired[int],
     },
-    total=False,
 )
-
 AssessmentFrameworkMetadataTypeDef = TypedDict(
     "AssessmentFrameworkMetadataTypeDef",
     {
-        "arn": str,
-        "id": str,
-        "type": FrameworkTypeType,
-        "name": str,
-        "description": str,
-        "logo": str,
-        "complianceType": str,
-        "controlsCount": int,
-        "controlSetsCount": int,
-        "createdAt": datetime,
-        "lastUpdatedAt": datetime,
+        "arn": NotRequired[str],
+        "id": NotRequired[str],
+        "type": NotRequired[FrameworkTypeType],
+        "name": NotRequired[str],
+        "description": NotRequired[str],
+        "logo": NotRequired[str],
+        "complianceType": NotRequired[str],
+        "controlsCount": NotRequired[int],
+        "controlSetsCount": NotRequired[int],
+        "createdAt": NotRequired[datetime],
+        "lastUpdatedAt": NotRequired[datetime],
     },
-    total=False,
 )
-
 AssessmentFrameworkShareRequestTypeDef = TypedDict(
     "AssessmentFrameworkShareRequestTypeDef",
     {
-        "id": str,
-        "frameworkId": str,
-        "frameworkName": str,
-        "frameworkDescription": str,
-        "status": ShareRequestStatusType,
-        "sourceAccount": str,
-        "destinationAccount": str,
-        "destinationRegion": str,
-        "expirationTime": datetime,
-        "creationTime": datetime,
-        "lastUpdated": datetime,
-        "comment": str,
-        "standardControlsCount": int,
-        "customControlsCount": int,
-        "complianceType": str,
+        "id": NotRequired[str],
+        "frameworkId": NotRequired[str],
+        "frameworkName": NotRequired[str],
+        "frameworkDescription": NotRequired[str],
+        "status": NotRequired[ShareRequestStatusType],
+        "sourceAccount": NotRequired[str],
+        "destinationAccount": NotRequired[str],
+        "destinationRegion": NotRequired[str],
+        "expirationTime": NotRequired[datetime],
+        "creationTime": NotRequired[datetime],
+        "lastUpdated": NotRequired[datetime],
+        "comment": NotRequired[str],
+        "standardControlsCount": NotRequired[int],
+        "customControlsCount": NotRequired[int],
+        "complianceType": NotRequired[str],
     },
-    total=False,
 )
 
-AssessmentFrameworkTypeDef = TypedDict(
-    "AssessmentFrameworkTypeDef",
-    {
-        "id": str,
-        "arn": str,
-        "metadata": "FrameworkMetadataTypeDef",
-        "controlSets": List["AssessmentControlSetTypeDef"],
-    },
-    total=False,
-)
+class FrameworkMetadataTypeDef(TypedDict):
+    name: NotRequired[str]
+    description: NotRequired[str]
+    logo: NotRequired[str]
+    complianceType: NotRequired[str]
 
-AssessmentMetadataItemTypeDef = TypedDict(
-    "AssessmentMetadataItemTypeDef",
-    {
-        "name": str,
-        "id": str,
-        "complianceType": str,
-        "status": AssessmentStatusType,
-        "roles": List["RoleTypeDef"],
-        "delegations": List["DelegationTypeDef"],
-        "creationTime": datetime,
-        "lastUpdated": datetime,
-    },
-    total=False,
-)
+class AssessmentReportsDestinationTypeDef(TypedDict):
+    destinationType: NotRequired[Literal["S3"]]
+    destination: NotRequired[str]
 
-AssessmentMetadataTypeDef = TypedDict(
-    "AssessmentMetadataTypeDef",
-    {
-        "name": str,
-        "id": str,
-        "description": str,
-        "complianceType": str,
-        "status": AssessmentStatusType,
-        "assessmentReportsDestination": "AssessmentReportsDestinationTypeDef",
-        "scope": "ScopeTypeDef",
-        "roles": List["RoleTypeDef"],
-        "delegations": List["DelegationTypeDef"],
-        "creationTime": datetime,
-        "lastUpdated": datetime,
-    },
-    total=False,
-)
-
-AssessmentReportEvidenceErrorTypeDef = TypedDict(
-    "AssessmentReportEvidenceErrorTypeDef",
-    {
-        "evidenceId": str,
-        "errorCode": str,
-        "errorMessage": str,
-    },
-    total=False,
-)
+class AssessmentReportEvidenceErrorTypeDef(TypedDict):
+    evidenceId: NotRequired[str]
+    errorCode: NotRequired[str]
+    errorMessage: NotRequired[str]
 
 AssessmentReportMetadataTypeDef = TypedDict(
     "AssessmentReportMetadataTypeDef",
     {
-        "id": str,
-        "name": str,
-        "description": str,
-        "assessmentId": str,
-        "assessmentName": str,
-        "author": str,
-        "status": AssessmentReportStatusType,
-        "creationTime": datetime,
+        "id": NotRequired[str],
+        "name": NotRequired[str],
+        "description": NotRequired[str],
+        "assessmentId": NotRequired[str],
+        "assessmentName": NotRequired[str],
+        "author": NotRequired[str],
+        "status": NotRequired[AssessmentReportStatusType],
+        "creationTime": NotRequired[datetime],
     },
-    total=False,
 )
-
 AssessmentReportTypeDef = TypedDict(
     "AssessmentReportTypeDef",
     {
-        "id": str,
-        "name": str,
-        "description": str,
-        "awsAccountId": str,
-        "assessmentId": str,
-        "assessmentName": str,
-        "author": str,
-        "status": AssessmentReportStatusType,
-        "creationTime": datetime,
-    },
-    total=False,
-)
-
-AssessmentReportsDestinationTypeDef = TypedDict(
-    "AssessmentReportsDestinationTypeDef",
-    {
-        "destinationType": Literal["S3"],
-        "destination": str,
-    },
-    total=False,
-)
-
-AssessmentTypeDef = TypedDict(
-    "AssessmentTypeDef",
-    {
-        "arn": str,
-        "awsAccount": "AWSAccountTypeDef",
-        "metadata": "AssessmentMetadataTypeDef",
-        "framework": "AssessmentFrameworkTypeDef",
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-AssociateAssessmentReportEvidenceFolderRequestRequestTypeDef = TypedDict(
-    "AssociateAssessmentReportEvidenceFolderRequestRequestTypeDef",
-    {
-        "assessmentId": str,
-        "evidenceFolderId": str,
+        "id": NotRequired[str],
+        "name": NotRequired[str],
+        "description": NotRequired[str],
+        "awsAccountId": NotRequired[str],
+        "assessmentId": NotRequired[str],
+        "assessmentName": NotRequired[str],
+        "author": NotRequired[str],
+        "status": NotRequired[AssessmentReportStatusType],
+        "creationTime": NotRequired[datetime],
     },
 )
 
-BatchAssociateAssessmentReportEvidenceRequestRequestTypeDef = TypedDict(
-    "BatchAssociateAssessmentReportEvidenceRequestRequestTypeDef",
-    {
-        "assessmentId": str,
-        "evidenceFolderId": str,
-        "evidenceIds": List[str],
-    },
-)
+class AssociateAssessmentReportEvidenceFolderRequestTypeDef(TypedDict):
+    assessmentId: str
+    evidenceFolderId: str
 
-BatchAssociateAssessmentReportEvidenceResponseTypeDef = TypedDict(
-    "BatchAssociateAssessmentReportEvidenceResponseTypeDef",
-    {
-        "evidenceIds": List[str],
-        "errors": List["AssessmentReportEvidenceErrorTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class BatchAssociateAssessmentReportEvidenceRequestTypeDef(TypedDict):
+    assessmentId: str
+    evidenceFolderId: str
+    evidenceIds: Sequence[str]
 
-BatchCreateDelegationByAssessmentErrorTypeDef = TypedDict(
-    "BatchCreateDelegationByAssessmentErrorTypeDef",
-    {
-        "createDelegationRequest": "CreateDelegationRequestTypeDef",
-        "errorCode": str,
-        "errorMessage": str,
-    },
-    total=False,
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-BatchCreateDelegationByAssessmentRequestRequestTypeDef = TypedDict(
-    "BatchCreateDelegationByAssessmentRequestRequestTypeDef",
-    {
-        "createDelegationRequests": List["CreateDelegationRequestTypeDef"],
-        "assessmentId": str,
-    },
-)
+class CreateDelegationRequestTypeDef(TypedDict):
+    comment: NotRequired[str]
+    controlSetId: NotRequired[str]
+    roleArn: NotRequired[str]
+    roleType: NotRequired[RoleTypeType]
 
-BatchCreateDelegationByAssessmentResponseTypeDef = TypedDict(
-    "BatchCreateDelegationByAssessmentResponseTypeDef",
-    {
-        "delegations": List["DelegationTypeDef"],
-        "errors": List["BatchCreateDelegationByAssessmentErrorTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class BatchDeleteDelegationByAssessmentErrorTypeDef(TypedDict):
+    delegationId: NotRequired[str]
+    errorCode: NotRequired[str]
+    errorMessage: NotRequired[str]
 
-BatchDeleteDelegationByAssessmentErrorTypeDef = TypedDict(
-    "BatchDeleteDelegationByAssessmentErrorTypeDef",
-    {
-        "delegationId": str,
-        "errorCode": str,
-        "errorMessage": str,
-    },
-    total=False,
-)
+class BatchDeleteDelegationByAssessmentRequestTypeDef(TypedDict):
+    delegationIds: Sequence[str]
+    assessmentId: str
 
-BatchDeleteDelegationByAssessmentRequestRequestTypeDef = TypedDict(
-    "BatchDeleteDelegationByAssessmentRequestRequestTypeDef",
-    {
-        "delegationIds": List[str],
-        "assessmentId": str,
-    },
-)
+class BatchDisassociateAssessmentReportEvidenceRequestTypeDef(TypedDict):
+    assessmentId: str
+    evidenceFolderId: str
+    evidenceIds: Sequence[str]
 
-BatchDeleteDelegationByAssessmentResponseTypeDef = TypedDict(
-    "BatchDeleteDelegationByAssessmentResponseTypeDef",
-    {
-        "errors": List["BatchDeleteDelegationByAssessmentErrorTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ManualEvidenceTypeDef(TypedDict):
+    s3ResourcePath: NotRequired[str]
+    textResponse: NotRequired[str]
+    evidenceFileName: NotRequired[str]
 
-BatchDisassociateAssessmentReportEvidenceRequestRequestTypeDef = TypedDict(
-    "BatchDisassociateAssessmentReportEvidenceRequestRequestTypeDef",
-    {
-        "assessmentId": str,
-        "evidenceFolderId": str,
-        "evidenceIds": List[str],
-    },
-)
+class ChangeLogTypeDef(TypedDict):
+    objectType: NotRequired[ObjectTypeEnumType]
+    objectName: NotRequired[str]
+    action: NotRequired[ActionEnumType]
+    createdAt: NotRequired[datetime]
+    createdBy: NotRequired[str]
 
-BatchDisassociateAssessmentReportEvidenceResponseTypeDef = TypedDict(
-    "BatchDisassociateAssessmentReportEvidenceResponseTypeDef",
-    {
-        "evidenceIds": List[str],
-        "errors": List["AssessmentReportEvidenceErrorTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class EvidenceInsightsTypeDef(TypedDict):
+    noncompliantEvidenceCount: NotRequired[int]
+    compliantEvidenceCount: NotRequired[int]
+    inconclusiveEvidenceCount: NotRequired[int]
 
-BatchImportEvidenceToAssessmentControlErrorTypeDef = TypedDict(
-    "BatchImportEvidenceToAssessmentControlErrorTypeDef",
-    {
-        "manualEvidence": "ManualEvidenceTypeDef",
-        "errorCode": str,
-        "errorMessage": str,
-    },
-    total=False,
-)
-
-BatchImportEvidenceToAssessmentControlRequestRequestTypeDef = TypedDict(
-    "BatchImportEvidenceToAssessmentControlRequestRequestTypeDef",
-    {
-        "assessmentId": str,
-        "controlSetId": str,
-        "controlId": str,
-        "manualEvidence": List["ManualEvidenceTypeDef"],
-    },
-)
-
-BatchImportEvidenceToAssessmentControlResponseTypeDef = TypedDict(
-    "BatchImportEvidenceToAssessmentControlResponseTypeDef",
-    {
-        "errors": List["BatchImportEvidenceToAssessmentControlErrorTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ChangeLogTypeDef = TypedDict(
-    "ChangeLogTypeDef",
-    {
-        "objectType": ObjectTypeEnumType,
-        "objectName": str,
-        "action": ActionEnumType,
-        "createdAt": datetime,
-        "createdBy": str,
-    },
-    total=False,
-)
-
-ControlCommentTypeDef = TypedDict(
-    "ControlCommentTypeDef",
-    {
-        "authorName": str,
-        "commentBody": str,
-        "postedDate": datetime,
-    },
-    total=False,
-)
-
-ControlDomainInsightsTypeDef = TypedDict(
-    "ControlDomainInsightsTypeDef",
-    {
-        "name": str,
-        "id": str,
-        "controlsCountByNoncompliantEvidence": int,
-        "totalControlsCount": int,
-        "evidenceInsights": "EvidenceInsightsTypeDef",
-        "lastUpdated": datetime,
-    },
-    total=False,
-)
-
-ControlInsightsMetadataByAssessmentItemTypeDef = TypedDict(
-    "ControlInsightsMetadataByAssessmentItemTypeDef",
-    {
-        "name": str,
-        "id": str,
-        "evidenceInsights": "EvidenceInsightsTypeDef",
-        "controlSetName": str,
-        "lastUpdated": datetime,
-    },
-    total=False,
-)
-
-ControlInsightsMetadataItemTypeDef = TypedDict(
-    "ControlInsightsMetadataItemTypeDef",
-    {
-        "name": str,
-        "id": str,
-        "evidenceInsights": "EvidenceInsightsTypeDef",
-        "lastUpdated": datetime,
-    },
-    total=False,
-)
-
-ControlMappingSourceTypeDef = TypedDict(
-    "ControlMappingSourceTypeDef",
-    {
-        "sourceId": str,
-        "sourceName": str,
-        "sourceDescription": str,
-        "sourceSetUpOption": SourceSetUpOptionType,
-        "sourceType": SourceTypeType,
-        "sourceKeyword": "SourceKeywordTypeDef",
-        "sourceFrequency": SourceFrequencyType,
-        "troubleshootingText": str,
-    },
-    total=False,
-)
+class SourceKeywordTypeDef(TypedDict):
+    keywordInputType: NotRequired[KeywordInputTypeType]
+    keywordValue: NotRequired[str]
 
 ControlMetadataTypeDef = TypedDict(
     "ControlMetadataTypeDef",
     {
-        "arn": str,
-        "id": str,
-        "name": str,
-        "controlSources": str,
-        "createdAt": datetime,
-        "lastUpdatedAt": datetime,
-    },
-    total=False,
-)
-
-ControlSetTypeDef = TypedDict(
-    "ControlSetTypeDef",
-    {
-        "id": str,
-        "name": str,
-        "controls": List["ControlTypeDef"],
-    },
-    total=False,
-)
-
-ControlTypeDef = TypedDict(
-    "ControlTypeDef",
-    {
-        "arn": str,
-        "id": str,
-        "type": ControlTypeType,
-        "name": str,
-        "description": str,
-        "testingInformation": str,
-        "actionPlanTitle": str,
-        "actionPlanInstructions": str,
-        "controlSources": str,
-        "controlMappingSources": List["ControlMappingSourceTypeDef"],
-        "createdAt": datetime,
-        "lastUpdatedAt": datetime,
-        "createdBy": str,
-        "lastUpdatedBy": str,
-        "tags": Dict[str, str],
-        "state": ControlStateType,
-    },
-    total=False,
-)
-
-_RequiredCreateAssessmentFrameworkControlSetTypeDef = TypedDict(
-    "_RequiredCreateAssessmentFrameworkControlSetTypeDef",
-    {
-        "name": str,
+        "arn": NotRequired[str],
+        "id": NotRequired[str],
+        "name": NotRequired[str],
+        "controlSources": NotRequired[str],
+        "createdAt": NotRequired[datetime],
+        "lastUpdatedAt": NotRequired[datetime],
     },
 )
-_OptionalCreateAssessmentFrameworkControlSetTypeDef = TypedDict(
-    "_OptionalCreateAssessmentFrameworkControlSetTypeDef",
-    {
-        "controls": List["CreateAssessmentFrameworkControlTypeDef"],
-    },
-    total=False,
-)
-
-class CreateAssessmentFrameworkControlSetTypeDef(
-    _RequiredCreateAssessmentFrameworkControlSetTypeDef,
-    _OptionalCreateAssessmentFrameworkControlSetTypeDef,
-):
-    pass
-
 CreateAssessmentFrameworkControlTypeDef = TypedDict(
     "CreateAssessmentFrameworkControlTypeDef",
     {
@@ -709,1406 +442,813 @@ CreateAssessmentFrameworkControlTypeDef = TypedDict(
     },
 )
 
-_RequiredCreateAssessmentFrameworkRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateAssessmentFrameworkRequestRequestTypeDef",
-    {
-        "name": str,
-        "controlSets": List["CreateAssessmentFrameworkControlSetTypeDef"],
-    },
-)
-_OptionalCreateAssessmentFrameworkRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateAssessmentFrameworkRequestRequestTypeDef",
-    {
-        "description": str,
-        "complianceType": str,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
+class CreateAssessmentReportRequestTypeDef(TypedDict):
+    name: str
+    assessmentId: str
+    description: NotRequired[str]
+    queryStatement: NotRequired[str]
 
-class CreateAssessmentFrameworkRequestRequestTypeDef(
-    _RequiredCreateAssessmentFrameworkRequestRequestTypeDef,
-    _OptionalCreateAssessmentFrameworkRequestRequestTypeDef,
-):
-    pass
-
-CreateAssessmentFrameworkResponseTypeDef = TypedDict(
-    "CreateAssessmentFrameworkResponseTypeDef",
-    {
-        "framework": "FrameworkTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateAssessmentReportRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateAssessmentReportRequestRequestTypeDef",
-    {
-        "name": str,
-        "assessmentId": str,
-    },
-)
-_OptionalCreateAssessmentReportRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateAssessmentReportRequestRequestTypeDef",
-    {
-        "description": str,
-        "queryStatement": str,
-    },
-    total=False,
-)
-
-class CreateAssessmentReportRequestRequestTypeDef(
-    _RequiredCreateAssessmentReportRequestRequestTypeDef,
-    _OptionalCreateAssessmentReportRequestRequestTypeDef,
-):
-    pass
-
-CreateAssessmentReportResponseTypeDef = TypedDict(
-    "CreateAssessmentReportResponseTypeDef",
-    {
-        "assessmentReport": "AssessmentReportTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateAssessmentRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateAssessmentRequestRequestTypeDef",
-    {
-        "name": str,
-        "assessmentReportsDestination": "AssessmentReportsDestinationTypeDef",
-        "scope": "ScopeTypeDef",
-        "roles": List["RoleTypeDef"],
-        "frameworkId": str,
-    },
-)
-_OptionalCreateAssessmentRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateAssessmentRequestRequestTypeDef",
-    {
-        "description": str,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class CreateAssessmentRequestRequestTypeDef(
-    _RequiredCreateAssessmentRequestRequestTypeDef, _OptionalCreateAssessmentRequestRequestTypeDef
-):
-    pass
-
-CreateAssessmentResponseTypeDef = TypedDict(
-    "CreateAssessmentResponseTypeDef",
-    {
-        "assessment": "AssessmentTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateControlMappingSourceTypeDef = TypedDict(
-    "CreateControlMappingSourceTypeDef",
-    {
-        "sourceName": str,
-        "sourceDescription": str,
-        "sourceSetUpOption": SourceSetUpOptionType,
-        "sourceType": SourceTypeType,
-        "sourceKeyword": "SourceKeywordTypeDef",
-        "sourceFrequency": SourceFrequencyType,
-        "troubleshootingText": str,
-    },
-    total=False,
-)
-
-_RequiredCreateControlRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateControlRequestRequestTypeDef",
-    {
-        "name": str,
-        "controlMappingSources": List["CreateControlMappingSourceTypeDef"],
-    },
-)
-_OptionalCreateControlRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateControlRequestRequestTypeDef",
-    {
-        "description": str,
-        "testingInformation": str,
-        "actionPlanTitle": str,
-        "actionPlanInstructions": str,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class CreateControlRequestRequestTypeDef(
-    _RequiredCreateControlRequestRequestTypeDef, _OptionalCreateControlRequestRequestTypeDef
-):
-    pass
-
-CreateControlResponseTypeDef = TypedDict(
-    "CreateControlResponseTypeDef",
-    {
-        "control": "ControlTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateDelegationRequestTypeDef = TypedDict(
-    "CreateDelegationRequestTypeDef",
-    {
-        "comment": str,
-        "controlSetId": str,
-        "roleArn": str,
-        "roleType": RoleTypeType,
-    },
-    total=False,
-)
-
-DefaultExportDestinationTypeDef = TypedDict(
-    "DefaultExportDestinationTypeDef",
-    {
-        "destinationType": Literal["S3"],
-        "destination": str,
-    },
-    total=False,
-)
+class DefaultExportDestinationTypeDef(TypedDict):
+    destinationType: NotRequired[Literal["S3"]]
+    destination: NotRequired[str]
 
 DelegationMetadataTypeDef = TypedDict(
     "DelegationMetadataTypeDef",
     {
-        "id": str,
-        "assessmentName": str,
-        "assessmentId": str,
-        "status": DelegationStatusType,
-        "roleArn": str,
-        "creationTime": datetime,
-        "controlSetName": str,
-    },
-    total=False,
-)
-
-DelegationTypeDef = TypedDict(
-    "DelegationTypeDef",
-    {
-        "id": str,
-        "assessmentName": str,
-        "assessmentId": str,
-        "status": DelegationStatusType,
-        "roleArn": str,
-        "roleType": RoleTypeType,
-        "creationTime": datetime,
-        "lastUpdated": datetime,
-        "controlSetId": str,
-        "comment": str,
-        "createdBy": str,
-    },
-    total=False,
-)
-
-DeleteAssessmentFrameworkRequestRequestTypeDef = TypedDict(
-    "DeleteAssessmentFrameworkRequestRequestTypeDef",
-    {
-        "frameworkId": str,
-    },
-)
-
-DeleteAssessmentFrameworkShareRequestRequestTypeDef = TypedDict(
-    "DeleteAssessmentFrameworkShareRequestRequestTypeDef",
-    {
-        "requestId": str,
-        "requestType": ShareRequestTypeType,
-    },
-)
-
-DeleteAssessmentReportRequestRequestTypeDef = TypedDict(
-    "DeleteAssessmentReportRequestRequestTypeDef",
-    {
-        "assessmentId": str,
-        "assessmentReportId": str,
-    },
-)
-
-DeleteAssessmentRequestRequestTypeDef = TypedDict(
-    "DeleteAssessmentRequestRequestTypeDef",
-    {
-        "assessmentId": str,
-    },
-)
-
-DeleteControlRequestRequestTypeDef = TypedDict(
-    "DeleteControlRequestRequestTypeDef",
-    {
-        "controlId": str,
-    },
-)
-
-DeregisterAccountResponseTypeDef = TypedDict(
-    "DeregisterAccountResponseTypeDef",
-    {
-        "status": AccountStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeregisterOrganizationAdminAccountRequestRequestTypeDef = TypedDict(
-    "DeregisterOrganizationAdminAccountRequestRequestTypeDef",
-    {
-        "adminAccountId": str,
-    },
-    total=False,
-)
-
-DeregistrationPolicyTypeDef = TypedDict(
-    "DeregistrationPolicyTypeDef",
-    {
-        "deleteResources": DeleteResourcesType,
-    },
-    total=False,
-)
-
-DisassociateAssessmentReportEvidenceFolderRequestRequestTypeDef = TypedDict(
-    "DisassociateAssessmentReportEvidenceFolderRequestRequestTypeDef",
-    {
-        "assessmentId": str,
-        "evidenceFolderId": str,
-    },
-)
-
-EvidenceFinderEnablementTypeDef = TypedDict(
-    "EvidenceFinderEnablementTypeDef",
-    {
-        "eventDataStoreArn": str,
-        "enablementStatus": EvidenceFinderEnablementStatusType,
-        "backfillStatus": EvidenceFinderBackfillStatusType,
-        "error": str,
-    },
-    total=False,
-)
-
-EvidenceInsightsTypeDef = TypedDict(
-    "EvidenceInsightsTypeDef",
-    {
-        "noncompliantEvidenceCount": int,
-        "compliantEvidenceCount": int,
-        "inconclusiveEvidenceCount": int,
-    },
-    total=False,
-)
-
-EvidenceTypeDef = TypedDict(
-    "EvidenceTypeDef",
-    {
-        "dataSource": str,
-        "evidenceAwsAccountId": str,
-        "time": datetime,
-        "eventSource": str,
-        "eventName": str,
-        "evidenceByType": str,
-        "resourcesIncluded": List["ResourceTypeDef"],
-        "attributes": Dict[str, str],
-        "iamId": str,
-        "complianceCheck": str,
-        "awsOrganization": str,
-        "awsAccountId": str,
-        "evidenceFolderId": str,
-        "id": str,
-        "assessmentReportSelection": str,
-    },
-    total=False,
-)
-
-FrameworkMetadataTypeDef = TypedDict(
-    "FrameworkMetadataTypeDef",
-    {
-        "name": str,
-        "description": str,
-        "logo": str,
-        "complianceType": str,
-    },
-    total=False,
-)
-
-FrameworkTypeDef = TypedDict(
-    "FrameworkTypeDef",
-    {
-        "arn": str,
-        "id": str,
-        "name": str,
-        "type": FrameworkTypeType,
-        "complianceType": str,
-        "description": str,
-        "logo": str,
-        "controlSources": str,
-        "controlSets": List["ControlSetTypeDef"],
-        "createdAt": datetime,
-        "lastUpdatedAt": datetime,
-        "createdBy": str,
-        "lastUpdatedBy": str,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-GetAccountStatusResponseTypeDef = TypedDict(
-    "GetAccountStatusResponseTypeDef",
-    {
-        "status": AccountStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetAssessmentFrameworkRequestRequestTypeDef = TypedDict(
-    "GetAssessmentFrameworkRequestRequestTypeDef",
-    {
-        "frameworkId": str,
-    },
-)
-
-GetAssessmentFrameworkResponseTypeDef = TypedDict(
-    "GetAssessmentFrameworkResponseTypeDef",
-    {
-        "framework": "FrameworkTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetAssessmentReportUrlRequestRequestTypeDef = TypedDict(
-    "GetAssessmentReportUrlRequestRequestTypeDef",
-    {
-        "assessmentReportId": str,
-        "assessmentId": str,
-    },
-)
-
-GetAssessmentReportUrlResponseTypeDef = TypedDict(
-    "GetAssessmentReportUrlResponseTypeDef",
-    {
-        "preSignedUrl": "URLTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetAssessmentRequestRequestTypeDef = TypedDict(
-    "GetAssessmentRequestRequestTypeDef",
-    {
-        "assessmentId": str,
-    },
-)
-
-GetAssessmentResponseTypeDef = TypedDict(
-    "GetAssessmentResponseTypeDef",
-    {
-        "assessment": "AssessmentTypeDef",
-        "userRole": "RoleTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetChangeLogsRequestRequestTypeDef = TypedDict(
-    "_RequiredGetChangeLogsRequestRequestTypeDef",
-    {
-        "assessmentId": str,
-    },
-)
-_OptionalGetChangeLogsRequestRequestTypeDef = TypedDict(
-    "_OptionalGetChangeLogsRequestRequestTypeDef",
-    {
-        "controlSetId": str,
-        "controlId": str,
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-class GetChangeLogsRequestRequestTypeDef(
-    _RequiredGetChangeLogsRequestRequestTypeDef, _OptionalGetChangeLogsRequestRequestTypeDef
-):
-    pass
-
-GetChangeLogsResponseTypeDef = TypedDict(
-    "GetChangeLogsResponseTypeDef",
-    {
-        "changeLogs": List["ChangeLogTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetControlRequestRequestTypeDef = TypedDict(
-    "GetControlRequestRequestTypeDef",
-    {
-        "controlId": str,
-    },
-)
-
-GetControlResponseTypeDef = TypedDict(
-    "GetControlResponseTypeDef",
-    {
-        "control": "ControlTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetDelegationsRequestRequestTypeDef = TypedDict(
-    "GetDelegationsRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-GetDelegationsResponseTypeDef = TypedDict(
-    "GetDelegationsResponseTypeDef",
-    {
-        "delegations": List["DelegationMetadataTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetEvidenceByEvidenceFolderRequestRequestTypeDef = TypedDict(
-    "_RequiredGetEvidenceByEvidenceFolderRequestRequestTypeDef",
-    {
-        "assessmentId": str,
-        "controlSetId": str,
-        "evidenceFolderId": str,
-    },
-)
-_OptionalGetEvidenceByEvidenceFolderRequestRequestTypeDef = TypedDict(
-    "_OptionalGetEvidenceByEvidenceFolderRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-class GetEvidenceByEvidenceFolderRequestRequestTypeDef(
-    _RequiredGetEvidenceByEvidenceFolderRequestRequestTypeDef,
-    _OptionalGetEvidenceByEvidenceFolderRequestRequestTypeDef,
-):
-    pass
-
-GetEvidenceByEvidenceFolderResponseTypeDef = TypedDict(
-    "GetEvidenceByEvidenceFolderResponseTypeDef",
-    {
-        "evidence": List["EvidenceTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetEvidenceFileUploadUrlRequestRequestTypeDef = TypedDict(
-    "GetEvidenceFileUploadUrlRequestRequestTypeDef",
-    {
-        "fileName": str,
-    },
-)
-
-GetEvidenceFileUploadUrlResponseTypeDef = TypedDict(
-    "GetEvidenceFileUploadUrlResponseTypeDef",
-    {
-        "evidenceFileName": str,
-        "uploadUrl": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetEvidenceFolderRequestRequestTypeDef = TypedDict(
-    "GetEvidenceFolderRequestRequestTypeDef",
-    {
-        "assessmentId": str,
-        "controlSetId": str,
-        "evidenceFolderId": str,
-    },
-)
-
-GetEvidenceFolderResponseTypeDef = TypedDict(
-    "GetEvidenceFolderResponseTypeDef",
-    {
-        "evidenceFolder": "AssessmentEvidenceFolderTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetEvidenceFoldersByAssessmentControlRequestRequestTypeDef = TypedDict(
-    "_RequiredGetEvidenceFoldersByAssessmentControlRequestRequestTypeDef",
-    {
-        "assessmentId": str,
-        "controlSetId": str,
-        "controlId": str,
-    },
-)
-_OptionalGetEvidenceFoldersByAssessmentControlRequestRequestTypeDef = TypedDict(
-    "_OptionalGetEvidenceFoldersByAssessmentControlRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-class GetEvidenceFoldersByAssessmentControlRequestRequestTypeDef(
-    _RequiredGetEvidenceFoldersByAssessmentControlRequestRequestTypeDef,
-    _OptionalGetEvidenceFoldersByAssessmentControlRequestRequestTypeDef,
-):
-    pass
-
-GetEvidenceFoldersByAssessmentControlResponseTypeDef = TypedDict(
-    "GetEvidenceFoldersByAssessmentControlResponseTypeDef",
-    {
-        "evidenceFolders": List["AssessmentEvidenceFolderTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetEvidenceFoldersByAssessmentRequestRequestTypeDef = TypedDict(
-    "_RequiredGetEvidenceFoldersByAssessmentRequestRequestTypeDef",
-    {
-        "assessmentId": str,
-    },
-)
-_OptionalGetEvidenceFoldersByAssessmentRequestRequestTypeDef = TypedDict(
-    "_OptionalGetEvidenceFoldersByAssessmentRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-class GetEvidenceFoldersByAssessmentRequestRequestTypeDef(
-    _RequiredGetEvidenceFoldersByAssessmentRequestRequestTypeDef,
-    _OptionalGetEvidenceFoldersByAssessmentRequestRequestTypeDef,
-):
-    pass
-
-GetEvidenceFoldersByAssessmentResponseTypeDef = TypedDict(
-    "GetEvidenceFoldersByAssessmentResponseTypeDef",
-    {
-        "evidenceFolders": List["AssessmentEvidenceFolderTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetEvidenceRequestRequestTypeDef = TypedDict(
-    "GetEvidenceRequestRequestTypeDef",
-    {
-        "assessmentId": str,
-        "controlSetId": str,
-        "evidenceFolderId": str,
-        "evidenceId": str,
-    },
-)
-
-GetEvidenceResponseTypeDef = TypedDict(
-    "GetEvidenceResponseTypeDef",
-    {
-        "evidence": "EvidenceTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetInsightsByAssessmentRequestRequestTypeDef = TypedDict(
-    "GetInsightsByAssessmentRequestRequestTypeDef",
-    {
-        "assessmentId": str,
-    },
-)
-
-GetInsightsByAssessmentResponseTypeDef = TypedDict(
-    "GetInsightsByAssessmentResponseTypeDef",
-    {
-        "insights": "InsightsByAssessmentTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetInsightsResponseTypeDef = TypedDict(
-    "GetInsightsResponseTypeDef",
-    {
-        "insights": "InsightsTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetOrganizationAdminAccountResponseTypeDef = TypedDict(
-    "GetOrganizationAdminAccountResponseTypeDef",
-    {
-        "adminAccountId": str,
-        "organizationId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetServicesInScopeResponseTypeDef = TypedDict(
-    "GetServicesInScopeResponseTypeDef",
-    {
-        "serviceMetadata": List["ServiceMetadataTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetSettingsRequestRequestTypeDef = TypedDict(
-    "GetSettingsRequestRequestTypeDef",
-    {
-        "attribute": SettingAttributeType,
-    },
-)
-
-GetSettingsResponseTypeDef = TypedDict(
-    "GetSettingsResponseTypeDef",
-    {
-        "settings": "SettingsTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-InsightsByAssessmentTypeDef = TypedDict(
-    "InsightsByAssessmentTypeDef",
-    {
-        "noncompliantEvidenceCount": int,
-        "compliantEvidenceCount": int,
-        "inconclusiveEvidenceCount": int,
-        "assessmentControlsCountByNoncompliantEvidence": int,
-        "totalAssessmentControlsCount": int,
-        "lastUpdated": datetime,
-    },
-    total=False,
-)
-
-InsightsTypeDef = TypedDict(
-    "InsightsTypeDef",
-    {
-        "activeAssessmentsCount": int,
-        "noncompliantEvidenceCount": int,
-        "compliantEvidenceCount": int,
-        "inconclusiveEvidenceCount": int,
-        "assessmentControlsCountByNoncompliantEvidence": int,
-        "totalAssessmentControlsCount": int,
-        "lastUpdated": datetime,
-    },
-    total=False,
-)
-
-_RequiredListAssessmentControlInsightsByControlDomainRequestRequestTypeDef = TypedDict(
-    "_RequiredListAssessmentControlInsightsByControlDomainRequestRequestTypeDef",
-    {
-        "controlDomainId": str,
-        "assessmentId": str,
-    },
-)
-_OptionalListAssessmentControlInsightsByControlDomainRequestRequestTypeDef = TypedDict(
-    "_OptionalListAssessmentControlInsightsByControlDomainRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-class ListAssessmentControlInsightsByControlDomainRequestRequestTypeDef(
-    _RequiredListAssessmentControlInsightsByControlDomainRequestRequestTypeDef,
-    _OptionalListAssessmentControlInsightsByControlDomainRequestRequestTypeDef,
-):
-    pass
-
-ListAssessmentControlInsightsByControlDomainResponseTypeDef = TypedDict(
-    "ListAssessmentControlInsightsByControlDomainResponseTypeDef",
-    {
-        "controlInsightsByAssessment": List["ControlInsightsMetadataByAssessmentItemTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListAssessmentFrameworkShareRequestsRequestRequestTypeDef = TypedDict(
-    "_RequiredListAssessmentFrameworkShareRequestsRequestRequestTypeDef",
-    {
-        "requestType": ShareRequestTypeType,
-    },
-)
-_OptionalListAssessmentFrameworkShareRequestsRequestRequestTypeDef = TypedDict(
-    "_OptionalListAssessmentFrameworkShareRequestsRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-class ListAssessmentFrameworkShareRequestsRequestRequestTypeDef(
-    _RequiredListAssessmentFrameworkShareRequestsRequestRequestTypeDef,
-    _OptionalListAssessmentFrameworkShareRequestsRequestRequestTypeDef,
-):
-    pass
-
-ListAssessmentFrameworkShareRequestsResponseTypeDef = TypedDict(
-    "ListAssessmentFrameworkShareRequestsResponseTypeDef",
-    {
-        "assessmentFrameworkShareRequests": List["AssessmentFrameworkShareRequestTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListAssessmentFrameworksRequestRequestTypeDef = TypedDict(
-    "_RequiredListAssessmentFrameworksRequestRequestTypeDef",
-    {
-        "frameworkType": FrameworkTypeType,
-    },
-)
-_OptionalListAssessmentFrameworksRequestRequestTypeDef = TypedDict(
-    "_OptionalListAssessmentFrameworksRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-class ListAssessmentFrameworksRequestRequestTypeDef(
-    _RequiredListAssessmentFrameworksRequestRequestTypeDef,
-    _OptionalListAssessmentFrameworksRequestRequestTypeDef,
-):
-    pass
-
-ListAssessmentFrameworksResponseTypeDef = TypedDict(
-    "ListAssessmentFrameworksResponseTypeDef",
-    {
-        "frameworkMetadataList": List["AssessmentFrameworkMetadataTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListAssessmentReportsRequestRequestTypeDef = TypedDict(
-    "ListAssessmentReportsRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-ListAssessmentReportsResponseTypeDef = TypedDict(
-    "ListAssessmentReportsResponseTypeDef",
-    {
-        "assessmentReports": List["AssessmentReportMetadataTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListAssessmentsRequestRequestTypeDef = TypedDict(
-    "ListAssessmentsRequestRequestTypeDef",
-    {
-        "status": AssessmentStatusType,
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-ListAssessmentsResponseTypeDef = TypedDict(
-    "ListAssessmentsResponseTypeDef",
-    {
-        "assessmentMetadata": List["AssessmentMetadataItemTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListControlDomainInsightsByAssessmentRequestRequestTypeDef = TypedDict(
-    "_RequiredListControlDomainInsightsByAssessmentRequestRequestTypeDef",
-    {
-        "assessmentId": str,
-    },
-)
-_OptionalListControlDomainInsightsByAssessmentRequestRequestTypeDef = TypedDict(
-    "_OptionalListControlDomainInsightsByAssessmentRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-class ListControlDomainInsightsByAssessmentRequestRequestTypeDef(
-    _RequiredListControlDomainInsightsByAssessmentRequestRequestTypeDef,
-    _OptionalListControlDomainInsightsByAssessmentRequestRequestTypeDef,
-):
-    pass
-
-ListControlDomainInsightsByAssessmentResponseTypeDef = TypedDict(
-    "ListControlDomainInsightsByAssessmentResponseTypeDef",
-    {
-        "controlDomainInsights": List["ControlDomainInsightsTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListControlDomainInsightsRequestRequestTypeDef = TypedDict(
-    "ListControlDomainInsightsRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-ListControlDomainInsightsResponseTypeDef = TypedDict(
-    "ListControlDomainInsightsResponseTypeDef",
-    {
-        "controlDomainInsights": List["ControlDomainInsightsTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListControlInsightsByControlDomainRequestRequestTypeDef = TypedDict(
-    "_RequiredListControlInsightsByControlDomainRequestRequestTypeDef",
-    {
-        "controlDomainId": str,
-    },
-)
-_OptionalListControlInsightsByControlDomainRequestRequestTypeDef = TypedDict(
-    "_OptionalListControlInsightsByControlDomainRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-class ListControlInsightsByControlDomainRequestRequestTypeDef(
-    _RequiredListControlInsightsByControlDomainRequestRequestTypeDef,
-    _OptionalListControlInsightsByControlDomainRequestRequestTypeDef,
-):
-    pass
-
-ListControlInsightsByControlDomainResponseTypeDef = TypedDict(
-    "ListControlInsightsByControlDomainResponseTypeDef",
-    {
-        "controlInsightsMetadata": List["ControlInsightsMetadataItemTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListControlsRequestRequestTypeDef = TypedDict(
-    "_RequiredListControlsRequestRequestTypeDef",
-    {
-        "controlType": ControlTypeType,
-    },
-)
-_OptionalListControlsRequestRequestTypeDef = TypedDict(
-    "_OptionalListControlsRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-        "controlCatalogId": str,
-    },
-    total=False,
-)
-
-class ListControlsRequestRequestTypeDef(
-    _RequiredListControlsRequestRequestTypeDef, _OptionalListControlsRequestRequestTypeDef
-):
-    pass
-
-ListControlsResponseTypeDef = TypedDict(
-    "ListControlsResponseTypeDef",
-    {
-        "controlMetadataList": List["ControlMetadataTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListKeywordsForDataSourceRequestRequestTypeDef = TypedDict(
-    "_RequiredListKeywordsForDataSourceRequestRequestTypeDef",
-    {
-        "source": DataSourceTypeType,
-    },
-)
-_OptionalListKeywordsForDataSourceRequestRequestTypeDef = TypedDict(
-    "_OptionalListKeywordsForDataSourceRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-class ListKeywordsForDataSourceRequestRequestTypeDef(
-    _RequiredListKeywordsForDataSourceRequestRequestTypeDef,
-    _OptionalListKeywordsForDataSourceRequestRequestTypeDef,
-):
-    pass
-
-ListKeywordsForDataSourceResponseTypeDef = TypedDict(
-    "ListKeywordsForDataSourceResponseTypeDef",
-    {
-        "keywords": List[str],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListNotificationsRequestRequestTypeDef = TypedDict(
-    "ListNotificationsRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-ListNotificationsResponseTypeDef = TypedDict(
-    "ListNotificationsResponseTypeDef",
-    {
-        "notifications": List["NotificationTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-    },
-)
-
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ManualEvidenceTypeDef = TypedDict(
-    "ManualEvidenceTypeDef",
-    {
-        "s3ResourcePath": str,
-        "textResponse": str,
-        "evidenceFileName": str,
-    },
-    total=False,
-)
+        "id": NotRequired[str],
+        "assessmentName": NotRequired[str],
+        "assessmentId": NotRequired[str],
+        "status": NotRequired[DelegationStatusType],
+        "roleArn": NotRequired[str],
+        "creationTime": NotRequired[datetime],
+        "controlSetName": NotRequired[str],
+    },
+)
+
+class DeleteAssessmentFrameworkRequestTypeDef(TypedDict):
+    frameworkId: str
+
+class DeleteAssessmentFrameworkShareRequestTypeDef(TypedDict):
+    requestId: str
+    requestType: ShareRequestTypeType
+
+class DeleteAssessmentReportRequestTypeDef(TypedDict):
+    assessmentId: str
+    assessmentReportId: str
+
+class DeleteAssessmentRequestTypeDef(TypedDict):
+    assessmentId: str
+
+class DeleteControlRequestTypeDef(TypedDict):
+    controlId: str
+
+class DeregisterOrganizationAdminAccountRequestTypeDef(TypedDict):
+    adminAccountId: NotRequired[str]
+
+class DeregistrationPolicyTypeDef(TypedDict):
+    deleteResources: NotRequired[DeleteResourcesType]
+
+class DisassociateAssessmentReportEvidenceFolderRequestTypeDef(TypedDict):
+    assessmentId: str
+    evidenceFolderId: str
+
+class EvidenceFinderEnablementTypeDef(TypedDict):
+    eventDataStoreArn: NotRequired[str]
+    enablementStatus: NotRequired[EvidenceFinderEnablementStatusType]
+    backfillStatus: NotRequired[EvidenceFinderBackfillStatusType]
+    error: NotRequired[str]
+
+class ResourceTypeDef(TypedDict):
+    arn: NotRequired[str]
+    value: NotRequired[str]
+    complianceCheck: NotRequired[str]
+
+class GetAssessmentFrameworkRequestTypeDef(TypedDict):
+    frameworkId: str
+
+class GetAssessmentReportUrlRequestTypeDef(TypedDict):
+    assessmentReportId: str
+    assessmentId: str
+
+class URLTypeDef(TypedDict):
+    hyperlinkName: NotRequired[str]
+    link: NotRequired[str]
+
+class GetAssessmentRequestTypeDef(TypedDict):
+    assessmentId: str
+
+class GetChangeLogsRequestTypeDef(TypedDict):
+    assessmentId: str
+    controlSetId: NotRequired[str]
+    controlId: NotRequired[str]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class GetControlRequestTypeDef(TypedDict):
+    controlId: str
+
+class GetDelegationsRequestTypeDef(TypedDict):
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class GetEvidenceByEvidenceFolderRequestTypeDef(TypedDict):
+    assessmentId: str
+    controlSetId: str
+    evidenceFolderId: str
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class GetEvidenceFileUploadUrlRequestTypeDef(TypedDict):
+    fileName: str
+
+class GetEvidenceFolderRequestTypeDef(TypedDict):
+    assessmentId: str
+    controlSetId: str
+    evidenceFolderId: str
+
+class GetEvidenceFoldersByAssessmentControlRequestTypeDef(TypedDict):
+    assessmentId: str
+    controlSetId: str
+    controlId: str
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class GetEvidenceFoldersByAssessmentRequestTypeDef(TypedDict):
+    assessmentId: str
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class GetEvidenceRequestTypeDef(TypedDict):
+    assessmentId: str
+    controlSetId: str
+    evidenceFolderId: str
+    evidenceId: str
+
+class GetInsightsByAssessmentRequestTypeDef(TypedDict):
+    assessmentId: str
+
+class InsightsByAssessmentTypeDef(TypedDict):
+    noncompliantEvidenceCount: NotRequired[int]
+    compliantEvidenceCount: NotRequired[int]
+    inconclusiveEvidenceCount: NotRequired[int]
+    assessmentControlsCountByNoncompliantEvidence: NotRequired[int]
+    totalAssessmentControlsCount: NotRequired[int]
+    lastUpdated: NotRequired[datetime]
+
+class InsightsTypeDef(TypedDict):
+    activeAssessmentsCount: NotRequired[int]
+    noncompliantEvidenceCount: NotRequired[int]
+    compliantEvidenceCount: NotRequired[int]
+    inconclusiveEvidenceCount: NotRequired[int]
+    assessmentControlsCountByNoncompliantEvidence: NotRequired[int]
+    totalAssessmentControlsCount: NotRequired[int]
+    lastUpdated: NotRequired[datetime]
+
+class ServiceMetadataTypeDef(TypedDict):
+    name: NotRequired[str]
+    displayName: NotRequired[str]
+    description: NotRequired[str]
+    category: NotRequired[str]
+
+class GetSettingsRequestTypeDef(TypedDict):
+    attribute: SettingAttributeType
+
+class ListAssessmentControlInsightsByControlDomainRequestTypeDef(TypedDict):
+    controlDomainId: str
+    assessmentId: str
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class ListAssessmentFrameworkShareRequestsRequestTypeDef(TypedDict):
+    requestType: ShareRequestTypeType
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class ListAssessmentFrameworksRequestTypeDef(TypedDict):
+    frameworkType: FrameworkTypeType
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class ListAssessmentReportsRequestTypeDef(TypedDict):
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class ListAssessmentsRequestTypeDef(TypedDict):
+    status: NotRequired[AssessmentStatusType]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class ListControlDomainInsightsByAssessmentRequestTypeDef(TypedDict):
+    assessmentId: str
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class ListControlDomainInsightsRequestTypeDef(TypedDict):
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class ListControlInsightsByControlDomainRequestTypeDef(TypedDict):
+    controlDomainId: str
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class ListControlsRequestTypeDef(TypedDict):
+    controlType: ControlTypeType
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+    controlCatalogId: NotRequired[str]
+
+class ListKeywordsForDataSourceRequestTypeDef(TypedDict):
+    source: DataSourceTypeType
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class ListNotificationsRequestTypeDef(TypedDict):
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
 
 NotificationTypeDef = TypedDict(
     "NotificationTypeDef",
     {
-        "id": str,
-        "assessmentId": str,
-        "assessmentName": str,
-        "controlSetId": str,
-        "controlSetName": str,
-        "description": str,
-        "eventTime": datetime,
-        "source": str,
+        "id": NotRequired[str],
+        "assessmentId": NotRequired[str],
+        "assessmentName": NotRequired[str],
+        "controlSetId": NotRequired[str],
+        "controlSetName": NotRequired[str],
+        "description": NotRequired[str],
+        "eventTime": NotRequired[datetime],
+        "source": NotRequired[str],
     },
-    total=False,
 )
 
-RegisterAccountRequestRequestTypeDef = TypedDict(
-    "RegisterAccountRequestRequestTypeDef",
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+
+class RegisterAccountRequestTypeDef(TypedDict):
+    kmsKey: NotRequired[str]
+    delegatedAdminAccount: NotRequired[str]
+
+class RegisterOrganizationAdminAccountRequestTypeDef(TypedDict):
+    adminAccountId: str
+
+class StartAssessmentFrameworkShareRequestTypeDef(TypedDict):
+    frameworkId: str
+    destinationAccount: str
+    destinationRegion: str
+    comment: NotRequired[str]
+
+class TagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tags: Mapping[str, str]
+
+class UntagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tagKeys: Sequence[str]
+
+class UpdateAssessmentControlRequestTypeDef(TypedDict):
+    assessmentId: str
+    controlSetId: str
+    controlId: str
+    controlStatus: NotRequired[ControlStatusType]
+    commentBody: NotRequired[str]
+
+class UpdateAssessmentControlSetStatusRequestTypeDef(TypedDict):
+    assessmentId: str
+    controlSetId: str
+    status: ControlSetStatusType
+    comment: str
+
+class UpdateAssessmentFrameworkShareRequestTypeDef(TypedDict):
+    requestId: str
+    requestType: ShareRequestTypeType
+    action: ShareRequestActionType
+
+class UpdateAssessmentStatusRequestTypeDef(TypedDict):
+    assessmentId: str
+    status: AssessmentStatusType
+
+class ValidateAssessmentReportIntegrityRequestTypeDef(TypedDict):
+    s3RelativePath: str
+
+class ScopeOutputTypeDef(TypedDict):
+    awsAccounts: NotRequired[List[AWSAccountTypeDef]]
+    awsServices: NotRequired[List[AWSServiceTypeDef]]
+
+class ScopeTypeDef(TypedDict):
+    awsAccounts: NotRequired[Sequence[AWSAccountTypeDef]]
+    awsServices: NotRequired[Sequence[AWSServiceTypeDef]]
+
+AssessmentMetadataItemTypeDef = TypedDict(
+    "AssessmentMetadataItemTypeDef",
     {
-        "kmsKey": str,
-        "delegatedAdminAccount": str,
+        "name": NotRequired[str],
+        "id": NotRequired[str],
+        "complianceType": NotRequired[str],
+        "status": NotRequired[AssessmentStatusType],
+        "roles": NotRequired[List[RoleTypeDef]],
+        "delegations": NotRequired[List[DelegationTypeDef]],
+        "creationTime": NotRequired[datetime],
+        "lastUpdated": NotRequired[datetime],
     },
-    total=False,
 )
-
-RegisterAccountResponseTypeDef = TypedDict(
-    "RegisterAccountResponseTypeDef",
+AssessmentControlTypeDef = TypedDict(
+    "AssessmentControlTypeDef",
     {
-        "status": AccountStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "id": NotRequired[str],
+        "name": NotRequired[str],
+        "description": NotRequired[str],
+        "status": NotRequired[ControlStatusType],
+        "response": NotRequired[ControlResponseType],
+        "comments": NotRequired[List[ControlCommentTypeDef]],
+        "evidenceSources": NotRequired[List[str]],
+        "evidenceCount": NotRequired[int],
+        "assessmentReportEvidenceCount": NotRequired[int],
     },
 )
 
-RegisterOrganizationAdminAccountRequestRequestTypeDef = TypedDict(
-    "RegisterOrganizationAdminAccountRequestRequestTypeDef",
+class BatchAssociateAssessmentReportEvidenceResponseTypeDef(TypedDict):
+    evidenceIds: List[str]
+    errors: List[AssessmentReportEvidenceErrorTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class BatchDisassociateAssessmentReportEvidenceResponseTypeDef(TypedDict):
+    evidenceIds: List[str]
+    errors: List[AssessmentReportEvidenceErrorTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateAssessmentReportResponseTypeDef(TypedDict):
+    assessmentReport: AssessmentReportTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeregisterAccountResponseTypeDef(TypedDict):
+    status: AccountStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetAccountStatusResponseTypeDef(TypedDict):
+    status: AccountStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetEvidenceFileUploadUrlResponseTypeDef(TypedDict):
+    evidenceFileName: str
+    uploadUrl: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetEvidenceFolderResponseTypeDef(TypedDict):
+    evidenceFolder: AssessmentEvidenceFolderTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetEvidenceFoldersByAssessmentControlResponseTypeDef(TypedDict):
+    evidenceFolders: List[AssessmentEvidenceFolderTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class GetEvidenceFoldersByAssessmentResponseTypeDef(TypedDict):
+    evidenceFolders: List[AssessmentEvidenceFolderTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class GetOrganizationAdminAccountResponseTypeDef(TypedDict):
+    adminAccountId: str
+    organizationId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListAssessmentFrameworkShareRequestsResponseTypeDef(TypedDict):
+    assessmentFrameworkShareRequests: List[AssessmentFrameworkShareRequestTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListAssessmentFrameworksResponseTypeDef(TypedDict):
+    frameworkMetadataList: List[AssessmentFrameworkMetadataTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListAssessmentReportsResponseTypeDef(TypedDict):
+    assessmentReports: List[AssessmentReportMetadataTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListKeywordsForDataSourceResponseTypeDef(TypedDict):
+    keywords: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class RegisterAccountResponseTypeDef(TypedDict):
+    status: AccountStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class RegisterOrganizationAdminAccountResponseTypeDef(TypedDict):
+    adminAccountId: str
+    organizationId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartAssessmentFrameworkShareResponseTypeDef(TypedDict):
+    assessmentFrameworkShareRequest: AssessmentFrameworkShareRequestTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateAssessmentFrameworkShareResponseTypeDef(TypedDict):
+    assessmentFrameworkShareRequest: AssessmentFrameworkShareRequestTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ValidateAssessmentReportIntegrityResponseTypeDef(TypedDict):
+    signatureValid: bool
+    signatureAlgorithm: str
+    signatureDateTime: str
+    signatureKeyId: str
+    validationErrors: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class BatchCreateDelegationByAssessmentErrorTypeDef(TypedDict):
+    createDelegationRequest: NotRequired[CreateDelegationRequestTypeDef]
+    errorCode: NotRequired[str]
+    errorMessage: NotRequired[str]
+
+class BatchCreateDelegationByAssessmentRequestTypeDef(TypedDict):
+    createDelegationRequests: Sequence[CreateDelegationRequestTypeDef]
+    assessmentId: str
+
+class BatchDeleteDelegationByAssessmentResponseTypeDef(TypedDict):
+    errors: List[BatchDeleteDelegationByAssessmentErrorTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class BatchImportEvidenceToAssessmentControlErrorTypeDef(TypedDict):
+    manualEvidence: NotRequired[ManualEvidenceTypeDef]
+    errorCode: NotRequired[str]
+    errorMessage: NotRequired[str]
+
+class BatchImportEvidenceToAssessmentControlRequestTypeDef(TypedDict):
+    assessmentId: str
+    controlSetId: str
+    controlId: str
+    manualEvidence: Sequence[ManualEvidenceTypeDef]
+
+class GetChangeLogsResponseTypeDef(TypedDict):
+    changeLogs: List[ChangeLogTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+ControlDomainInsightsTypeDef = TypedDict(
+    "ControlDomainInsightsTypeDef",
     {
-        "adminAccountId": str,
+        "name": NotRequired[str],
+        "id": NotRequired[str],
+        "controlsCountByNoncompliantEvidence": NotRequired[int],
+        "totalControlsCount": NotRequired[int],
+        "evidenceInsights": NotRequired[EvidenceInsightsTypeDef],
+        "lastUpdated": NotRequired[datetime],
     },
 )
-
-RegisterOrganizationAdminAccountResponseTypeDef = TypedDict(
-    "RegisterOrganizationAdminAccountResponseTypeDef",
+ControlInsightsMetadataByAssessmentItemTypeDef = TypedDict(
+    "ControlInsightsMetadataByAssessmentItemTypeDef",
     {
-        "adminAccountId": str,
-        "organizationId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "name": NotRequired[str],
+        "id": NotRequired[str],
+        "evidenceInsights": NotRequired[EvidenceInsightsTypeDef],
+        "controlSetName": NotRequired[str],
+        "lastUpdated": NotRequired[datetime],
     },
 )
-
-ResourceTypeDef = TypedDict(
-    "ResourceTypeDef",
+ControlInsightsMetadataItemTypeDef = TypedDict(
+    "ControlInsightsMetadataItemTypeDef",
     {
-        "arn": str,
-        "value": str,
-        "complianceCheck": str,
-    },
-    total=False,
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
+        "name": NotRequired[str],
+        "id": NotRequired[str],
+        "evidenceInsights": NotRequired[EvidenceInsightsTypeDef],
+        "lastUpdated": NotRequired[datetime],
     },
 )
 
-RoleTypeDef = TypedDict(
-    "RoleTypeDef",
-    {
-        "roleType": RoleTypeType,
-        "roleArn": str,
-    },
-)
+class ControlMappingSourceTypeDef(TypedDict):
+    sourceId: NotRequired[str]
+    sourceName: NotRequired[str]
+    sourceDescription: NotRequired[str]
+    sourceSetUpOption: NotRequired[SourceSetUpOptionType]
+    sourceType: NotRequired[SourceTypeType]
+    sourceKeyword: NotRequired[SourceKeywordTypeDef]
+    sourceFrequency: NotRequired[SourceFrequencyType]
+    troubleshootingText: NotRequired[str]
 
-ScopeTypeDef = TypedDict(
-    "ScopeTypeDef",
-    {
-        "awsAccounts": List["AWSAccountTypeDef"],
-        "awsServices": List["AWSServiceTypeDef"],
-    },
-    total=False,
-)
+class CreateControlMappingSourceTypeDef(TypedDict):
+    sourceName: NotRequired[str]
+    sourceDescription: NotRequired[str]
+    sourceSetUpOption: NotRequired[SourceSetUpOptionType]
+    sourceType: NotRequired[SourceTypeType]
+    sourceKeyword: NotRequired[SourceKeywordTypeDef]
+    sourceFrequency: NotRequired[SourceFrequencyType]
+    troubleshootingText: NotRequired[str]
 
-ServiceMetadataTypeDef = TypedDict(
-    "ServiceMetadataTypeDef",
+class ListControlsResponseTypeDef(TypedDict):
+    controlMetadataList: List[ControlMetadataTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class CreateAssessmentFrameworkControlSetTypeDef(TypedDict):
+    name: str
+    controls: NotRequired[Sequence[CreateAssessmentFrameworkControlTypeDef]]
+
+UpdateAssessmentFrameworkControlSetTypeDef = TypedDict(
+    "UpdateAssessmentFrameworkControlSetTypeDef",
     {
         "name": str,
-        "displayName": str,
-        "description": str,
-        "category": str,
-    },
-    total=False,
-)
-
-SettingsTypeDef = TypedDict(
-    "SettingsTypeDef",
-    {
-        "isAwsOrgEnabled": bool,
-        "snsTopic": str,
-        "defaultAssessmentReportsDestination": "AssessmentReportsDestinationTypeDef",
-        "defaultProcessOwners": List["RoleTypeDef"],
-        "kmsKey": str,
-        "evidenceFinderEnablement": "EvidenceFinderEnablementTypeDef",
-        "deregistrationPolicy": "DeregistrationPolicyTypeDef",
-        "defaultExportDestination": "DefaultExportDestinationTypeDef",
-    },
-    total=False,
-)
-
-SourceKeywordTypeDef = TypedDict(
-    "SourceKeywordTypeDef",
-    {
-        "keywordInputType": KeywordInputTypeType,
-        "keywordValue": str,
-    },
-    total=False,
-)
-
-_RequiredStartAssessmentFrameworkShareRequestRequestTypeDef = TypedDict(
-    "_RequiredStartAssessmentFrameworkShareRequestRequestTypeDef",
-    {
-        "frameworkId": str,
-        "destinationAccount": str,
-        "destinationRegion": str,
-    },
-)
-_OptionalStartAssessmentFrameworkShareRequestRequestTypeDef = TypedDict(
-    "_OptionalStartAssessmentFrameworkShareRequestRequestTypeDef",
-    {
-        "comment": str,
-    },
-    total=False,
-)
-
-class StartAssessmentFrameworkShareRequestRequestTypeDef(
-    _RequiredStartAssessmentFrameworkShareRequestRequestTypeDef,
-    _OptionalStartAssessmentFrameworkShareRequestRequestTypeDef,
-):
-    pass
-
-StartAssessmentFrameworkShareResponseTypeDef = TypedDict(
-    "StartAssessmentFrameworkShareResponseTypeDef",
-    {
-        "assessmentFrameworkShareRequest": "AssessmentFrameworkShareRequestTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "controls": Sequence[CreateAssessmentFrameworkControlTypeDef],
+        "id": NotRequired[str],
     },
 )
 
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
+class GetDelegationsResponseTypeDef(TypedDict):
+    delegations: List[DelegationMetadataTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class UpdateSettingsRequestTypeDef(TypedDict):
+    snsTopic: NotRequired[str]
+    defaultAssessmentReportsDestination: NotRequired[AssessmentReportsDestinationTypeDef]
+    defaultProcessOwners: NotRequired[Sequence[RoleTypeDef]]
+    kmsKey: NotRequired[str]
+    evidenceFinderEnabled: NotRequired[bool]
+    deregistrationPolicy: NotRequired[DeregistrationPolicyTypeDef]
+    defaultExportDestination: NotRequired[DefaultExportDestinationTypeDef]
+
+class SettingsTypeDef(TypedDict):
+    isAwsOrgEnabled: NotRequired[bool]
+    snsTopic: NotRequired[str]
+    defaultAssessmentReportsDestination: NotRequired[AssessmentReportsDestinationTypeDef]
+    defaultProcessOwners: NotRequired[List[RoleTypeDef]]
+    kmsKey: NotRequired[str]
+    evidenceFinderEnablement: NotRequired[EvidenceFinderEnablementTypeDef]
+    deregistrationPolicy: NotRequired[DeregistrationPolicyTypeDef]
+    defaultExportDestination: NotRequired[DefaultExportDestinationTypeDef]
+
+EvidenceTypeDef = TypedDict(
+    "EvidenceTypeDef",
     {
-        "resourceArn": str,
-        "tags": Dict[str, str],
+        "dataSource": NotRequired[str],
+        "evidenceAwsAccountId": NotRequired[str],
+        "time": NotRequired[datetime],
+        "eventSource": NotRequired[str],
+        "eventName": NotRequired[str],
+        "evidenceByType": NotRequired[str],
+        "resourcesIncluded": NotRequired[List[ResourceTypeDef]],
+        "attributes": NotRequired[Dict[str, str]],
+        "iamId": NotRequired[str],
+        "complianceCheck": NotRequired[str],
+        "awsOrganization": NotRequired[str],
+        "awsAccountId": NotRequired[str],
+        "evidenceFolderId": NotRequired[str],
+        "id": NotRequired[str],
+        "assessmentReportSelection": NotRequired[str],
     },
 )
 
-URLTypeDef = TypedDict(
-    "URLTypeDef",
-    {
-        "hyperlinkName": str,
-        "link": str,
-    },
-    total=False,
-)
+class GetAssessmentReportUrlResponseTypeDef(TypedDict):
+    preSignedUrl: URLTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tagKeys": List[str],
-    },
-)
+class GetInsightsByAssessmentResponseTypeDef(TypedDict):
+    insights: InsightsByAssessmentTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredUpdateAssessmentControlRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateAssessmentControlRequestRequestTypeDef",
-    {
-        "assessmentId": str,
-        "controlSetId": str,
-        "controlId": str,
-    },
-)
-_OptionalUpdateAssessmentControlRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateAssessmentControlRequestRequestTypeDef",
-    {
-        "controlStatus": ControlStatusType,
-        "commentBody": str,
-    },
-    total=False,
-)
+class GetInsightsResponseTypeDef(TypedDict):
+    insights: InsightsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateAssessmentControlRequestRequestTypeDef(
-    _RequiredUpdateAssessmentControlRequestRequestTypeDef,
-    _OptionalUpdateAssessmentControlRequestRequestTypeDef,
-):
-    pass
+class GetServicesInScopeResponseTypeDef(TypedDict):
+    serviceMetadata: List[ServiceMetadataTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-UpdateAssessmentControlResponseTypeDef = TypedDict(
-    "UpdateAssessmentControlResponseTypeDef",
+class ListNotificationsResponseTypeDef(TypedDict):
+    notifications: List[NotificationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+AssessmentMetadataTypeDef = TypedDict(
+    "AssessmentMetadataTypeDef",
     {
-        "control": "AssessmentControlTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "name": NotRequired[str],
+        "id": NotRequired[str],
+        "description": NotRequired[str],
+        "complianceType": NotRequired[str],
+        "status": NotRequired[AssessmentStatusType],
+        "assessmentReportsDestination": NotRequired[AssessmentReportsDestinationTypeDef],
+        "scope": NotRequired[ScopeOutputTypeDef],
+        "roles": NotRequired[List[RoleTypeDef]],
+        "delegations": NotRequired[List[DelegationTypeDef]],
+        "creationTime": NotRequired[datetime],
+        "lastUpdated": NotRequired[datetime],
     },
 )
+ScopeUnionTypeDef = Union[ScopeTypeDef, ScopeOutputTypeDef]
 
-UpdateAssessmentControlSetStatusRequestRequestTypeDef = TypedDict(
-    "UpdateAssessmentControlSetStatusRequestRequestTypeDef",
-    {
-        "assessmentId": str,
-        "controlSetId": str,
-        "status": ControlSetStatusType,
-        "comment": str,
-    },
-)
+class ListAssessmentsResponseTypeDef(TypedDict):
+    assessmentMetadata: List[AssessmentMetadataItemTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-UpdateAssessmentControlSetStatusResponseTypeDef = TypedDict(
-    "UpdateAssessmentControlSetStatusResponseTypeDef",
+AssessmentControlSetTypeDef = TypedDict(
+    "AssessmentControlSetTypeDef",
     {
-        "controlSet": "AssessmentControlSetTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "id": NotRequired[str],
+        "description": NotRequired[str],
+        "status": NotRequired[ControlSetStatusType],
+        "roles": NotRequired[List[RoleTypeDef]],
+        "controls": NotRequired[List[AssessmentControlTypeDef]],
+        "delegations": NotRequired[List[DelegationTypeDef]],
+        "systemEvidenceCount": NotRequired[int],
+        "manualEvidenceCount": NotRequired[int],
     },
 )
 
-_RequiredUpdateAssessmentFrameworkControlSetTypeDef = TypedDict(
-    "_RequiredUpdateAssessmentFrameworkControlSetTypeDef",
-    {
-        "name": str,
-        "controls": List["CreateAssessmentFrameworkControlTypeDef"],
-    },
-)
-_OptionalUpdateAssessmentFrameworkControlSetTypeDef = TypedDict(
-    "_OptionalUpdateAssessmentFrameworkControlSetTypeDef",
-    {
-        "id": str,
-    },
-    total=False,
-)
+class UpdateAssessmentControlResponseTypeDef(TypedDict):
+    control: AssessmentControlTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateAssessmentFrameworkControlSetTypeDef(
-    _RequiredUpdateAssessmentFrameworkControlSetTypeDef,
-    _OptionalUpdateAssessmentFrameworkControlSetTypeDef,
-):
-    pass
+class BatchCreateDelegationByAssessmentResponseTypeDef(TypedDict):
+    delegations: List[DelegationTypeDef]
+    errors: List[BatchCreateDelegationByAssessmentErrorTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredUpdateAssessmentFrameworkRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateAssessmentFrameworkRequestRequestTypeDef",
-    {
-        "frameworkId": str,
-        "name": str,
-        "controlSets": List["UpdateAssessmentFrameworkControlSetTypeDef"],
-    },
-)
-_OptionalUpdateAssessmentFrameworkRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateAssessmentFrameworkRequestRequestTypeDef",
-    {
-        "description": str,
-        "complianceType": str,
-    },
-    total=False,
-)
+class BatchImportEvidenceToAssessmentControlResponseTypeDef(TypedDict):
+    errors: List[BatchImportEvidenceToAssessmentControlErrorTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateAssessmentFrameworkRequestRequestTypeDef(
-    _RequiredUpdateAssessmentFrameworkRequestRequestTypeDef,
-    _OptionalUpdateAssessmentFrameworkRequestRequestTypeDef,
-):
-    pass
+class ListControlDomainInsightsByAssessmentResponseTypeDef(TypedDict):
+    controlDomainInsights: List[ControlDomainInsightsTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-UpdateAssessmentFrameworkResponseTypeDef = TypedDict(
-    "UpdateAssessmentFrameworkResponseTypeDef",
-    {
-        "framework": "FrameworkTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListControlDomainInsightsResponseTypeDef(TypedDict):
+    controlDomainInsights: List[ControlDomainInsightsTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-UpdateAssessmentFrameworkShareRequestRequestTypeDef = TypedDict(
-    "UpdateAssessmentFrameworkShareRequestRequestTypeDef",
+class ListAssessmentControlInsightsByControlDomainResponseTypeDef(TypedDict):
+    controlInsightsByAssessment: List[ControlInsightsMetadataByAssessmentItemTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListControlInsightsByControlDomainResponseTypeDef(TypedDict):
+    controlInsightsMetadata: List[ControlInsightsMetadataItemTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+ControlTypeDef = TypedDict(
+    "ControlTypeDef",
     {
-        "requestId": str,
-        "requestType": ShareRequestTypeType,
-        "action": ShareRequestActionType,
+        "arn": NotRequired[str],
+        "id": NotRequired[str],
+        "type": NotRequired[ControlTypeType],
+        "name": NotRequired[str],
+        "description": NotRequired[str],
+        "testingInformation": NotRequired[str],
+        "actionPlanTitle": NotRequired[str],
+        "actionPlanInstructions": NotRequired[str],
+        "controlSources": NotRequired[str],
+        "controlMappingSources": NotRequired[List[ControlMappingSourceTypeDef]],
+        "createdAt": NotRequired[datetime],
+        "lastUpdatedAt": NotRequired[datetime],
+        "createdBy": NotRequired[str],
+        "lastUpdatedBy": NotRequired[str],
+        "tags": NotRequired[Dict[str, str]],
+        "state": NotRequired[ControlStateType],
     },
 )
 
-UpdateAssessmentFrameworkShareResponseTypeDef = TypedDict(
-    "UpdateAssessmentFrameworkShareResponseTypeDef",
+class UpdateControlRequestTypeDef(TypedDict):
+    controlId: str
+    name: str
+    controlMappingSources: Sequence[ControlMappingSourceTypeDef]
+    description: NotRequired[str]
+    testingInformation: NotRequired[str]
+    actionPlanTitle: NotRequired[str]
+    actionPlanInstructions: NotRequired[str]
+
+class CreateControlRequestTypeDef(TypedDict):
+    name: str
+    controlMappingSources: Sequence[CreateControlMappingSourceTypeDef]
+    description: NotRequired[str]
+    testingInformation: NotRequired[str]
+    actionPlanTitle: NotRequired[str]
+    actionPlanInstructions: NotRequired[str]
+    tags: NotRequired[Mapping[str, str]]
+
+class CreateAssessmentFrameworkRequestTypeDef(TypedDict):
+    name: str
+    controlSets: Sequence[CreateAssessmentFrameworkControlSetTypeDef]
+    description: NotRequired[str]
+    complianceType: NotRequired[str]
+    tags: NotRequired[Mapping[str, str]]
+
+class UpdateAssessmentFrameworkRequestTypeDef(TypedDict):
+    frameworkId: str
+    name: str
+    controlSets: Sequence[UpdateAssessmentFrameworkControlSetTypeDef]
+    description: NotRequired[str]
+    complianceType: NotRequired[str]
+
+class GetSettingsResponseTypeDef(TypedDict):
+    settings: SettingsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateSettingsResponseTypeDef(TypedDict):
+    settings: SettingsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetEvidenceByEvidenceFolderResponseTypeDef(TypedDict):
+    evidence: List[EvidenceTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class GetEvidenceResponseTypeDef(TypedDict):
+    evidence: EvidenceTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateAssessmentRequestTypeDef(TypedDict):
+    name: str
+    assessmentReportsDestination: AssessmentReportsDestinationTypeDef
+    scope: ScopeUnionTypeDef
+    roles: Sequence[RoleTypeDef]
+    frameworkId: str
+    description: NotRequired[str]
+    tags: NotRequired[Mapping[str, str]]
+
+class UpdateAssessmentRequestTypeDef(TypedDict):
+    assessmentId: str
+    scope: ScopeUnionTypeDef
+    assessmentName: NotRequired[str]
+    assessmentDescription: NotRequired[str]
+    assessmentReportsDestination: NotRequired[AssessmentReportsDestinationTypeDef]
+    roles: NotRequired[Sequence[RoleTypeDef]]
+
+AssessmentFrameworkTypeDef = TypedDict(
+    "AssessmentFrameworkTypeDef",
     {
-        "assessmentFrameworkShareRequest": "AssessmentFrameworkShareRequestTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "id": NotRequired[str],
+        "arn": NotRequired[str],
+        "metadata": NotRequired[FrameworkMetadataTypeDef],
+        "controlSets": NotRequired[List[AssessmentControlSetTypeDef]],
     },
 )
 
-_RequiredUpdateAssessmentRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateAssessmentRequestRequestTypeDef",
-    {
-        "assessmentId": str,
-        "scope": "ScopeTypeDef",
-    },
-)
-_OptionalUpdateAssessmentRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateAssessmentRequestRequestTypeDef",
-    {
-        "assessmentName": str,
-        "assessmentDescription": str,
-        "assessmentReportsDestination": "AssessmentReportsDestinationTypeDef",
-        "roles": List["RoleTypeDef"],
-    },
-    total=False,
-)
+class UpdateAssessmentControlSetStatusResponseTypeDef(TypedDict):
+    controlSet: AssessmentControlSetTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateAssessmentRequestRequestTypeDef(
-    _RequiredUpdateAssessmentRequestRequestTypeDef, _OptionalUpdateAssessmentRequestRequestTypeDef
-):
-    pass
-
-UpdateAssessmentResponseTypeDef = TypedDict(
-    "UpdateAssessmentResponseTypeDef",
+ControlSetTypeDef = TypedDict(
+    "ControlSetTypeDef",
     {
-        "assessment": "AssessmentTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "id": NotRequired[str],
+        "name": NotRequired[str],
+        "controls": NotRequired[List[ControlTypeDef]],
     },
 )
 
-UpdateAssessmentStatusRequestRequestTypeDef = TypedDict(
-    "UpdateAssessmentStatusRequestRequestTypeDef",
+class CreateControlResponseTypeDef(TypedDict):
+    control: ControlTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetControlResponseTypeDef(TypedDict):
+    control: ControlTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateControlResponseTypeDef(TypedDict):
+    control: ControlTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class AssessmentTypeDef(TypedDict):
+    arn: NotRequired[str]
+    awsAccount: NotRequired[AWSAccountTypeDef]
+    metadata: NotRequired[AssessmentMetadataTypeDef]
+    framework: NotRequired[AssessmentFrameworkTypeDef]
+    tags: NotRequired[Dict[str, str]]
+
+FrameworkTypeDef = TypedDict(
+    "FrameworkTypeDef",
     {
-        "assessmentId": str,
-        "status": AssessmentStatusType,
+        "arn": NotRequired[str],
+        "id": NotRequired[str],
+        "name": NotRequired[str],
+        "type": NotRequired[FrameworkTypeType],
+        "complianceType": NotRequired[str],
+        "description": NotRequired[str],
+        "logo": NotRequired[str],
+        "controlSources": NotRequired[str],
+        "controlSets": NotRequired[List[ControlSetTypeDef]],
+        "createdAt": NotRequired[datetime],
+        "lastUpdatedAt": NotRequired[datetime],
+        "createdBy": NotRequired[str],
+        "lastUpdatedBy": NotRequired[str],
+        "tags": NotRequired[Dict[str, str]],
     },
 )
 
-UpdateAssessmentStatusResponseTypeDef = TypedDict(
-    "UpdateAssessmentStatusResponseTypeDef",
-    {
-        "assessment": "AssessmentTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CreateAssessmentResponseTypeDef(TypedDict):
+    assessment: AssessmentTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredUpdateControlRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateControlRequestRequestTypeDef",
-    {
-        "controlId": str,
-        "name": str,
-        "controlMappingSources": List["ControlMappingSourceTypeDef"],
-    },
-)
-_OptionalUpdateControlRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateControlRequestRequestTypeDef",
-    {
-        "description": str,
-        "testingInformation": str,
-        "actionPlanTitle": str,
-        "actionPlanInstructions": str,
-    },
-    total=False,
-)
+class GetAssessmentResponseTypeDef(TypedDict):
+    assessment: AssessmentTypeDef
+    userRole: RoleTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateControlRequestRequestTypeDef(
-    _RequiredUpdateControlRequestRequestTypeDef, _OptionalUpdateControlRequestRequestTypeDef
-):
-    pass
+class UpdateAssessmentResponseTypeDef(TypedDict):
+    assessment: AssessmentTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-UpdateControlResponseTypeDef = TypedDict(
-    "UpdateControlResponseTypeDef",
-    {
-        "control": "ControlTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class UpdateAssessmentStatusResponseTypeDef(TypedDict):
+    assessment: AssessmentTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-UpdateSettingsRequestRequestTypeDef = TypedDict(
-    "UpdateSettingsRequestRequestTypeDef",
-    {
-        "snsTopic": str,
-        "defaultAssessmentReportsDestination": "AssessmentReportsDestinationTypeDef",
-        "defaultProcessOwners": List["RoleTypeDef"],
-        "kmsKey": str,
-        "evidenceFinderEnabled": bool,
-        "deregistrationPolicy": "DeregistrationPolicyTypeDef",
-        "defaultExportDestination": "DefaultExportDestinationTypeDef",
-    },
-    total=False,
-)
+class CreateAssessmentFrameworkResponseTypeDef(TypedDict):
+    framework: FrameworkTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-UpdateSettingsResponseTypeDef = TypedDict(
-    "UpdateSettingsResponseTypeDef",
-    {
-        "settings": "SettingsTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetAssessmentFrameworkResponseTypeDef(TypedDict):
+    framework: FrameworkTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ValidateAssessmentReportIntegrityRequestRequestTypeDef = TypedDict(
-    "ValidateAssessmentReportIntegrityRequestRequestTypeDef",
-    {
-        "s3RelativePath": str,
-    },
-)
-
-ValidateAssessmentReportIntegrityResponseTypeDef = TypedDict(
-    "ValidateAssessmentReportIntegrityResponseTypeDef",
-    {
-        "signatureValid": bool,
-        "signatureAlgorithm": str,
-        "signatureDateTime": str,
-        "signatureKeyId": str,
-        "validationErrors": List[str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class UpdateAssessmentFrameworkResponseTypeDef(TypedDict):
+    framework: FrameworkTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef

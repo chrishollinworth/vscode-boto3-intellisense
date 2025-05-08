@@ -1,14 +1,16 @@
 """
 Type annotations for opsworkscm service client paginators.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworkscm/paginators.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_opsworkscm/paginators/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
 
-    from mypy_boto3_opsworkscm import OpsWorksCMClient
+    from mypy_boto3_opsworkscm.client import OpsWorksCMClient
     from mypy_boto3_opsworkscm.paginator import (
         DescribeBackupsPaginator,
         DescribeEventsPaginator,
@@ -16,7 +18,8 @@ Usage::
         ListTagsForResourcePaginator,
     )
 
-    client: OpsWorksCMClient = boto3.client("opsworkscm")
+    session = Session()
+    client: OpsWorksCMClient = session.client("opsworkscm")
 
     describe_backups_paginator: DescribeBackupsPaginator = client.get_paginator("describe_backups")
     describe_events_paginator: DescribeEventsPaginator = client.get_paginator("describe_events")
@@ -25,17 +28,28 @@ Usage::
     ```
 """
 
-from typing import Iterator
+from __future__ import annotations
 
-from botocore.paginate import Paginator as Boto3Paginator
+import sys
+from typing import TYPE_CHECKING
+
+from botocore.paginate import PageIterator, Paginator
 
 from .type_defs import (
+    DescribeBackupsRequestPaginateTypeDef,
     DescribeBackupsResponseTypeDef,
+    DescribeEventsRequestPaginateTypeDef,
     DescribeEventsResponseTypeDef,
+    DescribeServersRequestPaginateTypeDef,
     DescribeServersResponseTypeDef,
+    ListTagsForResourceRequestPaginateTypeDef,
     ListTagsForResourceResponseTypeDef,
-    PaginatorConfigTypeDef,
 )
+
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = (
     "DescribeBackupsPaginator",
@@ -44,62 +58,74 @@ __all__ = (
     "ListTagsForResourcePaginator",
 )
 
-class DescribeBackupsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/opsworkscm.html#OpsWorksCM.Paginator.DescribeBackups)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworkscm/paginators.html#describebackupspaginator)
-    """
+if TYPE_CHECKING:
+    _DescribeBackupsPaginatorBase = Paginator[DescribeBackupsResponseTypeDef]
+else:
+    _DescribeBackupsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        BackupId: str = None,
-        ServerName: str = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[DescribeBackupsResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/opsworkscm.html#OpsWorksCM.Paginator.DescribeBackups.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworkscm/paginators.html#describebackupspaginator)
-        """
-
-class DescribeEventsPaginator(Boto3Paginator):
+class DescribeBackupsPaginator(_DescribeBackupsPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/opsworkscm.html#OpsWorksCM.Paginator.DescribeEvents)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworkscm/paginators.html#describeeventspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/opsworkscm/paginator/DescribeBackups.html#OpsWorksCM.Paginator.DescribeBackups)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_opsworkscm/paginators/#describebackupspaginator)
     """
-
-    def paginate(
-        self, *, ServerName: str, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[DescribeEventsResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeBackupsRequestPaginateTypeDef]
+    ) -> PageIterator[DescribeBackupsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/opsworkscm.html#OpsWorksCM.Paginator.DescribeEvents.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworkscm/paginators.html#describeeventspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/opsworkscm/paginator/DescribeBackups.html#OpsWorksCM.Paginator.DescribeBackups.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_opsworkscm/paginators/#describebackupspaginator)
         """
 
-class DescribeServersPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/opsworkscm.html#OpsWorksCM.Paginator.DescribeServers)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworkscm/paginators.html#describeserverspaginator)
-    """
+if TYPE_CHECKING:
+    _DescribeEventsPaginatorBase = Paginator[DescribeEventsResponseTypeDef]
+else:
+    _DescribeEventsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, ServerName: str = None, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[DescribeServersResponseTypeDef]:
+class DescribeEventsPaginator(_DescribeEventsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/opsworkscm/paginator/DescribeEvents.html#OpsWorksCM.Paginator.DescribeEvents)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_opsworkscm/paginators/#describeeventspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeEventsRequestPaginateTypeDef]
+    ) -> PageIterator[DescribeEventsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/opsworkscm.html#OpsWorksCM.Paginator.DescribeServers.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworkscm/paginators.html#describeserverspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/opsworkscm/paginator/DescribeEvents.html#OpsWorksCM.Paginator.DescribeEvents.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_opsworkscm/paginators/#describeeventspaginator)
         """
 
-class ListTagsForResourcePaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/opsworkscm.html#OpsWorksCM.Paginator.ListTagsForResource)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworkscm/paginators.html#listtagsforresourcepaginator)
-    """
+if TYPE_CHECKING:
+    _DescribeServersPaginatorBase = Paginator[DescribeServersResponseTypeDef]
+else:
+    _DescribeServersPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, ResourceArn: str, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListTagsForResourceResponseTypeDef]:
+class DescribeServersPaginator(_DescribeServersPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/opsworkscm/paginator/DescribeServers.html#OpsWorksCM.Paginator.DescribeServers)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_opsworkscm/paginators/#describeserverspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeServersRequestPaginateTypeDef]
+    ) -> PageIterator[DescribeServersResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/opsworkscm.html#OpsWorksCM.Paginator.ListTagsForResource.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworkscm/paginators.html#listtagsforresourcepaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/opsworkscm/paginator/DescribeServers.html#OpsWorksCM.Paginator.DescribeServers.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_opsworkscm/paginators/#describeserverspaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListTagsForResourcePaginatorBase = Paginator[ListTagsForResourceResponseTypeDef]
+else:
+    _ListTagsForResourcePaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListTagsForResourcePaginator(_ListTagsForResourcePaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/opsworkscm/paginator/ListTagsForResource.html#OpsWorksCM.Paginator.ListTagsForResource)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_opsworkscm/paginators/#listtagsforresourcepaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListTagsForResourceRequestPaginateTypeDef]
+    ) -> PageIterator[ListTagsForResourceResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/opsworkscm/paginator/ListTagsForResource.html#OpsWorksCM.Paginator.ListTagsForResource.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_opsworkscm/paginators/#listtagsforresourcepaginator)
         """

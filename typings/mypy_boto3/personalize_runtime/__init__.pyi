@@ -1,19 +1,21 @@
 """
 Main interface for personalize-runtime service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_personalize_runtime/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_personalize_runtime import (
         Client,
         PersonalizeRuntimeClient,
     )
 
-    session = boto3.Session()
-
-    client: PersonalizeRuntimeClient = boto3.client("personalize-runtime")
-    session_client: PersonalizeRuntimeClient = session.client("personalize-runtime")
+    session = Session()
+    client: PersonalizeRuntimeClient = session.client("personalize-runtime")
     ```
 """
 

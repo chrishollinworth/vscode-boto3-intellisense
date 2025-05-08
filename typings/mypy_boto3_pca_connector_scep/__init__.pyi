@@ -1,10 +1,14 @@
 """
 Main interface for pca-connector-scep service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_scep/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_pca_connector_scep import (
         Client,
         ListChallengeMetadataPaginator,
@@ -12,10 +16,8 @@ Usage::
         PrivateCAConnectorforSCEPClient,
     )
 
-    session = boto3.Session()
-
-    client: PrivateCAConnectorforSCEPClient = boto3.client("pca-connector-scep")
-    session_client: PrivateCAConnectorforSCEPClient = session.client("pca-connector-scep")
+    session = Session()
+    client: PrivateCAConnectorforSCEPClient = session.client("pca-connector-scep")
 
     list_challenge_metadata_paginator: ListChallengeMetadataPaginator = client.get_paginator("list_challenge_metadata")
     list_connectors_paginator: ListConnectorsPaginator = client.get_paginator("list_connectors")

@@ -1,20 +1,24 @@
 """
 Type annotations for pipes service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pipes/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_pipes/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_pipes.type_defs import AwsVpcConfigurationTypeDef
+    from mypy_boto3_pipes.type_defs import AwsVpcConfigurationOutputTypeDef
 
-    data: AwsVpcConfigurationTypeDef = {...}
+    data: AwsVpcConfigurationOutputTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List, Union
+from typing import Union
 
 from .literals import (
     AssignPublicIpType,
@@ -39,18 +43,22 @@ from .literals import (
     TimeFieldTypeType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
+    "AwsVpcConfigurationOutputTypeDef",
     "AwsVpcConfigurationTypeDef",
     "BatchArrayPropertiesTypeDef",
+    "BatchContainerOverridesOutputTypeDef",
     "BatchContainerOverridesTypeDef",
     "BatchEnvironmentVariableTypeDef",
     "BatchJobDependencyTypeDef",
@@ -59,59 +67,82 @@ __all__ = (
     "CapacityProviderStrategyItemTypeDef",
     "CloudwatchLogsLogDestinationParametersTypeDef",
     "CloudwatchLogsLogDestinationTypeDef",
-    "CreatePipeRequestRequestTypeDef",
+    "CreatePipeRequestTypeDef",
     "CreatePipeResponseTypeDef",
     "DeadLetterConfigTypeDef",
-    "DeletePipeRequestRequestTypeDef",
+    "DeletePipeRequestTypeDef",
     "DeletePipeResponseTypeDef",
-    "DescribePipeRequestRequestTypeDef",
+    "DescribePipeRequestTypeDef",
     "DescribePipeResponseTypeDef",
     "DimensionMappingTypeDef",
+    "EcsContainerOverrideOutputTypeDef",
     "EcsContainerOverrideTypeDef",
     "EcsEnvironmentFileTypeDef",
     "EcsEnvironmentVariableTypeDef",
     "EcsEphemeralStorageTypeDef",
     "EcsInferenceAcceleratorOverrideTypeDef",
     "EcsResourceRequirementTypeDef",
+    "EcsTaskOverrideOutputTypeDef",
     "EcsTaskOverrideTypeDef",
+    "FilterCriteriaOutputTypeDef",
     "FilterCriteriaTypeDef",
+    "FilterCriteriaUnionTypeDef",
     "FilterTypeDef",
     "FirehoseLogDestinationParametersTypeDef",
     "FirehoseLogDestinationTypeDef",
-    "ListPipesRequestRequestTypeDef",
+    "ListPipesRequestPaginateTypeDef",
+    "ListPipesRequestTypeDef",
     "ListPipesResponseTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "MQBrokerAccessCredentialsTypeDef",
     "MSKAccessCredentialsTypeDef",
     "MultiMeasureAttributeMappingTypeDef",
+    "MultiMeasureMappingOutputTypeDef",
     "MultiMeasureMappingTypeDef",
+    "NetworkConfigurationOutputTypeDef",
     "NetworkConfigurationTypeDef",
     "PaginatorConfigTypeDef",
+    "PipeEnrichmentHttpParametersOutputTypeDef",
     "PipeEnrichmentHttpParametersTypeDef",
+    "PipeEnrichmentParametersOutputTypeDef",
     "PipeEnrichmentParametersTypeDef",
+    "PipeEnrichmentParametersUnionTypeDef",
     "PipeLogConfigurationParametersTypeDef",
     "PipeLogConfigurationTypeDef",
     "PipeSourceActiveMQBrokerParametersTypeDef",
     "PipeSourceDynamoDBStreamParametersTypeDef",
+    "PipeSourceKinesisStreamParametersOutputTypeDef",
     "PipeSourceKinesisStreamParametersTypeDef",
     "PipeSourceManagedStreamingKafkaParametersTypeDef",
+    "PipeSourceParametersOutputTypeDef",
     "PipeSourceParametersTypeDef",
+    "PipeSourceParametersUnionTypeDef",
     "PipeSourceRabbitMQBrokerParametersTypeDef",
+    "PipeSourceSelfManagedKafkaParametersOutputTypeDef",
     "PipeSourceSelfManagedKafkaParametersTypeDef",
     "PipeSourceSqsQueueParametersTypeDef",
+    "PipeTargetBatchJobParametersOutputTypeDef",
     "PipeTargetBatchJobParametersTypeDef",
     "PipeTargetCloudWatchLogsParametersTypeDef",
+    "PipeTargetEcsTaskParametersOutputTypeDef",
     "PipeTargetEcsTaskParametersTypeDef",
+    "PipeTargetEventBridgeEventBusParametersOutputTypeDef",
     "PipeTargetEventBridgeEventBusParametersTypeDef",
+    "PipeTargetHttpParametersOutputTypeDef",
     "PipeTargetHttpParametersTypeDef",
     "PipeTargetKinesisStreamParametersTypeDef",
     "PipeTargetLambdaFunctionParametersTypeDef",
+    "PipeTargetParametersOutputTypeDef",
     "PipeTargetParametersTypeDef",
+    "PipeTargetParametersUnionTypeDef",
+    "PipeTargetRedshiftDataParametersOutputTypeDef",
     "PipeTargetRedshiftDataParametersTypeDef",
+    "PipeTargetSageMakerPipelineParametersOutputTypeDef",
     "PipeTargetSageMakerPipelineParametersTypeDef",
     "PipeTargetSqsQueueParametersTypeDef",
     "PipeTargetStateMachineParametersTypeDef",
+    "PipeTargetTimestreamParametersOutputTypeDef",
     "PipeTargetTimestreamParametersTypeDef",
     "PipeTypeDef",
     "PlacementConstraintTypeDef",
@@ -121,16 +152,19 @@ __all__ = (
     "S3LogDestinationTypeDef",
     "SageMakerPipelineParameterTypeDef",
     "SelfManagedKafkaAccessConfigurationCredentialsTypeDef",
+    "SelfManagedKafkaAccessConfigurationVpcOutputTypeDef",
     "SelfManagedKafkaAccessConfigurationVpcTypeDef",
+    "SelfManagedKafkaAccessConfigurationVpcUnionTypeDef",
     "SingleMeasureMappingTypeDef",
-    "StartPipeRequestRequestTypeDef",
+    "StartPipeRequestTypeDef",
     "StartPipeResponseTypeDef",
-    "StopPipeRequestRequestTypeDef",
+    "StopPipeRequestTypeDef",
     "StopPipeResponseTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
     "TagTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdatePipeRequestRequestTypeDef",
+    "TimestampTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdatePipeRequestTypeDef",
     "UpdatePipeResponseTypeDef",
     "UpdatePipeSourceActiveMQBrokerParametersTypeDef",
     "UpdatePipeSourceDynamoDBStreamParametersTypeDef",
@@ -142,62 +176,22 @@ __all__ = (
     "UpdatePipeSourceSqsQueueParametersTypeDef",
 )
 
-_RequiredAwsVpcConfigurationTypeDef = TypedDict(
-    "_RequiredAwsVpcConfigurationTypeDef",
-    {
-        "Subnets": List[str],
-    },
-)
-_OptionalAwsVpcConfigurationTypeDef = TypedDict(
-    "_OptionalAwsVpcConfigurationTypeDef",
-    {
-        "SecurityGroups": List[str],
-        "AssignPublicIp": AssignPublicIpType,
-    },
-    total=False,
-)
+class AwsVpcConfigurationOutputTypeDef(TypedDict):
+    Subnets: List[str]
+    SecurityGroups: NotRequired[List[str]]
+    AssignPublicIp: NotRequired[AssignPublicIpType]
 
-class AwsVpcConfigurationTypeDef(
-    _RequiredAwsVpcConfigurationTypeDef, _OptionalAwsVpcConfigurationTypeDef
-):
-    pass
+class AwsVpcConfigurationTypeDef(TypedDict):
+    Subnets: Sequence[str]
+    SecurityGroups: NotRequired[Sequence[str]]
+    AssignPublicIp: NotRequired[AssignPublicIpType]
 
-BatchArrayPropertiesTypeDef = TypedDict(
-    "BatchArrayPropertiesTypeDef",
-    {
-        "Size": int,
-    },
-    total=False,
-)
+class BatchArrayPropertiesTypeDef(TypedDict):
+    Size: NotRequired[int]
 
-BatchContainerOverridesTypeDef = TypedDict(
-    "BatchContainerOverridesTypeDef",
-    {
-        "Command": List[str],
-        "Environment": List["BatchEnvironmentVariableTypeDef"],
-        "InstanceType": str,
-        "ResourceRequirements": List["BatchResourceRequirementTypeDef"],
-    },
-    total=False,
-)
-
-BatchEnvironmentVariableTypeDef = TypedDict(
-    "BatchEnvironmentVariableTypeDef",
-    {
-        "Name": str,
-        "Value": str,
-    },
-    total=False,
-)
-
-BatchJobDependencyTypeDef = TypedDict(
-    "BatchJobDependencyTypeDef",
-    {
-        "JobId": str,
-        "Type": BatchJobDependencyTypeType,
-    },
-    total=False,
-)
+class BatchEnvironmentVariableTypeDef(TypedDict):
+    Name: NotRequired[str]
+    Value: NotRequired[str]
 
 BatchResourceRequirementTypeDef = TypedDict(
     "BatchResourceRequirementTypeDef",
@@ -206,174 +200,48 @@ BatchResourceRequirementTypeDef = TypedDict(
         "Value": str,
     },
 )
-
-BatchRetryStrategyTypeDef = TypedDict(
-    "BatchRetryStrategyTypeDef",
+BatchJobDependencyTypeDef = TypedDict(
+    "BatchJobDependencyTypeDef",
     {
-        "Attempts": int,
-    },
-    total=False,
-)
-
-_RequiredCapacityProviderStrategyItemTypeDef = TypedDict(
-    "_RequiredCapacityProviderStrategyItemTypeDef",
-    {
-        "capacityProvider": str,
-    },
-)
-_OptionalCapacityProviderStrategyItemTypeDef = TypedDict(
-    "_OptionalCapacityProviderStrategyItemTypeDef",
-    {
-        "weight": int,
-        "base": int,
-    },
-    total=False,
-)
-
-class CapacityProviderStrategyItemTypeDef(
-    _RequiredCapacityProviderStrategyItemTypeDef, _OptionalCapacityProviderStrategyItemTypeDef
-):
-    pass
-
-CloudwatchLogsLogDestinationParametersTypeDef = TypedDict(
-    "CloudwatchLogsLogDestinationParametersTypeDef",
-    {
-        "LogGroupArn": str,
+        "JobId": NotRequired[str],
+        "Type": NotRequired[BatchJobDependencyTypeType],
     },
 )
 
-CloudwatchLogsLogDestinationTypeDef = TypedDict(
-    "CloudwatchLogsLogDestinationTypeDef",
-    {
-        "LogGroupArn": str,
-    },
-    total=False,
-)
+class BatchRetryStrategyTypeDef(TypedDict):
+    Attempts: NotRequired[int]
 
-_RequiredCreatePipeRequestRequestTypeDef = TypedDict(
-    "_RequiredCreatePipeRequestRequestTypeDef",
-    {
-        "Name": str,
-        "Source": str,
-        "Target": str,
-        "RoleArn": str,
-    },
-)
-_OptionalCreatePipeRequestRequestTypeDef = TypedDict(
-    "_OptionalCreatePipeRequestRequestTypeDef",
-    {
-        "Description": str,
-        "DesiredState": RequestedPipeStateType,
-        "SourceParameters": "PipeSourceParametersTypeDef",
-        "Enrichment": str,
-        "EnrichmentParameters": "PipeEnrichmentParametersTypeDef",
-        "TargetParameters": "PipeTargetParametersTypeDef",
-        "Tags": Dict[str, str],
-        "LogConfiguration": "PipeLogConfigurationParametersTypeDef",
-    },
-    total=False,
-)
+class CapacityProviderStrategyItemTypeDef(TypedDict):
+    capacityProvider: str
+    weight: NotRequired[int]
+    base: NotRequired[int]
 
-class CreatePipeRequestRequestTypeDef(
-    _RequiredCreatePipeRequestRequestTypeDef, _OptionalCreatePipeRequestRequestTypeDef
-):
-    pass
+class CloudwatchLogsLogDestinationParametersTypeDef(TypedDict):
+    LogGroupArn: str
 
-CreatePipeResponseTypeDef = TypedDict(
-    "CreatePipeResponseTypeDef",
-    {
-        "Arn": str,
-        "Name": str,
-        "DesiredState": RequestedPipeStateType,
-        "CurrentState": PipeStateType,
-        "CreationTime": datetime,
-        "LastModifiedTime": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CloudwatchLogsLogDestinationTypeDef(TypedDict):
+    LogGroupArn: NotRequired[str]
 
-DeadLetterConfigTypeDef = TypedDict(
-    "DeadLetterConfigTypeDef",
-    {
-        "Arn": str,
-    },
-    total=False,
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-DeletePipeRequestRequestTypeDef = TypedDict(
-    "DeletePipeRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
+class DeadLetterConfigTypeDef(TypedDict):
+    Arn: NotRequired[str]
 
-DeletePipeResponseTypeDef = TypedDict(
-    "DeletePipeResponseTypeDef",
-    {
-        "Arn": str,
-        "Name": str,
-        "DesiredState": RequestedPipeStateDescribeResponseType,
-        "CurrentState": PipeStateType,
-        "CreationTime": datetime,
-        "LastModifiedTime": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DeletePipeRequestTypeDef(TypedDict):
+    Name: str
 
-DescribePipeRequestRequestTypeDef = TypedDict(
-    "DescribePipeRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
+class DescribePipeRequestTypeDef(TypedDict):
+    Name: str
 
-DescribePipeResponseTypeDef = TypedDict(
-    "DescribePipeResponseTypeDef",
-    {
-        "Arn": str,
-        "Name": str,
-        "Description": str,
-        "DesiredState": RequestedPipeStateDescribeResponseType,
-        "CurrentState": PipeStateType,
-        "StateReason": str,
-        "Source": str,
-        "SourceParameters": "PipeSourceParametersTypeDef",
-        "Enrichment": str,
-        "EnrichmentParameters": "PipeEnrichmentParametersTypeDef",
-        "Target": str,
-        "TargetParameters": "PipeTargetParametersTypeDef",
-        "RoleArn": str,
-        "Tags": Dict[str, str],
-        "CreationTime": datetime,
-        "LastModifiedTime": datetime,
-        "LogConfiguration": "PipeLogConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DimensionMappingTypeDef = TypedDict(
-    "DimensionMappingTypeDef",
-    {
-        "DimensionValue": str,
-        "DimensionValueType": Literal["VARCHAR"],
-        "DimensionName": str,
-    },
-)
-
-EcsContainerOverrideTypeDef = TypedDict(
-    "EcsContainerOverrideTypeDef",
-    {
-        "Command": List[str],
-        "Cpu": int,
-        "Environment": List["EcsEnvironmentVariableTypeDef"],
-        "EnvironmentFiles": List["EcsEnvironmentFileTypeDef"],
-        "Memory": int,
-        "MemoryReservation": int,
-        "Name": str,
-        "ResourceRequirements": List["EcsResourceRequirementTypeDef"],
-    },
-    total=False,
-)
+class DimensionMappingTypeDef(TypedDict):
+    DimensionValue: str
+    DimensionValueType: Literal["VARCHAR"]
+    DimensionName: str
 
 EcsEnvironmentFileTypeDef = TypedDict(
     "EcsEnvironmentFileTypeDef",
@@ -383,30 +251,9 @@ EcsEnvironmentFileTypeDef = TypedDict(
     },
 )
 
-EcsEnvironmentVariableTypeDef = TypedDict(
-    "EcsEnvironmentVariableTypeDef",
-    {
-        "name": str,
-        "value": str,
-    },
-    total=False,
-)
-
-EcsEphemeralStorageTypeDef = TypedDict(
-    "EcsEphemeralStorageTypeDef",
-    {
-        "sizeInGiB": int,
-    },
-)
-
-EcsInferenceAcceleratorOverrideTypeDef = TypedDict(
-    "EcsInferenceAcceleratorOverrideTypeDef",
-    {
-        "deviceName": str,
-        "deviceType": str,
-    },
-    total=False,
-)
+class EcsEnvironmentVariableTypeDef(TypedDict):
+    name: NotRequired[str]
+    value: NotRequired[str]
 
 EcsResourceRequirementTypeDef = TypedDict(
     "EcsResourceRequirementTypeDef",
@@ -416,894 +263,685 @@ EcsResourceRequirementTypeDef = TypedDict(
     },
 )
 
-EcsTaskOverrideTypeDef = TypedDict(
-    "EcsTaskOverrideTypeDef",
-    {
-        "ContainerOverrides": List["EcsContainerOverrideTypeDef"],
-        "Cpu": str,
-        "EphemeralStorage": "EcsEphemeralStorageTypeDef",
-        "ExecutionRoleArn": str,
-        "InferenceAcceleratorOverrides": List["EcsInferenceAcceleratorOverrideTypeDef"],
-        "Memory": str,
-        "TaskRoleArn": str,
-    },
-    total=False,
-)
+class EcsEphemeralStorageTypeDef(TypedDict):
+    sizeInGiB: int
 
-FilterCriteriaTypeDef = TypedDict(
-    "FilterCriteriaTypeDef",
-    {
-        "Filters": List["FilterTypeDef"],
-    },
-    total=False,
-)
+class EcsInferenceAcceleratorOverrideTypeDef(TypedDict):
+    deviceName: NotRequired[str]
+    deviceType: NotRequired[str]
 
 FilterTypeDef = TypedDict(
     "FilterTypeDef",
     {
-        "Pattern": str,
-    },
-    total=False,
-)
-
-FirehoseLogDestinationParametersTypeDef = TypedDict(
-    "FirehoseLogDestinationParametersTypeDef",
-    {
-        "DeliveryStreamArn": str,
+        "Pattern": NotRequired[str],
     },
 )
 
-FirehoseLogDestinationTypeDef = TypedDict(
-    "FirehoseLogDestinationTypeDef",
-    {
-        "DeliveryStreamArn": str,
-    },
-    total=False,
-)
+class FirehoseLogDestinationParametersTypeDef(TypedDict):
+    DeliveryStreamArn: str
 
-ListPipesRequestRequestTypeDef = TypedDict(
-    "ListPipesRequestRequestTypeDef",
-    {
-        "NamePrefix": str,
-        "DesiredState": RequestedPipeStateType,
-        "CurrentState": PipeStateType,
-        "SourcePrefix": str,
-        "TargetPrefix": str,
-        "NextToken": str,
-        "Limit": int,
-    },
-    total=False,
-)
+class FirehoseLogDestinationTypeDef(TypedDict):
+    DeliveryStreamArn: NotRequired[str]
 
-ListPipesResponseTypeDef = TypedDict(
-    "ListPipesResponseTypeDef",
-    {
-        "Pipes": List["PipeTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
 
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-    },
-)
+class ListPipesRequestTypeDef(TypedDict):
+    NamePrefix: NotRequired[str]
+    DesiredState: NotRequired[RequestedPipeStateType]
+    CurrentState: NotRequired[PipeStateType]
+    SourcePrefix: NotRequired[str]
+    TargetPrefix: NotRequired[str]
+    NextToken: NotRequired[str]
+    Limit: NotRequired[int]
 
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class PipeTypeDef(TypedDict):
+    Name: NotRequired[str]
+    Arn: NotRequired[str]
+    DesiredState: NotRequired[RequestedPipeStateType]
+    CurrentState: NotRequired[PipeStateType]
+    StateReason: NotRequired[str]
+    CreationTime: NotRequired[datetime]
+    LastModifiedTime: NotRequired[datetime]
+    Source: NotRequired[str]
+    Target: NotRequired[str]
+    Enrichment: NotRequired[str]
 
-MQBrokerAccessCredentialsTypeDef = TypedDict(
-    "MQBrokerAccessCredentialsTypeDef",
-    {
-        "BasicAuth": str,
-    },
-    total=False,
-)
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    resourceArn: str
 
-MSKAccessCredentialsTypeDef = TypedDict(
-    "MSKAccessCredentialsTypeDef",
-    {
-        "SaslScram512Auth": str,
-        "ClientCertificateTlsAuth": str,
-    },
-    total=False,
-)
+class MQBrokerAccessCredentialsTypeDef(TypedDict):
+    BasicAuth: NotRequired[str]
 
-MultiMeasureAttributeMappingTypeDef = TypedDict(
-    "MultiMeasureAttributeMappingTypeDef",
-    {
-        "MeasureValue": str,
-        "MeasureValueType": MeasureValueTypeType,
-        "MultiMeasureAttributeName": str,
-    },
-)
+class MSKAccessCredentialsTypeDef(TypedDict):
+    SaslScram512Auth: NotRequired[str]
+    ClientCertificateTlsAuth: NotRequired[str]
 
-MultiMeasureMappingTypeDef = TypedDict(
-    "MultiMeasureMappingTypeDef",
-    {
-        "MultiMeasureName": str,
-        "MultiMeasureAttributeMappings": List["MultiMeasureAttributeMappingTypeDef"],
-    },
-)
+class MultiMeasureAttributeMappingTypeDef(TypedDict):
+    MeasureValue: str
+    MeasureValueType: MeasureValueTypeType
+    MultiMeasureAttributeName: str
 
-NetworkConfigurationTypeDef = TypedDict(
-    "NetworkConfigurationTypeDef",
-    {
-        "awsvpcConfiguration": "AwsVpcConfigurationTypeDef",
-    },
-    total=False,
-)
+class PipeEnrichmentHttpParametersOutputTypeDef(TypedDict):
+    PathParameterValues: NotRequired[List[str]]
+    HeaderParameters: NotRequired[Dict[str, str]]
+    QueryStringParameters: NotRequired[Dict[str, str]]
 
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
+class PipeEnrichmentHttpParametersTypeDef(TypedDict):
+    PathParameterValues: NotRequired[Sequence[str]]
+    HeaderParameters: NotRequired[Mapping[str, str]]
+    QueryStringParameters: NotRequired[Mapping[str, str]]
 
-PipeEnrichmentHttpParametersTypeDef = TypedDict(
-    "PipeEnrichmentHttpParametersTypeDef",
-    {
-        "PathParameterValues": List[str],
-        "HeaderParameters": Dict[str, str],
-        "QueryStringParameters": Dict[str, str],
-    },
-    total=False,
-)
+class S3LogDestinationParametersTypeDef(TypedDict):
+    BucketName: str
+    BucketOwner: str
+    OutputFormat: NotRequired[S3OutputFormatType]
+    Prefix: NotRequired[str]
 
-PipeEnrichmentParametersTypeDef = TypedDict(
-    "PipeEnrichmentParametersTypeDef",
-    {
-        "InputTemplate": str,
-        "HttpParameters": "PipeEnrichmentHttpParametersTypeDef",
-    },
-    total=False,
-)
+class S3LogDestinationTypeDef(TypedDict):
+    BucketName: NotRequired[str]
+    Prefix: NotRequired[str]
+    BucketOwner: NotRequired[str]
+    OutputFormat: NotRequired[S3OutputFormatType]
 
-_RequiredPipeLogConfigurationParametersTypeDef = TypedDict(
-    "_RequiredPipeLogConfigurationParametersTypeDef",
-    {
-        "Level": LogLevelType,
-    },
-)
-_OptionalPipeLogConfigurationParametersTypeDef = TypedDict(
-    "_OptionalPipeLogConfigurationParametersTypeDef",
-    {
-        "S3LogDestination": "S3LogDestinationParametersTypeDef",
-        "FirehoseLogDestination": "FirehoseLogDestinationParametersTypeDef",
-        "CloudwatchLogsLogDestination": "CloudwatchLogsLogDestinationParametersTypeDef",
-        "IncludeExecutionData": List[Literal["ALL"]],
-    },
-    total=False,
-)
+TimestampTypeDef = Union[datetime, str]
 
-class PipeLogConfigurationParametersTypeDef(
-    _RequiredPipeLogConfigurationParametersTypeDef, _OptionalPipeLogConfigurationParametersTypeDef
-):
-    pass
+class PipeSourceSqsQueueParametersTypeDef(TypedDict):
+    BatchSize: NotRequired[int]
+    MaximumBatchingWindowInSeconds: NotRequired[int]
 
-PipeLogConfigurationTypeDef = TypedDict(
-    "PipeLogConfigurationTypeDef",
-    {
-        "S3LogDestination": "S3LogDestinationTypeDef",
-        "FirehoseLogDestination": "FirehoseLogDestinationTypeDef",
-        "CloudwatchLogsLogDestination": "CloudwatchLogsLogDestinationTypeDef",
-        "Level": LogLevelType,
-        "IncludeExecutionData": List[Literal["ALL"]],
-    },
-    total=False,
-)
+class SelfManagedKafkaAccessConfigurationCredentialsTypeDef(TypedDict):
+    BasicAuth: NotRequired[str]
+    SaslScram512Auth: NotRequired[str]
+    SaslScram256Auth: NotRequired[str]
+    ClientCertificateTlsAuth: NotRequired[str]
 
-_RequiredPipeSourceActiveMQBrokerParametersTypeDef = TypedDict(
-    "_RequiredPipeSourceActiveMQBrokerParametersTypeDef",
-    {
-        "Credentials": "MQBrokerAccessCredentialsTypeDef",
-        "QueueName": str,
-    },
-)
-_OptionalPipeSourceActiveMQBrokerParametersTypeDef = TypedDict(
-    "_OptionalPipeSourceActiveMQBrokerParametersTypeDef",
-    {
-        "BatchSize": int,
-        "MaximumBatchingWindowInSeconds": int,
-    },
-    total=False,
-)
+class SelfManagedKafkaAccessConfigurationVpcOutputTypeDef(TypedDict):
+    Subnets: NotRequired[List[str]]
+    SecurityGroup: NotRequired[List[str]]
 
-class PipeSourceActiveMQBrokerParametersTypeDef(
-    _RequiredPipeSourceActiveMQBrokerParametersTypeDef,
-    _OptionalPipeSourceActiveMQBrokerParametersTypeDef,
-):
-    pass
+class SelfManagedKafkaAccessConfigurationVpcTypeDef(TypedDict):
+    Subnets: NotRequired[Sequence[str]]
+    SecurityGroup: NotRequired[Sequence[str]]
 
-_RequiredPipeSourceDynamoDBStreamParametersTypeDef = TypedDict(
-    "_RequiredPipeSourceDynamoDBStreamParametersTypeDef",
-    {
-        "StartingPosition": DynamoDBStreamStartPositionType,
-    },
-)
-_OptionalPipeSourceDynamoDBStreamParametersTypeDef = TypedDict(
-    "_OptionalPipeSourceDynamoDBStreamParametersTypeDef",
-    {
-        "BatchSize": int,
-        "DeadLetterConfig": "DeadLetterConfigTypeDef",
-        "OnPartialBatchItemFailure": Literal["AUTOMATIC_BISECT"],
-        "MaximumBatchingWindowInSeconds": int,
-        "MaximumRecordAgeInSeconds": int,
-        "MaximumRetryAttempts": int,
-        "ParallelizationFactor": int,
-    },
-    total=False,
-)
-
-class PipeSourceDynamoDBStreamParametersTypeDef(
-    _RequiredPipeSourceDynamoDBStreamParametersTypeDef,
-    _OptionalPipeSourceDynamoDBStreamParametersTypeDef,
-):
-    pass
-
-_RequiredPipeSourceKinesisStreamParametersTypeDef = TypedDict(
-    "_RequiredPipeSourceKinesisStreamParametersTypeDef",
-    {
-        "StartingPosition": KinesisStreamStartPositionType,
-    },
-)
-_OptionalPipeSourceKinesisStreamParametersTypeDef = TypedDict(
-    "_OptionalPipeSourceKinesisStreamParametersTypeDef",
-    {
-        "BatchSize": int,
-        "DeadLetterConfig": "DeadLetterConfigTypeDef",
-        "OnPartialBatchItemFailure": Literal["AUTOMATIC_BISECT"],
-        "MaximumBatchingWindowInSeconds": int,
-        "MaximumRecordAgeInSeconds": int,
-        "MaximumRetryAttempts": int,
-        "ParallelizationFactor": int,
-        "StartingPositionTimestamp": Union[datetime, str],
-    },
-    total=False,
-)
-
-class PipeSourceKinesisStreamParametersTypeDef(
-    _RequiredPipeSourceKinesisStreamParametersTypeDef,
-    _OptionalPipeSourceKinesisStreamParametersTypeDef,
-):
-    pass
-
-_RequiredPipeSourceManagedStreamingKafkaParametersTypeDef = TypedDict(
-    "_RequiredPipeSourceManagedStreamingKafkaParametersTypeDef",
-    {
-        "TopicName": str,
-    },
-)
-_OptionalPipeSourceManagedStreamingKafkaParametersTypeDef = TypedDict(
-    "_OptionalPipeSourceManagedStreamingKafkaParametersTypeDef",
-    {
-        "StartingPosition": MSKStartPositionType,
-        "BatchSize": int,
-        "MaximumBatchingWindowInSeconds": int,
-        "ConsumerGroupID": str,
-        "Credentials": "MSKAccessCredentialsTypeDef",
-    },
-    total=False,
-)
-
-class PipeSourceManagedStreamingKafkaParametersTypeDef(
-    _RequiredPipeSourceManagedStreamingKafkaParametersTypeDef,
-    _OptionalPipeSourceManagedStreamingKafkaParametersTypeDef,
-):
-    pass
-
-PipeSourceParametersTypeDef = TypedDict(
-    "PipeSourceParametersTypeDef",
-    {
-        "FilterCriteria": "FilterCriteriaTypeDef",
-        "KinesisStreamParameters": "PipeSourceKinesisStreamParametersTypeDef",
-        "DynamoDBStreamParameters": "PipeSourceDynamoDBStreamParametersTypeDef",
-        "SqsQueueParameters": "PipeSourceSqsQueueParametersTypeDef",
-        "ActiveMQBrokerParameters": "PipeSourceActiveMQBrokerParametersTypeDef",
-        "RabbitMQBrokerParameters": "PipeSourceRabbitMQBrokerParametersTypeDef",
-        "ManagedStreamingKafkaParameters": "PipeSourceManagedStreamingKafkaParametersTypeDef",
-        "SelfManagedKafkaParameters": "PipeSourceSelfManagedKafkaParametersTypeDef",
-    },
-    total=False,
-)
-
-_RequiredPipeSourceRabbitMQBrokerParametersTypeDef = TypedDict(
-    "_RequiredPipeSourceRabbitMQBrokerParametersTypeDef",
-    {
-        "Credentials": "MQBrokerAccessCredentialsTypeDef",
-        "QueueName": str,
-    },
-)
-_OptionalPipeSourceRabbitMQBrokerParametersTypeDef = TypedDict(
-    "_OptionalPipeSourceRabbitMQBrokerParametersTypeDef",
-    {
-        "VirtualHost": str,
-        "BatchSize": int,
-        "MaximumBatchingWindowInSeconds": int,
-    },
-    total=False,
-)
-
-class PipeSourceRabbitMQBrokerParametersTypeDef(
-    _RequiredPipeSourceRabbitMQBrokerParametersTypeDef,
-    _OptionalPipeSourceRabbitMQBrokerParametersTypeDef,
-):
-    pass
-
-_RequiredPipeSourceSelfManagedKafkaParametersTypeDef = TypedDict(
-    "_RequiredPipeSourceSelfManagedKafkaParametersTypeDef",
-    {
-        "TopicName": str,
-    },
-)
-_OptionalPipeSourceSelfManagedKafkaParametersTypeDef = TypedDict(
-    "_OptionalPipeSourceSelfManagedKafkaParametersTypeDef",
-    {
-        "StartingPosition": SelfManagedKafkaStartPositionType,
-        "AdditionalBootstrapServers": List[str],
-        "BatchSize": int,
-        "MaximumBatchingWindowInSeconds": int,
-        "ConsumerGroupID": str,
-        "Credentials": "SelfManagedKafkaAccessConfigurationCredentialsTypeDef",
-        "ServerRootCaCertificate": str,
-        "Vpc": "SelfManagedKafkaAccessConfigurationVpcTypeDef",
-    },
-    total=False,
-)
-
-class PipeSourceSelfManagedKafkaParametersTypeDef(
-    _RequiredPipeSourceSelfManagedKafkaParametersTypeDef,
-    _OptionalPipeSourceSelfManagedKafkaParametersTypeDef,
-):
-    pass
-
-PipeSourceSqsQueueParametersTypeDef = TypedDict(
-    "PipeSourceSqsQueueParametersTypeDef",
-    {
-        "BatchSize": int,
-        "MaximumBatchingWindowInSeconds": int,
-    },
-    total=False,
-)
-
-_RequiredPipeTargetBatchJobParametersTypeDef = TypedDict(
-    "_RequiredPipeTargetBatchJobParametersTypeDef",
-    {
-        "JobDefinition": str,
-        "JobName": str,
-    },
-)
-_OptionalPipeTargetBatchJobParametersTypeDef = TypedDict(
-    "_OptionalPipeTargetBatchJobParametersTypeDef",
-    {
-        "ArrayProperties": "BatchArrayPropertiesTypeDef",
-        "RetryStrategy": "BatchRetryStrategyTypeDef",
-        "ContainerOverrides": "BatchContainerOverridesTypeDef",
-        "DependsOn": List["BatchJobDependencyTypeDef"],
-        "Parameters": Dict[str, str],
-    },
-    total=False,
-)
-
-class PipeTargetBatchJobParametersTypeDef(
-    _RequiredPipeTargetBatchJobParametersTypeDef, _OptionalPipeTargetBatchJobParametersTypeDef
-):
-    pass
-
-PipeTargetCloudWatchLogsParametersTypeDef = TypedDict(
-    "PipeTargetCloudWatchLogsParametersTypeDef",
-    {
-        "LogStreamName": str,
-        "Timestamp": str,
-    },
-    total=False,
-)
-
-_RequiredPipeTargetEcsTaskParametersTypeDef = TypedDict(
-    "_RequiredPipeTargetEcsTaskParametersTypeDef",
-    {
-        "TaskDefinitionArn": str,
-    },
-)
-_OptionalPipeTargetEcsTaskParametersTypeDef = TypedDict(
-    "_OptionalPipeTargetEcsTaskParametersTypeDef",
-    {
-        "TaskCount": int,
-        "LaunchType": LaunchTypeType,
-        "NetworkConfiguration": "NetworkConfigurationTypeDef",
-        "PlatformVersion": str,
-        "Group": str,
-        "CapacityProviderStrategy": List["CapacityProviderStrategyItemTypeDef"],
-        "EnableECSManagedTags": bool,
-        "EnableExecuteCommand": bool,
-        "PlacementConstraints": List["PlacementConstraintTypeDef"],
-        "PlacementStrategy": List["PlacementStrategyTypeDef"],
-        "PropagateTags": Literal["TASK_DEFINITION"],
-        "ReferenceId": str,
-        "Overrides": "EcsTaskOverrideTypeDef",
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class PipeTargetEcsTaskParametersTypeDef(
-    _RequiredPipeTargetEcsTaskParametersTypeDef, _OptionalPipeTargetEcsTaskParametersTypeDef
-):
-    pass
-
-PipeTargetEventBridgeEventBusParametersTypeDef = TypedDict(
-    "PipeTargetEventBridgeEventBusParametersTypeDef",
-    {
-        "EndpointId": str,
-        "DetailType": str,
-        "Source": str,
-        "Resources": List[str],
-        "Time": str,
-    },
-    total=False,
-)
-
-PipeTargetHttpParametersTypeDef = TypedDict(
-    "PipeTargetHttpParametersTypeDef",
-    {
-        "PathParameterValues": List[str],
-        "HeaderParameters": Dict[str, str],
-        "QueryStringParameters": Dict[str, str],
-    },
-    total=False,
-)
-
-PipeTargetKinesisStreamParametersTypeDef = TypedDict(
-    "PipeTargetKinesisStreamParametersTypeDef",
-    {
-        "PartitionKey": str,
-    },
-)
-
-PipeTargetLambdaFunctionParametersTypeDef = TypedDict(
-    "PipeTargetLambdaFunctionParametersTypeDef",
-    {
-        "InvocationType": PipeTargetInvocationTypeType,
-    },
-    total=False,
-)
-
-PipeTargetParametersTypeDef = TypedDict(
-    "PipeTargetParametersTypeDef",
-    {
-        "InputTemplate": str,
-        "LambdaFunctionParameters": "PipeTargetLambdaFunctionParametersTypeDef",
-        "StepFunctionStateMachineParameters": "PipeTargetStateMachineParametersTypeDef",
-        "KinesisStreamParameters": "PipeTargetKinesisStreamParametersTypeDef",
-        "EcsTaskParameters": "PipeTargetEcsTaskParametersTypeDef",
-        "BatchJobParameters": "PipeTargetBatchJobParametersTypeDef",
-        "SqsQueueParameters": "PipeTargetSqsQueueParametersTypeDef",
-        "HttpParameters": "PipeTargetHttpParametersTypeDef",
-        "RedshiftDataParameters": "PipeTargetRedshiftDataParametersTypeDef",
-        "SageMakerPipelineParameters": "PipeTargetSageMakerPipelineParametersTypeDef",
-        "EventBridgeEventBusParameters": "PipeTargetEventBridgeEventBusParametersTypeDef",
-        "CloudWatchLogsParameters": "PipeTargetCloudWatchLogsParametersTypeDef",
-        "TimestreamParameters": "PipeTargetTimestreamParametersTypeDef",
-    },
-    total=False,
-)
-
-_RequiredPipeTargetRedshiftDataParametersTypeDef = TypedDict(
-    "_RequiredPipeTargetRedshiftDataParametersTypeDef",
-    {
-        "Database": str,
-        "Sqls": List[str],
-    },
-)
-_OptionalPipeTargetRedshiftDataParametersTypeDef = TypedDict(
-    "_OptionalPipeTargetRedshiftDataParametersTypeDef",
-    {
-        "SecretManagerArn": str,
-        "DbUser": str,
-        "StatementName": str,
-        "WithEvent": bool,
-    },
-    total=False,
-)
-
-class PipeTargetRedshiftDataParametersTypeDef(
-    _RequiredPipeTargetRedshiftDataParametersTypeDef,
-    _OptionalPipeTargetRedshiftDataParametersTypeDef,
-):
-    pass
-
-PipeTargetSageMakerPipelineParametersTypeDef = TypedDict(
-    "PipeTargetSageMakerPipelineParametersTypeDef",
-    {
-        "PipelineParameterList": List["SageMakerPipelineParameterTypeDef"],
-    },
-    total=False,
-)
-
-PipeTargetSqsQueueParametersTypeDef = TypedDict(
-    "PipeTargetSqsQueueParametersTypeDef",
-    {
-        "MessageGroupId": str,
-        "MessageDeduplicationId": str,
-    },
-    total=False,
-)
-
-PipeTargetStateMachineParametersTypeDef = TypedDict(
-    "PipeTargetStateMachineParametersTypeDef",
-    {
-        "InvocationType": PipeTargetInvocationTypeType,
-    },
-    total=False,
-)
-
-_RequiredPipeTargetTimestreamParametersTypeDef = TypedDict(
-    "_RequiredPipeTargetTimestreamParametersTypeDef",
-    {
-        "TimeValue": str,
-        "VersionValue": str,
-        "DimensionMappings": List["DimensionMappingTypeDef"],
-    },
-)
-_OptionalPipeTargetTimestreamParametersTypeDef = TypedDict(
-    "_OptionalPipeTargetTimestreamParametersTypeDef",
-    {
-        "EpochTimeUnit": EpochTimeUnitType,
-        "TimeFieldType": TimeFieldTypeType,
-        "TimestampFormat": str,
-        "SingleMeasureMappings": List["SingleMeasureMappingTypeDef"],
-        "MultiMeasureMappings": List["MultiMeasureMappingTypeDef"],
-    },
-    total=False,
-)
-
-class PipeTargetTimestreamParametersTypeDef(
-    _RequiredPipeTargetTimestreamParametersTypeDef, _OptionalPipeTargetTimestreamParametersTypeDef
-):
-    pass
-
-PipeTypeDef = TypedDict(
-    "PipeTypeDef",
-    {
-        "Name": str,
-        "Arn": str,
-        "DesiredState": RequestedPipeStateType,
-        "CurrentState": PipeStateType,
-        "StateReason": str,
-        "CreationTime": datetime,
-        "LastModifiedTime": datetime,
-        "Source": str,
-        "Target": str,
-        "Enrichment": str,
-    },
-    total=False,
-)
+class PipeTargetCloudWatchLogsParametersTypeDef(TypedDict):
+    LogStreamName: NotRequired[str]
+    Timestamp: NotRequired[str]
 
 PlacementConstraintTypeDef = TypedDict(
     "PlacementConstraintTypeDef",
     {
-        "type": PlacementConstraintTypeType,
-        "expression": str,
+        "type": NotRequired[PlacementConstraintTypeType],
+        "expression": NotRequired[str],
     },
-    total=False,
 )
-
 PlacementStrategyTypeDef = TypedDict(
     "PlacementStrategyTypeDef",
     {
-        "type": PlacementStrategyTypeType,
-        "field": str,
-    },
-    total=False,
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
+        "type": NotRequired[PlacementStrategyTypeType],
+        "field": NotRequired[str],
     },
 )
 
-_RequiredS3LogDestinationParametersTypeDef = TypedDict(
-    "_RequiredS3LogDestinationParametersTypeDef",
-    {
-        "BucketName": str,
-        "BucketOwner": str,
-    },
-)
-_OptionalS3LogDestinationParametersTypeDef = TypedDict(
-    "_OptionalS3LogDestinationParametersTypeDef",
-    {
-        "OutputFormat": S3OutputFormatType,
-        "Prefix": str,
-    },
-    total=False,
-)
+class TagTypeDef(TypedDict):
+    Key: str
+    Value: str
 
-class S3LogDestinationParametersTypeDef(
-    _RequiredS3LogDestinationParametersTypeDef, _OptionalS3LogDestinationParametersTypeDef
-):
-    pass
+class PipeTargetEventBridgeEventBusParametersOutputTypeDef(TypedDict):
+    EndpointId: NotRequired[str]
+    DetailType: NotRequired[str]
+    Source: NotRequired[str]
+    Resources: NotRequired[List[str]]
+    Time: NotRequired[str]
 
-S3LogDestinationTypeDef = TypedDict(
-    "S3LogDestinationTypeDef",
-    {
-        "BucketName": str,
-        "Prefix": str,
-        "BucketOwner": str,
-        "OutputFormat": S3OutputFormatType,
-    },
-    total=False,
-)
+class PipeTargetEventBridgeEventBusParametersTypeDef(TypedDict):
+    EndpointId: NotRequired[str]
+    DetailType: NotRequired[str]
+    Source: NotRequired[str]
+    Resources: NotRequired[Sequence[str]]
+    Time: NotRequired[str]
 
-SageMakerPipelineParameterTypeDef = TypedDict(
-    "SageMakerPipelineParameterTypeDef",
-    {
-        "Name": str,
-        "Value": str,
-    },
-)
+class PipeTargetHttpParametersOutputTypeDef(TypedDict):
+    PathParameterValues: NotRequired[List[str]]
+    HeaderParameters: NotRequired[Dict[str, str]]
+    QueryStringParameters: NotRequired[Dict[str, str]]
 
-SelfManagedKafkaAccessConfigurationCredentialsTypeDef = TypedDict(
-    "SelfManagedKafkaAccessConfigurationCredentialsTypeDef",
-    {
-        "BasicAuth": str,
-        "SaslScram512Auth": str,
-        "SaslScram256Auth": str,
-        "ClientCertificateTlsAuth": str,
-    },
-    total=False,
-)
+class PipeTargetHttpParametersTypeDef(TypedDict):
+    PathParameterValues: NotRequired[Sequence[str]]
+    HeaderParameters: NotRequired[Mapping[str, str]]
+    QueryStringParameters: NotRequired[Mapping[str, str]]
 
-SelfManagedKafkaAccessConfigurationVpcTypeDef = TypedDict(
-    "SelfManagedKafkaAccessConfigurationVpcTypeDef",
-    {
-        "Subnets": List[str],
-        "SecurityGroup": List[str],
-    },
-    total=False,
-)
+class PipeTargetKinesisStreamParametersTypeDef(TypedDict):
+    PartitionKey: str
 
-SingleMeasureMappingTypeDef = TypedDict(
-    "SingleMeasureMappingTypeDef",
-    {
-        "MeasureValue": str,
-        "MeasureValueType": MeasureValueTypeType,
-        "MeasureName": str,
-    },
-)
+class PipeTargetLambdaFunctionParametersTypeDef(TypedDict):
+    InvocationType: NotRequired[PipeTargetInvocationTypeType]
 
-StartPipeRequestRequestTypeDef = TypedDict(
-    "StartPipeRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
+class PipeTargetRedshiftDataParametersOutputTypeDef(TypedDict):
+    Database: str
+    Sqls: List[str]
+    SecretManagerArn: NotRequired[str]
+    DbUser: NotRequired[str]
+    StatementName: NotRequired[str]
+    WithEvent: NotRequired[bool]
 
-StartPipeResponseTypeDef = TypedDict(
-    "StartPipeResponseTypeDef",
-    {
-        "Arn": str,
-        "Name": str,
-        "DesiredState": RequestedPipeStateType,
-        "CurrentState": PipeStateType,
-        "CreationTime": datetime,
-        "LastModifiedTime": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class PipeTargetSqsQueueParametersTypeDef(TypedDict):
+    MessageGroupId: NotRequired[str]
+    MessageDeduplicationId: NotRequired[str]
 
-StopPipeRequestRequestTypeDef = TypedDict(
-    "StopPipeRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
+class PipeTargetStateMachineParametersTypeDef(TypedDict):
+    InvocationType: NotRequired[PipeTargetInvocationTypeType]
 
-StopPipeResponseTypeDef = TypedDict(
-    "StopPipeResponseTypeDef",
-    {
-        "Arn": str,
-        "Name": str,
-        "DesiredState": RequestedPipeStateType,
-        "CurrentState": PipeStateType,
-        "CreationTime": datetime,
-        "LastModifiedTime": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class PipeTargetRedshiftDataParametersTypeDef(TypedDict):
+    Database: str
+    Sqls: Sequence[str]
+    SecretManagerArn: NotRequired[str]
+    DbUser: NotRequired[str]
+    StatementName: NotRequired[str]
+    WithEvent: NotRequired[bool]
 
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tags": Dict[str, str],
-    },
-)
+class SageMakerPipelineParameterTypeDef(TypedDict):
+    Name: str
+    Value: str
 
-TagTypeDef = TypedDict(
-    "TagTypeDef",
-    {
-        "Key": str,
-        "Value": str,
-    },
-)
+class SingleMeasureMappingTypeDef(TypedDict):
+    MeasureValue: str
+    MeasureValueType: MeasureValueTypeType
+    MeasureName: str
 
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tagKeys": List[str],
-    },
-)
+class StartPipeRequestTypeDef(TypedDict):
+    Name: str
 
-_RequiredUpdatePipeRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdatePipeRequestRequestTypeDef",
-    {
-        "Name": str,
-        "RoleArn": str,
-    },
-)
-_OptionalUpdatePipeRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdatePipeRequestRequestTypeDef",
-    {
-        "Description": str,
-        "DesiredState": RequestedPipeStateType,
-        "SourceParameters": "UpdatePipeSourceParametersTypeDef",
-        "Enrichment": str,
-        "EnrichmentParameters": "PipeEnrichmentParametersTypeDef",
-        "Target": str,
-        "TargetParameters": "PipeTargetParametersTypeDef",
-        "LogConfiguration": "PipeLogConfigurationParametersTypeDef",
-    },
-    total=False,
-)
+class StopPipeRequestTypeDef(TypedDict):
+    Name: str
 
-class UpdatePipeRequestRequestTypeDef(
-    _RequiredUpdatePipeRequestRequestTypeDef, _OptionalUpdatePipeRequestRequestTypeDef
-):
-    pass
+class TagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tags: Mapping[str, str]
 
-UpdatePipeResponseTypeDef = TypedDict(
-    "UpdatePipeResponseTypeDef",
-    {
-        "Arn": str,
-        "Name": str,
-        "DesiredState": RequestedPipeStateType,
-        "CurrentState": PipeStateType,
-        "CreationTime": datetime,
-        "LastModifiedTime": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class UntagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tagKeys: Sequence[str]
 
-_RequiredUpdatePipeSourceActiveMQBrokerParametersTypeDef = TypedDict(
-    "_RequiredUpdatePipeSourceActiveMQBrokerParametersTypeDef",
-    {
-        "Credentials": "MQBrokerAccessCredentialsTypeDef",
-    },
-)
-_OptionalUpdatePipeSourceActiveMQBrokerParametersTypeDef = TypedDict(
-    "_OptionalUpdatePipeSourceActiveMQBrokerParametersTypeDef",
-    {
-        "BatchSize": int,
-        "MaximumBatchingWindowInSeconds": int,
-    },
-    total=False,
-)
+class UpdatePipeSourceSqsQueueParametersTypeDef(TypedDict):
+    BatchSize: NotRequired[int]
+    MaximumBatchingWindowInSeconds: NotRequired[int]
 
-class UpdatePipeSourceActiveMQBrokerParametersTypeDef(
-    _RequiredUpdatePipeSourceActiveMQBrokerParametersTypeDef,
-    _OptionalUpdatePipeSourceActiveMQBrokerParametersTypeDef,
-):
-    pass
+class NetworkConfigurationOutputTypeDef(TypedDict):
+    awsvpcConfiguration: NotRequired[AwsVpcConfigurationOutputTypeDef]
 
-UpdatePipeSourceDynamoDBStreamParametersTypeDef = TypedDict(
-    "UpdatePipeSourceDynamoDBStreamParametersTypeDef",
-    {
-        "BatchSize": int,
-        "DeadLetterConfig": "DeadLetterConfigTypeDef",
-        "OnPartialBatchItemFailure": Literal["AUTOMATIC_BISECT"],
-        "MaximumBatchingWindowInSeconds": int,
-        "MaximumRecordAgeInSeconds": int,
-        "MaximumRetryAttempts": int,
-        "ParallelizationFactor": int,
-    },
-    total=False,
-)
+class NetworkConfigurationTypeDef(TypedDict):
+    awsvpcConfiguration: NotRequired[AwsVpcConfigurationTypeDef]
 
-UpdatePipeSourceKinesisStreamParametersTypeDef = TypedDict(
-    "UpdatePipeSourceKinesisStreamParametersTypeDef",
-    {
-        "BatchSize": int,
-        "DeadLetterConfig": "DeadLetterConfigTypeDef",
-        "OnPartialBatchItemFailure": Literal["AUTOMATIC_BISECT"],
-        "MaximumBatchingWindowInSeconds": int,
-        "MaximumRecordAgeInSeconds": int,
-        "MaximumRetryAttempts": int,
-        "ParallelizationFactor": int,
-    },
-    total=False,
-)
+class BatchContainerOverridesOutputTypeDef(TypedDict):
+    Command: NotRequired[List[str]]
+    Environment: NotRequired[List[BatchEnvironmentVariableTypeDef]]
+    InstanceType: NotRequired[str]
+    ResourceRequirements: NotRequired[List[BatchResourceRequirementTypeDef]]
 
-UpdatePipeSourceManagedStreamingKafkaParametersTypeDef = TypedDict(
-    "UpdatePipeSourceManagedStreamingKafkaParametersTypeDef",
-    {
-        "BatchSize": int,
-        "Credentials": "MSKAccessCredentialsTypeDef",
-        "MaximumBatchingWindowInSeconds": int,
-    },
-    total=False,
-)
+class BatchContainerOverridesTypeDef(TypedDict):
+    Command: NotRequired[Sequence[str]]
+    Environment: NotRequired[Sequence[BatchEnvironmentVariableTypeDef]]
+    InstanceType: NotRequired[str]
+    ResourceRequirements: NotRequired[Sequence[BatchResourceRequirementTypeDef]]
 
-UpdatePipeSourceParametersTypeDef = TypedDict(
-    "UpdatePipeSourceParametersTypeDef",
-    {
-        "FilterCriteria": "FilterCriteriaTypeDef",
-        "KinesisStreamParameters": "UpdatePipeSourceKinesisStreamParametersTypeDef",
-        "DynamoDBStreamParameters": "UpdatePipeSourceDynamoDBStreamParametersTypeDef",
-        "SqsQueueParameters": "UpdatePipeSourceSqsQueueParametersTypeDef",
-        "ActiveMQBrokerParameters": "UpdatePipeSourceActiveMQBrokerParametersTypeDef",
-        "RabbitMQBrokerParameters": "UpdatePipeSourceRabbitMQBrokerParametersTypeDef",
-        "ManagedStreamingKafkaParameters": "UpdatePipeSourceManagedStreamingKafkaParametersTypeDef",
-        "SelfManagedKafkaParameters": "UpdatePipeSourceSelfManagedKafkaParametersTypeDef",
-    },
-    total=False,
-)
+class CreatePipeResponseTypeDef(TypedDict):
+    Arn: str
+    Name: str
+    DesiredState: RequestedPipeStateType
+    CurrentState: PipeStateType
+    CreationTime: datetime
+    LastModifiedTime: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredUpdatePipeSourceRabbitMQBrokerParametersTypeDef = TypedDict(
-    "_RequiredUpdatePipeSourceRabbitMQBrokerParametersTypeDef",
-    {
-        "Credentials": "MQBrokerAccessCredentialsTypeDef",
-    },
-)
-_OptionalUpdatePipeSourceRabbitMQBrokerParametersTypeDef = TypedDict(
-    "_OptionalUpdatePipeSourceRabbitMQBrokerParametersTypeDef",
-    {
-        "BatchSize": int,
-        "MaximumBatchingWindowInSeconds": int,
-    },
-    total=False,
-)
+class DeletePipeResponseTypeDef(TypedDict):
+    Arn: str
+    Name: str
+    DesiredState: RequestedPipeStateDescribeResponseType
+    CurrentState: PipeStateType
+    CreationTime: datetime
+    LastModifiedTime: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdatePipeSourceRabbitMQBrokerParametersTypeDef(
-    _RequiredUpdatePipeSourceRabbitMQBrokerParametersTypeDef,
-    _OptionalUpdatePipeSourceRabbitMQBrokerParametersTypeDef,
-):
-    pass
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-UpdatePipeSourceSelfManagedKafkaParametersTypeDef = TypedDict(
-    "UpdatePipeSourceSelfManagedKafkaParametersTypeDef",
-    {
-        "BatchSize": int,
-        "MaximumBatchingWindowInSeconds": int,
-        "Credentials": "SelfManagedKafkaAccessConfigurationCredentialsTypeDef",
-        "ServerRootCaCertificate": str,
-        "Vpc": "SelfManagedKafkaAccessConfigurationVpcTypeDef",
-    },
-    total=False,
-)
+class StartPipeResponseTypeDef(TypedDict):
+    Arn: str
+    Name: str
+    DesiredState: RequestedPipeStateType
+    CurrentState: PipeStateType
+    CreationTime: datetime
+    LastModifiedTime: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
 
-UpdatePipeSourceSqsQueueParametersTypeDef = TypedDict(
-    "UpdatePipeSourceSqsQueueParametersTypeDef",
-    {
-        "BatchSize": int,
-        "MaximumBatchingWindowInSeconds": int,
-    },
-    total=False,
-)
+class StopPipeResponseTypeDef(TypedDict):
+    Arn: str
+    Name: str
+    DesiredState: RequestedPipeStateType
+    CurrentState: PipeStateType
+    CreationTime: datetime
+    LastModifiedTime: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdatePipeResponseTypeDef(TypedDict):
+    Arn: str
+    Name: str
+    DesiredState: RequestedPipeStateType
+    CurrentState: PipeStateType
+    CreationTime: datetime
+    LastModifiedTime: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PipeSourceDynamoDBStreamParametersTypeDef(TypedDict):
+    StartingPosition: DynamoDBStreamStartPositionType
+    BatchSize: NotRequired[int]
+    DeadLetterConfig: NotRequired[DeadLetterConfigTypeDef]
+    OnPartialBatchItemFailure: NotRequired[Literal["AUTOMATIC_BISECT"]]
+    MaximumBatchingWindowInSeconds: NotRequired[int]
+    MaximumRecordAgeInSeconds: NotRequired[int]
+    MaximumRetryAttempts: NotRequired[int]
+    ParallelizationFactor: NotRequired[int]
+
+class PipeSourceKinesisStreamParametersOutputTypeDef(TypedDict):
+    StartingPosition: KinesisStreamStartPositionType
+    BatchSize: NotRequired[int]
+    DeadLetterConfig: NotRequired[DeadLetterConfigTypeDef]
+    OnPartialBatchItemFailure: NotRequired[Literal["AUTOMATIC_BISECT"]]
+    MaximumBatchingWindowInSeconds: NotRequired[int]
+    MaximumRecordAgeInSeconds: NotRequired[int]
+    MaximumRetryAttempts: NotRequired[int]
+    ParallelizationFactor: NotRequired[int]
+    StartingPositionTimestamp: NotRequired[datetime]
+
+class UpdatePipeSourceDynamoDBStreamParametersTypeDef(TypedDict):
+    BatchSize: NotRequired[int]
+    DeadLetterConfig: NotRequired[DeadLetterConfigTypeDef]
+    OnPartialBatchItemFailure: NotRequired[Literal["AUTOMATIC_BISECT"]]
+    MaximumBatchingWindowInSeconds: NotRequired[int]
+    MaximumRecordAgeInSeconds: NotRequired[int]
+    MaximumRetryAttempts: NotRequired[int]
+    ParallelizationFactor: NotRequired[int]
+
+class UpdatePipeSourceKinesisStreamParametersTypeDef(TypedDict):
+    BatchSize: NotRequired[int]
+    DeadLetterConfig: NotRequired[DeadLetterConfigTypeDef]
+    OnPartialBatchItemFailure: NotRequired[Literal["AUTOMATIC_BISECT"]]
+    MaximumBatchingWindowInSeconds: NotRequired[int]
+    MaximumRecordAgeInSeconds: NotRequired[int]
+    MaximumRetryAttempts: NotRequired[int]
+    ParallelizationFactor: NotRequired[int]
+
+class EcsContainerOverrideOutputTypeDef(TypedDict):
+    Command: NotRequired[List[str]]
+    Cpu: NotRequired[int]
+    Environment: NotRequired[List[EcsEnvironmentVariableTypeDef]]
+    EnvironmentFiles: NotRequired[List[EcsEnvironmentFileTypeDef]]
+    Memory: NotRequired[int]
+    MemoryReservation: NotRequired[int]
+    Name: NotRequired[str]
+    ResourceRequirements: NotRequired[List[EcsResourceRequirementTypeDef]]
+
+class EcsContainerOverrideTypeDef(TypedDict):
+    Command: NotRequired[Sequence[str]]
+    Cpu: NotRequired[int]
+    Environment: NotRequired[Sequence[EcsEnvironmentVariableTypeDef]]
+    EnvironmentFiles: NotRequired[Sequence[EcsEnvironmentFileTypeDef]]
+    Memory: NotRequired[int]
+    MemoryReservation: NotRequired[int]
+    Name: NotRequired[str]
+    ResourceRequirements: NotRequired[Sequence[EcsResourceRequirementTypeDef]]
+
+class FilterCriteriaOutputTypeDef(TypedDict):
+    Filters: NotRequired[List[FilterTypeDef]]
+
+class FilterCriteriaTypeDef(TypedDict):
+    Filters: NotRequired[Sequence[FilterTypeDef]]
+
+class ListPipesRequestPaginateTypeDef(TypedDict):
+    NamePrefix: NotRequired[str]
+    DesiredState: NotRequired[RequestedPipeStateType]
+    CurrentState: NotRequired[PipeStateType]
+    SourcePrefix: NotRequired[str]
+    TargetPrefix: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListPipesResponseTypeDef(TypedDict):
+    Pipes: List[PipeTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class PipeSourceActiveMQBrokerParametersTypeDef(TypedDict):
+    Credentials: MQBrokerAccessCredentialsTypeDef
+    QueueName: str
+    BatchSize: NotRequired[int]
+    MaximumBatchingWindowInSeconds: NotRequired[int]
+
+class PipeSourceRabbitMQBrokerParametersTypeDef(TypedDict):
+    Credentials: MQBrokerAccessCredentialsTypeDef
+    QueueName: str
+    VirtualHost: NotRequired[str]
+    BatchSize: NotRequired[int]
+    MaximumBatchingWindowInSeconds: NotRequired[int]
+
+class UpdatePipeSourceActiveMQBrokerParametersTypeDef(TypedDict):
+    Credentials: MQBrokerAccessCredentialsTypeDef
+    BatchSize: NotRequired[int]
+    MaximumBatchingWindowInSeconds: NotRequired[int]
+
+class UpdatePipeSourceRabbitMQBrokerParametersTypeDef(TypedDict):
+    Credentials: MQBrokerAccessCredentialsTypeDef
+    BatchSize: NotRequired[int]
+    MaximumBatchingWindowInSeconds: NotRequired[int]
+
+class PipeSourceManagedStreamingKafkaParametersTypeDef(TypedDict):
+    TopicName: str
+    StartingPosition: NotRequired[MSKStartPositionType]
+    BatchSize: NotRequired[int]
+    MaximumBatchingWindowInSeconds: NotRequired[int]
+    ConsumerGroupID: NotRequired[str]
+    Credentials: NotRequired[MSKAccessCredentialsTypeDef]
+
+class UpdatePipeSourceManagedStreamingKafkaParametersTypeDef(TypedDict):
+    BatchSize: NotRequired[int]
+    Credentials: NotRequired[MSKAccessCredentialsTypeDef]
+    MaximumBatchingWindowInSeconds: NotRequired[int]
+
+class MultiMeasureMappingOutputTypeDef(TypedDict):
+    MultiMeasureName: str
+    MultiMeasureAttributeMappings: List[MultiMeasureAttributeMappingTypeDef]
+
+class MultiMeasureMappingTypeDef(TypedDict):
+    MultiMeasureName: str
+    MultiMeasureAttributeMappings: Sequence[MultiMeasureAttributeMappingTypeDef]
+
+class PipeEnrichmentParametersOutputTypeDef(TypedDict):
+    InputTemplate: NotRequired[str]
+    HttpParameters: NotRequired[PipeEnrichmentHttpParametersOutputTypeDef]
+
+class PipeEnrichmentParametersTypeDef(TypedDict):
+    InputTemplate: NotRequired[str]
+    HttpParameters: NotRequired[PipeEnrichmentHttpParametersTypeDef]
+
+class PipeLogConfigurationParametersTypeDef(TypedDict):
+    Level: LogLevelType
+    S3LogDestination: NotRequired[S3LogDestinationParametersTypeDef]
+    FirehoseLogDestination: NotRequired[FirehoseLogDestinationParametersTypeDef]
+    CloudwatchLogsLogDestination: NotRequired[CloudwatchLogsLogDestinationParametersTypeDef]
+    IncludeExecutionData: NotRequired[Sequence[Literal["ALL"]]]
+
+class PipeLogConfigurationTypeDef(TypedDict):
+    S3LogDestination: NotRequired[S3LogDestinationTypeDef]
+    FirehoseLogDestination: NotRequired[FirehoseLogDestinationTypeDef]
+    CloudwatchLogsLogDestination: NotRequired[CloudwatchLogsLogDestinationTypeDef]
+    Level: NotRequired[LogLevelType]
+    IncludeExecutionData: NotRequired[List[Literal["ALL"]]]
+
+class PipeSourceKinesisStreamParametersTypeDef(TypedDict):
+    StartingPosition: KinesisStreamStartPositionType
+    BatchSize: NotRequired[int]
+    DeadLetterConfig: NotRequired[DeadLetterConfigTypeDef]
+    OnPartialBatchItemFailure: NotRequired[Literal["AUTOMATIC_BISECT"]]
+    MaximumBatchingWindowInSeconds: NotRequired[int]
+    MaximumRecordAgeInSeconds: NotRequired[int]
+    MaximumRetryAttempts: NotRequired[int]
+    ParallelizationFactor: NotRequired[int]
+    StartingPositionTimestamp: NotRequired[TimestampTypeDef]
+
+class PipeSourceSelfManagedKafkaParametersOutputTypeDef(TypedDict):
+    TopicName: str
+    StartingPosition: NotRequired[SelfManagedKafkaStartPositionType]
+    AdditionalBootstrapServers: NotRequired[List[str]]
+    BatchSize: NotRequired[int]
+    MaximumBatchingWindowInSeconds: NotRequired[int]
+    ConsumerGroupID: NotRequired[str]
+    Credentials: NotRequired[SelfManagedKafkaAccessConfigurationCredentialsTypeDef]
+    ServerRootCaCertificate: NotRequired[str]
+    Vpc: NotRequired[SelfManagedKafkaAccessConfigurationVpcOutputTypeDef]
+
+class PipeSourceSelfManagedKafkaParametersTypeDef(TypedDict):
+    TopicName: str
+    StartingPosition: NotRequired[SelfManagedKafkaStartPositionType]
+    AdditionalBootstrapServers: NotRequired[Sequence[str]]
+    BatchSize: NotRequired[int]
+    MaximumBatchingWindowInSeconds: NotRequired[int]
+    ConsumerGroupID: NotRequired[str]
+    Credentials: NotRequired[SelfManagedKafkaAccessConfigurationCredentialsTypeDef]
+    ServerRootCaCertificate: NotRequired[str]
+    Vpc: NotRequired[SelfManagedKafkaAccessConfigurationVpcTypeDef]
+
+SelfManagedKafkaAccessConfigurationVpcUnionTypeDef = Union[
+    SelfManagedKafkaAccessConfigurationVpcTypeDef,
+    SelfManagedKafkaAccessConfigurationVpcOutputTypeDef,
+]
+
+class PipeTargetSageMakerPipelineParametersOutputTypeDef(TypedDict):
+    PipelineParameterList: NotRequired[List[SageMakerPipelineParameterTypeDef]]
+
+class PipeTargetSageMakerPipelineParametersTypeDef(TypedDict):
+    PipelineParameterList: NotRequired[Sequence[SageMakerPipelineParameterTypeDef]]
+
+class PipeTargetBatchJobParametersOutputTypeDef(TypedDict):
+    JobDefinition: str
+    JobName: str
+    ArrayProperties: NotRequired[BatchArrayPropertiesTypeDef]
+    RetryStrategy: NotRequired[BatchRetryStrategyTypeDef]
+    ContainerOverrides: NotRequired[BatchContainerOverridesOutputTypeDef]
+    DependsOn: NotRequired[List[BatchJobDependencyTypeDef]]
+    Parameters: NotRequired[Dict[str, str]]
+
+class PipeTargetBatchJobParametersTypeDef(TypedDict):
+    JobDefinition: str
+    JobName: str
+    ArrayProperties: NotRequired[BatchArrayPropertiesTypeDef]
+    RetryStrategy: NotRequired[BatchRetryStrategyTypeDef]
+    ContainerOverrides: NotRequired[BatchContainerOverridesTypeDef]
+    DependsOn: NotRequired[Sequence[BatchJobDependencyTypeDef]]
+    Parameters: NotRequired[Mapping[str, str]]
+
+class EcsTaskOverrideOutputTypeDef(TypedDict):
+    ContainerOverrides: NotRequired[List[EcsContainerOverrideOutputTypeDef]]
+    Cpu: NotRequired[str]
+    EphemeralStorage: NotRequired[EcsEphemeralStorageTypeDef]
+    ExecutionRoleArn: NotRequired[str]
+    InferenceAcceleratorOverrides: NotRequired[List[EcsInferenceAcceleratorOverrideTypeDef]]
+    Memory: NotRequired[str]
+    TaskRoleArn: NotRequired[str]
+
+class EcsTaskOverrideTypeDef(TypedDict):
+    ContainerOverrides: NotRequired[Sequence[EcsContainerOverrideTypeDef]]
+    Cpu: NotRequired[str]
+    EphemeralStorage: NotRequired[EcsEphemeralStorageTypeDef]
+    ExecutionRoleArn: NotRequired[str]
+    InferenceAcceleratorOverrides: NotRequired[Sequence[EcsInferenceAcceleratorOverrideTypeDef]]
+    Memory: NotRequired[str]
+    TaskRoleArn: NotRequired[str]
+
+FilterCriteriaUnionTypeDef = Union[FilterCriteriaTypeDef, FilterCriteriaOutputTypeDef]
+
+class PipeTargetTimestreamParametersOutputTypeDef(TypedDict):
+    TimeValue: str
+    VersionValue: str
+    DimensionMappings: List[DimensionMappingTypeDef]
+    EpochTimeUnit: NotRequired[EpochTimeUnitType]
+    TimeFieldType: NotRequired[TimeFieldTypeType]
+    TimestampFormat: NotRequired[str]
+    SingleMeasureMappings: NotRequired[List[SingleMeasureMappingTypeDef]]
+    MultiMeasureMappings: NotRequired[List[MultiMeasureMappingOutputTypeDef]]
+
+class PipeTargetTimestreamParametersTypeDef(TypedDict):
+    TimeValue: str
+    VersionValue: str
+    DimensionMappings: Sequence[DimensionMappingTypeDef]
+    EpochTimeUnit: NotRequired[EpochTimeUnitType]
+    TimeFieldType: NotRequired[TimeFieldTypeType]
+    TimestampFormat: NotRequired[str]
+    SingleMeasureMappings: NotRequired[Sequence[SingleMeasureMappingTypeDef]]
+    MultiMeasureMappings: NotRequired[Sequence[MultiMeasureMappingTypeDef]]
+
+PipeEnrichmentParametersUnionTypeDef = Union[
+    PipeEnrichmentParametersTypeDef, PipeEnrichmentParametersOutputTypeDef
+]
+
+class PipeSourceParametersOutputTypeDef(TypedDict):
+    FilterCriteria: NotRequired[FilterCriteriaOutputTypeDef]
+    KinesisStreamParameters: NotRequired[PipeSourceKinesisStreamParametersOutputTypeDef]
+    DynamoDBStreamParameters: NotRequired[PipeSourceDynamoDBStreamParametersTypeDef]
+    SqsQueueParameters: NotRequired[PipeSourceSqsQueueParametersTypeDef]
+    ActiveMQBrokerParameters: NotRequired[PipeSourceActiveMQBrokerParametersTypeDef]
+    RabbitMQBrokerParameters: NotRequired[PipeSourceRabbitMQBrokerParametersTypeDef]
+    ManagedStreamingKafkaParameters: NotRequired[PipeSourceManagedStreamingKafkaParametersTypeDef]
+    SelfManagedKafkaParameters: NotRequired[PipeSourceSelfManagedKafkaParametersOutputTypeDef]
+
+class PipeSourceParametersTypeDef(TypedDict):
+    FilterCriteria: NotRequired[FilterCriteriaTypeDef]
+    KinesisStreamParameters: NotRequired[PipeSourceKinesisStreamParametersTypeDef]
+    DynamoDBStreamParameters: NotRequired[PipeSourceDynamoDBStreamParametersTypeDef]
+    SqsQueueParameters: NotRequired[PipeSourceSqsQueueParametersTypeDef]
+    ActiveMQBrokerParameters: NotRequired[PipeSourceActiveMQBrokerParametersTypeDef]
+    RabbitMQBrokerParameters: NotRequired[PipeSourceRabbitMQBrokerParametersTypeDef]
+    ManagedStreamingKafkaParameters: NotRequired[PipeSourceManagedStreamingKafkaParametersTypeDef]
+    SelfManagedKafkaParameters: NotRequired[PipeSourceSelfManagedKafkaParametersTypeDef]
+
+class UpdatePipeSourceSelfManagedKafkaParametersTypeDef(TypedDict):
+    BatchSize: NotRequired[int]
+    MaximumBatchingWindowInSeconds: NotRequired[int]
+    Credentials: NotRequired[SelfManagedKafkaAccessConfigurationCredentialsTypeDef]
+    ServerRootCaCertificate: NotRequired[str]
+    Vpc: NotRequired[SelfManagedKafkaAccessConfigurationVpcUnionTypeDef]
+
+class PipeTargetEcsTaskParametersOutputTypeDef(TypedDict):
+    TaskDefinitionArn: str
+    TaskCount: NotRequired[int]
+    LaunchType: NotRequired[LaunchTypeType]
+    NetworkConfiguration: NotRequired[NetworkConfigurationOutputTypeDef]
+    PlatformVersion: NotRequired[str]
+    Group: NotRequired[str]
+    CapacityProviderStrategy: NotRequired[List[CapacityProviderStrategyItemTypeDef]]
+    EnableECSManagedTags: NotRequired[bool]
+    EnableExecuteCommand: NotRequired[bool]
+    PlacementConstraints: NotRequired[List[PlacementConstraintTypeDef]]
+    PlacementStrategy: NotRequired[List[PlacementStrategyTypeDef]]
+    PropagateTags: NotRequired[Literal["TASK_DEFINITION"]]
+    ReferenceId: NotRequired[str]
+    Overrides: NotRequired[EcsTaskOverrideOutputTypeDef]
+    Tags: NotRequired[List[TagTypeDef]]
+
+class PipeTargetEcsTaskParametersTypeDef(TypedDict):
+    TaskDefinitionArn: str
+    TaskCount: NotRequired[int]
+    LaunchType: NotRequired[LaunchTypeType]
+    NetworkConfiguration: NotRequired[NetworkConfigurationTypeDef]
+    PlatformVersion: NotRequired[str]
+    Group: NotRequired[str]
+    CapacityProviderStrategy: NotRequired[Sequence[CapacityProviderStrategyItemTypeDef]]
+    EnableECSManagedTags: NotRequired[bool]
+    EnableExecuteCommand: NotRequired[bool]
+    PlacementConstraints: NotRequired[Sequence[PlacementConstraintTypeDef]]
+    PlacementStrategy: NotRequired[Sequence[PlacementStrategyTypeDef]]
+    PropagateTags: NotRequired[Literal["TASK_DEFINITION"]]
+    ReferenceId: NotRequired[str]
+    Overrides: NotRequired[EcsTaskOverrideTypeDef]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+
+PipeSourceParametersUnionTypeDef = Union[
+    PipeSourceParametersTypeDef, PipeSourceParametersOutputTypeDef
+]
+
+class UpdatePipeSourceParametersTypeDef(TypedDict):
+    FilterCriteria: NotRequired[FilterCriteriaUnionTypeDef]
+    KinesisStreamParameters: NotRequired[UpdatePipeSourceKinesisStreamParametersTypeDef]
+    DynamoDBStreamParameters: NotRequired[UpdatePipeSourceDynamoDBStreamParametersTypeDef]
+    SqsQueueParameters: NotRequired[UpdatePipeSourceSqsQueueParametersTypeDef]
+    ActiveMQBrokerParameters: NotRequired[UpdatePipeSourceActiveMQBrokerParametersTypeDef]
+    RabbitMQBrokerParameters: NotRequired[UpdatePipeSourceRabbitMQBrokerParametersTypeDef]
+    ManagedStreamingKafkaParameters: NotRequired[
+        UpdatePipeSourceManagedStreamingKafkaParametersTypeDef
+    ]
+    SelfManagedKafkaParameters: NotRequired[UpdatePipeSourceSelfManagedKafkaParametersTypeDef]
+
+class PipeTargetParametersOutputTypeDef(TypedDict):
+    InputTemplate: NotRequired[str]
+    LambdaFunctionParameters: NotRequired[PipeTargetLambdaFunctionParametersTypeDef]
+    StepFunctionStateMachineParameters: NotRequired[PipeTargetStateMachineParametersTypeDef]
+    KinesisStreamParameters: NotRequired[PipeTargetKinesisStreamParametersTypeDef]
+    EcsTaskParameters: NotRequired[PipeTargetEcsTaskParametersOutputTypeDef]
+    BatchJobParameters: NotRequired[PipeTargetBatchJobParametersOutputTypeDef]
+    SqsQueueParameters: NotRequired[PipeTargetSqsQueueParametersTypeDef]
+    HttpParameters: NotRequired[PipeTargetHttpParametersOutputTypeDef]
+    RedshiftDataParameters: NotRequired[PipeTargetRedshiftDataParametersOutputTypeDef]
+    SageMakerPipelineParameters: NotRequired[PipeTargetSageMakerPipelineParametersOutputTypeDef]
+    EventBridgeEventBusParameters: NotRequired[PipeTargetEventBridgeEventBusParametersOutputTypeDef]
+    CloudWatchLogsParameters: NotRequired[PipeTargetCloudWatchLogsParametersTypeDef]
+    TimestreamParameters: NotRequired[PipeTargetTimestreamParametersOutputTypeDef]
+
+class PipeTargetParametersTypeDef(TypedDict):
+    InputTemplate: NotRequired[str]
+    LambdaFunctionParameters: NotRequired[PipeTargetLambdaFunctionParametersTypeDef]
+    StepFunctionStateMachineParameters: NotRequired[PipeTargetStateMachineParametersTypeDef]
+    KinesisStreamParameters: NotRequired[PipeTargetKinesisStreamParametersTypeDef]
+    EcsTaskParameters: NotRequired[PipeTargetEcsTaskParametersTypeDef]
+    BatchJobParameters: NotRequired[PipeTargetBatchJobParametersTypeDef]
+    SqsQueueParameters: NotRequired[PipeTargetSqsQueueParametersTypeDef]
+    HttpParameters: NotRequired[PipeTargetHttpParametersTypeDef]
+    RedshiftDataParameters: NotRequired[PipeTargetRedshiftDataParametersTypeDef]
+    SageMakerPipelineParameters: NotRequired[PipeTargetSageMakerPipelineParametersTypeDef]
+    EventBridgeEventBusParameters: NotRequired[PipeTargetEventBridgeEventBusParametersTypeDef]
+    CloudWatchLogsParameters: NotRequired[PipeTargetCloudWatchLogsParametersTypeDef]
+    TimestreamParameters: NotRequired[PipeTargetTimestreamParametersTypeDef]
+
+class DescribePipeResponseTypeDef(TypedDict):
+    Arn: str
+    Name: str
+    Description: str
+    DesiredState: RequestedPipeStateDescribeResponseType
+    CurrentState: PipeStateType
+    StateReason: str
+    Source: str
+    SourceParameters: PipeSourceParametersOutputTypeDef
+    Enrichment: str
+    EnrichmentParameters: PipeEnrichmentParametersOutputTypeDef
+    Target: str
+    TargetParameters: PipeTargetParametersOutputTypeDef
+    RoleArn: str
+    Tags: Dict[str, str]
+    CreationTime: datetime
+    LastModifiedTime: datetime
+    LogConfiguration: PipeLogConfigurationTypeDef
+    KmsKeyIdentifier: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+PipeTargetParametersUnionTypeDef = Union[
+    PipeTargetParametersTypeDef, PipeTargetParametersOutputTypeDef
+]
+
+class CreatePipeRequestTypeDef(TypedDict):
+    Name: str
+    Source: str
+    Target: str
+    RoleArn: str
+    Description: NotRequired[str]
+    DesiredState: NotRequired[RequestedPipeStateType]
+    SourceParameters: NotRequired[PipeSourceParametersUnionTypeDef]
+    Enrichment: NotRequired[str]
+    EnrichmentParameters: NotRequired[PipeEnrichmentParametersUnionTypeDef]
+    TargetParameters: NotRequired[PipeTargetParametersUnionTypeDef]
+    Tags: NotRequired[Mapping[str, str]]
+    LogConfiguration: NotRequired[PipeLogConfigurationParametersTypeDef]
+    KmsKeyIdentifier: NotRequired[str]
+
+class UpdatePipeRequestTypeDef(TypedDict):
+    Name: str
+    RoleArn: str
+    Description: NotRequired[str]
+    DesiredState: NotRequired[RequestedPipeStateType]
+    SourceParameters: NotRequired[UpdatePipeSourceParametersTypeDef]
+    Enrichment: NotRequired[str]
+    EnrichmentParameters: NotRequired[PipeEnrichmentParametersUnionTypeDef]
+    Target: NotRequired[str]
+    TargetParameters: NotRequired[PipeTargetParametersUnionTypeDef]
+    LogConfiguration: NotRequired[PipeLogConfigurationParametersTypeDef]
+    KmsKeyIdentifier: NotRequired[str]

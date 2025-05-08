@@ -1,19 +1,21 @@
 """
 Main interface for sagemaker-edge service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sagemaker_edge/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_sagemaker_edge import (
         Client,
         SagemakerEdgeManagerClient,
     )
 
-    session = boto3.Session()
-
-    client: SagemakerEdgeManagerClient = boto3.client("sagemaker-edge")
-    session_client: SagemakerEdgeManagerClient = session.client("sagemaker-edge")
+    session = Session()
+    client: SagemakerEdgeManagerClient = session.client("sagemaker-edge")
     ```
 """
 

@@ -1,62 +1,82 @@
 """
 Type annotations for chime-sdk-voice service client paginators.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/paginators.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/paginators/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
 
-    from mypy_boto3_chime_sdk_voice import ChimeSDKVoiceClient
+    from mypy_boto3_chime_sdk_voice.client import ChimeSDKVoiceClient
     from mypy_boto3_chime_sdk_voice.paginator import (
         ListSipMediaApplicationsPaginator,
         ListSipRulesPaginator,
     )
 
-    client: ChimeSDKVoiceClient = boto3.client("chime-sdk-voice")
+    session = Session()
+    client: ChimeSDKVoiceClient = session.client("chime-sdk-voice")
 
     list_sip_media_applications_paginator: ListSipMediaApplicationsPaginator = client.get_paginator("list_sip_media_applications")
     list_sip_rules_paginator: ListSipRulesPaginator = client.get_paginator("list_sip_rules")
     ```
 """
 
-from typing import Iterator
+from __future__ import annotations
 
-from botocore.paginate import Paginator as Boto3Paginator
+import sys
+from typing import TYPE_CHECKING
+
+from botocore.paginate import PageIterator, Paginator
 
 from .type_defs import (
+    ListSipMediaApplicationsRequestPaginateTypeDef,
     ListSipMediaApplicationsResponseTypeDef,
+    ListSipRulesRequestPaginateTypeDef,
     ListSipRulesResponseTypeDef,
-    PaginatorConfigTypeDef,
 )
+
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = ("ListSipMediaApplicationsPaginator", "ListSipRulesPaginator")
 
-class ListSipMediaApplicationsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Paginator.ListSipMediaApplications)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/paginators.html#listsipmediaapplicationspaginator)
-    """
+if TYPE_CHECKING:
+    _ListSipMediaApplicationsPaginatorBase = Paginator[ListSipMediaApplicationsResponseTypeDef]
+else:
+    _ListSipMediaApplicationsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListSipMediaApplicationsResponseTypeDef]:
+class ListSipMediaApplicationsPaginator(_ListSipMediaApplicationsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/paginator/ListSipMediaApplications.html#ChimeSDKVoice.Paginator.ListSipMediaApplications)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/paginators/#listsipmediaapplicationspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListSipMediaApplicationsRequestPaginateTypeDef]
+    ) -> PageIterator[ListSipMediaApplicationsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Paginator.ListSipMediaApplications.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/paginators.html#listsipmediaapplicationspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/paginator/ListSipMediaApplications.html#ChimeSDKVoice.Paginator.ListSipMediaApplications.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/paginators/#listsipmediaapplicationspaginator)
         """
 
-class ListSipRulesPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Paginator.ListSipRules)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/paginators.html#listsiprulespaginator)
-    """
+if TYPE_CHECKING:
+    _ListSipRulesPaginatorBase = Paginator[ListSipRulesResponseTypeDef]
+else:
+    _ListSipRulesPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, SipMediaApplicationId: str = None, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListSipRulesResponseTypeDef]:
+class ListSipRulesPaginator(_ListSipRulesPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/paginator/ListSipRules.html#ChimeSDKVoice.Paginator.ListSipRules)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/paginators/#listsiprulespaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListSipRulesRequestPaginateTypeDef]
+    ) -> PageIterator[ListSipRulesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Paginator.ListSipRules.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/paginators.html#listsiprulespaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/paginator/ListSipRules.html#ChimeSDKVoice.Paginator.ListSipRules.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/paginators/#listsiprulespaginator)
         """

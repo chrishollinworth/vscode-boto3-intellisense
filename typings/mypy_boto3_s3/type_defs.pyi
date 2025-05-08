@@ -1,23 +1,28 @@
 """
 Type annotations for s3 service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_s3/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_s3.type_defs import AbortIncompleteMultipartUploadTypeDef
 
-    data: AbortIncompleteMultipartUploadTypeDef = {...}
+    data: AbortIncompleteMultipartUploadTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import IO, Any, Callable, Dict, List, Union
+from typing import IO, Any, Union
 
 from boto3.s3.transfer import TransferConfig
 from botocore.client import BaseClient
+from botocore.eventstream import EventStream
 from botocore.response import StreamingBody
 
 from .literals import (
@@ -28,7 +33,9 @@ from .literals import (
     BucketLogsPermissionType,
     BucketVersioningStatusType,
     ChecksumAlgorithmType,
+    ChecksumTypeType,
     CompressionTypeType,
+    DataRedundancyType,
     DeleteMarkerReplicationStatusType,
     EventType,
     ExistingObjectReplicationStatusType,
@@ -42,6 +49,7 @@ from .literals import (
     InventoryIncludedObjectVersionsType,
     InventoryOptionalFieldType,
     JSONTypeType,
+    LocationTypeType,
     MetadataDirectiveType,
     MetricsStatusType,
     MFADeleteStatusType,
@@ -68,44 +76,53 @@ from .literals import (
     StorageClassType,
     TaggingDirectiveType,
     TierType,
+    TransitionDefaultMinimumObjectSizeType,
     TransitionStorageClassType,
     TypeType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Callable, Mapping, Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Callable, Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
     "AbortIncompleteMultipartUploadTypeDef",
     "AbortMultipartUploadOutputTypeDef",
-    "AbortMultipartUploadRequestMultipartUploadTypeDef",
-    "AbortMultipartUploadRequestRequestTypeDef",
+    "AbortMultipartUploadRequestMultipartUploadAbortTypeDef",
+    "AbortMultipartUploadRequestTypeDef",
     "AccelerateConfigurationTypeDef",
     "AccessControlPolicyTypeDef",
     "AccessControlTranslationTypeDef",
+    "AnalyticsAndOperatorOutputTypeDef",
     "AnalyticsAndOperatorTypeDef",
+    "AnalyticsConfigurationOutputTypeDef",
     "AnalyticsConfigurationTypeDef",
+    "AnalyticsConfigurationUnionTypeDef",
     "AnalyticsExportDestinationTypeDef",
+    "AnalyticsFilterOutputTypeDef",
     "AnalyticsFilterTypeDef",
     "AnalyticsS3BucketDestinationTypeDef",
+    "BlobTypeDef",
     "BucketCopyRequestTypeDef",
     "BucketDownloadFileRequestTypeDef",
     "BucketDownloadFileobjRequestTypeDef",
     "BucketInfoTypeDef",
     "BucketLifecycleConfigurationTypeDef",
     "BucketLoggingStatusTypeDef",
-    "BucketObjectRequestTypeDef",
     "BucketTypeDef",
     "BucketUploadFileRequestTypeDef",
     "BucketUploadFileobjRequestTypeDef",
     "CORSConfigurationTypeDef",
+    "CORSRuleOutputTypeDef",
     "CORSRuleTypeDef",
+    "CORSRuleUnionTypeDef",
     "CSVInputTypeDef",
     "CSVOutputTypeDef",
     "ChecksumTypeDef",
@@ -115,202 +132,254 @@ __all__ = (
     "ClientGeneratePresignedPostRequestTypeDef",
     "ClientUploadFileRequestTypeDef",
     "ClientUploadFileobjRequestTypeDef",
+    "CloudFunctionConfigurationOutputTypeDef",
     "CloudFunctionConfigurationTypeDef",
+    "CloudFunctionConfigurationUnionTypeDef",
     "CommonPrefixTypeDef",
     "CompleteMultipartUploadOutputTypeDef",
-    "CompleteMultipartUploadRequestMultipartUploadTypeDef",
-    "CompleteMultipartUploadRequestRequestTypeDef",
+    "CompleteMultipartUploadRequestMultipartUploadCompleteTypeDef",
+    "CompleteMultipartUploadRequestTypeDef",
     "CompletedMultipartUploadTypeDef",
     "CompletedPartTypeDef",
     "ConditionTypeDef",
     "CopyObjectOutputTypeDef",
-    "CopyObjectRequestObjectSummaryTypeDef",
-    "CopyObjectRequestObjectTypeDef",
-    "CopyObjectRequestRequestTypeDef",
+    "CopyObjectRequestObjectCopyFromTypeDef",
+    "CopyObjectRequestObjectSummaryCopyFromTypeDef",
+    "CopyObjectRequestTypeDef",
     "CopyObjectResultTypeDef",
     "CopyPartResultTypeDef",
+    "CopySourceOrStrTypeDef",
     "CopySourceTypeDef",
     "CreateBucketConfigurationTypeDef",
+    "CreateBucketMetadataTableConfigurationRequestTypeDef",
     "CreateBucketOutputTypeDef",
-    "CreateBucketRequestBucketTypeDef",
-    "CreateBucketRequestRequestTypeDef",
-    "CreateBucketRequestServiceResourceTypeDef",
+    "CreateBucketRequestBucketCreateTypeDef",
+    "CreateBucketRequestServiceResourceCreateBucketTypeDef",
+    "CreateBucketRequestTypeDef",
     "CreateMultipartUploadOutputTypeDef",
-    "CreateMultipartUploadRequestObjectSummaryTypeDef",
-    "CreateMultipartUploadRequestObjectTypeDef",
-    "CreateMultipartUploadRequestRequestTypeDef",
+    "CreateMultipartUploadRequestObjectInitiateMultipartUploadTypeDef",
+    "CreateMultipartUploadRequestObjectSummaryInitiateMultipartUploadTypeDef",
+    "CreateMultipartUploadRequestTypeDef",
     "CreateSessionOutputTypeDef",
-    "CreateSessionRequestRequestTypeDef",
+    "CreateSessionRequestTypeDef",
     "DefaultRetentionTypeDef",
-    "DeleteBucketAnalyticsConfigurationRequestRequestTypeDef",
-    "DeleteBucketCorsRequestBucketCorsTypeDef",
-    "DeleteBucketCorsRequestRequestTypeDef",
-    "DeleteBucketEncryptionRequestRequestTypeDef",
-    "DeleteBucketIntelligentTieringConfigurationRequestRequestTypeDef",
-    "DeleteBucketInventoryConfigurationRequestRequestTypeDef",
-    "DeleteBucketLifecycleRequestBucketLifecycleConfigurationTypeDef",
-    "DeleteBucketLifecycleRequestBucketLifecycleTypeDef",
-    "DeleteBucketLifecycleRequestRequestTypeDef",
-    "DeleteBucketMetricsConfigurationRequestRequestTypeDef",
-    "DeleteBucketOwnershipControlsRequestRequestTypeDef",
-    "DeleteBucketPolicyRequestBucketPolicyTypeDef",
-    "DeleteBucketPolicyRequestRequestTypeDef",
-    "DeleteBucketReplicationRequestRequestTypeDef",
-    "DeleteBucketRequestBucketTypeDef",
-    "DeleteBucketRequestRequestTypeDef",
-    "DeleteBucketTaggingRequestBucketTaggingTypeDef",
-    "DeleteBucketTaggingRequestRequestTypeDef",
-    "DeleteBucketWebsiteRequestBucketWebsiteTypeDef",
-    "DeleteBucketWebsiteRequestRequestTypeDef",
+    "DeleteBucketAnalyticsConfigurationRequestTypeDef",
+    "DeleteBucketCorsRequestBucketCorsDeleteTypeDef",
+    "DeleteBucketCorsRequestTypeDef",
+    "DeleteBucketEncryptionRequestTypeDef",
+    "DeleteBucketIntelligentTieringConfigurationRequestTypeDef",
+    "DeleteBucketInventoryConfigurationRequestTypeDef",
+    "DeleteBucketLifecycleRequestBucketLifecycleConfigurationDeleteTypeDef",
+    "DeleteBucketLifecycleRequestBucketLifecycleDeleteTypeDef",
+    "DeleteBucketLifecycleRequestTypeDef",
+    "DeleteBucketMetadataTableConfigurationRequestTypeDef",
+    "DeleteBucketMetricsConfigurationRequestTypeDef",
+    "DeleteBucketOwnershipControlsRequestTypeDef",
+    "DeleteBucketPolicyRequestBucketPolicyDeleteTypeDef",
+    "DeleteBucketPolicyRequestTypeDef",
+    "DeleteBucketReplicationRequestTypeDef",
+    "DeleteBucketRequestBucketDeleteTypeDef",
+    "DeleteBucketRequestTypeDef",
+    "DeleteBucketTaggingRequestBucketTaggingDeleteTypeDef",
+    "DeleteBucketTaggingRequestTypeDef",
+    "DeleteBucketWebsiteRequestBucketWebsiteDeleteTypeDef",
+    "DeleteBucketWebsiteRequestTypeDef",
     "DeleteMarkerEntryTypeDef",
     "DeleteMarkerReplicationTypeDef",
     "DeleteObjectOutputTypeDef",
-    "DeleteObjectRequestObjectSummaryTypeDef",
-    "DeleteObjectRequestObjectTypeDef",
-    "DeleteObjectRequestObjectVersionTypeDef",
-    "DeleteObjectRequestRequestTypeDef",
+    "DeleteObjectRequestObjectDeleteTypeDef",
+    "DeleteObjectRequestObjectSummaryDeleteTypeDef",
+    "DeleteObjectRequestObjectVersionDeleteTypeDef",
+    "DeleteObjectRequestTypeDef",
     "DeleteObjectTaggingOutputTypeDef",
-    "DeleteObjectTaggingRequestRequestTypeDef",
+    "DeleteObjectTaggingRequestTypeDef",
     "DeleteObjectsOutputTypeDef",
-    "DeleteObjectsRequestBucketTypeDef",
-    "DeleteObjectsRequestRequestTypeDef",
-    "DeletePublicAccessBlockRequestRequestTypeDef",
+    "DeleteObjectsRequestBucketDeleteObjectsTypeDef",
+    "DeleteObjectsRequestTypeDef",
+    "DeletePublicAccessBlockRequestTypeDef",
     "DeleteTypeDef",
     "DeletedObjectTypeDef",
     "DestinationTypeDef",
+    "EmptyResponseMetadataTypeDef",
     "EncryptionConfigurationTypeDef",
     "EncryptionTypeDef",
+    "ErrorDetailsTypeDef",
     "ErrorDocumentTypeDef",
     "ErrorTypeDef",
     "ExistingObjectReplicationTypeDef",
+    "FileobjTypeDef",
     "FilterRuleTypeDef",
     "GetBucketAccelerateConfigurationOutputTypeDef",
-    "GetBucketAccelerateConfigurationRequestRequestTypeDef",
+    "GetBucketAccelerateConfigurationRequestTypeDef",
     "GetBucketAclOutputTypeDef",
-    "GetBucketAclRequestRequestTypeDef",
+    "GetBucketAclRequestTypeDef",
     "GetBucketAnalyticsConfigurationOutputTypeDef",
-    "GetBucketAnalyticsConfigurationRequestRequestTypeDef",
+    "GetBucketAnalyticsConfigurationRequestTypeDef",
     "GetBucketCorsOutputTypeDef",
-    "GetBucketCorsRequestRequestTypeDef",
+    "GetBucketCorsRequestTypeDef",
     "GetBucketEncryptionOutputTypeDef",
-    "GetBucketEncryptionRequestRequestTypeDef",
+    "GetBucketEncryptionRequestTypeDef",
     "GetBucketIntelligentTieringConfigurationOutputTypeDef",
-    "GetBucketIntelligentTieringConfigurationRequestRequestTypeDef",
+    "GetBucketIntelligentTieringConfigurationRequestTypeDef",
     "GetBucketInventoryConfigurationOutputTypeDef",
-    "GetBucketInventoryConfigurationRequestRequestTypeDef",
+    "GetBucketInventoryConfigurationRequestTypeDef",
     "GetBucketLifecycleConfigurationOutputTypeDef",
-    "GetBucketLifecycleConfigurationRequestRequestTypeDef",
+    "GetBucketLifecycleConfigurationRequestTypeDef",
     "GetBucketLifecycleOutputTypeDef",
-    "GetBucketLifecycleRequestRequestTypeDef",
+    "GetBucketLifecycleRequestTypeDef",
     "GetBucketLocationOutputTypeDef",
-    "GetBucketLocationRequestRequestTypeDef",
+    "GetBucketLocationRequestTypeDef",
     "GetBucketLoggingOutputTypeDef",
-    "GetBucketLoggingRequestRequestTypeDef",
+    "GetBucketLoggingRequestTypeDef",
+    "GetBucketMetadataTableConfigurationOutputTypeDef",
+    "GetBucketMetadataTableConfigurationRequestTypeDef",
+    "GetBucketMetadataTableConfigurationResultTypeDef",
     "GetBucketMetricsConfigurationOutputTypeDef",
-    "GetBucketMetricsConfigurationRequestRequestTypeDef",
+    "GetBucketMetricsConfigurationRequestTypeDef",
     "GetBucketNotificationConfigurationRequestRequestTypeDef",
+    "GetBucketNotificationConfigurationRequestTypeDef",
     "GetBucketOwnershipControlsOutputTypeDef",
-    "GetBucketOwnershipControlsRequestRequestTypeDef",
+    "GetBucketOwnershipControlsRequestTypeDef",
     "GetBucketPolicyOutputTypeDef",
-    "GetBucketPolicyRequestRequestTypeDef",
+    "GetBucketPolicyRequestTypeDef",
     "GetBucketPolicyStatusOutputTypeDef",
-    "GetBucketPolicyStatusRequestRequestTypeDef",
+    "GetBucketPolicyStatusRequestTypeDef",
     "GetBucketReplicationOutputTypeDef",
-    "GetBucketReplicationRequestRequestTypeDef",
+    "GetBucketReplicationRequestTypeDef",
     "GetBucketRequestPaymentOutputTypeDef",
-    "GetBucketRequestPaymentRequestRequestTypeDef",
+    "GetBucketRequestPaymentRequestTypeDef",
     "GetBucketTaggingOutputTypeDef",
-    "GetBucketTaggingRequestRequestTypeDef",
+    "GetBucketTaggingRequestTypeDef",
     "GetBucketVersioningOutputTypeDef",
-    "GetBucketVersioningRequestRequestTypeDef",
+    "GetBucketVersioningRequestTypeDef",
     "GetBucketWebsiteOutputTypeDef",
-    "GetBucketWebsiteRequestRequestTypeDef",
+    "GetBucketWebsiteRequestTypeDef",
     "GetObjectAclOutputTypeDef",
-    "GetObjectAclRequestRequestTypeDef",
+    "GetObjectAclRequestTypeDef",
     "GetObjectAttributesOutputTypeDef",
     "GetObjectAttributesPartsTypeDef",
-    "GetObjectAttributesRequestRequestTypeDef",
+    "GetObjectAttributesRequestTypeDef",
     "GetObjectLegalHoldOutputTypeDef",
-    "GetObjectLegalHoldRequestRequestTypeDef",
+    "GetObjectLegalHoldRequestTypeDef",
     "GetObjectLockConfigurationOutputTypeDef",
-    "GetObjectLockConfigurationRequestRequestTypeDef",
+    "GetObjectLockConfigurationRequestTypeDef",
     "GetObjectOutputTypeDef",
-    "GetObjectRequestObjectSummaryTypeDef",
-    "GetObjectRequestObjectTypeDef",
-    "GetObjectRequestObjectVersionTypeDef",
-    "GetObjectRequestRequestTypeDef",
+    "GetObjectRequestObjectGetTypeDef",
+    "GetObjectRequestObjectSummaryGetTypeDef",
+    "GetObjectRequestObjectVersionGetTypeDef",
+    "GetObjectRequestTypeDef",
     "GetObjectRetentionOutputTypeDef",
-    "GetObjectRetentionRequestRequestTypeDef",
+    "GetObjectRetentionRequestTypeDef",
     "GetObjectTaggingOutputTypeDef",
-    "GetObjectTaggingRequestRequestTypeDef",
+    "GetObjectTaggingRequestTypeDef",
     "GetObjectTorrentOutputTypeDef",
-    "GetObjectTorrentRequestRequestTypeDef",
+    "GetObjectTorrentRequestTypeDef",
     "GetPublicAccessBlockOutputTypeDef",
-    "GetPublicAccessBlockRequestRequestTypeDef",
+    "GetPublicAccessBlockRequestTypeDef",
     "GlacierJobParametersTypeDef",
     "GrantTypeDef",
     "GranteeTypeDef",
     "HeadBucketOutputTypeDef",
-    "HeadBucketRequestRequestTypeDef",
+    "HeadBucketRequestTypeDef",
+    "HeadBucketRequestWaitExtraTypeDef",
+    "HeadBucketRequestWaitTypeDef",
     "HeadObjectOutputTypeDef",
-    "HeadObjectRequestObjectVersionTypeDef",
-    "HeadObjectRequestRequestTypeDef",
+    "HeadObjectRequestObjectVersionHeadTypeDef",
+    "HeadObjectRequestTypeDef",
+    "HeadObjectRequestWaitExtraTypeDef",
+    "HeadObjectRequestWaitTypeDef",
     "IndexDocumentTypeDef",
     "InitiatorTypeDef",
     "InputSerializationTypeDef",
+    "IntelligentTieringAndOperatorOutputTypeDef",
     "IntelligentTieringAndOperatorTypeDef",
+    "IntelligentTieringConfigurationOutputTypeDef",
     "IntelligentTieringConfigurationTypeDef",
+    "IntelligentTieringConfigurationUnionTypeDef",
+    "IntelligentTieringFilterOutputTypeDef",
     "IntelligentTieringFilterTypeDef",
+    "InventoryConfigurationOutputTypeDef",
     "InventoryConfigurationTypeDef",
+    "InventoryConfigurationUnionTypeDef",
+    "InventoryDestinationOutputTypeDef",
     "InventoryDestinationTypeDef",
+    "InventoryEncryptionOutputTypeDef",
     "InventoryEncryptionTypeDef",
     "InventoryFilterTypeDef",
+    "InventoryS3BucketDestinationOutputTypeDef",
     "InventoryS3BucketDestinationTypeDef",
     "InventoryScheduleTypeDef",
     "JSONInputTypeDef",
     "JSONOutputTypeDef",
+    "LambdaFunctionConfigurationOutputTypeDef",
     "LambdaFunctionConfigurationTypeDef",
+    "LambdaFunctionConfigurationUnionTypeDef",
     "LifecycleConfigurationTypeDef",
+    "LifecycleExpirationOutputTypeDef",
     "LifecycleExpirationTypeDef",
+    "LifecycleExpirationUnionTypeDef",
+    "LifecycleRuleAndOperatorOutputTypeDef",
     "LifecycleRuleAndOperatorTypeDef",
+    "LifecycleRuleAndOperatorUnionTypeDef",
+    "LifecycleRuleFilterOutputTypeDef",
     "LifecycleRuleFilterTypeDef",
+    "LifecycleRuleFilterUnionTypeDef",
+    "LifecycleRuleOutputTypeDef",
     "LifecycleRuleTypeDef",
+    "LifecycleRuleUnionTypeDef",
     "ListBucketAnalyticsConfigurationsOutputTypeDef",
-    "ListBucketAnalyticsConfigurationsRequestRequestTypeDef",
+    "ListBucketAnalyticsConfigurationsRequestTypeDef",
     "ListBucketIntelligentTieringConfigurationsOutputTypeDef",
-    "ListBucketIntelligentTieringConfigurationsRequestRequestTypeDef",
+    "ListBucketIntelligentTieringConfigurationsRequestTypeDef",
     "ListBucketInventoryConfigurationsOutputTypeDef",
-    "ListBucketInventoryConfigurationsRequestRequestTypeDef",
+    "ListBucketInventoryConfigurationsRequestTypeDef",
     "ListBucketMetricsConfigurationsOutputTypeDef",
-    "ListBucketMetricsConfigurationsRequestRequestTypeDef",
+    "ListBucketMetricsConfigurationsRequestTypeDef",
     "ListBucketsOutputTypeDef",
+    "ListBucketsRequestPaginateTypeDef",
+    "ListBucketsRequestTypeDef",
     "ListDirectoryBucketsOutputTypeDef",
-    "ListDirectoryBucketsRequestRequestTypeDef",
+    "ListDirectoryBucketsRequestPaginateTypeDef",
+    "ListDirectoryBucketsRequestTypeDef",
     "ListMultipartUploadsOutputTypeDef",
-    "ListMultipartUploadsRequestRequestTypeDef",
+    "ListMultipartUploadsRequestPaginateTypeDef",
+    "ListMultipartUploadsRequestTypeDef",
     "ListObjectVersionsOutputTypeDef",
-    "ListObjectVersionsRequestRequestTypeDef",
+    "ListObjectVersionsRequestPaginateTypeDef",
+    "ListObjectVersionsRequestTypeDef",
     "ListObjectsOutputTypeDef",
-    "ListObjectsRequestRequestTypeDef",
+    "ListObjectsRequestPaginateTypeDef",
+    "ListObjectsRequestTypeDef",
     "ListObjectsV2OutputTypeDef",
-    "ListObjectsV2RequestRequestTypeDef",
+    "ListObjectsV2RequestPaginateTypeDef",
+    "ListObjectsV2RequestTypeDef",
     "ListPartsOutputTypeDef",
-    "ListPartsRequestRequestTypeDef",
+    "ListPartsRequestPaginateTypeDef",
+    "ListPartsRequestTypeDef",
     "LocationInfoTypeDef",
+    "LoggingEnabledOutputTypeDef",
     "LoggingEnabledTypeDef",
+    "LoggingEnabledUnionTypeDef",
     "MetadataEntryTypeDef",
+    "MetadataTableConfigurationResultTypeDef",
+    "MetadataTableConfigurationTypeDef",
+    "MetricsAndOperatorOutputTypeDef",
     "MetricsAndOperatorTypeDef",
+    "MetricsConfigurationOutputTypeDef",
     "MetricsConfigurationTypeDef",
+    "MetricsConfigurationUnionTypeDef",
+    "MetricsFilterOutputTypeDef",
     "MetricsFilterTypeDef",
     "MetricsTypeDef",
-    "MultipartUploadPartRequestTypeDef",
     "MultipartUploadTypeDef",
     "NoncurrentVersionExpirationTypeDef",
     "NoncurrentVersionTransitionTypeDef",
-    "NotificationConfigurationDeprecatedResponseMetadataTypeDef",
+    "NotificationConfigurationDeprecatedResponseTypeDef",
     "NotificationConfigurationDeprecatedTypeDef",
+    "NotificationConfigurationFilterOutputTypeDef",
     "NotificationConfigurationFilterTypeDef",
-    "NotificationConfigurationResponseMetadataTypeDef",
+    "NotificationConfigurationFilterUnionTypeDef",
+    "NotificationConfigurationResponseTypeDef",
     "NotificationConfigurationTypeDef",
     "ObjectCopyRequestTypeDef",
     "ObjectDownloadFileRequestTypeDef",
@@ -318,22 +387,22 @@ __all__ = (
     "ObjectIdentifierTypeDef",
     "ObjectLockConfigurationTypeDef",
     "ObjectLockLegalHoldTypeDef",
+    "ObjectLockRetentionOutputTypeDef",
     "ObjectLockRetentionTypeDef",
+    "ObjectLockRetentionUnionTypeDef",
     "ObjectLockRuleTypeDef",
-    "ObjectMultipartUploadRequestTypeDef",
     "ObjectPartTypeDef",
-    "ObjectSummaryMultipartUploadRequestTypeDef",
-    "ObjectSummaryVersionRequestTypeDef",
     "ObjectTypeDef",
     "ObjectUploadFileRequestTypeDef",
     "ObjectUploadFileobjRequestTypeDef",
-    "ObjectVersionRequestTypeDef",
     "ObjectVersionTypeDef",
     "OutputLocationTypeDef",
     "OutputSerializationTypeDef",
     "OwnerTypeDef",
+    "OwnershipControlsOutputTypeDef",
     "OwnershipControlsRuleTypeDef",
     "OwnershipControlsTypeDef",
+    "OwnershipControlsUnionTypeDef",
     "PaginatorConfigTypeDef",
     "PartTypeDef",
     "PartitionedPrefixTypeDef",
@@ -341,63 +410,75 @@ __all__ = (
     "ProgressEventTypeDef",
     "ProgressTypeDef",
     "PublicAccessBlockConfigurationTypeDef",
-    "PutBucketAccelerateConfigurationRequestRequestTypeDef",
-    "PutBucketAclRequestBucketAclTypeDef",
-    "PutBucketAclRequestRequestTypeDef",
-    "PutBucketAnalyticsConfigurationRequestRequestTypeDef",
-    "PutBucketCorsRequestBucketCorsTypeDef",
-    "PutBucketCorsRequestRequestTypeDef",
-    "PutBucketEncryptionRequestRequestTypeDef",
-    "PutBucketIntelligentTieringConfigurationRequestRequestTypeDef",
-    "PutBucketInventoryConfigurationRequestRequestTypeDef",
-    "PutBucketLifecycleConfigurationRequestBucketLifecycleConfigurationTypeDef",
-    "PutBucketLifecycleConfigurationRequestRequestTypeDef",
-    "PutBucketLifecycleRequestBucketLifecycleTypeDef",
-    "PutBucketLifecycleRequestRequestTypeDef",
-    "PutBucketLoggingRequestBucketLoggingTypeDef",
-    "PutBucketLoggingRequestRequestTypeDef",
-    "PutBucketMetricsConfigurationRequestRequestTypeDef",
-    "PutBucketNotificationConfigurationRequestBucketNotificationTypeDef",
-    "PutBucketNotificationConfigurationRequestRequestTypeDef",
-    "PutBucketNotificationRequestRequestTypeDef",
-    "PutBucketOwnershipControlsRequestRequestTypeDef",
-    "PutBucketPolicyRequestBucketPolicyTypeDef",
-    "PutBucketPolicyRequestRequestTypeDef",
-    "PutBucketReplicationRequestRequestTypeDef",
-    "PutBucketRequestPaymentRequestBucketRequestPaymentTypeDef",
-    "PutBucketRequestPaymentRequestRequestTypeDef",
-    "PutBucketTaggingRequestBucketTaggingTypeDef",
-    "PutBucketTaggingRequestRequestTypeDef",
-    "PutBucketVersioningRequestBucketVersioningTypeDef",
-    "PutBucketVersioningRequestRequestTypeDef",
-    "PutBucketWebsiteRequestBucketWebsiteTypeDef",
-    "PutBucketWebsiteRequestRequestTypeDef",
+    "PutBucketAccelerateConfigurationRequestTypeDef",
+    "PutBucketAclRequestBucketAclPutTypeDef",
+    "PutBucketAclRequestTypeDef",
+    "PutBucketAnalyticsConfigurationRequestTypeDef",
+    "PutBucketCorsRequestBucketCorsPutTypeDef",
+    "PutBucketCorsRequestTypeDef",
+    "PutBucketEncryptionRequestTypeDef",
+    "PutBucketIntelligentTieringConfigurationRequestTypeDef",
+    "PutBucketInventoryConfigurationRequestTypeDef",
+    "PutBucketLifecycleConfigurationOutputTypeDef",
+    "PutBucketLifecycleConfigurationRequestBucketLifecycleConfigurationPutTypeDef",
+    "PutBucketLifecycleConfigurationRequestTypeDef",
+    "PutBucketLifecycleRequestBucketLifecyclePutTypeDef",
+    "PutBucketLifecycleRequestTypeDef",
+    "PutBucketLoggingRequestBucketLoggingPutTypeDef",
+    "PutBucketLoggingRequestTypeDef",
+    "PutBucketMetricsConfigurationRequestTypeDef",
+    "PutBucketNotificationConfigurationRequestBucketNotificationPutTypeDef",
+    "PutBucketNotificationConfigurationRequestTypeDef",
+    "PutBucketNotificationRequestTypeDef",
+    "PutBucketOwnershipControlsRequestTypeDef",
+    "PutBucketPolicyRequestBucketPolicyPutTypeDef",
+    "PutBucketPolicyRequestTypeDef",
+    "PutBucketReplicationRequestTypeDef",
+    "PutBucketRequestPaymentRequestBucketRequestPaymentPutTypeDef",
+    "PutBucketRequestPaymentRequestTypeDef",
+    "PutBucketTaggingRequestBucketTaggingPutTypeDef",
+    "PutBucketTaggingRequestTypeDef",
+    "PutBucketVersioningRequestBucketVersioningEnableTypeDef",
+    "PutBucketVersioningRequestBucketVersioningPutTypeDef",
+    "PutBucketVersioningRequestBucketVersioningSuspendTypeDef",
+    "PutBucketVersioningRequestTypeDef",
+    "PutBucketWebsiteRequestBucketWebsitePutTypeDef",
+    "PutBucketWebsiteRequestTypeDef",
     "PutObjectAclOutputTypeDef",
-    "PutObjectAclRequestObjectAclTypeDef",
-    "PutObjectAclRequestRequestTypeDef",
+    "PutObjectAclRequestObjectAclPutTypeDef",
+    "PutObjectAclRequestTypeDef",
     "PutObjectLegalHoldOutputTypeDef",
-    "PutObjectLegalHoldRequestRequestTypeDef",
+    "PutObjectLegalHoldRequestTypeDef",
     "PutObjectLockConfigurationOutputTypeDef",
-    "PutObjectLockConfigurationRequestRequestTypeDef",
+    "PutObjectLockConfigurationRequestTypeDef",
     "PutObjectOutputTypeDef",
-    "PutObjectRequestBucketTypeDef",
-    "PutObjectRequestObjectSummaryTypeDef",
-    "PutObjectRequestObjectTypeDef",
-    "PutObjectRequestRequestTypeDef",
+    "PutObjectRequestBucketPutObjectTypeDef",
+    "PutObjectRequestObjectPutTypeDef",
+    "PutObjectRequestObjectSummaryPutTypeDef",
+    "PutObjectRequestTypeDef",
     "PutObjectRetentionOutputTypeDef",
-    "PutObjectRetentionRequestRequestTypeDef",
+    "PutObjectRetentionRequestTypeDef",
     "PutObjectTaggingOutputTypeDef",
-    "PutObjectTaggingRequestRequestTypeDef",
-    "PutPublicAccessBlockRequestRequestTypeDef",
+    "PutObjectTaggingRequestTypeDef",
+    "PutPublicAccessBlockRequestTypeDef",
+    "QueueConfigurationDeprecatedOutputTypeDef",
     "QueueConfigurationDeprecatedTypeDef",
+    "QueueConfigurationDeprecatedUnionTypeDef",
+    "QueueConfigurationOutputTypeDef",
     "QueueConfigurationTypeDef",
+    "QueueConfigurationUnionTypeDef",
     "RecordsEventTypeDef",
     "RedirectAllRequestsToTypeDef",
     "RedirectTypeDef",
     "ReplicaModificationsTypeDef",
+    "ReplicationConfigurationOutputTypeDef",
     "ReplicationConfigurationTypeDef",
+    "ReplicationConfigurationUnionTypeDef",
+    "ReplicationRuleAndOperatorOutputTypeDef",
     "ReplicationRuleAndOperatorTypeDef",
+    "ReplicationRuleFilterOutputTypeDef",
     "ReplicationRuleFilterTypeDef",
+    "ReplicationRuleOutputTypeDef",
     "ReplicationRuleTypeDef",
     "ReplicationTimeTypeDef",
     "ReplicationTimeValueTypeDef",
@@ -405,42 +486,32 @@ __all__ = (
     "RequestProgressTypeDef",
     "ResponseMetadataTypeDef",
     "RestoreObjectOutputTypeDef",
-    "RestoreObjectRequestObjectSummaryTypeDef",
-    "RestoreObjectRequestObjectTypeDef",
-    "RestoreObjectRequestRequestTypeDef",
+    "RestoreObjectRequestObjectRestoreObjectTypeDef",
+    "RestoreObjectRequestObjectSummaryRestoreObjectTypeDef",
+    "RestoreObjectRequestTypeDef",
     "RestoreRequestTypeDef",
     "RestoreStatusTypeDef",
     "RoutingRuleTypeDef",
+    "RuleOutputTypeDef",
     "RuleTypeDef",
+    "RuleUnionTypeDef",
+    "S3KeyFilterOutputTypeDef",
     "S3KeyFilterTypeDef",
+    "S3KeyFilterUnionTypeDef",
     "S3LocationTypeDef",
+    "S3TablesDestinationResultTypeDef",
+    "S3TablesDestinationTypeDef",
     "SSEKMSTypeDef",
     "ScanRangeTypeDef",
     "SelectObjectContentEventStreamTypeDef",
     "SelectObjectContentOutputTypeDef",
-    "SelectObjectContentRequestRequestTypeDef",
+    "SelectObjectContentRequestTypeDef",
     "SelectParametersTypeDef",
     "ServerSideEncryptionByDefaultTypeDef",
+    "ServerSideEncryptionConfigurationOutputTypeDef",
     "ServerSideEncryptionConfigurationTypeDef",
+    "ServerSideEncryptionConfigurationUnionTypeDef",
     "ServerSideEncryptionRuleTypeDef",
-    "ServiceResourceBucketAclRequestTypeDef",
-    "ServiceResourceBucketCorsRequestTypeDef",
-    "ServiceResourceBucketLifecycleConfigurationRequestTypeDef",
-    "ServiceResourceBucketLifecycleRequestTypeDef",
-    "ServiceResourceBucketLoggingRequestTypeDef",
-    "ServiceResourceBucketNotificationRequestTypeDef",
-    "ServiceResourceBucketPolicyRequestTypeDef",
-    "ServiceResourceBucketRequestPaymentRequestTypeDef",
-    "ServiceResourceBucketRequestTypeDef",
-    "ServiceResourceBucketTaggingRequestTypeDef",
-    "ServiceResourceBucketVersioningRequestTypeDef",
-    "ServiceResourceBucketWebsiteRequestTypeDef",
-    "ServiceResourceMultipartUploadPartRequestTypeDef",
-    "ServiceResourceMultipartUploadRequestTypeDef",
-    "ServiceResourceObjectAclRequestTypeDef",
-    "ServiceResourceObjectRequestTypeDef",
-    "ServiceResourceObjectSummaryRequestTypeDef",
-    "ServiceResourceObjectVersionRequestTypeDef",
     "SessionCredentialsTypeDef",
     "SourceSelectionCriteriaTypeDef",
     "SseKmsEncryptedObjectsTypeDef",
@@ -451,6083 +522,3248 @@ __all__ = (
     "TagTypeDef",
     "TaggingTypeDef",
     "TargetGrantTypeDef",
+    "TargetObjectKeyFormatOutputTypeDef",
     "TargetObjectKeyFormatTypeDef",
+    "TargetObjectKeyFormatUnionTypeDef",
     "TieringTypeDef",
+    "TimestampTypeDef",
+    "TopicConfigurationDeprecatedOutputTypeDef",
     "TopicConfigurationDeprecatedTypeDef",
+    "TopicConfigurationDeprecatedUnionTypeDef",
+    "TopicConfigurationOutputTypeDef",
     "TopicConfigurationTypeDef",
+    "TopicConfigurationUnionTypeDef",
+    "TransitionOutputTypeDef",
     "TransitionTypeDef",
+    "TransitionUnionTypeDef",
     "UploadPartCopyOutputTypeDef",
-    "UploadPartCopyRequestMultipartUploadPartTypeDef",
-    "UploadPartCopyRequestRequestTypeDef",
+    "UploadPartCopyRequestMultipartUploadPartCopyFromTypeDef",
+    "UploadPartCopyRequestTypeDef",
     "UploadPartOutputTypeDef",
-    "UploadPartRequestMultipartUploadPartTypeDef",
-    "UploadPartRequestRequestTypeDef",
+    "UploadPartRequestMultipartUploadPartUploadTypeDef",
+    "UploadPartRequestTypeDef",
     "VersioningConfigurationTypeDef",
     "WaiterConfigTypeDef",
     "WebsiteConfigurationTypeDef",
-    "WriteGetObjectResponseRequestRequestTypeDef",
+    "WriteGetObjectResponseRequestTypeDef",
 )
 
-AbortIncompleteMultipartUploadTypeDef = TypedDict(
-    "AbortIncompleteMultipartUploadTypeDef",
-    {
-        "DaysAfterInitiation": int,
-    },
-    total=False,
-)
+class AbortIncompleteMultipartUploadTypeDef(TypedDict):
+    DaysAfterInitiation: NotRequired[int]
 
-AbortMultipartUploadOutputTypeDef = TypedDict(
-    "AbortMultipartUploadOutputTypeDef",
-    {
-        "RequestCharged": Literal["requester"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-AbortMultipartUploadRequestMultipartUploadTypeDef = TypedDict(
-    "AbortMultipartUploadRequestMultipartUploadTypeDef",
-    {
-        "RequestPayer": Literal["requester"],
-        "ExpectedBucketOwner": str,
-    },
-    total=False,
-)
+TimestampTypeDef = Union[datetime, str]
 
-_RequiredAbortMultipartUploadRequestRequestTypeDef = TypedDict(
-    "_RequiredAbortMultipartUploadRequestRequestTypeDef",
-    {
-        "Bucket": str,
-        "Key": str,
-        "UploadId": str,
-    },
-)
-_OptionalAbortMultipartUploadRequestRequestTypeDef = TypedDict(
-    "_OptionalAbortMultipartUploadRequestRequestTypeDef",
-    {
-        "RequestPayer": Literal["requester"],
-        "ExpectedBucketOwner": str,
-    },
-    total=False,
-)
+class AccelerateConfigurationTypeDef(TypedDict):
+    Status: NotRequired[BucketAccelerateStatusType]
 
-class AbortMultipartUploadRequestRequestTypeDef(
-    _RequiredAbortMultipartUploadRequestRequestTypeDef,
-    _OptionalAbortMultipartUploadRequestRequestTypeDef,
-):
-    pass
+class OwnerTypeDef(TypedDict):
+    DisplayName: NotRequired[str]
+    ID: NotRequired[str]
 
-AccelerateConfigurationTypeDef = TypedDict(
-    "AccelerateConfigurationTypeDef",
-    {
-        "Status": BucketAccelerateStatusType,
-    },
-    total=False,
-)
+class AccessControlTranslationTypeDef(TypedDict):
+    Owner: Literal["Destination"]
 
-AccessControlPolicyTypeDef = TypedDict(
-    "AccessControlPolicyTypeDef",
-    {
-        "Grants": List["GrantTypeDef"],
-        "Owner": "OwnerTypeDef",
-    },
-    total=False,
-)
+class TagTypeDef(TypedDict):
+    Key: str
+    Value: str
 
-AccessControlTranslationTypeDef = TypedDict(
-    "AccessControlTranslationTypeDef",
-    {
-        "Owner": Literal["Destination"],
-    },
-)
+class AnalyticsS3BucketDestinationTypeDef(TypedDict):
+    Format: Literal["CSV"]
+    Bucket: str
+    BucketAccountId: NotRequired[str]
+    Prefix: NotRequired[str]
 
-AnalyticsAndOperatorTypeDef = TypedDict(
-    "AnalyticsAndOperatorTypeDef",
-    {
-        "Prefix": str,
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
+BlobTypeDef = Union[str, bytes, IO[Any], StreamingBody]
 
-_RequiredAnalyticsConfigurationTypeDef = TypedDict(
-    "_RequiredAnalyticsConfigurationTypeDef",
-    {
-        "Id": str,
-        "StorageClassAnalysis": "StorageClassAnalysisTypeDef",
-    },
-)
-_OptionalAnalyticsConfigurationTypeDef = TypedDict(
-    "_OptionalAnalyticsConfigurationTypeDef",
-    {
-        "Filter": "AnalyticsFilterTypeDef",
-    },
-    total=False,
-)
+class CopySourceTypeDef(TypedDict):
+    Bucket: str
+    Key: str
+    VersionId: NotRequired[str]
 
-class AnalyticsConfigurationTypeDef(
-    _RequiredAnalyticsConfigurationTypeDef, _OptionalAnalyticsConfigurationTypeDef
-):
-    pass
+class BucketDownloadFileRequestTypeDef(TypedDict):
+    Key: str
+    Filename: str
+    ExtraArgs: NotRequired[Dict[str, Any] | None]
+    Callback: NotRequired[Callable[..., Any] | None]
+    Config: NotRequired[TransferConfig | None]
 
-AnalyticsExportDestinationTypeDef = TypedDict(
-    "AnalyticsExportDestinationTypeDef",
-    {
-        "S3BucketDestination": "AnalyticsS3BucketDestinationTypeDef",
-    },
-)
-
-AnalyticsFilterTypeDef = TypedDict(
-    "AnalyticsFilterTypeDef",
-    {
-        "Prefix": str,
-        "Tag": "TagTypeDef",
-        "And": "AnalyticsAndOperatorTypeDef",
-    },
-    total=False,
-)
-
-_RequiredAnalyticsS3BucketDestinationTypeDef = TypedDict(
-    "_RequiredAnalyticsS3BucketDestinationTypeDef",
-    {
-        "Format": Literal["CSV"],
-        "Bucket": str,
-    },
-)
-_OptionalAnalyticsS3BucketDestinationTypeDef = TypedDict(
-    "_OptionalAnalyticsS3BucketDestinationTypeDef",
-    {
-        "BucketAccountId": str,
-        "Prefix": str,
-    },
-    total=False,
-)
-
-class AnalyticsS3BucketDestinationTypeDef(
-    _RequiredAnalyticsS3BucketDestinationTypeDef, _OptionalAnalyticsS3BucketDestinationTypeDef
-):
-    pass
-
-_RequiredBucketCopyRequestTypeDef = TypedDict(
-    "_RequiredBucketCopyRequestTypeDef",
-    {
-        "CopySource": "CopySourceTypeDef",
-        "Key": str,
-    },
-)
-_OptionalBucketCopyRequestTypeDef = TypedDict(
-    "_OptionalBucketCopyRequestTypeDef",
-    {
-        "ExtraArgs": Dict[str, Any],
-        "Callback": Callable[..., Any],
-        "SourceClient": BaseClient,
-        "Config": TransferConfig,
-    },
-    total=False,
-)
-
-class BucketCopyRequestTypeDef(
-    _RequiredBucketCopyRequestTypeDef, _OptionalBucketCopyRequestTypeDef
-):
-    pass
-
-_RequiredBucketDownloadFileRequestTypeDef = TypedDict(
-    "_RequiredBucketDownloadFileRequestTypeDef",
-    {
-        "Key": str,
-        "Filename": str,
-    },
-)
-_OptionalBucketDownloadFileRequestTypeDef = TypedDict(
-    "_OptionalBucketDownloadFileRequestTypeDef",
-    {
-        "ExtraArgs": Dict[str, Any],
-        "Callback": Callable[..., Any],
-        "Config": TransferConfig,
-    },
-    total=False,
-)
-
-class BucketDownloadFileRequestTypeDef(
-    _RequiredBucketDownloadFileRequestTypeDef, _OptionalBucketDownloadFileRequestTypeDef
-):
-    pass
-
-_RequiredBucketDownloadFileobjRequestTypeDef = TypedDict(
-    "_RequiredBucketDownloadFileobjRequestTypeDef",
-    {
-        "Key": str,
-        "Fileobj": IO[Any],
-    },
-)
-_OptionalBucketDownloadFileobjRequestTypeDef = TypedDict(
-    "_OptionalBucketDownloadFileobjRequestTypeDef",
-    {
-        "ExtraArgs": Dict[str, Any],
-        "Callback": Callable[..., Any],
-        "Config": TransferConfig,
-    },
-    total=False,
-)
-
-class BucketDownloadFileobjRequestTypeDef(
-    _RequiredBucketDownloadFileobjRequestTypeDef, _OptionalBucketDownloadFileobjRequestTypeDef
-):
-    pass
-
+FileobjTypeDef = Union[IO[Any], StreamingBody]
 BucketInfoTypeDef = TypedDict(
     "BucketInfoTypeDef",
     {
-        "DataRedundancy": Literal["SingleAvailabilityZone"],
-        "Type": Literal["Directory"],
-    },
-    total=False,
-)
-
-BucketLifecycleConfigurationTypeDef = TypedDict(
-    "BucketLifecycleConfigurationTypeDef",
-    {
-        "Rules": List["LifecycleRuleTypeDef"],
-    },
-)
-
-BucketLoggingStatusTypeDef = TypedDict(
-    "BucketLoggingStatusTypeDef",
-    {
-        "LoggingEnabled": "LoggingEnabledTypeDef",
-    },
-    total=False,
-)
-
-BucketObjectRequestTypeDef = TypedDict(
-    "BucketObjectRequestTypeDef",
-    {
-        "key": str,
-    },
-)
-
-BucketTypeDef = TypedDict(
-    "BucketTypeDef",
-    {
-        "Name": str,
-        "CreationDate": datetime,
-    },
-    total=False,
-)
-
-_RequiredBucketUploadFileRequestTypeDef = TypedDict(
-    "_RequiredBucketUploadFileRequestTypeDef",
-    {
-        "Filename": str,
-        "Key": str,
-    },
-)
-_OptionalBucketUploadFileRequestTypeDef = TypedDict(
-    "_OptionalBucketUploadFileRequestTypeDef",
-    {
-        "ExtraArgs": Dict[str, Any],
-        "Callback": Callable[..., Any],
-        "Config": TransferConfig,
-    },
-    total=False,
-)
-
-class BucketUploadFileRequestTypeDef(
-    _RequiredBucketUploadFileRequestTypeDef, _OptionalBucketUploadFileRequestTypeDef
-):
-    pass
-
-_RequiredBucketUploadFileobjRequestTypeDef = TypedDict(
-    "_RequiredBucketUploadFileobjRequestTypeDef",
-    {
-        "Fileobj": IO[Any],
-        "Key": str,
-    },
-)
-_OptionalBucketUploadFileobjRequestTypeDef = TypedDict(
-    "_OptionalBucketUploadFileobjRequestTypeDef",
-    {
-        "ExtraArgs": Dict[str, Any],
-        "Callback": Callable[..., Any],
-        "Config": TransferConfig,
-    },
-    total=False,
-)
-
-class BucketUploadFileobjRequestTypeDef(
-    _RequiredBucketUploadFileobjRequestTypeDef, _OptionalBucketUploadFileobjRequestTypeDef
-):
-    pass
-
-CORSConfigurationTypeDef = TypedDict(
-    "CORSConfigurationTypeDef",
-    {
-        "CORSRules": List["CORSRuleTypeDef"],
-    },
-)
-
-_RequiredCORSRuleTypeDef = TypedDict(
-    "_RequiredCORSRuleTypeDef",
-    {
-        "AllowedMethods": List[str],
-        "AllowedOrigins": List[str],
-    },
-)
-_OptionalCORSRuleTypeDef = TypedDict(
-    "_OptionalCORSRuleTypeDef",
-    {
-        "ID": str,
-        "AllowedHeaders": List[str],
-        "ExposeHeaders": List[str],
-        "MaxAgeSeconds": int,
-    },
-    total=False,
-)
-
-class CORSRuleTypeDef(_RequiredCORSRuleTypeDef, _OptionalCORSRuleTypeDef):
-    pass
-
-CSVInputTypeDef = TypedDict(
-    "CSVInputTypeDef",
-    {
-        "FileHeaderInfo": FileHeaderInfoType,
-        "Comments": str,
-        "QuoteEscapeCharacter": str,
-        "RecordDelimiter": str,
-        "FieldDelimiter": str,
-        "QuoteCharacter": str,
-        "AllowQuotedRecordDelimiter": bool,
-    },
-    total=False,
-)
-
-CSVOutputTypeDef = TypedDict(
-    "CSVOutputTypeDef",
-    {
-        "QuoteFields": QuoteFieldsType,
-        "QuoteEscapeCharacter": str,
-        "RecordDelimiter": str,
-        "FieldDelimiter": str,
-        "QuoteCharacter": str,
-    },
-    total=False,
-)
-
-ChecksumTypeDef = TypedDict(
-    "ChecksumTypeDef",
-    {
-        "ChecksumCRC32": str,
-        "ChecksumCRC32C": str,
-        "ChecksumSHA1": str,
-        "ChecksumSHA256": str,
-    },
-    total=False,
-)
-
-_RequiredClientCopyRequestTypeDef = TypedDict(
-    "_RequiredClientCopyRequestTypeDef",
-    {
-        "CopySource": "CopySourceTypeDef",
-        "Bucket": str,
-        "Key": str,
-    },
-)
-_OptionalClientCopyRequestTypeDef = TypedDict(
-    "_OptionalClientCopyRequestTypeDef",
-    {
-        "ExtraArgs": Dict[str, Any],
-        "Callback": Callable[..., Any],
-        "SourceClient": BaseClient,
-        "Config": TransferConfig,
-    },
-    total=False,
-)
-
-class ClientCopyRequestTypeDef(
-    _RequiredClientCopyRequestTypeDef, _OptionalClientCopyRequestTypeDef
-):
-    pass
-
-_RequiredClientDownloadFileRequestTypeDef = TypedDict(
-    "_RequiredClientDownloadFileRequestTypeDef",
-    {
-        "Bucket": str,
-        "Key": str,
-        "Filename": str,
-    },
-)
-_OptionalClientDownloadFileRequestTypeDef = TypedDict(
-    "_OptionalClientDownloadFileRequestTypeDef",
-    {
-        "ExtraArgs": Dict[str, Any],
-        "Callback": Callable[..., Any],
-        "Config": TransferConfig,
-    },
-    total=False,
-)
-
-class ClientDownloadFileRequestTypeDef(
-    _RequiredClientDownloadFileRequestTypeDef, _OptionalClientDownloadFileRequestTypeDef
-):
-    pass
-
-_RequiredClientDownloadFileobjRequestTypeDef = TypedDict(
-    "_RequiredClientDownloadFileobjRequestTypeDef",
-    {
-        "Bucket": str,
-        "Key": str,
-        "Fileobj": IO[Any],
-    },
-)
-_OptionalClientDownloadFileobjRequestTypeDef = TypedDict(
-    "_OptionalClientDownloadFileobjRequestTypeDef",
-    {
-        "ExtraArgs": Dict[str, Any],
-        "Callback": Callable[..., Any],
-        "Config": TransferConfig,
-    },
-    total=False,
-)
-
-class ClientDownloadFileobjRequestTypeDef(
-    _RequiredClientDownloadFileobjRequestTypeDef, _OptionalClientDownloadFileobjRequestTypeDef
-):
-    pass
-
-_RequiredClientGeneratePresignedPostRequestTypeDef = TypedDict(
-    "_RequiredClientGeneratePresignedPostRequestTypeDef",
-    {
-        "Bucket": str,
-        "Key": str,
-    },
-)
-_OptionalClientGeneratePresignedPostRequestTypeDef = TypedDict(
-    "_OptionalClientGeneratePresignedPostRequestTypeDef",
-    {
-        "Fields": Dict[str, Any],
-        "Conditions": List[Any],
-        "ExpiresIn": int,
-    },
-    total=False,
-)
-
-class ClientGeneratePresignedPostRequestTypeDef(
-    _RequiredClientGeneratePresignedPostRequestTypeDef,
-    _OptionalClientGeneratePresignedPostRequestTypeDef,
-):
-    pass
-
-_RequiredClientUploadFileRequestTypeDef = TypedDict(
-    "_RequiredClientUploadFileRequestTypeDef",
-    {
-        "Filename": str,
-        "Bucket": str,
-        "Key": str,
-    },
-)
-_OptionalClientUploadFileRequestTypeDef = TypedDict(
-    "_OptionalClientUploadFileRequestTypeDef",
-    {
-        "ExtraArgs": Dict[str, Any],
-        "Callback": Callable[..., Any],
-        "Config": TransferConfig,
-    },
-    total=False,
-)
-
-class ClientUploadFileRequestTypeDef(
-    _RequiredClientUploadFileRequestTypeDef, _OptionalClientUploadFileRequestTypeDef
-):
-    pass
-
-_RequiredClientUploadFileobjRequestTypeDef = TypedDict(
-    "_RequiredClientUploadFileobjRequestTypeDef",
-    {
-        "Fileobj": IO[Any],
-        "Bucket": str,
-        "Key": str,
-    },
-)
-_OptionalClientUploadFileobjRequestTypeDef = TypedDict(
-    "_OptionalClientUploadFileobjRequestTypeDef",
-    {
-        "ExtraArgs": Dict[str, Any],
-        "Callback": Callable[..., Any],
-        "Config": TransferConfig,
-    },
-    total=False,
-)
-
-class ClientUploadFileobjRequestTypeDef(
-    _RequiredClientUploadFileobjRequestTypeDef, _OptionalClientUploadFileobjRequestTypeDef
-):
-    pass
-
-CloudFunctionConfigurationTypeDef = TypedDict(
-    "CloudFunctionConfigurationTypeDef",
-    {
-        "Id": str,
-        "Event": EventType,
-        "Events": List[EventType],
-        "CloudFunction": str,
-        "InvocationRole": str,
-    },
-    total=False,
-)
-
-CommonPrefixTypeDef = TypedDict(
-    "CommonPrefixTypeDef",
-    {
-        "Prefix": str,
-    },
-    total=False,
-)
-
-CompleteMultipartUploadOutputTypeDef = TypedDict(
-    "CompleteMultipartUploadOutputTypeDef",
-    {
-        "Location": str,
-        "Bucket": str,
-        "Key": str,
-        "Expiration": str,
-        "ETag": str,
-        "ChecksumCRC32": str,
-        "ChecksumCRC32C": str,
-        "ChecksumSHA1": str,
-        "ChecksumSHA256": str,
-        "ServerSideEncryption": ServerSideEncryptionType,
-        "VersionId": str,
-        "SSEKMSKeyId": str,
-        "BucketKeyEnabled": bool,
-        "RequestCharged": Literal["requester"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CompleteMultipartUploadRequestMultipartUploadTypeDef = TypedDict(
-    "CompleteMultipartUploadRequestMultipartUploadTypeDef",
-    {
-        "MultipartUpload": "CompletedMultipartUploadTypeDef",
-        "ChecksumCRC32": str,
-        "ChecksumCRC32C": str,
-        "ChecksumSHA1": str,
-        "ChecksumSHA256": str,
-        "RequestPayer": Literal["requester"],
-        "ExpectedBucketOwner": str,
-        "SSECustomerAlgorithm": str,
-        "SSECustomerKey": str,
-        "SSECustomerKeyMD5": str,
-    },
-    total=False,
-)
-
-_RequiredCompleteMultipartUploadRequestRequestTypeDef = TypedDict(
-    "_RequiredCompleteMultipartUploadRequestRequestTypeDef",
-    {
-        "Bucket": str,
-        "Key": str,
-        "UploadId": str,
-    },
-)
-_OptionalCompleteMultipartUploadRequestRequestTypeDef = TypedDict(
-    "_OptionalCompleteMultipartUploadRequestRequestTypeDef",
-    {
-        "MultipartUpload": "CompletedMultipartUploadTypeDef",
-        "ChecksumCRC32": str,
-        "ChecksumCRC32C": str,
-        "ChecksumSHA1": str,
-        "ChecksumSHA256": str,
-        "RequestPayer": Literal["requester"],
-        "ExpectedBucketOwner": str,
-        "SSECustomerAlgorithm": str,
-        "SSECustomerKey": str,
-        "SSECustomerKeyMD5": str,
-    },
-    total=False,
-)
-
-class CompleteMultipartUploadRequestRequestTypeDef(
-    _RequiredCompleteMultipartUploadRequestRequestTypeDef,
-    _OptionalCompleteMultipartUploadRequestRequestTypeDef,
-):
-    pass
-
-CompletedMultipartUploadTypeDef = TypedDict(
-    "CompletedMultipartUploadTypeDef",
-    {
-        "Parts": List["CompletedPartTypeDef"],
-    },
-    total=False,
-)
-
-CompletedPartTypeDef = TypedDict(
-    "CompletedPartTypeDef",
-    {
-        "ETag": str,
-        "ChecksumCRC32": str,
-        "ChecksumCRC32C": str,
-        "ChecksumSHA1": str,
-        "ChecksumSHA256": str,
-        "PartNumber": int,
-    },
-    total=False,
-)
-
-ConditionTypeDef = TypedDict(
-    "ConditionTypeDef",
-    {
-        "HttpErrorCodeReturnedEquals": str,
-        "KeyPrefixEquals": str,
-    },
-    total=False,
-)
-
-CopyObjectOutputTypeDef = TypedDict(
-    "CopyObjectOutputTypeDef",
-    {
-        "CopyObjectResult": "CopyObjectResultTypeDef",
-        "Expiration": str,
-        "CopySourceVersionId": str,
-        "VersionId": str,
-        "ServerSideEncryption": ServerSideEncryptionType,
-        "SSECustomerAlgorithm": str,
-        "SSECustomerKeyMD5": str,
-        "SSEKMSKeyId": str,
-        "SSEKMSEncryptionContext": str,
-        "BucketKeyEnabled": bool,
-        "RequestCharged": Literal["requester"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCopyObjectRequestObjectSummaryTypeDef = TypedDict(
-    "_RequiredCopyObjectRequestObjectSummaryTypeDef",
-    {
-        "CopySource": str,
-    },
-)
-_OptionalCopyObjectRequestObjectSummaryTypeDef = TypedDict(
-    "_OptionalCopyObjectRequestObjectSummaryTypeDef",
-    {
-        "ACL": ObjectCannedACLType,
-        "CacheControl": str,
-        "ChecksumAlgorithm": ChecksumAlgorithmType,
-        "ContentDisposition": str,
-        "ContentEncoding": str,
-        "ContentLanguage": str,
-        "ContentType": str,
-        "CopySourceIfMatch": str,
-        "CopySourceIfModifiedSince": Union[datetime, str],
-        "CopySourceIfNoneMatch": str,
-        "CopySourceIfUnmodifiedSince": Union[datetime, str],
-        "Expires": Union[datetime, str],
-        "GrantFullControl": str,
-        "GrantRead": str,
-        "GrantReadACP": str,
-        "GrantWriteACP": str,
-        "Metadata": Dict[str, str],
-        "MetadataDirective": MetadataDirectiveType,
-        "TaggingDirective": TaggingDirectiveType,
-        "ServerSideEncryption": ServerSideEncryptionType,
-        "StorageClass": StorageClassType,
-        "WebsiteRedirectLocation": str,
-        "SSECustomerAlgorithm": str,
-        "SSECustomerKey": str,
-        "SSECustomerKeyMD5": str,
-        "SSEKMSKeyId": str,
-        "SSEKMSEncryptionContext": str,
-        "BucketKeyEnabled": bool,
-        "CopySourceSSECustomerAlgorithm": str,
-        "CopySourceSSECustomerKey": str,
-        "CopySourceSSECustomerKeyMD5": str,
-        "RequestPayer": Literal["requester"],
-        "Tagging": str,
-        "ObjectLockMode": ObjectLockModeType,
-        "ObjectLockRetainUntilDate": Union[datetime, str],
-        "ObjectLockLegalHoldStatus": ObjectLockLegalHoldStatusType,
-        "ExpectedBucketOwner": str,
-        "ExpectedSourceBucketOwner": str,
-    },
-    total=False,
-)
-
-class CopyObjectRequestObjectSummaryTypeDef(
-    _RequiredCopyObjectRequestObjectSummaryTypeDef, _OptionalCopyObjectRequestObjectSummaryTypeDef
-):
-    pass
-
-_RequiredCopyObjectRequestObjectTypeDef = TypedDict(
-    "_RequiredCopyObjectRequestObjectTypeDef",
-    {
-        "CopySource": str,
-    },
-)
-_OptionalCopyObjectRequestObjectTypeDef = TypedDict(
-    "_OptionalCopyObjectRequestObjectTypeDef",
-    {
-        "ACL": ObjectCannedACLType,
-        "CacheControl": str,
-        "ChecksumAlgorithm": ChecksumAlgorithmType,
-        "ContentDisposition": str,
-        "ContentEncoding": str,
-        "ContentLanguage": str,
-        "ContentType": str,
-        "CopySourceIfMatch": str,
-        "CopySourceIfModifiedSince": Union[datetime, str],
-        "CopySourceIfNoneMatch": str,
-        "CopySourceIfUnmodifiedSince": Union[datetime, str],
-        "Expires": Union[datetime, str],
-        "GrantFullControl": str,
-        "GrantRead": str,
-        "GrantReadACP": str,
-        "GrantWriteACP": str,
-        "Metadata": Dict[str, str],
-        "MetadataDirective": MetadataDirectiveType,
-        "TaggingDirective": TaggingDirectiveType,
-        "ServerSideEncryption": ServerSideEncryptionType,
-        "StorageClass": StorageClassType,
-        "WebsiteRedirectLocation": str,
-        "SSECustomerAlgorithm": str,
-        "SSECustomerKey": str,
-        "SSECustomerKeyMD5": str,
-        "SSEKMSKeyId": str,
-        "SSEKMSEncryptionContext": str,
-        "BucketKeyEnabled": bool,
-        "CopySourceSSECustomerAlgorithm": str,
-        "CopySourceSSECustomerKey": str,
-        "CopySourceSSECustomerKeyMD5": str,
-        "RequestPayer": Literal["requester"],
-        "Tagging": str,
-        "ObjectLockMode": ObjectLockModeType,
-        "ObjectLockRetainUntilDate": Union[datetime, str],
-        "ObjectLockLegalHoldStatus": ObjectLockLegalHoldStatusType,
-        "ExpectedBucketOwner": str,
-        "ExpectedSourceBucketOwner": str,
-    },
-    total=False,
-)
-
-class CopyObjectRequestObjectTypeDef(
-    _RequiredCopyObjectRequestObjectTypeDef, _OptionalCopyObjectRequestObjectTypeDef
-):
-    pass
-
-_RequiredCopyObjectRequestRequestTypeDef = TypedDict(
-    "_RequiredCopyObjectRequestRequestTypeDef",
-    {
-        "Bucket": str,
-        "CopySource": Union[str, "CopySourceTypeDef"],
-        "Key": str,
-    },
-)
-_OptionalCopyObjectRequestRequestTypeDef = TypedDict(
-    "_OptionalCopyObjectRequestRequestTypeDef",
-    {
-        "ACL": ObjectCannedACLType,
-        "CacheControl": str,
-        "ChecksumAlgorithm": ChecksumAlgorithmType,
-        "ContentDisposition": str,
-        "ContentEncoding": str,
-        "ContentLanguage": str,
-        "ContentType": str,
-        "CopySourceIfMatch": str,
-        "CopySourceIfModifiedSince": Union[datetime, str],
-        "CopySourceIfNoneMatch": str,
-        "CopySourceIfUnmodifiedSince": Union[datetime, str],
-        "Expires": Union[datetime, str],
-        "GrantFullControl": str,
-        "GrantRead": str,
-        "GrantReadACP": str,
-        "GrantWriteACP": str,
-        "Metadata": Dict[str, str],
-        "MetadataDirective": MetadataDirectiveType,
-        "TaggingDirective": TaggingDirectiveType,
-        "ServerSideEncryption": ServerSideEncryptionType,
-        "StorageClass": StorageClassType,
-        "WebsiteRedirectLocation": str,
-        "SSECustomerAlgorithm": str,
-        "SSECustomerKey": str,
-        "SSECustomerKeyMD5": str,
-        "SSEKMSKeyId": str,
-        "SSEKMSEncryptionContext": str,
-        "BucketKeyEnabled": bool,
-        "CopySourceSSECustomerAlgorithm": str,
-        "CopySourceSSECustomerKey": str,
-        "CopySourceSSECustomerKeyMD5": str,
-        "RequestPayer": Literal["requester"],
-        "Tagging": str,
-        "ObjectLockMode": ObjectLockModeType,
-        "ObjectLockRetainUntilDate": Union[datetime, str],
-        "ObjectLockLegalHoldStatus": ObjectLockLegalHoldStatusType,
-        "ExpectedBucketOwner": str,
-        "ExpectedSourceBucketOwner": str,
-    },
-    total=False,
-)
-
-class CopyObjectRequestRequestTypeDef(
-    _RequiredCopyObjectRequestRequestTypeDef, _OptionalCopyObjectRequestRequestTypeDef
-):
-    pass
-
-CopyObjectResultTypeDef = TypedDict(
-    "CopyObjectResultTypeDef",
-    {
-        "ETag": str,
-        "LastModified": datetime,
-        "ChecksumCRC32": str,
-        "ChecksumCRC32C": str,
-        "ChecksumSHA1": str,
-        "ChecksumSHA256": str,
-    },
-    total=False,
-)
-
-CopyPartResultTypeDef = TypedDict(
-    "CopyPartResultTypeDef",
-    {
-        "ETag": str,
-        "LastModified": datetime,
-        "ChecksumCRC32": str,
-        "ChecksumCRC32C": str,
-        "ChecksumSHA1": str,
-        "ChecksumSHA256": str,
-    },
-    total=False,
-)
-
-_RequiredCopySourceTypeDef = TypedDict(
-    "_RequiredCopySourceTypeDef",
-    {
-        "Bucket": str,
-        "Key": str,
-    },
-)
-_OptionalCopySourceTypeDef = TypedDict(
-    "_OptionalCopySourceTypeDef",
-    {
-        "VersionId": str,
-    },
-    total=False,
-)
-
-class CopySourceTypeDef(_RequiredCopySourceTypeDef, _OptionalCopySourceTypeDef):
-    pass
-
-CreateBucketConfigurationTypeDef = TypedDict(
-    "CreateBucketConfigurationTypeDef",
-    {
-        "LocationConstraint": BucketLocationConstraintType,
-        "Location": "LocationInfoTypeDef",
-        "Bucket": "BucketInfoTypeDef",
-    },
-    total=False,
-)
-
-CreateBucketOutputTypeDef = TypedDict(
-    "CreateBucketOutputTypeDef",
-    {
-        "Location": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateBucketRequestBucketTypeDef = TypedDict(
-    "CreateBucketRequestBucketTypeDef",
-    {
-        "ACL": BucketCannedACLType,
-        "CreateBucketConfiguration": "CreateBucketConfigurationTypeDef",
-        "GrantFullControl": str,
-        "GrantRead": str,
-        "GrantReadACP": str,
-        "GrantWrite": str,
-        "GrantWriteACP": str,
-        "ObjectLockEnabledForBucket": bool,
-        "ObjectOwnership": ObjectOwnershipType,
-    },
-    total=False,
-)
-
-_RequiredCreateBucketRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateBucketRequestRequestTypeDef",
-    {
-        "Bucket": str,
-    },
-)
-_OptionalCreateBucketRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateBucketRequestRequestTypeDef",
-    {
-        "ACL": BucketCannedACLType,
-        "CreateBucketConfiguration": "CreateBucketConfigurationTypeDef",
-        "GrantFullControl": str,
-        "GrantRead": str,
-        "GrantReadACP": str,
-        "GrantWrite": str,
-        "GrantWriteACP": str,
-        "ObjectLockEnabledForBucket": bool,
-        "ObjectOwnership": ObjectOwnershipType,
-    },
-    total=False,
-)
-
-class CreateBucketRequestRequestTypeDef(
-    _RequiredCreateBucketRequestRequestTypeDef, _OptionalCreateBucketRequestRequestTypeDef
-):
-    pass
-
-_RequiredCreateBucketRequestServiceResourceTypeDef = TypedDict(
-    "_RequiredCreateBucketRequestServiceResourceTypeDef",
-    {
-        "Bucket": str,
-    },
-)
-_OptionalCreateBucketRequestServiceResourceTypeDef = TypedDict(
-    "_OptionalCreateBucketRequestServiceResourceTypeDef",
-    {
-        "ACL": BucketCannedACLType,
-        "CreateBucketConfiguration": "CreateBucketConfigurationTypeDef",
-        "GrantFullControl": str,
-        "GrantRead": str,
-        "GrantReadACP": str,
-        "GrantWrite": str,
-        "GrantWriteACP": str,
-        "ObjectLockEnabledForBucket": bool,
-        "ObjectOwnership": ObjectOwnershipType,
-    },
-    total=False,
-)
-
-class CreateBucketRequestServiceResourceTypeDef(
-    _RequiredCreateBucketRequestServiceResourceTypeDef,
-    _OptionalCreateBucketRequestServiceResourceTypeDef,
-):
-    pass
-
-CreateMultipartUploadOutputTypeDef = TypedDict(
-    "CreateMultipartUploadOutputTypeDef",
-    {
-        "AbortDate": datetime,
-        "AbortRuleId": str,
-        "Bucket": str,
-        "Key": str,
-        "UploadId": str,
-        "ServerSideEncryption": ServerSideEncryptionType,
-        "SSECustomerAlgorithm": str,
-        "SSECustomerKeyMD5": str,
-        "SSEKMSKeyId": str,
-        "SSEKMSEncryptionContext": str,
-        "BucketKeyEnabled": bool,
-        "RequestCharged": Literal["requester"],
-        "ChecksumAlgorithm": ChecksumAlgorithmType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateMultipartUploadRequestObjectSummaryTypeDef = TypedDict(
-    "CreateMultipartUploadRequestObjectSummaryTypeDef",
-    {
-        "ACL": ObjectCannedACLType,
-        "CacheControl": str,
-        "ContentDisposition": str,
-        "ContentEncoding": str,
-        "ContentLanguage": str,
-        "ContentType": str,
-        "Expires": Union[datetime, str],
-        "GrantFullControl": str,
-        "GrantRead": str,
-        "GrantReadACP": str,
-        "GrantWriteACP": str,
-        "Metadata": Dict[str, str],
-        "ServerSideEncryption": ServerSideEncryptionType,
-        "StorageClass": StorageClassType,
-        "WebsiteRedirectLocation": str,
-        "SSECustomerAlgorithm": str,
-        "SSECustomerKey": str,
-        "SSECustomerKeyMD5": str,
-        "SSEKMSKeyId": str,
-        "SSEKMSEncryptionContext": str,
-        "BucketKeyEnabled": bool,
-        "RequestPayer": Literal["requester"],
-        "Tagging": str,
-        "ObjectLockMode": ObjectLockModeType,
-        "ObjectLockRetainUntilDate": Union[datetime, str],
-        "ObjectLockLegalHoldStatus": ObjectLockLegalHoldStatusType,
-        "ExpectedBucketOwner": str,
-        "ChecksumAlgorithm": ChecksumAlgorithmType,
-    },
-    total=False,
-)
-
-CreateMultipartUploadRequestObjectTypeDef = TypedDict(
-    "CreateMultipartUploadRequestObjectTypeDef",
-    {
-        "ACL": ObjectCannedACLType,
-        "CacheControl": str,
-        "ContentDisposition": str,
-        "ContentEncoding": str,
-        "ContentLanguage": str,
-        "ContentType": str,
-        "Expires": Union[datetime, str],
-        "GrantFullControl": str,
-        "GrantRead": str,
-        "GrantReadACP": str,
-        "GrantWriteACP": str,
-        "Metadata": Dict[str, str],
-        "ServerSideEncryption": ServerSideEncryptionType,
-        "StorageClass": StorageClassType,
-        "WebsiteRedirectLocation": str,
-        "SSECustomerAlgorithm": str,
-        "SSECustomerKey": str,
-        "SSECustomerKeyMD5": str,
-        "SSEKMSKeyId": str,
-        "SSEKMSEncryptionContext": str,
-        "BucketKeyEnabled": bool,
-        "RequestPayer": Literal["requester"],
-        "Tagging": str,
-        "ObjectLockMode": ObjectLockModeType,
-        "ObjectLockRetainUntilDate": Union[datetime, str],
-        "ObjectLockLegalHoldStatus": ObjectLockLegalHoldStatusType,
-        "ExpectedBucketOwner": str,
-        "ChecksumAlgorithm": ChecksumAlgorithmType,
-    },
-    total=False,
-)
-
-_RequiredCreateMultipartUploadRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateMultipartUploadRequestRequestTypeDef",
-    {
-        "Bucket": str,
-        "Key": str,
-    },
-)
-_OptionalCreateMultipartUploadRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateMultipartUploadRequestRequestTypeDef",
-    {
-        "ACL": ObjectCannedACLType,
-        "CacheControl": str,
-        "ContentDisposition": str,
-        "ContentEncoding": str,
-        "ContentLanguage": str,
-        "ContentType": str,
-        "Expires": Union[datetime, str],
-        "GrantFullControl": str,
-        "GrantRead": str,
-        "GrantReadACP": str,
-        "GrantWriteACP": str,
-        "Metadata": Dict[str, str],
-        "ServerSideEncryption": ServerSideEncryptionType,
-        "StorageClass": StorageClassType,
-        "WebsiteRedirectLocation": str,
-        "SSECustomerAlgorithm": str,
-        "SSECustomerKey": str,
-        "SSECustomerKeyMD5": str,
-        "SSEKMSKeyId": str,
-        "SSEKMSEncryptionContext": str,
-        "BucketKeyEnabled": bool,
-        "RequestPayer": Literal["requester"],
-        "Tagging": str,
-        "ObjectLockMode": ObjectLockModeType,
-        "ObjectLockRetainUntilDate": Union[datetime, str],
-        "ObjectLockLegalHoldStatus": ObjectLockLegalHoldStatusType,
-        "ExpectedBucketOwner": str,
-        "ChecksumAlgorithm": ChecksumAlgorithmType,
-    },
-    total=False,
-)
-
-class CreateMultipartUploadRequestRequestTypeDef(
-    _RequiredCreateMultipartUploadRequestRequestTypeDef,
-    _OptionalCreateMultipartUploadRequestRequestTypeDef,
-):
-    pass
-
-CreateSessionOutputTypeDef = TypedDict(
-    "CreateSessionOutputTypeDef",
-    {
-        "Credentials": "SessionCredentialsTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateSessionRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateSessionRequestRequestTypeDef",
-    {
-        "Bucket": str,
-    },
-)
-_OptionalCreateSessionRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateSessionRequestRequestTypeDef",
-    {
-        "SessionMode": SessionModeType,
-    },
-    total=False,
-)
-
-class CreateSessionRequestRequestTypeDef(
-    _RequiredCreateSessionRequestRequestTypeDef, _OptionalCreateSessionRequestRequestTypeDef
-):
-    pass
-
-DefaultRetentionTypeDef = TypedDict(
-    "DefaultRetentionTypeDef",
-    {
-        "Mode": ObjectLockRetentionModeType,
-        "Days": int,
-        "Years": int,
-    },
-    total=False,
-)
-
-_RequiredDeleteBucketAnalyticsConfigurationRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteBucketAnalyticsConfigurationRequestRequestTypeDef",
-    {
-        "Bucket": str,
-        "Id": str,
-    },
-)
-_OptionalDeleteBucketAnalyticsConfigurationRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteBucketAnalyticsConfigurationRequestRequestTypeDef",
-    {
-        "ExpectedBucketOwner": str,
-    },
-    total=False,
-)
-
-class DeleteBucketAnalyticsConfigurationRequestRequestTypeDef(
-    _RequiredDeleteBucketAnalyticsConfigurationRequestRequestTypeDef,
-    _OptionalDeleteBucketAnalyticsConfigurationRequestRequestTypeDef,
-):
-    pass
-
-DeleteBucketCorsRequestBucketCorsTypeDef = TypedDict(
-    "DeleteBucketCorsRequestBucketCorsTypeDef",
-    {
-        "ExpectedBucketOwner": str,
-    },
-    total=False,
-)
-
-_RequiredDeleteBucketCorsRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteBucketCorsRequestRequestTypeDef",
-    {
-        "Bucket": str,
-    },
-)
-_OptionalDeleteBucketCorsRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteBucketCorsRequestRequestTypeDef",
-    {
-        "ExpectedBucketOwner": str,
-    },
-    total=False,
-)
-
-class DeleteBucketCorsRequestRequestTypeDef(
-    _RequiredDeleteBucketCorsRequestRequestTypeDef, _OptionalDeleteBucketCorsRequestRequestTypeDef
-):
-    pass
-
-_RequiredDeleteBucketEncryptionRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteBucketEncryptionRequestRequestTypeDef",
-    {
-        "Bucket": str,
-    },
-)
-_OptionalDeleteBucketEncryptionRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteBucketEncryptionRequestRequestTypeDef",
-    {
-        "ExpectedBucketOwner": str,
-    },
-    total=False,
-)
-
-class DeleteBucketEncryptionRequestRequestTypeDef(
-    _RequiredDeleteBucketEncryptionRequestRequestTypeDef,
-    _OptionalDeleteBucketEncryptionRequestRequestTypeDef,
-):
-    pass
-
-DeleteBucketIntelligentTieringConfigurationRequestRequestTypeDef = TypedDict(
-    "DeleteBucketIntelligentTieringConfigurationRequestRequestTypeDef",
-    {
-        "Bucket": str,
-        "Id": str,
-    },
-)
-
-_RequiredDeleteBucketInventoryConfigurationRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteBucketInventoryConfigurationRequestRequestTypeDef",
-    {
-        "Bucket": str,
-        "Id": str,
-    },
-)
-_OptionalDeleteBucketInventoryConfigurationRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteBucketInventoryConfigurationRequestRequestTypeDef",
-    {
-        "ExpectedBucketOwner": str,
-    },
-    total=False,
-)
-
-class DeleteBucketInventoryConfigurationRequestRequestTypeDef(
-    _RequiredDeleteBucketInventoryConfigurationRequestRequestTypeDef,
-    _OptionalDeleteBucketInventoryConfigurationRequestRequestTypeDef,
-):
-    pass
-
-DeleteBucketLifecycleRequestBucketLifecycleConfigurationTypeDef = TypedDict(
-    "DeleteBucketLifecycleRequestBucketLifecycleConfigurationTypeDef",
-    {
-        "ExpectedBucketOwner": str,
-    },
-    total=False,
-)
-
-DeleteBucketLifecycleRequestBucketLifecycleTypeDef = TypedDict(
-    "DeleteBucketLifecycleRequestBucketLifecycleTypeDef",
-    {
-        "ExpectedBucketOwner": str,
-    },
-    total=False,
-)
-
-_RequiredDeleteBucketLifecycleRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteBucketLifecycleRequestRequestTypeDef",
-    {
-        "Bucket": str,
-    },
-)
-_OptionalDeleteBucketLifecycleRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteBucketLifecycleRequestRequestTypeDef",
-    {
-        "ExpectedBucketOwner": str,
-    },
-    total=False,
-)
-
-class DeleteBucketLifecycleRequestRequestTypeDef(
-    _RequiredDeleteBucketLifecycleRequestRequestTypeDef,
-    _OptionalDeleteBucketLifecycleRequestRequestTypeDef,
-):
-    pass
-
-_RequiredDeleteBucketMetricsConfigurationRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteBucketMetricsConfigurationRequestRequestTypeDef",
-    {
-        "Bucket": str,
-        "Id": str,
-    },
-)
-_OptionalDeleteBucketMetricsConfigurationRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteBucketMetricsConfigurationRequestRequestTypeDef",
-    {
-        "ExpectedBucketOwner": str,
-    },
-    total=False,
-)
-
-class DeleteBucketMetricsConfigurationRequestRequestTypeDef(
-    _RequiredDeleteBucketMetricsConfigurationRequestRequestTypeDef,
-    _OptionalDeleteBucketMetricsConfigurationRequestRequestTypeDef,
-):
-    pass
-
-_RequiredDeleteBucketOwnershipControlsRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteBucketOwnershipControlsRequestRequestTypeDef",
-    {
-        "Bucket": str,
-    },
-)
-_OptionalDeleteBucketOwnershipControlsRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteBucketOwnershipControlsRequestRequestTypeDef",
-    {
-        "ExpectedBucketOwner": str,
-    },
-    total=False,
-)
-
-class DeleteBucketOwnershipControlsRequestRequestTypeDef(
-    _RequiredDeleteBucketOwnershipControlsRequestRequestTypeDef,
-    _OptionalDeleteBucketOwnershipControlsRequestRequestTypeDef,
-):
-    pass
-
-DeleteBucketPolicyRequestBucketPolicyTypeDef = TypedDict(
-    "DeleteBucketPolicyRequestBucketPolicyTypeDef",
-    {
-        "ExpectedBucketOwner": str,
-    },
-    total=False,
-)
-
-_RequiredDeleteBucketPolicyRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteBucketPolicyRequestRequestTypeDef",
-    {
-        "Bucket": str,
-    },
-)
-_OptionalDeleteBucketPolicyRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteBucketPolicyRequestRequestTypeDef",
-    {
-        "ExpectedBucketOwner": str,
-    },
-    total=False,
-)
-
-class DeleteBucketPolicyRequestRequestTypeDef(
-    _RequiredDeleteBucketPolicyRequestRequestTypeDef,
-    _OptionalDeleteBucketPolicyRequestRequestTypeDef,
-):
-    pass
-
-_RequiredDeleteBucketReplicationRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteBucketReplicationRequestRequestTypeDef",
-    {
-        "Bucket": str,
-    },
-)
-_OptionalDeleteBucketReplicationRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteBucketReplicationRequestRequestTypeDef",
-    {
-        "ExpectedBucketOwner": str,
-    },
-    total=False,
-)
-
-class DeleteBucketReplicationRequestRequestTypeDef(
-    _RequiredDeleteBucketReplicationRequestRequestTypeDef,
-    _OptionalDeleteBucketReplicationRequestRequestTypeDef,
-):
-    pass
-
-DeleteBucketRequestBucketTypeDef = TypedDict(
-    "DeleteBucketRequestBucketTypeDef",
-    {
-        "ExpectedBucketOwner": str,
-    },
-    total=False,
-)
-
-_RequiredDeleteBucketRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteBucketRequestRequestTypeDef",
-    {
-        "Bucket": str,
-    },
-)
-_OptionalDeleteBucketRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteBucketRequestRequestTypeDef",
-    {
-        "ExpectedBucketOwner": str,
-    },
-    total=False,
-)
-
-class DeleteBucketRequestRequestTypeDef(
-    _RequiredDeleteBucketRequestRequestTypeDef, _OptionalDeleteBucketRequestRequestTypeDef
-):
-    pass
-
-DeleteBucketTaggingRequestBucketTaggingTypeDef = TypedDict(
-    "DeleteBucketTaggingRequestBucketTaggingTypeDef",
-    {
-        "ExpectedBucketOwner": str,
-    },
-    total=False,
-)
-
-_RequiredDeleteBucketTaggingRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteBucketTaggingRequestRequestTypeDef",
-    {
-        "Bucket": str,
-    },
-)
-_OptionalDeleteBucketTaggingRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteBucketTaggingRequestRequestTypeDef",
-    {
-        "ExpectedBucketOwner": str,
-    },
-    total=False,
-)
-
-class DeleteBucketTaggingRequestRequestTypeDef(
-    _RequiredDeleteBucketTaggingRequestRequestTypeDef,
-    _OptionalDeleteBucketTaggingRequestRequestTypeDef,
-):
-    pass
-
-DeleteBucketWebsiteRequestBucketWebsiteTypeDef = TypedDict(
-    "DeleteBucketWebsiteRequestBucketWebsiteTypeDef",
-    {
-        "ExpectedBucketOwner": str,
-    },
-    total=False,
-)
-
-_RequiredDeleteBucketWebsiteRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteBucketWebsiteRequestRequestTypeDef",
-    {
-        "Bucket": str,
-    },
-)
-_OptionalDeleteBucketWebsiteRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteBucketWebsiteRequestRequestTypeDef",
-    {
-        "ExpectedBucketOwner": str,
-    },
-    total=False,
-)
-
-class DeleteBucketWebsiteRequestRequestTypeDef(
-    _RequiredDeleteBucketWebsiteRequestRequestTypeDef,
-    _OptionalDeleteBucketWebsiteRequestRequestTypeDef,
-):
-    pass
-
-DeleteMarkerEntryTypeDef = TypedDict(
-    "DeleteMarkerEntryTypeDef",
-    {
-        "Owner": "OwnerTypeDef",
-        "Key": str,
-        "VersionId": str,
-        "IsLatest": bool,
-        "LastModified": datetime,
-    },
-    total=False,
-)
-
-DeleteMarkerReplicationTypeDef = TypedDict(
-    "DeleteMarkerReplicationTypeDef",
-    {
-        "Status": DeleteMarkerReplicationStatusType,
-    },
-    total=False,
-)
-
-DeleteObjectOutputTypeDef = TypedDict(
-    "DeleteObjectOutputTypeDef",
-    {
-        "DeleteMarker": bool,
-        "VersionId": str,
-        "RequestCharged": Literal["requester"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteObjectRequestObjectSummaryTypeDef = TypedDict(
-    "DeleteObjectRequestObjectSummaryTypeDef",
-    {
-        "MFA": str,
-        "VersionId": str,
-        "RequestPayer": Literal["requester"],
-        "BypassGovernanceRetention": bool,
-        "ExpectedBucketOwner": str,
-    },
-    total=False,
-)
-
-DeleteObjectRequestObjectTypeDef = TypedDict(
-    "DeleteObjectRequestObjectTypeDef",
-    {
-        "MFA": str,
-        "VersionId": str,
-        "RequestPayer": Literal["requester"],
-        "BypassGovernanceRetention": bool,
-        "ExpectedBucketOwner": str,
-    },
-    total=False,
-)
-
-DeleteObjectRequestObjectVersionTypeDef = TypedDict(
-    "DeleteObjectRequestObjectVersionTypeDef",
-    {
-        "MFA": str,
-        "RequestPayer": Literal["requester"],
-        "BypassGovernanceRetention": bool,
-        "ExpectedBucketOwner": str,
-    },
-    total=False,
-)
-
-_RequiredDeleteObjectRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteObjectRequestRequestTypeDef",
-    {
-        "Bucket": str,
-        "Key": str,
-    },
-)
-_OptionalDeleteObjectRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteObjectRequestRequestTypeDef",
-    {
-        "MFA": str,
-        "VersionId": str,
-        "RequestPayer": Literal["requester"],
-        "BypassGovernanceRetention": bool,
-        "ExpectedBucketOwner": str,
-    },
-    total=False,
-)
-
-class DeleteObjectRequestRequestTypeDef(
-    _RequiredDeleteObjectRequestRequestTypeDef, _OptionalDeleteObjectRequestRequestTypeDef
-):
-    pass
-
-DeleteObjectTaggingOutputTypeDef = TypedDict(
-    "DeleteObjectTaggingOutputTypeDef",
-    {
-        "VersionId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDeleteObjectTaggingRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteObjectTaggingRequestRequestTypeDef",
-    {
-        "Bucket": str,
-        "Key": str,
-    },
-)
-_OptionalDeleteObjectTaggingRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteObjectTaggingRequestRequestTypeDef",
-    {
-        "VersionId": str,
-        "ExpectedBucketOwner": str,
-    },
-    total=False,
-)
-
-class DeleteObjectTaggingRequestRequestTypeDef(
-    _RequiredDeleteObjectTaggingRequestRequestTypeDef,
-    _OptionalDeleteObjectTaggingRequestRequestTypeDef,
-):
-    pass
-
-DeleteObjectsOutputTypeDef = TypedDict(
-    "DeleteObjectsOutputTypeDef",
-    {
-        "Deleted": List["DeletedObjectTypeDef"],
-        "RequestCharged": Literal["requester"],
-        "Errors": List["ErrorTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDeleteObjectsRequestBucketTypeDef = TypedDict(
-    "_RequiredDeleteObjectsRequestBucketTypeDef",
-    {
-        "Delete": "DeleteTypeDef",
-    },
-)
-_OptionalDeleteObjectsRequestBucketTypeDef = TypedDict(
-    "_OptionalDeleteObjectsRequestBucketTypeDef",
-    {
-        "MFA": str,
-        "RequestPayer": Literal["requester"],
-        "BypassGovernanceRetention": bool,
-        "ExpectedBucketOwner": str,
-        "ChecksumAlgorithm": ChecksumAlgorithmType,
-    },
-    total=False,
-)
-
-class DeleteObjectsRequestBucketTypeDef(
-    _RequiredDeleteObjectsRequestBucketTypeDef, _OptionalDeleteObjectsRequestBucketTypeDef
-):
-    pass
-
-_RequiredDeleteObjectsRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteObjectsRequestRequestTypeDef",
-    {
-        "Bucket": str,
-        "Delete": "DeleteTypeDef",
-    },
-)
-_OptionalDeleteObjectsRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteObjectsRequestRequestTypeDef",
-    {
-        "MFA": str,
-        "RequestPayer": Literal["requester"],
-        "BypassGovernanceRetention": bool,
-        "ExpectedBucketOwner": str,
-        "ChecksumAlgorithm": ChecksumAlgorithmType,
-    },
-    total=False,
-)
-
-class DeleteObjectsRequestRequestTypeDef(
-    _RequiredDeleteObjectsRequestRequestTypeDef, _OptionalDeleteObjectsRequestRequestTypeDef
-):
-    pass
-
-_RequiredDeletePublicAccessBlockRequestRequestTypeDef = TypedDict(
-    "_RequiredDeletePublicAccessBlockRequestRequestTypeDef",
-    {
-        "Bucket": str,
-    },
-)
-_OptionalDeletePublicAccessBlockRequestRequestTypeDef = TypedDict(
-    "_OptionalDeletePublicAccessBlockRequestRequestTypeDef",
-    {
-        "ExpectedBucketOwner": str,
-    },
-    total=False,
-)
-
-class DeletePublicAccessBlockRequestRequestTypeDef(
-    _RequiredDeletePublicAccessBlockRequestRequestTypeDef,
-    _OptionalDeletePublicAccessBlockRequestRequestTypeDef,
-):
-    pass
-
-_RequiredDeleteTypeDef = TypedDict(
-    "_RequiredDeleteTypeDef",
-    {
-        "Objects": List["ObjectIdentifierTypeDef"],
-    },
-)
-_OptionalDeleteTypeDef = TypedDict(
-    "_OptionalDeleteTypeDef",
-    {
-        "Quiet": bool,
-    },
-    total=False,
-)
-
-class DeleteTypeDef(_RequiredDeleteTypeDef, _OptionalDeleteTypeDef):
-    pass
-
-DeletedObjectTypeDef = TypedDict(
-    "DeletedObjectTypeDef",
-    {
-        "Key": str,
-        "VersionId": str,
-        "DeleteMarker": bool,
-        "DeleteMarkerVersionId": str,
-    },
-    total=False,
-)
-
-_RequiredDestinationTypeDef = TypedDict(
-    "_RequiredDestinationTypeDef",
-    {
-        "Bucket": str,
-    },
-)
-_OptionalDestinationTypeDef = TypedDict(
-    "_OptionalDestinationTypeDef",
-    {
-        "Account": str,
-        "StorageClass": StorageClassType,
-        "AccessControlTranslation": "AccessControlTranslationTypeDef",
-        "EncryptionConfiguration": "EncryptionConfigurationTypeDef",
-        "ReplicationTime": "ReplicationTimeTypeDef",
-        "Metrics": "MetricsTypeDef",
-    },
-    total=False,
-)
-
-class DestinationTypeDef(_RequiredDestinationTypeDef, _OptionalDestinationTypeDef):
-    pass
-
-EncryptionConfigurationTypeDef = TypedDict(
-    "EncryptionConfigurationTypeDef",
-    {
-        "ReplicaKmsKeyID": str,
-    },
-    total=False,
-)
-
-_RequiredEncryptionTypeDef = TypedDict(
-    "_RequiredEncryptionTypeDef",
-    {
-        "EncryptionType": ServerSideEncryptionType,
-    },
-)
-_OptionalEncryptionTypeDef = TypedDict(
-    "_OptionalEncryptionTypeDef",
-    {
-        "KMSKeyId": str,
-        "KMSContext": str,
-    },
-    total=False,
-)
-
-class EncryptionTypeDef(_RequiredEncryptionTypeDef, _OptionalEncryptionTypeDef):
-    pass
-
-ErrorDocumentTypeDef = TypedDict(
-    "ErrorDocumentTypeDef",
-    {
-        "Key": str,
-    },
-)
-
-ErrorTypeDef = TypedDict(
-    "ErrorTypeDef",
-    {
-        "Key": str,
-        "VersionId": str,
-        "Code": str,
-        "Message": str,
-    },
-    total=False,
-)
-
-ExistingObjectReplicationTypeDef = TypedDict(
-    "ExistingObjectReplicationTypeDef",
-    {
-        "Status": ExistingObjectReplicationStatusType,
-    },
-)
-
-FilterRuleTypeDef = TypedDict(
-    "FilterRuleTypeDef",
-    {
-        "Name": FilterRuleNameType,
-        "Value": str,
-    },
-    total=False,
-)
-
-GetBucketAccelerateConfigurationOutputTypeDef = TypedDict(
-    "GetBucketAccelerateConfigurationOutputTypeDef",
-    {
-        "Status": BucketAccelerateStatusType,
-        "RequestCharged": Literal["requester"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetBucketAccelerateConfigurationRequestRequestTypeDef = TypedDict(
-    "_RequiredGetBucketAccelerateConfigurationRequestRequestTypeDef",
-    {
-        "Bucket": str,
-    },
-)
-_OptionalGetBucketAccelerateConfigurationRequestRequestTypeDef = TypedDict(
-    "_OptionalGetBucketAccelerateConfigurationRequestRequestTypeDef",
-    {
-        "ExpectedBucketOwner": str,
-        "RequestPayer": Literal["requester"],
-    },
-    total=False,
-)
-
-class GetBucketAccelerateConfigurationRequestRequestTypeDef(
-    _RequiredGetBucketAccelerateConfigurationRequestRequestTypeDef,
-    _OptionalGetBucketAccelerateConfigurationRequestRequestTypeDef,
-):
-    pass
-
-GetBucketAclOutputTypeDef = TypedDict(
-    "GetBucketAclOutputTypeDef",
-    {
-        "Owner": "OwnerTypeDef",
-        "Grants": List["GrantTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetBucketAclRequestRequestTypeDef = TypedDict(
-    "_RequiredGetBucketAclRequestRequestTypeDef",
-    {
-        "Bucket": str,
-    },
-)
-_OptionalGetBucketAclRequestRequestTypeDef = TypedDict(
-    "_OptionalGetBucketAclRequestRequestTypeDef",
-    {
-        "ExpectedBucketOwner": str,
-    },
-    total=False,
-)
-
-class GetBucketAclRequestRequestTypeDef(
-    _RequiredGetBucketAclRequestRequestTypeDef, _OptionalGetBucketAclRequestRequestTypeDef
-):
-    pass
-
-GetBucketAnalyticsConfigurationOutputTypeDef = TypedDict(
-    "GetBucketAnalyticsConfigurationOutputTypeDef",
-    {
-        "AnalyticsConfiguration": "AnalyticsConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetBucketAnalyticsConfigurationRequestRequestTypeDef = TypedDict(
-    "_RequiredGetBucketAnalyticsConfigurationRequestRequestTypeDef",
-    {
-        "Bucket": str,
-        "Id": str,
-    },
-)
-_OptionalGetBucketAnalyticsConfigurationRequestRequestTypeDef = TypedDict(
-    "_OptionalGetBucketAnalyticsConfigurationRequestRequestTypeDef",
-    {
-        "ExpectedBucketOwner": str,
-    },
-    total=False,
-)
-
-class GetBucketAnalyticsConfigurationRequestRequestTypeDef(
-    _RequiredGetBucketAnalyticsConfigurationRequestRequestTypeDef,
-    _OptionalGetBucketAnalyticsConfigurationRequestRequestTypeDef,
-):
-    pass
-
-GetBucketCorsOutputTypeDef = TypedDict(
-    "GetBucketCorsOutputTypeDef",
-    {
-        "CORSRules": List["CORSRuleTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetBucketCorsRequestRequestTypeDef = TypedDict(
-    "_RequiredGetBucketCorsRequestRequestTypeDef",
-    {
-        "Bucket": str,
-    },
-)
-_OptionalGetBucketCorsRequestRequestTypeDef = TypedDict(
-    "_OptionalGetBucketCorsRequestRequestTypeDef",
-    {
-        "ExpectedBucketOwner": str,
-    },
-    total=False,
-)
-
-class GetBucketCorsRequestRequestTypeDef(
-    _RequiredGetBucketCorsRequestRequestTypeDef, _OptionalGetBucketCorsRequestRequestTypeDef
-):
-    pass
-
-GetBucketEncryptionOutputTypeDef = TypedDict(
-    "GetBucketEncryptionOutputTypeDef",
-    {
-        "ServerSideEncryptionConfiguration": "ServerSideEncryptionConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetBucketEncryptionRequestRequestTypeDef = TypedDict(
-    "_RequiredGetBucketEncryptionRequestRequestTypeDef",
-    {
-        "Bucket": str,
-    },
-)
-_OptionalGetBucketEncryptionRequestRequestTypeDef = TypedDict(
-    "_OptionalGetBucketEncryptionRequestRequestTypeDef",
-    {
-        "ExpectedBucketOwner": str,
-    },
-    total=False,
-)
-
-class GetBucketEncryptionRequestRequestTypeDef(
-    _RequiredGetBucketEncryptionRequestRequestTypeDef,
-    _OptionalGetBucketEncryptionRequestRequestTypeDef,
-):
-    pass
-
-GetBucketIntelligentTieringConfigurationOutputTypeDef = TypedDict(
-    "GetBucketIntelligentTieringConfigurationOutputTypeDef",
-    {
-        "IntelligentTieringConfiguration": "IntelligentTieringConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetBucketIntelligentTieringConfigurationRequestRequestTypeDef = TypedDict(
-    "GetBucketIntelligentTieringConfigurationRequestRequestTypeDef",
-    {
-        "Bucket": str,
-        "Id": str,
-    },
-)
-
-GetBucketInventoryConfigurationOutputTypeDef = TypedDict(
-    "GetBucketInventoryConfigurationOutputTypeDef",
-    {
-        "InventoryConfiguration": "InventoryConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetBucketInventoryConfigurationRequestRequestTypeDef = TypedDict(
-    "_RequiredGetBucketInventoryConfigurationRequestRequestTypeDef",
-    {
-        "Bucket": str,
-        "Id": str,
-    },
-)
-_OptionalGetBucketInventoryConfigurationRequestRequestTypeDef = TypedDict(
-    "_OptionalGetBucketInventoryConfigurationRequestRequestTypeDef",
-    {
-        "ExpectedBucketOwner": str,
-    },
-    total=False,
-)
-
-class GetBucketInventoryConfigurationRequestRequestTypeDef(
-    _RequiredGetBucketInventoryConfigurationRequestRequestTypeDef,
-    _OptionalGetBucketInventoryConfigurationRequestRequestTypeDef,
-):
-    pass
-
-GetBucketLifecycleConfigurationOutputTypeDef = TypedDict(
-    "GetBucketLifecycleConfigurationOutputTypeDef",
-    {
-        "Rules": List["LifecycleRuleTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetBucketLifecycleConfigurationRequestRequestTypeDef = TypedDict(
-    "_RequiredGetBucketLifecycleConfigurationRequestRequestTypeDef",
-    {
-        "Bucket": str,
-    },
-)
-_OptionalGetBucketLifecycleConfigurationRequestRequestTypeDef = TypedDict(
-    "_OptionalGetBucketLifecycleConfigurationRequestRequestTypeDef",
-    {
-        "ExpectedBucketOwner": str,
-    },
-    total=False,
-)
-
-class GetBucketLifecycleConfigurationRequestRequestTypeDef(
-    _RequiredGetBucketLifecycleConfigurationRequestRequestTypeDef,
-    _OptionalGetBucketLifecycleConfigurationRequestRequestTypeDef,
-):
-    pass
-
-GetBucketLifecycleOutputTypeDef = TypedDict(
-    "GetBucketLifecycleOutputTypeDef",
-    {
-        "Rules": List["RuleTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetBucketLifecycleRequestRequestTypeDef = TypedDict(
-    "_RequiredGetBucketLifecycleRequestRequestTypeDef",
-    {
-        "Bucket": str,
-    },
-)
-_OptionalGetBucketLifecycleRequestRequestTypeDef = TypedDict(
-    "_OptionalGetBucketLifecycleRequestRequestTypeDef",
-    {
-        "ExpectedBucketOwner": str,
-    },
-    total=False,
-)
-
-class GetBucketLifecycleRequestRequestTypeDef(
-    _RequiredGetBucketLifecycleRequestRequestTypeDef,
-    _OptionalGetBucketLifecycleRequestRequestTypeDef,
-):
-    pass
-
-GetBucketLocationOutputTypeDef = TypedDict(
-    "GetBucketLocationOutputTypeDef",
-    {
-        "LocationConstraint": BucketLocationConstraintType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetBucketLocationRequestRequestTypeDef = TypedDict(
-    "_RequiredGetBucketLocationRequestRequestTypeDef",
-    {
-        "Bucket": str,
-    },
-)
-_OptionalGetBucketLocationRequestRequestTypeDef = TypedDict(
-    "_OptionalGetBucketLocationRequestRequestTypeDef",
-    {
-        "ExpectedBucketOwner": str,
-    },
-    total=False,
-)
-
-class GetBucketLocationRequestRequestTypeDef(
-    _RequiredGetBucketLocationRequestRequestTypeDef, _OptionalGetBucketLocationRequestRequestTypeDef
-):
-    pass
-
-GetBucketLoggingOutputTypeDef = TypedDict(
-    "GetBucketLoggingOutputTypeDef",
-    {
-        "LoggingEnabled": "LoggingEnabledTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetBucketLoggingRequestRequestTypeDef = TypedDict(
-    "_RequiredGetBucketLoggingRequestRequestTypeDef",
-    {
-        "Bucket": str,
-    },
-)
-_OptionalGetBucketLoggingRequestRequestTypeDef = TypedDict(
-    "_OptionalGetBucketLoggingRequestRequestTypeDef",
-    {
-        "ExpectedBucketOwner": str,
-    },
-    total=False,
-)
-
-class GetBucketLoggingRequestRequestTypeDef(
-    _RequiredGetBucketLoggingRequestRequestTypeDef, _OptionalGetBucketLoggingRequestRequestTypeDef
-):
-    pass
-
-GetBucketMetricsConfigurationOutputTypeDef = TypedDict(
-    "GetBucketMetricsConfigurationOutputTypeDef",
-    {
-        "MetricsConfiguration": "MetricsConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetBucketMetricsConfigurationRequestRequestTypeDef = TypedDict(
-    "_RequiredGetBucketMetricsConfigurationRequestRequestTypeDef",
-    {
-        "Bucket": str,
-        "Id": str,
-    },
-)
-_OptionalGetBucketMetricsConfigurationRequestRequestTypeDef = TypedDict(
-    "_OptionalGetBucketMetricsConfigurationRequestRequestTypeDef",
-    {
-        "ExpectedBucketOwner": str,
-    },
-    total=False,
-)
-
-class GetBucketMetricsConfigurationRequestRequestTypeDef(
-    _RequiredGetBucketMetricsConfigurationRequestRequestTypeDef,
-    _OptionalGetBucketMetricsConfigurationRequestRequestTypeDef,
-):
-    pass
-
-_RequiredGetBucketNotificationConfigurationRequestRequestTypeDef = TypedDict(
-    "_RequiredGetBucketNotificationConfigurationRequestRequestTypeDef",
-    {
-        "Bucket": str,
-    },
-)
-_OptionalGetBucketNotificationConfigurationRequestRequestTypeDef = TypedDict(
-    "_OptionalGetBucketNotificationConfigurationRequestRequestTypeDef",
-    {
-        "ExpectedBucketOwner": str,
-    },
-    total=False,
-)
-
-class GetBucketNotificationConfigurationRequestRequestTypeDef(
-    _RequiredGetBucketNotificationConfigurationRequestRequestTypeDef,
-    _OptionalGetBucketNotificationConfigurationRequestRequestTypeDef,
-):
-    pass
-
-GetBucketOwnershipControlsOutputTypeDef = TypedDict(
-    "GetBucketOwnershipControlsOutputTypeDef",
-    {
-        "OwnershipControls": "OwnershipControlsTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetBucketOwnershipControlsRequestRequestTypeDef = TypedDict(
-    "_RequiredGetBucketOwnershipControlsRequestRequestTypeDef",
-    {
-        "Bucket": str,
-    },
-)
-_OptionalGetBucketOwnershipControlsRequestRequestTypeDef = TypedDict(
-    "_OptionalGetBucketOwnershipControlsRequestRequestTypeDef",
-    {
-        "ExpectedBucketOwner": str,
-    },
-    total=False,
-)
-
-class GetBucketOwnershipControlsRequestRequestTypeDef(
-    _RequiredGetBucketOwnershipControlsRequestRequestTypeDef,
-    _OptionalGetBucketOwnershipControlsRequestRequestTypeDef,
-):
-    pass
-
-GetBucketPolicyOutputTypeDef = TypedDict(
-    "GetBucketPolicyOutputTypeDef",
-    {
-        "Policy": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetBucketPolicyRequestRequestTypeDef = TypedDict(
-    "_RequiredGetBucketPolicyRequestRequestTypeDef",
-    {
-        "Bucket": str,
-    },
-)
-_OptionalGetBucketPolicyRequestRequestTypeDef = TypedDict(
-    "_OptionalGetBucketPolicyRequestRequestTypeDef",
-    {
-        "ExpectedBucketOwner": str,
-    },
-    total=False,
-)
-
-class GetBucketPolicyRequestRequestTypeDef(
-    _RequiredGetBucketPolicyRequestRequestTypeDef, _OptionalGetBucketPolicyRequestRequestTypeDef
-):
-    pass
-
-GetBucketPolicyStatusOutputTypeDef = TypedDict(
-    "GetBucketPolicyStatusOutputTypeDef",
-    {
-        "PolicyStatus": "PolicyStatusTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetBucketPolicyStatusRequestRequestTypeDef = TypedDict(
-    "_RequiredGetBucketPolicyStatusRequestRequestTypeDef",
-    {
-        "Bucket": str,
-    },
-)
-_OptionalGetBucketPolicyStatusRequestRequestTypeDef = TypedDict(
-    "_OptionalGetBucketPolicyStatusRequestRequestTypeDef",
-    {
-        "ExpectedBucketOwner": str,
-    },
-    total=False,
-)
-
-class GetBucketPolicyStatusRequestRequestTypeDef(
-    _RequiredGetBucketPolicyStatusRequestRequestTypeDef,
-    _OptionalGetBucketPolicyStatusRequestRequestTypeDef,
-):
-    pass
-
-GetBucketReplicationOutputTypeDef = TypedDict(
-    "GetBucketReplicationOutputTypeDef",
-    {
-        "ReplicationConfiguration": "ReplicationConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetBucketReplicationRequestRequestTypeDef = TypedDict(
-    "_RequiredGetBucketReplicationRequestRequestTypeDef",
-    {
-        "Bucket": str,
-    },
-)
-_OptionalGetBucketReplicationRequestRequestTypeDef = TypedDict(
-    "_OptionalGetBucketReplicationRequestRequestTypeDef",
-    {
-        "ExpectedBucketOwner": str,
-    },
-    total=False,
-)
-
-class GetBucketReplicationRequestRequestTypeDef(
-    _RequiredGetBucketReplicationRequestRequestTypeDef,
-    _OptionalGetBucketReplicationRequestRequestTypeDef,
-):
-    pass
-
-GetBucketRequestPaymentOutputTypeDef = TypedDict(
-    "GetBucketRequestPaymentOutputTypeDef",
-    {
-        "Payer": PayerType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetBucketRequestPaymentRequestRequestTypeDef = TypedDict(
-    "_RequiredGetBucketRequestPaymentRequestRequestTypeDef",
-    {
-        "Bucket": str,
-    },
-)
-_OptionalGetBucketRequestPaymentRequestRequestTypeDef = TypedDict(
-    "_OptionalGetBucketRequestPaymentRequestRequestTypeDef",
-    {
-        "ExpectedBucketOwner": str,
-    },
-    total=False,
-)
-
-class GetBucketRequestPaymentRequestRequestTypeDef(
-    _RequiredGetBucketRequestPaymentRequestRequestTypeDef,
-    _OptionalGetBucketRequestPaymentRequestRequestTypeDef,
-):
-    pass
-
-GetBucketTaggingOutputTypeDef = TypedDict(
-    "GetBucketTaggingOutputTypeDef",
-    {
-        "TagSet": List["TagTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetBucketTaggingRequestRequestTypeDef = TypedDict(
-    "_RequiredGetBucketTaggingRequestRequestTypeDef",
-    {
-        "Bucket": str,
-    },
-)
-_OptionalGetBucketTaggingRequestRequestTypeDef = TypedDict(
-    "_OptionalGetBucketTaggingRequestRequestTypeDef",
-    {
-        "ExpectedBucketOwner": str,
-    },
-    total=False,
-)
-
-class GetBucketTaggingRequestRequestTypeDef(
-    _RequiredGetBucketTaggingRequestRequestTypeDef, _OptionalGetBucketTaggingRequestRequestTypeDef
-):
-    pass
-
-GetBucketVersioningOutputTypeDef = TypedDict(
-    "GetBucketVersioningOutputTypeDef",
-    {
-        "Status": BucketVersioningStatusType,
-        "MFADelete": MFADeleteStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetBucketVersioningRequestRequestTypeDef = TypedDict(
-    "_RequiredGetBucketVersioningRequestRequestTypeDef",
-    {
-        "Bucket": str,
-    },
-)
-_OptionalGetBucketVersioningRequestRequestTypeDef = TypedDict(
-    "_OptionalGetBucketVersioningRequestRequestTypeDef",
-    {
-        "ExpectedBucketOwner": str,
-    },
-    total=False,
-)
-
-class GetBucketVersioningRequestRequestTypeDef(
-    _RequiredGetBucketVersioningRequestRequestTypeDef,
-    _OptionalGetBucketVersioningRequestRequestTypeDef,
-):
-    pass
-
-GetBucketWebsiteOutputTypeDef = TypedDict(
-    "GetBucketWebsiteOutputTypeDef",
-    {
-        "RedirectAllRequestsTo": "RedirectAllRequestsToTypeDef",
-        "IndexDocument": "IndexDocumentTypeDef",
-        "ErrorDocument": "ErrorDocumentTypeDef",
-        "RoutingRules": List["RoutingRuleTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetBucketWebsiteRequestRequestTypeDef = TypedDict(
-    "_RequiredGetBucketWebsiteRequestRequestTypeDef",
-    {
-        "Bucket": str,
-    },
-)
-_OptionalGetBucketWebsiteRequestRequestTypeDef = TypedDict(
-    "_OptionalGetBucketWebsiteRequestRequestTypeDef",
-    {
-        "ExpectedBucketOwner": str,
-    },
-    total=False,
-)
-
-class GetBucketWebsiteRequestRequestTypeDef(
-    _RequiredGetBucketWebsiteRequestRequestTypeDef, _OptionalGetBucketWebsiteRequestRequestTypeDef
-):
-    pass
-
-GetObjectAclOutputTypeDef = TypedDict(
-    "GetObjectAclOutputTypeDef",
-    {
-        "Owner": "OwnerTypeDef",
-        "Grants": List["GrantTypeDef"],
-        "RequestCharged": Literal["requester"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetObjectAclRequestRequestTypeDef = TypedDict(
-    "_RequiredGetObjectAclRequestRequestTypeDef",
-    {
-        "Bucket": str,
-        "Key": str,
-    },
-)
-_OptionalGetObjectAclRequestRequestTypeDef = TypedDict(
-    "_OptionalGetObjectAclRequestRequestTypeDef",
-    {
-        "VersionId": str,
-        "RequestPayer": Literal["requester"],
-        "ExpectedBucketOwner": str,
-    },
-    total=False,
-)
-
-class GetObjectAclRequestRequestTypeDef(
-    _RequiredGetObjectAclRequestRequestTypeDef, _OptionalGetObjectAclRequestRequestTypeDef
-):
-    pass
-
-GetObjectAttributesOutputTypeDef = TypedDict(
-    "GetObjectAttributesOutputTypeDef",
-    {
-        "DeleteMarker": bool,
-        "LastModified": datetime,
-        "VersionId": str,
-        "RequestCharged": Literal["requester"],
-        "ETag": str,
-        "Checksum": "ChecksumTypeDef",
-        "ObjectParts": "GetObjectAttributesPartsTypeDef",
-        "StorageClass": StorageClassType,
-        "ObjectSize": int,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetObjectAttributesPartsTypeDef = TypedDict(
-    "GetObjectAttributesPartsTypeDef",
-    {
-        "TotalPartsCount": int,
-        "PartNumberMarker": int,
-        "NextPartNumberMarker": int,
-        "MaxParts": int,
-        "IsTruncated": bool,
-        "Parts": List["ObjectPartTypeDef"],
-    },
-    total=False,
-)
-
-_RequiredGetObjectAttributesRequestRequestTypeDef = TypedDict(
-    "_RequiredGetObjectAttributesRequestRequestTypeDef",
-    {
-        "Bucket": str,
-        "Key": str,
-        "ObjectAttributes": List[ObjectAttributesType],
-    },
-)
-_OptionalGetObjectAttributesRequestRequestTypeDef = TypedDict(
-    "_OptionalGetObjectAttributesRequestRequestTypeDef",
-    {
-        "VersionId": str,
-        "MaxParts": int,
-        "PartNumberMarker": int,
-        "SSECustomerAlgorithm": str,
-        "SSECustomerKey": str,
-        "SSECustomerKeyMD5": str,
-        "RequestPayer": Literal["requester"],
-        "ExpectedBucketOwner": str,
-    },
-    total=False,
-)
-
-class GetObjectAttributesRequestRequestTypeDef(
-    _RequiredGetObjectAttributesRequestRequestTypeDef,
-    _OptionalGetObjectAttributesRequestRequestTypeDef,
-):
-    pass
-
-GetObjectLegalHoldOutputTypeDef = TypedDict(
-    "GetObjectLegalHoldOutputTypeDef",
-    {
-        "LegalHold": "ObjectLockLegalHoldTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetObjectLegalHoldRequestRequestTypeDef = TypedDict(
-    "_RequiredGetObjectLegalHoldRequestRequestTypeDef",
-    {
-        "Bucket": str,
-        "Key": str,
-    },
-)
-_OptionalGetObjectLegalHoldRequestRequestTypeDef = TypedDict(
-    "_OptionalGetObjectLegalHoldRequestRequestTypeDef",
-    {
-        "VersionId": str,
-        "RequestPayer": Literal["requester"],
-        "ExpectedBucketOwner": str,
-    },
-    total=False,
-)
-
-class GetObjectLegalHoldRequestRequestTypeDef(
-    _RequiredGetObjectLegalHoldRequestRequestTypeDef,
-    _OptionalGetObjectLegalHoldRequestRequestTypeDef,
-):
-    pass
-
-GetObjectLockConfigurationOutputTypeDef = TypedDict(
-    "GetObjectLockConfigurationOutputTypeDef",
-    {
-        "ObjectLockConfiguration": "ObjectLockConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetObjectLockConfigurationRequestRequestTypeDef = TypedDict(
-    "_RequiredGetObjectLockConfigurationRequestRequestTypeDef",
-    {
-        "Bucket": str,
-    },
-)
-_OptionalGetObjectLockConfigurationRequestRequestTypeDef = TypedDict(
-    "_OptionalGetObjectLockConfigurationRequestRequestTypeDef",
-    {
-        "ExpectedBucketOwner": str,
-    },
-    total=False,
-)
-
-class GetObjectLockConfigurationRequestRequestTypeDef(
-    _RequiredGetObjectLockConfigurationRequestRequestTypeDef,
-    _OptionalGetObjectLockConfigurationRequestRequestTypeDef,
-):
-    pass
-
-GetObjectOutputTypeDef = TypedDict(
-    "GetObjectOutputTypeDef",
-    {
-        "Body": StreamingBody,
-        "DeleteMarker": bool,
-        "AcceptRanges": str,
-        "Expiration": str,
-        "Restore": str,
-        "LastModified": datetime,
-        "ContentLength": int,
-        "ETag": str,
-        "ChecksumCRC32": str,
-        "ChecksumCRC32C": str,
-        "ChecksumSHA1": str,
-        "ChecksumSHA256": str,
-        "MissingMeta": int,
-        "VersionId": str,
-        "CacheControl": str,
-        "ContentDisposition": str,
-        "ContentEncoding": str,
-        "ContentLanguage": str,
-        "ContentRange": str,
-        "ContentType": str,
-        "Expires": datetime,
-        "WebsiteRedirectLocation": str,
-        "ServerSideEncryption": ServerSideEncryptionType,
-        "Metadata": Dict[str, str],
-        "SSECustomerAlgorithm": str,
-        "SSECustomerKeyMD5": str,
-        "SSEKMSKeyId": str,
-        "BucketKeyEnabled": bool,
-        "StorageClass": StorageClassType,
-        "RequestCharged": Literal["requester"],
-        "ReplicationStatus": ReplicationStatusType,
-        "PartsCount": int,
-        "TagCount": int,
-        "ObjectLockMode": ObjectLockModeType,
-        "ObjectLockRetainUntilDate": datetime,
-        "ObjectLockLegalHoldStatus": ObjectLockLegalHoldStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetObjectRequestObjectSummaryTypeDef = TypedDict(
-    "GetObjectRequestObjectSummaryTypeDef",
-    {
-        "IfMatch": str,
-        "IfModifiedSince": Union[datetime, str],
-        "IfNoneMatch": str,
-        "IfUnmodifiedSince": Union[datetime, str],
-        "Range": str,
-        "ResponseCacheControl": str,
-        "ResponseContentDisposition": str,
-        "ResponseContentEncoding": str,
-        "ResponseContentLanguage": str,
-        "ResponseContentType": str,
-        "ResponseExpires": Union[datetime, str],
-        "VersionId": str,
-        "SSECustomerAlgorithm": str,
-        "SSECustomerKey": str,
-        "SSECustomerKeyMD5": str,
-        "RequestPayer": Literal["requester"],
-        "PartNumber": int,
-        "ExpectedBucketOwner": str,
-        "ChecksumMode": Literal["ENABLED"],
-    },
-    total=False,
-)
-
-GetObjectRequestObjectTypeDef = TypedDict(
-    "GetObjectRequestObjectTypeDef",
-    {
-        "IfMatch": str,
-        "IfModifiedSince": Union[datetime, str],
-        "IfNoneMatch": str,
-        "IfUnmodifiedSince": Union[datetime, str],
-        "Range": str,
-        "ResponseCacheControl": str,
-        "ResponseContentDisposition": str,
-        "ResponseContentEncoding": str,
-        "ResponseContentLanguage": str,
-        "ResponseContentType": str,
-        "ResponseExpires": Union[datetime, str],
-        "VersionId": str,
-        "SSECustomerAlgorithm": str,
-        "SSECustomerKey": str,
-        "SSECustomerKeyMD5": str,
-        "RequestPayer": Literal["requester"],
-        "PartNumber": int,
-        "ExpectedBucketOwner": str,
-        "ChecksumMode": Literal["ENABLED"],
-    },
-    total=False,
-)
-
-GetObjectRequestObjectVersionTypeDef = TypedDict(
-    "GetObjectRequestObjectVersionTypeDef",
-    {
-        "IfMatch": str,
-        "IfModifiedSince": Union[datetime, str],
-        "IfNoneMatch": str,
-        "IfUnmodifiedSince": Union[datetime, str],
-        "Range": str,
-        "ResponseCacheControl": str,
-        "ResponseContentDisposition": str,
-        "ResponseContentEncoding": str,
-        "ResponseContentLanguage": str,
-        "ResponseContentType": str,
-        "ResponseExpires": Union[datetime, str],
-        "SSECustomerAlgorithm": str,
-        "SSECustomerKey": str,
-        "SSECustomerKeyMD5": str,
-        "RequestPayer": Literal["requester"],
-        "PartNumber": int,
-        "ExpectedBucketOwner": str,
-        "ChecksumMode": Literal["ENABLED"],
-    },
-    total=False,
-)
-
-_RequiredGetObjectRequestRequestTypeDef = TypedDict(
-    "_RequiredGetObjectRequestRequestTypeDef",
-    {
-        "Bucket": str,
-        "Key": str,
-    },
-)
-_OptionalGetObjectRequestRequestTypeDef = TypedDict(
-    "_OptionalGetObjectRequestRequestTypeDef",
-    {
-        "IfMatch": str,
-        "IfModifiedSince": Union[datetime, str],
-        "IfNoneMatch": str,
-        "IfUnmodifiedSince": Union[datetime, str],
-        "Range": str,
-        "ResponseCacheControl": str,
-        "ResponseContentDisposition": str,
-        "ResponseContentEncoding": str,
-        "ResponseContentLanguage": str,
-        "ResponseContentType": str,
-        "ResponseExpires": Union[datetime, str],
-        "VersionId": str,
-        "SSECustomerAlgorithm": str,
-        "SSECustomerKey": str,
-        "SSECustomerKeyMD5": str,
-        "RequestPayer": Literal["requester"],
-        "PartNumber": int,
-        "ExpectedBucketOwner": str,
-        "ChecksumMode": Literal["ENABLED"],
-    },
-    total=False,
-)
-
-class GetObjectRequestRequestTypeDef(
-    _RequiredGetObjectRequestRequestTypeDef, _OptionalGetObjectRequestRequestTypeDef
-):
-    pass
-
-GetObjectRetentionOutputTypeDef = TypedDict(
-    "GetObjectRetentionOutputTypeDef",
-    {
-        "Retention": "ObjectLockRetentionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetObjectRetentionRequestRequestTypeDef = TypedDict(
-    "_RequiredGetObjectRetentionRequestRequestTypeDef",
-    {
-        "Bucket": str,
-        "Key": str,
-    },
-)
-_OptionalGetObjectRetentionRequestRequestTypeDef = TypedDict(
-    "_OptionalGetObjectRetentionRequestRequestTypeDef",
-    {
-        "VersionId": str,
-        "RequestPayer": Literal["requester"],
-        "ExpectedBucketOwner": str,
-    },
-    total=False,
-)
-
-class GetObjectRetentionRequestRequestTypeDef(
-    _RequiredGetObjectRetentionRequestRequestTypeDef,
-    _OptionalGetObjectRetentionRequestRequestTypeDef,
-):
-    pass
-
-GetObjectTaggingOutputTypeDef = TypedDict(
-    "GetObjectTaggingOutputTypeDef",
-    {
-        "VersionId": str,
-        "TagSet": List["TagTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetObjectTaggingRequestRequestTypeDef = TypedDict(
-    "_RequiredGetObjectTaggingRequestRequestTypeDef",
-    {
-        "Bucket": str,
-        "Key": str,
-    },
-)
-_OptionalGetObjectTaggingRequestRequestTypeDef = TypedDict(
-    "_OptionalGetObjectTaggingRequestRequestTypeDef",
-    {
-        "VersionId": str,
-        "ExpectedBucketOwner": str,
-        "RequestPayer": Literal["requester"],
-    },
-    total=False,
-)
-
-class GetObjectTaggingRequestRequestTypeDef(
-    _RequiredGetObjectTaggingRequestRequestTypeDef, _OptionalGetObjectTaggingRequestRequestTypeDef
-):
-    pass
-
-GetObjectTorrentOutputTypeDef = TypedDict(
-    "GetObjectTorrentOutputTypeDef",
-    {
-        "Body": StreamingBody,
-        "RequestCharged": Literal["requester"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetObjectTorrentRequestRequestTypeDef = TypedDict(
-    "_RequiredGetObjectTorrentRequestRequestTypeDef",
-    {
-        "Bucket": str,
-        "Key": str,
-    },
-)
-_OptionalGetObjectTorrentRequestRequestTypeDef = TypedDict(
-    "_OptionalGetObjectTorrentRequestRequestTypeDef",
-    {
-        "RequestPayer": Literal["requester"],
-        "ExpectedBucketOwner": str,
-    },
-    total=False,
-)
-
-class GetObjectTorrentRequestRequestTypeDef(
-    _RequiredGetObjectTorrentRequestRequestTypeDef, _OptionalGetObjectTorrentRequestRequestTypeDef
-):
-    pass
-
-GetPublicAccessBlockOutputTypeDef = TypedDict(
-    "GetPublicAccessBlockOutputTypeDef",
-    {
-        "PublicAccessBlockConfiguration": "PublicAccessBlockConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetPublicAccessBlockRequestRequestTypeDef = TypedDict(
-    "_RequiredGetPublicAccessBlockRequestRequestTypeDef",
-    {
-        "Bucket": str,
-    },
-)
-_OptionalGetPublicAccessBlockRequestRequestTypeDef = TypedDict(
-    "_OptionalGetPublicAccessBlockRequestRequestTypeDef",
-    {
-        "ExpectedBucketOwner": str,
-    },
-    total=False,
-)
-
-class GetPublicAccessBlockRequestRequestTypeDef(
-    _RequiredGetPublicAccessBlockRequestRequestTypeDef,
-    _OptionalGetPublicAccessBlockRequestRequestTypeDef,
-):
-    pass
-
-GlacierJobParametersTypeDef = TypedDict(
-    "GlacierJobParametersTypeDef",
-    {
-        "Tier": TierType,
-    },
-)
-
-GrantTypeDef = TypedDict(
-    "GrantTypeDef",
-    {
-        "Grantee": "GranteeTypeDef",
-        "Permission": PermissionType,
-    },
-    total=False,
-)
-
-_RequiredGranteeTypeDef = TypedDict(
-    "_RequiredGranteeTypeDef",
-    {
-        "Type": TypeType,
-    },
-)
-_OptionalGranteeTypeDef = TypedDict(
-    "_OptionalGranteeTypeDef",
-    {
-        "DisplayName": str,
-        "EmailAddress": str,
-        "ID": str,
-        "URI": str,
-    },
-    total=False,
-)
-
-class GranteeTypeDef(_RequiredGranteeTypeDef, _OptionalGranteeTypeDef):
-    pass
-
-HeadBucketOutputTypeDef = TypedDict(
-    "HeadBucketOutputTypeDef",
-    {
-        "BucketLocationType": Literal["AvailabilityZone"],
-        "BucketLocationName": str,
-        "BucketRegion": str,
-        "AccessPointAlias": bool,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredHeadBucketRequestRequestTypeDef = TypedDict(
-    "_RequiredHeadBucketRequestRequestTypeDef",
-    {
-        "Bucket": str,
-    },
-)
-_OptionalHeadBucketRequestRequestTypeDef = TypedDict(
-    "_OptionalHeadBucketRequestRequestTypeDef",
-    {
-        "ExpectedBucketOwner": str,
-    },
-    total=False,
-)
-
-class HeadBucketRequestRequestTypeDef(
-    _RequiredHeadBucketRequestRequestTypeDef, _OptionalHeadBucketRequestRequestTypeDef
-):
-    pass
-
-HeadObjectOutputTypeDef = TypedDict(
-    "HeadObjectOutputTypeDef",
-    {
-        "DeleteMarker": bool,
-        "AcceptRanges": str,
-        "Expiration": str,
-        "Restore": str,
-        "ArchiveStatus": ArchiveStatusType,
-        "LastModified": datetime,
-        "ContentLength": int,
-        "ChecksumCRC32": str,
-        "ChecksumCRC32C": str,
-        "ChecksumSHA1": str,
-        "ChecksumSHA256": str,
-        "ETag": str,
-        "MissingMeta": int,
-        "VersionId": str,
-        "CacheControl": str,
-        "ContentDisposition": str,
-        "ContentEncoding": str,
-        "ContentLanguage": str,
-        "ContentType": str,
-        "Expires": datetime,
-        "WebsiteRedirectLocation": str,
-        "ServerSideEncryption": ServerSideEncryptionType,
-        "Metadata": Dict[str, str],
-        "SSECustomerAlgorithm": str,
-        "SSECustomerKeyMD5": str,
-        "SSEKMSKeyId": str,
-        "BucketKeyEnabled": bool,
-        "StorageClass": StorageClassType,
-        "RequestCharged": Literal["requester"],
-        "ReplicationStatus": ReplicationStatusType,
-        "PartsCount": int,
-        "ObjectLockMode": ObjectLockModeType,
-        "ObjectLockRetainUntilDate": datetime,
-        "ObjectLockLegalHoldStatus": ObjectLockLegalHoldStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-HeadObjectRequestObjectVersionTypeDef = TypedDict(
-    "HeadObjectRequestObjectVersionTypeDef",
-    {
-        "IfMatch": str,
-        "IfModifiedSince": Union[datetime, str],
-        "IfNoneMatch": str,
-        "IfUnmodifiedSince": Union[datetime, str],
-        "Range": str,
-        "ResponseCacheControl": str,
-        "ResponseContentDisposition": str,
-        "ResponseContentEncoding": str,
-        "ResponseContentLanguage": str,
-        "ResponseContentType": str,
-        "ResponseExpires": Union[datetime, str],
-        "SSECustomerAlgorithm": str,
-        "SSECustomerKey": str,
-        "SSECustomerKeyMD5": str,
-        "RequestPayer": Literal["requester"],
-        "PartNumber": int,
-        "ExpectedBucketOwner": str,
-        "ChecksumMode": Literal["ENABLED"],
-    },
-    total=False,
-)
-
-_RequiredHeadObjectRequestRequestTypeDef = TypedDict(
-    "_RequiredHeadObjectRequestRequestTypeDef",
-    {
-        "Bucket": str,
-        "Key": str,
-    },
-)
-_OptionalHeadObjectRequestRequestTypeDef = TypedDict(
-    "_OptionalHeadObjectRequestRequestTypeDef",
-    {
-        "IfMatch": str,
-        "IfModifiedSince": Union[datetime, str],
-        "IfNoneMatch": str,
-        "IfUnmodifiedSince": Union[datetime, str],
-        "Range": str,
-        "ResponseCacheControl": str,
-        "ResponseContentDisposition": str,
-        "ResponseContentEncoding": str,
-        "ResponseContentLanguage": str,
-        "ResponseContentType": str,
-        "ResponseExpires": Union[datetime, str],
-        "VersionId": str,
-        "SSECustomerAlgorithm": str,
-        "SSECustomerKey": str,
-        "SSECustomerKeyMD5": str,
-        "RequestPayer": Literal["requester"],
-        "PartNumber": int,
-        "ExpectedBucketOwner": str,
-        "ChecksumMode": Literal["ENABLED"],
-    },
-    total=False,
-)
-
-class HeadObjectRequestRequestTypeDef(
-    _RequiredHeadObjectRequestRequestTypeDef, _OptionalHeadObjectRequestRequestTypeDef
-):
-    pass
-
-IndexDocumentTypeDef = TypedDict(
-    "IndexDocumentTypeDef",
-    {
-        "Suffix": str,
-    },
-)
-
-InitiatorTypeDef = TypedDict(
-    "InitiatorTypeDef",
-    {
-        "ID": str,
-        "DisplayName": str,
-    },
-    total=False,
-)
-
-InputSerializationTypeDef = TypedDict(
-    "InputSerializationTypeDef",
-    {
-        "CSV": "CSVInputTypeDef",
-        "CompressionType": CompressionTypeType,
-        "JSON": "JSONInputTypeDef",
-        "Parquet": Dict[str, Any],
-    },
-    total=False,
-)
-
-IntelligentTieringAndOperatorTypeDef = TypedDict(
-    "IntelligentTieringAndOperatorTypeDef",
-    {
-        "Prefix": str,
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-_RequiredIntelligentTieringConfigurationTypeDef = TypedDict(
-    "_RequiredIntelligentTieringConfigurationTypeDef",
-    {
-        "Id": str,
-        "Status": IntelligentTieringStatusType,
-        "Tierings": List["TieringTypeDef"],
-    },
-)
-_OptionalIntelligentTieringConfigurationTypeDef = TypedDict(
-    "_OptionalIntelligentTieringConfigurationTypeDef",
-    {
-        "Filter": "IntelligentTieringFilterTypeDef",
-    },
-    total=False,
-)
-
-class IntelligentTieringConfigurationTypeDef(
-    _RequiredIntelligentTieringConfigurationTypeDef, _OptionalIntelligentTieringConfigurationTypeDef
-):
-    pass
-
-IntelligentTieringFilterTypeDef = TypedDict(
-    "IntelligentTieringFilterTypeDef",
-    {
-        "Prefix": str,
-        "Tag": "TagTypeDef",
-        "And": "IntelligentTieringAndOperatorTypeDef",
-    },
-    total=False,
-)
-
-_RequiredInventoryConfigurationTypeDef = TypedDict(
-    "_RequiredInventoryConfigurationTypeDef",
-    {
-        "Destination": "InventoryDestinationTypeDef",
-        "IsEnabled": bool,
-        "Id": str,
-        "IncludedObjectVersions": InventoryIncludedObjectVersionsType,
-        "Schedule": "InventoryScheduleTypeDef",
-    },
-)
-_OptionalInventoryConfigurationTypeDef = TypedDict(
-    "_OptionalInventoryConfigurationTypeDef",
-    {
-        "Filter": "InventoryFilterTypeDef",
-        "OptionalFields": List[InventoryOptionalFieldType],
-    },
-    total=False,
-)
-
-class InventoryConfigurationTypeDef(
-    _RequiredInventoryConfigurationTypeDef, _OptionalInventoryConfigurationTypeDef
-):
-    pass
-
-InventoryDestinationTypeDef = TypedDict(
-    "InventoryDestinationTypeDef",
-    {
-        "S3BucketDestination": "InventoryS3BucketDestinationTypeDef",
-    },
-)
-
-InventoryEncryptionTypeDef = TypedDict(
-    "InventoryEncryptionTypeDef",
-    {
-        "SSES3": Dict[str, Any],
-        "SSEKMS": "SSEKMSTypeDef",
-    },
-    total=False,
-)
-
-InventoryFilterTypeDef = TypedDict(
-    "InventoryFilterTypeDef",
-    {
-        "Prefix": str,
-    },
-)
-
-_RequiredInventoryS3BucketDestinationTypeDef = TypedDict(
-    "_RequiredInventoryS3BucketDestinationTypeDef",
-    {
-        "Bucket": str,
-        "Format": InventoryFormatType,
-    },
-)
-_OptionalInventoryS3BucketDestinationTypeDef = TypedDict(
-    "_OptionalInventoryS3BucketDestinationTypeDef",
-    {
-        "AccountId": str,
-        "Prefix": str,
-        "Encryption": "InventoryEncryptionTypeDef",
-    },
-    total=False,
-)
-
-class InventoryS3BucketDestinationTypeDef(
-    _RequiredInventoryS3BucketDestinationTypeDef, _OptionalInventoryS3BucketDestinationTypeDef
-):
-    pass
-
-InventoryScheduleTypeDef = TypedDict(
-    "InventoryScheduleTypeDef",
-    {
-        "Frequency": InventoryFrequencyType,
-    },
-)
-
-JSONInputTypeDef = TypedDict(
-    "JSONInputTypeDef",
-    {
-        "Type": JSONTypeType,
-    },
-    total=False,
-)
-
-JSONOutputTypeDef = TypedDict(
-    "JSONOutputTypeDef",
-    {
-        "RecordDelimiter": str,
-    },
-    total=False,
-)
-
-_RequiredLambdaFunctionConfigurationTypeDef = TypedDict(
-    "_RequiredLambdaFunctionConfigurationTypeDef",
-    {
-        "LambdaFunctionArn": str,
-        "Events": List[EventType],
-    },
-)
-_OptionalLambdaFunctionConfigurationTypeDef = TypedDict(
-    "_OptionalLambdaFunctionConfigurationTypeDef",
-    {
-        "Id": str,
-        "Filter": "NotificationConfigurationFilterTypeDef",
-    },
-    total=False,
-)
-
-class LambdaFunctionConfigurationTypeDef(
-    _RequiredLambdaFunctionConfigurationTypeDef, _OptionalLambdaFunctionConfigurationTypeDef
-):
-    pass
-
-LifecycleConfigurationTypeDef = TypedDict(
-    "LifecycleConfigurationTypeDef",
-    {
-        "Rules": List["RuleTypeDef"],
-    },
-)
-
-LifecycleExpirationTypeDef = TypedDict(
-    "LifecycleExpirationTypeDef",
-    {
-        "Date": datetime,
-        "Days": int,
-        "ExpiredObjectDeleteMarker": bool,
-    },
-    total=False,
-)
-
-LifecycleRuleAndOperatorTypeDef = TypedDict(
-    "LifecycleRuleAndOperatorTypeDef",
-    {
-        "Prefix": str,
-        "Tags": List["TagTypeDef"],
-        "ObjectSizeGreaterThan": int,
-        "ObjectSizeLessThan": int,
-    },
-    total=False,
-)
-
-LifecycleRuleFilterTypeDef = TypedDict(
-    "LifecycleRuleFilterTypeDef",
-    {
-        "Prefix": str,
-        "Tag": "TagTypeDef",
-        "ObjectSizeGreaterThan": int,
-        "ObjectSizeLessThan": int,
-        "And": "LifecycleRuleAndOperatorTypeDef",
-    },
-    total=False,
-)
-
-_RequiredLifecycleRuleTypeDef = TypedDict(
-    "_RequiredLifecycleRuleTypeDef",
-    {
-        "Status": ExpirationStatusType,
-    },
-)
-_OptionalLifecycleRuleTypeDef = TypedDict(
-    "_OptionalLifecycleRuleTypeDef",
-    {
-        "Expiration": "LifecycleExpirationTypeDef",
-        "ID": str,
-        "Prefix": str,
-        "Filter": "LifecycleRuleFilterTypeDef",
-        "Transitions": List["TransitionTypeDef"],
-        "NoncurrentVersionTransitions": List["NoncurrentVersionTransitionTypeDef"],
-        "NoncurrentVersionExpiration": "NoncurrentVersionExpirationTypeDef",
-        "AbortIncompleteMultipartUpload": "AbortIncompleteMultipartUploadTypeDef",
-    },
-    total=False,
-)
-
-class LifecycleRuleTypeDef(_RequiredLifecycleRuleTypeDef, _OptionalLifecycleRuleTypeDef):
-    pass
-
-ListBucketAnalyticsConfigurationsOutputTypeDef = TypedDict(
-    "ListBucketAnalyticsConfigurationsOutputTypeDef",
-    {
-        "IsTruncated": bool,
-        "ContinuationToken": str,
-        "NextContinuationToken": str,
-        "AnalyticsConfigurationList": List["AnalyticsConfigurationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListBucketAnalyticsConfigurationsRequestRequestTypeDef = TypedDict(
-    "_RequiredListBucketAnalyticsConfigurationsRequestRequestTypeDef",
-    {
-        "Bucket": str,
-    },
-)
-_OptionalListBucketAnalyticsConfigurationsRequestRequestTypeDef = TypedDict(
-    "_OptionalListBucketAnalyticsConfigurationsRequestRequestTypeDef",
-    {
-        "ContinuationToken": str,
-        "ExpectedBucketOwner": str,
-    },
-    total=False,
-)
-
-class ListBucketAnalyticsConfigurationsRequestRequestTypeDef(
-    _RequiredListBucketAnalyticsConfigurationsRequestRequestTypeDef,
-    _OptionalListBucketAnalyticsConfigurationsRequestRequestTypeDef,
-):
-    pass
-
-ListBucketIntelligentTieringConfigurationsOutputTypeDef = TypedDict(
-    "ListBucketIntelligentTieringConfigurationsOutputTypeDef",
-    {
-        "IsTruncated": bool,
-        "ContinuationToken": str,
-        "NextContinuationToken": str,
-        "IntelligentTieringConfigurationList": List["IntelligentTieringConfigurationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListBucketIntelligentTieringConfigurationsRequestRequestTypeDef = TypedDict(
-    "_RequiredListBucketIntelligentTieringConfigurationsRequestRequestTypeDef",
-    {
-        "Bucket": str,
-    },
-)
-_OptionalListBucketIntelligentTieringConfigurationsRequestRequestTypeDef = TypedDict(
-    "_OptionalListBucketIntelligentTieringConfigurationsRequestRequestTypeDef",
-    {
-        "ContinuationToken": str,
-    },
-    total=False,
-)
-
-class ListBucketIntelligentTieringConfigurationsRequestRequestTypeDef(
-    _RequiredListBucketIntelligentTieringConfigurationsRequestRequestTypeDef,
-    _OptionalListBucketIntelligentTieringConfigurationsRequestRequestTypeDef,
-):
-    pass
-
-ListBucketInventoryConfigurationsOutputTypeDef = TypedDict(
-    "ListBucketInventoryConfigurationsOutputTypeDef",
-    {
-        "ContinuationToken": str,
-        "InventoryConfigurationList": List["InventoryConfigurationTypeDef"],
-        "IsTruncated": bool,
-        "NextContinuationToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListBucketInventoryConfigurationsRequestRequestTypeDef = TypedDict(
-    "_RequiredListBucketInventoryConfigurationsRequestRequestTypeDef",
-    {
-        "Bucket": str,
-    },
-)
-_OptionalListBucketInventoryConfigurationsRequestRequestTypeDef = TypedDict(
-    "_OptionalListBucketInventoryConfigurationsRequestRequestTypeDef",
-    {
-        "ContinuationToken": str,
-        "ExpectedBucketOwner": str,
-    },
-    total=False,
-)
-
-class ListBucketInventoryConfigurationsRequestRequestTypeDef(
-    _RequiredListBucketInventoryConfigurationsRequestRequestTypeDef,
-    _OptionalListBucketInventoryConfigurationsRequestRequestTypeDef,
-):
-    pass
-
-ListBucketMetricsConfigurationsOutputTypeDef = TypedDict(
-    "ListBucketMetricsConfigurationsOutputTypeDef",
-    {
-        "IsTruncated": bool,
-        "ContinuationToken": str,
-        "NextContinuationToken": str,
-        "MetricsConfigurationList": List["MetricsConfigurationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListBucketMetricsConfigurationsRequestRequestTypeDef = TypedDict(
-    "_RequiredListBucketMetricsConfigurationsRequestRequestTypeDef",
-    {
-        "Bucket": str,
-    },
-)
-_OptionalListBucketMetricsConfigurationsRequestRequestTypeDef = TypedDict(
-    "_OptionalListBucketMetricsConfigurationsRequestRequestTypeDef",
-    {
-        "ContinuationToken": str,
-        "ExpectedBucketOwner": str,
-    },
-    total=False,
-)
-
-class ListBucketMetricsConfigurationsRequestRequestTypeDef(
-    _RequiredListBucketMetricsConfigurationsRequestRequestTypeDef,
-    _OptionalListBucketMetricsConfigurationsRequestRequestTypeDef,
-):
-    pass
-
-ListBucketsOutputTypeDef = TypedDict(
-    "ListBucketsOutputTypeDef",
-    {
-        "Buckets": List["BucketTypeDef"],
-        "Owner": "OwnerTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListDirectoryBucketsOutputTypeDef = TypedDict(
-    "ListDirectoryBucketsOutputTypeDef",
-    {
-        "Buckets": List["BucketTypeDef"],
-        "ContinuationToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListDirectoryBucketsRequestRequestTypeDef = TypedDict(
-    "ListDirectoryBucketsRequestRequestTypeDef",
-    {
-        "ContinuationToken": str,
-        "MaxDirectoryBuckets": int,
-    },
-    total=False,
-)
-
-ListMultipartUploadsOutputTypeDef = TypedDict(
-    "ListMultipartUploadsOutputTypeDef",
-    {
-        "Bucket": str,
-        "KeyMarker": str,
-        "UploadIdMarker": str,
-        "NextKeyMarker": str,
-        "Prefix": str,
-        "Delimiter": str,
-        "NextUploadIdMarker": str,
-        "MaxUploads": int,
-        "IsTruncated": bool,
-        "Uploads": List["MultipartUploadTypeDef"],
-        "CommonPrefixes": List["CommonPrefixTypeDef"],
-        "EncodingType": Literal["url"],
-        "RequestCharged": Literal["requester"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListMultipartUploadsRequestRequestTypeDef = TypedDict(
-    "_RequiredListMultipartUploadsRequestRequestTypeDef",
-    {
-        "Bucket": str,
-    },
-)
-_OptionalListMultipartUploadsRequestRequestTypeDef = TypedDict(
-    "_OptionalListMultipartUploadsRequestRequestTypeDef",
-    {
-        "Delimiter": str,
-        "EncodingType": Literal["url"],
-        "KeyMarker": str,
-        "MaxUploads": int,
-        "Prefix": str,
-        "UploadIdMarker": str,
-        "ExpectedBucketOwner": str,
-        "RequestPayer": Literal["requester"],
-    },
-    total=False,
-)
-
-class ListMultipartUploadsRequestRequestTypeDef(
-    _RequiredListMultipartUploadsRequestRequestTypeDef,
-    _OptionalListMultipartUploadsRequestRequestTypeDef,
-):
-    pass
-
-ListObjectVersionsOutputTypeDef = TypedDict(
-    "ListObjectVersionsOutputTypeDef",
-    {
-        "IsTruncated": bool,
-        "KeyMarker": str,
-        "VersionIdMarker": str,
-        "NextKeyMarker": str,
-        "NextVersionIdMarker": str,
-        "Versions": List["ObjectVersionTypeDef"],
-        "DeleteMarkers": List["DeleteMarkerEntryTypeDef"],
-        "Name": str,
-        "Prefix": str,
-        "Delimiter": str,
-        "MaxKeys": int,
-        "CommonPrefixes": List["CommonPrefixTypeDef"],
-        "EncodingType": Literal["url"],
-        "RequestCharged": Literal["requester"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListObjectVersionsRequestRequestTypeDef = TypedDict(
-    "_RequiredListObjectVersionsRequestRequestTypeDef",
-    {
-        "Bucket": str,
-    },
-)
-_OptionalListObjectVersionsRequestRequestTypeDef = TypedDict(
-    "_OptionalListObjectVersionsRequestRequestTypeDef",
-    {
-        "Delimiter": str,
-        "EncodingType": Literal["url"],
-        "KeyMarker": str,
-        "MaxKeys": int,
-        "Prefix": str,
-        "VersionIdMarker": str,
-        "ExpectedBucketOwner": str,
-        "RequestPayer": Literal["requester"],
-        "OptionalObjectAttributes": List[Literal["RestoreStatus"]],
-    },
-    total=False,
-)
-
-class ListObjectVersionsRequestRequestTypeDef(
-    _RequiredListObjectVersionsRequestRequestTypeDef,
-    _OptionalListObjectVersionsRequestRequestTypeDef,
-):
-    pass
-
-ListObjectsOutputTypeDef = TypedDict(
-    "ListObjectsOutputTypeDef",
-    {
-        "IsTruncated": bool,
-        "Marker": str,
-        "NextMarker": str,
-        "Contents": List["ObjectTypeDef"],
-        "Name": str,
-        "Prefix": str,
-        "Delimiter": str,
-        "MaxKeys": int,
-        "CommonPrefixes": List["CommonPrefixTypeDef"],
-        "EncodingType": Literal["url"],
-        "RequestCharged": Literal["requester"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListObjectsRequestRequestTypeDef = TypedDict(
-    "_RequiredListObjectsRequestRequestTypeDef",
-    {
-        "Bucket": str,
-    },
-)
-_OptionalListObjectsRequestRequestTypeDef = TypedDict(
-    "_OptionalListObjectsRequestRequestTypeDef",
-    {
-        "Delimiter": str,
-        "EncodingType": Literal["url"],
-        "Marker": str,
-        "MaxKeys": int,
-        "Prefix": str,
-        "RequestPayer": Literal["requester"],
-        "ExpectedBucketOwner": str,
-        "OptionalObjectAttributes": List[Literal["RestoreStatus"]],
-    },
-    total=False,
-)
-
-class ListObjectsRequestRequestTypeDef(
-    _RequiredListObjectsRequestRequestTypeDef, _OptionalListObjectsRequestRequestTypeDef
-):
-    pass
-
-ListObjectsV2OutputTypeDef = TypedDict(
-    "ListObjectsV2OutputTypeDef",
-    {
-        "IsTruncated": bool,
-        "Contents": List["ObjectTypeDef"],
-        "Name": str,
-        "Prefix": str,
-        "Delimiter": str,
-        "MaxKeys": int,
-        "CommonPrefixes": List["CommonPrefixTypeDef"],
-        "EncodingType": Literal["url"],
-        "KeyCount": int,
-        "ContinuationToken": str,
-        "NextContinuationToken": str,
-        "StartAfter": str,
-        "RequestCharged": Literal["requester"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListObjectsV2RequestRequestTypeDef = TypedDict(
-    "_RequiredListObjectsV2RequestRequestTypeDef",
-    {
-        "Bucket": str,
-    },
-)
-_OptionalListObjectsV2RequestRequestTypeDef = TypedDict(
-    "_OptionalListObjectsV2RequestRequestTypeDef",
-    {
-        "Delimiter": str,
-        "EncodingType": Literal["url"],
-        "MaxKeys": int,
-        "Prefix": str,
-        "ContinuationToken": str,
-        "FetchOwner": bool,
-        "StartAfter": str,
-        "RequestPayer": Literal["requester"],
-        "ExpectedBucketOwner": str,
-        "OptionalObjectAttributes": List[Literal["RestoreStatus"]],
-    },
-    total=False,
-)
-
-class ListObjectsV2RequestRequestTypeDef(
-    _RequiredListObjectsV2RequestRequestTypeDef, _OptionalListObjectsV2RequestRequestTypeDef
-):
-    pass
-
-ListPartsOutputTypeDef = TypedDict(
-    "ListPartsOutputTypeDef",
-    {
-        "AbortDate": datetime,
-        "AbortRuleId": str,
-        "Bucket": str,
-        "Key": str,
-        "UploadId": str,
-        "PartNumberMarker": int,
-        "NextPartNumberMarker": int,
-        "MaxParts": int,
-        "IsTruncated": bool,
-        "Parts": List["PartTypeDef"],
-        "Initiator": "InitiatorTypeDef",
-        "Owner": "OwnerTypeDef",
-        "StorageClass": StorageClassType,
-        "RequestCharged": Literal["requester"],
-        "ChecksumAlgorithm": ChecksumAlgorithmType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListPartsRequestRequestTypeDef = TypedDict(
-    "_RequiredListPartsRequestRequestTypeDef",
-    {
-        "Bucket": str,
-        "Key": str,
-        "UploadId": str,
-    },
-)
-_OptionalListPartsRequestRequestTypeDef = TypedDict(
-    "_OptionalListPartsRequestRequestTypeDef",
-    {
-        "MaxParts": int,
-        "PartNumberMarker": int,
-        "RequestPayer": Literal["requester"],
-        "ExpectedBucketOwner": str,
-        "SSECustomerAlgorithm": str,
-        "SSECustomerKey": str,
-        "SSECustomerKeyMD5": str,
-    },
-    total=False,
-)
-
-class ListPartsRequestRequestTypeDef(
-    _RequiredListPartsRequestRequestTypeDef, _OptionalListPartsRequestRequestTypeDef
-):
-    pass
+        "DataRedundancy": NotRequired[DataRedundancyType],
+        "Type": NotRequired[Literal["Directory"]],
+    },
+)
+
+class BucketTypeDef(TypedDict):
+    Name: NotRequired[str]
+    CreationDate: NotRequired[datetime]
+    BucketRegion: NotRequired[str]
+
+class BucketUploadFileRequestTypeDef(TypedDict):
+    Filename: str
+    Key: str
+    ExtraArgs: NotRequired[Dict[str, Any] | None]
+    Callback: NotRequired[Callable[..., Any] | None]
+    Config: NotRequired[TransferConfig | None]
+
+class CORSRuleOutputTypeDef(TypedDict):
+    AllowedMethods: List[str]
+    AllowedOrigins: List[str]
+    ID: NotRequired[str]
+    AllowedHeaders: NotRequired[List[str]]
+    ExposeHeaders: NotRequired[List[str]]
+    MaxAgeSeconds: NotRequired[int]
+
+class CORSRuleTypeDef(TypedDict):
+    AllowedMethods: Sequence[str]
+    AllowedOrigins: Sequence[str]
+    ID: NotRequired[str]
+    AllowedHeaders: NotRequired[Sequence[str]]
+    ExposeHeaders: NotRequired[Sequence[str]]
+    MaxAgeSeconds: NotRequired[int]
+
+class CSVInputTypeDef(TypedDict):
+    FileHeaderInfo: NotRequired[FileHeaderInfoType]
+    Comments: NotRequired[str]
+    QuoteEscapeCharacter: NotRequired[str]
+    RecordDelimiter: NotRequired[str]
+    FieldDelimiter: NotRequired[str]
+    QuoteCharacter: NotRequired[str]
+    AllowQuotedRecordDelimiter: NotRequired[bool]
+
+class CSVOutputTypeDef(TypedDict):
+    QuoteFields: NotRequired[QuoteFieldsType]
+    QuoteEscapeCharacter: NotRequired[str]
+    RecordDelimiter: NotRequired[str]
+    FieldDelimiter: NotRequired[str]
+    QuoteCharacter: NotRequired[str]
+
+class ChecksumTypeDef(TypedDict):
+    ChecksumCRC32: NotRequired[str]
+    ChecksumCRC32C: NotRequired[str]
+    ChecksumCRC64NVME: NotRequired[str]
+    ChecksumSHA1: NotRequired[str]
+    ChecksumSHA256: NotRequired[str]
+    ChecksumType: NotRequired[ChecksumTypeType]
+
+class ClientDownloadFileRequestTypeDef(TypedDict):
+    Bucket: str
+    Key: str
+    Filename: str
+    ExtraArgs: NotRequired[Dict[str, Any] | None]
+    Callback: NotRequired[Callable[..., Any] | None]
+    Config: NotRequired[TransferConfig | None]
+
+class ClientGeneratePresignedPostRequestTypeDef(TypedDict):
+    Bucket: str
+    Key: str
+    Fields: NotRequired[Dict[str, Any] | None]
+    Conditions: NotRequired[List[Any] | Dict[str, Any] | None]
+    ExpiresIn: NotRequired[int]
+
+class ClientUploadFileRequestTypeDef(TypedDict):
+    Filename: str
+    Bucket: str
+    Key: str
+    ExtraArgs: NotRequired[Dict[str, Any] | None]
+    Callback: NotRequired[Callable[..., Any] | None]
+    Config: NotRequired[TransferConfig | None]
+
+class CloudFunctionConfigurationOutputTypeDef(TypedDict):
+    Id: NotRequired[str]
+    Event: NotRequired[EventType]
+    Events: NotRequired[List[EventType]]
+    CloudFunction: NotRequired[str]
+    InvocationRole: NotRequired[str]
+
+class CloudFunctionConfigurationTypeDef(TypedDict):
+    Id: NotRequired[str]
+    Event: NotRequired[EventType]
+    Events: NotRequired[Sequence[EventType]]
+    CloudFunction: NotRequired[str]
+    InvocationRole: NotRequired[str]
+
+class CommonPrefixTypeDef(TypedDict):
+    Prefix: NotRequired[str]
+
+class CompletedPartTypeDef(TypedDict):
+    ETag: NotRequired[str]
+    ChecksumCRC32: NotRequired[str]
+    ChecksumCRC32C: NotRequired[str]
+    ChecksumCRC64NVME: NotRequired[str]
+    ChecksumSHA1: NotRequired[str]
+    ChecksumSHA256: NotRequired[str]
+    PartNumber: NotRequired[int]
+
+class ConditionTypeDef(TypedDict):
+    HttpErrorCodeReturnedEquals: NotRequired[str]
+    KeyPrefixEquals: NotRequired[str]
+
+class CopyObjectResultTypeDef(TypedDict):
+    ETag: NotRequired[str]
+    LastModified: NotRequired[datetime]
+    ChecksumType: NotRequired[ChecksumTypeType]
+    ChecksumCRC32: NotRequired[str]
+    ChecksumCRC32C: NotRequired[str]
+    ChecksumCRC64NVME: NotRequired[str]
+    ChecksumSHA1: NotRequired[str]
+    ChecksumSHA256: NotRequired[str]
+
+class CopyPartResultTypeDef(TypedDict):
+    ETag: NotRequired[str]
+    LastModified: NotRequired[datetime]
+    ChecksumCRC32: NotRequired[str]
+    ChecksumCRC32C: NotRequired[str]
+    ChecksumCRC64NVME: NotRequired[str]
+    ChecksumSHA1: NotRequired[str]
+    ChecksumSHA256: NotRequired[str]
 
 LocationInfoTypeDef = TypedDict(
     "LocationInfoTypeDef",
     {
-        "Type": Literal["AvailabilityZone"],
-        "Name": str,
+        "Type": NotRequired[LocationTypeType],
+        "Name": NotRequired[str],
     },
-    total=False,
 )
 
-_RequiredLoggingEnabledTypeDef = TypedDict(
-    "_RequiredLoggingEnabledTypeDef",
-    {
-        "TargetBucket": str,
-        "TargetPrefix": str,
-    },
-)
-_OptionalLoggingEnabledTypeDef = TypedDict(
-    "_OptionalLoggingEnabledTypeDef",
-    {
-        "TargetGrants": List["TargetGrantTypeDef"],
-        "TargetObjectKeyFormat": "TargetObjectKeyFormatTypeDef",
-    },
-    total=False,
-)
-
-class LoggingEnabledTypeDef(_RequiredLoggingEnabledTypeDef, _OptionalLoggingEnabledTypeDef):
-    pass
-
-MetadataEntryTypeDef = TypedDict(
-    "MetadataEntryTypeDef",
-    {
-        "Name": str,
-        "Value": str,
-    },
-    total=False,
-)
-
-MetricsAndOperatorTypeDef = TypedDict(
-    "MetricsAndOperatorTypeDef",
-    {
-        "Prefix": str,
-        "Tags": List["TagTypeDef"],
-        "AccessPointArn": str,
-    },
-    total=False,
-)
-
-_RequiredMetricsConfigurationTypeDef = TypedDict(
-    "_RequiredMetricsConfigurationTypeDef",
-    {
-        "Id": str,
-    },
-)
-_OptionalMetricsConfigurationTypeDef = TypedDict(
-    "_OptionalMetricsConfigurationTypeDef",
-    {
-        "Filter": "MetricsFilterTypeDef",
-    },
-    total=False,
-)
-
-class MetricsConfigurationTypeDef(
-    _RequiredMetricsConfigurationTypeDef, _OptionalMetricsConfigurationTypeDef
-):
-    pass
-
-MetricsFilterTypeDef = TypedDict(
-    "MetricsFilterTypeDef",
-    {
-        "Prefix": str,
-        "Tag": "TagTypeDef",
-        "AccessPointArn": str,
-        "And": "MetricsAndOperatorTypeDef",
-    },
-    total=False,
-)
-
-_RequiredMetricsTypeDef = TypedDict(
-    "_RequiredMetricsTypeDef",
-    {
-        "Status": MetricsStatusType,
-    },
-)
-_OptionalMetricsTypeDef = TypedDict(
-    "_OptionalMetricsTypeDef",
-    {
-        "EventThreshold": "ReplicationTimeValueTypeDef",
-    },
-    total=False,
-)
-
-class MetricsTypeDef(_RequiredMetricsTypeDef, _OptionalMetricsTypeDef):
-    pass
-
-MultipartUploadPartRequestTypeDef = TypedDict(
-    "MultipartUploadPartRequestTypeDef",
-    {
-        "part_number": str,
-    },
-)
-
-MultipartUploadTypeDef = TypedDict(
-    "MultipartUploadTypeDef",
-    {
-        "UploadId": str,
-        "Key": str,
-        "Initiated": datetime,
-        "StorageClass": StorageClassType,
-        "Owner": "OwnerTypeDef",
-        "Initiator": "InitiatorTypeDef",
-        "ChecksumAlgorithm": ChecksumAlgorithmType,
-    },
-    total=False,
-)
-
-NoncurrentVersionExpirationTypeDef = TypedDict(
-    "NoncurrentVersionExpirationTypeDef",
-    {
-        "NoncurrentDays": int,
-        "NewerNoncurrentVersions": int,
-    },
-    total=False,
-)
-
-NoncurrentVersionTransitionTypeDef = TypedDict(
-    "NoncurrentVersionTransitionTypeDef",
-    {
-        "NoncurrentDays": int,
-        "StorageClass": TransitionStorageClassType,
-        "NewerNoncurrentVersions": int,
-    },
-    total=False,
-)
-
-NotificationConfigurationDeprecatedResponseMetadataTypeDef = TypedDict(
-    "NotificationConfigurationDeprecatedResponseMetadataTypeDef",
-    {
-        "TopicConfiguration": "TopicConfigurationDeprecatedTypeDef",
-        "QueueConfiguration": "QueueConfigurationDeprecatedTypeDef",
-        "CloudFunctionConfiguration": "CloudFunctionConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-NotificationConfigurationDeprecatedTypeDef = TypedDict(
-    "NotificationConfigurationDeprecatedTypeDef",
-    {
-        "TopicConfiguration": "TopicConfigurationDeprecatedTypeDef",
-        "QueueConfiguration": "QueueConfigurationDeprecatedTypeDef",
-        "CloudFunctionConfiguration": "CloudFunctionConfigurationTypeDef",
-    },
-    total=False,
-)
-
-NotificationConfigurationFilterTypeDef = TypedDict(
-    "NotificationConfigurationFilterTypeDef",
-    {
-        "Key": "S3KeyFilterTypeDef",
-    },
-    total=False,
-)
-
-NotificationConfigurationResponseMetadataTypeDef = TypedDict(
-    "NotificationConfigurationResponseMetadataTypeDef",
-    {
-        "TopicConfigurations": List["TopicConfigurationTypeDef"],
-        "QueueConfigurations": List["QueueConfigurationTypeDef"],
-        "LambdaFunctionConfigurations": List["LambdaFunctionConfigurationTypeDef"],
-        "EventBridgeConfiguration": Dict[str, Any],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-NotificationConfigurationTypeDef = TypedDict(
-    "NotificationConfigurationTypeDef",
-    {
-        "TopicConfigurations": List["TopicConfigurationTypeDef"],
-        "QueueConfigurations": List["QueueConfigurationTypeDef"],
-        "LambdaFunctionConfigurations": List["LambdaFunctionConfigurationTypeDef"],
-        "EventBridgeConfiguration": Dict[str, Any],
-    },
-    total=False,
-)
-
-_RequiredObjectCopyRequestTypeDef = TypedDict(
-    "_RequiredObjectCopyRequestTypeDef",
-    {
-        "CopySource": "CopySourceTypeDef",
-    },
-)
-_OptionalObjectCopyRequestTypeDef = TypedDict(
-    "_OptionalObjectCopyRequestTypeDef",
-    {
-        "ExtraArgs": Dict[str, Any],
-        "Callback": Callable[..., Any],
-        "SourceClient": BaseClient,
-        "Config": TransferConfig,
-    },
-    total=False,
-)
-
-class ObjectCopyRequestTypeDef(
-    _RequiredObjectCopyRequestTypeDef, _OptionalObjectCopyRequestTypeDef
-):
-    pass
-
-_RequiredObjectDownloadFileRequestTypeDef = TypedDict(
-    "_RequiredObjectDownloadFileRequestTypeDef",
-    {
-        "Filename": str,
-    },
-)
-_OptionalObjectDownloadFileRequestTypeDef = TypedDict(
-    "_OptionalObjectDownloadFileRequestTypeDef",
-    {
-        "ExtraArgs": Dict[str, Any],
-        "Callback": Callable[..., Any],
-        "Config": TransferConfig,
-    },
-    total=False,
-)
-
-class ObjectDownloadFileRequestTypeDef(
-    _RequiredObjectDownloadFileRequestTypeDef, _OptionalObjectDownloadFileRequestTypeDef
-):
-    pass
-
-_RequiredObjectDownloadFileobjRequestTypeDef = TypedDict(
-    "_RequiredObjectDownloadFileobjRequestTypeDef",
-    {
-        "Fileobj": IO[Any],
-    },
-)
-_OptionalObjectDownloadFileobjRequestTypeDef = TypedDict(
-    "_OptionalObjectDownloadFileobjRequestTypeDef",
-    {
-        "ExtraArgs": Dict[str, Any],
-        "Callback": Callable[..., Any],
-        "Config": TransferConfig,
-    },
-    total=False,
-)
-
-class ObjectDownloadFileobjRequestTypeDef(
-    _RequiredObjectDownloadFileobjRequestTypeDef, _OptionalObjectDownloadFileobjRequestTypeDef
-):
-    pass
-
-_RequiredObjectIdentifierTypeDef = TypedDict(
-    "_RequiredObjectIdentifierTypeDef",
-    {
-        "Key": str,
-    },
-)
-_OptionalObjectIdentifierTypeDef = TypedDict(
-    "_OptionalObjectIdentifierTypeDef",
-    {
-        "VersionId": str,
-    },
-    total=False,
-)
-
-class ObjectIdentifierTypeDef(_RequiredObjectIdentifierTypeDef, _OptionalObjectIdentifierTypeDef):
-    pass
-
-ObjectLockConfigurationTypeDef = TypedDict(
-    "ObjectLockConfigurationTypeDef",
-    {
-        "ObjectLockEnabled": Literal["Enabled"],
-        "Rule": "ObjectLockRuleTypeDef",
-    },
-    total=False,
-)
-
-ObjectLockLegalHoldTypeDef = TypedDict(
-    "ObjectLockLegalHoldTypeDef",
-    {
-        "Status": ObjectLockLegalHoldStatusType,
-    },
-    total=False,
-)
-
-ObjectLockRetentionTypeDef = TypedDict(
-    "ObjectLockRetentionTypeDef",
-    {
-        "Mode": ObjectLockRetentionModeType,
-        "RetainUntilDate": datetime,
-    },
-    total=False,
-)
-
-ObjectLockRuleTypeDef = TypedDict(
-    "ObjectLockRuleTypeDef",
-    {
-        "DefaultRetention": "DefaultRetentionTypeDef",
-    },
-    total=False,
-)
-
-ObjectMultipartUploadRequestTypeDef = TypedDict(
-    "ObjectMultipartUploadRequestTypeDef",
-    {
-        "id": str,
-    },
-)
-
-ObjectPartTypeDef = TypedDict(
-    "ObjectPartTypeDef",
-    {
-        "PartNumber": int,
-        "Size": int,
-        "ChecksumCRC32": str,
-        "ChecksumCRC32C": str,
-        "ChecksumSHA1": str,
-        "ChecksumSHA256": str,
-    },
-    total=False,
-)
-
-ObjectSummaryMultipartUploadRequestTypeDef = TypedDict(
-    "ObjectSummaryMultipartUploadRequestTypeDef",
-    {
-        "id": str,
-    },
-)
-
-ObjectSummaryVersionRequestTypeDef = TypedDict(
-    "ObjectSummaryVersionRequestTypeDef",
-    {
-        "id": str,
-    },
-)
-
-ObjectTypeDef = TypedDict(
-    "ObjectTypeDef",
-    {
-        "Key": str,
-        "LastModified": datetime,
-        "ETag": str,
-        "ChecksumAlgorithm": List[ChecksumAlgorithmType],
-        "Size": int,
-        "StorageClass": ObjectStorageClassType,
-        "Owner": "OwnerTypeDef",
-        "RestoreStatus": "RestoreStatusTypeDef",
-    },
-    total=False,
-)
-
-_RequiredObjectUploadFileRequestTypeDef = TypedDict(
-    "_RequiredObjectUploadFileRequestTypeDef",
-    {
-        "Filename": str,
-    },
-)
-_OptionalObjectUploadFileRequestTypeDef = TypedDict(
-    "_OptionalObjectUploadFileRequestTypeDef",
-    {
-        "ExtraArgs": Dict[str, Any],
-        "Callback": Callable[..., Any],
-        "Config": TransferConfig,
-    },
-    total=False,
-)
-
-class ObjectUploadFileRequestTypeDef(
-    _RequiredObjectUploadFileRequestTypeDef, _OptionalObjectUploadFileRequestTypeDef
-):
-    pass
-
-_RequiredObjectUploadFileobjRequestTypeDef = TypedDict(
-    "_RequiredObjectUploadFileobjRequestTypeDef",
-    {
-        "Fileobj": IO[Any],
-    },
-)
-_OptionalObjectUploadFileobjRequestTypeDef = TypedDict(
-    "_OptionalObjectUploadFileobjRequestTypeDef",
-    {
-        "ExtraArgs": Dict[str, Any],
-        "Callback": Callable[..., Any],
-        "Config": TransferConfig,
-    },
-    total=False,
-)
-
-class ObjectUploadFileobjRequestTypeDef(
-    _RequiredObjectUploadFileobjRequestTypeDef, _OptionalObjectUploadFileobjRequestTypeDef
-):
-    pass
-
-ObjectVersionRequestTypeDef = TypedDict(
-    "ObjectVersionRequestTypeDef",
-    {
-        "id": str,
-    },
-)
-
-ObjectVersionTypeDef = TypedDict(
-    "ObjectVersionTypeDef",
-    {
-        "ETag": str,
-        "ChecksumAlgorithm": List[ChecksumAlgorithmType],
-        "Size": int,
-        "StorageClass": Literal["STANDARD"],
-        "Key": str,
-        "VersionId": str,
-        "IsLatest": bool,
-        "LastModified": datetime,
-        "Owner": "OwnerTypeDef",
-        "RestoreStatus": "RestoreStatusTypeDef",
-    },
-    total=False,
-)
-
-OutputLocationTypeDef = TypedDict(
-    "OutputLocationTypeDef",
-    {
-        "S3": "S3LocationTypeDef",
-    },
-    total=False,
-)
-
-OutputSerializationTypeDef = TypedDict(
-    "OutputSerializationTypeDef",
-    {
-        "CSV": "CSVOutputTypeDef",
-        "JSON": "JSONOutputTypeDef",
-    },
-    total=False,
-)
-
-OwnerTypeDef = TypedDict(
-    "OwnerTypeDef",
-    {
-        "DisplayName": str,
-        "ID": str,
-    },
-    total=False,
-)
-
-OwnershipControlsRuleTypeDef = TypedDict(
-    "OwnershipControlsRuleTypeDef",
-    {
-        "ObjectOwnership": ObjectOwnershipType,
-    },
-)
-
-OwnershipControlsTypeDef = TypedDict(
-    "OwnershipControlsTypeDef",
-    {
-        "Rules": List["OwnershipControlsRuleTypeDef"],
-    },
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-PartTypeDef = TypedDict(
-    "PartTypeDef",
-    {
-        "PartNumber": int,
-        "LastModified": datetime,
-        "ETag": str,
-        "Size": int,
-        "ChecksumCRC32": str,
-        "ChecksumCRC32C": str,
-        "ChecksumSHA1": str,
-        "ChecksumSHA256": str,
-    },
-    total=False,
-)
-
-PartitionedPrefixTypeDef = TypedDict(
-    "PartitionedPrefixTypeDef",
-    {
-        "PartitionDateSource": PartitionDateSourceType,
-    },
-    total=False,
-)
-
-PolicyStatusTypeDef = TypedDict(
-    "PolicyStatusTypeDef",
-    {
-        "IsPublic": bool,
-    },
-    total=False,
-)
-
-ProgressEventTypeDef = TypedDict(
-    "ProgressEventTypeDef",
-    {
-        "Details": "ProgressTypeDef",
-    },
-    total=False,
-)
-
-ProgressTypeDef = TypedDict(
-    "ProgressTypeDef",
-    {
-        "BytesScanned": int,
-        "BytesProcessed": int,
-        "BytesReturned": int,
-    },
-    total=False,
-)
-
-PublicAccessBlockConfigurationTypeDef = TypedDict(
-    "PublicAccessBlockConfigurationTypeDef",
-    {
-        "BlockPublicAcls": bool,
-        "IgnorePublicAcls": bool,
-        "BlockPublicPolicy": bool,
-        "RestrictPublicBuckets": bool,
-    },
-    total=False,
-)
-
-_RequiredPutBucketAccelerateConfigurationRequestRequestTypeDef = TypedDict(
-    "_RequiredPutBucketAccelerateConfigurationRequestRequestTypeDef",
-    {
-        "Bucket": str,
-        "AccelerateConfiguration": "AccelerateConfigurationTypeDef",
-    },
-)
-_OptionalPutBucketAccelerateConfigurationRequestRequestTypeDef = TypedDict(
-    "_OptionalPutBucketAccelerateConfigurationRequestRequestTypeDef",
-    {
-        "ExpectedBucketOwner": str,
-        "ChecksumAlgorithm": ChecksumAlgorithmType,
-    },
-    total=False,
-)
-
-class PutBucketAccelerateConfigurationRequestRequestTypeDef(
-    _RequiredPutBucketAccelerateConfigurationRequestRequestTypeDef,
-    _OptionalPutBucketAccelerateConfigurationRequestRequestTypeDef,
-):
-    pass
-
-PutBucketAclRequestBucketAclTypeDef = TypedDict(
-    "PutBucketAclRequestBucketAclTypeDef",
-    {
-        "ACL": BucketCannedACLType,
-        "AccessControlPolicy": "AccessControlPolicyTypeDef",
-        "ChecksumAlgorithm": ChecksumAlgorithmType,
-        "GrantFullControl": str,
-        "GrantRead": str,
-        "GrantReadACP": str,
-        "GrantWrite": str,
-        "GrantWriteACP": str,
-        "ExpectedBucketOwner": str,
-    },
-    total=False,
-)
-
-_RequiredPutBucketAclRequestRequestTypeDef = TypedDict(
-    "_RequiredPutBucketAclRequestRequestTypeDef",
-    {
-        "Bucket": str,
-    },
-)
-_OptionalPutBucketAclRequestRequestTypeDef = TypedDict(
-    "_OptionalPutBucketAclRequestRequestTypeDef",
-    {
-        "ACL": BucketCannedACLType,
-        "AccessControlPolicy": "AccessControlPolicyTypeDef",
-        "ChecksumAlgorithm": ChecksumAlgorithmType,
-        "GrantFullControl": str,
-        "GrantRead": str,
-        "GrantReadACP": str,
-        "GrantWrite": str,
-        "GrantWriteACP": str,
-        "ExpectedBucketOwner": str,
-    },
-    total=False,
-)
-
-class PutBucketAclRequestRequestTypeDef(
-    _RequiredPutBucketAclRequestRequestTypeDef, _OptionalPutBucketAclRequestRequestTypeDef
-):
-    pass
-
-_RequiredPutBucketAnalyticsConfigurationRequestRequestTypeDef = TypedDict(
-    "_RequiredPutBucketAnalyticsConfigurationRequestRequestTypeDef",
-    {
-        "Bucket": str,
-        "Id": str,
-        "AnalyticsConfiguration": "AnalyticsConfigurationTypeDef",
-    },
-)
-_OptionalPutBucketAnalyticsConfigurationRequestRequestTypeDef = TypedDict(
-    "_OptionalPutBucketAnalyticsConfigurationRequestRequestTypeDef",
-    {
-        "ExpectedBucketOwner": str,
-    },
-    total=False,
-)
-
-class PutBucketAnalyticsConfigurationRequestRequestTypeDef(
-    _RequiredPutBucketAnalyticsConfigurationRequestRequestTypeDef,
-    _OptionalPutBucketAnalyticsConfigurationRequestRequestTypeDef,
-):
-    pass
-
-_RequiredPutBucketCorsRequestBucketCorsTypeDef = TypedDict(
-    "_RequiredPutBucketCorsRequestBucketCorsTypeDef",
-    {
-        "CORSConfiguration": "CORSConfigurationTypeDef",
-    },
-)
-_OptionalPutBucketCorsRequestBucketCorsTypeDef = TypedDict(
-    "_OptionalPutBucketCorsRequestBucketCorsTypeDef",
-    {
-        "ChecksumAlgorithm": ChecksumAlgorithmType,
-        "ExpectedBucketOwner": str,
-    },
-    total=False,
-)
-
-class PutBucketCorsRequestBucketCorsTypeDef(
-    _RequiredPutBucketCorsRequestBucketCorsTypeDef, _OptionalPutBucketCorsRequestBucketCorsTypeDef
-):
-    pass
-
-_RequiredPutBucketCorsRequestRequestTypeDef = TypedDict(
-    "_RequiredPutBucketCorsRequestRequestTypeDef",
-    {
-        "Bucket": str,
-        "CORSConfiguration": "CORSConfigurationTypeDef",
-    },
-)
-_OptionalPutBucketCorsRequestRequestTypeDef = TypedDict(
-    "_OptionalPutBucketCorsRequestRequestTypeDef",
-    {
-        "ChecksumAlgorithm": ChecksumAlgorithmType,
-        "ExpectedBucketOwner": str,
-    },
-    total=False,
-)
-
-class PutBucketCorsRequestRequestTypeDef(
-    _RequiredPutBucketCorsRequestRequestTypeDef, _OptionalPutBucketCorsRequestRequestTypeDef
-):
-    pass
-
-_RequiredPutBucketEncryptionRequestRequestTypeDef = TypedDict(
-    "_RequiredPutBucketEncryptionRequestRequestTypeDef",
-    {
-        "Bucket": str,
-        "ServerSideEncryptionConfiguration": "ServerSideEncryptionConfigurationTypeDef",
-    },
-)
-_OptionalPutBucketEncryptionRequestRequestTypeDef = TypedDict(
-    "_OptionalPutBucketEncryptionRequestRequestTypeDef",
-    {
-        "ContentMD5": str,
-        "ChecksumAlgorithm": ChecksumAlgorithmType,
-        "ExpectedBucketOwner": str,
-    },
-    total=False,
-)
-
-class PutBucketEncryptionRequestRequestTypeDef(
-    _RequiredPutBucketEncryptionRequestRequestTypeDef,
-    _OptionalPutBucketEncryptionRequestRequestTypeDef,
-):
-    pass
-
-PutBucketIntelligentTieringConfigurationRequestRequestTypeDef = TypedDict(
-    "PutBucketIntelligentTieringConfigurationRequestRequestTypeDef",
-    {
-        "Bucket": str,
-        "Id": str,
-        "IntelligentTieringConfiguration": "IntelligentTieringConfigurationTypeDef",
-    },
-)
+class SessionCredentialsTypeDef(TypedDict):
+    AccessKeyId: str
+    SecretAccessKey: str
+    SessionToken: str
+    Expiration: datetime
 
-_RequiredPutBucketInventoryConfigurationRequestRequestTypeDef = TypedDict(
-    "_RequiredPutBucketInventoryConfigurationRequestRequestTypeDef",
-    {
-        "Bucket": str,
-        "Id": str,
-        "InventoryConfiguration": "InventoryConfigurationTypeDef",
-    },
-)
-_OptionalPutBucketInventoryConfigurationRequestRequestTypeDef = TypedDict(
-    "_OptionalPutBucketInventoryConfigurationRequestRequestTypeDef",
-    {
-        "ExpectedBucketOwner": str,
-    },
-    total=False,
-)
-
-class PutBucketInventoryConfigurationRequestRequestTypeDef(
-    _RequiredPutBucketInventoryConfigurationRequestRequestTypeDef,
-    _OptionalPutBucketInventoryConfigurationRequestRequestTypeDef,
-):
-    pass
-
-PutBucketLifecycleConfigurationRequestBucketLifecycleConfigurationTypeDef = TypedDict(
-    "PutBucketLifecycleConfigurationRequestBucketLifecycleConfigurationTypeDef",
-    {
-        "ChecksumAlgorithm": ChecksumAlgorithmType,
-        "LifecycleConfiguration": "BucketLifecycleConfigurationTypeDef",
-        "ExpectedBucketOwner": str,
-    },
-    total=False,
-)
-
-_RequiredPutBucketLifecycleConfigurationRequestRequestTypeDef = TypedDict(
-    "_RequiredPutBucketLifecycleConfigurationRequestRequestTypeDef",
-    {
-        "Bucket": str,
-    },
-)
-_OptionalPutBucketLifecycleConfigurationRequestRequestTypeDef = TypedDict(
-    "_OptionalPutBucketLifecycleConfigurationRequestRequestTypeDef",
-    {
-        "ChecksumAlgorithm": ChecksumAlgorithmType,
-        "LifecycleConfiguration": "BucketLifecycleConfigurationTypeDef",
-        "ExpectedBucketOwner": str,
-    },
-    total=False,
-)
-
-class PutBucketLifecycleConfigurationRequestRequestTypeDef(
-    _RequiredPutBucketLifecycleConfigurationRequestRequestTypeDef,
-    _OptionalPutBucketLifecycleConfigurationRequestRequestTypeDef,
-):
-    pass
-
-PutBucketLifecycleRequestBucketLifecycleTypeDef = TypedDict(
-    "PutBucketLifecycleRequestBucketLifecycleTypeDef",
-    {
-        "ChecksumAlgorithm": ChecksumAlgorithmType,
-        "LifecycleConfiguration": "LifecycleConfigurationTypeDef",
-        "ExpectedBucketOwner": str,
-    },
-    total=False,
-)
-
-_RequiredPutBucketLifecycleRequestRequestTypeDef = TypedDict(
-    "_RequiredPutBucketLifecycleRequestRequestTypeDef",
-    {
-        "Bucket": str,
-    },
-)
-_OptionalPutBucketLifecycleRequestRequestTypeDef = TypedDict(
-    "_OptionalPutBucketLifecycleRequestRequestTypeDef",
-    {
-        "ChecksumAlgorithm": ChecksumAlgorithmType,
-        "LifecycleConfiguration": "LifecycleConfigurationTypeDef",
-        "ExpectedBucketOwner": str,
-    },
-    total=False,
-)
-
-class PutBucketLifecycleRequestRequestTypeDef(
-    _RequiredPutBucketLifecycleRequestRequestTypeDef,
-    _OptionalPutBucketLifecycleRequestRequestTypeDef,
-):
-    pass
-
-_RequiredPutBucketLoggingRequestBucketLoggingTypeDef = TypedDict(
-    "_RequiredPutBucketLoggingRequestBucketLoggingTypeDef",
-    {
-        "BucketLoggingStatus": "BucketLoggingStatusTypeDef",
-    },
-)
-_OptionalPutBucketLoggingRequestBucketLoggingTypeDef = TypedDict(
-    "_OptionalPutBucketLoggingRequestBucketLoggingTypeDef",
-    {
-        "ChecksumAlgorithm": ChecksumAlgorithmType,
-        "ExpectedBucketOwner": str,
-    },
-    total=False,
-)
-
-class PutBucketLoggingRequestBucketLoggingTypeDef(
-    _RequiredPutBucketLoggingRequestBucketLoggingTypeDef,
-    _OptionalPutBucketLoggingRequestBucketLoggingTypeDef,
-):
-    pass
-
-_RequiredPutBucketLoggingRequestRequestTypeDef = TypedDict(
-    "_RequiredPutBucketLoggingRequestRequestTypeDef",
-    {
-        "Bucket": str,
-        "BucketLoggingStatus": "BucketLoggingStatusTypeDef",
-    },
-)
-_OptionalPutBucketLoggingRequestRequestTypeDef = TypedDict(
-    "_OptionalPutBucketLoggingRequestRequestTypeDef",
-    {
-        "ChecksumAlgorithm": ChecksumAlgorithmType,
-        "ExpectedBucketOwner": str,
-    },
-    total=False,
-)
-
-class PutBucketLoggingRequestRequestTypeDef(
-    _RequiredPutBucketLoggingRequestRequestTypeDef, _OptionalPutBucketLoggingRequestRequestTypeDef
-):
-    pass
-
-_RequiredPutBucketMetricsConfigurationRequestRequestTypeDef = TypedDict(
-    "_RequiredPutBucketMetricsConfigurationRequestRequestTypeDef",
-    {
-        "Bucket": str,
-        "Id": str,
-        "MetricsConfiguration": "MetricsConfigurationTypeDef",
-    },
-)
-_OptionalPutBucketMetricsConfigurationRequestRequestTypeDef = TypedDict(
-    "_OptionalPutBucketMetricsConfigurationRequestRequestTypeDef",
-    {
-        "ExpectedBucketOwner": str,
-    },
-    total=False,
-)
-
-class PutBucketMetricsConfigurationRequestRequestTypeDef(
-    _RequiredPutBucketMetricsConfigurationRequestRequestTypeDef,
-    _OptionalPutBucketMetricsConfigurationRequestRequestTypeDef,
-):
-    pass
-
-_RequiredPutBucketNotificationConfigurationRequestBucketNotificationTypeDef = TypedDict(
-    "_RequiredPutBucketNotificationConfigurationRequestBucketNotificationTypeDef",
-    {
-        "NotificationConfiguration": "NotificationConfigurationTypeDef",
-    },
-)
-_OptionalPutBucketNotificationConfigurationRequestBucketNotificationTypeDef = TypedDict(
-    "_OptionalPutBucketNotificationConfigurationRequestBucketNotificationTypeDef",
-    {
-        "ExpectedBucketOwner": str,
-        "SkipDestinationValidation": bool,
-    },
-    total=False,
-)
-
-class PutBucketNotificationConfigurationRequestBucketNotificationTypeDef(
-    _RequiredPutBucketNotificationConfigurationRequestBucketNotificationTypeDef,
-    _OptionalPutBucketNotificationConfigurationRequestBucketNotificationTypeDef,
-):
-    pass
-
-_RequiredPutBucketNotificationConfigurationRequestRequestTypeDef = TypedDict(
-    "_RequiredPutBucketNotificationConfigurationRequestRequestTypeDef",
-    {
-        "Bucket": str,
-        "NotificationConfiguration": "NotificationConfigurationTypeDef",
-    },
-)
-_OptionalPutBucketNotificationConfigurationRequestRequestTypeDef = TypedDict(
-    "_OptionalPutBucketNotificationConfigurationRequestRequestTypeDef",
-    {
-        "ExpectedBucketOwner": str,
-        "SkipDestinationValidation": bool,
-    },
-    total=False,
-)
-
-class PutBucketNotificationConfigurationRequestRequestTypeDef(
-    _RequiredPutBucketNotificationConfigurationRequestRequestTypeDef,
-    _OptionalPutBucketNotificationConfigurationRequestRequestTypeDef,
-):
-    pass
-
-_RequiredPutBucketNotificationRequestRequestTypeDef = TypedDict(
-    "_RequiredPutBucketNotificationRequestRequestTypeDef",
-    {
-        "Bucket": str,
-        "NotificationConfiguration": "NotificationConfigurationDeprecatedTypeDef",
-    },
-)
-_OptionalPutBucketNotificationRequestRequestTypeDef = TypedDict(
-    "_OptionalPutBucketNotificationRequestRequestTypeDef",
-    {
-        "ChecksumAlgorithm": ChecksumAlgorithmType,
-        "ExpectedBucketOwner": str,
-    },
-    total=False,
-)
-
-class PutBucketNotificationRequestRequestTypeDef(
-    _RequiredPutBucketNotificationRequestRequestTypeDef,
-    _OptionalPutBucketNotificationRequestRequestTypeDef,
-):
-    pass
-
-_RequiredPutBucketOwnershipControlsRequestRequestTypeDef = TypedDict(
-    "_RequiredPutBucketOwnershipControlsRequestRequestTypeDef",
-    {
-        "Bucket": str,
-        "OwnershipControls": "OwnershipControlsTypeDef",
-    },
-)
-_OptionalPutBucketOwnershipControlsRequestRequestTypeDef = TypedDict(
-    "_OptionalPutBucketOwnershipControlsRequestRequestTypeDef",
-    {
-        "ContentMD5": str,
-        "ExpectedBucketOwner": str,
-    },
-    total=False,
-)
-
-class PutBucketOwnershipControlsRequestRequestTypeDef(
-    _RequiredPutBucketOwnershipControlsRequestRequestTypeDef,
-    _OptionalPutBucketOwnershipControlsRequestRequestTypeDef,
-):
-    pass
-
-_RequiredPutBucketPolicyRequestBucketPolicyTypeDef = TypedDict(
-    "_RequiredPutBucketPolicyRequestBucketPolicyTypeDef",
-    {
-        "Policy": str,
-    },
-)
-_OptionalPutBucketPolicyRequestBucketPolicyTypeDef = TypedDict(
-    "_OptionalPutBucketPolicyRequestBucketPolicyTypeDef",
-    {
-        "ChecksumAlgorithm": ChecksumAlgorithmType,
-        "ConfirmRemoveSelfBucketAccess": bool,
-        "ExpectedBucketOwner": str,
-    },
-    total=False,
-)
-
-class PutBucketPolicyRequestBucketPolicyTypeDef(
-    _RequiredPutBucketPolicyRequestBucketPolicyTypeDef,
-    _OptionalPutBucketPolicyRequestBucketPolicyTypeDef,
-):
-    pass
-
-_RequiredPutBucketPolicyRequestRequestTypeDef = TypedDict(
-    "_RequiredPutBucketPolicyRequestRequestTypeDef",
-    {
-        "Bucket": str,
-        "Policy": str,
-    },
-)
-_OptionalPutBucketPolicyRequestRequestTypeDef = TypedDict(
-    "_OptionalPutBucketPolicyRequestRequestTypeDef",
-    {
-        "ChecksumAlgorithm": ChecksumAlgorithmType,
-        "ConfirmRemoveSelfBucketAccess": bool,
-        "ExpectedBucketOwner": str,
-    },
-    total=False,
-)
-
-class PutBucketPolicyRequestRequestTypeDef(
-    _RequiredPutBucketPolicyRequestRequestTypeDef, _OptionalPutBucketPolicyRequestRequestTypeDef
-):
-    pass
-
-_RequiredPutBucketReplicationRequestRequestTypeDef = TypedDict(
-    "_RequiredPutBucketReplicationRequestRequestTypeDef",
-    {
-        "Bucket": str,
-        "ReplicationConfiguration": "ReplicationConfigurationTypeDef",
-    },
-)
-_OptionalPutBucketReplicationRequestRequestTypeDef = TypedDict(
-    "_OptionalPutBucketReplicationRequestRequestTypeDef",
-    {
-        "ChecksumAlgorithm": ChecksumAlgorithmType,
-        "Token": str,
-        "ExpectedBucketOwner": str,
-    },
-    total=False,
-)
-
-class PutBucketReplicationRequestRequestTypeDef(
-    _RequiredPutBucketReplicationRequestRequestTypeDef,
-    _OptionalPutBucketReplicationRequestRequestTypeDef,
-):
-    pass
-
-_RequiredPutBucketRequestPaymentRequestBucketRequestPaymentTypeDef = TypedDict(
-    "_RequiredPutBucketRequestPaymentRequestBucketRequestPaymentTypeDef",
-    {
-        "RequestPaymentConfiguration": "RequestPaymentConfigurationTypeDef",
-    },
-)
-_OptionalPutBucketRequestPaymentRequestBucketRequestPaymentTypeDef = TypedDict(
-    "_OptionalPutBucketRequestPaymentRequestBucketRequestPaymentTypeDef",
-    {
-        "ChecksumAlgorithm": ChecksumAlgorithmType,
-        "ExpectedBucketOwner": str,
-    },
-    total=False,
-)
-
-class PutBucketRequestPaymentRequestBucketRequestPaymentTypeDef(
-    _RequiredPutBucketRequestPaymentRequestBucketRequestPaymentTypeDef,
-    _OptionalPutBucketRequestPaymentRequestBucketRequestPaymentTypeDef,
-):
-    pass
-
-_RequiredPutBucketRequestPaymentRequestRequestTypeDef = TypedDict(
-    "_RequiredPutBucketRequestPaymentRequestRequestTypeDef",
-    {
-        "Bucket": str,
-        "RequestPaymentConfiguration": "RequestPaymentConfigurationTypeDef",
-    },
-)
-_OptionalPutBucketRequestPaymentRequestRequestTypeDef = TypedDict(
-    "_OptionalPutBucketRequestPaymentRequestRequestTypeDef",
-    {
-        "ChecksumAlgorithm": ChecksumAlgorithmType,
-        "ExpectedBucketOwner": str,
-    },
-    total=False,
-)
-
-class PutBucketRequestPaymentRequestRequestTypeDef(
-    _RequiredPutBucketRequestPaymentRequestRequestTypeDef,
-    _OptionalPutBucketRequestPaymentRequestRequestTypeDef,
-):
-    pass
-
-_RequiredPutBucketTaggingRequestBucketTaggingTypeDef = TypedDict(
-    "_RequiredPutBucketTaggingRequestBucketTaggingTypeDef",
-    {
-        "Tagging": "TaggingTypeDef",
-    },
-)
-_OptionalPutBucketTaggingRequestBucketTaggingTypeDef = TypedDict(
-    "_OptionalPutBucketTaggingRequestBucketTaggingTypeDef",
-    {
-        "ChecksumAlgorithm": ChecksumAlgorithmType,
-        "ExpectedBucketOwner": str,
-    },
-    total=False,
-)
-
-class PutBucketTaggingRequestBucketTaggingTypeDef(
-    _RequiredPutBucketTaggingRequestBucketTaggingTypeDef,
-    _OptionalPutBucketTaggingRequestBucketTaggingTypeDef,
-):
-    pass
-
-_RequiredPutBucketTaggingRequestRequestTypeDef = TypedDict(
-    "_RequiredPutBucketTaggingRequestRequestTypeDef",
-    {
-        "Bucket": str,
-        "Tagging": "TaggingTypeDef",
-    },
-)
-_OptionalPutBucketTaggingRequestRequestTypeDef = TypedDict(
-    "_OptionalPutBucketTaggingRequestRequestTypeDef",
-    {
-        "ChecksumAlgorithm": ChecksumAlgorithmType,
-        "ExpectedBucketOwner": str,
-    },
-    total=False,
-)
-
-class PutBucketTaggingRequestRequestTypeDef(
-    _RequiredPutBucketTaggingRequestRequestTypeDef, _OptionalPutBucketTaggingRequestRequestTypeDef
-):
-    pass
-
-_RequiredPutBucketVersioningRequestBucketVersioningTypeDef = TypedDict(
-    "_RequiredPutBucketVersioningRequestBucketVersioningTypeDef",
-    {
-        "VersioningConfiguration": "VersioningConfigurationTypeDef",
-    },
-)
-_OptionalPutBucketVersioningRequestBucketVersioningTypeDef = TypedDict(
-    "_OptionalPutBucketVersioningRequestBucketVersioningTypeDef",
-    {
-        "ChecksumAlgorithm": ChecksumAlgorithmType,
-        "MFA": str,
-        "ExpectedBucketOwner": str,
-    },
-    total=False,
-)
-
-class PutBucketVersioningRequestBucketVersioningTypeDef(
-    _RequiredPutBucketVersioningRequestBucketVersioningTypeDef,
-    _OptionalPutBucketVersioningRequestBucketVersioningTypeDef,
-):
-    pass
-
-_RequiredPutBucketVersioningRequestRequestTypeDef = TypedDict(
-    "_RequiredPutBucketVersioningRequestRequestTypeDef",
-    {
-        "Bucket": str,
-        "VersioningConfiguration": "VersioningConfigurationTypeDef",
-    },
-)
-_OptionalPutBucketVersioningRequestRequestTypeDef = TypedDict(
-    "_OptionalPutBucketVersioningRequestRequestTypeDef",
-    {
-        "ChecksumAlgorithm": ChecksumAlgorithmType,
-        "MFA": str,
-        "ExpectedBucketOwner": str,
-    },
-    total=False,
-)
-
-class PutBucketVersioningRequestRequestTypeDef(
-    _RequiredPutBucketVersioningRequestRequestTypeDef,
-    _OptionalPutBucketVersioningRequestRequestTypeDef,
-):
-    pass
-
-_RequiredPutBucketWebsiteRequestBucketWebsiteTypeDef = TypedDict(
-    "_RequiredPutBucketWebsiteRequestBucketWebsiteTypeDef",
-    {
-        "WebsiteConfiguration": "WebsiteConfigurationTypeDef",
-    },
-)
-_OptionalPutBucketWebsiteRequestBucketWebsiteTypeDef = TypedDict(
-    "_OptionalPutBucketWebsiteRequestBucketWebsiteTypeDef",
-    {
-        "ChecksumAlgorithm": ChecksumAlgorithmType,
-        "ExpectedBucketOwner": str,
-    },
-    total=False,
-)
-
-class PutBucketWebsiteRequestBucketWebsiteTypeDef(
-    _RequiredPutBucketWebsiteRequestBucketWebsiteTypeDef,
-    _OptionalPutBucketWebsiteRequestBucketWebsiteTypeDef,
-):
-    pass
-
-_RequiredPutBucketWebsiteRequestRequestTypeDef = TypedDict(
-    "_RequiredPutBucketWebsiteRequestRequestTypeDef",
-    {
-        "Bucket": str,
-        "WebsiteConfiguration": "WebsiteConfigurationTypeDef",
-    },
-)
-_OptionalPutBucketWebsiteRequestRequestTypeDef = TypedDict(
-    "_OptionalPutBucketWebsiteRequestRequestTypeDef",
-    {
-        "ChecksumAlgorithm": ChecksumAlgorithmType,
-        "ExpectedBucketOwner": str,
-    },
-    total=False,
-)
-
-class PutBucketWebsiteRequestRequestTypeDef(
-    _RequiredPutBucketWebsiteRequestRequestTypeDef, _OptionalPutBucketWebsiteRequestRequestTypeDef
-):
-    pass
-
-PutObjectAclOutputTypeDef = TypedDict(
-    "PutObjectAclOutputTypeDef",
-    {
-        "RequestCharged": Literal["requester"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-PutObjectAclRequestObjectAclTypeDef = TypedDict(
-    "PutObjectAclRequestObjectAclTypeDef",
-    {
-        "ACL": ObjectCannedACLType,
-        "AccessControlPolicy": "AccessControlPolicyTypeDef",
-        "ChecksumAlgorithm": ChecksumAlgorithmType,
-        "GrantFullControl": str,
-        "GrantRead": str,
-        "GrantReadACP": str,
-        "GrantWrite": str,
-        "GrantWriteACP": str,
-        "RequestPayer": Literal["requester"],
-        "VersionId": str,
-        "ExpectedBucketOwner": str,
-    },
-    total=False,
-)
-
-_RequiredPutObjectAclRequestRequestTypeDef = TypedDict(
-    "_RequiredPutObjectAclRequestRequestTypeDef",
-    {
-        "Bucket": str,
-        "Key": str,
-    },
-)
-_OptionalPutObjectAclRequestRequestTypeDef = TypedDict(
-    "_OptionalPutObjectAclRequestRequestTypeDef",
-    {
-        "ACL": ObjectCannedACLType,
-        "AccessControlPolicy": "AccessControlPolicyTypeDef",
-        "ChecksumAlgorithm": ChecksumAlgorithmType,
-        "GrantFullControl": str,
-        "GrantRead": str,
-        "GrantReadACP": str,
-        "GrantWrite": str,
-        "GrantWriteACP": str,
-        "RequestPayer": Literal["requester"],
-        "VersionId": str,
-        "ExpectedBucketOwner": str,
-    },
-    total=False,
-)
-
-class PutObjectAclRequestRequestTypeDef(
-    _RequiredPutObjectAclRequestRequestTypeDef, _OptionalPutObjectAclRequestRequestTypeDef
-):
-    pass
-
-PutObjectLegalHoldOutputTypeDef = TypedDict(
-    "PutObjectLegalHoldOutputTypeDef",
-    {
-        "RequestCharged": Literal["requester"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredPutObjectLegalHoldRequestRequestTypeDef = TypedDict(
-    "_RequiredPutObjectLegalHoldRequestRequestTypeDef",
-    {
-        "Bucket": str,
-        "Key": str,
-    },
-)
-_OptionalPutObjectLegalHoldRequestRequestTypeDef = TypedDict(
-    "_OptionalPutObjectLegalHoldRequestRequestTypeDef",
-    {
-        "LegalHold": "ObjectLockLegalHoldTypeDef",
-        "RequestPayer": Literal["requester"],
-        "VersionId": str,
-        "ContentMD5": str,
-        "ChecksumAlgorithm": ChecksumAlgorithmType,
-        "ExpectedBucketOwner": str,
-    },
-    total=False,
-)
-
-class PutObjectLegalHoldRequestRequestTypeDef(
-    _RequiredPutObjectLegalHoldRequestRequestTypeDef,
-    _OptionalPutObjectLegalHoldRequestRequestTypeDef,
-):
-    pass
-
-PutObjectLockConfigurationOutputTypeDef = TypedDict(
-    "PutObjectLockConfigurationOutputTypeDef",
-    {
-        "RequestCharged": Literal["requester"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredPutObjectLockConfigurationRequestRequestTypeDef = TypedDict(
-    "_RequiredPutObjectLockConfigurationRequestRequestTypeDef",
-    {
-        "Bucket": str,
-    },
-)
-_OptionalPutObjectLockConfigurationRequestRequestTypeDef = TypedDict(
-    "_OptionalPutObjectLockConfigurationRequestRequestTypeDef",
-    {
-        "ObjectLockConfiguration": "ObjectLockConfigurationTypeDef",
-        "RequestPayer": Literal["requester"],
-        "Token": str,
-        "ContentMD5": str,
-        "ChecksumAlgorithm": ChecksumAlgorithmType,
-        "ExpectedBucketOwner": str,
-    },
-    total=False,
-)
-
-class PutObjectLockConfigurationRequestRequestTypeDef(
-    _RequiredPutObjectLockConfigurationRequestRequestTypeDef,
-    _OptionalPutObjectLockConfigurationRequestRequestTypeDef,
-):
-    pass
-
-PutObjectOutputTypeDef = TypedDict(
-    "PutObjectOutputTypeDef",
-    {
-        "Expiration": str,
-        "ETag": str,
-        "ChecksumCRC32": str,
-        "ChecksumCRC32C": str,
-        "ChecksumSHA1": str,
-        "ChecksumSHA256": str,
-        "ServerSideEncryption": ServerSideEncryptionType,
-        "VersionId": str,
-        "SSECustomerAlgorithm": str,
-        "SSECustomerKeyMD5": str,
-        "SSEKMSKeyId": str,
-        "SSEKMSEncryptionContext": str,
-        "BucketKeyEnabled": bool,
-        "RequestCharged": Literal["requester"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CreateSessionRequestTypeDef(TypedDict):
+    Bucket: str
+    SessionMode: NotRequired[SessionModeType]
+    ServerSideEncryption: NotRequired[ServerSideEncryptionType]
+    SSEKMSKeyId: NotRequired[str]
+    SSEKMSEncryptionContext: NotRequired[str]
+    BucketKeyEnabled: NotRequired[bool]
+
+class DefaultRetentionTypeDef(TypedDict):
+    Mode: NotRequired[ObjectLockRetentionModeType]
+    Days: NotRequired[int]
+    Years: NotRequired[int]
+
+class DeleteBucketAnalyticsConfigurationRequestTypeDef(TypedDict):
+    Bucket: str
+    Id: str
+    ExpectedBucketOwner: NotRequired[str]
+
+class DeleteBucketCorsRequestBucketCorsDeleteTypeDef(TypedDict):
+    ExpectedBucketOwner: NotRequired[str]
+
+class DeleteBucketCorsRequestTypeDef(TypedDict):
+    Bucket: str
+    ExpectedBucketOwner: NotRequired[str]
+
+class DeleteBucketEncryptionRequestTypeDef(TypedDict):
+    Bucket: str
+    ExpectedBucketOwner: NotRequired[str]
+
+class DeleteBucketIntelligentTieringConfigurationRequestTypeDef(TypedDict):
+    Bucket: str
+    Id: str
+
+class DeleteBucketInventoryConfigurationRequestTypeDef(TypedDict):
+    Bucket: str
+    Id: str
+    ExpectedBucketOwner: NotRequired[str]
 
-_RequiredPutObjectRequestBucketTypeDef = TypedDict(
-    "_RequiredPutObjectRequestBucketTypeDef",
-    {
-        "Key": str,
-    },
-)
-_OptionalPutObjectRequestBucketTypeDef = TypedDict(
-    "_OptionalPutObjectRequestBucketTypeDef",
-    {
-        "ACL": ObjectCannedACLType,
-        "Body": Union[bytes, IO[bytes], StreamingBody],
-        "CacheControl": str,
-        "ContentDisposition": str,
-        "ContentEncoding": str,
-        "ContentLanguage": str,
-        "ContentLength": int,
-        "ContentMD5": str,
-        "ContentType": str,
-        "ChecksumAlgorithm": ChecksumAlgorithmType,
-        "ChecksumCRC32": str,
-        "ChecksumCRC32C": str,
-        "ChecksumSHA1": str,
-        "ChecksumSHA256": str,
-        "Expires": Union[datetime, str],
-        "GrantFullControl": str,
-        "GrantRead": str,
-        "GrantReadACP": str,
-        "GrantWriteACP": str,
-        "Metadata": Dict[str, str],
-        "ServerSideEncryption": ServerSideEncryptionType,
-        "StorageClass": StorageClassType,
-        "WebsiteRedirectLocation": str,
-        "SSECustomerAlgorithm": str,
-        "SSECustomerKey": str,
-        "SSECustomerKeyMD5": str,
-        "SSEKMSKeyId": str,
-        "SSEKMSEncryptionContext": str,
-        "BucketKeyEnabled": bool,
-        "RequestPayer": Literal["requester"],
-        "Tagging": str,
-        "ObjectLockMode": ObjectLockModeType,
-        "ObjectLockRetainUntilDate": Union[datetime, str],
-        "ObjectLockLegalHoldStatus": ObjectLockLegalHoldStatusType,
-        "ExpectedBucketOwner": str,
-    },
-    total=False,
-)
-
-class PutObjectRequestBucketTypeDef(
-    _RequiredPutObjectRequestBucketTypeDef, _OptionalPutObjectRequestBucketTypeDef
-):
-    pass
-
-PutObjectRequestObjectSummaryTypeDef = TypedDict(
-    "PutObjectRequestObjectSummaryTypeDef",
-    {
-        "ACL": ObjectCannedACLType,
-        "Body": Union[bytes, IO[bytes], StreamingBody],
-        "CacheControl": str,
-        "ContentDisposition": str,
-        "ContentEncoding": str,
-        "ContentLanguage": str,
-        "ContentLength": int,
-        "ContentMD5": str,
-        "ContentType": str,
-        "ChecksumAlgorithm": ChecksumAlgorithmType,
-        "ChecksumCRC32": str,
-        "ChecksumCRC32C": str,
-        "ChecksumSHA1": str,
-        "ChecksumSHA256": str,
-        "Expires": Union[datetime, str],
-        "GrantFullControl": str,
-        "GrantRead": str,
-        "GrantReadACP": str,
-        "GrantWriteACP": str,
-        "Metadata": Dict[str, str],
-        "ServerSideEncryption": ServerSideEncryptionType,
-        "StorageClass": StorageClassType,
-        "WebsiteRedirectLocation": str,
-        "SSECustomerAlgorithm": str,
-        "SSECustomerKey": str,
-        "SSECustomerKeyMD5": str,
-        "SSEKMSKeyId": str,
-        "SSEKMSEncryptionContext": str,
-        "BucketKeyEnabled": bool,
-        "RequestPayer": Literal["requester"],
-        "Tagging": str,
-        "ObjectLockMode": ObjectLockModeType,
-        "ObjectLockRetainUntilDate": Union[datetime, str],
-        "ObjectLockLegalHoldStatus": ObjectLockLegalHoldStatusType,
-        "ExpectedBucketOwner": str,
-    },
-    total=False,
-)
-
-PutObjectRequestObjectTypeDef = TypedDict(
-    "PutObjectRequestObjectTypeDef",
-    {
-        "ACL": ObjectCannedACLType,
-        "Body": Union[bytes, IO[bytes], StreamingBody],
-        "CacheControl": str,
-        "ContentDisposition": str,
-        "ContentEncoding": str,
-        "ContentLanguage": str,
-        "ContentLength": int,
-        "ContentMD5": str,
-        "ContentType": str,
-        "ChecksumAlgorithm": ChecksumAlgorithmType,
-        "ChecksumCRC32": str,
-        "ChecksumCRC32C": str,
-        "ChecksumSHA1": str,
-        "ChecksumSHA256": str,
-        "Expires": Union[datetime, str],
-        "GrantFullControl": str,
-        "GrantRead": str,
-        "GrantReadACP": str,
-        "GrantWriteACP": str,
-        "Metadata": Dict[str, str],
-        "ServerSideEncryption": ServerSideEncryptionType,
-        "StorageClass": StorageClassType,
-        "WebsiteRedirectLocation": str,
-        "SSECustomerAlgorithm": str,
-        "SSECustomerKey": str,
-        "SSECustomerKeyMD5": str,
-        "SSEKMSKeyId": str,
-        "SSEKMSEncryptionContext": str,
-        "BucketKeyEnabled": bool,
-        "RequestPayer": Literal["requester"],
-        "Tagging": str,
-        "ObjectLockMode": ObjectLockModeType,
-        "ObjectLockRetainUntilDate": Union[datetime, str],
-        "ObjectLockLegalHoldStatus": ObjectLockLegalHoldStatusType,
-        "ExpectedBucketOwner": str,
-    },
-    total=False,
-)
-
-_RequiredPutObjectRequestRequestTypeDef = TypedDict(
-    "_RequiredPutObjectRequestRequestTypeDef",
-    {
-        "Bucket": str,
-        "Key": str,
-    },
-)
-_OptionalPutObjectRequestRequestTypeDef = TypedDict(
-    "_OptionalPutObjectRequestRequestTypeDef",
-    {
-        "ACL": ObjectCannedACLType,
-        "Body": Union[bytes, IO[bytes], StreamingBody],
-        "CacheControl": str,
-        "ContentDisposition": str,
-        "ContentEncoding": str,
-        "ContentLanguage": str,
-        "ContentLength": int,
-        "ContentMD5": str,
-        "ContentType": str,
-        "ChecksumAlgorithm": ChecksumAlgorithmType,
-        "ChecksumCRC32": str,
-        "ChecksumCRC32C": str,
-        "ChecksumSHA1": str,
-        "ChecksumSHA256": str,
-        "Expires": Union[datetime, str],
-        "GrantFullControl": str,
-        "GrantRead": str,
-        "GrantReadACP": str,
-        "GrantWriteACP": str,
-        "Metadata": Dict[str, str],
-        "ServerSideEncryption": ServerSideEncryptionType,
-        "StorageClass": StorageClassType,
-        "WebsiteRedirectLocation": str,
-        "SSECustomerAlgorithm": str,
-        "SSECustomerKey": str,
-        "SSECustomerKeyMD5": str,
-        "SSEKMSKeyId": str,
-        "SSEKMSEncryptionContext": str,
-        "BucketKeyEnabled": bool,
-        "RequestPayer": Literal["requester"],
-        "Tagging": str,
-        "ObjectLockMode": ObjectLockModeType,
-        "ObjectLockRetainUntilDate": Union[datetime, str],
-        "ObjectLockLegalHoldStatus": ObjectLockLegalHoldStatusType,
-        "ExpectedBucketOwner": str,
-    },
-    total=False,
-)
-
-class PutObjectRequestRequestTypeDef(
-    _RequiredPutObjectRequestRequestTypeDef, _OptionalPutObjectRequestRequestTypeDef
-):
-    pass
-
-PutObjectRetentionOutputTypeDef = TypedDict(
-    "PutObjectRetentionOutputTypeDef",
-    {
-        "RequestCharged": Literal["requester"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredPutObjectRetentionRequestRequestTypeDef = TypedDict(
-    "_RequiredPutObjectRetentionRequestRequestTypeDef",
-    {
-        "Bucket": str,
-        "Key": str,
-    },
-)
-_OptionalPutObjectRetentionRequestRequestTypeDef = TypedDict(
-    "_OptionalPutObjectRetentionRequestRequestTypeDef",
-    {
-        "Retention": "ObjectLockRetentionTypeDef",
-        "RequestPayer": Literal["requester"],
-        "VersionId": str,
-        "BypassGovernanceRetention": bool,
-        "ContentMD5": str,
-        "ChecksumAlgorithm": ChecksumAlgorithmType,
-        "ExpectedBucketOwner": str,
-    },
-    total=False,
-)
-
-class PutObjectRetentionRequestRequestTypeDef(
-    _RequiredPutObjectRetentionRequestRequestTypeDef,
-    _OptionalPutObjectRetentionRequestRequestTypeDef,
-):
-    pass
-
-PutObjectTaggingOutputTypeDef = TypedDict(
-    "PutObjectTaggingOutputTypeDef",
-    {
-        "VersionId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredPutObjectTaggingRequestRequestTypeDef = TypedDict(
-    "_RequiredPutObjectTaggingRequestRequestTypeDef",
-    {
-        "Bucket": str,
-        "Key": str,
-        "Tagging": "TaggingTypeDef",
-    },
-)
-_OptionalPutObjectTaggingRequestRequestTypeDef = TypedDict(
-    "_OptionalPutObjectTaggingRequestRequestTypeDef",
-    {
-        "VersionId": str,
-        "ContentMD5": str,
-        "ChecksumAlgorithm": ChecksumAlgorithmType,
-        "ExpectedBucketOwner": str,
-        "RequestPayer": Literal["requester"],
-    },
-    total=False,
-)
-
-class PutObjectTaggingRequestRequestTypeDef(
-    _RequiredPutObjectTaggingRequestRequestTypeDef, _OptionalPutObjectTaggingRequestRequestTypeDef
-):
-    pass
-
-_RequiredPutPublicAccessBlockRequestRequestTypeDef = TypedDict(
-    "_RequiredPutPublicAccessBlockRequestRequestTypeDef",
-    {
-        "Bucket": str,
-        "PublicAccessBlockConfiguration": "PublicAccessBlockConfigurationTypeDef",
-    },
-)
-_OptionalPutPublicAccessBlockRequestRequestTypeDef = TypedDict(
-    "_OptionalPutPublicAccessBlockRequestRequestTypeDef",
-    {
-        "ContentMD5": str,
-        "ChecksumAlgorithm": ChecksumAlgorithmType,
-        "ExpectedBucketOwner": str,
-    },
-    total=False,
-)
-
-class PutPublicAccessBlockRequestRequestTypeDef(
-    _RequiredPutPublicAccessBlockRequestRequestTypeDef,
-    _OptionalPutPublicAccessBlockRequestRequestTypeDef,
-):
-    pass
-
-QueueConfigurationDeprecatedTypeDef = TypedDict(
-    "QueueConfigurationDeprecatedTypeDef",
-    {
-        "Id": str,
-        "Event": EventType,
-        "Events": List[EventType],
-        "Queue": str,
-    },
-    total=False,
-)
-
-_RequiredQueueConfigurationTypeDef = TypedDict(
-    "_RequiredQueueConfigurationTypeDef",
-    {
-        "QueueArn": str,
-        "Events": List[EventType],
-    },
-)
-_OptionalQueueConfigurationTypeDef = TypedDict(
-    "_OptionalQueueConfigurationTypeDef",
-    {
-        "Id": str,
-        "Filter": "NotificationConfigurationFilterTypeDef",
-    },
-    total=False,
-)
-
-class QueueConfigurationTypeDef(
-    _RequiredQueueConfigurationTypeDef, _OptionalQueueConfigurationTypeDef
-):
-    pass
-
-RecordsEventTypeDef = TypedDict(
-    "RecordsEventTypeDef",
-    {
-        "Payload": bytes,
-    },
-    total=False,
-)
+class DeleteBucketLifecycleRequestBucketLifecycleConfigurationDeleteTypeDef(TypedDict):
+    ExpectedBucketOwner: NotRequired[str]
 
-_RequiredRedirectAllRequestsToTypeDef = TypedDict(
-    "_RequiredRedirectAllRequestsToTypeDef",
+class DeleteBucketLifecycleRequestBucketLifecycleDeleteTypeDef(TypedDict):
+    ExpectedBucketOwner: NotRequired[str]
+
+class DeleteBucketLifecycleRequestTypeDef(TypedDict):
+    Bucket: str
+    ExpectedBucketOwner: NotRequired[str]
+
+class DeleteBucketMetadataTableConfigurationRequestTypeDef(TypedDict):
+    Bucket: str
+    ExpectedBucketOwner: NotRequired[str]
+
+class DeleteBucketMetricsConfigurationRequestTypeDef(TypedDict):
+    Bucket: str
+    Id: str
+    ExpectedBucketOwner: NotRequired[str]
+
+class DeleteBucketOwnershipControlsRequestTypeDef(TypedDict):
+    Bucket: str
+    ExpectedBucketOwner: NotRequired[str]
+
+class DeleteBucketPolicyRequestBucketPolicyDeleteTypeDef(TypedDict):
+    ExpectedBucketOwner: NotRequired[str]
+
+class DeleteBucketPolicyRequestTypeDef(TypedDict):
+    Bucket: str
+    ExpectedBucketOwner: NotRequired[str]
+
+class DeleteBucketReplicationRequestTypeDef(TypedDict):
+    Bucket: str
+    ExpectedBucketOwner: NotRequired[str]
+
+class DeleteBucketRequestBucketDeleteTypeDef(TypedDict):
+    ExpectedBucketOwner: NotRequired[str]
+
+class DeleteBucketRequestTypeDef(TypedDict):
+    Bucket: str
+    ExpectedBucketOwner: NotRequired[str]
+
+class DeleteBucketTaggingRequestBucketTaggingDeleteTypeDef(TypedDict):
+    ExpectedBucketOwner: NotRequired[str]
+
+class DeleteBucketTaggingRequestTypeDef(TypedDict):
+    Bucket: str
+    ExpectedBucketOwner: NotRequired[str]
+
+class DeleteBucketWebsiteRequestBucketWebsiteDeleteTypeDef(TypedDict):
+    ExpectedBucketOwner: NotRequired[str]
+
+class DeleteBucketWebsiteRequestTypeDef(TypedDict):
+    Bucket: str
+    ExpectedBucketOwner: NotRequired[str]
+
+class DeleteMarkerReplicationTypeDef(TypedDict):
+    Status: NotRequired[DeleteMarkerReplicationStatusType]
+
+class DeleteObjectTaggingRequestTypeDef(TypedDict):
+    Bucket: str
+    Key: str
+    VersionId: NotRequired[str]
+    ExpectedBucketOwner: NotRequired[str]
+
+class DeletedObjectTypeDef(TypedDict):
+    Key: NotRequired[str]
+    VersionId: NotRequired[str]
+    DeleteMarker: NotRequired[bool]
+    DeleteMarkerVersionId: NotRequired[str]
+
+class ErrorTypeDef(TypedDict):
+    Key: NotRequired[str]
+    VersionId: NotRequired[str]
+    Code: NotRequired[str]
+    Message: NotRequired[str]
+
+class DeletePublicAccessBlockRequestTypeDef(TypedDict):
+    Bucket: str
+    ExpectedBucketOwner: NotRequired[str]
+
+class EncryptionConfigurationTypeDef(TypedDict):
+    ReplicaKmsKeyID: NotRequired[str]
+
+class EncryptionTypeDef(TypedDict):
+    EncryptionType: ServerSideEncryptionType
+    KMSKeyId: NotRequired[str]
+    KMSContext: NotRequired[str]
+
+class ErrorDetailsTypeDef(TypedDict):
+    ErrorCode: NotRequired[str]
+    ErrorMessage: NotRequired[str]
+
+class ErrorDocumentTypeDef(TypedDict):
+    Key: str
+
+class ExistingObjectReplicationTypeDef(TypedDict):
+    Status: ExistingObjectReplicationStatusType
+
+class FilterRuleTypeDef(TypedDict):
+    Name: NotRequired[FilterRuleNameType]
+    Value: NotRequired[str]
+
+class GetBucketAccelerateConfigurationRequestTypeDef(TypedDict):
+    Bucket: str
+    ExpectedBucketOwner: NotRequired[str]
+    RequestPayer: NotRequired[Literal["requester"]]
+
+class GetBucketAclRequestTypeDef(TypedDict):
+    Bucket: str
+    ExpectedBucketOwner: NotRequired[str]
+
+class GetBucketAnalyticsConfigurationRequestTypeDef(TypedDict):
+    Bucket: str
+    Id: str
+    ExpectedBucketOwner: NotRequired[str]
+
+class GetBucketCorsRequestTypeDef(TypedDict):
+    Bucket: str
+    ExpectedBucketOwner: NotRequired[str]
+
+class GetBucketEncryptionRequestTypeDef(TypedDict):
+    Bucket: str
+    ExpectedBucketOwner: NotRequired[str]
+
+class GetBucketIntelligentTieringConfigurationRequestTypeDef(TypedDict):
+    Bucket: str
+    Id: str
+
+class GetBucketInventoryConfigurationRequestTypeDef(TypedDict):
+    Bucket: str
+    Id: str
+    ExpectedBucketOwner: NotRequired[str]
+
+class GetBucketLifecycleConfigurationRequestTypeDef(TypedDict):
+    Bucket: str
+    ExpectedBucketOwner: NotRequired[str]
+
+class GetBucketLifecycleRequestTypeDef(TypedDict):
+    Bucket: str
+    ExpectedBucketOwner: NotRequired[str]
+
+class GetBucketLocationRequestTypeDef(TypedDict):
+    Bucket: str
+    ExpectedBucketOwner: NotRequired[str]
+
+class GetBucketLoggingRequestTypeDef(TypedDict):
+    Bucket: str
+    ExpectedBucketOwner: NotRequired[str]
+
+class GetBucketMetadataTableConfigurationRequestTypeDef(TypedDict):
+    Bucket: str
+    ExpectedBucketOwner: NotRequired[str]
+
+class GetBucketMetricsConfigurationRequestTypeDef(TypedDict):
+    Bucket: str
+    Id: str
+    ExpectedBucketOwner: NotRequired[str]
+
+class GetBucketNotificationConfigurationRequestRequestTypeDef(TypedDict):
+    Bucket: str
+    ExpectedBucketOwner: NotRequired[str]
+
+class GetBucketNotificationConfigurationRequestTypeDef(TypedDict):
+    Bucket: str
+    ExpectedBucketOwner: NotRequired[str]
+
+class GetBucketOwnershipControlsRequestTypeDef(TypedDict):
+    Bucket: str
+    ExpectedBucketOwner: NotRequired[str]
+
+class GetBucketPolicyRequestTypeDef(TypedDict):
+    Bucket: str
+    ExpectedBucketOwner: NotRequired[str]
+
+class PolicyStatusTypeDef(TypedDict):
+    IsPublic: NotRequired[bool]
+
+class GetBucketPolicyStatusRequestTypeDef(TypedDict):
+    Bucket: str
+    ExpectedBucketOwner: NotRequired[str]
+
+class GetBucketReplicationRequestTypeDef(TypedDict):
+    Bucket: str
+    ExpectedBucketOwner: NotRequired[str]
+
+class GetBucketRequestPaymentRequestTypeDef(TypedDict):
+    Bucket: str
+    ExpectedBucketOwner: NotRequired[str]
+
+class GetBucketTaggingRequestTypeDef(TypedDict):
+    Bucket: str
+    ExpectedBucketOwner: NotRequired[str]
+
+class GetBucketVersioningRequestTypeDef(TypedDict):
+    Bucket: str
+    ExpectedBucketOwner: NotRequired[str]
+
+class IndexDocumentTypeDef(TypedDict):
+    Suffix: str
+
+RedirectAllRequestsToTypeDef = TypedDict(
+    "RedirectAllRequestsToTypeDef",
     {
         "HostName": str,
+        "Protocol": NotRequired[ProtocolType],
     },
-)
-_OptionalRedirectAllRequestsToTypeDef = TypedDict(
-    "_OptionalRedirectAllRequestsToTypeDef",
-    {
-        "Protocol": ProtocolType,
-    },
-    total=False,
 )
 
-class RedirectAllRequestsToTypeDef(
-    _RequiredRedirectAllRequestsToTypeDef, _OptionalRedirectAllRequestsToTypeDef
-):
-    pass
+class GetBucketWebsiteRequestTypeDef(TypedDict):
+    Bucket: str
+    ExpectedBucketOwner: NotRequired[str]
+
+class GetObjectAclRequestTypeDef(TypedDict):
+    Bucket: str
+    Key: str
+    VersionId: NotRequired[str]
+    RequestPayer: NotRequired[Literal["requester"]]
+    ExpectedBucketOwner: NotRequired[str]
+
+class ObjectPartTypeDef(TypedDict):
+    PartNumber: NotRequired[int]
+    Size: NotRequired[int]
+    ChecksumCRC32: NotRequired[str]
+    ChecksumCRC32C: NotRequired[str]
+    ChecksumCRC64NVME: NotRequired[str]
+    ChecksumSHA1: NotRequired[str]
+    ChecksumSHA256: NotRequired[str]
+
+class GetObjectAttributesRequestTypeDef(TypedDict):
+    Bucket: str
+    Key: str
+    ObjectAttributes: Sequence[ObjectAttributesType]
+    VersionId: NotRequired[str]
+    MaxParts: NotRequired[int]
+    PartNumberMarker: NotRequired[int]
+    SSECustomerAlgorithm: NotRequired[str]
+    SSECustomerKey: NotRequired[str | bytes]
+    RequestPayer: NotRequired[Literal["requester"]]
+    ExpectedBucketOwner: NotRequired[str]
+
+class ObjectLockLegalHoldTypeDef(TypedDict):
+    Status: NotRequired[ObjectLockLegalHoldStatusType]
+
+class GetObjectLegalHoldRequestTypeDef(TypedDict):
+    Bucket: str
+    Key: str
+    VersionId: NotRequired[str]
+    RequestPayer: NotRequired[Literal["requester"]]
+    ExpectedBucketOwner: NotRequired[str]
+
+class GetObjectLockConfigurationRequestTypeDef(TypedDict):
+    Bucket: str
+    ExpectedBucketOwner: NotRequired[str]
+
+class ObjectLockRetentionOutputTypeDef(TypedDict):
+    Mode: NotRequired[ObjectLockRetentionModeType]
+    RetainUntilDate: NotRequired[datetime]
+
+class GetObjectRetentionRequestTypeDef(TypedDict):
+    Bucket: str
+    Key: str
+    VersionId: NotRequired[str]
+    RequestPayer: NotRequired[Literal["requester"]]
+    ExpectedBucketOwner: NotRequired[str]
+
+class GetObjectTaggingRequestTypeDef(TypedDict):
+    Bucket: str
+    Key: str
+    VersionId: NotRequired[str]
+    ExpectedBucketOwner: NotRequired[str]
+    RequestPayer: NotRequired[Literal["requester"]]
+
+class GetObjectTorrentRequestTypeDef(TypedDict):
+    Bucket: str
+    Key: str
+    RequestPayer: NotRequired[Literal["requester"]]
+    ExpectedBucketOwner: NotRequired[str]
+
+class PublicAccessBlockConfigurationTypeDef(TypedDict):
+    BlockPublicAcls: NotRequired[bool]
+    IgnorePublicAcls: NotRequired[bool]
+    BlockPublicPolicy: NotRequired[bool]
+    RestrictPublicBuckets: NotRequired[bool]
+
+class GetPublicAccessBlockRequestTypeDef(TypedDict):
+    Bucket: str
+    ExpectedBucketOwner: NotRequired[str]
+
+class GlacierJobParametersTypeDef(TypedDict):
+    Tier: TierType
+
+GranteeTypeDef = TypedDict(
+    "GranteeTypeDef",
+    {
+        "Type": TypeType,
+        "DisplayName": NotRequired[str],
+        "EmailAddress": NotRequired[str],
+        "ID": NotRequired[str],
+        "URI": NotRequired[str],
+    },
+)
+
+class HeadBucketRequestTypeDef(TypedDict):
+    Bucket: str
+    ExpectedBucketOwner: NotRequired[str]
+
+class WaiterConfigTypeDef(TypedDict):
+    Delay: NotRequired[int]
+    MaxAttempts: NotRequired[int]
+
+class InitiatorTypeDef(TypedDict):
+    ID: NotRequired[str]
+    DisplayName: NotRequired[str]
+
+JSONInputTypeDef = TypedDict(
+    "JSONInputTypeDef",
+    {
+        "Type": NotRequired[JSONTypeType],
+    },
+)
+
+class TieringTypeDef(TypedDict):
+    Days: int
+    AccessTier: IntelligentTieringAccessTierType
+
+class InventoryFilterTypeDef(TypedDict):
+    Prefix: str
+
+class InventoryScheduleTypeDef(TypedDict):
+    Frequency: InventoryFrequencyType
+
+class SSEKMSTypeDef(TypedDict):
+    KeyId: str
+
+class JSONOutputTypeDef(TypedDict):
+    RecordDelimiter: NotRequired[str]
+
+class LifecycleExpirationOutputTypeDef(TypedDict):
+    Date: NotRequired[datetime]
+    Days: NotRequired[int]
+    ExpiredObjectDeleteMarker: NotRequired[bool]
+
+class NoncurrentVersionExpirationTypeDef(TypedDict):
+    NoncurrentDays: NotRequired[int]
+    NewerNoncurrentVersions: NotRequired[int]
+
+class NoncurrentVersionTransitionTypeDef(TypedDict):
+    NoncurrentDays: NotRequired[int]
+    StorageClass: NotRequired[TransitionStorageClassType]
+    NewerNoncurrentVersions: NotRequired[int]
+
+class TransitionOutputTypeDef(TypedDict):
+    Date: NotRequired[datetime]
+    Days: NotRequired[int]
+    StorageClass: NotRequired[TransitionStorageClassType]
+
+class ListBucketAnalyticsConfigurationsRequestTypeDef(TypedDict):
+    Bucket: str
+    ContinuationToken: NotRequired[str]
+    ExpectedBucketOwner: NotRequired[str]
+
+class ListBucketIntelligentTieringConfigurationsRequestTypeDef(TypedDict):
+    Bucket: str
+    ContinuationToken: NotRequired[str]
+
+class ListBucketInventoryConfigurationsRequestTypeDef(TypedDict):
+    Bucket: str
+    ContinuationToken: NotRequired[str]
+    ExpectedBucketOwner: NotRequired[str]
+
+class ListBucketMetricsConfigurationsRequestTypeDef(TypedDict):
+    Bucket: str
+    ContinuationToken: NotRequired[str]
+    ExpectedBucketOwner: NotRequired[str]
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class ListBucketsRequestTypeDef(TypedDict):
+    MaxBuckets: NotRequired[int]
+    ContinuationToken: NotRequired[str]
+    Prefix: NotRequired[str]
+    BucketRegion: NotRequired[str]
+
+class ListDirectoryBucketsRequestTypeDef(TypedDict):
+    ContinuationToken: NotRequired[str]
+    MaxDirectoryBuckets: NotRequired[int]
+
+class ListMultipartUploadsRequestTypeDef(TypedDict):
+    Bucket: str
+    Delimiter: NotRequired[str]
+    EncodingType: NotRequired[Literal["url"]]
+    KeyMarker: NotRequired[str]
+    MaxUploads: NotRequired[int]
+    Prefix: NotRequired[str]
+    UploadIdMarker: NotRequired[str]
+    ExpectedBucketOwner: NotRequired[str]
+    RequestPayer: NotRequired[Literal["requester"]]
+
+class ListObjectVersionsRequestTypeDef(TypedDict):
+    Bucket: str
+    Delimiter: NotRequired[str]
+    EncodingType: NotRequired[Literal["url"]]
+    KeyMarker: NotRequired[str]
+    MaxKeys: NotRequired[int]
+    Prefix: NotRequired[str]
+    VersionIdMarker: NotRequired[str]
+    ExpectedBucketOwner: NotRequired[str]
+    RequestPayer: NotRequired[Literal["requester"]]
+    OptionalObjectAttributes: NotRequired[Sequence[Literal["RestoreStatus"]]]
+
+class ListObjectsRequestTypeDef(TypedDict):
+    Bucket: str
+    Delimiter: NotRequired[str]
+    EncodingType: NotRequired[Literal["url"]]
+    Marker: NotRequired[str]
+    MaxKeys: NotRequired[int]
+    Prefix: NotRequired[str]
+    RequestPayer: NotRequired[Literal["requester"]]
+    ExpectedBucketOwner: NotRequired[str]
+    OptionalObjectAttributes: NotRequired[Sequence[Literal["RestoreStatus"]]]
+
+class ListObjectsV2RequestTypeDef(TypedDict):
+    Bucket: str
+    Delimiter: NotRequired[str]
+    EncodingType: NotRequired[Literal["url"]]
+    MaxKeys: NotRequired[int]
+    Prefix: NotRequired[str]
+    ContinuationToken: NotRequired[str]
+    FetchOwner: NotRequired[bool]
+    StartAfter: NotRequired[str]
+    RequestPayer: NotRequired[Literal["requester"]]
+    ExpectedBucketOwner: NotRequired[str]
+    OptionalObjectAttributes: NotRequired[Sequence[Literal["RestoreStatus"]]]
+
+class PartTypeDef(TypedDict):
+    PartNumber: NotRequired[int]
+    LastModified: NotRequired[datetime]
+    ETag: NotRequired[str]
+    Size: NotRequired[int]
+    ChecksumCRC32: NotRequired[str]
+    ChecksumCRC32C: NotRequired[str]
+    ChecksumCRC64NVME: NotRequired[str]
+    ChecksumSHA1: NotRequired[str]
+    ChecksumSHA256: NotRequired[str]
+
+class ListPartsRequestTypeDef(TypedDict):
+    Bucket: str
+    Key: str
+    UploadId: str
+    MaxParts: NotRequired[int]
+    PartNumberMarker: NotRequired[int]
+    RequestPayer: NotRequired[Literal["requester"]]
+    ExpectedBucketOwner: NotRequired[str]
+    SSECustomerAlgorithm: NotRequired[str]
+    SSECustomerKey: NotRequired[str | bytes]
+
+class MetadataEntryTypeDef(TypedDict):
+    Name: NotRequired[str]
+    Value: NotRequired[str]
+
+class S3TablesDestinationResultTypeDef(TypedDict):
+    TableBucketArn: str
+    TableName: str
+    TableArn: str
+    TableNamespace: str
+
+class S3TablesDestinationTypeDef(TypedDict):
+    TableBucketArn: str
+    TableName: str
+
+class ReplicationTimeValueTypeDef(TypedDict):
+    Minutes: NotRequired[int]
+
+class QueueConfigurationDeprecatedOutputTypeDef(TypedDict):
+    Id: NotRequired[str]
+    Event: NotRequired[EventType]
+    Events: NotRequired[List[EventType]]
+    Queue: NotRequired[str]
+
+class TopicConfigurationDeprecatedOutputTypeDef(TypedDict):
+    Id: NotRequired[str]
+    Events: NotRequired[List[EventType]]
+    Event: NotRequired[EventType]
+    Topic: NotRequired[str]
+
+class ObjectDownloadFileRequestTypeDef(TypedDict):
+    Filename: str
+    ExtraArgs: NotRequired[Dict[str, Any] | None]
+    Callback: NotRequired[Callable[..., Any] | None]
+    Config: NotRequired[TransferConfig | None]
+
+class RestoreStatusTypeDef(TypedDict):
+    IsRestoreInProgress: NotRequired[bool]
+    RestoreExpiryDate: NotRequired[datetime]
+
+class ObjectUploadFileRequestTypeDef(TypedDict):
+    Filename: str
+    ExtraArgs: NotRequired[Dict[str, Any] | None]
+    Callback: NotRequired[Callable[..., Any] | None]
+    Config: NotRequired[TransferConfig | None]
+
+class OwnershipControlsRuleTypeDef(TypedDict):
+    ObjectOwnership: ObjectOwnershipType
+
+class PartitionedPrefixTypeDef(TypedDict):
+    PartitionDateSource: NotRequired[PartitionDateSourceType]
+
+class ProgressTypeDef(TypedDict):
+    BytesScanned: NotRequired[int]
+    BytesProcessed: NotRequired[int]
+    BytesReturned: NotRequired[int]
+
+class PutBucketPolicyRequestBucketPolicyPutTypeDef(TypedDict):
+    Policy: str
+    ChecksumAlgorithm: NotRequired[ChecksumAlgorithmType]
+    ConfirmRemoveSelfBucketAccess: NotRequired[bool]
+    ExpectedBucketOwner: NotRequired[str]
+
+class PutBucketPolicyRequestTypeDef(TypedDict):
+    Bucket: str
+    Policy: str
+    ChecksumAlgorithm: NotRequired[ChecksumAlgorithmType]
+    ConfirmRemoveSelfBucketAccess: NotRequired[bool]
+    ExpectedBucketOwner: NotRequired[str]
+
+class RequestPaymentConfigurationTypeDef(TypedDict):
+    Payer: PayerType
+
+class PutBucketVersioningRequestBucketVersioningEnableTypeDef(TypedDict):
+    ChecksumAlgorithm: NotRequired[ChecksumAlgorithmType]
+    MFA: NotRequired[str]
+    ExpectedBucketOwner: NotRequired[str]
+
+class VersioningConfigurationTypeDef(TypedDict):
+    MFADelete: NotRequired[MFADeleteType]
+    Status: NotRequired[BucketVersioningStatusType]
+
+class PutBucketVersioningRequestBucketVersioningSuspendTypeDef(TypedDict):
+    ChecksumAlgorithm: NotRequired[ChecksumAlgorithmType]
+    MFA: NotRequired[str]
+    ExpectedBucketOwner: NotRequired[str]
+
+class QueueConfigurationDeprecatedTypeDef(TypedDict):
+    Id: NotRequired[str]
+    Event: NotRequired[EventType]
+    Events: NotRequired[Sequence[EventType]]
+    Queue: NotRequired[str]
+
+class RecordsEventTypeDef(TypedDict):
+    Payload: NotRequired[bytes]
 
 RedirectTypeDef = TypedDict(
     "RedirectTypeDef",
     {
-        "HostName": str,
-        "HttpRedirectCode": str,
-        "Protocol": ProtocolType,
-        "ReplaceKeyPrefixWith": str,
-        "ReplaceKeyWith": str,
-    },
-    total=False,
-)
-
-ReplicaModificationsTypeDef = TypedDict(
-    "ReplicaModificationsTypeDef",
-    {
-        "Status": ReplicaModificationsStatusType,
+        "HostName": NotRequired[str],
+        "HttpRedirectCode": NotRequired[str],
+        "Protocol": NotRequired[ProtocolType],
+        "ReplaceKeyPrefixWith": NotRequired[str],
+        "ReplaceKeyWith": NotRequired[str],
     },
 )
 
-ReplicationConfigurationTypeDef = TypedDict(
-    "ReplicationConfigurationTypeDef",
-    {
-        "Role": str,
-        "Rules": List["ReplicationRuleTypeDef"],
-    },
-)
+class ReplicaModificationsTypeDef(TypedDict):
+    Status: ReplicaModificationsStatusType
 
-ReplicationRuleAndOperatorTypeDef = TypedDict(
-    "ReplicationRuleAndOperatorTypeDef",
-    {
-        "Prefix": str,
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
+class RequestProgressTypeDef(TypedDict):
+    Enabled: NotRequired[bool]
 
-ReplicationRuleFilterTypeDef = TypedDict(
-    "ReplicationRuleFilterTypeDef",
-    {
-        "Prefix": str,
-        "Tag": "TagTypeDef",
-        "And": "ReplicationRuleAndOperatorTypeDef",
-    },
-    total=False,
-)
+class ScanRangeTypeDef(TypedDict):
+    Start: NotRequired[int]
+    End: NotRequired[int]
 
-_RequiredReplicationRuleTypeDef = TypedDict(
-    "_RequiredReplicationRuleTypeDef",
-    {
-        "Status": ReplicationRuleStatusType,
-        "Destination": "DestinationTypeDef",
-    },
-)
-_OptionalReplicationRuleTypeDef = TypedDict(
-    "_OptionalReplicationRuleTypeDef",
-    {
-        "ID": str,
-        "Priority": int,
-        "Prefix": str,
-        "Filter": "ReplicationRuleFilterTypeDef",
-        "SourceSelectionCriteria": "SourceSelectionCriteriaTypeDef",
-        "ExistingObjectReplication": "ExistingObjectReplicationTypeDef",
-        "DeleteMarkerReplication": "DeleteMarkerReplicationTypeDef",
-    },
-    total=False,
-)
+class ServerSideEncryptionByDefaultTypeDef(TypedDict):
+    SSEAlgorithm: ServerSideEncryptionType
+    KMSMasterKeyID: NotRequired[str]
 
-class ReplicationRuleTypeDef(_RequiredReplicationRuleTypeDef, _OptionalReplicationRuleTypeDef):
-    pass
+class SseKmsEncryptedObjectsTypeDef(TypedDict):
+    Status: SseKmsEncryptedObjectsStatusType
 
-ReplicationTimeTypeDef = TypedDict(
-    "ReplicationTimeTypeDef",
-    {
-        "Status": ReplicationTimeStatusType,
-        "Time": "ReplicationTimeValueTypeDef",
-    },
-)
+class StatsTypeDef(TypedDict):
+    BytesScanned: NotRequired[int]
+    BytesProcessed: NotRequired[int]
+    BytesReturned: NotRequired[int]
 
-ReplicationTimeValueTypeDef = TypedDict(
-    "ReplicationTimeValueTypeDef",
-    {
-        "Minutes": int,
-    },
-    total=False,
-)
+class TopicConfigurationDeprecatedTypeDef(TypedDict):
+    Id: NotRequired[str]
+    Events: NotRequired[Sequence[EventType]]
+    Event: NotRequired[EventType]
+    Topic: NotRequired[str]
 
-RequestPaymentConfigurationTypeDef = TypedDict(
-    "RequestPaymentConfigurationTypeDef",
-    {
-        "Payer": PayerType,
-    },
-)
+class AbortMultipartUploadOutputTypeDef(TypedDict):
+    RequestCharged: Literal["requester"]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-RequestProgressTypeDef = TypedDict(
-    "RequestProgressTypeDef",
-    {
-        "Enabled": bool,
-    },
-    total=False,
-)
+class CompleteMultipartUploadOutputTypeDef(TypedDict):
+    Location: str
+    Bucket: str
+    Key: str
+    Expiration: str
+    ETag: str
+    ChecksumCRC32: str
+    ChecksumCRC32C: str
+    ChecksumCRC64NVME: str
+    ChecksumSHA1: str
+    ChecksumSHA256: str
+    ChecksumType: ChecksumTypeType
+    ServerSideEncryption: ServerSideEncryptionType
+    VersionId: str
+    SSEKMSKeyId: str
+    BucketKeyEnabled: bool
+    RequestCharged: Literal["requester"]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
+class CreateBucketOutputTypeDef(TypedDict):
+    Location: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-RestoreObjectOutputTypeDef = TypedDict(
-    "RestoreObjectOutputTypeDef",
-    {
-        "RequestCharged": Literal["requester"],
-        "RestoreOutputPath": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CreateMultipartUploadOutputTypeDef(TypedDict):
+    AbortDate: datetime
+    AbortRuleId: str
+    Bucket: str
+    Key: str
+    UploadId: str
+    ServerSideEncryption: ServerSideEncryptionType
+    SSECustomerAlgorithm: str
+    SSECustomerKeyMD5: str
+    SSEKMSKeyId: str
+    SSEKMSEncryptionContext: str
+    BucketKeyEnabled: bool
+    RequestCharged: Literal["requester"]
+    ChecksumAlgorithm: ChecksumAlgorithmType
+    ChecksumType: ChecksumTypeType
+    ResponseMetadata: ResponseMetadataTypeDef
 
-RestoreObjectRequestObjectSummaryTypeDef = TypedDict(
-    "RestoreObjectRequestObjectSummaryTypeDef",
-    {
-        "VersionId": str,
-        "RestoreRequest": "RestoreRequestTypeDef",
-        "RequestPayer": Literal["requester"],
-        "ChecksumAlgorithm": ChecksumAlgorithmType,
-        "ExpectedBucketOwner": str,
-    },
-    total=False,
-)
+class DeleteObjectOutputTypeDef(TypedDict):
+    DeleteMarker: bool
+    VersionId: str
+    RequestCharged: Literal["requester"]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-RestoreObjectRequestObjectTypeDef = TypedDict(
-    "RestoreObjectRequestObjectTypeDef",
-    {
-        "VersionId": str,
-        "RestoreRequest": "RestoreRequestTypeDef",
-        "RequestPayer": Literal["requester"],
-        "ChecksumAlgorithm": ChecksumAlgorithmType,
-        "ExpectedBucketOwner": str,
-    },
-    total=False,
-)
+class DeleteObjectTaggingOutputTypeDef(TypedDict):
+    VersionId: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredRestoreObjectRequestRequestTypeDef = TypedDict(
-    "_RequiredRestoreObjectRequestRequestTypeDef",
-    {
-        "Bucket": str,
-        "Key": str,
-    },
-)
-_OptionalRestoreObjectRequestRequestTypeDef = TypedDict(
-    "_OptionalRestoreObjectRequestRequestTypeDef",
-    {
-        "VersionId": str,
-        "RestoreRequest": "RestoreRequestTypeDef",
-        "RequestPayer": Literal["requester"],
-        "ChecksumAlgorithm": ChecksumAlgorithmType,
-        "ExpectedBucketOwner": str,
-    },
-    total=False,
-)
+class EmptyResponseMetadataTypeDef(TypedDict):
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class RestoreObjectRequestRequestTypeDef(
-    _RequiredRestoreObjectRequestRequestTypeDef, _OptionalRestoreObjectRequestRequestTypeDef
-):
-    pass
+class GetBucketAccelerateConfigurationOutputTypeDef(TypedDict):
+    Status: BucketAccelerateStatusType
+    RequestCharged: Literal["requester"]
+    ResponseMetadata: ResponseMetadataTypeDef
 
+class GetBucketLocationOutputTypeDef(TypedDict):
+    LocationConstraint: BucketLocationConstraintType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetBucketPolicyOutputTypeDef(TypedDict):
+    Policy: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetBucketRequestPaymentOutputTypeDef(TypedDict):
+    Payer: PayerType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetBucketVersioningOutputTypeDef(TypedDict):
+    Status: BucketVersioningStatusType
+    MFADelete: MFADeleteStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetObjectOutputTypeDef(TypedDict):
+    Body: StreamingBody
+    DeleteMarker: bool
+    AcceptRanges: str
+    Expiration: str
+    Restore: str
+    LastModified: datetime
+    ContentLength: int
+    ETag: str
+    ChecksumCRC32: str
+    ChecksumCRC32C: str
+    ChecksumCRC64NVME: str
+    ChecksumSHA1: str
+    ChecksumSHA256: str
+    ChecksumType: ChecksumTypeType
+    MissingMeta: int
+    VersionId: str
+    CacheControl: str
+    ContentDisposition: str
+    ContentEncoding: str
+    ContentLanguage: str
+    ContentRange: str
+    ContentType: str
+    Expires: datetime
+    WebsiteRedirectLocation: str
+    ServerSideEncryption: ServerSideEncryptionType
+    Metadata: Dict[str, str]
+    SSECustomerAlgorithm: str
+    SSECustomerKeyMD5: str
+    SSEKMSKeyId: str
+    BucketKeyEnabled: bool
+    StorageClass: StorageClassType
+    RequestCharged: Literal["requester"]
+    ReplicationStatus: ReplicationStatusType
+    PartsCount: int
+    TagCount: int
+    ObjectLockMode: ObjectLockModeType
+    ObjectLockRetainUntilDate: datetime
+    ObjectLockLegalHoldStatus: ObjectLockLegalHoldStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetObjectTorrentOutputTypeDef(TypedDict):
+    Body: StreamingBody
+    RequestCharged: Literal["requester"]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class HeadBucketOutputTypeDef(TypedDict):
+    BucketLocationType: LocationTypeType
+    BucketLocationName: str
+    BucketRegion: str
+    AccessPointAlias: bool
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class HeadObjectOutputTypeDef(TypedDict):
+    DeleteMarker: bool
+    AcceptRanges: str
+    Expiration: str
+    Restore: str
+    ArchiveStatus: ArchiveStatusType
+    LastModified: datetime
+    ContentLength: int
+    ChecksumCRC32: str
+    ChecksumCRC32C: str
+    ChecksumCRC64NVME: str
+    ChecksumSHA1: str
+    ChecksumSHA256: str
+    ChecksumType: ChecksumTypeType
+    ETag: str
+    MissingMeta: int
+    VersionId: str
+    CacheControl: str
+    ContentDisposition: str
+    ContentEncoding: str
+    ContentLanguage: str
+    ContentType: str
+    ContentRange: str
+    Expires: datetime
+    WebsiteRedirectLocation: str
+    ServerSideEncryption: ServerSideEncryptionType
+    Metadata: Dict[str, str]
+    SSECustomerAlgorithm: str
+    SSECustomerKeyMD5: str
+    SSEKMSKeyId: str
+    BucketKeyEnabled: bool
+    StorageClass: StorageClassType
+    RequestCharged: Literal["requester"]
+    ReplicationStatus: ReplicationStatusType
+    PartsCount: int
+    ObjectLockMode: ObjectLockModeType
+    ObjectLockRetainUntilDate: datetime
+    ObjectLockLegalHoldStatus: ObjectLockLegalHoldStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutBucketLifecycleConfigurationOutputTypeDef(TypedDict):
+    TransitionDefaultMinimumObjectSize: TransitionDefaultMinimumObjectSizeType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutObjectAclOutputTypeDef(TypedDict):
+    RequestCharged: Literal["requester"]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutObjectLegalHoldOutputTypeDef(TypedDict):
+    RequestCharged: Literal["requester"]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutObjectLockConfigurationOutputTypeDef(TypedDict):
+    RequestCharged: Literal["requester"]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutObjectOutputTypeDef(TypedDict):
+    Expiration: str
+    ETag: str
+    ChecksumCRC32: str
+    ChecksumCRC32C: str
+    ChecksumCRC64NVME: str
+    ChecksumSHA1: str
+    ChecksumSHA256: str
+    ChecksumType: ChecksumTypeType
+    ServerSideEncryption: ServerSideEncryptionType
+    VersionId: str
+    SSECustomerAlgorithm: str
+    SSECustomerKeyMD5: str
+    SSEKMSKeyId: str
+    SSEKMSEncryptionContext: str
+    BucketKeyEnabled: bool
+    Size: int
+    RequestCharged: Literal["requester"]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutObjectRetentionOutputTypeDef(TypedDict):
+    RequestCharged: Literal["requester"]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutObjectTaggingOutputTypeDef(TypedDict):
+    VersionId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class RestoreObjectOutputTypeDef(TypedDict):
+    RequestCharged: Literal["requester"]
+    RestoreOutputPath: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UploadPartOutputTypeDef(TypedDict):
+    ServerSideEncryption: ServerSideEncryptionType
+    ETag: str
+    ChecksumCRC32: str
+    ChecksumCRC32C: str
+    ChecksumCRC64NVME: str
+    ChecksumSHA1: str
+    ChecksumSHA256: str
+    SSECustomerAlgorithm: str
+    SSECustomerKeyMD5: str
+    SSEKMSKeyId: str
+    BucketKeyEnabled: bool
+    RequestCharged: Literal["requester"]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class AbortMultipartUploadRequestMultipartUploadAbortTypeDef(TypedDict):
+    RequestPayer: NotRequired[Literal["requester"]]
+    ExpectedBucketOwner: NotRequired[str]
+    IfMatchInitiatedTime: NotRequired[TimestampTypeDef]
+
+class AbortMultipartUploadRequestTypeDef(TypedDict):
+    Bucket: str
+    Key: str
+    UploadId: str
+    RequestPayer: NotRequired[Literal["requester"]]
+    ExpectedBucketOwner: NotRequired[str]
+    IfMatchInitiatedTime: NotRequired[TimestampTypeDef]
+
+class CreateMultipartUploadRequestObjectInitiateMultipartUploadTypeDef(TypedDict):
+    ACL: NotRequired[ObjectCannedACLType]
+    CacheControl: NotRequired[str]
+    ContentDisposition: NotRequired[str]
+    ContentEncoding: NotRequired[str]
+    ContentLanguage: NotRequired[str]
+    ContentType: NotRequired[str]
+    Expires: NotRequired[TimestampTypeDef]
+    GrantFullControl: NotRequired[str]
+    GrantRead: NotRequired[str]
+    GrantReadACP: NotRequired[str]
+    GrantWriteACP: NotRequired[str]
+    Metadata: NotRequired[Mapping[str, str]]
+    ServerSideEncryption: NotRequired[ServerSideEncryptionType]
+    StorageClass: NotRequired[StorageClassType]
+    WebsiteRedirectLocation: NotRequired[str]
+    SSECustomerAlgorithm: NotRequired[str]
+    SSECustomerKey: NotRequired[str | bytes]
+    SSEKMSKeyId: NotRequired[str]
+    SSEKMSEncryptionContext: NotRequired[str]
+    BucketKeyEnabled: NotRequired[bool]
+    RequestPayer: NotRequired[Literal["requester"]]
+    Tagging: NotRequired[str]
+    ObjectLockMode: NotRequired[ObjectLockModeType]
+    ObjectLockRetainUntilDate: NotRequired[TimestampTypeDef]
+    ObjectLockLegalHoldStatus: NotRequired[ObjectLockLegalHoldStatusType]
+    ExpectedBucketOwner: NotRequired[str]
+    ChecksumAlgorithm: NotRequired[ChecksumAlgorithmType]
+    ChecksumType: NotRequired[ChecksumTypeType]
+
+class CreateMultipartUploadRequestObjectSummaryInitiateMultipartUploadTypeDef(TypedDict):
+    ACL: NotRequired[ObjectCannedACLType]
+    CacheControl: NotRequired[str]
+    ContentDisposition: NotRequired[str]
+    ContentEncoding: NotRequired[str]
+    ContentLanguage: NotRequired[str]
+    ContentType: NotRequired[str]
+    Expires: NotRequired[TimestampTypeDef]
+    GrantFullControl: NotRequired[str]
+    GrantRead: NotRequired[str]
+    GrantReadACP: NotRequired[str]
+    GrantWriteACP: NotRequired[str]
+    Metadata: NotRequired[Mapping[str, str]]
+    ServerSideEncryption: NotRequired[ServerSideEncryptionType]
+    StorageClass: NotRequired[StorageClassType]
+    WebsiteRedirectLocation: NotRequired[str]
+    SSECustomerAlgorithm: NotRequired[str]
+    SSECustomerKey: NotRequired[str | bytes]
+    SSEKMSKeyId: NotRequired[str]
+    SSEKMSEncryptionContext: NotRequired[str]
+    BucketKeyEnabled: NotRequired[bool]
+    RequestPayer: NotRequired[Literal["requester"]]
+    Tagging: NotRequired[str]
+    ObjectLockMode: NotRequired[ObjectLockModeType]
+    ObjectLockRetainUntilDate: NotRequired[TimestampTypeDef]
+    ObjectLockLegalHoldStatus: NotRequired[ObjectLockLegalHoldStatusType]
+    ExpectedBucketOwner: NotRequired[str]
+    ChecksumAlgorithm: NotRequired[ChecksumAlgorithmType]
+    ChecksumType: NotRequired[ChecksumTypeType]
+
+class CreateMultipartUploadRequestTypeDef(TypedDict):
+    Bucket: str
+    Key: str
+    ACL: NotRequired[ObjectCannedACLType]
+    CacheControl: NotRequired[str]
+    ContentDisposition: NotRequired[str]
+    ContentEncoding: NotRequired[str]
+    ContentLanguage: NotRequired[str]
+    ContentType: NotRequired[str]
+    Expires: NotRequired[TimestampTypeDef]
+    GrantFullControl: NotRequired[str]
+    GrantRead: NotRequired[str]
+    GrantReadACP: NotRequired[str]
+    GrantWriteACP: NotRequired[str]
+    Metadata: NotRequired[Mapping[str, str]]
+    ServerSideEncryption: NotRequired[ServerSideEncryptionType]
+    StorageClass: NotRequired[StorageClassType]
+    WebsiteRedirectLocation: NotRequired[str]
+    SSECustomerAlgorithm: NotRequired[str]
+    SSECustomerKey: NotRequired[str | bytes]
+    SSEKMSKeyId: NotRequired[str]
+    SSEKMSEncryptionContext: NotRequired[str]
+    BucketKeyEnabled: NotRequired[bool]
+    RequestPayer: NotRequired[Literal["requester"]]
+    Tagging: NotRequired[str]
+    ObjectLockMode: NotRequired[ObjectLockModeType]
+    ObjectLockRetainUntilDate: NotRequired[TimestampTypeDef]
+    ObjectLockLegalHoldStatus: NotRequired[ObjectLockLegalHoldStatusType]
+    ExpectedBucketOwner: NotRequired[str]
+    ChecksumAlgorithm: NotRequired[ChecksumAlgorithmType]
+    ChecksumType: NotRequired[ChecksumTypeType]
+
+class DeleteObjectRequestObjectDeleteTypeDef(TypedDict):
+    MFA: NotRequired[str]
+    VersionId: NotRequired[str]
+    RequestPayer: NotRequired[Literal["requester"]]
+    BypassGovernanceRetention: NotRequired[bool]
+    ExpectedBucketOwner: NotRequired[str]
+    IfMatch: NotRequired[str]
+    IfMatchLastModifiedTime: NotRequired[TimestampTypeDef]
+    IfMatchSize: NotRequired[int]
+
+class DeleteObjectRequestObjectSummaryDeleteTypeDef(TypedDict):
+    MFA: NotRequired[str]
+    VersionId: NotRequired[str]
+    RequestPayer: NotRequired[Literal["requester"]]
+    BypassGovernanceRetention: NotRequired[bool]
+    ExpectedBucketOwner: NotRequired[str]
+    IfMatch: NotRequired[str]
+    IfMatchLastModifiedTime: NotRequired[TimestampTypeDef]
+    IfMatchSize: NotRequired[int]
+
+class DeleteObjectRequestObjectVersionDeleteTypeDef(TypedDict):
+    MFA: NotRequired[str]
+    RequestPayer: NotRequired[Literal["requester"]]
+    BypassGovernanceRetention: NotRequired[bool]
+    ExpectedBucketOwner: NotRequired[str]
+    IfMatch: NotRequired[str]
+    IfMatchLastModifiedTime: NotRequired[TimestampTypeDef]
+    IfMatchSize: NotRequired[int]
+
+class DeleteObjectRequestTypeDef(TypedDict):
+    Bucket: str
+    Key: str
+    MFA: NotRequired[str]
+    VersionId: NotRequired[str]
+    RequestPayer: NotRequired[Literal["requester"]]
+    BypassGovernanceRetention: NotRequired[bool]
+    ExpectedBucketOwner: NotRequired[str]
+    IfMatch: NotRequired[str]
+    IfMatchLastModifiedTime: NotRequired[TimestampTypeDef]
+    IfMatchSize: NotRequired[int]
+
+class GetObjectRequestObjectGetTypeDef(TypedDict):
+    IfMatch: NotRequired[str]
+    IfModifiedSince: NotRequired[TimestampTypeDef]
+    IfNoneMatch: NotRequired[str]
+    IfUnmodifiedSince: NotRequired[TimestampTypeDef]
+    Range: NotRequired[str]
+    ResponseCacheControl: NotRequired[str]
+    ResponseContentDisposition: NotRequired[str]
+    ResponseContentEncoding: NotRequired[str]
+    ResponseContentLanguage: NotRequired[str]
+    ResponseContentType: NotRequired[str]
+    ResponseExpires: NotRequired[TimestampTypeDef]
+    VersionId: NotRequired[str]
+    SSECustomerAlgorithm: NotRequired[str]
+    SSECustomerKey: NotRequired[str | bytes]
+    RequestPayer: NotRequired[Literal["requester"]]
+    PartNumber: NotRequired[int]
+    ExpectedBucketOwner: NotRequired[str]
+    ChecksumMode: NotRequired[Literal["ENABLED"]]
+
+class GetObjectRequestObjectSummaryGetTypeDef(TypedDict):
+    IfMatch: NotRequired[str]
+    IfModifiedSince: NotRequired[TimestampTypeDef]
+    IfNoneMatch: NotRequired[str]
+    IfUnmodifiedSince: NotRequired[TimestampTypeDef]
+    Range: NotRequired[str]
+    ResponseCacheControl: NotRequired[str]
+    ResponseContentDisposition: NotRequired[str]
+    ResponseContentEncoding: NotRequired[str]
+    ResponseContentLanguage: NotRequired[str]
+    ResponseContentType: NotRequired[str]
+    ResponseExpires: NotRequired[TimestampTypeDef]
+    VersionId: NotRequired[str]
+    SSECustomerAlgorithm: NotRequired[str]
+    SSECustomerKey: NotRequired[str | bytes]
+    RequestPayer: NotRequired[Literal["requester"]]
+    PartNumber: NotRequired[int]
+    ExpectedBucketOwner: NotRequired[str]
+    ChecksumMode: NotRequired[Literal["ENABLED"]]
+
+class GetObjectRequestObjectVersionGetTypeDef(TypedDict):
+    IfMatch: NotRequired[str]
+    IfModifiedSince: NotRequired[TimestampTypeDef]
+    IfNoneMatch: NotRequired[str]
+    IfUnmodifiedSince: NotRequired[TimestampTypeDef]
+    Range: NotRequired[str]
+    ResponseCacheControl: NotRequired[str]
+    ResponseContentDisposition: NotRequired[str]
+    ResponseContentEncoding: NotRequired[str]
+    ResponseContentLanguage: NotRequired[str]
+    ResponseContentType: NotRequired[str]
+    ResponseExpires: NotRequired[TimestampTypeDef]
+    SSECustomerAlgorithm: NotRequired[str]
+    SSECustomerKey: NotRequired[str | bytes]
+    RequestPayer: NotRequired[Literal["requester"]]
+    PartNumber: NotRequired[int]
+    ExpectedBucketOwner: NotRequired[str]
+    ChecksumMode: NotRequired[Literal["ENABLED"]]
+
+class GetObjectRequestTypeDef(TypedDict):
+    Bucket: str
+    Key: str
+    IfMatch: NotRequired[str]
+    IfModifiedSince: NotRequired[TimestampTypeDef]
+    IfNoneMatch: NotRequired[str]
+    IfUnmodifiedSince: NotRequired[TimestampTypeDef]
+    Range: NotRequired[str]
+    ResponseCacheControl: NotRequired[str]
+    ResponseContentDisposition: NotRequired[str]
+    ResponseContentEncoding: NotRequired[str]
+    ResponseContentLanguage: NotRequired[str]
+    ResponseContentType: NotRequired[str]
+    ResponseExpires: NotRequired[TimestampTypeDef]
+    VersionId: NotRequired[str]
+    SSECustomerAlgorithm: NotRequired[str]
+    SSECustomerKey: NotRequired[str | bytes]
+    RequestPayer: NotRequired[Literal["requester"]]
+    PartNumber: NotRequired[int]
+    ExpectedBucketOwner: NotRequired[str]
+    ChecksumMode: NotRequired[Literal["ENABLED"]]
+
+class HeadObjectRequestObjectVersionHeadTypeDef(TypedDict):
+    IfMatch: NotRequired[str]
+    IfModifiedSince: NotRequired[TimestampTypeDef]
+    IfNoneMatch: NotRequired[str]
+    IfUnmodifiedSince: NotRequired[TimestampTypeDef]
+    Range: NotRequired[str]
+    ResponseCacheControl: NotRequired[str]
+    ResponseContentDisposition: NotRequired[str]
+    ResponseContentEncoding: NotRequired[str]
+    ResponseContentLanguage: NotRequired[str]
+    ResponseContentType: NotRequired[str]
+    ResponseExpires: NotRequired[TimestampTypeDef]
+    SSECustomerAlgorithm: NotRequired[str]
+    SSECustomerKey: NotRequired[str | bytes]
+    RequestPayer: NotRequired[Literal["requester"]]
+    PartNumber: NotRequired[int]
+    ExpectedBucketOwner: NotRequired[str]
+    ChecksumMode: NotRequired[Literal["ENABLED"]]
+
+class HeadObjectRequestTypeDef(TypedDict):
+    Bucket: str
+    Key: str
+    IfMatch: NotRequired[str]
+    IfModifiedSince: NotRequired[TimestampTypeDef]
+    IfNoneMatch: NotRequired[str]
+    IfUnmodifiedSince: NotRequired[TimestampTypeDef]
+    Range: NotRequired[str]
+    ResponseCacheControl: NotRequired[str]
+    ResponseContentDisposition: NotRequired[str]
+    ResponseContentEncoding: NotRequired[str]
+    ResponseContentLanguage: NotRequired[str]
+    ResponseContentType: NotRequired[str]
+    ResponseExpires: NotRequired[TimestampTypeDef]
+    VersionId: NotRequired[str]
+    SSECustomerAlgorithm: NotRequired[str]
+    SSECustomerKey: NotRequired[str | bytes]
+    RequestPayer: NotRequired[Literal["requester"]]
+    PartNumber: NotRequired[int]
+    ExpectedBucketOwner: NotRequired[str]
+    ChecksumMode: NotRequired[Literal["ENABLED"]]
+
+class LifecycleExpirationTypeDef(TypedDict):
+    Date: NotRequired[TimestampTypeDef]
+    Days: NotRequired[int]
+    ExpiredObjectDeleteMarker: NotRequired[bool]
+
+class ObjectIdentifierTypeDef(TypedDict):
+    Key: str
+    VersionId: NotRequired[str]
+    ETag: NotRequired[str]
+    LastModifiedTime: NotRequired[TimestampTypeDef]
+    Size: NotRequired[int]
+
+class ObjectLockRetentionTypeDef(TypedDict):
+    Mode: NotRequired[ObjectLockRetentionModeType]
+    RetainUntilDate: NotRequired[TimestampTypeDef]
+
+class TransitionTypeDef(TypedDict):
+    Date: NotRequired[TimestampTypeDef]
+    Days: NotRequired[int]
+    StorageClass: NotRequired[TransitionStorageClassType]
+
+class PutBucketAccelerateConfigurationRequestTypeDef(TypedDict):
+    Bucket: str
+    AccelerateConfiguration: AccelerateConfigurationTypeDef
+    ExpectedBucketOwner: NotRequired[str]
+    ChecksumAlgorithm: NotRequired[ChecksumAlgorithmType]
+
+class DeleteMarkerEntryTypeDef(TypedDict):
+    Owner: NotRequired[OwnerTypeDef]
+    Key: NotRequired[str]
+    VersionId: NotRequired[str]
+    IsLatest: NotRequired[bool]
+    LastModified: NotRequired[datetime]
+
+class AnalyticsAndOperatorOutputTypeDef(TypedDict):
+    Prefix: NotRequired[str]
+    Tags: NotRequired[List[TagTypeDef]]
+
+class AnalyticsAndOperatorTypeDef(TypedDict):
+    Prefix: NotRequired[str]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+
+class GetBucketTaggingOutputTypeDef(TypedDict):
+    TagSet: List[TagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetObjectTaggingOutputTypeDef(TypedDict):
+    VersionId: str
+    TagSet: List[TagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class IntelligentTieringAndOperatorOutputTypeDef(TypedDict):
+    Prefix: NotRequired[str]
+    Tags: NotRequired[List[TagTypeDef]]
+
+class IntelligentTieringAndOperatorTypeDef(TypedDict):
+    Prefix: NotRequired[str]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+
+class LifecycleRuleAndOperatorOutputTypeDef(TypedDict):
+    Prefix: NotRequired[str]
+    Tags: NotRequired[List[TagTypeDef]]
+    ObjectSizeGreaterThan: NotRequired[int]
+    ObjectSizeLessThan: NotRequired[int]
+
+class LifecycleRuleAndOperatorTypeDef(TypedDict):
+    Prefix: NotRequired[str]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+    ObjectSizeGreaterThan: NotRequired[int]
+    ObjectSizeLessThan: NotRequired[int]
+
+class MetricsAndOperatorOutputTypeDef(TypedDict):
+    Prefix: NotRequired[str]
+    Tags: NotRequired[List[TagTypeDef]]
+    AccessPointArn: NotRequired[str]
+
+class MetricsAndOperatorTypeDef(TypedDict):
+    Prefix: NotRequired[str]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+    AccessPointArn: NotRequired[str]
+
+class ReplicationRuleAndOperatorOutputTypeDef(TypedDict):
+    Prefix: NotRequired[str]
+    Tags: NotRequired[List[TagTypeDef]]
+
+class ReplicationRuleAndOperatorTypeDef(TypedDict):
+    Prefix: NotRequired[str]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+
+class TaggingTypeDef(TypedDict):
+    TagSet: Sequence[TagTypeDef]
+
+class AnalyticsExportDestinationTypeDef(TypedDict):
+    S3BucketDestination: AnalyticsS3BucketDestinationTypeDef
+
+class PutObjectRequestBucketPutObjectTypeDef(TypedDict):
+    Key: str
+    ACL: NotRequired[ObjectCannedACLType]
+    Body: NotRequired[BlobTypeDef]
+    CacheControl: NotRequired[str]
+    ContentDisposition: NotRequired[str]
+    ContentEncoding: NotRequired[str]
+    ContentLanguage: NotRequired[str]
+    ContentLength: NotRequired[int]
+    ContentMD5: NotRequired[str]
+    ContentType: NotRequired[str]
+    ChecksumAlgorithm: NotRequired[ChecksumAlgorithmType]
+    ChecksumCRC32: NotRequired[str]
+    ChecksumCRC32C: NotRequired[str]
+    ChecksumCRC64NVME: NotRequired[str]
+    ChecksumSHA1: NotRequired[str]
+    ChecksumSHA256: NotRequired[str]
+    Expires: NotRequired[TimestampTypeDef]
+    IfMatch: NotRequired[str]
+    IfNoneMatch: NotRequired[str]
+    GrantFullControl: NotRequired[str]
+    GrantRead: NotRequired[str]
+    GrantReadACP: NotRequired[str]
+    GrantWriteACP: NotRequired[str]
+    WriteOffsetBytes: NotRequired[int]
+    Metadata: NotRequired[Mapping[str, str]]
+    ServerSideEncryption: NotRequired[ServerSideEncryptionType]
+    StorageClass: NotRequired[StorageClassType]
+    WebsiteRedirectLocation: NotRequired[str]
+    SSECustomerAlgorithm: NotRequired[str]
+    SSECustomerKey: NotRequired[str | bytes]
+    SSEKMSKeyId: NotRequired[str]
+    SSEKMSEncryptionContext: NotRequired[str]
+    BucketKeyEnabled: NotRequired[bool]
+    RequestPayer: NotRequired[Literal["requester"]]
+    Tagging: NotRequired[str]
+    ObjectLockMode: NotRequired[ObjectLockModeType]
+    ObjectLockRetainUntilDate: NotRequired[TimestampTypeDef]
+    ObjectLockLegalHoldStatus: NotRequired[ObjectLockLegalHoldStatusType]
+    ExpectedBucketOwner: NotRequired[str]
+
+class PutObjectRequestObjectPutTypeDef(TypedDict):
+    ACL: NotRequired[ObjectCannedACLType]
+    Body: NotRequired[BlobTypeDef]
+    CacheControl: NotRequired[str]
+    ContentDisposition: NotRequired[str]
+    ContentEncoding: NotRequired[str]
+    ContentLanguage: NotRequired[str]
+    ContentLength: NotRequired[int]
+    ContentMD5: NotRequired[str]
+    ContentType: NotRequired[str]
+    ChecksumAlgorithm: NotRequired[ChecksumAlgorithmType]
+    ChecksumCRC32: NotRequired[str]
+    ChecksumCRC32C: NotRequired[str]
+    ChecksumCRC64NVME: NotRequired[str]
+    ChecksumSHA1: NotRequired[str]
+    ChecksumSHA256: NotRequired[str]
+    Expires: NotRequired[TimestampTypeDef]
+    IfMatch: NotRequired[str]
+    IfNoneMatch: NotRequired[str]
+    GrantFullControl: NotRequired[str]
+    GrantRead: NotRequired[str]
+    GrantReadACP: NotRequired[str]
+    GrantWriteACP: NotRequired[str]
+    WriteOffsetBytes: NotRequired[int]
+    Metadata: NotRequired[Mapping[str, str]]
+    ServerSideEncryption: NotRequired[ServerSideEncryptionType]
+    StorageClass: NotRequired[StorageClassType]
+    WebsiteRedirectLocation: NotRequired[str]
+    SSECustomerAlgorithm: NotRequired[str]
+    SSECustomerKey: NotRequired[str | bytes]
+    SSEKMSKeyId: NotRequired[str]
+    SSEKMSEncryptionContext: NotRequired[str]
+    BucketKeyEnabled: NotRequired[bool]
+    RequestPayer: NotRequired[Literal["requester"]]
+    Tagging: NotRequired[str]
+    ObjectLockMode: NotRequired[ObjectLockModeType]
+    ObjectLockRetainUntilDate: NotRequired[TimestampTypeDef]
+    ObjectLockLegalHoldStatus: NotRequired[ObjectLockLegalHoldStatusType]
+    ExpectedBucketOwner: NotRequired[str]
+
+class PutObjectRequestObjectSummaryPutTypeDef(TypedDict):
+    ACL: NotRequired[ObjectCannedACLType]
+    Body: NotRequired[BlobTypeDef]
+    CacheControl: NotRequired[str]
+    ContentDisposition: NotRequired[str]
+    ContentEncoding: NotRequired[str]
+    ContentLanguage: NotRequired[str]
+    ContentLength: NotRequired[int]
+    ContentMD5: NotRequired[str]
+    ContentType: NotRequired[str]
+    ChecksumAlgorithm: NotRequired[ChecksumAlgorithmType]
+    ChecksumCRC32: NotRequired[str]
+    ChecksumCRC32C: NotRequired[str]
+    ChecksumCRC64NVME: NotRequired[str]
+    ChecksumSHA1: NotRequired[str]
+    ChecksumSHA256: NotRequired[str]
+    Expires: NotRequired[TimestampTypeDef]
+    IfMatch: NotRequired[str]
+    IfNoneMatch: NotRequired[str]
+    GrantFullControl: NotRequired[str]
+    GrantRead: NotRequired[str]
+    GrantReadACP: NotRequired[str]
+    GrantWriteACP: NotRequired[str]
+    WriteOffsetBytes: NotRequired[int]
+    Metadata: NotRequired[Mapping[str, str]]
+    ServerSideEncryption: NotRequired[ServerSideEncryptionType]
+    StorageClass: NotRequired[StorageClassType]
+    WebsiteRedirectLocation: NotRequired[str]
+    SSECustomerAlgorithm: NotRequired[str]
+    SSECustomerKey: NotRequired[str | bytes]
+    SSEKMSKeyId: NotRequired[str]
+    SSEKMSEncryptionContext: NotRequired[str]
+    BucketKeyEnabled: NotRequired[bool]
+    RequestPayer: NotRequired[Literal["requester"]]
+    Tagging: NotRequired[str]
+    ObjectLockMode: NotRequired[ObjectLockModeType]
+    ObjectLockRetainUntilDate: NotRequired[TimestampTypeDef]
+    ObjectLockLegalHoldStatus: NotRequired[ObjectLockLegalHoldStatusType]
+    ExpectedBucketOwner: NotRequired[str]
+
+class PutObjectRequestTypeDef(TypedDict):
+    Bucket: str
+    Key: str
+    ACL: NotRequired[ObjectCannedACLType]
+    Body: NotRequired[BlobTypeDef]
+    CacheControl: NotRequired[str]
+    ContentDisposition: NotRequired[str]
+    ContentEncoding: NotRequired[str]
+    ContentLanguage: NotRequired[str]
+    ContentLength: NotRequired[int]
+    ContentMD5: NotRequired[str]
+    ContentType: NotRequired[str]
+    ChecksumAlgorithm: NotRequired[ChecksumAlgorithmType]
+    ChecksumCRC32: NotRequired[str]
+    ChecksumCRC32C: NotRequired[str]
+    ChecksumCRC64NVME: NotRequired[str]
+    ChecksumSHA1: NotRequired[str]
+    ChecksumSHA256: NotRequired[str]
+    Expires: NotRequired[TimestampTypeDef]
+    IfMatch: NotRequired[str]
+    IfNoneMatch: NotRequired[str]
+    GrantFullControl: NotRequired[str]
+    GrantRead: NotRequired[str]
+    GrantReadACP: NotRequired[str]
+    GrantWriteACP: NotRequired[str]
+    WriteOffsetBytes: NotRequired[int]
+    Metadata: NotRequired[Mapping[str, str]]
+    ServerSideEncryption: NotRequired[ServerSideEncryptionType]
+    StorageClass: NotRequired[StorageClassType]
+    WebsiteRedirectLocation: NotRequired[str]
+    SSECustomerAlgorithm: NotRequired[str]
+    SSECustomerKey: NotRequired[str | bytes]
+    SSEKMSKeyId: NotRequired[str]
+    SSEKMSEncryptionContext: NotRequired[str]
+    BucketKeyEnabled: NotRequired[bool]
+    RequestPayer: NotRequired[Literal["requester"]]
+    Tagging: NotRequired[str]
+    ObjectLockMode: NotRequired[ObjectLockModeType]
+    ObjectLockRetainUntilDate: NotRequired[TimestampTypeDef]
+    ObjectLockLegalHoldStatus: NotRequired[ObjectLockLegalHoldStatusType]
+    ExpectedBucketOwner: NotRequired[str]
+
+class UploadPartRequestMultipartUploadPartUploadTypeDef(TypedDict):
+    Body: NotRequired[BlobTypeDef]
+    ContentLength: NotRequired[int]
+    ContentMD5: NotRequired[str]
+    ChecksumAlgorithm: NotRequired[ChecksumAlgorithmType]
+    ChecksumCRC32: NotRequired[str]
+    ChecksumCRC32C: NotRequired[str]
+    ChecksumCRC64NVME: NotRequired[str]
+    ChecksumSHA1: NotRequired[str]
+    ChecksumSHA256: NotRequired[str]
+    SSECustomerAlgorithm: NotRequired[str]
+    SSECustomerKey: NotRequired[str | bytes]
+    RequestPayer: NotRequired[Literal["requester"]]
+    ExpectedBucketOwner: NotRequired[str]
+
+class UploadPartRequestTypeDef(TypedDict):
+    Bucket: str
+    Key: str
+    PartNumber: int
+    UploadId: str
+    Body: NotRequired[BlobTypeDef]
+    ContentLength: NotRequired[int]
+    ContentMD5: NotRequired[str]
+    ChecksumAlgorithm: NotRequired[ChecksumAlgorithmType]
+    ChecksumCRC32: NotRequired[str]
+    ChecksumCRC32C: NotRequired[str]
+    ChecksumCRC64NVME: NotRequired[str]
+    ChecksumSHA1: NotRequired[str]
+    ChecksumSHA256: NotRequired[str]
+    SSECustomerAlgorithm: NotRequired[str]
+    SSECustomerKey: NotRequired[str | bytes]
+    RequestPayer: NotRequired[Literal["requester"]]
+    ExpectedBucketOwner: NotRequired[str]
+
+class WriteGetObjectResponseRequestTypeDef(TypedDict):
+    RequestRoute: str
+    RequestToken: str
+    Body: NotRequired[BlobTypeDef]
+    StatusCode: NotRequired[int]
+    ErrorCode: NotRequired[str]
+    ErrorMessage: NotRequired[str]
+    AcceptRanges: NotRequired[str]
+    CacheControl: NotRequired[str]
+    ContentDisposition: NotRequired[str]
+    ContentEncoding: NotRequired[str]
+    ContentLanguage: NotRequired[str]
+    ContentLength: NotRequired[int]
+    ContentRange: NotRequired[str]
+    ContentType: NotRequired[str]
+    ChecksumCRC32: NotRequired[str]
+    ChecksumCRC32C: NotRequired[str]
+    ChecksumCRC64NVME: NotRequired[str]
+    ChecksumSHA1: NotRequired[str]
+    ChecksumSHA256: NotRequired[str]
+    DeleteMarker: NotRequired[bool]
+    ETag: NotRequired[str]
+    Expires: NotRequired[TimestampTypeDef]
+    Expiration: NotRequired[str]
+    LastModified: NotRequired[TimestampTypeDef]
+    MissingMeta: NotRequired[int]
+    Metadata: NotRequired[Mapping[str, str]]
+    ObjectLockMode: NotRequired[ObjectLockModeType]
+    ObjectLockLegalHoldStatus: NotRequired[ObjectLockLegalHoldStatusType]
+    ObjectLockRetainUntilDate: NotRequired[TimestampTypeDef]
+    PartsCount: NotRequired[int]
+    ReplicationStatus: NotRequired[ReplicationStatusType]
+    RequestCharged: NotRequired[Literal["requester"]]
+    Restore: NotRequired[str]
+    ServerSideEncryption: NotRequired[ServerSideEncryptionType]
+    SSECustomerAlgorithm: NotRequired[str]
+    SSEKMSKeyId: NotRequired[str]
+    StorageClass: NotRequired[StorageClassType]
+    TagCount: NotRequired[int]
+    VersionId: NotRequired[str]
+    BucketKeyEnabled: NotRequired[bool]
+
+class BucketCopyRequestTypeDef(TypedDict):
+    CopySource: CopySourceTypeDef
+    Key: str
+    ExtraArgs: NotRequired[Dict[str, Any] | None]
+    Callback: NotRequired[Callable[..., Any] | None]
+    SourceClient: NotRequired[BaseClient | None]
+    Config: NotRequired[TransferConfig | None]
+
+class ClientCopyRequestTypeDef(TypedDict):
+    CopySource: CopySourceTypeDef
+    Bucket: str
+    Key: str
+    ExtraArgs: NotRequired[Dict[str, Any] | None]
+    Callback: NotRequired[Callable[..., Any] | None]
+    SourceClient: NotRequired[BaseClient | None]
+    Config: NotRequired[TransferConfig | None]
+
+CopySourceOrStrTypeDef = Union[str, CopySourceTypeDef]
+
+class ObjectCopyRequestTypeDef(TypedDict):
+    CopySource: CopySourceTypeDef
+    ExtraArgs: NotRequired[Dict[str, Any] | None]
+    Callback: NotRequired[Callable[..., Any] | None]
+    SourceClient: NotRequired[BaseClient | None]
+    Config: NotRequired[TransferConfig | None]
+
+class BucketDownloadFileobjRequestTypeDef(TypedDict):
+    Key: str
+    Fileobj: FileobjTypeDef
+    ExtraArgs: NotRequired[Dict[str, Any] | None]
+    Callback: NotRequired[Callable[..., Any] | None]
+    Config: NotRequired[TransferConfig | None]
+
+class BucketUploadFileobjRequestTypeDef(TypedDict):
+    Fileobj: FileobjTypeDef
+    Key: str
+    ExtraArgs: NotRequired[Dict[str, Any] | None]
+    Callback: NotRequired[Callable[..., Any] | None]
+    Config: NotRequired[TransferConfig | None]
+
+class ClientDownloadFileobjRequestTypeDef(TypedDict):
+    Bucket: str
+    Key: str
+    Fileobj: FileobjTypeDef
+    ExtraArgs: NotRequired[Dict[str, Any] | None]
+    Callback: NotRequired[Callable[..., Any] | None]
+    Config: NotRequired[TransferConfig | None]
+
+class ClientUploadFileobjRequestTypeDef(TypedDict):
+    Fileobj: FileobjTypeDef
+    Bucket: str
+    Key: str
+    ExtraArgs: NotRequired[Dict[str, Any] | None]
+    Callback: NotRequired[Callable[..., Any] | None]
+    Config: NotRequired[TransferConfig | None]
+
+class ObjectDownloadFileobjRequestTypeDef(TypedDict):
+    Fileobj: FileobjTypeDef
+    ExtraArgs: NotRequired[Dict[str, Any] | None]
+    Callback: NotRequired[Callable[..., Any] | None]
+    Config: NotRequired[TransferConfig | None]
+
+class ObjectUploadFileobjRequestTypeDef(TypedDict):
+    Fileobj: FileobjTypeDef
+    ExtraArgs: NotRequired[Dict[str, Any] | None]
+    Callback: NotRequired[Callable[..., Any] | None]
+    Config: NotRequired[TransferConfig | None]
+
+class ListBucketsOutputTypeDef(TypedDict):
+    Buckets: List[BucketTypeDef]
+    Owner: OwnerTypeDef
+    ContinuationToken: str
+    Prefix: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListDirectoryBucketsOutputTypeDef(TypedDict):
+    Buckets: List[BucketTypeDef]
+    ContinuationToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetBucketCorsOutputTypeDef(TypedDict):
+    CORSRules: List[CORSRuleOutputTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+CORSRuleUnionTypeDef = Union[CORSRuleTypeDef, CORSRuleOutputTypeDef]
+CloudFunctionConfigurationUnionTypeDef = Union[
+    CloudFunctionConfigurationTypeDef, CloudFunctionConfigurationOutputTypeDef
+]
+
+class CompletedMultipartUploadTypeDef(TypedDict):
+    Parts: NotRequired[Sequence[CompletedPartTypeDef]]
+
+class CopyObjectOutputTypeDef(TypedDict):
+    CopyObjectResult: CopyObjectResultTypeDef
+    Expiration: str
+    CopySourceVersionId: str
+    VersionId: str
+    ServerSideEncryption: ServerSideEncryptionType
+    SSECustomerAlgorithm: str
+    SSECustomerKeyMD5: str
+    SSEKMSKeyId: str
+    SSEKMSEncryptionContext: str
+    BucketKeyEnabled: bool
+    RequestCharged: Literal["requester"]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UploadPartCopyOutputTypeDef(TypedDict):
+    CopySourceVersionId: str
+    CopyPartResult: CopyPartResultTypeDef
+    ServerSideEncryption: ServerSideEncryptionType
+    SSECustomerAlgorithm: str
+    SSECustomerKeyMD5: str
+    SSEKMSKeyId: str
+    BucketKeyEnabled: bool
+    RequestCharged: Literal["requester"]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateBucketConfigurationTypeDef(TypedDict):
+    LocationConstraint: NotRequired[BucketLocationConstraintType]
+    Location: NotRequired[LocationInfoTypeDef]
+    Bucket: NotRequired[BucketInfoTypeDef]
+
+class CreateSessionOutputTypeDef(TypedDict):
+    ServerSideEncryption: ServerSideEncryptionType
+    SSEKMSKeyId: str
+    SSEKMSEncryptionContext: str
+    BucketKeyEnabled: bool
+    Credentials: SessionCredentialsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ObjectLockRuleTypeDef(TypedDict):
+    DefaultRetention: NotRequired[DefaultRetentionTypeDef]
+
+class DeleteObjectsOutputTypeDef(TypedDict):
+    Deleted: List[DeletedObjectTypeDef]
+    RequestCharged: Literal["requester"]
+    Errors: List[ErrorTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class S3KeyFilterOutputTypeDef(TypedDict):
+    FilterRules: NotRequired[List[FilterRuleTypeDef]]
+
+class S3KeyFilterTypeDef(TypedDict):
+    FilterRules: NotRequired[Sequence[FilterRuleTypeDef]]
+
+class GetBucketPolicyStatusOutputTypeDef(TypedDict):
+    PolicyStatus: PolicyStatusTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetObjectAttributesPartsTypeDef(TypedDict):
+    TotalPartsCount: NotRequired[int]
+    PartNumberMarker: NotRequired[int]
+    NextPartNumberMarker: NotRequired[int]
+    MaxParts: NotRequired[int]
+    IsTruncated: NotRequired[bool]
+    Parts: NotRequired[List[ObjectPartTypeDef]]
+
+class GetObjectLegalHoldOutputTypeDef(TypedDict):
+    LegalHold: ObjectLockLegalHoldTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutObjectLegalHoldRequestTypeDef(TypedDict):
+    Bucket: str
+    Key: str
+    LegalHold: NotRequired[ObjectLockLegalHoldTypeDef]
+    RequestPayer: NotRequired[Literal["requester"]]
+    VersionId: NotRequired[str]
+    ContentMD5: NotRequired[str]
+    ChecksumAlgorithm: NotRequired[ChecksumAlgorithmType]
+    ExpectedBucketOwner: NotRequired[str]
+
+class GetObjectRetentionOutputTypeDef(TypedDict):
+    Retention: ObjectLockRetentionOutputTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetPublicAccessBlockOutputTypeDef(TypedDict):
+    PublicAccessBlockConfiguration: PublicAccessBlockConfigurationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutPublicAccessBlockRequestTypeDef(TypedDict):
+    Bucket: str
+    PublicAccessBlockConfiguration: PublicAccessBlockConfigurationTypeDef
+    ContentMD5: NotRequired[str]
+    ChecksumAlgorithm: NotRequired[ChecksumAlgorithmType]
+    ExpectedBucketOwner: NotRequired[str]
+
+class GrantTypeDef(TypedDict):
+    Grantee: NotRequired[GranteeTypeDef]
+    Permission: NotRequired[PermissionType]
+
+class TargetGrantTypeDef(TypedDict):
+    Grantee: NotRequired[GranteeTypeDef]
+    Permission: NotRequired[BucketLogsPermissionType]
+
+class HeadBucketRequestWaitExtraTypeDef(TypedDict):
+    Bucket: str
+    ExpectedBucketOwner: NotRequired[str]
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class HeadBucketRequestWaitTypeDef(TypedDict):
+    Bucket: str
+    ExpectedBucketOwner: NotRequired[str]
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class HeadObjectRequestWaitExtraTypeDef(TypedDict):
+    Bucket: str
+    Key: str
+    IfMatch: NotRequired[str]
+    IfModifiedSince: NotRequired[TimestampTypeDef]
+    IfNoneMatch: NotRequired[str]
+    IfUnmodifiedSince: NotRequired[TimestampTypeDef]
+    Range: NotRequired[str]
+    ResponseCacheControl: NotRequired[str]
+    ResponseContentDisposition: NotRequired[str]
+    ResponseContentEncoding: NotRequired[str]
+    ResponseContentLanguage: NotRequired[str]
+    ResponseContentType: NotRequired[str]
+    ResponseExpires: NotRequired[TimestampTypeDef]
+    VersionId: NotRequired[str]
+    SSECustomerAlgorithm: NotRequired[str]
+    SSECustomerKey: NotRequired[str | bytes]
+    RequestPayer: NotRequired[Literal["requester"]]
+    PartNumber: NotRequired[int]
+    ExpectedBucketOwner: NotRequired[str]
+    ChecksumMode: NotRequired[Literal["ENABLED"]]
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class HeadObjectRequestWaitTypeDef(TypedDict):
+    Bucket: str
+    Key: str
+    IfMatch: NotRequired[str]
+    IfModifiedSince: NotRequired[TimestampTypeDef]
+    IfNoneMatch: NotRequired[str]
+    IfUnmodifiedSince: NotRequired[TimestampTypeDef]
+    Range: NotRequired[str]
+    ResponseCacheControl: NotRequired[str]
+    ResponseContentDisposition: NotRequired[str]
+    ResponseContentEncoding: NotRequired[str]
+    ResponseContentLanguage: NotRequired[str]
+    ResponseContentType: NotRequired[str]
+    ResponseExpires: NotRequired[TimestampTypeDef]
+    VersionId: NotRequired[str]
+    SSECustomerAlgorithm: NotRequired[str]
+    SSECustomerKey: NotRequired[str | bytes]
+    RequestPayer: NotRequired[Literal["requester"]]
+    PartNumber: NotRequired[int]
+    ExpectedBucketOwner: NotRequired[str]
+    ChecksumMode: NotRequired[Literal["ENABLED"]]
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class MultipartUploadTypeDef(TypedDict):
+    UploadId: NotRequired[str]
+    Key: NotRequired[str]
+    Initiated: NotRequired[datetime]
+    StorageClass: NotRequired[StorageClassType]
+    Owner: NotRequired[OwnerTypeDef]
+    Initiator: NotRequired[InitiatorTypeDef]
+    ChecksumAlgorithm: NotRequired[ChecksumAlgorithmType]
+    ChecksumType: NotRequired[ChecksumTypeType]
+
+class InputSerializationTypeDef(TypedDict):
+    CSV: NotRequired[CSVInputTypeDef]
+    CompressionType: NotRequired[CompressionTypeType]
+    JSON: NotRequired[JSONInputTypeDef]
+    Parquet: NotRequired[Mapping[str, Any]]
+
+class InventoryEncryptionOutputTypeDef(TypedDict):
+    SSES3: NotRequired[Dict[str, Any]]
+    SSEKMS: NotRequired[SSEKMSTypeDef]
+
+class InventoryEncryptionTypeDef(TypedDict):
+    SSES3: NotRequired[Mapping[str, Any]]
+    SSEKMS: NotRequired[SSEKMSTypeDef]
+
+class OutputSerializationTypeDef(TypedDict):
+    CSV: NotRequired[CSVOutputTypeDef]
+    JSON: NotRequired[JSONOutputTypeDef]
+
+class RuleOutputTypeDef(TypedDict):
+    Prefix: str
+    Status: ExpirationStatusType
+    Expiration: NotRequired[LifecycleExpirationOutputTypeDef]
+    ID: NotRequired[str]
+    Transition: NotRequired[TransitionOutputTypeDef]
+    NoncurrentVersionTransition: NotRequired[NoncurrentVersionTransitionTypeDef]
+    NoncurrentVersionExpiration: NotRequired[NoncurrentVersionExpirationTypeDef]
+    AbortIncompleteMultipartUpload: NotRequired[AbortIncompleteMultipartUploadTypeDef]
+
+class ListBucketsRequestPaginateTypeDef(TypedDict):
+    Prefix: NotRequired[str]
+    BucketRegion: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListDirectoryBucketsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListMultipartUploadsRequestPaginateTypeDef(TypedDict):
+    Bucket: str
+    Delimiter: NotRequired[str]
+    EncodingType: NotRequired[Literal["url"]]
+    Prefix: NotRequired[str]
+    ExpectedBucketOwner: NotRequired[str]
+    RequestPayer: NotRequired[Literal["requester"]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListObjectVersionsRequestPaginateTypeDef(TypedDict):
+    Bucket: str
+    Delimiter: NotRequired[str]
+    EncodingType: NotRequired[Literal["url"]]
+    Prefix: NotRequired[str]
+    ExpectedBucketOwner: NotRequired[str]
+    RequestPayer: NotRequired[Literal["requester"]]
+    OptionalObjectAttributes: NotRequired[Sequence[Literal["RestoreStatus"]]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListObjectsRequestPaginateTypeDef(TypedDict):
+    Bucket: str
+    Delimiter: NotRequired[str]
+    EncodingType: NotRequired[Literal["url"]]
+    Prefix: NotRequired[str]
+    RequestPayer: NotRequired[Literal["requester"]]
+    ExpectedBucketOwner: NotRequired[str]
+    OptionalObjectAttributes: NotRequired[Sequence[Literal["RestoreStatus"]]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListObjectsV2RequestPaginateTypeDef(TypedDict):
+    Bucket: str
+    Delimiter: NotRequired[str]
+    EncodingType: NotRequired[Literal["url"]]
+    Prefix: NotRequired[str]
+    FetchOwner: NotRequired[bool]
+    StartAfter: NotRequired[str]
+    RequestPayer: NotRequired[Literal["requester"]]
+    ExpectedBucketOwner: NotRequired[str]
+    OptionalObjectAttributes: NotRequired[Sequence[Literal["RestoreStatus"]]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListPartsRequestPaginateTypeDef(TypedDict):
+    Bucket: str
+    Key: str
+    UploadId: str
+    RequestPayer: NotRequired[Literal["requester"]]
+    ExpectedBucketOwner: NotRequired[str]
+    SSECustomerAlgorithm: NotRequired[str]
+    SSECustomerKey: NotRequired[str | bytes]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListPartsOutputTypeDef(TypedDict):
+    AbortDate: datetime
+    AbortRuleId: str
+    Bucket: str
+    Key: str
+    UploadId: str
+    PartNumberMarker: int
+    NextPartNumberMarker: int
+    MaxParts: int
+    IsTruncated: bool
+    Parts: List[PartTypeDef]
+    Initiator: InitiatorTypeDef
+    Owner: OwnerTypeDef
+    StorageClass: StorageClassType
+    RequestCharged: Literal["requester"]
+    ChecksumAlgorithm: ChecksumAlgorithmType
+    ChecksumType: ChecksumTypeType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class MetadataTableConfigurationResultTypeDef(TypedDict):
+    S3TablesDestinationResult: S3TablesDestinationResultTypeDef
+
+class MetadataTableConfigurationTypeDef(TypedDict):
+    S3TablesDestination: S3TablesDestinationTypeDef
+
+class MetricsTypeDef(TypedDict):
+    Status: MetricsStatusType
+    EventThreshold: NotRequired[ReplicationTimeValueTypeDef]
+
+class ReplicationTimeTypeDef(TypedDict):
+    Status: ReplicationTimeStatusType
+    Time: ReplicationTimeValueTypeDef
+
+class NotificationConfigurationDeprecatedResponseTypeDef(TypedDict):
+    TopicConfiguration: TopicConfigurationDeprecatedOutputTypeDef
+    QueueConfiguration: QueueConfigurationDeprecatedOutputTypeDef
+    CloudFunctionConfiguration: CloudFunctionConfigurationOutputTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ObjectTypeDef(TypedDict):
+    Key: NotRequired[str]
+    LastModified: NotRequired[datetime]
+    ETag: NotRequired[str]
+    ChecksumAlgorithm: NotRequired[List[ChecksumAlgorithmType]]
+    ChecksumType: NotRequired[ChecksumTypeType]
+    Size: NotRequired[int]
+    StorageClass: NotRequired[ObjectStorageClassType]
+    Owner: NotRequired[OwnerTypeDef]
+    RestoreStatus: NotRequired[RestoreStatusTypeDef]
+
+class ObjectVersionTypeDef(TypedDict):
+    ETag: NotRequired[str]
+    ChecksumAlgorithm: NotRequired[List[ChecksumAlgorithmType]]
+    ChecksumType: NotRequired[ChecksumTypeType]
+    Size: NotRequired[int]
+    StorageClass: NotRequired[Literal["STANDARD"]]
+    Key: NotRequired[str]
+    VersionId: NotRequired[str]
+    IsLatest: NotRequired[bool]
+    LastModified: NotRequired[datetime]
+    Owner: NotRequired[OwnerTypeDef]
+    RestoreStatus: NotRequired[RestoreStatusTypeDef]
+
+class OwnershipControlsOutputTypeDef(TypedDict):
+    Rules: List[OwnershipControlsRuleTypeDef]
+
+class OwnershipControlsTypeDef(TypedDict):
+    Rules: Sequence[OwnershipControlsRuleTypeDef]
+
+class TargetObjectKeyFormatOutputTypeDef(TypedDict):
+    SimplePrefix: NotRequired[Dict[str, Any]]
+    PartitionedPrefix: NotRequired[PartitionedPrefixTypeDef]
+
+class TargetObjectKeyFormatTypeDef(TypedDict):
+    SimplePrefix: NotRequired[Mapping[str, Any]]
+    PartitionedPrefix: NotRequired[PartitionedPrefixTypeDef]
+
+class ProgressEventTypeDef(TypedDict):
+    Details: NotRequired[ProgressTypeDef]
+
+class PutBucketRequestPaymentRequestBucketRequestPaymentPutTypeDef(TypedDict):
+    RequestPaymentConfiguration: RequestPaymentConfigurationTypeDef
+    ChecksumAlgorithm: NotRequired[ChecksumAlgorithmType]
+    ExpectedBucketOwner: NotRequired[str]
+
+class PutBucketRequestPaymentRequestTypeDef(TypedDict):
+    Bucket: str
+    RequestPaymentConfiguration: RequestPaymentConfigurationTypeDef
+    ChecksumAlgorithm: NotRequired[ChecksumAlgorithmType]
+    ExpectedBucketOwner: NotRequired[str]
+
+class PutBucketVersioningRequestBucketVersioningPutTypeDef(TypedDict):
+    VersioningConfiguration: VersioningConfigurationTypeDef
+    ChecksumAlgorithm: NotRequired[ChecksumAlgorithmType]
+    MFA: NotRequired[str]
+    ExpectedBucketOwner: NotRequired[str]
+
+class PutBucketVersioningRequestTypeDef(TypedDict):
+    Bucket: str
+    VersioningConfiguration: VersioningConfigurationTypeDef
+    ChecksumAlgorithm: NotRequired[ChecksumAlgorithmType]
+    MFA: NotRequired[str]
+    ExpectedBucketOwner: NotRequired[str]
+
+QueueConfigurationDeprecatedUnionTypeDef = Union[
+    QueueConfigurationDeprecatedTypeDef, QueueConfigurationDeprecatedOutputTypeDef
+]
+
+class RoutingRuleTypeDef(TypedDict):
+    Redirect: RedirectTypeDef
+    Condition: NotRequired[ConditionTypeDef]
+
+class ServerSideEncryptionRuleTypeDef(TypedDict):
+    ApplyServerSideEncryptionByDefault: NotRequired[ServerSideEncryptionByDefaultTypeDef]
+    BucketKeyEnabled: NotRequired[bool]
+
+class SourceSelectionCriteriaTypeDef(TypedDict):
+    SseKmsEncryptedObjects: NotRequired[SseKmsEncryptedObjectsTypeDef]
+    ReplicaModifications: NotRequired[ReplicaModificationsTypeDef]
+
+class StatsEventTypeDef(TypedDict):
+    Details: NotRequired[StatsTypeDef]
+
+TopicConfigurationDeprecatedUnionTypeDef = Union[
+    TopicConfigurationDeprecatedTypeDef, TopicConfigurationDeprecatedOutputTypeDef
+]
+LifecycleExpirationUnionTypeDef = Union[
+    LifecycleExpirationTypeDef, LifecycleExpirationOutputTypeDef
+]
+
+class DeleteTypeDef(TypedDict):
+    Objects: Sequence[ObjectIdentifierTypeDef]
+    Quiet: NotRequired[bool]
+
+ObjectLockRetentionUnionTypeDef = Union[
+    ObjectLockRetentionTypeDef, ObjectLockRetentionOutputTypeDef
+]
+TransitionUnionTypeDef = Union[TransitionTypeDef, TransitionOutputTypeDef]
+
+class AnalyticsFilterOutputTypeDef(TypedDict):
+    Prefix: NotRequired[str]
+    Tag: NotRequired[TagTypeDef]
+    And: NotRequired[AnalyticsAndOperatorOutputTypeDef]
+
+class AnalyticsFilterTypeDef(TypedDict):
+    Prefix: NotRequired[str]
+    Tag: NotRequired[TagTypeDef]
+    And: NotRequired[AnalyticsAndOperatorTypeDef]
+
+class IntelligentTieringFilterOutputTypeDef(TypedDict):
+    Prefix: NotRequired[str]
+    Tag: NotRequired[TagTypeDef]
+    And: NotRequired[IntelligentTieringAndOperatorOutputTypeDef]
+
+class IntelligentTieringFilterTypeDef(TypedDict):
+    Prefix: NotRequired[str]
+    Tag: NotRequired[TagTypeDef]
+    And: NotRequired[IntelligentTieringAndOperatorTypeDef]
+
+class LifecycleRuleFilterOutputTypeDef(TypedDict):
+    Prefix: NotRequired[str]
+    Tag: NotRequired[TagTypeDef]
+    ObjectSizeGreaterThan: NotRequired[int]
+    ObjectSizeLessThan: NotRequired[int]
+    And: NotRequired[LifecycleRuleAndOperatorOutputTypeDef]
+
+LifecycleRuleAndOperatorUnionTypeDef = Union[
+    LifecycleRuleAndOperatorTypeDef, LifecycleRuleAndOperatorOutputTypeDef
+]
+
+class MetricsFilterOutputTypeDef(TypedDict):
+    Prefix: NotRequired[str]
+    Tag: NotRequired[TagTypeDef]
+    AccessPointArn: NotRequired[str]
+    And: NotRequired[MetricsAndOperatorOutputTypeDef]
+
+class MetricsFilterTypeDef(TypedDict):
+    Prefix: NotRequired[str]
+    Tag: NotRequired[TagTypeDef]
+    AccessPointArn: NotRequired[str]
+    And: NotRequired[MetricsAndOperatorTypeDef]
+
+class ReplicationRuleFilterOutputTypeDef(TypedDict):
+    Prefix: NotRequired[str]
+    Tag: NotRequired[TagTypeDef]
+    And: NotRequired[ReplicationRuleAndOperatorOutputTypeDef]
+
+class ReplicationRuleFilterTypeDef(TypedDict):
+    Prefix: NotRequired[str]
+    Tag: NotRequired[TagTypeDef]
+    And: NotRequired[ReplicationRuleAndOperatorTypeDef]
+
+class PutBucketTaggingRequestBucketTaggingPutTypeDef(TypedDict):
+    Tagging: TaggingTypeDef
+    ChecksumAlgorithm: NotRequired[ChecksumAlgorithmType]
+    ExpectedBucketOwner: NotRequired[str]
+
+class PutBucketTaggingRequestTypeDef(TypedDict):
+    Bucket: str
+    Tagging: TaggingTypeDef
+    ChecksumAlgorithm: NotRequired[ChecksumAlgorithmType]
+    ExpectedBucketOwner: NotRequired[str]
+
+class PutObjectTaggingRequestTypeDef(TypedDict):
+    Bucket: str
+    Key: str
+    Tagging: TaggingTypeDef
+    VersionId: NotRequired[str]
+    ContentMD5: NotRequired[str]
+    ChecksumAlgorithm: NotRequired[ChecksumAlgorithmType]
+    ExpectedBucketOwner: NotRequired[str]
+    RequestPayer: NotRequired[Literal["requester"]]
+
+class StorageClassAnalysisDataExportTypeDef(TypedDict):
+    OutputSchemaVersion: Literal["V_1"]
+    Destination: AnalyticsExportDestinationTypeDef
+
+class CopyObjectRequestObjectCopyFromTypeDef(TypedDict):
+    CopySource: CopySourceOrStrTypeDef
+    ACL: NotRequired[ObjectCannedACLType]
+    CacheControl: NotRequired[str]
+    ChecksumAlgorithm: NotRequired[ChecksumAlgorithmType]
+    ContentDisposition: NotRequired[str]
+    ContentEncoding: NotRequired[str]
+    ContentLanguage: NotRequired[str]
+    ContentType: NotRequired[str]
+    CopySourceIfMatch: NotRequired[str]
+    CopySourceIfModifiedSince: NotRequired[TimestampTypeDef]
+    CopySourceIfNoneMatch: NotRequired[str]
+    CopySourceIfUnmodifiedSince: NotRequired[TimestampTypeDef]
+    Expires: NotRequired[TimestampTypeDef]
+    GrantFullControl: NotRequired[str]
+    GrantRead: NotRequired[str]
+    GrantReadACP: NotRequired[str]
+    GrantWriteACP: NotRequired[str]
+    Metadata: NotRequired[Mapping[str, str]]
+    MetadataDirective: NotRequired[MetadataDirectiveType]
+    TaggingDirective: NotRequired[TaggingDirectiveType]
+    ServerSideEncryption: NotRequired[ServerSideEncryptionType]
+    StorageClass: NotRequired[StorageClassType]
+    WebsiteRedirectLocation: NotRequired[str]
+    SSECustomerAlgorithm: NotRequired[str]
+    SSECustomerKey: NotRequired[str | bytes]
+    SSEKMSKeyId: NotRequired[str]
+    SSEKMSEncryptionContext: NotRequired[str]
+    BucketKeyEnabled: NotRequired[bool]
+    CopySourceSSECustomerAlgorithm: NotRequired[str]
+    CopySourceSSECustomerKey: NotRequired[str | bytes]
+    RequestPayer: NotRequired[Literal["requester"]]
+    Tagging: NotRequired[str]
+    ObjectLockMode: NotRequired[ObjectLockModeType]
+    ObjectLockRetainUntilDate: NotRequired[TimestampTypeDef]
+    ObjectLockLegalHoldStatus: NotRequired[ObjectLockLegalHoldStatusType]
+    ExpectedBucketOwner: NotRequired[str]
+    ExpectedSourceBucketOwner: NotRequired[str]
+
+class CopyObjectRequestObjectSummaryCopyFromTypeDef(TypedDict):
+    CopySource: CopySourceOrStrTypeDef
+    ACL: NotRequired[ObjectCannedACLType]
+    CacheControl: NotRequired[str]
+    ChecksumAlgorithm: NotRequired[ChecksumAlgorithmType]
+    ContentDisposition: NotRequired[str]
+    ContentEncoding: NotRequired[str]
+    ContentLanguage: NotRequired[str]
+    ContentType: NotRequired[str]
+    CopySourceIfMatch: NotRequired[str]
+    CopySourceIfModifiedSince: NotRequired[TimestampTypeDef]
+    CopySourceIfNoneMatch: NotRequired[str]
+    CopySourceIfUnmodifiedSince: NotRequired[TimestampTypeDef]
+    Expires: NotRequired[TimestampTypeDef]
+    GrantFullControl: NotRequired[str]
+    GrantRead: NotRequired[str]
+    GrantReadACP: NotRequired[str]
+    GrantWriteACP: NotRequired[str]
+    Metadata: NotRequired[Mapping[str, str]]
+    MetadataDirective: NotRequired[MetadataDirectiveType]
+    TaggingDirective: NotRequired[TaggingDirectiveType]
+    ServerSideEncryption: NotRequired[ServerSideEncryptionType]
+    StorageClass: NotRequired[StorageClassType]
+    WebsiteRedirectLocation: NotRequired[str]
+    SSECustomerAlgorithm: NotRequired[str]
+    SSECustomerKey: NotRequired[str | bytes]
+    SSEKMSKeyId: NotRequired[str]
+    SSEKMSEncryptionContext: NotRequired[str]
+    BucketKeyEnabled: NotRequired[bool]
+    CopySourceSSECustomerAlgorithm: NotRequired[str]
+    CopySourceSSECustomerKey: NotRequired[str | bytes]
+    RequestPayer: NotRequired[Literal["requester"]]
+    Tagging: NotRequired[str]
+    ObjectLockMode: NotRequired[ObjectLockModeType]
+    ObjectLockRetainUntilDate: NotRequired[TimestampTypeDef]
+    ObjectLockLegalHoldStatus: NotRequired[ObjectLockLegalHoldStatusType]
+    ExpectedBucketOwner: NotRequired[str]
+    ExpectedSourceBucketOwner: NotRequired[str]
+
+class CopyObjectRequestTypeDef(TypedDict):
+    Bucket: str
+    CopySource: CopySourceOrStrTypeDef
+    Key: str
+    ACL: NotRequired[ObjectCannedACLType]
+    CacheControl: NotRequired[str]
+    ChecksumAlgorithm: NotRequired[ChecksumAlgorithmType]
+    ContentDisposition: NotRequired[str]
+    ContentEncoding: NotRequired[str]
+    ContentLanguage: NotRequired[str]
+    ContentType: NotRequired[str]
+    CopySourceIfMatch: NotRequired[str]
+    CopySourceIfModifiedSince: NotRequired[TimestampTypeDef]
+    CopySourceIfNoneMatch: NotRequired[str]
+    CopySourceIfUnmodifiedSince: NotRequired[TimestampTypeDef]
+    Expires: NotRequired[TimestampTypeDef]
+    GrantFullControl: NotRequired[str]
+    GrantRead: NotRequired[str]
+    GrantReadACP: NotRequired[str]
+    GrantWriteACP: NotRequired[str]
+    Metadata: NotRequired[Mapping[str, str]]
+    MetadataDirective: NotRequired[MetadataDirectiveType]
+    TaggingDirective: NotRequired[TaggingDirectiveType]
+    ServerSideEncryption: NotRequired[ServerSideEncryptionType]
+    StorageClass: NotRequired[StorageClassType]
+    WebsiteRedirectLocation: NotRequired[str]
+    SSECustomerAlgorithm: NotRequired[str]
+    SSECustomerKey: NotRequired[str | bytes]
+    SSEKMSKeyId: NotRequired[str]
+    SSEKMSEncryptionContext: NotRequired[str]
+    BucketKeyEnabled: NotRequired[bool]
+    CopySourceSSECustomerAlgorithm: NotRequired[str]
+    CopySourceSSECustomerKey: NotRequired[str | bytes]
+    RequestPayer: NotRequired[Literal["requester"]]
+    Tagging: NotRequired[str]
+    ObjectLockMode: NotRequired[ObjectLockModeType]
+    ObjectLockRetainUntilDate: NotRequired[TimestampTypeDef]
+    ObjectLockLegalHoldStatus: NotRequired[ObjectLockLegalHoldStatusType]
+    ExpectedBucketOwner: NotRequired[str]
+    ExpectedSourceBucketOwner: NotRequired[str]
+
+class UploadPartCopyRequestMultipartUploadPartCopyFromTypeDef(TypedDict):
+    CopySource: CopySourceOrStrTypeDef
+    CopySourceIfMatch: NotRequired[str]
+    CopySourceIfModifiedSince: NotRequired[TimestampTypeDef]
+    CopySourceIfNoneMatch: NotRequired[str]
+    CopySourceIfUnmodifiedSince: NotRequired[TimestampTypeDef]
+    CopySourceRange: NotRequired[str]
+    SSECustomerAlgorithm: NotRequired[str]
+    SSECustomerKey: NotRequired[str | bytes]
+    CopySourceSSECustomerAlgorithm: NotRequired[str]
+    CopySourceSSECustomerKey: NotRequired[str | bytes]
+    RequestPayer: NotRequired[Literal["requester"]]
+    ExpectedBucketOwner: NotRequired[str]
+    ExpectedSourceBucketOwner: NotRequired[str]
+
+class UploadPartCopyRequestTypeDef(TypedDict):
+    Bucket: str
+    CopySource: CopySourceOrStrTypeDef
+    Key: str
+    PartNumber: int
+    UploadId: str
+    CopySourceIfMatch: NotRequired[str]
+    CopySourceIfModifiedSince: NotRequired[TimestampTypeDef]
+    CopySourceIfNoneMatch: NotRequired[str]
+    CopySourceIfUnmodifiedSince: NotRequired[TimestampTypeDef]
+    CopySourceRange: NotRequired[str]
+    SSECustomerAlgorithm: NotRequired[str]
+    SSECustomerKey: NotRequired[str | bytes]
+    CopySourceSSECustomerAlgorithm: NotRequired[str]
+    CopySourceSSECustomerKey: NotRequired[str | bytes]
+    RequestPayer: NotRequired[Literal["requester"]]
+    ExpectedBucketOwner: NotRequired[str]
+    ExpectedSourceBucketOwner: NotRequired[str]
+
+class CORSConfigurationTypeDef(TypedDict):
+    CORSRules: Sequence[CORSRuleUnionTypeDef]
+
+class CompleteMultipartUploadRequestMultipartUploadCompleteTypeDef(TypedDict):
+    MultipartUpload: NotRequired[CompletedMultipartUploadTypeDef]
+    ChecksumCRC32: NotRequired[str]
+    ChecksumCRC32C: NotRequired[str]
+    ChecksumCRC64NVME: NotRequired[str]
+    ChecksumSHA1: NotRequired[str]
+    ChecksumSHA256: NotRequired[str]
+    ChecksumType: NotRequired[ChecksumTypeType]
+    MpuObjectSize: NotRequired[int]
+    RequestPayer: NotRequired[Literal["requester"]]
+    ExpectedBucketOwner: NotRequired[str]
+    IfMatch: NotRequired[str]
+    IfNoneMatch: NotRequired[str]
+    SSECustomerAlgorithm: NotRequired[str]
+    SSECustomerKey: NotRequired[str | bytes]
+
+class CompleteMultipartUploadRequestTypeDef(TypedDict):
+    Bucket: str
+    Key: str
+    UploadId: str
+    MultipartUpload: NotRequired[CompletedMultipartUploadTypeDef]
+    ChecksumCRC32: NotRequired[str]
+    ChecksumCRC32C: NotRequired[str]
+    ChecksumCRC64NVME: NotRequired[str]
+    ChecksumSHA1: NotRequired[str]
+    ChecksumSHA256: NotRequired[str]
+    ChecksumType: NotRequired[ChecksumTypeType]
+    MpuObjectSize: NotRequired[int]
+    RequestPayer: NotRequired[Literal["requester"]]
+    ExpectedBucketOwner: NotRequired[str]
+    IfMatch: NotRequired[str]
+    IfNoneMatch: NotRequired[str]
+    SSECustomerAlgorithm: NotRequired[str]
+    SSECustomerKey: NotRequired[str | bytes]
+
+class CreateBucketRequestBucketCreateTypeDef(TypedDict):
+    ACL: NotRequired[BucketCannedACLType]
+    CreateBucketConfiguration: NotRequired[CreateBucketConfigurationTypeDef]
+    GrantFullControl: NotRequired[str]
+    GrantRead: NotRequired[str]
+    GrantReadACP: NotRequired[str]
+    GrantWrite: NotRequired[str]
+    GrantWriteACP: NotRequired[str]
+    ObjectLockEnabledForBucket: NotRequired[bool]
+    ObjectOwnership: NotRequired[ObjectOwnershipType]
+
+class CreateBucketRequestServiceResourceCreateBucketTypeDef(TypedDict):
+    Bucket: str
+    ACL: NotRequired[BucketCannedACLType]
+    CreateBucketConfiguration: NotRequired[CreateBucketConfigurationTypeDef]
+    GrantFullControl: NotRequired[str]
+    GrantRead: NotRequired[str]
+    GrantReadACP: NotRequired[str]
+    GrantWrite: NotRequired[str]
+    GrantWriteACP: NotRequired[str]
+    ObjectLockEnabledForBucket: NotRequired[bool]
+    ObjectOwnership: NotRequired[ObjectOwnershipType]
+
+class CreateBucketRequestTypeDef(TypedDict):
+    Bucket: str
+    ACL: NotRequired[BucketCannedACLType]
+    CreateBucketConfiguration: NotRequired[CreateBucketConfigurationTypeDef]
+    GrantFullControl: NotRequired[str]
+    GrantRead: NotRequired[str]
+    GrantReadACP: NotRequired[str]
+    GrantWrite: NotRequired[str]
+    GrantWriteACP: NotRequired[str]
+    ObjectLockEnabledForBucket: NotRequired[bool]
+    ObjectOwnership: NotRequired[ObjectOwnershipType]
+
+class ObjectLockConfigurationTypeDef(TypedDict):
+    ObjectLockEnabled: NotRequired[Literal["Enabled"]]
+    Rule: NotRequired[ObjectLockRuleTypeDef]
+
+class NotificationConfigurationFilterOutputTypeDef(TypedDict):
+    Key: NotRequired[S3KeyFilterOutputTypeDef]
+
+S3KeyFilterUnionTypeDef = Union[S3KeyFilterTypeDef, S3KeyFilterOutputTypeDef]
+
+class GetObjectAttributesOutputTypeDef(TypedDict):
+    DeleteMarker: bool
+    LastModified: datetime
+    VersionId: str
+    RequestCharged: Literal["requester"]
+    ETag: str
+    Checksum: ChecksumTypeDef
+    ObjectParts: GetObjectAttributesPartsTypeDef
+    StorageClass: StorageClassType
+    ObjectSize: int
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class AccessControlPolicyTypeDef(TypedDict):
+    Grants: NotRequired[Sequence[GrantTypeDef]]
+    Owner: NotRequired[OwnerTypeDef]
+
+class GetBucketAclOutputTypeDef(TypedDict):
+    Owner: OwnerTypeDef
+    Grants: List[GrantTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetObjectAclOutputTypeDef(TypedDict):
+    Owner: OwnerTypeDef
+    Grants: List[GrantTypeDef]
+    RequestCharged: Literal["requester"]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class S3LocationTypeDef(TypedDict):
+    BucketName: str
+    Prefix: str
+    Encryption: NotRequired[EncryptionTypeDef]
+    CannedACL: NotRequired[ObjectCannedACLType]
+    AccessControlList: NotRequired[Sequence[GrantTypeDef]]
+    Tagging: NotRequired[TaggingTypeDef]
+    UserMetadata: NotRequired[Sequence[MetadataEntryTypeDef]]
+    StorageClass: NotRequired[StorageClassType]
+
+class ListMultipartUploadsOutputTypeDef(TypedDict):
+    Bucket: str
+    KeyMarker: str
+    UploadIdMarker: str
+    NextKeyMarker: str
+    Prefix: str
+    Delimiter: str
+    NextUploadIdMarker: str
+    MaxUploads: int
+    IsTruncated: bool
+    Uploads: List[MultipartUploadTypeDef]
+    EncodingType: Literal["url"]
+    RequestCharged: Literal["requester"]
+    ResponseMetadata: ResponseMetadataTypeDef
+    CommonPrefixes: NotRequired[List[CommonPrefixTypeDef]]
+
+class InventoryS3BucketDestinationOutputTypeDef(TypedDict):
+    Bucket: str
+    Format: InventoryFormatType
+    AccountId: NotRequired[str]
+    Prefix: NotRequired[str]
+    Encryption: NotRequired[InventoryEncryptionOutputTypeDef]
+
+class InventoryS3BucketDestinationTypeDef(TypedDict):
+    Bucket: str
+    Format: InventoryFormatType
+    AccountId: NotRequired[str]
+    Prefix: NotRequired[str]
+    Encryption: NotRequired[InventoryEncryptionTypeDef]
+
+class SelectObjectContentRequestTypeDef(TypedDict):
+    Bucket: str
+    Key: str
+    Expression: str
+    ExpressionType: Literal["SQL"]
+    InputSerialization: InputSerializationTypeDef
+    OutputSerialization: OutputSerializationTypeDef
+    SSECustomerAlgorithm: NotRequired[str]
+    SSECustomerKey: NotRequired[str | bytes]
+    RequestProgress: NotRequired[RequestProgressTypeDef]
+    ScanRange: NotRequired[ScanRangeTypeDef]
+    ExpectedBucketOwner: NotRequired[str]
+
+class SelectParametersTypeDef(TypedDict):
+    InputSerialization: InputSerializationTypeDef
+    ExpressionType: Literal["SQL"]
+    Expression: str
+    OutputSerialization: OutputSerializationTypeDef
+
+class GetBucketLifecycleOutputTypeDef(TypedDict):
+    Rules: List[RuleOutputTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetBucketMetadataTableConfigurationResultTypeDef(TypedDict):
+    MetadataTableConfigurationResult: MetadataTableConfigurationResultTypeDef
+    Status: str
+    Error: NotRequired[ErrorDetailsTypeDef]
+
+class CreateBucketMetadataTableConfigurationRequestTypeDef(TypedDict):
+    Bucket: str
+    MetadataTableConfiguration: MetadataTableConfigurationTypeDef
+    ContentMD5: NotRequired[str]
+    ChecksumAlgorithm: NotRequired[ChecksumAlgorithmType]
+    ExpectedBucketOwner: NotRequired[str]
+
+class DestinationTypeDef(TypedDict):
+    Bucket: str
+    Account: NotRequired[str]
+    StorageClass: NotRequired[StorageClassType]
+    AccessControlTranslation: NotRequired[AccessControlTranslationTypeDef]
+    EncryptionConfiguration: NotRequired[EncryptionConfigurationTypeDef]
+    ReplicationTime: NotRequired[ReplicationTimeTypeDef]
+    Metrics: NotRequired[MetricsTypeDef]
+
+class ListObjectsOutputTypeDef(TypedDict):
+    IsTruncated: bool
+    Marker: str
+    NextMarker: str
+    Name: str
+    Prefix: str
+    Delimiter: str
+    MaxKeys: int
+    EncodingType: Literal["url"]
+    RequestCharged: Literal["requester"]
+    ResponseMetadata: ResponseMetadataTypeDef
+    Contents: NotRequired[List[ObjectTypeDef]]
+    CommonPrefixes: NotRequired[List[CommonPrefixTypeDef]]
+
+class ListObjectsV2OutputTypeDef(TypedDict):
+    IsTruncated: bool
+    Name: str
+    Prefix: str
+    Delimiter: str
+    MaxKeys: int
+    EncodingType: Literal["url"]
+    KeyCount: int
+    ContinuationToken: str
+    NextContinuationToken: str
+    StartAfter: str
+    RequestCharged: Literal["requester"]
+    ResponseMetadata: ResponseMetadataTypeDef
+    Contents: NotRequired[List[ObjectTypeDef]]
+    CommonPrefixes: NotRequired[List[CommonPrefixTypeDef]]
+
+class ListObjectVersionsOutputTypeDef(TypedDict):
+    IsTruncated: bool
+    KeyMarker: str
+    VersionIdMarker: str
+    NextKeyMarker: str
+    NextVersionIdMarker: str
+    Versions: List[ObjectVersionTypeDef]
+    DeleteMarkers: List[DeleteMarkerEntryTypeDef]
+    Name: str
+    Prefix: str
+    Delimiter: str
+    MaxKeys: int
+    EncodingType: Literal["url"]
+    RequestCharged: Literal["requester"]
+    ResponseMetadata: ResponseMetadataTypeDef
+    CommonPrefixes: NotRequired[List[CommonPrefixTypeDef]]
+
+class GetBucketOwnershipControlsOutputTypeDef(TypedDict):
+    OwnershipControls: OwnershipControlsOutputTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+OwnershipControlsUnionTypeDef = Union[OwnershipControlsTypeDef, OwnershipControlsOutputTypeDef]
+
+class LoggingEnabledOutputTypeDef(TypedDict):
+    TargetBucket: str
+    TargetPrefix: str
+    TargetGrants: NotRequired[List[TargetGrantTypeDef]]
+    TargetObjectKeyFormat: NotRequired[TargetObjectKeyFormatOutputTypeDef]
+
+TargetObjectKeyFormatUnionTypeDef = Union[
+    TargetObjectKeyFormatTypeDef, TargetObjectKeyFormatOutputTypeDef
+]
+
+class GetBucketWebsiteOutputTypeDef(TypedDict):
+    RedirectAllRequestsTo: RedirectAllRequestsToTypeDef
+    IndexDocument: IndexDocumentTypeDef
+    ErrorDocument: ErrorDocumentTypeDef
+    RoutingRules: List[RoutingRuleTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class WebsiteConfigurationTypeDef(TypedDict):
+    ErrorDocument: NotRequired[ErrorDocumentTypeDef]
+    IndexDocument: NotRequired[IndexDocumentTypeDef]
+    RedirectAllRequestsTo: NotRequired[RedirectAllRequestsToTypeDef]
+    RoutingRules: NotRequired[Sequence[RoutingRuleTypeDef]]
+
+class ServerSideEncryptionConfigurationOutputTypeDef(TypedDict):
+    Rules: List[ServerSideEncryptionRuleTypeDef]
+
+class ServerSideEncryptionConfigurationTypeDef(TypedDict):
+    Rules: Sequence[ServerSideEncryptionRuleTypeDef]
+
+class SelectObjectContentEventStreamTypeDef(TypedDict):
+    Records: NotRequired[RecordsEventTypeDef]
+    Stats: NotRequired[StatsEventTypeDef]
+    Progress: NotRequired[ProgressEventTypeDef]
+    Cont: NotRequired[Dict[str, Any]]
+    End: NotRequired[Dict[str, Any]]
+
+class NotificationConfigurationDeprecatedTypeDef(TypedDict):
+    TopicConfiguration: NotRequired[TopicConfigurationDeprecatedUnionTypeDef]
+    QueueConfiguration: NotRequired[QueueConfigurationDeprecatedUnionTypeDef]
+    CloudFunctionConfiguration: NotRequired[CloudFunctionConfigurationUnionTypeDef]
+
+class DeleteObjectsRequestBucketDeleteObjectsTypeDef(TypedDict):
+    Delete: DeleteTypeDef
+    MFA: NotRequired[str]
+    RequestPayer: NotRequired[Literal["requester"]]
+    BypassGovernanceRetention: NotRequired[bool]
+    ExpectedBucketOwner: NotRequired[str]
+    ChecksumAlgorithm: NotRequired[ChecksumAlgorithmType]
+
+class DeleteObjectsRequestTypeDef(TypedDict):
+    Bucket: str
+    Delete: DeleteTypeDef
+    MFA: NotRequired[str]
+    RequestPayer: NotRequired[Literal["requester"]]
+    BypassGovernanceRetention: NotRequired[bool]
+    ExpectedBucketOwner: NotRequired[str]
+    ChecksumAlgorithm: NotRequired[ChecksumAlgorithmType]
+
+class PutObjectRetentionRequestTypeDef(TypedDict):
+    Bucket: str
+    Key: str
+    Retention: NotRequired[ObjectLockRetentionUnionTypeDef]
+    RequestPayer: NotRequired[Literal["requester"]]
+    VersionId: NotRequired[str]
+    BypassGovernanceRetention: NotRequired[bool]
+    ContentMD5: NotRequired[str]
+    ChecksumAlgorithm: NotRequired[ChecksumAlgorithmType]
+    ExpectedBucketOwner: NotRequired[str]
+
+class RuleTypeDef(TypedDict):
+    Prefix: str
+    Status: ExpirationStatusType
+    Expiration: NotRequired[LifecycleExpirationUnionTypeDef]
+    ID: NotRequired[str]
+    Transition: NotRequired[TransitionUnionTypeDef]
+    NoncurrentVersionTransition: NotRequired[NoncurrentVersionTransitionTypeDef]
+    NoncurrentVersionExpiration: NotRequired[NoncurrentVersionExpirationTypeDef]
+    AbortIncompleteMultipartUpload: NotRequired[AbortIncompleteMultipartUploadTypeDef]
+
+class IntelligentTieringConfigurationOutputTypeDef(TypedDict):
+    Id: str
+    Status: IntelligentTieringStatusType
+    Tierings: List[TieringTypeDef]
+    Filter: NotRequired[IntelligentTieringFilterOutputTypeDef]
+
+class IntelligentTieringConfigurationTypeDef(TypedDict):
+    Id: str
+    Status: IntelligentTieringStatusType
+    Tierings: Sequence[TieringTypeDef]
+    Filter: NotRequired[IntelligentTieringFilterTypeDef]
+
+class LifecycleRuleOutputTypeDef(TypedDict):
+    Status: ExpirationStatusType
+    Expiration: NotRequired[LifecycleExpirationOutputTypeDef]
+    ID: NotRequired[str]
+    Prefix: NotRequired[str]
+    Filter: NotRequired[LifecycleRuleFilterOutputTypeDef]
+    Transitions: NotRequired[List[TransitionOutputTypeDef]]
+    NoncurrentVersionTransitions: NotRequired[List[NoncurrentVersionTransitionTypeDef]]
+    NoncurrentVersionExpiration: NotRequired[NoncurrentVersionExpirationTypeDef]
+    AbortIncompleteMultipartUpload: NotRequired[AbortIncompleteMultipartUploadTypeDef]
+
+class LifecycleRuleFilterTypeDef(TypedDict):
+    Prefix: NotRequired[str]
+    Tag: NotRequired[TagTypeDef]
+    ObjectSizeGreaterThan: NotRequired[int]
+    ObjectSizeLessThan: NotRequired[int]
+    And: NotRequired[LifecycleRuleAndOperatorUnionTypeDef]
+
+class MetricsConfigurationOutputTypeDef(TypedDict):
+    Id: str
+    Filter: NotRequired[MetricsFilterOutputTypeDef]
+
+class MetricsConfigurationTypeDef(TypedDict):
+    Id: str
+    Filter: NotRequired[MetricsFilterTypeDef]
+
+class StorageClassAnalysisTypeDef(TypedDict):
+    DataExport: NotRequired[StorageClassAnalysisDataExportTypeDef]
+
+class PutBucketCorsRequestBucketCorsPutTypeDef(TypedDict):
+    CORSConfiguration: CORSConfigurationTypeDef
+    ChecksumAlgorithm: NotRequired[ChecksumAlgorithmType]
+    ExpectedBucketOwner: NotRequired[str]
+
+class PutBucketCorsRequestTypeDef(TypedDict):
+    Bucket: str
+    CORSConfiguration: CORSConfigurationTypeDef
+    ChecksumAlgorithm: NotRequired[ChecksumAlgorithmType]
+    ExpectedBucketOwner: NotRequired[str]
+
+class GetObjectLockConfigurationOutputTypeDef(TypedDict):
+    ObjectLockConfiguration: ObjectLockConfigurationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutObjectLockConfigurationRequestTypeDef(TypedDict):
+    Bucket: str
+    ObjectLockConfiguration: NotRequired[ObjectLockConfigurationTypeDef]
+    RequestPayer: NotRequired[Literal["requester"]]
+    Token: NotRequired[str]
+    ContentMD5: NotRequired[str]
+    ChecksumAlgorithm: NotRequired[ChecksumAlgorithmType]
+    ExpectedBucketOwner: NotRequired[str]
+
+class LambdaFunctionConfigurationOutputTypeDef(TypedDict):
+    LambdaFunctionArn: str
+    Events: List[EventType]
+    Id: NotRequired[str]
+    Filter: NotRequired[NotificationConfigurationFilterOutputTypeDef]
+
+class QueueConfigurationOutputTypeDef(TypedDict):
+    QueueArn: str
+    Events: List[EventType]
+    Id: NotRequired[str]
+    Filter: NotRequired[NotificationConfigurationFilterOutputTypeDef]
+
+class TopicConfigurationOutputTypeDef(TypedDict):
+    TopicArn: str
+    Events: List[EventType]
+    Id: NotRequired[str]
+    Filter: NotRequired[NotificationConfigurationFilterOutputTypeDef]
+
+class NotificationConfigurationFilterTypeDef(TypedDict):
+    Key: NotRequired[S3KeyFilterUnionTypeDef]
+
+class PutBucketAclRequestBucketAclPutTypeDef(TypedDict):
+    ACL: NotRequired[BucketCannedACLType]
+    AccessControlPolicy: NotRequired[AccessControlPolicyTypeDef]
+    ChecksumAlgorithm: NotRequired[ChecksumAlgorithmType]
+    GrantFullControl: NotRequired[str]
+    GrantRead: NotRequired[str]
+    GrantReadACP: NotRequired[str]
+    GrantWrite: NotRequired[str]
+    GrantWriteACP: NotRequired[str]
+    ExpectedBucketOwner: NotRequired[str]
+
+class PutBucketAclRequestTypeDef(TypedDict):
+    Bucket: str
+    ACL: NotRequired[BucketCannedACLType]
+    AccessControlPolicy: NotRequired[AccessControlPolicyTypeDef]
+    ChecksumAlgorithm: NotRequired[ChecksumAlgorithmType]
+    GrantFullControl: NotRequired[str]
+    GrantRead: NotRequired[str]
+    GrantReadACP: NotRequired[str]
+    GrantWrite: NotRequired[str]
+    GrantWriteACP: NotRequired[str]
+    ExpectedBucketOwner: NotRequired[str]
+
+class PutObjectAclRequestObjectAclPutTypeDef(TypedDict):
+    ACL: NotRequired[ObjectCannedACLType]
+    AccessControlPolicy: NotRequired[AccessControlPolicyTypeDef]
+    ContentMD5: NotRequired[str]
+    ChecksumAlgorithm: NotRequired[ChecksumAlgorithmType]
+    GrantFullControl: NotRequired[str]
+    GrantRead: NotRequired[str]
+    GrantReadACP: NotRequired[str]
+    GrantWrite: NotRequired[str]
+    GrantWriteACP: NotRequired[str]
+    RequestPayer: NotRequired[Literal["requester"]]
+    VersionId: NotRequired[str]
+    ExpectedBucketOwner: NotRequired[str]
+
+class PutObjectAclRequestTypeDef(TypedDict):
+    Bucket: str
+    Key: str
+    ACL: NotRequired[ObjectCannedACLType]
+    AccessControlPolicy: NotRequired[AccessControlPolicyTypeDef]
+    ChecksumAlgorithm: NotRequired[ChecksumAlgorithmType]
+    GrantFullControl: NotRequired[str]
+    GrantRead: NotRequired[str]
+    GrantReadACP: NotRequired[str]
+    GrantWrite: NotRequired[str]
+    GrantWriteACP: NotRequired[str]
+    RequestPayer: NotRequired[Literal["requester"]]
+    VersionId: NotRequired[str]
+    ExpectedBucketOwner: NotRequired[str]
+
+class OutputLocationTypeDef(TypedDict):
+    S3: NotRequired[S3LocationTypeDef]
+
+class InventoryDestinationOutputTypeDef(TypedDict):
+    S3BucketDestination: InventoryS3BucketDestinationOutputTypeDef
+
+class InventoryDestinationTypeDef(TypedDict):
+    S3BucketDestination: InventoryS3BucketDestinationTypeDef
+
+class GetBucketMetadataTableConfigurationOutputTypeDef(TypedDict):
+    GetBucketMetadataTableConfigurationResult: GetBucketMetadataTableConfigurationResultTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ReplicationRuleOutputTypeDef(TypedDict):
+    Status: ReplicationRuleStatusType
+    Destination: DestinationTypeDef
+    ID: NotRequired[str]
+    Priority: NotRequired[int]
+    Prefix: NotRequired[str]
+    Filter: NotRequired[ReplicationRuleFilterOutputTypeDef]
+    SourceSelectionCriteria: NotRequired[SourceSelectionCriteriaTypeDef]
+    ExistingObjectReplication: NotRequired[ExistingObjectReplicationTypeDef]
+    DeleteMarkerReplication: NotRequired[DeleteMarkerReplicationTypeDef]
+
+class ReplicationRuleTypeDef(TypedDict):
+    Status: ReplicationRuleStatusType
+    Destination: DestinationTypeDef
+    ID: NotRequired[str]
+    Priority: NotRequired[int]
+    Prefix: NotRequired[str]
+    Filter: NotRequired[ReplicationRuleFilterTypeDef]
+    SourceSelectionCriteria: NotRequired[SourceSelectionCriteriaTypeDef]
+    ExistingObjectReplication: NotRequired[ExistingObjectReplicationTypeDef]
+    DeleteMarkerReplication: NotRequired[DeleteMarkerReplicationTypeDef]
+
+class PutBucketOwnershipControlsRequestTypeDef(TypedDict):
+    Bucket: str
+    OwnershipControls: OwnershipControlsUnionTypeDef
+    ContentMD5: NotRequired[str]
+    ExpectedBucketOwner: NotRequired[str]
+
+class GetBucketLoggingOutputTypeDef(TypedDict):
+    LoggingEnabled: LoggingEnabledOutputTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class LoggingEnabledTypeDef(TypedDict):
+    TargetBucket: str
+    TargetPrefix: str
+    TargetGrants: NotRequired[Sequence[TargetGrantTypeDef]]
+    TargetObjectKeyFormat: NotRequired[TargetObjectKeyFormatUnionTypeDef]
+
+class PutBucketWebsiteRequestBucketWebsitePutTypeDef(TypedDict):
+    WebsiteConfiguration: WebsiteConfigurationTypeDef
+    ChecksumAlgorithm: NotRequired[ChecksumAlgorithmType]
+    ExpectedBucketOwner: NotRequired[str]
+
+class PutBucketWebsiteRequestTypeDef(TypedDict):
+    Bucket: str
+    WebsiteConfiguration: WebsiteConfigurationTypeDef
+    ChecksumAlgorithm: NotRequired[ChecksumAlgorithmType]
+    ExpectedBucketOwner: NotRequired[str]
+
+class GetBucketEncryptionOutputTypeDef(TypedDict):
+    ServerSideEncryptionConfiguration: ServerSideEncryptionConfigurationOutputTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+ServerSideEncryptionConfigurationUnionTypeDef = Union[
+    ServerSideEncryptionConfigurationTypeDef, ServerSideEncryptionConfigurationOutputTypeDef
+]
+
+class SelectObjectContentOutputTypeDef(TypedDict):
+    Payload: EventStream[SelectObjectContentEventStreamTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutBucketNotificationRequestTypeDef(TypedDict):
+    Bucket: str
+    NotificationConfiguration: NotificationConfigurationDeprecatedTypeDef
+    ChecksumAlgorithm: NotRequired[ChecksumAlgorithmType]
+    ExpectedBucketOwner: NotRequired[str]
+
+RuleUnionTypeDef = Union[RuleTypeDef, RuleOutputTypeDef]
+
+class GetBucketIntelligentTieringConfigurationOutputTypeDef(TypedDict):
+    IntelligentTieringConfiguration: IntelligentTieringConfigurationOutputTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListBucketIntelligentTieringConfigurationsOutputTypeDef(TypedDict):
+    IsTruncated: bool
+    ContinuationToken: str
+    NextContinuationToken: str
+    IntelligentTieringConfigurationList: List[IntelligentTieringConfigurationOutputTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+IntelligentTieringConfigurationUnionTypeDef = Union[
+    IntelligentTieringConfigurationTypeDef, IntelligentTieringConfigurationOutputTypeDef
+]
+
+class GetBucketLifecycleConfigurationOutputTypeDef(TypedDict):
+    Rules: List[LifecycleRuleOutputTypeDef]
+    TransitionDefaultMinimumObjectSize: TransitionDefaultMinimumObjectSizeType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+LifecycleRuleFilterUnionTypeDef = Union[
+    LifecycleRuleFilterTypeDef, LifecycleRuleFilterOutputTypeDef
+]
+
+class GetBucketMetricsConfigurationOutputTypeDef(TypedDict):
+    MetricsConfiguration: MetricsConfigurationOutputTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListBucketMetricsConfigurationsOutputTypeDef(TypedDict):
+    IsTruncated: bool
+    ContinuationToken: str
+    NextContinuationToken: str
+    MetricsConfigurationList: List[MetricsConfigurationOutputTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+MetricsConfigurationUnionTypeDef = Union[
+    MetricsConfigurationTypeDef, MetricsConfigurationOutputTypeDef
+]
+
+class AnalyticsConfigurationOutputTypeDef(TypedDict):
+    Id: str
+    StorageClassAnalysis: StorageClassAnalysisTypeDef
+    Filter: NotRequired[AnalyticsFilterOutputTypeDef]
+
+class AnalyticsConfigurationTypeDef(TypedDict):
+    Id: str
+    StorageClassAnalysis: StorageClassAnalysisTypeDef
+    Filter: NotRequired[AnalyticsFilterTypeDef]
+
+class NotificationConfigurationResponseTypeDef(TypedDict):
+    TopicConfigurations: List[TopicConfigurationOutputTypeDef]
+    QueueConfigurations: List[QueueConfigurationOutputTypeDef]
+    LambdaFunctionConfigurations: List[LambdaFunctionConfigurationOutputTypeDef]
+    EventBridgeConfiguration: Dict[str, Any]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+NotificationConfigurationFilterUnionTypeDef = Union[
+    NotificationConfigurationFilterTypeDef, NotificationConfigurationFilterOutputTypeDef
+]
 RestoreRequestTypeDef = TypedDict(
     "RestoreRequestTypeDef",
     {
-        "Days": int,
-        "GlacierJobParameters": "GlacierJobParametersTypeDef",
-        "Type": Literal["SELECT"],
-        "Tier": TierType,
-        "Description": str,
-        "SelectParameters": "SelectParametersTypeDef",
-        "OutputLocation": "OutputLocationTypeDef",
-    },
-    total=False,
-)
-
-RestoreStatusTypeDef = TypedDict(
-    "RestoreStatusTypeDef",
-    {
-        "IsRestoreInProgress": bool,
-        "RestoreExpiryDate": datetime,
-    },
-    total=False,
-)
-
-_RequiredRoutingRuleTypeDef = TypedDict(
-    "_RequiredRoutingRuleTypeDef",
-    {
-        "Redirect": "RedirectTypeDef",
-    },
-)
-_OptionalRoutingRuleTypeDef = TypedDict(
-    "_OptionalRoutingRuleTypeDef",
-    {
-        "Condition": "ConditionTypeDef",
-    },
-    total=False,
-)
-
-class RoutingRuleTypeDef(_RequiredRoutingRuleTypeDef, _OptionalRoutingRuleTypeDef):
-    pass
-
-_RequiredRuleTypeDef = TypedDict(
-    "_RequiredRuleTypeDef",
-    {
-        "Prefix": str,
-        "Status": ExpirationStatusType,
-    },
-)
-_OptionalRuleTypeDef = TypedDict(
-    "_OptionalRuleTypeDef",
-    {
-        "Expiration": "LifecycleExpirationTypeDef",
-        "ID": str,
-        "Transition": "TransitionTypeDef",
-        "NoncurrentVersionTransition": "NoncurrentVersionTransitionTypeDef",
-        "NoncurrentVersionExpiration": "NoncurrentVersionExpirationTypeDef",
-        "AbortIncompleteMultipartUpload": "AbortIncompleteMultipartUploadTypeDef",
-    },
-    total=False,
-)
-
-class RuleTypeDef(_RequiredRuleTypeDef, _OptionalRuleTypeDef):
-    pass
-
-S3KeyFilterTypeDef = TypedDict(
-    "S3KeyFilterTypeDef",
-    {
-        "FilterRules": List["FilterRuleTypeDef"],
-    },
-    total=False,
-)
-
-_RequiredS3LocationTypeDef = TypedDict(
-    "_RequiredS3LocationTypeDef",
-    {
-        "BucketName": str,
-        "Prefix": str,
-    },
-)
-_OptionalS3LocationTypeDef = TypedDict(
-    "_OptionalS3LocationTypeDef",
-    {
-        "Encryption": "EncryptionTypeDef",
-        "CannedACL": ObjectCannedACLType,
-        "AccessControlList": List["GrantTypeDef"],
-        "Tagging": "TaggingTypeDef",
-        "UserMetadata": List["MetadataEntryTypeDef"],
-        "StorageClass": StorageClassType,
-    },
-    total=False,
-)
-
-class S3LocationTypeDef(_RequiredS3LocationTypeDef, _OptionalS3LocationTypeDef):
-    pass
-
-SSEKMSTypeDef = TypedDict(
-    "SSEKMSTypeDef",
-    {
-        "KeyId": str,
-    },
-)
-
-ScanRangeTypeDef = TypedDict(
-    "ScanRangeTypeDef",
-    {
-        "Start": int,
-        "End": int,
-    },
-    total=False,
-)
-
-SelectObjectContentEventStreamTypeDef = TypedDict(
-    "SelectObjectContentEventStreamTypeDef",
-    {
-        "Records": "RecordsEventTypeDef",
-        "Stats": "StatsEventTypeDef",
-        "Progress": "ProgressEventTypeDef",
-        "Cont": Dict[str, Any],
-        "End": Dict[str, Any],
-    },
-    total=False,
-)
-
-SelectObjectContentOutputTypeDef = TypedDict(
-    "SelectObjectContentOutputTypeDef",
-    {
-        "Payload": "SelectObjectContentEventStreamTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredSelectObjectContentRequestRequestTypeDef = TypedDict(
-    "_RequiredSelectObjectContentRequestRequestTypeDef",
-    {
-        "Bucket": str,
-        "Key": str,
-        "Expression": str,
-        "ExpressionType": Literal["SQL"],
-        "InputSerialization": "InputSerializationTypeDef",
-        "OutputSerialization": "OutputSerializationTypeDef",
-    },
-)
-_OptionalSelectObjectContentRequestRequestTypeDef = TypedDict(
-    "_OptionalSelectObjectContentRequestRequestTypeDef",
-    {
-        "SSECustomerAlgorithm": str,
-        "SSECustomerKey": str,
-        "SSECustomerKeyMD5": str,
-        "RequestProgress": "RequestProgressTypeDef",
-        "ScanRange": "ScanRangeTypeDef",
-        "ExpectedBucketOwner": str,
-    },
-    total=False,
-)
-
-class SelectObjectContentRequestRequestTypeDef(
-    _RequiredSelectObjectContentRequestRequestTypeDef,
-    _OptionalSelectObjectContentRequestRequestTypeDef,
-):
-    pass
-
-SelectParametersTypeDef = TypedDict(
-    "SelectParametersTypeDef",
-    {
-        "InputSerialization": "InputSerializationTypeDef",
-        "ExpressionType": Literal["SQL"],
-        "Expression": str,
-        "OutputSerialization": "OutputSerializationTypeDef",
-    },
-)
-
-_RequiredServerSideEncryptionByDefaultTypeDef = TypedDict(
-    "_RequiredServerSideEncryptionByDefaultTypeDef",
-    {
-        "SSEAlgorithm": ServerSideEncryptionType,
-    },
-)
-_OptionalServerSideEncryptionByDefaultTypeDef = TypedDict(
-    "_OptionalServerSideEncryptionByDefaultTypeDef",
-    {
-        "KMSMasterKeyID": str,
-    },
-    total=False,
-)
-
-class ServerSideEncryptionByDefaultTypeDef(
-    _RequiredServerSideEncryptionByDefaultTypeDef, _OptionalServerSideEncryptionByDefaultTypeDef
-):
-    pass
-
-ServerSideEncryptionConfigurationTypeDef = TypedDict(
-    "ServerSideEncryptionConfigurationTypeDef",
-    {
-        "Rules": List["ServerSideEncryptionRuleTypeDef"],
-    },
-)
-
-ServerSideEncryptionRuleTypeDef = TypedDict(
-    "ServerSideEncryptionRuleTypeDef",
-    {
-        "ApplyServerSideEncryptionByDefault": "ServerSideEncryptionByDefaultTypeDef",
-        "BucketKeyEnabled": bool,
-    },
-    total=False,
-)
-
-ServiceResourceBucketAclRequestTypeDef = TypedDict(
-    "ServiceResourceBucketAclRequestTypeDef",
-    {
-        "bucket_name": str,
-    },
-)
-
-ServiceResourceBucketCorsRequestTypeDef = TypedDict(
-    "ServiceResourceBucketCorsRequestTypeDef",
-    {
-        "bucket_name": str,
-    },
-)
-
-ServiceResourceBucketLifecycleConfigurationRequestTypeDef = TypedDict(
-    "ServiceResourceBucketLifecycleConfigurationRequestTypeDef",
-    {
-        "bucket_name": str,
-    },
-)
-
-ServiceResourceBucketLifecycleRequestTypeDef = TypedDict(
-    "ServiceResourceBucketLifecycleRequestTypeDef",
-    {
-        "bucket_name": str,
-    },
-)
-
-ServiceResourceBucketLoggingRequestTypeDef = TypedDict(
-    "ServiceResourceBucketLoggingRequestTypeDef",
-    {
-        "bucket_name": str,
-    },
-)
-
-ServiceResourceBucketNotificationRequestTypeDef = TypedDict(
-    "ServiceResourceBucketNotificationRequestTypeDef",
-    {
-        "bucket_name": str,
-    },
-)
-
-ServiceResourceBucketPolicyRequestTypeDef = TypedDict(
-    "ServiceResourceBucketPolicyRequestTypeDef",
-    {
-        "bucket_name": str,
-    },
-)
-
-ServiceResourceBucketRequestPaymentRequestTypeDef = TypedDict(
-    "ServiceResourceBucketRequestPaymentRequestTypeDef",
-    {
-        "bucket_name": str,
-    },
-)
-
-ServiceResourceBucketRequestTypeDef = TypedDict(
-    "ServiceResourceBucketRequestTypeDef",
-    {
-        "name": str,
-    },
-)
-
-ServiceResourceBucketTaggingRequestTypeDef = TypedDict(
-    "ServiceResourceBucketTaggingRequestTypeDef",
-    {
-        "bucket_name": str,
-    },
-)
-
-ServiceResourceBucketVersioningRequestTypeDef = TypedDict(
-    "ServiceResourceBucketVersioningRequestTypeDef",
-    {
-        "bucket_name": str,
-    },
-)
-
-ServiceResourceBucketWebsiteRequestTypeDef = TypedDict(
-    "ServiceResourceBucketWebsiteRequestTypeDef",
-    {
-        "bucket_name": str,
-    },
-)
-
-ServiceResourceMultipartUploadPartRequestTypeDef = TypedDict(
-    "ServiceResourceMultipartUploadPartRequestTypeDef",
-    {
-        "bucket_name": str,
-        "object_key": str,
-        "multipart_upload_id": str,
-        "part_number": str,
-    },
-)
-
-ServiceResourceMultipartUploadRequestTypeDef = TypedDict(
-    "ServiceResourceMultipartUploadRequestTypeDef",
-    {
-        "bucket_name": str,
-        "object_key": str,
-        "id": str,
-    },
-)
-
-ServiceResourceObjectAclRequestTypeDef = TypedDict(
-    "ServiceResourceObjectAclRequestTypeDef",
-    {
-        "bucket_name": str,
-        "object_key": str,
-    },
-)
-
-ServiceResourceObjectRequestTypeDef = TypedDict(
-    "ServiceResourceObjectRequestTypeDef",
-    {
-        "bucket_name": str,
-        "key": str,
-    },
-)
-
-ServiceResourceObjectSummaryRequestTypeDef = TypedDict(
-    "ServiceResourceObjectSummaryRequestTypeDef",
-    {
-        "bucket_name": str,
-        "key": str,
-    },
-)
-
-ServiceResourceObjectVersionRequestTypeDef = TypedDict(
-    "ServiceResourceObjectVersionRequestTypeDef",
-    {
-        "bucket_name": str,
-        "object_key": str,
-        "id": str,
-    },
-)
-
-SessionCredentialsTypeDef = TypedDict(
-    "SessionCredentialsTypeDef",
-    {
-        "AccessKeyId": str,
-        "SecretAccessKey": str,
-        "SessionToken": str,
-        "Expiration": datetime,
-    },
-)
-
-SourceSelectionCriteriaTypeDef = TypedDict(
-    "SourceSelectionCriteriaTypeDef",
-    {
-        "SseKmsEncryptedObjects": "SseKmsEncryptedObjectsTypeDef",
-        "ReplicaModifications": "ReplicaModificationsTypeDef",
-    },
-    total=False,
-)
-
-SseKmsEncryptedObjectsTypeDef = TypedDict(
-    "SseKmsEncryptedObjectsTypeDef",
-    {
-        "Status": SseKmsEncryptedObjectsStatusType,
-    },
-)
-
-StatsEventTypeDef = TypedDict(
-    "StatsEventTypeDef",
-    {
-        "Details": "StatsTypeDef",
-    },
-    total=False,
-)
-
-StatsTypeDef = TypedDict(
-    "StatsTypeDef",
-    {
-        "BytesScanned": int,
-        "BytesProcessed": int,
-        "BytesReturned": int,
-    },
-    total=False,
-)
-
-StorageClassAnalysisDataExportTypeDef = TypedDict(
-    "StorageClassAnalysisDataExportTypeDef",
-    {
-        "OutputSchemaVersion": Literal["V_1"],
-        "Destination": "AnalyticsExportDestinationTypeDef",
-    },
-)
-
-StorageClassAnalysisTypeDef = TypedDict(
-    "StorageClassAnalysisTypeDef",
-    {
-        "DataExport": "StorageClassAnalysisDataExportTypeDef",
-    },
-    total=False,
-)
-
-TagTypeDef = TypedDict(
-    "TagTypeDef",
-    {
-        "Key": str,
-        "Value": str,
-    },
-)
-
-TaggingTypeDef = TypedDict(
-    "TaggingTypeDef",
-    {
-        "TagSet": List["TagTypeDef"],
-    },
-)
-
-TargetGrantTypeDef = TypedDict(
-    "TargetGrantTypeDef",
-    {
-        "Grantee": "GranteeTypeDef",
-        "Permission": BucketLogsPermissionType,
-    },
-    total=False,
-)
-
-TargetObjectKeyFormatTypeDef = TypedDict(
-    "TargetObjectKeyFormatTypeDef",
-    {
-        "SimplePrefix": Dict[str, Any],
-        "PartitionedPrefix": "PartitionedPrefixTypeDef",
-    },
-    total=False,
-)
-
-TieringTypeDef = TypedDict(
-    "TieringTypeDef",
-    {
-        "Days": int,
-        "AccessTier": IntelligentTieringAccessTierType,
-    },
-)
-
-TopicConfigurationDeprecatedTypeDef = TypedDict(
-    "TopicConfigurationDeprecatedTypeDef",
-    {
-        "Id": str,
-        "Events": List[EventType],
-        "Event": EventType,
-        "Topic": str,
-    },
-    total=False,
-)
-
-_RequiredTopicConfigurationTypeDef = TypedDict(
-    "_RequiredTopicConfigurationTypeDef",
-    {
-        "TopicArn": str,
-        "Events": List[EventType],
-    },
-)
-_OptionalTopicConfigurationTypeDef = TypedDict(
-    "_OptionalTopicConfigurationTypeDef",
-    {
-        "Id": str,
-        "Filter": "NotificationConfigurationFilterTypeDef",
-    },
-    total=False,
-)
-
-class TopicConfigurationTypeDef(
-    _RequiredTopicConfigurationTypeDef, _OptionalTopicConfigurationTypeDef
-):
-    pass
-
-TransitionTypeDef = TypedDict(
-    "TransitionTypeDef",
-    {
-        "Date": datetime,
-        "Days": int,
-        "StorageClass": TransitionStorageClassType,
-    },
-    total=False,
-)
-
-UploadPartCopyOutputTypeDef = TypedDict(
-    "UploadPartCopyOutputTypeDef",
-    {
-        "CopySourceVersionId": str,
-        "CopyPartResult": "CopyPartResultTypeDef",
-        "ServerSideEncryption": ServerSideEncryptionType,
-        "SSECustomerAlgorithm": str,
-        "SSECustomerKeyMD5": str,
-        "SSEKMSKeyId": str,
-        "BucketKeyEnabled": bool,
-        "RequestCharged": Literal["requester"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUploadPartCopyRequestMultipartUploadPartTypeDef = TypedDict(
-    "_RequiredUploadPartCopyRequestMultipartUploadPartTypeDef",
-    {
-        "CopySource": str,
-    },
-)
-_OptionalUploadPartCopyRequestMultipartUploadPartTypeDef = TypedDict(
-    "_OptionalUploadPartCopyRequestMultipartUploadPartTypeDef",
-    {
-        "CopySourceIfMatch": str,
-        "CopySourceIfModifiedSince": Union[datetime, str],
-        "CopySourceIfNoneMatch": str,
-        "CopySourceIfUnmodifiedSince": Union[datetime, str],
-        "CopySourceRange": str,
-        "SSECustomerAlgorithm": str,
-        "SSECustomerKey": str,
-        "SSECustomerKeyMD5": str,
-        "CopySourceSSECustomerAlgorithm": str,
-        "CopySourceSSECustomerKey": str,
-        "CopySourceSSECustomerKeyMD5": str,
-        "RequestPayer": Literal["requester"],
-        "ExpectedBucketOwner": str,
-        "ExpectedSourceBucketOwner": str,
-    },
-    total=False,
-)
-
-class UploadPartCopyRequestMultipartUploadPartTypeDef(
-    _RequiredUploadPartCopyRequestMultipartUploadPartTypeDef,
-    _OptionalUploadPartCopyRequestMultipartUploadPartTypeDef,
-):
-    pass
-
-_RequiredUploadPartCopyRequestRequestTypeDef = TypedDict(
-    "_RequiredUploadPartCopyRequestRequestTypeDef",
-    {
-        "Bucket": str,
-        "CopySource": Union[str, "CopySourceTypeDef"],
-        "Key": str,
-        "PartNumber": int,
-        "UploadId": str,
-    },
-)
-_OptionalUploadPartCopyRequestRequestTypeDef = TypedDict(
-    "_OptionalUploadPartCopyRequestRequestTypeDef",
-    {
-        "CopySourceIfMatch": str,
-        "CopySourceIfModifiedSince": Union[datetime, str],
-        "CopySourceIfNoneMatch": str,
-        "CopySourceIfUnmodifiedSince": Union[datetime, str],
-        "CopySourceRange": str,
-        "SSECustomerAlgorithm": str,
-        "SSECustomerKey": str,
-        "SSECustomerKeyMD5": str,
-        "CopySourceSSECustomerAlgorithm": str,
-        "CopySourceSSECustomerKey": str,
-        "CopySourceSSECustomerKeyMD5": str,
-        "RequestPayer": Literal["requester"],
-        "ExpectedBucketOwner": str,
-        "ExpectedSourceBucketOwner": str,
-    },
-    total=False,
-)
-
-class UploadPartCopyRequestRequestTypeDef(
-    _RequiredUploadPartCopyRequestRequestTypeDef, _OptionalUploadPartCopyRequestRequestTypeDef
-):
-    pass
-
-UploadPartOutputTypeDef = TypedDict(
-    "UploadPartOutputTypeDef",
-    {
-        "ServerSideEncryption": ServerSideEncryptionType,
-        "ETag": str,
-        "ChecksumCRC32": str,
-        "ChecksumCRC32C": str,
-        "ChecksumSHA1": str,
-        "ChecksumSHA256": str,
-        "SSECustomerAlgorithm": str,
-        "SSECustomerKeyMD5": str,
-        "SSEKMSKeyId": str,
-        "BucketKeyEnabled": bool,
-        "RequestCharged": Literal["requester"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UploadPartRequestMultipartUploadPartTypeDef = TypedDict(
-    "UploadPartRequestMultipartUploadPartTypeDef",
-    {
-        "Body": Union[bytes, IO[bytes], StreamingBody],
-        "ContentLength": int,
-        "ContentMD5": str,
-        "ChecksumAlgorithm": ChecksumAlgorithmType,
-        "ChecksumCRC32": str,
-        "ChecksumCRC32C": str,
-        "ChecksumSHA1": str,
-        "ChecksumSHA256": str,
-        "SSECustomerAlgorithm": str,
-        "SSECustomerKey": str,
-        "SSECustomerKeyMD5": str,
-        "RequestPayer": Literal["requester"],
-        "ExpectedBucketOwner": str,
-    },
-    total=False,
-)
-
-_RequiredUploadPartRequestRequestTypeDef = TypedDict(
-    "_RequiredUploadPartRequestRequestTypeDef",
-    {
-        "Bucket": str,
-        "Key": str,
-        "PartNumber": int,
-        "UploadId": str,
-    },
-)
-_OptionalUploadPartRequestRequestTypeDef = TypedDict(
-    "_OptionalUploadPartRequestRequestTypeDef",
-    {
-        "Body": Union[bytes, IO[bytes], StreamingBody],
-        "ContentLength": int,
-        "ContentMD5": str,
-        "ChecksumAlgorithm": ChecksumAlgorithmType,
-        "ChecksumCRC32": str,
-        "ChecksumCRC32C": str,
-        "ChecksumSHA1": str,
-        "ChecksumSHA256": str,
-        "SSECustomerAlgorithm": str,
-        "SSECustomerKey": str,
-        "SSECustomerKeyMD5": str,
-        "RequestPayer": Literal["requester"],
-        "ExpectedBucketOwner": str,
-    },
-    total=False,
-)
-
-class UploadPartRequestRequestTypeDef(
-    _RequiredUploadPartRequestRequestTypeDef, _OptionalUploadPartRequestRequestTypeDef
-):
-    pass
-
-VersioningConfigurationTypeDef = TypedDict(
-    "VersioningConfigurationTypeDef",
-    {
-        "MFADelete": MFADeleteType,
-        "Status": BucketVersioningStatusType,
-    },
-    total=False,
-)
-
-WaiterConfigTypeDef = TypedDict(
-    "WaiterConfigTypeDef",
-    {
-        "Delay": int,
-        "MaxAttempts": int,
-    },
-    total=False,
-)
-
-WebsiteConfigurationTypeDef = TypedDict(
-    "WebsiteConfigurationTypeDef",
-    {
-        "ErrorDocument": "ErrorDocumentTypeDef",
-        "IndexDocument": "IndexDocumentTypeDef",
-        "RedirectAllRequestsTo": "RedirectAllRequestsToTypeDef",
-        "RoutingRules": List["RoutingRuleTypeDef"],
-    },
-    total=False,
-)
-
-_RequiredWriteGetObjectResponseRequestRequestTypeDef = TypedDict(
-    "_RequiredWriteGetObjectResponseRequestRequestTypeDef",
-    {
-        "RequestRoute": str,
-        "RequestToken": str,
-    },
-)
-_OptionalWriteGetObjectResponseRequestRequestTypeDef = TypedDict(
-    "_OptionalWriteGetObjectResponseRequestRequestTypeDef",
-    {
-        "Body": Union[bytes, IO[bytes], StreamingBody],
-        "StatusCode": int,
-        "ErrorCode": str,
-        "ErrorMessage": str,
-        "AcceptRanges": str,
-        "CacheControl": str,
-        "ContentDisposition": str,
-        "ContentEncoding": str,
-        "ContentLanguage": str,
-        "ContentLength": int,
-        "ContentRange": str,
-        "ContentType": str,
-        "ChecksumCRC32": str,
-        "ChecksumCRC32C": str,
-        "ChecksumSHA1": str,
-        "ChecksumSHA256": str,
-        "DeleteMarker": bool,
-        "ETag": str,
-        "Expires": Union[datetime, str],
-        "Expiration": str,
-        "LastModified": Union[datetime, str],
-        "MissingMeta": int,
-        "Metadata": Dict[str, str],
-        "ObjectLockMode": ObjectLockModeType,
-        "ObjectLockLegalHoldStatus": ObjectLockLegalHoldStatusType,
-        "ObjectLockRetainUntilDate": Union[datetime, str],
-        "PartsCount": int,
-        "ReplicationStatus": ReplicationStatusType,
-        "RequestCharged": Literal["requester"],
-        "Restore": str,
-        "ServerSideEncryption": ServerSideEncryptionType,
-        "SSECustomerAlgorithm": str,
-        "SSEKMSKeyId": str,
-        "SSECustomerKeyMD5": str,
-        "StorageClass": StorageClassType,
-        "TagCount": int,
-        "VersionId": str,
-        "BucketKeyEnabled": bool,
-    },
-    total=False,
-)
-
-class WriteGetObjectResponseRequestRequestTypeDef(
-    _RequiredWriteGetObjectResponseRequestRequestTypeDef,
-    _OptionalWriteGetObjectResponseRequestRequestTypeDef,
-):
-    pass
+        "Days": NotRequired[int],
+        "GlacierJobParameters": NotRequired[GlacierJobParametersTypeDef],
+        "Type": NotRequired[Literal["SELECT"]],
+        "Tier": NotRequired[TierType],
+        "Description": NotRequired[str],
+        "SelectParameters": NotRequired[SelectParametersTypeDef],
+        "OutputLocation": NotRequired[OutputLocationTypeDef],
+    },
+)
+
+class InventoryConfigurationOutputTypeDef(TypedDict):
+    Destination: InventoryDestinationOutputTypeDef
+    IsEnabled: bool
+    Id: str
+    IncludedObjectVersions: InventoryIncludedObjectVersionsType
+    Schedule: InventoryScheduleTypeDef
+    Filter: NotRequired[InventoryFilterTypeDef]
+    OptionalFields: NotRequired[List[InventoryOptionalFieldType]]
+
+class InventoryConfigurationTypeDef(TypedDict):
+    Destination: InventoryDestinationTypeDef
+    IsEnabled: bool
+    Id: str
+    IncludedObjectVersions: InventoryIncludedObjectVersionsType
+    Schedule: InventoryScheduleTypeDef
+    Filter: NotRequired[InventoryFilterTypeDef]
+    OptionalFields: NotRequired[Sequence[InventoryOptionalFieldType]]
+
+class ReplicationConfigurationOutputTypeDef(TypedDict):
+    Role: str
+    Rules: List[ReplicationRuleOutputTypeDef]
+
+class ReplicationConfigurationTypeDef(TypedDict):
+    Role: str
+    Rules: Sequence[ReplicationRuleTypeDef]
+
+LoggingEnabledUnionTypeDef = Union[LoggingEnabledTypeDef, LoggingEnabledOutputTypeDef]
+
+class PutBucketEncryptionRequestTypeDef(TypedDict):
+    Bucket: str
+    ServerSideEncryptionConfiguration: ServerSideEncryptionConfigurationUnionTypeDef
+    ContentMD5: NotRequired[str]
+    ChecksumAlgorithm: NotRequired[ChecksumAlgorithmType]
+    ExpectedBucketOwner: NotRequired[str]
+
+class LifecycleConfigurationTypeDef(TypedDict):
+    Rules: Sequence[RuleUnionTypeDef]
+
+class PutBucketIntelligentTieringConfigurationRequestTypeDef(TypedDict):
+    Bucket: str
+    Id: str
+    IntelligentTieringConfiguration: IntelligentTieringConfigurationUnionTypeDef
+
+class LifecycleRuleTypeDef(TypedDict):
+    Status: ExpirationStatusType
+    Expiration: NotRequired[LifecycleExpirationUnionTypeDef]
+    ID: NotRequired[str]
+    Prefix: NotRequired[str]
+    Filter: NotRequired[LifecycleRuleFilterUnionTypeDef]
+    Transitions: NotRequired[Sequence[TransitionUnionTypeDef]]
+    NoncurrentVersionTransitions: NotRequired[Sequence[NoncurrentVersionTransitionTypeDef]]
+    NoncurrentVersionExpiration: NotRequired[NoncurrentVersionExpirationTypeDef]
+    AbortIncompleteMultipartUpload: NotRequired[AbortIncompleteMultipartUploadTypeDef]
+
+class PutBucketMetricsConfigurationRequestTypeDef(TypedDict):
+    Bucket: str
+    Id: str
+    MetricsConfiguration: MetricsConfigurationUnionTypeDef
+    ExpectedBucketOwner: NotRequired[str]
+
+class GetBucketAnalyticsConfigurationOutputTypeDef(TypedDict):
+    AnalyticsConfiguration: AnalyticsConfigurationOutputTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListBucketAnalyticsConfigurationsOutputTypeDef(TypedDict):
+    IsTruncated: bool
+    ContinuationToken: str
+    NextContinuationToken: str
+    AnalyticsConfigurationList: List[AnalyticsConfigurationOutputTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+AnalyticsConfigurationUnionTypeDef = Union[
+    AnalyticsConfigurationTypeDef, AnalyticsConfigurationOutputTypeDef
+]
+
+class LambdaFunctionConfigurationTypeDef(TypedDict):
+    LambdaFunctionArn: str
+    Events: Sequence[EventType]
+    Id: NotRequired[str]
+    Filter: NotRequired[NotificationConfigurationFilterUnionTypeDef]
+
+class QueueConfigurationTypeDef(TypedDict):
+    QueueArn: str
+    Events: Sequence[EventType]
+    Id: NotRequired[str]
+    Filter: NotRequired[NotificationConfigurationFilterUnionTypeDef]
+
+class TopicConfigurationTypeDef(TypedDict):
+    TopicArn: str
+    Events: Sequence[EventType]
+    Id: NotRequired[str]
+    Filter: NotRequired[NotificationConfigurationFilterUnionTypeDef]
+
+class RestoreObjectRequestObjectRestoreObjectTypeDef(TypedDict):
+    VersionId: NotRequired[str]
+    RestoreRequest: NotRequired[RestoreRequestTypeDef]
+    RequestPayer: NotRequired[Literal["requester"]]
+    ChecksumAlgorithm: NotRequired[ChecksumAlgorithmType]
+    ExpectedBucketOwner: NotRequired[str]
+
+class RestoreObjectRequestObjectSummaryRestoreObjectTypeDef(TypedDict):
+    VersionId: NotRequired[str]
+    RestoreRequest: NotRequired[RestoreRequestTypeDef]
+    RequestPayer: NotRequired[Literal["requester"]]
+    ChecksumAlgorithm: NotRequired[ChecksumAlgorithmType]
+    ExpectedBucketOwner: NotRequired[str]
+
+class RestoreObjectRequestTypeDef(TypedDict):
+    Bucket: str
+    Key: str
+    VersionId: NotRequired[str]
+    RestoreRequest: NotRequired[RestoreRequestTypeDef]
+    RequestPayer: NotRequired[Literal["requester"]]
+    ChecksumAlgorithm: NotRequired[ChecksumAlgorithmType]
+    ExpectedBucketOwner: NotRequired[str]
+
+class GetBucketInventoryConfigurationOutputTypeDef(TypedDict):
+    InventoryConfiguration: InventoryConfigurationOutputTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListBucketInventoryConfigurationsOutputTypeDef(TypedDict):
+    ContinuationToken: str
+    InventoryConfigurationList: List[InventoryConfigurationOutputTypeDef]
+    IsTruncated: bool
+    NextContinuationToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+InventoryConfigurationUnionTypeDef = Union[
+    InventoryConfigurationTypeDef, InventoryConfigurationOutputTypeDef
+]
+
+class GetBucketReplicationOutputTypeDef(TypedDict):
+    ReplicationConfiguration: ReplicationConfigurationOutputTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+ReplicationConfigurationUnionTypeDef = Union[
+    ReplicationConfigurationTypeDef, ReplicationConfigurationOutputTypeDef
+]
+
+class BucketLoggingStatusTypeDef(TypedDict):
+    LoggingEnabled: NotRequired[LoggingEnabledUnionTypeDef]
+
+class PutBucketLifecycleRequestBucketLifecyclePutTypeDef(TypedDict):
+    ChecksumAlgorithm: NotRequired[ChecksumAlgorithmType]
+    LifecycleConfiguration: NotRequired[LifecycleConfigurationTypeDef]
+    ExpectedBucketOwner: NotRequired[str]
+
+class PutBucketLifecycleRequestTypeDef(TypedDict):
+    Bucket: str
+    ChecksumAlgorithm: NotRequired[ChecksumAlgorithmType]
+    LifecycleConfiguration: NotRequired[LifecycleConfigurationTypeDef]
+    ExpectedBucketOwner: NotRequired[str]
+
+LifecycleRuleUnionTypeDef = Union[LifecycleRuleTypeDef, LifecycleRuleOutputTypeDef]
+
+class PutBucketAnalyticsConfigurationRequestTypeDef(TypedDict):
+    Bucket: str
+    Id: str
+    AnalyticsConfiguration: AnalyticsConfigurationUnionTypeDef
+    ExpectedBucketOwner: NotRequired[str]
+
+LambdaFunctionConfigurationUnionTypeDef = Union[
+    LambdaFunctionConfigurationTypeDef, LambdaFunctionConfigurationOutputTypeDef
+]
+QueueConfigurationUnionTypeDef = Union[QueueConfigurationTypeDef, QueueConfigurationOutputTypeDef]
+TopicConfigurationUnionTypeDef = Union[TopicConfigurationTypeDef, TopicConfigurationOutputTypeDef]
+
+class PutBucketInventoryConfigurationRequestTypeDef(TypedDict):
+    Bucket: str
+    Id: str
+    InventoryConfiguration: InventoryConfigurationUnionTypeDef
+    ExpectedBucketOwner: NotRequired[str]
+
+class PutBucketReplicationRequestTypeDef(TypedDict):
+    Bucket: str
+    ReplicationConfiguration: ReplicationConfigurationUnionTypeDef
+    ChecksumAlgorithm: NotRequired[ChecksumAlgorithmType]
+    Token: NotRequired[str]
+    ExpectedBucketOwner: NotRequired[str]
+
+class PutBucketLoggingRequestBucketLoggingPutTypeDef(TypedDict):
+    BucketLoggingStatus: BucketLoggingStatusTypeDef
+    ChecksumAlgorithm: NotRequired[ChecksumAlgorithmType]
+    ExpectedBucketOwner: NotRequired[str]
+
+class PutBucketLoggingRequestTypeDef(TypedDict):
+    Bucket: str
+    BucketLoggingStatus: BucketLoggingStatusTypeDef
+    ChecksumAlgorithm: NotRequired[ChecksumAlgorithmType]
+    ExpectedBucketOwner: NotRequired[str]
+
+class BucketLifecycleConfigurationTypeDef(TypedDict):
+    Rules: Sequence[LifecycleRuleUnionTypeDef]
+
+class NotificationConfigurationTypeDef(TypedDict):
+    TopicConfigurations: NotRequired[Sequence[TopicConfigurationUnionTypeDef]]
+    QueueConfigurations: NotRequired[Sequence[QueueConfigurationUnionTypeDef]]
+    LambdaFunctionConfigurations: NotRequired[Sequence[LambdaFunctionConfigurationUnionTypeDef]]
+    EventBridgeConfiguration: NotRequired[Mapping[str, Any]]
+
+class PutBucketLifecycleConfigurationRequestBucketLifecycleConfigurationPutTypeDef(TypedDict):
+    ChecksumAlgorithm: NotRequired[ChecksumAlgorithmType]
+    LifecycleConfiguration: NotRequired[BucketLifecycleConfigurationTypeDef]
+    ExpectedBucketOwner: NotRequired[str]
+    TransitionDefaultMinimumObjectSize: NotRequired[TransitionDefaultMinimumObjectSizeType]
+
+class PutBucketLifecycleConfigurationRequestTypeDef(TypedDict):
+    Bucket: str
+    ChecksumAlgorithm: NotRequired[ChecksumAlgorithmType]
+    LifecycleConfiguration: NotRequired[BucketLifecycleConfigurationTypeDef]
+    ExpectedBucketOwner: NotRequired[str]
+    TransitionDefaultMinimumObjectSize: NotRequired[TransitionDefaultMinimumObjectSizeType]
+
+class PutBucketNotificationConfigurationRequestBucketNotificationPutTypeDef(TypedDict):
+    NotificationConfiguration: NotificationConfigurationTypeDef
+    ExpectedBucketOwner: NotRequired[str]
+    SkipDestinationValidation: NotRequired[bool]
+
+class PutBucketNotificationConfigurationRequestTypeDef(TypedDict):
+    Bucket: str
+    NotificationConfiguration: NotificationConfigurationTypeDef
+    ExpectedBucketOwner: NotRequired[str]
+    SkipDestinationValidation: NotRequired[bool]

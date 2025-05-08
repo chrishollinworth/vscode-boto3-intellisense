@@ -1,20 +1,24 @@
 """
 Type annotations for macie2 service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_macie2/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_macie2/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_macie2.type_defs import AcceptInvitationRequestRequestTypeDef
+    from mypy_boto3_macie2.type_defs import AcceptInvitationRequestTypeDef
 
-    data: AcceptInvitationRequestRequestTypeDef = {...}
+    data: AcceptInvitationRequestTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
+from typing import Any, Union
 
 from .literals import (
     AdminStatusType,
@@ -26,6 +30,7 @@ from .literals import (
     AutomatedDiscoveryMonitoringStatusType,
     AutomatedDiscoveryStatusType,
     AvailabilityCodeType,
+    BucketMetadataErrorCodeType,
     ClassificationScopeUpdateOperationType,
     DataIdentifierSeverityType,
     DataIdentifierTypeType,
@@ -74,17 +79,19 @@ from .literals import (
     UserIdentityTypeType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
-    "AcceptInvitationRequestRequestTypeDef",
+    "AcceptInvitationRequestTypeDef",
     "AccessControlListTypeDef",
     "AccountDetailTypeDef",
     "AccountLevelPermissionsTypeDef",
@@ -100,9 +107,9 @@ __all__ = (
     "AwsAccountTypeDef",
     "AwsServiceTypeDef",
     "BatchGetCustomDataIdentifierSummaryTypeDef",
-    "BatchGetCustomDataIdentifiersRequestRequestTypeDef",
+    "BatchGetCustomDataIdentifiersRequestTypeDef",
     "BatchGetCustomDataIdentifiersResponseTypeDef",
-    "BatchUpdateAutomatedDiscoveryAccountsRequestRequestTypeDef",
+    "BatchUpdateAutomatedDiscoveryAccountsRequestTypeDef",
     "BatchUpdateAutomatedDiscoveryAccountsResponseTypeDef",
     "BlockPublicAccessTypeDef",
     "BucketCountByEffectivePermissionTypeDef",
@@ -124,88 +131,96 @@ __all__ = (
     "ClassificationResultStatusTypeDef",
     "ClassificationResultTypeDef",
     "ClassificationScopeSummaryTypeDef",
-    "CreateAllowListRequestRequestTypeDef",
+    "CreateAllowListRequestTypeDef",
     "CreateAllowListResponseTypeDef",
-    "CreateClassificationJobRequestRequestTypeDef",
+    "CreateClassificationJobRequestTypeDef",
     "CreateClassificationJobResponseTypeDef",
-    "CreateCustomDataIdentifierRequestRequestTypeDef",
+    "CreateCustomDataIdentifierRequestTypeDef",
     "CreateCustomDataIdentifierResponseTypeDef",
-    "CreateFindingsFilterRequestRequestTypeDef",
+    "CreateFindingsFilterRequestTypeDef",
     "CreateFindingsFilterResponseTypeDef",
-    "CreateInvitationsRequestRequestTypeDef",
+    "CreateInvitationsRequestTypeDef",
     "CreateInvitationsResponseTypeDef",
-    "CreateMemberRequestRequestTypeDef",
+    "CreateMemberRequestTypeDef",
     "CreateMemberResponseTypeDef",
-    "CreateSampleFindingsRequestRequestTypeDef",
+    "CreateSampleFindingsRequestTypeDef",
+    "CriteriaBlockForJobOutputTypeDef",
     "CriteriaBlockForJobTypeDef",
+    "CriteriaForJobOutputTypeDef",
     "CriteriaForJobTypeDef",
+    "CriterionAdditionalPropertiesOutputTypeDef",
     "CriterionAdditionalPropertiesTypeDef",
     "CustomDataIdentifierSummaryTypeDef",
     "CustomDataIdentifiersTypeDef",
     "CustomDetectionTypeDef",
-    "DeclineInvitationsRequestRequestTypeDef",
+    "DeclineInvitationsRequestTypeDef",
     "DeclineInvitationsResponseTypeDef",
     "DefaultDetectionTypeDef",
-    "DeleteAllowListRequestRequestTypeDef",
-    "DeleteCustomDataIdentifierRequestRequestTypeDef",
-    "DeleteFindingsFilterRequestRequestTypeDef",
-    "DeleteInvitationsRequestRequestTypeDef",
+    "DeleteAllowListRequestTypeDef",
+    "DeleteCustomDataIdentifierRequestTypeDef",
+    "DeleteFindingsFilterRequestTypeDef",
+    "DeleteInvitationsRequestTypeDef",
     "DeleteInvitationsResponseTypeDef",
-    "DeleteMemberRequestRequestTypeDef",
-    "DescribeBucketsRequestRequestTypeDef",
+    "DeleteMemberRequestTypeDef",
+    "DescribeBucketsRequestPaginateTypeDef",
+    "DescribeBucketsRequestTypeDef",
     "DescribeBucketsResponseTypeDef",
-    "DescribeClassificationJobRequestRequestTypeDef",
+    "DescribeClassificationJobRequestTypeDef",
     "DescribeClassificationJobResponseTypeDef",
     "DescribeOrganizationConfigurationResponseTypeDef",
     "DetectedDataDetailsTypeDef",
     "DetectionTypeDef",
-    "DisableOrganizationAdminAccountRequestRequestTypeDef",
-    "DisassociateMemberRequestRequestTypeDef",
+    "DisableOrganizationAdminAccountRequestTypeDef",
+    "DisassociateMemberRequestTypeDef",
     "DomainDetailsTypeDef",
-    "EnableMacieRequestRequestTypeDef",
-    "EnableOrganizationAdminAccountRequestRequestTypeDef",
+    "EnableMacieRequestTypeDef",
+    "EnableOrganizationAdminAccountRequestTypeDef",
     "FederatedUserTypeDef",
     "FindingActionTypeDef",
     "FindingActorTypeDef",
+    "FindingCriteriaOutputTypeDef",
     "FindingCriteriaTypeDef",
+    "FindingCriteriaUnionTypeDef",
     "FindingStatisticsSortCriteriaTypeDef",
     "FindingTypeDef",
     "FindingsFilterListItemTypeDef",
     "GetAdministratorAccountResponseTypeDef",
-    "GetAllowListRequestRequestTypeDef",
+    "GetAllowListRequestTypeDef",
     "GetAllowListResponseTypeDef",
     "GetAutomatedDiscoveryConfigurationResponseTypeDef",
-    "GetBucketStatisticsRequestRequestTypeDef",
+    "GetBucketStatisticsRequestTypeDef",
     "GetBucketStatisticsResponseTypeDef",
     "GetClassificationExportConfigurationResponseTypeDef",
-    "GetClassificationScopeRequestRequestTypeDef",
+    "GetClassificationScopeRequestTypeDef",
     "GetClassificationScopeResponseTypeDef",
-    "GetCustomDataIdentifierRequestRequestTypeDef",
+    "GetCustomDataIdentifierRequestTypeDef",
     "GetCustomDataIdentifierResponseTypeDef",
-    "GetFindingStatisticsRequestRequestTypeDef",
+    "GetFindingStatisticsRequestTypeDef",
     "GetFindingStatisticsResponseTypeDef",
-    "GetFindingsFilterRequestRequestTypeDef",
+    "GetFindingsFilterRequestTypeDef",
     "GetFindingsFilterResponseTypeDef",
     "GetFindingsPublicationConfigurationResponseTypeDef",
-    "GetFindingsRequestRequestTypeDef",
+    "GetFindingsRequestTypeDef",
     "GetFindingsResponseTypeDef",
     "GetInvitationsCountResponseTypeDef",
     "GetMacieSessionResponseTypeDef",
     "GetMasterAccountResponseTypeDef",
-    "GetMemberRequestRequestTypeDef",
+    "GetMemberRequestTypeDef",
     "GetMemberResponseTypeDef",
-    "GetResourceProfileRequestRequestTypeDef",
+    "GetResourceProfileRequestTypeDef",
     "GetResourceProfileResponseTypeDef",
     "GetRevealConfigurationResponseTypeDef",
-    "GetSensitiveDataOccurrencesAvailabilityRequestRequestTypeDef",
+    "GetSensitiveDataOccurrencesAvailabilityRequestTypeDef",
     "GetSensitiveDataOccurrencesAvailabilityResponseTypeDef",
-    "GetSensitiveDataOccurrencesRequestRequestTypeDef",
+    "GetSensitiveDataOccurrencesRequestTypeDef",
+    "GetSensitiveDataOccurrencesRequestWaitTypeDef",
     "GetSensitiveDataOccurrencesResponseTypeDef",
-    "GetSensitivityInspectionTemplateRequestRequestTypeDef",
+    "GetSensitivityInspectionTemplateRequestTypeDef",
     "GetSensitivityInspectionTemplateResponseTypeDef",
-    "GetUsageStatisticsRequestRequestTypeDef",
+    "GetUsageStatisticsRequestPaginateTypeDef",
+    "GetUsageStatisticsRequestTypeDef",
     "GetUsageStatisticsResponseTypeDef",
-    "GetUsageTotalsRequestRequestTypeDef",
+    "GetUsageTotalsRequestTypeDef",
     "GetUsageTotalsResponseTypeDef",
     "GroupCountTypeDef",
     "IamUserTypeDef",
@@ -216,44 +231,62 @@ __all__ = (
     "IpGeoLocationTypeDef",
     "IpOwnerTypeDef",
     "JobDetailsTypeDef",
+    "JobScheduleFrequencyOutputTypeDef",
     "JobScheduleFrequencyTypeDef",
+    "JobScheduleFrequencyUnionTypeDef",
+    "JobScopeTermOutputTypeDef",
     "JobScopeTermTypeDef",
+    "JobScopingBlockOutputTypeDef",
     "JobScopingBlockTypeDef",
     "JobSummaryTypeDef",
     "KeyValuePairTypeDef",
     "LastRunErrorStatusTypeDef",
-    "ListAllowListsRequestRequestTypeDef",
+    "ListAllowListsRequestPaginateTypeDef",
+    "ListAllowListsRequestTypeDef",
     "ListAllowListsResponseTypeDef",
-    "ListAutomatedDiscoveryAccountsRequestRequestTypeDef",
+    "ListAutomatedDiscoveryAccountsRequestPaginateTypeDef",
+    "ListAutomatedDiscoveryAccountsRequestTypeDef",
     "ListAutomatedDiscoveryAccountsResponseTypeDef",
-    "ListClassificationJobsRequestRequestTypeDef",
+    "ListClassificationJobsRequestPaginateTypeDef",
+    "ListClassificationJobsRequestTypeDef",
     "ListClassificationJobsResponseTypeDef",
-    "ListClassificationScopesRequestRequestTypeDef",
+    "ListClassificationScopesRequestPaginateTypeDef",
+    "ListClassificationScopesRequestTypeDef",
     "ListClassificationScopesResponseTypeDef",
-    "ListCustomDataIdentifiersRequestRequestTypeDef",
+    "ListCustomDataIdentifiersRequestPaginateTypeDef",
+    "ListCustomDataIdentifiersRequestTypeDef",
     "ListCustomDataIdentifiersResponseTypeDef",
-    "ListFindingsFiltersRequestRequestTypeDef",
+    "ListFindingsFiltersRequestPaginateTypeDef",
+    "ListFindingsFiltersRequestTypeDef",
     "ListFindingsFiltersResponseTypeDef",
-    "ListFindingsRequestRequestTypeDef",
+    "ListFindingsRequestPaginateTypeDef",
+    "ListFindingsRequestTypeDef",
     "ListFindingsResponseTypeDef",
-    "ListInvitationsRequestRequestTypeDef",
+    "ListInvitationsRequestPaginateTypeDef",
+    "ListInvitationsRequestTypeDef",
     "ListInvitationsResponseTypeDef",
     "ListJobsFilterCriteriaTypeDef",
     "ListJobsFilterTermTypeDef",
     "ListJobsSortCriteriaTypeDef",
-    "ListManagedDataIdentifiersRequestRequestTypeDef",
+    "ListManagedDataIdentifiersRequestPaginateTypeDef",
+    "ListManagedDataIdentifiersRequestTypeDef",
     "ListManagedDataIdentifiersResponseTypeDef",
-    "ListMembersRequestRequestTypeDef",
+    "ListMembersRequestPaginateTypeDef",
+    "ListMembersRequestTypeDef",
     "ListMembersResponseTypeDef",
-    "ListOrganizationAdminAccountsRequestRequestTypeDef",
+    "ListOrganizationAdminAccountsRequestPaginateTypeDef",
+    "ListOrganizationAdminAccountsRequestTypeDef",
     "ListOrganizationAdminAccountsResponseTypeDef",
-    "ListResourceProfileArtifactsRequestRequestTypeDef",
+    "ListResourceProfileArtifactsRequestPaginateTypeDef",
+    "ListResourceProfileArtifactsRequestTypeDef",
     "ListResourceProfileArtifactsResponseTypeDef",
-    "ListResourceProfileDetectionsRequestRequestTypeDef",
+    "ListResourceProfileDetectionsRequestPaginateTypeDef",
+    "ListResourceProfileDetectionsRequestTypeDef",
     "ListResourceProfileDetectionsResponseTypeDef",
-    "ListSensitivityInspectionTemplatesRequestRequestTypeDef",
+    "ListSensitivityInspectionTemplatesRequestPaginateTypeDef",
+    "ListSensitivityInspectionTemplatesRequestTypeDef",
     "ListSensitivityInspectionTemplatesResponseTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "ManagedDataIdentifierSummaryTypeDef",
     "MatchingBucketTypeDef",
@@ -266,9 +299,9 @@ __all__ = (
     "PageTypeDef",
     "PaginatorConfigTypeDef",
     "PolicyDetailsTypeDef",
-    "PutClassificationExportConfigurationRequestRequestTypeDef",
+    "PutClassificationExportConfigurationRequestTypeDef",
     "PutClassificationExportConfigurationResponseTypeDef",
-    "PutFindingsPublicationConfigurationRequestRequestTypeDef",
+    "PutFindingsPublicationConfigurationRequestTypeDef",
     "RangeTypeDef",
     "RecordTypeDef",
     "ReplicationDetailsTypeDef",
@@ -278,7 +311,9 @@ __all__ = (
     "ResponseMetadataTypeDef",
     "RetrievalConfigurationTypeDef",
     "RevealConfigurationTypeDef",
+    "S3BucketCriteriaForJobOutputTypeDef",
     "S3BucketCriteriaForJobTypeDef",
+    "S3BucketDefinitionForJobOutputTypeDef",
     "S3BucketDefinitionForJobTypeDef",
     "S3BucketOwnerTypeDef",
     "S3BucketTypeDef",
@@ -287,14 +322,18 @@ __all__ = (
     "S3ClassificationScopeTypeDef",
     "S3ClassificationScopeUpdateTypeDef",
     "S3DestinationTypeDef",
+    "S3JobDefinitionOutputTypeDef",
     "S3JobDefinitionTypeDef",
+    "S3JobDefinitionUnionTypeDef",
     "S3ObjectTypeDef",
     "S3WordsListTypeDef",
+    "ScopingOutputTypeDef",
     "ScopingTypeDef",
     "SearchResourcesBucketCriteriaTypeDef",
     "SearchResourcesCriteriaBlockTypeDef",
     "SearchResourcesCriteriaTypeDef",
-    "SearchResourcesRequestRequestTypeDef",
+    "SearchResourcesRequestPaginateTypeDef",
+    "SearchResourcesRequestTypeDef",
     "SearchResourcesResponseTypeDef",
     "SearchResourcesSimpleCriterionTypeDef",
     "SearchResourcesSortCriteriaTypeDef",
@@ -303,8 +342,12 @@ __all__ = (
     "SecurityHubConfigurationTypeDef",
     "SensitiveDataItemTypeDef",
     "SensitivityAggregationsTypeDef",
+    "SensitivityInspectionTemplateExcludesOutputTypeDef",
     "SensitivityInspectionTemplateExcludesTypeDef",
+    "SensitivityInspectionTemplateExcludesUnionTypeDef",
+    "SensitivityInspectionTemplateIncludesOutputTypeDef",
     "SensitivityInspectionTemplateIncludesTypeDef",
+    "SensitivityInspectionTemplateIncludesUnionTypeDef",
     "SensitivityInspectionTemplatesEntryTypeDef",
     "ServerSideEncryptionTypeDef",
     "ServiceLimitTypeDef",
@@ -313,36 +356,40 @@ __all__ = (
     "SessionIssuerTypeDef",
     "SeverityLevelTypeDef",
     "SeverityTypeDef",
+    "SimpleCriterionForJobOutputTypeDef",
     "SimpleCriterionForJobTypeDef",
+    "SimpleScopeTermOutputTypeDef",
     "SimpleScopeTermTypeDef",
     "SortCriteriaTypeDef",
     "StatisticsTypeDef",
     "SuppressDataIdentifierTypeDef",
+    "TagCriterionForJobOutputTypeDef",
     "TagCriterionForJobTypeDef",
     "TagCriterionPairForJobTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
+    "TagScopeTermOutputTypeDef",
     "TagScopeTermTypeDef",
     "TagValuePairTypeDef",
-    "TestCustomDataIdentifierRequestRequestTypeDef",
+    "TestCustomDataIdentifierRequestTypeDef",
     "TestCustomDataIdentifierResponseTypeDef",
     "UnprocessedAccountTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateAllowListRequestRequestTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateAllowListRequestTypeDef",
     "UpdateAllowListResponseTypeDef",
-    "UpdateAutomatedDiscoveryConfigurationRequestRequestTypeDef",
-    "UpdateClassificationJobRequestRequestTypeDef",
-    "UpdateClassificationScopeRequestRequestTypeDef",
-    "UpdateFindingsFilterRequestRequestTypeDef",
+    "UpdateAutomatedDiscoveryConfigurationRequestTypeDef",
+    "UpdateClassificationJobRequestTypeDef",
+    "UpdateClassificationScopeRequestTypeDef",
+    "UpdateFindingsFilterRequestTypeDef",
     "UpdateFindingsFilterResponseTypeDef",
-    "UpdateMacieSessionRequestRequestTypeDef",
-    "UpdateMemberSessionRequestRequestTypeDef",
-    "UpdateOrganizationConfigurationRequestRequestTypeDef",
-    "UpdateResourceProfileDetectionsRequestRequestTypeDef",
-    "UpdateResourceProfileRequestRequestTypeDef",
+    "UpdateMacieSessionRequestTypeDef",
+    "UpdateMemberSessionRequestTypeDef",
+    "UpdateOrganizationConfigurationRequestTypeDef",
+    "UpdateResourceProfileDetectionsRequestTypeDef",
+    "UpdateResourceProfileRequestTypeDef",
     "UpdateRetrievalConfigurationTypeDef",
-    "UpdateRevealConfigurationRequestRequestTypeDef",
+    "UpdateRevealConfigurationRequestTypeDef",
     "UpdateRevealConfigurationResponseTypeDef",
-    "UpdateSensitivityInspectionTemplateRequestRequestTypeDef",
+    "UpdateSensitivityInspectionTemplateRequestTypeDef",
     "UsageByAccountTypeDef",
     "UsageRecordTypeDef",
     "UsageStatisticsFilterTypeDef",
@@ -355,1114 +402,965 @@ __all__ = (
     "WeeklyScheduleTypeDef",
 )
 
-_RequiredAcceptInvitationRequestRequestTypeDef = TypedDict(
-    "_RequiredAcceptInvitationRequestRequestTypeDef",
-    {
-        "invitationId": str,
-    },
-)
-_OptionalAcceptInvitationRequestRequestTypeDef = TypedDict(
-    "_OptionalAcceptInvitationRequestRequestTypeDef",
-    {
-        "administratorAccountId": str,
-        "masterAccount": str,
-    },
-    total=False,
-)
+class AcceptInvitationRequestTypeDef(TypedDict):
+    invitationId: str
+    administratorAccountId: NotRequired[str]
+    masterAccount: NotRequired[str]
 
-class AcceptInvitationRequestRequestTypeDef(
-    _RequiredAcceptInvitationRequestRequestTypeDef, _OptionalAcceptInvitationRequestRequestTypeDef
-):
-    pass
+class AccessControlListTypeDef(TypedDict):
+    allowsPublicReadAccess: NotRequired[bool]
+    allowsPublicWriteAccess: NotRequired[bool]
 
-AccessControlListTypeDef = TypedDict(
-    "AccessControlListTypeDef",
-    {
-        "allowsPublicReadAccess": bool,
-        "allowsPublicWriteAccess": bool,
-    },
-    total=False,
-)
+class AccountDetailTypeDef(TypedDict):
+    accountId: str
+    email: str
 
-AccountDetailTypeDef = TypedDict(
-    "AccountDetailTypeDef",
-    {
-        "accountId": str,
-        "email": str,
-    },
-)
+class BlockPublicAccessTypeDef(TypedDict):
+    blockPublicAcls: NotRequired[bool]
+    blockPublicPolicy: NotRequired[bool]
+    ignorePublicAcls: NotRequired[bool]
+    restrictPublicBuckets: NotRequired[bool]
 
-AccountLevelPermissionsTypeDef = TypedDict(
-    "AccountLevelPermissionsTypeDef",
-    {
-        "blockPublicAccess": "BlockPublicAccessTypeDef",
-    },
-    total=False,
-)
+class AdminAccountTypeDef(TypedDict):
+    accountId: NotRequired[str]
+    status: NotRequired[AdminStatusType]
 
-AdminAccountTypeDef = TypedDict(
-    "AdminAccountTypeDef",
-    {
-        "accountId": str,
-        "status": AdminStatusType,
-    },
-    total=False,
-)
+class S3WordsListTypeDef(TypedDict):
+    bucketName: str
+    objectKey: str
 
-AllowListCriteriaTypeDef = TypedDict(
-    "AllowListCriteriaTypeDef",
-    {
-        "regex": str,
-        "s3WordsList": "S3WordsListTypeDef",
-    },
-    total=False,
-)
-
-_RequiredAllowListStatusTypeDef = TypedDict(
-    "_RequiredAllowListStatusTypeDef",
-    {
-        "code": AllowListStatusCodeType,
-    },
-)
-_OptionalAllowListStatusTypeDef = TypedDict(
-    "_OptionalAllowListStatusTypeDef",
-    {
-        "description": str,
-    },
-    total=False,
-)
-
-class AllowListStatusTypeDef(_RequiredAllowListStatusTypeDef, _OptionalAllowListStatusTypeDef):
-    pass
+class AllowListStatusTypeDef(TypedDict):
+    code: AllowListStatusCodeType
+    description: NotRequired[str]
 
 AllowListSummaryTypeDef = TypedDict(
     "AllowListSummaryTypeDef",
     {
-        "arn": str,
-        "createdAt": datetime,
-        "description": str,
-        "id": str,
-        "name": str,
-        "updatedAt": datetime,
+        "arn": NotRequired[str],
+        "createdAt": NotRequired[datetime],
+        "description": NotRequired[str],
+        "id": NotRequired[str],
+        "name": NotRequired[str],
+        "updatedAt": NotRequired[datetime],
     },
-    total=False,
 )
 
-ApiCallDetailsTypeDef = TypedDict(
-    "ApiCallDetailsTypeDef",
-    {
-        "api": str,
-        "apiServiceName": str,
-        "firstSeen": datetime,
-        "lastSeen": datetime,
-    },
-    total=False,
-)
+class ApiCallDetailsTypeDef(TypedDict):
+    api: NotRequired[str]
+    apiServiceName: NotRequired[str]
+    firstSeen: NotRequired[datetime]
+    lastSeen: NotRequired[datetime]
 
-AssumedRoleTypeDef = TypedDict(
-    "AssumedRoleTypeDef",
-    {
-        "accessKeyId": str,
-        "accountId": str,
-        "arn": str,
-        "principalId": str,
-        "sessionContext": "SessionContextTypeDef",
-    },
-    total=False,
-)
+class AutomatedDiscoveryAccountTypeDef(TypedDict):
+    accountId: NotRequired[str]
+    status: NotRequired[AutomatedDiscoveryAccountStatusType]
 
-AutomatedDiscoveryAccountTypeDef = TypedDict(
-    "AutomatedDiscoveryAccountTypeDef",
-    {
-        "accountId": str,
-        "status": AutomatedDiscoveryAccountStatusType,
-    },
-    total=False,
-)
+class AutomatedDiscoveryAccountUpdateErrorTypeDef(TypedDict):
+    accountId: NotRequired[str]
+    errorCode: NotRequired[AutomatedDiscoveryAccountUpdateErrorCodeType]
 
-AutomatedDiscoveryAccountUpdateErrorTypeDef = TypedDict(
-    "AutomatedDiscoveryAccountUpdateErrorTypeDef",
-    {
-        "accountId": str,
-        "errorCode": AutomatedDiscoveryAccountUpdateErrorCodeType,
-    },
-    total=False,
-)
+class AutomatedDiscoveryAccountUpdateTypeDef(TypedDict):
+    accountId: NotRequired[str]
+    status: NotRequired[AutomatedDiscoveryAccountStatusType]
 
-AutomatedDiscoveryAccountUpdateTypeDef = TypedDict(
-    "AutomatedDiscoveryAccountUpdateTypeDef",
-    {
-        "accountId": str,
-        "status": AutomatedDiscoveryAccountStatusType,
-    },
-    total=False,
-)
+class AwsAccountTypeDef(TypedDict):
+    accountId: NotRequired[str]
+    principalId: NotRequired[str]
 
-AwsAccountTypeDef = TypedDict(
-    "AwsAccountTypeDef",
-    {
-        "accountId": str,
-        "principalId": str,
-    },
-    total=False,
-)
-
-AwsServiceTypeDef = TypedDict(
-    "AwsServiceTypeDef",
-    {
-        "invokedBy": str,
-    },
-    total=False,
-)
+class AwsServiceTypeDef(TypedDict):
+    invokedBy: NotRequired[str]
 
 BatchGetCustomDataIdentifierSummaryTypeDef = TypedDict(
     "BatchGetCustomDataIdentifierSummaryTypeDef",
     {
-        "arn": str,
-        "createdAt": datetime,
-        "deleted": bool,
-        "description": str,
-        "id": str,
-        "name": str,
-    },
-    total=False,
-)
-
-BatchGetCustomDataIdentifiersRequestRequestTypeDef = TypedDict(
-    "BatchGetCustomDataIdentifiersRequestRequestTypeDef",
-    {
-        "ids": List[str],
-    },
-    total=False,
-)
-
-BatchGetCustomDataIdentifiersResponseTypeDef = TypedDict(
-    "BatchGetCustomDataIdentifiersResponseTypeDef",
-    {
-        "customDataIdentifiers": List["BatchGetCustomDataIdentifierSummaryTypeDef"],
-        "notFoundIdentifierIds": List[str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "arn": NotRequired[str],
+        "createdAt": NotRequired[datetime],
+        "deleted": NotRequired[bool],
+        "description": NotRequired[str],
+        "id": NotRequired[str],
+        "name": NotRequired[str],
     },
 )
 
-BatchUpdateAutomatedDiscoveryAccountsRequestRequestTypeDef = TypedDict(
-    "BatchUpdateAutomatedDiscoveryAccountsRequestRequestTypeDef",
-    {
-        "accounts": List["AutomatedDiscoveryAccountUpdateTypeDef"],
-    },
-    total=False,
-)
+class BatchGetCustomDataIdentifiersRequestTypeDef(TypedDict):
+    ids: NotRequired[Sequence[str]]
 
-BatchUpdateAutomatedDiscoveryAccountsResponseTypeDef = TypedDict(
-    "BatchUpdateAutomatedDiscoveryAccountsResponseTypeDef",
-    {
-        "errors": List["AutomatedDiscoveryAccountUpdateErrorTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-BlockPublicAccessTypeDef = TypedDict(
-    "BlockPublicAccessTypeDef",
-    {
-        "blockPublicAcls": bool,
-        "blockPublicPolicy": bool,
-        "ignorePublicAcls": bool,
-        "restrictPublicBuckets": bool,
-    },
-    total=False,
-)
+class BucketCountByEffectivePermissionTypeDef(TypedDict):
+    publiclyAccessible: NotRequired[int]
+    publiclyReadable: NotRequired[int]
+    publiclyWritable: NotRequired[int]
+    unknown: NotRequired[int]
 
-BucketCountByEffectivePermissionTypeDef = TypedDict(
-    "BucketCountByEffectivePermissionTypeDef",
-    {
-        "publiclyAccessible": int,
-        "publiclyReadable": int,
-        "publiclyWritable": int,
-        "unknown": int,
-    },
-    total=False,
-)
+class BucketCountByEncryptionTypeTypeDef(TypedDict):
+    kmsManaged: NotRequired[int]
+    s3Managed: NotRequired[int]
+    unencrypted: NotRequired[int]
+    unknown: NotRequired[int]
 
-BucketCountByEncryptionTypeTypeDef = TypedDict(
-    "BucketCountByEncryptionTypeTypeDef",
-    {
-        "kmsManaged": int,
-        "s3Managed": int,
-        "unencrypted": int,
-        "unknown": int,
-    },
-    total=False,
-)
+class BucketCountBySharedAccessTypeTypeDef(TypedDict):
+    external: NotRequired[int]
+    internal: NotRequired[int]
+    notShared: NotRequired[int]
+    unknown: NotRequired[int]
 
-BucketCountBySharedAccessTypeTypeDef = TypedDict(
-    "BucketCountBySharedAccessTypeTypeDef",
-    {
-        "external": int,
-        "internal": int,
-        "notShared": int,
-        "unknown": int,
-    },
-    total=False,
-)
+class BucketCountPolicyAllowsUnencryptedObjectUploadsTypeDef(TypedDict):
+    allowsUnencryptedObjectUploads: NotRequired[int]
+    deniesUnencryptedObjectUploads: NotRequired[int]
+    unknown: NotRequired[int]
 
-BucketCountPolicyAllowsUnencryptedObjectUploadsTypeDef = TypedDict(
-    "BucketCountPolicyAllowsUnencryptedObjectUploadsTypeDef",
-    {
-        "allowsUnencryptedObjectUploads": int,
-        "deniesUnencryptedObjectUploads": int,
-        "unknown": int,
-    },
-    total=False,
-)
+class BucketCriteriaAdditionalPropertiesTypeDef(TypedDict):
+    eq: NotRequired[Sequence[str]]
+    gt: NotRequired[int]
+    gte: NotRequired[int]
+    lt: NotRequired[int]
+    lte: NotRequired[int]
+    neq: NotRequired[Sequence[str]]
+    prefix: NotRequired[str]
 
-BucketCriteriaAdditionalPropertiesTypeDef = TypedDict(
-    "BucketCriteriaAdditionalPropertiesTypeDef",
-    {
-        "eq": List[str],
-        "gt": int,
-        "gte": int,
-        "lt": int,
-        "lte": int,
-        "neq": List[str],
-        "prefix": str,
-    },
-    total=False,
-)
-
-BucketLevelPermissionsTypeDef = TypedDict(
-    "BucketLevelPermissionsTypeDef",
-    {
-        "accessControlList": "AccessControlListTypeDef",
-        "blockPublicAccess": "BlockPublicAccessTypeDef",
-        "bucketPolicy": "BucketPolicyTypeDef",
-    },
-    total=False,
-)
-
-BucketMetadataTypeDef = TypedDict(
-    "BucketMetadataTypeDef",
-    {
-        "accountId": str,
-        "allowsUnencryptedObjectUploads": AllowsUnencryptedObjectUploadsType,
-        "automatedDiscoveryMonitoringStatus": AutomatedDiscoveryMonitoringStatusType,
-        "bucketArn": str,
-        "bucketCreatedAt": datetime,
-        "bucketName": str,
-        "classifiableObjectCount": int,
-        "classifiableSizeInBytes": int,
-        "errorCode": Literal["ACCESS_DENIED"],
-        "errorMessage": str,
-        "jobDetails": "JobDetailsTypeDef",
-        "lastAutomatedDiscoveryTime": datetime,
-        "lastUpdated": datetime,
-        "objectCount": int,
-        "objectCountByEncryptionType": "ObjectCountByEncryptionTypeTypeDef",
-        "publicAccess": "BucketPublicAccessTypeDef",
-        "region": str,
-        "replicationDetails": "ReplicationDetailsTypeDef",
-        "sensitivityScore": int,
-        "serverSideEncryption": "BucketServerSideEncryptionTypeDef",
-        "sharedAccess": SharedAccessType,
-        "sizeInBytes": int,
-        "sizeInBytesCompressed": int,
-        "tags": List["KeyValuePairTypeDef"],
-        "unclassifiableObjectCount": "ObjectLevelStatisticsTypeDef",
-        "unclassifiableObjectSizeInBytes": "ObjectLevelStatisticsTypeDef",
-        "versioning": bool,
-    },
-    total=False,
-)
-
-BucketPermissionConfigurationTypeDef = TypedDict(
-    "BucketPermissionConfigurationTypeDef",
-    {
-        "accountLevelPermissions": "AccountLevelPermissionsTypeDef",
-        "bucketLevelPermissions": "BucketLevelPermissionsTypeDef",
-    },
-    total=False,
-)
-
-BucketPolicyTypeDef = TypedDict(
-    "BucketPolicyTypeDef",
-    {
-        "allowsPublicReadAccess": bool,
-        "allowsPublicWriteAccess": bool,
-    },
-    total=False,
-)
-
-BucketPublicAccessTypeDef = TypedDict(
-    "BucketPublicAccessTypeDef",
-    {
-        "effectivePermission": EffectivePermissionType,
-        "permissionConfiguration": "BucketPermissionConfigurationTypeDef",
-    },
-    total=False,
-)
+class BucketPolicyTypeDef(TypedDict):
+    allowsPublicReadAccess: NotRequired[bool]
+    allowsPublicWriteAccess: NotRequired[bool]
 
 BucketServerSideEncryptionTypeDef = TypedDict(
     "BucketServerSideEncryptionTypeDef",
     {
-        "kmsMasterKeyId": str,
-        "type": TypeType,
+        "kmsMasterKeyId": NotRequired[str],
+        "type": NotRequired[TypeType],
     },
-    total=False,
 )
 
-BucketSortCriteriaTypeDef = TypedDict(
-    "BucketSortCriteriaTypeDef",
-    {
-        "attributeName": str,
-        "orderBy": OrderByType,
-    },
-    total=False,
-)
+class JobDetailsTypeDef(TypedDict):
+    isDefinedInJob: NotRequired[IsDefinedInJobType]
+    isMonitoredByJob: NotRequired[IsMonitoredByJobType]
+    lastJobId: NotRequired[str]
+    lastJobRunTime: NotRequired[datetime]
 
-BucketStatisticsBySensitivityTypeDef = TypedDict(
-    "BucketStatisticsBySensitivityTypeDef",
-    {
-        "classificationError": "SensitivityAggregationsTypeDef",
-        "notClassified": "SensitivityAggregationsTypeDef",
-        "notSensitive": "SensitivityAggregationsTypeDef",
-        "sensitive": "SensitivityAggregationsTypeDef",
-    },
-    total=False,
-)
+class KeyValuePairTypeDef(TypedDict):
+    key: NotRequired[str]
+    value: NotRequired[str]
 
-CellTypeDef = TypedDict(
-    "CellTypeDef",
-    {
-        "cellReference": str,
-        "column": int,
-        "columnName": str,
-        "row": int,
-    },
-    total=False,
-)
+class ObjectCountByEncryptionTypeTypeDef(TypedDict):
+    customerManaged: NotRequired[int]
+    kmsManaged: NotRequired[int]
+    s3Managed: NotRequired[int]
+    unencrypted: NotRequired[int]
+    unknown: NotRequired[int]
 
-ClassificationDetailsTypeDef = TypedDict(
-    "ClassificationDetailsTypeDef",
-    {
-        "detailedResultsLocation": str,
-        "jobArn": str,
-        "jobId": str,
-        "originType": OriginTypeType,
-        "result": "ClassificationResultTypeDef",
-    },
-    total=False,
-)
+class ObjectLevelStatisticsTypeDef(TypedDict):
+    fileType: NotRequired[int]
+    storageClass: NotRequired[int]
+    total: NotRequired[int]
 
-ClassificationExportConfigurationTypeDef = TypedDict(
-    "ClassificationExportConfigurationTypeDef",
-    {
-        "s3Destination": "S3DestinationTypeDef",
-    },
-    total=False,
-)
+class ReplicationDetailsTypeDef(TypedDict):
+    replicated: NotRequired[bool]
+    replicatedExternally: NotRequired[bool]
+    replicationAccounts: NotRequired[List[str]]
 
-ClassificationResultStatusTypeDef = TypedDict(
-    "ClassificationResultStatusTypeDef",
-    {
-        "code": str,
-        "reason": str,
-    },
-    total=False,
-)
+class BucketSortCriteriaTypeDef(TypedDict):
+    attributeName: NotRequired[str]
+    orderBy: NotRequired[OrderByType]
 
-ClassificationResultTypeDef = TypedDict(
-    "ClassificationResultTypeDef",
-    {
-        "additionalOccurrences": bool,
-        "customDataIdentifiers": "CustomDataIdentifiersTypeDef",
-        "mimeType": str,
-        "sensitiveData": List["SensitiveDataItemTypeDef"],
-        "sizeClassified": int,
-        "status": "ClassificationResultStatusTypeDef",
-    },
-    total=False,
-)
+class SensitivityAggregationsTypeDef(TypedDict):
+    classifiableSizeInBytes: NotRequired[int]
+    publiclyAccessibleCount: NotRequired[int]
+    totalCount: NotRequired[int]
+    totalSizeInBytes: NotRequired[int]
+
+class CellTypeDef(TypedDict):
+    cellReference: NotRequired[str]
+    column: NotRequired[int]
+    columnName: NotRequired[str]
+    row: NotRequired[int]
+
+class S3DestinationTypeDef(TypedDict):
+    bucketName: str
+    kmsKeyArn: str
+    keyPrefix: NotRequired[str]
+
+class ClassificationResultStatusTypeDef(TypedDict):
+    code: NotRequired[str]
+    reason: NotRequired[str]
 
 ClassificationScopeSummaryTypeDef = TypedDict(
     "ClassificationScopeSummaryTypeDef",
     {
+        "id": NotRequired[str],
+        "name": NotRequired[str],
+    },
+)
+
+class SeverityLevelTypeDef(TypedDict):
+    occurrencesThreshold: int
+    severity: DataIdentifierSeverityType
+
+class CreateInvitationsRequestTypeDef(TypedDict):
+    accountIds: Sequence[str]
+    disableEmailNotification: NotRequired[bool]
+    message: NotRequired[str]
+
+class UnprocessedAccountTypeDef(TypedDict):
+    accountId: NotRequired[str]
+    errorCode: NotRequired[ErrorCodeType]
+    errorMessage: NotRequired[str]
+
+class CreateSampleFindingsRequestTypeDef(TypedDict):
+    findingTypes: NotRequired[Sequence[FindingTypeType]]
+
+class SimpleCriterionForJobOutputTypeDef(TypedDict):
+    comparator: NotRequired[JobComparatorType]
+    key: NotRequired[SimpleCriterionKeyForJobType]
+    values: NotRequired[List[str]]
+
+class SimpleCriterionForJobTypeDef(TypedDict):
+    comparator: NotRequired[JobComparatorType]
+    key: NotRequired[SimpleCriterionKeyForJobType]
+    values: NotRequired[Sequence[str]]
+
+class CriterionAdditionalPropertiesOutputTypeDef(TypedDict):
+    eq: NotRequired[List[str]]
+    eqExactMatch: NotRequired[List[str]]
+    gt: NotRequired[int]
+    gte: NotRequired[int]
+    lt: NotRequired[int]
+    lte: NotRequired[int]
+    neq: NotRequired[List[str]]
+
+class CriterionAdditionalPropertiesTypeDef(TypedDict):
+    eq: NotRequired[Sequence[str]]
+    eqExactMatch: NotRequired[Sequence[str]]
+    gt: NotRequired[int]
+    gte: NotRequired[int]
+    lt: NotRequired[int]
+    lte: NotRequired[int]
+    neq: NotRequired[Sequence[str]]
+
+CustomDataIdentifierSummaryTypeDef = TypedDict(
+    "CustomDataIdentifierSummaryTypeDef",
+    {
+        "arn": NotRequired[str],
+        "createdAt": NotRequired[datetime],
+        "description": NotRequired[str],
+        "id": NotRequired[str],
+        "name": NotRequired[str],
+    },
+)
+
+class DeclineInvitationsRequestTypeDef(TypedDict):
+    accountIds: Sequence[str]
+
+DeleteAllowListRequestTypeDef = TypedDict(
+    "DeleteAllowListRequestTypeDef",
+    {
         "id": str,
-        "name": str,
+        "ignoreJobChecks": NotRequired[str],
     },
-    total=False,
+)
+DeleteCustomDataIdentifierRequestTypeDef = TypedDict(
+    "DeleteCustomDataIdentifierRequestTypeDef",
+    {
+        "id": str,
+    },
+)
+DeleteFindingsFilterRequestTypeDef = TypedDict(
+    "DeleteFindingsFilterRequestTypeDef",
+    {
+        "id": str,
+    },
 )
 
-_RequiredCreateAllowListRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateAllowListRequestRequestTypeDef",
+class DeleteInvitationsRequestTypeDef(TypedDict):
+    accountIds: Sequence[str]
+
+DeleteMemberRequestTypeDef = TypedDict(
+    "DeleteMemberRequestTypeDef",
     {
-        "clientToken": str,
-        "criteria": "AllowListCriteriaTypeDef",
-        "name": str,
+        "id": str,
     },
-)
-_OptionalCreateAllowListRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateAllowListRequestRequestTypeDef",
-    {
-        "description": str,
-        "tags": Dict[str, str],
-    },
-    total=False,
 )
 
-class CreateAllowListRequestRequestTypeDef(
-    _RequiredCreateAllowListRequestRequestTypeDef, _OptionalCreateAllowListRequestRequestTypeDef
-):
-    pass
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class DescribeClassificationJobRequestTypeDef(TypedDict):
+    jobId: str
+
+class LastRunErrorStatusTypeDef(TypedDict):
+    code: NotRequired[LastRunErrorStatusCodeType]
+
+class StatisticsTypeDef(TypedDict):
+    approximateNumberOfObjectsToProcess: NotRequired[float]
+    numberOfRuns: NotRequired[float]
+
+class UserPausedDetailsTypeDef(TypedDict):
+    jobExpiresAt: NotRequired[datetime]
+    jobImminentExpirationHealthEventArn: NotRequired[str]
+    jobPausedAt: NotRequired[datetime]
+
+class DetectedDataDetailsTypeDef(TypedDict):
+    value: str
+
+DetectionTypeDef = TypedDict(
+    "DetectionTypeDef",
+    {
+        "arn": NotRequired[str],
+        "count": NotRequired[int],
+        "id": NotRequired[str],
+        "name": NotRequired[str],
+        "suppressed": NotRequired[bool],
+        "type": NotRequired[DataIdentifierTypeType],
+    },
+)
+
+class DisableOrganizationAdminAccountRequestTypeDef(TypedDict):
+    adminAccountId: str
+
+DisassociateMemberRequestTypeDef = TypedDict(
+    "DisassociateMemberRequestTypeDef",
+    {
+        "id": str,
+    },
+)
+
+class DomainDetailsTypeDef(TypedDict):
+    domainName: NotRequired[str]
+
+class EnableMacieRequestTypeDef(TypedDict):
+    clientToken: NotRequired[str]
+    findingPublishingFrequency: NotRequired[FindingPublishingFrequencyType]
+    status: NotRequired[MacieStatusType]
+
+class EnableOrganizationAdminAccountRequestTypeDef(TypedDict):
+    adminAccountId: str
+    clientToken: NotRequired[str]
+
+class FindingStatisticsSortCriteriaTypeDef(TypedDict):
+    attributeName: NotRequired[FindingStatisticsSortAttributeNameType]
+    orderBy: NotRequired[OrderByType]
+
+class SeverityTypeDef(TypedDict):
+    description: NotRequired[SeverityDescriptionType]
+    score: NotRequired[int]
+
+FindingsFilterListItemTypeDef = TypedDict(
+    "FindingsFilterListItemTypeDef",
+    {
+        "action": NotRequired[FindingsFilterActionType],
+        "arn": NotRequired[str],
+        "id": NotRequired[str],
+        "name": NotRequired[str],
+        "tags": NotRequired[Dict[str, str]],
+    },
+)
+
+class InvitationTypeDef(TypedDict):
+    accountId: NotRequired[str]
+    invitationId: NotRequired[str]
+    invitedAt: NotRequired[datetime]
+    relationshipStatus: NotRequired[RelationshipStatusType]
+
+GetAllowListRequestTypeDef = TypedDict(
+    "GetAllowListRequestTypeDef",
+    {
+        "id": str,
+    },
+)
+
+class GetBucketStatisticsRequestTypeDef(TypedDict):
+    accountId: NotRequired[str]
+
+GetClassificationScopeRequestTypeDef = TypedDict(
+    "GetClassificationScopeRequestTypeDef",
+    {
+        "id": str,
+    },
+)
+GetCustomDataIdentifierRequestTypeDef = TypedDict(
+    "GetCustomDataIdentifierRequestTypeDef",
+    {
+        "id": str,
+    },
+)
+
+class GroupCountTypeDef(TypedDict):
+    count: NotRequired[int]
+    groupKey: NotRequired[str]
+
+GetFindingsFilterRequestTypeDef = TypedDict(
+    "GetFindingsFilterRequestTypeDef",
+    {
+        "id": str,
+    },
+)
+
+class SecurityHubConfigurationTypeDef(TypedDict):
+    publishClassificationFindings: bool
+    publishPolicyFindings: bool
+
+class SortCriteriaTypeDef(TypedDict):
+    attributeName: NotRequired[str]
+    orderBy: NotRequired[OrderByType]
+
+GetMemberRequestTypeDef = TypedDict(
+    "GetMemberRequestTypeDef",
+    {
+        "id": str,
+    },
+)
+
+class GetResourceProfileRequestTypeDef(TypedDict):
+    resourceArn: str
+
+class ResourceStatisticsTypeDef(TypedDict):
+    totalBytesClassified: NotRequired[int]
+    totalDetections: NotRequired[int]
+    totalDetectionsSuppressed: NotRequired[int]
+    totalItemsClassified: NotRequired[int]
+    totalItemsSensitive: NotRequired[int]
+    totalItemsSkipped: NotRequired[int]
+    totalItemsSkippedInvalidEncryption: NotRequired[int]
+    totalItemsSkippedInvalidKms: NotRequired[int]
+    totalItemsSkippedPermissionDenied: NotRequired[int]
+
+class RetrievalConfigurationTypeDef(TypedDict):
+    retrievalMode: RetrievalModeType
+    externalId: NotRequired[str]
+    roleName: NotRequired[str]
+
+class RevealConfigurationTypeDef(TypedDict):
+    status: RevealStatusType
+    kmsKeyId: NotRequired[str]
+
+class GetSensitiveDataOccurrencesAvailabilityRequestTypeDef(TypedDict):
+    findingId: str
+
+class GetSensitiveDataOccurrencesRequestTypeDef(TypedDict):
+    findingId: str
+
+class WaiterConfigTypeDef(TypedDict):
+    Delay: NotRequired[int]
+    MaxAttempts: NotRequired[int]
+
+GetSensitivityInspectionTemplateRequestTypeDef = TypedDict(
+    "GetSensitivityInspectionTemplateRequestTypeDef",
+    {
+        "id": str,
+    },
+)
+
+class SensitivityInspectionTemplateExcludesOutputTypeDef(TypedDict):
+    managedDataIdentifierIds: NotRequired[List[str]]
+
+class SensitivityInspectionTemplateIncludesOutputTypeDef(TypedDict):
+    allowListIds: NotRequired[List[str]]
+    customDataIdentifierIds: NotRequired[List[str]]
+    managedDataIdentifierIds: NotRequired[List[str]]
+
+class UsageStatisticsFilterTypeDef(TypedDict):
+    comparator: NotRequired[UsageStatisticsFilterComparatorType]
+    key: NotRequired[UsageStatisticsFilterKeyType]
+    values: NotRequired[Sequence[str]]
+
+class UsageStatisticsSortByTypeDef(TypedDict):
+    key: NotRequired[UsageStatisticsSortKeyType]
+    orderBy: NotRequired[OrderByType]
+
+class GetUsageTotalsRequestTypeDef(TypedDict):
+    timeRange: NotRequired[str]
+
+UsageTotalTypeDef = TypedDict(
+    "UsageTotalTypeDef",
+    {
+        "currency": NotRequired[Literal["USD"]],
+        "estimatedCost": NotRequired[str],
+        "type": NotRequired[UsageTypeType],
+    },
+)
+
+class IamUserTypeDef(TypedDict):
+    accountId: NotRequired[str]
+    arn: NotRequired[str]
+    principalId: NotRequired[str]
+    userName: NotRequired[str]
+
+class IpCityTypeDef(TypedDict):
+    name: NotRequired[str]
+
+class IpCountryTypeDef(TypedDict):
+    code: NotRequired[str]
+    name: NotRequired[str]
+
+class IpGeoLocationTypeDef(TypedDict):
+    lat: NotRequired[float]
+    lon: NotRequired[float]
+
+class IpOwnerTypeDef(TypedDict):
+    asn: NotRequired[str]
+    asnOrg: NotRequired[str]
+    isp: NotRequired[str]
+    org: NotRequired[str]
+
+class MonthlyScheduleTypeDef(TypedDict):
+    dayOfMonth: NotRequired[int]
+
+class WeeklyScheduleTypeDef(TypedDict):
+    dayOfWeek: NotRequired[DayOfWeekType]
+
+class SimpleScopeTermOutputTypeDef(TypedDict):
+    comparator: NotRequired[JobComparatorType]
+    key: NotRequired[ScopeFilterKeyType]
+    values: NotRequired[List[str]]
+
+class SimpleScopeTermTypeDef(TypedDict):
+    comparator: NotRequired[JobComparatorType]
+    key: NotRequired[ScopeFilterKeyType]
+    values: NotRequired[Sequence[str]]
+
+class S3BucketDefinitionForJobOutputTypeDef(TypedDict):
+    accountId: str
+    buckets: List[str]
+
+class ListAllowListsRequestTypeDef(TypedDict):
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListAutomatedDiscoveryAccountsRequestTypeDef(TypedDict):
+    accountIds: NotRequired[Sequence[str]]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListJobsSortCriteriaTypeDef(TypedDict):
+    attributeName: NotRequired[ListJobsSortAttributeNameType]
+    orderBy: NotRequired[OrderByType]
+
+class ListClassificationScopesRequestTypeDef(TypedDict):
+    name: NotRequired[str]
+    nextToken: NotRequired[str]
+
+class ListCustomDataIdentifiersRequestTypeDef(TypedDict):
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListFindingsFiltersRequestTypeDef(TypedDict):
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListInvitationsRequestTypeDef(TypedDict):
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListJobsFilterTermTypeDef(TypedDict):
+    comparator: NotRequired[JobComparatorType]
+    key: NotRequired[ListJobsFilterKeyType]
+    values: NotRequired[Sequence[str]]
+
+class ListManagedDataIdentifiersRequestTypeDef(TypedDict):
+    nextToken: NotRequired[str]
+
+ManagedDataIdentifierSummaryTypeDef = TypedDict(
+    "ManagedDataIdentifierSummaryTypeDef",
+    {
+        "category": NotRequired[SensitiveDataItemCategoryType],
+        "id": NotRequired[str],
+    },
+)
+
+class ListMembersRequestTypeDef(TypedDict):
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+    onlyAssociated: NotRequired[str]
+
+class MemberTypeDef(TypedDict):
+    accountId: NotRequired[str]
+    administratorAccountId: NotRequired[str]
+    arn: NotRequired[str]
+    email: NotRequired[str]
+    invitedAt: NotRequired[datetime]
+    masterAccountId: NotRequired[str]
+    relationshipStatus: NotRequired[RelationshipStatusType]
+    tags: NotRequired[Dict[str, str]]
+    updatedAt: NotRequired[datetime]
+
+class ListOrganizationAdminAccountsRequestTypeDef(TypedDict):
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListResourceProfileArtifactsRequestTypeDef(TypedDict):
+    resourceArn: str
+    nextToken: NotRequired[str]
+
+class ResourceProfileArtifactTypeDef(TypedDict):
+    arn: str
+    classificationResultStatus: str
+    sensitive: NotRequired[bool]
+
+class ListResourceProfileDetectionsRequestTypeDef(TypedDict):
+    resourceArn: str
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListSensitivityInspectionTemplatesRequestTypeDef(TypedDict):
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+SensitivityInspectionTemplatesEntryTypeDef = TypedDict(
+    "SensitivityInspectionTemplatesEntryTypeDef",
+    {
+        "id": NotRequired[str],
+        "name": NotRequired[str],
+    },
+)
+
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+
+class RangeTypeDef(TypedDict):
+    end: NotRequired[int]
+    start: NotRequired[int]
+    startColumn: NotRequired[int]
+
+class RecordTypeDef(TypedDict):
+    jsonPath: NotRequired[str]
+    recordIndex: NotRequired[int]
+
+class S3BucketDefinitionForJobTypeDef(TypedDict):
+    accountId: str
+    buckets: Sequence[str]
+
+S3BucketOwnerTypeDef = TypedDict(
+    "S3BucketOwnerTypeDef",
+    {
+        "displayName": NotRequired[str],
+        "id": NotRequired[str],
+    },
+)
+
+class ServerSideEncryptionTypeDef(TypedDict):
+    encryptionType: NotRequired[EncryptionTypeType]
+    kmsMasterKeyId: NotRequired[str]
+
+class S3ClassificationScopeExclusionTypeDef(TypedDict):
+    bucketNames: List[str]
+
+class S3ClassificationScopeExclusionUpdateTypeDef(TypedDict):
+    bucketNames: Sequence[str]
+    operation: ClassificationScopeUpdateOperationType
+
+class SearchResourcesSimpleCriterionTypeDef(TypedDict):
+    comparator: NotRequired[SearchResourcesComparatorType]
+    key: NotRequired[SearchResourcesSimpleCriterionKeyType]
+    values: NotRequired[Sequence[str]]
+
+class SearchResourcesSortCriteriaTypeDef(TypedDict):
+    attributeName: NotRequired[SearchResourcesSortAttributeNameType]
+    orderBy: NotRequired[OrderByType]
+
+class SearchResourcesTagCriterionPairTypeDef(TypedDict):
+    key: NotRequired[str]
+    value: NotRequired[str]
+
+class SensitivityInspectionTemplateExcludesTypeDef(TypedDict):
+    managedDataIdentifierIds: NotRequired[Sequence[str]]
+
+class SensitivityInspectionTemplateIncludesTypeDef(TypedDict):
+    allowListIds: NotRequired[Sequence[str]]
+    customDataIdentifierIds: NotRequired[Sequence[str]]
+    managedDataIdentifierIds: NotRequired[Sequence[str]]
+
+class ServiceLimitTypeDef(TypedDict):
+    isServiceLimited: NotRequired[bool]
+    unit: NotRequired[Literal["TERABYTES"]]
+    value: NotRequired[int]
+
+class SessionContextAttributesTypeDef(TypedDict):
+    creationDate: NotRequired[datetime]
+    mfaAuthenticated: NotRequired[bool]
+
+SessionIssuerTypeDef = TypedDict(
+    "SessionIssuerTypeDef",
+    {
+        "accountId": NotRequired[str],
+        "arn": NotRequired[str],
+        "principalId": NotRequired[str],
+        "type": NotRequired[str],
+        "userName": NotRequired[str],
+    },
+)
+SuppressDataIdentifierTypeDef = TypedDict(
+    "SuppressDataIdentifierTypeDef",
+    {
+        "id": NotRequired[str],
+        "type": NotRequired[DataIdentifierTypeType],
+    },
+)
+
+class TagCriterionPairForJobTypeDef(TypedDict):
+    key: NotRequired[str]
+    value: NotRequired[str]
+
+class TagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tags: Mapping[str, str]
+
+class TagValuePairTypeDef(TypedDict):
+    key: NotRequired[str]
+    value: NotRequired[str]
+
+class TestCustomDataIdentifierRequestTypeDef(TypedDict):
+    regex: str
+    sampleText: str
+    ignoreWords: NotRequired[Sequence[str]]
+    keywords: NotRequired[Sequence[str]]
+    maximumMatchDistance: NotRequired[int]
+
+class UntagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tagKeys: Sequence[str]
+
+class UpdateAutomatedDiscoveryConfigurationRequestTypeDef(TypedDict):
+    status: AutomatedDiscoveryStatusType
+    autoEnableOrganizationMembers: NotRequired[AutoEnableModeType]
+
+class UpdateClassificationJobRequestTypeDef(TypedDict):
+    jobId: str
+    jobStatus: JobStatusType
+
+class UpdateMacieSessionRequestTypeDef(TypedDict):
+    findingPublishingFrequency: NotRequired[FindingPublishingFrequencyType]
+    status: NotRequired[MacieStatusType]
+
+UpdateMemberSessionRequestTypeDef = TypedDict(
+    "UpdateMemberSessionRequestTypeDef",
+    {
+        "id": str,
+        "status": MacieStatusType,
+    },
+)
+
+class UpdateOrganizationConfigurationRequestTypeDef(TypedDict):
+    autoEnable: bool
+
+class UpdateResourceProfileRequestTypeDef(TypedDict):
+    resourceArn: str
+    sensitivityScoreOverride: NotRequired[int]
+
+class UpdateRetrievalConfigurationTypeDef(TypedDict):
+    retrievalMode: RetrievalModeType
+    roleName: NotRequired[str]
+
+class UserIdentityRootTypeDef(TypedDict):
+    accountId: NotRequired[str]
+    arn: NotRequired[str]
+    principalId: NotRequired[str]
+
+class CreateMemberRequestTypeDef(TypedDict):
+    account: AccountDetailTypeDef
+    tags: NotRequired[Mapping[str, str]]
+
+class AccountLevelPermissionsTypeDef(TypedDict):
+    blockPublicAccess: NotRequired[BlockPublicAccessTypeDef]
+
+class AllowListCriteriaTypeDef(TypedDict):
+    regex: NotRequired[str]
+    s3WordsList: NotRequired[S3WordsListTypeDef]
+
+class FindingActionTypeDef(TypedDict):
+    actionType: NotRequired[Literal["AWS_API_CALL"]]
+    apiCallDetails: NotRequired[ApiCallDetailsTypeDef]
+
+class BatchUpdateAutomatedDiscoveryAccountsRequestTypeDef(TypedDict):
+    accounts: NotRequired[Sequence[AutomatedDiscoveryAccountUpdateTypeDef]]
+
+class BatchGetCustomDataIdentifiersResponseTypeDef(TypedDict):
+    customDataIdentifiers: List[BatchGetCustomDataIdentifierSummaryTypeDef]
+    notFoundIdentifierIds: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class BatchUpdateAutomatedDiscoveryAccountsResponseTypeDef(TypedDict):
+    errors: List[AutomatedDiscoveryAccountUpdateErrorTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
 CreateAllowListResponseTypeDef = TypedDict(
     "CreateAllowListResponseTypeDef",
     {
         "arn": str,
         "id": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
 
-_RequiredCreateClassificationJobRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateClassificationJobRequestRequestTypeDef",
-    {
-        "clientToken": str,
-        "jobType": JobTypeType,
-        "name": str,
-        "s3JobDefinition": "S3JobDefinitionTypeDef",
-    },
-)
-_OptionalCreateClassificationJobRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateClassificationJobRequestRequestTypeDef",
-    {
-        "allowListIds": List[str],
-        "customDataIdentifierIds": List[str],
-        "description": str,
-        "initialRun": bool,
-        "managedDataIdentifierIds": List[str],
-        "managedDataIdentifierSelector": ManagedDataIdentifierSelectorType,
-        "samplingPercentage": int,
-        "scheduleFrequency": "JobScheduleFrequencyTypeDef",
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
+class CreateClassificationJobResponseTypeDef(TypedDict):
+    jobArn: str
+    jobId: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateClassificationJobRequestRequestTypeDef(
-    _RequiredCreateClassificationJobRequestRequestTypeDef,
-    _OptionalCreateClassificationJobRequestRequestTypeDef,
-):
-    pass
-
-CreateClassificationJobResponseTypeDef = TypedDict(
-    "CreateClassificationJobResponseTypeDef",
-    {
-        "jobArn": str,
-        "jobId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateCustomDataIdentifierRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateCustomDataIdentifierRequestRequestTypeDef",
-    {
-        "name": str,
-        "regex": str,
-    },
-)
-_OptionalCreateCustomDataIdentifierRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateCustomDataIdentifierRequestRequestTypeDef",
-    {
-        "clientToken": str,
-        "description": str,
-        "ignoreWords": List[str],
-        "keywords": List[str],
-        "maximumMatchDistance": int,
-        "severityLevels": List["SeverityLevelTypeDef"],
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class CreateCustomDataIdentifierRequestRequestTypeDef(
-    _RequiredCreateCustomDataIdentifierRequestRequestTypeDef,
-    _OptionalCreateCustomDataIdentifierRequestRequestTypeDef,
-):
-    pass
-
-CreateCustomDataIdentifierResponseTypeDef = TypedDict(
-    "CreateCustomDataIdentifierResponseTypeDef",
-    {
-        "customDataIdentifierId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateFindingsFilterRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateFindingsFilterRequestRequestTypeDef",
-    {
-        "action": FindingsFilterActionType,
-        "findingCriteria": "FindingCriteriaTypeDef",
-        "name": str,
-    },
-)
-_OptionalCreateFindingsFilterRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateFindingsFilterRequestRequestTypeDef",
-    {
-        "clientToken": str,
-        "description": str,
-        "position": int,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class CreateFindingsFilterRequestRequestTypeDef(
-    _RequiredCreateFindingsFilterRequestRequestTypeDef,
-    _OptionalCreateFindingsFilterRequestRequestTypeDef,
-):
-    pass
+class CreateCustomDataIdentifierResponseTypeDef(TypedDict):
+    customDataIdentifierId: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
 CreateFindingsFilterResponseTypeDef = TypedDict(
     "CreateFindingsFilterResponseTypeDef",
     {
         "arn": str,
         "id": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
 
-_RequiredCreateInvitationsRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateInvitationsRequestRequestTypeDef",
-    {
-        "accountIds": List[str],
-    },
-)
-_OptionalCreateInvitationsRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateInvitationsRequestRequestTypeDef",
-    {
-        "disableEmailNotification": bool,
-        "message": str,
-    },
-    total=False,
-)
+class CreateMemberResponseTypeDef(TypedDict):
+    arn: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateInvitationsRequestRequestTypeDef(
-    _RequiredCreateInvitationsRequestRequestTypeDef, _OptionalCreateInvitationsRequestRequestTypeDef
-):
-    pass
+class DescribeOrganizationConfigurationResponseTypeDef(TypedDict):
+    autoEnable: bool
+    maxAccountLimitReached: bool
+    ResponseMetadata: ResponseMetadataTypeDef
 
-CreateInvitationsResponseTypeDef = TypedDict(
-    "CreateInvitationsResponseTypeDef",
-    {
-        "unprocessedAccounts": List["UnprocessedAccountTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetAutomatedDiscoveryConfigurationResponseTypeDef(TypedDict):
+    autoEnableOrganizationMembers: AutoEnableModeType
+    classificationScopeId: str
+    disabledAt: datetime
+    firstEnabledAt: datetime
+    lastUpdatedAt: datetime
+    sensitivityInspectionTemplateId: str
+    status: AutomatedDiscoveryStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredCreateMemberRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateMemberRequestRequestTypeDef",
-    {
-        "account": "AccountDetailTypeDef",
-    },
-)
-_OptionalCreateMemberRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateMemberRequestRequestTypeDef",
-    {
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
+class GetInvitationsCountResponseTypeDef(TypedDict):
+    invitationsCount: int
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateMemberRequestRequestTypeDef(
-    _RequiredCreateMemberRequestRequestTypeDef, _OptionalCreateMemberRequestRequestTypeDef
-):
-    pass
+class GetMacieSessionResponseTypeDef(TypedDict):
+    createdAt: datetime
+    findingPublishingFrequency: FindingPublishingFrequencyType
+    serviceRole: str
+    status: MacieStatusType
+    updatedAt: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
 
-CreateMemberResponseTypeDef = TypedDict(
-    "CreateMemberResponseTypeDef",
-    {
-        "arn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetMemberResponseTypeDef(TypedDict):
+    accountId: str
+    administratorAccountId: str
+    arn: str
+    email: str
+    invitedAt: datetime
+    masterAccountId: str
+    relationshipStatus: RelationshipStatusType
+    tags: Dict[str, str]
+    updatedAt: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
 
-CreateSampleFindingsRequestRequestTypeDef = TypedDict(
-    "CreateSampleFindingsRequestRequestTypeDef",
-    {
-        "findingTypes": List[FindingTypeType],
-    },
-    total=False,
-)
+class GetSensitiveDataOccurrencesAvailabilityResponseTypeDef(TypedDict):
+    code: AvailabilityCodeType
+    reasons: List[UnavailabilityReasonCodeType]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-CriteriaBlockForJobTypeDef = TypedDict(
-    "CriteriaBlockForJobTypeDef",
-    {
-        "and": List["CriteriaForJobTypeDef"],
-    },
-    total=False,
-)
+class ListAllowListsResponseTypeDef(TypedDict):
+    allowLists: List[AllowListSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-CriteriaForJobTypeDef = TypedDict(
-    "CriteriaForJobTypeDef",
-    {
-        "simpleCriterion": "SimpleCriterionForJobTypeDef",
-        "tagCriterion": "TagCriterionForJobTypeDef",
-    },
-    total=False,
-)
+class ListAutomatedDiscoveryAccountsResponseTypeDef(TypedDict):
+    items: List[AutomatedDiscoveryAccountTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-CriterionAdditionalPropertiesTypeDef = TypedDict(
-    "CriterionAdditionalPropertiesTypeDef",
-    {
-        "eq": List[str],
-        "eqExactMatch": List[str],
-        "gt": int,
-        "gte": int,
-        "lt": int,
-        "lte": int,
-        "neq": List[str],
-    },
-    total=False,
-)
+class ListFindingsResponseTypeDef(TypedDict):
+    findingIds: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-CustomDataIdentifierSummaryTypeDef = TypedDict(
-    "CustomDataIdentifierSummaryTypeDef",
+class ListOrganizationAdminAccountsResponseTypeDef(TypedDict):
+    adminAccounts: List[AdminAccountTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class TestCustomDataIdentifierResponseTypeDef(TypedDict):
+    matchCount: int
+    ResponseMetadata: ResponseMetadataTypeDef
+
+UpdateAllowListResponseTypeDef = TypedDict(
+    "UpdateAllowListResponseTypeDef",
     {
         "arn": str,
-        "createdAt": datetime,
-        "description": str,
         "id": str,
-        "name": str,
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
-    total=False,
 )
-
-CustomDataIdentifiersTypeDef = TypedDict(
-    "CustomDataIdentifiersTypeDef",
-    {
-        "detections": List["CustomDetectionTypeDef"],
-        "totalCount": int,
-    },
-    total=False,
-)
-
-CustomDetectionTypeDef = TypedDict(
-    "CustomDetectionTypeDef",
+UpdateFindingsFilterResponseTypeDef = TypedDict(
+    "UpdateFindingsFilterResponseTypeDef",
     {
         "arn": str,
-        "count": int,
-        "name": str,
-        "occurrences": "OccurrencesTypeDef",
-    },
-    total=False,
-)
-
-DeclineInvitationsRequestRequestTypeDef = TypedDict(
-    "DeclineInvitationsRequestRequestTypeDef",
-    {
-        "accountIds": List[str],
-    },
-)
-
-DeclineInvitationsResponseTypeDef = TypedDict(
-    "DeclineInvitationsResponseTypeDef",
-    {
-        "unprocessedAccounts": List["UnprocessedAccountTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DefaultDetectionTypeDef = TypedDict(
-    "DefaultDetectionTypeDef",
-    {
-        "count": int,
-        "occurrences": "OccurrencesTypeDef",
-        "type": str,
-    },
-    total=False,
-)
-
-_RequiredDeleteAllowListRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteAllowListRequestRequestTypeDef",
-    {
         "id": str,
-    },
-)
-_OptionalDeleteAllowListRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteAllowListRequestRequestTypeDef",
-    {
-        "ignoreJobChecks": str,
-    },
-    total=False,
-)
-
-class DeleteAllowListRequestRequestTypeDef(
-    _RequiredDeleteAllowListRequestRequestTypeDef, _OptionalDeleteAllowListRequestRequestTypeDef
-):
-    pass
-
-DeleteCustomDataIdentifierRequestRequestTypeDef = TypedDict(
-    "DeleteCustomDataIdentifierRequestRequestTypeDef",
-    {
-        "id": str,
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
 
-DeleteFindingsFilterRequestRequestTypeDef = TypedDict(
-    "DeleteFindingsFilterRequestRequestTypeDef",
-    {
-        "id": str,
-    },
-)
+class BucketLevelPermissionsTypeDef(TypedDict):
+    accessControlList: NotRequired[AccessControlListTypeDef]
+    blockPublicAccess: NotRequired[BlockPublicAccessTypeDef]
+    bucketPolicy: NotRequired[BucketPolicyTypeDef]
 
-DeleteInvitationsRequestRequestTypeDef = TypedDict(
-    "DeleteInvitationsRequestRequestTypeDef",
-    {
-        "accountIds": List[str],
-    },
-)
+class MatchingBucketTypeDef(TypedDict):
+    accountId: NotRequired[str]
+    automatedDiscoveryMonitoringStatus: NotRequired[AutomatedDiscoveryMonitoringStatusType]
+    bucketName: NotRequired[str]
+    classifiableObjectCount: NotRequired[int]
+    classifiableSizeInBytes: NotRequired[int]
+    errorCode: NotRequired[BucketMetadataErrorCodeType]
+    errorMessage: NotRequired[str]
+    jobDetails: NotRequired[JobDetailsTypeDef]
+    lastAutomatedDiscoveryTime: NotRequired[datetime]
+    objectCount: NotRequired[int]
+    objectCountByEncryptionType: NotRequired[ObjectCountByEncryptionTypeTypeDef]
+    sensitivityScore: NotRequired[int]
+    sizeInBytes: NotRequired[int]
+    sizeInBytesCompressed: NotRequired[int]
+    unclassifiableObjectCount: NotRequired[ObjectLevelStatisticsTypeDef]
+    unclassifiableObjectSizeInBytes: NotRequired[ObjectLevelStatisticsTypeDef]
 
-DeleteInvitationsResponseTypeDef = TypedDict(
-    "DeleteInvitationsResponseTypeDef",
-    {
-        "unprocessedAccounts": List["UnprocessedAccountTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DescribeBucketsRequestTypeDef(TypedDict):
+    criteria: NotRequired[Mapping[str, BucketCriteriaAdditionalPropertiesTypeDef]]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+    sortCriteria: NotRequired[BucketSortCriteriaTypeDef]
 
-DeleteMemberRequestRequestTypeDef = TypedDict(
-    "DeleteMemberRequestRequestTypeDef",
-    {
-        "id": str,
-    },
-)
+class BucketStatisticsBySensitivityTypeDef(TypedDict):
+    classificationError: NotRequired[SensitivityAggregationsTypeDef]
+    notClassified: NotRequired[SensitivityAggregationsTypeDef]
+    notSensitive: NotRequired[SensitivityAggregationsTypeDef]
+    sensitive: NotRequired[SensitivityAggregationsTypeDef]
 
-DescribeBucketsRequestRequestTypeDef = TypedDict(
-    "DescribeBucketsRequestRequestTypeDef",
-    {
-        "criteria": Dict[str, "BucketCriteriaAdditionalPropertiesTypeDef"],
-        "maxResults": int,
-        "nextToken": str,
-        "sortCriteria": "BucketSortCriteriaTypeDef",
-    },
-    total=False,
-)
+class ClassificationExportConfigurationTypeDef(TypedDict):
+    s3Destination: NotRequired[S3DestinationTypeDef]
 
-DescribeBucketsResponseTypeDef = TypedDict(
-    "DescribeBucketsResponseTypeDef",
-    {
-        "buckets": List["BucketMetadataTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListClassificationScopesResponseTypeDef(TypedDict):
+    classificationScopes: List[ClassificationScopeSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-DescribeClassificationJobRequestRequestTypeDef = TypedDict(
-    "DescribeClassificationJobRequestRequestTypeDef",
-    {
-        "jobId": str,
-    },
-)
-
-DescribeClassificationJobResponseTypeDef = TypedDict(
-    "DescribeClassificationJobResponseTypeDef",
-    {
-        "allowListIds": List[str],
-        "clientToken": str,
-        "createdAt": datetime,
-        "customDataIdentifierIds": List[str],
-        "description": str,
-        "initialRun": bool,
-        "jobArn": str,
-        "jobId": str,
-        "jobStatus": JobStatusType,
-        "jobType": JobTypeType,
-        "lastRunErrorStatus": "LastRunErrorStatusTypeDef",
-        "lastRunTime": datetime,
-        "managedDataIdentifierIds": List[str],
-        "managedDataIdentifierSelector": ManagedDataIdentifierSelectorType,
-        "name": str,
-        "s3JobDefinition": "S3JobDefinitionTypeDef",
-        "samplingPercentage": int,
-        "scheduleFrequency": "JobScheduleFrequencyTypeDef",
-        "statistics": "StatisticsTypeDef",
-        "tags": Dict[str, str],
-        "userPausedDetails": "UserPausedDetailsTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeOrganizationConfigurationResponseTypeDef = TypedDict(
-    "DescribeOrganizationConfigurationResponseTypeDef",
-    {
-        "autoEnable": bool,
-        "maxAccountLimitReached": bool,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DetectedDataDetailsTypeDef = TypedDict(
-    "DetectedDataDetailsTypeDef",
-    {
-        "value": str,
-    },
-)
-
-DetectionTypeDef = TypedDict(
-    "DetectionTypeDef",
-    {
-        "arn": str,
-        "count": int,
-        "id": str,
-        "name": str,
-        "suppressed": bool,
-        "type": DataIdentifierTypeType,
-    },
-    total=False,
-)
-
-DisableOrganizationAdminAccountRequestRequestTypeDef = TypedDict(
-    "DisableOrganizationAdminAccountRequestRequestTypeDef",
-    {
-        "adminAccountId": str,
-    },
-)
-
-DisassociateMemberRequestRequestTypeDef = TypedDict(
-    "DisassociateMemberRequestRequestTypeDef",
-    {
-        "id": str,
-    },
-)
-
-DomainDetailsTypeDef = TypedDict(
-    "DomainDetailsTypeDef",
-    {
-        "domainName": str,
-    },
-    total=False,
-)
-
-EnableMacieRequestRequestTypeDef = TypedDict(
-    "EnableMacieRequestRequestTypeDef",
-    {
-        "clientToken": str,
-        "findingPublishingFrequency": FindingPublishingFrequencyType,
-        "status": MacieStatusType,
-    },
-    total=False,
-)
-
-_RequiredEnableOrganizationAdminAccountRequestRequestTypeDef = TypedDict(
-    "_RequiredEnableOrganizationAdminAccountRequestRequestTypeDef",
-    {
-        "adminAccountId": str,
-    },
-)
-_OptionalEnableOrganizationAdminAccountRequestRequestTypeDef = TypedDict(
-    "_OptionalEnableOrganizationAdminAccountRequestRequestTypeDef",
-    {
-        "clientToken": str,
-    },
-    total=False,
-)
-
-class EnableOrganizationAdminAccountRequestRequestTypeDef(
-    _RequiredEnableOrganizationAdminAccountRequestRequestTypeDef,
-    _OptionalEnableOrganizationAdminAccountRequestRequestTypeDef,
-):
-    pass
-
-FederatedUserTypeDef = TypedDict(
-    "FederatedUserTypeDef",
-    {
-        "accessKeyId": str,
-        "accountId": str,
-        "arn": str,
-        "principalId": str,
-        "sessionContext": "SessionContextTypeDef",
-    },
-    total=False,
-)
-
-FindingActionTypeDef = TypedDict(
-    "FindingActionTypeDef",
-    {
-        "actionType": Literal["AWS_API_CALL"],
-        "apiCallDetails": "ApiCallDetailsTypeDef",
-    },
-    total=False,
-)
-
-FindingActorTypeDef = TypedDict(
-    "FindingActorTypeDef",
-    {
-        "domainDetails": "DomainDetailsTypeDef",
-        "ipAddressDetails": "IpAddressDetailsTypeDef",
-        "userIdentity": "UserIdentityTypeDef",
-    },
-    total=False,
-)
-
-FindingCriteriaTypeDef = TypedDict(
-    "FindingCriteriaTypeDef",
-    {
-        "criterion": Dict[str, "CriterionAdditionalPropertiesTypeDef"],
-    },
-    total=False,
-)
-
-FindingStatisticsSortCriteriaTypeDef = TypedDict(
-    "FindingStatisticsSortCriteriaTypeDef",
-    {
-        "attributeName": FindingStatisticsSortAttributeNameType,
-        "orderBy": OrderByType,
-    },
-    total=False,
-)
-
-FindingTypeDef = TypedDict(
-    "FindingTypeDef",
-    {
-        "accountId": str,
-        "archived": bool,
-        "category": FindingCategoryType,
-        "classificationDetails": "ClassificationDetailsTypeDef",
-        "count": int,
-        "createdAt": datetime,
-        "description": str,
-        "id": str,
-        "partition": str,
-        "policyDetails": "PolicyDetailsTypeDef",
-        "region": str,
-        "resourcesAffected": "ResourcesAffectedTypeDef",
-        "sample": bool,
-        "schemaVersion": str,
-        "severity": "SeverityTypeDef",
-        "title": str,
-        "type": FindingTypeType,
-        "updatedAt": datetime,
-    },
-    total=False,
-)
-
-FindingsFilterListItemTypeDef = TypedDict(
-    "FindingsFilterListItemTypeDef",
-    {
-        "action": FindingsFilterActionType,
-        "arn": str,
-        "id": str,
-        "name": str,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-GetAdministratorAccountResponseTypeDef = TypedDict(
-    "GetAdministratorAccountResponseTypeDef",
-    {
-        "administrator": "InvitationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetAllowListRequestRequestTypeDef = TypedDict(
-    "GetAllowListRequestRequestTypeDef",
-    {
-        "id": str,
-    },
-)
-
-GetAllowListResponseTypeDef = TypedDict(
-    "GetAllowListResponseTypeDef",
-    {
-        "arn": str,
-        "createdAt": datetime,
-        "criteria": "AllowListCriteriaTypeDef",
-        "description": str,
-        "id": str,
-        "name": str,
-        "status": "AllowListStatusTypeDef",
-        "tags": Dict[str, str],
-        "updatedAt": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetAutomatedDiscoveryConfigurationResponseTypeDef = TypedDict(
-    "GetAutomatedDiscoveryConfigurationResponseTypeDef",
-    {
-        "autoEnableOrganizationMembers": AutoEnableModeType,
-        "classificationScopeId": str,
-        "disabledAt": datetime,
-        "firstEnabledAt": datetime,
-        "lastUpdatedAt": datetime,
-        "sensitivityInspectionTemplateId": str,
-        "status": AutomatedDiscoveryStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetBucketStatisticsRequestRequestTypeDef = TypedDict(
-    "GetBucketStatisticsRequestRequestTypeDef",
-    {
-        "accountId": str,
-    },
-    total=False,
-)
-
-GetBucketStatisticsResponseTypeDef = TypedDict(
-    "GetBucketStatisticsResponseTypeDef",
-    {
-        "bucketCount": int,
-        "bucketCountByEffectivePermission": "BucketCountByEffectivePermissionTypeDef",
-        "bucketCountByEncryptionType": "BucketCountByEncryptionTypeTypeDef",
-        "bucketCountByObjectEncryptionRequirement": "BucketCountPolicyAllowsUnencryptedObjectUploadsTypeDef",
-        "bucketCountBySharedAccessType": "BucketCountBySharedAccessTypeTypeDef",
-        "bucketStatisticsBySensitivity": "BucketStatisticsBySensitivityTypeDef",
-        "classifiableObjectCount": int,
-        "classifiableSizeInBytes": int,
-        "lastUpdated": datetime,
-        "objectCount": int,
-        "sizeInBytes": int,
-        "sizeInBytesCompressed": int,
-        "unclassifiableObjectCount": "ObjectLevelStatisticsTypeDef",
-        "unclassifiableObjectSizeInBytes": "ObjectLevelStatisticsTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetClassificationExportConfigurationResponseTypeDef = TypedDict(
-    "GetClassificationExportConfigurationResponseTypeDef",
-    {
-        "configuration": "ClassificationExportConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetClassificationScopeRequestRequestTypeDef = TypedDict(
-    "GetClassificationScopeRequestRequestTypeDef",
-    {
-        "id": str,
-    },
-)
-
-GetClassificationScopeResponseTypeDef = TypedDict(
-    "GetClassificationScopeResponseTypeDef",
-    {
-        "id": str,
-        "name": str,
-        "s3": "S3ClassificationScopeTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetCustomDataIdentifierRequestRequestTypeDef = TypedDict(
-    "GetCustomDataIdentifierRequestRequestTypeDef",
-    {
-        "id": str,
-    },
-)
+class CreateCustomDataIdentifierRequestTypeDef(TypedDict):
+    name: str
+    regex: str
+    clientToken: NotRequired[str]
+    description: NotRequired[str]
+    ignoreWords: NotRequired[Sequence[str]]
+    keywords: NotRequired[Sequence[str]]
+    maximumMatchDistance: NotRequired[int]
+    severityLevels: NotRequired[Sequence[SeverityLevelTypeDef]]
+    tags: NotRequired[Mapping[str, str]]
 
 GetCustomDataIdentifierResponseTypeDef = TypedDict(
     "GetCustomDataIdentifierResponseTypeDef",
@@ -1477,48 +1375,357 @@ GetCustomDataIdentifierResponseTypeDef = TypedDict(
         "maximumMatchDistance": int,
         "name": str,
         "regex": str,
-        "severityLevels": List["SeverityLevelTypeDef"],
+        "severityLevels": List[SeverityLevelTypeDef],
         "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
 
-_RequiredGetFindingStatisticsRequestRequestTypeDef = TypedDict(
-    "_RequiredGetFindingStatisticsRequestRequestTypeDef",
+class CreateInvitationsResponseTypeDef(TypedDict):
+    unprocessedAccounts: List[UnprocessedAccountTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeclineInvitationsResponseTypeDef(TypedDict):
+    unprocessedAccounts: List[UnprocessedAccountTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteInvitationsResponseTypeDef(TypedDict):
+    unprocessedAccounts: List[UnprocessedAccountTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class FindingCriteriaOutputTypeDef(TypedDict):
+    criterion: NotRequired[Dict[str, CriterionAdditionalPropertiesOutputTypeDef]]
+
+class FindingCriteriaTypeDef(TypedDict):
+    criterion: NotRequired[Mapping[str, CriterionAdditionalPropertiesTypeDef]]
+
+class ListCustomDataIdentifiersResponseTypeDef(TypedDict):
+    items: List[CustomDataIdentifierSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class DescribeBucketsRequestPaginateTypeDef(TypedDict):
+    criteria: NotRequired[Mapping[str, BucketCriteriaAdditionalPropertiesTypeDef]]
+    sortCriteria: NotRequired[BucketSortCriteriaTypeDef]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListAllowListsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListAutomatedDiscoveryAccountsRequestPaginateTypeDef(TypedDict):
+    accountIds: NotRequired[Sequence[str]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListClassificationScopesRequestPaginateTypeDef(TypedDict):
+    name: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListCustomDataIdentifiersRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListFindingsFiltersRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListInvitationsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListManagedDataIdentifiersRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListMembersRequestPaginateTypeDef(TypedDict):
+    onlyAssociated: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListOrganizationAdminAccountsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListResourceProfileArtifactsRequestPaginateTypeDef(TypedDict):
+    resourceArn: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListResourceProfileDetectionsRequestPaginateTypeDef(TypedDict):
+    resourceArn: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListSensitivityInspectionTemplatesRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class GetSensitiveDataOccurrencesResponseTypeDef(TypedDict):
+    error: str
+    sensitiveDataOccurrences: Dict[str, List[DetectedDataDetailsTypeDef]]
+    status: RevealRequestStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListResourceProfileDetectionsResponseTypeDef(TypedDict):
+    detections: List[DetectionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListFindingsFiltersResponseTypeDef(TypedDict):
+    findingsFilterListItems: List[FindingsFilterListItemTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class GetAdministratorAccountResponseTypeDef(TypedDict):
+    administrator: InvitationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetMasterAccountResponseTypeDef(TypedDict):
+    master: InvitationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListInvitationsResponseTypeDef(TypedDict):
+    invitations: List[InvitationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class GetFindingStatisticsResponseTypeDef(TypedDict):
+    countsByGroup: List[GroupCountTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetFindingsPublicationConfigurationResponseTypeDef(TypedDict):
+    securityHubConfiguration: SecurityHubConfigurationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutFindingsPublicationConfigurationRequestTypeDef(TypedDict):
+    clientToken: NotRequired[str]
+    securityHubConfiguration: NotRequired[SecurityHubConfigurationTypeDef]
+
+class GetFindingsRequestTypeDef(TypedDict):
+    findingIds: Sequence[str]
+    sortCriteria: NotRequired[SortCriteriaTypeDef]
+
+class GetResourceProfileResponseTypeDef(TypedDict):
+    profileUpdatedAt: datetime
+    sensitivityScore: int
+    sensitivityScoreOverridden: bool
+    statistics: ResourceStatisticsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetRevealConfigurationResponseTypeDef(TypedDict):
+    configuration: RevealConfigurationTypeDef
+    retrievalConfiguration: RetrievalConfigurationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateRevealConfigurationResponseTypeDef(TypedDict):
+    configuration: RevealConfigurationTypeDef
+    retrievalConfiguration: RetrievalConfigurationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetSensitiveDataOccurrencesRequestWaitTypeDef(TypedDict):
+    findingId: str
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class GetSensitivityInspectionTemplateResponseTypeDef(TypedDict):
+    description: str
+    excludes: SensitivityInspectionTemplateExcludesOutputTypeDef
+    includes: SensitivityInspectionTemplateIncludesOutputTypeDef
+    name: str
+    sensitivityInspectionTemplateId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetUsageStatisticsRequestPaginateTypeDef(TypedDict):
+    filterBy: NotRequired[Sequence[UsageStatisticsFilterTypeDef]]
+    sortBy: NotRequired[UsageStatisticsSortByTypeDef]
+    timeRange: NotRequired[TimeRangeType]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class GetUsageStatisticsRequestTypeDef(TypedDict):
+    filterBy: NotRequired[Sequence[UsageStatisticsFilterTypeDef]]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+    sortBy: NotRequired[UsageStatisticsSortByTypeDef]
+    timeRange: NotRequired[TimeRangeType]
+
+class GetUsageTotalsResponseTypeDef(TypedDict):
+    timeRange: TimeRangeType
+    usageTotals: List[UsageTotalTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class IpAddressDetailsTypeDef(TypedDict):
+    ipAddressV4: NotRequired[str]
+    ipCity: NotRequired[IpCityTypeDef]
+    ipCountry: NotRequired[IpCountryTypeDef]
+    ipGeoLocation: NotRequired[IpGeoLocationTypeDef]
+    ipOwner: NotRequired[IpOwnerTypeDef]
+
+class JobScheduleFrequencyOutputTypeDef(TypedDict):
+    dailySchedule: NotRequired[Dict[str, Any]]
+    monthlySchedule: NotRequired[MonthlyScheduleTypeDef]
+    weeklySchedule: NotRequired[WeeklyScheduleTypeDef]
+
+class JobScheduleFrequencyTypeDef(TypedDict):
+    dailySchedule: NotRequired[Mapping[str, Any]]
+    monthlySchedule: NotRequired[MonthlyScheduleTypeDef]
+    weeklySchedule: NotRequired[WeeklyScheduleTypeDef]
+
+class ListJobsFilterCriteriaTypeDef(TypedDict):
+    excludes: NotRequired[Sequence[ListJobsFilterTermTypeDef]]
+    includes: NotRequired[Sequence[ListJobsFilterTermTypeDef]]
+
+class ListManagedDataIdentifiersResponseTypeDef(TypedDict):
+    items: List[ManagedDataIdentifierSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListMembersResponseTypeDef(TypedDict):
+    members: List[MemberTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListResourceProfileArtifactsResponseTypeDef(TypedDict):
+    artifacts: List[ResourceProfileArtifactTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListSensitivityInspectionTemplatesResponseTypeDef(TypedDict):
+    sensitivityInspectionTemplates: List[SensitivityInspectionTemplatesEntryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class PageTypeDef(TypedDict):
+    lineRange: NotRequired[RangeTypeDef]
+    offsetRange: NotRequired[RangeTypeDef]
+    pageNumber: NotRequired[int]
+
+class S3ObjectTypeDef(TypedDict):
+    bucketArn: NotRequired[str]
+    eTag: NotRequired[str]
+    extension: NotRequired[str]
+    key: NotRequired[str]
+    lastModified: NotRequired[datetime]
+    path: NotRequired[str]
+    publicAccess: NotRequired[bool]
+    serverSideEncryption: NotRequired[ServerSideEncryptionTypeDef]
+    size: NotRequired[int]
+    storageClass: NotRequired[StorageClassType]
+    tags: NotRequired[List[KeyValuePairTypeDef]]
+    versionId: NotRequired[str]
+
+class S3ClassificationScopeTypeDef(TypedDict):
+    excludes: S3ClassificationScopeExclusionTypeDef
+
+class S3ClassificationScopeUpdateTypeDef(TypedDict):
+    excludes: S3ClassificationScopeExclusionUpdateTypeDef
+
+class SearchResourcesTagCriterionTypeDef(TypedDict):
+    comparator: NotRequired[SearchResourcesComparatorType]
+    tagValues: NotRequired[Sequence[SearchResourcesTagCriterionPairTypeDef]]
+
+SensitivityInspectionTemplateExcludesUnionTypeDef = Union[
+    SensitivityInspectionTemplateExcludesTypeDef, SensitivityInspectionTemplateExcludesOutputTypeDef
+]
+SensitivityInspectionTemplateIncludesUnionTypeDef = Union[
+    SensitivityInspectionTemplateIncludesTypeDef, SensitivityInspectionTemplateIncludesOutputTypeDef
+]
+UsageByAccountTypeDef = TypedDict(
+    "UsageByAccountTypeDef",
     {
-        "groupBy": GroupByType,
+        "currency": NotRequired[Literal["USD"]],
+        "estimatedCost": NotRequired[str],
+        "serviceLimit": NotRequired[ServiceLimitTypeDef],
+        "type": NotRequired[UsageTypeType],
     },
 )
-_OptionalGetFindingStatisticsRequestRequestTypeDef = TypedDict(
-    "_OptionalGetFindingStatisticsRequestRequestTypeDef",
-    {
-        "findingCriteria": "FindingCriteriaTypeDef",
-        "size": int,
-        "sortCriteria": "FindingStatisticsSortCriteriaTypeDef",
-    },
-    total=False,
-)
 
-class GetFindingStatisticsRequestRequestTypeDef(
-    _RequiredGetFindingStatisticsRequestRequestTypeDef,
-    _OptionalGetFindingStatisticsRequestRequestTypeDef,
-):
-    pass
+class SessionContextTypeDef(TypedDict):
+    attributes: NotRequired[SessionContextAttributesTypeDef]
+    sessionIssuer: NotRequired[SessionIssuerTypeDef]
 
-GetFindingStatisticsResponseTypeDef = TypedDict(
-    "GetFindingStatisticsResponseTypeDef",
-    {
-        "countsByGroup": List["GroupCountTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class UpdateResourceProfileDetectionsRequestTypeDef(TypedDict):
+    resourceArn: str
+    suppressDataIdentifiers: NotRequired[Sequence[SuppressDataIdentifierTypeDef]]
 
-GetFindingsFilterRequestRequestTypeDef = TypedDict(
-    "GetFindingsFilterRequestRequestTypeDef",
+class TagCriterionForJobOutputTypeDef(TypedDict):
+    comparator: NotRequired[JobComparatorType]
+    tagValues: NotRequired[List[TagCriterionPairForJobTypeDef]]
+
+class TagCriterionForJobTypeDef(TypedDict):
+    comparator: NotRequired[JobComparatorType]
+    tagValues: NotRequired[Sequence[TagCriterionPairForJobTypeDef]]
+
+class TagScopeTermOutputTypeDef(TypedDict):
+    comparator: NotRequired[JobComparatorType]
+    key: NotRequired[str]
+    tagValues: NotRequired[List[TagValuePairTypeDef]]
+    target: NotRequired[Literal["S3_OBJECT"]]
+
+class TagScopeTermTypeDef(TypedDict):
+    comparator: NotRequired[JobComparatorType]
+    key: NotRequired[str]
+    tagValues: NotRequired[Sequence[TagValuePairTypeDef]]
+    target: NotRequired[Literal["S3_OBJECT"]]
+
+class UpdateRevealConfigurationRequestTypeDef(TypedDict):
+    configuration: RevealConfigurationTypeDef
+    retrievalConfiguration: NotRequired[UpdateRetrievalConfigurationTypeDef]
+
+class CreateAllowListRequestTypeDef(TypedDict):
+    clientToken: str
+    criteria: AllowListCriteriaTypeDef
+    name: str
+    description: NotRequired[str]
+    tags: NotRequired[Mapping[str, str]]
+
+GetAllowListResponseTypeDef = TypedDict(
+    "GetAllowListResponseTypeDef",
     {
+        "arn": str,
+        "createdAt": datetime,
+        "criteria": AllowListCriteriaTypeDef,
+        "description": str,
         "id": str,
+        "name": str,
+        "status": AllowListStatusTypeDef,
+        "tags": Dict[str, str],
+        "updatedAt": datetime,
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
+UpdateAllowListRequestTypeDef = TypedDict(
+    "UpdateAllowListRequestTypeDef",
+    {
+        "criteria": AllowListCriteriaTypeDef,
+        "id": str,
+        "name": str,
+        "description": NotRequired[str],
+    },
+)
+
+class BucketPermissionConfigurationTypeDef(TypedDict):
+    accountLevelPermissions: NotRequired[AccountLevelPermissionsTypeDef]
+    bucketLevelPermissions: NotRequired[BucketLevelPermissionsTypeDef]
+
+class MatchingResourceTypeDef(TypedDict):
+    matchingBucket: NotRequired[MatchingBucketTypeDef]
+
+class GetBucketStatisticsResponseTypeDef(TypedDict):
+    bucketCount: int
+    bucketCountByEffectivePermission: BucketCountByEffectivePermissionTypeDef
+    bucketCountByEncryptionType: BucketCountByEncryptionTypeTypeDef
+    bucketCountByObjectEncryptionRequirement: BucketCountPolicyAllowsUnencryptedObjectUploadsTypeDef
+    bucketCountBySharedAccessType: BucketCountBySharedAccessTypeTypeDef
+    bucketStatisticsBySensitivity: BucketStatisticsBySensitivityTypeDef
+    classifiableObjectCount: int
+    classifiableSizeInBytes: int
+    lastUpdated: datetime
+    objectCount: int
+    sizeInBytes: int
+    sizeInBytesCompressed: int
+    unclassifiableObjectCount: ObjectLevelStatisticsTypeDef
+    unclassifiableObjectSizeInBytes: ObjectLevelStatisticsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetClassificationExportConfigurationResponseTypeDef(TypedDict):
+    configuration: ClassificationExportConfigurationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutClassificationExportConfigurationRequestTypeDef(TypedDict):
+    configuration: ClassificationExportConfigurationTypeDef
+
+class PutClassificationExportConfigurationResponseTypeDef(TypedDict):
+    configuration: ClassificationExportConfigurationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
 GetFindingsFilterResponseTypeDef = TypedDict(
     "GetFindingsFilterResponseTypeDef",
@@ -1526,1793 +1733,418 @@ GetFindingsFilterResponseTypeDef = TypedDict(
         "action": FindingsFilterActionType,
         "arn": str,
         "description": str,
-        "findingCriteria": "FindingCriteriaTypeDef",
+        "findingCriteria": FindingCriteriaOutputTypeDef,
         "id": str,
         "name": str,
         "position": int,
         "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
+FindingCriteriaUnionTypeDef = Union[FindingCriteriaTypeDef, FindingCriteriaOutputTypeDef]
+JobScheduleFrequencyUnionTypeDef = Union[
+    JobScheduleFrequencyTypeDef, JobScheduleFrequencyOutputTypeDef
+]
 
-GetFindingsPublicationConfigurationResponseTypeDef = TypedDict(
-    "GetFindingsPublicationConfigurationResponseTypeDef",
-    {
-        "securityHubConfiguration": "SecurityHubConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListClassificationJobsRequestPaginateTypeDef(TypedDict):
+    filterCriteria: NotRequired[ListJobsFilterCriteriaTypeDef]
+    sortCriteria: NotRequired[ListJobsSortCriteriaTypeDef]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-_RequiredGetFindingsRequestRequestTypeDef = TypedDict(
-    "_RequiredGetFindingsRequestRequestTypeDef",
-    {
-        "findingIds": List[str],
-    },
-)
-_OptionalGetFindingsRequestRequestTypeDef = TypedDict(
-    "_OptionalGetFindingsRequestRequestTypeDef",
-    {
-        "sortCriteria": "SortCriteriaTypeDef",
-    },
-    total=False,
-)
+class ListClassificationJobsRequestTypeDef(TypedDict):
+    filterCriteria: NotRequired[ListJobsFilterCriteriaTypeDef]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+    sortCriteria: NotRequired[ListJobsSortCriteriaTypeDef]
 
-class GetFindingsRequestRequestTypeDef(
-    _RequiredGetFindingsRequestRequestTypeDef, _OptionalGetFindingsRequestRequestTypeDef
-):
-    pass
+class OccurrencesTypeDef(TypedDict):
+    cells: NotRequired[List[CellTypeDef]]
+    lineRanges: NotRequired[List[RangeTypeDef]]
+    offsetRanges: NotRequired[List[RangeTypeDef]]
+    pages: NotRequired[List[PageTypeDef]]
+    records: NotRequired[List[RecordTypeDef]]
 
-GetFindingsResponseTypeDef = TypedDict(
-    "GetFindingsResponseTypeDef",
-    {
-        "findings": List["FindingTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetInvitationsCountResponseTypeDef = TypedDict(
-    "GetInvitationsCountResponseTypeDef",
-    {
-        "invitationsCount": int,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetMacieSessionResponseTypeDef = TypedDict(
-    "GetMacieSessionResponseTypeDef",
-    {
-        "createdAt": datetime,
-        "findingPublishingFrequency": FindingPublishingFrequencyType,
-        "serviceRole": str,
-        "status": MacieStatusType,
-        "updatedAt": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetMasterAccountResponseTypeDef = TypedDict(
-    "GetMasterAccountResponseTypeDef",
-    {
-        "master": "InvitationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetMemberRequestRequestTypeDef = TypedDict(
-    "GetMemberRequestRequestTypeDef",
+GetClassificationScopeResponseTypeDef = TypedDict(
+    "GetClassificationScopeResponseTypeDef",
     {
         "id": str,
+        "name": str,
+        "s3": S3ClassificationScopeTypeDef,
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
-
-GetMemberResponseTypeDef = TypedDict(
-    "GetMemberResponseTypeDef",
-    {
-        "accountId": str,
-        "administratorAccountId": str,
-        "arn": str,
-        "email": str,
-        "invitedAt": datetime,
-        "masterAccountId": str,
-        "relationshipStatus": RelationshipStatusType,
-        "tags": Dict[str, str],
-        "updatedAt": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetResourceProfileRequestRequestTypeDef = TypedDict(
-    "GetResourceProfileRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-    },
-)
-
-GetResourceProfileResponseTypeDef = TypedDict(
-    "GetResourceProfileResponseTypeDef",
-    {
-        "profileUpdatedAt": datetime,
-        "sensitivityScore": int,
-        "sensitivityScoreOverridden": bool,
-        "statistics": "ResourceStatisticsTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetRevealConfigurationResponseTypeDef = TypedDict(
-    "GetRevealConfigurationResponseTypeDef",
-    {
-        "configuration": "RevealConfigurationTypeDef",
-        "retrievalConfiguration": "RetrievalConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetSensitiveDataOccurrencesAvailabilityRequestRequestTypeDef = TypedDict(
-    "GetSensitiveDataOccurrencesAvailabilityRequestRequestTypeDef",
-    {
-        "findingId": str,
-    },
-)
-
-GetSensitiveDataOccurrencesAvailabilityResponseTypeDef = TypedDict(
-    "GetSensitiveDataOccurrencesAvailabilityResponseTypeDef",
-    {
-        "code": AvailabilityCodeType,
-        "reasons": List[UnavailabilityReasonCodeType],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetSensitiveDataOccurrencesRequestRequestTypeDef = TypedDict(
-    "GetSensitiveDataOccurrencesRequestRequestTypeDef",
-    {
-        "findingId": str,
-    },
-)
-
-GetSensitiveDataOccurrencesResponseTypeDef = TypedDict(
-    "GetSensitiveDataOccurrencesResponseTypeDef",
-    {
-        "error": str,
-        "sensitiveDataOccurrences": Dict[str, List["DetectedDataDetailsTypeDef"]],
-        "status": RevealRequestStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetSensitivityInspectionTemplateRequestRequestTypeDef = TypedDict(
-    "GetSensitivityInspectionTemplateRequestRequestTypeDef",
+UpdateClassificationScopeRequestTypeDef = TypedDict(
+    "UpdateClassificationScopeRequestTypeDef",
     {
         "id": str,
+        "s3": NotRequired[S3ClassificationScopeUpdateTypeDef],
     },
 )
 
-GetSensitivityInspectionTemplateResponseTypeDef = TypedDict(
-    "GetSensitivityInspectionTemplateResponseTypeDef",
-    {
-        "description": str,
-        "excludes": "SensitivityInspectionTemplateExcludesTypeDef",
-        "includes": "SensitivityInspectionTemplateIncludesTypeDef",
-        "name": str,
-        "sensitivityInspectionTemplateId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class SearchResourcesCriteriaTypeDef(TypedDict):
+    simpleCriterion: NotRequired[SearchResourcesSimpleCriterionTypeDef]
+    tagCriterion: NotRequired[SearchResourcesTagCriterionTypeDef]
 
-GetUsageStatisticsRequestRequestTypeDef = TypedDict(
-    "GetUsageStatisticsRequestRequestTypeDef",
+UpdateSensitivityInspectionTemplateRequestTypeDef = TypedDict(
+    "UpdateSensitivityInspectionTemplateRequestTypeDef",
     {
-        "filterBy": List["UsageStatisticsFilterTypeDef"],
-        "maxResults": int,
-        "nextToken": str,
-        "sortBy": "UsageStatisticsSortByTypeDef",
-        "timeRange": TimeRangeType,
-    },
-    total=False,
-)
-
-GetUsageStatisticsResponseTypeDef = TypedDict(
-    "GetUsageStatisticsResponseTypeDef",
-    {
-        "nextToken": str,
-        "records": List["UsageRecordTypeDef"],
-        "timeRange": TimeRangeType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetUsageTotalsRequestRequestTypeDef = TypedDict(
-    "GetUsageTotalsRequestRequestTypeDef",
-    {
-        "timeRange": str,
-    },
-    total=False,
-)
-
-GetUsageTotalsResponseTypeDef = TypedDict(
-    "GetUsageTotalsResponseTypeDef",
-    {
-        "timeRange": TimeRangeType,
-        "usageTotals": List["UsageTotalTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GroupCountTypeDef = TypedDict(
-    "GroupCountTypeDef",
-    {
-        "count": int,
-        "groupKey": str,
-    },
-    total=False,
-)
-
-IamUserTypeDef = TypedDict(
-    "IamUserTypeDef",
-    {
-        "accountId": str,
-        "arn": str,
-        "principalId": str,
-        "userName": str,
-    },
-    total=False,
-)
-
-InvitationTypeDef = TypedDict(
-    "InvitationTypeDef",
-    {
-        "accountId": str,
-        "invitationId": str,
-        "invitedAt": datetime,
-        "relationshipStatus": RelationshipStatusType,
-    },
-    total=False,
-)
-
-IpAddressDetailsTypeDef = TypedDict(
-    "IpAddressDetailsTypeDef",
-    {
-        "ipAddressV4": str,
-        "ipCity": "IpCityTypeDef",
-        "ipCountry": "IpCountryTypeDef",
-        "ipGeoLocation": "IpGeoLocationTypeDef",
-        "ipOwner": "IpOwnerTypeDef",
-    },
-    total=False,
-)
-
-IpCityTypeDef = TypedDict(
-    "IpCityTypeDef",
-    {
-        "name": str,
-    },
-    total=False,
-)
-
-IpCountryTypeDef = TypedDict(
-    "IpCountryTypeDef",
-    {
-        "code": str,
-        "name": str,
-    },
-    total=False,
-)
-
-IpGeoLocationTypeDef = TypedDict(
-    "IpGeoLocationTypeDef",
-    {
-        "lat": float,
-        "lon": float,
-    },
-    total=False,
-)
-
-IpOwnerTypeDef = TypedDict(
-    "IpOwnerTypeDef",
-    {
-        "asn": str,
-        "asnOrg": str,
-        "isp": str,
-        "org": str,
-    },
-    total=False,
-)
-
-JobDetailsTypeDef = TypedDict(
-    "JobDetailsTypeDef",
-    {
-        "isDefinedInJob": IsDefinedInJobType,
-        "isMonitoredByJob": IsMonitoredByJobType,
-        "lastJobId": str,
-        "lastJobRunTime": datetime,
-    },
-    total=False,
-)
-
-JobScheduleFrequencyTypeDef = TypedDict(
-    "JobScheduleFrequencyTypeDef",
-    {
-        "dailySchedule": Dict[str, Any],
-        "monthlySchedule": "MonthlyScheduleTypeDef",
-        "weeklySchedule": "WeeklyScheduleTypeDef",
-    },
-    total=False,
-)
-
-JobScopeTermTypeDef = TypedDict(
-    "JobScopeTermTypeDef",
-    {
-        "simpleScopeTerm": "SimpleScopeTermTypeDef",
-        "tagScopeTerm": "TagScopeTermTypeDef",
-    },
-    total=False,
-)
-
-JobScopingBlockTypeDef = TypedDict(
-    "JobScopingBlockTypeDef",
-    {
-        "and": List["JobScopeTermTypeDef"],
-    },
-    total=False,
-)
-
-JobSummaryTypeDef = TypedDict(
-    "JobSummaryTypeDef",
-    {
-        "bucketCriteria": "S3BucketCriteriaForJobTypeDef",
-        "bucketDefinitions": List["S3BucketDefinitionForJobTypeDef"],
-        "createdAt": datetime,
-        "jobId": str,
-        "jobStatus": JobStatusType,
-        "jobType": JobTypeType,
-        "lastRunErrorStatus": "LastRunErrorStatusTypeDef",
-        "name": str,
-        "userPausedDetails": "UserPausedDetailsTypeDef",
-    },
-    total=False,
-)
-
-KeyValuePairTypeDef = TypedDict(
-    "KeyValuePairTypeDef",
-    {
-        "key": str,
-        "value": str,
-    },
-    total=False,
-)
-
-LastRunErrorStatusTypeDef = TypedDict(
-    "LastRunErrorStatusTypeDef",
-    {
-        "code": LastRunErrorStatusCodeType,
-    },
-    total=False,
-)
-
-ListAllowListsRequestRequestTypeDef = TypedDict(
-    "ListAllowListsRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-ListAllowListsResponseTypeDef = TypedDict(
-    "ListAllowListsResponseTypeDef",
-    {
-        "allowLists": List["AllowListSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListAutomatedDiscoveryAccountsRequestRequestTypeDef = TypedDict(
-    "ListAutomatedDiscoveryAccountsRequestRequestTypeDef",
-    {
-        "accountIds": List[str],
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-ListAutomatedDiscoveryAccountsResponseTypeDef = TypedDict(
-    "ListAutomatedDiscoveryAccountsResponseTypeDef",
-    {
-        "items": List["AutomatedDiscoveryAccountTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListClassificationJobsRequestRequestTypeDef = TypedDict(
-    "ListClassificationJobsRequestRequestTypeDef",
-    {
-        "filterCriteria": "ListJobsFilterCriteriaTypeDef",
-        "maxResults": int,
-        "nextToken": str,
-        "sortCriteria": "ListJobsSortCriteriaTypeDef",
-    },
-    total=False,
-)
-
-ListClassificationJobsResponseTypeDef = TypedDict(
-    "ListClassificationJobsResponseTypeDef",
-    {
-        "items": List["JobSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListClassificationScopesRequestRequestTypeDef = TypedDict(
-    "ListClassificationScopesRequestRequestTypeDef",
-    {
-        "name": str,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-ListClassificationScopesResponseTypeDef = TypedDict(
-    "ListClassificationScopesResponseTypeDef",
-    {
-        "classificationScopes": List["ClassificationScopeSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListCustomDataIdentifiersRequestRequestTypeDef = TypedDict(
-    "ListCustomDataIdentifiersRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-ListCustomDataIdentifiersResponseTypeDef = TypedDict(
-    "ListCustomDataIdentifiersResponseTypeDef",
-    {
-        "items": List["CustomDataIdentifierSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListFindingsFiltersRequestRequestTypeDef = TypedDict(
-    "ListFindingsFiltersRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-ListFindingsFiltersResponseTypeDef = TypedDict(
-    "ListFindingsFiltersResponseTypeDef",
-    {
-        "findingsFilterListItems": List["FindingsFilterListItemTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListFindingsRequestRequestTypeDef = TypedDict(
-    "ListFindingsRequestRequestTypeDef",
-    {
-        "findingCriteria": "FindingCriteriaTypeDef",
-        "maxResults": int,
-        "nextToken": str,
-        "sortCriteria": "SortCriteriaTypeDef",
-    },
-    total=False,
-)
-
-ListFindingsResponseTypeDef = TypedDict(
-    "ListFindingsResponseTypeDef",
-    {
-        "findingIds": List[str],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListInvitationsRequestRequestTypeDef = TypedDict(
-    "ListInvitationsRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-ListInvitationsResponseTypeDef = TypedDict(
-    "ListInvitationsResponseTypeDef",
-    {
-        "invitations": List["InvitationTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListJobsFilterCriteriaTypeDef = TypedDict(
-    "ListJobsFilterCriteriaTypeDef",
-    {
-        "excludes": List["ListJobsFilterTermTypeDef"],
-        "includes": List["ListJobsFilterTermTypeDef"],
-    },
-    total=False,
-)
-
-ListJobsFilterTermTypeDef = TypedDict(
-    "ListJobsFilterTermTypeDef",
-    {
-        "comparator": JobComparatorType,
-        "key": ListJobsFilterKeyType,
-        "values": List[str],
-    },
-    total=False,
-)
-
-ListJobsSortCriteriaTypeDef = TypedDict(
-    "ListJobsSortCriteriaTypeDef",
-    {
-        "attributeName": ListJobsSortAttributeNameType,
-        "orderBy": OrderByType,
-    },
-    total=False,
-)
-
-ListManagedDataIdentifiersRequestRequestTypeDef = TypedDict(
-    "ListManagedDataIdentifiersRequestRequestTypeDef",
-    {
-        "nextToken": str,
-    },
-    total=False,
-)
-
-ListManagedDataIdentifiersResponseTypeDef = TypedDict(
-    "ListManagedDataIdentifiersResponseTypeDef",
-    {
-        "items": List["ManagedDataIdentifierSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListMembersRequestRequestTypeDef = TypedDict(
-    "ListMembersRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-        "onlyAssociated": str,
-    },
-    total=False,
-)
-
-ListMembersResponseTypeDef = TypedDict(
-    "ListMembersResponseTypeDef",
-    {
-        "members": List["MemberTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListOrganizationAdminAccountsRequestRequestTypeDef = TypedDict(
-    "ListOrganizationAdminAccountsRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-ListOrganizationAdminAccountsResponseTypeDef = TypedDict(
-    "ListOrganizationAdminAccountsResponseTypeDef",
-    {
-        "adminAccounts": List["AdminAccountTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListResourceProfileArtifactsRequestRequestTypeDef = TypedDict(
-    "_RequiredListResourceProfileArtifactsRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-    },
-)
-_OptionalListResourceProfileArtifactsRequestRequestTypeDef = TypedDict(
-    "_OptionalListResourceProfileArtifactsRequestRequestTypeDef",
-    {
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListResourceProfileArtifactsRequestRequestTypeDef(
-    _RequiredListResourceProfileArtifactsRequestRequestTypeDef,
-    _OptionalListResourceProfileArtifactsRequestRequestTypeDef,
-):
-    pass
-
-ListResourceProfileArtifactsResponseTypeDef = TypedDict(
-    "ListResourceProfileArtifactsResponseTypeDef",
-    {
-        "artifacts": List["ResourceProfileArtifactTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListResourceProfileDetectionsRequestRequestTypeDef = TypedDict(
-    "_RequiredListResourceProfileDetectionsRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-    },
-)
-_OptionalListResourceProfileDetectionsRequestRequestTypeDef = TypedDict(
-    "_OptionalListResourceProfileDetectionsRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListResourceProfileDetectionsRequestRequestTypeDef(
-    _RequiredListResourceProfileDetectionsRequestRequestTypeDef,
-    _OptionalListResourceProfileDetectionsRequestRequestTypeDef,
-):
-    pass
-
-ListResourceProfileDetectionsResponseTypeDef = TypedDict(
-    "ListResourceProfileDetectionsResponseTypeDef",
-    {
-        "detections": List["DetectionTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListSensitivityInspectionTemplatesRequestRequestTypeDef = TypedDict(
-    "ListSensitivityInspectionTemplatesRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-ListSensitivityInspectionTemplatesResponseTypeDef = TypedDict(
-    "ListSensitivityInspectionTemplatesResponseTypeDef",
-    {
-        "nextToken": str,
-        "sensitivityInspectionTemplates": List["SensitivityInspectionTemplatesEntryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-    },
-)
-
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ManagedDataIdentifierSummaryTypeDef = TypedDict(
-    "ManagedDataIdentifierSummaryTypeDef",
-    {
-        "category": SensitiveDataItemCategoryType,
         "id": str,
-    },
-    total=False,
-)
-
-MatchingBucketTypeDef = TypedDict(
-    "MatchingBucketTypeDef",
-    {
-        "accountId": str,
-        "automatedDiscoveryMonitoringStatus": AutomatedDiscoveryMonitoringStatusType,
-        "bucketName": str,
-        "classifiableObjectCount": int,
-        "classifiableSizeInBytes": int,
-        "errorCode": Literal["ACCESS_DENIED"],
-        "errorMessage": str,
-        "jobDetails": "JobDetailsTypeDef",
-        "lastAutomatedDiscoveryTime": datetime,
-        "objectCount": int,
-        "objectCountByEncryptionType": "ObjectCountByEncryptionTypeTypeDef",
-        "sensitivityScore": int,
-        "sizeInBytes": int,
-        "sizeInBytesCompressed": int,
-        "unclassifiableObjectCount": "ObjectLevelStatisticsTypeDef",
-        "unclassifiableObjectSizeInBytes": "ObjectLevelStatisticsTypeDef",
-    },
-    total=False,
-)
-
-MatchingResourceTypeDef = TypedDict(
-    "MatchingResourceTypeDef",
-    {
-        "matchingBucket": "MatchingBucketTypeDef",
-    },
-    total=False,
-)
-
-MemberTypeDef = TypedDict(
-    "MemberTypeDef",
-    {
-        "accountId": str,
-        "administratorAccountId": str,
-        "arn": str,
-        "email": str,
-        "invitedAt": datetime,
-        "masterAccountId": str,
-        "relationshipStatus": RelationshipStatusType,
-        "tags": Dict[str, str],
-        "updatedAt": datetime,
-    },
-    total=False,
-)
-
-MonthlyScheduleTypeDef = TypedDict(
-    "MonthlyScheduleTypeDef",
-    {
-        "dayOfMonth": int,
-    },
-    total=False,
-)
-
-ObjectCountByEncryptionTypeTypeDef = TypedDict(
-    "ObjectCountByEncryptionTypeTypeDef",
-    {
-        "customerManaged": int,
-        "kmsManaged": int,
-        "s3Managed": int,
-        "unencrypted": int,
-        "unknown": int,
-    },
-    total=False,
-)
-
-ObjectLevelStatisticsTypeDef = TypedDict(
-    "ObjectLevelStatisticsTypeDef",
-    {
-        "fileType": int,
-        "storageClass": int,
-        "total": int,
-    },
-    total=False,
-)
-
-OccurrencesTypeDef = TypedDict(
-    "OccurrencesTypeDef",
-    {
-        "cells": List["CellTypeDef"],
-        "lineRanges": List["RangeTypeDef"],
-        "offsetRanges": List["RangeTypeDef"],
-        "pages": List["PageTypeDef"],
-        "records": List["RecordTypeDef"],
-    },
-    total=False,
-)
-
-PageTypeDef = TypedDict(
-    "PageTypeDef",
-    {
-        "lineRange": "RangeTypeDef",
-        "offsetRange": "RangeTypeDef",
-        "pageNumber": int,
-    },
-    total=False,
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-PolicyDetailsTypeDef = TypedDict(
-    "PolicyDetailsTypeDef",
-    {
-        "action": "FindingActionTypeDef",
-        "actor": "FindingActorTypeDef",
-    },
-    total=False,
-)
-
-PutClassificationExportConfigurationRequestRequestTypeDef = TypedDict(
-    "PutClassificationExportConfigurationRequestRequestTypeDef",
-    {
-        "configuration": "ClassificationExportConfigurationTypeDef",
+        "description": NotRequired[str],
+        "excludes": NotRequired[SensitivityInspectionTemplateExcludesUnionTypeDef],
+        "includes": NotRequired[SensitivityInspectionTemplateIncludesUnionTypeDef],
     },
 )
 
-PutClassificationExportConfigurationResponseTypeDef = TypedDict(
-    "PutClassificationExportConfigurationResponseTypeDef",
-    {
-        "configuration": "ClassificationExportConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class UsageRecordTypeDef(TypedDict):
+    accountId: NotRequired[str]
+    automatedDiscoveryFreeTrialStartDate: NotRequired[datetime]
+    freeTrialStartDate: NotRequired[datetime]
+    usage: NotRequired[List[UsageByAccountTypeDef]]
 
-PutFindingsPublicationConfigurationRequestRequestTypeDef = TypedDict(
-    "PutFindingsPublicationConfigurationRequestRequestTypeDef",
-    {
-        "clientToken": str,
-        "securityHubConfiguration": "SecurityHubConfigurationTypeDef",
-    },
-    total=False,
-)
+class AssumedRoleTypeDef(TypedDict):
+    accessKeyId: NotRequired[str]
+    accountId: NotRequired[str]
+    arn: NotRequired[str]
+    principalId: NotRequired[str]
+    sessionContext: NotRequired[SessionContextTypeDef]
 
-RangeTypeDef = TypedDict(
-    "RangeTypeDef",
-    {
-        "end": int,
-        "start": int,
-        "startColumn": int,
-    },
-    total=False,
-)
+class FederatedUserTypeDef(TypedDict):
+    accessKeyId: NotRequired[str]
+    accountId: NotRequired[str]
+    arn: NotRequired[str]
+    principalId: NotRequired[str]
+    sessionContext: NotRequired[SessionContextTypeDef]
 
-RecordTypeDef = TypedDict(
-    "RecordTypeDef",
-    {
-        "jsonPath": str,
-        "recordIndex": int,
-    },
-    total=False,
-)
+class CriteriaForJobOutputTypeDef(TypedDict):
+    simpleCriterion: NotRequired[SimpleCriterionForJobOutputTypeDef]
+    tagCriterion: NotRequired[TagCriterionForJobOutputTypeDef]
 
-ReplicationDetailsTypeDef = TypedDict(
-    "ReplicationDetailsTypeDef",
-    {
-        "replicated": bool,
-        "replicatedExternally": bool,
-        "replicationAccounts": List[str],
-    },
-    total=False,
-)
+class CriteriaForJobTypeDef(TypedDict):
+    simpleCriterion: NotRequired[SimpleCriterionForJobTypeDef]
+    tagCriterion: NotRequired[TagCriterionForJobTypeDef]
 
-_RequiredResourceProfileArtifactTypeDef = TypedDict(
-    "_RequiredResourceProfileArtifactTypeDef",
-    {
-        "arn": str,
-        "classificationResultStatus": str,
-    },
-)
-_OptionalResourceProfileArtifactTypeDef = TypedDict(
-    "_OptionalResourceProfileArtifactTypeDef",
-    {
-        "sensitive": bool,
-    },
-    total=False,
-)
+class JobScopeTermOutputTypeDef(TypedDict):
+    simpleScopeTerm: NotRequired[SimpleScopeTermOutputTypeDef]
+    tagScopeTerm: NotRequired[TagScopeTermOutputTypeDef]
 
-class ResourceProfileArtifactTypeDef(
-    _RequiredResourceProfileArtifactTypeDef, _OptionalResourceProfileArtifactTypeDef
-):
-    pass
+class JobScopeTermTypeDef(TypedDict):
+    simpleScopeTerm: NotRequired[SimpleScopeTermTypeDef]
+    tagScopeTerm: NotRequired[TagScopeTermTypeDef]
 
-ResourceStatisticsTypeDef = TypedDict(
-    "ResourceStatisticsTypeDef",
-    {
-        "totalBytesClassified": int,
-        "totalDetections": int,
-        "totalDetectionsSuppressed": int,
-        "totalItemsClassified": int,
-        "totalItemsSensitive": int,
-        "totalItemsSkipped": int,
-        "totalItemsSkippedInvalidEncryption": int,
-        "totalItemsSkippedInvalidKms": int,
-        "totalItemsSkippedPermissionDenied": int,
-    },
-    total=False,
-)
+class BucketPublicAccessTypeDef(TypedDict):
+    effectivePermission: NotRequired[EffectivePermissionType]
+    permissionConfiguration: NotRequired[BucketPermissionConfigurationTypeDef]
 
-ResourcesAffectedTypeDef = TypedDict(
-    "ResourcesAffectedTypeDef",
-    {
-        "s3Bucket": "S3BucketTypeDef",
-        "s3Object": "S3ObjectTypeDef",
-    },
-    total=False,
-)
+class SearchResourcesResponseTypeDef(TypedDict):
+    matchingResources: List[MatchingResourceTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
+class CreateFindingsFilterRequestTypeDef(TypedDict):
+    action: FindingsFilterActionType
+    findingCriteria: FindingCriteriaUnionTypeDef
+    name: str
+    clientToken: NotRequired[str]
+    description: NotRequired[str]
+    position: NotRequired[int]
+    tags: NotRequired[Mapping[str, str]]
 
-_RequiredRetrievalConfigurationTypeDef = TypedDict(
-    "_RequiredRetrievalConfigurationTypeDef",
-    {
-        "retrievalMode": RetrievalModeType,
-    },
-)
-_OptionalRetrievalConfigurationTypeDef = TypedDict(
-    "_OptionalRetrievalConfigurationTypeDef",
-    {
-        "externalId": str,
-        "roleName": str,
-    },
-    total=False,
-)
+class GetFindingStatisticsRequestTypeDef(TypedDict):
+    groupBy: GroupByType
+    findingCriteria: NotRequired[FindingCriteriaUnionTypeDef]
+    size: NotRequired[int]
+    sortCriteria: NotRequired[FindingStatisticsSortCriteriaTypeDef]
 
-class RetrievalConfigurationTypeDef(
-    _RequiredRetrievalConfigurationTypeDef, _OptionalRetrievalConfigurationTypeDef
-):
-    pass
+class ListFindingsRequestPaginateTypeDef(TypedDict):
+    findingCriteria: NotRequired[FindingCriteriaUnionTypeDef]
+    sortCriteria: NotRequired[SortCriteriaTypeDef]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-_RequiredRevealConfigurationTypeDef = TypedDict(
-    "_RequiredRevealConfigurationTypeDef",
-    {
-        "status": RevealStatusType,
-    },
-)
-_OptionalRevealConfigurationTypeDef = TypedDict(
-    "_OptionalRevealConfigurationTypeDef",
-    {
-        "kmsKeyId": str,
-    },
-    total=False,
-)
+class ListFindingsRequestTypeDef(TypedDict):
+    findingCriteria: NotRequired[FindingCriteriaUnionTypeDef]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+    sortCriteria: NotRequired[SortCriteriaTypeDef]
 
-class RevealConfigurationTypeDef(
-    _RequiredRevealConfigurationTypeDef, _OptionalRevealConfigurationTypeDef
-):
-    pass
-
-S3BucketCriteriaForJobTypeDef = TypedDict(
-    "S3BucketCriteriaForJobTypeDef",
+UpdateFindingsFilterRequestTypeDef = TypedDict(
+    "UpdateFindingsFilterRequestTypeDef",
     {
-        "excludes": "CriteriaBlockForJobTypeDef",
-        "includes": "CriteriaBlockForJobTypeDef",
-    },
-    total=False,
-)
-
-S3BucketDefinitionForJobTypeDef = TypedDict(
-    "S3BucketDefinitionForJobTypeDef",
-    {
-        "accountId": str,
-        "buckets": List[str],
-    },
-)
-
-S3BucketOwnerTypeDef = TypedDict(
-    "S3BucketOwnerTypeDef",
-    {
-        "displayName": str,
         "id": str,
+        "action": NotRequired[FindingsFilterActionType],
+        "clientToken": NotRequired[str],
+        "description": NotRequired[str],
+        "findingCriteria": NotRequired[FindingCriteriaUnionTypeDef],
+        "name": NotRequired[str],
+        "position": NotRequired[int],
     },
-    total=False,
 )
 
-S3BucketTypeDef = TypedDict(
-    "S3BucketTypeDef",
+class CustomDetectionTypeDef(TypedDict):
+    arn: NotRequired[str]
+    count: NotRequired[int]
+    name: NotRequired[str]
+    occurrences: NotRequired[OccurrencesTypeDef]
+
+DefaultDetectionTypeDef = TypedDict(
+    "DefaultDetectionTypeDef",
     {
-        "allowsUnencryptedObjectUploads": AllowsUnencryptedObjectUploadsType,
-        "arn": str,
-        "createdAt": datetime,
-        "defaultServerSideEncryption": "ServerSideEncryptionTypeDef",
-        "name": str,
-        "owner": "S3BucketOwnerTypeDef",
-        "publicAccess": "BucketPublicAccessTypeDef",
-        "tags": List["KeyValuePairTypeDef"],
-    },
-    total=False,
-)
-
-S3ClassificationScopeExclusionTypeDef = TypedDict(
-    "S3ClassificationScopeExclusionTypeDef",
-    {
-        "bucketNames": List[str],
+        "count": NotRequired[int],
+        "occurrences": NotRequired[OccurrencesTypeDef],
+        "type": NotRequired[str],
     },
 )
-
-S3ClassificationScopeExclusionUpdateTypeDef = TypedDict(
-    "S3ClassificationScopeExclusionUpdateTypeDef",
-    {
-        "bucketNames": List[str],
-        "operation": ClassificationScopeUpdateOperationType,
-    },
-)
-
-S3ClassificationScopeTypeDef = TypedDict(
-    "S3ClassificationScopeTypeDef",
-    {
-        "excludes": "S3ClassificationScopeExclusionTypeDef",
-    },
-)
-
-S3ClassificationScopeUpdateTypeDef = TypedDict(
-    "S3ClassificationScopeUpdateTypeDef",
-    {
-        "excludes": "S3ClassificationScopeExclusionUpdateTypeDef",
-    },
-)
-
-_RequiredS3DestinationTypeDef = TypedDict(
-    "_RequiredS3DestinationTypeDef",
-    {
-        "bucketName": str,
-        "kmsKeyArn": str,
-    },
-)
-_OptionalS3DestinationTypeDef = TypedDict(
-    "_OptionalS3DestinationTypeDef",
-    {
-        "keyPrefix": str,
-    },
-    total=False,
-)
-
-class S3DestinationTypeDef(_RequiredS3DestinationTypeDef, _OptionalS3DestinationTypeDef):
-    pass
-
-S3JobDefinitionTypeDef = TypedDict(
-    "S3JobDefinitionTypeDef",
-    {
-        "bucketCriteria": "S3BucketCriteriaForJobTypeDef",
-        "bucketDefinitions": List["S3BucketDefinitionForJobTypeDef"],
-        "scoping": "ScopingTypeDef",
-    },
-    total=False,
-)
-
-S3ObjectTypeDef = TypedDict(
-    "S3ObjectTypeDef",
-    {
-        "bucketArn": str,
-        "eTag": str,
-        "extension": str,
-        "key": str,
-        "lastModified": datetime,
-        "path": str,
-        "publicAccess": bool,
-        "serverSideEncryption": "ServerSideEncryptionTypeDef",
-        "size": int,
-        "storageClass": StorageClassType,
-        "tags": List["KeyValuePairTypeDef"],
-        "versionId": str,
-    },
-    total=False,
-)
-
-S3WordsListTypeDef = TypedDict(
-    "S3WordsListTypeDef",
-    {
-        "bucketName": str,
-        "objectKey": str,
-    },
-)
-
-ScopingTypeDef = TypedDict(
-    "ScopingTypeDef",
-    {
-        "excludes": "JobScopingBlockTypeDef",
-        "includes": "JobScopingBlockTypeDef",
-    },
-    total=False,
-)
-
-SearchResourcesBucketCriteriaTypeDef = TypedDict(
-    "SearchResourcesBucketCriteriaTypeDef",
-    {
-        "excludes": "SearchResourcesCriteriaBlockTypeDef",
-        "includes": "SearchResourcesCriteriaBlockTypeDef",
-    },
-    total=False,
-)
-
 SearchResourcesCriteriaBlockTypeDef = TypedDict(
     "SearchResourcesCriteriaBlockTypeDef",
     {
-        "and": List["SearchResourcesCriteriaTypeDef"],
+        "and": NotRequired[Sequence[SearchResourcesCriteriaTypeDef]],
     },
-    total=False,
 )
 
-SearchResourcesCriteriaTypeDef = TypedDict(
-    "SearchResourcesCriteriaTypeDef",
-    {
-        "simpleCriterion": "SearchResourcesSimpleCriterionTypeDef",
-        "tagCriterion": "SearchResourcesTagCriterionTypeDef",
-    },
-    total=False,
-)
-
-SearchResourcesRequestRequestTypeDef = TypedDict(
-    "SearchResourcesRequestRequestTypeDef",
-    {
-        "bucketCriteria": "SearchResourcesBucketCriteriaTypeDef",
-        "maxResults": int,
-        "nextToken": str,
-        "sortCriteria": "SearchResourcesSortCriteriaTypeDef",
-    },
-    total=False,
-)
-
-SearchResourcesResponseTypeDef = TypedDict(
-    "SearchResourcesResponseTypeDef",
-    {
-        "matchingResources": List["MatchingResourceTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-SearchResourcesSimpleCriterionTypeDef = TypedDict(
-    "SearchResourcesSimpleCriterionTypeDef",
-    {
-        "comparator": SearchResourcesComparatorType,
-        "key": SearchResourcesSimpleCriterionKeyType,
-        "values": List[str],
-    },
-    total=False,
-)
-
-SearchResourcesSortCriteriaTypeDef = TypedDict(
-    "SearchResourcesSortCriteriaTypeDef",
-    {
-        "attributeName": SearchResourcesSortAttributeNameType,
-        "orderBy": OrderByType,
-    },
-    total=False,
-)
-
-SearchResourcesTagCriterionPairTypeDef = TypedDict(
-    "SearchResourcesTagCriterionPairTypeDef",
-    {
-        "key": str,
-        "value": str,
-    },
-    total=False,
-)
-
-SearchResourcesTagCriterionTypeDef = TypedDict(
-    "SearchResourcesTagCriterionTypeDef",
-    {
-        "comparator": SearchResourcesComparatorType,
-        "tagValues": List["SearchResourcesTagCriterionPairTypeDef"],
-    },
-    total=False,
-)
-
-SecurityHubConfigurationTypeDef = TypedDict(
-    "SecurityHubConfigurationTypeDef",
-    {
-        "publishClassificationFindings": bool,
-        "publishPolicyFindings": bool,
-    },
-)
-
-SensitiveDataItemTypeDef = TypedDict(
-    "SensitiveDataItemTypeDef",
-    {
-        "category": SensitiveDataItemCategoryType,
-        "detections": List["DefaultDetectionTypeDef"],
-        "totalCount": int,
-    },
-    total=False,
-)
-
-SensitivityAggregationsTypeDef = TypedDict(
-    "SensitivityAggregationsTypeDef",
-    {
-        "classifiableSizeInBytes": int,
-        "publiclyAccessibleCount": int,
-        "totalCount": int,
-        "totalSizeInBytes": int,
-    },
-    total=False,
-)
-
-SensitivityInspectionTemplateExcludesTypeDef = TypedDict(
-    "SensitivityInspectionTemplateExcludesTypeDef",
-    {
-        "managedDataIdentifierIds": List[str],
-    },
-    total=False,
-)
-
-SensitivityInspectionTemplateIncludesTypeDef = TypedDict(
-    "SensitivityInspectionTemplateIncludesTypeDef",
-    {
-        "allowListIds": List[str],
-        "customDataIdentifierIds": List[str],
-        "managedDataIdentifierIds": List[str],
-    },
-    total=False,
-)
-
-SensitivityInspectionTemplatesEntryTypeDef = TypedDict(
-    "SensitivityInspectionTemplatesEntryTypeDef",
-    {
-        "id": str,
-        "name": str,
-    },
-    total=False,
-)
-
-ServerSideEncryptionTypeDef = TypedDict(
-    "ServerSideEncryptionTypeDef",
-    {
-        "encryptionType": EncryptionTypeType,
-        "kmsMasterKeyId": str,
-    },
-    total=False,
-)
-
-ServiceLimitTypeDef = TypedDict(
-    "ServiceLimitTypeDef",
-    {
-        "isServiceLimited": bool,
-        "unit": Literal["TERABYTES"],
-        "value": int,
-    },
-    total=False,
-)
-
-SessionContextAttributesTypeDef = TypedDict(
-    "SessionContextAttributesTypeDef",
-    {
-        "creationDate": datetime,
-        "mfaAuthenticated": bool,
-    },
-    total=False,
-)
-
-SessionContextTypeDef = TypedDict(
-    "SessionContextTypeDef",
-    {
-        "attributes": "SessionContextAttributesTypeDef",
-        "sessionIssuer": "SessionIssuerTypeDef",
-    },
-    total=False,
-)
-
-SessionIssuerTypeDef = TypedDict(
-    "SessionIssuerTypeDef",
-    {
-        "accountId": str,
-        "arn": str,
-        "principalId": str,
-        "type": str,
-        "userName": str,
-    },
-    total=False,
-)
-
-SeverityLevelTypeDef = TypedDict(
-    "SeverityLevelTypeDef",
-    {
-        "occurrencesThreshold": int,
-        "severity": DataIdentifierSeverityType,
-    },
-)
-
-SeverityTypeDef = TypedDict(
-    "SeverityTypeDef",
-    {
-        "description": SeverityDescriptionType,
-        "score": int,
-    },
-    total=False,
-)
-
-SimpleCriterionForJobTypeDef = TypedDict(
-    "SimpleCriterionForJobTypeDef",
-    {
-        "comparator": JobComparatorType,
-        "key": SimpleCriterionKeyForJobType,
-        "values": List[str],
-    },
-    total=False,
-)
-
-SimpleScopeTermTypeDef = TypedDict(
-    "SimpleScopeTermTypeDef",
-    {
-        "comparator": JobComparatorType,
-        "key": ScopeFilterKeyType,
-        "values": List[str],
-    },
-    total=False,
-)
-
-SortCriteriaTypeDef = TypedDict(
-    "SortCriteriaTypeDef",
-    {
-        "attributeName": str,
-        "orderBy": OrderByType,
-    },
-    total=False,
-)
-
-StatisticsTypeDef = TypedDict(
-    "StatisticsTypeDef",
-    {
-        "approximateNumberOfObjectsToProcess": float,
-        "numberOfRuns": float,
-    },
-    total=False,
-)
-
-SuppressDataIdentifierTypeDef = TypedDict(
-    "SuppressDataIdentifierTypeDef",
-    {
-        "id": str,
-        "type": DataIdentifierTypeType,
-    },
-    total=False,
-)
-
-TagCriterionForJobTypeDef = TypedDict(
-    "TagCriterionForJobTypeDef",
-    {
-        "comparator": JobComparatorType,
-        "tagValues": List["TagCriterionPairForJobTypeDef"],
-    },
-    total=False,
-)
-
-TagCriterionPairForJobTypeDef = TypedDict(
-    "TagCriterionPairForJobTypeDef",
-    {
-        "key": str,
-        "value": str,
-    },
-    total=False,
-)
-
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tags": Dict[str, str],
-    },
-)
-
-TagScopeTermTypeDef = TypedDict(
-    "TagScopeTermTypeDef",
-    {
-        "comparator": JobComparatorType,
-        "key": str,
-        "tagValues": List["TagValuePairTypeDef"],
-        "target": Literal["S3_OBJECT"],
-    },
-    total=False,
-)
-
-TagValuePairTypeDef = TypedDict(
-    "TagValuePairTypeDef",
-    {
-        "key": str,
-        "value": str,
-    },
-    total=False,
-)
-
-_RequiredTestCustomDataIdentifierRequestRequestTypeDef = TypedDict(
-    "_RequiredTestCustomDataIdentifierRequestRequestTypeDef",
-    {
-        "regex": str,
-        "sampleText": str,
-    },
-)
-_OptionalTestCustomDataIdentifierRequestRequestTypeDef = TypedDict(
-    "_OptionalTestCustomDataIdentifierRequestRequestTypeDef",
-    {
-        "ignoreWords": List[str],
-        "keywords": List[str],
-        "maximumMatchDistance": int,
-    },
-    total=False,
-)
-
-class TestCustomDataIdentifierRequestRequestTypeDef(
-    _RequiredTestCustomDataIdentifierRequestRequestTypeDef,
-    _OptionalTestCustomDataIdentifierRequestRequestTypeDef,
-):
-    pass
-
-TestCustomDataIdentifierResponseTypeDef = TypedDict(
-    "TestCustomDataIdentifierResponseTypeDef",
-    {
-        "matchCount": int,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UnprocessedAccountTypeDef = TypedDict(
-    "UnprocessedAccountTypeDef",
-    {
-        "accountId": str,
-        "errorCode": ErrorCodeType,
-        "errorMessage": str,
-    },
-    total=False,
-)
-
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tagKeys": List[str],
-    },
-)
-
-_RequiredUpdateAllowListRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateAllowListRequestRequestTypeDef",
-    {
-        "criteria": "AllowListCriteriaTypeDef",
-        "id": str,
-        "name": str,
-    },
-)
-_OptionalUpdateAllowListRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateAllowListRequestRequestTypeDef",
-    {
-        "description": str,
-    },
-    total=False,
-)
-
-class UpdateAllowListRequestRequestTypeDef(
-    _RequiredUpdateAllowListRequestRequestTypeDef, _OptionalUpdateAllowListRequestRequestTypeDef
-):
-    pass
-
-UpdateAllowListResponseTypeDef = TypedDict(
-    "UpdateAllowListResponseTypeDef",
-    {
-        "arn": str,
-        "id": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateAutomatedDiscoveryConfigurationRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateAutomatedDiscoveryConfigurationRequestRequestTypeDef",
-    {
-        "status": AutomatedDiscoveryStatusType,
-    },
-)
-_OptionalUpdateAutomatedDiscoveryConfigurationRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateAutomatedDiscoveryConfigurationRequestRequestTypeDef",
-    {
-        "autoEnableOrganizationMembers": AutoEnableModeType,
-    },
-    total=False,
-)
-
-class UpdateAutomatedDiscoveryConfigurationRequestRequestTypeDef(
-    _RequiredUpdateAutomatedDiscoveryConfigurationRequestRequestTypeDef,
-    _OptionalUpdateAutomatedDiscoveryConfigurationRequestRequestTypeDef,
-):
-    pass
-
-UpdateClassificationJobRequestRequestTypeDef = TypedDict(
-    "UpdateClassificationJobRequestRequestTypeDef",
-    {
-        "jobId": str,
-        "jobStatus": JobStatusType,
-    },
-)
-
-_RequiredUpdateClassificationScopeRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateClassificationScopeRequestRequestTypeDef",
-    {
-        "id": str,
-    },
-)
-_OptionalUpdateClassificationScopeRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateClassificationScopeRequestRequestTypeDef",
-    {
-        "s3": "S3ClassificationScopeUpdateTypeDef",
-    },
-    total=False,
-)
-
-class UpdateClassificationScopeRequestRequestTypeDef(
-    _RequiredUpdateClassificationScopeRequestRequestTypeDef,
-    _OptionalUpdateClassificationScopeRequestRequestTypeDef,
-):
-    pass
-
-_RequiredUpdateFindingsFilterRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateFindingsFilterRequestRequestTypeDef",
-    {
-        "id": str,
-    },
-)
-_OptionalUpdateFindingsFilterRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateFindingsFilterRequestRequestTypeDef",
-    {
-        "action": FindingsFilterActionType,
-        "clientToken": str,
-        "description": str,
-        "findingCriteria": "FindingCriteriaTypeDef",
-        "name": str,
-        "position": int,
-    },
-    total=False,
-)
-
-class UpdateFindingsFilterRequestRequestTypeDef(
-    _RequiredUpdateFindingsFilterRequestRequestTypeDef,
-    _OptionalUpdateFindingsFilterRequestRequestTypeDef,
-):
-    pass
-
-UpdateFindingsFilterResponseTypeDef = TypedDict(
-    "UpdateFindingsFilterResponseTypeDef",
-    {
-        "arn": str,
-        "id": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UpdateMacieSessionRequestRequestTypeDef = TypedDict(
-    "UpdateMacieSessionRequestRequestTypeDef",
-    {
-        "findingPublishingFrequency": FindingPublishingFrequencyType,
-        "status": MacieStatusType,
-    },
-    total=False,
-)
-
-UpdateMemberSessionRequestRequestTypeDef = TypedDict(
-    "UpdateMemberSessionRequestRequestTypeDef",
-    {
-        "id": str,
-        "status": MacieStatusType,
-    },
-)
-
-UpdateOrganizationConfigurationRequestRequestTypeDef = TypedDict(
-    "UpdateOrganizationConfigurationRequestRequestTypeDef",
-    {
-        "autoEnable": bool,
-    },
-)
-
-_RequiredUpdateResourceProfileDetectionsRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateResourceProfileDetectionsRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-    },
-)
-_OptionalUpdateResourceProfileDetectionsRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateResourceProfileDetectionsRequestRequestTypeDef",
-    {
-        "suppressDataIdentifiers": List["SuppressDataIdentifierTypeDef"],
-    },
-    total=False,
-)
-
-class UpdateResourceProfileDetectionsRequestRequestTypeDef(
-    _RequiredUpdateResourceProfileDetectionsRequestRequestTypeDef,
-    _OptionalUpdateResourceProfileDetectionsRequestRequestTypeDef,
-):
-    pass
-
-_RequiredUpdateResourceProfileRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateResourceProfileRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-    },
-)
-_OptionalUpdateResourceProfileRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateResourceProfileRequestRequestTypeDef",
-    {
-        "sensitivityScoreOverride": int,
-    },
-    total=False,
-)
-
-class UpdateResourceProfileRequestRequestTypeDef(
-    _RequiredUpdateResourceProfileRequestRequestTypeDef,
-    _OptionalUpdateResourceProfileRequestRequestTypeDef,
-):
-    pass
-
-_RequiredUpdateRetrievalConfigurationTypeDef = TypedDict(
-    "_RequiredUpdateRetrievalConfigurationTypeDef",
-    {
-        "retrievalMode": RetrievalModeType,
-    },
-)
-_OptionalUpdateRetrievalConfigurationTypeDef = TypedDict(
-    "_OptionalUpdateRetrievalConfigurationTypeDef",
-    {
-        "roleName": str,
-    },
-    total=False,
-)
-
-class UpdateRetrievalConfigurationTypeDef(
-    _RequiredUpdateRetrievalConfigurationTypeDef, _OptionalUpdateRetrievalConfigurationTypeDef
-):
-    pass
-
-_RequiredUpdateRevealConfigurationRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateRevealConfigurationRequestRequestTypeDef",
-    {
-        "configuration": "RevealConfigurationTypeDef",
-    },
-)
-_OptionalUpdateRevealConfigurationRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateRevealConfigurationRequestRequestTypeDef",
-    {
-        "retrievalConfiguration": "UpdateRetrievalConfigurationTypeDef",
-    },
-    total=False,
-)
-
-class UpdateRevealConfigurationRequestRequestTypeDef(
-    _RequiredUpdateRevealConfigurationRequestRequestTypeDef,
-    _OptionalUpdateRevealConfigurationRequestRequestTypeDef,
-):
-    pass
-
-UpdateRevealConfigurationResponseTypeDef = TypedDict(
-    "UpdateRevealConfigurationResponseTypeDef",
-    {
-        "configuration": "RevealConfigurationTypeDef",
-        "retrievalConfiguration": "RetrievalConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateSensitivityInspectionTemplateRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateSensitivityInspectionTemplateRequestRequestTypeDef",
-    {
-        "id": str,
-    },
-)
-_OptionalUpdateSensitivityInspectionTemplateRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateSensitivityInspectionTemplateRequestRequestTypeDef",
-    {
-        "description": str,
-        "excludes": "SensitivityInspectionTemplateExcludesTypeDef",
-        "includes": "SensitivityInspectionTemplateIncludesTypeDef",
-    },
-    total=False,
-)
-
-class UpdateSensitivityInspectionTemplateRequestRequestTypeDef(
-    _RequiredUpdateSensitivityInspectionTemplateRequestRequestTypeDef,
-    _OptionalUpdateSensitivityInspectionTemplateRequestRequestTypeDef,
-):
-    pass
-
-UsageByAccountTypeDef = TypedDict(
-    "UsageByAccountTypeDef",
-    {
-        "currency": Literal["USD"],
-        "estimatedCost": str,
-        "serviceLimit": "ServiceLimitTypeDef",
-        "type": UsageTypeType,
-    },
-    total=False,
-)
-
-UsageRecordTypeDef = TypedDict(
-    "UsageRecordTypeDef",
-    {
-        "accountId": str,
-        "automatedDiscoveryFreeTrialStartDate": datetime,
-        "freeTrialStartDate": datetime,
-        "usage": List["UsageByAccountTypeDef"],
-    },
-    total=False,
-)
-
-UsageStatisticsFilterTypeDef = TypedDict(
-    "UsageStatisticsFilterTypeDef",
-    {
-        "comparator": UsageStatisticsFilterComparatorType,
-        "key": UsageStatisticsFilterKeyType,
-        "values": List[str],
-    },
-    total=False,
-)
-
-UsageStatisticsSortByTypeDef = TypedDict(
-    "UsageStatisticsSortByTypeDef",
-    {
-        "key": UsageStatisticsSortKeyType,
-        "orderBy": OrderByType,
-    },
-    total=False,
-)
-
-UsageTotalTypeDef = TypedDict(
-    "UsageTotalTypeDef",
-    {
-        "currency": Literal["USD"],
-        "estimatedCost": str,
-        "type": UsageTypeType,
-    },
-    total=False,
-)
-
-UserIdentityRootTypeDef = TypedDict(
-    "UserIdentityRootTypeDef",
-    {
-        "accountId": str,
-        "arn": str,
-        "principalId": str,
-    },
-    total=False,
-)
+class GetUsageStatisticsResponseTypeDef(TypedDict):
+    records: List[UsageRecordTypeDef]
+    timeRange: TimeRangeType
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
 UserIdentityTypeDef = TypedDict(
     "UserIdentityTypeDef",
     {
-        "assumedRole": "AssumedRoleTypeDef",
-        "awsAccount": "AwsAccountTypeDef",
-        "awsService": "AwsServiceTypeDef",
-        "federatedUser": "FederatedUserTypeDef",
-        "iamUser": "IamUserTypeDef",
-        "root": "UserIdentityRootTypeDef",
-        "type": UserIdentityTypeType,
+        "assumedRole": NotRequired[AssumedRoleTypeDef],
+        "awsAccount": NotRequired[AwsAccountTypeDef],
+        "awsService": NotRequired[AwsServiceTypeDef],
+        "federatedUser": NotRequired[FederatedUserTypeDef],
+        "iamUser": NotRequired[IamUserTypeDef],
+        "root": NotRequired[UserIdentityRootTypeDef],
+        "type": NotRequired[UserIdentityTypeType],
     },
-    total=False,
+)
+CriteriaBlockForJobOutputTypeDef = TypedDict(
+    "CriteriaBlockForJobOutputTypeDef",
+    {
+        "and": NotRequired[List[CriteriaForJobOutputTypeDef]],
+    },
+)
+CriteriaBlockForJobTypeDef = TypedDict(
+    "CriteriaBlockForJobTypeDef",
+    {
+        "and": NotRequired[Sequence[CriteriaForJobTypeDef]],
+    },
+)
+JobScopingBlockOutputTypeDef = TypedDict(
+    "JobScopingBlockOutputTypeDef",
+    {
+        "and": NotRequired[List[JobScopeTermOutputTypeDef]],
+    },
+)
+JobScopingBlockTypeDef = TypedDict(
+    "JobScopingBlockTypeDef",
+    {
+        "and": NotRequired[Sequence[JobScopeTermTypeDef]],
+    },
 )
 
-UserPausedDetailsTypeDef = TypedDict(
-    "UserPausedDetailsTypeDef",
+class BucketMetadataTypeDef(TypedDict):
+    accountId: NotRequired[str]
+    allowsUnencryptedObjectUploads: NotRequired[AllowsUnencryptedObjectUploadsType]
+    automatedDiscoveryMonitoringStatus: NotRequired[AutomatedDiscoveryMonitoringStatusType]
+    bucketArn: NotRequired[str]
+    bucketCreatedAt: NotRequired[datetime]
+    bucketName: NotRequired[str]
+    classifiableObjectCount: NotRequired[int]
+    classifiableSizeInBytes: NotRequired[int]
+    errorCode: NotRequired[BucketMetadataErrorCodeType]
+    errorMessage: NotRequired[str]
+    jobDetails: NotRequired[JobDetailsTypeDef]
+    lastAutomatedDiscoveryTime: NotRequired[datetime]
+    lastUpdated: NotRequired[datetime]
+    objectCount: NotRequired[int]
+    objectCountByEncryptionType: NotRequired[ObjectCountByEncryptionTypeTypeDef]
+    publicAccess: NotRequired[BucketPublicAccessTypeDef]
+    region: NotRequired[str]
+    replicationDetails: NotRequired[ReplicationDetailsTypeDef]
+    sensitivityScore: NotRequired[int]
+    serverSideEncryption: NotRequired[BucketServerSideEncryptionTypeDef]
+    sharedAccess: NotRequired[SharedAccessType]
+    sizeInBytes: NotRequired[int]
+    sizeInBytesCompressed: NotRequired[int]
+    tags: NotRequired[List[KeyValuePairTypeDef]]
+    unclassifiableObjectCount: NotRequired[ObjectLevelStatisticsTypeDef]
+    unclassifiableObjectSizeInBytes: NotRequired[ObjectLevelStatisticsTypeDef]
+    versioning: NotRequired[bool]
+
+class S3BucketTypeDef(TypedDict):
+    allowsUnencryptedObjectUploads: NotRequired[AllowsUnencryptedObjectUploadsType]
+    arn: NotRequired[str]
+    createdAt: NotRequired[datetime]
+    defaultServerSideEncryption: NotRequired[ServerSideEncryptionTypeDef]
+    name: NotRequired[str]
+    owner: NotRequired[S3BucketOwnerTypeDef]
+    publicAccess: NotRequired[BucketPublicAccessTypeDef]
+    tags: NotRequired[List[KeyValuePairTypeDef]]
+
+class CustomDataIdentifiersTypeDef(TypedDict):
+    detections: NotRequired[List[CustomDetectionTypeDef]]
+    totalCount: NotRequired[int]
+
+class SensitiveDataItemTypeDef(TypedDict):
+    category: NotRequired[SensitiveDataItemCategoryType]
+    detections: NotRequired[List[DefaultDetectionTypeDef]]
+    totalCount: NotRequired[int]
+
+class SearchResourcesBucketCriteriaTypeDef(TypedDict):
+    excludes: NotRequired[SearchResourcesCriteriaBlockTypeDef]
+    includes: NotRequired[SearchResourcesCriteriaBlockTypeDef]
+
+class FindingActorTypeDef(TypedDict):
+    domainDetails: NotRequired[DomainDetailsTypeDef]
+    ipAddressDetails: NotRequired[IpAddressDetailsTypeDef]
+    userIdentity: NotRequired[UserIdentityTypeDef]
+
+class S3BucketCriteriaForJobOutputTypeDef(TypedDict):
+    excludes: NotRequired[CriteriaBlockForJobOutputTypeDef]
+    includes: NotRequired[CriteriaBlockForJobOutputTypeDef]
+
+class S3BucketCriteriaForJobTypeDef(TypedDict):
+    excludes: NotRequired[CriteriaBlockForJobTypeDef]
+    includes: NotRequired[CriteriaBlockForJobTypeDef]
+
+class ScopingOutputTypeDef(TypedDict):
+    excludes: NotRequired[JobScopingBlockOutputTypeDef]
+    includes: NotRequired[JobScopingBlockOutputTypeDef]
+
+class ScopingTypeDef(TypedDict):
+    excludes: NotRequired[JobScopingBlockTypeDef]
+    includes: NotRequired[JobScopingBlockTypeDef]
+
+class DescribeBucketsResponseTypeDef(TypedDict):
+    buckets: List[BucketMetadataTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ResourcesAffectedTypeDef(TypedDict):
+    s3Bucket: NotRequired[S3BucketTypeDef]
+    s3Object: NotRequired[S3ObjectTypeDef]
+
+class ClassificationResultTypeDef(TypedDict):
+    additionalOccurrences: NotRequired[bool]
+    customDataIdentifiers: NotRequired[CustomDataIdentifiersTypeDef]
+    mimeType: NotRequired[str]
+    sensitiveData: NotRequired[List[SensitiveDataItemTypeDef]]
+    sizeClassified: NotRequired[int]
+    status: NotRequired[ClassificationResultStatusTypeDef]
+
+class SearchResourcesRequestPaginateTypeDef(TypedDict):
+    bucketCriteria: NotRequired[SearchResourcesBucketCriteriaTypeDef]
+    sortCriteria: NotRequired[SearchResourcesSortCriteriaTypeDef]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class SearchResourcesRequestTypeDef(TypedDict):
+    bucketCriteria: NotRequired[SearchResourcesBucketCriteriaTypeDef]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+    sortCriteria: NotRequired[SearchResourcesSortCriteriaTypeDef]
+
+class PolicyDetailsTypeDef(TypedDict):
+    action: NotRequired[FindingActionTypeDef]
+    actor: NotRequired[FindingActorTypeDef]
+
+class JobSummaryTypeDef(TypedDict):
+    bucketCriteria: NotRequired[S3BucketCriteriaForJobOutputTypeDef]
+    bucketDefinitions: NotRequired[List[S3BucketDefinitionForJobOutputTypeDef]]
+    createdAt: NotRequired[datetime]
+    jobId: NotRequired[str]
+    jobStatus: NotRequired[JobStatusType]
+    jobType: NotRequired[JobTypeType]
+    lastRunErrorStatus: NotRequired[LastRunErrorStatusTypeDef]
+    name: NotRequired[str]
+    userPausedDetails: NotRequired[UserPausedDetailsTypeDef]
+
+class S3JobDefinitionOutputTypeDef(TypedDict):
+    bucketCriteria: NotRequired[S3BucketCriteriaForJobOutputTypeDef]
+    bucketDefinitions: NotRequired[List[S3BucketDefinitionForJobOutputTypeDef]]
+    scoping: NotRequired[ScopingOutputTypeDef]
+
+class S3JobDefinitionTypeDef(TypedDict):
+    bucketCriteria: NotRequired[S3BucketCriteriaForJobTypeDef]
+    bucketDefinitions: NotRequired[Sequence[S3BucketDefinitionForJobTypeDef]]
+    scoping: NotRequired[ScopingTypeDef]
+
+class ClassificationDetailsTypeDef(TypedDict):
+    detailedResultsLocation: NotRequired[str]
+    jobArn: NotRequired[str]
+    jobId: NotRequired[str]
+    originType: NotRequired[OriginTypeType]
+    result: NotRequired[ClassificationResultTypeDef]
+
+class ListClassificationJobsResponseTypeDef(TypedDict):
+    items: List[JobSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class DescribeClassificationJobResponseTypeDef(TypedDict):
+    allowListIds: List[str]
+    clientToken: str
+    createdAt: datetime
+    customDataIdentifierIds: List[str]
+    description: str
+    initialRun: bool
+    jobArn: str
+    jobId: str
+    jobStatus: JobStatusType
+    jobType: JobTypeType
+    lastRunErrorStatus: LastRunErrorStatusTypeDef
+    lastRunTime: datetime
+    managedDataIdentifierIds: List[str]
+    managedDataIdentifierSelector: ManagedDataIdentifierSelectorType
+    name: str
+    s3JobDefinition: S3JobDefinitionOutputTypeDef
+    samplingPercentage: int
+    scheduleFrequency: JobScheduleFrequencyOutputTypeDef
+    statistics: StatisticsTypeDef
+    tags: Dict[str, str]
+    userPausedDetails: UserPausedDetailsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+S3JobDefinitionUnionTypeDef = Union[S3JobDefinitionTypeDef, S3JobDefinitionOutputTypeDef]
+FindingTypeDef = TypedDict(
+    "FindingTypeDef",
     {
-        "jobExpiresAt": datetime,
-        "jobImminentExpirationHealthEventArn": str,
-        "jobPausedAt": datetime,
+        "accountId": NotRequired[str],
+        "archived": NotRequired[bool],
+        "category": NotRequired[FindingCategoryType],
+        "classificationDetails": NotRequired[ClassificationDetailsTypeDef],
+        "count": NotRequired[int],
+        "createdAt": NotRequired[datetime],
+        "description": NotRequired[str],
+        "id": NotRequired[str],
+        "partition": NotRequired[str],
+        "policyDetails": NotRequired[PolicyDetailsTypeDef],
+        "region": NotRequired[str],
+        "resourcesAffected": NotRequired[ResourcesAffectedTypeDef],
+        "sample": NotRequired[bool],
+        "schemaVersion": NotRequired[str],
+        "severity": NotRequired[SeverityTypeDef],
+        "title": NotRequired[str],
+        "type": NotRequired[FindingTypeType],
+        "updatedAt": NotRequired[datetime],
     },
-    total=False,
 )
 
-WaiterConfigTypeDef = TypedDict(
-    "WaiterConfigTypeDef",
-    {
-        "Delay": int,
-        "MaxAttempts": int,
-    },
-    total=False,
-)
+class CreateClassificationJobRequestTypeDef(TypedDict):
+    clientToken: str
+    jobType: JobTypeType
+    name: str
+    s3JobDefinition: S3JobDefinitionUnionTypeDef
+    allowListIds: NotRequired[Sequence[str]]
+    customDataIdentifierIds: NotRequired[Sequence[str]]
+    description: NotRequired[str]
+    initialRun: NotRequired[bool]
+    managedDataIdentifierIds: NotRequired[Sequence[str]]
+    managedDataIdentifierSelector: NotRequired[ManagedDataIdentifierSelectorType]
+    samplingPercentage: NotRequired[int]
+    scheduleFrequency: NotRequired[JobScheduleFrequencyUnionTypeDef]
+    tags: NotRequired[Mapping[str, str]]
 
-WeeklyScheduleTypeDef = TypedDict(
-    "WeeklyScheduleTypeDef",
-    {
-        "dayOfWeek": DayOfWeekType,
-    },
-    total=False,
-)
+class GetFindingsResponseTypeDef(TypedDict):
+    findings: List[FindingTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef

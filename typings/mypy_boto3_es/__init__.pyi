@@ -1,10 +1,14 @@
 """
 Main interface for es service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_es/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_es import (
         Client,
         DescribeReservedElasticsearchInstanceOfferingsPaginator,
@@ -15,10 +19,8 @@ Usage::
         ListElasticsearchVersionsPaginator,
     )
 
-    session = boto3.Session()
-
-    client: ElasticsearchServiceClient = boto3.client("es")
-    session_client: ElasticsearchServiceClient = session.client("es")
+    session = Session()
+    client: ElasticsearchServiceClient = session.client("es")
 
     describe_reserved_elasticsearch_instance_offerings_paginator: DescribeReservedElasticsearchInstanceOfferingsPaginator = client.get_paginator("describe_reserved_elasticsearch_instance_offerings")
     describe_reserved_elasticsearch_instances_paginator: DescribeReservedElasticsearchInstancesPaginator = client.get_paginator("describe_reserved_elasticsearch_instances")

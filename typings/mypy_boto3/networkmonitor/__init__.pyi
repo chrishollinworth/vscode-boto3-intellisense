@@ -1,20 +1,22 @@
 """
 Main interface for networkmonitor service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_networkmonitor/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_networkmonitor import (
         Client,
         CloudWatchNetworkMonitorClient,
         ListMonitorsPaginator,
     )
 
-    session = boto3.Session()
-
-    client: CloudWatchNetworkMonitorClient = boto3.client("networkmonitor")
-    session_client: CloudWatchNetworkMonitorClient = session.client("networkmonitor")
+    session = Session()
+    client: CloudWatchNetworkMonitorClient = session.client("networkmonitor")
 
     list_monitors_paginator: ListMonitorsPaginator = client.get_paginator("list_monitors")
     ```

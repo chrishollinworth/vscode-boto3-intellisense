@@ -1,10 +1,14 @@
 """
 Main interface for appintegrations service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_appintegrations import (
         AppIntegrationsServiceClient,
         Client,
@@ -16,10 +20,8 @@ Usage::
         ListEventIntegrationsPaginator,
     )
 
-    session = boto3.Session()
-
-    client: AppIntegrationsServiceClient = boto3.client("appintegrations")
-    session_client: AppIntegrationsServiceClient = session.client("appintegrations")
+    session = Session()
+    client: AppIntegrationsServiceClient = session.client("appintegrations")
 
     list_application_associations_paginator: ListApplicationAssociationsPaginator = client.get_paginator("list_application_associations")
     list_applications_paginator: ListApplicationsPaginator = client.get_paginator("list_applications")

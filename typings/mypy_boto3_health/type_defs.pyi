@@ -1,64 +1,78 @@
 """
 Type annotations for health service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_health/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_health/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_health.type_defs import AccountEntityAggregateTypeDef
 
-    data: AccountEntityAggregateTypeDef = {...}
+    data: AccountEntityAggregateTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List, Union
+from typing import Union
 
 from .literals import (
-    entityStatusCodeType,
-    eventScopeCodeType,
-    eventStatusCodeType,
-    eventTypeCategoryType,
+    EntityStatusCodeType,
+    EventScopeCodeType,
+    EventStatusCodeType,
+    EventTypeCategoryType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
     "AccountEntityAggregateTypeDef",
     "AffectedEntityTypeDef",
     "DateTimeRangeTypeDef",
-    "DescribeAffectedAccountsForOrganizationRequestRequestTypeDef",
+    "DescribeAffectedAccountsForOrganizationRequestPaginateTypeDef",
+    "DescribeAffectedAccountsForOrganizationRequestTypeDef",
     "DescribeAffectedAccountsForOrganizationResponseTypeDef",
-    "DescribeAffectedEntitiesForOrganizationRequestRequestTypeDef",
+    "DescribeAffectedEntitiesForOrganizationRequestPaginateTypeDef",
+    "DescribeAffectedEntitiesForOrganizationRequestTypeDef",
     "DescribeAffectedEntitiesForOrganizationResponseTypeDef",
-    "DescribeAffectedEntitiesRequestRequestTypeDef",
+    "DescribeAffectedEntitiesRequestPaginateTypeDef",
+    "DescribeAffectedEntitiesRequestTypeDef",
     "DescribeAffectedEntitiesResponseTypeDef",
-    "DescribeEntityAggregatesForOrganizationRequestRequestTypeDef",
+    "DescribeEntityAggregatesForOrganizationRequestTypeDef",
     "DescribeEntityAggregatesForOrganizationResponseTypeDef",
-    "DescribeEntityAggregatesRequestRequestTypeDef",
+    "DescribeEntityAggregatesRequestTypeDef",
     "DescribeEntityAggregatesResponseTypeDef",
-    "DescribeEventAggregatesRequestRequestTypeDef",
+    "DescribeEventAggregatesRequestPaginateTypeDef",
+    "DescribeEventAggregatesRequestTypeDef",
     "DescribeEventAggregatesResponseTypeDef",
-    "DescribeEventDetailsForOrganizationRequestRequestTypeDef",
+    "DescribeEventDetailsForOrganizationRequestTypeDef",
     "DescribeEventDetailsForOrganizationResponseTypeDef",
-    "DescribeEventDetailsRequestRequestTypeDef",
+    "DescribeEventDetailsRequestTypeDef",
     "DescribeEventDetailsResponseTypeDef",
-    "DescribeEventTypesRequestRequestTypeDef",
+    "DescribeEventTypesRequestPaginateTypeDef",
+    "DescribeEventTypesRequestTypeDef",
     "DescribeEventTypesResponseTypeDef",
-    "DescribeEventsForOrganizationRequestRequestTypeDef",
+    "DescribeEventsForOrganizationRequestPaginateTypeDef",
+    "DescribeEventsForOrganizationRequestTypeDef",
     "DescribeEventsForOrganizationResponseTypeDef",
-    "DescribeEventsRequestRequestTypeDef",
+    "DescribeEventsRequestPaginateTypeDef",
+    "DescribeEventsRequestTypeDef",
     "DescribeEventsResponseTypeDef",
     "DescribeHealthServiceStatusForOrganizationResponseTypeDef",
+    "EmptyResponseMetadataTypeDef",
     "EntityAccountFilterTypeDef",
     "EntityAggregateTypeDef",
     "EntityFilterTypeDef",
@@ -79,588 +93,355 @@ __all__ = (
     "OrganizationEventTypeDef",
     "PaginatorConfigTypeDef",
     "ResponseMetadataTypeDef",
+    "TimestampTypeDef",
 )
 
-AccountEntityAggregateTypeDef = TypedDict(
-    "AccountEntityAggregateTypeDef",
-    {
-        "accountId": str,
-        "count": int,
-        "statuses": Dict[entityStatusCodeType, int],
-    },
-    total=False,
-)
+class AccountEntityAggregateTypeDef(TypedDict):
+    accountId: NotRequired[str]
+    count: NotRequired[int]
+    statuses: NotRequired[Dict[EntityStatusCodeType, int]]
 
-AffectedEntityTypeDef = TypedDict(
-    "AffectedEntityTypeDef",
-    {
-        "entityArn": str,
-        "eventArn": str,
-        "entityValue": str,
-        "entityUrl": str,
-        "awsAccountId": str,
-        "lastUpdatedTime": datetime,
-        "statusCode": entityStatusCodeType,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
+class AffectedEntityTypeDef(TypedDict):
+    entityArn: NotRequired[str]
+    eventArn: NotRequired[str]
+    entityValue: NotRequired[str]
+    entityUrl: NotRequired[str]
+    awsAccountId: NotRequired[str]
+    lastUpdatedTime: NotRequired[datetime]
+    statusCode: NotRequired[EntityStatusCodeType]
+    tags: NotRequired[Dict[str, str]]
+    entityMetadata: NotRequired[Dict[str, str]]
+
+TimestampTypeDef = Union[datetime, str]
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class DescribeAffectedAccountsForOrganizationRequestTypeDef(TypedDict):
+    eventArn: str
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
+
+class EntityAccountFilterTypeDef(TypedDict):
+    eventArn: str
+    awsAccountId: NotRequired[str]
+    statusCodes: NotRequired[Sequence[EntityStatusCodeType]]
+
+class EventAccountFilterTypeDef(TypedDict):
+    eventArn: str
+    awsAccountId: NotRequired[str]
+
+class OrganizationAffectedEntitiesErrorItemTypeDef(TypedDict):
+    awsAccountId: NotRequired[str]
+    eventArn: NotRequired[str]
+    errorName: NotRequired[str]
+    errorMessage: NotRequired[str]
+
+class DescribeEntityAggregatesForOrganizationRequestTypeDef(TypedDict):
+    eventArns: Sequence[str]
+    awsAccountIds: NotRequired[Sequence[str]]
+
+class DescribeEntityAggregatesRequestTypeDef(TypedDict):
+    eventArns: NotRequired[Sequence[str]]
+
+class EntityAggregateTypeDef(TypedDict):
+    eventArn: NotRequired[str]
+    count: NotRequired[int]
+    statuses: NotRequired[Dict[EntityStatusCodeType, int]]
+
+class EventAggregateTypeDef(TypedDict):
+    aggregateValue: NotRequired[str]
+    count: NotRequired[int]
+
+class OrganizationEventDetailsErrorItemTypeDef(TypedDict):
+    awsAccountId: NotRequired[str]
+    eventArn: NotRequired[str]
+    errorName: NotRequired[str]
+    errorMessage: NotRequired[str]
+
+class DescribeEventDetailsRequestTypeDef(TypedDict):
+    eventArns: Sequence[str]
+    locale: NotRequired[str]
+
+class EventDetailsErrorItemTypeDef(TypedDict):
+    eventArn: NotRequired[str]
+    errorName: NotRequired[str]
+    errorMessage: NotRequired[str]
+
+class EventTypeFilterTypeDef(TypedDict):
+    eventTypeCodes: NotRequired[Sequence[str]]
+    services: NotRequired[Sequence[str]]
+    eventTypeCategories: NotRequired[Sequence[EventTypeCategoryType]]
+
+class EventTypeTypeDef(TypedDict):
+    service: NotRequired[str]
+    code: NotRequired[str]
+    category: NotRequired[EventTypeCategoryType]
+
+class OrganizationEventTypeDef(TypedDict):
+    arn: NotRequired[str]
+    service: NotRequired[str]
+    eventTypeCode: NotRequired[str]
+    eventTypeCategory: NotRequired[EventTypeCategoryType]
+    eventScopeCode: NotRequired[EventScopeCodeType]
+    region: NotRequired[str]
+    startTime: NotRequired[datetime]
+    endTime: NotRequired[datetime]
+    lastUpdatedTime: NotRequired[datetime]
+    statusCode: NotRequired[EventStatusCodeType]
+
+class EventTypeDef(TypedDict):
+    arn: NotRequired[str]
+    service: NotRequired[str]
+    eventTypeCode: NotRequired[str]
+    eventTypeCategory: NotRequired[EventTypeCategoryType]
+    region: NotRequired[str]
+    availabilityZone: NotRequired[str]
+    startTime: NotRequired[datetime]
+    endTime: NotRequired[datetime]
+    lastUpdatedTime: NotRequired[datetime]
+    statusCode: NotRequired[EventStatusCodeType]
+    eventScopeCode: NotRequired[EventScopeCodeType]
+
+class EventDescriptionTypeDef(TypedDict):
+    latestDescription: NotRequired[str]
+
+class OrganizationEntityAggregateTypeDef(TypedDict):
+    eventArn: NotRequired[str]
+    count: NotRequired[int]
+    statuses: NotRequired[Dict[EntityStatusCodeType, int]]
+    accounts: NotRequired[List[AccountEntityAggregateTypeDef]]
 
 DateTimeRangeTypeDef = TypedDict(
     "DateTimeRangeTypeDef",
     {
-        "from": Union[datetime, str],
-        "to": Union[datetime, str],
+        "from": NotRequired[TimestampTypeDef],
+        "to": NotRequired[TimestampTypeDef],
     },
-    total=False,
 )
 
-_RequiredDescribeAffectedAccountsForOrganizationRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeAffectedAccountsForOrganizationRequestRequestTypeDef",
+class DescribeAffectedAccountsForOrganizationRequestPaginateTypeDef(TypedDict):
+    eventArn: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeAffectedAccountsForOrganizationResponseTypeDef(TypedDict):
+    affectedAccounts: List[str]
+    eventScopeCode: EventScopeCodeType
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class DescribeAffectedEntitiesResponseTypeDef(TypedDict):
+    entities: List[AffectedEntityTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class DescribeHealthServiceStatusForOrganizationResponseTypeDef(TypedDict):
+    healthServiceAccessStatusForOrganization: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class EmptyResponseMetadataTypeDef(TypedDict):
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeAffectedEntitiesForOrganizationRequestPaginateTypeDef(TypedDict):
+    organizationEntityFilters: NotRequired[Sequence[EventAccountFilterTypeDef]]
+    locale: NotRequired[str]
+    organizationEntityAccountFilters: NotRequired[Sequence[EntityAccountFilterTypeDef]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeAffectedEntitiesForOrganizationRequestTypeDef(TypedDict):
+    organizationEntityFilters: NotRequired[Sequence[EventAccountFilterTypeDef]]
+    locale: NotRequired[str]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+    organizationEntityAccountFilters: NotRequired[Sequence[EntityAccountFilterTypeDef]]
+
+class DescribeEventDetailsForOrganizationRequestTypeDef(TypedDict):
+    organizationEventDetailFilters: Sequence[EventAccountFilterTypeDef]
+    locale: NotRequired[str]
+
+class DescribeAffectedEntitiesForOrganizationResponseTypeDef(TypedDict):
+    entities: List[AffectedEntityTypeDef]
+    failedSet: List[OrganizationAffectedEntitiesErrorItemTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class DescribeEntityAggregatesResponseTypeDef(TypedDict):
+    entityAggregates: List[EntityAggregateTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeEventAggregatesResponseTypeDef(TypedDict):
+    eventAggregates: List[EventAggregateTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+DescribeEventTypesRequestPaginateTypeDef = TypedDict(
+    "DescribeEventTypesRequestPaginateTypeDef",
     {
-        "eventArn": str,
+        "filter": NotRequired[EventTypeFilterTypeDef],
+        "locale": NotRequired[str],
+        "PaginationConfig": NotRequired[PaginatorConfigTypeDef],
     },
 )
-_OptionalDescribeAffectedAccountsForOrganizationRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeAffectedAccountsForOrganizationRequestRequestTypeDef",
+DescribeEventTypesRequestTypeDef = TypedDict(
+    "DescribeEventTypesRequestTypeDef",
     {
-        "nextToken": str,
-        "maxResults": int,
+        "filter": NotRequired[EventTypeFilterTypeDef],
+        "locale": NotRequired[str],
+        "nextToken": NotRequired[str],
+        "maxResults": NotRequired[int],
     },
-    total=False,
 )
 
-class DescribeAffectedAccountsForOrganizationRequestRequestTypeDef(
-    _RequiredDescribeAffectedAccountsForOrganizationRequestRequestTypeDef,
-    _OptionalDescribeAffectedAccountsForOrganizationRequestRequestTypeDef,
-):
-    pass
+class DescribeEventTypesResponseTypeDef(TypedDict):
+    eventTypes: List[EventTypeTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-DescribeAffectedAccountsForOrganizationResponseTypeDef = TypedDict(
-    "DescribeAffectedAccountsForOrganizationResponseTypeDef",
+class DescribeEventsForOrganizationResponseTypeDef(TypedDict):
+    events: List[OrganizationEventTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class DescribeEventsResponseTypeDef(TypedDict):
+    events: List[EventTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class EventDetailsTypeDef(TypedDict):
+    event: NotRequired[EventTypeDef]
+    eventDescription: NotRequired[EventDescriptionTypeDef]
+    eventMetadata: NotRequired[Dict[str, str]]
+
+class OrganizationEventDetailsTypeDef(TypedDict):
+    awsAccountId: NotRequired[str]
+    event: NotRequired[EventTypeDef]
+    eventDescription: NotRequired[EventDescriptionTypeDef]
+    eventMetadata: NotRequired[Dict[str, str]]
+
+class DescribeEntityAggregatesForOrganizationResponseTypeDef(TypedDict):
+    organizationEntityAggregates: List[OrganizationEntityAggregateTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class EntityFilterTypeDef(TypedDict):
+    eventArns: Sequence[str]
+    entityArns: NotRequired[Sequence[str]]
+    entityValues: NotRequired[Sequence[str]]
+    lastUpdatedTimes: NotRequired[Sequence[DateTimeRangeTypeDef]]
+    tags: NotRequired[Sequence[Mapping[str, str]]]
+    statusCodes: NotRequired[Sequence[EntityStatusCodeType]]
+
+class EventFilterTypeDef(TypedDict):
+    eventArns: NotRequired[Sequence[str]]
+    eventTypeCodes: NotRequired[Sequence[str]]
+    services: NotRequired[Sequence[str]]
+    regions: NotRequired[Sequence[str]]
+    availabilityZones: NotRequired[Sequence[str]]
+    startTimes: NotRequired[Sequence[DateTimeRangeTypeDef]]
+    endTimes: NotRequired[Sequence[DateTimeRangeTypeDef]]
+    lastUpdatedTimes: NotRequired[Sequence[DateTimeRangeTypeDef]]
+    entityArns: NotRequired[Sequence[str]]
+    entityValues: NotRequired[Sequence[str]]
+    eventTypeCategories: NotRequired[Sequence[EventTypeCategoryType]]
+    tags: NotRequired[Sequence[Mapping[str, str]]]
+    eventStatusCodes: NotRequired[Sequence[EventStatusCodeType]]
+
+class OrganizationEventFilterTypeDef(TypedDict):
+    eventTypeCodes: NotRequired[Sequence[str]]
+    awsAccountIds: NotRequired[Sequence[str]]
+    services: NotRequired[Sequence[str]]
+    regions: NotRequired[Sequence[str]]
+    startTime: NotRequired[DateTimeRangeTypeDef]
+    endTime: NotRequired[DateTimeRangeTypeDef]
+    lastUpdatedTime: NotRequired[DateTimeRangeTypeDef]
+    entityArns: NotRequired[Sequence[str]]
+    entityValues: NotRequired[Sequence[str]]
+    eventTypeCategories: NotRequired[Sequence[EventTypeCategoryType]]
+    eventStatusCodes: NotRequired[Sequence[EventStatusCodeType]]
+
+class DescribeEventDetailsResponseTypeDef(TypedDict):
+    successfulSet: List[EventDetailsTypeDef]
+    failedSet: List[EventDetailsErrorItemTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeEventDetailsForOrganizationResponseTypeDef(TypedDict):
+    successfulSet: List[OrganizationEventDetailsTypeDef]
+    failedSet: List[OrganizationEventDetailsErrorItemTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+DescribeAffectedEntitiesRequestPaginateTypeDef = TypedDict(
+    "DescribeAffectedEntitiesRequestPaginateTypeDef",
     {
-        "affectedAccounts": List[str],
-        "eventScopeCode": eventScopeCodeType,
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "filter": EntityFilterTypeDef,
+        "locale": NotRequired[str],
+        "PaginationConfig": NotRequired[PaginatorConfigTypeDef],
     },
 )
-
-DescribeAffectedEntitiesForOrganizationRequestRequestTypeDef = TypedDict(
-    "DescribeAffectedEntitiesForOrganizationRequestRequestTypeDef",
+DescribeAffectedEntitiesRequestTypeDef = TypedDict(
+    "DescribeAffectedEntitiesRequestTypeDef",
     {
-        "organizationEntityFilters": List["EventAccountFilterTypeDef"],
-        "locale": str,
-        "nextToken": str,
-        "maxResults": int,
-        "organizationEntityAccountFilters": List["EntityAccountFilterTypeDef"],
-    },
-    total=False,
-)
-
-DescribeAffectedEntitiesForOrganizationResponseTypeDef = TypedDict(
-    "DescribeAffectedEntitiesForOrganizationResponseTypeDef",
-    {
-        "entities": List["AffectedEntityTypeDef"],
-        "failedSet": List["OrganizationAffectedEntitiesErrorItemTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "filter": EntityFilterTypeDef,
+        "locale": NotRequired[str],
+        "nextToken": NotRequired[str],
+        "maxResults": NotRequired[int],
     },
 )
-
-_RequiredDescribeAffectedEntitiesRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeAffectedEntitiesRequestRequestTypeDef",
-    {
-        "filter": "EntityFilterTypeDef",
-    },
-)
-_OptionalDescribeAffectedEntitiesRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeAffectedEntitiesRequestRequestTypeDef",
-    {
-        "locale": str,
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-class DescribeAffectedEntitiesRequestRequestTypeDef(
-    _RequiredDescribeAffectedEntitiesRequestRequestTypeDef,
-    _OptionalDescribeAffectedEntitiesRequestRequestTypeDef,
-):
-    pass
-
-DescribeAffectedEntitiesResponseTypeDef = TypedDict(
-    "DescribeAffectedEntitiesResponseTypeDef",
-    {
-        "entities": List["AffectedEntityTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribeEntityAggregatesForOrganizationRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeEntityAggregatesForOrganizationRequestRequestTypeDef",
-    {
-        "eventArns": List[str],
-    },
-)
-_OptionalDescribeEntityAggregatesForOrganizationRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeEntityAggregatesForOrganizationRequestRequestTypeDef",
-    {
-        "awsAccountIds": List[str],
-    },
-    total=False,
-)
-
-class DescribeEntityAggregatesForOrganizationRequestRequestTypeDef(
-    _RequiredDescribeEntityAggregatesForOrganizationRequestRequestTypeDef,
-    _OptionalDescribeEntityAggregatesForOrganizationRequestRequestTypeDef,
-):
-    pass
-
-DescribeEntityAggregatesForOrganizationResponseTypeDef = TypedDict(
-    "DescribeEntityAggregatesForOrganizationResponseTypeDef",
-    {
-        "organizationEntityAggregates": List["OrganizationEntityAggregateTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeEntityAggregatesRequestRequestTypeDef = TypedDict(
-    "DescribeEntityAggregatesRequestRequestTypeDef",
-    {
-        "eventArns": List[str],
-    },
-    total=False,
-)
-
-DescribeEntityAggregatesResponseTypeDef = TypedDict(
-    "DescribeEntityAggregatesResponseTypeDef",
-    {
-        "entityAggregates": List["EntityAggregateTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribeEventAggregatesRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeEventAggregatesRequestRequestTypeDef",
+DescribeEventAggregatesRequestPaginateTypeDef = TypedDict(
+    "DescribeEventAggregatesRequestPaginateTypeDef",
     {
         "aggregateField": Literal["eventTypeCategory"],
+        "filter": NotRequired[EventFilterTypeDef],
+        "PaginationConfig": NotRequired[PaginatorConfigTypeDef],
     },
 )
-_OptionalDescribeEventAggregatesRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeEventAggregatesRequestRequestTypeDef",
+DescribeEventAggregatesRequestTypeDef = TypedDict(
+    "DescribeEventAggregatesRequestTypeDef",
     {
-        "filter": "EventFilterTypeDef",
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class DescribeEventAggregatesRequestRequestTypeDef(
-    _RequiredDescribeEventAggregatesRequestRequestTypeDef,
-    _OptionalDescribeEventAggregatesRequestRequestTypeDef,
-):
-    pass
-
-DescribeEventAggregatesResponseTypeDef = TypedDict(
-    "DescribeEventAggregatesResponseTypeDef",
-    {
-        "eventAggregates": List["EventAggregateTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "aggregateField": Literal["eventTypeCategory"],
+        "filter": NotRequired[EventFilterTypeDef],
+        "maxResults": NotRequired[int],
+        "nextToken": NotRequired[str],
     },
 )
-
-_RequiredDescribeEventDetailsForOrganizationRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeEventDetailsForOrganizationRequestRequestTypeDef",
+DescribeEventsRequestPaginateTypeDef = TypedDict(
+    "DescribeEventsRequestPaginateTypeDef",
     {
-        "organizationEventDetailFilters": List["EventAccountFilterTypeDef"],
+        "filter": NotRequired[EventFilterTypeDef],
+        "locale": NotRequired[str],
+        "PaginationConfig": NotRequired[PaginatorConfigTypeDef],
     },
 )
-_OptionalDescribeEventDetailsForOrganizationRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeEventDetailsForOrganizationRequestRequestTypeDef",
+DescribeEventsRequestTypeDef = TypedDict(
+    "DescribeEventsRequestTypeDef",
     {
-        "locale": str,
-    },
-    total=False,
-)
-
-class DescribeEventDetailsForOrganizationRequestRequestTypeDef(
-    _RequiredDescribeEventDetailsForOrganizationRequestRequestTypeDef,
-    _OptionalDescribeEventDetailsForOrganizationRequestRequestTypeDef,
-):
-    pass
-
-DescribeEventDetailsForOrganizationResponseTypeDef = TypedDict(
-    "DescribeEventDetailsForOrganizationResponseTypeDef",
-    {
-        "successfulSet": List["OrganizationEventDetailsTypeDef"],
-        "failedSet": List["OrganizationEventDetailsErrorItemTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "filter": NotRequired[EventFilterTypeDef],
+        "nextToken": NotRequired[str],
+        "maxResults": NotRequired[int],
+        "locale": NotRequired[str],
     },
 )
-
-_RequiredDescribeEventDetailsRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeEventDetailsRequestRequestTypeDef",
+DescribeEventsForOrganizationRequestPaginateTypeDef = TypedDict(
+    "DescribeEventsForOrganizationRequestPaginateTypeDef",
     {
-        "eventArns": List[str],
+        "filter": NotRequired[OrganizationEventFilterTypeDef],
+        "locale": NotRequired[str],
+        "PaginationConfig": NotRequired[PaginatorConfigTypeDef],
     },
 )
-_OptionalDescribeEventDetailsRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeEventDetailsRequestRequestTypeDef",
+DescribeEventsForOrganizationRequestTypeDef = TypedDict(
+    "DescribeEventsForOrganizationRequestTypeDef",
     {
-        "locale": str,
-    },
-    total=False,
-)
-
-class DescribeEventDetailsRequestRequestTypeDef(
-    _RequiredDescribeEventDetailsRequestRequestTypeDef,
-    _OptionalDescribeEventDetailsRequestRequestTypeDef,
-):
-    pass
-
-DescribeEventDetailsResponseTypeDef = TypedDict(
-    "DescribeEventDetailsResponseTypeDef",
-    {
-        "successfulSet": List["EventDetailsTypeDef"],
-        "failedSet": List["EventDetailsErrorItemTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeEventTypesRequestRequestTypeDef = TypedDict(
-    "DescribeEventTypesRequestRequestTypeDef",
-    {
-        "filter": "EventTypeFilterTypeDef",
-        "locale": str,
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-DescribeEventTypesResponseTypeDef = TypedDict(
-    "DescribeEventTypesResponseTypeDef",
-    {
-        "eventTypes": List["EventTypeTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeEventsForOrganizationRequestRequestTypeDef = TypedDict(
-    "DescribeEventsForOrganizationRequestRequestTypeDef",
-    {
-        "filter": "OrganizationEventFilterTypeDef",
-        "nextToken": str,
-        "maxResults": int,
-        "locale": str,
-    },
-    total=False,
-)
-
-DescribeEventsForOrganizationResponseTypeDef = TypedDict(
-    "DescribeEventsForOrganizationResponseTypeDef",
-    {
-        "events": List["OrganizationEventTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeEventsRequestRequestTypeDef = TypedDict(
-    "DescribeEventsRequestRequestTypeDef",
-    {
-        "filter": "EventFilterTypeDef",
-        "nextToken": str,
-        "maxResults": int,
-        "locale": str,
-    },
-    total=False,
-)
-
-DescribeEventsResponseTypeDef = TypedDict(
-    "DescribeEventsResponseTypeDef",
-    {
-        "events": List["EventTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeHealthServiceStatusForOrganizationResponseTypeDef = TypedDict(
-    "DescribeHealthServiceStatusForOrganizationResponseTypeDef",
-    {
-        "healthServiceAccessStatusForOrganization": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredEntityAccountFilterTypeDef = TypedDict(
-    "_RequiredEntityAccountFilterTypeDef",
-    {
-        "eventArn": str,
-    },
-)
-_OptionalEntityAccountFilterTypeDef = TypedDict(
-    "_OptionalEntityAccountFilterTypeDef",
-    {
-        "awsAccountId": str,
-        "statusCodes": List[entityStatusCodeType],
-    },
-    total=False,
-)
-
-class EntityAccountFilterTypeDef(
-    _RequiredEntityAccountFilterTypeDef, _OptionalEntityAccountFilterTypeDef
-):
-    pass
-
-EntityAggregateTypeDef = TypedDict(
-    "EntityAggregateTypeDef",
-    {
-        "eventArn": str,
-        "count": int,
-        "statuses": Dict[entityStatusCodeType, int],
-    },
-    total=False,
-)
-
-_RequiredEntityFilterTypeDef = TypedDict(
-    "_RequiredEntityFilterTypeDef",
-    {
-        "eventArns": List[str],
-    },
-)
-_OptionalEntityFilterTypeDef = TypedDict(
-    "_OptionalEntityFilterTypeDef",
-    {
-        "entityArns": List[str],
-        "entityValues": List[str],
-        "lastUpdatedTimes": List["DateTimeRangeTypeDef"],
-        "tags": List[Dict[str, str]],
-        "statusCodes": List[entityStatusCodeType],
-    },
-    total=False,
-)
-
-class EntityFilterTypeDef(_RequiredEntityFilterTypeDef, _OptionalEntityFilterTypeDef):
-    pass
-
-_RequiredEventAccountFilterTypeDef = TypedDict(
-    "_RequiredEventAccountFilterTypeDef",
-    {
-        "eventArn": str,
-    },
-)
-_OptionalEventAccountFilterTypeDef = TypedDict(
-    "_OptionalEventAccountFilterTypeDef",
-    {
-        "awsAccountId": str,
-    },
-    total=False,
-)
-
-class EventAccountFilterTypeDef(
-    _RequiredEventAccountFilterTypeDef, _OptionalEventAccountFilterTypeDef
-):
-    pass
-
-EventAggregateTypeDef = TypedDict(
-    "EventAggregateTypeDef",
-    {
-        "aggregateValue": str,
-        "count": int,
-    },
-    total=False,
-)
-
-EventDescriptionTypeDef = TypedDict(
-    "EventDescriptionTypeDef",
-    {
-        "latestDescription": str,
-    },
-    total=False,
-)
-
-EventDetailsErrorItemTypeDef = TypedDict(
-    "EventDetailsErrorItemTypeDef",
-    {
-        "eventArn": str,
-        "errorName": str,
-        "errorMessage": str,
-    },
-    total=False,
-)
-
-EventDetailsTypeDef = TypedDict(
-    "EventDetailsTypeDef",
-    {
-        "event": "EventTypeDef",
-        "eventDescription": "EventDescriptionTypeDef",
-        "eventMetadata": Dict[str, str],
-    },
-    total=False,
-)
-
-EventFilterTypeDef = TypedDict(
-    "EventFilterTypeDef",
-    {
-        "eventArns": List[str],
-        "eventTypeCodes": List[str],
-        "services": List[str],
-        "regions": List[str],
-        "availabilityZones": List[str],
-        "startTimes": List["DateTimeRangeTypeDef"],
-        "endTimes": List["DateTimeRangeTypeDef"],
-        "lastUpdatedTimes": List["DateTimeRangeTypeDef"],
-        "entityArns": List[str],
-        "entityValues": List[str],
-        "eventTypeCategories": List[eventTypeCategoryType],
-        "tags": List[Dict[str, str]],
-        "eventStatusCodes": List[eventStatusCodeType],
-    },
-    total=False,
-)
-
-EventTypeDef = TypedDict(
-    "EventTypeDef",
-    {
-        "arn": str,
-        "service": str,
-        "eventTypeCode": str,
-        "eventTypeCategory": eventTypeCategoryType,
-        "region": str,
-        "availabilityZone": str,
-        "startTime": datetime,
-        "endTime": datetime,
-        "lastUpdatedTime": datetime,
-        "statusCode": eventStatusCodeType,
-        "eventScopeCode": eventScopeCodeType,
-    },
-    total=False,
-)
-
-EventTypeFilterTypeDef = TypedDict(
-    "EventTypeFilterTypeDef",
-    {
-        "eventTypeCodes": List[str],
-        "services": List[str],
-        "eventTypeCategories": List[eventTypeCategoryType],
-    },
-    total=False,
-)
-
-EventTypeTypeDef = TypedDict(
-    "EventTypeTypeDef",
-    {
-        "service": str,
-        "code": str,
-        "category": eventTypeCategoryType,
-    },
-    total=False,
-)
-
-OrganizationAffectedEntitiesErrorItemTypeDef = TypedDict(
-    "OrganizationAffectedEntitiesErrorItemTypeDef",
-    {
-        "awsAccountId": str,
-        "eventArn": str,
-        "errorName": str,
-        "errorMessage": str,
-    },
-    total=False,
-)
-
-OrganizationEntityAggregateTypeDef = TypedDict(
-    "OrganizationEntityAggregateTypeDef",
-    {
-        "eventArn": str,
-        "count": int,
-        "statuses": Dict[entityStatusCodeType, int],
-        "accounts": List["AccountEntityAggregateTypeDef"],
-    },
-    total=False,
-)
-
-OrganizationEventDetailsErrorItemTypeDef = TypedDict(
-    "OrganizationEventDetailsErrorItemTypeDef",
-    {
-        "awsAccountId": str,
-        "eventArn": str,
-        "errorName": str,
-        "errorMessage": str,
-    },
-    total=False,
-)
-
-OrganizationEventDetailsTypeDef = TypedDict(
-    "OrganizationEventDetailsTypeDef",
-    {
-        "awsAccountId": str,
-        "event": "EventTypeDef",
-        "eventDescription": "EventDescriptionTypeDef",
-        "eventMetadata": Dict[str, str],
-    },
-    total=False,
-)
-
-OrganizationEventFilterTypeDef = TypedDict(
-    "OrganizationEventFilterTypeDef",
-    {
-        "eventTypeCodes": List[str],
-        "awsAccountIds": List[str],
-        "services": List[str],
-        "regions": List[str],
-        "startTime": "DateTimeRangeTypeDef",
-        "endTime": "DateTimeRangeTypeDef",
-        "lastUpdatedTime": "DateTimeRangeTypeDef",
-        "entityArns": List[str],
-        "entityValues": List[str],
-        "eventTypeCategories": List[eventTypeCategoryType],
-        "eventStatusCodes": List[eventStatusCodeType],
-    },
-    total=False,
-)
-
-OrganizationEventTypeDef = TypedDict(
-    "OrganizationEventTypeDef",
-    {
-        "arn": str,
-        "service": str,
-        "eventTypeCode": str,
-        "eventTypeCategory": eventTypeCategoryType,
-        "eventScopeCode": eventScopeCodeType,
-        "region": str,
-        "startTime": datetime,
-        "endTime": datetime,
-        "lastUpdatedTime": datetime,
-        "statusCode": eventStatusCodeType,
-    },
-    total=False,
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
+        "filter": NotRequired[OrganizationEventFilterTypeDef],
+        "nextToken": NotRequired[str],
+        "maxResults": NotRequired[int],
+        "locale": NotRequired[str],
     },
 )

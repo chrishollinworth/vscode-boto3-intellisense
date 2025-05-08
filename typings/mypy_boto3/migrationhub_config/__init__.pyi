@@ -1,19 +1,21 @@
 """
 Main interface for migrationhub-config service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_migrationhub_config/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_migrationhub_config import (
         Client,
         MigrationHubConfigClient,
     )
 
-    session = boto3.Session()
-
-    client: MigrationHubConfigClient = boto3.client("migrationhub-config")
-    session_client: MigrationHubConfigClient = session.client("migrationhub-config")
+    session = Session()
+    client: MigrationHubConfigClient = session.client("migrationhub-config")
     ```
 """
 

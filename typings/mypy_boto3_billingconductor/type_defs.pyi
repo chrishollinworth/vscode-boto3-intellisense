@@ -1,19 +1,23 @@
 """
 Type annotations for billingconductor service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_billingconductor/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_billingconductor/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_billingconductor.type_defs import AccountAssociationsListElementTypeDef
 
-    data: AccountAssociationsListElementTypeDef = {...}
+    data: AccountAssociationsListElementTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from typing import Any, Dict, List
+from typing import Union
 
 from .literals import (
     AssociateResourceErrorReasonType,
@@ -26,42 +30,44 @@ from .literals import (
     PricingRuleTypeType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
     "AccountAssociationsListElementTypeDef",
     "AccountGroupingTypeDef",
-    "AssociateAccountsInputRequestTypeDef",
+    "AssociateAccountsInputTypeDef",
     "AssociateAccountsOutputTypeDef",
-    "AssociatePricingRulesInputRequestTypeDef",
+    "AssociatePricingRulesInputTypeDef",
     "AssociatePricingRulesOutputTypeDef",
     "AssociateResourceErrorTypeDef",
     "AssociateResourceResponseElementTypeDef",
     "AttributeTypeDef",
-    "BatchAssociateResourcesToCustomLineItemInputRequestTypeDef",
+    "BatchAssociateResourcesToCustomLineItemInputTypeDef",
     "BatchAssociateResourcesToCustomLineItemOutputTypeDef",
-    "BatchDisassociateResourcesFromCustomLineItemInputRequestTypeDef",
+    "BatchDisassociateResourcesFromCustomLineItemInputTypeDef",
     "BatchDisassociateResourcesFromCustomLineItemOutputTypeDef",
     "BillingGroupCostReportElementTypeDef",
     "BillingGroupCostReportResultElementTypeDef",
     "BillingGroupListElementTypeDef",
     "BillingPeriodRangeTypeDef",
     "ComputationPreferenceTypeDef",
-    "CreateBillingGroupInputRequestTypeDef",
+    "CreateBillingGroupInputTypeDef",
     "CreateBillingGroupOutputTypeDef",
-    "CreateCustomLineItemInputRequestTypeDef",
+    "CreateCustomLineItemInputTypeDef",
     "CreateCustomLineItemOutputTypeDef",
     "CreateFreeTierConfigTypeDef",
-    "CreatePricingPlanInputRequestTypeDef",
+    "CreatePricingPlanInputTypeDef",
     "CreatePricingPlanOutputTypeDef",
-    "CreatePricingRuleInputRequestTypeDef",
+    "CreatePricingRuleInputTypeDef",
     "CreatePricingRuleOutputTypeDef",
     "CreateTieringInputTypeDef",
     "CustomLineItemBillingPeriodRangeTypeDef",
@@ -70,1356 +76,714 @@ __all__ = (
     "CustomLineItemListElementTypeDef",
     "CustomLineItemPercentageChargeDetailsTypeDef",
     "CustomLineItemVersionListElementTypeDef",
-    "DeleteBillingGroupInputRequestTypeDef",
+    "DeleteBillingGroupInputTypeDef",
     "DeleteBillingGroupOutputTypeDef",
-    "DeleteCustomLineItemInputRequestTypeDef",
+    "DeleteCustomLineItemInputTypeDef",
     "DeleteCustomLineItemOutputTypeDef",
-    "DeletePricingPlanInputRequestTypeDef",
+    "DeletePricingPlanInputTypeDef",
     "DeletePricingPlanOutputTypeDef",
-    "DeletePricingRuleInputRequestTypeDef",
+    "DeletePricingRuleInputTypeDef",
     "DeletePricingRuleOutputTypeDef",
-    "DisassociateAccountsInputRequestTypeDef",
+    "DisassociateAccountsInputTypeDef",
     "DisassociateAccountsOutputTypeDef",
-    "DisassociatePricingRulesInputRequestTypeDef",
+    "DisassociatePricingRulesInputTypeDef",
     "DisassociatePricingRulesOutputTypeDef",
     "DisassociateResourceResponseElementTypeDef",
     "FreeTierConfigTypeDef",
-    "GetBillingGroupCostReportInputRequestTypeDef",
+    "GetBillingGroupCostReportInputTypeDef",
     "GetBillingGroupCostReportOutputTypeDef",
+    "LineItemFilterOutputTypeDef",
     "LineItemFilterTypeDef",
+    "LineItemFilterUnionTypeDef",
     "ListAccountAssociationsFilterTypeDef",
-    "ListAccountAssociationsInputRequestTypeDef",
+    "ListAccountAssociationsInputPaginateTypeDef",
+    "ListAccountAssociationsInputTypeDef",
     "ListAccountAssociationsOutputTypeDef",
     "ListBillingGroupAccountGroupingTypeDef",
     "ListBillingGroupCostReportsFilterTypeDef",
-    "ListBillingGroupCostReportsInputRequestTypeDef",
+    "ListBillingGroupCostReportsInputPaginateTypeDef",
+    "ListBillingGroupCostReportsInputTypeDef",
     "ListBillingGroupCostReportsOutputTypeDef",
     "ListBillingGroupsFilterTypeDef",
-    "ListBillingGroupsInputRequestTypeDef",
+    "ListBillingGroupsInputPaginateTypeDef",
+    "ListBillingGroupsInputTypeDef",
     "ListBillingGroupsOutputTypeDef",
     "ListCustomLineItemChargeDetailsTypeDef",
     "ListCustomLineItemFlatChargeDetailsTypeDef",
     "ListCustomLineItemPercentageChargeDetailsTypeDef",
     "ListCustomLineItemVersionsBillingPeriodRangeFilterTypeDef",
     "ListCustomLineItemVersionsFilterTypeDef",
-    "ListCustomLineItemVersionsInputRequestTypeDef",
+    "ListCustomLineItemVersionsInputPaginateTypeDef",
+    "ListCustomLineItemVersionsInputTypeDef",
     "ListCustomLineItemVersionsOutputTypeDef",
     "ListCustomLineItemsFilterTypeDef",
-    "ListCustomLineItemsInputRequestTypeDef",
+    "ListCustomLineItemsInputPaginateTypeDef",
+    "ListCustomLineItemsInputTypeDef",
     "ListCustomLineItemsOutputTypeDef",
-    "ListPricingPlansAssociatedWithPricingRuleInputRequestTypeDef",
+    "ListPricingPlansAssociatedWithPricingRuleInputPaginateTypeDef",
+    "ListPricingPlansAssociatedWithPricingRuleInputTypeDef",
     "ListPricingPlansAssociatedWithPricingRuleOutputTypeDef",
     "ListPricingPlansFilterTypeDef",
-    "ListPricingPlansInputRequestTypeDef",
+    "ListPricingPlansInputPaginateTypeDef",
+    "ListPricingPlansInputTypeDef",
     "ListPricingPlansOutputTypeDef",
-    "ListPricingRulesAssociatedToPricingPlanInputRequestTypeDef",
+    "ListPricingRulesAssociatedToPricingPlanInputPaginateTypeDef",
+    "ListPricingRulesAssociatedToPricingPlanInputTypeDef",
     "ListPricingRulesAssociatedToPricingPlanOutputTypeDef",
     "ListPricingRulesFilterTypeDef",
-    "ListPricingRulesInputRequestTypeDef",
+    "ListPricingRulesInputPaginateTypeDef",
+    "ListPricingRulesInputTypeDef",
     "ListPricingRulesOutputTypeDef",
     "ListResourcesAssociatedToCustomLineItemFilterTypeDef",
-    "ListResourcesAssociatedToCustomLineItemInputRequestTypeDef",
+    "ListResourcesAssociatedToCustomLineItemInputPaginateTypeDef",
+    "ListResourcesAssociatedToCustomLineItemInputTypeDef",
     "ListResourcesAssociatedToCustomLineItemOutputTypeDef",
     "ListResourcesAssociatedToCustomLineItemResponseElementTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "PaginatorConfigTypeDef",
     "PricingPlanListElementTypeDef",
     "PricingRuleListElementTypeDef",
     "ResponseMetadataTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
     "TieringTypeDef",
-    "UntagResourceRequestRequestTypeDef",
+    "UntagResourceRequestTypeDef",
     "UpdateBillingGroupAccountGroupingTypeDef",
-    "UpdateBillingGroupInputRequestTypeDef",
+    "UpdateBillingGroupInputTypeDef",
     "UpdateBillingGroupOutputTypeDef",
     "UpdateCustomLineItemChargeDetailsTypeDef",
     "UpdateCustomLineItemFlatChargeDetailsTypeDef",
-    "UpdateCustomLineItemInputRequestTypeDef",
+    "UpdateCustomLineItemInputTypeDef",
     "UpdateCustomLineItemOutputTypeDef",
     "UpdateCustomLineItemPercentageChargeDetailsTypeDef",
     "UpdateFreeTierConfigTypeDef",
-    "UpdatePricingPlanInputRequestTypeDef",
+    "UpdatePricingPlanInputTypeDef",
     "UpdatePricingPlanOutputTypeDef",
-    "UpdatePricingRuleInputRequestTypeDef",
+    "UpdatePricingRuleInputTypeDef",
     "UpdatePricingRuleOutputTypeDef",
     "UpdateTieringInputTypeDef",
 )
 
-AccountAssociationsListElementTypeDef = TypedDict(
-    "AccountAssociationsListElementTypeDef",
+class AccountAssociationsListElementTypeDef(TypedDict):
+    AccountId: NotRequired[str]
+    BillingGroupArn: NotRequired[str]
+    AccountName: NotRequired[str]
+    AccountEmail: NotRequired[str]
+
+class AccountGroupingTypeDef(TypedDict):
+    LinkedAccountIds: Sequence[str]
+    AutoAssociate: NotRequired[bool]
+
+class AssociateAccountsInputTypeDef(TypedDict):
+    Arn: str
+    AccountIds: Sequence[str]
+
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
+
+class AssociatePricingRulesInputTypeDef(TypedDict):
+    Arn: str
+    PricingRuleArns: Sequence[str]
+
+class AssociateResourceErrorTypeDef(TypedDict):
+    Message: NotRequired[str]
+    Reason: NotRequired[AssociateResourceErrorReasonType]
+
+class AttributeTypeDef(TypedDict):
+    Key: NotRequired[str]
+    Value: NotRequired[str]
+
+class CustomLineItemBillingPeriodRangeTypeDef(TypedDict):
+    InclusiveStartBillingPeriod: str
+    ExclusiveEndBillingPeriod: NotRequired[str]
+
+class BillingGroupCostReportElementTypeDef(TypedDict):
+    Arn: NotRequired[str]
+    AWSCost: NotRequired[str]
+    ProformaCost: NotRequired[str]
+    Margin: NotRequired[str]
+    MarginPercentage: NotRequired[str]
+    Currency: NotRequired[str]
+
+class ComputationPreferenceTypeDef(TypedDict):
+    PricingPlanArn: str
+
+class ListBillingGroupAccountGroupingTypeDef(TypedDict):
+    AutoAssociate: NotRequired[bool]
+
+class BillingPeriodRangeTypeDef(TypedDict):
+    InclusiveStartBillingPeriod: str
+    ExclusiveEndBillingPeriod: str
+
+class CreateFreeTierConfigTypeDef(TypedDict):
+    Activated: bool
+
+class CreatePricingPlanInputTypeDef(TypedDict):
+    Name: str
+    ClientToken: NotRequired[str]
+    Description: NotRequired[str]
+    PricingRuleArns: NotRequired[Sequence[str]]
+    Tags: NotRequired[Mapping[str, str]]
+
+class CustomLineItemFlatChargeDetailsTypeDef(TypedDict):
+    ChargeValue: float
+
+class CustomLineItemPercentageChargeDetailsTypeDef(TypedDict):
+    PercentageValue: float
+    AssociatedValues: NotRequired[Sequence[str]]
+
+class DeleteBillingGroupInputTypeDef(TypedDict):
+    Arn: str
+
+class DeletePricingPlanInputTypeDef(TypedDict):
+    Arn: str
+
+class DeletePricingRuleInputTypeDef(TypedDict):
+    Arn: str
+
+class DisassociateAccountsInputTypeDef(TypedDict):
+    Arn: str
+    AccountIds: Sequence[str]
+
+class DisassociatePricingRulesInputTypeDef(TypedDict):
+    Arn: str
+    PricingRuleArns: Sequence[str]
+
+class FreeTierConfigTypeDef(TypedDict):
+    Activated: bool
+
+class LineItemFilterOutputTypeDef(TypedDict):
+    Attribute: Literal["LINE_ITEM_TYPE"]
+    MatchOption: Literal["NOT_EQUAL"]
+    Values: List[Literal["SAVINGS_PLAN_NEGATION"]]
+
+class LineItemFilterTypeDef(TypedDict):
+    Attribute: Literal["LINE_ITEM_TYPE"]
+    MatchOption: Literal["NOT_EQUAL"]
+    Values: Sequence[Literal["SAVINGS_PLAN_NEGATION"]]
+
+class ListAccountAssociationsFilterTypeDef(TypedDict):
+    Association: NotRequired[str]
+    AccountId: NotRequired[str]
+    AccountIds: NotRequired[Sequence[str]]
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class ListBillingGroupCostReportsFilterTypeDef(TypedDict):
+    BillingGroupArns: NotRequired[Sequence[str]]
+
+class ListBillingGroupsFilterTypeDef(TypedDict):
+    Arns: NotRequired[Sequence[str]]
+    PricingPlan: NotRequired[str]
+    Statuses: NotRequired[Sequence[BillingGroupStatusType]]
+    AutoAssociate: NotRequired[bool]
+
+class ListCustomLineItemFlatChargeDetailsTypeDef(TypedDict):
+    ChargeValue: float
+
+class ListCustomLineItemPercentageChargeDetailsTypeDef(TypedDict):
+    PercentageValue: float
+
+class ListCustomLineItemVersionsBillingPeriodRangeFilterTypeDef(TypedDict):
+    StartBillingPeriod: NotRequired[str]
+    EndBillingPeriod: NotRequired[str]
+
+class ListCustomLineItemsFilterTypeDef(TypedDict):
+    Names: NotRequired[Sequence[str]]
+    BillingGroups: NotRequired[Sequence[str]]
+    Arns: NotRequired[Sequence[str]]
+    AccountIds: NotRequired[Sequence[str]]
+
+class ListPricingPlansAssociatedWithPricingRuleInputTypeDef(TypedDict):
+    PricingRuleArn: str
+    BillingPeriod: NotRequired[str]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListPricingPlansFilterTypeDef(TypedDict):
+    Arns: NotRequired[Sequence[str]]
+
+class PricingPlanListElementTypeDef(TypedDict):
+    Name: NotRequired[str]
+    Arn: NotRequired[str]
+    Description: NotRequired[str]
+    Size: NotRequired[int]
+    CreationTime: NotRequired[int]
+    LastModifiedTime: NotRequired[int]
+
+class ListPricingRulesAssociatedToPricingPlanInputTypeDef(TypedDict):
+    PricingPlanArn: str
+    BillingPeriod: NotRequired[str]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListPricingRulesFilterTypeDef(TypedDict):
+    Arns: NotRequired[Sequence[str]]
+
+class ListResourcesAssociatedToCustomLineItemFilterTypeDef(TypedDict):
+    Relationship: NotRequired[CustomLineItemRelationshipType]
+
+class ListResourcesAssociatedToCustomLineItemResponseElementTypeDef(TypedDict):
+    Arn: NotRequired[str]
+    Relationship: NotRequired[CustomLineItemRelationshipType]
+    EndBillingPeriod: NotRequired[str]
+
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+
+class TagResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+    Tags: Mapping[str, str]
+
+class UntagResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+    TagKeys: Sequence[str]
+
+class UpdateBillingGroupAccountGroupingTypeDef(TypedDict):
+    AutoAssociate: NotRequired[bool]
+
+class UpdateCustomLineItemFlatChargeDetailsTypeDef(TypedDict):
+    ChargeValue: float
+
+class UpdateCustomLineItemPercentageChargeDetailsTypeDef(TypedDict):
+    PercentageValue: float
+
+class UpdateFreeTierConfigTypeDef(TypedDict):
+    Activated: bool
+
+class UpdatePricingPlanInputTypeDef(TypedDict):
+    Arn: str
+    Name: NotRequired[str]
+    Description: NotRequired[str]
+
+class AssociateAccountsOutputTypeDef(TypedDict):
+    Arn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class AssociatePricingRulesOutputTypeDef(TypedDict):
+    Arn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateBillingGroupOutputTypeDef(TypedDict):
+    Arn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateCustomLineItemOutputTypeDef(TypedDict):
+    Arn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreatePricingPlanOutputTypeDef(TypedDict):
+    Arn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreatePricingRuleOutputTypeDef(TypedDict):
+    Arn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteBillingGroupOutputTypeDef(TypedDict):
+    Arn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteCustomLineItemOutputTypeDef(TypedDict):
+    Arn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeletePricingPlanOutputTypeDef(TypedDict):
+    Arn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeletePricingRuleOutputTypeDef(TypedDict):
+    Arn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DisassociateAccountsOutputTypeDef(TypedDict):
+    Arn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DisassociatePricingRulesOutputTypeDef(TypedDict):
+    Arn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListAccountAssociationsOutputTypeDef(TypedDict):
+    LinkedAccounts: List[AccountAssociationsListElementTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListPricingPlansAssociatedWithPricingRuleOutputTypeDef(TypedDict):
+    BillingPeriod: str
+    PricingRuleArn: str
+    PricingPlanArns: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListPricingRulesAssociatedToPricingPlanOutputTypeDef(TypedDict):
+    BillingPeriod: str
+    PricingPlanArn: str
+    PricingRuleArns: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    Tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdatePricingPlanOutputTypeDef(TypedDict):
+    Arn: str
+    Name: str
+    Description: str
+    Size: int
+    LastModifiedTime: int
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class AssociateResourceResponseElementTypeDef(TypedDict):
+    Arn: NotRequired[str]
+    Error: NotRequired[AssociateResourceErrorTypeDef]
+
+class DisassociateResourceResponseElementTypeDef(TypedDict):
+    Arn: NotRequired[str]
+    Error: NotRequired[AssociateResourceErrorTypeDef]
+
+class BillingGroupCostReportResultElementTypeDef(TypedDict):
+    Arn: NotRequired[str]
+    AWSCost: NotRequired[str]
+    ProformaCost: NotRequired[str]
+    Margin: NotRequired[str]
+    MarginPercentage: NotRequired[str]
+    Currency: NotRequired[str]
+    Attributes: NotRequired[List[AttributeTypeDef]]
+
+class BatchAssociateResourcesToCustomLineItemInputTypeDef(TypedDict):
+    TargetArn: str
+    ResourceArns: Sequence[str]
+    BillingPeriodRange: NotRequired[CustomLineItemBillingPeriodRangeTypeDef]
+
+class BatchDisassociateResourcesFromCustomLineItemInputTypeDef(TypedDict):
+    TargetArn: str
+    ResourceArns: Sequence[str]
+    BillingPeriodRange: NotRequired[CustomLineItemBillingPeriodRangeTypeDef]
+
+class DeleteCustomLineItemInputTypeDef(TypedDict):
+    Arn: str
+    BillingPeriodRange: NotRequired[CustomLineItemBillingPeriodRangeTypeDef]
+
+class ListBillingGroupCostReportsOutputTypeDef(TypedDict):
+    BillingGroupCostReports: List[BillingGroupCostReportElementTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class CreateBillingGroupInputTypeDef(TypedDict):
+    Name: str
+    AccountGrouping: AccountGroupingTypeDef
+    ComputationPreference: ComputationPreferenceTypeDef
+    ClientToken: NotRequired[str]
+    PrimaryAccountId: NotRequired[str]
+    Description: NotRequired[str]
+    Tags: NotRequired[Mapping[str, str]]
+
+class BillingGroupListElementTypeDef(TypedDict):
+    Name: NotRequired[str]
+    Arn: NotRequired[str]
+    Description: NotRequired[str]
+    PrimaryAccountId: NotRequired[str]
+    ComputationPreference: NotRequired[ComputationPreferenceTypeDef]
+    Size: NotRequired[int]
+    CreationTime: NotRequired[int]
+    LastModifiedTime: NotRequired[int]
+    Status: NotRequired[BillingGroupStatusType]
+    StatusReason: NotRequired[str]
+    AccountGrouping: NotRequired[ListBillingGroupAccountGroupingTypeDef]
+
+class GetBillingGroupCostReportInputTypeDef(TypedDict):
+    Arn: str
+    BillingPeriodRange: NotRequired[BillingPeriodRangeTypeDef]
+    GroupBy: NotRequired[Sequence[GroupByAttributeNameType]]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class CreateTieringInputTypeDef(TypedDict):
+    FreeTier: CreateFreeTierConfigTypeDef
+
+class TieringTypeDef(TypedDict):
+    FreeTier: FreeTierConfigTypeDef
+
+LineItemFilterUnionTypeDef = Union[LineItemFilterTypeDef, LineItemFilterOutputTypeDef]
+
+class ListAccountAssociationsInputTypeDef(TypedDict):
+    BillingPeriod: NotRequired[str]
+    Filters: NotRequired[ListAccountAssociationsFilterTypeDef]
+    NextToken: NotRequired[str]
+
+class ListAccountAssociationsInputPaginateTypeDef(TypedDict):
+    BillingPeriod: NotRequired[str]
+    Filters: NotRequired[ListAccountAssociationsFilterTypeDef]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListPricingPlansAssociatedWithPricingRuleInputPaginateTypeDef(TypedDict):
+    PricingRuleArn: str
+    BillingPeriod: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListPricingRulesAssociatedToPricingPlanInputPaginateTypeDef(TypedDict):
+    PricingPlanArn: str
+    BillingPeriod: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListBillingGroupCostReportsInputPaginateTypeDef(TypedDict):
+    BillingPeriod: NotRequired[str]
+    Filters: NotRequired[ListBillingGroupCostReportsFilterTypeDef]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListBillingGroupCostReportsInputTypeDef(TypedDict):
+    BillingPeriod: NotRequired[str]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+    Filters: NotRequired[ListBillingGroupCostReportsFilterTypeDef]
+
+class ListBillingGroupsInputPaginateTypeDef(TypedDict):
+    BillingPeriod: NotRequired[str]
+    Filters: NotRequired[ListBillingGroupsFilterTypeDef]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListBillingGroupsInputTypeDef(TypedDict):
+    BillingPeriod: NotRequired[str]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+    Filters: NotRequired[ListBillingGroupsFilterTypeDef]
+
+ListCustomLineItemChargeDetailsTypeDef = TypedDict(
+    "ListCustomLineItemChargeDetailsTypeDef",
     {
-        "AccountId": str,
-        "BillingGroupArn": str,
-        "AccountName": str,
-        "AccountEmail": str,
+        "Type": CustomLineItemTypeType,
+        "Flat": NotRequired[ListCustomLineItemFlatChargeDetailsTypeDef],
+        "Percentage": NotRequired[ListCustomLineItemPercentageChargeDetailsTypeDef],
+        "LineItemFilters": NotRequired[List[LineItemFilterOutputTypeDef]],
     },
-    total=False,
 )
 
-_RequiredAccountGroupingTypeDef = TypedDict(
-    "_RequiredAccountGroupingTypeDef",
-    {
-        "LinkedAccountIds": List[str],
-    },
-)
-_OptionalAccountGroupingTypeDef = TypedDict(
-    "_OptionalAccountGroupingTypeDef",
-    {
-        "AutoAssociate": bool,
-    },
-    total=False,
-)
+class ListCustomLineItemVersionsFilterTypeDef(TypedDict):
+    BillingPeriodRange: NotRequired[ListCustomLineItemVersionsBillingPeriodRangeFilterTypeDef]
 
-class AccountGroupingTypeDef(_RequiredAccountGroupingTypeDef, _OptionalAccountGroupingTypeDef):
-    pass
+class ListCustomLineItemsInputPaginateTypeDef(TypedDict):
+    BillingPeriod: NotRequired[str]
+    Filters: NotRequired[ListCustomLineItemsFilterTypeDef]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-AssociateAccountsInputRequestTypeDef = TypedDict(
-    "AssociateAccountsInputRequestTypeDef",
-    {
-        "Arn": str,
-        "AccountIds": List[str],
-    },
-)
+class ListCustomLineItemsInputTypeDef(TypedDict):
+    BillingPeriod: NotRequired[str]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+    Filters: NotRequired[ListCustomLineItemsFilterTypeDef]
 
-AssociateAccountsOutputTypeDef = TypedDict(
-    "AssociateAccountsOutputTypeDef",
-    {
-        "Arn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListPricingPlansInputPaginateTypeDef(TypedDict):
+    BillingPeriod: NotRequired[str]
+    Filters: NotRequired[ListPricingPlansFilterTypeDef]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-AssociatePricingRulesInputRequestTypeDef = TypedDict(
-    "AssociatePricingRulesInputRequestTypeDef",
-    {
-        "Arn": str,
-        "PricingRuleArns": List[str],
-    },
-)
+class ListPricingPlansInputTypeDef(TypedDict):
+    BillingPeriod: NotRequired[str]
+    Filters: NotRequired[ListPricingPlansFilterTypeDef]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
 
-AssociatePricingRulesOutputTypeDef = TypedDict(
-    "AssociatePricingRulesOutputTypeDef",
-    {
-        "Arn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListPricingPlansOutputTypeDef(TypedDict):
+    BillingPeriod: str
+    PricingPlans: List[PricingPlanListElementTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-AssociateResourceErrorTypeDef = TypedDict(
-    "AssociateResourceErrorTypeDef",
-    {
-        "Message": str,
-        "Reason": AssociateResourceErrorReasonType,
-    },
-    total=False,
-)
+class ListPricingRulesInputPaginateTypeDef(TypedDict):
+    BillingPeriod: NotRequired[str]
+    Filters: NotRequired[ListPricingRulesFilterTypeDef]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-AssociateResourceResponseElementTypeDef = TypedDict(
-    "AssociateResourceResponseElementTypeDef",
-    {
-        "Arn": str,
-        "Error": "AssociateResourceErrorTypeDef",
-    },
-    total=False,
-)
+class ListPricingRulesInputTypeDef(TypedDict):
+    BillingPeriod: NotRequired[str]
+    Filters: NotRequired[ListPricingRulesFilterTypeDef]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
 
-AttributeTypeDef = TypedDict(
-    "AttributeTypeDef",
-    {
-        "Key": str,
-        "Value": str,
-    },
-    total=False,
-)
+class ListResourcesAssociatedToCustomLineItemInputPaginateTypeDef(TypedDict):
+    Arn: str
+    BillingPeriod: NotRequired[str]
+    Filters: NotRequired[ListResourcesAssociatedToCustomLineItemFilterTypeDef]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-_RequiredBatchAssociateResourcesToCustomLineItemInputRequestTypeDef = TypedDict(
-    "_RequiredBatchAssociateResourcesToCustomLineItemInputRequestTypeDef",
-    {
-        "TargetArn": str,
-        "ResourceArns": List[str],
-    },
-)
-_OptionalBatchAssociateResourcesToCustomLineItemInputRequestTypeDef = TypedDict(
-    "_OptionalBatchAssociateResourcesToCustomLineItemInputRequestTypeDef",
-    {
-        "BillingPeriodRange": "CustomLineItemBillingPeriodRangeTypeDef",
-    },
-    total=False,
-)
+class ListResourcesAssociatedToCustomLineItemInputTypeDef(TypedDict):
+    Arn: str
+    BillingPeriod: NotRequired[str]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+    Filters: NotRequired[ListResourcesAssociatedToCustomLineItemFilterTypeDef]
 
-class BatchAssociateResourcesToCustomLineItemInputRequestTypeDef(
-    _RequiredBatchAssociateResourcesToCustomLineItemInputRequestTypeDef,
-    _OptionalBatchAssociateResourcesToCustomLineItemInputRequestTypeDef,
-):
-    pass
+class ListResourcesAssociatedToCustomLineItemOutputTypeDef(TypedDict):
+    Arn: str
+    AssociatedResources: List[ListResourcesAssociatedToCustomLineItemResponseElementTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-BatchAssociateResourcesToCustomLineItemOutputTypeDef = TypedDict(
-    "BatchAssociateResourcesToCustomLineItemOutputTypeDef",
-    {
-        "SuccessfullyAssociatedResources": List["AssociateResourceResponseElementTypeDef"],
-        "FailedAssociatedResources": List["AssociateResourceResponseElementTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class UpdateBillingGroupInputTypeDef(TypedDict):
+    Arn: str
+    Name: NotRequired[str]
+    Status: NotRequired[BillingGroupStatusType]
+    ComputationPreference: NotRequired[ComputationPreferenceTypeDef]
+    Description: NotRequired[str]
+    AccountGrouping: NotRequired[UpdateBillingGroupAccountGroupingTypeDef]
 
-_RequiredBatchDisassociateResourcesFromCustomLineItemInputRequestTypeDef = TypedDict(
-    "_RequiredBatchDisassociateResourcesFromCustomLineItemInputRequestTypeDef",
-    {
-        "TargetArn": str,
-        "ResourceArns": List[str],
-    },
-)
-_OptionalBatchDisassociateResourcesFromCustomLineItemInputRequestTypeDef = TypedDict(
-    "_OptionalBatchDisassociateResourcesFromCustomLineItemInputRequestTypeDef",
-    {
-        "BillingPeriodRange": "CustomLineItemBillingPeriodRangeTypeDef",
-    },
-    total=False,
-)
+class UpdateBillingGroupOutputTypeDef(TypedDict):
+    Arn: str
+    Name: str
+    Description: str
+    PrimaryAccountId: str
+    PricingPlanArn: str
+    Size: int
+    LastModifiedTime: int
+    Status: BillingGroupStatusType
+    StatusReason: str
+    AccountGrouping: UpdateBillingGroupAccountGroupingTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class BatchDisassociateResourcesFromCustomLineItemInputRequestTypeDef(
-    _RequiredBatchDisassociateResourcesFromCustomLineItemInputRequestTypeDef,
-    _OptionalBatchDisassociateResourcesFromCustomLineItemInputRequestTypeDef,
-):
-    pass
+class UpdateTieringInputTypeDef(TypedDict):
+    FreeTier: UpdateFreeTierConfigTypeDef
 
-BatchDisassociateResourcesFromCustomLineItemOutputTypeDef = TypedDict(
-    "BatchDisassociateResourcesFromCustomLineItemOutputTypeDef",
-    {
-        "SuccessfullyDisassociatedResources": List["DisassociateResourceResponseElementTypeDef"],
-        "FailedDisassociatedResources": List["DisassociateResourceResponseElementTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class BatchAssociateResourcesToCustomLineItemOutputTypeDef(TypedDict):
+    SuccessfullyAssociatedResources: List[AssociateResourceResponseElementTypeDef]
+    FailedAssociatedResources: List[AssociateResourceResponseElementTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-BillingGroupCostReportElementTypeDef = TypedDict(
-    "BillingGroupCostReportElementTypeDef",
-    {
-        "Arn": str,
-        "AWSCost": str,
-        "ProformaCost": str,
-        "Margin": str,
-        "MarginPercentage": str,
-        "Currency": str,
-    },
-    total=False,
-)
+class BatchDisassociateResourcesFromCustomLineItemOutputTypeDef(TypedDict):
+    SuccessfullyDisassociatedResources: List[DisassociateResourceResponseElementTypeDef]
+    FailedDisassociatedResources: List[DisassociateResourceResponseElementTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-BillingGroupCostReportResultElementTypeDef = TypedDict(
-    "BillingGroupCostReportResultElementTypeDef",
-    {
-        "Arn": str,
-        "AWSCost": str,
-        "ProformaCost": str,
-        "Margin": str,
-        "MarginPercentage": str,
-        "Currency": str,
-        "Attributes": List["AttributeTypeDef"],
-    },
-    total=False,
-)
+class GetBillingGroupCostReportOutputTypeDef(TypedDict):
+    BillingGroupCostReportResults: List[BillingGroupCostReportResultElementTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-BillingGroupListElementTypeDef = TypedDict(
-    "BillingGroupListElementTypeDef",
-    {
-        "Name": str,
-        "Arn": str,
-        "Description": str,
-        "PrimaryAccountId": str,
-        "ComputationPreference": "ComputationPreferenceTypeDef",
-        "Size": int,
-        "CreationTime": int,
-        "LastModifiedTime": int,
-        "Status": BillingGroupStatusType,
-        "StatusReason": str,
-        "AccountGrouping": "ListBillingGroupAccountGroupingTypeDef",
-    },
-    total=False,
-)
+class ListBillingGroupsOutputTypeDef(TypedDict):
+    BillingGroups: List[BillingGroupListElementTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-BillingPeriodRangeTypeDef = TypedDict(
-    "BillingPeriodRangeTypeDef",
-    {
-        "InclusiveStartBillingPeriod": str,
-        "ExclusiveEndBillingPeriod": str,
-    },
-)
-
-ComputationPreferenceTypeDef = TypedDict(
-    "ComputationPreferenceTypeDef",
-    {
-        "PricingPlanArn": str,
-    },
-)
-
-_RequiredCreateBillingGroupInputRequestTypeDef = TypedDict(
-    "_RequiredCreateBillingGroupInputRequestTypeDef",
-    {
-        "Name": str,
-        "AccountGrouping": "AccountGroupingTypeDef",
-        "ComputationPreference": "ComputationPreferenceTypeDef",
-    },
-)
-_OptionalCreateBillingGroupInputRequestTypeDef = TypedDict(
-    "_OptionalCreateBillingGroupInputRequestTypeDef",
-    {
-        "ClientToken": str,
-        "PrimaryAccountId": str,
-        "Description": str,
-        "Tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class CreateBillingGroupInputRequestTypeDef(
-    _RequiredCreateBillingGroupInputRequestTypeDef, _OptionalCreateBillingGroupInputRequestTypeDef
-):
-    pass
-
-CreateBillingGroupOutputTypeDef = TypedDict(
-    "CreateBillingGroupOutputTypeDef",
-    {
-        "Arn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateCustomLineItemInputRequestTypeDef = TypedDict(
-    "_RequiredCreateCustomLineItemInputRequestTypeDef",
-    {
-        "Name": str,
-        "Description": str,
-        "BillingGroupArn": str,
-        "ChargeDetails": "CustomLineItemChargeDetailsTypeDef",
-    },
-)
-_OptionalCreateCustomLineItemInputRequestTypeDef = TypedDict(
-    "_OptionalCreateCustomLineItemInputRequestTypeDef",
-    {
-        "ClientToken": str,
-        "BillingPeriodRange": "CustomLineItemBillingPeriodRangeTypeDef",
-        "Tags": Dict[str, str],
-        "AccountId": str,
-    },
-    total=False,
-)
-
-class CreateCustomLineItemInputRequestTypeDef(
-    _RequiredCreateCustomLineItemInputRequestTypeDef,
-    _OptionalCreateCustomLineItemInputRequestTypeDef,
-):
-    pass
-
-CreateCustomLineItemOutputTypeDef = TypedDict(
-    "CreateCustomLineItemOutputTypeDef",
-    {
-        "Arn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateFreeTierConfigTypeDef = TypedDict(
-    "CreateFreeTierConfigTypeDef",
-    {
-        "Activated": bool,
-    },
-)
-
-_RequiredCreatePricingPlanInputRequestTypeDef = TypedDict(
-    "_RequiredCreatePricingPlanInputRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
-_OptionalCreatePricingPlanInputRequestTypeDef = TypedDict(
-    "_OptionalCreatePricingPlanInputRequestTypeDef",
-    {
-        "ClientToken": str,
-        "Description": str,
-        "PricingRuleArns": List[str],
-        "Tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class CreatePricingPlanInputRequestTypeDef(
-    _RequiredCreatePricingPlanInputRequestTypeDef, _OptionalCreatePricingPlanInputRequestTypeDef
-):
-    pass
-
-CreatePricingPlanOutputTypeDef = TypedDict(
-    "CreatePricingPlanOutputTypeDef",
-    {
-        "Arn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreatePricingRuleInputRequestTypeDef = TypedDict(
-    "_RequiredCreatePricingRuleInputRequestTypeDef",
+CreatePricingRuleInputTypeDef = TypedDict(
+    "CreatePricingRuleInputTypeDef",
     {
         "Name": str,
         "Scope": PricingRuleScopeType,
         "Type": PricingRuleTypeType,
+        "ClientToken": NotRequired[str],
+        "Description": NotRequired[str],
+        "ModifierPercentage": NotRequired[float],
+        "Service": NotRequired[str],
+        "Tags": NotRequired[Mapping[str, str]],
+        "BillingEntity": NotRequired[str],
+        "Tiering": NotRequired[CreateTieringInputTypeDef],
+        "UsageType": NotRequired[str],
+        "Operation": NotRequired[str],
     },
 )
-_OptionalCreatePricingRuleInputRequestTypeDef = TypedDict(
-    "_OptionalCreatePricingRuleInputRequestTypeDef",
-    {
-        "ClientToken": str,
-        "Description": str,
-        "ModifierPercentage": float,
-        "Service": str,
-        "Tags": Dict[str, str],
-        "BillingEntity": str,
-        "Tiering": "CreateTieringInputTypeDef",
-        "UsageType": str,
-        "Operation": str,
-    },
-    total=False,
-)
-
-class CreatePricingRuleInputRequestTypeDef(
-    _RequiredCreatePricingRuleInputRequestTypeDef, _OptionalCreatePricingRuleInputRequestTypeDef
-):
-    pass
-
-CreatePricingRuleOutputTypeDef = TypedDict(
-    "CreatePricingRuleOutputTypeDef",
-    {
-        "Arn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateTieringInputTypeDef = TypedDict(
-    "CreateTieringInputTypeDef",
-    {
-        "FreeTier": "CreateFreeTierConfigTypeDef",
-    },
-)
-
-_RequiredCustomLineItemBillingPeriodRangeTypeDef = TypedDict(
-    "_RequiredCustomLineItemBillingPeriodRangeTypeDef",
-    {
-        "InclusiveStartBillingPeriod": str,
-    },
-)
-_OptionalCustomLineItemBillingPeriodRangeTypeDef = TypedDict(
-    "_OptionalCustomLineItemBillingPeriodRangeTypeDef",
-    {
-        "ExclusiveEndBillingPeriod": str,
-    },
-    total=False,
-)
-
-class CustomLineItemBillingPeriodRangeTypeDef(
-    _RequiredCustomLineItemBillingPeriodRangeTypeDef,
-    _OptionalCustomLineItemBillingPeriodRangeTypeDef,
-):
-    pass
-
-_RequiredCustomLineItemChargeDetailsTypeDef = TypedDict(
-    "_RequiredCustomLineItemChargeDetailsTypeDef",
-    {
-        "Type": CustomLineItemTypeType,
-    },
-)
-_OptionalCustomLineItemChargeDetailsTypeDef = TypedDict(
-    "_OptionalCustomLineItemChargeDetailsTypeDef",
-    {
-        "Flat": "CustomLineItemFlatChargeDetailsTypeDef",
-        "Percentage": "CustomLineItemPercentageChargeDetailsTypeDef",
-        "LineItemFilters": List["LineItemFilterTypeDef"],
-    },
-    total=False,
-)
-
-class CustomLineItemChargeDetailsTypeDef(
-    _RequiredCustomLineItemChargeDetailsTypeDef, _OptionalCustomLineItemChargeDetailsTypeDef
-):
-    pass
-
-CustomLineItemFlatChargeDetailsTypeDef = TypedDict(
-    "CustomLineItemFlatChargeDetailsTypeDef",
-    {
-        "ChargeValue": float,
-    },
-)
-
-CustomLineItemListElementTypeDef = TypedDict(
-    "CustomLineItemListElementTypeDef",
-    {
-        "Arn": str,
-        "Name": str,
-        "ChargeDetails": "ListCustomLineItemChargeDetailsTypeDef",
-        "CurrencyCode": CurrencyCodeType,
-        "Description": str,
-        "ProductCode": str,
-        "BillingGroupArn": str,
-        "CreationTime": int,
-        "LastModifiedTime": int,
-        "AssociationSize": int,
-        "AccountId": str,
-    },
-    total=False,
-)
-
-_RequiredCustomLineItemPercentageChargeDetailsTypeDef = TypedDict(
-    "_RequiredCustomLineItemPercentageChargeDetailsTypeDef",
-    {
-        "PercentageValue": float,
-    },
-)
-_OptionalCustomLineItemPercentageChargeDetailsTypeDef = TypedDict(
-    "_OptionalCustomLineItemPercentageChargeDetailsTypeDef",
-    {
-        "AssociatedValues": List[str],
-    },
-    total=False,
-)
-
-class CustomLineItemPercentageChargeDetailsTypeDef(
-    _RequiredCustomLineItemPercentageChargeDetailsTypeDef,
-    _OptionalCustomLineItemPercentageChargeDetailsTypeDef,
-):
-    pass
-
-CustomLineItemVersionListElementTypeDef = TypedDict(
-    "CustomLineItemVersionListElementTypeDef",
-    {
-        "Name": str,
-        "ChargeDetails": "ListCustomLineItemChargeDetailsTypeDef",
-        "CurrencyCode": CurrencyCodeType,
-        "Description": str,
-        "ProductCode": str,
-        "BillingGroupArn": str,
-        "CreationTime": int,
-        "LastModifiedTime": int,
-        "AssociationSize": int,
-        "StartBillingPeriod": str,
-        "EndBillingPeriod": str,
-        "Arn": str,
-        "StartTime": int,
-        "AccountId": str,
-    },
-    total=False,
-)
-
-DeleteBillingGroupInputRequestTypeDef = TypedDict(
-    "DeleteBillingGroupInputRequestTypeDef",
-    {
-        "Arn": str,
-    },
-)
-
-DeleteBillingGroupOutputTypeDef = TypedDict(
-    "DeleteBillingGroupOutputTypeDef",
-    {
-        "Arn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDeleteCustomLineItemInputRequestTypeDef = TypedDict(
-    "_RequiredDeleteCustomLineItemInputRequestTypeDef",
-    {
-        "Arn": str,
-    },
-)
-_OptionalDeleteCustomLineItemInputRequestTypeDef = TypedDict(
-    "_OptionalDeleteCustomLineItemInputRequestTypeDef",
-    {
-        "BillingPeriodRange": "CustomLineItemBillingPeriodRangeTypeDef",
-    },
-    total=False,
-)
-
-class DeleteCustomLineItemInputRequestTypeDef(
-    _RequiredDeleteCustomLineItemInputRequestTypeDef,
-    _OptionalDeleteCustomLineItemInputRequestTypeDef,
-):
-    pass
-
-DeleteCustomLineItemOutputTypeDef = TypedDict(
-    "DeleteCustomLineItemOutputTypeDef",
-    {
-        "Arn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeletePricingPlanInputRequestTypeDef = TypedDict(
-    "DeletePricingPlanInputRequestTypeDef",
-    {
-        "Arn": str,
-    },
-)
-
-DeletePricingPlanOutputTypeDef = TypedDict(
-    "DeletePricingPlanOutputTypeDef",
-    {
-        "Arn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeletePricingRuleInputRequestTypeDef = TypedDict(
-    "DeletePricingRuleInputRequestTypeDef",
-    {
-        "Arn": str,
-    },
-)
-
-DeletePricingRuleOutputTypeDef = TypedDict(
-    "DeletePricingRuleOutputTypeDef",
-    {
-        "Arn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DisassociateAccountsInputRequestTypeDef = TypedDict(
-    "DisassociateAccountsInputRequestTypeDef",
-    {
-        "Arn": str,
-        "AccountIds": List[str],
-    },
-)
-
-DisassociateAccountsOutputTypeDef = TypedDict(
-    "DisassociateAccountsOutputTypeDef",
-    {
-        "Arn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DisassociatePricingRulesInputRequestTypeDef = TypedDict(
-    "DisassociatePricingRulesInputRequestTypeDef",
-    {
-        "Arn": str,
-        "PricingRuleArns": List[str],
-    },
-)
-
-DisassociatePricingRulesOutputTypeDef = TypedDict(
-    "DisassociatePricingRulesOutputTypeDef",
-    {
-        "Arn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DisassociateResourceResponseElementTypeDef = TypedDict(
-    "DisassociateResourceResponseElementTypeDef",
-    {
-        "Arn": str,
-        "Error": "AssociateResourceErrorTypeDef",
-    },
-    total=False,
-)
-
-FreeTierConfigTypeDef = TypedDict(
-    "FreeTierConfigTypeDef",
-    {
-        "Activated": bool,
-    },
-)
-
-_RequiredGetBillingGroupCostReportInputRequestTypeDef = TypedDict(
-    "_RequiredGetBillingGroupCostReportInputRequestTypeDef",
-    {
-        "Arn": str,
-    },
-)
-_OptionalGetBillingGroupCostReportInputRequestTypeDef = TypedDict(
-    "_OptionalGetBillingGroupCostReportInputRequestTypeDef",
-    {
-        "BillingPeriodRange": "BillingPeriodRangeTypeDef",
-        "GroupBy": List[GroupByAttributeNameType],
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class GetBillingGroupCostReportInputRequestTypeDef(
-    _RequiredGetBillingGroupCostReportInputRequestTypeDef,
-    _OptionalGetBillingGroupCostReportInputRequestTypeDef,
-):
-    pass
-
-GetBillingGroupCostReportOutputTypeDef = TypedDict(
-    "GetBillingGroupCostReportOutputTypeDef",
-    {
-        "BillingGroupCostReportResults": List["BillingGroupCostReportResultElementTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-LineItemFilterTypeDef = TypedDict(
-    "LineItemFilterTypeDef",
-    {
-        "Attribute": Literal["LINE_ITEM_TYPE"],
-        "MatchOption": Literal["NOT_EQUAL"],
-        "Values": List[Literal["SAVINGS_PLAN_NEGATION"]],
-    },
-)
-
-ListAccountAssociationsFilterTypeDef = TypedDict(
-    "ListAccountAssociationsFilterTypeDef",
-    {
-        "Association": str,
-        "AccountId": str,
-        "AccountIds": List[str],
-    },
-    total=False,
-)
-
-ListAccountAssociationsInputRequestTypeDef = TypedDict(
-    "ListAccountAssociationsInputRequestTypeDef",
-    {
-        "BillingPeriod": str,
-        "Filters": "ListAccountAssociationsFilterTypeDef",
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListAccountAssociationsOutputTypeDef = TypedDict(
-    "ListAccountAssociationsOutputTypeDef",
-    {
-        "LinkedAccounts": List["AccountAssociationsListElementTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListBillingGroupAccountGroupingTypeDef = TypedDict(
-    "ListBillingGroupAccountGroupingTypeDef",
-    {
-        "AutoAssociate": bool,
-    },
-    total=False,
-)
-
-ListBillingGroupCostReportsFilterTypeDef = TypedDict(
-    "ListBillingGroupCostReportsFilterTypeDef",
-    {
-        "BillingGroupArns": List[str],
-    },
-    total=False,
-)
-
-ListBillingGroupCostReportsInputRequestTypeDef = TypedDict(
-    "ListBillingGroupCostReportsInputRequestTypeDef",
-    {
-        "BillingPeriod": str,
-        "MaxResults": int,
-        "NextToken": str,
-        "Filters": "ListBillingGroupCostReportsFilterTypeDef",
-    },
-    total=False,
-)
-
-ListBillingGroupCostReportsOutputTypeDef = TypedDict(
-    "ListBillingGroupCostReportsOutputTypeDef",
-    {
-        "BillingGroupCostReports": List["BillingGroupCostReportElementTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListBillingGroupsFilterTypeDef = TypedDict(
-    "ListBillingGroupsFilterTypeDef",
-    {
-        "Arns": List[str],
-        "PricingPlan": str,
-        "Statuses": List[BillingGroupStatusType],
-        "AutoAssociate": bool,
-    },
-    total=False,
-)
-
-ListBillingGroupsInputRequestTypeDef = TypedDict(
-    "ListBillingGroupsInputRequestTypeDef",
-    {
-        "BillingPeriod": str,
-        "MaxResults": int,
-        "NextToken": str,
-        "Filters": "ListBillingGroupsFilterTypeDef",
-    },
-    total=False,
-)
-
-ListBillingGroupsOutputTypeDef = TypedDict(
-    "ListBillingGroupsOutputTypeDef",
-    {
-        "BillingGroups": List["BillingGroupListElementTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListCustomLineItemChargeDetailsTypeDef = TypedDict(
-    "_RequiredListCustomLineItemChargeDetailsTypeDef",
-    {
-        "Type": CustomLineItemTypeType,
-    },
-)
-_OptionalListCustomLineItemChargeDetailsTypeDef = TypedDict(
-    "_OptionalListCustomLineItemChargeDetailsTypeDef",
-    {
-        "Flat": "ListCustomLineItemFlatChargeDetailsTypeDef",
-        "Percentage": "ListCustomLineItemPercentageChargeDetailsTypeDef",
-        "LineItemFilters": List["LineItemFilterTypeDef"],
-    },
-    total=False,
-)
-
-class ListCustomLineItemChargeDetailsTypeDef(
-    _RequiredListCustomLineItemChargeDetailsTypeDef, _OptionalListCustomLineItemChargeDetailsTypeDef
-):
-    pass
-
-ListCustomLineItemFlatChargeDetailsTypeDef = TypedDict(
-    "ListCustomLineItemFlatChargeDetailsTypeDef",
-    {
-        "ChargeValue": float,
-    },
-)
-
-ListCustomLineItemPercentageChargeDetailsTypeDef = TypedDict(
-    "ListCustomLineItemPercentageChargeDetailsTypeDef",
-    {
-        "PercentageValue": float,
-    },
-)
-
-ListCustomLineItemVersionsBillingPeriodRangeFilterTypeDef = TypedDict(
-    "ListCustomLineItemVersionsBillingPeriodRangeFilterTypeDef",
-    {
-        "StartBillingPeriod": str,
-        "EndBillingPeriod": str,
-    },
-    total=False,
-)
-
-ListCustomLineItemVersionsFilterTypeDef = TypedDict(
-    "ListCustomLineItemVersionsFilterTypeDef",
-    {
-        "BillingPeriodRange": "ListCustomLineItemVersionsBillingPeriodRangeFilterTypeDef",
-    },
-    total=False,
-)
-
-_RequiredListCustomLineItemVersionsInputRequestTypeDef = TypedDict(
-    "_RequiredListCustomLineItemVersionsInputRequestTypeDef",
-    {
-        "Arn": str,
-    },
-)
-_OptionalListCustomLineItemVersionsInputRequestTypeDef = TypedDict(
-    "_OptionalListCustomLineItemVersionsInputRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-        "Filters": "ListCustomLineItemVersionsFilterTypeDef",
-    },
-    total=False,
-)
-
-class ListCustomLineItemVersionsInputRequestTypeDef(
-    _RequiredListCustomLineItemVersionsInputRequestTypeDef,
-    _OptionalListCustomLineItemVersionsInputRequestTypeDef,
-):
-    pass
-
-ListCustomLineItemVersionsOutputTypeDef = TypedDict(
-    "ListCustomLineItemVersionsOutputTypeDef",
-    {
-        "CustomLineItemVersions": List["CustomLineItemVersionListElementTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListCustomLineItemsFilterTypeDef = TypedDict(
-    "ListCustomLineItemsFilterTypeDef",
-    {
-        "Names": List[str],
-        "BillingGroups": List[str],
-        "Arns": List[str],
-        "AccountIds": List[str],
-    },
-    total=False,
-)
-
-ListCustomLineItemsInputRequestTypeDef = TypedDict(
-    "ListCustomLineItemsInputRequestTypeDef",
-    {
-        "BillingPeriod": str,
-        "MaxResults": int,
-        "NextToken": str,
-        "Filters": "ListCustomLineItemsFilterTypeDef",
-    },
-    total=False,
-)
-
-ListCustomLineItemsOutputTypeDef = TypedDict(
-    "ListCustomLineItemsOutputTypeDef",
-    {
-        "CustomLineItems": List["CustomLineItemListElementTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListPricingPlansAssociatedWithPricingRuleInputRequestTypeDef = TypedDict(
-    "_RequiredListPricingPlansAssociatedWithPricingRuleInputRequestTypeDef",
-    {
-        "PricingRuleArn": str,
-    },
-)
-_OptionalListPricingPlansAssociatedWithPricingRuleInputRequestTypeDef = TypedDict(
-    "_OptionalListPricingPlansAssociatedWithPricingRuleInputRequestTypeDef",
-    {
-        "BillingPeriod": str,
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListPricingPlansAssociatedWithPricingRuleInputRequestTypeDef(
-    _RequiredListPricingPlansAssociatedWithPricingRuleInputRequestTypeDef,
-    _OptionalListPricingPlansAssociatedWithPricingRuleInputRequestTypeDef,
-):
-    pass
-
-ListPricingPlansAssociatedWithPricingRuleOutputTypeDef = TypedDict(
-    "ListPricingPlansAssociatedWithPricingRuleOutputTypeDef",
-    {
-        "BillingPeriod": str,
-        "PricingRuleArn": str,
-        "PricingPlanArns": List[str],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListPricingPlansFilterTypeDef = TypedDict(
-    "ListPricingPlansFilterTypeDef",
-    {
-        "Arns": List[str],
-    },
-    total=False,
-)
-
-ListPricingPlansInputRequestTypeDef = TypedDict(
-    "ListPricingPlansInputRequestTypeDef",
-    {
-        "BillingPeriod": str,
-        "Filters": "ListPricingPlansFilterTypeDef",
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListPricingPlansOutputTypeDef = TypedDict(
-    "ListPricingPlansOutputTypeDef",
-    {
-        "BillingPeriod": str,
-        "PricingPlans": List["PricingPlanListElementTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListPricingRulesAssociatedToPricingPlanInputRequestTypeDef = TypedDict(
-    "_RequiredListPricingRulesAssociatedToPricingPlanInputRequestTypeDef",
-    {
-        "PricingPlanArn": str,
-    },
-)
-_OptionalListPricingRulesAssociatedToPricingPlanInputRequestTypeDef = TypedDict(
-    "_OptionalListPricingRulesAssociatedToPricingPlanInputRequestTypeDef",
-    {
-        "BillingPeriod": str,
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListPricingRulesAssociatedToPricingPlanInputRequestTypeDef(
-    _RequiredListPricingRulesAssociatedToPricingPlanInputRequestTypeDef,
-    _OptionalListPricingRulesAssociatedToPricingPlanInputRequestTypeDef,
-):
-    pass
-
-ListPricingRulesAssociatedToPricingPlanOutputTypeDef = TypedDict(
-    "ListPricingRulesAssociatedToPricingPlanOutputTypeDef",
-    {
-        "BillingPeriod": str,
-        "PricingPlanArn": str,
-        "PricingRuleArns": List[str],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListPricingRulesFilterTypeDef = TypedDict(
-    "ListPricingRulesFilterTypeDef",
-    {
-        "Arns": List[str],
-    },
-    total=False,
-)
-
-ListPricingRulesInputRequestTypeDef = TypedDict(
-    "ListPricingRulesInputRequestTypeDef",
-    {
-        "BillingPeriod": str,
-        "Filters": "ListPricingRulesFilterTypeDef",
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListPricingRulesOutputTypeDef = TypedDict(
-    "ListPricingRulesOutputTypeDef",
-    {
-        "BillingPeriod": str,
-        "PricingRules": List["PricingRuleListElementTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListResourcesAssociatedToCustomLineItemFilterTypeDef = TypedDict(
-    "ListResourcesAssociatedToCustomLineItemFilterTypeDef",
-    {
-        "Relationship": CustomLineItemRelationshipType,
-    },
-    total=False,
-)
-
-_RequiredListResourcesAssociatedToCustomLineItemInputRequestTypeDef = TypedDict(
-    "_RequiredListResourcesAssociatedToCustomLineItemInputRequestTypeDef",
-    {
-        "Arn": str,
-    },
-)
-_OptionalListResourcesAssociatedToCustomLineItemInputRequestTypeDef = TypedDict(
-    "_OptionalListResourcesAssociatedToCustomLineItemInputRequestTypeDef",
-    {
-        "BillingPeriod": str,
-        "MaxResults": int,
-        "NextToken": str,
-        "Filters": "ListResourcesAssociatedToCustomLineItemFilterTypeDef",
-    },
-    total=False,
-)
-
-class ListResourcesAssociatedToCustomLineItemInputRequestTypeDef(
-    _RequiredListResourcesAssociatedToCustomLineItemInputRequestTypeDef,
-    _OptionalListResourcesAssociatedToCustomLineItemInputRequestTypeDef,
-):
-    pass
-
-ListResourcesAssociatedToCustomLineItemOutputTypeDef = TypedDict(
-    "ListResourcesAssociatedToCustomLineItemOutputTypeDef",
-    {
-        "Arn": str,
-        "AssociatedResources": List[
-            "ListResourcesAssociatedToCustomLineItemResponseElementTypeDef"
-        ],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListResourcesAssociatedToCustomLineItemResponseElementTypeDef = TypedDict(
-    "ListResourcesAssociatedToCustomLineItemResponseElementTypeDef",
-    {
-        "Arn": str,
-        "Relationship": CustomLineItemRelationshipType,
-        "EndBillingPeriod": str,
-    },
-    total=False,
-)
-
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-    },
-)
-
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "Tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-PricingPlanListElementTypeDef = TypedDict(
-    "PricingPlanListElementTypeDef",
-    {
-        "Name": str,
-        "Arn": str,
-        "Description": str,
-        "Size": int,
-        "CreationTime": int,
-        "LastModifiedTime": int,
-    },
-    total=False,
-)
-
 PricingRuleListElementTypeDef = TypedDict(
     "PricingRuleListElementTypeDef",
     {
-        "Name": str,
-        "Arn": str,
-        "Description": str,
-        "Scope": PricingRuleScopeType,
-        "Type": PricingRuleTypeType,
-        "ModifierPercentage": float,
-        "Service": str,
-        "AssociatedPricingPlanCount": int,
-        "CreationTime": int,
-        "LastModifiedTime": int,
-        "BillingEntity": str,
-        "Tiering": "TieringTypeDef",
-        "UsageType": str,
-        "Operation": str,
+        "Name": NotRequired[str],
+        "Arn": NotRequired[str],
+        "Description": NotRequired[str],
+        "Scope": NotRequired[PricingRuleScopeType],
+        "Type": NotRequired[PricingRuleTypeType],
+        "ModifierPercentage": NotRequired[float],
+        "Service": NotRequired[str],
+        "AssociatedPricingPlanCount": NotRequired[int],
+        "CreationTime": NotRequired[int],
+        "LastModifiedTime": NotRequired[int],
+        "BillingEntity": NotRequired[str],
+        "Tiering": NotRequired[TieringTypeDef],
+        "UsageType": NotRequired[str],
+        "Operation": NotRequired[str],
     },
-    total=False,
 )
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
+CustomLineItemChargeDetailsTypeDef = TypedDict(
+    "CustomLineItemChargeDetailsTypeDef",
     {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
+        "Type": CustomLineItemTypeType,
+        "Flat": NotRequired[CustomLineItemFlatChargeDetailsTypeDef],
+        "Percentage": NotRequired[CustomLineItemPercentageChargeDetailsTypeDef],
+        "LineItemFilters": NotRequired[Sequence[LineItemFilterUnionTypeDef]],
     },
 )
 
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-        "Tags": Dict[str, str],
-    },
-)
+class UpdateCustomLineItemChargeDetailsTypeDef(TypedDict):
+    Flat: NotRequired[UpdateCustomLineItemFlatChargeDetailsTypeDef]
+    Percentage: NotRequired[UpdateCustomLineItemPercentageChargeDetailsTypeDef]
+    LineItemFilters: NotRequired[Sequence[LineItemFilterUnionTypeDef]]
 
-TieringTypeDef = TypedDict(
-    "TieringTypeDef",
-    {
-        "FreeTier": "FreeTierConfigTypeDef",
-    },
-)
+class CustomLineItemListElementTypeDef(TypedDict):
+    Arn: NotRequired[str]
+    Name: NotRequired[str]
+    ChargeDetails: NotRequired[ListCustomLineItemChargeDetailsTypeDef]
+    CurrencyCode: NotRequired[CurrencyCodeType]
+    Description: NotRequired[str]
+    ProductCode: NotRequired[str]
+    BillingGroupArn: NotRequired[str]
+    CreationTime: NotRequired[int]
+    LastModifiedTime: NotRequired[int]
+    AssociationSize: NotRequired[int]
+    AccountId: NotRequired[str]
 
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-        "TagKeys": List[str],
-    },
-)
+class CustomLineItemVersionListElementTypeDef(TypedDict):
+    Name: NotRequired[str]
+    ChargeDetails: NotRequired[ListCustomLineItemChargeDetailsTypeDef]
+    CurrencyCode: NotRequired[CurrencyCodeType]
+    Description: NotRequired[str]
+    ProductCode: NotRequired[str]
+    BillingGroupArn: NotRequired[str]
+    CreationTime: NotRequired[int]
+    LastModifiedTime: NotRequired[int]
+    AssociationSize: NotRequired[int]
+    StartBillingPeriod: NotRequired[str]
+    EndBillingPeriod: NotRequired[str]
+    Arn: NotRequired[str]
+    StartTime: NotRequired[int]
+    AccountId: NotRequired[str]
 
-UpdateBillingGroupAccountGroupingTypeDef = TypedDict(
-    "UpdateBillingGroupAccountGroupingTypeDef",
-    {
-        "AutoAssociate": bool,
-    },
-    total=False,
-)
+class UpdateCustomLineItemOutputTypeDef(TypedDict):
+    Arn: str
+    BillingGroupArn: str
+    Name: str
+    Description: str
+    ChargeDetails: ListCustomLineItemChargeDetailsTypeDef
+    LastModifiedTime: int
+    AssociationSize: int
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredUpdateBillingGroupInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateBillingGroupInputRequestTypeDef",
-    {
-        "Arn": str,
-    },
-)
-_OptionalUpdateBillingGroupInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateBillingGroupInputRequestTypeDef",
-    {
-        "Name": str,
-        "Status": BillingGroupStatusType,
-        "ComputationPreference": "ComputationPreferenceTypeDef",
-        "Description": str,
-        "AccountGrouping": "UpdateBillingGroupAccountGroupingTypeDef",
-    },
-    total=False,
-)
+class ListCustomLineItemVersionsInputPaginateTypeDef(TypedDict):
+    Arn: str
+    Filters: NotRequired[ListCustomLineItemVersionsFilterTypeDef]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-class UpdateBillingGroupInputRequestTypeDef(
-    _RequiredUpdateBillingGroupInputRequestTypeDef, _OptionalUpdateBillingGroupInputRequestTypeDef
-):
-    pass
+class ListCustomLineItemVersionsInputTypeDef(TypedDict):
+    Arn: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+    Filters: NotRequired[ListCustomLineItemVersionsFilterTypeDef]
 
-UpdateBillingGroupOutputTypeDef = TypedDict(
-    "UpdateBillingGroupOutputTypeDef",
+UpdatePricingRuleInputTypeDef = TypedDict(
+    "UpdatePricingRuleInputTypeDef",
     {
         "Arn": str,
-        "Name": str,
-        "Description": str,
-        "PrimaryAccountId": str,
-        "PricingPlanArn": str,
-        "Size": int,
-        "LastModifiedTime": int,
-        "Status": BillingGroupStatusType,
-        "StatusReason": str,
-        "AccountGrouping": "UpdateBillingGroupAccountGroupingTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "Name": NotRequired[str],
+        "Description": NotRequired[str],
+        "Type": NotRequired[PricingRuleTypeType],
+        "ModifierPercentage": NotRequired[float],
+        "Tiering": NotRequired[UpdateTieringInputTypeDef],
     },
 )
-
-UpdateCustomLineItemChargeDetailsTypeDef = TypedDict(
-    "UpdateCustomLineItemChargeDetailsTypeDef",
-    {
-        "Flat": "UpdateCustomLineItemFlatChargeDetailsTypeDef",
-        "Percentage": "UpdateCustomLineItemPercentageChargeDetailsTypeDef",
-        "LineItemFilters": List["LineItemFilterTypeDef"],
-    },
-    total=False,
-)
-
-UpdateCustomLineItemFlatChargeDetailsTypeDef = TypedDict(
-    "UpdateCustomLineItemFlatChargeDetailsTypeDef",
-    {
-        "ChargeValue": float,
-    },
-)
-
-_RequiredUpdateCustomLineItemInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateCustomLineItemInputRequestTypeDef",
-    {
-        "Arn": str,
-    },
-)
-_OptionalUpdateCustomLineItemInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateCustomLineItemInputRequestTypeDef",
-    {
-        "Name": str,
-        "Description": str,
-        "ChargeDetails": "UpdateCustomLineItemChargeDetailsTypeDef",
-        "BillingPeriodRange": "CustomLineItemBillingPeriodRangeTypeDef",
-    },
-    total=False,
-)
-
-class UpdateCustomLineItemInputRequestTypeDef(
-    _RequiredUpdateCustomLineItemInputRequestTypeDef,
-    _OptionalUpdateCustomLineItemInputRequestTypeDef,
-):
-    pass
-
-UpdateCustomLineItemOutputTypeDef = TypedDict(
-    "UpdateCustomLineItemOutputTypeDef",
-    {
-        "Arn": str,
-        "BillingGroupArn": str,
-        "Name": str,
-        "Description": str,
-        "ChargeDetails": "ListCustomLineItemChargeDetailsTypeDef",
-        "LastModifiedTime": int,
-        "AssociationSize": int,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UpdateCustomLineItemPercentageChargeDetailsTypeDef = TypedDict(
-    "UpdateCustomLineItemPercentageChargeDetailsTypeDef",
-    {
-        "PercentageValue": float,
-    },
-)
-
-UpdateFreeTierConfigTypeDef = TypedDict(
-    "UpdateFreeTierConfigTypeDef",
-    {
-        "Activated": bool,
-    },
-)
-
-_RequiredUpdatePricingPlanInputRequestTypeDef = TypedDict(
-    "_RequiredUpdatePricingPlanInputRequestTypeDef",
-    {
-        "Arn": str,
-    },
-)
-_OptionalUpdatePricingPlanInputRequestTypeDef = TypedDict(
-    "_OptionalUpdatePricingPlanInputRequestTypeDef",
-    {
-        "Name": str,
-        "Description": str,
-    },
-    total=False,
-)
-
-class UpdatePricingPlanInputRequestTypeDef(
-    _RequiredUpdatePricingPlanInputRequestTypeDef, _OptionalUpdatePricingPlanInputRequestTypeDef
-):
-    pass
-
-UpdatePricingPlanOutputTypeDef = TypedDict(
-    "UpdatePricingPlanOutputTypeDef",
-    {
-        "Arn": str,
-        "Name": str,
-        "Description": str,
-        "Size": int,
-        "LastModifiedTime": int,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdatePricingRuleInputRequestTypeDef = TypedDict(
-    "_RequiredUpdatePricingRuleInputRequestTypeDef",
-    {
-        "Arn": str,
-    },
-)
-_OptionalUpdatePricingRuleInputRequestTypeDef = TypedDict(
-    "_OptionalUpdatePricingRuleInputRequestTypeDef",
-    {
-        "Name": str,
-        "Description": str,
-        "Type": PricingRuleTypeType,
-        "ModifierPercentage": float,
-        "Tiering": "UpdateTieringInputTypeDef",
-    },
-    total=False,
-)
-
-class UpdatePricingRuleInputRequestTypeDef(
-    _RequiredUpdatePricingRuleInputRequestTypeDef, _OptionalUpdatePricingRuleInputRequestTypeDef
-):
-    pass
-
 UpdatePricingRuleOutputTypeDef = TypedDict(
     "UpdatePricingRuleOutputTypeDef",
     {
@@ -1433,16 +797,42 @@ UpdatePricingRuleOutputTypeDef = TypedDict(
         "AssociatedPricingPlanCount": int,
         "LastModifiedTime": int,
         "BillingEntity": str,
-        "Tiering": "UpdateTieringInputTypeDef",
+        "Tiering": UpdateTieringInputTypeDef,
         "UsageType": str,
         "Operation": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
 
-UpdateTieringInputTypeDef = TypedDict(
-    "UpdateTieringInputTypeDef",
-    {
-        "FreeTier": "UpdateFreeTierConfigTypeDef",
-    },
-)
+class ListPricingRulesOutputTypeDef(TypedDict):
+    BillingPeriod: str
+    PricingRules: List[PricingRuleListElementTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class CreateCustomLineItemInputTypeDef(TypedDict):
+    Name: str
+    Description: str
+    BillingGroupArn: str
+    ChargeDetails: CustomLineItemChargeDetailsTypeDef
+    ClientToken: NotRequired[str]
+    BillingPeriodRange: NotRequired[CustomLineItemBillingPeriodRangeTypeDef]
+    Tags: NotRequired[Mapping[str, str]]
+    AccountId: NotRequired[str]
+
+class UpdateCustomLineItemInputTypeDef(TypedDict):
+    Arn: str
+    Name: NotRequired[str]
+    Description: NotRequired[str]
+    ChargeDetails: NotRequired[UpdateCustomLineItemChargeDetailsTypeDef]
+    BillingPeriodRange: NotRequired[CustomLineItemBillingPeriodRangeTypeDef]
+
+class ListCustomLineItemsOutputTypeDef(TypedDict):
+    CustomLineItems: List[CustomLineItemListElementTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListCustomLineItemVersionsOutputTypeDef(TypedDict):
+    CustomLineItemVersions: List[CustomLineItemVersionListElementTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]

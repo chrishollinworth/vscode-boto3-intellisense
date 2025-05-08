@@ -1,19 +1,21 @@
 """
 Main interface for connect-contact-lens service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connect_contact_lens/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_connect_contact_lens import (
         Client,
         ConnectContactLensClient,
     )
 
-    session = boto3.Session()
-
-    client: ConnectContactLensClient = boto3.client("connect-contact-lens")
-    session_client: ConnectContactLensClient = session.client("connect-contact-lens")
+    session = Session()
+    client: ConnectContactLensClient = session.client("connect-contact-lens")
     ```
 """
 

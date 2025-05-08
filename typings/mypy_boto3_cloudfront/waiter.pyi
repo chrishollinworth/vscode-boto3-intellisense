@@ -1,72 +1,106 @@
 """
 Type annotations for cloudfront service client waiters.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/waiters.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/waiters/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
 
-    from mypy_boto3_cloudfront import CloudFrontClient
+    from mypy_boto3_cloudfront.client import CloudFrontClient
     from mypy_boto3_cloudfront.waiter import (
         DistributionDeployedWaiter,
         InvalidationCompletedWaiter,
+        InvalidationForDistributionTenantCompletedWaiter,
         StreamingDistributionDeployedWaiter,
     )
 
-    client: CloudFrontClient = boto3.client("cloudfront")
+    session = Session()
+    client: CloudFrontClient = session.client("cloudfront")
 
     distribution_deployed_waiter: DistributionDeployedWaiter = client.get_waiter("distribution_deployed")
     invalidation_completed_waiter: InvalidationCompletedWaiter = client.get_waiter("invalidation_completed")
+    invalidation_for_distribution_tenant_completed_waiter: InvalidationForDistributionTenantCompletedWaiter = client.get_waiter("invalidation_for_distribution_tenant_completed")
     streaming_distribution_deployed_waiter: StreamingDistributionDeployedWaiter = client.get_waiter("streaming_distribution_deployed")
     ```
 """
 
-from botocore.waiter import Waiter as Boto3Waiter
+from __future__ import annotations
 
-from .type_defs import WaiterConfigTypeDef
+import sys
+
+from botocore.waiter import Waiter
+
+from .type_defs import (
+    GetDistributionRequestWaitTypeDef,
+    GetInvalidationForDistributionTenantRequestWaitTypeDef,
+    GetInvalidationRequestWaitTypeDef,
+    GetStreamingDistributionRequestWaitTypeDef,
+)
+
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = (
     "DistributionDeployedWaiter",
     "InvalidationCompletedWaiter",
+    "InvalidationForDistributionTenantCompletedWaiter",
     "StreamingDistributionDeployedWaiter",
 )
 
-class DistributionDeployedWaiter(Boto3Waiter):
+class DistributionDeployedWaiter(Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudfront.html#CloudFront.Waiter.DistributionDeployed)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/waiters.html#distributiondeployedwaiter)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudfront/waiter/DistributionDeployed.html#CloudFront.Waiter.DistributionDeployed)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/waiters/#distributiondeployedwaiter)
     """
-
-    def wait(self, *, Id: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudfront.html#CloudFront.Waiter.DistributionDeployed.wait)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/waiters.html#distributiondeployedwaiter)
-        """
-
-class InvalidationCompletedWaiter(Boto3Waiter):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudfront.html#CloudFront.Waiter.InvalidationCompleted)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/waiters.html#invalidationcompletedwaiter)
-    """
-
-    def wait(
-        self, *, DistributionId: str, Id: str, WaiterConfig: WaiterConfigTypeDef = None
+    def wait(  # type: ignore[override]
+        self, **kwargs: Unpack[GetDistributionRequestWaitTypeDef]
     ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudfront.html#CloudFront.Waiter.InvalidationCompleted.wait)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/waiters.html#invalidationcompletedwaiter)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudfront/waiter/DistributionDeployed.html#CloudFront.Waiter.DistributionDeployed.wait)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/waiters/#distributiondeployedwaiter)
         """
 
-class StreamingDistributionDeployedWaiter(Boto3Waiter):
+class InvalidationCompletedWaiter(Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudfront.html#CloudFront.Waiter.StreamingDistributionDeployed)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/waiters.html#streamingdistributiondeployedwaiter)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudfront/waiter/InvalidationCompleted.html#CloudFront.Waiter.InvalidationCompleted)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/waiters/#invalidationcompletedwaiter)
     """
-
-    def wait(self, *, Id: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
+    def wait(  # type: ignore[override]
+        self, **kwargs: Unpack[GetInvalidationRequestWaitTypeDef]
+    ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudfront.html#CloudFront.Waiter.StreamingDistributionDeployed.wait)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/waiters.html#streamingdistributiondeployedwaiter)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudfront/waiter/InvalidationCompleted.html#CloudFront.Waiter.InvalidationCompleted.wait)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/waiters/#invalidationcompletedwaiter)
+        """
+
+class InvalidationForDistributionTenantCompletedWaiter(Waiter):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudfront/waiter/InvalidationForDistributionTenantCompleted.html#CloudFront.Waiter.InvalidationForDistributionTenantCompleted)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/waiters/#invalidationfordistributiontenantcompletedwaiter)
+    """
+    def wait(  # type: ignore[override]
+        self, **kwargs: Unpack[GetInvalidationForDistributionTenantRequestWaitTypeDef]
+    ) -> None:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudfront/waiter/InvalidationForDistributionTenantCompleted.html#CloudFront.Waiter.InvalidationForDistributionTenantCompleted.wait)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/waiters/#invalidationfordistributiontenantcompletedwaiter)
+        """
+
+class StreamingDistributionDeployedWaiter(Waiter):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudfront/waiter/StreamingDistributionDeployed.html#CloudFront.Waiter.StreamingDistributionDeployed)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/waiters/#streamingdistributiondeployedwaiter)
+    """
+    def wait(  # type: ignore[override]
+        self, **kwargs: Unpack[GetStreamingDistributionRequestWaitTypeDef]
+    ) -> None:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudfront/waiter/StreamingDistributionDeployed.html#CloudFront.Waiter.StreamingDistributionDeployed.wait)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudfront/waiters/#streamingdistributiondeployedwaiter)
         """

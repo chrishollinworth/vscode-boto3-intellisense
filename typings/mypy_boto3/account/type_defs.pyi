@@ -1,364 +1,206 @@
 """
 Type annotations for account service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_account/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_account/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_account.type_defs import AcceptPrimaryEmailUpdateRequestRequestTypeDef
+    from mypy_boto3_account.type_defs import AcceptPrimaryEmailUpdateRequestTypeDef
 
-    data: AcceptPrimaryEmailUpdateRequestRequestTypeDef = {...}
+    data: AcceptPrimaryEmailUpdateRequestTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from typing import Any, Dict, List
+from datetime import datetime
 
 from .literals import AlternateContactTypeType, PrimaryEmailUpdateStatusType, RegionOptStatusType
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Sequence
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List, Sequence
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
-    "AcceptPrimaryEmailUpdateRequestRequestTypeDef",
+    "AcceptPrimaryEmailUpdateRequestTypeDef",
     "AcceptPrimaryEmailUpdateResponseTypeDef",
     "AlternateContactTypeDef",
     "ContactInformationTypeDef",
-    "DeleteAlternateContactRequestRequestTypeDef",
-    "DisableRegionRequestRequestTypeDef",
-    "EnableRegionRequestRequestTypeDef",
-    "GetAlternateContactRequestRequestTypeDef",
+    "DeleteAlternateContactRequestTypeDef",
+    "DisableRegionRequestTypeDef",
+    "EmptyResponseMetadataTypeDef",
+    "EnableRegionRequestTypeDef",
+    "GetAccountInformationRequestTypeDef",
+    "GetAccountInformationResponseTypeDef",
+    "GetAlternateContactRequestTypeDef",
     "GetAlternateContactResponseTypeDef",
-    "GetContactInformationRequestRequestTypeDef",
+    "GetContactInformationRequestTypeDef",
     "GetContactInformationResponseTypeDef",
-    "GetPrimaryEmailRequestRequestTypeDef",
+    "GetPrimaryEmailRequestTypeDef",
     "GetPrimaryEmailResponseTypeDef",
-    "GetRegionOptStatusRequestRequestTypeDef",
+    "GetRegionOptStatusRequestTypeDef",
     "GetRegionOptStatusResponseTypeDef",
-    "ListRegionsRequestRequestTypeDef",
+    "ListRegionsRequestPaginateTypeDef",
+    "ListRegionsRequestTypeDef",
     "ListRegionsResponseTypeDef",
     "PaginatorConfigTypeDef",
-    "PutAlternateContactRequestRequestTypeDef",
-    "PutContactInformationRequestRequestTypeDef",
+    "PutAccountNameRequestTypeDef",
+    "PutAlternateContactRequestTypeDef",
+    "PutContactInformationRequestTypeDef",
     "RegionTypeDef",
     "ResponseMetadataTypeDef",
-    "StartPrimaryEmailUpdateRequestRequestTypeDef",
+    "StartPrimaryEmailUpdateRequestTypeDef",
     "StartPrimaryEmailUpdateResponseTypeDef",
 )
 
-AcceptPrimaryEmailUpdateRequestRequestTypeDef = TypedDict(
-    "AcceptPrimaryEmailUpdateRequestRequestTypeDef",
-    {
-        "AccountId": str,
-        "Otp": str,
-        "PrimaryEmail": str,
-    },
-)
+class AcceptPrimaryEmailUpdateRequestTypeDef(TypedDict):
+    AccountId: str
+    Otp: str
+    PrimaryEmail: str
 
-AcceptPrimaryEmailUpdateResponseTypeDef = TypedDict(
-    "AcceptPrimaryEmailUpdateResponseTypeDef",
-    {
-        "Status": PrimaryEmailUpdateStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-AlternateContactTypeDef = TypedDict(
-    "AlternateContactTypeDef",
-    {
-        "AlternateContactType": AlternateContactTypeType,
-        "EmailAddress": str,
-        "Name": str,
-        "PhoneNumber": str,
-        "Title": str,
-    },
-    total=False,
-)
+class AlternateContactTypeDef(TypedDict):
+    AlternateContactType: NotRequired[AlternateContactTypeType]
+    EmailAddress: NotRequired[str]
+    Name: NotRequired[str]
+    PhoneNumber: NotRequired[str]
+    Title: NotRequired[str]
 
-_RequiredContactInformationTypeDef = TypedDict(
-    "_RequiredContactInformationTypeDef",
-    {
-        "AddressLine1": str,
-        "City": str,
-        "CountryCode": str,
-        "FullName": str,
-        "PhoneNumber": str,
-        "PostalCode": str,
-    },
-)
-_OptionalContactInformationTypeDef = TypedDict(
-    "_OptionalContactInformationTypeDef",
-    {
-        "AddressLine2": str,
-        "AddressLine3": str,
-        "CompanyName": str,
-        "DistrictOrCounty": str,
-        "StateOrRegion": str,
-        "WebsiteUrl": str,
-    },
-    total=False,
-)
+class ContactInformationTypeDef(TypedDict):
+    AddressLine1: str
+    City: str
+    CountryCode: str
+    FullName: str
+    PhoneNumber: str
+    PostalCode: str
+    AddressLine2: NotRequired[str]
+    AddressLine3: NotRequired[str]
+    CompanyName: NotRequired[str]
+    DistrictOrCounty: NotRequired[str]
+    StateOrRegion: NotRequired[str]
+    WebsiteUrl: NotRequired[str]
 
-class ContactInformationTypeDef(
-    _RequiredContactInformationTypeDef, _OptionalContactInformationTypeDef
-):
-    pass
+class DeleteAlternateContactRequestTypeDef(TypedDict):
+    AlternateContactType: AlternateContactTypeType
+    AccountId: NotRequired[str]
 
-_RequiredDeleteAlternateContactRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteAlternateContactRequestRequestTypeDef",
-    {
-        "AlternateContactType": AlternateContactTypeType,
-    },
-)
-_OptionalDeleteAlternateContactRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteAlternateContactRequestRequestTypeDef",
-    {
-        "AccountId": str,
-    },
-    total=False,
-)
+class DisableRegionRequestTypeDef(TypedDict):
+    RegionName: str
+    AccountId: NotRequired[str]
 
-class DeleteAlternateContactRequestRequestTypeDef(
-    _RequiredDeleteAlternateContactRequestRequestTypeDef,
-    _OptionalDeleteAlternateContactRequestRequestTypeDef,
-):
-    pass
+class EnableRegionRequestTypeDef(TypedDict):
+    RegionName: str
+    AccountId: NotRequired[str]
 
-_RequiredDisableRegionRequestRequestTypeDef = TypedDict(
-    "_RequiredDisableRegionRequestRequestTypeDef",
-    {
-        "RegionName": str,
-    },
-)
-_OptionalDisableRegionRequestRequestTypeDef = TypedDict(
-    "_OptionalDisableRegionRequestRequestTypeDef",
-    {
-        "AccountId": str,
-    },
-    total=False,
-)
+class GetAccountInformationRequestTypeDef(TypedDict):
+    AccountId: NotRequired[str]
 
-class DisableRegionRequestRequestTypeDef(
-    _RequiredDisableRegionRequestRequestTypeDef, _OptionalDisableRegionRequestRequestTypeDef
-):
-    pass
+class GetAlternateContactRequestTypeDef(TypedDict):
+    AlternateContactType: AlternateContactTypeType
+    AccountId: NotRequired[str]
 
-_RequiredEnableRegionRequestRequestTypeDef = TypedDict(
-    "_RequiredEnableRegionRequestRequestTypeDef",
-    {
-        "RegionName": str,
-    },
-)
-_OptionalEnableRegionRequestRequestTypeDef = TypedDict(
-    "_OptionalEnableRegionRequestRequestTypeDef",
-    {
-        "AccountId": str,
-    },
-    total=False,
-)
+class GetContactInformationRequestTypeDef(TypedDict):
+    AccountId: NotRequired[str]
 
-class EnableRegionRequestRequestTypeDef(
-    _RequiredEnableRegionRequestRequestTypeDef, _OptionalEnableRegionRequestRequestTypeDef
-):
-    pass
+class GetPrimaryEmailRequestTypeDef(TypedDict):
+    AccountId: str
 
-_RequiredGetAlternateContactRequestRequestTypeDef = TypedDict(
-    "_RequiredGetAlternateContactRequestRequestTypeDef",
-    {
-        "AlternateContactType": AlternateContactTypeType,
-    },
-)
-_OptionalGetAlternateContactRequestRequestTypeDef = TypedDict(
-    "_OptionalGetAlternateContactRequestRequestTypeDef",
-    {
-        "AccountId": str,
-    },
-    total=False,
-)
+class GetRegionOptStatusRequestTypeDef(TypedDict):
+    RegionName: str
+    AccountId: NotRequired[str]
 
-class GetAlternateContactRequestRequestTypeDef(
-    _RequiredGetAlternateContactRequestRequestTypeDef,
-    _OptionalGetAlternateContactRequestRequestTypeDef,
-):
-    pass
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
 
-GetAlternateContactResponseTypeDef = TypedDict(
-    "GetAlternateContactResponseTypeDef",
-    {
-        "AlternateContact": "AlternateContactTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListRegionsRequestTypeDef(TypedDict):
+    AccountId: NotRequired[str]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+    RegionOptStatusContains: NotRequired[Sequence[RegionOptStatusType]]
 
-GetContactInformationRequestRequestTypeDef = TypedDict(
-    "GetContactInformationRequestRequestTypeDef",
-    {
-        "AccountId": str,
-    },
-    total=False,
-)
+class RegionTypeDef(TypedDict):
+    RegionName: NotRequired[str]
+    RegionOptStatus: NotRequired[RegionOptStatusType]
 
-GetContactInformationResponseTypeDef = TypedDict(
-    "GetContactInformationResponseTypeDef",
-    {
-        "ContactInformation": "ContactInformationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class PutAccountNameRequestTypeDef(TypedDict):
+    AccountName: str
+    AccountId: NotRequired[str]
 
-GetPrimaryEmailRequestRequestTypeDef = TypedDict(
-    "GetPrimaryEmailRequestRequestTypeDef",
-    {
-        "AccountId": str,
-    },
-)
+class PutAlternateContactRequestTypeDef(TypedDict):
+    AlternateContactType: AlternateContactTypeType
+    EmailAddress: str
+    Name: str
+    PhoneNumber: str
+    Title: str
+    AccountId: NotRequired[str]
 
-GetPrimaryEmailResponseTypeDef = TypedDict(
-    "GetPrimaryEmailResponseTypeDef",
-    {
-        "PrimaryEmail": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class StartPrimaryEmailUpdateRequestTypeDef(TypedDict):
+    AccountId: str
+    PrimaryEmail: str
 
-_RequiredGetRegionOptStatusRequestRequestTypeDef = TypedDict(
-    "_RequiredGetRegionOptStatusRequestRequestTypeDef",
-    {
-        "RegionName": str,
-    },
-)
-_OptionalGetRegionOptStatusRequestRequestTypeDef = TypedDict(
-    "_OptionalGetRegionOptStatusRequestRequestTypeDef",
-    {
-        "AccountId": str,
-    },
-    total=False,
-)
+class AcceptPrimaryEmailUpdateResponseTypeDef(TypedDict):
+    Status: PrimaryEmailUpdateStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class GetRegionOptStatusRequestRequestTypeDef(
-    _RequiredGetRegionOptStatusRequestRequestTypeDef,
-    _OptionalGetRegionOptStatusRequestRequestTypeDef,
-):
-    pass
+class EmptyResponseMetadataTypeDef(TypedDict):
+    ResponseMetadata: ResponseMetadataTypeDef
 
-GetRegionOptStatusResponseTypeDef = TypedDict(
-    "GetRegionOptStatusResponseTypeDef",
-    {
-        "RegionName": str,
-        "RegionOptStatus": RegionOptStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetAccountInformationResponseTypeDef(TypedDict):
+    AccountCreatedDate: datetime
+    AccountId: str
+    AccountName: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ListRegionsRequestRequestTypeDef = TypedDict(
-    "ListRegionsRequestRequestTypeDef",
-    {
-        "AccountId": str,
-        "MaxResults": int,
-        "NextToken": str,
-        "RegionOptStatusContains": List[RegionOptStatusType],
-    },
-    total=False,
-)
+class GetPrimaryEmailResponseTypeDef(TypedDict):
+    PrimaryEmail: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ListRegionsResponseTypeDef = TypedDict(
-    "ListRegionsResponseTypeDef",
-    {
-        "NextToken": str,
-        "Regions": List["RegionTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetRegionOptStatusResponseTypeDef(TypedDict):
+    RegionName: str
+    RegionOptStatus: RegionOptStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
 
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
+class StartPrimaryEmailUpdateResponseTypeDef(TypedDict):
+    Status: PrimaryEmailUpdateStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredPutAlternateContactRequestRequestTypeDef = TypedDict(
-    "_RequiredPutAlternateContactRequestRequestTypeDef",
-    {
-        "AlternateContactType": AlternateContactTypeType,
-        "EmailAddress": str,
-        "Name": str,
-        "PhoneNumber": str,
-        "Title": str,
-    },
-)
-_OptionalPutAlternateContactRequestRequestTypeDef = TypedDict(
-    "_OptionalPutAlternateContactRequestRequestTypeDef",
-    {
-        "AccountId": str,
-    },
-    total=False,
-)
+class GetAlternateContactResponseTypeDef(TypedDict):
+    AlternateContact: AlternateContactTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class PutAlternateContactRequestRequestTypeDef(
-    _RequiredPutAlternateContactRequestRequestTypeDef,
-    _OptionalPutAlternateContactRequestRequestTypeDef,
-):
-    pass
+class GetContactInformationResponseTypeDef(TypedDict):
+    ContactInformation: ContactInformationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredPutContactInformationRequestRequestTypeDef = TypedDict(
-    "_RequiredPutContactInformationRequestRequestTypeDef",
-    {
-        "ContactInformation": "ContactInformationTypeDef",
-    },
-)
-_OptionalPutContactInformationRequestRequestTypeDef = TypedDict(
-    "_OptionalPutContactInformationRequestRequestTypeDef",
-    {
-        "AccountId": str,
-    },
-    total=False,
-)
+class PutContactInformationRequestTypeDef(TypedDict):
+    ContactInformation: ContactInformationTypeDef
+    AccountId: NotRequired[str]
 
-class PutContactInformationRequestRequestTypeDef(
-    _RequiredPutContactInformationRequestRequestTypeDef,
-    _OptionalPutContactInformationRequestRequestTypeDef,
-):
-    pass
+class ListRegionsRequestPaginateTypeDef(TypedDict):
+    AccountId: NotRequired[str]
+    RegionOptStatusContains: NotRequired[Sequence[RegionOptStatusType]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-RegionTypeDef = TypedDict(
-    "RegionTypeDef",
-    {
-        "RegionName": str,
-        "RegionOptStatus": RegionOptStatusType,
-    },
-    total=False,
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-StartPrimaryEmailUpdateRequestRequestTypeDef = TypedDict(
-    "StartPrimaryEmailUpdateRequestRequestTypeDef",
-    {
-        "AccountId": str,
-        "PrimaryEmail": str,
-    },
-)
-
-StartPrimaryEmailUpdateResponseTypeDef = TypedDict(
-    "StartPrimaryEmailUpdateResponseTypeDef",
-    {
-        "Status": PrimaryEmailUpdateStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListRegionsResponseTypeDef(TypedDict):
+    Regions: List[RegionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]

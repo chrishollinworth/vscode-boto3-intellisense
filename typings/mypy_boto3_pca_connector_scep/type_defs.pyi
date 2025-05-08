@@ -1,27 +1,36 @@
 """
 Type annotations for pca-connector-scep service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_scep/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_scep/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_pca_connector_scep.type_defs import ChallengeMetadataSummaryTypeDef
 
-    data: ChallengeMetadataSummaryTypeDef = {...}
+    data: ChallengeMetadataSummaryTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
 
 from .literals import ConnectorStatusReasonType, ConnectorStatusType, ConnectorTypeType
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
     "ChallengeMetadataSummaryTypeDef",
@@ -29,339 +38,196 @@ __all__ = (
     "ChallengeTypeDef",
     "ConnectorSummaryTypeDef",
     "ConnectorTypeDef",
-    "CreateChallengeRequestRequestTypeDef",
+    "CreateChallengeRequestTypeDef",
     "CreateChallengeResponseTypeDef",
-    "CreateConnectorRequestRequestTypeDef",
+    "CreateConnectorRequestTypeDef",
     "CreateConnectorResponseTypeDef",
-    "DeleteChallengeRequestRequestTypeDef",
-    "DeleteConnectorRequestRequestTypeDef",
-    "GetChallengeMetadataRequestRequestTypeDef",
+    "DeleteChallengeRequestTypeDef",
+    "DeleteConnectorRequestTypeDef",
+    "EmptyResponseMetadataTypeDef",
+    "GetChallengeMetadataRequestTypeDef",
     "GetChallengeMetadataResponseTypeDef",
-    "GetChallengePasswordRequestRequestTypeDef",
+    "GetChallengePasswordRequestTypeDef",
     "GetChallengePasswordResponseTypeDef",
-    "GetConnectorRequestRequestTypeDef",
+    "GetConnectorRequestTypeDef",
     "GetConnectorResponseTypeDef",
     "IntuneConfigurationTypeDef",
-    "ListChallengeMetadataRequestRequestTypeDef",
+    "ListChallengeMetadataRequestPaginateTypeDef",
+    "ListChallengeMetadataRequestTypeDef",
     "ListChallengeMetadataResponseTypeDef",
-    "ListConnectorsRequestRequestTypeDef",
+    "ListConnectorsRequestPaginateTypeDef",
+    "ListConnectorsRequestTypeDef",
     "ListConnectorsResponseTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "MobileDeviceManagementTypeDef",
     "OpenIdConfigurationTypeDef",
     "PaginatorConfigTypeDef",
     "ResponseMetadataTypeDef",
-    "TagResourceRequestRequestTypeDef",
-    "UntagResourceRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
+    "UntagResourceRequestTypeDef",
 )
 
-ChallengeMetadataSummaryTypeDef = TypedDict(
-    "ChallengeMetadataSummaryTypeDef",
-    {
-        "Arn": str,
-        "ConnectorArn": str,
-        "CreatedAt": datetime,
-        "UpdatedAt": datetime,
-    },
-    total=False,
-)
+class ChallengeMetadataSummaryTypeDef(TypedDict):
+    Arn: NotRequired[str]
+    ConnectorArn: NotRequired[str]
+    CreatedAt: NotRequired[datetime]
+    UpdatedAt: NotRequired[datetime]
 
-ChallengeMetadataTypeDef = TypedDict(
-    "ChallengeMetadataTypeDef",
-    {
-        "Arn": str,
-        "ConnectorArn": str,
-        "CreatedAt": datetime,
-        "UpdatedAt": datetime,
-    },
-    total=False,
-)
+class ChallengeMetadataTypeDef(TypedDict):
+    Arn: NotRequired[str]
+    ConnectorArn: NotRequired[str]
+    CreatedAt: NotRequired[datetime]
+    UpdatedAt: NotRequired[datetime]
 
-ChallengeTypeDef = TypedDict(
-    "ChallengeTypeDef",
-    {
-        "Arn": str,
-        "ConnectorArn": str,
-        "CreatedAt": datetime,
-        "UpdatedAt": datetime,
-        "Password": str,
-    },
-    total=False,
-)
+class ChallengeTypeDef(TypedDict):
+    Arn: NotRequired[str]
+    ConnectorArn: NotRequired[str]
+    CreatedAt: NotRequired[datetime]
+    UpdatedAt: NotRequired[datetime]
+    Password: NotRequired[str]
+
+class OpenIdConfigurationTypeDef(TypedDict):
+    Issuer: NotRequired[str]
+    Subject: NotRequired[str]
+    Audience: NotRequired[str]
+
+class CreateChallengeRequestTypeDef(TypedDict):
+    ConnectorArn: str
+    ClientToken: NotRequired[str]
+    Tags: NotRequired[Mapping[str, str]]
+
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
+
+class DeleteChallengeRequestTypeDef(TypedDict):
+    ChallengeArn: str
+
+class DeleteConnectorRequestTypeDef(TypedDict):
+    ConnectorArn: str
+
+class GetChallengeMetadataRequestTypeDef(TypedDict):
+    ChallengeArn: str
+
+class GetChallengePasswordRequestTypeDef(TypedDict):
+    ChallengeArn: str
+
+class GetConnectorRequestTypeDef(TypedDict):
+    ConnectorArn: str
+
+class IntuneConfigurationTypeDef(TypedDict):
+    AzureApplicationId: str
+    Domain: str
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class ListChallengeMetadataRequestTypeDef(TypedDict):
+    ConnectorArn: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListConnectorsRequestTypeDef(TypedDict):
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+
+class TagResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+    Tags: Mapping[str, str]
+
+class UntagResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+    TagKeys: Sequence[str]
+
+class CreateChallengeResponseTypeDef(TypedDict):
+    Challenge: ChallengeTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateConnectorResponseTypeDef(TypedDict):
+    ConnectorArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class EmptyResponseMetadataTypeDef(TypedDict):
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetChallengeMetadataResponseTypeDef(TypedDict):
+    ChallengeMetadata: ChallengeMetadataTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetChallengePasswordResponseTypeDef(TypedDict):
+    Password: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListChallengeMetadataResponseTypeDef(TypedDict):
+    Challenges: List[ChallengeMetadataSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    Tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class MobileDeviceManagementTypeDef(TypedDict):
+    Intune: NotRequired[IntuneConfigurationTypeDef]
+
+class ListChallengeMetadataRequestPaginateTypeDef(TypedDict):
+    ConnectorArn: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListConnectorsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
 ConnectorSummaryTypeDef = TypedDict(
     "ConnectorSummaryTypeDef",
     {
-        "Arn": str,
-        "CertificateAuthorityArn": str,
-        "Type": ConnectorTypeType,
-        "MobileDeviceManagement": "MobileDeviceManagementTypeDef",
-        "OpenIdConfiguration": "OpenIdConfigurationTypeDef",
-        "Status": ConnectorStatusType,
-        "StatusReason": ConnectorStatusReasonType,
-        "Endpoint": str,
-        "CreatedAt": datetime,
-        "UpdatedAt": datetime,
+        "Arn": NotRequired[str],
+        "CertificateAuthorityArn": NotRequired[str],
+        "Type": NotRequired[ConnectorTypeType],
+        "MobileDeviceManagement": NotRequired[MobileDeviceManagementTypeDef],
+        "OpenIdConfiguration": NotRequired[OpenIdConfigurationTypeDef],
+        "Status": NotRequired[ConnectorStatusType],
+        "StatusReason": NotRequired[ConnectorStatusReasonType],
+        "Endpoint": NotRequired[str],
+        "CreatedAt": NotRequired[datetime],
+        "UpdatedAt": NotRequired[datetime],
     },
-    total=False,
 )
-
 ConnectorTypeDef = TypedDict(
     "ConnectorTypeDef",
     {
-        "Arn": str,
-        "CertificateAuthorityArn": str,
-        "Type": ConnectorTypeType,
-        "MobileDeviceManagement": "MobileDeviceManagementTypeDef",
-        "OpenIdConfiguration": "OpenIdConfigurationTypeDef",
-        "Status": ConnectorStatusType,
-        "StatusReason": ConnectorStatusReasonType,
-        "Endpoint": str,
-        "CreatedAt": datetime,
-        "UpdatedAt": datetime,
-    },
-    total=False,
-)
-
-_RequiredCreateChallengeRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateChallengeRequestRequestTypeDef",
-    {
-        "ConnectorArn": str,
-    },
-)
-_OptionalCreateChallengeRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateChallengeRequestRequestTypeDef",
-    {
-        "ClientToken": str,
-        "Tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class CreateChallengeRequestRequestTypeDef(
-    _RequiredCreateChallengeRequestRequestTypeDef, _OptionalCreateChallengeRequestRequestTypeDef
-):
-    pass
-
-CreateChallengeResponseTypeDef = TypedDict(
-    "CreateChallengeResponseTypeDef",
-    {
-        "Challenge": "ChallengeTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "Arn": NotRequired[str],
+        "CertificateAuthorityArn": NotRequired[str],
+        "Type": NotRequired[ConnectorTypeType],
+        "MobileDeviceManagement": NotRequired[MobileDeviceManagementTypeDef],
+        "OpenIdConfiguration": NotRequired[OpenIdConfigurationTypeDef],
+        "Status": NotRequired[ConnectorStatusType],
+        "StatusReason": NotRequired[ConnectorStatusReasonType],
+        "Endpoint": NotRequired[str],
+        "CreatedAt": NotRequired[datetime],
+        "UpdatedAt": NotRequired[datetime],
     },
 )
 
-_RequiredCreateConnectorRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateConnectorRequestRequestTypeDef",
-    {
-        "CertificateAuthorityArn": str,
-    },
-)
-_OptionalCreateConnectorRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateConnectorRequestRequestTypeDef",
-    {
-        "MobileDeviceManagement": "MobileDeviceManagementTypeDef",
-        "ClientToken": str,
-        "Tags": Dict[str, str],
-    },
-    total=False,
-)
+class CreateConnectorRequestTypeDef(TypedDict):
+    CertificateAuthorityArn: str
+    MobileDeviceManagement: NotRequired[MobileDeviceManagementTypeDef]
+    ClientToken: NotRequired[str]
+    Tags: NotRequired[Mapping[str, str]]
 
-class CreateConnectorRequestRequestTypeDef(
-    _RequiredCreateConnectorRequestRequestTypeDef, _OptionalCreateConnectorRequestRequestTypeDef
-):
-    pass
+class ListConnectorsResponseTypeDef(TypedDict):
+    Connectors: List[ConnectorSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-CreateConnectorResponseTypeDef = TypedDict(
-    "CreateConnectorResponseTypeDef",
-    {
-        "ConnectorArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteChallengeRequestRequestTypeDef = TypedDict(
-    "DeleteChallengeRequestRequestTypeDef",
-    {
-        "ChallengeArn": str,
-    },
-)
-
-DeleteConnectorRequestRequestTypeDef = TypedDict(
-    "DeleteConnectorRequestRequestTypeDef",
-    {
-        "ConnectorArn": str,
-    },
-)
-
-GetChallengeMetadataRequestRequestTypeDef = TypedDict(
-    "GetChallengeMetadataRequestRequestTypeDef",
-    {
-        "ChallengeArn": str,
-    },
-)
-
-GetChallengeMetadataResponseTypeDef = TypedDict(
-    "GetChallengeMetadataResponseTypeDef",
-    {
-        "ChallengeMetadata": "ChallengeMetadataTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetChallengePasswordRequestRequestTypeDef = TypedDict(
-    "GetChallengePasswordRequestRequestTypeDef",
-    {
-        "ChallengeArn": str,
-    },
-)
-
-GetChallengePasswordResponseTypeDef = TypedDict(
-    "GetChallengePasswordResponseTypeDef",
-    {
-        "Password": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetConnectorRequestRequestTypeDef = TypedDict(
-    "GetConnectorRequestRequestTypeDef",
-    {
-        "ConnectorArn": str,
-    },
-)
-
-GetConnectorResponseTypeDef = TypedDict(
-    "GetConnectorResponseTypeDef",
-    {
-        "Connector": "ConnectorTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-IntuneConfigurationTypeDef = TypedDict(
-    "IntuneConfigurationTypeDef",
-    {
-        "AzureApplicationId": str,
-        "Domain": str,
-    },
-)
-
-_RequiredListChallengeMetadataRequestRequestTypeDef = TypedDict(
-    "_RequiredListChallengeMetadataRequestRequestTypeDef",
-    {
-        "ConnectorArn": str,
-    },
-)
-_OptionalListChallengeMetadataRequestRequestTypeDef = TypedDict(
-    "_OptionalListChallengeMetadataRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListChallengeMetadataRequestRequestTypeDef(
-    _RequiredListChallengeMetadataRequestRequestTypeDef,
-    _OptionalListChallengeMetadataRequestRequestTypeDef,
-):
-    pass
-
-ListChallengeMetadataResponseTypeDef = TypedDict(
-    "ListChallengeMetadataResponseTypeDef",
-    {
-        "Challenges": List["ChallengeMetadataSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListConnectorsRequestRequestTypeDef = TypedDict(
-    "ListConnectorsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListConnectorsResponseTypeDef = TypedDict(
-    "ListConnectorsResponseTypeDef",
-    {
-        "Connectors": List["ConnectorSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-    },
-)
-
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "Tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-MobileDeviceManagementTypeDef = TypedDict(
-    "MobileDeviceManagementTypeDef",
-    {
-        "Intune": "IntuneConfigurationTypeDef",
-    },
-    total=False,
-)
-
-OpenIdConfigurationTypeDef = TypedDict(
-    "OpenIdConfigurationTypeDef",
-    {
-        "Issuer": str,
-        "Subject": str,
-        "Audience": str,
-    },
-    total=False,
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-        "Tags": Dict[str, str],
-    },
-)
-
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-        "TagKeys": List[str],
-    },
-)
+class GetConnectorResponseTypeDef(TypedDict):
+    Connector: ConnectorTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef

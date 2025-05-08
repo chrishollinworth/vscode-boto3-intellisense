@@ -1,26 +1,33 @@
 """
 Type annotations for network-firewall service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_network_firewall/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_network_firewall/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_network_firewall.type_defs import ActionDefinitionTypeDef
+    from mypy_boto3_network_firewall.type_defs import AddressTypeDef
 
-    data: ActionDefinitionTypeDef = {...}
+    data: AddressTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
+from typing import Union
 
 from .literals import (
     AttachmentStatusType,
     ConfigurationSyncStateType,
+    EnabledAnalysisTypeType,
     EncryptionTypeType,
     FirewallStatusValueType,
+    FlowOperationStatusType,
+    FlowOperationTypeType,
     GeneratedRulesTypeType,
     IdentifiedTypeType,
     IPAddressTypeType,
@@ -41,805 +48,390 @@ from .literals import (
     TCPFlagType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
+    "ActionDefinitionOutputTypeDef",
     "ActionDefinitionTypeDef",
     "AddressTypeDef",
+    "AnalysisReportTypeDef",
     "AnalysisResultTypeDef",
-    "AssociateFirewallPolicyRequestRequestTypeDef",
+    "AnalysisTypeReportResultTypeDef",
+    "AssociateFirewallPolicyRequestTypeDef",
     "AssociateFirewallPolicyResponseTypeDef",
-    "AssociateSubnetsRequestRequestTypeDef",
+    "AssociateSubnetsRequestTypeDef",
     "AssociateSubnetsResponseTypeDef",
     "AttachmentTypeDef",
     "CIDRSummaryTypeDef",
     "CapacityUsageSummaryTypeDef",
     "CheckCertificateRevocationStatusActionsTypeDef",
-    "CreateFirewallPolicyRequestRequestTypeDef",
+    "CreateFirewallPolicyRequestTypeDef",
     "CreateFirewallPolicyResponseTypeDef",
-    "CreateFirewallRequestRequestTypeDef",
+    "CreateFirewallRequestTypeDef",
     "CreateFirewallResponseTypeDef",
-    "CreateRuleGroupRequestRequestTypeDef",
+    "CreateRuleGroupRequestTypeDef",
     "CreateRuleGroupResponseTypeDef",
-    "CreateTLSInspectionConfigurationRequestRequestTypeDef",
+    "CreateTLSInspectionConfigurationRequestTypeDef",
     "CreateTLSInspectionConfigurationResponseTypeDef",
+    "CustomActionOutputTypeDef",
     "CustomActionTypeDef",
-    "DeleteFirewallPolicyRequestRequestTypeDef",
+    "DeleteFirewallPolicyRequestTypeDef",
     "DeleteFirewallPolicyResponseTypeDef",
-    "DeleteFirewallRequestRequestTypeDef",
+    "DeleteFirewallRequestTypeDef",
     "DeleteFirewallResponseTypeDef",
-    "DeleteResourcePolicyRequestRequestTypeDef",
-    "DeleteRuleGroupRequestRequestTypeDef",
+    "DeleteResourcePolicyRequestTypeDef",
+    "DeleteRuleGroupRequestTypeDef",
     "DeleteRuleGroupResponseTypeDef",
-    "DeleteTLSInspectionConfigurationRequestRequestTypeDef",
+    "DeleteTLSInspectionConfigurationRequestTypeDef",
     "DeleteTLSInspectionConfigurationResponseTypeDef",
-    "DescribeFirewallPolicyRequestRequestTypeDef",
+    "DescribeFirewallPolicyRequestTypeDef",
     "DescribeFirewallPolicyResponseTypeDef",
-    "DescribeFirewallRequestRequestTypeDef",
+    "DescribeFirewallRequestTypeDef",
     "DescribeFirewallResponseTypeDef",
-    "DescribeLoggingConfigurationRequestRequestTypeDef",
+    "DescribeFlowOperationRequestTypeDef",
+    "DescribeFlowOperationResponseTypeDef",
+    "DescribeLoggingConfigurationRequestTypeDef",
     "DescribeLoggingConfigurationResponseTypeDef",
-    "DescribeResourcePolicyRequestRequestTypeDef",
+    "DescribeResourcePolicyRequestTypeDef",
     "DescribeResourcePolicyResponseTypeDef",
-    "DescribeRuleGroupMetadataRequestRequestTypeDef",
+    "DescribeRuleGroupMetadataRequestTypeDef",
     "DescribeRuleGroupMetadataResponseTypeDef",
-    "DescribeRuleGroupRequestRequestTypeDef",
+    "DescribeRuleGroupRequestTypeDef",
     "DescribeRuleGroupResponseTypeDef",
-    "DescribeTLSInspectionConfigurationRequestRequestTypeDef",
+    "DescribeTLSInspectionConfigurationRequestTypeDef",
     "DescribeTLSInspectionConfigurationResponseTypeDef",
     "DimensionTypeDef",
-    "DisassociateSubnetsRequestRequestTypeDef",
+    "DisassociateSubnetsRequestTypeDef",
     "DisassociateSubnetsResponseTypeDef",
     "EncryptionConfigurationTypeDef",
     "FirewallMetadataTypeDef",
     "FirewallPolicyMetadataTypeDef",
+    "FirewallPolicyOutputTypeDef",
     "FirewallPolicyResponseTypeDef",
     "FirewallPolicyTypeDef",
+    "FirewallPolicyUnionTypeDef",
     "FirewallStatusTypeDef",
     "FirewallTypeDef",
+    "FlowFilterOutputTypeDef",
+    "FlowFilterTypeDef",
+    "FlowFilterUnionTypeDef",
+    "FlowOperationMetadataTypeDef",
+    "FlowOperationTypeDef",
+    "FlowTimeoutsTypeDef",
+    "FlowTypeDef",
+    "GetAnalysisReportResultsRequestPaginateTypeDef",
+    "GetAnalysisReportResultsRequestTypeDef",
+    "GetAnalysisReportResultsResponseTypeDef",
     "HeaderTypeDef",
+    "HitsTypeDef",
     "IPSetMetadataTypeDef",
+    "IPSetOutputTypeDef",
     "IPSetReferenceTypeDef",
     "IPSetTypeDef",
-    "ListFirewallPoliciesRequestRequestTypeDef",
+    "ListAnalysisReportsRequestPaginateTypeDef",
+    "ListAnalysisReportsRequestTypeDef",
+    "ListAnalysisReportsResponseTypeDef",
+    "ListFirewallPoliciesRequestPaginateTypeDef",
+    "ListFirewallPoliciesRequestTypeDef",
     "ListFirewallPoliciesResponseTypeDef",
-    "ListFirewallsRequestRequestTypeDef",
+    "ListFirewallsRequestPaginateTypeDef",
+    "ListFirewallsRequestTypeDef",
     "ListFirewallsResponseTypeDef",
-    "ListRuleGroupsRequestRequestTypeDef",
+    "ListFlowOperationResultsRequestPaginateTypeDef",
+    "ListFlowOperationResultsRequestTypeDef",
+    "ListFlowOperationResultsResponseTypeDef",
+    "ListFlowOperationsRequestPaginateTypeDef",
+    "ListFlowOperationsRequestTypeDef",
+    "ListFlowOperationsResponseTypeDef",
+    "ListRuleGroupsRequestPaginateTypeDef",
+    "ListRuleGroupsRequestTypeDef",
     "ListRuleGroupsResponseTypeDef",
-    "ListTLSInspectionConfigurationsRequestRequestTypeDef",
+    "ListTLSInspectionConfigurationsRequestPaginateTypeDef",
+    "ListTLSInspectionConfigurationsRequestTypeDef",
     "ListTLSInspectionConfigurationsResponseTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestPaginateTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
+    "LogDestinationConfigOutputTypeDef",
     "LogDestinationConfigTypeDef",
+    "LoggingConfigurationOutputTypeDef",
     "LoggingConfigurationTypeDef",
+    "LoggingConfigurationUnionTypeDef",
+    "MatchAttributesOutputTypeDef",
     "MatchAttributesTypeDef",
     "PaginatorConfigTypeDef",
     "PerObjectStatusTypeDef",
+    "PolicyVariablesOutputTypeDef",
     "PolicyVariablesTypeDef",
     "PortRangeTypeDef",
+    "PortSetOutputTypeDef",
     "PortSetTypeDef",
+    "PublishMetricActionOutputTypeDef",
     "PublishMetricActionTypeDef",
-    "PutResourcePolicyRequestRequestTypeDef",
+    "PutResourcePolicyRequestTypeDef",
+    "ReferenceSetsOutputTypeDef",
     "ReferenceSetsTypeDef",
     "ResponseMetadataTypeDef",
+    "RuleDefinitionOutputTypeDef",
     "RuleDefinitionTypeDef",
     "RuleGroupMetadataTypeDef",
+    "RuleGroupOutputTypeDef",
     "RuleGroupResponseTypeDef",
     "RuleGroupTypeDef",
+    "RuleGroupUnionTypeDef",
+    "RuleOptionOutputTypeDef",
     "RuleOptionTypeDef",
+    "RuleVariablesOutputTypeDef",
     "RuleVariablesTypeDef",
+    "RulesSourceListOutputTypeDef",
     "RulesSourceListTypeDef",
+    "RulesSourceOutputTypeDef",
     "RulesSourceTypeDef",
+    "ServerCertificateConfigurationOutputTypeDef",
     "ServerCertificateConfigurationTypeDef",
+    "ServerCertificateScopeOutputTypeDef",
     "ServerCertificateScopeTypeDef",
     "ServerCertificateTypeDef",
     "SourceMetadataTypeDef",
+    "StartAnalysisReportRequestTypeDef",
+    "StartAnalysisReportResponseTypeDef",
+    "StartFlowCaptureRequestTypeDef",
+    "StartFlowCaptureResponseTypeDef",
+    "StartFlowFlushRequestTypeDef",
+    "StartFlowFlushResponseTypeDef",
     "StatefulEngineOptionsTypeDef",
     "StatefulRuleGroupOverrideTypeDef",
     "StatefulRuleGroupReferenceTypeDef",
     "StatefulRuleOptionsTypeDef",
+    "StatefulRuleOutputTypeDef",
     "StatefulRuleTypeDef",
     "StatelessRuleGroupReferenceTypeDef",
+    "StatelessRuleOutputTypeDef",
     "StatelessRuleTypeDef",
+    "StatelessRulesAndCustomActionsOutputTypeDef",
     "StatelessRulesAndCustomActionsTypeDef",
     "SubnetMappingTypeDef",
     "SyncStateTypeDef",
+    "TCPFlagFieldOutputTypeDef",
     "TCPFlagFieldTypeDef",
     "TLSInspectionConfigurationMetadataTypeDef",
+    "TLSInspectionConfigurationOutputTypeDef",
     "TLSInspectionConfigurationResponseTypeDef",
     "TLSInspectionConfigurationTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "TLSInspectionConfigurationUnionTypeDef",
+    "TagResourceRequestTypeDef",
     "TagTypeDef",
     "TlsCertificateDataTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateFirewallDeleteProtectionRequestRequestTypeDef",
+    "UniqueSourcesTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateFirewallAnalysisSettingsRequestTypeDef",
+    "UpdateFirewallAnalysisSettingsResponseTypeDef",
+    "UpdateFirewallDeleteProtectionRequestTypeDef",
     "UpdateFirewallDeleteProtectionResponseTypeDef",
-    "UpdateFirewallDescriptionRequestRequestTypeDef",
+    "UpdateFirewallDescriptionRequestTypeDef",
     "UpdateFirewallDescriptionResponseTypeDef",
-    "UpdateFirewallEncryptionConfigurationRequestRequestTypeDef",
+    "UpdateFirewallEncryptionConfigurationRequestTypeDef",
     "UpdateFirewallEncryptionConfigurationResponseTypeDef",
-    "UpdateFirewallPolicyChangeProtectionRequestRequestTypeDef",
+    "UpdateFirewallPolicyChangeProtectionRequestTypeDef",
     "UpdateFirewallPolicyChangeProtectionResponseTypeDef",
-    "UpdateFirewallPolicyRequestRequestTypeDef",
+    "UpdateFirewallPolicyRequestTypeDef",
     "UpdateFirewallPolicyResponseTypeDef",
-    "UpdateLoggingConfigurationRequestRequestTypeDef",
+    "UpdateLoggingConfigurationRequestTypeDef",
     "UpdateLoggingConfigurationResponseTypeDef",
-    "UpdateRuleGroupRequestRequestTypeDef",
+    "UpdateRuleGroupRequestTypeDef",
     "UpdateRuleGroupResponseTypeDef",
-    "UpdateSubnetChangeProtectionRequestRequestTypeDef",
+    "UpdateSubnetChangeProtectionRequestTypeDef",
     "UpdateSubnetChangeProtectionResponseTypeDef",
-    "UpdateTLSInspectionConfigurationRequestRequestTypeDef",
+    "UpdateTLSInspectionConfigurationRequestTypeDef",
     "UpdateTLSInspectionConfigurationResponseTypeDef",
 )
 
-ActionDefinitionTypeDef = TypedDict(
-    "ActionDefinitionTypeDef",
-    {
-        "PublishMetricAction": "PublishMetricActionTypeDef",
-    },
-    total=False,
-)
+class AddressTypeDef(TypedDict):
+    AddressDefinition: str
 
-AddressTypeDef = TypedDict(
-    "AddressTypeDef",
-    {
-        "AddressDefinition": str,
-    },
-)
+class AnalysisReportTypeDef(TypedDict):
+    AnalysisReportId: NotRequired[str]
+    AnalysisType: NotRequired[EnabledAnalysisTypeType]
+    ReportTime: NotRequired[datetime]
+    Status: NotRequired[str]
 
-AnalysisResultTypeDef = TypedDict(
-    "AnalysisResultTypeDef",
-    {
-        "IdentifiedRuleIds": List[str],
-        "IdentifiedType": IdentifiedTypeType,
-        "AnalysisDetail": str,
-    },
-    total=False,
-)
+class AnalysisResultTypeDef(TypedDict):
+    IdentifiedRuleIds: NotRequired[List[str]]
+    IdentifiedType: NotRequired[IdentifiedTypeType]
+    AnalysisDetail: NotRequired[str]
 
-_RequiredAssociateFirewallPolicyRequestRequestTypeDef = TypedDict(
-    "_RequiredAssociateFirewallPolicyRequestRequestTypeDef",
-    {
-        "FirewallPolicyArn": str,
-    },
-)
-_OptionalAssociateFirewallPolicyRequestRequestTypeDef = TypedDict(
-    "_OptionalAssociateFirewallPolicyRequestRequestTypeDef",
-    {
-        "UpdateToken": str,
-        "FirewallArn": str,
-        "FirewallName": str,
-    },
-    total=False,
-)
+class HitsTypeDef(TypedDict):
+    Count: NotRequired[int]
 
-class AssociateFirewallPolicyRequestRequestTypeDef(
-    _RequiredAssociateFirewallPolicyRequestRequestTypeDef,
-    _OptionalAssociateFirewallPolicyRequestRequestTypeDef,
-):
-    pass
+class UniqueSourcesTypeDef(TypedDict):
+    Count: NotRequired[int]
 
-AssociateFirewallPolicyResponseTypeDef = TypedDict(
-    "AssociateFirewallPolicyResponseTypeDef",
-    {
-        "FirewallArn": str,
-        "FirewallName": str,
-        "FirewallPolicyArn": str,
-        "UpdateToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class AssociateFirewallPolicyRequestTypeDef(TypedDict):
+    FirewallPolicyArn: str
+    UpdateToken: NotRequired[str]
+    FirewallArn: NotRequired[str]
+    FirewallName: NotRequired[str]
 
-_RequiredAssociateSubnetsRequestRequestTypeDef = TypedDict(
-    "_RequiredAssociateSubnetsRequestRequestTypeDef",
-    {
-        "SubnetMappings": List["SubnetMappingTypeDef"],
-    },
-)
-_OptionalAssociateSubnetsRequestRequestTypeDef = TypedDict(
-    "_OptionalAssociateSubnetsRequestRequestTypeDef",
-    {
-        "UpdateToken": str,
-        "FirewallArn": str,
-        "FirewallName": str,
-    },
-    total=False,
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-class AssociateSubnetsRequestRequestTypeDef(
-    _RequiredAssociateSubnetsRequestRequestTypeDef, _OptionalAssociateSubnetsRequestRequestTypeDef
-):
-    pass
+class SubnetMappingTypeDef(TypedDict):
+    SubnetId: str
+    IPAddressType: NotRequired[IPAddressTypeType]
 
-AssociateSubnetsResponseTypeDef = TypedDict(
-    "AssociateSubnetsResponseTypeDef",
-    {
-        "FirewallArn": str,
-        "FirewallName": str,
-        "SubnetMappings": List["SubnetMappingTypeDef"],
-        "UpdateToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class AttachmentTypeDef(TypedDict):
+    SubnetId: NotRequired[str]
+    EndpointId: NotRequired[str]
+    Status: NotRequired[AttachmentStatusType]
+    StatusMessage: NotRequired[str]
 
-AttachmentTypeDef = TypedDict(
-    "AttachmentTypeDef",
-    {
-        "SubnetId": str,
-        "EndpointId": str,
-        "Status": AttachmentStatusType,
-        "StatusMessage": str,
-    },
-    total=False,
-)
+class IPSetMetadataTypeDef(TypedDict):
+    ResolvedCIDRCount: NotRequired[int]
 
-CIDRSummaryTypeDef = TypedDict(
-    "CIDRSummaryTypeDef",
-    {
-        "AvailableCIDRCount": int,
-        "UtilizedCIDRCount": int,
-        "IPSetReferences": Dict[str, "IPSetMetadataTypeDef"],
-    },
-    total=False,
-)
+class CheckCertificateRevocationStatusActionsTypeDef(TypedDict):
+    RevokedStatusAction: NotRequired[RevocationCheckActionType]
+    UnknownStatusAction: NotRequired[RevocationCheckActionType]
 
-CapacityUsageSummaryTypeDef = TypedDict(
-    "CapacityUsageSummaryTypeDef",
-    {
-        "CIDRs": "CIDRSummaryTypeDef",
-    },
-    total=False,
-)
-
-CheckCertificateRevocationStatusActionsTypeDef = TypedDict(
-    "CheckCertificateRevocationStatusActionsTypeDef",
-    {
-        "RevokedStatusAction": RevocationCheckActionType,
-        "UnknownStatusAction": RevocationCheckActionType,
-    },
-    total=False,
-)
-
-_RequiredCreateFirewallPolicyRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateFirewallPolicyRequestRequestTypeDef",
-    {
-        "FirewallPolicyName": str,
-        "FirewallPolicy": "FirewallPolicyTypeDef",
-    },
-)
-_OptionalCreateFirewallPolicyRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateFirewallPolicyRequestRequestTypeDef",
-    {
-        "Description": str,
-        "Tags": List["TagTypeDef"],
-        "DryRun": bool,
-        "EncryptionConfiguration": "EncryptionConfigurationTypeDef",
-    },
-    total=False,
-)
-
-class CreateFirewallPolicyRequestRequestTypeDef(
-    _RequiredCreateFirewallPolicyRequestRequestTypeDef,
-    _OptionalCreateFirewallPolicyRequestRequestTypeDef,
-):
-    pass
-
-CreateFirewallPolicyResponseTypeDef = TypedDict(
-    "CreateFirewallPolicyResponseTypeDef",
-    {
-        "UpdateToken": str,
-        "FirewallPolicyResponse": "FirewallPolicyResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateFirewallRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateFirewallRequestRequestTypeDef",
-    {
-        "FirewallName": str,
-        "FirewallPolicyArn": str,
-        "VpcId": str,
-        "SubnetMappings": List["SubnetMappingTypeDef"],
-    },
-)
-_OptionalCreateFirewallRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateFirewallRequestRequestTypeDef",
-    {
-        "DeleteProtection": bool,
-        "SubnetChangeProtection": bool,
-        "FirewallPolicyChangeProtection": bool,
-        "Description": str,
-        "Tags": List["TagTypeDef"],
-        "EncryptionConfiguration": "EncryptionConfigurationTypeDef",
-    },
-    total=False,
-)
-
-class CreateFirewallRequestRequestTypeDef(
-    _RequiredCreateFirewallRequestRequestTypeDef, _OptionalCreateFirewallRequestRequestTypeDef
-):
-    pass
-
-CreateFirewallResponseTypeDef = TypedDict(
-    "CreateFirewallResponseTypeDef",
-    {
-        "Firewall": "FirewallTypeDef",
-        "FirewallStatus": "FirewallStatusTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateRuleGroupRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateRuleGroupRequestRequestTypeDef",
-    {
-        "RuleGroupName": str,
-        "Type": RuleGroupTypeType,
-        "Capacity": int,
-    },
-)
-_OptionalCreateRuleGroupRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateRuleGroupRequestRequestTypeDef",
-    {
-        "RuleGroup": "RuleGroupTypeDef",
-        "Rules": str,
-        "Description": str,
-        "Tags": List["TagTypeDef"],
-        "DryRun": bool,
-        "EncryptionConfiguration": "EncryptionConfigurationTypeDef",
-        "SourceMetadata": "SourceMetadataTypeDef",
-        "AnalyzeRuleGroup": bool,
-    },
-    total=False,
-)
-
-class CreateRuleGroupRequestRequestTypeDef(
-    _RequiredCreateRuleGroupRequestRequestTypeDef, _OptionalCreateRuleGroupRequestRequestTypeDef
-):
-    pass
-
-CreateRuleGroupResponseTypeDef = TypedDict(
-    "CreateRuleGroupResponseTypeDef",
-    {
-        "UpdateToken": str,
-        "RuleGroupResponse": "RuleGroupResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateTLSInspectionConfigurationRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateTLSInspectionConfigurationRequestRequestTypeDef",
-    {
-        "TLSInspectionConfigurationName": str,
-        "TLSInspectionConfiguration": "TLSInspectionConfigurationTypeDef",
-    },
-)
-_OptionalCreateTLSInspectionConfigurationRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateTLSInspectionConfigurationRequestRequestTypeDef",
-    {
-        "Description": str,
-        "Tags": List["TagTypeDef"],
-        "EncryptionConfiguration": "EncryptionConfigurationTypeDef",
-    },
-    total=False,
-)
-
-class CreateTLSInspectionConfigurationRequestRequestTypeDef(
-    _RequiredCreateTLSInspectionConfigurationRequestRequestTypeDef,
-    _OptionalCreateTLSInspectionConfigurationRequestRequestTypeDef,
-):
-    pass
-
-CreateTLSInspectionConfigurationResponseTypeDef = TypedDict(
-    "CreateTLSInspectionConfigurationResponseTypeDef",
-    {
-        "UpdateToken": str,
-        "TLSInspectionConfigurationResponse": "TLSInspectionConfigurationResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CustomActionTypeDef = TypedDict(
-    "CustomActionTypeDef",
-    {
-        "ActionName": str,
-        "ActionDefinition": "ActionDefinitionTypeDef",
-    },
-)
-
-DeleteFirewallPolicyRequestRequestTypeDef = TypedDict(
-    "DeleteFirewallPolicyRequestRequestTypeDef",
-    {
-        "FirewallPolicyName": str,
-        "FirewallPolicyArn": str,
-    },
-    total=False,
-)
-
-DeleteFirewallPolicyResponseTypeDef = TypedDict(
-    "DeleteFirewallPolicyResponseTypeDef",
-    {
-        "FirewallPolicyResponse": "FirewallPolicyResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteFirewallRequestRequestTypeDef = TypedDict(
-    "DeleteFirewallRequestRequestTypeDef",
-    {
-        "FirewallName": str,
-        "FirewallArn": str,
-    },
-    total=False,
-)
-
-DeleteFirewallResponseTypeDef = TypedDict(
-    "DeleteFirewallResponseTypeDef",
-    {
-        "Firewall": "FirewallTypeDef",
-        "FirewallStatus": "FirewallStatusTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteResourcePolicyRequestRequestTypeDef = TypedDict(
-    "DeleteResourcePolicyRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-    },
-)
-
-DeleteRuleGroupRequestRequestTypeDef = TypedDict(
-    "DeleteRuleGroupRequestRequestTypeDef",
-    {
-        "RuleGroupName": str,
-        "RuleGroupArn": str,
-        "Type": RuleGroupTypeType,
-    },
-    total=False,
-)
-
-DeleteRuleGroupResponseTypeDef = TypedDict(
-    "DeleteRuleGroupResponseTypeDef",
-    {
-        "RuleGroupResponse": "RuleGroupResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteTLSInspectionConfigurationRequestRequestTypeDef = TypedDict(
-    "DeleteTLSInspectionConfigurationRequestRequestTypeDef",
-    {
-        "TLSInspectionConfigurationArn": str,
-        "TLSInspectionConfigurationName": str,
-    },
-    total=False,
-)
-
-DeleteTLSInspectionConfigurationResponseTypeDef = TypedDict(
-    "DeleteTLSInspectionConfigurationResponseTypeDef",
-    {
-        "TLSInspectionConfigurationResponse": "TLSInspectionConfigurationResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeFirewallPolicyRequestRequestTypeDef = TypedDict(
-    "DescribeFirewallPolicyRequestRequestTypeDef",
-    {
-        "FirewallPolicyName": str,
-        "FirewallPolicyArn": str,
-    },
-    total=False,
-)
-
-DescribeFirewallPolicyResponseTypeDef = TypedDict(
-    "DescribeFirewallPolicyResponseTypeDef",
-    {
-        "UpdateToken": str,
-        "FirewallPolicyResponse": "FirewallPolicyResponseTypeDef",
-        "FirewallPolicy": "FirewallPolicyTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeFirewallRequestRequestTypeDef = TypedDict(
-    "DescribeFirewallRequestRequestTypeDef",
-    {
-        "FirewallName": str,
-        "FirewallArn": str,
-    },
-    total=False,
-)
-
-DescribeFirewallResponseTypeDef = TypedDict(
-    "DescribeFirewallResponseTypeDef",
-    {
-        "UpdateToken": str,
-        "Firewall": "FirewallTypeDef",
-        "FirewallStatus": "FirewallStatusTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeLoggingConfigurationRequestRequestTypeDef = TypedDict(
-    "DescribeLoggingConfigurationRequestRequestTypeDef",
-    {
-        "FirewallArn": str,
-        "FirewallName": str,
-    },
-    total=False,
-)
-
-DescribeLoggingConfigurationResponseTypeDef = TypedDict(
-    "DescribeLoggingConfigurationResponseTypeDef",
-    {
-        "FirewallArn": str,
-        "LoggingConfiguration": "LoggingConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeResourcePolicyRequestRequestTypeDef = TypedDict(
-    "DescribeResourcePolicyRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-    },
-)
-
-DescribeResourcePolicyResponseTypeDef = TypedDict(
-    "DescribeResourcePolicyResponseTypeDef",
-    {
-        "Policy": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeRuleGroupMetadataRequestRequestTypeDef = TypedDict(
-    "DescribeRuleGroupMetadataRequestRequestTypeDef",
-    {
-        "RuleGroupName": str,
-        "RuleGroupArn": str,
-        "Type": RuleGroupTypeType,
-    },
-    total=False,
-)
-
-DescribeRuleGroupMetadataResponseTypeDef = TypedDict(
-    "DescribeRuleGroupMetadataResponseTypeDef",
-    {
-        "RuleGroupArn": str,
-        "RuleGroupName": str,
-        "Description": str,
-        "Type": RuleGroupTypeType,
-        "Capacity": int,
-        "StatefulRuleOptions": "StatefulRuleOptionsTypeDef",
-        "LastModifiedTime": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeRuleGroupRequestRequestTypeDef = TypedDict(
-    "DescribeRuleGroupRequestRequestTypeDef",
-    {
-        "RuleGroupName": str,
-        "RuleGroupArn": str,
-        "Type": RuleGroupTypeType,
-        "AnalyzeRuleGroup": bool,
-    },
-    total=False,
-)
-
-DescribeRuleGroupResponseTypeDef = TypedDict(
-    "DescribeRuleGroupResponseTypeDef",
-    {
-        "UpdateToken": str,
-        "RuleGroup": "RuleGroupTypeDef",
-        "RuleGroupResponse": "RuleGroupResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeTLSInspectionConfigurationRequestRequestTypeDef = TypedDict(
-    "DescribeTLSInspectionConfigurationRequestRequestTypeDef",
-    {
-        "TLSInspectionConfigurationArn": str,
-        "TLSInspectionConfigurationName": str,
-    },
-    total=False,
-)
-
-DescribeTLSInspectionConfigurationResponseTypeDef = TypedDict(
-    "DescribeTLSInspectionConfigurationResponseTypeDef",
-    {
-        "UpdateToken": str,
-        "TLSInspectionConfiguration": "TLSInspectionConfigurationTypeDef",
-        "TLSInspectionConfigurationResponse": "TLSInspectionConfigurationResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DimensionTypeDef = TypedDict(
-    "DimensionTypeDef",
-    {
-        "Value": str,
-    },
-)
-
-_RequiredDisassociateSubnetsRequestRequestTypeDef = TypedDict(
-    "_RequiredDisassociateSubnetsRequestRequestTypeDef",
-    {
-        "SubnetIds": List[str],
-    },
-)
-_OptionalDisassociateSubnetsRequestRequestTypeDef = TypedDict(
-    "_OptionalDisassociateSubnetsRequestRequestTypeDef",
-    {
-        "UpdateToken": str,
-        "FirewallArn": str,
-        "FirewallName": str,
-    },
-    total=False,
-)
-
-class DisassociateSubnetsRequestRequestTypeDef(
-    _RequiredDisassociateSubnetsRequestRequestTypeDef,
-    _OptionalDisassociateSubnetsRequestRequestTypeDef,
-):
-    pass
-
-DisassociateSubnetsResponseTypeDef = TypedDict(
-    "DisassociateSubnetsResponseTypeDef",
-    {
-        "FirewallArn": str,
-        "FirewallName": str,
-        "SubnetMappings": List["SubnetMappingTypeDef"],
-        "UpdateToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredEncryptionConfigurationTypeDef = TypedDict(
-    "_RequiredEncryptionConfigurationTypeDef",
+EncryptionConfigurationTypeDef = TypedDict(
+    "EncryptionConfigurationTypeDef",
     {
         "Type": EncryptionTypeType,
+        "KeyId": NotRequired[str],
     },
-)
-_OptionalEncryptionConfigurationTypeDef = TypedDict(
-    "_OptionalEncryptionConfigurationTypeDef",
-    {
-        "KeyId": str,
-    },
-    total=False,
 )
 
-class EncryptionConfigurationTypeDef(
-    _RequiredEncryptionConfigurationTypeDef, _OptionalEncryptionConfigurationTypeDef
-):
-    pass
+class TagTypeDef(TypedDict):
+    Key: str
+    Value: str
 
-FirewallMetadataTypeDef = TypedDict(
-    "FirewallMetadataTypeDef",
-    {
-        "FirewallName": str,
-        "FirewallArn": str,
-    },
-    total=False,
-)
+class SourceMetadataTypeDef(TypedDict):
+    SourceArn: NotRequired[str]
+    SourceUpdateToken: NotRequired[str]
 
-FirewallPolicyMetadataTypeDef = TypedDict(
-    "FirewallPolicyMetadataTypeDef",
-    {
-        "Name": str,
-        "Arn": str,
-    },
-    total=False,
-)
+class DeleteFirewallPolicyRequestTypeDef(TypedDict):
+    FirewallPolicyName: NotRequired[str]
+    FirewallPolicyArn: NotRequired[str]
 
-_RequiredFirewallPolicyResponseTypeDef = TypedDict(
-    "_RequiredFirewallPolicyResponseTypeDef",
+class DeleteFirewallRequestTypeDef(TypedDict):
+    FirewallName: NotRequired[str]
+    FirewallArn: NotRequired[str]
+
+class DeleteResourcePolicyRequestTypeDef(TypedDict):
+    ResourceArn: str
+
+DeleteRuleGroupRequestTypeDef = TypedDict(
+    "DeleteRuleGroupRequestTypeDef",
     {
-        "FirewallPolicyName": str,
-        "FirewallPolicyArn": str,
-        "FirewallPolicyId": str,
+        "RuleGroupName": NotRequired[str],
+        "RuleGroupArn": NotRequired[str],
+        "Type": NotRequired[RuleGroupTypeType],
     },
 )
-_OptionalFirewallPolicyResponseTypeDef = TypedDict(
-    "_OptionalFirewallPolicyResponseTypeDef",
-    {
-        "Description": str,
-        "FirewallPolicyStatus": ResourceStatusType,
-        "Tags": List["TagTypeDef"],
-        "ConsumedStatelessRuleCapacity": int,
-        "ConsumedStatefulRuleCapacity": int,
-        "NumberOfAssociations": int,
-        "EncryptionConfiguration": "EncryptionConfigurationTypeDef",
-        "LastModifiedTime": datetime,
-    },
-    total=False,
-)
 
-class FirewallPolicyResponseTypeDef(
-    _RequiredFirewallPolicyResponseTypeDef, _OptionalFirewallPolicyResponseTypeDef
-):
-    pass
+class DeleteTLSInspectionConfigurationRequestTypeDef(TypedDict):
+    TLSInspectionConfigurationArn: NotRequired[str]
+    TLSInspectionConfigurationName: NotRequired[str]
 
-_RequiredFirewallPolicyTypeDef = TypedDict(
-    "_RequiredFirewallPolicyTypeDef",
-    {
-        "StatelessDefaultActions": List[str],
-        "StatelessFragmentDefaultActions": List[str],
-    },
-)
-_OptionalFirewallPolicyTypeDef = TypedDict(
-    "_OptionalFirewallPolicyTypeDef",
-    {
-        "StatelessRuleGroupReferences": List["StatelessRuleGroupReferenceTypeDef"],
-        "StatelessCustomActions": List["CustomActionTypeDef"],
-        "StatefulRuleGroupReferences": List["StatefulRuleGroupReferenceTypeDef"],
-        "StatefulDefaultActions": List[str],
-        "StatefulEngineOptions": "StatefulEngineOptionsTypeDef",
-        "TLSInspectionConfigurationArn": str,
-        "PolicyVariables": "PolicyVariablesTypeDef",
-    },
-    total=False,
-)
+class DescribeFirewallPolicyRequestTypeDef(TypedDict):
+    FirewallPolicyName: NotRequired[str]
+    FirewallPolicyArn: NotRequired[str]
 
-class FirewallPolicyTypeDef(_RequiredFirewallPolicyTypeDef, _OptionalFirewallPolicyTypeDef):
-    pass
+class DescribeFirewallRequestTypeDef(TypedDict):
+    FirewallName: NotRequired[str]
+    FirewallArn: NotRequired[str]
 
-_RequiredFirewallStatusTypeDef = TypedDict(
-    "_RequiredFirewallStatusTypeDef",
+class DescribeFlowOperationRequestTypeDef(TypedDict):
+    FirewallArn: str
+    FlowOperationId: str
+    AvailabilityZone: NotRequired[str]
+
+class DescribeLoggingConfigurationRequestTypeDef(TypedDict):
+    FirewallArn: NotRequired[str]
+    FirewallName: NotRequired[str]
+
+class DescribeResourcePolicyRequestTypeDef(TypedDict):
+    ResourceArn: str
+
+DescribeRuleGroupMetadataRequestTypeDef = TypedDict(
+    "DescribeRuleGroupMetadataRequestTypeDef",
     {
-        "Status": FirewallStatusValueType,
-        "ConfigurationSyncStateSummary": ConfigurationSyncStateType,
+        "RuleGroupName": NotRequired[str],
+        "RuleGroupArn": NotRequired[str],
+        "Type": NotRequired[RuleGroupTypeType],
     },
 )
-_OptionalFirewallStatusTypeDef = TypedDict(
-    "_OptionalFirewallStatusTypeDef",
-    {
-        "SyncStates": Dict[str, "SyncStateTypeDef"],
-        "CapacityUsageSummary": "CapacityUsageSummaryTypeDef",
-    },
-    total=False,
-)
 
-class FirewallStatusTypeDef(_RequiredFirewallStatusTypeDef, _OptionalFirewallStatusTypeDef):
-    pass
+class StatefulRuleOptionsTypeDef(TypedDict):
+    RuleOrder: NotRequired[RuleOrderType]
 
-_RequiredFirewallTypeDef = TypedDict(
-    "_RequiredFirewallTypeDef",
+DescribeRuleGroupRequestTypeDef = TypedDict(
+    "DescribeRuleGroupRequestTypeDef",
     {
-        "FirewallPolicyArn": str,
-        "VpcId": str,
-        "SubnetMappings": List["SubnetMappingTypeDef"],
-        "FirewallId": str,
+        "RuleGroupName": NotRequired[str],
+        "RuleGroupArn": NotRequired[str],
+        "Type": NotRequired[RuleGroupTypeType],
+        "AnalyzeRuleGroup": NotRequired[bool],
     },
 )
-_OptionalFirewallTypeDef = TypedDict(
-    "_OptionalFirewallTypeDef",
-    {
-        "FirewallName": str,
-        "FirewallArn": str,
-        "DeleteProtection": bool,
-        "SubnetChangeProtection": bool,
-        "FirewallPolicyChangeProtection": bool,
-        "Description": str,
-        "Tags": List["TagTypeDef"],
-        "EncryptionConfiguration": "EncryptionConfigurationTypeDef",
-    },
-    total=False,
-)
 
-class FirewallTypeDef(_RequiredFirewallTypeDef, _OptionalFirewallTypeDef):
-    pass
+class DescribeTLSInspectionConfigurationRequestTypeDef(TypedDict):
+    TLSInspectionConfigurationArn: NotRequired[str]
+    TLSInspectionConfigurationName: NotRequired[str]
+
+class DimensionTypeDef(TypedDict):
+    Value: str
+
+class DisassociateSubnetsRequestTypeDef(TypedDict):
+    SubnetIds: Sequence[str]
+    UpdateToken: NotRequired[str]
+    FirewallArn: NotRequired[str]
+    FirewallName: NotRequired[str]
+
+class FirewallMetadataTypeDef(TypedDict):
+    FirewallName: NotRequired[str]
+    FirewallArn: NotRequired[str]
+
+class FirewallPolicyMetadataTypeDef(TypedDict):
+    Name: NotRequired[str]
+    Arn: NotRequired[str]
+
+class StatelessRuleGroupReferenceTypeDef(TypedDict):
+    ResourceArn: str
+    Priority: int
+
+class FlowOperationMetadataTypeDef(TypedDict):
+    FlowOperationId: NotRequired[str]
+    FlowOperationType: NotRequired[FlowOperationTypeType]
+    FlowRequestTimestamp: NotRequired[datetime]
+    FlowOperationStatus: NotRequired[FlowOperationStatusType]
+
+class FlowTimeoutsTypeDef(TypedDict):
+    TcpIdleTimeoutSeconds: NotRequired[int]
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class GetAnalysisReportResultsRequestTypeDef(TypedDict):
+    AnalysisReportId: str
+    FirewallName: NotRequired[str]
+    FirewallArn: NotRequired[str]
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
 
 HeaderTypeDef = TypedDict(
     "HeaderTypeDef",
@@ -853,871 +445,901 @@ HeaderTypeDef = TypedDict(
     },
 )
 
-IPSetMetadataTypeDef = TypedDict(
-    "IPSetMetadataTypeDef",
-    {
-        "ResolvedCIDRCount": int,
-    },
-    total=False,
-)
+class IPSetOutputTypeDef(TypedDict):
+    Definition: List[str]
 
-IPSetReferenceTypeDef = TypedDict(
-    "IPSetReferenceTypeDef",
-    {
-        "ReferenceArn": str,
-    },
-    total=False,
-)
+class IPSetReferenceTypeDef(TypedDict):
+    ReferenceArn: NotRequired[str]
 
-IPSetTypeDef = TypedDict(
-    "IPSetTypeDef",
-    {
-        "Definition": List[str],
-    },
-)
+class IPSetTypeDef(TypedDict):
+    Definition: Sequence[str]
 
-ListFirewallPoliciesRequestRequestTypeDef = TypedDict(
-    "ListFirewallPoliciesRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
+class ListAnalysisReportsRequestTypeDef(TypedDict):
+    FirewallName: NotRequired[str]
+    FirewallArn: NotRequired[str]
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
 
-ListFirewallPoliciesResponseTypeDef = TypedDict(
-    "ListFirewallPoliciesResponseTypeDef",
-    {
-        "NextToken": str,
-        "FirewallPolicies": List["FirewallPolicyMetadataTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListFirewallPoliciesRequestTypeDef(TypedDict):
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
 
-ListFirewallsRequestRequestTypeDef = TypedDict(
-    "ListFirewallsRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "VpcIds": List[str],
-        "MaxResults": int,
-    },
-    total=False,
-)
+class ListFirewallsRequestTypeDef(TypedDict):
+    NextToken: NotRequired[str]
+    VpcIds: NotRequired[Sequence[str]]
+    MaxResults: NotRequired[int]
 
-ListFirewallsResponseTypeDef = TypedDict(
-    "ListFirewallsResponseTypeDef",
+class ListFlowOperationResultsRequestTypeDef(TypedDict):
+    FirewallArn: str
+    FlowOperationId: str
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+    AvailabilityZone: NotRequired[str]
+
+class ListFlowOperationsRequestTypeDef(TypedDict):
+    FirewallArn: str
+    AvailabilityZone: NotRequired[str]
+    FlowOperationType: NotRequired[FlowOperationTypeType]
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+ListRuleGroupsRequestTypeDef = TypedDict(
+    "ListRuleGroupsRequestTypeDef",
     {
-        "NextToken": str,
-        "Firewalls": List["FirewallMetadataTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "NextToken": NotRequired[str],
+        "MaxResults": NotRequired[int],
+        "Scope": NotRequired[ResourceManagedStatusType],
+        "ManagedType": NotRequired[ResourceManagedTypeType],
+        "Type": NotRequired[RuleGroupTypeType],
     },
 )
 
-ListRuleGroupsRequestRequestTypeDef = TypedDict(
-    "ListRuleGroupsRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-        "Scope": ResourceManagedStatusType,
-        "ManagedType": ResourceManagedTypeType,
-        "Type": RuleGroupTypeType,
-    },
-    total=False,
-)
+class RuleGroupMetadataTypeDef(TypedDict):
+    Name: NotRequired[str]
+    Arn: NotRequired[str]
 
-ListRuleGroupsResponseTypeDef = TypedDict(
-    "ListRuleGroupsResponseTypeDef",
-    {
-        "NextToken": str,
-        "RuleGroups": List["RuleGroupMetadataTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListTLSInspectionConfigurationsRequestTypeDef(TypedDict):
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
 
-ListTLSInspectionConfigurationsRequestRequestTypeDef = TypedDict(
-    "ListTLSInspectionConfigurationsRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
+class TLSInspectionConfigurationMetadataTypeDef(TypedDict):
+    Name: NotRequired[str]
+    Arn: NotRequired[str]
 
-ListTLSInspectionConfigurationsResponseTypeDef = TypedDict(
-    "ListTLSInspectionConfigurationsResponseTypeDef",
-    {
-        "NextToken": str,
-        "TLSInspectionConfigurations": List["TLSInspectionConfigurationMetadataTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
 
-_RequiredListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "_RequiredListTagsForResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-    },
-)
-_OptionalListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "_OptionalListTagsForResourceRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
+class LogDestinationConfigOutputTypeDef(TypedDict):
+    LogType: LogTypeType
+    LogDestinationType: LogDestinationTypeType
+    LogDestination: Dict[str, str]
 
-class ListTagsForResourceRequestRequestTypeDef(
-    _RequiredListTagsForResourceRequestRequestTypeDef,
-    _OptionalListTagsForResourceRequestRequestTypeDef,
-):
-    pass
+class LogDestinationConfigTypeDef(TypedDict):
+    LogType: LogTypeType
+    LogDestinationType: LogDestinationTypeType
+    LogDestination: Mapping[str, str]
 
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "NextToken": str,
-        "Tags": List["TagTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class PortRangeTypeDef(TypedDict):
+    FromPort: int
+    ToPort: int
 
-LogDestinationConfigTypeDef = TypedDict(
-    "LogDestinationConfigTypeDef",
-    {
-        "LogType": LogTypeType,
-        "LogDestinationType": LogDestinationTypeType,
-        "LogDestination": Dict[str, str],
-    },
-)
+class TCPFlagFieldOutputTypeDef(TypedDict):
+    Flags: List[TCPFlagType]
+    Masks: NotRequired[List[TCPFlagType]]
 
-LoggingConfigurationTypeDef = TypedDict(
-    "LoggingConfigurationTypeDef",
-    {
-        "LogDestinationConfigs": List["LogDestinationConfigTypeDef"],
-    },
-)
+class TCPFlagFieldTypeDef(TypedDict):
+    Flags: Sequence[TCPFlagType]
+    Masks: NotRequired[Sequence[TCPFlagType]]
 
-MatchAttributesTypeDef = TypedDict(
-    "MatchAttributesTypeDef",
-    {
-        "Sources": List["AddressTypeDef"],
-        "Destinations": List["AddressTypeDef"],
-        "SourcePorts": List["PortRangeTypeDef"],
-        "DestinationPorts": List["PortRangeTypeDef"],
-        "Protocols": List[int],
-        "TCPFlags": List["TCPFlagFieldTypeDef"],
-    },
-    total=False,
-)
+class PerObjectStatusTypeDef(TypedDict):
+    SyncStatus: NotRequired[PerObjectSyncStatusType]
+    UpdateToken: NotRequired[str]
 
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
+class PortSetOutputTypeDef(TypedDict):
+    Definition: NotRequired[List[str]]
 
-PerObjectStatusTypeDef = TypedDict(
-    "PerObjectStatusTypeDef",
-    {
-        "SyncStatus": PerObjectSyncStatusType,
-        "UpdateToken": str,
-    },
-    total=False,
-)
+class PortSetTypeDef(TypedDict):
+    Definition: NotRequired[Sequence[str]]
 
-PolicyVariablesTypeDef = TypedDict(
-    "PolicyVariablesTypeDef",
-    {
-        "RuleVariables": Dict[str, "IPSetTypeDef"],
-    },
-    total=False,
-)
+class PutResourcePolicyRequestTypeDef(TypedDict):
+    ResourceArn: str
+    Policy: str
 
-PortRangeTypeDef = TypedDict(
-    "PortRangeTypeDef",
-    {
-        "FromPort": int,
-        "ToPort": int,
-    },
-)
+class RuleOptionOutputTypeDef(TypedDict):
+    Keyword: str
+    Settings: NotRequired[List[str]]
 
-PortSetTypeDef = TypedDict(
-    "PortSetTypeDef",
-    {
-        "Definition": List[str],
-    },
-    total=False,
-)
+class RuleOptionTypeDef(TypedDict):
+    Keyword: str
+    Settings: NotRequired[Sequence[str]]
 
-PublishMetricActionTypeDef = TypedDict(
-    "PublishMetricActionTypeDef",
-    {
-        "Dimensions": List["DimensionTypeDef"],
-    },
-)
+class RulesSourceListOutputTypeDef(TypedDict):
+    Targets: List[str]
+    TargetTypes: List[TargetTypeType]
+    GeneratedRulesType: GeneratedRulesTypeType
 
-PutResourcePolicyRequestRequestTypeDef = TypedDict(
-    "PutResourcePolicyRequestRequestTypeDef",
+class RulesSourceListTypeDef(TypedDict):
+    Targets: Sequence[str]
+    TargetTypes: Sequence[TargetTypeType]
+    GeneratedRulesType: GeneratedRulesTypeType
+
+class ServerCertificateTypeDef(TypedDict):
+    ResourceArn: NotRequired[str]
+
+class StartAnalysisReportRequestTypeDef(TypedDict):
+    AnalysisType: EnabledAnalysisTypeType
+    FirewallName: NotRequired[str]
+    FirewallArn: NotRequired[str]
+
+class StatefulRuleGroupOverrideTypeDef(TypedDict):
+    Action: NotRequired[Literal["DROP_TO_ALERT"]]
+
+class TlsCertificateDataTypeDef(TypedDict):
+    CertificateArn: NotRequired[str]
+    CertificateSerial: NotRequired[str]
+    Status: NotRequired[str]
+    StatusMessage: NotRequired[str]
+
+class UntagResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+    TagKeys: Sequence[str]
+
+class UpdateFirewallAnalysisSettingsRequestTypeDef(TypedDict):
+    EnabledAnalysisTypes: NotRequired[Sequence[EnabledAnalysisTypeType]]
+    FirewallArn: NotRequired[str]
+    FirewallName: NotRequired[str]
+    UpdateToken: NotRequired[str]
+
+class UpdateFirewallDeleteProtectionRequestTypeDef(TypedDict):
+    DeleteProtection: bool
+    UpdateToken: NotRequired[str]
+    FirewallArn: NotRequired[str]
+    FirewallName: NotRequired[str]
+
+class UpdateFirewallDescriptionRequestTypeDef(TypedDict):
+    UpdateToken: NotRequired[str]
+    FirewallArn: NotRequired[str]
+    FirewallName: NotRequired[str]
+    Description: NotRequired[str]
+
+class UpdateFirewallPolicyChangeProtectionRequestTypeDef(TypedDict):
+    FirewallPolicyChangeProtection: bool
+    UpdateToken: NotRequired[str]
+    FirewallArn: NotRequired[str]
+    FirewallName: NotRequired[str]
+
+class UpdateSubnetChangeProtectionRequestTypeDef(TypedDict):
+    SubnetChangeProtection: bool
+    UpdateToken: NotRequired[str]
+    FirewallArn: NotRequired[str]
+    FirewallName: NotRequired[str]
+
+class FlowFilterOutputTypeDef(TypedDict):
+    SourceAddress: NotRequired[AddressTypeDef]
+    DestinationAddress: NotRequired[AddressTypeDef]
+    SourcePort: NotRequired[str]
+    DestinationPort: NotRequired[str]
+    Protocols: NotRequired[List[str]]
+
+class FlowFilterTypeDef(TypedDict):
+    SourceAddress: NotRequired[AddressTypeDef]
+    DestinationAddress: NotRequired[AddressTypeDef]
+    SourcePort: NotRequired[str]
+    DestinationPort: NotRequired[str]
+    Protocols: NotRequired[Sequence[str]]
+
+FlowTypeDef = TypedDict(
+    "FlowTypeDef",
     {
-        "ResourceArn": str,
-        "Policy": str,
+        "SourceAddress": NotRequired[AddressTypeDef],
+        "DestinationAddress": NotRequired[AddressTypeDef],
+        "SourcePort": NotRequired[str],
+        "DestinationPort": NotRequired[str],
+        "Protocol": NotRequired[str],
+        "Age": NotRequired[int],
+        "PacketCount": NotRequired[int],
+        "ByteCount": NotRequired[int],
     },
 )
-
-ReferenceSetsTypeDef = TypedDict(
-    "ReferenceSetsTypeDef",
+AnalysisTypeReportResultTypeDef = TypedDict(
+    "AnalysisTypeReportResultTypeDef",
     {
-        "IPSetReferences": Dict[str, "IPSetReferenceTypeDef"],
-    },
-    total=False,
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
+        "Protocol": NotRequired[str],
+        "FirstAccessed": NotRequired[datetime],
+        "LastAccessed": NotRequired[datetime],
+        "Domain": NotRequired[str],
+        "Hits": NotRequired[HitsTypeDef],
+        "UniqueSources": NotRequired[UniqueSourcesTypeDef],
     },
 )
 
-RuleDefinitionTypeDef = TypedDict(
-    "RuleDefinitionTypeDef",
-    {
-        "MatchAttributes": "MatchAttributesTypeDef",
-        "Actions": List[str],
-    },
-)
+class AssociateFirewallPolicyResponseTypeDef(TypedDict):
+    FirewallArn: str
+    FirewallName: str
+    FirewallPolicyArn: str
+    UpdateToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-RuleGroupMetadataTypeDef = TypedDict(
-    "RuleGroupMetadataTypeDef",
-    {
-        "Name": str,
-        "Arn": str,
-    },
-    total=False,
-)
+class DescribeResourcePolicyResponseTypeDef(TypedDict):
+    Policy: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredRuleGroupResponseTypeDef = TypedDict(
-    "_RequiredRuleGroupResponseTypeDef",
+class ListAnalysisReportsResponseTypeDef(TypedDict):
+    AnalysisReports: List[AnalysisReportTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class StartAnalysisReportResponseTypeDef(TypedDict):
+    AnalysisReportId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartFlowCaptureResponseTypeDef(TypedDict):
+    FirewallArn: str
+    FlowOperationId: str
+    FlowOperationStatus: FlowOperationStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartFlowFlushResponseTypeDef(TypedDict):
+    FirewallArn: str
+    FlowOperationId: str
+    FlowOperationStatus: FlowOperationStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateFirewallAnalysisSettingsResponseTypeDef(TypedDict):
+    EnabledAnalysisTypes: List[EnabledAnalysisTypeType]
+    FirewallArn: str
+    FirewallName: str
+    UpdateToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateFirewallDeleteProtectionResponseTypeDef(TypedDict):
+    FirewallArn: str
+    FirewallName: str
+    DeleteProtection: bool
+    UpdateToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateFirewallDescriptionResponseTypeDef(TypedDict):
+    FirewallArn: str
+    FirewallName: str
+    Description: str
+    UpdateToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateFirewallPolicyChangeProtectionResponseTypeDef(TypedDict):
+    UpdateToken: str
+    FirewallArn: str
+    FirewallName: str
+    FirewallPolicyChangeProtection: bool
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateSubnetChangeProtectionResponseTypeDef(TypedDict):
+    UpdateToken: str
+    FirewallArn: str
+    FirewallName: str
+    SubnetChangeProtection: bool
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class AssociateSubnetsRequestTypeDef(TypedDict):
+    SubnetMappings: Sequence[SubnetMappingTypeDef]
+    UpdateToken: NotRequired[str]
+    FirewallArn: NotRequired[str]
+    FirewallName: NotRequired[str]
+
+class AssociateSubnetsResponseTypeDef(TypedDict):
+    FirewallArn: str
+    FirewallName: str
+    SubnetMappings: List[SubnetMappingTypeDef]
+    UpdateToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DisassociateSubnetsResponseTypeDef(TypedDict):
+    FirewallArn: str
+    FirewallName: str
+    SubnetMappings: List[SubnetMappingTypeDef]
+    UpdateToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CIDRSummaryTypeDef(TypedDict):
+    AvailableCIDRCount: NotRequired[int]
+    UtilizedCIDRCount: NotRequired[int]
+    IPSetReferences: NotRequired[Dict[str, IPSetMetadataTypeDef]]
+
+class UpdateFirewallEncryptionConfigurationRequestTypeDef(TypedDict):
+    UpdateToken: NotRequired[str]
+    FirewallArn: NotRequired[str]
+    FirewallName: NotRequired[str]
+    EncryptionConfiguration: NotRequired[EncryptionConfigurationTypeDef]
+
+class UpdateFirewallEncryptionConfigurationResponseTypeDef(TypedDict):
+    FirewallArn: str
+    FirewallName: str
+    UpdateToken: str
+    EncryptionConfiguration: EncryptionConfigurationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateFirewallRequestTypeDef(TypedDict):
+    FirewallName: str
+    FirewallPolicyArn: str
+    VpcId: NotRequired[str]
+    SubnetMappings: NotRequired[Sequence[SubnetMappingTypeDef]]
+    DeleteProtection: NotRequired[bool]
+    SubnetChangeProtection: NotRequired[bool]
+    FirewallPolicyChangeProtection: NotRequired[bool]
+    Description: NotRequired[str]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+    EncryptionConfiguration: NotRequired[EncryptionConfigurationTypeDef]
+    EnabledAnalysisTypes: NotRequired[Sequence[EnabledAnalysisTypeType]]
+
+class FirewallPolicyResponseTypeDef(TypedDict):
+    FirewallPolicyName: str
+    FirewallPolicyArn: str
+    FirewallPolicyId: str
+    Description: NotRequired[str]
+    FirewallPolicyStatus: NotRequired[ResourceStatusType]
+    Tags: NotRequired[List[TagTypeDef]]
+    ConsumedStatelessRuleCapacity: NotRequired[int]
+    ConsumedStatefulRuleCapacity: NotRequired[int]
+    NumberOfAssociations: NotRequired[int]
+    EncryptionConfiguration: NotRequired[EncryptionConfigurationTypeDef]
+    LastModifiedTime: NotRequired[datetime]
+
+class FirewallTypeDef(TypedDict):
+    FirewallPolicyArn: str
+    VpcId: str
+    SubnetMappings: List[SubnetMappingTypeDef]
+    FirewallId: str
+    FirewallName: NotRequired[str]
+    FirewallArn: NotRequired[str]
+    DeleteProtection: NotRequired[bool]
+    SubnetChangeProtection: NotRequired[bool]
+    FirewallPolicyChangeProtection: NotRequired[bool]
+    Description: NotRequired[str]
+    Tags: NotRequired[List[TagTypeDef]]
+    EncryptionConfiguration: NotRequired[EncryptionConfigurationTypeDef]
+    EnabledAnalysisTypes: NotRequired[List[EnabledAnalysisTypeType]]
+
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    Tags: List[TagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class TagResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+    Tags: Sequence[TagTypeDef]
+
+RuleGroupResponseTypeDef = TypedDict(
+    "RuleGroupResponseTypeDef",
     {
         "RuleGroupArn": str,
         "RuleGroupName": str,
         "RuleGroupId": str,
+        "Description": NotRequired[str],
+        "Type": NotRequired[RuleGroupTypeType],
+        "Capacity": NotRequired[int],
+        "RuleGroupStatus": NotRequired[ResourceStatusType],
+        "Tags": NotRequired[List[TagTypeDef]],
+        "ConsumedCapacity": NotRequired[int],
+        "NumberOfAssociations": NotRequired[int],
+        "EncryptionConfiguration": NotRequired[EncryptionConfigurationTypeDef],
+        "SourceMetadata": NotRequired[SourceMetadataTypeDef],
+        "SnsTopic": NotRequired[str],
+        "LastModifiedTime": NotRequired[datetime],
+        "AnalysisResults": NotRequired[List[AnalysisResultTypeDef]],
     },
 )
-_OptionalRuleGroupResponseTypeDef = TypedDict(
-    "_OptionalRuleGroupResponseTypeDef",
-    {
-        "Description": str,
-        "Type": RuleGroupTypeType,
-        "Capacity": int,
-        "RuleGroupStatus": ResourceStatusType,
-        "Tags": List["TagTypeDef"],
-        "ConsumedCapacity": int,
-        "NumberOfAssociations": int,
-        "EncryptionConfiguration": "EncryptionConfigurationTypeDef",
-        "SourceMetadata": "SourceMetadataTypeDef",
-        "SnsTopic": str,
-        "LastModifiedTime": datetime,
-        "AnalysisResults": List["AnalysisResultTypeDef"],
-    },
-    total=False,
-)
-
-class RuleGroupResponseTypeDef(
-    _RequiredRuleGroupResponseTypeDef, _OptionalRuleGroupResponseTypeDef
-):
-    pass
-
-_RequiredRuleGroupTypeDef = TypedDict(
-    "_RequiredRuleGroupTypeDef",
-    {
-        "RulesSource": "RulesSourceTypeDef",
-    },
-)
-_OptionalRuleGroupTypeDef = TypedDict(
-    "_OptionalRuleGroupTypeDef",
-    {
-        "RuleVariables": "RuleVariablesTypeDef",
-        "ReferenceSets": "ReferenceSetsTypeDef",
-        "StatefulRuleOptions": "StatefulRuleOptionsTypeDef",
-    },
-    total=False,
-)
-
-class RuleGroupTypeDef(_RequiredRuleGroupTypeDef, _OptionalRuleGroupTypeDef):
-    pass
-
-_RequiredRuleOptionTypeDef = TypedDict(
-    "_RequiredRuleOptionTypeDef",
-    {
-        "Keyword": str,
-    },
-)
-_OptionalRuleOptionTypeDef = TypedDict(
-    "_OptionalRuleOptionTypeDef",
-    {
-        "Settings": List[str],
-    },
-    total=False,
-)
-
-class RuleOptionTypeDef(_RequiredRuleOptionTypeDef, _OptionalRuleOptionTypeDef):
-    pass
-
-RuleVariablesTypeDef = TypedDict(
-    "RuleVariablesTypeDef",
-    {
-        "IPSets": Dict[str, "IPSetTypeDef"],
-        "PortSets": Dict[str, "PortSetTypeDef"],
-    },
-    total=False,
-)
-
-RulesSourceListTypeDef = TypedDict(
-    "RulesSourceListTypeDef",
-    {
-        "Targets": List[str],
-        "TargetTypes": List[TargetTypeType],
-        "GeneratedRulesType": GeneratedRulesTypeType,
-    },
-)
-
-RulesSourceTypeDef = TypedDict(
-    "RulesSourceTypeDef",
-    {
-        "RulesString": str,
-        "RulesSourceList": "RulesSourceListTypeDef",
-        "StatefulRules": List["StatefulRuleTypeDef"],
-        "StatelessRulesAndCustomActions": "StatelessRulesAndCustomActionsTypeDef",
-    },
-    total=False,
-)
-
-ServerCertificateConfigurationTypeDef = TypedDict(
-    "ServerCertificateConfigurationTypeDef",
-    {
-        "ServerCertificates": List["ServerCertificateTypeDef"],
-        "Scopes": List["ServerCertificateScopeTypeDef"],
-        "CertificateAuthorityArn": str,
-        "CheckCertificateRevocationStatus": "CheckCertificateRevocationStatusActionsTypeDef",
-    },
-    total=False,
-)
-
-ServerCertificateScopeTypeDef = TypedDict(
-    "ServerCertificateScopeTypeDef",
-    {
-        "Sources": List["AddressTypeDef"],
-        "Destinations": List["AddressTypeDef"],
-        "SourcePorts": List["PortRangeTypeDef"],
-        "DestinationPorts": List["PortRangeTypeDef"],
-        "Protocols": List[int],
-    },
-    total=False,
-)
-
-ServerCertificateTypeDef = TypedDict(
-    "ServerCertificateTypeDef",
-    {
-        "ResourceArn": str,
-    },
-    total=False,
-)
-
-SourceMetadataTypeDef = TypedDict(
-    "SourceMetadataTypeDef",
-    {
-        "SourceArn": str,
-        "SourceUpdateToken": str,
-    },
-    total=False,
-)
-
-StatefulEngineOptionsTypeDef = TypedDict(
-    "StatefulEngineOptionsTypeDef",
-    {
-        "RuleOrder": RuleOrderType,
-        "StreamExceptionPolicy": StreamExceptionPolicyType,
-    },
-    total=False,
-)
-
-StatefulRuleGroupOverrideTypeDef = TypedDict(
-    "StatefulRuleGroupOverrideTypeDef",
-    {
-        "Action": Literal["DROP_TO_ALERT"],
-    },
-    total=False,
-)
-
-_RequiredStatefulRuleGroupReferenceTypeDef = TypedDict(
-    "_RequiredStatefulRuleGroupReferenceTypeDef",
-    {
-        "ResourceArn": str,
-    },
-)
-_OptionalStatefulRuleGroupReferenceTypeDef = TypedDict(
-    "_OptionalStatefulRuleGroupReferenceTypeDef",
-    {
-        "Priority": int,
-        "Override": "StatefulRuleGroupOverrideTypeDef",
-    },
-    total=False,
-)
-
-class StatefulRuleGroupReferenceTypeDef(
-    _RequiredStatefulRuleGroupReferenceTypeDef, _OptionalStatefulRuleGroupReferenceTypeDef
-):
-    pass
-
-StatefulRuleOptionsTypeDef = TypedDict(
-    "StatefulRuleOptionsTypeDef",
-    {
-        "RuleOrder": RuleOrderType,
-    },
-    total=False,
-)
-
-StatefulRuleTypeDef = TypedDict(
-    "StatefulRuleTypeDef",
-    {
-        "Action": StatefulActionType,
-        "Header": "HeaderTypeDef",
-        "RuleOptions": List["RuleOptionTypeDef"],
-    },
-)
-
-StatelessRuleGroupReferenceTypeDef = TypedDict(
-    "StatelessRuleGroupReferenceTypeDef",
-    {
-        "ResourceArn": str,
-        "Priority": int,
-    },
-)
-
-StatelessRuleTypeDef = TypedDict(
-    "StatelessRuleTypeDef",
-    {
-        "RuleDefinition": "RuleDefinitionTypeDef",
-        "Priority": int,
-    },
-)
-
-_RequiredStatelessRulesAndCustomActionsTypeDef = TypedDict(
-    "_RequiredStatelessRulesAndCustomActionsTypeDef",
-    {
-        "StatelessRules": List["StatelessRuleTypeDef"],
-    },
-)
-_OptionalStatelessRulesAndCustomActionsTypeDef = TypedDict(
-    "_OptionalStatelessRulesAndCustomActionsTypeDef",
-    {
-        "CustomActions": List["CustomActionTypeDef"],
-    },
-    total=False,
-)
-
-class StatelessRulesAndCustomActionsTypeDef(
-    _RequiredStatelessRulesAndCustomActionsTypeDef, _OptionalStatelessRulesAndCustomActionsTypeDef
-):
-    pass
-
-_RequiredSubnetMappingTypeDef = TypedDict(
-    "_RequiredSubnetMappingTypeDef",
-    {
-        "SubnetId": str,
-    },
-)
-_OptionalSubnetMappingTypeDef = TypedDict(
-    "_OptionalSubnetMappingTypeDef",
-    {
-        "IPAddressType": IPAddressTypeType,
-    },
-    total=False,
-)
-
-class SubnetMappingTypeDef(_RequiredSubnetMappingTypeDef, _OptionalSubnetMappingTypeDef):
-    pass
-
-SyncStateTypeDef = TypedDict(
-    "SyncStateTypeDef",
-    {
-        "Attachment": "AttachmentTypeDef",
-        "Config": Dict[str, "PerObjectStatusTypeDef"],
-    },
-    total=False,
-)
-
-_RequiredTCPFlagFieldTypeDef = TypedDict(
-    "_RequiredTCPFlagFieldTypeDef",
-    {
-        "Flags": List[TCPFlagType],
-    },
-)
-_OptionalTCPFlagFieldTypeDef = TypedDict(
-    "_OptionalTCPFlagFieldTypeDef",
-    {
-        "Masks": List[TCPFlagType],
-    },
-    total=False,
-)
-
-class TCPFlagFieldTypeDef(_RequiredTCPFlagFieldTypeDef, _OptionalTCPFlagFieldTypeDef):
-    pass
-
-TLSInspectionConfigurationMetadataTypeDef = TypedDict(
-    "TLSInspectionConfigurationMetadataTypeDef",
-    {
-        "Name": str,
-        "Arn": str,
-    },
-    total=False,
-)
-
-_RequiredTLSInspectionConfigurationResponseTypeDef = TypedDict(
-    "_RequiredTLSInspectionConfigurationResponseTypeDef",
-    {
-        "TLSInspectionConfigurationArn": str,
-        "TLSInspectionConfigurationName": str,
-        "TLSInspectionConfigurationId": str,
-    },
-)
-_OptionalTLSInspectionConfigurationResponseTypeDef = TypedDict(
-    "_OptionalTLSInspectionConfigurationResponseTypeDef",
-    {
-        "TLSInspectionConfigurationStatus": ResourceStatusType,
-        "Description": str,
-        "Tags": List["TagTypeDef"],
-        "LastModifiedTime": datetime,
-        "NumberOfAssociations": int,
-        "EncryptionConfiguration": "EncryptionConfigurationTypeDef",
-        "Certificates": List["TlsCertificateDataTypeDef"],
-        "CertificateAuthority": "TlsCertificateDataTypeDef",
-    },
-    total=False,
-)
-
-class TLSInspectionConfigurationResponseTypeDef(
-    _RequiredTLSInspectionConfigurationResponseTypeDef,
-    _OptionalTLSInspectionConfigurationResponseTypeDef,
-):
-    pass
-
-TLSInspectionConfigurationTypeDef = TypedDict(
-    "TLSInspectionConfigurationTypeDef",
-    {
-        "ServerCertificateConfigurations": List["ServerCertificateConfigurationTypeDef"],
-    },
-    total=False,
-)
-
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-        "Tags": List["TagTypeDef"],
-    },
-)
-
-TagTypeDef = TypedDict(
-    "TagTypeDef",
-    {
-        "Key": str,
-        "Value": str,
-    },
-)
-
-TlsCertificateDataTypeDef = TypedDict(
-    "TlsCertificateDataTypeDef",
-    {
-        "CertificateArn": str,
-        "CertificateSerial": str,
-        "Status": str,
-        "StatusMessage": str,
-    },
-    total=False,
-)
-
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-        "TagKeys": List[str],
-    },
-)
-
-_RequiredUpdateFirewallDeleteProtectionRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateFirewallDeleteProtectionRequestRequestTypeDef",
-    {
-        "DeleteProtection": bool,
-    },
-)
-_OptionalUpdateFirewallDeleteProtectionRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateFirewallDeleteProtectionRequestRequestTypeDef",
-    {
-        "UpdateToken": str,
-        "FirewallArn": str,
-        "FirewallName": str,
-    },
-    total=False,
-)
-
-class UpdateFirewallDeleteProtectionRequestRequestTypeDef(
-    _RequiredUpdateFirewallDeleteProtectionRequestRequestTypeDef,
-    _OptionalUpdateFirewallDeleteProtectionRequestRequestTypeDef,
-):
-    pass
-
-UpdateFirewallDeleteProtectionResponseTypeDef = TypedDict(
-    "UpdateFirewallDeleteProtectionResponseTypeDef",
-    {
-        "FirewallArn": str,
-        "FirewallName": str,
-        "DeleteProtection": bool,
-        "UpdateToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UpdateFirewallDescriptionRequestRequestTypeDef = TypedDict(
-    "UpdateFirewallDescriptionRequestRequestTypeDef",
-    {
-        "UpdateToken": str,
-        "FirewallArn": str,
-        "FirewallName": str,
-        "Description": str,
-    },
-    total=False,
-)
-
-UpdateFirewallDescriptionResponseTypeDef = TypedDict(
-    "UpdateFirewallDescriptionResponseTypeDef",
-    {
-        "FirewallArn": str,
-        "FirewallName": str,
-        "Description": str,
-        "UpdateToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UpdateFirewallEncryptionConfigurationRequestRequestTypeDef = TypedDict(
-    "UpdateFirewallEncryptionConfigurationRequestRequestTypeDef",
-    {
-        "UpdateToken": str,
-        "FirewallArn": str,
-        "FirewallName": str,
-        "EncryptionConfiguration": "EncryptionConfigurationTypeDef",
-    },
-    total=False,
-)
-
-UpdateFirewallEncryptionConfigurationResponseTypeDef = TypedDict(
-    "UpdateFirewallEncryptionConfigurationResponseTypeDef",
-    {
-        "FirewallArn": str,
-        "FirewallName": str,
-        "UpdateToken": str,
-        "EncryptionConfiguration": "EncryptionConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateFirewallPolicyChangeProtectionRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateFirewallPolicyChangeProtectionRequestRequestTypeDef",
-    {
-        "FirewallPolicyChangeProtection": bool,
-    },
-)
-_OptionalUpdateFirewallPolicyChangeProtectionRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateFirewallPolicyChangeProtectionRequestRequestTypeDef",
-    {
-        "UpdateToken": str,
-        "FirewallArn": str,
-        "FirewallName": str,
-    },
-    total=False,
-)
-
-class UpdateFirewallPolicyChangeProtectionRequestRequestTypeDef(
-    _RequiredUpdateFirewallPolicyChangeProtectionRequestRequestTypeDef,
-    _OptionalUpdateFirewallPolicyChangeProtectionRequestRequestTypeDef,
-):
-    pass
-
-UpdateFirewallPolicyChangeProtectionResponseTypeDef = TypedDict(
-    "UpdateFirewallPolicyChangeProtectionResponseTypeDef",
-    {
-        "UpdateToken": str,
-        "FirewallArn": str,
-        "FirewallName": str,
-        "FirewallPolicyChangeProtection": bool,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateFirewallPolicyRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateFirewallPolicyRequestRequestTypeDef",
-    {
-        "UpdateToken": str,
-        "FirewallPolicy": "FirewallPolicyTypeDef",
-    },
-)
-_OptionalUpdateFirewallPolicyRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateFirewallPolicyRequestRequestTypeDef",
-    {
-        "FirewallPolicyArn": str,
-        "FirewallPolicyName": str,
-        "Description": str,
-        "DryRun": bool,
-        "EncryptionConfiguration": "EncryptionConfigurationTypeDef",
-    },
-    total=False,
-)
-
-class UpdateFirewallPolicyRequestRequestTypeDef(
-    _RequiredUpdateFirewallPolicyRequestRequestTypeDef,
-    _OptionalUpdateFirewallPolicyRequestRequestTypeDef,
-):
-    pass
-
-UpdateFirewallPolicyResponseTypeDef = TypedDict(
-    "UpdateFirewallPolicyResponseTypeDef",
-    {
-        "UpdateToken": str,
-        "FirewallPolicyResponse": "FirewallPolicyResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UpdateLoggingConfigurationRequestRequestTypeDef = TypedDict(
-    "UpdateLoggingConfigurationRequestRequestTypeDef",
-    {
-        "FirewallArn": str,
-        "FirewallName": str,
-        "LoggingConfiguration": "LoggingConfigurationTypeDef",
-    },
-    total=False,
-)
-
-UpdateLoggingConfigurationResponseTypeDef = TypedDict(
-    "UpdateLoggingConfigurationResponseTypeDef",
-    {
-        "FirewallArn": str,
-        "FirewallName": str,
-        "LoggingConfiguration": "LoggingConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateRuleGroupRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateRuleGroupRequestRequestTypeDef",
-    {
-        "UpdateToken": str,
-    },
-)
-_OptionalUpdateRuleGroupRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateRuleGroupRequestRequestTypeDef",
+DescribeRuleGroupMetadataResponseTypeDef = TypedDict(
+    "DescribeRuleGroupMetadataResponseTypeDef",
     {
         "RuleGroupArn": str,
         "RuleGroupName": str,
-        "RuleGroup": "RuleGroupTypeDef",
-        "Rules": str,
+        "Description": str,
         "Type": RuleGroupTypeType,
-        "Description": str,
-        "DryRun": bool,
-        "EncryptionConfiguration": "EncryptionConfigurationTypeDef",
-        "SourceMetadata": "SourceMetadataTypeDef",
-        "AnalyzeRuleGroup": bool,
+        "Capacity": int,
+        "StatefulRuleOptions": StatefulRuleOptionsTypeDef,
+        "LastModifiedTime": datetime,
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
-    total=False,
 )
 
-class UpdateRuleGroupRequestRequestTypeDef(
-    _RequiredUpdateRuleGroupRequestRequestTypeDef, _OptionalUpdateRuleGroupRequestRequestTypeDef
-):
-    pass
+class PublishMetricActionOutputTypeDef(TypedDict):
+    Dimensions: List[DimensionTypeDef]
 
-UpdateRuleGroupResponseTypeDef = TypedDict(
-    "UpdateRuleGroupResponseTypeDef",
+class PublishMetricActionTypeDef(TypedDict):
+    Dimensions: Sequence[DimensionTypeDef]
+
+class ListFirewallsResponseTypeDef(TypedDict):
+    Firewalls: List[FirewallMetadataTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListFirewallPoliciesResponseTypeDef(TypedDict):
+    FirewallPolicies: List[FirewallPolicyMetadataTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListFlowOperationsResponseTypeDef(TypedDict):
+    FlowOperations: List[FlowOperationMetadataTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class StatefulEngineOptionsTypeDef(TypedDict):
+    RuleOrder: NotRequired[RuleOrderType]
+    StreamExceptionPolicy: NotRequired[StreamExceptionPolicyType]
+    FlowTimeouts: NotRequired[FlowTimeoutsTypeDef]
+
+class GetAnalysisReportResultsRequestPaginateTypeDef(TypedDict):
+    AnalysisReportId: str
+    FirewallName: NotRequired[str]
+    FirewallArn: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListAnalysisReportsRequestPaginateTypeDef(TypedDict):
+    FirewallName: NotRequired[str]
+    FirewallArn: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListFirewallPoliciesRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListFirewallsRequestPaginateTypeDef(TypedDict):
+    VpcIds: NotRequired[Sequence[str]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListFlowOperationResultsRequestPaginateTypeDef(TypedDict):
+    FirewallArn: str
+    FlowOperationId: str
+    AvailabilityZone: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListFlowOperationsRequestPaginateTypeDef(TypedDict):
+    FirewallArn: str
+    AvailabilityZone: NotRequired[str]
+    FlowOperationType: NotRequired[FlowOperationTypeType]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+ListRuleGroupsRequestPaginateTypeDef = TypedDict(
+    "ListRuleGroupsRequestPaginateTypeDef",
+    {
+        "Scope": NotRequired[ResourceManagedStatusType],
+        "ManagedType": NotRequired[ResourceManagedTypeType],
+        "Type": NotRequired[RuleGroupTypeType],
+        "PaginationConfig": NotRequired[PaginatorConfigTypeDef],
+    },
+)
+
+class ListTLSInspectionConfigurationsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListTagsForResourceRequestPaginateTypeDef(TypedDict):
+    ResourceArn: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class PolicyVariablesOutputTypeDef(TypedDict):
+    RuleVariables: NotRequired[Dict[str, IPSetOutputTypeDef]]
+
+class ReferenceSetsOutputTypeDef(TypedDict):
+    IPSetReferences: NotRequired[Dict[str, IPSetReferenceTypeDef]]
+
+class ReferenceSetsTypeDef(TypedDict):
+    IPSetReferences: NotRequired[Mapping[str, IPSetReferenceTypeDef]]
+
+class PolicyVariablesTypeDef(TypedDict):
+    RuleVariables: NotRequired[Mapping[str, IPSetTypeDef]]
+
+class ListRuleGroupsResponseTypeDef(TypedDict):
+    RuleGroups: List[RuleGroupMetadataTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListTLSInspectionConfigurationsResponseTypeDef(TypedDict):
+    TLSInspectionConfigurations: List[TLSInspectionConfigurationMetadataTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class LoggingConfigurationOutputTypeDef(TypedDict):
+    LogDestinationConfigs: List[LogDestinationConfigOutputTypeDef]
+
+class LoggingConfigurationTypeDef(TypedDict):
+    LogDestinationConfigs: Sequence[LogDestinationConfigTypeDef]
+
+class ServerCertificateScopeOutputTypeDef(TypedDict):
+    Sources: NotRequired[List[AddressTypeDef]]
+    Destinations: NotRequired[List[AddressTypeDef]]
+    SourcePorts: NotRequired[List[PortRangeTypeDef]]
+    DestinationPorts: NotRequired[List[PortRangeTypeDef]]
+    Protocols: NotRequired[List[int]]
+
+class ServerCertificateScopeTypeDef(TypedDict):
+    Sources: NotRequired[Sequence[AddressTypeDef]]
+    Destinations: NotRequired[Sequence[AddressTypeDef]]
+    SourcePorts: NotRequired[Sequence[PortRangeTypeDef]]
+    DestinationPorts: NotRequired[Sequence[PortRangeTypeDef]]
+    Protocols: NotRequired[Sequence[int]]
+
+class MatchAttributesOutputTypeDef(TypedDict):
+    Sources: NotRequired[List[AddressTypeDef]]
+    Destinations: NotRequired[List[AddressTypeDef]]
+    SourcePorts: NotRequired[List[PortRangeTypeDef]]
+    DestinationPorts: NotRequired[List[PortRangeTypeDef]]
+    Protocols: NotRequired[List[int]]
+    TCPFlags: NotRequired[List[TCPFlagFieldOutputTypeDef]]
+
+class MatchAttributesTypeDef(TypedDict):
+    Sources: NotRequired[Sequence[AddressTypeDef]]
+    Destinations: NotRequired[Sequence[AddressTypeDef]]
+    SourcePorts: NotRequired[Sequence[PortRangeTypeDef]]
+    DestinationPorts: NotRequired[Sequence[PortRangeTypeDef]]
+    Protocols: NotRequired[Sequence[int]]
+    TCPFlags: NotRequired[Sequence[TCPFlagFieldTypeDef]]
+
+class SyncStateTypeDef(TypedDict):
+    Attachment: NotRequired[AttachmentTypeDef]
+    Config: NotRequired[Dict[str, PerObjectStatusTypeDef]]
+
+class RuleVariablesOutputTypeDef(TypedDict):
+    IPSets: NotRequired[Dict[str, IPSetOutputTypeDef]]
+    PortSets: NotRequired[Dict[str, PortSetOutputTypeDef]]
+
+class RuleVariablesTypeDef(TypedDict):
+    IPSets: NotRequired[Mapping[str, IPSetTypeDef]]
+    PortSets: NotRequired[Mapping[str, PortSetTypeDef]]
+
+class StatefulRuleOutputTypeDef(TypedDict):
+    Action: StatefulActionType
+    Header: HeaderTypeDef
+    RuleOptions: List[RuleOptionOutputTypeDef]
+
+class StatefulRuleTypeDef(TypedDict):
+    Action: StatefulActionType
+    Header: HeaderTypeDef
+    RuleOptions: Sequence[RuleOptionTypeDef]
+
+class StatefulRuleGroupReferenceTypeDef(TypedDict):
+    ResourceArn: str
+    Priority: NotRequired[int]
+    Override: NotRequired[StatefulRuleGroupOverrideTypeDef]
+
+class TLSInspectionConfigurationResponseTypeDef(TypedDict):
+    TLSInspectionConfigurationArn: str
+    TLSInspectionConfigurationName: str
+    TLSInspectionConfigurationId: str
+    TLSInspectionConfigurationStatus: NotRequired[ResourceStatusType]
+    Description: NotRequired[str]
+    Tags: NotRequired[List[TagTypeDef]]
+    LastModifiedTime: NotRequired[datetime]
+    NumberOfAssociations: NotRequired[int]
+    EncryptionConfiguration: NotRequired[EncryptionConfigurationTypeDef]
+    Certificates: NotRequired[List[TlsCertificateDataTypeDef]]
+    CertificateAuthority: NotRequired[TlsCertificateDataTypeDef]
+
+class FlowOperationTypeDef(TypedDict):
+    MinimumFlowAgeInSeconds: NotRequired[int]
+    FlowFilters: NotRequired[List[FlowFilterOutputTypeDef]]
+
+FlowFilterUnionTypeDef = Union[FlowFilterTypeDef, FlowFilterOutputTypeDef]
+
+class ListFlowOperationResultsResponseTypeDef(TypedDict):
+    FirewallArn: str
+    AvailabilityZone: str
+    FlowOperationId: str
+    FlowOperationStatus: FlowOperationStatusType
+    StatusMessage: str
+    FlowRequestTimestamp: datetime
+    Flows: List[FlowTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class GetAnalysisReportResultsResponseTypeDef(TypedDict):
+    Status: str
+    StartTime: datetime
+    EndTime: datetime
+    ReportTime: datetime
+    AnalysisType: EnabledAnalysisTypeType
+    AnalysisReportResults: List[AnalysisTypeReportResultTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class CapacityUsageSummaryTypeDef(TypedDict):
+    CIDRs: NotRequired[CIDRSummaryTypeDef]
+
+class CreateFirewallPolicyResponseTypeDef(TypedDict):
+    UpdateToken: str
+    FirewallPolicyResponse: FirewallPolicyResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteFirewallPolicyResponseTypeDef(TypedDict):
+    FirewallPolicyResponse: FirewallPolicyResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateFirewallPolicyResponseTypeDef(TypedDict):
+    UpdateToken: str
+    FirewallPolicyResponse: FirewallPolicyResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateRuleGroupResponseTypeDef(TypedDict):
+    UpdateToken: str
+    RuleGroupResponse: RuleGroupResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteRuleGroupResponseTypeDef(TypedDict):
+    RuleGroupResponse: RuleGroupResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateRuleGroupResponseTypeDef(TypedDict):
+    UpdateToken: str
+    RuleGroupResponse: RuleGroupResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ActionDefinitionOutputTypeDef(TypedDict):
+    PublishMetricAction: NotRequired[PublishMetricActionOutputTypeDef]
+
+class ActionDefinitionTypeDef(TypedDict):
+    PublishMetricAction: NotRequired[PublishMetricActionTypeDef]
+
+class DescribeLoggingConfigurationResponseTypeDef(TypedDict):
+    FirewallArn: str
+    LoggingConfiguration: LoggingConfigurationOutputTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateLoggingConfigurationResponseTypeDef(TypedDict):
+    FirewallArn: str
+    FirewallName: str
+    LoggingConfiguration: LoggingConfigurationOutputTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+LoggingConfigurationUnionTypeDef = Union[
+    LoggingConfigurationTypeDef, LoggingConfigurationOutputTypeDef
+]
+
+class ServerCertificateConfigurationOutputTypeDef(TypedDict):
+    ServerCertificates: NotRequired[List[ServerCertificateTypeDef]]
+    Scopes: NotRequired[List[ServerCertificateScopeOutputTypeDef]]
+    CertificateAuthorityArn: NotRequired[str]
+    CheckCertificateRevocationStatus: NotRequired[CheckCertificateRevocationStatusActionsTypeDef]
+
+class ServerCertificateConfigurationTypeDef(TypedDict):
+    ServerCertificates: NotRequired[Sequence[ServerCertificateTypeDef]]
+    Scopes: NotRequired[Sequence[ServerCertificateScopeTypeDef]]
+    CertificateAuthorityArn: NotRequired[str]
+    CheckCertificateRevocationStatus: NotRequired[CheckCertificateRevocationStatusActionsTypeDef]
+
+class RuleDefinitionOutputTypeDef(TypedDict):
+    MatchAttributes: MatchAttributesOutputTypeDef
+    Actions: List[str]
+
+class RuleDefinitionTypeDef(TypedDict):
+    MatchAttributes: MatchAttributesTypeDef
+    Actions: Sequence[str]
+
+class CreateTLSInspectionConfigurationResponseTypeDef(TypedDict):
+    UpdateToken: str
+    TLSInspectionConfigurationResponse: TLSInspectionConfigurationResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteTLSInspectionConfigurationResponseTypeDef(TypedDict):
+    TLSInspectionConfigurationResponse: TLSInspectionConfigurationResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateTLSInspectionConfigurationResponseTypeDef(TypedDict):
+    UpdateToken: str
+    TLSInspectionConfigurationResponse: TLSInspectionConfigurationResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeFlowOperationResponseTypeDef(TypedDict):
+    FirewallArn: str
+    AvailabilityZone: str
+    FlowOperationId: str
+    FlowOperationType: FlowOperationTypeType
+    FlowOperationStatus: FlowOperationStatusType
+    StatusMessage: str
+    FlowRequestTimestamp: datetime
+    FlowOperation: FlowOperationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartFlowCaptureRequestTypeDef(TypedDict):
+    FirewallArn: str
+    FlowFilters: Sequence[FlowFilterUnionTypeDef]
+    AvailabilityZone: NotRequired[str]
+    MinimumFlowAgeInSeconds: NotRequired[int]
+
+class StartFlowFlushRequestTypeDef(TypedDict):
+    FirewallArn: str
+    FlowFilters: Sequence[FlowFilterUnionTypeDef]
+    AvailabilityZone: NotRequired[str]
+    MinimumFlowAgeInSeconds: NotRequired[int]
+
+class FirewallStatusTypeDef(TypedDict):
+    Status: FirewallStatusValueType
+    ConfigurationSyncStateSummary: ConfigurationSyncStateType
+    SyncStates: NotRequired[Dict[str, SyncStateTypeDef]]
+    CapacityUsageSummary: NotRequired[CapacityUsageSummaryTypeDef]
+
+class CustomActionOutputTypeDef(TypedDict):
+    ActionName: str
+    ActionDefinition: ActionDefinitionOutputTypeDef
+
+class CustomActionTypeDef(TypedDict):
+    ActionName: str
+    ActionDefinition: ActionDefinitionTypeDef
+
+class UpdateLoggingConfigurationRequestTypeDef(TypedDict):
+    FirewallArn: NotRequired[str]
+    FirewallName: NotRequired[str]
+    LoggingConfiguration: NotRequired[LoggingConfigurationUnionTypeDef]
+
+class TLSInspectionConfigurationOutputTypeDef(TypedDict):
+    ServerCertificateConfigurations: NotRequired[List[ServerCertificateConfigurationOutputTypeDef]]
+
+class TLSInspectionConfigurationTypeDef(TypedDict):
+    ServerCertificateConfigurations: NotRequired[Sequence[ServerCertificateConfigurationTypeDef]]
+
+class StatelessRuleOutputTypeDef(TypedDict):
+    RuleDefinition: RuleDefinitionOutputTypeDef
+    Priority: int
+
+class StatelessRuleTypeDef(TypedDict):
+    RuleDefinition: RuleDefinitionTypeDef
+    Priority: int
+
+class CreateFirewallResponseTypeDef(TypedDict):
+    Firewall: FirewallTypeDef
+    FirewallStatus: FirewallStatusTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteFirewallResponseTypeDef(TypedDict):
+    Firewall: FirewallTypeDef
+    FirewallStatus: FirewallStatusTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeFirewallResponseTypeDef(TypedDict):
+    UpdateToken: str
+    Firewall: FirewallTypeDef
+    FirewallStatus: FirewallStatusTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class FirewallPolicyOutputTypeDef(TypedDict):
+    StatelessDefaultActions: List[str]
+    StatelessFragmentDefaultActions: List[str]
+    StatelessRuleGroupReferences: NotRequired[List[StatelessRuleGroupReferenceTypeDef]]
+    StatelessCustomActions: NotRequired[List[CustomActionOutputTypeDef]]
+    StatefulRuleGroupReferences: NotRequired[List[StatefulRuleGroupReferenceTypeDef]]
+    StatefulDefaultActions: NotRequired[List[str]]
+    StatefulEngineOptions: NotRequired[StatefulEngineOptionsTypeDef]
+    TLSInspectionConfigurationArn: NotRequired[str]
+    PolicyVariables: NotRequired[PolicyVariablesOutputTypeDef]
+
+class FirewallPolicyTypeDef(TypedDict):
+    StatelessDefaultActions: Sequence[str]
+    StatelessFragmentDefaultActions: Sequence[str]
+    StatelessRuleGroupReferences: NotRequired[Sequence[StatelessRuleGroupReferenceTypeDef]]
+    StatelessCustomActions: NotRequired[Sequence[CustomActionTypeDef]]
+    StatefulRuleGroupReferences: NotRequired[Sequence[StatefulRuleGroupReferenceTypeDef]]
+    StatefulDefaultActions: NotRequired[Sequence[str]]
+    StatefulEngineOptions: NotRequired[StatefulEngineOptionsTypeDef]
+    TLSInspectionConfigurationArn: NotRequired[str]
+    PolicyVariables: NotRequired[PolicyVariablesTypeDef]
+
+class DescribeTLSInspectionConfigurationResponseTypeDef(TypedDict):
+    UpdateToken: str
+    TLSInspectionConfiguration: TLSInspectionConfigurationOutputTypeDef
+    TLSInspectionConfigurationResponse: TLSInspectionConfigurationResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+TLSInspectionConfigurationUnionTypeDef = Union[
+    TLSInspectionConfigurationTypeDef, TLSInspectionConfigurationOutputTypeDef
+]
+
+class StatelessRulesAndCustomActionsOutputTypeDef(TypedDict):
+    StatelessRules: List[StatelessRuleOutputTypeDef]
+    CustomActions: NotRequired[List[CustomActionOutputTypeDef]]
+
+class StatelessRulesAndCustomActionsTypeDef(TypedDict):
+    StatelessRules: Sequence[StatelessRuleTypeDef]
+    CustomActions: NotRequired[Sequence[CustomActionTypeDef]]
+
+class DescribeFirewallPolicyResponseTypeDef(TypedDict):
+    UpdateToken: str
+    FirewallPolicyResponse: FirewallPolicyResponseTypeDef
+    FirewallPolicy: FirewallPolicyOutputTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+FirewallPolicyUnionTypeDef = Union[FirewallPolicyTypeDef, FirewallPolicyOutputTypeDef]
+
+class CreateTLSInspectionConfigurationRequestTypeDef(TypedDict):
+    TLSInspectionConfigurationName: str
+    TLSInspectionConfiguration: TLSInspectionConfigurationUnionTypeDef
+    Description: NotRequired[str]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+    EncryptionConfiguration: NotRequired[EncryptionConfigurationTypeDef]
+
+class UpdateTLSInspectionConfigurationRequestTypeDef(TypedDict):
+    TLSInspectionConfiguration: TLSInspectionConfigurationUnionTypeDef
+    UpdateToken: str
+    TLSInspectionConfigurationArn: NotRequired[str]
+    TLSInspectionConfigurationName: NotRequired[str]
+    Description: NotRequired[str]
+    EncryptionConfiguration: NotRequired[EncryptionConfigurationTypeDef]
+
+class RulesSourceOutputTypeDef(TypedDict):
+    RulesString: NotRequired[str]
+    RulesSourceList: NotRequired[RulesSourceListOutputTypeDef]
+    StatefulRules: NotRequired[List[StatefulRuleOutputTypeDef]]
+    StatelessRulesAndCustomActions: NotRequired[StatelessRulesAndCustomActionsOutputTypeDef]
+
+class RulesSourceTypeDef(TypedDict):
+    RulesString: NotRequired[str]
+    RulesSourceList: NotRequired[RulesSourceListTypeDef]
+    StatefulRules: NotRequired[Sequence[StatefulRuleTypeDef]]
+    StatelessRulesAndCustomActions: NotRequired[StatelessRulesAndCustomActionsTypeDef]
+
+class CreateFirewallPolicyRequestTypeDef(TypedDict):
+    FirewallPolicyName: str
+    FirewallPolicy: FirewallPolicyUnionTypeDef
+    Description: NotRequired[str]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+    DryRun: NotRequired[bool]
+    EncryptionConfiguration: NotRequired[EncryptionConfigurationTypeDef]
+
+class UpdateFirewallPolicyRequestTypeDef(TypedDict):
+    UpdateToken: str
+    FirewallPolicy: FirewallPolicyUnionTypeDef
+    FirewallPolicyArn: NotRequired[str]
+    FirewallPolicyName: NotRequired[str]
+    Description: NotRequired[str]
+    DryRun: NotRequired[bool]
+    EncryptionConfiguration: NotRequired[EncryptionConfigurationTypeDef]
+
+class RuleGroupOutputTypeDef(TypedDict):
+    RulesSource: RulesSourceOutputTypeDef
+    RuleVariables: NotRequired[RuleVariablesOutputTypeDef]
+    ReferenceSets: NotRequired[ReferenceSetsOutputTypeDef]
+    StatefulRuleOptions: NotRequired[StatefulRuleOptionsTypeDef]
+
+class RuleGroupTypeDef(TypedDict):
+    RulesSource: RulesSourceTypeDef
+    RuleVariables: NotRequired[RuleVariablesTypeDef]
+    ReferenceSets: NotRequired[ReferenceSetsTypeDef]
+    StatefulRuleOptions: NotRequired[StatefulRuleOptionsTypeDef]
+
+class DescribeRuleGroupResponseTypeDef(TypedDict):
+    UpdateToken: str
+    RuleGroup: RuleGroupOutputTypeDef
+    RuleGroupResponse: RuleGroupResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+RuleGroupUnionTypeDef = Union[RuleGroupTypeDef, RuleGroupOutputTypeDef]
+CreateRuleGroupRequestTypeDef = TypedDict(
+    "CreateRuleGroupRequestTypeDef",
+    {
+        "RuleGroupName": str,
+        "Type": RuleGroupTypeType,
+        "Capacity": int,
+        "RuleGroup": NotRequired[RuleGroupUnionTypeDef],
+        "Rules": NotRequired[str],
+        "Description": NotRequired[str],
+        "Tags": NotRequired[Sequence[TagTypeDef]],
+        "DryRun": NotRequired[bool],
+        "EncryptionConfiguration": NotRequired[EncryptionConfigurationTypeDef],
+        "SourceMetadata": NotRequired[SourceMetadataTypeDef],
+        "AnalyzeRuleGroup": NotRequired[bool],
+    },
+)
+UpdateRuleGroupRequestTypeDef = TypedDict(
+    "UpdateRuleGroupRequestTypeDef",
     {
         "UpdateToken": str,
-        "RuleGroupResponse": "RuleGroupResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateSubnetChangeProtectionRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateSubnetChangeProtectionRequestRequestTypeDef",
-    {
-        "SubnetChangeProtection": bool,
-    },
-)
-_OptionalUpdateSubnetChangeProtectionRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateSubnetChangeProtectionRequestRequestTypeDef",
-    {
-        "UpdateToken": str,
-        "FirewallArn": str,
-        "FirewallName": str,
-    },
-    total=False,
-)
-
-class UpdateSubnetChangeProtectionRequestRequestTypeDef(
-    _RequiredUpdateSubnetChangeProtectionRequestRequestTypeDef,
-    _OptionalUpdateSubnetChangeProtectionRequestRequestTypeDef,
-):
-    pass
-
-UpdateSubnetChangeProtectionResponseTypeDef = TypedDict(
-    "UpdateSubnetChangeProtectionResponseTypeDef",
-    {
-        "UpdateToken": str,
-        "FirewallArn": str,
-        "FirewallName": str,
-        "SubnetChangeProtection": bool,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateTLSInspectionConfigurationRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateTLSInspectionConfigurationRequestRequestTypeDef",
-    {
-        "TLSInspectionConfiguration": "TLSInspectionConfigurationTypeDef",
-        "UpdateToken": str,
-    },
-)
-_OptionalUpdateTLSInspectionConfigurationRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateTLSInspectionConfigurationRequestRequestTypeDef",
-    {
-        "TLSInspectionConfigurationArn": str,
-        "TLSInspectionConfigurationName": str,
-        "Description": str,
-        "EncryptionConfiguration": "EncryptionConfigurationTypeDef",
-    },
-    total=False,
-)
-
-class UpdateTLSInspectionConfigurationRequestRequestTypeDef(
-    _RequiredUpdateTLSInspectionConfigurationRequestRequestTypeDef,
-    _OptionalUpdateTLSInspectionConfigurationRequestRequestTypeDef,
-):
-    pass
-
-UpdateTLSInspectionConfigurationResponseTypeDef = TypedDict(
-    "UpdateTLSInspectionConfigurationResponseTypeDef",
-    {
-        "UpdateToken": str,
-        "TLSInspectionConfigurationResponse": "TLSInspectionConfigurationResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "RuleGroupArn": NotRequired[str],
+        "RuleGroupName": NotRequired[str],
+        "RuleGroup": NotRequired[RuleGroupUnionTypeDef],
+        "Rules": NotRequired[str],
+        "Type": NotRequired[RuleGroupTypeType],
+        "Description": NotRequired[str],
+        "DryRun": NotRequired[bool],
+        "EncryptionConfiguration": NotRequired[EncryptionConfigurationTypeDef],
+        "SourceMetadata": NotRequired[SourceMetadataTypeDef],
+        "AnalyzeRuleGroup": NotRequired[bool],
     },
 )

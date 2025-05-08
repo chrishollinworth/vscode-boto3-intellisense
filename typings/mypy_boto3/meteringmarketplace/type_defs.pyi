@@ -1,200 +1,141 @@
 """
 Type annotations for meteringmarketplace service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_meteringmarketplace/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_meteringmarketplace/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_meteringmarketplace.type_defs import BatchMeterUsageRequestRequestTypeDef
+    from mypy_boto3_meteringmarketplace.type_defs import ResponseMetadataTypeDef
 
-    data: BatchMeterUsageRequestRequestTypeDef = {...}
+    data: ResponseMetadataTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List, Union
+from typing import Union
 
 from .literals import UsageRecordResultStatusType
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Sequence
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List, Sequence
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
-    "BatchMeterUsageRequestRequestTypeDef",
+    "BatchMeterUsageRequestTypeDef",
     "BatchMeterUsageResultTypeDef",
-    "MeterUsageRequestRequestTypeDef",
+    "MeterUsageRequestTypeDef",
     "MeterUsageResultTypeDef",
-    "RegisterUsageRequestRequestTypeDef",
+    "RegisterUsageRequestTypeDef",
     "RegisterUsageResultTypeDef",
-    "ResolveCustomerRequestRequestTypeDef",
+    "ResolveCustomerRequestTypeDef",
     "ResolveCustomerResultTypeDef",
     "ResponseMetadataTypeDef",
     "TagTypeDef",
+    "TimestampTypeDef",
+    "UsageAllocationOutputTypeDef",
     "UsageAllocationTypeDef",
+    "UsageAllocationUnionTypeDef",
+    "UsageRecordOutputTypeDef",
     "UsageRecordResultTypeDef",
     "UsageRecordTypeDef",
+    "UsageRecordUnionTypeDef",
 )
 
-BatchMeterUsageRequestRequestTypeDef = TypedDict(
-    "BatchMeterUsageRequestRequestTypeDef",
-    {
-        "UsageRecords": List["UsageRecordTypeDef"],
-        "ProductCode": str,
-    },
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-BatchMeterUsageResultTypeDef = TypedDict(
-    "BatchMeterUsageResultTypeDef",
-    {
-        "Results": List["UsageRecordResultTypeDef"],
-        "UnprocessedRecords": List["UsageRecordTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+TimestampTypeDef = Union[datetime, str]
 
-_RequiredMeterUsageRequestRequestTypeDef = TypedDict(
-    "_RequiredMeterUsageRequestRequestTypeDef",
-    {
-        "ProductCode": str,
-        "Timestamp": Union[datetime, str],
-        "UsageDimension": str,
-    },
-)
-_OptionalMeterUsageRequestRequestTypeDef = TypedDict(
-    "_OptionalMeterUsageRequestRequestTypeDef",
-    {
-        "UsageQuantity": int,
-        "DryRun": bool,
-        "UsageAllocations": List["UsageAllocationTypeDef"],
-    },
-    total=False,
-)
+class RegisterUsageRequestTypeDef(TypedDict):
+    ProductCode: str
+    PublicKeyVersion: int
+    Nonce: NotRequired[str]
 
-class MeterUsageRequestRequestTypeDef(
-    _RequiredMeterUsageRequestRequestTypeDef, _OptionalMeterUsageRequestRequestTypeDef
-):
-    pass
+class ResolveCustomerRequestTypeDef(TypedDict):
+    RegistrationToken: str
 
-MeterUsageResultTypeDef = TypedDict(
-    "MeterUsageResultTypeDef",
-    {
-        "MeteringRecordId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class TagTypeDef(TypedDict):
+    Key: str
+    Value: str
 
-_RequiredRegisterUsageRequestRequestTypeDef = TypedDict(
-    "_RequiredRegisterUsageRequestRequestTypeDef",
-    {
-        "ProductCode": str,
-        "PublicKeyVersion": int,
-    },
-)
-_OptionalRegisterUsageRequestRequestTypeDef = TypedDict(
-    "_OptionalRegisterUsageRequestRequestTypeDef",
-    {
-        "Nonce": str,
-    },
-    total=False,
-)
+class MeterUsageResultTypeDef(TypedDict):
+    MeteringRecordId: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class RegisterUsageRequestRequestTypeDef(
-    _RequiredRegisterUsageRequestRequestTypeDef, _OptionalRegisterUsageRequestRequestTypeDef
-):
-    pass
+class RegisterUsageResultTypeDef(TypedDict):
+    PublicKeyRotationTimestamp: datetime
+    Signature: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-RegisterUsageResultTypeDef = TypedDict(
-    "RegisterUsageResultTypeDef",
-    {
-        "PublicKeyRotationTimestamp": datetime,
-        "Signature": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ResolveCustomerResultTypeDef(TypedDict):
+    CustomerIdentifier: str
+    ProductCode: str
+    CustomerAWSAccountId: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ResolveCustomerRequestRequestTypeDef = TypedDict(
-    "ResolveCustomerRequestRequestTypeDef",
-    {
-        "RegistrationToken": str,
-    },
-)
+class UsageAllocationOutputTypeDef(TypedDict):
+    AllocatedUsageQuantity: int
+    Tags: NotRequired[List[TagTypeDef]]
 
-ResolveCustomerResultTypeDef = TypedDict(
-    "ResolveCustomerResultTypeDef",
-    {
-        "CustomerIdentifier": str,
-        "ProductCode": str,
-        "CustomerAWSAccountId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class UsageAllocationTypeDef(TypedDict):
+    AllocatedUsageQuantity: int
+    Tags: NotRequired[Sequence[TagTypeDef]]
 
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
+class UsageRecordOutputTypeDef(TypedDict):
+    Timestamp: datetime
+    Dimension: str
+    CustomerIdentifier: NotRequired[str]
+    Quantity: NotRequired[int]
+    UsageAllocations: NotRequired[List[UsageAllocationOutputTypeDef]]
+    CustomerAWSAccountId: NotRequired[str]
 
-TagTypeDef = TypedDict(
-    "TagTypeDef",
-    {
-        "Key": str,
-        "Value": str,
-    },
-)
+UsageAllocationUnionTypeDef = Union[UsageAllocationTypeDef, UsageAllocationOutputTypeDef]
 
-_RequiredUsageAllocationTypeDef = TypedDict(
-    "_RequiredUsageAllocationTypeDef",
-    {
-        "AllocatedUsageQuantity": int,
-    },
-)
-_OptionalUsageAllocationTypeDef = TypedDict(
-    "_OptionalUsageAllocationTypeDef",
-    {
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
+class UsageRecordResultTypeDef(TypedDict):
+    UsageRecord: NotRequired[UsageRecordOutputTypeDef]
+    MeteringRecordId: NotRequired[str]
+    Status: NotRequired[UsageRecordResultStatusType]
 
-class UsageAllocationTypeDef(_RequiredUsageAllocationTypeDef, _OptionalUsageAllocationTypeDef):
-    pass
+class MeterUsageRequestTypeDef(TypedDict):
+    ProductCode: str
+    Timestamp: TimestampTypeDef
+    UsageDimension: str
+    UsageQuantity: NotRequired[int]
+    DryRun: NotRequired[bool]
+    UsageAllocations: NotRequired[Sequence[UsageAllocationUnionTypeDef]]
 
-UsageRecordResultTypeDef = TypedDict(
-    "UsageRecordResultTypeDef",
-    {
-        "UsageRecord": "UsageRecordTypeDef",
-        "MeteringRecordId": str,
-        "Status": UsageRecordResultStatusType,
-    },
-    total=False,
-)
+class UsageRecordTypeDef(TypedDict):
+    Timestamp: TimestampTypeDef
+    Dimension: str
+    CustomerIdentifier: NotRequired[str]
+    Quantity: NotRequired[int]
+    UsageAllocations: NotRequired[Sequence[UsageAllocationUnionTypeDef]]
+    CustomerAWSAccountId: NotRequired[str]
 
-_RequiredUsageRecordTypeDef = TypedDict(
-    "_RequiredUsageRecordTypeDef",
-    {
-        "Timestamp": Union[datetime, str],
-        "CustomerIdentifier": str,
-        "Dimension": str,
-    },
-)
-_OptionalUsageRecordTypeDef = TypedDict(
-    "_OptionalUsageRecordTypeDef",
-    {
-        "Quantity": int,
-        "UsageAllocations": List["UsageAllocationTypeDef"],
-    },
-    total=False,
-)
+class BatchMeterUsageResultTypeDef(TypedDict):
+    Results: List[UsageRecordResultTypeDef]
+    UnprocessedRecords: List[UsageRecordOutputTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class UsageRecordTypeDef(_RequiredUsageRecordTypeDef, _OptionalUsageRecordTypeDef):
-    pass
+UsageRecordUnionTypeDef = Union[UsageRecordTypeDef, UsageRecordOutputTypeDef]
+
+class BatchMeterUsageRequestTypeDef(TypedDict):
+    UsageRecords: Sequence[UsageRecordUnionTypeDef]
+    ProductCode: str

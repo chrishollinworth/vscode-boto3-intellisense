@@ -1,20 +1,24 @@
 """
 Type annotations for appsync service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appsync/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appsync/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_appsync.type_defs import AdditionalAuthenticationProviderTypeDef
+    from mypy_boto3_appsync.type_defs import CognitoUserPoolConfigTypeDef
 
-    data: AdditionalAuthenticationProviderTypeDef = {...}
+    data: CognitoUserPoolConfigTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import IO, Any, Dict, List, Union
+from typing import IO, Any, Union
 
 from botocore.response import StreamingBody
 
@@ -32,10 +36,13 @@ from .literals import (
     DataSourceLevelMetricsConfigType,
     DataSourceTypeType,
     DefaultActionType,
+    EventLogLevelType,
     FieldLogLevelType,
     GraphQLApiIntrospectionConfigType,
     GraphQLApiTypeType,
     GraphQLApiVisibilityType,
+    HandlerBehaviorType,
+    InvokeTypeType,
     MergeTypeType,
     OperationLevelMetricsConfigType,
     OutputTypeType,
@@ -48,48 +55,62 @@ from .literals import (
     TypeDefinitionFormatType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
     "AdditionalAuthenticationProviderTypeDef",
     "ApiAssociationTypeDef",
     "ApiCacheTypeDef",
     "ApiKeyTypeDef",
+    "ApiTypeDef",
     "AppSyncRuntimeTypeDef",
-    "AssociateApiRequestRequestTypeDef",
+    "AssociateApiRequestTypeDef",
     "AssociateApiResponseTypeDef",
-    "AssociateMergedGraphqlApiRequestRequestTypeDef",
+    "AssociateMergedGraphqlApiRequestTypeDef",
     "AssociateMergedGraphqlApiResponseTypeDef",
-    "AssociateSourceGraphqlApiRequestRequestTypeDef",
+    "AssociateSourceGraphqlApiRequestTypeDef",
     "AssociateSourceGraphqlApiResponseTypeDef",
+    "AuthModeTypeDef",
+    "AuthProviderTypeDef",
     "AuthorizationConfigTypeDef",
     "AwsIamConfigTypeDef",
+    "BlobTypeDef",
+    "CachingConfigOutputTypeDef",
     "CachingConfigTypeDef",
+    "CachingConfigUnionTypeDef",
+    "ChannelNamespaceTypeDef",
     "CodeErrorLocationTypeDef",
     "CodeErrorTypeDef",
+    "CognitoConfigTypeDef",
     "CognitoUserPoolConfigTypeDef",
-    "CreateApiCacheRequestRequestTypeDef",
+    "CreateApiCacheRequestTypeDef",
     "CreateApiCacheResponseTypeDef",
-    "CreateApiKeyRequestRequestTypeDef",
+    "CreateApiKeyRequestTypeDef",
     "CreateApiKeyResponseTypeDef",
-    "CreateDataSourceRequestRequestTypeDef",
+    "CreateApiRequestTypeDef",
+    "CreateApiResponseTypeDef",
+    "CreateChannelNamespaceRequestTypeDef",
+    "CreateChannelNamespaceResponseTypeDef",
+    "CreateDataSourceRequestTypeDef",
     "CreateDataSourceResponseTypeDef",
-    "CreateDomainNameRequestRequestTypeDef",
+    "CreateDomainNameRequestTypeDef",
     "CreateDomainNameResponseTypeDef",
-    "CreateFunctionRequestRequestTypeDef",
+    "CreateFunctionRequestTypeDef",
     "CreateFunctionResponseTypeDef",
-    "CreateGraphqlApiRequestRequestTypeDef",
+    "CreateGraphqlApiRequestTypeDef",
     "CreateGraphqlApiResponseTypeDef",
-    "CreateResolverRequestRequestTypeDef",
+    "CreateResolverRequestTypeDef",
     "CreateResolverResponseTypeDef",
-    "CreateTypeRequestRequestTypeDef",
+    "CreateTypeRequestTypeDef",
     "CreateTypeResponseTypeDef",
     "DataSourceIntrospectionModelFieldTypeDef",
     "DataSourceIntrospectionModelFieldTypeTypeDef",
@@ -97,19 +118,21 @@ __all__ = (
     "DataSourceIntrospectionModelTypeDef",
     "DataSourceIntrospectionResultTypeDef",
     "DataSourceTypeDef",
-    "DeleteApiCacheRequestRequestTypeDef",
-    "DeleteApiKeyRequestRequestTypeDef",
-    "DeleteDataSourceRequestRequestTypeDef",
-    "DeleteDomainNameRequestRequestTypeDef",
-    "DeleteFunctionRequestRequestTypeDef",
-    "DeleteGraphqlApiRequestRequestTypeDef",
-    "DeleteResolverRequestRequestTypeDef",
-    "DeleteTypeRequestRequestTypeDef",
+    "DeleteApiCacheRequestTypeDef",
+    "DeleteApiKeyRequestTypeDef",
+    "DeleteApiRequestTypeDef",
+    "DeleteChannelNamespaceRequestTypeDef",
+    "DeleteDataSourceRequestTypeDef",
+    "DeleteDomainNameRequestTypeDef",
+    "DeleteFunctionRequestTypeDef",
+    "DeleteGraphqlApiRequestTypeDef",
+    "DeleteResolverRequestTypeDef",
+    "DeleteTypeRequestTypeDef",
     "DeltaSyncConfigTypeDef",
-    "DisassociateApiRequestRequestTypeDef",
-    "DisassociateMergedGraphqlApiRequestRequestTypeDef",
+    "DisassociateApiRequestTypeDef",
+    "DisassociateMergedGraphqlApiRequestTypeDef",
     "DisassociateMergedGraphqlApiResponseTypeDef",
-    "DisassociateSourceGraphqlApiRequestRequestTypeDef",
+    "DisassociateSourceGraphqlApiRequestTypeDef",
     "DisassociateSourceGraphqlApiResponseTypeDef",
     "DomainNameConfigTypeDef",
     "DynamodbDataSourceConfigTypeDef",
@@ -117,72 +140,102 @@ __all__ = (
     "EnhancedMetricsConfigTypeDef",
     "ErrorDetailTypeDef",
     "EvaluateCodeErrorDetailTypeDef",
-    "EvaluateCodeRequestRequestTypeDef",
+    "EvaluateCodeRequestTypeDef",
     "EvaluateCodeResponseTypeDef",
-    "EvaluateMappingTemplateRequestRequestTypeDef",
+    "EvaluateMappingTemplateRequestTypeDef",
     "EvaluateMappingTemplateResponseTypeDef",
     "EventBridgeDataSourceConfigTypeDef",
-    "FlushApiCacheRequestRequestTypeDef",
+    "EventConfigOutputTypeDef",
+    "EventConfigTypeDef",
+    "EventConfigUnionTypeDef",
+    "EventLogConfigTypeDef",
+    "FlushApiCacheRequestTypeDef",
     "FunctionConfigurationTypeDef",
-    "GetApiAssociationRequestRequestTypeDef",
+    "GetApiAssociationRequestTypeDef",
     "GetApiAssociationResponseTypeDef",
-    "GetApiCacheRequestRequestTypeDef",
+    "GetApiCacheRequestTypeDef",
     "GetApiCacheResponseTypeDef",
-    "GetDataSourceIntrospectionRequestRequestTypeDef",
+    "GetApiRequestTypeDef",
+    "GetApiResponseTypeDef",
+    "GetChannelNamespaceRequestTypeDef",
+    "GetChannelNamespaceResponseTypeDef",
+    "GetDataSourceIntrospectionRequestTypeDef",
     "GetDataSourceIntrospectionResponseTypeDef",
-    "GetDataSourceRequestRequestTypeDef",
+    "GetDataSourceRequestTypeDef",
     "GetDataSourceResponseTypeDef",
-    "GetDomainNameRequestRequestTypeDef",
+    "GetDomainNameRequestTypeDef",
     "GetDomainNameResponseTypeDef",
-    "GetFunctionRequestRequestTypeDef",
+    "GetFunctionRequestTypeDef",
     "GetFunctionResponseTypeDef",
-    "GetGraphqlApiEnvironmentVariablesRequestRequestTypeDef",
+    "GetGraphqlApiEnvironmentVariablesRequestTypeDef",
     "GetGraphqlApiEnvironmentVariablesResponseTypeDef",
-    "GetGraphqlApiRequestRequestTypeDef",
+    "GetGraphqlApiRequestTypeDef",
     "GetGraphqlApiResponseTypeDef",
-    "GetIntrospectionSchemaRequestRequestTypeDef",
+    "GetIntrospectionSchemaRequestTypeDef",
     "GetIntrospectionSchemaResponseTypeDef",
-    "GetResolverRequestRequestTypeDef",
+    "GetResolverRequestTypeDef",
     "GetResolverResponseTypeDef",
-    "GetSchemaCreationStatusRequestRequestTypeDef",
+    "GetSchemaCreationStatusRequestTypeDef",
     "GetSchemaCreationStatusResponseTypeDef",
-    "GetSourceApiAssociationRequestRequestTypeDef",
+    "GetSourceApiAssociationRequestTypeDef",
     "GetSourceApiAssociationResponseTypeDef",
-    "GetTypeRequestRequestTypeDef",
+    "GetTypeRequestTypeDef",
     "GetTypeResponseTypeDef",
     "GraphqlApiTypeDef",
+    "HandlerConfigTypeDef",
+    "HandlerConfigsTypeDef",
     "HttpDataSourceConfigTypeDef",
+    "IntegrationTypeDef",
     "LambdaAuthorizerConfigTypeDef",
+    "LambdaConfigTypeDef",
     "LambdaConflictHandlerConfigTypeDef",
     "LambdaDataSourceConfigTypeDef",
-    "ListApiKeysRequestRequestTypeDef",
+    "ListApiKeysRequestPaginateTypeDef",
+    "ListApiKeysRequestTypeDef",
     "ListApiKeysResponseTypeDef",
-    "ListDataSourcesRequestRequestTypeDef",
+    "ListApisRequestPaginateTypeDef",
+    "ListApisRequestTypeDef",
+    "ListApisResponseTypeDef",
+    "ListChannelNamespacesRequestPaginateTypeDef",
+    "ListChannelNamespacesRequestTypeDef",
+    "ListChannelNamespacesResponseTypeDef",
+    "ListDataSourcesRequestPaginateTypeDef",
+    "ListDataSourcesRequestTypeDef",
     "ListDataSourcesResponseTypeDef",
-    "ListDomainNamesRequestRequestTypeDef",
+    "ListDomainNamesRequestPaginateTypeDef",
+    "ListDomainNamesRequestTypeDef",
     "ListDomainNamesResponseTypeDef",
-    "ListFunctionsRequestRequestTypeDef",
+    "ListFunctionsRequestPaginateTypeDef",
+    "ListFunctionsRequestTypeDef",
     "ListFunctionsResponseTypeDef",
-    "ListGraphqlApisRequestRequestTypeDef",
+    "ListGraphqlApisRequestPaginateTypeDef",
+    "ListGraphqlApisRequestTypeDef",
     "ListGraphqlApisResponseTypeDef",
-    "ListResolversByFunctionRequestRequestTypeDef",
+    "ListResolversByFunctionRequestPaginateTypeDef",
+    "ListResolversByFunctionRequestTypeDef",
     "ListResolversByFunctionResponseTypeDef",
-    "ListResolversRequestRequestTypeDef",
+    "ListResolversRequestPaginateTypeDef",
+    "ListResolversRequestTypeDef",
     "ListResolversResponseTypeDef",
-    "ListSourceApiAssociationsRequestRequestTypeDef",
+    "ListSourceApiAssociationsRequestPaginateTypeDef",
+    "ListSourceApiAssociationsRequestTypeDef",
     "ListSourceApiAssociationsResponseTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
-    "ListTypesByAssociationRequestRequestTypeDef",
+    "ListTypesByAssociationRequestPaginateTypeDef",
+    "ListTypesByAssociationRequestTypeDef",
     "ListTypesByAssociationResponseTypeDef",
-    "ListTypesRequestRequestTypeDef",
+    "ListTypesRequestPaginateTypeDef",
+    "ListTypesRequestTypeDef",
     "ListTypesResponseTypeDef",
     "LogConfigTypeDef",
     "OpenIDConnectConfigTypeDef",
     "OpenSearchServiceDataSourceConfigTypeDef",
     "PaginatorConfigTypeDef",
+    "PipelineConfigOutputTypeDef",
     "PipelineConfigTypeDef",
-    "PutGraphqlApiEnvironmentVariablesRequestRequestTypeDef",
+    "PipelineConfigUnionTypeDef",
+    "PutGraphqlApiEnvironmentVariablesRequestTypeDef",
     "PutGraphqlApiEnvironmentVariablesResponseTypeDef",
     "RdsDataApiConfigTypeDef",
     "RdsHttpEndpointConfigTypeDef",
@@ -192,2032 +245,1262 @@ __all__ = (
     "SourceApiAssociationConfigTypeDef",
     "SourceApiAssociationSummaryTypeDef",
     "SourceApiAssociationTypeDef",
-    "StartDataSourceIntrospectionRequestRequestTypeDef",
+    "StartDataSourceIntrospectionRequestTypeDef",
     "StartDataSourceIntrospectionResponseTypeDef",
-    "StartSchemaCreationRequestRequestTypeDef",
+    "StartSchemaCreationRequestTypeDef",
     "StartSchemaCreationResponseTypeDef",
-    "StartSchemaMergeRequestRequestTypeDef",
+    "StartSchemaMergeRequestTypeDef",
     "StartSchemaMergeResponseTypeDef",
     "SyncConfigTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
     "TypeTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateApiCacheRequestRequestTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateApiCacheRequestTypeDef",
     "UpdateApiCacheResponseTypeDef",
-    "UpdateApiKeyRequestRequestTypeDef",
+    "UpdateApiKeyRequestTypeDef",
     "UpdateApiKeyResponseTypeDef",
-    "UpdateDataSourceRequestRequestTypeDef",
+    "UpdateApiRequestTypeDef",
+    "UpdateApiResponseTypeDef",
+    "UpdateChannelNamespaceRequestTypeDef",
+    "UpdateChannelNamespaceResponseTypeDef",
+    "UpdateDataSourceRequestTypeDef",
     "UpdateDataSourceResponseTypeDef",
-    "UpdateDomainNameRequestRequestTypeDef",
+    "UpdateDomainNameRequestTypeDef",
     "UpdateDomainNameResponseTypeDef",
-    "UpdateFunctionRequestRequestTypeDef",
+    "UpdateFunctionRequestTypeDef",
     "UpdateFunctionResponseTypeDef",
-    "UpdateGraphqlApiRequestRequestTypeDef",
+    "UpdateGraphqlApiRequestTypeDef",
     "UpdateGraphqlApiResponseTypeDef",
-    "UpdateResolverRequestRequestTypeDef",
+    "UpdateResolverRequestTypeDef",
     "UpdateResolverResponseTypeDef",
-    "UpdateSourceApiAssociationRequestRequestTypeDef",
+    "UpdateSourceApiAssociationRequestTypeDef",
     "UpdateSourceApiAssociationResponseTypeDef",
-    "UpdateTypeRequestRequestTypeDef",
+    "UpdateTypeRequestTypeDef",
     "UpdateTypeResponseTypeDef",
     "UserPoolConfigTypeDef",
 )
 
-AdditionalAuthenticationProviderTypeDef = TypedDict(
-    "AdditionalAuthenticationProviderTypeDef",
-    {
-        "authenticationType": AuthenticationTypeType,
-        "openIDConnectConfig": "OpenIDConnectConfigTypeDef",
-        "userPoolConfig": "CognitoUserPoolConfigTypeDef",
-        "lambdaAuthorizerConfig": "LambdaAuthorizerConfigTypeDef",
-    },
-    total=False,
-)
+class CognitoUserPoolConfigTypeDef(TypedDict):
+    userPoolId: str
+    awsRegion: str
+    appIdClientRegex: NotRequired[str]
 
-ApiAssociationTypeDef = TypedDict(
-    "ApiAssociationTypeDef",
-    {
-        "domainName": str,
-        "apiId": str,
-        "associationStatus": AssociationStatusType,
-        "deploymentDetail": str,
-    },
-    total=False,
-)
+class LambdaAuthorizerConfigTypeDef(TypedDict):
+    authorizerUri: str
+    authorizerResultTtlInSeconds: NotRequired[int]
+    identityValidationExpression: NotRequired[str]
+
+class OpenIDConnectConfigTypeDef(TypedDict):
+    issuer: str
+    clientId: NotRequired[str]
+    iatTTL: NotRequired[int]
+    authTTL: NotRequired[int]
+
+class ApiAssociationTypeDef(TypedDict):
+    domainName: NotRequired[str]
+    apiId: NotRequired[str]
+    associationStatus: NotRequired[AssociationStatusType]
+    deploymentDetail: NotRequired[str]
 
 ApiCacheTypeDef = TypedDict(
     "ApiCacheTypeDef",
     {
-        "ttl": int,
-        "apiCachingBehavior": ApiCachingBehaviorType,
-        "transitEncryptionEnabled": bool,
-        "atRestEncryptionEnabled": bool,
-        "type": ApiCacheTypeType,
-        "status": ApiCacheStatusType,
-        "healthMetricsConfig": CacheHealthMetricsConfigType,
+        "ttl": NotRequired[int],
+        "apiCachingBehavior": NotRequired[ApiCachingBehaviorType],
+        "transitEncryptionEnabled": NotRequired[bool],
+        "atRestEncryptionEnabled": NotRequired[bool],
+        "type": NotRequired[ApiCacheTypeType],
+        "status": NotRequired[ApiCacheStatusType],
+        "healthMetricsConfig": NotRequired[CacheHealthMetricsConfigType],
     },
-    total=False,
 )
-
 ApiKeyTypeDef = TypedDict(
     "ApiKeyTypeDef",
     {
-        "id": str,
-        "description": str,
-        "expires": int,
-        "deletes": int,
-    },
-    total=False,
-)
-
-AppSyncRuntimeTypeDef = TypedDict(
-    "AppSyncRuntimeTypeDef",
-    {
-        "name": Literal["APPSYNC_JS"],
-        "runtimeVersion": str,
+        "id": NotRequired[str],
+        "description": NotRequired[str],
+        "expires": NotRequired[int],
+        "deletes": NotRequired[int],
     },
 )
 
-AssociateApiRequestRequestTypeDef = TypedDict(
-    "AssociateApiRequestRequestTypeDef",
-    {
-        "domainName": str,
-        "apiId": str,
-    },
-)
+class AppSyncRuntimeTypeDef(TypedDict):
+    name: Literal["APPSYNC_JS"]
+    runtimeVersion: str
 
-AssociateApiResponseTypeDef = TypedDict(
-    "AssociateApiResponseTypeDef",
-    {
-        "apiAssociation": "ApiAssociationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class AssociateApiRequestTypeDef(TypedDict):
+    domainName: str
+    apiId: str
 
-_RequiredAssociateMergedGraphqlApiRequestRequestTypeDef = TypedDict(
-    "_RequiredAssociateMergedGraphqlApiRequestRequestTypeDef",
-    {
-        "sourceApiIdentifier": str,
-        "mergedApiIdentifier": str,
-    },
-)
-_OptionalAssociateMergedGraphqlApiRequestRequestTypeDef = TypedDict(
-    "_OptionalAssociateMergedGraphqlApiRequestRequestTypeDef",
-    {
-        "description": str,
-        "sourceApiAssociationConfig": "SourceApiAssociationConfigTypeDef",
-    },
-    total=False,
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-class AssociateMergedGraphqlApiRequestRequestTypeDef(
-    _RequiredAssociateMergedGraphqlApiRequestRequestTypeDef,
-    _OptionalAssociateMergedGraphqlApiRequestRequestTypeDef,
-):
-    pass
+class SourceApiAssociationConfigTypeDef(TypedDict):
+    mergeType: NotRequired[MergeTypeType]
 
-AssociateMergedGraphqlApiResponseTypeDef = TypedDict(
-    "AssociateMergedGraphqlApiResponseTypeDef",
-    {
-        "sourceApiAssociation": "SourceApiAssociationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class AuthModeTypeDef(TypedDict):
+    authType: AuthenticationTypeType
 
-_RequiredAssociateSourceGraphqlApiRequestRequestTypeDef = TypedDict(
-    "_RequiredAssociateSourceGraphqlApiRequestRequestTypeDef",
-    {
-        "mergedApiIdentifier": str,
-        "sourceApiIdentifier": str,
-    },
-)
-_OptionalAssociateSourceGraphqlApiRequestRequestTypeDef = TypedDict(
-    "_OptionalAssociateSourceGraphqlApiRequestRequestTypeDef",
-    {
-        "description": str,
-        "sourceApiAssociationConfig": "SourceApiAssociationConfigTypeDef",
-    },
-    total=False,
-)
+class CognitoConfigTypeDef(TypedDict):
+    userPoolId: str
+    awsRegion: str
+    appIdClientRegex: NotRequired[str]
 
-class AssociateSourceGraphqlApiRequestRequestTypeDef(
-    _RequiredAssociateSourceGraphqlApiRequestRequestTypeDef,
-    _OptionalAssociateSourceGraphqlApiRequestRequestTypeDef,
-):
-    pass
+class AwsIamConfigTypeDef(TypedDict):
+    signingRegion: NotRequired[str]
+    signingServiceName: NotRequired[str]
 
-AssociateSourceGraphqlApiResponseTypeDef = TypedDict(
-    "AssociateSourceGraphqlApiResponseTypeDef",
-    {
-        "sourceApiAssociation": "SourceApiAssociationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+BlobTypeDef = Union[str, bytes, IO[Any], StreamingBody]
 
-_RequiredAuthorizationConfigTypeDef = TypedDict(
-    "_RequiredAuthorizationConfigTypeDef",
-    {
-        "authorizationType": Literal["AWS_IAM"],
-    },
-)
-_OptionalAuthorizationConfigTypeDef = TypedDict(
-    "_OptionalAuthorizationConfigTypeDef",
-    {
-        "awsIamConfig": "AwsIamConfigTypeDef",
-    },
-    total=False,
-)
+class CachingConfigOutputTypeDef(TypedDict):
+    ttl: int
+    cachingKeys: NotRequired[List[str]]
 
-class AuthorizationConfigTypeDef(
-    _RequiredAuthorizationConfigTypeDef, _OptionalAuthorizationConfigTypeDef
-):
-    pass
+class CachingConfigTypeDef(TypedDict):
+    ttl: int
+    cachingKeys: NotRequired[Sequence[str]]
 
-AwsIamConfigTypeDef = TypedDict(
-    "AwsIamConfigTypeDef",
-    {
-        "signingRegion": str,
-        "signingServiceName": str,
-    },
-    total=False,
-)
+class CodeErrorLocationTypeDef(TypedDict):
+    line: NotRequired[int]
+    column: NotRequired[int]
+    span: NotRequired[int]
 
-_RequiredCachingConfigTypeDef = TypedDict(
-    "_RequiredCachingConfigTypeDef",
-    {
-        "ttl": int,
-    },
-)
-_OptionalCachingConfigTypeDef = TypedDict(
-    "_OptionalCachingConfigTypeDef",
-    {
-        "cachingKeys": List[str],
-    },
-    total=False,
-)
-
-class CachingConfigTypeDef(_RequiredCachingConfigTypeDef, _OptionalCachingConfigTypeDef):
-    pass
-
-CodeErrorLocationTypeDef = TypedDict(
-    "CodeErrorLocationTypeDef",
-    {
-        "line": int,
-        "column": int,
-        "span": int,
-    },
-    total=False,
-)
-
-CodeErrorTypeDef = TypedDict(
-    "CodeErrorTypeDef",
-    {
-        "errorType": str,
-        "value": str,
-        "location": "CodeErrorLocationTypeDef",
-    },
-    total=False,
-)
-
-_RequiredCognitoUserPoolConfigTypeDef = TypedDict(
-    "_RequiredCognitoUserPoolConfigTypeDef",
-    {
-        "userPoolId": str,
-        "awsRegion": str,
-    },
-)
-_OptionalCognitoUserPoolConfigTypeDef = TypedDict(
-    "_OptionalCognitoUserPoolConfigTypeDef",
-    {
-        "appIdClientRegex": str,
-    },
-    total=False,
-)
-
-class CognitoUserPoolConfigTypeDef(
-    _RequiredCognitoUserPoolConfigTypeDef, _OptionalCognitoUserPoolConfigTypeDef
-):
-    pass
-
-_RequiredCreateApiCacheRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateApiCacheRequestRequestTypeDef",
+CreateApiCacheRequestTypeDef = TypedDict(
+    "CreateApiCacheRequestTypeDef",
     {
         "apiId": str,
         "ttl": int,
         "apiCachingBehavior": ApiCachingBehaviorType,
         "type": ApiCacheTypeType,
-    },
-)
-_OptionalCreateApiCacheRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateApiCacheRequestRequestTypeDef",
-    {
-        "transitEncryptionEnabled": bool,
-        "atRestEncryptionEnabled": bool,
-        "healthMetricsConfig": CacheHealthMetricsConfigType,
-    },
-    total=False,
-)
-
-class CreateApiCacheRequestRequestTypeDef(
-    _RequiredCreateApiCacheRequestRequestTypeDef, _OptionalCreateApiCacheRequestRequestTypeDef
-):
-    pass
-
-CreateApiCacheResponseTypeDef = TypedDict(
-    "CreateApiCacheResponseTypeDef",
-    {
-        "apiCache": "ApiCacheTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "transitEncryptionEnabled": NotRequired[bool],
+        "atRestEncryptionEnabled": NotRequired[bool],
+        "healthMetricsConfig": NotRequired[CacheHealthMetricsConfigType],
     },
 )
 
-_RequiredCreateApiKeyRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateApiKeyRequestRequestTypeDef",
-    {
-        "apiId": str,
-    },
-)
-_OptionalCreateApiKeyRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateApiKeyRequestRequestTypeDef",
-    {
-        "description": str,
-        "expires": int,
-    },
-    total=False,
-)
+class CreateApiKeyRequestTypeDef(TypedDict):
+    apiId: str
+    description: NotRequired[str]
+    expires: NotRequired[int]
 
-class CreateApiKeyRequestRequestTypeDef(
-    _RequiredCreateApiKeyRequestRequestTypeDef, _OptionalCreateApiKeyRequestRequestTypeDef
-):
-    pass
+class ElasticsearchDataSourceConfigTypeDef(TypedDict):
+    endpoint: str
+    awsRegion: str
 
-CreateApiKeyResponseTypeDef = TypedDict(
-    "CreateApiKeyResponseTypeDef",
-    {
-        "apiKey": "ApiKeyTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class EventBridgeDataSourceConfigTypeDef(TypedDict):
+    eventBusArn: str
 
-_RequiredCreateDataSourceRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateDataSourceRequestRequestTypeDef",
-    {
-        "apiId": str,
-        "name": str,
-        "type": DataSourceTypeType,
-    },
-)
-_OptionalCreateDataSourceRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateDataSourceRequestRequestTypeDef",
-    {
-        "description": str,
-        "serviceRoleArn": str,
-        "dynamodbConfig": "DynamodbDataSourceConfigTypeDef",
-        "lambdaConfig": "LambdaDataSourceConfigTypeDef",
-        "elasticsearchConfig": "ElasticsearchDataSourceConfigTypeDef",
-        "openSearchServiceConfig": "OpenSearchServiceDataSourceConfigTypeDef",
-        "httpConfig": "HttpDataSourceConfigTypeDef",
-        "relationalDatabaseConfig": "RelationalDatabaseDataSourceConfigTypeDef",
-        "eventBridgeConfig": "EventBridgeDataSourceConfigTypeDef",
-        "metricsConfig": DataSourceLevelMetricsConfigType,
-    },
-    total=False,
-)
+class LambdaDataSourceConfigTypeDef(TypedDict):
+    lambdaFunctionArn: str
 
-class CreateDataSourceRequestRequestTypeDef(
-    _RequiredCreateDataSourceRequestRequestTypeDef, _OptionalCreateDataSourceRequestRequestTypeDef
-):
-    pass
+class OpenSearchServiceDataSourceConfigTypeDef(TypedDict):
+    endpoint: str
+    awsRegion: str
 
-CreateDataSourceResponseTypeDef = TypedDict(
-    "CreateDataSourceResponseTypeDef",
-    {
-        "dataSource": "DataSourceTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CreateDomainNameRequestTypeDef(TypedDict):
+    domainName: str
+    certificateArn: str
+    description: NotRequired[str]
+    tags: NotRequired[Mapping[str, str]]
 
-_RequiredCreateDomainNameRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateDomainNameRequestRequestTypeDef",
-    {
-        "domainName": str,
-        "certificateArn": str,
-    },
-)
-_OptionalCreateDomainNameRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateDomainNameRequestRequestTypeDef",
-    {
-        "description": str,
-    },
-    total=False,
-)
+class DomainNameConfigTypeDef(TypedDict):
+    domainName: NotRequired[str]
+    description: NotRequired[str]
+    certificateArn: NotRequired[str]
+    appsyncDomainName: NotRequired[str]
+    hostedZoneId: NotRequired[str]
+    tags: NotRequired[Dict[str, str]]
+    domainNameArn: NotRequired[str]
 
-class CreateDomainNameRequestRequestTypeDef(
-    _RequiredCreateDomainNameRequestRequestTypeDef, _OptionalCreateDomainNameRequestRequestTypeDef
-):
-    pass
+class EnhancedMetricsConfigTypeDef(TypedDict):
+    resolverLevelMetricsBehavior: ResolverLevelMetricsBehaviorType
+    dataSourceLevelMetricsBehavior: DataSourceLevelMetricsBehaviorType
+    operationLevelMetricsConfig: OperationLevelMetricsConfigType
 
-CreateDomainNameResponseTypeDef = TypedDict(
-    "CreateDomainNameResponseTypeDef",
-    {
-        "domainNameConfig": "DomainNameConfigTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class LogConfigTypeDef(TypedDict):
+    fieldLogLevel: FieldLogLevelType
+    cloudWatchLogsRoleArn: str
+    excludeVerboseContent: NotRequired[bool]
 
-_RequiredCreateFunctionRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateFunctionRequestRequestTypeDef",
-    {
-        "apiId": str,
-        "name": str,
-        "dataSourceName": str,
-    },
-)
-_OptionalCreateFunctionRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateFunctionRequestRequestTypeDef",
-    {
-        "description": str,
-        "requestMappingTemplate": str,
-        "responseMappingTemplate": str,
-        "functionVersion": str,
-        "syncConfig": "SyncConfigTypeDef",
-        "maxBatchSize": int,
-        "runtime": "AppSyncRuntimeTypeDef",
-        "code": str,
-    },
-    total=False,
-)
+class UserPoolConfigTypeDef(TypedDict):
+    userPoolId: str
+    awsRegion: str
+    defaultAction: DefaultActionType
+    appIdClientRegex: NotRequired[str]
 
-class CreateFunctionRequestRequestTypeDef(
-    _RequiredCreateFunctionRequestRequestTypeDef, _OptionalCreateFunctionRequestRequestTypeDef
-):
-    pass
-
-CreateFunctionResponseTypeDef = TypedDict(
-    "CreateFunctionResponseTypeDef",
-    {
-        "functionConfiguration": "FunctionConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateGraphqlApiRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateGraphqlApiRequestRequestTypeDef",
-    {
-        "name": str,
-        "authenticationType": AuthenticationTypeType,
-    },
-)
-_OptionalCreateGraphqlApiRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateGraphqlApiRequestRequestTypeDef",
-    {
-        "logConfig": "LogConfigTypeDef",
-        "userPoolConfig": "UserPoolConfigTypeDef",
-        "openIDConnectConfig": "OpenIDConnectConfigTypeDef",
-        "tags": Dict[str, str],
-        "additionalAuthenticationProviders": List["AdditionalAuthenticationProviderTypeDef"],
-        "xrayEnabled": bool,
-        "lambdaAuthorizerConfig": "LambdaAuthorizerConfigTypeDef",
-        "visibility": GraphQLApiVisibilityType,
-        "apiType": GraphQLApiTypeType,
-        "mergedApiExecutionRoleArn": str,
-        "ownerContact": str,
-        "introspectionConfig": GraphQLApiIntrospectionConfigType,
-        "queryDepthLimit": int,
-        "resolverCountLimit": int,
-        "enhancedMetricsConfig": "EnhancedMetricsConfigTypeDef",
-    },
-    total=False,
-)
-
-class CreateGraphqlApiRequestRequestTypeDef(
-    _RequiredCreateGraphqlApiRequestRequestTypeDef, _OptionalCreateGraphqlApiRequestRequestTypeDef
-):
-    pass
-
-CreateGraphqlApiResponseTypeDef = TypedDict(
-    "CreateGraphqlApiResponseTypeDef",
-    {
-        "graphqlApi": "GraphqlApiTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateResolverRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateResolverRequestRequestTypeDef",
-    {
-        "apiId": str,
-        "typeName": str,
-        "fieldName": str,
-    },
-)
-_OptionalCreateResolverRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateResolverRequestRequestTypeDef",
-    {
-        "dataSourceName": str,
-        "requestMappingTemplate": str,
-        "responseMappingTemplate": str,
-        "kind": ResolverKindType,
-        "pipelineConfig": "PipelineConfigTypeDef",
-        "syncConfig": "SyncConfigTypeDef",
-        "cachingConfig": "CachingConfigTypeDef",
-        "maxBatchSize": int,
-        "runtime": "AppSyncRuntimeTypeDef",
-        "code": str,
-        "metricsConfig": ResolverLevelMetricsConfigType,
-    },
-    total=False,
-)
-
-class CreateResolverRequestRequestTypeDef(
-    _RequiredCreateResolverRequestRequestTypeDef, _OptionalCreateResolverRequestRequestTypeDef
-):
-    pass
-
-CreateResolverResponseTypeDef = TypedDict(
-    "CreateResolverResponseTypeDef",
-    {
-        "resolver": "ResolverTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateTypeRequestRequestTypeDef = TypedDict(
-    "CreateTypeRequestRequestTypeDef",
+CreateTypeRequestTypeDef = TypedDict(
+    "CreateTypeRequestTypeDef",
     {
         "apiId": str,
         "definition": str,
         "format": TypeDefinitionFormatType,
     },
 )
+TypeTypeDef = TypedDict(
+    "TypeTypeDef",
+    {
+        "name": NotRequired[str],
+        "description": NotRequired[str],
+        "arn": NotRequired[str],
+        "definition": NotRequired[str],
+        "format": NotRequired[TypeDefinitionFormatType],
+    },
+)
+DataSourceIntrospectionModelFieldTypeTypeDef = TypedDict(
+    "DataSourceIntrospectionModelFieldTypeTypeDef",
+    {
+        "kind": NotRequired[str],
+        "name": NotRequired[str],
+        "type": NotRequired[Dict[str, Any]],
+        "values": NotRequired[List[str]],
+    },
+)
+
+class DataSourceIntrospectionModelIndexTypeDef(TypedDict):
+    name: NotRequired[str]
+    fields: NotRequired[List[str]]
+
+class DeleteApiCacheRequestTypeDef(TypedDict):
+    apiId: str
+
+DeleteApiKeyRequestTypeDef = TypedDict(
+    "DeleteApiKeyRequestTypeDef",
+    {
+        "apiId": str,
+        "id": str,
+    },
+)
+
+class DeleteApiRequestTypeDef(TypedDict):
+    apiId: str
+
+class DeleteChannelNamespaceRequestTypeDef(TypedDict):
+    apiId: str
+    name: str
+
+class DeleteDataSourceRequestTypeDef(TypedDict):
+    apiId: str
+    name: str
+
+class DeleteDomainNameRequestTypeDef(TypedDict):
+    domainName: str
+
+class DeleteFunctionRequestTypeDef(TypedDict):
+    apiId: str
+    functionId: str
+
+class DeleteGraphqlApiRequestTypeDef(TypedDict):
+    apiId: str
+
+class DeleteResolverRequestTypeDef(TypedDict):
+    apiId: str
+    typeName: str
+    fieldName: str
+
+class DeleteTypeRequestTypeDef(TypedDict):
+    apiId: str
+    typeName: str
+
+class DeltaSyncConfigTypeDef(TypedDict):
+    baseTableTTL: NotRequired[int]
+    deltaSyncTableName: NotRequired[str]
+    deltaSyncTableTTL: NotRequired[int]
+
+class DisassociateApiRequestTypeDef(TypedDict):
+    domainName: str
+
+class DisassociateMergedGraphqlApiRequestTypeDef(TypedDict):
+    sourceApiIdentifier: str
+    associationId: str
+
+class DisassociateSourceGraphqlApiRequestTypeDef(TypedDict):
+    mergedApiIdentifier: str
+    associationId: str
+
+class ErrorDetailTypeDef(TypedDict):
+    message: NotRequired[str]
+
+class EvaluateMappingTemplateRequestTypeDef(TypedDict):
+    template: str
+    context: str
+
+class EventLogConfigTypeDef(TypedDict):
+    logLevel: EventLogLevelType
+    cloudWatchLogsRoleArn: str
+
+class FlushApiCacheRequestTypeDef(TypedDict):
+    apiId: str
+
+class GetApiAssociationRequestTypeDef(TypedDict):
+    domainName: str
+
+class GetApiCacheRequestTypeDef(TypedDict):
+    apiId: str
+
+class GetApiRequestTypeDef(TypedDict):
+    apiId: str
+
+class GetChannelNamespaceRequestTypeDef(TypedDict):
+    apiId: str
+    name: str
+
+class GetDataSourceIntrospectionRequestTypeDef(TypedDict):
+    introspectionId: str
+    includeModelsSDL: NotRequired[bool]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class GetDataSourceRequestTypeDef(TypedDict):
+    apiId: str
+    name: str
+
+class GetDomainNameRequestTypeDef(TypedDict):
+    domainName: str
+
+class GetFunctionRequestTypeDef(TypedDict):
+    apiId: str
+    functionId: str
+
+class GetGraphqlApiEnvironmentVariablesRequestTypeDef(TypedDict):
+    apiId: str
+
+class GetGraphqlApiRequestTypeDef(TypedDict):
+    apiId: str
+
+GetIntrospectionSchemaRequestTypeDef = TypedDict(
+    "GetIntrospectionSchemaRequestTypeDef",
+    {
+        "apiId": str,
+        "format": OutputTypeType,
+        "includeDirectives": NotRequired[bool],
+    },
+)
+
+class GetResolverRequestTypeDef(TypedDict):
+    apiId: str
+    typeName: str
+    fieldName: str
+
+class GetSchemaCreationStatusRequestTypeDef(TypedDict):
+    apiId: str
+
+class GetSourceApiAssociationRequestTypeDef(TypedDict):
+    mergedApiIdentifier: str
+    associationId: str
+
+GetTypeRequestTypeDef = TypedDict(
+    "GetTypeRequestTypeDef",
+    {
+        "apiId": str,
+        "typeName": str,
+        "format": TypeDefinitionFormatType,
+    },
+)
+
+class LambdaConfigTypeDef(TypedDict):
+    invokeType: NotRequired[InvokeTypeType]
+
+class LambdaConflictHandlerConfigTypeDef(TypedDict):
+    lambdaConflictHandlerArn: NotRequired[str]
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class ListApiKeysRequestTypeDef(TypedDict):
+    apiId: str
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class ListApisRequestTypeDef(TypedDict):
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class ListChannelNamespacesRequestTypeDef(TypedDict):
+    apiId: str
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class ListDataSourcesRequestTypeDef(TypedDict):
+    apiId: str
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class ListDomainNamesRequestTypeDef(TypedDict):
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class ListFunctionsRequestTypeDef(TypedDict):
+    apiId: str
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class ListGraphqlApisRequestTypeDef(TypedDict):
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+    apiType: NotRequired[GraphQLApiTypeType]
+    owner: NotRequired[OwnershipType]
+
+class ListResolversByFunctionRequestTypeDef(TypedDict):
+    apiId: str
+    functionId: str
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class ListResolversRequestTypeDef(TypedDict):
+    apiId: str
+    typeName: str
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class ListSourceApiAssociationsRequestTypeDef(TypedDict):
+    apiId: str
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class SourceApiAssociationSummaryTypeDef(TypedDict):
+    associationId: NotRequired[str]
+    associationArn: NotRequired[str]
+    sourceApiId: NotRequired[str]
+    sourceApiArn: NotRequired[str]
+    mergedApiId: NotRequired[str]
+    mergedApiArn: NotRequired[str]
+    description: NotRequired[str]
+
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+
+ListTypesByAssociationRequestTypeDef = TypedDict(
+    "ListTypesByAssociationRequestTypeDef",
+    {
+        "mergedApiIdentifier": str,
+        "associationId": str,
+        "format": TypeDefinitionFormatType,
+        "nextToken": NotRequired[str],
+        "maxResults": NotRequired[int],
+    },
+)
+ListTypesRequestTypeDef = TypedDict(
+    "ListTypesRequestTypeDef",
+    {
+        "apiId": str,
+        "format": TypeDefinitionFormatType,
+        "nextToken": NotRequired[str],
+        "maxResults": NotRequired[int],
+    },
+)
+
+class PipelineConfigOutputTypeDef(TypedDict):
+    functions: NotRequired[List[str]]
+
+class PipelineConfigTypeDef(TypedDict):
+    functions: NotRequired[Sequence[str]]
+
+class PutGraphqlApiEnvironmentVariablesRequestTypeDef(TypedDict):
+    apiId: str
+    environmentVariables: Mapping[str, str]
+
+class RdsDataApiConfigTypeDef(TypedDict):
+    resourceArn: str
+    secretArn: str
+    databaseName: str
+
+class RdsHttpEndpointConfigTypeDef(TypedDict):
+    awsRegion: NotRequired[str]
+    dbClusterIdentifier: NotRequired[str]
+    databaseName: NotRequired[str]
+    schema: NotRequired[str]
+    awsSecretStoreArn: NotRequired[str]
+
+class StartSchemaMergeRequestTypeDef(TypedDict):
+    associationId: str
+    mergedApiIdentifier: str
+
+class TagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tags: Mapping[str, str]
+
+class UntagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tagKeys: Sequence[str]
+
+UpdateApiCacheRequestTypeDef = TypedDict(
+    "UpdateApiCacheRequestTypeDef",
+    {
+        "apiId": str,
+        "ttl": int,
+        "apiCachingBehavior": ApiCachingBehaviorType,
+        "type": ApiCacheTypeType,
+        "healthMetricsConfig": NotRequired[CacheHealthMetricsConfigType],
+    },
+)
+UpdateApiKeyRequestTypeDef = TypedDict(
+    "UpdateApiKeyRequestTypeDef",
+    {
+        "apiId": str,
+        "id": str,
+        "description": NotRequired[str],
+        "expires": NotRequired[int],
+    },
+)
+
+class UpdateDomainNameRequestTypeDef(TypedDict):
+    domainName: str
+    description: NotRequired[str]
+
+UpdateTypeRequestTypeDef = TypedDict(
+    "UpdateTypeRequestTypeDef",
+    {
+        "apiId": str,
+        "typeName": str,
+        "format": TypeDefinitionFormatType,
+        "definition": NotRequired[str],
+    },
+)
+
+class AdditionalAuthenticationProviderTypeDef(TypedDict):
+    authenticationType: NotRequired[AuthenticationTypeType]
+    openIDConnectConfig: NotRequired[OpenIDConnectConfigTypeDef]
+    userPoolConfig: NotRequired[CognitoUserPoolConfigTypeDef]
+    lambdaAuthorizerConfig: NotRequired[LambdaAuthorizerConfigTypeDef]
+
+class EvaluateCodeRequestTypeDef(TypedDict):
+    runtime: AppSyncRuntimeTypeDef
+    code: str
+    context: str
+    function: NotRequired[str]
+
+class AssociateApiResponseTypeDef(TypedDict):
+    apiAssociation: ApiAssociationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateApiCacheResponseTypeDef(TypedDict):
+    apiCache: ApiCacheTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateApiKeyResponseTypeDef(TypedDict):
+    apiKey: ApiKeyTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DisassociateMergedGraphqlApiResponseTypeDef(TypedDict):
+    sourceApiAssociationStatus: SourceApiAssociationStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DisassociateSourceGraphqlApiResponseTypeDef(TypedDict):
+    sourceApiAssociationStatus: SourceApiAssociationStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetApiAssociationResponseTypeDef(TypedDict):
+    apiAssociation: ApiAssociationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetApiCacheResponseTypeDef(TypedDict):
+    apiCache: ApiCacheTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetGraphqlApiEnvironmentVariablesResponseTypeDef(TypedDict):
+    environmentVariables: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetIntrospectionSchemaResponseTypeDef(TypedDict):
+    schema: StreamingBody
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetSchemaCreationStatusResponseTypeDef(TypedDict):
+    status: SchemaStatusType
+    details: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListApiKeysResponseTypeDef(TypedDict):
+    apiKeys: List[ApiKeyTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutGraphqlApiEnvironmentVariablesResponseTypeDef(TypedDict):
+    environmentVariables: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartDataSourceIntrospectionResponseTypeDef(TypedDict):
+    introspectionId: str
+    introspectionStatus: DataSourceIntrospectionStatusType
+    introspectionStatusDetail: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartSchemaCreationResponseTypeDef(TypedDict):
+    status: SchemaStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartSchemaMergeResponseTypeDef(TypedDict):
+    sourceApiAssociationStatus: SourceApiAssociationStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateApiCacheResponseTypeDef(TypedDict):
+    apiCache: ApiCacheTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateApiKeyResponseTypeDef(TypedDict):
+    apiKey: ApiKeyTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class AssociateMergedGraphqlApiRequestTypeDef(TypedDict):
+    sourceApiIdentifier: str
+    mergedApiIdentifier: str
+    description: NotRequired[str]
+    sourceApiAssociationConfig: NotRequired[SourceApiAssociationConfigTypeDef]
+
+class AssociateSourceGraphqlApiRequestTypeDef(TypedDict):
+    mergedApiIdentifier: str
+    sourceApiIdentifier: str
+    description: NotRequired[str]
+    sourceApiAssociationConfig: NotRequired[SourceApiAssociationConfigTypeDef]
+
+class SourceApiAssociationTypeDef(TypedDict):
+    associationId: NotRequired[str]
+    associationArn: NotRequired[str]
+    sourceApiId: NotRequired[str]
+    sourceApiArn: NotRequired[str]
+    mergedApiArn: NotRequired[str]
+    mergedApiId: NotRequired[str]
+    description: NotRequired[str]
+    sourceApiAssociationConfig: NotRequired[SourceApiAssociationConfigTypeDef]
+    sourceApiAssociationStatus: NotRequired[SourceApiAssociationStatusType]
+    sourceApiAssociationStatusDetail: NotRequired[str]
+    lastSuccessfulMergeDate: NotRequired[datetime]
+
+class UpdateSourceApiAssociationRequestTypeDef(TypedDict):
+    associationId: str
+    mergedApiIdentifier: str
+    description: NotRequired[str]
+    sourceApiAssociationConfig: NotRequired[SourceApiAssociationConfigTypeDef]
+
+class AuthProviderTypeDef(TypedDict):
+    authType: AuthenticationTypeType
+    cognitoConfig: NotRequired[CognitoConfigTypeDef]
+    openIDConnectConfig: NotRequired[OpenIDConnectConfigTypeDef]
+    lambdaAuthorizerConfig: NotRequired[LambdaAuthorizerConfigTypeDef]
+
+class AuthorizationConfigTypeDef(TypedDict):
+    authorizationType: Literal["AWS_IAM"]
+    awsIamConfig: NotRequired[AwsIamConfigTypeDef]
+
+class StartSchemaCreationRequestTypeDef(TypedDict):
+    apiId: str
+    definition: BlobTypeDef
+
+CachingConfigUnionTypeDef = Union[CachingConfigTypeDef, CachingConfigOutputTypeDef]
+
+class CodeErrorTypeDef(TypedDict):
+    errorType: NotRequired[str]
+    value: NotRequired[str]
+    location: NotRequired[CodeErrorLocationTypeDef]
+
+class CreateDomainNameResponseTypeDef(TypedDict):
+    domainNameConfig: DomainNameConfigTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetDomainNameResponseTypeDef(TypedDict):
+    domainNameConfig: DomainNameConfigTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListDomainNamesResponseTypeDef(TypedDict):
+    domainNameConfigs: List[DomainNameConfigTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class UpdateDomainNameResponseTypeDef(TypedDict):
+    domainNameConfig: DomainNameConfigTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
 CreateTypeResponseTypeDef = TypedDict(
     "CreateTypeResponseTypeDef",
     {
-        "type": "TypeTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "type": TypeTypeDef,
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
-
-DataSourceIntrospectionModelFieldTypeDef = TypedDict(
-    "DataSourceIntrospectionModelFieldTypeDef",
-    {
-        "name": str,
-        "type": "DataSourceIntrospectionModelFieldTypeTypeDef",
-        "length": int,
-    },
-    total=False,
-)
-
-DataSourceIntrospectionModelFieldTypeTypeDef = TypedDict(
-    "DataSourceIntrospectionModelFieldTypeTypeDef",
-    {
-        "kind": str,
-        "name": str,
-        "type": Dict[str, Any],
-        "values": List[str],
-    },
-    total=False,
-)
-
-DataSourceIntrospectionModelIndexTypeDef = TypedDict(
-    "DataSourceIntrospectionModelIndexTypeDef",
-    {
-        "name": str,
-        "fields": List[str],
-    },
-    total=False,
-)
-
-DataSourceIntrospectionModelTypeDef = TypedDict(
-    "DataSourceIntrospectionModelTypeDef",
-    {
-        "name": str,
-        "fields": List["DataSourceIntrospectionModelFieldTypeDef"],
-        "primaryKey": "DataSourceIntrospectionModelIndexTypeDef",
-        "indexes": List["DataSourceIntrospectionModelIndexTypeDef"],
-        "sdl": str,
-    },
-    total=False,
-)
-
-DataSourceIntrospectionResultTypeDef = TypedDict(
-    "DataSourceIntrospectionResultTypeDef",
-    {
-        "models": List["DataSourceIntrospectionModelTypeDef"],
-        "nextToken": str,
-    },
-    total=False,
-)
-
-DataSourceTypeDef = TypedDict(
-    "DataSourceTypeDef",
-    {
-        "dataSourceArn": str,
-        "name": str,
-        "description": str,
-        "type": DataSourceTypeType,
-        "serviceRoleArn": str,
-        "dynamodbConfig": "DynamodbDataSourceConfigTypeDef",
-        "lambdaConfig": "LambdaDataSourceConfigTypeDef",
-        "elasticsearchConfig": "ElasticsearchDataSourceConfigTypeDef",
-        "openSearchServiceConfig": "OpenSearchServiceDataSourceConfigTypeDef",
-        "httpConfig": "HttpDataSourceConfigTypeDef",
-        "relationalDatabaseConfig": "RelationalDatabaseDataSourceConfigTypeDef",
-        "eventBridgeConfig": "EventBridgeDataSourceConfigTypeDef",
-        "metricsConfig": DataSourceLevelMetricsConfigType,
-    },
-    total=False,
-)
-
-DeleteApiCacheRequestRequestTypeDef = TypedDict(
-    "DeleteApiCacheRequestRequestTypeDef",
-    {
-        "apiId": str,
-    },
-)
-
-DeleteApiKeyRequestRequestTypeDef = TypedDict(
-    "DeleteApiKeyRequestRequestTypeDef",
-    {
-        "apiId": str,
-        "id": str,
-    },
-)
-
-DeleteDataSourceRequestRequestTypeDef = TypedDict(
-    "DeleteDataSourceRequestRequestTypeDef",
-    {
-        "apiId": str,
-        "name": str,
-    },
-)
-
-DeleteDomainNameRequestRequestTypeDef = TypedDict(
-    "DeleteDomainNameRequestRequestTypeDef",
-    {
-        "domainName": str,
-    },
-)
-
-DeleteFunctionRequestRequestTypeDef = TypedDict(
-    "DeleteFunctionRequestRequestTypeDef",
-    {
-        "apiId": str,
-        "functionId": str,
-    },
-)
-
-DeleteGraphqlApiRequestRequestTypeDef = TypedDict(
-    "DeleteGraphqlApiRequestRequestTypeDef",
-    {
-        "apiId": str,
-    },
-)
-
-DeleteResolverRequestRequestTypeDef = TypedDict(
-    "DeleteResolverRequestRequestTypeDef",
-    {
-        "apiId": str,
-        "typeName": str,
-        "fieldName": str,
-    },
-)
-
-DeleteTypeRequestRequestTypeDef = TypedDict(
-    "DeleteTypeRequestRequestTypeDef",
-    {
-        "apiId": str,
-        "typeName": str,
-    },
-)
-
-DeltaSyncConfigTypeDef = TypedDict(
-    "DeltaSyncConfigTypeDef",
-    {
-        "baseTableTTL": int,
-        "deltaSyncTableName": str,
-        "deltaSyncTableTTL": int,
-    },
-    total=False,
-)
-
-DisassociateApiRequestRequestTypeDef = TypedDict(
-    "DisassociateApiRequestRequestTypeDef",
-    {
-        "domainName": str,
-    },
-)
-
-DisassociateMergedGraphqlApiRequestRequestTypeDef = TypedDict(
-    "DisassociateMergedGraphqlApiRequestRequestTypeDef",
-    {
-        "sourceApiIdentifier": str,
-        "associationId": str,
-    },
-)
-
-DisassociateMergedGraphqlApiResponseTypeDef = TypedDict(
-    "DisassociateMergedGraphqlApiResponseTypeDef",
-    {
-        "sourceApiAssociationStatus": SourceApiAssociationStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DisassociateSourceGraphqlApiRequestRequestTypeDef = TypedDict(
-    "DisassociateSourceGraphqlApiRequestRequestTypeDef",
-    {
-        "mergedApiIdentifier": str,
-        "associationId": str,
-    },
-)
-
-DisassociateSourceGraphqlApiResponseTypeDef = TypedDict(
-    "DisassociateSourceGraphqlApiResponseTypeDef",
-    {
-        "sourceApiAssociationStatus": SourceApiAssociationStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DomainNameConfigTypeDef = TypedDict(
-    "DomainNameConfigTypeDef",
-    {
-        "domainName": str,
-        "description": str,
-        "certificateArn": str,
-        "appsyncDomainName": str,
-        "hostedZoneId": str,
-    },
-    total=False,
-)
-
-_RequiredDynamodbDataSourceConfigTypeDef = TypedDict(
-    "_RequiredDynamodbDataSourceConfigTypeDef",
-    {
-        "tableName": str,
-        "awsRegion": str,
-    },
-)
-_OptionalDynamodbDataSourceConfigTypeDef = TypedDict(
-    "_OptionalDynamodbDataSourceConfigTypeDef",
-    {
-        "useCallerCredentials": bool,
-        "deltaSyncConfig": "DeltaSyncConfigTypeDef",
-        "versioned": bool,
-    },
-    total=False,
-)
-
-class DynamodbDataSourceConfigTypeDef(
-    _RequiredDynamodbDataSourceConfigTypeDef, _OptionalDynamodbDataSourceConfigTypeDef
-):
-    pass
-
-ElasticsearchDataSourceConfigTypeDef = TypedDict(
-    "ElasticsearchDataSourceConfigTypeDef",
-    {
-        "endpoint": str,
-        "awsRegion": str,
-    },
-)
-
-EnhancedMetricsConfigTypeDef = TypedDict(
-    "EnhancedMetricsConfigTypeDef",
-    {
-        "resolverLevelMetricsBehavior": ResolverLevelMetricsBehaviorType,
-        "dataSourceLevelMetricsBehavior": DataSourceLevelMetricsBehaviorType,
-        "operationLevelMetricsConfig": OperationLevelMetricsConfigType,
-    },
-)
-
-ErrorDetailTypeDef = TypedDict(
-    "ErrorDetailTypeDef",
-    {
-        "message": str,
-    },
-    total=False,
-)
-
-EvaluateCodeErrorDetailTypeDef = TypedDict(
-    "EvaluateCodeErrorDetailTypeDef",
-    {
-        "message": str,
-        "codeErrors": List["CodeErrorTypeDef"],
-    },
-    total=False,
-)
-
-_RequiredEvaluateCodeRequestRequestTypeDef = TypedDict(
-    "_RequiredEvaluateCodeRequestRequestTypeDef",
-    {
-        "runtime": "AppSyncRuntimeTypeDef",
-        "code": str,
-        "context": str,
-    },
-)
-_OptionalEvaluateCodeRequestRequestTypeDef = TypedDict(
-    "_OptionalEvaluateCodeRequestRequestTypeDef",
-    {
-        "function": str,
-    },
-    total=False,
-)
-
-class EvaluateCodeRequestRequestTypeDef(
-    _RequiredEvaluateCodeRequestRequestTypeDef, _OptionalEvaluateCodeRequestRequestTypeDef
-):
-    pass
-
-EvaluateCodeResponseTypeDef = TypedDict(
-    "EvaluateCodeResponseTypeDef",
-    {
-        "evaluationResult": str,
-        "error": "EvaluateCodeErrorDetailTypeDef",
-        "logs": List[str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-EvaluateMappingTemplateRequestRequestTypeDef = TypedDict(
-    "EvaluateMappingTemplateRequestRequestTypeDef",
-    {
-        "template": str,
-        "context": str,
-    },
-)
-
-EvaluateMappingTemplateResponseTypeDef = TypedDict(
-    "EvaluateMappingTemplateResponseTypeDef",
-    {
-        "evaluationResult": str,
-        "error": "ErrorDetailTypeDef",
-        "logs": List[str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-EventBridgeDataSourceConfigTypeDef = TypedDict(
-    "EventBridgeDataSourceConfigTypeDef",
-    {
-        "eventBusArn": str,
-    },
-)
-
-FlushApiCacheRequestRequestTypeDef = TypedDict(
-    "FlushApiCacheRequestRequestTypeDef",
-    {
-        "apiId": str,
-    },
-)
-
-FunctionConfigurationTypeDef = TypedDict(
-    "FunctionConfigurationTypeDef",
-    {
-        "functionId": str,
-        "functionArn": str,
-        "name": str,
-        "description": str,
-        "dataSourceName": str,
-        "requestMappingTemplate": str,
-        "responseMappingTemplate": str,
-        "functionVersion": str,
-        "syncConfig": "SyncConfigTypeDef",
-        "maxBatchSize": int,
-        "runtime": "AppSyncRuntimeTypeDef",
-        "code": str,
-    },
-    total=False,
-)
-
-GetApiAssociationRequestRequestTypeDef = TypedDict(
-    "GetApiAssociationRequestRequestTypeDef",
-    {
-        "domainName": str,
-    },
-)
-
-GetApiAssociationResponseTypeDef = TypedDict(
-    "GetApiAssociationResponseTypeDef",
-    {
-        "apiAssociation": "ApiAssociationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetApiCacheRequestRequestTypeDef = TypedDict(
-    "GetApiCacheRequestRequestTypeDef",
-    {
-        "apiId": str,
-    },
-)
-
-GetApiCacheResponseTypeDef = TypedDict(
-    "GetApiCacheResponseTypeDef",
-    {
-        "apiCache": "ApiCacheTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetDataSourceIntrospectionRequestRequestTypeDef = TypedDict(
-    "_RequiredGetDataSourceIntrospectionRequestRequestTypeDef",
-    {
-        "introspectionId": str,
-    },
-)
-_OptionalGetDataSourceIntrospectionRequestRequestTypeDef = TypedDict(
-    "_OptionalGetDataSourceIntrospectionRequestRequestTypeDef",
-    {
-        "includeModelsSDL": bool,
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-class GetDataSourceIntrospectionRequestRequestTypeDef(
-    _RequiredGetDataSourceIntrospectionRequestRequestTypeDef,
-    _OptionalGetDataSourceIntrospectionRequestRequestTypeDef,
-):
-    pass
-
-GetDataSourceIntrospectionResponseTypeDef = TypedDict(
-    "GetDataSourceIntrospectionResponseTypeDef",
-    {
-        "introspectionId": str,
-        "introspectionStatus": DataSourceIntrospectionStatusType,
-        "introspectionStatusDetail": str,
-        "introspectionResult": "DataSourceIntrospectionResultTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetDataSourceRequestRequestTypeDef = TypedDict(
-    "GetDataSourceRequestRequestTypeDef",
-    {
-        "apiId": str,
-        "name": str,
-    },
-)
-
-GetDataSourceResponseTypeDef = TypedDict(
-    "GetDataSourceResponseTypeDef",
-    {
-        "dataSource": "DataSourceTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetDomainNameRequestRequestTypeDef = TypedDict(
-    "GetDomainNameRequestRequestTypeDef",
-    {
-        "domainName": str,
-    },
-)
-
-GetDomainNameResponseTypeDef = TypedDict(
-    "GetDomainNameResponseTypeDef",
-    {
-        "domainNameConfig": "DomainNameConfigTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetFunctionRequestRequestTypeDef = TypedDict(
-    "GetFunctionRequestRequestTypeDef",
-    {
-        "apiId": str,
-        "functionId": str,
-    },
-)
-
-GetFunctionResponseTypeDef = TypedDict(
-    "GetFunctionResponseTypeDef",
-    {
-        "functionConfiguration": "FunctionConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetGraphqlApiEnvironmentVariablesRequestRequestTypeDef = TypedDict(
-    "GetGraphqlApiEnvironmentVariablesRequestRequestTypeDef",
-    {
-        "apiId": str,
-    },
-)
-
-GetGraphqlApiEnvironmentVariablesResponseTypeDef = TypedDict(
-    "GetGraphqlApiEnvironmentVariablesResponseTypeDef",
-    {
-        "environmentVariables": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetGraphqlApiRequestRequestTypeDef = TypedDict(
-    "GetGraphqlApiRequestRequestTypeDef",
-    {
-        "apiId": str,
-    },
-)
-
-GetGraphqlApiResponseTypeDef = TypedDict(
-    "GetGraphqlApiResponseTypeDef",
-    {
-        "graphqlApi": "GraphqlApiTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetIntrospectionSchemaRequestRequestTypeDef = TypedDict(
-    "_RequiredGetIntrospectionSchemaRequestRequestTypeDef",
-    {
-        "apiId": str,
-        "format": OutputTypeType,
-    },
-)
-_OptionalGetIntrospectionSchemaRequestRequestTypeDef = TypedDict(
-    "_OptionalGetIntrospectionSchemaRequestRequestTypeDef",
-    {
-        "includeDirectives": bool,
-    },
-    total=False,
-)
-
-class GetIntrospectionSchemaRequestRequestTypeDef(
-    _RequiredGetIntrospectionSchemaRequestRequestTypeDef,
-    _OptionalGetIntrospectionSchemaRequestRequestTypeDef,
-):
-    pass
-
-GetIntrospectionSchemaResponseTypeDef = TypedDict(
-    "GetIntrospectionSchemaResponseTypeDef",
-    {
-        "schema": bytes,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetResolverRequestRequestTypeDef = TypedDict(
-    "GetResolverRequestRequestTypeDef",
-    {
-        "apiId": str,
-        "typeName": str,
-        "fieldName": str,
-    },
-)
-
-GetResolverResponseTypeDef = TypedDict(
-    "GetResolverResponseTypeDef",
-    {
-        "resolver": "ResolverTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetSchemaCreationStatusRequestRequestTypeDef = TypedDict(
-    "GetSchemaCreationStatusRequestRequestTypeDef",
-    {
-        "apiId": str,
-    },
-)
-
-GetSchemaCreationStatusResponseTypeDef = TypedDict(
-    "GetSchemaCreationStatusResponseTypeDef",
-    {
-        "status": SchemaStatusType,
-        "details": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetSourceApiAssociationRequestRequestTypeDef = TypedDict(
-    "GetSourceApiAssociationRequestRequestTypeDef",
-    {
-        "mergedApiIdentifier": str,
-        "associationId": str,
-    },
-)
-
-GetSourceApiAssociationResponseTypeDef = TypedDict(
-    "GetSourceApiAssociationResponseTypeDef",
-    {
-        "sourceApiAssociation": "SourceApiAssociationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetTypeRequestRequestTypeDef = TypedDict(
-    "GetTypeRequestRequestTypeDef",
-    {
-        "apiId": str,
-        "typeName": str,
-        "format": TypeDefinitionFormatType,
-    },
-)
-
 GetTypeResponseTypeDef = TypedDict(
     "GetTypeResponseTypeDef",
     {
-        "type": "TypeTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "type": TypeTypeDef,
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
-
-GraphqlApiTypeDef = TypedDict(
-    "GraphqlApiTypeDef",
-    {
-        "name": str,
-        "apiId": str,
-        "authenticationType": AuthenticationTypeType,
-        "logConfig": "LogConfigTypeDef",
-        "userPoolConfig": "UserPoolConfigTypeDef",
-        "openIDConnectConfig": "OpenIDConnectConfigTypeDef",
-        "arn": str,
-        "uris": Dict[str, str],
-        "tags": Dict[str, str],
-        "additionalAuthenticationProviders": List["AdditionalAuthenticationProviderTypeDef"],
-        "xrayEnabled": bool,
-        "wafWebAclArn": str,
-        "lambdaAuthorizerConfig": "LambdaAuthorizerConfigTypeDef",
-        "dns": Dict[str, str],
-        "visibility": GraphQLApiVisibilityType,
-        "apiType": GraphQLApiTypeType,
-        "mergedApiExecutionRoleArn": str,
-        "owner": str,
-        "ownerContact": str,
-        "introspectionConfig": GraphQLApiIntrospectionConfigType,
-        "queryDepthLimit": int,
-        "resolverCountLimit": int,
-        "enhancedMetricsConfig": "EnhancedMetricsConfigTypeDef",
-    },
-    total=False,
-)
-
-HttpDataSourceConfigTypeDef = TypedDict(
-    "HttpDataSourceConfigTypeDef",
-    {
-        "endpoint": str,
-        "authorizationConfig": "AuthorizationConfigTypeDef",
-    },
-    total=False,
-)
-
-_RequiredLambdaAuthorizerConfigTypeDef = TypedDict(
-    "_RequiredLambdaAuthorizerConfigTypeDef",
-    {
-        "authorizerUri": str,
-    },
-)
-_OptionalLambdaAuthorizerConfigTypeDef = TypedDict(
-    "_OptionalLambdaAuthorizerConfigTypeDef",
-    {
-        "authorizerResultTtlInSeconds": int,
-        "identityValidationExpression": str,
-    },
-    total=False,
-)
-
-class LambdaAuthorizerConfigTypeDef(
-    _RequiredLambdaAuthorizerConfigTypeDef, _OptionalLambdaAuthorizerConfigTypeDef
-):
-    pass
-
-LambdaConflictHandlerConfigTypeDef = TypedDict(
-    "LambdaConflictHandlerConfigTypeDef",
-    {
-        "lambdaConflictHandlerArn": str,
-    },
-    total=False,
-)
-
-LambdaDataSourceConfigTypeDef = TypedDict(
-    "LambdaDataSourceConfigTypeDef",
-    {
-        "lambdaFunctionArn": str,
-    },
-)
-
-_RequiredListApiKeysRequestRequestTypeDef = TypedDict(
-    "_RequiredListApiKeysRequestRequestTypeDef",
-    {
-        "apiId": str,
-    },
-)
-_OptionalListApiKeysRequestRequestTypeDef = TypedDict(
-    "_OptionalListApiKeysRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-class ListApiKeysRequestRequestTypeDef(
-    _RequiredListApiKeysRequestRequestTypeDef, _OptionalListApiKeysRequestRequestTypeDef
-):
-    pass
-
-ListApiKeysResponseTypeDef = TypedDict(
-    "ListApiKeysResponseTypeDef",
-    {
-        "apiKeys": List["ApiKeyTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListDataSourcesRequestRequestTypeDef = TypedDict(
-    "_RequiredListDataSourcesRequestRequestTypeDef",
-    {
-        "apiId": str,
-    },
-)
-_OptionalListDataSourcesRequestRequestTypeDef = TypedDict(
-    "_OptionalListDataSourcesRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-class ListDataSourcesRequestRequestTypeDef(
-    _RequiredListDataSourcesRequestRequestTypeDef, _OptionalListDataSourcesRequestRequestTypeDef
-):
-    pass
-
-ListDataSourcesResponseTypeDef = TypedDict(
-    "ListDataSourcesResponseTypeDef",
-    {
-        "dataSources": List["DataSourceTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListDomainNamesRequestRequestTypeDef = TypedDict(
-    "ListDomainNamesRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-ListDomainNamesResponseTypeDef = TypedDict(
-    "ListDomainNamesResponseTypeDef",
-    {
-        "domainNameConfigs": List["DomainNameConfigTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListFunctionsRequestRequestTypeDef = TypedDict(
-    "_RequiredListFunctionsRequestRequestTypeDef",
-    {
-        "apiId": str,
-    },
-)
-_OptionalListFunctionsRequestRequestTypeDef = TypedDict(
-    "_OptionalListFunctionsRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-class ListFunctionsRequestRequestTypeDef(
-    _RequiredListFunctionsRequestRequestTypeDef, _OptionalListFunctionsRequestRequestTypeDef
-):
-    pass
-
-ListFunctionsResponseTypeDef = TypedDict(
-    "ListFunctionsResponseTypeDef",
-    {
-        "functions": List["FunctionConfigurationTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListGraphqlApisRequestRequestTypeDef = TypedDict(
-    "ListGraphqlApisRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-        "apiType": GraphQLApiTypeType,
-        "owner": OwnershipType,
-    },
-    total=False,
-)
-
-ListGraphqlApisResponseTypeDef = TypedDict(
-    "ListGraphqlApisResponseTypeDef",
-    {
-        "graphqlApis": List["GraphqlApiTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListResolversByFunctionRequestRequestTypeDef = TypedDict(
-    "_RequiredListResolversByFunctionRequestRequestTypeDef",
-    {
-        "apiId": str,
-        "functionId": str,
-    },
-)
-_OptionalListResolversByFunctionRequestRequestTypeDef = TypedDict(
-    "_OptionalListResolversByFunctionRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-class ListResolversByFunctionRequestRequestTypeDef(
-    _RequiredListResolversByFunctionRequestRequestTypeDef,
-    _OptionalListResolversByFunctionRequestRequestTypeDef,
-):
-    pass
-
-ListResolversByFunctionResponseTypeDef = TypedDict(
-    "ListResolversByFunctionResponseTypeDef",
-    {
-        "resolvers": List["ResolverTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListResolversRequestRequestTypeDef = TypedDict(
-    "_RequiredListResolversRequestRequestTypeDef",
-    {
-        "apiId": str,
-        "typeName": str,
-    },
-)
-_OptionalListResolversRequestRequestTypeDef = TypedDict(
-    "_OptionalListResolversRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-class ListResolversRequestRequestTypeDef(
-    _RequiredListResolversRequestRequestTypeDef, _OptionalListResolversRequestRequestTypeDef
-):
-    pass
-
-ListResolversResponseTypeDef = TypedDict(
-    "ListResolversResponseTypeDef",
-    {
-        "resolvers": List["ResolverTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListSourceApiAssociationsRequestRequestTypeDef = TypedDict(
-    "_RequiredListSourceApiAssociationsRequestRequestTypeDef",
-    {
-        "apiId": str,
-    },
-)
-_OptionalListSourceApiAssociationsRequestRequestTypeDef = TypedDict(
-    "_OptionalListSourceApiAssociationsRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-class ListSourceApiAssociationsRequestRequestTypeDef(
-    _RequiredListSourceApiAssociationsRequestRequestTypeDef,
-    _OptionalListSourceApiAssociationsRequestRequestTypeDef,
-):
-    pass
-
-ListSourceApiAssociationsResponseTypeDef = TypedDict(
-    "ListSourceApiAssociationsResponseTypeDef",
-    {
-        "sourceApiAssociationSummaries": List["SourceApiAssociationSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-    },
-)
-
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListTypesByAssociationRequestRequestTypeDef = TypedDict(
-    "_RequiredListTypesByAssociationRequestRequestTypeDef",
-    {
-        "mergedApiIdentifier": str,
-        "associationId": str,
-        "format": TypeDefinitionFormatType,
-    },
-)
-_OptionalListTypesByAssociationRequestRequestTypeDef = TypedDict(
-    "_OptionalListTypesByAssociationRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-class ListTypesByAssociationRequestRequestTypeDef(
-    _RequiredListTypesByAssociationRequestRequestTypeDef,
-    _OptionalListTypesByAssociationRequestRequestTypeDef,
-):
-    pass
-
 ListTypesByAssociationResponseTypeDef = TypedDict(
     "ListTypesByAssociationResponseTypeDef",
     {
-        "types": List["TypeTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "types": List[TypeTypeDef],
+        "ResponseMetadata": ResponseMetadataTypeDef,
+        "nextToken": NotRequired[str],
     },
 )
-
-_RequiredListTypesRequestRequestTypeDef = TypedDict(
-    "_RequiredListTypesRequestRequestTypeDef",
-    {
-        "apiId": str,
-        "format": TypeDefinitionFormatType,
-    },
-)
-_OptionalListTypesRequestRequestTypeDef = TypedDict(
-    "_OptionalListTypesRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-class ListTypesRequestRequestTypeDef(
-    _RequiredListTypesRequestRequestTypeDef, _OptionalListTypesRequestRequestTypeDef
-):
-    pass
-
 ListTypesResponseTypeDef = TypedDict(
     "ListTypesResponseTypeDef",
     {
-        "types": List["TypeTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "types": List[TypeTypeDef],
+        "ResponseMetadata": ResponseMetadataTypeDef,
+        "nextToken": NotRequired[str],
+    },
+)
+UpdateTypeResponseTypeDef = TypedDict(
+    "UpdateTypeResponseTypeDef",
+    {
+        "type": TypeTypeDef,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+DataSourceIntrospectionModelFieldTypeDef = TypedDict(
+    "DataSourceIntrospectionModelFieldTypeDef",
+    {
+        "name": NotRequired[str],
+        "type": NotRequired[DataSourceIntrospectionModelFieldTypeTypeDef],
+        "length": NotRequired[int],
     },
 )
 
-_RequiredLogConfigTypeDef = TypedDict(
-    "_RequiredLogConfigTypeDef",
-    {
-        "fieldLogLevel": FieldLogLevelType,
-        "cloudWatchLogsRoleArn": str,
-    },
-)
-_OptionalLogConfigTypeDef = TypedDict(
-    "_OptionalLogConfigTypeDef",
-    {
-        "excludeVerboseContent": bool,
-    },
-    total=False,
-)
+class DynamodbDataSourceConfigTypeDef(TypedDict):
+    tableName: str
+    awsRegion: str
+    useCallerCredentials: NotRequired[bool]
+    deltaSyncConfig: NotRequired[DeltaSyncConfigTypeDef]
+    versioned: NotRequired[bool]
 
-class LogConfigTypeDef(_RequiredLogConfigTypeDef, _OptionalLogConfigTypeDef):
-    pass
+class EvaluateMappingTemplateResponseTypeDef(TypedDict):
+    evaluationResult: str
+    error: ErrorDetailTypeDef
+    logs: List[str]
+    stash: str
+    outErrors: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredOpenIDConnectConfigTypeDef = TypedDict(
-    "_RequiredOpenIDConnectConfigTypeDef",
-    {
-        "issuer": str,
-    },
-)
-_OptionalOpenIDConnectConfigTypeDef = TypedDict(
-    "_OptionalOpenIDConnectConfigTypeDef",
-    {
-        "clientId": str,
-        "iatTTL": int,
-        "authTTL": int,
-    },
-    total=False,
-)
+class IntegrationTypeDef(TypedDict):
+    dataSourceName: str
+    lambdaConfig: NotRequired[LambdaConfigTypeDef]
 
-class OpenIDConnectConfigTypeDef(
-    _RequiredOpenIDConnectConfigTypeDef, _OptionalOpenIDConnectConfigTypeDef
-):
-    pass
+class SyncConfigTypeDef(TypedDict):
+    conflictHandler: NotRequired[ConflictHandlerTypeType]
+    conflictDetection: NotRequired[ConflictDetectionTypeType]
+    lambdaConflictHandlerConfig: NotRequired[LambdaConflictHandlerConfigTypeDef]
 
-OpenSearchServiceDataSourceConfigTypeDef = TypedDict(
-    "OpenSearchServiceDataSourceConfigTypeDef",
-    {
-        "endpoint": str,
-        "awsRegion": str,
-    },
-)
+class ListApiKeysRequestPaginateTypeDef(TypedDict):
+    apiId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
+class ListApisRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-PipelineConfigTypeDef = TypedDict(
-    "PipelineConfigTypeDef",
-    {
-        "functions": List[str],
-    },
-    total=False,
-)
+class ListChannelNamespacesRequestPaginateTypeDef(TypedDict):
+    apiId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-PutGraphqlApiEnvironmentVariablesRequestRequestTypeDef = TypedDict(
-    "PutGraphqlApiEnvironmentVariablesRequestRequestTypeDef",
-    {
-        "apiId": str,
-        "environmentVariables": Dict[str, str],
-    },
-)
+class ListDataSourcesRequestPaginateTypeDef(TypedDict):
+    apiId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-PutGraphqlApiEnvironmentVariablesResponseTypeDef = TypedDict(
-    "PutGraphqlApiEnvironmentVariablesResponseTypeDef",
-    {
-        "environmentVariables": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListDomainNamesRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-RdsDataApiConfigTypeDef = TypedDict(
-    "RdsDataApiConfigTypeDef",
-    {
-        "resourceArn": str,
-        "secretArn": str,
-        "databaseName": str,
-    },
-)
+class ListFunctionsRequestPaginateTypeDef(TypedDict):
+    apiId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-RdsHttpEndpointConfigTypeDef = TypedDict(
-    "RdsHttpEndpointConfigTypeDef",
-    {
-        "awsRegion": str,
-        "dbClusterIdentifier": str,
-        "databaseName": str,
-        "schema": str,
-        "awsSecretStoreArn": str,
-    },
-    total=False,
-)
+class ListGraphqlApisRequestPaginateTypeDef(TypedDict):
+    apiType: NotRequired[GraphQLApiTypeType]
+    owner: NotRequired[OwnershipType]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-RelationalDatabaseDataSourceConfigTypeDef = TypedDict(
-    "RelationalDatabaseDataSourceConfigTypeDef",
-    {
-        "relationalDatabaseSourceType": Literal["RDS_HTTP_ENDPOINT"],
-        "rdsHttpEndpointConfig": "RdsHttpEndpointConfigTypeDef",
-    },
-    total=False,
-)
+class ListResolversByFunctionRequestPaginateTypeDef(TypedDict):
+    apiId: str
+    functionId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-ResolverTypeDef = TypedDict(
-    "ResolverTypeDef",
-    {
-        "typeName": str,
-        "fieldName": str,
-        "dataSourceName": str,
-        "resolverArn": str,
-        "requestMappingTemplate": str,
-        "responseMappingTemplate": str,
-        "kind": ResolverKindType,
-        "pipelineConfig": "PipelineConfigTypeDef",
-        "syncConfig": "SyncConfigTypeDef",
-        "cachingConfig": "CachingConfigTypeDef",
-        "maxBatchSize": int,
-        "runtime": "AppSyncRuntimeTypeDef",
-        "code": str,
-        "metricsConfig": ResolverLevelMetricsConfigType,
-    },
-    total=False,
-)
+class ListResolversRequestPaginateTypeDef(TypedDict):
+    apiId: str
+    typeName: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
+class ListSourceApiAssociationsRequestPaginateTypeDef(TypedDict):
+    apiId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-SourceApiAssociationConfigTypeDef = TypedDict(
-    "SourceApiAssociationConfigTypeDef",
+ListTypesByAssociationRequestPaginateTypeDef = TypedDict(
+    "ListTypesByAssociationRequestPaginateTypeDef",
     {
-        "mergeType": MergeTypeType,
-    },
-    total=False,
-)
-
-SourceApiAssociationSummaryTypeDef = TypedDict(
-    "SourceApiAssociationSummaryTypeDef",
-    {
-        "associationId": str,
-        "associationArn": str,
-        "sourceApiId": str,
-        "sourceApiArn": str,
-        "mergedApiId": str,
-        "mergedApiArn": str,
-        "description": str,
-    },
-    total=False,
-)
-
-SourceApiAssociationTypeDef = TypedDict(
-    "SourceApiAssociationTypeDef",
-    {
-        "associationId": str,
-        "associationArn": str,
-        "sourceApiId": str,
-        "sourceApiArn": str,
-        "mergedApiArn": str,
-        "mergedApiId": str,
-        "description": str,
-        "sourceApiAssociationConfig": "SourceApiAssociationConfigTypeDef",
-        "sourceApiAssociationStatus": SourceApiAssociationStatusType,
-        "sourceApiAssociationStatusDetail": str,
-        "lastSuccessfulMergeDate": datetime,
-    },
-    total=False,
-)
-
-StartDataSourceIntrospectionRequestRequestTypeDef = TypedDict(
-    "StartDataSourceIntrospectionRequestRequestTypeDef",
-    {
-        "rdsDataApiConfig": "RdsDataApiConfigTypeDef",
-    },
-    total=False,
-)
-
-StartDataSourceIntrospectionResponseTypeDef = TypedDict(
-    "StartDataSourceIntrospectionResponseTypeDef",
-    {
-        "introspectionId": str,
-        "introspectionStatus": DataSourceIntrospectionStatusType,
-        "introspectionStatusDetail": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-StartSchemaCreationRequestRequestTypeDef = TypedDict(
-    "StartSchemaCreationRequestRequestTypeDef",
-    {
-        "apiId": str,
-        "definition": Union[bytes, IO[bytes], StreamingBody],
-    },
-)
-
-StartSchemaCreationResponseTypeDef = TypedDict(
-    "StartSchemaCreationResponseTypeDef",
-    {
-        "status": SchemaStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-StartSchemaMergeRequestRequestTypeDef = TypedDict(
-    "StartSchemaMergeRequestRequestTypeDef",
-    {
-        "associationId": str,
         "mergedApiIdentifier": str,
-    },
-)
-
-StartSchemaMergeResponseTypeDef = TypedDict(
-    "StartSchemaMergeResponseTypeDef",
-    {
-        "sourceApiAssociationStatus": SourceApiAssociationStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-SyncConfigTypeDef = TypedDict(
-    "SyncConfigTypeDef",
-    {
-        "conflictHandler": ConflictHandlerTypeType,
-        "conflictDetection": ConflictDetectionTypeType,
-        "lambdaConflictHandlerConfig": "LambdaConflictHandlerConfigTypeDef",
-    },
-    total=False,
-)
-
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tags": Dict[str, str],
-    },
-)
-
-TypeTypeDef = TypedDict(
-    "TypeTypeDef",
-    {
-        "name": str,
-        "description": str,
-        "arn": str,
-        "definition": str,
+        "associationId": str,
         "format": TypeDefinitionFormatType,
-    },
-    total=False,
-)
-
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tagKeys": List[str],
+        "PaginationConfig": NotRequired[PaginatorConfigTypeDef],
     },
 )
-
-_RequiredUpdateApiCacheRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateApiCacheRequestRequestTypeDef",
+ListTypesRequestPaginateTypeDef = TypedDict(
+    "ListTypesRequestPaginateTypeDef",
     {
         "apiId": str,
-        "ttl": int,
-        "apiCachingBehavior": ApiCachingBehaviorType,
-        "type": ApiCacheTypeType,
-    },
-)
-_OptionalUpdateApiCacheRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateApiCacheRequestRequestTypeDef",
-    {
-        "healthMetricsConfig": CacheHealthMetricsConfigType,
-    },
-    total=False,
-)
-
-class UpdateApiCacheRequestRequestTypeDef(
-    _RequiredUpdateApiCacheRequestRequestTypeDef, _OptionalUpdateApiCacheRequestRequestTypeDef
-):
-    pass
-
-UpdateApiCacheResponseTypeDef = TypedDict(
-    "UpdateApiCacheResponseTypeDef",
-    {
-        "apiCache": "ApiCacheTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "format": TypeDefinitionFormatType,
+        "PaginationConfig": NotRequired[PaginatorConfigTypeDef],
     },
 )
 
-_RequiredUpdateApiKeyRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateApiKeyRequestRequestTypeDef",
-    {
-        "apiId": str,
-        "id": str,
-    },
-)
-_OptionalUpdateApiKeyRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateApiKeyRequestRequestTypeDef",
-    {
-        "description": str,
-        "expires": int,
-    },
-    total=False,
-)
+class ListSourceApiAssociationsResponseTypeDef(TypedDict):
+    sourceApiAssociationSummaries: List[SourceApiAssociationSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-class UpdateApiKeyRequestRequestTypeDef(
-    _RequiredUpdateApiKeyRequestRequestTypeDef, _OptionalUpdateApiKeyRequestRequestTypeDef
-):
-    pass
+PipelineConfigUnionTypeDef = Union[PipelineConfigTypeDef, PipelineConfigOutputTypeDef]
 
-UpdateApiKeyResponseTypeDef = TypedDict(
-    "UpdateApiKeyResponseTypeDef",
-    {
-        "apiKey": "ApiKeyTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class StartDataSourceIntrospectionRequestTypeDef(TypedDict):
+    rdsDataApiConfig: NotRequired[RdsDataApiConfigTypeDef]
 
-_RequiredUpdateDataSourceRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateDataSourceRequestRequestTypeDef",
+class RelationalDatabaseDataSourceConfigTypeDef(TypedDict):
+    relationalDatabaseSourceType: NotRequired[Literal["RDS_HTTP_ENDPOINT"]]
+    rdsHttpEndpointConfig: NotRequired[RdsHttpEndpointConfigTypeDef]
+
+class CreateGraphqlApiRequestTypeDef(TypedDict):
+    name: str
+    authenticationType: AuthenticationTypeType
+    logConfig: NotRequired[LogConfigTypeDef]
+    userPoolConfig: NotRequired[UserPoolConfigTypeDef]
+    openIDConnectConfig: NotRequired[OpenIDConnectConfigTypeDef]
+    tags: NotRequired[Mapping[str, str]]
+    additionalAuthenticationProviders: NotRequired[
+        Sequence[AdditionalAuthenticationProviderTypeDef]
+    ]
+    xrayEnabled: NotRequired[bool]
+    lambdaAuthorizerConfig: NotRequired[LambdaAuthorizerConfigTypeDef]
+    apiType: NotRequired[GraphQLApiTypeType]
+    mergedApiExecutionRoleArn: NotRequired[str]
+    visibility: NotRequired[GraphQLApiVisibilityType]
+    ownerContact: NotRequired[str]
+    introspectionConfig: NotRequired[GraphQLApiIntrospectionConfigType]
+    queryDepthLimit: NotRequired[int]
+    resolverCountLimit: NotRequired[int]
+    enhancedMetricsConfig: NotRequired[EnhancedMetricsConfigTypeDef]
+
+class GraphqlApiTypeDef(TypedDict):
+    name: NotRequired[str]
+    apiId: NotRequired[str]
+    authenticationType: NotRequired[AuthenticationTypeType]
+    logConfig: NotRequired[LogConfigTypeDef]
+    userPoolConfig: NotRequired[UserPoolConfigTypeDef]
+    openIDConnectConfig: NotRequired[OpenIDConnectConfigTypeDef]
+    arn: NotRequired[str]
+    uris: NotRequired[Dict[str, str]]
+    tags: NotRequired[Dict[str, str]]
+    additionalAuthenticationProviders: NotRequired[List[AdditionalAuthenticationProviderTypeDef]]
+    xrayEnabled: NotRequired[bool]
+    wafWebAclArn: NotRequired[str]
+    lambdaAuthorizerConfig: NotRequired[LambdaAuthorizerConfigTypeDef]
+    dns: NotRequired[Dict[str, str]]
+    visibility: NotRequired[GraphQLApiVisibilityType]
+    apiType: NotRequired[GraphQLApiTypeType]
+    mergedApiExecutionRoleArn: NotRequired[str]
+    owner: NotRequired[str]
+    ownerContact: NotRequired[str]
+    introspectionConfig: NotRequired[GraphQLApiIntrospectionConfigType]
+    queryDepthLimit: NotRequired[int]
+    resolverCountLimit: NotRequired[int]
+    enhancedMetricsConfig: NotRequired[EnhancedMetricsConfigTypeDef]
+
+class UpdateGraphqlApiRequestTypeDef(TypedDict):
+    apiId: str
+    name: str
+    authenticationType: AuthenticationTypeType
+    logConfig: NotRequired[LogConfigTypeDef]
+    userPoolConfig: NotRequired[UserPoolConfigTypeDef]
+    openIDConnectConfig: NotRequired[OpenIDConnectConfigTypeDef]
+    additionalAuthenticationProviders: NotRequired[
+        Sequence[AdditionalAuthenticationProviderTypeDef]
+    ]
+    xrayEnabled: NotRequired[bool]
+    lambdaAuthorizerConfig: NotRequired[LambdaAuthorizerConfigTypeDef]
+    mergedApiExecutionRoleArn: NotRequired[str]
+    ownerContact: NotRequired[str]
+    introspectionConfig: NotRequired[GraphQLApiIntrospectionConfigType]
+    queryDepthLimit: NotRequired[int]
+    resolverCountLimit: NotRequired[int]
+    enhancedMetricsConfig: NotRequired[EnhancedMetricsConfigTypeDef]
+
+class AssociateMergedGraphqlApiResponseTypeDef(TypedDict):
+    sourceApiAssociation: SourceApiAssociationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class AssociateSourceGraphqlApiResponseTypeDef(TypedDict):
+    sourceApiAssociation: SourceApiAssociationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetSourceApiAssociationResponseTypeDef(TypedDict):
+    sourceApiAssociation: SourceApiAssociationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateSourceApiAssociationResponseTypeDef(TypedDict):
+    sourceApiAssociation: SourceApiAssociationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class EventConfigOutputTypeDef(TypedDict):
+    authProviders: List[AuthProviderTypeDef]
+    connectionAuthModes: List[AuthModeTypeDef]
+    defaultPublishAuthModes: List[AuthModeTypeDef]
+    defaultSubscribeAuthModes: List[AuthModeTypeDef]
+    logConfig: NotRequired[EventLogConfigTypeDef]
+
+class EventConfigTypeDef(TypedDict):
+    authProviders: Sequence[AuthProviderTypeDef]
+    connectionAuthModes: Sequence[AuthModeTypeDef]
+    defaultPublishAuthModes: Sequence[AuthModeTypeDef]
+    defaultSubscribeAuthModes: Sequence[AuthModeTypeDef]
+    logConfig: NotRequired[EventLogConfigTypeDef]
+
+class HttpDataSourceConfigTypeDef(TypedDict):
+    endpoint: NotRequired[str]
+    authorizationConfig: NotRequired[AuthorizationConfigTypeDef]
+
+class EvaluateCodeErrorDetailTypeDef(TypedDict):
+    message: NotRequired[str]
+    codeErrors: NotRequired[List[CodeErrorTypeDef]]
+
+class DataSourceIntrospectionModelTypeDef(TypedDict):
+    name: NotRequired[str]
+    fields: NotRequired[List[DataSourceIntrospectionModelFieldTypeDef]]
+    primaryKey: NotRequired[DataSourceIntrospectionModelIndexTypeDef]
+    indexes: NotRequired[List[DataSourceIntrospectionModelIndexTypeDef]]
+    sdl: NotRequired[str]
+
+class HandlerConfigTypeDef(TypedDict):
+    behavior: HandlerBehaviorType
+    integration: IntegrationTypeDef
+
+class CreateFunctionRequestTypeDef(TypedDict):
+    apiId: str
+    name: str
+    dataSourceName: str
+    description: NotRequired[str]
+    requestMappingTemplate: NotRequired[str]
+    responseMappingTemplate: NotRequired[str]
+    functionVersion: NotRequired[str]
+    syncConfig: NotRequired[SyncConfigTypeDef]
+    maxBatchSize: NotRequired[int]
+    runtime: NotRequired[AppSyncRuntimeTypeDef]
+    code: NotRequired[str]
+
+class FunctionConfigurationTypeDef(TypedDict):
+    functionId: NotRequired[str]
+    functionArn: NotRequired[str]
+    name: NotRequired[str]
+    description: NotRequired[str]
+    dataSourceName: NotRequired[str]
+    requestMappingTemplate: NotRequired[str]
+    responseMappingTemplate: NotRequired[str]
+    functionVersion: NotRequired[str]
+    syncConfig: NotRequired[SyncConfigTypeDef]
+    maxBatchSize: NotRequired[int]
+    runtime: NotRequired[AppSyncRuntimeTypeDef]
+    code: NotRequired[str]
+
+class ResolverTypeDef(TypedDict):
+    typeName: NotRequired[str]
+    fieldName: NotRequired[str]
+    dataSourceName: NotRequired[str]
+    resolverArn: NotRequired[str]
+    requestMappingTemplate: NotRequired[str]
+    responseMappingTemplate: NotRequired[str]
+    kind: NotRequired[ResolverKindType]
+    pipelineConfig: NotRequired[PipelineConfigOutputTypeDef]
+    syncConfig: NotRequired[SyncConfigTypeDef]
+    cachingConfig: NotRequired[CachingConfigOutputTypeDef]
+    maxBatchSize: NotRequired[int]
+    runtime: NotRequired[AppSyncRuntimeTypeDef]
+    code: NotRequired[str]
+    metricsConfig: NotRequired[ResolverLevelMetricsConfigType]
+
+class UpdateFunctionRequestTypeDef(TypedDict):
+    apiId: str
+    name: str
+    functionId: str
+    dataSourceName: str
+    description: NotRequired[str]
+    requestMappingTemplate: NotRequired[str]
+    responseMappingTemplate: NotRequired[str]
+    functionVersion: NotRequired[str]
+    syncConfig: NotRequired[SyncConfigTypeDef]
+    maxBatchSize: NotRequired[int]
+    runtime: NotRequired[AppSyncRuntimeTypeDef]
+    code: NotRequired[str]
+
+class CreateResolverRequestTypeDef(TypedDict):
+    apiId: str
+    typeName: str
+    fieldName: str
+    dataSourceName: NotRequired[str]
+    requestMappingTemplate: NotRequired[str]
+    responseMappingTemplate: NotRequired[str]
+    kind: NotRequired[ResolverKindType]
+    pipelineConfig: NotRequired[PipelineConfigUnionTypeDef]
+    syncConfig: NotRequired[SyncConfigTypeDef]
+    cachingConfig: NotRequired[CachingConfigUnionTypeDef]
+    maxBatchSize: NotRequired[int]
+    runtime: NotRequired[AppSyncRuntimeTypeDef]
+    code: NotRequired[str]
+    metricsConfig: NotRequired[ResolverLevelMetricsConfigType]
+
+class UpdateResolverRequestTypeDef(TypedDict):
+    apiId: str
+    typeName: str
+    fieldName: str
+    dataSourceName: NotRequired[str]
+    requestMappingTemplate: NotRequired[str]
+    responseMappingTemplate: NotRequired[str]
+    kind: NotRequired[ResolverKindType]
+    pipelineConfig: NotRequired[PipelineConfigUnionTypeDef]
+    syncConfig: NotRequired[SyncConfigTypeDef]
+    cachingConfig: NotRequired[CachingConfigUnionTypeDef]
+    maxBatchSize: NotRequired[int]
+    runtime: NotRequired[AppSyncRuntimeTypeDef]
+    code: NotRequired[str]
+    metricsConfig: NotRequired[ResolverLevelMetricsConfigType]
+
+class CreateGraphqlApiResponseTypeDef(TypedDict):
+    graphqlApi: GraphqlApiTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetGraphqlApiResponseTypeDef(TypedDict):
+    graphqlApi: GraphqlApiTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListGraphqlApisResponseTypeDef(TypedDict):
+    graphqlApis: List[GraphqlApiTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class UpdateGraphqlApiResponseTypeDef(TypedDict):
+    graphqlApi: GraphqlApiTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ApiTypeDef(TypedDict):
+    apiId: NotRequired[str]
+    name: NotRequired[str]
+    ownerContact: NotRequired[str]
+    tags: NotRequired[Dict[str, str]]
+    dns: NotRequired[Dict[str, str]]
+    apiArn: NotRequired[str]
+    created: NotRequired[datetime]
+    xrayEnabled: NotRequired[bool]
+    wafWebAclArn: NotRequired[str]
+    eventConfig: NotRequired[EventConfigOutputTypeDef]
+
+EventConfigUnionTypeDef = Union[EventConfigTypeDef, EventConfigOutputTypeDef]
+CreateDataSourceRequestTypeDef = TypedDict(
+    "CreateDataSourceRequestTypeDef",
     {
         "apiId": str,
         "name": str,
         "type": DataSourceTypeType,
+        "description": NotRequired[str],
+        "serviceRoleArn": NotRequired[str],
+        "dynamodbConfig": NotRequired[DynamodbDataSourceConfigTypeDef],
+        "lambdaConfig": NotRequired[LambdaDataSourceConfigTypeDef],
+        "elasticsearchConfig": NotRequired[ElasticsearchDataSourceConfigTypeDef],
+        "openSearchServiceConfig": NotRequired[OpenSearchServiceDataSourceConfigTypeDef],
+        "httpConfig": NotRequired[HttpDataSourceConfigTypeDef],
+        "relationalDatabaseConfig": NotRequired[RelationalDatabaseDataSourceConfigTypeDef],
+        "eventBridgeConfig": NotRequired[EventBridgeDataSourceConfigTypeDef],
+        "metricsConfig": NotRequired[DataSourceLevelMetricsConfigType],
     },
 )
-_OptionalUpdateDataSourceRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateDataSourceRequestRequestTypeDef",
+DataSourceTypeDef = TypedDict(
+    "DataSourceTypeDef",
     {
-        "description": str,
-        "serviceRoleArn": str,
-        "dynamodbConfig": "DynamodbDataSourceConfigTypeDef",
-        "lambdaConfig": "LambdaDataSourceConfigTypeDef",
-        "elasticsearchConfig": "ElasticsearchDataSourceConfigTypeDef",
-        "openSearchServiceConfig": "OpenSearchServiceDataSourceConfigTypeDef",
-        "httpConfig": "HttpDataSourceConfigTypeDef",
-        "relationalDatabaseConfig": "RelationalDatabaseDataSourceConfigTypeDef",
-        "eventBridgeConfig": "EventBridgeDataSourceConfigTypeDef",
-        "metricsConfig": DataSourceLevelMetricsConfigType,
-    },
-    total=False,
-)
-
-class UpdateDataSourceRequestRequestTypeDef(
-    _RequiredUpdateDataSourceRequestRequestTypeDef, _OptionalUpdateDataSourceRequestRequestTypeDef
-):
-    pass
-
-UpdateDataSourceResponseTypeDef = TypedDict(
-    "UpdateDataSourceResponseTypeDef",
-    {
-        "dataSource": "DataSourceTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "dataSourceArn": NotRequired[str],
+        "name": NotRequired[str],
+        "description": NotRequired[str],
+        "type": NotRequired[DataSourceTypeType],
+        "serviceRoleArn": NotRequired[str],
+        "dynamodbConfig": NotRequired[DynamodbDataSourceConfigTypeDef],
+        "lambdaConfig": NotRequired[LambdaDataSourceConfigTypeDef],
+        "elasticsearchConfig": NotRequired[ElasticsearchDataSourceConfigTypeDef],
+        "openSearchServiceConfig": NotRequired[OpenSearchServiceDataSourceConfigTypeDef],
+        "httpConfig": NotRequired[HttpDataSourceConfigTypeDef],
+        "relationalDatabaseConfig": NotRequired[RelationalDatabaseDataSourceConfigTypeDef],
+        "eventBridgeConfig": NotRequired[EventBridgeDataSourceConfigTypeDef],
+        "metricsConfig": NotRequired[DataSourceLevelMetricsConfigType],
     },
 )
-
-_RequiredUpdateDomainNameRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateDomainNameRequestRequestTypeDef",
-    {
-        "domainName": str,
-    },
-)
-_OptionalUpdateDomainNameRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateDomainNameRequestRequestTypeDef",
-    {
-        "description": str,
-    },
-    total=False,
-)
-
-class UpdateDomainNameRequestRequestTypeDef(
-    _RequiredUpdateDomainNameRequestRequestTypeDef, _OptionalUpdateDomainNameRequestRequestTypeDef
-):
-    pass
-
-UpdateDomainNameResponseTypeDef = TypedDict(
-    "UpdateDomainNameResponseTypeDef",
-    {
-        "domainNameConfig": "DomainNameConfigTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateFunctionRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateFunctionRequestRequestTypeDef",
+UpdateDataSourceRequestTypeDef = TypedDict(
+    "UpdateDataSourceRequestTypeDef",
     {
         "apiId": str,
         "name": str,
-        "functionId": str,
-        "dataSourceName": str,
-    },
-)
-_OptionalUpdateFunctionRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateFunctionRequestRequestTypeDef",
-    {
-        "description": str,
-        "requestMappingTemplate": str,
-        "responseMappingTemplate": str,
-        "functionVersion": str,
-        "syncConfig": "SyncConfigTypeDef",
-        "maxBatchSize": int,
-        "runtime": "AppSyncRuntimeTypeDef",
-        "code": str,
-    },
-    total=False,
-)
-
-class UpdateFunctionRequestRequestTypeDef(
-    _RequiredUpdateFunctionRequestRequestTypeDef, _OptionalUpdateFunctionRequestRequestTypeDef
-):
-    pass
-
-UpdateFunctionResponseTypeDef = TypedDict(
-    "UpdateFunctionResponseTypeDef",
-    {
-        "functionConfiguration": "FunctionConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "type": DataSourceTypeType,
+        "description": NotRequired[str],
+        "serviceRoleArn": NotRequired[str],
+        "dynamodbConfig": NotRequired[DynamodbDataSourceConfigTypeDef],
+        "lambdaConfig": NotRequired[LambdaDataSourceConfigTypeDef],
+        "elasticsearchConfig": NotRequired[ElasticsearchDataSourceConfigTypeDef],
+        "openSearchServiceConfig": NotRequired[OpenSearchServiceDataSourceConfigTypeDef],
+        "httpConfig": NotRequired[HttpDataSourceConfigTypeDef],
+        "relationalDatabaseConfig": NotRequired[RelationalDatabaseDataSourceConfigTypeDef],
+        "eventBridgeConfig": NotRequired[EventBridgeDataSourceConfigTypeDef],
+        "metricsConfig": NotRequired[DataSourceLevelMetricsConfigType],
     },
 )
 
-_RequiredUpdateGraphqlApiRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateGraphqlApiRequestRequestTypeDef",
-    {
-        "apiId": str,
-        "name": str,
-        "authenticationType": AuthenticationTypeType,
-    },
-)
-_OptionalUpdateGraphqlApiRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateGraphqlApiRequestRequestTypeDef",
-    {
-        "logConfig": "LogConfigTypeDef",
-        "userPoolConfig": "UserPoolConfigTypeDef",
-        "openIDConnectConfig": "OpenIDConnectConfigTypeDef",
-        "additionalAuthenticationProviders": List["AdditionalAuthenticationProviderTypeDef"],
-        "xrayEnabled": bool,
-        "lambdaAuthorizerConfig": "LambdaAuthorizerConfigTypeDef",
-        "mergedApiExecutionRoleArn": str,
-        "ownerContact": str,
-        "introspectionConfig": GraphQLApiIntrospectionConfigType,
-        "queryDepthLimit": int,
-        "resolverCountLimit": int,
-        "enhancedMetricsConfig": "EnhancedMetricsConfigTypeDef",
-    },
-    total=False,
-)
+class EvaluateCodeResponseTypeDef(TypedDict):
+    evaluationResult: str
+    error: EvaluateCodeErrorDetailTypeDef
+    logs: List[str]
+    stash: str
+    outErrors: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateGraphqlApiRequestRequestTypeDef(
-    _RequiredUpdateGraphqlApiRequestRequestTypeDef, _OptionalUpdateGraphqlApiRequestRequestTypeDef
-):
-    pass
+class DataSourceIntrospectionResultTypeDef(TypedDict):
+    models: NotRequired[List[DataSourceIntrospectionModelTypeDef]]
+    nextToken: NotRequired[str]
 
-UpdateGraphqlApiResponseTypeDef = TypedDict(
-    "UpdateGraphqlApiResponseTypeDef",
-    {
-        "graphqlApi": "GraphqlApiTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class HandlerConfigsTypeDef(TypedDict):
+    onPublish: NotRequired[HandlerConfigTypeDef]
+    onSubscribe: NotRequired[HandlerConfigTypeDef]
 
-_RequiredUpdateResolverRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateResolverRequestRequestTypeDef",
-    {
-        "apiId": str,
-        "typeName": str,
-        "fieldName": str,
-    },
-)
-_OptionalUpdateResolverRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateResolverRequestRequestTypeDef",
-    {
-        "dataSourceName": str,
-        "requestMappingTemplate": str,
-        "responseMappingTemplate": str,
-        "kind": ResolverKindType,
-        "pipelineConfig": "PipelineConfigTypeDef",
-        "syncConfig": "SyncConfigTypeDef",
-        "cachingConfig": "CachingConfigTypeDef",
-        "maxBatchSize": int,
-        "runtime": "AppSyncRuntimeTypeDef",
-        "code": str,
-        "metricsConfig": ResolverLevelMetricsConfigType,
-    },
-    total=False,
-)
+class CreateFunctionResponseTypeDef(TypedDict):
+    functionConfiguration: FunctionConfigurationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateResolverRequestRequestTypeDef(
-    _RequiredUpdateResolverRequestRequestTypeDef, _OptionalUpdateResolverRequestRequestTypeDef
-):
-    pass
+class GetFunctionResponseTypeDef(TypedDict):
+    functionConfiguration: FunctionConfigurationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-UpdateResolverResponseTypeDef = TypedDict(
-    "UpdateResolverResponseTypeDef",
-    {
-        "resolver": "ResolverTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListFunctionsResponseTypeDef(TypedDict):
+    functions: List[FunctionConfigurationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-_RequiredUpdateSourceApiAssociationRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateSourceApiAssociationRequestRequestTypeDef",
-    {
-        "associationId": str,
-        "mergedApiIdentifier": str,
-    },
-)
-_OptionalUpdateSourceApiAssociationRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateSourceApiAssociationRequestRequestTypeDef",
-    {
-        "description": str,
-        "sourceApiAssociationConfig": "SourceApiAssociationConfigTypeDef",
-    },
-    total=False,
-)
+class UpdateFunctionResponseTypeDef(TypedDict):
+    functionConfiguration: FunctionConfigurationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateSourceApiAssociationRequestRequestTypeDef(
-    _RequiredUpdateSourceApiAssociationRequestRequestTypeDef,
-    _OptionalUpdateSourceApiAssociationRequestRequestTypeDef,
-):
-    pass
+class CreateResolverResponseTypeDef(TypedDict):
+    resolver: ResolverTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-UpdateSourceApiAssociationResponseTypeDef = TypedDict(
-    "UpdateSourceApiAssociationResponseTypeDef",
-    {
-        "sourceApiAssociation": "SourceApiAssociationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetResolverResponseTypeDef(TypedDict):
+    resolver: ResolverTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredUpdateTypeRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateTypeRequestRequestTypeDef",
-    {
-        "apiId": str,
-        "typeName": str,
-        "format": TypeDefinitionFormatType,
-    },
-)
-_OptionalUpdateTypeRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateTypeRequestRequestTypeDef",
-    {
-        "definition": str,
-    },
-    total=False,
-)
+class ListResolversByFunctionResponseTypeDef(TypedDict):
+    resolvers: List[ResolverTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-class UpdateTypeRequestRequestTypeDef(
-    _RequiredUpdateTypeRequestRequestTypeDef, _OptionalUpdateTypeRequestRequestTypeDef
-):
-    pass
+class ListResolversResponseTypeDef(TypedDict):
+    resolvers: List[ResolverTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-UpdateTypeResponseTypeDef = TypedDict(
-    "UpdateTypeResponseTypeDef",
-    {
-        "type": "TypeTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class UpdateResolverResponseTypeDef(TypedDict):
+    resolver: ResolverTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredUserPoolConfigTypeDef = TypedDict(
-    "_RequiredUserPoolConfigTypeDef",
-    {
-        "userPoolId": str,
-        "awsRegion": str,
-        "defaultAction": DefaultActionType,
-    },
-)
-_OptionalUserPoolConfigTypeDef = TypedDict(
-    "_OptionalUserPoolConfigTypeDef",
-    {
-        "appIdClientRegex": str,
-    },
-    total=False,
-)
+class CreateApiResponseTypeDef(TypedDict):
+    api: ApiTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class UserPoolConfigTypeDef(_RequiredUserPoolConfigTypeDef, _OptionalUserPoolConfigTypeDef):
-    pass
+class GetApiResponseTypeDef(TypedDict):
+    api: ApiTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListApisResponseTypeDef(TypedDict):
+    apis: List[ApiTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class UpdateApiResponseTypeDef(TypedDict):
+    api: ApiTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateApiRequestTypeDef(TypedDict):
+    name: str
+    ownerContact: NotRequired[str]
+    tags: NotRequired[Mapping[str, str]]
+    eventConfig: NotRequired[EventConfigUnionTypeDef]
+
+class UpdateApiRequestTypeDef(TypedDict):
+    apiId: str
+    name: str
+    ownerContact: NotRequired[str]
+    eventConfig: NotRequired[EventConfigUnionTypeDef]
+
+class CreateDataSourceResponseTypeDef(TypedDict):
+    dataSource: DataSourceTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetDataSourceResponseTypeDef(TypedDict):
+    dataSource: DataSourceTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListDataSourcesResponseTypeDef(TypedDict):
+    dataSources: List[DataSourceTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class UpdateDataSourceResponseTypeDef(TypedDict):
+    dataSource: DataSourceTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetDataSourceIntrospectionResponseTypeDef(TypedDict):
+    introspectionId: str
+    introspectionStatus: DataSourceIntrospectionStatusType
+    introspectionStatusDetail: str
+    introspectionResult: DataSourceIntrospectionResultTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ChannelNamespaceTypeDef(TypedDict):
+    apiId: NotRequired[str]
+    name: NotRequired[str]
+    subscribeAuthModes: NotRequired[List[AuthModeTypeDef]]
+    publishAuthModes: NotRequired[List[AuthModeTypeDef]]
+    codeHandlers: NotRequired[str]
+    tags: NotRequired[Dict[str, str]]
+    channelNamespaceArn: NotRequired[str]
+    created: NotRequired[datetime]
+    lastModified: NotRequired[datetime]
+    handlerConfigs: NotRequired[HandlerConfigsTypeDef]
+
+class CreateChannelNamespaceRequestTypeDef(TypedDict):
+    apiId: str
+    name: str
+    subscribeAuthModes: NotRequired[Sequence[AuthModeTypeDef]]
+    publishAuthModes: NotRequired[Sequence[AuthModeTypeDef]]
+    codeHandlers: NotRequired[str]
+    tags: NotRequired[Mapping[str, str]]
+    handlerConfigs: NotRequired[HandlerConfigsTypeDef]
+
+class UpdateChannelNamespaceRequestTypeDef(TypedDict):
+    apiId: str
+    name: str
+    subscribeAuthModes: NotRequired[Sequence[AuthModeTypeDef]]
+    publishAuthModes: NotRequired[Sequence[AuthModeTypeDef]]
+    codeHandlers: NotRequired[str]
+    handlerConfigs: NotRequired[HandlerConfigsTypeDef]
+
+class CreateChannelNamespaceResponseTypeDef(TypedDict):
+    channelNamespace: ChannelNamespaceTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetChannelNamespaceResponseTypeDef(TypedDict):
+    channelNamespace: ChannelNamespaceTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListChannelNamespacesResponseTypeDef(TypedDict):
+    channelNamespaces: List[ChannelNamespaceTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class UpdateChannelNamespaceResponseTypeDef(TypedDict):
+    channelNamespace: ChannelNamespaceTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef

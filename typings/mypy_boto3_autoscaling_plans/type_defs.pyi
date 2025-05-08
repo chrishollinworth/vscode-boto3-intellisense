@@ -1,20 +1,24 @@
 """
 Type annotations for autoscaling-plans service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_autoscaling_plans/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_autoscaling_plans/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_autoscaling_plans.type_defs import ApplicationSourceTypeDef
+    from mypy_boto3_autoscaling_plans.type_defs import TagFilterOutputTypeDef
 
-    data: ApplicationSourceTypeDef = {...}
+    data: TagFilterOutputTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List, Union
+from typing import Union
 
 from .literals import (
     ForecastDataTypeType,
@@ -30,422 +34,293 @@ from .literals import (
     ServiceNamespaceType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
+    "ApplicationSourceOutputTypeDef",
     "ApplicationSourceTypeDef",
-    "CreateScalingPlanRequestRequestTypeDef",
+    "ApplicationSourceUnionTypeDef",
+    "CreateScalingPlanRequestTypeDef",
     "CreateScalingPlanResponseTypeDef",
+    "CustomizedLoadMetricSpecificationOutputTypeDef",
     "CustomizedLoadMetricSpecificationTypeDef",
+    "CustomizedLoadMetricSpecificationUnionTypeDef",
+    "CustomizedScalingMetricSpecificationOutputTypeDef",
     "CustomizedScalingMetricSpecificationTypeDef",
+    "CustomizedScalingMetricSpecificationUnionTypeDef",
     "DatapointTypeDef",
-    "DeleteScalingPlanRequestRequestTypeDef",
-    "DescribeScalingPlanResourcesRequestRequestTypeDef",
+    "DeleteScalingPlanRequestTypeDef",
+    "DescribeScalingPlanResourcesRequestPaginateTypeDef",
+    "DescribeScalingPlanResourcesRequestTypeDef",
     "DescribeScalingPlanResourcesResponseTypeDef",
-    "DescribeScalingPlansRequestRequestTypeDef",
+    "DescribeScalingPlansRequestPaginateTypeDef",
+    "DescribeScalingPlansRequestTypeDef",
     "DescribeScalingPlansResponseTypeDef",
-    "GetScalingPlanResourceForecastDataRequestRequestTypeDef",
+    "GetScalingPlanResourceForecastDataRequestTypeDef",
     "GetScalingPlanResourceForecastDataResponseTypeDef",
     "MetricDimensionTypeDef",
     "PaginatorConfigTypeDef",
     "PredefinedLoadMetricSpecificationTypeDef",
     "PredefinedScalingMetricSpecificationTypeDef",
     "ResponseMetadataTypeDef",
+    "ScalingInstructionOutputTypeDef",
     "ScalingInstructionTypeDef",
+    "ScalingInstructionUnionTypeDef",
     "ScalingPlanResourceTypeDef",
     "ScalingPlanTypeDef",
     "ScalingPolicyTypeDef",
+    "TagFilterOutputTypeDef",
     "TagFilterTypeDef",
+    "TagFilterUnionTypeDef",
+    "TargetTrackingConfigurationOutputTypeDef",
     "TargetTrackingConfigurationTypeDef",
-    "UpdateScalingPlanRequestRequestTypeDef",
+    "TargetTrackingConfigurationUnionTypeDef",
+    "TimestampTypeDef",
+    "UpdateScalingPlanRequestTypeDef",
 )
 
-ApplicationSourceTypeDef = TypedDict(
-    "ApplicationSourceTypeDef",
-    {
-        "CloudFormationStackARN": str,
-        "TagFilters": List["TagFilterTypeDef"],
-    },
-    total=False,
-)
+class TagFilterOutputTypeDef(TypedDict):
+    Key: NotRequired[str]
+    Values: NotRequired[List[str]]
 
-CreateScalingPlanRequestRequestTypeDef = TypedDict(
-    "CreateScalingPlanRequestRequestTypeDef",
-    {
-        "ScalingPlanName": str,
-        "ApplicationSource": "ApplicationSourceTypeDef",
-        "ScalingInstructions": List["ScalingInstructionTypeDef"],
-    },
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-CreateScalingPlanResponseTypeDef = TypedDict(
-    "CreateScalingPlanResponseTypeDef",
-    {
-        "ScalingPlanVersion": int,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class MetricDimensionTypeDef(TypedDict):
+    Name: str
+    Value: str
 
-_RequiredCustomizedLoadMetricSpecificationTypeDef = TypedDict(
-    "_RequiredCustomizedLoadMetricSpecificationTypeDef",
-    {
-        "MetricName": str,
-        "Namespace": str,
-        "Statistic": MetricStatisticType,
-    },
-)
-_OptionalCustomizedLoadMetricSpecificationTypeDef = TypedDict(
-    "_OptionalCustomizedLoadMetricSpecificationTypeDef",
-    {
-        "Dimensions": List["MetricDimensionTypeDef"],
-        "Unit": str,
-    },
-    total=False,
-)
+class DatapointTypeDef(TypedDict):
+    Timestamp: NotRequired[datetime]
+    Value: NotRequired[float]
 
-class CustomizedLoadMetricSpecificationTypeDef(
-    _RequiredCustomizedLoadMetricSpecificationTypeDef,
-    _OptionalCustomizedLoadMetricSpecificationTypeDef,
-):
-    pass
+class DeleteScalingPlanRequestTypeDef(TypedDict):
+    ScalingPlanName: str
+    ScalingPlanVersion: int
 
-_RequiredCustomizedScalingMetricSpecificationTypeDef = TypedDict(
-    "_RequiredCustomizedScalingMetricSpecificationTypeDef",
-    {
-        "MetricName": str,
-        "Namespace": str,
-        "Statistic": MetricStatisticType,
-    },
-)
-_OptionalCustomizedScalingMetricSpecificationTypeDef = TypedDict(
-    "_OptionalCustomizedScalingMetricSpecificationTypeDef",
-    {
-        "Dimensions": List["MetricDimensionTypeDef"],
-        "Unit": str,
-    },
-    total=False,
-)
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
 
-class CustomizedScalingMetricSpecificationTypeDef(
-    _RequiredCustomizedScalingMetricSpecificationTypeDef,
-    _OptionalCustomizedScalingMetricSpecificationTypeDef,
-):
-    pass
+class DescribeScalingPlanResourcesRequestTypeDef(TypedDict):
+    ScalingPlanName: str
+    ScalingPlanVersion: int
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
 
-DatapointTypeDef = TypedDict(
-    "DatapointTypeDef",
-    {
-        "Timestamp": datetime,
-        "Value": float,
-    },
-    total=False,
-)
+TimestampTypeDef = Union[datetime, str]
 
-DeleteScalingPlanRequestRequestTypeDef = TypedDict(
-    "DeleteScalingPlanRequestRequestTypeDef",
-    {
-        "ScalingPlanName": str,
-        "ScalingPlanVersion": int,
-    },
-)
+class PredefinedLoadMetricSpecificationTypeDef(TypedDict):
+    PredefinedLoadMetricType: LoadMetricTypeType
+    ResourceLabel: NotRequired[str]
 
-_RequiredDescribeScalingPlanResourcesRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeScalingPlanResourcesRequestRequestTypeDef",
-    {
-        "ScalingPlanName": str,
-        "ScalingPlanVersion": int,
-    },
-)
-_OptionalDescribeScalingPlanResourcesRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeScalingPlanResourcesRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
+class PredefinedScalingMetricSpecificationTypeDef(TypedDict):
+    PredefinedScalingMetricType: ScalingMetricTypeType
+    ResourceLabel: NotRequired[str]
 
-class DescribeScalingPlanResourcesRequestRequestTypeDef(
-    _RequiredDescribeScalingPlanResourcesRequestRequestTypeDef,
-    _OptionalDescribeScalingPlanResourcesRequestRequestTypeDef,
-):
-    pass
+class TagFilterTypeDef(TypedDict):
+    Key: NotRequired[str]
+    Values: NotRequired[Sequence[str]]
 
-DescribeScalingPlanResourcesResponseTypeDef = TypedDict(
-    "DescribeScalingPlanResourcesResponseTypeDef",
-    {
-        "ScalingPlanResources": List["ScalingPlanResourceTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ApplicationSourceOutputTypeDef(TypedDict):
+    CloudFormationStackARN: NotRequired[str]
+    TagFilters: NotRequired[List[TagFilterOutputTypeDef]]
 
-DescribeScalingPlansRequestRequestTypeDef = TypedDict(
-    "DescribeScalingPlansRequestRequestTypeDef",
-    {
-        "ScalingPlanNames": List[str],
-        "ScalingPlanVersion": int,
-        "ApplicationSources": List["ApplicationSourceTypeDef"],
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
+class CreateScalingPlanResponseTypeDef(TypedDict):
+    ScalingPlanVersion: int
+    ResponseMetadata: ResponseMetadataTypeDef
 
-DescribeScalingPlansResponseTypeDef = TypedDict(
-    "DescribeScalingPlansResponseTypeDef",
-    {
-        "ScalingPlans": List["ScalingPlanTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CustomizedLoadMetricSpecificationOutputTypeDef(TypedDict):
+    MetricName: str
+    Namespace: str
+    Statistic: MetricStatisticType
+    Dimensions: NotRequired[List[MetricDimensionTypeDef]]
+    Unit: NotRequired[str]
 
-GetScalingPlanResourceForecastDataRequestRequestTypeDef = TypedDict(
-    "GetScalingPlanResourceForecastDataRequestRequestTypeDef",
-    {
-        "ScalingPlanName": str,
-        "ScalingPlanVersion": int,
-        "ServiceNamespace": ServiceNamespaceType,
-        "ResourceId": str,
-        "ScalableDimension": ScalableDimensionType,
-        "ForecastDataType": ForecastDataTypeType,
-        "StartTime": Union[datetime, str],
-        "EndTime": Union[datetime, str],
-    },
-)
+class CustomizedLoadMetricSpecificationTypeDef(TypedDict):
+    MetricName: str
+    Namespace: str
+    Statistic: MetricStatisticType
+    Dimensions: NotRequired[Sequence[MetricDimensionTypeDef]]
+    Unit: NotRequired[str]
 
-GetScalingPlanResourceForecastDataResponseTypeDef = TypedDict(
-    "GetScalingPlanResourceForecastDataResponseTypeDef",
-    {
-        "Datapoints": List["DatapointTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CustomizedScalingMetricSpecificationOutputTypeDef(TypedDict):
+    MetricName: str
+    Namespace: str
+    Statistic: MetricStatisticType
+    Dimensions: NotRequired[List[MetricDimensionTypeDef]]
+    Unit: NotRequired[str]
 
-MetricDimensionTypeDef = TypedDict(
-    "MetricDimensionTypeDef",
-    {
-        "Name": str,
-        "Value": str,
-    },
-)
+class CustomizedScalingMetricSpecificationTypeDef(TypedDict):
+    MetricName: str
+    Namespace: str
+    Statistic: MetricStatisticType
+    Dimensions: NotRequired[Sequence[MetricDimensionTypeDef]]
+    Unit: NotRequired[str]
 
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
+class GetScalingPlanResourceForecastDataResponseTypeDef(TypedDict):
+    Datapoints: List[DatapointTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredPredefinedLoadMetricSpecificationTypeDef = TypedDict(
-    "_RequiredPredefinedLoadMetricSpecificationTypeDef",
-    {
-        "PredefinedLoadMetricType": LoadMetricTypeType,
-    },
-)
-_OptionalPredefinedLoadMetricSpecificationTypeDef = TypedDict(
-    "_OptionalPredefinedLoadMetricSpecificationTypeDef",
-    {
-        "ResourceLabel": str,
-    },
-    total=False,
-)
+class DescribeScalingPlanResourcesRequestPaginateTypeDef(TypedDict):
+    ScalingPlanName: str
+    ScalingPlanVersion: int
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-class PredefinedLoadMetricSpecificationTypeDef(
-    _RequiredPredefinedLoadMetricSpecificationTypeDef,
-    _OptionalPredefinedLoadMetricSpecificationTypeDef,
-):
-    pass
+class GetScalingPlanResourceForecastDataRequestTypeDef(TypedDict):
+    ScalingPlanName: str
+    ScalingPlanVersion: int
+    ServiceNamespace: ServiceNamespaceType
+    ResourceId: str
+    ScalableDimension: ScalableDimensionType
+    ForecastDataType: ForecastDataTypeType
+    StartTime: TimestampTypeDef
+    EndTime: TimestampTypeDef
 
-_RequiredPredefinedScalingMetricSpecificationTypeDef = TypedDict(
-    "_RequiredPredefinedScalingMetricSpecificationTypeDef",
-    {
-        "PredefinedScalingMetricType": ScalingMetricTypeType,
-    },
-)
-_OptionalPredefinedScalingMetricSpecificationTypeDef = TypedDict(
-    "_OptionalPredefinedScalingMetricSpecificationTypeDef",
-    {
-        "ResourceLabel": str,
-    },
-    total=False,
-)
+TagFilterUnionTypeDef = Union[TagFilterTypeDef, TagFilterOutputTypeDef]
+CustomizedLoadMetricSpecificationUnionTypeDef = Union[
+    CustomizedLoadMetricSpecificationTypeDef, CustomizedLoadMetricSpecificationOutputTypeDef
+]
 
-class PredefinedScalingMetricSpecificationTypeDef(
-    _RequiredPredefinedScalingMetricSpecificationTypeDef,
-    _OptionalPredefinedScalingMetricSpecificationTypeDef,
-):
-    pass
+class TargetTrackingConfigurationOutputTypeDef(TypedDict):
+    TargetValue: float
+    PredefinedScalingMetricSpecification: NotRequired[PredefinedScalingMetricSpecificationTypeDef]
+    CustomizedScalingMetricSpecification: NotRequired[
+        CustomizedScalingMetricSpecificationOutputTypeDef
+    ]
+    DisableScaleIn: NotRequired[bool]
+    ScaleOutCooldown: NotRequired[int]
+    ScaleInCooldown: NotRequired[int]
+    EstimatedInstanceWarmup: NotRequired[int]
 
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
+CustomizedScalingMetricSpecificationUnionTypeDef = Union[
+    CustomizedScalingMetricSpecificationTypeDef, CustomizedScalingMetricSpecificationOutputTypeDef
+]
 
-_RequiredScalingInstructionTypeDef = TypedDict(
-    "_RequiredScalingInstructionTypeDef",
-    {
-        "ServiceNamespace": ServiceNamespaceType,
-        "ResourceId": str,
-        "ScalableDimension": ScalableDimensionType,
-        "MinCapacity": int,
-        "MaxCapacity": int,
-        "TargetTrackingConfigurations": List["TargetTrackingConfigurationTypeDef"],
-    },
-)
-_OptionalScalingInstructionTypeDef = TypedDict(
-    "_OptionalScalingInstructionTypeDef",
-    {
-        "PredefinedLoadMetricSpecification": "PredefinedLoadMetricSpecificationTypeDef",
-        "CustomizedLoadMetricSpecification": "CustomizedLoadMetricSpecificationTypeDef",
-        "ScheduledActionBufferTime": int,
-        "PredictiveScalingMaxCapacityBehavior": PredictiveScalingMaxCapacityBehaviorType,
-        "PredictiveScalingMaxCapacityBuffer": int,
-        "PredictiveScalingMode": PredictiveScalingModeType,
-        "ScalingPolicyUpdateBehavior": ScalingPolicyUpdateBehaviorType,
-        "DisableDynamicScaling": bool,
-    },
-    total=False,
-)
+class ApplicationSourceTypeDef(TypedDict):
+    CloudFormationStackARN: NotRequired[str]
+    TagFilters: NotRequired[Sequence[TagFilterUnionTypeDef]]
 
-class ScalingInstructionTypeDef(
-    _RequiredScalingInstructionTypeDef, _OptionalScalingInstructionTypeDef
-):
-    pass
+class ScalingInstructionOutputTypeDef(TypedDict):
+    ServiceNamespace: ServiceNamespaceType
+    ResourceId: str
+    ScalableDimension: ScalableDimensionType
+    MinCapacity: int
+    MaxCapacity: int
+    TargetTrackingConfigurations: List[TargetTrackingConfigurationOutputTypeDef]
+    PredefinedLoadMetricSpecification: NotRequired[PredefinedLoadMetricSpecificationTypeDef]
+    CustomizedLoadMetricSpecification: NotRequired[CustomizedLoadMetricSpecificationOutputTypeDef]
+    ScheduledActionBufferTime: NotRequired[int]
+    PredictiveScalingMaxCapacityBehavior: NotRequired[PredictiveScalingMaxCapacityBehaviorType]
+    PredictiveScalingMaxCapacityBuffer: NotRequired[int]
+    PredictiveScalingMode: NotRequired[PredictiveScalingModeType]
+    ScalingPolicyUpdateBehavior: NotRequired[ScalingPolicyUpdateBehaviorType]
+    DisableDynamicScaling: NotRequired[bool]
 
-_RequiredScalingPlanResourceTypeDef = TypedDict(
-    "_RequiredScalingPlanResourceTypeDef",
-    {
-        "ScalingPlanName": str,
-        "ScalingPlanVersion": int,
-        "ServiceNamespace": ServiceNamespaceType,
-        "ResourceId": str,
-        "ScalableDimension": ScalableDimensionType,
-        "ScalingStatusCode": ScalingStatusCodeType,
-    },
-)
-_OptionalScalingPlanResourceTypeDef = TypedDict(
-    "_OptionalScalingPlanResourceTypeDef",
-    {
-        "ScalingPolicies": List["ScalingPolicyTypeDef"],
-        "ScalingStatusMessage": str,
-    },
-    total=False,
-)
+class ScalingPolicyTypeDef(TypedDict):
+    PolicyName: str
+    PolicyType: Literal["TargetTrackingScaling"]
+    TargetTrackingConfiguration: NotRequired[TargetTrackingConfigurationOutputTypeDef]
 
-class ScalingPlanResourceTypeDef(
-    _RequiredScalingPlanResourceTypeDef, _OptionalScalingPlanResourceTypeDef
-):
-    pass
+class TargetTrackingConfigurationTypeDef(TypedDict):
+    TargetValue: float
+    PredefinedScalingMetricSpecification: NotRequired[PredefinedScalingMetricSpecificationTypeDef]
+    CustomizedScalingMetricSpecification: NotRequired[
+        CustomizedScalingMetricSpecificationUnionTypeDef
+    ]
+    DisableScaleIn: NotRequired[bool]
+    ScaleOutCooldown: NotRequired[int]
+    ScaleInCooldown: NotRequired[int]
+    EstimatedInstanceWarmup: NotRequired[int]
 
-_RequiredScalingPlanTypeDef = TypedDict(
-    "_RequiredScalingPlanTypeDef",
-    {
-        "ScalingPlanName": str,
-        "ScalingPlanVersion": int,
-        "ApplicationSource": "ApplicationSourceTypeDef",
-        "ScalingInstructions": List["ScalingInstructionTypeDef"],
-        "StatusCode": ScalingPlanStatusCodeType,
-    },
-)
-_OptionalScalingPlanTypeDef = TypedDict(
-    "_OptionalScalingPlanTypeDef",
-    {
-        "StatusMessage": str,
-        "StatusStartTime": datetime,
-        "CreationTime": datetime,
-    },
-    total=False,
-)
+ApplicationSourceUnionTypeDef = Union[ApplicationSourceTypeDef, ApplicationSourceOutputTypeDef]
 
-class ScalingPlanTypeDef(_RequiredScalingPlanTypeDef, _OptionalScalingPlanTypeDef):
-    pass
+class ScalingPlanTypeDef(TypedDict):
+    ScalingPlanName: str
+    ScalingPlanVersion: int
+    ApplicationSource: ApplicationSourceOutputTypeDef
+    ScalingInstructions: List[ScalingInstructionOutputTypeDef]
+    StatusCode: ScalingPlanStatusCodeType
+    StatusMessage: NotRequired[str]
+    StatusStartTime: NotRequired[datetime]
+    CreationTime: NotRequired[datetime]
 
-_RequiredScalingPolicyTypeDef = TypedDict(
-    "_RequiredScalingPolicyTypeDef",
-    {
-        "PolicyName": str,
-        "PolicyType": Literal["TargetTrackingScaling"],
-    },
-)
-_OptionalScalingPolicyTypeDef = TypedDict(
-    "_OptionalScalingPolicyTypeDef",
-    {
-        "TargetTrackingConfiguration": "TargetTrackingConfigurationTypeDef",
-    },
-    total=False,
-)
+class ScalingPlanResourceTypeDef(TypedDict):
+    ScalingPlanName: str
+    ScalingPlanVersion: int
+    ServiceNamespace: ServiceNamespaceType
+    ResourceId: str
+    ScalableDimension: ScalableDimensionType
+    ScalingStatusCode: ScalingStatusCodeType
+    ScalingPolicies: NotRequired[List[ScalingPolicyTypeDef]]
+    ScalingStatusMessage: NotRequired[str]
 
-class ScalingPolicyTypeDef(_RequiredScalingPolicyTypeDef, _OptionalScalingPolicyTypeDef):
-    pass
+TargetTrackingConfigurationUnionTypeDef = Union[
+    TargetTrackingConfigurationTypeDef, TargetTrackingConfigurationOutputTypeDef
+]
 
-TagFilterTypeDef = TypedDict(
-    "TagFilterTypeDef",
-    {
-        "Key": str,
-        "Values": List[str],
-    },
-    total=False,
-)
+class DescribeScalingPlansRequestPaginateTypeDef(TypedDict):
+    ScalingPlanNames: NotRequired[Sequence[str]]
+    ScalingPlanVersion: NotRequired[int]
+    ApplicationSources: NotRequired[Sequence[ApplicationSourceUnionTypeDef]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-_RequiredTargetTrackingConfigurationTypeDef = TypedDict(
-    "_RequiredTargetTrackingConfigurationTypeDef",
-    {
-        "TargetValue": float,
-    },
-)
-_OptionalTargetTrackingConfigurationTypeDef = TypedDict(
-    "_OptionalTargetTrackingConfigurationTypeDef",
-    {
-        "PredefinedScalingMetricSpecification": "PredefinedScalingMetricSpecificationTypeDef",
-        "CustomizedScalingMetricSpecification": "CustomizedScalingMetricSpecificationTypeDef",
-        "DisableScaleIn": bool,
-        "ScaleOutCooldown": int,
-        "ScaleInCooldown": int,
-        "EstimatedInstanceWarmup": int,
-    },
-    total=False,
-)
+class DescribeScalingPlansRequestTypeDef(TypedDict):
+    ScalingPlanNames: NotRequired[Sequence[str]]
+    ScalingPlanVersion: NotRequired[int]
+    ApplicationSources: NotRequired[Sequence[ApplicationSourceUnionTypeDef]]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
 
-class TargetTrackingConfigurationTypeDef(
-    _RequiredTargetTrackingConfigurationTypeDef, _OptionalTargetTrackingConfigurationTypeDef
-):
-    pass
+class DescribeScalingPlansResponseTypeDef(TypedDict):
+    ScalingPlans: List[ScalingPlanTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-_RequiredUpdateScalingPlanRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateScalingPlanRequestRequestTypeDef",
-    {
-        "ScalingPlanName": str,
-        "ScalingPlanVersion": int,
-    },
-)
-_OptionalUpdateScalingPlanRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateScalingPlanRequestRequestTypeDef",
-    {
-        "ApplicationSource": "ApplicationSourceTypeDef",
-        "ScalingInstructions": List["ScalingInstructionTypeDef"],
-    },
-    total=False,
-)
+class DescribeScalingPlanResourcesResponseTypeDef(TypedDict):
+    ScalingPlanResources: List[ScalingPlanResourceTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-class UpdateScalingPlanRequestRequestTypeDef(
-    _RequiredUpdateScalingPlanRequestRequestTypeDef, _OptionalUpdateScalingPlanRequestRequestTypeDef
-):
-    pass
+class ScalingInstructionTypeDef(TypedDict):
+    ServiceNamespace: ServiceNamespaceType
+    ResourceId: str
+    ScalableDimension: ScalableDimensionType
+    MinCapacity: int
+    MaxCapacity: int
+    TargetTrackingConfigurations: Sequence[TargetTrackingConfigurationUnionTypeDef]
+    PredefinedLoadMetricSpecification: NotRequired[PredefinedLoadMetricSpecificationTypeDef]
+    CustomizedLoadMetricSpecification: NotRequired[CustomizedLoadMetricSpecificationUnionTypeDef]
+    ScheduledActionBufferTime: NotRequired[int]
+    PredictiveScalingMaxCapacityBehavior: NotRequired[PredictiveScalingMaxCapacityBehaviorType]
+    PredictiveScalingMaxCapacityBuffer: NotRequired[int]
+    PredictiveScalingMode: NotRequired[PredictiveScalingModeType]
+    ScalingPolicyUpdateBehavior: NotRequired[ScalingPolicyUpdateBehaviorType]
+    DisableDynamicScaling: NotRequired[bool]
+
+ScalingInstructionUnionTypeDef = Union[ScalingInstructionTypeDef, ScalingInstructionOutputTypeDef]
+
+class CreateScalingPlanRequestTypeDef(TypedDict):
+    ScalingPlanName: str
+    ApplicationSource: ApplicationSourceUnionTypeDef
+    ScalingInstructions: Sequence[ScalingInstructionUnionTypeDef]
+
+class UpdateScalingPlanRequestTypeDef(TypedDict):
+    ScalingPlanName: str
+    ScalingPlanVersion: int
+    ApplicationSource: NotRequired[ApplicationSourceUnionTypeDef]
+    ScalingInstructions: NotRequired[Sequence[ScalingInstructionUnionTypeDef]]

@@ -1,30 +1,30 @@
 """
-Type annotations for mediaconnect service client.
+Type annotations for mediaconnect service Client.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
-    from mypy_boto3_mediaconnect import MediaConnectClient
+    from boto3.session import Session
+    from mypy_boto3_mediaconnect.client import MediaConnectClient
 
-    client: MediaConnectClient = boto3.client("mediaconnect")
+    session = Session()
+    client: MediaConnectClient = session.client("mediaconnect")
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from typing import Any, Dict, List, Type, overload
+from typing import Any, overload
 
 from botocore.client import BaseClient, ClientMeta
+from botocore.errorfactory import BaseClientExceptions
+from botocore.exceptions import ClientError as BotocoreClientError
 
-from .literals import (
-    BridgePlacementType,
-    DesiredStateType,
-    EntitlementStatusType,
-    MediaStreamTypeType,
-    ProtocolType,
-)
 from .paginator import (
     ListBridgesPaginator,
     ListEntitlementsPaginator,
@@ -35,98 +35,125 @@ from .paginator import (
     ListReservationsPaginator,
 )
 from .type_defs import (
-    AddBridgeOutputRequestTypeDef,
+    AddBridgeOutputsRequestTypeDef,
     AddBridgeOutputsResponseTypeDef,
-    AddBridgeSourceRequestTypeDef,
+    AddBridgeSourcesRequestTypeDef,
     AddBridgeSourcesResponseTypeDef,
-    AddEgressGatewayBridgeRequestTypeDef,
+    AddFlowMediaStreamsRequestTypeDef,
     AddFlowMediaStreamsResponseTypeDef,
+    AddFlowOutputsRequestTypeDef,
     AddFlowOutputsResponseTypeDef,
+    AddFlowSourcesRequestTypeDef,
     AddFlowSourcesResponseTypeDef,
+    AddFlowVpcInterfacesRequestTypeDef,
     AddFlowVpcInterfacesResponseTypeDef,
-    AddIngressGatewayBridgeRequestTypeDef,
-    AddMaintenanceTypeDef,
-    AddMediaStreamRequestTypeDef,
-    AddOutputRequestTypeDef,
+    CreateBridgeRequestTypeDef,
     CreateBridgeResponseTypeDef,
+    CreateFlowRequestTypeDef,
     CreateFlowResponseTypeDef,
+    CreateGatewayRequestTypeDef,
     CreateGatewayResponseTypeDef,
+    DeleteBridgeRequestTypeDef,
     DeleteBridgeResponseTypeDef,
+    DeleteFlowRequestTypeDef,
     DeleteFlowResponseTypeDef,
+    DeleteGatewayRequestTypeDef,
     DeleteGatewayResponseTypeDef,
+    DeregisterGatewayInstanceRequestTypeDef,
     DeregisterGatewayInstanceResponseTypeDef,
+    DescribeBridgeRequestTypeDef,
     DescribeBridgeResponseTypeDef,
+    DescribeFlowRequestTypeDef,
     DescribeFlowResponseTypeDef,
+    DescribeFlowSourceMetadataRequestTypeDef,
     DescribeFlowSourceMetadataResponseTypeDef,
+    DescribeFlowSourceThumbnailRequestTypeDef,
+    DescribeFlowSourceThumbnailResponseTypeDef,
+    DescribeGatewayInstanceRequestTypeDef,
     DescribeGatewayInstanceResponseTypeDef,
+    DescribeGatewayRequestTypeDef,
     DescribeGatewayResponseTypeDef,
+    DescribeOfferingRequestTypeDef,
     DescribeOfferingResponseTypeDef,
+    DescribeReservationRequestTypeDef,
     DescribeReservationResponseTypeDef,
-    FailoverConfigTypeDef,
-    GatewayNetworkTypeDef,
-    GrantEntitlementRequestTypeDef,
+    EmptyResponseMetadataTypeDef,
+    GrantFlowEntitlementsRequestTypeDef,
     GrantFlowEntitlementsResponseTypeDef,
+    ListBridgesRequestTypeDef,
     ListBridgesResponseTypeDef,
+    ListEntitlementsRequestTypeDef,
     ListEntitlementsResponseTypeDef,
+    ListFlowsRequestTypeDef,
     ListFlowsResponseTypeDef,
+    ListGatewayInstancesRequestTypeDef,
     ListGatewayInstancesResponseTypeDef,
+    ListGatewaysRequestTypeDef,
     ListGatewaysResponseTypeDef,
+    ListOfferingsRequestTypeDef,
     ListOfferingsResponseTypeDef,
+    ListReservationsRequestTypeDef,
     ListReservationsResponseTypeDef,
+    ListTagsForResourceRequestTypeDef,
     ListTagsForResourceResponseTypeDef,
-    MediaStreamAttributesRequestTypeDef,
-    MediaStreamOutputConfigurationRequestTypeDef,
-    MediaStreamSourceConfigurationRequestTypeDef,
+    PurchaseOfferingRequestTypeDef,
     PurchaseOfferingResponseTypeDef,
+    RemoveBridgeOutputRequestTypeDef,
     RemoveBridgeOutputResponseTypeDef,
+    RemoveBridgeSourceRequestTypeDef,
     RemoveBridgeSourceResponseTypeDef,
+    RemoveFlowMediaStreamRequestTypeDef,
     RemoveFlowMediaStreamResponseTypeDef,
+    RemoveFlowOutputRequestTypeDef,
     RemoveFlowOutputResponseTypeDef,
+    RemoveFlowSourceRequestTypeDef,
     RemoveFlowSourceResponseTypeDef,
+    RemoveFlowVpcInterfaceRequestTypeDef,
     RemoveFlowVpcInterfaceResponseTypeDef,
+    RevokeFlowEntitlementRequestTypeDef,
     RevokeFlowEntitlementResponseTypeDef,
-    SetSourceRequestTypeDef,
+    StartFlowRequestTypeDef,
     StartFlowResponseTypeDef,
+    StopFlowRequestTypeDef,
     StopFlowResponseTypeDef,
-    UpdateBridgeFlowSourceRequestTypeDef,
-    UpdateBridgeNetworkOutputRequestTypeDef,
-    UpdateBridgeNetworkSourceRequestTypeDef,
+    TagResourceRequestTypeDef,
+    UntagResourceRequestTypeDef,
+    UpdateBridgeOutputRequestTypeDef,
     UpdateBridgeOutputResponseTypeDef,
+    UpdateBridgeRequestTypeDef,
     UpdateBridgeResponseTypeDef,
+    UpdateBridgeSourceRequestTypeDef,
     UpdateBridgeSourceResponseTypeDef,
+    UpdateBridgeStateRequestTypeDef,
     UpdateBridgeStateResponseTypeDef,
-    UpdateEgressGatewayBridgeRequestTypeDef,
-    UpdateEncryptionTypeDef,
-    UpdateFailoverConfigTypeDef,
+    UpdateFlowEntitlementRequestTypeDef,
     UpdateFlowEntitlementResponseTypeDef,
+    UpdateFlowMediaStreamRequestTypeDef,
     UpdateFlowMediaStreamResponseTypeDef,
+    UpdateFlowOutputRequestTypeDef,
     UpdateFlowOutputResponseTypeDef,
+    UpdateFlowRequestTypeDef,
     UpdateFlowResponseTypeDef,
+    UpdateFlowSourceRequestTypeDef,
     UpdateFlowSourceResponseTypeDef,
-    UpdateGatewayBridgeSourceRequestTypeDef,
+    UpdateGatewayInstanceRequestTypeDef,
     UpdateGatewayInstanceResponseTypeDef,
-    UpdateIngressGatewayBridgeRequestTypeDef,
-    UpdateMaintenanceTypeDef,
-    VpcInterfaceAttachmentTypeDef,
-    VpcInterfaceRequestTypeDef,
 )
 from .waiter import FlowActiveWaiter, FlowDeletedWaiter, FlowStandbyWaiter
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import type as Type
+    from collections.abc import Mapping
 else:
-    from typing_extensions import Literal
+    from typing import Mapping, Type
+if sys.version_info >= (3, 12):
+    from typing import Literal, Unpack
+else:
+    from typing_extensions import Literal, Unpack
 
 __all__ = ("MediaConnectClient",)
 
-class BotocoreClientError(BaseException):
-    MSG_TEMPLATE: str
-
-    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
-        self.response: Dict[str, Any]
-        self.operation_name: str
-
-class Exceptions:
+class Exceptions(BaseClientExceptions):
     AddFlowOutputs420Exception: Type[BotocoreClientError]
     BadRequestException: Type[BotocoreClientError]
     ClientError: Type[BotocoreClientError]
@@ -143,8 +170,8 @@ class Exceptions:
 
 class MediaConnectClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect.html#MediaConnect.Client)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/)
     """
 
     meta: ClientMeta
@@ -153,710 +180,648 @@ class MediaConnectClient(BaseClient):
     def exceptions(self) -> Exceptions:
         """
         MediaConnectClient exceptions.
-        """
 
-    def add_bridge_outputs(
-        self, *, BridgeArn: str, Outputs: List["AddBridgeOutputRequestTypeDef"]
-    ) -> AddBridgeOutputsResponseTypeDef:
-        """
-        Adds outputs to an existing bridge.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.add_bridge_outputs)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#add_bridge_outputs)
-        """
-
-    def add_bridge_sources(
-        self, *, BridgeArn: str, Sources: List["AddBridgeSourceRequestTypeDef"]
-    ) -> AddBridgeSourcesResponseTypeDef:
-        """
-        Adds sources to an existing bridge.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.add_bridge_sources)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#add_bridge_sources)
-        """
-
-    def add_flow_media_streams(
-        self, *, FlowArn: str, MediaStreams: List["AddMediaStreamRequestTypeDef"]
-    ) -> AddFlowMediaStreamsResponseTypeDef:
-        """
-        Adds media streams to an existing flow.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.add_flow_media_streams)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#add_flow_media_streams)
-        """
-
-    def add_flow_outputs(
-        self, *, FlowArn: str, Outputs: List["AddOutputRequestTypeDef"]
-    ) -> AddFlowOutputsResponseTypeDef:
-        """
-        Adds outputs to an existing flow.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.add_flow_outputs)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#add_flow_outputs)
-        """
-
-    def add_flow_sources(
-        self, *, FlowArn: str, Sources: List["SetSourceRequestTypeDef"]
-    ) -> AddFlowSourcesResponseTypeDef:
-        """
-        Adds Sources to flow See also: `AWS API Documentation <https://docs.aws.amazon.c
-        om/goto/WebAPI/mediaconnect-2018-11-14/AddFlowSources>`_ **Request Syntax**
-        response = client.add_flow_sources( FlowArn='string', Sources=[ { 'Decryption':
-        { ...
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.add_flow_sources)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#add_flow_sources)
-        """
-
-    def add_flow_vpc_interfaces(
-        self, *, FlowArn: str, VpcInterfaces: List["VpcInterfaceRequestTypeDef"]
-    ) -> AddFlowVpcInterfacesResponseTypeDef:
-        """
-        Adds VPC interfaces to flow See also: `AWS API Documentation <https://docs.aws.a
-        mazon.com/goto/WebAPI/mediaconnect-2018-11-14/AddFlowVpcInterfaces>`_ **Request
-        Syntax** response = client.add_flow_vpc_interfaces( FlowArn='string',
-        VpcInterfaces=[ { 'Nam...
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.add_flow_vpc_interfaces)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#add_flow_vpc_interfaces)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect.html#MediaConnect.Client)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#exceptions)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        Check if an operation can be paginated.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.can_paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#can_paginate)
-        """
-
-    def close(self) -> None:
-        """
-        Closes underlying endpoint connections.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.close)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#close)
-        """
-
-    def create_bridge(
-        self,
-        *,
-        Name: str,
-        PlacementArn: str,
-        Sources: List["AddBridgeSourceRequestTypeDef"],
-        EgressGatewayBridge: "AddEgressGatewayBridgeRequestTypeDef" = None,
-        IngressGatewayBridge: "AddIngressGatewayBridgeRequestTypeDef" = None,
-        Outputs: List["AddBridgeOutputRequestTypeDef"] = None,
-        SourceFailoverConfig: "FailoverConfigTypeDef" = None
-    ) -> CreateBridgeResponseTypeDef:
-        """
-        Creates a new bridge.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.create_bridge)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#create_bridge)
-        """
-
-    def create_flow(
-        self,
-        *,
-        Name: str,
-        AvailabilityZone: str = None,
-        Entitlements: List["GrantEntitlementRequestTypeDef"] = None,
-        MediaStreams: List["AddMediaStreamRequestTypeDef"] = None,
-        Outputs: List["AddOutputRequestTypeDef"] = None,
-        Source: "SetSourceRequestTypeDef" = None,
-        SourceFailoverConfig: "FailoverConfigTypeDef" = None,
-        Sources: List["SetSourceRequestTypeDef"] = None,
-        VpcInterfaces: List["VpcInterfaceRequestTypeDef"] = None,
-        Maintenance: "AddMaintenanceTypeDef" = None
-    ) -> CreateFlowResponseTypeDef:
-        """
-        Creates a new flow.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.create_flow)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#create_flow)
-        """
-
-    def create_gateway(
-        self, *, EgressCidrBlocks: List[str], Name: str, Networks: List["GatewayNetworkTypeDef"]
-    ) -> CreateGatewayResponseTypeDef:
-        """
-        Creates a new gateway.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.create_gateway)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#create_gateway)
-        """
-
-    def delete_bridge(self, *, BridgeArn: str) -> DeleteBridgeResponseTypeDef:
-        """
-        Deletes a bridge.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.delete_bridge)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#delete_bridge)
-        """
-
-    def delete_flow(self, *, FlowArn: str) -> DeleteFlowResponseTypeDef:
-        """
-        Deletes a flow.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.delete_flow)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#delete_flow)
-        """
-
-    def delete_gateway(self, *, GatewayArn: str) -> DeleteGatewayResponseTypeDef:
-        """
-        Deletes a gateway.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.delete_gateway)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#delete_gateway)
-        """
-
-    def deregister_gateway_instance(
-        self, *, GatewayInstanceArn: str, Force: bool = None
-    ) -> DeregisterGatewayInstanceResponseTypeDef:
-        """
-        Deregisters an instance.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.deregister_gateway_instance)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#deregister_gateway_instance)
-        """
-
-    def describe_bridge(self, *, BridgeArn: str) -> DescribeBridgeResponseTypeDef:
-        """
-        Displays the details of a bridge.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.describe_bridge)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#describe_bridge)
-        """
-
-    def describe_flow(self, *, FlowArn: str) -> DescribeFlowResponseTypeDef:
-        """
-        Displays the details of a flow.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.describe_flow)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#describe_flow)
-        """
-
-    def describe_flow_source_metadata(
-        self, *, FlowArn: str
-    ) -> DescribeFlowSourceMetadataResponseTypeDef:
-        """
-        Displays details of the flow's source stream.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.describe_flow_source_metadata)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#describe_flow_source_metadata)
-        """
-
-    def describe_gateway(self, *, GatewayArn: str) -> DescribeGatewayResponseTypeDef:
-        """
-        Displays the details of a gateway.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.describe_gateway)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#describe_gateway)
-        """
-
-    def describe_gateway_instance(
-        self, *, GatewayInstanceArn: str
-    ) -> DescribeGatewayInstanceResponseTypeDef:
-        """
-        Displays the details of an instance.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.describe_gateway_instance)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#describe_gateway_instance)
-        """
-
-    def describe_offering(self, *, OfferingArn: str) -> DescribeOfferingResponseTypeDef:
-        """
-        Displays the details of an offering.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.describe_offering)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#describe_offering)
-        """
-
-    def describe_reservation(self, *, ReservationArn: str) -> DescribeReservationResponseTypeDef:
-        """
-        Displays the details of a reservation.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.describe_reservation)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#describe_reservation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/can_paginate.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#can_paginate)
         """
 
     def generate_presigned_url(
         self,
         ClientMethod: str,
-        Params: Dict[str, Any] = None,
+        Params: Mapping[str, Any] = ...,
         ExpiresIn: int = 3600,
-        HttpMethod: str = None,
+        HttpMethod: str = ...,
     ) -> str:
         """
-        Generate a presigned url given a client, its method, and arguments.
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/generate_presigned_url.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#generate_presigned_url)
+        """
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.generate_presigned_url)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#generate_presigned_url)
+    def add_bridge_outputs(
+        self, **kwargs: Unpack[AddBridgeOutputsRequestTypeDef]
+    ) -> AddBridgeOutputsResponseTypeDef:
+        """
+        Adds outputs to an existing bridge.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/add_bridge_outputs.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#add_bridge_outputs)
+        """
+
+    def add_bridge_sources(
+        self, **kwargs: Unpack[AddBridgeSourcesRequestTypeDef]
+    ) -> AddBridgeSourcesResponseTypeDef:
+        """
+        Adds sources to an existing bridge.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/add_bridge_sources.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#add_bridge_sources)
+        """
+
+    def add_flow_media_streams(
+        self, **kwargs: Unpack[AddFlowMediaStreamsRequestTypeDef]
+    ) -> AddFlowMediaStreamsResponseTypeDef:
+        """
+        Adds media streams to an existing flow.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/add_flow_media_streams.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#add_flow_media_streams)
+        """
+
+    def add_flow_outputs(
+        self, **kwargs: Unpack[AddFlowOutputsRequestTypeDef]
+    ) -> AddFlowOutputsResponseTypeDef:
+        """
+        Adds outputs to an existing flow.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/add_flow_outputs.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#add_flow_outputs)
+        """
+
+    def add_flow_sources(
+        self, **kwargs: Unpack[AddFlowSourcesRequestTypeDef]
+    ) -> AddFlowSourcesResponseTypeDef:
+        """
+        Adds sources to a flow.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/add_flow_sources.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#add_flow_sources)
+        """
+
+    def add_flow_vpc_interfaces(
+        self, **kwargs: Unpack[AddFlowVpcInterfacesRequestTypeDef]
+    ) -> AddFlowVpcInterfacesResponseTypeDef:
+        """
+        Adds VPC interfaces to a flow.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/add_flow_vpc_interfaces.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#add_flow_vpc_interfaces)
+        """
+
+    def create_bridge(
+        self, **kwargs: Unpack[CreateBridgeRequestTypeDef]
+    ) -> CreateBridgeResponseTypeDef:
+        """
+        Creates a new bridge.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/create_bridge.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#create_bridge)
+        """
+
+    def create_flow(self, **kwargs: Unpack[CreateFlowRequestTypeDef]) -> CreateFlowResponseTypeDef:
+        """
+        Creates a new flow.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/create_flow.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#create_flow)
+        """
+
+    def create_gateway(
+        self, **kwargs: Unpack[CreateGatewayRequestTypeDef]
+    ) -> CreateGatewayResponseTypeDef:
+        """
+        Creates a new gateway.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/create_gateway.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#create_gateway)
+        """
+
+    def delete_bridge(
+        self, **kwargs: Unpack[DeleteBridgeRequestTypeDef]
+    ) -> DeleteBridgeResponseTypeDef:
+        """
+        Deletes a bridge.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/delete_bridge.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#delete_bridge)
+        """
+
+    def delete_flow(self, **kwargs: Unpack[DeleteFlowRequestTypeDef]) -> DeleteFlowResponseTypeDef:
+        """
+        Deletes a flow.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/delete_flow.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#delete_flow)
+        """
+
+    def delete_gateway(
+        self, **kwargs: Unpack[DeleteGatewayRequestTypeDef]
+    ) -> DeleteGatewayResponseTypeDef:
+        """
+        Deletes a gateway.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/delete_gateway.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#delete_gateway)
+        """
+
+    def deregister_gateway_instance(
+        self, **kwargs: Unpack[DeregisterGatewayInstanceRequestTypeDef]
+    ) -> DeregisterGatewayInstanceResponseTypeDef:
+        """
+        Deregisters an instance.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/deregister_gateway_instance.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#deregister_gateway_instance)
+        """
+
+    def describe_bridge(
+        self, **kwargs: Unpack[DescribeBridgeRequestTypeDef]
+    ) -> DescribeBridgeResponseTypeDef:
+        """
+        Displays the details of a bridge.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/describe_bridge.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#describe_bridge)
+        """
+
+    def describe_flow(
+        self, **kwargs: Unpack[DescribeFlowRequestTypeDef]
+    ) -> DescribeFlowResponseTypeDef:
+        """
+        Displays the details of a flow.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/describe_flow.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#describe_flow)
+        """
+
+    def describe_flow_source_metadata(
+        self, **kwargs: Unpack[DescribeFlowSourceMetadataRequestTypeDef]
+    ) -> DescribeFlowSourceMetadataResponseTypeDef:
+        """
+        The <code>DescribeFlowSourceMetadata</code> API is used to view information
+        about the flow's source transport stream and programs.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/describe_flow_source_metadata.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#describe_flow_source_metadata)
+        """
+
+    def describe_flow_source_thumbnail(
+        self, **kwargs: Unpack[DescribeFlowSourceThumbnailRequestTypeDef]
+    ) -> DescribeFlowSourceThumbnailResponseTypeDef:
+        """
+        Describes the thumbnail for the flow source.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/describe_flow_source_thumbnail.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#describe_flow_source_thumbnail)
+        """
+
+    def describe_gateway(
+        self, **kwargs: Unpack[DescribeGatewayRequestTypeDef]
+    ) -> DescribeGatewayResponseTypeDef:
+        """
+        Displays the details of a gateway.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/describe_gateway.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#describe_gateway)
+        """
+
+    def describe_gateway_instance(
+        self, **kwargs: Unpack[DescribeGatewayInstanceRequestTypeDef]
+    ) -> DescribeGatewayInstanceResponseTypeDef:
+        """
+        Displays the details of an instance.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/describe_gateway_instance.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#describe_gateway_instance)
+        """
+
+    def describe_offering(
+        self, **kwargs: Unpack[DescribeOfferingRequestTypeDef]
+    ) -> DescribeOfferingResponseTypeDef:
+        """
+        Displays the details of an offering.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/describe_offering.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#describe_offering)
+        """
+
+    def describe_reservation(
+        self, **kwargs: Unpack[DescribeReservationRequestTypeDef]
+    ) -> DescribeReservationResponseTypeDef:
+        """
+        Displays the details of a reservation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/describe_reservation.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#describe_reservation)
         """
 
     def grant_flow_entitlements(
-        self, *, Entitlements: List["GrantEntitlementRequestTypeDef"], FlowArn: str
+        self, **kwargs: Unpack[GrantFlowEntitlementsRequestTypeDef]
     ) -> GrantFlowEntitlementsResponseTypeDef:
         """
         Grants entitlements to an existing flow.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.grant_flow_entitlements)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#grant_flow_entitlements)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/grant_flow_entitlements.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#grant_flow_entitlements)
         """
 
     def list_bridges(
-        self, *, FilterArn: str = None, MaxResults: int = None, NextToken: str = None
+        self, **kwargs: Unpack[ListBridgesRequestTypeDef]
     ) -> ListBridgesResponseTypeDef:
         """
         Displays a list of bridges that are associated with this account and an
-        optionally specified Arn.
+        optionally specified Amazon Resource Name (ARN).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.list_bridges)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#list_bridges)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/list_bridges.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#list_bridges)
         """
 
     def list_entitlements(
-        self, *, MaxResults: int = None, NextToken: str = None
+        self, **kwargs: Unpack[ListEntitlementsRequestTypeDef]
     ) -> ListEntitlementsResponseTypeDef:
         """
         Displays a list of all entitlements that have been granted to this account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.list_entitlements)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#list_entitlements)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/list_entitlements.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#list_entitlements)
         """
 
-    def list_flows(
-        self, *, MaxResults: int = None, NextToken: str = None
-    ) -> ListFlowsResponseTypeDef:
+    def list_flows(self, **kwargs: Unpack[ListFlowsRequestTypeDef]) -> ListFlowsResponseTypeDef:
         """
         Displays a list of flows that are associated with this account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.list_flows)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#list_flows)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/list_flows.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#list_flows)
         """
 
     def list_gateway_instances(
-        self, *, FilterArn: str = None, MaxResults: int = None, NextToken: str = None
+        self, **kwargs: Unpack[ListGatewayInstancesRequestTypeDef]
     ) -> ListGatewayInstancesResponseTypeDef:
         """
-        Displays a list of instances associated with the AWS account.
+        Displays a list of instances associated with the Amazon Web Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.list_gateway_instances)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#list_gateway_instances)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/list_gateway_instances.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#list_gateway_instances)
         """
 
     def list_gateways(
-        self, *, MaxResults: int = None, NextToken: str = None
+        self, **kwargs: Unpack[ListGatewaysRequestTypeDef]
     ) -> ListGatewaysResponseTypeDef:
         """
         Displays a list of gateways that are associated with this account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.list_gateways)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#list_gateways)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/list_gateways.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#list_gateways)
         """
 
     def list_offerings(
-        self, *, MaxResults: int = None, NextToken: str = None
+        self, **kwargs: Unpack[ListOfferingsRequestTypeDef]
     ) -> ListOfferingsResponseTypeDef:
         """
         Displays a list of all offerings that are available to this account in the
-        current AWS Region.
+        current Amazon Web Services Region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.list_offerings)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#list_offerings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/list_offerings.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#list_offerings)
         """
 
     def list_reservations(
-        self, *, MaxResults: int = None, NextToken: str = None
+        self, **kwargs: Unpack[ListReservationsRequestTypeDef]
     ) -> ListReservationsResponseTypeDef:
         """
         Displays a list of all reservations that have been purchased by this account in
-        the current AWS Region.
+        the current Amazon Web Services Region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.list_reservations)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#list_reservations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/list_reservations.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#list_reservations)
         """
 
-    def list_tags_for_resource(self, *, ResourceArn: str) -> ListTagsForResourceResponseTypeDef:
+    def list_tags_for_resource(
+        self, **kwargs: Unpack[ListTagsForResourceRequestTypeDef]
+    ) -> ListTagsForResourceResponseTypeDef:
         """
-        List all tags on an AWS Elemental MediaConnect resource See also: `AWS API
-        Documentation <https://docs.aws.amazon.com/goto/WebAPI/mediaconnect-2018-11-
-        14/ListTagsForResource>`_ **Request Syntax** response =
-        client.list_tags_for_resource( ResourceArn='string' ).
+        List all tags on a MediaConnect resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.list_tags_for_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/list_tags_for_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#list_tags_for_resource)
         """
 
     def purchase_offering(
-        self, *, OfferingArn: str, ReservationName: str, Start: str
+        self, **kwargs: Unpack[PurchaseOfferingRequestTypeDef]
     ) -> PurchaseOfferingResponseTypeDef:
         """
         Submits a request to purchase an offering.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.purchase_offering)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#purchase_offering)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/purchase_offering.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#purchase_offering)
         """
 
     def remove_bridge_output(
-        self, *, BridgeArn: str, OutputName: str
+        self, **kwargs: Unpack[RemoveBridgeOutputRequestTypeDef]
     ) -> RemoveBridgeOutputResponseTypeDef:
         """
         Removes an output from a bridge.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.remove_bridge_output)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#remove_bridge_output)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/remove_bridge_output.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#remove_bridge_output)
         """
 
     def remove_bridge_source(
-        self, *, BridgeArn: str, SourceName: str
+        self, **kwargs: Unpack[RemoveBridgeSourceRequestTypeDef]
     ) -> RemoveBridgeSourceResponseTypeDef:
         """
         Removes a source from a bridge.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.remove_bridge_source)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#remove_bridge_source)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/remove_bridge_source.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#remove_bridge_source)
         """
 
     def remove_flow_media_stream(
-        self, *, FlowArn: str, MediaStreamName: str
+        self, **kwargs: Unpack[RemoveFlowMediaStreamRequestTypeDef]
     ) -> RemoveFlowMediaStreamResponseTypeDef:
         """
         Removes a media stream from a flow.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.remove_flow_media_stream)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#remove_flow_media_stream)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/remove_flow_media_stream.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#remove_flow_media_stream)
         """
 
     def remove_flow_output(
-        self, *, FlowArn: str, OutputArn: str
+        self, **kwargs: Unpack[RemoveFlowOutputRequestTypeDef]
     ) -> RemoveFlowOutputResponseTypeDef:
         """
         Removes an output from an existing flow.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.remove_flow_output)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#remove_flow_output)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/remove_flow_output.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#remove_flow_output)
         """
 
     def remove_flow_source(
-        self, *, FlowArn: str, SourceArn: str
+        self, **kwargs: Unpack[RemoveFlowSourceRequestTypeDef]
     ) -> RemoveFlowSourceResponseTypeDef:
         """
         Removes a source from an existing flow.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.remove_flow_source)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#remove_flow_source)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/remove_flow_source.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#remove_flow_source)
         """
 
     def remove_flow_vpc_interface(
-        self, *, FlowArn: str, VpcInterfaceName: str
+        self, **kwargs: Unpack[RemoveFlowVpcInterfaceRequestTypeDef]
     ) -> RemoveFlowVpcInterfaceResponseTypeDef:
         """
         Removes a VPC Interface from an existing flow.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.remove_flow_vpc_interface)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#remove_flow_vpc_interface)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/remove_flow_vpc_interface.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#remove_flow_vpc_interface)
         """
 
     def revoke_flow_entitlement(
-        self, *, EntitlementArn: str, FlowArn: str
+        self, **kwargs: Unpack[RevokeFlowEntitlementRequestTypeDef]
     ) -> RevokeFlowEntitlementResponseTypeDef:
         """
         Revokes an entitlement from a flow.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.revoke_flow_entitlement)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#revoke_flow_entitlement)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/revoke_flow_entitlement.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#revoke_flow_entitlement)
         """
 
-    def start_flow(self, *, FlowArn: str) -> StartFlowResponseTypeDef:
+    def start_flow(self, **kwargs: Unpack[StartFlowRequestTypeDef]) -> StartFlowResponseTypeDef:
         """
         Starts a flow.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.start_flow)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#start_flow)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/start_flow.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#start_flow)
         """
 
-    def stop_flow(self, *, FlowArn: str) -> StopFlowResponseTypeDef:
+    def stop_flow(self, **kwargs: Unpack[StopFlowRequestTypeDef]) -> StopFlowResponseTypeDef:
         """
         Stops a flow.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.stop_flow)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#stop_flow)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/stop_flow.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#stop_flow)
         """
 
-    def tag_resource(self, *, ResourceArn: str, Tags: Dict[str, str]) -> None:
+    def tag_resource(
+        self, **kwargs: Unpack[TagResourceRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
-        Associates the specified tags to a resource with the specified resourceArn.
+        Associates the specified tags to a resource with the specified
+        <code>resourceArn</code>.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.tag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/tag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#tag_resource)
         """
 
-    def untag_resource(self, *, ResourceArn: str, TagKeys: List[str]) -> None:
+    def untag_resource(
+        self, **kwargs: Unpack[UntagResourceRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Deletes specified tags from a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.untag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/untag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#untag_resource)
         """
 
     def update_bridge(
-        self,
-        *,
-        BridgeArn: str,
-        EgressGatewayBridge: "UpdateEgressGatewayBridgeRequestTypeDef" = None,
-        IngressGatewayBridge: "UpdateIngressGatewayBridgeRequestTypeDef" = None,
-        SourceFailoverConfig: "UpdateFailoverConfigTypeDef" = None
+        self, **kwargs: Unpack[UpdateBridgeRequestTypeDef]
     ) -> UpdateBridgeResponseTypeDef:
         """
-        Updates the bridge See also: `AWS API Documentation
-        <https://docs.aws.amazon.com/goto/WebAPI/mediaconnect-2018-11-14/UpdateBridge>`_
-        **Request Syntax** response = client.update_bridge( BridgeArn='string',
-        EgressGatewayBridge={ 'MaxBitrate': 123 }, Ingres...
+        Updates the bridge.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.update_bridge)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#update_bridge)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/update_bridge.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#update_bridge)
         """
 
     def update_bridge_output(
-        self,
-        *,
-        BridgeArn: str,
-        OutputName: str,
-        NetworkOutput: "UpdateBridgeNetworkOutputRequestTypeDef" = None
+        self, **kwargs: Unpack[UpdateBridgeOutputRequestTypeDef]
     ) -> UpdateBridgeOutputResponseTypeDef:
         """
         Updates an existing bridge output.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.update_bridge_output)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#update_bridge_output)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/update_bridge_output.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#update_bridge_output)
         """
 
     def update_bridge_source(
-        self,
-        *,
-        BridgeArn: str,
-        SourceName: str,
-        FlowSource: "UpdateBridgeFlowSourceRequestTypeDef" = None,
-        NetworkSource: "UpdateBridgeNetworkSourceRequestTypeDef" = None
+        self, **kwargs: Unpack[UpdateBridgeSourceRequestTypeDef]
     ) -> UpdateBridgeSourceResponseTypeDef:
         """
         Updates an existing bridge source.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.update_bridge_source)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#update_bridge_source)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/update_bridge_source.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#update_bridge_source)
         """
 
     def update_bridge_state(
-        self, *, BridgeArn: str, DesiredState: DesiredStateType
+        self, **kwargs: Unpack[UpdateBridgeStateRequestTypeDef]
     ) -> UpdateBridgeStateResponseTypeDef:
         """
-        Updates the bridge state See also: `AWS API Documentation <https://docs.aws.amaz
-        on.com/goto/WebAPI/mediaconnect-2018-11-14/UpdateBridgeState>`_ **Request
-        Syntax** response = client.update_bridge_state( BridgeArn='string',
-        DesiredState='ACTIVE'|'STANDBY'|'DELETED' ).
+        Updates the bridge state.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.update_bridge_state)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#update_bridge_state)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/update_bridge_state.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#update_bridge_state)
         """
 
-    def update_flow(
-        self,
-        *,
-        FlowArn: str,
-        SourceFailoverConfig: "UpdateFailoverConfigTypeDef" = None,
-        Maintenance: "UpdateMaintenanceTypeDef" = None
-    ) -> UpdateFlowResponseTypeDef:
+    def update_flow(self, **kwargs: Unpack[UpdateFlowRequestTypeDef]) -> UpdateFlowResponseTypeDef:
         """
-        Updates flow See also: `AWS API Documentation
-        <https://docs.aws.amazon.com/goto/WebAPI/mediaconnect-2018-11-14/UpdateFlow>`_
-        **Request Syntax** response = client.update_flow( FlowArn='string',
-        SourceFailoverConfig={ 'FailoverMode': 'MERGE'|'FAILOVER', 'Rec...
+        Updates an existing flow.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.update_flow)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#update_flow)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/update_flow.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#update_flow)
         """
 
     def update_flow_entitlement(
-        self,
-        *,
-        EntitlementArn: str,
-        FlowArn: str,
-        Description: str = None,
-        Encryption: "UpdateEncryptionTypeDef" = None,
-        EntitlementStatus: EntitlementStatusType = None,
-        Subscribers: List[str] = None
+        self, **kwargs: Unpack[UpdateFlowEntitlementRequestTypeDef]
     ) -> UpdateFlowEntitlementResponseTypeDef:
         """
-        You can change an entitlement's description, subscribers, and encryption.
+        Updates an entitlement.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.update_flow_entitlement)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#update_flow_entitlement)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/update_flow_entitlement.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#update_flow_entitlement)
         """
 
     def update_flow_media_stream(
-        self,
-        *,
-        FlowArn: str,
-        MediaStreamName: str,
-        Attributes: "MediaStreamAttributesRequestTypeDef" = None,
-        ClockRate: int = None,
-        Description: str = None,
-        MediaStreamType: MediaStreamTypeType = None,
-        VideoFormat: str = None
+        self, **kwargs: Unpack[UpdateFlowMediaStreamRequestTypeDef]
     ) -> UpdateFlowMediaStreamResponseTypeDef:
         """
         Updates an existing media stream.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.update_flow_media_stream)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#update_flow_media_stream)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/update_flow_media_stream.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#update_flow_media_stream)
         """
 
     def update_flow_output(
-        self,
-        *,
-        FlowArn: str,
-        OutputArn: str,
-        CidrAllowList: List[str] = None,
-        Description: str = None,
-        Destination: str = None,
-        Encryption: "UpdateEncryptionTypeDef" = None,
-        MaxLatency: int = None,
-        MediaStreamOutputConfigurations: List[
-            "MediaStreamOutputConfigurationRequestTypeDef"
-        ] = None,
-        MinLatency: int = None,
-        Port: int = None,
-        Protocol: ProtocolType = None,
-        RemoteId: str = None,
-        SenderControlPort: int = None,
-        SenderIpAddress: str = None,
-        SmoothingLatency: int = None,
-        StreamId: str = None,
-        VpcInterfaceAttachment: "VpcInterfaceAttachmentTypeDef" = None
+        self, **kwargs: Unpack[UpdateFlowOutputRequestTypeDef]
     ) -> UpdateFlowOutputResponseTypeDef:
         """
         Updates an existing flow output.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.update_flow_output)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#update_flow_output)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/update_flow_output.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#update_flow_output)
         """
 
     def update_flow_source(
-        self,
-        *,
-        FlowArn: str,
-        SourceArn: str,
-        Decryption: "UpdateEncryptionTypeDef" = None,
-        Description: str = None,
-        EntitlementArn: str = None,
-        IngestPort: int = None,
-        MaxBitrate: int = None,
-        MaxLatency: int = None,
-        MaxSyncBuffer: int = None,
-        MediaStreamSourceConfigurations: List[
-            "MediaStreamSourceConfigurationRequestTypeDef"
-        ] = None,
-        MinLatency: int = None,
-        Protocol: ProtocolType = None,
-        SenderControlPort: int = None,
-        SenderIpAddress: str = None,
-        SourceListenerAddress: str = None,
-        SourceListenerPort: int = None,
-        StreamId: str = None,
-        VpcInterfaceName: str = None,
-        WhitelistCidr: str = None,
-        GatewayBridgeSource: "UpdateGatewayBridgeSourceRequestTypeDef" = None
+        self, **kwargs: Unpack[UpdateFlowSourceRequestTypeDef]
     ) -> UpdateFlowSourceResponseTypeDef:
         """
         Updates the source of a flow.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.update_flow_source)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#update_flow_source)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/update_flow_source.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#update_flow_source)
         """
 
     def update_gateway_instance(
-        self, *, GatewayInstanceArn: str, BridgePlacement: BridgePlacementType = None
+        self, **kwargs: Unpack[UpdateGatewayInstanceRequestTypeDef]
     ) -> UpdateGatewayInstanceResponseTypeDef:
         """
-        Updates the configuration of an existing Gateway Instance.
+        Updates an existing gateway instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Client.update_gateway_instance)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client.html#update_gateway_instance)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/update_gateway_instance.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#update_gateway_instance)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_bridges"]) -> ListBridgesPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_bridges"]
+    ) -> ListBridgesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Paginator.ListBridges)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/paginators.html#listbridgespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_entitlements"]
     ) -> ListEntitlementsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Paginator.ListEntitlements)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/paginators.html#listentitlementspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_flows"]) -> ListFlowsPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_flows"]
+    ) -> ListFlowsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Paginator.ListFlows)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/paginators.html#listflowspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_gateway_instances"]
     ) -> ListGatewayInstancesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Paginator.ListGatewayInstances)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/paginators.html#listgatewayinstancespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_gateways"]) -> ListGatewaysPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_gateways"]
+    ) -> ListGatewaysPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Paginator.ListGateways)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/paginators.html#listgatewayspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_offerings"]) -> ListOfferingsPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_offerings"]
+    ) -> ListOfferingsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Paginator.ListOfferings)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/paginators.html#listofferingspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_reservations"]
     ) -> ListReservationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Paginator.ListReservations)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/paginators.html#listreservationspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#get_paginator)
         """
 
-    @overload
-    def get_waiter(self, waiter_name: Literal["flow_active"]) -> FlowActiveWaiter:
+    @overload  # type: ignore[override]
+    def get_waiter(  # type: ignore[override]
+        self, waiter_name: Literal["flow_active"]
+    ) -> FlowActiveWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Waiter.FlowActive)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/waiters.html#flowactivewaiter)
+        Returns an object that can wait for some condition.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/get_waiter.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#get_waiter)
         """
 
-    @overload
-    def get_waiter(self, waiter_name: Literal["flow_deleted"]) -> FlowDeletedWaiter:
+    @overload  # type: ignore[override]
+    def get_waiter(  # type: ignore[override]
+        self, waiter_name: Literal["flow_deleted"]
+    ) -> FlowDeletedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Waiter.FlowDeleted)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/waiters.html#flowdeletedwaiter)
+        Returns an object that can wait for some condition.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/get_waiter.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#get_waiter)
         """
 
-    @overload
-    def get_waiter(self, waiter_name: Literal["flow_standby"]) -> FlowStandbyWaiter:
+    @overload  # type: ignore[override]
+    def get_waiter(  # type: ignore[override]
+        self, waiter_name: Literal["flow_standby"]
+    ) -> FlowStandbyWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediaconnect.html#MediaConnect.Waiter.FlowStandby)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/waiters.html#flowstandbywaiter)
+        Returns an object that can wait for some condition.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect/client/get_waiter.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/client/#get_waiter)
         """

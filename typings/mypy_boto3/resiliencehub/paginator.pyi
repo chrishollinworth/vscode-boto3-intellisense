@@ -1,42 +1,114 @@
 """
 Type annotations for resiliencehub service client paginators.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resiliencehub/paginators.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_resiliencehub/paginators/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
 
-    from mypy_boto3_resiliencehub import ResilienceHubClient
+    from mypy_boto3_resiliencehub.client import ResilienceHubClient
     from mypy_boto3_resiliencehub.paginator import (
         ListAppAssessmentResourceDriftsPaginator,
+        ListMetricsPaginator,
+        ListResourceGroupingRecommendationsPaginator,
     )
 
-    client: ResilienceHubClient = boto3.client("resiliencehub")
+    session = Session()
+    client: ResilienceHubClient = session.client("resiliencehub")
 
     list_app_assessment_resource_drifts_paginator: ListAppAssessmentResourceDriftsPaginator = client.get_paginator("list_app_assessment_resource_drifts")
+    list_metrics_paginator: ListMetricsPaginator = client.get_paginator("list_metrics")
+    list_resource_grouping_recommendations_paginator: ListResourceGroupingRecommendationsPaginator = client.get_paginator("list_resource_grouping_recommendations")
     ```
 """
 
-from typing import Iterator
+from __future__ import annotations
 
-from botocore.paginate import Paginator as Boto3Paginator
+import sys
+from typing import TYPE_CHECKING
 
-from .type_defs import ListAppAssessmentResourceDriftsResponseTypeDef, PaginatorConfigTypeDef
+from botocore.paginate import PageIterator, Paginator
 
-__all__ = ("ListAppAssessmentResourceDriftsPaginator",)
+from .type_defs import (
+    ListAppAssessmentResourceDriftsRequestPaginateTypeDef,
+    ListAppAssessmentResourceDriftsResponseTypeDef,
+    ListMetricsRequestPaginateTypeDef,
+    ListMetricsResponseTypeDef,
+    ListResourceGroupingRecommendationsRequestPaginateTypeDef,
+    ListResourceGroupingRecommendationsResponseTypeDef,
+)
 
-class ListAppAssessmentResourceDriftsPaginator(Boto3Paginator):
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
+
+__all__ = (
+    "ListAppAssessmentResourceDriftsPaginator",
+    "ListMetricsPaginator",
+    "ListResourceGroupingRecommendationsPaginator",
+)
+
+if TYPE_CHECKING:
+    _ListAppAssessmentResourceDriftsPaginatorBase = Paginator[
+        ListAppAssessmentResourceDriftsResponseTypeDef
+    ]
+else:
+    _ListAppAssessmentResourceDriftsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListAppAssessmentResourceDriftsPaginator(_ListAppAssessmentResourceDriftsPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resiliencehub.html#ResilienceHub.Paginator.ListAppAssessmentResourceDrifts)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resiliencehub/paginators.html#listappassessmentresourcedriftspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/resiliencehub/paginator/ListAppAssessmentResourceDrifts.html#ResilienceHub.Paginator.ListAppAssessmentResourceDrifts)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_resiliencehub/paginators/#listappassessmentresourcedriftspaginator)
     """
-
-    def paginate(
-        self, *, assessmentArn: str, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListAppAssessmentResourceDriftsResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListAppAssessmentResourceDriftsRequestPaginateTypeDef]
+    ) -> PageIterator[ListAppAssessmentResourceDriftsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/resiliencehub.html#ResilienceHub.Paginator.ListAppAssessmentResourceDrifts.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resiliencehub/paginators.html#listappassessmentresourcedriftspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/resiliencehub/paginator/ListAppAssessmentResourceDrifts.html#ResilienceHub.Paginator.ListAppAssessmentResourceDrifts.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_resiliencehub/paginators/#listappassessmentresourcedriftspaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListMetricsPaginatorBase = Paginator[ListMetricsResponseTypeDef]
+else:
+    _ListMetricsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListMetricsPaginator(_ListMetricsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/resiliencehub/paginator/ListMetrics.html#ResilienceHub.Paginator.ListMetrics)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_resiliencehub/paginators/#listmetricspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListMetricsRequestPaginateTypeDef]
+    ) -> PageIterator[ListMetricsResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/resiliencehub/paginator/ListMetrics.html#ResilienceHub.Paginator.ListMetrics.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_resiliencehub/paginators/#listmetricspaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListResourceGroupingRecommendationsPaginatorBase = Paginator[
+        ListResourceGroupingRecommendationsResponseTypeDef
+    ]
+else:
+    _ListResourceGroupingRecommendationsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListResourceGroupingRecommendationsPaginator(
+    _ListResourceGroupingRecommendationsPaginatorBase
+):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/resiliencehub/paginator/ListResourceGroupingRecommendations.html#ResilienceHub.Paginator.ListResourceGroupingRecommendations)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_resiliencehub/paginators/#listresourcegroupingrecommendationspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListResourceGroupingRecommendationsRequestPaginateTypeDef]
+    ) -> PageIterator[ListResourceGroupingRecommendationsResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/resiliencehub/paginator/ListResourceGroupingRecommendations.html#ResilienceHub.Paginator.ListResourceGroupingRecommendations.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_resiliencehub/paginators/#listresourcegroupingrecommendationspaginator)
         """

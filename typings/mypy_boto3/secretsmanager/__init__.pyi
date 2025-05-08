@@ -1,20 +1,22 @@
 """
 Main interface for secretsmanager service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_secretsmanager/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_secretsmanager import (
         Client,
         ListSecretsPaginator,
         SecretsManagerClient,
     )
 
-    session = boto3.Session()
-
-    client: SecretsManagerClient = boto3.client("secretsmanager")
-    session_client: SecretsManagerClient = session.client("secretsmanager")
+    session = Session()
+    client: SecretsManagerClient = session.client("secretsmanager")
 
     list_secrets_paginator: ListSecretsPaginator = client.get_paginator("list_secrets")
     ```

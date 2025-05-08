@@ -1,21 +1,26 @@
 """
 Type annotations for lambda service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_lambda.type_defs import AccountLimitTypeDef
 
-    data: AccountLimitTypeDef = {...}
+    data: AccountLimitTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import IO, Any, Dict, List, Union
+from typing import IO, Any, Union
 
+from botocore.eventstream import EventStream
 from botocore.response import StreamingBody
 
 from .literals import (
@@ -33,6 +38,7 @@ from .literals import (
     LogTypeType,
     PackageTypeType,
     ProvisionedConcurrencyStatusEnumType,
+    RecursiveLoopType,
     ResponseStreamingInvocationTypeType,
     RuntimeType,
     SnapStartApplyOnType,
@@ -45,104 +51,130 @@ from .literals import (
     UpdateRuntimeOnType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
     "AccountLimitTypeDef",
     "AccountUsageTypeDef",
-    "AddLayerVersionPermissionRequestRequestTypeDef",
+    "AddLayerVersionPermissionRequestTypeDef",
     "AddLayerVersionPermissionResponseTypeDef",
-    "AddPermissionRequestRequestTypeDef",
+    "AddPermissionRequestTypeDef",
     "AddPermissionResponseTypeDef",
-    "AliasConfigurationResponseMetadataTypeDef",
+    "AliasConfigurationResponseTypeDef",
     "AliasConfigurationTypeDef",
+    "AliasRoutingConfigurationOutputTypeDef",
     "AliasRoutingConfigurationTypeDef",
+    "AliasRoutingConfigurationUnionTypeDef",
+    "AllowedPublishersOutputTypeDef",
     "AllowedPublishersTypeDef",
+    "AllowedPublishersUnionTypeDef",
     "AmazonManagedKafkaEventSourceConfigTypeDef",
+    "BlobTypeDef",
     "CodeSigningConfigTypeDef",
     "CodeSigningPoliciesTypeDef",
-    "ConcurrencyResponseMetadataTypeDef",
+    "ConcurrencyResponseTypeDef",
     "ConcurrencyTypeDef",
+    "CorsOutputTypeDef",
     "CorsTypeDef",
-    "CreateAliasRequestRequestTypeDef",
-    "CreateCodeSigningConfigRequestRequestTypeDef",
+    "CorsUnionTypeDef",
+    "CreateAliasRequestTypeDef",
+    "CreateCodeSigningConfigRequestTypeDef",
     "CreateCodeSigningConfigResponseTypeDef",
-    "CreateEventSourceMappingRequestRequestTypeDef",
-    "CreateFunctionRequestRequestTypeDef",
-    "CreateFunctionUrlConfigRequestRequestTypeDef",
+    "CreateEventSourceMappingRequestTypeDef",
+    "CreateFunctionRequestTypeDef",
+    "CreateFunctionUrlConfigRequestTypeDef",
     "CreateFunctionUrlConfigResponseTypeDef",
     "DeadLetterConfigTypeDef",
-    "DeleteAliasRequestRequestTypeDef",
-    "DeleteCodeSigningConfigRequestRequestTypeDef",
-    "DeleteEventSourceMappingRequestRequestTypeDef",
-    "DeleteFunctionCodeSigningConfigRequestRequestTypeDef",
-    "DeleteFunctionConcurrencyRequestRequestTypeDef",
-    "DeleteFunctionEventInvokeConfigRequestRequestTypeDef",
-    "DeleteFunctionRequestRequestTypeDef",
-    "DeleteFunctionUrlConfigRequestRequestTypeDef",
-    "DeleteLayerVersionRequestRequestTypeDef",
-    "DeleteProvisionedConcurrencyConfigRequestRequestTypeDef",
+    "DeleteAliasRequestTypeDef",
+    "DeleteCodeSigningConfigRequestTypeDef",
+    "DeleteEventSourceMappingRequestTypeDef",
+    "DeleteFunctionCodeSigningConfigRequestTypeDef",
+    "DeleteFunctionConcurrencyRequestTypeDef",
+    "DeleteFunctionEventInvokeConfigRequestTypeDef",
+    "DeleteFunctionRequestTypeDef",
+    "DeleteFunctionUrlConfigRequestTypeDef",
+    "DeleteLayerVersionRequestTypeDef",
+    "DeleteProvisionedConcurrencyConfigRequestTypeDef",
     "DestinationConfigTypeDef",
     "DocumentDBEventSourceConfigTypeDef",
+    "EmptyResponseMetadataTypeDef",
     "EnvironmentErrorTypeDef",
     "EnvironmentResponseTypeDef",
     "EnvironmentTypeDef",
     "EphemeralStorageTypeDef",
-    "EventSourceMappingConfigurationResponseMetadataTypeDef",
+    "EventSourceMappingConfigurationResponseTypeDef",
     "EventSourceMappingConfigurationTypeDef",
+    "EventSourceMappingMetricsConfigOutputTypeDef",
+    "EventSourceMappingMetricsConfigTypeDef",
+    "EventSourceMappingMetricsConfigUnionTypeDef",
     "FileSystemConfigTypeDef",
+    "FilterCriteriaErrorTypeDef",
+    "FilterCriteriaOutputTypeDef",
     "FilterCriteriaTypeDef",
+    "FilterCriteriaUnionTypeDef",
     "FilterTypeDef",
     "FunctionCodeLocationTypeDef",
     "FunctionCodeTypeDef",
-    "FunctionConfigurationResponseMetadataTypeDef",
+    "FunctionConfigurationResponseTypeDef",
     "FunctionConfigurationTypeDef",
-    "FunctionEventInvokeConfigResponseMetadataTypeDef",
+    "FunctionEventInvokeConfigResponseTypeDef",
     "FunctionEventInvokeConfigTypeDef",
     "FunctionUrlConfigTypeDef",
     "GetAccountSettingsResponseTypeDef",
-    "GetAliasRequestRequestTypeDef",
-    "GetCodeSigningConfigRequestRequestTypeDef",
+    "GetAliasRequestTypeDef",
+    "GetCodeSigningConfigRequestTypeDef",
     "GetCodeSigningConfigResponseTypeDef",
-    "GetEventSourceMappingRequestRequestTypeDef",
-    "GetFunctionCodeSigningConfigRequestRequestTypeDef",
+    "GetEventSourceMappingRequestTypeDef",
+    "GetFunctionCodeSigningConfigRequestTypeDef",
     "GetFunctionCodeSigningConfigResponseTypeDef",
-    "GetFunctionConcurrencyRequestRequestTypeDef",
+    "GetFunctionConcurrencyRequestTypeDef",
     "GetFunctionConcurrencyResponseTypeDef",
-    "GetFunctionConfigurationRequestRequestTypeDef",
-    "GetFunctionEventInvokeConfigRequestRequestTypeDef",
-    "GetFunctionRequestRequestTypeDef",
+    "GetFunctionConfigurationRequestTypeDef",
+    "GetFunctionConfigurationRequestWaitExtraExtraTypeDef",
+    "GetFunctionConfigurationRequestWaitExtraTypeDef",
+    "GetFunctionConfigurationRequestWaitTypeDef",
+    "GetFunctionEventInvokeConfigRequestTypeDef",
+    "GetFunctionRecursionConfigRequestTypeDef",
+    "GetFunctionRecursionConfigResponseTypeDef",
+    "GetFunctionRequestTypeDef",
+    "GetFunctionRequestWaitExtraExtraTypeDef",
+    "GetFunctionRequestWaitExtraTypeDef",
+    "GetFunctionRequestWaitTypeDef",
     "GetFunctionResponseTypeDef",
-    "GetFunctionUrlConfigRequestRequestTypeDef",
+    "GetFunctionUrlConfigRequestTypeDef",
     "GetFunctionUrlConfigResponseTypeDef",
-    "GetLayerVersionByArnRequestRequestTypeDef",
-    "GetLayerVersionPolicyRequestRequestTypeDef",
+    "GetLayerVersionByArnRequestTypeDef",
+    "GetLayerVersionPolicyRequestTypeDef",
     "GetLayerVersionPolicyResponseTypeDef",
-    "GetLayerVersionRequestRequestTypeDef",
+    "GetLayerVersionRequestTypeDef",
     "GetLayerVersionResponseTypeDef",
-    "GetPolicyRequestRequestTypeDef",
+    "GetPolicyRequestTypeDef",
     "GetPolicyResponseTypeDef",
-    "GetProvisionedConcurrencyConfigRequestRequestTypeDef",
+    "GetProvisionedConcurrencyConfigRequestTypeDef",
     "GetProvisionedConcurrencyConfigResponseTypeDef",
-    "GetRuntimeManagementConfigRequestRequestTypeDef",
+    "GetRuntimeManagementConfigRequestTypeDef",
     "GetRuntimeManagementConfigResponseTypeDef",
     "ImageConfigErrorTypeDef",
+    "ImageConfigOutputTypeDef",
     "ImageConfigResponseTypeDef",
     "ImageConfigTypeDef",
-    "InvocationRequestRequestTypeDef",
+    "ImageConfigUnionTypeDef",
+    "InvocationRequestTypeDef",
     "InvocationResponseTypeDef",
-    "InvokeAsyncRequestRequestTypeDef",
+    "InvokeAsyncRequestTypeDef",
     "InvokeAsyncResponseTypeDef",
     "InvokeResponseStreamUpdateTypeDef",
     "InvokeWithResponseStreamCompleteEventTypeDef",
-    "InvokeWithResponseStreamRequestRequestTypeDef",
+    "InvokeWithResponseStreamRequestTypeDef",
     "InvokeWithResponseStreamResponseEventTypeDef",
     "InvokeWithResponseStreamResponseTypeDef",
     "LayerTypeDef",
@@ -150,2274 +182,1316 @@ __all__ = (
     "LayerVersionContentOutputTypeDef",
     "LayerVersionsListItemTypeDef",
     "LayersListItemTypeDef",
-    "ListAliasesRequestRequestTypeDef",
+    "ListAliasesRequestPaginateTypeDef",
+    "ListAliasesRequestTypeDef",
     "ListAliasesResponseTypeDef",
-    "ListCodeSigningConfigsRequestRequestTypeDef",
+    "ListCodeSigningConfigsRequestPaginateTypeDef",
+    "ListCodeSigningConfigsRequestTypeDef",
     "ListCodeSigningConfigsResponseTypeDef",
-    "ListEventSourceMappingsRequestRequestTypeDef",
+    "ListEventSourceMappingsRequestPaginateTypeDef",
+    "ListEventSourceMappingsRequestTypeDef",
     "ListEventSourceMappingsResponseTypeDef",
-    "ListFunctionEventInvokeConfigsRequestRequestTypeDef",
+    "ListFunctionEventInvokeConfigsRequestPaginateTypeDef",
+    "ListFunctionEventInvokeConfigsRequestTypeDef",
     "ListFunctionEventInvokeConfigsResponseTypeDef",
-    "ListFunctionUrlConfigsRequestRequestTypeDef",
+    "ListFunctionUrlConfigsRequestPaginateTypeDef",
+    "ListFunctionUrlConfigsRequestTypeDef",
     "ListFunctionUrlConfigsResponseTypeDef",
-    "ListFunctionsByCodeSigningConfigRequestRequestTypeDef",
+    "ListFunctionsByCodeSigningConfigRequestPaginateTypeDef",
+    "ListFunctionsByCodeSigningConfigRequestTypeDef",
     "ListFunctionsByCodeSigningConfigResponseTypeDef",
-    "ListFunctionsRequestRequestTypeDef",
+    "ListFunctionsRequestPaginateTypeDef",
+    "ListFunctionsRequestTypeDef",
     "ListFunctionsResponseTypeDef",
-    "ListLayerVersionsRequestRequestTypeDef",
+    "ListLayerVersionsRequestPaginateTypeDef",
+    "ListLayerVersionsRequestTypeDef",
     "ListLayerVersionsResponseTypeDef",
-    "ListLayersRequestRequestTypeDef",
+    "ListLayersRequestPaginateTypeDef",
+    "ListLayersRequestTypeDef",
     "ListLayersResponseTypeDef",
-    "ListProvisionedConcurrencyConfigsRequestRequestTypeDef",
+    "ListProvisionedConcurrencyConfigsRequestPaginateTypeDef",
+    "ListProvisionedConcurrencyConfigsRequestTypeDef",
     "ListProvisionedConcurrencyConfigsResponseTypeDef",
-    "ListTagsRequestRequestTypeDef",
+    "ListTagsRequestTypeDef",
     "ListTagsResponseTypeDef",
-    "ListVersionsByFunctionRequestRequestTypeDef",
+    "ListVersionsByFunctionRequestPaginateTypeDef",
+    "ListVersionsByFunctionRequestTypeDef",
     "ListVersionsByFunctionResponseTypeDef",
     "LoggingConfigTypeDef",
     "OnFailureTypeDef",
     "OnSuccessTypeDef",
     "PaginatorConfigTypeDef",
     "ProvisionedConcurrencyConfigListItemTypeDef",
-    "PublishLayerVersionRequestRequestTypeDef",
+    "ProvisionedPollerConfigTypeDef",
+    "PublishLayerVersionRequestTypeDef",
     "PublishLayerVersionResponseTypeDef",
-    "PublishVersionRequestRequestTypeDef",
-    "PutFunctionCodeSigningConfigRequestRequestTypeDef",
+    "PublishVersionRequestTypeDef",
+    "PutFunctionCodeSigningConfigRequestTypeDef",
     "PutFunctionCodeSigningConfigResponseTypeDef",
-    "PutFunctionConcurrencyRequestRequestTypeDef",
-    "PutFunctionEventInvokeConfigRequestRequestTypeDef",
-    "PutProvisionedConcurrencyConfigRequestRequestTypeDef",
+    "PutFunctionConcurrencyRequestTypeDef",
+    "PutFunctionEventInvokeConfigRequestTypeDef",
+    "PutFunctionRecursionConfigRequestTypeDef",
+    "PutFunctionRecursionConfigResponseTypeDef",
+    "PutProvisionedConcurrencyConfigRequestTypeDef",
     "PutProvisionedConcurrencyConfigResponseTypeDef",
-    "PutRuntimeManagementConfigRequestRequestTypeDef",
+    "PutRuntimeManagementConfigRequestTypeDef",
     "PutRuntimeManagementConfigResponseTypeDef",
-    "RemoveLayerVersionPermissionRequestRequestTypeDef",
-    "RemovePermissionRequestRequestTypeDef",
+    "RemoveLayerVersionPermissionRequestTypeDef",
+    "RemovePermissionRequestTypeDef",
     "ResponseMetadataTypeDef",
     "RuntimeVersionConfigTypeDef",
     "RuntimeVersionErrorTypeDef",
     "ScalingConfigTypeDef",
+    "SelfManagedEventSourceOutputTypeDef",
     "SelfManagedEventSourceTypeDef",
+    "SelfManagedEventSourceUnionTypeDef",
     "SelfManagedKafkaEventSourceConfigTypeDef",
     "SnapStartResponseTypeDef",
     "SnapStartTypeDef",
     "SourceAccessConfigurationTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
+    "TagsErrorTypeDef",
+    "TimestampTypeDef",
     "TracingConfigResponseTypeDef",
     "TracingConfigTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateAliasRequestRequestTypeDef",
-    "UpdateCodeSigningConfigRequestRequestTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateAliasRequestTypeDef",
+    "UpdateCodeSigningConfigRequestTypeDef",
     "UpdateCodeSigningConfigResponseTypeDef",
-    "UpdateEventSourceMappingRequestRequestTypeDef",
-    "UpdateFunctionCodeRequestRequestTypeDef",
-    "UpdateFunctionConfigurationRequestRequestTypeDef",
-    "UpdateFunctionEventInvokeConfigRequestRequestTypeDef",
-    "UpdateFunctionUrlConfigRequestRequestTypeDef",
+    "UpdateEventSourceMappingRequestTypeDef",
+    "UpdateFunctionCodeRequestTypeDef",
+    "UpdateFunctionConfigurationRequestTypeDef",
+    "UpdateFunctionEventInvokeConfigRequestTypeDef",
+    "UpdateFunctionUrlConfigRequestTypeDef",
     "UpdateFunctionUrlConfigResponseTypeDef",
     "VpcConfigResponseTypeDef",
     "VpcConfigTypeDef",
     "WaiterConfigTypeDef",
 )
 
-AccountLimitTypeDef = TypedDict(
-    "AccountLimitTypeDef",
-    {
-        "TotalCodeSize": int,
-        "CodeSizeUnzipped": int,
-        "CodeSizeZipped": int,
-        "ConcurrentExecutions": int,
-        "UnreservedConcurrentExecutions": int,
-    },
-    total=False,
-)
-
-AccountUsageTypeDef = TypedDict(
-    "AccountUsageTypeDef",
-    {
-        "TotalCodeSize": int,
-        "FunctionCount": int,
-    },
-    total=False,
-)
-
-_RequiredAddLayerVersionPermissionRequestRequestTypeDef = TypedDict(
-    "_RequiredAddLayerVersionPermissionRequestRequestTypeDef",
-    {
-        "LayerName": str,
-        "VersionNumber": int,
-        "StatementId": str,
-        "Action": str,
-        "Principal": str,
-    },
-)
-_OptionalAddLayerVersionPermissionRequestRequestTypeDef = TypedDict(
-    "_OptionalAddLayerVersionPermissionRequestRequestTypeDef",
-    {
-        "OrganizationId": str,
-        "RevisionId": str,
-    },
-    total=False,
-)
-
-class AddLayerVersionPermissionRequestRequestTypeDef(
-    _RequiredAddLayerVersionPermissionRequestRequestTypeDef,
-    _OptionalAddLayerVersionPermissionRequestRequestTypeDef,
-):
-    pass
-
-AddLayerVersionPermissionResponseTypeDef = TypedDict(
-    "AddLayerVersionPermissionResponseTypeDef",
-    {
-        "Statement": str,
-        "RevisionId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredAddPermissionRequestRequestTypeDef = TypedDict(
-    "_RequiredAddPermissionRequestRequestTypeDef",
-    {
-        "FunctionName": str,
-        "StatementId": str,
-        "Action": str,
-        "Principal": str,
-    },
-)
-_OptionalAddPermissionRequestRequestTypeDef = TypedDict(
-    "_OptionalAddPermissionRequestRequestTypeDef",
-    {
-        "SourceArn": str,
-        "SourceAccount": str,
-        "EventSourceToken": str,
-        "Qualifier": str,
-        "RevisionId": str,
-        "PrincipalOrgID": str,
-        "FunctionUrlAuthType": FunctionUrlAuthTypeType,
-    },
-    total=False,
-)
-
-class AddPermissionRequestRequestTypeDef(
-    _RequiredAddPermissionRequestRequestTypeDef, _OptionalAddPermissionRequestRequestTypeDef
-):
-    pass
-
-AddPermissionResponseTypeDef = TypedDict(
-    "AddPermissionResponseTypeDef",
-    {
-        "Statement": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-AliasConfigurationResponseMetadataTypeDef = TypedDict(
-    "AliasConfigurationResponseMetadataTypeDef",
-    {
-        "AliasArn": str,
-        "Name": str,
-        "FunctionVersion": str,
-        "Description": str,
-        "RoutingConfig": "AliasRoutingConfigurationTypeDef",
-        "RevisionId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-AliasConfigurationTypeDef = TypedDict(
-    "AliasConfigurationTypeDef",
-    {
-        "AliasArn": str,
-        "Name": str,
-        "FunctionVersion": str,
-        "Description": str,
-        "RoutingConfig": "AliasRoutingConfigurationTypeDef",
-        "RevisionId": str,
-    },
-    total=False,
-)
-
-AliasRoutingConfigurationTypeDef = TypedDict(
-    "AliasRoutingConfigurationTypeDef",
-    {
-        "AdditionalVersionWeights": Dict[str, float],
-    },
-    total=False,
-)
-
-AllowedPublishersTypeDef = TypedDict(
-    "AllowedPublishersTypeDef",
-    {
-        "SigningProfileVersionArns": List[str],
-    },
-)
-
-AmazonManagedKafkaEventSourceConfigTypeDef = TypedDict(
-    "AmazonManagedKafkaEventSourceConfigTypeDef",
-    {
-        "ConsumerGroupId": str,
-    },
-    total=False,
-)
-
-_RequiredCodeSigningConfigTypeDef = TypedDict(
-    "_RequiredCodeSigningConfigTypeDef",
-    {
-        "CodeSigningConfigId": str,
-        "CodeSigningConfigArn": str,
-        "AllowedPublishers": "AllowedPublishersTypeDef",
-        "CodeSigningPolicies": "CodeSigningPoliciesTypeDef",
-        "LastModified": str,
-    },
-)
-_OptionalCodeSigningConfigTypeDef = TypedDict(
-    "_OptionalCodeSigningConfigTypeDef",
-    {
-        "Description": str,
-    },
-    total=False,
-)
-
-class CodeSigningConfigTypeDef(
-    _RequiredCodeSigningConfigTypeDef, _OptionalCodeSigningConfigTypeDef
-):
-    pass
-
-CodeSigningPoliciesTypeDef = TypedDict(
-    "CodeSigningPoliciesTypeDef",
-    {
-        "UntrustedArtifactOnDeployment": CodeSigningPolicyType,
-    },
-    total=False,
-)
-
-ConcurrencyResponseMetadataTypeDef = TypedDict(
-    "ConcurrencyResponseMetadataTypeDef",
-    {
-        "ReservedConcurrentExecutions": int,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ConcurrencyTypeDef = TypedDict(
-    "ConcurrencyTypeDef",
-    {
-        "ReservedConcurrentExecutions": int,
-    },
-    total=False,
-)
-
-CorsTypeDef = TypedDict(
-    "CorsTypeDef",
-    {
-        "AllowCredentials": bool,
-        "AllowHeaders": List[str],
-        "AllowMethods": List[str],
-        "AllowOrigins": List[str],
-        "ExposeHeaders": List[str],
-        "MaxAge": int,
-    },
-    total=False,
-)
-
-_RequiredCreateAliasRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateAliasRequestRequestTypeDef",
-    {
-        "FunctionName": str,
-        "Name": str,
-        "FunctionVersion": str,
-    },
-)
-_OptionalCreateAliasRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateAliasRequestRequestTypeDef",
-    {
-        "Description": str,
-        "RoutingConfig": "AliasRoutingConfigurationTypeDef",
-    },
-    total=False,
-)
-
-class CreateAliasRequestRequestTypeDef(
-    _RequiredCreateAliasRequestRequestTypeDef, _OptionalCreateAliasRequestRequestTypeDef
-):
-    pass
-
-_RequiredCreateCodeSigningConfigRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateCodeSigningConfigRequestRequestTypeDef",
-    {
-        "AllowedPublishers": "AllowedPublishersTypeDef",
-    },
-)
-_OptionalCreateCodeSigningConfigRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateCodeSigningConfigRequestRequestTypeDef",
-    {
-        "Description": str,
-        "CodeSigningPolicies": "CodeSigningPoliciesTypeDef",
-    },
-    total=False,
-)
-
-class CreateCodeSigningConfigRequestRequestTypeDef(
-    _RequiredCreateCodeSigningConfigRequestRequestTypeDef,
-    _OptionalCreateCodeSigningConfigRequestRequestTypeDef,
-):
-    pass
-
-CreateCodeSigningConfigResponseTypeDef = TypedDict(
-    "CreateCodeSigningConfigResponseTypeDef",
-    {
-        "CodeSigningConfig": "CodeSigningConfigTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateEventSourceMappingRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateEventSourceMappingRequestRequestTypeDef",
-    {
-        "FunctionName": str,
-    },
-)
-_OptionalCreateEventSourceMappingRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateEventSourceMappingRequestRequestTypeDef",
-    {
-        "EventSourceArn": str,
-        "Enabled": bool,
-        "BatchSize": int,
-        "FilterCriteria": "FilterCriteriaTypeDef",
-        "MaximumBatchingWindowInSeconds": int,
-        "ParallelizationFactor": int,
-        "StartingPosition": EventSourcePositionType,
-        "StartingPositionTimestamp": Union[datetime, str],
-        "DestinationConfig": "DestinationConfigTypeDef",
-        "MaximumRecordAgeInSeconds": int,
-        "BisectBatchOnFunctionError": bool,
-        "MaximumRetryAttempts": int,
-        "TumblingWindowInSeconds": int,
-        "Topics": List[str],
-        "Queues": List[str],
-        "SourceAccessConfigurations": List["SourceAccessConfigurationTypeDef"],
-        "SelfManagedEventSource": "SelfManagedEventSourceTypeDef",
-        "FunctionResponseTypes": List[Literal["ReportBatchItemFailures"]],
-        "AmazonManagedKafkaEventSourceConfig": "AmazonManagedKafkaEventSourceConfigTypeDef",
-        "SelfManagedKafkaEventSourceConfig": "SelfManagedKafkaEventSourceConfigTypeDef",
-        "ScalingConfig": "ScalingConfigTypeDef",
-        "DocumentDBEventSourceConfig": "DocumentDBEventSourceConfigTypeDef",
-    },
-    total=False,
-)
-
-class CreateEventSourceMappingRequestRequestTypeDef(
-    _RequiredCreateEventSourceMappingRequestRequestTypeDef,
-    _OptionalCreateEventSourceMappingRequestRequestTypeDef,
-):
-    pass
-
-_RequiredCreateFunctionRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateFunctionRequestRequestTypeDef",
-    {
-        "FunctionName": str,
-        "Role": str,
-        "Code": "FunctionCodeTypeDef",
-    },
-)
-_OptionalCreateFunctionRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateFunctionRequestRequestTypeDef",
-    {
-        "Runtime": RuntimeType,
-        "Handler": str,
-        "Description": str,
-        "Timeout": int,
-        "MemorySize": int,
-        "Publish": bool,
-        "VpcConfig": "VpcConfigTypeDef",
-        "PackageType": PackageTypeType,
-        "DeadLetterConfig": "DeadLetterConfigTypeDef",
-        "Environment": "EnvironmentTypeDef",
-        "KMSKeyArn": str,
-        "TracingConfig": "TracingConfigTypeDef",
-        "Tags": Dict[str, str],
-        "Layers": List[str],
-        "FileSystemConfigs": List["FileSystemConfigTypeDef"],
-        "ImageConfig": "ImageConfigTypeDef",
-        "CodeSigningConfigArn": str,
-        "Architectures": List[ArchitectureType],
-        "EphemeralStorage": "EphemeralStorageTypeDef",
-        "SnapStart": "SnapStartTypeDef",
-        "LoggingConfig": "LoggingConfigTypeDef",
-    },
-    total=False,
-)
-
-class CreateFunctionRequestRequestTypeDef(
-    _RequiredCreateFunctionRequestRequestTypeDef, _OptionalCreateFunctionRequestRequestTypeDef
-):
-    pass
-
-_RequiredCreateFunctionUrlConfigRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateFunctionUrlConfigRequestRequestTypeDef",
-    {
-        "FunctionName": str,
-        "AuthType": FunctionUrlAuthTypeType,
-    },
-)
-_OptionalCreateFunctionUrlConfigRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateFunctionUrlConfigRequestRequestTypeDef",
-    {
-        "Qualifier": str,
-        "Cors": "CorsTypeDef",
-        "InvokeMode": InvokeModeType,
-    },
-    total=False,
-)
-
-class CreateFunctionUrlConfigRequestRequestTypeDef(
-    _RequiredCreateFunctionUrlConfigRequestRequestTypeDef,
-    _OptionalCreateFunctionUrlConfigRequestRequestTypeDef,
-):
-    pass
-
-CreateFunctionUrlConfigResponseTypeDef = TypedDict(
-    "CreateFunctionUrlConfigResponseTypeDef",
-    {
-        "FunctionUrl": str,
-        "FunctionArn": str,
-        "AuthType": FunctionUrlAuthTypeType,
-        "Cors": "CorsTypeDef",
-        "CreationTime": str,
-        "InvokeMode": InvokeModeType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeadLetterConfigTypeDef = TypedDict(
-    "DeadLetterConfigTypeDef",
-    {
-        "TargetArn": str,
-    },
-    total=False,
-)
-
-DeleteAliasRequestRequestTypeDef = TypedDict(
-    "DeleteAliasRequestRequestTypeDef",
-    {
-        "FunctionName": str,
-        "Name": str,
-    },
-)
-
-DeleteCodeSigningConfigRequestRequestTypeDef = TypedDict(
-    "DeleteCodeSigningConfigRequestRequestTypeDef",
-    {
-        "CodeSigningConfigArn": str,
-    },
-)
-
-DeleteEventSourceMappingRequestRequestTypeDef = TypedDict(
-    "DeleteEventSourceMappingRequestRequestTypeDef",
-    {
-        "UUID": str,
-    },
-)
-
-DeleteFunctionCodeSigningConfigRequestRequestTypeDef = TypedDict(
-    "DeleteFunctionCodeSigningConfigRequestRequestTypeDef",
-    {
-        "FunctionName": str,
-    },
-)
-
-DeleteFunctionConcurrencyRequestRequestTypeDef = TypedDict(
-    "DeleteFunctionConcurrencyRequestRequestTypeDef",
-    {
-        "FunctionName": str,
-    },
-)
-
-_RequiredDeleteFunctionEventInvokeConfigRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteFunctionEventInvokeConfigRequestRequestTypeDef",
-    {
-        "FunctionName": str,
-    },
-)
-_OptionalDeleteFunctionEventInvokeConfigRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteFunctionEventInvokeConfigRequestRequestTypeDef",
-    {
-        "Qualifier": str,
-    },
-    total=False,
-)
-
-class DeleteFunctionEventInvokeConfigRequestRequestTypeDef(
-    _RequiredDeleteFunctionEventInvokeConfigRequestRequestTypeDef,
-    _OptionalDeleteFunctionEventInvokeConfigRequestRequestTypeDef,
-):
-    pass
-
-_RequiredDeleteFunctionRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteFunctionRequestRequestTypeDef",
-    {
-        "FunctionName": str,
-    },
-)
-_OptionalDeleteFunctionRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteFunctionRequestRequestTypeDef",
-    {
-        "Qualifier": str,
-    },
-    total=False,
-)
-
-class DeleteFunctionRequestRequestTypeDef(
-    _RequiredDeleteFunctionRequestRequestTypeDef, _OptionalDeleteFunctionRequestRequestTypeDef
-):
-    pass
-
-_RequiredDeleteFunctionUrlConfigRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteFunctionUrlConfigRequestRequestTypeDef",
-    {
-        "FunctionName": str,
-    },
-)
-_OptionalDeleteFunctionUrlConfigRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteFunctionUrlConfigRequestRequestTypeDef",
-    {
-        "Qualifier": str,
-    },
-    total=False,
-)
-
-class DeleteFunctionUrlConfigRequestRequestTypeDef(
-    _RequiredDeleteFunctionUrlConfigRequestRequestTypeDef,
-    _OptionalDeleteFunctionUrlConfigRequestRequestTypeDef,
-):
-    pass
-
-DeleteLayerVersionRequestRequestTypeDef = TypedDict(
-    "DeleteLayerVersionRequestRequestTypeDef",
-    {
-        "LayerName": str,
-        "VersionNumber": int,
-    },
-)
-
-DeleteProvisionedConcurrencyConfigRequestRequestTypeDef = TypedDict(
-    "DeleteProvisionedConcurrencyConfigRequestRequestTypeDef",
-    {
-        "FunctionName": str,
-        "Qualifier": str,
-    },
-)
-
-DestinationConfigTypeDef = TypedDict(
-    "DestinationConfigTypeDef",
-    {
-        "OnSuccess": "OnSuccessTypeDef",
-        "OnFailure": "OnFailureTypeDef",
-    },
-    total=False,
-)
-
-DocumentDBEventSourceConfigTypeDef = TypedDict(
-    "DocumentDBEventSourceConfigTypeDef",
-    {
-        "DatabaseName": str,
-        "CollectionName": str,
-        "FullDocument": FullDocumentType,
-    },
-    total=False,
-)
-
-EnvironmentErrorTypeDef = TypedDict(
-    "EnvironmentErrorTypeDef",
-    {
-        "ErrorCode": str,
-        "Message": str,
-    },
-    total=False,
-)
-
-EnvironmentResponseTypeDef = TypedDict(
-    "EnvironmentResponseTypeDef",
-    {
-        "Variables": Dict[str, str],
-        "Error": "EnvironmentErrorTypeDef",
-    },
-    total=False,
-)
-
-EnvironmentTypeDef = TypedDict(
-    "EnvironmentTypeDef",
-    {
-        "Variables": Dict[str, str],
-    },
-    total=False,
-)
-
-EphemeralStorageTypeDef = TypedDict(
-    "EphemeralStorageTypeDef",
-    {
-        "Size": int,
-    },
-)
-
-EventSourceMappingConfigurationResponseMetadataTypeDef = TypedDict(
-    "EventSourceMappingConfigurationResponseMetadataTypeDef",
-    {
-        "UUID": str,
-        "StartingPosition": EventSourcePositionType,
-        "StartingPositionTimestamp": datetime,
-        "BatchSize": int,
-        "MaximumBatchingWindowInSeconds": int,
-        "ParallelizationFactor": int,
-        "EventSourceArn": str,
-        "FilterCriteria": "FilterCriteriaTypeDef",
-        "FunctionArn": str,
-        "LastModified": datetime,
-        "LastProcessingResult": str,
-        "State": str,
-        "StateTransitionReason": str,
-        "DestinationConfig": "DestinationConfigTypeDef",
-        "Topics": List[str],
-        "Queues": List[str],
-        "SourceAccessConfigurations": List["SourceAccessConfigurationTypeDef"],
-        "SelfManagedEventSource": "SelfManagedEventSourceTypeDef",
-        "MaximumRecordAgeInSeconds": int,
-        "BisectBatchOnFunctionError": bool,
-        "MaximumRetryAttempts": int,
-        "TumblingWindowInSeconds": int,
-        "FunctionResponseTypes": List[Literal["ReportBatchItemFailures"]],
-        "AmazonManagedKafkaEventSourceConfig": "AmazonManagedKafkaEventSourceConfigTypeDef",
-        "SelfManagedKafkaEventSourceConfig": "SelfManagedKafkaEventSourceConfigTypeDef",
-        "ScalingConfig": "ScalingConfigTypeDef",
-        "DocumentDBEventSourceConfig": "DocumentDBEventSourceConfigTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-EventSourceMappingConfigurationTypeDef = TypedDict(
-    "EventSourceMappingConfigurationTypeDef",
-    {
-        "UUID": str,
-        "StartingPosition": EventSourcePositionType,
-        "StartingPositionTimestamp": datetime,
-        "BatchSize": int,
-        "MaximumBatchingWindowInSeconds": int,
-        "ParallelizationFactor": int,
-        "EventSourceArn": str,
-        "FilterCriteria": "FilterCriteriaTypeDef",
-        "FunctionArn": str,
-        "LastModified": datetime,
-        "LastProcessingResult": str,
-        "State": str,
-        "StateTransitionReason": str,
-        "DestinationConfig": "DestinationConfigTypeDef",
-        "Topics": List[str],
-        "Queues": List[str],
-        "SourceAccessConfigurations": List["SourceAccessConfigurationTypeDef"],
-        "SelfManagedEventSource": "SelfManagedEventSourceTypeDef",
-        "MaximumRecordAgeInSeconds": int,
-        "BisectBatchOnFunctionError": bool,
-        "MaximumRetryAttempts": int,
-        "TumblingWindowInSeconds": int,
-        "FunctionResponseTypes": List[Literal["ReportBatchItemFailures"]],
-        "AmazonManagedKafkaEventSourceConfig": "AmazonManagedKafkaEventSourceConfigTypeDef",
-        "SelfManagedKafkaEventSourceConfig": "SelfManagedKafkaEventSourceConfigTypeDef",
-        "ScalingConfig": "ScalingConfigTypeDef",
-        "DocumentDBEventSourceConfig": "DocumentDBEventSourceConfigTypeDef",
-    },
-    total=False,
-)
-
-FileSystemConfigTypeDef = TypedDict(
-    "FileSystemConfigTypeDef",
-    {
-        "Arn": str,
-        "LocalMountPath": str,
-    },
-)
-
-FilterCriteriaTypeDef = TypedDict(
-    "FilterCriteriaTypeDef",
-    {
-        "Filters": List["FilterTypeDef"],
-    },
-    total=False,
-)
-
-FilterTypeDef = TypedDict(
-    "FilterTypeDef",
-    {
-        "Pattern": str,
-    },
-    total=False,
-)
-
-FunctionCodeLocationTypeDef = TypedDict(
-    "FunctionCodeLocationTypeDef",
-    {
-        "RepositoryType": str,
-        "Location": str,
-        "ImageUri": str,
-        "ResolvedImageUri": str,
-    },
-    total=False,
-)
-
-FunctionCodeTypeDef = TypedDict(
-    "FunctionCodeTypeDef",
-    {
-        "ZipFile": Union[bytes, IO[bytes], StreamingBody],
-        "S3Bucket": str,
-        "S3Key": str,
-        "S3ObjectVersion": str,
-        "ImageUri": str,
-    },
-    total=False,
-)
-
-FunctionConfigurationResponseMetadataTypeDef = TypedDict(
-    "FunctionConfigurationResponseMetadataTypeDef",
-    {
-        "FunctionName": str,
-        "FunctionArn": str,
-        "Runtime": RuntimeType,
-        "Role": str,
-        "Handler": str,
-        "CodeSize": int,
-        "Description": str,
-        "Timeout": int,
-        "MemorySize": int,
-        "LastModified": str,
-        "CodeSha256": str,
-        "Version": str,
-        "VpcConfig": "VpcConfigResponseTypeDef",
-        "DeadLetterConfig": "DeadLetterConfigTypeDef",
-        "Environment": "EnvironmentResponseTypeDef",
-        "KMSKeyArn": str,
-        "TracingConfig": "TracingConfigResponseTypeDef",
-        "MasterArn": str,
-        "RevisionId": str,
-        "Layers": List["LayerTypeDef"],
-        "State": StateType,
-        "StateReason": str,
-        "StateReasonCode": StateReasonCodeType,
-        "LastUpdateStatus": LastUpdateStatusType,
-        "LastUpdateStatusReason": str,
-        "LastUpdateStatusReasonCode": LastUpdateStatusReasonCodeType,
-        "FileSystemConfigs": List["FileSystemConfigTypeDef"],
-        "PackageType": PackageTypeType,
-        "ImageConfigResponse": "ImageConfigResponseTypeDef",
-        "SigningProfileVersionArn": str,
-        "SigningJobArn": str,
-        "Architectures": List[ArchitectureType],
-        "EphemeralStorage": "EphemeralStorageTypeDef",
-        "SnapStart": "SnapStartResponseTypeDef",
-        "RuntimeVersionConfig": "RuntimeVersionConfigTypeDef",
-        "LoggingConfig": "LoggingConfigTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-FunctionConfigurationTypeDef = TypedDict(
-    "FunctionConfigurationTypeDef",
-    {
-        "FunctionName": str,
-        "FunctionArn": str,
-        "Runtime": RuntimeType,
-        "Role": str,
-        "Handler": str,
-        "CodeSize": int,
-        "Description": str,
-        "Timeout": int,
-        "MemorySize": int,
-        "LastModified": str,
-        "CodeSha256": str,
-        "Version": str,
-        "VpcConfig": "VpcConfigResponseTypeDef",
-        "DeadLetterConfig": "DeadLetterConfigTypeDef",
-        "Environment": "EnvironmentResponseTypeDef",
-        "KMSKeyArn": str,
-        "TracingConfig": "TracingConfigResponseTypeDef",
-        "MasterArn": str,
-        "RevisionId": str,
-        "Layers": List["LayerTypeDef"],
-        "State": StateType,
-        "StateReason": str,
-        "StateReasonCode": StateReasonCodeType,
-        "LastUpdateStatus": LastUpdateStatusType,
-        "LastUpdateStatusReason": str,
-        "LastUpdateStatusReasonCode": LastUpdateStatusReasonCodeType,
-        "FileSystemConfigs": List["FileSystemConfigTypeDef"],
-        "PackageType": PackageTypeType,
-        "ImageConfigResponse": "ImageConfigResponseTypeDef",
-        "SigningProfileVersionArn": str,
-        "SigningJobArn": str,
-        "Architectures": List[ArchitectureType],
-        "EphemeralStorage": "EphemeralStorageTypeDef",
-        "SnapStart": "SnapStartResponseTypeDef",
-        "RuntimeVersionConfig": "RuntimeVersionConfigTypeDef",
-        "LoggingConfig": "LoggingConfigTypeDef",
-    },
-    total=False,
-)
-
-FunctionEventInvokeConfigResponseMetadataTypeDef = TypedDict(
-    "FunctionEventInvokeConfigResponseMetadataTypeDef",
-    {
-        "LastModified": datetime,
-        "FunctionArn": str,
-        "MaximumRetryAttempts": int,
-        "MaximumEventAgeInSeconds": int,
-        "DestinationConfig": "DestinationConfigTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-FunctionEventInvokeConfigTypeDef = TypedDict(
-    "FunctionEventInvokeConfigTypeDef",
-    {
-        "LastModified": datetime,
-        "FunctionArn": str,
-        "MaximumRetryAttempts": int,
-        "MaximumEventAgeInSeconds": int,
-        "DestinationConfig": "DestinationConfigTypeDef",
-    },
-    total=False,
-)
-
-_RequiredFunctionUrlConfigTypeDef = TypedDict(
-    "_RequiredFunctionUrlConfigTypeDef",
-    {
-        "FunctionUrl": str,
-        "FunctionArn": str,
-        "CreationTime": str,
-        "LastModifiedTime": str,
-        "AuthType": FunctionUrlAuthTypeType,
-    },
-)
-_OptionalFunctionUrlConfigTypeDef = TypedDict(
-    "_OptionalFunctionUrlConfigTypeDef",
-    {
-        "Cors": "CorsTypeDef",
-        "InvokeMode": InvokeModeType,
-    },
-    total=False,
-)
-
-class FunctionUrlConfigTypeDef(
-    _RequiredFunctionUrlConfigTypeDef, _OptionalFunctionUrlConfigTypeDef
-):
-    pass
-
-GetAccountSettingsResponseTypeDef = TypedDict(
-    "GetAccountSettingsResponseTypeDef",
-    {
-        "AccountLimit": "AccountLimitTypeDef",
-        "AccountUsage": "AccountUsageTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetAliasRequestRequestTypeDef = TypedDict(
-    "GetAliasRequestRequestTypeDef",
-    {
-        "FunctionName": str,
-        "Name": str,
-    },
-)
-
-GetCodeSigningConfigRequestRequestTypeDef = TypedDict(
-    "GetCodeSigningConfigRequestRequestTypeDef",
-    {
-        "CodeSigningConfigArn": str,
-    },
-)
-
-GetCodeSigningConfigResponseTypeDef = TypedDict(
-    "GetCodeSigningConfigResponseTypeDef",
-    {
-        "CodeSigningConfig": "CodeSigningConfigTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetEventSourceMappingRequestRequestTypeDef = TypedDict(
-    "GetEventSourceMappingRequestRequestTypeDef",
-    {
-        "UUID": str,
-    },
-)
-
-GetFunctionCodeSigningConfigRequestRequestTypeDef = TypedDict(
-    "GetFunctionCodeSigningConfigRequestRequestTypeDef",
-    {
-        "FunctionName": str,
-    },
-)
-
-GetFunctionCodeSigningConfigResponseTypeDef = TypedDict(
-    "GetFunctionCodeSigningConfigResponseTypeDef",
-    {
-        "CodeSigningConfigArn": str,
-        "FunctionName": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetFunctionConcurrencyRequestRequestTypeDef = TypedDict(
-    "GetFunctionConcurrencyRequestRequestTypeDef",
-    {
-        "FunctionName": str,
-    },
-)
-
-GetFunctionConcurrencyResponseTypeDef = TypedDict(
-    "GetFunctionConcurrencyResponseTypeDef",
-    {
-        "ReservedConcurrentExecutions": int,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetFunctionConfigurationRequestRequestTypeDef = TypedDict(
-    "_RequiredGetFunctionConfigurationRequestRequestTypeDef",
-    {
-        "FunctionName": str,
-    },
-)
-_OptionalGetFunctionConfigurationRequestRequestTypeDef = TypedDict(
-    "_OptionalGetFunctionConfigurationRequestRequestTypeDef",
-    {
-        "Qualifier": str,
-    },
-    total=False,
-)
-
-class GetFunctionConfigurationRequestRequestTypeDef(
-    _RequiredGetFunctionConfigurationRequestRequestTypeDef,
-    _OptionalGetFunctionConfigurationRequestRequestTypeDef,
-):
-    pass
-
-_RequiredGetFunctionEventInvokeConfigRequestRequestTypeDef = TypedDict(
-    "_RequiredGetFunctionEventInvokeConfigRequestRequestTypeDef",
-    {
-        "FunctionName": str,
-    },
-)
-_OptionalGetFunctionEventInvokeConfigRequestRequestTypeDef = TypedDict(
-    "_OptionalGetFunctionEventInvokeConfigRequestRequestTypeDef",
-    {
-        "Qualifier": str,
-    },
-    total=False,
-)
-
-class GetFunctionEventInvokeConfigRequestRequestTypeDef(
-    _RequiredGetFunctionEventInvokeConfigRequestRequestTypeDef,
-    _OptionalGetFunctionEventInvokeConfigRequestRequestTypeDef,
-):
-    pass
-
-_RequiredGetFunctionRequestRequestTypeDef = TypedDict(
-    "_RequiredGetFunctionRequestRequestTypeDef",
-    {
-        "FunctionName": str,
-    },
-)
-_OptionalGetFunctionRequestRequestTypeDef = TypedDict(
-    "_OptionalGetFunctionRequestRequestTypeDef",
-    {
-        "Qualifier": str,
-    },
-    total=False,
-)
-
-class GetFunctionRequestRequestTypeDef(
-    _RequiredGetFunctionRequestRequestTypeDef, _OptionalGetFunctionRequestRequestTypeDef
-):
-    pass
-
-GetFunctionResponseTypeDef = TypedDict(
-    "GetFunctionResponseTypeDef",
-    {
-        "Configuration": "FunctionConfigurationTypeDef",
-        "Code": "FunctionCodeLocationTypeDef",
-        "Tags": Dict[str, str],
-        "Concurrency": "ConcurrencyTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetFunctionUrlConfigRequestRequestTypeDef = TypedDict(
-    "_RequiredGetFunctionUrlConfigRequestRequestTypeDef",
-    {
-        "FunctionName": str,
-    },
-)
-_OptionalGetFunctionUrlConfigRequestRequestTypeDef = TypedDict(
-    "_OptionalGetFunctionUrlConfigRequestRequestTypeDef",
-    {
-        "Qualifier": str,
-    },
-    total=False,
-)
-
-class GetFunctionUrlConfigRequestRequestTypeDef(
-    _RequiredGetFunctionUrlConfigRequestRequestTypeDef,
-    _OptionalGetFunctionUrlConfigRequestRequestTypeDef,
-):
-    pass
-
-GetFunctionUrlConfigResponseTypeDef = TypedDict(
-    "GetFunctionUrlConfigResponseTypeDef",
-    {
-        "FunctionUrl": str,
-        "FunctionArn": str,
-        "AuthType": FunctionUrlAuthTypeType,
-        "Cors": "CorsTypeDef",
-        "CreationTime": str,
-        "LastModifiedTime": str,
-        "InvokeMode": InvokeModeType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetLayerVersionByArnRequestRequestTypeDef = TypedDict(
-    "GetLayerVersionByArnRequestRequestTypeDef",
-    {
-        "Arn": str,
-    },
-)
-
-GetLayerVersionPolicyRequestRequestTypeDef = TypedDict(
-    "GetLayerVersionPolicyRequestRequestTypeDef",
-    {
-        "LayerName": str,
-        "VersionNumber": int,
-    },
-)
-
-GetLayerVersionPolicyResponseTypeDef = TypedDict(
-    "GetLayerVersionPolicyResponseTypeDef",
-    {
-        "Policy": str,
-        "RevisionId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetLayerVersionRequestRequestTypeDef = TypedDict(
-    "GetLayerVersionRequestRequestTypeDef",
-    {
-        "LayerName": str,
-        "VersionNumber": int,
-    },
-)
-
-GetLayerVersionResponseTypeDef = TypedDict(
-    "GetLayerVersionResponseTypeDef",
-    {
-        "Content": "LayerVersionContentOutputTypeDef",
-        "LayerArn": str,
-        "LayerVersionArn": str,
-        "Description": str,
-        "CreatedDate": str,
-        "Version": int,
-        "CompatibleRuntimes": List[RuntimeType],
-        "LicenseInfo": str,
-        "CompatibleArchitectures": List[ArchitectureType],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetPolicyRequestRequestTypeDef = TypedDict(
-    "_RequiredGetPolicyRequestRequestTypeDef",
-    {
-        "FunctionName": str,
-    },
-)
-_OptionalGetPolicyRequestRequestTypeDef = TypedDict(
-    "_OptionalGetPolicyRequestRequestTypeDef",
-    {
-        "Qualifier": str,
-    },
-    total=False,
-)
-
-class GetPolicyRequestRequestTypeDef(
-    _RequiredGetPolicyRequestRequestTypeDef, _OptionalGetPolicyRequestRequestTypeDef
-):
-    pass
-
-GetPolicyResponseTypeDef = TypedDict(
-    "GetPolicyResponseTypeDef",
-    {
-        "Policy": str,
-        "RevisionId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetProvisionedConcurrencyConfigRequestRequestTypeDef = TypedDict(
-    "GetProvisionedConcurrencyConfigRequestRequestTypeDef",
-    {
-        "FunctionName": str,
-        "Qualifier": str,
-    },
-)
-
-GetProvisionedConcurrencyConfigResponseTypeDef = TypedDict(
-    "GetProvisionedConcurrencyConfigResponseTypeDef",
-    {
-        "RequestedProvisionedConcurrentExecutions": int,
-        "AvailableProvisionedConcurrentExecutions": int,
-        "AllocatedProvisionedConcurrentExecutions": int,
-        "Status": ProvisionedConcurrencyStatusEnumType,
-        "StatusReason": str,
-        "LastModified": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetRuntimeManagementConfigRequestRequestTypeDef = TypedDict(
-    "_RequiredGetRuntimeManagementConfigRequestRequestTypeDef",
-    {
-        "FunctionName": str,
-    },
-)
-_OptionalGetRuntimeManagementConfigRequestRequestTypeDef = TypedDict(
-    "_OptionalGetRuntimeManagementConfigRequestRequestTypeDef",
-    {
-        "Qualifier": str,
-    },
-    total=False,
-)
-
-class GetRuntimeManagementConfigRequestRequestTypeDef(
-    _RequiredGetRuntimeManagementConfigRequestRequestTypeDef,
-    _OptionalGetRuntimeManagementConfigRequestRequestTypeDef,
-):
-    pass
-
-GetRuntimeManagementConfigResponseTypeDef = TypedDict(
-    "GetRuntimeManagementConfigResponseTypeDef",
-    {
-        "UpdateRuntimeOn": UpdateRuntimeOnType,
-        "RuntimeVersionArn": str,
-        "FunctionArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ImageConfigErrorTypeDef = TypedDict(
-    "ImageConfigErrorTypeDef",
-    {
-        "ErrorCode": str,
-        "Message": str,
-    },
-    total=False,
-)
-
-ImageConfigResponseTypeDef = TypedDict(
-    "ImageConfigResponseTypeDef",
-    {
-        "ImageConfig": "ImageConfigTypeDef",
-        "Error": "ImageConfigErrorTypeDef",
-    },
-    total=False,
-)
-
-ImageConfigTypeDef = TypedDict(
-    "ImageConfigTypeDef",
-    {
-        "EntryPoint": List[str],
-        "Command": List[str],
-        "WorkingDirectory": str,
-    },
-    total=False,
-)
-
-_RequiredInvocationRequestRequestTypeDef = TypedDict(
-    "_RequiredInvocationRequestRequestTypeDef",
-    {
-        "FunctionName": str,
-    },
-)
-_OptionalInvocationRequestRequestTypeDef = TypedDict(
-    "_OptionalInvocationRequestRequestTypeDef",
-    {
-        "InvocationType": InvocationTypeType,
-        "LogType": LogTypeType,
-        "ClientContext": str,
-        "Payload": Union[bytes, IO[bytes], StreamingBody],
-        "Qualifier": str,
-    },
-    total=False,
-)
-
-class InvocationRequestRequestTypeDef(
-    _RequiredInvocationRequestRequestTypeDef, _OptionalInvocationRequestRequestTypeDef
-):
-    pass
-
-InvocationResponseTypeDef = TypedDict(
-    "InvocationResponseTypeDef",
-    {
-        "StatusCode": int,
-        "FunctionError": str,
-        "LogResult": str,
-        "Payload": IO[bytes],
-        "ExecutedVersion": str,
-    },
-    total=False,
-)
-
-InvokeAsyncRequestRequestTypeDef = TypedDict(
-    "InvokeAsyncRequestRequestTypeDef",
-    {
-        "FunctionName": str,
-        "InvokeArgs": Union[bytes, IO[bytes], StreamingBody],
-    },
-)
-
-InvokeAsyncResponseTypeDef = TypedDict(
-    "InvokeAsyncResponseTypeDef",
-    {
-        "Status": int,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-InvokeResponseStreamUpdateTypeDef = TypedDict(
-    "InvokeResponseStreamUpdateTypeDef",
-    {
-        "Payload": bytes,
-    },
-    total=False,
-)
-
-InvokeWithResponseStreamCompleteEventTypeDef = TypedDict(
-    "InvokeWithResponseStreamCompleteEventTypeDef",
-    {
-        "ErrorCode": str,
-        "ErrorDetails": str,
-        "LogResult": str,
-    },
-    total=False,
-)
-
-_RequiredInvokeWithResponseStreamRequestRequestTypeDef = TypedDict(
-    "_RequiredInvokeWithResponseStreamRequestRequestTypeDef",
-    {
-        "FunctionName": str,
-    },
-)
-_OptionalInvokeWithResponseStreamRequestRequestTypeDef = TypedDict(
-    "_OptionalInvokeWithResponseStreamRequestRequestTypeDef",
-    {
-        "InvocationType": ResponseStreamingInvocationTypeType,
-        "LogType": LogTypeType,
-        "ClientContext": str,
-        "Qualifier": str,
-        "Payload": Union[bytes, IO[bytes], StreamingBody],
-    },
-    total=False,
-)
-
-class InvokeWithResponseStreamRequestRequestTypeDef(
-    _RequiredInvokeWithResponseStreamRequestRequestTypeDef,
-    _OptionalInvokeWithResponseStreamRequestRequestTypeDef,
-):
-    pass
-
-InvokeWithResponseStreamResponseEventTypeDef = TypedDict(
-    "InvokeWithResponseStreamResponseEventTypeDef",
-    {
-        "PayloadChunk": "InvokeResponseStreamUpdateTypeDef",
-        "InvokeComplete": "InvokeWithResponseStreamCompleteEventTypeDef",
-    },
-    total=False,
-)
-
-InvokeWithResponseStreamResponseTypeDef = TypedDict(
-    "InvokeWithResponseStreamResponseTypeDef",
-    {
-        "StatusCode": int,
-        "ExecutedVersion": str,
-        "EventStream": "InvokeWithResponseStreamResponseEventTypeDef",
-        "ResponseStreamContentType": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-LayerTypeDef = TypedDict(
-    "LayerTypeDef",
-    {
-        "Arn": str,
-        "CodeSize": int,
-        "SigningProfileVersionArn": str,
-        "SigningJobArn": str,
-    },
-    total=False,
-)
-
-LayerVersionContentInputTypeDef = TypedDict(
-    "LayerVersionContentInputTypeDef",
-    {
-        "S3Bucket": str,
-        "S3Key": str,
-        "S3ObjectVersion": str,
-        "ZipFile": Union[bytes, IO[bytes], StreamingBody],
-    },
-    total=False,
-)
-
-LayerVersionContentOutputTypeDef = TypedDict(
-    "LayerVersionContentOutputTypeDef",
-    {
-        "Location": str,
-        "CodeSha256": str,
-        "CodeSize": int,
-        "SigningProfileVersionArn": str,
-        "SigningJobArn": str,
-    },
-    total=False,
-)
-
-LayerVersionsListItemTypeDef = TypedDict(
-    "LayerVersionsListItemTypeDef",
-    {
-        "LayerVersionArn": str,
-        "Version": int,
-        "Description": str,
-        "CreatedDate": str,
-        "CompatibleRuntimes": List[RuntimeType],
-        "LicenseInfo": str,
-        "CompatibleArchitectures": List[ArchitectureType],
-    },
-    total=False,
-)
-
-LayersListItemTypeDef = TypedDict(
-    "LayersListItemTypeDef",
-    {
-        "LayerName": str,
-        "LayerArn": str,
-        "LatestMatchingVersion": "LayerVersionsListItemTypeDef",
-    },
-    total=False,
-)
-
-_RequiredListAliasesRequestRequestTypeDef = TypedDict(
-    "_RequiredListAliasesRequestRequestTypeDef",
-    {
-        "FunctionName": str,
-    },
-)
-_OptionalListAliasesRequestRequestTypeDef = TypedDict(
-    "_OptionalListAliasesRequestRequestTypeDef",
-    {
-        "FunctionVersion": str,
-        "Marker": str,
-        "MaxItems": int,
-    },
-    total=False,
-)
-
-class ListAliasesRequestRequestTypeDef(
-    _RequiredListAliasesRequestRequestTypeDef, _OptionalListAliasesRequestRequestTypeDef
-):
-    pass
-
-ListAliasesResponseTypeDef = TypedDict(
-    "ListAliasesResponseTypeDef",
-    {
-        "NextMarker": str,
-        "Aliases": List["AliasConfigurationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListCodeSigningConfigsRequestRequestTypeDef = TypedDict(
-    "ListCodeSigningConfigsRequestRequestTypeDef",
-    {
-        "Marker": str,
-        "MaxItems": int,
-    },
-    total=False,
-)
-
-ListCodeSigningConfigsResponseTypeDef = TypedDict(
-    "ListCodeSigningConfigsResponseTypeDef",
-    {
-        "NextMarker": str,
-        "CodeSigningConfigs": List["CodeSigningConfigTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListEventSourceMappingsRequestRequestTypeDef = TypedDict(
-    "ListEventSourceMappingsRequestRequestTypeDef",
-    {
-        "EventSourceArn": str,
-        "FunctionName": str,
-        "Marker": str,
-        "MaxItems": int,
-    },
-    total=False,
-)
-
-ListEventSourceMappingsResponseTypeDef = TypedDict(
-    "ListEventSourceMappingsResponseTypeDef",
-    {
-        "NextMarker": str,
-        "EventSourceMappings": List["EventSourceMappingConfigurationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListFunctionEventInvokeConfigsRequestRequestTypeDef = TypedDict(
-    "_RequiredListFunctionEventInvokeConfigsRequestRequestTypeDef",
-    {
-        "FunctionName": str,
-    },
-)
-_OptionalListFunctionEventInvokeConfigsRequestRequestTypeDef = TypedDict(
-    "_OptionalListFunctionEventInvokeConfigsRequestRequestTypeDef",
-    {
-        "Marker": str,
-        "MaxItems": int,
-    },
-    total=False,
-)
-
-class ListFunctionEventInvokeConfigsRequestRequestTypeDef(
-    _RequiredListFunctionEventInvokeConfigsRequestRequestTypeDef,
-    _OptionalListFunctionEventInvokeConfigsRequestRequestTypeDef,
-):
-    pass
-
-ListFunctionEventInvokeConfigsResponseTypeDef = TypedDict(
-    "ListFunctionEventInvokeConfigsResponseTypeDef",
-    {
-        "FunctionEventInvokeConfigs": List["FunctionEventInvokeConfigTypeDef"],
-        "NextMarker": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListFunctionUrlConfigsRequestRequestTypeDef = TypedDict(
-    "_RequiredListFunctionUrlConfigsRequestRequestTypeDef",
-    {
-        "FunctionName": str,
-    },
-)
-_OptionalListFunctionUrlConfigsRequestRequestTypeDef = TypedDict(
-    "_OptionalListFunctionUrlConfigsRequestRequestTypeDef",
-    {
-        "Marker": str,
-        "MaxItems": int,
-    },
-    total=False,
-)
-
-class ListFunctionUrlConfigsRequestRequestTypeDef(
-    _RequiredListFunctionUrlConfigsRequestRequestTypeDef,
-    _OptionalListFunctionUrlConfigsRequestRequestTypeDef,
-):
-    pass
-
-ListFunctionUrlConfigsResponseTypeDef = TypedDict(
-    "ListFunctionUrlConfigsResponseTypeDef",
-    {
-        "FunctionUrlConfigs": List["FunctionUrlConfigTypeDef"],
-        "NextMarker": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListFunctionsByCodeSigningConfigRequestRequestTypeDef = TypedDict(
-    "_RequiredListFunctionsByCodeSigningConfigRequestRequestTypeDef",
-    {
-        "CodeSigningConfigArn": str,
-    },
-)
-_OptionalListFunctionsByCodeSigningConfigRequestRequestTypeDef = TypedDict(
-    "_OptionalListFunctionsByCodeSigningConfigRequestRequestTypeDef",
-    {
-        "Marker": str,
-        "MaxItems": int,
-    },
-    total=False,
-)
-
-class ListFunctionsByCodeSigningConfigRequestRequestTypeDef(
-    _RequiredListFunctionsByCodeSigningConfigRequestRequestTypeDef,
-    _OptionalListFunctionsByCodeSigningConfigRequestRequestTypeDef,
-):
-    pass
-
-ListFunctionsByCodeSigningConfigResponseTypeDef = TypedDict(
-    "ListFunctionsByCodeSigningConfigResponseTypeDef",
-    {
-        "NextMarker": str,
-        "FunctionArns": List[str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListFunctionsRequestRequestTypeDef = TypedDict(
-    "ListFunctionsRequestRequestTypeDef",
-    {
-        "MasterRegion": str,
-        "FunctionVersion": Literal["ALL"],
-        "Marker": str,
-        "MaxItems": int,
-    },
-    total=False,
-)
-
-ListFunctionsResponseTypeDef = TypedDict(
-    "ListFunctionsResponseTypeDef",
-    {
-        "NextMarker": str,
-        "Functions": List["FunctionConfigurationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListLayerVersionsRequestRequestTypeDef = TypedDict(
-    "_RequiredListLayerVersionsRequestRequestTypeDef",
-    {
-        "LayerName": str,
-    },
-)
-_OptionalListLayerVersionsRequestRequestTypeDef = TypedDict(
-    "_OptionalListLayerVersionsRequestRequestTypeDef",
-    {
-        "CompatibleRuntime": RuntimeType,
-        "Marker": str,
-        "MaxItems": int,
-        "CompatibleArchitecture": ArchitectureType,
-    },
-    total=False,
-)
-
-class ListLayerVersionsRequestRequestTypeDef(
-    _RequiredListLayerVersionsRequestRequestTypeDef, _OptionalListLayerVersionsRequestRequestTypeDef
-):
-    pass
-
-ListLayerVersionsResponseTypeDef = TypedDict(
-    "ListLayerVersionsResponseTypeDef",
-    {
-        "NextMarker": str,
-        "LayerVersions": List["LayerVersionsListItemTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListLayersRequestRequestTypeDef = TypedDict(
-    "ListLayersRequestRequestTypeDef",
-    {
-        "CompatibleRuntime": RuntimeType,
-        "Marker": str,
-        "MaxItems": int,
-        "CompatibleArchitecture": ArchitectureType,
-    },
-    total=False,
-)
-
-ListLayersResponseTypeDef = TypedDict(
-    "ListLayersResponseTypeDef",
-    {
-        "NextMarker": str,
-        "Layers": List["LayersListItemTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListProvisionedConcurrencyConfigsRequestRequestTypeDef = TypedDict(
-    "_RequiredListProvisionedConcurrencyConfigsRequestRequestTypeDef",
-    {
-        "FunctionName": str,
-    },
-)
-_OptionalListProvisionedConcurrencyConfigsRequestRequestTypeDef = TypedDict(
-    "_OptionalListProvisionedConcurrencyConfigsRequestRequestTypeDef",
-    {
-        "Marker": str,
-        "MaxItems": int,
-    },
-    total=False,
-)
-
-class ListProvisionedConcurrencyConfigsRequestRequestTypeDef(
-    _RequiredListProvisionedConcurrencyConfigsRequestRequestTypeDef,
-    _OptionalListProvisionedConcurrencyConfigsRequestRequestTypeDef,
-):
-    pass
-
-ListProvisionedConcurrencyConfigsResponseTypeDef = TypedDict(
-    "ListProvisionedConcurrencyConfigsResponseTypeDef",
-    {
-        "ProvisionedConcurrencyConfigs": List["ProvisionedConcurrencyConfigListItemTypeDef"],
-        "NextMarker": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTagsRequestRequestTypeDef = TypedDict(
-    "ListTagsRequestRequestTypeDef",
-    {
-        "Resource": str,
-    },
-)
-
-ListTagsResponseTypeDef = TypedDict(
-    "ListTagsResponseTypeDef",
-    {
-        "Tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListVersionsByFunctionRequestRequestTypeDef = TypedDict(
-    "_RequiredListVersionsByFunctionRequestRequestTypeDef",
-    {
-        "FunctionName": str,
-    },
-)
-_OptionalListVersionsByFunctionRequestRequestTypeDef = TypedDict(
-    "_OptionalListVersionsByFunctionRequestRequestTypeDef",
-    {
-        "Marker": str,
-        "MaxItems": int,
-    },
-    total=False,
-)
-
-class ListVersionsByFunctionRequestRequestTypeDef(
-    _RequiredListVersionsByFunctionRequestRequestTypeDef,
-    _OptionalListVersionsByFunctionRequestRequestTypeDef,
-):
-    pass
-
-ListVersionsByFunctionResponseTypeDef = TypedDict(
-    "ListVersionsByFunctionResponseTypeDef",
-    {
-        "NextMarker": str,
-        "Versions": List["FunctionConfigurationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-LoggingConfigTypeDef = TypedDict(
-    "LoggingConfigTypeDef",
-    {
-        "LogFormat": LogFormatType,
-        "ApplicationLogLevel": ApplicationLogLevelType,
-        "SystemLogLevel": SystemLogLevelType,
-        "LogGroup": str,
-    },
-    total=False,
-)
-
-OnFailureTypeDef = TypedDict(
-    "OnFailureTypeDef",
-    {
-        "Destination": str,
-    },
-    total=False,
-)
-
-OnSuccessTypeDef = TypedDict(
-    "OnSuccessTypeDef",
-    {
-        "Destination": str,
-    },
-    total=False,
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-ProvisionedConcurrencyConfigListItemTypeDef = TypedDict(
-    "ProvisionedConcurrencyConfigListItemTypeDef",
-    {
-        "FunctionArn": str,
-        "RequestedProvisionedConcurrentExecutions": int,
-        "AvailableProvisionedConcurrentExecutions": int,
-        "AllocatedProvisionedConcurrentExecutions": int,
-        "Status": ProvisionedConcurrencyStatusEnumType,
-        "StatusReason": str,
-        "LastModified": str,
-    },
-    total=False,
-)
-
-_RequiredPublishLayerVersionRequestRequestTypeDef = TypedDict(
-    "_RequiredPublishLayerVersionRequestRequestTypeDef",
-    {
-        "LayerName": str,
-        "Content": "LayerVersionContentInputTypeDef",
-    },
-)
-_OptionalPublishLayerVersionRequestRequestTypeDef = TypedDict(
-    "_OptionalPublishLayerVersionRequestRequestTypeDef",
-    {
-        "Description": str,
-        "CompatibleRuntimes": List[RuntimeType],
-        "LicenseInfo": str,
-        "CompatibleArchitectures": List[ArchitectureType],
-    },
-    total=False,
-)
-
-class PublishLayerVersionRequestRequestTypeDef(
-    _RequiredPublishLayerVersionRequestRequestTypeDef,
-    _OptionalPublishLayerVersionRequestRequestTypeDef,
-):
-    pass
-
-PublishLayerVersionResponseTypeDef = TypedDict(
-    "PublishLayerVersionResponseTypeDef",
-    {
-        "Content": "LayerVersionContentOutputTypeDef",
-        "LayerArn": str,
-        "LayerVersionArn": str,
-        "Description": str,
-        "CreatedDate": str,
-        "Version": int,
-        "CompatibleRuntimes": List[RuntimeType],
-        "LicenseInfo": str,
-        "CompatibleArchitectures": List[ArchitectureType],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredPublishVersionRequestRequestTypeDef = TypedDict(
-    "_RequiredPublishVersionRequestRequestTypeDef",
-    {
-        "FunctionName": str,
-    },
-)
-_OptionalPublishVersionRequestRequestTypeDef = TypedDict(
-    "_OptionalPublishVersionRequestRequestTypeDef",
-    {
-        "CodeSha256": str,
-        "Description": str,
-        "RevisionId": str,
-    },
-    total=False,
-)
-
-class PublishVersionRequestRequestTypeDef(
-    _RequiredPublishVersionRequestRequestTypeDef, _OptionalPublishVersionRequestRequestTypeDef
-):
-    pass
-
-PutFunctionCodeSigningConfigRequestRequestTypeDef = TypedDict(
-    "PutFunctionCodeSigningConfigRequestRequestTypeDef",
-    {
-        "CodeSigningConfigArn": str,
-        "FunctionName": str,
-    },
-)
-
-PutFunctionCodeSigningConfigResponseTypeDef = TypedDict(
-    "PutFunctionCodeSigningConfigResponseTypeDef",
-    {
-        "CodeSigningConfigArn": str,
-        "FunctionName": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-PutFunctionConcurrencyRequestRequestTypeDef = TypedDict(
-    "PutFunctionConcurrencyRequestRequestTypeDef",
-    {
-        "FunctionName": str,
-        "ReservedConcurrentExecutions": int,
-    },
-)
-
-_RequiredPutFunctionEventInvokeConfigRequestRequestTypeDef = TypedDict(
-    "_RequiredPutFunctionEventInvokeConfigRequestRequestTypeDef",
-    {
-        "FunctionName": str,
-    },
-)
-_OptionalPutFunctionEventInvokeConfigRequestRequestTypeDef = TypedDict(
-    "_OptionalPutFunctionEventInvokeConfigRequestRequestTypeDef",
-    {
-        "Qualifier": str,
-        "MaximumRetryAttempts": int,
-        "MaximumEventAgeInSeconds": int,
-        "DestinationConfig": "DestinationConfigTypeDef",
-    },
-    total=False,
-)
-
-class PutFunctionEventInvokeConfigRequestRequestTypeDef(
-    _RequiredPutFunctionEventInvokeConfigRequestRequestTypeDef,
-    _OptionalPutFunctionEventInvokeConfigRequestRequestTypeDef,
-):
-    pass
-
-PutProvisionedConcurrencyConfigRequestRequestTypeDef = TypedDict(
-    "PutProvisionedConcurrencyConfigRequestRequestTypeDef",
-    {
-        "FunctionName": str,
-        "Qualifier": str,
-        "ProvisionedConcurrentExecutions": int,
-    },
-)
-
-PutProvisionedConcurrencyConfigResponseTypeDef = TypedDict(
-    "PutProvisionedConcurrencyConfigResponseTypeDef",
-    {
-        "RequestedProvisionedConcurrentExecutions": int,
-        "AvailableProvisionedConcurrentExecutions": int,
-        "AllocatedProvisionedConcurrentExecutions": int,
-        "Status": ProvisionedConcurrencyStatusEnumType,
-        "StatusReason": str,
-        "LastModified": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredPutRuntimeManagementConfigRequestRequestTypeDef = TypedDict(
-    "_RequiredPutRuntimeManagementConfigRequestRequestTypeDef",
-    {
-        "FunctionName": str,
-        "UpdateRuntimeOn": UpdateRuntimeOnType,
-    },
-)
-_OptionalPutRuntimeManagementConfigRequestRequestTypeDef = TypedDict(
-    "_OptionalPutRuntimeManagementConfigRequestRequestTypeDef",
-    {
-        "Qualifier": str,
-        "RuntimeVersionArn": str,
-    },
-    total=False,
-)
-
-class PutRuntimeManagementConfigRequestRequestTypeDef(
-    _RequiredPutRuntimeManagementConfigRequestRequestTypeDef,
-    _OptionalPutRuntimeManagementConfigRequestRequestTypeDef,
-):
-    pass
-
-PutRuntimeManagementConfigResponseTypeDef = TypedDict(
-    "PutRuntimeManagementConfigResponseTypeDef",
-    {
-        "UpdateRuntimeOn": UpdateRuntimeOnType,
-        "FunctionArn": str,
-        "RuntimeVersionArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredRemoveLayerVersionPermissionRequestRequestTypeDef = TypedDict(
-    "_RequiredRemoveLayerVersionPermissionRequestRequestTypeDef",
-    {
-        "LayerName": str,
-        "VersionNumber": int,
-        "StatementId": str,
-    },
-)
-_OptionalRemoveLayerVersionPermissionRequestRequestTypeDef = TypedDict(
-    "_OptionalRemoveLayerVersionPermissionRequestRequestTypeDef",
-    {
-        "RevisionId": str,
-    },
-    total=False,
-)
-
-class RemoveLayerVersionPermissionRequestRequestTypeDef(
-    _RequiredRemoveLayerVersionPermissionRequestRequestTypeDef,
-    _OptionalRemoveLayerVersionPermissionRequestRequestTypeDef,
-):
-    pass
-
-_RequiredRemovePermissionRequestRequestTypeDef = TypedDict(
-    "_RequiredRemovePermissionRequestRequestTypeDef",
-    {
-        "FunctionName": str,
-        "StatementId": str,
-    },
-)
-_OptionalRemovePermissionRequestRequestTypeDef = TypedDict(
-    "_OptionalRemovePermissionRequestRequestTypeDef",
-    {
-        "Qualifier": str,
-        "RevisionId": str,
-    },
-    total=False,
-)
-
-class RemovePermissionRequestRequestTypeDef(
-    _RequiredRemovePermissionRequestRequestTypeDef, _OptionalRemovePermissionRequestRequestTypeDef
-):
-    pass
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-RuntimeVersionConfigTypeDef = TypedDict(
-    "RuntimeVersionConfigTypeDef",
-    {
-        "RuntimeVersionArn": str,
-        "Error": "RuntimeVersionErrorTypeDef",
-    },
-    total=False,
-)
-
-RuntimeVersionErrorTypeDef = TypedDict(
-    "RuntimeVersionErrorTypeDef",
-    {
-        "ErrorCode": str,
-        "Message": str,
-    },
-    total=False,
-)
-
-ScalingConfigTypeDef = TypedDict(
-    "ScalingConfigTypeDef",
-    {
-        "MaximumConcurrency": int,
-    },
-    total=False,
-)
-
-SelfManagedEventSourceTypeDef = TypedDict(
-    "SelfManagedEventSourceTypeDef",
-    {
-        "Endpoints": Dict[Literal["KAFKA_BOOTSTRAP_SERVERS"], List[str]],
-    },
-    total=False,
-)
-
-SelfManagedKafkaEventSourceConfigTypeDef = TypedDict(
-    "SelfManagedKafkaEventSourceConfigTypeDef",
-    {
-        "ConsumerGroupId": str,
-    },
-    total=False,
-)
-
-SnapStartResponseTypeDef = TypedDict(
-    "SnapStartResponseTypeDef",
-    {
-        "ApplyOn": SnapStartApplyOnType,
-        "OptimizationStatus": SnapStartOptimizationStatusType,
-    },
-    total=False,
-)
-
-SnapStartTypeDef = TypedDict(
-    "SnapStartTypeDef",
-    {
-        "ApplyOn": SnapStartApplyOnType,
-    },
-    total=False,
-)
+class AccountLimitTypeDef(TypedDict):
+    TotalCodeSize: NotRequired[int]
+    CodeSizeUnzipped: NotRequired[int]
+    CodeSizeZipped: NotRequired[int]
+    ConcurrentExecutions: NotRequired[int]
+    UnreservedConcurrentExecutions: NotRequired[int]
+
+class AccountUsageTypeDef(TypedDict):
+    TotalCodeSize: NotRequired[int]
+    FunctionCount: NotRequired[int]
+
+class AddLayerVersionPermissionRequestTypeDef(TypedDict):
+    LayerName: str
+    VersionNumber: int
+    StatementId: str
+    Action: str
+    Principal: str
+    OrganizationId: NotRequired[str]
+    RevisionId: NotRequired[str]
+
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
+
+class AddPermissionRequestTypeDef(TypedDict):
+    FunctionName: str
+    StatementId: str
+    Action: str
+    Principal: str
+    SourceArn: NotRequired[str]
+    SourceAccount: NotRequired[str]
+    EventSourceToken: NotRequired[str]
+    Qualifier: NotRequired[str]
+    RevisionId: NotRequired[str]
+    PrincipalOrgID: NotRequired[str]
+    FunctionUrlAuthType: NotRequired[FunctionUrlAuthTypeType]
+
+class AliasRoutingConfigurationOutputTypeDef(TypedDict):
+    AdditionalVersionWeights: NotRequired[Dict[str, float]]
+
+class AliasRoutingConfigurationTypeDef(TypedDict):
+    AdditionalVersionWeights: NotRequired[Mapping[str, float]]
+
+class AllowedPublishersOutputTypeDef(TypedDict):
+    SigningProfileVersionArns: List[str]
+
+class AllowedPublishersTypeDef(TypedDict):
+    SigningProfileVersionArns: Sequence[str]
+
+class AmazonManagedKafkaEventSourceConfigTypeDef(TypedDict):
+    ConsumerGroupId: NotRequired[str]
+
+BlobTypeDef = Union[str, bytes, IO[Any], StreamingBody]
+
+class CodeSigningPoliciesTypeDef(TypedDict):
+    UntrustedArtifactOnDeployment: NotRequired[CodeSigningPolicyType]
+
+class ConcurrencyTypeDef(TypedDict):
+    ReservedConcurrentExecutions: NotRequired[int]
+
+class CorsOutputTypeDef(TypedDict):
+    AllowCredentials: NotRequired[bool]
+    AllowHeaders: NotRequired[List[str]]
+    AllowMethods: NotRequired[List[str]]
+    AllowOrigins: NotRequired[List[str]]
+    ExposeHeaders: NotRequired[List[str]]
+    MaxAge: NotRequired[int]
+
+class CorsTypeDef(TypedDict):
+    AllowCredentials: NotRequired[bool]
+    AllowHeaders: NotRequired[Sequence[str]]
+    AllowMethods: NotRequired[Sequence[str]]
+    AllowOrigins: NotRequired[Sequence[str]]
+    ExposeHeaders: NotRequired[Sequence[str]]
+    MaxAge: NotRequired[int]
+
+class DocumentDBEventSourceConfigTypeDef(TypedDict):
+    DatabaseName: NotRequired[str]
+    CollectionName: NotRequired[str]
+    FullDocument: NotRequired[FullDocumentType]
+
+class ProvisionedPollerConfigTypeDef(TypedDict):
+    MinimumPollers: NotRequired[int]
+    MaximumPollers: NotRequired[int]
+
+class ScalingConfigTypeDef(TypedDict):
+    MaximumConcurrency: NotRequired[int]
+
+class SelfManagedKafkaEventSourceConfigTypeDef(TypedDict):
+    ConsumerGroupId: NotRequired[str]
 
 SourceAccessConfigurationTypeDef = TypedDict(
     "SourceAccessConfigurationTypeDef",
     {
-        "Type": SourceAccessTypeType,
-        "URI": str,
-    },
-    total=False,
-)
-
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "Resource": str,
-        "Tags": Dict[str, str],
+        "Type": NotRequired[SourceAccessTypeType],
+        "URI": NotRequired[str],
     },
 )
+TimestampTypeDef = Union[datetime, str]
 
-TracingConfigResponseTypeDef = TypedDict(
-    "TracingConfigResponseTypeDef",
-    {
-        "Mode": TracingModeType,
-    },
-    total=False,
-)
+class DeadLetterConfigTypeDef(TypedDict):
+    TargetArn: NotRequired[str]
 
-TracingConfigTypeDef = TypedDict(
-    "TracingConfigTypeDef",
-    {
-        "Mode": TracingModeType,
-    },
-    total=False,
-)
+class EnvironmentTypeDef(TypedDict):
+    Variables: NotRequired[Mapping[str, str]]
 
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "Resource": str,
-        "TagKeys": List[str],
-    },
-)
+class EphemeralStorageTypeDef(TypedDict):
+    Size: int
 
-_RequiredUpdateAliasRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateAliasRequestRequestTypeDef",
-    {
-        "FunctionName": str,
-        "Name": str,
-    },
-)
-_OptionalUpdateAliasRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateAliasRequestRequestTypeDef",
-    {
-        "FunctionVersion": str,
-        "Description": str,
-        "RoutingConfig": "AliasRoutingConfigurationTypeDef",
-        "RevisionId": str,
-    },
-    total=False,
-)
+class FileSystemConfigTypeDef(TypedDict):
+    Arn: str
+    LocalMountPath: str
 
-class UpdateAliasRequestRequestTypeDef(
-    _RequiredUpdateAliasRequestRequestTypeDef, _OptionalUpdateAliasRequestRequestTypeDef
-):
-    pass
+class LoggingConfigTypeDef(TypedDict):
+    LogFormat: NotRequired[LogFormatType]
+    ApplicationLogLevel: NotRequired[ApplicationLogLevelType]
+    SystemLogLevel: NotRequired[SystemLogLevelType]
+    LogGroup: NotRequired[str]
 
-_RequiredUpdateCodeSigningConfigRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateCodeSigningConfigRequestRequestTypeDef",
-    {
-        "CodeSigningConfigArn": str,
-    },
-)
-_OptionalUpdateCodeSigningConfigRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateCodeSigningConfigRequestRequestTypeDef",
-    {
-        "Description": str,
-        "AllowedPublishers": "AllowedPublishersTypeDef",
-        "CodeSigningPolicies": "CodeSigningPoliciesTypeDef",
-    },
-    total=False,
-)
+class SnapStartTypeDef(TypedDict):
+    ApplyOn: NotRequired[SnapStartApplyOnType]
 
-class UpdateCodeSigningConfigRequestRequestTypeDef(
-    _RequiredUpdateCodeSigningConfigRequestRequestTypeDef,
-    _OptionalUpdateCodeSigningConfigRequestRequestTypeDef,
-):
-    pass
+class TracingConfigTypeDef(TypedDict):
+    Mode: NotRequired[TracingModeType]
 
-UpdateCodeSigningConfigResponseTypeDef = TypedDict(
-    "UpdateCodeSigningConfigResponseTypeDef",
-    {
-        "CodeSigningConfig": "CodeSigningConfigTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class VpcConfigTypeDef(TypedDict):
+    SubnetIds: NotRequired[Sequence[str]]
+    SecurityGroupIds: NotRequired[Sequence[str]]
+    Ipv6AllowedForDualStack: NotRequired[bool]
 
-_RequiredUpdateEventSourceMappingRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateEventSourceMappingRequestRequestTypeDef",
-    {
-        "UUID": str,
-    },
-)
-_OptionalUpdateEventSourceMappingRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateEventSourceMappingRequestRequestTypeDef",
-    {
-        "FunctionName": str,
-        "Enabled": bool,
-        "BatchSize": int,
-        "FilterCriteria": "FilterCriteriaTypeDef",
-        "MaximumBatchingWindowInSeconds": int,
-        "DestinationConfig": "DestinationConfigTypeDef",
-        "MaximumRecordAgeInSeconds": int,
-        "BisectBatchOnFunctionError": bool,
-        "MaximumRetryAttempts": int,
-        "ParallelizationFactor": int,
-        "SourceAccessConfigurations": List["SourceAccessConfigurationTypeDef"],
-        "TumblingWindowInSeconds": int,
-        "FunctionResponseTypes": List[Literal["ReportBatchItemFailures"]],
-        "ScalingConfig": "ScalingConfigTypeDef",
-        "DocumentDBEventSourceConfig": "DocumentDBEventSourceConfigTypeDef",
-    },
-    total=False,
-)
+class DeleteAliasRequestTypeDef(TypedDict):
+    FunctionName: str
+    Name: str
 
-class UpdateEventSourceMappingRequestRequestTypeDef(
-    _RequiredUpdateEventSourceMappingRequestRequestTypeDef,
-    _OptionalUpdateEventSourceMappingRequestRequestTypeDef,
-):
-    pass
+class DeleteCodeSigningConfigRequestTypeDef(TypedDict):
+    CodeSigningConfigArn: str
 
-_RequiredUpdateFunctionCodeRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateFunctionCodeRequestRequestTypeDef",
-    {
-        "FunctionName": str,
-    },
-)
-_OptionalUpdateFunctionCodeRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateFunctionCodeRequestRequestTypeDef",
-    {
-        "ZipFile": Union[bytes, IO[bytes], StreamingBody],
-        "S3Bucket": str,
-        "S3Key": str,
-        "S3ObjectVersion": str,
-        "ImageUri": str,
-        "Publish": bool,
-        "DryRun": bool,
-        "RevisionId": str,
-        "Architectures": List[ArchitectureType],
-    },
-    total=False,
-)
+class DeleteEventSourceMappingRequestTypeDef(TypedDict):
+    UUID: str
 
-class UpdateFunctionCodeRequestRequestTypeDef(
-    _RequiredUpdateFunctionCodeRequestRequestTypeDef,
-    _OptionalUpdateFunctionCodeRequestRequestTypeDef,
-):
-    pass
+class DeleteFunctionCodeSigningConfigRequestTypeDef(TypedDict):
+    FunctionName: str
 
-_RequiredUpdateFunctionConfigurationRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateFunctionConfigurationRequestRequestTypeDef",
-    {
-        "FunctionName": str,
-    },
-)
-_OptionalUpdateFunctionConfigurationRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateFunctionConfigurationRequestRequestTypeDef",
-    {
-        "Role": str,
-        "Handler": str,
-        "Description": str,
-        "Timeout": int,
-        "MemorySize": int,
-        "VpcConfig": "VpcConfigTypeDef",
-        "Environment": "EnvironmentTypeDef",
-        "Runtime": RuntimeType,
-        "DeadLetterConfig": "DeadLetterConfigTypeDef",
-        "KMSKeyArn": str,
-        "TracingConfig": "TracingConfigTypeDef",
-        "RevisionId": str,
-        "Layers": List[str],
-        "FileSystemConfigs": List["FileSystemConfigTypeDef"],
-        "ImageConfig": "ImageConfigTypeDef",
-        "EphemeralStorage": "EphemeralStorageTypeDef",
-        "SnapStart": "SnapStartTypeDef",
-        "LoggingConfig": "LoggingConfigTypeDef",
-    },
-    total=False,
-)
+class DeleteFunctionConcurrencyRequestTypeDef(TypedDict):
+    FunctionName: str
 
-class UpdateFunctionConfigurationRequestRequestTypeDef(
-    _RequiredUpdateFunctionConfigurationRequestRequestTypeDef,
-    _OptionalUpdateFunctionConfigurationRequestRequestTypeDef,
-):
-    pass
+class DeleteFunctionEventInvokeConfigRequestTypeDef(TypedDict):
+    FunctionName: str
+    Qualifier: NotRequired[str]
 
-_RequiredUpdateFunctionEventInvokeConfigRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateFunctionEventInvokeConfigRequestRequestTypeDef",
-    {
-        "FunctionName": str,
-    },
-)
-_OptionalUpdateFunctionEventInvokeConfigRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateFunctionEventInvokeConfigRequestRequestTypeDef",
-    {
-        "Qualifier": str,
-        "MaximumRetryAttempts": int,
-        "MaximumEventAgeInSeconds": int,
-        "DestinationConfig": "DestinationConfigTypeDef",
-    },
-    total=False,
-)
+class DeleteFunctionRequestTypeDef(TypedDict):
+    FunctionName: str
+    Qualifier: NotRequired[str]
 
-class UpdateFunctionEventInvokeConfigRequestRequestTypeDef(
-    _RequiredUpdateFunctionEventInvokeConfigRequestRequestTypeDef,
-    _OptionalUpdateFunctionEventInvokeConfigRequestRequestTypeDef,
-):
-    pass
+class DeleteFunctionUrlConfigRequestTypeDef(TypedDict):
+    FunctionName: str
+    Qualifier: NotRequired[str]
 
-_RequiredUpdateFunctionUrlConfigRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateFunctionUrlConfigRequestRequestTypeDef",
-    {
-        "FunctionName": str,
-    },
-)
-_OptionalUpdateFunctionUrlConfigRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateFunctionUrlConfigRequestRequestTypeDef",
-    {
-        "Qualifier": str,
-        "AuthType": FunctionUrlAuthTypeType,
-        "Cors": "CorsTypeDef",
-        "InvokeMode": InvokeModeType,
-    },
-    total=False,
-)
+class DeleteLayerVersionRequestTypeDef(TypedDict):
+    LayerName: str
+    VersionNumber: int
 
-class UpdateFunctionUrlConfigRequestRequestTypeDef(
-    _RequiredUpdateFunctionUrlConfigRequestRequestTypeDef,
-    _OptionalUpdateFunctionUrlConfigRequestRequestTypeDef,
-):
-    pass
+class DeleteProvisionedConcurrencyConfigRequestTypeDef(TypedDict):
+    FunctionName: str
+    Qualifier: str
 
-UpdateFunctionUrlConfigResponseTypeDef = TypedDict(
-    "UpdateFunctionUrlConfigResponseTypeDef",
+class OnFailureTypeDef(TypedDict):
+    Destination: NotRequired[str]
+
+class OnSuccessTypeDef(TypedDict):
+    Destination: NotRequired[str]
+
+class EnvironmentErrorTypeDef(TypedDict):
+    ErrorCode: NotRequired[str]
+    Message: NotRequired[str]
+
+class EventSourceMappingMetricsConfigOutputTypeDef(TypedDict):
+    Metrics: NotRequired[List[Literal["EventCount"]]]
+
+class FilterCriteriaErrorTypeDef(TypedDict):
+    ErrorCode: NotRequired[str]
+    Message: NotRequired[str]
+
+class SelfManagedEventSourceOutputTypeDef(TypedDict):
+    Endpoints: NotRequired[Dict[Literal["KAFKA_BOOTSTRAP_SERVERS"], List[str]]]
+
+class EventSourceMappingMetricsConfigTypeDef(TypedDict):
+    Metrics: NotRequired[Sequence[Literal["EventCount"]]]
+
+FilterTypeDef = TypedDict(
+    "FilterTypeDef",
     {
-        "FunctionUrl": str,
-        "FunctionArn": str,
-        "AuthType": FunctionUrlAuthTypeType,
-        "Cors": "CorsTypeDef",
-        "CreationTime": str,
-        "LastModifiedTime": str,
-        "InvokeMode": InvokeModeType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "Pattern": NotRequired[str],
     },
 )
 
-VpcConfigResponseTypeDef = TypedDict(
-    "VpcConfigResponseTypeDef",
-    {
-        "SubnetIds": List[str],
-        "SecurityGroupIds": List[str],
-        "VpcId": str,
-        "Ipv6AllowedForDualStack": bool,
-    },
-    total=False,
-)
+class FunctionCodeLocationTypeDef(TypedDict):
+    RepositoryType: NotRequired[str]
+    Location: NotRequired[str]
+    ImageUri: NotRequired[str]
+    ResolvedImageUri: NotRequired[str]
+    SourceKMSKeyArn: NotRequired[str]
 
-VpcConfigTypeDef = TypedDict(
-    "VpcConfigTypeDef",
-    {
-        "SubnetIds": List[str],
-        "SecurityGroupIds": List[str],
-        "Ipv6AllowedForDualStack": bool,
-    },
-    total=False,
-)
+class LayerTypeDef(TypedDict):
+    Arn: NotRequired[str]
+    CodeSize: NotRequired[int]
+    SigningProfileVersionArn: NotRequired[str]
+    SigningJobArn: NotRequired[str]
 
-WaiterConfigTypeDef = TypedDict(
-    "WaiterConfigTypeDef",
-    {
-        "Delay": int,
-        "MaxAttempts": int,
-    },
-    total=False,
-)
+class SnapStartResponseTypeDef(TypedDict):
+    ApplyOn: NotRequired[SnapStartApplyOnType]
+    OptimizationStatus: NotRequired[SnapStartOptimizationStatusType]
+
+class TracingConfigResponseTypeDef(TypedDict):
+    Mode: NotRequired[TracingModeType]
+
+class VpcConfigResponseTypeDef(TypedDict):
+    SubnetIds: NotRequired[List[str]]
+    SecurityGroupIds: NotRequired[List[str]]
+    VpcId: NotRequired[str]
+    Ipv6AllowedForDualStack: NotRequired[bool]
+
+class GetAliasRequestTypeDef(TypedDict):
+    FunctionName: str
+    Name: str
+
+class GetCodeSigningConfigRequestTypeDef(TypedDict):
+    CodeSigningConfigArn: str
+
+class GetEventSourceMappingRequestTypeDef(TypedDict):
+    UUID: str
+
+class GetFunctionCodeSigningConfigRequestTypeDef(TypedDict):
+    FunctionName: str
+
+class GetFunctionConcurrencyRequestTypeDef(TypedDict):
+    FunctionName: str
+
+class GetFunctionConfigurationRequestTypeDef(TypedDict):
+    FunctionName: str
+    Qualifier: NotRequired[str]
+
+class WaiterConfigTypeDef(TypedDict):
+    Delay: NotRequired[int]
+    MaxAttempts: NotRequired[int]
+
+class GetFunctionEventInvokeConfigRequestTypeDef(TypedDict):
+    FunctionName: str
+    Qualifier: NotRequired[str]
+
+class GetFunctionRecursionConfigRequestTypeDef(TypedDict):
+    FunctionName: str
+
+class GetFunctionRequestTypeDef(TypedDict):
+    FunctionName: str
+    Qualifier: NotRequired[str]
+
+class TagsErrorTypeDef(TypedDict):
+    ErrorCode: str
+    Message: str
+
+class GetFunctionUrlConfigRequestTypeDef(TypedDict):
+    FunctionName: str
+    Qualifier: NotRequired[str]
+
+class GetLayerVersionByArnRequestTypeDef(TypedDict):
+    Arn: str
+
+class GetLayerVersionPolicyRequestTypeDef(TypedDict):
+    LayerName: str
+    VersionNumber: int
+
+class GetLayerVersionRequestTypeDef(TypedDict):
+    LayerName: str
+    VersionNumber: int
+
+class LayerVersionContentOutputTypeDef(TypedDict):
+    Location: NotRequired[str]
+    CodeSha256: NotRequired[str]
+    CodeSize: NotRequired[int]
+    SigningProfileVersionArn: NotRequired[str]
+    SigningJobArn: NotRequired[str]
+
+class GetPolicyRequestTypeDef(TypedDict):
+    FunctionName: str
+    Qualifier: NotRequired[str]
+
+class GetProvisionedConcurrencyConfigRequestTypeDef(TypedDict):
+    FunctionName: str
+    Qualifier: str
+
+class GetRuntimeManagementConfigRequestTypeDef(TypedDict):
+    FunctionName: str
+    Qualifier: NotRequired[str]
+
+class ImageConfigErrorTypeDef(TypedDict):
+    ErrorCode: NotRequired[str]
+    Message: NotRequired[str]
+
+class ImageConfigOutputTypeDef(TypedDict):
+    EntryPoint: NotRequired[List[str]]
+    Command: NotRequired[List[str]]
+    WorkingDirectory: NotRequired[str]
+
+class ImageConfigTypeDef(TypedDict):
+    EntryPoint: NotRequired[Sequence[str]]
+    Command: NotRequired[Sequence[str]]
+    WorkingDirectory: NotRequired[str]
+
+class InvokeResponseStreamUpdateTypeDef(TypedDict):
+    Payload: NotRequired[bytes]
+
+class InvokeWithResponseStreamCompleteEventTypeDef(TypedDict):
+    ErrorCode: NotRequired[str]
+    ErrorDetails: NotRequired[str]
+    LogResult: NotRequired[str]
+
+class LayerVersionsListItemTypeDef(TypedDict):
+    LayerVersionArn: NotRequired[str]
+    Version: NotRequired[int]
+    Description: NotRequired[str]
+    CreatedDate: NotRequired[str]
+    CompatibleRuntimes: NotRequired[List[RuntimeType]]
+    LicenseInfo: NotRequired[str]
+    CompatibleArchitectures: NotRequired[List[ArchitectureType]]
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class ListAliasesRequestTypeDef(TypedDict):
+    FunctionName: str
+    FunctionVersion: NotRequired[str]
+    Marker: NotRequired[str]
+    MaxItems: NotRequired[int]
+
+class ListCodeSigningConfigsRequestTypeDef(TypedDict):
+    Marker: NotRequired[str]
+    MaxItems: NotRequired[int]
+
+class ListEventSourceMappingsRequestTypeDef(TypedDict):
+    EventSourceArn: NotRequired[str]
+    FunctionName: NotRequired[str]
+    Marker: NotRequired[str]
+    MaxItems: NotRequired[int]
+
+class ListFunctionEventInvokeConfigsRequestTypeDef(TypedDict):
+    FunctionName: str
+    Marker: NotRequired[str]
+    MaxItems: NotRequired[int]
+
+class ListFunctionUrlConfigsRequestTypeDef(TypedDict):
+    FunctionName: str
+    Marker: NotRequired[str]
+    MaxItems: NotRequired[int]
+
+class ListFunctionsByCodeSigningConfigRequestTypeDef(TypedDict):
+    CodeSigningConfigArn: str
+    Marker: NotRequired[str]
+    MaxItems: NotRequired[int]
+
+class ListFunctionsRequestTypeDef(TypedDict):
+    MasterRegion: NotRequired[str]
+    FunctionVersion: NotRequired[Literal["ALL"]]
+    Marker: NotRequired[str]
+    MaxItems: NotRequired[int]
+
+class ListLayerVersionsRequestTypeDef(TypedDict):
+    LayerName: str
+    CompatibleRuntime: NotRequired[RuntimeType]
+    Marker: NotRequired[str]
+    MaxItems: NotRequired[int]
+    CompatibleArchitecture: NotRequired[ArchitectureType]
+
+class ListLayersRequestTypeDef(TypedDict):
+    CompatibleRuntime: NotRequired[RuntimeType]
+    Marker: NotRequired[str]
+    MaxItems: NotRequired[int]
+    CompatibleArchitecture: NotRequired[ArchitectureType]
+
+class ListProvisionedConcurrencyConfigsRequestTypeDef(TypedDict):
+    FunctionName: str
+    Marker: NotRequired[str]
+    MaxItems: NotRequired[int]
+
+class ProvisionedConcurrencyConfigListItemTypeDef(TypedDict):
+    FunctionArn: NotRequired[str]
+    RequestedProvisionedConcurrentExecutions: NotRequired[int]
+    AvailableProvisionedConcurrentExecutions: NotRequired[int]
+    AllocatedProvisionedConcurrentExecutions: NotRequired[int]
+    Status: NotRequired[ProvisionedConcurrencyStatusEnumType]
+    StatusReason: NotRequired[str]
+    LastModified: NotRequired[str]
+
+class ListTagsRequestTypeDef(TypedDict):
+    Resource: str
+
+class ListVersionsByFunctionRequestTypeDef(TypedDict):
+    FunctionName: str
+    Marker: NotRequired[str]
+    MaxItems: NotRequired[int]
+
+class PublishVersionRequestTypeDef(TypedDict):
+    FunctionName: str
+    CodeSha256: NotRequired[str]
+    Description: NotRequired[str]
+    RevisionId: NotRequired[str]
+
+class PutFunctionCodeSigningConfigRequestTypeDef(TypedDict):
+    CodeSigningConfigArn: str
+    FunctionName: str
+
+class PutFunctionConcurrencyRequestTypeDef(TypedDict):
+    FunctionName: str
+    ReservedConcurrentExecutions: int
+
+class PutFunctionRecursionConfigRequestTypeDef(TypedDict):
+    FunctionName: str
+    RecursiveLoop: RecursiveLoopType
+
+class PutProvisionedConcurrencyConfigRequestTypeDef(TypedDict):
+    FunctionName: str
+    Qualifier: str
+    ProvisionedConcurrentExecutions: int
+
+class PutRuntimeManagementConfigRequestTypeDef(TypedDict):
+    FunctionName: str
+    UpdateRuntimeOn: UpdateRuntimeOnType
+    Qualifier: NotRequired[str]
+    RuntimeVersionArn: NotRequired[str]
+
+class RemoveLayerVersionPermissionRequestTypeDef(TypedDict):
+    LayerName: str
+    VersionNumber: int
+    StatementId: str
+    RevisionId: NotRequired[str]
+
+class RemovePermissionRequestTypeDef(TypedDict):
+    FunctionName: str
+    StatementId: str
+    Qualifier: NotRequired[str]
+    RevisionId: NotRequired[str]
+
+class RuntimeVersionErrorTypeDef(TypedDict):
+    ErrorCode: NotRequired[str]
+    Message: NotRequired[str]
+
+class SelfManagedEventSourceTypeDef(TypedDict):
+    Endpoints: NotRequired[Mapping[Literal["KAFKA_BOOTSTRAP_SERVERS"], Sequence[str]]]
+
+class TagResourceRequestTypeDef(TypedDict):
+    Resource: str
+    Tags: Mapping[str, str]
+
+class UntagResourceRequestTypeDef(TypedDict):
+    Resource: str
+    TagKeys: Sequence[str]
+
+class AddLayerVersionPermissionResponseTypeDef(TypedDict):
+    Statement: str
+    RevisionId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class AddPermissionResponseTypeDef(TypedDict):
+    Statement: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ConcurrencyResponseTypeDef(TypedDict):
+    ReservedConcurrentExecutions: int
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class EmptyResponseMetadataTypeDef(TypedDict):
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetAccountSettingsResponseTypeDef(TypedDict):
+    AccountLimit: AccountLimitTypeDef
+    AccountUsage: AccountUsageTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetFunctionCodeSigningConfigResponseTypeDef(TypedDict):
+    CodeSigningConfigArn: str
+    FunctionName: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetFunctionConcurrencyResponseTypeDef(TypedDict):
+    ReservedConcurrentExecutions: int
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetFunctionRecursionConfigResponseTypeDef(TypedDict):
+    RecursiveLoop: RecursiveLoopType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetLayerVersionPolicyResponseTypeDef(TypedDict):
+    Policy: str
+    RevisionId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetPolicyResponseTypeDef(TypedDict):
+    Policy: str
+    RevisionId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetProvisionedConcurrencyConfigResponseTypeDef(TypedDict):
+    RequestedProvisionedConcurrentExecutions: int
+    AvailableProvisionedConcurrentExecutions: int
+    AllocatedProvisionedConcurrentExecutions: int
+    Status: ProvisionedConcurrencyStatusEnumType
+    StatusReason: str
+    LastModified: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetRuntimeManagementConfigResponseTypeDef(TypedDict):
+    UpdateRuntimeOn: UpdateRuntimeOnType
+    RuntimeVersionArn: str
+    FunctionArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class InvocationResponseTypeDef(TypedDict):
+    StatusCode: int
+    FunctionError: str
+    LogResult: str
+    Payload: StreamingBody
+    ExecutedVersion: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class InvokeAsyncResponseTypeDef(TypedDict):
+    Status: int
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListFunctionsByCodeSigningConfigResponseTypeDef(TypedDict):
+    NextMarker: str
+    FunctionArns: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListTagsResponseTypeDef(TypedDict):
+    Tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutFunctionCodeSigningConfigResponseTypeDef(TypedDict):
+    CodeSigningConfigArn: str
+    FunctionName: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutFunctionRecursionConfigResponseTypeDef(TypedDict):
+    RecursiveLoop: RecursiveLoopType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutProvisionedConcurrencyConfigResponseTypeDef(TypedDict):
+    RequestedProvisionedConcurrentExecutions: int
+    AvailableProvisionedConcurrentExecutions: int
+    AllocatedProvisionedConcurrentExecutions: int
+    Status: ProvisionedConcurrencyStatusEnumType
+    StatusReason: str
+    LastModified: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutRuntimeManagementConfigResponseTypeDef(TypedDict):
+    UpdateRuntimeOn: UpdateRuntimeOnType
+    FunctionArn: str
+    RuntimeVersionArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class AliasConfigurationResponseTypeDef(TypedDict):
+    AliasArn: str
+    Name: str
+    FunctionVersion: str
+    Description: str
+    RoutingConfig: AliasRoutingConfigurationOutputTypeDef
+    RevisionId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class AliasConfigurationTypeDef(TypedDict):
+    AliasArn: NotRequired[str]
+    Name: NotRequired[str]
+    FunctionVersion: NotRequired[str]
+    Description: NotRequired[str]
+    RoutingConfig: NotRequired[AliasRoutingConfigurationOutputTypeDef]
+    RevisionId: NotRequired[str]
+
+AliasRoutingConfigurationUnionTypeDef = Union[
+    AliasRoutingConfigurationTypeDef, AliasRoutingConfigurationOutputTypeDef
+]
+AllowedPublishersUnionTypeDef = Union[AllowedPublishersTypeDef, AllowedPublishersOutputTypeDef]
+
+class FunctionCodeTypeDef(TypedDict):
+    ZipFile: NotRequired[BlobTypeDef]
+    S3Bucket: NotRequired[str]
+    S3Key: NotRequired[str]
+    S3ObjectVersion: NotRequired[str]
+    ImageUri: NotRequired[str]
+    SourceKMSKeyArn: NotRequired[str]
+
+class InvocationRequestTypeDef(TypedDict):
+    FunctionName: str
+    InvocationType: NotRequired[InvocationTypeType]
+    LogType: NotRequired[LogTypeType]
+    ClientContext: NotRequired[str]
+    Payload: NotRequired[BlobTypeDef]
+    Qualifier: NotRequired[str]
+
+class InvokeAsyncRequestTypeDef(TypedDict):
+    FunctionName: str
+    InvokeArgs: BlobTypeDef
+
+class InvokeWithResponseStreamRequestTypeDef(TypedDict):
+    FunctionName: str
+    InvocationType: NotRequired[ResponseStreamingInvocationTypeType]
+    LogType: NotRequired[LogTypeType]
+    ClientContext: NotRequired[str]
+    Qualifier: NotRequired[str]
+    Payload: NotRequired[BlobTypeDef]
+
+class LayerVersionContentInputTypeDef(TypedDict):
+    S3Bucket: NotRequired[str]
+    S3Key: NotRequired[str]
+    S3ObjectVersion: NotRequired[str]
+    ZipFile: NotRequired[BlobTypeDef]
+
+class UpdateFunctionCodeRequestTypeDef(TypedDict):
+    FunctionName: str
+    ZipFile: NotRequired[BlobTypeDef]
+    S3Bucket: NotRequired[str]
+    S3Key: NotRequired[str]
+    S3ObjectVersion: NotRequired[str]
+    ImageUri: NotRequired[str]
+    Publish: NotRequired[bool]
+    DryRun: NotRequired[bool]
+    RevisionId: NotRequired[str]
+    Architectures: NotRequired[Sequence[ArchitectureType]]
+    SourceKMSKeyArn: NotRequired[str]
+
+class CodeSigningConfigTypeDef(TypedDict):
+    CodeSigningConfigId: str
+    CodeSigningConfigArn: str
+    AllowedPublishers: AllowedPublishersOutputTypeDef
+    CodeSigningPolicies: CodeSigningPoliciesTypeDef
+    LastModified: str
+    Description: NotRequired[str]
+
+class CreateFunctionUrlConfigResponseTypeDef(TypedDict):
+    FunctionUrl: str
+    FunctionArn: str
+    AuthType: FunctionUrlAuthTypeType
+    Cors: CorsOutputTypeDef
+    CreationTime: str
+    InvokeMode: InvokeModeType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class FunctionUrlConfigTypeDef(TypedDict):
+    FunctionUrl: str
+    FunctionArn: str
+    CreationTime: str
+    LastModifiedTime: str
+    AuthType: FunctionUrlAuthTypeType
+    Cors: NotRequired[CorsOutputTypeDef]
+    InvokeMode: NotRequired[InvokeModeType]
+
+class GetFunctionUrlConfigResponseTypeDef(TypedDict):
+    FunctionUrl: str
+    FunctionArn: str
+    AuthType: FunctionUrlAuthTypeType
+    Cors: CorsOutputTypeDef
+    CreationTime: str
+    LastModifiedTime: str
+    InvokeMode: InvokeModeType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateFunctionUrlConfigResponseTypeDef(TypedDict):
+    FunctionUrl: str
+    FunctionArn: str
+    AuthType: FunctionUrlAuthTypeType
+    Cors: CorsOutputTypeDef
+    CreationTime: str
+    LastModifiedTime: str
+    InvokeMode: InvokeModeType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+CorsUnionTypeDef = Union[CorsTypeDef, CorsOutputTypeDef]
+
+class DestinationConfigTypeDef(TypedDict):
+    OnSuccess: NotRequired[OnSuccessTypeDef]
+    OnFailure: NotRequired[OnFailureTypeDef]
+
+class EnvironmentResponseTypeDef(TypedDict):
+    Variables: NotRequired[Dict[str, str]]
+    Error: NotRequired[EnvironmentErrorTypeDef]
+
+EventSourceMappingMetricsConfigUnionTypeDef = Union[
+    EventSourceMappingMetricsConfigTypeDef, EventSourceMappingMetricsConfigOutputTypeDef
+]
+
+class FilterCriteriaOutputTypeDef(TypedDict):
+    Filters: NotRequired[List[FilterTypeDef]]
+
+class FilterCriteriaTypeDef(TypedDict):
+    Filters: NotRequired[Sequence[FilterTypeDef]]
+
+class GetFunctionConfigurationRequestWaitExtraExtraTypeDef(TypedDict):
+    FunctionName: str
+    Qualifier: NotRequired[str]
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class GetFunctionConfigurationRequestWaitExtraTypeDef(TypedDict):
+    FunctionName: str
+    Qualifier: NotRequired[str]
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class GetFunctionConfigurationRequestWaitTypeDef(TypedDict):
+    FunctionName: str
+    Qualifier: NotRequired[str]
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class GetFunctionRequestWaitExtraExtraTypeDef(TypedDict):
+    FunctionName: str
+    Qualifier: NotRequired[str]
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class GetFunctionRequestWaitExtraTypeDef(TypedDict):
+    FunctionName: str
+    Qualifier: NotRequired[str]
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class GetFunctionRequestWaitTypeDef(TypedDict):
+    FunctionName: str
+    Qualifier: NotRequired[str]
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class GetLayerVersionResponseTypeDef(TypedDict):
+    Content: LayerVersionContentOutputTypeDef
+    LayerArn: str
+    LayerVersionArn: str
+    Description: str
+    CreatedDate: str
+    Version: int
+    CompatibleRuntimes: List[RuntimeType]
+    LicenseInfo: str
+    CompatibleArchitectures: List[ArchitectureType]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PublishLayerVersionResponseTypeDef(TypedDict):
+    Content: LayerVersionContentOutputTypeDef
+    LayerArn: str
+    LayerVersionArn: str
+    Description: str
+    CreatedDate: str
+    Version: int
+    CompatibleRuntimes: List[RuntimeType]
+    LicenseInfo: str
+    CompatibleArchitectures: List[ArchitectureType]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ImageConfigResponseTypeDef(TypedDict):
+    ImageConfig: NotRequired[ImageConfigOutputTypeDef]
+    Error: NotRequired[ImageConfigErrorTypeDef]
+
+ImageConfigUnionTypeDef = Union[ImageConfigTypeDef, ImageConfigOutputTypeDef]
+
+class InvokeWithResponseStreamResponseEventTypeDef(TypedDict):
+    PayloadChunk: NotRequired[InvokeResponseStreamUpdateTypeDef]
+    InvokeComplete: NotRequired[InvokeWithResponseStreamCompleteEventTypeDef]
+
+class LayersListItemTypeDef(TypedDict):
+    LayerName: NotRequired[str]
+    LayerArn: NotRequired[str]
+    LatestMatchingVersion: NotRequired[LayerVersionsListItemTypeDef]
+
+class ListLayerVersionsResponseTypeDef(TypedDict):
+    NextMarker: str
+    LayerVersions: List[LayerVersionsListItemTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListAliasesRequestPaginateTypeDef(TypedDict):
+    FunctionName: str
+    FunctionVersion: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListCodeSigningConfigsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListEventSourceMappingsRequestPaginateTypeDef(TypedDict):
+    EventSourceArn: NotRequired[str]
+    FunctionName: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListFunctionEventInvokeConfigsRequestPaginateTypeDef(TypedDict):
+    FunctionName: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListFunctionUrlConfigsRequestPaginateTypeDef(TypedDict):
+    FunctionName: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListFunctionsByCodeSigningConfigRequestPaginateTypeDef(TypedDict):
+    CodeSigningConfigArn: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListFunctionsRequestPaginateTypeDef(TypedDict):
+    MasterRegion: NotRequired[str]
+    FunctionVersion: NotRequired[Literal["ALL"]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListLayerVersionsRequestPaginateTypeDef(TypedDict):
+    LayerName: str
+    CompatibleRuntime: NotRequired[RuntimeType]
+    CompatibleArchitecture: NotRequired[ArchitectureType]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListLayersRequestPaginateTypeDef(TypedDict):
+    CompatibleRuntime: NotRequired[RuntimeType]
+    CompatibleArchitecture: NotRequired[ArchitectureType]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListProvisionedConcurrencyConfigsRequestPaginateTypeDef(TypedDict):
+    FunctionName: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListVersionsByFunctionRequestPaginateTypeDef(TypedDict):
+    FunctionName: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListProvisionedConcurrencyConfigsResponseTypeDef(TypedDict):
+    ProvisionedConcurrencyConfigs: List[ProvisionedConcurrencyConfigListItemTypeDef]
+    NextMarker: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class RuntimeVersionConfigTypeDef(TypedDict):
+    RuntimeVersionArn: NotRequired[str]
+    Error: NotRequired[RuntimeVersionErrorTypeDef]
+
+SelfManagedEventSourceUnionTypeDef = Union[
+    SelfManagedEventSourceTypeDef, SelfManagedEventSourceOutputTypeDef
+]
+
+class ListAliasesResponseTypeDef(TypedDict):
+    NextMarker: str
+    Aliases: List[AliasConfigurationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateAliasRequestTypeDef(TypedDict):
+    FunctionName: str
+    Name: str
+    FunctionVersion: str
+    Description: NotRequired[str]
+    RoutingConfig: NotRequired[AliasRoutingConfigurationUnionTypeDef]
+
+class UpdateAliasRequestTypeDef(TypedDict):
+    FunctionName: str
+    Name: str
+    FunctionVersion: NotRequired[str]
+    Description: NotRequired[str]
+    RoutingConfig: NotRequired[AliasRoutingConfigurationUnionTypeDef]
+    RevisionId: NotRequired[str]
+
+class CreateCodeSigningConfigRequestTypeDef(TypedDict):
+    AllowedPublishers: AllowedPublishersUnionTypeDef
+    Description: NotRequired[str]
+    CodeSigningPolicies: NotRequired[CodeSigningPoliciesTypeDef]
+    Tags: NotRequired[Mapping[str, str]]
+
+class UpdateCodeSigningConfigRequestTypeDef(TypedDict):
+    CodeSigningConfigArn: str
+    Description: NotRequired[str]
+    AllowedPublishers: NotRequired[AllowedPublishersUnionTypeDef]
+    CodeSigningPolicies: NotRequired[CodeSigningPoliciesTypeDef]
+
+class PublishLayerVersionRequestTypeDef(TypedDict):
+    LayerName: str
+    Content: LayerVersionContentInputTypeDef
+    Description: NotRequired[str]
+    CompatibleRuntimes: NotRequired[Sequence[RuntimeType]]
+    LicenseInfo: NotRequired[str]
+    CompatibleArchitectures: NotRequired[Sequence[ArchitectureType]]
+
+class CreateCodeSigningConfigResponseTypeDef(TypedDict):
+    CodeSigningConfig: CodeSigningConfigTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetCodeSigningConfigResponseTypeDef(TypedDict):
+    CodeSigningConfig: CodeSigningConfigTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListCodeSigningConfigsResponseTypeDef(TypedDict):
+    NextMarker: str
+    CodeSigningConfigs: List[CodeSigningConfigTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateCodeSigningConfigResponseTypeDef(TypedDict):
+    CodeSigningConfig: CodeSigningConfigTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListFunctionUrlConfigsResponseTypeDef(TypedDict):
+    FunctionUrlConfigs: List[FunctionUrlConfigTypeDef]
+    NextMarker: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateFunctionUrlConfigRequestTypeDef(TypedDict):
+    FunctionName: str
+    AuthType: FunctionUrlAuthTypeType
+    Qualifier: NotRequired[str]
+    Cors: NotRequired[CorsUnionTypeDef]
+    InvokeMode: NotRequired[InvokeModeType]
+
+class UpdateFunctionUrlConfigRequestTypeDef(TypedDict):
+    FunctionName: str
+    Qualifier: NotRequired[str]
+    AuthType: NotRequired[FunctionUrlAuthTypeType]
+    Cors: NotRequired[CorsUnionTypeDef]
+    InvokeMode: NotRequired[InvokeModeType]
+
+class FunctionEventInvokeConfigResponseTypeDef(TypedDict):
+    LastModified: datetime
+    FunctionArn: str
+    MaximumRetryAttempts: int
+    MaximumEventAgeInSeconds: int
+    DestinationConfig: DestinationConfigTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class FunctionEventInvokeConfigTypeDef(TypedDict):
+    LastModified: NotRequired[datetime]
+    FunctionArn: NotRequired[str]
+    MaximumRetryAttempts: NotRequired[int]
+    MaximumEventAgeInSeconds: NotRequired[int]
+    DestinationConfig: NotRequired[DestinationConfigTypeDef]
+
+class PutFunctionEventInvokeConfigRequestTypeDef(TypedDict):
+    FunctionName: str
+    Qualifier: NotRequired[str]
+    MaximumRetryAttempts: NotRequired[int]
+    MaximumEventAgeInSeconds: NotRequired[int]
+    DestinationConfig: NotRequired[DestinationConfigTypeDef]
+
+class UpdateFunctionEventInvokeConfigRequestTypeDef(TypedDict):
+    FunctionName: str
+    Qualifier: NotRequired[str]
+    MaximumRetryAttempts: NotRequired[int]
+    MaximumEventAgeInSeconds: NotRequired[int]
+    DestinationConfig: NotRequired[DestinationConfigTypeDef]
+
+class EventSourceMappingConfigurationResponseTypeDef(TypedDict):
+    UUID: str
+    StartingPosition: EventSourcePositionType
+    StartingPositionTimestamp: datetime
+    BatchSize: int
+    MaximumBatchingWindowInSeconds: int
+    ParallelizationFactor: int
+    EventSourceArn: str
+    FilterCriteria: FilterCriteriaOutputTypeDef
+    FunctionArn: str
+    LastModified: datetime
+    LastProcessingResult: str
+    State: str
+    StateTransitionReason: str
+    DestinationConfig: DestinationConfigTypeDef
+    Topics: List[str]
+    Queues: List[str]
+    SourceAccessConfigurations: List[SourceAccessConfigurationTypeDef]
+    SelfManagedEventSource: SelfManagedEventSourceOutputTypeDef
+    MaximumRecordAgeInSeconds: int
+    BisectBatchOnFunctionError: bool
+    MaximumRetryAttempts: int
+    TumblingWindowInSeconds: int
+    FunctionResponseTypes: List[Literal["ReportBatchItemFailures"]]
+    AmazonManagedKafkaEventSourceConfig: AmazonManagedKafkaEventSourceConfigTypeDef
+    SelfManagedKafkaEventSourceConfig: SelfManagedKafkaEventSourceConfigTypeDef
+    ScalingConfig: ScalingConfigTypeDef
+    DocumentDBEventSourceConfig: DocumentDBEventSourceConfigTypeDef
+    KMSKeyArn: str
+    FilterCriteriaError: FilterCriteriaErrorTypeDef
+    EventSourceMappingArn: str
+    MetricsConfig: EventSourceMappingMetricsConfigOutputTypeDef
+    ProvisionedPollerConfig: ProvisionedPollerConfigTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class EventSourceMappingConfigurationTypeDef(TypedDict):
+    UUID: NotRequired[str]
+    StartingPosition: NotRequired[EventSourcePositionType]
+    StartingPositionTimestamp: NotRequired[datetime]
+    BatchSize: NotRequired[int]
+    MaximumBatchingWindowInSeconds: NotRequired[int]
+    ParallelizationFactor: NotRequired[int]
+    EventSourceArn: NotRequired[str]
+    FilterCriteria: NotRequired[FilterCriteriaOutputTypeDef]
+    FunctionArn: NotRequired[str]
+    LastModified: NotRequired[datetime]
+    LastProcessingResult: NotRequired[str]
+    State: NotRequired[str]
+    StateTransitionReason: NotRequired[str]
+    DestinationConfig: NotRequired[DestinationConfigTypeDef]
+    Topics: NotRequired[List[str]]
+    Queues: NotRequired[List[str]]
+    SourceAccessConfigurations: NotRequired[List[SourceAccessConfigurationTypeDef]]
+    SelfManagedEventSource: NotRequired[SelfManagedEventSourceOutputTypeDef]
+    MaximumRecordAgeInSeconds: NotRequired[int]
+    BisectBatchOnFunctionError: NotRequired[bool]
+    MaximumRetryAttempts: NotRequired[int]
+    TumblingWindowInSeconds: NotRequired[int]
+    FunctionResponseTypes: NotRequired[List[Literal["ReportBatchItemFailures"]]]
+    AmazonManagedKafkaEventSourceConfig: NotRequired[AmazonManagedKafkaEventSourceConfigTypeDef]
+    SelfManagedKafkaEventSourceConfig: NotRequired[SelfManagedKafkaEventSourceConfigTypeDef]
+    ScalingConfig: NotRequired[ScalingConfigTypeDef]
+    DocumentDBEventSourceConfig: NotRequired[DocumentDBEventSourceConfigTypeDef]
+    KMSKeyArn: NotRequired[str]
+    FilterCriteriaError: NotRequired[FilterCriteriaErrorTypeDef]
+    EventSourceMappingArn: NotRequired[str]
+    MetricsConfig: NotRequired[EventSourceMappingMetricsConfigOutputTypeDef]
+    ProvisionedPollerConfig: NotRequired[ProvisionedPollerConfigTypeDef]
+
+FilterCriteriaUnionTypeDef = Union[FilterCriteriaTypeDef, FilterCriteriaOutputTypeDef]
+
+class CreateFunctionRequestTypeDef(TypedDict):
+    FunctionName: str
+    Role: str
+    Code: FunctionCodeTypeDef
+    Runtime: NotRequired[RuntimeType]
+    Handler: NotRequired[str]
+    Description: NotRequired[str]
+    Timeout: NotRequired[int]
+    MemorySize: NotRequired[int]
+    Publish: NotRequired[bool]
+    VpcConfig: NotRequired[VpcConfigTypeDef]
+    PackageType: NotRequired[PackageTypeType]
+    DeadLetterConfig: NotRequired[DeadLetterConfigTypeDef]
+    Environment: NotRequired[EnvironmentTypeDef]
+    KMSKeyArn: NotRequired[str]
+    TracingConfig: NotRequired[TracingConfigTypeDef]
+    Tags: NotRequired[Mapping[str, str]]
+    Layers: NotRequired[Sequence[str]]
+    FileSystemConfigs: NotRequired[Sequence[FileSystemConfigTypeDef]]
+    ImageConfig: NotRequired[ImageConfigUnionTypeDef]
+    CodeSigningConfigArn: NotRequired[str]
+    Architectures: NotRequired[Sequence[ArchitectureType]]
+    EphemeralStorage: NotRequired[EphemeralStorageTypeDef]
+    SnapStart: NotRequired[SnapStartTypeDef]
+    LoggingConfig: NotRequired[LoggingConfigTypeDef]
+
+class UpdateFunctionConfigurationRequestTypeDef(TypedDict):
+    FunctionName: str
+    Role: NotRequired[str]
+    Handler: NotRequired[str]
+    Description: NotRequired[str]
+    Timeout: NotRequired[int]
+    MemorySize: NotRequired[int]
+    VpcConfig: NotRequired[VpcConfigTypeDef]
+    Environment: NotRequired[EnvironmentTypeDef]
+    Runtime: NotRequired[RuntimeType]
+    DeadLetterConfig: NotRequired[DeadLetterConfigTypeDef]
+    KMSKeyArn: NotRequired[str]
+    TracingConfig: NotRequired[TracingConfigTypeDef]
+    RevisionId: NotRequired[str]
+    Layers: NotRequired[Sequence[str]]
+    FileSystemConfigs: NotRequired[Sequence[FileSystemConfigTypeDef]]
+    ImageConfig: NotRequired[ImageConfigUnionTypeDef]
+    EphemeralStorage: NotRequired[EphemeralStorageTypeDef]
+    SnapStart: NotRequired[SnapStartTypeDef]
+    LoggingConfig: NotRequired[LoggingConfigTypeDef]
+
+class InvokeWithResponseStreamResponseTypeDef(TypedDict):
+    StatusCode: int
+    ExecutedVersion: str
+    EventStream: EventStream[InvokeWithResponseStreamResponseEventTypeDef]
+    ResponseStreamContentType: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListLayersResponseTypeDef(TypedDict):
+    NextMarker: str
+    Layers: List[LayersListItemTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class FunctionConfigurationResponseTypeDef(TypedDict):
+    FunctionName: str
+    FunctionArn: str
+    Runtime: RuntimeType
+    Role: str
+    Handler: str
+    CodeSize: int
+    Description: str
+    Timeout: int
+    MemorySize: int
+    LastModified: str
+    CodeSha256: str
+    Version: str
+    VpcConfig: VpcConfigResponseTypeDef
+    DeadLetterConfig: DeadLetterConfigTypeDef
+    Environment: EnvironmentResponseTypeDef
+    KMSKeyArn: str
+    TracingConfig: TracingConfigResponseTypeDef
+    MasterArn: str
+    RevisionId: str
+    Layers: List[LayerTypeDef]
+    State: StateType
+    StateReason: str
+    StateReasonCode: StateReasonCodeType
+    LastUpdateStatus: LastUpdateStatusType
+    LastUpdateStatusReason: str
+    LastUpdateStatusReasonCode: LastUpdateStatusReasonCodeType
+    FileSystemConfigs: List[FileSystemConfigTypeDef]
+    PackageType: PackageTypeType
+    ImageConfigResponse: ImageConfigResponseTypeDef
+    SigningProfileVersionArn: str
+    SigningJobArn: str
+    Architectures: List[ArchitectureType]
+    EphemeralStorage: EphemeralStorageTypeDef
+    SnapStart: SnapStartResponseTypeDef
+    RuntimeVersionConfig: RuntimeVersionConfigTypeDef
+    LoggingConfig: LoggingConfigTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class FunctionConfigurationTypeDef(TypedDict):
+    FunctionName: NotRequired[str]
+    FunctionArn: NotRequired[str]
+    Runtime: NotRequired[RuntimeType]
+    Role: NotRequired[str]
+    Handler: NotRequired[str]
+    CodeSize: NotRequired[int]
+    Description: NotRequired[str]
+    Timeout: NotRequired[int]
+    MemorySize: NotRequired[int]
+    LastModified: NotRequired[str]
+    CodeSha256: NotRequired[str]
+    Version: NotRequired[str]
+    VpcConfig: NotRequired[VpcConfigResponseTypeDef]
+    DeadLetterConfig: NotRequired[DeadLetterConfigTypeDef]
+    Environment: NotRequired[EnvironmentResponseTypeDef]
+    KMSKeyArn: NotRequired[str]
+    TracingConfig: NotRequired[TracingConfigResponseTypeDef]
+    MasterArn: NotRequired[str]
+    RevisionId: NotRequired[str]
+    Layers: NotRequired[List[LayerTypeDef]]
+    State: NotRequired[StateType]
+    StateReason: NotRequired[str]
+    StateReasonCode: NotRequired[StateReasonCodeType]
+    LastUpdateStatus: NotRequired[LastUpdateStatusType]
+    LastUpdateStatusReason: NotRequired[str]
+    LastUpdateStatusReasonCode: NotRequired[LastUpdateStatusReasonCodeType]
+    FileSystemConfigs: NotRequired[List[FileSystemConfigTypeDef]]
+    PackageType: NotRequired[PackageTypeType]
+    ImageConfigResponse: NotRequired[ImageConfigResponseTypeDef]
+    SigningProfileVersionArn: NotRequired[str]
+    SigningJobArn: NotRequired[str]
+    Architectures: NotRequired[List[ArchitectureType]]
+    EphemeralStorage: NotRequired[EphemeralStorageTypeDef]
+    SnapStart: NotRequired[SnapStartResponseTypeDef]
+    RuntimeVersionConfig: NotRequired[RuntimeVersionConfigTypeDef]
+    LoggingConfig: NotRequired[LoggingConfigTypeDef]
+
+class ListFunctionEventInvokeConfigsResponseTypeDef(TypedDict):
+    FunctionEventInvokeConfigs: List[FunctionEventInvokeConfigTypeDef]
+    NextMarker: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListEventSourceMappingsResponseTypeDef(TypedDict):
+    NextMarker: str
+    EventSourceMappings: List[EventSourceMappingConfigurationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateEventSourceMappingRequestTypeDef(TypedDict):
+    FunctionName: str
+    EventSourceArn: NotRequired[str]
+    Enabled: NotRequired[bool]
+    BatchSize: NotRequired[int]
+    FilterCriteria: NotRequired[FilterCriteriaUnionTypeDef]
+    MaximumBatchingWindowInSeconds: NotRequired[int]
+    ParallelizationFactor: NotRequired[int]
+    StartingPosition: NotRequired[EventSourcePositionType]
+    StartingPositionTimestamp: NotRequired[TimestampTypeDef]
+    DestinationConfig: NotRequired[DestinationConfigTypeDef]
+    MaximumRecordAgeInSeconds: NotRequired[int]
+    BisectBatchOnFunctionError: NotRequired[bool]
+    MaximumRetryAttempts: NotRequired[int]
+    Tags: NotRequired[Mapping[str, str]]
+    TumblingWindowInSeconds: NotRequired[int]
+    Topics: NotRequired[Sequence[str]]
+    Queues: NotRequired[Sequence[str]]
+    SourceAccessConfigurations: NotRequired[Sequence[SourceAccessConfigurationTypeDef]]
+    SelfManagedEventSource: NotRequired[SelfManagedEventSourceUnionTypeDef]
+    FunctionResponseTypes: NotRequired[Sequence[Literal["ReportBatchItemFailures"]]]
+    AmazonManagedKafkaEventSourceConfig: NotRequired[AmazonManagedKafkaEventSourceConfigTypeDef]
+    SelfManagedKafkaEventSourceConfig: NotRequired[SelfManagedKafkaEventSourceConfigTypeDef]
+    ScalingConfig: NotRequired[ScalingConfigTypeDef]
+    DocumentDBEventSourceConfig: NotRequired[DocumentDBEventSourceConfigTypeDef]
+    KMSKeyArn: NotRequired[str]
+    MetricsConfig: NotRequired[EventSourceMappingMetricsConfigUnionTypeDef]
+    ProvisionedPollerConfig: NotRequired[ProvisionedPollerConfigTypeDef]
+
+class UpdateEventSourceMappingRequestTypeDef(TypedDict):
+    UUID: str
+    FunctionName: NotRequired[str]
+    Enabled: NotRequired[bool]
+    BatchSize: NotRequired[int]
+    FilterCriteria: NotRequired[FilterCriteriaUnionTypeDef]
+    MaximumBatchingWindowInSeconds: NotRequired[int]
+    DestinationConfig: NotRequired[DestinationConfigTypeDef]
+    MaximumRecordAgeInSeconds: NotRequired[int]
+    BisectBatchOnFunctionError: NotRequired[bool]
+    MaximumRetryAttempts: NotRequired[int]
+    ParallelizationFactor: NotRequired[int]
+    SourceAccessConfigurations: NotRequired[Sequence[SourceAccessConfigurationTypeDef]]
+    TumblingWindowInSeconds: NotRequired[int]
+    FunctionResponseTypes: NotRequired[Sequence[Literal["ReportBatchItemFailures"]]]
+    ScalingConfig: NotRequired[ScalingConfigTypeDef]
+    DocumentDBEventSourceConfig: NotRequired[DocumentDBEventSourceConfigTypeDef]
+    KMSKeyArn: NotRequired[str]
+    MetricsConfig: NotRequired[EventSourceMappingMetricsConfigUnionTypeDef]
+    ProvisionedPollerConfig: NotRequired[ProvisionedPollerConfigTypeDef]
+
+class GetFunctionResponseTypeDef(TypedDict):
+    Configuration: FunctionConfigurationTypeDef
+    Code: FunctionCodeLocationTypeDef
+    Tags: Dict[str, str]
+    TagsError: TagsErrorTypeDef
+    Concurrency: ConcurrencyTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListFunctionsResponseTypeDef(TypedDict):
+    NextMarker: str
+    Functions: List[FunctionConfigurationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListVersionsByFunctionResponseTypeDef(TypedDict):
+    NextMarker: str
+    Versions: List[FunctionConfigurationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef

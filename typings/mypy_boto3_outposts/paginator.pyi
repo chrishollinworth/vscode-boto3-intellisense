@@ -1,18 +1,22 @@
 """
 Type annotations for outposts service client paginators.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/paginators.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_outposts/paginators/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
 
-    from mypy_boto3_outposts import OutpostsClient
+    from mypy_boto3_outposts.client import OutpostsClient
     from mypy_boto3_outposts.paginator import (
         GetOutpostInstanceTypesPaginator,
         GetOutpostSupportedInstanceTypesPaginator,
+        ListAssetInstancesPaginator,
         ListAssetsPaginator,
+        ListBlockingInstancesForCapacityTaskPaginator,
         ListCapacityTasksPaginator,
         ListCatalogItemsPaginator,
         ListOrdersPaginator,
@@ -20,11 +24,14 @@ Usage::
         ListSitesPaginator,
     )
 
-    client: OutpostsClient = boto3.client("outposts")
+    session = Session()
+    client: OutpostsClient = session.client("outposts")
 
     get_outpost_instance_types_paginator: GetOutpostInstanceTypesPaginator = client.get_paginator("get_outpost_instance_types")
     get_outpost_supported_instance_types_paginator: GetOutpostSupportedInstanceTypesPaginator = client.get_paginator("get_outpost_supported_instance_types")
+    list_asset_instances_paginator: ListAssetInstancesPaginator = client.get_paginator("list_asset_instances")
     list_assets_paginator: ListAssetsPaginator = client.get_paginator("list_assets")
+    list_blocking_instances_for_capacity_task_paginator: ListBlockingInstancesForCapacityTaskPaginator = client.get_paginator("list_blocking_instances_for_capacity_task")
     list_capacity_tasks_paginator: ListCapacityTasksPaginator = client.get_paginator("list_capacity_tasks")
     list_catalog_items_paginator: ListCatalogItemsPaginator = client.get_paginator("list_catalog_items")
     list_orders_paginator: ListOrdersPaginator = client.get_paginator("list_orders")
@@ -33,32 +40,47 @@ Usage::
     ```
 """
 
-from typing import Iterator, List
+from __future__ import annotations
 
-from botocore.paginate import Paginator as Boto3Paginator
+import sys
+from typing import TYPE_CHECKING
 
-from .literals import (
-    AssetStateType,
-    CapacityTaskStatusType,
-    CatalogItemClassType,
-    SupportedStorageEnumType,
-)
+from botocore.paginate import PageIterator, Paginator
+
 from .type_defs import (
+    GetOutpostInstanceTypesInputPaginateTypeDef,
     GetOutpostInstanceTypesOutputTypeDef,
+    GetOutpostSupportedInstanceTypesInputPaginateTypeDef,
     GetOutpostSupportedInstanceTypesOutputTypeDef,
+    ListAssetInstancesInputPaginateTypeDef,
+    ListAssetInstancesOutputTypeDef,
+    ListAssetsInputPaginateTypeDef,
     ListAssetsOutputTypeDef,
+    ListBlockingInstancesForCapacityTaskInputPaginateTypeDef,
+    ListBlockingInstancesForCapacityTaskOutputTypeDef,
+    ListCapacityTasksInputPaginateTypeDef,
     ListCapacityTasksOutputTypeDef,
+    ListCatalogItemsInputPaginateTypeDef,
     ListCatalogItemsOutputTypeDef,
+    ListOrdersInputPaginateTypeDef,
     ListOrdersOutputTypeDef,
+    ListOutpostsInputPaginateTypeDef,
     ListOutpostsOutputTypeDef,
+    ListSitesInputPaginateTypeDef,
     ListSitesOutputTypeDef,
-    PaginatorConfigTypeDef,
 )
+
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = (
     "GetOutpostInstanceTypesPaginator",
     "GetOutpostSupportedInstanceTypesPaginator",
+    "ListAssetInstancesPaginator",
     "ListAssetsPaginator",
+    "ListBlockingInstancesForCapacityTaskPaginator",
     "ListCapacityTasksPaginator",
     "ListCatalogItemsPaginator",
     "ListOrdersPaginator",
@@ -66,145 +88,188 @@ __all__ = (
     "ListSitesPaginator",
 )
 
-class GetOutpostInstanceTypesPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Paginator.GetOutpostInstanceTypes)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/paginators.html#getoutpostinstancetypespaginator)
-    """
+if TYPE_CHECKING:
+    _GetOutpostInstanceTypesPaginatorBase = Paginator[GetOutpostInstanceTypesOutputTypeDef]
+else:
+    _GetOutpostInstanceTypesPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, OutpostId: str, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[GetOutpostInstanceTypesOutputTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Paginator.GetOutpostInstanceTypes.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/paginators.html#getoutpostinstancetypespaginator)
-        """
-
-class GetOutpostSupportedInstanceTypesPaginator(Boto3Paginator):
+class GetOutpostInstanceTypesPaginator(_GetOutpostInstanceTypesPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Paginator.GetOutpostSupportedInstanceTypes)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/paginators.html#getoutpostsupportedinstancetypespaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/outposts/paginator/GetOutpostInstanceTypes.html#Outposts.Paginator.GetOutpostInstanceTypes)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_outposts/paginators/#getoutpostinstancetypespaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        OutpostIdentifier: str,
-        OrderId: str,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[GetOutpostSupportedInstanceTypesOutputTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[GetOutpostInstanceTypesInputPaginateTypeDef]
+    ) -> PageIterator[GetOutpostInstanceTypesOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Paginator.GetOutpostSupportedInstanceTypes.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/paginators.html#getoutpostsupportedinstancetypespaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/outposts/paginator/GetOutpostInstanceTypes.html#Outposts.Paginator.GetOutpostInstanceTypes.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_outposts/paginators/#getoutpostinstancetypespaginator)
         """
 
-class ListAssetsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Paginator.ListAssets)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/paginators.html#listassetspaginator)
-    """
+if TYPE_CHECKING:
+    _GetOutpostSupportedInstanceTypesPaginatorBase = Paginator[
+        GetOutpostSupportedInstanceTypesOutputTypeDef
+    ]
+else:
+    _GetOutpostSupportedInstanceTypesPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        OutpostIdentifier: str,
-        HostIdFilter: List[str] = None,
-        StatusFilter: List[AssetStateType] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListAssetsOutputTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Paginator.ListAssets.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/paginators.html#listassetspaginator)
-        """
-
-class ListCapacityTasksPaginator(Boto3Paginator):
+class GetOutpostSupportedInstanceTypesPaginator(_GetOutpostSupportedInstanceTypesPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Paginator.ListCapacityTasks)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/paginators.html#listcapacitytaskspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/outposts/paginator/GetOutpostSupportedInstanceTypes.html#Outposts.Paginator.GetOutpostSupportedInstanceTypes)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_outposts/paginators/#getoutpostsupportedinstancetypespaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        OutpostIdentifierFilter: str = None,
-        CapacityTaskStatusFilter: List[CapacityTaskStatusType] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListCapacityTasksOutputTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[GetOutpostSupportedInstanceTypesInputPaginateTypeDef]
+    ) -> PageIterator[GetOutpostSupportedInstanceTypesOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Paginator.ListCapacityTasks.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/paginators.html#listcapacitytaskspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/outposts/paginator/GetOutpostSupportedInstanceTypes.html#Outposts.Paginator.GetOutpostSupportedInstanceTypes.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_outposts/paginators/#getoutpostsupportedinstancetypespaginator)
         """
 
-class ListCatalogItemsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Paginator.ListCatalogItems)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/paginators.html#listcatalogitemspaginator)
-    """
+if TYPE_CHECKING:
+    _ListAssetInstancesPaginatorBase = Paginator[ListAssetInstancesOutputTypeDef]
+else:
+    _ListAssetInstancesPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        ItemClassFilter: List[CatalogItemClassType] = None,
-        SupportedStorageFilter: List[SupportedStorageEnumType] = None,
-        EC2FamilyFilter: List[str] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListCatalogItemsOutputTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Paginator.ListCatalogItems.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/paginators.html#listcatalogitemspaginator)
-        """
-
-class ListOrdersPaginator(Boto3Paginator):
+class ListAssetInstancesPaginator(_ListAssetInstancesPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Paginator.ListOrders)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/paginators.html#listorderspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/outposts/paginator/ListAssetInstances.html#Outposts.Paginator.ListAssetInstances)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_outposts/paginators/#listassetinstancespaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        OutpostIdentifierFilter: str = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListOrdersOutputTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListAssetInstancesInputPaginateTypeDef]
+    ) -> PageIterator[ListAssetInstancesOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Paginator.ListOrders.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/paginators.html#listorderspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/outposts/paginator/ListAssetInstances.html#Outposts.Paginator.ListAssetInstances.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_outposts/paginators/#listassetinstancespaginator)
         """
 
-class ListOutpostsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Paginator.ListOutposts)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/paginators.html#listoutpostspaginator)
-    """
+if TYPE_CHECKING:
+    _ListAssetsPaginatorBase = Paginator[ListAssetsOutputTypeDef]
+else:
+    _ListAssetsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        LifeCycleStatusFilter: List[str] = None,
-        AvailabilityZoneFilter: List[str] = None,
-        AvailabilityZoneIdFilter: List[str] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListOutpostsOutputTypeDef]:
+class ListAssetsPaginator(_ListAssetsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/outposts/paginator/ListAssets.html#Outposts.Paginator.ListAssets)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_outposts/paginators/#listassetspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListAssetsInputPaginateTypeDef]
+    ) -> PageIterator[ListAssetsOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Paginator.ListOutposts.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/paginators.html#listoutpostspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/outposts/paginator/ListAssets.html#Outposts.Paginator.ListAssets.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_outposts/paginators/#listassetspaginator)
         """
 
-class ListSitesPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Paginator.ListSites)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/paginators.html#listsitespaginator)
-    """
+if TYPE_CHECKING:
+    _ListBlockingInstancesForCapacityTaskPaginatorBase = Paginator[
+        ListBlockingInstancesForCapacityTaskOutputTypeDef
+    ]
+else:
+    _ListBlockingInstancesForCapacityTaskPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        OperatingAddressCountryCodeFilter: List[str] = None,
-        OperatingAddressStateOrRegionFilter: List[str] = None,
-        OperatingAddressCityFilter: List[str] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListSitesOutputTypeDef]:
+class ListBlockingInstancesForCapacityTaskPaginator(
+    _ListBlockingInstancesForCapacityTaskPaginatorBase
+):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/outposts/paginator/ListBlockingInstancesForCapacityTask.html#Outposts.Paginator.ListBlockingInstancesForCapacityTask)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_outposts/paginators/#listblockinginstancesforcapacitytaskpaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListBlockingInstancesForCapacityTaskInputPaginateTypeDef]
+    ) -> PageIterator[ListBlockingInstancesForCapacityTaskOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Paginator.ListSites.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/paginators.html#listsitespaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/outposts/paginator/ListBlockingInstancesForCapacityTask.html#Outposts.Paginator.ListBlockingInstancesForCapacityTask.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_outposts/paginators/#listblockinginstancesforcapacitytaskpaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListCapacityTasksPaginatorBase = Paginator[ListCapacityTasksOutputTypeDef]
+else:
+    _ListCapacityTasksPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListCapacityTasksPaginator(_ListCapacityTasksPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/outposts/paginator/ListCapacityTasks.html#Outposts.Paginator.ListCapacityTasks)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_outposts/paginators/#listcapacitytaskspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListCapacityTasksInputPaginateTypeDef]
+    ) -> PageIterator[ListCapacityTasksOutputTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/outposts/paginator/ListCapacityTasks.html#Outposts.Paginator.ListCapacityTasks.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_outposts/paginators/#listcapacitytaskspaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListCatalogItemsPaginatorBase = Paginator[ListCatalogItemsOutputTypeDef]
+else:
+    _ListCatalogItemsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListCatalogItemsPaginator(_ListCatalogItemsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/outposts/paginator/ListCatalogItems.html#Outposts.Paginator.ListCatalogItems)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_outposts/paginators/#listcatalogitemspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListCatalogItemsInputPaginateTypeDef]
+    ) -> PageIterator[ListCatalogItemsOutputTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/outposts/paginator/ListCatalogItems.html#Outposts.Paginator.ListCatalogItems.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_outposts/paginators/#listcatalogitemspaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListOrdersPaginatorBase = Paginator[ListOrdersOutputTypeDef]
+else:
+    _ListOrdersPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListOrdersPaginator(_ListOrdersPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/outposts/paginator/ListOrders.html#Outposts.Paginator.ListOrders)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_outposts/paginators/#listorderspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListOrdersInputPaginateTypeDef]
+    ) -> PageIterator[ListOrdersOutputTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/outposts/paginator/ListOrders.html#Outposts.Paginator.ListOrders.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_outposts/paginators/#listorderspaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListOutpostsPaginatorBase = Paginator[ListOutpostsOutputTypeDef]
+else:
+    _ListOutpostsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListOutpostsPaginator(_ListOutpostsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/outposts/paginator/ListOutposts.html#Outposts.Paginator.ListOutposts)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_outposts/paginators/#listoutpostspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListOutpostsInputPaginateTypeDef]
+    ) -> PageIterator[ListOutpostsOutputTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/outposts/paginator/ListOutposts.html#Outposts.Paginator.ListOutposts.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_outposts/paginators/#listoutpostspaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListSitesPaginatorBase = Paginator[ListSitesOutputTypeDef]
+else:
+    _ListSitesPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListSitesPaginator(_ListSitesPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/outposts/paginator/ListSites.html#Outposts.Paginator.ListSites)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_outposts/paginators/#listsitespaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListSitesInputPaginateTypeDef]
+    ) -> PageIterator[ListSitesOutputTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/outposts/paginator/ListSites.html#Outposts.Paginator.ListSites.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_outposts/paginators/#listsitespaginator)
         """

@@ -1,20 +1,24 @@
 """
 Type annotations for apigateway service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigateway/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_apigateway/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_apigateway.type_defs import AccessLogSettingsTypeDef
 
-    data: AccessLogSettingsTypeDef = {...}
+    data: AccessLogSettingsTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import IO, Any, Dict, List, Union
+from typing import IO, Any, Union
 
 from botocore.response import StreamingBody
 
@@ -30,232 +34,269 @@ from .literals import (
     EndpointTypeType,
     GatewayResponseTypeType,
     IntegrationTypeType,
+    IpAddressTypeType,
     LocationStatusTypeType,
     OpType,
     PutModeType,
     QuotaPeriodTypeType,
+    ResourceOwnerType,
     SecurityPolicyType,
     UnauthorizedCacheControlHeaderStrategyType,
     VpcLinkStatusType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
     "AccessLogSettingsTypeDef",
     "AccountTypeDef",
     "ApiKeyIdsTypeDef",
-    "ApiKeyResponseMetadataTypeDef",
+    "ApiKeyResponseTypeDef",
     "ApiKeyTypeDef",
     "ApiKeysTypeDef",
+    "ApiStageOutputTypeDef",
     "ApiStageTypeDef",
-    "AuthorizerResponseMetadataTypeDef",
+    "ApiStageUnionTypeDef",
+    "AuthorizerResponseTypeDef",
     "AuthorizerTypeDef",
     "AuthorizersTypeDef",
-    "BasePathMappingResponseMetadataTypeDef",
+    "BasePathMappingResponseTypeDef",
     "BasePathMappingTypeDef",
     "BasePathMappingsTypeDef",
+    "BlobTypeDef",
+    "CanarySettingsOutputTypeDef",
     "CanarySettingsTypeDef",
-    "ClientCertificateResponseMetadataTypeDef",
+    "CanarySettingsUnionTypeDef",
+    "ClientCertificateResponseTypeDef",
     "ClientCertificateTypeDef",
     "ClientCertificatesTypeDef",
-    "CreateApiKeyRequestRequestTypeDef",
-    "CreateAuthorizerRequestRequestTypeDef",
-    "CreateBasePathMappingRequestRequestTypeDef",
-    "CreateDeploymentRequestRequestTypeDef",
-    "CreateDocumentationPartRequestRequestTypeDef",
-    "CreateDocumentationVersionRequestRequestTypeDef",
-    "CreateDomainNameRequestRequestTypeDef",
-    "CreateModelRequestRequestTypeDef",
-    "CreateRequestValidatorRequestRequestTypeDef",
-    "CreateResourceRequestRequestTypeDef",
-    "CreateRestApiRequestRequestTypeDef",
-    "CreateStageRequestRequestTypeDef",
-    "CreateUsagePlanKeyRequestRequestTypeDef",
-    "CreateUsagePlanRequestRequestTypeDef",
-    "CreateVpcLinkRequestRequestTypeDef",
-    "DeleteApiKeyRequestRequestTypeDef",
-    "DeleteAuthorizerRequestRequestTypeDef",
-    "DeleteBasePathMappingRequestRequestTypeDef",
-    "DeleteClientCertificateRequestRequestTypeDef",
-    "DeleteDeploymentRequestRequestTypeDef",
-    "DeleteDocumentationPartRequestRequestTypeDef",
-    "DeleteDocumentationVersionRequestRequestTypeDef",
-    "DeleteDomainNameRequestRequestTypeDef",
-    "DeleteGatewayResponseRequestRequestTypeDef",
-    "DeleteIntegrationRequestRequestTypeDef",
-    "DeleteIntegrationResponseRequestRequestTypeDef",
-    "DeleteMethodRequestRequestTypeDef",
-    "DeleteMethodResponseRequestRequestTypeDef",
-    "DeleteModelRequestRequestTypeDef",
-    "DeleteRequestValidatorRequestRequestTypeDef",
-    "DeleteResourceRequestRequestTypeDef",
-    "DeleteRestApiRequestRequestTypeDef",
-    "DeleteStageRequestRequestTypeDef",
-    "DeleteUsagePlanKeyRequestRequestTypeDef",
-    "DeleteUsagePlanRequestRequestTypeDef",
-    "DeleteVpcLinkRequestRequestTypeDef",
+    "CreateApiKeyRequestTypeDef",
+    "CreateAuthorizerRequestTypeDef",
+    "CreateBasePathMappingRequestTypeDef",
+    "CreateDeploymentRequestTypeDef",
+    "CreateDocumentationPartRequestTypeDef",
+    "CreateDocumentationVersionRequestTypeDef",
+    "CreateDomainNameAccessAssociationRequestTypeDef",
+    "CreateDomainNameRequestTypeDef",
+    "CreateModelRequestTypeDef",
+    "CreateRequestValidatorRequestTypeDef",
+    "CreateResourceRequestTypeDef",
+    "CreateRestApiRequestTypeDef",
+    "CreateStageRequestTypeDef",
+    "CreateUsagePlanKeyRequestTypeDef",
+    "CreateUsagePlanRequestTypeDef",
+    "CreateVpcLinkRequestTypeDef",
+    "DeleteApiKeyRequestTypeDef",
+    "DeleteAuthorizerRequestTypeDef",
+    "DeleteBasePathMappingRequestTypeDef",
+    "DeleteClientCertificateRequestTypeDef",
+    "DeleteDeploymentRequestTypeDef",
+    "DeleteDocumentationPartRequestTypeDef",
+    "DeleteDocumentationVersionRequestTypeDef",
+    "DeleteDomainNameAccessAssociationRequestTypeDef",
+    "DeleteDomainNameRequestTypeDef",
+    "DeleteGatewayResponseRequestTypeDef",
+    "DeleteIntegrationRequestTypeDef",
+    "DeleteIntegrationResponseRequestTypeDef",
+    "DeleteMethodRequestTypeDef",
+    "DeleteMethodResponseRequestTypeDef",
+    "DeleteModelRequestTypeDef",
+    "DeleteRequestValidatorRequestTypeDef",
+    "DeleteResourceRequestTypeDef",
+    "DeleteRestApiRequestTypeDef",
+    "DeleteStageRequestTypeDef",
+    "DeleteUsagePlanKeyRequestTypeDef",
+    "DeleteUsagePlanRequestTypeDef",
+    "DeleteVpcLinkRequestTypeDef",
     "DeploymentCanarySettingsTypeDef",
-    "DeploymentResponseMetadataTypeDef",
+    "DeploymentResponseTypeDef",
     "DeploymentTypeDef",
     "DeploymentsTypeDef",
     "DocumentationPartIdsTypeDef",
     "DocumentationPartLocationTypeDef",
-    "DocumentationPartResponseMetadataTypeDef",
+    "DocumentationPartResponseTypeDef",
     "DocumentationPartTypeDef",
     "DocumentationPartsTypeDef",
-    "DocumentationVersionResponseMetadataTypeDef",
+    "DocumentationVersionResponseTypeDef",
     "DocumentationVersionTypeDef",
     "DocumentationVersionsTypeDef",
-    "DomainNameResponseMetadataTypeDef",
+    "DomainNameAccessAssociationResponseTypeDef",
+    "DomainNameAccessAssociationTypeDef",
+    "DomainNameAccessAssociationsTypeDef",
+    "DomainNameResponseTypeDef",
     "DomainNameTypeDef",
     "DomainNamesTypeDef",
+    "EmptyResponseMetadataTypeDef",
+    "EndpointConfigurationOutputTypeDef",
     "EndpointConfigurationTypeDef",
+    "EndpointConfigurationUnionTypeDef",
     "ExportResponseTypeDef",
-    "FlushStageAuthorizersCacheRequestRequestTypeDef",
-    "FlushStageCacheRequestRequestTypeDef",
-    "GatewayResponseResponseMetadataTypeDef",
+    "FlushStageAuthorizersCacheRequestTypeDef",
+    "FlushStageCacheRequestTypeDef",
+    "GatewayResponseResponseTypeDef",
     "GatewayResponseTypeDef",
     "GatewayResponsesTypeDef",
-    "GenerateClientCertificateRequestRequestTypeDef",
-    "GetApiKeyRequestRequestTypeDef",
-    "GetApiKeysRequestRequestTypeDef",
-    "GetAuthorizerRequestRequestTypeDef",
-    "GetAuthorizersRequestRequestTypeDef",
-    "GetBasePathMappingRequestRequestTypeDef",
-    "GetBasePathMappingsRequestRequestTypeDef",
-    "GetClientCertificateRequestRequestTypeDef",
-    "GetClientCertificatesRequestRequestTypeDef",
-    "GetDeploymentRequestRequestTypeDef",
-    "GetDeploymentsRequestRequestTypeDef",
-    "GetDocumentationPartRequestRequestTypeDef",
-    "GetDocumentationPartsRequestRequestTypeDef",
-    "GetDocumentationVersionRequestRequestTypeDef",
-    "GetDocumentationVersionsRequestRequestTypeDef",
-    "GetDomainNameRequestRequestTypeDef",
-    "GetDomainNamesRequestRequestTypeDef",
-    "GetExportRequestRequestTypeDef",
-    "GetGatewayResponseRequestRequestTypeDef",
-    "GetGatewayResponsesRequestRequestTypeDef",
-    "GetIntegrationRequestRequestTypeDef",
-    "GetIntegrationResponseRequestRequestTypeDef",
-    "GetMethodRequestRequestTypeDef",
-    "GetMethodResponseRequestRequestTypeDef",
-    "GetModelRequestRequestTypeDef",
-    "GetModelTemplateRequestRequestTypeDef",
-    "GetModelsRequestRequestTypeDef",
-    "GetRequestValidatorRequestRequestTypeDef",
-    "GetRequestValidatorsRequestRequestTypeDef",
-    "GetResourceRequestRequestTypeDef",
-    "GetResourcesRequestRequestTypeDef",
-    "GetRestApiRequestRequestTypeDef",
-    "GetRestApisRequestRequestTypeDef",
-    "GetSdkRequestRequestTypeDef",
-    "GetSdkTypeRequestRequestTypeDef",
-    "GetSdkTypesRequestRequestTypeDef",
-    "GetStageRequestRequestTypeDef",
-    "GetStagesRequestRequestTypeDef",
-    "GetTagsRequestRequestTypeDef",
-    "GetUsagePlanKeyRequestRequestTypeDef",
-    "GetUsagePlanKeysRequestRequestTypeDef",
-    "GetUsagePlanRequestRequestTypeDef",
-    "GetUsagePlansRequestRequestTypeDef",
-    "GetUsageRequestRequestTypeDef",
-    "GetVpcLinkRequestRequestTypeDef",
-    "GetVpcLinksRequestRequestTypeDef",
-    "ImportApiKeysRequestRequestTypeDef",
-    "ImportDocumentationPartsRequestRequestTypeDef",
-    "ImportRestApiRequestRequestTypeDef",
-    "IntegrationResponseMetadataTypeDef",
-    "IntegrationResponseResponseMetadataTypeDef",
+    "GenerateClientCertificateRequestTypeDef",
+    "GetApiKeyRequestTypeDef",
+    "GetApiKeysRequestPaginateTypeDef",
+    "GetApiKeysRequestTypeDef",
+    "GetAuthorizerRequestTypeDef",
+    "GetAuthorizersRequestPaginateTypeDef",
+    "GetAuthorizersRequestTypeDef",
+    "GetBasePathMappingRequestTypeDef",
+    "GetBasePathMappingsRequestPaginateTypeDef",
+    "GetBasePathMappingsRequestTypeDef",
+    "GetClientCertificateRequestTypeDef",
+    "GetClientCertificatesRequestPaginateTypeDef",
+    "GetClientCertificatesRequestTypeDef",
+    "GetDeploymentRequestTypeDef",
+    "GetDeploymentsRequestPaginateTypeDef",
+    "GetDeploymentsRequestTypeDef",
+    "GetDocumentationPartRequestTypeDef",
+    "GetDocumentationPartsRequestPaginateTypeDef",
+    "GetDocumentationPartsRequestTypeDef",
+    "GetDocumentationVersionRequestTypeDef",
+    "GetDocumentationVersionsRequestPaginateTypeDef",
+    "GetDocumentationVersionsRequestTypeDef",
+    "GetDomainNameAccessAssociationsRequestTypeDef",
+    "GetDomainNameRequestTypeDef",
+    "GetDomainNamesRequestPaginateTypeDef",
+    "GetDomainNamesRequestTypeDef",
+    "GetExportRequestTypeDef",
+    "GetGatewayResponseRequestTypeDef",
+    "GetGatewayResponsesRequestPaginateTypeDef",
+    "GetGatewayResponsesRequestTypeDef",
+    "GetIntegrationRequestTypeDef",
+    "GetIntegrationResponseRequestTypeDef",
+    "GetMethodRequestTypeDef",
+    "GetMethodResponseRequestTypeDef",
+    "GetModelRequestTypeDef",
+    "GetModelTemplateRequestTypeDef",
+    "GetModelsRequestPaginateTypeDef",
+    "GetModelsRequestTypeDef",
+    "GetRequestValidatorRequestTypeDef",
+    "GetRequestValidatorsRequestPaginateTypeDef",
+    "GetRequestValidatorsRequestTypeDef",
+    "GetResourceRequestTypeDef",
+    "GetResourcesRequestPaginateTypeDef",
+    "GetResourcesRequestTypeDef",
+    "GetRestApiRequestTypeDef",
+    "GetRestApisRequestPaginateTypeDef",
+    "GetRestApisRequestTypeDef",
+    "GetSdkRequestTypeDef",
+    "GetSdkTypeRequestTypeDef",
+    "GetSdkTypesRequestPaginateTypeDef",
+    "GetSdkTypesRequestTypeDef",
+    "GetStageRequestTypeDef",
+    "GetStagesRequestTypeDef",
+    "GetTagsRequestTypeDef",
+    "GetUsagePlanKeyRequestTypeDef",
+    "GetUsagePlanKeysRequestPaginateTypeDef",
+    "GetUsagePlanKeysRequestTypeDef",
+    "GetUsagePlanRequestTypeDef",
+    "GetUsagePlansRequestPaginateTypeDef",
+    "GetUsagePlansRequestTypeDef",
+    "GetUsageRequestPaginateTypeDef",
+    "GetUsageRequestTypeDef",
+    "GetVpcLinkRequestTypeDef",
+    "GetVpcLinksRequestPaginateTypeDef",
+    "GetVpcLinksRequestTypeDef",
+    "ImportApiKeysRequestTypeDef",
+    "ImportDocumentationPartsRequestTypeDef",
+    "ImportRestApiRequestTypeDef",
+    "IntegrationResponseExtraTypeDef",
+    "IntegrationResponseResponseTypeDef",
     "IntegrationResponseTypeDef",
     "IntegrationTypeDef",
-    "MethodResponseMetadataTypeDef",
-    "MethodResponseResponseMetadataTypeDef",
+    "MethodResponseExtraTypeDef",
+    "MethodResponseResponseTypeDef",
     "MethodResponseTypeDef",
     "MethodSettingTypeDef",
     "MethodSnapshotTypeDef",
     "MethodTypeDef",
-    "ModelResponseMetadataTypeDef",
+    "ModelResponseTypeDef",
     "ModelTypeDef",
     "ModelsTypeDef",
     "MutualTlsAuthenticationInputTypeDef",
     "MutualTlsAuthenticationTypeDef",
     "PaginatorConfigTypeDef",
     "PatchOperationTypeDef",
-    "PutGatewayResponseRequestRequestTypeDef",
-    "PutIntegrationRequestRequestTypeDef",
-    "PutIntegrationResponseRequestRequestTypeDef",
-    "PutMethodRequestRequestTypeDef",
-    "PutMethodResponseRequestRequestTypeDef",
-    "PutRestApiRequestRequestTypeDef",
+    "PutGatewayResponseRequestTypeDef",
+    "PutIntegrationRequestTypeDef",
+    "PutIntegrationResponseRequestTypeDef",
+    "PutMethodRequestTypeDef",
+    "PutMethodResponseRequestTypeDef",
+    "PutRestApiRequestTypeDef",
     "QuotaSettingsTypeDef",
-    "RequestValidatorResponseMetadataTypeDef",
+    "RejectDomainNameAccessAssociationRequestTypeDef",
+    "RequestValidatorResponseTypeDef",
     "RequestValidatorTypeDef",
     "RequestValidatorsTypeDef",
-    "ResourceResponseMetadataTypeDef",
+    "ResourceResponseTypeDef",
     "ResourceTypeDef",
     "ResourcesTypeDef",
     "ResponseMetadataTypeDef",
-    "RestApiResponseMetadataTypeDef",
+    "RestApiResponseTypeDef",
     "RestApiTypeDef",
     "RestApisTypeDef",
     "SdkConfigurationPropertyTypeDef",
     "SdkResponseTypeDef",
-    "SdkTypeResponseMetadataTypeDef",
+    "SdkTypeResponseTypeDef",
     "SdkTypeTypeDef",
     "SdkTypesTypeDef",
     "StageKeyTypeDef",
-    "StageResponseMetadataTypeDef",
+    "StageResponseTypeDef",
     "StageTypeDef",
     "StagesTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
     "TagsTypeDef",
     "TemplateTypeDef",
-    "TestInvokeAuthorizerRequestRequestTypeDef",
+    "TestInvokeAuthorizerRequestTypeDef",
     "TestInvokeAuthorizerResponseTypeDef",
-    "TestInvokeMethodRequestRequestTypeDef",
+    "TestInvokeMethodRequestTypeDef",
     "TestInvokeMethodResponseTypeDef",
     "ThrottleSettingsTypeDef",
     "TlsConfigTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateAccountRequestRequestTypeDef",
-    "UpdateApiKeyRequestRequestTypeDef",
-    "UpdateAuthorizerRequestRequestTypeDef",
-    "UpdateBasePathMappingRequestRequestTypeDef",
-    "UpdateClientCertificateRequestRequestTypeDef",
-    "UpdateDeploymentRequestRequestTypeDef",
-    "UpdateDocumentationPartRequestRequestTypeDef",
-    "UpdateDocumentationVersionRequestRequestTypeDef",
-    "UpdateDomainNameRequestRequestTypeDef",
-    "UpdateGatewayResponseRequestRequestTypeDef",
-    "UpdateIntegrationRequestRequestTypeDef",
-    "UpdateIntegrationResponseRequestRequestTypeDef",
-    "UpdateMethodRequestRequestTypeDef",
-    "UpdateMethodResponseRequestRequestTypeDef",
-    "UpdateModelRequestRequestTypeDef",
-    "UpdateRequestValidatorRequestRequestTypeDef",
-    "UpdateResourceRequestRequestTypeDef",
-    "UpdateRestApiRequestRequestTypeDef",
-    "UpdateStageRequestRequestTypeDef",
-    "UpdateUsagePlanRequestRequestTypeDef",
-    "UpdateUsageRequestRequestTypeDef",
-    "UpdateVpcLinkRequestRequestTypeDef",
-    "UsagePlanKeyResponseMetadataTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateAccountRequestTypeDef",
+    "UpdateApiKeyRequestTypeDef",
+    "UpdateAuthorizerRequestTypeDef",
+    "UpdateBasePathMappingRequestTypeDef",
+    "UpdateClientCertificateRequestTypeDef",
+    "UpdateDeploymentRequestTypeDef",
+    "UpdateDocumentationPartRequestTypeDef",
+    "UpdateDocumentationVersionRequestTypeDef",
+    "UpdateDomainNameRequestTypeDef",
+    "UpdateGatewayResponseRequestTypeDef",
+    "UpdateIntegrationRequestTypeDef",
+    "UpdateIntegrationResponseRequestTypeDef",
+    "UpdateMethodRequestTypeDef",
+    "UpdateMethodResponseRequestTypeDef",
+    "UpdateModelRequestTypeDef",
+    "UpdateRequestValidatorRequestTypeDef",
+    "UpdateResourceRequestTypeDef",
+    "UpdateRestApiRequestTypeDef",
+    "UpdateStageRequestTypeDef",
+    "UpdateUsagePlanRequestTypeDef",
+    "UpdateUsageRequestTypeDef",
+    "UpdateVpcLinkRequestTypeDef",
+    "UsagePlanKeyResponseTypeDef",
     "UsagePlanKeyTypeDef",
     "UsagePlanKeysTypeDef",
-    "UsagePlanResponseMetadataTypeDef",
+    "UsagePlanResponseTypeDef",
     "UsagePlanTypeDef",
     "UsagePlansTypeDef",
     "UsageTypeDef",
-    "VpcLinkResponseMetadataTypeDef",
+    "VpcLinkResponseTypeDef",
     "VpcLinkTypeDef",
     "VpcLinksTypeDef",
 )
@@ -263,52 +304,720 @@ __all__ = (
 AccessLogSettingsTypeDef = TypedDict(
     "AccessLogSettingsTypeDef",
     {
-        "format": str,
-        "destinationArn": str,
-    },
-    total=False,
-)
-
-AccountTypeDef = TypedDict(
-    "AccountTypeDef",
-    {
-        "cloudwatchRoleArn": str,
-        "throttleSettings": "ThrottleSettingsTypeDef",
-        "features": List[str],
-        "apiKeyVersion": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "format": NotRequired[str],
+        "destinationArn": NotRequired[str],
     },
 )
 
-ApiKeyIdsTypeDef = TypedDict(
-    "ApiKeyIdsTypeDef",
-    {
-        "ids": List[str],
-        "warnings": List[str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-ApiKeyResponseMetadataTypeDef = TypedDict(
-    "ApiKeyResponseMetadataTypeDef",
-    {
-        "id": str,
-        "value": str,
-        "name": str,
-        "customerId": str,
-        "description": str,
-        "enabled": bool,
-        "createdDate": datetime,
-        "lastUpdatedDate": datetime,
-        "stageKeys": List[str],
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ThrottleSettingsTypeDef(TypedDict):
+    burstLimit: NotRequired[int]
+    rateLimit: NotRequired[float]
 
 ApiKeyTypeDef = TypedDict(
     "ApiKeyTypeDef",
     {
+        "id": NotRequired[str],
+        "value": NotRequired[str],
+        "name": NotRequired[str],
+        "customerId": NotRequired[str],
+        "description": NotRequired[str],
+        "enabled": NotRequired[bool],
+        "createdDate": NotRequired[datetime],
+        "lastUpdatedDate": NotRequired[datetime],
+        "stageKeys": NotRequired[List[str]],
+        "tags": NotRequired[Dict[str, str]],
+    },
+)
+AuthorizerTypeDef = TypedDict(
+    "AuthorizerTypeDef",
+    {
+        "id": NotRequired[str],
+        "name": NotRequired[str],
+        "type": NotRequired[AuthorizerTypeType],
+        "providerARNs": NotRequired[List[str]],
+        "authType": NotRequired[str],
+        "authorizerUri": NotRequired[str],
+        "authorizerCredentials": NotRequired[str],
+        "identitySource": NotRequired[str],
+        "identityValidationExpression": NotRequired[str],
+        "authorizerResultTtlInSeconds": NotRequired[int],
+    },
+)
+
+class BasePathMappingTypeDef(TypedDict):
+    basePath: NotRequired[str]
+    restApiId: NotRequired[str]
+    stage: NotRequired[str]
+
+BlobTypeDef = Union[str, bytes, IO[Any], StreamingBody]
+
+class CanarySettingsOutputTypeDef(TypedDict):
+    percentTraffic: NotRequired[float]
+    deploymentId: NotRequired[str]
+    stageVariableOverrides: NotRequired[Dict[str, str]]
+    useStageCache: NotRequired[bool]
+
+class CanarySettingsTypeDef(TypedDict):
+    percentTraffic: NotRequired[float]
+    deploymentId: NotRequired[str]
+    stageVariableOverrides: NotRequired[Mapping[str, str]]
+    useStageCache: NotRequired[bool]
+
+class ClientCertificateTypeDef(TypedDict):
+    clientCertificateId: NotRequired[str]
+    description: NotRequired[str]
+    pemEncodedCertificate: NotRequired[str]
+    createdDate: NotRequired[datetime]
+    expirationDate: NotRequired[datetime]
+    tags: NotRequired[Dict[str, str]]
+
+class StageKeyTypeDef(TypedDict):
+    restApiId: NotRequired[str]
+    stageName: NotRequired[str]
+
+CreateAuthorizerRequestTypeDef = TypedDict(
+    "CreateAuthorizerRequestTypeDef",
+    {
+        "restApiId": str,
+        "name": str,
+        "type": AuthorizerTypeType,
+        "providerARNs": NotRequired[Sequence[str]],
+        "authType": NotRequired[str],
+        "authorizerUri": NotRequired[str],
+        "authorizerCredentials": NotRequired[str],
+        "identitySource": NotRequired[str],
+        "identityValidationExpression": NotRequired[str],
+        "authorizerResultTtlInSeconds": NotRequired[int],
+    },
+)
+
+class CreateBasePathMappingRequestTypeDef(TypedDict):
+    domainName: str
+    restApiId: str
+    domainNameId: NotRequired[str]
+    basePath: NotRequired[str]
+    stage: NotRequired[str]
+
+class DeploymentCanarySettingsTypeDef(TypedDict):
+    percentTraffic: NotRequired[float]
+    stageVariableOverrides: NotRequired[Mapping[str, str]]
+    useStageCache: NotRequired[bool]
+
+DocumentationPartLocationTypeDef = TypedDict(
+    "DocumentationPartLocationTypeDef",
+    {
+        "type": DocumentationPartTypeType,
+        "path": NotRequired[str],
+        "method": NotRequired[str],
+        "statusCode": NotRequired[str],
+        "name": NotRequired[str],
+    },
+)
+
+class CreateDocumentationVersionRequestTypeDef(TypedDict):
+    restApiId: str
+    documentationVersion: str
+    stageName: NotRequired[str]
+    description: NotRequired[str]
+
+class CreateDomainNameAccessAssociationRequestTypeDef(TypedDict):
+    domainNameArn: str
+    accessAssociationSourceType: Literal["VPCE"]
+    accessAssociationSource: str
+    tags: NotRequired[Mapping[str, str]]
+
+class MutualTlsAuthenticationInputTypeDef(TypedDict):
+    truststoreUri: NotRequired[str]
+    truststoreVersion: NotRequired[str]
+
+class CreateModelRequestTypeDef(TypedDict):
+    restApiId: str
+    name: str
+    contentType: str
+    description: NotRequired[str]
+    schema: NotRequired[str]
+
+class CreateRequestValidatorRequestTypeDef(TypedDict):
+    restApiId: str
+    name: NotRequired[str]
+    validateRequestBody: NotRequired[bool]
+    validateRequestParameters: NotRequired[bool]
+
+class CreateResourceRequestTypeDef(TypedDict):
+    restApiId: str
+    parentId: str
+    pathPart: str
+
+class CreateUsagePlanKeyRequestTypeDef(TypedDict):
+    usagePlanId: str
+    keyId: str
+    keyType: str
+
+class QuotaSettingsTypeDef(TypedDict):
+    limit: NotRequired[int]
+    offset: NotRequired[int]
+    period: NotRequired[QuotaPeriodTypeType]
+
+class CreateVpcLinkRequestTypeDef(TypedDict):
+    name: str
+    targetArns: Sequence[str]
+    description: NotRequired[str]
+    tags: NotRequired[Mapping[str, str]]
+
+class DeleteApiKeyRequestTypeDef(TypedDict):
+    apiKey: str
+
+class DeleteAuthorizerRequestTypeDef(TypedDict):
+    restApiId: str
+    authorizerId: str
+
+class DeleteBasePathMappingRequestTypeDef(TypedDict):
+    domainName: str
+    basePath: str
+    domainNameId: NotRequired[str]
+
+class DeleteClientCertificateRequestTypeDef(TypedDict):
+    clientCertificateId: str
+
+class DeleteDeploymentRequestTypeDef(TypedDict):
+    restApiId: str
+    deploymentId: str
+
+class DeleteDocumentationPartRequestTypeDef(TypedDict):
+    restApiId: str
+    documentationPartId: str
+
+class DeleteDocumentationVersionRequestTypeDef(TypedDict):
+    restApiId: str
+    documentationVersion: str
+
+class DeleteDomainNameAccessAssociationRequestTypeDef(TypedDict):
+    domainNameAccessAssociationArn: str
+
+class DeleteDomainNameRequestTypeDef(TypedDict):
+    domainName: str
+    domainNameId: NotRequired[str]
+
+class DeleteGatewayResponseRequestTypeDef(TypedDict):
+    restApiId: str
+    responseType: GatewayResponseTypeType
+
+class DeleteIntegrationRequestTypeDef(TypedDict):
+    restApiId: str
+    resourceId: str
+    httpMethod: str
+
+class DeleteIntegrationResponseRequestTypeDef(TypedDict):
+    restApiId: str
+    resourceId: str
+    httpMethod: str
+    statusCode: str
+
+class DeleteMethodRequestTypeDef(TypedDict):
+    restApiId: str
+    resourceId: str
+    httpMethod: str
+
+class DeleteMethodResponseRequestTypeDef(TypedDict):
+    restApiId: str
+    resourceId: str
+    httpMethod: str
+    statusCode: str
+
+class DeleteModelRequestTypeDef(TypedDict):
+    restApiId: str
+    modelName: str
+
+class DeleteRequestValidatorRequestTypeDef(TypedDict):
+    restApiId: str
+    requestValidatorId: str
+
+class DeleteResourceRequestTypeDef(TypedDict):
+    restApiId: str
+    resourceId: str
+
+class DeleteRestApiRequestTypeDef(TypedDict):
+    restApiId: str
+
+class DeleteStageRequestTypeDef(TypedDict):
+    restApiId: str
+    stageName: str
+
+class DeleteUsagePlanKeyRequestTypeDef(TypedDict):
+    usagePlanId: str
+    keyId: str
+
+class DeleteUsagePlanRequestTypeDef(TypedDict):
+    usagePlanId: str
+
+class DeleteVpcLinkRequestTypeDef(TypedDict):
+    vpcLinkId: str
+
+class MethodSnapshotTypeDef(TypedDict):
+    authorizationType: NotRequired[str]
+    apiKeyRequired: NotRequired[bool]
+
+class DocumentationVersionTypeDef(TypedDict):
+    version: NotRequired[str]
+    createdDate: NotRequired[datetime]
+    description: NotRequired[str]
+
+class DomainNameAccessAssociationTypeDef(TypedDict):
+    domainNameAccessAssociationArn: NotRequired[str]
+    domainNameArn: NotRequired[str]
+    accessAssociationSourceType: NotRequired[Literal["VPCE"]]
+    accessAssociationSource: NotRequired[str]
+    tags: NotRequired[Dict[str, str]]
+
+EndpointConfigurationOutputTypeDef = TypedDict(
+    "EndpointConfigurationOutputTypeDef",
+    {
+        "types": NotRequired[List[EndpointTypeType]],
+        "ipAddressType": NotRequired[IpAddressTypeType],
+        "vpcEndpointIds": NotRequired[List[str]],
+    },
+)
+
+class MutualTlsAuthenticationTypeDef(TypedDict):
+    truststoreUri: NotRequired[str]
+    truststoreVersion: NotRequired[str]
+    truststoreWarnings: NotRequired[List[str]]
+
+EndpointConfigurationTypeDef = TypedDict(
+    "EndpointConfigurationTypeDef",
+    {
+        "types": NotRequired[Sequence[EndpointTypeType]],
+        "ipAddressType": NotRequired[IpAddressTypeType],
+        "vpcEndpointIds": NotRequired[Sequence[str]],
+    },
+)
+
+class FlushStageAuthorizersCacheRequestTypeDef(TypedDict):
+    restApiId: str
+    stageName: str
+
+class FlushStageCacheRequestTypeDef(TypedDict):
+    restApiId: str
+    stageName: str
+
+class GatewayResponseTypeDef(TypedDict):
+    responseType: NotRequired[GatewayResponseTypeType]
+    statusCode: NotRequired[str]
+    responseParameters: NotRequired[Dict[str, str]]
+    responseTemplates: NotRequired[Dict[str, str]]
+    defaultResponse: NotRequired[bool]
+
+class GenerateClientCertificateRequestTypeDef(TypedDict):
+    description: NotRequired[str]
+    tags: NotRequired[Mapping[str, str]]
+
+class GetApiKeyRequestTypeDef(TypedDict):
+    apiKey: str
+    includeValue: NotRequired[bool]
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class GetApiKeysRequestTypeDef(TypedDict):
+    position: NotRequired[str]
+    limit: NotRequired[int]
+    nameQuery: NotRequired[str]
+    customerId: NotRequired[str]
+    includeValues: NotRequired[bool]
+
+class GetAuthorizerRequestTypeDef(TypedDict):
+    restApiId: str
+    authorizerId: str
+
+class GetAuthorizersRequestTypeDef(TypedDict):
+    restApiId: str
+    position: NotRequired[str]
+    limit: NotRequired[int]
+
+class GetBasePathMappingRequestTypeDef(TypedDict):
+    domainName: str
+    basePath: str
+    domainNameId: NotRequired[str]
+
+class GetBasePathMappingsRequestTypeDef(TypedDict):
+    domainName: str
+    domainNameId: NotRequired[str]
+    position: NotRequired[str]
+    limit: NotRequired[int]
+
+class GetClientCertificateRequestTypeDef(TypedDict):
+    clientCertificateId: str
+
+class GetClientCertificatesRequestTypeDef(TypedDict):
+    position: NotRequired[str]
+    limit: NotRequired[int]
+
+class GetDeploymentRequestTypeDef(TypedDict):
+    restApiId: str
+    deploymentId: str
+    embed: NotRequired[Sequence[str]]
+
+class GetDeploymentsRequestTypeDef(TypedDict):
+    restApiId: str
+    position: NotRequired[str]
+    limit: NotRequired[int]
+
+class GetDocumentationPartRequestTypeDef(TypedDict):
+    restApiId: str
+    documentationPartId: str
+
+GetDocumentationPartsRequestTypeDef = TypedDict(
+    "GetDocumentationPartsRequestTypeDef",
+    {
+        "restApiId": str,
+        "type": NotRequired[DocumentationPartTypeType],
+        "nameQuery": NotRequired[str],
+        "path": NotRequired[str],
+        "position": NotRequired[str],
+        "limit": NotRequired[int],
+        "locationStatus": NotRequired[LocationStatusTypeType],
+    },
+)
+
+class GetDocumentationVersionRequestTypeDef(TypedDict):
+    restApiId: str
+    documentationVersion: str
+
+class GetDocumentationVersionsRequestTypeDef(TypedDict):
+    restApiId: str
+    position: NotRequired[str]
+    limit: NotRequired[int]
+
+class GetDomainNameAccessAssociationsRequestTypeDef(TypedDict):
+    position: NotRequired[str]
+    limit: NotRequired[int]
+    resourceOwner: NotRequired[ResourceOwnerType]
+
+class GetDomainNameRequestTypeDef(TypedDict):
+    domainName: str
+    domainNameId: NotRequired[str]
+
+class GetDomainNamesRequestTypeDef(TypedDict):
+    position: NotRequired[str]
+    limit: NotRequired[int]
+    resourceOwner: NotRequired[ResourceOwnerType]
+
+class GetExportRequestTypeDef(TypedDict):
+    restApiId: str
+    stageName: str
+    exportType: str
+    parameters: NotRequired[Mapping[str, str]]
+    accepts: NotRequired[str]
+
+class GetGatewayResponseRequestTypeDef(TypedDict):
+    restApiId: str
+    responseType: GatewayResponseTypeType
+
+class GetGatewayResponsesRequestTypeDef(TypedDict):
+    restApiId: str
+    position: NotRequired[str]
+    limit: NotRequired[int]
+
+class GetIntegrationRequestTypeDef(TypedDict):
+    restApiId: str
+    resourceId: str
+    httpMethod: str
+
+class GetIntegrationResponseRequestTypeDef(TypedDict):
+    restApiId: str
+    resourceId: str
+    httpMethod: str
+    statusCode: str
+
+class GetMethodRequestTypeDef(TypedDict):
+    restApiId: str
+    resourceId: str
+    httpMethod: str
+
+class GetMethodResponseRequestTypeDef(TypedDict):
+    restApiId: str
+    resourceId: str
+    httpMethod: str
+    statusCode: str
+
+class GetModelRequestTypeDef(TypedDict):
+    restApiId: str
+    modelName: str
+    flatten: NotRequired[bool]
+
+class GetModelTemplateRequestTypeDef(TypedDict):
+    restApiId: str
+    modelName: str
+
+class GetModelsRequestTypeDef(TypedDict):
+    restApiId: str
+    position: NotRequired[str]
+    limit: NotRequired[int]
+
+class GetRequestValidatorRequestTypeDef(TypedDict):
+    restApiId: str
+    requestValidatorId: str
+
+class GetRequestValidatorsRequestTypeDef(TypedDict):
+    restApiId: str
+    position: NotRequired[str]
+    limit: NotRequired[int]
+
+class GetResourceRequestTypeDef(TypedDict):
+    restApiId: str
+    resourceId: str
+    embed: NotRequired[Sequence[str]]
+
+class GetResourcesRequestTypeDef(TypedDict):
+    restApiId: str
+    position: NotRequired[str]
+    limit: NotRequired[int]
+    embed: NotRequired[Sequence[str]]
+
+class GetRestApiRequestTypeDef(TypedDict):
+    restApiId: str
+
+class GetRestApisRequestTypeDef(TypedDict):
+    position: NotRequired[str]
+    limit: NotRequired[int]
+
+class GetSdkRequestTypeDef(TypedDict):
+    restApiId: str
+    stageName: str
+    sdkType: str
+    parameters: NotRequired[Mapping[str, str]]
+
+GetSdkTypeRequestTypeDef = TypedDict(
+    "GetSdkTypeRequestTypeDef",
+    {
+        "id": str,
+    },
+)
+
+class GetSdkTypesRequestTypeDef(TypedDict):
+    position: NotRequired[str]
+    limit: NotRequired[int]
+
+class GetStageRequestTypeDef(TypedDict):
+    restApiId: str
+    stageName: str
+
+class GetStagesRequestTypeDef(TypedDict):
+    restApiId: str
+    deploymentId: NotRequired[str]
+
+class GetTagsRequestTypeDef(TypedDict):
+    resourceArn: str
+    position: NotRequired[str]
+    limit: NotRequired[int]
+
+class GetUsagePlanKeyRequestTypeDef(TypedDict):
+    usagePlanId: str
+    keyId: str
+
+class GetUsagePlanKeysRequestTypeDef(TypedDict):
+    usagePlanId: str
+    position: NotRequired[str]
+    limit: NotRequired[int]
+    nameQuery: NotRequired[str]
+
+class GetUsagePlanRequestTypeDef(TypedDict):
+    usagePlanId: str
+
+class GetUsagePlansRequestTypeDef(TypedDict):
+    position: NotRequired[str]
+    keyId: NotRequired[str]
+    limit: NotRequired[int]
+
+class GetUsageRequestTypeDef(TypedDict):
+    usagePlanId: str
+    startDate: str
+    endDate: str
+    keyId: NotRequired[str]
+    position: NotRequired[str]
+    limit: NotRequired[int]
+
+class GetVpcLinkRequestTypeDef(TypedDict):
+    vpcLinkId: str
+
+class GetVpcLinksRequestTypeDef(TypedDict):
+    position: NotRequired[str]
+    limit: NotRequired[int]
+
+class IntegrationResponseTypeDef(TypedDict):
+    statusCode: NotRequired[str]
+    selectionPattern: NotRequired[str]
+    responseParameters: NotRequired[Dict[str, str]]
+    responseTemplates: NotRequired[Dict[str, str]]
+    contentHandling: NotRequired[ContentHandlingStrategyType]
+
+class TlsConfigTypeDef(TypedDict):
+    insecureSkipVerification: NotRequired[bool]
+
+class MethodResponseTypeDef(TypedDict):
+    statusCode: NotRequired[str]
+    responseParameters: NotRequired[Dict[str, bool]]
+    responseModels: NotRequired[Dict[str, str]]
+
+class MethodSettingTypeDef(TypedDict):
+    metricsEnabled: NotRequired[bool]
+    loggingLevel: NotRequired[str]
+    dataTraceEnabled: NotRequired[bool]
+    throttlingBurstLimit: NotRequired[int]
+    throttlingRateLimit: NotRequired[float]
+    cachingEnabled: NotRequired[bool]
+    cacheTtlInSeconds: NotRequired[int]
+    cacheDataEncrypted: NotRequired[bool]
+    requireAuthorizationForCacheControl: NotRequired[bool]
+    unauthorizedCacheControlHeaderStrategy: NotRequired[UnauthorizedCacheControlHeaderStrategyType]
+
+ModelTypeDef = TypedDict(
+    "ModelTypeDef",
+    {
+        "id": NotRequired[str],
+        "name": NotRequired[str],
+        "description": NotRequired[str],
+        "schema": NotRequired[str],
+        "contentType": NotRequired[str],
+    },
+)
+PatchOperationTypeDef = TypedDict(
+    "PatchOperationTypeDef",
+    {
+        "op": NotRequired[OpType],
+        "path": NotRequired[str],
+        "value": NotRequired[str],
+        "from": NotRequired[str],
+    },
+)
+
+class PutGatewayResponseRequestTypeDef(TypedDict):
+    restApiId: str
+    responseType: GatewayResponseTypeType
+    statusCode: NotRequired[str]
+    responseParameters: NotRequired[Mapping[str, str]]
+    responseTemplates: NotRequired[Mapping[str, str]]
+
+class PutIntegrationResponseRequestTypeDef(TypedDict):
+    restApiId: str
+    resourceId: str
+    httpMethod: str
+    statusCode: str
+    selectionPattern: NotRequired[str]
+    responseParameters: NotRequired[Mapping[str, str]]
+    responseTemplates: NotRequired[Mapping[str, str]]
+    contentHandling: NotRequired[ContentHandlingStrategyType]
+
+class PutMethodRequestTypeDef(TypedDict):
+    restApiId: str
+    resourceId: str
+    httpMethod: str
+    authorizationType: str
+    authorizerId: NotRequired[str]
+    apiKeyRequired: NotRequired[bool]
+    operationName: NotRequired[str]
+    requestParameters: NotRequired[Mapping[str, bool]]
+    requestModels: NotRequired[Mapping[str, str]]
+    requestValidatorId: NotRequired[str]
+    authorizationScopes: NotRequired[Sequence[str]]
+
+class PutMethodResponseRequestTypeDef(TypedDict):
+    restApiId: str
+    resourceId: str
+    httpMethod: str
+    statusCode: str
+    responseParameters: NotRequired[Mapping[str, bool]]
+    responseModels: NotRequired[Mapping[str, str]]
+
+class RejectDomainNameAccessAssociationRequestTypeDef(TypedDict):
+    domainNameAccessAssociationArn: str
+    domainNameArn: str
+
+RequestValidatorTypeDef = TypedDict(
+    "RequestValidatorTypeDef",
+    {
+        "id": NotRequired[str],
+        "name": NotRequired[str],
+        "validateRequestBody": NotRequired[bool],
+        "validateRequestParameters": NotRequired[bool],
+    },
+)
+
+class SdkConfigurationPropertyTypeDef(TypedDict):
+    name: NotRequired[str]
+    friendlyName: NotRequired[str]
+    description: NotRequired[str]
+    required: NotRequired[bool]
+    defaultValue: NotRequired[str]
+
+class TagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tags: Mapping[str, str]
+
+class TestInvokeAuthorizerRequestTypeDef(TypedDict):
+    restApiId: str
+    authorizerId: str
+    headers: NotRequired[Mapping[str, str]]
+    multiValueHeaders: NotRequired[Mapping[str, Sequence[str]]]
+    pathWithQueryString: NotRequired[str]
+    body: NotRequired[str]
+    stageVariables: NotRequired[Mapping[str, str]]
+    additionalContext: NotRequired[Mapping[str, str]]
+
+class TestInvokeMethodRequestTypeDef(TypedDict):
+    restApiId: str
+    resourceId: str
+    httpMethod: str
+    pathWithQueryString: NotRequired[str]
+    body: NotRequired[str]
+    headers: NotRequired[Mapping[str, str]]
+    multiValueHeaders: NotRequired[Mapping[str, Sequence[str]]]
+    clientCertificateId: NotRequired[str]
+    stageVariables: NotRequired[Mapping[str, str]]
+
+class UntagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tagKeys: Sequence[str]
+
+UsagePlanKeyTypeDef = TypedDict(
+    "UsagePlanKeyTypeDef",
+    {
+        "id": NotRequired[str],
+        "type": NotRequired[str],
+        "value": NotRequired[str],
+        "name": NotRequired[str],
+    },
+)
+VpcLinkTypeDef = TypedDict(
+    "VpcLinkTypeDef",
+    {
+        "id": NotRequired[str],
+        "name": NotRequired[str],
+        "description": NotRequired[str],
+        "targetArns": NotRequired[List[str]],
+        "status": NotRequired[VpcLinkStatusType],
+        "statusMessage": NotRequired[str],
+        "tags": NotRequired[Dict[str, str]],
+    },
+)
+
+class ApiKeyIdsTypeDef(TypedDict):
+    ids: List[str]
+    warnings: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+ApiKeyResponseTypeDef = TypedDict(
+    "ApiKeyResponseTypeDef",
+    {
         "id": str,
         "value": str,
         "name": str,
@@ -319,32 +1028,11 @@ ApiKeyTypeDef = TypedDict(
         "lastUpdatedDate": datetime,
         "stageKeys": List[str],
         "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-ApiKeysTypeDef = TypedDict(
-    "ApiKeysTypeDef",
-    {
-        "warnings": List[str],
-        "position": str,
-        "items": List["ApiKeyTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
-
-ApiStageTypeDef = TypedDict(
-    "ApiStageTypeDef",
-    {
-        "apiId": str,
-        "stage": str,
-        "throttle": Dict[str, "ThrottleSettingsTypeDef"],
-    },
-    total=False,
-)
-
-AuthorizerResponseMetadataTypeDef = TypedDict(
-    "AuthorizerResponseMetadataTypeDef",
+AuthorizerResponseTypeDef = TypedDict(
+    "AuthorizerResponseTypeDef",
     {
         "id": str,
         "name": str,
@@ -356,1998 +1044,305 @@ AuthorizerResponseMetadataTypeDef = TypedDict(
         "identitySource": str,
         "identityValidationExpression": str,
         "authorizerResultTtlInSeconds": int,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
 
-AuthorizerTypeDef = TypedDict(
-    "AuthorizerTypeDef",
+class BasePathMappingResponseTypeDef(TypedDict):
+    basePath: str
+    restApiId: str
+    stage: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ClientCertificateResponseTypeDef(TypedDict):
+    clientCertificateId: str
+    description: str
+    pemEncodedCertificate: str
+    createdDate: datetime
+    expirationDate: datetime
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DocumentationPartIdsTypeDef(TypedDict):
+    ids: List[str]
+    warnings: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DocumentationVersionResponseTypeDef(TypedDict):
+    version: str
+    createdDate: datetime
+    description: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DomainNameAccessAssociationResponseTypeDef(TypedDict):
+    domainNameAccessAssociationArn: str
+    domainNameArn: str
+    accessAssociationSourceType: Literal["VPCE"]
+    accessAssociationSource: str
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class EmptyResponseMetadataTypeDef(TypedDict):
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ExportResponseTypeDef(TypedDict):
+    contentType: str
+    contentDisposition: str
+    body: StreamingBody
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GatewayResponseResponseTypeDef(TypedDict):
+    responseType: GatewayResponseTypeType
+    statusCode: str
+    responseParameters: Dict[str, str]
+    responseTemplates: Dict[str, str]
+    defaultResponse: bool
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class IntegrationResponseResponseTypeDef(TypedDict):
+    statusCode: str
+    selectionPattern: str
+    responseParameters: Dict[str, str]
+    responseTemplates: Dict[str, str]
+    contentHandling: ContentHandlingStrategyType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class MethodResponseResponseTypeDef(TypedDict):
+    statusCode: str
+    responseParameters: Dict[str, bool]
+    responseModels: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+ModelResponseTypeDef = TypedDict(
+    "ModelResponseTypeDef",
     {
         "id": str,
         "name": str,
-        "type": AuthorizerTypeType,
-        "providerARNs": List[str],
-        "authType": str,
-        "authorizerUri": str,
-        "authorizerCredentials": str,
-        "identitySource": str,
-        "identityValidationExpression": str,
-        "authorizerResultTtlInSeconds": int,
-    },
-    total=False,
-)
-
-AuthorizersTypeDef = TypedDict(
-    "AuthorizersTypeDef",
-    {
-        "position": str,
-        "items": List["AuthorizerTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-BasePathMappingResponseMetadataTypeDef = TypedDict(
-    "BasePathMappingResponseMetadataTypeDef",
-    {
-        "basePath": str,
-        "restApiId": str,
-        "stage": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-BasePathMappingTypeDef = TypedDict(
-    "BasePathMappingTypeDef",
-    {
-        "basePath": str,
-        "restApiId": str,
-        "stage": str,
-    },
-    total=False,
-)
-
-BasePathMappingsTypeDef = TypedDict(
-    "BasePathMappingsTypeDef",
-    {
-        "position": str,
-        "items": List["BasePathMappingTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CanarySettingsTypeDef = TypedDict(
-    "CanarySettingsTypeDef",
-    {
-        "percentTraffic": float,
-        "deploymentId": str,
-        "stageVariableOverrides": Dict[str, str],
-        "useStageCache": bool,
-    },
-    total=False,
-)
-
-ClientCertificateResponseMetadataTypeDef = TypedDict(
-    "ClientCertificateResponseMetadataTypeDef",
-    {
-        "clientCertificateId": str,
-        "description": str,
-        "pemEncodedCertificate": str,
-        "createdDate": datetime,
-        "expirationDate": datetime,
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ClientCertificateTypeDef = TypedDict(
-    "ClientCertificateTypeDef",
-    {
-        "clientCertificateId": str,
-        "description": str,
-        "pemEncodedCertificate": str,
-        "createdDate": datetime,
-        "expirationDate": datetime,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-ClientCertificatesTypeDef = TypedDict(
-    "ClientCertificatesTypeDef",
-    {
-        "position": str,
-        "items": List["ClientCertificateTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateApiKeyRequestRequestTypeDef = TypedDict(
-    "CreateApiKeyRequestRequestTypeDef",
-    {
-        "name": str,
-        "description": str,
-        "enabled": bool,
-        "generateDistinctId": bool,
-        "value": str,
-        "stageKeys": List["StageKeyTypeDef"],
-        "customerId": str,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-_RequiredCreateAuthorizerRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateAuthorizerRequestRequestTypeDef",
-    {
-        "restApiId": str,
-        "name": str,
-        "type": AuthorizerTypeType,
-    },
-)
-_OptionalCreateAuthorizerRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateAuthorizerRequestRequestTypeDef",
-    {
-        "providerARNs": List[str],
-        "authType": str,
-        "authorizerUri": str,
-        "authorizerCredentials": str,
-        "identitySource": str,
-        "identityValidationExpression": str,
-        "authorizerResultTtlInSeconds": int,
-    },
-    total=False,
-)
-
-class CreateAuthorizerRequestRequestTypeDef(
-    _RequiredCreateAuthorizerRequestRequestTypeDef, _OptionalCreateAuthorizerRequestRequestTypeDef
-):
-    pass
-
-_RequiredCreateBasePathMappingRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateBasePathMappingRequestRequestTypeDef",
-    {
-        "domainName": str,
-        "restApiId": str,
-    },
-)
-_OptionalCreateBasePathMappingRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateBasePathMappingRequestRequestTypeDef",
-    {
-        "basePath": str,
-        "stage": str,
-    },
-    total=False,
-)
-
-class CreateBasePathMappingRequestRequestTypeDef(
-    _RequiredCreateBasePathMappingRequestRequestTypeDef,
-    _OptionalCreateBasePathMappingRequestRequestTypeDef,
-):
-    pass
-
-_RequiredCreateDeploymentRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateDeploymentRequestRequestTypeDef",
-    {
-        "restApiId": str,
-    },
-)
-_OptionalCreateDeploymentRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateDeploymentRequestRequestTypeDef",
-    {
-        "stageName": str,
-        "stageDescription": str,
-        "description": str,
-        "cacheClusterEnabled": bool,
-        "cacheClusterSize": CacheClusterSizeType,
-        "variables": Dict[str, str],
-        "canarySettings": "DeploymentCanarySettingsTypeDef",
-        "tracingEnabled": bool,
-    },
-    total=False,
-)
-
-class CreateDeploymentRequestRequestTypeDef(
-    _RequiredCreateDeploymentRequestRequestTypeDef, _OptionalCreateDeploymentRequestRequestTypeDef
-):
-    pass
-
-CreateDocumentationPartRequestRequestTypeDef = TypedDict(
-    "CreateDocumentationPartRequestRequestTypeDef",
-    {
-        "restApiId": str,
-        "location": "DocumentationPartLocationTypeDef",
-        "properties": str,
-    },
-)
-
-_RequiredCreateDocumentationVersionRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateDocumentationVersionRequestRequestTypeDef",
-    {
-        "restApiId": str,
-        "documentationVersion": str,
-    },
-)
-_OptionalCreateDocumentationVersionRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateDocumentationVersionRequestRequestTypeDef",
-    {
-        "stageName": str,
-        "description": str,
-    },
-    total=False,
-)
-
-class CreateDocumentationVersionRequestRequestTypeDef(
-    _RequiredCreateDocumentationVersionRequestRequestTypeDef,
-    _OptionalCreateDocumentationVersionRequestRequestTypeDef,
-):
-    pass
-
-_RequiredCreateDomainNameRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateDomainNameRequestRequestTypeDef",
-    {
-        "domainName": str,
-    },
-)
-_OptionalCreateDomainNameRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateDomainNameRequestRequestTypeDef",
-    {
-        "certificateName": str,
-        "certificateBody": str,
-        "certificatePrivateKey": str,
-        "certificateChain": str,
-        "certificateArn": str,
-        "regionalCertificateName": str,
-        "regionalCertificateArn": str,
-        "endpointConfiguration": "EndpointConfigurationTypeDef",
-        "tags": Dict[str, str],
-        "securityPolicy": SecurityPolicyType,
-        "mutualTlsAuthentication": "MutualTlsAuthenticationInputTypeDef",
-        "ownershipVerificationCertificateArn": str,
-    },
-    total=False,
-)
-
-class CreateDomainNameRequestRequestTypeDef(
-    _RequiredCreateDomainNameRequestRequestTypeDef, _OptionalCreateDomainNameRequestRequestTypeDef
-):
-    pass
-
-_RequiredCreateModelRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateModelRequestRequestTypeDef",
-    {
-        "restApiId": str,
-        "name": str,
-        "contentType": str,
-    },
-)
-_OptionalCreateModelRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateModelRequestRequestTypeDef",
-    {
         "description": str,
         "schema": str,
-    },
-    total=False,
-)
-
-class CreateModelRequestRequestTypeDef(
-    _RequiredCreateModelRequestRequestTypeDef, _OptionalCreateModelRequestRequestTypeDef
-):
-    pass
-
-_RequiredCreateRequestValidatorRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateRequestValidatorRequestRequestTypeDef",
-    {
-        "restApiId": str,
+        "contentType": str,
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
-_OptionalCreateRequestValidatorRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateRequestValidatorRequestRequestTypeDef",
+RequestValidatorResponseTypeDef = TypedDict(
+    "RequestValidatorResponseTypeDef",
     {
+        "id": str,
         "name": str,
         "validateRequestBody": bool,
         "validateRequestParameters": bool,
-    },
-    total=False,
-)
-
-class CreateRequestValidatorRequestRequestTypeDef(
-    _RequiredCreateRequestValidatorRequestRequestTypeDef,
-    _OptionalCreateRequestValidatorRequestRequestTypeDef,
-):
-    pass
-
-CreateResourceRequestRequestTypeDef = TypedDict(
-    "CreateResourceRequestRequestTypeDef",
-    {
-        "restApiId": str,
-        "parentId": str,
-        "pathPart": str,
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
 
-_RequiredCreateRestApiRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateRestApiRequestRequestTypeDef",
+class SdkResponseTypeDef(TypedDict):
+    contentType: str
+    contentDisposition: str
+    body: StreamingBody
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class TagsTypeDef(TypedDict):
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class TemplateTypeDef(TypedDict):
+    value: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class TestInvokeAuthorizerResponseTypeDef(TypedDict):
+    clientStatus: int
+    log: str
+    latency: int
+    principalId: str
+    policy: str
+    authorization: Dict[str, List[str]]
+    claims: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class TestInvokeMethodResponseTypeDef(TypedDict):
+    status: int
+    body: str
+    headers: Dict[str, str]
+    multiValueHeaders: Dict[str, List[str]]
+    log: str
+    latency: int
+    ResponseMetadata: ResponseMetadataTypeDef
+
+UsagePlanKeyResponseTypeDef = TypedDict(
+    "UsagePlanKeyResponseTypeDef",
     {
+        "id": str,
+        "type": str,
+        "value": str,
         "name": str,
-    },
-)
-_OptionalCreateRestApiRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateRestApiRequestRequestTypeDef",
-    {
-        "description": str,
-        "version": str,
-        "cloneFrom": str,
-        "binaryMediaTypes": List[str],
-        "minimumCompressionSize": int,
-        "apiKeySource": ApiKeySourceTypeType,
-        "endpointConfiguration": "EndpointConfigurationTypeDef",
-        "policy": str,
-        "tags": Dict[str, str],
-        "disableExecuteApiEndpoint": bool,
-    },
-    total=False,
-)
-
-class CreateRestApiRequestRequestTypeDef(
-    _RequiredCreateRestApiRequestRequestTypeDef, _OptionalCreateRestApiRequestRequestTypeDef
-):
-    pass
-
-_RequiredCreateStageRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateStageRequestRequestTypeDef",
-    {
-        "restApiId": str,
-        "stageName": str,
-        "deploymentId": str,
-    },
-)
-_OptionalCreateStageRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateStageRequestRequestTypeDef",
-    {
-        "description": str,
-        "cacheClusterEnabled": bool,
-        "cacheClusterSize": CacheClusterSizeType,
-        "variables": Dict[str, str],
-        "documentationVersion": str,
-        "canarySettings": "CanarySettingsTypeDef",
-        "tracingEnabled": bool,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class CreateStageRequestRequestTypeDef(
-    _RequiredCreateStageRequestRequestTypeDef, _OptionalCreateStageRequestRequestTypeDef
-):
-    pass
-
-CreateUsagePlanKeyRequestRequestTypeDef = TypedDict(
-    "CreateUsagePlanKeyRequestRequestTypeDef",
-    {
-        "usagePlanId": str,
-        "keyId": str,
-        "keyType": str,
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
 
-_RequiredCreateUsagePlanRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateUsagePlanRequestRequestTypeDef",
+class UsageTypeDef(TypedDict):
+    usagePlanId: str
+    startDate: str
+    endDate: str
+    position: str
+    items: Dict[str, List[List[int]]]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+VpcLinkResponseTypeDef = TypedDict(
+    "VpcLinkResponseTypeDef",
     {
+        "id": str,
         "name": str,
-    },
-)
-_OptionalCreateUsagePlanRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateUsagePlanRequestRequestTypeDef",
-    {
         "description": str,
-        "apiStages": List["ApiStageTypeDef"],
-        "throttle": "ThrottleSettingsTypeDef",
-        "quota": "QuotaSettingsTypeDef",
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class CreateUsagePlanRequestRequestTypeDef(
-    _RequiredCreateUsagePlanRequestRequestTypeDef, _OptionalCreateUsagePlanRequestRequestTypeDef
-):
-    pass
-
-_RequiredCreateVpcLinkRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateVpcLinkRequestRequestTypeDef",
-    {
-        "name": str,
         "targetArns": List[str],
-    },
-)
-_OptionalCreateVpcLinkRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateVpcLinkRequestRequestTypeDef",
-    {
-        "description": str,
+        "status": VpcLinkStatusType,
+        "statusMessage": str,
         "tags": Dict[str, str],
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
-    total=False,
 )
 
-class CreateVpcLinkRequestRequestTypeDef(
-    _RequiredCreateVpcLinkRequestRequestTypeDef, _OptionalCreateVpcLinkRequestRequestTypeDef
-):
-    pass
+class AccountTypeDef(TypedDict):
+    cloudwatchRoleArn: str
+    throttleSettings: ThrottleSettingsTypeDef
+    features: List[str]
+    apiKeyVersion: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-DeleteApiKeyRequestRequestTypeDef = TypedDict(
-    "DeleteApiKeyRequestRequestTypeDef",
+class ApiStageOutputTypeDef(TypedDict):
+    apiId: NotRequired[str]
+    stage: NotRequired[str]
+    throttle: NotRequired[Dict[str, ThrottleSettingsTypeDef]]
+
+class ApiStageTypeDef(TypedDict):
+    apiId: NotRequired[str]
+    stage: NotRequired[str]
+    throttle: NotRequired[Mapping[str, ThrottleSettingsTypeDef]]
+
+class ApiKeysTypeDef(TypedDict):
+    warnings: List[str]
+    position: str
+    items: List[ApiKeyTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class AuthorizersTypeDef(TypedDict):
+    position: str
+    items: List[AuthorizerTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class BasePathMappingsTypeDef(TypedDict):
+    position: str
+    items: List[BasePathMappingTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+ImportApiKeysRequestTypeDef = TypedDict(
+    "ImportApiKeysRequestTypeDef",
     {
-        "apiKey": str,
+        "body": BlobTypeDef,
+        "format": Literal["csv"],
+        "failOnWarnings": NotRequired[bool],
     },
 )
 
-DeleteAuthorizerRequestRequestTypeDef = TypedDict(
-    "DeleteAuthorizerRequestRequestTypeDef",
-    {
-        "restApiId": str,
-        "authorizerId": str,
-    },
-)
+class ImportDocumentationPartsRequestTypeDef(TypedDict):
+    restApiId: str
+    body: BlobTypeDef
+    mode: NotRequired[PutModeType]
+    failOnWarnings: NotRequired[bool]
 
-DeleteBasePathMappingRequestRequestTypeDef = TypedDict(
-    "DeleteBasePathMappingRequestRequestTypeDef",
-    {
-        "domainName": str,
-        "basePath": str,
-    },
-)
+class ImportRestApiRequestTypeDef(TypedDict):
+    body: BlobTypeDef
+    failOnWarnings: NotRequired[bool]
+    parameters: NotRequired[Mapping[str, str]]
 
-DeleteClientCertificateRequestRequestTypeDef = TypedDict(
-    "DeleteClientCertificateRequestRequestTypeDef",
-    {
-        "clientCertificateId": str,
-    },
-)
+class PutRestApiRequestTypeDef(TypedDict):
+    restApiId: str
+    body: BlobTypeDef
+    mode: NotRequired[PutModeType]
+    failOnWarnings: NotRequired[bool]
+    parameters: NotRequired[Mapping[str, str]]
 
-DeleteDeploymentRequestRequestTypeDef = TypedDict(
-    "DeleteDeploymentRequestRequestTypeDef",
-    {
-        "restApiId": str,
-        "deploymentId": str,
-    },
-)
+CanarySettingsUnionTypeDef = Union[CanarySettingsTypeDef, CanarySettingsOutputTypeDef]
 
-DeleteDocumentationPartRequestRequestTypeDef = TypedDict(
-    "DeleteDocumentationPartRequestRequestTypeDef",
-    {
-        "restApiId": str,
-        "documentationPartId": str,
-    },
-)
+class ClientCertificatesTypeDef(TypedDict):
+    position: str
+    items: List[ClientCertificateTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-DeleteDocumentationVersionRequestRequestTypeDef = TypedDict(
-    "DeleteDocumentationVersionRequestRequestTypeDef",
-    {
-        "restApiId": str,
-        "documentationVersion": str,
-    },
-)
+class CreateApiKeyRequestTypeDef(TypedDict):
+    name: NotRequired[str]
+    description: NotRequired[str]
+    enabled: NotRequired[bool]
+    generateDistinctId: NotRequired[bool]
+    value: NotRequired[str]
+    stageKeys: NotRequired[Sequence[StageKeyTypeDef]]
+    customerId: NotRequired[str]
+    tags: NotRequired[Mapping[str, str]]
 
-DeleteDomainNameRequestRequestTypeDef = TypedDict(
-    "DeleteDomainNameRequestRequestTypeDef",
-    {
-        "domainName": str,
-    },
-)
+class CreateDeploymentRequestTypeDef(TypedDict):
+    restApiId: str
+    stageName: NotRequired[str]
+    stageDescription: NotRequired[str]
+    description: NotRequired[str]
+    cacheClusterEnabled: NotRequired[bool]
+    cacheClusterSize: NotRequired[CacheClusterSizeType]
+    variables: NotRequired[Mapping[str, str]]
+    canarySettings: NotRequired[DeploymentCanarySettingsTypeDef]
+    tracingEnabled: NotRequired[bool]
 
-DeleteGatewayResponseRequestRequestTypeDef = TypedDict(
-    "DeleteGatewayResponseRequestRequestTypeDef",
-    {
-        "restApiId": str,
-        "responseType": GatewayResponseTypeType,
-    },
-)
+class CreateDocumentationPartRequestTypeDef(TypedDict):
+    restApiId: str
+    location: DocumentationPartLocationTypeDef
+    properties: str
 
-DeleteIntegrationRequestRequestTypeDef = TypedDict(
-    "DeleteIntegrationRequestRequestTypeDef",
-    {
-        "restApiId": str,
-        "resourceId": str,
-        "httpMethod": str,
-    },
-)
-
-DeleteIntegrationResponseRequestRequestTypeDef = TypedDict(
-    "DeleteIntegrationResponseRequestRequestTypeDef",
-    {
-        "restApiId": str,
-        "resourceId": str,
-        "httpMethod": str,
-        "statusCode": str,
-    },
-)
-
-DeleteMethodRequestRequestTypeDef = TypedDict(
-    "DeleteMethodRequestRequestTypeDef",
-    {
-        "restApiId": str,
-        "resourceId": str,
-        "httpMethod": str,
-    },
-)
-
-DeleteMethodResponseRequestRequestTypeDef = TypedDict(
-    "DeleteMethodResponseRequestRequestTypeDef",
-    {
-        "restApiId": str,
-        "resourceId": str,
-        "httpMethod": str,
-        "statusCode": str,
-    },
-)
-
-DeleteModelRequestRequestTypeDef = TypedDict(
-    "DeleteModelRequestRequestTypeDef",
-    {
-        "restApiId": str,
-        "modelName": str,
-    },
-)
-
-DeleteRequestValidatorRequestRequestTypeDef = TypedDict(
-    "DeleteRequestValidatorRequestRequestTypeDef",
-    {
-        "restApiId": str,
-        "requestValidatorId": str,
-    },
-)
-
-DeleteResourceRequestRequestTypeDef = TypedDict(
-    "DeleteResourceRequestRequestTypeDef",
-    {
-        "restApiId": str,
-        "resourceId": str,
-    },
-)
-
-DeleteRestApiRequestRequestTypeDef = TypedDict(
-    "DeleteRestApiRequestRequestTypeDef",
-    {
-        "restApiId": str,
-    },
-)
-
-DeleteStageRequestRequestTypeDef = TypedDict(
-    "DeleteStageRequestRequestTypeDef",
-    {
-        "restApiId": str,
-        "stageName": str,
-    },
-)
-
-DeleteUsagePlanKeyRequestRequestTypeDef = TypedDict(
-    "DeleteUsagePlanKeyRequestRequestTypeDef",
-    {
-        "usagePlanId": str,
-        "keyId": str,
-    },
-)
-
-DeleteUsagePlanRequestRequestTypeDef = TypedDict(
-    "DeleteUsagePlanRequestRequestTypeDef",
-    {
-        "usagePlanId": str,
-    },
-)
-
-DeleteVpcLinkRequestRequestTypeDef = TypedDict(
-    "DeleteVpcLinkRequestRequestTypeDef",
-    {
-        "vpcLinkId": str,
-    },
-)
-
-DeploymentCanarySettingsTypeDef = TypedDict(
-    "DeploymentCanarySettingsTypeDef",
-    {
-        "percentTraffic": float,
-        "stageVariableOverrides": Dict[str, str],
-        "useStageCache": bool,
-    },
-    total=False,
-)
-
-DeploymentResponseMetadataTypeDef = TypedDict(
-    "DeploymentResponseMetadataTypeDef",
+DocumentationPartResponseTypeDef = TypedDict(
+    "DocumentationPartResponseTypeDef",
     {
         "id": str,
-        "description": str,
-        "createdDate": datetime,
-        "apiSummary": Dict[str, Dict[str, "MethodSnapshotTypeDef"]],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeploymentTypeDef = TypedDict(
-    "DeploymentTypeDef",
-    {
-        "id": str,
-        "description": str,
-        "createdDate": datetime,
-        "apiSummary": Dict[str, Dict[str, "MethodSnapshotTypeDef"]],
-    },
-    total=False,
-)
-
-DeploymentsTypeDef = TypedDict(
-    "DeploymentsTypeDef",
-    {
-        "position": str,
-        "items": List["DeploymentTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DocumentationPartIdsTypeDef = TypedDict(
-    "DocumentationPartIdsTypeDef",
-    {
-        "ids": List[str],
-        "warnings": List[str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDocumentationPartLocationTypeDef = TypedDict(
-    "_RequiredDocumentationPartLocationTypeDef",
-    {
-        "type": DocumentationPartTypeType,
-    },
-)
-_OptionalDocumentationPartLocationTypeDef = TypedDict(
-    "_OptionalDocumentationPartLocationTypeDef",
-    {
-        "path": str,
-        "method": str,
-        "statusCode": str,
-        "name": str,
-    },
-    total=False,
-)
-
-class DocumentationPartLocationTypeDef(
-    _RequiredDocumentationPartLocationTypeDef, _OptionalDocumentationPartLocationTypeDef
-):
-    pass
-
-DocumentationPartResponseMetadataTypeDef = TypedDict(
-    "DocumentationPartResponseMetadataTypeDef",
-    {
-        "id": str,
-        "location": "DocumentationPartLocationTypeDef",
+        "location": DocumentationPartLocationTypeDef,
         "properties": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
-
 DocumentationPartTypeDef = TypedDict(
     "DocumentationPartTypeDef",
     {
+        "id": NotRequired[str],
+        "location": NotRequired[DocumentationPartLocationTypeDef],
+        "properties": NotRequired[str],
+    },
+)
+DeploymentResponseTypeDef = TypedDict(
+    "DeploymentResponseTypeDef",
+    {
         "id": str,
-        "location": "DocumentationPartLocationTypeDef",
-        "properties": str,
-    },
-    total=False,
-)
-
-DocumentationPartsTypeDef = TypedDict(
-    "DocumentationPartsTypeDef",
-    {
-        "position": str,
-        "items": List["DocumentationPartTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DocumentationVersionResponseMetadataTypeDef = TypedDict(
-    "DocumentationVersionResponseMetadataTypeDef",
-    {
-        "version": str,
+        "description": str,
         "createdDate": datetime,
-        "description": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "apiSummary": Dict[str, Dict[str, MethodSnapshotTypeDef]],
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
-
-DocumentationVersionTypeDef = TypedDict(
-    "DocumentationVersionTypeDef",
-    {
-        "version": str,
-        "createdDate": datetime,
-        "description": str,
-    },
-    total=False,
-)
-
-DocumentationVersionsTypeDef = TypedDict(
-    "DocumentationVersionsTypeDef",
-    {
-        "position": str,
-        "items": List["DocumentationVersionTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DomainNameResponseMetadataTypeDef = TypedDict(
-    "DomainNameResponseMetadataTypeDef",
-    {
-        "domainName": str,
-        "certificateName": str,
-        "certificateArn": str,
-        "certificateUploadDate": datetime,
-        "regionalDomainName": str,
-        "regionalHostedZoneId": str,
-        "regionalCertificateName": str,
-        "regionalCertificateArn": str,
-        "distributionDomainName": str,
-        "distributionHostedZoneId": str,
-        "endpointConfiguration": "EndpointConfigurationTypeDef",
-        "domainNameStatus": DomainNameStatusType,
-        "domainNameStatusMessage": str,
-        "securityPolicy": SecurityPolicyType,
-        "tags": Dict[str, str],
-        "mutualTlsAuthentication": "MutualTlsAuthenticationTypeDef",
-        "ownershipVerificationCertificateArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DomainNameTypeDef = TypedDict(
-    "DomainNameTypeDef",
-    {
-        "domainName": str,
-        "certificateName": str,
-        "certificateArn": str,
-        "certificateUploadDate": datetime,
-        "regionalDomainName": str,
-        "regionalHostedZoneId": str,
-        "regionalCertificateName": str,
-        "regionalCertificateArn": str,
-        "distributionDomainName": str,
-        "distributionHostedZoneId": str,
-        "endpointConfiguration": "EndpointConfigurationTypeDef",
-        "domainNameStatus": DomainNameStatusType,
-        "domainNameStatusMessage": str,
-        "securityPolicy": SecurityPolicyType,
-        "tags": Dict[str, str],
-        "mutualTlsAuthentication": "MutualTlsAuthenticationTypeDef",
-        "ownershipVerificationCertificateArn": str,
-    },
-    total=False,
-)
-
-DomainNamesTypeDef = TypedDict(
-    "DomainNamesTypeDef",
-    {
-        "position": str,
-        "items": List["DomainNameTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-EndpointConfigurationTypeDef = TypedDict(
-    "EndpointConfigurationTypeDef",
-    {
-        "types": List[EndpointTypeType],
-        "vpcEndpointIds": List[str],
-    },
-    total=False,
-)
-
-ExportResponseTypeDef = TypedDict(
-    "ExportResponseTypeDef",
-    {
-        "contentType": str,
-        "contentDisposition": str,
-        "body": bytes,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-FlushStageAuthorizersCacheRequestRequestTypeDef = TypedDict(
-    "FlushStageAuthorizersCacheRequestRequestTypeDef",
-    {
-        "restApiId": str,
-        "stageName": str,
-    },
-)
-
-FlushStageCacheRequestRequestTypeDef = TypedDict(
-    "FlushStageCacheRequestRequestTypeDef",
-    {
-        "restApiId": str,
-        "stageName": str,
-    },
-)
-
-GatewayResponseResponseMetadataTypeDef = TypedDict(
-    "GatewayResponseResponseMetadataTypeDef",
-    {
-        "responseType": GatewayResponseTypeType,
-        "statusCode": str,
-        "responseParameters": Dict[str, str],
-        "responseTemplates": Dict[str, str],
-        "defaultResponse": bool,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GatewayResponseTypeDef = TypedDict(
-    "GatewayResponseTypeDef",
-    {
-        "responseType": GatewayResponseTypeType,
-        "statusCode": str,
-        "responseParameters": Dict[str, str],
-        "responseTemplates": Dict[str, str],
-        "defaultResponse": bool,
-    },
-    total=False,
-)
-
-GatewayResponsesTypeDef = TypedDict(
-    "GatewayResponsesTypeDef",
-    {
-        "position": str,
-        "items": List["GatewayResponseTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GenerateClientCertificateRequestRequestTypeDef = TypedDict(
-    "GenerateClientCertificateRequestRequestTypeDef",
-    {
-        "description": str,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-_RequiredGetApiKeyRequestRequestTypeDef = TypedDict(
-    "_RequiredGetApiKeyRequestRequestTypeDef",
-    {
-        "apiKey": str,
-    },
-)
-_OptionalGetApiKeyRequestRequestTypeDef = TypedDict(
-    "_OptionalGetApiKeyRequestRequestTypeDef",
-    {
-        "includeValue": bool,
-    },
-    total=False,
-)
-
-class GetApiKeyRequestRequestTypeDef(
-    _RequiredGetApiKeyRequestRequestTypeDef, _OptionalGetApiKeyRequestRequestTypeDef
-):
-    pass
-
-GetApiKeysRequestRequestTypeDef = TypedDict(
-    "GetApiKeysRequestRequestTypeDef",
-    {
-        "position": str,
-        "limit": int,
-        "nameQuery": str,
-        "customerId": str,
-        "includeValues": bool,
-    },
-    total=False,
-)
-
-GetAuthorizerRequestRequestTypeDef = TypedDict(
-    "GetAuthorizerRequestRequestTypeDef",
-    {
-        "restApiId": str,
-        "authorizerId": str,
-    },
-)
-
-_RequiredGetAuthorizersRequestRequestTypeDef = TypedDict(
-    "_RequiredGetAuthorizersRequestRequestTypeDef",
-    {
-        "restApiId": str,
-    },
-)
-_OptionalGetAuthorizersRequestRequestTypeDef = TypedDict(
-    "_OptionalGetAuthorizersRequestRequestTypeDef",
-    {
-        "position": str,
-        "limit": int,
-    },
-    total=False,
-)
-
-class GetAuthorizersRequestRequestTypeDef(
-    _RequiredGetAuthorizersRequestRequestTypeDef, _OptionalGetAuthorizersRequestRequestTypeDef
-):
-    pass
-
-GetBasePathMappingRequestRequestTypeDef = TypedDict(
-    "GetBasePathMappingRequestRequestTypeDef",
-    {
-        "domainName": str,
-        "basePath": str,
-    },
-)
-
-_RequiredGetBasePathMappingsRequestRequestTypeDef = TypedDict(
-    "_RequiredGetBasePathMappingsRequestRequestTypeDef",
-    {
-        "domainName": str,
-    },
-)
-_OptionalGetBasePathMappingsRequestRequestTypeDef = TypedDict(
-    "_OptionalGetBasePathMappingsRequestRequestTypeDef",
-    {
-        "position": str,
-        "limit": int,
-    },
-    total=False,
-)
-
-class GetBasePathMappingsRequestRequestTypeDef(
-    _RequiredGetBasePathMappingsRequestRequestTypeDef,
-    _OptionalGetBasePathMappingsRequestRequestTypeDef,
-):
-    pass
-
-GetClientCertificateRequestRequestTypeDef = TypedDict(
-    "GetClientCertificateRequestRequestTypeDef",
-    {
-        "clientCertificateId": str,
-    },
-)
-
-GetClientCertificatesRequestRequestTypeDef = TypedDict(
-    "GetClientCertificatesRequestRequestTypeDef",
-    {
-        "position": str,
-        "limit": int,
-    },
-    total=False,
-)
-
-_RequiredGetDeploymentRequestRequestTypeDef = TypedDict(
-    "_RequiredGetDeploymentRequestRequestTypeDef",
-    {
-        "restApiId": str,
-        "deploymentId": str,
-    },
-)
-_OptionalGetDeploymentRequestRequestTypeDef = TypedDict(
-    "_OptionalGetDeploymentRequestRequestTypeDef",
-    {
-        "embed": List[str],
-    },
-    total=False,
-)
-
-class GetDeploymentRequestRequestTypeDef(
-    _RequiredGetDeploymentRequestRequestTypeDef, _OptionalGetDeploymentRequestRequestTypeDef
-):
-    pass
-
-_RequiredGetDeploymentsRequestRequestTypeDef = TypedDict(
-    "_RequiredGetDeploymentsRequestRequestTypeDef",
-    {
-        "restApiId": str,
-    },
-)
-_OptionalGetDeploymentsRequestRequestTypeDef = TypedDict(
-    "_OptionalGetDeploymentsRequestRequestTypeDef",
-    {
-        "position": str,
-        "limit": int,
-    },
-    total=False,
-)
-
-class GetDeploymentsRequestRequestTypeDef(
-    _RequiredGetDeploymentsRequestRequestTypeDef, _OptionalGetDeploymentsRequestRequestTypeDef
-):
-    pass
-
-GetDocumentationPartRequestRequestTypeDef = TypedDict(
-    "GetDocumentationPartRequestRequestTypeDef",
-    {
-        "restApiId": str,
-        "documentationPartId": str,
-    },
-)
-
-_RequiredGetDocumentationPartsRequestRequestTypeDef = TypedDict(
-    "_RequiredGetDocumentationPartsRequestRequestTypeDef",
-    {
-        "restApiId": str,
-    },
-)
-_OptionalGetDocumentationPartsRequestRequestTypeDef = TypedDict(
-    "_OptionalGetDocumentationPartsRequestRequestTypeDef",
-    {
-        "type": DocumentationPartTypeType,
-        "nameQuery": str,
-        "path": str,
-        "position": str,
-        "limit": int,
-        "locationStatus": LocationStatusTypeType,
-    },
-    total=False,
-)
-
-class GetDocumentationPartsRequestRequestTypeDef(
-    _RequiredGetDocumentationPartsRequestRequestTypeDef,
-    _OptionalGetDocumentationPartsRequestRequestTypeDef,
-):
-    pass
-
-GetDocumentationVersionRequestRequestTypeDef = TypedDict(
-    "GetDocumentationVersionRequestRequestTypeDef",
-    {
-        "restApiId": str,
-        "documentationVersion": str,
-    },
-)
-
-_RequiredGetDocumentationVersionsRequestRequestTypeDef = TypedDict(
-    "_RequiredGetDocumentationVersionsRequestRequestTypeDef",
-    {
-        "restApiId": str,
-    },
-)
-_OptionalGetDocumentationVersionsRequestRequestTypeDef = TypedDict(
-    "_OptionalGetDocumentationVersionsRequestRequestTypeDef",
-    {
-        "position": str,
-        "limit": int,
-    },
-    total=False,
-)
-
-class GetDocumentationVersionsRequestRequestTypeDef(
-    _RequiredGetDocumentationVersionsRequestRequestTypeDef,
-    _OptionalGetDocumentationVersionsRequestRequestTypeDef,
-):
-    pass
-
-GetDomainNameRequestRequestTypeDef = TypedDict(
-    "GetDomainNameRequestRequestTypeDef",
-    {
-        "domainName": str,
-    },
-)
-
-GetDomainNamesRequestRequestTypeDef = TypedDict(
-    "GetDomainNamesRequestRequestTypeDef",
-    {
-        "position": str,
-        "limit": int,
-    },
-    total=False,
-)
-
-_RequiredGetExportRequestRequestTypeDef = TypedDict(
-    "_RequiredGetExportRequestRequestTypeDef",
-    {
-        "restApiId": str,
-        "stageName": str,
-        "exportType": str,
-    },
-)
-_OptionalGetExportRequestRequestTypeDef = TypedDict(
-    "_OptionalGetExportRequestRequestTypeDef",
-    {
-        "parameters": Dict[str, str],
-        "accepts": str,
-    },
-    total=False,
-)
-
-class GetExportRequestRequestTypeDef(
-    _RequiredGetExportRequestRequestTypeDef, _OptionalGetExportRequestRequestTypeDef
-):
-    pass
-
-GetGatewayResponseRequestRequestTypeDef = TypedDict(
-    "GetGatewayResponseRequestRequestTypeDef",
-    {
-        "restApiId": str,
-        "responseType": GatewayResponseTypeType,
-    },
-)
-
-_RequiredGetGatewayResponsesRequestRequestTypeDef = TypedDict(
-    "_RequiredGetGatewayResponsesRequestRequestTypeDef",
-    {
-        "restApiId": str,
-    },
-)
-_OptionalGetGatewayResponsesRequestRequestTypeDef = TypedDict(
-    "_OptionalGetGatewayResponsesRequestRequestTypeDef",
-    {
-        "position": str,
-        "limit": int,
-    },
-    total=False,
-)
-
-class GetGatewayResponsesRequestRequestTypeDef(
-    _RequiredGetGatewayResponsesRequestRequestTypeDef,
-    _OptionalGetGatewayResponsesRequestRequestTypeDef,
-):
-    pass
-
-GetIntegrationRequestRequestTypeDef = TypedDict(
-    "GetIntegrationRequestRequestTypeDef",
-    {
-        "restApiId": str,
-        "resourceId": str,
-        "httpMethod": str,
-    },
-)
-
-GetIntegrationResponseRequestRequestTypeDef = TypedDict(
-    "GetIntegrationResponseRequestRequestTypeDef",
-    {
-        "restApiId": str,
-        "resourceId": str,
-        "httpMethod": str,
-        "statusCode": str,
-    },
-)
-
-GetMethodRequestRequestTypeDef = TypedDict(
-    "GetMethodRequestRequestTypeDef",
-    {
-        "restApiId": str,
-        "resourceId": str,
-        "httpMethod": str,
-    },
-)
-
-GetMethodResponseRequestRequestTypeDef = TypedDict(
-    "GetMethodResponseRequestRequestTypeDef",
-    {
-        "restApiId": str,
-        "resourceId": str,
-        "httpMethod": str,
-        "statusCode": str,
-    },
-)
-
-_RequiredGetModelRequestRequestTypeDef = TypedDict(
-    "_RequiredGetModelRequestRequestTypeDef",
-    {
-        "restApiId": str,
-        "modelName": str,
-    },
-)
-_OptionalGetModelRequestRequestTypeDef = TypedDict(
-    "_OptionalGetModelRequestRequestTypeDef",
-    {
-        "flatten": bool,
-    },
-    total=False,
-)
-
-class GetModelRequestRequestTypeDef(
-    _RequiredGetModelRequestRequestTypeDef, _OptionalGetModelRequestRequestTypeDef
-):
-    pass
-
-GetModelTemplateRequestRequestTypeDef = TypedDict(
-    "GetModelTemplateRequestRequestTypeDef",
-    {
-        "restApiId": str,
-        "modelName": str,
-    },
-)
-
-_RequiredGetModelsRequestRequestTypeDef = TypedDict(
-    "_RequiredGetModelsRequestRequestTypeDef",
-    {
-        "restApiId": str,
-    },
-)
-_OptionalGetModelsRequestRequestTypeDef = TypedDict(
-    "_OptionalGetModelsRequestRequestTypeDef",
-    {
-        "position": str,
-        "limit": int,
-    },
-    total=False,
-)
-
-class GetModelsRequestRequestTypeDef(
-    _RequiredGetModelsRequestRequestTypeDef, _OptionalGetModelsRequestRequestTypeDef
-):
-    pass
-
-GetRequestValidatorRequestRequestTypeDef = TypedDict(
-    "GetRequestValidatorRequestRequestTypeDef",
-    {
-        "restApiId": str,
-        "requestValidatorId": str,
-    },
-)
-
-_RequiredGetRequestValidatorsRequestRequestTypeDef = TypedDict(
-    "_RequiredGetRequestValidatorsRequestRequestTypeDef",
-    {
-        "restApiId": str,
-    },
-)
-_OptionalGetRequestValidatorsRequestRequestTypeDef = TypedDict(
-    "_OptionalGetRequestValidatorsRequestRequestTypeDef",
-    {
-        "position": str,
-        "limit": int,
-    },
-    total=False,
-)
-
-class GetRequestValidatorsRequestRequestTypeDef(
-    _RequiredGetRequestValidatorsRequestRequestTypeDef,
-    _OptionalGetRequestValidatorsRequestRequestTypeDef,
-):
-    pass
-
-_RequiredGetResourceRequestRequestTypeDef = TypedDict(
-    "_RequiredGetResourceRequestRequestTypeDef",
-    {
-        "restApiId": str,
-        "resourceId": str,
-    },
-)
-_OptionalGetResourceRequestRequestTypeDef = TypedDict(
-    "_OptionalGetResourceRequestRequestTypeDef",
-    {
-        "embed": List[str],
-    },
-    total=False,
-)
-
-class GetResourceRequestRequestTypeDef(
-    _RequiredGetResourceRequestRequestTypeDef, _OptionalGetResourceRequestRequestTypeDef
-):
-    pass
-
-_RequiredGetResourcesRequestRequestTypeDef = TypedDict(
-    "_RequiredGetResourcesRequestRequestTypeDef",
-    {
-        "restApiId": str,
-    },
-)
-_OptionalGetResourcesRequestRequestTypeDef = TypedDict(
-    "_OptionalGetResourcesRequestRequestTypeDef",
-    {
-        "position": str,
-        "limit": int,
-        "embed": List[str],
-    },
-    total=False,
-)
-
-class GetResourcesRequestRequestTypeDef(
-    _RequiredGetResourcesRequestRequestTypeDef, _OptionalGetResourcesRequestRequestTypeDef
-):
-    pass
-
-GetRestApiRequestRequestTypeDef = TypedDict(
-    "GetRestApiRequestRequestTypeDef",
-    {
-        "restApiId": str,
-    },
-)
-
-GetRestApisRequestRequestTypeDef = TypedDict(
-    "GetRestApisRequestRequestTypeDef",
-    {
-        "position": str,
-        "limit": int,
-    },
-    total=False,
-)
-
-_RequiredGetSdkRequestRequestTypeDef = TypedDict(
-    "_RequiredGetSdkRequestRequestTypeDef",
+DeploymentTypeDef = TypedDict(
+    "DeploymentTypeDef",
     {
-        "restApiId": str,
-        "stageName": str,
-        "sdkType": str,
+        "id": NotRequired[str],
+        "description": NotRequired[str],
+        "createdDate": NotRequired[datetime],
+        "apiSummary": NotRequired[Dict[str, Dict[str, MethodSnapshotTypeDef]]],
     },
 )
-_OptionalGetSdkRequestRequestTypeDef = TypedDict(
-    "_OptionalGetSdkRequestRequestTypeDef",
-    {
-        "parameters": Dict[str, str],
-    },
-    total=False,
-)
-
-class GetSdkRequestRequestTypeDef(
-    _RequiredGetSdkRequestRequestTypeDef, _OptionalGetSdkRequestRequestTypeDef
-):
-    pass
-
-GetSdkTypeRequestRequestTypeDef = TypedDict(
-    "GetSdkTypeRequestRequestTypeDef",
-    {
-        "id": str,
-    },
-)
-
-GetSdkTypesRequestRequestTypeDef = TypedDict(
-    "GetSdkTypesRequestRequestTypeDef",
-    {
-        "position": str,
-        "limit": int,
-    },
-    total=False,
-)
-
-GetStageRequestRequestTypeDef = TypedDict(
-    "GetStageRequestRequestTypeDef",
-    {
-        "restApiId": str,
-        "stageName": str,
-    },
-)
-
-_RequiredGetStagesRequestRequestTypeDef = TypedDict(
-    "_RequiredGetStagesRequestRequestTypeDef",
-    {
-        "restApiId": str,
-    },
-)
-_OptionalGetStagesRequestRequestTypeDef = TypedDict(
-    "_OptionalGetStagesRequestRequestTypeDef",
-    {
-        "deploymentId": str,
-    },
-    total=False,
-)
-
-class GetStagesRequestRequestTypeDef(
-    _RequiredGetStagesRequestRequestTypeDef, _OptionalGetStagesRequestRequestTypeDef
-):
-    pass
-
-_RequiredGetTagsRequestRequestTypeDef = TypedDict(
-    "_RequiredGetTagsRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-    },
-)
-_OptionalGetTagsRequestRequestTypeDef = TypedDict(
-    "_OptionalGetTagsRequestRequestTypeDef",
-    {
-        "position": str,
-        "limit": int,
-    },
-    total=False,
-)
-
-class GetTagsRequestRequestTypeDef(
-    _RequiredGetTagsRequestRequestTypeDef, _OptionalGetTagsRequestRequestTypeDef
-):
-    pass
-
-GetUsagePlanKeyRequestRequestTypeDef = TypedDict(
-    "GetUsagePlanKeyRequestRequestTypeDef",
-    {
-        "usagePlanId": str,
-        "keyId": str,
-    },
-)
-
-_RequiredGetUsagePlanKeysRequestRequestTypeDef = TypedDict(
-    "_RequiredGetUsagePlanKeysRequestRequestTypeDef",
-    {
-        "usagePlanId": str,
-    },
-)
-_OptionalGetUsagePlanKeysRequestRequestTypeDef = TypedDict(
-    "_OptionalGetUsagePlanKeysRequestRequestTypeDef",
-    {
-        "position": str,
-        "limit": int,
-        "nameQuery": str,
-    },
-    total=False,
-)
-
-class GetUsagePlanKeysRequestRequestTypeDef(
-    _RequiredGetUsagePlanKeysRequestRequestTypeDef, _OptionalGetUsagePlanKeysRequestRequestTypeDef
-):
-    pass
-
-GetUsagePlanRequestRequestTypeDef = TypedDict(
-    "GetUsagePlanRequestRequestTypeDef",
-    {
-        "usagePlanId": str,
-    },
-)
-
-GetUsagePlansRequestRequestTypeDef = TypedDict(
-    "GetUsagePlansRequestRequestTypeDef",
-    {
-        "position": str,
-        "keyId": str,
-        "limit": int,
-    },
-    total=False,
-)
-
-_RequiredGetUsageRequestRequestTypeDef = TypedDict(
-    "_RequiredGetUsageRequestRequestTypeDef",
-    {
-        "usagePlanId": str,
-        "startDate": str,
-        "endDate": str,
-    },
-)
-_OptionalGetUsageRequestRequestTypeDef = TypedDict(
-    "_OptionalGetUsageRequestRequestTypeDef",
-    {
-        "keyId": str,
-        "position": str,
-        "limit": int,
-    },
-    total=False,
-)
-
-class GetUsageRequestRequestTypeDef(
-    _RequiredGetUsageRequestRequestTypeDef, _OptionalGetUsageRequestRequestTypeDef
-):
-    pass
-
-GetVpcLinkRequestRequestTypeDef = TypedDict(
-    "GetVpcLinkRequestRequestTypeDef",
-    {
-        "vpcLinkId": str,
-    },
-)
-
-GetVpcLinksRequestRequestTypeDef = TypedDict(
-    "GetVpcLinksRequestRequestTypeDef",
-    {
-        "position": str,
-        "limit": int,
-    },
-    total=False,
-)
-
-_RequiredImportApiKeysRequestRequestTypeDef = TypedDict(
-    "_RequiredImportApiKeysRequestRequestTypeDef",
-    {
-        "body": Union[bytes, IO[bytes], StreamingBody],
-        "format": Literal["csv"],
-    },
-)
-_OptionalImportApiKeysRequestRequestTypeDef = TypedDict(
-    "_OptionalImportApiKeysRequestRequestTypeDef",
-    {
-        "failOnWarnings": bool,
-    },
-    total=False,
-)
-
-class ImportApiKeysRequestRequestTypeDef(
-    _RequiredImportApiKeysRequestRequestTypeDef, _OptionalImportApiKeysRequestRequestTypeDef
-):
-    pass
-
-_RequiredImportDocumentationPartsRequestRequestTypeDef = TypedDict(
-    "_RequiredImportDocumentationPartsRequestRequestTypeDef",
-    {
-        "restApiId": str,
-        "body": Union[bytes, IO[bytes], StreamingBody],
-    },
-)
-_OptionalImportDocumentationPartsRequestRequestTypeDef = TypedDict(
-    "_OptionalImportDocumentationPartsRequestRequestTypeDef",
-    {
-        "mode": PutModeType,
-        "failOnWarnings": bool,
-    },
-    total=False,
-)
-
-class ImportDocumentationPartsRequestRequestTypeDef(
-    _RequiredImportDocumentationPartsRequestRequestTypeDef,
-    _OptionalImportDocumentationPartsRequestRequestTypeDef,
-):
-    pass
-
-_RequiredImportRestApiRequestRequestTypeDef = TypedDict(
-    "_RequiredImportRestApiRequestRequestTypeDef",
-    {
-        "body": Union[bytes, IO[bytes], StreamingBody],
-    },
-)
-_OptionalImportRestApiRequestRequestTypeDef = TypedDict(
-    "_OptionalImportRestApiRequestRequestTypeDef",
-    {
-        "failOnWarnings": bool,
-        "parameters": Dict[str, str],
-    },
-    total=False,
-)
-
-class ImportRestApiRequestRequestTypeDef(
-    _RequiredImportRestApiRequestRequestTypeDef, _OptionalImportRestApiRequestRequestTypeDef
-):
-    pass
-
-IntegrationResponseMetadataTypeDef = TypedDict(
-    "IntegrationResponseMetadataTypeDef",
-    {
-        "type": IntegrationTypeType,
-        "httpMethod": str,
-        "uri": str,
-        "connectionType": ConnectionTypeType,
-        "connectionId": str,
-        "credentials": str,
-        "requestParameters": Dict[str, str],
-        "requestTemplates": Dict[str, str],
-        "passthroughBehavior": str,
-        "contentHandling": ContentHandlingStrategyType,
-        "timeoutInMillis": int,
-        "cacheNamespace": str,
-        "cacheKeyParameters": List[str],
-        "integrationResponses": Dict[str, "IntegrationResponseTypeDef"],
-        "tlsConfig": "TlsConfigTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-IntegrationResponseResponseMetadataTypeDef = TypedDict(
-    "IntegrationResponseResponseMetadataTypeDef",
-    {
-        "statusCode": str,
-        "selectionPattern": str,
-        "responseParameters": Dict[str, str],
-        "responseTemplates": Dict[str, str],
-        "contentHandling": ContentHandlingStrategyType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-IntegrationResponseTypeDef = TypedDict(
-    "IntegrationResponseTypeDef",
-    {
-        "statusCode": str,
-        "selectionPattern": str,
-        "responseParameters": Dict[str, str],
-        "responseTemplates": Dict[str, str],
-        "contentHandling": ContentHandlingStrategyType,
-    },
-    total=False,
-)
-
-IntegrationTypeDef = TypedDict(
-    "IntegrationTypeDef",
-    {
-        "type": IntegrationTypeType,
-        "httpMethod": str,
-        "uri": str,
-        "connectionType": ConnectionTypeType,
-        "connectionId": str,
-        "credentials": str,
-        "requestParameters": Dict[str, str],
-        "requestTemplates": Dict[str, str],
-        "passthroughBehavior": str,
-        "contentHandling": ContentHandlingStrategyType,
-        "timeoutInMillis": int,
-        "cacheNamespace": str,
-        "cacheKeyParameters": List[str],
-        "integrationResponses": Dict[str, "IntegrationResponseTypeDef"],
-        "tlsConfig": "TlsConfigTypeDef",
-    },
-    total=False,
-)
-
-MethodResponseMetadataTypeDef = TypedDict(
-    "MethodResponseMetadataTypeDef",
-    {
-        "httpMethod": str,
-        "authorizationType": str,
-        "authorizerId": str,
-        "apiKeyRequired": bool,
-        "requestValidatorId": str,
-        "operationName": str,
-        "requestParameters": Dict[str, bool],
-        "requestModels": Dict[str, str],
-        "methodResponses": Dict[str, "MethodResponseTypeDef"],
-        "methodIntegration": "IntegrationTypeDef",
-        "authorizationScopes": List[str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-MethodResponseResponseMetadataTypeDef = TypedDict(
-    "MethodResponseResponseMetadataTypeDef",
-    {
-        "statusCode": str,
-        "responseParameters": Dict[str, bool],
-        "responseModels": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-MethodResponseTypeDef = TypedDict(
-    "MethodResponseTypeDef",
-    {
-        "statusCode": str,
-        "responseParameters": Dict[str, bool],
-        "responseModels": Dict[str, str],
-    },
-    total=False,
-)
-
-MethodSettingTypeDef = TypedDict(
-    "MethodSettingTypeDef",
-    {
-        "metricsEnabled": bool,
-        "loggingLevel": str,
-        "dataTraceEnabled": bool,
-        "throttlingBurstLimit": int,
-        "throttlingRateLimit": float,
-        "cachingEnabled": bool,
-        "cacheTtlInSeconds": int,
-        "cacheDataEncrypted": bool,
-        "requireAuthorizationForCacheControl": bool,
-        "unauthorizedCacheControlHeaderStrategy": UnauthorizedCacheControlHeaderStrategyType,
-    },
-    total=False,
-)
-
-MethodSnapshotTypeDef = TypedDict(
-    "MethodSnapshotTypeDef",
-    {
-        "authorizationType": str,
-        "apiKeyRequired": bool,
-    },
-    total=False,
-)
-
-MethodTypeDef = TypedDict(
-    "MethodTypeDef",
-    {
-        "httpMethod": str,
-        "authorizationType": str,
-        "authorizerId": str,
-        "apiKeyRequired": bool,
-        "requestValidatorId": str,
-        "operationName": str,
-        "requestParameters": Dict[str, bool],
-        "requestModels": Dict[str, str],
-        "methodResponses": Dict[str, "MethodResponseTypeDef"],
-        "methodIntegration": "IntegrationTypeDef",
-        "authorizationScopes": List[str],
-    },
-    total=False,
-)
-
-ModelResponseMetadataTypeDef = TypedDict(
-    "ModelResponseMetadataTypeDef",
-    {
-        "id": str,
-        "name": str,
-        "description": str,
-        "schema": str,
-        "contentType": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ModelTypeDef = TypedDict(
-    "ModelTypeDef",
-    {
-        "id": str,
-        "name": str,
-        "description": str,
-        "schema": str,
-        "contentType": str,
-    },
-    total=False,
-)
-
-ModelsTypeDef = TypedDict(
-    "ModelsTypeDef",
-    {
-        "position": str,
-        "items": List["ModelTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-MutualTlsAuthenticationInputTypeDef = TypedDict(
-    "MutualTlsAuthenticationInputTypeDef",
-    {
-        "truststoreUri": str,
-        "truststoreVersion": str,
-    },
-    total=False,
-)
-
-MutualTlsAuthenticationTypeDef = TypedDict(
-    "MutualTlsAuthenticationTypeDef",
-    {
-        "truststoreUri": str,
-        "truststoreVersion": str,
-        "truststoreWarnings": List[str],
-    },
-    total=False,
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-PatchOperationTypeDef = TypedDict(
-    "PatchOperationTypeDef",
-    {
-        "op": OpType,
-        "path": str,
-        "value": str,
-        "from": str,
-    },
-    total=False,
-)
-
-_RequiredPutGatewayResponseRequestRequestTypeDef = TypedDict(
-    "_RequiredPutGatewayResponseRequestRequestTypeDef",
-    {
-        "restApiId": str,
-        "responseType": GatewayResponseTypeType,
-    },
-)
-_OptionalPutGatewayResponseRequestRequestTypeDef = TypedDict(
-    "_OptionalPutGatewayResponseRequestRequestTypeDef",
-    {
-        "statusCode": str,
-        "responseParameters": Dict[str, str],
-        "responseTemplates": Dict[str, str],
-    },
-    total=False,
-)
-
-class PutGatewayResponseRequestRequestTypeDef(
-    _RequiredPutGatewayResponseRequestRequestTypeDef,
-    _OptionalPutGatewayResponseRequestRequestTypeDef,
-):
-    pass
-
-_RequiredPutIntegrationRequestRequestTypeDef = TypedDict(
-    "_RequiredPutIntegrationRequestRequestTypeDef",
-    {
-        "restApiId": str,
-        "resourceId": str,
-        "httpMethod": str,
-        "type": IntegrationTypeType,
-    },
-)
-_OptionalPutIntegrationRequestRequestTypeDef = TypedDict(
-    "_OptionalPutIntegrationRequestRequestTypeDef",
-    {
-        "integrationHttpMethod": str,
-        "uri": str,
-        "connectionType": ConnectionTypeType,
-        "connectionId": str,
-        "credentials": str,
-        "requestParameters": Dict[str, str],
-        "requestTemplates": Dict[str, str],
-        "passthroughBehavior": str,
-        "cacheNamespace": str,
-        "cacheKeyParameters": List[str],
-        "contentHandling": ContentHandlingStrategyType,
-        "timeoutInMillis": int,
-        "tlsConfig": "TlsConfigTypeDef",
-    },
-    total=False,
-)
-
-class PutIntegrationRequestRequestTypeDef(
-    _RequiredPutIntegrationRequestRequestTypeDef, _OptionalPutIntegrationRequestRequestTypeDef
-):
-    pass
-
-_RequiredPutIntegrationResponseRequestRequestTypeDef = TypedDict(
-    "_RequiredPutIntegrationResponseRequestRequestTypeDef",
-    {
-        "restApiId": str,
-        "resourceId": str,
-        "httpMethod": str,
-        "statusCode": str,
-    },
-)
-_OptionalPutIntegrationResponseRequestRequestTypeDef = TypedDict(
-    "_OptionalPutIntegrationResponseRequestRequestTypeDef",
-    {
-        "selectionPattern": str,
-        "responseParameters": Dict[str, str],
-        "responseTemplates": Dict[str, str],
-        "contentHandling": ContentHandlingStrategyType,
-    },
-    total=False,
-)
-
-class PutIntegrationResponseRequestRequestTypeDef(
-    _RequiredPutIntegrationResponseRequestRequestTypeDef,
-    _OptionalPutIntegrationResponseRequestRequestTypeDef,
-):
-    pass
-
-_RequiredPutMethodRequestRequestTypeDef = TypedDict(
-    "_RequiredPutMethodRequestRequestTypeDef",
-    {
-        "restApiId": str,
-        "resourceId": str,
-        "httpMethod": str,
-        "authorizationType": str,
-    },
-)
-_OptionalPutMethodRequestRequestTypeDef = TypedDict(
-    "_OptionalPutMethodRequestRequestTypeDef",
-    {
-        "authorizerId": str,
-        "apiKeyRequired": bool,
-        "operationName": str,
-        "requestParameters": Dict[str, bool],
-        "requestModels": Dict[str, str],
-        "requestValidatorId": str,
-        "authorizationScopes": List[str],
-    },
-    total=False,
-)
-
-class PutMethodRequestRequestTypeDef(
-    _RequiredPutMethodRequestRequestTypeDef, _OptionalPutMethodRequestRequestTypeDef
-):
-    pass
-
-_RequiredPutMethodResponseRequestRequestTypeDef = TypedDict(
-    "_RequiredPutMethodResponseRequestRequestTypeDef",
-    {
-        "restApiId": str,
-        "resourceId": str,
-        "httpMethod": str,
-        "statusCode": str,
-    },
-)
-_OptionalPutMethodResponseRequestRequestTypeDef = TypedDict(
-    "_OptionalPutMethodResponseRequestRequestTypeDef",
-    {
-        "responseParameters": Dict[str, bool],
-        "responseModels": Dict[str, str],
-    },
-    total=False,
-)
-
-class PutMethodResponseRequestRequestTypeDef(
-    _RequiredPutMethodResponseRequestRequestTypeDef, _OptionalPutMethodResponseRequestRequestTypeDef
-):
-    pass
-
-_RequiredPutRestApiRequestRequestTypeDef = TypedDict(
-    "_RequiredPutRestApiRequestRequestTypeDef",
-    {
-        "restApiId": str,
-        "body": Union[bytes, IO[bytes], StreamingBody],
-    },
-)
-_OptionalPutRestApiRequestRequestTypeDef = TypedDict(
-    "_OptionalPutRestApiRequestRequestTypeDef",
-    {
-        "mode": PutModeType,
-        "failOnWarnings": bool,
-        "parameters": Dict[str, str],
-    },
-    total=False,
-)
-
-class PutRestApiRequestRequestTypeDef(
-    _RequiredPutRestApiRequestRequestTypeDef, _OptionalPutRestApiRequestRequestTypeDef
-):
-    pass
 
-QuotaSettingsTypeDef = TypedDict(
-    "QuotaSettingsTypeDef",
-    {
-        "limit": int,
-        "offset": int,
-        "period": QuotaPeriodTypeType,
-    },
-    total=False,
-)
-
-RequestValidatorResponseMetadataTypeDef = TypedDict(
-    "RequestValidatorResponseMetadataTypeDef",
-    {
-        "id": str,
-        "name": str,
-        "validateRequestBody": bool,
-        "validateRequestParameters": bool,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-RequestValidatorTypeDef = TypedDict(
-    "RequestValidatorTypeDef",
-    {
-        "id": str,
-        "name": str,
-        "validateRequestBody": bool,
-        "validateRequestParameters": bool,
-    },
-    total=False,
-)
-
-RequestValidatorsTypeDef = TypedDict(
-    "RequestValidatorsTypeDef",
-    {
-        "position": str,
-        "items": List["RequestValidatorTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DocumentationVersionsTypeDef(TypedDict):
+    position: str
+    items: List[DocumentationVersionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ResourceResponseMetadataTypeDef = TypedDict(
-    "ResourceResponseMetadataTypeDef",
-    {
-        "id": str,
-        "parentId": str,
-        "pathPart": str,
-        "path": str,
-        "resourceMethods": Dict[str, "MethodTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ResourceTypeDef = TypedDict(
-    "ResourceTypeDef",
-    {
-        "id": str,
-        "parentId": str,
-        "pathPart": str,
-        "path": str,
-        "resourceMethods": Dict[str, "MethodTypeDef"],
-    },
-    total=False,
-)
-
-ResourcesTypeDef = TypedDict(
-    "ResourcesTypeDef",
-    {
-        "position": str,
-        "items": List["ResourceTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
+class DomainNameAccessAssociationsTypeDef(TypedDict):
+    position: str
+    items: List[DomainNameAccessAssociationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-RestApiResponseMetadataTypeDef = TypedDict(
-    "RestApiResponseMetadataTypeDef",
+RestApiResponseTypeDef = TypedDict(
+    "RestApiResponseTypeDef",
     {
         "id": str,
         "name": str,
@@ -2358,842 +1353,590 @@ RestApiResponseMetadataTypeDef = TypedDict(
         "binaryMediaTypes": List[str],
         "minimumCompressionSize": int,
         "apiKeySource": ApiKeySourceTypeType,
-        "endpointConfiguration": "EndpointConfigurationTypeDef",
+        "endpointConfiguration": EndpointConfigurationOutputTypeDef,
         "policy": str,
         "tags": Dict[str, str],
         "disableExecuteApiEndpoint": bool,
         "rootResourceId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
-
 RestApiTypeDef = TypedDict(
     "RestApiTypeDef",
     {
+        "id": NotRequired[str],
+        "name": NotRequired[str],
+        "description": NotRequired[str],
+        "createdDate": NotRequired[datetime],
+        "version": NotRequired[str],
+        "warnings": NotRequired[List[str]],
+        "binaryMediaTypes": NotRequired[List[str]],
+        "minimumCompressionSize": NotRequired[int],
+        "apiKeySource": NotRequired[ApiKeySourceTypeType],
+        "endpointConfiguration": NotRequired[EndpointConfigurationOutputTypeDef],
+        "policy": NotRequired[str],
+        "tags": NotRequired[Dict[str, str]],
+        "disableExecuteApiEndpoint": NotRequired[bool],
+        "rootResourceId": NotRequired[str],
+    },
+)
+
+class DomainNameResponseTypeDef(TypedDict):
+    domainName: str
+    domainNameId: str
+    domainNameArn: str
+    certificateName: str
+    certificateArn: str
+    certificateUploadDate: datetime
+    regionalDomainName: str
+    regionalHostedZoneId: str
+    regionalCertificateName: str
+    regionalCertificateArn: str
+    distributionDomainName: str
+    distributionHostedZoneId: str
+    endpointConfiguration: EndpointConfigurationOutputTypeDef
+    domainNameStatus: DomainNameStatusType
+    domainNameStatusMessage: str
+    securityPolicy: SecurityPolicyType
+    tags: Dict[str, str]
+    mutualTlsAuthentication: MutualTlsAuthenticationTypeDef
+    ownershipVerificationCertificateArn: str
+    managementPolicy: str
+    policy: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DomainNameTypeDef(TypedDict):
+    domainName: NotRequired[str]
+    domainNameId: NotRequired[str]
+    domainNameArn: NotRequired[str]
+    certificateName: NotRequired[str]
+    certificateArn: NotRequired[str]
+    certificateUploadDate: NotRequired[datetime]
+    regionalDomainName: NotRequired[str]
+    regionalHostedZoneId: NotRequired[str]
+    regionalCertificateName: NotRequired[str]
+    regionalCertificateArn: NotRequired[str]
+    distributionDomainName: NotRequired[str]
+    distributionHostedZoneId: NotRequired[str]
+    endpointConfiguration: NotRequired[EndpointConfigurationOutputTypeDef]
+    domainNameStatus: NotRequired[DomainNameStatusType]
+    domainNameStatusMessage: NotRequired[str]
+    securityPolicy: NotRequired[SecurityPolicyType]
+    tags: NotRequired[Dict[str, str]]
+    mutualTlsAuthentication: NotRequired[MutualTlsAuthenticationTypeDef]
+    ownershipVerificationCertificateArn: NotRequired[str]
+    managementPolicy: NotRequired[str]
+    policy: NotRequired[str]
+
+EndpointConfigurationUnionTypeDef = Union[
+    EndpointConfigurationTypeDef, EndpointConfigurationOutputTypeDef
+]
+
+class GatewayResponsesTypeDef(TypedDict):
+    position: str
+    items: List[GatewayResponseTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetApiKeysRequestPaginateTypeDef(TypedDict):
+    nameQuery: NotRequired[str]
+    customerId: NotRequired[str]
+    includeValues: NotRequired[bool]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class GetAuthorizersRequestPaginateTypeDef(TypedDict):
+    restApiId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class GetBasePathMappingsRequestPaginateTypeDef(TypedDict):
+    domainName: str
+    domainNameId: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class GetClientCertificatesRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class GetDeploymentsRequestPaginateTypeDef(TypedDict):
+    restApiId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+GetDocumentationPartsRequestPaginateTypeDef = TypedDict(
+    "GetDocumentationPartsRequestPaginateTypeDef",
+    {
+        "restApiId": str,
+        "type": NotRequired[DocumentationPartTypeType],
+        "nameQuery": NotRequired[str],
+        "path": NotRequired[str],
+        "locationStatus": NotRequired[LocationStatusTypeType],
+        "PaginationConfig": NotRequired[PaginatorConfigTypeDef],
+    },
+)
+
+class GetDocumentationVersionsRequestPaginateTypeDef(TypedDict):
+    restApiId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class GetDomainNamesRequestPaginateTypeDef(TypedDict):
+    resourceOwner: NotRequired[ResourceOwnerType]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class GetGatewayResponsesRequestPaginateTypeDef(TypedDict):
+    restApiId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class GetModelsRequestPaginateTypeDef(TypedDict):
+    restApiId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class GetRequestValidatorsRequestPaginateTypeDef(TypedDict):
+    restApiId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class GetResourcesRequestPaginateTypeDef(TypedDict):
+    restApiId: str
+    embed: NotRequired[Sequence[str]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class GetRestApisRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class GetSdkTypesRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class GetUsagePlanKeysRequestPaginateTypeDef(TypedDict):
+    usagePlanId: str
+    nameQuery: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class GetUsagePlansRequestPaginateTypeDef(TypedDict):
+    keyId: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class GetUsageRequestPaginateTypeDef(TypedDict):
+    usagePlanId: str
+    startDate: str
+    endDate: str
+    keyId: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class GetVpcLinksRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+IntegrationResponseExtraTypeDef = TypedDict(
+    "IntegrationResponseExtraTypeDef",
+    {
+        "type": IntegrationTypeType,
+        "httpMethod": str,
+        "uri": str,
+        "connectionType": ConnectionTypeType,
+        "connectionId": str,
+        "credentials": str,
+        "requestParameters": Dict[str, str],
+        "requestTemplates": Dict[str, str],
+        "passthroughBehavior": str,
+        "contentHandling": ContentHandlingStrategyType,
+        "timeoutInMillis": int,
+        "cacheNamespace": str,
+        "cacheKeyParameters": List[str],
+        "integrationResponses": Dict[str, IntegrationResponseTypeDef],
+        "tlsConfig": TlsConfigTypeDef,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+IntegrationTypeDef = TypedDict(
+    "IntegrationTypeDef",
+    {
+        "type": NotRequired[IntegrationTypeType],
+        "httpMethod": NotRequired[str],
+        "uri": NotRequired[str],
+        "connectionType": NotRequired[ConnectionTypeType],
+        "connectionId": NotRequired[str],
+        "credentials": NotRequired[str],
+        "requestParameters": NotRequired[Dict[str, str]],
+        "requestTemplates": NotRequired[Dict[str, str]],
+        "passthroughBehavior": NotRequired[str],
+        "contentHandling": NotRequired[ContentHandlingStrategyType],
+        "timeoutInMillis": NotRequired[int],
+        "cacheNamespace": NotRequired[str],
+        "cacheKeyParameters": NotRequired[List[str]],
+        "integrationResponses": NotRequired[Dict[str, IntegrationResponseTypeDef]],
+        "tlsConfig": NotRequired[TlsConfigTypeDef],
+    },
+)
+PutIntegrationRequestTypeDef = TypedDict(
+    "PutIntegrationRequestTypeDef",
+    {
+        "restApiId": str,
+        "resourceId": str,
+        "httpMethod": str,
+        "type": IntegrationTypeType,
+        "integrationHttpMethod": NotRequired[str],
+        "uri": NotRequired[str],
+        "connectionType": NotRequired[ConnectionTypeType],
+        "connectionId": NotRequired[str],
+        "credentials": NotRequired[str],
+        "requestParameters": NotRequired[Mapping[str, str]],
+        "requestTemplates": NotRequired[Mapping[str, str]],
+        "passthroughBehavior": NotRequired[str],
+        "cacheNamespace": NotRequired[str],
+        "cacheKeyParameters": NotRequired[Sequence[str]],
+        "contentHandling": NotRequired[ContentHandlingStrategyType],
+        "timeoutInMillis": NotRequired[int],
+        "tlsConfig": NotRequired[TlsConfigTypeDef],
+    },
+)
+
+class StageResponseTypeDef(TypedDict):
+    deploymentId: str
+    clientCertificateId: str
+    stageName: str
+    description: str
+    cacheClusterEnabled: bool
+    cacheClusterSize: CacheClusterSizeType
+    cacheClusterStatus: CacheClusterStatusType
+    methodSettings: Dict[str, MethodSettingTypeDef]
+    variables: Dict[str, str]
+    documentationVersion: str
+    accessLogSettings: AccessLogSettingsTypeDef
+    canarySettings: CanarySettingsOutputTypeDef
+    tracingEnabled: bool
+    webAclArn: str
+    tags: Dict[str, str]
+    createdDate: datetime
+    lastUpdatedDate: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StageTypeDef(TypedDict):
+    deploymentId: NotRequired[str]
+    clientCertificateId: NotRequired[str]
+    stageName: NotRequired[str]
+    description: NotRequired[str]
+    cacheClusterEnabled: NotRequired[bool]
+    cacheClusterSize: NotRequired[CacheClusterSizeType]
+    cacheClusterStatus: NotRequired[CacheClusterStatusType]
+    methodSettings: NotRequired[Dict[str, MethodSettingTypeDef]]
+    variables: NotRequired[Dict[str, str]]
+    documentationVersion: NotRequired[str]
+    accessLogSettings: NotRequired[AccessLogSettingsTypeDef]
+    canarySettings: NotRequired[CanarySettingsOutputTypeDef]
+    tracingEnabled: NotRequired[bool]
+    webAclArn: NotRequired[str]
+    tags: NotRequired[Dict[str, str]]
+    createdDate: NotRequired[datetime]
+    lastUpdatedDate: NotRequired[datetime]
+
+class ModelsTypeDef(TypedDict):
+    position: str
+    items: List[ModelTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateAccountRequestTypeDef(TypedDict):
+    patchOperations: NotRequired[Sequence[PatchOperationTypeDef]]
+
+class UpdateApiKeyRequestTypeDef(TypedDict):
+    apiKey: str
+    patchOperations: NotRequired[Sequence[PatchOperationTypeDef]]
+
+class UpdateAuthorizerRequestTypeDef(TypedDict):
+    restApiId: str
+    authorizerId: str
+    patchOperations: NotRequired[Sequence[PatchOperationTypeDef]]
+
+class UpdateBasePathMappingRequestTypeDef(TypedDict):
+    domainName: str
+    basePath: str
+    domainNameId: NotRequired[str]
+    patchOperations: NotRequired[Sequence[PatchOperationTypeDef]]
+
+class UpdateClientCertificateRequestTypeDef(TypedDict):
+    clientCertificateId: str
+    patchOperations: NotRequired[Sequence[PatchOperationTypeDef]]
+
+class UpdateDeploymentRequestTypeDef(TypedDict):
+    restApiId: str
+    deploymentId: str
+    patchOperations: NotRequired[Sequence[PatchOperationTypeDef]]
+
+class UpdateDocumentationPartRequestTypeDef(TypedDict):
+    restApiId: str
+    documentationPartId: str
+    patchOperations: NotRequired[Sequence[PatchOperationTypeDef]]
+
+class UpdateDocumentationVersionRequestTypeDef(TypedDict):
+    restApiId: str
+    documentationVersion: str
+    patchOperations: NotRequired[Sequence[PatchOperationTypeDef]]
+
+class UpdateDomainNameRequestTypeDef(TypedDict):
+    domainName: str
+    domainNameId: NotRequired[str]
+    patchOperations: NotRequired[Sequence[PatchOperationTypeDef]]
+
+class UpdateGatewayResponseRequestTypeDef(TypedDict):
+    restApiId: str
+    responseType: GatewayResponseTypeType
+    patchOperations: NotRequired[Sequence[PatchOperationTypeDef]]
+
+class UpdateIntegrationRequestTypeDef(TypedDict):
+    restApiId: str
+    resourceId: str
+    httpMethod: str
+    patchOperations: NotRequired[Sequence[PatchOperationTypeDef]]
+
+class UpdateIntegrationResponseRequestTypeDef(TypedDict):
+    restApiId: str
+    resourceId: str
+    httpMethod: str
+    statusCode: str
+    patchOperations: NotRequired[Sequence[PatchOperationTypeDef]]
+
+class UpdateMethodRequestTypeDef(TypedDict):
+    restApiId: str
+    resourceId: str
+    httpMethod: str
+    patchOperations: NotRequired[Sequence[PatchOperationTypeDef]]
+
+class UpdateMethodResponseRequestTypeDef(TypedDict):
+    restApiId: str
+    resourceId: str
+    httpMethod: str
+    statusCode: str
+    patchOperations: NotRequired[Sequence[PatchOperationTypeDef]]
+
+class UpdateModelRequestTypeDef(TypedDict):
+    restApiId: str
+    modelName: str
+    patchOperations: NotRequired[Sequence[PatchOperationTypeDef]]
+
+class UpdateRequestValidatorRequestTypeDef(TypedDict):
+    restApiId: str
+    requestValidatorId: str
+    patchOperations: NotRequired[Sequence[PatchOperationTypeDef]]
+
+class UpdateResourceRequestTypeDef(TypedDict):
+    restApiId: str
+    resourceId: str
+    patchOperations: NotRequired[Sequence[PatchOperationTypeDef]]
+
+class UpdateRestApiRequestTypeDef(TypedDict):
+    restApiId: str
+    patchOperations: NotRequired[Sequence[PatchOperationTypeDef]]
+
+class UpdateStageRequestTypeDef(TypedDict):
+    restApiId: str
+    stageName: str
+    patchOperations: NotRequired[Sequence[PatchOperationTypeDef]]
+
+class UpdateUsagePlanRequestTypeDef(TypedDict):
+    usagePlanId: str
+    patchOperations: NotRequired[Sequence[PatchOperationTypeDef]]
+
+class UpdateUsageRequestTypeDef(TypedDict):
+    usagePlanId: str
+    keyId: str
+    patchOperations: NotRequired[Sequence[PatchOperationTypeDef]]
+
+class UpdateVpcLinkRequestTypeDef(TypedDict):
+    vpcLinkId: str
+    patchOperations: NotRequired[Sequence[PatchOperationTypeDef]]
+
+class RequestValidatorsTypeDef(TypedDict):
+    position: str
+    items: List[RequestValidatorTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+SdkTypeResponseTypeDef = TypedDict(
+    "SdkTypeResponseTypeDef",
+    {
         "id": str,
-        "name": str,
-        "description": str,
-        "createdDate": datetime,
-        "version": str,
-        "warnings": List[str],
-        "binaryMediaTypes": List[str],
-        "minimumCompressionSize": int,
-        "apiKeySource": ApiKeySourceTypeType,
-        "endpointConfiguration": "EndpointConfigurationTypeDef",
-        "policy": str,
-        "tags": Dict[str, str],
-        "disableExecuteApiEndpoint": bool,
-        "rootResourceId": str,
-    },
-    total=False,
-)
-
-RestApisTypeDef = TypedDict(
-    "RestApisTypeDef",
-    {
-        "position": str,
-        "items": List["RestApiTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-SdkConfigurationPropertyTypeDef = TypedDict(
-    "SdkConfigurationPropertyTypeDef",
-    {
-        "name": str,
         "friendlyName": str,
         "description": str,
-        "required": bool,
-        "defaultValue": str,
-    },
-    total=False,
-)
-
-SdkResponseTypeDef = TypedDict(
-    "SdkResponseTypeDef",
-    {
-        "contentType": str,
-        "contentDisposition": str,
-        "body": bytes,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "configurationProperties": List[SdkConfigurationPropertyTypeDef],
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
-
-SdkTypeResponseMetadataTypeDef = TypedDict(
-    "SdkTypeResponseMetadataTypeDef",
-    {
-        "id": str,
-        "friendlyName": str,
-        "description": str,
-        "configurationProperties": List["SdkConfigurationPropertyTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
 SdkTypeTypeDef = TypedDict(
     "SdkTypeTypeDef",
     {
-        "id": str,
-        "friendlyName": str,
-        "description": str,
-        "configurationProperties": List["SdkConfigurationPropertyTypeDef"],
+        "id": NotRequired[str],
+        "friendlyName": NotRequired[str],
+        "description": NotRequired[str],
+        "configurationProperties": NotRequired[List[SdkConfigurationPropertyTypeDef]],
     },
-    total=False,
 )
 
-SdkTypesTypeDef = TypedDict(
-    "SdkTypesTypeDef",
-    {
-        "position": str,
-        "items": List["SdkTypeTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-StageKeyTypeDef = TypedDict(
-    "StageKeyTypeDef",
-    {
-        "restApiId": str,
-        "stageName": str,
-    },
-    total=False,
-)
-
-StageResponseMetadataTypeDef = TypedDict(
-    "StageResponseMetadataTypeDef",
-    {
-        "deploymentId": str,
-        "clientCertificateId": str,
-        "stageName": str,
-        "description": str,
-        "cacheClusterEnabled": bool,
-        "cacheClusterSize": CacheClusterSizeType,
-        "cacheClusterStatus": CacheClusterStatusType,
-        "methodSettings": Dict[str, "MethodSettingTypeDef"],
-        "variables": Dict[str, str],
-        "documentationVersion": str,
-        "accessLogSettings": "AccessLogSettingsTypeDef",
-        "canarySettings": "CanarySettingsTypeDef",
-        "tracingEnabled": bool,
-        "webAclArn": str,
-        "tags": Dict[str, str],
-        "createdDate": datetime,
-        "lastUpdatedDate": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-StageTypeDef = TypedDict(
-    "StageTypeDef",
-    {
-        "deploymentId": str,
-        "clientCertificateId": str,
-        "stageName": str,
-        "description": str,
-        "cacheClusterEnabled": bool,
-        "cacheClusterSize": CacheClusterSizeType,
-        "cacheClusterStatus": CacheClusterStatusType,
-        "methodSettings": Dict[str, "MethodSettingTypeDef"],
-        "variables": Dict[str, str],
-        "documentationVersion": str,
-        "accessLogSettings": "AccessLogSettingsTypeDef",
-        "canarySettings": "CanarySettingsTypeDef",
-        "tracingEnabled": bool,
-        "webAclArn": str,
-        "tags": Dict[str, str],
-        "createdDate": datetime,
-        "lastUpdatedDate": datetime,
-    },
-    total=False,
-)
-
-StagesTypeDef = TypedDict(
-    "StagesTypeDef",
-    {
-        "item": List["StageTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tags": Dict[str, str],
-    },
-)
-
-TagsTypeDef = TypedDict(
-    "TagsTypeDef",
-    {
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-TemplateTypeDef = TypedDict(
-    "TemplateTypeDef",
-    {
-        "value": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredTestInvokeAuthorizerRequestRequestTypeDef = TypedDict(
-    "_RequiredTestInvokeAuthorizerRequestRequestTypeDef",
-    {
-        "restApiId": str,
-        "authorizerId": str,
-    },
-)
-_OptionalTestInvokeAuthorizerRequestRequestTypeDef = TypedDict(
-    "_OptionalTestInvokeAuthorizerRequestRequestTypeDef",
-    {
-        "headers": Dict[str, str],
-        "multiValueHeaders": Dict[str, List[str]],
-        "pathWithQueryString": str,
-        "body": str,
-        "stageVariables": Dict[str, str],
-        "additionalContext": Dict[str, str],
-    },
-    total=False,
-)
-
-class TestInvokeAuthorizerRequestRequestTypeDef(
-    _RequiredTestInvokeAuthorizerRequestRequestTypeDef,
-    _OptionalTestInvokeAuthorizerRequestRequestTypeDef,
-):
-    pass
-
-TestInvokeAuthorizerResponseTypeDef = TypedDict(
-    "TestInvokeAuthorizerResponseTypeDef",
-    {
-        "clientStatus": int,
-        "log": str,
-        "latency": int,
-        "principalId": str,
-        "policy": str,
-        "authorization": Dict[str, List[str]],
-        "claims": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredTestInvokeMethodRequestRequestTypeDef = TypedDict(
-    "_RequiredTestInvokeMethodRequestRequestTypeDef",
-    {
-        "restApiId": str,
-        "resourceId": str,
-        "httpMethod": str,
-    },
-)
-_OptionalTestInvokeMethodRequestRequestTypeDef = TypedDict(
-    "_OptionalTestInvokeMethodRequestRequestTypeDef",
-    {
-        "pathWithQueryString": str,
-        "body": str,
-        "headers": Dict[str, str],
-        "multiValueHeaders": Dict[str, List[str]],
-        "clientCertificateId": str,
-        "stageVariables": Dict[str, str],
-    },
-    total=False,
-)
-
-class TestInvokeMethodRequestRequestTypeDef(
-    _RequiredTestInvokeMethodRequestRequestTypeDef, _OptionalTestInvokeMethodRequestRequestTypeDef
-):
-    pass
-
-TestInvokeMethodResponseTypeDef = TypedDict(
-    "TestInvokeMethodResponseTypeDef",
-    {
-        "status": int,
-        "body": str,
-        "headers": Dict[str, str],
-        "multiValueHeaders": Dict[str, List[str]],
-        "log": str,
-        "latency": int,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ThrottleSettingsTypeDef = TypedDict(
-    "ThrottleSettingsTypeDef",
-    {
-        "burstLimit": int,
-        "rateLimit": float,
-    },
-    total=False,
-)
-
-TlsConfigTypeDef = TypedDict(
-    "TlsConfigTypeDef",
-    {
-        "insecureSkipVerification": bool,
-    },
-    total=False,
-)
-
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tagKeys": List[str],
-    },
-)
-
-UpdateAccountRequestRequestTypeDef = TypedDict(
-    "UpdateAccountRequestRequestTypeDef",
-    {
-        "patchOperations": List["PatchOperationTypeDef"],
-    },
-    total=False,
-)
-
-_RequiredUpdateApiKeyRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateApiKeyRequestRequestTypeDef",
-    {
-        "apiKey": str,
-    },
-)
-_OptionalUpdateApiKeyRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateApiKeyRequestRequestTypeDef",
-    {
-        "patchOperations": List["PatchOperationTypeDef"],
-    },
-    total=False,
-)
-
-class UpdateApiKeyRequestRequestTypeDef(
-    _RequiredUpdateApiKeyRequestRequestTypeDef, _OptionalUpdateApiKeyRequestRequestTypeDef
-):
-    pass
-
-_RequiredUpdateAuthorizerRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateAuthorizerRequestRequestTypeDef",
-    {
-        "restApiId": str,
-        "authorizerId": str,
-    },
-)
-_OptionalUpdateAuthorizerRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateAuthorizerRequestRequestTypeDef",
-    {
-        "patchOperations": List["PatchOperationTypeDef"],
-    },
-    total=False,
-)
-
-class UpdateAuthorizerRequestRequestTypeDef(
-    _RequiredUpdateAuthorizerRequestRequestTypeDef, _OptionalUpdateAuthorizerRequestRequestTypeDef
-):
-    pass
-
-_RequiredUpdateBasePathMappingRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateBasePathMappingRequestRequestTypeDef",
-    {
-        "domainName": str,
-        "basePath": str,
-    },
-)
-_OptionalUpdateBasePathMappingRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateBasePathMappingRequestRequestTypeDef",
-    {
-        "patchOperations": List["PatchOperationTypeDef"],
-    },
-    total=False,
-)
-
-class UpdateBasePathMappingRequestRequestTypeDef(
-    _RequiredUpdateBasePathMappingRequestRequestTypeDef,
-    _OptionalUpdateBasePathMappingRequestRequestTypeDef,
-):
-    pass
-
-_RequiredUpdateClientCertificateRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateClientCertificateRequestRequestTypeDef",
-    {
-        "clientCertificateId": str,
-    },
-)
-_OptionalUpdateClientCertificateRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateClientCertificateRequestRequestTypeDef",
-    {
-        "patchOperations": List["PatchOperationTypeDef"],
-    },
-    total=False,
-)
-
-class UpdateClientCertificateRequestRequestTypeDef(
-    _RequiredUpdateClientCertificateRequestRequestTypeDef,
-    _OptionalUpdateClientCertificateRequestRequestTypeDef,
-):
-    pass
-
-_RequiredUpdateDeploymentRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateDeploymentRequestRequestTypeDef",
-    {
-        "restApiId": str,
-        "deploymentId": str,
-    },
-)
-_OptionalUpdateDeploymentRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateDeploymentRequestRequestTypeDef",
-    {
-        "patchOperations": List["PatchOperationTypeDef"],
-    },
-    total=False,
-)
-
-class UpdateDeploymentRequestRequestTypeDef(
-    _RequiredUpdateDeploymentRequestRequestTypeDef, _OptionalUpdateDeploymentRequestRequestTypeDef
-):
-    pass
-
-_RequiredUpdateDocumentationPartRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateDocumentationPartRequestRequestTypeDef",
-    {
-        "restApiId": str,
-        "documentationPartId": str,
-    },
-)
-_OptionalUpdateDocumentationPartRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateDocumentationPartRequestRequestTypeDef",
-    {
-        "patchOperations": List["PatchOperationTypeDef"],
-    },
-    total=False,
-)
-
-class UpdateDocumentationPartRequestRequestTypeDef(
-    _RequiredUpdateDocumentationPartRequestRequestTypeDef,
-    _OptionalUpdateDocumentationPartRequestRequestTypeDef,
-):
-    pass
-
-_RequiredUpdateDocumentationVersionRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateDocumentationVersionRequestRequestTypeDef",
-    {
-        "restApiId": str,
-        "documentationVersion": str,
-    },
-)
-_OptionalUpdateDocumentationVersionRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateDocumentationVersionRequestRequestTypeDef",
-    {
-        "patchOperations": List["PatchOperationTypeDef"],
-    },
-    total=False,
-)
-
-class UpdateDocumentationVersionRequestRequestTypeDef(
-    _RequiredUpdateDocumentationVersionRequestRequestTypeDef,
-    _OptionalUpdateDocumentationVersionRequestRequestTypeDef,
-):
-    pass
-
-_RequiredUpdateDomainNameRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateDomainNameRequestRequestTypeDef",
-    {
-        "domainName": str,
-    },
-)
-_OptionalUpdateDomainNameRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateDomainNameRequestRequestTypeDef",
-    {
-        "patchOperations": List["PatchOperationTypeDef"],
-    },
-    total=False,
-)
-
-class UpdateDomainNameRequestRequestTypeDef(
-    _RequiredUpdateDomainNameRequestRequestTypeDef, _OptionalUpdateDomainNameRequestRequestTypeDef
-):
-    pass
-
-_RequiredUpdateGatewayResponseRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateGatewayResponseRequestRequestTypeDef",
-    {
-        "restApiId": str,
-        "responseType": GatewayResponseTypeType,
-    },
-)
-_OptionalUpdateGatewayResponseRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateGatewayResponseRequestRequestTypeDef",
-    {
-        "patchOperations": List["PatchOperationTypeDef"],
-    },
-    total=False,
-)
-
-class UpdateGatewayResponseRequestRequestTypeDef(
-    _RequiredUpdateGatewayResponseRequestRequestTypeDef,
-    _OptionalUpdateGatewayResponseRequestRequestTypeDef,
-):
-    pass
-
-_RequiredUpdateIntegrationRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateIntegrationRequestRequestTypeDef",
-    {
-        "restApiId": str,
-        "resourceId": str,
-        "httpMethod": str,
-    },
-)
-_OptionalUpdateIntegrationRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateIntegrationRequestRequestTypeDef",
-    {
-        "patchOperations": List["PatchOperationTypeDef"],
-    },
-    total=False,
-)
-
-class UpdateIntegrationRequestRequestTypeDef(
-    _RequiredUpdateIntegrationRequestRequestTypeDef, _OptionalUpdateIntegrationRequestRequestTypeDef
-):
-    pass
-
-_RequiredUpdateIntegrationResponseRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateIntegrationResponseRequestRequestTypeDef",
-    {
-        "restApiId": str,
-        "resourceId": str,
-        "httpMethod": str,
-        "statusCode": str,
-    },
-)
-_OptionalUpdateIntegrationResponseRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateIntegrationResponseRequestRequestTypeDef",
-    {
-        "patchOperations": List["PatchOperationTypeDef"],
-    },
-    total=False,
-)
-
-class UpdateIntegrationResponseRequestRequestTypeDef(
-    _RequiredUpdateIntegrationResponseRequestRequestTypeDef,
-    _OptionalUpdateIntegrationResponseRequestRequestTypeDef,
-):
-    pass
-
-_RequiredUpdateMethodRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateMethodRequestRequestTypeDef",
-    {
-        "restApiId": str,
-        "resourceId": str,
-        "httpMethod": str,
-    },
-)
-_OptionalUpdateMethodRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateMethodRequestRequestTypeDef",
-    {
-        "patchOperations": List["PatchOperationTypeDef"],
-    },
-    total=False,
-)
-
-class UpdateMethodRequestRequestTypeDef(
-    _RequiredUpdateMethodRequestRequestTypeDef, _OptionalUpdateMethodRequestRequestTypeDef
-):
-    pass
-
-_RequiredUpdateMethodResponseRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateMethodResponseRequestRequestTypeDef",
-    {
-        "restApiId": str,
-        "resourceId": str,
-        "httpMethod": str,
-        "statusCode": str,
-    },
-)
-_OptionalUpdateMethodResponseRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateMethodResponseRequestRequestTypeDef",
-    {
-        "patchOperations": List["PatchOperationTypeDef"],
-    },
-    total=False,
-)
-
-class UpdateMethodResponseRequestRequestTypeDef(
-    _RequiredUpdateMethodResponseRequestRequestTypeDef,
-    _OptionalUpdateMethodResponseRequestRequestTypeDef,
-):
-    pass
-
-_RequiredUpdateModelRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateModelRequestRequestTypeDef",
-    {
-        "restApiId": str,
-        "modelName": str,
-    },
-)
-_OptionalUpdateModelRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateModelRequestRequestTypeDef",
-    {
-        "patchOperations": List["PatchOperationTypeDef"],
-    },
-    total=False,
-)
-
-class UpdateModelRequestRequestTypeDef(
-    _RequiredUpdateModelRequestRequestTypeDef, _OptionalUpdateModelRequestRequestTypeDef
-):
-    pass
-
-_RequiredUpdateRequestValidatorRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateRequestValidatorRequestRequestTypeDef",
-    {
-        "restApiId": str,
-        "requestValidatorId": str,
-    },
-)
-_OptionalUpdateRequestValidatorRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateRequestValidatorRequestRequestTypeDef",
-    {
-        "patchOperations": List["PatchOperationTypeDef"],
-    },
-    total=False,
-)
-
-class UpdateRequestValidatorRequestRequestTypeDef(
-    _RequiredUpdateRequestValidatorRequestRequestTypeDef,
-    _OptionalUpdateRequestValidatorRequestRequestTypeDef,
-):
-    pass
-
-_RequiredUpdateResourceRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateResourceRequestRequestTypeDef",
-    {
-        "restApiId": str,
-        "resourceId": str,
-    },
-)
-_OptionalUpdateResourceRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateResourceRequestRequestTypeDef",
-    {
-        "patchOperations": List["PatchOperationTypeDef"],
-    },
-    total=False,
-)
-
-class UpdateResourceRequestRequestTypeDef(
-    _RequiredUpdateResourceRequestRequestTypeDef, _OptionalUpdateResourceRequestRequestTypeDef
-):
-    pass
-
-_RequiredUpdateRestApiRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateRestApiRequestRequestTypeDef",
-    {
-        "restApiId": str,
-    },
-)
-_OptionalUpdateRestApiRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateRestApiRequestRequestTypeDef",
-    {
-        "patchOperations": List["PatchOperationTypeDef"],
-    },
-    total=False,
-)
-
-class UpdateRestApiRequestRequestTypeDef(
-    _RequiredUpdateRestApiRequestRequestTypeDef, _OptionalUpdateRestApiRequestRequestTypeDef
-):
-    pass
-
-_RequiredUpdateStageRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateStageRequestRequestTypeDef",
-    {
-        "restApiId": str,
-        "stageName": str,
-    },
-)
-_OptionalUpdateStageRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateStageRequestRequestTypeDef",
-    {
-        "patchOperations": List["PatchOperationTypeDef"],
-    },
-    total=False,
-)
-
-class UpdateStageRequestRequestTypeDef(
-    _RequiredUpdateStageRequestRequestTypeDef, _OptionalUpdateStageRequestRequestTypeDef
-):
-    pass
-
-_RequiredUpdateUsagePlanRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateUsagePlanRequestRequestTypeDef",
-    {
-        "usagePlanId": str,
-    },
-)
-_OptionalUpdateUsagePlanRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateUsagePlanRequestRequestTypeDef",
-    {
-        "patchOperations": List["PatchOperationTypeDef"],
-    },
-    total=False,
-)
-
-class UpdateUsagePlanRequestRequestTypeDef(
-    _RequiredUpdateUsagePlanRequestRequestTypeDef, _OptionalUpdateUsagePlanRequestRequestTypeDef
-):
-    pass
-
-_RequiredUpdateUsageRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateUsageRequestRequestTypeDef",
-    {
-        "usagePlanId": str,
-        "keyId": str,
-    },
-)
-_OptionalUpdateUsageRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateUsageRequestRequestTypeDef",
-    {
-        "patchOperations": List["PatchOperationTypeDef"],
-    },
-    total=False,
-)
-
-class UpdateUsageRequestRequestTypeDef(
-    _RequiredUpdateUsageRequestRequestTypeDef, _OptionalUpdateUsageRequestRequestTypeDef
-):
-    pass
-
-_RequiredUpdateVpcLinkRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateVpcLinkRequestRequestTypeDef",
-    {
-        "vpcLinkId": str,
-    },
-)
-_OptionalUpdateVpcLinkRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateVpcLinkRequestRequestTypeDef",
-    {
-        "patchOperations": List["PatchOperationTypeDef"],
-    },
-    total=False,
-)
-
-class UpdateVpcLinkRequestRequestTypeDef(
-    _RequiredUpdateVpcLinkRequestRequestTypeDef, _OptionalUpdateVpcLinkRequestRequestTypeDef
-):
-    pass
-
-UsagePlanKeyResponseMetadataTypeDef = TypedDict(
-    "UsagePlanKeyResponseMetadataTypeDef",
-    {
-        "id": str,
-        "type": str,
-        "value": str,
-        "name": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UsagePlanKeyTypeDef = TypedDict(
-    "UsagePlanKeyTypeDef",
-    {
-        "id": str,
-        "type": str,
-        "value": str,
-        "name": str,
-    },
-    total=False,
-)
+class UsagePlanKeysTypeDef(TypedDict):
+    position: str
+    items: List[UsagePlanKeyTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-UsagePlanKeysTypeDef = TypedDict(
-    "UsagePlanKeysTypeDef",
-    {
-        "position": str,
-        "items": List["UsagePlanKeyTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class VpcLinksTypeDef(TypedDict):
+    position: str
+    items: List[VpcLinkTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-UsagePlanResponseMetadataTypeDef = TypedDict(
-    "UsagePlanResponseMetadataTypeDef",
+UsagePlanResponseTypeDef = TypedDict(
+    "UsagePlanResponseTypeDef",
     {
         "id": str,
         "name": str,
         "description": str,
-        "apiStages": List["ApiStageTypeDef"],
-        "throttle": "ThrottleSettingsTypeDef",
-        "quota": "QuotaSettingsTypeDef",
+        "apiStages": List[ApiStageOutputTypeDef],
+        "throttle": ThrottleSettingsTypeDef,
+        "quota": QuotaSettingsTypeDef,
         "productCode": str,
         "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
-
 UsagePlanTypeDef = TypedDict(
     "UsagePlanTypeDef",
     {
+        "id": NotRequired[str],
+        "name": NotRequired[str],
+        "description": NotRequired[str],
+        "apiStages": NotRequired[List[ApiStageOutputTypeDef]],
+        "throttle": NotRequired[ThrottleSettingsTypeDef],
+        "quota": NotRequired[QuotaSettingsTypeDef],
+        "productCode": NotRequired[str],
+        "tags": NotRequired[Dict[str, str]],
+    },
+)
+ApiStageUnionTypeDef = Union[ApiStageTypeDef, ApiStageOutputTypeDef]
+
+class CreateStageRequestTypeDef(TypedDict):
+    restApiId: str
+    stageName: str
+    deploymentId: str
+    description: NotRequired[str]
+    cacheClusterEnabled: NotRequired[bool]
+    cacheClusterSize: NotRequired[CacheClusterSizeType]
+    variables: NotRequired[Mapping[str, str]]
+    documentationVersion: NotRequired[str]
+    canarySettings: NotRequired[CanarySettingsUnionTypeDef]
+    tracingEnabled: NotRequired[bool]
+    tags: NotRequired[Mapping[str, str]]
+
+class DocumentationPartsTypeDef(TypedDict):
+    position: str
+    items: List[DocumentationPartTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeploymentsTypeDef(TypedDict):
+    position: str
+    items: List[DeploymentTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class RestApisTypeDef(TypedDict):
+    position: str
+    items: List[RestApiTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DomainNamesTypeDef(TypedDict):
+    position: str
+    items: List[DomainNameTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateDomainNameRequestTypeDef(TypedDict):
+    domainName: str
+    certificateName: NotRequired[str]
+    certificateBody: NotRequired[str]
+    certificatePrivateKey: NotRequired[str]
+    certificateChain: NotRequired[str]
+    certificateArn: NotRequired[str]
+    regionalCertificateName: NotRequired[str]
+    regionalCertificateArn: NotRequired[str]
+    endpointConfiguration: NotRequired[EndpointConfigurationUnionTypeDef]
+    tags: NotRequired[Mapping[str, str]]
+    securityPolicy: NotRequired[SecurityPolicyType]
+    mutualTlsAuthentication: NotRequired[MutualTlsAuthenticationInputTypeDef]
+    ownershipVerificationCertificateArn: NotRequired[str]
+    policy: NotRequired[str]
+
+class CreateRestApiRequestTypeDef(TypedDict):
+    name: str
+    description: NotRequired[str]
+    version: NotRequired[str]
+    cloneFrom: NotRequired[str]
+    binaryMediaTypes: NotRequired[Sequence[str]]
+    minimumCompressionSize: NotRequired[int]
+    apiKeySource: NotRequired[ApiKeySourceTypeType]
+    endpointConfiguration: NotRequired[EndpointConfigurationUnionTypeDef]
+    policy: NotRequired[str]
+    tags: NotRequired[Mapping[str, str]]
+    disableExecuteApiEndpoint: NotRequired[bool]
+
+class MethodResponseExtraTypeDef(TypedDict):
+    httpMethod: str
+    authorizationType: str
+    authorizerId: str
+    apiKeyRequired: bool
+    requestValidatorId: str
+    operationName: str
+    requestParameters: Dict[str, bool]
+    requestModels: Dict[str, str]
+    methodResponses: Dict[str, MethodResponseTypeDef]
+    methodIntegration: IntegrationTypeDef
+    authorizationScopes: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class MethodTypeDef(TypedDict):
+    httpMethod: NotRequired[str]
+    authorizationType: NotRequired[str]
+    authorizerId: NotRequired[str]
+    apiKeyRequired: NotRequired[bool]
+    requestValidatorId: NotRequired[str]
+    operationName: NotRequired[str]
+    requestParameters: NotRequired[Dict[str, bool]]
+    requestModels: NotRequired[Dict[str, str]]
+    methodResponses: NotRequired[Dict[str, MethodResponseTypeDef]]
+    methodIntegration: NotRequired[IntegrationTypeDef]
+    authorizationScopes: NotRequired[List[str]]
+
+class StagesTypeDef(TypedDict):
+    item: List[StageTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class SdkTypesTypeDef(TypedDict):
+    position: str
+    items: List[SdkTypeTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UsagePlansTypeDef(TypedDict):
+    position: str
+    items: List[UsagePlanTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateUsagePlanRequestTypeDef(TypedDict):
+    name: str
+    description: NotRequired[str]
+    apiStages: NotRequired[Sequence[ApiStageUnionTypeDef]]
+    throttle: NotRequired[ThrottleSettingsTypeDef]
+    quota: NotRequired[QuotaSettingsTypeDef]
+    tags: NotRequired[Mapping[str, str]]
+
+ResourceResponseTypeDef = TypedDict(
+    "ResourceResponseTypeDef",
+    {
         "id": str,
-        "name": str,
-        "description": str,
-        "apiStages": List["ApiStageTypeDef"],
-        "throttle": "ThrottleSettingsTypeDef",
-        "quota": "QuotaSettingsTypeDef",
-        "productCode": str,
-        "tags": Dict[str, str],
+        "parentId": str,
+        "pathPart": str,
+        "path": str,
+        "resourceMethods": Dict[str, MethodTypeDef],
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
-    total=False,
 )
-
-UsagePlansTypeDef = TypedDict(
-    "UsagePlansTypeDef",
+ResourceTypeDef = TypedDict(
+    "ResourceTypeDef",
     {
-        "position": str,
-        "items": List["UsagePlanTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "id": NotRequired[str],
+        "parentId": NotRequired[str],
+        "pathPart": NotRequired[str],
+        "path": NotRequired[str],
+        "resourceMethods": NotRequired[Dict[str, MethodTypeDef]],
     },
 )
 
-UsageTypeDef = TypedDict(
-    "UsageTypeDef",
-    {
-        "usagePlanId": str,
-        "startDate": str,
-        "endDate": str,
-        "position": str,
-        "items": Dict[str, List[List[int]]],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-VpcLinkResponseMetadataTypeDef = TypedDict(
-    "VpcLinkResponseMetadataTypeDef",
-    {
-        "id": str,
-        "name": str,
-        "description": str,
-        "targetArns": List[str],
-        "status": VpcLinkStatusType,
-        "statusMessage": str,
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-VpcLinkTypeDef = TypedDict(
-    "VpcLinkTypeDef",
-    {
-        "id": str,
-        "name": str,
-        "description": str,
-        "targetArns": List[str],
-        "status": VpcLinkStatusType,
-        "statusMessage": str,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-VpcLinksTypeDef = TypedDict(
-    "VpcLinksTypeDef",
-    {
-        "position": str,
-        "items": List["VpcLinkTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ResourcesTypeDef(TypedDict):
+    position: str
+    items: List[ResourceTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef

@@ -1,23 +1,28 @@
 """
 Type annotations for cost-optimization-hub service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cost_optimization_hub/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cost_optimization_hub/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_cost_optimization_hub.type_defs import AccountEnrollmentStatusTypeDef
 
-    data: AccountEnrollmentStatusTypeDef = {...}
+    data: AccountEnrollmentStatusTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
 
 from .literals import (
     ActionTypeType,
+    AllocationStrategyType,
+    Ec2AutoScalingGroupTypeType,
     EnrollmentStatusType,
     ImplementationEffortType,
     MemberAccountDiscountVisibilityType,
@@ -27,10 +32,16 @@ from .literals import (
     SourceType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Sequence
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
+else:
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
     "AccountEnrollmentStatusTypeDef",
@@ -39,6 +50,8 @@ __all__ = (
     "ComputeSavingsPlansConfigurationTypeDef",
     "ComputeSavingsPlansTypeDef",
     "DbInstanceConfigurationTypeDef",
+    "DynamoDbReservedCapacityConfigurationTypeDef",
+    "DynamoDbReservedCapacityTypeDef",
     "EbsVolumeConfigurationTypeDef",
     "EbsVolumeTypeDef",
     "Ec2AutoScalingGroupConfigurationTypeDef",
@@ -56,17 +69,23 @@ __all__ = (
     "EstimatedDiscountsTypeDef",
     "FilterTypeDef",
     "GetPreferencesResponseTypeDef",
-    "GetRecommendationRequestRequestTypeDef",
+    "GetRecommendationRequestTypeDef",
     "GetRecommendationResponseTypeDef",
     "InstanceConfigurationTypeDef",
     "LambdaFunctionConfigurationTypeDef",
     "LambdaFunctionTypeDef",
-    "ListEnrollmentStatusesRequestRequestTypeDef",
+    "ListEnrollmentStatusesRequestPaginateTypeDef",
+    "ListEnrollmentStatusesRequestTypeDef",
     "ListEnrollmentStatusesResponseTypeDef",
-    "ListRecommendationSummariesRequestRequestTypeDef",
+    "ListRecommendationSummariesRequestPaginateTypeDef",
+    "ListRecommendationSummariesRequestTypeDef",
     "ListRecommendationSummariesResponseTypeDef",
-    "ListRecommendationsRequestRequestTypeDef",
+    "ListRecommendationsRequestPaginateTypeDef",
+    "ListRecommendationsRequestTypeDef",
     "ListRecommendationsResponseTypeDef",
+    "MemoryDbReservedInstancesConfigurationTypeDef",
+    "MemoryDbReservedInstancesTypeDef",
+    "MixedInstanceConfigurationTypeDef",
     "OpenSearchReservedInstancesConfigurationTypeDef",
     "OpenSearchReservedInstancesTypeDef",
     "OrderByTypeDef",
@@ -92,768 +111,522 @@ __all__ = (
     "SavingsPlansCostCalculationTypeDef",
     "SavingsPlansPricingTypeDef",
     "StorageConfigurationTypeDef",
+    "SummaryMetricsResultTypeDef",
     "TagTypeDef",
-    "UpdateEnrollmentStatusRequestRequestTypeDef",
+    "UpdateEnrollmentStatusRequestTypeDef",
     "UpdateEnrollmentStatusResponseTypeDef",
-    "UpdatePreferencesRequestRequestTypeDef",
+    "UpdatePreferencesRequestTypeDef",
     "UpdatePreferencesResponseTypeDef",
     "UsageTypeDef",
 )
 
-AccountEnrollmentStatusTypeDef = TypedDict(
-    "AccountEnrollmentStatusTypeDef",
-    {
-        "accountId": str,
-        "status": EnrollmentStatusType,
-        "lastUpdatedTimestamp": datetime,
-        "createdTimestamp": datetime,
-    },
-    total=False,
-)
+class AccountEnrollmentStatusTypeDef(TypedDict):
+    accountId: NotRequired[str]
+    status: NotRequired[EnrollmentStatusType]
+    lastUpdatedTimestamp: NotRequired[datetime]
+    createdTimestamp: NotRequired[datetime]
 
-BlockStoragePerformanceConfigurationTypeDef = TypedDict(
-    "BlockStoragePerformanceConfigurationTypeDef",
-    {
-        "iops": float,
-        "throughput": float,
-    },
-    total=False,
-)
+class BlockStoragePerformanceConfigurationTypeDef(TypedDict):
+    iops: NotRequired[float]
+    throughput: NotRequired[float]
 
-ComputeConfigurationTypeDef = TypedDict(
-    "ComputeConfigurationTypeDef",
-    {
-        "vCpu": float,
-        "memorySizeInMB": int,
-        "architecture": str,
-        "platform": str,
-    },
-    total=False,
-)
+class ComputeConfigurationTypeDef(TypedDict):
+    vCpu: NotRequired[float]
+    memorySizeInMB: NotRequired[int]
+    architecture: NotRequired[str]
+    platform: NotRequired[str]
 
-ComputeSavingsPlansConfigurationTypeDef = TypedDict(
-    "ComputeSavingsPlansConfigurationTypeDef",
-    {
-        "accountScope": str,
-        "term": str,
-        "paymentOption": str,
-        "hourlyCommitment": str,
-    },
-    total=False,
-)
+class ComputeSavingsPlansConfigurationTypeDef(TypedDict):
+    accountScope: NotRequired[str]
+    term: NotRequired[str]
+    paymentOption: NotRequired[str]
+    hourlyCommitment: NotRequired[str]
 
-ComputeSavingsPlansTypeDef = TypedDict(
-    "ComputeSavingsPlansTypeDef",
-    {
-        "configuration": "ComputeSavingsPlansConfigurationTypeDef",
-        "costCalculation": "SavingsPlansCostCalculationTypeDef",
-    },
-    total=False,
-)
+class DbInstanceConfigurationTypeDef(TypedDict):
+    dbInstanceClass: NotRequired[str]
 
-DbInstanceConfigurationTypeDef = TypedDict(
-    "DbInstanceConfigurationTypeDef",
-    {
-        "dbInstanceClass": str,
-    },
-    total=False,
-)
-
-EbsVolumeConfigurationTypeDef = TypedDict(
-    "EbsVolumeConfigurationTypeDef",
-    {
-        "storage": "StorageConfigurationTypeDef",
-        "performance": "BlockStoragePerformanceConfigurationTypeDef",
-        "attachmentState": str,
-    },
-    total=False,
-)
-
-EbsVolumeTypeDef = TypedDict(
-    "EbsVolumeTypeDef",
-    {
-        "configuration": "EbsVolumeConfigurationTypeDef",
-        "costCalculation": "ResourceCostCalculationTypeDef",
-    },
-    total=False,
-)
-
-Ec2AutoScalingGroupConfigurationTypeDef = TypedDict(
-    "Ec2AutoScalingGroupConfigurationTypeDef",
-    {
-        "instance": "InstanceConfigurationTypeDef",
-    },
-    total=False,
-)
-
-Ec2AutoScalingGroupTypeDef = TypedDict(
-    "Ec2AutoScalingGroupTypeDef",
-    {
-        "configuration": "Ec2AutoScalingGroupConfigurationTypeDef",
-        "costCalculation": "ResourceCostCalculationTypeDef",
-    },
-    total=False,
-)
-
-Ec2InstanceConfigurationTypeDef = TypedDict(
-    "Ec2InstanceConfigurationTypeDef",
-    {
-        "instance": "InstanceConfigurationTypeDef",
-    },
-    total=False,
-)
-
-Ec2InstanceSavingsPlansConfigurationTypeDef = TypedDict(
-    "Ec2InstanceSavingsPlansConfigurationTypeDef",
-    {
-        "accountScope": str,
-        "term": str,
-        "paymentOption": str,
-        "hourlyCommitment": str,
-        "instanceFamily": str,
-        "savingsPlansRegion": str,
-    },
-    total=False,
-)
-
-Ec2InstanceSavingsPlansTypeDef = TypedDict(
-    "Ec2InstanceSavingsPlansTypeDef",
-    {
-        "configuration": "Ec2InstanceSavingsPlansConfigurationTypeDef",
-        "costCalculation": "SavingsPlansCostCalculationTypeDef",
-    },
-    total=False,
-)
-
-Ec2InstanceTypeDef = TypedDict(
-    "Ec2InstanceTypeDef",
-    {
-        "configuration": "Ec2InstanceConfigurationTypeDef",
-        "costCalculation": "ResourceCostCalculationTypeDef",
-    },
-    total=False,
-)
-
-Ec2ReservedInstancesConfigurationTypeDef = TypedDict(
-    "Ec2ReservedInstancesConfigurationTypeDef",
-    {
-        "accountScope": str,
-        "service": str,
-        "normalizedUnitsToPurchase": str,
-        "term": str,
-        "paymentOption": str,
-        "numberOfInstancesToPurchase": str,
-        "offeringClass": str,
-        "instanceFamily": str,
-        "instanceType": str,
-        "reservedInstancesRegion": str,
-        "currentGeneration": str,
-        "platform": str,
-        "tenancy": str,
-        "sizeFlexEligible": bool,
-        "upfrontCost": str,
-        "monthlyRecurringCost": str,
-    },
-    total=False,
-)
-
-Ec2ReservedInstancesTypeDef = TypedDict(
-    "Ec2ReservedInstancesTypeDef",
-    {
-        "configuration": "Ec2ReservedInstancesConfigurationTypeDef",
-        "costCalculation": "ReservedInstancesCostCalculationTypeDef",
-    },
-    total=False,
-)
-
-EcsServiceConfigurationTypeDef = TypedDict(
-    "EcsServiceConfigurationTypeDef",
-    {
-        "compute": "ComputeConfigurationTypeDef",
-    },
-    total=False,
-)
-
-EcsServiceTypeDef = TypedDict(
-    "EcsServiceTypeDef",
-    {
-        "configuration": "EcsServiceConfigurationTypeDef",
-        "costCalculation": "ResourceCostCalculationTypeDef",
-    },
-    total=False,
-)
-
-ElastiCacheReservedInstancesConfigurationTypeDef = TypedDict(
-    "ElastiCacheReservedInstancesConfigurationTypeDef",
-    {
-        "accountScope": str,
-        "service": str,
-        "normalizedUnitsToPurchase": str,
-        "term": str,
-        "paymentOption": str,
-        "numberOfInstancesToPurchase": str,
-        "instanceFamily": str,
-        "instanceType": str,
-        "reservedInstancesRegion": str,
-        "currentGeneration": str,
-        "sizeFlexEligible": bool,
-        "upfrontCost": str,
-        "monthlyRecurringCost": str,
-    },
-    total=False,
-)
-
-ElastiCacheReservedInstancesTypeDef = TypedDict(
-    "ElastiCacheReservedInstancesTypeDef",
-    {
-        "configuration": "ElastiCacheReservedInstancesConfigurationTypeDef",
-        "costCalculation": "ReservedInstancesCostCalculationTypeDef",
-    },
-    total=False,
-)
-
-EstimatedDiscountsTypeDef = TypedDict(
-    "EstimatedDiscountsTypeDef",
-    {
-        "savingsPlansDiscount": float,
-        "reservedInstancesDiscount": float,
-        "otherDiscount": float,
-    },
-    total=False,
-)
-
-FilterTypeDef = TypedDict(
-    "FilterTypeDef",
-    {
-        "restartNeeded": bool,
-        "rollbackPossible": bool,
-        "implementationEfforts": List[ImplementationEffortType],
-        "accountIds": List[str],
-        "regions": List[str],
-        "resourceTypes": List[ResourceTypeType],
-        "actionTypes": List[ActionTypeType],
-        "tags": List["TagTypeDef"],
-        "resourceIds": List[str],
-        "resourceArns": List[str],
-        "recommendationIds": List[str],
-    },
-    total=False,
-)
-
-GetPreferencesResponseTypeDef = TypedDict(
-    "GetPreferencesResponseTypeDef",
-    {
-        "savingsEstimationMode": SavingsEstimationModeType,
-        "memberAccountDiscountVisibility": MemberAccountDiscountVisibilityType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetRecommendationRequestRequestTypeDef = TypedDict(
-    "GetRecommendationRequestRequestTypeDef",
-    {
-        "recommendationId": str,
-    },
-)
-
-GetRecommendationResponseTypeDef = TypedDict(
-    "GetRecommendationResponseTypeDef",
-    {
-        "recommendationId": str,
-        "resourceId": str,
-        "resourceArn": str,
-        "accountId": str,
-        "currencyCode": str,
-        "recommendationLookbackPeriodInDays": int,
-        "costCalculationLookbackPeriodInDays": int,
-        "estimatedSavingsPercentage": float,
-        "estimatedSavingsOverCostCalculationLookbackPeriod": float,
-        "currentResourceType": ResourceTypeType,
-        "recommendedResourceType": ResourceTypeType,
-        "region": str,
-        "source": SourceType,
-        "lastRefreshTimestamp": datetime,
-        "estimatedMonthlySavings": float,
-        "estimatedMonthlyCost": float,
-        "implementationEffort": ImplementationEffortType,
-        "restartNeeded": bool,
-        "actionType": ActionTypeType,
-        "rollbackPossible": bool,
-        "currentResourceDetails": "ResourceDetailsTypeDef",
-        "recommendedResourceDetails": "ResourceDetailsTypeDef",
-        "tags": List["TagTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-InstanceConfigurationTypeDef = TypedDict(
-    "InstanceConfigurationTypeDef",
-    {
-        "type": str,
-    },
-    total=False,
-)
-
-LambdaFunctionConfigurationTypeDef = TypedDict(
-    "LambdaFunctionConfigurationTypeDef",
-    {
-        "compute": "ComputeConfigurationTypeDef",
-    },
-    total=False,
-)
-
-LambdaFunctionTypeDef = TypedDict(
-    "LambdaFunctionTypeDef",
-    {
-        "configuration": "LambdaFunctionConfigurationTypeDef",
-        "costCalculation": "ResourceCostCalculationTypeDef",
-    },
-    total=False,
-)
-
-ListEnrollmentStatusesRequestRequestTypeDef = TypedDict(
-    "ListEnrollmentStatusesRequestRequestTypeDef",
-    {
-        "includeOrganizationInfo": bool,
-        "accountId": str,
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-ListEnrollmentStatusesResponseTypeDef = TypedDict(
-    "ListEnrollmentStatusesResponseTypeDef",
-    {
-        "items": List["AccountEnrollmentStatusTypeDef"],
-        "includeMemberAccounts": bool,
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListRecommendationSummariesRequestRequestTypeDef = TypedDict(
-    "_RequiredListRecommendationSummariesRequestRequestTypeDef",
-    {
-        "groupBy": str,
-    },
-)
-_OptionalListRecommendationSummariesRequestRequestTypeDef = TypedDict(
-    "_OptionalListRecommendationSummariesRequestRequestTypeDef",
-    {
-        "filter": "FilterTypeDef",
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListRecommendationSummariesRequestRequestTypeDef(
-    _RequiredListRecommendationSummariesRequestRequestTypeDef,
-    _OptionalListRecommendationSummariesRequestRequestTypeDef,
-):
-    pass
-
-ListRecommendationSummariesResponseTypeDef = TypedDict(
-    "ListRecommendationSummariesResponseTypeDef",
-    {
-        "estimatedTotalDedupedSavings": float,
-        "items": List["RecommendationSummaryTypeDef"],
-        "groupBy": str,
-        "currencyCode": str,
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListRecommendationsRequestRequestTypeDef = TypedDict(
-    "ListRecommendationsRequestRequestTypeDef",
-    {
-        "filter": "FilterTypeDef",
-        "orderBy": "OrderByTypeDef",
-        "includeAllRecommendations": bool,
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-ListRecommendationsResponseTypeDef = TypedDict(
-    "ListRecommendationsResponseTypeDef",
-    {
-        "items": List["RecommendationTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-OpenSearchReservedInstancesConfigurationTypeDef = TypedDict(
-    "OpenSearchReservedInstancesConfigurationTypeDef",
-    {
-        "accountScope": str,
-        "service": str,
-        "normalizedUnitsToPurchase": str,
-        "term": str,
-        "paymentOption": str,
-        "numberOfInstancesToPurchase": str,
-        "instanceType": str,
-        "reservedInstancesRegion": str,
-        "currentGeneration": str,
-        "sizeFlexEligible": bool,
-        "upfrontCost": str,
-        "monthlyRecurringCost": str,
-    },
-    total=False,
-)
-
-OpenSearchReservedInstancesTypeDef = TypedDict(
-    "OpenSearchReservedInstancesTypeDef",
-    {
-        "configuration": "OpenSearchReservedInstancesConfigurationTypeDef",
-        "costCalculation": "ReservedInstancesCostCalculationTypeDef",
-    },
-    total=False,
-)
-
-OrderByTypeDef = TypedDict(
-    "OrderByTypeDef",
-    {
-        "dimension": str,
-        "order": OrderType,
-    },
-    total=False,
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-RdsDbInstanceConfigurationTypeDef = TypedDict(
-    "RdsDbInstanceConfigurationTypeDef",
-    {
-        "instance": "DbInstanceConfigurationTypeDef",
-    },
-    total=False,
-)
-
-RdsDbInstanceStorageConfigurationTypeDef = TypedDict(
-    "RdsDbInstanceStorageConfigurationTypeDef",
-    {
-        "storageType": str,
-        "allocatedStorageInGb": float,
-        "iops": float,
-        "storageThroughput": float,
-    },
-    total=False,
-)
-
-RdsDbInstanceStorageTypeDef = TypedDict(
-    "RdsDbInstanceStorageTypeDef",
-    {
-        "configuration": "RdsDbInstanceStorageConfigurationTypeDef",
-        "costCalculation": "ResourceCostCalculationTypeDef",
-    },
-    total=False,
-)
-
-RdsDbInstanceTypeDef = TypedDict(
-    "RdsDbInstanceTypeDef",
-    {
-        "configuration": "RdsDbInstanceConfigurationTypeDef",
-        "costCalculation": "ResourceCostCalculationTypeDef",
-    },
-    total=False,
-)
-
-RdsReservedInstancesConfigurationTypeDef = TypedDict(
-    "RdsReservedInstancesConfigurationTypeDef",
-    {
-        "accountScope": str,
-        "service": str,
-        "normalizedUnitsToPurchase": str,
-        "term": str,
-        "paymentOption": str,
-        "numberOfInstancesToPurchase": str,
-        "instanceFamily": str,
-        "instanceType": str,
-        "reservedInstancesRegion": str,
-        "sizeFlexEligible": bool,
-        "currentGeneration": str,
-        "upfrontCost": str,
-        "monthlyRecurringCost": str,
-        "licenseModel": str,
-        "databaseEdition": str,
-        "databaseEngine": str,
-        "deploymentOption": str,
-    },
-    total=False,
-)
-
-RdsReservedInstancesTypeDef = TypedDict(
-    "RdsReservedInstancesTypeDef",
-    {
-        "configuration": "RdsReservedInstancesConfigurationTypeDef",
-        "costCalculation": "ReservedInstancesCostCalculationTypeDef",
-    },
-    total=False,
-)
-
-RecommendationSummaryTypeDef = TypedDict(
-    "RecommendationSummaryTypeDef",
-    {
-        "group": str,
-        "estimatedMonthlySavings": float,
-        "recommendationCount": int,
-    },
-    total=False,
-)
-
-RecommendationTypeDef = TypedDict(
-    "RecommendationTypeDef",
-    {
-        "recommendationId": str,
-        "accountId": str,
-        "region": str,
-        "resourceId": str,
-        "resourceArn": str,
-        "currentResourceType": str,
-        "recommendedResourceType": str,
-        "estimatedMonthlySavings": float,
-        "estimatedSavingsPercentage": float,
-        "estimatedMonthlyCost": float,
-        "currencyCode": str,
-        "implementationEffort": str,
-        "restartNeeded": bool,
-        "actionType": str,
-        "rollbackPossible": bool,
-        "currentResourceSummary": str,
-        "recommendedResourceSummary": str,
-        "lastRefreshTimestamp": datetime,
-        "recommendationLookbackPeriodInDays": int,
-        "source": SourceType,
-        "tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-RedshiftReservedInstancesConfigurationTypeDef = TypedDict(
-    "RedshiftReservedInstancesConfigurationTypeDef",
-    {
-        "accountScope": str,
-        "service": str,
-        "normalizedUnitsToPurchase": str,
-        "term": str,
-        "paymentOption": str,
-        "numberOfInstancesToPurchase": str,
-        "instanceFamily": str,
-        "instanceType": str,
-        "reservedInstancesRegion": str,
-        "sizeFlexEligible": bool,
-        "currentGeneration": str,
-        "upfrontCost": str,
-        "monthlyRecurringCost": str,
-    },
-    total=False,
-)
-
-RedshiftReservedInstancesTypeDef = TypedDict(
-    "RedshiftReservedInstancesTypeDef",
-    {
-        "configuration": "RedshiftReservedInstancesConfigurationTypeDef",
-        "costCalculation": "ReservedInstancesCostCalculationTypeDef",
-    },
-    total=False,
-)
-
-ReservedInstancesCostCalculationTypeDef = TypedDict(
-    "ReservedInstancesCostCalculationTypeDef",
-    {
-        "pricing": "ReservedInstancesPricingTypeDef",
-    },
-    total=False,
-)
-
-ReservedInstancesPricingTypeDef = TypedDict(
-    "ReservedInstancesPricingTypeDef",
-    {
-        "estimatedOnDemandCost": float,
-        "monthlyReservationEligibleCost": float,
-        "savingsPercentage": float,
-        "estimatedMonthlyAmortizedReservationCost": float,
-    },
-    total=False,
-)
-
-ResourceCostCalculationTypeDef = TypedDict(
-    "ResourceCostCalculationTypeDef",
-    {
-        "usages": List["UsageTypeDef"],
-        "pricing": "ResourcePricingTypeDef",
-    },
-    total=False,
-)
-
-ResourceDetailsTypeDef = TypedDict(
-    "ResourceDetailsTypeDef",
-    {
-        "lambdaFunction": "LambdaFunctionTypeDef",
-        "ecsService": "EcsServiceTypeDef",
-        "ec2Instance": "Ec2InstanceTypeDef",
-        "ebsVolume": "EbsVolumeTypeDef",
-        "ec2AutoScalingGroup": "Ec2AutoScalingGroupTypeDef",
-        "ec2ReservedInstances": "Ec2ReservedInstancesTypeDef",
-        "rdsReservedInstances": "RdsReservedInstancesTypeDef",
-        "elastiCacheReservedInstances": "ElastiCacheReservedInstancesTypeDef",
-        "openSearchReservedInstances": "OpenSearchReservedInstancesTypeDef",
-        "redshiftReservedInstances": "RedshiftReservedInstancesTypeDef",
-        "ec2InstanceSavingsPlans": "Ec2InstanceSavingsPlansTypeDef",
-        "computeSavingsPlans": "ComputeSavingsPlansTypeDef",
-        "sageMakerSavingsPlans": "SageMakerSavingsPlansTypeDef",
-        "rdsDbInstance": "RdsDbInstanceTypeDef",
-        "rdsDbInstanceStorage": "RdsDbInstanceStorageTypeDef",
-    },
-    total=False,
-)
-
-ResourcePricingTypeDef = TypedDict(
-    "ResourcePricingTypeDef",
-    {
-        "estimatedCostBeforeDiscounts": float,
-        "estimatedNetUnusedAmortizedCommitments": float,
-        "estimatedDiscounts": "EstimatedDiscountsTypeDef",
-        "estimatedCostAfterDiscounts": float,
-    },
-    total=False,
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-SageMakerSavingsPlansConfigurationTypeDef = TypedDict(
-    "SageMakerSavingsPlansConfigurationTypeDef",
-    {
-        "accountScope": str,
-        "term": str,
-        "paymentOption": str,
-        "hourlyCommitment": str,
-    },
-    total=False,
-)
-
-SageMakerSavingsPlansTypeDef = TypedDict(
-    "SageMakerSavingsPlansTypeDef",
-    {
-        "configuration": "SageMakerSavingsPlansConfigurationTypeDef",
-        "costCalculation": "SavingsPlansCostCalculationTypeDef",
-    },
-    total=False,
-)
-
-SavingsPlansCostCalculationTypeDef = TypedDict(
-    "SavingsPlansCostCalculationTypeDef",
-    {
-        "pricing": "SavingsPlansPricingTypeDef",
-    },
-    total=False,
-)
-
-SavingsPlansPricingTypeDef = TypedDict(
-    "SavingsPlansPricingTypeDef",
-    {
-        "monthlySavingsPlansEligibleCost": float,
-        "estimatedMonthlyCommitment": float,
-        "savingsPercentage": float,
-        "estimatedOnDemandCost": float,
-    },
-    total=False,
-)
+class DynamoDbReservedCapacityConfigurationTypeDef(TypedDict):
+    accountScope: NotRequired[str]
+    service: NotRequired[str]
+    term: NotRequired[str]
+    paymentOption: NotRequired[str]
+    reservedInstancesRegion: NotRequired[str]
+    upfrontCost: NotRequired[str]
+    monthlyRecurringCost: NotRequired[str]
+    numberOfCapacityUnitsToPurchase: NotRequired[str]
+    capacityUnits: NotRequired[str]
 
 StorageConfigurationTypeDef = TypedDict(
     "StorageConfigurationTypeDef",
     {
-        "type": str,
-        "sizeInGb": float,
-    },
-    total=False,
-)
-
-TagTypeDef = TypedDict(
-    "TagTypeDef",
-    {
-        "key": str,
-        "value": str,
-    },
-    total=False,
-)
-
-_RequiredUpdateEnrollmentStatusRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateEnrollmentStatusRequestRequestTypeDef",
-    {
-        "status": EnrollmentStatusType,
+        "type": NotRequired[str],
+        "sizeInGb": NotRequired[float],
     },
 )
-_OptionalUpdateEnrollmentStatusRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateEnrollmentStatusRequestRequestTypeDef",
+InstanceConfigurationTypeDef = TypedDict(
+    "InstanceConfigurationTypeDef",
     {
-        "includeMemberAccounts": bool,
+        "type": NotRequired[str],
     },
-    total=False,
 )
-
-class UpdateEnrollmentStatusRequestRequestTypeDef(
-    _RequiredUpdateEnrollmentStatusRequestRequestTypeDef,
-    _OptionalUpdateEnrollmentStatusRequestRequestTypeDef,
-):
-    pass
-
-UpdateEnrollmentStatusResponseTypeDef = TypedDict(
-    "UpdateEnrollmentStatusResponseTypeDef",
+MixedInstanceConfigurationTypeDef = TypedDict(
+    "MixedInstanceConfigurationTypeDef",
     {
-        "status": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "type": NotRequired[str],
     },
 )
 
-UpdatePreferencesRequestRequestTypeDef = TypedDict(
-    "UpdatePreferencesRequestRequestTypeDef",
+class Ec2InstanceSavingsPlansConfigurationTypeDef(TypedDict):
+    accountScope: NotRequired[str]
+    term: NotRequired[str]
+    paymentOption: NotRequired[str]
+    hourlyCommitment: NotRequired[str]
+    instanceFamily: NotRequired[str]
+    savingsPlansRegion: NotRequired[str]
+
+class Ec2ReservedInstancesConfigurationTypeDef(TypedDict):
+    accountScope: NotRequired[str]
+    service: NotRequired[str]
+    term: NotRequired[str]
+    paymentOption: NotRequired[str]
+    reservedInstancesRegion: NotRequired[str]
+    upfrontCost: NotRequired[str]
+    monthlyRecurringCost: NotRequired[str]
+    normalizedUnitsToPurchase: NotRequired[str]
+    numberOfInstancesToPurchase: NotRequired[str]
+    offeringClass: NotRequired[str]
+    instanceFamily: NotRequired[str]
+    instanceType: NotRequired[str]
+    currentGeneration: NotRequired[str]
+    platform: NotRequired[str]
+    tenancy: NotRequired[str]
+    sizeFlexEligible: NotRequired[bool]
+
+class ElastiCacheReservedInstancesConfigurationTypeDef(TypedDict):
+    accountScope: NotRequired[str]
+    service: NotRequired[str]
+    term: NotRequired[str]
+    paymentOption: NotRequired[str]
+    reservedInstancesRegion: NotRequired[str]
+    upfrontCost: NotRequired[str]
+    monthlyRecurringCost: NotRequired[str]
+    normalizedUnitsToPurchase: NotRequired[str]
+    numberOfInstancesToPurchase: NotRequired[str]
+    instanceFamily: NotRequired[str]
+    instanceType: NotRequired[str]
+    currentGeneration: NotRequired[str]
+    sizeFlexEligible: NotRequired[bool]
+
+class EstimatedDiscountsTypeDef(TypedDict):
+    savingsPlansDiscount: NotRequired[float]
+    reservedInstancesDiscount: NotRequired[float]
+    otherDiscount: NotRequired[float]
+
+class TagTypeDef(TypedDict):
+    key: NotRequired[str]
+    value: NotRequired[str]
+
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
+
+class GetRecommendationRequestTypeDef(TypedDict):
+    recommendationId: str
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class ListEnrollmentStatusesRequestTypeDef(TypedDict):
+    includeOrganizationInfo: NotRequired[bool]
+    accountId: NotRequired[str]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class RecommendationSummaryTypeDef(TypedDict):
+    group: NotRequired[str]
+    estimatedMonthlySavings: NotRequired[float]
+    recommendationCount: NotRequired[int]
+
+class SummaryMetricsResultTypeDef(TypedDict):
+    savingsPercentage: NotRequired[str]
+
+class OrderByTypeDef(TypedDict):
+    dimension: NotRequired[str]
+    order: NotRequired[OrderType]
+
+class MemoryDbReservedInstancesConfigurationTypeDef(TypedDict):
+    accountScope: NotRequired[str]
+    service: NotRequired[str]
+    term: NotRequired[str]
+    paymentOption: NotRequired[str]
+    reservedInstancesRegion: NotRequired[str]
+    upfrontCost: NotRequired[str]
+    monthlyRecurringCost: NotRequired[str]
+    normalizedUnitsToPurchase: NotRequired[str]
+    numberOfInstancesToPurchase: NotRequired[str]
+    instanceType: NotRequired[str]
+    instanceFamily: NotRequired[str]
+    sizeFlexEligible: NotRequired[bool]
+    currentGeneration: NotRequired[str]
+
+class OpenSearchReservedInstancesConfigurationTypeDef(TypedDict):
+    accountScope: NotRequired[str]
+    service: NotRequired[str]
+    term: NotRequired[str]
+    paymentOption: NotRequired[str]
+    reservedInstancesRegion: NotRequired[str]
+    upfrontCost: NotRequired[str]
+    monthlyRecurringCost: NotRequired[str]
+    normalizedUnitsToPurchase: NotRequired[str]
+    numberOfInstancesToPurchase: NotRequired[str]
+    instanceType: NotRequired[str]
+    currentGeneration: NotRequired[str]
+    sizeFlexEligible: NotRequired[bool]
+
+class RdsDbInstanceStorageConfigurationTypeDef(TypedDict):
+    storageType: NotRequired[str]
+    allocatedStorageInGb: NotRequired[float]
+    iops: NotRequired[float]
+    storageThroughput: NotRequired[float]
+
+class RdsReservedInstancesConfigurationTypeDef(TypedDict):
+    accountScope: NotRequired[str]
+    service: NotRequired[str]
+    term: NotRequired[str]
+    paymentOption: NotRequired[str]
+    reservedInstancesRegion: NotRequired[str]
+    upfrontCost: NotRequired[str]
+    monthlyRecurringCost: NotRequired[str]
+    normalizedUnitsToPurchase: NotRequired[str]
+    numberOfInstancesToPurchase: NotRequired[str]
+    instanceFamily: NotRequired[str]
+    instanceType: NotRequired[str]
+    sizeFlexEligible: NotRequired[bool]
+    currentGeneration: NotRequired[str]
+    licenseModel: NotRequired[str]
+    databaseEdition: NotRequired[str]
+    databaseEngine: NotRequired[str]
+    deploymentOption: NotRequired[str]
+
+class RedshiftReservedInstancesConfigurationTypeDef(TypedDict):
+    accountScope: NotRequired[str]
+    service: NotRequired[str]
+    term: NotRequired[str]
+    paymentOption: NotRequired[str]
+    reservedInstancesRegion: NotRequired[str]
+    upfrontCost: NotRequired[str]
+    monthlyRecurringCost: NotRequired[str]
+    normalizedUnitsToPurchase: NotRequired[str]
+    numberOfInstancesToPurchase: NotRequired[str]
+    instanceFamily: NotRequired[str]
+    instanceType: NotRequired[str]
+    sizeFlexEligible: NotRequired[bool]
+    currentGeneration: NotRequired[str]
+
+class ReservedInstancesPricingTypeDef(TypedDict):
+    estimatedOnDemandCost: NotRequired[float]
+    monthlyReservationEligibleCost: NotRequired[float]
+    savingsPercentage: NotRequired[float]
+    estimatedMonthlyAmortizedReservationCost: NotRequired[float]
+
+class UsageTypeDef(TypedDict):
+    usageType: NotRequired[str]
+    usageAmount: NotRequired[float]
+    operation: NotRequired[str]
+    productCode: NotRequired[str]
+    unit: NotRequired[str]
+
+class SageMakerSavingsPlansConfigurationTypeDef(TypedDict):
+    accountScope: NotRequired[str]
+    term: NotRequired[str]
+    paymentOption: NotRequired[str]
+    hourlyCommitment: NotRequired[str]
+
+class SavingsPlansPricingTypeDef(TypedDict):
+    monthlySavingsPlansEligibleCost: NotRequired[float]
+    estimatedMonthlyCommitment: NotRequired[float]
+    savingsPercentage: NotRequired[float]
+    estimatedOnDemandCost: NotRequired[float]
+
+class UpdateEnrollmentStatusRequestTypeDef(TypedDict):
+    status: EnrollmentStatusType
+    includeMemberAccounts: NotRequired[bool]
+
+class UpdatePreferencesRequestTypeDef(TypedDict):
+    savingsEstimationMode: NotRequired[SavingsEstimationModeType]
+    memberAccountDiscountVisibility: NotRequired[MemberAccountDiscountVisibilityType]
+
+class EcsServiceConfigurationTypeDef(TypedDict):
+    compute: NotRequired[ComputeConfigurationTypeDef]
+
+class LambdaFunctionConfigurationTypeDef(TypedDict):
+    compute: NotRequired[ComputeConfigurationTypeDef]
+
+class RdsDbInstanceConfigurationTypeDef(TypedDict):
+    instance: NotRequired[DbInstanceConfigurationTypeDef]
+
+class EbsVolumeConfigurationTypeDef(TypedDict):
+    storage: NotRequired[StorageConfigurationTypeDef]
+    performance: NotRequired[BlockStoragePerformanceConfigurationTypeDef]
+    attachmentState: NotRequired[str]
+
+class Ec2InstanceConfigurationTypeDef(TypedDict):
+    instance: NotRequired[InstanceConfigurationTypeDef]
+
+Ec2AutoScalingGroupConfigurationTypeDef = TypedDict(
+    "Ec2AutoScalingGroupConfigurationTypeDef",
     {
-        "savingsEstimationMode": SavingsEstimationModeType,
-        "memberAccountDiscountVisibility": MemberAccountDiscountVisibilityType,
+        "instance": NotRequired[InstanceConfigurationTypeDef],
+        "mixedInstances": NotRequired[List[MixedInstanceConfigurationTypeDef]],
+        "type": NotRequired[Ec2AutoScalingGroupTypeType],
+        "allocationStrategy": NotRequired[AllocationStrategyType],
     },
-    total=False,
 )
 
-UpdatePreferencesResponseTypeDef = TypedDict(
-    "UpdatePreferencesResponseTypeDef",
+class ResourcePricingTypeDef(TypedDict):
+    estimatedCostBeforeDiscounts: NotRequired[float]
+    estimatedNetUnusedAmortizedCommitments: NotRequired[float]
+    estimatedDiscounts: NotRequired[EstimatedDiscountsTypeDef]
+    estimatedCostAfterDiscounts: NotRequired[float]
+
+class FilterTypeDef(TypedDict):
+    restartNeeded: NotRequired[bool]
+    rollbackPossible: NotRequired[bool]
+    implementationEfforts: NotRequired[Sequence[ImplementationEffortType]]
+    accountIds: NotRequired[Sequence[str]]
+    regions: NotRequired[Sequence[str]]
+    resourceTypes: NotRequired[Sequence[ResourceTypeType]]
+    actionTypes: NotRequired[Sequence[ActionTypeType]]
+    tags: NotRequired[Sequence[TagTypeDef]]
+    resourceIds: NotRequired[Sequence[str]]
+    resourceArns: NotRequired[Sequence[str]]
+    recommendationIds: NotRequired[Sequence[str]]
+
+class RecommendationTypeDef(TypedDict):
+    recommendationId: NotRequired[str]
+    accountId: NotRequired[str]
+    region: NotRequired[str]
+    resourceId: NotRequired[str]
+    resourceArn: NotRequired[str]
+    currentResourceType: NotRequired[str]
+    recommendedResourceType: NotRequired[str]
+    estimatedMonthlySavings: NotRequired[float]
+    estimatedSavingsPercentage: NotRequired[float]
+    estimatedMonthlyCost: NotRequired[float]
+    currencyCode: NotRequired[str]
+    implementationEffort: NotRequired[str]
+    restartNeeded: NotRequired[bool]
+    actionType: NotRequired[str]
+    rollbackPossible: NotRequired[bool]
+    currentResourceSummary: NotRequired[str]
+    recommendedResourceSummary: NotRequired[str]
+    lastRefreshTimestamp: NotRequired[datetime]
+    recommendationLookbackPeriodInDays: NotRequired[int]
+    source: NotRequired[SourceType]
+    tags: NotRequired[List[TagTypeDef]]
+
+class GetPreferencesResponseTypeDef(TypedDict):
+    savingsEstimationMode: SavingsEstimationModeType
+    memberAccountDiscountVisibility: MemberAccountDiscountVisibilityType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListEnrollmentStatusesResponseTypeDef(TypedDict):
+    items: List[AccountEnrollmentStatusTypeDef]
+    includeMemberAccounts: bool
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class UpdateEnrollmentStatusResponseTypeDef(TypedDict):
+    status: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdatePreferencesResponseTypeDef(TypedDict):
+    savingsEstimationMode: SavingsEstimationModeType
+    memberAccountDiscountVisibility: MemberAccountDiscountVisibilityType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListEnrollmentStatusesRequestPaginateTypeDef(TypedDict):
+    includeOrganizationInfo: NotRequired[bool]
+    accountId: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListRecommendationSummariesResponseTypeDef(TypedDict):
+    estimatedTotalDedupedSavings: float
+    items: List[RecommendationSummaryTypeDef]
+    groupBy: str
+    currencyCode: str
+    metrics: SummaryMetricsResultTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ReservedInstancesCostCalculationTypeDef(TypedDict):
+    pricing: NotRequired[ReservedInstancesPricingTypeDef]
+
+class SavingsPlansCostCalculationTypeDef(TypedDict):
+    pricing: NotRequired[SavingsPlansPricingTypeDef]
+
+class ResourceCostCalculationTypeDef(TypedDict):
+    usages: NotRequired[List[UsageTypeDef]]
+    pricing: NotRequired[ResourcePricingTypeDef]
+
+ListRecommendationSummariesRequestPaginateTypeDef = TypedDict(
+    "ListRecommendationSummariesRequestPaginateTypeDef",
     {
-        "savingsEstimationMode": SavingsEstimationModeType,
-        "memberAccountDiscountVisibility": MemberAccountDiscountVisibilityType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "groupBy": str,
+        "filter": NotRequired[FilterTypeDef],
+        "metrics": NotRequired[Sequence[Literal["SavingsPercentage"]]],
+        "PaginationConfig": NotRequired[PaginatorConfigTypeDef],
+    },
+)
+ListRecommendationSummariesRequestTypeDef = TypedDict(
+    "ListRecommendationSummariesRequestTypeDef",
+    {
+        "groupBy": str,
+        "filter": NotRequired[FilterTypeDef],
+        "maxResults": NotRequired[int],
+        "metrics": NotRequired[Sequence[Literal["SavingsPercentage"]]],
+        "nextToken": NotRequired[str],
+    },
+)
+ListRecommendationsRequestPaginateTypeDef = TypedDict(
+    "ListRecommendationsRequestPaginateTypeDef",
+    {
+        "filter": NotRequired[FilterTypeDef],
+        "orderBy": NotRequired[OrderByTypeDef],
+        "includeAllRecommendations": NotRequired[bool],
+        "PaginationConfig": NotRequired[PaginatorConfigTypeDef],
+    },
+)
+ListRecommendationsRequestTypeDef = TypedDict(
+    "ListRecommendationsRequestTypeDef",
+    {
+        "filter": NotRequired[FilterTypeDef],
+        "orderBy": NotRequired[OrderByTypeDef],
+        "includeAllRecommendations": NotRequired[bool],
+        "maxResults": NotRequired[int],
+        "nextToken": NotRequired[str],
     },
 )
 
-UsageTypeDef = TypedDict(
-    "UsageTypeDef",
-    {
-        "usageType": str,
-        "usageAmount": float,
-        "operation": str,
-        "productCode": str,
-        "unit": str,
-    },
-    total=False,
-)
+class ListRecommendationsResponseTypeDef(TypedDict):
+    items: List[RecommendationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class DynamoDbReservedCapacityTypeDef(TypedDict):
+    configuration: NotRequired[DynamoDbReservedCapacityConfigurationTypeDef]
+    costCalculation: NotRequired[ReservedInstancesCostCalculationTypeDef]
+
+class Ec2ReservedInstancesTypeDef(TypedDict):
+    configuration: NotRequired[Ec2ReservedInstancesConfigurationTypeDef]
+    costCalculation: NotRequired[ReservedInstancesCostCalculationTypeDef]
+
+class ElastiCacheReservedInstancesTypeDef(TypedDict):
+    configuration: NotRequired[ElastiCacheReservedInstancesConfigurationTypeDef]
+    costCalculation: NotRequired[ReservedInstancesCostCalculationTypeDef]
+
+class MemoryDbReservedInstancesTypeDef(TypedDict):
+    configuration: NotRequired[MemoryDbReservedInstancesConfigurationTypeDef]
+    costCalculation: NotRequired[ReservedInstancesCostCalculationTypeDef]
+
+class OpenSearchReservedInstancesTypeDef(TypedDict):
+    configuration: NotRequired[OpenSearchReservedInstancesConfigurationTypeDef]
+    costCalculation: NotRequired[ReservedInstancesCostCalculationTypeDef]
+
+class RdsReservedInstancesTypeDef(TypedDict):
+    configuration: NotRequired[RdsReservedInstancesConfigurationTypeDef]
+    costCalculation: NotRequired[ReservedInstancesCostCalculationTypeDef]
+
+class RedshiftReservedInstancesTypeDef(TypedDict):
+    configuration: NotRequired[RedshiftReservedInstancesConfigurationTypeDef]
+    costCalculation: NotRequired[ReservedInstancesCostCalculationTypeDef]
+
+class ComputeSavingsPlansTypeDef(TypedDict):
+    configuration: NotRequired[ComputeSavingsPlansConfigurationTypeDef]
+    costCalculation: NotRequired[SavingsPlansCostCalculationTypeDef]
+
+class Ec2InstanceSavingsPlansTypeDef(TypedDict):
+    configuration: NotRequired[Ec2InstanceSavingsPlansConfigurationTypeDef]
+    costCalculation: NotRequired[SavingsPlansCostCalculationTypeDef]
+
+class SageMakerSavingsPlansTypeDef(TypedDict):
+    configuration: NotRequired[SageMakerSavingsPlansConfigurationTypeDef]
+    costCalculation: NotRequired[SavingsPlansCostCalculationTypeDef]
+
+class EbsVolumeTypeDef(TypedDict):
+    configuration: NotRequired[EbsVolumeConfigurationTypeDef]
+    costCalculation: NotRequired[ResourceCostCalculationTypeDef]
+
+class Ec2AutoScalingGroupTypeDef(TypedDict):
+    configuration: NotRequired[Ec2AutoScalingGroupConfigurationTypeDef]
+    costCalculation: NotRequired[ResourceCostCalculationTypeDef]
+
+class Ec2InstanceTypeDef(TypedDict):
+    configuration: NotRequired[Ec2InstanceConfigurationTypeDef]
+    costCalculation: NotRequired[ResourceCostCalculationTypeDef]
+
+class EcsServiceTypeDef(TypedDict):
+    configuration: NotRequired[EcsServiceConfigurationTypeDef]
+    costCalculation: NotRequired[ResourceCostCalculationTypeDef]
+
+class LambdaFunctionTypeDef(TypedDict):
+    configuration: NotRequired[LambdaFunctionConfigurationTypeDef]
+    costCalculation: NotRequired[ResourceCostCalculationTypeDef]
+
+class RdsDbInstanceStorageTypeDef(TypedDict):
+    configuration: NotRequired[RdsDbInstanceStorageConfigurationTypeDef]
+    costCalculation: NotRequired[ResourceCostCalculationTypeDef]
+
+class RdsDbInstanceTypeDef(TypedDict):
+    configuration: NotRequired[RdsDbInstanceConfigurationTypeDef]
+    costCalculation: NotRequired[ResourceCostCalculationTypeDef]
+
+class ResourceDetailsTypeDef(TypedDict):
+    lambdaFunction: NotRequired[LambdaFunctionTypeDef]
+    ecsService: NotRequired[EcsServiceTypeDef]
+    ec2Instance: NotRequired[Ec2InstanceTypeDef]
+    ebsVolume: NotRequired[EbsVolumeTypeDef]
+    ec2AutoScalingGroup: NotRequired[Ec2AutoScalingGroupTypeDef]
+    ec2ReservedInstances: NotRequired[Ec2ReservedInstancesTypeDef]
+    rdsReservedInstances: NotRequired[RdsReservedInstancesTypeDef]
+    elastiCacheReservedInstances: NotRequired[ElastiCacheReservedInstancesTypeDef]
+    openSearchReservedInstances: NotRequired[OpenSearchReservedInstancesTypeDef]
+    redshiftReservedInstances: NotRequired[RedshiftReservedInstancesTypeDef]
+    ec2InstanceSavingsPlans: NotRequired[Ec2InstanceSavingsPlansTypeDef]
+    computeSavingsPlans: NotRequired[ComputeSavingsPlansTypeDef]
+    sageMakerSavingsPlans: NotRequired[SageMakerSavingsPlansTypeDef]
+    rdsDbInstance: NotRequired[RdsDbInstanceTypeDef]
+    rdsDbInstanceStorage: NotRequired[RdsDbInstanceStorageTypeDef]
+    dynamoDbReservedCapacity: NotRequired[DynamoDbReservedCapacityTypeDef]
+    memoryDbReservedInstances: NotRequired[MemoryDbReservedInstancesTypeDef]
+
+class GetRecommendationResponseTypeDef(TypedDict):
+    recommendationId: str
+    resourceId: str
+    resourceArn: str
+    accountId: str
+    currencyCode: str
+    recommendationLookbackPeriodInDays: int
+    costCalculationLookbackPeriodInDays: int
+    estimatedSavingsPercentage: float
+    estimatedSavingsOverCostCalculationLookbackPeriod: float
+    currentResourceType: ResourceTypeType
+    recommendedResourceType: ResourceTypeType
+    region: str
+    source: SourceType
+    lastRefreshTimestamp: datetime
+    estimatedMonthlySavings: float
+    estimatedMonthlyCost: float
+    implementationEffort: ImplementationEffortType
+    restartNeeded: bool
+    actionType: ActionTypeType
+    rollbackPossible: bool
+    currentResourceDetails: ResourceDetailsTypeDef
+    recommendedResourceDetails: ResourceDetailsTypeDef
+    tags: List[TagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef

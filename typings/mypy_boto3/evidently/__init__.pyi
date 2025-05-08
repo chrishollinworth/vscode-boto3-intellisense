@@ -1,10 +1,14 @@
 """
 Main interface for evidently service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_evidently/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_evidently import (
         Client,
         CloudWatchEvidentlyClient,
@@ -16,10 +20,8 @@ Usage::
         ListSegmentsPaginator,
     )
 
-    session = boto3.Session()
-
-    client: CloudWatchEvidentlyClient = boto3.client("evidently")
-    session_client: CloudWatchEvidentlyClient = session.client("evidently")
+    session = Session()
+    client: CloudWatchEvidentlyClient = session.client("evidently")
 
     list_experiments_paginator: ListExperimentsPaginator = client.get_paginator("list_experiments")
     list_features_paginator: ListFeaturesPaginator = client.get_paginator("list_features")

@@ -1,49 +1,58 @@
 """
-Type annotations for ebs service client.
+Type annotations for ebs service Client.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ebs/client.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ebs/client/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
-    from mypy_boto3_ebs import EBSClient
+    from boto3.session import Session
+    from mypy_boto3_ebs.client import EBSClient
 
-    client: EBSClient = boto3.client("ebs")
+    session = Session()
+    client: EBSClient = session.client("ebs")
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from typing import IO, Any, Dict, List, Type, Union
+from typing import Any
 
 from botocore.client import BaseClient, ClientMeta
-from botocore.response import StreamingBody
+from botocore.errorfactory import BaseClientExceptions
+from botocore.exceptions import ClientError as BotocoreClientError
 
 from .type_defs import (
+    CompleteSnapshotRequestTypeDef,
     CompleteSnapshotResponseTypeDef,
+    GetSnapshotBlockRequestTypeDef,
     GetSnapshotBlockResponseTypeDef,
+    ListChangedBlocksRequestTypeDef,
     ListChangedBlocksResponseTypeDef,
+    ListSnapshotBlocksRequestTypeDef,
     ListSnapshotBlocksResponseTypeDef,
+    PutSnapshotBlockRequestTypeDef,
     PutSnapshotBlockResponseTypeDef,
+    StartSnapshotRequestTypeDef,
     StartSnapshotResponseTypeDef,
-    TagTypeDef,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import type as Type
+    from collections.abc import Mapping
 else:
-    from typing_extensions import Literal
+    from typing import Mapping, Type
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = ("EBSClient",)
 
-class BotocoreClientError(BaseException):
-    MSG_TEMPLATE: str
-
-    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
-        self.response: Dict[str, Any]
-        self.operation_name: str
-
-class Exceptions:
+class Exceptions(BaseClientExceptions):
     AccessDeniedException: Type[BotocoreClientError]
     ClientError: Type[BotocoreClientError]
     ConcurrentLimitExceededException: Type[BotocoreClientError]
@@ -56,8 +65,8 @@ class Exceptions:
 
 class EBSClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ebs.html#EBS.Client)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ebs/client.html)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ebs.html#EBS.Client)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ebs/client/)
     """
 
     meta: ClientMeta
@@ -66,130 +75,87 @@ class EBSClient(BaseClient):
     def exceptions(self) -> Exceptions:
         """
         EBSClient exceptions.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ebs.html#EBS.Client)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ebs/client/#exceptions)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        Check if an operation can be paginated.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ebs.html#EBS.Client.can_paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ebs/client.html#can_paginate)
-        """
-
-    def close(self) -> None:
-        """
-        Closes underlying endpoint connections.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ebs.html#EBS.Client.close)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ebs/client.html#close)
-        """
-
-    def complete_snapshot(
-        self,
-        *,
-        SnapshotId: str,
-        ChangedBlocksCount: int,
-        Checksum: str = None,
-        ChecksumAlgorithm: Literal["SHA256"] = None,
-        ChecksumAggregationMethod: Literal["LINEAR"] = None
-    ) -> CompleteSnapshotResponseTypeDef:
-        """
-        Seals and completes the snapshot after all of the required blocks of data have
-        been written to it.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ebs.html#EBS.Client.complete_snapshot)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ebs/client.html#complete_snapshot)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ebs/client/can_paginate.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ebs/client/#can_paginate)
         """
 
     def generate_presigned_url(
         self,
         ClientMethod: str,
-        Params: Dict[str, Any] = None,
+        Params: Mapping[str, Any] = ...,
         ExpiresIn: int = 3600,
-        HttpMethod: str = None,
+        HttpMethod: str = ...,
     ) -> str:
         """
-        Generate a presigned url given a client, its method, and arguments.
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ebs/client/generate_presigned_url.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ebs/client/#generate_presigned_url)
+        """
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ebs.html#EBS.Client.generate_presigned_url)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ebs/client.html#generate_presigned_url)
+    def complete_snapshot(
+        self, **kwargs: Unpack[CompleteSnapshotRequestTypeDef]
+    ) -> CompleteSnapshotResponseTypeDef:
+        """
+        Seals and completes the snapshot after all of the required blocks of data have
+        been written to it.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ebs/client/complete_snapshot.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ebs/client/#complete_snapshot)
         """
 
     def get_snapshot_block(
-        self, *, SnapshotId: str, BlockIndex: int, BlockToken: str
+        self, **kwargs: Unpack[GetSnapshotBlockRequestTypeDef]
     ) -> GetSnapshotBlockResponseTypeDef:
         """
         Returns the data in a block in an Amazon Elastic Block Store snapshot.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ebs.html#EBS.Client.get_snapshot_block)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ebs/client.html#get_snapshot_block)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ebs/client/get_snapshot_block.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ebs/client/#get_snapshot_block)
         """
 
     def list_changed_blocks(
-        self,
-        *,
-        SecondSnapshotId: str,
-        FirstSnapshotId: str = None,
-        NextToken: str = None,
-        MaxResults: int = None,
-        StartingBlockIndex: int = None
+        self, **kwargs: Unpack[ListChangedBlocksRequestTypeDef]
     ) -> ListChangedBlocksResponseTypeDef:
         """
         Returns information about the blocks that are different between two Amazon
         Elastic Block Store snapshots of the same volume/snapshot lineage.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ebs.html#EBS.Client.list_changed_blocks)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ebs/client.html#list_changed_blocks)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ebs/client/list_changed_blocks.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ebs/client/#list_changed_blocks)
         """
 
     def list_snapshot_blocks(
-        self,
-        *,
-        SnapshotId: str,
-        NextToken: str = None,
-        MaxResults: int = None,
-        StartingBlockIndex: int = None
+        self, **kwargs: Unpack[ListSnapshotBlocksRequestTypeDef]
     ) -> ListSnapshotBlocksResponseTypeDef:
         """
         Returns information about the blocks in an Amazon Elastic Block Store snapshot.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ebs.html#EBS.Client.list_snapshot_blocks)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ebs/client.html#list_snapshot_blocks)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ebs/client/list_snapshot_blocks.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ebs/client/#list_snapshot_blocks)
         """
 
     def put_snapshot_block(
-        self,
-        *,
-        SnapshotId: str,
-        BlockIndex: int,
-        BlockData: Union[bytes, IO[bytes], StreamingBody],
-        DataLength: int,
-        Checksum: str,
-        ChecksumAlgorithm: Literal["SHA256"],
-        Progress: int = None
+        self, **kwargs: Unpack[PutSnapshotBlockRequestTypeDef]
     ) -> PutSnapshotBlockResponseTypeDef:
         """
         Writes a block of data to a snapshot.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ebs.html#EBS.Client.put_snapshot_block)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ebs/client.html#put_snapshot_block)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ebs/client/put_snapshot_block.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ebs/client/#put_snapshot_block)
         """
 
     def start_snapshot(
-        self,
-        *,
-        VolumeSize: int,
-        ParentSnapshotId: str = None,
-        Tags: List["TagTypeDef"] = None,
-        Description: str = None,
-        ClientToken: str = None,
-        Encrypted: bool = None,
-        KmsKeyArn: str = None,
-        Timeout: int = None
+        self, **kwargs: Unpack[StartSnapshotRequestTypeDef]
     ) -> StartSnapshotResponseTypeDef:
         """
         Creates a new Amazon EBS snapshot.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ebs.html#EBS.Client.start_snapshot)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ebs/client.html#start_snapshot)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ebs/client/start_snapshot.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ebs/client/#start_snapshot)
         """

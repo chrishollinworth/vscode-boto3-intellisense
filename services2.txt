@@ -32,12 +32,17 @@ autoscaling_plans
 b2bi
 backup
 backup_gateway
+backupsearch
 batch
 bcm_data_exports
+bcm_pricing_calculator
 bedrock
 bedrock_agent
 bedrock_agent_runtime
+bedrock_data_automation
+bedrock_data_automation_runtime
 bedrock_runtime
+billing
 billingconductor
 braket
 budgets
@@ -74,7 +79,6 @@ codeguru_reviewer
 codeguru_security
 codeguruprofiler
 codepipeline
-codestar
 codestar_connections
 codestar_notifications
 cognito_identity
@@ -87,6 +91,7 @@ config
 connect
 connect_contact_lens
 connectcampaigns
+connectcampaignsv2
 connectcases
 connectparticipant
 controlcatalog
@@ -112,6 +117,8 @@ docdb
 docdb_elastic
 drs
 ds
+ds_data
+dsql
 dynamodb
 dynamodbstreams
 ebs
@@ -123,7 +130,6 @@ ecs
 efs
 eks
 eks_auth
-elastic_inference
 elasticache
 elasticbeanstalk
 elastictranscoder
@@ -147,6 +153,10 @@ frauddetector
 freetier
 fsx
 gamelift
+gameliftstreams
+geo_maps
+geo_places
+geo_routes
 glacier
 globalaccelerator
 glue
@@ -165,11 +175,11 @@ inspector
 inspector_scan
 inspector2
 internetmonitor
+invoicing
 iot
 iot_data
 iot_jobs_data
-iot1click_devices
-iot1click_projects
+iot_managed_integrations
 iotanalytics
 iotdeviceadvisor
 iotevents
@@ -224,6 +234,7 @@ marketplace_agreement
 marketplace_catalog
 marketplace_deployment
 marketplace_entitlement
+marketplace_reporting
 marketplacecommerceanalytics
 mediaconnect
 mediaconvert
@@ -243,7 +254,6 @@ migration_hub_refactor_spaces
 migrationhub_config
 migrationhuborchestrator
 migrationhubstrategy
-mobile
 mq
 mturk
 mwaa
@@ -251,10 +261,13 @@ neptune
 neptune_graph
 neptunedata
 network_firewall
+networkflowmonitor
 networkmanager
 networkmonitor
-nimble
+notifications
+notificationscontacts
 oam
+observabilityadmin
 omics
 opensearch
 opensearchserverless
@@ -264,10 +277,12 @@ organizations
 osis
 outposts
 panorama
+partnercentral_selling
 payment_cryptography
 payment_cryptography_data
 pca_connector_ad
 pca_connector_scep
+pcs
 personalize
 personalize_events
 personalize_runtime
@@ -281,6 +296,7 @@ polly
 pricing
 privatenetworks
 proton
+qapps
 qbusiness
 qconnect
 qldb
@@ -312,6 +328,7 @@ rum
 s3
 s3control
 s3outposts
+s3tables
 sagemaker
 sagemaker_a2i_runtime
 sagemaker_edge
@@ -324,6 +341,7 @@ scheduler
 schemas
 sdb
 secretsmanager
+security_ir
 securityhub
 securitylake
 serverlessrepo
@@ -341,10 +359,13 @@ sms_voice
 snow_device_management
 snowball
 sns
+socialmessaging
 sqs
 ssm
 ssm_contacts
+ssm_guiconnect
 ssm_incidents
+ssm_quicksetup
 ssm_sap
 sso
 sso_admin
@@ -376,7 +397,6 @@ wafv2
 wellarchitected
 wisdom
 workdocs
-worklink
 workmail
 workmailmessageflow
 workspaces

@@ -1,20 +1,24 @@
 """
 Type annotations for fms service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fms/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fms/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_fms.type_defs import AccountScopeTypeDef
+    from mypy_boto3_fms.type_defs import AccountScopeOutputTypeDef
 
-    data: AccountScopeTypeDef = {...}
+    data: AccountScopeOutputTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List, Union
+from typing import Union
 
 from .literals import (
     AccountRoleStatusType,
@@ -32,6 +36,7 @@ from .literals import (
     PolicyComplianceStatusTypeType,
     RemediationActionTypeType,
     ResourceSetStatusType,
+    ResourceTagLogicalOperatorType,
     RuleOrderType,
     SecurityServiceTypeType,
     StreamExceptionPolicyType,
@@ -41,42 +46,49 @@ from .literals import (
     ViolationReasonType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
+    "AccountScopeOutputTypeDef",
     "AccountScopeTypeDef",
     "ActionTargetTypeDef",
     "AdminAccountSummaryTypeDef",
+    "AdminScopeOutputTypeDef",
     "AdminScopeTypeDef",
+    "AdminScopeUnionTypeDef",
     "AppTypeDef",
+    "AppsListDataOutputTypeDef",
     "AppsListDataSummaryTypeDef",
     "AppsListDataTypeDef",
-    "AssociateAdminAccountRequestRequestTypeDef",
-    "AssociateThirdPartyFirewallRequestRequestTypeDef",
+    "AppsListDataUnionTypeDef",
+    "AssociateAdminAccountRequestTypeDef",
+    "AssociateThirdPartyFirewallRequestTypeDef",
     "AssociateThirdPartyFirewallResponseTypeDef",
     "AwsEc2InstanceViolationTypeDef",
     "AwsEc2NetworkInterfaceViolationTypeDef",
     "AwsVPCSecurityGroupViolationTypeDef",
-    "BatchAssociateResourceRequestRequestTypeDef",
+    "BatchAssociateResourceRequestTypeDef",
     "BatchAssociateResourceResponseTypeDef",
-    "BatchDisassociateResourceRequestRequestTypeDef",
+    "BatchDisassociateResourceRequestTypeDef",
     "BatchDisassociateResourceResponseTypeDef",
     "ComplianceViolatorTypeDef",
     "CreateNetworkAclActionTypeDef",
     "CreateNetworkAclEntriesActionTypeDef",
-    "DeleteAppsListRequestRequestTypeDef",
+    "DeleteAppsListRequestTypeDef",
     "DeleteNetworkAclEntriesActionTypeDef",
-    "DeletePolicyRequestRequestTypeDef",
-    "DeleteProtocolsListRequestRequestTypeDef",
-    "DeleteResourceSetRequestRequestTypeDef",
-    "DisassociateThirdPartyFirewallRequestRequestTypeDef",
+    "DeletePolicyRequestTypeDef",
+    "DeleteProtocolsListRequestTypeDef",
+    "DeleteResourceSetRequestTypeDef",
+    "DisassociateThirdPartyFirewallRequestTypeDef",
     "DisassociateThirdPartyFirewallResponseTypeDef",
     "DiscoveredResourceTypeDef",
     "DnsDuplicateRuleGroupViolationTypeDef",
@@ -89,6 +101,7 @@ __all__ = (
     "EC2DeleteRouteActionTypeDef",
     "EC2ReplaceRouteActionTypeDef",
     "EC2ReplaceRouteTableAssociationActionTypeDef",
+    "EmptyResponseMetadataTypeDef",
     "EntryDescriptionTypeDef",
     "EntryViolationTypeDef",
     "EvaluationResultTypeDef",
@@ -98,51 +111,61 @@ __all__ = (
     "FirewallSubnetIsOutOfScopeViolationTypeDef",
     "FirewallSubnetMissingVPCEndpointViolationTypeDef",
     "GetAdminAccountResponseTypeDef",
-    "GetAdminScopeRequestRequestTypeDef",
+    "GetAdminScopeRequestTypeDef",
     "GetAdminScopeResponseTypeDef",
-    "GetAppsListRequestRequestTypeDef",
+    "GetAppsListRequestTypeDef",
     "GetAppsListResponseTypeDef",
-    "GetComplianceDetailRequestRequestTypeDef",
+    "GetComplianceDetailRequestTypeDef",
     "GetComplianceDetailResponseTypeDef",
     "GetNotificationChannelResponseTypeDef",
-    "GetPolicyRequestRequestTypeDef",
+    "GetPolicyRequestTypeDef",
     "GetPolicyResponseTypeDef",
-    "GetProtectionStatusRequestRequestTypeDef",
+    "GetProtectionStatusRequestTypeDef",
     "GetProtectionStatusResponseTypeDef",
-    "GetProtocolsListRequestRequestTypeDef",
+    "GetProtocolsListRequestTypeDef",
     "GetProtocolsListResponseTypeDef",
-    "GetResourceSetRequestRequestTypeDef",
+    "GetResourceSetRequestTypeDef",
     "GetResourceSetResponseTypeDef",
-    "GetThirdPartyFirewallAssociationStatusRequestRequestTypeDef",
+    "GetThirdPartyFirewallAssociationStatusRequestTypeDef",
     "GetThirdPartyFirewallAssociationStatusResponseTypeDef",
-    "GetViolationDetailsRequestRequestTypeDef",
+    "GetViolationDetailsRequestTypeDef",
     "GetViolationDetailsResponseTypeDef",
     "InvalidNetworkAclEntriesViolationTypeDef",
-    "ListAdminAccountsForOrganizationRequestRequestTypeDef",
+    "ListAdminAccountsForOrganizationRequestPaginateTypeDef",
+    "ListAdminAccountsForOrganizationRequestTypeDef",
     "ListAdminAccountsForOrganizationResponseTypeDef",
-    "ListAdminsManagingAccountRequestRequestTypeDef",
+    "ListAdminsManagingAccountRequestPaginateTypeDef",
+    "ListAdminsManagingAccountRequestTypeDef",
     "ListAdminsManagingAccountResponseTypeDef",
-    "ListAppsListsRequestRequestTypeDef",
+    "ListAppsListsRequestPaginateTypeDef",
+    "ListAppsListsRequestTypeDef",
     "ListAppsListsResponseTypeDef",
-    "ListComplianceStatusRequestRequestTypeDef",
+    "ListComplianceStatusRequestPaginateTypeDef",
+    "ListComplianceStatusRequestTypeDef",
     "ListComplianceStatusResponseTypeDef",
-    "ListDiscoveredResourcesRequestRequestTypeDef",
+    "ListDiscoveredResourcesRequestTypeDef",
     "ListDiscoveredResourcesResponseTypeDef",
-    "ListMemberAccountsRequestRequestTypeDef",
+    "ListMemberAccountsRequestPaginateTypeDef",
+    "ListMemberAccountsRequestTypeDef",
     "ListMemberAccountsResponseTypeDef",
-    "ListPoliciesRequestRequestTypeDef",
+    "ListPoliciesRequestPaginateTypeDef",
+    "ListPoliciesRequestTypeDef",
     "ListPoliciesResponseTypeDef",
-    "ListProtocolsListsRequestRequestTypeDef",
+    "ListProtocolsListsRequestPaginateTypeDef",
+    "ListProtocolsListsRequestTypeDef",
     "ListProtocolsListsResponseTypeDef",
-    "ListResourceSetResourcesRequestRequestTypeDef",
+    "ListResourceSetResourcesRequestTypeDef",
     "ListResourceSetResourcesResponseTypeDef",
-    "ListResourceSetsRequestRequestTypeDef",
+    "ListResourceSetsRequestTypeDef",
     "ListResourceSetsResponseTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
-    "ListThirdPartyFirewallFirewallPoliciesRequestRequestTypeDef",
+    "ListThirdPartyFirewallFirewallPoliciesRequestPaginateTypeDef",
+    "ListThirdPartyFirewallFirewallPoliciesRequestTypeDef",
     "ListThirdPartyFirewallFirewallPoliciesResponseTypeDef",
+    "NetworkAclCommonPolicyOutputTypeDef",
     "NetworkAclCommonPolicyTypeDef",
+    "NetworkAclEntrySetOutputTypeDef",
     "NetworkAclEntrySetTypeDef",
     "NetworkAclEntryTypeDef",
     "NetworkAclIcmpTypeCodeTypeDef",
@@ -160,35 +183,45 @@ __all__ = (
     "NetworkFirewallStatefulRuleGroupOverrideTypeDef",
     "NetworkFirewallUnexpectedFirewallRoutesViolationTypeDef",
     "NetworkFirewallUnexpectedGatewayRoutesViolationTypeDef",
+    "OrganizationalUnitScopeOutputTypeDef",
     "OrganizationalUnitScopeTypeDef",
     "PaginatorConfigTypeDef",
     "PartialMatchTypeDef",
     "PolicyComplianceDetailTypeDef",
     "PolicyComplianceStatusTypeDef",
+    "PolicyOptionOutputTypeDef",
     "PolicyOptionTypeDef",
+    "PolicyOutputTypeDef",
     "PolicySummaryTypeDef",
     "PolicyTypeDef",
+    "PolicyTypeScopeOutputTypeDef",
     "PolicyTypeScopeTypeDef",
+    "PolicyUnionTypeDef",
     "PossibleRemediationActionTypeDef",
     "PossibleRemediationActionsTypeDef",
+    "ProtocolsListDataOutputTypeDef",
     "ProtocolsListDataSummaryTypeDef",
     "ProtocolsListDataTypeDef",
-    "PutAdminAccountRequestRequestTypeDef",
-    "PutAppsListRequestRequestTypeDef",
+    "ProtocolsListDataUnionTypeDef",
+    "PutAdminAccountRequestTypeDef",
+    "PutAppsListRequestTypeDef",
     "PutAppsListResponseTypeDef",
-    "PutNotificationChannelRequestRequestTypeDef",
-    "PutPolicyRequestRequestTypeDef",
+    "PutNotificationChannelRequestTypeDef",
+    "PutPolicyRequestTypeDef",
     "PutPolicyResponseTypeDef",
-    "PutProtocolsListRequestRequestTypeDef",
+    "PutProtocolsListRequestTypeDef",
     "PutProtocolsListResponseTypeDef",
-    "PutResourceSetRequestRequestTypeDef",
+    "PutResourceSetRequestTypeDef",
     "PutResourceSetResponseTypeDef",
+    "RegionScopeOutputTypeDef",
     "RegionScopeTypeDef",
     "RemediationActionTypeDef",
     "RemediationActionWithOrderTypeDef",
     "ReplaceNetworkAclAssociationActionTypeDef",
+    "ResourceSetOutputTypeDef",
     "ResourceSetSummaryTypeDef",
     "ResourceSetTypeDef",
+    "ResourceSetUnionTypeDef",
     "ResourceTagTypeDef",
     "ResourceTypeDef",
     "ResourceViolationTypeDef",
@@ -197,60 +230,69 @@ __all__ = (
     "RouteTypeDef",
     "SecurityGroupRemediationActionTypeDef",
     "SecurityGroupRuleDescriptionTypeDef",
+    "SecurityServicePolicyDataOutputTypeDef",
     "SecurityServicePolicyDataTypeDef",
     "StatefulEngineOptionsTypeDef",
     "StatefulRuleGroupTypeDef",
     "StatelessRuleGroupTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
     "TagTypeDef",
     "ThirdPartyFirewallFirewallPolicyTypeDef",
     "ThirdPartyFirewallMissingExpectedRouteTableViolationTypeDef",
     "ThirdPartyFirewallMissingFirewallViolationTypeDef",
     "ThirdPartyFirewallMissingSubnetViolationTypeDef",
     "ThirdPartyFirewallPolicyTypeDef",
-    "UntagResourceRequestRequestTypeDef",
+    "TimestampTypeDef",
+    "UntagResourceRequestTypeDef",
     "ViolationDetailTypeDef",
+    "WebACLHasIncompatibleConfigurationViolationTypeDef",
+    "WebACLHasOutOfScopeResourcesViolationTypeDef",
 )
 
-AccountScopeTypeDef = TypedDict(
-    "AccountScopeTypeDef",
-    {
-        "Accounts": List[str],
-        "AllAccountsEnabled": bool,
-        "ExcludeSpecifiedAccounts": bool,
-    },
-    total=False,
-)
+class AccountScopeOutputTypeDef(TypedDict):
+    Accounts: NotRequired[List[str]]
+    AllAccountsEnabled: NotRequired[bool]
+    ExcludeSpecifiedAccounts: NotRequired[bool]
 
-ActionTargetTypeDef = TypedDict(
-    "ActionTargetTypeDef",
-    {
-        "ResourceId": str,
-        "Description": str,
-    },
-    total=False,
-)
+class AccountScopeTypeDef(TypedDict):
+    Accounts: NotRequired[Sequence[str]]
+    AllAccountsEnabled: NotRequired[bool]
+    ExcludeSpecifiedAccounts: NotRequired[bool]
 
-AdminAccountSummaryTypeDef = TypedDict(
-    "AdminAccountSummaryTypeDef",
-    {
-        "AdminAccount": str,
-        "DefaultAdmin": bool,
-        "Status": OrganizationStatusType,
-    },
-    total=False,
-)
+class ActionTargetTypeDef(TypedDict):
+    ResourceId: NotRequired[str]
+    Description: NotRequired[str]
 
-AdminScopeTypeDef = TypedDict(
-    "AdminScopeTypeDef",
-    {
-        "AccountScope": "AccountScopeTypeDef",
-        "OrganizationalUnitScope": "OrganizationalUnitScopeTypeDef",
-        "RegionScope": "RegionScopeTypeDef",
-        "PolicyTypeScope": "PolicyTypeScopeTypeDef",
-    },
-    total=False,
-)
+class AdminAccountSummaryTypeDef(TypedDict):
+    AdminAccount: NotRequired[str]
+    DefaultAdmin: NotRequired[bool]
+    Status: NotRequired[OrganizationStatusType]
+
+class OrganizationalUnitScopeOutputTypeDef(TypedDict):
+    OrganizationalUnits: NotRequired[List[str]]
+    AllOrganizationalUnitsEnabled: NotRequired[bool]
+    ExcludeSpecifiedOrganizationalUnits: NotRequired[bool]
+
+class PolicyTypeScopeOutputTypeDef(TypedDict):
+    PolicyTypes: NotRequired[List[SecurityServiceTypeType]]
+    AllPolicyTypesEnabled: NotRequired[bool]
+
+class RegionScopeOutputTypeDef(TypedDict):
+    Regions: NotRequired[List[str]]
+    AllRegionsEnabled: NotRequired[bool]
+
+class OrganizationalUnitScopeTypeDef(TypedDict):
+    OrganizationalUnits: NotRequired[Sequence[str]]
+    AllOrganizationalUnitsEnabled: NotRequired[bool]
+    ExcludeSpecifiedOrganizationalUnits: NotRequired[bool]
+
+class PolicyTypeScopeTypeDef(TypedDict):
+    PolicyTypes: NotRequired[Sequence[SecurityServiceTypeType]]
+    AllPolicyTypesEnabled: NotRequired[bool]
+
+class RegionScopeTypeDef(TypedDict):
+    Regions: NotRequired[Sequence[str]]
+    AllRegionsEnabled: NotRequired[bool]
 
 AppTypeDef = TypedDict(
     "AppTypeDef",
@@ -260,1917 +302,1045 @@ AppTypeDef = TypedDict(
         "Port": int,
     },
 )
+TimestampTypeDef = Union[datetime, str]
 
-AppsListDataSummaryTypeDef = TypedDict(
-    "AppsListDataSummaryTypeDef",
-    {
-        "ListArn": str,
-        "ListId": str,
-        "ListName": str,
-        "AppsList": List["AppTypeDef"],
-    },
-    total=False,
-)
+class AssociateAdminAccountRequestTypeDef(TypedDict):
+    AdminAccount: str
 
-_RequiredAppsListDataTypeDef = TypedDict(
-    "_RequiredAppsListDataTypeDef",
-    {
-        "ListName": str,
-        "AppsList": List["AppTypeDef"],
-    },
-)
-_OptionalAppsListDataTypeDef = TypedDict(
-    "_OptionalAppsListDataTypeDef",
-    {
-        "ListId": str,
-        "ListUpdateToken": str,
-        "CreateTime": datetime,
-        "LastUpdateTime": datetime,
-        "PreviousAppsList": Dict[str, List["AppTypeDef"]],
-    },
-    total=False,
-)
+class AssociateThirdPartyFirewallRequestTypeDef(TypedDict):
+    ThirdPartyFirewall: ThirdPartyFirewallType
 
-class AppsListDataTypeDef(_RequiredAppsListDataTypeDef, _OptionalAppsListDataTypeDef):
-    pass
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-AssociateAdminAccountRequestRequestTypeDef = TypedDict(
-    "AssociateAdminAccountRequestRequestTypeDef",
-    {
-        "AdminAccount": str,
-    },
-)
+class AwsEc2NetworkInterfaceViolationTypeDef(TypedDict):
+    ViolationTarget: NotRequired[str]
+    ViolatingSecurityGroups: NotRequired[List[str]]
 
-AssociateThirdPartyFirewallRequestRequestTypeDef = TypedDict(
-    "AssociateThirdPartyFirewallRequestRequestTypeDef",
-    {
-        "ThirdPartyFirewall": ThirdPartyFirewallType,
-    },
-)
+class PartialMatchTypeDef(TypedDict):
+    Reference: NotRequired[str]
+    TargetViolationReasons: NotRequired[List[str]]
 
-AssociateThirdPartyFirewallResponseTypeDef = TypedDict(
-    "AssociateThirdPartyFirewallResponseTypeDef",
-    {
-        "ThirdPartyFirewallStatus": ThirdPartyFirewallAssociationStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class BatchAssociateResourceRequestTypeDef(TypedDict):
+    ResourceSetIdentifier: str
+    Items: Sequence[str]
 
-AwsEc2InstanceViolationTypeDef = TypedDict(
-    "AwsEc2InstanceViolationTypeDef",
-    {
-        "ViolationTarget": str,
-        "AwsEc2NetworkInterfaceViolations": List["AwsEc2NetworkInterfaceViolationTypeDef"],
-    },
-    total=False,
-)
+class FailedItemTypeDef(TypedDict):
+    URI: NotRequired[str]
+    Reason: NotRequired[FailedItemReasonType]
 
-AwsEc2NetworkInterfaceViolationTypeDef = TypedDict(
-    "AwsEc2NetworkInterfaceViolationTypeDef",
-    {
-        "ViolationTarget": str,
-        "ViolatingSecurityGroups": List[str],
-    },
-    total=False,
-)
+class BatchDisassociateResourceRequestTypeDef(TypedDict):
+    ResourceSetIdentifier: str
+    Items: Sequence[str]
 
-AwsVPCSecurityGroupViolationTypeDef = TypedDict(
-    "AwsVPCSecurityGroupViolationTypeDef",
-    {
-        "ViolationTarget": str,
-        "ViolationTargetDescription": str,
-        "PartialMatches": List["PartialMatchTypeDef"],
-        "PossibleSecurityGroupRemediationActions": List["SecurityGroupRemediationActionTypeDef"],
-    },
-    total=False,
-)
+class ComplianceViolatorTypeDef(TypedDict):
+    ResourceId: NotRequired[str]
+    ViolationReason: NotRequired[ViolationReasonType]
+    ResourceType: NotRequired[str]
+    Metadata: NotRequired[Dict[str, str]]
 
-BatchAssociateResourceRequestRequestTypeDef = TypedDict(
-    "BatchAssociateResourceRequestRequestTypeDef",
-    {
-        "ResourceSetIdentifier": str,
-        "Items": List[str],
-    },
-)
+class DeleteAppsListRequestTypeDef(TypedDict):
+    ListId: str
 
-BatchAssociateResourceResponseTypeDef = TypedDict(
-    "BatchAssociateResourceResponseTypeDef",
-    {
-        "ResourceSetIdentifier": str,
-        "FailedItems": List["FailedItemTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DeletePolicyRequestTypeDef(TypedDict):
+    PolicyId: str
+    DeleteAllPolicyResources: NotRequired[bool]
 
-BatchDisassociateResourceRequestRequestTypeDef = TypedDict(
-    "BatchDisassociateResourceRequestRequestTypeDef",
-    {
-        "ResourceSetIdentifier": str,
-        "Items": List[str],
-    },
-)
+class DeleteProtocolsListRequestTypeDef(TypedDict):
+    ListId: str
 
-BatchDisassociateResourceResponseTypeDef = TypedDict(
-    "BatchDisassociateResourceResponseTypeDef",
-    {
-        "ResourceSetIdentifier": str,
-        "FailedItems": List["FailedItemTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DeleteResourceSetRequestTypeDef(TypedDict):
+    Identifier: str
 
-ComplianceViolatorTypeDef = TypedDict(
-    "ComplianceViolatorTypeDef",
-    {
-        "ResourceId": str,
-        "ViolationReason": ViolationReasonType,
-        "ResourceType": str,
-        "Metadata": Dict[str, str],
-    },
-    total=False,
-)
-
-CreateNetworkAclActionTypeDef = TypedDict(
-    "CreateNetworkAclActionTypeDef",
-    {
-        "Description": str,
-        "Vpc": "ActionTargetTypeDef",
-        "FMSCanRemediate": bool,
-    },
-    total=False,
-)
-
-CreateNetworkAclEntriesActionTypeDef = TypedDict(
-    "CreateNetworkAclEntriesActionTypeDef",
-    {
-        "Description": str,
-        "NetworkAclId": "ActionTargetTypeDef",
-        "NetworkAclEntriesToBeCreated": List["EntryDescriptionTypeDef"],
-        "FMSCanRemediate": bool,
-    },
-    total=False,
-)
-
-DeleteAppsListRequestRequestTypeDef = TypedDict(
-    "DeleteAppsListRequestRequestTypeDef",
-    {
-        "ListId": str,
-    },
-)
-
-DeleteNetworkAclEntriesActionTypeDef = TypedDict(
-    "DeleteNetworkAclEntriesActionTypeDef",
-    {
-        "Description": str,
-        "NetworkAclId": "ActionTargetTypeDef",
-        "NetworkAclEntriesToBeDeleted": List["EntryDescriptionTypeDef"],
-        "FMSCanRemediate": bool,
-    },
-    total=False,
-)
-
-_RequiredDeletePolicyRequestRequestTypeDef = TypedDict(
-    "_RequiredDeletePolicyRequestRequestTypeDef",
-    {
-        "PolicyId": str,
-    },
-)
-_OptionalDeletePolicyRequestRequestTypeDef = TypedDict(
-    "_OptionalDeletePolicyRequestRequestTypeDef",
-    {
-        "DeleteAllPolicyResources": bool,
-    },
-    total=False,
-)
-
-class DeletePolicyRequestRequestTypeDef(
-    _RequiredDeletePolicyRequestRequestTypeDef, _OptionalDeletePolicyRequestRequestTypeDef
-):
-    pass
-
-DeleteProtocolsListRequestRequestTypeDef = TypedDict(
-    "DeleteProtocolsListRequestRequestTypeDef",
-    {
-        "ListId": str,
-    },
-)
-
-DeleteResourceSetRequestRequestTypeDef = TypedDict(
-    "DeleteResourceSetRequestRequestTypeDef",
-    {
-        "Identifier": str,
-    },
-)
-
-DisassociateThirdPartyFirewallRequestRequestTypeDef = TypedDict(
-    "DisassociateThirdPartyFirewallRequestRequestTypeDef",
-    {
-        "ThirdPartyFirewall": ThirdPartyFirewallType,
-    },
-)
-
-DisassociateThirdPartyFirewallResponseTypeDef = TypedDict(
-    "DisassociateThirdPartyFirewallResponseTypeDef",
-    {
-        "ThirdPartyFirewallStatus": ThirdPartyFirewallAssociationStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DisassociateThirdPartyFirewallRequestTypeDef(TypedDict):
+    ThirdPartyFirewall: ThirdPartyFirewallType
 
 DiscoveredResourceTypeDef = TypedDict(
     "DiscoveredResourceTypeDef",
     {
-        "URI": str,
-        "AccountId": str,
-        "Type": str,
-        "Name": str,
-    },
-    total=False,
-)
-
-DnsDuplicateRuleGroupViolationTypeDef = TypedDict(
-    "DnsDuplicateRuleGroupViolationTypeDef",
-    {
-        "ViolationTarget": str,
-        "ViolationTargetDescription": str,
-    },
-    total=False,
-)
-
-DnsRuleGroupLimitExceededViolationTypeDef = TypedDict(
-    "DnsRuleGroupLimitExceededViolationTypeDef",
-    {
-        "ViolationTarget": str,
-        "ViolationTargetDescription": str,
-        "NumberOfRuleGroupsAlreadyAssociated": int,
-    },
-    total=False,
-)
-
-DnsRuleGroupPriorityConflictViolationTypeDef = TypedDict(
-    "DnsRuleGroupPriorityConflictViolationTypeDef",
-    {
-        "ViolationTarget": str,
-        "ViolationTargetDescription": str,
-        "ConflictingPriority": int,
-        "ConflictingPolicyId": str,
-        "UnavailablePriorities": List[int],
-    },
-    total=False,
-)
-
-_RequiredEC2AssociateRouteTableActionTypeDef = TypedDict(
-    "_RequiredEC2AssociateRouteTableActionTypeDef",
-    {
-        "RouteTableId": "ActionTargetTypeDef",
-    },
-)
-_OptionalEC2AssociateRouteTableActionTypeDef = TypedDict(
-    "_OptionalEC2AssociateRouteTableActionTypeDef",
-    {
-        "Description": str,
-        "SubnetId": "ActionTargetTypeDef",
-        "GatewayId": "ActionTargetTypeDef",
-    },
-    total=False,
-)
-
-class EC2AssociateRouteTableActionTypeDef(
-    _RequiredEC2AssociateRouteTableActionTypeDef, _OptionalEC2AssociateRouteTableActionTypeDef
-):
-    pass
-
-_RequiredEC2CopyRouteTableActionTypeDef = TypedDict(
-    "_RequiredEC2CopyRouteTableActionTypeDef",
-    {
-        "VpcId": "ActionTargetTypeDef",
-        "RouteTableId": "ActionTargetTypeDef",
-    },
-)
-_OptionalEC2CopyRouteTableActionTypeDef = TypedDict(
-    "_OptionalEC2CopyRouteTableActionTypeDef",
-    {
-        "Description": str,
-    },
-    total=False,
-)
-
-class EC2CopyRouteTableActionTypeDef(
-    _RequiredEC2CopyRouteTableActionTypeDef, _OptionalEC2CopyRouteTableActionTypeDef
-):
-    pass
-
-_RequiredEC2CreateRouteActionTypeDef = TypedDict(
-    "_RequiredEC2CreateRouteActionTypeDef",
-    {
-        "RouteTableId": "ActionTargetTypeDef",
-    },
-)
-_OptionalEC2CreateRouteActionTypeDef = TypedDict(
-    "_OptionalEC2CreateRouteActionTypeDef",
-    {
-        "Description": str,
-        "DestinationCidrBlock": str,
-        "DestinationPrefixListId": str,
-        "DestinationIpv6CidrBlock": str,
-        "VpcEndpointId": "ActionTargetTypeDef",
-        "GatewayId": "ActionTargetTypeDef",
-    },
-    total=False,
-)
-
-class EC2CreateRouteActionTypeDef(
-    _RequiredEC2CreateRouteActionTypeDef, _OptionalEC2CreateRouteActionTypeDef
-):
-    pass
-
-_RequiredEC2CreateRouteTableActionTypeDef = TypedDict(
-    "_RequiredEC2CreateRouteTableActionTypeDef",
-    {
-        "VpcId": "ActionTargetTypeDef",
-    },
-)
-_OptionalEC2CreateRouteTableActionTypeDef = TypedDict(
-    "_OptionalEC2CreateRouteTableActionTypeDef",
-    {
-        "Description": str,
-    },
-    total=False,
-)
-
-class EC2CreateRouteTableActionTypeDef(
-    _RequiredEC2CreateRouteTableActionTypeDef, _OptionalEC2CreateRouteTableActionTypeDef
-):
-    pass
-
-_RequiredEC2DeleteRouteActionTypeDef = TypedDict(
-    "_RequiredEC2DeleteRouteActionTypeDef",
-    {
-        "RouteTableId": "ActionTargetTypeDef",
-    },
-)
-_OptionalEC2DeleteRouteActionTypeDef = TypedDict(
-    "_OptionalEC2DeleteRouteActionTypeDef",
-    {
-        "Description": str,
-        "DestinationCidrBlock": str,
-        "DestinationPrefixListId": str,
-        "DestinationIpv6CidrBlock": str,
-    },
-    total=False,
-)
-
-class EC2DeleteRouteActionTypeDef(
-    _RequiredEC2DeleteRouteActionTypeDef, _OptionalEC2DeleteRouteActionTypeDef
-):
-    pass
-
-_RequiredEC2ReplaceRouteActionTypeDef = TypedDict(
-    "_RequiredEC2ReplaceRouteActionTypeDef",
-    {
-        "RouteTableId": "ActionTargetTypeDef",
-    },
-)
-_OptionalEC2ReplaceRouteActionTypeDef = TypedDict(
-    "_OptionalEC2ReplaceRouteActionTypeDef",
-    {
-        "Description": str,
-        "DestinationCidrBlock": str,
-        "DestinationPrefixListId": str,
-        "DestinationIpv6CidrBlock": str,
-        "GatewayId": "ActionTargetTypeDef",
-    },
-    total=False,
-)
-
-class EC2ReplaceRouteActionTypeDef(
-    _RequiredEC2ReplaceRouteActionTypeDef, _OptionalEC2ReplaceRouteActionTypeDef
-):
-    pass
-
-_RequiredEC2ReplaceRouteTableAssociationActionTypeDef = TypedDict(
-    "_RequiredEC2ReplaceRouteTableAssociationActionTypeDef",
-    {
-        "AssociationId": "ActionTargetTypeDef",
-        "RouteTableId": "ActionTargetTypeDef",
-    },
-)
-_OptionalEC2ReplaceRouteTableAssociationActionTypeDef = TypedDict(
-    "_OptionalEC2ReplaceRouteTableAssociationActionTypeDef",
-    {
-        "Description": str,
-    },
-    total=False,
-)
-
-class EC2ReplaceRouteTableAssociationActionTypeDef(
-    _RequiredEC2ReplaceRouteTableAssociationActionTypeDef,
-    _OptionalEC2ReplaceRouteTableAssociationActionTypeDef,
-):
-    pass
-
-EntryDescriptionTypeDef = TypedDict(
-    "EntryDescriptionTypeDef",
-    {
-        "EntryDetail": "NetworkAclEntryTypeDef",
-        "EntryRuleNumber": int,
-        "EntryType": EntryTypeType,
-    },
-    total=False,
-)
-
-EntryViolationTypeDef = TypedDict(
-    "EntryViolationTypeDef",
-    {
-        "ExpectedEntry": "EntryDescriptionTypeDef",
-        "ExpectedEvaluationOrder": str,
-        "ActualEvaluationOrder": str,
-        "EntryAtExpectedEvaluationOrder": "EntryDescriptionTypeDef",
-        "EntriesWithConflicts": List["EntryDescriptionTypeDef"],
-        "EntryViolationReasons": List[EntryViolationReasonType],
-    },
-    total=False,
-)
-
-EvaluationResultTypeDef = TypedDict(
-    "EvaluationResultTypeDef",
-    {
-        "ComplianceStatus": PolicyComplianceStatusTypeType,
-        "ViolatorCount": int,
-        "EvaluationLimitExceeded": bool,
-    },
-    total=False,
-)
-
-ExpectedRouteTypeDef = TypedDict(
-    "ExpectedRouteTypeDef",
-    {
-        "IpV4Cidr": str,
-        "PrefixListId": str,
-        "IpV6Cidr": str,
-        "ContributingSubnets": List[str],
-        "AllowedTargets": List[str],
-        "RouteTableId": str,
-    },
-    total=False,
-)
-
-FMSPolicyUpdateFirewallCreationConfigActionTypeDef = TypedDict(
-    "FMSPolicyUpdateFirewallCreationConfigActionTypeDef",
-    {
-        "Description": str,
-        "FirewallCreationConfig": str,
-    },
-    total=False,
-)
-
-FailedItemTypeDef = TypedDict(
-    "FailedItemTypeDef",
-    {
-        "URI": str,
-        "Reason": FailedItemReasonType,
-    },
-    total=False,
-)
-
-FirewallSubnetIsOutOfScopeViolationTypeDef = TypedDict(
-    "FirewallSubnetIsOutOfScopeViolationTypeDef",
-    {
-        "FirewallSubnetId": str,
-        "VpcId": str,
-        "SubnetAvailabilityZone": str,
-        "SubnetAvailabilityZoneId": str,
-        "VpcEndpointId": str,
-    },
-    total=False,
-)
-
-FirewallSubnetMissingVPCEndpointViolationTypeDef = TypedDict(
-    "FirewallSubnetMissingVPCEndpointViolationTypeDef",
-    {
-        "FirewallSubnetId": str,
-        "VpcId": str,
-        "SubnetAvailabilityZone": str,
-        "SubnetAvailabilityZoneId": str,
-    },
-    total=False,
-)
-
-GetAdminAccountResponseTypeDef = TypedDict(
-    "GetAdminAccountResponseTypeDef",
-    {
-        "AdminAccount": str,
-        "RoleStatus": AccountRoleStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetAdminScopeRequestRequestTypeDef = TypedDict(
-    "GetAdminScopeRequestRequestTypeDef",
-    {
-        "AdminAccount": str,
-    },
-)
-
-GetAdminScopeResponseTypeDef = TypedDict(
-    "GetAdminScopeResponseTypeDef",
-    {
-        "AdminScope": "AdminScopeTypeDef",
-        "Status": OrganizationStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetAppsListRequestRequestTypeDef = TypedDict(
-    "_RequiredGetAppsListRequestRequestTypeDef",
-    {
-        "ListId": str,
-    },
-)
-_OptionalGetAppsListRequestRequestTypeDef = TypedDict(
-    "_OptionalGetAppsListRequestRequestTypeDef",
-    {
-        "DefaultList": bool,
-    },
-    total=False,
-)
-
-class GetAppsListRequestRequestTypeDef(
-    _RequiredGetAppsListRequestRequestTypeDef, _OptionalGetAppsListRequestRequestTypeDef
-):
-    pass
-
-GetAppsListResponseTypeDef = TypedDict(
-    "GetAppsListResponseTypeDef",
-    {
-        "AppsList": "AppsListDataTypeDef",
-        "AppsListArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetComplianceDetailRequestRequestTypeDef = TypedDict(
-    "GetComplianceDetailRequestRequestTypeDef",
-    {
-        "PolicyId": str,
-        "MemberAccount": str,
-    },
-)
-
-GetComplianceDetailResponseTypeDef = TypedDict(
-    "GetComplianceDetailResponseTypeDef",
-    {
-        "PolicyComplianceDetail": "PolicyComplianceDetailTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetNotificationChannelResponseTypeDef = TypedDict(
-    "GetNotificationChannelResponseTypeDef",
-    {
-        "SnsTopicArn": str,
-        "SnsRoleName": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetPolicyRequestRequestTypeDef = TypedDict(
-    "GetPolicyRequestRequestTypeDef",
-    {
-        "PolicyId": str,
-    },
-)
-
-GetPolicyResponseTypeDef = TypedDict(
-    "GetPolicyResponseTypeDef",
-    {
-        "Policy": "PolicyTypeDef",
-        "PolicyArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetProtectionStatusRequestRequestTypeDef = TypedDict(
-    "_RequiredGetProtectionStatusRequestRequestTypeDef",
-    {
-        "PolicyId": str,
-    },
-)
-_OptionalGetProtectionStatusRequestRequestTypeDef = TypedDict(
-    "_OptionalGetProtectionStatusRequestRequestTypeDef",
-    {
-        "MemberAccountId": str,
-        "StartTime": Union[datetime, str],
-        "EndTime": Union[datetime, str],
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-class GetProtectionStatusRequestRequestTypeDef(
-    _RequiredGetProtectionStatusRequestRequestTypeDef,
-    _OptionalGetProtectionStatusRequestRequestTypeDef,
-):
-    pass
-
-GetProtectionStatusResponseTypeDef = TypedDict(
-    "GetProtectionStatusResponseTypeDef",
-    {
-        "AdminAccountId": str,
-        "ServiceType": SecurityServiceTypeType,
-        "Data": str,
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetProtocolsListRequestRequestTypeDef = TypedDict(
-    "_RequiredGetProtocolsListRequestRequestTypeDef",
-    {
-        "ListId": str,
-    },
-)
-_OptionalGetProtocolsListRequestRequestTypeDef = TypedDict(
-    "_OptionalGetProtocolsListRequestRequestTypeDef",
-    {
-        "DefaultList": bool,
-    },
-    total=False,
-)
-
-class GetProtocolsListRequestRequestTypeDef(
-    _RequiredGetProtocolsListRequestRequestTypeDef, _OptionalGetProtocolsListRequestRequestTypeDef
-):
-    pass
-
-GetProtocolsListResponseTypeDef = TypedDict(
-    "GetProtocolsListResponseTypeDef",
-    {
-        "ProtocolsList": "ProtocolsListDataTypeDef",
-        "ProtocolsListArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetResourceSetRequestRequestTypeDef = TypedDict(
-    "GetResourceSetRequestRequestTypeDef",
-    {
-        "Identifier": str,
-    },
-)
-
-GetResourceSetResponseTypeDef = TypedDict(
-    "GetResourceSetResponseTypeDef",
-    {
-        "ResourceSet": "ResourceSetTypeDef",
-        "ResourceSetArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetThirdPartyFirewallAssociationStatusRequestRequestTypeDef = TypedDict(
-    "GetThirdPartyFirewallAssociationStatusRequestRequestTypeDef",
-    {
-        "ThirdPartyFirewall": ThirdPartyFirewallType,
-    },
-)
-
-GetThirdPartyFirewallAssociationStatusResponseTypeDef = TypedDict(
-    "GetThirdPartyFirewallAssociationStatusResponseTypeDef",
-    {
-        "ThirdPartyFirewallStatus": ThirdPartyFirewallAssociationStatusType,
-        "MarketplaceOnboardingStatus": MarketplaceSubscriptionOnboardingStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetViolationDetailsRequestRequestTypeDef = TypedDict(
-    "GetViolationDetailsRequestRequestTypeDef",
-    {
-        "PolicyId": str,
-        "MemberAccount": str,
-        "ResourceId": str,
-        "ResourceType": str,
-    },
-)
-
-GetViolationDetailsResponseTypeDef = TypedDict(
-    "GetViolationDetailsResponseTypeDef",
-    {
-        "ViolationDetail": "ViolationDetailTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-InvalidNetworkAclEntriesViolationTypeDef = TypedDict(
-    "InvalidNetworkAclEntriesViolationTypeDef",
-    {
-        "Vpc": str,
-        "Subnet": str,
-        "SubnetAvailabilityZone": str,
-        "CurrentAssociatedNetworkAcl": str,
-        "EntryViolations": List["EntryViolationTypeDef"],
-    },
-    total=False,
-)
-
-ListAdminAccountsForOrganizationRequestRequestTypeDef = TypedDict(
-    "ListAdminAccountsForOrganizationRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-ListAdminAccountsForOrganizationResponseTypeDef = TypedDict(
-    "ListAdminAccountsForOrganizationResponseTypeDef",
-    {
-        "AdminAccounts": List["AdminAccountSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListAdminsManagingAccountRequestRequestTypeDef = TypedDict(
-    "ListAdminsManagingAccountRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-ListAdminsManagingAccountResponseTypeDef = TypedDict(
-    "ListAdminsManagingAccountResponseTypeDef",
-    {
-        "AdminAccounts": List[str],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListAppsListsRequestRequestTypeDef = TypedDict(
-    "_RequiredListAppsListsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-    },
-)
-_OptionalListAppsListsRequestRequestTypeDef = TypedDict(
-    "_OptionalListAppsListsRequestRequestTypeDef",
-    {
-        "DefaultLists": bool,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListAppsListsRequestRequestTypeDef(
-    _RequiredListAppsListsRequestRequestTypeDef, _OptionalListAppsListsRequestRequestTypeDef
-):
-    pass
-
-ListAppsListsResponseTypeDef = TypedDict(
-    "ListAppsListsResponseTypeDef",
-    {
-        "AppsLists": List["AppsListDataSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListComplianceStatusRequestRequestTypeDef = TypedDict(
-    "_RequiredListComplianceStatusRequestRequestTypeDef",
-    {
-        "PolicyId": str,
-    },
-)
-_OptionalListComplianceStatusRequestRequestTypeDef = TypedDict(
-    "_OptionalListComplianceStatusRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-class ListComplianceStatusRequestRequestTypeDef(
-    _RequiredListComplianceStatusRequestRequestTypeDef,
-    _OptionalListComplianceStatusRequestRequestTypeDef,
-):
-    pass
-
-ListComplianceStatusResponseTypeDef = TypedDict(
-    "ListComplianceStatusResponseTypeDef",
-    {
-        "PolicyComplianceStatusList": List["PolicyComplianceStatusTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListDiscoveredResourcesRequestRequestTypeDef = TypedDict(
-    "_RequiredListDiscoveredResourcesRequestRequestTypeDef",
-    {
-        "MemberAccountIds": List[str],
-        "ResourceType": str,
-    },
-)
-_OptionalListDiscoveredResourcesRequestRequestTypeDef = TypedDict(
-    "_OptionalListDiscoveredResourcesRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListDiscoveredResourcesRequestRequestTypeDef(
-    _RequiredListDiscoveredResourcesRequestRequestTypeDef,
-    _OptionalListDiscoveredResourcesRequestRequestTypeDef,
-):
-    pass
-
-ListDiscoveredResourcesResponseTypeDef = TypedDict(
-    "ListDiscoveredResourcesResponseTypeDef",
-    {
-        "Items": List["DiscoveredResourceTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListMemberAccountsRequestRequestTypeDef = TypedDict(
-    "ListMemberAccountsRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-ListMemberAccountsResponseTypeDef = TypedDict(
-    "ListMemberAccountsResponseTypeDef",
-    {
-        "MemberAccounts": List[str],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListPoliciesRequestRequestTypeDef = TypedDict(
-    "ListPoliciesRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-ListPoliciesResponseTypeDef = TypedDict(
-    "ListPoliciesResponseTypeDef",
-    {
-        "PolicyList": List["PolicySummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListProtocolsListsRequestRequestTypeDef = TypedDict(
-    "_RequiredListProtocolsListsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-    },
-)
-_OptionalListProtocolsListsRequestRequestTypeDef = TypedDict(
-    "_OptionalListProtocolsListsRequestRequestTypeDef",
-    {
-        "DefaultLists": bool,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListProtocolsListsRequestRequestTypeDef(
-    _RequiredListProtocolsListsRequestRequestTypeDef,
-    _OptionalListProtocolsListsRequestRequestTypeDef,
-):
-    pass
-
-ListProtocolsListsResponseTypeDef = TypedDict(
-    "ListProtocolsListsResponseTypeDef",
-    {
-        "ProtocolsLists": List["ProtocolsListDataSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListResourceSetResourcesRequestRequestTypeDef = TypedDict(
-    "_RequiredListResourceSetResourcesRequestRequestTypeDef",
-    {
-        "Identifier": str,
-    },
-)
-_OptionalListResourceSetResourcesRequestRequestTypeDef = TypedDict(
-    "_OptionalListResourceSetResourcesRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListResourceSetResourcesRequestRequestTypeDef(
-    _RequiredListResourceSetResourcesRequestRequestTypeDef,
-    _OptionalListResourceSetResourcesRequestRequestTypeDef,
-):
-    pass
-
-ListResourceSetResourcesResponseTypeDef = TypedDict(
-    "ListResourceSetResourcesResponseTypeDef",
-    {
-        "Items": List["ResourceTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListResourceSetsRequestRequestTypeDef = TypedDict(
-    "ListResourceSetsRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-ListResourceSetsResponseTypeDef = TypedDict(
-    "ListResourceSetsResponseTypeDef",
-    {
-        "ResourceSets": List["ResourceSetSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-    },
-)
-
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "TagList": List["TagTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListThirdPartyFirewallFirewallPoliciesRequestRequestTypeDef = TypedDict(
-    "_RequiredListThirdPartyFirewallFirewallPoliciesRequestRequestTypeDef",
-    {
-        "ThirdPartyFirewall": ThirdPartyFirewallType,
-        "MaxResults": int,
-    },
-)
-_OptionalListThirdPartyFirewallFirewallPoliciesRequestRequestTypeDef = TypedDict(
-    "_OptionalListThirdPartyFirewallFirewallPoliciesRequestRequestTypeDef",
-    {
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListThirdPartyFirewallFirewallPoliciesRequestRequestTypeDef(
-    _RequiredListThirdPartyFirewallFirewallPoliciesRequestRequestTypeDef,
-    _OptionalListThirdPartyFirewallFirewallPoliciesRequestRequestTypeDef,
-):
-    pass
-
-ListThirdPartyFirewallFirewallPoliciesResponseTypeDef = TypedDict(
-    "ListThirdPartyFirewallFirewallPoliciesResponseTypeDef",
-    {
-        "ThirdPartyFirewallFirewallPolicies": List["ThirdPartyFirewallFirewallPolicyTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-NetworkAclCommonPolicyTypeDef = TypedDict(
-    "NetworkAclCommonPolicyTypeDef",
-    {
-        "NetworkAclEntrySet": "NetworkAclEntrySetTypeDef",
-    },
-)
-
-_RequiredNetworkAclEntrySetTypeDef = TypedDict(
-    "_RequiredNetworkAclEntrySetTypeDef",
-    {
-        "ForceRemediateForFirstEntries": bool,
-        "ForceRemediateForLastEntries": bool,
-    },
-)
-_OptionalNetworkAclEntrySetTypeDef = TypedDict(
-    "_OptionalNetworkAclEntrySetTypeDef",
-    {
-        "FirstEntries": List["NetworkAclEntryTypeDef"],
-        "LastEntries": List["NetworkAclEntryTypeDef"],
-    },
-    total=False,
-)
-
-class NetworkAclEntrySetTypeDef(
-    _RequiredNetworkAclEntrySetTypeDef, _OptionalNetworkAclEntrySetTypeDef
-):
-    pass
-
-_RequiredNetworkAclEntryTypeDef = TypedDict(
-    "_RequiredNetworkAclEntryTypeDef",
-    {
-        "Protocol": str,
-        "RuleAction": NetworkAclRuleActionType,
-        "Egress": bool,
-    },
-)
-_OptionalNetworkAclEntryTypeDef = TypedDict(
-    "_OptionalNetworkAclEntryTypeDef",
-    {
-        "IcmpTypeCode": "NetworkAclIcmpTypeCodeTypeDef",
-        "PortRange": "NetworkAclPortRangeTypeDef",
-        "CidrBlock": str,
-        "Ipv6CidrBlock": str,
-    },
-    total=False,
-)
-
-class NetworkAclEntryTypeDef(_RequiredNetworkAclEntryTypeDef, _OptionalNetworkAclEntryTypeDef):
-    pass
+        "URI": NotRequired[str],
+        "AccountId": NotRequired[str],
+        "Type": NotRequired[str],
+        "Name": NotRequired[str],
+    },
+)
+
+class DnsDuplicateRuleGroupViolationTypeDef(TypedDict):
+    ViolationTarget: NotRequired[str]
+    ViolationTargetDescription: NotRequired[str]
+
+class DnsRuleGroupLimitExceededViolationTypeDef(TypedDict):
+    ViolationTarget: NotRequired[str]
+    ViolationTargetDescription: NotRequired[str]
+    NumberOfRuleGroupsAlreadyAssociated: NotRequired[int]
+
+class DnsRuleGroupPriorityConflictViolationTypeDef(TypedDict):
+    ViolationTarget: NotRequired[str]
+    ViolationTargetDescription: NotRequired[str]
+    ConflictingPriority: NotRequired[int]
+    ConflictingPolicyId: NotRequired[str]
+    UnavailablePriorities: NotRequired[List[int]]
+
+class EvaluationResultTypeDef(TypedDict):
+    ComplianceStatus: NotRequired[PolicyComplianceStatusTypeType]
+    ViolatorCount: NotRequired[int]
+    EvaluationLimitExceeded: NotRequired[bool]
+
+class ExpectedRouteTypeDef(TypedDict):
+    IpV4Cidr: NotRequired[str]
+    PrefixListId: NotRequired[str]
+    IpV6Cidr: NotRequired[str]
+    ContributingSubnets: NotRequired[List[str]]
+    AllowedTargets: NotRequired[List[str]]
+    RouteTableId: NotRequired[str]
+
+class FMSPolicyUpdateFirewallCreationConfigActionTypeDef(TypedDict):
+    Description: NotRequired[str]
+    FirewallCreationConfig: NotRequired[str]
+
+class FirewallSubnetIsOutOfScopeViolationTypeDef(TypedDict):
+    FirewallSubnetId: NotRequired[str]
+    VpcId: NotRequired[str]
+    SubnetAvailabilityZone: NotRequired[str]
+    SubnetAvailabilityZoneId: NotRequired[str]
+    VpcEndpointId: NotRequired[str]
+
+class FirewallSubnetMissingVPCEndpointViolationTypeDef(TypedDict):
+    FirewallSubnetId: NotRequired[str]
+    VpcId: NotRequired[str]
+    SubnetAvailabilityZone: NotRequired[str]
+    SubnetAvailabilityZoneId: NotRequired[str]
+
+class GetAdminScopeRequestTypeDef(TypedDict):
+    AdminAccount: str
+
+class GetAppsListRequestTypeDef(TypedDict):
+    ListId: str
+    DefaultList: NotRequired[bool]
+
+class GetComplianceDetailRequestTypeDef(TypedDict):
+    PolicyId: str
+    MemberAccount: str
+
+class GetPolicyRequestTypeDef(TypedDict):
+    PolicyId: str
+
+class GetProtocolsListRequestTypeDef(TypedDict):
+    ListId: str
+    DefaultList: NotRequired[bool]
+
+class ProtocolsListDataOutputTypeDef(TypedDict):
+    ListName: str
+    ProtocolsList: List[str]
+    ListId: NotRequired[str]
+    ListUpdateToken: NotRequired[str]
+    CreateTime: NotRequired[datetime]
+    LastUpdateTime: NotRequired[datetime]
+    PreviousProtocolsList: NotRequired[Dict[str, List[str]]]
+
+class GetResourceSetRequestTypeDef(TypedDict):
+    Identifier: str
+
+class ResourceSetOutputTypeDef(TypedDict):
+    Name: str
+    ResourceTypeList: List[str]
+    Id: NotRequired[str]
+    Description: NotRequired[str]
+    UpdateToken: NotRequired[str]
+    LastUpdateTime: NotRequired[datetime]
+    ResourceSetStatus: NotRequired[ResourceSetStatusType]
+
+class GetThirdPartyFirewallAssociationStatusRequestTypeDef(TypedDict):
+    ThirdPartyFirewall: ThirdPartyFirewallType
+
+class GetViolationDetailsRequestTypeDef(TypedDict):
+    PolicyId: str
+    MemberAccount: str
+    ResourceId: str
+    ResourceType: str
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class ListAdminAccountsForOrganizationRequestTypeDef(TypedDict):
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class ListAdminsManagingAccountRequestTypeDef(TypedDict):
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class ListAppsListsRequestTypeDef(TypedDict):
+    MaxResults: int
+    DefaultLists: NotRequired[bool]
+    NextToken: NotRequired[str]
+
+class ListComplianceStatusRequestTypeDef(TypedDict):
+    PolicyId: str
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class ListDiscoveredResourcesRequestTypeDef(TypedDict):
+    MemberAccountIds: Sequence[str]
+    ResourceType: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListMemberAccountsRequestTypeDef(TypedDict):
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class ListPoliciesRequestTypeDef(TypedDict):
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class PolicySummaryTypeDef(TypedDict):
+    PolicyArn: NotRequired[str]
+    PolicyId: NotRequired[str]
+    PolicyName: NotRequired[str]
+    ResourceType: NotRequired[str]
+    SecurityServiceType: NotRequired[SecurityServiceTypeType]
+    RemediationEnabled: NotRequired[bool]
+    DeleteUnusedFMManagedResources: NotRequired[bool]
+    PolicyStatus: NotRequired[CustomerPolicyStatusType]
+
+class ListProtocolsListsRequestTypeDef(TypedDict):
+    MaxResults: int
+    DefaultLists: NotRequired[bool]
+    NextToken: NotRequired[str]
+
+class ProtocolsListDataSummaryTypeDef(TypedDict):
+    ListArn: NotRequired[str]
+    ListId: NotRequired[str]
+    ListName: NotRequired[str]
+    ProtocolsList: NotRequired[List[str]]
+
+class ListResourceSetResourcesRequestTypeDef(TypedDict):
+    Identifier: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ResourceTypeDef(TypedDict):
+    URI: str
+    AccountId: NotRequired[str]
+
+class ListResourceSetsRequestTypeDef(TypedDict):
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class ResourceSetSummaryTypeDef(TypedDict):
+    Id: NotRequired[str]
+    Name: NotRequired[str]
+    Description: NotRequired[str]
+    LastUpdateTime: NotRequired[datetime]
+    ResourceSetStatus: NotRequired[ResourceSetStatusType]
+
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+
+class TagTypeDef(TypedDict):
+    Key: str
+    Value: str
+
+class ListThirdPartyFirewallFirewallPoliciesRequestTypeDef(TypedDict):
+    ThirdPartyFirewall: ThirdPartyFirewallType
+    MaxResults: int
+    NextToken: NotRequired[str]
+
+class ThirdPartyFirewallFirewallPolicyTypeDef(TypedDict):
+    FirewallPolicyId: NotRequired[str]
+    FirewallPolicyName: NotRequired[str]
 
 NetworkAclIcmpTypeCodeTypeDef = TypedDict(
     "NetworkAclIcmpTypeCodeTypeDef",
     {
-        "Code": int,
-        "Type": int,
-    },
-    total=False,
-)
-
-NetworkAclPortRangeTypeDef = TypedDict(
-    "NetworkAclPortRangeTypeDef",
-    {
-        "From": int,
-        "To": int,
-    },
-    total=False,
-)
-
-NetworkFirewallBlackHoleRouteDetectedViolationTypeDef = TypedDict(
-    "NetworkFirewallBlackHoleRouteDetectedViolationTypeDef",
-    {
-        "ViolationTarget": str,
-        "RouteTableId": str,
-        "VpcId": str,
-        "ViolatingRoutes": List["RouteTypeDef"],
-    },
-    total=False,
-)
-
-NetworkFirewallInternetTrafficNotInspectedViolationTypeDef = TypedDict(
-    "NetworkFirewallInternetTrafficNotInspectedViolationTypeDef",
-    {
-        "SubnetId": str,
-        "SubnetAvailabilityZone": str,
-        "RouteTableId": str,
-        "ViolatingRoutes": List["RouteTypeDef"],
-        "IsRouteTableUsedInDifferentAZ": bool,
-        "CurrentFirewallSubnetRouteTable": str,
-        "ExpectedFirewallEndpoint": str,
-        "FirewallSubnetId": str,
-        "ExpectedFirewallSubnetRoutes": List["ExpectedRouteTypeDef"],
-        "ActualFirewallSubnetRoutes": List["RouteTypeDef"],
-        "InternetGatewayId": str,
-        "CurrentInternetGatewayRouteTable": str,
-        "ExpectedInternetGatewayRoutes": List["ExpectedRouteTypeDef"],
-        "ActualInternetGatewayRoutes": List["RouteTypeDef"],
-        "VpcId": str,
-    },
-    total=False,
-)
-
-NetworkFirewallInvalidRouteConfigurationViolationTypeDef = TypedDict(
-    "NetworkFirewallInvalidRouteConfigurationViolationTypeDef",
-    {
-        "AffectedSubnets": List[str],
-        "RouteTableId": str,
-        "IsRouteTableUsedInDifferentAZ": bool,
-        "ViolatingRoute": "RouteTypeDef",
-        "CurrentFirewallSubnetRouteTable": str,
-        "ExpectedFirewallEndpoint": str,
-        "ActualFirewallEndpoint": str,
-        "ExpectedFirewallSubnetId": str,
-        "ActualFirewallSubnetId": str,
-        "ExpectedFirewallSubnetRoutes": List["ExpectedRouteTypeDef"],
-        "ActualFirewallSubnetRoutes": List["RouteTypeDef"],
-        "InternetGatewayId": str,
-        "CurrentInternetGatewayRouteTable": str,
-        "ExpectedInternetGatewayRoutes": List["ExpectedRouteTypeDef"],
-        "ActualInternetGatewayRoutes": List["RouteTypeDef"],
-        "VpcId": str,
-    },
-    total=False,
-)
-
-NetworkFirewallMissingExpectedRTViolationTypeDef = TypedDict(
-    "NetworkFirewallMissingExpectedRTViolationTypeDef",
-    {
-        "ViolationTarget": str,
-        "VPC": str,
-        "AvailabilityZone": str,
-        "CurrentRouteTable": str,
-        "ExpectedRouteTable": str,
-    },
-    total=False,
-)
-
-NetworkFirewallMissingExpectedRoutesViolationTypeDef = TypedDict(
-    "NetworkFirewallMissingExpectedRoutesViolationTypeDef",
-    {
-        "ViolationTarget": str,
-        "ExpectedRoutes": List["ExpectedRouteTypeDef"],
-        "VpcId": str,
-    },
-    total=False,
-)
-
-NetworkFirewallMissingFirewallViolationTypeDef = TypedDict(
-    "NetworkFirewallMissingFirewallViolationTypeDef",
-    {
-        "ViolationTarget": str,
-        "VPC": str,
-        "AvailabilityZone": str,
-        "TargetViolationReason": str,
-    },
-    total=False,
-)
-
-NetworkFirewallMissingSubnetViolationTypeDef = TypedDict(
-    "NetworkFirewallMissingSubnetViolationTypeDef",
-    {
-        "ViolationTarget": str,
-        "VPC": str,
-        "AvailabilityZone": str,
-        "TargetViolationReason": str,
-    },
-    total=False,
-)
-
-NetworkFirewallPolicyDescriptionTypeDef = TypedDict(
-    "NetworkFirewallPolicyDescriptionTypeDef",
-    {
-        "StatelessRuleGroups": List["StatelessRuleGroupTypeDef"],
-        "StatelessDefaultActions": List[str],
-        "StatelessFragmentDefaultActions": List[str],
-        "StatelessCustomActions": List[str],
-        "StatefulRuleGroups": List["StatefulRuleGroupTypeDef"],
-        "StatefulDefaultActions": List[str],
-        "StatefulEngineOptions": "StatefulEngineOptionsTypeDef",
-    },
-    total=False,
-)
-
-NetworkFirewallPolicyModifiedViolationTypeDef = TypedDict(
-    "NetworkFirewallPolicyModifiedViolationTypeDef",
-    {
-        "ViolationTarget": str,
-        "CurrentPolicyDescription": "NetworkFirewallPolicyDescriptionTypeDef",
-        "ExpectedPolicyDescription": "NetworkFirewallPolicyDescriptionTypeDef",
-    },
-    total=False,
-)
-
-NetworkFirewallPolicyTypeDef = TypedDict(
-    "NetworkFirewallPolicyTypeDef",
-    {
-        "FirewallDeploymentModel": FirewallDeploymentModelType,
-    },
-    total=False,
-)
-
-NetworkFirewallStatefulRuleGroupOverrideTypeDef = TypedDict(
-    "NetworkFirewallStatefulRuleGroupOverrideTypeDef",
-    {
-        "Action": Literal["DROP_TO_ALERT"],
-    },
-    total=False,
-)
-
-NetworkFirewallUnexpectedFirewallRoutesViolationTypeDef = TypedDict(
-    "NetworkFirewallUnexpectedFirewallRoutesViolationTypeDef",
-    {
-        "FirewallSubnetId": str,
-        "ViolatingRoutes": List["RouteTypeDef"],
-        "RouteTableId": str,
-        "FirewallEndpoint": str,
-        "VpcId": str,
-    },
-    total=False,
-)
-
-NetworkFirewallUnexpectedGatewayRoutesViolationTypeDef = TypedDict(
-    "NetworkFirewallUnexpectedGatewayRoutesViolationTypeDef",
-    {
-        "GatewayId": str,
-        "ViolatingRoutes": List["RouteTypeDef"],
-        "RouteTableId": str,
-        "VpcId": str,
-    },
-    total=False,
-)
-
-OrganizationalUnitScopeTypeDef = TypedDict(
-    "OrganizationalUnitScopeTypeDef",
-    {
-        "OrganizationalUnits": List[str],
-        "AllOrganizationalUnitsEnabled": bool,
-        "ExcludeSpecifiedOrganizationalUnits": bool,
-    },
-    total=False,
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-PartialMatchTypeDef = TypedDict(
-    "PartialMatchTypeDef",
-    {
-        "Reference": str,
-        "TargetViolationReasons": List[str],
-    },
-    total=False,
-)
-
-PolicyComplianceDetailTypeDef = TypedDict(
-    "PolicyComplianceDetailTypeDef",
-    {
-        "PolicyOwner": str,
-        "PolicyId": str,
-        "MemberAccount": str,
-        "Violators": List["ComplianceViolatorTypeDef"],
-        "EvaluationLimitExceeded": bool,
-        "ExpiredAt": datetime,
-        "IssueInfoMap": Dict[DependentServiceNameType, str],
-    },
-    total=False,
-)
-
-PolicyComplianceStatusTypeDef = TypedDict(
-    "PolicyComplianceStatusTypeDef",
-    {
-        "PolicyOwner": str,
-        "PolicyId": str,
-        "PolicyName": str,
-        "MemberAccount": str,
-        "EvaluationResults": List["EvaluationResultTypeDef"],
-        "LastUpdated": datetime,
-        "IssueInfoMap": Dict[DependentServiceNameType, str],
-    },
-    total=False,
-)
-
-PolicyOptionTypeDef = TypedDict(
-    "PolicyOptionTypeDef",
-    {
-        "NetworkFirewallPolicy": "NetworkFirewallPolicyTypeDef",
-        "ThirdPartyFirewallPolicy": "ThirdPartyFirewallPolicyTypeDef",
-        "NetworkAclCommonPolicy": "NetworkAclCommonPolicyTypeDef",
-    },
-    total=False,
-)
-
-PolicySummaryTypeDef = TypedDict(
-    "PolicySummaryTypeDef",
-    {
-        "PolicyArn": str,
-        "PolicyId": str,
-        "PolicyName": str,
-        "ResourceType": str,
-        "SecurityServiceType": SecurityServiceTypeType,
-        "RemediationEnabled": bool,
-        "DeleteUnusedFMManagedResources": bool,
-        "PolicyStatus": CustomerPolicyStatusType,
-    },
-    total=False,
-)
-
-_RequiredPolicyTypeDef = TypedDict(
-    "_RequiredPolicyTypeDef",
-    {
-        "PolicyName": str,
-        "SecurityServicePolicyData": "SecurityServicePolicyDataTypeDef",
-        "ResourceType": str,
-        "ExcludeResourceTags": bool,
-        "RemediationEnabled": bool,
-    },
-)
-_OptionalPolicyTypeDef = TypedDict(
-    "_OptionalPolicyTypeDef",
-    {
-        "PolicyId": str,
-        "PolicyUpdateToken": str,
-        "ResourceTypeList": List[str],
-        "ResourceTags": List["ResourceTagTypeDef"],
-        "DeleteUnusedFMManagedResources": bool,
-        "IncludeMap": Dict[CustomerPolicyScopeIdTypeType, List[str]],
-        "ExcludeMap": Dict[CustomerPolicyScopeIdTypeType, List[str]],
-        "ResourceSetIds": List[str],
-        "PolicyDescription": str,
-        "PolicyStatus": CustomerPolicyStatusType,
-    },
-    total=False,
-)
-
-class PolicyTypeDef(_RequiredPolicyTypeDef, _OptionalPolicyTypeDef):
-    pass
-
-PolicyTypeScopeTypeDef = TypedDict(
-    "PolicyTypeScopeTypeDef",
-    {
-        "PolicyTypes": List[SecurityServiceTypeType],
-        "AllPolicyTypesEnabled": bool,
-    },
-    total=False,
-)
-
-_RequiredPossibleRemediationActionTypeDef = TypedDict(
-    "_RequiredPossibleRemediationActionTypeDef",
-    {
-        "OrderedRemediationActions": List["RemediationActionWithOrderTypeDef"],
-    },
-)
-_OptionalPossibleRemediationActionTypeDef = TypedDict(
-    "_OptionalPossibleRemediationActionTypeDef",
-    {
-        "Description": str,
-        "IsDefaultAction": bool,
-    },
-    total=False,
-)
-
-class PossibleRemediationActionTypeDef(
-    _RequiredPossibleRemediationActionTypeDef, _OptionalPossibleRemediationActionTypeDef
-):
-    pass
-
-PossibleRemediationActionsTypeDef = TypedDict(
-    "PossibleRemediationActionsTypeDef",
-    {
-        "Description": str,
-        "Actions": List["PossibleRemediationActionTypeDef"],
-    },
-    total=False,
-)
-
-ProtocolsListDataSummaryTypeDef = TypedDict(
-    "ProtocolsListDataSummaryTypeDef",
-    {
-        "ListArn": str,
-        "ListId": str,
-        "ListName": str,
-        "ProtocolsList": List[str],
-    },
-    total=False,
-)
-
-_RequiredProtocolsListDataTypeDef = TypedDict(
-    "_RequiredProtocolsListDataTypeDef",
-    {
-        "ListName": str,
-        "ProtocolsList": List[str],
-    },
-)
-_OptionalProtocolsListDataTypeDef = TypedDict(
-    "_OptionalProtocolsListDataTypeDef",
-    {
-        "ListId": str,
-        "ListUpdateToken": str,
-        "CreateTime": datetime,
-        "LastUpdateTime": datetime,
-        "PreviousProtocolsList": Dict[str, List[str]],
-    },
-    total=False,
-)
-
-class ProtocolsListDataTypeDef(
-    _RequiredProtocolsListDataTypeDef, _OptionalProtocolsListDataTypeDef
-):
-    pass
-
-_RequiredPutAdminAccountRequestRequestTypeDef = TypedDict(
-    "_RequiredPutAdminAccountRequestRequestTypeDef",
-    {
-        "AdminAccount": str,
-    },
-)
-_OptionalPutAdminAccountRequestRequestTypeDef = TypedDict(
-    "_OptionalPutAdminAccountRequestRequestTypeDef",
-    {
-        "AdminScope": "AdminScopeTypeDef",
-    },
-    total=False,
-)
-
-class PutAdminAccountRequestRequestTypeDef(
-    _RequiredPutAdminAccountRequestRequestTypeDef, _OptionalPutAdminAccountRequestRequestTypeDef
-):
-    pass
-
-_RequiredPutAppsListRequestRequestTypeDef = TypedDict(
-    "_RequiredPutAppsListRequestRequestTypeDef",
-    {
-        "AppsList": "AppsListDataTypeDef",
-    },
-)
-_OptionalPutAppsListRequestRequestTypeDef = TypedDict(
-    "_OptionalPutAppsListRequestRequestTypeDef",
-    {
-        "TagList": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class PutAppsListRequestRequestTypeDef(
-    _RequiredPutAppsListRequestRequestTypeDef, _OptionalPutAppsListRequestRequestTypeDef
-):
-    pass
-
-PutAppsListResponseTypeDef = TypedDict(
-    "PutAppsListResponseTypeDef",
-    {
-        "AppsList": "AppsListDataTypeDef",
-        "AppsListArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "Code": NotRequired[int],
+        "Type": NotRequired[int],
     },
 )
 
-PutNotificationChannelRequestRequestTypeDef = TypedDict(
-    "PutNotificationChannelRequestRequestTypeDef",
-    {
-        "SnsTopicArn": str,
-        "SnsRoleName": str,
-    },
-)
+class NetworkAclPortRangeTypeDef(TypedDict):
+    From: NotRequired[int]
+    To: NotRequired[int]
 
-_RequiredPutPolicyRequestRequestTypeDef = TypedDict(
-    "_RequiredPutPolicyRequestRequestTypeDef",
-    {
-        "Policy": "PolicyTypeDef",
-    },
-)
-_OptionalPutPolicyRequestRequestTypeDef = TypedDict(
-    "_OptionalPutPolicyRequestRequestTypeDef",
-    {
-        "TagList": List["TagTypeDef"],
-    },
-    total=False,
-)
+class RouteTypeDef(TypedDict):
+    DestinationType: NotRequired[DestinationTypeType]
+    TargetType: NotRequired[TargetTypeType]
+    Destination: NotRequired[str]
+    Target: NotRequired[str]
 
-class PutPolicyRequestRequestTypeDef(
-    _RequiredPutPolicyRequestRequestTypeDef, _OptionalPutPolicyRequestRequestTypeDef
-):
-    pass
+class NetworkFirewallMissingExpectedRTViolationTypeDef(TypedDict):
+    ViolationTarget: NotRequired[str]
+    VPC: NotRequired[str]
+    AvailabilityZone: NotRequired[str]
+    CurrentRouteTable: NotRequired[str]
+    ExpectedRouteTable: NotRequired[str]
 
-PutPolicyResponseTypeDef = TypedDict(
-    "PutPolicyResponseTypeDef",
-    {
-        "Policy": "PolicyTypeDef",
-        "PolicyArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class NetworkFirewallMissingFirewallViolationTypeDef(TypedDict):
+    ViolationTarget: NotRequired[str]
+    VPC: NotRequired[str]
+    AvailabilityZone: NotRequired[str]
+    TargetViolationReason: NotRequired[str]
 
-_RequiredPutProtocolsListRequestRequestTypeDef = TypedDict(
-    "_RequiredPutProtocolsListRequestRequestTypeDef",
-    {
-        "ProtocolsList": "ProtocolsListDataTypeDef",
-    },
-)
-_OptionalPutProtocolsListRequestRequestTypeDef = TypedDict(
-    "_OptionalPutProtocolsListRequestRequestTypeDef",
-    {
-        "TagList": List["TagTypeDef"],
-    },
-    total=False,
-)
+class NetworkFirewallMissingSubnetViolationTypeDef(TypedDict):
+    ViolationTarget: NotRequired[str]
+    VPC: NotRequired[str]
+    AvailabilityZone: NotRequired[str]
+    TargetViolationReason: NotRequired[str]
 
-class PutProtocolsListRequestRequestTypeDef(
-    _RequiredPutProtocolsListRequestRequestTypeDef, _OptionalPutProtocolsListRequestRequestTypeDef
-):
-    pass
+class StatefulEngineOptionsTypeDef(TypedDict):
+    RuleOrder: NotRequired[RuleOrderType]
+    StreamExceptionPolicy: NotRequired[StreamExceptionPolicyType]
 
-PutProtocolsListResponseTypeDef = TypedDict(
-    "PutProtocolsListResponseTypeDef",
-    {
-        "ProtocolsList": "ProtocolsListDataTypeDef",
-        "ProtocolsListArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class StatelessRuleGroupTypeDef(TypedDict):
+    RuleGroupName: NotRequired[str]
+    ResourceId: NotRequired[str]
+    Priority: NotRequired[int]
 
-_RequiredPutResourceSetRequestRequestTypeDef = TypedDict(
-    "_RequiredPutResourceSetRequestRequestTypeDef",
-    {
-        "ResourceSet": "ResourceSetTypeDef",
-    },
-)
-_OptionalPutResourceSetRequestRequestTypeDef = TypedDict(
-    "_OptionalPutResourceSetRequestRequestTypeDef",
-    {
-        "TagList": List["TagTypeDef"],
-    },
-    total=False,
-)
+class NetworkFirewallPolicyTypeDef(TypedDict):
+    FirewallDeploymentModel: NotRequired[FirewallDeploymentModelType]
 
-class PutResourceSetRequestRequestTypeDef(
-    _RequiredPutResourceSetRequestRequestTypeDef, _OptionalPutResourceSetRequestRequestTypeDef
-):
-    pass
+class NetworkFirewallStatefulRuleGroupOverrideTypeDef(TypedDict):
+    Action: NotRequired[Literal["DROP_TO_ALERT"]]
 
-PutResourceSetResponseTypeDef = TypedDict(
-    "PutResourceSetResponseTypeDef",
-    {
-        "ResourceSet": "ResourceSetTypeDef",
-        "ResourceSetArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ThirdPartyFirewallPolicyTypeDef(TypedDict):
+    FirewallDeploymentModel: NotRequired[FirewallDeploymentModelType]
 
-RegionScopeTypeDef = TypedDict(
-    "RegionScopeTypeDef",
-    {
-        "Regions": List[str],
-        "AllRegionsEnabled": bool,
-    },
-    total=False,
-)
+class ResourceTagTypeDef(TypedDict):
+    Key: str
+    Value: NotRequired[str]
 
-RemediationActionTypeDef = TypedDict(
-    "RemediationActionTypeDef",
-    {
-        "Description": str,
-        "EC2CreateRouteAction": "EC2CreateRouteActionTypeDef",
-        "EC2ReplaceRouteAction": "EC2ReplaceRouteActionTypeDef",
-        "EC2DeleteRouteAction": "EC2DeleteRouteActionTypeDef",
-        "EC2CopyRouteTableAction": "EC2CopyRouteTableActionTypeDef",
-        "EC2ReplaceRouteTableAssociationAction": "EC2ReplaceRouteTableAssociationActionTypeDef",
-        "EC2AssociateRouteTableAction": "EC2AssociateRouteTableActionTypeDef",
-        "EC2CreateRouteTableAction": "EC2CreateRouteTableActionTypeDef",
-        "FMSPolicyUpdateFirewallCreationConfigAction": "FMSPolicyUpdateFirewallCreationConfigActionTypeDef",
-        "CreateNetworkAclAction": "CreateNetworkAclActionTypeDef",
-        "ReplaceNetworkAclAssociationAction": "ReplaceNetworkAclAssociationActionTypeDef",
-        "CreateNetworkAclEntriesAction": "CreateNetworkAclEntriesActionTypeDef",
-        "DeleteNetworkAclEntriesAction": "DeleteNetworkAclEntriesActionTypeDef",
-    },
-    total=False,
-)
+class PutNotificationChannelRequestTypeDef(TypedDict):
+    SnsTopicArn: str
+    SnsRoleName: str
 
-RemediationActionWithOrderTypeDef = TypedDict(
-    "RemediationActionWithOrderTypeDef",
-    {
-        "RemediationAction": "RemediationActionTypeDef",
-        "Order": int,
-    },
-    total=False,
-)
+class ThirdPartyFirewallMissingExpectedRouteTableViolationTypeDef(TypedDict):
+    ViolationTarget: NotRequired[str]
+    VPC: NotRequired[str]
+    AvailabilityZone: NotRequired[str]
+    CurrentRouteTable: NotRequired[str]
+    ExpectedRouteTable: NotRequired[str]
 
-ReplaceNetworkAclAssociationActionTypeDef = TypedDict(
-    "ReplaceNetworkAclAssociationActionTypeDef",
-    {
-        "Description": str,
-        "AssociationId": "ActionTargetTypeDef",
-        "NetworkAclId": "ActionTargetTypeDef",
-        "FMSCanRemediate": bool,
-    },
-    total=False,
-)
+class ThirdPartyFirewallMissingFirewallViolationTypeDef(TypedDict):
+    ViolationTarget: NotRequired[str]
+    VPC: NotRequired[str]
+    AvailabilityZone: NotRequired[str]
+    TargetViolationReason: NotRequired[str]
 
-ResourceSetSummaryTypeDef = TypedDict(
-    "ResourceSetSummaryTypeDef",
-    {
-        "Id": str,
-        "Name": str,
-        "Description": str,
-        "LastUpdateTime": datetime,
-        "ResourceSetStatus": ResourceSetStatusType,
-    },
-    total=False,
-)
+class ThirdPartyFirewallMissingSubnetViolationTypeDef(TypedDict):
+    ViolationTarget: NotRequired[str]
+    VPC: NotRequired[str]
+    AvailabilityZone: NotRequired[str]
+    TargetViolationReason: NotRequired[str]
 
-_RequiredResourceSetTypeDef = TypedDict(
-    "_RequiredResourceSetTypeDef",
-    {
-        "Name": str,
-        "ResourceTypeList": List[str],
-    },
-)
-_OptionalResourceSetTypeDef = TypedDict(
-    "_OptionalResourceSetTypeDef",
-    {
-        "Id": str,
-        "Description": str,
-        "UpdateToken": str,
-        "LastUpdateTime": datetime,
-        "ResourceSetStatus": ResourceSetStatusType,
-    },
-    total=False,
-)
+class WebACLHasIncompatibleConfigurationViolationTypeDef(TypedDict):
+    WebACLArn: NotRequired[str]
+    Description: NotRequired[str]
 
-class ResourceSetTypeDef(_RequiredResourceSetTypeDef, _OptionalResourceSetTypeDef):
-    pass
-
-_RequiredResourceTagTypeDef = TypedDict(
-    "_RequiredResourceTagTypeDef",
-    {
-        "Key": str,
-    },
-)
-_OptionalResourceTagTypeDef = TypedDict(
-    "_OptionalResourceTagTypeDef",
-    {
-        "Value": str,
-    },
-    total=False,
-)
-
-class ResourceTagTypeDef(_RequiredResourceTagTypeDef, _OptionalResourceTagTypeDef):
-    pass
-
-_RequiredResourceTypeDef = TypedDict(
-    "_RequiredResourceTypeDef",
-    {
-        "URI": str,
-    },
-)
-_OptionalResourceTypeDef = TypedDict(
-    "_OptionalResourceTypeDef",
-    {
-        "AccountId": str,
-    },
-    total=False,
-)
-
-class ResourceTypeDef(_RequiredResourceTypeDef, _OptionalResourceTypeDef):
-    pass
-
-ResourceViolationTypeDef = TypedDict(
-    "ResourceViolationTypeDef",
-    {
-        "AwsVPCSecurityGroupViolation": "AwsVPCSecurityGroupViolationTypeDef",
-        "AwsEc2NetworkInterfaceViolation": "AwsEc2NetworkInterfaceViolationTypeDef",
-        "AwsEc2InstanceViolation": "AwsEc2InstanceViolationTypeDef",
-        "NetworkFirewallMissingFirewallViolation": "NetworkFirewallMissingFirewallViolationTypeDef",
-        "NetworkFirewallMissingSubnetViolation": "NetworkFirewallMissingSubnetViolationTypeDef",
-        "NetworkFirewallMissingExpectedRTViolation": "NetworkFirewallMissingExpectedRTViolationTypeDef",
-        "NetworkFirewallPolicyModifiedViolation": "NetworkFirewallPolicyModifiedViolationTypeDef",
-        "NetworkFirewallInternetTrafficNotInspectedViolation": "NetworkFirewallInternetTrafficNotInspectedViolationTypeDef",
-        "NetworkFirewallInvalidRouteConfigurationViolation": "NetworkFirewallInvalidRouteConfigurationViolationTypeDef",
-        "NetworkFirewallBlackHoleRouteDetectedViolation": "NetworkFirewallBlackHoleRouteDetectedViolationTypeDef",
-        "NetworkFirewallUnexpectedFirewallRoutesViolation": "NetworkFirewallUnexpectedFirewallRoutesViolationTypeDef",
-        "NetworkFirewallUnexpectedGatewayRoutesViolation": "NetworkFirewallUnexpectedGatewayRoutesViolationTypeDef",
-        "NetworkFirewallMissingExpectedRoutesViolation": "NetworkFirewallMissingExpectedRoutesViolationTypeDef",
-        "DnsRuleGroupPriorityConflictViolation": "DnsRuleGroupPriorityConflictViolationTypeDef",
-        "DnsDuplicateRuleGroupViolation": "DnsDuplicateRuleGroupViolationTypeDef",
-        "DnsRuleGroupLimitExceededViolation": "DnsRuleGroupLimitExceededViolationTypeDef",
-        "FirewallSubnetIsOutOfScopeViolation": "FirewallSubnetIsOutOfScopeViolationTypeDef",
-        "RouteHasOutOfScopeEndpointViolation": "RouteHasOutOfScopeEndpointViolationTypeDef",
-        "ThirdPartyFirewallMissingFirewallViolation": "ThirdPartyFirewallMissingFirewallViolationTypeDef",
-        "ThirdPartyFirewallMissingSubnetViolation": "ThirdPartyFirewallMissingSubnetViolationTypeDef",
-        "ThirdPartyFirewallMissingExpectedRouteTableViolation": "ThirdPartyFirewallMissingExpectedRouteTableViolationTypeDef",
-        "FirewallSubnetMissingVPCEndpointViolation": "FirewallSubnetMissingVPCEndpointViolationTypeDef",
-        "InvalidNetworkAclEntriesViolation": "InvalidNetworkAclEntriesViolationTypeDef",
-        "PossibleRemediationActions": "PossibleRemediationActionsTypeDef",
-    },
-    total=False,
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-RouteHasOutOfScopeEndpointViolationTypeDef = TypedDict(
-    "RouteHasOutOfScopeEndpointViolationTypeDef",
-    {
-        "SubnetId": str,
-        "VpcId": str,
-        "RouteTableId": str,
-        "ViolatingRoutes": List["RouteTypeDef"],
-        "SubnetAvailabilityZone": str,
-        "SubnetAvailabilityZoneId": str,
-        "CurrentFirewallSubnetRouteTable": str,
-        "FirewallSubnetId": str,
-        "FirewallSubnetRoutes": List["RouteTypeDef"],
-        "InternetGatewayId": str,
-        "CurrentInternetGatewayRouteTable": str,
-        "InternetGatewayRoutes": List["RouteTypeDef"],
-    },
-    total=False,
-)
-
-RouteTypeDef = TypedDict(
-    "RouteTypeDef",
-    {
-        "DestinationType": DestinationTypeType,
-        "TargetType": TargetTypeType,
-        "Destination": str,
-        "Target": str,
-    },
-    total=False,
-)
-
-SecurityGroupRemediationActionTypeDef = TypedDict(
-    "SecurityGroupRemediationActionTypeDef",
-    {
-        "RemediationActionType": RemediationActionTypeType,
-        "Description": str,
-        "RemediationResult": "SecurityGroupRuleDescriptionTypeDef",
-        "IsDefaultAction": bool,
-    },
-    total=False,
-)
+class WebACLHasOutOfScopeResourcesViolationTypeDef(TypedDict):
+    WebACLArn: NotRequired[str]
+    OutOfScopeResourceList: NotRequired[List[str]]
 
 SecurityGroupRuleDescriptionTypeDef = TypedDict(
     "SecurityGroupRuleDescriptionTypeDef",
     {
-        "IPV4Range": str,
-        "IPV6Range": str,
-        "PrefixListId": str,
-        "Protocol": str,
-        "FromPort": int,
-        "ToPort": int,
+        "IPV4Range": NotRequired[str],
+        "IPV6Range": NotRequired[str],
+        "PrefixListId": NotRequired[str],
+        "Protocol": NotRequired[str],
+        "FromPort": NotRequired[int],
+        "ToPort": NotRequired[int],
     },
-    total=False,
 )
 
-_RequiredSecurityServicePolicyDataTypeDef = TypedDict(
-    "_RequiredSecurityServicePolicyDataTypeDef",
+class UntagResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+    TagKeys: Sequence[str]
+
+class CreateNetworkAclActionTypeDef(TypedDict):
+    Description: NotRequired[str]
+    Vpc: NotRequired[ActionTargetTypeDef]
+    FMSCanRemediate: NotRequired[bool]
+
+class EC2AssociateRouteTableActionTypeDef(TypedDict):
+    RouteTableId: ActionTargetTypeDef
+    Description: NotRequired[str]
+    SubnetId: NotRequired[ActionTargetTypeDef]
+    GatewayId: NotRequired[ActionTargetTypeDef]
+
+class EC2CopyRouteTableActionTypeDef(TypedDict):
+    VpcId: ActionTargetTypeDef
+    RouteTableId: ActionTargetTypeDef
+    Description: NotRequired[str]
+
+class EC2CreateRouteActionTypeDef(TypedDict):
+    RouteTableId: ActionTargetTypeDef
+    Description: NotRequired[str]
+    DestinationCidrBlock: NotRequired[str]
+    DestinationPrefixListId: NotRequired[str]
+    DestinationIpv6CidrBlock: NotRequired[str]
+    VpcEndpointId: NotRequired[ActionTargetTypeDef]
+    GatewayId: NotRequired[ActionTargetTypeDef]
+
+class EC2CreateRouteTableActionTypeDef(TypedDict):
+    VpcId: ActionTargetTypeDef
+    Description: NotRequired[str]
+
+class EC2DeleteRouteActionTypeDef(TypedDict):
+    RouteTableId: ActionTargetTypeDef
+    Description: NotRequired[str]
+    DestinationCidrBlock: NotRequired[str]
+    DestinationPrefixListId: NotRequired[str]
+    DestinationIpv6CidrBlock: NotRequired[str]
+
+class EC2ReplaceRouteActionTypeDef(TypedDict):
+    RouteTableId: ActionTargetTypeDef
+    Description: NotRequired[str]
+    DestinationCidrBlock: NotRequired[str]
+    DestinationPrefixListId: NotRequired[str]
+    DestinationIpv6CidrBlock: NotRequired[str]
+    GatewayId: NotRequired[ActionTargetTypeDef]
+
+class EC2ReplaceRouteTableAssociationActionTypeDef(TypedDict):
+    AssociationId: ActionTargetTypeDef
+    RouteTableId: ActionTargetTypeDef
+    Description: NotRequired[str]
+
+class ReplaceNetworkAclAssociationActionTypeDef(TypedDict):
+    Description: NotRequired[str]
+    AssociationId: NotRequired[ActionTargetTypeDef]
+    NetworkAclId: NotRequired[ActionTargetTypeDef]
+    FMSCanRemediate: NotRequired[bool]
+
+class AdminScopeOutputTypeDef(TypedDict):
+    AccountScope: NotRequired[AccountScopeOutputTypeDef]
+    OrganizationalUnitScope: NotRequired[OrganizationalUnitScopeOutputTypeDef]
+    RegionScope: NotRequired[RegionScopeOutputTypeDef]
+    PolicyTypeScope: NotRequired[PolicyTypeScopeOutputTypeDef]
+
+class AdminScopeTypeDef(TypedDict):
+    AccountScope: NotRequired[AccountScopeTypeDef]
+    OrganizationalUnitScope: NotRequired[OrganizationalUnitScopeTypeDef]
+    RegionScope: NotRequired[RegionScopeTypeDef]
+    PolicyTypeScope: NotRequired[PolicyTypeScopeTypeDef]
+
+class AppsListDataOutputTypeDef(TypedDict):
+    ListName: str
+    AppsList: List[AppTypeDef]
+    ListId: NotRequired[str]
+    ListUpdateToken: NotRequired[str]
+    CreateTime: NotRequired[datetime]
+    LastUpdateTime: NotRequired[datetime]
+    PreviousAppsList: NotRequired[Dict[str, List[AppTypeDef]]]
+
+class AppsListDataSummaryTypeDef(TypedDict):
+    ListArn: NotRequired[str]
+    ListId: NotRequired[str]
+    ListName: NotRequired[str]
+    AppsList: NotRequired[List[AppTypeDef]]
+
+class AppsListDataTypeDef(TypedDict):
+    ListName: str
+    AppsList: Sequence[AppTypeDef]
+    ListId: NotRequired[str]
+    ListUpdateToken: NotRequired[str]
+    CreateTime: NotRequired[TimestampTypeDef]
+    LastUpdateTime: NotRequired[TimestampTypeDef]
+    PreviousAppsList: NotRequired[Mapping[str, Sequence[AppTypeDef]]]
+
+class GetProtectionStatusRequestTypeDef(TypedDict):
+    PolicyId: str
+    MemberAccountId: NotRequired[str]
+    StartTime: NotRequired[TimestampTypeDef]
+    EndTime: NotRequired[TimestampTypeDef]
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class ProtocolsListDataTypeDef(TypedDict):
+    ListName: str
+    ProtocolsList: Sequence[str]
+    ListId: NotRequired[str]
+    ListUpdateToken: NotRequired[str]
+    CreateTime: NotRequired[TimestampTypeDef]
+    LastUpdateTime: NotRequired[TimestampTypeDef]
+    PreviousProtocolsList: NotRequired[Mapping[str, Sequence[str]]]
+
+class ResourceSetTypeDef(TypedDict):
+    Name: str
+    ResourceTypeList: Sequence[str]
+    Id: NotRequired[str]
+    Description: NotRequired[str]
+    UpdateToken: NotRequired[str]
+    LastUpdateTime: NotRequired[TimestampTypeDef]
+    ResourceSetStatus: NotRequired[ResourceSetStatusType]
+
+class AssociateThirdPartyFirewallResponseTypeDef(TypedDict):
+    ThirdPartyFirewallStatus: ThirdPartyFirewallAssociationStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DisassociateThirdPartyFirewallResponseTypeDef(TypedDict):
+    ThirdPartyFirewallStatus: ThirdPartyFirewallAssociationStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class EmptyResponseMetadataTypeDef(TypedDict):
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetAdminAccountResponseTypeDef(TypedDict):
+    AdminAccount: str
+    RoleStatus: AccountRoleStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetNotificationChannelResponseTypeDef(TypedDict):
+    SnsTopicArn: str
+    SnsRoleName: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetProtectionStatusResponseTypeDef(TypedDict):
+    AdminAccountId: str
+    ServiceType: SecurityServiceTypeType
+    Data: str
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class GetThirdPartyFirewallAssociationStatusResponseTypeDef(TypedDict):
+    ThirdPartyFirewallStatus: ThirdPartyFirewallAssociationStatusType
+    MarketplaceOnboardingStatus: MarketplaceSubscriptionOnboardingStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListAdminAccountsForOrganizationResponseTypeDef(TypedDict):
+    AdminAccounts: List[AdminAccountSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListAdminsManagingAccountResponseTypeDef(TypedDict):
+    AdminAccounts: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListMemberAccountsResponseTypeDef(TypedDict):
+    MemberAccounts: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class AwsEc2InstanceViolationTypeDef(TypedDict):
+    ViolationTarget: NotRequired[str]
+    AwsEc2NetworkInterfaceViolations: NotRequired[List[AwsEc2NetworkInterfaceViolationTypeDef]]
+
+class BatchAssociateResourceResponseTypeDef(TypedDict):
+    ResourceSetIdentifier: str
+    FailedItems: List[FailedItemTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class BatchDisassociateResourceResponseTypeDef(TypedDict):
+    ResourceSetIdentifier: str
+    FailedItems: List[FailedItemTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PolicyComplianceDetailTypeDef(TypedDict):
+    PolicyOwner: NotRequired[str]
+    PolicyId: NotRequired[str]
+    MemberAccount: NotRequired[str]
+    Violators: NotRequired[List[ComplianceViolatorTypeDef]]
+    EvaluationLimitExceeded: NotRequired[bool]
+    ExpiredAt: NotRequired[datetime]
+    IssueInfoMap: NotRequired[Dict[DependentServiceNameType, str]]
+
+class ListDiscoveredResourcesResponseTypeDef(TypedDict):
+    Items: List[DiscoveredResourceTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class PolicyComplianceStatusTypeDef(TypedDict):
+    PolicyOwner: NotRequired[str]
+    PolicyId: NotRequired[str]
+    PolicyName: NotRequired[str]
+    MemberAccount: NotRequired[str]
+    EvaluationResults: NotRequired[List[EvaluationResultTypeDef]]
+    LastUpdated: NotRequired[datetime]
+    IssueInfoMap: NotRequired[Dict[DependentServiceNameType, str]]
+
+class NetworkFirewallMissingExpectedRoutesViolationTypeDef(TypedDict):
+    ViolationTarget: NotRequired[str]
+    ExpectedRoutes: NotRequired[List[ExpectedRouteTypeDef]]
+    VpcId: NotRequired[str]
+
+class GetProtocolsListResponseTypeDef(TypedDict):
+    ProtocolsList: ProtocolsListDataOutputTypeDef
+    ProtocolsListArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutProtocolsListResponseTypeDef(TypedDict):
+    ProtocolsList: ProtocolsListDataOutputTypeDef
+    ProtocolsListArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetResourceSetResponseTypeDef(TypedDict):
+    ResourceSet: ResourceSetOutputTypeDef
+    ResourceSetArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutResourceSetResponseTypeDef(TypedDict):
+    ResourceSet: ResourceSetOutputTypeDef
+    ResourceSetArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListAdminAccountsForOrganizationRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListAdminsManagingAccountRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListAppsListsRequestPaginateTypeDef(TypedDict):
+    DefaultLists: NotRequired[bool]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListComplianceStatusRequestPaginateTypeDef(TypedDict):
+    PolicyId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListMemberAccountsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListPoliciesRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListProtocolsListsRequestPaginateTypeDef(TypedDict):
+    DefaultLists: NotRequired[bool]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListThirdPartyFirewallFirewallPoliciesRequestPaginateTypeDef(TypedDict):
+    ThirdPartyFirewall: ThirdPartyFirewallType
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListPoliciesResponseTypeDef(TypedDict):
+    PolicyList: List[PolicySummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListProtocolsListsResponseTypeDef(TypedDict):
+    ProtocolsLists: List[ProtocolsListDataSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListResourceSetResourcesResponseTypeDef(TypedDict):
+    Items: List[ResourceTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListResourceSetsResponseTypeDef(TypedDict):
+    ResourceSets: List[ResourceSetSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    TagList: List[TagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class TagResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+    TagList: Sequence[TagTypeDef]
+
+class ListThirdPartyFirewallFirewallPoliciesResponseTypeDef(TypedDict):
+    ThirdPartyFirewallFirewallPolicies: List[ThirdPartyFirewallFirewallPolicyTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+NetworkAclEntryTypeDef = TypedDict(
+    "NetworkAclEntryTypeDef",
+    {
+        "Protocol": str,
+        "RuleAction": NetworkAclRuleActionType,
+        "Egress": bool,
+        "IcmpTypeCode": NotRequired[NetworkAclIcmpTypeCodeTypeDef],
+        "PortRange": NotRequired[NetworkAclPortRangeTypeDef],
+        "CidrBlock": NotRequired[str],
+        "Ipv6CidrBlock": NotRequired[str],
+    },
+)
+
+class NetworkFirewallBlackHoleRouteDetectedViolationTypeDef(TypedDict):
+    ViolationTarget: NotRequired[str]
+    RouteTableId: NotRequired[str]
+    VpcId: NotRequired[str]
+    ViolatingRoutes: NotRequired[List[RouteTypeDef]]
+
+class NetworkFirewallInternetTrafficNotInspectedViolationTypeDef(TypedDict):
+    SubnetId: NotRequired[str]
+    SubnetAvailabilityZone: NotRequired[str]
+    RouteTableId: NotRequired[str]
+    ViolatingRoutes: NotRequired[List[RouteTypeDef]]
+    IsRouteTableUsedInDifferentAZ: NotRequired[bool]
+    CurrentFirewallSubnetRouteTable: NotRequired[str]
+    ExpectedFirewallEndpoint: NotRequired[str]
+    FirewallSubnetId: NotRequired[str]
+    ExpectedFirewallSubnetRoutes: NotRequired[List[ExpectedRouteTypeDef]]
+    ActualFirewallSubnetRoutes: NotRequired[List[RouteTypeDef]]
+    InternetGatewayId: NotRequired[str]
+    CurrentInternetGatewayRouteTable: NotRequired[str]
+    ExpectedInternetGatewayRoutes: NotRequired[List[ExpectedRouteTypeDef]]
+    ActualInternetGatewayRoutes: NotRequired[List[RouteTypeDef]]
+    VpcId: NotRequired[str]
+
+class NetworkFirewallInvalidRouteConfigurationViolationTypeDef(TypedDict):
+    AffectedSubnets: NotRequired[List[str]]
+    RouteTableId: NotRequired[str]
+    IsRouteTableUsedInDifferentAZ: NotRequired[bool]
+    ViolatingRoute: NotRequired[RouteTypeDef]
+    CurrentFirewallSubnetRouteTable: NotRequired[str]
+    ExpectedFirewallEndpoint: NotRequired[str]
+    ActualFirewallEndpoint: NotRequired[str]
+    ExpectedFirewallSubnetId: NotRequired[str]
+    ActualFirewallSubnetId: NotRequired[str]
+    ExpectedFirewallSubnetRoutes: NotRequired[List[ExpectedRouteTypeDef]]
+    ActualFirewallSubnetRoutes: NotRequired[List[RouteTypeDef]]
+    InternetGatewayId: NotRequired[str]
+    CurrentInternetGatewayRouteTable: NotRequired[str]
+    ExpectedInternetGatewayRoutes: NotRequired[List[ExpectedRouteTypeDef]]
+    ActualInternetGatewayRoutes: NotRequired[List[RouteTypeDef]]
+    VpcId: NotRequired[str]
+
+class NetworkFirewallUnexpectedFirewallRoutesViolationTypeDef(TypedDict):
+    FirewallSubnetId: NotRequired[str]
+    ViolatingRoutes: NotRequired[List[RouteTypeDef]]
+    RouteTableId: NotRequired[str]
+    FirewallEndpoint: NotRequired[str]
+    VpcId: NotRequired[str]
+
+class NetworkFirewallUnexpectedGatewayRoutesViolationTypeDef(TypedDict):
+    GatewayId: NotRequired[str]
+    ViolatingRoutes: NotRequired[List[RouteTypeDef]]
+    RouteTableId: NotRequired[str]
+    VpcId: NotRequired[str]
+
+class RouteHasOutOfScopeEndpointViolationTypeDef(TypedDict):
+    SubnetId: NotRequired[str]
+    VpcId: NotRequired[str]
+    RouteTableId: NotRequired[str]
+    ViolatingRoutes: NotRequired[List[RouteTypeDef]]
+    SubnetAvailabilityZone: NotRequired[str]
+    SubnetAvailabilityZoneId: NotRequired[str]
+    CurrentFirewallSubnetRouteTable: NotRequired[str]
+    FirewallSubnetId: NotRequired[str]
+    FirewallSubnetRoutes: NotRequired[List[RouteTypeDef]]
+    InternetGatewayId: NotRequired[str]
+    CurrentInternetGatewayRouteTable: NotRequired[str]
+    InternetGatewayRoutes: NotRequired[List[RouteTypeDef]]
+
+class StatefulRuleGroupTypeDef(TypedDict):
+    RuleGroupName: NotRequired[str]
+    ResourceId: NotRequired[str]
+    Priority: NotRequired[int]
+    Override: NotRequired[NetworkFirewallStatefulRuleGroupOverrideTypeDef]
+
+class SecurityGroupRemediationActionTypeDef(TypedDict):
+    RemediationActionType: NotRequired[RemediationActionTypeType]
+    Description: NotRequired[str]
+    RemediationResult: NotRequired[SecurityGroupRuleDescriptionTypeDef]
+    IsDefaultAction: NotRequired[bool]
+
+class GetAdminScopeResponseTypeDef(TypedDict):
+    AdminScope: AdminScopeOutputTypeDef
+    Status: OrganizationStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+AdminScopeUnionTypeDef = Union[AdminScopeTypeDef, AdminScopeOutputTypeDef]
+
+class GetAppsListResponseTypeDef(TypedDict):
+    AppsList: AppsListDataOutputTypeDef
+    AppsListArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutAppsListResponseTypeDef(TypedDict):
+    AppsList: AppsListDataOutputTypeDef
+    AppsListArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListAppsListsResponseTypeDef(TypedDict):
+    AppsLists: List[AppsListDataSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+AppsListDataUnionTypeDef = Union[AppsListDataTypeDef, AppsListDataOutputTypeDef]
+ProtocolsListDataUnionTypeDef = Union[ProtocolsListDataTypeDef, ProtocolsListDataOutputTypeDef]
+ResourceSetUnionTypeDef = Union[ResourceSetTypeDef, ResourceSetOutputTypeDef]
+
+class GetComplianceDetailResponseTypeDef(TypedDict):
+    PolicyComplianceDetail: PolicyComplianceDetailTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListComplianceStatusResponseTypeDef(TypedDict):
+    PolicyComplianceStatusList: List[PolicyComplianceStatusTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class EntryDescriptionTypeDef(TypedDict):
+    EntryDetail: NotRequired[NetworkAclEntryTypeDef]
+    EntryRuleNumber: NotRequired[int]
+    EntryType: NotRequired[EntryTypeType]
+
+class NetworkAclEntrySetOutputTypeDef(TypedDict):
+    ForceRemediateForFirstEntries: bool
+    ForceRemediateForLastEntries: bool
+    FirstEntries: NotRequired[List[NetworkAclEntryTypeDef]]
+    LastEntries: NotRequired[List[NetworkAclEntryTypeDef]]
+
+class NetworkAclEntrySetTypeDef(TypedDict):
+    ForceRemediateForFirstEntries: bool
+    ForceRemediateForLastEntries: bool
+    FirstEntries: NotRequired[Sequence[NetworkAclEntryTypeDef]]
+    LastEntries: NotRequired[Sequence[NetworkAclEntryTypeDef]]
+
+class NetworkFirewallPolicyDescriptionTypeDef(TypedDict):
+    StatelessRuleGroups: NotRequired[List[StatelessRuleGroupTypeDef]]
+    StatelessDefaultActions: NotRequired[List[str]]
+    StatelessFragmentDefaultActions: NotRequired[List[str]]
+    StatelessCustomActions: NotRequired[List[str]]
+    StatefulRuleGroups: NotRequired[List[StatefulRuleGroupTypeDef]]
+    StatefulDefaultActions: NotRequired[List[str]]
+    StatefulEngineOptions: NotRequired[StatefulEngineOptionsTypeDef]
+
+class AwsVPCSecurityGroupViolationTypeDef(TypedDict):
+    ViolationTarget: NotRequired[str]
+    ViolationTargetDescription: NotRequired[str]
+    PartialMatches: NotRequired[List[PartialMatchTypeDef]]
+    PossibleSecurityGroupRemediationActions: NotRequired[
+        List[SecurityGroupRemediationActionTypeDef]
+    ]
+
+class PutAdminAccountRequestTypeDef(TypedDict):
+    AdminAccount: str
+    AdminScope: NotRequired[AdminScopeUnionTypeDef]
+
+class PutAppsListRequestTypeDef(TypedDict):
+    AppsList: AppsListDataUnionTypeDef
+    TagList: NotRequired[Sequence[TagTypeDef]]
+
+class PutProtocolsListRequestTypeDef(TypedDict):
+    ProtocolsList: ProtocolsListDataUnionTypeDef
+    TagList: NotRequired[Sequence[TagTypeDef]]
+
+class PutResourceSetRequestTypeDef(TypedDict):
+    ResourceSet: ResourceSetUnionTypeDef
+    TagList: NotRequired[Sequence[TagTypeDef]]
+
+class CreateNetworkAclEntriesActionTypeDef(TypedDict):
+    Description: NotRequired[str]
+    NetworkAclId: NotRequired[ActionTargetTypeDef]
+    NetworkAclEntriesToBeCreated: NotRequired[List[EntryDescriptionTypeDef]]
+    FMSCanRemediate: NotRequired[bool]
+
+class DeleteNetworkAclEntriesActionTypeDef(TypedDict):
+    Description: NotRequired[str]
+    NetworkAclId: NotRequired[ActionTargetTypeDef]
+    NetworkAclEntriesToBeDeleted: NotRequired[List[EntryDescriptionTypeDef]]
+    FMSCanRemediate: NotRequired[bool]
+
+class EntryViolationTypeDef(TypedDict):
+    ExpectedEntry: NotRequired[EntryDescriptionTypeDef]
+    ExpectedEvaluationOrder: NotRequired[str]
+    ActualEvaluationOrder: NotRequired[str]
+    EntryAtExpectedEvaluationOrder: NotRequired[EntryDescriptionTypeDef]
+    EntriesWithConflicts: NotRequired[List[EntryDescriptionTypeDef]]
+    EntryViolationReasons: NotRequired[List[EntryViolationReasonType]]
+
+class NetworkAclCommonPolicyOutputTypeDef(TypedDict):
+    NetworkAclEntrySet: NetworkAclEntrySetOutputTypeDef
+
+class NetworkAclCommonPolicyTypeDef(TypedDict):
+    NetworkAclEntrySet: NetworkAclEntrySetTypeDef
+
+class NetworkFirewallPolicyModifiedViolationTypeDef(TypedDict):
+    ViolationTarget: NotRequired[str]
+    CurrentPolicyDescription: NotRequired[NetworkFirewallPolicyDescriptionTypeDef]
+    ExpectedPolicyDescription: NotRequired[NetworkFirewallPolicyDescriptionTypeDef]
+
+class RemediationActionTypeDef(TypedDict):
+    Description: NotRequired[str]
+    EC2CreateRouteAction: NotRequired[EC2CreateRouteActionTypeDef]
+    EC2ReplaceRouteAction: NotRequired[EC2ReplaceRouteActionTypeDef]
+    EC2DeleteRouteAction: NotRequired[EC2DeleteRouteActionTypeDef]
+    EC2CopyRouteTableAction: NotRequired[EC2CopyRouteTableActionTypeDef]
+    EC2ReplaceRouteTableAssociationAction: NotRequired[EC2ReplaceRouteTableAssociationActionTypeDef]
+    EC2AssociateRouteTableAction: NotRequired[EC2AssociateRouteTableActionTypeDef]
+    EC2CreateRouteTableAction: NotRequired[EC2CreateRouteTableActionTypeDef]
+    FMSPolicyUpdateFirewallCreationConfigAction: NotRequired[
+        FMSPolicyUpdateFirewallCreationConfigActionTypeDef
+    ]
+    CreateNetworkAclAction: NotRequired[CreateNetworkAclActionTypeDef]
+    ReplaceNetworkAclAssociationAction: NotRequired[ReplaceNetworkAclAssociationActionTypeDef]
+    CreateNetworkAclEntriesAction: NotRequired[CreateNetworkAclEntriesActionTypeDef]
+    DeleteNetworkAclEntriesAction: NotRequired[DeleteNetworkAclEntriesActionTypeDef]
+
+class InvalidNetworkAclEntriesViolationTypeDef(TypedDict):
+    Vpc: NotRequired[str]
+    Subnet: NotRequired[str]
+    SubnetAvailabilityZone: NotRequired[str]
+    CurrentAssociatedNetworkAcl: NotRequired[str]
+    EntryViolations: NotRequired[List[EntryViolationTypeDef]]
+
+class PolicyOptionOutputTypeDef(TypedDict):
+    NetworkFirewallPolicy: NotRequired[NetworkFirewallPolicyTypeDef]
+    ThirdPartyFirewallPolicy: NotRequired[ThirdPartyFirewallPolicyTypeDef]
+    NetworkAclCommonPolicy: NotRequired[NetworkAclCommonPolicyOutputTypeDef]
+
+class PolicyOptionTypeDef(TypedDict):
+    NetworkFirewallPolicy: NotRequired[NetworkFirewallPolicyTypeDef]
+    ThirdPartyFirewallPolicy: NotRequired[ThirdPartyFirewallPolicyTypeDef]
+    NetworkAclCommonPolicy: NotRequired[NetworkAclCommonPolicyTypeDef]
+
+class RemediationActionWithOrderTypeDef(TypedDict):
+    RemediationAction: NotRequired[RemediationActionTypeDef]
+    Order: NotRequired[int]
+
+SecurityServicePolicyDataOutputTypeDef = TypedDict(
+    "SecurityServicePolicyDataOutputTypeDef",
     {
         "Type": SecurityServiceTypeType,
+        "ManagedServiceData": NotRequired[str],
+        "PolicyOption": NotRequired[PolicyOptionOutputTypeDef],
     },
 )
-_OptionalSecurityServicePolicyDataTypeDef = TypedDict(
-    "_OptionalSecurityServicePolicyDataTypeDef",
+SecurityServicePolicyDataTypeDef = TypedDict(
+    "SecurityServicePolicyDataTypeDef",
     {
-        "ManagedServiceData": str,
-        "PolicyOption": "PolicyOptionTypeDef",
-    },
-    total=False,
-)
-
-class SecurityServicePolicyDataTypeDef(
-    _RequiredSecurityServicePolicyDataTypeDef, _OptionalSecurityServicePolicyDataTypeDef
-):
-    pass
-
-StatefulEngineOptionsTypeDef = TypedDict(
-    "StatefulEngineOptionsTypeDef",
-    {
-        "RuleOrder": RuleOrderType,
-        "StreamExceptionPolicy": StreamExceptionPolicyType,
-    },
-    total=False,
-)
-
-StatefulRuleGroupTypeDef = TypedDict(
-    "StatefulRuleGroupTypeDef",
-    {
-        "RuleGroupName": str,
-        "ResourceId": str,
-        "Priority": int,
-        "Override": "NetworkFirewallStatefulRuleGroupOverrideTypeDef",
-    },
-    total=False,
-)
-
-StatelessRuleGroupTypeDef = TypedDict(
-    "StatelessRuleGroupTypeDef",
-    {
-        "RuleGroupName": str,
-        "ResourceId": str,
-        "Priority": int,
-    },
-    total=False,
-)
-
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-        "TagList": List["TagTypeDef"],
+        "Type": SecurityServiceTypeType,
+        "ManagedServiceData": NotRequired[str],
+        "PolicyOption": NotRequired[PolicyOptionTypeDef],
     },
 )
 
-TagTypeDef = TypedDict(
-    "TagTypeDef",
-    {
-        "Key": str,
-        "Value": str,
-    },
-)
+class PossibleRemediationActionTypeDef(TypedDict):
+    OrderedRemediationActions: List[RemediationActionWithOrderTypeDef]
+    Description: NotRequired[str]
+    IsDefaultAction: NotRequired[bool]
 
-ThirdPartyFirewallFirewallPolicyTypeDef = TypedDict(
-    "ThirdPartyFirewallFirewallPolicyTypeDef",
-    {
-        "FirewallPolicyId": str,
-        "FirewallPolicyName": str,
-    },
-    total=False,
-)
+class PolicyOutputTypeDef(TypedDict):
+    PolicyName: str
+    SecurityServicePolicyData: SecurityServicePolicyDataOutputTypeDef
+    ResourceType: str
+    ExcludeResourceTags: bool
+    RemediationEnabled: bool
+    PolicyId: NotRequired[str]
+    PolicyUpdateToken: NotRequired[str]
+    ResourceTypeList: NotRequired[List[str]]
+    ResourceTags: NotRequired[List[ResourceTagTypeDef]]
+    DeleteUnusedFMManagedResources: NotRequired[bool]
+    IncludeMap: NotRequired[Dict[CustomerPolicyScopeIdTypeType, List[str]]]
+    ExcludeMap: NotRequired[Dict[CustomerPolicyScopeIdTypeType, List[str]]]
+    ResourceSetIds: NotRequired[List[str]]
+    PolicyDescription: NotRequired[str]
+    PolicyStatus: NotRequired[CustomerPolicyStatusType]
+    ResourceTagLogicalOperator: NotRequired[ResourceTagLogicalOperatorType]
 
-ThirdPartyFirewallMissingExpectedRouteTableViolationTypeDef = TypedDict(
-    "ThirdPartyFirewallMissingExpectedRouteTableViolationTypeDef",
-    {
-        "ViolationTarget": str,
-        "VPC": str,
-        "AvailabilityZone": str,
-        "CurrentRouteTable": str,
-        "ExpectedRouteTable": str,
-    },
-    total=False,
-)
+class PolicyTypeDef(TypedDict):
+    PolicyName: str
+    SecurityServicePolicyData: SecurityServicePolicyDataTypeDef
+    ResourceType: str
+    ExcludeResourceTags: bool
+    RemediationEnabled: bool
+    PolicyId: NotRequired[str]
+    PolicyUpdateToken: NotRequired[str]
+    ResourceTypeList: NotRequired[Sequence[str]]
+    ResourceTags: NotRequired[Sequence[ResourceTagTypeDef]]
+    DeleteUnusedFMManagedResources: NotRequired[bool]
+    IncludeMap: NotRequired[Mapping[CustomerPolicyScopeIdTypeType, Sequence[str]]]
+    ExcludeMap: NotRequired[Mapping[CustomerPolicyScopeIdTypeType, Sequence[str]]]
+    ResourceSetIds: NotRequired[Sequence[str]]
+    PolicyDescription: NotRequired[str]
+    PolicyStatus: NotRequired[CustomerPolicyStatusType]
+    ResourceTagLogicalOperator: NotRequired[ResourceTagLogicalOperatorType]
 
-ThirdPartyFirewallMissingFirewallViolationTypeDef = TypedDict(
-    "ThirdPartyFirewallMissingFirewallViolationTypeDef",
-    {
-        "ViolationTarget": str,
-        "VPC": str,
-        "AvailabilityZone": str,
-        "TargetViolationReason": str,
-    },
-    total=False,
-)
+class PossibleRemediationActionsTypeDef(TypedDict):
+    Description: NotRequired[str]
+    Actions: NotRequired[List[PossibleRemediationActionTypeDef]]
 
-ThirdPartyFirewallMissingSubnetViolationTypeDef = TypedDict(
-    "ThirdPartyFirewallMissingSubnetViolationTypeDef",
-    {
-        "ViolationTarget": str,
-        "VPC": str,
-        "AvailabilityZone": str,
-        "TargetViolationReason": str,
-    },
-    total=False,
-)
+class GetPolicyResponseTypeDef(TypedDict):
+    Policy: PolicyOutputTypeDef
+    PolicyArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ThirdPartyFirewallPolicyTypeDef = TypedDict(
-    "ThirdPartyFirewallPolicyTypeDef",
-    {
-        "FirewallDeploymentModel": FirewallDeploymentModelType,
-    },
-    total=False,
-)
+class PutPolicyResponseTypeDef(TypedDict):
+    Policy: PolicyOutputTypeDef
+    PolicyArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-        "TagKeys": List[str],
-    },
-)
+PolicyUnionTypeDef = Union[PolicyTypeDef, PolicyOutputTypeDef]
 
-_RequiredViolationDetailTypeDef = TypedDict(
-    "_RequiredViolationDetailTypeDef",
-    {
-        "PolicyId": str,
-        "MemberAccount": str,
-        "ResourceId": str,
-        "ResourceType": str,
-        "ResourceViolations": List["ResourceViolationTypeDef"],
-    },
-)
-_OptionalViolationDetailTypeDef = TypedDict(
-    "_OptionalViolationDetailTypeDef",
-    {
-        "ResourceTags": List["TagTypeDef"],
-        "ResourceDescription": str,
-    },
-    total=False,
-)
+class ResourceViolationTypeDef(TypedDict):
+    AwsVPCSecurityGroupViolation: NotRequired[AwsVPCSecurityGroupViolationTypeDef]
+    AwsEc2NetworkInterfaceViolation: NotRequired[AwsEc2NetworkInterfaceViolationTypeDef]
+    AwsEc2InstanceViolation: NotRequired[AwsEc2InstanceViolationTypeDef]
+    NetworkFirewallMissingFirewallViolation: NotRequired[
+        NetworkFirewallMissingFirewallViolationTypeDef
+    ]
+    NetworkFirewallMissingSubnetViolation: NotRequired[NetworkFirewallMissingSubnetViolationTypeDef]
+    NetworkFirewallMissingExpectedRTViolation: NotRequired[
+        NetworkFirewallMissingExpectedRTViolationTypeDef
+    ]
+    NetworkFirewallPolicyModifiedViolation: NotRequired[
+        NetworkFirewallPolicyModifiedViolationTypeDef
+    ]
+    NetworkFirewallInternetTrafficNotInspectedViolation: NotRequired[
+        NetworkFirewallInternetTrafficNotInspectedViolationTypeDef
+    ]
+    NetworkFirewallInvalidRouteConfigurationViolation: NotRequired[
+        NetworkFirewallInvalidRouteConfigurationViolationTypeDef
+    ]
+    NetworkFirewallBlackHoleRouteDetectedViolation: NotRequired[
+        NetworkFirewallBlackHoleRouteDetectedViolationTypeDef
+    ]
+    NetworkFirewallUnexpectedFirewallRoutesViolation: NotRequired[
+        NetworkFirewallUnexpectedFirewallRoutesViolationTypeDef
+    ]
+    NetworkFirewallUnexpectedGatewayRoutesViolation: NotRequired[
+        NetworkFirewallUnexpectedGatewayRoutesViolationTypeDef
+    ]
+    NetworkFirewallMissingExpectedRoutesViolation: NotRequired[
+        NetworkFirewallMissingExpectedRoutesViolationTypeDef
+    ]
+    DnsRuleGroupPriorityConflictViolation: NotRequired[DnsRuleGroupPriorityConflictViolationTypeDef]
+    DnsDuplicateRuleGroupViolation: NotRequired[DnsDuplicateRuleGroupViolationTypeDef]
+    DnsRuleGroupLimitExceededViolation: NotRequired[DnsRuleGroupLimitExceededViolationTypeDef]
+    FirewallSubnetIsOutOfScopeViolation: NotRequired[FirewallSubnetIsOutOfScopeViolationTypeDef]
+    RouteHasOutOfScopeEndpointViolation: NotRequired[RouteHasOutOfScopeEndpointViolationTypeDef]
+    ThirdPartyFirewallMissingFirewallViolation: NotRequired[
+        ThirdPartyFirewallMissingFirewallViolationTypeDef
+    ]
+    ThirdPartyFirewallMissingSubnetViolation: NotRequired[
+        ThirdPartyFirewallMissingSubnetViolationTypeDef
+    ]
+    ThirdPartyFirewallMissingExpectedRouteTableViolation: NotRequired[
+        ThirdPartyFirewallMissingExpectedRouteTableViolationTypeDef
+    ]
+    FirewallSubnetMissingVPCEndpointViolation: NotRequired[
+        FirewallSubnetMissingVPCEndpointViolationTypeDef
+    ]
+    InvalidNetworkAclEntriesViolation: NotRequired[InvalidNetworkAclEntriesViolationTypeDef]
+    PossibleRemediationActions: NotRequired[PossibleRemediationActionsTypeDef]
+    WebACLHasIncompatibleConfigurationViolation: NotRequired[
+        WebACLHasIncompatibleConfigurationViolationTypeDef
+    ]
+    WebACLHasOutOfScopeResourcesViolation: NotRequired[WebACLHasOutOfScopeResourcesViolationTypeDef]
 
-class ViolationDetailTypeDef(_RequiredViolationDetailTypeDef, _OptionalViolationDetailTypeDef):
-    pass
+class PutPolicyRequestTypeDef(TypedDict):
+    Policy: PolicyUnionTypeDef
+    TagList: NotRequired[Sequence[TagTypeDef]]
+
+class ViolationDetailTypeDef(TypedDict):
+    PolicyId: str
+    MemberAccount: str
+    ResourceId: str
+    ResourceType: str
+    ResourceViolations: List[ResourceViolationTypeDef]
+    ResourceTags: NotRequired[List[TagTypeDef]]
+    ResourceDescription: NotRequired[str]
+
+class GetViolationDetailsResponseTypeDef(TypedDict):
+    ViolationDetail: ViolationDetailTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef

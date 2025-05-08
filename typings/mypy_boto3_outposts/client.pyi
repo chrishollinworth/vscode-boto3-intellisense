@@ -1,46 +1,36 @@
 """
-Type annotations for outposts service client.
+Type annotations for outposts service Client.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/client.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_outposts/client/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
-    from mypy_boto3_outposts import OutpostsClient
+    from boto3.session import Session
+    from mypy_boto3_outposts.client import OutpostsClient
 
-    client: OutpostsClient = boto3.client("outposts")
+    session = Session()
+    client: OutpostsClient = session.client("outposts")
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from typing import Any, Dict, List, Type, overload
+from typing import Any, overload
 
 from botocore.client import BaseClient, ClientMeta
+from botocore.errorfactory import BaseClientExceptions
+from botocore.exceptions import ClientError as BotocoreClientError
 
-from .literals import (
-    AddressTypeType,
-    AssetStateType,
-    CapacityTaskStatusType,
-    CatalogItemClassType,
-    FiberOpticCableTypeType,
-    MaximumSupportedWeightLbsType,
-    OpticalStandardType,
-    PaymentOptionType,
-    PaymentTermType,
-    PowerConnectorType,
-    PowerDrawKvaType,
-    PowerFeedDropType,
-    PowerPhaseType,
-    SupportedHardwareTypeType,
-    SupportedStorageEnumType,
-    UplinkCountType,
-    UplinkGbpsType,
-)
 from .paginator import (
     GetOutpostInstanceTypesPaginator,
     GetOutpostSupportedInstanceTypesPaginator,
+    ListAssetInstancesPaginator,
     ListAssetsPaginator,
+    ListBlockingInstancesForCapacityTaskPaginator,
     ListCapacityTasksPaginator,
     ListCatalogItemsPaginator,
     ListOrdersPaginator,
@@ -48,52 +38,82 @@ from .paginator import (
     ListSitesPaginator,
 )
 from .type_defs import (
-    AddressTypeDef,
+    CancelCapacityTaskInputTypeDef,
+    CancelOrderInputTypeDef,
+    CreateOrderInputTypeDef,
     CreateOrderOutputTypeDef,
+    CreateOutpostInputTypeDef,
     CreateOutpostOutputTypeDef,
+    CreateSiteInputTypeDef,
     CreateSiteOutputTypeDef,
+    DeleteOutpostInputTypeDef,
+    DeleteSiteInputTypeDef,
+    GetCapacityTaskInputTypeDef,
     GetCapacityTaskOutputTypeDef,
+    GetCatalogItemInputTypeDef,
     GetCatalogItemOutputTypeDef,
+    GetConnectionRequestTypeDef,
     GetConnectionResponseTypeDef,
+    GetOrderInputTypeDef,
     GetOrderOutputTypeDef,
+    GetOutpostInputTypeDef,
+    GetOutpostInstanceTypesInputTypeDef,
     GetOutpostInstanceTypesOutputTypeDef,
     GetOutpostOutputTypeDef,
+    GetOutpostSupportedInstanceTypesInputTypeDef,
     GetOutpostSupportedInstanceTypesOutputTypeDef,
+    GetSiteAddressInputTypeDef,
     GetSiteAddressOutputTypeDef,
+    GetSiteInputTypeDef,
     GetSiteOutputTypeDef,
-    InstanceTypeCapacityTypeDef,
-    LineItemRequestTypeDef,
+    ListAssetInstancesInputTypeDef,
+    ListAssetInstancesOutputTypeDef,
+    ListAssetsInputTypeDef,
     ListAssetsOutputTypeDef,
+    ListBlockingInstancesForCapacityTaskInputTypeDef,
+    ListBlockingInstancesForCapacityTaskOutputTypeDef,
+    ListCapacityTasksInputTypeDef,
     ListCapacityTasksOutputTypeDef,
+    ListCatalogItemsInputTypeDef,
     ListCatalogItemsOutputTypeDef,
+    ListOrdersInputTypeDef,
     ListOrdersOutputTypeDef,
+    ListOutpostsInputTypeDef,
     ListOutpostsOutputTypeDef,
+    ListSitesInputTypeDef,
     ListSitesOutputTypeDef,
+    ListTagsForResourceRequestTypeDef,
     ListTagsForResourceResponseTypeDef,
-    RackPhysicalPropertiesTypeDef,
+    StartCapacityTaskInputTypeDef,
     StartCapacityTaskOutputTypeDef,
+    StartConnectionRequestTypeDef,
     StartConnectionResponseTypeDef,
+    TagResourceRequestTypeDef,
+    UntagResourceRequestTypeDef,
+    UpdateOutpostInputTypeDef,
     UpdateOutpostOutputTypeDef,
+    UpdateSiteAddressInputTypeDef,
     UpdateSiteAddressOutputTypeDef,
+    UpdateSiteInputTypeDef,
     UpdateSiteOutputTypeDef,
+    UpdateSiteRackPhysicalPropertiesInputTypeDef,
     UpdateSiteRackPhysicalPropertiesOutputTypeDef,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import type as Type
+    from collections.abc import Mapping
 else:
-    from typing_extensions import Literal
+    from typing import Dict, Mapping, Type
+if sys.version_info >= (3, 12):
+    from typing import Literal, Unpack
+else:
+    from typing_extensions import Literal, Unpack
 
 __all__ = ("OutpostsClient",)
 
-class BotocoreClientError(BaseException):
-    MSG_TEMPLATE: str
-
-    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
-        self.response: Dict[str, Any]
-        self.operation_name: str
-
-class Exceptions:
+class Exceptions(BaseClientExceptions):
     AccessDeniedException: Type[BotocoreClientError]
     ClientError: Type[BotocoreClientError]
     ConflictException: Type[BotocoreClientError]
@@ -104,8 +124,8 @@ class Exceptions:
 
 class OutpostsClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Client)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/client.html)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/outposts.html#Outposts.Client)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_outposts/client/)
     """
 
     meta: ClientMeta
@@ -114,462 +134,440 @@ class OutpostsClient(BaseClient):
     def exceptions(self) -> Exceptions:
         """
         OutpostsClient exceptions.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/outposts.html#Outposts.Client)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_outposts/client/#exceptions)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        Check if an operation can be paginated.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Client.can_paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/client.html#can_paginate)
-        """
-
-    def cancel_capacity_task(
-        self, *, CapacityTaskId: str, OutpostIdentifier: str
-    ) -> Dict[str, Any]:
-        """
-        Cancels the capacity task.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Client.cancel_capacity_task)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/client.html#cancel_capacity_task)
-        """
-
-    def cancel_order(self, *, OrderId: str) -> Dict[str, Any]:
-        """
-        Cancels the specified order for an Outpost.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Client.cancel_order)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/client.html#cancel_order)
-        """
-
-    def close(self) -> None:
-        """
-        Closes underlying endpoint connections.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Client.close)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/client.html#close)
-        """
-
-    def create_order(
-        self,
-        *,
-        OutpostIdentifier: str,
-        LineItems: List["LineItemRequestTypeDef"],
-        PaymentOption: PaymentOptionType,
-        PaymentTerm: PaymentTermType = None
-    ) -> CreateOrderOutputTypeDef:
-        """
-        Creates an order for an Outpost.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Client.create_order)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/client.html#create_order)
-        """
-
-    def create_outpost(
-        self,
-        *,
-        Name: str,
-        SiteId: str,
-        Description: str = None,
-        AvailabilityZone: str = None,
-        AvailabilityZoneId: str = None,
-        Tags: Dict[str, str] = None,
-        SupportedHardwareType: SupportedHardwareTypeType = None
-    ) -> CreateOutpostOutputTypeDef:
-        """
-        Creates an Outpost.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Client.create_outpost)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/client.html#create_outpost)
-        """
-
-    def create_site(
-        self,
-        *,
-        Name: str,
-        Description: str = None,
-        Notes: str = None,
-        Tags: Dict[str, str] = None,
-        OperatingAddress: "AddressTypeDef" = None,
-        ShippingAddress: "AddressTypeDef" = None,
-        RackPhysicalProperties: "RackPhysicalPropertiesTypeDef" = None
-    ) -> CreateSiteOutputTypeDef:
-        """
-        Creates a site for an Outpost.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Client.create_site)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/client.html#create_site)
-        """
-
-    def delete_outpost(self, *, OutpostId: str) -> Dict[str, Any]:
-        """
-        Deletes the specified Outpost.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Client.delete_outpost)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/client.html#delete_outpost)
-        """
-
-    def delete_site(self, *, SiteId: str) -> Dict[str, Any]:
-        """
-        Deletes the specified site.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Client.delete_site)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/client.html#delete_site)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/outposts/client/can_paginate.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_outposts/client/#can_paginate)
         """
 
     def generate_presigned_url(
         self,
         ClientMethod: str,
-        Params: Dict[str, Any] = None,
+        Params: Mapping[str, Any] = ...,
         ExpiresIn: int = 3600,
-        HttpMethod: str = None,
+        HttpMethod: str = ...,
     ) -> str:
         """
-        Generate a presigned url given a client, its method, and arguments.
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/outposts/client/generate_presigned_url.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_outposts/client/#generate_presigned_url)
+        """
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Client.generate_presigned_url)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/client.html#generate_presigned_url)
+    def cancel_capacity_task(
+        self, **kwargs: Unpack[CancelCapacityTaskInputTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Cancels the capacity task.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/outposts/client/cancel_capacity_task.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_outposts/client/#cancel_capacity_task)
+        """
+
+    def cancel_order(self, **kwargs: Unpack[CancelOrderInputTypeDef]) -> Dict[str, Any]:
+        """
+        Cancels the specified order for an Outpost.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/outposts/client/cancel_order.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_outposts/client/#cancel_order)
+        """
+
+    def create_order(self, **kwargs: Unpack[CreateOrderInputTypeDef]) -> CreateOrderOutputTypeDef:
+        """
+        Creates an order for an Outpost.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/outposts/client/create_order.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_outposts/client/#create_order)
+        """
+
+    def create_outpost(
+        self, **kwargs: Unpack[CreateOutpostInputTypeDef]
+    ) -> CreateOutpostOutputTypeDef:
+        """
+        Creates an Outpost.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/outposts/client/create_outpost.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_outposts/client/#create_outpost)
+        """
+
+    def create_site(self, **kwargs: Unpack[CreateSiteInputTypeDef]) -> CreateSiteOutputTypeDef:
+        """
+        Creates a site for an Outpost.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/outposts/client/create_site.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_outposts/client/#create_site)
+        """
+
+    def delete_outpost(self, **kwargs: Unpack[DeleteOutpostInputTypeDef]) -> Dict[str, Any]:
+        """
+        Deletes the specified Outpost.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/outposts/client/delete_outpost.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_outposts/client/#delete_outpost)
+        """
+
+    def delete_site(self, **kwargs: Unpack[DeleteSiteInputTypeDef]) -> Dict[str, Any]:
+        """
+        Deletes the specified site.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/outposts/client/delete_site.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_outposts/client/#delete_site)
         """
 
     def get_capacity_task(
-        self, *, CapacityTaskId: str, OutpostIdentifier: str
+        self, **kwargs: Unpack[GetCapacityTaskInputTypeDef]
     ) -> GetCapacityTaskOutputTypeDef:
         """
         Gets details of the specified capacity task.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Client.get_capacity_task)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/client.html#get_capacity_task)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/outposts/client/get_capacity_task.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_outposts/client/#get_capacity_task)
         """
 
-    def get_catalog_item(self, *, CatalogItemId: str) -> GetCatalogItemOutputTypeDef:
+    def get_catalog_item(
+        self, **kwargs: Unpack[GetCatalogItemInputTypeDef]
+    ) -> GetCatalogItemOutputTypeDef:
         """
         Gets information about the specified catalog item.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Client.get_catalog_item)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/client.html#get_catalog_item)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/outposts/client/get_catalog_item.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_outposts/client/#get_catalog_item)
         """
 
-    def get_connection(self, *, ConnectionId: str) -> GetConnectionResponseTypeDef:
+    def get_connection(
+        self, **kwargs: Unpack[GetConnectionRequestTypeDef]
+    ) -> GetConnectionResponseTypeDef:
         """
-        .
+        Amazon Web Services uses this action to install Outpost servers.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Client.get_connection)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/client.html#get_connection)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/outposts/client/get_connection.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_outposts/client/#get_connection)
         """
 
-    def get_order(self, *, OrderId: str) -> GetOrderOutputTypeDef:
+    def get_order(self, **kwargs: Unpack[GetOrderInputTypeDef]) -> GetOrderOutputTypeDef:
         """
         Gets information about the specified order.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Client.get_order)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/client.html#get_order)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/outposts/client/get_order.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_outposts/client/#get_order)
         """
 
-    def get_outpost(self, *, OutpostId: str) -> GetOutpostOutputTypeDef:
+    def get_outpost(self, **kwargs: Unpack[GetOutpostInputTypeDef]) -> GetOutpostOutputTypeDef:
         """
         Gets information about the specified Outpost.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Client.get_outpost)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/client.html#get_outpost)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/outposts/client/get_outpost.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_outposts/client/#get_outpost)
         """
 
     def get_outpost_instance_types(
-        self, *, OutpostId: str, NextToken: str = None, MaxResults: int = None
+        self, **kwargs: Unpack[GetOutpostInstanceTypesInputTypeDef]
     ) -> GetOutpostInstanceTypesOutputTypeDef:
         """
         Gets the instance types for the specified Outpost.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Client.get_outpost_instance_types)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/client.html#get_outpost_instance_types)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/outposts/client/get_outpost_instance_types.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_outposts/client/#get_outpost_instance_types)
         """
 
     def get_outpost_supported_instance_types(
-        self, *, OutpostIdentifier: str, OrderId: str, MaxResults: int = None, NextToken: str = None
+        self, **kwargs: Unpack[GetOutpostSupportedInstanceTypesInputTypeDef]
     ) -> GetOutpostSupportedInstanceTypesOutputTypeDef:
         """
-        Gets the instance types that an Outpost can support in `InstanceTypeCapacity`.
+        Gets the instance types that an Outpost can support in
+        <code>InstanceTypeCapacity</code>.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Client.get_outpost_supported_instance_types)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/client.html#get_outpost_supported_instance_types)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/outposts/client/get_outpost_supported_instance_types.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_outposts/client/#get_outpost_supported_instance_types)
         """
 
-    def get_site(self, *, SiteId: str) -> GetSiteOutputTypeDef:
+    def get_site(self, **kwargs: Unpack[GetSiteInputTypeDef]) -> GetSiteOutputTypeDef:
         """
         Gets information about the specified Outpost site.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Client.get_site)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/client.html#get_site)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/outposts/client/get_site.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_outposts/client/#get_site)
         """
 
     def get_site_address(
-        self, *, SiteId: str, AddressType: AddressTypeType
+        self, **kwargs: Unpack[GetSiteAddressInputTypeDef]
     ) -> GetSiteAddressOutputTypeDef:
         """
         Gets the site address of the specified site.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Client.get_site_address)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/client.html#get_site_address)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/outposts/client/get_site_address.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_outposts/client/#get_site_address)
         """
 
-    def list_assets(
-        self,
-        *,
-        OutpostIdentifier: str,
-        HostIdFilter: List[str] = None,
-        MaxResults: int = None,
-        NextToken: str = None,
-        StatusFilter: List[AssetStateType] = None
-    ) -> ListAssetsOutputTypeDef:
+    def list_asset_instances(
+        self, **kwargs: Unpack[ListAssetInstancesInputTypeDef]
+    ) -> ListAssetInstancesOutputTypeDef:
+        """
+        A list of Amazon EC2 instances, belonging to all accounts, running on the
+        specified Outpost.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/outposts/client/list_asset_instances.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_outposts/client/#list_asset_instances)
+        """
+
+    def list_assets(self, **kwargs: Unpack[ListAssetsInputTypeDef]) -> ListAssetsOutputTypeDef:
         """
         Lists the hardware assets for the specified Outpost.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Client.list_assets)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/client.html#list_assets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/outposts/client/list_assets.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_outposts/client/#list_assets)
+        """
+
+    def list_blocking_instances_for_capacity_task(
+        self, **kwargs: Unpack[ListBlockingInstancesForCapacityTaskInputTypeDef]
+    ) -> ListBlockingInstancesForCapacityTaskOutputTypeDef:
+        """
+        A list of Amazon EC2 instances running on the Outpost and belonging to the
+        account that initiated the capacity task.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/outposts/client/list_blocking_instances_for_capacity_task.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_outposts/client/#list_blocking_instances_for_capacity_task)
         """
 
     def list_capacity_tasks(
-        self,
-        *,
-        OutpostIdentifierFilter: str = None,
-        MaxResults: int = None,
-        NextToken: str = None,
-        CapacityTaskStatusFilter: List[CapacityTaskStatusType] = None
+        self, **kwargs: Unpack[ListCapacityTasksInputTypeDef]
     ) -> ListCapacityTasksOutputTypeDef:
         """
         Lists the capacity tasks for your Amazon Web Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Client.list_capacity_tasks)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/client.html#list_capacity_tasks)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/outposts/client/list_capacity_tasks.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_outposts/client/#list_capacity_tasks)
         """
 
     def list_catalog_items(
-        self,
-        *,
-        NextToken: str = None,
-        MaxResults: int = None,
-        ItemClassFilter: List[CatalogItemClassType] = None,
-        SupportedStorageFilter: List[SupportedStorageEnumType] = None,
-        EC2FamilyFilter: List[str] = None
+        self, **kwargs: Unpack[ListCatalogItemsInputTypeDef]
     ) -> ListCatalogItemsOutputTypeDef:
         """
         Lists the items in the catalog.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Client.list_catalog_items)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/client.html#list_catalog_items)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/outposts/client/list_catalog_items.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_outposts/client/#list_catalog_items)
         """
 
-    def list_orders(
-        self, *, OutpostIdentifierFilter: str = None, NextToken: str = None, MaxResults: int = None
-    ) -> ListOrdersOutputTypeDef:
+    def list_orders(self, **kwargs: Unpack[ListOrdersInputTypeDef]) -> ListOrdersOutputTypeDef:
         """
         Lists the Outpost orders for your Amazon Web Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Client.list_orders)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/client.html#list_orders)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/outposts/client/list_orders.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_outposts/client/#list_orders)
         """
 
     def list_outposts(
-        self,
-        *,
-        NextToken: str = None,
-        MaxResults: int = None,
-        LifeCycleStatusFilter: List[str] = None,
-        AvailabilityZoneFilter: List[str] = None,
-        AvailabilityZoneIdFilter: List[str] = None
+        self, **kwargs: Unpack[ListOutpostsInputTypeDef]
     ) -> ListOutpostsOutputTypeDef:
         """
         Lists the Outposts for your Amazon Web Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Client.list_outposts)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/client.html#list_outposts)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/outposts/client/list_outposts.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_outposts/client/#list_outposts)
         """
 
-    def list_sites(
-        self,
-        *,
-        NextToken: str = None,
-        MaxResults: int = None,
-        OperatingAddressCountryCodeFilter: List[str] = None,
-        OperatingAddressStateOrRegionFilter: List[str] = None,
-        OperatingAddressCityFilter: List[str] = None
-    ) -> ListSitesOutputTypeDef:
+    def list_sites(self, **kwargs: Unpack[ListSitesInputTypeDef]) -> ListSitesOutputTypeDef:
         """
         Lists the Outpost sites for your Amazon Web Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Client.list_sites)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/client.html#list_sites)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/outposts/client/list_sites.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_outposts/client/#list_sites)
         """
 
-    def list_tags_for_resource(self, *, ResourceArn: str) -> ListTagsForResourceResponseTypeDef:
+    def list_tags_for_resource(
+        self, **kwargs: Unpack[ListTagsForResourceRequestTypeDef]
+    ) -> ListTagsForResourceResponseTypeDef:
         """
         Lists the tags for the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Client.list_tags_for_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/client.html#list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/outposts/client/list_tags_for_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_outposts/client/#list_tags_for_resource)
         """
 
     def start_capacity_task(
-        self,
-        *,
-        OutpostIdentifier: str,
-        OrderId: str,
-        InstancePools: List["InstanceTypeCapacityTypeDef"],
-        DryRun: bool = None
+        self, **kwargs: Unpack[StartCapacityTaskInputTypeDef]
     ) -> StartCapacityTaskOutputTypeDef:
         """
         Starts the specified capacity task.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Client.start_capacity_task)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/client.html#start_capacity_task)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/outposts/client/start_capacity_task.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_outposts/client/#start_capacity_task)
         """
 
     def start_connection(
-        self,
-        *,
-        AssetId: str,
-        ClientPublicKey: str,
-        NetworkInterfaceDeviceIndex: int,
-        DeviceSerialNumber: str = None
+        self, **kwargs: Unpack[StartConnectionRequestTypeDef]
     ) -> StartConnectionResponseTypeDef:
         """
-        .
+        Amazon Web Services uses this action to install Outpost servers.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Client.start_connection)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/client.html#start_connection)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/outposts/client/start_connection.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_outposts/client/#start_connection)
         """
 
-    def tag_resource(self, *, ResourceArn: str, Tags: Dict[str, str]) -> Dict[str, Any]:
+    def tag_resource(self, **kwargs: Unpack[TagResourceRequestTypeDef]) -> Dict[str, Any]:
         """
         Adds tags to the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Client.tag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/client.html#tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/outposts/client/tag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_outposts/client/#tag_resource)
         """
 
-    def untag_resource(self, *, ResourceArn: str, TagKeys: List[str]) -> Dict[str, Any]:
+    def untag_resource(self, **kwargs: Unpack[UntagResourceRequestTypeDef]) -> Dict[str, Any]:
         """
         Removes tags from the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Client.untag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/client.html#untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/outposts/client/untag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_outposts/client/#untag_resource)
         """
 
     def update_outpost(
-        self,
-        *,
-        OutpostId: str,
-        Name: str = None,
-        Description: str = None,
-        SupportedHardwareType: SupportedHardwareTypeType = None
+        self, **kwargs: Unpack[UpdateOutpostInputTypeDef]
     ) -> UpdateOutpostOutputTypeDef:
         """
         Updates an Outpost.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Client.update_outpost)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/client.html#update_outpost)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/outposts/client/update_outpost.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_outposts/client/#update_outpost)
         """
 
-    def update_site(
-        self, *, SiteId: str, Name: str = None, Description: str = None, Notes: str = None
-    ) -> UpdateSiteOutputTypeDef:
+    def update_site(self, **kwargs: Unpack[UpdateSiteInputTypeDef]) -> UpdateSiteOutputTypeDef:
         """
         Updates the specified site.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Client.update_site)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/client.html#update_site)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/outposts/client/update_site.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_outposts/client/#update_site)
         """
 
     def update_site_address(
-        self, *, SiteId: str, AddressType: AddressTypeType, Address: "AddressTypeDef"
+        self, **kwargs: Unpack[UpdateSiteAddressInputTypeDef]
     ) -> UpdateSiteAddressOutputTypeDef:
         """
         Updates the address of the specified site.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Client.update_site_address)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/client.html#update_site_address)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/outposts/client/update_site_address.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_outposts/client/#update_site_address)
         """
 
     def update_site_rack_physical_properties(
-        self,
-        *,
-        SiteId: str,
-        PowerDrawKva: PowerDrawKvaType = None,
-        PowerPhase: PowerPhaseType = None,
-        PowerConnector: PowerConnectorType = None,
-        PowerFeedDrop: PowerFeedDropType = None,
-        UplinkGbps: UplinkGbpsType = None,
-        UplinkCount: UplinkCountType = None,
-        FiberOpticCableType: FiberOpticCableTypeType = None,
-        OpticalStandard: OpticalStandardType = None,
-        MaximumSupportedWeightLbs: MaximumSupportedWeightLbsType = None
+        self, **kwargs: Unpack[UpdateSiteRackPhysicalPropertiesInputTypeDef]
     ) -> UpdateSiteRackPhysicalPropertiesOutputTypeDef:
         """
         Update the physical and logistical details for a rack at a site.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Client.update_site_rack_physical_properties)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/client.html#update_site_rack_physical_properties)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/outposts/client/update_site_rack_physical_properties.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_outposts/client/#update_site_rack_physical_properties)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["get_outpost_instance_types"]
     ) -> GetOutpostInstanceTypesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Paginator.GetOutpostInstanceTypes)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/paginators.html#getoutpostinstancetypespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/outposts/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_outposts/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["get_outpost_supported_instance_types"]
     ) -> GetOutpostSupportedInstanceTypesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Paginator.GetOutpostSupportedInstanceTypes)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/paginators.html#getoutpostsupportedinstancetypespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/outposts/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_outposts/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_assets"]) -> ListAssetsPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_asset_instances"]
+    ) -> ListAssetInstancesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Paginator.ListAssets)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/paginators.html#listassetspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/outposts/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_outposts/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_assets"]
+    ) -> ListAssetsPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/outposts/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_outposts/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_blocking_instances_for_capacity_task"]
+    ) -> ListBlockingInstancesForCapacityTaskPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/outposts/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_outposts/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_capacity_tasks"]
     ) -> ListCapacityTasksPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Paginator.ListCapacityTasks)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/paginators.html#listcapacitytaskspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/outposts/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_outposts/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_catalog_items"]
     ) -> ListCatalogItemsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Paginator.ListCatalogItems)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/paginators.html#listcatalogitemspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/outposts/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_outposts/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_orders"]) -> ListOrdersPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_orders"]
+    ) -> ListOrdersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Paginator.ListOrders)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/paginators.html#listorderspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/outposts/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_outposts/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_outposts"]) -> ListOutpostsPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_outposts"]
+    ) -> ListOutpostsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Paginator.ListOutposts)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/paginators.html#listoutpostspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/outposts/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_outposts/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_sites"]) -> ListSitesPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_sites"]
+    ) -> ListSitesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/outposts.html#Outposts.Paginator.ListSites)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_outposts/paginators.html#listsitespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/outposts/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_outposts/client/#get_paginator)
         """

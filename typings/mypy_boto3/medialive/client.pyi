@@ -1,40 +1,37 @@
 """
-Type annotations for medialive service client.
+Type annotations for medialive service Client.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
-    from mypy_boto3_medialive import MediaLiveClient
+    from boto3.session import Session
+    from mypy_boto3_medialive.client import MediaLiveClient
 
-    client: MediaLiveClient = boto3.client("medialive")
+    session = Session()
+    client: MediaLiveClient = session.client("medialive")
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from typing import Any, Dict, List, Type, overload
+from typing import Any, overload
 
 from botocore.client import BaseClient, ClientMeta
+from botocore.errorfactory import BaseClientExceptions
+from botocore.exceptions import ClientError as BotocoreClientError
 
-from .literals import (
-    ChannelClassType,
-    ChannelPipelineIdToRestartType,
-    CloudWatchAlarmTemplateComparisonOperatorType,
-    CloudWatchAlarmTemplateStatisticType,
-    CloudWatchAlarmTemplateTargetResourceTypeType,
-    CloudWatchAlarmTemplateTreatMissingDataType,
-    EventBridgeRuleTemplateEventTypeType,
-    InputTypeType,
-    LogLevelType,
-    RebootInputDeviceForceType,
-)
 from .paginator import (
     DescribeSchedulePaginator,
+    ListChannelPlacementGroupsPaginator,
     ListChannelsPaginator,
     ListCloudWatchAlarmTemplateGroupsPaginator,
     ListCloudWatchAlarmTemplatesPaginator,
+    ListClustersPaginator,
     ListEventBridgeRuleTemplateGroupsPaginator,
     ListEventBridgeRuleTemplatesPaginator,
     ListInputDevicesPaginator,
@@ -43,113 +40,245 @@ from .paginator import (
     ListInputsPaginator,
     ListMultiplexesPaginator,
     ListMultiplexProgramsPaginator,
+    ListNetworksPaginator,
+    ListNodesPaginator,
     ListOfferingsPaginator,
     ListReservationsPaginator,
+    ListSdiSourcesPaginator,
     ListSignalMapsPaginator,
 )
 from .type_defs import (
-    AccountConfigurationTypeDef,
+    AcceptInputDeviceTransferRequestTypeDef,
+    BatchDeleteRequestTypeDef,
     BatchDeleteResponseTypeDef,
-    BatchScheduleActionCreateRequestTypeDef,
-    BatchScheduleActionDeleteRequestTypeDef,
+    BatchStartRequestTypeDef,
     BatchStartResponseTypeDef,
+    BatchStopRequestTypeDef,
     BatchStopResponseTypeDef,
+    BatchUpdateScheduleRequestTypeDef,
     BatchUpdateScheduleResponseTypeDef,
-    CdiInputSpecificationTypeDef,
+    CancelInputDeviceTransferRequestTypeDef,
+    ClaimDeviceRequestTypeDef,
+    CreateChannelPlacementGroupRequestTypeDef,
+    CreateChannelPlacementGroupResponseTypeDef,
+    CreateChannelRequestTypeDef,
     CreateChannelResponseTypeDef,
+    CreateCloudWatchAlarmTemplateGroupRequestTypeDef,
     CreateCloudWatchAlarmTemplateGroupResponseTypeDef,
+    CreateCloudWatchAlarmTemplateRequestTypeDef,
     CreateCloudWatchAlarmTemplateResponseTypeDef,
+    CreateClusterRequestTypeDef,
+    CreateClusterResponseTypeDef,
+    CreateEventBridgeRuleTemplateGroupRequestTypeDef,
     CreateEventBridgeRuleTemplateGroupResponseTypeDef,
+    CreateEventBridgeRuleTemplateRequestTypeDef,
     CreateEventBridgeRuleTemplateResponseTypeDef,
+    CreateInputRequestTypeDef,
     CreateInputResponseTypeDef,
+    CreateInputSecurityGroupRequestTypeDef,
     CreateInputSecurityGroupResponseTypeDef,
+    CreateMultiplexProgramRequestTypeDef,
     CreateMultiplexProgramResponseTypeDef,
+    CreateMultiplexRequestTypeDef,
     CreateMultiplexResponseTypeDef,
+    CreateNetworkRequestTypeDef,
+    CreateNetworkResponseTypeDef,
+    CreateNodeRegistrationScriptRequestTypeDef,
+    CreateNodeRegistrationScriptResponseTypeDef,
+    CreateNodeRequestTypeDef,
+    CreateNodeResponseTypeDef,
+    CreatePartnerInputRequestTypeDef,
     CreatePartnerInputResponseTypeDef,
+    CreateSdiSourceRequestTypeDef,
+    CreateSdiSourceResponseTypeDef,
+    CreateSignalMapRequestTypeDef,
     CreateSignalMapResponseTypeDef,
+    CreateTagsRequestTypeDef,
+    DeleteChannelPlacementGroupRequestTypeDef,
+    DeleteChannelPlacementGroupResponseTypeDef,
+    DeleteChannelRequestTypeDef,
     DeleteChannelResponseTypeDef,
+    DeleteCloudWatchAlarmTemplateGroupRequestTypeDef,
+    DeleteCloudWatchAlarmTemplateRequestTypeDef,
+    DeleteClusterRequestTypeDef,
+    DeleteClusterResponseTypeDef,
+    DeleteEventBridgeRuleTemplateGroupRequestTypeDef,
+    DeleteEventBridgeRuleTemplateRequestTypeDef,
+    DeleteInputRequestTypeDef,
+    DeleteInputSecurityGroupRequestTypeDef,
+    DeleteMultiplexProgramRequestTypeDef,
     DeleteMultiplexProgramResponseTypeDef,
+    DeleteMultiplexRequestTypeDef,
     DeleteMultiplexResponseTypeDef,
+    DeleteNetworkRequestTypeDef,
+    DeleteNetworkResponseTypeDef,
+    DeleteNodeRequestTypeDef,
+    DeleteNodeResponseTypeDef,
+    DeleteReservationRequestTypeDef,
     DeleteReservationResponseTypeDef,
+    DeleteScheduleRequestTypeDef,
+    DeleteSdiSourceRequestTypeDef,
+    DeleteSdiSourceResponseTypeDef,
+    DeleteSignalMapRequestTypeDef,
+    DeleteTagsRequestTypeDef,
     DescribeAccountConfigurationResponseTypeDef,
+    DescribeChannelPlacementGroupRequestTypeDef,
+    DescribeChannelPlacementGroupResponseTypeDef,
+    DescribeChannelRequestTypeDef,
     DescribeChannelResponseTypeDef,
+    DescribeClusterRequestTypeDef,
+    DescribeClusterResponseTypeDef,
+    DescribeInputDeviceRequestTypeDef,
     DescribeInputDeviceResponseTypeDef,
+    DescribeInputDeviceThumbnailRequestTypeDef,
     DescribeInputDeviceThumbnailResponseTypeDef,
+    DescribeInputRequestTypeDef,
     DescribeInputResponseTypeDef,
+    DescribeInputSecurityGroupRequestTypeDef,
     DescribeInputSecurityGroupResponseTypeDef,
+    DescribeMultiplexProgramRequestTypeDef,
     DescribeMultiplexProgramResponseTypeDef,
+    DescribeMultiplexRequestTypeDef,
     DescribeMultiplexResponseTypeDef,
+    DescribeNetworkRequestTypeDef,
+    DescribeNetworkResponseTypeDef,
+    DescribeNodeRequestTypeDef,
+    DescribeNodeResponseTypeDef,
+    DescribeOfferingRequestTypeDef,
     DescribeOfferingResponseTypeDef,
+    DescribeReservationRequestTypeDef,
     DescribeReservationResponseTypeDef,
+    DescribeScheduleRequestTypeDef,
     DescribeScheduleResponseTypeDef,
+    DescribeSdiSourceRequestTypeDef,
+    DescribeSdiSourceResponseTypeDef,
+    DescribeThumbnailsRequestTypeDef,
     DescribeThumbnailsResponseTypeDef,
-    EncoderSettingsTypeDef,
-    EventBridgeRuleTemplateTargetTypeDef,
+    EmptyResponseMetadataTypeDef,
+    GetCloudWatchAlarmTemplateGroupRequestTypeDef,
     GetCloudWatchAlarmTemplateGroupResponseTypeDef,
+    GetCloudWatchAlarmTemplateRequestTypeDef,
     GetCloudWatchAlarmTemplateResponseTypeDef,
+    GetEventBridgeRuleTemplateGroupRequestTypeDef,
     GetEventBridgeRuleTemplateGroupResponseTypeDef,
+    GetEventBridgeRuleTemplateRequestTypeDef,
     GetEventBridgeRuleTemplateResponseTypeDef,
+    GetSignalMapRequestTypeDef,
     GetSignalMapResponseTypeDef,
-    InputAttachmentTypeDef,
-    InputDestinationRequestTypeDef,
-    InputDeviceConfigurableSettingsTypeDef,
-    InputDeviceRequestTypeDef,
-    InputDeviceSettingsTypeDef,
-    InputSourceRequestTypeDef,
-    InputSpecificationTypeDef,
-    InputVpcRequestTypeDef,
-    InputWhitelistRuleCidrTypeDef,
+    ListChannelPlacementGroupsRequestTypeDef,
+    ListChannelPlacementGroupsResponseTypeDef,
+    ListChannelsRequestTypeDef,
     ListChannelsResponseTypeDef,
+    ListCloudWatchAlarmTemplateGroupsRequestTypeDef,
     ListCloudWatchAlarmTemplateGroupsResponseTypeDef,
+    ListCloudWatchAlarmTemplatesRequestTypeDef,
     ListCloudWatchAlarmTemplatesResponseTypeDef,
+    ListClustersRequestTypeDef,
+    ListClustersResponseTypeDef,
+    ListEventBridgeRuleTemplateGroupsRequestTypeDef,
     ListEventBridgeRuleTemplateGroupsResponseTypeDef,
+    ListEventBridgeRuleTemplatesRequestTypeDef,
     ListEventBridgeRuleTemplatesResponseTypeDef,
+    ListInputDevicesRequestTypeDef,
     ListInputDevicesResponseTypeDef,
+    ListInputDeviceTransfersRequestTypeDef,
     ListInputDeviceTransfersResponseTypeDef,
+    ListInputSecurityGroupsRequestTypeDef,
     ListInputSecurityGroupsResponseTypeDef,
+    ListInputsRequestTypeDef,
     ListInputsResponseTypeDef,
+    ListMultiplexesRequestTypeDef,
     ListMultiplexesResponseTypeDef,
+    ListMultiplexProgramsRequestTypeDef,
     ListMultiplexProgramsResponseTypeDef,
+    ListNetworksRequestTypeDef,
+    ListNetworksResponseTypeDef,
+    ListNodesRequestTypeDef,
+    ListNodesResponseTypeDef,
+    ListOfferingsRequestTypeDef,
     ListOfferingsResponseTypeDef,
+    ListReservationsRequestTypeDef,
     ListReservationsResponseTypeDef,
+    ListSdiSourcesRequestTypeDef,
+    ListSdiSourcesResponseTypeDef,
+    ListSignalMapsRequestTypeDef,
     ListSignalMapsResponseTypeDef,
+    ListTagsForResourceRequestTypeDef,
     ListTagsForResourceResponseTypeDef,
-    MaintenanceCreateSettingsTypeDef,
-    MaintenanceUpdateSettingsTypeDef,
-    MediaConnectFlowRequestTypeDef,
-    MultiplexProgramSettingsTypeDef,
-    MultiplexSettingsTypeDef,
-    OutputDestinationTypeDef,
+    ListVersionsResponseTypeDef,
+    PurchaseOfferingRequestTypeDef,
     PurchaseOfferingResponseTypeDef,
-    RenewalSettingsTypeDef,
+    RebootInputDeviceRequestTypeDef,
+    RejectInputDeviceTransferRequestTypeDef,
+    RestartChannelPipelinesRequestTypeDef,
     RestartChannelPipelinesResponseTypeDef,
+    StartChannelRequestTypeDef,
     StartChannelResponseTypeDef,
+    StartDeleteMonitorDeploymentRequestTypeDef,
     StartDeleteMonitorDeploymentResponseTypeDef,
+    StartInputDeviceMaintenanceWindowRequestTypeDef,
+    StartInputDeviceRequestTypeDef,
+    StartMonitorDeploymentRequestTypeDef,
     StartMonitorDeploymentResponseTypeDef,
+    StartMultiplexRequestTypeDef,
     StartMultiplexResponseTypeDef,
+    StartUpdateSignalMapRequestTypeDef,
     StartUpdateSignalMapResponseTypeDef,
+    StopChannelRequestTypeDef,
     StopChannelResponseTypeDef,
+    StopInputDeviceRequestTypeDef,
+    StopMultiplexRequestTypeDef,
     StopMultiplexResponseTypeDef,
+    TransferInputDeviceRequestTypeDef,
+    UpdateAccountConfigurationRequestTypeDef,
     UpdateAccountConfigurationResponseTypeDef,
+    UpdateChannelClassRequestTypeDef,
     UpdateChannelClassResponseTypeDef,
+    UpdateChannelPlacementGroupRequestTypeDef,
+    UpdateChannelPlacementGroupResponseTypeDef,
+    UpdateChannelRequestTypeDef,
     UpdateChannelResponseTypeDef,
+    UpdateCloudWatchAlarmTemplateGroupRequestTypeDef,
     UpdateCloudWatchAlarmTemplateGroupResponseTypeDef,
+    UpdateCloudWatchAlarmTemplateRequestTypeDef,
     UpdateCloudWatchAlarmTemplateResponseTypeDef,
+    UpdateClusterRequestTypeDef,
+    UpdateClusterResponseTypeDef,
+    UpdateEventBridgeRuleTemplateGroupRequestTypeDef,
     UpdateEventBridgeRuleTemplateGroupResponseTypeDef,
+    UpdateEventBridgeRuleTemplateRequestTypeDef,
     UpdateEventBridgeRuleTemplateResponseTypeDef,
+    UpdateInputDeviceRequestTypeDef,
     UpdateInputDeviceResponseTypeDef,
+    UpdateInputRequestTypeDef,
     UpdateInputResponseTypeDef,
+    UpdateInputSecurityGroupRequestTypeDef,
     UpdateInputSecurityGroupResponseTypeDef,
+    UpdateMultiplexProgramRequestTypeDef,
     UpdateMultiplexProgramResponseTypeDef,
+    UpdateMultiplexRequestTypeDef,
     UpdateMultiplexResponseTypeDef,
+    UpdateNetworkRequestTypeDef,
+    UpdateNetworkResponseTypeDef,
+    UpdateNodeRequestTypeDef,
+    UpdateNodeResponseTypeDef,
+    UpdateNodeStateRequestTypeDef,
+    UpdateNodeStateResponseTypeDef,
+    UpdateReservationRequestTypeDef,
     UpdateReservationResponseTypeDef,
-    VpcOutputSettingsTypeDef,
+    UpdateSdiSourceRequestTypeDef,
+    UpdateSdiSourceResponseTypeDef,
 )
 from .waiter import (
     ChannelCreatedWaiter,
     ChannelDeletedWaiter,
+    ChannelPlacementGroupAssignedWaiter,
+    ChannelPlacementGroupDeletedWaiter,
+    ChannelPlacementGroupUnassignedWaiter,
     ChannelRunningWaiter,
     ChannelStoppedWaiter,
+    ClusterCreatedWaiter,
+    ClusterDeletedWaiter,
     InputAttachedWaiter,
     InputDeletedWaiter,
     InputDetachedWaiter,
@@ -157,27 +286,28 @@ from .waiter import (
     MultiplexDeletedWaiter,
     MultiplexRunningWaiter,
     MultiplexStoppedWaiter,
+    NodeDeregisteredWaiter,
+    NodeRegisteredWaiter,
     SignalMapCreatedWaiter,
     SignalMapMonitorDeletedWaiter,
     SignalMapMonitorDeployedWaiter,
     SignalMapUpdatedWaiter,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import type as Type
+    from collections.abc import Mapping
 else:
-    from typing_extensions import Literal
+    from typing import Dict, Mapping, Type
+if sys.version_info >= (3, 12):
+    from typing import Literal, Unpack
+else:
+    from typing_extensions import Literal, Unpack
 
 __all__ = ("MediaLiveClient",)
 
-class BotocoreClientError(BaseException):
-    MSG_TEMPLATE: str
-
-    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
-        self.response: Dict[str, Any]
-        self.operation_name: str
-
-class Exceptions:
+class Exceptions(BaseClientExceptions):
     BadGatewayException: Type[BotocoreClientError]
     BadRequestException: Type[BotocoreClientError]
     ClientError: Type[BotocoreClientError]
@@ -191,8 +321,8 @@ class Exceptions:
 
 class MediaLiveClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive.html#MediaLive.Client)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/)
     """
 
     meta: ClientMeta
@@ -201,1410 +331,1669 @@ class MediaLiveClient(BaseClient):
     def exceptions(self) -> Exceptions:
         """
         MediaLiveClient exceptions.
-        """
 
-    def accept_input_device_transfer(self, *, InputDeviceId: str) -> Dict[str, Any]:
-        """
-        Accept an incoming input device transfer.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.accept_input_device_transfer)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#accept_input_device_transfer)
-        """
-
-    def batch_delete(
-        self,
-        *,
-        ChannelIds: List[str] = None,
-        InputIds: List[str] = None,
-        InputSecurityGroupIds: List[str] = None,
-        MultiplexIds: List[str] = None
-    ) -> BatchDeleteResponseTypeDef:
-        """
-        Starts delete of resources.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.batch_delete)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#batch_delete)
-        """
-
-    def batch_start(
-        self, *, ChannelIds: List[str] = None, MultiplexIds: List[str] = None
-    ) -> BatchStartResponseTypeDef:
-        """
-        Starts existing resources See also: `AWS API Documentation
-        <https://docs.aws.amazon.com/goto/WebAPI/medialive-2017-10-14/BatchStart>`_
-        **Request Syntax** response = client.batch_start( ChannelIds=[ 'string', ],
-        MultiplexIds=[ 'string', ] ) ...
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.batch_start)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#batch_start)
-        """
-
-    def batch_stop(
-        self, *, ChannelIds: List[str] = None, MultiplexIds: List[str] = None
-    ) -> BatchStopResponseTypeDef:
-        """
-        Stops running resources See also: `AWS API Documentation
-        <https://docs.aws.amazon.com/goto/WebAPI/medialive-2017-10-14/BatchStop>`_
-        **Request Syntax** response = client.batch_stop( ChannelIds=[ 'string', ],
-        MultiplexIds=[ 'string', ] ).
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.batch_stop)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#batch_stop)
-        """
-
-    def batch_update_schedule(
-        self,
-        *,
-        ChannelId: str,
-        Creates: "BatchScheduleActionCreateRequestTypeDef" = None,
-        Deletes: "BatchScheduleActionDeleteRequestTypeDef" = None
-    ) -> BatchUpdateScheduleResponseTypeDef:
-        """
-        Update a channel schedule See also: `AWS API Documentation <https://docs.aws.ama
-        zon.com/goto/WebAPI/medialive-2017-10-14/BatchUpdateSchedule>`_ **Request
-        Syntax** response = client.batch_update_schedule( ChannelId='string', Creates={
-        'ScheduleActions': [ ...
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.batch_update_schedule)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#batch_update_schedule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive.html#MediaLive.Client)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#exceptions)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        Check if an operation can be paginated.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.can_paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/can_paginate.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#can_paginate)
         """
 
-    def cancel_input_device_transfer(self, *, InputDeviceId: str) -> Dict[str, Any]:
+    def generate_presigned_url(
+        self,
+        ClientMethod: str,
+        Params: Mapping[str, Any] = ...,
+        ExpiresIn: int = 3600,
+        HttpMethod: str = ...,
+    ) -> str:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/generate_presigned_url.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#generate_presigned_url)
+        """
+
+    def accept_input_device_transfer(
+        self, **kwargs: Unpack[AcceptInputDeviceTransferRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Accept an incoming input device transfer.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/accept_input_device_transfer.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#accept_input_device_transfer)
+        """
+
+    def batch_delete(
+        self, **kwargs: Unpack[BatchDeleteRequestTypeDef]
+    ) -> BatchDeleteResponseTypeDef:
+        """
+        Starts delete of resources.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/batch_delete.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#batch_delete)
+        """
+
+    def batch_start(self, **kwargs: Unpack[BatchStartRequestTypeDef]) -> BatchStartResponseTypeDef:
+        """
+        Starts existing resources.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/batch_start.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#batch_start)
+        """
+
+    def batch_stop(self, **kwargs: Unpack[BatchStopRequestTypeDef]) -> BatchStopResponseTypeDef:
+        """
+        Stops running resources.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/batch_stop.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#batch_stop)
+        """
+
+    def batch_update_schedule(
+        self, **kwargs: Unpack[BatchUpdateScheduleRequestTypeDef]
+    ) -> BatchUpdateScheduleResponseTypeDef:
+        """
+        Update a channel schedule.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/batch_update_schedule.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#batch_update_schedule)
+        """
+
+    def cancel_input_device_transfer(
+        self, **kwargs: Unpack[CancelInputDeviceTransferRequestTypeDef]
+    ) -> Dict[str, Any]:
         """
         Cancel an input device transfer that you have requested.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.cancel_input_device_transfer)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#cancel_input_device_transfer)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/cancel_input_device_transfer.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#cancel_input_device_transfer)
         """
 
-    def claim_device(self, *, Id: str = None) -> Dict[str, Any]:
+    def claim_device(self, **kwargs: Unpack[ClaimDeviceRequestTypeDef]) -> Dict[str, Any]:
         """
         Send a request to claim an AWS Elemental device that you have purchased from a
         third-party vendor.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.claim_device)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#claim_device)
-        """
-
-    def close(self) -> None:
-        """
-        Closes underlying endpoint connections.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.close)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/claim_device.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#claim_device)
         """
 
     def create_channel(
-        self,
-        *,
-        CdiInputSpecification: "CdiInputSpecificationTypeDef" = None,
-        ChannelClass: ChannelClassType = None,
-        Destinations: List["OutputDestinationTypeDef"] = None,
-        EncoderSettings: "EncoderSettingsTypeDef" = None,
-        InputAttachments: List["InputAttachmentTypeDef"] = None,
-        InputSpecification: "InputSpecificationTypeDef" = None,
-        LogLevel: LogLevelType = None,
-        Maintenance: "MaintenanceCreateSettingsTypeDef" = None,
-        Name: str = None,
-        RequestId: str = None,
-        Reserved: str = None,
-        RoleArn: str = None,
-        Tags: Dict[str, str] = None,
-        Vpc: "VpcOutputSettingsTypeDef" = None
+        self, **kwargs: Unpack[CreateChannelRequestTypeDef]
     ) -> CreateChannelResponseTypeDef:
         """
-        Creates a new channel See also: `AWS API Documentation
-        <https://docs.aws.amazon.com/goto/WebAPI/medialive-2017-10-14/CreateChannel>`_
-        **Request Syntax** response = client.create_channel( CdiInputSpecification={
-        'Resolution': 'SD'|'HD'|'FHD'|'UHD' }, ChannelCla...
+        Creates a new channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.create_channel)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#create_channel)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/create_channel.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#create_channel)
+        """
+
+    def create_input(
+        self, **kwargs: Unpack[CreateInputRequestTypeDef]
+    ) -> CreateInputResponseTypeDef:
+        """
+        Create an input.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/create_input.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#create_input)
+        """
+
+    def create_input_security_group(
+        self, **kwargs: Unpack[CreateInputSecurityGroupRequestTypeDef]
+    ) -> CreateInputSecurityGroupResponseTypeDef:
+        """
+        Creates a Input Security Group.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/create_input_security_group.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#create_input_security_group)
+        """
+
+    def create_multiplex(
+        self, **kwargs: Unpack[CreateMultiplexRequestTypeDef]
+    ) -> CreateMultiplexResponseTypeDef:
+        """
+        Create a new multiplex.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/create_multiplex.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#create_multiplex)
+        """
+
+    def create_multiplex_program(
+        self, **kwargs: Unpack[CreateMultiplexProgramRequestTypeDef]
+    ) -> CreateMultiplexProgramResponseTypeDef:
+        """
+        Create a new program in the multiplex.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/create_multiplex_program.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#create_multiplex_program)
+        """
+
+    def create_partner_input(
+        self, **kwargs: Unpack[CreatePartnerInputRequestTypeDef]
+    ) -> CreatePartnerInputResponseTypeDef:
+        """
+        Create a partner input.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/create_partner_input.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#create_partner_input)
+        """
+
+    def create_tags(
+        self, **kwargs: Unpack[CreateTagsRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Create tags for a resource.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/create_tags.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#create_tags)
+        """
+
+    def delete_channel(
+        self, **kwargs: Unpack[DeleteChannelRequestTypeDef]
+    ) -> DeleteChannelResponseTypeDef:
+        """
+        Starts deletion of channel.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/delete_channel.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#delete_channel)
+        """
+
+    def delete_input(self, **kwargs: Unpack[DeleteInputRequestTypeDef]) -> Dict[str, Any]:
+        """
+        Deletes the input end point.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/delete_input.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#delete_input)
+        """
+
+    def delete_input_security_group(
+        self, **kwargs: Unpack[DeleteInputSecurityGroupRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Deletes an Input Security Group.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/delete_input_security_group.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#delete_input_security_group)
+        """
+
+    def delete_multiplex(
+        self, **kwargs: Unpack[DeleteMultiplexRequestTypeDef]
+    ) -> DeleteMultiplexResponseTypeDef:
+        """
+        Delete a multiplex.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/delete_multiplex.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#delete_multiplex)
+        """
+
+    def delete_multiplex_program(
+        self, **kwargs: Unpack[DeleteMultiplexProgramRequestTypeDef]
+    ) -> DeleteMultiplexProgramResponseTypeDef:
+        """
+        Delete a program from a multiplex.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/delete_multiplex_program.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#delete_multiplex_program)
+        """
+
+    def delete_reservation(
+        self, **kwargs: Unpack[DeleteReservationRequestTypeDef]
+    ) -> DeleteReservationResponseTypeDef:
+        """
+        Delete an expired reservation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/delete_reservation.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#delete_reservation)
+        """
+
+    def delete_schedule(self, **kwargs: Unpack[DeleteScheduleRequestTypeDef]) -> Dict[str, Any]:
+        """
+        Delete all schedule actions on a channel.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/delete_schedule.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#delete_schedule)
+        """
+
+    def delete_tags(
+        self, **kwargs: Unpack[DeleteTagsRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Removes tags for a resource.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/delete_tags.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#delete_tags)
+        """
+
+    def describe_account_configuration(self) -> DescribeAccountConfigurationResponseTypeDef:
+        """
+        Describe account configuration.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/describe_account_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#describe_account_configuration)
+        """
+
+    def describe_channel(
+        self, **kwargs: Unpack[DescribeChannelRequestTypeDef]
+    ) -> DescribeChannelResponseTypeDef:
+        """
+        Gets details about a channel.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/describe_channel.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#describe_channel)
+        """
+
+    def describe_input(
+        self, **kwargs: Unpack[DescribeInputRequestTypeDef]
+    ) -> DescribeInputResponseTypeDef:
+        """
+        Produces details about an input.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/describe_input.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#describe_input)
+        """
+
+    def describe_input_device(
+        self, **kwargs: Unpack[DescribeInputDeviceRequestTypeDef]
+    ) -> DescribeInputDeviceResponseTypeDef:
+        """
+        Gets the details for the input device.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/describe_input_device.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#describe_input_device)
+        """
+
+    def describe_input_device_thumbnail(
+        self, **kwargs: Unpack[DescribeInputDeviceThumbnailRequestTypeDef]
+    ) -> DescribeInputDeviceThumbnailResponseTypeDef:
+        """
+        Get the latest thumbnail data for the input device.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/describe_input_device_thumbnail.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#describe_input_device_thumbnail)
+        """
+
+    def describe_input_security_group(
+        self, **kwargs: Unpack[DescribeInputSecurityGroupRequestTypeDef]
+    ) -> DescribeInputSecurityGroupResponseTypeDef:
+        """
+        Produces a summary of an Input Security Group.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/describe_input_security_group.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#describe_input_security_group)
+        """
+
+    def describe_multiplex(
+        self, **kwargs: Unpack[DescribeMultiplexRequestTypeDef]
+    ) -> DescribeMultiplexResponseTypeDef:
+        """
+        Gets details about a multiplex.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/describe_multiplex.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#describe_multiplex)
+        """
+
+    def describe_multiplex_program(
+        self, **kwargs: Unpack[DescribeMultiplexProgramRequestTypeDef]
+    ) -> DescribeMultiplexProgramResponseTypeDef:
+        """
+        Get the details for a program in a multiplex.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/describe_multiplex_program.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#describe_multiplex_program)
+        """
+
+    def describe_offering(
+        self, **kwargs: Unpack[DescribeOfferingRequestTypeDef]
+    ) -> DescribeOfferingResponseTypeDef:
+        """
+        Get details for an offering.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/describe_offering.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#describe_offering)
+        """
+
+    def describe_reservation(
+        self, **kwargs: Unpack[DescribeReservationRequestTypeDef]
+    ) -> DescribeReservationResponseTypeDef:
+        """
+        Get details for a reservation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/describe_reservation.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#describe_reservation)
+        """
+
+    def describe_schedule(
+        self, **kwargs: Unpack[DescribeScheduleRequestTypeDef]
+    ) -> DescribeScheduleResponseTypeDef:
+        """
+        Get a channel schedule.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/describe_schedule.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#describe_schedule)
+        """
+
+    def describe_thumbnails(
+        self, **kwargs: Unpack[DescribeThumbnailsRequestTypeDef]
+    ) -> DescribeThumbnailsResponseTypeDef:
+        """
+        Describe the latest thumbnails data.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/describe_thumbnails.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#describe_thumbnails)
+        """
+
+    def list_channels(
+        self, **kwargs: Unpack[ListChannelsRequestTypeDef]
+    ) -> ListChannelsResponseTypeDef:
+        """
+        Produces list of channels that have been created.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/list_channels.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#list_channels)
+        """
+
+    def list_input_device_transfers(
+        self, **kwargs: Unpack[ListInputDeviceTransfersRequestTypeDef]
+    ) -> ListInputDeviceTransfersResponseTypeDef:
+        """
+        List input devices that are currently being transferred.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/list_input_device_transfers.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#list_input_device_transfers)
+        """
+
+    def list_input_devices(
+        self, **kwargs: Unpack[ListInputDevicesRequestTypeDef]
+    ) -> ListInputDevicesResponseTypeDef:
+        """
+        List input devices.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/list_input_devices.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#list_input_devices)
+        """
+
+    def list_input_security_groups(
+        self, **kwargs: Unpack[ListInputSecurityGroupsRequestTypeDef]
+    ) -> ListInputSecurityGroupsResponseTypeDef:
+        """
+        Produces a list of Input Security Groups for an account.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/list_input_security_groups.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#list_input_security_groups)
+        """
+
+    def list_inputs(self, **kwargs: Unpack[ListInputsRequestTypeDef]) -> ListInputsResponseTypeDef:
+        """
+        Produces list of inputs that have been created.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/list_inputs.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#list_inputs)
+        """
+
+    def list_multiplex_programs(
+        self, **kwargs: Unpack[ListMultiplexProgramsRequestTypeDef]
+    ) -> ListMultiplexProgramsResponseTypeDef:
+        """
+        List the programs that currently exist for a specific multiplex.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/list_multiplex_programs.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#list_multiplex_programs)
+        """
+
+    def list_multiplexes(
+        self, **kwargs: Unpack[ListMultiplexesRequestTypeDef]
+    ) -> ListMultiplexesResponseTypeDef:
+        """
+        Retrieve a list of the existing multiplexes.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/list_multiplexes.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#list_multiplexes)
+        """
+
+    def list_offerings(
+        self, **kwargs: Unpack[ListOfferingsRequestTypeDef]
+    ) -> ListOfferingsResponseTypeDef:
+        """
+        List offerings available for purchase.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/list_offerings.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#list_offerings)
+        """
+
+    def list_reservations(
+        self, **kwargs: Unpack[ListReservationsRequestTypeDef]
+    ) -> ListReservationsResponseTypeDef:
+        """
+        List purchased reservations.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/list_reservations.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#list_reservations)
+        """
+
+    def list_tags_for_resource(
+        self, **kwargs: Unpack[ListTagsForResourceRequestTypeDef]
+    ) -> ListTagsForResourceResponseTypeDef:
+        """
+        Produces list of tags that have been created for a resource.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/list_tags_for_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#list_tags_for_resource)
+        """
+
+    def purchase_offering(
+        self, **kwargs: Unpack[PurchaseOfferingRequestTypeDef]
+    ) -> PurchaseOfferingResponseTypeDef:
+        """
+        Purchase an offering and create a reservation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/purchase_offering.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#purchase_offering)
+        """
+
+    def reboot_input_device(
+        self, **kwargs: Unpack[RebootInputDeviceRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Send a reboot command to the specified input device.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/reboot_input_device.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#reboot_input_device)
+        """
+
+    def reject_input_device_transfer(
+        self, **kwargs: Unpack[RejectInputDeviceTransferRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Reject the transfer of the specified input device to your AWS account.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/reject_input_device_transfer.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#reject_input_device_transfer)
+        """
+
+    def start_channel(
+        self, **kwargs: Unpack[StartChannelRequestTypeDef]
+    ) -> StartChannelResponseTypeDef:
+        """
+        Starts an existing channel.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/start_channel.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#start_channel)
+        """
+
+    def start_input_device(
+        self, **kwargs: Unpack[StartInputDeviceRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Start an input device that is attached to a MediaConnect flow.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/start_input_device.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#start_input_device)
+        """
+
+    def start_input_device_maintenance_window(
+        self, **kwargs: Unpack[StartInputDeviceMaintenanceWindowRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Start a maintenance window for the specified input device.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/start_input_device_maintenance_window.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#start_input_device_maintenance_window)
+        """
+
+    def start_multiplex(
+        self, **kwargs: Unpack[StartMultiplexRequestTypeDef]
+    ) -> StartMultiplexResponseTypeDef:
+        """
+        Start (run) the multiplex.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/start_multiplex.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#start_multiplex)
+        """
+
+    def stop_channel(
+        self, **kwargs: Unpack[StopChannelRequestTypeDef]
+    ) -> StopChannelResponseTypeDef:
+        """
+        Stops a running channel.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/stop_channel.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#stop_channel)
+        """
+
+    def stop_input_device(self, **kwargs: Unpack[StopInputDeviceRequestTypeDef]) -> Dict[str, Any]:
+        """
+        Stop an input device that is attached to a MediaConnect flow.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/stop_input_device.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#stop_input_device)
+        """
+
+    def stop_multiplex(
+        self, **kwargs: Unpack[StopMultiplexRequestTypeDef]
+    ) -> StopMultiplexResponseTypeDef:
+        """
+        Stops a running multiplex.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/stop_multiplex.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#stop_multiplex)
+        """
+
+    def transfer_input_device(
+        self, **kwargs: Unpack[TransferInputDeviceRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Start an input device transfer to another AWS account.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/transfer_input_device.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#transfer_input_device)
+        """
+
+    def update_account_configuration(
+        self, **kwargs: Unpack[UpdateAccountConfigurationRequestTypeDef]
+    ) -> UpdateAccountConfigurationResponseTypeDef:
+        """
+        Update account configuration.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/update_account_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#update_account_configuration)
+        """
+
+    def update_channel(
+        self, **kwargs: Unpack[UpdateChannelRequestTypeDef]
+    ) -> UpdateChannelResponseTypeDef:
+        """
+        Updates a channel.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/update_channel.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#update_channel)
+        """
+
+    def update_channel_class(
+        self, **kwargs: Unpack[UpdateChannelClassRequestTypeDef]
+    ) -> UpdateChannelClassResponseTypeDef:
+        """
+        Changes the class of the channel.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/update_channel_class.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#update_channel_class)
+        """
+
+    def update_input(
+        self, **kwargs: Unpack[UpdateInputRequestTypeDef]
+    ) -> UpdateInputResponseTypeDef:
+        """
+        Updates an input.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/update_input.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#update_input)
+        """
+
+    def update_input_device(
+        self, **kwargs: Unpack[UpdateInputDeviceRequestTypeDef]
+    ) -> UpdateInputDeviceResponseTypeDef:
+        """
+        Updates the parameters for the input device.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/update_input_device.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#update_input_device)
+        """
+
+    def update_input_security_group(
+        self, **kwargs: Unpack[UpdateInputSecurityGroupRequestTypeDef]
+    ) -> UpdateInputSecurityGroupResponseTypeDef:
+        """
+        Update an Input Security Group's Whilelists.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/update_input_security_group.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#update_input_security_group)
+        """
+
+    def update_multiplex(
+        self, **kwargs: Unpack[UpdateMultiplexRequestTypeDef]
+    ) -> UpdateMultiplexResponseTypeDef:
+        """
+        Updates a multiplex.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/update_multiplex.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#update_multiplex)
+        """
+
+    def update_multiplex_program(
+        self, **kwargs: Unpack[UpdateMultiplexProgramRequestTypeDef]
+    ) -> UpdateMultiplexProgramResponseTypeDef:
+        """
+        Update a program in a multiplex.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/update_multiplex_program.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#update_multiplex_program)
+        """
+
+    def update_reservation(
+        self, **kwargs: Unpack[UpdateReservationRequestTypeDef]
+    ) -> UpdateReservationResponseTypeDef:
+        """
+        Update reservation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/update_reservation.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#update_reservation)
+        """
+
+    def restart_channel_pipelines(
+        self, **kwargs: Unpack[RestartChannelPipelinesRequestTypeDef]
+    ) -> RestartChannelPipelinesResponseTypeDef:
+        """
+        Restart pipelines in one channel that is currently running.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/restart_channel_pipelines.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#restart_channel_pipelines)
         """
 
     def create_cloud_watch_alarm_template(
-        self,
-        *,
-        ComparisonOperator: CloudWatchAlarmTemplateComparisonOperatorType,
-        EvaluationPeriods: int,
-        GroupIdentifier: str,
-        MetricName: str,
-        Name: str,
-        Period: int,
-        Statistic: CloudWatchAlarmTemplateStatisticType,
-        TargetResourceType: CloudWatchAlarmTemplateTargetResourceTypeType,
-        Threshold: float,
-        TreatMissingData: CloudWatchAlarmTemplateTreatMissingDataType,
-        DatapointsToAlarm: int = None,
-        Description: str = None,
-        Tags: Dict[str, str] = None
+        self, **kwargs: Unpack[CreateCloudWatchAlarmTemplateRequestTypeDef]
     ) -> CreateCloudWatchAlarmTemplateResponseTypeDef:
         """
         Creates a cloudwatch alarm template to dynamically generate cloudwatch metric
         alarms on targeted resource types.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.create_cloud_watch_alarm_template)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#create_cloud_watch_alarm_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/create_cloud_watch_alarm_template.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#create_cloud_watch_alarm_template)
         """
 
     def create_cloud_watch_alarm_template_group(
-        self, *, Name: str, Description: str = None, Tags: Dict[str, str] = None
+        self, **kwargs: Unpack[CreateCloudWatchAlarmTemplateGroupRequestTypeDef]
     ) -> CreateCloudWatchAlarmTemplateGroupResponseTypeDef:
         """
         Creates a cloudwatch alarm template group to group your cloudwatch alarm
         templates and to attach to signal maps for dynamically creating alarms.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.create_cloud_watch_alarm_template_group)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#create_cloud_watch_alarm_template_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/create_cloud_watch_alarm_template_group.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#create_cloud_watch_alarm_template_group)
         """
 
     def create_event_bridge_rule_template(
-        self,
-        *,
-        EventType: EventBridgeRuleTemplateEventTypeType,
-        GroupIdentifier: str,
-        Name: str,
-        Description: str = None,
-        EventTargets: List["EventBridgeRuleTemplateTargetTypeDef"] = None,
-        Tags: Dict[str, str] = None
+        self, **kwargs: Unpack[CreateEventBridgeRuleTemplateRequestTypeDef]
     ) -> CreateEventBridgeRuleTemplateResponseTypeDef:
         """
-        Creates an eventbridge rule template to monitor events and send notifications to
-        your targeted resources.
+        Creates an eventbridge rule template to monitor events and send notifications
+        to your targeted resources.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.create_event_bridge_rule_template)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#create_event_bridge_rule_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/create_event_bridge_rule_template.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#create_event_bridge_rule_template)
         """
 
     def create_event_bridge_rule_template_group(
-        self, *, Name: str, Description: str = None, Tags: Dict[str, str] = None
+        self, **kwargs: Unpack[CreateEventBridgeRuleTemplateGroupRequestTypeDef]
     ) -> CreateEventBridgeRuleTemplateGroupResponseTypeDef:
         """
         Creates an eventbridge rule template group to group your eventbridge rule
         templates and to attach to signal maps for dynamically creating notification
         rules.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.create_event_bridge_rule_template_group)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#create_event_bridge_rule_template_group)
-        """
-
-    def create_input(
-        self,
-        *,
-        Destinations: List["InputDestinationRequestTypeDef"] = None,
-        InputDevices: List["InputDeviceSettingsTypeDef"] = None,
-        InputSecurityGroups: List[str] = None,
-        MediaConnectFlows: List["MediaConnectFlowRequestTypeDef"] = None,
-        Name: str = None,
-        RequestId: str = None,
-        RoleArn: str = None,
-        Sources: List["InputSourceRequestTypeDef"] = None,
-        Tags: Dict[str, str] = None,
-        Type: InputTypeType = None,
-        Vpc: "InputVpcRequestTypeDef" = None
-    ) -> CreateInputResponseTypeDef:
-        """
-        Create an input See also: `AWS API Documentation
-        <https://docs.aws.amazon.com/goto/WebAPI/medialive-2017-10-14/CreateInput>`_
-        **Request Syntax** response = client.create_input( Destinations=[ {
-        'StreamName': 'string' }, ], InputDevices=...
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.create_input)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#create_input)
-        """
-
-    def create_input_security_group(
-        self,
-        *,
-        Tags: Dict[str, str] = None,
-        WhitelistRules: List["InputWhitelistRuleCidrTypeDef"] = None
-    ) -> CreateInputSecurityGroupResponseTypeDef:
-        """
-        Creates a Input Security Group See also: `AWS API Documentation <https://docs.aw
-        s.amazon.com/goto/WebAPI/medialive-2017-10-14/CreateInputSecurityGroup>`_
-        **Request Syntax** response = client.create_input_security_group( Tags={
-        'string': 'string' }, WhitelistRu...
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.create_input_security_group)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#create_input_security_group)
-        """
-
-    def create_multiplex(
-        self,
-        *,
-        AvailabilityZones: List[str],
-        MultiplexSettings: "MultiplexSettingsTypeDef",
-        Name: str,
-        RequestId: str,
-        Tags: Dict[str, str] = None
-    ) -> CreateMultiplexResponseTypeDef:
-        """
-        Create a new multiplex.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.create_multiplex)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#create_multiplex)
-        """
-
-    def create_multiplex_program(
-        self,
-        *,
-        MultiplexId: str,
-        MultiplexProgramSettings: "MultiplexProgramSettingsTypeDef",
-        ProgramName: str,
-        RequestId: str
-    ) -> CreateMultiplexProgramResponseTypeDef:
-        """
-        Create a new program in the multiplex.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.create_multiplex_program)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#create_multiplex_program)
-        """
-
-    def create_partner_input(
-        self, *, InputId: str, RequestId: str = None, Tags: Dict[str, str] = None
-    ) -> CreatePartnerInputResponseTypeDef:
-        """
-        Create a partner input See also: `AWS API Documentation <https://docs.aws.amazon
-        .com/goto/WebAPI/medialive-2017-10-14/CreatePartnerInput>`_ **Request Syntax**
-        response = client.create_partner_input( InputId='string', RequestId='string',
-        Tags={ 'string': 'strin...
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.create_partner_input)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#create_partner_input)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/create_event_bridge_rule_template_group.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#create_event_bridge_rule_template_group)
         """
 
     def create_signal_map(
-        self,
-        *,
-        DiscoveryEntryPointArn: str,
-        Name: str,
-        CloudWatchAlarmTemplateGroupIdentifiers: List[str] = None,
-        Description: str = None,
-        EventBridgeRuleTemplateGroupIdentifiers: List[str] = None,
-        Tags: Dict[str, str] = None
+        self, **kwargs: Unpack[CreateSignalMapRequestTypeDef]
     ) -> CreateSignalMapResponseTypeDef:
         """
         Initiates the creation of a new signal map.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.create_signal_map)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#create_signal_map)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/create_signal_map.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#create_signal_map)
         """
 
-    def create_tags(self, *, ResourceArn: str, Tags: Dict[str, str] = None) -> None:
-        """
-        Create tags for a resource See also: `AWS API Documentation
-        <https://docs.aws.amazon.com/goto/WebAPI/medialive-2017-10-14/CreateTags>`_
-        **Request Syntax** response = client.create_tags( ResourceArn='string', Tags={
-        'string': 'string' } ).
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.create_tags)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#create_tags)
-        """
-
-    def delete_channel(self, *, ChannelId: str) -> DeleteChannelResponseTypeDef:
-        """
-        Starts deletion of channel.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.delete_channel)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#delete_channel)
-        """
-
-    def delete_cloud_watch_alarm_template(self, *, Identifier: str) -> None:
+    def delete_cloud_watch_alarm_template(
+        self, **kwargs: Unpack[DeleteCloudWatchAlarmTemplateRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Deletes a cloudwatch alarm template.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.delete_cloud_watch_alarm_template)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#delete_cloud_watch_alarm_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/delete_cloud_watch_alarm_template.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#delete_cloud_watch_alarm_template)
         """
 
-    def delete_cloud_watch_alarm_template_group(self, *, Identifier: str) -> None:
+    def delete_cloud_watch_alarm_template_group(
+        self, **kwargs: Unpack[DeleteCloudWatchAlarmTemplateGroupRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Deletes a cloudwatch alarm template group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.delete_cloud_watch_alarm_template_group)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#delete_cloud_watch_alarm_template_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/delete_cloud_watch_alarm_template_group.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#delete_cloud_watch_alarm_template_group)
         """
 
-    def delete_event_bridge_rule_template(self, *, Identifier: str) -> None:
+    def delete_event_bridge_rule_template(
+        self, **kwargs: Unpack[DeleteEventBridgeRuleTemplateRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Deletes an eventbridge rule template.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.delete_event_bridge_rule_template)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#delete_event_bridge_rule_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/delete_event_bridge_rule_template.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#delete_event_bridge_rule_template)
         """
 
-    def delete_event_bridge_rule_template_group(self, *, Identifier: str) -> None:
+    def delete_event_bridge_rule_template_group(
+        self, **kwargs: Unpack[DeleteEventBridgeRuleTemplateGroupRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Deletes an eventbridge rule template group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.delete_event_bridge_rule_template_group)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#delete_event_bridge_rule_template_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/delete_event_bridge_rule_template_group.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#delete_event_bridge_rule_template_group)
         """
 
-    def delete_input(self, *, InputId: str) -> Dict[str, Any]:
-        """
-        Deletes the input end point See also: `AWS API Documentation
-        <https://docs.aws.amazon.com/goto/WebAPI/medialive-2017-10-14/DeleteInput>`_
-        **Request Syntax** response = client.delete_input( InputId='string' ).
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.delete_input)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#delete_input)
-        """
-
-    def delete_input_security_group(self, *, InputSecurityGroupId: str) -> Dict[str, Any]:
-        """
-        Deletes an Input Security Group See also: `AWS API Documentation <https://docs.a
-        ws.amazon.com/goto/WebAPI/medialive-2017-10-14/DeleteInputSecurityGroup>`_
-        **Request Syntax** response = client.delete_input_security_group(
-        InputSecurityGroupId='string' ).
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.delete_input_security_group)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#delete_input_security_group)
-        """
-
-    def delete_multiplex(self, *, MultiplexId: str) -> DeleteMultiplexResponseTypeDef:
-        """
-        Delete a multiplex.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.delete_multiplex)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#delete_multiplex)
-        """
-
-    def delete_multiplex_program(
-        self, *, MultiplexId: str, ProgramName: str
-    ) -> DeleteMultiplexProgramResponseTypeDef:
-        """
-        Delete a program from a multiplex.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.delete_multiplex_program)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#delete_multiplex_program)
-        """
-
-    def delete_reservation(self, *, ReservationId: str) -> DeleteReservationResponseTypeDef:
-        """
-        Delete an expired reservation.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.delete_reservation)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#delete_reservation)
-        """
-
-    def delete_schedule(self, *, ChannelId: str) -> Dict[str, Any]:
-        """
-        Delete all schedule actions on a channel.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.delete_schedule)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#delete_schedule)
-        """
-
-    def delete_signal_map(self, *, Identifier: str) -> None:
+    def delete_signal_map(
+        self, **kwargs: Unpack[DeleteSignalMapRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Deletes the specified signal map.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.delete_signal_map)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#delete_signal_map)
-        """
-
-    def delete_tags(self, *, ResourceArn: str, TagKeys: List[str]) -> None:
-        """
-        Removes tags for a resource See also: `AWS API Documentation
-        <https://docs.aws.amazon.com/goto/WebAPI/medialive-2017-10-14/DeleteTags>`_
-        **Request Syntax** response = client.delete_tags( ResourceArn='string',
-        TagKeys=[ 'string', ] ).
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.delete_tags)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#delete_tags)
-        """
-
-    def describe_account_configuration(self) -> DescribeAccountConfigurationResponseTypeDef:
-        """
-        Describe account configuration See also: `AWS API Documentation <https://docs.aw
-        s.amazon.com/goto/WebAPI/medialive-2017-10-14/DescribeAccountConfiguration>`_
-        **Request Syntax** response = client.describe_account_configuration().
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.describe_account_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#describe_account_configuration)
-        """
-
-    def describe_channel(self, *, ChannelId: str) -> DescribeChannelResponseTypeDef:
-        """
-        Gets details about a channel See also: `AWS API Documentation
-        <https://docs.aws.amazon.com/goto/WebAPI/medialive-2017-10-14/DescribeChannel>`_
-        **Request Syntax** response = client.describe_channel( ChannelId='string' ).
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.describe_channel)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#describe_channel)
-        """
-
-    def describe_input(self, *, InputId: str) -> DescribeInputResponseTypeDef:
-        """
-        Produces details about an input See also: `AWS API Documentation
-        <https://docs.aws.amazon.com/goto/WebAPI/medialive-2017-10-14/DescribeInput>`_
-        **Request Syntax** response = client.describe_input( InputId='string' ).
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.describe_input)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#describe_input)
-        """
-
-    def describe_input_device(self, *, InputDeviceId: str) -> DescribeInputDeviceResponseTypeDef:
-        """
-        Gets the details for the input device See also: `AWS API Documentation <https://
-        docs.aws.amazon.com/goto/WebAPI/medialive-2017-10-14/DescribeInputDevice>`_
-        **Request Syntax** response = client.describe_input_device(
-        InputDeviceId='string' ).
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.describe_input_device)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#describe_input_device)
-        """
-
-    def describe_input_device_thumbnail(
-        self, *, InputDeviceId: str, Accept: Literal["image/jpeg"]
-    ) -> DescribeInputDeviceThumbnailResponseTypeDef:
-        """
-        Get the latest thumbnail data for the input device.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.describe_input_device_thumbnail)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#describe_input_device_thumbnail)
-        """
-
-    def describe_input_security_group(
-        self, *, InputSecurityGroupId: str
-    ) -> DescribeInputSecurityGroupResponseTypeDef:
-        """
-        Produces a summary of an Input Security Group See also: `AWS API Documentation <
-        https://docs.aws.amazon.com/goto/WebAPI/medialive-2017-10-
-        14/DescribeInputSecurityGroup>`_ **Request Syntax** response =
-        client.describe_input_security_group( InputSecurityGroupId='string' ).
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.describe_input_security_group)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#describe_input_security_group)
-        """
-
-    def describe_multiplex(self, *, MultiplexId: str) -> DescribeMultiplexResponseTypeDef:
-        """
-        Gets details about a multiplex.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.describe_multiplex)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#describe_multiplex)
-        """
-
-    def describe_multiplex_program(
-        self, *, MultiplexId: str, ProgramName: str
-    ) -> DescribeMultiplexProgramResponseTypeDef:
-        """
-        Get the details for a program in a multiplex.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.describe_multiplex_program)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#describe_multiplex_program)
-        """
-
-    def describe_offering(self, *, OfferingId: str) -> DescribeOfferingResponseTypeDef:
-        """
-        Get details for an offering.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.describe_offering)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#describe_offering)
-        """
-
-    def describe_reservation(self, *, ReservationId: str) -> DescribeReservationResponseTypeDef:
-        """
-        Get details for a reservation.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.describe_reservation)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#describe_reservation)
-        """
-
-    def describe_schedule(
-        self, *, ChannelId: str, MaxResults: int = None, NextToken: str = None
-    ) -> DescribeScheduleResponseTypeDef:
-        """
-        Get a channel schedule See also: `AWS API Documentation <https://docs.aws.amazon
-        .com/goto/WebAPI/medialive-2017-10-14/DescribeSchedule>`_ **Request Syntax**
-        response = client.describe_schedule( ChannelId='string', MaxResults=123,
-        NextToken='string' ).
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.describe_schedule)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#describe_schedule)
-        """
-
-    def describe_thumbnails(
-        self, *, ChannelId: str, PipelineId: str, ThumbnailType: str
-    ) -> DescribeThumbnailsResponseTypeDef:
-        """
-        Describe the latest thumbnails data.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.describe_thumbnails)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#describe_thumbnails)
-        """
-
-    def generate_presigned_url(
-        self,
-        ClientMethod: str,
-        Params: Dict[str, Any] = None,
-        ExpiresIn: int = 3600,
-        HttpMethod: str = None,
-    ) -> str:
-        """
-        Generate a presigned url given a client, its method, and arguments.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.generate_presigned_url)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/delete_signal_map.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#delete_signal_map)
         """
 
     def get_cloud_watch_alarm_template(
-        self, *, Identifier: str
+        self, **kwargs: Unpack[GetCloudWatchAlarmTemplateRequestTypeDef]
     ) -> GetCloudWatchAlarmTemplateResponseTypeDef:
         """
         Retrieves the specified cloudwatch alarm template.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.get_cloud_watch_alarm_template)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#get_cloud_watch_alarm_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/get_cloud_watch_alarm_template.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#get_cloud_watch_alarm_template)
         """
 
     def get_cloud_watch_alarm_template_group(
-        self, *, Identifier: str
+        self, **kwargs: Unpack[GetCloudWatchAlarmTemplateGroupRequestTypeDef]
     ) -> GetCloudWatchAlarmTemplateGroupResponseTypeDef:
         """
         Retrieves the specified cloudwatch alarm template group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.get_cloud_watch_alarm_template_group)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#get_cloud_watch_alarm_template_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/get_cloud_watch_alarm_template_group.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#get_cloud_watch_alarm_template_group)
         """
 
     def get_event_bridge_rule_template(
-        self, *, Identifier: str
+        self, **kwargs: Unpack[GetEventBridgeRuleTemplateRequestTypeDef]
     ) -> GetEventBridgeRuleTemplateResponseTypeDef:
         """
         Retrieves the specified eventbridge rule template.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.get_event_bridge_rule_template)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#get_event_bridge_rule_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/get_event_bridge_rule_template.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#get_event_bridge_rule_template)
         """
 
     def get_event_bridge_rule_template_group(
-        self, *, Identifier: str
+        self, **kwargs: Unpack[GetEventBridgeRuleTemplateGroupRequestTypeDef]
     ) -> GetEventBridgeRuleTemplateGroupResponseTypeDef:
         """
         Retrieves the specified eventbridge rule template group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.get_event_bridge_rule_template_group)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#get_event_bridge_rule_template_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/get_event_bridge_rule_template_group.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#get_event_bridge_rule_template_group)
         """
 
-    def get_signal_map(self, *, Identifier: str) -> GetSignalMapResponseTypeDef:
+    def get_signal_map(
+        self, **kwargs: Unpack[GetSignalMapRequestTypeDef]
+    ) -> GetSignalMapResponseTypeDef:
         """
         Retrieves the specified signal map.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.get_signal_map)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#get_signal_map)
-        """
-
-    def list_channels(
-        self, *, MaxResults: int = None, NextToken: str = None
-    ) -> ListChannelsResponseTypeDef:
-        """
-        Produces list of channels that have been created See also: `AWS API
-        Documentation
-        <https://docs.aws.amazon.com/goto/WebAPI/medialive-2017-10-14/ListChannels>`_
-        **Request Syntax** response = client.list_channels( MaxResults=123,
-        NextToken='string' ).
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.list_channels)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#list_channels)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/get_signal_map.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#get_signal_map)
         """
 
     def list_cloud_watch_alarm_template_groups(
-        self,
-        *,
-        MaxResults: int = None,
-        NextToken: str = None,
-        Scope: str = None,
-        SignalMapIdentifier: str = None
+        self, **kwargs: Unpack[ListCloudWatchAlarmTemplateGroupsRequestTypeDef]
     ) -> ListCloudWatchAlarmTemplateGroupsResponseTypeDef:
         """
         Lists cloudwatch alarm template groups.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.list_cloud_watch_alarm_template_groups)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#list_cloud_watch_alarm_template_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/list_cloud_watch_alarm_template_groups.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#list_cloud_watch_alarm_template_groups)
         """
 
     def list_cloud_watch_alarm_templates(
-        self,
-        *,
-        GroupIdentifier: str = None,
-        MaxResults: int = None,
-        NextToken: str = None,
-        Scope: str = None,
-        SignalMapIdentifier: str = None
+        self, **kwargs: Unpack[ListCloudWatchAlarmTemplatesRequestTypeDef]
     ) -> ListCloudWatchAlarmTemplatesResponseTypeDef:
         """
         Lists cloudwatch alarm templates.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.list_cloud_watch_alarm_templates)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#list_cloud_watch_alarm_templates)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/list_cloud_watch_alarm_templates.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#list_cloud_watch_alarm_templates)
         """
 
     def list_event_bridge_rule_template_groups(
-        self, *, MaxResults: int = None, NextToken: str = None, SignalMapIdentifier: str = None
+        self, **kwargs: Unpack[ListEventBridgeRuleTemplateGroupsRequestTypeDef]
     ) -> ListEventBridgeRuleTemplateGroupsResponseTypeDef:
         """
         Lists eventbridge rule template groups.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.list_event_bridge_rule_template_groups)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#list_event_bridge_rule_template_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/list_event_bridge_rule_template_groups.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#list_event_bridge_rule_template_groups)
         """
 
     def list_event_bridge_rule_templates(
-        self,
-        *,
-        GroupIdentifier: str = None,
-        MaxResults: int = None,
-        NextToken: str = None,
-        SignalMapIdentifier: str = None
+        self, **kwargs: Unpack[ListEventBridgeRuleTemplatesRequestTypeDef]
     ) -> ListEventBridgeRuleTemplatesResponseTypeDef:
         """
         Lists eventbridge rule templates.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.list_event_bridge_rule_templates)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#list_event_bridge_rule_templates)
-        """
-
-    def list_input_device_transfers(
-        self, *, TransferType: str, MaxResults: int = None, NextToken: str = None
-    ) -> ListInputDeviceTransfersResponseTypeDef:
-        """
-        List input devices that are currently being transferred.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.list_input_device_transfers)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#list_input_device_transfers)
-        """
-
-    def list_input_devices(
-        self, *, MaxResults: int = None, NextToken: str = None
-    ) -> ListInputDevicesResponseTypeDef:
-        """
-        List input devices See also: `AWS API Documentation <https://docs.aws.amazon.com
-        /goto/WebAPI/medialive-2017-10-14/ListInputDevices>`_ **Request Syntax**
-        response = client.list_input_devices( MaxResults=123, NextToken='string' ).
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.list_input_devices)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#list_input_devices)
-        """
-
-    def list_input_security_groups(
-        self, *, MaxResults: int = None, NextToken: str = None
-    ) -> ListInputSecurityGroupsResponseTypeDef:
-        """
-        Produces a list of Input Security Groups for an account See also: `AWS API
-        Documentation <https://docs.aws.amazon.com/goto/WebAPI/medialive-2017-10-
-        14/ListInputSecurityGroups>`_ **Request Syntax** response =
-        client.list_input_security_groups( MaxResults=123, NextToken='string...
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.list_input_security_groups)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#list_input_security_groups)
-        """
-
-    def list_inputs(
-        self, *, MaxResults: int = None, NextToken: str = None
-    ) -> ListInputsResponseTypeDef:
-        """
-        Produces list of inputs that have been created See also: `AWS API Documentation
-        <https://docs.aws.amazon.com/goto/WebAPI/medialive-2017-10-14/ListInputs>`_
-        **Request Syntax** response = client.list_inputs( MaxResults=123,
-        NextToken='string' ).
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.list_inputs)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#list_inputs)
-        """
-
-    def list_multiplex_programs(
-        self, *, MultiplexId: str, MaxResults: int = None, NextToken: str = None
-    ) -> ListMultiplexProgramsResponseTypeDef:
-        """
-        List the programs that currently exist for a specific multiplex.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.list_multiplex_programs)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#list_multiplex_programs)
-        """
-
-    def list_multiplexes(
-        self, *, MaxResults: int = None, NextToken: str = None
-    ) -> ListMultiplexesResponseTypeDef:
-        """
-        Retrieve a list of the existing multiplexes.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.list_multiplexes)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#list_multiplexes)
-        """
-
-    def list_offerings(
-        self,
-        *,
-        ChannelClass: str = None,
-        ChannelConfiguration: str = None,
-        Codec: str = None,
-        Duration: str = None,
-        MaxResults: int = None,
-        MaximumBitrate: str = None,
-        MaximumFramerate: str = None,
-        NextToken: str = None,
-        Resolution: str = None,
-        ResourceType: str = None,
-        SpecialFeature: str = None,
-        VideoQuality: str = None
-    ) -> ListOfferingsResponseTypeDef:
-        """
-        List offerings available for purchase.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.list_offerings)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#list_offerings)
-        """
-
-    def list_reservations(
-        self,
-        *,
-        ChannelClass: str = None,
-        Codec: str = None,
-        MaxResults: int = None,
-        MaximumBitrate: str = None,
-        MaximumFramerate: str = None,
-        NextToken: str = None,
-        Resolution: str = None,
-        ResourceType: str = None,
-        SpecialFeature: str = None,
-        VideoQuality: str = None
-    ) -> ListReservationsResponseTypeDef:
-        """
-        List purchased reservations.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.list_reservations)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#list_reservations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/list_event_bridge_rule_templates.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#list_event_bridge_rule_templates)
         """
 
     def list_signal_maps(
-        self,
-        *,
-        CloudWatchAlarmTemplateGroupIdentifier: str = None,
-        EventBridgeRuleTemplateGroupIdentifier: str = None,
-        MaxResults: int = None,
-        NextToken: str = None
+        self, **kwargs: Unpack[ListSignalMapsRequestTypeDef]
     ) -> ListSignalMapsResponseTypeDef:
         """
         Lists signal maps.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.list_signal_maps)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#list_signal_maps)
-        """
-
-    def list_tags_for_resource(self, *, ResourceArn: str) -> ListTagsForResourceResponseTypeDef:
-        """
-        Produces list of tags that have been created for a resource See also: `AWS API
-        Documentation <https://docs.aws.amazon.com/goto/WebAPI/medialive-2017-10-
-        14/ListTagsForResource>`_ **Request Syntax** response =
-        client.list_tags_for_resource( ResourceArn='string' ).
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.list_tags_for_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#list_tags_for_resource)
-        """
-
-    def purchase_offering(
-        self,
-        *,
-        Count: int,
-        OfferingId: str,
-        Name: str = None,
-        RenewalSettings: "RenewalSettingsTypeDef" = None,
-        RequestId: str = None,
-        Start: str = None,
-        Tags: Dict[str, str] = None
-    ) -> PurchaseOfferingResponseTypeDef:
-        """
-        Purchase an offering and create a reservation.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.purchase_offering)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#purchase_offering)
-        """
-
-    def reboot_input_device(
-        self, *, InputDeviceId: str, Force: RebootInputDeviceForceType = None
-    ) -> Dict[str, Any]:
-        """
-        Send a reboot command to the specified input device.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.reboot_input_device)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#reboot_input_device)
-        """
-
-    def reject_input_device_transfer(self, *, InputDeviceId: str) -> Dict[str, Any]:
-        """
-        Reject the transfer of the specified input device to your AWS account.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.reject_input_device_transfer)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#reject_input_device_transfer)
-        """
-
-    def restart_channel_pipelines(
-        self, *, ChannelId: str, PipelineIds: List[ChannelPipelineIdToRestartType] = None
-    ) -> RestartChannelPipelinesResponseTypeDef:
-        """
-        Restart pipelines in one channel that is currently running.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.restart_channel_pipelines)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#restart_channel_pipelines)
-        """
-
-    def start_channel(self, *, ChannelId: str) -> StartChannelResponseTypeDef:
-        """
-        Starts an existing channel See also: `AWS API Documentation
-        <https://docs.aws.amazon.com/goto/WebAPI/medialive-2017-10-14/StartChannel>`_
-        **Request Syntax** response = client.start_channel( ChannelId='string' ).
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.start_channel)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#start_channel)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/list_signal_maps.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#list_signal_maps)
         """
 
     def start_delete_monitor_deployment(
-        self, *, Identifier: str
+        self, **kwargs: Unpack[StartDeleteMonitorDeploymentRequestTypeDef]
     ) -> StartDeleteMonitorDeploymentResponseTypeDef:
         """
         Initiates a deployment to delete the monitor of the specified signal map.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.start_delete_monitor_deployment)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#start_delete_monitor_deployment)
-        """
-
-    def start_input_device(self, *, InputDeviceId: str) -> Dict[str, Any]:
-        """
-        Start an input device that is attached to a MediaConnect flow.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.start_input_device)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#start_input_device)
-        """
-
-    def start_input_device_maintenance_window(self, *, InputDeviceId: str) -> Dict[str, Any]:
-        """
-        Start a maintenance window for the specified input device.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.start_input_device_maintenance_window)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#start_input_device_maintenance_window)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/start_delete_monitor_deployment.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#start_delete_monitor_deployment)
         """
 
     def start_monitor_deployment(
-        self, *, Identifier: str, DryRun: bool = None
+        self, **kwargs: Unpack[StartMonitorDeploymentRequestTypeDef]
     ) -> StartMonitorDeploymentResponseTypeDef:
         """
         Initiates a deployment to deploy the latest monitor of the specified signal map.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.start_monitor_deployment)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#start_monitor_deployment)
-        """
-
-    def start_multiplex(self, *, MultiplexId: str) -> StartMultiplexResponseTypeDef:
-        """
-        Start (run) the multiplex.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.start_multiplex)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#start_multiplex)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/start_monitor_deployment.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#start_monitor_deployment)
         """
 
     def start_update_signal_map(
-        self,
-        *,
-        Identifier: str,
-        CloudWatchAlarmTemplateGroupIdentifiers: List[str] = None,
-        Description: str = None,
-        DiscoveryEntryPointArn: str = None,
-        EventBridgeRuleTemplateGroupIdentifiers: List[str] = None,
-        ForceRediscovery: bool = None,
-        Name: str = None
+        self, **kwargs: Unpack[StartUpdateSignalMapRequestTypeDef]
     ) -> StartUpdateSignalMapResponseTypeDef:
         """
         Initiates an update for the specified signal map.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.start_update_signal_map)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#start_update_signal_map)
-        """
-
-    def stop_channel(self, *, ChannelId: str) -> StopChannelResponseTypeDef:
-        """
-        Stops a running channel See also: `AWS API Documentation
-        <https://docs.aws.amazon.com/goto/WebAPI/medialive-2017-10-14/StopChannel>`_
-        **Request Syntax** response = client.stop_channel( ChannelId='string' ).
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.stop_channel)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#stop_channel)
-        """
-
-    def stop_input_device(self, *, InputDeviceId: str) -> Dict[str, Any]:
-        """
-        Stop an input device that is attached to a MediaConnect flow.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.stop_input_device)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#stop_input_device)
-        """
-
-    def stop_multiplex(self, *, MultiplexId: str) -> StopMultiplexResponseTypeDef:
-        """
-        Stops a running multiplex.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.stop_multiplex)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#stop_multiplex)
-        """
-
-    def transfer_input_device(
-        self,
-        *,
-        InputDeviceId: str,
-        TargetCustomerId: str = None,
-        TargetRegion: str = None,
-        TransferMessage: str = None
-    ) -> Dict[str, Any]:
-        """
-        Start an input device transfer to another AWS account.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.transfer_input_device)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#transfer_input_device)
-        """
-
-    def update_account_configuration(
-        self, *, AccountConfiguration: "AccountConfigurationTypeDef" = None
-    ) -> UpdateAccountConfigurationResponseTypeDef:
-        """
-        Update account configuration See also: `AWS API Documentation <https://docs.aws.
-        amazon.com/goto/WebAPI/medialive-2017-10-14/UpdateAccountConfiguration>`_
-        **Request Syntax** response = client.update_account_configuration(
-        AccountConfiguration={ 'KmsKeyId': 'string' }...
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.update_account_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#update_account_configuration)
-        """
-
-    def update_channel(
-        self,
-        *,
-        ChannelId: str,
-        CdiInputSpecification: "CdiInputSpecificationTypeDef" = None,
-        Destinations: List["OutputDestinationTypeDef"] = None,
-        EncoderSettings: "EncoderSettingsTypeDef" = None,
-        InputAttachments: List["InputAttachmentTypeDef"] = None,
-        InputSpecification: "InputSpecificationTypeDef" = None,
-        LogLevel: LogLevelType = None,
-        Maintenance: "MaintenanceUpdateSettingsTypeDef" = None,
-        Name: str = None,
-        RoleArn: str = None
-    ) -> UpdateChannelResponseTypeDef:
-        """
-        Updates a channel.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.update_channel)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#update_channel)
-        """
-
-    def update_channel_class(
-        self,
-        *,
-        ChannelClass: ChannelClassType,
-        ChannelId: str,
-        Destinations: List["OutputDestinationTypeDef"] = None
-    ) -> UpdateChannelClassResponseTypeDef:
-        """
-        Changes the class of the channel.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.update_channel_class)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#update_channel_class)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/start_update_signal_map.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#start_update_signal_map)
         """
 
     def update_cloud_watch_alarm_template(
-        self,
-        *,
-        Identifier: str,
-        ComparisonOperator: CloudWatchAlarmTemplateComparisonOperatorType = None,
-        DatapointsToAlarm: int = None,
-        Description: str = None,
-        EvaluationPeriods: int = None,
-        GroupIdentifier: str = None,
-        MetricName: str = None,
-        Name: str = None,
-        Period: int = None,
-        Statistic: CloudWatchAlarmTemplateStatisticType = None,
-        TargetResourceType: CloudWatchAlarmTemplateTargetResourceTypeType = None,
-        Threshold: float = None,
-        TreatMissingData: CloudWatchAlarmTemplateTreatMissingDataType = None
+        self, **kwargs: Unpack[UpdateCloudWatchAlarmTemplateRequestTypeDef]
     ) -> UpdateCloudWatchAlarmTemplateResponseTypeDef:
         """
         Updates the specified cloudwatch alarm template.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.update_cloud_watch_alarm_template)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#update_cloud_watch_alarm_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/update_cloud_watch_alarm_template.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#update_cloud_watch_alarm_template)
         """
 
     def update_cloud_watch_alarm_template_group(
-        self, *, Identifier: str, Description: str = None
+        self, **kwargs: Unpack[UpdateCloudWatchAlarmTemplateGroupRequestTypeDef]
     ) -> UpdateCloudWatchAlarmTemplateGroupResponseTypeDef:
         """
         Updates the specified cloudwatch alarm template group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.update_cloud_watch_alarm_template_group)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#update_cloud_watch_alarm_template_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/update_cloud_watch_alarm_template_group.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#update_cloud_watch_alarm_template_group)
         """
 
     def update_event_bridge_rule_template(
-        self,
-        *,
-        Identifier: str,
-        Description: str = None,
-        EventTargets: List["EventBridgeRuleTemplateTargetTypeDef"] = None,
-        EventType: EventBridgeRuleTemplateEventTypeType = None,
-        GroupIdentifier: str = None,
-        Name: str = None
+        self, **kwargs: Unpack[UpdateEventBridgeRuleTemplateRequestTypeDef]
     ) -> UpdateEventBridgeRuleTemplateResponseTypeDef:
         """
         Updates the specified eventbridge rule template.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.update_event_bridge_rule_template)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#update_event_bridge_rule_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/update_event_bridge_rule_template.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#update_event_bridge_rule_template)
         """
 
     def update_event_bridge_rule_template_group(
-        self, *, Identifier: str, Description: str = None
+        self, **kwargs: Unpack[UpdateEventBridgeRuleTemplateGroupRequestTypeDef]
     ) -> UpdateEventBridgeRuleTemplateGroupResponseTypeDef:
         """
         Updates the specified eventbridge rule template group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.update_event_bridge_rule_template_group)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#update_event_bridge_rule_template_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/update_event_bridge_rule_template_group.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#update_event_bridge_rule_template_group)
         """
 
-    def update_input(
-        self,
-        *,
-        InputId: str,
-        Destinations: List["InputDestinationRequestTypeDef"] = None,
-        InputDevices: List["InputDeviceRequestTypeDef"] = None,
-        InputSecurityGroups: List[str] = None,
-        MediaConnectFlows: List["MediaConnectFlowRequestTypeDef"] = None,
-        Name: str = None,
-        RoleArn: str = None,
-        Sources: List["InputSourceRequestTypeDef"] = None
-    ) -> UpdateInputResponseTypeDef:
+    def create_channel_placement_group(
+        self, **kwargs: Unpack[CreateChannelPlacementGroupRequestTypeDef]
+    ) -> CreateChannelPlacementGroupResponseTypeDef:
         """
-        Updates an input.
+        Create a ChannelPlacementGroup in the specified Cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.update_input)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#update_input)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/create_channel_placement_group.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#create_channel_placement_group)
         """
 
-    def update_input_device(
-        self,
-        *,
-        InputDeviceId: str,
-        HdDeviceSettings: "InputDeviceConfigurableSettingsTypeDef" = None,
-        Name: str = None,
-        UhdDeviceSettings: "InputDeviceConfigurableSettingsTypeDef" = None,
-        AvailabilityZone: str = None
-    ) -> UpdateInputDeviceResponseTypeDef:
+    def create_cluster(
+        self, **kwargs: Unpack[CreateClusterRequestTypeDef]
+    ) -> CreateClusterResponseTypeDef:
         """
-        Updates the parameters for the input device.
+        Create a new Cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.update_input_device)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#update_input_device)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/create_cluster.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#create_cluster)
         """
 
-    def update_input_security_group(
-        self,
-        *,
-        InputSecurityGroupId: str,
-        Tags: Dict[str, str] = None,
-        WhitelistRules: List["InputWhitelistRuleCidrTypeDef"] = None
-    ) -> UpdateInputSecurityGroupResponseTypeDef:
+    def create_network(
+        self, **kwargs: Unpack[CreateNetworkRequestTypeDef]
+    ) -> CreateNetworkResponseTypeDef:
         """
-        Update an Input Security Group's Whilelists.
+        Create as many Networks as you need.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.update_input_security_group)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#update_input_security_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/create_network.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#create_network)
         """
 
-    def update_multiplex(
-        self,
-        *,
-        MultiplexId: str,
-        MultiplexSettings: "MultiplexSettingsTypeDef" = None,
-        Name: str = None
-    ) -> UpdateMultiplexResponseTypeDef:
+    def create_node(self, **kwargs: Unpack[CreateNodeRequestTypeDef]) -> CreateNodeResponseTypeDef:
         """
-        Updates a multiplex.
+        Create a Node in the specified Cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.update_multiplex)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#update_multiplex)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/create_node.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#create_node)
         """
 
-    def update_multiplex_program(
-        self,
-        *,
-        MultiplexId: str,
-        ProgramName: str,
-        MultiplexProgramSettings: "MultiplexProgramSettingsTypeDef" = None
-    ) -> UpdateMultiplexProgramResponseTypeDef:
+    def create_node_registration_script(
+        self, **kwargs: Unpack[CreateNodeRegistrationScriptRequestTypeDef]
+    ) -> CreateNodeRegistrationScriptResponseTypeDef:
         """
-        Update a program in a multiplex.
+        Create the Register Node script for all the nodes intended for a specific
+        Cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.update_multiplex_program)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#update_multiplex_program)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/create_node_registration_script.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#create_node_registration_script)
         """
 
-    def update_reservation(
-        self,
-        *,
-        ReservationId: str,
-        Name: str = None,
-        RenewalSettings: "RenewalSettingsTypeDef" = None
-    ) -> UpdateReservationResponseTypeDef:
+    def delete_channel_placement_group(
+        self, **kwargs: Unpack[DeleteChannelPlacementGroupRequestTypeDef]
+    ) -> DeleteChannelPlacementGroupResponseTypeDef:
         """
-        Update reservation.
+        Delete the specified ChannelPlacementGroup that exists in the specified Cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Client.update_reservation)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/client.html#update_reservation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/delete_channel_placement_group.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#delete_channel_placement_group)
         """
 
-    @overload
-    def get_paginator(
+    def delete_cluster(
+        self, **kwargs: Unpack[DeleteClusterRequestTypeDef]
+    ) -> DeleteClusterResponseTypeDef:
+        """
+        Delete a Cluster.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/delete_cluster.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#delete_cluster)
+        """
+
+    def delete_network(
+        self, **kwargs: Unpack[DeleteNetworkRequestTypeDef]
+    ) -> DeleteNetworkResponseTypeDef:
+        """
+        Delete a Network.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/delete_network.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#delete_network)
+        """
+
+    def delete_node(self, **kwargs: Unpack[DeleteNodeRequestTypeDef]) -> DeleteNodeResponseTypeDef:
+        """
+        Delete a Node.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/delete_node.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#delete_node)
+        """
+
+    def describe_channel_placement_group(
+        self, **kwargs: Unpack[DescribeChannelPlacementGroupRequestTypeDef]
+    ) -> DescribeChannelPlacementGroupResponseTypeDef:
+        """
+        Get details about a ChannelPlacementGroup.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/describe_channel_placement_group.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#describe_channel_placement_group)
+        """
+
+    def describe_cluster(
+        self, **kwargs: Unpack[DescribeClusterRequestTypeDef]
+    ) -> DescribeClusterResponseTypeDef:
+        """
+        Get details about a Cluster.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/describe_cluster.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#describe_cluster)
+        """
+
+    def describe_network(
+        self, **kwargs: Unpack[DescribeNetworkRequestTypeDef]
+    ) -> DescribeNetworkResponseTypeDef:
+        """
+        Get details about a Network.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/describe_network.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#describe_network)
+        """
+
+    def describe_node(
+        self, **kwargs: Unpack[DescribeNodeRequestTypeDef]
+    ) -> DescribeNodeResponseTypeDef:
+        """
+        Get details about a Node in the specified Cluster.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/describe_node.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#describe_node)
+        """
+
+    def list_channel_placement_groups(
+        self, **kwargs: Unpack[ListChannelPlacementGroupsRequestTypeDef]
+    ) -> ListChannelPlacementGroupsResponseTypeDef:
+        """
+        Retrieve the list of ChannelPlacementGroups in the specified Cluster.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/list_channel_placement_groups.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#list_channel_placement_groups)
+        """
+
+    def list_clusters(
+        self, **kwargs: Unpack[ListClustersRequestTypeDef]
+    ) -> ListClustersResponseTypeDef:
+        """
+        Retrieve the list of Clusters.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/list_clusters.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#list_clusters)
+        """
+
+    def list_networks(
+        self, **kwargs: Unpack[ListNetworksRequestTypeDef]
+    ) -> ListNetworksResponseTypeDef:
+        """
+        Retrieve the list of Networks.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/list_networks.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#list_networks)
+        """
+
+    def list_nodes(self, **kwargs: Unpack[ListNodesRequestTypeDef]) -> ListNodesResponseTypeDef:
+        """
+        Retrieve the list of Nodes.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/list_nodes.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#list_nodes)
+        """
+
+    def update_channel_placement_group(
+        self, **kwargs: Unpack[UpdateChannelPlacementGroupRequestTypeDef]
+    ) -> UpdateChannelPlacementGroupResponseTypeDef:
+        """
+        Change the settings for a ChannelPlacementGroup.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/update_channel_placement_group.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#update_channel_placement_group)
+        """
+
+    def update_cluster(
+        self, **kwargs: Unpack[UpdateClusterRequestTypeDef]
+    ) -> UpdateClusterResponseTypeDef:
+        """
+        Change the settings for a Cluster.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/update_cluster.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#update_cluster)
+        """
+
+    def update_network(
+        self, **kwargs: Unpack[UpdateNetworkRequestTypeDef]
+    ) -> UpdateNetworkResponseTypeDef:
+        """
+        Change the settings for a Network.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/update_network.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#update_network)
+        """
+
+    def update_node(self, **kwargs: Unpack[UpdateNodeRequestTypeDef]) -> UpdateNodeResponseTypeDef:
+        """
+        Change the settings for a Node.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/update_node.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#update_node)
+        """
+
+    def update_node_state(
+        self, **kwargs: Unpack[UpdateNodeStateRequestTypeDef]
+    ) -> UpdateNodeStateResponseTypeDef:
+        """
+        Update the state of a node.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/update_node_state.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#update_node_state)
+        """
+
+    def list_versions(self) -> ListVersionsResponseTypeDef:
+        """
+        Retrieves an array of all the encoder engine versions that are available in
+        this AWS account.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/list_versions.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#list_versions)
+        """
+
+    def create_sdi_source(
+        self, **kwargs: Unpack[CreateSdiSourceRequestTypeDef]
+    ) -> CreateSdiSourceResponseTypeDef:
+        """
+        Create an SdiSource for each video source that uses the SDI protocol.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/create_sdi_source.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#create_sdi_source)
+        """
+
+    def delete_sdi_source(
+        self, **kwargs: Unpack[DeleteSdiSourceRequestTypeDef]
+    ) -> DeleteSdiSourceResponseTypeDef:
+        """
+        Delete an SdiSource.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/delete_sdi_source.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#delete_sdi_source)
+        """
+
+    def describe_sdi_source(
+        self, **kwargs: Unpack[DescribeSdiSourceRequestTypeDef]
+    ) -> DescribeSdiSourceResponseTypeDef:
+        """
+        Gets details about a SdiSource.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/describe_sdi_source.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#describe_sdi_source)
+        """
+
+    def list_sdi_sources(
+        self, **kwargs: Unpack[ListSdiSourcesRequestTypeDef]
+    ) -> ListSdiSourcesResponseTypeDef:
+        """
+        List all the SdiSources in the AWS account.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/list_sdi_sources.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#list_sdi_sources)
+        """
+
+    def update_sdi_source(
+        self, **kwargs: Unpack[UpdateSdiSourceRequestTypeDef]
+    ) -> UpdateSdiSourceResponseTypeDef:
+        """
+        Change some of the settings in an SdiSource.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/update_sdi_source.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#update_sdi_source)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["describe_schedule"]
     ) -> DescribeSchedulePaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Paginator.DescribeSchedule)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/paginators.html#describeschedulepaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_channels"]) -> ListChannelsPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_channel_placement_groups"]
+    ) -> ListChannelPlacementGroupsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Paginator.ListChannels)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/paginators.html#listchannelspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_channels"]
+    ) -> ListChannelsPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_cloud_watch_alarm_template_groups"]
     ) -> ListCloudWatchAlarmTemplateGroupsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Paginator.ListCloudWatchAlarmTemplateGroups)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/paginators.html#listcloudwatchalarmtemplategroupspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_cloud_watch_alarm_templates"]
     ) -> ListCloudWatchAlarmTemplatesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Paginator.ListCloudWatchAlarmTemplates)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/paginators.html#listcloudwatchalarmtemplatespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_clusters"]
+    ) -> ListClustersPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_event_bridge_rule_template_groups"]
     ) -> ListEventBridgeRuleTemplateGroupsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Paginator.ListEventBridgeRuleTemplateGroups)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/paginators.html#listeventbridgeruletemplategroupspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_event_bridge_rule_templates"]
     ) -> ListEventBridgeRuleTemplatesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Paginator.ListEventBridgeRuleTemplates)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/paginators.html#listeventbridgeruletemplatespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_input_device_transfers"]
     ) -> ListInputDeviceTransfersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Paginator.ListInputDeviceTransfers)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/paginators.html#listinputdevicetransferspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_input_devices"]
     ) -> ListInputDevicesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Paginator.ListInputDevices)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/paginators.html#listinputdevicespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_input_security_groups"]
     ) -> ListInputSecurityGroupsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Paginator.ListInputSecurityGroups)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/paginators.html#listinputsecuritygroupspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_inputs"]) -> ListInputsPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_inputs"]
+    ) -> ListInputsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Paginator.ListInputs)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/paginators.html#listinputspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_multiplex_programs"]
     ) -> ListMultiplexProgramsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Paginator.ListMultiplexPrograms)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/paginators.html#listmultiplexprogramspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_multiplexes"]
     ) -> ListMultiplexesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Paginator.ListMultiplexes)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/paginators.html#listmultiplexespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_offerings"]) -> ListOfferingsPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_networks"]
+    ) -> ListNetworksPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Paginator.ListOfferings)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/paginators.html#listofferingspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_nodes"]
+    ) -> ListNodesPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_offerings"]
+    ) -> ListOfferingsPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_reservations"]
     ) -> ListReservationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Paginator.ListReservations)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/paginators.html#listreservationspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_signal_maps"]) -> ListSignalMapsPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_sdi_sources"]
+    ) -> ListSdiSourcesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Paginator.ListSignalMaps)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/paginators.html#listsignalmapspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#get_paginator)
         """
 
-    @overload
-    def get_waiter(self, waiter_name: Literal["channel_created"]) -> ChannelCreatedWaiter:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_signal_maps"]
+    ) -> ListSignalMapsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Waiter.ChannelCreated)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/waiters.html#channelcreatedwaiter)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#get_paginator)
         """
 
-    @overload
-    def get_waiter(self, waiter_name: Literal["channel_deleted"]) -> ChannelDeletedWaiter:
+    @overload  # type: ignore[override]
+    def get_waiter(  # type: ignore[override]
+        self, waiter_name: Literal["channel_created"]
+    ) -> ChannelCreatedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Waiter.ChannelDeleted)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/waiters.html#channeldeletedwaiter)
+        Returns an object that can wait for some condition.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/get_waiter.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#get_waiter)
         """
 
-    @overload
-    def get_waiter(self, waiter_name: Literal["channel_running"]) -> ChannelRunningWaiter:
+    @overload  # type: ignore[override]
+    def get_waiter(  # type: ignore[override]
+        self, waiter_name: Literal["channel_deleted"]
+    ) -> ChannelDeletedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Waiter.ChannelRunning)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/waiters.html#channelrunningwaiter)
+        Returns an object that can wait for some condition.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/get_waiter.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#get_waiter)
         """
 
-    @overload
-    def get_waiter(self, waiter_name: Literal["channel_stopped"]) -> ChannelStoppedWaiter:
+    @overload  # type: ignore[override]
+    def get_waiter(  # type: ignore[override]
+        self, waiter_name: Literal["channel_placement_group_assigned"]
+    ) -> ChannelPlacementGroupAssignedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Waiter.ChannelStopped)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/waiters.html#channelstoppedwaiter)
+        Returns an object that can wait for some condition.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/get_waiter.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#get_waiter)
         """
 
-    @overload
-    def get_waiter(self, waiter_name: Literal["input_attached"]) -> InputAttachedWaiter:
+    @overload  # type: ignore[override]
+    def get_waiter(  # type: ignore[override]
+        self, waiter_name: Literal["channel_placement_group_deleted"]
+    ) -> ChannelPlacementGroupDeletedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Waiter.InputAttached)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/waiters.html#inputattachedwaiter)
+        Returns an object that can wait for some condition.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/get_waiter.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#get_waiter)
         """
 
-    @overload
-    def get_waiter(self, waiter_name: Literal["input_deleted"]) -> InputDeletedWaiter:
+    @overload  # type: ignore[override]
+    def get_waiter(  # type: ignore[override]
+        self, waiter_name: Literal["channel_placement_group_unassigned"]
+    ) -> ChannelPlacementGroupUnassignedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Waiter.InputDeleted)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/waiters.html#inputdeletedwaiter)
+        Returns an object that can wait for some condition.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/get_waiter.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#get_waiter)
         """
 
-    @overload
-    def get_waiter(self, waiter_name: Literal["input_detached"]) -> InputDetachedWaiter:
+    @overload  # type: ignore[override]
+    def get_waiter(  # type: ignore[override]
+        self, waiter_name: Literal["channel_running"]
+    ) -> ChannelRunningWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Waiter.InputDetached)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/waiters.html#inputdetachedwaiter)
+        Returns an object that can wait for some condition.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/get_waiter.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#get_waiter)
         """
 
-    @overload
-    def get_waiter(self, waiter_name: Literal["multiplex_created"]) -> MultiplexCreatedWaiter:
+    @overload  # type: ignore[override]
+    def get_waiter(  # type: ignore[override]
+        self, waiter_name: Literal["channel_stopped"]
+    ) -> ChannelStoppedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Waiter.MultiplexCreated)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/waiters.html#multiplexcreatedwaiter)
+        Returns an object that can wait for some condition.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/get_waiter.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#get_waiter)
         """
 
-    @overload
-    def get_waiter(self, waiter_name: Literal["multiplex_deleted"]) -> MultiplexDeletedWaiter:
+    @overload  # type: ignore[override]
+    def get_waiter(  # type: ignore[override]
+        self, waiter_name: Literal["cluster_created"]
+    ) -> ClusterCreatedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Waiter.MultiplexDeleted)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/waiters.html#multiplexdeletedwaiter)
+        Returns an object that can wait for some condition.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/get_waiter.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#get_waiter)
         """
 
-    @overload
-    def get_waiter(self, waiter_name: Literal["multiplex_running"]) -> MultiplexRunningWaiter:
+    @overload  # type: ignore[override]
+    def get_waiter(  # type: ignore[override]
+        self, waiter_name: Literal["cluster_deleted"]
+    ) -> ClusterDeletedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Waiter.MultiplexRunning)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/waiters.html#multiplexrunningwaiter)
+        Returns an object that can wait for some condition.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/get_waiter.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#get_waiter)
         """
 
-    @overload
-    def get_waiter(self, waiter_name: Literal["multiplex_stopped"]) -> MultiplexStoppedWaiter:
+    @overload  # type: ignore[override]
+    def get_waiter(  # type: ignore[override]
+        self, waiter_name: Literal["input_attached"]
+    ) -> InputAttachedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Waiter.MultiplexStopped)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/waiters.html#multiplexstoppedwaiter)
+        Returns an object that can wait for some condition.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/get_waiter.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#get_waiter)
         """
 
-    @overload
-    def get_waiter(self, waiter_name: Literal["signal_map_created"]) -> SignalMapCreatedWaiter:
+    @overload  # type: ignore[override]
+    def get_waiter(  # type: ignore[override]
+        self, waiter_name: Literal["input_deleted"]
+    ) -> InputDeletedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Waiter.SignalMapCreated)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/waiters.html#signalmapcreatedwaiter)
+        Returns an object that can wait for some condition.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/get_waiter.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#get_waiter)
         """
 
-    @overload
-    def get_waiter(
+    @overload  # type: ignore[override]
+    def get_waiter(  # type: ignore[override]
+        self, waiter_name: Literal["input_detached"]
+    ) -> InputDetachedWaiter:
+        """
+        Returns an object that can wait for some condition.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/get_waiter.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#get_waiter)
+        """
+
+    @overload  # type: ignore[override]
+    def get_waiter(  # type: ignore[override]
+        self, waiter_name: Literal["multiplex_created"]
+    ) -> MultiplexCreatedWaiter:
+        """
+        Returns an object that can wait for some condition.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/get_waiter.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#get_waiter)
+        """
+
+    @overload  # type: ignore[override]
+    def get_waiter(  # type: ignore[override]
+        self, waiter_name: Literal["multiplex_deleted"]
+    ) -> MultiplexDeletedWaiter:
+        """
+        Returns an object that can wait for some condition.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/get_waiter.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#get_waiter)
+        """
+
+    @overload  # type: ignore[override]
+    def get_waiter(  # type: ignore[override]
+        self, waiter_name: Literal["multiplex_running"]
+    ) -> MultiplexRunningWaiter:
+        """
+        Returns an object that can wait for some condition.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/get_waiter.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#get_waiter)
+        """
+
+    @overload  # type: ignore[override]
+    def get_waiter(  # type: ignore[override]
+        self, waiter_name: Literal["multiplex_stopped"]
+    ) -> MultiplexStoppedWaiter:
+        """
+        Returns an object that can wait for some condition.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/get_waiter.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#get_waiter)
+        """
+
+    @overload  # type: ignore[override]
+    def get_waiter(  # type: ignore[override]
+        self, waiter_name: Literal["node_deregistered"]
+    ) -> NodeDeregisteredWaiter:
+        """
+        Returns an object that can wait for some condition.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/get_waiter.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#get_waiter)
+        """
+
+    @overload  # type: ignore[override]
+    def get_waiter(  # type: ignore[override]
+        self, waiter_name: Literal["node_registered"]
+    ) -> NodeRegisteredWaiter:
+        """
+        Returns an object that can wait for some condition.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/get_waiter.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#get_waiter)
+        """
+
+    @overload  # type: ignore[override]
+    def get_waiter(  # type: ignore[override]
+        self, waiter_name: Literal["signal_map_created"]
+    ) -> SignalMapCreatedWaiter:
+        """
+        Returns an object that can wait for some condition.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/get_waiter.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#get_waiter)
+        """
+
+    @overload  # type: ignore[override]
+    def get_waiter(  # type: ignore[override]
         self, waiter_name: Literal["signal_map_monitor_deleted"]
     ) -> SignalMapMonitorDeletedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Waiter.SignalMapMonitorDeleted)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/waiters.html#signalmapmonitordeletedwaiter)
+        Returns an object that can wait for some condition.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/get_waiter.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#get_waiter)
         """
 
-    @overload
-    def get_waiter(
+    @overload  # type: ignore[override]
+    def get_waiter(  # type: ignore[override]
         self, waiter_name: Literal["signal_map_monitor_deployed"]
     ) -> SignalMapMonitorDeployedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Waiter.SignalMapMonitorDeployed)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/waiters.html#signalmapmonitordeployedwaiter)
+        Returns an object that can wait for some condition.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/get_waiter.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#get_waiter)
         """
 
-    @overload
-    def get_waiter(self, waiter_name: Literal["signal_map_updated"]) -> SignalMapUpdatedWaiter:
+    @overload  # type: ignore[override]
+    def get_waiter(  # type: ignore[override]
+        self, waiter_name: Literal["signal_map_updated"]
+    ) -> SignalMapUpdatedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medialive.html#MediaLive.Waiter.SignalMapUpdated)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/waiters.html#signalmapupdatedwaiter)
+        Returns an object that can wait for some condition.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive/client/get_waiter.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/client/#get_waiter)
         """

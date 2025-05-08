@@ -1,333 +1,96 @@
 """
 Type annotations for datapipeline service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datapipeline/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datapipeline/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_datapipeline.type_defs import ActivatePipelineInputRequestTypeDef
+    from mypy_boto3_datapipeline.type_defs import ParameterValueTypeDef
 
-    data: ActivatePipelineInputRequestTypeDef = {...}
+    data: ParameterValueTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List, Union
+from typing import Union
 
 from .literals import OperatorTypeType, TaskStatusType
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Sequence
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List, Sequence
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
-    "ActivatePipelineInputRequestTypeDef",
-    "AddTagsInputRequestTypeDef",
-    "CreatePipelineInputRequestTypeDef",
+    "ActivatePipelineInputTypeDef",
+    "AddTagsInputTypeDef",
+    "CreatePipelineInputTypeDef",
     "CreatePipelineOutputTypeDef",
-    "DeactivatePipelineInputRequestTypeDef",
-    "DeletePipelineInputRequestTypeDef",
-    "DescribeObjectsInputRequestTypeDef",
+    "DeactivatePipelineInputTypeDef",
+    "DeletePipelineInputTypeDef",
+    "DescribeObjectsInputPaginateTypeDef",
+    "DescribeObjectsInputTypeDef",
     "DescribeObjectsOutputTypeDef",
-    "DescribePipelinesInputRequestTypeDef",
+    "DescribePipelinesInputTypeDef",
     "DescribePipelinesOutputTypeDef",
-    "EvaluateExpressionInputRequestTypeDef",
+    "EmptyResponseMetadataTypeDef",
+    "EvaluateExpressionInputTypeDef",
     "EvaluateExpressionOutputTypeDef",
     "FieldTypeDef",
-    "GetPipelineDefinitionInputRequestTypeDef",
+    "GetPipelineDefinitionInputTypeDef",
     "GetPipelineDefinitionOutputTypeDef",
     "InstanceIdentityTypeDef",
-    "ListPipelinesInputRequestTypeDef",
+    "ListPipelinesInputPaginateTypeDef",
+    "ListPipelinesInputTypeDef",
     "ListPipelinesOutputTypeDef",
     "OperatorTypeDef",
     "PaginatorConfigTypeDef",
     "ParameterAttributeTypeDef",
+    "ParameterObjectOutputTypeDef",
     "ParameterObjectTypeDef",
+    "ParameterObjectUnionTypeDef",
     "ParameterValueTypeDef",
     "PipelineDescriptionTypeDef",
     "PipelineIdNameTypeDef",
+    "PipelineObjectOutputTypeDef",
     "PipelineObjectTypeDef",
-    "PollForTaskInputRequestTypeDef",
+    "PipelineObjectUnionTypeDef",
+    "PollForTaskInputTypeDef",
     "PollForTaskOutputTypeDef",
-    "PutPipelineDefinitionInputRequestTypeDef",
+    "PutPipelineDefinitionInputTypeDef",
     "PutPipelineDefinitionOutputTypeDef",
-    "QueryObjectsInputRequestTypeDef",
+    "QueryObjectsInputPaginateTypeDef",
+    "QueryObjectsInputTypeDef",
     "QueryObjectsOutputTypeDef",
     "QueryTypeDef",
-    "RemoveTagsInputRequestTypeDef",
-    "ReportTaskProgressInputRequestTypeDef",
+    "RemoveTagsInputTypeDef",
+    "ReportTaskProgressInputTypeDef",
     "ReportTaskProgressOutputTypeDef",
-    "ReportTaskRunnerHeartbeatInputRequestTypeDef",
+    "ReportTaskRunnerHeartbeatInputTypeDef",
     "ReportTaskRunnerHeartbeatOutputTypeDef",
     "ResponseMetadataTypeDef",
     "SelectorTypeDef",
-    "SetStatusInputRequestTypeDef",
-    "SetTaskStatusInputRequestTypeDef",
+    "SetStatusInputTypeDef",
+    "SetTaskStatusInputTypeDef",
     "TagTypeDef",
     "TaskObjectTypeDef",
-    "ValidatePipelineDefinitionInputRequestTypeDef",
+    "TimestampTypeDef",
+    "ValidatePipelineDefinitionInputTypeDef",
     "ValidatePipelineDefinitionOutputTypeDef",
     "ValidationErrorTypeDef",
     "ValidationWarningTypeDef",
-)
-
-_RequiredActivatePipelineInputRequestTypeDef = TypedDict(
-    "_RequiredActivatePipelineInputRequestTypeDef",
-    {
-        "pipelineId": str,
-    },
-)
-_OptionalActivatePipelineInputRequestTypeDef = TypedDict(
-    "_OptionalActivatePipelineInputRequestTypeDef",
-    {
-        "parameterValues": List["ParameterValueTypeDef"],
-        "startTimestamp": Union[datetime, str],
-    },
-    total=False,
-)
-
-class ActivatePipelineInputRequestTypeDef(
-    _RequiredActivatePipelineInputRequestTypeDef, _OptionalActivatePipelineInputRequestTypeDef
-):
-    pass
-
-AddTagsInputRequestTypeDef = TypedDict(
-    "AddTagsInputRequestTypeDef",
-    {
-        "pipelineId": str,
-        "tags": List["TagTypeDef"],
-    },
-)
-
-_RequiredCreatePipelineInputRequestTypeDef = TypedDict(
-    "_RequiredCreatePipelineInputRequestTypeDef",
-    {
-        "name": str,
-        "uniqueId": str,
-    },
-)
-_OptionalCreatePipelineInputRequestTypeDef = TypedDict(
-    "_OptionalCreatePipelineInputRequestTypeDef",
-    {
-        "description": str,
-        "tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreatePipelineInputRequestTypeDef(
-    _RequiredCreatePipelineInputRequestTypeDef, _OptionalCreatePipelineInputRequestTypeDef
-):
-    pass
-
-CreatePipelineOutputTypeDef = TypedDict(
-    "CreatePipelineOutputTypeDef",
-    {
-        "pipelineId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDeactivatePipelineInputRequestTypeDef = TypedDict(
-    "_RequiredDeactivatePipelineInputRequestTypeDef",
-    {
-        "pipelineId": str,
-    },
-)
-_OptionalDeactivatePipelineInputRequestTypeDef = TypedDict(
-    "_OptionalDeactivatePipelineInputRequestTypeDef",
-    {
-        "cancelActive": bool,
-    },
-    total=False,
-)
-
-class DeactivatePipelineInputRequestTypeDef(
-    _RequiredDeactivatePipelineInputRequestTypeDef, _OptionalDeactivatePipelineInputRequestTypeDef
-):
-    pass
-
-DeletePipelineInputRequestTypeDef = TypedDict(
-    "DeletePipelineInputRequestTypeDef",
-    {
-        "pipelineId": str,
-    },
-)
-
-_RequiredDescribeObjectsInputRequestTypeDef = TypedDict(
-    "_RequiredDescribeObjectsInputRequestTypeDef",
-    {
-        "pipelineId": str,
-        "objectIds": List[str],
-    },
-)
-_OptionalDescribeObjectsInputRequestTypeDef = TypedDict(
-    "_OptionalDescribeObjectsInputRequestTypeDef",
-    {
-        "evaluateExpressions": bool,
-        "marker": str,
-    },
-    total=False,
-)
-
-class DescribeObjectsInputRequestTypeDef(
-    _RequiredDescribeObjectsInputRequestTypeDef, _OptionalDescribeObjectsInputRequestTypeDef
-):
-    pass
-
-DescribeObjectsOutputTypeDef = TypedDict(
-    "DescribeObjectsOutputTypeDef",
-    {
-        "pipelineObjects": List["PipelineObjectTypeDef"],
-        "marker": str,
-        "hasMoreResults": bool,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribePipelinesInputRequestTypeDef = TypedDict(
-    "DescribePipelinesInputRequestTypeDef",
-    {
-        "pipelineIds": List[str],
-    },
-)
-
-DescribePipelinesOutputTypeDef = TypedDict(
-    "DescribePipelinesOutputTypeDef",
-    {
-        "pipelineDescriptionList": List["PipelineDescriptionTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-EvaluateExpressionInputRequestTypeDef = TypedDict(
-    "EvaluateExpressionInputRequestTypeDef",
-    {
-        "pipelineId": str,
-        "objectId": str,
-        "expression": str,
-    },
-)
-
-EvaluateExpressionOutputTypeDef = TypedDict(
-    "EvaluateExpressionOutputTypeDef",
-    {
-        "evaluatedExpression": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredFieldTypeDef = TypedDict(
-    "_RequiredFieldTypeDef",
-    {
-        "key": str,
-    },
-)
-_OptionalFieldTypeDef = TypedDict(
-    "_OptionalFieldTypeDef",
-    {
-        "stringValue": str,
-        "refValue": str,
-    },
-    total=False,
-)
-
-class FieldTypeDef(_RequiredFieldTypeDef, _OptionalFieldTypeDef):
-    pass
-
-_RequiredGetPipelineDefinitionInputRequestTypeDef = TypedDict(
-    "_RequiredGetPipelineDefinitionInputRequestTypeDef",
-    {
-        "pipelineId": str,
-    },
-)
-_OptionalGetPipelineDefinitionInputRequestTypeDef = TypedDict(
-    "_OptionalGetPipelineDefinitionInputRequestTypeDef",
-    {
-        "version": str,
-    },
-    total=False,
-)
-
-class GetPipelineDefinitionInputRequestTypeDef(
-    _RequiredGetPipelineDefinitionInputRequestTypeDef,
-    _OptionalGetPipelineDefinitionInputRequestTypeDef,
-):
-    pass
-
-GetPipelineDefinitionOutputTypeDef = TypedDict(
-    "GetPipelineDefinitionOutputTypeDef",
-    {
-        "pipelineObjects": List["PipelineObjectTypeDef"],
-        "parameterObjects": List["ParameterObjectTypeDef"],
-        "parameterValues": List["ParameterValueTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-InstanceIdentityTypeDef = TypedDict(
-    "InstanceIdentityTypeDef",
-    {
-        "document": str,
-        "signature": str,
-    },
-    total=False,
-)
-
-ListPipelinesInputRequestTypeDef = TypedDict(
-    "ListPipelinesInputRequestTypeDef",
-    {
-        "marker": str,
-    },
-    total=False,
-)
-
-ListPipelinesOutputTypeDef = TypedDict(
-    "ListPipelinesOutputTypeDef",
-    {
-        "pipelineIdList": List["PipelineIdNameTypeDef"],
-        "marker": str,
-        "hasMoreResults": bool,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-OperatorTypeDef = TypedDict(
-    "OperatorTypeDef",
-    {
-        "type": OperatorTypeType,
-        "values": List[str],
-    },
-    total=False,
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-ParameterAttributeTypeDef = TypedDict(
-    "ParameterAttributeTypeDef",
-    {
-        "key": str,
-        "stringValue": str,
-    },
-)
-
-ParameterObjectTypeDef = TypedDict(
-    "ParameterObjectTypeDef",
-    {
-        "id": str,
-        "attributes": List["ParameterAttributeTypeDef"],
-    },
 )
 
 ParameterValueTypeDef = TypedDict(
@@ -337,327 +100,292 @@ ParameterValueTypeDef = TypedDict(
         "stringValue": str,
     },
 )
+TimestampTypeDef = Union[datetime, str]
 
-_RequiredPipelineDescriptionTypeDef = TypedDict(
-    "_RequiredPipelineDescriptionTypeDef",
-    {
-        "pipelineId": str,
-        "name": str,
-        "fields": List["FieldTypeDef"],
-    },
-)
-_OptionalPipelineDescriptionTypeDef = TypedDict(
-    "_OptionalPipelineDescriptionTypeDef",
-    {
-        "description": str,
-        "tags": List["TagTypeDef"],
-    },
-    total=False,
-)
+class TagTypeDef(TypedDict):
+    key: str
+    value: str
 
-class PipelineDescriptionTypeDef(
-    _RequiredPipelineDescriptionTypeDef, _OptionalPipelineDescriptionTypeDef
-):
-    pass
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
+
+class DeactivatePipelineInputTypeDef(TypedDict):
+    pipelineId: str
+    cancelActive: NotRequired[bool]
+
+class DeletePipelineInputTypeDef(TypedDict):
+    pipelineId: str
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class DescribeObjectsInputTypeDef(TypedDict):
+    pipelineId: str
+    objectIds: Sequence[str]
+    evaluateExpressions: NotRequired[bool]
+    marker: NotRequired[str]
+
+class DescribePipelinesInputTypeDef(TypedDict):
+    pipelineIds: Sequence[str]
+
+class EvaluateExpressionInputTypeDef(TypedDict):
+    pipelineId: str
+    objectId: str
+    expression: str
+
+class FieldTypeDef(TypedDict):
+    key: str
+    stringValue: NotRequired[str]
+    refValue: NotRequired[str]
+
+class GetPipelineDefinitionInputTypeDef(TypedDict):
+    pipelineId: str
+    version: NotRequired[str]
+
+class InstanceIdentityTypeDef(TypedDict):
+    document: NotRequired[str]
+    signature: NotRequired[str]
+
+class ListPipelinesInputTypeDef(TypedDict):
+    marker: NotRequired[str]
 
 PipelineIdNameTypeDef = TypedDict(
     "PipelineIdNameTypeDef",
     {
-        "id": str,
-        "name": str,
+        "id": NotRequired[str],
+        "name": NotRequired[str],
     },
-    total=False,
+)
+OperatorTypeDef = TypedDict(
+    "OperatorTypeDef",
+    {
+        "type": NotRequired[OperatorTypeType],
+        "values": NotRequired[Sequence[str]],
+    },
 )
 
+class ParameterAttributeTypeDef(TypedDict):
+    key: str
+    stringValue: str
+
+ValidationErrorTypeDef = TypedDict(
+    "ValidationErrorTypeDef",
+    {
+        "id": NotRequired[str],
+        "errors": NotRequired[List[str]],
+    },
+)
+ValidationWarningTypeDef = TypedDict(
+    "ValidationWarningTypeDef",
+    {
+        "id": NotRequired[str],
+        "warnings": NotRequired[List[str]],
+    },
+)
+
+class RemoveTagsInputTypeDef(TypedDict):
+    pipelineId: str
+    tagKeys: Sequence[str]
+
+class ReportTaskRunnerHeartbeatInputTypeDef(TypedDict):
+    taskrunnerId: str
+    workerGroup: NotRequired[str]
+    hostname: NotRequired[str]
+
+class SetStatusInputTypeDef(TypedDict):
+    pipelineId: str
+    objectIds: Sequence[str]
+    status: str
+
+class SetTaskStatusInputTypeDef(TypedDict):
+    taskId: str
+    taskStatus: TaskStatusType
+    errorId: NotRequired[str]
+    errorMessage: NotRequired[str]
+    errorStackTrace: NotRequired[str]
+
+class ActivatePipelineInputTypeDef(TypedDict):
+    pipelineId: str
+    parameterValues: NotRequired[Sequence[ParameterValueTypeDef]]
+    startTimestamp: NotRequired[TimestampTypeDef]
+
+class AddTagsInputTypeDef(TypedDict):
+    pipelineId: str
+    tags: Sequence[TagTypeDef]
+
+class CreatePipelineInputTypeDef(TypedDict):
+    name: str
+    uniqueId: str
+    description: NotRequired[str]
+    tags: NotRequired[Sequence[TagTypeDef]]
+
+class CreatePipelineOutputTypeDef(TypedDict):
+    pipelineId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class EmptyResponseMetadataTypeDef(TypedDict):
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class EvaluateExpressionOutputTypeDef(TypedDict):
+    evaluatedExpression: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class QueryObjectsOutputTypeDef(TypedDict):
+    ids: List[str]
+    marker: str
+    hasMoreResults: bool
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ReportTaskProgressOutputTypeDef(TypedDict):
+    canceled: bool
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ReportTaskRunnerHeartbeatOutputTypeDef(TypedDict):
+    terminate: bool
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeObjectsInputPaginateTypeDef(TypedDict):
+    pipelineId: str
+    objectIds: Sequence[str]
+    evaluateExpressions: NotRequired[bool]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListPipelinesInputPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class PipelineDescriptionTypeDef(TypedDict):
+    pipelineId: str
+    name: str
+    fields: List[FieldTypeDef]
+    description: NotRequired[str]
+    tags: NotRequired[List[TagTypeDef]]
+
+PipelineObjectOutputTypeDef = TypedDict(
+    "PipelineObjectOutputTypeDef",
+    {
+        "id": str,
+        "name": str,
+        "fields": List[FieldTypeDef],
+    },
+)
 PipelineObjectTypeDef = TypedDict(
     "PipelineObjectTypeDef",
     {
         "id": str,
         "name": str,
-        "fields": List["FieldTypeDef"],
+        "fields": Sequence[FieldTypeDef],
     },
 )
 
-_RequiredPollForTaskInputRequestTypeDef = TypedDict(
-    "_RequiredPollForTaskInputRequestTypeDef",
-    {
-        "workerGroup": str,
-    },
-)
-_OptionalPollForTaskInputRequestTypeDef = TypedDict(
-    "_OptionalPollForTaskInputRequestTypeDef",
-    {
-        "hostname": str,
-        "instanceIdentity": "InstanceIdentityTypeDef",
-    },
-    total=False,
-)
+class ReportTaskProgressInputTypeDef(TypedDict):
+    taskId: str
+    fields: NotRequired[Sequence[FieldTypeDef]]
 
-class PollForTaskInputRequestTypeDef(
-    _RequiredPollForTaskInputRequestTypeDef, _OptionalPollForTaskInputRequestTypeDef
-):
-    pass
+class PollForTaskInputTypeDef(TypedDict):
+    workerGroup: str
+    hostname: NotRequired[str]
+    instanceIdentity: NotRequired[InstanceIdentityTypeDef]
 
-PollForTaskOutputTypeDef = TypedDict(
-    "PollForTaskOutputTypeDef",
-    {
-        "taskObject": "TaskObjectTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredPutPipelineDefinitionInputRequestTypeDef = TypedDict(
-    "_RequiredPutPipelineDefinitionInputRequestTypeDef",
-    {
-        "pipelineId": str,
-        "pipelineObjects": List["PipelineObjectTypeDef"],
-    },
-)
-_OptionalPutPipelineDefinitionInputRequestTypeDef = TypedDict(
-    "_OptionalPutPipelineDefinitionInputRequestTypeDef",
-    {
-        "parameterObjects": List["ParameterObjectTypeDef"],
-        "parameterValues": List["ParameterValueTypeDef"],
-    },
-    total=False,
-)
-
-class PutPipelineDefinitionInputRequestTypeDef(
-    _RequiredPutPipelineDefinitionInputRequestTypeDef,
-    _OptionalPutPipelineDefinitionInputRequestTypeDef,
-):
-    pass
-
-PutPipelineDefinitionOutputTypeDef = TypedDict(
-    "PutPipelineDefinitionOutputTypeDef",
-    {
-        "validationErrors": List["ValidationErrorTypeDef"],
-        "validationWarnings": List["ValidationWarningTypeDef"],
-        "errored": bool,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredQueryObjectsInputRequestTypeDef = TypedDict(
-    "_RequiredQueryObjectsInputRequestTypeDef",
-    {
-        "pipelineId": str,
-        "sphere": str,
-    },
-)
-_OptionalQueryObjectsInputRequestTypeDef = TypedDict(
-    "_OptionalQueryObjectsInputRequestTypeDef",
-    {
-        "query": "QueryTypeDef",
-        "marker": str,
-        "limit": int,
-    },
-    total=False,
-)
-
-class QueryObjectsInputRequestTypeDef(
-    _RequiredQueryObjectsInputRequestTypeDef, _OptionalQueryObjectsInputRequestTypeDef
-):
-    pass
-
-QueryObjectsOutputTypeDef = TypedDict(
-    "QueryObjectsOutputTypeDef",
-    {
-        "ids": List[str],
-        "marker": str,
-        "hasMoreResults": bool,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-QueryTypeDef = TypedDict(
-    "QueryTypeDef",
-    {
-        "selectors": List["SelectorTypeDef"],
-    },
-    total=False,
-)
-
-RemoveTagsInputRequestTypeDef = TypedDict(
-    "RemoveTagsInputRequestTypeDef",
-    {
-        "pipelineId": str,
-        "tagKeys": List[str],
-    },
-)
-
-_RequiredReportTaskProgressInputRequestTypeDef = TypedDict(
-    "_RequiredReportTaskProgressInputRequestTypeDef",
-    {
-        "taskId": str,
-    },
-)
-_OptionalReportTaskProgressInputRequestTypeDef = TypedDict(
-    "_OptionalReportTaskProgressInputRequestTypeDef",
-    {
-        "fields": List["FieldTypeDef"],
-    },
-    total=False,
-)
-
-class ReportTaskProgressInputRequestTypeDef(
-    _RequiredReportTaskProgressInputRequestTypeDef, _OptionalReportTaskProgressInputRequestTypeDef
-):
-    pass
-
-ReportTaskProgressOutputTypeDef = TypedDict(
-    "ReportTaskProgressOutputTypeDef",
-    {
-        "canceled": bool,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredReportTaskRunnerHeartbeatInputRequestTypeDef = TypedDict(
-    "_RequiredReportTaskRunnerHeartbeatInputRequestTypeDef",
-    {
-        "taskrunnerId": str,
-    },
-)
-_OptionalReportTaskRunnerHeartbeatInputRequestTypeDef = TypedDict(
-    "_OptionalReportTaskRunnerHeartbeatInputRequestTypeDef",
-    {
-        "workerGroup": str,
-        "hostname": str,
-    },
-    total=False,
-)
-
-class ReportTaskRunnerHeartbeatInputRequestTypeDef(
-    _RequiredReportTaskRunnerHeartbeatInputRequestTypeDef,
-    _OptionalReportTaskRunnerHeartbeatInputRequestTypeDef,
-):
-    pass
-
-ReportTaskRunnerHeartbeatOutputTypeDef = TypedDict(
-    "ReportTaskRunnerHeartbeatOutputTypeDef",
-    {
-        "terminate": bool,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
+class ListPipelinesOutputTypeDef(TypedDict):
+    pipelineIdList: List[PipelineIdNameTypeDef]
+    marker: str
+    hasMoreResults: bool
+    ResponseMetadata: ResponseMetadataTypeDef
 
 SelectorTypeDef = TypedDict(
     "SelectorTypeDef",
     {
-        "fieldName": str,
-        "operator": "OperatorTypeDef",
-    },
-    total=False,
-)
-
-SetStatusInputRequestTypeDef = TypedDict(
-    "SetStatusInputRequestTypeDef",
-    {
-        "pipelineId": str,
-        "objectIds": List[str],
-        "status": str,
+        "fieldName": NotRequired[str],
+        "operator": NotRequired[OperatorTypeDef],
     },
 )
-
-_RequiredSetTaskStatusInputRequestTypeDef = TypedDict(
-    "_RequiredSetTaskStatusInputRequestTypeDef",
-    {
-        "taskId": str,
-        "taskStatus": TaskStatusType,
-    },
-)
-_OptionalSetTaskStatusInputRequestTypeDef = TypedDict(
-    "_OptionalSetTaskStatusInputRequestTypeDef",
-    {
-        "errorId": str,
-        "errorMessage": str,
-        "errorStackTrace": str,
-    },
-    total=False,
-)
-
-class SetTaskStatusInputRequestTypeDef(
-    _RequiredSetTaskStatusInputRequestTypeDef, _OptionalSetTaskStatusInputRequestTypeDef
-):
-    pass
-
-TagTypeDef = TypedDict(
-    "TagTypeDef",
-    {
-        "key": str,
-        "value": str,
-    },
-)
-
-TaskObjectTypeDef = TypedDict(
-    "TaskObjectTypeDef",
-    {
-        "taskId": str,
-        "pipelineId": str,
-        "attemptId": str,
-        "objects": Dict[str, "PipelineObjectTypeDef"],
-    },
-    total=False,
-)
-
-_RequiredValidatePipelineDefinitionInputRequestTypeDef = TypedDict(
-    "_RequiredValidatePipelineDefinitionInputRequestTypeDef",
-    {
-        "pipelineId": str,
-        "pipelineObjects": List["PipelineObjectTypeDef"],
-    },
-)
-_OptionalValidatePipelineDefinitionInputRequestTypeDef = TypedDict(
-    "_OptionalValidatePipelineDefinitionInputRequestTypeDef",
-    {
-        "parameterObjects": List["ParameterObjectTypeDef"],
-        "parameterValues": List["ParameterValueTypeDef"],
-    },
-    total=False,
-)
-
-class ValidatePipelineDefinitionInputRequestTypeDef(
-    _RequiredValidatePipelineDefinitionInputRequestTypeDef,
-    _OptionalValidatePipelineDefinitionInputRequestTypeDef,
-):
-    pass
-
-ValidatePipelineDefinitionOutputTypeDef = TypedDict(
-    "ValidatePipelineDefinitionOutputTypeDef",
-    {
-        "validationErrors": List["ValidationErrorTypeDef"],
-        "validationWarnings": List["ValidationWarningTypeDef"],
-        "errored": bool,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ValidationErrorTypeDef = TypedDict(
-    "ValidationErrorTypeDef",
+ParameterObjectOutputTypeDef = TypedDict(
+    "ParameterObjectOutputTypeDef",
     {
         "id": str,
-        "errors": List[str],
+        "attributes": List[ParameterAttributeTypeDef],
     },
-    total=False,
 )
-
-ValidationWarningTypeDef = TypedDict(
-    "ValidationWarningTypeDef",
+ParameterObjectTypeDef = TypedDict(
+    "ParameterObjectTypeDef",
     {
         "id": str,
-        "warnings": List[str],
+        "attributes": Sequence[ParameterAttributeTypeDef],
     },
-    total=False,
 )
+
+class PutPipelineDefinitionOutputTypeDef(TypedDict):
+    validationErrors: List[ValidationErrorTypeDef]
+    validationWarnings: List[ValidationWarningTypeDef]
+    errored: bool
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ValidatePipelineDefinitionOutputTypeDef(TypedDict):
+    validationErrors: List[ValidationErrorTypeDef]
+    validationWarnings: List[ValidationWarningTypeDef]
+    errored: bool
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribePipelinesOutputTypeDef(TypedDict):
+    pipelineDescriptionList: List[PipelineDescriptionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeObjectsOutputTypeDef(TypedDict):
+    pipelineObjects: List[PipelineObjectOutputTypeDef]
+    marker: str
+    hasMoreResults: bool
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class TaskObjectTypeDef(TypedDict):
+    taskId: NotRequired[str]
+    pipelineId: NotRequired[str]
+    attemptId: NotRequired[str]
+    objects: NotRequired[Dict[str, PipelineObjectOutputTypeDef]]
+
+PipelineObjectUnionTypeDef = Union[PipelineObjectTypeDef, PipelineObjectOutputTypeDef]
+
+class QueryTypeDef(TypedDict):
+    selectors: NotRequired[Sequence[SelectorTypeDef]]
+
+class GetPipelineDefinitionOutputTypeDef(TypedDict):
+    pipelineObjects: List[PipelineObjectOutputTypeDef]
+    parameterObjects: List[ParameterObjectOutputTypeDef]
+    parameterValues: List[ParameterValueTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+ParameterObjectUnionTypeDef = Union[ParameterObjectTypeDef, ParameterObjectOutputTypeDef]
+
+class PollForTaskOutputTypeDef(TypedDict):
+    taskObject: TaskObjectTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class QueryObjectsInputPaginateTypeDef(TypedDict):
+    pipelineId: str
+    sphere: str
+    query: NotRequired[QueryTypeDef]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class QueryObjectsInputTypeDef(TypedDict):
+    pipelineId: str
+    sphere: str
+    query: NotRequired[QueryTypeDef]
+    marker: NotRequired[str]
+    limit: NotRequired[int]
+
+class PutPipelineDefinitionInputTypeDef(TypedDict):
+    pipelineId: str
+    pipelineObjects: Sequence[PipelineObjectUnionTypeDef]
+    parameterObjects: NotRequired[Sequence[ParameterObjectUnionTypeDef]]
+    parameterValues: NotRequired[Sequence[ParameterValueTypeDef]]
+
+class ValidatePipelineDefinitionInputTypeDef(TypedDict):
+    pipelineId: str
+    pipelineObjects: Sequence[PipelineObjectUnionTypeDef]
+    parameterObjects: NotRequired[Sequence[ParameterObjectUnionTypeDef]]
+    parameterValues: NotRequired[Sequence[ParameterValueTypeDef]]

@@ -1,10 +1,14 @@
 """
 Main interface for autoscaling service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_autoscaling/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_autoscaling import (
         AutoScalingClient,
         Client,
@@ -21,10 +25,8 @@ Usage::
         DescribeWarmPoolPaginator,
     )
 
-    session = boto3.Session()
-
-    client: AutoScalingClient = boto3.client("autoscaling")
-    session_client: AutoScalingClient = session.client("autoscaling")
+    session = Session()
+    client: AutoScalingClient = session.client("autoscaling")
 
     describe_auto_scaling_groups_paginator: DescribeAutoScalingGroupsPaginator = client.get_paginator("describe_auto_scaling_groups")
     describe_auto_scaling_instances_paginator: DescribeAutoScalingInstancesPaginator = client.get_paginator("describe_auto_scaling_instances")

@@ -1,20 +1,24 @@
 """
 Type annotations for elasticache service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_elasticache/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_elasticache.type_defs import AddTagsToResourceMessageRequestTypeDef
+    from mypy_boto3_elasticache.type_defs import TagTypeDef
 
-    data: AddTagsToResourceMessageRequestTypeDef = {...}
+    data: TagTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List, Union
+from typing import Union
 
 from .literals import (
     AuthenticationTypeType,
@@ -45,25 +49,27 @@ from .literals import (
     UpdateActionStatusType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
-    "AddTagsToResourceMessageRequestTypeDef",
+    "AddTagsToResourceMessageTypeDef",
     "AllowedNodeTypeModificationsMessageTypeDef",
     "AuthenticationModeTypeDef",
     "AuthenticationTypeDef",
-    "AuthorizeCacheSecurityGroupIngressMessageRequestTypeDef",
+    "AuthorizeCacheSecurityGroupIngressMessageTypeDef",
     "AuthorizeCacheSecurityGroupIngressResultTypeDef",
     "AvailabilityZoneTypeDef",
-    "BatchApplyUpdateActionMessageRequestTypeDef",
-    "BatchStopUpdateActionMessageRequestTypeDef",
+    "BatchApplyUpdateActionMessageTypeDef",
+    "BatchStopUpdateActionMessageTypeDef",
     "CacheClusterMessageTypeDef",
     "CacheClusterTypeDef",
     "CacheEngineVersionMessageTypeDef",
@@ -84,125 +90,151 @@ __all__ = (
     "CacheSubnetGroupTypeDef",
     "CacheUsageLimitsTypeDef",
     "CloudWatchLogsDestinationDetailsTypeDef",
-    "CompleteMigrationMessageRequestTypeDef",
+    "CompleteMigrationMessageTypeDef",
     "CompleteMigrationResponseTypeDef",
     "ConfigureShardTypeDef",
-    "CopyServerlessCacheSnapshotRequestRequestTypeDef",
+    "CopyServerlessCacheSnapshotRequestTypeDef",
     "CopyServerlessCacheSnapshotResponseTypeDef",
-    "CopySnapshotMessageRequestTypeDef",
+    "CopySnapshotMessageTypeDef",
     "CopySnapshotResultTypeDef",
-    "CreateCacheClusterMessageRequestTypeDef",
+    "CreateCacheClusterMessageTypeDef",
     "CreateCacheClusterResultTypeDef",
-    "CreateCacheParameterGroupMessageRequestTypeDef",
+    "CreateCacheParameterGroupMessageTypeDef",
     "CreateCacheParameterGroupResultTypeDef",
-    "CreateCacheSecurityGroupMessageRequestTypeDef",
+    "CreateCacheSecurityGroupMessageTypeDef",
     "CreateCacheSecurityGroupResultTypeDef",
-    "CreateCacheSubnetGroupMessageRequestTypeDef",
+    "CreateCacheSubnetGroupMessageTypeDef",
     "CreateCacheSubnetGroupResultTypeDef",
-    "CreateGlobalReplicationGroupMessageRequestTypeDef",
+    "CreateGlobalReplicationGroupMessageTypeDef",
     "CreateGlobalReplicationGroupResultTypeDef",
-    "CreateReplicationGroupMessageRequestTypeDef",
+    "CreateReplicationGroupMessageTypeDef",
     "CreateReplicationGroupResultTypeDef",
-    "CreateServerlessCacheRequestRequestTypeDef",
+    "CreateServerlessCacheRequestTypeDef",
     "CreateServerlessCacheResponseTypeDef",
-    "CreateServerlessCacheSnapshotRequestRequestTypeDef",
+    "CreateServerlessCacheSnapshotRequestTypeDef",
     "CreateServerlessCacheSnapshotResponseTypeDef",
-    "CreateSnapshotMessageRequestTypeDef",
+    "CreateSnapshotMessageTypeDef",
     "CreateSnapshotResultTypeDef",
-    "CreateUserGroupMessageRequestTypeDef",
-    "CreateUserMessageRequestTypeDef",
+    "CreateUserGroupMessageTypeDef",
+    "CreateUserMessageTypeDef",
     "CustomerNodeEndpointTypeDef",
     "DataStorageTypeDef",
-    "DecreaseNodeGroupsInGlobalReplicationGroupMessageRequestTypeDef",
+    "DecreaseNodeGroupsInGlobalReplicationGroupMessageTypeDef",
     "DecreaseNodeGroupsInGlobalReplicationGroupResultTypeDef",
-    "DecreaseReplicaCountMessageRequestTypeDef",
+    "DecreaseReplicaCountMessageTypeDef",
     "DecreaseReplicaCountResultTypeDef",
-    "DeleteCacheClusterMessageRequestTypeDef",
+    "DeleteCacheClusterMessageTypeDef",
     "DeleteCacheClusterResultTypeDef",
-    "DeleteCacheParameterGroupMessageRequestTypeDef",
-    "DeleteCacheSecurityGroupMessageRequestTypeDef",
-    "DeleteCacheSubnetGroupMessageRequestTypeDef",
-    "DeleteGlobalReplicationGroupMessageRequestTypeDef",
+    "DeleteCacheParameterGroupMessageTypeDef",
+    "DeleteCacheSecurityGroupMessageTypeDef",
+    "DeleteCacheSubnetGroupMessageTypeDef",
+    "DeleteGlobalReplicationGroupMessageTypeDef",
     "DeleteGlobalReplicationGroupResultTypeDef",
-    "DeleteReplicationGroupMessageRequestTypeDef",
+    "DeleteReplicationGroupMessageTypeDef",
     "DeleteReplicationGroupResultTypeDef",
-    "DeleteServerlessCacheRequestRequestTypeDef",
+    "DeleteServerlessCacheRequestTypeDef",
     "DeleteServerlessCacheResponseTypeDef",
-    "DeleteServerlessCacheSnapshotRequestRequestTypeDef",
+    "DeleteServerlessCacheSnapshotRequestTypeDef",
     "DeleteServerlessCacheSnapshotResponseTypeDef",
-    "DeleteSnapshotMessageRequestTypeDef",
+    "DeleteSnapshotMessageTypeDef",
     "DeleteSnapshotResultTypeDef",
-    "DeleteUserGroupMessageRequestTypeDef",
-    "DeleteUserMessageRequestTypeDef",
-    "DescribeCacheClustersMessageRequestTypeDef",
-    "DescribeCacheEngineVersionsMessageRequestTypeDef",
-    "DescribeCacheParameterGroupsMessageRequestTypeDef",
-    "DescribeCacheParametersMessageRequestTypeDef",
-    "DescribeCacheSecurityGroupsMessageRequestTypeDef",
-    "DescribeCacheSubnetGroupsMessageRequestTypeDef",
-    "DescribeEngineDefaultParametersMessageRequestTypeDef",
+    "DeleteUserGroupMessageTypeDef",
+    "DeleteUserMessageTypeDef",
+    "DescribeCacheClustersMessagePaginateTypeDef",
+    "DescribeCacheClustersMessageTypeDef",
+    "DescribeCacheClustersMessageWaitExtraTypeDef",
+    "DescribeCacheClustersMessageWaitTypeDef",
+    "DescribeCacheEngineVersionsMessagePaginateTypeDef",
+    "DescribeCacheEngineVersionsMessageTypeDef",
+    "DescribeCacheParameterGroupsMessagePaginateTypeDef",
+    "DescribeCacheParameterGroupsMessageTypeDef",
+    "DescribeCacheParametersMessagePaginateTypeDef",
+    "DescribeCacheParametersMessageTypeDef",
+    "DescribeCacheSecurityGroupsMessagePaginateTypeDef",
+    "DescribeCacheSecurityGroupsMessageTypeDef",
+    "DescribeCacheSubnetGroupsMessagePaginateTypeDef",
+    "DescribeCacheSubnetGroupsMessageTypeDef",
+    "DescribeEngineDefaultParametersMessagePaginateTypeDef",
+    "DescribeEngineDefaultParametersMessageTypeDef",
     "DescribeEngineDefaultParametersResultTypeDef",
-    "DescribeEventsMessageRequestTypeDef",
-    "DescribeGlobalReplicationGroupsMessageRequestTypeDef",
+    "DescribeEventsMessagePaginateTypeDef",
+    "DescribeEventsMessageTypeDef",
+    "DescribeGlobalReplicationGroupsMessagePaginateTypeDef",
+    "DescribeGlobalReplicationGroupsMessageTypeDef",
     "DescribeGlobalReplicationGroupsResultTypeDef",
-    "DescribeReplicationGroupsMessageRequestTypeDef",
-    "DescribeReservedCacheNodesMessageRequestTypeDef",
-    "DescribeReservedCacheNodesOfferingsMessageRequestTypeDef",
-    "DescribeServerlessCacheSnapshotsRequestRequestTypeDef",
+    "DescribeReplicationGroupsMessagePaginateTypeDef",
+    "DescribeReplicationGroupsMessageTypeDef",
+    "DescribeReplicationGroupsMessageWaitExtraTypeDef",
+    "DescribeReplicationGroupsMessageWaitTypeDef",
+    "DescribeReservedCacheNodesMessagePaginateTypeDef",
+    "DescribeReservedCacheNodesMessageTypeDef",
+    "DescribeReservedCacheNodesOfferingsMessagePaginateTypeDef",
+    "DescribeReservedCacheNodesOfferingsMessageTypeDef",
+    "DescribeServerlessCacheSnapshotsRequestPaginateTypeDef",
+    "DescribeServerlessCacheSnapshotsRequestTypeDef",
     "DescribeServerlessCacheSnapshotsResponseTypeDef",
-    "DescribeServerlessCachesRequestRequestTypeDef",
+    "DescribeServerlessCachesRequestPaginateTypeDef",
+    "DescribeServerlessCachesRequestTypeDef",
     "DescribeServerlessCachesResponseTypeDef",
-    "DescribeServiceUpdatesMessageRequestTypeDef",
+    "DescribeServiceUpdatesMessagePaginateTypeDef",
+    "DescribeServiceUpdatesMessageTypeDef",
     "DescribeSnapshotsListMessageTypeDef",
-    "DescribeSnapshotsMessageRequestTypeDef",
-    "DescribeUpdateActionsMessageRequestTypeDef",
-    "DescribeUserGroupsMessageRequestTypeDef",
+    "DescribeSnapshotsMessagePaginateTypeDef",
+    "DescribeSnapshotsMessageTypeDef",
+    "DescribeUpdateActionsMessagePaginateTypeDef",
+    "DescribeUpdateActionsMessageTypeDef",
+    "DescribeUserGroupsMessagePaginateTypeDef",
+    "DescribeUserGroupsMessageTypeDef",
     "DescribeUserGroupsResultTypeDef",
-    "DescribeUsersMessageRequestTypeDef",
+    "DescribeUsersMessagePaginateTypeDef",
+    "DescribeUsersMessageTypeDef",
     "DescribeUsersResultTypeDef",
     "DestinationDetailsTypeDef",
-    "DisassociateGlobalReplicationGroupMessageRequestTypeDef",
+    "DisassociateGlobalReplicationGroupMessageTypeDef",
     "DisassociateGlobalReplicationGroupResultTypeDef",
     "EC2SecurityGroupTypeDef",
     "ECPUPerSecondTypeDef",
+    "EmptyResponseMetadataTypeDef",
     "EndpointTypeDef",
     "EngineDefaultsTypeDef",
     "EventTypeDef",
     "EventsMessageTypeDef",
-    "ExportServerlessCacheSnapshotRequestRequestTypeDef",
+    "ExportServerlessCacheSnapshotRequestTypeDef",
     "ExportServerlessCacheSnapshotResponseTypeDef",
-    "FailoverGlobalReplicationGroupMessageRequestTypeDef",
+    "FailoverGlobalReplicationGroupMessageTypeDef",
     "FailoverGlobalReplicationGroupResultTypeDef",
     "FilterTypeDef",
     "GlobalNodeGroupTypeDef",
     "GlobalReplicationGroupInfoTypeDef",
     "GlobalReplicationGroupMemberTypeDef",
     "GlobalReplicationGroupTypeDef",
-    "IncreaseNodeGroupsInGlobalReplicationGroupMessageRequestTypeDef",
+    "IncreaseNodeGroupsInGlobalReplicationGroupMessageTypeDef",
     "IncreaseNodeGroupsInGlobalReplicationGroupResultTypeDef",
-    "IncreaseReplicaCountMessageRequestTypeDef",
+    "IncreaseReplicaCountMessageTypeDef",
     "IncreaseReplicaCountResultTypeDef",
     "KinesisFirehoseDestinationDetailsTypeDef",
-    "ListAllowedNodeTypeModificationsMessageRequestTypeDef",
-    "ListTagsForResourceMessageRequestTypeDef",
+    "ListAllowedNodeTypeModificationsMessageTypeDef",
+    "ListTagsForResourceMessageTypeDef",
     "LogDeliveryConfigurationRequestTypeDef",
     "LogDeliveryConfigurationTypeDef",
-    "ModifyCacheClusterMessageRequestTypeDef",
+    "ModifyCacheClusterMessageTypeDef",
     "ModifyCacheClusterResultTypeDef",
-    "ModifyCacheParameterGroupMessageRequestTypeDef",
-    "ModifyCacheSubnetGroupMessageRequestTypeDef",
+    "ModifyCacheParameterGroupMessageTypeDef",
+    "ModifyCacheSubnetGroupMessageTypeDef",
     "ModifyCacheSubnetGroupResultTypeDef",
-    "ModifyGlobalReplicationGroupMessageRequestTypeDef",
+    "ModifyGlobalReplicationGroupMessageTypeDef",
     "ModifyGlobalReplicationGroupResultTypeDef",
-    "ModifyReplicationGroupMessageRequestTypeDef",
+    "ModifyReplicationGroupMessageTypeDef",
     "ModifyReplicationGroupResultTypeDef",
-    "ModifyReplicationGroupShardConfigurationMessageRequestTypeDef",
+    "ModifyReplicationGroupShardConfigurationMessageTypeDef",
     "ModifyReplicationGroupShardConfigurationResultTypeDef",
-    "ModifyServerlessCacheRequestRequestTypeDef",
+    "ModifyServerlessCacheRequestTypeDef",
     "ModifyServerlessCacheResponseTypeDef",
-    "ModifyUserGroupMessageRequestTypeDef",
-    "ModifyUserMessageRequestTypeDef",
+    "ModifyUserGroupMessageTypeDef",
+    "ModifyUserMessageTypeDef",
+    "NodeGroupConfigurationOutputTypeDef",
     "NodeGroupConfigurationTypeDef",
+    "NodeGroupConfigurationUnionTypeDef",
     "NodeGroupMemberTypeDef",
     "NodeGroupMemberUpdateStatusTypeDef",
     "NodeGroupTypeDef",
@@ -215,15 +247,15 @@ __all__ = (
     "PendingLogDeliveryConfigurationTypeDef",
     "PendingModifiedValuesTypeDef",
     "ProcessedUpdateActionTypeDef",
-    "PurchaseReservedCacheNodesOfferingMessageRequestTypeDef",
+    "PurchaseReservedCacheNodesOfferingMessageTypeDef",
     "PurchaseReservedCacheNodesOfferingResultTypeDef",
-    "RebalanceSlotsInGlobalReplicationGroupMessageRequestTypeDef",
+    "RebalanceSlotsInGlobalReplicationGroupMessageTypeDef",
     "RebalanceSlotsInGlobalReplicationGroupResultTypeDef",
-    "RebootCacheClusterMessageRequestTypeDef",
+    "RebootCacheClusterMessageTypeDef",
     "RebootCacheClusterResultTypeDef",
     "RecurringChargeTypeDef",
     "RegionalConfigurationTypeDef",
-    "RemoveTagsFromResourceMessageRequestTypeDef",
+    "RemoveTagsFromResourceMessageTypeDef",
     "ReplicationGroupMessageTypeDef",
     "ReplicationGroupPendingModifiedValuesTypeDef",
     "ReplicationGroupTypeDef",
@@ -231,12 +263,13 @@ __all__ = (
     "ReservedCacheNodeTypeDef",
     "ReservedCacheNodesOfferingMessageTypeDef",
     "ReservedCacheNodesOfferingTypeDef",
-    "ResetCacheParameterGroupMessageRequestTypeDef",
+    "ResetCacheParameterGroupMessageTypeDef",
     "ReshardingConfigurationTypeDef",
     "ReshardingStatusTypeDef",
     "ResponseMetadataTypeDef",
-    "RevokeCacheSecurityGroupIngressMessageRequestTypeDef",
+    "RevokeCacheSecurityGroupIngressMessageTypeDef",
     "RevokeCacheSecurityGroupIngressResultTypeDef",
+    "ScaleConfigTypeDef",
     "SecurityGroupMembershipTypeDef",
     "ServerlessCacheConfigurationTypeDef",
     "ServerlessCacheSnapshotTypeDef",
@@ -245,2790 +278,1605 @@ __all__ = (
     "ServiceUpdatesMessageTypeDef",
     "SlotMigrationTypeDef",
     "SnapshotTypeDef",
-    "StartMigrationMessageRequestTypeDef",
+    "StartMigrationMessageTypeDef",
     "StartMigrationResponseTypeDef",
     "SubnetOutpostTypeDef",
     "SubnetTypeDef",
     "TagListMessageTypeDef",
     "TagTypeDef",
-    "TestFailoverMessageRequestTypeDef",
+    "TestFailoverMessageTypeDef",
     "TestFailoverResultTypeDef",
-    "TestMigrationMessageRequestTypeDef",
+    "TestMigrationMessageTypeDef",
     "TestMigrationResponseTypeDef",
     "TimeRangeFilterTypeDef",
+    "TimestampTypeDef",
     "UnprocessedUpdateActionTypeDef",
     "UpdateActionResultsMessageTypeDef",
     "UpdateActionTypeDef",
     "UpdateActionsMessageTypeDef",
     "UserGroupPendingChangesTypeDef",
-    "UserGroupResponseMetadataTypeDef",
+    "UserGroupResponseTypeDef",
     "UserGroupTypeDef",
     "UserGroupsUpdateStatusTypeDef",
-    "UserResponseMetadataTypeDef",
+    "UserResponseTypeDef",
     "UserTypeDef",
     "WaiterConfigTypeDef",
 )
 
-AddTagsToResourceMessageRequestTypeDef = TypedDict(
-    "AddTagsToResourceMessageRequestTypeDef",
-    {
-        "ResourceName": str,
-        "Tags": List["TagTypeDef"],
-    },
-)
+class TagTypeDef(TypedDict):
+    Key: NotRequired[str]
+    Value: NotRequired[str]
 
-AllowedNodeTypeModificationsMessageTypeDef = TypedDict(
-    "AllowedNodeTypeModificationsMessageTypeDef",
-    {
-        "ScaleUpModifications": List[str],
-        "ScaleDownModifications": List[str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
 AuthenticationModeTypeDef = TypedDict(
     "AuthenticationModeTypeDef",
     {
-        "Type": InputAuthenticationTypeType,
-        "Passwords": List[str],
+        "Type": NotRequired[InputAuthenticationTypeType],
+        "Passwords": NotRequired[Sequence[str]],
     },
-    total=False,
 )
-
 AuthenticationTypeDef = TypedDict(
     "AuthenticationTypeDef",
     {
-        "Type": AuthenticationTypeType,
-        "PasswordCount": int,
-    },
-    total=False,
-)
-
-AuthorizeCacheSecurityGroupIngressMessageRequestTypeDef = TypedDict(
-    "AuthorizeCacheSecurityGroupIngressMessageRequestTypeDef",
-    {
-        "CacheSecurityGroupName": str,
-        "EC2SecurityGroupName": str,
-        "EC2SecurityGroupOwnerId": str,
-    },
-)
-
-AuthorizeCacheSecurityGroupIngressResultTypeDef = TypedDict(
-    "AuthorizeCacheSecurityGroupIngressResultTypeDef",
-    {
-        "CacheSecurityGroup": "CacheSecurityGroupTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-AvailabilityZoneTypeDef = TypedDict(
-    "AvailabilityZoneTypeDef",
-    {
-        "Name": str,
-    },
-    total=False,
-)
-
-_RequiredBatchApplyUpdateActionMessageRequestTypeDef = TypedDict(
-    "_RequiredBatchApplyUpdateActionMessageRequestTypeDef",
-    {
-        "ServiceUpdateName": str,
-    },
-)
-_OptionalBatchApplyUpdateActionMessageRequestTypeDef = TypedDict(
-    "_OptionalBatchApplyUpdateActionMessageRequestTypeDef",
-    {
-        "ReplicationGroupIds": List[str],
-        "CacheClusterIds": List[str],
-    },
-    total=False,
-)
-
-class BatchApplyUpdateActionMessageRequestTypeDef(
-    _RequiredBatchApplyUpdateActionMessageRequestTypeDef,
-    _OptionalBatchApplyUpdateActionMessageRequestTypeDef,
-):
-    pass
-
-_RequiredBatchStopUpdateActionMessageRequestTypeDef = TypedDict(
-    "_RequiredBatchStopUpdateActionMessageRequestTypeDef",
-    {
-        "ServiceUpdateName": str,
-    },
-)
-_OptionalBatchStopUpdateActionMessageRequestTypeDef = TypedDict(
-    "_OptionalBatchStopUpdateActionMessageRequestTypeDef",
-    {
-        "ReplicationGroupIds": List[str],
-        "CacheClusterIds": List[str],
-    },
-    total=False,
-)
-
-class BatchStopUpdateActionMessageRequestTypeDef(
-    _RequiredBatchStopUpdateActionMessageRequestTypeDef,
-    _OptionalBatchStopUpdateActionMessageRequestTypeDef,
-):
-    pass
-
-CacheClusterMessageTypeDef = TypedDict(
-    "CacheClusterMessageTypeDef",
-    {
-        "Marker": str,
-        "CacheClusters": List["CacheClusterTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CacheClusterTypeDef = TypedDict(
-    "CacheClusterTypeDef",
-    {
-        "CacheClusterId": str,
-        "ConfigurationEndpoint": "EndpointTypeDef",
-        "ClientDownloadLandingPage": str,
-        "CacheNodeType": str,
-        "Engine": str,
-        "EngineVersion": str,
-        "CacheClusterStatus": str,
-        "NumCacheNodes": int,
-        "PreferredAvailabilityZone": str,
-        "PreferredOutpostArn": str,
-        "CacheClusterCreateTime": datetime,
-        "PreferredMaintenanceWindow": str,
-        "PendingModifiedValues": "PendingModifiedValuesTypeDef",
-        "NotificationConfiguration": "NotificationConfigurationTypeDef",
-        "CacheSecurityGroups": List["CacheSecurityGroupMembershipTypeDef"],
-        "CacheParameterGroup": "CacheParameterGroupStatusTypeDef",
-        "CacheSubnetGroupName": str,
-        "CacheNodes": List["CacheNodeTypeDef"],
-        "AutoMinorVersionUpgrade": bool,
-        "SecurityGroups": List["SecurityGroupMembershipTypeDef"],
-        "ReplicationGroupId": str,
-        "SnapshotRetentionLimit": int,
-        "SnapshotWindow": str,
-        "AuthTokenEnabled": bool,
-        "AuthTokenLastModifiedDate": datetime,
-        "TransitEncryptionEnabled": bool,
-        "AtRestEncryptionEnabled": bool,
-        "ARN": str,
-        "ReplicationGroupLogDeliveryEnabled": bool,
-        "LogDeliveryConfigurations": List["LogDeliveryConfigurationTypeDef"],
-        "NetworkType": NetworkTypeType,
-        "IpDiscovery": IpDiscoveryType,
-        "TransitEncryptionMode": TransitEncryptionModeType,
-    },
-    total=False,
-)
-
-CacheEngineVersionMessageTypeDef = TypedDict(
-    "CacheEngineVersionMessageTypeDef",
-    {
-        "Marker": str,
-        "CacheEngineVersions": List["CacheEngineVersionTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CacheEngineVersionTypeDef = TypedDict(
-    "CacheEngineVersionTypeDef",
-    {
-        "Engine": str,
-        "EngineVersion": str,
-        "CacheParameterGroupFamily": str,
-        "CacheEngineDescription": str,
-        "CacheEngineVersionDescription": str,
-    },
-    total=False,
-)
-
-CacheNodeTypeDef = TypedDict(
-    "CacheNodeTypeDef",
-    {
-        "CacheNodeId": str,
-        "CacheNodeStatus": str,
-        "CacheNodeCreateTime": datetime,
-        "Endpoint": "EndpointTypeDef",
-        "ParameterGroupStatus": str,
-        "SourceCacheNodeId": str,
-        "CustomerAvailabilityZone": str,
-        "CustomerOutpostArn": str,
-    },
-    total=False,
-)
-
-CacheNodeTypeSpecificParameterTypeDef = TypedDict(
-    "CacheNodeTypeSpecificParameterTypeDef",
-    {
-        "ParameterName": str,
-        "Description": str,
-        "Source": str,
-        "DataType": str,
-        "AllowedValues": str,
-        "IsModifiable": bool,
-        "MinimumEngineVersion": str,
-        "CacheNodeTypeSpecificValues": List["CacheNodeTypeSpecificValueTypeDef"],
-        "ChangeType": ChangeTypeType,
-    },
-    total=False,
-)
-
-CacheNodeTypeSpecificValueTypeDef = TypedDict(
-    "CacheNodeTypeSpecificValueTypeDef",
-    {
-        "CacheNodeType": str,
-        "Value": str,
-    },
-    total=False,
-)
-
-CacheNodeUpdateStatusTypeDef = TypedDict(
-    "CacheNodeUpdateStatusTypeDef",
-    {
-        "CacheNodeId": str,
-        "NodeUpdateStatus": NodeUpdateStatusType,
-        "NodeDeletionDate": datetime,
-        "NodeUpdateStartDate": datetime,
-        "NodeUpdateEndDate": datetime,
-        "NodeUpdateInitiatedBy": NodeUpdateInitiatedByType,
-        "NodeUpdateInitiatedDate": datetime,
-        "NodeUpdateStatusModifiedDate": datetime,
-    },
-    total=False,
-)
-
-CacheParameterGroupDetailsTypeDef = TypedDict(
-    "CacheParameterGroupDetailsTypeDef",
-    {
-        "Marker": str,
-        "Parameters": List["ParameterTypeDef"],
-        "CacheNodeTypeSpecificParameters": List["CacheNodeTypeSpecificParameterTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CacheParameterGroupNameMessageTypeDef = TypedDict(
-    "CacheParameterGroupNameMessageTypeDef",
-    {
-        "CacheParameterGroupName": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CacheParameterGroupStatusTypeDef = TypedDict(
-    "CacheParameterGroupStatusTypeDef",
-    {
-        "CacheParameterGroupName": str,
-        "ParameterApplyStatus": str,
-        "CacheNodeIdsToReboot": List[str],
-    },
-    total=False,
-)
-
-CacheParameterGroupTypeDef = TypedDict(
-    "CacheParameterGroupTypeDef",
-    {
-        "CacheParameterGroupName": str,
-        "CacheParameterGroupFamily": str,
-        "Description": str,
-        "IsGlobal": bool,
-        "ARN": str,
-    },
-    total=False,
-)
-
-CacheParameterGroupsMessageTypeDef = TypedDict(
-    "CacheParameterGroupsMessageTypeDef",
-    {
-        "Marker": str,
-        "CacheParameterGroups": List["CacheParameterGroupTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CacheSecurityGroupMembershipTypeDef = TypedDict(
-    "CacheSecurityGroupMembershipTypeDef",
-    {
-        "CacheSecurityGroupName": str,
-        "Status": str,
-    },
-    total=False,
-)
-
-CacheSecurityGroupMessageTypeDef = TypedDict(
-    "CacheSecurityGroupMessageTypeDef",
-    {
-        "Marker": str,
-        "CacheSecurityGroups": List["CacheSecurityGroupTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CacheSecurityGroupTypeDef = TypedDict(
-    "CacheSecurityGroupTypeDef",
-    {
-        "OwnerId": str,
-        "CacheSecurityGroupName": str,
-        "Description": str,
-        "EC2SecurityGroups": List["EC2SecurityGroupTypeDef"],
-        "ARN": str,
-    },
-    total=False,
-)
-
-CacheSubnetGroupMessageTypeDef = TypedDict(
-    "CacheSubnetGroupMessageTypeDef",
-    {
-        "Marker": str,
-        "CacheSubnetGroups": List["CacheSubnetGroupTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CacheSubnetGroupTypeDef = TypedDict(
-    "CacheSubnetGroupTypeDef",
-    {
-        "CacheSubnetGroupName": str,
-        "CacheSubnetGroupDescription": str,
-        "VpcId": str,
-        "Subnets": List["SubnetTypeDef"],
-        "ARN": str,
-        "SupportedNetworkTypes": List[NetworkTypeType],
-    },
-    total=False,
-)
-
-CacheUsageLimitsTypeDef = TypedDict(
-    "CacheUsageLimitsTypeDef",
-    {
-        "DataStorage": "DataStorageTypeDef",
-        "ECPUPerSecond": "ECPUPerSecondTypeDef",
-    },
-    total=False,
-)
-
-CloudWatchLogsDestinationDetailsTypeDef = TypedDict(
-    "CloudWatchLogsDestinationDetailsTypeDef",
-    {
-        "LogGroup": str,
-    },
-    total=False,
-)
-
-_RequiredCompleteMigrationMessageRequestTypeDef = TypedDict(
-    "_RequiredCompleteMigrationMessageRequestTypeDef",
-    {
-        "ReplicationGroupId": str,
-    },
-)
-_OptionalCompleteMigrationMessageRequestTypeDef = TypedDict(
-    "_OptionalCompleteMigrationMessageRequestTypeDef",
-    {
-        "Force": bool,
-    },
-    total=False,
-)
-
-class CompleteMigrationMessageRequestTypeDef(
-    _RequiredCompleteMigrationMessageRequestTypeDef, _OptionalCompleteMigrationMessageRequestTypeDef
-):
-    pass
-
-CompleteMigrationResponseTypeDef = TypedDict(
-    "CompleteMigrationResponseTypeDef",
-    {
-        "ReplicationGroup": "ReplicationGroupTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredConfigureShardTypeDef = TypedDict(
-    "_RequiredConfigureShardTypeDef",
-    {
-        "NodeGroupId": str,
-        "NewReplicaCount": int,
-    },
-)
-_OptionalConfigureShardTypeDef = TypedDict(
-    "_OptionalConfigureShardTypeDef",
-    {
-        "PreferredAvailabilityZones": List[str],
-        "PreferredOutpostArns": List[str],
-    },
-    total=False,
-)
-
-class ConfigureShardTypeDef(_RequiredConfigureShardTypeDef, _OptionalConfigureShardTypeDef):
-    pass
-
-_RequiredCopyServerlessCacheSnapshotRequestRequestTypeDef = TypedDict(
-    "_RequiredCopyServerlessCacheSnapshotRequestRequestTypeDef",
-    {
-        "SourceServerlessCacheSnapshotName": str,
-        "TargetServerlessCacheSnapshotName": str,
-    },
-)
-_OptionalCopyServerlessCacheSnapshotRequestRequestTypeDef = TypedDict(
-    "_OptionalCopyServerlessCacheSnapshotRequestRequestTypeDef",
-    {
-        "KmsKeyId": str,
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CopyServerlessCacheSnapshotRequestRequestTypeDef(
-    _RequiredCopyServerlessCacheSnapshotRequestRequestTypeDef,
-    _OptionalCopyServerlessCacheSnapshotRequestRequestTypeDef,
-):
-    pass
-
-CopyServerlessCacheSnapshotResponseTypeDef = TypedDict(
-    "CopyServerlessCacheSnapshotResponseTypeDef",
-    {
-        "ServerlessCacheSnapshot": "ServerlessCacheSnapshotTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCopySnapshotMessageRequestTypeDef = TypedDict(
-    "_RequiredCopySnapshotMessageRequestTypeDef",
-    {
-        "SourceSnapshotName": str,
-        "TargetSnapshotName": str,
-    },
-)
-_OptionalCopySnapshotMessageRequestTypeDef = TypedDict(
-    "_OptionalCopySnapshotMessageRequestTypeDef",
-    {
-        "TargetBucket": str,
-        "KmsKeyId": str,
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CopySnapshotMessageRequestTypeDef(
-    _RequiredCopySnapshotMessageRequestTypeDef, _OptionalCopySnapshotMessageRequestTypeDef
-):
-    pass
-
-CopySnapshotResultTypeDef = TypedDict(
-    "CopySnapshotResultTypeDef",
-    {
-        "Snapshot": "SnapshotTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateCacheClusterMessageRequestTypeDef = TypedDict(
-    "_RequiredCreateCacheClusterMessageRequestTypeDef",
-    {
-        "CacheClusterId": str,
-    },
-)
-_OptionalCreateCacheClusterMessageRequestTypeDef = TypedDict(
-    "_OptionalCreateCacheClusterMessageRequestTypeDef",
-    {
-        "ReplicationGroupId": str,
-        "AZMode": AZModeType,
-        "PreferredAvailabilityZone": str,
-        "PreferredAvailabilityZones": List[str],
-        "NumCacheNodes": int,
-        "CacheNodeType": str,
-        "Engine": str,
-        "EngineVersion": str,
-        "CacheParameterGroupName": str,
-        "CacheSubnetGroupName": str,
-        "CacheSecurityGroupNames": List[str],
-        "SecurityGroupIds": List[str],
-        "Tags": List["TagTypeDef"],
-        "SnapshotArns": List[str],
-        "SnapshotName": str,
-        "PreferredMaintenanceWindow": str,
-        "Port": int,
-        "NotificationTopicArn": str,
-        "AutoMinorVersionUpgrade": bool,
-        "SnapshotRetentionLimit": int,
-        "SnapshotWindow": str,
-        "AuthToken": str,
-        "OutpostMode": OutpostModeType,
-        "PreferredOutpostArn": str,
-        "PreferredOutpostArns": List[str],
-        "LogDeliveryConfigurations": List["LogDeliveryConfigurationRequestTypeDef"],
-        "TransitEncryptionEnabled": bool,
-        "NetworkType": NetworkTypeType,
-        "IpDiscovery": IpDiscoveryType,
-    },
-    total=False,
-)
-
-class CreateCacheClusterMessageRequestTypeDef(
-    _RequiredCreateCacheClusterMessageRequestTypeDef,
-    _OptionalCreateCacheClusterMessageRequestTypeDef,
-):
-    pass
-
-CreateCacheClusterResultTypeDef = TypedDict(
-    "CreateCacheClusterResultTypeDef",
-    {
-        "CacheCluster": "CacheClusterTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateCacheParameterGroupMessageRequestTypeDef = TypedDict(
-    "_RequiredCreateCacheParameterGroupMessageRequestTypeDef",
-    {
-        "CacheParameterGroupName": str,
-        "CacheParameterGroupFamily": str,
-        "Description": str,
-    },
-)
-_OptionalCreateCacheParameterGroupMessageRequestTypeDef = TypedDict(
-    "_OptionalCreateCacheParameterGroupMessageRequestTypeDef",
-    {
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateCacheParameterGroupMessageRequestTypeDef(
-    _RequiredCreateCacheParameterGroupMessageRequestTypeDef,
-    _OptionalCreateCacheParameterGroupMessageRequestTypeDef,
-):
-    pass
-
-CreateCacheParameterGroupResultTypeDef = TypedDict(
-    "CreateCacheParameterGroupResultTypeDef",
-    {
-        "CacheParameterGroup": "CacheParameterGroupTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateCacheSecurityGroupMessageRequestTypeDef = TypedDict(
-    "_RequiredCreateCacheSecurityGroupMessageRequestTypeDef",
-    {
-        "CacheSecurityGroupName": str,
-        "Description": str,
-    },
-)
-_OptionalCreateCacheSecurityGroupMessageRequestTypeDef = TypedDict(
-    "_OptionalCreateCacheSecurityGroupMessageRequestTypeDef",
-    {
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateCacheSecurityGroupMessageRequestTypeDef(
-    _RequiredCreateCacheSecurityGroupMessageRequestTypeDef,
-    _OptionalCreateCacheSecurityGroupMessageRequestTypeDef,
-):
-    pass
-
-CreateCacheSecurityGroupResultTypeDef = TypedDict(
-    "CreateCacheSecurityGroupResultTypeDef",
-    {
-        "CacheSecurityGroup": "CacheSecurityGroupTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateCacheSubnetGroupMessageRequestTypeDef = TypedDict(
-    "_RequiredCreateCacheSubnetGroupMessageRequestTypeDef",
-    {
-        "CacheSubnetGroupName": str,
-        "CacheSubnetGroupDescription": str,
-        "SubnetIds": List[str],
-    },
-)
-_OptionalCreateCacheSubnetGroupMessageRequestTypeDef = TypedDict(
-    "_OptionalCreateCacheSubnetGroupMessageRequestTypeDef",
-    {
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateCacheSubnetGroupMessageRequestTypeDef(
-    _RequiredCreateCacheSubnetGroupMessageRequestTypeDef,
-    _OptionalCreateCacheSubnetGroupMessageRequestTypeDef,
-):
-    pass
-
-CreateCacheSubnetGroupResultTypeDef = TypedDict(
-    "CreateCacheSubnetGroupResultTypeDef",
-    {
-        "CacheSubnetGroup": "CacheSubnetGroupTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateGlobalReplicationGroupMessageRequestTypeDef = TypedDict(
-    "_RequiredCreateGlobalReplicationGroupMessageRequestTypeDef",
-    {
-        "GlobalReplicationGroupIdSuffix": str,
-        "PrimaryReplicationGroupId": str,
-    },
-)
-_OptionalCreateGlobalReplicationGroupMessageRequestTypeDef = TypedDict(
-    "_OptionalCreateGlobalReplicationGroupMessageRequestTypeDef",
-    {
-        "GlobalReplicationGroupDescription": str,
-    },
-    total=False,
-)
-
-class CreateGlobalReplicationGroupMessageRequestTypeDef(
-    _RequiredCreateGlobalReplicationGroupMessageRequestTypeDef,
-    _OptionalCreateGlobalReplicationGroupMessageRequestTypeDef,
-):
-    pass
-
-CreateGlobalReplicationGroupResultTypeDef = TypedDict(
-    "CreateGlobalReplicationGroupResultTypeDef",
-    {
-        "GlobalReplicationGroup": "GlobalReplicationGroupTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateReplicationGroupMessageRequestTypeDef = TypedDict(
-    "_RequiredCreateReplicationGroupMessageRequestTypeDef",
-    {
-        "ReplicationGroupId": str,
-        "ReplicationGroupDescription": str,
-    },
-)
-_OptionalCreateReplicationGroupMessageRequestTypeDef = TypedDict(
-    "_OptionalCreateReplicationGroupMessageRequestTypeDef",
-    {
-        "GlobalReplicationGroupId": str,
-        "PrimaryClusterId": str,
-        "AutomaticFailoverEnabled": bool,
-        "MultiAZEnabled": bool,
-        "NumCacheClusters": int,
-        "PreferredCacheClusterAZs": List[str],
-        "NumNodeGroups": int,
-        "ReplicasPerNodeGroup": int,
-        "NodeGroupConfiguration": List["NodeGroupConfigurationTypeDef"],
-        "CacheNodeType": str,
-        "Engine": str,
-        "EngineVersion": str,
-        "CacheParameterGroupName": str,
-        "CacheSubnetGroupName": str,
-        "CacheSecurityGroupNames": List[str],
-        "SecurityGroupIds": List[str],
-        "Tags": List["TagTypeDef"],
-        "SnapshotArns": List[str],
-        "SnapshotName": str,
-        "PreferredMaintenanceWindow": str,
-        "Port": int,
-        "NotificationTopicArn": str,
-        "AutoMinorVersionUpgrade": bool,
-        "SnapshotRetentionLimit": int,
-        "SnapshotWindow": str,
-        "AuthToken": str,
-        "TransitEncryptionEnabled": bool,
-        "AtRestEncryptionEnabled": bool,
-        "KmsKeyId": str,
-        "UserGroupIds": List[str],
-        "LogDeliveryConfigurations": List["LogDeliveryConfigurationRequestTypeDef"],
-        "DataTieringEnabled": bool,
-        "NetworkType": NetworkTypeType,
-        "IpDiscovery": IpDiscoveryType,
-        "TransitEncryptionMode": TransitEncryptionModeType,
-        "ClusterMode": ClusterModeType,
-        "ServerlessCacheSnapshotName": str,
-    },
-    total=False,
-)
-
-class CreateReplicationGroupMessageRequestTypeDef(
-    _RequiredCreateReplicationGroupMessageRequestTypeDef,
-    _OptionalCreateReplicationGroupMessageRequestTypeDef,
-):
-    pass
-
-CreateReplicationGroupResultTypeDef = TypedDict(
-    "CreateReplicationGroupResultTypeDef",
-    {
-        "ReplicationGroup": "ReplicationGroupTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateServerlessCacheRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateServerlessCacheRequestRequestTypeDef",
-    {
-        "ServerlessCacheName": str,
-        "Engine": str,
-    },
-)
-_OptionalCreateServerlessCacheRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateServerlessCacheRequestRequestTypeDef",
-    {
-        "Description": str,
-        "MajorEngineVersion": str,
-        "CacheUsageLimits": "CacheUsageLimitsTypeDef",
-        "KmsKeyId": str,
-        "SecurityGroupIds": List[str],
-        "SnapshotArnsToRestore": List[str],
-        "Tags": List["TagTypeDef"],
-        "UserGroupId": str,
-        "SubnetIds": List[str],
-        "SnapshotRetentionLimit": int,
-        "DailySnapshotTime": str,
-    },
-    total=False,
-)
-
-class CreateServerlessCacheRequestRequestTypeDef(
-    _RequiredCreateServerlessCacheRequestRequestTypeDef,
-    _OptionalCreateServerlessCacheRequestRequestTypeDef,
-):
-    pass
-
-CreateServerlessCacheResponseTypeDef = TypedDict(
-    "CreateServerlessCacheResponseTypeDef",
-    {
-        "ServerlessCache": "ServerlessCacheTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateServerlessCacheSnapshotRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateServerlessCacheSnapshotRequestRequestTypeDef",
-    {
-        "ServerlessCacheSnapshotName": str,
-        "ServerlessCacheName": str,
-    },
-)
-_OptionalCreateServerlessCacheSnapshotRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateServerlessCacheSnapshotRequestRequestTypeDef",
-    {
-        "KmsKeyId": str,
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateServerlessCacheSnapshotRequestRequestTypeDef(
-    _RequiredCreateServerlessCacheSnapshotRequestRequestTypeDef,
-    _OptionalCreateServerlessCacheSnapshotRequestRequestTypeDef,
-):
-    pass
-
-CreateServerlessCacheSnapshotResponseTypeDef = TypedDict(
-    "CreateServerlessCacheSnapshotResponseTypeDef",
-    {
-        "ServerlessCacheSnapshot": "ServerlessCacheSnapshotTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateSnapshotMessageRequestTypeDef = TypedDict(
-    "_RequiredCreateSnapshotMessageRequestTypeDef",
-    {
-        "SnapshotName": str,
-    },
-)
-_OptionalCreateSnapshotMessageRequestTypeDef = TypedDict(
-    "_OptionalCreateSnapshotMessageRequestTypeDef",
-    {
-        "ReplicationGroupId": str,
-        "CacheClusterId": str,
-        "KmsKeyId": str,
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateSnapshotMessageRequestTypeDef(
-    _RequiredCreateSnapshotMessageRequestTypeDef, _OptionalCreateSnapshotMessageRequestTypeDef
-):
-    pass
-
-CreateSnapshotResultTypeDef = TypedDict(
-    "CreateSnapshotResultTypeDef",
-    {
-        "Snapshot": "SnapshotTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateUserGroupMessageRequestTypeDef = TypedDict(
-    "_RequiredCreateUserGroupMessageRequestTypeDef",
-    {
-        "UserGroupId": str,
-        "Engine": str,
-    },
-)
-_OptionalCreateUserGroupMessageRequestTypeDef = TypedDict(
-    "_OptionalCreateUserGroupMessageRequestTypeDef",
-    {
-        "UserIds": List[str],
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateUserGroupMessageRequestTypeDef(
-    _RequiredCreateUserGroupMessageRequestTypeDef, _OptionalCreateUserGroupMessageRequestTypeDef
-):
-    pass
-
-_RequiredCreateUserMessageRequestTypeDef = TypedDict(
-    "_RequiredCreateUserMessageRequestTypeDef",
-    {
-        "UserId": str,
-        "UserName": str,
-        "Engine": str,
-        "AccessString": str,
-    },
-)
-_OptionalCreateUserMessageRequestTypeDef = TypedDict(
-    "_OptionalCreateUserMessageRequestTypeDef",
-    {
-        "Passwords": List[str],
-        "NoPasswordRequired": bool,
-        "Tags": List["TagTypeDef"],
-        "AuthenticationMode": "AuthenticationModeTypeDef",
-    },
-    total=False,
-)
-
-class CreateUserMessageRequestTypeDef(
-    _RequiredCreateUserMessageRequestTypeDef, _OptionalCreateUserMessageRequestTypeDef
-):
-    pass
-
-CustomerNodeEndpointTypeDef = TypedDict(
-    "CustomerNodeEndpointTypeDef",
-    {
-        "Address": str,
-        "Port": int,
-    },
-    total=False,
-)
-
-_RequiredDataStorageTypeDef = TypedDict(
-    "_RequiredDataStorageTypeDef",
-    {
-        "Unit": Literal["GB"],
-    },
-)
-_OptionalDataStorageTypeDef = TypedDict(
-    "_OptionalDataStorageTypeDef",
-    {
-        "Maximum": int,
-        "Minimum": int,
-    },
-    total=False,
-)
-
-class DataStorageTypeDef(_RequiredDataStorageTypeDef, _OptionalDataStorageTypeDef):
-    pass
-
-_RequiredDecreaseNodeGroupsInGlobalReplicationGroupMessageRequestTypeDef = TypedDict(
-    "_RequiredDecreaseNodeGroupsInGlobalReplicationGroupMessageRequestTypeDef",
-    {
-        "GlobalReplicationGroupId": str,
-        "NodeGroupCount": int,
-        "ApplyImmediately": bool,
-    },
-)
-_OptionalDecreaseNodeGroupsInGlobalReplicationGroupMessageRequestTypeDef = TypedDict(
-    "_OptionalDecreaseNodeGroupsInGlobalReplicationGroupMessageRequestTypeDef",
-    {
-        "GlobalNodeGroupsToRemove": List[str],
-        "GlobalNodeGroupsToRetain": List[str],
-    },
-    total=False,
-)
-
-class DecreaseNodeGroupsInGlobalReplicationGroupMessageRequestTypeDef(
-    _RequiredDecreaseNodeGroupsInGlobalReplicationGroupMessageRequestTypeDef,
-    _OptionalDecreaseNodeGroupsInGlobalReplicationGroupMessageRequestTypeDef,
-):
-    pass
-
-DecreaseNodeGroupsInGlobalReplicationGroupResultTypeDef = TypedDict(
-    "DecreaseNodeGroupsInGlobalReplicationGroupResultTypeDef",
-    {
-        "GlobalReplicationGroup": "GlobalReplicationGroupTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDecreaseReplicaCountMessageRequestTypeDef = TypedDict(
-    "_RequiredDecreaseReplicaCountMessageRequestTypeDef",
-    {
-        "ReplicationGroupId": str,
-        "ApplyImmediately": bool,
-    },
-)
-_OptionalDecreaseReplicaCountMessageRequestTypeDef = TypedDict(
-    "_OptionalDecreaseReplicaCountMessageRequestTypeDef",
-    {
-        "NewReplicaCount": int,
-        "ReplicaConfiguration": List["ConfigureShardTypeDef"],
-        "ReplicasToRemove": List[str],
-    },
-    total=False,
-)
-
-class DecreaseReplicaCountMessageRequestTypeDef(
-    _RequiredDecreaseReplicaCountMessageRequestTypeDef,
-    _OptionalDecreaseReplicaCountMessageRequestTypeDef,
-):
-    pass
-
-DecreaseReplicaCountResultTypeDef = TypedDict(
-    "DecreaseReplicaCountResultTypeDef",
-    {
-        "ReplicationGroup": "ReplicationGroupTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDeleteCacheClusterMessageRequestTypeDef = TypedDict(
-    "_RequiredDeleteCacheClusterMessageRequestTypeDef",
-    {
-        "CacheClusterId": str,
-    },
-)
-_OptionalDeleteCacheClusterMessageRequestTypeDef = TypedDict(
-    "_OptionalDeleteCacheClusterMessageRequestTypeDef",
-    {
-        "FinalSnapshotIdentifier": str,
-    },
-    total=False,
-)
-
-class DeleteCacheClusterMessageRequestTypeDef(
-    _RequiredDeleteCacheClusterMessageRequestTypeDef,
-    _OptionalDeleteCacheClusterMessageRequestTypeDef,
-):
-    pass
-
-DeleteCacheClusterResultTypeDef = TypedDict(
-    "DeleteCacheClusterResultTypeDef",
-    {
-        "CacheCluster": "CacheClusterTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteCacheParameterGroupMessageRequestTypeDef = TypedDict(
-    "DeleteCacheParameterGroupMessageRequestTypeDef",
-    {
-        "CacheParameterGroupName": str,
-    },
-)
-
-DeleteCacheSecurityGroupMessageRequestTypeDef = TypedDict(
-    "DeleteCacheSecurityGroupMessageRequestTypeDef",
-    {
-        "CacheSecurityGroupName": str,
-    },
-)
-
-DeleteCacheSubnetGroupMessageRequestTypeDef = TypedDict(
-    "DeleteCacheSubnetGroupMessageRequestTypeDef",
-    {
-        "CacheSubnetGroupName": str,
-    },
-)
-
-DeleteGlobalReplicationGroupMessageRequestTypeDef = TypedDict(
-    "DeleteGlobalReplicationGroupMessageRequestTypeDef",
-    {
-        "GlobalReplicationGroupId": str,
-        "RetainPrimaryReplicationGroup": bool,
-    },
-)
-
-DeleteGlobalReplicationGroupResultTypeDef = TypedDict(
-    "DeleteGlobalReplicationGroupResultTypeDef",
-    {
-        "GlobalReplicationGroup": "GlobalReplicationGroupTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDeleteReplicationGroupMessageRequestTypeDef = TypedDict(
-    "_RequiredDeleteReplicationGroupMessageRequestTypeDef",
-    {
-        "ReplicationGroupId": str,
-    },
-)
-_OptionalDeleteReplicationGroupMessageRequestTypeDef = TypedDict(
-    "_OptionalDeleteReplicationGroupMessageRequestTypeDef",
-    {
-        "RetainPrimaryCluster": bool,
-        "FinalSnapshotIdentifier": str,
-    },
-    total=False,
-)
-
-class DeleteReplicationGroupMessageRequestTypeDef(
-    _RequiredDeleteReplicationGroupMessageRequestTypeDef,
-    _OptionalDeleteReplicationGroupMessageRequestTypeDef,
-):
-    pass
-
-DeleteReplicationGroupResultTypeDef = TypedDict(
-    "DeleteReplicationGroupResultTypeDef",
-    {
-        "ReplicationGroup": "ReplicationGroupTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDeleteServerlessCacheRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteServerlessCacheRequestRequestTypeDef",
-    {
-        "ServerlessCacheName": str,
-    },
-)
-_OptionalDeleteServerlessCacheRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteServerlessCacheRequestRequestTypeDef",
-    {
-        "FinalSnapshotName": str,
-    },
-    total=False,
-)
-
-class DeleteServerlessCacheRequestRequestTypeDef(
-    _RequiredDeleteServerlessCacheRequestRequestTypeDef,
-    _OptionalDeleteServerlessCacheRequestRequestTypeDef,
-):
-    pass
-
-DeleteServerlessCacheResponseTypeDef = TypedDict(
-    "DeleteServerlessCacheResponseTypeDef",
-    {
-        "ServerlessCache": "ServerlessCacheTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteServerlessCacheSnapshotRequestRequestTypeDef = TypedDict(
-    "DeleteServerlessCacheSnapshotRequestRequestTypeDef",
-    {
-        "ServerlessCacheSnapshotName": str,
-    },
-)
-
-DeleteServerlessCacheSnapshotResponseTypeDef = TypedDict(
-    "DeleteServerlessCacheSnapshotResponseTypeDef",
-    {
-        "ServerlessCacheSnapshot": "ServerlessCacheSnapshotTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteSnapshotMessageRequestTypeDef = TypedDict(
-    "DeleteSnapshotMessageRequestTypeDef",
-    {
-        "SnapshotName": str,
-    },
-)
-
-DeleteSnapshotResultTypeDef = TypedDict(
-    "DeleteSnapshotResultTypeDef",
-    {
-        "Snapshot": "SnapshotTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteUserGroupMessageRequestTypeDef = TypedDict(
-    "DeleteUserGroupMessageRequestTypeDef",
-    {
-        "UserGroupId": str,
-    },
-)
-
-DeleteUserMessageRequestTypeDef = TypedDict(
-    "DeleteUserMessageRequestTypeDef",
-    {
-        "UserId": str,
-    },
-)
-
-DescribeCacheClustersMessageRequestTypeDef = TypedDict(
-    "DescribeCacheClustersMessageRequestTypeDef",
-    {
-        "CacheClusterId": str,
-        "MaxRecords": int,
-        "Marker": str,
-        "ShowCacheNodeInfo": bool,
-        "ShowCacheClustersNotInReplicationGroups": bool,
-    },
-    total=False,
-)
-
-DescribeCacheEngineVersionsMessageRequestTypeDef = TypedDict(
-    "DescribeCacheEngineVersionsMessageRequestTypeDef",
-    {
-        "Engine": str,
-        "EngineVersion": str,
-        "CacheParameterGroupFamily": str,
-        "MaxRecords": int,
-        "Marker": str,
-        "DefaultOnly": bool,
-    },
-    total=False,
-)
-
-DescribeCacheParameterGroupsMessageRequestTypeDef = TypedDict(
-    "DescribeCacheParameterGroupsMessageRequestTypeDef",
-    {
-        "CacheParameterGroupName": str,
-        "MaxRecords": int,
-        "Marker": str,
-    },
-    total=False,
-)
-
-_RequiredDescribeCacheParametersMessageRequestTypeDef = TypedDict(
-    "_RequiredDescribeCacheParametersMessageRequestTypeDef",
-    {
-        "CacheParameterGroupName": str,
-    },
-)
-_OptionalDescribeCacheParametersMessageRequestTypeDef = TypedDict(
-    "_OptionalDescribeCacheParametersMessageRequestTypeDef",
-    {
-        "Source": str,
-        "MaxRecords": int,
-        "Marker": str,
-    },
-    total=False,
-)
-
-class DescribeCacheParametersMessageRequestTypeDef(
-    _RequiredDescribeCacheParametersMessageRequestTypeDef,
-    _OptionalDescribeCacheParametersMessageRequestTypeDef,
-):
-    pass
-
-DescribeCacheSecurityGroupsMessageRequestTypeDef = TypedDict(
-    "DescribeCacheSecurityGroupsMessageRequestTypeDef",
-    {
-        "CacheSecurityGroupName": str,
-        "MaxRecords": int,
-        "Marker": str,
-    },
-    total=False,
-)
-
-DescribeCacheSubnetGroupsMessageRequestTypeDef = TypedDict(
-    "DescribeCacheSubnetGroupsMessageRequestTypeDef",
-    {
-        "CacheSubnetGroupName": str,
-        "MaxRecords": int,
-        "Marker": str,
-    },
-    total=False,
-)
-
-_RequiredDescribeEngineDefaultParametersMessageRequestTypeDef = TypedDict(
-    "_RequiredDescribeEngineDefaultParametersMessageRequestTypeDef",
-    {
-        "CacheParameterGroupFamily": str,
-    },
-)
-_OptionalDescribeEngineDefaultParametersMessageRequestTypeDef = TypedDict(
-    "_OptionalDescribeEngineDefaultParametersMessageRequestTypeDef",
-    {
-        "MaxRecords": int,
-        "Marker": str,
-    },
-    total=False,
-)
-
-class DescribeEngineDefaultParametersMessageRequestTypeDef(
-    _RequiredDescribeEngineDefaultParametersMessageRequestTypeDef,
-    _OptionalDescribeEngineDefaultParametersMessageRequestTypeDef,
-):
-    pass
-
-DescribeEngineDefaultParametersResultTypeDef = TypedDict(
-    "DescribeEngineDefaultParametersResultTypeDef",
-    {
-        "EngineDefaults": "EngineDefaultsTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeEventsMessageRequestTypeDef = TypedDict(
-    "DescribeEventsMessageRequestTypeDef",
-    {
-        "SourceIdentifier": str,
-        "SourceType": SourceTypeType,
-        "StartTime": Union[datetime, str],
-        "EndTime": Union[datetime, str],
-        "Duration": int,
-        "MaxRecords": int,
-        "Marker": str,
-    },
-    total=False,
-)
-
-DescribeGlobalReplicationGroupsMessageRequestTypeDef = TypedDict(
-    "DescribeGlobalReplicationGroupsMessageRequestTypeDef",
-    {
-        "GlobalReplicationGroupId": str,
-        "MaxRecords": int,
-        "Marker": str,
-        "ShowMemberInfo": bool,
-    },
-    total=False,
-)
-
-DescribeGlobalReplicationGroupsResultTypeDef = TypedDict(
-    "DescribeGlobalReplicationGroupsResultTypeDef",
-    {
-        "Marker": str,
-        "GlobalReplicationGroups": List["GlobalReplicationGroupTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeReplicationGroupsMessageRequestTypeDef = TypedDict(
-    "DescribeReplicationGroupsMessageRequestTypeDef",
-    {
-        "ReplicationGroupId": str,
-        "MaxRecords": int,
-        "Marker": str,
-    },
-    total=False,
-)
-
-DescribeReservedCacheNodesMessageRequestTypeDef = TypedDict(
-    "DescribeReservedCacheNodesMessageRequestTypeDef",
-    {
-        "ReservedCacheNodeId": str,
-        "ReservedCacheNodesOfferingId": str,
-        "CacheNodeType": str,
-        "Duration": str,
-        "ProductDescription": str,
-        "OfferingType": str,
-        "MaxRecords": int,
-        "Marker": str,
-    },
-    total=False,
-)
-
-DescribeReservedCacheNodesOfferingsMessageRequestTypeDef = TypedDict(
-    "DescribeReservedCacheNodesOfferingsMessageRequestTypeDef",
-    {
-        "ReservedCacheNodesOfferingId": str,
-        "CacheNodeType": str,
-        "Duration": str,
-        "ProductDescription": str,
-        "OfferingType": str,
-        "MaxRecords": int,
-        "Marker": str,
-    },
-    total=False,
-)
-
-DescribeServerlessCacheSnapshotsRequestRequestTypeDef = TypedDict(
-    "DescribeServerlessCacheSnapshotsRequestRequestTypeDef",
-    {
-        "ServerlessCacheName": str,
-        "ServerlessCacheSnapshotName": str,
-        "SnapshotType": str,
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-DescribeServerlessCacheSnapshotsResponseTypeDef = TypedDict(
-    "DescribeServerlessCacheSnapshotsResponseTypeDef",
-    {
-        "NextToken": str,
-        "ServerlessCacheSnapshots": List["ServerlessCacheSnapshotTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeServerlessCachesRequestRequestTypeDef = TypedDict(
-    "DescribeServerlessCachesRequestRequestTypeDef",
-    {
-        "ServerlessCacheName": str,
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-DescribeServerlessCachesResponseTypeDef = TypedDict(
-    "DescribeServerlessCachesResponseTypeDef",
-    {
-        "NextToken": str,
-        "ServerlessCaches": List["ServerlessCacheTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeServiceUpdatesMessageRequestTypeDef = TypedDict(
-    "DescribeServiceUpdatesMessageRequestTypeDef",
-    {
-        "ServiceUpdateName": str,
-        "ServiceUpdateStatus": List[ServiceUpdateStatusType],
-        "MaxRecords": int,
-        "Marker": str,
-    },
-    total=False,
-)
-
-DescribeSnapshotsListMessageTypeDef = TypedDict(
-    "DescribeSnapshotsListMessageTypeDef",
-    {
-        "Marker": str,
-        "Snapshots": List["SnapshotTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeSnapshotsMessageRequestTypeDef = TypedDict(
-    "DescribeSnapshotsMessageRequestTypeDef",
-    {
-        "ReplicationGroupId": str,
-        "CacheClusterId": str,
-        "SnapshotName": str,
-        "SnapshotSource": str,
-        "Marker": str,
-        "MaxRecords": int,
-        "ShowNodeGroupConfig": bool,
-    },
-    total=False,
-)
-
-DescribeUpdateActionsMessageRequestTypeDef = TypedDict(
-    "DescribeUpdateActionsMessageRequestTypeDef",
-    {
-        "ServiceUpdateName": str,
-        "ReplicationGroupIds": List[str],
-        "CacheClusterIds": List[str],
-        "Engine": str,
-        "ServiceUpdateStatus": List[ServiceUpdateStatusType],
-        "ServiceUpdateTimeRange": "TimeRangeFilterTypeDef",
-        "UpdateActionStatus": List[UpdateActionStatusType],
-        "ShowNodeLevelUpdateStatus": bool,
-        "MaxRecords": int,
-        "Marker": str,
-    },
-    total=False,
-)
-
-DescribeUserGroupsMessageRequestTypeDef = TypedDict(
-    "DescribeUserGroupsMessageRequestTypeDef",
-    {
-        "UserGroupId": str,
-        "MaxRecords": int,
-        "Marker": str,
-    },
-    total=False,
-)
-
-DescribeUserGroupsResultTypeDef = TypedDict(
-    "DescribeUserGroupsResultTypeDef",
-    {
-        "UserGroups": List["UserGroupTypeDef"],
-        "Marker": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeUsersMessageRequestTypeDef = TypedDict(
-    "DescribeUsersMessageRequestTypeDef",
-    {
-        "Engine": str,
-        "UserId": str,
-        "Filters": List["FilterTypeDef"],
-        "MaxRecords": int,
-        "Marker": str,
-    },
-    total=False,
-)
-
-DescribeUsersResultTypeDef = TypedDict(
-    "DescribeUsersResultTypeDef",
-    {
-        "Users": List["UserTypeDef"],
-        "Marker": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DestinationDetailsTypeDef = TypedDict(
-    "DestinationDetailsTypeDef",
-    {
-        "CloudWatchLogsDetails": "CloudWatchLogsDestinationDetailsTypeDef",
-        "KinesisFirehoseDetails": "KinesisFirehoseDestinationDetailsTypeDef",
-    },
-    total=False,
-)
-
-DisassociateGlobalReplicationGroupMessageRequestTypeDef = TypedDict(
-    "DisassociateGlobalReplicationGroupMessageRequestTypeDef",
-    {
-        "GlobalReplicationGroupId": str,
-        "ReplicationGroupId": str,
-        "ReplicationGroupRegion": str,
-    },
-)
-
-DisassociateGlobalReplicationGroupResultTypeDef = TypedDict(
-    "DisassociateGlobalReplicationGroupResultTypeDef",
-    {
-        "GlobalReplicationGroup": "GlobalReplicationGroupTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-EC2SecurityGroupTypeDef = TypedDict(
-    "EC2SecurityGroupTypeDef",
-    {
-        "Status": str,
-        "EC2SecurityGroupName": str,
-        "EC2SecurityGroupOwnerId": str,
-    },
-    total=False,
-)
-
-ECPUPerSecondTypeDef = TypedDict(
-    "ECPUPerSecondTypeDef",
-    {
-        "Maximum": int,
-        "Minimum": int,
-    },
-    total=False,
-)
-
-EndpointTypeDef = TypedDict(
-    "EndpointTypeDef",
-    {
-        "Address": str,
-        "Port": int,
-    },
-    total=False,
-)
-
-EngineDefaultsTypeDef = TypedDict(
-    "EngineDefaultsTypeDef",
-    {
-        "CacheParameterGroupFamily": str,
-        "Marker": str,
-        "Parameters": List["ParameterTypeDef"],
-        "CacheNodeTypeSpecificParameters": List["CacheNodeTypeSpecificParameterTypeDef"],
-    },
-    total=False,
-)
-
-EventTypeDef = TypedDict(
-    "EventTypeDef",
-    {
-        "SourceIdentifier": str,
-        "SourceType": SourceTypeType,
-        "Message": str,
-        "Date": datetime,
-    },
-    total=False,
-)
-
-EventsMessageTypeDef = TypedDict(
-    "EventsMessageTypeDef",
-    {
-        "Marker": str,
-        "Events": List["EventTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ExportServerlessCacheSnapshotRequestRequestTypeDef = TypedDict(
-    "ExportServerlessCacheSnapshotRequestRequestTypeDef",
-    {
-        "ServerlessCacheSnapshotName": str,
-        "S3BucketName": str,
-    },
-)
-
-ExportServerlessCacheSnapshotResponseTypeDef = TypedDict(
-    "ExportServerlessCacheSnapshotResponseTypeDef",
-    {
-        "ServerlessCacheSnapshot": "ServerlessCacheSnapshotTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-FailoverGlobalReplicationGroupMessageRequestTypeDef = TypedDict(
-    "FailoverGlobalReplicationGroupMessageRequestTypeDef",
-    {
-        "GlobalReplicationGroupId": str,
-        "PrimaryRegion": str,
-        "PrimaryReplicationGroupId": str,
-    },
-)
-
-FailoverGlobalReplicationGroupResultTypeDef = TypedDict(
-    "FailoverGlobalReplicationGroupResultTypeDef",
-    {
-        "GlobalReplicationGroup": "GlobalReplicationGroupTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-FilterTypeDef = TypedDict(
-    "FilterTypeDef",
-    {
-        "Name": str,
-        "Values": List[str],
-    },
-)
-
-GlobalNodeGroupTypeDef = TypedDict(
-    "GlobalNodeGroupTypeDef",
-    {
-        "GlobalNodeGroupId": str,
-        "Slots": str,
-    },
-    total=False,
-)
-
-GlobalReplicationGroupInfoTypeDef = TypedDict(
-    "GlobalReplicationGroupInfoTypeDef",
-    {
-        "GlobalReplicationGroupId": str,
-        "GlobalReplicationGroupMemberRole": str,
-    },
-    total=False,
-)
-
-GlobalReplicationGroupMemberTypeDef = TypedDict(
-    "GlobalReplicationGroupMemberTypeDef",
-    {
-        "ReplicationGroupId": str,
-        "ReplicationGroupRegion": str,
-        "Role": str,
-        "AutomaticFailover": AutomaticFailoverStatusType,
-        "Status": str,
-    },
-    total=False,
-)
-
-GlobalReplicationGroupTypeDef = TypedDict(
-    "GlobalReplicationGroupTypeDef",
-    {
-        "GlobalReplicationGroupId": str,
-        "GlobalReplicationGroupDescription": str,
-        "Status": str,
-        "CacheNodeType": str,
-        "Engine": str,
-        "EngineVersion": str,
-        "Members": List["GlobalReplicationGroupMemberTypeDef"],
-        "ClusterEnabled": bool,
-        "GlobalNodeGroups": List["GlobalNodeGroupTypeDef"],
-        "AuthTokenEnabled": bool,
-        "TransitEncryptionEnabled": bool,
-        "AtRestEncryptionEnabled": bool,
-        "ARN": str,
-    },
-    total=False,
-)
-
-_RequiredIncreaseNodeGroupsInGlobalReplicationGroupMessageRequestTypeDef = TypedDict(
-    "_RequiredIncreaseNodeGroupsInGlobalReplicationGroupMessageRequestTypeDef",
-    {
-        "GlobalReplicationGroupId": str,
-        "NodeGroupCount": int,
-        "ApplyImmediately": bool,
-    },
-)
-_OptionalIncreaseNodeGroupsInGlobalReplicationGroupMessageRequestTypeDef = TypedDict(
-    "_OptionalIncreaseNodeGroupsInGlobalReplicationGroupMessageRequestTypeDef",
-    {
-        "RegionalConfigurations": List["RegionalConfigurationTypeDef"],
-    },
-    total=False,
-)
-
-class IncreaseNodeGroupsInGlobalReplicationGroupMessageRequestTypeDef(
-    _RequiredIncreaseNodeGroupsInGlobalReplicationGroupMessageRequestTypeDef,
-    _OptionalIncreaseNodeGroupsInGlobalReplicationGroupMessageRequestTypeDef,
-):
-    pass
-
-IncreaseNodeGroupsInGlobalReplicationGroupResultTypeDef = TypedDict(
-    "IncreaseNodeGroupsInGlobalReplicationGroupResultTypeDef",
-    {
-        "GlobalReplicationGroup": "GlobalReplicationGroupTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredIncreaseReplicaCountMessageRequestTypeDef = TypedDict(
-    "_RequiredIncreaseReplicaCountMessageRequestTypeDef",
-    {
-        "ReplicationGroupId": str,
-        "ApplyImmediately": bool,
-    },
-)
-_OptionalIncreaseReplicaCountMessageRequestTypeDef = TypedDict(
-    "_OptionalIncreaseReplicaCountMessageRequestTypeDef",
-    {
-        "NewReplicaCount": int,
-        "ReplicaConfiguration": List["ConfigureShardTypeDef"],
-    },
-    total=False,
-)
-
-class IncreaseReplicaCountMessageRequestTypeDef(
-    _RequiredIncreaseReplicaCountMessageRequestTypeDef,
-    _OptionalIncreaseReplicaCountMessageRequestTypeDef,
-):
-    pass
-
-IncreaseReplicaCountResultTypeDef = TypedDict(
-    "IncreaseReplicaCountResultTypeDef",
-    {
-        "ReplicationGroup": "ReplicationGroupTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-KinesisFirehoseDestinationDetailsTypeDef = TypedDict(
-    "KinesisFirehoseDestinationDetailsTypeDef",
-    {
-        "DeliveryStream": str,
-    },
-    total=False,
-)
-
-ListAllowedNodeTypeModificationsMessageRequestTypeDef = TypedDict(
-    "ListAllowedNodeTypeModificationsMessageRequestTypeDef",
-    {
-        "CacheClusterId": str,
-        "ReplicationGroupId": str,
-    },
-    total=False,
-)
-
-ListTagsForResourceMessageRequestTypeDef = TypedDict(
-    "ListTagsForResourceMessageRequestTypeDef",
-    {
-        "ResourceName": str,
-    },
-)
-
-LogDeliveryConfigurationRequestTypeDef = TypedDict(
-    "LogDeliveryConfigurationRequestTypeDef",
-    {
-        "LogType": LogTypeType,
-        "DestinationType": DestinationTypeType,
-        "DestinationDetails": "DestinationDetailsTypeDef",
-        "LogFormat": LogFormatType,
-        "Enabled": bool,
-    },
-    total=False,
-)
-
-LogDeliveryConfigurationTypeDef = TypedDict(
-    "LogDeliveryConfigurationTypeDef",
-    {
-        "LogType": LogTypeType,
-        "DestinationType": DestinationTypeType,
-        "DestinationDetails": "DestinationDetailsTypeDef",
-        "LogFormat": LogFormatType,
-        "Status": LogDeliveryConfigurationStatusType,
-        "Message": str,
-    },
-    total=False,
-)
-
-_RequiredModifyCacheClusterMessageRequestTypeDef = TypedDict(
-    "_RequiredModifyCacheClusterMessageRequestTypeDef",
-    {
-        "CacheClusterId": str,
-    },
-)
-_OptionalModifyCacheClusterMessageRequestTypeDef = TypedDict(
-    "_OptionalModifyCacheClusterMessageRequestTypeDef",
-    {
-        "NumCacheNodes": int,
-        "CacheNodeIdsToRemove": List[str],
-        "AZMode": AZModeType,
-        "NewAvailabilityZones": List[str],
-        "CacheSecurityGroupNames": List[str],
-        "SecurityGroupIds": List[str],
-        "PreferredMaintenanceWindow": str,
-        "NotificationTopicArn": str,
-        "CacheParameterGroupName": str,
-        "NotificationTopicStatus": str,
-        "ApplyImmediately": bool,
-        "EngineVersion": str,
-        "AutoMinorVersionUpgrade": bool,
-        "SnapshotRetentionLimit": int,
-        "SnapshotWindow": str,
-        "CacheNodeType": str,
-        "AuthToken": str,
-        "AuthTokenUpdateStrategy": AuthTokenUpdateStrategyTypeType,
-        "LogDeliveryConfigurations": List["LogDeliveryConfigurationRequestTypeDef"],
-        "IpDiscovery": IpDiscoveryType,
-    },
-    total=False,
-)
-
-class ModifyCacheClusterMessageRequestTypeDef(
-    _RequiredModifyCacheClusterMessageRequestTypeDef,
-    _OptionalModifyCacheClusterMessageRequestTypeDef,
-):
-    pass
-
-ModifyCacheClusterResultTypeDef = TypedDict(
-    "ModifyCacheClusterResultTypeDef",
-    {
-        "CacheCluster": "CacheClusterTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ModifyCacheParameterGroupMessageRequestTypeDef = TypedDict(
-    "ModifyCacheParameterGroupMessageRequestTypeDef",
-    {
-        "CacheParameterGroupName": str,
-        "ParameterNameValues": List["ParameterNameValueTypeDef"],
-    },
-)
-
-_RequiredModifyCacheSubnetGroupMessageRequestTypeDef = TypedDict(
-    "_RequiredModifyCacheSubnetGroupMessageRequestTypeDef",
-    {
-        "CacheSubnetGroupName": str,
-    },
-)
-_OptionalModifyCacheSubnetGroupMessageRequestTypeDef = TypedDict(
-    "_OptionalModifyCacheSubnetGroupMessageRequestTypeDef",
-    {
-        "CacheSubnetGroupDescription": str,
-        "SubnetIds": List[str],
-    },
-    total=False,
-)
-
-class ModifyCacheSubnetGroupMessageRequestTypeDef(
-    _RequiredModifyCacheSubnetGroupMessageRequestTypeDef,
-    _OptionalModifyCacheSubnetGroupMessageRequestTypeDef,
-):
-    pass
-
-ModifyCacheSubnetGroupResultTypeDef = TypedDict(
-    "ModifyCacheSubnetGroupResultTypeDef",
-    {
-        "CacheSubnetGroup": "CacheSubnetGroupTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredModifyGlobalReplicationGroupMessageRequestTypeDef = TypedDict(
-    "_RequiredModifyGlobalReplicationGroupMessageRequestTypeDef",
-    {
-        "GlobalReplicationGroupId": str,
-        "ApplyImmediately": bool,
-    },
-)
-_OptionalModifyGlobalReplicationGroupMessageRequestTypeDef = TypedDict(
-    "_OptionalModifyGlobalReplicationGroupMessageRequestTypeDef",
-    {
-        "CacheNodeType": str,
-        "EngineVersion": str,
-        "CacheParameterGroupName": str,
-        "GlobalReplicationGroupDescription": str,
-        "AutomaticFailoverEnabled": bool,
-    },
-    total=False,
-)
-
-class ModifyGlobalReplicationGroupMessageRequestTypeDef(
-    _RequiredModifyGlobalReplicationGroupMessageRequestTypeDef,
-    _OptionalModifyGlobalReplicationGroupMessageRequestTypeDef,
-):
-    pass
-
-ModifyGlobalReplicationGroupResultTypeDef = TypedDict(
-    "ModifyGlobalReplicationGroupResultTypeDef",
-    {
-        "GlobalReplicationGroup": "GlobalReplicationGroupTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredModifyReplicationGroupMessageRequestTypeDef = TypedDict(
-    "_RequiredModifyReplicationGroupMessageRequestTypeDef",
-    {
-        "ReplicationGroupId": str,
-    },
-)
-_OptionalModifyReplicationGroupMessageRequestTypeDef = TypedDict(
-    "_OptionalModifyReplicationGroupMessageRequestTypeDef",
-    {
-        "ReplicationGroupDescription": str,
-        "PrimaryClusterId": str,
-        "SnapshottingClusterId": str,
-        "AutomaticFailoverEnabled": bool,
-        "MultiAZEnabled": bool,
-        "NodeGroupId": str,
-        "CacheSecurityGroupNames": List[str],
-        "SecurityGroupIds": List[str],
-        "PreferredMaintenanceWindow": str,
-        "NotificationTopicArn": str,
-        "CacheParameterGroupName": str,
-        "NotificationTopicStatus": str,
-        "ApplyImmediately": bool,
-        "EngineVersion": str,
-        "AutoMinorVersionUpgrade": bool,
-        "SnapshotRetentionLimit": int,
-        "SnapshotWindow": str,
-        "CacheNodeType": str,
-        "AuthToken": str,
-        "AuthTokenUpdateStrategy": AuthTokenUpdateStrategyTypeType,
-        "UserGroupIdsToAdd": List[str],
-        "UserGroupIdsToRemove": List[str],
-        "RemoveUserGroups": bool,
-        "LogDeliveryConfigurations": List["LogDeliveryConfigurationRequestTypeDef"],
-        "IpDiscovery": IpDiscoveryType,
-        "TransitEncryptionEnabled": bool,
-        "TransitEncryptionMode": TransitEncryptionModeType,
-        "ClusterMode": ClusterModeType,
-    },
-    total=False,
-)
-
-class ModifyReplicationGroupMessageRequestTypeDef(
-    _RequiredModifyReplicationGroupMessageRequestTypeDef,
-    _OptionalModifyReplicationGroupMessageRequestTypeDef,
-):
-    pass
-
-ModifyReplicationGroupResultTypeDef = TypedDict(
-    "ModifyReplicationGroupResultTypeDef",
-    {
-        "ReplicationGroup": "ReplicationGroupTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredModifyReplicationGroupShardConfigurationMessageRequestTypeDef = TypedDict(
-    "_RequiredModifyReplicationGroupShardConfigurationMessageRequestTypeDef",
-    {
-        "ReplicationGroupId": str,
-        "NodeGroupCount": int,
-        "ApplyImmediately": bool,
-    },
-)
-_OptionalModifyReplicationGroupShardConfigurationMessageRequestTypeDef = TypedDict(
-    "_OptionalModifyReplicationGroupShardConfigurationMessageRequestTypeDef",
-    {
-        "ReshardingConfiguration": List["ReshardingConfigurationTypeDef"],
-        "NodeGroupsToRemove": List[str],
-        "NodeGroupsToRetain": List[str],
-    },
-    total=False,
-)
-
-class ModifyReplicationGroupShardConfigurationMessageRequestTypeDef(
-    _RequiredModifyReplicationGroupShardConfigurationMessageRequestTypeDef,
-    _OptionalModifyReplicationGroupShardConfigurationMessageRequestTypeDef,
-):
-    pass
-
-ModifyReplicationGroupShardConfigurationResultTypeDef = TypedDict(
-    "ModifyReplicationGroupShardConfigurationResultTypeDef",
-    {
-        "ReplicationGroup": "ReplicationGroupTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredModifyServerlessCacheRequestRequestTypeDef = TypedDict(
-    "_RequiredModifyServerlessCacheRequestRequestTypeDef",
-    {
-        "ServerlessCacheName": str,
-    },
-)
-_OptionalModifyServerlessCacheRequestRequestTypeDef = TypedDict(
-    "_OptionalModifyServerlessCacheRequestRequestTypeDef",
-    {
-        "Description": str,
-        "CacheUsageLimits": "CacheUsageLimitsTypeDef",
-        "RemoveUserGroup": bool,
-        "UserGroupId": str,
-        "SecurityGroupIds": List[str],
-        "SnapshotRetentionLimit": int,
-        "DailySnapshotTime": str,
-    },
-    total=False,
-)
-
-class ModifyServerlessCacheRequestRequestTypeDef(
-    _RequiredModifyServerlessCacheRequestRequestTypeDef,
-    _OptionalModifyServerlessCacheRequestRequestTypeDef,
-):
-    pass
-
-ModifyServerlessCacheResponseTypeDef = TypedDict(
-    "ModifyServerlessCacheResponseTypeDef",
-    {
-        "ServerlessCache": "ServerlessCacheTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredModifyUserGroupMessageRequestTypeDef = TypedDict(
-    "_RequiredModifyUserGroupMessageRequestTypeDef",
-    {
-        "UserGroupId": str,
-    },
-)
-_OptionalModifyUserGroupMessageRequestTypeDef = TypedDict(
-    "_OptionalModifyUserGroupMessageRequestTypeDef",
-    {
-        "UserIdsToAdd": List[str],
-        "UserIdsToRemove": List[str],
-    },
-    total=False,
-)
-
-class ModifyUserGroupMessageRequestTypeDef(
-    _RequiredModifyUserGroupMessageRequestTypeDef, _OptionalModifyUserGroupMessageRequestTypeDef
-):
-    pass
-
-_RequiredModifyUserMessageRequestTypeDef = TypedDict(
-    "_RequiredModifyUserMessageRequestTypeDef",
-    {
-        "UserId": str,
-    },
-)
-_OptionalModifyUserMessageRequestTypeDef = TypedDict(
-    "_OptionalModifyUserMessageRequestTypeDef",
-    {
-        "AccessString": str,
-        "AppendAccessString": str,
-        "Passwords": List[str],
-        "NoPasswordRequired": bool,
-        "AuthenticationMode": "AuthenticationModeTypeDef",
-    },
-    total=False,
-)
-
-class ModifyUserMessageRequestTypeDef(
-    _RequiredModifyUserMessageRequestTypeDef, _OptionalModifyUserMessageRequestTypeDef
-):
-    pass
-
-NodeGroupConfigurationTypeDef = TypedDict(
-    "NodeGroupConfigurationTypeDef",
-    {
-        "NodeGroupId": str,
-        "Slots": str,
-        "ReplicaCount": int,
-        "PrimaryAvailabilityZone": str,
-        "ReplicaAvailabilityZones": List[str],
-        "PrimaryOutpostArn": str,
-        "ReplicaOutpostArns": List[str],
-    },
-    total=False,
-)
-
-NodeGroupMemberTypeDef = TypedDict(
-    "NodeGroupMemberTypeDef",
-    {
-        "CacheClusterId": str,
-        "CacheNodeId": str,
-        "ReadEndpoint": "EndpointTypeDef",
-        "PreferredAvailabilityZone": str,
-        "PreferredOutpostArn": str,
-        "CurrentRole": str,
-    },
-    total=False,
-)
-
-NodeGroupMemberUpdateStatusTypeDef = TypedDict(
-    "NodeGroupMemberUpdateStatusTypeDef",
-    {
-        "CacheClusterId": str,
-        "CacheNodeId": str,
-        "NodeUpdateStatus": NodeUpdateStatusType,
-        "NodeDeletionDate": datetime,
-        "NodeUpdateStartDate": datetime,
-        "NodeUpdateEndDate": datetime,
-        "NodeUpdateInitiatedBy": NodeUpdateInitiatedByType,
-        "NodeUpdateInitiatedDate": datetime,
-        "NodeUpdateStatusModifiedDate": datetime,
-    },
-    total=False,
-)
-
-NodeGroupTypeDef = TypedDict(
-    "NodeGroupTypeDef",
-    {
-        "NodeGroupId": str,
-        "Status": str,
-        "PrimaryEndpoint": "EndpointTypeDef",
-        "ReaderEndpoint": "EndpointTypeDef",
-        "Slots": str,
-        "NodeGroupMembers": List["NodeGroupMemberTypeDef"],
-    },
-    total=False,
-)
-
-NodeGroupUpdateStatusTypeDef = TypedDict(
-    "NodeGroupUpdateStatusTypeDef",
-    {
-        "NodeGroupId": str,
-        "NodeGroupMemberUpdateStatus": List["NodeGroupMemberUpdateStatusTypeDef"],
-    },
-    total=False,
-)
-
-NodeSnapshotTypeDef = TypedDict(
-    "NodeSnapshotTypeDef",
-    {
-        "CacheClusterId": str,
-        "NodeGroupId": str,
-        "CacheNodeId": str,
-        "NodeGroupConfiguration": "NodeGroupConfigurationTypeDef",
-        "CacheSize": str,
-        "CacheNodeCreateTime": datetime,
-        "SnapshotCreateTime": datetime,
-    },
-    total=False,
-)
-
-NotificationConfigurationTypeDef = TypedDict(
-    "NotificationConfigurationTypeDef",
-    {
-        "TopicArn": str,
-        "TopicStatus": str,
-    },
-    total=False,
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-ParameterNameValueTypeDef = TypedDict(
-    "ParameterNameValueTypeDef",
-    {
-        "ParameterName": str,
-        "ParameterValue": str,
-    },
-    total=False,
-)
-
-ParameterTypeDef = TypedDict(
-    "ParameterTypeDef",
-    {
-        "ParameterName": str,
-        "ParameterValue": str,
-        "Description": str,
-        "Source": str,
-        "DataType": str,
-        "AllowedValues": str,
-        "IsModifiable": bool,
-        "MinimumEngineVersion": str,
-        "ChangeType": ChangeTypeType,
-    },
-    total=False,
-)
-
-PendingLogDeliveryConfigurationTypeDef = TypedDict(
-    "PendingLogDeliveryConfigurationTypeDef",
-    {
-        "LogType": LogTypeType,
-        "DestinationType": DestinationTypeType,
-        "DestinationDetails": "DestinationDetailsTypeDef",
-        "LogFormat": LogFormatType,
-    },
-    total=False,
-)
-
-PendingModifiedValuesTypeDef = TypedDict(
-    "PendingModifiedValuesTypeDef",
-    {
-        "NumCacheNodes": int,
-        "CacheNodeIdsToRemove": List[str],
-        "EngineVersion": str,
-        "CacheNodeType": str,
-        "AuthTokenStatus": AuthTokenUpdateStatusType,
-        "LogDeliveryConfigurations": List["PendingLogDeliveryConfigurationTypeDef"],
-        "TransitEncryptionEnabled": bool,
-        "TransitEncryptionMode": TransitEncryptionModeType,
-    },
-    total=False,
-)
-
-ProcessedUpdateActionTypeDef = TypedDict(
-    "ProcessedUpdateActionTypeDef",
-    {
-        "ReplicationGroupId": str,
-        "CacheClusterId": str,
-        "ServiceUpdateName": str,
-        "UpdateActionStatus": UpdateActionStatusType,
-    },
-    total=False,
-)
-
-_RequiredPurchaseReservedCacheNodesOfferingMessageRequestTypeDef = TypedDict(
-    "_RequiredPurchaseReservedCacheNodesOfferingMessageRequestTypeDef",
-    {
-        "ReservedCacheNodesOfferingId": str,
-    },
-)
-_OptionalPurchaseReservedCacheNodesOfferingMessageRequestTypeDef = TypedDict(
-    "_OptionalPurchaseReservedCacheNodesOfferingMessageRequestTypeDef",
-    {
-        "ReservedCacheNodeId": str,
-        "CacheNodeCount": int,
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class PurchaseReservedCacheNodesOfferingMessageRequestTypeDef(
-    _RequiredPurchaseReservedCacheNodesOfferingMessageRequestTypeDef,
-    _OptionalPurchaseReservedCacheNodesOfferingMessageRequestTypeDef,
-):
-    pass
-
-PurchaseReservedCacheNodesOfferingResultTypeDef = TypedDict(
-    "PurchaseReservedCacheNodesOfferingResultTypeDef",
-    {
-        "ReservedCacheNode": "ReservedCacheNodeTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-RebalanceSlotsInGlobalReplicationGroupMessageRequestTypeDef = TypedDict(
-    "RebalanceSlotsInGlobalReplicationGroupMessageRequestTypeDef",
-    {
-        "GlobalReplicationGroupId": str,
-        "ApplyImmediately": bool,
-    },
-)
-
-RebalanceSlotsInGlobalReplicationGroupResultTypeDef = TypedDict(
-    "RebalanceSlotsInGlobalReplicationGroupResultTypeDef",
-    {
-        "GlobalReplicationGroup": "GlobalReplicationGroupTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-RebootCacheClusterMessageRequestTypeDef = TypedDict(
-    "RebootCacheClusterMessageRequestTypeDef",
-    {
-        "CacheClusterId": str,
-        "CacheNodeIdsToReboot": List[str],
-    },
-)
-
-RebootCacheClusterResultTypeDef = TypedDict(
-    "RebootCacheClusterResultTypeDef",
-    {
-        "CacheCluster": "CacheClusterTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-RecurringChargeTypeDef = TypedDict(
-    "RecurringChargeTypeDef",
-    {
-        "RecurringChargeAmount": float,
-        "RecurringChargeFrequency": str,
-    },
-    total=False,
-)
-
-RegionalConfigurationTypeDef = TypedDict(
-    "RegionalConfigurationTypeDef",
-    {
-        "ReplicationGroupId": str,
-        "ReplicationGroupRegion": str,
-        "ReshardingConfiguration": List["ReshardingConfigurationTypeDef"],
-    },
-)
-
-RemoveTagsFromResourceMessageRequestTypeDef = TypedDict(
-    "RemoveTagsFromResourceMessageRequestTypeDef",
-    {
-        "ResourceName": str,
-        "TagKeys": List[str],
-    },
-)
-
-ReplicationGroupMessageTypeDef = TypedDict(
-    "ReplicationGroupMessageTypeDef",
-    {
-        "Marker": str,
-        "ReplicationGroups": List["ReplicationGroupTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ReplicationGroupPendingModifiedValuesTypeDef = TypedDict(
-    "ReplicationGroupPendingModifiedValuesTypeDef",
-    {
-        "PrimaryClusterId": str,
-        "AutomaticFailoverStatus": PendingAutomaticFailoverStatusType,
-        "Resharding": "ReshardingStatusTypeDef",
-        "AuthTokenStatus": AuthTokenUpdateStatusType,
-        "UserGroups": "UserGroupsUpdateStatusTypeDef",
-        "LogDeliveryConfigurations": List["PendingLogDeliveryConfigurationTypeDef"],
-        "TransitEncryptionEnabled": bool,
-        "TransitEncryptionMode": TransitEncryptionModeType,
-        "ClusterMode": ClusterModeType,
-    },
-    total=False,
-)
-
-ReplicationGroupTypeDef = TypedDict(
-    "ReplicationGroupTypeDef",
-    {
-        "ReplicationGroupId": str,
-        "Description": str,
-        "GlobalReplicationGroupInfo": "GlobalReplicationGroupInfoTypeDef",
-        "Status": str,
-        "PendingModifiedValues": "ReplicationGroupPendingModifiedValuesTypeDef",
-        "MemberClusters": List[str],
-        "NodeGroups": List["NodeGroupTypeDef"],
-        "SnapshottingClusterId": str,
-        "AutomaticFailover": AutomaticFailoverStatusType,
-        "MultiAZ": MultiAZStatusType,
-        "ConfigurationEndpoint": "EndpointTypeDef",
-        "SnapshotRetentionLimit": int,
-        "SnapshotWindow": str,
-        "ClusterEnabled": bool,
-        "CacheNodeType": str,
-        "AuthTokenEnabled": bool,
-        "AuthTokenLastModifiedDate": datetime,
-        "TransitEncryptionEnabled": bool,
-        "AtRestEncryptionEnabled": bool,
-        "MemberClustersOutpostArns": List[str],
-        "KmsKeyId": str,
-        "ARN": str,
-        "UserGroupIds": List[str],
-        "LogDeliveryConfigurations": List["LogDeliveryConfigurationTypeDef"],
-        "ReplicationGroupCreateTime": datetime,
-        "DataTiering": DataTieringStatusType,
-        "AutoMinorVersionUpgrade": bool,
-        "NetworkType": NetworkTypeType,
-        "IpDiscovery": IpDiscoveryType,
-        "TransitEncryptionMode": TransitEncryptionModeType,
-        "ClusterMode": ClusterModeType,
-    },
-    total=False,
-)
-
-ReservedCacheNodeMessageTypeDef = TypedDict(
-    "ReservedCacheNodeMessageTypeDef",
-    {
-        "Marker": str,
-        "ReservedCacheNodes": List["ReservedCacheNodeTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ReservedCacheNodeTypeDef = TypedDict(
-    "ReservedCacheNodeTypeDef",
-    {
-        "ReservedCacheNodeId": str,
-        "ReservedCacheNodesOfferingId": str,
-        "CacheNodeType": str,
-        "StartTime": datetime,
-        "Duration": int,
-        "FixedPrice": float,
-        "UsagePrice": float,
-        "CacheNodeCount": int,
-        "ProductDescription": str,
-        "OfferingType": str,
-        "State": str,
-        "RecurringCharges": List["RecurringChargeTypeDef"],
-        "ReservationARN": str,
-    },
-    total=False,
-)
-
-ReservedCacheNodesOfferingMessageTypeDef = TypedDict(
-    "ReservedCacheNodesOfferingMessageTypeDef",
-    {
-        "Marker": str,
-        "ReservedCacheNodesOfferings": List["ReservedCacheNodesOfferingTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ReservedCacheNodesOfferingTypeDef = TypedDict(
-    "ReservedCacheNodesOfferingTypeDef",
-    {
-        "ReservedCacheNodesOfferingId": str,
-        "CacheNodeType": str,
-        "Duration": int,
-        "FixedPrice": float,
-        "UsagePrice": float,
-        "ProductDescription": str,
-        "OfferingType": str,
-        "RecurringCharges": List["RecurringChargeTypeDef"],
-    },
-    total=False,
-)
-
-_RequiredResetCacheParameterGroupMessageRequestTypeDef = TypedDict(
-    "_RequiredResetCacheParameterGroupMessageRequestTypeDef",
-    {
-        "CacheParameterGroupName": str,
-    },
-)
-_OptionalResetCacheParameterGroupMessageRequestTypeDef = TypedDict(
-    "_OptionalResetCacheParameterGroupMessageRequestTypeDef",
-    {
-        "ResetAllParameters": bool,
-        "ParameterNameValues": List["ParameterNameValueTypeDef"],
-    },
-    total=False,
-)
-
-class ResetCacheParameterGroupMessageRequestTypeDef(
-    _RequiredResetCacheParameterGroupMessageRequestTypeDef,
-    _OptionalResetCacheParameterGroupMessageRequestTypeDef,
-):
-    pass
-
-ReshardingConfigurationTypeDef = TypedDict(
-    "ReshardingConfigurationTypeDef",
-    {
-        "NodeGroupId": str,
-        "PreferredAvailabilityZones": List[str],
-    },
-    total=False,
-)
-
-ReshardingStatusTypeDef = TypedDict(
-    "ReshardingStatusTypeDef",
-    {
-        "SlotMigration": "SlotMigrationTypeDef",
-    },
-    total=False,
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-RevokeCacheSecurityGroupIngressMessageRequestTypeDef = TypedDict(
-    "RevokeCacheSecurityGroupIngressMessageRequestTypeDef",
-    {
-        "CacheSecurityGroupName": str,
-        "EC2SecurityGroupName": str,
-        "EC2SecurityGroupOwnerId": str,
-    },
-)
-
-RevokeCacheSecurityGroupIngressResultTypeDef = TypedDict(
-    "RevokeCacheSecurityGroupIngressResultTypeDef",
-    {
-        "CacheSecurityGroup": "CacheSecurityGroupTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-SecurityGroupMembershipTypeDef = TypedDict(
-    "SecurityGroupMembershipTypeDef",
-    {
-        "SecurityGroupId": str,
-        "Status": str,
-    },
-    total=False,
-)
-
-ServerlessCacheConfigurationTypeDef = TypedDict(
-    "ServerlessCacheConfigurationTypeDef",
-    {
-        "ServerlessCacheName": str,
-        "Engine": str,
-        "MajorEngineVersion": str,
-    },
-    total=False,
-)
-
-ServerlessCacheSnapshotTypeDef = TypedDict(
-    "ServerlessCacheSnapshotTypeDef",
-    {
-        "ServerlessCacheSnapshotName": str,
-        "ARN": str,
-        "KmsKeyId": str,
-        "SnapshotType": str,
-        "Status": str,
-        "CreateTime": datetime,
-        "ExpiryTime": datetime,
-        "BytesUsedForCache": str,
-        "ServerlessCacheConfiguration": "ServerlessCacheConfigurationTypeDef",
-    },
-    total=False,
-)
-
-ServerlessCacheTypeDef = TypedDict(
-    "ServerlessCacheTypeDef",
-    {
-        "ServerlessCacheName": str,
-        "Description": str,
-        "CreateTime": datetime,
-        "Status": str,
-        "Engine": str,
-        "MajorEngineVersion": str,
-        "FullEngineVersion": str,
-        "CacheUsageLimits": "CacheUsageLimitsTypeDef",
-        "KmsKeyId": str,
-        "SecurityGroupIds": List[str],
-        "Endpoint": "EndpointTypeDef",
-        "ReaderEndpoint": "EndpointTypeDef",
-        "ARN": str,
-        "UserGroupId": str,
-        "SubnetIds": List[str],
-        "SnapshotRetentionLimit": int,
-        "DailySnapshotTime": str,
-    },
-    total=False,
-)
-
-ServiceUpdateTypeDef = TypedDict(
-    "ServiceUpdateTypeDef",
-    {
-        "ServiceUpdateName": str,
-        "ServiceUpdateReleaseDate": datetime,
-        "ServiceUpdateEndDate": datetime,
-        "ServiceUpdateSeverity": ServiceUpdateSeverityType,
-        "ServiceUpdateRecommendedApplyByDate": datetime,
-        "ServiceUpdateStatus": ServiceUpdateStatusType,
-        "ServiceUpdateDescription": str,
-        "ServiceUpdateType": Literal["security-update"],
-        "Engine": str,
-        "EngineVersion": str,
-        "AutoUpdateAfterRecommendedApplyByDate": bool,
-        "EstimatedUpdateTime": str,
-    },
-    total=False,
-)
-
-ServiceUpdatesMessageTypeDef = TypedDict(
-    "ServiceUpdatesMessageTypeDef",
-    {
-        "Marker": str,
-        "ServiceUpdates": List["ServiceUpdateTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-SlotMigrationTypeDef = TypedDict(
-    "SlotMigrationTypeDef",
-    {
-        "ProgressPercentage": float,
-    },
-    total=False,
-)
-
-SnapshotTypeDef = TypedDict(
-    "SnapshotTypeDef",
-    {
-        "SnapshotName": str,
-        "ReplicationGroupId": str,
-        "ReplicationGroupDescription": str,
-        "CacheClusterId": str,
-        "SnapshotStatus": str,
-        "SnapshotSource": str,
-        "CacheNodeType": str,
-        "Engine": str,
-        "EngineVersion": str,
-        "NumCacheNodes": int,
-        "PreferredAvailabilityZone": str,
-        "PreferredOutpostArn": str,
-        "CacheClusterCreateTime": datetime,
-        "PreferredMaintenanceWindow": str,
-        "TopicArn": str,
-        "Port": int,
-        "CacheParameterGroupName": str,
-        "CacheSubnetGroupName": str,
-        "VpcId": str,
-        "AutoMinorVersionUpgrade": bool,
-        "SnapshotRetentionLimit": int,
-        "SnapshotWindow": str,
-        "NumNodeGroups": int,
-        "AutomaticFailover": AutomaticFailoverStatusType,
-        "NodeSnapshots": List["NodeSnapshotTypeDef"],
-        "KmsKeyId": str,
-        "ARN": str,
-        "DataTiering": DataTieringStatusType,
-    },
-    total=False,
-)
-
-StartMigrationMessageRequestTypeDef = TypedDict(
-    "StartMigrationMessageRequestTypeDef",
-    {
-        "ReplicationGroupId": str,
-        "CustomerNodeEndpointList": List["CustomerNodeEndpointTypeDef"],
-    },
-)
-
-StartMigrationResponseTypeDef = TypedDict(
-    "StartMigrationResponseTypeDef",
-    {
-        "ReplicationGroup": "ReplicationGroupTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-SubnetOutpostTypeDef = TypedDict(
-    "SubnetOutpostTypeDef",
-    {
-        "SubnetOutpostArn": str,
-    },
-    total=False,
-)
-
-SubnetTypeDef = TypedDict(
-    "SubnetTypeDef",
-    {
-        "SubnetIdentifier": str,
-        "SubnetAvailabilityZone": "AvailabilityZoneTypeDef",
-        "SubnetOutpost": "SubnetOutpostTypeDef",
-        "SupportedNetworkTypes": List[NetworkTypeType],
-    },
-    total=False,
-)
-
-TagListMessageTypeDef = TypedDict(
-    "TagListMessageTypeDef",
-    {
-        "TagList": List["TagTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-TagTypeDef = TypedDict(
-    "TagTypeDef",
-    {
-        "Key": str,
-        "Value": str,
-    },
-    total=False,
-)
-
-TestFailoverMessageRequestTypeDef = TypedDict(
-    "TestFailoverMessageRequestTypeDef",
-    {
-        "ReplicationGroupId": str,
-        "NodeGroupId": str,
-    },
-)
-
-TestFailoverResultTypeDef = TypedDict(
-    "TestFailoverResultTypeDef",
-    {
-        "ReplicationGroup": "ReplicationGroupTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-TestMigrationMessageRequestTypeDef = TypedDict(
-    "TestMigrationMessageRequestTypeDef",
-    {
-        "ReplicationGroupId": str,
-        "CustomerNodeEndpointList": List["CustomerNodeEndpointTypeDef"],
-    },
-)
-
-TestMigrationResponseTypeDef = TypedDict(
-    "TestMigrationResponseTypeDef",
-    {
-        "ReplicationGroup": "ReplicationGroupTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-TimeRangeFilterTypeDef = TypedDict(
-    "TimeRangeFilterTypeDef",
-    {
-        "StartTime": Union[datetime, str],
-        "EndTime": Union[datetime, str],
-    },
-    total=False,
-)
-
-UnprocessedUpdateActionTypeDef = TypedDict(
-    "UnprocessedUpdateActionTypeDef",
-    {
-        "ReplicationGroupId": str,
-        "CacheClusterId": str,
-        "ServiceUpdateName": str,
-        "ErrorType": str,
-        "ErrorMessage": str,
-    },
-    total=False,
-)
-
-UpdateActionResultsMessageTypeDef = TypedDict(
-    "UpdateActionResultsMessageTypeDef",
-    {
-        "ProcessedUpdateActions": List["ProcessedUpdateActionTypeDef"],
-        "UnprocessedUpdateActions": List["UnprocessedUpdateActionTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UpdateActionTypeDef = TypedDict(
-    "UpdateActionTypeDef",
-    {
-        "ReplicationGroupId": str,
-        "CacheClusterId": str,
-        "ServiceUpdateName": str,
-        "ServiceUpdateReleaseDate": datetime,
-        "ServiceUpdateSeverity": ServiceUpdateSeverityType,
-        "ServiceUpdateStatus": ServiceUpdateStatusType,
-        "ServiceUpdateRecommendedApplyByDate": datetime,
-        "ServiceUpdateType": Literal["security-update"],
-        "UpdateActionAvailableDate": datetime,
-        "UpdateActionStatus": UpdateActionStatusType,
-        "NodesUpdated": str,
-        "UpdateActionStatusModifiedDate": datetime,
-        "SlaMet": SlaMetType,
-        "NodeGroupUpdateStatus": List["NodeGroupUpdateStatusTypeDef"],
-        "CacheNodeUpdateStatus": List["CacheNodeUpdateStatusTypeDef"],
-        "EstimatedUpdateTime": str,
-        "Engine": str,
-    },
-    total=False,
-)
-
-UpdateActionsMessageTypeDef = TypedDict(
-    "UpdateActionsMessageTypeDef",
-    {
-        "Marker": str,
-        "UpdateActions": List["UpdateActionTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UserGroupPendingChangesTypeDef = TypedDict(
-    "UserGroupPendingChangesTypeDef",
-    {
-        "UserIdsToRemove": List[str],
-        "UserIdsToAdd": List[str],
-    },
-    total=False,
-)
-
-UserGroupResponseMetadataTypeDef = TypedDict(
-    "UserGroupResponseMetadataTypeDef",
-    {
-        "UserGroupId": str,
-        "Status": str,
-        "Engine": str,
-        "UserIds": List[str],
-        "MinimumEngineVersion": str,
-        "PendingChanges": "UserGroupPendingChangesTypeDef",
-        "ReplicationGroups": List[str],
-        "ServerlessCaches": List[str],
-        "ARN": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UserGroupTypeDef = TypedDict(
-    "UserGroupTypeDef",
-    {
-        "UserGroupId": str,
-        "Status": str,
-        "Engine": str,
-        "UserIds": List[str],
-        "MinimumEngineVersion": str,
-        "PendingChanges": "UserGroupPendingChangesTypeDef",
-        "ReplicationGroups": List[str],
-        "ServerlessCaches": List[str],
-        "ARN": str,
-    },
-    total=False,
-)
-
-UserGroupsUpdateStatusTypeDef = TypedDict(
-    "UserGroupsUpdateStatusTypeDef",
-    {
-        "UserGroupIdsToAdd": List[str],
-        "UserGroupIdsToRemove": List[str],
-    },
-    total=False,
-)
-
-UserResponseMetadataTypeDef = TypedDict(
-    "UserResponseMetadataTypeDef",
-    {
-        "UserId": str,
-        "UserName": str,
-        "Status": str,
-        "Engine": str,
-        "MinimumEngineVersion": str,
-        "AccessString": str,
-        "UserGroupIds": List[str],
-        "Authentication": "AuthenticationTypeDef",
-        "ARN": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UserTypeDef = TypedDict(
-    "UserTypeDef",
-    {
-        "UserId": str,
-        "UserName": str,
-        "Status": str,
-        "Engine": str,
-        "MinimumEngineVersion": str,
-        "AccessString": str,
-        "UserGroupIds": List[str],
-        "Authentication": "AuthenticationTypeDef",
-        "ARN": str,
-    },
-    total=False,
-)
-
-WaiterConfigTypeDef = TypedDict(
-    "WaiterConfigTypeDef",
-    {
-        "Delay": int,
-        "MaxAttempts": int,
-    },
-    total=False,
-)
+        "Type": NotRequired[AuthenticationTypeType],
+        "PasswordCount": NotRequired[int],
+    },
+)
+
+class AuthorizeCacheSecurityGroupIngressMessageTypeDef(TypedDict):
+    CacheSecurityGroupName: str
+    EC2SecurityGroupName: str
+    EC2SecurityGroupOwnerId: str
+
+class AvailabilityZoneTypeDef(TypedDict):
+    Name: NotRequired[str]
+
+class BatchApplyUpdateActionMessageTypeDef(TypedDict):
+    ServiceUpdateName: str
+    ReplicationGroupIds: NotRequired[Sequence[str]]
+    CacheClusterIds: NotRequired[Sequence[str]]
+
+class BatchStopUpdateActionMessageTypeDef(TypedDict):
+    ServiceUpdateName: str
+    ReplicationGroupIds: NotRequired[Sequence[str]]
+    CacheClusterIds: NotRequired[Sequence[str]]
+
+class CacheParameterGroupStatusTypeDef(TypedDict):
+    CacheParameterGroupName: NotRequired[str]
+    ParameterApplyStatus: NotRequired[str]
+    CacheNodeIdsToReboot: NotRequired[List[str]]
+
+class CacheSecurityGroupMembershipTypeDef(TypedDict):
+    CacheSecurityGroupName: NotRequired[str]
+    Status: NotRequired[str]
+
+class EndpointTypeDef(TypedDict):
+    Address: NotRequired[str]
+    Port: NotRequired[int]
+
+class NotificationConfigurationTypeDef(TypedDict):
+    TopicArn: NotRequired[str]
+    TopicStatus: NotRequired[str]
+
+class SecurityGroupMembershipTypeDef(TypedDict):
+    SecurityGroupId: NotRequired[str]
+    Status: NotRequired[str]
+
+class CacheEngineVersionTypeDef(TypedDict):
+    Engine: NotRequired[str]
+    EngineVersion: NotRequired[str]
+    CacheParameterGroupFamily: NotRequired[str]
+    CacheEngineDescription: NotRequired[str]
+    CacheEngineVersionDescription: NotRequired[str]
+
+class CacheNodeTypeSpecificValueTypeDef(TypedDict):
+    CacheNodeType: NotRequired[str]
+    Value: NotRequired[str]
+
+class CacheNodeUpdateStatusTypeDef(TypedDict):
+    CacheNodeId: NotRequired[str]
+    NodeUpdateStatus: NotRequired[NodeUpdateStatusType]
+    NodeDeletionDate: NotRequired[datetime]
+    NodeUpdateStartDate: NotRequired[datetime]
+    NodeUpdateEndDate: NotRequired[datetime]
+    NodeUpdateInitiatedBy: NotRequired[NodeUpdateInitiatedByType]
+    NodeUpdateInitiatedDate: NotRequired[datetime]
+    NodeUpdateStatusModifiedDate: NotRequired[datetime]
+
+class ParameterTypeDef(TypedDict):
+    ParameterName: NotRequired[str]
+    ParameterValue: NotRequired[str]
+    Description: NotRequired[str]
+    Source: NotRequired[str]
+    DataType: NotRequired[str]
+    AllowedValues: NotRequired[str]
+    IsModifiable: NotRequired[bool]
+    MinimumEngineVersion: NotRequired[str]
+    ChangeType: NotRequired[ChangeTypeType]
+
+class CacheParameterGroupTypeDef(TypedDict):
+    CacheParameterGroupName: NotRequired[str]
+    CacheParameterGroupFamily: NotRequired[str]
+    Description: NotRequired[str]
+    IsGlobal: NotRequired[bool]
+    ARN: NotRequired[str]
+
+class EC2SecurityGroupTypeDef(TypedDict):
+    Status: NotRequired[str]
+    EC2SecurityGroupName: NotRequired[str]
+    EC2SecurityGroupOwnerId: NotRequired[str]
+
+class DataStorageTypeDef(TypedDict):
+    Unit: Literal["GB"]
+    Maximum: NotRequired[int]
+    Minimum: NotRequired[int]
+
+class ECPUPerSecondTypeDef(TypedDict):
+    Maximum: NotRequired[int]
+    Minimum: NotRequired[int]
+
+class CloudWatchLogsDestinationDetailsTypeDef(TypedDict):
+    LogGroup: NotRequired[str]
+
+class CompleteMigrationMessageTypeDef(TypedDict):
+    ReplicationGroupId: str
+    Force: NotRequired[bool]
+
+class ConfigureShardTypeDef(TypedDict):
+    NodeGroupId: str
+    NewReplicaCount: int
+    PreferredAvailabilityZones: NotRequired[Sequence[str]]
+    PreferredOutpostArns: NotRequired[Sequence[str]]
+
+class CreateGlobalReplicationGroupMessageTypeDef(TypedDict):
+    GlobalReplicationGroupIdSuffix: str
+    PrimaryReplicationGroupId: str
+    GlobalReplicationGroupDescription: NotRequired[str]
+
+class CustomerNodeEndpointTypeDef(TypedDict):
+    Address: NotRequired[str]
+    Port: NotRequired[int]
+
+class DecreaseNodeGroupsInGlobalReplicationGroupMessageTypeDef(TypedDict):
+    GlobalReplicationGroupId: str
+    NodeGroupCount: int
+    ApplyImmediately: bool
+    GlobalNodeGroupsToRemove: NotRequired[Sequence[str]]
+    GlobalNodeGroupsToRetain: NotRequired[Sequence[str]]
+
+class DeleteCacheClusterMessageTypeDef(TypedDict):
+    CacheClusterId: str
+    FinalSnapshotIdentifier: NotRequired[str]
+
+class DeleteCacheParameterGroupMessageTypeDef(TypedDict):
+    CacheParameterGroupName: str
+
+class DeleteCacheSecurityGroupMessageTypeDef(TypedDict):
+    CacheSecurityGroupName: str
+
+class DeleteCacheSubnetGroupMessageTypeDef(TypedDict):
+    CacheSubnetGroupName: str
+
+class DeleteGlobalReplicationGroupMessageTypeDef(TypedDict):
+    GlobalReplicationGroupId: str
+    RetainPrimaryReplicationGroup: bool
+
+class DeleteReplicationGroupMessageTypeDef(TypedDict):
+    ReplicationGroupId: str
+    RetainPrimaryCluster: NotRequired[bool]
+    FinalSnapshotIdentifier: NotRequired[str]
+
+class DeleteServerlessCacheRequestTypeDef(TypedDict):
+    ServerlessCacheName: str
+    FinalSnapshotName: NotRequired[str]
+
+class DeleteServerlessCacheSnapshotRequestTypeDef(TypedDict):
+    ServerlessCacheSnapshotName: str
+
+class DeleteSnapshotMessageTypeDef(TypedDict):
+    SnapshotName: str
+
+class DeleteUserGroupMessageTypeDef(TypedDict):
+    UserGroupId: str
+
+class DeleteUserMessageTypeDef(TypedDict):
+    UserId: str
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class DescribeCacheClustersMessageTypeDef(TypedDict):
+    CacheClusterId: NotRequired[str]
+    MaxRecords: NotRequired[int]
+    Marker: NotRequired[str]
+    ShowCacheNodeInfo: NotRequired[bool]
+    ShowCacheClustersNotInReplicationGroups: NotRequired[bool]
+
+class WaiterConfigTypeDef(TypedDict):
+    Delay: NotRequired[int]
+    MaxAttempts: NotRequired[int]
+
+class DescribeCacheEngineVersionsMessageTypeDef(TypedDict):
+    Engine: NotRequired[str]
+    EngineVersion: NotRequired[str]
+    CacheParameterGroupFamily: NotRequired[str]
+    MaxRecords: NotRequired[int]
+    Marker: NotRequired[str]
+    DefaultOnly: NotRequired[bool]
+
+class DescribeCacheParameterGroupsMessageTypeDef(TypedDict):
+    CacheParameterGroupName: NotRequired[str]
+    MaxRecords: NotRequired[int]
+    Marker: NotRequired[str]
+
+class DescribeCacheParametersMessageTypeDef(TypedDict):
+    CacheParameterGroupName: str
+    Source: NotRequired[str]
+    MaxRecords: NotRequired[int]
+    Marker: NotRequired[str]
+
+class DescribeCacheSecurityGroupsMessageTypeDef(TypedDict):
+    CacheSecurityGroupName: NotRequired[str]
+    MaxRecords: NotRequired[int]
+    Marker: NotRequired[str]
+
+class DescribeCacheSubnetGroupsMessageTypeDef(TypedDict):
+    CacheSubnetGroupName: NotRequired[str]
+    MaxRecords: NotRequired[int]
+    Marker: NotRequired[str]
+
+class DescribeEngineDefaultParametersMessageTypeDef(TypedDict):
+    CacheParameterGroupFamily: str
+    MaxRecords: NotRequired[int]
+    Marker: NotRequired[str]
+
+TimestampTypeDef = Union[datetime, str]
+
+class DescribeGlobalReplicationGroupsMessageTypeDef(TypedDict):
+    GlobalReplicationGroupId: NotRequired[str]
+    MaxRecords: NotRequired[int]
+    Marker: NotRequired[str]
+    ShowMemberInfo: NotRequired[bool]
+
+class DescribeReplicationGroupsMessageTypeDef(TypedDict):
+    ReplicationGroupId: NotRequired[str]
+    MaxRecords: NotRequired[int]
+    Marker: NotRequired[str]
+
+class DescribeReservedCacheNodesMessageTypeDef(TypedDict):
+    ReservedCacheNodeId: NotRequired[str]
+    ReservedCacheNodesOfferingId: NotRequired[str]
+    CacheNodeType: NotRequired[str]
+    Duration: NotRequired[str]
+    ProductDescription: NotRequired[str]
+    OfferingType: NotRequired[str]
+    MaxRecords: NotRequired[int]
+    Marker: NotRequired[str]
+
+class DescribeReservedCacheNodesOfferingsMessageTypeDef(TypedDict):
+    ReservedCacheNodesOfferingId: NotRequired[str]
+    CacheNodeType: NotRequired[str]
+    Duration: NotRequired[str]
+    ProductDescription: NotRequired[str]
+    OfferingType: NotRequired[str]
+    MaxRecords: NotRequired[int]
+    Marker: NotRequired[str]
+
+class DescribeServerlessCacheSnapshotsRequestTypeDef(TypedDict):
+    ServerlessCacheName: NotRequired[str]
+    ServerlessCacheSnapshotName: NotRequired[str]
+    SnapshotType: NotRequired[str]
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class DescribeServerlessCachesRequestTypeDef(TypedDict):
+    ServerlessCacheName: NotRequired[str]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class DescribeServiceUpdatesMessageTypeDef(TypedDict):
+    ServiceUpdateName: NotRequired[str]
+    ServiceUpdateStatus: NotRequired[Sequence[ServiceUpdateStatusType]]
+    MaxRecords: NotRequired[int]
+    Marker: NotRequired[str]
+
+class DescribeSnapshotsMessageTypeDef(TypedDict):
+    ReplicationGroupId: NotRequired[str]
+    CacheClusterId: NotRequired[str]
+    SnapshotName: NotRequired[str]
+    SnapshotSource: NotRequired[str]
+    Marker: NotRequired[str]
+    MaxRecords: NotRequired[int]
+    ShowNodeGroupConfig: NotRequired[bool]
+
+class DescribeUserGroupsMessageTypeDef(TypedDict):
+    UserGroupId: NotRequired[str]
+    MaxRecords: NotRequired[int]
+    Marker: NotRequired[str]
+
+class FilterTypeDef(TypedDict):
+    Name: str
+    Values: Sequence[str]
+
+class KinesisFirehoseDestinationDetailsTypeDef(TypedDict):
+    DeliveryStream: NotRequired[str]
+
+class DisassociateGlobalReplicationGroupMessageTypeDef(TypedDict):
+    GlobalReplicationGroupId: str
+    ReplicationGroupId: str
+    ReplicationGroupRegion: str
+
+class EventTypeDef(TypedDict):
+    SourceIdentifier: NotRequired[str]
+    SourceType: NotRequired[SourceTypeType]
+    Message: NotRequired[str]
+    Date: NotRequired[datetime]
+
+class ExportServerlessCacheSnapshotRequestTypeDef(TypedDict):
+    ServerlessCacheSnapshotName: str
+    S3BucketName: str
+
+class FailoverGlobalReplicationGroupMessageTypeDef(TypedDict):
+    GlobalReplicationGroupId: str
+    PrimaryRegion: str
+    PrimaryReplicationGroupId: str
+
+class GlobalNodeGroupTypeDef(TypedDict):
+    GlobalNodeGroupId: NotRequired[str]
+    Slots: NotRequired[str]
+
+class GlobalReplicationGroupInfoTypeDef(TypedDict):
+    GlobalReplicationGroupId: NotRequired[str]
+    GlobalReplicationGroupMemberRole: NotRequired[str]
+
+class GlobalReplicationGroupMemberTypeDef(TypedDict):
+    ReplicationGroupId: NotRequired[str]
+    ReplicationGroupRegion: NotRequired[str]
+    Role: NotRequired[str]
+    AutomaticFailover: NotRequired[AutomaticFailoverStatusType]
+    Status: NotRequired[str]
+
+class ListAllowedNodeTypeModificationsMessageTypeDef(TypedDict):
+    CacheClusterId: NotRequired[str]
+    ReplicationGroupId: NotRequired[str]
+
+class ListTagsForResourceMessageTypeDef(TypedDict):
+    ResourceName: str
+
+class ScaleConfigTypeDef(TypedDict):
+    ScalePercentage: NotRequired[int]
+    ScaleIntervalMinutes: NotRequired[int]
+
+class ParameterNameValueTypeDef(TypedDict):
+    ParameterName: NotRequired[str]
+    ParameterValue: NotRequired[str]
+
+class ModifyCacheSubnetGroupMessageTypeDef(TypedDict):
+    CacheSubnetGroupName: str
+    CacheSubnetGroupDescription: NotRequired[str]
+    SubnetIds: NotRequired[Sequence[str]]
+
+class ModifyGlobalReplicationGroupMessageTypeDef(TypedDict):
+    GlobalReplicationGroupId: str
+    ApplyImmediately: bool
+    CacheNodeType: NotRequired[str]
+    Engine: NotRequired[str]
+    EngineVersion: NotRequired[str]
+    CacheParameterGroupName: NotRequired[str]
+    GlobalReplicationGroupDescription: NotRequired[str]
+    AutomaticFailoverEnabled: NotRequired[bool]
+
+class ReshardingConfigurationTypeDef(TypedDict):
+    NodeGroupId: NotRequired[str]
+    PreferredAvailabilityZones: NotRequired[Sequence[str]]
+
+class ModifyUserGroupMessageTypeDef(TypedDict):
+    UserGroupId: str
+    UserIdsToAdd: NotRequired[Sequence[str]]
+    UserIdsToRemove: NotRequired[Sequence[str]]
+    Engine: NotRequired[str]
+
+class NodeGroupConfigurationOutputTypeDef(TypedDict):
+    NodeGroupId: NotRequired[str]
+    Slots: NotRequired[str]
+    ReplicaCount: NotRequired[int]
+    PrimaryAvailabilityZone: NotRequired[str]
+    ReplicaAvailabilityZones: NotRequired[List[str]]
+    PrimaryOutpostArn: NotRequired[str]
+    ReplicaOutpostArns: NotRequired[List[str]]
+
+class NodeGroupConfigurationTypeDef(TypedDict):
+    NodeGroupId: NotRequired[str]
+    Slots: NotRequired[str]
+    ReplicaCount: NotRequired[int]
+    PrimaryAvailabilityZone: NotRequired[str]
+    ReplicaAvailabilityZones: NotRequired[Sequence[str]]
+    PrimaryOutpostArn: NotRequired[str]
+    ReplicaOutpostArns: NotRequired[Sequence[str]]
+
+class NodeGroupMemberUpdateStatusTypeDef(TypedDict):
+    CacheClusterId: NotRequired[str]
+    CacheNodeId: NotRequired[str]
+    NodeUpdateStatus: NotRequired[NodeUpdateStatusType]
+    NodeDeletionDate: NotRequired[datetime]
+    NodeUpdateStartDate: NotRequired[datetime]
+    NodeUpdateEndDate: NotRequired[datetime]
+    NodeUpdateInitiatedBy: NotRequired[NodeUpdateInitiatedByType]
+    NodeUpdateInitiatedDate: NotRequired[datetime]
+    NodeUpdateStatusModifiedDate: NotRequired[datetime]
+
+class ProcessedUpdateActionTypeDef(TypedDict):
+    ReplicationGroupId: NotRequired[str]
+    CacheClusterId: NotRequired[str]
+    ServiceUpdateName: NotRequired[str]
+    UpdateActionStatus: NotRequired[UpdateActionStatusType]
+
+class RebalanceSlotsInGlobalReplicationGroupMessageTypeDef(TypedDict):
+    GlobalReplicationGroupId: str
+    ApplyImmediately: bool
+
+class RebootCacheClusterMessageTypeDef(TypedDict):
+    CacheClusterId: str
+    CacheNodeIdsToReboot: Sequence[str]
+
+class RecurringChargeTypeDef(TypedDict):
+    RecurringChargeAmount: NotRequired[float]
+    RecurringChargeFrequency: NotRequired[str]
+
+class RemoveTagsFromResourceMessageTypeDef(TypedDict):
+    ResourceName: str
+    TagKeys: Sequence[str]
+
+class UserGroupsUpdateStatusTypeDef(TypedDict):
+    UserGroupIdsToAdd: NotRequired[List[str]]
+    UserGroupIdsToRemove: NotRequired[List[str]]
+
+class SlotMigrationTypeDef(TypedDict):
+    ProgressPercentage: NotRequired[float]
+
+class RevokeCacheSecurityGroupIngressMessageTypeDef(TypedDict):
+    CacheSecurityGroupName: str
+    EC2SecurityGroupName: str
+    EC2SecurityGroupOwnerId: str
+
+class ServerlessCacheConfigurationTypeDef(TypedDict):
+    ServerlessCacheName: NotRequired[str]
+    Engine: NotRequired[str]
+    MajorEngineVersion: NotRequired[str]
+
+class ServiceUpdateTypeDef(TypedDict):
+    ServiceUpdateName: NotRequired[str]
+    ServiceUpdateReleaseDate: NotRequired[datetime]
+    ServiceUpdateEndDate: NotRequired[datetime]
+    ServiceUpdateSeverity: NotRequired[ServiceUpdateSeverityType]
+    ServiceUpdateRecommendedApplyByDate: NotRequired[datetime]
+    ServiceUpdateStatus: NotRequired[ServiceUpdateStatusType]
+    ServiceUpdateDescription: NotRequired[str]
+    ServiceUpdateType: NotRequired[Literal["security-update"]]
+    Engine: NotRequired[str]
+    EngineVersion: NotRequired[str]
+    AutoUpdateAfterRecommendedApplyByDate: NotRequired[bool]
+    EstimatedUpdateTime: NotRequired[str]
+
+class SubnetOutpostTypeDef(TypedDict):
+    SubnetOutpostArn: NotRequired[str]
+
+class TestFailoverMessageTypeDef(TypedDict):
+    ReplicationGroupId: str
+    NodeGroupId: str
+
+class UnprocessedUpdateActionTypeDef(TypedDict):
+    ReplicationGroupId: NotRequired[str]
+    CacheClusterId: NotRequired[str]
+    ServiceUpdateName: NotRequired[str]
+    ErrorType: NotRequired[str]
+    ErrorMessage: NotRequired[str]
+
+class UserGroupPendingChangesTypeDef(TypedDict):
+    UserIdsToRemove: NotRequired[List[str]]
+    UserIdsToAdd: NotRequired[List[str]]
+
+class AddTagsToResourceMessageTypeDef(TypedDict):
+    ResourceName: str
+    Tags: Sequence[TagTypeDef]
+
+class CopyServerlessCacheSnapshotRequestTypeDef(TypedDict):
+    SourceServerlessCacheSnapshotName: str
+    TargetServerlessCacheSnapshotName: str
+    KmsKeyId: NotRequired[str]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+
+class CopySnapshotMessageTypeDef(TypedDict):
+    SourceSnapshotName: str
+    TargetSnapshotName: str
+    TargetBucket: NotRequired[str]
+    KmsKeyId: NotRequired[str]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+
+class CreateCacheParameterGroupMessageTypeDef(TypedDict):
+    CacheParameterGroupName: str
+    CacheParameterGroupFamily: str
+    Description: str
+    Tags: NotRequired[Sequence[TagTypeDef]]
+
+class CreateCacheSecurityGroupMessageTypeDef(TypedDict):
+    CacheSecurityGroupName: str
+    Description: str
+    Tags: NotRequired[Sequence[TagTypeDef]]
+
+class CreateCacheSubnetGroupMessageTypeDef(TypedDict):
+    CacheSubnetGroupName: str
+    CacheSubnetGroupDescription: str
+    SubnetIds: Sequence[str]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+
+class CreateServerlessCacheSnapshotRequestTypeDef(TypedDict):
+    ServerlessCacheSnapshotName: str
+    ServerlessCacheName: str
+    KmsKeyId: NotRequired[str]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+
+class CreateSnapshotMessageTypeDef(TypedDict):
+    SnapshotName: str
+    ReplicationGroupId: NotRequired[str]
+    CacheClusterId: NotRequired[str]
+    KmsKeyId: NotRequired[str]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+
+class CreateUserGroupMessageTypeDef(TypedDict):
+    UserGroupId: str
+    Engine: str
+    UserIds: NotRequired[Sequence[str]]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+
+class PurchaseReservedCacheNodesOfferingMessageTypeDef(TypedDict):
+    ReservedCacheNodesOfferingId: str
+    ReservedCacheNodeId: NotRequired[str]
+    CacheNodeCount: NotRequired[int]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+
+class AllowedNodeTypeModificationsMessageTypeDef(TypedDict):
+    ScaleUpModifications: List[str]
+    ScaleDownModifications: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CacheParameterGroupNameMessageTypeDef(TypedDict):
+    CacheParameterGroupName: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class EmptyResponseMetadataTypeDef(TypedDict):
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class TagListMessageTypeDef(TypedDict):
+    TagList: List[TagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateUserMessageTypeDef(TypedDict):
+    UserId: str
+    UserName: str
+    Engine: str
+    AccessString: str
+    Passwords: NotRequired[Sequence[str]]
+    NoPasswordRequired: NotRequired[bool]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+    AuthenticationMode: NotRequired[AuthenticationModeTypeDef]
+
+class ModifyUserMessageTypeDef(TypedDict):
+    UserId: str
+    AccessString: NotRequired[str]
+    AppendAccessString: NotRequired[str]
+    Passwords: NotRequired[Sequence[str]]
+    NoPasswordRequired: NotRequired[bool]
+    AuthenticationMode: NotRequired[AuthenticationModeTypeDef]
+    Engine: NotRequired[str]
+
+class UserResponseTypeDef(TypedDict):
+    UserId: str
+    UserName: str
+    Status: str
+    Engine: str
+    MinimumEngineVersion: str
+    AccessString: str
+    UserGroupIds: List[str]
+    Authentication: AuthenticationTypeDef
+    ARN: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UserTypeDef(TypedDict):
+    UserId: NotRequired[str]
+    UserName: NotRequired[str]
+    Status: NotRequired[str]
+    Engine: NotRequired[str]
+    MinimumEngineVersion: NotRequired[str]
+    AccessString: NotRequired[str]
+    UserGroupIds: NotRequired[List[str]]
+    Authentication: NotRequired[AuthenticationTypeDef]
+    ARN: NotRequired[str]
+
+class CacheNodeTypeDef(TypedDict):
+    CacheNodeId: NotRequired[str]
+    CacheNodeStatus: NotRequired[str]
+    CacheNodeCreateTime: NotRequired[datetime]
+    Endpoint: NotRequired[EndpointTypeDef]
+    ParameterGroupStatus: NotRequired[str]
+    SourceCacheNodeId: NotRequired[str]
+    CustomerAvailabilityZone: NotRequired[str]
+    CustomerOutpostArn: NotRequired[str]
+
+class NodeGroupMemberTypeDef(TypedDict):
+    CacheClusterId: NotRequired[str]
+    CacheNodeId: NotRequired[str]
+    ReadEndpoint: NotRequired[EndpointTypeDef]
+    PreferredAvailabilityZone: NotRequired[str]
+    PreferredOutpostArn: NotRequired[str]
+    CurrentRole: NotRequired[str]
+
+class CacheEngineVersionMessageTypeDef(TypedDict):
+    Marker: str
+    CacheEngineVersions: List[CacheEngineVersionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CacheNodeTypeSpecificParameterTypeDef(TypedDict):
+    ParameterName: NotRequired[str]
+    Description: NotRequired[str]
+    Source: NotRequired[str]
+    DataType: NotRequired[str]
+    AllowedValues: NotRequired[str]
+    IsModifiable: NotRequired[bool]
+    MinimumEngineVersion: NotRequired[str]
+    CacheNodeTypeSpecificValues: NotRequired[List[CacheNodeTypeSpecificValueTypeDef]]
+    ChangeType: NotRequired[ChangeTypeType]
+
+class CacheParameterGroupsMessageTypeDef(TypedDict):
+    Marker: str
+    CacheParameterGroups: List[CacheParameterGroupTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateCacheParameterGroupResultTypeDef(TypedDict):
+    CacheParameterGroup: CacheParameterGroupTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CacheSecurityGroupTypeDef(TypedDict):
+    OwnerId: NotRequired[str]
+    CacheSecurityGroupName: NotRequired[str]
+    Description: NotRequired[str]
+    EC2SecurityGroups: NotRequired[List[EC2SecurityGroupTypeDef]]
+    ARN: NotRequired[str]
+
+class CacheUsageLimitsTypeDef(TypedDict):
+    DataStorage: NotRequired[DataStorageTypeDef]
+    ECPUPerSecond: NotRequired[ECPUPerSecondTypeDef]
+
+class DecreaseReplicaCountMessageTypeDef(TypedDict):
+    ReplicationGroupId: str
+    ApplyImmediately: bool
+    NewReplicaCount: NotRequired[int]
+    ReplicaConfiguration: NotRequired[Sequence[ConfigureShardTypeDef]]
+    ReplicasToRemove: NotRequired[Sequence[str]]
+
+class IncreaseReplicaCountMessageTypeDef(TypedDict):
+    ReplicationGroupId: str
+    ApplyImmediately: bool
+    NewReplicaCount: NotRequired[int]
+    ReplicaConfiguration: NotRequired[Sequence[ConfigureShardTypeDef]]
+
+class StartMigrationMessageTypeDef(TypedDict):
+    ReplicationGroupId: str
+    CustomerNodeEndpointList: Sequence[CustomerNodeEndpointTypeDef]
+
+class TestMigrationMessageTypeDef(TypedDict):
+    ReplicationGroupId: str
+    CustomerNodeEndpointList: Sequence[CustomerNodeEndpointTypeDef]
+
+class DescribeCacheClustersMessagePaginateTypeDef(TypedDict):
+    CacheClusterId: NotRequired[str]
+    ShowCacheNodeInfo: NotRequired[bool]
+    ShowCacheClustersNotInReplicationGroups: NotRequired[bool]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeCacheEngineVersionsMessagePaginateTypeDef(TypedDict):
+    Engine: NotRequired[str]
+    EngineVersion: NotRequired[str]
+    CacheParameterGroupFamily: NotRequired[str]
+    DefaultOnly: NotRequired[bool]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeCacheParameterGroupsMessagePaginateTypeDef(TypedDict):
+    CacheParameterGroupName: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeCacheParametersMessagePaginateTypeDef(TypedDict):
+    CacheParameterGroupName: str
+    Source: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeCacheSecurityGroupsMessagePaginateTypeDef(TypedDict):
+    CacheSecurityGroupName: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeCacheSubnetGroupsMessagePaginateTypeDef(TypedDict):
+    CacheSubnetGroupName: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeEngineDefaultParametersMessagePaginateTypeDef(TypedDict):
+    CacheParameterGroupFamily: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeGlobalReplicationGroupsMessagePaginateTypeDef(TypedDict):
+    GlobalReplicationGroupId: NotRequired[str]
+    ShowMemberInfo: NotRequired[bool]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeReplicationGroupsMessagePaginateTypeDef(TypedDict):
+    ReplicationGroupId: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeReservedCacheNodesMessagePaginateTypeDef(TypedDict):
+    ReservedCacheNodeId: NotRequired[str]
+    ReservedCacheNodesOfferingId: NotRequired[str]
+    CacheNodeType: NotRequired[str]
+    Duration: NotRequired[str]
+    ProductDescription: NotRequired[str]
+    OfferingType: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeReservedCacheNodesOfferingsMessagePaginateTypeDef(TypedDict):
+    ReservedCacheNodesOfferingId: NotRequired[str]
+    CacheNodeType: NotRequired[str]
+    Duration: NotRequired[str]
+    ProductDescription: NotRequired[str]
+    OfferingType: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeServerlessCacheSnapshotsRequestPaginateTypeDef(TypedDict):
+    ServerlessCacheName: NotRequired[str]
+    ServerlessCacheSnapshotName: NotRequired[str]
+    SnapshotType: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeServerlessCachesRequestPaginateTypeDef(TypedDict):
+    ServerlessCacheName: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeServiceUpdatesMessagePaginateTypeDef(TypedDict):
+    ServiceUpdateName: NotRequired[str]
+    ServiceUpdateStatus: NotRequired[Sequence[ServiceUpdateStatusType]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeSnapshotsMessagePaginateTypeDef(TypedDict):
+    ReplicationGroupId: NotRequired[str]
+    CacheClusterId: NotRequired[str]
+    SnapshotName: NotRequired[str]
+    SnapshotSource: NotRequired[str]
+    ShowNodeGroupConfig: NotRequired[bool]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeUserGroupsMessagePaginateTypeDef(TypedDict):
+    UserGroupId: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeCacheClustersMessageWaitExtraTypeDef(TypedDict):
+    CacheClusterId: NotRequired[str]
+    MaxRecords: NotRequired[int]
+    Marker: NotRequired[str]
+    ShowCacheNodeInfo: NotRequired[bool]
+    ShowCacheClustersNotInReplicationGroups: NotRequired[bool]
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class DescribeCacheClustersMessageWaitTypeDef(TypedDict):
+    CacheClusterId: NotRequired[str]
+    MaxRecords: NotRequired[int]
+    Marker: NotRequired[str]
+    ShowCacheNodeInfo: NotRequired[bool]
+    ShowCacheClustersNotInReplicationGroups: NotRequired[bool]
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class DescribeReplicationGroupsMessageWaitExtraTypeDef(TypedDict):
+    ReplicationGroupId: NotRequired[str]
+    MaxRecords: NotRequired[int]
+    Marker: NotRequired[str]
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class DescribeReplicationGroupsMessageWaitTypeDef(TypedDict):
+    ReplicationGroupId: NotRequired[str]
+    MaxRecords: NotRequired[int]
+    Marker: NotRequired[str]
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class DescribeEventsMessagePaginateTypeDef(TypedDict):
+    SourceIdentifier: NotRequired[str]
+    SourceType: NotRequired[SourceTypeType]
+    StartTime: NotRequired[TimestampTypeDef]
+    EndTime: NotRequired[TimestampTypeDef]
+    Duration: NotRequired[int]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeEventsMessageTypeDef(TypedDict):
+    SourceIdentifier: NotRequired[str]
+    SourceType: NotRequired[SourceTypeType]
+    StartTime: NotRequired[TimestampTypeDef]
+    EndTime: NotRequired[TimestampTypeDef]
+    Duration: NotRequired[int]
+    MaxRecords: NotRequired[int]
+    Marker: NotRequired[str]
+
+class TimeRangeFilterTypeDef(TypedDict):
+    StartTime: NotRequired[TimestampTypeDef]
+    EndTime: NotRequired[TimestampTypeDef]
+
+class DescribeUsersMessagePaginateTypeDef(TypedDict):
+    Engine: NotRequired[str]
+    UserId: NotRequired[str]
+    Filters: NotRequired[Sequence[FilterTypeDef]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeUsersMessageTypeDef(TypedDict):
+    Engine: NotRequired[str]
+    UserId: NotRequired[str]
+    Filters: NotRequired[Sequence[FilterTypeDef]]
+    MaxRecords: NotRequired[int]
+    Marker: NotRequired[str]
+
+class DestinationDetailsTypeDef(TypedDict):
+    CloudWatchLogsDetails: NotRequired[CloudWatchLogsDestinationDetailsTypeDef]
+    KinesisFirehoseDetails: NotRequired[KinesisFirehoseDestinationDetailsTypeDef]
+
+class EventsMessageTypeDef(TypedDict):
+    Marker: str
+    Events: List[EventTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GlobalReplicationGroupTypeDef(TypedDict):
+    GlobalReplicationGroupId: NotRequired[str]
+    GlobalReplicationGroupDescription: NotRequired[str]
+    Status: NotRequired[str]
+    CacheNodeType: NotRequired[str]
+    Engine: NotRequired[str]
+    EngineVersion: NotRequired[str]
+    Members: NotRequired[List[GlobalReplicationGroupMemberTypeDef]]
+    ClusterEnabled: NotRequired[bool]
+    GlobalNodeGroups: NotRequired[List[GlobalNodeGroupTypeDef]]
+    AuthTokenEnabled: NotRequired[bool]
+    TransitEncryptionEnabled: NotRequired[bool]
+    AtRestEncryptionEnabled: NotRequired[bool]
+    ARN: NotRequired[str]
+
+class ModifyCacheParameterGroupMessageTypeDef(TypedDict):
+    CacheParameterGroupName: str
+    ParameterNameValues: Sequence[ParameterNameValueTypeDef]
+
+class ResetCacheParameterGroupMessageTypeDef(TypedDict):
+    CacheParameterGroupName: str
+    ResetAllParameters: NotRequired[bool]
+    ParameterNameValues: NotRequired[Sequence[ParameterNameValueTypeDef]]
+
+class ModifyReplicationGroupShardConfigurationMessageTypeDef(TypedDict):
+    ReplicationGroupId: str
+    NodeGroupCount: int
+    ApplyImmediately: bool
+    ReshardingConfiguration: NotRequired[Sequence[ReshardingConfigurationTypeDef]]
+    NodeGroupsToRemove: NotRequired[Sequence[str]]
+    NodeGroupsToRetain: NotRequired[Sequence[str]]
+
+class RegionalConfigurationTypeDef(TypedDict):
+    ReplicationGroupId: str
+    ReplicationGroupRegion: str
+    ReshardingConfiguration: Sequence[ReshardingConfigurationTypeDef]
+
+class NodeSnapshotTypeDef(TypedDict):
+    CacheClusterId: NotRequired[str]
+    NodeGroupId: NotRequired[str]
+    CacheNodeId: NotRequired[str]
+    NodeGroupConfiguration: NotRequired[NodeGroupConfigurationOutputTypeDef]
+    CacheSize: NotRequired[str]
+    CacheNodeCreateTime: NotRequired[datetime]
+    SnapshotCreateTime: NotRequired[datetime]
+
+NodeGroupConfigurationUnionTypeDef = Union[
+    NodeGroupConfigurationTypeDef, NodeGroupConfigurationOutputTypeDef
+]
+
+class NodeGroupUpdateStatusTypeDef(TypedDict):
+    NodeGroupId: NotRequired[str]
+    NodeGroupMemberUpdateStatus: NotRequired[List[NodeGroupMemberUpdateStatusTypeDef]]
+
+class ReservedCacheNodeTypeDef(TypedDict):
+    ReservedCacheNodeId: NotRequired[str]
+    ReservedCacheNodesOfferingId: NotRequired[str]
+    CacheNodeType: NotRequired[str]
+    StartTime: NotRequired[datetime]
+    Duration: NotRequired[int]
+    FixedPrice: NotRequired[float]
+    UsagePrice: NotRequired[float]
+    CacheNodeCount: NotRequired[int]
+    ProductDescription: NotRequired[str]
+    OfferingType: NotRequired[str]
+    State: NotRequired[str]
+    RecurringCharges: NotRequired[List[RecurringChargeTypeDef]]
+    ReservationARN: NotRequired[str]
+
+class ReservedCacheNodesOfferingTypeDef(TypedDict):
+    ReservedCacheNodesOfferingId: NotRequired[str]
+    CacheNodeType: NotRequired[str]
+    Duration: NotRequired[int]
+    FixedPrice: NotRequired[float]
+    UsagePrice: NotRequired[float]
+    ProductDescription: NotRequired[str]
+    OfferingType: NotRequired[str]
+    RecurringCharges: NotRequired[List[RecurringChargeTypeDef]]
+
+class ReshardingStatusTypeDef(TypedDict):
+    SlotMigration: NotRequired[SlotMigrationTypeDef]
+
+class ServerlessCacheSnapshotTypeDef(TypedDict):
+    ServerlessCacheSnapshotName: NotRequired[str]
+    ARN: NotRequired[str]
+    KmsKeyId: NotRequired[str]
+    SnapshotType: NotRequired[str]
+    Status: NotRequired[str]
+    CreateTime: NotRequired[datetime]
+    ExpiryTime: NotRequired[datetime]
+    BytesUsedForCache: NotRequired[str]
+    ServerlessCacheConfiguration: NotRequired[ServerlessCacheConfigurationTypeDef]
+
+class ServiceUpdatesMessageTypeDef(TypedDict):
+    Marker: str
+    ServiceUpdates: List[ServiceUpdateTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class SubnetTypeDef(TypedDict):
+    SubnetIdentifier: NotRequired[str]
+    SubnetAvailabilityZone: NotRequired[AvailabilityZoneTypeDef]
+    SubnetOutpost: NotRequired[SubnetOutpostTypeDef]
+    SupportedNetworkTypes: NotRequired[List[NetworkTypeType]]
+
+class UpdateActionResultsMessageTypeDef(TypedDict):
+    ProcessedUpdateActions: List[ProcessedUpdateActionTypeDef]
+    UnprocessedUpdateActions: List[UnprocessedUpdateActionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UserGroupResponseTypeDef(TypedDict):
+    UserGroupId: str
+    Status: str
+    Engine: str
+    UserIds: List[str]
+    MinimumEngineVersion: str
+    PendingChanges: UserGroupPendingChangesTypeDef
+    ReplicationGroups: List[str]
+    ServerlessCaches: List[str]
+    ARN: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UserGroupTypeDef(TypedDict):
+    UserGroupId: NotRequired[str]
+    Status: NotRequired[str]
+    Engine: NotRequired[str]
+    UserIds: NotRequired[List[str]]
+    MinimumEngineVersion: NotRequired[str]
+    PendingChanges: NotRequired[UserGroupPendingChangesTypeDef]
+    ReplicationGroups: NotRequired[List[str]]
+    ServerlessCaches: NotRequired[List[str]]
+    ARN: NotRequired[str]
+
+class DescribeUsersResultTypeDef(TypedDict):
+    Users: List[UserTypeDef]
+    Marker: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class NodeGroupTypeDef(TypedDict):
+    NodeGroupId: NotRequired[str]
+    Status: NotRequired[str]
+    PrimaryEndpoint: NotRequired[EndpointTypeDef]
+    ReaderEndpoint: NotRequired[EndpointTypeDef]
+    Slots: NotRequired[str]
+    NodeGroupMembers: NotRequired[List[NodeGroupMemberTypeDef]]
+
+class CacheParameterGroupDetailsTypeDef(TypedDict):
+    Marker: str
+    Parameters: List[ParameterTypeDef]
+    CacheNodeTypeSpecificParameters: List[CacheNodeTypeSpecificParameterTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class EngineDefaultsTypeDef(TypedDict):
+    CacheParameterGroupFamily: NotRequired[str]
+    Marker: NotRequired[str]
+    Parameters: NotRequired[List[ParameterTypeDef]]
+    CacheNodeTypeSpecificParameters: NotRequired[List[CacheNodeTypeSpecificParameterTypeDef]]
+
+class AuthorizeCacheSecurityGroupIngressResultTypeDef(TypedDict):
+    CacheSecurityGroup: CacheSecurityGroupTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CacheSecurityGroupMessageTypeDef(TypedDict):
+    Marker: str
+    CacheSecurityGroups: List[CacheSecurityGroupTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateCacheSecurityGroupResultTypeDef(TypedDict):
+    CacheSecurityGroup: CacheSecurityGroupTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class RevokeCacheSecurityGroupIngressResultTypeDef(TypedDict):
+    CacheSecurityGroup: CacheSecurityGroupTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateServerlessCacheRequestTypeDef(TypedDict):
+    ServerlessCacheName: str
+    Engine: str
+    Description: NotRequired[str]
+    MajorEngineVersion: NotRequired[str]
+    CacheUsageLimits: NotRequired[CacheUsageLimitsTypeDef]
+    KmsKeyId: NotRequired[str]
+    SecurityGroupIds: NotRequired[Sequence[str]]
+    SnapshotArnsToRestore: NotRequired[Sequence[str]]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+    UserGroupId: NotRequired[str]
+    SubnetIds: NotRequired[Sequence[str]]
+    SnapshotRetentionLimit: NotRequired[int]
+    DailySnapshotTime: NotRequired[str]
+
+class ModifyServerlessCacheRequestTypeDef(TypedDict):
+    ServerlessCacheName: str
+    Description: NotRequired[str]
+    CacheUsageLimits: NotRequired[CacheUsageLimitsTypeDef]
+    RemoveUserGroup: NotRequired[bool]
+    UserGroupId: NotRequired[str]
+    SecurityGroupIds: NotRequired[Sequence[str]]
+    SnapshotRetentionLimit: NotRequired[int]
+    DailySnapshotTime: NotRequired[str]
+    Engine: NotRequired[str]
+    MajorEngineVersion: NotRequired[str]
+
+class ServerlessCacheTypeDef(TypedDict):
+    ServerlessCacheName: NotRequired[str]
+    Description: NotRequired[str]
+    CreateTime: NotRequired[datetime]
+    Status: NotRequired[str]
+    Engine: NotRequired[str]
+    MajorEngineVersion: NotRequired[str]
+    FullEngineVersion: NotRequired[str]
+    CacheUsageLimits: NotRequired[CacheUsageLimitsTypeDef]
+    KmsKeyId: NotRequired[str]
+    SecurityGroupIds: NotRequired[List[str]]
+    Endpoint: NotRequired[EndpointTypeDef]
+    ReaderEndpoint: NotRequired[EndpointTypeDef]
+    ARN: NotRequired[str]
+    UserGroupId: NotRequired[str]
+    SubnetIds: NotRequired[List[str]]
+    SnapshotRetentionLimit: NotRequired[int]
+    DailySnapshotTime: NotRequired[str]
+
+class DescribeUpdateActionsMessagePaginateTypeDef(TypedDict):
+    ServiceUpdateName: NotRequired[str]
+    ReplicationGroupIds: NotRequired[Sequence[str]]
+    CacheClusterIds: NotRequired[Sequence[str]]
+    Engine: NotRequired[str]
+    ServiceUpdateStatus: NotRequired[Sequence[ServiceUpdateStatusType]]
+    ServiceUpdateTimeRange: NotRequired[TimeRangeFilterTypeDef]
+    UpdateActionStatus: NotRequired[Sequence[UpdateActionStatusType]]
+    ShowNodeLevelUpdateStatus: NotRequired[bool]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeUpdateActionsMessageTypeDef(TypedDict):
+    ServiceUpdateName: NotRequired[str]
+    ReplicationGroupIds: NotRequired[Sequence[str]]
+    CacheClusterIds: NotRequired[Sequence[str]]
+    Engine: NotRequired[str]
+    ServiceUpdateStatus: NotRequired[Sequence[ServiceUpdateStatusType]]
+    ServiceUpdateTimeRange: NotRequired[TimeRangeFilterTypeDef]
+    UpdateActionStatus: NotRequired[Sequence[UpdateActionStatusType]]
+    ShowNodeLevelUpdateStatus: NotRequired[bool]
+    MaxRecords: NotRequired[int]
+    Marker: NotRequired[str]
+
+class LogDeliveryConfigurationRequestTypeDef(TypedDict):
+    LogType: NotRequired[LogTypeType]
+    DestinationType: NotRequired[DestinationTypeType]
+    DestinationDetails: NotRequired[DestinationDetailsTypeDef]
+    LogFormat: NotRequired[LogFormatType]
+    Enabled: NotRequired[bool]
+
+class LogDeliveryConfigurationTypeDef(TypedDict):
+    LogType: NotRequired[LogTypeType]
+    DestinationType: NotRequired[DestinationTypeType]
+    DestinationDetails: NotRequired[DestinationDetailsTypeDef]
+    LogFormat: NotRequired[LogFormatType]
+    Status: NotRequired[LogDeliveryConfigurationStatusType]
+    Message: NotRequired[str]
+
+class PendingLogDeliveryConfigurationTypeDef(TypedDict):
+    LogType: NotRequired[LogTypeType]
+    DestinationType: NotRequired[DestinationTypeType]
+    DestinationDetails: NotRequired[DestinationDetailsTypeDef]
+    LogFormat: NotRequired[LogFormatType]
+
+class CreateGlobalReplicationGroupResultTypeDef(TypedDict):
+    GlobalReplicationGroup: GlobalReplicationGroupTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DecreaseNodeGroupsInGlobalReplicationGroupResultTypeDef(TypedDict):
+    GlobalReplicationGroup: GlobalReplicationGroupTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteGlobalReplicationGroupResultTypeDef(TypedDict):
+    GlobalReplicationGroup: GlobalReplicationGroupTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeGlobalReplicationGroupsResultTypeDef(TypedDict):
+    Marker: str
+    GlobalReplicationGroups: List[GlobalReplicationGroupTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DisassociateGlobalReplicationGroupResultTypeDef(TypedDict):
+    GlobalReplicationGroup: GlobalReplicationGroupTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class FailoverGlobalReplicationGroupResultTypeDef(TypedDict):
+    GlobalReplicationGroup: GlobalReplicationGroupTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class IncreaseNodeGroupsInGlobalReplicationGroupResultTypeDef(TypedDict):
+    GlobalReplicationGroup: GlobalReplicationGroupTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ModifyGlobalReplicationGroupResultTypeDef(TypedDict):
+    GlobalReplicationGroup: GlobalReplicationGroupTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class RebalanceSlotsInGlobalReplicationGroupResultTypeDef(TypedDict):
+    GlobalReplicationGroup: GlobalReplicationGroupTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class IncreaseNodeGroupsInGlobalReplicationGroupMessageTypeDef(TypedDict):
+    GlobalReplicationGroupId: str
+    NodeGroupCount: int
+    ApplyImmediately: bool
+    RegionalConfigurations: NotRequired[Sequence[RegionalConfigurationTypeDef]]
+
+class SnapshotTypeDef(TypedDict):
+    SnapshotName: NotRequired[str]
+    ReplicationGroupId: NotRequired[str]
+    ReplicationGroupDescription: NotRequired[str]
+    CacheClusterId: NotRequired[str]
+    SnapshotStatus: NotRequired[str]
+    SnapshotSource: NotRequired[str]
+    CacheNodeType: NotRequired[str]
+    Engine: NotRequired[str]
+    EngineVersion: NotRequired[str]
+    NumCacheNodes: NotRequired[int]
+    PreferredAvailabilityZone: NotRequired[str]
+    PreferredOutpostArn: NotRequired[str]
+    CacheClusterCreateTime: NotRequired[datetime]
+    PreferredMaintenanceWindow: NotRequired[str]
+    TopicArn: NotRequired[str]
+    Port: NotRequired[int]
+    CacheParameterGroupName: NotRequired[str]
+    CacheSubnetGroupName: NotRequired[str]
+    VpcId: NotRequired[str]
+    AutoMinorVersionUpgrade: NotRequired[bool]
+    SnapshotRetentionLimit: NotRequired[int]
+    SnapshotWindow: NotRequired[str]
+    NumNodeGroups: NotRequired[int]
+    AutomaticFailover: NotRequired[AutomaticFailoverStatusType]
+    NodeSnapshots: NotRequired[List[NodeSnapshotTypeDef]]
+    KmsKeyId: NotRequired[str]
+    ARN: NotRequired[str]
+    DataTiering: NotRequired[DataTieringStatusType]
+
+class UpdateActionTypeDef(TypedDict):
+    ReplicationGroupId: NotRequired[str]
+    CacheClusterId: NotRequired[str]
+    ServiceUpdateName: NotRequired[str]
+    ServiceUpdateReleaseDate: NotRequired[datetime]
+    ServiceUpdateSeverity: NotRequired[ServiceUpdateSeverityType]
+    ServiceUpdateStatus: NotRequired[ServiceUpdateStatusType]
+    ServiceUpdateRecommendedApplyByDate: NotRequired[datetime]
+    ServiceUpdateType: NotRequired[Literal["security-update"]]
+    UpdateActionAvailableDate: NotRequired[datetime]
+    UpdateActionStatus: NotRequired[UpdateActionStatusType]
+    NodesUpdated: NotRequired[str]
+    UpdateActionStatusModifiedDate: NotRequired[datetime]
+    SlaMet: NotRequired[SlaMetType]
+    NodeGroupUpdateStatus: NotRequired[List[NodeGroupUpdateStatusTypeDef]]
+    CacheNodeUpdateStatus: NotRequired[List[CacheNodeUpdateStatusTypeDef]]
+    EstimatedUpdateTime: NotRequired[str]
+    Engine: NotRequired[str]
+
+class PurchaseReservedCacheNodesOfferingResultTypeDef(TypedDict):
+    ReservedCacheNode: ReservedCacheNodeTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ReservedCacheNodeMessageTypeDef(TypedDict):
+    Marker: str
+    ReservedCacheNodes: List[ReservedCacheNodeTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ReservedCacheNodesOfferingMessageTypeDef(TypedDict):
+    Marker: str
+    ReservedCacheNodesOfferings: List[ReservedCacheNodesOfferingTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CopyServerlessCacheSnapshotResponseTypeDef(TypedDict):
+    ServerlessCacheSnapshot: ServerlessCacheSnapshotTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateServerlessCacheSnapshotResponseTypeDef(TypedDict):
+    ServerlessCacheSnapshot: ServerlessCacheSnapshotTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteServerlessCacheSnapshotResponseTypeDef(TypedDict):
+    ServerlessCacheSnapshot: ServerlessCacheSnapshotTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeServerlessCacheSnapshotsResponseTypeDef(TypedDict):
+    ServerlessCacheSnapshots: List[ServerlessCacheSnapshotTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ExportServerlessCacheSnapshotResponseTypeDef(TypedDict):
+    ServerlessCacheSnapshot: ServerlessCacheSnapshotTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CacheSubnetGroupTypeDef(TypedDict):
+    CacheSubnetGroupName: NotRequired[str]
+    CacheSubnetGroupDescription: NotRequired[str]
+    VpcId: NotRequired[str]
+    Subnets: NotRequired[List[SubnetTypeDef]]
+    ARN: NotRequired[str]
+    SupportedNetworkTypes: NotRequired[List[NetworkTypeType]]
+
+class DescribeUserGroupsResultTypeDef(TypedDict):
+    UserGroups: List[UserGroupTypeDef]
+    Marker: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeEngineDefaultParametersResultTypeDef(TypedDict):
+    EngineDefaults: EngineDefaultsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateServerlessCacheResponseTypeDef(TypedDict):
+    ServerlessCache: ServerlessCacheTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteServerlessCacheResponseTypeDef(TypedDict):
+    ServerlessCache: ServerlessCacheTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeServerlessCachesResponseTypeDef(TypedDict):
+    ServerlessCaches: List[ServerlessCacheTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ModifyServerlessCacheResponseTypeDef(TypedDict):
+    ServerlessCache: ServerlessCacheTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateCacheClusterMessageTypeDef(TypedDict):
+    CacheClusterId: str
+    ReplicationGroupId: NotRequired[str]
+    AZMode: NotRequired[AZModeType]
+    PreferredAvailabilityZone: NotRequired[str]
+    PreferredAvailabilityZones: NotRequired[Sequence[str]]
+    NumCacheNodes: NotRequired[int]
+    CacheNodeType: NotRequired[str]
+    Engine: NotRequired[str]
+    EngineVersion: NotRequired[str]
+    CacheParameterGroupName: NotRequired[str]
+    CacheSubnetGroupName: NotRequired[str]
+    CacheSecurityGroupNames: NotRequired[Sequence[str]]
+    SecurityGroupIds: NotRequired[Sequence[str]]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+    SnapshotArns: NotRequired[Sequence[str]]
+    SnapshotName: NotRequired[str]
+    PreferredMaintenanceWindow: NotRequired[str]
+    Port: NotRequired[int]
+    NotificationTopicArn: NotRequired[str]
+    AutoMinorVersionUpgrade: NotRequired[bool]
+    SnapshotRetentionLimit: NotRequired[int]
+    SnapshotWindow: NotRequired[str]
+    AuthToken: NotRequired[str]
+    OutpostMode: NotRequired[OutpostModeType]
+    PreferredOutpostArn: NotRequired[str]
+    PreferredOutpostArns: NotRequired[Sequence[str]]
+    LogDeliveryConfigurations: NotRequired[Sequence[LogDeliveryConfigurationRequestTypeDef]]
+    TransitEncryptionEnabled: NotRequired[bool]
+    NetworkType: NotRequired[NetworkTypeType]
+    IpDiscovery: NotRequired[IpDiscoveryType]
+
+class CreateReplicationGroupMessageTypeDef(TypedDict):
+    ReplicationGroupId: str
+    ReplicationGroupDescription: str
+    GlobalReplicationGroupId: NotRequired[str]
+    PrimaryClusterId: NotRequired[str]
+    AutomaticFailoverEnabled: NotRequired[bool]
+    MultiAZEnabled: NotRequired[bool]
+    NumCacheClusters: NotRequired[int]
+    PreferredCacheClusterAZs: NotRequired[Sequence[str]]
+    NumNodeGroups: NotRequired[int]
+    ReplicasPerNodeGroup: NotRequired[int]
+    NodeGroupConfiguration: NotRequired[Sequence[NodeGroupConfigurationUnionTypeDef]]
+    CacheNodeType: NotRequired[str]
+    Engine: NotRequired[str]
+    EngineVersion: NotRequired[str]
+    CacheParameterGroupName: NotRequired[str]
+    CacheSubnetGroupName: NotRequired[str]
+    CacheSecurityGroupNames: NotRequired[Sequence[str]]
+    SecurityGroupIds: NotRequired[Sequence[str]]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+    SnapshotArns: NotRequired[Sequence[str]]
+    SnapshotName: NotRequired[str]
+    PreferredMaintenanceWindow: NotRequired[str]
+    Port: NotRequired[int]
+    NotificationTopicArn: NotRequired[str]
+    AutoMinorVersionUpgrade: NotRequired[bool]
+    SnapshotRetentionLimit: NotRequired[int]
+    SnapshotWindow: NotRequired[str]
+    AuthToken: NotRequired[str]
+    TransitEncryptionEnabled: NotRequired[bool]
+    AtRestEncryptionEnabled: NotRequired[bool]
+    KmsKeyId: NotRequired[str]
+    UserGroupIds: NotRequired[Sequence[str]]
+    LogDeliveryConfigurations: NotRequired[Sequence[LogDeliveryConfigurationRequestTypeDef]]
+    DataTieringEnabled: NotRequired[bool]
+    NetworkType: NotRequired[NetworkTypeType]
+    IpDiscovery: NotRequired[IpDiscoveryType]
+    TransitEncryptionMode: NotRequired[TransitEncryptionModeType]
+    ClusterMode: NotRequired[ClusterModeType]
+    ServerlessCacheSnapshotName: NotRequired[str]
+
+class ModifyCacheClusterMessageTypeDef(TypedDict):
+    CacheClusterId: str
+    NumCacheNodes: NotRequired[int]
+    CacheNodeIdsToRemove: NotRequired[Sequence[str]]
+    AZMode: NotRequired[AZModeType]
+    NewAvailabilityZones: NotRequired[Sequence[str]]
+    CacheSecurityGroupNames: NotRequired[Sequence[str]]
+    SecurityGroupIds: NotRequired[Sequence[str]]
+    PreferredMaintenanceWindow: NotRequired[str]
+    NotificationTopicArn: NotRequired[str]
+    CacheParameterGroupName: NotRequired[str]
+    NotificationTopicStatus: NotRequired[str]
+    ApplyImmediately: NotRequired[bool]
+    Engine: NotRequired[str]
+    EngineVersion: NotRequired[str]
+    AutoMinorVersionUpgrade: NotRequired[bool]
+    SnapshotRetentionLimit: NotRequired[int]
+    SnapshotWindow: NotRequired[str]
+    CacheNodeType: NotRequired[str]
+    AuthToken: NotRequired[str]
+    AuthTokenUpdateStrategy: NotRequired[AuthTokenUpdateStrategyTypeType]
+    LogDeliveryConfigurations: NotRequired[Sequence[LogDeliveryConfigurationRequestTypeDef]]
+    IpDiscovery: NotRequired[IpDiscoveryType]
+    ScaleConfig: NotRequired[ScaleConfigTypeDef]
+
+class ModifyReplicationGroupMessageTypeDef(TypedDict):
+    ReplicationGroupId: str
+    ReplicationGroupDescription: NotRequired[str]
+    PrimaryClusterId: NotRequired[str]
+    SnapshottingClusterId: NotRequired[str]
+    AutomaticFailoverEnabled: NotRequired[bool]
+    MultiAZEnabled: NotRequired[bool]
+    NodeGroupId: NotRequired[str]
+    CacheSecurityGroupNames: NotRequired[Sequence[str]]
+    SecurityGroupIds: NotRequired[Sequence[str]]
+    PreferredMaintenanceWindow: NotRequired[str]
+    NotificationTopicArn: NotRequired[str]
+    CacheParameterGroupName: NotRequired[str]
+    NotificationTopicStatus: NotRequired[str]
+    ApplyImmediately: NotRequired[bool]
+    Engine: NotRequired[str]
+    EngineVersion: NotRequired[str]
+    AutoMinorVersionUpgrade: NotRequired[bool]
+    SnapshotRetentionLimit: NotRequired[int]
+    SnapshotWindow: NotRequired[str]
+    CacheNodeType: NotRequired[str]
+    AuthToken: NotRequired[str]
+    AuthTokenUpdateStrategy: NotRequired[AuthTokenUpdateStrategyTypeType]
+    UserGroupIdsToAdd: NotRequired[Sequence[str]]
+    UserGroupIdsToRemove: NotRequired[Sequence[str]]
+    RemoveUserGroups: NotRequired[bool]
+    LogDeliveryConfigurations: NotRequired[Sequence[LogDeliveryConfigurationRequestTypeDef]]
+    IpDiscovery: NotRequired[IpDiscoveryType]
+    TransitEncryptionEnabled: NotRequired[bool]
+    TransitEncryptionMode: NotRequired[TransitEncryptionModeType]
+    ClusterMode: NotRequired[ClusterModeType]
+
+class PendingModifiedValuesTypeDef(TypedDict):
+    NumCacheNodes: NotRequired[int]
+    CacheNodeIdsToRemove: NotRequired[List[str]]
+    EngineVersion: NotRequired[str]
+    CacheNodeType: NotRequired[str]
+    AuthTokenStatus: NotRequired[AuthTokenUpdateStatusType]
+    LogDeliveryConfigurations: NotRequired[List[PendingLogDeliveryConfigurationTypeDef]]
+    TransitEncryptionEnabled: NotRequired[bool]
+    TransitEncryptionMode: NotRequired[TransitEncryptionModeType]
+    ScaleConfig: NotRequired[ScaleConfigTypeDef]
+
+class ReplicationGroupPendingModifiedValuesTypeDef(TypedDict):
+    PrimaryClusterId: NotRequired[str]
+    AutomaticFailoverStatus: NotRequired[PendingAutomaticFailoverStatusType]
+    Resharding: NotRequired[ReshardingStatusTypeDef]
+    AuthTokenStatus: NotRequired[AuthTokenUpdateStatusType]
+    UserGroups: NotRequired[UserGroupsUpdateStatusTypeDef]
+    LogDeliveryConfigurations: NotRequired[List[PendingLogDeliveryConfigurationTypeDef]]
+    TransitEncryptionEnabled: NotRequired[bool]
+    TransitEncryptionMode: NotRequired[TransitEncryptionModeType]
+    ClusterMode: NotRequired[ClusterModeType]
+
+class CopySnapshotResultTypeDef(TypedDict):
+    Snapshot: SnapshotTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateSnapshotResultTypeDef(TypedDict):
+    Snapshot: SnapshotTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteSnapshotResultTypeDef(TypedDict):
+    Snapshot: SnapshotTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeSnapshotsListMessageTypeDef(TypedDict):
+    Marker: str
+    Snapshots: List[SnapshotTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateActionsMessageTypeDef(TypedDict):
+    Marker: str
+    UpdateActions: List[UpdateActionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CacheSubnetGroupMessageTypeDef(TypedDict):
+    Marker: str
+    CacheSubnetGroups: List[CacheSubnetGroupTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateCacheSubnetGroupResultTypeDef(TypedDict):
+    CacheSubnetGroup: CacheSubnetGroupTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ModifyCacheSubnetGroupResultTypeDef(TypedDict):
+    CacheSubnetGroup: CacheSubnetGroupTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CacheClusterTypeDef(TypedDict):
+    CacheClusterId: NotRequired[str]
+    ConfigurationEndpoint: NotRequired[EndpointTypeDef]
+    ClientDownloadLandingPage: NotRequired[str]
+    CacheNodeType: NotRequired[str]
+    Engine: NotRequired[str]
+    EngineVersion: NotRequired[str]
+    CacheClusterStatus: NotRequired[str]
+    NumCacheNodes: NotRequired[int]
+    PreferredAvailabilityZone: NotRequired[str]
+    PreferredOutpostArn: NotRequired[str]
+    CacheClusterCreateTime: NotRequired[datetime]
+    PreferredMaintenanceWindow: NotRequired[str]
+    PendingModifiedValues: NotRequired[PendingModifiedValuesTypeDef]
+    NotificationConfiguration: NotRequired[NotificationConfigurationTypeDef]
+    CacheSecurityGroups: NotRequired[List[CacheSecurityGroupMembershipTypeDef]]
+    CacheParameterGroup: NotRequired[CacheParameterGroupStatusTypeDef]
+    CacheSubnetGroupName: NotRequired[str]
+    CacheNodes: NotRequired[List[CacheNodeTypeDef]]
+    AutoMinorVersionUpgrade: NotRequired[bool]
+    SecurityGroups: NotRequired[List[SecurityGroupMembershipTypeDef]]
+    ReplicationGroupId: NotRequired[str]
+    SnapshotRetentionLimit: NotRequired[int]
+    SnapshotWindow: NotRequired[str]
+    AuthTokenEnabled: NotRequired[bool]
+    AuthTokenLastModifiedDate: NotRequired[datetime]
+    TransitEncryptionEnabled: NotRequired[bool]
+    AtRestEncryptionEnabled: NotRequired[bool]
+    ARN: NotRequired[str]
+    ReplicationGroupLogDeliveryEnabled: NotRequired[bool]
+    LogDeliveryConfigurations: NotRequired[List[LogDeliveryConfigurationTypeDef]]
+    NetworkType: NotRequired[NetworkTypeType]
+    IpDiscovery: NotRequired[IpDiscoveryType]
+    TransitEncryptionMode: NotRequired[TransitEncryptionModeType]
+
+class ReplicationGroupTypeDef(TypedDict):
+    ReplicationGroupId: NotRequired[str]
+    Description: NotRequired[str]
+    GlobalReplicationGroupInfo: NotRequired[GlobalReplicationGroupInfoTypeDef]
+    Status: NotRequired[str]
+    PendingModifiedValues: NotRequired[ReplicationGroupPendingModifiedValuesTypeDef]
+    MemberClusters: NotRequired[List[str]]
+    NodeGroups: NotRequired[List[NodeGroupTypeDef]]
+    SnapshottingClusterId: NotRequired[str]
+    AutomaticFailover: NotRequired[AutomaticFailoverStatusType]
+    MultiAZ: NotRequired[MultiAZStatusType]
+    ConfigurationEndpoint: NotRequired[EndpointTypeDef]
+    SnapshotRetentionLimit: NotRequired[int]
+    SnapshotWindow: NotRequired[str]
+    ClusterEnabled: NotRequired[bool]
+    CacheNodeType: NotRequired[str]
+    AuthTokenEnabled: NotRequired[bool]
+    AuthTokenLastModifiedDate: NotRequired[datetime]
+    TransitEncryptionEnabled: NotRequired[bool]
+    AtRestEncryptionEnabled: NotRequired[bool]
+    MemberClustersOutpostArns: NotRequired[List[str]]
+    KmsKeyId: NotRequired[str]
+    ARN: NotRequired[str]
+    UserGroupIds: NotRequired[List[str]]
+    LogDeliveryConfigurations: NotRequired[List[LogDeliveryConfigurationTypeDef]]
+    ReplicationGroupCreateTime: NotRequired[datetime]
+    DataTiering: NotRequired[DataTieringStatusType]
+    AutoMinorVersionUpgrade: NotRequired[bool]
+    NetworkType: NotRequired[NetworkTypeType]
+    IpDiscovery: NotRequired[IpDiscoveryType]
+    TransitEncryptionMode: NotRequired[TransitEncryptionModeType]
+    ClusterMode: NotRequired[ClusterModeType]
+    Engine: NotRequired[str]
+
+class CacheClusterMessageTypeDef(TypedDict):
+    Marker: str
+    CacheClusters: List[CacheClusterTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateCacheClusterResultTypeDef(TypedDict):
+    CacheCluster: CacheClusterTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteCacheClusterResultTypeDef(TypedDict):
+    CacheCluster: CacheClusterTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ModifyCacheClusterResultTypeDef(TypedDict):
+    CacheCluster: CacheClusterTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class RebootCacheClusterResultTypeDef(TypedDict):
+    CacheCluster: CacheClusterTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CompleteMigrationResponseTypeDef(TypedDict):
+    ReplicationGroup: ReplicationGroupTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateReplicationGroupResultTypeDef(TypedDict):
+    ReplicationGroup: ReplicationGroupTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DecreaseReplicaCountResultTypeDef(TypedDict):
+    ReplicationGroup: ReplicationGroupTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteReplicationGroupResultTypeDef(TypedDict):
+    ReplicationGroup: ReplicationGroupTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class IncreaseReplicaCountResultTypeDef(TypedDict):
+    ReplicationGroup: ReplicationGroupTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ModifyReplicationGroupResultTypeDef(TypedDict):
+    ReplicationGroup: ReplicationGroupTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ModifyReplicationGroupShardConfigurationResultTypeDef(TypedDict):
+    ReplicationGroup: ReplicationGroupTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ReplicationGroupMessageTypeDef(TypedDict):
+    Marker: str
+    ReplicationGroups: List[ReplicationGroupTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartMigrationResponseTypeDef(TypedDict):
+    ReplicationGroup: ReplicationGroupTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class TestFailoverResultTypeDef(TypedDict):
+    ReplicationGroup: ReplicationGroupTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class TestMigrationResponseTypeDef(TypedDict):
+    ReplicationGroup: ReplicationGroupTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef

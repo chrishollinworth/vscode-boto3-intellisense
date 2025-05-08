@@ -1,20 +1,24 @@
 """
 Type annotations for inspector service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_inspector/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_inspector.type_defs import AddAttributesToFindingsRequestRequestTypeDef
+    from mypy_boto3_inspector.type_defs import AttributeTypeDef
 
-    data: AddAttributesToFindingsRequestRequestTypeDef = {...}
+    data: AttributeTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List, Union
+from typing import Union
 
 from .literals import (
     AgentHealthCodeType,
@@ -32,17 +36,19 @@ from .literals import (
     StopActionType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
-    "AddAttributesToFindingsRequestRequestTypeDef",
+    "AddAttributesToFindingsRequestTypeDef",
     "AddAttributesToFindingsResponseTypeDef",
     "AgentFilterTypeDef",
     "AgentPreviewTypeDef",
@@ -57,71 +63,81 @@ __all__ = (
     "AssessmentTemplateTypeDef",
     "AssetAttributesTypeDef",
     "AttributeTypeDef",
-    "CreateAssessmentTargetRequestRequestTypeDef",
+    "CreateAssessmentTargetRequestTypeDef",
     "CreateAssessmentTargetResponseTypeDef",
-    "CreateAssessmentTemplateRequestRequestTypeDef",
+    "CreateAssessmentTemplateRequestTypeDef",
     "CreateAssessmentTemplateResponseTypeDef",
-    "CreateExclusionsPreviewRequestRequestTypeDef",
+    "CreateExclusionsPreviewRequestTypeDef",
     "CreateExclusionsPreviewResponseTypeDef",
-    "CreateResourceGroupRequestRequestTypeDef",
+    "CreateResourceGroupRequestTypeDef",
     "CreateResourceGroupResponseTypeDef",
-    "DeleteAssessmentRunRequestRequestTypeDef",
-    "DeleteAssessmentTargetRequestRequestTypeDef",
-    "DeleteAssessmentTemplateRequestRequestTypeDef",
-    "DescribeAssessmentRunsRequestRequestTypeDef",
+    "DeleteAssessmentRunRequestTypeDef",
+    "DeleteAssessmentTargetRequestTypeDef",
+    "DeleteAssessmentTemplateRequestTypeDef",
+    "DescribeAssessmentRunsRequestTypeDef",
     "DescribeAssessmentRunsResponseTypeDef",
-    "DescribeAssessmentTargetsRequestRequestTypeDef",
+    "DescribeAssessmentTargetsRequestTypeDef",
     "DescribeAssessmentTargetsResponseTypeDef",
-    "DescribeAssessmentTemplatesRequestRequestTypeDef",
+    "DescribeAssessmentTemplatesRequestTypeDef",
     "DescribeAssessmentTemplatesResponseTypeDef",
     "DescribeCrossAccountAccessRoleResponseTypeDef",
-    "DescribeExclusionsRequestRequestTypeDef",
+    "DescribeExclusionsRequestTypeDef",
     "DescribeExclusionsResponseTypeDef",
-    "DescribeFindingsRequestRequestTypeDef",
+    "DescribeFindingsRequestTypeDef",
     "DescribeFindingsResponseTypeDef",
-    "DescribeResourceGroupsRequestRequestTypeDef",
+    "DescribeResourceGroupsRequestTypeDef",
     "DescribeResourceGroupsResponseTypeDef",
-    "DescribeRulesPackagesRequestRequestTypeDef",
+    "DescribeRulesPackagesRequestTypeDef",
     "DescribeRulesPackagesResponseTypeDef",
     "DurationRangeTypeDef",
+    "EmptyResponseMetadataTypeDef",
     "EventSubscriptionTypeDef",
     "ExclusionPreviewTypeDef",
     "ExclusionTypeDef",
     "FailedItemDetailsTypeDef",
     "FindingFilterTypeDef",
     "FindingTypeDef",
-    "GetAssessmentReportRequestRequestTypeDef",
+    "GetAssessmentReportRequestTypeDef",
     "GetAssessmentReportResponseTypeDef",
-    "GetExclusionsPreviewRequestRequestTypeDef",
+    "GetExclusionsPreviewRequestTypeDef",
     "GetExclusionsPreviewResponseTypeDef",
-    "GetTelemetryMetadataRequestRequestTypeDef",
+    "GetTelemetryMetadataRequestTypeDef",
     "GetTelemetryMetadataResponseTypeDef",
     "InspectorServiceAttributesTypeDef",
-    "ListAssessmentRunAgentsRequestRequestTypeDef",
+    "ListAssessmentRunAgentsRequestPaginateTypeDef",
+    "ListAssessmentRunAgentsRequestTypeDef",
     "ListAssessmentRunAgentsResponseTypeDef",
-    "ListAssessmentRunsRequestRequestTypeDef",
+    "ListAssessmentRunsRequestPaginateTypeDef",
+    "ListAssessmentRunsRequestTypeDef",
     "ListAssessmentRunsResponseTypeDef",
-    "ListAssessmentTargetsRequestRequestTypeDef",
+    "ListAssessmentTargetsRequestPaginateTypeDef",
+    "ListAssessmentTargetsRequestTypeDef",
     "ListAssessmentTargetsResponseTypeDef",
-    "ListAssessmentTemplatesRequestRequestTypeDef",
+    "ListAssessmentTemplatesRequestPaginateTypeDef",
+    "ListAssessmentTemplatesRequestTypeDef",
     "ListAssessmentTemplatesResponseTypeDef",
-    "ListEventSubscriptionsRequestRequestTypeDef",
+    "ListEventSubscriptionsRequestPaginateTypeDef",
+    "ListEventSubscriptionsRequestTypeDef",
     "ListEventSubscriptionsResponseTypeDef",
-    "ListExclusionsRequestRequestTypeDef",
+    "ListExclusionsRequestPaginateTypeDef",
+    "ListExclusionsRequestTypeDef",
     "ListExclusionsResponseTypeDef",
-    "ListFindingsRequestRequestTypeDef",
+    "ListFindingsRequestPaginateTypeDef",
+    "ListFindingsRequestTypeDef",
     "ListFindingsResponseTypeDef",
-    "ListRulesPackagesRequestRequestTypeDef",
+    "ListRulesPackagesRequestPaginateTypeDef",
+    "ListRulesPackagesRequestTypeDef",
     "ListRulesPackagesResponseTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "NetworkInterfaceTypeDef",
     "PaginatorConfigTypeDef",
-    "PreviewAgentsRequestRequestTypeDef",
+    "PreviewAgentsRequestPaginateTypeDef",
+    "PreviewAgentsRequestTypeDef",
     "PreviewAgentsResponseTypeDef",
     "PrivateIpTypeDef",
-    "RegisterCrossAccountAccessRoleRequestRequestTypeDef",
-    "RemoveAttributesFromFindingsRequestRequestTypeDef",
+    "RegisterCrossAccountAccessRoleRequestTypeDef",
+    "RemoveAttributesFromFindingsRequestTypeDef",
     "RemoveAttributesFromFindingsResponseTypeDef",
     "ResourceGroupTagTypeDef",
     "ResourceGroupTypeDef",
@@ -129,1250 +145,618 @@ __all__ = (
     "RulesPackageTypeDef",
     "ScopeTypeDef",
     "SecurityGroupTypeDef",
-    "SetTagsForResourceRequestRequestTypeDef",
-    "StartAssessmentRunRequestRequestTypeDef",
+    "SetTagsForResourceRequestTypeDef",
+    "StartAssessmentRunRequestTypeDef",
     "StartAssessmentRunResponseTypeDef",
-    "StopAssessmentRunRequestRequestTypeDef",
-    "SubscribeToEventRequestRequestTypeDef",
+    "StopAssessmentRunRequestTypeDef",
+    "SubscribeToEventRequestTypeDef",
     "SubscriptionTypeDef",
     "TagTypeDef",
     "TelemetryMetadataTypeDef",
     "TimestampRangeTypeDef",
-    "UnsubscribeFromEventRequestRequestTypeDef",
-    "UpdateAssessmentTargetRequestRequestTypeDef",
+    "TimestampTypeDef",
+    "UnsubscribeFromEventRequestTypeDef",
+    "UpdateAssessmentTargetRequestTypeDef",
 )
 
-AddAttributesToFindingsRequestRequestTypeDef = TypedDict(
-    "AddAttributesToFindingsRequestRequestTypeDef",
-    {
-        "findingArns": List[str],
-        "attributes": List["AttributeTypeDef"],
-    },
-)
+class AttributeTypeDef(TypedDict):
+    key: str
+    value: NotRequired[str]
 
-AddAttributesToFindingsResponseTypeDef = TypedDict(
-    "AddAttributesToFindingsResponseTypeDef",
-    {
-        "failedItems": Dict[str, "FailedItemDetailsTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class FailedItemDetailsTypeDef(TypedDict):
+    failureCode: FailedItemErrorCodeType
+    retryable: bool
 
-AgentFilterTypeDef = TypedDict(
-    "AgentFilterTypeDef",
-    {
-        "agentHealths": List[AgentHealthType],
-        "agentHealthCodes": List[AgentHealthCodeType],
-    },
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-_RequiredAgentPreviewTypeDef = TypedDict(
-    "_RequiredAgentPreviewTypeDef",
-    {
-        "agentId": str,
-    },
-)
-_OptionalAgentPreviewTypeDef = TypedDict(
-    "_OptionalAgentPreviewTypeDef",
-    {
-        "hostname": str,
-        "autoScalingGroup": str,
-        "agentHealth": AgentHealthType,
-        "agentVersion": str,
-        "operatingSystem": str,
-        "kernelVersion": str,
-        "ipv4Address": str,
-    },
-    total=False,
-)
+class AgentFilterTypeDef(TypedDict):
+    agentHealths: Sequence[AgentHealthType]
+    agentHealthCodes: Sequence[AgentHealthCodeType]
 
-class AgentPreviewTypeDef(_RequiredAgentPreviewTypeDef, _OptionalAgentPreviewTypeDef):
-    pass
+class AgentPreviewTypeDef(TypedDict):
+    agentId: str
+    hostname: NotRequired[str]
+    autoScalingGroup: NotRequired[str]
+    agentHealth: NotRequired[AgentHealthType]
+    agentVersion: NotRequired[str]
+    operatingSystem: NotRequired[str]
+    kernelVersion: NotRequired[str]
+    ipv4Address: NotRequired[str]
 
-_RequiredAssessmentRunAgentTypeDef = TypedDict(
-    "_RequiredAssessmentRunAgentTypeDef",
-    {
-        "agentId": str,
-        "assessmentRunArn": str,
-        "agentHealth": AgentHealthType,
-        "agentHealthCode": AgentHealthCodeType,
-        "telemetryMetadata": List["TelemetryMetadataTypeDef"],
-    },
-)
-_OptionalAssessmentRunAgentTypeDef = TypedDict(
-    "_OptionalAssessmentRunAgentTypeDef",
-    {
-        "agentHealthDetails": str,
-        "autoScalingGroup": str,
-    },
-    total=False,
-)
+class TelemetryMetadataTypeDef(TypedDict):
+    messageType: str
+    count: int
+    dataSize: NotRequired[int]
 
-class AssessmentRunAgentTypeDef(
-    _RequiredAssessmentRunAgentTypeDef, _OptionalAssessmentRunAgentTypeDef
-):
-    pass
+class DurationRangeTypeDef(TypedDict):
+    minSeconds: NotRequired[int]
+    maxSeconds: NotRequired[int]
 
-AssessmentRunFilterTypeDef = TypedDict(
-    "AssessmentRunFilterTypeDef",
-    {
-        "namePattern": str,
-        "states": List[AssessmentRunStateType],
-        "durationRange": "DurationRangeTypeDef",
-        "rulesPackageArns": List[str],
-        "startTimeRange": "TimestampRangeTypeDef",
-        "completionTimeRange": "TimestampRangeTypeDef",
-        "stateChangeTimeRange": "TimestampRangeTypeDef",
-    },
-    total=False,
-)
+class AssessmentRunNotificationTypeDef(TypedDict):
+    date: datetime
+    event: InspectorEventType
+    error: bool
+    message: NotRequired[str]
+    snsTopicArn: NotRequired[str]
+    snsPublishStatusCode: NotRequired[AssessmentRunNotificationSnsStatusCodeType]
 
-_RequiredAssessmentRunNotificationTypeDef = TypedDict(
-    "_RequiredAssessmentRunNotificationTypeDef",
-    {
-        "date": datetime,
-        "event": InspectorEventType,
-        "error": bool,
-    },
-)
-_OptionalAssessmentRunNotificationTypeDef = TypedDict(
-    "_OptionalAssessmentRunNotificationTypeDef",
-    {
-        "message": str,
-        "snsTopicArn": str,
-        "snsPublishStatusCode": AssessmentRunNotificationSnsStatusCodeType,
-    },
-    total=False,
-)
+class AssessmentRunStateChangeTypeDef(TypedDict):
+    stateChangedAt: datetime
+    state: AssessmentRunStateType
 
-class AssessmentRunNotificationTypeDef(
-    _RequiredAssessmentRunNotificationTypeDef, _OptionalAssessmentRunNotificationTypeDef
-):
-    pass
+class AssessmentTargetFilterTypeDef(TypedDict):
+    assessmentTargetNamePattern: NotRequired[str]
 
-AssessmentRunStateChangeTypeDef = TypedDict(
-    "AssessmentRunStateChangeTypeDef",
-    {
-        "stateChangedAt": datetime,
-        "state": AssessmentRunStateType,
-    },
-)
+class AssessmentTargetTypeDef(TypedDict):
+    arn: str
+    name: str
+    createdAt: datetime
+    updatedAt: datetime
+    resourceGroupArn: NotRequired[str]
 
-_RequiredAssessmentRunTypeDef = TypedDict(
-    "_RequiredAssessmentRunTypeDef",
-    {
-        "arn": str,
-        "name": str,
-        "assessmentTemplateArn": str,
-        "state": AssessmentRunStateType,
-        "durationInSeconds": int,
-        "rulesPackageArns": List[str],
-        "userAttributesForFindings": List["AttributeTypeDef"],
-        "createdAt": datetime,
-        "stateChangedAt": datetime,
-        "dataCollected": bool,
-        "stateChanges": List["AssessmentRunStateChangeTypeDef"],
-        "notifications": List["AssessmentRunNotificationTypeDef"],
-        "findingCounts": Dict[SeverityType, int],
-    },
-)
-_OptionalAssessmentRunTypeDef = TypedDict(
-    "_OptionalAssessmentRunTypeDef",
-    {
-        "startedAt": datetime,
-        "completedAt": datetime,
-    },
-    total=False,
-)
+class TagTypeDef(TypedDict):
+    key: str
+    value: NotRequired[str]
 
-class AssessmentRunTypeDef(_RequiredAssessmentRunTypeDef, _OptionalAssessmentRunTypeDef):
-    pass
+class CreateAssessmentTargetRequestTypeDef(TypedDict):
+    assessmentTargetName: str
+    resourceGroupArn: NotRequired[str]
 
-AssessmentTargetFilterTypeDef = TypedDict(
-    "AssessmentTargetFilterTypeDef",
-    {
-        "assessmentTargetNamePattern": str,
-    },
-    total=False,
-)
+class CreateExclusionsPreviewRequestTypeDef(TypedDict):
+    assessmentTemplateArn: str
 
-_RequiredAssessmentTargetTypeDef = TypedDict(
-    "_RequiredAssessmentTargetTypeDef",
-    {
-        "arn": str,
-        "name": str,
-        "createdAt": datetime,
-        "updatedAt": datetime,
-    },
-)
-_OptionalAssessmentTargetTypeDef = TypedDict(
-    "_OptionalAssessmentTargetTypeDef",
-    {
-        "resourceGroupArn": str,
-    },
-    total=False,
-)
+class ResourceGroupTagTypeDef(TypedDict):
+    key: str
+    value: NotRequired[str]
 
-class AssessmentTargetTypeDef(_RequiredAssessmentTargetTypeDef, _OptionalAssessmentTargetTypeDef):
-    pass
+class DeleteAssessmentRunRequestTypeDef(TypedDict):
+    assessmentRunArn: str
 
-AssessmentTemplateFilterTypeDef = TypedDict(
-    "AssessmentTemplateFilterTypeDef",
-    {
-        "namePattern": str,
-        "durationRange": "DurationRangeTypeDef",
-        "rulesPackageArns": List[str],
-    },
-    total=False,
-)
+class DeleteAssessmentTargetRequestTypeDef(TypedDict):
+    assessmentTargetArn: str
 
-_RequiredAssessmentTemplateTypeDef = TypedDict(
-    "_RequiredAssessmentTemplateTypeDef",
-    {
-        "arn": str,
-        "name": str,
-        "assessmentTargetArn": str,
-        "durationInSeconds": int,
-        "rulesPackageArns": List[str],
-        "userAttributesForFindings": List["AttributeTypeDef"],
-        "assessmentRunCount": int,
-        "createdAt": datetime,
-    },
-)
-_OptionalAssessmentTemplateTypeDef = TypedDict(
-    "_OptionalAssessmentTemplateTypeDef",
-    {
-        "lastAssessmentRunArn": str,
-    },
-    total=False,
-)
+class DeleteAssessmentTemplateRequestTypeDef(TypedDict):
+    assessmentTemplateArn: str
 
-class AssessmentTemplateTypeDef(
-    _RequiredAssessmentTemplateTypeDef, _OptionalAssessmentTemplateTypeDef
-):
-    pass
+class DescribeAssessmentRunsRequestTypeDef(TypedDict):
+    assessmentRunArns: Sequence[str]
 
-_RequiredAssetAttributesTypeDef = TypedDict(
-    "_RequiredAssetAttributesTypeDef",
-    {
-        "schemaVersion": int,
-    },
-)
-_OptionalAssetAttributesTypeDef = TypedDict(
-    "_OptionalAssetAttributesTypeDef",
-    {
-        "agentId": str,
-        "autoScalingGroup": str,
-        "amiId": str,
-        "hostname": str,
-        "ipv4Addresses": List[str],
-        "tags": List["TagTypeDef"],
-        "networkInterfaces": List["NetworkInterfaceTypeDef"],
-    },
-    total=False,
-)
+class DescribeAssessmentTargetsRequestTypeDef(TypedDict):
+    assessmentTargetArns: Sequence[str]
 
-class AssetAttributesTypeDef(_RequiredAssetAttributesTypeDef, _OptionalAssetAttributesTypeDef):
-    pass
+class DescribeAssessmentTemplatesRequestTypeDef(TypedDict):
+    assessmentTemplateArns: Sequence[str]
 
-_RequiredAttributeTypeDef = TypedDict(
-    "_RequiredAttributeTypeDef",
-    {
-        "key": str,
-    },
-)
-_OptionalAttributeTypeDef = TypedDict(
-    "_OptionalAttributeTypeDef",
-    {
-        "value": str,
-    },
-    total=False,
-)
+class DescribeExclusionsRequestTypeDef(TypedDict):
+    exclusionArns: Sequence[str]
+    locale: NotRequired[Literal["EN_US"]]
 
-class AttributeTypeDef(_RequiredAttributeTypeDef, _OptionalAttributeTypeDef):
-    pass
+class DescribeFindingsRequestTypeDef(TypedDict):
+    findingArns: Sequence[str]
+    locale: NotRequired[Literal["EN_US"]]
 
-_RequiredCreateAssessmentTargetRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateAssessmentTargetRequestRequestTypeDef",
-    {
-        "assessmentTargetName": str,
-    },
-)
-_OptionalCreateAssessmentTargetRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateAssessmentTargetRequestRequestTypeDef",
-    {
-        "resourceGroupArn": str,
-    },
-    total=False,
-)
+class DescribeResourceGroupsRequestTypeDef(TypedDict):
+    resourceGroupArns: Sequence[str]
 
-class CreateAssessmentTargetRequestRequestTypeDef(
-    _RequiredCreateAssessmentTargetRequestRequestTypeDef,
-    _OptionalCreateAssessmentTargetRequestRequestTypeDef,
-):
-    pass
+class DescribeRulesPackagesRequestTypeDef(TypedDict):
+    rulesPackageArns: Sequence[str]
+    locale: NotRequired[Literal["EN_US"]]
 
-CreateAssessmentTargetResponseTypeDef = TypedDict(
-    "CreateAssessmentTargetResponseTypeDef",
-    {
-        "assessmentTargetArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class RulesPackageTypeDef(TypedDict):
+    arn: str
+    name: str
+    version: str
+    provider: str
+    description: NotRequired[str]
 
-_RequiredCreateAssessmentTemplateRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateAssessmentTemplateRequestRequestTypeDef",
-    {
-        "assessmentTargetArn": str,
-        "assessmentTemplateName": str,
-        "durationInSeconds": int,
-        "rulesPackageArns": List[str],
-    },
-)
-_OptionalCreateAssessmentTemplateRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateAssessmentTemplateRequestRequestTypeDef",
-    {
-        "userAttributesForFindings": List["AttributeTypeDef"],
-    },
-    total=False,
-)
+class EventSubscriptionTypeDef(TypedDict):
+    event: InspectorEventType
+    subscribedAt: datetime
 
-class CreateAssessmentTemplateRequestRequestTypeDef(
-    _RequiredCreateAssessmentTemplateRequestRequestTypeDef,
-    _OptionalCreateAssessmentTemplateRequestRequestTypeDef,
-):
-    pass
+class ScopeTypeDef(TypedDict):
+    key: NotRequired[ScopeTypeType]
+    value: NotRequired[str]
 
-CreateAssessmentTemplateResponseTypeDef = TypedDict(
-    "CreateAssessmentTemplateResponseTypeDef",
-    {
-        "assessmentTemplateArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class InspectorServiceAttributesTypeDef(TypedDict):
+    schemaVersion: int
+    assessmentRunArn: NotRequired[str]
+    rulesPackageArn: NotRequired[str]
 
-CreateExclusionsPreviewRequestRequestTypeDef = TypedDict(
-    "CreateExclusionsPreviewRequestRequestTypeDef",
-    {
-        "assessmentTemplateArn": str,
-    },
-)
+class GetAssessmentReportRequestTypeDef(TypedDict):
+    assessmentRunArn: str
+    reportFileFormat: ReportFileFormatType
+    reportType: ReportTypeType
 
-CreateExclusionsPreviewResponseTypeDef = TypedDict(
-    "CreateExclusionsPreviewResponseTypeDef",
-    {
-        "previewToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetExclusionsPreviewRequestTypeDef(TypedDict):
+    assessmentTemplateArn: str
+    previewToken: str
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+    locale: NotRequired[Literal["EN_US"]]
 
-CreateResourceGroupRequestRequestTypeDef = TypedDict(
-    "CreateResourceGroupRequestRequestTypeDef",
-    {
-        "resourceGroupTags": List["ResourceGroupTagTypeDef"],
-    },
-)
+class GetTelemetryMetadataRequestTypeDef(TypedDict):
+    assessmentRunArn: str
 
-CreateResourceGroupResponseTypeDef = TypedDict(
-    "CreateResourceGroupResponseTypeDef",
-    {
-        "resourceGroupArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
 
-DeleteAssessmentRunRequestRequestTypeDef = TypedDict(
-    "DeleteAssessmentRunRequestRequestTypeDef",
+class ListEventSubscriptionsRequestTypeDef(TypedDict):
+    resourceArn: NotRequired[str]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class ListExclusionsRequestTypeDef(TypedDict):
+    assessmentRunArn: str
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class ListRulesPackagesRequestTypeDef(TypedDict):
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+
+class PrivateIpTypeDef(TypedDict):
+    privateDnsName: NotRequired[str]
+    privateIpAddress: NotRequired[str]
+
+class SecurityGroupTypeDef(TypedDict):
+    groupName: NotRequired[str]
+    groupId: NotRequired[str]
+
+class PreviewAgentsRequestTypeDef(TypedDict):
+    previewAgentsArn: str
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class RegisterCrossAccountAccessRoleRequestTypeDef(TypedDict):
+    roleArn: str
+
+class RemoveAttributesFromFindingsRequestTypeDef(TypedDict):
+    findingArns: Sequence[str]
+    attributeKeys: Sequence[str]
+
+class StartAssessmentRunRequestTypeDef(TypedDict):
+    assessmentTemplateArn: str
+    assessmentRunName: NotRequired[str]
+
+class StopAssessmentRunRequestTypeDef(TypedDict):
+    assessmentRunArn: str
+    stopAction: NotRequired[StopActionType]
+
+class SubscribeToEventRequestTypeDef(TypedDict):
+    resourceArn: str
+    event: InspectorEventType
+    topicArn: str
+
+TimestampTypeDef = Union[datetime, str]
+
+class UnsubscribeFromEventRequestTypeDef(TypedDict):
+    resourceArn: str
+    event: InspectorEventType
+    topicArn: str
+
+class UpdateAssessmentTargetRequestTypeDef(TypedDict):
+    assessmentTargetArn: str
+    assessmentTargetName: str
+    resourceGroupArn: NotRequired[str]
+
+class AddAttributesToFindingsRequestTypeDef(TypedDict):
+    findingArns: Sequence[str]
+    attributes: Sequence[AttributeTypeDef]
+
+class AssessmentTemplateTypeDef(TypedDict):
+    arn: str
+    name: str
+    assessmentTargetArn: str
+    durationInSeconds: int
+    rulesPackageArns: List[str]
+    userAttributesForFindings: List[AttributeTypeDef]
+    assessmentRunCount: int
+    createdAt: datetime
+    lastAssessmentRunArn: NotRequired[str]
+
+class CreateAssessmentTemplateRequestTypeDef(TypedDict):
+    assessmentTargetArn: str
+    assessmentTemplateName: str
+    durationInSeconds: int
+    rulesPackageArns: Sequence[str]
+    userAttributesForFindings: NotRequired[Sequence[AttributeTypeDef]]
+
+class AddAttributesToFindingsResponseTypeDef(TypedDict):
+    failedItems: Dict[str, FailedItemDetailsTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateAssessmentTargetResponseTypeDef(TypedDict):
+    assessmentTargetArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateAssessmentTemplateResponseTypeDef(TypedDict):
+    assessmentTemplateArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateExclusionsPreviewResponseTypeDef(TypedDict):
+    previewToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateResourceGroupResponseTypeDef(TypedDict):
+    resourceGroupArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeCrossAccountAccessRoleResponseTypeDef(TypedDict):
+    roleArn: str
+    valid: bool
+    registeredAt: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class EmptyResponseMetadataTypeDef(TypedDict):
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetAssessmentReportResponseTypeDef(TypedDict):
+    status: ReportStatusType
+    url: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListAssessmentRunsResponseTypeDef(TypedDict):
+    assessmentRunArns: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListAssessmentTargetsResponseTypeDef(TypedDict):
+    assessmentTargetArns: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListAssessmentTemplatesResponseTypeDef(TypedDict):
+    assessmentTemplateArns: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListExclusionsResponseTypeDef(TypedDict):
+    exclusionArns: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListFindingsResponseTypeDef(TypedDict):
+    findingArns: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListRulesPackagesResponseTypeDef(TypedDict):
+    rulesPackageArns: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class RemoveAttributesFromFindingsResponseTypeDef(TypedDict):
+    failedItems: Dict[str, FailedItemDetailsTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartAssessmentRunResponseTypeDef(TypedDict):
+    assessmentRunArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+ListAssessmentRunAgentsRequestTypeDef = TypedDict(
+    "ListAssessmentRunAgentsRequestTypeDef",
     {
         "assessmentRunArn": str,
+        "filter": NotRequired[AgentFilterTypeDef],
+        "nextToken": NotRequired[str],
+        "maxResults": NotRequired[int],
     },
 )
 
-DeleteAssessmentTargetRequestRequestTypeDef = TypedDict(
-    "DeleteAssessmentTargetRequestRequestTypeDef",
+class PreviewAgentsResponseTypeDef(TypedDict):
+    agentPreviews: List[AgentPreviewTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class AssessmentRunAgentTypeDef(TypedDict):
+    agentId: str
+    assessmentRunArn: str
+    agentHealth: AgentHealthType
+    agentHealthCode: AgentHealthCodeType
+    telemetryMetadata: List[TelemetryMetadataTypeDef]
+    agentHealthDetails: NotRequired[str]
+    autoScalingGroup: NotRequired[str]
+
+class GetTelemetryMetadataResponseTypeDef(TypedDict):
+    telemetryMetadata: List[TelemetryMetadataTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class AssessmentTemplateFilterTypeDef(TypedDict):
+    namePattern: NotRequired[str]
+    durationRange: NotRequired[DurationRangeTypeDef]
+    rulesPackageArns: NotRequired[Sequence[str]]
+
+class AssessmentRunTypeDef(TypedDict):
+    arn: str
+    name: str
+    assessmentTemplateArn: str
+    state: AssessmentRunStateType
+    durationInSeconds: int
+    rulesPackageArns: List[str]
+    userAttributesForFindings: List[AttributeTypeDef]
+    createdAt: datetime
+    stateChangedAt: datetime
+    dataCollected: bool
+    stateChanges: List[AssessmentRunStateChangeTypeDef]
+    notifications: List[AssessmentRunNotificationTypeDef]
+    findingCounts: Dict[SeverityType, int]
+    startedAt: NotRequired[datetime]
+    completedAt: NotRequired[datetime]
+
+ListAssessmentTargetsRequestTypeDef = TypedDict(
+    "ListAssessmentTargetsRequestTypeDef",
     {
-        "assessmentTargetArn": str,
+        "filter": NotRequired[AssessmentTargetFilterTypeDef],
+        "nextToken": NotRequired[str],
+        "maxResults": NotRequired[int],
     },
 )
 
-DeleteAssessmentTemplateRequestRequestTypeDef = TypedDict(
-    "DeleteAssessmentTemplateRequestRequestTypeDef",
+class DescribeAssessmentTargetsResponseTypeDef(TypedDict):
+    assessmentTargets: List[AssessmentTargetTypeDef]
+    failedItems: Dict[str, FailedItemDetailsTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    tags: List[TagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class SetTagsForResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tags: NotRequired[Sequence[TagTypeDef]]
+
+class CreateResourceGroupRequestTypeDef(TypedDict):
+    resourceGroupTags: Sequence[ResourceGroupTagTypeDef]
+
+class ResourceGroupTypeDef(TypedDict):
+    arn: str
+    tags: List[ResourceGroupTagTypeDef]
+    createdAt: datetime
+
+class DescribeRulesPackagesResponseTypeDef(TypedDict):
+    rulesPackages: List[RulesPackageTypeDef]
+    failedItems: Dict[str, FailedItemDetailsTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class SubscriptionTypeDef(TypedDict):
+    resourceArn: str
+    topicArn: str
+    eventSubscriptions: List[EventSubscriptionTypeDef]
+
+class ExclusionPreviewTypeDef(TypedDict):
+    title: str
+    description: str
+    recommendation: str
+    scopes: List[ScopeTypeDef]
+    attributes: NotRequired[List[AttributeTypeDef]]
+
+class ExclusionTypeDef(TypedDict):
+    arn: str
+    title: str
+    description: str
+    recommendation: str
+    scopes: List[ScopeTypeDef]
+    attributes: NotRequired[List[AttributeTypeDef]]
+
+ListAssessmentRunAgentsRequestPaginateTypeDef = TypedDict(
+    "ListAssessmentRunAgentsRequestPaginateTypeDef",
     {
-        "assessmentTemplateArn": str,
+        "assessmentRunArn": str,
+        "filter": NotRequired[AgentFilterTypeDef],
+        "PaginationConfig": NotRequired[PaginatorConfigTypeDef],
     },
 )
-
-DescribeAssessmentRunsRequestRequestTypeDef = TypedDict(
-    "DescribeAssessmentRunsRequestRequestTypeDef",
+ListAssessmentTargetsRequestPaginateTypeDef = TypedDict(
+    "ListAssessmentTargetsRequestPaginateTypeDef",
     {
-        "assessmentRunArns": List[str],
+        "filter": NotRequired[AssessmentTargetFilterTypeDef],
+        "PaginationConfig": NotRequired[PaginatorConfigTypeDef],
     },
 )
 
-DescribeAssessmentRunsResponseTypeDef = TypedDict(
-    "DescribeAssessmentRunsResponseTypeDef",
+class ListEventSubscriptionsRequestPaginateTypeDef(TypedDict):
+    resourceArn: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListExclusionsRequestPaginateTypeDef(TypedDict):
+    assessmentRunArn: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListRulesPackagesRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class PreviewAgentsRequestPaginateTypeDef(TypedDict):
+    previewAgentsArn: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class NetworkInterfaceTypeDef(TypedDict):
+    networkInterfaceId: NotRequired[str]
+    subnetId: NotRequired[str]
+    vpcId: NotRequired[str]
+    privateDnsName: NotRequired[str]
+    privateIpAddress: NotRequired[str]
+    privateIpAddresses: NotRequired[List[PrivateIpTypeDef]]
+    publicDnsName: NotRequired[str]
+    publicIp: NotRequired[str]
+    ipv6Addresses: NotRequired[List[str]]
+    securityGroups: NotRequired[List[SecurityGroupTypeDef]]
+
+class TimestampRangeTypeDef(TypedDict):
+    beginDate: NotRequired[TimestampTypeDef]
+    endDate: NotRequired[TimestampTypeDef]
+
+class DescribeAssessmentTemplatesResponseTypeDef(TypedDict):
+    assessmentTemplates: List[AssessmentTemplateTypeDef]
+    failedItems: Dict[str, FailedItemDetailsTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListAssessmentRunAgentsResponseTypeDef(TypedDict):
+    assessmentRunAgents: List[AssessmentRunAgentTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+ListAssessmentTemplatesRequestPaginateTypeDef = TypedDict(
+    "ListAssessmentTemplatesRequestPaginateTypeDef",
     {
-        "assessmentRuns": List["AssessmentRunTypeDef"],
-        "failedItems": Dict[str, "FailedItemDetailsTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "assessmentTargetArns": NotRequired[Sequence[str]],
+        "filter": NotRequired[AssessmentTemplateFilterTypeDef],
+        "PaginationConfig": NotRequired[PaginatorConfigTypeDef],
     },
 )
-
-DescribeAssessmentTargetsRequestRequestTypeDef = TypedDict(
-    "DescribeAssessmentTargetsRequestRequestTypeDef",
+ListAssessmentTemplatesRequestTypeDef = TypedDict(
+    "ListAssessmentTemplatesRequestTypeDef",
     {
-        "assessmentTargetArns": List[str],
+        "assessmentTargetArns": NotRequired[Sequence[str]],
+        "filter": NotRequired[AssessmentTemplateFilterTypeDef],
+        "nextToken": NotRequired[str],
+        "maxResults": NotRequired[int],
     },
 )
 
-DescribeAssessmentTargetsResponseTypeDef = TypedDict(
-    "DescribeAssessmentTargetsResponseTypeDef",
-    {
-        "assessmentTargets": List["AssessmentTargetTypeDef"],
-        "failedItems": Dict[str, "FailedItemDetailsTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DescribeAssessmentRunsResponseTypeDef(TypedDict):
+    assessmentRuns: List[AssessmentRunTypeDef]
+    failedItems: Dict[str, FailedItemDetailsTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-DescribeAssessmentTemplatesRequestRequestTypeDef = TypedDict(
-    "DescribeAssessmentTemplatesRequestRequestTypeDef",
-    {
-        "assessmentTemplateArns": List[str],
-    },
-)
+class DescribeResourceGroupsResponseTypeDef(TypedDict):
+    resourceGroups: List[ResourceGroupTypeDef]
+    failedItems: Dict[str, FailedItemDetailsTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-DescribeAssessmentTemplatesResponseTypeDef = TypedDict(
-    "DescribeAssessmentTemplatesResponseTypeDef",
-    {
-        "assessmentTemplates": List["AssessmentTemplateTypeDef"],
-        "failedItems": Dict[str, "FailedItemDetailsTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListEventSubscriptionsResponseTypeDef(TypedDict):
+    subscriptions: List[SubscriptionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-DescribeCrossAccountAccessRoleResponseTypeDef = TypedDict(
-    "DescribeCrossAccountAccessRoleResponseTypeDef",
-    {
-        "roleArn": str,
-        "valid": bool,
-        "registeredAt": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetExclusionsPreviewResponseTypeDef(TypedDict):
+    previewStatus: PreviewStatusType
+    exclusionPreviews: List[ExclusionPreviewTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-_RequiredDescribeExclusionsRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeExclusionsRequestRequestTypeDef",
-    {
-        "exclusionArns": List[str],
-    },
-)
-_OptionalDescribeExclusionsRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeExclusionsRequestRequestTypeDef",
-    {
-        "locale": Literal["EN_US"],
-    },
-    total=False,
-)
+class DescribeExclusionsResponseTypeDef(TypedDict):
+    exclusions: Dict[str, ExclusionTypeDef]
+    failedItems: Dict[str, FailedItemDetailsTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeExclusionsRequestRequestTypeDef(
-    _RequiredDescribeExclusionsRequestRequestTypeDef,
-    _OptionalDescribeExclusionsRequestRequestTypeDef,
-):
-    pass
+class AssetAttributesTypeDef(TypedDict):
+    schemaVersion: int
+    agentId: NotRequired[str]
+    autoScalingGroup: NotRequired[str]
+    amiId: NotRequired[str]
+    hostname: NotRequired[str]
+    ipv4Addresses: NotRequired[List[str]]
+    tags: NotRequired[List[TagTypeDef]]
+    networkInterfaces: NotRequired[List[NetworkInterfaceTypeDef]]
 
-DescribeExclusionsResponseTypeDef = TypedDict(
-    "DescribeExclusionsResponseTypeDef",
-    {
-        "exclusions": Dict[str, "ExclusionTypeDef"],
-        "failedItems": Dict[str, "FailedItemDetailsTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class AssessmentRunFilterTypeDef(TypedDict):
+    namePattern: NotRequired[str]
+    states: NotRequired[Sequence[AssessmentRunStateType]]
+    durationRange: NotRequired[DurationRangeTypeDef]
+    rulesPackageArns: NotRequired[Sequence[str]]
+    startTimeRange: NotRequired[TimestampRangeTypeDef]
+    completionTimeRange: NotRequired[TimestampRangeTypeDef]
+    stateChangeTimeRange: NotRequired[TimestampRangeTypeDef]
 
-_RequiredDescribeFindingsRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeFindingsRequestRequestTypeDef",
-    {
-        "findingArns": List[str],
-    },
-)
-_OptionalDescribeFindingsRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeFindingsRequestRequestTypeDef",
-    {
-        "locale": Literal["EN_US"],
-    },
-    total=False,
-)
+class FindingFilterTypeDef(TypedDict):
+    agentIds: NotRequired[Sequence[str]]
+    autoScalingGroups: NotRequired[Sequence[str]]
+    ruleNames: NotRequired[Sequence[str]]
+    severities: NotRequired[Sequence[SeverityType]]
+    rulesPackageArns: NotRequired[Sequence[str]]
+    attributes: NotRequired[Sequence[AttributeTypeDef]]
+    userAttributes: NotRequired[Sequence[AttributeTypeDef]]
+    creationTimeRange: NotRequired[TimestampRangeTypeDef]
 
-class DescribeFindingsRequestRequestTypeDef(
-    _RequiredDescribeFindingsRequestRequestTypeDef, _OptionalDescribeFindingsRequestRequestTypeDef
-):
-    pass
-
-DescribeFindingsResponseTypeDef = TypedDict(
-    "DescribeFindingsResponseTypeDef",
-    {
-        "findings": List["FindingTypeDef"],
-        "failedItems": Dict[str, "FailedItemDetailsTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeResourceGroupsRequestRequestTypeDef = TypedDict(
-    "DescribeResourceGroupsRequestRequestTypeDef",
-    {
-        "resourceGroupArns": List[str],
-    },
-)
-
-DescribeResourceGroupsResponseTypeDef = TypedDict(
-    "DescribeResourceGroupsResponseTypeDef",
-    {
-        "resourceGroups": List["ResourceGroupTypeDef"],
-        "failedItems": Dict[str, "FailedItemDetailsTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribeRulesPackagesRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeRulesPackagesRequestRequestTypeDef",
-    {
-        "rulesPackageArns": List[str],
-    },
-)
-_OptionalDescribeRulesPackagesRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeRulesPackagesRequestRequestTypeDef",
-    {
-        "locale": Literal["EN_US"],
-    },
-    total=False,
-)
-
-class DescribeRulesPackagesRequestRequestTypeDef(
-    _RequiredDescribeRulesPackagesRequestRequestTypeDef,
-    _OptionalDescribeRulesPackagesRequestRequestTypeDef,
-):
-    pass
-
-DescribeRulesPackagesResponseTypeDef = TypedDict(
-    "DescribeRulesPackagesResponseTypeDef",
-    {
-        "rulesPackages": List["RulesPackageTypeDef"],
-        "failedItems": Dict[str, "FailedItemDetailsTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DurationRangeTypeDef = TypedDict(
-    "DurationRangeTypeDef",
-    {
-        "minSeconds": int,
-        "maxSeconds": int,
-    },
-    total=False,
-)
-
-EventSubscriptionTypeDef = TypedDict(
-    "EventSubscriptionTypeDef",
-    {
-        "event": InspectorEventType,
-        "subscribedAt": datetime,
-    },
-)
-
-_RequiredExclusionPreviewTypeDef = TypedDict(
-    "_RequiredExclusionPreviewTypeDef",
-    {
-        "title": str,
-        "description": str,
-        "recommendation": str,
-        "scopes": List["ScopeTypeDef"],
-    },
-)
-_OptionalExclusionPreviewTypeDef = TypedDict(
-    "_OptionalExclusionPreviewTypeDef",
-    {
-        "attributes": List["AttributeTypeDef"],
-    },
-    total=False,
-)
-
-class ExclusionPreviewTypeDef(_RequiredExclusionPreviewTypeDef, _OptionalExclusionPreviewTypeDef):
-    pass
-
-_RequiredExclusionTypeDef = TypedDict(
-    "_RequiredExclusionTypeDef",
-    {
-        "arn": str,
-        "title": str,
-        "description": str,
-        "recommendation": str,
-        "scopes": List["ScopeTypeDef"],
-    },
-)
-_OptionalExclusionTypeDef = TypedDict(
-    "_OptionalExclusionTypeDef",
-    {
-        "attributes": List["AttributeTypeDef"],
-    },
-    total=False,
-)
-
-class ExclusionTypeDef(_RequiredExclusionTypeDef, _OptionalExclusionTypeDef):
-    pass
-
-FailedItemDetailsTypeDef = TypedDict(
-    "FailedItemDetailsTypeDef",
-    {
-        "failureCode": FailedItemErrorCodeType,
-        "retryable": bool,
-    },
-)
-
-FindingFilterTypeDef = TypedDict(
-    "FindingFilterTypeDef",
-    {
-        "agentIds": List[str],
-        "autoScalingGroups": List[str],
-        "ruleNames": List[str],
-        "severities": List[SeverityType],
-        "rulesPackageArns": List[str],
-        "attributes": List["AttributeTypeDef"],
-        "userAttributes": List["AttributeTypeDef"],
-        "creationTimeRange": "TimestampRangeTypeDef",
-    },
-    total=False,
-)
-
-_RequiredFindingTypeDef = TypedDict(
-    "_RequiredFindingTypeDef",
+FindingTypeDef = TypedDict(
+    "FindingTypeDef",
     {
         "arn": str,
-        "attributes": List["AttributeTypeDef"],
-        "userAttributes": List["AttributeTypeDef"],
+        "attributes": List[AttributeTypeDef],
+        "userAttributes": List[AttributeTypeDef],
         "createdAt": datetime,
         "updatedAt": datetime,
+        "schemaVersion": NotRequired[int],
+        "service": NotRequired[str],
+        "serviceAttributes": NotRequired[InspectorServiceAttributesTypeDef],
+        "assetType": NotRequired[Literal["ec2-instance"]],
+        "assetAttributes": NotRequired[AssetAttributesTypeDef],
+        "id": NotRequired[str],
+        "title": NotRequired[str],
+        "description": NotRequired[str],
+        "recommendation": NotRequired[str],
+        "severity": NotRequired[SeverityType],
+        "numericSeverity": NotRequired[float],
+        "confidence": NotRequired[int],
+        "indicatorOfCompromise": NotRequired[bool],
     },
 )
-_OptionalFindingTypeDef = TypedDict(
-    "_OptionalFindingTypeDef",
+ListAssessmentRunsRequestPaginateTypeDef = TypedDict(
+    "ListAssessmentRunsRequestPaginateTypeDef",
     {
-        "schemaVersion": int,
-        "service": str,
-        "serviceAttributes": "InspectorServiceAttributesTypeDef",
-        "assetType": Literal["ec2-instance"],
-        "assetAttributes": "AssetAttributesTypeDef",
-        "id": str,
-        "title": str,
-        "description": str,
-        "recommendation": str,
-        "severity": SeverityType,
-        "numericSeverity": float,
-        "confidence": int,
-        "indicatorOfCompromise": bool,
+        "assessmentTemplateArns": NotRequired[Sequence[str]],
+        "filter": NotRequired[AssessmentRunFilterTypeDef],
+        "PaginationConfig": NotRequired[PaginatorConfigTypeDef],
     },
-    total=False,
 )
-
-class FindingTypeDef(_RequiredFindingTypeDef, _OptionalFindingTypeDef):
-    pass
-
-GetAssessmentReportRequestRequestTypeDef = TypedDict(
-    "GetAssessmentReportRequestRequestTypeDef",
-    {
-        "assessmentRunArn": str,
-        "reportFileFormat": ReportFileFormatType,
-        "reportType": ReportTypeType,
-    },
-)
-
-GetAssessmentReportResponseTypeDef = TypedDict(
-    "GetAssessmentReportResponseTypeDef",
-    {
-        "status": ReportStatusType,
-        "url": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetExclusionsPreviewRequestRequestTypeDef = TypedDict(
-    "_RequiredGetExclusionsPreviewRequestRequestTypeDef",
-    {
-        "assessmentTemplateArn": str,
-        "previewToken": str,
-    },
-)
-_OptionalGetExclusionsPreviewRequestRequestTypeDef = TypedDict(
-    "_OptionalGetExclusionsPreviewRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-        "locale": Literal["EN_US"],
-    },
-    total=False,
-)
-
-class GetExclusionsPreviewRequestRequestTypeDef(
-    _RequiredGetExclusionsPreviewRequestRequestTypeDef,
-    _OptionalGetExclusionsPreviewRequestRequestTypeDef,
-):
-    pass
-
-GetExclusionsPreviewResponseTypeDef = TypedDict(
-    "GetExclusionsPreviewResponseTypeDef",
-    {
-        "previewStatus": PreviewStatusType,
-        "exclusionPreviews": List["ExclusionPreviewTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetTelemetryMetadataRequestRequestTypeDef = TypedDict(
-    "GetTelemetryMetadataRequestRequestTypeDef",
-    {
-        "assessmentRunArn": str,
-    },
-)
-
-GetTelemetryMetadataResponseTypeDef = TypedDict(
-    "GetTelemetryMetadataResponseTypeDef",
-    {
-        "telemetryMetadata": List["TelemetryMetadataTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredInspectorServiceAttributesTypeDef = TypedDict(
-    "_RequiredInspectorServiceAttributesTypeDef",
-    {
-        "schemaVersion": int,
-    },
-)
-_OptionalInspectorServiceAttributesTypeDef = TypedDict(
-    "_OptionalInspectorServiceAttributesTypeDef",
-    {
-        "assessmentRunArn": str,
-        "rulesPackageArn": str,
-    },
-    total=False,
-)
-
-class InspectorServiceAttributesTypeDef(
-    _RequiredInspectorServiceAttributesTypeDef, _OptionalInspectorServiceAttributesTypeDef
-):
-    pass
-
-_RequiredListAssessmentRunAgentsRequestRequestTypeDef = TypedDict(
-    "_RequiredListAssessmentRunAgentsRequestRequestTypeDef",
-    {
-        "assessmentRunArn": str,
-    },
-)
-_OptionalListAssessmentRunAgentsRequestRequestTypeDef = TypedDict(
-    "_OptionalListAssessmentRunAgentsRequestRequestTypeDef",
-    {
-        "filter": "AgentFilterTypeDef",
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-class ListAssessmentRunAgentsRequestRequestTypeDef(
-    _RequiredListAssessmentRunAgentsRequestRequestTypeDef,
-    _OptionalListAssessmentRunAgentsRequestRequestTypeDef,
-):
-    pass
-
-ListAssessmentRunAgentsResponseTypeDef = TypedDict(
-    "ListAssessmentRunAgentsResponseTypeDef",
-    {
-        "assessmentRunAgents": List["AssessmentRunAgentTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListAssessmentRunsRequestRequestTypeDef = TypedDict(
-    "ListAssessmentRunsRequestRequestTypeDef",
-    {
-        "assessmentTemplateArns": List[str],
-        "filter": "AssessmentRunFilterTypeDef",
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-ListAssessmentRunsResponseTypeDef = TypedDict(
-    "ListAssessmentRunsResponseTypeDef",
-    {
-        "assessmentRunArns": List[str],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListAssessmentTargetsRequestRequestTypeDef = TypedDict(
-    "ListAssessmentTargetsRequestRequestTypeDef",
-    {
-        "filter": "AssessmentTargetFilterTypeDef",
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-ListAssessmentTargetsResponseTypeDef = TypedDict(
-    "ListAssessmentTargetsResponseTypeDef",
-    {
-        "assessmentTargetArns": List[str],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListAssessmentTemplatesRequestRequestTypeDef = TypedDict(
-    "ListAssessmentTemplatesRequestRequestTypeDef",
-    {
-        "assessmentTargetArns": List[str],
-        "filter": "AssessmentTemplateFilterTypeDef",
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-ListAssessmentTemplatesResponseTypeDef = TypedDict(
-    "ListAssessmentTemplatesResponseTypeDef",
-    {
-        "assessmentTemplateArns": List[str],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListEventSubscriptionsRequestRequestTypeDef = TypedDict(
-    "ListEventSubscriptionsRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-ListEventSubscriptionsResponseTypeDef = TypedDict(
-    "ListEventSubscriptionsResponseTypeDef",
-    {
-        "subscriptions": List["SubscriptionTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListExclusionsRequestRequestTypeDef = TypedDict(
-    "_RequiredListExclusionsRequestRequestTypeDef",
-    {
-        "assessmentRunArn": str,
-    },
-)
-_OptionalListExclusionsRequestRequestTypeDef = TypedDict(
-    "_OptionalListExclusionsRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-class ListExclusionsRequestRequestTypeDef(
-    _RequiredListExclusionsRequestRequestTypeDef, _OptionalListExclusionsRequestRequestTypeDef
-):
-    pass
-
-ListExclusionsResponseTypeDef = TypedDict(
-    "ListExclusionsResponseTypeDef",
-    {
-        "exclusionArns": List[str],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListFindingsRequestRequestTypeDef = TypedDict(
-    "ListFindingsRequestRequestTypeDef",
-    {
-        "assessmentRunArns": List[str],
-        "filter": "FindingFilterTypeDef",
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-ListFindingsResponseTypeDef = TypedDict(
-    "ListFindingsResponseTypeDef",
-    {
-        "findingArns": List[str],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListRulesPackagesRequestRequestTypeDef = TypedDict(
-    "ListRulesPackagesRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-ListRulesPackagesResponseTypeDef = TypedDict(
-    "ListRulesPackagesResponseTypeDef",
-    {
-        "rulesPackageArns": List[str],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-    },
-)
-
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "tags": List["TagTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-NetworkInterfaceTypeDef = TypedDict(
-    "NetworkInterfaceTypeDef",
-    {
-        "networkInterfaceId": str,
-        "subnetId": str,
-        "vpcId": str,
-        "privateDnsName": str,
-        "privateIpAddress": str,
-        "privateIpAddresses": List["PrivateIpTypeDef"],
-        "publicDnsName": str,
-        "publicIp": str,
-        "ipv6Addresses": List[str],
-        "securityGroups": List["SecurityGroupTypeDef"],
-    },
-    total=False,
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-_RequiredPreviewAgentsRequestRequestTypeDef = TypedDict(
-    "_RequiredPreviewAgentsRequestRequestTypeDef",
-    {
-        "previewAgentsArn": str,
-    },
-)
-_OptionalPreviewAgentsRequestRequestTypeDef = TypedDict(
-    "_OptionalPreviewAgentsRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-class PreviewAgentsRequestRequestTypeDef(
-    _RequiredPreviewAgentsRequestRequestTypeDef, _OptionalPreviewAgentsRequestRequestTypeDef
-):
-    pass
-
-PreviewAgentsResponseTypeDef = TypedDict(
-    "PreviewAgentsResponseTypeDef",
-    {
-        "agentPreviews": List["AgentPreviewTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-PrivateIpTypeDef = TypedDict(
-    "PrivateIpTypeDef",
-    {
-        "privateDnsName": str,
-        "privateIpAddress": str,
-    },
-    total=False,
-)
-
-RegisterCrossAccountAccessRoleRequestRequestTypeDef = TypedDict(
-    "RegisterCrossAccountAccessRoleRequestRequestTypeDef",
-    {
-        "roleArn": str,
-    },
-)
-
-RemoveAttributesFromFindingsRequestRequestTypeDef = TypedDict(
-    "RemoveAttributesFromFindingsRequestRequestTypeDef",
-    {
-        "findingArns": List[str],
-        "attributeKeys": List[str],
-    },
-)
-
-RemoveAttributesFromFindingsResponseTypeDef = TypedDict(
-    "RemoveAttributesFromFindingsResponseTypeDef",
-    {
-        "failedItems": Dict[str, "FailedItemDetailsTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredResourceGroupTagTypeDef = TypedDict(
-    "_RequiredResourceGroupTagTypeDef",
-    {
-        "key": str,
-    },
-)
-_OptionalResourceGroupTagTypeDef = TypedDict(
-    "_OptionalResourceGroupTagTypeDef",
-    {
-        "value": str,
-    },
-    total=False,
-)
-
-class ResourceGroupTagTypeDef(_RequiredResourceGroupTagTypeDef, _OptionalResourceGroupTagTypeDef):
-    pass
-
-ResourceGroupTypeDef = TypedDict(
-    "ResourceGroupTypeDef",
-    {
-        "arn": str,
-        "tags": List["ResourceGroupTagTypeDef"],
-        "createdAt": datetime,
-    },
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-_RequiredRulesPackageTypeDef = TypedDict(
-    "_RequiredRulesPackageTypeDef",
-    {
-        "arn": str,
-        "name": str,
-        "version": str,
-        "provider": str,
-    },
-)
-_OptionalRulesPackageTypeDef = TypedDict(
-    "_OptionalRulesPackageTypeDef",
-    {
-        "description": str,
-    },
-    total=False,
-)
-
-class RulesPackageTypeDef(_RequiredRulesPackageTypeDef, _OptionalRulesPackageTypeDef):
-    pass
-
-ScopeTypeDef = TypedDict(
-    "ScopeTypeDef",
-    {
-        "key": ScopeTypeType,
-        "value": str,
-    },
-    total=False,
-)
-
-SecurityGroupTypeDef = TypedDict(
-    "SecurityGroupTypeDef",
+ListAssessmentRunsRequestTypeDef = TypedDict(
+    "ListAssessmentRunsRequestTypeDef",
     {
-        "groupName": str,
-        "groupId": str,
+        "assessmentTemplateArns": NotRequired[Sequence[str]],
+        "filter": NotRequired[AssessmentRunFilterTypeDef],
+        "nextToken": NotRequired[str],
+        "maxResults": NotRequired[int],
     },
-    total=False,
 )
-
-_RequiredSetTagsForResourceRequestRequestTypeDef = TypedDict(
-    "_RequiredSetTagsForResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-    },
-)
-_OptionalSetTagsForResourceRequestRequestTypeDef = TypedDict(
-    "_OptionalSetTagsForResourceRequestRequestTypeDef",
-    {
-        "tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class SetTagsForResourceRequestRequestTypeDef(
-    _RequiredSetTagsForResourceRequestRequestTypeDef,
-    _OptionalSetTagsForResourceRequestRequestTypeDef,
-):
-    pass
-
-_RequiredStartAssessmentRunRequestRequestTypeDef = TypedDict(
-    "_RequiredStartAssessmentRunRequestRequestTypeDef",
-    {
-        "assessmentTemplateArn": str,
-    },
-)
-_OptionalStartAssessmentRunRequestRequestTypeDef = TypedDict(
-    "_OptionalStartAssessmentRunRequestRequestTypeDef",
-    {
-        "assessmentRunName": str,
-    },
-    total=False,
-)
-
-class StartAssessmentRunRequestRequestTypeDef(
-    _RequiredStartAssessmentRunRequestRequestTypeDef,
-    _OptionalStartAssessmentRunRequestRequestTypeDef,
-):
-    pass
-
-StartAssessmentRunResponseTypeDef = TypedDict(
-    "StartAssessmentRunResponseTypeDef",
-    {
-        "assessmentRunArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredStopAssessmentRunRequestRequestTypeDef = TypedDict(
-    "_RequiredStopAssessmentRunRequestRequestTypeDef",
-    {
-        "assessmentRunArn": str,
-    },
-)
-_OptionalStopAssessmentRunRequestRequestTypeDef = TypedDict(
-    "_OptionalStopAssessmentRunRequestRequestTypeDef",
-    {
-        "stopAction": StopActionType,
-    },
-    total=False,
-)
-
-class StopAssessmentRunRequestRequestTypeDef(
-    _RequiredStopAssessmentRunRequestRequestTypeDef, _OptionalStopAssessmentRunRequestRequestTypeDef
-):
-    pass
-
-SubscribeToEventRequestRequestTypeDef = TypedDict(
-    "SubscribeToEventRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "event": InspectorEventType,
-        "topicArn": str,
-    },
-)
-
-SubscriptionTypeDef = TypedDict(
-    "SubscriptionTypeDef",
-    {
-        "resourceArn": str,
-        "topicArn": str,
-        "eventSubscriptions": List["EventSubscriptionTypeDef"],
-    },
-)
-
-_RequiredTagTypeDef = TypedDict(
-    "_RequiredTagTypeDef",
-    {
-        "key": str,
-    },
-)
-_OptionalTagTypeDef = TypedDict(
-    "_OptionalTagTypeDef",
-    {
-        "value": str,
-    },
-    total=False,
-)
-
-class TagTypeDef(_RequiredTagTypeDef, _OptionalTagTypeDef):
-    pass
-
-_RequiredTelemetryMetadataTypeDef = TypedDict(
-    "_RequiredTelemetryMetadataTypeDef",
-    {
-        "messageType": str,
-        "count": int,
-    },
-)
-_OptionalTelemetryMetadataTypeDef = TypedDict(
-    "_OptionalTelemetryMetadataTypeDef",
-    {
-        "dataSize": int,
-    },
-    total=False,
-)
-
-class TelemetryMetadataTypeDef(
-    _RequiredTelemetryMetadataTypeDef, _OptionalTelemetryMetadataTypeDef
-):
-    pass
-
-TimestampRangeTypeDef = TypedDict(
-    "TimestampRangeTypeDef",
-    {
-        "beginDate": Union[datetime, str],
-        "endDate": Union[datetime, str],
-    },
-    total=False,
-)
-
-UnsubscribeFromEventRequestRequestTypeDef = TypedDict(
-    "UnsubscribeFromEventRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "event": InspectorEventType,
-        "topicArn": str,
-    },
-)
-
-_RequiredUpdateAssessmentTargetRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateAssessmentTargetRequestRequestTypeDef",
+ListFindingsRequestPaginateTypeDef = TypedDict(
+    "ListFindingsRequestPaginateTypeDef",
     {
-        "assessmentTargetArn": str,
-        "assessmentTargetName": str,
+        "assessmentRunArns": NotRequired[Sequence[str]],
+        "filter": NotRequired[FindingFilterTypeDef],
+        "PaginationConfig": NotRequired[PaginatorConfigTypeDef],
     },
 )
-_OptionalUpdateAssessmentTargetRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateAssessmentTargetRequestRequestTypeDef",
+ListFindingsRequestTypeDef = TypedDict(
+    "ListFindingsRequestTypeDef",
     {
-        "resourceGroupArn": str,
+        "assessmentRunArns": NotRequired[Sequence[str]],
+        "filter": NotRequired[FindingFilterTypeDef],
+        "nextToken": NotRequired[str],
+        "maxResults": NotRequired[int],
     },
-    total=False,
 )
 
-class UpdateAssessmentTargetRequestRequestTypeDef(
-    _RequiredUpdateAssessmentTargetRequestRequestTypeDef,
-    _OptionalUpdateAssessmentTargetRequestRequestTypeDef,
-):
-    pass
+class DescribeFindingsResponseTypeDef(TypedDict):
+    findings: List[FindingTypeDef]
+    failedItems: Dict[str, FailedItemDetailsTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef

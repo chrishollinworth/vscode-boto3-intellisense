@@ -1,14 +1,16 @@
 """
 Type annotations for evidently service client paginators.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_evidently/paginators.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_evidently/paginators/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
 
-    from mypy_boto3_evidently import CloudWatchEvidentlyClient
+    from mypy_boto3_evidently.client import CloudWatchEvidentlyClient
     from mypy_boto3_evidently.paginator import (
         ListExperimentsPaginator,
         ListFeaturesPaginator,
@@ -18,7 +20,8 @@ Usage::
         ListSegmentsPaginator,
     )
 
-    client: CloudWatchEvidentlyClient = boto3.client("evidently")
+    session = Session()
+    client: CloudWatchEvidentlyClient = session.client("evidently")
 
     list_experiments_paginator: ListExperimentsPaginator = client.get_paginator("list_experiments")
     list_features_paginator: ListFeaturesPaginator = client.get_paginator("list_features")
@@ -29,20 +32,32 @@ Usage::
     ```
 """
 
-from typing import Iterator
+from __future__ import annotations
 
-from botocore.paginate import Paginator as Boto3Paginator
+import sys
+from typing import TYPE_CHECKING
 
-from .literals import ExperimentStatusType, LaunchStatusType, SegmentReferenceResourceTypeType
+from botocore.paginate import PageIterator, Paginator
+
 from .type_defs import (
+    ListExperimentsRequestPaginateTypeDef,
     ListExperimentsResponseTypeDef,
+    ListFeaturesRequestPaginateTypeDef,
     ListFeaturesResponseTypeDef,
+    ListLaunchesRequestPaginateTypeDef,
     ListLaunchesResponseTypeDef,
+    ListProjectsRequestPaginateTypeDef,
     ListProjectsResponseTypeDef,
+    ListSegmentReferencesRequestPaginateTypeDef,
     ListSegmentReferencesResponseTypeDef,
+    ListSegmentsRequestPaginateTypeDef,
     ListSegmentsResponseTypeDef,
-    PaginatorConfigTypeDef,
 )
+
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = (
     "ListExperimentsPaginator",
@@ -53,98 +68,110 @@ __all__ = (
     "ListSegmentsPaginator",
 )
 
-class ListExperimentsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/evidently.html#CloudWatchEvidently.Paginator.ListExperiments)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_evidently/paginators.html#listexperimentspaginator)
-    """
+if TYPE_CHECKING:
+    _ListExperimentsPaginatorBase = Paginator[ListExperimentsResponseTypeDef]
+else:
+    _ListExperimentsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        project: str,
-        status: ExperimentStatusType = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListExperimentsResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/evidently.html#CloudWatchEvidently.Paginator.ListExperiments.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_evidently/paginators.html#listexperimentspaginator)
-        """
-
-class ListFeaturesPaginator(Boto3Paginator):
+class ListExperimentsPaginator(_ListExperimentsPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/evidently.html#CloudWatchEvidently.Paginator.ListFeatures)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_evidently/paginators.html#listfeaturespaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/evidently/paginator/ListExperiments.html#CloudWatchEvidently.Paginator.ListExperiments)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_evidently/paginators/#listexperimentspaginator)
     """
-
-    def paginate(
-        self, *, project: str, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListFeaturesResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListExperimentsRequestPaginateTypeDef]
+    ) -> PageIterator[ListExperimentsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/evidently.html#CloudWatchEvidently.Paginator.ListFeatures.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_evidently/paginators.html#listfeaturespaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/evidently/paginator/ListExperiments.html#CloudWatchEvidently.Paginator.ListExperiments.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_evidently/paginators/#listexperimentspaginator)
         """
 
-class ListLaunchesPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/evidently.html#CloudWatchEvidently.Paginator.ListLaunches)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_evidently/paginators.html#listlaunchespaginator)
-    """
+if TYPE_CHECKING:
+    _ListFeaturesPaginatorBase = Paginator[ListFeaturesResponseTypeDef]
+else:
+    _ListFeaturesPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        project: str,
-        status: LaunchStatusType = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListLaunchesResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/evidently.html#CloudWatchEvidently.Paginator.ListLaunches.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_evidently/paginators.html#listlaunchespaginator)
-        """
-
-class ListProjectsPaginator(Boto3Paginator):
+class ListFeaturesPaginator(_ListFeaturesPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/evidently.html#CloudWatchEvidently.Paginator.ListProjects)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_evidently/paginators.html#listprojectspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/evidently/paginator/ListFeatures.html#CloudWatchEvidently.Paginator.ListFeatures)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_evidently/paginators/#listfeaturespaginator)
     """
-
-    def paginate(
-        self, *, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListProjectsResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListFeaturesRequestPaginateTypeDef]
+    ) -> PageIterator[ListFeaturesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/evidently.html#CloudWatchEvidently.Paginator.ListProjects.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_evidently/paginators.html#listprojectspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/evidently/paginator/ListFeatures.html#CloudWatchEvidently.Paginator.ListFeatures.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_evidently/paginators/#listfeaturespaginator)
         """
 
-class ListSegmentReferencesPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/evidently.html#CloudWatchEvidently.Paginator.ListSegmentReferences)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_evidently/paginators.html#listsegmentreferencespaginator)
-    """
+if TYPE_CHECKING:
+    _ListLaunchesPaginatorBase = Paginator[ListLaunchesResponseTypeDef]
+else:
+    _ListLaunchesPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        segment: str,
-        type: SegmentReferenceResourceTypeType,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListSegmentReferencesResponseTypeDef]:
+class ListLaunchesPaginator(_ListLaunchesPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/evidently/paginator/ListLaunches.html#CloudWatchEvidently.Paginator.ListLaunches)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_evidently/paginators/#listlaunchespaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListLaunchesRequestPaginateTypeDef]
+    ) -> PageIterator[ListLaunchesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/evidently.html#CloudWatchEvidently.Paginator.ListSegmentReferences.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_evidently/paginators.html#listsegmentreferencespaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/evidently/paginator/ListLaunches.html#CloudWatchEvidently.Paginator.ListLaunches.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_evidently/paginators/#listlaunchespaginator)
         """
 
-class ListSegmentsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/evidently.html#CloudWatchEvidently.Paginator.ListSegments)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_evidently/paginators.html#listsegmentspaginator)
-    """
+if TYPE_CHECKING:
+    _ListProjectsPaginatorBase = Paginator[ListProjectsResponseTypeDef]
+else:
+    _ListProjectsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListSegmentsResponseTypeDef]:
+class ListProjectsPaginator(_ListProjectsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/evidently/paginator/ListProjects.html#CloudWatchEvidently.Paginator.ListProjects)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_evidently/paginators/#listprojectspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListProjectsRequestPaginateTypeDef]
+    ) -> PageIterator[ListProjectsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/evidently.html#CloudWatchEvidently.Paginator.ListSegments.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_evidently/paginators.html#listsegmentspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/evidently/paginator/ListProjects.html#CloudWatchEvidently.Paginator.ListProjects.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_evidently/paginators/#listprojectspaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListSegmentReferencesPaginatorBase = Paginator[ListSegmentReferencesResponseTypeDef]
+else:
+    _ListSegmentReferencesPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListSegmentReferencesPaginator(_ListSegmentReferencesPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/evidently/paginator/ListSegmentReferences.html#CloudWatchEvidently.Paginator.ListSegmentReferences)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_evidently/paginators/#listsegmentreferencespaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListSegmentReferencesRequestPaginateTypeDef]
+    ) -> PageIterator[ListSegmentReferencesResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/evidently/paginator/ListSegmentReferences.html#CloudWatchEvidently.Paginator.ListSegmentReferences.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_evidently/paginators/#listsegmentreferencespaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListSegmentsPaginatorBase = Paginator[ListSegmentsResponseTypeDef]
+else:
+    _ListSegmentsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListSegmentsPaginator(_ListSegmentsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/evidently/paginator/ListSegments.html#CloudWatchEvidently.Paginator.ListSegments)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_evidently/paginators/#listsegmentspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListSegmentsRequestPaginateTypeDef]
+    ) -> PageIterator[ListSegmentsResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/evidently/paginator/ListSegments.html#CloudWatchEvidently.Paginator.ListSegments.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_evidently/paginators/#listsegmentspaginator)
         """

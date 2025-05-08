@@ -1,10 +1,14 @@
 """
 Main interface for finspace-data service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_finspace_data import (
         Client,
         FinSpaceDataClient,
@@ -15,10 +19,8 @@ Usage::
         ListUsersPaginator,
     )
 
-    session = boto3.Session()
-
-    client: FinSpaceDataClient = boto3.client("finspace-data")
-    session_client: FinSpaceDataClient = session.client("finspace-data")
+    session = Session()
+    client: FinSpaceDataClient = session.client("finspace-data")
 
     list_changesets_paginator: ListChangesetsPaginator = client.get_paginator("list_changesets")
     list_data_views_paginator: ListDataViewsPaginator = client.get_paginator("list_data_views")

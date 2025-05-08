@@ -1,130 +1,87 @@
 """
 Type annotations for marketplace-deployment service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_marketplace_deployment/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_marketplace_deployment/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_marketplace_deployment.type_defs import DeploymentParameterInputTypeDef
 
-    data: DeploymentParameterInputTypeDef = {...}
+    data: DeploymentParameterInputTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List, Union
+from typing import Union
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
     "DeploymentParameterInputTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
-    "PutDeploymentParameterRequestRequestTypeDef",
+    "PutDeploymentParameterRequestTypeDef",
     "PutDeploymentParameterResponseTypeDef",
     "ResponseMetadataTypeDef",
-    "TagResourceRequestRequestTypeDef",
-    "UntagResourceRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
+    "TimestampTypeDef",
+    "UntagResourceRequestTypeDef",
 )
 
-DeploymentParameterInputTypeDef = TypedDict(
-    "DeploymentParameterInputTypeDef",
-    {
-        "name": str,
-        "secretString": str,
-    },
-)
+class DeploymentParameterInputTypeDef(TypedDict):
+    name: str
+    secretString: str
 
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-    },
-)
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    resourceArn: str
 
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-_RequiredPutDeploymentParameterRequestRequestTypeDef = TypedDict(
-    "_RequiredPutDeploymentParameterRequestRequestTypeDef",
-    {
-        "agreementId": str,
-        "catalog": str,
-        "deploymentParameter": "DeploymentParameterInputTypeDef",
-        "productId": str,
-    },
-)
-_OptionalPutDeploymentParameterRequestRequestTypeDef = TypedDict(
-    "_OptionalPutDeploymentParameterRequestRequestTypeDef",
-    {
-        "clientToken": str,
-        "expirationDate": Union[datetime, str],
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
+TimestampTypeDef = Union[datetime, str]
 
-class PutDeploymentParameterRequestRequestTypeDef(
-    _RequiredPutDeploymentParameterRequestRequestTypeDef,
-    _OptionalPutDeploymentParameterRequestRequestTypeDef,
-):
-    pass
+class TagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tags: NotRequired[Mapping[str, str]]
 
-PutDeploymentParameterResponseTypeDef = TypedDict(
-    "PutDeploymentParameterResponseTypeDef",
-    {
-        "agreementId": str,
-        "deploymentParameterId": str,
-        "resourceArn": str,
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class UntagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tagKeys: Sequence[str]
 
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredTagResourceRequestRequestTypeDef = TypedDict(
-    "_RequiredTagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-    },
-)
-_OptionalTagResourceRequestRequestTypeDef = TypedDict(
-    "_OptionalTagResourceRequestRequestTypeDef",
-    {
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
+class PutDeploymentParameterResponseTypeDef(TypedDict):
+    agreementId: str
+    deploymentParameterId: str
+    resourceArn: str
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class TagResourceRequestRequestTypeDef(
-    _RequiredTagResourceRequestRequestTypeDef, _OptionalTagResourceRequestRequestTypeDef
-):
-    pass
-
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tagKeys": List[str],
-    },
-)
+class PutDeploymentParameterRequestTypeDef(TypedDict):
+    agreementId: str
+    catalog: str
+    deploymentParameter: DeploymentParameterInputTypeDef
+    productId: str
+    clientToken: NotRequired[str]
+    expirationDate: NotRequired[TimestampTypeDef]
+    tags: NotRequired[Mapping[str, str]]

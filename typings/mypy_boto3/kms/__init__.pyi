@@ -1,10 +1,14 @@
 """
 Main interface for kms service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kms/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_kms import (
         Client,
         DescribeCustomKeyStoresPaginator,
@@ -18,10 +22,8 @@ Usage::
         ListRetirableGrantsPaginator,
     )
 
-    session = boto3.Session()
-
-    client: KMSClient = boto3.client("kms")
-    session_client: KMSClient = session.client("kms")
+    session = Session()
+    client: KMSClient = session.client("kms")
 
     describe_custom_key_stores_paginator: DescribeCustomKeyStoresPaginator = client.get_paginator("describe_custom_key_stores")
     list_aliases_paginator: ListAliasesPaginator = client.get_paginator("list_aliases")

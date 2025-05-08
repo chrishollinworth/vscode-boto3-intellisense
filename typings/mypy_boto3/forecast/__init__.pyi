@@ -1,10 +1,14 @@
 """
 Main interface for forecast service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_forecast/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_forecast import (
         Client,
         ForecastServiceClient,
@@ -24,10 +28,8 @@ Usage::
         ListWhatIfForecastsPaginator,
     )
 
-    session = boto3.Session()
-
-    client: ForecastServiceClient = boto3.client("forecast")
-    session_client: ForecastServiceClient = session.client("forecast")
+    session = Session()
+    client: ForecastServiceClient = session.client("forecast")
 
     list_dataset_groups_paginator: ListDatasetGroupsPaginator = client.get_paginator("list_dataset_groups")
     list_dataset_import_jobs_paginator: ListDatasetImportJobsPaginator = client.get_paginator("list_dataset_import_jobs")

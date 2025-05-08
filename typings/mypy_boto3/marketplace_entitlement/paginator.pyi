@@ -1,47 +1,57 @@
 """
 Type annotations for marketplace-entitlement service client paginators.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_marketplace_entitlement/paginators.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_marketplace_entitlement/paginators/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
 
-    from mypy_boto3_marketplace_entitlement import MarketplaceEntitlementServiceClient
+    from mypy_boto3_marketplace_entitlement.client import MarketplaceEntitlementServiceClient
     from mypy_boto3_marketplace_entitlement.paginator import (
         GetEntitlementsPaginator,
     )
 
-    client: MarketplaceEntitlementServiceClient = boto3.client("marketplace-entitlement")
+    session = Session()
+    client: MarketplaceEntitlementServiceClient = session.client("marketplace-entitlement")
 
     get_entitlements_paginator: GetEntitlementsPaginator = client.get_paginator("get_entitlements")
     ```
 """
 
-from typing import Dict, Iterator, List
+from __future__ import annotations
 
-from botocore.paginate import Paginator as Boto3Paginator
+import sys
+from typing import TYPE_CHECKING
 
-from .literals import GetEntitlementFilterNameType
-from .type_defs import GetEntitlementsResultTypeDef, PaginatorConfigTypeDef
+from botocore.paginate import PageIterator, Paginator
+
+from .type_defs import GetEntitlementsRequestPaginateTypeDef, GetEntitlementsResultTypeDef
+
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = ("GetEntitlementsPaginator",)
 
-class GetEntitlementsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/marketplace-entitlement.html#MarketplaceEntitlementService.Paginator.GetEntitlements)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_marketplace_entitlement/paginators.html#getentitlementspaginator)
-    """
+if TYPE_CHECKING:
+    _GetEntitlementsPaginatorBase = Paginator[GetEntitlementsResultTypeDef]
+else:
+    _GetEntitlementsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        ProductCode: str,
-        Filter: Dict[GetEntitlementFilterNameType, List[str]] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[GetEntitlementsResultTypeDef]:
+class GetEntitlementsPaginator(_GetEntitlementsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/marketplace-entitlement/paginator/GetEntitlements.html#MarketplaceEntitlementService.Paginator.GetEntitlements)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_marketplace_entitlement/paginators/#getentitlementspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[GetEntitlementsRequestPaginateTypeDef]
+    ) -> PageIterator[GetEntitlementsResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/marketplace-entitlement.html#MarketplaceEntitlementService.Paginator.GetEntitlements.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_marketplace_entitlement/paginators.html#getentitlementspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/marketplace-entitlement/paginator/GetEntitlements.html#MarketplaceEntitlementService.Paginator.GetEntitlements.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_marketplace_entitlement/paginators/#getentitlementspaginator)
         """

@@ -1,10 +1,14 @@
 """
 Main interface for shield service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_shield/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_shield import (
         Client,
         ListAttacksPaginator,
@@ -12,10 +16,8 @@ Usage::
         ShieldClient,
     )
 
-    session = boto3.Session()
-
-    client: ShieldClient = boto3.client("shield")
-    session_client: ShieldClient = session.client("shield")
+    session = Session()
+    client: ShieldClient = session.client("shield")
 
     list_attacks_paginator: ListAttacksPaginator = client.get_paginator("list_attacks")
     list_protections_paginator: ListProtectionsPaginator = client.get_paginator("list_protections")

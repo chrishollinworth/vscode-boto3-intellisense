@@ -1,19 +1,21 @@
 """
 Main interface for ebs service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ebs/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_ebs import (
         Client,
         EBSClient,
     )
 
-    session = boto3.Session()
-
-    client: EBSClient = boto3.client("ebs")
-    session_client: EBSClient = session.client("ebs")
+    session = Session()
+    client: EBSClient = session.client("ebs")
     ```
 """
 

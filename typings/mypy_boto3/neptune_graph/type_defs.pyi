@@ -1,29 +1,36 @@
 """
 Type annotations for neptune-graph service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune_graph/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_neptune_graph/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_neptune_graph.type_defs import CancelImportTaskInputRequestTypeDef
+    from mypy_boto3_neptune_graph.type_defs import CancelExportTaskInputTypeDef
 
-    data: CancelImportTaskInputRequestTypeDef = {...}
+    data: CancelExportTaskInputTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
+from typing import Any, Union
 
 from botocore.response import StreamingBody
 
 from .literals import (
     ExplainModeType,
+    ExportFormatType,
+    ExportTaskStatusType,
     FormatType,
     GraphStatusType,
     GraphSummaryModeType,
     ImportTaskStatusType,
+    MultiValueHandlingTypeType,
     PlanCacheTypeType,
     PrivateGraphEndpointStatusType,
     QueryStateInputType,
@@ -31,47 +38,72 @@ from .literals import (
     SnapshotStatusType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
-    "CancelImportTaskInputRequestTypeDef",
+    "CancelExportTaskInputTypeDef",
+    "CancelExportTaskOutputTypeDef",
+    "CancelImportTaskInputTypeDef",
     "CancelImportTaskOutputTypeDef",
-    "CancelQueryInputRequestTypeDef",
-    "CreateGraphInputRequestTypeDef",
+    "CancelQueryInputTypeDef",
+    "CreateGraphInputTypeDef",
     "CreateGraphOutputTypeDef",
-    "CreateGraphSnapshotInputRequestTypeDef",
+    "CreateGraphSnapshotInputTypeDef",
     "CreateGraphSnapshotOutputTypeDef",
-    "CreateGraphUsingImportTaskInputRequestTypeDef",
+    "CreateGraphUsingImportTaskInputTypeDef",
     "CreateGraphUsingImportTaskOutputTypeDef",
-    "CreatePrivateGraphEndpointInputRequestTypeDef",
+    "CreatePrivateGraphEndpointInputTypeDef",
     "CreatePrivateGraphEndpointOutputTypeDef",
-    "DeleteGraphInputRequestTypeDef",
+    "DeleteGraphInputTypeDef",
     "DeleteGraphOutputTypeDef",
-    "DeleteGraphSnapshotInputRequestTypeDef",
+    "DeleteGraphSnapshotInputTypeDef",
     "DeleteGraphSnapshotOutputTypeDef",
-    "DeletePrivateGraphEndpointInputRequestTypeDef",
+    "DeletePrivateGraphEndpointInputTypeDef",
     "DeletePrivateGraphEndpointOutputTypeDef",
     "EdgeStructureTypeDef",
-    "ExecuteQueryInputRequestTypeDef",
+    "EmptyResponseMetadataTypeDef",
+    "ExecuteQueryInputTypeDef",
     "ExecuteQueryOutputTypeDef",
-    "GetGraphInputRequestTypeDef",
+    "ExportFilterElementOutputTypeDef",
+    "ExportFilterElementTypeDef",
+    "ExportFilterOutputTypeDef",
+    "ExportFilterPropertyAttributesTypeDef",
+    "ExportFilterTypeDef",
+    "ExportFilterUnionTypeDef",
+    "ExportTaskDetailsTypeDef",
+    "ExportTaskSummaryTypeDef",
+    "GetExportTaskInputTypeDef",
+    "GetExportTaskInputWaitExtraTypeDef",
+    "GetExportTaskInputWaitTypeDef",
+    "GetExportTaskOutputTypeDef",
+    "GetGraphInputTypeDef",
+    "GetGraphInputWaitExtraTypeDef",
+    "GetGraphInputWaitTypeDef",
     "GetGraphOutputTypeDef",
-    "GetGraphSnapshotInputRequestTypeDef",
+    "GetGraphSnapshotInputTypeDef",
+    "GetGraphSnapshotInputWaitExtraTypeDef",
+    "GetGraphSnapshotInputWaitTypeDef",
     "GetGraphSnapshotOutputTypeDef",
-    "GetGraphSummaryInputRequestTypeDef",
+    "GetGraphSummaryInputTypeDef",
     "GetGraphSummaryOutputTypeDef",
-    "GetImportTaskInputRequestTypeDef",
+    "GetImportTaskInputTypeDef",
+    "GetImportTaskInputWaitExtraTypeDef",
+    "GetImportTaskInputWaitTypeDef",
     "GetImportTaskOutputTypeDef",
-    "GetPrivateGraphEndpointInputRequestTypeDef",
+    "GetPrivateGraphEndpointInputTypeDef",
+    "GetPrivateGraphEndpointInputWaitExtraTypeDef",
+    "GetPrivateGraphEndpointInputWaitTypeDef",
     "GetPrivateGraphEndpointOutputTypeDef",
-    "GetQueryInputRequestTypeDef",
+    "GetQueryInputTypeDef",
     "GetQueryOutputTypeDef",
     "GraphDataSummaryTypeDef",
     "GraphSnapshotSummaryTypeDef",
@@ -79,45 +111,314 @@ __all__ = (
     "ImportOptionsTypeDef",
     "ImportTaskDetailsTypeDef",
     "ImportTaskSummaryTypeDef",
-    "ListGraphSnapshotsInputRequestTypeDef",
+    "ListExportTasksInputPaginateTypeDef",
+    "ListExportTasksInputTypeDef",
+    "ListExportTasksOutputTypeDef",
+    "ListGraphSnapshotsInputPaginateTypeDef",
+    "ListGraphSnapshotsInputTypeDef",
     "ListGraphSnapshotsOutputTypeDef",
-    "ListGraphsInputRequestTypeDef",
+    "ListGraphsInputPaginateTypeDef",
+    "ListGraphsInputTypeDef",
     "ListGraphsOutputTypeDef",
-    "ListImportTasksInputRequestTypeDef",
+    "ListImportTasksInputPaginateTypeDef",
+    "ListImportTasksInputTypeDef",
     "ListImportTasksOutputTypeDef",
-    "ListPrivateGraphEndpointsInputRequestTypeDef",
+    "ListPrivateGraphEndpointsInputPaginateTypeDef",
+    "ListPrivateGraphEndpointsInputTypeDef",
     "ListPrivateGraphEndpointsOutputTypeDef",
-    "ListQueriesInputRequestTypeDef",
+    "ListQueriesInputTypeDef",
     "ListQueriesOutputTypeDef",
-    "ListTagsForResourceInputRequestTypeDef",
+    "ListTagsForResourceInputTypeDef",
     "ListTagsForResourceOutputTypeDef",
     "NeptuneImportOptionsTypeDef",
     "NodeStructureTypeDef",
     "PaginatorConfigTypeDef",
     "PrivateGraphEndpointSummaryTypeDef",
     "QuerySummaryTypeDef",
-    "ResetGraphInputRequestTypeDef",
+    "ResetGraphInputTypeDef",
     "ResetGraphOutputTypeDef",
     "ResponseMetadataTypeDef",
-    "RestoreGraphFromSnapshotInputRequestTypeDef",
+    "RestoreGraphFromSnapshotInputTypeDef",
     "RestoreGraphFromSnapshotOutputTypeDef",
-    "StartImportTaskInputRequestTypeDef",
+    "StartExportTaskInputTypeDef",
+    "StartExportTaskOutputTypeDef",
+    "StartImportTaskInputTypeDef",
     "StartImportTaskOutputTypeDef",
-    "TagResourceInputRequestTypeDef",
-    "UntagResourceInputRequestTypeDef",
-    "UpdateGraphInputRequestTypeDef",
+    "TagResourceInputTypeDef",
+    "UntagResourceInputTypeDef",
+    "UpdateGraphInputTypeDef",
     "UpdateGraphOutputTypeDef",
     "VectorSearchConfigurationTypeDef",
     "WaiterConfigTypeDef",
 )
 
-CancelImportTaskInputRequestTypeDef = TypedDict(
-    "CancelImportTaskInputRequestTypeDef",
+class CancelExportTaskInputTypeDef(TypedDict):
+    taskIdentifier: str
+
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
+
+class CancelImportTaskInputTypeDef(TypedDict):
+    taskIdentifier: str
+
+class CancelQueryInputTypeDef(TypedDict):
+    graphIdentifier: str
+    queryId: str
+
+class VectorSearchConfigurationTypeDef(TypedDict):
+    dimension: int
+
+class CreateGraphSnapshotInputTypeDef(TypedDict):
+    graphIdentifier: str
+    snapshotName: str
+    tags: NotRequired[Mapping[str, str]]
+
+class CreatePrivateGraphEndpointInputTypeDef(TypedDict):
+    graphIdentifier: str
+    vpcId: NotRequired[str]
+    subnetIds: NotRequired[Sequence[str]]
+    vpcSecurityGroupIds: NotRequired[Sequence[str]]
+
+class DeleteGraphInputTypeDef(TypedDict):
+    graphIdentifier: str
+    skipSnapshot: bool
+
+class DeleteGraphSnapshotInputTypeDef(TypedDict):
+    snapshotIdentifier: str
+
+class DeletePrivateGraphEndpointInputTypeDef(TypedDict):
+    graphIdentifier: str
+    vpcId: str
+
+class EdgeStructureTypeDef(TypedDict):
+    count: NotRequired[int]
+    edgeProperties: NotRequired[List[str]]
+
+class ExecuteQueryInputTypeDef(TypedDict):
+    graphIdentifier: str
+    queryString: str
+    language: Literal["OPEN_CYPHER"]
+    parameters: NotRequired[Mapping[str, Mapping[str, Any]]]
+    planCache: NotRequired[PlanCacheTypeType]
+    explainMode: NotRequired[ExplainModeType]
+    queryTimeoutMilliseconds: NotRequired[int]
+
+class ExportFilterPropertyAttributesTypeDef(TypedDict):
+    outputType: NotRequired[str]
+    sourcePropertyName: NotRequired[str]
+    multiValueHandling: NotRequired[MultiValueHandlingTypeType]
+
+class ExportTaskDetailsTypeDef(TypedDict):
+    startTime: datetime
+    timeElapsedSeconds: int
+    progressPercentage: int
+    numVerticesWritten: NotRequired[int]
+    numEdgesWritten: NotRequired[int]
+
+ExportTaskSummaryTypeDef = TypedDict(
+    "ExportTaskSummaryTypeDef",
     {
-        "taskIdentifier": str,
+        "graphId": str,
+        "roleArn": str,
+        "taskId": str,
+        "status": ExportTaskStatusType,
+        "format": ExportFormatType,
+        "destination": str,
+        "kmsKeyIdentifier": str,
+        "parquetType": NotRequired[Literal["COLUMNAR"]],
+        "statusReason": NotRequired[str],
     },
 )
 
+class GetExportTaskInputTypeDef(TypedDict):
+    taskIdentifier: str
+
+class WaiterConfigTypeDef(TypedDict):
+    Delay: NotRequired[int]
+    MaxAttempts: NotRequired[int]
+
+class GetGraphInputTypeDef(TypedDict):
+    graphIdentifier: str
+
+class GetGraphSnapshotInputTypeDef(TypedDict):
+    snapshotIdentifier: str
+
+class GetGraphSummaryInputTypeDef(TypedDict):
+    graphIdentifier: str
+    mode: NotRequired[GraphSummaryModeType]
+
+class GetImportTaskInputTypeDef(TypedDict):
+    taskIdentifier: str
+
+class ImportTaskDetailsTypeDef(TypedDict):
+    status: str
+    startTime: datetime
+    timeElapsedSeconds: int
+    progressPercentage: int
+    errorCount: int
+    statementCount: int
+    dictionaryEntryCount: int
+    errorDetails: NotRequired[str]
+
+class GetPrivateGraphEndpointInputTypeDef(TypedDict):
+    graphIdentifier: str
+    vpcId: str
+
+class GetQueryInputTypeDef(TypedDict):
+    graphIdentifier: str
+    queryId: str
+
+class NodeStructureTypeDef(TypedDict):
+    count: NotRequired[int]
+    nodeProperties: NotRequired[List[str]]
+    distinctOutgoingEdgeLabels: NotRequired[List[str]]
+
+GraphSnapshotSummaryTypeDef = TypedDict(
+    "GraphSnapshotSummaryTypeDef",
+    {
+        "id": str,
+        "name": str,
+        "arn": str,
+        "sourceGraphId": NotRequired[str],
+        "snapshotCreateTime": NotRequired[datetime],
+        "status": NotRequired[SnapshotStatusType],
+        "kmsKeyIdentifier": NotRequired[str],
+    },
+)
+GraphSummaryTypeDef = TypedDict(
+    "GraphSummaryTypeDef",
+    {
+        "id": str,
+        "name": str,
+        "arn": str,
+        "status": NotRequired[GraphStatusType],
+        "provisionedMemory": NotRequired[int],
+        "publicConnectivity": NotRequired[bool],
+        "endpoint": NotRequired[str],
+        "replicaCount": NotRequired[int],
+        "kmsKeyIdentifier": NotRequired[str],
+        "deletionProtection": NotRequired[bool],
+    },
+)
+
+class NeptuneImportOptionsTypeDef(TypedDict):
+    s3ExportPath: str
+    s3ExportKmsKeyId: str
+    preserveDefaultVertexLabels: NotRequired[bool]
+    preserveEdgeIds: NotRequired[bool]
+
+ImportTaskSummaryTypeDef = TypedDict(
+    "ImportTaskSummaryTypeDef",
+    {
+        "taskId": str,
+        "source": str,
+        "roleArn": str,
+        "status": ImportTaskStatusType,
+        "graphId": NotRequired[str],
+        "format": NotRequired[FormatType],
+        "parquetType": NotRequired[Literal["COLUMNAR"]],
+    },
+)
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class ListExportTasksInputTypeDef(TypedDict):
+    graphIdentifier: NotRequired[str]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class ListGraphSnapshotsInputTypeDef(TypedDict):
+    graphIdentifier: NotRequired[str]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class ListGraphsInputTypeDef(TypedDict):
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class ListImportTasksInputTypeDef(TypedDict):
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class ListPrivateGraphEndpointsInputTypeDef(TypedDict):
+    graphIdentifier: str
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class PrivateGraphEndpointSummaryTypeDef(TypedDict):
+    vpcId: str
+    subnetIds: List[str]
+    status: PrivateGraphEndpointStatusType
+    vpcEndpointId: NotRequired[str]
+
+class ListQueriesInputTypeDef(TypedDict):
+    graphIdentifier: str
+    maxResults: int
+    state: NotRequired[QueryStateInputType]
+
+QuerySummaryTypeDef = TypedDict(
+    "QuerySummaryTypeDef",
+    {
+        "id": NotRequired[str],
+        "queryString": NotRequired[str],
+        "waited": NotRequired[int],
+        "elapsed": NotRequired[int],
+        "state": NotRequired[QueryStateType],
+    },
+)
+
+class ListTagsForResourceInputTypeDef(TypedDict):
+    resourceArn: str
+
+class ResetGraphInputTypeDef(TypedDict):
+    graphIdentifier: str
+    skipSnapshot: bool
+
+class RestoreGraphFromSnapshotInputTypeDef(TypedDict):
+    snapshotIdentifier: str
+    graphName: str
+    provisionedMemory: NotRequired[int]
+    deletionProtection: NotRequired[bool]
+    tags: NotRequired[Mapping[str, str]]
+    replicaCount: NotRequired[int]
+    publicConnectivity: NotRequired[bool]
+
+class TagResourceInputTypeDef(TypedDict):
+    resourceArn: str
+    tags: Mapping[str, str]
+
+class UntagResourceInputTypeDef(TypedDict):
+    resourceArn: str
+    tagKeys: Sequence[str]
+
+class UpdateGraphInputTypeDef(TypedDict):
+    graphIdentifier: str
+    publicConnectivity: NotRequired[bool]
+    provisionedMemory: NotRequired[int]
+    deletionProtection: NotRequired[bool]
+
+CancelExportTaskOutputTypeDef = TypedDict(
+    "CancelExportTaskOutputTypeDef",
+    {
+        "graphId": str,
+        "roleArn": str,
+        "taskId": str,
+        "status": ExportTaskStatusType,
+        "format": ExportFormatType,
+        "destination": str,
+        "kmsKeyIdentifier": str,
+        "parquetType": Literal["COLUMNAR"],
+        "statusReason": str,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
 CancelImportTaskOutputTypeDef = TypedDict(
     "CancelImportTaskOutputTypeDef",
     {
@@ -125,44 +426,107 @@ CancelImportTaskOutputTypeDef = TypedDict(
         "taskId": str,
         "source": str,
         "format": FormatType,
+        "parquetType": Literal["COLUMNAR"],
         "roleArn": str,
         "status": ImportTaskStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
-
-CancelQueryInputRequestTypeDef = TypedDict(
-    "CancelQueryInputRequestTypeDef",
+CreateGraphSnapshotOutputTypeDef = TypedDict(
+    "CreateGraphSnapshotOutputTypeDef",
     {
-        "graphIdentifier": str,
-        "queryId": str,
-    },
-)
-
-_RequiredCreateGraphInputRequestTypeDef = TypedDict(
-    "_RequiredCreateGraphInputRequestTypeDef",
-    {
-        "graphName": str,
-        "provisionedMemory": int,
-    },
-)
-_OptionalCreateGraphInputRequestTypeDef = TypedDict(
-    "_OptionalCreateGraphInputRequestTypeDef",
-    {
-        "tags": Dict[str, str],
-        "publicConnectivity": bool,
+        "id": str,
+        "name": str,
+        "arn": str,
+        "sourceGraphId": str,
+        "snapshotCreateTime": datetime,
+        "status": SnapshotStatusType,
         "kmsKeyIdentifier": str,
-        "vectorSearchConfiguration": "VectorSearchConfigurationTypeDef",
-        "replicaCount": int,
-        "deletionProtection": bool,
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
-    total=False,
 )
 
-class CreateGraphInputRequestTypeDef(
-    _RequiredCreateGraphInputRequestTypeDef, _OptionalCreateGraphInputRequestTypeDef
-):
-    pass
+class CreatePrivateGraphEndpointOutputTypeDef(TypedDict):
+    vpcId: str
+    subnetIds: List[str]
+    status: PrivateGraphEndpointStatusType
+    vpcEndpointId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+DeleteGraphSnapshotOutputTypeDef = TypedDict(
+    "DeleteGraphSnapshotOutputTypeDef",
+    {
+        "id": str,
+        "name": str,
+        "arn": str,
+        "sourceGraphId": str,
+        "snapshotCreateTime": datetime,
+        "status": SnapshotStatusType,
+        "kmsKeyIdentifier": str,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+
+class DeletePrivateGraphEndpointOutputTypeDef(TypedDict):
+    vpcId: str
+    subnetIds: List[str]
+    status: PrivateGraphEndpointStatusType
+    vpcEndpointId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class EmptyResponseMetadataTypeDef(TypedDict):
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ExecuteQueryOutputTypeDef(TypedDict):
+    payload: StreamingBody
+    ResponseMetadata: ResponseMetadataTypeDef
+
+GetGraphSnapshotOutputTypeDef = TypedDict(
+    "GetGraphSnapshotOutputTypeDef",
+    {
+        "id": str,
+        "name": str,
+        "arn": str,
+        "sourceGraphId": str,
+        "snapshotCreateTime": datetime,
+        "status": SnapshotStatusType,
+        "kmsKeyIdentifier": str,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+
+class GetPrivateGraphEndpointOutputTypeDef(TypedDict):
+    vpcId: str
+    subnetIds: List[str]
+    status: PrivateGraphEndpointStatusType
+    vpcEndpointId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+GetQueryOutputTypeDef = TypedDict(
+    "GetQueryOutputTypeDef",
+    {
+        "id": str,
+        "queryString": str,
+        "waited": int,
+        "elapsed": int,
+        "state": QueryStateType,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+
+class ListTagsForResourceOutputTypeDef(TypedDict):
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateGraphInputTypeDef(TypedDict):
+    graphName: str
+    provisionedMemory: int
+    tags: NotRequired[Mapping[str, str]]
+    publicConnectivity: NotRequired[bool]
+    kmsKeyIdentifier: NotRequired[str]
+    vectorSearchConfiguration: NotRequired[VectorSearchConfigurationTypeDef]
+    replicaCount: NotRequired[int]
+    deletionProtection: NotRequired[bool]
 
 CreateGraphOutputTypeDef = TypedDict(
     "CreateGraphOutputTypeDef",
@@ -176,137 +540,15 @@ CreateGraphOutputTypeDef = TypedDict(
         "provisionedMemory": int,
         "endpoint": str,
         "publicConnectivity": bool,
-        "vectorSearchConfiguration": "VectorSearchConfigurationTypeDef",
+        "vectorSearchConfiguration": VectorSearchConfigurationTypeDef,
         "replicaCount": int,
         "kmsKeyIdentifier": str,
         "sourceSnapshotId": str,
         "deletionProtection": bool,
         "buildNumber": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
-
-_RequiredCreateGraphSnapshotInputRequestTypeDef = TypedDict(
-    "_RequiredCreateGraphSnapshotInputRequestTypeDef",
-    {
-        "graphIdentifier": str,
-        "snapshotName": str,
-    },
-)
-_OptionalCreateGraphSnapshotInputRequestTypeDef = TypedDict(
-    "_OptionalCreateGraphSnapshotInputRequestTypeDef",
-    {
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class CreateGraphSnapshotInputRequestTypeDef(
-    _RequiredCreateGraphSnapshotInputRequestTypeDef, _OptionalCreateGraphSnapshotInputRequestTypeDef
-):
-    pass
-
-CreateGraphSnapshotOutputTypeDef = TypedDict(
-    "CreateGraphSnapshotOutputTypeDef",
-    {
-        "id": str,
-        "name": str,
-        "arn": str,
-        "sourceGraphId": str,
-        "snapshotCreateTime": datetime,
-        "status": SnapshotStatusType,
-        "kmsKeyIdentifier": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateGraphUsingImportTaskInputRequestTypeDef = TypedDict(
-    "_RequiredCreateGraphUsingImportTaskInputRequestTypeDef",
-    {
-        "graphName": str,
-        "source": str,
-        "roleArn": str,
-    },
-)
-_OptionalCreateGraphUsingImportTaskInputRequestTypeDef = TypedDict(
-    "_OptionalCreateGraphUsingImportTaskInputRequestTypeDef",
-    {
-        "tags": Dict[str, str],
-        "publicConnectivity": bool,
-        "kmsKeyIdentifier": str,
-        "vectorSearchConfiguration": "VectorSearchConfigurationTypeDef",
-        "replicaCount": int,
-        "deletionProtection": bool,
-        "importOptions": "ImportOptionsTypeDef",
-        "maxProvisionedMemory": int,
-        "minProvisionedMemory": int,
-        "failOnError": bool,
-        "format": FormatType,
-    },
-    total=False,
-)
-
-class CreateGraphUsingImportTaskInputRequestTypeDef(
-    _RequiredCreateGraphUsingImportTaskInputRequestTypeDef,
-    _OptionalCreateGraphUsingImportTaskInputRequestTypeDef,
-):
-    pass
-
-CreateGraphUsingImportTaskOutputTypeDef = TypedDict(
-    "CreateGraphUsingImportTaskOutputTypeDef",
-    {
-        "graphId": str,
-        "taskId": str,
-        "source": str,
-        "format": FormatType,
-        "roleArn": str,
-        "status": ImportTaskStatusType,
-        "importOptions": "ImportOptionsTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreatePrivateGraphEndpointInputRequestTypeDef = TypedDict(
-    "_RequiredCreatePrivateGraphEndpointInputRequestTypeDef",
-    {
-        "graphIdentifier": str,
-    },
-)
-_OptionalCreatePrivateGraphEndpointInputRequestTypeDef = TypedDict(
-    "_OptionalCreatePrivateGraphEndpointInputRequestTypeDef",
-    {
-        "vpcId": str,
-        "subnetIds": List[str],
-        "vpcSecurityGroupIds": List[str],
-    },
-    total=False,
-)
-
-class CreatePrivateGraphEndpointInputRequestTypeDef(
-    _RequiredCreatePrivateGraphEndpointInputRequestTypeDef,
-    _OptionalCreatePrivateGraphEndpointInputRequestTypeDef,
-):
-    pass
-
-CreatePrivateGraphEndpointOutputTypeDef = TypedDict(
-    "CreatePrivateGraphEndpointOutputTypeDef",
-    {
-        "vpcId": str,
-        "subnetIds": List[str],
-        "status": PrivateGraphEndpointStatusType,
-        "vpcEndpointId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteGraphInputRequestTypeDef = TypedDict(
-    "DeleteGraphInputRequestTypeDef",
-    {
-        "graphIdentifier": str,
-        "skipSnapshot": bool,
-    },
-)
-
 DeleteGraphOutputTypeDef = TypedDict(
     "DeleteGraphOutputTypeDef",
     {
@@ -319,104 +561,15 @@ DeleteGraphOutputTypeDef = TypedDict(
         "provisionedMemory": int,
         "endpoint": str,
         "publicConnectivity": bool,
-        "vectorSearchConfiguration": "VectorSearchConfigurationTypeDef",
+        "vectorSearchConfiguration": VectorSearchConfigurationTypeDef,
         "replicaCount": int,
         "kmsKeyIdentifier": str,
         "sourceSnapshotId": str,
         "deletionProtection": bool,
         "buildNumber": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
-
-DeleteGraphSnapshotInputRequestTypeDef = TypedDict(
-    "DeleteGraphSnapshotInputRequestTypeDef",
-    {
-        "snapshotIdentifier": str,
-    },
-)
-
-DeleteGraphSnapshotOutputTypeDef = TypedDict(
-    "DeleteGraphSnapshotOutputTypeDef",
-    {
-        "id": str,
-        "name": str,
-        "arn": str,
-        "sourceGraphId": str,
-        "snapshotCreateTime": datetime,
-        "status": SnapshotStatusType,
-        "kmsKeyIdentifier": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeletePrivateGraphEndpointInputRequestTypeDef = TypedDict(
-    "DeletePrivateGraphEndpointInputRequestTypeDef",
-    {
-        "graphIdentifier": str,
-        "vpcId": str,
-    },
-)
-
-DeletePrivateGraphEndpointOutputTypeDef = TypedDict(
-    "DeletePrivateGraphEndpointOutputTypeDef",
-    {
-        "vpcId": str,
-        "subnetIds": List[str],
-        "status": PrivateGraphEndpointStatusType,
-        "vpcEndpointId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-EdgeStructureTypeDef = TypedDict(
-    "EdgeStructureTypeDef",
-    {
-        "count": int,
-        "edgeProperties": List[str],
-    },
-    total=False,
-)
-
-_RequiredExecuteQueryInputRequestTypeDef = TypedDict(
-    "_RequiredExecuteQueryInputRequestTypeDef",
-    {
-        "graphIdentifier": str,
-        "queryString": str,
-        "language": Literal["OPEN_CYPHER"],
-    },
-)
-_OptionalExecuteQueryInputRequestTypeDef = TypedDict(
-    "_OptionalExecuteQueryInputRequestTypeDef",
-    {
-        "parameters": Dict[str, Dict[str, Any]],
-        "planCache": PlanCacheTypeType,
-        "explainMode": ExplainModeType,
-        "queryTimeoutMilliseconds": int,
-    },
-    total=False,
-)
-
-class ExecuteQueryInputRequestTypeDef(
-    _RequiredExecuteQueryInputRequestTypeDef, _OptionalExecuteQueryInputRequestTypeDef
-):
-    pass
-
-ExecuteQueryOutputTypeDef = TypedDict(
-    "ExecuteQueryOutputTypeDef",
-    {
-        "payload": StreamingBody,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetGraphInputRequestTypeDef = TypedDict(
-    "GetGraphInputRequestTypeDef",
-    {
-        "graphIdentifier": str,
-    },
-)
-
 GetGraphOutputTypeDef = TypedDict(
     "GetGraphOutputTypeDef",
     {
@@ -429,465 +582,15 @@ GetGraphOutputTypeDef = TypedDict(
         "provisionedMemory": int,
         "endpoint": str,
         "publicConnectivity": bool,
-        "vectorSearchConfiguration": "VectorSearchConfigurationTypeDef",
+        "vectorSearchConfiguration": VectorSearchConfigurationTypeDef,
         "replicaCount": int,
         "kmsKeyIdentifier": str,
         "sourceSnapshotId": str,
         "deletionProtection": bool,
         "buildNumber": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
-
-GetGraphSnapshotInputRequestTypeDef = TypedDict(
-    "GetGraphSnapshotInputRequestTypeDef",
-    {
-        "snapshotIdentifier": str,
-    },
-)
-
-GetGraphSnapshotOutputTypeDef = TypedDict(
-    "GetGraphSnapshotOutputTypeDef",
-    {
-        "id": str,
-        "name": str,
-        "arn": str,
-        "sourceGraphId": str,
-        "snapshotCreateTime": datetime,
-        "status": SnapshotStatusType,
-        "kmsKeyIdentifier": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetGraphSummaryInputRequestTypeDef = TypedDict(
-    "_RequiredGetGraphSummaryInputRequestTypeDef",
-    {
-        "graphIdentifier": str,
-    },
-)
-_OptionalGetGraphSummaryInputRequestTypeDef = TypedDict(
-    "_OptionalGetGraphSummaryInputRequestTypeDef",
-    {
-        "mode": GraphSummaryModeType,
-    },
-    total=False,
-)
-
-class GetGraphSummaryInputRequestTypeDef(
-    _RequiredGetGraphSummaryInputRequestTypeDef, _OptionalGetGraphSummaryInputRequestTypeDef
-):
-    pass
-
-GetGraphSummaryOutputTypeDef = TypedDict(
-    "GetGraphSummaryOutputTypeDef",
-    {
-        "version": str,
-        "lastStatisticsComputationTime": datetime,
-        "graphSummary": "GraphDataSummaryTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetImportTaskInputRequestTypeDef = TypedDict(
-    "GetImportTaskInputRequestTypeDef",
-    {
-        "taskIdentifier": str,
-    },
-)
-
-GetImportTaskOutputTypeDef = TypedDict(
-    "GetImportTaskOutputTypeDef",
-    {
-        "graphId": str,
-        "taskId": str,
-        "source": str,
-        "format": FormatType,
-        "roleArn": str,
-        "status": ImportTaskStatusType,
-        "importOptions": "ImportOptionsTypeDef",
-        "importTaskDetails": "ImportTaskDetailsTypeDef",
-        "attemptNumber": int,
-        "statusReason": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetPrivateGraphEndpointInputRequestTypeDef = TypedDict(
-    "GetPrivateGraphEndpointInputRequestTypeDef",
-    {
-        "graphIdentifier": str,
-        "vpcId": str,
-    },
-)
-
-GetPrivateGraphEndpointOutputTypeDef = TypedDict(
-    "GetPrivateGraphEndpointOutputTypeDef",
-    {
-        "vpcId": str,
-        "subnetIds": List[str],
-        "status": PrivateGraphEndpointStatusType,
-        "vpcEndpointId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetQueryInputRequestTypeDef = TypedDict(
-    "GetQueryInputRequestTypeDef",
-    {
-        "graphIdentifier": str,
-        "queryId": str,
-    },
-)
-
-GetQueryOutputTypeDef = TypedDict(
-    "GetQueryOutputTypeDef",
-    {
-        "id": str,
-        "queryString": str,
-        "waited": int,
-        "elapsed": int,
-        "state": QueryStateType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GraphDataSummaryTypeDef = TypedDict(
-    "GraphDataSummaryTypeDef",
-    {
-        "numNodes": int,
-        "numEdges": int,
-        "numNodeLabels": int,
-        "numEdgeLabels": int,
-        "nodeLabels": List[str],
-        "edgeLabels": List[str],
-        "numNodeProperties": int,
-        "numEdgeProperties": int,
-        "nodeProperties": List[Dict[str, int]],
-        "edgeProperties": List[Dict[str, int]],
-        "totalNodePropertyValues": int,
-        "totalEdgePropertyValues": int,
-        "nodeStructures": List["NodeStructureTypeDef"],
-        "edgeStructures": List["EdgeStructureTypeDef"],
-    },
-    total=False,
-)
-
-_RequiredGraphSnapshotSummaryTypeDef = TypedDict(
-    "_RequiredGraphSnapshotSummaryTypeDef",
-    {
-        "id": str,
-        "name": str,
-        "arn": str,
-    },
-)
-_OptionalGraphSnapshotSummaryTypeDef = TypedDict(
-    "_OptionalGraphSnapshotSummaryTypeDef",
-    {
-        "sourceGraphId": str,
-        "snapshotCreateTime": datetime,
-        "status": SnapshotStatusType,
-        "kmsKeyIdentifier": str,
-    },
-    total=False,
-)
-
-class GraphSnapshotSummaryTypeDef(
-    _RequiredGraphSnapshotSummaryTypeDef, _OptionalGraphSnapshotSummaryTypeDef
-):
-    pass
-
-_RequiredGraphSummaryTypeDef = TypedDict(
-    "_RequiredGraphSummaryTypeDef",
-    {
-        "id": str,
-        "name": str,
-        "arn": str,
-    },
-)
-_OptionalGraphSummaryTypeDef = TypedDict(
-    "_OptionalGraphSummaryTypeDef",
-    {
-        "status": GraphStatusType,
-        "provisionedMemory": int,
-        "publicConnectivity": bool,
-        "endpoint": str,
-        "replicaCount": int,
-        "kmsKeyIdentifier": str,
-        "deletionProtection": bool,
-    },
-    total=False,
-)
-
-class GraphSummaryTypeDef(_RequiredGraphSummaryTypeDef, _OptionalGraphSummaryTypeDef):
-    pass
-
-ImportOptionsTypeDef = TypedDict(
-    "ImportOptionsTypeDef",
-    {
-        "neptune": "NeptuneImportOptionsTypeDef",
-    },
-    total=False,
-)
-
-_RequiredImportTaskDetailsTypeDef = TypedDict(
-    "_RequiredImportTaskDetailsTypeDef",
-    {
-        "status": str,
-        "startTime": datetime,
-        "timeElapsedSeconds": int,
-        "progressPercentage": int,
-        "errorCount": int,
-        "statementCount": int,
-        "dictionaryEntryCount": int,
-    },
-)
-_OptionalImportTaskDetailsTypeDef = TypedDict(
-    "_OptionalImportTaskDetailsTypeDef",
-    {
-        "errorDetails": str,
-    },
-    total=False,
-)
-
-class ImportTaskDetailsTypeDef(
-    _RequiredImportTaskDetailsTypeDef, _OptionalImportTaskDetailsTypeDef
-):
-    pass
-
-_RequiredImportTaskSummaryTypeDef = TypedDict(
-    "_RequiredImportTaskSummaryTypeDef",
-    {
-        "taskId": str,
-        "source": str,
-        "roleArn": str,
-        "status": ImportTaskStatusType,
-    },
-)
-_OptionalImportTaskSummaryTypeDef = TypedDict(
-    "_OptionalImportTaskSummaryTypeDef",
-    {
-        "graphId": str,
-        "format": FormatType,
-    },
-    total=False,
-)
-
-class ImportTaskSummaryTypeDef(
-    _RequiredImportTaskSummaryTypeDef, _OptionalImportTaskSummaryTypeDef
-):
-    pass
-
-ListGraphSnapshotsInputRequestTypeDef = TypedDict(
-    "ListGraphSnapshotsInputRequestTypeDef",
-    {
-        "graphIdentifier": str,
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-ListGraphSnapshotsOutputTypeDef = TypedDict(
-    "ListGraphSnapshotsOutputTypeDef",
-    {
-        "graphSnapshots": List["GraphSnapshotSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListGraphsInputRequestTypeDef = TypedDict(
-    "ListGraphsInputRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-ListGraphsOutputTypeDef = TypedDict(
-    "ListGraphsOutputTypeDef",
-    {
-        "graphs": List["GraphSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListImportTasksInputRequestTypeDef = TypedDict(
-    "ListImportTasksInputRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-ListImportTasksOutputTypeDef = TypedDict(
-    "ListImportTasksOutputTypeDef",
-    {
-        "tasks": List["ImportTaskSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListPrivateGraphEndpointsInputRequestTypeDef = TypedDict(
-    "_RequiredListPrivateGraphEndpointsInputRequestTypeDef",
-    {
-        "graphIdentifier": str,
-    },
-)
-_OptionalListPrivateGraphEndpointsInputRequestTypeDef = TypedDict(
-    "_OptionalListPrivateGraphEndpointsInputRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-class ListPrivateGraphEndpointsInputRequestTypeDef(
-    _RequiredListPrivateGraphEndpointsInputRequestTypeDef,
-    _OptionalListPrivateGraphEndpointsInputRequestTypeDef,
-):
-    pass
-
-ListPrivateGraphEndpointsOutputTypeDef = TypedDict(
-    "ListPrivateGraphEndpointsOutputTypeDef",
-    {
-        "privateGraphEndpoints": List["PrivateGraphEndpointSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListQueriesInputRequestTypeDef = TypedDict(
-    "_RequiredListQueriesInputRequestTypeDef",
-    {
-        "graphIdentifier": str,
-        "maxResults": int,
-    },
-)
-_OptionalListQueriesInputRequestTypeDef = TypedDict(
-    "_OptionalListQueriesInputRequestTypeDef",
-    {
-        "state": QueryStateInputType,
-    },
-    total=False,
-)
-
-class ListQueriesInputRequestTypeDef(
-    _RequiredListQueriesInputRequestTypeDef, _OptionalListQueriesInputRequestTypeDef
-):
-    pass
-
-ListQueriesOutputTypeDef = TypedDict(
-    "ListQueriesOutputTypeDef",
-    {
-        "queries": List["QuerySummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTagsForResourceInputRequestTypeDef = TypedDict(
-    "ListTagsForResourceInputRequestTypeDef",
-    {
-        "resourceArn": str,
-    },
-)
-
-ListTagsForResourceOutputTypeDef = TypedDict(
-    "ListTagsForResourceOutputTypeDef",
-    {
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredNeptuneImportOptionsTypeDef = TypedDict(
-    "_RequiredNeptuneImportOptionsTypeDef",
-    {
-        "s3ExportPath": str,
-        "s3ExportKmsKeyId": str,
-    },
-)
-_OptionalNeptuneImportOptionsTypeDef = TypedDict(
-    "_OptionalNeptuneImportOptionsTypeDef",
-    {
-        "preserveDefaultVertexLabels": bool,
-        "preserveEdgeIds": bool,
-    },
-    total=False,
-)
-
-class NeptuneImportOptionsTypeDef(
-    _RequiredNeptuneImportOptionsTypeDef, _OptionalNeptuneImportOptionsTypeDef
-):
-    pass
-
-NodeStructureTypeDef = TypedDict(
-    "NodeStructureTypeDef",
-    {
-        "count": int,
-        "nodeProperties": List[str],
-        "distinctOutgoingEdgeLabels": List[str],
-    },
-    total=False,
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-_RequiredPrivateGraphEndpointSummaryTypeDef = TypedDict(
-    "_RequiredPrivateGraphEndpointSummaryTypeDef",
-    {
-        "vpcId": str,
-        "subnetIds": List[str],
-        "status": PrivateGraphEndpointStatusType,
-    },
-)
-_OptionalPrivateGraphEndpointSummaryTypeDef = TypedDict(
-    "_OptionalPrivateGraphEndpointSummaryTypeDef",
-    {
-        "vpcEndpointId": str,
-    },
-    total=False,
-)
-
-class PrivateGraphEndpointSummaryTypeDef(
-    _RequiredPrivateGraphEndpointSummaryTypeDef, _OptionalPrivateGraphEndpointSummaryTypeDef
-):
-    pass
-
-QuerySummaryTypeDef = TypedDict(
-    "QuerySummaryTypeDef",
-    {
-        "id": str,
-        "queryString": str,
-        "waited": int,
-        "elapsed": int,
-        "state": QueryStateType,
-    },
-    total=False,
-)
-
-ResetGraphInputRequestTypeDef = TypedDict(
-    "ResetGraphInputRequestTypeDef",
-    {
-        "graphIdentifier": str,
-        "skipSnapshot": bool,
-    },
-)
-
 ResetGraphOutputTypeDef = TypedDict(
     "ResetGraphOutputTypeDef",
     {
@@ -900,52 +603,15 @@ ResetGraphOutputTypeDef = TypedDict(
         "provisionedMemory": int,
         "endpoint": str,
         "publicConnectivity": bool,
-        "vectorSearchConfiguration": "VectorSearchConfigurationTypeDef",
+        "vectorSearchConfiguration": VectorSearchConfigurationTypeDef,
         "replicaCount": int,
         "kmsKeyIdentifier": str,
         "sourceSnapshotId": str,
         "deletionProtection": bool,
         "buildNumber": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-_RequiredRestoreGraphFromSnapshotInputRequestTypeDef = TypedDict(
-    "_RequiredRestoreGraphFromSnapshotInputRequestTypeDef",
-    {
-        "snapshotIdentifier": str,
-        "graphName": str,
-    },
-)
-_OptionalRestoreGraphFromSnapshotInputRequestTypeDef = TypedDict(
-    "_OptionalRestoreGraphFromSnapshotInputRequestTypeDef",
-    {
-        "provisionedMemory": int,
-        "deletionProtection": bool,
-        "tags": Dict[str, str],
-        "replicaCount": int,
-        "publicConnectivity": bool,
-    },
-    total=False,
-)
-
-class RestoreGraphFromSnapshotInputRequestTypeDef(
-    _RequiredRestoreGraphFromSnapshotInputRequestTypeDef,
-    _OptionalRestoreGraphFromSnapshotInputRequestTypeDef,
-):
-    pass
-
 RestoreGraphFromSnapshotOutputTypeDef = TypedDict(
     "RestoreGraphFromSnapshotOutputTypeDef",
     {
@@ -958,90 +624,15 @@ RestoreGraphFromSnapshotOutputTypeDef = TypedDict(
         "provisionedMemory": int,
         "endpoint": str,
         "publicConnectivity": bool,
-        "vectorSearchConfiguration": "VectorSearchConfigurationTypeDef",
+        "vectorSearchConfiguration": VectorSearchConfigurationTypeDef,
         "replicaCount": int,
         "kmsKeyIdentifier": str,
         "sourceSnapshotId": str,
         "deletionProtection": bool,
         "buildNumber": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
-
-_RequiredStartImportTaskInputRequestTypeDef = TypedDict(
-    "_RequiredStartImportTaskInputRequestTypeDef",
-    {
-        "source": str,
-        "graphIdentifier": str,
-        "roleArn": str,
-    },
-)
-_OptionalStartImportTaskInputRequestTypeDef = TypedDict(
-    "_OptionalStartImportTaskInputRequestTypeDef",
-    {
-        "importOptions": "ImportOptionsTypeDef",
-        "failOnError": bool,
-        "format": FormatType,
-    },
-    total=False,
-)
-
-class StartImportTaskInputRequestTypeDef(
-    _RequiredStartImportTaskInputRequestTypeDef, _OptionalStartImportTaskInputRequestTypeDef
-):
-    pass
-
-StartImportTaskOutputTypeDef = TypedDict(
-    "StartImportTaskOutputTypeDef",
-    {
-        "graphId": str,
-        "taskId": str,
-        "source": str,
-        "format": FormatType,
-        "roleArn": str,
-        "status": ImportTaskStatusType,
-        "importOptions": "ImportOptionsTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-TagResourceInputRequestTypeDef = TypedDict(
-    "TagResourceInputRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tags": Dict[str, str],
-    },
-)
-
-UntagResourceInputRequestTypeDef = TypedDict(
-    "UntagResourceInputRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tagKeys": List[str],
-    },
-)
-
-_RequiredUpdateGraphInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateGraphInputRequestTypeDef",
-    {
-        "graphIdentifier": str,
-    },
-)
-_OptionalUpdateGraphInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateGraphInputRequestTypeDef",
-    {
-        "publicConnectivity": bool,
-        "provisionedMemory": int,
-        "deletionProtection": bool,
-    },
-    total=False,
-)
-
-class UpdateGraphInputRequestTypeDef(
-    _RequiredUpdateGraphInputRequestTypeDef, _OptionalUpdateGraphInputRequestTypeDef
-):
-    pass
-
 UpdateGraphOutputTypeDef = TypedDict(
     "UpdateGraphOutputTypeDef",
     {
@@ -1054,28 +645,267 @@ UpdateGraphOutputTypeDef = TypedDict(
         "provisionedMemory": int,
         "endpoint": str,
         "publicConnectivity": bool,
-        "vectorSearchConfiguration": "VectorSearchConfigurationTypeDef",
+        "vectorSearchConfiguration": VectorSearchConfigurationTypeDef,
         "replicaCount": int,
         "kmsKeyIdentifier": str,
         "sourceSnapshotId": str,
         "deletionProtection": bool,
         "buildNumber": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
 
-VectorSearchConfigurationTypeDef = TypedDict(
-    "VectorSearchConfigurationTypeDef",
+class ExportFilterElementOutputTypeDef(TypedDict):
+    properties: NotRequired[Dict[str, ExportFilterPropertyAttributesTypeDef]]
+
+class ExportFilterElementTypeDef(TypedDict):
+    properties: NotRequired[Mapping[str, ExportFilterPropertyAttributesTypeDef]]
+
+class ListExportTasksOutputTypeDef(TypedDict):
+    tasks: List[ExportTaskSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class GetExportTaskInputWaitExtraTypeDef(TypedDict):
+    taskIdentifier: str
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class GetExportTaskInputWaitTypeDef(TypedDict):
+    taskIdentifier: str
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class GetGraphInputWaitExtraTypeDef(TypedDict):
+    graphIdentifier: str
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class GetGraphInputWaitTypeDef(TypedDict):
+    graphIdentifier: str
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class GetGraphSnapshotInputWaitExtraTypeDef(TypedDict):
+    snapshotIdentifier: str
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class GetGraphSnapshotInputWaitTypeDef(TypedDict):
+    snapshotIdentifier: str
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class GetImportTaskInputWaitExtraTypeDef(TypedDict):
+    taskIdentifier: str
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class GetImportTaskInputWaitTypeDef(TypedDict):
+    taskIdentifier: str
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class GetPrivateGraphEndpointInputWaitExtraTypeDef(TypedDict):
+    graphIdentifier: str
+    vpcId: str
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class GetPrivateGraphEndpointInputWaitTypeDef(TypedDict):
+    graphIdentifier: str
+    vpcId: str
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class GraphDataSummaryTypeDef(TypedDict):
+    numNodes: NotRequired[int]
+    numEdges: NotRequired[int]
+    numNodeLabels: NotRequired[int]
+    numEdgeLabels: NotRequired[int]
+    nodeLabels: NotRequired[List[str]]
+    edgeLabels: NotRequired[List[str]]
+    numNodeProperties: NotRequired[int]
+    numEdgeProperties: NotRequired[int]
+    nodeProperties: NotRequired[List[Dict[str, int]]]
+    edgeProperties: NotRequired[List[Dict[str, int]]]
+    totalNodePropertyValues: NotRequired[int]
+    totalEdgePropertyValues: NotRequired[int]
+    nodeStructures: NotRequired[List[NodeStructureTypeDef]]
+    edgeStructures: NotRequired[List[EdgeStructureTypeDef]]
+
+class ListGraphSnapshotsOutputTypeDef(TypedDict):
+    graphSnapshots: List[GraphSnapshotSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListGraphsOutputTypeDef(TypedDict):
+    graphs: List[GraphSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ImportOptionsTypeDef(TypedDict):
+    neptune: NotRequired[NeptuneImportOptionsTypeDef]
+
+class ListImportTasksOutputTypeDef(TypedDict):
+    tasks: List[ImportTaskSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListExportTasksInputPaginateTypeDef(TypedDict):
+    graphIdentifier: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListGraphSnapshotsInputPaginateTypeDef(TypedDict):
+    graphIdentifier: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListGraphsInputPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListImportTasksInputPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListPrivateGraphEndpointsInputPaginateTypeDef(TypedDict):
+    graphIdentifier: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListPrivateGraphEndpointsOutputTypeDef(TypedDict):
+    privateGraphEndpoints: List[PrivateGraphEndpointSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListQueriesOutputTypeDef(TypedDict):
+    queries: List[QuerySummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ExportFilterOutputTypeDef(TypedDict):
+    vertexFilter: NotRequired[Dict[str, ExportFilterElementOutputTypeDef]]
+    edgeFilter: NotRequired[Dict[str, ExportFilterElementOutputTypeDef]]
+
+class ExportFilterTypeDef(TypedDict):
+    vertexFilter: NotRequired[Mapping[str, ExportFilterElementTypeDef]]
+    edgeFilter: NotRequired[Mapping[str, ExportFilterElementTypeDef]]
+
+class GetGraphSummaryOutputTypeDef(TypedDict):
+    version: str
+    lastStatisticsComputationTime: datetime
+    graphSummary: GraphDataSummaryTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+CreateGraphUsingImportTaskInputTypeDef = TypedDict(
+    "CreateGraphUsingImportTaskInputTypeDef",
     {
-        "dimension": int,
+        "graphName": str,
+        "source": str,
+        "roleArn": str,
+        "tags": NotRequired[Mapping[str, str]],
+        "publicConnectivity": NotRequired[bool],
+        "kmsKeyIdentifier": NotRequired[str],
+        "vectorSearchConfiguration": NotRequired[VectorSearchConfigurationTypeDef],
+        "replicaCount": NotRequired[int],
+        "deletionProtection": NotRequired[bool],
+        "importOptions": NotRequired[ImportOptionsTypeDef],
+        "maxProvisionedMemory": NotRequired[int],
+        "minProvisionedMemory": NotRequired[int],
+        "failOnError": NotRequired[bool],
+        "format": NotRequired[FormatType],
+        "parquetType": NotRequired[Literal["COLUMNAR"]],
+        "blankNodeHandling": NotRequired[Literal["convertToIri"]],
     },
 )
-
-WaiterConfigTypeDef = TypedDict(
-    "WaiterConfigTypeDef",
+CreateGraphUsingImportTaskOutputTypeDef = TypedDict(
+    "CreateGraphUsingImportTaskOutputTypeDef",
     {
-        "Delay": int,
-        "MaxAttempts": int,
+        "graphId": str,
+        "taskId": str,
+        "source": str,
+        "format": FormatType,
+        "parquetType": Literal["COLUMNAR"],
+        "roleArn": str,
+        "status": ImportTaskStatusType,
+        "importOptions": ImportOptionsTypeDef,
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
-    total=False,
+)
+GetImportTaskOutputTypeDef = TypedDict(
+    "GetImportTaskOutputTypeDef",
+    {
+        "graphId": str,
+        "taskId": str,
+        "source": str,
+        "format": FormatType,
+        "parquetType": Literal["COLUMNAR"],
+        "roleArn": str,
+        "status": ImportTaskStatusType,
+        "importOptions": ImportOptionsTypeDef,
+        "importTaskDetails": ImportTaskDetailsTypeDef,
+        "attemptNumber": int,
+        "statusReason": str,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+StartImportTaskInputTypeDef = TypedDict(
+    "StartImportTaskInputTypeDef",
+    {
+        "source": str,
+        "graphIdentifier": str,
+        "roleArn": str,
+        "importOptions": NotRequired[ImportOptionsTypeDef],
+        "failOnError": NotRequired[bool],
+        "format": NotRequired[FormatType],
+        "parquetType": NotRequired[Literal["COLUMNAR"]],
+        "blankNodeHandling": NotRequired[Literal["convertToIri"]],
+    },
+)
+StartImportTaskOutputTypeDef = TypedDict(
+    "StartImportTaskOutputTypeDef",
+    {
+        "graphId": str,
+        "taskId": str,
+        "source": str,
+        "format": FormatType,
+        "parquetType": Literal["COLUMNAR"],
+        "roleArn": str,
+        "status": ImportTaskStatusType,
+        "importOptions": ImportOptionsTypeDef,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+GetExportTaskOutputTypeDef = TypedDict(
+    "GetExportTaskOutputTypeDef",
+    {
+        "graphId": str,
+        "roleArn": str,
+        "taskId": str,
+        "status": ExportTaskStatusType,
+        "format": ExportFormatType,
+        "destination": str,
+        "kmsKeyIdentifier": str,
+        "parquetType": Literal["COLUMNAR"],
+        "statusReason": str,
+        "exportTaskDetails": ExportTaskDetailsTypeDef,
+        "exportFilter": ExportFilterOutputTypeDef,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+StartExportTaskOutputTypeDef = TypedDict(
+    "StartExportTaskOutputTypeDef",
+    {
+        "graphId": str,
+        "roleArn": str,
+        "taskId": str,
+        "status": ExportTaskStatusType,
+        "format": ExportFormatType,
+        "destination": str,
+        "kmsKeyIdentifier": str,
+        "parquetType": Literal["COLUMNAR"],
+        "statusReason": str,
+        "exportFilter": ExportFilterOutputTypeDef,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+ExportFilterUnionTypeDef = Union[ExportFilterTypeDef, ExportFilterOutputTypeDef]
+StartExportTaskInputTypeDef = TypedDict(
+    "StartExportTaskInputTypeDef",
+    {
+        "graphIdentifier": str,
+        "roleArn": str,
+        "format": ExportFormatType,
+        "destination": str,
+        "kmsKeyIdentifier": str,
+        "parquetType": NotRequired[Literal["COLUMNAR"]],
+        "exportFilter": NotRequired[ExportFilterUnionTypeDef],
+        "tags": NotRequired[Mapping[str, str]],
+    },
 )

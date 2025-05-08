@@ -1,72 +1,82 @@
 """
 Type annotations for textract service client paginators.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_textract/paginators.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_textract/paginators/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
 
-    from mypy_boto3_textract import TextractClient
+    from mypy_boto3_textract.client import TextractClient
     from mypy_boto3_textract.paginator import (
         ListAdapterVersionsPaginator,
         ListAdaptersPaginator,
     )
 
-    client: TextractClient = boto3.client("textract")
+    session = Session()
+    client: TextractClient = session.client("textract")
 
     list_adapter_versions_paginator: ListAdapterVersionsPaginator = client.get_paginator("list_adapter_versions")
     list_adapters_paginator: ListAdaptersPaginator = client.get_paginator("list_adapters")
     ```
 """
 
-from datetime import datetime
-from typing import Iterator, Union
+from __future__ import annotations
 
-from botocore.paginate import Paginator as Boto3Paginator
+import sys
+from typing import TYPE_CHECKING
+
+from botocore.paginate import PageIterator, Paginator
 
 from .type_defs import (
+    ListAdaptersRequestPaginateTypeDef,
     ListAdaptersResponseTypeDef,
+    ListAdapterVersionsRequestPaginateTypeDef,
     ListAdapterVersionsResponseTypeDef,
-    PaginatorConfigTypeDef,
 )
+
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = ("ListAdapterVersionsPaginator", "ListAdaptersPaginator")
 
-class ListAdapterVersionsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/textract.html#Textract.Paginator.ListAdapterVersions)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_textract/paginators.html#listadapterversionspaginator)
-    """
+if TYPE_CHECKING:
+    _ListAdapterVersionsPaginatorBase = Paginator[ListAdapterVersionsResponseTypeDef]
+else:
+    _ListAdapterVersionsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        AdapterId: str = None,
-        AfterCreationTime: Union[datetime, str] = None,
-        BeforeCreationTime: Union[datetime, str] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListAdapterVersionsResponseTypeDef]:
+class ListAdapterVersionsPaginator(_ListAdapterVersionsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/textract/paginator/ListAdapterVersions.html#Textract.Paginator.ListAdapterVersions)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_textract/paginators/#listadapterversionspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListAdapterVersionsRequestPaginateTypeDef]
+    ) -> PageIterator[ListAdapterVersionsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/textract.html#Textract.Paginator.ListAdapterVersions.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_textract/paginators.html#listadapterversionspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/textract/paginator/ListAdapterVersions.html#Textract.Paginator.ListAdapterVersions.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_textract/paginators/#listadapterversionspaginator)
         """
 
-class ListAdaptersPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/textract.html#Textract.Paginator.ListAdapters)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_textract/paginators.html#listadapterspaginator)
-    """
+if TYPE_CHECKING:
+    _ListAdaptersPaginatorBase = Paginator[ListAdaptersResponseTypeDef]
+else:
+    _ListAdaptersPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        AfterCreationTime: Union[datetime, str] = None,
-        BeforeCreationTime: Union[datetime, str] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListAdaptersResponseTypeDef]:
+class ListAdaptersPaginator(_ListAdaptersPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/textract/paginator/ListAdapters.html#Textract.Paginator.ListAdapters)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_textract/paginators/#listadapterspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListAdaptersRequestPaginateTypeDef]
+    ) -> PageIterator[ListAdaptersResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/textract.html#Textract.Paginator.ListAdapters.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_textract/paginators.html#listadapterspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/textract/paginator/ListAdapters.html#Textract.Paginator.ListAdapters.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_textract/paginators/#listadapterspaginator)
         """

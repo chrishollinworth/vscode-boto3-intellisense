@@ -1,10 +1,14 @@
 """
 Main interface for license-manager service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_license_manager/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_license_manager import (
         Client,
         LicenseManagerClient,
@@ -15,10 +19,8 @@ Usage::
         ListUsageForLicenseConfigurationPaginator,
     )
 
-    session = boto3.Session()
-
-    client: LicenseManagerClient = boto3.client("license-manager")
-    session_client: LicenseManagerClient = session.client("license-manager")
+    session = Session()
+    client: LicenseManagerClient = session.client("license-manager")
 
     list_associations_for_license_configuration_paginator: ListAssociationsForLicenseConfigurationPaginator = client.get_paginator("list_associations_for_license_configuration")
     list_license_configurations_paginator: ListLicenseConfigurationsPaginator = client.get_paginator("list_license_configurations")

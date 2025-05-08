@@ -1,50 +1,61 @@
 """
-Type annotations for iot-data service client.
+Type annotations for iot-data service Client.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot_data/client.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iot_data/client/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
-    from mypy_boto3_iot_data import IoTDataPlaneClient
+    from boto3.session import Session
+    from mypy_boto3_iot_data.client import IoTDataPlaneClient
 
-    client: IoTDataPlaneClient = boto3.client("iot-data")
+    session = Session()
+    client: IoTDataPlaneClient = session.client("iot-data")
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from typing import IO, Any, Dict, Type, Union
+from typing import Any
 
 from botocore.client import BaseClient, ClientMeta
-from botocore.response import StreamingBody
+from botocore.errorfactory import BaseClientExceptions
+from botocore.exceptions import ClientError as BotocoreClientError
 
-from .literals import PayloadFormatIndicatorType
 from .paginator import ListRetainedMessagesPaginator
 from .type_defs import (
+    DeleteThingShadowRequestTypeDef,
     DeleteThingShadowResponseTypeDef,
+    EmptyResponseMetadataTypeDef,
+    GetRetainedMessageRequestTypeDef,
     GetRetainedMessageResponseTypeDef,
+    GetThingShadowRequestTypeDef,
     GetThingShadowResponseTypeDef,
+    ListNamedShadowsForThingRequestTypeDef,
     ListNamedShadowsForThingResponseTypeDef,
+    ListRetainedMessagesRequestTypeDef,
     ListRetainedMessagesResponseTypeDef,
+    PublishRequestTypeDef,
+    UpdateThingShadowRequestTypeDef,
     UpdateThingShadowResponseTypeDef,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import type as Type
+    from collections.abc import Mapping
 else:
-    from typing_extensions import Literal
+    from typing import Mapping, Type
+if sys.version_info >= (3, 12):
+    from typing import Literal, Unpack
+else:
+    from typing_extensions import Literal, Unpack
 
 __all__ = ("IoTDataPlaneClient",)
 
-class BotocoreClientError(BaseException):
-    MSG_TEMPLATE: str
-
-    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
-        self.response: Dict[str, Any]
-        self.operation_name: str
-
-class Exceptions:
+class Exceptions(BaseClientExceptions):
     ClientError: Type[BotocoreClientError]
     ConflictException: Type[BotocoreClientError]
     InternalFailureException: Type[BotocoreClientError]
@@ -59,8 +70,8 @@ class Exceptions:
 
 class IoTDataPlaneClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iot-data.html#IoTDataPlane.Client)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot_data/client.html)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iot-data.html#IoTDataPlane.Client)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iot_data/client/)
     """
 
     meta: ClientMeta
@@ -69,125 +80,103 @@ class IoTDataPlaneClient(BaseClient):
     def exceptions(self) -> Exceptions:
         """
         IoTDataPlaneClient exceptions.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iot-data.html#IoTDataPlane.Client)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iot_data/client/#exceptions)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        Check if an operation can be paginated.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iot-data.html#IoTDataPlane.Client.can_paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot_data/client.html#can_paginate)
-        """
-
-    def close(self) -> None:
-        """
-        Closes underlying endpoint connections.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iot-data.html#IoTDataPlane.Client.close)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot_data/client.html#close)
-        """
-
-    def delete_thing_shadow(
-        self, *, thingName: str, shadowName: str = None
-    ) -> DeleteThingShadowResponseTypeDef:
-        """
-        Deletes the shadow for the specified thing.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iot-data.html#IoTDataPlane.Client.delete_thing_shadow)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot_data/client.html#delete_thing_shadow)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iot-data/client/can_paginate.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iot_data/client/#can_paginate)
         """
 
     def generate_presigned_url(
         self,
         ClientMethod: str,
-        Params: Dict[str, Any] = None,
+        Params: Mapping[str, Any] = ...,
         ExpiresIn: int = 3600,
-        HttpMethod: str = None,
+        HttpMethod: str = ...,
     ) -> str:
         """
-        Generate a presigned url given a client, its method, and arguments.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iot-data.html#IoTDataPlane.Client.generate_presigned_url)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot_data/client.html#generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iot-data/client/generate_presigned_url.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iot_data/client/#generate_presigned_url)
         """
 
-    def get_retained_message(self, *, topic: str) -> GetRetainedMessageResponseTypeDef:
+    def delete_thing_shadow(
+        self, **kwargs: Unpack[DeleteThingShadowRequestTypeDef]
+    ) -> DeleteThingShadowResponseTypeDef:
+        """
+        Deletes the shadow for the specified thing.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iot-data/client/delete_thing_shadow.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iot_data/client/#delete_thing_shadow)
+        """
+
+    def get_retained_message(
+        self, **kwargs: Unpack[GetRetainedMessageRequestTypeDef]
+    ) -> GetRetainedMessageResponseTypeDef:
         """
         Gets the details of a single retained message for the specified topic.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iot-data.html#IoTDataPlane.Client.get_retained_message)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot_data/client.html#get_retained_message)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iot-data/client/get_retained_message.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iot_data/client/#get_retained_message)
         """
 
     def get_thing_shadow(
-        self, *, thingName: str, shadowName: str = None
+        self, **kwargs: Unpack[GetThingShadowRequestTypeDef]
     ) -> GetThingShadowResponseTypeDef:
         """
         Gets the shadow for the specified thing.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iot-data.html#IoTDataPlane.Client.get_thing_shadow)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot_data/client.html#get_thing_shadow)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iot-data/client/get_thing_shadow.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iot_data/client/#get_thing_shadow)
         """
 
     def list_named_shadows_for_thing(
-        self, *, thingName: str, nextToken: str = None, pageSize: int = None
+        self, **kwargs: Unpack[ListNamedShadowsForThingRequestTypeDef]
     ) -> ListNamedShadowsForThingResponseTypeDef:
         """
         Lists the shadows for the specified thing.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iot-data.html#IoTDataPlane.Client.list_named_shadows_for_thing)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot_data/client.html#list_named_shadows_for_thing)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iot-data/client/list_named_shadows_for_thing.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iot_data/client/#list_named_shadows_for_thing)
         """
 
     def list_retained_messages(
-        self, *, nextToken: str = None, maxResults: int = None
+        self, **kwargs: Unpack[ListRetainedMessagesRequestTypeDef]
     ) -> ListRetainedMessagesResponseTypeDef:
         """
         Lists summary information about the retained messages stored for the account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iot-data.html#IoTDataPlane.Client.list_retained_messages)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot_data/client.html#list_retained_messages)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iot-data/client/list_retained_messages.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iot_data/client/#list_retained_messages)
         """
 
-    def publish(
-        self,
-        *,
-        topic: str,
-        qos: int = None,
-        retain: bool = None,
-        payload: Union[bytes, IO[bytes], StreamingBody] = None,
-        userProperties: str = None,
-        payloadFormatIndicator: PayloadFormatIndicatorType = None,
-        contentType: str = None,
-        responseTopic: str = None,
-        correlationData: str = None,
-        messageExpiry: int = None
-    ) -> None:
+    def publish(self, **kwargs: Unpack[PublishRequestTypeDef]) -> EmptyResponseMetadataTypeDef:
         """
         Publishes an MQTT message.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iot-data.html#IoTDataPlane.Client.publish)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot_data/client.html#publish)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iot-data/client/publish.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iot_data/client/#publish)
         """
 
     def update_thing_shadow(
-        self,
-        *,
-        thingName: str,
-        payload: Union[bytes, IO[bytes], StreamingBody],
-        shadowName: str = None
+        self, **kwargs: Unpack[UpdateThingShadowRequestTypeDef]
     ) -> UpdateThingShadowResponseTypeDef:
         """
         Updates the shadow for the specified thing.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iot-data.html#IoTDataPlane.Client.update_thing_shadow)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot_data/client.html#update_thing_shadow)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iot-data/client/update_thing_shadow.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iot_data/client/#update_thing_shadow)
         """
 
-    def get_paginator(
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_retained_messages"]
     ) -> ListRetainedMessagesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iot-data.html#IoTDataPlane.Paginator.ListRetainedMessages)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iot_data/paginators.html#listretainedmessagespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iot-data/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iot_data/client/#get_paginator)
         """

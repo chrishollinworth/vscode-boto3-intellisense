@@ -1,46 +1,57 @@
 """
 Type annotations for opsworks service client paginators.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworks/paginators.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_opsworks/paginators/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
 
-    from mypy_boto3_opsworks import OpsWorksClient
+    from mypy_boto3_opsworks.client import OpsWorksClient
     from mypy_boto3_opsworks.paginator import (
         DescribeEcsClustersPaginator,
     )
 
-    client: OpsWorksClient = boto3.client("opsworks")
+    session = Session()
+    client: OpsWorksClient = session.client("opsworks")
 
     describe_ecs_clusters_paginator: DescribeEcsClustersPaginator = client.get_paginator("describe_ecs_clusters")
     ```
 """
 
-from typing import Iterator, List
+from __future__ import annotations
 
-from botocore.paginate import Paginator as Boto3Paginator
+import sys
+from typing import TYPE_CHECKING
 
-from .type_defs import DescribeEcsClustersResultTypeDef, PaginatorConfigTypeDef
+from botocore.paginate import PageIterator, Paginator
+
+from .type_defs import DescribeEcsClustersRequestPaginateTypeDef, DescribeEcsClustersResultTypeDef
+
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = ("DescribeEcsClustersPaginator",)
 
-class DescribeEcsClustersPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/opsworks.html#OpsWorks.Paginator.DescribeEcsClusters)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworks/paginators.html#describeecsclusterspaginator)
-    """
+if TYPE_CHECKING:
+    _DescribeEcsClustersPaginatorBase = Paginator[DescribeEcsClustersResultTypeDef]
+else:
+    _DescribeEcsClustersPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        EcsClusterArns: List[str] = None,
-        StackId: str = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[DescribeEcsClustersResultTypeDef]:
+class DescribeEcsClustersPaginator(_DescribeEcsClustersPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/opsworks/paginator/DescribeEcsClusters.html#OpsWorks.Paginator.DescribeEcsClusters)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_opsworks/paginators/#describeecsclusterspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeEcsClustersRequestPaginateTypeDef]
+    ) -> PageIterator[DescribeEcsClustersResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/opsworks.html#OpsWorks.Paginator.DescribeEcsClusters.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opsworks/paginators.html#describeecsclusterspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/opsworks/paginator/DescribeEcsClusters.html#OpsWorks.Paginator.DescribeEcsClusters.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_opsworks/paginators/#describeecsclusterspaginator)
         """

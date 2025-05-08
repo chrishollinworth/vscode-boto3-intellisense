@@ -1,38 +1,51 @@
 """
 Type annotations for cloudcontrol service client waiters.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudcontrol/waiters.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudcontrol/waiters/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
 
-    from mypy_boto3_cloudcontrol import CloudControlApiClient
+    from mypy_boto3_cloudcontrol.client import CloudControlApiClient
     from mypy_boto3_cloudcontrol.waiter import (
         ResourceRequestSuccessWaiter,
     )
 
-    client: CloudControlApiClient = boto3.client("cloudcontrol")
+    session = Session()
+    client: CloudControlApiClient = session.client("cloudcontrol")
 
     resource_request_success_waiter: ResourceRequestSuccessWaiter = client.get_waiter("resource_request_success")
     ```
 """
 
-from botocore.waiter import Waiter as Boto3Waiter
+from __future__ import annotations
 
-from .type_defs import WaiterConfigTypeDef
+import sys
+
+from botocore.waiter import Waiter
+
+from .type_defs import GetResourceRequestStatusInputWaitTypeDef
+
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = ("ResourceRequestSuccessWaiter",)
 
-class ResourceRequestSuccessWaiter(Boto3Waiter):
+class ResourceRequestSuccessWaiter(Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudcontrol.html#CloudControlApi.Waiter.ResourceRequestSuccess)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudcontrol/waiters.html#resourcerequestsuccesswaiter)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudcontrol/waiter/ResourceRequestSuccess.html#CloudControlApi.Waiter.ResourceRequestSuccess)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudcontrol/waiters/#resourcerequestsuccesswaiter)
     """
-
-    def wait(self, *, RequestToken: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
+    def wait(  # type: ignore[override]
+        self, **kwargs: Unpack[GetResourceRequestStatusInputWaitTypeDef]
+    ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudcontrol.html#CloudControlApi.Waiter.ResourceRequestSuccess.wait)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudcontrol/waiters.html#resourcerequestsuccesswaiter)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudcontrol/waiter/ResourceRequestSuccess.html#CloudControlApi.Waiter.ResourceRequestSuccess.wait)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudcontrol/waiters/#resourcerequestsuccesswaiter)
         """

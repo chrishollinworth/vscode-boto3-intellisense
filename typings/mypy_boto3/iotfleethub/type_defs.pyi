@@ -1,231 +1,138 @@
 """
 Type annotations for iotfleethub service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotfleethub/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotfleethub/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_iotfleethub.type_defs import ApplicationSummaryTypeDef
 
-    data: ApplicationSummaryTypeDef = {...}
+    data: ApplicationSummaryTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from typing import Any, Dict, List
 
 from .literals import ApplicationStateType
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
     "ApplicationSummaryTypeDef",
-    "CreateApplicationRequestRequestTypeDef",
+    "CreateApplicationRequestTypeDef",
     "CreateApplicationResponseTypeDef",
-    "DeleteApplicationRequestRequestTypeDef",
-    "DescribeApplicationRequestRequestTypeDef",
+    "DeleteApplicationRequestTypeDef",
+    "DescribeApplicationRequestTypeDef",
     "DescribeApplicationResponseTypeDef",
-    "ListApplicationsRequestRequestTypeDef",
+    "ListApplicationsRequestPaginateTypeDef",
+    "ListApplicationsRequestTypeDef",
     "ListApplicationsResponseTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "PaginatorConfigTypeDef",
     "ResponseMetadataTypeDef",
-    "TagResourceRequestRequestTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateApplicationRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateApplicationRequestTypeDef",
 )
 
-_RequiredApplicationSummaryTypeDef = TypedDict(
-    "_RequiredApplicationSummaryTypeDef",
-    {
-        "applicationId": str,
-        "applicationName": str,
-        "applicationUrl": str,
-    },
-)
-_OptionalApplicationSummaryTypeDef = TypedDict(
-    "_OptionalApplicationSummaryTypeDef",
-    {
-        "applicationDescription": str,
-        "applicationCreationDate": int,
-        "applicationLastUpdateDate": int,
-        "applicationState": ApplicationStateType,
-    },
-    total=False,
-)
+class ApplicationSummaryTypeDef(TypedDict):
+    applicationId: str
+    applicationName: str
+    applicationUrl: str
+    applicationDescription: NotRequired[str]
+    applicationCreationDate: NotRequired[int]
+    applicationLastUpdateDate: NotRequired[int]
+    applicationState: NotRequired[ApplicationStateType]
 
-class ApplicationSummaryTypeDef(
-    _RequiredApplicationSummaryTypeDef, _OptionalApplicationSummaryTypeDef
-):
-    pass
+class CreateApplicationRequestTypeDef(TypedDict):
+    applicationName: str
+    roleArn: str
+    applicationDescription: NotRequired[str]
+    clientToken: NotRequired[str]
+    tags: NotRequired[Mapping[str, str]]
 
-_RequiredCreateApplicationRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateApplicationRequestRequestTypeDef",
-    {
-        "applicationName": str,
-        "roleArn": str,
-    },
-)
-_OptionalCreateApplicationRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateApplicationRequestRequestTypeDef",
-    {
-        "applicationDescription": str,
-        "clientToken": str,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-class CreateApplicationRequestRequestTypeDef(
-    _RequiredCreateApplicationRequestRequestTypeDef, _OptionalCreateApplicationRequestRequestTypeDef
-):
-    pass
+class DeleteApplicationRequestTypeDef(TypedDict):
+    applicationId: str
+    clientToken: NotRequired[str]
 
-CreateApplicationResponseTypeDef = TypedDict(
-    "CreateApplicationResponseTypeDef",
-    {
-        "applicationId": str,
-        "applicationArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DescribeApplicationRequestTypeDef(TypedDict):
+    applicationId: str
 
-_RequiredDeleteApplicationRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteApplicationRequestRequestTypeDef",
-    {
-        "applicationId": str,
-    },
-)
-_OptionalDeleteApplicationRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteApplicationRequestRequestTypeDef",
-    {
-        "clientToken": str,
-    },
-    total=False,
-)
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
 
-class DeleteApplicationRequestRequestTypeDef(
-    _RequiredDeleteApplicationRequestRequestTypeDef, _OptionalDeleteApplicationRequestRequestTypeDef
-):
-    pass
+class ListApplicationsRequestTypeDef(TypedDict):
+    nextToken: NotRequired[str]
 
-DescribeApplicationRequestRequestTypeDef = TypedDict(
-    "DescribeApplicationRequestRequestTypeDef",
-    {
-        "applicationId": str,
-    },
-)
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    resourceArn: str
 
-DescribeApplicationResponseTypeDef = TypedDict(
-    "DescribeApplicationResponseTypeDef",
-    {
-        "applicationId": str,
-        "applicationArn": str,
-        "applicationName": str,
-        "applicationDescription": str,
-        "applicationUrl": str,
-        "applicationState": ApplicationStateType,
-        "applicationCreationDate": int,
-        "applicationLastUpdateDate": int,
-        "roleArn": str,
-        "ssoClientId": str,
-        "errorMessage": str,
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class TagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tags: Mapping[str, str]
 
-ListApplicationsRequestRequestTypeDef = TypedDict(
-    "ListApplicationsRequestRequestTypeDef",
-    {
-        "nextToken": str,
-    },
-    total=False,
-)
+class UntagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tagKeys: Sequence[str]
 
-ListApplicationsResponseTypeDef = TypedDict(
-    "ListApplicationsResponseTypeDef",
-    {
-        "applicationSummaries": List["ApplicationSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class UpdateApplicationRequestTypeDef(TypedDict):
+    applicationId: str
+    applicationName: NotRequired[str]
+    applicationDescription: NotRequired[str]
+    clientToken: NotRequired[str]
 
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-    },
-)
+class CreateApplicationResponseTypeDef(TypedDict):
+    applicationId: str
+    applicationArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DescribeApplicationResponseTypeDef(TypedDict):
+    applicationId: str
+    applicationArn: str
+    applicationName: str
+    applicationDescription: str
+    applicationUrl: str
+    applicationState: ApplicationStateType
+    applicationCreationDate: int
+    applicationLastUpdateDate: int
+    roleArn: str
+    ssoClientId: str
+    errorMessage: str
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
+class ListApplicationsResponseTypeDef(TypedDict):
+    applicationSummaries: List[ApplicationSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tags": Dict[str, str],
-    },
-)
-
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tagKeys": List[str],
-    },
-)
-
-_RequiredUpdateApplicationRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateApplicationRequestRequestTypeDef",
-    {
-        "applicationId": str,
-    },
-)
-_OptionalUpdateApplicationRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateApplicationRequestRequestTypeDef",
-    {
-        "applicationName": str,
-        "applicationDescription": str,
-        "clientToken": str,
-    },
-    total=False,
-)
-
-class UpdateApplicationRequestRequestTypeDef(
-    _RequiredUpdateApplicationRequestRequestTypeDef, _OptionalUpdateApplicationRequestRequestTypeDef
-):
-    pass
+class ListApplicationsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]

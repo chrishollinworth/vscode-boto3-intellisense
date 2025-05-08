@@ -1,20 +1,22 @@
 """
 Main interface for translate service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_translate/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_translate import (
         Client,
         ListTerminologiesPaginator,
         TranslateClient,
     )
 
-    session = boto3.Session()
-
-    client: TranslateClient = boto3.client("translate")
-    session_client: TranslateClient = session.client("translate")
+    session = Session()
+    client: TranslateClient = session.client("translate")
 
     list_terminologies_paginator: ListTerminologiesPaginator = client.get_paginator("list_terminologies")
     ```

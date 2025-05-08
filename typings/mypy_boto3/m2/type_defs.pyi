@@ -1,20 +1,24 @@
 """
 Type annotations for m2 service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_m2/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_m2/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_m2.type_defs import AlternateKeyTypeDef
 
-    data: AlternateKeyTypeDef = {...}
+    data: AlternateKeyTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List, Union
+from typing import Union
 
 from .literals import (
     ApplicationDeploymentLifecycleType,
@@ -26,12 +30,19 @@ from .literals import (
     DeploymentLifecycleType,
     EngineTypeType,
     EnvironmentLifecycleType,
+    NetworkTypeType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
     "AlternateKeyTypeDef",
@@ -40,15 +51,21 @@ __all__ = (
     "BatchJobDefinitionTypeDef",
     "BatchJobExecutionSummaryTypeDef",
     "BatchJobIdentifierTypeDef",
-    "CancelBatchJobExecutionRequestRequestTypeDef",
-    "CreateApplicationRequestRequestTypeDef",
+    "CancelBatchJobExecutionRequestTypeDef",
+    "CreateApplicationRequestTypeDef",
     "CreateApplicationResponseTypeDef",
-    "CreateDataSetImportTaskRequestRequestTypeDef",
+    "CreateDataSetExportTaskRequestTypeDef",
+    "CreateDataSetExportTaskResponseTypeDef",
+    "CreateDataSetImportTaskRequestTypeDef",
     "CreateDataSetImportTaskResponseTypeDef",
-    "CreateDeploymentRequestRequestTypeDef",
+    "CreateDeploymentRequestTypeDef",
     "CreateDeploymentResponseTypeDef",
-    "CreateEnvironmentRequestRequestTypeDef",
+    "CreateEnvironmentRequestTypeDef",
     "CreateEnvironmentResponseTypeDef",
+    "DataSetExportConfigTypeDef",
+    "DataSetExportItemTypeDef",
+    "DataSetExportSummaryTypeDef",
+    "DataSetExportTaskTypeDef",
     "DataSetImportConfigTypeDef",
     "DataSetImportItemTypeDef",
     "DataSetImportSummaryTypeDef",
@@ -58,9 +75,9 @@ __all__ = (
     "DatasetDetailOrgAttributesTypeDef",
     "DatasetOrgAttributesTypeDef",
     "DefinitionTypeDef",
-    "DeleteApplicationFromEnvironmentRequestRequestTypeDef",
-    "DeleteApplicationRequestRequestTypeDef",
-    "DeleteEnvironmentRequestRequestTypeDef",
+    "DeleteApplicationFromEnvironmentRequestTypeDef",
+    "DeleteApplicationRequestTypeDef",
+    "DeleteEnvironmentRequestTypeDef",
     "DeployedVersionSummaryTypeDef",
     "DeploymentSummaryTypeDef",
     "EfsStorageConfigurationTypeDef",
@@ -72,46 +89,60 @@ __all__ = (
     "FsxStorageConfigurationTypeDef",
     "GdgAttributesTypeDef",
     "GdgDetailAttributesTypeDef",
-    "GetApplicationRequestRequestTypeDef",
+    "GetApplicationRequestTypeDef",
     "GetApplicationResponseTypeDef",
-    "GetApplicationVersionRequestRequestTypeDef",
+    "GetApplicationVersionRequestTypeDef",
     "GetApplicationVersionResponseTypeDef",
-    "GetBatchJobExecutionRequestRequestTypeDef",
+    "GetBatchJobExecutionRequestTypeDef",
     "GetBatchJobExecutionResponseTypeDef",
-    "GetDataSetDetailsRequestRequestTypeDef",
+    "GetDataSetDetailsRequestTypeDef",
     "GetDataSetDetailsResponseTypeDef",
-    "GetDataSetImportTaskRequestRequestTypeDef",
+    "GetDataSetExportTaskRequestTypeDef",
+    "GetDataSetExportTaskResponseTypeDef",
+    "GetDataSetImportTaskRequestTypeDef",
     "GetDataSetImportTaskResponseTypeDef",
-    "GetDeploymentRequestRequestTypeDef",
+    "GetDeploymentRequestTypeDef",
     "GetDeploymentResponseTypeDef",
-    "GetEnvironmentRequestRequestTypeDef",
+    "GetEnvironmentRequestTypeDef",
     "GetEnvironmentResponseTypeDef",
     "GetSignedBluinsightsUrlResponseTypeDef",
     "HighAvailabilityConfigTypeDef",
     "JobIdentifierTypeDef",
     "JobStepRestartMarkerTypeDef",
     "JobStepTypeDef",
-    "ListApplicationVersionsRequestRequestTypeDef",
+    "ListApplicationVersionsRequestPaginateTypeDef",
+    "ListApplicationVersionsRequestTypeDef",
     "ListApplicationVersionsResponseTypeDef",
-    "ListApplicationsRequestRequestTypeDef",
+    "ListApplicationsRequestPaginateTypeDef",
+    "ListApplicationsRequestTypeDef",
     "ListApplicationsResponseTypeDef",
-    "ListBatchJobDefinitionsRequestRequestTypeDef",
+    "ListBatchJobDefinitionsRequestPaginateTypeDef",
+    "ListBatchJobDefinitionsRequestTypeDef",
     "ListBatchJobDefinitionsResponseTypeDef",
-    "ListBatchJobExecutionsRequestRequestTypeDef",
+    "ListBatchJobExecutionsRequestPaginateTypeDef",
+    "ListBatchJobExecutionsRequestTypeDef",
     "ListBatchJobExecutionsResponseTypeDef",
-    "ListBatchJobRestartPointsRequestRequestTypeDef",
+    "ListBatchJobRestartPointsRequestTypeDef",
     "ListBatchJobRestartPointsResponseTypeDef",
-    "ListDataSetImportHistoryRequestRequestTypeDef",
+    "ListDataSetExportHistoryRequestPaginateTypeDef",
+    "ListDataSetExportHistoryRequestTypeDef",
+    "ListDataSetExportHistoryResponseTypeDef",
+    "ListDataSetImportHistoryRequestPaginateTypeDef",
+    "ListDataSetImportHistoryRequestTypeDef",
     "ListDataSetImportHistoryResponseTypeDef",
-    "ListDataSetsRequestRequestTypeDef",
+    "ListDataSetsRequestPaginateTypeDef",
+    "ListDataSetsRequestTypeDef",
     "ListDataSetsResponseTypeDef",
-    "ListDeploymentsRequestRequestTypeDef",
+    "ListDeploymentsRequestPaginateTypeDef",
+    "ListDeploymentsRequestTypeDef",
     "ListDeploymentsResponseTypeDef",
-    "ListEngineVersionsRequestRequestTypeDef",
+    "ListEngineVersionsRequestPaginateTypeDef",
+    "ListEngineVersionsRequestTypeDef",
     "ListEngineVersionsResponseTypeDef",
-    "ListEnvironmentsRequestRequestTypeDef",
+    "ListEnvironmentsRequestPaginateTypeDef",
+    "ListEnvironmentsRequestTypeDef",
     "ListEnvironmentsResponseTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "LogGroupSummaryTypeDef",
     "MaintenanceScheduleTypeDef",
@@ -128,1190 +159,116 @@ __all__ = (
     "S3BatchJobIdentifierTypeDef",
     "ScriptBatchJobDefinitionTypeDef",
     "ScriptBatchJobIdentifierTypeDef",
-    "StartApplicationRequestRequestTypeDef",
-    "StartBatchJobRequestRequestTypeDef",
+    "StartApplicationRequestTypeDef",
+    "StartBatchJobRequestTypeDef",
     "StartBatchJobResponseTypeDef",
-    "StopApplicationRequestRequestTypeDef",
+    "StopApplicationRequestTypeDef",
     "StorageConfigurationTypeDef",
-    "TagResourceRequestRequestTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateApplicationRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
+    "TimestampTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateApplicationRequestTypeDef",
     "UpdateApplicationResponseTypeDef",
-    "UpdateEnvironmentRequestRequestTypeDef",
+    "UpdateEnvironmentRequestTypeDef",
     "UpdateEnvironmentResponseTypeDef",
     "VsamAttributesTypeDef",
     "VsamDetailAttributesTypeDef",
 )
 
-_RequiredAlternateKeyTypeDef = TypedDict(
-    "_RequiredAlternateKeyTypeDef",
-    {
-        "length": int,
-        "offset": int,
-    },
-)
-_OptionalAlternateKeyTypeDef = TypedDict(
-    "_OptionalAlternateKeyTypeDef",
-    {
-        "allowDuplicates": bool,
-        "name": str,
-    },
-    total=False,
-)
+class AlternateKeyTypeDef(TypedDict):
+    length: int
+    offset: int
+    allowDuplicates: NotRequired[bool]
+    name: NotRequired[str]
 
-class AlternateKeyTypeDef(_RequiredAlternateKeyTypeDef, _OptionalAlternateKeyTypeDef):
-    pass
+class ApplicationSummaryTypeDef(TypedDict):
+    applicationArn: str
+    applicationId: str
+    applicationVersion: int
+    creationTime: datetime
+    engineType: EngineTypeType
+    name: str
+    status: ApplicationLifecycleType
+    deploymentStatus: NotRequired[ApplicationDeploymentLifecycleType]
+    description: NotRequired[str]
+    environmentId: NotRequired[str]
+    lastStartTime: NotRequired[datetime]
+    roleArn: NotRequired[str]
+    versionStatus: NotRequired[ApplicationVersionLifecycleType]
 
-_RequiredApplicationSummaryTypeDef = TypedDict(
-    "_RequiredApplicationSummaryTypeDef",
-    {
-        "applicationArn": str,
-        "applicationId": str,
-        "applicationVersion": int,
-        "creationTime": datetime,
-        "engineType": EngineTypeType,
-        "name": str,
-        "status": ApplicationLifecycleType,
-    },
-)
-_OptionalApplicationSummaryTypeDef = TypedDict(
-    "_OptionalApplicationSummaryTypeDef",
-    {
-        "deploymentStatus": ApplicationDeploymentLifecycleType,
-        "description": str,
-        "environmentId": str,
-        "lastStartTime": datetime,
-        "roleArn": str,
-        "versionStatus": ApplicationVersionLifecycleType,
-    },
-    total=False,
-)
+class ApplicationVersionSummaryTypeDef(TypedDict):
+    applicationVersion: int
+    creationTime: datetime
+    status: ApplicationVersionLifecycleType
+    statusReason: NotRequired[str]
 
-class ApplicationSummaryTypeDef(
-    _RequiredApplicationSummaryTypeDef, _OptionalApplicationSummaryTypeDef
-):
-    pass
+class FileBatchJobDefinitionTypeDef(TypedDict):
+    fileName: str
+    folderPath: NotRequired[str]
 
-_RequiredApplicationVersionSummaryTypeDef = TypedDict(
-    "_RequiredApplicationVersionSummaryTypeDef",
-    {
-        "applicationVersion": int,
-        "creationTime": datetime,
-        "status": ApplicationVersionLifecycleType,
-    },
-)
-_OptionalApplicationVersionSummaryTypeDef = TypedDict(
-    "_OptionalApplicationVersionSummaryTypeDef",
-    {
-        "statusReason": str,
-    },
-    total=False,
-)
+class ScriptBatchJobDefinitionTypeDef(TypedDict):
+    scriptName: str
 
-class ApplicationVersionSummaryTypeDef(
-    _RequiredApplicationVersionSummaryTypeDef, _OptionalApplicationVersionSummaryTypeDef
-):
-    pass
+class FileBatchJobIdentifierTypeDef(TypedDict):
+    fileName: str
+    folderPath: NotRequired[str]
 
-BatchJobDefinitionTypeDef = TypedDict(
-    "BatchJobDefinitionTypeDef",
-    {
-        "fileBatchJobDefinition": "FileBatchJobDefinitionTypeDef",
-        "scriptBatchJobDefinition": "ScriptBatchJobDefinitionTypeDef",
-    },
-    total=False,
-)
+class ScriptBatchJobIdentifierTypeDef(TypedDict):
+    scriptName: str
 
-_RequiredBatchJobExecutionSummaryTypeDef = TypedDict(
-    "_RequiredBatchJobExecutionSummaryTypeDef",
-    {
-        "applicationId": str,
-        "executionId": str,
-        "startTime": datetime,
-        "status": BatchJobExecutionStatusType,
-    },
-)
-_OptionalBatchJobExecutionSummaryTypeDef = TypedDict(
-    "_OptionalBatchJobExecutionSummaryTypeDef",
-    {
-        "batchJobIdentifier": "BatchJobIdentifierTypeDef",
-        "endTime": datetime,
-        "jobId": str,
-        "jobName": str,
-        "jobType": BatchJobTypeType,
-        "returnCode": str,
-    },
-    total=False,
-)
+class CancelBatchJobExecutionRequestTypeDef(TypedDict):
+    applicationId: str
+    executionId: str
+    authSecretsManagerArn: NotRequired[str]
 
-class BatchJobExecutionSummaryTypeDef(
-    _RequiredBatchJobExecutionSummaryTypeDef, _OptionalBatchJobExecutionSummaryTypeDef
-):
-    pass
+class DefinitionTypeDef(TypedDict):
+    content: NotRequired[str]
+    s3Location: NotRequired[str]
 
-BatchJobIdentifierTypeDef = TypedDict(
-    "BatchJobIdentifierTypeDef",
-    {
-        "fileBatchJobIdentifier": "FileBatchJobIdentifierTypeDef",
-        "restartBatchJobIdentifier": "RestartBatchJobIdentifierTypeDef",
-        "s3BatchJobIdentifier": "S3BatchJobIdentifierTypeDef",
-        "scriptBatchJobIdentifier": "ScriptBatchJobIdentifierTypeDef",
-    },
-    total=False,
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-CancelBatchJobExecutionRequestRequestTypeDef = TypedDict(
-    "CancelBatchJobExecutionRequestRequestTypeDef",
-    {
-        "applicationId": str,
-        "executionId": str,
-    },
-)
+class CreateDeploymentRequestTypeDef(TypedDict):
+    applicationId: str
+    applicationVersion: int
+    environmentId: str
+    clientToken: NotRequired[str]
 
-_RequiredCreateApplicationRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateApplicationRequestRequestTypeDef",
-    {
-        "definition": "DefinitionTypeDef",
-        "engineType": EngineTypeType,
-        "name": str,
-    },
-)
-_OptionalCreateApplicationRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateApplicationRequestRequestTypeDef",
-    {
-        "clientToken": str,
-        "description": str,
-        "kmsKeyId": str,
-        "roleArn": str,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
+class HighAvailabilityConfigTypeDef(TypedDict):
+    desiredCapacity: int
 
-class CreateApplicationRequestRequestTypeDef(
-    _RequiredCreateApplicationRequestRequestTypeDef, _OptionalCreateApplicationRequestRequestTypeDef
-):
-    pass
+class ExternalLocationTypeDef(TypedDict):
+    s3Location: NotRequired[str]
 
-CreateApplicationResponseTypeDef = TypedDict(
-    "CreateApplicationResponseTypeDef",
-    {
-        "applicationArn": str,
-        "applicationId": str,
-        "applicationVersion": int,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DataSetExportSummaryTypeDef(TypedDict):
+    failed: int
+    inProgress: int
+    pending: int
+    succeeded: int
+    total: int
 
-_RequiredCreateDataSetImportTaskRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateDataSetImportTaskRequestRequestTypeDef",
-    {
-        "applicationId": str,
-        "importConfig": "DataSetImportConfigTypeDef",
-    },
-)
-_OptionalCreateDataSetImportTaskRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateDataSetImportTaskRequestRequestTypeDef",
-    {
-        "clientToken": str,
-    },
-    total=False,
-)
+class DataSetImportSummaryTypeDef(TypedDict):
+    failed: int
+    inProgress: int
+    pending: int
+    succeeded: int
+    total: int
 
-class CreateDataSetImportTaskRequestRequestTypeDef(
-    _RequiredCreateDataSetImportTaskRequestRequestTypeDef,
-    _OptionalCreateDataSetImportTaskRequestRequestTypeDef,
-):
-    pass
-
-CreateDataSetImportTaskResponseTypeDef = TypedDict(
-    "CreateDataSetImportTaskResponseTypeDef",
-    {
-        "taskId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateDeploymentRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateDeploymentRequestRequestTypeDef",
-    {
-        "applicationId": str,
-        "applicationVersion": int,
-        "environmentId": str,
-    },
-)
-_OptionalCreateDeploymentRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateDeploymentRequestRequestTypeDef",
-    {
-        "clientToken": str,
-    },
-    total=False,
-)
-
-class CreateDeploymentRequestRequestTypeDef(
-    _RequiredCreateDeploymentRequestRequestTypeDef, _OptionalCreateDeploymentRequestRequestTypeDef
-):
-    pass
-
-CreateDeploymentResponseTypeDef = TypedDict(
-    "CreateDeploymentResponseTypeDef",
-    {
-        "deploymentId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateEnvironmentRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateEnvironmentRequestRequestTypeDef",
-    {
-        "engineType": EngineTypeType,
-        "instanceType": str,
-        "name": str,
-    },
-)
-_OptionalCreateEnvironmentRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateEnvironmentRequestRequestTypeDef",
-    {
-        "clientToken": str,
-        "description": str,
-        "engineVersion": str,
-        "highAvailabilityConfig": "HighAvailabilityConfigTypeDef",
-        "kmsKeyId": str,
-        "preferredMaintenanceWindow": str,
-        "publiclyAccessible": bool,
-        "securityGroupIds": List[str],
-        "storageConfigurations": List["StorageConfigurationTypeDef"],
-        "subnetIds": List[str],
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class CreateEnvironmentRequestRequestTypeDef(
-    _RequiredCreateEnvironmentRequestRequestTypeDef, _OptionalCreateEnvironmentRequestRequestTypeDef
-):
-    pass
-
-CreateEnvironmentResponseTypeDef = TypedDict(
-    "CreateEnvironmentResponseTypeDef",
-    {
-        "environmentId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DataSetImportConfigTypeDef = TypedDict(
-    "DataSetImportConfigTypeDef",
-    {
-        "dataSets": List["DataSetImportItemTypeDef"],
-        "s3Location": str,
-    },
-    total=False,
-)
-
-DataSetImportItemTypeDef = TypedDict(
-    "DataSetImportItemTypeDef",
-    {
-        "dataSet": "DataSetTypeDef",
-        "externalLocation": "ExternalLocationTypeDef",
-    },
-)
-
-DataSetImportSummaryTypeDef = TypedDict(
-    "DataSetImportSummaryTypeDef",
-    {
-        "failed": int,
-        "inProgress": int,
-        "pending": int,
-        "succeeded": int,
-        "total": int,
-    },
-)
-
-_RequiredDataSetImportTaskTypeDef = TypedDict(
-    "_RequiredDataSetImportTaskTypeDef",
-    {
-        "status": DataSetTaskLifecycleType,
-        "summary": "DataSetImportSummaryTypeDef",
-        "taskId": str,
-    },
-)
-_OptionalDataSetImportTaskTypeDef = TypedDict(
-    "_OptionalDataSetImportTaskTypeDef",
-    {
-        "statusReason": str,
-    },
-    total=False,
-)
-
-class DataSetImportTaskTypeDef(
-    _RequiredDataSetImportTaskTypeDef, _OptionalDataSetImportTaskTypeDef
-):
-    pass
-
-_RequiredDataSetSummaryTypeDef = TypedDict(
-    "_RequiredDataSetSummaryTypeDef",
+DataSetSummaryTypeDef = TypedDict(
+    "DataSetSummaryTypeDef",
     {
         "dataSetName": str,
+        "creationTime": NotRequired[datetime],
+        "dataSetOrg": NotRequired[str],
+        "format": NotRequired[str],
+        "lastReferencedTime": NotRequired[datetime],
+        "lastUpdatedTime": NotRequired[datetime],
     },
 )
-_OptionalDataSetSummaryTypeDef = TypedDict(
-    "_OptionalDataSetSummaryTypeDef",
-    {
-        "creationTime": datetime,
-        "dataSetOrg": str,
-        "format": str,
-        "lastReferencedTime": datetime,
-        "lastUpdatedTime": datetime,
-    },
-    total=False,
-)
-
-class DataSetSummaryTypeDef(_RequiredDataSetSummaryTypeDef, _OptionalDataSetSummaryTypeDef):
-    pass
-
-_RequiredDataSetTypeDef = TypedDict(
-    "_RequiredDataSetTypeDef",
-    {
-        "datasetName": str,
-        "datasetOrg": "DatasetOrgAttributesTypeDef",
-        "recordLength": "RecordLengthTypeDef",
-    },
-)
-_OptionalDataSetTypeDef = TypedDict(
-    "_OptionalDataSetTypeDef",
-    {
-        "relativePath": str,
-        "storageType": str,
-    },
-    total=False,
-)
-
-class DataSetTypeDef(_RequiredDataSetTypeDef, _OptionalDataSetTypeDef):
-    pass
-
-DatasetDetailOrgAttributesTypeDef = TypedDict(
-    "DatasetDetailOrgAttributesTypeDef",
-    {
-        "gdg": "GdgDetailAttributesTypeDef",
-        "po": "PoDetailAttributesTypeDef",
-        "ps": "PsDetailAttributesTypeDef",
-        "vsam": "VsamDetailAttributesTypeDef",
-    },
-    total=False,
-)
-
-DatasetOrgAttributesTypeDef = TypedDict(
-    "DatasetOrgAttributesTypeDef",
-    {
-        "gdg": "GdgAttributesTypeDef",
-        "po": "PoAttributesTypeDef",
-        "ps": "PsAttributesTypeDef",
-        "vsam": "VsamAttributesTypeDef",
-    },
-    total=False,
-)
-
-DefinitionTypeDef = TypedDict(
-    "DefinitionTypeDef",
-    {
-        "content": str,
-        "s3Location": str,
-    },
-    total=False,
-)
-
-DeleteApplicationFromEnvironmentRequestRequestTypeDef = TypedDict(
-    "DeleteApplicationFromEnvironmentRequestRequestTypeDef",
-    {
-        "applicationId": str,
-        "environmentId": str,
-    },
-)
-
-DeleteApplicationRequestRequestTypeDef = TypedDict(
-    "DeleteApplicationRequestRequestTypeDef",
-    {
-        "applicationId": str,
-    },
-)
-
-DeleteEnvironmentRequestRequestTypeDef = TypedDict(
-    "DeleteEnvironmentRequestRequestTypeDef",
-    {
-        "environmentId": str,
-    },
-)
-
-_RequiredDeployedVersionSummaryTypeDef = TypedDict(
-    "_RequiredDeployedVersionSummaryTypeDef",
-    {
-        "applicationVersion": int,
-        "status": DeploymentLifecycleType,
-    },
-)
-_OptionalDeployedVersionSummaryTypeDef = TypedDict(
-    "_OptionalDeployedVersionSummaryTypeDef",
-    {
-        "statusReason": str,
-    },
-    total=False,
-)
-
-class DeployedVersionSummaryTypeDef(
-    _RequiredDeployedVersionSummaryTypeDef, _OptionalDeployedVersionSummaryTypeDef
-):
-    pass
-
-_RequiredDeploymentSummaryTypeDef = TypedDict(
-    "_RequiredDeploymentSummaryTypeDef",
-    {
-        "applicationId": str,
-        "applicationVersion": int,
-        "creationTime": datetime,
-        "deploymentId": str,
-        "environmentId": str,
-        "status": DeploymentLifecycleType,
-    },
-)
-_OptionalDeploymentSummaryTypeDef = TypedDict(
-    "_OptionalDeploymentSummaryTypeDef",
-    {
-        "statusReason": str,
-    },
-    total=False,
-)
-
-class DeploymentSummaryTypeDef(
-    _RequiredDeploymentSummaryTypeDef, _OptionalDeploymentSummaryTypeDef
-):
-    pass
-
-EfsStorageConfigurationTypeDef = TypedDict(
-    "EfsStorageConfigurationTypeDef",
-    {
-        "fileSystemId": str,
-        "mountPoint": str,
-    },
-)
-
-EngineVersionsSummaryTypeDef = TypedDict(
-    "EngineVersionsSummaryTypeDef",
-    {
-        "engineType": str,
-        "engineVersion": str,
-    },
-)
-
-EnvironmentSummaryTypeDef = TypedDict(
-    "EnvironmentSummaryTypeDef",
-    {
-        "creationTime": datetime,
-        "engineType": EngineTypeType,
-        "engineVersion": str,
-        "environmentArn": str,
-        "environmentId": str,
-        "instanceType": str,
-        "name": str,
-        "status": EnvironmentLifecycleType,
-    },
-)
-
-ExternalLocationTypeDef = TypedDict(
-    "ExternalLocationTypeDef",
-    {
-        "s3Location": str,
-    },
-    total=False,
-)
-
-_RequiredFileBatchJobDefinitionTypeDef = TypedDict(
-    "_RequiredFileBatchJobDefinitionTypeDef",
-    {
-        "fileName": str,
-    },
-)
-_OptionalFileBatchJobDefinitionTypeDef = TypedDict(
-    "_OptionalFileBatchJobDefinitionTypeDef",
-    {
-        "folderPath": str,
-    },
-    total=False,
-)
-
-class FileBatchJobDefinitionTypeDef(
-    _RequiredFileBatchJobDefinitionTypeDef, _OptionalFileBatchJobDefinitionTypeDef
-):
-    pass
-
-_RequiredFileBatchJobIdentifierTypeDef = TypedDict(
-    "_RequiredFileBatchJobIdentifierTypeDef",
-    {
-        "fileName": str,
-    },
-)
-_OptionalFileBatchJobIdentifierTypeDef = TypedDict(
-    "_OptionalFileBatchJobIdentifierTypeDef",
-    {
-        "folderPath": str,
-    },
-    total=False,
-)
-
-class FileBatchJobIdentifierTypeDef(
-    _RequiredFileBatchJobIdentifierTypeDef, _OptionalFileBatchJobIdentifierTypeDef
-):
-    pass
-
-FsxStorageConfigurationTypeDef = TypedDict(
-    "FsxStorageConfigurationTypeDef",
-    {
-        "fileSystemId": str,
-        "mountPoint": str,
-    },
-)
-
-GdgAttributesTypeDef = TypedDict(
-    "GdgAttributesTypeDef",
-    {
-        "limit": int,
-        "rollDisposition": str,
-    },
-    total=False,
-)
-
-GdgDetailAttributesTypeDef = TypedDict(
-    "GdgDetailAttributesTypeDef",
-    {
-        "limit": int,
-        "rollDisposition": str,
-    },
-    total=False,
-)
-
-GetApplicationRequestRequestTypeDef = TypedDict(
-    "GetApplicationRequestRequestTypeDef",
-    {
-        "applicationId": str,
-    },
-)
-
-GetApplicationResponseTypeDef = TypedDict(
-    "GetApplicationResponseTypeDef",
-    {
-        "applicationArn": str,
-        "applicationId": str,
-        "creationTime": datetime,
-        "deployedVersion": "DeployedVersionSummaryTypeDef",
-        "description": str,
-        "engineType": EngineTypeType,
-        "environmentId": str,
-        "kmsKeyId": str,
-        "lastStartTime": datetime,
-        "latestVersion": "ApplicationVersionSummaryTypeDef",
-        "listenerArns": List[str],
-        "listenerPorts": List[int],
-        "loadBalancerDnsName": str,
-        "logGroups": List["LogGroupSummaryTypeDef"],
-        "name": str,
-        "roleArn": str,
-        "status": ApplicationLifecycleType,
-        "statusReason": str,
-        "tags": Dict[str, str],
-        "targetGroupArns": List[str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetApplicationVersionRequestRequestTypeDef = TypedDict(
-    "GetApplicationVersionRequestRequestTypeDef",
-    {
-        "applicationId": str,
-        "applicationVersion": int,
-    },
-)
-
-GetApplicationVersionResponseTypeDef = TypedDict(
-    "GetApplicationVersionResponseTypeDef",
-    {
-        "applicationVersion": int,
-        "creationTime": datetime,
-        "definitionContent": str,
-        "description": str,
-        "name": str,
-        "status": ApplicationVersionLifecycleType,
-        "statusReason": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetBatchJobExecutionRequestRequestTypeDef = TypedDict(
-    "GetBatchJobExecutionRequestRequestTypeDef",
-    {
-        "applicationId": str,
-        "executionId": str,
-    },
-)
-
-GetBatchJobExecutionResponseTypeDef = TypedDict(
-    "GetBatchJobExecutionResponseTypeDef",
-    {
-        "applicationId": str,
-        "batchJobIdentifier": "BatchJobIdentifierTypeDef",
-        "endTime": datetime,
-        "executionId": str,
-        "jobId": str,
-        "jobName": str,
-        "jobStepRestartMarker": "JobStepRestartMarkerTypeDef",
-        "jobType": BatchJobTypeType,
-        "jobUser": str,
-        "returnCode": str,
-        "startTime": datetime,
-        "status": BatchJobExecutionStatusType,
-        "statusReason": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetDataSetDetailsRequestRequestTypeDef = TypedDict(
-    "GetDataSetDetailsRequestRequestTypeDef",
-    {
-        "applicationId": str,
-        "dataSetName": str,
-    },
-)
-
-GetDataSetDetailsResponseTypeDef = TypedDict(
-    "GetDataSetDetailsResponseTypeDef",
-    {
-        "blocksize": int,
-        "creationTime": datetime,
-        "dataSetName": str,
-        "dataSetOrg": "DatasetDetailOrgAttributesTypeDef",
-        "fileSize": int,
-        "lastReferencedTime": datetime,
-        "lastUpdatedTime": datetime,
-        "location": str,
-        "recordLength": int,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetDataSetImportTaskRequestRequestTypeDef = TypedDict(
-    "GetDataSetImportTaskRequestRequestTypeDef",
-    {
-        "applicationId": str,
-        "taskId": str,
-    },
-)
-
-GetDataSetImportTaskResponseTypeDef = TypedDict(
-    "GetDataSetImportTaskResponseTypeDef",
-    {
-        "status": DataSetTaskLifecycleType,
-        "summary": "DataSetImportSummaryTypeDef",
-        "taskId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetDeploymentRequestRequestTypeDef = TypedDict(
-    "GetDeploymentRequestRequestTypeDef",
-    {
-        "applicationId": str,
-        "deploymentId": str,
-    },
-)
-
-GetDeploymentResponseTypeDef = TypedDict(
-    "GetDeploymentResponseTypeDef",
-    {
-        "applicationId": str,
-        "applicationVersion": int,
-        "creationTime": datetime,
-        "deploymentId": str,
-        "environmentId": str,
-        "status": DeploymentLifecycleType,
-        "statusReason": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetEnvironmentRequestRequestTypeDef = TypedDict(
-    "GetEnvironmentRequestRequestTypeDef",
-    {
-        "environmentId": str,
-    },
-)
-
-GetEnvironmentResponseTypeDef = TypedDict(
-    "GetEnvironmentResponseTypeDef",
-    {
-        "actualCapacity": int,
-        "creationTime": datetime,
-        "description": str,
-        "engineType": EngineTypeType,
-        "engineVersion": str,
-        "environmentArn": str,
-        "environmentId": str,
-        "highAvailabilityConfig": "HighAvailabilityConfigTypeDef",
-        "instanceType": str,
-        "kmsKeyId": str,
-        "loadBalancerArn": str,
-        "name": str,
-        "pendingMaintenance": "PendingMaintenanceTypeDef",
-        "preferredMaintenanceWindow": str,
-        "publiclyAccessible": bool,
-        "securityGroupIds": List[str],
-        "status": EnvironmentLifecycleType,
-        "statusReason": str,
-        "storageConfigurations": List["StorageConfigurationTypeDef"],
-        "subnetIds": List[str],
-        "tags": Dict[str, str],
-        "vpcId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetSignedBluinsightsUrlResponseTypeDef = TypedDict(
-    "GetSignedBluinsightsUrlResponseTypeDef",
-    {
-        "signedBiUrl": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-HighAvailabilityConfigTypeDef = TypedDict(
-    "HighAvailabilityConfigTypeDef",
-    {
-        "desiredCapacity": int,
-    },
-)
-
-JobIdentifierTypeDef = TypedDict(
-    "JobIdentifierTypeDef",
-    {
-        "fileName": str,
-        "scriptName": str,
-    },
-    total=False,
-)
-
-_RequiredJobStepRestartMarkerTypeDef = TypedDict(
-    "_RequiredJobStepRestartMarkerTypeDef",
-    {
-        "fromStep": str,
-    },
-)
-_OptionalJobStepRestartMarkerTypeDef = TypedDict(
-    "_OptionalJobStepRestartMarkerTypeDef",
-    {
-        "fromProcStep": str,
-        "toProcStep": str,
-        "toStep": str,
-    },
-    total=False,
-)
-
-class JobStepRestartMarkerTypeDef(
-    _RequiredJobStepRestartMarkerTypeDef, _OptionalJobStepRestartMarkerTypeDef
-):
-    pass
-
-JobStepTypeDef = TypedDict(
-    "JobStepTypeDef",
-    {
-        "procStepName": str,
-        "procStepNumber": int,
-        "stepCondCode": str,
-        "stepName": str,
-        "stepNumber": int,
-        "stepRestartable": bool,
-    },
-    total=False,
-)
-
-_RequiredListApplicationVersionsRequestRequestTypeDef = TypedDict(
-    "_RequiredListApplicationVersionsRequestRequestTypeDef",
-    {
-        "applicationId": str,
-    },
-)
-_OptionalListApplicationVersionsRequestRequestTypeDef = TypedDict(
-    "_OptionalListApplicationVersionsRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListApplicationVersionsRequestRequestTypeDef(
-    _RequiredListApplicationVersionsRequestRequestTypeDef,
-    _OptionalListApplicationVersionsRequestRequestTypeDef,
-):
-    pass
-
-ListApplicationVersionsResponseTypeDef = TypedDict(
-    "ListApplicationVersionsResponseTypeDef",
-    {
-        "applicationVersions": List["ApplicationVersionSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListApplicationsRequestRequestTypeDef = TypedDict(
-    "ListApplicationsRequestRequestTypeDef",
-    {
-        "environmentId": str,
-        "maxResults": int,
-        "names": List[str],
-        "nextToken": str,
-    },
-    total=False,
-)
-
-ListApplicationsResponseTypeDef = TypedDict(
-    "ListApplicationsResponseTypeDef",
-    {
-        "applications": List["ApplicationSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListBatchJobDefinitionsRequestRequestTypeDef = TypedDict(
-    "_RequiredListBatchJobDefinitionsRequestRequestTypeDef",
-    {
-        "applicationId": str,
-    },
-)
-_OptionalListBatchJobDefinitionsRequestRequestTypeDef = TypedDict(
-    "_OptionalListBatchJobDefinitionsRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-        "prefix": str,
-    },
-    total=False,
-)
-
-class ListBatchJobDefinitionsRequestRequestTypeDef(
-    _RequiredListBatchJobDefinitionsRequestRequestTypeDef,
-    _OptionalListBatchJobDefinitionsRequestRequestTypeDef,
-):
-    pass
-
-ListBatchJobDefinitionsResponseTypeDef = TypedDict(
-    "ListBatchJobDefinitionsResponseTypeDef",
-    {
-        "batchJobDefinitions": List["BatchJobDefinitionTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListBatchJobExecutionsRequestRequestTypeDef = TypedDict(
-    "_RequiredListBatchJobExecutionsRequestRequestTypeDef",
-    {
-        "applicationId": str,
-    },
-)
-_OptionalListBatchJobExecutionsRequestRequestTypeDef = TypedDict(
-    "_OptionalListBatchJobExecutionsRequestRequestTypeDef",
-    {
-        "executionIds": List[str],
-        "jobName": str,
-        "maxResults": int,
-        "nextToken": str,
-        "startedAfter": Union[datetime, str],
-        "startedBefore": Union[datetime, str],
-        "status": BatchJobExecutionStatusType,
-    },
-    total=False,
-)
-
-class ListBatchJobExecutionsRequestRequestTypeDef(
-    _RequiredListBatchJobExecutionsRequestRequestTypeDef,
-    _OptionalListBatchJobExecutionsRequestRequestTypeDef,
-):
-    pass
-
-ListBatchJobExecutionsResponseTypeDef = TypedDict(
-    "ListBatchJobExecutionsResponseTypeDef",
-    {
-        "batchJobExecutions": List["BatchJobExecutionSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListBatchJobRestartPointsRequestRequestTypeDef = TypedDict(
-    "ListBatchJobRestartPointsRequestRequestTypeDef",
-    {
-        "applicationId": str,
-        "executionId": str,
-    },
-)
-
-ListBatchJobRestartPointsResponseTypeDef = TypedDict(
-    "ListBatchJobRestartPointsResponseTypeDef",
-    {
-        "batchJobSteps": List["JobStepTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListDataSetImportHistoryRequestRequestTypeDef = TypedDict(
-    "_RequiredListDataSetImportHistoryRequestRequestTypeDef",
-    {
-        "applicationId": str,
-    },
-)
-_OptionalListDataSetImportHistoryRequestRequestTypeDef = TypedDict(
-    "_OptionalListDataSetImportHistoryRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListDataSetImportHistoryRequestRequestTypeDef(
-    _RequiredListDataSetImportHistoryRequestRequestTypeDef,
-    _OptionalListDataSetImportHistoryRequestRequestTypeDef,
-):
-    pass
-
-ListDataSetImportHistoryResponseTypeDef = TypedDict(
-    "ListDataSetImportHistoryResponseTypeDef",
-    {
-        "dataSetImportTasks": List["DataSetImportTaskTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListDataSetsRequestRequestTypeDef = TypedDict(
-    "_RequiredListDataSetsRequestRequestTypeDef",
-    {
-        "applicationId": str,
-    },
-)
-_OptionalListDataSetsRequestRequestTypeDef = TypedDict(
-    "_OptionalListDataSetsRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nameFilter": str,
-        "nextToken": str,
-        "prefix": str,
-    },
-    total=False,
-)
-
-class ListDataSetsRequestRequestTypeDef(
-    _RequiredListDataSetsRequestRequestTypeDef, _OptionalListDataSetsRequestRequestTypeDef
-):
-    pass
-
-ListDataSetsResponseTypeDef = TypedDict(
-    "ListDataSetsResponseTypeDef",
-    {
-        "dataSets": List["DataSetSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListDeploymentsRequestRequestTypeDef = TypedDict(
-    "_RequiredListDeploymentsRequestRequestTypeDef",
-    {
-        "applicationId": str,
-    },
-)
-_OptionalListDeploymentsRequestRequestTypeDef = TypedDict(
-    "_OptionalListDeploymentsRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListDeploymentsRequestRequestTypeDef(
-    _RequiredListDeploymentsRequestRequestTypeDef, _OptionalListDeploymentsRequestRequestTypeDef
-):
-    pass
-
-ListDeploymentsResponseTypeDef = TypedDict(
-    "ListDeploymentsResponseTypeDef",
-    {
-        "deployments": List["DeploymentSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListEngineVersionsRequestRequestTypeDef = TypedDict(
-    "ListEngineVersionsRequestRequestTypeDef",
-    {
-        "engineType": EngineTypeType,
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-ListEngineVersionsResponseTypeDef = TypedDict(
-    "ListEngineVersionsResponseTypeDef",
-    {
-        "engineVersions": List["EngineVersionsSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListEnvironmentsRequestRequestTypeDef = TypedDict(
-    "ListEnvironmentsRequestRequestTypeDef",
-    {
-        "engineType": EngineTypeType,
-        "maxResults": int,
-        "names": List[str],
-        "nextToken": str,
-    },
-    total=False,
-)
-
-ListEnvironmentsResponseTypeDef = TypedDict(
-    "ListEnvironmentsResponseTypeDef",
-    {
-        "environments": List["EnvironmentSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-    },
-)
-
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-LogGroupSummaryTypeDef = TypedDict(
-    "LogGroupSummaryTypeDef",
-    {
-        "logGroupName": str,
-        "logType": str,
-    },
-)
-
-MaintenanceScheduleTypeDef = TypedDict(
-    "MaintenanceScheduleTypeDef",
-    {
-        "endTime": datetime,
-        "startTime": datetime,
-    },
-    total=False,
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-PendingMaintenanceTypeDef = TypedDict(
-    "PendingMaintenanceTypeDef",
-    {
-        "engineVersion": str,
-        "schedule": "MaintenanceScheduleTypeDef",
-    },
-    total=False,
-)
-
-_RequiredPoAttributesTypeDef = TypedDict(
-    "_RequiredPoAttributesTypeDef",
-    {
-        "format": str,
-        "memberFileExtensions": List[str],
-    },
-)
-_OptionalPoAttributesTypeDef = TypedDict(
-    "_OptionalPoAttributesTypeDef",
-    {
-        "encoding": str,
-    },
-    total=False,
-)
-
-class PoAttributesTypeDef(_RequiredPoAttributesTypeDef, _OptionalPoAttributesTypeDef):
-    pass
-
-PoDetailAttributesTypeDef = TypedDict(
-    "PoDetailAttributesTypeDef",
-    {
-        "encoding": str,
-        "format": str,
-    },
-)
-
-_RequiredPrimaryKeyTypeDef = TypedDict(
-    "_RequiredPrimaryKeyTypeDef",
-    {
-        "length": int,
-        "offset": int,
-    },
-)
-_OptionalPrimaryKeyTypeDef = TypedDict(
-    "_OptionalPrimaryKeyTypeDef",
-    {
-        "name": str,
-    },
-    total=False,
-)
-
-class PrimaryKeyTypeDef(_RequiredPrimaryKeyTypeDef, _OptionalPrimaryKeyTypeDef):
-    pass
-
-_RequiredPsAttributesTypeDef = TypedDict(
-    "_RequiredPsAttributesTypeDef",
-    {
-        "format": str,
-    },
-)
-_OptionalPsAttributesTypeDef = TypedDict(
-    "_OptionalPsAttributesTypeDef",
-    {
-        "encoding": str,
-    },
-    total=False,
-)
-
-class PsAttributesTypeDef(_RequiredPsAttributesTypeDef, _OptionalPsAttributesTypeDef):
-    pass
-
-PsDetailAttributesTypeDef = TypedDict(
-    "PsDetailAttributesTypeDef",
-    {
-        "encoding": str,
-        "format": str,
-    },
-)
-
 RecordLengthTypeDef = TypedDict(
     "RecordLengthTypeDef",
     {
@@ -1320,228 +277,665 @@ RecordLengthTypeDef = TypedDict(
     },
 )
 
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
+class GdgDetailAttributesTypeDef(TypedDict):
+    limit: NotRequired[int]
+    rollDisposition: NotRequired[str]
 
-RestartBatchJobIdentifierTypeDef = TypedDict(
-    "RestartBatchJobIdentifierTypeDef",
+PoDetailAttributesTypeDef = TypedDict(
+    "PoDetailAttributesTypeDef",
     {
-        "executionId": str,
-        "jobStepRestartMarker": "JobStepRestartMarkerTypeDef",
-    },
-)
-
-_RequiredS3BatchJobIdentifierTypeDef = TypedDict(
-    "_RequiredS3BatchJobIdentifierTypeDef",
-    {
-        "bucket": str,
-        "identifier": "JobIdentifierTypeDef",
-    },
-)
-_OptionalS3BatchJobIdentifierTypeDef = TypedDict(
-    "_OptionalS3BatchJobIdentifierTypeDef",
-    {
-        "keyPrefix": str,
-    },
-    total=False,
-)
-
-class S3BatchJobIdentifierTypeDef(
-    _RequiredS3BatchJobIdentifierTypeDef, _OptionalS3BatchJobIdentifierTypeDef
-):
-    pass
-
-ScriptBatchJobDefinitionTypeDef = TypedDict(
-    "ScriptBatchJobDefinitionTypeDef",
-    {
-        "scriptName": str,
-    },
-)
-
-ScriptBatchJobIdentifierTypeDef = TypedDict(
-    "ScriptBatchJobIdentifierTypeDef",
-    {
-        "scriptName": str,
-    },
-)
-
-StartApplicationRequestRequestTypeDef = TypedDict(
-    "StartApplicationRequestRequestTypeDef",
-    {
-        "applicationId": str,
-    },
-)
-
-_RequiredStartBatchJobRequestRequestTypeDef = TypedDict(
-    "_RequiredStartBatchJobRequestRequestTypeDef",
-    {
-        "applicationId": str,
-        "batchJobIdentifier": "BatchJobIdentifierTypeDef",
-    },
-)
-_OptionalStartBatchJobRequestRequestTypeDef = TypedDict(
-    "_OptionalStartBatchJobRequestRequestTypeDef",
-    {
-        "jobParams": Dict[str, str],
-    },
-    total=False,
-)
-
-class StartBatchJobRequestRequestTypeDef(
-    _RequiredStartBatchJobRequestRequestTypeDef, _OptionalStartBatchJobRequestRequestTypeDef
-):
-    pass
-
-StartBatchJobResponseTypeDef = TypedDict(
-    "StartBatchJobResponseTypeDef",
-    {
-        "executionId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredStopApplicationRequestRequestTypeDef = TypedDict(
-    "_RequiredStopApplicationRequestRequestTypeDef",
-    {
-        "applicationId": str,
-    },
-)
-_OptionalStopApplicationRequestRequestTypeDef = TypedDict(
-    "_OptionalStopApplicationRequestRequestTypeDef",
-    {
-        "forceStop": bool,
-    },
-    total=False,
-)
-
-class StopApplicationRequestRequestTypeDef(
-    _RequiredStopApplicationRequestRequestTypeDef, _OptionalStopApplicationRequestRequestTypeDef
-):
-    pass
-
-StorageConfigurationTypeDef = TypedDict(
-    "StorageConfigurationTypeDef",
-    {
-        "efs": "EfsStorageConfigurationTypeDef",
-        "fsx": "FsxStorageConfigurationTypeDef",
-    },
-    total=False,
-)
-
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tags": Dict[str, str],
-    },
-)
-
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tagKeys": List[str],
-    },
-)
-
-_RequiredUpdateApplicationRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateApplicationRequestRequestTypeDef",
-    {
-        "applicationId": str,
-        "currentApplicationVersion": int,
-    },
-)
-_OptionalUpdateApplicationRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateApplicationRequestRequestTypeDef",
-    {
-        "definition": "DefinitionTypeDef",
-        "description": str,
-    },
-    total=False,
-)
-
-class UpdateApplicationRequestRequestTypeDef(
-    _RequiredUpdateApplicationRequestRequestTypeDef, _OptionalUpdateApplicationRequestRequestTypeDef
-):
-    pass
-
-UpdateApplicationResponseTypeDef = TypedDict(
-    "UpdateApplicationResponseTypeDef",
-    {
-        "applicationVersion": int,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateEnvironmentRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateEnvironmentRequestRequestTypeDef",
-    {
-        "environmentId": str,
-    },
-)
-_OptionalUpdateEnvironmentRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateEnvironmentRequestRequestTypeDef",
-    {
-        "applyDuringMaintenanceWindow": bool,
-        "desiredCapacity": int,
-        "engineVersion": str,
-        "forceUpdate": bool,
-        "instanceType": str,
-        "preferredMaintenanceWindow": str,
-    },
-    total=False,
-)
-
-class UpdateEnvironmentRequestRequestTypeDef(
-    _RequiredUpdateEnvironmentRequestRequestTypeDef, _OptionalUpdateEnvironmentRequestRequestTypeDef
-):
-    pass
-
-UpdateEnvironmentResponseTypeDef = TypedDict(
-    "UpdateEnvironmentResponseTypeDef",
-    {
-        "environmentId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredVsamAttributesTypeDef = TypedDict(
-    "_RequiredVsamAttributesTypeDef",
-    {
+        "encoding": str,
         "format": str,
     },
 )
-_OptionalVsamAttributesTypeDef = TypedDict(
-    "_OptionalVsamAttributesTypeDef",
+PsDetailAttributesTypeDef = TypedDict(
+    "PsDetailAttributesTypeDef",
     {
-        "alternateKeys": List["AlternateKeyTypeDef"],
-        "compressed": bool,
         "encoding": str,
-        "primaryKey": "PrimaryKeyTypeDef",
+        "format": str,
     },
-    total=False,
 )
 
-class VsamAttributesTypeDef(_RequiredVsamAttributesTypeDef, _OptionalVsamAttributesTypeDef):
-    pass
+class GdgAttributesTypeDef(TypedDict):
+    limit: NotRequired[int]
+    rollDisposition: NotRequired[str]
 
-VsamDetailAttributesTypeDef = TypedDict(
-    "VsamDetailAttributesTypeDef",
+PoAttributesTypeDef = TypedDict(
+    "PoAttributesTypeDef",
     {
-        "alternateKeys": List["AlternateKeyTypeDef"],
-        "cacheAtStartup": bool,
-        "compressed": bool,
-        "encoding": str,
-        "primaryKey": "PrimaryKeyTypeDef",
-        "recordFormat": str,
+        "format": str,
+        "memberFileExtensions": Sequence[str],
+        "encoding": NotRequired[str],
     },
-    total=False,
 )
+PsAttributesTypeDef = TypedDict(
+    "PsAttributesTypeDef",
+    {
+        "format": str,
+        "encoding": NotRequired[str],
+    },
+)
+
+class DeleteApplicationFromEnvironmentRequestTypeDef(TypedDict):
+    applicationId: str
+    environmentId: str
+
+class DeleteApplicationRequestTypeDef(TypedDict):
+    applicationId: str
+
+class DeleteEnvironmentRequestTypeDef(TypedDict):
+    environmentId: str
+
+class DeployedVersionSummaryTypeDef(TypedDict):
+    applicationVersion: int
+    status: DeploymentLifecycleType
+    statusReason: NotRequired[str]
+
+class DeploymentSummaryTypeDef(TypedDict):
+    applicationId: str
+    applicationVersion: int
+    creationTime: datetime
+    deploymentId: str
+    environmentId: str
+    status: DeploymentLifecycleType
+    statusReason: NotRequired[str]
+
+class EfsStorageConfigurationTypeDef(TypedDict):
+    fileSystemId: str
+    mountPoint: str
+
+class EngineVersionsSummaryTypeDef(TypedDict):
+    engineType: str
+    engineVersion: str
+
+class EnvironmentSummaryTypeDef(TypedDict):
+    creationTime: datetime
+    engineType: EngineTypeType
+    engineVersion: str
+    environmentArn: str
+    environmentId: str
+    instanceType: str
+    name: str
+    status: EnvironmentLifecycleType
+    networkType: NotRequired[NetworkTypeType]
+
+class FsxStorageConfigurationTypeDef(TypedDict):
+    fileSystemId: str
+    mountPoint: str
+
+class GetApplicationRequestTypeDef(TypedDict):
+    applicationId: str
+
+class LogGroupSummaryTypeDef(TypedDict):
+    logGroupName: str
+    logType: str
+
+class GetApplicationVersionRequestTypeDef(TypedDict):
+    applicationId: str
+    applicationVersion: int
+
+class GetBatchJobExecutionRequestTypeDef(TypedDict):
+    applicationId: str
+    executionId: str
+
+class JobStepRestartMarkerTypeDef(TypedDict):
+    fromStep: str
+    fromProcStep: NotRequired[str]
+    skip: NotRequired[bool]
+    stepCheckpoint: NotRequired[int]
+    toProcStep: NotRequired[str]
+    toStep: NotRequired[str]
+
+class GetDataSetDetailsRequestTypeDef(TypedDict):
+    applicationId: str
+    dataSetName: str
+
+class GetDataSetExportTaskRequestTypeDef(TypedDict):
+    applicationId: str
+    taskId: str
+
+class GetDataSetImportTaskRequestTypeDef(TypedDict):
+    applicationId: str
+    taskId: str
+
+class GetDeploymentRequestTypeDef(TypedDict):
+    applicationId: str
+    deploymentId: str
+
+class GetEnvironmentRequestTypeDef(TypedDict):
+    environmentId: str
+
+class JobIdentifierTypeDef(TypedDict):
+    fileName: NotRequired[str]
+    scriptName: NotRequired[str]
+
+class JobStepTypeDef(TypedDict):
+    procStepName: NotRequired[str]
+    procStepNumber: NotRequired[int]
+    stepCheckpoint: NotRequired[int]
+    stepCheckpointStatus: NotRequired[str]
+    stepCheckpointTime: NotRequired[datetime]
+    stepCondCode: NotRequired[str]
+    stepName: NotRequired[str]
+    stepNumber: NotRequired[int]
+    stepRestartable: NotRequired[bool]
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class ListApplicationVersionsRequestTypeDef(TypedDict):
+    applicationId: str
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListApplicationsRequestTypeDef(TypedDict):
+    environmentId: NotRequired[str]
+    maxResults: NotRequired[int]
+    names: NotRequired[Sequence[str]]
+    nextToken: NotRequired[str]
+
+class ListBatchJobDefinitionsRequestTypeDef(TypedDict):
+    applicationId: str
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+    prefix: NotRequired[str]
+
+TimestampTypeDef = Union[datetime, str]
+
+class ListBatchJobRestartPointsRequestTypeDef(TypedDict):
+    applicationId: str
+    executionId: str
+    authSecretsManagerArn: NotRequired[str]
+
+class ListDataSetExportHistoryRequestTypeDef(TypedDict):
+    applicationId: str
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListDataSetImportHistoryRequestTypeDef(TypedDict):
+    applicationId: str
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListDataSetsRequestTypeDef(TypedDict):
+    applicationId: str
+    maxResults: NotRequired[int]
+    nameFilter: NotRequired[str]
+    nextToken: NotRequired[str]
+    prefix: NotRequired[str]
+
+class ListDeploymentsRequestTypeDef(TypedDict):
+    applicationId: str
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListEngineVersionsRequestTypeDef(TypedDict):
+    engineType: NotRequired[EngineTypeType]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListEnvironmentsRequestTypeDef(TypedDict):
+    engineType: NotRequired[EngineTypeType]
+    maxResults: NotRequired[int]
+    names: NotRequired[Sequence[str]]
+    nextToken: NotRequired[str]
+
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+
+class MaintenanceScheduleTypeDef(TypedDict):
+    endTime: NotRequired[datetime]
+    startTime: NotRequired[datetime]
+
+class PrimaryKeyTypeDef(TypedDict):
+    length: int
+    offset: int
+    name: NotRequired[str]
+
+class StartApplicationRequestTypeDef(TypedDict):
+    applicationId: str
+
+class StopApplicationRequestTypeDef(TypedDict):
+    applicationId: str
+    forceStop: NotRequired[bool]
+
+class TagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tags: Mapping[str, str]
+
+class UntagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tagKeys: Sequence[str]
+
+class UpdateEnvironmentRequestTypeDef(TypedDict):
+    environmentId: str
+    applyDuringMaintenanceWindow: NotRequired[bool]
+    desiredCapacity: NotRequired[int]
+    engineVersion: NotRequired[str]
+    forceUpdate: NotRequired[bool]
+    instanceType: NotRequired[str]
+    preferredMaintenanceWindow: NotRequired[str]
+
+class BatchJobDefinitionTypeDef(TypedDict):
+    fileBatchJobDefinition: NotRequired[FileBatchJobDefinitionTypeDef]
+    scriptBatchJobDefinition: NotRequired[ScriptBatchJobDefinitionTypeDef]
+
+class CreateApplicationRequestTypeDef(TypedDict):
+    definition: DefinitionTypeDef
+    engineType: EngineTypeType
+    name: str
+    clientToken: NotRequired[str]
+    description: NotRequired[str]
+    kmsKeyId: NotRequired[str]
+    roleArn: NotRequired[str]
+    tags: NotRequired[Mapping[str, str]]
+
+class UpdateApplicationRequestTypeDef(TypedDict):
+    applicationId: str
+    currentApplicationVersion: int
+    definition: NotRequired[DefinitionTypeDef]
+    description: NotRequired[str]
+
+class CreateApplicationResponseTypeDef(TypedDict):
+    applicationArn: str
+    applicationId: str
+    applicationVersion: int
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateDataSetExportTaskResponseTypeDef(TypedDict):
+    taskId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateDataSetImportTaskResponseTypeDef(TypedDict):
+    taskId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateDeploymentResponseTypeDef(TypedDict):
+    deploymentId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateEnvironmentResponseTypeDef(TypedDict):
+    environmentId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetApplicationVersionResponseTypeDef(TypedDict):
+    applicationVersion: int
+    creationTime: datetime
+    definitionContent: str
+    description: str
+    name: str
+    status: ApplicationVersionLifecycleType
+    statusReason: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetDeploymentResponseTypeDef(TypedDict):
+    applicationId: str
+    applicationVersion: int
+    creationTime: datetime
+    deploymentId: str
+    environmentId: str
+    status: DeploymentLifecycleType
+    statusReason: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetSignedBluinsightsUrlResponseTypeDef(TypedDict):
+    signedBiUrl: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListApplicationVersionsResponseTypeDef(TypedDict):
+    applicationVersions: List[ApplicationVersionSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListApplicationsResponseTypeDef(TypedDict):
+    applications: List[ApplicationSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartBatchJobResponseTypeDef(TypedDict):
+    executionId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateApplicationResponseTypeDef(TypedDict):
+    applicationVersion: int
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateEnvironmentResponseTypeDef(TypedDict):
+    environmentId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DataSetExportItemTypeDef(TypedDict):
+    datasetName: str
+    externalLocation: ExternalLocationTypeDef
+
+class DataSetExportTaskTypeDef(TypedDict):
+    status: DataSetTaskLifecycleType
+    summary: DataSetExportSummaryTypeDef
+    taskId: str
+    statusReason: NotRequired[str]
+
+class GetDataSetExportTaskResponseTypeDef(TypedDict):
+    kmsKeyArn: str
+    status: DataSetTaskLifecycleType
+    statusReason: str
+    summary: DataSetExportSummaryTypeDef
+    taskId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DataSetImportTaskTypeDef(TypedDict):
+    status: DataSetTaskLifecycleType
+    summary: DataSetImportSummaryTypeDef
+    taskId: str
+    statusReason: NotRequired[str]
+
+class GetDataSetImportTaskResponseTypeDef(TypedDict):
+    status: DataSetTaskLifecycleType
+    summary: DataSetImportSummaryTypeDef
+    taskId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListDataSetsResponseTypeDef(TypedDict):
+    dataSets: List[DataSetSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListDeploymentsResponseTypeDef(TypedDict):
+    deployments: List[DeploymentSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListEngineVersionsResponseTypeDef(TypedDict):
+    engineVersions: List[EngineVersionsSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListEnvironmentsResponseTypeDef(TypedDict):
+    environments: List[EnvironmentSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class StorageConfigurationTypeDef(TypedDict):
+    efs: NotRequired[EfsStorageConfigurationTypeDef]
+    fsx: NotRequired[FsxStorageConfigurationTypeDef]
+
+class GetApplicationResponseTypeDef(TypedDict):
+    applicationArn: str
+    applicationId: str
+    creationTime: datetime
+    deployedVersion: DeployedVersionSummaryTypeDef
+    description: str
+    engineType: EngineTypeType
+    environmentId: str
+    kmsKeyId: str
+    lastStartTime: datetime
+    latestVersion: ApplicationVersionSummaryTypeDef
+    listenerArns: List[str]
+    listenerPorts: List[int]
+    loadBalancerDnsName: str
+    logGroups: List[LogGroupSummaryTypeDef]
+    name: str
+    roleArn: str
+    status: ApplicationLifecycleType
+    statusReason: str
+    tags: Dict[str, str]
+    targetGroupArns: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class RestartBatchJobIdentifierTypeDef(TypedDict):
+    executionId: str
+    jobStepRestartMarker: JobStepRestartMarkerTypeDef
+
+class S3BatchJobIdentifierTypeDef(TypedDict):
+    bucket: str
+    identifier: JobIdentifierTypeDef
+    keyPrefix: NotRequired[str]
+
+class ListBatchJobRestartPointsResponseTypeDef(TypedDict):
+    batchJobSteps: List[JobStepTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListApplicationVersionsRequestPaginateTypeDef(TypedDict):
+    applicationId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListApplicationsRequestPaginateTypeDef(TypedDict):
+    environmentId: NotRequired[str]
+    names: NotRequired[Sequence[str]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListBatchJobDefinitionsRequestPaginateTypeDef(TypedDict):
+    applicationId: str
+    prefix: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListDataSetExportHistoryRequestPaginateTypeDef(TypedDict):
+    applicationId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListDataSetImportHistoryRequestPaginateTypeDef(TypedDict):
+    applicationId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListDataSetsRequestPaginateTypeDef(TypedDict):
+    applicationId: str
+    nameFilter: NotRequired[str]
+    prefix: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListDeploymentsRequestPaginateTypeDef(TypedDict):
+    applicationId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListEngineVersionsRequestPaginateTypeDef(TypedDict):
+    engineType: NotRequired[EngineTypeType]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListEnvironmentsRequestPaginateTypeDef(TypedDict):
+    engineType: NotRequired[EngineTypeType]
+    names: NotRequired[Sequence[str]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListBatchJobExecutionsRequestPaginateTypeDef(TypedDict):
+    applicationId: str
+    executionIds: NotRequired[Sequence[str]]
+    jobName: NotRequired[str]
+    startedAfter: NotRequired[TimestampTypeDef]
+    startedBefore: NotRequired[TimestampTypeDef]
+    status: NotRequired[BatchJobExecutionStatusType]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListBatchJobExecutionsRequestTypeDef(TypedDict):
+    applicationId: str
+    executionIds: NotRequired[Sequence[str]]
+    jobName: NotRequired[str]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+    startedAfter: NotRequired[TimestampTypeDef]
+    startedBefore: NotRequired[TimestampTypeDef]
+    status: NotRequired[BatchJobExecutionStatusType]
+
+class PendingMaintenanceTypeDef(TypedDict):
+    engineVersion: NotRequired[str]
+    schedule: NotRequired[MaintenanceScheduleTypeDef]
+
+VsamAttributesTypeDef = TypedDict(
+    "VsamAttributesTypeDef",
+    {
+        "format": str,
+        "alternateKeys": NotRequired[Sequence[AlternateKeyTypeDef]],
+        "compressed": NotRequired[bool],
+        "encoding": NotRequired[str],
+        "primaryKey": NotRequired[PrimaryKeyTypeDef],
+    },
+)
+
+class VsamDetailAttributesTypeDef(TypedDict):
+    alternateKeys: NotRequired[List[AlternateKeyTypeDef]]
+    cacheAtStartup: NotRequired[bool]
+    compressed: NotRequired[bool]
+    encoding: NotRequired[str]
+    primaryKey: NotRequired[PrimaryKeyTypeDef]
+    recordFormat: NotRequired[str]
+
+class ListBatchJobDefinitionsResponseTypeDef(TypedDict):
+    batchJobDefinitions: List[BatchJobDefinitionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class DataSetExportConfigTypeDef(TypedDict):
+    dataSets: NotRequired[Sequence[DataSetExportItemTypeDef]]
+    s3Location: NotRequired[str]
+
+class ListDataSetExportHistoryResponseTypeDef(TypedDict):
+    dataSetExportTasks: List[DataSetExportTaskTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListDataSetImportHistoryResponseTypeDef(TypedDict):
+    dataSetImportTasks: List[DataSetImportTaskTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class CreateEnvironmentRequestTypeDef(TypedDict):
+    engineType: EngineTypeType
+    instanceType: str
+    name: str
+    clientToken: NotRequired[str]
+    description: NotRequired[str]
+    engineVersion: NotRequired[str]
+    highAvailabilityConfig: NotRequired[HighAvailabilityConfigTypeDef]
+    kmsKeyId: NotRequired[str]
+    networkType: NotRequired[NetworkTypeType]
+    preferredMaintenanceWindow: NotRequired[str]
+    publiclyAccessible: NotRequired[bool]
+    securityGroupIds: NotRequired[Sequence[str]]
+    storageConfigurations: NotRequired[Sequence[StorageConfigurationTypeDef]]
+    subnetIds: NotRequired[Sequence[str]]
+    tags: NotRequired[Mapping[str, str]]
+
+class BatchJobIdentifierTypeDef(TypedDict):
+    fileBatchJobIdentifier: NotRequired[FileBatchJobIdentifierTypeDef]
+    restartBatchJobIdentifier: NotRequired[RestartBatchJobIdentifierTypeDef]
+    s3BatchJobIdentifier: NotRequired[S3BatchJobIdentifierTypeDef]
+    scriptBatchJobIdentifier: NotRequired[ScriptBatchJobIdentifierTypeDef]
+
+class GetEnvironmentResponseTypeDef(TypedDict):
+    actualCapacity: int
+    creationTime: datetime
+    description: str
+    engineType: EngineTypeType
+    engineVersion: str
+    environmentArn: str
+    environmentId: str
+    highAvailabilityConfig: HighAvailabilityConfigTypeDef
+    instanceType: str
+    kmsKeyId: str
+    loadBalancerArn: str
+    name: str
+    networkType: NetworkTypeType
+    pendingMaintenance: PendingMaintenanceTypeDef
+    preferredMaintenanceWindow: str
+    publiclyAccessible: bool
+    securityGroupIds: List[str]
+    status: EnvironmentLifecycleType
+    statusReason: str
+    storageConfigurations: List[StorageConfigurationTypeDef]
+    subnetIds: List[str]
+    tags: Dict[str, str]
+    vpcId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DatasetOrgAttributesTypeDef(TypedDict):
+    gdg: NotRequired[GdgAttributesTypeDef]
+    po: NotRequired[PoAttributesTypeDef]
+    ps: NotRequired[PsAttributesTypeDef]
+    vsam: NotRequired[VsamAttributesTypeDef]
+
+class DatasetDetailOrgAttributesTypeDef(TypedDict):
+    gdg: NotRequired[GdgDetailAttributesTypeDef]
+    po: NotRequired[PoDetailAttributesTypeDef]
+    ps: NotRequired[PsDetailAttributesTypeDef]
+    vsam: NotRequired[VsamDetailAttributesTypeDef]
+
+class CreateDataSetExportTaskRequestTypeDef(TypedDict):
+    applicationId: str
+    exportConfig: DataSetExportConfigTypeDef
+    clientToken: NotRequired[str]
+    kmsKeyId: NotRequired[str]
+
+class BatchJobExecutionSummaryTypeDef(TypedDict):
+    applicationId: str
+    executionId: str
+    startTime: datetime
+    status: BatchJobExecutionStatusType
+    batchJobIdentifier: NotRequired[BatchJobIdentifierTypeDef]
+    endTime: NotRequired[datetime]
+    jobId: NotRequired[str]
+    jobName: NotRequired[str]
+    jobType: NotRequired[BatchJobTypeType]
+    returnCode: NotRequired[str]
+
+class GetBatchJobExecutionResponseTypeDef(TypedDict):
+    applicationId: str
+    batchJobIdentifier: BatchJobIdentifierTypeDef
+    endTime: datetime
+    executionId: str
+    jobId: str
+    jobName: str
+    jobStepRestartMarker: JobStepRestartMarkerTypeDef
+    jobType: BatchJobTypeType
+    jobUser: str
+    returnCode: str
+    startTime: datetime
+    status: BatchJobExecutionStatusType
+    statusReason: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartBatchJobRequestTypeDef(TypedDict):
+    applicationId: str
+    batchJobIdentifier: BatchJobIdentifierTypeDef
+    authSecretsManagerArn: NotRequired[str]
+    jobParams: NotRequired[Mapping[str, str]]
+
+class DataSetTypeDef(TypedDict):
+    datasetName: str
+    datasetOrg: DatasetOrgAttributesTypeDef
+    recordLength: RecordLengthTypeDef
+    relativePath: NotRequired[str]
+    storageType: NotRequired[str]
+
+class GetDataSetDetailsResponseTypeDef(TypedDict):
+    blocksize: int
+    creationTime: datetime
+    dataSetName: str
+    dataSetOrg: DatasetDetailOrgAttributesTypeDef
+    fileSize: int
+    lastReferencedTime: datetime
+    lastUpdatedTime: datetime
+    location: str
+    recordLength: int
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListBatchJobExecutionsResponseTypeDef(TypedDict):
+    batchJobExecutions: List[BatchJobExecutionSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class DataSetImportItemTypeDef(TypedDict):
+    dataSet: DataSetTypeDef
+    externalLocation: ExternalLocationTypeDef
+
+class DataSetImportConfigTypeDef(TypedDict):
+    dataSets: NotRequired[Sequence[DataSetImportItemTypeDef]]
+    s3Location: NotRequired[str]
+
+class CreateDataSetImportTaskRequestTypeDef(TypedDict):
+    applicationId: str
+    importConfig: DataSetImportConfigTypeDef
+    clientToken: NotRequired[str]

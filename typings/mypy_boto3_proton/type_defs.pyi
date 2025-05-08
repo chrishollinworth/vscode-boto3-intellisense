@@ -1,20 +1,23 @@
 """
 Type annotations for proton service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_proton/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_proton/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_proton.type_defs import AcceptEnvironmentAccountConnectionInputRequestTypeDef
+    from mypy_boto3_proton.type_defs import AcceptEnvironmentAccountConnectionInputTypeDef
 
-    data: AcceptEnvironmentAccountConnectionInputRequestTypeDef = {...}
+    data: AcceptEnvironmentAccountConnectionInputTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
 
 from .literals import (
     BlockerStatusType,
@@ -38,26 +41,28 @@ from .literals import (
     TemplateVersionStatusType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
-    "AcceptEnvironmentAccountConnectionInputRequestTypeDef",
+    "AcceptEnvironmentAccountConnectionInputTypeDef",
     "AcceptEnvironmentAccountConnectionOutputTypeDef",
     "AccountSettingsTypeDef",
-    "CancelComponentDeploymentInputRequestTypeDef",
+    "CancelComponentDeploymentInputTypeDef",
     "CancelComponentDeploymentOutputTypeDef",
-    "CancelEnvironmentDeploymentInputRequestTypeDef",
+    "CancelEnvironmentDeploymentInputTypeDef",
     "CancelEnvironmentDeploymentOutputTypeDef",
-    "CancelServiceInstanceDeploymentInputRequestTypeDef",
+    "CancelServiceInstanceDeploymentInputTypeDef",
     "CancelServiceInstanceDeploymentOutputTypeDef",
-    "CancelServicePipelineDeploymentInputRequestTypeDef",
+    "CancelServicePipelineDeploymentInputTypeDef",
     "CancelServicePipelineDeploymentOutputTypeDef",
     "CompatibleEnvironmentTemplateInputTypeDef",
     "CompatibleEnvironmentTemplateTypeDef",
@@ -65,53 +70,53 @@ __all__ = (
     "ComponentSummaryTypeDef",
     "ComponentTypeDef",
     "CountsSummaryTypeDef",
-    "CreateComponentInputRequestTypeDef",
+    "CreateComponentInputTypeDef",
     "CreateComponentOutputTypeDef",
-    "CreateEnvironmentAccountConnectionInputRequestTypeDef",
+    "CreateEnvironmentAccountConnectionInputTypeDef",
     "CreateEnvironmentAccountConnectionOutputTypeDef",
-    "CreateEnvironmentInputRequestTypeDef",
+    "CreateEnvironmentInputTypeDef",
     "CreateEnvironmentOutputTypeDef",
-    "CreateEnvironmentTemplateInputRequestTypeDef",
+    "CreateEnvironmentTemplateInputTypeDef",
     "CreateEnvironmentTemplateOutputTypeDef",
-    "CreateEnvironmentTemplateVersionInputRequestTypeDef",
+    "CreateEnvironmentTemplateVersionInputTypeDef",
     "CreateEnvironmentTemplateVersionOutputTypeDef",
-    "CreateRepositoryInputRequestTypeDef",
+    "CreateRepositoryInputTypeDef",
     "CreateRepositoryOutputTypeDef",
-    "CreateServiceInputRequestTypeDef",
-    "CreateServiceInstanceInputRequestTypeDef",
+    "CreateServiceInputTypeDef",
+    "CreateServiceInstanceInputTypeDef",
     "CreateServiceInstanceOutputTypeDef",
     "CreateServiceOutputTypeDef",
-    "CreateServiceSyncConfigInputRequestTypeDef",
+    "CreateServiceSyncConfigInputTypeDef",
     "CreateServiceSyncConfigOutputTypeDef",
-    "CreateServiceTemplateInputRequestTypeDef",
+    "CreateServiceTemplateInputTypeDef",
     "CreateServiceTemplateOutputTypeDef",
-    "CreateServiceTemplateVersionInputRequestTypeDef",
+    "CreateServiceTemplateVersionInputTypeDef",
     "CreateServiceTemplateVersionOutputTypeDef",
-    "CreateTemplateSyncConfigInputRequestTypeDef",
+    "CreateTemplateSyncConfigInputTypeDef",
     "CreateTemplateSyncConfigOutputTypeDef",
-    "DeleteComponentInputRequestTypeDef",
+    "DeleteComponentInputTypeDef",
     "DeleteComponentOutputTypeDef",
-    "DeleteDeploymentInputRequestTypeDef",
+    "DeleteDeploymentInputTypeDef",
     "DeleteDeploymentOutputTypeDef",
-    "DeleteEnvironmentAccountConnectionInputRequestTypeDef",
+    "DeleteEnvironmentAccountConnectionInputTypeDef",
     "DeleteEnvironmentAccountConnectionOutputTypeDef",
-    "DeleteEnvironmentInputRequestTypeDef",
+    "DeleteEnvironmentInputTypeDef",
     "DeleteEnvironmentOutputTypeDef",
-    "DeleteEnvironmentTemplateInputRequestTypeDef",
+    "DeleteEnvironmentTemplateInputTypeDef",
     "DeleteEnvironmentTemplateOutputTypeDef",
-    "DeleteEnvironmentTemplateVersionInputRequestTypeDef",
+    "DeleteEnvironmentTemplateVersionInputTypeDef",
     "DeleteEnvironmentTemplateVersionOutputTypeDef",
-    "DeleteRepositoryInputRequestTypeDef",
+    "DeleteRepositoryInputTypeDef",
     "DeleteRepositoryOutputTypeDef",
-    "DeleteServiceInputRequestTypeDef",
+    "DeleteServiceInputTypeDef",
     "DeleteServiceOutputTypeDef",
-    "DeleteServiceSyncConfigInputRequestTypeDef",
+    "DeleteServiceSyncConfigInputTypeDef",
     "DeleteServiceSyncConfigOutputTypeDef",
-    "DeleteServiceTemplateInputRequestTypeDef",
+    "DeleteServiceTemplateInputTypeDef",
     "DeleteServiceTemplateOutputTypeDef",
-    "DeleteServiceTemplateVersionInputRequestTypeDef",
+    "DeleteServiceTemplateVersionInputTypeDef",
     "DeleteServiceTemplateVersionOutputTypeDef",
-    "DeleteTemplateSyncConfigInputRequestTypeDef",
+    "DeleteTemplateSyncConfigInputTypeDef",
     "DeleteTemplateSyncConfigOutputTypeDef",
     "DeploymentStateTypeDef",
     "DeploymentSummaryTypeDef",
@@ -127,89 +132,120 @@ __all__ = (
     "EnvironmentTemplateVersionTypeDef",
     "EnvironmentTypeDef",
     "GetAccountSettingsOutputTypeDef",
-    "GetComponentInputRequestTypeDef",
+    "GetComponentInputTypeDef",
+    "GetComponentInputWaitExtraTypeDef",
+    "GetComponentInputWaitTypeDef",
     "GetComponentOutputTypeDef",
-    "GetDeploymentInputRequestTypeDef",
+    "GetDeploymentInputTypeDef",
     "GetDeploymentOutputTypeDef",
-    "GetEnvironmentAccountConnectionInputRequestTypeDef",
+    "GetEnvironmentAccountConnectionInputTypeDef",
     "GetEnvironmentAccountConnectionOutputTypeDef",
-    "GetEnvironmentInputRequestTypeDef",
+    "GetEnvironmentInputTypeDef",
+    "GetEnvironmentInputWaitTypeDef",
     "GetEnvironmentOutputTypeDef",
-    "GetEnvironmentTemplateInputRequestTypeDef",
+    "GetEnvironmentTemplateInputTypeDef",
     "GetEnvironmentTemplateOutputTypeDef",
-    "GetEnvironmentTemplateVersionInputRequestTypeDef",
+    "GetEnvironmentTemplateVersionInputTypeDef",
+    "GetEnvironmentTemplateVersionInputWaitTypeDef",
     "GetEnvironmentTemplateVersionOutputTypeDef",
-    "GetRepositoryInputRequestTypeDef",
+    "GetRepositoryInputTypeDef",
     "GetRepositoryOutputTypeDef",
-    "GetRepositorySyncStatusInputRequestTypeDef",
+    "GetRepositorySyncStatusInputTypeDef",
     "GetRepositorySyncStatusOutputTypeDef",
     "GetResourcesSummaryOutputTypeDef",
-    "GetServiceInputRequestTypeDef",
-    "GetServiceInstanceInputRequestTypeDef",
+    "GetServiceInputTypeDef",
+    "GetServiceInputWaitExtraExtraExtraTypeDef",
+    "GetServiceInputWaitExtraExtraTypeDef",
+    "GetServiceInputWaitExtraTypeDef",
+    "GetServiceInputWaitTypeDef",
+    "GetServiceInstanceInputTypeDef",
+    "GetServiceInstanceInputWaitTypeDef",
     "GetServiceInstanceOutputTypeDef",
-    "GetServiceInstanceSyncStatusInputRequestTypeDef",
+    "GetServiceInstanceSyncStatusInputTypeDef",
     "GetServiceInstanceSyncStatusOutputTypeDef",
     "GetServiceOutputTypeDef",
-    "GetServiceSyncBlockerSummaryInputRequestTypeDef",
+    "GetServiceSyncBlockerSummaryInputTypeDef",
     "GetServiceSyncBlockerSummaryOutputTypeDef",
-    "GetServiceSyncConfigInputRequestTypeDef",
+    "GetServiceSyncConfigInputTypeDef",
     "GetServiceSyncConfigOutputTypeDef",
-    "GetServiceTemplateInputRequestTypeDef",
+    "GetServiceTemplateInputTypeDef",
     "GetServiceTemplateOutputTypeDef",
-    "GetServiceTemplateVersionInputRequestTypeDef",
+    "GetServiceTemplateVersionInputTypeDef",
+    "GetServiceTemplateVersionInputWaitTypeDef",
     "GetServiceTemplateVersionOutputTypeDef",
-    "GetTemplateSyncConfigInputRequestTypeDef",
+    "GetTemplateSyncConfigInputTypeDef",
     "GetTemplateSyncConfigOutputTypeDef",
-    "GetTemplateSyncStatusInputRequestTypeDef",
+    "GetTemplateSyncStatusInputTypeDef",
     "GetTemplateSyncStatusOutputTypeDef",
-    "ListComponentOutputsInputRequestTypeDef",
+    "ListComponentOutputsInputPaginateTypeDef",
+    "ListComponentOutputsInputTypeDef",
     "ListComponentOutputsOutputTypeDef",
-    "ListComponentProvisionedResourcesInputRequestTypeDef",
+    "ListComponentProvisionedResourcesInputPaginateTypeDef",
+    "ListComponentProvisionedResourcesInputTypeDef",
     "ListComponentProvisionedResourcesOutputTypeDef",
-    "ListComponentsInputRequestTypeDef",
+    "ListComponentsInputPaginateTypeDef",
+    "ListComponentsInputTypeDef",
     "ListComponentsOutputTypeDef",
-    "ListDeploymentsInputRequestTypeDef",
+    "ListDeploymentsInputPaginateTypeDef",
+    "ListDeploymentsInputTypeDef",
     "ListDeploymentsOutputTypeDef",
-    "ListEnvironmentAccountConnectionsInputRequestTypeDef",
+    "ListEnvironmentAccountConnectionsInputPaginateTypeDef",
+    "ListEnvironmentAccountConnectionsInputTypeDef",
     "ListEnvironmentAccountConnectionsOutputTypeDef",
-    "ListEnvironmentOutputsInputRequestTypeDef",
+    "ListEnvironmentOutputsInputPaginateTypeDef",
+    "ListEnvironmentOutputsInputTypeDef",
     "ListEnvironmentOutputsOutputTypeDef",
-    "ListEnvironmentProvisionedResourcesInputRequestTypeDef",
+    "ListEnvironmentProvisionedResourcesInputPaginateTypeDef",
+    "ListEnvironmentProvisionedResourcesInputTypeDef",
     "ListEnvironmentProvisionedResourcesOutputTypeDef",
-    "ListEnvironmentTemplateVersionsInputRequestTypeDef",
+    "ListEnvironmentTemplateVersionsInputPaginateTypeDef",
+    "ListEnvironmentTemplateVersionsInputTypeDef",
     "ListEnvironmentTemplateVersionsOutputTypeDef",
-    "ListEnvironmentTemplatesInputRequestTypeDef",
+    "ListEnvironmentTemplatesInputPaginateTypeDef",
+    "ListEnvironmentTemplatesInputTypeDef",
     "ListEnvironmentTemplatesOutputTypeDef",
-    "ListEnvironmentsInputRequestTypeDef",
+    "ListEnvironmentsInputPaginateTypeDef",
+    "ListEnvironmentsInputTypeDef",
     "ListEnvironmentsOutputTypeDef",
-    "ListRepositoriesInputRequestTypeDef",
+    "ListRepositoriesInputPaginateTypeDef",
+    "ListRepositoriesInputTypeDef",
     "ListRepositoriesOutputTypeDef",
-    "ListRepositorySyncDefinitionsInputRequestTypeDef",
+    "ListRepositorySyncDefinitionsInputPaginateTypeDef",
+    "ListRepositorySyncDefinitionsInputTypeDef",
     "ListRepositorySyncDefinitionsOutputTypeDef",
-    "ListServiceInstanceOutputsInputRequestTypeDef",
+    "ListServiceInstanceOutputsInputPaginateTypeDef",
+    "ListServiceInstanceOutputsInputTypeDef",
     "ListServiceInstanceOutputsOutputTypeDef",
-    "ListServiceInstanceProvisionedResourcesInputRequestTypeDef",
+    "ListServiceInstanceProvisionedResourcesInputPaginateTypeDef",
+    "ListServiceInstanceProvisionedResourcesInputTypeDef",
     "ListServiceInstanceProvisionedResourcesOutputTypeDef",
     "ListServiceInstancesFilterTypeDef",
-    "ListServiceInstancesInputRequestTypeDef",
+    "ListServiceInstancesInputPaginateTypeDef",
+    "ListServiceInstancesInputTypeDef",
     "ListServiceInstancesOutputTypeDef",
-    "ListServicePipelineOutputsInputRequestTypeDef",
+    "ListServicePipelineOutputsInputPaginateTypeDef",
+    "ListServicePipelineOutputsInputTypeDef",
     "ListServicePipelineOutputsOutputTypeDef",
-    "ListServicePipelineProvisionedResourcesInputRequestTypeDef",
+    "ListServicePipelineProvisionedResourcesInputPaginateTypeDef",
+    "ListServicePipelineProvisionedResourcesInputTypeDef",
     "ListServicePipelineProvisionedResourcesOutputTypeDef",
-    "ListServiceTemplateVersionsInputRequestTypeDef",
+    "ListServiceTemplateVersionsInputPaginateTypeDef",
+    "ListServiceTemplateVersionsInputTypeDef",
     "ListServiceTemplateVersionsOutputTypeDef",
-    "ListServiceTemplatesInputRequestTypeDef",
+    "ListServiceTemplatesInputPaginateTypeDef",
+    "ListServiceTemplatesInputTypeDef",
     "ListServiceTemplatesOutputTypeDef",
-    "ListServicesInputRequestTypeDef",
+    "ListServicesInputPaginateTypeDef",
+    "ListServicesInputTypeDef",
     "ListServicesOutputTypeDef",
-    "ListTagsForResourceInputRequestTypeDef",
+    "ListTagsForResourceInputPaginateTypeDef",
+    "ListTagsForResourceInputTypeDef",
     "ListTagsForResourceOutputTypeDef",
-    "NotifyResourceDeploymentStatusChangeInputRequestTypeDef",
+    "NotifyResourceDeploymentStatusChangeInputTypeDef",
     "OutputTypeDef",
     "PaginatorConfigTypeDef",
     "ProvisionedResourceTypeDef",
-    "RejectEnvironmentAccountConnectionInputRequestTypeDef",
+    "RejectEnvironmentAccountConnectionInputTypeDef",
     "RejectEnvironmentAccountConnectionOutputTypeDef",
     "RepositoryBranchInputTypeDef",
     "RepositoryBranchTypeDef",
@@ -239,876 +275,50 @@ __all__ = (
     "ServiceTypeDef",
     "SyncBlockerContextTypeDef",
     "SyncBlockerTypeDef",
-    "TagResourceInputRequestTypeDef",
+    "TagResourceInputTypeDef",
     "TagTypeDef",
     "TemplateSyncConfigTypeDef",
     "TemplateVersionSourceInputTypeDef",
-    "UntagResourceInputRequestTypeDef",
-    "UpdateAccountSettingsInputRequestTypeDef",
+    "UntagResourceInputTypeDef",
+    "UpdateAccountSettingsInputTypeDef",
     "UpdateAccountSettingsOutputTypeDef",
-    "UpdateComponentInputRequestTypeDef",
+    "UpdateComponentInputTypeDef",
     "UpdateComponentOutputTypeDef",
-    "UpdateEnvironmentAccountConnectionInputRequestTypeDef",
+    "UpdateEnvironmentAccountConnectionInputTypeDef",
     "UpdateEnvironmentAccountConnectionOutputTypeDef",
-    "UpdateEnvironmentInputRequestTypeDef",
+    "UpdateEnvironmentInputTypeDef",
     "UpdateEnvironmentOutputTypeDef",
-    "UpdateEnvironmentTemplateInputRequestTypeDef",
+    "UpdateEnvironmentTemplateInputTypeDef",
     "UpdateEnvironmentTemplateOutputTypeDef",
-    "UpdateEnvironmentTemplateVersionInputRequestTypeDef",
+    "UpdateEnvironmentTemplateVersionInputTypeDef",
     "UpdateEnvironmentTemplateVersionOutputTypeDef",
-    "UpdateServiceInputRequestTypeDef",
-    "UpdateServiceInstanceInputRequestTypeDef",
+    "UpdateServiceInputTypeDef",
+    "UpdateServiceInstanceInputTypeDef",
     "UpdateServiceInstanceOutputTypeDef",
     "UpdateServiceOutputTypeDef",
-    "UpdateServicePipelineInputRequestTypeDef",
+    "UpdateServicePipelineInputTypeDef",
     "UpdateServicePipelineOutputTypeDef",
-    "UpdateServiceSyncBlockerInputRequestTypeDef",
+    "UpdateServiceSyncBlockerInputTypeDef",
     "UpdateServiceSyncBlockerOutputTypeDef",
-    "UpdateServiceSyncConfigInputRequestTypeDef",
+    "UpdateServiceSyncConfigInputTypeDef",
     "UpdateServiceSyncConfigOutputTypeDef",
-    "UpdateServiceTemplateInputRequestTypeDef",
+    "UpdateServiceTemplateInputTypeDef",
     "UpdateServiceTemplateOutputTypeDef",
-    "UpdateServiceTemplateVersionInputRequestTypeDef",
+    "UpdateServiceTemplateVersionInputTypeDef",
     "UpdateServiceTemplateVersionOutputTypeDef",
-    "UpdateTemplateSyncConfigInputRequestTypeDef",
+    "UpdateTemplateSyncConfigInputTypeDef",
     "UpdateTemplateSyncConfigOutputTypeDef",
     "WaiterConfigTypeDef",
 )
 
-AcceptEnvironmentAccountConnectionInputRequestTypeDef = TypedDict(
-    "AcceptEnvironmentAccountConnectionInputRequestTypeDef",
+AcceptEnvironmentAccountConnectionInputTypeDef = TypedDict(
+    "AcceptEnvironmentAccountConnectionInputTypeDef",
     {
         "id": str,
     },
 )
-
-AcceptEnvironmentAccountConnectionOutputTypeDef = TypedDict(
-    "AcceptEnvironmentAccountConnectionOutputTypeDef",
-    {
-        "environmentAccountConnection": "EnvironmentAccountConnectionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-AccountSettingsTypeDef = TypedDict(
-    "AccountSettingsTypeDef",
-    {
-        "pipelineCodebuildRoleArn": str,
-        "pipelineProvisioningRepository": "RepositoryBranchTypeDef",
-        "pipelineServiceRoleArn": str,
-    },
-    total=False,
-)
-
-CancelComponentDeploymentInputRequestTypeDef = TypedDict(
-    "CancelComponentDeploymentInputRequestTypeDef",
-    {
-        "componentName": str,
-    },
-)
-
-CancelComponentDeploymentOutputTypeDef = TypedDict(
-    "CancelComponentDeploymentOutputTypeDef",
-    {
-        "component": "ComponentTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CancelEnvironmentDeploymentInputRequestTypeDef = TypedDict(
-    "CancelEnvironmentDeploymentInputRequestTypeDef",
-    {
-        "environmentName": str,
-    },
-)
-
-CancelEnvironmentDeploymentOutputTypeDef = TypedDict(
-    "CancelEnvironmentDeploymentOutputTypeDef",
-    {
-        "environment": "EnvironmentTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CancelServiceInstanceDeploymentInputRequestTypeDef = TypedDict(
-    "CancelServiceInstanceDeploymentInputRequestTypeDef",
-    {
-        "serviceInstanceName": str,
-        "serviceName": str,
-    },
-)
-
-CancelServiceInstanceDeploymentOutputTypeDef = TypedDict(
-    "CancelServiceInstanceDeploymentOutputTypeDef",
-    {
-        "serviceInstance": "ServiceInstanceTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CancelServicePipelineDeploymentInputRequestTypeDef = TypedDict(
-    "CancelServicePipelineDeploymentInputRequestTypeDef",
-    {
-        "serviceName": str,
-    },
-)
-
-CancelServicePipelineDeploymentOutputTypeDef = TypedDict(
-    "CancelServicePipelineDeploymentOutputTypeDef",
-    {
-        "pipeline": "ServicePipelineTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CompatibleEnvironmentTemplateInputTypeDef = TypedDict(
-    "CompatibleEnvironmentTemplateInputTypeDef",
-    {
-        "majorVersion": str,
-        "templateName": str,
-    },
-)
-
-CompatibleEnvironmentTemplateTypeDef = TypedDict(
-    "CompatibleEnvironmentTemplateTypeDef",
-    {
-        "majorVersion": str,
-        "templateName": str,
-    },
-)
-
-ComponentStateTypeDef = TypedDict(
-    "ComponentStateTypeDef",
-    {
-        "serviceInstanceName": str,
-        "serviceName": str,
-        "serviceSpec": str,
-        "templateFile": str,
-    },
-    total=False,
-)
-
-_RequiredComponentSummaryTypeDef = TypedDict(
-    "_RequiredComponentSummaryTypeDef",
-    {
-        "arn": str,
-        "createdAt": datetime,
-        "deploymentStatus": DeploymentStatusType,
-        "environmentName": str,
-        "lastModifiedAt": datetime,
-        "name": str,
-    },
-)
-_OptionalComponentSummaryTypeDef = TypedDict(
-    "_OptionalComponentSummaryTypeDef",
-    {
-        "deploymentStatusMessage": str,
-        "lastAttemptedDeploymentId": str,
-        "lastDeploymentAttemptedAt": datetime,
-        "lastDeploymentSucceededAt": datetime,
-        "lastSucceededDeploymentId": str,
-        "serviceInstanceName": str,
-        "serviceName": str,
-    },
-    total=False,
-)
-
-class ComponentSummaryTypeDef(_RequiredComponentSummaryTypeDef, _OptionalComponentSummaryTypeDef):
-    pass
-
-_RequiredComponentTypeDef = TypedDict(
-    "_RequiredComponentTypeDef",
-    {
-        "arn": str,
-        "createdAt": datetime,
-        "deploymentStatus": DeploymentStatusType,
-        "environmentName": str,
-        "lastModifiedAt": datetime,
-        "name": str,
-    },
-)
-_OptionalComponentTypeDef = TypedDict(
-    "_OptionalComponentTypeDef",
-    {
-        "deploymentStatusMessage": str,
-        "description": str,
-        "lastAttemptedDeploymentId": str,
-        "lastClientRequestToken": str,
-        "lastDeploymentAttemptedAt": datetime,
-        "lastDeploymentSucceededAt": datetime,
-        "lastSucceededDeploymentId": str,
-        "serviceInstanceName": str,
-        "serviceName": str,
-        "serviceSpec": str,
-    },
-    total=False,
-)
-
-class ComponentTypeDef(_RequiredComponentTypeDef, _OptionalComponentTypeDef):
-    pass
-
-CountsSummaryTypeDef = TypedDict(
-    "CountsSummaryTypeDef",
-    {
-        "components": "ResourceCountsSummaryTypeDef",
-        "environmentTemplates": "ResourceCountsSummaryTypeDef",
-        "environments": "ResourceCountsSummaryTypeDef",
-        "pipelines": "ResourceCountsSummaryTypeDef",
-        "serviceInstances": "ResourceCountsSummaryTypeDef",
-        "serviceTemplates": "ResourceCountsSummaryTypeDef",
-        "services": "ResourceCountsSummaryTypeDef",
-    },
-    total=False,
-)
-
-_RequiredCreateComponentInputRequestTypeDef = TypedDict(
-    "_RequiredCreateComponentInputRequestTypeDef",
-    {
-        "manifest": str,
-        "name": str,
-        "templateFile": str,
-    },
-)
-_OptionalCreateComponentInputRequestTypeDef = TypedDict(
-    "_OptionalCreateComponentInputRequestTypeDef",
-    {
-        "clientToken": str,
-        "description": str,
-        "environmentName": str,
-        "serviceInstanceName": str,
-        "serviceName": str,
-        "serviceSpec": str,
-        "tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateComponentInputRequestTypeDef(
-    _RequiredCreateComponentInputRequestTypeDef, _OptionalCreateComponentInputRequestTypeDef
-):
-    pass
-
-CreateComponentOutputTypeDef = TypedDict(
-    "CreateComponentOutputTypeDef",
-    {
-        "component": "ComponentTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateEnvironmentAccountConnectionInputRequestTypeDef = TypedDict(
-    "_RequiredCreateEnvironmentAccountConnectionInputRequestTypeDef",
-    {
-        "environmentName": str,
-        "managementAccountId": str,
-    },
-)
-_OptionalCreateEnvironmentAccountConnectionInputRequestTypeDef = TypedDict(
-    "_OptionalCreateEnvironmentAccountConnectionInputRequestTypeDef",
-    {
-        "clientToken": str,
-        "codebuildRoleArn": str,
-        "componentRoleArn": str,
-        "roleArn": str,
-        "tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateEnvironmentAccountConnectionInputRequestTypeDef(
-    _RequiredCreateEnvironmentAccountConnectionInputRequestTypeDef,
-    _OptionalCreateEnvironmentAccountConnectionInputRequestTypeDef,
-):
-    pass
-
-CreateEnvironmentAccountConnectionOutputTypeDef = TypedDict(
-    "CreateEnvironmentAccountConnectionOutputTypeDef",
-    {
-        "environmentAccountConnection": "EnvironmentAccountConnectionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateEnvironmentInputRequestTypeDef = TypedDict(
-    "_RequiredCreateEnvironmentInputRequestTypeDef",
-    {
-        "name": str,
-        "spec": str,
-        "templateMajorVersion": str,
-        "templateName": str,
-    },
-)
-_OptionalCreateEnvironmentInputRequestTypeDef = TypedDict(
-    "_OptionalCreateEnvironmentInputRequestTypeDef",
-    {
-        "codebuildRoleArn": str,
-        "componentRoleArn": str,
-        "description": str,
-        "environmentAccountConnectionId": str,
-        "protonServiceRoleArn": str,
-        "provisioningRepository": "RepositoryBranchInputTypeDef",
-        "tags": List["TagTypeDef"],
-        "templateMinorVersion": str,
-    },
-    total=False,
-)
-
-class CreateEnvironmentInputRequestTypeDef(
-    _RequiredCreateEnvironmentInputRequestTypeDef, _OptionalCreateEnvironmentInputRequestTypeDef
-):
-    pass
-
-CreateEnvironmentOutputTypeDef = TypedDict(
-    "CreateEnvironmentOutputTypeDef",
-    {
-        "environment": "EnvironmentTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateEnvironmentTemplateInputRequestTypeDef = TypedDict(
-    "_RequiredCreateEnvironmentTemplateInputRequestTypeDef",
-    {
-        "name": str,
-    },
-)
-_OptionalCreateEnvironmentTemplateInputRequestTypeDef = TypedDict(
-    "_OptionalCreateEnvironmentTemplateInputRequestTypeDef",
-    {
-        "description": str,
-        "displayName": str,
-        "encryptionKey": str,
-        "provisioning": Literal["CUSTOMER_MANAGED"],
-        "tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateEnvironmentTemplateInputRequestTypeDef(
-    _RequiredCreateEnvironmentTemplateInputRequestTypeDef,
-    _OptionalCreateEnvironmentTemplateInputRequestTypeDef,
-):
-    pass
-
-CreateEnvironmentTemplateOutputTypeDef = TypedDict(
-    "CreateEnvironmentTemplateOutputTypeDef",
-    {
-        "environmentTemplate": "EnvironmentTemplateTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateEnvironmentTemplateVersionInputRequestTypeDef = TypedDict(
-    "_RequiredCreateEnvironmentTemplateVersionInputRequestTypeDef",
-    {
-        "source": "TemplateVersionSourceInputTypeDef",
-        "templateName": str,
-    },
-)
-_OptionalCreateEnvironmentTemplateVersionInputRequestTypeDef = TypedDict(
-    "_OptionalCreateEnvironmentTemplateVersionInputRequestTypeDef",
-    {
-        "clientToken": str,
-        "description": str,
-        "majorVersion": str,
-        "tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateEnvironmentTemplateVersionInputRequestTypeDef(
-    _RequiredCreateEnvironmentTemplateVersionInputRequestTypeDef,
-    _OptionalCreateEnvironmentTemplateVersionInputRequestTypeDef,
-):
-    pass
-
-CreateEnvironmentTemplateVersionOutputTypeDef = TypedDict(
-    "CreateEnvironmentTemplateVersionOutputTypeDef",
-    {
-        "environmentTemplateVersion": "EnvironmentTemplateVersionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateRepositoryInputRequestTypeDef = TypedDict(
-    "_RequiredCreateRepositoryInputRequestTypeDef",
-    {
-        "connectionArn": str,
-        "name": str,
-        "provider": RepositoryProviderType,
-    },
-)
-_OptionalCreateRepositoryInputRequestTypeDef = TypedDict(
-    "_OptionalCreateRepositoryInputRequestTypeDef",
-    {
-        "encryptionKey": str,
-        "tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateRepositoryInputRequestTypeDef(
-    _RequiredCreateRepositoryInputRequestTypeDef, _OptionalCreateRepositoryInputRequestTypeDef
-):
-    pass
-
-CreateRepositoryOutputTypeDef = TypedDict(
-    "CreateRepositoryOutputTypeDef",
-    {
-        "repository": "RepositoryTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateServiceInputRequestTypeDef = TypedDict(
-    "_RequiredCreateServiceInputRequestTypeDef",
-    {
-        "name": str,
-        "spec": str,
-        "templateMajorVersion": str,
-        "templateName": str,
-    },
-)
-_OptionalCreateServiceInputRequestTypeDef = TypedDict(
-    "_OptionalCreateServiceInputRequestTypeDef",
-    {
-        "branchName": str,
-        "description": str,
-        "repositoryConnectionArn": str,
-        "repositoryId": str,
-        "tags": List["TagTypeDef"],
-        "templateMinorVersion": str,
-    },
-    total=False,
-)
-
-class CreateServiceInputRequestTypeDef(
-    _RequiredCreateServiceInputRequestTypeDef, _OptionalCreateServiceInputRequestTypeDef
-):
-    pass
-
-_RequiredCreateServiceInstanceInputRequestTypeDef = TypedDict(
-    "_RequiredCreateServiceInstanceInputRequestTypeDef",
-    {
-        "name": str,
-        "serviceName": str,
-        "spec": str,
-    },
-)
-_OptionalCreateServiceInstanceInputRequestTypeDef = TypedDict(
-    "_OptionalCreateServiceInstanceInputRequestTypeDef",
-    {
-        "clientToken": str,
-        "tags": List["TagTypeDef"],
-        "templateMajorVersion": str,
-        "templateMinorVersion": str,
-    },
-    total=False,
-)
-
-class CreateServiceInstanceInputRequestTypeDef(
-    _RequiredCreateServiceInstanceInputRequestTypeDef,
-    _OptionalCreateServiceInstanceInputRequestTypeDef,
-):
-    pass
-
-CreateServiceInstanceOutputTypeDef = TypedDict(
-    "CreateServiceInstanceOutputTypeDef",
-    {
-        "serviceInstance": "ServiceInstanceTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateServiceOutputTypeDef = TypedDict(
-    "CreateServiceOutputTypeDef",
-    {
-        "service": "ServiceTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateServiceSyncConfigInputRequestTypeDef = TypedDict(
-    "CreateServiceSyncConfigInputRequestTypeDef",
-    {
-        "branch": str,
-        "filePath": str,
-        "repositoryName": str,
-        "repositoryProvider": RepositoryProviderType,
-        "serviceName": str,
-    },
-)
-
-CreateServiceSyncConfigOutputTypeDef = TypedDict(
-    "CreateServiceSyncConfigOutputTypeDef",
-    {
-        "serviceSyncConfig": "ServiceSyncConfigTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateServiceTemplateInputRequestTypeDef = TypedDict(
-    "_RequiredCreateServiceTemplateInputRequestTypeDef",
-    {
-        "name": str,
-    },
-)
-_OptionalCreateServiceTemplateInputRequestTypeDef = TypedDict(
-    "_OptionalCreateServiceTemplateInputRequestTypeDef",
-    {
-        "description": str,
-        "displayName": str,
-        "encryptionKey": str,
-        "pipelineProvisioning": Literal["CUSTOMER_MANAGED"],
-        "tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateServiceTemplateInputRequestTypeDef(
-    _RequiredCreateServiceTemplateInputRequestTypeDef,
-    _OptionalCreateServiceTemplateInputRequestTypeDef,
-):
-    pass
-
-CreateServiceTemplateOutputTypeDef = TypedDict(
-    "CreateServiceTemplateOutputTypeDef",
-    {
-        "serviceTemplate": "ServiceTemplateTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateServiceTemplateVersionInputRequestTypeDef = TypedDict(
-    "_RequiredCreateServiceTemplateVersionInputRequestTypeDef",
-    {
-        "compatibleEnvironmentTemplates": List["CompatibleEnvironmentTemplateInputTypeDef"],
-        "source": "TemplateVersionSourceInputTypeDef",
-        "templateName": str,
-    },
-)
-_OptionalCreateServiceTemplateVersionInputRequestTypeDef = TypedDict(
-    "_OptionalCreateServiceTemplateVersionInputRequestTypeDef",
-    {
-        "clientToken": str,
-        "description": str,
-        "majorVersion": str,
-        "supportedComponentSources": List[Literal["DIRECTLY_DEFINED"]],
-        "tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateServiceTemplateVersionInputRequestTypeDef(
-    _RequiredCreateServiceTemplateVersionInputRequestTypeDef,
-    _OptionalCreateServiceTemplateVersionInputRequestTypeDef,
-):
-    pass
-
-CreateServiceTemplateVersionOutputTypeDef = TypedDict(
-    "CreateServiceTemplateVersionOutputTypeDef",
-    {
-        "serviceTemplateVersion": "ServiceTemplateVersionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateTemplateSyncConfigInputRequestTypeDef = TypedDict(
-    "_RequiredCreateTemplateSyncConfigInputRequestTypeDef",
-    {
-        "branch": str,
-        "repositoryName": str,
-        "repositoryProvider": RepositoryProviderType,
-        "templateName": str,
-        "templateType": TemplateTypeType,
-    },
-)
-_OptionalCreateTemplateSyncConfigInputRequestTypeDef = TypedDict(
-    "_OptionalCreateTemplateSyncConfigInputRequestTypeDef",
-    {
-        "subdirectory": str,
-    },
-    total=False,
-)
-
-class CreateTemplateSyncConfigInputRequestTypeDef(
-    _RequiredCreateTemplateSyncConfigInputRequestTypeDef,
-    _OptionalCreateTemplateSyncConfigInputRequestTypeDef,
-):
-    pass
-
-CreateTemplateSyncConfigOutputTypeDef = TypedDict(
-    "CreateTemplateSyncConfigOutputTypeDef",
-    {
-        "templateSyncConfig": "TemplateSyncConfigTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteComponentInputRequestTypeDef = TypedDict(
-    "DeleteComponentInputRequestTypeDef",
-    {
-        "name": str,
-    },
-)
-
-DeleteComponentOutputTypeDef = TypedDict(
-    "DeleteComponentOutputTypeDef",
-    {
-        "component": "ComponentTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteDeploymentInputRequestTypeDef = TypedDict(
-    "DeleteDeploymentInputRequestTypeDef",
-    {
-        "id": str,
-    },
-)
-
-DeleteDeploymentOutputTypeDef = TypedDict(
-    "DeleteDeploymentOutputTypeDef",
-    {
-        "deployment": "DeploymentTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteEnvironmentAccountConnectionInputRequestTypeDef = TypedDict(
-    "DeleteEnvironmentAccountConnectionInputRequestTypeDef",
-    {
-        "id": str,
-    },
-)
-
-DeleteEnvironmentAccountConnectionOutputTypeDef = TypedDict(
-    "DeleteEnvironmentAccountConnectionOutputTypeDef",
-    {
-        "environmentAccountConnection": "EnvironmentAccountConnectionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteEnvironmentInputRequestTypeDef = TypedDict(
-    "DeleteEnvironmentInputRequestTypeDef",
-    {
-        "name": str,
-    },
-)
-
-DeleteEnvironmentOutputTypeDef = TypedDict(
-    "DeleteEnvironmentOutputTypeDef",
-    {
-        "environment": "EnvironmentTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteEnvironmentTemplateInputRequestTypeDef = TypedDict(
-    "DeleteEnvironmentTemplateInputRequestTypeDef",
-    {
-        "name": str,
-    },
-)
-
-DeleteEnvironmentTemplateOutputTypeDef = TypedDict(
-    "DeleteEnvironmentTemplateOutputTypeDef",
-    {
-        "environmentTemplate": "EnvironmentTemplateTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteEnvironmentTemplateVersionInputRequestTypeDef = TypedDict(
-    "DeleteEnvironmentTemplateVersionInputRequestTypeDef",
-    {
-        "majorVersion": str,
-        "minorVersion": str,
-        "templateName": str,
-    },
-)
-
-DeleteEnvironmentTemplateVersionOutputTypeDef = TypedDict(
-    "DeleteEnvironmentTemplateVersionOutputTypeDef",
-    {
-        "environmentTemplateVersion": "EnvironmentTemplateVersionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteRepositoryInputRequestTypeDef = TypedDict(
-    "DeleteRepositoryInputRequestTypeDef",
-    {
-        "name": str,
-        "provider": RepositoryProviderType,
-    },
-)
-
-DeleteRepositoryOutputTypeDef = TypedDict(
-    "DeleteRepositoryOutputTypeDef",
-    {
-        "repository": "RepositoryTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteServiceInputRequestTypeDef = TypedDict(
-    "DeleteServiceInputRequestTypeDef",
-    {
-        "name": str,
-    },
-)
-
-DeleteServiceOutputTypeDef = TypedDict(
-    "DeleteServiceOutputTypeDef",
-    {
-        "service": "ServiceTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteServiceSyncConfigInputRequestTypeDef = TypedDict(
-    "DeleteServiceSyncConfigInputRequestTypeDef",
-    {
-        "serviceName": str,
-    },
-)
-
-DeleteServiceSyncConfigOutputTypeDef = TypedDict(
-    "DeleteServiceSyncConfigOutputTypeDef",
-    {
-        "serviceSyncConfig": "ServiceSyncConfigTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteServiceTemplateInputRequestTypeDef = TypedDict(
-    "DeleteServiceTemplateInputRequestTypeDef",
-    {
-        "name": str,
-    },
-)
-
-DeleteServiceTemplateOutputTypeDef = TypedDict(
-    "DeleteServiceTemplateOutputTypeDef",
-    {
-        "serviceTemplate": "ServiceTemplateTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteServiceTemplateVersionInputRequestTypeDef = TypedDict(
-    "DeleteServiceTemplateVersionInputRequestTypeDef",
-    {
-        "majorVersion": str,
-        "minorVersion": str,
-        "templateName": str,
-    },
-)
-
-DeleteServiceTemplateVersionOutputTypeDef = TypedDict(
-    "DeleteServiceTemplateVersionOutputTypeDef",
-    {
-        "serviceTemplateVersion": "ServiceTemplateVersionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteTemplateSyncConfigInputRequestTypeDef = TypedDict(
-    "DeleteTemplateSyncConfigInputRequestTypeDef",
-    {
-        "templateName": str,
-        "templateType": TemplateTypeType,
-    },
-)
-
-DeleteTemplateSyncConfigOutputTypeDef = TypedDict(
-    "DeleteTemplateSyncConfigOutputTypeDef",
-    {
-        "templateSyncConfig": "TemplateSyncConfigTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeploymentStateTypeDef = TypedDict(
-    "DeploymentStateTypeDef",
-    {
-        "component": "ComponentStateTypeDef",
-        "environment": "EnvironmentStateTypeDef",
-        "serviceInstance": "ServiceInstanceStateTypeDef",
-        "servicePipeline": "ServicePipelineStateTypeDef",
-    },
-    total=False,
-)
-
-_RequiredDeploymentSummaryTypeDef = TypedDict(
-    "_RequiredDeploymentSummaryTypeDef",
-    {
-        "arn": str,
-        "createdAt": datetime,
-        "deploymentStatus": DeploymentStatusType,
-        "environmentName": str,
-        "id": str,
-        "lastModifiedAt": datetime,
-        "targetArn": str,
-        "targetResourceCreatedAt": datetime,
-        "targetResourceType": DeploymentTargetResourceTypeType,
-    },
-)
-_OptionalDeploymentSummaryTypeDef = TypedDict(
-    "_OptionalDeploymentSummaryTypeDef",
-    {
-        "completedAt": datetime,
-        "componentName": str,
-        "lastAttemptedDeploymentId": str,
-        "lastSucceededDeploymentId": str,
-        "serviceInstanceName": str,
-        "serviceName": str,
-    },
-    total=False,
-)
-
-class DeploymentSummaryTypeDef(
-    _RequiredDeploymentSummaryTypeDef, _OptionalDeploymentSummaryTypeDef
-):
-    pass
-
-_RequiredDeploymentTypeDef = TypedDict(
-    "_RequiredDeploymentTypeDef",
-    {
-        "arn": str,
-        "createdAt": datetime,
-        "deploymentStatus": DeploymentStatusType,
-        "environmentName": str,
-        "id": str,
-        "lastModifiedAt": datetime,
-        "targetArn": str,
-        "targetResourceCreatedAt": datetime,
-        "targetResourceType": DeploymentTargetResourceTypeType,
-    },
-)
-_OptionalDeploymentTypeDef = TypedDict(
-    "_OptionalDeploymentTypeDef",
-    {
-        "completedAt": datetime,
-        "componentName": str,
-        "deploymentStatusMessage": str,
-        "initialState": "DeploymentStateTypeDef",
-        "lastAttemptedDeploymentId": str,
-        "lastSucceededDeploymentId": str,
-        "serviceInstanceName": str,
-        "serviceName": str,
-        "targetState": "DeploymentStateTypeDef",
-    },
-    total=False,
-)
-
-class DeploymentTypeDef(_RequiredDeploymentTypeDef, _OptionalDeploymentTypeDef):
-    pass
-
-_RequiredEnvironmentAccountConnectionSummaryTypeDef = TypedDict(
-    "_RequiredEnvironmentAccountConnectionSummaryTypeDef",
+EnvironmentAccountConnectionTypeDef = TypedDict(
+    "EnvironmentAccountConnectionTypeDef",
     {
         "arn": str,
         "environmentAccountId": str,
@@ -1119,24 +329,296 @@ _RequiredEnvironmentAccountConnectionSummaryTypeDef = TypedDict(
         "requestedAt": datetime,
         "roleArn": str,
         "status": EnvironmentAccountConnectionStatusType,
+        "codebuildRoleArn": NotRequired[str],
+        "componentRoleArn": NotRequired[str],
     },
 )
-_OptionalEnvironmentAccountConnectionSummaryTypeDef = TypedDict(
-    "_OptionalEnvironmentAccountConnectionSummaryTypeDef",
+
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
+
+class RepositoryBranchTypeDef(TypedDict):
+    arn: str
+    branch: str
+    name: str
+    provider: RepositoryProviderType
+
+class CancelComponentDeploymentInputTypeDef(TypedDict):
+    componentName: str
+
+class ComponentTypeDef(TypedDict):
+    arn: str
+    createdAt: datetime
+    deploymentStatus: DeploymentStatusType
+    environmentName: str
+    lastModifiedAt: datetime
+    name: str
+    deploymentStatusMessage: NotRequired[str]
+    description: NotRequired[str]
+    lastAttemptedDeploymentId: NotRequired[str]
+    lastClientRequestToken: NotRequired[str]
+    lastDeploymentAttemptedAt: NotRequired[datetime]
+    lastDeploymentSucceededAt: NotRequired[datetime]
+    lastSucceededDeploymentId: NotRequired[str]
+    serviceInstanceName: NotRequired[str]
+    serviceName: NotRequired[str]
+    serviceSpec: NotRequired[str]
+
+class CancelEnvironmentDeploymentInputTypeDef(TypedDict):
+    environmentName: str
+
+class CancelServiceInstanceDeploymentInputTypeDef(TypedDict):
+    serviceInstanceName: str
+    serviceName: str
+
+class ServiceInstanceTypeDef(TypedDict):
+    arn: str
+    createdAt: datetime
+    deploymentStatus: DeploymentStatusType
+    environmentName: str
+    lastDeploymentAttemptedAt: datetime
+    lastDeploymentSucceededAt: datetime
+    name: str
+    serviceName: str
+    templateMajorVersion: str
+    templateMinorVersion: str
+    templateName: str
+    deploymentStatusMessage: NotRequired[str]
+    lastAttemptedDeploymentId: NotRequired[str]
+    lastClientRequestToken: NotRequired[str]
+    lastSucceededDeploymentId: NotRequired[str]
+    spec: NotRequired[str]
+
+class CancelServicePipelineDeploymentInputTypeDef(TypedDict):
+    serviceName: str
+
+class ServicePipelineTypeDef(TypedDict):
+    arn: str
+    createdAt: datetime
+    deploymentStatus: DeploymentStatusType
+    lastDeploymentAttemptedAt: datetime
+    lastDeploymentSucceededAt: datetime
+    templateMajorVersion: str
+    templateMinorVersion: str
+    templateName: str
+    deploymentStatusMessage: NotRequired[str]
+    lastAttemptedDeploymentId: NotRequired[str]
+    lastSucceededDeploymentId: NotRequired[str]
+    spec: NotRequired[str]
+
+class CompatibleEnvironmentTemplateInputTypeDef(TypedDict):
+    majorVersion: str
+    templateName: str
+
+class CompatibleEnvironmentTemplateTypeDef(TypedDict):
+    majorVersion: str
+    templateName: str
+
+class ComponentStateTypeDef(TypedDict):
+    serviceInstanceName: NotRequired[str]
+    serviceName: NotRequired[str]
+    serviceSpec: NotRequired[str]
+    templateFile: NotRequired[str]
+
+class ComponentSummaryTypeDef(TypedDict):
+    arn: str
+    createdAt: datetime
+    deploymentStatus: DeploymentStatusType
+    environmentName: str
+    lastModifiedAt: datetime
+    name: str
+    deploymentStatusMessage: NotRequired[str]
+    lastAttemptedDeploymentId: NotRequired[str]
+    lastDeploymentAttemptedAt: NotRequired[datetime]
+    lastDeploymentSucceededAt: NotRequired[datetime]
+    lastSucceededDeploymentId: NotRequired[str]
+    serviceInstanceName: NotRequired[str]
+    serviceName: NotRequired[str]
+
+class ResourceCountsSummaryTypeDef(TypedDict):
+    total: int
+    behindMajor: NotRequired[int]
+    behindMinor: NotRequired[int]
+    failed: NotRequired[int]
+    upToDate: NotRequired[int]
+
+class TagTypeDef(TypedDict):
+    key: str
+    value: str
+
+class RepositoryBranchInputTypeDef(TypedDict):
+    branch: str
+    name: str
+    provider: RepositoryProviderType
+
+class EnvironmentTemplateTypeDef(TypedDict):
+    arn: str
+    createdAt: datetime
+    lastModifiedAt: datetime
+    name: str
+    description: NotRequired[str]
+    displayName: NotRequired[str]
+    encryptionKey: NotRequired[str]
+    provisioning: NotRequired[Literal["CUSTOMER_MANAGED"]]
+    recommendedVersion: NotRequired[str]
+
+class EnvironmentTemplateVersionTypeDef(TypedDict):
+    arn: str
+    createdAt: datetime
+    lastModifiedAt: datetime
+    majorVersion: str
+    minorVersion: str
+    status: TemplateVersionStatusType
+    templateName: str
+    description: NotRequired[str]
+    recommendedMinorVersion: NotRequired[str]
+    schema: NotRequired[str]
+    statusMessage: NotRequired[str]
+
+class RepositoryTypeDef(TypedDict):
+    arn: str
+    connectionArn: str
+    name: str
+    provider: RepositoryProviderType
+    encryptionKey: NotRequired[str]
+
+class CreateServiceSyncConfigInputTypeDef(TypedDict):
+    branch: str
+    filePath: str
+    repositoryName: str
+    repositoryProvider: RepositoryProviderType
+    serviceName: str
+
+class ServiceSyncConfigTypeDef(TypedDict):
+    branch: str
+    filePath: str
+    repositoryName: str
+    repositoryProvider: RepositoryProviderType
+    serviceName: str
+
+class ServiceTemplateTypeDef(TypedDict):
+    arn: str
+    createdAt: datetime
+    lastModifiedAt: datetime
+    name: str
+    description: NotRequired[str]
+    displayName: NotRequired[str]
+    encryptionKey: NotRequired[str]
+    pipelineProvisioning: NotRequired[Literal["CUSTOMER_MANAGED"]]
+    recommendedVersion: NotRequired[str]
+
+class CreateTemplateSyncConfigInputTypeDef(TypedDict):
+    branch: str
+    repositoryName: str
+    repositoryProvider: RepositoryProviderType
+    templateName: str
+    templateType: TemplateTypeType
+    subdirectory: NotRequired[str]
+
+class TemplateSyncConfigTypeDef(TypedDict):
+    branch: str
+    repositoryName: str
+    repositoryProvider: RepositoryProviderType
+    templateName: str
+    templateType: TemplateTypeType
+    subdirectory: NotRequired[str]
+
+class DeleteComponentInputTypeDef(TypedDict):
+    name: str
+
+DeleteDeploymentInputTypeDef = TypedDict(
+    "DeleteDeploymentInputTypeDef",
     {
-        "componentRoleArn": str,
+        "id": str,
     },
-    total=False,
+)
+DeleteEnvironmentAccountConnectionInputTypeDef = TypedDict(
+    "DeleteEnvironmentAccountConnectionInputTypeDef",
+    {
+        "id": str,
+    },
 )
 
-class EnvironmentAccountConnectionSummaryTypeDef(
-    _RequiredEnvironmentAccountConnectionSummaryTypeDef,
-    _OptionalEnvironmentAccountConnectionSummaryTypeDef,
-):
-    pass
+class DeleteEnvironmentInputTypeDef(TypedDict):
+    name: str
 
-_RequiredEnvironmentAccountConnectionTypeDef = TypedDict(
-    "_RequiredEnvironmentAccountConnectionTypeDef",
+class DeleteEnvironmentTemplateInputTypeDef(TypedDict):
+    name: str
+
+class DeleteEnvironmentTemplateVersionInputTypeDef(TypedDict):
+    majorVersion: str
+    minorVersion: str
+    templateName: str
+
+class DeleteRepositoryInputTypeDef(TypedDict):
+    name: str
+    provider: RepositoryProviderType
+
+class DeleteServiceInputTypeDef(TypedDict):
+    name: str
+
+class DeleteServiceSyncConfigInputTypeDef(TypedDict):
+    serviceName: str
+
+class DeleteServiceTemplateInputTypeDef(TypedDict):
+    name: str
+
+class DeleteServiceTemplateVersionInputTypeDef(TypedDict):
+    majorVersion: str
+    minorVersion: str
+    templateName: str
+
+class DeleteTemplateSyncConfigInputTypeDef(TypedDict):
+    templateName: str
+    templateType: TemplateTypeType
+
+class EnvironmentStateTypeDef(TypedDict):
+    templateMajorVersion: str
+    templateMinorVersion: str
+    templateName: str
+    spec: NotRequired[str]
+
+class ServiceInstanceStateTypeDef(TypedDict):
+    spec: str
+    templateMajorVersion: str
+    templateMinorVersion: str
+    templateName: str
+    lastSuccessfulComponentDeploymentIds: NotRequired[List[str]]
+    lastSuccessfulEnvironmentDeploymentId: NotRequired[str]
+    lastSuccessfulServicePipelineDeploymentId: NotRequired[str]
+
+class ServicePipelineStateTypeDef(TypedDict):
+    templateMajorVersion: str
+    templateMinorVersion: str
+    templateName: str
+    spec: NotRequired[str]
+
+DeploymentSummaryTypeDef = TypedDict(
+    "DeploymentSummaryTypeDef",
+    {
+        "arn": str,
+        "createdAt": datetime,
+        "deploymentStatus": DeploymentStatusType,
+        "environmentName": str,
+        "id": str,
+        "lastModifiedAt": datetime,
+        "targetArn": str,
+        "targetResourceCreatedAt": datetime,
+        "targetResourceType": DeploymentTargetResourceTypeType,
+        "completedAt": NotRequired[datetime],
+        "componentName": NotRequired[str],
+        "lastAttemptedDeploymentId": NotRequired[str],
+        "lastSucceededDeploymentId": NotRequired[str],
+        "serviceInstanceName": NotRequired[str],
+        "serviceName": NotRequired[str],
+    },
+)
+EnvironmentAccountConnectionSummaryTypeDef = TypedDict(
+    "EnvironmentAccountConnectionSummaryTypeDef",
     {
         "arn": str,
         "environmentAccountId": str,
@@ -1147,2155 +629,1223 @@ _RequiredEnvironmentAccountConnectionTypeDef = TypedDict(
         "requestedAt": datetime,
         "roleArn": str,
         "status": EnvironmentAccountConnectionStatusType,
-    },
-)
-_OptionalEnvironmentAccountConnectionTypeDef = TypedDict(
-    "_OptionalEnvironmentAccountConnectionTypeDef",
-    {
-        "codebuildRoleArn": str,
-        "componentRoleArn": str,
-    },
-    total=False,
-)
-
-class EnvironmentAccountConnectionTypeDef(
-    _RequiredEnvironmentAccountConnectionTypeDef, _OptionalEnvironmentAccountConnectionTypeDef
-):
-    pass
-
-_RequiredEnvironmentStateTypeDef = TypedDict(
-    "_RequiredEnvironmentStateTypeDef",
-    {
-        "templateMajorVersion": str,
-        "templateMinorVersion": str,
-        "templateName": str,
-    },
-)
-_OptionalEnvironmentStateTypeDef = TypedDict(
-    "_OptionalEnvironmentStateTypeDef",
-    {
-        "spec": str,
-    },
-    total=False,
-)
-
-class EnvironmentStateTypeDef(_RequiredEnvironmentStateTypeDef, _OptionalEnvironmentStateTypeDef):
-    pass
-
-_RequiredEnvironmentSummaryTypeDef = TypedDict(
-    "_RequiredEnvironmentSummaryTypeDef",
-    {
-        "arn": str,
-        "createdAt": datetime,
-        "deploymentStatus": DeploymentStatusType,
-        "lastDeploymentAttemptedAt": datetime,
-        "lastDeploymentSucceededAt": datetime,
-        "name": str,
-        "templateMajorVersion": str,
-        "templateMinorVersion": str,
-        "templateName": str,
-    },
-)
-_OptionalEnvironmentSummaryTypeDef = TypedDict(
-    "_OptionalEnvironmentSummaryTypeDef",
-    {
-        "componentRoleArn": str,
-        "deploymentStatusMessage": str,
-        "description": str,
-        "environmentAccountConnectionId": str,
-        "environmentAccountId": str,
-        "lastAttemptedDeploymentId": str,
-        "lastSucceededDeploymentId": str,
-        "protonServiceRoleArn": str,
-        "provisioning": Literal["CUSTOMER_MANAGED"],
-    },
-    total=False,
-)
-
-class EnvironmentSummaryTypeDef(
-    _RequiredEnvironmentSummaryTypeDef, _OptionalEnvironmentSummaryTypeDef
-):
-    pass
-
-EnvironmentTemplateFilterTypeDef = TypedDict(
-    "EnvironmentTemplateFilterTypeDef",
-    {
-        "majorVersion": str,
-        "templateName": str,
+        "componentRoleArn": NotRequired[str],
     },
 )
 
-_RequiredEnvironmentTemplateSummaryTypeDef = TypedDict(
-    "_RequiredEnvironmentTemplateSummaryTypeDef",
-    {
-        "arn": str,
-        "createdAt": datetime,
-        "lastModifiedAt": datetime,
-        "name": str,
-    },
-)
-_OptionalEnvironmentTemplateSummaryTypeDef = TypedDict(
-    "_OptionalEnvironmentTemplateSummaryTypeDef",
-    {
-        "description": str,
-        "displayName": str,
-        "provisioning": Literal["CUSTOMER_MANAGED"],
-        "recommendedVersion": str,
-    },
-    total=False,
-)
+class EnvironmentSummaryTypeDef(TypedDict):
+    arn: str
+    createdAt: datetime
+    deploymentStatus: DeploymentStatusType
+    lastDeploymentAttemptedAt: datetime
+    lastDeploymentSucceededAt: datetime
+    name: str
+    templateMajorVersion: str
+    templateMinorVersion: str
+    templateName: str
+    componentRoleArn: NotRequired[str]
+    deploymentStatusMessage: NotRequired[str]
+    description: NotRequired[str]
+    environmentAccountConnectionId: NotRequired[str]
+    environmentAccountId: NotRequired[str]
+    lastAttemptedDeploymentId: NotRequired[str]
+    lastSucceededDeploymentId: NotRequired[str]
+    protonServiceRoleArn: NotRequired[str]
+    provisioning: NotRequired[Literal["CUSTOMER_MANAGED"]]
 
-class EnvironmentTemplateSummaryTypeDef(
-    _RequiredEnvironmentTemplateSummaryTypeDef, _OptionalEnvironmentTemplateSummaryTypeDef
-):
-    pass
+class EnvironmentTemplateFilterTypeDef(TypedDict):
+    majorVersion: str
+    templateName: str
 
-_RequiredEnvironmentTemplateTypeDef = TypedDict(
-    "_RequiredEnvironmentTemplateTypeDef",
-    {
-        "arn": str,
-        "createdAt": datetime,
-        "lastModifiedAt": datetime,
-        "name": str,
-    },
-)
-_OptionalEnvironmentTemplateTypeDef = TypedDict(
-    "_OptionalEnvironmentTemplateTypeDef",
-    {
-        "description": str,
-        "displayName": str,
-        "encryptionKey": str,
-        "provisioning": Literal["CUSTOMER_MANAGED"],
-        "recommendedVersion": str,
-    },
-    total=False,
-)
+class EnvironmentTemplateSummaryTypeDef(TypedDict):
+    arn: str
+    createdAt: datetime
+    lastModifiedAt: datetime
+    name: str
+    description: NotRequired[str]
+    displayName: NotRequired[str]
+    provisioning: NotRequired[Literal["CUSTOMER_MANAGED"]]
+    recommendedVersion: NotRequired[str]
 
-class EnvironmentTemplateTypeDef(
-    _RequiredEnvironmentTemplateTypeDef, _OptionalEnvironmentTemplateTypeDef
-):
-    pass
+class EnvironmentTemplateVersionSummaryTypeDef(TypedDict):
+    arn: str
+    createdAt: datetime
+    lastModifiedAt: datetime
+    majorVersion: str
+    minorVersion: str
+    status: TemplateVersionStatusType
+    templateName: str
+    description: NotRequired[str]
+    recommendedMinorVersion: NotRequired[str]
+    statusMessage: NotRequired[str]
 
-_RequiredEnvironmentTemplateVersionSummaryTypeDef = TypedDict(
-    "_RequiredEnvironmentTemplateVersionSummaryTypeDef",
-    {
-        "arn": str,
-        "createdAt": datetime,
-        "lastModifiedAt": datetime,
-        "majorVersion": str,
-        "minorVersion": str,
-        "status": TemplateVersionStatusType,
-        "templateName": str,
-    },
-)
-_OptionalEnvironmentTemplateVersionSummaryTypeDef = TypedDict(
-    "_OptionalEnvironmentTemplateVersionSummaryTypeDef",
-    {
-        "description": str,
-        "recommendedMinorVersion": str,
-        "statusMessage": str,
-    },
-    total=False,
-)
+class GetComponentInputTypeDef(TypedDict):
+    name: str
 
-class EnvironmentTemplateVersionSummaryTypeDef(
-    _RequiredEnvironmentTemplateVersionSummaryTypeDef,
-    _OptionalEnvironmentTemplateVersionSummaryTypeDef,
-):
-    pass
+class WaiterConfigTypeDef(TypedDict):
+    Delay: NotRequired[int]
+    MaxAttempts: NotRequired[int]
 
-_RequiredEnvironmentTemplateVersionTypeDef = TypedDict(
-    "_RequiredEnvironmentTemplateVersionTypeDef",
-    {
-        "arn": str,
-        "createdAt": datetime,
-        "lastModifiedAt": datetime,
-        "majorVersion": str,
-        "minorVersion": str,
-        "status": TemplateVersionStatusType,
-        "templateName": str,
-    },
-)
-_OptionalEnvironmentTemplateVersionTypeDef = TypedDict(
-    "_OptionalEnvironmentTemplateVersionTypeDef",
-    {
-        "description": str,
-        "recommendedMinorVersion": str,
-        "schema": str,
-        "statusMessage": str,
-    },
-    total=False,
-)
-
-class EnvironmentTemplateVersionTypeDef(
-    _RequiredEnvironmentTemplateVersionTypeDef, _OptionalEnvironmentTemplateVersionTypeDef
-):
-    pass
-
-_RequiredEnvironmentTypeDef = TypedDict(
-    "_RequiredEnvironmentTypeDef",
-    {
-        "arn": str,
-        "createdAt": datetime,
-        "deploymentStatus": DeploymentStatusType,
-        "lastDeploymentAttemptedAt": datetime,
-        "lastDeploymentSucceededAt": datetime,
-        "name": str,
-        "templateMajorVersion": str,
-        "templateMinorVersion": str,
-        "templateName": str,
-    },
-)
-_OptionalEnvironmentTypeDef = TypedDict(
-    "_OptionalEnvironmentTypeDef",
-    {
-        "codebuildRoleArn": str,
-        "componentRoleArn": str,
-        "deploymentStatusMessage": str,
-        "description": str,
-        "environmentAccountConnectionId": str,
-        "environmentAccountId": str,
-        "lastAttemptedDeploymentId": str,
-        "lastSucceededDeploymentId": str,
-        "protonServiceRoleArn": str,
-        "provisioning": Literal["CUSTOMER_MANAGED"],
-        "provisioningRepository": "RepositoryBranchTypeDef",
-        "spec": str,
-    },
-    total=False,
-)
-
-class EnvironmentTypeDef(_RequiredEnvironmentTypeDef, _OptionalEnvironmentTypeDef):
-    pass
-
-GetAccountSettingsOutputTypeDef = TypedDict(
-    "GetAccountSettingsOutputTypeDef",
-    {
-        "accountSettings": "AccountSettingsTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetComponentInputRequestTypeDef = TypedDict(
-    "GetComponentInputRequestTypeDef",
-    {
-        "name": str,
-    },
-)
-
-GetComponentOutputTypeDef = TypedDict(
-    "GetComponentOutputTypeDef",
-    {
-        "component": "ComponentTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetDeploymentInputRequestTypeDef = TypedDict(
-    "_RequiredGetDeploymentInputRequestTypeDef",
+GetDeploymentInputTypeDef = TypedDict(
+    "GetDeploymentInputTypeDef",
     {
         "id": str,
+        "componentName": NotRequired[str],
+        "environmentName": NotRequired[str],
+        "serviceInstanceName": NotRequired[str],
+        "serviceName": NotRequired[str],
     },
 )
-_OptionalGetDeploymentInputRequestTypeDef = TypedDict(
-    "_OptionalGetDeploymentInputRequestTypeDef",
-    {
-        "componentName": str,
-        "environmentName": str,
-        "serviceInstanceName": str,
-        "serviceName": str,
-    },
-    total=False,
-)
-
-class GetDeploymentInputRequestTypeDef(
-    _RequiredGetDeploymentInputRequestTypeDef, _OptionalGetDeploymentInputRequestTypeDef
-):
-    pass
-
-GetDeploymentOutputTypeDef = TypedDict(
-    "GetDeploymentOutputTypeDef",
-    {
-        "deployment": "DeploymentTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetEnvironmentAccountConnectionInputRequestTypeDef = TypedDict(
-    "GetEnvironmentAccountConnectionInputRequestTypeDef",
+GetEnvironmentAccountConnectionInputTypeDef = TypedDict(
+    "GetEnvironmentAccountConnectionInputTypeDef",
     {
         "id": str,
     },
 )
 
-GetEnvironmentAccountConnectionOutputTypeDef = TypedDict(
-    "GetEnvironmentAccountConnectionOutputTypeDef",
-    {
-        "environmentAccountConnection": "EnvironmentAccountConnectionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetEnvironmentInputRequestTypeDef = TypedDict(
-    "GetEnvironmentInputRequestTypeDef",
-    {
-        "name": str,
-    },
-)
-
-GetEnvironmentOutputTypeDef = TypedDict(
-    "GetEnvironmentOutputTypeDef",
-    {
-        "environment": "EnvironmentTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetEnvironmentTemplateInputRequestTypeDef = TypedDict(
-    "GetEnvironmentTemplateInputRequestTypeDef",
-    {
-        "name": str,
-    },
-)
-
-GetEnvironmentTemplateOutputTypeDef = TypedDict(
-    "GetEnvironmentTemplateOutputTypeDef",
-    {
-        "environmentTemplate": "EnvironmentTemplateTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetEnvironmentTemplateVersionInputRequestTypeDef = TypedDict(
-    "GetEnvironmentTemplateVersionInputRequestTypeDef",
-    {
-        "majorVersion": str,
-        "minorVersion": str,
-        "templateName": str,
-    },
-)
-
-GetEnvironmentTemplateVersionOutputTypeDef = TypedDict(
-    "GetEnvironmentTemplateVersionOutputTypeDef",
-    {
-        "environmentTemplateVersion": "EnvironmentTemplateVersionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetRepositoryInputRequestTypeDef = TypedDict(
-    "GetRepositoryInputRequestTypeDef",
-    {
-        "name": str,
-        "provider": RepositoryProviderType,
-    },
-)
-
-GetRepositoryOutputTypeDef = TypedDict(
-    "GetRepositoryOutputTypeDef",
-    {
-        "repository": "RepositoryTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetRepositorySyncStatusInputRequestTypeDef = TypedDict(
-    "GetRepositorySyncStatusInputRequestTypeDef",
-    {
-        "branch": str,
-        "repositoryName": str,
-        "repositoryProvider": RepositoryProviderType,
-        "syncType": SyncTypeType,
-    },
-)
-
-GetRepositorySyncStatusOutputTypeDef = TypedDict(
-    "GetRepositorySyncStatusOutputTypeDef",
-    {
-        "latestSync": "RepositorySyncAttemptTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetResourcesSummaryOutputTypeDef = TypedDict(
-    "GetResourcesSummaryOutputTypeDef",
-    {
-        "counts": "CountsSummaryTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetServiceInputRequestTypeDef = TypedDict(
-    "GetServiceInputRequestTypeDef",
-    {
-        "name": str,
-    },
-)
-
-GetServiceInstanceInputRequestTypeDef = TypedDict(
-    "GetServiceInstanceInputRequestTypeDef",
-    {
-        "name": str,
-        "serviceName": str,
-    },
-)
-
-GetServiceInstanceOutputTypeDef = TypedDict(
-    "GetServiceInstanceOutputTypeDef",
-    {
-        "serviceInstance": "ServiceInstanceTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetServiceInstanceSyncStatusInputRequestTypeDef = TypedDict(
-    "GetServiceInstanceSyncStatusInputRequestTypeDef",
-    {
-        "serviceInstanceName": str,
-        "serviceName": str,
-    },
-)
-
-GetServiceInstanceSyncStatusOutputTypeDef = TypedDict(
-    "GetServiceInstanceSyncStatusOutputTypeDef",
-    {
-        "desiredState": "RevisionTypeDef",
-        "latestSuccessfulSync": "ResourceSyncAttemptTypeDef",
-        "latestSync": "ResourceSyncAttemptTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetServiceOutputTypeDef = TypedDict(
-    "GetServiceOutputTypeDef",
-    {
-        "service": "ServiceTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetServiceSyncBlockerSummaryInputRequestTypeDef = TypedDict(
-    "_RequiredGetServiceSyncBlockerSummaryInputRequestTypeDef",
-    {
-        "serviceName": str,
-    },
-)
-_OptionalGetServiceSyncBlockerSummaryInputRequestTypeDef = TypedDict(
-    "_OptionalGetServiceSyncBlockerSummaryInputRequestTypeDef",
-    {
-        "serviceInstanceName": str,
-    },
-    total=False,
-)
-
-class GetServiceSyncBlockerSummaryInputRequestTypeDef(
-    _RequiredGetServiceSyncBlockerSummaryInputRequestTypeDef,
-    _OptionalGetServiceSyncBlockerSummaryInputRequestTypeDef,
-):
-    pass
-
-GetServiceSyncBlockerSummaryOutputTypeDef = TypedDict(
-    "GetServiceSyncBlockerSummaryOutputTypeDef",
-    {
-        "serviceSyncBlockerSummary": "ServiceSyncBlockerSummaryTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetServiceSyncConfigInputRequestTypeDef = TypedDict(
-    "GetServiceSyncConfigInputRequestTypeDef",
-    {
-        "serviceName": str,
-    },
-)
-
-GetServiceSyncConfigOutputTypeDef = TypedDict(
-    "GetServiceSyncConfigOutputTypeDef",
-    {
-        "serviceSyncConfig": "ServiceSyncConfigTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetServiceTemplateInputRequestTypeDef = TypedDict(
-    "GetServiceTemplateInputRequestTypeDef",
-    {
-        "name": str,
-    },
-)
-
-GetServiceTemplateOutputTypeDef = TypedDict(
-    "GetServiceTemplateOutputTypeDef",
-    {
-        "serviceTemplate": "ServiceTemplateTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetServiceTemplateVersionInputRequestTypeDef = TypedDict(
-    "GetServiceTemplateVersionInputRequestTypeDef",
-    {
-        "majorVersion": str,
-        "minorVersion": str,
-        "templateName": str,
-    },
-)
-
-GetServiceTemplateVersionOutputTypeDef = TypedDict(
-    "GetServiceTemplateVersionOutputTypeDef",
-    {
-        "serviceTemplateVersion": "ServiceTemplateVersionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetTemplateSyncConfigInputRequestTypeDef = TypedDict(
-    "GetTemplateSyncConfigInputRequestTypeDef",
-    {
-        "templateName": str,
-        "templateType": TemplateTypeType,
-    },
-)
-
-GetTemplateSyncConfigOutputTypeDef = TypedDict(
-    "GetTemplateSyncConfigOutputTypeDef",
-    {
-        "templateSyncConfig": "TemplateSyncConfigTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetTemplateSyncStatusInputRequestTypeDef = TypedDict(
-    "GetTemplateSyncStatusInputRequestTypeDef",
-    {
-        "templateName": str,
-        "templateType": TemplateTypeType,
-        "templateVersion": str,
-    },
-)
-
-GetTemplateSyncStatusOutputTypeDef = TypedDict(
-    "GetTemplateSyncStatusOutputTypeDef",
-    {
-        "desiredState": "RevisionTypeDef",
-        "latestSuccessfulSync": "ResourceSyncAttemptTypeDef",
-        "latestSync": "ResourceSyncAttemptTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListComponentOutputsInputRequestTypeDef = TypedDict(
-    "_RequiredListComponentOutputsInputRequestTypeDef",
-    {
-        "componentName": str,
-    },
-)
-_OptionalListComponentOutputsInputRequestTypeDef = TypedDict(
-    "_OptionalListComponentOutputsInputRequestTypeDef",
-    {
-        "deploymentId": str,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListComponentOutputsInputRequestTypeDef(
-    _RequiredListComponentOutputsInputRequestTypeDef,
-    _OptionalListComponentOutputsInputRequestTypeDef,
-):
-    pass
-
-ListComponentOutputsOutputTypeDef = TypedDict(
-    "ListComponentOutputsOutputTypeDef",
-    {
-        "nextToken": str,
-        "outputs": List["OutputTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListComponentProvisionedResourcesInputRequestTypeDef = TypedDict(
-    "_RequiredListComponentProvisionedResourcesInputRequestTypeDef",
-    {
-        "componentName": str,
-    },
-)
-_OptionalListComponentProvisionedResourcesInputRequestTypeDef = TypedDict(
-    "_OptionalListComponentProvisionedResourcesInputRequestTypeDef",
-    {
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListComponentProvisionedResourcesInputRequestTypeDef(
-    _RequiredListComponentProvisionedResourcesInputRequestTypeDef,
-    _OptionalListComponentProvisionedResourcesInputRequestTypeDef,
-):
-    pass
-
-ListComponentProvisionedResourcesOutputTypeDef = TypedDict(
-    "ListComponentProvisionedResourcesOutputTypeDef",
-    {
-        "nextToken": str,
-        "provisionedResources": List["ProvisionedResourceTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListComponentsInputRequestTypeDef = TypedDict(
-    "ListComponentsInputRequestTypeDef",
-    {
-        "environmentName": str,
-        "maxResults": int,
-        "nextToken": str,
-        "serviceInstanceName": str,
-        "serviceName": str,
-    },
-    total=False,
-)
-
-ListComponentsOutputTypeDef = TypedDict(
-    "ListComponentsOutputTypeDef",
-    {
-        "components": List["ComponentSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListDeploymentsInputRequestTypeDef = TypedDict(
-    "ListDeploymentsInputRequestTypeDef",
-    {
-        "componentName": str,
-        "environmentName": str,
-        "maxResults": int,
-        "nextToken": str,
-        "serviceInstanceName": str,
-        "serviceName": str,
-    },
-    total=False,
-)
-
-ListDeploymentsOutputTypeDef = TypedDict(
-    "ListDeploymentsOutputTypeDef",
-    {
-        "deployments": List["DeploymentSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListEnvironmentAccountConnectionsInputRequestTypeDef = TypedDict(
-    "_RequiredListEnvironmentAccountConnectionsInputRequestTypeDef",
-    {
-        "requestedBy": EnvironmentAccountConnectionRequesterAccountTypeType,
-    },
-)
-_OptionalListEnvironmentAccountConnectionsInputRequestTypeDef = TypedDict(
-    "_OptionalListEnvironmentAccountConnectionsInputRequestTypeDef",
-    {
-        "environmentName": str,
-        "maxResults": int,
-        "nextToken": str,
-        "statuses": List[EnvironmentAccountConnectionStatusType],
-    },
-    total=False,
-)
-
-class ListEnvironmentAccountConnectionsInputRequestTypeDef(
-    _RequiredListEnvironmentAccountConnectionsInputRequestTypeDef,
-    _OptionalListEnvironmentAccountConnectionsInputRequestTypeDef,
-):
-    pass
-
-ListEnvironmentAccountConnectionsOutputTypeDef = TypedDict(
-    "ListEnvironmentAccountConnectionsOutputTypeDef",
-    {
-        "environmentAccountConnections": List["EnvironmentAccountConnectionSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListEnvironmentOutputsInputRequestTypeDef = TypedDict(
-    "_RequiredListEnvironmentOutputsInputRequestTypeDef",
-    {
-        "environmentName": str,
-    },
-)
-_OptionalListEnvironmentOutputsInputRequestTypeDef = TypedDict(
-    "_OptionalListEnvironmentOutputsInputRequestTypeDef",
-    {
-        "deploymentId": str,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListEnvironmentOutputsInputRequestTypeDef(
-    _RequiredListEnvironmentOutputsInputRequestTypeDef,
-    _OptionalListEnvironmentOutputsInputRequestTypeDef,
-):
-    pass
-
-ListEnvironmentOutputsOutputTypeDef = TypedDict(
-    "ListEnvironmentOutputsOutputTypeDef",
-    {
-        "nextToken": str,
-        "outputs": List["OutputTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListEnvironmentProvisionedResourcesInputRequestTypeDef = TypedDict(
-    "_RequiredListEnvironmentProvisionedResourcesInputRequestTypeDef",
-    {
-        "environmentName": str,
-    },
-)
-_OptionalListEnvironmentProvisionedResourcesInputRequestTypeDef = TypedDict(
-    "_OptionalListEnvironmentProvisionedResourcesInputRequestTypeDef",
-    {
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListEnvironmentProvisionedResourcesInputRequestTypeDef(
-    _RequiredListEnvironmentProvisionedResourcesInputRequestTypeDef,
-    _OptionalListEnvironmentProvisionedResourcesInputRequestTypeDef,
-):
-    pass
-
-ListEnvironmentProvisionedResourcesOutputTypeDef = TypedDict(
-    "ListEnvironmentProvisionedResourcesOutputTypeDef",
-    {
-        "nextToken": str,
-        "provisionedResources": List["ProvisionedResourceTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListEnvironmentTemplateVersionsInputRequestTypeDef = TypedDict(
-    "_RequiredListEnvironmentTemplateVersionsInputRequestTypeDef",
-    {
-        "templateName": str,
-    },
-)
-_OptionalListEnvironmentTemplateVersionsInputRequestTypeDef = TypedDict(
-    "_OptionalListEnvironmentTemplateVersionsInputRequestTypeDef",
-    {
-        "majorVersion": str,
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListEnvironmentTemplateVersionsInputRequestTypeDef(
-    _RequiredListEnvironmentTemplateVersionsInputRequestTypeDef,
-    _OptionalListEnvironmentTemplateVersionsInputRequestTypeDef,
-):
-    pass
-
-ListEnvironmentTemplateVersionsOutputTypeDef = TypedDict(
-    "ListEnvironmentTemplateVersionsOutputTypeDef",
-    {
-        "nextToken": str,
-        "templateVersions": List["EnvironmentTemplateVersionSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListEnvironmentTemplatesInputRequestTypeDef = TypedDict(
-    "ListEnvironmentTemplatesInputRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-ListEnvironmentTemplatesOutputTypeDef = TypedDict(
-    "ListEnvironmentTemplatesOutputTypeDef",
-    {
-        "nextToken": str,
-        "templates": List["EnvironmentTemplateSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListEnvironmentsInputRequestTypeDef = TypedDict(
-    "ListEnvironmentsInputRequestTypeDef",
-    {
-        "environmentTemplates": List["EnvironmentTemplateFilterTypeDef"],
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-ListEnvironmentsOutputTypeDef = TypedDict(
-    "ListEnvironmentsOutputTypeDef",
-    {
-        "environments": List["EnvironmentSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListRepositoriesInputRequestTypeDef = TypedDict(
-    "ListRepositoriesInputRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-ListRepositoriesOutputTypeDef = TypedDict(
-    "ListRepositoriesOutputTypeDef",
-    {
-        "nextToken": str,
-        "repositories": List["RepositorySummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListRepositorySyncDefinitionsInputRequestTypeDef = TypedDict(
-    "_RequiredListRepositorySyncDefinitionsInputRequestTypeDef",
-    {
-        "repositoryName": str,
-        "repositoryProvider": RepositoryProviderType,
-        "syncType": SyncTypeType,
-    },
-)
-_OptionalListRepositorySyncDefinitionsInputRequestTypeDef = TypedDict(
-    "_OptionalListRepositorySyncDefinitionsInputRequestTypeDef",
-    {
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListRepositorySyncDefinitionsInputRequestTypeDef(
-    _RequiredListRepositorySyncDefinitionsInputRequestTypeDef,
-    _OptionalListRepositorySyncDefinitionsInputRequestTypeDef,
-):
-    pass
-
-ListRepositorySyncDefinitionsOutputTypeDef = TypedDict(
-    "ListRepositorySyncDefinitionsOutputTypeDef",
-    {
-        "nextToken": str,
-        "syncDefinitions": List["RepositorySyncDefinitionTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListServiceInstanceOutputsInputRequestTypeDef = TypedDict(
-    "_RequiredListServiceInstanceOutputsInputRequestTypeDef",
-    {
-        "serviceInstanceName": str,
-        "serviceName": str,
-    },
-)
-_OptionalListServiceInstanceOutputsInputRequestTypeDef = TypedDict(
-    "_OptionalListServiceInstanceOutputsInputRequestTypeDef",
-    {
-        "deploymentId": str,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListServiceInstanceOutputsInputRequestTypeDef(
-    _RequiredListServiceInstanceOutputsInputRequestTypeDef,
-    _OptionalListServiceInstanceOutputsInputRequestTypeDef,
-):
-    pass
-
-ListServiceInstanceOutputsOutputTypeDef = TypedDict(
-    "ListServiceInstanceOutputsOutputTypeDef",
-    {
-        "nextToken": str,
-        "outputs": List["OutputTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListServiceInstanceProvisionedResourcesInputRequestTypeDef = TypedDict(
-    "_RequiredListServiceInstanceProvisionedResourcesInputRequestTypeDef",
-    {
-        "serviceInstanceName": str,
-        "serviceName": str,
-    },
-)
-_OptionalListServiceInstanceProvisionedResourcesInputRequestTypeDef = TypedDict(
-    "_OptionalListServiceInstanceProvisionedResourcesInputRequestTypeDef",
-    {
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListServiceInstanceProvisionedResourcesInputRequestTypeDef(
-    _RequiredListServiceInstanceProvisionedResourcesInputRequestTypeDef,
-    _OptionalListServiceInstanceProvisionedResourcesInputRequestTypeDef,
-):
-    pass
-
-ListServiceInstanceProvisionedResourcesOutputTypeDef = TypedDict(
-    "ListServiceInstanceProvisionedResourcesOutputTypeDef",
-    {
-        "nextToken": str,
-        "provisionedResources": List["ProvisionedResourceTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListServiceInstancesFilterTypeDef = TypedDict(
-    "ListServiceInstancesFilterTypeDef",
-    {
-        "key": ListServiceInstancesFilterByType,
-        "value": str,
-    },
-    total=False,
-)
-
-ListServiceInstancesInputRequestTypeDef = TypedDict(
-    "ListServiceInstancesInputRequestTypeDef",
-    {
-        "filters": List["ListServiceInstancesFilterTypeDef"],
-        "maxResults": int,
-        "nextToken": str,
-        "serviceName": str,
-        "sortBy": ListServiceInstancesSortByType,
-        "sortOrder": SortOrderType,
-    },
-    total=False,
-)
-
-ListServiceInstancesOutputTypeDef = TypedDict(
-    "ListServiceInstancesOutputTypeDef",
-    {
-        "nextToken": str,
-        "serviceInstances": List["ServiceInstanceSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListServicePipelineOutputsInputRequestTypeDef = TypedDict(
-    "_RequiredListServicePipelineOutputsInputRequestTypeDef",
-    {
-        "serviceName": str,
-    },
-)
-_OptionalListServicePipelineOutputsInputRequestTypeDef = TypedDict(
-    "_OptionalListServicePipelineOutputsInputRequestTypeDef",
-    {
-        "deploymentId": str,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListServicePipelineOutputsInputRequestTypeDef(
-    _RequiredListServicePipelineOutputsInputRequestTypeDef,
-    _OptionalListServicePipelineOutputsInputRequestTypeDef,
-):
-    pass
-
-ListServicePipelineOutputsOutputTypeDef = TypedDict(
-    "ListServicePipelineOutputsOutputTypeDef",
-    {
-        "nextToken": str,
-        "outputs": List["OutputTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListServicePipelineProvisionedResourcesInputRequestTypeDef = TypedDict(
-    "_RequiredListServicePipelineProvisionedResourcesInputRequestTypeDef",
-    {
-        "serviceName": str,
-    },
-)
-_OptionalListServicePipelineProvisionedResourcesInputRequestTypeDef = TypedDict(
-    "_OptionalListServicePipelineProvisionedResourcesInputRequestTypeDef",
-    {
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListServicePipelineProvisionedResourcesInputRequestTypeDef(
-    _RequiredListServicePipelineProvisionedResourcesInputRequestTypeDef,
-    _OptionalListServicePipelineProvisionedResourcesInputRequestTypeDef,
-):
-    pass
-
-ListServicePipelineProvisionedResourcesOutputTypeDef = TypedDict(
-    "ListServicePipelineProvisionedResourcesOutputTypeDef",
-    {
-        "nextToken": str,
-        "provisionedResources": List["ProvisionedResourceTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListServiceTemplateVersionsInputRequestTypeDef = TypedDict(
-    "_RequiredListServiceTemplateVersionsInputRequestTypeDef",
-    {
-        "templateName": str,
-    },
-)
-_OptionalListServiceTemplateVersionsInputRequestTypeDef = TypedDict(
-    "_OptionalListServiceTemplateVersionsInputRequestTypeDef",
-    {
-        "majorVersion": str,
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListServiceTemplateVersionsInputRequestTypeDef(
-    _RequiredListServiceTemplateVersionsInputRequestTypeDef,
-    _OptionalListServiceTemplateVersionsInputRequestTypeDef,
-):
-    pass
-
-ListServiceTemplateVersionsOutputTypeDef = TypedDict(
-    "ListServiceTemplateVersionsOutputTypeDef",
-    {
-        "nextToken": str,
-        "templateVersions": List["ServiceTemplateVersionSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListServiceTemplatesInputRequestTypeDef = TypedDict(
-    "ListServiceTemplatesInputRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-ListServiceTemplatesOutputTypeDef = TypedDict(
-    "ListServiceTemplatesOutputTypeDef",
-    {
-        "nextToken": str,
-        "templates": List["ServiceTemplateSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListServicesInputRequestTypeDef = TypedDict(
-    "ListServicesInputRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-ListServicesOutputTypeDef = TypedDict(
-    "ListServicesOutputTypeDef",
-    {
-        "nextToken": str,
-        "services": List["ServiceSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListTagsForResourceInputRequestTypeDef = TypedDict(
-    "_RequiredListTagsForResourceInputRequestTypeDef",
-    {
-        "resourceArn": str,
-    },
-)
-_OptionalListTagsForResourceInputRequestTypeDef = TypedDict(
-    "_OptionalListTagsForResourceInputRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListTagsForResourceInputRequestTypeDef(
-    _RequiredListTagsForResourceInputRequestTypeDef, _OptionalListTagsForResourceInputRequestTypeDef
-):
-    pass
-
-ListTagsForResourceOutputTypeDef = TypedDict(
-    "ListTagsForResourceOutputTypeDef",
-    {
-        "nextToken": str,
-        "tags": List["TagTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredNotifyResourceDeploymentStatusChangeInputRequestTypeDef = TypedDict(
-    "_RequiredNotifyResourceDeploymentStatusChangeInputRequestTypeDef",
-    {
-        "resourceArn": str,
-    },
-)
-_OptionalNotifyResourceDeploymentStatusChangeInputRequestTypeDef = TypedDict(
-    "_OptionalNotifyResourceDeploymentStatusChangeInputRequestTypeDef",
-    {
-        "deploymentId": str,
-        "outputs": List["OutputTypeDef"],
-        "status": ResourceDeploymentStatusType,
-        "statusMessage": str,
-    },
-    total=False,
-)
-
-class NotifyResourceDeploymentStatusChangeInputRequestTypeDef(
-    _RequiredNotifyResourceDeploymentStatusChangeInputRequestTypeDef,
-    _OptionalNotifyResourceDeploymentStatusChangeInputRequestTypeDef,
-):
-    pass
-
-OutputTypeDef = TypedDict(
-    "OutputTypeDef",
-    {
-        "key": str,
-        "valueString": str,
-    },
-    total=False,
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-ProvisionedResourceTypeDef = TypedDict(
-    "ProvisionedResourceTypeDef",
-    {
-        "identifier": str,
-        "name": str,
-        "provisioningEngine": ProvisionedResourceEngineType,
-    },
-    total=False,
-)
-
-RejectEnvironmentAccountConnectionInputRequestTypeDef = TypedDict(
-    "RejectEnvironmentAccountConnectionInputRequestTypeDef",
+class GetEnvironmentInputTypeDef(TypedDict):
+    name: str
+
+class GetEnvironmentTemplateInputTypeDef(TypedDict):
+    name: str
+
+class GetEnvironmentTemplateVersionInputTypeDef(TypedDict):
+    majorVersion: str
+    minorVersion: str
+    templateName: str
+
+class GetRepositoryInputTypeDef(TypedDict):
+    name: str
+    provider: RepositoryProviderType
+
+class GetRepositorySyncStatusInputTypeDef(TypedDict):
+    branch: str
+    repositoryName: str
+    repositoryProvider: RepositoryProviderType
+    syncType: SyncTypeType
+
+class GetServiceInputTypeDef(TypedDict):
+    name: str
+
+class GetServiceInstanceInputTypeDef(TypedDict):
+    name: str
+    serviceName: str
+
+class GetServiceInstanceSyncStatusInputTypeDef(TypedDict):
+    serviceInstanceName: str
+    serviceName: str
+
+class RevisionTypeDef(TypedDict):
+    branch: str
+    directory: str
+    repositoryName: str
+    repositoryProvider: RepositoryProviderType
+    sha: str
+
+class GetServiceSyncBlockerSummaryInputTypeDef(TypedDict):
+    serviceName: str
+    serviceInstanceName: NotRequired[str]
+
+class GetServiceSyncConfigInputTypeDef(TypedDict):
+    serviceName: str
+
+class GetServiceTemplateInputTypeDef(TypedDict):
+    name: str
+
+class GetServiceTemplateVersionInputTypeDef(TypedDict):
+    majorVersion: str
+    minorVersion: str
+    templateName: str
+
+class GetTemplateSyncConfigInputTypeDef(TypedDict):
+    templateName: str
+    templateType: TemplateTypeType
+
+class GetTemplateSyncStatusInputTypeDef(TypedDict):
+    templateName: str
+    templateType: TemplateTypeType
+    templateVersion: str
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class ListComponentOutputsInputTypeDef(TypedDict):
+    componentName: str
+    deploymentId: NotRequired[str]
+    nextToken: NotRequired[str]
+
+class OutputTypeDef(TypedDict):
+    key: NotRequired[str]
+    valueString: NotRequired[str]
+
+class ListComponentProvisionedResourcesInputTypeDef(TypedDict):
+    componentName: str
+    nextToken: NotRequired[str]
+
+class ProvisionedResourceTypeDef(TypedDict):
+    identifier: NotRequired[str]
+    name: NotRequired[str]
+    provisioningEngine: NotRequired[ProvisionedResourceEngineType]
+
+class ListComponentsInputTypeDef(TypedDict):
+    environmentName: NotRequired[str]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+    serviceInstanceName: NotRequired[str]
+    serviceName: NotRequired[str]
+
+class ListDeploymentsInputTypeDef(TypedDict):
+    componentName: NotRequired[str]
+    environmentName: NotRequired[str]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+    serviceInstanceName: NotRequired[str]
+    serviceName: NotRequired[str]
+
+class ListEnvironmentAccountConnectionsInputTypeDef(TypedDict):
+    requestedBy: EnvironmentAccountConnectionRequesterAccountTypeType
+    environmentName: NotRequired[str]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+    statuses: NotRequired[Sequence[EnvironmentAccountConnectionStatusType]]
+
+class ListEnvironmentOutputsInputTypeDef(TypedDict):
+    environmentName: str
+    deploymentId: NotRequired[str]
+    nextToken: NotRequired[str]
+
+class ListEnvironmentProvisionedResourcesInputTypeDef(TypedDict):
+    environmentName: str
+    nextToken: NotRequired[str]
+
+class ListEnvironmentTemplateVersionsInputTypeDef(TypedDict):
+    templateName: str
+    majorVersion: NotRequired[str]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListEnvironmentTemplatesInputTypeDef(TypedDict):
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListRepositoriesInputTypeDef(TypedDict):
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class RepositorySummaryTypeDef(TypedDict):
+    arn: str
+    connectionArn: str
+    name: str
+    provider: RepositoryProviderType
+
+class ListRepositorySyncDefinitionsInputTypeDef(TypedDict):
+    repositoryName: str
+    repositoryProvider: RepositoryProviderType
+    syncType: SyncTypeType
+    nextToken: NotRequired[str]
+
+class RepositorySyncDefinitionTypeDef(TypedDict):
+    branch: str
+    directory: str
+    parent: str
+    target: str
+
+class ListServiceInstanceOutputsInputTypeDef(TypedDict):
+    serviceInstanceName: str
+    serviceName: str
+    deploymentId: NotRequired[str]
+    nextToken: NotRequired[str]
+
+class ListServiceInstanceProvisionedResourcesInputTypeDef(TypedDict):
+    serviceInstanceName: str
+    serviceName: str
+    nextToken: NotRequired[str]
+
+class ListServiceInstancesFilterTypeDef(TypedDict):
+    key: NotRequired[ListServiceInstancesFilterByType]
+    value: NotRequired[str]
+
+class ServiceInstanceSummaryTypeDef(TypedDict):
+    arn: str
+    createdAt: datetime
+    deploymentStatus: DeploymentStatusType
+    environmentName: str
+    lastDeploymentAttemptedAt: datetime
+    lastDeploymentSucceededAt: datetime
+    name: str
+    serviceName: str
+    templateMajorVersion: str
+    templateMinorVersion: str
+    templateName: str
+    deploymentStatusMessage: NotRequired[str]
+    lastAttemptedDeploymentId: NotRequired[str]
+    lastSucceededDeploymentId: NotRequired[str]
+
+class ListServicePipelineOutputsInputTypeDef(TypedDict):
+    serviceName: str
+    deploymentId: NotRequired[str]
+    nextToken: NotRequired[str]
+
+class ListServicePipelineProvisionedResourcesInputTypeDef(TypedDict):
+    serviceName: str
+    nextToken: NotRequired[str]
+
+class ListServiceTemplateVersionsInputTypeDef(TypedDict):
+    templateName: str
+    majorVersion: NotRequired[str]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ServiceTemplateVersionSummaryTypeDef(TypedDict):
+    arn: str
+    createdAt: datetime
+    lastModifiedAt: datetime
+    majorVersion: str
+    minorVersion: str
+    status: TemplateVersionStatusType
+    templateName: str
+    description: NotRequired[str]
+    recommendedMinorVersion: NotRequired[str]
+    statusMessage: NotRequired[str]
+
+class ListServiceTemplatesInputTypeDef(TypedDict):
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ServiceTemplateSummaryTypeDef(TypedDict):
+    arn: str
+    createdAt: datetime
+    lastModifiedAt: datetime
+    name: str
+    description: NotRequired[str]
+    displayName: NotRequired[str]
+    pipelineProvisioning: NotRequired[Literal["CUSTOMER_MANAGED"]]
+    recommendedVersion: NotRequired[str]
+
+class ListServicesInputTypeDef(TypedDict):
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ServiceSummaryTypeDef(TypedDict):
+    arn: str
+    createdAt: datetime
+    lastModifiedAt: datetime
+    name: str
+    status: ServiceStatusType
+    templateName: str
+    description: NotRequired[str]
+    statusMessage: NotRequired[str]
+
+class ListTagsForResourceInputTypeDef(TypedDict):
+    resourceArn: str
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+RejectEnvironmentAccountConnectionInputTypeDef = TypedDict(
+    "RejectEnvironmentAccountConnectionInputTypeDef",
     {
         "id": str,
     },
 )
-
-RejectEnvironmentAccountConnectionOutputTypeDef = TypedDict(
-    "RejectEnvironmentAccountConnectionOutputTypeDef",
-    {
-        "environmentAccountConnection": "EnvironmentAccountConnectionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-RepositoryBranchInputTypeDef = TypedDict(
-    "RepositoryBranchInputTypeDef",
-    {
-        "branch": str,
-        "name": str,
-        "provider": RepositoryProviderType,
-    },
-)
-
-RepositoryBranchTypeDef = TypedDict(
-    "RepositoryBranchTypeDef",
-    {
-        "arn": str,
-        "branch": str,
-        "name": str,
-        "provider": RepositoryProviderType,
-    },
-)
-
-RepositorySummaryTypeDef = TypedDict(
-    "RepositorySummaryTypeDef",
-    {
-        "arn": str,
-        "connectionArn": str,
-        "name": str,
-        "provider": RepositoryProviderType,
-    },
-)
-
-RepositorySyncAttemptTypeDef = TypedDict(
-    "RepositorySyncAttemptTypeDef",
-    {
-        "events": List["RepositorySyncEventTypeDef"],
-        "startedAt": datetime,
-        "status": RepositorySyncStatusType,
-    },
-)
-
-RepositorySyncDefinitionTypeDef = TypedDict(
-    "RepositorySyncDefinitionTypeDef",
-    {
-        "branch": str,
-        "directory": str,
-        "parent": str,
-        "target": str,
-    },
-)
-
-_RequiredRepositorySyncEventTypeDef = TypedDict(
-    "_RequiredRepositorySyncEventTypeDef",
+RepositorySyncEventTypeDef = TypedDict(
+    "RepositorySyncEventTypeDef",
     {
         "event": str,
         "time": datetime,
         "type": str,
+        "externalId": NotRequired[str],
     },
 )
-_OptionalRepositorySyncEventTypeDef = TypedDict(
-    "_OptionalRepositorySyncEventTypeDef",
-    {
-        "externalId": str,
-    },
-    total=False,
-)
-
-class RepositorySyncEventTypeDef(
-    _RequiredRepositorySyncEventTypeDef, _OptionalRepositorySyncEventTypeDef
-):
-    pass
-
-_RequiredRepositoryTypeDef = TypedDict(
-    "_RequiredRepositoryTypeDef",
-    {
-        "arn": str,
-        "connectionArn": str,
-        "name": str,
-        "provider": RepositoryProviderType,
-    },
-)
-_OptionalRepositoryTypeDef = TypedDict(
-    "_OptionalRepositoryTypeDef",
-    {
-        "encryptionKey": str,
-    },
-    total=False,
-)
-
-class RepositoryTypeDef(_RequiredRepositoryTypeDef, _OptionalRepositoryTypeDef):
-    pass
-
-_RequiredResourceCountsSummaryTypeDef = TypedDict(
-    "_RequiredResourceCountsSummaryTypeDef",
-    {
-        "total": int,
-    },
-)
-_OptionalResourceCountsSummaryTypeDef = TypedDict(
-    "_OptionalResourceCountsSummaryTypeDef",
-    {
-        "behindMajor": int,
-        "behindMinor": int,
-        "failed": int,
-        "upToDate": int,
-    },
-    total=False,
-)
-
-class ResourceCountsSummaryTypeDef(
-    _RequiredResourceCountsSummaryTypeDef, _OptionalResourceCountsSummaryTypeDef
-):
-    pass
-
-ResourceSyncAttemptTypeDef = TypedDict(
-    "ResourceSyncAttemptTypeDef",
-    {
-        "events": List["ResourceSyncEventTypeDef"],
-        "initialRevision": "RevisionTypeDef",
-        "startedAt": datetime,
-        "status": ResourceSyncStatusType,
-        "target": str,
-        "targetRevision": "RevisionTypeDef",
-    },
-)
-
-_RequiredResourceSyncEventTypeDef = TypedDict(
-    "_RequiredResourceSyncEventTypeDef",
+ResourceSyncEventTypeDef = TypedDict(
+    "ResourceSyncEventTypeDef",
     {
         "event": str,
         "time": datetime,
         "type": str,
+        "externalId": NotRequired[str],
     },
 )
-_OptionalResourceSyncEventTypeDef = TypedDict(
-    "_OptionalResourceSyncEventTypeDef",
+
+class S3ObjectSourceTypeDef(TypedDict):
+    bucket: str
+    key: str
+
+class SyncBlockerContextTypeDef(TypedDict):
+    key: str
+    value: str
+
+class UntagResourceInputTypeDef(TypedDict):
+    resourceArn: str
+    tagKeys: Sequence[str]
+
+class UpdateComponentInputTypeDef(TypedDict):
+    deploymentType: ComponentDeploymentUpdateTypeType
+    name: str
+    clientToken: NotRequired[str]
+    description: NotRequired[str]
+    serviceInstanceName: NotRequired[str]
+    serviceName: NotRequired[str]
+    serviceSpec: NotRequired[str]
+    templateFile: NotRequired[str]
+
+UpdateEnvironmentAccountConnectionInputTypeDef = TypedDict(
+    "UpdateEnvironmentAccountConnectionInputTypeDef",
     {
-        "externalId": str,
+        "id": str,
+        "codebuildRoleArn": NotRequired[str],
+        "componentRoleArn": NotRequired[str],
+        "roleArn": NotRequired[str],
     },
-    total=False,
 )
 
-class ResourceSyncEventTypeDef(
-    _RequiredResourceSyncEventTypeDef, _OptionalResourceSyncEventTypeDef
-):
-    pass
+class UpdateEnvironmentTemplateInputTypeDef(TypedDict):
+    name: str
+    description: NotRequired[str]
+    displayName: NotRequired[str]
 
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
+class UpdateEnvironmentTemplateVersionInputTypeDef(TypedDict):
+    majorVersion: str
+    minorVersion: str
+    templateName: str
+    description: NotRequired[str]
+    status: NotRequired[TemplateVersionStatusType]
+
+class UpdateServiceInputTypeDef(TypedDict):
+    name: str
+    description: NotRequired[str]
+    spec: NotRequired[str]
+
+class UpdateServiceInstanceInputTypeDef(TypedDict):
+    deploymentType: DeploymentUpdateTypeType
+    name: str
+    serviceName: str
+    clientToken: NotRequired[str]
+    spec: NotRequired[str]
+    templateMajorVersion: NotRequired[str]
+    templateMinorVersion: NotRequired[str]
+
+class UpdateServicePipelineInputTypeDef(TypedDict):
+    deploymentType: DeploymentUpdateTypeType
+    serviceName: str
+    spec: str
+    templateMajorVersion: NotRequired[str]
+    templateMinorVersion: NotRequired[str]
+
+UpdateServiceSyncBlockerInputTypeDef = TypedDict(
+    "UpdateServiceSyncBlockerInputTypeDef",
     {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
+        "id": str,
+        "resolvedReason": str,
     },
 )
 
-RevisionTypeDef = TypedDict(
-    "RevisionTypeDef",
-    {
-        "branch": str,
-        "directory": str,
-        "repositoryName": str,
-        "repositoryProvider": RepositoryProviderType,
-        "sha": str,
-    },
-)
+class UpdateServiceSyncConfigInputTypeDef(TypedDict):
+    branch: str
+    filePath: str
+    repositoryName: str
+    repositoryProvider: RepositoryProviderType
+    serviceName: str
 
-S3ObjectSourceTypeDef = TypedDict(
-    "S3ObjectSourceTypeDef",
-    {
-        "bucket": str,
-        "key": str,
-    },
-)
+class UpdateServiceTemplateInputTypeDef(TypedDict):
+    name: str
+    description: NotRequired[str]
+    displayName: NotRequired[str]
 
-_RequiredServiceInstanceStateTypeDef = TypedDict(
-    "_RequiredServiceInstanceStateTypeDef",
-    {
-        "spec": str,
-        "templateMajorVersion": str,
-        "templateMinorVersion": str,
-        "templateName": str,
-    },
-)
-_OptionalServiceInstanceStateTypeDef = TypedDict(
-    "_OptionalServiceInstanceStateTypeDef",
-    {
-        "lastSuccessfulComponentDeploymentIds": List[str],
-        "lastSuccessfulEnvironmentDeploymentId": str,
-        "lastSuccessfulServicePipelineDeploymentId": str,
-    },
-    total=False,
-)
+class UpdateTemplateSyncConfigInputTypeDef(TypedDict):
+    branch: str
+    repositoryName: str
+    repositoryProvider: RepositoryProviderType
+    templateName: str
+    templateType: TemplateTypeType
+    subdirectory: NotRequired[str]
 
-class ServiceInstanceStateTypeDef(
-    _RequiredServiceInstanceStateTypeDef, _OptionalServiceInstanceStateTypeDef
-):
-    pass
+class AcceptEnvironmentAccountConnectionOutputTypeDef(TypedDict):
+    environmentAccountConnection: EnvironmentAccountConnectionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredServiceInstanceSummaryTypeDef = TypedDict(
-    "_RequiredServiceInstanceSummaryTypeDef",
-    {
-        "arn": str,
-        "createdAt": datetime,
-        "deploymentStatus": DeploymentStatusType,
-        "environmentName": str,
-        "lastDeploymentAttemptedAt": datetime,
-        "lastDeploymentSucceededAt": datetime,
-        "name": str,
-        "serviceName": str,
-        "templateMajorVersion": str,
-        "templateMinorVersion": str,
-        "templateName": str,
-    },
-)
-_OptionalServiceInstanceSummaryTypeDef = TypedDict(
-    "_OptionalServiceInstanceSummaryTypeDef",
-    {
-        "deploymentStatusMessage": str,
-        "lastAttemptedDeploymentId": str,
-        "lastSucceededDeploymentId": str,
-    },
-    total=False,
-)
+class CreateEnvironmentAccountConnectionOutputTypeDef(TypedDict):
+    environmentAccountConnection: EnvironmentAccountConnectionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class ServiceInstanceSummaryTypeDef(
-    _RequiredServiceInstanceSummaryTypeDef, _OptionalServiceInstanceSummaryTypeDef
-):
-    pass
+class DeleteEnvironmentAccountConnectionOutputTypeDef(TypedDict):
+    environmentAccountConnection: EnvironmentAccountConnectionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredServiceInstanceTypeDef = TypedDict(
-    "_RequiredServiceInstanceTypeDef",
-    {
-        "arn": str,
-        "createdAt": datetime,
-        "deploymentStatus": DeploymentStatusType,
-        "environmentName": str,
-        "lastDeploymentAttemptedAt": datetime,
-        "lastDeploymentSucceededAt": datetime,
-        "name": str,
-        "serviceName": str,
-        "templateMajorVersion": str,
-        "templateMinorVersion": str,
-        "templateName": str,
-    },
-)
-_OptionalServiceInstanceTypeDef = TypedDict(
-    "_OptionalServiceInstanceTypeDef",
-    {
-        "deploymentStatusMessage": str,
-        "lastAttemptedDeploymentId": str,
-        "lastClientRequestToken": str,
-        "lastSucceededDeploymentId": str,
-        "spec": str,
-    },
-    total=False,
-)
+class GetEnvironmentAccountConnectionOutputTypeDef(TypedDict):
+    environmentAccountConnection: EnvironmentAccountConnectionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class ServiceInstanceTypeDef(_RequiredServiceInstanceTypeDef, _OptionalServiceInstanceTypeDef):
-    pass
+class RejectEnvironmentAccountConnectionOutputTypeDef(TypedDict):
+    environmentAccountConnection: EnvironmentAccountConnectionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredServicePipelineStateTypeDef = TypedDict(
-    "_RequiredServicePipelineStateTypeDef",
-    {
-        "templateMajorVersion": str,
-        "templateMinorVersion": str,
-        "templateName": str,
-    },
-)
-_OptionalServicePipelineStateTypeDef = TypedDict(
-    "_OptionalServicePipelineStateTypeDef",
-    {
-        "spec": str,
-    },
-    total=False,
-)
+class UpdateEnvironmentAccountConnectionOutputTypeDef(TypedDict):
+    environmentAccountConnection: EnvironmentAccountConnectionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class ServicePipelineStateTypeDef(
-    _RequiredServicePipelineStateTypeDef, _OptionalServicePipelineStateTypeDef
-):
-    pass
+class AccountSettingsTypeDef(TypedDict):
+    pipelineCodebuildRoleArn: NotRequired[str]
+    pipelineProvisioningRepository: NotRequired[RepositoryBranchTypeDef]
+    pipelineServiceRoleArn: NotRequired[str]
 
-_RequiredServicePipelineTypeDef = TypedDict(
-    "_RequiredServicePipelineTypeDef",
-    {
-        "arn": str,
-        "createdAt": datetime,
-        "deploymentStatus": DeploymentStatusType,
-        "lastDeploymentAttemptedAt": datetime,
-        "lastDeploymentSucceededAt": datetime,
-        "templateMajorVersion": str,
-        "templateMinorVersion": str,
-        "templateName": str,
-    },
-)
-_OptionalServicePipelineTypeDef = TypedDict(
-    "_OptionalServicePipelineTypeDef",
-    {
-        "deploymentStatusMessage": str,
-        "lastAttemptedDeploymentId": str,
-        "lastSucceededDeploymentId": str,
-        "spec": str,
-    },
-    total=False,
-)
+class EnvironmentTypeDef(TypedDict):
+    arn: str
+    createdAt: datetime
+    deploymentStatus: DeploymentStatusType
+    lastDeploymentAttemptedAt: datetime
+    lastDeploymentSucceededAt: datetime
+    name: str
+    templateMajorVersion: str
+    templateMinorVersion: str
+    templateName: str
+    codebuildRoleArn: NotRequired[str]
+    componentRoleArn: NotRequired[str]
+    deploymentStatusMessage: NotRequired[str]
+    description: NotRequired[str]
+    environmentAccountConnectionId: NotRequired[str]
+    environmentAccountId: NotRequired[str]
+    lastAttemptedDeploymentId: NotRequired[str]
+    lastSucceededDeploymentId: NotRequired[str]
+    protonServiceRoleArn: NotRequired[str]
+    provisioning: NotRequired[Literal["CUSTOMER_MANAGED"]]
+    provisioningRepository: NotRequired[RepositoryBranchTypeDef]
+    spec: NotRequired[str]
 
-class ServicePipelineTypeDef(_RequiredServicePipelineTypeDef, _OptionalServicePipelineTypeDef):
-    pass
+class CancelComponentDeploymentOutputTypeDef(TypedDict):
+    component: ComponentTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredServiceSummaryTypeDef = TypedDict(
-    "_RequiredServiceSummaryTypeDef",
-    {
-        "arn": str,
-        "createdAt": datetime,
-        "lastModifiedAt": datetime,
-        "name": str,
-        "status": ServiceStatusType,
-        "templateName": str,
-    },
-)
-_OptionalServiceSummaryTypeDef = TypedDict(
-    "_OptionalServiceSummaryTypeDef",
-    {
-        "description": str,
-        "statusMessage": str,
-    },
-    total=False,
-)
+class CreateComponentOutputTypeDef(TypedDict):
+    component: ComponentTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class ServiceSummaryTypeDef(_RequiredServiceSummaryTypeDef, _OptionalServiceSummaryTypeDef):
-    pass
+class DeleteComponentOutputTypeDef(TypedDict):
+    component: ComponentTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredServiceSyncBlockerSummaryTypeDef = TypedDict(
-    "_RequiredServiceSyncBlockerSummaryTypeDef",
-    {
-        "serviceName": str,
-    },
-)
-_OptionalServiceSyncBlockerSummaryTypeDef = TypedDict(
-    "_OptionalServiceSyncBlockerSummaryTypeDef",
-    {
-        "latestBlockers": List["SyncBlockerTypeDef"],
-        "serviceInstanceName": str,
-    },
-    total=False,
-)
+class GetComponentOutputTypeDef(TypedDict):
+    component: ComponentTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class ServiceSyncBlockerSummaryTypeDef(
-    _RequiredServiceSyncBlockerSummaryTypeDef, _OptionalServiceSyncBlockerSummaryTypeDef
-):
-    pass
+class UpdateComponentOutputTypeDef(TypedDict):
+    component: ComponentTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ServiceSyncConfigTypeDef = TypedDict(
-    "ServiceSyncConfigTypeDef",
-    {
-        "branch": str,
-        "filePath": str,
-        "repositoryName": str,
-        "repositoryProvider": RepositoryProviderType,
-        "serviceName": str,
-    },
-)
+class CancelServiceInstanceDeploymentOutputTypeDef(TypedDict):
+    serviceInstance: ServiceInstanceTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredServiceTemplateSummaryTypeDef = TypedDict(
-    "_RequiredServiceTemplateSummaryTypeDef",
-    {
-        "arn": str,
-        "createdAt": datetime,
-        "lastModifiedAt": datetime,
-        "name": str,
-    },
-)
-_OptionalServiceTemplateSummaryTypeDef = TypedDict(
-    "_OptionalServiceTemplateSummaryTypeDef",
-    {
-        "description": str,
-        "displayName": str,
-        "pipelineProvisioning": Literal["CUSTOMER_MANAGED"],
-        "recommendedVersion": str,
-    },
-    total=False,
-)
+class CreateServiceInstanceOutputTypeDef(TypedDict):
+    serviceInstance: ServiceInstanceTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class ServiceTemplateSummaryTypeDef(
-    _RequiredServiceTemplateSummaryTypeDef, _OptionalServiceTemplateSummaryTypeDef
-):
-    pass
+class GetServiceInstanceOutputTypeDef(TypedDict):
+    serviceInstance: ServiceInstanceTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredServiceTemplateTypeDef = TypedDict(
-    "_RequiredServiceTemplateTypeDef",
-    {
-        "arn": str,
-        "createdAt": datetime,
-        "lastModifiedAt": datetime,
-        "name": str,
-    },
-)
-_OptionalServiceTemplateTypeDef = TypedDict(
-    "_OptionalServiceTemplateTypeDef",
-    {
-        "description": str,
-        "displayName": str,
-        "encryptionKey": str,
-        "pipelineProvisioning": Literal["CUSTOMER_MANAGED"],
-        "recommendedVersion": str,
-    },
-    total=False,
-)
+class UpdateServiceInstanceOutputTypeDef(TypedDict):
+    serviceInstance: ServiceInstanceTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class ServiceTemplateTypeDef(_RequiredServiceTemplateTypeDef, _OptionalServiceTemplateTypeDef):
-    pass
+class CancelServicePipelineDeploymentOutputTypeDef(TypedDict):
+    pipeline: ServicePipelineTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredServiceTemplateVersionSummaryTypeDef = TypedDict(
-    "_RequiredServiceTemplateVersionSummaryTypeDef",
-    {
-        "arn": str,
-        "createdAt": datetime,
-        "lastModifiedAt": datetime,
-        "majorVersion": str,
-        "minorVersion": str,
-        "status": TemplateVersionStatusType,
-        "templateName": str,
-    },
-)
-_OptionalServiceTemplateVersionSummaryTypeDef = TypedDict(
-    "_OptionalServiceTemplateVersionSummaryTypeDef",
-    {
-        "description": str,
-        "recommendedMinorVersion": str,
-        "statusMessage": str,
-    },
-    total=False,
-)
+class ServiceTypeDef(TypedDict):
+    arn: str
+    createdAt: datetime
+    lastModifiedAt: datetime
+    name: str
+    spec: str
+    status: ServiceStatusType
+    templateName: str
+    branchName: NotRequired[str]
+    description: NotRequired[str]
+    pipeline: NotRequired[ServicePipelineTypeDef]
+    repositoryConnectionArn: NotRequired[str]
+    repositoryId: NotRequired[str]
+    statusMessage: NotRequired[str]
 
-class ServiceTemplateVersionSummaryTypeDef(
-    _RequiredServiceTemplateVersionSummaryTypeDef, _OptionalServiceTemplateVersionSummaryTypeDef
-):
-    pass
+class UpdateServicePipelineOutputTypeDef(TypedDict):
+    pipeline: ServicePipelineTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredServiceTemplateVersionTypeDef = TypedDict(
-    "_RequiredServiceTemplateVersionTypeDef",
-    {
-        "arn": str,
-        "compatibleEnvironmentTemplates": List["CompatibleEnvironmentTemplateTypeDef"],
-        "createdAt": datetime,
-        "lastModifiedAt": datetime,
-        "majorVersion": str,
-        "minorVersion": str,
-        "status": TemplateVersionStatusType,
-        "templateName": str,
-    },
-)
-_OptionalServiceTemplateVersionTypeDef = TypedDict(
-    "_OptionalServiceTemplateVersionTypeDef",
-    {
-        "description": str,
-        "recommendedMinorVersion": str,
-        "schema": str,
-        "statusMessage": str,
-        "supportedComponentSources": List[Literal["DIRECTLY_DEFINED"]],
-    },
-    total=False,
-)
+class UpdateServiceTemplateVersionInputTypeDef(TypedDict):
+    majorVersion: str
+    minorVersion: str
+    templateName: str
+    compatibleEnvironmentTemplates: NotRequired[Sequence[CompatibleEnvironmentTemplateInputTypeDef]]
+    description: NotRequired[str]
+    status: NotRequired[TemplateVersionStatusType]
+    supportedComponentSources: NotRequired[Sequence[Literal["DIRECTLY_DEFINED"]]]
 
-class ServiceTemplateVersionTypeDef(
-    _RequiredServiceTemplateVersionTypeDef, _OptionalServiceTemplateVersionTypeDef
-):
-    pass
+class ServiceTemplateVersionTypeDef(TypedDict):
+    arn: str
+    compatibleEnvironmentTemplates: List[CompatibleEnvironmentTemplateTypeDef]
+    createdAt: datetime
+    lastModifiedAt: datetime
+    majorVersion: str
+    minorVersion: str
+    status: TemplateVersionStatusType
+    templateName: str
+    description: NotRequired[str]
+    recommendedMinorVersion: NotRequired[str]
+    schema: NotRequired[str]
+    statusMessage: NotRequired[str]
+    supportedComponentSources: NotRequired[List[Literal["DIRECTLY_DEFINED"]]]
 
-_RequiredServiceTypeDef = TypedDict(
-    "_RequiredServiceTypeDef",
-    {
-        "arn": str,
-        "createdAt": datetime,
-        "lastModifiedAt": datetime,
-        "name": str,
-        "spec": str,
-        "status": ServiceStatusType,
-        "templateName": str,
-    },
-)
-_OptionalServiceTypeDef = TypedDict(
-    "_OptionalServiceTypeDef",
-    {
-        "branchName": str,
-        "description": str,
-        "pipeline": "ServicePipelineTypeDef",
-        "repositoryConnectionArn": str,
-        "repositoryId": str,
-        "statusMessage": str,
-    },
-    total=False,
-)
+class ListComponentsOutputTypeDef(TypedDict):
+    components: List[ComponentSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-class ServiceTypeDef(_RequiredServiceTypeDef, _OptionalServiceTypeDef):
-    pass
+class CountsSummaryTypeDef(TypedDict):
+    components: NotRequired[ResourceCountsSummaryTypeDef]
+    environmentTemplates: NotRequired[ResourceCountsSummaryTypeDef]
+    environments: NotRequired[ResourceCountsSummaryTypeDef]
+    pipelines: NotRequired[ResourceCountsSummaryTypeDef]
+    serviceInstances: NotRequired[ResourceCountsSummaryTypeDef]
+    serviceTemplates: NotRequired[ResourceCountsSummaryTypeDef]
+    services: NotRequired[ResourceCountsSummaryTypeDef]
 
-SyncBlockerContextTypeDef = TypedDict(
-    "SyncBlockerContextTypeDef",
-    {
-        "key": str,
-        "value": str,
-    },
-)
+class CreateComponentInputTypeDef(TypedDict):
+    manifest: str
+    name: str
+    templateFile: str
+    clientToken: NotRequired[str]
+    description: NotRequired[str]
+    environmentName: NotRequired[str]
+    serviceInstanceName: NotRequired[str]
+    serviceName: NotRequired[str]
+    serviceSpec: NotRequired[str]
+    tags: NotRequired[Sequence[TagTypeDef]]
 
-_RequiredSyncBlockerTypeDef = TypedDict(
-    "_RequiredSyncBlockerTypeDef",
+class CreateEnvironmentAccountConnectionInputTypeDef(TypedDict):
+    environmentName: str
+    managementAccountId: str
+    clientToken: NotRequired[str]
+    codebuildRoleArn: NotRequired[str]
+    componentRoleArn: NotRequired[str]
+    roleArn: NotRequired[str]
+    tags: NotRequired[Sequence[TagTypeDef]]
+
+class CreateEnvironmentTemplateInputTypeDef(TypedDict):
+    name: str
+    description: NotRequired[str]
+    displayName: NotRequired[str]
+    encryptionKey: NotRequired[str]
+    provisioning: NotRequired[Literal["CUSTOMER_MANAGED"]]
+    tags: NotRequired[Sequence[TagTypeDef]]
+
+class CreateRepositoryInputTypeDef(TypedDict):
+    connectionArn: str
+    name: str
+    provider: RepositoryProviderType
+    encryptionKey: NotRequired[str]
+    tags: NotRequired[Sequence[TagTypeDef]]
+
+class CreateServiceInputTypeDef(TypedDict):
+    name: str
+    spec: str
+    templateMajorVersion: str
+    templateName: str
+    branchName: NotRequired[str]
+    description: NotRequired[str]
+    repositoryConnectionArn: NotRequired[str]
+    repositoryId: NotRequired[str]
+    tags: NotRequired[Sequence[TagTypeDef]]
+    templateMinorVersion: NotRequired[str]
+
+class CreateServiceInstanceInputTypeDef(TypedDict):
+    name: str
+    serviceName: str
+    spec: str
+    clientToken: NotRequired[str]
+    tags: NotRequired[Sequence[TagTypeDef]]
+    templateMajorVersion: NotRequired[str]
+    templateMinorVersion: NotRequired[str]
+
+class CreateServiceTemplateInputTypeDef(TypedDict):
+    name: str
+    description: NotRequired[str]
+    displayName: NotRequired[str]
+    encryptionKey: NotRequired[str]
+    pipelineProvisioning: NotRequired[Literal["CUSTOMER_MANAGED"]]
+    tags: NotRequired[Sequence[TagTypeDef]]
+
+class ListTagsForResourceOutputTypeDef(TypedDict):
+    tags: List[TagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class TagResourceInputTypeDef(TypedDict):
+    resourceArn: str
+    tags: Sequence[TagTypeDef]
+
+class CreateEnvironmentInputTypeDef(TypedDict):
+    name: str
+    spec: str
+    templateMajorVersion: str
+    templateName: str
+    codebuildRoleArn: NotRequired[str]
+    componentRoleArn: NotRequired[str]
+    description: NotRequired[str]
+    environmentAccountConnectionId: NotRequired[str]
+    protonServiceRoleArn: NotRequired[str]
+    provisioningRepository: NotRequired[RepositoryBranchInputTypeDef]
+    tags: NotRequired[Sequence[TagTypeDef]]
+    templateMinorVersion: NotRequired[str]
+
+class UpdateAccountSettingsInputTypeDef(TypedDict):
+    deletePipelineProvisioningRepository: NotRequired[bool]
+    pipelineCodebuildRoleArn: NotRequired[str]
+    pipelineProvisioningRepository: NotRequired[RepositoryBranchInputTypeDef]
+    pipelineServiceRoleArn: NotRequired[str]
+
+class UpdateEnvironmentInputTypeDef(TypedDict):
+    deploymentType: DeploymentUpdateTypeType
+    name: str
+    codebuildRoleArn: NotRequired[str]
+    componentRoleArn: NotRequired[str]
+    description: NotRequired[str]
+    environmentAccountConnectionId: NotRequired[str]
+    protonServiceRoleArn: NotRequired[str]
+    provisioningRepository: NotRequired[RepositoryBranchInputTypeDef]
+    spec: NotRequired[str]
+    templateMajorVersion: NotRequired[str]
+    templateMinorVersion: NotRequired[str]
+
+class CreateEnvironmentTemplateOutputTypeDef(TypedDict):
+    environmentTemplate: EnvironmentTemplateTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteEnvironmentTemplateOutputTypeDef(TypedDict):
+    environmentTemplate: EnvironmentTemplateTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetEnvironmentTemplateOutputTypeDef(TypedDict):
+    environmentTemplate: EnvironmentTemplateTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateEnvironmentTemplateOutputTypeDef(TypedDict):
+    environmentTemplate: EnvironmentTemplateTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateEnvironmentTemplateVersionOutputTypeDef(TypedDict):
+    environmentTemplateVersion: EnvironmentTemplateVersionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteEnvironmentTemplateVersionOutputTypeDef(TypedDict):
+    environmentTemplateVersion: EnvironmentTemplateVersionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetEnvironmentTemplateVersionOutputTypeDef(TypedDict):
+    environmentTemplateVersion: EnvironmentTemplateVersionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateEnvironmentTemplateVersionOutputTypeDef(TypedDict):
+    environmentTemplateVersion: EnvironmentTemplateVersionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateRepositoryOutputTypeDef(TypedDict):
+    repository: RepositoryTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteRepositoryOutputTypeDef(TypedDict):
+    repository: RepositoryTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetRepositoryOutputTypeDef(TypedDict):
+    repository: RepositoryTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateServiceSyncConfigOutputTypeDef(TypedDict):
+    serviceSyncConfig: ServiceSyncConfigTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteServiceSyncConfigOutputTypeDef(TypedDict):
+    serviceSyncConfig: ServiceSyncConfigTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetServiceSyncConfigOutputTypeDef(TypedDict):
+    serviceSyncConfig: ServiceSyncConfigTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateServiceSyncConfigOutputTypeDef(TypedDict):
+    serviceSyncConfig: ServiceSyncConfigTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateServiceTemplateOutputTypeDef(TypedDict):
+    serviceTemplate: ServiceTemplateTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteServiceTemplateOutputTypeDef(TypedDict):
+    serviceTemplate: ServiceTemplateTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetServiceTemplateOutputTypeDef(TypedDict):
+    serviceTemplate: ServiceTemplateTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateServiceTemplateOutputTypeDef(TypedDict):
+    serviceTemplate: ServiceTemplateTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateTemplateSyncConfigOutputTypeDef(TypedDict):
+    templateSyncConfig: TemplateSyncConfigTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteTemplateSyncConfigOutputTypeDef(TypedDict):
+    templateSyncConfig: TemplateSyncConfigTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetTemplateSyncConfigOutputTypeDef(TypedDict):
+    templateSyncConfig: TemplateSyncConfigTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateTemplateSyncConfigOutputTypeDef(TypedDict):
+    templateSyncConfig: TemplateSyncConfigTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeploymentStateTypeDef(TypedDict):
+    component: NotRequired[ComponentStateTypeDef]
+    environment: NotRequired[EnvironmentStateTypeDef]
+    serviceInstance: NotRequired[ServiceInstanceStateTypeDef]
+    servicePipeline: NotRequired[ServicePipelineStateTypeDef]
+
+class ListDeploymentsOutputTypeDef(TypedDict):
+    deployments: List[DeploymentSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListEnvironmentAccountConnectionsOutputTypeDef(TypedDict):
+    environmentAccountConnections: List[EnvironmentAccountConnectionSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListEnvironmentsOutputTypeDef(TypedDict):
+    environments: List[EnvironmentSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListEnvironmentsInputTypeDef(TypedDict):
+    environmentTemplates: NotRequired[Sequence[EnvironmentTemplateFilterTypeDef]]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListEnvironmentTemplatesOutputTypeDef(TypedDict):
+    templates: List[EnvironmentTemplateSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListEnvironmentTemplateVersionsOutputTypeDef(TypedDict):
+    templateVersions: List[EnvironmentTemplateVersionSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class GetComponentInputWaitExtraTypeDef(TypedDict):
+    name: str
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class GetComponentInputWaitTypeDef(TypedDict):
+    name: str
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class GetEnvironmentInputWaitTypeDef(TypedDict):
+    name: str
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class GetEnvironmentTemplateVersionInputWaitTypeDef(TypedDict):
+    majorVersion: str
+    minorVersion: str
+    templateName: str
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class GetServiceInputWaitExtraExtraExtraTypeDef(TypedDict):
+    name: str
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class GetServiceInputWaitExtraExtraTypeDef(TypedDict):
+    name: str
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class GetServiceInputWaitExtraTypeDef(TypedDict):
+    name: str
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class GetServiceInputWaitTypeDef(TypedDict):
+    name: str
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class GetServiceInstanceInputWaitTypeDef(TypedDict):
+    name: str
+    serviceName: str
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class GetServiceTemplateVersionInputWaitTypeDef(TypedDict):
+    majorVersion: str
+    minorVersion: str
+    templateName: str
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class ListComponentOutputsInputPaginateTypeDef(TypedDict):
+    componentName: str
+    deploymentId: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListComponentProvisionedResourcesInputPaginateTypeDef(TypedDict):
+    componentName: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListComponentsInputPaginateTypeDef(TypedDict):
+    environmentName: NotRequired[str]
+    serviceInstanceName: NotRequired[str]
+    serviceName: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListDeploymentsInputPaginateTypeDef(TypedDict):
+    componentName: NotRequired[str]
+    environmentName: NotRequired[str]
+    serviceInstanceName: NotRequired[str]
+    serviceName: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListEnvironmentAccountConnectionsInputPaginateTypeDef(TypedDict):
+    requestedBy: EnvironmentAccountConnectionRequesterAccountTypeType
+    environmentName: NotRequired[str]
+    statuses: NotRequired[Sequence[EnvironmentAccountConnectionStatusType]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListEnvironmentOutputsInputPaginateTypeDef(TypedDict):
+    environmentName: str
+    deploymentId: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListEnvironmentProvisionedResourcesInputPaginateTypeDef(TypedDict):
+    environmentName: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListEnvironmentTemplateVersionsInputPaginateTypeDef(TypedDict):
+    templateName: str
+    majorVersion: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListEnvironmentTemplatesInputPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListEnvironmentsInputPaginateTypeDef(TypedDict):
+    environmentTemplates: NotRequired[Sequence[EnvironmentTemplateFilterTypeDef]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListRepositoriesInputPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListRepositorySyncDefinitionsInputPaginateTypeDef(TypedDict):
+    repositoryName: str
+    repositoryProvider: RepositoryProviderType
+    syncType: SyncTypeType
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListServiceInstanceOutputsInputPaginateTypeDef(TypedDict):
+    serviceInstanceName: str
+    serviceName: str
+    deploymentId: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListServiceInstanceProvisionedResourcesInputPaginateTypeDef(TypedDict):
+    serviceInstanceName: str
+    serviceName: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListServicePipelineOutputsInputPaginateTypeDef(TypedDict):
+    serviceName: str
+    deploymentId: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListServicePipelineProvisionedResourcesInputPaginateTypeDef(TypedDict):
+    serviceName: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListServiceTemplateVersionsInputPaginateTypeDef(TypedDict):
+    templateName: str
+    majorVersion: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListServiceTemplatesInputPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListServicesInputPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListTagsForResourceInputPaginateTypeDef(TypedDict):
+    resourceArn: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListComponentOutputsOutputTypeDef(TypedDict):
+    outputs: List[OutputTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListEnvironmentOutputsOutputTypeDef(TypedDict):
+    outputs: List[OutputTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListServiceInstanceOutputsOutputTypeDef(TypedDict):
+    outputs: List[OutputTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListServicePipelineOutputsOutputTypeDef(TypedDict):
+    outputs: List[OutputTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class NotifyResourceDeploymentStatusChangeInputTypeDef(TypedDict):
+    resourceArn: str
+    deploymentId: NotRequired[str]
+    outputs: NotRequired[Sequence[OutputTypeDef]]
+    status: NotRequired[ResourceDeploymentStatusType]
+    statusMessage: NotRequired[str]
+
+class ListComponentProvisionedResourcesOutputTypeDef(TypedDict):
+    provisionedResources: List[ProvisionedResourceTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListEnvironmentProvisionedResourcesOutputTypeDef(TypedDict):
+    provisionedResources: List[ProvisionedResourceTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListServiceInstanceProvisionedResourcesOutputTypeDef(TypedDict):
+    provisionedResources: List[ProvisionedResourceTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListServicePipelineProvisionedResourcesOutputTypeDef(TypedDict):
+    provisionedResources: List[ProvisionedResourceTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListRepositoriesOutputTypeDef(TypedDict):
+    repositories: List[RepositorySummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListRepositorySyncDefinitionsOutputTypeDef(TypedDict):
+    syncDefinitions: List[RepositorySyncDefinitionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListServiceInstancesInputPaginateTypeDef(TypedDict):
+    filters: NotRequired[Sequence[ListServiceInstancesFilterTypeDef]]
+    serviceName: NotRequired[str]
+    sortBy: NotRequired[ListServiceInstancesSortByType]
+    sortOrder: NotRequired[SortOrderType]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListServiceInstancesInputTypeDef(TypedDict):
+    filters: NotRequired[Sequence[ListServiceInstancesFilterTypeDef]]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+    serviceName: NotRequired[str]
+    sortBy: NotRequired[ListServiceInstancesSortByType]
+    sortOrder: NotRequired[SortOrderType]
+
+class ListServiceInstancesOutputTypeDef(TypedDict):
+    serviceInstances: List[ServiceInstanceSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListServiceTemplateVersionsOutputTypeDef(TypedDict):
+    templateVersions: List[ServiceTemplateVersionSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListServiceTemplatesOutputTypeDef(TypedDict):
+    templates: List[ServiceTemplateSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListServicesOutputTypeDef(TypedDict):
+    services: List[ServiceSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class RepositorySyncAttemptTypeDef(TypedDict):
+    events: List[RepositorySyncEventTypeDef]
+    startedAt: datetime
+    status: RepositorySyncStatusType
+
+class ResourceSyncAttemptTypeDef(TypedDict):
+    events: List[ResourceSyncEventTypeDef]
+    initialRevision: RevisionTypeDef
+    startedAt: datetime
+    status: ResourceSyncStatusType
+    target: str
+    targetRevision: RevisionTypeDef
+
+class TemplateVersionSourceInputTypeDef(TypedDict):
+    s3: NotRequired[S3ObjectSourceTypeDef]
+
+SyncBlockerTypeDef = TypedDict(
+    "SyncBlockerTypeDef",
     {
         "createdAt": datetime,
         "createdReason": str,
         "id": str,
         "status": BlockerStatusType,
         "type": Literal["AUTOMATED"],
-    },
-)
-_OptionalSyncBlockerTypeDef = TypedDict(
-    "_OptionalSyncBlockerTypeDef",
-    {
-        "contexts": List["SyncBlockerContextTypeDef"],
-        "resolvedAt": datetime,
-        "resolvedReason": str,
-    },
-    total=False,
-)
-
-class SyncBlockerTypeDef(_RequiredSyncBlockerTypeDef, _OptionalSyncBlockerTypeDef):
-    pass
-
-TagResourceInputRequestTypeDef = TypedDict(
-    "TagResourceInputRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tags": List["TagTypeDef"],
+        "contexts": NotRequired[List[SyncBlockerContextTypeDef]],
+        "resolvedAt": NotRequired[datetime],
+        "resolvedReason": NotRequired[str],
     },
 )
 
-TagTypeDef = TypedDict(
-    "TagTypeDef",
-    {
-        "key": str,
-        "value": str,
-    },
-)
+class GetAccountSettingsOutputTypeDef(TypedDict):
+    accountSettings: AccountSettingsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredTemplateSyncConfigTypeDef = TypedDict(
-    "_RequiredTemplateSyncConfigTypeDef",
-    {
-        "branch": str,
-        "repositoryName": str,
-        "repositoryProvider": RepositoryProviderType,
-        "templateName": str,
-        "templateType": TemplateTypeType,
-    },
-)
-_OptionalTemplateSyncConfigTypeDef = TypedDict(
-    "_OptionalTemplateSyncConfigTypeDef",
-    {
-        "subdirectory": str,
-    },
-    total=False,
-)
+class UpdateAccountSettingsOutputTypeDef(TypedDict):
+    accountSettings: AccountSettingsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class TemplateSyncConfigTypeDef(
-    _RequiredTemplateSyncConfigTypeDef, _OptionalTemplateSyncConfigTypeDef
-):
-    pass
+class CancelEnvironmentDeploymentOutputTypeDef(TypedDict):
+    environment: EnvironmentTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-TemplateVersionSourceInputTypeDef = TypedDict(
-    "TemplateVersionSourceInputTypeDef",
-    {
-        "s3": "S3ObjectSourceTypeDef",
-    },
-    total=False,
-)
+class CreateEnvironmentOutputTypeDef(TypedDict):
+    environment: EnvironmentTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-UntagResourceInputRequestTypeDef = TypedDict(
-    "UntagResourceInputRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tagKeys": List[str],
-    },
-)
+class DeleteEnvironmentOutputTypeDef(TypedDict):
+    environment: EnvironmentTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-UpdateAccountSettingsInputRequestTypeDef = TypedDict(
-    "UpdateAccountSettingsInputRequestTypeDef",
-    {
-        "deletePipelineProvisioningRepository": bool,
-        "pipelineCodebuildRoleArn": str,
-        "pipelineProvisioningRepository": "RepositoryBranchInputTypeDef",
-        "pipelineServiceRoleArn": str,
-    },
-    total=False,
-)
+class GetEnvironmentOutputTypeDef(TypedDict):
+    environment: EnvironmentTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-UpdateAccountSettingsOutputTypeDef = TypedDict(
-    "UpdateAccountSettingsOutputTypeDef",
-    {
-        "accountSettings": "AccountSettingsTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class UpdateEnvironmentOutputTypeDef(TypedDict):
+    environment: EnvironmentTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredUpdateComponentInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateComponentInputRequestTypeDef",
-    {
-        "deploymentType": ComponentDeploymentUpdateTypeType,
-        "name": str,
-    },
-)
-_OptionalUpdateComponentInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateComponentInputRequestTypeDef",
-    {
-        "clientToken": str,
-        "description": str,
-        "serviceInstanceName": str,
-        "serviceName": str,
-        "serviceSpec": str,
-        "templateFile": str,
-    },
-    total=False,
-)
+class CreateServiceOutputTypeDef(TypedDict):
+    service: ServiceTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateComponentInputRequestTypeDef(
-    _RequiredUpdateComponentInputRequestTypeDef, _OptionalUpdateComponentInputRequestTypeDef
-):
-    pass
+class DeleteServiceOutputTypeDef(TypedDict):
+    service: ServiceTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-UpdateComponentOutputTypeDef = TypedDict(
-    "UpdateComponentOutputTypeDef",
-    {
-        "component": "ComponentTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetServiceOutputTypeDef(TypedDict):
+    service: ServiceTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredUpdateEnvironmentAccountConnectionInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateEnvironmentAccountConnectionInputRequestTypeDef",
+class UpdateServiceOutputTypeDef(TypedDict):
+    service: ServiceTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateServiceTemplateVersionOutputTypeDef(TypedDict):
+    serviceTemplateVersion: ServiceTemplateVersionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteServiceTemplateVersionOutputTypeDef(TypedDict):
+    serviceTemplateVersion: ServiceTemplateVersionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetServiceTemplateVersionOutputTypeDef(TypedDict):
+    serviceTemplateVersion: ServiceTemplateVersionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateServiceTemplateVersionOutputTypeDef(TypedDict):
+    serviceTemplateVersion: ServiceTemplateVersionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetResourcesSummaryOutputTypeDef(TypedDict):
+    counts: CountsSummaryTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+DeploymentTypeDef = TypedDict(
+    "DeploymentTypeDef",
     {
+        "arn": str,
+        "createdAt": datetime,
+        "deploymentStatus": DeploymentStatusType,
+        "environmentName": str,
         "id": str,
-    },
-)
-_OptionalUpdateEnvironmentAccountConnectionInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateEnvironmentAccountConnectionInputRequestTypeDef",
-    {
-        "codebuildRoleArn": str,
-        "componentRoleArn": str,
-        "roleArn": str,
-    },
-    total=False,
-)
-
-class UpdateEnvironmentAccountConnectionInputRequestTypeDef(
-    _RequiredUpdateEnvironmentAccountConnectionInputRequestTypeDef,
-    _OptionalUpdateEnvironmentAccountConnectionInputRequestTypeDef,
-):
-    pass
-
-UpdateEnvironmentAccountConnectionOutputTypeDef = TypedDict(
-    "UpdateEnvironmentAccountConnectionOutputTypeDef",
-    {
-        "environmentAccountConnection": "EnvironmentAccountConnectionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "lastModifiedAt": datetime,
+        "targetArn": str,
+        "targetResourceCreatedAt": datetime,
+        "targetResourceType": DeploymentTargetResourceTypeType,
+        "completedAt": NotRequired[datetime],
+        "componentName": NotRequired[str],
+        "deploymentStatusMessage": NotRequired[str],
+        "initialState": NotRequired[DeploymentStateTypeDef],
+        "lastAttemptedDeploymentId": NotRequired[str],
+        "lastSucceededDeploymentId": NotRequired[str],
+        "serviceInstanceName": NotRequired[str],
+        "serviceName": NotRequired[str],
+        "targetState": NotRequired[DeploymentStateTypeDef],
     },
 )
 
-_RequiredUpdateEnvironmentInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateEnvironmentInputRequestTypeDef",
-    {
-        "deploymentType": DeploymentUpdateTypeType,
-        "name": str,
-    },
-)
-_OptionalUpdateEnvironmentInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateEnvironmentInputRequestTypeDef",
-    {
-        "codebuildRoleArn": str,
-        "componentRoleArn": str,
-        "description": str,
-        "environmentAccountConnectionId": str,
-        "protonServiceRoleArn": str,
-        "provisioningRepository": "RepositoryBranchInputTypeDef",
-        "spec": str,
-        "templateMajorVersion": str,
-        "templateMinorVersion": str,
-    },
-    total=False,
-)
+class GetRepositorySyncStatusOutputTypeDef(TypedDict):
+    latestSync: RepositorySyncAttemptTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateEnvironmentInputRequestTypeDef(
-    _RequiredUpdateEnvironmentInputRequestTypeDef, _OptionalUpdateEnvironmentInputRequestTypeDef
-):
-    pass
+class GetServiceInstanceSyncStatusOutputTypeDef(TypedDict):
+    desiredState: RevisionTypeDef
+    latestSuccessfulSync: ResourceSyncAttemptTypeDef
+    latestSync: ResourceSyncAttemptTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-UpdateEnvironmentOutputTypeDef = TypedDict(
-    "UpdateEnvironmentOutputTypeDef",
-    {
-        "environment": "EnvironmentTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetTemplateSyncStatusOutputTypeDef(TypedDict):
+    desiredState: RevisionTypeDef
+    latestSuccessfulSync: ResourceSyncAttemptTypeDef
+    latestSync: ResourceSyncAttemptTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredUpdateEnvironmentTemplateInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateEnvironmentTemplateInputRequestTypeDef",
-    {
-        "name": str,
-    },
-)
-_OptionalUpdateEnvironmentTemplateInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateEnvironmentTemplateInputRequestTypeDef",
-    {
-        "description": str,
-        "displayName": str,
-    },
-    total=False,
-)
+class CreateEnvironmentTemplateVersionInputTypeDef(TypedDict):
+    source: TemplateVersionSourceInputTypeDef
+    templateName: str
+    clientToken: NotRequired[str]
+    description: NotRequired[str]
+    majorVersion: NotRequired[str]
+    tags: NotRequired[Sequence[TagTypeDef]]
 
-class UpdateEnvironmentTemplateInputRequestTypeDef(
-    _RequiredUpdateEnvironmentTemplateInputRequestTypeDef,
-    _OptionalUpdateEnvironmentTemplateInputRequestTypeDef,
-):
-    pass
+class CreateServiceTemplateVersionInputTypeDef(TypedDict):
+    compatibleEnvironmentTemplates: Sequence[CompatibleEnvironmentTemplateInputTypeDef]
+    source: TemplateVersionSourceInputTypeDef
+    templateName: str
+    clientToken: NotRequired[str]
+    description: NotRequired[str]
+    majorVersion: NotRequired[str]
+    supportedComponentSources: NotRequired[Sequence[Literal["DIRECTLY_DEFINED"]]]
+    tags: NotRequired[Sequence[TagTypeDef]]
 
-UpdateEnvironmentTemplateOutputTypeDef = TypedDict(
-    "UpdateEnvironmentTemplateOutputTypeDef",
-    {
-        "environmentTemplate": "EnvironmentTemplateTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ServiceSyncBlockerSummaryTypeDef(TypedDict):
+    serviceName: str
+    latestBlockers: NotRequired[List[SyncBlockerTypeDef]]
+    serviceInstanceName: NotRequired[str]
 
-_RequiredUpdateEnvironmentTemplateVersionInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateEnvironmentTemplateVersionInputRequestTypeDef",
-    {
-        "majorVersion": str,
-        "minorVersion": str,
-        "templateName": str,
-    },
-)
-_OptionalUpdateEnvironmentTemplateVersionInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateEnvironmentTemplateVersionInputRequestTypeDef",
-    {
-        "description": str,
-        "status": TemplateVersionStatusType,
-    },
-    total=False,
-)
+class UpdateServiceSyncBlockerOutputTypeDef(TypedDict):
+    serviceInstanceName: str
+    serviceName: str
+    serviceSyncBlocker: SyncBlockerTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateEnvironmentTemplateVersionInputRequestTypeDef(
-    _RequiredUpdateEnvironmentTemplateVersionInputRequestTypeDef,
-    _OptionalUpdateEnvironmentTemplateVersionInputRequestTypeDef,
-):
-    pass
+class DeleteDeploymentOutputTypeDef(TypedDict):
+    deployment: DeploymentTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-UpdateEnvironmentTemplateVersionOutputTypeDef = TypedDict(
-    "UpdateEnvironmentTemplateVersionOutputTypeDef",
-    {
-        "environmentTemplateVersion": "EnvironmentTemplateVersionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetDeploymentOutputTypeDef(TypedDict):
+    deployment: DeploymentTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredUpdateServiceInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateServiceInputRequestTypeDef",
-    {
-        "name": str,
-    },
-)
-_OptionalUpdateServiceInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateServiceInputRequestTypeDef",
-    {
-        "description": str,
-        "spec": str,
-    },
-    total=False,
-)
-
-class UpdateServiceInputRequestTypeDef(
-    _RequiredUpdateServiceInputRequestTypeDef, _OptionalUpdateServiceInputRequestTypeDef
-):
-    pass
-
-_RequiredUpdateServiceInstanceInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateServiceInstanceInputRequestTypeDef",
-    {
-        "deploymentType": DeploymentUpdateTypeType,
-        "name": str,
-        "serviceName": str,
-    },
-)
-_OptionalUpdateServiceInstanceInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateServiceInstanceInputRequestTypeDef",
-    {
-        "clientToken": str,
-        "spec": str,
-        "templateMajorVersion": str,
-        "templateMinorVersion": str,
-    },
-    total=False,
-)
-
-class UpdateServiceInstanceInputRequestTypeDef(
-    _RequiredUpdateServiceInstanceInputRequestTypeDef,
-    _OptionalUpdateServiceInstanceInputRequestTypeDef,
-):
-    pass
-
-UpdateServiceInstanceOutputTypeDef = TypedDict(
-    "UpdateServiceInstanceOutputTypeDef",
-    {
-        "serviceInstance": "ServiceInstanceTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UpdateServiceOutputTypeDef = TypedDict(
-    "UpdateServiceOutputTypeDef",
-    {
-        "service": "ServiceTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateServicePipelineInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateServicePipelineInputRequestTypeDef",
-    {
-        "deploymentType": DeploymentUpdateTypeType,
-        "serviceName": str,
-        "spec": str,
-    },
-)
-_OptionalUpdateServicePipelineInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateServicePipelineInputRequestTypeDef",
-    {
-        "templateMajorVersion": str,
-        "templateMinorVersion": str,
-    },
-    total=False,
-)
-
-class UpdateServicePipelineInputRequestTypeDef(
-    _RequiredUpdateServicePipelineInputRequestTypeDef,
-    _OptionalUpdateServicePipelineInputRequestTypeDef,
-):
-    pass
-
-UpdateServicePipelineOutputTypeDef = TypedDict(
-    "UpdateServicePipelineOutputTypeDef",
-    {
-        "pipeline": "ServicePipelineTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UpdateServiceSyncBlockerInputRequestTypeDef = TypedDict(
-    "UpdateServiceSyncBlockerInputRequestTypeDef",
-    {
-        "id": str,
-        "resolvedReason": str,
-    },
-)
-
-UpdateServiceSyncBlockerOutputTypeDef = TypedDict(
-    "UpdateServiceSyncBlockerOutputTypeDef",
-    {
-        "serviceInstanceName": str,
-        "serviceName": str,
-        "serviceSyncBlocker": "SyncBlockerTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UpdateServiceSyncConfigInputRequestTypeDef = TypedDict(
-    "UpdateServiceSyncConfigInputRequestTypeDef",
-    {
-        "branch": str,
-        "filePath": str,
-        "repositoryName": str,
-        "repositoryProvider": RepositoryProviderType,
-        "serviceName": str,
-    },
-)
-
-UpdateServiceSyncConfigOutputTypeDef = TypedDict(
-    "UpdateServiceSyncConfigOutputTypeDef",
-    {
-        "serviceSyncConfig": "ServiceSyncConfigTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateServiceTemplateInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateServiceTemplateInputRequestTypeDef",
-    {
-        "name": str,
-    },
-)
-_OptionalUpdateServiceTemplateInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateServiceTemplateInputRequestTypeDef",
-    {
-        "description": str,
-        "displayName": str,
-    },
-    total=False,
-)
-
-class UpdateServiceTemplateInputRequestTypeDef(
-    _RequiredUpdateServiceTemplateInputRequestTypeDef,
-    _OptionalUpdateServiceTemplateInputRequestTypeDef,
-):
-    pass
-
-UpdateServiceTemplateOutputTypeDef = TypedDict(
-    "UpdateServiceTemplateOutputTypeDef",
-    {
-        "serviceTemplate": "ServiceTemplateTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateServiceTemplateVersionInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateServiceTemplateVersionInputRequestTypeDef",
-    {
-        "majorVersion": str,
-        "minorVersion": str,
-        "templateName": str,
-    },
-)
-_OptionalUpdateServiceTemplateVersionInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateServiceTemplateVersionInputRequestTypeDef",
-    {
-        "compatibleEnvironmentTemplates": List["CompatibleEnvironmentTemplateInputTypeDef"],
-        "description": str,
-        "status": TemplateVersionStatusType,
-        "supportedComponentSources": List[Literal["DIRECTLY_DEFINED"]],
-    },
-    total=False,
-)
-
-class UpdateServiceTemplateVersionInputRequestTypeDef(
-    _RequiredUpdateServiceTemplateVersionInputRequestTypeDef,
-    _OptionalUpdateServiceTemplateVersionInputRequestTypeDef,
-):
-    pass
-
-UpdateServiceTemplateVersionOutputTypeDef = TypedDict(
-    "UpdateServiceTemplateVersionOutputTypeDef",
-    {
-        "serviceTemplateVersion": "ServiceTemplateVersionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateTemplateSyncConfigInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateTemplateSyncConfigInputRequestTypeDef",
-    {
-        "branch": str,
-        "repositoryName": str,
-        "repositoryProvider": RepositoryProviderType,
-        "templateName": str,
-        "templateType": TemplateTypeType,
-    },
-)
-_OptionalUpdateTemplateSyncConfigInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateTemplateSyncConfigInputRequestTypeDef",
-    {
-        "subdirectory": str,
-    },
-    total=False,
-)
-
-class UpdateTemplateSyncConfigInputRequestTypeDef(
-    _RequiredUpdateTemplateSyncConfigInputRequestTypeDef,
-    _OptionalUpdateTemplateSyncConfigInputRequestTypeDef,
-):
-    pass
-
-UpdateTemplateSyncConfigOutputTypeDef = TypedDict(
-    "UpdateTemplateSyncConfigOutputTypeDef",
-    {
-        "templateSyncConfig": "TemplateSyncConfigTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-WaiterConfigTypeDef = TypedDict(
-    "WaiterConfigTypeDef",
-    {
-        "Delay": int,
-        "MaxAttempts": int,
-    },
-    total=False,
-)
+class GetServiceSyncBlockerSummaryOutputTypeDef(TypedDict):
+    serviceSyncBlockerSummary: ServiceSyncBlockerSummaryTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef

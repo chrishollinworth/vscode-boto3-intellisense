@@ -1,40 +1,51 @@
 """
 Type annotations for ses service client waiters.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ses/waiters.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ses/waiters/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
 
-    from mypy_boto3_ses import SESClient
+    from mypy_boto3_ses.client import SESClient
     from mypy_boto3_ses.waiter import (
         IdentityExistsWaiter,
     )
 
-    client: SESClient = boto3.client("ses")
+    session = Session()
+    client: SESClient = session.client("ses")
 
     identity_exists_waiter: IdentityExistsWaiter = client.get_waiter("identity_exists")
     ```
 """
 
-from typing import List
+from __future__ import annotations
 
-from botocore.waiter import Waiter as Boto3Waiter
+import sys
 
-from .type_defs import WaiterConfigTypeDef
+from botocore.waiter import Waiter
+
+from .type_defs import GetIdentityVerificationAttributesRequestWaitTypeDef
+
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = ("IdentityExistsWaiter",)
 
-class IdentityExistsWaiter(Boto3Waiter):
+class IdentityExistsWaiter(Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ses.html#SES.Waiter.IdentityExists)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ses/waiters.html#identityexistswaiter)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ses/waiter/IdentityExists.html#SES.Waiter.IdentityExists)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ses/waiters/#identityexistswaiter)
     """
-
-    def wait(self, *, Identities: List[str], WaiterConfig: WaiterConfigTypeDef = None) -> None:
+    def wait(  # type: ignore[override]
+        self, **kwargs: Unpack[GetIdentityVerificationAttributesRequestWaitTypeDef]
+    ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ses.html#SES.Waiter.IdentityExists.wait)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ses/waiters.html#identityexistswaiter)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ses/waiter/IdentityExists.html#SES.Waiter.IdentityExists.wait)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ses/waiters/#identityexistswaiter)
         """

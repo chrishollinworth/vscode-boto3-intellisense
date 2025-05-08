@@ -1,19 +1,21 @@
 """
 Main interface for kinesis-video-webrtc-storage service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kinesis_video_webrtc_storage/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_kinesis_video_webrtc_storage import (
         Client,
         KinesisVideoWebRTCStorageClient,
     )
 
-    session = boto3.Session()
-
-    client: KinesisVideoWebRTCStorageClient = boto3.client("kinesis-video-webrtc-storage")
-    session_client: KinesisVideoWebRTCStorageClient = session.client("kinesis-video-webrtc-storage")
+    session = Session()
+    client: KinesisVideoWebRTCStorageClient = session.client("kinesis-video-webrtc-storage")
     ```
 """
 

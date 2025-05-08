@@ -1,62 +1,82 @@
 """
 Type annotations for pca-connector-scep service client paginators.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_scep/paginators.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_scep/paginators/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
 
-    from mypy_boto3_pca_connector_scep import PrivateCAConnectorforSCEPClient
+    from mypy_boto3_pca_connector_scep.client import PrivateCAConnectorforSCEPClient
     from mypy_boto3_pca_connector_scep.paginator import (
         ListChallengeMetadataPaginator,
         ListConnectorsPaginator,
     )
 
-    client: PrivateCAConnectorforSCEPClient = boto3.client("pca-connector-scep")
+    session = Session()
+    client: PrivateCAConnectorforSCEPClient = session.client("pca-connector-scep")
 
     list_challenge_metadata_paginator: ListChallengeMetadataPaginator = client.get_paginator("list_challenge_metadata")
     list_connectors_paginator: ListConnectorsPaginator = client.get_paginator("list_connectors")
     ```
 """
 
-from typing import Iterator
+from __future__ import annotations
 
-from botocore.paginate import Paginator as Boto3Paginator
+import sys
+from typing import TYPE_CHECKING
+
+from botocore.paginate import PageIterator, Paginator
 
 from .type_defs import (
+    ListChallengeMetadataRequestPaginateTypeDef,
     ListChallengeMetadataResponseTypeDef,
+    ListConnectorsRequestPaginateTypeDef,
     ListConnectorsResponseTypeDef,
-    PaginatorConfigTypeDef,
 )
+
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = ("ListChallengeMetadataPaginator", "ListConnectorsPaginator")
 
-class ListChallengeMetadataPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pca-connector-scep.html#PrivateCAConnectorforSCEP.Paginator.ListChallengeMetadata)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_scep/paginators.html#listchallengemetadatapaginator)
-    """
+if TYPE_CHECKING:
+    _ListChallengeMetadataPaginatorBase = Paginator[ListChallengeMetadataResponseTypeDef]
+else:
+    _ListChallengeMetadataPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, ConnectorArn: str, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListChallengeMetadataResponseTypeDef]:
+class ListChallengeMetadataPaginator(_ListChallengeMetadataPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/pca-connector-scep/paginator/ListChallengeMetadata.html#PrivateCAConnectorforSCEP.Paginator.ListChallengeMetadata)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_scep/paginators/#listchallengemetadatapaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListChallengeMetadataRequestPaginateTypeDef]
+    ) -> PageIterator[ListChallengeMetadataResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pca-connector-scep.html#PrivateCAConnectorforSCEP.Paginator.ListChallengeMetadata.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_scep/paginators.html#listchallengemetadatapaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/pca-connector-scep/paginator/ListChallengeMetadata.html#PrivateCAConnectorforSCEP.Paginator.ListChallengeMetadata.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_scep/paginators/#listchallengemetadatapaginator)
         """
 
-class ListConnectorsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pca-connector-scep.html#PrivateCAConnectorforSCEP.Paginator.ListConnectors)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_scep/paginators.html#listconnectorspaginator)
-    """
+if TYPE_CHECKING:
+    _ListConnectorsPaginatorBase = Paginator[ListConnectorsResponseTypeDef]
+else:
+    _ListConnectorsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListConnectorsResponseTypeDef]:
+class ListConnectorsPaginator(_ListConnectorsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/pca-connector-scep/paginator/ListConnectors.html#PrivateCAConnectorforSCEP.Paginator.ListConnectors)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_scep/paginators/#listconnectorspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListConnectorsRequestPaginateTypeDef]
+    ) -> PageIterator[ListConnectorsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pca-connector-scep.html#PrivateCAConnectorforSCEP.Paginator.ListConnectors.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_scep/paginators.html#listconnectorspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/pca-connector-scep/paginator/ListConnectors.html#PrivateCAConnectorforSCEP.Paginator.ListConnectors.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_scep/paginators/#listconnectorspaginator)
         """

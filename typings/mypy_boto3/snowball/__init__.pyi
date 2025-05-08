@@ -1,10 +1,14 @@
 """
 Main interface for snowball service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_snowball/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_snowball import (
         Client,
         DescribeAddressesPaginator,
@@ -16,10 +20,8 @@ Usage::
         SnowballClient,
     )
 
-    session = boto3.Session()
-
-    client: SnowballClient = boto3.client("snowball")
-    session_client: SnowballClient = session.client("snowball")
+    session = Session()
+    client: SnowballClient = session.client("snowball")
 
     describe_addresses_paginator: DescribeAddressesPaginator = client.get_paginator("describe_addresses")
     list_cluster_jobs_paginator: ListClusterJobsPaginator = client.get_paginator("list_cluster_jobs")

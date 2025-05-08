@@ -1,39 +1,62 @@
 """
 Type annotations for deadline service client waiters.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/waiters.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_deadline/waiters/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
 
-    from mypy_boto3_deadline import DeadlineCloudClient
+    from mypy_boto3_deadline.client import DeadlineCloudClient
     from mypy_boto3_deadline.waiter import (
         FleetActiveWaiter,
         JobCreateCompleteWaiter,
         LicenseEndpointDeletedWaiter,
         LicenseEndpointValidWaiter,
         QueueFleetAssociationStoppedWaiter,
-        QueueSchedulingWaiter,
+        QueueLimitAssociationStoppedWaiter,
         QueueSchedulingBlockedWaiter,
+        QueueSchedulingWaiter,
     )
 
-    client: DeadlineCloudClient = boto3.client("deadline")
+    session = Session()
+    client: DeadlineCloudClient = session.client("deadline")
 
     fleet_active_waiter: FleetActiveWaiter = client.get_waiter("fleet_active")
     job_create_complete_waiter: JobCreateCompleteWaiter = client.get_waiter("job_create_complete")
     license_endpoint_deleted_waiter: LicenseEndpointDeletedWaiter = client.get_waiter("license_endpoint_deleted")
     license_endpoint_valid_waiter: LicenseEndpointValidWaiter = client.get_waiter("license_endpoint_valid")
     queue_fleet_association_stopped_waiter: QueueFleetAssociationStoppedWaiter = client.get_waiter("queue_fleet_association_stopped")
-    queue_scheduling_waiter: QueueSchedulingWaiter = client.get_waiter("queue_scheduling")
+    queue_limit_association_stopped_waiter: QueueLimitAssociationStoppedWaiter = client.get_waiter("queue_limit_association_stopped")
     queue_scheduling_blocked_waiter: QueueSchedulingBlockedWaiter = client.get_waiter("queue_scheduling_blocked")
+    queue_scheduling_waiter: QueueSchedulingWaiter = client.get_waiter("queue_scheduling")
     ```
 """
 
-from botocore.waiter import Waiter as Boto3Waiter
+from __future__ import annotations
 
-from .type_defs import WaiterConfigTypeDef
+import sys
+
+from botocore.waiter import Waiter
+
+from .type_defs import (
+    GetFleetRequestWaitTypeDef,
+    GetJobRequestWaitTypeDef,
+    GetLicenseEndpointRequestWaitExtraTypeDef,
+    GetLicenseEndpointRequestWaitTypeDef,
+    GetQueueFleetAssociationRequestWaitTypeDef,
+    GetQueueLimitAssociationRequestWaitTypeDef,
+    GetQueueRequestWaitExtraTypeDef,
+    GetQueueRequestWaitTypeDef,
+)
+
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = (
     "FleetActiveWaiter",
@@ -41,94 +64,111 @@ __all__ = (
     "LicenseEndpointDeletedWaiter",
     "LicenseEndpointValidWaiter",
     "QueueFleetAssociationStoppedWaiter",
-    "QueueSchedulingWaiter",
+    "QueueLimitAssociationStoppedWaiter",
     "QueueSchedulingBlockedWaiter",
+    "QueueSchedulingWaiter",
 )
 
-class FleetActiveWaiter(Boto3Waiter):
+class FleetActiveWaiter(Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Waiter.FleetActive)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/waiters.html#fleetactivewaiter)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/deadline/waiter/FleetActive.html#DeadlineCloud.Waiter.FleetActive)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_deadline/waiters/#fleetactivewaiter)
     """
-
-    def wait(self, *, farmId: str, fleetId: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Waiter.FleetActive.wait)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/waiters.html#fleetactivewaiter)
-        """
-
-class JobCreateCompleteWaiter(Boto3Waiter):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Waiter.JobCreateComplete)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/waiters.html#jobcreatecompletewaiter)
-    """
-
-    def wait(
-        self, *, farmId: str, jobId: str, queueId: str, WaiterConfig: WaiterConfigTypeDef = None
+    def wait(  # type: ignore[override]
+        self, **kwargs: Unpack[GetFleetRequestWaitTypeDef]
     ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Waiter.JobCreateComplete.wait)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/waiters.html#jobcreatecompletewaiter)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/deadline/waiter/FleetActive.html#DeadlineCloud.Waiter.FleetActive.wait)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_deadline/waiters/#fleetactivewaiter)
         """
 
-class LicenseEndpointDeletedWaiter(Boto3Waiter):
+class JobCreateCompleteWaiter(Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Waiter.LicenseEndpointDeleted)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/waiters.html#licenseendpointdeletedwaiter)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/deadline/waiter/JobCreateComplete.html#DeadlineCloud.Waiter.JobCreateComplete)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_deadline/waiters/#jobcreatecompletewaiter)
     """
-
-    def wait(self, *, licenseEndpointId: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Waiter.LicenseEndpointDeleted.wait)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/waiters.html#licenseendpointdeletedwaiter)
-        """
-
-class LicenseEndpointValidWaiter(Boto3Waiter):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Waiter.LicenseEndpointValid)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/waiters.html#licenseendpointvalidwaiter)
-    """
-
-    def wait(self, *, licenseEndpointId: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Waiter.LicenseEndpointValid.wait)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/waiters.html#licenseendpointvalidwaiter)
-        """
-
-class QueueFleetAssociationStoppedWaiter(Boto3Waiter):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Waiter.QueueFleetAssociationStopped)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/waiters.html#queuefleetassociationstoppedwaiter)
-    """
-
-    def wait(
-        self, *, farmId: str, fleetId: str, queueId: str, WaiterConfig: WaiterConfigTypeDef = None
+    def wait(  # type: ignore[override]
+        self, **kwargs: Unpack[GetJobRequestWaitTypeDef]
     ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Waiter.QueueFleetAssociationStopped.wait)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/waiters.html#queuefleetassociationstoppedwaiter)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/deadline/waiter/JobCreateComplete.html#DeadlineCloud.Waiter.JobCreateComplete.wait)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_deadline/waiters/#jobcreatecompletewaiter)
         """
 
-class QueueSchedulingWaiter(Boto3Waiter):
+class LicenseEndpointDeletedWaiter(Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Waiter.QueueScheduling)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/waiters.html#queueschedulingwaiter)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/deadline/waiter/LicenseEndpointDeleted.html#DeadlineCloud.Waiter.LicenseEndpointDeleted)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_deadline/waiters/#licenseendpointdeletedwaiter)
     """
-
-    def wait(self, *, farmId: str, queueId: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
+    def wait(  # type: ignore[override]
+        self, **kwargs: Unpack[GetLicenseEndpointRequestWaitTypeDef]
+    ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Waiter.QueueScheduling.wait)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/waiters.html#queueschedulingwaiter)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/deadline/waiter/LicenseEndpointDeleted.html#DeadlineCloud.Waiter.LicenseEndpointDeleted.wait)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_deadline/waiters/#licenseendpointdeletedwaiter)
         """
 
-class QueueSchedulingBlockedWaiter(Boto3Waiter):
+class LicenseEndpointValidWaiter(Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Waiter.QueueSchedulingBlocked)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/waiters.html#queueschedulingblockedwaiter)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/deadline/waiter/LicenseEndpointValid.html#DeadlineCloud.Waiter.LicenseEndpointValid)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_deadline/waiters/#licenseendpointvalidwaiter)
     """
-
-    def wait(self, *, farmId: str, queueId: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
+    def wait(  # type: ignore[override]
+        self, **kwargs: Unpack[GetLicenseEndpointRequestWaitExtraTypeDef]
+    ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/deadline.html#DeadlineCloud.Waiter.QueueSchedulingBlocked.wait)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_deadline/waiters.html#queueschedulingblockedwaiter)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/deadline/waiter/LicenseEndpointValid.html#DeadlineCloud.Waiter.LicenseEndpointValid.wait)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_deadline/waiters/#licenseendpointvalidwaiter)
+        """
+
+class QueueFleetAssociationStoppedWaiter(Waiter):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/deadline/waiter/QueueFleetAssociationStopped.html#DeadlineCloud.Waiter.QueueFleetAssociationStopped)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_deadline/waiters/#queuefleetassociationstoppedwaiter)
+    """
+    def wait(  # type: ignore[override]
+        self, **kwargs: Unpack[GetQueueFleetAssociationRequestWaitTypeDef]
+    ) -> None:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/deadline/waiter/QueueFleetAssociationStopped.html#DeadlineCloud.Waiter.QueueFleetAssociationStopped.wait)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_deadline/waiters/#queuefleetassociationstoppedwaiter)
+        """
+
+class QueueLimitAssociationStoppedWaiter(Waiter):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/deadline/waiter/QueueLimitAssociationStopped.html#DeadlineCloud.Waiter.QueueLimitAssociationStopped)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_deadline/waiters/#queuelimitassociationstoppedwaiter)
+    """
+    def wait(  # type: ignore[override]
+        self, **kwargs: Unpack[GetQueueLimitAssociationRequestWaitTypeDef]
+    ) -> None:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/deadline/waiter/QueueLimitAssociationStopped.html#DeadlineCloud.Waiter.QueueLimitAssociationStopped.wait)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_deadline/waiters/#queuelimitassociationstoppedwaiter)
+        """
+
+class QueueSchedulingBlockedWaiter(Waiter):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/deadline/waiter/QueueSchedulingBlocked.html#DeadlineCloud.Waiter.QueueSchedulingBlocked)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_deadline/waiters/#queueschedulingblockedwaiter)
+    """
+    def wait(  # type: ignore[override]
+        self, **kwargs: Unpack[GetQueueRequestWaitExtraTypeDef]
+    ) -> None:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/deadline/waiter/QueueSchedulingBlocked.html#DeadlineCloud.Waiter.QueueSchedulingBlocked.wait)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_deadline/waiters/#queueschedulingblockedwaiter)
+        """
+
+class QueueSchedulingWaiter(Waiter):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/deadline/waiter/QueueScheduling.html#DeadlineCloud.Waiter.QueueScheduling)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_deadline/waiters/#queueschedulingwaiter)
+    """
+    def wait(  # type: ignore[override]
+        self, **kwargs: Unpack[GetQueueRequestWaitTypeDef]
+    ) -> None:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/deadline/waiter/QueueScheduling.html#DeadlineCloud.Waiter.QueueScheduling.wait)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_deadline/waiters/#queueschedulingwaiter)
         """

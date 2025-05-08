@@ -1,20 +1,24 @@
 """
 Type annotations for apprunner service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apprunner/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_apprunner/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_apprunner.type_defs import AssociateCustomDomainRequestRequestTypeDef
+    from mypy_boto3_apprunner.type_defs import AssociateCustomDomainRequestTypeDef
 
-    data: AssociateCustomDomainRequestRequestTypeDef = {...}
+    data: AssociateCustomDomainRequestTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
+from typing import Union
 
 from .literals import (
     AutoScalingConfigurationStatusType,
@@ -36,118 +40,127 @@ from .literals import (
     VpcIngressConnectionStatusType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
-    "AssociateCustomDomainRequestRequestTypeDef",
+    "AssociateCustomDomainRequestTypeDef",
     "AssociateCustomDomainResponseTypeDef",
     "AuthenticationConfigurationTypeDef",
     "AutoScalingConfigurationSummaryTypeDef",
     "AutoScalingConfigurationTypeDef",
     "CertificateValidationRecordTypeDef",
+    "CodeConfigurationOutputTypeDef",
     "CodeConfigurationTypeDef",
+    "CodeConfigurationValuesOutputTypeDef",
     "CodeConfigurationValuesTypeDef",
+    "CodeRepositoryOutputTypeDef",
     "CodeRepositoryTypeDef",
     "ConnectionSummaryTypeDef",
     "ConnectionTypeDef",
-    "CreateAutoScalingConfigurationRequestRequestTypeDef",
+    "CreateAutoScalingConfigurationRequestTypeDef",
     "CreateAutoScalingConfigurationResponseTypeDef",
-    "CreateConnectionRequestRequestTypeDef",
+    "CreateConnectionRequestTypeDef",
     "CreateConnectionResponseTypeDef",
-    "CreateObservabilityConfigurationRequestRequestTypeDef",
+    "CreateObservabilityConfigurationRequestTypeDef",
     "CreateObservabilityConfigurationResponseTypeDef",
-    "CreateServiceRequestRequestTypeDef",
+    "CreateServiceRequestTypeDef",
     "CreateServiceResponseTypeDef",
-    "CreateVpcConnectorRequestRequestTypeDef",
+    "CreateVpcConnectorRequestTypeDef",
     "CreateVpcConnectorResponseTypeDef",
-    "CreateVpcIngressConnectionRequestRequestTypeDef",
+    "CreateVpcIngressConnectionRequestTypeDef",
     "CreateVpcIngressConnectionResponseTypeDef",
     "CustomDomainTypeDef",
-    "DeleteAutoScalingConfigurationRequestRequestTypeDef",
+    "DeleteAutoScalingConfigurationRequestTypeDef",
     "DeleteAutoScalingConfigurationResponseTypeDef",
-    "DeleteConnectionRequestRequestTypeDef",
+    "DeleteConnectionRequestTypeDef",
     "DeleteConnectionResponseTypeDef",
-    "DeleteObservabilityConfigurationRequestRequestTypeDef",
+    "DeleteObservabilityConfigurationRequestTypeDef",
     "DeleteObservabilityConfigurationResponseTypeDef",
-    "DeleteServiceRequestRequestTypeDef",
+    "DeleteServiceRequestTypeDef",
     "DeleteServiceResponseTypeDef",
-    "DeleteVpcConnectorRequestRequestTypeDef",
+    "DeleteVpcConnectorRequestTypeDef",
     "DeleteVpcConnectorResponseTypeDef",
-    "DeleteVpcIngressConnectionRequestRequestTypeDef",
+    "DeleteVpcIngressConnectionRequestTypeDef",
     "DeleteVpcIngressConnectionResponseTypeDef",
-    "DescribeAutoScalingConfigurationRequestRequestTypeDef",
+    "DescribeAutoScalingConfigurationRequestTypeDef",
     "DescribeAutoScalingConfigurationResponseTypeDef",
-    "DescribeCustomDomainsRequestRequestTypeDef",
+    "DescribeCustomDomainsRequestTypeDef",
     "DescribeCustomDomainsResponseTypeDef",
-    "DescribeObservabilityConfigurationRequestRequestTypeDef",
+    "DescribeObservabilityConfigurationRequestTypeDef",
     "DescribeObservabilityConfigurationResponseTypeDef",
-    "DescribeServiceRequestRequestTypeDef",
+    "DescribeServiceRequestTypeDef",
     "DescribeServiceResponseTypeDef",
-    "DescribeVpcConnectorRequestRequestTypeDef",
+    "DescribeVpcConnectorRequestTypeDef",
     "DescribeVpcConnectorResponseTypeDef",
-    "DescribeVpcIngressConnectionRequestRequestTypeDef",
+    "DescribeVpcIngressConnectionRequestTypeDef",
     "DescribeVpcIngressConnectionResponseTypeDef",
-    "DisassociateCustomDomainRequestRequestTypeDef",
+    "DisassociateCustomDomainRequestTypeDef",
     "DisassociateCustomDomainResponseTypeDef",
     "EgressConfigurationTypeDef",
     "EncryptionConfigurationTypeDef",
     "HealthCheckConfigurationTypeDef",
+    "ImageConfigurationOutputTypeDef",
     "ImageConfigurationTypeDef",
+    "ImageRepositoryOutputTypeDef",
     "ImageRepositoryTypeDef",
     "IngressConfigurationTypeDef",
     "IngressVpcConfigurationTypeDef",
     "InstanceConfigurationTypeDef",
-    "ListAutoScalingConfigurationsRequestRequestTypeDef",
+    "ListAutoScalingConfigurationsRequestTypeDef",
     "ListAutoScalingConfigurationsResponseTypeDef",
-    "ListConnectionsRequestRequestTypeDef",
+    "ListConnectionsRequestTypeDef",
     "ListConnectionsResponseTypeDef",
-    "ListObservabilityConfigurationsRequestRequestTypeDef",
+    "ListObservabilityConfigurationsRequestTypeDef",
     "ListObservabilityConfigurationsResponseTypeDef",
-    "ListOperationsRequestRequestTypeDef",
+    "ListOperationsRequestTypeDef",
     "ListOperationsResponseTypeDef",
-    "ListServicesForAutoScalingConfigurationRequestRequestTypeDef",
+    "ListServicesForAutoScalingConfigurationRequestTypeDef",
     "ListServicesForAutoScalingConfigurationResponseTypeDef",
-    "ListServicesRequestRequestTypeDef",
+    "ListServicesRequestTypeDef",
     "ListServicesResponseTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
-    "ListVpcConnectorsRequestRequestTypeDef",
+    "ListVpcConnectorsRequestTypeDef",
     "ListVpcConnectorsResponseTypeDef",
     "ListVpcIngressConnectionsFilterTypeDef",
-    "ListVpcIngressConnectionsRequestRequestTypeDef",
+    "ListVpcIngressConnectionsRequestTypeDef",
     "ListVpcIngressConnectionsResponseTypeDef",
     "NetworkConfigurationTypeDef",
     "ObservabilityConfigurationSummaryTypeDef",
     "ObservabilityConfigurationTypeDef",
     "OperationSummaryTypeDef",
-    "PauseServiceRequestRequestTypeDef",
+    "PauseServiceRequestTypeDef",
     "PauseServiceResponseTypeDef",
     "ResponseMetadataTypeDef",
-    "ResumeServiceRequestRequestTypeDef",
+    "ResumeServiceRequestTypeDef",
     "ResumeServiceResponseTypeDef",
     "ServiceObservabilityConfigurationTypeDef",
     "ServiceSummaryTypeDef",
     "ServiceTypeDef",
     "SourceCodeVersionTypeDef",
+    "SourceConfigurationOutputTypeDef",
     "SourceConfigurationTypeDef",
-    "StartDeploymentRequestRequestTypeDef",
+    "SourceConfigurationUnionTypeDef",
+    "StartDeploymentRequestTypeDef",
     "StartDeploymentResponseTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
     "TagTypeDef",
     "TraceConfigurationTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateDefaultAutoScalingConfigurationRequestRequestTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateDefaultAutoScalingConfigurationRequestTypeDef",
     "UpdateDefaultAutoScalingConfigurationResponseTypeDef",
-    "UpdateServiceRequestRequestTypeDef",
+    "UpdateServiceRequestTypeDef",
     "UpdateServiceResponseTypeDef",
-    "UpdateVpcIngressConnectionRequestRequestTypeDef",
+    "UpdateVpcIngressConnectionRequestTypeDef",
     "UpdateVpcIngressConnectionResponseTypeDef",
     "VpcConnectorTypeDef",
     "VpcDNSTargetTypeDef",
@@ -155,1046 +168,75 @@ __all__ = (
     "VpcIngressConnectionTypeDef",
 )
 
-_RequiredAssociateCustomDomainRequestRequestTypeDef = TypedDict(
-    "_RequiredAssociateCustomDomainRequestRequestTypeDef",
-    {
-        "ServiceArn": str,
-        "DomainName": str,
-    },
-)
-_OptionalAssociateCustomDomainRequestRequestTypeDef = TypedDict(
-    "_OptionalAssociateCustomDomainRequestRequestTypeDef",
-    {
-        "EnableWWWSubdomain": bool,
-    },
-    total=False,
-)
+class AssociateCustomDomainRequestTypeDef(TypedDict):
+    ServiceArn: str
+    DomainName: str
+    EnableWWWSubdomain: NotRequired[bool]
 
-class AssociateCustomDomainRequestRequestTypeDef(
-    _RequiredAssociateCustomDomainRequestRequestTypeDef,
-    _OptionalAssociateCustomDomainRequestRequestTypeDef,
-):
-    pass
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-AssociateCustomDomainResponseTypeDef = TypedDict(
-    "AssociateCustomDomainResponseTypeDef",
-    {
-        "DNSTarget": str,
-        "ServiceArn": str,
-        "CustomDomain": "CustomDomainTypeDef",
-        "VpcDNSTargets": List["VpcDNSTargetTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class VpcDNSTargetTypeDef(TypedDict):
+    VpcIngressConnectionArn: NotRequired[str]
+    VpcId: NotRequired[str]
+    DomainName: NotRequired[str]
 
-AuthenticationConfigurationTypeDef = TypedDict(
-    "AuthenticationConfigurationTypeDef",
-    {
-        "ConnectionArn": str,
-        "AccessRoleArn": str,
-    },
-    total=False,
-)
+class AuthenticationConfigurationTypeDef(TypedDict):
+    ConnectionArn: NotRequired[str]
+    AccessRoleArn: NotRequired[str]
 
-AutoScalingConfigurationSummaryTypeDef = TypedDict(
-    "AutoScalingConfigurationSummaryTypeDef",
-    {
-        "AutoScalingConfigurationArn": str,
-        "AutoScalingConfigurationName": str,
-        "AutoScalingConfigurationRevision": int,
-        "Status": AutoScalingConfigurationStatusType,
-        "CreatedAt": datetime,
-        "HasAssociatedService": bool,
-        "IsDefault": bool,
-    },
-    total=False,
-)
+class AutoScalingConfigurationSummaryTypeDef(TypedDict):
+    AutoScalingConfigurationArn: NotRequired[str]
+    AutoScalingConfigurationName: NotRequired[str]
+    AutoScalingConfigurationRevision: NotRequired[int]
+    Status: NotRequired[AutoScalingConfigurationStatusType]
+    CreatedAt: NotRequired[datetime]
+    HasAssociatedService: NotRequired[bool]
+    IsDefault: NotRequired[bool]
 
-AutoScalingConfigurationTypeDef = TypedDict(
-    "AutoScalingConfigurationTypeDef",
-    {
-        "AutoScalingConfigurationArn": str,
-        "AutoScalingConfigurationName": str,
-        "AutoScalingConfigurationRevision": int,
-        "Latest": bool,
-        "Status": AutoScalingConfigurationStatusType,
-        "MaxConcurrency": int,
-        "MinSize": int,
-        "MaxSize": int,
-        "CreatedAt": datetime,
-        "DeletedAt": datetime,
-        "HasAssociatedService": bool,
-        "IsDefault": bool,
-    },
-    total=False,
-)
+class AutoScalingConfigurationTypeDef(TypedDict):
+    AutoScalingConfigurationArn: NotRequired[str]
+    AutoScalingConfigurationName: NotRequired[str]
+    AutoScalingConfigurationRevision: NotRequired[int]
+    Latest: NotRequired[bool]
+    Status: NotRequired[AutoScalingConfigurationStatusType]
+    MaxConcurrency: NotRequired[int]
+    MinSize: NotRequired[int]
+    MaxSize: NotRequired[int]
+    CreatedAt: NotRequired[datetime]
+    DeletedAt: NotRequired[datetime]
+    HasAssociatedService: NotRequired[bool]
+    IsDefault: NotRequired[bool]
 
 CertificateValidationRecordTypeDef = TypedDict(
     "CertificateValidationRecordTypeDef",
     {
-        "Name": str,
-        "Type": str,
-        "Value": str,
-        "Status": CertificateValidationRecordStatusType,
-    },
-    total=False,
-)
-
-_RequiredCodeConfigurationTypeDef = TypedDict(
-    "_RequiredCodeConfigurationTypeDef",
-    {
-        "ConfigurationSource": ConfigurationSourceType,
-    },
-)
-_OptionalCodeConfigurationTypeDef = TypedDict(
-    "_OptionalCodeConfigurationTypeDef",
-    {
-        "CodeConfigurationValues": "CodeConfigurationValuesTypeDef",
-    },
-    total=False,
-)
-
-class CodeConfigurationTypeDef(
-    _RequiredCodeConfigurationTypeDef, _OptionalCodeConfigurationTypeDef
-):
-    pass
-
-_RequiredCodeConfigurationValuesTypeDef = TypedDict(
-    "_RequiredCodeConfigurationValuesTypeDef",
-    {
-        "Runtime": RuntimeType,
-    },
-)
-_OptionalCodeConfigurationValuesTypeDef = TypedDict(
-    "_OptionalCodeConfigurationValuesTypeDef",
-    {
-        "BuildCommand": str,
-        "StartCommand": str,
-        "Port": str,
-        "RuntimeEnvironmentVariables": Dict[str, str],
-        "RuntimeEnvironmentSecrets": Dict[str, str],
-    },
-    total=False,
-)
-
-class CodeConfigurationValuesTypeDef(
-    _RequiredCodeConfigurationValuesTypeDef, _OptionalCodeConfigurationValuesTypeDef
-):
-    pass
-
-_RequiredCodeRepositoryTypeDef = TypedDict(
-    "_RequiredCodeRepositoryTypeDef",
-    {
-        "RepositoryUrl": str,
-        "SourceCodeVersion": "SourceCodeVersionTypeDef",
-    },
-)
-_OptionalCodeRepositoryTypeDef = TypedDict(
-    "_OptionalCodeRepositoryTypeDef",
-    {
-        "CodeConfiguration": "CodeConfigurationTypeDef",
-        "SourceDirectory": str,
-    },
-    total=False,
-)
-
-class CodeRepositoryTypeDef(_RequiredCodeRepositoryTypeDef, _OptionalCodeRepositoryTypeDef):
-    pass
-
-ConnectionSummaryTypeDef = TypedDict(
-    "ConnectionSummaryTypeDef",
-    {
-        "ConnectionName": str,
-        "ConnectionArn": str,
-        "ProviderType": ProviderTypeType,
-        "Status": ConnectionStatusType,
-        "CreatedAt": datetime,
-    },
-    total=False,
-)
-
-ConnectionTypeDef = TypedDict(
-    "ConnectionTypeDef",
-    {
-        "ConnectionName": str,
-        "ConnectionArn": str,
-        "ProviderType": ProviderTypeType,
-        "Status": ConnectionStatusType,
-        "CreatedAt": datetime,
-    },
-    total=False,
-)
-
-_RequiredCreateAutoScalingConfigurationRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateAutoScalingConfigurationRequestRequestTypeDef",
-    {
-        "AutoScalingConfigurationName": str,
-    },
-)
-_OptionalCreateAutoScalingConfigurationRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateAutoScalingConfigurationRequestRequestTypeDef",
-    {
-        "MaxConcurrency": int,
-        "MinSize": int,
-        "MaxSize": int,
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateAutoScalingConfigurationRequestRequestTypeDef(
-    _RequiredCreateAutoScalingConfigurationRequestRequestTypeDef,
-    _OptionalCreateAutoScalingConfigurationRequestRequestTypeDef,
-):
-    pass
-
-CreateAutoScalingConfigurationResponseTypeDef = TypedDict(
-    "CreateAutoScalingConfigurationResponseTypeDef",
-    {
-        "AutoScalingConfiguration": "AutoScalingConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateConnectionRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateConnectionRequestRequestTypeDef",
-    {
-        "ConnectionName": str,
-        "ProviderType": ProviderTypeType,
-    },
-)
-_OptionalCreateConnectionRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateConnectionRequestRequestTypeDef",
-    {
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateConnectionRequestRequestTypeDef(
-    _RequiredCreateConnectionRequestRequestTypeDef, _OptionalCreateConnectionRequestRequestTypeDef
-):
-    pass
-
-CreateConnectionResponseTypeDef = TypedDict(
-    "CreateConnectionResponseTypeDef",
-    {
-        "Connection": "ConnectionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateObservabilityConfigurationRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateObservabilityConfigurationRequestRequestTypeDef",
-    {
-        "ObservabilityConfigurationName": str,
-    },
-)
-_OptionalCreateObservabilityConfigurationRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateObservabilityConfigurationRequestRequestTypeDef",
-    {
-        "TraceConfiguration": "TraceConfigurationTypeDef",
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateObservabilityConfigurationRequestRequestTypeDef(
-    _RequiredCreateObservabilityConfigurationRequestRequestTypeDef,
-    _OptionalCreateObservabilityConfigurationRequestRequestTypeDef,
-):
-    pass
-
-CreateObservabilityConfigurationResponseTypeDef = TypedDict(
-    "CreateObservabilityConfigurationResponseTypeDef",
-    {
-        "ObservabilityConfiguration": "ObservabilityConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateServiceRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateServiceRequestRequestTypeDef",
-    {
-        "ServiceName": str,
-        "SourceConfiguration": "SourceConfigurationTypeDef",
-    },
-)
-_OptionalCreateServiceRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateServiceRequestRequestTypeDef",
-    {
-        "InstanceConfiguration": "InstanceConfigurationTypeDef",
-        "Tags": List["TagTypeDef"],
-        "EncryptionConfiguration": "EncryptionConfigurationTypeDef",
-        "HealthCheckConfiguration": "HealthCheckConfigurationTypeDef",
-        "AutoScalingConfigurationArn": str,
-        "NetworkConfiguration": "NetworkConfigurationTypeDef",
-        "ObservabilityConfiguration": "ServiceObservabilityConfigurationTypeDef",
-    },
-    total=False,
-)
-
-class CreateServiceRequestRequestTypeDef(
-    _RequiredCreateServiceRequestRequestTypeDef, _OptionalCreateServiceRequestRequestTypeDef
-):
-    pass
-
-CreateServiceResponseTypeDef = TypedDict(
-    "CreateServiceResponseTypeDef",
-    {
-        "Service": "ServiceTypeDef",
-        "OperationId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateVpcConnectorRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateVpcConnectorRequestRequestTypeDef",
-    {
-        "VpcConnectorName": str,
-        "Subnets": List[str],
-    },
-)
-_OptionalCreateVpcConnectorRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateVpcConnectorRequestRequestTypeDef",
-    {
-        "SecurityGroups": List[str],
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateVpcConnectorRequestRequestTypeDef(
-    _RequiredCreateVpcConnectorRequestRequestTypeDef,
-    _OptionalCreateVpcConnectorRequestRequestTypeDef,
-):
-    pass
-
-CreateVpcConnectorResponseTypeDef = TypedDict(
-    "CreateVpcConnectorResponseTypeDef",
-    {
-        "VpcConnector": "VpcConnectorTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateVpcIngressConnectionRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateVpcIngressConnectionRequestRequestTypeDef",
-    {
-        "ServiceArn": str,
-        "VpcIngressConnectionName": str,
-        "IngressVpcConfiguration": "IngressVpcConfigurationTypeDef",
-    },
-)
-_OptionalCreateVpcIngressConnectionRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateVpcIngressConnectionRequestRequestTypeDef",
-    {
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateVpcIngressConnectionRequestRequestTypeDef(
-    _RequiredCreateVpcIngressConnectionRequestRequestTypeDef,
-    _OptionalCreateVpcIngressConnectionRequestRequestTypeDef,
-):
-    pass
-
-CreateVpcIngressConnectionResponseTypeDef = TypedDict(
-    "CreateVpcIngressConnectionResponseTypeDef",
-    {
-        "VpcIngressConnection": "VpcIngressConnectionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCustomDomainTypeDef = TypedDict(
-    "_RequiredCustomDomainTypeDef",
-    {
-        "DomainName": str,
-        "EnableWWWSubdomain": bool,
-        "Status": CustomDomainAssociationStatusType,
-    },
-)
-_OptionalCustomDomainTypeDef = TypedDict(
-    "_OptionalCustomDomainTypeDef",
-    {
-        "CertificateValidationRecords": List["CertificateValidationRecordTypeDef"],
-    },
-    total=False,
-)
-
-class CustomDomainTypeDef(_RequiredCustomDomainTypeDef, _OptionalCustomDomainTypeDef):
-    pass
-
-_RequiredDeleteAutoScalingConfigurationRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteAutoScalingConfigurationRequestRequestTypeDef",
-    {
-        "AutoScalingConfigurationArn": str,
-    },
-)
-_OptionalDeleteAutoScalingConfigurationRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteAutoScalingConfigurationRequestRequestTypeDef",
-    {
-        "DeleteAllRevisions": bool,
-    },
-    total=False,
-)
-
-class DeleteAutoScalingConfigurationRequestRequestTypeDef(
-    _RequiredDeleteAutoScalingConfigurationRequestRequestTypeDef,
-    _OptionalDeleteAutoScalingConfigurationRequestRequestTypeDef,
-):
-    pass
-
-DeleteAutoScalingConfigurationResponseTypeDef = TypedDict(
-    "DeleteAutoScalingConfigurationResponseTypeDef",
-    {
-        "AutoScalingConfiguration": "AutoScalingConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteConnectionRequestRequestTypeDef = TypedDict(
-    "DeleteConnectionRequestRequestTypeDef",
-    {
-        "ConnectionArn": str,
-    },
-)
-
-DeleteConnectionResponseTypeDef = TypedDict(
-    "DeleteConnectionResponseTypeDef",
-    {
-        "Connection": "ConnectionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteObservabilityConfigurationRequestRequestTypeDef = TypedDict(
-    "DeleteObservabilityConfigurationRequestRequestTypeDef",
-    {
-        "ObservabilityConfigurationArn": str,
-    },
-)
-
-DeleteObservabilityConfigurationResponseTypeDef = TypedDict(
-    "DeleteObservabilityConfigurationResponseTypeDef",
-    {
-        "ObservabilityConfiguration": "ObservabilityConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteServiceRequestRequestTypeDef = TypedDict(
-    "DeleteServiceRequestRequestTypeDef",
-    {
-        "ServiceArn": str,
-    },
-)
-
-DeleteServiceResponseTypeDef = TypedDict(
-    "DeleteServiceResponseTypeDef",
-    {
-        "Service": "ServiceTypeDef",
-        "OperationId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteVpcConnectorRequestRequestTypeDef = TypedDict(
-    "DeleteVpcConnectorRequestRequestTypeDef",
-    {
-        "VpcConnectorArn": str,
-    },
-)
-
-DeleteVpcConnectorResponseTypeDef = TypedDict(
-    "DeleteVpcConnectorResponseTypeDef",
-    {
-        "VpcConnector": "VpcConnectorTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteVpcIngressConnectionRequestRequestTypeDef = TypedDict(
-    "DeleteVpcIngressConnectionRequestRequestTypeDef",
-    {
-        "VpcIngressConnectionArn": str,
-    },
-)
-
-DeleteVpcIngressConnectionResponseTypeDef = TypedDict(
-    "DeleteVpcIngressConnectionResponseTypeDef",
-    {
-        "VpcIngressConnection": "VpcIngressConnectionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeAutoScalingConfigurationRequestRequestTypeDef = TypedDict(
-    "DescribeAutoScalingConfigurationRequestRequestTypeDef",
-    {
-        "AutoScalingConfigurationArn": str,
-    },
-)
-
-DescribeAutoScalingConfigurationResponseTypeDef = TypedDict(
-    "DescribeAutoScalingConfigurationResponseTypeDef",
-    {
-        "AutoScalingConfiguration": "AutoScalingConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribeCustomDomainsRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeCustomDomainsRequestRequestTypeDef",
-    {
-        "ServiceArn": str,
-    },
-)
-_OptionalDescribeCustomDomainsRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeCustomDomainsRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-class DescribeCustomDomainsRequestRequestTypeDef(
-    _RequiredDescribeCustomDomainsRequestRequestTypeDef,
-    _OptionalDescribeCustomDomainsRequestRequestTypeDef,
-):
-    pass
-
-DescribeCustomDomainsResponseTypeDef = TypedDict(
-    "DescribeCustomDomainsResponseTypeDef",
-    {
-        "DNSTarget": str,
-        "ServiceArn": str,
-        "CustomDomains": List["CustomDomainTypeDef"],
-        "VpcDNSTargets": List["VpcDNSTargetTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeObservabilityConfigurationRequestRequestTypeDef = TypedDict(
-    "DescribeObservabilityConfigurationRequestRequestTypeDef",
-    {
-        "ObservabilityConfigurationArn": str,
-    },
-)
-
-DescribeObservabilityConfigurationResponseTypeDef = TypedDict(
-    "DescribeObservabilityConfigurationResponseTypeDef",
-    {
-        "ObservabilityConfiguration": "ObservabilityConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeServiceRequestRequestTypeDef = TypedDict(
-    "DescribeServiceRequestRequestTypeDef",
-    {
-        "ServiceArn": str,
-    },
-)
-
-DescribeServiceResponseTypeDef = TypedDict(
-    "DescribeServiceResponseTypeDef",
-    {
-        "Service": "ServiceTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeVpcConnectorRequestRequestTypeDef = TypedDict(
-    "DescribeVpcConnectorRequestRequestTypeDef",
-    {
-        "VpcConnectorArn": str,
-    },
-)
-
-DescribeVpcConnectorResponseTypeDef = TypedDict(
-    "DescribeVpcConnectorResponseTypeDef",
-    {
-        "VpcConnector": "VpcConnectorTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeVpcIngressConnectionRequestRequestTypeDef = TypedDict(
-    "DescribeVpcIngressConnectionRequestRequestTypeDef",
-    {
-        "VpcIngressConnectionArn": str,
-    },
-)
-
-DescribeVpcIngressConnectionResponseTypeDef = TypedDict(
-    "DescribeVpcIngressConnectionResponseTypeDef",
-    {
-        "VpcIngressConnection": "VpcIngressConnectionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DisassociateCustomDomainRequestRequestTypeDef = TypedDict(
-    "DisassociateCustomDomainRequestRequestTypeDef",
-    {
-        "ServiceArn": str,
-        "DomainName": str,
-    },
-)
-
-DisassociateCustomDomainResponseTypeDef = TypedDict(
-    "DisassociateCustomDomainResponseTypeDef",
-    {
-        "DNSTarget": str,
-        "ServiceArn": str,
-        "CustomDomain": "CustomDomainTypeDef",
-        "VpcDNSTargets": List["VpcDNSTargetTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-EgressConfigurationTypeDef = TypedDict(
-    "EgressConfigurationTypeDef",
-    {
-        "EgressType": EgressTypeType,
-        "VpcConnectorArn": str,
-    },
-    total=False,
-)
-
-EncryptionConfigurationTypeDef = TypedDict(
-    "EncryptionConfigurationTypeDef",
-    {
-        "KmsKey": str,
-    },
-)
-
-HealthCheckConfigurationTypeDef = TypedDict(
-    "HealthCheckConfigurationTypeDef",
-    {
-        "Protocol": HealthCheckProtocolType,
-        "Path": str,
-        "Interval": int,
-        "Timeout": int,
-        "HealthyThreshold": int,
-        "UnhealthyThreshold": int,
-    },
-    total=False,
-)
-
-ImageConfigurationTypeDef = TypedDict(
-    "ImageConfigurationTypeDef",
-    {
-        "RuntimeEnvironmentVariables": Dict[str, str],
-        "StartCommand": str,
-        "Port": str,
-        "RuntimeEnvironmentSecrets": Dict[str, str],
-    },
-    total=False,
-)
-
-_RequiredImageRepositoryTypeDef = TypedDict(
-    "_RequiredImageRepositoryTypeDef",
-    {
-        "ImageIdentifier": str,
-        "ImageRepositoryType": ImageRepositoryTypeType,
-    },
-)
-_OptionalImageRepositoryTypeDef = TypedDict(
-    "_OptionalImageRepositoryTypeDef",
-    {
-        "ImageConfiguration": "ImageConfigurationTypeDef",
-    },
-    total=False,
-)
-
-class ImageRepositoryTypeDef(_RequiredImageRepositoryTypeDef, _OptionalImageRepositoryTypeDef):
-    pass
-
-IngressConfigurationTypeDef = TypedDict(
-    "IngressConfigurationTypeDef",
-    {
-        "IsPubliclyAccessible": bool,
-    },
-    total=False,
-)
-
-IngressVpcConfigurationTypeDef = TypedDict(
-    "IngressVpcConfigurationTypeDef",
-    {
-        "VpcId": str,
-        "VpcEndpointId": str,
-    },
-    total=False,
-)
-
-InstanceConfigurationTypeDef = TypedDict(
-    "InstanceConfigurationTypeDef",
-    {
-        "Cpu": str,
-        "Memory": str,
-        "InstanceRoleArn": str,
-    },
-    total=False,
-)
-
-ListAutoScalingConfigurationsRequestRequestTypeDef = TypedDict(
-    "ListAutoScalingConfigurationsRequestRequestTypeDef",
-    {
-        "AutoScalingConfigurationName": str,
-        "LatestOnly": bool,
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListAutoScalingConfigurationsResponseTypeDef = TypedDict(
-    "ListAutoScalingConfigurationsResponseTypeDef",
-    {
-        "AutoScalingConfigurationSummaryList": List["AutoScalingConfigurationSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListConnectionsRequestRequestTypeDef = TypedDict(
-    "ListConnectionsRequestRequestTypeDef",
-    {
-        "ConnectionName": str,
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListConnectionsResponseTypeDef = TypedDict(
-    "ListConnectionsResponseTypeDef",
-    {
-        "ConnectionSummaryList": List["ConnectionSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListObservabilityConfigurationsRequestRequestTypeDef = TypedDict(
-    "ListObservabilityConfigurationsRequestRequestTypeDef",
-    {
-        "ObservabilityConfigurationName": str,
-        "LatestOnly": bool,
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListObservabilityConfigurationsResponseTypeDef = TypedDict(
-    "ListObservabilityConfigurationsResponseTypeDef",
-    {
-        "ObservabilityConfigurationSummaryList": List["ObservabilityConfigurationSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListOperationsRequestRequestTypeDef = TypedDict(
-    "_RequiredListOperationsRequestRequestTypeDef",
-    {
-        "ServiceArn": str,
-    },
-)
-_OptionalListOperationsRequestRequestTypeDef = TypedDict(
-    "_OptionalListOperationsRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-class ListOperationsRequestRequestTypeDef(
-    _RequiredListOperationsRequestRequestTypeDef, _OptionalListOperationsRequestRequestTypeDef
-):
-    pass
-
-ListOperationsResponseTypeDef = TypedDict(
-    "ListOperationsResponseTypeDef",
-    {
-        "OperationSummaryList": List["OperationSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListServicesForAutoScalingConfigurationRequestRequestTypeDef = TypedDict(
-    "_RequiredListServicesForAutoScalingConfigurationRequestRequestTypeDef",
-    {
-        "AutoScalingConfigurationArn": str,
-    },
-)
-_OptionalListServicesForAutoScalingConfigurationRequestRequestTypeDef = TypedDict(
-    "_OptionalListServicesForAutoScalingConfigurationRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListServicesForAutoScalingConfigurationRequestRequestTypeDef(
-    _RequiredListServicesForAutoScalingConfigurationRequestRequestTypeDef,
-    _OptionalListServicesForAutoScalingConfigurationRequestRequestTypeDef,
-):
-    pass
-
-ListServicesForAutoScalingConfigurationResponseTypeDef = TypedDict(
-    "ListServicesForAutoScalingConfigurationResponseTypeDef",
-    {
-        "ServiceArnList": List[str],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListServicesRequestRequestTypeDef = TypedDict(
-    "ListServicesRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-ListServicesResponseTypeDef = TypedDict(
-    "ListServicesResponseTypeDef",
-    {
-        "ServiceSummaryList": List["ServiceSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-    },
-)
-
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "Tags": List["TagTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListVpcConnectorsRequestRequestTypeDef = TypedDict(
-    "ListVpcConnectorsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListVpcConnectorsResponseTypeDef = TypedDict(
-    "ListVpcConnectorsResponseTypeDef",
-    {
-        "VpcConnectors": List["VpcConnectorTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListVpcIngressConnectionsFilterTypeDef = TypedDict(
-    "ListVpcIngressConnectionsFilterTypeDef",
-    {
-        "ServiceArn": str,
-        "VpcEndpointId": str,
-    },
-    total=False,
-)
-
-ListVpcIngressConnectionsRequestRequestTypeDef = TypedDict(
-    "ListVpcIngressConnectionsRequestRequestTypeDef",
-    {
-        "Filter": "ListVpcIngressConnectionsFilterTypeDef",
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListVpcIngressConnectionsResponseTypeDef = TypedDict(
-    "ListVpcIngressConnectionsResponseTypeDef",
-    {
-        "VpcIngressConnectionSummaryList": List["VpcIngressConnectionSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-NetworkConfigurationTypeDef = TypedDict(
-    "NetworkConfigurationTypeDef",
-    {
-        "EgressConfiguration": "EgressConfigurationTypeDef",
-        "IngressConfiguration": "IngressConfigurationTypeDef",
-        "IpAddressType": IpAddressTypeType,
-    },
-    total=False,
-)
-
-ObservabilityConfigurationSummaryTypeDef = TypedDict(
-    "ObservabilityConfigurationSummaryTypeDef",
-    {
-        "ObservabilityConfigurationArn": str,
-        "ObservabilityConfigurationName": str,
-        "ObservabilityConfigurationRevision": int,
-    },
-    total=False,
-)
-
-ObservabilityConfigurationTypeDef = TypedDict(
-    "ObservabilityConfigurationTypeDef",
-    {
-        "ObservabilityConfigurationArn": str,
-        "ObservabilityConfigurationName": str,
-        "TraceConfiguration": "TraceConfigurationTypeDef",
-        "ObservabilityConfigurationRevision": int,
-        "Latest": bool,
-        "Status": ObservabilityConfigurationStatusType,
-        "CreatedAt": datetime,
-        "DeletedAt": datetime,
-    },
-    total=False,
-)
-
-OperationSummaryTypeDef = TypedDict(
-    "OperationSummaryTypeDef",
-    {
-        "Id": str,
-        "Type": OperationTypeType,
-        "Status": OperationStatusType,
-        "TargetArn": str,
-        "StartedAt": datetime,
-        "EndedAt": datetime,
-        "UpdatedAt": datetime,
-    },
-    total=False,
-)
-
-PauseServiceRequestRequestTypeDef = TypedDict(
-    "PauseServiceRequestRequestTypeDef",
-    {
-        "ServiceArn": str,
-    },
-)
-
-PauseServiceResponseTypeDef = TypedDict(
-    "PauseServiceResponseTypeDef",
-    {
-        "Service": "ServiceTypeDef",
-        "OperationId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-ResumeServiceRequestRequestTypeDef = TypedDict(
-    "ResumeServiceRequestRequestTypeDef",
-    {
-        "ServiceArn": str,
-    },
-)
-
-ResumeServiceResponseTypeDef = TypedDict(
-    "ResumeServiceResponseTypeDef",
-    {
-        "Service": "ServiceTypeDef",
-        "OperationId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredServiceObservabilityConfigurationTypeDef = TypedDict(
-    "_RequiredServiceObservabilityConfigurationTypeDef",
-    {
-        "ObservabilityEnabled": bool,
-    },
-)
-_OptionalServiceObservabilityConfigurationTypeDef = TypedDict(
-    "_OptionalServiceObservabilityConfigurationTypeDef",
-    {
-        "ObservabilityConfigurationArn": str,
-    },
-    total=False,
-)
-
-class ServiceObservabilityConfigurationTypeDef(
-    _RequiredServiceObservabilityConfigurationTypeDef,
-    _OptionalServiceObservabilityConfigurationTypeDef,
-):
-    pass
-
-ServiceSummaryTypeDef = TypedDict(
-    "ServiceSummaryTypeDef",
-    {
-        "ServiceName": str,
-        "ServiceId": str,
-        "ServiceArn": str,
-        "ServiceUrl": str,
-        "CreatedAt": datetime,
-        "UpdatedAt": datetime,
-        "Status": ServiceStatusType,
-    },
-    total=False,
-)
-
-_RequiredServiceTypeDef = TypedDict(
-    "_RequiredServiceTypeDef",
-    {
-        "ServiceName": str,
-        "ServiceId": str,
-        "ServiceArn": str,
-        "CreatedAt": datetime,
-        "UpdatedAt": datetime,
-        "Status": ServiceStatusType,
-        "SourceConfiguration": "SourceConfigurationTypeDef",
-        "InstanceConfiguration": "InstanceConfigurationTypeDef",
-        "AutoScalingConfigurationSummary": "AutoScalingConfigurationSummaryTypeDef",
-        "NetworkConfiguration": "NetworkConfigurationTypeDef",
-    },
-)
-_OptionalServiceTypeDef = TypedDict(
-    "_OptionalServiceTypeDef",
-    {
-        "ServiceUrl": str,
-        "DeletedAt": datetime,
-        "EncryptionConfiguration": "EncryptionConfigurationTypeDef",
-        "HealthCheckConfiguration": "HealthCheckConfigurationTypeDef",
-        "ObservabilityConfiguration": "ServiceObservabilityConfigurationTypeDef",
-    },
-    total=False,
-)
-
-class ServiceTypeDef(_RequiredServiceTypeDef, _OptionalServiceTypeDef):
-    pass
+        "Name": NotRequired[str],
+        "Type": NotRequired[str],
+        "Value": NotRequired[str],
+        "Status": NotRequired[CertificateValidationRecordStatusType],
+    },
+)
+
+class CodeConfigurationValuesOutputTypeDef(TypedDict):
+    Runtime: RuntimeType
+    BuildCommand: NotRequired[str]
+    StartCommand: NotRequired[str]
+    Port: NotRequired[str]
+    RuntimeEnvironmentVariables: NotRequired[Dict[str, str]]
+    RuntimeEnvironmentSecrets: NotRequired[Dict[str, str]]
+
+class CodeConfigurationValuesTypeDef(TypedDict):
+    Runtime: RuntimeType
+    BuildCommand: NotRequired[str]
+    StartCommand: NotRequired[str]
+    Port: NotRequired[str]
+    RuntimeEnvironmentVariables: NotRequired[Mapping[str, str]]
+    RuntimeEnvironmentSecrets: NotRequired[Mapping[str, str]]
 
 SourceCodeVersionTypeDef = TypedDict(
     "SourceCodeVersionTypeDef",
@@ -1204,174 +246,543 @@ SourceCodeVersionTypeDef = TypedDict(
     },
 )
 
-SourceConfigurationTypeDef = TypedDict(
-    "SourceConfigurationTypeDef",
+class ConnectionSummaryTypeDef(TypedDict):
+    ConnectionName: NotRequired[str]
+    ConnectionArn: NotRequired[str]
+    ProviderType: NotRequired[ProviderTypeType]
+    Status: NotRequired[ConnectionStatusType]
+    CreatedAt: NotRequired[datetime]
+
+class ConnectionTypeDef(TypedDict):
+    ConnectionName: NotRequired[str]
+    ConnectionArn: NotRequired[str]
+    ProviderType: NotRequired[ProviderTypeType]
+    Status: NotRequired[ConnectionStatusType]
+    CreatedAt: NotRequired[datetime]
+
+class TagTypeDef(TypedDict):
+    Key: NotRequired[str]
+    Value: NotRequired[str]
+
+class TraceConfigurationTypeDef(TypedDict):
+    Vendor: Literal["AWSXRAY"]
+
+class EncryptionConfigurationTypeDef(TypedDict):
+    KmsKey: str
+
+HealthCheckConfigurationTypeDef = TypedDict(
+    "HealthCheckConfigurationTypeDef",
     {
-        "CodeRepository": "CodeRepositoryTypeDef",
-        "ImageRepository": "ImageRepositoryTypeDef",
-        "AutoDeploymentsEnabled": bool,
-        "AuthenticationConfiguration": "AuthenticationConfigurationTypeDef",
+        "Protocol": NotRequired[HealthCheckProtocolType],
+        "Path": NotRequired[str],
+        "Interval": NotRequired[int],
+        "Timeout": NotRequired[int],
+        "HealthyThreshold": NotRequired[int],
+        "UnhealthyThreshold": NotRequired[int],
     },
-    total=False,
 )
 
-StartDeploymentRequestRequestTypeDef = TypedDict(
-    "StartDeploymentRequestRequestTypeDef",
+class InstanceConfigurationTypeDef(TypedDict):
+    Cpu: NotRequired[str]
+    Memory: NotRequired[str]
+    InstanceRoleArn: NotRequired[str]
+
+class ServiceObservabilityConfigurationTypeDef(TypedDict):
+    ObservabilityEnabled: bool
+    ObservabilityConfigurationArn: NotRequired[str]
+
+class VpcConnectorTypeDef(TypedDict):
+    VpcConnectorName: NotRequired[str]
+    VpcConnectorArn: NotRequired[str]
+    VpcConnectorRevision: NotRequired[int]
+    Subnets: NotRequired[List[str]]
+    SecurityGroups: NotRequired[List[str]]
+    Status: NotRequired[VpcConnectorStatusType]
+    CreatedAt: NotRequired[datetime]
+    DeletedAt: NotRequired[datetime]
+
+class IngressVpcConfigurationTypeDef(TypedDict):
+    VpcId: NotRequired[str]
+    VpcEndpointId: NotRequired[str]
+
+class DeleteAutoScalingConfigurationRequestTypeDef(TypedDict):
+    AutoScalingConfigurationArn: str
+    DeleteAllRevisions: NotRequired[bool]
+
+class DeleteConnectionRequestTypeDef(TypedDict):
+    ConnectionArn: str
+
+class DeleteObservabilityConfigurationRequestTypeDef(TypedDict):
+    ObservabilityConfigurationArn: str
+
+class DeleteServiceRequestTypeDef(TypedDict):
+    ServiceArn: str
+
+class DeleteVpcConnectorRequestTypeDef(TypedDict):
+    VpcConnectorArn: str
+
+class DeleteVpcIngressConnectionRequestTypeDef(TypedDict):
+    VpcIngressConnectionArn: str
+
+class DescribeAutoScalingConfigurationRequestTypeDef(TypedDict):
+    AutoScalingConfigurationArn: str
+
+class DescribeCustomDomainsRequestTypeDef(TypedDict):
+    ServiceArn: str
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class DescribeObservabilityConfigurationRequestTypeDef(TypedDict):
+    ObservabilityConfigurationArn: str
+
+class DescribeServiceRequestTypeDef(TypedDict):
+    ServiceArn: str
+
+class DescribeVpcConnectorRequestTypeDef(TypedDict):
+    VpcConnectorArn: str
+
+class DescribeVpcIngressConnectionRequestTypeDef(TypedDict):
+    VpcIngressConnectionArn: str
+
+class DisassociateCustomDomainRequestTypeDef(TypedDict):
+    ServiceArn: str
+    DomainName: str
+
+class EgressConfigurationTypeDef(TypedDict):
+    EgressType: NotRequired[EgressTypeType]
+    VpcConnectorArn: NotRequired[str]
+
+class ImageConfigurationOutputTypeDef(TypedDict):
+    RuntimeEnvironmentVariables: NotRequired[Dict[str, str]]
+    StartCommand: NotRequired[str]
+    Port: NotRequired[str]
+    RuntimeEnvironmentSecrets: NotRequired[Dict[str, str]]
+
+class ImageConfigurationTypeDef(TypedDict):
+    RuntimeEnvironmentVariables: NotRequired[Mapping[str, str]]
+    StartCommand: NotRequired[str]
+    Port: NotRequired[str]
+    RuntimeEnvironmentSecrets: NotRequired[Mapping[str, str]]
+
+class IngressConfigurationTypeDef(TypedDict):
+    IsPubliclyAccessible: NotRequired[bool]
+
+class ListAutoScalingConfigurationsRequestTypeDef(TypedDict):
+    AutoScalingConfigurationName: NotRequired[str]
+    LatestOnly: NotRequired[bool]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListConnectionsRequestTypeDef(TypedDict):
+    ConnectionName: NotRequired[str]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListObservabilityConfigurationsRequestTypeDef(TypedDict):
+    ObservabilityConfigurationName: NotRequired[str]
+    LatestOnly: NotRequired[bool]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ObservabilityConfigurationSummaryTypeDef(TypedDict):
+    ObservabilityConfigurationArn: NotRequired[str]
+    ObservabilityConfigurationName: NotRequired[str]
+    ObservabilityConfigurationRevision: NotRequired[int]
+
+class ListOperationsRequestTypeDef(TypedDict):
+    ServiceArn: str
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+OperationSummaryTypeDef = TypedDict(
+    "OperationSummaryTypeDef",
     {
+        "Id": NotRequired[str],
+        "Type": NotRequired[OperationTypeType],
+        "Status": NotRequired[OperationStatusType],
+        "TargetArn": NotRequired[str],
+        "StartedAt": NotRequired[datetime],
+        "EndedAt": NotRequired[datetime],
+        "UpdatedAt": NotRequired[datetime],
+    },
+)
+
+class ListServicesForAutoScalingConfigurationRequestTypeDef(TypedDict):
+    AutoScalingConfigurationArn: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListServicesRequestTypeDef(TypedDict):
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+ServiceSummaryTypeDef = TypedDict(
+    "ServiceSummaryTypeDef",
+    {
+        "ServiceName": NotRequired[str],
+        "ServiceId": NotRequired[str],
+        "ServiceArn": NotRequired[str],
+        "ServiceUrl": NotRequired[str],
+        "CreatedAt": NotRequired[datetime],
+        "UpdatedAt": NotRequired[datetime],
+        "Status": NotRequired[ServiceStatusType],
+    },
+)
+
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+
+class ListVpcConnectorsRequestTypeDef(TypedDict):
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListVpcIngressConnectionsFilterTypeDef(TypedDict):
+    ServiceArn: NotRequired[str]
+    VpcEndpointId: NotRequired[str]
+
+class VpcIngressConnectionSummaryTypeDef(TypedDict):
+    VpcIngressConnectionArn: NotRequired[str]
+    ServiceArn: NotRequired[str]
+
+class PauseServiceRequestTypeDef(TypedDict):
+    ServiceArn: str
+
+class ResumeServiceRequestTypeDef(TypedDict):
+    ServiceArn: str
+
+class StartDeploymentRequestTypeDef(TypedDict):
+    ServiceArn: str
+
+class UntagResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+    TagKeys: Sequence[str]
+
+class UpdateDefaultAutoScalingConfigurationRequestTypeDef(TypedDict):
+    AutoScalingConfigurationArn: str
+
+class ListServicesForAutoScalingConfigurationResponseTypeDef(TypedDict):
+    ServiceArnList: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class StartDeploymentResponseTypeDef(TypedDict):
+    OperationId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListAutoScalingConfigurationsResponseTypeDef(TypedDict):
+    AutoScalingConfigurationSummaryList: List[AutoScalingConfigurationSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class CreateAutoScalingConfigurationResponseTypeDef(TypedDict):
+    AutoScalingConfiguration: AutoScalingConfigurationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteAutoScalingConfigurationResponseTypeDef(TypedDict):
+    AutoScalingConfiguration: AutoScalingConfigurationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeAutoScalingConfigurationResponseTypeDef(TypedDict):
+    AutoScalingConfiguration: AutoScalingConfigurationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateDefaultAutoScalingConfigurationResponseTypeDef(TypedDict):
+    AutoScalingConfiguration: AutoScalingConfigurationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CustomDomainTypeDef(TypedDict):
+    DomainName: str
+    EnableWWWSubdomain: bool
+    Status: CustomDomainAssociationStatusType
+    CertificateValidationRecords: NotRequired[List[CertificateValidationRecordTypeDef]]
+
+class CodeConfigurationOutputTypeDef(TypedDict):
+    ConfigurationSource: ConfigurationSourceType
+    CodeConfigurationValues: NotRequired[CodeConfigurationValuesOutputTypeDef]
+
+class CodeConfigurationTypeDef(TypedDict):
+    ConfigurationSource: ConfigurationSourceType
+    CodeConfigurationValues: NotRequired[CodeConfigurationValuesTypeDef]
+
+class ListConnectionsResponseTypeDef(TypedDict):
+    ConnectionSummaryList: List[ConnectionSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class CreateConnectionResponseTypeDef(TypedDict):
+    Connection: ConnectionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteConnectionResponseTypeDef(TypedDict):
+    Connection: ConnectionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateAutoScalingConfigurationRequestTypeDef(TypedDict):
+    AutoScalingConfigurationName: str
+    MaxConcurrency: NotRequired[int]
+    MinSize: NotRequired[int]
+    MaxSize: NotRequired[int]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+
+class CreateConnectionRequestTypeDef(TypedDict):
+    ConnectionName: str
+    ProviderType: ProviderTypeType
+    Tags: NotRequired[Sequence[TagTypeDef]]
+
+class CreateVpcConnectorRequestTypeDef(TypedDict):
+    VpcConnectorName: str
+    Subnets: Sequence[str]
+    SecurityGroups: NotRequired[Sequence[str]]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    Tags: List[TagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class TagResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+    Tags: Sequence[TagTypeDef]
+
+class CreateObservabilityConfigurationRequestTypeDef(TypedDict):
+    ObservabilityConfigurationName: str
+    TraceConfiguration: NotRequired[TraceConfigurationTypeDef]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+
+class ObservabilityConfigurationTypeDef(TypedDict):
+    ObservabilityConfigurationArn: NotRequired[str]
+    ObservabilityConfigurationName: NotRequired[str]
+    TraceConfiguration: NotRequired[TraceConfigurationTypeDef]
+    ObservabilityConfigurationRevision: NotRequired[int]
+    Latest: NotRequired[bool]
+    Status: NotRequired[ObservabilityConfigurationStatusType]
+    CreatedAt: NotRequired[datetime]
+    DeletedAt: NotRequired[datetime]
+
+class CreateVpcConnectorResponseTypeDef(TypedDict):
+    VpcConnector: VpcConnectorTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteVpcConnectorResponseTypeDef(TypedDict):
+    VpcConnector: VpcConnectorTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeVpcConnectorResponseTypeDef(TypedDict):
+    VpcConnector: VpcConnectorTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListVpcConnectorsResponseTypeDef(TypedDict):
+    VpcConnectors: List[VpcConnectorTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class CreateVpcIngressConnectionRequestTypeDef(TypedDict):
+    ServiceArn: str
+    VpcIngressConnectionName: str
+    IngressVpcConfiguration: IngressVpcConfigurationTypeDef
+    Tags: NotRequired[Sequence[TagTypeDef]]
+
+class UpdateVpcIngressConnectionRequestTypeDef(TypedDict):
+    VpcIngressConnectionArn: str
+    IngressVpcConfiguration: IngressVpcConfigurationTypeDef
+
+class VpcIngressConnectionTypeDef(TypedDict):
+    VpcIngressConnectionArn: NotRequired[str]
+    VpcIngressConnectionName: NotRequired[str]
+    ServiceArn: NotRequired[str]
+    Status: NotRequired[VpcIngressConnectionStatusType]
+    AccountId: NotRequired[str]
+    DomainName: NotRequired[str]
+    IngressVpcConfiguration: NotRequired[IngressVpcConfigurationTypeDef]
+    CreatedAt: NotRequired[datetime]
+    DeletedAt: NotRequired[datetime]
+
+class ImageRepositoryOutputTypeDef(TypedDict):
+    ImageIdentifier: str
+    ImageRepositoryType: ImageRepositoryTypeType
+    ImageConfiguration: NotRequired[ImageConfigurationOutputTypeDef]
+
+class ImageRepositoryTypeDef(TypedDict):
+    ImageIdentifier: str
+    ImageRepositoryType: ImageRepositoryTypeType
+    ImageConfiguration: NotRequired[ImageConfigurationTypeDef]
+
+class NetworkConfigurationTypeDef(TypedDict):
+    EgressConfiguration: NotRequired[EgressConfigurationTypeDef]
+    IngressConfiguration: NotRequired[IngressConfigurationTypeDef]
+    IpAddressType: NotRequired[IpAddressTypeType]
+
+class ListObservabilityConfigurationsResponseTypeDef(TypedDict):
+    ObservabilityConfigurationSummaryList: List[ObservabilityConfigurationSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListOperationsResponseTypeDef(TypedDict):
+    OperationSummaryList: List[OperationSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListServicesResponseTypeDef(TypedDict):
+    ServiceSummaryList: List[ServiceSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListVpcIngressConnectionsRequestTypeDef(TypedDict):
+    Filter: NotRequired[ListVpcIngressConnectionsFilterTypeDef]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListVpcIngressConnectionsResponseTypeDef(TypedDict):
+    VpcIngressConnectionSummaryList: List[VpcIngressConnectionSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class AssociateCustomDomainResponseTypeDef(TypedDict):
+    DNSTarget: str
+    ServiceArn: str
+    CustomDomain: CustomDomainTypeDef
+    VpcDNSTargets: List[VpcDNSTargetTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeCustomDomainsResponseTypeDef(TypedDict):
+    DNSTarget: str
+    ServiceArn: str
+    CustomDomains: List[CustomDomainTypeDef]
+    VpcDNSTargets: List[VpcDNSTargetTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class DisassociateCustomDomainResponseTypeDef(TypedDict):
+    DNSTarget: str
+    ServiceArn: str
+    CustomDomain: CustomDomainTypeDef
+    VpcDNSTargets: List[VpcDNSTargetTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CodeRepositoryOutputTypeDef(TypedDict):
+    RepositoryUrl: str
+    SourceCodeVersion: SourceCodeVersionTypeDef
+    CodeConfiguration: NotRequired[CodeConfigurationOutputTypeDef]
+    SourceDirectory: NotRequired[str]
+
+class CodeRepositoryTypeDef(TypedDict):
+    RepositoryUrl: str
+    SourceCodeVersion: SourceCodeVersionTypeDef
+    CodeConfiguration: NotRequired[CodeConfigurationTypeDef]
+    SourceDirectory: NotRequired[str]
+
+class CreateObservabilityConfigurationResponseTypeDef(TypedDict):
+    ObservabilityConfiguration: ObservabilityConfigurationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteObservabilityConfigurationResponseTypeDef(TypedDict):
+    ObservabilityConfiguration: ObservabilityConfigurationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeObservabilityConfigurationResponseTypeDef(TypedDict):
+    ObservabilityConfiguration: ObservabilityConfigurationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateVpcIngressConnectionResponseTypeDef(TypedDict):
+    VpcIngressConnection: VpcIngressConnectionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteVpcIngressConnectionResponseTypeDef(TypedDict):
+    VpcIngressConnection: VpcIngressConnectionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeVpcIngressConnectionResponseTypeDef(TypedDict):
+    VpcIngressConnection: VpcIngressConnectionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateVpcIngressConnectionResponseTypeDef(TypedDict):
+    VpcIngressConnection: VpcIngressConnectionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class SourceConfigurationOutputTypeDef(TypedDict):
+    CodeRepository: NotRequired[CodeRepositoryOutputTypeDef]
+    ImageRepository: NotRequired[ImageRepositoryOutputTypeDef]
+    AutoDeploymentsEnabled: NotRequired[bool]
+    AuthenticationConfiguration: NotRequired[AuthenticationConfigurationTypeDef]
+
+class SourceConfigurationTypeDef(TypedDict):
+    CodeRepository: NotRequired[CodeRepositoryTypeDef]
+    ImageRepository: NotRequired[ImageRepositoryTypeDef]
+    AutoDeploymentsEnabled: NotRequired[bool]
+    AuthenticationConfiguration: NotRequired[AuthenticationConfigurationTypeDef]
+
+ServiceTypeDef = TypedDict(
+    "ServiceTypeDef",
+    {
+        "ServiceName": str,
+        "ServiceId": str,
         "ServiceArn": str,
-    },
-)
-
-StartDeploymentResponseTypeDef = TypedDict(
-    "StartDeploymentResponseTypeDef",
-    {
-        "OperationId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-        "Tags": List["TagTypeDef"],
-    },
-)
-
-TagTypeDef = TypedDict(
-    "TagTypeDef",
-    {
-        "Key": str,
-        "Value": str,
-    },
-    total=False,
-)
-
-TraceConfigurationTypeDef = TypedDict(
-    "TraceConfigurationTypeDef",
-    {
-        "Vendor": Literal["AWSXRAY"],
-    },
-)
-
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-        "TagKeys": List[str],
-    },
-)
-
-UpdateDefaultAutoScalingConfigurationRequestRequestTypeDef = TypedDict(
-    "UpdateDefaultAutoScalingConfigurationRequestRequestTypeDef",
-    {
-        "AutoScalingConfigurationArn": str,
-    },
-)
-
-UpdateDefaultAutoScalingConfigurationResponseTypeDef = TypedDict(
-    "UpdateDefaultAutoScalingConfigurationResponseTypeDef",
-    {
-        "AutoScalingConfiguration": "AutoScalingConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateServiceRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateServiceRequestRequestTypeDef",
-    {
-        "ServiceArn": str,
-    },
-)
-_OptionalUpdateServiceRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateServiceRequestRequestTypeDef",
-    {
-        "SourceConfiguration": "SourceConfigurationTypeDef",
-        "InstanceConfiguration": "InstanceConfigurationTypeDef",
-        "AutoScalingConfigurationArn": str,
-        "HealthCheckConfiguration": "HealthCheckConfigurationTypeDef",
-        "NetworkConfiguration": "NetworkConfigurationTypeDef",
-        "ObservabilityConfiguration": "ServiceObservabilityConfigurationTypeDef",
-    },
-    total=False,
-)
-
-class UpdateServiceRequestRequestTypeDef(
-    _RequiredUpdateServiceRequestRequestTypeDef, _OptionalUpdateServiceRequestRequestTypeDef
-):
-    pass
-
-UpdateServiceResponseTypeDef = TypedDict(
-    "UpdateServiceResponseTypeDef",
-    {
-        "Service": "ServiceTypeDef",
-        "OperationId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UpdateVpcIngressConnectionRequestRequestTypeDef = TypedDict(
-    "UpdateVpcIngressConnectionRequestRequestTypeDef",
-    {
-        "VpcIngressConnectionArn": str,
-        "IngressVpcConfiguration": "IngressVpcConfigurationTypeDef",
-    },
-)
-
-UpdateVpcIngressConnectionResponseTypeDef = TypedDict(
-    "UpdateVpcIngressConnectionResponseTypeDef",
-    {
-        "VpcIngressConnection": "VpcIngressConnectionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-VpcConnectorTypeDef = TypedDict(
-    "VpcConnectorTypeDef",
-    {
-        "VpcConnectorName": str,
-        "VpcConnectorArn": str,
-        "VpcConnectorRevision": int,
-        "Subnets": List[str],
-        "SecurityGroups": List[str],
-        "Status": VpcConnectorStatusType,
         "CreatedAt": datetime,
-        "DeletedAt": datetime,
+        "UpdatedAt": datetime,
+        "Status": ServiceStatusType,
+        "SourceConfiguration": SourceConfigurationOutputTypeDef,
+        "InstanceConfiguration": InstanceConfigurationTypeDef,
+        "AutoScalingConfigurationSummary": AutoScalingConfigurationSummaryTypeDef,
+        "NetworkConfiguration": NetworkConfigurationTypeDef,
+        "ServiceUrl": NotRequired[str],
+        "DeletedAt": NotRequired[datetime],
+        "EncryptionConfiguration": NotRequired[EncryptionConfigurationTypeDef],
+        "HealthCheckConfiguration": NotRequired[HealthCheckConfigurationTypeDef],
+        "ObservabilityConfiguration": NotRequired[ServiceObservabilityConfigurationTypeDef],
     },
-    total=False,
+)
+SourceConfigurationUnionTypeDef = Union[
+    SourceConfigurationTypeDef, SourceConfigurationOutputTypeDef
+]
+
+class CreateServiceResponseTypeDef(TypedDict):
+    Service: ServiceTypeDef
+    OperationId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteServiceResponseTypeDef(TypedDict):
+    Service: ServiceTypeDef
+    OperationId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeServiceResponseTypeDef(TypedDict):
+    Service: ServiceTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PauseServiceResponseTypeDef(TypedDict):
+    Service: ServiceTypeDef
+    OperationId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ResumeServiceResponseTypeDef(TypedDict):
+    Service: ServiceTypeDef
+    OperationId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateServiceResponseTypeDef(TypedDict):
+    Service: ServiceTypeDef
+    OperationId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+CreateServiceRequestTypeDef = TypedDict(
+    "CreateServiceRequestTypeDef",
+    {
+        "ServiceName": str,
+        "SourceConfiguration": SourceConfigurationUnionTypeDef,
+        "InstanceConfiguration": NotRequired[InstanceConfigurationTypeDef],
+        "Tags": NotRequired[Sequence[TagTypeDef]],
+        "EncryptionConfiguration": NotRequired[EncryptionConfigurationTypeDef],
+        "HealthCheckConfiguration": NotRequired[HealthCheckConfigurationTypeDef],
+        "AutoScalingConfigurationArn": NotRequired[str],
+        "NetworkConfiguration": NotRequired[NetworkConfigurationTypeDef],
+        "ObservabilityConfiguration": NotRequired[ServiceObservabilityConfigurationTypeDef],
+    },
 )
 
-VpcDNSTargetTypeDef = TypedDict(
-    "VpcDNSTargetTypeDef",
-    {
-        "VpcIngressConnectionArn": str,
-        "VpcId": str,
-        "DomainName": str,
-    },
-    total=False,
-)
-
-VpcIngressConnectionSummaryTypeDef = TypedDict(
-    "VpcIngressConnectionSummaryTypeDef",
-    {
-        "VpcIngressConnectionArn": str,
-        "ServiceArn": str,
-    },
-    total=False,
-)
-
-VpcIngressConnectionTypeDef = TypedDict(
-    "VpcIngressConnectionTypeDef",
-    {
-        "VpcIngressConnectionArn": str,
-        "VpcIngressConnectionName": str,
-        "ServiceArn": str,
-        "Status": VpcIngressConnectionStatusType,
-        "AccountId": str,
-        "DomainName": str,
-        "IngressVpcConfiguration": "IngressVpcConfigurationTypeDef",
-        "CreatedAt": datetime,
-        "DeletedAt": datetime,
-    },
-    total=False,
-)
+class UpdateServiceRequestTypeDef(TypedDict):
+    ServiceArn: str
+    SourceConfiguration: NotRequired[SourceConfigurationUnionTypeDef]
+    InstanceConfiguration: NotRequired[InstanceConfigurationTypeDef]
+    AutoScalingConfigurationArn: NotRequired[str]
+    HealthCheckConfiguration: NotRequired[HealthCheckConfigurationTypeDef]
+    NetworkConfiguration: NotRequired[NetworkConfigurationTypeDef]
+    ObservabilityConfiguration: NotRequired[ServiceObservabilityConfigurationTypeDef]

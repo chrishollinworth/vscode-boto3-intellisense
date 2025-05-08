@@ -1,14 +1,16 @@
 """
 Type annotations for b2bi service client paginators.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_b2bi/paginators.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_b2bi/paginators/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
 
-    from mypy_boto3_b2bi import B2BIClient
+    from mypy_boto3_b2bi.client import B2BIClient
     from mypy_boto3_b2bi.paginator import (
         ListCapabilitiesPaginator,
         ListPartnershipsPaginator,
@@ -16,7 +18,8 @@ Usage::
         ListTransformersPaginator,
     )
 
-    client: B2BIClient = boto3.client("b2bi")
+    session = Session()
+    client: B2BIClient = session.client("b2bi")
 
     list_capabilities_paginator: ListCapabilitiesPaginator = client.get_paginator("list_capabilities")
     list_partnerships_paginator: ListPartnershipsPaginator = client.get_paginator("list_partnerships")
@@ -25,17 +28,28 @@ Usage::
     ```
 """
 
-from typing import Iterator
+from __future__ import annotations
 
-from botocore.paginate import Paginator as Boto3Paginator
+import sys
+from typing import TYPE_CHECKING
+
+from botocore.paginate import PageIterator, Paginator
 
 from .type_defs import (
+    ListCapabilitiesRequestPaginateTypeDef,
     ListCapabilitiesResponseTypeDef,
+    ListPartnershipsRequestPaginateTypeDef,
     ListPartnershipsResponseTypeDef,
+    ListProfilesRequestPaginateTypeDef,
     ListProfilesResponseTypeDef,
+    ListTransformersRequestPaginateTypeDef,
     ListTransformersResponseTypeDef,
-    PaginatorConfigTypeDef,
 )
+
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = (
     "ListCapabilitiesPaginator",
@@ -44,58 +58,74 @@ __all__ = (
     "ListTransformersPaginator",
 )
 
-class ListCapabilitiesPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/b2bi.html#B2BI.Paginator.ListCapabilities)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_b2bi/paginators.html#listcapabilitiespaginator)
-    """
+if TYPE_CHECKING:
+    _ListCapabilitiesPaginatorBase = Paginator[ListCapabilitiesResponseTypeDef]
+else:
+    _ListCapabilitiesPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListCapabilitiesResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/b2bi.html#B2BI.Paginator.ListCapabilities.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_b2bi/paginators.html#listcapabilitiespaginator)
-        """
-
-class ListPartnershipsPaginator(Boto3Paginator):
+class ListCapabilitiesPaginator(_ListCapabilitiesPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/b2bi.html#B2BI.Paginator.ListPartnerships)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_b2bi/paginators.html#listpartnershipspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/b2bi/paginator/ListCapabilities.html#B2BI.Paginator.ListCapabilities)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_b2bi/paginators/#listcapabilitiespaginator)
     """
-
-    def paginate(
-        self, *, profileId: str = None, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListPartnershipsResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListCapabilitiesRequestPaginateTypeDef]
+    ) -> PageIterator[ListCapabilitiesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/b2bi.html#B2BI.Paginator.ListPartnerships.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_b2bi/paginators.html#listpartnershipspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/b2bi/paginator/ListCapabilities.html#B2BI.Paginator.ListCapabilities.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_b2bi/paginators/#listcapabilitiespaginator)
         """
 
-class ListProfilesPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/b2bi.html#B2BI.Paginator.ListProfiles)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_b2bi/paginators.html#listprofilespaginator)
-    """
+if TYPE_CHECKING:
+    _ListPartnershipsPaginatorBase = Paginator[ListPartnershipsResponseTypeDef]
+else:
+    _ListPartnershipsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListProfilesResponseTypeDef]:
+class ListPartnershipsPaginator(_ListPartnershipsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/b2bi/paginator/ListPartnerships.html#B2BI.Paginator.ListPartnerships)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_b2bi/paginators/#listpartnershipspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListPartnershipsRequestPaginateTypeDef]
+    ) -> PageIterator[ListPartnershipsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/b2bi.html#B2BI.Paginator.ListProfiles.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_b2bi/paginators.html#listprofilespaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/b2bi/paginator/ListPartnerships.html#B2BI.Paginator.ListPartnerships.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_b2bi/paginators/#listpartnershipspaginator)
         """
 
-class ListTransformersPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/b2bi.html#B2BI.Paginator.ListTransformers)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_b2bi/paginators.html#listtransformerspaginator)
-    """
+if TYPE_CHECKING:
+    _ListProfilesPaginatorBase = Paginator[ListProfilesResponseTypeDef]
+else:
+    _ListProfilesPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListTransformersResponseTypeDef]:
+class ListProfilesPaginator(_ListProfilesPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/b2bi/paginator/ListProfiles.html#B2BI.Paginator.ListProfiles)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_b2bi/paginators/#listprofilespaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListProfilesRequestPaginateTypeDef]
+    ) -> PageIterator[ListProfilesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/b2bi.html#B2BI.Paginator.ListTransformers.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_b2bi/paginators.html#listtransformerspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/b2bi/paginator/ListProfiles.html#B2BI.Paginator.ListProfiles.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_b2bi/paginators/#listprofilespaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListTransformersPaginatorBase = Paginator[ListTransformersResponseTypeDef]
+else:
+    _ListTransformersPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListTransformersPaginator(_ListTransformersPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/b2bi/paginator/ListTransformers.html#B2BI.Paginator.ListTransformers)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_b2bi/paginators/#listtransformerspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListTransformersRequestPaginateTypeDef]
+    ) -> PageIterator[ListTransformersResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/b2bi/paginator/ListTransformers.html#B2BI.Paginator.ListTransformers.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_b2bi/paginators/#listtransformerspaginator)
         """

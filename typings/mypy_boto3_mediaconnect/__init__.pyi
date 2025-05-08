@@ -1,10 +1,14 @@
 """
 Main interface for mediaconnect service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediaconnect/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_mediaconnect import (
         Client,
         FlowActiveWaiter,
@@ -20,10 +24,8 @@ Usage::
         MediaConnectClient,
     )
 
-    session = boto3.Session()
-
-    client: MediaConnectClient = boto3.client("mediaconnect")
-    session_client: MediaConnectClient = session.client("mediaconnect")
+    session = Session()
+    client: MediaConnectClient = session.client("mediaconnect")
 
     flow_active_waiter: FlowActiveWaiter = client.get_waiter("flow_active")
     flow_deleted_waiter: FlowDeletedWaiter = client.get_waiter("flow_deleted")

@@ -1,245 +1,154 @@
 """
 Type annotations for pinpoint-sms-voice service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_pinpoint_sms_voice.type_defs import CallInstructionsMessageTypeTypeDef
 
-    data: CallInstructionsMessageTypeTypeDef = {...}
+    data: CallInstructionsMessageTypeTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from typing import Any, Dict, List
 
 from .literals import EventTypeType
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Sequence
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List, Sequence
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
     "CallInstructionsMessageTypeTypeDef",
     "CloudWatchLogsDestinationTypeDef",
-    "CreateConfigurationSetEventDestinationRequestRequestTypeDef",
-    "CreateConfigurationSetRequestRequestTypeDef",
-    "DeleteConfigurationSetEventDestinationRequestRequestTypeDef",
-    "DeleteConfigurationSetRequestRequestTypeDef",
+    "CreateConfigurationSetEventDestinationRequestTypeDef",
+    "CreateConfigurationSetRequestTypeDef",
+    "DeleteConfigurationSetEventDestinationRequestTypeDef",
+    "DeleteConfigurationSetRequestTypeDef",
     "EventDestinationDefinitionTypeDef",
     "EventDestinationTypeDef",
-    "GetConfigurationSetEventDestinationsRequestRequestTypeDef",
+    "GetConfigurationSetEventDestinationsRequestTypeDef",
     "GetConfigurationSetEventDestinationsResponseTypeDef",
     "KinesisFirehoseDestinationTypeDef",
     "PlainTextMessageTypeTypeDef",
     "ResponseMetadataTypeDef",
     "SSMLMessageTypeTypeDef",
-    "SendVoiceMessageRequestRequestTypeDef",
+    "SendVoiceMessageRequestTypeDef",
     "SendVoiceMessageResponseTypeDef",
     "SnsDestinationTypeDef",
-    "UpdateConfigurationSetEventDestinationRequestRequestTypeDef",
+    "UpdateConfigurationSetEventDestinationRequestTypeDef",
     "VoiceMessageContentTypeDef",
 )
 
 CallInstructionsMessageTypeTypeDef = TypedDict(
     "CallInstructionsMessageTypeTypeDef",
     {
-        "Text": str,
-    },
-    total=False,
-)
-
-CloudWatchLogsDestinationTypeDef = TypedDict(
-    "CloudWatchLogsDestinationTypeDef",
-    {
-        "IamRoleArn": str,
-        "LogGroupArn": str,
-    },
-    total=False,
-)
-
-_RequiredCreateConfigurationSetEventDestinationRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateConfigurationSetEventDestinationRequestRequestTypeDef",
-    {
-        "ConfigurationSetName": str,
-    },
-)
-_OptionalCreateConfigurationSetEventDestinationRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateConfigurationSetEventDestinationRequestRequestTypeDef",
-    {
-        "EventDestination": "EventDestinationDefinitionTypeDef",
-        "EventDestinationName": str,
-    },
-    total=False,
-)
-
-class CreateConfigurationSetEventDestinationRequestRequestTypeDef(
-    _RequiredCreateConfigurationSetEventDestinationRequestRequestTypeDef,
-    _OptionalCreateConfigurationSetEventDestinationRequestRequestTypeDef,
-):
-    pass
-
-CreateConfigurationSetRequestRequestTypeDef = TypedDict(
-    "CreateConfigurationSetRequestRequestTypeDef",
-    {
-        "ConfigurationSetName": str,
-    },
-    total=False,
-)
-
-DeleteConfigurationSetEventDestinationRequestRequestTypeDef = TypedDict(
-    "DeleteConfigurationSetEventDestinationRequestRequestTypeDef",
-    {
-        "ConfigurationSetName": str,
-        "EventDestinationName": str,
+        "Text": NotRequired[str],
     },
 )
 
-DeleteConfigurationSetRequestRequestTypeDef = TypedDict(
-    "DeleteConfigurationSetRequestRequestTypeDef",
-    {
-        "ConfigurationSetName": str,
-    },
-)
+class CloudWatchLogsDestinationTypeDef(TypedDict):
+    IamRoleArn: NotRequired[str]
+    LogGroupArn: NotRequired[str]
 
-EventDestinationDefinitionTypeDef = TypedDict(
-    "EventDestinationDefinitionTypeDef",
-    {
-        "CloudWatchLogsDestination": "CloudWatchLogsDestinationTypeDef",
-        "Enabled": bool,
-        "KinesisFirehoseDestination": "KinesisFirehoseDestinationTypeDef",
-        "MatchingEventTypes": List[EventTypeType],
-        "SnsDestination": "SnsDestinationTypeDef",
-    },
-    total=False,
-)
+class CreateConfigurationSetRequestTypeDef(TypedDict):
+    ConfigurationSetName: NotRequired[str]
 
-EventDestinationTypeDef = TypedDict(
-    "EventDestinationTypeDef",
-    {
-        "CloudWatchLogsDestination": "CloudWatchLogsDestinationTypeDef",
-        "Enabled": bool,
-        "KinesisFirehoseDestination": "KinesisFirehoseDestinationTypeDef",
-        "MatchingEventTypes": List[EventTypeType],
-        "Name": str,
-        "SnsDestination": "SnsDestinationTypeDef",
-    },
-    total=False,
-)
+class DeleteConfigurationSetEventDestinationRequestTypeDef(TypedDict):
+    ConfigurationSetName: str
+    EventDestinationName: str
 
-GetConfigurationSetEventDestinationsRequestRequestTypeDef = TypedDict(
-    "GetConfigurationSetEventDestinationsRequestRequestTypeDef",
-    {
-        "ConfigurationSetName": str,
-    },
-)
+class DeleteConfigurationSetRequestTypeDef(TypedDict):
+    ConfigurationSetName: str
 
-GetConfigurationSetEventDestinationsResponseTypeDef = TypedDict(
-    "GetConfigurationSetEventDestinationsResponseTypeDef",
-    {
-        "EventDestinations": List["EventDestinationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class KinesisFirehoseDestinationTypeDef(TypedDict):
+    DeliveryStreamArn: NotRequired[str]
+    IamRoleArn: NotRequired[str]
 
-KinesisFirehoseDestinationTypeDef = TypedDict(
-    "KinesisFirehoseDestinationTypeDef",
-    {
-        "DeliveryStreamArn": str,
-        "IamRoleArn": str,
-    },
-    total=False,
-)
+class SnsDestinationTypeDef(TypedDict):
+    TopicArn: NotRequired[str]
+
+class GetConfigurationSetEventDestinationsRequestTypeDef(TypedDict):
+    ConfigurationSetName: str
+
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
 PlainTextMessageTypeTypeDef = TypedDict(
     "PlainTextMessageTypeTypeDef",
     {
-        "LanguageCode": str,
-        "Text": str,
-        "VoiceId": str,
-    },
-    total=False,
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
+        "LanguageCode": NotRequired[str],
+        "Text": NotRequired[str],
+        "VoiceId": NotRequired[str],
     },
 )
-
 SSMLMessageTypeTypeDef = TypedDict(
     "SSMLMessageTypeTypeDef",
     {
-        "LanguageCode": str,
-        "Text": str,
-        "VoiceId": str,
-    },
-    total=False,
-)
-
-SendVoiceMessageRequestRequestTypeDef = TypedDict(
-    "SendVoiceMessageRequestRequestTypeDef",
-    {
-        "CallerId": str,
-        "ConfigurationSetName": str,
-        "Content": "VoiceMessageContentTypeDef",
-        "DestinationPhoneNumber": str,
-        "OriginationPhoneNumber": str,
-    },
-    total=False,
-)
-
-SendVoiceMessageResponseTypeDef = TypedDict(
-    "SendVoiceMessageResponseTypeDef",
-    {
-        "MessageId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "LanguageCode": NotRequired[str],
+        "Text": NotRequired[str],
+        "VoiceId": NotRequired[str],
     },
 )
 
-SnsDestinationTypeDef = TypedDict(
-    "SnsDestinationTypeDef",
-    {
-        "TopicArn": str,
-    },
-    total=False,
-)
+class EventDestinationDefinitionTypeDef(TypedDict):
+    CloudWatchLogsDestination: NotRequired[CloudWatchLogsDestinationTypeDef]
+    Enabled: NotRequired[bool]
+    KinesisFirehoseDestination: NotRequired[KinesisFirehoseDestinationTypeDef]
+    MatchingEventTypes: NotRequired[Sequence[EventTypeType]]
+    SnsDestination: NotRequired[SnsDestinationTypeDef]
 
-_RequiredUpdateConfigurationSetEventDestinationRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateConfigurationSetEventDestinationRequestRequestTypeDef",
-    {
-        "ConfigurationSetName": str,
-        "EventDestinationName": str,
-    },
-)
-_OptionalUpdateConfigurationSetEventDestinationRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateConfigurationSetEventDestinationRequestRequestTypeDef",
-    {
-        "EventDestination": "EventDestinationDefinitionTypeDef",
-    },
-    total=False,
-)
+class EventDestinationTypeDef(TypedDict):
+    CloudWatchLogsDestination: NotRequired[CloudWatchLogsDestinationTypeDef]
+    Enabled: NotRequired[bool]
+    KinesisFirehoseDestination: NotRequired[KinesisFirehoseDestinationTypeDef]
+    MatchingEventTypes: NotRequired[List[EventTypeType]]
+    Name: NotRequired[str]
+    SnsDestination: NotRequired[SnsDestinationTypeDef]
 
-class UpdateConfigurationSetEventDestinationRequestRequestTypeDef(
-    _RequiredUpdateConfigurationSetEventDestinationRequestRequestTypeDef,
-    _OptionalUpdateConfigurationSetEventDestinationRequestRequestTypeDef,
-):
-    pass
+class SendVoiceMessageResponseTypeDef(TypedDict):
+    MessageId: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-VoiceMessageContentTypeDef = TypedDict(
-    "VoiceMessageContentTypeDef",
-    {
-        "CallInstructionsMessage": "CallInstructionsMessageTypeTypeDef",
-        "PlainTextMessage": "PlainTextMessageTypeTypeDef",
-        "SSMLMessage": "SSMLMessageTypeTypeDef",
-    },
-    total=False,
-)
+class VoiceMessageContentTypeDef(TypedDict):
+    CallInstructionsMessage: NotRequired[CallInstructionsMessageTypeTypeDef]
+    PlainTextMessage: NotRequired[PlainTextMessageTypeTypeDef]
+    SSMLMessage: NotRequired[SSMLMessageTypeTypeDef]
+
+class CreateConfigurationSetEventDestinationRequestTypeDef(TypedDict):
+    ConfigurationSetName: str
+    EventDestination: NotRequired[EventDestinationDefinitionTypeDef]
+    EventDestinationName: NotRequired[str]
+
+class UpdateConfigurationSetEventDestinationRequestTypeDef(TypedDict):
+    ConfigurationSetName: str
+    EventDestinationName: str
+    EventDestination: NotRequired[EventDestinationDefinitionTypeDef]
+
+class GetConfigurationSetEventDestinationsResponseTypeDef(TypedDict):
+    EventDestinations: List[EventDestinationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class SendVoiceMessageRequestTypeDef(TypedDict):
+    CallerId: NotRequired[str]
+    ConfigurationSetName: NotRequired[str]
+    Content: NotRequired[VoiceMessageContentTypeDef]
+    DestinationPhoneNumber: NotRequired[str]
+    OriginationPhoneNumber: NotRequired[str]

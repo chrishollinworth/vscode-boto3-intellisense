@@ -1,20 +1,24 @@
 """
 Type annotations for guardduty service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_guardduty/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_guardduty.type_defs import AcceptAdministratorInvitationRequestRequestTypeDef
+    from mypy_boto3_guardduty.type_defs import AcceptAdministratorInvitationRequestTypeDef
 
-    data: AcceptAdministratorInvitationRequestRequestTypeDef = {...}
+    data: AcceptAdministratorInvitationRequestTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
+from typing import Union
 
 from .literals import (
     AdminStatusType,
@@ -35,46 +39,61 @@ from .literals import (
     FeedbackType,
     FilterActionType,
     FindingPublishingFrequencyType,
+    FindingResourceTypeType,
     FreeTrialFeatureResultType,
+    GroupByTypeType,
+    IndicatorTypeType,
     IpSetFormatType,
     IpSetStatusType,
     MalwareProtectionPlanStatusType,
     MalwareProtectionPlanTaggingActionStatusType,
     ManagementTypeType,
+    MfaStatusType,
+    NetworkDirectionType,
     OrderByType,
     OrgFeatureAdditionalConfigurationType,
     OrgFeatureStatusType,
     OrgFeatureType,
     ProfileSubtypeType,
+    PublicAccessStatusType,
+    PublicAclIgnoreBehaviorType,
+    PublicBucketRestrictBehaviorType,
     PublishingStatusType,
     ResourceTypeType,
     ScanResultType,
     ScanStatusType,
     ScanTypeType,
+    SignalTypeType,
     ThreatIntelSetFormatType,
     ThreatIntelSetStatusType,
     UsageFeatureType,
     UsageStatisticTypeType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
-    "AcceptAdministratorInvitationRequestRequestTypeDef",
-    "AcceptInvitationRequestRequestTypeDef",
+    "AcceptAdministratorInvitationRequestTypeDef",
+    "AcceptInvitationRequestTypeDef",
     "AccessControlListTypeDef",
     "AccessKeyDetailsTypeDef",
+    "AccessKeyTypeDef",
     "AccountDetailTypeDef",
     "AccountFreeTrialInfoTypeDef",
     "AccountLevelPermissionsTypeDef",
+    "AccountStatisticsTypeDef",
+    "AccountTypeDef",
     "ActionTypeDef",
+    "ActorTypeDef",
     "AddonDetailsTypeDef",
     "AdminAccountTypeDef",
     "AdministratorTypeDef",
@@ -82,13 +101,15 @@ __all__ = (
     "AnomalyObjectTypeDef",
     "AnomalyTypeDef",
     "AnomalyUnusualTypeDef",
-    "ArchiveFindingsRequestRequestTypeDef",
+    "ArchiveFindingsRequestTypeDef",
+    "AutonomousSystemTypeDef",
     "AwsApiCallActionTypeDef",
     "BlockPublicAccessTypeDef",
     "BucketLevelPermissionsTypeDef",
     "BucketPolicyTypeDef",
     "CityTypeDef",
     "CloudTrailConfigurationResultTypeDef",
+    "ConditionOutputTypeDef",
     "ConditionTypeDef",
     "ContainerInstanceDetailsTypeDef",
     "ContainerTypeDef",
@@ -103,46 +124,51 @@ __all__ = (
     "CoverageResourceTypeDef",
     "CoverageSortCriteriaTypeDef",
     "CoverageStatisticsTypeDef",
-    "CreateDetectorRequestRequestTypeDef",
+    "CreateDetectorRequestTypeDef",
     "CreateDetectorResponseTypeDef",
-    "CreateFilterRequestRequestTypeDef",
+    "CreateFilterRequestTypeDef",
     "CreateFilterResponseTypeDef",
-    "CreateIPSetRequestRequestTypeDef",
+    "CreateIPSetRequestTypeDef",
     "CreateIPSetResponseTypeDef",
-    "CreateMalwareProtectionPlanRequestRequestTypeDef",
+    "CreateMalwareProtectionPlanRequestTypeDef",
     "CreateMalwareProtectionPlanResponseTypeDef",
-    "CreateMembersRequestRequestTypeDef",
+    "CreateMembersRequestTypeDef",
     "CreateMembersResponseTypeDef",
+    "CreateProtectedResourceOutputTypeDef",
     "CreateProtectedResourceTypeDef",
-    "CreatePublishingDestinationRequestRequestTypeDef",
+    "CreateProtectedResourceUnionTypeDef",
+    "CreatePublishingDestinationRequestTypeDef",
     "CreatePublishingDestinationResponseTypeDef",
+    "CreateS3BucketResourceOutputTypeDef",
     "CreateS3BucketResourceTypeDef",
-    "CreateSampleFindingsRequestRequestTypeDef",
-    "CreateThreatIntelSetRequestRequestTypeDef",
+    "CreateSampleFindingsRequestTypeDef",
+    "CreateThreatIntelSetRequestTypeDef",
     "CreateThreatIntelSetResponseTypeDef",
     "DNSLogsConfigurationResultTypeDef",
     "DataSourceConfigurationsResultTypeDef",
     "DataSourceConfigurationsTypeDef",
     "DataSourceFreeTrialTypeDef",
     "DataSourcesFreeTrialTypeDef",
-    "DeclineInvitationsRequestRequestTypeDef",
+    "DateStatisticsTypeDef",
+    "DeclineInvitationsRequestTypeDef",
     "DeclineInvitationsResponseTypeDef",
     "DefaultServerSideEncryptionTypeDef",
-    "DeleteDetectorRequestRequestTypeDef",
-    "DeleteFilterRequestRequestTypeDef",
-    "DeleteIPSetRequestRequestTypeDef",
-    "DeleteInvitationsRequestRequestTypeDef",
+    "DeleteDetectorRequestTypeDef",
+    "DeleteFilterRequestTypeDef",
+    "DeleteIPSetRequestTypeDef",
+    "DeleteInvitationsRequestTypeDef",
     "DeleteInvitationsResponseTypeDef",
-    "DeleteMalwareProtectionPlanRequestRequestTypeDef",
-    "DeleteMembersRequestRequestTypeDef",
+    "DeleteMalwareProtectionPlanRequestTypeDef",
+    "DeleteMembersRequestTypeDef",
     "DeleteMembersResponseTypeDef",
-    "DeletePublishingDestinationRequestRequestTypeDef",
-    "DeleteThreatIntelSetRequestRequestTypeDef",
-    "DescribeMalwareScansRequestRequestTypeDef",
+    "DeletePublishingDestinationRequestTypeDef",
+    "DeleteThreatIntelSetRequestTypeDef",
+    "DescribeMalwareScansRequestPaginateTypeDef",
+    "DescribeMalwareScansRequestTypeDef",
     "DescribeMalwareScansResponseTypeDef",
-    "DescribeOrganizationConfigurationRequestRequestTypeDef",
+    "DescribeOrganizationConfigurationRequestTypeDef",
     "DescribeOrganizationConfigurationResponseTypeDef",
-    "DescribePublishingDestinationRequestRequestTypeDef",
+    "DescribePublishingDestinationRequestTypeDef",
     "DescribePublishingDestinationResponseTypeDef",
     "DestinationPropertiesTypeDef",
     "DestinationTypeDef",
@@ -151,70 +177,77 @@ __all__ = (
     "DetectorAdditionalConfigurationTypeDef",
     "DetectorFeatureConfigurationResultTypeDef",
     "DetectorFeatureConfigurationTypeDef",
-    "DisableOrganizationAdminAccountRequestRequestTypeDef",
-    "DisassociateFromAdministratorAccountRequestRequestTypeDef",
-    "DisassociateFromMasterAccountRequestRequestTypeDef",
-    "DisassociateMembersRequestRequestTypeDef",
+    "DisableOrganizationAdminAccountRequestTypeDef",
+    "DisassociateFromAdministratorAccountRequestTypeDef",
+    "DisassociateFromMasterAccountRequestTypeDef",
+    "DisassociateMembersRequestTypeDef",
     "DisassociateMembersResponseTypeDef",
     "DnsRequestActionTypeDef",
     "DomainDetailsTypeDef",
     "EbsVolumeDetailsTypeDef",
     "EbsVolumeScanDetailsTypeDef",
     "EbsVolumesResultTypeDef",
+    "Ec2InstanceTypeDef",
+    "Ec2NetworkInterfaceTypeDef",
     "EcsClusterDetailsTypeDef",
     "EcsTaskDetailsTypeDef",
     "EksClusterDetailsTypeDef",
-    "EnableOrganizationAdminAccountRequestRequestTypeDef",
+    "EmptyResponseMetadataTypeDef",
+    "EnableOrganizationAdminAccountRequestTypeDef",
     "EvidenceTypeDef",
     "FargateDetailsTypeDef",
     "FilterConditionTypeDef",
     "FilterCriteriaTypeDef",
     "FilterCriterionTypeDef",
+    "FindingCriteriaOutputTypeDef",
     "FindingCriteriaTypeDef",
+    "FindingCriteriaUnionTypeDef",
     "FindingStatisticsTypeDef",
     "FindingTypeDef",
+    "FindingTypeStatisticsTypeDef",
     "FlowLogsConfigurationResultTypeDef",
     "FreeTrialFeatureConfigurationResultTypeDef",
     "GeoLocationTypeDef",
-    "GetAdministratorAccountRequestRequestTypeDef",
+    "GetAdministratorAccountRequestTypeDef",
     "GetAdministratorAccountResponseTypeDef",
-    "GetCoverageStatisticsRequestRequestTypeDef",
+    "GetCoverageStatisticsRequestTypeDef",
     "GetCoverageStatisticsResponseTypeDef",
-    "GetDetectorRequestRequestTypeDef",
+    "GetDetectorRequestTypeDef",
     "GetDetectorResponseTypeDef",
-    "GetFilterRequestRequestTypeDef",
+    "GetFilterRequestTypeDef",
     "GetFilterResponseTypeDef",
-    "GetFindingsRequestRequestTypeDef",
+    "GetFindingsRequestTypeDef",
     "GetFindingsResponseTypeDef",
-    "GetFindingsStatisticsRequestRequestTypeDef",
+    "GetFindingsStatisticsRequestTypeDef",
     "GetFindingsStatisticsResponseTypeDef",
-    "GetIPSetRequestRequestTypeDef",
+    "GetIPSetRequestTypeDef",
     "GetIPSetResponseTypeDef",
     "GetInvitationsCountResponseTypeDef",
-    "GetMalwareProtectionPlanRequestRequestTypeDef",
+    "GetMalwareProtectionPlanRequestTypeDef",
     "GetMalwareProtectionPlanResponseTypeDef",
-    "GetMalwareScanSettingsRequestRequestTypeDef",
+    "GetMalwareScanSettingsRequestTypeDef",
     "GetMalwareScanSettingsResponseTypeDef",
-    "GetMasterAccountRequestRequestTypeDef",
+    "GetMasterAccountRequestTypeDef",
     "GetMasterAccountResponseTypeDef",
-    "GetMemberDetectorsRequestRequestTypeDef",
+    "GetMemberDetectorsRequestTypeDef",
     "GetMemberDetectorsResponseTypeDef",
-    "GetMembersRequestRequestTypeDef",
+    "GetMembersRequestTypeDef",
     "GetMembersResponseTypeDef",
     "GetOrganizationStatisticsResponseTypeDef",
-    "GetRemainingFreeTrialDaysRequestRequestTypeDef",
+    "GetRemainingFreeTrialDaysRequestTypeDef",
     "GetRemainingFreeTrialDaysResponseTypeDef",
-    "GetThreatIntelSetRequestRequestTypeDef",
+    "GetThreatIntelSetRequestTypeDef",
     "GetThreatIntelSetResponseTypeDef",
-    "GetUsageStatisticsRequestRequestTypeDef",
+    "GetUsageStatisticsRequestTypeDef",
     "GetUsageStatisticsResponseTypeDef",
     "HighestSeverityThreatDetailsTypeDef",
     "HostPathTypeDef",
     "IamInstanceProfileTypeDef",
     "ImpersonatedUserTypeDef",
+    "IndicatorTypeDef",
     "InstanceDetailsTypeDef",
     "InvitationTypeDef",
-    "InviteMembersRequestRequestTypeDef",
+    "InviteMembersRequestTypeDef",
     "InviteMembersResponseTypeDef",
     "ItemPathTypeDef",
     "KubernetesApiCallActionTypeDef",
@@ -231,29 +264,38 @@ __all__ = (
     "KubernetesWorkloadDetailsTypeDef",
     "LambdaDetailsTypeDef",
     "LineageObjectTypeDef",
-    "ListCoverageRequestRequestTypeDef",
+    "ListCoverageRequestPaginateTypeDef",
+    "ListCoverageRequestTypeDef",
     "ListCoverageResponseTypeDef",
-    "ListDetectorsRequestRequestTypeDef",
+    "ListDetectorsRequestPaginateTypeDef",
+    "ListDetectorsRequestTypeDef",
     "ListDetectorsResponseTypeDef",
-    "ListFiltersRequestRequestTypeDef",
+    "ListFiltersRequestPaginateTypeDef",
+    "ListFiltersRequestTypeDef",
     "ListFiltersResponseTypeDef",
-    "ListFindingsRequestRequestTypeDef",
+    "ListFindingsRequestPaginateTypeDef",
+    "ListFindingsRequestTypeDef",
     "ListFindingsResponseTypeDef",
-    "ListIPSetsRequestRequestTypeDef",
+    "ListIPSetsRequestPaginateTypeDef",
+    "ListIPSetsRequestTypeDef",
     "ListIPSetsResponseTypeDef",
-    "ListInvitationsRequestRequestTypeDef",
+    "ListInvitationsRequestPaginateTypeDef",
+    "ListInvitationsRequestTypeDef",
     "ListInvitationsResponseTypeDef",
-    "ListMalwareProtectionPlansRequestRequestTypeDef",
+    "ListMalwareProtectionPlansRequestTypeDef",
     "ListMalwareProtectionPlansResponseTypeDef",
-    "ListMembersRequestRequestTypeDef",
+    "ListMembersRequestPaginateTypeDef",
+    "ListMembersRequestTypeDef",
     "ListMembersResponseTypeDef",
-    "ListOrganizationAdminAccountsRequestRequestTypeDef",
+    "ListOrganizationAdminAccountsRequestPaginateTypeDef",
+    "ListOrganizationAdminAccountsRequestTypeDef",
     "ListOrganizationAdminAccountsResponseTypeDef",
-    "ListPublishingDestinationsRequestRequestTypeDef",
+    "ListPublishingDestinationsRequestTypeDef",
     "ListPublishingDestinationsResponseTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
-    "ListThreatIntelSetsRequestRequestTypeDef",
+    "ListThreatIntelSetsRequestPaginateTypeDef",
+    "ListThreatIntelSetsRequestTypeDef",
     "ListThreatIntelSetsResponseTypeDef",
     "LocalIpDetailsTypeDef",
     "LocalPortDetailsTypeDef",
@@ -274,6 +316,9 @@ __all__ = (
     "MemberFeaturesConfigurationTypeDef",
     "MemberTypeDef",
     "NetworkConnectionActionTypeDef",
+    "NetworkConnectionTypeDef",
+    "NetworkEndpointTypeDef",
+    "NetworkGeoLocationTypeDef",
     "NetworkInterfaceTypeDef",
     "ObservationsTypeDef",
     "OrganizationAdditionalConfigurationResultTypeDef",
@@ -307,45 +352,59 @@ __all__ = (
     "PrivateIpAddressDetailsTypeDef",
     "ProcessDetailsTypeDef",
     "ProductCodeTypeDef",
+    "PublicAccessConfigurationTypeDef",
     "PublicAccessTypeDef",
     "RdsDbInstanceDetailsTypeDef",
     "RdsDbUserDetailsTypeDef",
+    "RdsLimitlessDbDetailsTypeDef",
     "RdsLoginAttemptActionTypeDef",
     "RemoteAccountDetailsTypeDef",
     "RemoteIpDetailsTypeDef",
     "RemotePortDetailsTypeDef",
+    "ResourceDataTypeDef",
     "ResourceDetailsTypeDef",
+    "ResourceStatisticsTypeDef",
     "ResourceTypeDef",
+    "ResourceV2TypeDef",
     "ResponseMetadataTypeDef",
     "RuntimeContextTypeDef",
     "RuntimeDetailsTypeDef",
     "S3BucketDetailTypeDef",
+    "S3BucketTypeDef",
     "S3LogsConfigurationResultTypeDef",
     "S3LogsConfigurationTypeDef",
     "S3ObjectDetailTypeDef",
+    "S3ObjectTypeDef",
+    "ScanConditionOutputTypeDef",
     "ScanConditionPairTypeDef",
     "ScanConditionTypeDef",
     "ScanDetectionsTypeDef",
     "ScanEc2InstanceWithFindingsResultTypeDef",
     "ScanEc2InstanceWithFindingsTypeDef",
     "ScanFilePathTypeDef",
+    "ScanResourceCriteriaOutputTypeDef",
     "ScanResourceCriteriaTypeDef",
+    "ScanResourceCriteriaUnionTypeDef",
     "ScanResultDetailsTypeDef",
     "ScanThreatNameTypeDef",
     "ScanTypeDef",
     "ScannedItemCountTypeDef",
     "SecurityContextTypeDef",
     "SecurityGroupTypeDef",
+    "SequenceTypeDef",
     "ServiceAdditionalInfoTypeDef",
     "ServiceTypeDef",
+    "SessionTypeDef",
+    "SeverityStatisticsTypeDef",
+    "SignalTypeDef",
     "SortCriteriaTypeDef",
-    "StartMalwareScanRequestRequestTypeDef",
+    "StartMalwareScanRequestTypeDef",
     "StartMalwareScanResponseTypeDef",
-    "StartMonitoringMembersRequestRequestTypeDef",
+    "StartMonitoringMembersRequestTypeDef",
     "StartMonitoringMembersResponseTypeDef",
-    "StopMonitoringMembersRequestRequestTypeDef",
+    "StopMonitoringMembersRequestTypeDef",
     "StopMonitoringMembersResponseTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
     "TagTypeDef",
     "ThreatDetectedByNameTypeDef",
     "ThreatIntelligenceDetailTypeDef",
@@ -353,24 +412,24 @@ __all__ = (
     "ThreatsDetectedItemCountTypeDef",
     "TotalTypeDef",
     "TriggerDetailsTypeDef",
-    "UnarchiveFindingsRequestRequestTypeDef",
+    "UnarchiveFindingsRequestTypeDef",
     "UnprocessedAccountTypeDef",
     "UnprocessedDataSourcesResultTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateDetectorRequestRequestTypeDef",
-    "UpdateFilterRequestRequestTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateDetectorRequestTypeDef",
+    "UpdateFilterRequestTypeDef",
     "UpdateFilterResponseTypeDef",
-    "UpdateFindingsFeedbackRequestRequestTypeDef",
-    "UpdateIPSetRequestRequestTypeDef",
-    "UpdateMalwareProtectionPlanRequestRequestTypeDef",
-    "UpdateMalwareScanSettingsRequestRequestTypeDef",
-    "UpdateMemberDetectorsRequestRequestTypeDef",
+    "UpdateFindingsFeedbackRequestTypeDef",
+    "UpdateIPSetRequestTypeDef",
+    "UpdateMalwareProtectionPlanRequestTypeDef",
+    "UpdateMalwareScanSettingsRequestTypeDef",
+    "UpdateMemberDetectorsRequestTypeDef",
     "UpdateMemberDetectorsResponseTypeDef",
-    "UpdateOrganizationConfigurationRequestRequestTypeDef",
+    "UpdateOrganizationConfigurationRequestTypeDef",
     "UpdateProtectedResourceTypeDef",
-    "UpdatePublishingDestinationRequestRequestTypeDef",
+    "UpdatePublishingDestinationRequestTypeDef",
     "UpdateS3BucketResourceTypeDef",
-    "UpdateThreatIntelSetRequestRequestTypeDef",
+    "UpdateThreatIntelSetRequestTypeDef",
     "UsageAccountResultTypeDef",
     "UsageCriteriaTypeDef",
     "UsageDataSourceResultTypeDef",
@@ -379,3524 +438,1982 @@ __all__ = (
     "UsageStatisticsTypeDef",
     "UsageTopAccountResultTypeDef",
     "UsageTopAccountsResultTypeDef",
+    "UserTypeDef",
     "VolumeDetailTypeDef",
     "VolumeMountTypeDef",
     "VolumeTypeDef",
     "VpcConfigTypeDef",
 )
 
-AcceptAdministratorInvitationRequestRequestTypeDef = TypedDict(
-    "AcceptAdministratorInvitationRequestRequestTypeDef",
-    {
-        "DetectorId": str,
-        "AdministratorId": str,
-        "InvitationId": str,
-    },
-)
-
-AcceptInvitationRequestRequestTypeDef = TypedDict(
-    "AcceptInvitationRequestRequestTypeDef",
-    {
-        "DetectorId": str,
-        "MasterId": str,
-        "InvitationId": str,
-    },
-)
-
-AccessControlListTypeDef = TypedDict(
-    "AccessControlListTypeDef",
-    {
-        "AllowsPublicReadAccess": bool,
-        "AllowsPublicWriteAccess": bool,
-    },
-    total=False,
-)
-
-AccessKeyDetailsTypeDef = TypedDict(
-    "AccessKeyDetailsTypeDef",
-    {
-        "AccessKeyId": str,
-        "PrincipalId": str,
-        "UserName": str,
-        "UserType": str,
-    },
-    total=False,
-)
-
-AccountDetailTypeDef = TypedDict(
-    "AccountDetailTypeDef",
-    {
-        "AccountId": str,
-        "Email": str,
-    },
-)
-
-AccountFreeTrialInfoTypeDef = TypedDict(
-    "AccountFreeTrialInfoTypeDef",
-    {
-        "AccountId": str,
-        "DataSources": "DataSourcesFreeTrialTypeDef",
-        "Features": List["FreeTrialFeatureConfigurationResultTypeDef"],
-    },
-    total=False,
-)
-
-AccountLevelPermissionsTypeDef = TypedDict(
-    "AccountLevelPermissionsTypeDef",
-    {
-        "BlockPublicAccess": "BlockPublicAccessTypeDef",
-    },
-    total=False,
-)
-
-ActionTypeDef = TypedDict(
-    "ActionTypeDef",
-    {
-        "ActionType": str,
-        "AwsApiCallAction": "AwsApiCallActionTypeDef",
-        "DnsRequestAction": "DnsRequestActionTypeDef",
-        "NetworkConnectionAction": "NetworkConnectionActionTypeDef",
-        "PortProbeAction": "PortProbeActionTypeDef",
-        "KubernetesApiCallAction": "KubernetesApiCallActionTypeDef",
-        "RdsLoginAttemptAction": "RdsLoginAttemptActionTypeDef",
-        "KubernetesPermissionCheckedDetails": "KubernetesPermissionCheckedDetailsTypeDef",
-        "KubernetesRoleBindingDetails": "KubernetesRoleBindingDetailsTypeDef",
-        "KubernetesRoleDetails": "KubernetesRoleDetailsTypeDef",
-    },
-    total=False,
-)
-
-AddonDetailsTypeDef = TypedDict(
-    "AddonDetailsTypeDef",
-    {
-        "AddonVersion": str,
-        "AddonStatus": str,
-    },
-    total=False,
-)
-
-AdminAccountTypeDef = TypedDict(
-    "AdminAccountTypeDef",
-    {
-        "AdminAccountId": str,
-        "AdminStatus": AdminStatusType,
-    },
-    total=False,
-)
-
-AdministratorTypeDef = TypedDict(
-    "AdministratorTypeDef",
-    {
-        "AccountId": str,
-        "InvitationId": str,
-        "RelationshipStatus": str,
-        "InvitedAt": str,
-    },
-    total=False,
-)
-
-AgentDetailsTypeDef = TypedDict(
-    "AgentDetailsTypeDef",
-    {
-        "Version": str,
-    },
-    total=False,
-)
-
-AnomalyObjectTypeDef = TypedDict(
-    "AnomalyObjectTypeDef",
-    {
-        "ProfileType": Literal["FREQUENCY"],
-        "ProfileSubtype": ProfileSubtypeType,
-        "Observations": "ObservationsTypeDef",
-    },
-    total=False,
-)
-
-AnomalyTypeDef = TypedDict(
-    "AnomalyTypeDef",
-    {
-        "Profiles": Dict[str, Dict[str, List["AnomalyObjectTypeDef"]]],
-        "Unusual": "AnomalyUnusualTypeDef",
-    },
-    total=False,
-)
-
-AnomalyUnusualTypeDef = TypedDict(
-    "AnomalyUnusualTypeDef",
-    {
-        "Behavior": Dict[str, Dict[str, "AnomalyObjectTypeDef"]],
-    },
-    total=False,
-)
-
-ArchiveFindingsRequestRequestTypeDef = TypedDict(
-    "ArchiveFindingsRequestRequestTypeDef",
-    {
-        "DetectorId": str,
-        "FindingIds": List[str],
-    },
-)
-
-AwsApiCallActionTypeDef = TypedDict(
-    "AwsApiCallActionTypeDef",
-    {
-        "Api": str,
-        "CallerType": str,
-        "DomainDetails": "DomainDetailsTypeDef",
-        "ErrorCode": str,
-        "UserAgent": str,
-        "RemoteIpDetails": "RemoteIpDetailsTypeDef",
-        "ServiceName": str,
-        "RemoteAccountDetails": "RemoteAccountDetailsTypeDef",
-        "AffectedResources": Dict[str, str],
-    },
-    total=False,
-)
-
-BlockPublicAccessTypeDef = TypedDict(
-    "BlockPublicAccessTypeDef",
-    {
-        "IgnorePublicAcls": bool,
-        "RestrictPublicBuckets": bool,
-        "BlockPublicAcls": bool,
-        "BlockPublicPolicy": bool,
-    },
-    total=False,
-)
-
-BucketLevelPermissionsTypeDef = TypedDict(
-    "BucketLevelPermissionsTypeDef",
-    {
-        "AccessControlList": "AccessControlListTypeDef",
-        "BucketPolicy": "BucketPolicyTypeDef",
-        "BlockPublicAccess": "BlockPublicAccessTypeDef",
-    },
-    total=False,
-)
-
-BucketPolicyTypeDef = TypedDict(
-    "BucketPolicyTypeDef",
-    {
-        "AllowsPublicReadAccess": bool,
-        "AllowsPublicWriteAccess": bool,
-    },
-    total=False,
-)
-
-CityTypeDef = TypedDict(
-    "CityTypeDef",
-    {
-        "CityName": str,
-    },
-    total=False,
-)
-
-CloudTrailConfigurationResultTypeDef = TypedDict(
-    "CloudTrailConfigurationResultTypeDef",
-    {
-        "Status": DataSourceStatusType,
-    },
-)
-
-ConditionTypeDef = TypedDict(
-    "ConditionTypeDef",
-    {
-        "Eq": List[str],
-        "Neq": List[str],
-        "Gt": int,
-        "Gte": int,
-        "Lt": int,
-        "Lte": int,
-        "Equals": List[str],
-        "NotEquals": List[str],
-        "GreaterThan": int,
-        "GreaterThanOrEqual": int,
-        "LessThan": int,
-        "LessThanOrEqual": int,
-    },
-    total=False,
-)
-
-ContainerInstanceDetailsTypeDef = TypedDict(
-    "ContainerInstanceDetailsTypeDef",
-    {
-        "CoveredContainerInstances": int,
-        "CompatibleContainerInstances": int,
-    },
-    total=False,
-)
-
-ContainerTypeDef = TypedDict(
-    "ContainerTypeDef",
-    {
-        "ContainerRuntime": str,
-        "Id": str,
-        "Name": str,
-        "Image": str,
-        "ImagePrefix": str,
-        "VolumeMounts": List["VolumeMountTypeDef"],
-        "SecurityContext": "SecurityContextTypeDef",
-    },
-    total=False,
-)
-
-CountryTypeDef = TypedDict(
-    "CountryTypeDef",
-    {
-        "CountryCode": str,
-        "CountryName": str,
-    },
-    total=False,
-)
-
-CoverageEc2InstanceDetailsTypeDef = TypedDict(
-    "CoverageEc2InstanceDetailsTypeDef",
-    {
-        "InstanceId": str,
-        "InstanceType": str,
-        "ClusterArn": str,
-        "AgentDetails": "AgentDetailsTypeDef",
-        "ManagementType": ManagementTypeType,
-    },
-    total=False,
-)
-
-CoverageEcsClusterDetailsTypeDef = TypedDict(
-    "CoverageEcsClusterDetailsTypeDef",
-    {
-        "ClusterName": str,
-        "FargateDetails": "FargateDetailsTypeDef",
-        "ContainerInstanceDetails": "ContainerInstanceDetailsTypeDef",
-    },
-    total=False,
-)
-
-CoverageEksClusterDetailsTypeDef = TypedDict(
-    "CoverageEksClusterDetailsTypeDef",
-    {
-        "ClusterName": str,
-        "CoveredNodes": int,
-        "CompatibleNodes": int,
-        "AddonDetails": "AddonDetailsTypeDef",
-        "ManagementType": ManagementTypeType,
-    },
-    total=False,
-)
-
-CoverageFilterConditionTypeDef = TypedDict(
-    "CoverageFilterConditionTypeDef",
-    {
-        "Equals": List[str],
-        "NotEquals": List[str],
-    },
-    total=False,
-)
-
-CoverageFilterCriteriaTypeDef = TypedDict(
-    "CoverageFilterCriteriaTypeDef",
-    {
-        "FilterCriterion": List["CoverageFilterCriterionTypeDef"],
-    },
-    total=False,
-)
-
-CoverageFilterCriterionTypeDef = TypedDict(
-    "CoverageFilterCriterionTypeDef",
-    {
-        "CriterionKey": CoverageFilterCriterionKeyType,
-        "FilterCondition": "CoverageFilterConditionTypeDef",
-    },
-    total=False,
-)
-
-CoverageResourceDetailsTypeDef = TypedDict(
-    "CoverageResourceDetailsTypeDef",
-    {
-        "EksClusterDetails": "CoverageEksClusterDetailsTypeDef",
-        "ResourceType": ResourceTypeType,
-        "EcsClusterDetails": "CoverageEcsClusterDetailsTypeDef",
-        "Ec2InstanceDetails": "CoverageEc2InstanceDetailsTypeDef",
-    },
-    total=False,
-)
-
-CoverageResourceTypeDef = TypedDict(
-    "CoverageResourceTypeDef",
-    {
-        "ResourceId": str,
-        "DetectorId": str,
-        "AccountId": str,
-        "ResourceDetails": "CoverageResourceDetailsTypeDef",
-        "CoverageStatus": CoverageStatusType,
-        "Issue": str,
-        "UpdatedAt": datetime,
-    },
-    total=False,
-)
-
-CoverageSortCriteriaTypeDef = TypedDict(
-    "CoverageSortCriteriaTypeDef",
-    {
-        "AttributeName": CoverageSortKeyType,
-        "OrderBy": OrderByType,
-    },
-    total=False,
-)
-
-CoverageStatisticsTypeDef = TypedDict(
-    "CoverageStatisticsTypeDef",
-    {
-        "CountByResourceType": Dict[ResourceTypeType, int],
-        "CountByCoverageStatus": Dict[CoverageStatusType, int],
-    },
-    total=False,
-)
-
-_RequiredCreateDetectorRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateDetectorRequestRequestTypeDef",
-    {
-        "Enable": bool,
-    },
-)
-_OptionalCreateDetectorRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateDetectorRequestRequestTypeDef",
-    {
-        "ClientToken": str,
-        "FindingPublishingFrequency": FindingPublishingFrequencyType,
-        "DataSources": "DataSourceConfigurationsTypeDef",
-        "Tags": Dict[str, str],
-        "Features": List["DetectorFeatureConfigurationTypeDef"],
-    },
-    total=False,
-)
-
-class CreateDetectorRequestRequestTypeDef(
-    _RequiredCreateDetectorRequestRequestTypeDef, _OptionalCreateDetectorRequestRequestTypeDef
-):
-    pass
-
-CreateDetectorResponseTypeDef = TypedDict(
-    "CreateDetectorResponseTypeDef",
-    {
-        "DetectorId": str,
-        "UnprocessedDataSources": "UnprocessedDataSourcesResultTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateFilterRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateFilterRequestRequestTypeDef",
-    {
-        "DetectorId": str,
-        "Name": str,
-        "FindingCriteria": "FindingCriteriaTypeDef",
-    },
-)
-_OptionalCreateFilterRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateFilterRequestRequestTypeDef",
-    {
-        "Description": str,
-        "Action": FilterActionType,
-        "Rank": int,
-        "ClientToken": str,
-        "Tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class CreateFilterRequestRequestTypeDef(
-    _RequiredCreateFilterRequestRequestTypeDef, _OptionalCreateFilterRequestRequestTypeDef
-):
-    pass
-
-CreateFilterResponseTypeDef = TypedDict(
-    "CreateFilterResponseTypeDef",
-    {
-        "Name": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateIPSetRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateIPSetRequestRequestTypeDef",
-    {
-        "DetectorId": str,
-        "Name": str,
-        "Format": IpSetFormatType,
-        "Location": str,
-        "Activate": bool,
-    },
-)
-_OptionalCreateIPSetRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateIPSetRequestRequestTypeDef",
-    {
-        "ClientToken": str,
-        "Tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class CreateIPSetRequestRequestTypeDef(
-    _RequiredCreateIPSetRequestRequestTypeDef, _OptionalCreateIPSetRequestRequestTypeDef
-):
-    pass
-
-CreateIPSetResponseTypeDef = TypedDict(
-    "CreateIPSetResponseTypeDef",
-    {
-        "IpSetId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateMalwareProtectionPlanRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateMalwareProtectionPlanRequestRequestTypeDef",
-    {
-        "Role": str,
-        "ProtectedResource": "CreateProtectedResourceTypeDef",
-    },
-)
-_OptionalCreateMalwareProtectionPlanRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateMalwareProtectionPlanRequestRequestTypeDef",
-    {
-        "ClientToken": str,
-        "Actions": "MalwareProtectionPlanActionsTypeDef",
-        "Tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class CreateMalwareProtectionPlanRequestRequestTypeDef(
-    _RequiredCreateMalwareProtectionPlanRequestRequestTypeDef,
-    _OptionalCreateMalwareProtectionPlanRequestRequestTypeDef,
-):
-    pass
-
-CreateMalwareProtectionPlanResponseTypeDef = TypedDict(
-    "CreateMalwareProtectionPlanResponseTypeDef",
-    {
-        "MalwareProtectionPlanId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateMembersRequestRequestTypeDef = TypedDict(
-    "CreateMembersRequestRequestTypeDef",
-    {
-        "DetectorId": str,
-        "AccountDetails": List["AccountDetailTypeDef"],
-    },
-)
-
-CreateMembersResponseTypeDef = TypedDict(
-    "CreateMembersResponseTypeDef",
-    {
-        "UnprocessedAccounts": List["UnprocessedAccountTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateProtectedResourceTypeDef = TypedDict(
-    "CreateProtectedResourceTypeDef",
-    {
-        "S3Bucket": "CreateS3BucketResourceTypeDef",
-    },
-    total=False,
-)
-
-_RequiredCreatePublishingDestinationRequestRequestTypeDef = TypedDict(
-    "_RequiredCreatePublishingDestinationRequestRequestTypeDef",
-    {
-        "DetectorId": str,
-        "DestinationType": Literal["S3"],
-        "DestinationProperties": "DestinationPropertiesTypeDef",
-    },
-)
-_OptionalCreatePublishingDestinationRequestRequestTypeDef = TypedDict(
-    "_OptionalCreatePublishingDestinationRequestRequestTypeDef",
-    {
-        "ClientToken": str,
-    },
-    total=False,
-)
-
-class CreatePublishingDestinationRequestRequestTypeDef(
-    _RequiredCreatePublishingDestinationRequestRequestTypeDef,
-    _OptionalCreatePublishingDestinationRequestRequestTypeDef,
-):
-    pass
-
-CreatePublishingDestinationResponseTypeDef = TypedDict(
-    "CreatePublishingDestinationResponseTypeDef",
-    {
-        "DestinationId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateS3BucketResourceTypeDef = TypedDict(
-    "CreateS3BucketResourceTypeDef",
-    {
-        "BucketName": str,
-        "ObjectPrefixes": List[str],
-    },
-    total=False,
-)
-
-_RequiredCreateSampleFindingsRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateSampleFindingsRequestRequestTypeDef",
-    {
-        "DetectorId": str,
-    },
-)
-_OptionalCreateSampleFindingsRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateSampleFindingsRequestRequestTypeDef",
-    {
-        "FindingTypes": List[str],
-    },
-    total=False,
-)
-
-class CreateSampleFindingsRequestRequestTypeDef(
-    _RequiredCreateSampleFindingsRequestRequestTypeDef,
-    _OptionalCreateSampleFindingsRequestRequestTypeDef,
-):
-    pass
-
-_RequiredCreateThreatIntelSetRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateThreatIntelSetRequestRequestTypeDef",
-    {
-        "DetectorId": str,
-        "Name": str,
-        "Format": ThreatIntelSetFormatType,
-        "Location": str,
-        "Activate": bool,
-    },
-)
-_OptionalCreateThreatIntelSetRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateThreatIntelSetRequestRequestTypeDef",
-    {
-        "ClientToken": str,
-        "Tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class CreateThreatIntelSetRequestRequestTypeDef(
-    _RequiredCreateThreatIntelSetRequestRequestTypeDef,
-    _OptionalCreateThreatIntelSetRequestRequestTypeDef,
-):
-    pass
-
-CreateThreatIntelSetResponseTypeDef = TypedDict(
-    "CreateThreatIntelSetResponseTypeDef",
-    {
-        "ThreatIntelSetId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DNSLogsConfigurationResultTypeDef = TypedDict(
-    "DNSLogsConfigurationResultTypeDef",
-    {
-        "Status": DataSourceStatusType,
-    },
-)
-
-_RequiredDataSourceConfigurationsResultTypeDef = TypedDict(
-    "_RequiredDataSourceConfigurationsResultTypeDef",
-    {
-        "CloudTrail": "CloudTrailConfigurationResultTypeDef",
-        "DNSLogs": "DNSLogsConfigurationResultTypeDef",
-        "FlowLogs": "FlowLogsConfigurationResultTypeDef",
-        "S3Logs": "S3LogsConfigurationResultTypeDef",
-    },
-)
-_OptionalDataSourceConfigurationsResultTypeDef = TypedDict(
-    "_OptionalDataSourceConfigurationsResultTypeDef",
-    {
-        "Kubernetes": "KubernetesConfigurationResultTypeDef",
-        "MalwareProtection": "MalwareProtectionConfigurationResultTypeDef",
-    },
-    total=False,
-)
-
-class DataSourceConfigurationsResultTypeDef(
-    _RequiredDataSourceConfigurationsResultTypeDef, _OptionalDataSourceConfigurationsResultTypeDef
-):
-    pass
-
-DataSourceConfigurationsTypeDef = TypedDict(
-    "DataSourceConfigurationsTypeDef",
-    {
-        "S3Logs": "S3LogsConfigurationTypeDef",
-        "Kubernetes": "KubernetesConfigurationTypeDef",
-        "MalwareProtection": "MalwareProtectionConfigurationTypeDef",
-    },
-    total=False,
-)
-
-DataSourceFreeTrialTypeDef = TypedDict(
-    "DataSourceFreeTrialTypeDef",
-    {
-        "FreeTrialDaysRemaining": int,
-    },
-    total=False,
-)
-
-DataSourcesFreeTrialTypeDef = TypedDict(
-    "DataSourcesFreeTrialTypeDef",
-    {
-        "CloudTrail": "DataSourceFreeTrialTypeDef",
-        "DnsLogs": "DataSourceFreeTrialTypeDef",
-        "FlowLogs": "DataSourceFreeTrialTypeDef",
-        "S3Logs": "DataSourceFreeTrialTypeDef",
-        "Kubernetes": "KubernetesDataSourceFreeTrialTypeDef",
-        "MalwareProtection": "MalwareProtectionDataSourceFreeTrialTypeDef",
-    },
-    total=False,
-)
-
-DeclineInvitationsRequestRequestTypeDef = TypedDict(
-    "DeclineInvitationsRequestRequestTypeDef",
-    {
-        "AccountIds": List[str],
-    },
-)
-
-DeclineInvitationsResponseTypeDef = TypedDict(
-    "DeclineInvitationsResponseTypeDef",
-    {
-        "UnprocessedAccounts": List["UnprocessedAccountTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DefaultServerSideEncryptionTypeDef = TypedDict(
-    "DefaultServerSideEncryptionTypeDef",
-    {
-        "EncryptionType": str,
-        "KmsMasterKeyArn": str,
-    },
-    total=False,
-)
-
-DeleteDetectorRequestRequestTypeDef = TypedDict(
-    "DeleteDetectorRequestRequestTypeDef",
-    {
-        "DetectorId": str,
-    },
-)
-
-DeleteFilterRequestRequestTypeDef = TypedDict(
-    "DeleteFilterRequestRequestTypeDef",
-    {
-        "DetectorId": str,
-        "FilterName": str,
-    },
-)
-
-DeleteIPSetRequestRequestTypeDef = TypedDict(
-    "DeleteIPSetRequestRequestTypeDef",
-    {
-        "DetectorId": str,
-        "IpSetId": str,
-    },
-)
-
-DeleteInvitationsRequestRequestTypeDef = TypedDict(
-    "DeleteInvitationsRequestRequestTypeDef",
-    {
-        "AccountIds": List[str],
-    },
-)
-
-DeleteInvitationsResponseTypeDef = TypedDict(
-    "DeleteInvitationsResponseTypeDef",
-    {
-        "UnprocessedAccounts": List["UnprocessedAccountTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteMalwareProtectionPlanRequestRequestTypeDef = TypedDict(
-    "DeleteMalwareProtectionPlanRequestRequestTypeDef",
-    {
-        "MalwareProtectionPlanId": str,
-    },
-)
-
-DeleteMembersRequestRequestTypeDef = TypedDict(
-    "DeleteMembersRequestRequestTypeDef",
-    {
-        "DetectorId": str,
-        "AccountIds": List[str],
-    },
-)
-
-DeleteMembersResponseTypeDef = TypedDict(
-    "DeleteMembersResponseTypeDef",
-    {
-        "UnprocessedAccounts": List["UnprocessedAccountTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeletePublishingDestinationRequestRequestTypeDef = TypedDict(
-    "DeletePublishingDestinationRequestRequestTypeDef",
-    {
-        "DetectorId": str,
-        "DestinationId": str,
-    },
-)
-
-DeleteThreatIntelSetRequestRequestTypeDef = TypedDict(
-    "DeleteThreatIntelSetRequestRequestTypeDef",
-    {
-        "DetectorId": str,
-        "ThreatIntelSetId": str,
-    },
-)
-
-_RequiredDescribeMalwareScansRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeMalwareScansRequestRequestTypeDef",
-    {
-        "DetectorId": str,
-    },
-)
-_OptionalDescribeMalwareScansRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeMalwareScansRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-        "FilterCriteria": "FilterCriteriaTypeDef",
-        "SortCriteria": "SortCriteriaTypeDef",
-    },
-    total=False,
-)
-
-class DescribeMalwareScansRequestRequestTypeDef(
-    _RequiredDescribeMalwareScansRequestRequestTypeDef,
-    _OptionalDescribeMalwareScansRequestRequestTypeDef,
-):
-    pass
-
-DescribeMalwareScansResponseTypeDef = TypedDict(
-    "DescribeMalwareScansResponseTypeDef",
-    {
-        "Scans": List["ScanTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribeOrganizationConfigurationRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeOrganizationConfigurationRequestRequestTypeDef",
-    {
-        "DetectorId": str,
-    },
-)
-_OptionalDescribeOrganizationConfigurationRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeOrganizationConfigurationRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class DescribeOrganizationConfigurationRequestRequestTypeDef(
-    _RequiredDescribeOrganizationConfigurationRequestRequestTypeDef,
-    _OptionalDescribeOrganizationConfigurationRequestRequestTypeDef,
-):
-    pass
-
-DescribeOrganizationConfigurationResponseTypeDef = TypedDict(
-    "DescribeOrganizationConfigurationResponseTypeDef",
-    {
-        "AutoEnable": bool,
-        "MemberAccountLimitReached": bool,
-        "DataSources": "OrganizationDataSourceConfigurationsResultTypeDef",
-        "Features": List["OrganizationFeatureConfigurationResultTypeDef"],
-        "NextToken": str,
-        "AutoEnableOrganizationMembers": AutoEnableMembersType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribePublishingDestinationRequestRequestTypeDef = TypedDict(
-    "DescribePublishingDestinationRequestRequestTypeDef",
-    {
-        "DetectorId": str,
-        "DestinationId": str,
-    },
-)
-
-DescribePublishingDestinationResponseTypeDef = TypedDict(
-    "DescribePublishingDestinationResponseTypeDef",
-    {
-        "DestinationId": str,
-        "DestinationType": Literal["S3"],
-        "Status": PublishingStatusType,
-        "PublishingFailureStartTimestamp": int,
-        "DestinationProperties": "DestinationPropertiesTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DestinationPropertiesTypeDef = TypedDict(
-    "DestinationPropertiesTypeDef",
-    {
-        "DestinationArn": str,
-        "KmsKeyArn": str,
-    },
-    total=False,
-)
-
-DestinationTypeDef = TypedDict(
-    "DestinationTypeDef",
-    {
-        "DestinationId": str,
-        "DestinationType": Literal["S3"],
-        "Status": PublishingStatusType,
-    },
-)
-
-DetectionTypeDef = TypedDict(
-    "DetectionTypeDef",
-    {
-        "Anomaly": "AnomalyTypeDef",
-    },
-    total=False,
-)
-
-DetectorAdditionalConfigurationResultTypeDef = TypedDict(
-    "DetectorAdditionalConfigurationResultTypeDef",
-    {
-        "Name": FeatureAdditionalConfigurationType,
-        "Status": FeatureStatusType,
-        "UpdatedAt": datetime,
-    },
-    total=False,
-)
-
-DetectorAdditionalConfigurationTypeDef = TypedDict(
-    "DetectorAdditionalConfigurationTypeDef",
-    {
-        "Name": FeatureAdditionalConfigurationType,
-        "Status": FeatureStatusType,
-    },
-    total=False,
-)
-
-DetectorFeatureConfigurationResultTypeDef = TypedDict(
-    "DetectorFeatureConfigurationResultTypeDef",
-    {
-        "Name": DetectorFeatureResultType,
-        "Status": FeatureStatusType,
-        "UpdatedAt": datetime,
-        "AdditionalConfiguration": List["DetectorAdditionalConfigurationResultTypeDef"],
-    },
-    total=False,
-)
-
-DetectorFeatureConfigurationTypeDef = TypedDict(
-    "DetectorFeatureConfigurationTypeDef",
-    {
-        "Name": DetectorFeatureType,
-        "Status": FeatureStatusType,
-        "AdditionalConfiguration": List["DetectorAdditionalConfigurationTypeDef"],
-    },
-    total=False,
-)
-
-DisableOrganizationAdminAccountRequestRequestTypeDef = TypedDict(
-    "DisableOrganizationAdminAccountRequestRequestTypeDef",
-    {
-        "AdminAccountId": str,
-    },
-)
-
-DisassociateFromAdministratorAccountRequestRequestTypeDef = TypedDict(
-    "DisassociateFromAdministratorAccountRequestRequestTypeDef",
-    {
-        "DetectorId": str,
-    },
-)
-
-DisassociateFromMasterAccountRequestRequestTypeDef = TypedDict(
-    "DisassociateFromMasterAccountRequestRequestTypeDef",
-    {
-        "DetectorId": str,
-    },
-)
-
-DisassociateMembersRequestRequestTypeDef = TypedDict(
-    "DisassociateMembersRequestRequestTypeDef",
-    {
-        "DetectorId": str,
-        "AccountIds": List[str],
-    },
-)
-
-DisassociateMembersResponseTypeDef = TypedDict(
-    "DisassociateMembersResponseTypeDef",
-    {
-        "UnprocessedAccounts": List["UnprocessedAccountTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class AcceptAdministratorInvitationRequestTypeDef(TypedDict):
+    DetectorId: str
+    AdministratorId: str
+    InvitationId: str
+
+class AcceptInvitationRequestTypeDef(TypedDict):
+    DetectorId: str
+    MasterId: str
+    InvitationId: str
+
+class AccessControlListTypeDef(TypedDict):
+    AllowsPublicReadAccess: NotRequired[bool]
+    AllowsPublicWriteAccess: NotRequired[bool]
+
+class AccessKeyDetailsTypeDef(TypedDict):
+    AccessKeyId: NotRequired[str]
+    PrincipalId: NotRequired[str]
+    UserName: NotRequired[str]
+    UserType: NotRequired[str]
+
+class AccessKeyTypeDef(TypedDict):
+    PrincipalId: NotRequired[str]
+    UserName: NotRequired[str]
+    UserType: NotRequired[str]
+
+class AccountDetailTypeDef(TypedDict):
+    AccountId: str
+    Email: str
+
+class FreeTrialFeatureConfigurationResultTypeDef(TypedDict):
+    Name: NotRequired[FreeTrialFeatureResultType]
+    FreeTrialDaysRemaining: NotRequired[int]
+
+class BlockPublicAccessTypeDef(TypedDict):
+    IgnorePublicAcls: NotRequired[bool]
+    RestrictPublicBuckets: NotRequired[bool]
+    BlockPublicAcls: NotRequired[bool]
+    BlockPublicPolicy: NotRequired[bool]
+
+class AccountStatisticsTypeDef(TypedDict):
+    AccountId: NotRequired[str]
+    LastGeneratedAt: NotRequired[datetime]
+    TotalFindings: NotRequired[int]
+
+class AccountTypeDef(TypedDict):
+    Uid: str
+    Name: NotRequired[str]
 
 DnsRequestActionTypeDef = TypedDict(
     "DnsRequestActionTypeDef",
     {
-        "Domain": str,
-        "Protocol": str,
-        "Blocked": bool,
-        "DomainWithSuffix": str,
+        "Domain": NotRequired[str],
+        "Protocol": NotRequired[str],
+        "Blocked": NotRequired[bool],
+        "DomainWithSuffix": NotRequired[str],
     },
-    total=False,
 )
 
-DomainDetailsTypeDef = TypedDict(
-    "DomainDetailsTypeDef",
+class KubernetesPermissionCheckedDetailsTypeDef(TypedDict):
+    Verb: NotRequired[str]
+    Resource: NotRequired[str]
+    Namespace: NotRequired[str]
+    Allowed: NotRequired[bool]
+
+class KubernetesRoleBindingDetailsTypeDef(TypedDict):
+    Kind: NotRequired[str]
+    Name: NotRequired[str]
+    Uid: NotRequired[str]
+    RoleRefName: NotRequired[str]
+    RoleRefKind: NotRequired[str]
+
+class KubernetesRoleDetailsTypeDef(TypedDict):
+    Kind: NotRequired[str]
+    Name: NotRequired[str]
+    Uid: NotRequired[str]
+
+class SessionTypeDef(TypedDict):
+    Uid: NotRequired[str]
+    MfaStatus: NotRequired[MfaStatusType]
+    CreatedTime: NotRequired[datetime]
+    Issuer: NotRequired[str]
+
+class AddonDetailsTypeDef(TypedDict):
+    AddonVersion: NotRequired[str]
+    AddonStatus: NotRequired[str]
+
+class AdminAccountTypeDef(TypedDict):
+    AdminAccountId: NotRequired[str]
+    AdminStatus: NotRequired[AdminStatusType]
+
+class AdministratorTypeDef(TypedDict):
+    AccountId: NotRequired[str]
+    InvitationId: NotRequired[str]
+    RelationshipStatus: NotRequired[str]
+    InvitedAt: NotRequired[str]
+
+class AgentDetailsTypeDef(TypedDict):
+    Version: NotRequired[str]
+
+ObservationsTypeDef = TypedDict(
+    "ObservationsTypeDef",
     {
-        "Domain": str,
+        "Text": NotRequired[List[str]],
     },
-    total=False,
 )
 
-EbsVolumeDetailsTypeDef = TypedDict(
-    "EbsVolumeDetailsTypeDef",
+class ArchiveFindingsRequestTypeDef(TypedDict):
+    DetectorId: str
+    FindingIds: Sequence[str]
+
+class AutonomousSystemTypeDef(TypedDict):
+    Name: str
+    Number: int
+
+class DomainDetailsTypeDef(TypedDict):
+    Domain: NotRequired[str]
+
+class RemoteAccountDetailsTypeDef(TypedDict):
+    AccountId: NotRequired[str]
+    Affiliated: NotRequired[bool]
+
+class BucketPolicyTypeDef(TypedDict):
+    AllowsPublicReadAccess: NotRequired[bool]
+    AllowsPublicWriteAccess: NotRequired[bool]
+
+class CityTypeDef(TypedDict):
+    CityName: NotRequired[str]
+
+class CloudTrailConfigurationResultTypeDef(TypedDict):
+    Status: DataSourceStatusType
+
+class ConditionOutputTypeDef(TypedDict):
+    Eq: NotRequired[List[str]]
+    Neq: NotRequired[List[str]]
+    Gt: NotRequired[int]
+    Gte: NotRequired[int]
+    Lt: NotRequired[int]
+    Lte: NotRequired[int]
+    Equals: NotRequired[List[str]]
+    NotEquals: NotRequired[List[str]]
+    GreaterThan: NotRequired[int]
+    GreaterThanOrEqual: NotRequired[int]
+    LessThan: NotRequired[int]
+    LessThanOrEqual: NotRequired[int]
+
+class ConditionTypeDef(TypedDict):
+    Eq: NotRequired[Sequence[str]]
+    Neq: NotRequired[Sequence[str]]
+    Gt: NotRequired[int]
+    Gte: NotRequired[int]
+    Lt: NotRequired[int]
+    Lte: NotRequired[int]
+    Equals: NotRequired[Sequence[str]]
+    NotEquals: NotRequired[Sequence[str]]
+    GreaterThan: NotRequired[int]
+    GreaterThanOrEqual: NotRequired[int]
+    LessThan: NotRequired[int]
+    LessThanOrEqual: NotRequired[int]
+
+class ContainerInstanceDetailsTypeDef(TypedDict):
+    CoveredContainerInstances: NotRequired[int]
+    CompatibleContainerInstances: NotRequired[int]
+
+class SecurityContextTypeDef(TypedDict):
+    Privileged: NotRequired[bool]
+    AllowPrivilegeEscalation: NotRequired[bool]
+
+class VolumeMountTypeDef(TypedDict):
+    Name: NotRequired[str]
+    MountPath: NotRequired[str]
+
+class CountryTypeDef(TypedDict):
+    CountryCode: NotRequired[str]
+    CountryName: NotRequired[str]
+
+class FargateDetailsTypeDef(TypedDict):
+    Issues: NotRequired[List[str]]
+    ManagementType: NotRequired[ManagementTypeType]
+
+class CoverageFilterConditionTypeDef(TypedDict):
+    Equals: NotRequired[Sequence[str]]
+    NotEquals: NotRequired[Sequence[str]]
+
+class CoverageSortCriteriaTypeDef(TypedDict):
+    AttributeName: NotRequired[CoverageSortKeyType]
+    OrderBy: NotRequired[OrderByType]
+
+class CoverageStatisticsTypeDef(TypedDict):
+    CountByResourceType: NotRequired[Dict[ResourceTypeType, int]]
+    CountByCoverageStatus: NotRequired[Dict[CoverageStatusType, int]]
+
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
+
+class CreateIPSetRequestTypeDef(TypedDict):
+    DetectorId: str
+    Name: str
+    Format: IpSetFormatType
+    Location: str
+    Activate: bool
+    ClientToken: NotRequired[str]
+    Tags: NotRequired[Mapping[str, str]]
+
+class UnprocessedAccountTypeDef(TypedDict):
+    AccountId: str
+    Result: str
+
+class CreateS3BucketResourceOutputTypeDef(TypedDict):
+    BucketName: NotRequired[str]
+    ObjectPrefixes: NotRequired[List[str]]
+
+class CreateS3BucketResourceTypeDef(TypedDict):
+    BucketName: NotRequired[str]
+    ObjectPrefixes: NotRequired[Sequence[str]]
+
+class DestinationPropertiesTypeDef(TypedDict):
+    DestinationArn: NotRequired[str]
+    KmsKeyArn: NotRequired[str]
+
+class CreateSampleFindingsRequestTypeDef(TypedDict):
+    DetectorId: str
+    FindingTypes: NotRequired[Sequence[str]]
+
+class CreateThreatIntelSetRequestTypeDef(TypedDict):
+    DetectorId: str
+    Name: str
+    Format: ThreatIntelSetFormatType
+    Location: str
+    Activate: bool
+    ClientToken: NotRequired[str]
+    Tags: NotRequired[Mapping[str, str]]
+
+class DNSLogsConfigurationResultTypeDef(TypedDict):
+    Status: DataSourceStatusType
+
+class FlowLogsConfigurationResultTypeDef(TypedDict):
+    Status: DataSourceStatusType
+
+class S3LogsConfigurationResultTypeDef(TypedDict):
+    Status: DataSourceStatusType
+
+class S3LogsConfigurationTypeDef(TypedDict):
+    Enable: bool
+
+class DataSourceFreeTrialTypeDef(TypedDict):
+    FreeTrialDaysRemaining: NotRequired[int]
+
+class DateStatisticsTypeDef(TypedDict):
+    Date: NotRequired[datetime]
+    LastGeneratedAt: NotRequired[datetime]
+    Severity: NotRequired[float]
+    TotalFindings: NotRequired[int]
+
+class DeclineInvitationsRequestTypeDef(TypedDict):
+    AccountIds: Sequence[str]
+
+class DefaultServerSideEncryptionTypeDef(TypedDict):
+    EncryptionType: NotRequired[str]
+    KmsMasterKeyArn: NotRequired[str]
+
+class DeleteDetectorRequestTypeDef(TypedDict):
+    DetectorId: str
+
+class DeleteFilterRequestTypeDef(TypedDict):
+    DetectorId: str
+    FilterName: str
+
+class DeleteIPSetRequestTypeDef(TypedDict):
+    DetectorId: str
+    IpSetId: str
+
+class DeleteInvitationsRequestTypeDef(TypedDict):
+    AccountIds: Sequence[str]
+
+class DeleteMalwareProtectionPlanRequestTypeDef(TypedDict):
+    MalwareProtectionPlanId: str
+
+class DeleteMembersRequestTypeDef(TypedDict):
+    DetectorId: str
+    AccountIds: Sequence[str]
+
+class DeletePublishingDestinationRequestTypeDef(TypedDict):
+    DetectorId: str
+    DestinationId: str
+
+class DeleteThreatIntelSetRequestTypeDef(TypedDict):
+    DetectorId: str
+    ThreatIntelSetId: str
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class SortCriteriaTypeDef(TypedDict):
+    AttributeName: NotRequired[str]
+    OrderBy: NotRequired[OrderByType]
+
+class DescribeOrganizationConfigurationRequestTypeDef(TypedDict):
+    DetectorId: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class DescribePublishingDestinationRequestTypeDef(TypedDict):
+    DetectorId: str
+    DestinationId: str
+
+class DestinationTypeDef(TypedDict):
+    DestinationId: str
+    DestinationType: Literal["S3"]
+    Status: PublishingStatusType
+
+class DetectorAdditionalConfigurationResultTypeDef(TypedDict):
+    Name: NotRequired[FeatureAdditionalConfigurationType]
+    Status: NotRequired[FeatureStatusType]
+    UpdatedAt: NotRequired[datetime]
+
+class DetectorAdditionalConfigurationTypeDef(TypedDict):
+    Name: NotRequired[FeatureAdditionalConfigurationType]
+    Status: NotRequired[FeatureStatusType]
+
+class DisableOrganizationAdminAccountRequestTypeDef(TypedDict):
+    AdminAccountId: str
+
+class DisassociateFromAdministratorAccountRequestTypeDef(TypedDict):
+    DetectorId: str
+
+class DisassociateFromMasterAccountRequestTypeDef(TypedDict):
+    DetectorId: str
+
+class DisassociateMembersRequestTypeDef(TypedDict):
+    DetectorId: str
+    AccountIds: Sequence[str]
+
+class VolumeDetailTypeDef(TypedDict):
+    VolumeArn: NotRequired[str]
+    VolumeType: NotRequired[str]
+    DeviceName: NotRequired[str]
+    VolumeSizeInGB: NotRequired[int]
+    EncryptionType: NotRequired[str]
+    SnapshotArn: NotRequired[str]
+    KmsKeyArn: NotRequired[str]
+
+class EbsVolumesResultTypeDef(TypedDict):
+    Status: NotRequired[DataSourceStatusType]
+    Reason: NotRequired[str]
+
+class IamInstanceProfileTypeDef(TypedDict):
+    Arn: NotRequired[str]
+    Id: NotRequired[str]
+
+class ProductCodeTypeDef(TypedDict):
+    Code: NotRequired[str]
+    ProductType: NotRequired[str]
+
+class PrivateIpAddressDetailsTypeDef(TypedDict):
+    PrivateDnsName: NotRequired[str]
+    PrivateIpAddress: NotRequired[str]
+
+class SecurityGroupTypeDef(TypedDict):
+    GroupId: NotRequired[str]
+    GroupName: NotRequired[str]
+
+class TagTypeDef(TypedDict):
+    Key: NotRequired[str]
+    Value: NotRequired[str]
+
+class EnableOrganizationAdminAccountRequestTypeDef(TypedDict):
+    AdminAccountId: str
+
+class ThreatIntelligenceDetailTypeDef(TypedDict):
+    ThreatListName: NotRequired[str]
+    ThreatNames: NotRequired[List[str]]
+    ThreatFileSha256: NotRequired[str]
+
+class FilterConditionTypeDef(TypedDict):
+    EqualsValue: NotRequired[str]
+    GreaterThan: NotRequired[int]
+    LessThan: NotRequired[int]
+
+class FindingTypeStatisticsTypeDef(TypedDict):
+    FindingType: NotRequired[str]
+    LastGeneratedAt: NotRequired[datetime]
+    TotalFindings: NotRequired[int]
+
+class ResourceStatisticsTypeDef(TypedDict):
+    AccountId: NotRequired[str]
+    LastGeneratedAt: NotRequired[datetime]
+    ResourceId: NotRequired[str]
+    ResourceType: NotRequired[str]
+    TotalFindings: NotRequired[int]
+
+class SeverityStatisticsTypeDef(TypedDict):
+    LastGeneratedAt: NotRequired[datetime]
+    Severity: NotRequired[float]
+    TotalFindings: NotRequired[int]
+
+class GeoLocationTypeDef(TypedDict):
+    Lat: NotRequired[float]
+    Lon: NotRequired[float]
+
+class GetAdministratorAccountRequestTypeDef(TypedDict):
+    DetectorId: str
+
+class GetDetectorRequestTypeDef(TypedDict):
+    DetectorId: str
+
+class GetFilterRequestTypeDef(TypedDict):
+    DetectorId: str
+    FilterName: str
+
+class GetIPSetRequestTypeDef(TypedDict):
+    DetectorId: str
+    IpSetId: str
+
+class GetMalwareProtectionPlanRequestTypeDef(TypedDict):
+    MalwareProtectionPlanId: str
+
+class MalwareProtectionPlanStatusReasonTypeDef(TypedDict):
+    Code: NotRequired[str]
+    Message: NotRequired[str]
+
+class GetMalwareScanSettingsRequestTypeDef(TypedDict):
+    DetectorId: str
+
+class GetMasterAccountRequestTypeDef(TypedDict):
+    DetectorId: str
+
+class MasterTypeDef(TypedDict):
+    AccountId: NotRequired[str]
+    InvitationId: NotRequired[str]
+    RelationshipStatus: NotRequired[str]
+    InvitedAt: NotRequired[str]
+
+class GetMemberDetectorsRequestTypeDef(TypedDict):
+    DetectorId: str
+    AccountIds: Sequence[str]
+
+class GetMembersRequestTypeDef(TypedDict):
+    DetectorId: str
+    AccountIds: Sequence[str]
+
+class MemberTypeDef(TypedDict):
+    AccountId: str
+    MasterId: str
+    Email: str
+    RelationshipStatus: str
+    UpdatedAt: str
+    DetectorId: NotRequired[str]
+    InvitedAt: NotRequired[str]
+    AdministratorId: NotRequired[str]
+
+class GetRemainingFreeTrialDaysRequestTypeDef(TypedDict):
+    DetectorId: str
+    AccountIds: NotRequired[Sequence[str]]
+
+class GetThreatIntelSetRequestTypeDef(TypedDict):
+    DetectorId: str
+    ThreatIntelSetId: str
+
+class UsageCriteriaTypeDef(TypedDict):
+    AccountIds: NotRequired[Sequence[str]]
+    DataSources: NotRequired[Sequence[DataSourceType]]
+    Resources: NotRequired[Sequence[str]]
+    Features: NotRequired[Sequence[UsageFeatureType]]
+
+class HighestSeverityThreatDetailsTypeDef(TypedDict):
+    Severity: NotRequired[str]
+    ThreatName: NotRequired[str]
+    Count: NotRequired[int]
+
+class HostPathTypeDef(TypedDict):
+    Path: NotRequired[str]
+
+class ImpersonatedUserTypeDef(TypedDict):
+    Username: NotRequired[str]
+    Groups: NotRequired[List[str]]
+
+class IndicatorTypeDef(TypedDict):
+    Key: IndicatorTypeType
+    Values: NotRequired[List[str]]
+    Title: NotRequired[str]
+
+class InvitationTypeDef(TypedDict):
+    AccountId: NotRequired[str]
+    InvitationId: NotRequired[str]
+    RelationshipStatus: NotRequired[str]
+    InvitedAt: NotRequired[str]
+
+class InviteMembersRequestTypeDef(TypedDict):
+    DetectorId: str
+    AccountIds: Sequence[str]
+    DisableEmailNotification: NotRequired[bool]
+    Message: NotRequired[str]
+
+class ItemPathTypeDef(TypedDict):
+    NestedItemPath: NotRequired[str]
+    Hash: NotRequired[str]
+
+class KubernetesAuditLogsConfigurationResultTypeDef(TypedDict):
+    Status: DataSourceStatusType
+
+class KubernetesAuditLogsConfigurationTypeDef(TypedDict):
+    Enable: bool
+
+class LineageObjectTypeDef(TypedDict):
+    StartTime: NotRequired[datetime]
+    NamespacePid: NotRequired[int]
+    UserId: NotRequired[int]
+    Name: NotRequired[str]
+    Pid: NotRequired[int]
+    Uuid: NotRequired[str]
+    ExecutablePath: NotRequired[str]
+    Euid: NotRequired[int]
+    ParentUuid: NotRequired[str]
+
+class ListDetectorsRequestTypeDef(TypedDict):
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListFiltersRequestTypeDef(TypedDict):
+    DetectorId: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListIPSetsRequestTypeDef(TypedDict):
+    DetectorId: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListInvitationsRequestTypeDef(TypedDict):
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListMalwareProtectionPlansRequestTypeDef(TypedDict):
+    NextToken: NotRequired[str]
+
+class MalwareProtectionPlanSummaryTypeDef(TypedDict):
+    MalwareProtectionPlanId: NotRequired[str]
+
+class ListMembersRequestTypeDef(TypedDict):
+    DetectorId: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+    OnlyAssociated: NotRequired[str]
+
+class ListOrganizationAdminAccountsRequestTypeDef(TypedDict):
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListPublishingDestinationsRequestTypeDef(TypedDict):
+    DetectorId: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+
+class ListThreatIntelSetsRequestTypeDef(TypedDict):
+    DetectorId: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class LocalIpDetailsTypeDef(TypedDict):
+    IpAddressV4: NotRequired[str]
+    IpAddressV6: NotRequired[str]
+
+class LocalPortDetailsTypeDef(TypedDict):
+    Port: NotRequired[int]
+    PortName: NotRequired[str]
+
+class LoginAttributeTypeDef(TypedDict):
+    User: NotRequired[str]
+    Application: NotRequired[str]
+    FailedLoginAttempts: NotRequired[int]
+    SuccessfulLoginAttempts: NotRequired[int]
+
+class ScanEc2InstanceWithFindingsTypeDef(TypedDict):
+    EbsVolumes: NotRequired[bool]
+
+class MalwareProtectionPlanTaggingActionTypeDef(TypedDict):
+    Status: NotRequired[MalwareProtectionPlanTaggingActionStatusType]
+
+class MemberAdditionalConfigurationResultTypeDef(TypedDict):
+    Name: NotRequired[OrgFeatureAdditionalConfigurationType]
+    Status: NotRequired[FeatureStatusType]
+    UpdatedAt: NotRequired[datetime]
+
+class MemberAdditionalConfigurationTypeDef(TypedDict):
+    Name: NotRequired[OrgFeatureAdditionalConfigurationType]
+    Status: NotRequired[FeatureStatusType]
+
+class RemotePortDetailsTypeDef(TypedDict):
+    Port: NotRequired[int]
+    PortName: NotRequired[str]
+
+class NetworkConnectionTypeDef(TypedDict):
+    Direction: NetworkDirectionType
+
+class NetworkGeoLocationTypeDef(TypedDict):
+    City: str
+    Country: str
+    Latitude: float
+    Longitude: float
+
+class OrganizationAdditionalConfigurationResultTypeDef(TypedDict):
+    Name: NotRequired[OrgFeatureAdditionalConfigurationType]
+    AutoEnable: NotRequired[OrgFeatureStatusType]
+
+class OrganizationAdditionalConfigurationTypeDef(TypedDict):
+    Name: NotRequired[OrgFeatureAdditionalConfigurationType]
+    AutoEnable: NotRequired[OrgFeatureStatusType]
+
+class OrganizationS3LogsConfigurationResultTypeDef(TypedDict):
+    AutoEnable: bool
+
+class OrganizationS3LogsConfigurationTypeDef(TypedDict):
+    AutoEnable: bool
+
+class OrganizationEbsVolumesResultTypeDef(TypedDict):
+    AutoEnable: NotRequired[bool]
+
+class OrganizationEbsVolumesTypeDef(TypedDict):
+    AutoEnable: NotRequired[bool]
+
+class OrganizationFeatureStatisticsAdditionalConfigurationTypeDef(TypedDict):
+    Name: NotRequired[OrgFeatureAdditionalConfigurationType]
+    EnabledAccountsCount: NotRequired[int]
+
+class OrganizationKubernetesAuditLogsConfigurationResultTypeDef(TypedDict):
+    AutoEnable: bool
+
+class OrganizationKubernetesAuditLogsConfigurationTypeDef(TypedDict):
+    AutoEnable: bool
+
+class OrganizationTypeDef(TypedDict):
+    Asn: NotRequired[str]
+    AsnOrg: NotRequired[str]
+    Isp: NotRequired[str]
+    Org: NotRequired[str]
+
+class OwnerTypeDef(TypedDict):
+    Id: NotRequired[str]
+
+class PublicAccessConfigurationTypeDef(TypedDict):
+    PublicAclAccess: NotRequired[PublicAccessStatusType]
+    PublicPolicyAccess: NotRequired[PublicAccessStatusType]
+    PublicAclIgnoreBehavior: NotRequired[PublicAclIgnoreBehaviorType]
+    PublicBucketRestrictBehavior: NotRequired[PublicBucketRestrictBehaviorType]
+
+class RdsDbUserDetailsTypeDef(TypedDict):
+    User: NotRequired[str]
+    Application: NotRequired[str]
+    Database: NotRequired[str]
+    Ssl: NotRequired[str]
+    AuthMethod: NotRequired[str]
+
+class S3ObjectTypeDef(TypedDict):
+    ETag: NotRequired[str]
+    Key: NotRequired[str]
+    VersionId: NotRequired[str]
+
+class ResourceDetailsTypeDef(TypedDict):
+    InstanceArn: NotRequired[str]
+
+class S3ObjectDetailTypeDef(TypedDict):
+    ObjectArn: NotRequired[str]
+    Key: NotRequired[str]
+    ETag: NotRequired[str]
+    Hash: NotRequired[str]
+    VersionId: NotRequired[str]
+
+class ScanConditionPairTypeDef(TypedDict):
+    Key: str
+    Value: NotRequired[str]
+
+class ScannedItemCountTypeDef(TypedDict):
+    TotalGb: NotRequired[int]
+    Files: NotRequired[int]
+    Volumes: NotRequired[int]
+
+class ThreatsDetectedItemCountTypeDef(TypedDict):
+    Files: NotRequired[int]
+
+class ScanFilePathTypeDef(TypedDict):
+    FilePath: NotRequired[str]
+    VolumeArn: NotRequired[str]
+    Hash: NotRequired[str]
+    FileName: NotRequired[str]
+
+class ScanResultDetailsTypeDef(TypedDict):
+    ScanResult: NotRequired[ScanResultType]
+
+class TriggerDetailsTypeDef(TypedDict):
+    GuardDutyFindingId: NotRequired[str]
+    Description: NotRequired[str]
+
+ServiceAdditionalInfoTypeDef = TypedDict(
+    "ServiceAdditionalInfoTypeDef",
     {
-        "ScannedVolumeDetails": List["VolumeDetailTypeDef"],
-        "SkippedVolumeDetails": List["VolumeDetailTypeDef"],
+        "Value": NotRequired[str],
+        "Type": NotRequired[str],
     },
-    total=False,
 )
 
-EbsVolumeScanDetailsTypeDef = TypedDict(
-    "EbsVolumeScanDetailsTypeDef",
-    {
-        "ScanId": str,
-        "ScanStartedAt": datetime,
-        "ScanCompletedAt": datetime,
-        "TriggerFindingId": str,
-        "Sources": List[str],
-        "ScanDetections": "ScanDetectionsTypeDef",
-        "ScanType": ScanTypeType,
-    },
-    total=False,
-)
+class StartMalwareScanRequestTypeDef(TypedDict):
+    ResourceArn: str
 
-EbsVolumesResultTypeDef = TypedDict(
-    "EbsVolumesResultTypeDef",
-    {
-        "Status": DataSourceStatusType,
-        "Reason": str,
-    },
-    total=False,
-)
+class StartMonitoringMembersRequestTypeDef(TypedDict):
+    DetectorId: str
+    AccountIds: Sequence[str]
 
-EcsClusterDetailsTypeDef = TypedDict(
-    "EcsClusterDetailsTypeDef",
+class StopMonitoringMembersRequestTypeDef(TypedDict):
+    DetectorId: str
+    AccountIds: Sequence[str]
+
+class TagResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+    Tags: Mapping[str, str]
+
+class TotalTypeDef(TypedDict):
+    Amount: NotRequired[str]
+    Unit: NotRequired[str]
+
+class UnarchiveFindingsRequestTypeDef(TypedDict):
+    DetectorId: str
+    FindingIds: Sequence[str]
+
+class UntagResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+    TagKeys: Sequence[str]
+
+class UpdateFindingsFeedbackRequestTypeDef(TypedDict):
+    DetectorId: str
+    FindingIds: Sequence[str]
+    Feedback: FeedbackType
+    Comments: NotRequired[str]
+
+class UpdateIPSetRequestTypeDef(TypedDict):
+    DetectorId: str
+    IpSetId: str
+    Name: NotRequired[str]
+    Location: NotRequired[str]
+    Activate: NotRequired[bool]
+
+class UpdateS3BucketResourceTypeDef(TypedDict):
+    ObjectPrefixes: NotRequired[Sequence[str]]
+
+class UpdateThreatIntelSetRequestTypeDef(TypedDict):
+    DetectorId: str
+    ThreatIntelSetId: str
+    Name: NotRequired[str]
+    Location: NotRequired[str]
+    Activate: NotRequired[bool]
+
+class CreateMembersRequestTypeDef(TypedDict):
+    DetectorId: str
+    AccountDetails: Sequence[AccountDetailTypeDef]
+
+class AccountLevelPermissionsTypeDef(TypedDict):
+    BlockPublicAccess: NotRequired[BlockPublicAccessTypeDef]
+
+UserTypeDef = TypedDict(
+    "UserTypeDef",
     {
         "Name": str,
-        "Arn": str,
-        "Status": str,
-        "ActiveServicesCount": int,
-        "RegisteredContainerInstancesCount": int,
-        "RunningTasksCount": int,
-        "Tags": List["TagTypeDef"],
-        "TaskDetails": "EcsTaskDetailsTypeDef",
+        "Uid": str,
+        "Type": str,
+        "CredentialUid": NotRequired[str],
+        "Account": NotRequired[AccountTypeDef],
     },
-    total=False,
 )
 
-EcsTaskDetailsTypeDef = TypedDict(
-    "EcsTaskDetailsTypeDef",
-    {
-        "Arn": str,
-        "DefinitionArn": str,
-        "Version": str,
-        "TaskCreatedAt": datetime,
-        "StartedAt": datetime,
-        "StartedBy": str,
-        "Tags": List["TagTypeDef"],
-        "Volumes": List["VolumeTypeDef"],
-        "Containers": List["ContainerTypeDef"],
-        "Group": str,
-    },
-    total=False,
-)
+class CoverageEksClusterDetailsTypeDef(TypedDict):
+    ClusterName: NotRequired[str]
+    CoveredNodes: NotRequired[int]
+    CompatibleNodes: NotRequired[int]
+    AddonDetails: NotRequired[AddonDetailsTypeDef]
+    ManagementType: NotRequired[ManagementTypeType]
 
-EksClusterDetailsTypeDef = TypedDict(
-    "EksClusterDetailsTypeDef",
+class CoverageEc2InstanceDetailsTypeDef(TypedDict):
+    InstanceId: NotRequired[str]
+    InstanceType: NotRequired[str]
+    ClusterArn: NotRequired[str]
+    AgentDetails: NotRequired[AgentDetailsTypeDef]
+    ManagementType: NotRequired[ManagementTypeType]
+
+class AnomalyObjectTypeDef(TypedDict):
+    ProfileType: NotRequired[Literal["FREQUENCY"]]
+    ProfileSubtype: NotRequired[ProfileSubtypeType]
+    Observations: NotRequired[ObservationsTypeDef]
+
+class BucketLevelPermissionsTypeDef(TypedDict):
+    AccessControlList: NotRequired[AccessControlListTypeDef]
+    BucketPolicy: NotRequired[BucketPolicyTypeDef]
+    BlockPublicAccess: NotRequired[BlockPublicAccessTypeDef]
+
+class FindingCriteriaOutputTypeDef(TypedDict):
+    Criterion: NotRequired[Dict[str, ConditionOutputTypeDef]]
+
+class FindingCriteriaTypeDef(TypedDict):
+    Criterion: NotRequired[Mapping[str, ConditionTypeDef]]
+
+class ContainerTypeDef(TypedDict):
+    ContainerRuntime: NotRequired[str]
+    Id: NotRequired[str]
+    Name: NotRequired[str]
+    Image: NotRequired[str]
+    ImagePrefix: NotRequired[str]
+    VolumeMounts: NotRequired[List[VolumeMountTypeDef]]
+    SecurityContext: NotRequired[SecurityContextTypeDef]
+
+class CoverageEcsClusterDetailsTypeDef(TypedDict):
+    ClusterName: NotRequired[str]
+    FargateDetails: NotRequired[FargateDetailsTypeDef]
+    ContainerInstanceDetails: NotRequired[ContainerInstanceDetailsTypeDef]
+
+class CoverageFilterCriterionTypeDef(TypedDict):
+    CriterionKey: NotRequired[CoverageFilterCriterionKeyType]
+    FilterCondition: NotRequired[CoverageFilterConditionTypeDef]
+
+class CreateFilterResponseTypeDef(TypedDict):
+    Name: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateIPSetResponseTypeDef(TypedDict):
+    IpSetId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateMalwareProtectionPlanResponseTypeDef(TypedDict):
+    MalwareProtectionPlanId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreatePublishingDestinationResponseTypeDef(TypedDict):
+    DestinationId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateThreatIntelSetResponseTypeDef(TypedDict):
+    ThreatIntelSetId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class EmptyResponseMetadataTypeDef(TypedDict):
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetAdministratorAccountResponseTypeDef(TypedDict):
+    Administrator: AdministratorTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetCoverageStatisticsResponseTypeDef(TypedDict):
+    CoverageStatistics: CoverageStatisticsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetIPSetResponseTypeDef(TypedDict):
+    Name: str
+    Format: IpSetFormatType
+    Location: str
+    Status: IpSetStatusType
+    Tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetInvitationsCountResponseTypeDef(TypedDict):
+    InvitationsCount: int
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetThreatIntelSetResponseTypeDef(TypedDict):
+    Name: str
+    Format: ThreatIntelSetFormatType
+    Location: str
+    Status: ThreatIntelSetStatusType
+    Tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListDetectorsResponseTypeDef(TypedDict):
+    DetectorIds: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListFiltersResponseTypeDef(TypedDict):
+    FilterNames: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListFindingsResponseTypeDef(TypedDict):
+    FindingIds: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListIPSetsResponseTypeDef(TypedDict):
+    IpSetIds: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListOrganizationAdminAccountsResponseTypeDef(TypedDict):
+    AdminAccounts: List[AdminAccountTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    Tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListThreatIntelSetsResponseTypeDef(TypedDict):
+    ThreatIntelSetIds: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class StartMalwareScanResponseTypeDef(TypedDict):
+    ScanId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateFilterResponseTypeDef(TypedDict):
+    Name: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateMembersResponseTypeDef(TypedDict):
+    UnprocessedAccounts: List[UnprocessedAccountTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeclineInvitationsResponseTypeDef(TypedDict):
+    UnprocessedAccounts: List[UnprocessedAccountTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteInvitationsResponseTypeDef(TypedDict):
+    UnprocessedAccounts: List[UnprocessedAccountTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteMembersResponseTypeDef(TypedDict):
+    UnprocessedAccounts: List[UnprocessedAccountTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DisassociateMembersResponseTypeDef(TypedDict):
+    UnprocessedAccounts: List[UnprocessedAccountTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class InviteMembersResponseTypeDef(TypedDict):
+    UnprocessedAccounts: List[UnprocessedAccountTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartMonitoringMembersResponseTypeDef(TypedDict):
+    UnprocessedAccounts: List[UnprocessedAccountTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StopMonitoringMembersResponseTypeDef(TypedDict):
+    UnprocessedAccounts: List[UnprocessedAccountTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateMemberDetectorsResponseTypeDef(TypedDict):
+    UnprocessedAccounts: List[UnprocessedAccountTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateProtectedResourceOutputTypeDef(TypedDict):
+    S3Bucket: NotRequired[CreateS3BucketResourceOutputTypeDef]
+
+class CreateProtectedResourceTypeDef(TypedDict):
+    S3Bucket: NotRequired[CreateS3BucketResourceTypeDef]
+
+class CreatePublishingDestinationRequestTypeDef(TypedDict):
+    DetectorId: str
+    DestinationType: Literal["S3"]
+    DestinationProperties: DestinationPropertiesTypeDef
+    ClientToken: NotRequired[str]
+
+class DescribePublishingDestinationResponseTypeDef(TypedDict):
+    DestinationId: str
+    DestinationType: Literal["S3"]
+    Status: PublishingStatusType
+    PublishingFailureStartTimestamp: int
+    DestinationProperties: DestinationPropertiesTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdatePublishingDestinationRequestTypeDef(TypedDict):
+    DetectorId: str
+    DestinationId: str
+    DestinationProperties: NotRequired[DestinationPropertiesTypeDef]
+
+class KubernetesDataSourceFreeTrialTypeDef(TypedDict):
+    AuditLogs: NotRequired[DataSourceFreeTrialTypeDef]
+
+class MalwareProtectionDataSourceFreeTrialTypeDef(TypedDict):
+    ScanEc2InstanceWithFindings: NotRequired[DataSourceFreeTrialTypeDef]
+
+class ListDetectorsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListFiltersRequestPaginateTypeDef(TypedDict):
+    DetectorId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListIPSetsRequestPaginateTypeDef(TypedDict):
+    DetectorId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListInvitationsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListMembersRequestPaginateTypeDef(TypedDict):
+    DetectorId: str
+    OnlyAssociated: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListOrganizationAdminAccountsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListThreatIntelSetsRequestPaginateTypeDef(TypedDict):
+    DetectorId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class GetFindingsRequestTypeDef(TypedDict):
+    DetectorId: str
+    FindingIds: Sequence[str]
+    SortCriteria: NotRequired[SortCriteriaTypeDef]
+
+class ListPublishingDestinationsResponseTypeDef(TypedDict):
+    Destinations: List[DestinationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class DetectorFeatureConfigurationResultTypeDef(TypedDict):
+    Name: NotRequired[DetectorFeatureResultType]
+    Status: NotRequired[FeatureStatusType]
+    UpdatedAt: NotRequired[datetime]
+    AdditionalConfiguration: NotRequired[List[DetectorAdditionalConfigurationResultTypeDef]]
+
+class DetectorFeatureConfigurationTypeDef(TypedDict):
+    Name: NotRequired[DetectorFeatureType]
+    Status: NotRequired[FeatureStatusType]
+    AdditionalConfiguration: NotRequired[Sequence[DetectorAdditionalConfigurationTypeDef]]
+
+class EbsVolumeDetailsTypeDef(TypedDict):
+    ScannedVolumeDetails: NotRequired[List[VolumeDetailTypeDef]]
+    SkippedVolumeDetails: NotRequired[List[VolumeDetailTypeDef]]
+
+class ScanEc2InstanceWithFindingsResultTypeDef(TypedDict):
+    EbsVolumes: NotRequired[EbsVolumesResultTypeDef]
+
+class Ec2InstanceTypeDef(TypedDict):
+    AvailabilityZone: NotRequired[str]
+    ImageDescription: NotRequired[str]
+    InstanceState: NotRequired[str]
+    IamInstanceProfile: NotRequired[IamInstanceProfileTypeDef]
+    InstanceType: NotRequired[str]
+    OutpostArn: NotRequired[str]
+    Platform: NotRequired[str]
+    ProductCodes: NotRequired[List[ProductCodeTypeDef]]
+    Ec2NetworkInterfaceUids: NotRequired[List[str]]
+
+class Ec2NetworkInterfaceTypeDef(TypedDict):
+    Ipv6Addresses: NotRequired[List[str]]
+    PrivateIpAddresses: NotRequired[List[PrivateIpAddressDetailsTypeDef]]
+    PublicIp: NotRequired[str]
+    SecurityGroups: NotRequired[List[SecurityGroupTypeDef]]
+    SubNetId: NotRequired[str]
+    VpcId: NotRequired[str]
+
+class NetworkInterfaceTypeDef(TypedDict):
+    Ipv6Addresses: NotRequired[List[str]]
+    NetworkInterfaceId: NotRequired[str]
+    PrivateDnsName: NotRequired[str]
+    PrivateIpAddress: NotRequired[str]
+    PrivateIpAddresses: NotRequired[List[PrivateIpAddressDetailsTypeDef]]
+    PublicDnsName: NotRequired[str]
+    PublicIp: NotRequired[str]
+    SecurityGroups: NotRequired[List[SecurityGroupTypeDef]]
+    SubnetId: NotRequired[str]
+    VpcId: NotRequired[str]
+
+class VpcConfigTypeDef(TypedDict):
+    SubnetIds: NotRequired[List[str]]
+    VpcId: NotRequired[str]
+    SecurityGroups: NotRequired[List[SecurityGroupTypeDef]]
+
+class EksClusterDetailsTypeDef(TypedDict):
+    Name: NotRequired[str]
+    Arn: NotRequired[str]
+    VpcId: NotRequired[str]
+    Status: NotRequired[str]
+    Tags: NotRequired[List[TagTypeDef]]
+    CreatedAt: NotRequired[datetime]
+
+class RdsDbInstanceDetailsTypeDef(TypedDict):
+    DbInstanceIdentifier: NotRequired[str]
+    Engine: NotRequired[str]
+    EngineVersion: NotRequired[str]
+    DbClusterIdentifier: NotRequired[str]
+    DbInstanceArn: NotRequired[str]
+    Tags: NotRequired[List[TagTypeDef]]
+
+class RdsLimitlessDbDetailsTypeDef(TypedDict):
+    DbShardGroupIdentifier: NotRequired[str]
+    DbShardGroupResourceId: NotRequired[str]
+    DbShardGroupArn: NotRequired[str]
+    Engine: NotRequired[str]
+    EngineVersion: NotRequired[str]
+    DbClusterIdentifier: NotRequired[str]
+    Tags: NotRequired[List[TagTypeDef]]
+
+class EvidenceTypeDef(TypedDict):
+    ThreatIntelligenceDetails: NotRequired[List[ThreatIntelligenceDetailTypeDef]]
+
+class FilterCriterionTypeDef(TypedDict):
+    CriterionKey: NotRequired[CriterionKeyType]
+    FilterCondition: NotRequired[FilterConditionTypeDef]
+
+class FindingStatisticsTypeDef(TypedDict):
+    CountBySeverity: NotRequired[Dict[str, int]]
+    GroupedByAccount: NotRequired[List[AccountStatisticsTypeDef]]
+    GroupedByDate: NotRequired[List[DateStatisticsTypeDef]]
+    GroupedByFindingType: NotRequired[List[FindingTypeStatisticsTypeDef]]
+    GroupedByResource: NotRequired[List[ResourceStatisticsTypeDef]]
+    GroupedBySeverity: NotRequired[List[SeverityStatisticsTypeDef]]
+
+class GetMasterAccountResponseTypeDef(TypedDict):
+    Master: MasterTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetMembersResponseTypeDef(TypedDict):
+    Members: List[MemberTypeDef]
+    UnprocessedAccounts: List[UnprocessedAccountTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListMembersResponseTypeDef(TypedDict):
+    Members: List[MemberTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class GetUsageStatisticsRequestTypeDef(TypedDict):
+    DetectorId: str
+    UsageStatisticType: UsageStatisticTypeType
+    UsageCriteria: UsageCriteriaTypeDef
+    Unit: NotRequired[str]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class VolumeTypeDef(TypedDict):
+    Name: NotRequired[str]
+    HostPath: NotRequired[HostPathTypeDef]
+
+class KubernetesUserDetailsTypeDef(TypedDict):
+    Username: NotRequired[str]
+    Uid: NotRequired[str]
+    Groups: NotRequired[List[str]]
+    SessionName: NotRequired[List[str]]
+    ImpersonatedUser: NotRequired[ImpersonatedUserTypeDef]
+
+SignalTypeDef = TypedDict(
+    "SignalTypeDef",
     {
+        "Uid": str,
+        "Type": SignalTypeType,
         "Name": str,
-        "Arn": str,
-        "VpcId": str,
-        "Status": str,
-        "Tags": List["TagTypeDef"],
         "CreatedAt": datetime,
+        "UpdatedAt": datetime,
+        "FirstSeenAt": datetime,
+        "LastSeenAt": datetime,
+        "Count": int,
+        "Description": NotRequired[str],
+        "Severity": NotRequired[float],
+        "ResourceUids": NotRequired[List[str]],
+        "ActorIds": NotRequired[List[str]],
+        "EndpointIds": NotRequired[List[str]],
+        "SignalIndicators": NotRequired[List[IndicatorTypeDef]],
     },
-    total=False,
 )
 
-EnableOrganizationAdminAccountRequestRequestTypeDef = TypedDict(
-    "EnableOrganizationAdminAccountRequestRequestTypeDef",
+class ListInvitationsResponseTypeDef(TypedDict):
+    Invitations: List[InvitationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ThreatTypeDef(TypedDict):
+    Name: NotRequired[str]
+    Source: NotRequired[str]
+    ItemPaths: NotRequired[List[ItemPathTypeDef]]
+
+class KubernetesConfigurationResultTypeDef(TypedDict):
+    AuditLogs: KubernetesAuditLogsConfigurationResultTypeDef
+
+class KubernetesConfigurationTypeDef(TypedDict):
+    AuditLogs: KubernetesAuditLogsConfigurationTypeDef
+
+class ProcessDetailsTypeDef(TypedDict):
+    Name: NotRequired[str]
+    ExecutablePath: NotRequired[str]
+    ExecutableSha256: NotRequired[str]
+    NamespacePid: NotRequired[int]
+    Pwd: NotRequired[str]
+    Pid: NotRequired[int]
+    StartTime: NotRequired[datetime]
+    Uuid: NotRequired[str]
+    ParentUuid: NotRequired[str]
+    User: NotRequired[str]
+    UserId: NotRequired[int]
+    Euid: NotRequired[int]
+    Lineage: NotRequired[List[LineageObjectTypeDef]]
+
+class ListMalwareProtectionPlansResponseTypeDef(TypedDict):
+    MalwareProtectionPlans: List[MalwareProtectionPlanSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class MalwareProtectionConfigurationTypeDef(TypedDict):
+    ScanEc2InstanceWithFindings: NotRequired[ScanEc2InstanceWithFindingsTypeDef]
+
+class MalwareProtectionPlanActionsTypeDef(TypedDict):
+    Tagging: NotRequired[MalwareProtectionPlanTaggingActionTypeDef]
+
+class MemberFeaturesConfigurationResultTypeDef(TypedDict):
+    Name: NotRequired[OrgFeatureType]
+    Status: NotRequired[FeatureStatusType]
+    UpdatedAt: NotRequired[datetime]
+    AdditionalConfiguration: NotRequired[List[MemberAdditionalConfigurationResultTypeDef]]
+
+class MemberFeaturesConfigurationTypeDef(TypedDict):
+    Name: NotRequired[OrgFeatureType]
+    Status: NotRequired[FeatureStatusType]
+    AdditionalConfiguration: NotRequired[Sequence[MemberAdditionalConfigurationTypeDef]]
+
+class NetworkEndpointTypeDef(TypedDict):
+    Id: str
+    Ip: NotRequired[str]
+    Domain: NotRequired[str]
+    Port: NotRequired[int]
+    Location: NotRequired[NetworkGeoLocationTypeDef]
+    AutonomousSystem: NotRequired[AutonomousSystemTypeDef]
+    Connection: NotRequired[NetworkConnectionTypeDef]
+
+class OrganizationFeatureConfigurationResultTypeDef(TypedDict):
+    Name: NotRequired[OrgFeatureType]
+    AutoEnable: NotRequired[OrgFeatureStatusType]
+    AdditionalConfiguration: NotRequired[List[OrganizationAdditionalConfigurationResultTypeDef]]
+
+class OrganizationFeatureConfigurationTypeDef(TypedDict):
+    Name: NotRequired[OrgFeatureType]
+    AutoEnable: NotRequired[OrgFeatureStatusType]
+    AdditionalConfiguration: NotRequired[Sequence[OrganizationAdditionalConfigurationTypeDef]]
+
+class OrganizationScanEc2InstanceWithFindingsResultTypeDef(TypedDict):
+    EbsVolumes: NotRequired[OrganizationEbsVolumesResultTypeDef]
+
+class OrganizationScanEc2InstanceWithFindingsTypeDef(TypedDict):
+    EbsVolumes: NotRequired[OrganizationEbsVolumesTypeDef]
+
+class OrganizationFeatureStatisticsTypeDef(TypedDict):
+    Name: NotRequired[OrgFeatureType]
+    EnabledAccountsCount: NotRequired[int]
+    AdditionalConfiguration: NotRequired[
+        List[OrganizationFeatureStatisticsAdditionalConfigurationTypeDef]
+    ]
+
+class OrganizationKubernetesConfigurationResultTypeDef(TypedDict):
+    AuditLogs: OrganizationKubernetesAuditLogsConfigurationResultTypeDef
+
+class OrganizationKubernetesConfigurationTypeDef(TypedDict):
+    AuditLogs: OrganizationKubernetesAuditLogsConfigurationTypeDef
+
+class RemoteIpDetailsTypeDef(TypedDict):
+    City: NotRequired[CityTypeDef]
+    Country: NotRequired[CountryTypeDef]
+    GeoLocation: NotRequired[GeoLocationTypeDef]
+    IpAddressV4: NotRequired[str]
+    IpAddressV6: NotRequired[str]
+    Organization: NotRequired[OrganizationTypeDef]
+
+class S3BucketTypeDef(TypedDict):
+    OwnerId: NotRequired[str]
+    CreatedAt: NotRequired[datetime]
+    EncryptionType: NotRequired[str]
+    EncryptionKeyArn: NotRequired[str]
+    EffectivePermission: NotRequired[str]
+    PublicReadAccess: NotRequired[PublicAccessStatusType]
+    PublicWriteAccess: NotRequired[PublicAccessStatusType]
+    AccountPublicAccess: NotRequired[PublicAccessConfigurationTypeDef]
+    BucketPublicAccess: NotRequired[PublicAccessConfigurationTypeDef]
+    S3ObjectUids: NotRequired[List[str]]
+
+class ScanConditionOutputTypeDef(TypedDict):
+    MapEquals: List[ScanConditionPairTypeDef]
+
+class ScanConditionTypeDef(TypedDict):
+    MapEquals: Sequence[ScanConditionPairTypeDef]
+
+class ScanThreatNameTypeDef(TypedDict):
+    Name: NotRequired[str]
+    Severity: NotRequired[str]
+    ItemCount: NotRequired[int]
+    FilePaths: NotRequired[List[ScanFilePathTypeDef]]
+
+class ScanTypeDef(TypedDict):
+    DetectorId: NotRequired[str]
+    AdminDetectorId: NotRequired[str]
+    ScanId: NotRequired[str]
+    ScanStatus: NotRequired[ScanStatusType]
+    FailureReason: NotRequired[str]
+    ScanStartTime: NotRequired[datetime]
+    ScanEndTime: NotRequired[datetime]
+    TriggerDetails: NotRequired[TriggerDetailsTypeDef]
+    ResourceDetails: NotRequired[ResourceDetailsTypeDef]
+    ScanResultDetails: NotRequired[ScanResultDetailsTypeDef]
+    AccountId: NotRequired[str]
+    TotalBytes: NotRequired[int]
+    FileCount: NotRequired[int]
+    AttachedVolumes: NotRequired[List[VolumeDetailTypeDef]]
+    ScanType: NotRequired[ScanTypeType]
+
+class UsageAccountResultTypeDef(TypedDict):
+    AccountId: NotRequired[str]
+    Total: NotRequired[TotalTypeDef]
+
+class UsageDataSourceResultTypeDef(TypedDict):
+    DataSource: NotRequired[DataSourceType]
+    Total: NotRequired[TotalTypeDef]
+
+class UsageFeatureResultTypeDef(TypedDict):
+    Feature: NotRequired[UsageFeatureType]
+    Total: NotRequired[TotalTypeDef]
+
+class UsageResourceResultTypeDef(TypedDict):
+    Resource: NotRequired[str]
+    Total: NotRequired[TotalTypeDef]
+
+class UsageTopAccountResultTypeDef(TypedDict):
+    AccountId: NotRequired[str]
+    Total: NotRequired[TotalTypeDef]
+
+class UpdateProtectedResourceTypeDef(TypedDict):
+    S3Bucket: NotRequired[UpdateS3BucketResourceTypeDef]
+
+class ActorTypeDef(TypedDict):
+    Id: str
+    User: NotRequired[UserTypeDef]
+    Session: NotRequired[SessionTypeDef]
+
+class AnomalyUnusualTypeDef(TypedDict):
+    Behavior: NotRequired[Dict[str, Dict[str, AnomalyObjectTypeDef]]]
+
+class PermissionConfigurationTypeDef(TypedDict):
+    BucketLevelPermissions: NotRequired[BucketLevelPermissionsTypeDef]
+    AccountLevelPermissions: NotRequired[AccountLevelPermissionsTypeDef]
+
+class GetFilterResponseTypeDef(TypedDict):
+    Name: str
+    Description: str
+    Action: FilterActionType
+    Rank: int
+    FindingCriteria: FindingCriteriaOutputTypeDef
+    Tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+FindingCriteriaUnionTypeDef = Union[FindingCriteriaTypeDef, FindingCriteriaOutputTypeDef]
+
+class CoverageResourceDetailsTypeDef(TypedDict):
+    EksClusterDetails: NotRequired[CoverageEksClusterDetailsTypeDef]
+    ResourceType: NotRequired[ResourceTypeType]
+    EcsClusterDetails: NotRequired[CoverageEcsClusterDetailsTypeDef]
+    Ec2InstanceDetails: NotRequired[CoverageEc2InstanceDetailsTypeDef]
+
+class CoverageFilterCriteriaTypeDef(TypedDict):
+    FilterCriterion: NotRequired[Sequence[CoverageFilterCriterionTypeDef]]
+
+CreateProtectedResourceUnionTypeDef = Union[
+    CreateProtectedResourceTypeDef, CreateProtectedResourceOutputTypeDef
+]
+
+class DataSourcesFreeTrialTypeDef(TypedDict):
+    CloudTrail: NotRequired[DataSourceFreeTrialTypeDef]
+    DnsLogs: NotRequired[DataSourceFreeTrialTypeDef]
+    FlowLogs: NotRequired[DataSourceFreeTrialTypeDef]
+    S3Logs: NotRequired[DataSourceFreeTrialTypeDef]
+    Kubernetes: NotRequired[KubernetesDataSourceFreeTrialTypeDef]
+    MalwareProtection: NotRequired[MalwareProtectionDataSourceFreeTrialTypeDef]
+
+class MalwareProtectionConfigurationResultTypeDef(TypedDict):
+    ScanEc2InstanceWithFindings: NotRequired[ScanEc2InstanceWithFindingsResultTypeDef]
+    ServiceRole: NotRequired[str]
+
+class InstanceDetailsTypeDef(TypedDict):
+    AvailabilityZone: NotRequired[str]
+    IamInstanceProfile: NotRequired[IamInstanceProfileTypeDef]
+    ImageDescription: NotRequired[str]
+    ImageId: NotRequired[str]
+    InstanceId: NotRequired[str]
+    InstanceState: NotRequired[str]
+    InstanceType: NotRequired[str]
+    OutpostArn: NotRequired[str]
+    LaunchTime: NotRequired[str]
+    NetworkInterfaces: NotRequired[List[NetworkInterfaceTypeDef]]
+    Platform: NotRequired[str]
+    ProductCodes: NotRequired[List[ProductCodeTypeDef]]
+    Tags: NotRequired[List[TagTypeDef]]
+
+class LambdaDetailsTypeDef(TypedDict):
+    FunctionArn: NotRequired[str]
+    FunctionName: NotRequired[str]
+    Description: NotRequired[str]
+    LastModifiedAt: NotRequired[datetime]
+    RevisionId: NotRequired[str]
+    FunctionVersion: NotRequired[str]
+    Role: NotRequired[str]
+    VpcConfig: NotRequired[VpcConfigTypeDef]
+    Tags: NotRequired[List[TagTypeDef]]
+
+class FilterCriteriaTypeDef(TypedDict):
+    FilterCriterion: NotRequired[Sequence[FilterCriterionTypeDef]]
+
+class GetFindingsStatisticsResponseTypeDef(TypedDict):
+    FindingStatistics: FindingStatisticsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class EcsTaskDetailsTypeDef(TypedDict):
+    Arn: NotRequired[str]
+    DefinitionArn: NotRequired[str]
+    Version: NotRequired[str]
+    TaskCreatedAt: NotRequired[datetime]
+    StartedAt: NotRequired[datetime]
+    StartedBy: NotRequired[str]
+    Tags: NotRequired[List[TagTypeDef]]
+    Volumes: NotRequired[List[VolumeTypeDef]]
+    Containers: NotRequired[List[ContainerTypeDef]]
+    Group: NotRequired[str]
+    LaunchType: NotRequired[str]
+
+KubernetesWorkloadDetailsTypeDef = TypedDict(
+    "KubernetesWorkloadDetailsTypeDef",
     {
-        "AdminAccountId": str,
+        "Name": NotRequired[str],
+        "Type": NotRequired[str],
+        "Uid": NotRequired[str],
+        "Namespace": NotRequired[str],
+        "HostNetwork": NotRequired[bool],
+        "Containers": NotRequired[List[ContainerTypeDef]],
+        "Volumes": NotRequired[List[VolumeTypeDef]],
+        "ServiceAccountName": NotRequired[str],
+        "HostIPC": NotRequired[bool],
+        "HostPID": NotRequired[bool],
     },
 )
 
-EvidenceTypeDef = TypedDict(
-    "EvidenceTypeDef",
+class MalwareScanDetailsTypeDef(TypedDict):
+    Threats: NotRequired[List[ThreatTypeDef]]
+
+RuntimeContextTypeDef = TypedDict(
+    "RuntimeContextTypeDef",
     {
-        "ThreatIntelligenceDetails": List["ThreatIntelligenceDetailTypeDef"],
+        "ModifyingProcess": NotRequired[ProcessDetailsTypeDef],
+        "ModifiedAt": NotRequired[datetime],
+        "ScriptPath": NotRequired[str],
+        "LibraryPath": NotRequired[str],
+        "LdPreloadValue": NotRequired[str],
+        "SocketPath": NotRequired[str],
+        "RuncBinaryPath": NotRequired[str],
+        "ReleaseAgentPath": NotRequired[str],
+        "MountSource": NotRequired[str],
+        "MountTarget": NotRequired[str],
+        "FileSystemType": NotRequired[str],
+        "Flags": NotRequired[List[str]],
+        "ModuleName": NotRequired[str],
+        "ModuleFilePath": NotRequired[str],
+        "ModuleSha256": NotRequired[str],
+        "ShellHistoryFilePath": NotRequired[str],
+        "TargetProcess": NotRequired[ProcessDetailsTypeDef],
+        "AddressFamily": NotRequired[str],
+        "IanaProtocolNumber": NotRequired[int],
+        "MemoryRegions": NotRequired[List[str]],
+        "ToolName": NotRequired[str],
+        "ToolCategory": NotRequired[str],
+        "ServiceName": NotRequired[str],
+        "CommandLineExample": NotRequired[str],
+        "ThreatFilePath": NotRequired[str],
     },
-    total=False,
 )
 
-FargateDetailsTypeDef = TypedDict(
-    "FargateDetailsTypeDef",
+class DataSourceConfigurationsTypeDef(TypedDict):
+    S3Logs: NotRequired[S3LogsConfigurationTypeDef]
+    Kubernetes: NotRequired[KubernetesConfigurationTypeDef]
+    MalwareProtection: NotRequired[MalwareProtectionConfigurationTypeDef]
+
+class GetMalwareProtectionPlanResponseTypeDef(TypedDict):
+    Arn: str
+    Role: str
+    ProtectedResource: CreateProtectedResourceOutputTypeDef
+    Actions: MalwareProtectionPlanActionsTypeDef
+    CreatedAt: datetime
+    Status: MalwareProtectionPlanStatusType
+    StatusReasons: List[MalwareProtectionPlanStatusReasonTypeDef]
+    Tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class OrganizationMalwareProtectionConfigurationResultTypeDef(TypedDict):
+    ScanEc2InstanceWithFindings: NotRequired[OrganizationScanEc2InstanceWithFindingsResultTypeDef]
+
+class OrganizationMalwareProtectionConfigurationTypeDef(TypedDict):
+    ScanEc2InstanceWithFindings: NotRequired[OrganizationScanEc2InstanceWithFindingsTypeDef]
+
+class OrganizationStatisticsTypeDef(TypedDict):
+    TotalAccountsCount: NotRequired[int]
+    MemberAccountsCount: NotRequired[int]
+    ActiveAccountsCount: NotRequired[int]
+    EnabledAccountsCount: NotRequired[int]
+    CountByFeature: NotRequired[List[OrganizationFeatureStatisticsTypeDef]]
+
+AwsApiCallActionTypeDef = TypedDict(
+    "AwsApiCallActionTypeDef",
     {
-        "Issues": List[str],
-        "ManagementType": ManagementTypeType,
+        "Api": NotRequired[str],
+        "CallerType": NotRequired[str],
+        "DomainDetails": NotRequired[DomainDetailsTypeDef],
+        "ErrorCode": NotRequired[str],
+        "UserAgent": NotRequired[str],
+        "RemoteIpDetails": NotRequired[RemoteIpDetailsTypeDef],
+        "ServiceName": NotRequired[str],
+        "RemoteAccountDetails": NotRequired[RemoteAccountDetailsTypeDef],
+        "AffectedResources": NotRequired[Dict[str, str]],
     },
-    total=False,
 )
 
-FilterConditionTypeDef = TypedDict(
-    "FilterConditionTypeDef",
+class KubernetesApiCallActionTypeDef(TypedDict):
+    RequestUri: NotRequired[str]
+    Verb: NotRequired[str]
+    SourceIps: NotRequired[List[str]]
+    UserAgent: NotRequired[str]
+    RemoteIpDetails: NotRequired[RemoteIpDetailsTypeDef]
+    StatusCode: NotRequired[int]
+    Parameters: NotRequired[str]
+    Resource: NotRequired[str]
+    Subresource: NotRequired[str]
+    Namespace: NotRequired[str]
+    ResourceName: NotRequired[str]
+
+NetworkConnectionActionTypeDef = TypedDict(
+    "NetworkConnectionActionTypeDef",
     {
-        "EqualsValue": str,
-        "GreaterThan": int,
-        "LessThan": int,
+        "Blocked": NotRequired[bool],
+        "ConnectionDirection": NotRequired[str],
+        "LocalPortDetails": NotRequired[LocalPortDetailsTypeDef],
+        "Protocol": NotRequired[str],
+        "LocalIpDetails": NotRequired[LocalIpDetailsTypeDef],
+        "LocalNetworkInterface": NotRequired[str],
+        "RemoteIpDetails": NotRequired[RemoteIpDetailsTypeDef],
+        "RemotePortDetails": NotRequired[RemotePortDetailsTypeDef],
     },
-    total=False,
 )
 
-FilterCriteriaTypeDef = TypedDict(
-    "FilterCriteriaTypeDef",
+class PortProbeDetailTypeDef(TypedDict):
+    LocalPortDetails: NotRequired[LocalPortDetailsTypeDef]
+    LocalIpDetails: NotRequired[LocalIpDetailsTypeDef]
+    RemoteIpDetails: NotRequired[RemoteIpDetailsTypeDef]
+
+class RdsLoginAttemptActionTypeDef(TypedDict):
+    RemoteIpDetails: NotRequired[RemoteIpDetailsTypeDef]
+    LoginAttributes: NotRequired[List[LoginAttributeTypeDef]]
+
+class ResourceDataTypeDef(TypedDict):
+    S3Bucket: NotRequired[S3BucketTypeDef]
+    Ec2Instance: NotRequired[Ec2InstanceTypeDef]
+    AccessKey: NotRequired[AccessKeyTypeDef]
+    Ec2NetworkInterface: NotRequired[Ec2NetworkInterfaceTypeDef]
+    S3Object: NotRequired[S3ObjectTypeDef]
+
+class ScanResourceCriteriaOutputTypeDef(TypedDict):
+    Include: NotRequired[Dict[Literal["EC2_INSTANCE_TAG"], ScanConditionOutputTypeDef]]
+    Exclude: NotRequired[Dict[Literal["EC2_INSTANCE_TAG"], ScanConditionOutputTypeDef]]
+
+class ScanResourceCriteriaTypeDef(TypedDict):
+    Include: NotRequired[Mapping[Literal["EC2_INSTANCE_TAG"], ScanConditionTypeDef]]
+    Exclude: NotRequired[Mapping[Literal["EC2_INSTANCE_TAG"], ScanConditionTypeDef]]
+
+class ThreatDetectedByNameTypeDef(TypedDict):
+    ItemCount: NotRequired[int]
+    UniqueThreatNameCount: NotRequired[int]
+    Shortened: NotRequired[bool]
+    ThreatNames: NotRequired[List[ScanThreatNameTypeDef]]
+
+class DescribeMalwareScansResponseTypeDef(TypedDict):
+    Scans: List[ScanTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class UsageTopAccountsResultTypeDef(TypedDict):
+    Feature: NotRequired[UsageFeatureType]
+    Accounts: NotRequired[List[UsageTopAccountResultTypeDef]]
+
+class UpdateMalwareProtectionPlanRequestTypeDef(TypedDict):
+    MalwareProtectionPlanId: str
+    Role: NotRequired[str]
+    Actions: NotRequired[MalwareProtectionPlanActionsTypeDef]
+    ProtectedResource: NotRequired[UpdateProtectedResourceTypeDef]
+
+class AnomalyTypeDef(TypedDict):
+    Profiles: NotRequired[Dict[str, Dict[str, List[AnomalyObjectTypeDef]]]]
+    Unusual: NotRequired[AnomalyUnusualTypeDef]
+
+class PublicAccessTypeDef(TypedDict):
+    PermissionConfiguration: NotRequired[PermissionConfigurationTypeDef]
+    EffectivePermission: NotRequired[str]
+
+class CreateFilterRequestTypeDef(TypedDict):
+    DetectorId: str
+    Name: str
+    FindingCriteria: FindingCriteriaUnionTypeDef
+    Description: NotRequired[str]
+    Action: NotRequired[FilterActionType]
+    Rank: NotRequired[int]
+    ClientToken: NotRequired[str]
+    Tags: NotRequired[Mapping[str, str]]
+
+class GetFindingsStatisticsRequestTypeDef(TypedDict):
+    DetectorId: str
+    FindingStatisticTypes: NotRequired[Sequence[Literal["COUNT_BY_SEVERITY"]]]
+    FindingCriteria: NotRequired[FindingCriteriaUnionTypeDef]
+    GroupBy: NotRequired[GroupByTypeType]
+    OrderBy: NotRequired[OrderByType]
+    MaxResults: NotRequired[int]
+
+class ListFindingsRequestPaginateTypeDef(TypedDict):
+    DetectorId: str
+    FindingCriteria: NotRequired[FindingCriteriaUnionTypeDef]
+    SortCriteria: NotRequired[SortCriteriaTypeDef]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListFindingsRequestTypeDef(TypedDict):
+    DetectorId: str
+    FindingCriteria: NotRequired[FindingCriteriaUnionTypeDef]
+    SortCriteria: NotRequired[SortCriteriaTypeDef]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class UpdateFilterRequestTypeDef(TypedDict):
+    DetectorId: str
+    FilterName: str
+    Description: NotRequired[str]
+    Action: NotRequired[FilterActionType]
+    Rank: NotRequired[int]
+    FindingCriteria: NotRequired[FindingCriteriaUnionTypeDef]
+
+class CoverageResourceTypeDef(TypedDict):
+    ResourceId: NotRequired[str]
+    DetectorId: NotRequired[str]
+    AccountId: NotRequired[str]
+    ResourceDetails: NotRequired[CoverageResourceDetailsTypeDef]
+    CoverageStatus: NotRequired[CoverageStatusType]
+    Issue: NotRequired[str]
+    UpdatedAt: NotRequired[datetime]
+
+class GetCoverageStatisticsRequestTypeDef(TypedDict):
+    DetectorId: str
+    StatisticsType: Sequence[CoverageStatisticsTypeType]
+    FilterCriteria: NotRequired[CoverageFilterCriteriaTypeDef]
+
+class ListCoverageRequestPaginateTypeDef(TypedDict):
+    DetectorId: str
+    FilterCriteria: NotRequired[CoverageFilterCriteriaTypeDef]
+    SortCriteria: NotRequired[CoverageSortCriteriaTypeDef]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListCoverageRequestTypeDef(TypedDict):
+    DetectorId: str
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+    FilterCriteria: NotRequired[CoverageFilterCriteriaTypeDef]
+    SortCriteria: NotRequired[CoverageSortCriteriaTypeDef]
+
+class CreateMalwareProtectionPlanRequestTypeDef(TypedDict):
+    Role: str
+    ProtectedResource: CreateProtectedResourceUnionTypeDef
+    ClientToken: NotRequired[str]
+    Actions: NotRequired[MalwareProtectionPlanActionsTypeDef]
+    Tags: NotRequired[Mapping[str, str]]
+
+class AccountFreeTrialInfoTypeDef(TypedDict):
+    AccountId: NotRequired[str]
+    DataSources: NotRequired[DataSourcesFreeTrialTypeDef]
+    Features: NotRequired[List[FreeTrialFeatureConfigurationResultTypeDef]]
+
+class DataSourceConfigurationsResultTypeDef(TypedDict):
+    CloudTrail: CloudTrailConfigurationResultTypeDef
+    DNSLogs: DNSLogsConfigurationResultTypeDef
+    FlowLogs: FlowLogsConfigurationResultTypeDef
+    S3Logs: S3LogsConfigurationResultTypeDef
+    Kubernetes: NotRequired[KubernetesConfigurationResultTypeDef]
+    MalwareProtection: NotRequired[MalwareProtectionConfigurationResultTypeDef]
+
+class UnprocessedDataSourcesResultTypeDef(TypedDict):
+    MalwareProtection: NotRequired[MalwareProtectionConfigurationResultTypeDef]
+
+class DescribeMalwareScansRequestPaginateTypeDef(TypedDict):
+    DetectorId: str
+    FilterCriteria: NotRequired[FilterCriteriaTypeDef]
+    SortCriteria: NotRequired[SortCriteriaTypeDef]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeMalwareScansRequestTypeDef(TypedDict):
+    DetectorId: str
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+    FilterCriteria: NotRequired[FilterCriteriaTypeDef]
+    SortCriteria: NotRequired[SortCriteriaTypeDef]
+
+class EcsClusterDetailsTypeDef(TypedDict):
+    Name: NotRequired[str]
+    Arn: NotRequired[str]
+    Status: NotRequired[str]
+    ActiveServicesCount: NotRequired[int]
+    RegisteredContainerInstancesCount: NotRequired[int]
+    RunningTasksCount: NotRequired[int]
+    Tags: NotRequired[List[TagTypeDef]]
+    TaskDetails: NotRequired[EcsTaskDetailsTypeDef]
+
+class KubernetesDetailsTypeDef(TypedDict):
+    KubernetesUserDetails: NotRequired[KubernetesUserDetailsTypeDef]
+    KubernetesWorkloadDetails: NotRequired[KubernetesWorkloadDetailsTypeDef]
+
+class RuntimeDetailsTypeDef(TypedDict):
+    Process: NotRequired[ProcessDetailsTypeDef]
+    Context: NotRequired[RuntimeContextTypeDef]
+
+class CreateDetectorRequestTypeDef(TypedDict):
+    Enable: bool
+    ClientToken: NotRequired[str]
+    FindingPublishingFrequency: NotRequired[FindingPublishingFrequencyType]
+    DataSources: NotRequired[DataSourceConfigurationsTypeDef]
+    Tags: NotRequired[Mapping[str, str]]
+    Features: NotRequired[Sequence[DetectorFeatureConfigurationTypeDef]]
+
+class UpdateDetectorRequestTypeDef(TypedDict):
+    DetectorId: str
+    Enable: NotRequired[bool]
+    FindingPublishingFrequency: NotRequired[FindingPublishingFrequencyType]
+    DataSources: NotRequired[DataSourceConfigurationsTypeDef]
+    Features: NotRequired[Sequence[DetectorFeatureConfigurationTypeDef]]
+
+class UpdateMemberDetectorsRequestTypeDef(TypedDict):
+    DetectorId: str
+    AccountIds: Sequence[str]
+    DataSources: NotRequired[DataSourceConfigurationsTypeDef]
+    Features: NotRequired[Sequence[MemberFeaturesConfigurationTypeDef]]
+
+class OrganizationDataSourceConfigurationsResultTypeDef(TypedDict):
+    S3Logs: OrganizationS3LogsConfigurationResultTypeDef
+    Kubernetes: NotRequired[OrganizationKubernetesConfigurationResultTypeDef]
+    MalwareProtection: NotRequired[OrganizationMalwareProtectionConfigurationResultTypeDef]
+
+class OrganizationDataSourceConfigurationsTypeDef(TypedDict):
+    S3Logs: NotRequired[OrganizationS3LogsConfigurationTypeDef]
+    Kubernetes: NotRequired[OrganizationKubernetesConfigurationTypeDef]
+    MalwareProtection: NotRequired[OrganizationMalwareProtectionConfigurationTypeDef]
+
+class OrganizationDetailsTypeDef(TypedDict):
+    UpdatedAt: NotRequired[datetime]
+    OrganizationStatistics: NotRequired[OrganizationStatisticsTypeDef]
+
+class PortProbeActionTypeDef(TypedDict):
+    Blocked: NotRequired[bool]
+    PortProbeDetails: NotRequired[List[PortProbeDetailTypeDef]]
+
+class ResourceV2TypeDef(TypedDict):
+    Uid: str
+    ResourceType: FindingResourceTypeType
+    Name: NotRequired[str]
+    AccountId: NotRequired[str]
+    Region: NotRequired[str]
+    Service: NotRequired[str]
+    CloudPartition: NotRequired[str]
+    Tags: NotRequired[List[TagTypeDef]]
+    Data: NotRequired[ResourceDataTypeDef]
+
+class GetMalwareScanSettingsResponseTypeDef(TypedDict):
+    ScanResourceCriteria: ScanResourceCriteriaOutputTypeDef
+    EbsSnapshotPreservation: EbsSnapshotPreservationType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+ScanResourceCriteriaUnionTypeDef = Union[
+    ScanResourceCriteriaTypeDef, ScanResourceCriteriaOutputTypeDef
+]
+
+class ScanDetectionsTypeDef(TypedDict):
+    ScannedItemCount: NotRequired[ScannedItemCountTypeDef]
+    ThreatsDetectedItemCount: NotRequired[ThreatsDetectedItemCountTypeDef]
+    HighestSeverityThreatDetails: NotRequired[HighestSeverityThreatDetailsTypeDef]
+    ThreatDetectedByName: NotRequired[ThreatDetectedByNameTypeDef]
+
+class UsageStatisticsTypeDef(TypedDict):
+    SumByAccount: NotRequired[List[UsageAccountResultTypeDef]]
+    TopAccountsByFeature: NotRequired[List[UsageTopAccountsResultTypeDef]]
+    SumByDataSource: NotRequired[List[UsageDataSourceResultTypeDef]]
+    SumByResource: NotRequired[List[UsageResourceResultTypeDef]]
+    TopResources: NotRequired[List[UsageResourceResultTypeDef]]
+    SumByFeature: NotRequired[List[UsageFeatureResultTypeDef]]
+
+S3BucketDetailTypeDef = TypedDict(
+    "S3BucketDetailTypeDef",
     {
-        "FilterCriterion": List["FilterCriterionTypeDef"],
+        "Arn": NotRequired[str],
+        "Name": NotRequired[str],
+        "Type": NotRequired[str],
+        "CreatedAt": NotRequired[datetime],
+        "Owner": NotRequired[OwnerTypeDef],
+        "Tags": NotRequired[List[TagTypeDef]],
+        "DefaultServerSideEncryption": NotRequired[DefaultServerSideEncryptionTypeDef],
+        "PublicAccess": NotRequired[PublicAccessTypeDef],
+        "S3ObjectDetails": NotRequired[List[S3ObjectDetailTypeDef]],
     },
-    total=False,
 )
 
-FilterCriterionTypeDef = TypedDict(
-    "FilterCriterionTypeDef",
+class ListCoverageResponseTypeDef(TypedDict):
+    Resources: List[CoverageResourceTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class GetRemainingFreeTrialDaysResponseTypeDef(TypedDict):
+    Accounts: List[AccountFreeTrialInfoTypeDef]
+    UnprocessedAccounts: List[UnprocessedAccountTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetDetectorResponseTypeDef(TypedDict):
+    CreatedAt: str
+    FindingPublishingFrequency: FindingPublishingFrequencyType
+    ServiceRole: str
+    Status: DetectorStatusType
+    UpdatedAt: str
+    DataSources: DataSourceConfigurationsResultTypeDef
+    Tags: Dict[str, str]
+    Features: List[DetectorFeatureConfigurationResultTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class MemberDataSourceConfigurationTypeDef(TypedDict):
+    AccountId: str
+    DataSources: NotRequired[DataSourceConfigurationsResultTypeDef]
+    Features: NotRequired[List[MemberFeaturesConfigurationResultTypeDef]]
+
+class CreateDetectorResponseTypeDef(TypedDict):
+    DetectorId: str
+    UnprocessedDataSources: UnprocessedDataSourcesResultTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeOrganizationConfigurationResponseTypeDef(TypedDict):
+    AutoEnable: bool
+    MemberAccountLimitReached: bool
+    DataSources: OrganizationDataSourceConfigurationsResultTypeDef
+    Features: List[OrganizationFeatureConfigurationResultTypeDef]
+    AutoEnableOrganizationMembers: AutoEnableMembersType
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class UpdateOrganizationConfigurationRequestTypeDef(TypedDict):
+    DetectorId: str
+    AutoEnable: NotRequired[bool]
+    DataSources: NotRequired[OrganizationDataSourceConfigurationsTypeDef]
+    Features: NotRequired[Sequence[OrganizationFeatureConfigurationTypeDef]]
+    AutoEnableOrganizationMembers: NotRequired[AutoEnableMembersType]
+
+class GetOrganizationStatisticsResponseTypeDef(TypedDict):
+    OrganizationDetails: OrganizationDetailsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ActionTypeDef(TypedDict):
+    ActionType: NotRequired[str]
+    AwsApiCallAction: NotRequired[AwsApiCallActionTypeDef]
+    DnsRequestAction: NotRequired[DnsRequestActionTypeDef]
+    NetworkConnectionAction: NotRequired[NetworkConnectionActionTypeDef]
+    PortProbeAction: NotRequired[PortProbeActionTypeDef]
+    KubernetesApiCallAction: NotRequired[KubernetesApiCallActionTypeDef]
+    RdsLoginAttemptAction: NotRequired[RdsLoginAttemptActionTypeDef]
+    KubernetesPermissionCheckedDetails: NotRequired[KubernetesPermissionCheckedDetailsTypeDef]
+    KubernetesRoleBindingDetails: NotRequired[KubernetesRoleBindingDetailsTypeDef]
+    KubernetesRoleDetails: NotRequired[KubernetesRoleDetailsTypeDef]
+
+class SequenceTypeDef(TypedDict):
+    Uid: str
+    Description: str
+    Signals: List[SignalTypeDef]
+    Actors: NotRequired[List[ActorTypeDef]]
+    Resources: NotRequired[List[ResourceV2TypeDef]]
+    Endpoints: NotRequired[List[NetworkEndpointTypeDef]]
+    SequenceIndicators: NotRequired[List[IndicatorTypeDef]]
+
+class UpdateMalwareScanSettingsRequestTypeDef(TypedDict):
+    DetectorId: str
+    ScanResourceCriteria: NotRequired[ScanResourceCriteriaUnionTypeDef]
+    EbsSnapshotPreservation: NotRequired[EbsSnapshotPreservationType]
+
+class EbsVolumeScanDetailsTypeDef(TypedDict):
+    ScanId: NotRequired[str]
+    ScanStartedAt: NotRequired[datetime]
+    ScanCompletedAt: NotRequired[datetime]
+    TriggerFindingId: NotRequired[str]
+    Sources: NotRequired[List[str]]
+    ScanDetections: NotRequired[ScanDetectionsTypeDef]
+    ScanType: NotRequired[ScanTypeType]
+
+class GetUsageStatisticsResponseTypeDef(TypedDict):
+    UsageStatistics: UsageStatisticsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ResourceTypeDef(TypedDict):
+    AccessKeyDetails: NotRequired[AccessKeyDetailsTypeDef]
+    S3BucketDetails: NotRequired[List[S3BucketDetailTypeDef]]
+    InstanceDetails: NotRequired[InstanceDetailsTypeDef]
+    EksClusterDetails: NotRequired[EksClusterDetailsTypeDef]
+    KubernetesDetails: NotRequired[KubernetesDetailsTypeDef]
+    ResourceType: NotRequired[str]
+    EbsVolumeDetails: NotRequired[EbsVolumeDetailsTypeDef]
+    EcsClusterDetails: NotRequired[EcsClusterDetailsTypeDef]
+    ContainerDetails: NotRequired[ContainerTypeDef]
+    RdsDbInstanceDetails: NotRequired[RdsDbInstanceDetailsTypeDef]
+    RdsLimitlessDbDetails: NotRequired[RdsLimitlessDbDetailsTypeDef]
+    RdsDbUserDetails: NotRequired[RdsDbUserDetailsTypeDef]
+    LambdaDetails: NotRequired[LambdaDetailsTypeDef]
+
+class GetMemberDetectorsResponseTypeDef(TypedDict):
+    MemberDataSourceConfigurations: List[MemberDataSourceConfigurationTypeDef]
+    UnprocessedAccounts: List[UnprocessedAccountTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+DetectionTypeDef = TypedDict(
+    "DetectionTypeDef",
     {
-        "CriterionKey": CriterionKeyType,
-        "FilterCondition": "FilterConditionTypeDef",
+        "Anomaly": NotRequired[AnomalyTypeDef],
+        "Sequence": NotRequired[SequenceTypeDef],
     },
-    total=False,
 )
-
-FindingCriteriaTypeDef = TypedDict(
-    "FindingCriteriaTypeDef",
+ServiceTypeDef = TypedDict(
+    "ServiceTypeDef",
     {
-        "Criterion": Dict[str, "ConditionTypeDef"],
+        "Action": NotRequired[ActionTypeDef],
+        "Evidence": NotRequired[EvidenceTypeDef],
+        "Archived": NotRequired[bool],
+        "Count": NotRequired[int],
+        "DetectorId": NotRequired[str],
+        "EventFirstSeen": NotRequired[str],
+        "EventLastSeen": NotRequired[str],
+        "ResourceRole": NotRequired[str],
+        "ServiceName": NotRequired[str],
+        "UserFeedback": NotRequired[str],
+        "AdditionalInfo": NotRequired[ServiceAdditionalInfoTypeDef],
+        "FeatureName": NotRequired[str],
+        "EbsVolumeScanDetails": NotRequired[EbsVolumeScanDetailsTypeDef],
+        "RuntimeDetails": NotRequired[RuntimeDetailsTypeDef],
+        "Detection": NotRequired[DetectionTypeDef],
+        "MalwareScanDetails": NotRequired[MalwareScanDetailsTypeDef],
     },
-    total=False,
 )
-
-FindingStatisticsTypeDef = TypedDict(
-    "FindingStatisticsTypeDef",
-    {
-        "CountBySeverity": Dict[str, int],
-    },
-    total=False,
-)
-
-_RequiredFindingTypeDef = TypedDict(
-    "_RequiredFindingTypeDef",
+FindingTypeDef = TypedDict(
+    "FindingTypeDef",
     {
         "AccountId": str,
         "Arn": str,
         "CreatedAt": str,
         "Id": str,
         "Region": str,
-        "Resource": "ResourceTypeDef",
+        "Resource": ResourceTypeDef,
         "SchemaVersion": str,
         "Severity": float,
         "Type": str,
         "UpdatedAt": str,
+        "Confidence": NotRequired[float],
+        "Description": NotRequired[str],
+        "Partition": NotRequired[str],
+        "Service": NotRequired[ServiceTypeDef],
+        "Title": NotRequired[str],
+        "AssociatedAttackSequenceArn": NotRequired[str],
     },
 )
-_OptionalFindingTypeDef = TypedDict(
-    "_OptionalFindingTypeDef",
-    {
-        "Confidence": float,
-        "Description": str,
-        "Partition": str,
-        "Service": "ServiceTypeDef",
-        "Title": str,
-    },
-    total=False,
-)
-
-class FindingTypeDef(_RequiredFindingTypeDef, _OptionalFindingTypeDef):
-    pass
-
-FlowLogsConfigurationResultTypeDef = TypedDict(
-    "FlowLogsConfigurationResultTypeDef",
-    {
-        "Status": DataSourceStatusType,
-    },
-)
-
-FreeTrialFeatureConfigurationResultTypeDef = TypedDict(
-    "FreeTrialFeatureConfigurationResultTypeDef",
-    {
-        "Name": FreeTrialFeatureResultType,
-        "FreeTrialDaysRemaining": int,
-    },
-    total=False,
-)
-
-GeoLocationTypeDef = TypedDict(
-    "GeoLocationTypeDef",
-    {
-        "Lat": float,
-        "Lon": float,
-    },
-    total=False,
-)
-
-GetAdministratorAccountRequestRequestTypeDef = TypedDict(
-    "GetAdministratorAccountRequestRequestTypeDef",
-    {
-        "DetectorId": str,
-    },
-)
-
-GetAdministratorAccountResponseTypeDef = TypedDict(
-    "GetAdministratorAccountResponseTypeDef",
-    {
-        "Administrator": "AdministratorTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetCoverageStatisticsRequestRequestTypeDef = TypedDict(
-    "_RequiredGetCoverageStatisticsRequestRequestTypeDef",
-    {
-        "DetectorId": str,
-        "StatisticsType": List[CoverageStatisticsTypeType],
-    },
-)
-_OptionalGetCoverageStatisticsRequestRequestTypeDef = TypedDict(
-    "_OptionalGetCoverageStatisticsRequestRequestTypeDef",
-    {
-        "FilterCriteria": "CoverageFilterCriteriaTypeDef",
-    },
-    total=False,
-)
-
-class GetCoverageStatisticsRequestRequestTypeDef(
-    _RequiredGetCoverageStatisticsRequestRequestTypeDef,
-    _OptionalGetCoverageStatisticsRequestRequestTypeDef,
-):
-    pass
-
-GetCoverageStatisticsResponseTypeDef = TypedDict(
-    "GetCoverageStatisticsResponseTypeDef",
-    {
-        "CoverageStatistics": "CoverageStatisticsTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetDetectorRequestRequestTypeDef = TypedDict(
-    "GetDetectorRequestRequestTypeDef",
-    {
-        "DetectorId": str,
-    },
-)
-
-GetDetectorResponseTypeDef = TypedDict(
-    "GetDetectorResponseTypeDef",
-    {
-        "CreatedAt": str,
-        "FindingPublishingFrequency": FindingPublishingFrequencyType,
-        "ServiceRole": str,
-        "Status": DetectorStatusType,
-        "UpdatedAt": str,
-        "DataSources": "DataSourceConfigurationsResultTypeDef",
-        "Tags": Dict[str, str],
-        "Features": List["DetectorFeatureConfigurationResultTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetFilterRequestRequestTypeDef = TypedDict(
-    "GetFilterRequestRequestTypeDef",
-    {
-        "DetectorId": str,
-        "FilterName": str,
-    },
-)
-
-GetFilterResponseTypeDef = TypedDict(
-    "GetFilterResponseTypeDef",
-    {
-        "Name": str,
-        "Description": str,
-        "Action": FilterActionType,
-        "Rank": int,
-        "FindingCriteria": "FindingCriteriaTypeDef",
-        "Tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetFindingsRequestRequestTypeDef = TypedDict(
-    "_RequiredGetFindingsRequestRequestTypeDef",
-    {
-        "DetectorId": str,
-        "FindingIds": List[str],
-    },
-)
-_OptionalGetFindingsRequestRequestTypeDef = TypedDict(
-    "_OptionalGetFindingsRequestRequestTypeDef",
-    {
-        "SortCriteria": "SortCriteriaTypeDef",
-    },
-    total=False,
-)
-
-class GetFindingsRequestRequestTypeDef(
-    _RequiredGetFindingsRequestRequestTypeDef, _OptionalGetFindingsRequestRequestTypeDef
-):
-    pass
-
-GetFindingsResponseTypeDef = TypedDict(
-    "GetFindingsResponseTypeDef",
-    {
-        "Findings": List["FindingTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetFindingsStatisticsRequestRequestTypeDef = TypedDict(
-    "_RequiredGetFindingsStatisticsRequestRequestTypeDef",
-    {
-        "DetectorId": str,
-        "FindingStatisticTypes": List[Literal["COUNT_BY_SEVERITY"]],
-    },
-)
-_OptionalGetFindingsStatisticsRequestRequestTypeDef = TypedDict(
-    "_OptionalGetFindingsStatisticsRequestRequestTypeDef",
-    {
-        "FindingCriteria": "FindingCriteriaTypeDef",
-    },
-    total=False,
-)
-
-class GetFindingsStatisticsRequestRequestTypeDef(
-    _RequiredGetFindingsStatisticsRequestRequestTypeDef,
-    _OptionalGetFindingsStatisticsRequestRequestTypeDef,
-):
-    pass
-
-GetFindingsStatisticsResponseTypeDef = TypedDict(
-    "GetFindingsStatisticsResponseTypeDef",
-    {
-        "FindingStatistics": "FindingStatisticsTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetIPSetRequestRequestTypeDef = TypedDict(
-    "GetIPSetRequestRequestTypeDef",
-    {
-        "DetectorId": str,
-        "IpSetId": str,
-    },
-)
-
-GetIPSetResponseTypeDef = TypedDict(
-    "GetIPSetResponseTypeDef",
-    {
-        "Name": str,
-        "Format": IpSetFormatType,
-        "Location": str,
-        "Status": IpSetStatusType,
-        "Tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetInvitationsCountResponseTypeDef = TypedDict(
-    "GetInvitationsCountResponseTypeDef",
-    {
-        "InvitationsCount": int,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetMalwareProtectionPlanRequestRequestTypeDef = TypedDict(
-    "GetMalwareProtectionPlanRequestRequestTypeDef",
-    {
-        "MalwareProtectionPlanId": str,
-    },
-)
-
-GetMalwareProtectionPlanResponseTypeDef = TypedDict(
-    "GetMalwareProtectionPlanResponseTypeDef",
-    {
-        "Arn": str,
-        "Role": str,
-        "ProtectedResource": "CreateProtectedResourceTypeDef",
-        "Actions": "MalwareProtectionPlanActionsTypeDef",
-        "CreatedAt": datetime,
-        "Status": MalwareProtectionPlanStatusType,
-        "StatusReasons": List["MalwareProtectionPlanStatusReasonTypeDef"],
-        "Tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetMalwareScanSettingsRequestRequestTypeDef = TypedDict(
-    "GetMalwareScanSettingsRequestRequestTypeDef",
-    {
-        "DetectorId": str,
-    },
-)
-
-GetMalwareScanSettingsResponseTypeDef = TypedDict(
-    "GetMalwareScanSettingsResponseTypeDef",
-    {
-        "ScanResourceCriteria": "ScanResourceCriteriaTypeDef",
-        "EbsSnapshotPreservation": EbsSnapshotPreservationType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetMasterAccountRequestRequestTypeDef = TypedDict(
-    "GetMasterAccountRequestRequestTypeDef",
-    {
-        "DetectorId": str,
-    },
-)
-
-GetMasterAccountResponseTypeDef = TypedDict(
-    "GetMasterAccountResponseTypeDef",
-    {
-        "Master": "MasterTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetMemberDetectorsRequestRequestTypeDef = TypedDict(
-    "GetMemberDetectorsRequestRequestTypeDef",
-    {
-        "DetectorId": str,
-        "AccountIds": List[str],
-    },
-)
-
-GetMemberDetectorsResponseTypeDef = TypedDict(
-    "GetMemberDetectorsResponseTypeDef",
-    {
-        "MemberDataSourceConfigurations": List["MemberDataSourceConfigurationTypeDef"],
-        "UnprocessedAccounts": List["UnprocessedAccountTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetMembersRequestRequestTypeDef = TypedDict(
-    "GetMembersRequestRequestTypeDef",
-    {
-        "DetectorId": str,
-        "AccountIds": List[str],
-    },
-)
-
-GetMembersResponseTypeDef = TypedDict(
-    "GetMembersResponseTypeDef",
-    {
-        "Members": List["MemberTypeDef"],
-        "UnprocessedAccounts": List["UnprocessedAccountTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetOrganizationStatisticsResponseTypeDef = TypedDict(
-    "GetOrganizationStatisticsResponseTypeDef",
-    {
-        "OrganizationDetails": "OrganizationDetailsTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetRemainingFreeTrialDaysRequestRequestTypeDef = TypedDict(
-    "_RequiredGetRemainingFreeTrialDaysRequestRequestTypeDef",
-    {
-        "DetectorId": str,
-    },
-)
-_OptionalGetRemainingFreeTrialDaysRequestRequestTypeDef = TypedDict(
-    "_OptionalGetRemainingFreeTrialDaysRequestRequestTypeDef",
-    {
-        "AccountIds": List[str],
-    },
-    total=False,
-)
-
-class GetRemainingFreeTrialDaysRequestRequestTypeDef(
-    _RequiredGetRemainingFreeTrialDaysRequestRequestTypeDef,
-    _OptionalGetRemainingFreeTrialDaysRequestRequestTypeDef,
-):
-    pass
-
-GetRemainingFreeTrialDaysResponseTypeDef = TypedDict(
-    "GetRemainingFreeTrialDaysResponseTypeDef",
-    {
-        "Accounts": List["AccountFreeTrialInfoTypeDef"],
-        "UnprocessedAccounts": List["UnprocessedAccountTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetThreatIntelSetRequestRequestTypeDef = TypedDict(
-    "GetThreatIntelSetRequestRequestTypeDef",
-    {
-        "DetectorId": str,
-        "ThreatIntelSetId": str,
-    },
-)
-
-GetThreatIntelSetResponseTypeDef = TypedDict(
-    "GetThreatIntelSetResponseTypeDef",
-    {
-        "Name": str,
-        "Format": ThreatIntelSetFormatType,
-        "Location": str,
-        "Status": ThreatIntelSetStatusType,
-        "Tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetUsageStatisticsRequestRequestTypeDef = TypedDict(
-    "_RequiredGetUsageStatisticsRequestRequestTypeDef",
-    {
-        "DetectorId": str,
-        "UsageStatisticType": UsageStatisticTypeType,
-        "UsageCriteria": "UsageCriteriaTypeDef",
-    },
-)
-_OptionalGetUsageStatisticsRequestRequestTypeDef = TypedDict(
-    "_OptionalGetUsageStatisticsRequestRequestTypeDef",
-    {
-        "Unit": str,
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class GetUsageStatisticsRequestRequestTypeDef(
-    _RequiredGetUsageStatisticsRequestRequestTypeDef,
-    _OptionalGetUsageStatisticsRequestRequestTypeDef,
-):
-    pass
-
-GetUsageStatisticsResponseTypeDef = TypedDict(
-    "GetUsageStatisticsResponseTypeDef",
-    {
-        "UsageStatistics": "UsageStatisticsTypeDef",
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-HighestSeverityThreatDetailsTypeDef = TypedDict(
-    "HighestSeverityThreatDetailsTypeDef",
-    {
-        "Severity": str,
-        "ThreatName": str,
-        "Count": int,
-    },
-    total=False,
-)
-
-HostPathTypeDef = TypedDict(
-    "HostPathTypeDef",
-    {
-        "Path": str,
-    },
-    total=False,
-)
-
-IamInstanceProfileTypeDef = TypedDict(
-    "IamInstanceProfileTypeDef",
-    {
-        "Arn": str,
-        "Id": str,
-    },
-    total=False,
-)
-
-ImpersonatedUserTypeDef = TypedDict(
-    "ImpersonatedUserTypeDef",
-    {
-        "Username": str,
-        "Groups": List[str],
-    },
-    total=False,
-)
-
-InstanceDetailsTypeDef = TypedDict(
-    "InstanceDetailsTypeDef",
-    {
-        "AvailabilityZone": str,
-        "IamInstanceProfile": "IamInstanceProfileTypeDef",
-        "ImageDescription": str,
-        "ImageId": str,
-        "InstanceId": str,
-        "InstanceState": str,
-        "InstanceType": str,
-        "OutpostArn": str,
-        "LaunchTime": str,
-        "NetworkInterfaces": List["NetworkInterfaceTypeDef"],
-        "Platform": str,
-        "ProductCodes": List["ProductCodeTypeDef"],
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-InvitationTypeDef = TypedDict(
-    "InvitationTypeDef",
-    {
-        "AccountId": str,
-        "InvitationId": str,
-        "RelationshipStatus": str,
-        "InvitedAt": str,
-    },
-    total=False,
-)
-
-_RequiredInviteMembersRequestRequestTypeDef = TypedDict(
-    "_RequiredInviteMembersRequestRequestTypeDef",
-    {
-        "DetectorId": str,
-        "AccountIds": List[str],
-    },
-)
-_OptionalInviteMembersRequestRequestTypeDef = TypedDict(
-    "_OptionalInviteMembersRequestRequestTypeDef",
-    {
-        "DisableEmailNotification": bool,
-        "Message": str,
-    },
-    total=False,
-)
-
-class InviteMembersRequestRequestTypeDef(
-    _RequiredInviteMembersRequestRequestTypeDef, _OptionalInviteMembersRequestRequestTypeDef
-):
-    pass
-
-InviteMembersResponseTypeDef = TypedDict(
-    "InviteMembersResponseTypeDef",
-    {
-        "UnprocessedAccounts": List["UnprocessedAccountTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ItemPathTypeDef = TypedDict(
-    "ItemPathTypeDef",
-    {
-        "NestedItemPath": str,
-        "Hash": str,
-    },
-    total=False,
-)
-
-KubernetesApiCallActionTypeDef = TypedDict(
-    "KubernetesApiCallActionTypeDef",
-    {
-        "RequestUri": str,
-        "Verb": str,
-        "SourceIps": List[str],
-        "UserAgent": str,
-        "RemoteIpDetails": "RemoteIpDetailsTypeDef",
-        "StatusCode": int,
-        "Parameters": str,
-        "Resource": str,
-        "Subresource": str,
-        "Namespace": str,
-        "ResourceName": str,
-    },
-    total=False,
-)
-
-KubernetesAuditLogsConfigurationResultTypeDef = TypedDict(
-    "KubernetesAuditLogsConfigurationResultTypeDef",
-    {
-        "Status": DataSourceStatusType,
-    },
-)
-
-KubernetesAuditLogsConfigurationTypeDef = TypedDict(
-    "KubernetesAuditLogsConfigurationTypeDef",
-    {
-        "Enable": bool,
-    },
-)
-
-KubernetesConfigurationResultTypeDef = TypedDict(
-    "KubernetesConfigurationResultTypeDef",
-    {
-        "AuditLogs": "KubernetesAuditLogsConfigurationResultTypeDef",
-    },
-)
-
-KubernetesConfigurationTypeDef = TypedDict(
-    "KubernetesConfigurationTypeDef",
-    {
-        "AuditLogs": "KubernetesAuditLogsConfigurationTypeDef",
-    },
-)
-
-KubernetesDataSourceFreeTrialTypeDef = TypedDict(
-    "KubernetesDataSourceFreeTrialTypeDef",
-    {
-        "AuditLogs": "DataSourceFreeTrialTypeDef",
-    },
-    total=False,
-)
-
-KubernetesDetailsTypeDef = TypedDict(
-    "KubernetesDetailsTypeDef",
-    {
-        "KubernetesUserDetails": "KubernetesUserDetailsTypeDef",
-        "KubernetesWorkloadDetails": "KubernetesWorkloadDetailsTypeDef",
-    },
-    total=False,
-)
-
-KubernetesPermissionCheckedDetailsTypeDef = TypedDict(
-    "KubernetesPermissionCheckedDetailsTypeDef",
-    {
-        "Verb": str,
-        "Resource": str,
-        "Namespace": str,
-        "Allowed": bool,
-    },
-    total=False,
-)
-
-KubernetesRoleBindingDetailsTypeDef = TypedDict(
-    "KubernetesRoleBindingDetailsTypeDef",
-    {
-        "Kind": str,
-        "Name": str,
-        "Uid": str,
-        "RoleRefName": str,
-        "RoleRefKind": str,
-    },
-    total=False,
-)
-
-KubernetesRoleDetailsTypeDef = TypedDict(
-    "KubernetesRoleDetailsTypeDef",
-    {
-        "Kind": str,
-        "Name": str,
-        "Uid": str,
-    },
-    total=False,
-)
-
-KubernetesUserDetailsTypeDef = TypedDict(
-    "KubernetesUserDetailsTypeDef",
-    {
-        "Username": str,
-        "Uid": str,
-        "Groups": List[str],
-        "SessionName": List[str],
-        "ImpersonatedUser": "ImpersonatedUserTypeDef",
-    },
-    total=False,
-)
-
-KubernetesWorkloadDetailsTypeDef = TypedDict(
-    "KubernetesWorkloadDetailsTypeDef",
-    {
-        "Name": str,
-        "Type": str,
-        "Uid": str,
-        "Namespace": str,
-        "HostNetwork": bool,
-        "Containers": List["ContainerTypeDef"],
-        "Volumes": List["VolumeTypeDef"],
-        "ServiceAccountName": str,
-        "HostIPC": bool,
-        "HostPID": bool,
-    },
-    total=False,
-)
-
-LambdaDetailsTypeDef = TypedDict(
-    "LambdaDetailsTypeDef",
-    {
-        "FunctionArn": str,
-        "FunctionName": str,
-        "Description": str,
-        "LastModifiedAt": datetime,
-        "RevisionId": str,
-        "FunctionVersion": str,
-        "Role": str,
-        "VpcConfig": "VpcConfigTypeDef",
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-LineageObjectTypeDef = TypedDict(
-    "LineageObjectTypeDef",
-    {
-        "StartTime": datetime,
-        "NamespacePid": int,
-        "UserId": int,
-        "Name": str,
-        "Pid": int,
-        "Uuid": str,
-        "ExecutablePath": str,
-        "Euid": int,
-        "ParentUuid": str,
-    },
-    total=False,
-)
-
-_RequiredListCoverageRequestRequestTypeDef = TypedDict(
-    "_RequiredListCoverageRequestRequestTypeDef",
-    {
-        "DetectorId": str,
-    },
-)
-_OptionalListCoverageRequestRequestTypeDef = TypedDict(
-    "_OptionalListCoverageRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-        "FilterCriteria": "CoverageFilterCriteriaTypeDef",
-        "SortCriteria": "CoverageSortCriteriaTypeDef",
-    },
-    total=False,
-)
-
-class ListCoverageRequestRequestTypeDef(
-    _RequiredListCoverageRequestRequestTypeDef, _OptionalListCoverageRequestRequestTypeDef
-):
-    pass
-
-ListCoverageResponseTypeDef = TypedDict(
-    "ListCoverageResponseTypeDef",
-    {
-        "Resources": List["CoverageResourceTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListDetectorsRequestRequestTypeDef = TypedDict(
-    "ListDetectorsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListDetectorsResponseTypeDef = TypedDict(
-    "ListDetectorsResponseTypeDef",
-    {
-        "DetectorIds": List[str],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListFiltersRequestRequestTypeDef = TypedDict(
-    "_RequiredListFiltersRequestRequestTypeDef",
-    {
-        "DetectorId": str,
-    },
-)
-_OptionalListFiltersRequestRequestTypeDef = TypedDict(
-    "_OptionalListFiltersRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListFiltersRequestRequestTypeDef(
-    _RequiredListFiltersRequestRequestTypeDef, _OptionalListFiltersRequestRequestTypeDef
-):
-    pass
-
-ListFiltersResponseTypeDef = TypedDict(
-    "ListFiltersResponseTypeDef",
-    {
-        "FilterNames": List[str],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListFindingsRequestRequestTypeDef = TypedDict(
-    "_RequiredListFindingsRequestRequestTypeDef",
-    {
-        "DetectorId": str,
-    },
-)
-_OptionalListFindingsRequestRequestTypeDef = TypedDict(
-    "_OptionalListFindingsRequestRequestTypeDef",
-    {
-        "FindingCriteria": "FindingCriteriaTypeDef",
-        "SortCriteria": "SortCriteriaTypeDef",
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListFindingsRequestRequestTypeDef(
-    _RequiredListFindingsRequestRequestTypeDef, _OptionalListFindingsRequestRequestTypeDef
-):
-    pass
-
-ListFindingsResponseTypeDef = TypedDict(
-    "ListFindingsResponseTypeDef",
-    {
-        "FindingIds": List[str],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListIPSetsRequestRequestTypeDef = TypedDict(
-    "_RequiredListIPSetsRequestRequestTypeDef",
-    {
-        "DetectorId": str,
-    },
-)
-_OptionalListIPSetsRequestRequestTypeDef = TypedDict(
-    "_OptionalListIPSetsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListIPSetsRequestRequestTypeDef(
-    _RequiredListIPSetsRequestRequestTypeDef, _OptionalListIPSetsRequestRequestTypeDef
-):
-    pass
-
-ListIPSetsResponseTypeDef = TypedDict(
-    "ListIPSetsResponseTypeDef",
-    {
-        "IpSetIds": List[str],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListInvitationsRequestRequestTypeDef = TypedDict(
-    "ListInvitationsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListInvitationsResponseTypeDef = TypedDict(
-    "ListInvitationsResponseTypeDef",
-    {
-        "Invitations": List["InvitationTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListMalwareProtectionPlansRequestRequestTypeDef = TypedDict(
-    "ListMalwareProtectionPlansRequestRequestTypeDef",
-    {
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListMalwareProtectionPlansResponseTypeDef = TypedDict(
-    "ListMalwareProtectionPlansResponseTypeDef",
-    {
-        "MalwareProtectionPlans": List["MalwareProtectionPlanSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListMembersRequestRequestTypeDef = TypedDict(
-    "_RequiredListMembersRequestRequestTypeDef",
-    {
-        "DetectorId": str,
-    },
-)
-_OptionalListMembersRequestRequestTypeDef = TypedDict(
-    "_OptionalListMembersRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-        "OnlyAssociated": str,
-    },
-    total=False,
-)
-
-class ListMembersRequestRequestTypeDef(
-    _RequiredListMembersRequestRequestTypeDef, _OptionalListMembersRequestRequestTypeDef
-):
-    pass
-
-ListMembersResponseTypeDef = TypedDict(
-    "ListMembersResponseTypeDef",
-    {
-        "Members": List["MemberTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListOrganizationAdminAccountsRequestRequestTypeDef = TypedDict(
-    "ListOrganizationAdminAccountsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListOrganizationAdminAccountsResponseTypeDef = TypedDict(
-    "ListOrganizationAdminAccountsResponseTypeDef",
-    {
-        "AdminAccounts": List["AdminAccountTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListPublishingDestinationsRequestRequestTypeDef = TypedDict(
-    "_RequiredListPublishingDestinationsRequestRequestTypeDef",
-    {
-        "DetectorId": str,
-    },
-)
-_OptionalListPublishingDestinationsRequestRequestTypeDef = TypedDict(
-    "_OptionalListPublishingDestinationsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListPublishingDestinationsRequestRequestTypeDef(
-    _RequiredListPublishingDestinationsRequestRequestTypeDef,
-    _OptionalListPublishingDestinationsRequestRequestTypeDef,
-):
-    pass
-
-ListPublishingDestinationsResponseTypeDef = TypedDict(
-    "ListPublishingDestinationsResponseTypeDef",
-    {
-        "Destinations": List["DestinationTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-    },
-)
-
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "Tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListThreatIntelSetsRequestRequestTypeDef = TypedDict(
-    "_RequiredListThreatIntelSetsRequestRequestTypeDef",
-    {
-        "DetectorId": str,
-    },
-)
-_OptionalListThreatIntelSetsRequestRequestTypeDef = TypedDict(
-    "_OptionalListThreatIntelSetsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListThreatIntelSetsRequestRequestTypeDef(
-    _RequiredListThreatIntelSetsRequestRequestTypeDef,
-    _OptionalListThreatIntelSetsRequestRequestTypeDef,
-):
-    pass
-
-ListThreatIntelSetsResponseTypeDef = TypedDict(
-    "ListThreatIntelSetsResponseTypeDef",
-    {
-        "ThreatIntelSetIds": List[str],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-LocalIpDetailsTypeDef = TypedDict(
-    "LocalIpDetailsTypeDef",
-    {
-        "IpAddressV4": str,
-        "IpAddressV6": str,
-    },
-    total=False,
-)
-
-LocalPortDetailsTypeDef = TypedDict(
-    "LocalPortDetailsTypeDef",
-    {
-        "Port": int,
-        "PortName": str,
-    },
-    total=False,
-)
-
-LoginAttributeTypeDef = TypedDict(
-    "LoginAttributeTypeDef",
-    {
-        "User": str,
-        "Application": str,
-        "FailedLoginAttempts": int,
-        "SuccessfulLoginAttempts": int,
-    },
-    total=False,
-)
-
-MalwareProtectionConfigurationResultTypeDef = TypedDict(
-    "MalwareProtectionConfigurationResultTypeDef",
-    {
-        "ScanEc2InstanceWithFindings": "ScanEc2InstanceWithFindingsResultTypeDef",
-        "ServiceRole": str,
-    },
-    total=False,
-)
-
-MalwareProtectionConfigurationTypeDef = TypedDict(
-    "MalwareProtectionConfigurationTypeDef",
-    {
-        "ScanEc2InstanceWithFindings": "ScanEc2InstanceWithFindingsTypeDef",
-    },
-    total=False,
-)
-
-MalwareProtectionDataSourceFreeTrialTypeDef = TypedDict(
-    "MalwareProtectionDataSourceFreeTrialTypeDef",
-    {
-        "ScanEc2InstanceWithFindings": "DataSourceFreeTrialTypeDef",
-    },
-    total=False,
-)
-
-MalwareProtectionPlanActionsTypeDef = TypedDict(
-    "MalwareProtectionPlanActionsTypeDef",
-    {
-        "Tagging": "MalwareProtectionPlanTaggingActionTypeDef",
-    },
-    total=False,
-)
-
-MalwareProtectionPlanStatusReasonTypeDef = TypedDict(
-    "MalwareProtectionPlanStatusReasonTypeDef",
-    {
-        "Code": str,
-        "Message": str,
-    },
-    total=False,
-)
-
-MalwareProtectionPlanSummaryTypeDef = TypedDict(
-    "MalwareProtectionPlanSummaryTypeDef",
-    {
-        "MalwareProtectionPlanId": str,
-    },
-    total=False,
-)
-
-MalwareProtectionPlanTaggingActionTypeDef = TypedDict(
-    "MalwareProtectionPlanTaggingActionTypeDef",
-    {
-        "Status": MalwareProtectionPlanTaggingActionStatusType,
-    },
-    total=False,
-)
-
-MalwareScanDetailsTypeDef = TypedDict(
-    "MalwareScanDetailsTypeDef",
-    {
-        "Threats": List["ThreatTypeDef"],
-    },
-    total=False,
-)
-
-MasterTypeDef = TypedDict(
-    "MasterTypeDef",
-    {
-        "AccountId": str,
-        "InvitationId": str,
-        "RelationshipStatus": str,
-        "InvitedAt": str,
-    },
-    total=False,
-)
-
-MemberAdditionalConfigurationResultTypeDef = TypedDict(
-    "MemberAdditionalConfigurationResultTypeDef",
-    {
-        "Name": OrgFeatureAdditionalConfigurationType,
-        "Status": FeatureStatusType,
-        "UpdatedAt": datetime,
-    },
-    total=False,
-)
-
-MemberAdditionalConfigurationTypeDef = TypedDict(
-    "MemberAdditionalConfigurationTypeDef",
-    {
-        "Name": OrgFeatureAdditionalConfigurationType,
-        "Status": FeatureStatusType,
-    },
-    total=False,
-)
-
-_RequiredMemberDataSourceConfigurationTypeDef = TypedDict(
-    "_RequiredMemberDataSourceConfigurationTypeDef",
-    {
-        "AccountId": str,
-    },
-)
-_OptionalMemberDataSourceConfigurationTypeDef = TypedDict(
-    "_OptionalMemberDataSourceConfigurationTypeDef",
-    {
-        "DataSources": "DataSourceConfigurationsResultTypeDef",
-        "Features": List["MemberFeaturesConfigurationResultTypeDef"],
-    },
-    total=False,
-)
-
-class MemberDataSourceConfigurationTypeDef(
-    _RequiredMemberDataSourceConfigurationTypeDef, _OptionalMemberDataSourceConfigurationTypeDef
-):
-    pass
-
-MemberFeaturesConfigurationResultTypeDef = TypedDict(
-    "MemberFeaturesConfigurationResultTypeDef",
-    {
-        "Name": OrgFeatureType,
-        "Status": FeatureStatusType,
-        "UpdatedAt": datetime,
-        "AdditionalConfiguration": List["MemberAdditionalConfigurationResultTypeDef"],
-    },
-    total=False,
-)
-
-MemberFeaturesConfigurationTypeDef = TypedDict(
-    "MemberFeaturesConfigurationTypeDef",
-    {
-        "Name": OrgFeatureType,
-        "Status": FeatureStatusType,
-        "AdditionalConfiguration": List["MemberAdditionalConfigurationTypeDef"],
-    },
-    total=False,
-)
-
-_RequiredMemberTypeDef = TypedDict(
-    "_RequiredMemberTypeDef",
-    {
-        "AccountId": str,
-        "MasterId": str,
-        "Email": str,
-        "RelationshipStatus": str,
-        "UpdatedAt": str,
-    },
-)
-_OptionalMemberTypeDef = TypedDict(
-    "_OptionalMemberTypeDef",
-    {
-        "DetectorId": str,
-        "InvitedAt": str,
-        "AdministratorId": str,
-    },
-    total=False,
-)
-
-class MemberTypeDef(_RequiredMemberTypeDef, _OptionalMemberTypeDef):
-    pass
-
-NetworkConnectionActionTypeDef = TypedDict(
-    "NetworkConnectionActionTypeDef",
-    {
-        "Blocked": bool,
-        "ConnectionDirection": str,
-        "LocalPortDetails": "LocalPortDetailsTypeDef",
-        "Protocol": str,
-        "LocalIpDetails": "LocalIpDetailsTypeDef",
-        "RemoteIpDetails": "RemoteIpDetailsTypeDef",
-        "RemotePortDetails": "RemotePortDetailsTypeDef",
-    },
-    total=False,
-)
-
-NetworkInterfaceTypeDef = TypedDict(
-    "NetworkInterfaceTypeDef",
-    {
-        "Ipv6Addresses": List[str],
-        "NetworkInterfaceId": str,
-        "PrivateDnsName": str,
-        "PrivateIpAddress": str,
-        "PrivateIpAddresses": List["PrivateIpAddressDetailsTypeDef"],
-        "PublicDnsName": str,
-        "PublicIp": str,
-        "SecurityGroups": List["SecurityGroupTypeDef"],
-        "SubnetId": str,
-        "VpcId": str,
-    },
-    total=False,
-)
-
-ObservationsTypeDef = TypedDict(
-    "ObservationsTypeDef",
-    {
-        "Text": List[str],
-    },
-    total=False,
-)
-
-OrganizationAdditionalConfigurationResultTypeDef = TypedDict(
-    "OrganizationAdditionalConfigurationResultTypeDef",
-    {
-        "Name": OrgFeatureAdditionalConfigurationType,
-        "AutoEnable": OrgFeatureStatusType,
-    },
-    total=False,
-)
-
-OrganizationAdditionalConfigurationTypeDef = TypedDict(
-    "OrganizationAdditionalConfigurationTypeDef",
-    {
-        "Name": OrgFeatureAdditionalConfigurationType,
-        "AutoEnable": OrgFeatureStatusType,
-    },
-    total=False,
-)
-
-_RequiredOrganizationDataSourceConfigurationsResultTypeDef = TypedDict(
-    "_RequiredOrganizationDataSourceConfigurationsResultTypeDef",
-    {
-        "S3Logs": "OrganizationS3LogsConfigurationResultTypeDef",
-    },
-)
-_OptionalOrganizationDataSourceConfigurationsResultTypeDef = TypedDict(
-    "_OptionalOrganizationDataSourceConfigurationsResultTypeDef",
-    {
-        "Kubernetes": "OrganizationKubernetesConfigurationResultTypeDef",
-        "MalwareProtection": "OrganizationMalwareProtectionConfigurationResultTypeDef",
-    },
-    total=False,
-)
-
-class OrganizationDataSourceConfigurationsResultTypeDef(
-    _RequiredOrganizationDataSourceConfigurationsResultTypeDef,
-    _OptionalOrganizationDataSourceConfigurationsResultTypeDef,
-):
-    pass
-
-OrganizationDataSourceConfigurationsTypeDef = TypedDict(
-    "OrganizationDataSourceConfigurationsTypeDef",
-    {
-        "S3Logs": "OrganizationS3LogsConfigurationTypeDef",
-        "Kubernetes": "OrganizationKubernetesConfigurationTypeDef",
-        "MalwareProtection": "OrganizationMalwareProtectionConfigurationTypeDef",
-    },
-    total=False,
-)
-
-OrganizationDetailsTypeDef = TypedDict(
-    "OrganizationDetailsTypeDef",
-    {
-        "UpdatedAt": datetime,
-        "OrganizationStatistics": "OrganizationStatisticsTypeDef",
-    },
-    total=False,
-)
-
-OrganizationEbsVolumesResultTypeDef = TypedDict(
-    "OrganizationEbsVolumesResultTypeDef",
-    {
-        "AutoEnable": bool,
-    },
-    total=False,
-)
-
-OrganizationEbsVolumesTypeDef = TypedDict(
-    "OrganizationEbsVolumesTypeDef",
-    {
-        "AutoEnable": bool,
-    },
-    total=False,
-)
-
-OrganizationFeatureConfigurationResultTypeDef = TypedDict(
-    "OrganizationFeatureConfigurationResultTypeDef",
-    {
-        "Name": OrgFeatureType,
-        "AutoEnable": OrgFeatureStatusType,
-        "AdditionalConfiguration": List["OrganizationAdditionalConfigurationResultTypeDef"],
-    },
-    total=False,
-)
-
-OrganizationFeatureConfigurationTypeDef = TypedDict(
-    "OrganizationFeatureConfigurationTypeDef",
-    {
-        "Name": OrgFeatureType,
-        "AutoEnable": OrgFeatureStatusType,
-        "AdditionalConfiguration": List["OrganizationAdditionalConfigurationTypeDef"],
-    },
-    total=False,
-)
-
-OrganizationFeatureStatisticsAdditionalConfigurationTypeDef = TypedDict(
-    "OrganizationFeatureStatisticsAdditionalConfigurationTypeDef",
-    {
-        "Name": OrgFeatureAdditionalConfigurationType,
-        "EnabledAccountsCount": int,
-    },
-    total=False,
-)
-
-OrganizationFeatureStatisticsTypeDef = TypedDict(
-    "OrganizationFeatureStatisticsTypeDef",
-    {
-        "Name": OrgFeatureType,
-        "EnabledAccountsCount": int,
-        "AdditionalConfiguration": List[
-            "OrganizationFeatureStatisticsAdditionalConfigurationTypeDef"
-        ],
-    },
-    total=False,
-)
-
-OrganizationKubernetesAuditLogsConfigurationResultTypeDef = TypedDict(
-    "OrganizationKubernetesAuditLogsConfigurationResultTypeDef",
-    {
-        "AutoEnable": bool,
-    },
-)
-
-OrganizationKubernetesAuditLogsConfigurationTypeDef = TypedDict(
-    "OrganizationKubernetesAuditLogsConfigurationTypeDef",
-    {
-        "AutoEnable": bool,
-    },
-)
-
-OrganizationKubernetesConfigurationResultTypeDef = TypedDict(
-    "OrganizationKubernetesConfigurationResultTypeDef",
-    {
-        "AuditLogs": "OrganizationKubernetesAuditLogsConfigurationResultTypeDef",
-    },
-)
-
-OrganizationKubernetesConfigurationTypeDef = TypedDict(
-    "OrganizationKubernetesConfigurationTypeDef",
-    {
-        "AuditLogs": "OrganizationKubernetesAuditLogsConfigurationTypeDef",
-    },
-)
-
-OrganizationMalwareProtectionConfigurationResultTypeDef = TypedDict(
-    "OrganizationMalwareProtectionConfigurationResultTypeDef",
-    {
-        "ScanEc2InstanceWithFindings": "OrganizationScanEc2InstanceWithFindingsResultTypeDef",
-    },
-    total=False,
-)
-
-OrganizationMalwareProtectionConfigurationTypeDef = TypedDict(
-    "OrganizationMalwareProtectionConfigurationTypeDef",
-    {
-        "ScanEc2InstanceWithFindings": "OrganizationScanEc2InstanceWithFindingsTypeDef",
-    },
-    total=False,
-)
-
-OrganizationS3LogsConfigurationResultTypeDef = TypedDict(
-    "OrganizationS3LogsConfigurationResultTypeDef",
-    {
-        "AutoEnable": bool,
-    },
-)
-
-OrganizationS3LogsConfigurationTypeDef = TypedDict(
-    "OrganizationS3LogsConfigurationTypeDef",
-    {
-        "AutoEnable": bool,
-    },
-)
-
-OrganizationScanEc2InstanceWithFindingsResultTypeDef = TypedDict(
-    "OrganizationScanEc2InstanceWithFindingsResultTypeDef",
-    {
-        "EbsVolumes": "OrganizationEbsVolumesResultTypeDef",
-    },
-    total=False,
-)
-
-OrganizationScanEc2InstanceWithFindingsTypeDef = TypedDict(
-    "OrganizationScanEc2InstanceWithFindingsTypeDef",
-    {
-        "EbsVolumes": "OrganizationEbsVolumesTypeDef",
-    },
-    total=False,
-)
-
-OrganizationStatisticsTypeDef = TypedDict(
-    "OrganizationStatisticsTypeDef",
-    {
-        "TotalAccountsCount": int,
-        "MemberAccountsCount": int,
-        "ActiveAccountsCount": int,
-        "EnabledAccountsCount": int,
-        "CountByFeature": List["OrganizationFeatureStatisticsTypeDef"],
-    },
-    total=False,
-)
-
-OrganizationTypeDef = TypedDict(
-    "OrganizationTypeDef",
-    {
-        "Asn": str,
-        "AsnOrg": str,
-        "Isp": str,
-        "Org": str,
-    },
-    total=False,
-)
-
-OwnerTypeDef = TypedDict(
-    "OwnerTypeDef",
-    {
-        "Id": str,
-    },
-    total=False,
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-PermissionConfigurationTypeDef = TypedDict(
-    "PermissionConfigurationTypeDef",
-    {
-        "BucketLevelPermissions": "BucketLevelPermissionsTypeDef",
-        "AccountLevelPermissions": "AccountLevelPermissionsTypeDef",
-    },
-    total=False,
-)
-
-PortProbeActionTypeDef = TypedDict(
-    "PortProbeActionTypeDef",
-    {
-        "Blocked": bool,
-        "PortProbeDetails": List["PortProbeDetailTypeDef"],
-    },
-    total=False,
-)
-
-PortProbeDetailTypeDef = TypedDict(
-    "PortProbeDetailTypeDef",
-    {
-        "LocalPortDetails": "LocalPortDetailsTypeDef",
-        "LocalIpDetails": "LocalIpDetailsTypeDef",
-        "RemoteIpDetails": "RemoteIpDetailsTypeDef",
-    },
-    total=False,
-)
-
-PrivateIpAddressDetailsTypeDef = TypedDict(
-    "PrivateIpAddressDetailsTypeDef",
-    {
-        "PrivateDnsName": str,
-        "PrivateIpAddress": str,
-    },
-    total=False,
-)
-
-ProcessDetailsTypeDef = TypedDict(
-    "ProcessDetailsTypeDef",
-    {
-        "Name": str,
-        "ExecutablePath": str,
-        "ExecutableSha256": str,
-        "NamespacePid": int,
-        "Pwd": str,
-        "Pid": int,
-        "StartTime": datetime,
-        "Uuid": str,
-        "ParentUuid": str,
-        "User": str,
-        "UserId": int,
-        "Euid": int,
-        "Lineage": List["LineageObjectTypeDef"],
-    },
-    total=False,
-)
-
-ProductCodeTypeDef = TypedDict(
-    "ProductCodeTypeDef",
-    {
-        "Code": str,
-        "ProductType": str,
-    },
-    total=False,
-)
-
-PublicAccessTypeDef = TypedDict(
-    "PublicAccessTypeDef",
-    {
-        "PermissionConfiguration": "PermissionConfigurationTypeDef",
-        "EffectivePermission": str,
-    },
-    total=False,
-)
 
-RdsDbInstanceDetailsTypeDef = TypedDict(
-    "RdsDbInstanceDetailsTypeDef",
-    {
-        "DbInstanceIdentifier": str,
-        "Engine": str,
-        "EngineVersion": str,
-        "DbClusterIdentifier": str,
-        "DbInstanceArn": str,
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-RdsDbUserDetailsTypeDef = TypedDict(
-    "RdsDbUserDetailsTypeDef",
-    {
-        "User": str,
-        "Application": str,
-        "Database": str,
-        "Ssl": str,
-        "AuthMethod": str,
-    },
-    total=False,
-)
-
-RdsLoginAttemptActionTypeDef = TypedDict(
-    "RdsLoginAttemptActionTypeDef",
-    {
-        "RemoteIpDetails": "RemoteIpDetailsTypeDef",
-        "LoginAttributes": List["LoginAttributeTypeDef"],
-    },
-    total=False,
-)
-
-RemoteAccountDetailsTypeDef = TypedDict(
-    "RemoteAccountDetailsTypeDef",
-    {
-        "AccountId": str,
-        "Affiliated": bool,
-    },
-    total=False,
-)
-
-RemoteIpDetailsTypeDef = TypedDict(
-    "RemoteIpDetailsTypeDef",
-    {
-        "City": "CityTypeDef",
-        "Country": "CountryTypeDef",
-        "GeoLocation": "GeoLocationTypeDef",
-        "IpAddressV4": str,
-        "IpAddressV6": str,
-        "Organization": "OrganizationTypeDef",
-    },
-    total=False,
-)
-
-RemotePortDetailsTypeDef = TypedDict(
-    "RemotePortDetailsTypeDef",
-    {
-        "Port": int,
-        "PortName": str,
-    },
-    total=False,
-)
-
-ResourceDetailsTypeDef = TypedDict(
-    "ResourceDetailsTypeDef",
-    {
-        "InstanceArn": str,
-    },
-    total=False,
-)
-
-ResourceTypeDef = TypedDict(
-    "ResourceTypeDef",
-    {
-        "AccessKeyDetails": "AccessKeyDetailsTypeDef",
-        "S3BucketDetails": List["S3BucketDetailTypeDef"],
-        "InstanceDetails": "InstanceDetailsTypeDef",
-        "EksClusterDetails": "EksClusterDetailsTypeDef",
-        "KubernetesDetails": "KubernetesDetailsTypeDef",
-        "ResourceType": str,
-        "EbsVolumeDetails": "EbsVolumeDetailsTypeDef",
-        "EcsClusterDetails": "EcsClusterDetailsTypeDef",
-        "ContainerDetails": "ContainerTypeDef",
-        "RdsDbInstanceDetails": "RdsDbInstanceDetailsTypeDef",
-        "RdsDbUserDetails": "RdsDbUserDetailsTypeDef",
-        "LambdaDetails": "LambdaDetailsTypeDef",
-    },
-    total=False,
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-RuntimeContextTypeDef = TypedDict(
-    "RuntimeContextTypeDef",
-    {
-        "ModifyingProcess": "ProcessDetailsTypeDef",
-        "ModifiedAt": datetime,
-        "ScriptPath": str,
-        "LibraryPath": str,
-        "LdPreloadValue": str,
-        "SocketPath": str,
-        "RuncBinaryPath": str,
-        "ReleaseAgentPath": str,
-        "MountSource": str,
-        "MountTarget": str,
-        "FileSystemType": str,
-        "Flags": List[str],
-        "ModuleName": str,
-        "ModuleFilePath": str,
-        "ModuleSha256": str,
-        "ShellHistoryFilePath": str,
-        "TargetProcess": "ProcessDetailsTypeDef",
-        "AddressFamily": str,
-        "IanaProtocolNumber": int,
-        "MemoryRegions": List[str],
-        "ToolName": str,
-        "ToolCategory": str,
-        "ServiceName": str,
-        "CommandLineExample": str,
-        "ThreatFilePath": str,
-    },
-    total=False,
-)
-
-RuntimeDetailsTypeDef = TypedDict(
-    "RuntimeDetailsTypeDef",
-    {
-        "Process": "ProcessDetailsTypeDef",
-        "Context": "RuntimeContextTypeDef",
-    },
-    total=False,
-)
-
-S3BucketDetailTypeDef = TypedDict(
-    "S3BucketDetailTypeDef",
-    {
-        "Arn": str,
-        "Name": str,
-        "Type": str,
-        "CreatedAt": datetime,
-        "Owner": "OwnerTypeDef",
-        "Tags": List["TagTypeDef"],
-        "DefaultServerSideEncryption": "DefaultServerSideEncryptionTypeDef",
-        "PublicAccess": "PublicAccessTypeDef",
-        "S3ObjectDetails": List["S3ObjectDetailTypeDef"],
-    },
-    total=False,
-)
-
-S3LogsConfigurationResultTypeDef = TypedDict(
-    "S3LogsConfigurationResultTypeDef",
-    {
-        "Status": DataSourceStatusType,
-    },
-)
-
-S3LogsConfigurationTypeDef = TypedDict(
-    "S3LogsConfigurationTypeDef",
-    {
-        "Enable": bool,
-    },
-)
-
-S3ObjectDetailTypeDef = TypedDict(
-    "S3ObjectDetailTypeDef",
-    {
-        "ObjectArn": str,
-        "Key": str,
-        "ETag": str,
-        "Hash": str,
-        "VersionId": str,
-    },
-    total=False,
-)
-
-_RequiredScanConditionPairTypeDef = TypedDict(
-    "_RequiredScanConditionPairTypeDef",
-    {
-        "Key": str,
-    },
-)
-_OptionalScanConditionPairTypeDef = TypedDict(
-    "_OptionalScanConditionPairTypeDef",
-    {
-        "Value": str,
-    },
-    total=False,
-)
-
-class ScanConditionPairTypeDef(
-    _RequiredScanConditionPairTypeDef, _OptionalScanConditionPairTypeDef
-):
-    pass
-
-ScanConditionTypeDef = TypedDict(
-    "ScanConditionTypeDef",
-    {
-        "MapEquals": List["ScanConditionPairTypeDef"],
-    },
-)
-
-ScanDetectionsTypeDef = TypedDict(
-    "ScanDetectionsTypeDef",
-    {
-        "ScannedItemCount": "ScannedItemCountTypeDef",
-        "ThreatsDetectedItemCount": "ThreatsDetectedItemCountTypeDef",
-        "HighestSeverityThreatDetails": "HighestSeverityThreatDetailsTypeDef",
-        "ThreatDetectedByName": "ThreatDetectedByNameTypeDef",
-    },
-    total=False,
-)
-
-ScanEc2InstanceWithFindingsResultTypeDef = TypedDict(
-    "ScanEc2InstanceWithFindingsResultTypeDef",
-    {
-        "EbsVolumes": "EbsVolumesResultTypeDef",
-    },
-    total=False,
-)
-
-ScanEc2InstanceWithFindingsTypeDef = TypedDict(
-    "ScanEc2InstanceWithFindingsTypeDef",
-    {
-        "EbsVolumes": bool,
-    },
-    total=False,
-)
-
-ScanFilePathTypeDef = TypedDict(
-    "ScanFilePathTypeDef",
-    {
-        "FilePath": str,
-        "VolumeArn": str,
-        "Hash": str,
-        "FileName": str,
-    },
-    total=False,
-)
-
-ScanResourceCriteriaTypeDef = TypedDict(
-    "ScanResourceCriteriaTypeDef",
-    {
-        "Include": Dict[Literal["EC2_INSTANCE_TAG"], "ScanConditionTypeDef"],
-        "Exclude": Dict[Literal["EC2_INSTANCE_TAG"], "ScanConditionTypeDef"],
-    },
-    total=False,
-)
-
-ScanResultDetailsTypeDef = TypedDict(
-    "ScanResultDetailsTypeDef",
-    {
-        "ScanResult": ScanResultType,
-    },
-    total=False,
-)
-
-ScanThreatNameTypeDef = TypedDict(
-    "ScanThreatNameTypeDef",
-    {
-        "Name": str,
-        "Severity": str,
-        "ItemCount": int,
-        "FilePaths": List["ScanFilePathTypeDef"],
-    },
-    total=False,
-)
-
-ScanTypeDef = TypedDict(
-    "ScanTypeDef",
-    {
-        "DetectorId": str,
-        "AdminDetectorId": str,
-        "ScanId": str,
-        "ScanStatus": ScanStatusType,
-        "FailureReason": str,
-        "ScanStartTime": datetime,
-        "ScanEndTime": datetime,
-        "TriggerDetails": "TriggerDetailsTypeDef",
-        "ResourceDetails": "ResourceDetailsTypeDef",
-        "ScanResultDetails": "ScanResultDetailsTypeDef",
-        "AccountId": str,
-        "TotalBytes": int,
-        "FileCount": int,
-        "AttachedVolumes": List["VolumeDetailTypeDef"],
-        "ScanType": ScanTypeType,
-    },
-    total=False,
-)
-
-ScannedItemCountTypeDef = TypedDict(
-    "ScannedItemCountTypeDef",
-    {
-        "TotalGb": int,
-        "Files": int,
-        "Volumes": int,
-    },
-    total=False,
-)
-
-SecurityContextTypeDef = TypedDict(
-    "SecurityContextTypeDef",
-    {
-        "Privileged": bool,
-        "AllowPrivilegeEscalation": bool,
-    },
-    total=False,
-)
-
-SecurityGroupTypeDef = TypedDict(
-    "SecurityGroupTypeDef",
-    {
-        "GroupId": str,
-        "GroupName": str,
-    },
-    total=False,
-)
-
-ServiceAdditionalInfoTypeDef = TypedDict(
-    "ServiceAdditionalInfoTypeDef",
-    {
-        "Value": str,
-        "Type": str,
-    },
-    total=False,
-)
-
-ServiceTypeDef = TypedDict(
-    "ServiceTypeDef",
-    {
-        "Action": "ActionTypeDef",
-        "Evidence": "EvidenceTypeDef",
-        "Archived": bool,
-        "Count": int,
-        "DetectorId": str,
-        "EventFirstSeen": str,
-        "EventLastSeen": str,
-        "ResourceRole": str,
-        "ServiceName": str,
-        "UserFeedback": str,
-        "AdditionalInfo": "ServiceAdditionalInfoTypeDef",
-        "FeatureName": str,
-        "EbsVolumeScanDetails": "EbsVolumeScanDetailsTypeDef",
-        "RuntimeDetails": "RuntimeDetailsTypeDef",
-        "Detection": "DetectionTypeDef",
-        "MalwareScanDetails": "MalwareScanDetailsTypeDef",
-    },
-    total=False,
-)
-
-SortCriteriaTypeDef = TypedDict(
-    "SortCriteriaTypeDef",
-    {
-        "AttributeName": str,
-        "OrderBy": OrderByType,
-    },
-    total=False,
-)
-
-StartMalwareScanRequestRequestTypeDef = TypedDict(
-    "StartMalwareScanRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-    },
-)
-
-StartMalwareScanResponseTypeDef = TypedDict(
-    "StartMalwareScanResponseTypeDef",
-    {
-        "ScanId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-StartMonitoringMembersRequestRequestTypeDef = TypedDict(
-    "StartMonitoringMembersRequestRequestTypeDef",
-    {
-        "DetectorId": str,
-        "AccountIds": List[str],
-    },
-)
-
-StartMonitoringMembersResponseTypeDef = TypedDict(
-    "StartMonitoringMembersResponseTypeDef",
-    {
-        "UnprocessedAccounts": List["UnprocessedAccountTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-StopMonitoringMembersRequestRequestTypeDef = TypedDict(
-    "StopMonitoringMembersRequestRequestTypeDef",
-    {
-        "DetectorId": str,
-        "AccountIds": List[str],
-    },
-)
-
-StopMonitoringMembersResponseTypeDef = TypedDict(
-    "StopMonitoringMembersResponseTypeDef",
-    {
-        "UnprocessedAccounts": List["UnprocessedAccountTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-        "Tags": Dict[str, str],
-    },
-)
-
-TagTypeDef = TypedDict(
-    "TagTypeDef",
-    {
-        "Key": str,
-        "Value": str,
-    },
-    total=False,
-)
-
-ThreatDetectedByNameTypeDef = TypedDict(
-    "ThreatDetectedByNameTypeDef",
-    {
-        "ItemCount": int,
-        "UniqueThreatNameCount": int,
-        "Shortened": bool,
-        "ThreatNames": List["ScanThreatNameTypeDef"],
-    },
-    total=False,
-)
-
-ThreatIntelligenceDetailTypeDef = TypedDict(
-    "ThreatIntelligenceDetailTypeDef",
-    {
-        "ThreatListName": str,
-        "ThreatNames": List[str],
-        "ThreatFileSha256": str,
-    },
-    total=False,
-)
-
-ThreatTypeDef = TypedDict(
-    "ThreatTypeDef",
-    {
-        "Name": str,
-        "Source": str,
-        "ItemPaths": List["ItemPathTypeDef"],
-    },
-    total=False,
-)
-
-ThreatsDetectedItemCountTypeDef = TypedDict(
-    "ThreatsDetectedItemCountTypeDef",
-    {
-        "Files": int,
-    },
-    total=False,
-)
-
-TotalTypeDef = TypedDict(
-    "TotalTypeDef",
-    {
-        "Amount": str,
-        "Unit": str,
-    },
-    total=False,
-)
-
-TriggerDetailsTypeDef = TypedDict(
-    "TriggerDetailsTypeDef",
-    {
-        "GuardDutyFindingId": str,
-        "Description": str,
-    },
-    total=False,
-)
-
-UnarchiveFindingsRequestRequestTypeDef = TypedDict(
-    "UnarchiveFindingsRequestRequestTypeDef",
-    {
-        "DetectorId": str,
-        "FindingIds": List[str],
-    },
-)
-
-UnprocessedAccountTypeDef = TypedDict(
-    "UnprocessedAccountTypeDef",
-    {
-        "AccountId": str,
-        "Result": str,
-    },
-)
-
-UnprocessedDataSourcesResultTypeDef = TypedDict(
-    "UnprocessedDataSourcesResultTypeDef",
-    {
-        "MalwareProtection": "MalwareProtectionConfigurationResultTypeDef",
-    },
-    total=False,
-)
-
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-        "TagKeys": List[str],
-    },
-)
-
-_RequiredUpdateDetectorRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateDetectorRequestRequestTypeDef",
-    {
-        "DetectorId": str,
-    },
-)
-_OptionalUpdateDetectorRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateDetectorRequestRequestTypeDef",
-    {
-        "Enable": bool,
-        "FindingPublishingFrequency": FindingPublishingFrequencyType,
-        "DataSources": "DataSourceConfigurationsTypeDef",
-        "Features": List["DetectorFeatureConfigurationTypeDef"],
-    },
-    total=False,
-)
-
-class UpdateDetectorRequestRequestTypeDef(
-    _RequiredUpdateDetectorRequestRequestTypeDef, _OptionalUpdateDetectorRequestRequestTypeDef
-):
-    pass
-
-_RequiredUpdateFilterRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateFilterRequestRequestTypeDef",
-    {
-        "DetectorId": str,
-        "FilterName": str,
-    },
-)
-_OptionalUpdateFilterRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateFilterRequestRequestTypeDef",
-    {
-        "Description": str,
-        "Action": FilterActionType,
-        "Rank": int,
-        "FindingCriteria": "FindingCriteriaTypeDef",
-    },
-    total=False,
-)
-
-class UpdateFilterRequestRequestTypeDef(
-    _RequiredUpdateFilterRequestRequestTypeDef, _OptionalUpdateFilterRequestRequestTypeDef
-):
-    pass
-
-UpdateFilterResponseTypeDef = TypedDict(
-    "UpdateFilterResponseTypeDef",
-    {
-        "Name": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateFindingsFeedbackRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateFindingsFeedbackRequestRequestTypeDef",
-    {
-        "DetectorId": str,
-        "FindingIds": List[str],
-        "Feedback": FeedbackType,
-    },
-)
-_OptionalUpdateFindingsFeedbackRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateFindingsFeedbackRequestRequestTypeDef",
-    {
-        "Comments": str,
-    },
-    total=False,
-)
-
-class UpdateFindingsFeedbackRequestRequestTypeDef(
-    _RequiredUpdateFindingsFeedbackRequestRequestTypeDef,
-    _OptionalUpdateFindingsFeedbackRequestRequestTypeDef,
-):
-    pass
-
-_RequiredUpdateIPSetRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateIPSetRequestRequestTypeDef",
-    {
-        "DetectorId": str,
-        "IpSetId": str,
-    },
-)
-_OptionalUpdateIPSetRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateIPSetRequestRequestTypeDef",
-    {
-        "Name": str,
-        "Location": str,
-        "Activate": bool,
-    },
-    total=False,
-)
-
-class UpdateIPSetRequestRequestTypeDef(
-    _RequiredUpdateIPSetRequestRequestTypeDef, _OptionalUpdateIPSetRequestRequestTypeDef
-):
-    pass
-
-_RequiredUpdateMalwareProtectionPlanRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateMalwareProtectionPlanRequestRequestTypeDef",
-    {
-        "MalwareProtectionPlanId": str,
-    },
-)
-_OptionalUpdateMalwareProtectionPlanRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateMalwareProtectionPlanRequestRequestTypeDef",
-    {
-        "Role": str,
-        "Actions": "MalwareProtectionPlanActionsTypeDef",
-        "ProtectedResource": "UpdateProtectedResourceTypeDef",
-    },
-    total=False,
-)
-
-class UpdateMalwareProtectionPlanRequestRequestTypeDef(
-    _RequiredUpdateMalwareProtectionPlanRequestRequestTypeDef,
-    _OptionalUpdateMalwareProtectionPlanRequestRequestTypeDef,
-):
-    pass
-
-_RequiredUpdateMalwareScanSettingsRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateMalwareScanSettingsRequestRequestTypeDef",
-    {
-        "DetectorId": str,
-    },
-)
-_OptionalUpdateMalwareScanSettingsRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateMalwareScanSettingsRequestRequestTypeDef",
-    {
-        "ScanResourceCriteria": "ScanResourceCriteriaTypeDef",
-        "EbsSnapshotPreservation": EbsSnapshotPreservationType,
-    },
-    total=False,
-)
-
-class UpdateMalwareScanSettingsRequestRequestTypeDef(
-    _RequiredUpdateMalwareScanSettingsRequestRequestTypeDef,
-    _OptionalUpdateMalwareScanSettingsRequestRequestTypeDef,
-):
-    pass
-
-_RequiredUpdateMemberDetectorsRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateMemberDetectorsRequestRequestTypeDef",
-    {
-        "DetectorId": str,
-        "AccountIds": List[str],
-    },
-)
-_OptionalUpdateMemberDetectorsRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateMemberDetectorsRequestRequestTypeDef",
-    {
-        "DataSources": "DataSourceConfigurationsTypeDef",
-        "Features": List["MemberFeaturesConfigurationTypeDef"],
-    },
-    total=False,
-)
-
-class UpdateMemberDetectorsRequestRequestTypeDef(
-    _RequiredUpdateMemberDetectorsRequestRequestTypeDef,
-    _OptionalUpdateMemberDetectorsRequestRequestTypeDef,
-):
-    pass
-
-UpdateMemberDetectorsResponseTypeDef = TypedDict(
-    "UpdateMemberDetectorsResponseTypeDef",
-    {
-        "UnprocessedAccounts": List["UnprocessedAccountTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateOrganizationConfigurationRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateOrganizationConfigurationRequestRequestTypeDef",
-    {
-        "DetectorId": str,
-    },
-)
-_OptionalUpdateOrganizationConfigurationRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateOrganizationConfigurationRequestRequestTypeDef",
-    {
-        "AutoEnable": bool,
-        "DataSources": "OrganizationDataSourceConfigurationsTypeDef",
-        "Features": List["OrganizationFeatureConfigurationTypeDef"],
-        "AutoEnableOrganizationMembers": AutoEnableMembersType,
-    },
-    total=False,
-)
-
-class UpdateOrganizationConfigurationRequestRequestTypeDef(
-    _RequiredUpdateOrganizationConfigurationRequestRequestTypeDef,
-    _OptionalUpdateOrganizationConfigurationRequestRequestTypeDef,
-):
-    pass
-
-UpdateProtectedResourceTypeDef = TypedDict(
-    "UpdateProtectedResourceTypeDef",
-    {
-        "S3Bucket": "UpdateS3BucketResourceTypeDef",
-    },
-    total=False,
-)
-
-_RequiredUpdatePublishingDestinationRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdatePublishingDestinationRequestRequestTypeDef",
-    {
-        "DetectorId": str,
-        "DestinationId": str,
-    },
-)
-_OptionalUpdatePublishingDestinationRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdatePublishingDestinationRequestRequestTypeDef",
-    {
-        "DestinationProperties": "DestinationPropertiesTypeDef",
-    },
-    total=False,
-)
-
-class UpdatePublishingDestinationRequestRequestTypeDef(
-    _RequiredUpdatePublishingDestinationRequestRequestTypeDef,
-    _OptionalUpdatePublishingDestinationRequestRequestTypeDef,
-):
-    pass
-
-UpdateS3BucketResourceTypeDef = TypedDict(
-    "UpdateS3BucketResourceTypeDef",
-    {
-        "ObjectPrefixes": List[str],
-    },
-    total=False,
-)
-
-_RequiredUpdateThreatIntelSetRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateThreatIntelSetRequestRequestTypeDef",
-    {
-        "DetectorId": str,
-        "ThreatIntelSetId": str,
-    },
-)
-_OptionalUpdateThreatIntelSetRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateThreatIntelSetRequestRequestTypeDef",
-    {
-        "Name": str,
-        "Location": str,
-        "Activate": bool,
-    },
-    total=False,
-)
-
-class UpdateThreatIntelSetRequestRequestTypeDef(
-    _RequiredUpdateThreatIntelSetRequestRequestTypeDef,
-    _OptionalUpdateThreatIntelSetRequestRequestTypeDef,
-):
-    pass
-
-UsageAccountResultTypeDef = TypedDict(
-    "UsageAccountResultTypeDef",
-    {
-        "AccountId": str,
-        "Total": "TotalTypeDef",
-    },
-    total=False,
-)
-
-UsageCriteriaTypeDef = TypedDict(
-    "UsageCriteriaTypeDef",
-    {
-        "AccountIds": List[str],
-        "DataSources": List[DataSourceType],
-        "Resources": List[str],
-        "Features": List[UsageFeatureType],
-    },
-    total=False,
-)
-
-UsageDataSourceResultTypeDef = TypedDict(
-    "UsageDataSourceResultTypeDef",
-    {
-        "DataSource": DataSourceType,
-        "Total": "TotalTypeDef",
-    },
-    total=False,
-)
-
-UsageFeatureResultTypeDef = TypedDict(
-    "UsageFeatureResultTypeDef",
-    {
-        "Feature": UsageFeatureType,
-        "Total": "TotalTypeDef",
-    },
-    total=False,
-)
-
-UsageResourceResultTypeDef = TypedDict(
-    "UsageResourceResultTypeDef",
-    {
-        "Resource": str,
-        "Total": "TotalTypeDef",
-    },
-    total=False,
-)
-
-UsageStatisticsTypeDef = TypedDict(
-    "UsageStatisticsTypeDef",
-    {
-        "SumByAccount": List["UsageAccountResultTypeDef"],
-        "TopAccountsByFeature": List["UsageTopAccountsResultTypeDef"],
-        "SumByDataSource": List["UsageDataSourceResultTypeDef"],
-        "SumByResource": List["UsageResourceResultTypeDef"],
-        "TopResources": List["UsageResourceResultTypeDef"],
-        "SumByFeature": List["UsageFeatureResultTypeDef"],
-    },
-    total=False,
-)
-
-UsageTopAccountResultTypeDef = TypedDict(
-    "UsageTopAccountResultTypeDef",
-    {
-        "AccountId": str,
-        "Total": "TotalTypeDef",
-    },
-    total=False,
-)
-
-UsageTopAccountsResultTypeDef = TypedDict(
-    "UsageTopAccountsResultTypeDef",
-    {
-        "Feature": UsageFeatureType,
-        "Accounts": List["UsageTopAccountResultTypeDef"],
-    },
-    total=False,
-)
-
-VolumeDetailTypeDef = TypedDict(
-    "VolumeDetailTypeDef",
-    {
-        "VolumeArn": str,
-        "VolumeType": str,
-        "DeviceName": str,
-        "VolumeSizeInGB": int,
-        "EncryptionType": str,
-        "SnapshotArn": str,
-        "KmsKeyArn": str,
-    },
-    total=False,
-)
-
-VolumeMountTypeDef = TypedDict(
-    "VolumeMountTypeDef",
-    {
-        "Name": str,
-        "MountPath": str,
-    },
-    total=False,
-)
-
-VolumeTypeDef = TypedDict(
-    "VolumeTypeDef",
-    {
-        "Name": str,
-        "HostPath": "HostPathTypeDef",
-    },
-    total=False,
-)
-
-VpcConfigTypeDef = TypedDict(
-    "VpcConfigTypeDef",
-    {
-        "SubnetIds": List[str],
-        "VpcId": str,
-        "SecurityGroups": List["SecurityGroupTypeDef"],
-    },
-    total=False,
-)
+class GetFindingsResponseTypeDef(TypedDict):
+    Findings: List[FindingTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef

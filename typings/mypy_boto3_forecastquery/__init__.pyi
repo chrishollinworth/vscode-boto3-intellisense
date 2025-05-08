@@ -1,19 +1,21 @@
 """
 Main interface for forecastquery service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_forecastquery/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_forecastquery import (
         Client,
         ForecastQueryServiceClient,
     )
 
-    session = boto3.Session()
-
-    client: ForecastQueryServiceClient = boto3.client("forecastquery")
-    session_client: ForecastQueryServiceClient = session.client("forecastquery")
+    session = Session()
+    client: ForecastQueryServiceClient = session.client("forecastquery")
     ```
 """
 

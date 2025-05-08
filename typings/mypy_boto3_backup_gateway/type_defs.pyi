@@ -1,90 +1,101 @@
 """
 Type annotations for backup-gateway service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup_gateway/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_backup_gateway/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_backup_gateway.type_defs import AssociateGatewayToServerInputRequestTypeDef
+    from mypy_boto3_backup_gateway.type_defs import AssociateGatewayToServerInputTypeDef
 
-    data: AssociateGatewayToServerInputRequestTypeDef = {...}
+    data: AssociateGatewayToServerInputTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
+from typing import Union
 
 from .literals import HypervisorStateType, SyncMetadataStatusType
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
-    "AssociateGatewayToServerInputRequestTypeDef",
+    "AssociateGatewayToServerInputTypeDef",
     "AssociateGatewayToServerOutputTypeDef",
+    "BandwidthRateLimitIntervalOutputTypeDef",
     "BandwidthRateLimitIntervalTypeDef",
-    "CreateGatewayInputRequestTypeDef",
+    "BandwidthRateLimitIntervalUnionTypeDef",
+    "CreateGatewayInputTypeDef",
     "CreateGatewayOutputTypeDef",
-    "DeleteGatewayInputRequestTypeDef",
+    "DeleteGatewayInputTypeDef",
     "DeleteGatewayOutputTypeDef",
-    "DeleteHypervisorInputRequestTypeDef",
+    "DeleteHypervisorInputTypeDef",
     "DeleteHypervisorOutputTypeDef",
-    "DisassociateGatewayFromServerInputRequestTypeDef",
+    "DisassociateGatewayFromServerInputTypeDef",
     "DisassociateGatewayFromServerOutputTypeDef",
     "GatewayDetailsTypeDef",
     "GatewayTypeDef",
-    "GetBandwidthRateLimitScheduleInputRequestTypeDef",
+    "GetBandwidthRateLimitScheduleInputTypeDef",
     "GetBandwidthRateLimitScheduleOutputTypeDef",
-    "GetGatewayInputRequestTypeDef",
+    "GetGatewayInputTypeDef",
     "GetGatewayOutputTypeDef",
-    "GetHypervisorInputRequestTypeDef",
+    "GetHypervisorInputTypeDef",
     "GetHypervisorOutputTypeDef",
-    "GetHypervisorPropertyMappingsInputRequestTypeDef",
+    "GetHypervisorPropertyMappingsInputTypeDef",
     "GetHypervisorPropertyMappingsOutputTypeDef",
-    "GetVirtualMachineInputRequestTypeDef",
+    "GetVirtualMachineInputTypeDef",
     "GetVirtualMachineOutputTypeDef",
     "HypervisorDetailsTypeDef",
     "HypervisorTypeDef",
-    "ImportHypervisorConfigurationInputRequestTypeDef",
+    "ImportHypervisorConfigurationInputTypeDef",
     "ImportHypervisorConfigurationOutputTypeDef",
-    "ListGatewaysInputRequestTypeDef",
+    "ListGatewaysInputPaginateTypeDef",
+    "ListGatewaysInputTypeDef",
     "ListGatewaysOutputTypeDef",
-    "ListHypervisorsInputRequestTypeDef",
+    "ListHypervisorsInputPaginateTypeDef",
+    "ListHypervisorsInputTypeDef",
     "ListHypervisorsOutputTypeDef",
-    "ListTagsForResourceInputRequestTypeDef",
+    "ListTagsForResourceInputTypeDef",
     "ListTagsForResourceOutputTypeDef",
-    "ListVirtualMachinesInputRequestTypeDef",
+    "ListVirtualMachinesInputPaginateTypeDef",
+    "ListVirtualMachinesInputTypeDef",
     "ListVirtualMachinesOutputTypeDef",
     "MaintenanceStartTimeTypeDef",
     "PaginatorConfigTypeDef",
-    "PutBandwidthRateLimitScheduleInputRequestTypeDef",
+    "PutBandwidthRateLimitScheduleInputTypeDef",
     "PutBandwidthRateLimitScheduleOutputTypeDef",
-    "PutHypervisorPropertyMappingsInputRequestTypeDef",
+    "PutHypervisorPropertyMappingsInputTypeDef",
     "PutHypervisorPropertyMappingsOutputTypeDef",
-    "PutMaintenanceStartTimeInputRequestTypeDef",
+    "PutMaintenanceStartTimeInputTypeDef",
     "PutMaintenanceStartTimeOutputTypeDef",
     "ResponseMetadataTypeDef",
-    "StartVirtualMachinesMetadataSyncInputRequestTypeDef",
+    "StartVirtualMachinesMetadataSyncInputTypeDef",
     "StartVirtualMachinesMetadataSyncOutputTypeDef",
-    "TagResourceInputRequestTypeDef",
+    "TagResourceInputTypeDef",
     "TagResourceOutputTypeDef",
     "TagTypeDef",
-    "TestHypervisorConfigurationInputRequestTypeDef",
-    "UntagResourceInputRequestTypeDef",
+    "TestHypervisorConfigurationInputTypeDef",
+    "UntagResourceInputTypeDef",
     "UntagResourceOutputTypeDef",
-    "UpdateGatewayInformationInputRequestTypeDef",
+    "UpdateGatewayInformationInputTypeDef",
     "UpdateGatewayInformationOutputTypeDef",
-    "UpdateGatewaySoftwareNowInputRequestTypeDef",
+    "UpdateGatewaySoftwareNowInputTypeDef",
     "UpdateGatewaySoftwareNowOutputTypeDef",
-    "UpdateHypervisorInputRequestTypeDef",
+    "UpdateHypervisorInputTypeDef",
     "UpdateHypervisorOutputTypeDef",
     "VirtualMachineDetailsTypeDef",
     "VirtualMachineTypeDef",
@@ -92,655 +103,326 @@ __all__ = (
     "VmwareToAwsTagMappingTypeDef",
 )
 
-AssociateGatewayToServerInputRequestTypeDef = TypedDict(
-    "AssociateGatewayToServerInputRequestTypeDef",
-    {
-        "GatewayArn": str,
-        "ServerArn": str,
-    },
-)
-
-AssociateGatewayToServerOutputTypeDef = TypedDict(
-    "AssociateGatewayToServerOutputTypeDef",
-    {
-        "GatewayArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredBandwidthRateLimitIntervalTypeDef = TypedDict(
-    "_RequiredBandwidthRateLimitIntervalTypeDef",
-    {
-        "DaysOfWeek": List[int],
-        "EndHourOfDay": int,
-        "EndMinuteOfHour": int,
-        "StartHourOfDay": int,
-        "StartMinuteOfHour": int,
-    },
-)
-_OptionalBandwidthRateLimitIntervalTypeDef = TypedDict(
-    "_OptionalBandwidthRateLimitIntervalTypeDef",
-    {
-        "AverageUploadRateLimitInBitsPerSec": int,
-    },
-    total=False,
-)
-
-class BandwidthRateLimitIntervalTypeDef(
-    _RequiredBandwidthRateLimitIntervalTypeDef, _OptionalBandwidthRateLimitIntervalTypeDef
-):
-    pass
-
-_RequiredCreateGatewayInputRequestTypeDef = TypedDict(
-    "_RequiredCreateGatewayInputRequestTypeDef",
-    {
-        "ActivationKey": str,
-        "GatewayDisplayName": str,
-        "GatewayType": Literal["BACKUP_VM"],
-    },
-)
-_OptionalCreateGatewayInputRequestTypeDef = TypedDict(
-    "_OptionalCreateGatewayInputRequestTypeDef",
-    {
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateGatewayInputRequestTypeDef(
-    _RequiredCreateGatewayInputRequestTypeDef, _OptionalCreateGatewayInputRequestTypeDef
-):
-    pass
-
-CreateGatewayOutputTypeDef = TypedDict(
-    "CreateGatewayOutputTypeDef",
-    {
-        "GatewayArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteGatewayInputRequestTypeDef = TypedDict(
-    "DeleteGatewayInputRequestTypeDef",
-    {
-        "GatewayArn": str,
-    },
-)
-
-DeleteGatewayOutputTypeDef = TypedDict(
-    "DeleteGatewayOutputTypeDef",
-    {
-        "GatewayArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteHypervisorInputRequestTypeDef = TypedDict(
-    "DeleteHypervisorInputRequestTypeDef",
-    {
-        "HypervisorArn": str,
-    },
-)
-
-DeleteHypervisorOutputTypeDef = TypedDict(
-    "DeleteHypervisorOutputTypeDef",
-    {
-        "HypervisorArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DisassociateGatewayFromServerInputRequestTypeDef = TypedDict(
-    "DisassociateGatewayFromServerInputRequestTypeDef",
-    {
-        "GatewayArn": str,
-    },
-)
-
-DisassociateGatewayFromServerOutputTypeDef = TypedDict(
-    "DisassociateGatewayFromServerOutputTypeDef",
-    {
-        "GatewayArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GatewayDetailsTypeDef = TypedDict(
-    "GatewayDetailsTypeDef",
-    {
-        "GatewayArn": str,
-        "GatewayDisplayName": str,
-        "GatewayType": Literal["BACKUP_VM"],
-        "HypervisorId": str,
-        "LastSeenTime": datetime,
-        "MaintenanceStartTime": "MaintenanceStartTimeTypeDef",
-        "NextUpdateAvailabilityTime": datetime,
-        "VpcEndpoint": str,
-    },
-    total=False,
-)
-
-GatewayTypeDef = TypedDict(
-    "GatewayTypeDef",
-    {
-        "GatewayArn": str,
-        "GatewayDisplayName": str,
-        "GatewayType": Literal["BACKUP_VM"],
-        "HypervisorId": str,
-        "LastSeenTime": datetime,
-    },
-    total=False,
-)
-
-GetBandwidthRateLimitScheduleInputRequestTypeDef = TypedDict(
-    "GetBandwidthRateLimitScheduleInputRequestTypeDef",
-    {
-        "GatewayArn": str,
-    },
-)
-
-GetBandwidthRateLimitScheduleOutputTypeDef = TypedDict(
-    "GetBandwidthRateLimitScheduleOutputTypeDef",
-    {
-        "BandwidthRateLimitIntervals": List["BandwidthRateLimitIntervalTypeDef"],
-        "GatewayArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetGatewayInputRequestTypeDef = TypedDict(
-    "GetGatewayInputRequestTypeDef",
-    {
-        "GatewayArn": str,
-    },
-)
-
-GetGatewayOutputTypeDef = TypedDict(
-    "GetGatewayOutputTypeDef",
-    {
-        "Gateway": "GatewayDetailsTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetHypervisorInputRequestTypeDef = TypedDict(
-    "GetHypervisorInputRequestTypeDef",
-    {
-        "HypervisorArn": str,
-    },
-)
-
-GetHypervisorOutputTypeDef = TypedDict(
-    "GetHypervisorOutputTypeDef",
-    {
-        "Hypervisor": "HypervisorDetailsTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetHypervisorPropertyMappingsInputRequestTypeDef = TypedDict(
-    "GetHypervisorPropertyMappingsInputRequestTypeDef",
-    {
-        "HypervisorArn": str,
-    },
-)
-
-GetHypervisorPropertyMappingsOutputTypeDef = TypedDict(
-    "GetHypervisorPropertyMappingsOutputTypeDef",
-    {
-        "HypervisorArn": str,
-        "IamRoleArn": str,
-        "VmwareToAwsTagMappings": List["VmwareToAwsTagMappingTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetVirtualMachineInputRequestTypeDef = TypedDict(
-    "GetVirtualMachineInputRequestTypeDef",
-    {
-        "ResourceArn": str,
-    },
-)
-
-GetVirtualMachineOutputTypeDef = TypedDict(
-    "GetVirtualMachineOutputTypeDef",
-    {
-        "VirtualMachine": "VirtualMachineDetailsTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-HypervisorDetailsTypeDef = TypedDict(
-    "HypervisorDetailsTypeDef",
-    {
-        "Host": str,
-        "HypervisorArn": str,
-        "KmsKeyArn": str,
-        "LastSuccessfulMetadataSyncTime": datetime,
-        "LatestMetadataSyncStatus": SyncMetadataStatusType,
-        "LatestMetadataSyncStatusMessage": str,
-        "LogGroupArn": str,
-        "Name": str,
-        "State": HypervisorStateType,
-    },
-    total=False,
-)
-
-HypervisorTypeDef = TypedDict(
-    "HypervisorTypeDef",
-    {
-        "Host": str,
-        "HypervisorArn": str,
-        "KmsKeyArn": str,
-        "Name": str,
-        "State": HypervisorStateType,
-    },
-    total=False,
-)
-
-_RequiredImportHypervisorConfigurationInputRequestTypeDef = TypedDict(
-    "_RequiredImportHypervisorConfigurationInputRequestTypeDef",
-    {
-        "Host": str,
-        "Name": str,
-    },
-)
-_OptionalImportHypervisorConfigurationInputRequestTypeDef = TypedDict(
-    "_OptionalImportHypervisorConfigurationInputRequestTypeDef",
-    {
-        "KmsKeyArn": str,
-        "Password": str,
-        "Tags": List["TagTypeDef"],
-        "Username": str,
-    },
-    total=False,
-)
-
-class ImportHypervisorConfigurationInputRequestTypeDef(
-    _RequiredImportHypervisorConfigurationInputRequestTypeDef,
-    _OptionalImportHypervisorConfigurationInputRequestTypeDef,
-):
-    pass
-
-ImportHypervisorConfigurationOutputTypeDef = TypedDict(
-    "ImportHypervisorConfigurationOutputTypeDef",
-    {
-        "HypervisorArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListGatewaysInputRequestTypeDef = TypedDict(
-    "ListGatewaysInputRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListGatewaysOutputTypeDef = TypedDict(
-    "ListGatewaysOutputTypeDef",
-    {
-        "Gateways": List["GatewayTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListHypervisorsInputRequestTypeDef = TypedDict(
-    "ListHypervisorsInputRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListHypervisorsOutputTypeDef = TypedDict(
-    "ListHypervisorsOutputTypeDef",
-    {
-        "Hypervisors": List["HypervisorTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTagsForResourceInputRequestTypeDef = TypedDict(
-    "ListTagsForResourceInputRequestTypeDef",
-    {
-        "ResourceArn": str,
-    },
-)
-
-ListTagsForResourceOutputTypeDef = TypedDict(
-    "ListTagsForResourceOutputTypeDef",
-    {
-        "ResourceArn": str,
-        "Tags": List["TagTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListVirtualMachinesInputRequestTypeDef = TypedDict(
-    "ListVirtualMachinesInputRequestTypeDef",
-    {
-        "HypervisorArn": str,
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListVirtualMachinesOutputTypeDef = TypedDict(
-    "ListVirtualMachinesOutputTypeDef",
-    {
-        "NextToken": str,
-        "VirtualMachines": List["VirtualMachineTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredMaintenanceStartTimeTypeDef = TypedDict(
-    "_RequiredMaintenanceStartTimeTypeDef",
-    {
-        "HourOfDay": int,
-        "MinuteOfHour": int,
-    },
-)
-_OptionalMaintenanceStartTimeTypeDef = TypedDict(
-    "_OptionalMaintenanceStartTimeTypeDef",
-    {
-        "DayOfMonth": int,
-        "DayOfWeek": int,
-    },
-    total=False,
-)
-
-class MaintenanceStartTimeTypeDef(
-    _RequiredMaintenanceStartTimeTypeDef, _OptionalMaintenanceStartTimeTypeDef
-):
-    pass
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-PutBandwidthRateLimitScheduleInputRequestTypeDef = TypedDict(
-    "PutBandwidthRateLimitScheduleInputRequestTypeDef",
-    {
-        "BandwidthRateLimitIntervals": List["BandwidthRateLimitIntervalTypeDef"],
-        "GatewayArn": str,
-    },
-)
-
-PutBandwidthRateLimitScheduleOutputTypeDef = TypedDict(
-    "PutBandwidthRateLimitScheduleOutputTypeDef",
-    {
-        "GatewayArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-PutHypervisorPropertyMappingsInputRequestTypeDef = TypedDict(
-    "PutHypervisorPropertyMappingsInputRequestTypeDef",
-    {
-        "HypervisorArn": str,
-        "IamRoleArn": str,
-        "VmwareToAwsTagMappings": List["VmwareToAwsTagMappingTypeDef"],
-    },
-)
-
-PutHypervisorPropertyMappingsOutputTypeDef = TypedDict(
-    "PutHypervisorPropertyMappingsOutputTypeDef",
-    {
-        "HypervisorArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredPutMaintenanceStartTimeInputRequestTypeDef = TypedDict(
-    "_RequiredPutMaintenanceStartTimeInputRequestTypeDef",
-    {
-        "GatewayArn": str,
-        "HourOfDay": int,
-        "MinuteOfHour": int,
-    },
-)
-_OptionalPutMaintenanceStartTimeInputRequestTypeDef = TypedDict(
-    "_OptionalPutMaintenanceStartTimeInputRequestTypeDef",
-    {
-        "DayOfMonth": int,
-        "DayOfWeek": int,
-    },
-    total=False,
-)
-
-class PutMaintenanceStartTimeInputRequestTypeDef(
-    _RequiredPutMaintenanceStartTimeInputRequestTypeDef,
-    _OptionalPutMaintenanceStartTimeInputRequestTypeDef,
-):
-    pass
-
-PutMaintenanceStartTimeOutputTypeDef = TypedDict(
-    "PutMaintenanceStartTimeOutputTypeDef",
-    {
-        "GatewayArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-StartVirtualMachinesMetadataSyncInputRequestTypeDef = TypedDict(
-    "StartVirtualMachinesMetadataSyncInputRequestTypeDef",
-    {
-        "HypervisorArn": str,
-    },
-)
-
-StartVirtualMachinesMetadataSyncOutputTypeDef = TypedDict(
-    "StartVirtualMachinesMetadataSyncOutputTypeDef",
-    {
-        "HypervisorArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-TagResourceInputRequestTypeDef = TypedDict(
-    "TagResourceInputRequestTypeDef",
-    {
-        "ResourceARN": str,
-        "Tags": List["TagTypeDef"],
-    },
-)
-
-TagResourceOutputTypeDef = TypedDict(
-    "TagResourceOutputTypeDef",
-    {
-        "ResourceARN": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-TagTypeDef = TypedDict(
-    "TagTypeDef",
-    {
-        "Key": str,
-        "Value": str,
-    },
-)
-
-_RequiredTestHypervisorConfigurationInputRequestTypeDef = TypedDict(
-    "_RequiredTestHypervisorConfigurationInputRequestTypeDef",
-    {
-        "GatewayArn": str,
-        "Host": str,
-    },
-)
-_OptionalTestHypervisorConfigurationInputRequestTypeDef = TypedDict(
-    "_OptionalTestHypervisorConfigurationInputRequestTypeDef",
-    {
-        "Password": str,
-        "Username": str,
-    },
-    total=False,
-)
-
-class TestHypervisorConfigurationInputRequestTypeDef(
-    _RequiredTestHypervisorConfigurationInputRequestTypeDef,
-    _OptionalTestHypervisorConfigurationInputRequestTypeDef,
-):
-    pass
-
-UntagResourceInputRequestTypeDef = TypedDict(
-    "UntagResourceInputRequestTypeDef",
-    {
-        "ResourceARN": str,
-        "TagKeys": List[str],
-    },
-)
-
-UntagResourceOutputTypeDef = TypedDict(
-    "UntagResourceOutputTypeDef",
-    {
-        "ResourceARN": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateGatewayInformationInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateGatewayInformationInputRequestTypeDef",
-    {
-        "GatewayArn": str,
-    },
-)
-_OptionalUpdateGatewayInformationInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateGatewayInformationInputRequestTypeDef",
-    {
-        "GatewayDisplayName": str,
-    },
-    total=False,
-)
-
-class UpdateGatewayInformationInputRequestTypeDef(
-    _RequiredUpdateGatewayInformationInputRequestTypeDef,
-    _OptionalUpdateGatewayInformationInputRequestTypeDef,
-):
-    pass
-
-UpdateGatewayInformationOutputTypeDef = TypedDict(
-    "UpdateGatewayInformationOutputTypeDef",
-    {
-        "GatewayArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UpdateGatewaySoftwareNowInputRequestTypeDef = TypedDict(
-    "UpdateGatewaySoftwareNowInputRequestTypeDef",
-    {
-        "GatewayArn": str,
-    },
-)
-
-UpdateGatewaySoftwareNowOutputTypeDef = TypedDict(
-    "UpdateGatewaySoftwareNowOutputTypeDef",
-    {
-        "GatewayArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateHypervisorInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateHypervisorInputRequestTypeDef",
-    {
-        "HypervisorArn": str,
-    },
-)
-_OptionalUpdateHypervisorInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateHypervisorInputRequestTypeDef",
-    {
-        "Host": str,
-        "LogGroupArn": str,
-        "Name": str,
-        "Password": str,
-        "Username": str,
-    },
-    total=False,
-)
-
-class UpdateHypervisorInputRequestTypeDef(
-    _RequiredUpdateHypervisorInputRequestTypeDef, _OptionalUpdateHypervisorInputRequestTypeDef
-):
-    pass
-
-UpdateHypervisorOutputTypeDef = TypedDict(
-    "UpdateHypervisorOutputTypeDef",
-    {
-        "HypervisorArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-VirtualMachineDetailsTypeDef = TypedDict(
-    "VirtualMachineDetailsTypeDef",
-    {
-        "HostName": str,
-        "HypervisorId": str,
-        "LastBackupDate": datetime,
-        "Name": str,
-        "Path": str,
-        "ResourceArn": str,
-        "VmwareTags": List["VmwareTagTypeDef"],
-    },
-    total=False,
-)
-
-VirtualMachineTypeDef = TypedDict(
-    "VirtualMachineTypeDef",
-    {
-        "HostName": str,
-        "HypervisorId": str,
-        "LastBackupDate": datetime,
-        "Name": str,
-        "Path": str,
-        "ResourceArn": str,
-    },
-    total=False,
-)
-
-VmwareTagTypeDef = TypedDict(
-    "VmwareTagTypeDef",
-    {
-        "VmwareCategory": str,
-        "VmwareTagDescription": str,
-        "VmwareTagName": str,
-    },
-    total=False,
-)
-
-VmwareToAwsTagMappingTypeDef = TypedDict(
-    "VmwareToAwsTagMappingTypeDef",
-    {
-        "AwsTagKey": str,
-        "AwsTagValue": str,
-        "VmwareCategory": str,
-        "VmwareTagName": str,
-    },
-)
+class AssociateGatewayToServerInputTypeDef(TypedDict):
+    GatewayArn: str
+    ServerArn: str
+
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
+
+class BandwidthRateLimitIntervalOutputTypeDef(TypedDict):
+    DaysOfWeek: List[int]
+    EndHourOfDay: int
+    EndMinuteOfHour: int
+    StartHourOfDay: int
+    StartMinuteOfHour: int
+    AverageUploadRateLimitInBitsPerSec: NotRequired[int]
+
+class BandwidthRateLimitIntervalTypeDef(TypedDict):
+    DaysOfWeek: Sequence[int]
+    EndHourOfDay: int
+    EndMinuteOfHour: int
+    StartHourOfDay: int
+    StartMinuteOfHour: int
+    AverageUploadRateLimitInBitsPerSec: NotRequired[int]
+
+class TagTypeDef(TypedDict):
+    Key: str
+    Value: str
+
+class DeleteGatewayInputTypeDef(TypedDict):
+    GatewayArn: str
+
+class DeleteHypervisorInputTypeDef(TypedDict):
+    HypervisorArn: str
+
+class DisassociateGatewayFromServerInputTypeDef(TypedDict):
+    GatewayArn: str
+
+class MaintenanceStartTimeTypeDef(TypedDict):
+    HourOfDay: int
+    MinuteOfHour: int
+    DayOfMonth: NotRequired[int]
+    DayOfWeek: NotRequired[int]
+
+class GatewayTypeDef(TypedDict):
+    GatewayArn: NotRequired[str]
+    GatewayDisplayName: NotRequired[str]
+    GatewayType: NotRequired[Literal["BACKUP_VM"]]
+    HypervisorId: NotRequired[str]
+    LastSeenTime: NotRequired[datetime]
+
+class GetBandwidthRateLimitScheduleInputTypeDef(TypedDict):
+    GatewayArn: str
+
+class GetGatewayInputTypeDef(TypedDict):
+    GatewayArn: str
+
+class GetHypervisorInputTypeDef(TypedDict):
+    HypervisorArn: str
+
+class HypervisorDetailsTypeDef(TypedDict):
+    Host: NotRequired[str]
+    HypervisorArn: NotRequired[str]
+    KmsKeyArn: NotRequired[str]
+    LastSuccessfulMetadataSyncTime: NotRequired[datetime]
+    LatestMetadataSyncStatus: NotRequired[SyncMetadataStatusType]
+    LatestMetadataSyncStatusMessage: NotRequired[str]
+    LogGroupArn: NotRequired[str]
+    Name: NotRequired[str]
+    State: NotRequired[HypervisorStateType]
+
+class GetHypervisorPropertyMappingsInputTypeDef(TypedDict):
+    HypervisorArn: str
+
+class VmwareToAwsTagMappingTypeDef(TypedDict):
+    AwsTagKey: str
+    AwsTagValue: str
+    VmwareCategory: str
+    VmwareTagName: str
+
+class GetVirtualMachineInputTypeDef(TypedDict):
+    ResourceArn: str
+
+class HypervisorTypeDef(TypedDict):
+    Host: NotRequired[str]
+    HypervisorArn: NotRequired[str]
+    KmsKeyArn: NotRequired[str]
+    Name: NotRequired[str]
+    State: NotRequired[HypervisorStateType]
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class ListGatewaysInputTypeDef(TypedDict):
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListHypervisorsInputTypeDef(TypedDict):
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListTagsForResourceInputTypeDef(TypedDict):
+    ResourceArn: str
+
+class ListVirtualMachinesInputTypeDef(TypedDict):
+    HypervisorArn: NotRequired[str]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class VirtualMachineTypeDef(TypedDict):
+    HostName: NotRequired[str]
+    HypervisorId: NotRequired[str]
+    LastBackupDate: NotRequired[datetime]
+    Name: NotRequired[str]
+    Path: NotRequired[str]
+    ResourceArn: NotRequired[str]
+
+class PutMaintenanceStartTimeInputTypeDef(TypedDict):
+    GatewayArn: str
+    HourOfDay: int
+    MinuteOfHour: int
+    DayOfMonth: NotRequired[int]
+    DayOfWeek: NotRequired[int]
+
+class StartVirtualMachinesMetadataSyncInputTypeDef(TypedDict):
+    HypervisorArn: str
+
+class TestHypervisorConfigurationInputTypeDef(TypedDict):
+    GatewayArn: str
+    Host: str
+    Password: NotRequired[str]
+    Username: NotRequired[str]
+
+class UntagResourceInputTypeDef(TypedDict):
+    ResourceARN: str
+    TagKeys: Sequence[str]
+
+class UpdateGatewayInformationInputTypeDef(TypedDict):
+    GatewayArn: str
+    GatewayDisplayName: NotRequired[str]
+
+class UpdateGatewaySoftwareNowInputTypeDef(TypedDict):
+    GatewayArn: str
+
+class UpdateHypervisorInputTypeDef(TypedDict):
+    HypervisorArn: str
+    Host: NotRequired[str]
+    LogGroupArn: NotRequired[str]
+    Name: NotRequired[str]
+    Password: NotRequired[str]
+    Username: NotRequired[str]
+
+class VmwareTagTypeDef(TypedDict):
+    VmwareCategory: NotRequired[str]
+    VmwareTagDescription: NotRequired[str]
+    VmwareTagName: NotRequired[str]
+
+class AssociateGatewayToServerOutputTypeDef(TypedDict):
+    GatewayArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateGatewayOutputTypeDef(TypedDict):
+    GatewayArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteGatewayOutputTypeDef(TypedDict):
+    GatewayArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteHypervisorOutputTypeDef(TypedDict):
+    HypervisorArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DisassociateGatewayFromServerOutputTypeDef(TypedDict):
+    GatewayArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ImportHypervisorConfigurationOutputTypeDef(TypedDict):
+    HypervisorArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutBandwidthRateLimitScheduleOutputTypeDef(TypedDict):
+    GatewayArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutHypervisorPropertyMappingsOutputTypeDef(TypedDict):
+    HypervisorArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutMaintenanceStartTimeOutputTypeDef(TypedDict):
+    GatewayArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartVirtualMachinesMetadataSyncOutputTypeDef(TypedDict):
+    HypervisorArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class TagResourceOutputTypeDef(TypedDict):
+    ResourceARN: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UntagResourceOutputTypeDef(TypedDict):
+    ResourceARN: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateGatewayInformationOutputTypeDef(TypedDict):
+    GatewayArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateGatewaySoftwareNowOutputTypeDef(TypedDict):
+    GatewayArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateHypervisorOutputTypeDef(TypedDict):
+    HypervisorArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetBandwidthRateLimitScheduleOutputTypeDef(TypedDict):
+    BandwidthRateLimitIntervals: List[BandwidthRateLimitIntervalOutputTypeDef]
+    GatewayArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+BandwidthRateLimitIntervalUnionTypeDef = Union[
+    BandwidthRateLimitIntervalTypeDef, BandwidthRateLimitIntervalOutputTypeDef
+]
+
+class CreateGatewayInputTypeDef(TypedDict):
+    ActivationKey: str
+    GatewayDisplayName: str
+    GatewayType: Literal["BACKUP_VM"]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+
+class ImportHypervisorConfigurationInputTypeDef(TypedDict):
+    Host: str
+    Name: str
+    KmsKeyArn: NotRequired[str]
+    Password: NotRequired[str]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+    Username: NotRequired[str]
+
+class ListTagsForResourceOutputTypeDef(TypedDict):
+    ResourceArn: str
+    Tags: List[TagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class TagResourceInputTypeDef(TypedDict):
+    ResourceARN: str
+    Tags: Sequence[TagTypeDef]
+
+class GatewayDetailsTypeDef(TypedDict):
+    GatewayArn: NotRequired[str]
+    GatewayDisplayName: NotRequired[str]
+    GatewayType: NotRequired[Literal["BACKUP_VM"]]
+    HypervisorId: NotRequired[str]
+    LastSeenTime: NotRequired[datetime]
+    MaintenanceStartTime: NotRequired[MaintenanceStartTimeTypeDef]
+    NextUpdateAvailabilityTime: NotRequired[datetime]
+    VpcEndpoint: NotRequired[str]
+
+class ListGatewaysOutputTypeDef(TypedDict):
+    Gateways: List[GatewayTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class GetHypervisorOutputTypeDef(TypedDict):
+    Hypervisor: HypervisorDetailsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetHypervisorPropertyMappingsOutputTypeDef(TypedDict):
+    HypervisorArn: str
+    IamRoleArn: str
+    VmwareToAwsTagMappings: List[VmwareToAwsTagMappingTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutHypervisorPropertyMappingsInputTypeDef(TypedDict):
+    HypervisorArn: str
+    IamRoleArn: str
+    VmwareToAwsTagMappings: Sequence[VmwareToAwsTagMappingTypeDef]
+
+class ListHypervisorsOutputTypeDef(TypedDict):
+    Hypervisors: List[HypervisorTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListGatewaysInputPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListHypervisorsInputPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListVirtualMachinesInputPaginateTypeDef(TypedDict):
+    HypervisorArn: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListVirtualMachinesOutputTypeDef(TypedDict):
+    VirtualMachines: List[VirtualMachineTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class VirtualMachineDetailsTypeDef(TypedDict):
+    HostName: NotRequired[str]
+    HypervisorId: NotRequired[str]
+    LastBackupDate: NotRequired[datetime]
+    Name: NotRequired[str]
+    Path: NotRequired[str]
+    ResourceArn: NotRequired[str]
+    VmwareTags: NotRequired[List[VmwareTagTypeDef]]
+
+class PutBandwidthRateLimitScheduleInputTypeDef(TypedDict):
+    BandwidthRateLimitIntervals: Sequence[BandwidthRateLimitIntervalUnionTypeDef]
+    GatewayArn: str
+
+class GetGatewayOutputTypeDef(TypedDict):
+    Gateway: GatewayDetailsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetVirtualMachineOutputTypeDef(TypedDict):
+    VirtualMachine: VirtualMachineDetailsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef

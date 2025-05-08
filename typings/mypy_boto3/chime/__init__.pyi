@@ -1,10 +1,14 @@
 """
 Main interface for chime service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_chime import (
         ChimeClient,
         Client,
@@ -12,10 +16,8 @@ Usage::
         ListUsersPaginator,
     )
 
-    session = boto3.Session()
-
-    client: ChimeClient = boto3.client("chime")
-    session_client: ChimeClient = session.client("chime")
+    session = Session()
+    client: ChimeClient = session.client("chime")
 
     list_accounts_paginator: ListAccountsPaginator = client.get_paginator("list_accounts")
     list_users_paginator: ListUsersPaginator = client.get_paginator("list_users")

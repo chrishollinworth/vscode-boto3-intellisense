@@ -1,19 +1,21 @@
 """
 Main interface for dlm service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dlm/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_dlm import (
         Client,
         DLMClient,
     )
 
-    session = boto3.Session()
-
-    client: DLMClient = boto3.client("dlm")
-    session_client: DLMClient = session.client("dlm")
+    session = Session()
+    client: DLMClient = session.client("dlm")
     ```
 """
 

@@ -1,26 +1,33 @@
 """
 Type annotations for storagegateway service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_storagegateway/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_storagegateway.type_defs import ActivateGatewayInputRequestTypeDef
+    from mypy_boto3_storagegateway.type_defs import TagTypeDef
 
-    data: ActivateGatewayInputRequestTypeDef = {...}
+    data: TagTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
+from typing import Union
 
 from .literals import (
     ActiveDirectoryStatusType,
     AutomaticUpdatePolicyType,
     AvailabilityMonitorTestStatusType,
+    CacheReportFilterNameType,
+    CacheReportStatusType,
     CaseSensitivityType,
+    EncryptionTypeType,
     FileShareTypeType,
     GatewayCapacityType,
     HostEnvironmentType,
@@ -31,184 +38,224 @@ from .literals import (
     TapeStorageClassType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Sequence
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List, Sequence
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
-    "ActivateGatewayInputRequestTypeDef",
+    "ActivateGatewayInputTypeDef",
     "ActivateGatewayOutputTypeDef",
-    "AddCacheInputRequestTypeDef",
+    "AddCacheInputTypeDef",
     "AddCacheOutputTypeDef",
-    "AddTagsToResourceInputRequestTypeDef",
+    "AddTagsToResourceInputTypeDef",
     "AddTagsToResourceOutputTypeDef",
-    "AddUploadBufferInputRequestTypeDef",
+    "AddUploadBufferInputTypeDef",
     "AddUploadBufferOutputTypeDef",
-    "AddWorkingStorageInputRequestTypeDef",
+    "AddWorkingStorageInputTypeDef",
     "AddWorkingStorageOutputTypeDef",
-    "AssignTapePoolInputRequestTypeDef",
+    "AssignTapePoolInputTypeDef",
     "AssignTapePoolOutputTypeDef",
-    "AssociateFileSystemInputRequestTypeDef",
+    "AssociateFileSystemInputTypeDef",
     "AssociateFileSystemOutputTypeDef",
-    "AttachVolumeInputRequestTypeDef",
+    "AttachVolumeInputTypeDef",
     "AttachVolumeOutputTypeDef",
     "AutomaticTapeCreationPolicyInfoTypeDef",
     "AutomaticTapeCreationRuleTypeDef",
+    "BandwidthRateLimitIntervalOutputTypeDef",
     "BandwidthRateLimitIntervalTypeDef",
+    "BandwidthRateLimitIntervalUnionTypeDef",
     "CacheAttributesTypeDef",
+    "CacheReportFilterOutputTypeDef",
+    "CacheReportFilterTypeDef",
+    "CacheReportFilterUnionTypeDef",
+    "CacheReportInfoTypeDef",
     "CachediSCSIVolumeTypeDef",
-    "CancelArchivalInputRequestTypeDef",
+    "CancelArchivalInputTypeDef",
     "CancelArchivalOutputTypeDef",
-    "CancelRetrievalInputRequestTypeDef",
+    "CancelCacheReportInputTypeDef",
+    "CancelCacheReportOutputTypeDef",
+    "CancelRetrievalInputTypeDef",
     "CancelRetrievalOutputTypeDef",
     "ChapInfoTypeDef",
-    "CreateCachediSCSIVolumeInputRequestTypeDef",
+    "CreateCachediSCSIVolumeInputTypeDef",
     "CreateCachediSCSIVolumeOutputTypeDef",
-    "CreateNFSFileShareInputRequestTypeDef",
+    "CreateNFSFileShareInputTypeDef",
     "CreateNFSFileShareOutputTypeDef",
-    "CreateSMBFileShareInputRequestTypeDef",
+    "CreateSMBFileShareInputTypeDef",
     "CreateSMBFileShareOutputTypeDef",
-    "CreateSnapshotFromVolumeRecoveryPointInputRequestTypeDef",
+    "CreateSnapshotFromVolumeRecoveryPointInputTypeDef",
     "CreateSnapshotFromVolumeRecoveryPointOutputTypeDef",
-    "CreateSnapshotInputRequestTypeDef",
+    "CreateSnapshotInputTypeDef",
     "CreateSnapshotOutputTypeDef",
-    "CreateStorediSCSIVolumeInputRequestTypeDef",
+    "CreateStorediSCSIVolumeInputTypeDef",
     "CreateStorediSCSIVolumeOutputTypeDef",
-    "CreateTapePoolInputRequestTypeDef",
+    "CreateTapePoolInputTypeDef",
     "CreateTapePoolOutputTypeDef",
-    "CreateTapeWithBarcodeInputRequestTypeDef",
+    "CreateTapeWithBarcodeInputTypeDef",
     "CreateTapeWithBarcodeOutputTypeDef",
-    "CreateTapesInputRequestTypeDef",
+    "CreateTapesInputTypeDef",
     "CreateTapesOutputTypeDef",
-    "DeleteAutomaticTapeCreationPolicyInputRequestTypeDef",
+    "DeleteAutomaticTapeCreationPolicyInputTypeDef",
     "DeleteAutomaticTapeCreationPolicyOutputTypeDef",
-    "DeleteBandwidthRateLimitInputRequestTypeDef",
+    "DeleteBandwidthRateLimitInputTypeDef",
     "DeleteBandwidthRateLimitOutputTypeDef",
-    "DeleteChapCredentialsInputRequestTypeDef",
+    "DeleteCacheReportInputTypeDef",
+    "DeleteCacheReportOutputTypeDef",
+    "DeleteChapCredentialsInputTypeDef",
     "DeleteChapCredentialsOutputTypeDef",
-    "DeleteFileShareInputRequestTypeDef",
+    "DeleteFileShareInputTypeDef",
     "DeleteFileShareOutputTypeDef",
-    "DeleteGatewayInputRequestTypeDef",
+    "DeleteGatewayInputTypeDef",
     "DeleteGatewayOutputTypeDef",
-    "DeleteSnapshotScheduleInputRequestTypeDef",
+    "DeleteSnapshotScheduleInputTypeDef",
     "DeleteSnapshotScheduleOutputTypeDef",
-    "DeleteTapeArchiveInputRequestTypeDef",
+    "DeleteTapeArchiveInputTypeDef",
     "DeleteTapeArchiveOutputTypeDef",
-    "DeleteTapeInputRequestTypeDef",
+    "DeleteTapeInputTypeDef",
     "DeleteTapeOutputTypeDef",
-    "DeleteTapePoolInputRequestTypeDef",
+    "DeleteTapePoolInputTypeDef",
     "DeleteTapePoolOutputTypeDef",
-    "DeleteVolumeInputRequestTypeDef",
+    "DeleteVolumeInputTypeDef",
     "DeleteVolumeOutputTypeDef",
-    "DescribeAvailabilityMonitorTestInputRequestTypeDef",
+    "DescribeAvailabilityMonitorTestInputTypeDef",
     "DescribeAvailabilityMonitorTestOutputTypeDef",
-    "DescribeBandwidthRateLimitInputRequestTypeDef",
+    "DescribeBandwidthRateLimitInputTypeDef",
     "DescribeBandwidthRateLimitOutputTypeDef",
-    "DescribeBandwidthRateLimitScheduleInputRequestTypeDef",
+    "DescribeBandwidthRateLimitScheduleInputTypeDef",
     "DescribeBandwidthRateLimitScheduleOutputTypeDef",
-    "DescribeCacheInputRequestTypeDef",
+    "DescribeCacheInputTypeDef",
     "DescribeCacheOutputTypeDef",
-    "DescribeCachediSCSIVolumesInputRequestTypeDef",
+    "DescribeCacheReportInputTypeDef",
+    "DescribeCacheReportOutputTypeDef",
+    "DescribeCachediSCSIVolumesInputTypeDef",
     "DescribeCachediSCSIVolumesOutputTypeDef",
-    "DescribeChapCredentialsInputRequestTypeDef",
+    "DescribeChapCredentialsInputTypeDef",
     "DescribeChapCredentialsOutputTypeDef",
-    "DescribeFileSystemAssociationsInputRequestTypeDef",
+    "DescribeFileSystemAssociationsInputTypeDef",
     "DescribeFileSystemAssociationsOutputTypeDef",
-    "DescribeGatewayInformationInputRequestTypeDef",
+    "DescribeGatewayInformationInputTypeDef",
     "DescribeGatewayInformationOutputTypeDef",
-    "DescribeMaintenanceStartTimeInputRequestTypeDef",
+    "DescribeMaintenanceStartTimeInputTypeDef",
     "DescribeMaintenanceStartTimeOutputTypeDef",
-    "DescribeNFSFileSharesInputRequestTypeDef",
+    "DescribeNFSFileSharesInputTypeDef",
     "DescribeNFSFileSharesOutputTypeDef",
-    "DescribeSMBFileSharesInputRequestTypeDef",
+    "DescribeSMBFileSharesInputTypeDef",
     "DescribeSMBFileSharesOutputTypeDef",
-    "DescribeSMBSettingsInputRequestTypeDef",
+    "DescribeSMBSettingsInputTypeDef",
     "DescribeSMBSettingsOutputTypeDef",
-    "DescribeSnapshotScheduleInputRequestTypeDef",
+    "DescribeSnapshotScheduleInputTypeDef",
     "DescribeSnapshotScheduleOutputTypeDef",
-    "DescribeStorediSCSIVolumesInputRequestTypeDef",
+    "DescribeStorediSCSIVolumesInputTypeDef",
     "DescribeStorediSCSIVolumesOutputTypeDef",
-    "DescribeTapeArchivesInputRequestTypeDef",
+    "DescribeTapeArchivesInputPaginateTypeDef",
+    "DescribeTapeArchivesInputTypeDef",
     "DescribeTapeArchivesOutputTypeDef",
-    "DescribeTapeRecoveryPointsInputRequestTypeDef",
+    "DescribeTapeRecoveryPointsInputPaginateTypeDef",
+    "DescribeTapeRecoveryPointsInputTypeDef",
     "DescribeTapeRecoveryPointsOutputTypeDef",
-    "DescribeTapesInputRequestTypeDef",
+    "DescribeTapesInputPaginateTypeDef",
+    "DescribeTapesInputTypeDef",
     "DescribeTapesOutputTypeDef",
-    "DescribeUploadBufferInputRequestTypeDef",
+    "DescribeUploadBufferInputTypeDef",
     "DescribeUploadBufferOutputTypeDef",
-    "DescribeVTLDevicesInputRequestTypeDef",
+    "DescribeVTLDevicesInputPaginateTypeDef",
+    "DescribeVTLDevicesInputTypeDef",
     "DescribeVTLDevicesOutputTypeDef",
-    "DescribeWorkingStorageInputRequestTypeDef",
+    "DescribeWorkingStorageInputTypeDef",
     "DescribeWorkingStorageOutputTypeDef",
-    "DetachVolumeInputRequestTypeDef",
+    "DetachVolumeInputTypeDef",
     "DetachVolumeOutputTypeDef",
     "DeviceiSCSIAttributesTypeDef",
-    "DisableGatewayInputRequestTypeDef",
+    "DisableGatewayInputTypeDef",
     "DisableGatewayOutputTypeDef",
-    "DisassociateFileSystemInputRequestTypeDef",
+    "DisassociateFileSystemInputTypeDef",
     "DisassociateFileSystemOutputTypeDef",
     "DiskTypeDef",
+    "EndpointNetworkConfigurationOutputTypeDef",
     "EndpointNetworkConfigurationTypeDef",
+    "EndpointNetworkConfigurationUnionTypeDef",
+    "EvictFilesFailingUploadInputTypeDef",
+    "EvictFilesFailingUploadOutputTypeDef",
     "FileShareInfoTypeDef",
     "FileSystemAssociationInfoTypeDef",
     "FileSystemAssociationStatusDetailTypeDef",
     "FileSystemAssociationSummaryTypeDef",
     "GatewayInfoTypeDef",
-    "JoinDomainInputRequestTypeDef",
+    "JoinDomainInputTypeDef",
     "JoinDomainOutputTypeDef",
-    "ListAutomaticTapeCreationPoliciesInputRequestTypeDef",
+    "ListAutomaticTapeCreationPoliciesInputTypeDef",
     "ListAutomaticTapeCreationPoliciesOutputTypeDef",
-    "ListFileSharesInputRequestTypeDef",
+    "ListCacheReportsInputPaginateTypeDef",
+    "ListCacheReportsInputTypeDef",
+    "ListCacheReportsOutputTypeDef",
+    "ListFileSharesInputPaginateTypeDef",
+    "ListFileSharesInputTypeDef",
     "ListFileSharesOutputTypeDef",
-    "ListFileSystemAssociationsInputRequestTypeDef",
+    "ListFileSystemAssociationsInputPaginateTypeDef",
+    "ListFileSystemAssociationsInputTypeDef",
     "ListFileSystemAssociationsOutputTypeDef",
-    "ListGatewaysInputRequestTypeDef",
+    "ListGatewaysInputPaginateTypeDef",
+    "ListGatewaysInputTypeDef",
     "ListGatewaysOutputTypeDef",
-    "ListLocalDisksInputRequestTypeDef",
+    "ListLocalDisksInputTypeDef",
     "ListLocalDisksOutputTypeDef",
-    "ListTagsForResourceInputRequestTypeDef",
+    "ListTagsForResourceInputPaginateTypeDef",
+    "ListTagsForResourceInputTypeDef",
     "ListTagsForResourceOutputTypeDef",
-    "ListTapePoolsInputRequestTypeDef",
+    "ListTapePoolsInputPaginateTypeDef",
+    "ListTapePoolsInputTypeDef",
     "ListTapePoolsOutputTypeDef",
-    "ListTapesInputRequestTypeDef",
+    "ListTapesInputPaginateTypeDef",
+    "ListTapesInputTypeDef",
     "ListTapesOutputTypeDef",
-    "ListVolumeInitiatorsInputRequestTypeDef",
+    "ListVolumeInitiatorsInputTypeDef",
     "ListVolumeInitiatorsOutputTypeDef",
-    "ListVolumeRecoveryPointsInputRequestTypeDef",
+    "ListVolumeRecoveryPointsInputTypeDef",
     "ListVolumeRecoveryPointsOutputTypeDef",
-    "ListVolumesInputRequestTypeDef",
+    "ListVolumesInputPaginateTypeDef",
+    "ListVolumesInputTypeDef",
     "ListVolumesOutputTypeDef",
     "NFSFileShareDefaultsTypeDef",
     "NFSFileShareInfoTypeDef",
     "NetworkInterfaceTypeDef",
-    "NotifyWhenUploadedInputRequestTypeDef",
+    "NotifyWhenUploadedInputTypeDef",
     "NotifyWhenUploadedOutputTypeDef",
     "PaginatorConfigTypeDef",
     "PoolInfoTypeDef",
-    "RefreshCacheInputRequestTypeDef",
+    "RefreshCacheInputTypeDef",
     "RefreshCacheOutputTypeDef",
-    "RemoveTagsFromResourceInputRequestTypeDef",
+    "RemoveTagsFromResourceInputTypeDef",
     "RemoveTagsFromResourceOutputTypeDef",
-    "ResetCacheInputRequestTypeDef",
+    "ResetCacheInputTypeDef",
     "ResetCacheOutputTypeDef",
     "ResponseMetadataTypeDef",
-    "RetrieveTapeArchiveInputRequestTypeDef",
+    "RetrieveTapeArchiveInputTypeDef",
     "RetrieveTapeArchiveOutputTypeDef",
-    "RetrieveTapeRecoveryPointInputRequestTypeDef",
+    "RetrieveTapeRecoveryPointInputTypeDef",
     "RetrieveTapeRecoveryPointOutputTypeDef",
     "SMBFileShareInfoTypeDef",
+    "SMBLocalGroupsOutputTypeDef",
     "SMBLocalGroupsTypeDef",
-    "SetLocalConsolePasswordInputRequestTypeDef",
+    "SMBLocalGroupsUnionTypeDef",
+    "SetLocalConsolePasswordInputTypeDef",
     "SetLocalConsolePasswordOutputTypeDef",
-    "SetSMBGuestPasswordInputRequestTypeDef",
+    "SetSMBGuestPasswordInputTypeDef",
     "SetSMBGuestPasswordOutputTypeDef",
-    "ShutdownGatewayInputRequestTypeDef",
+    "ShutdownGatewayInputTypeDef",
     "ShutdownGatewayOutputTypeDef",
     "SoftwareUpdatePreferencesTypeDef",
-    "StartAvailabilityMonitorTestInputRequestTypeDef",
+    "StartAvailabilityMonitorTestInputTypeDef",
     "StartAvailabilityMonitorTestOutputTypeDef",
-    "StartGatewayInputRequestTypeDef",
+    "StartCacheReportInputTypeDef",
+    "StartCacheReportOutputTypeDef",
+    "StartGatewayInputTypeDef",
     "StartGatewayOutputTypeDef",
     "StorediSCSIVolumeTypeDef",
     "TagTypeDef",
@@ -216,35 +263,35 @@ __all__ = (
     "TapeInfoTypeDef",
     "TapeRecoveryPointInfoTypeDef",
     "TapeTypeDef",
-    "UpdateAutomaticTapeCreationPolicyInputRequestTypeDef",
+    "UpdateAutomaticTapeCreationPolicyInputTypeDef",
     "UpdateAutomaticTapeCreationPolicyOutputTypeDef",
-    "UpdateBandwidthRateLimitInputRequestTypeDef",
+    "UpdateBandwidthRateLimitInputTypeDef",
     "UpdateBandwidthRateLimitOutputTypeDef",
-    "UpdateBandwidthRateLimitScheduleInputRequestTypeDef",
+    "UpdateBandwidthRateLimitScheduleInputTypeDef",
     "UpdateBandwidthRateLimitScheduleOutputTypeDef",
-    "UpdateChapCredentialsInputRequestTypeDef",
+    "UpdateChapCredentialsInputTypeDef",
     "UpdateChapCredentialsOutputTypeDef",
-    "UpdateFileSystemAssociationInputRequestTypeDef",
+    "UpdateFileSystemAssociationInputTypeDef",
     "UpdateFileSystemAssociationOutputTypeDef",
-    "UpdateGatewayInformationInputRequestTypeDef",
+    "UpdateGatewayInformationInputTypeDef",
     "UpdateGatewayInformationOutputTypeDef",
-    "UpdateGatewaySoftwareNowInputRequestTypeDef",
+    "UpdateGatewaySoftwareNowInputTypeDef",
     "UpdateGatewaySoftwareNowOutputTypeDef",
-    "UpdateMaintenanceStartTimeInputRequestTypeDef",
+    "UpdateMaintenanceStartTimeInputTypeDef",
     "UpdateMaintenanceStartTimeOutputTypeDef",
-    "UpdateNFSFileShareInputRequestTypeDef",
+    "UpdateNFSFileShareInputTypeDef",
     "UpdateNFSFileShareOutputTypeDef",
-    "UpdateSMBFileShareInputRequestTypeDef",
+    "UpdateSMBFileShareInputTypeDef",
     "UpdateSMBFileShareOutputTypeDef",
-    "UpdateSMBFileShareVisibilityInputRequestTypeDef",
+    "UpdateSMBFileShareVisibilityInputTypeDef",
     "UpdateSMBFileShareVisibilityOutputTypeDef",
-    "UpdateSMBLocalGroupsInputRequestTypeDef",
+    "UpdateSMBLocalGroupsInputTypeDef",
     "UpdateSMBLocalGroupsOutputTypeDef",
-    "UpdateSMBSecurityStrategyInputRequestTypeDef",
+    "UpdateSMBSecurityStrategyInputTypeDef",
     "UpdateSMBSecurityStrategyOutputTypeDef",
-    "UpdateSnapshotScheduleInputRequestTypeDef",
+    "UpdateSnapshotScheduleInputTypeDef",
     "UpdateSnapshotScheduleOutputTypeDef",
-    "UpdateVTLDeviceTypeInputRequestTypeDef",
+    "UpdateVTLDeviceTypeInputTypeDef",
     "UpdateVTLDeviceTypeOutputTypeDef",
     "VTLDeviceTypeDef",
     "VolumeInfoTypeDef",
@@ -252,2504 +299,1405 @@ __all__ = (
     "VolumeiSCSIAttributesTypeDef",
 )
 
-_RequiredActivateGatewayInputRequestTypeDef = TypedDict(
-    "_RequiredActivateGatewayInputRequestTypeDef",
-    {
-        "ActivationKey": str,
-        "GatewayName": str,
-        "GatewayTimezone": str,
-        "GatewayRegion": str,
-    },
-)
-_OptionalActivateGatewayInputRequestTypeDef = TypedDict(
-    "_OptionalActivateGatewayInputRequestTypeDef",
-    {
-        "GatewayType": str,
-        "TapeDriveType": str,
-        "MediumChangerType": str,
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
+class TagTypeDef(TypedDict):
+    Key: str
+    Value: str
 
-class ActivateGatewayInputRequestTypeDef(
-    _RequiredActivateGatewayInputRequestTypeDef, _OptionalActivateGatewayInputRequestTypeDef
-):
-    pass
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-ActivateGatewayOutputTypeDef = TypedDict(
-    "ActivateGatewayOutputTypeDef",
-    {
-        "GatewayARN": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class AddCacheInputTypeDef(TypedDict):
+    GatewayARN: str
+    DiskIds: Sequence[str]
 
-AddCacheInputRequestTypeDef = TypedDict(
-    "AddCacheInputRequestTypeDef",
-    {
-        "GatewayARN": str,
-        "DiskIds": List[str],
-    },
-)
+class AddUploadBufferInputTypeDef(TypedDict):
+    GatewayARN: str
+    DiskIds: Sequence[str]
 
-AddCacheOutputTypeDef = TypedDict(
-    "AddCacheOutputTypeDef",
-    {
-        "GatewayARN": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class AddWorkingStorageInputTypeDef(TypedDict):
+    GatewayARN: str
+    DiskIds: Sequence[str]
 
-AddTagsToResourceInputRequestTypeDef = TypedDict(
-    "AddTagsToResourceInputRequestTypeDef",
-    {
-        "ResourceARN": str,
-        "Tags": List["TagTypeDef"],
-    },
-)
+class AssignTapePoolInputTypeDef(TypedDict):
+    TapeARN: str
+    PoolId: str
+    BypassGovernanceRetention: NotRequired[bool]
 
-AddTagsToResourceOutputTypeDef = TypedDict(
-    "AddTagsToResourceOutputTypeDef",
-    {
-        "ResourceARN": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CacheAttributesTypeDef(TypedDict):
+    CacheStaleTimeoutInSeconds: NotRequired[int]
 
-AddUploadBufferInputRequestTypeDef = TypedDict(
-    "AddUploadBufferInputRequestTypeDef",
-    {
-        "GatewayARN": str,
-        "DiskIds": List[str],
-    },
-)
+class AttachVolumeInputTypeDef(TypedDict):
+    GatewayARN: str
+    VolumeARN: str
+    NetworkInterfaceId: str
+    TargetName: NotRequired[str]
+    DiskId: NotRequired[str]
 
-AddUploadBufferOutputTypeDef = TypedDict(
-    "AddUploadBufferOutputTypeDef",
-    {
-        "GatewayARN": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class AutomaticTapeCreationRuleTypeDef(TypedDict):
+    TapeBarcodePrefix: str
+    PoolId: str
+    TapeSizeInBytes: int
+    MinimumNumTapes: int
+    Worm: NotRequired[bool]
 
-AddWorkingStorageInputRequestTypeDef = TypedDict(
-    "AddWorkingStorageInputRequestTypeDef",
-    {
-        "GatewayARN": str,
-        "DiskIds": List[str],
-    },
-)
+class BandwidthRateLimitIntervalOutputTypeDef(TypedDict):
+    StartHourOfDay: int
+    StartMinuteOfHour: int
+    EndHourOfDay: int
+    EndMinuteOfHour: int
+    DaysOfWeek: List[int]
+    AverageUploadRateLimitInBitsPerSec: NotRequired[int]
+    AverageDownloadRateLimitInBitsPerSec: NotRequired[int]
 
-AddWorkingStorageOutputTypeDef = TypedDict(
-    "AddWorkingStorageOutputTypeDef",
-    {
-        "GatewayARN": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class BandwidthRateLimitIntervalTypeDef(TypedDict):
+    StartHourOfDay: int
+    StartMinuteOfHour: int
+    EndHourOfDay: int
+    EndMinuteOfHour: int
+    DaysOfWeek: Sequence[int]
+    AverageUploadRateLimitInBitsPerSec: NotRequired[int]
+    AverageDownloadRateLimitInBitsPerSec: NotRequired[int]
 
-_RequiredAssignTapePoolInputRequestTypeDef = TypedDict(
-    "_RequiredAssignTapePoolInputRequestTypeDef",
-    {
-        "TapeARN": str,
-        "PoolId": str,
-    },
-)
-_OptionalAssignTapePoolInputRequestTypeDef = TypedDict(
-    "_OptionalAssignTapePoolInputRequestTypeDef",
-    {
-        "BypassGovernanceRetention": bool,
-    },
-    total=False,
-)
+class CacheReportFilterOutputTypeDef(TypedDict):
+    Name: CacheReportFilterNameType
+    Values: List[str]
 
-class AssignTapePoolInputRequestTypeDef(
-    _RequiredAssignTapePoolInputRequestTypeDef, _OptionalAssignTapePoolInputRequestTypeDef
-):
-    pass
+class CacheReportFilterTypeDef(TypedDict):
+    Name: CacheReportFilterNameType
+    Values: Sequence[str]
 
-AssignTapePoolOutputTypeDef = TypedDict(
-    "AssignTapePoolOutputTypeDef",
-    {
-        "TapeARN": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class VolumeiSCSIAttributesTypeDef(TypedDict):
+    TargetARN: NotRequired[str]
+    NetworkInterfaceId: NotRequired[str]
+    NetworkInterfacePort: NotRequired[int]
+    LunNumber: NotRequired[int]
+    ChapEnabled: NotRequired[bool]
 
-_RequiredAssociateFileSystemInputRequestTypeDef = TypedDict(
-    "_RequiredAssociateFileSystemInputRequestTypeDef",
-    {
-        "UserName": str,
-        "Password": str,
-        "ClientToken": str,
-        "GatewayARN": str,
-        "LocationARN": str,
-    },
-)
-_OptionalAssociateFileSystemInputRequestTypeDef = TypedDict(
-    "_OptionalAssociateFileSystemInputRequestTypeDef",
-    {
-        "Tags": List["TagTypeDef"],
-        "AuditDestinationARN": str,
-        "CacheAttributes": "CacheAttributesTypeDef",
-        "EndpointNetworkConfiguration": "EndpointNetworkConfigurationTypeDef",
-    },
-    total=False,
-)
+class CancelArchivalInputTypeDef(TypedDict):
+    GatewayARN: str
+    TapeARN: str
 
-class AssociateFileSystemInputRequestTypeDef(
-    _RequiredAssociateFileSystemInputRequestTypeDef, _OptionalAssociateFileSystemInputRequestTypeDef
-):
-    pass
+class CancelCacheReportInputTypeDef(TypedDict):
+    CacheReportARN: str
 
-AssociateFileSystemOutputTypeDef = TypedDict(
-    "AssociateFileSystemOutputTypeDef",
-    {
-        "FileSystemAssociationARN": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CancelRetrievalInputTypeDef(TypedDict):
+    GatewayARN: str
+    TapeARN: str
 
-_RequiredAttachVolumeInputRequestTypeDef = TypedDict(
-    "_RequiredAttachVolumeInputRequestTypeDef",
-    {
-        "GatewayARN": str,
-        "VolumeARN": str,
-        "NetworkInterfaceId": str,
-    },
-)
-_OptionalAttachVolumeInputRequestTypeDef = TypedDict(
-    "_OptionalAttachVolumeInputRequestTypeDef",
-    {
-        "TargetName": str,
-        "DiskId": str,
-    },
-    total=False,
-)
+class ChapInfoTypeDef(TypedDict):
+    TargetARN: NotRequired[str]
+    SecretToAuthenticateInitiator: NotRequired[str]
+    InitiatorName: NotRequired[str]
+    SecretToAuthenticateTarget: NotRequired[str]
 
-class AttachVolumeInputRequestTypeDef(
-    _RequiredAttachVolumeInputRequestTypeDef, _OptionalAttachVolumeInputRequestTypeDef
-):
-    pass
+class NFSFileShareDefaultsTypeDef(TypedDict):
+    FileMode: NotRequired[str]
+    DirectoryMode: NotRequired[str]
+    GroupId: NotRequired[int]
+    OwnerId: NotRequired[int]
 
-AttachVolumeOutputTypeDef = TypedDict(
-    "AttachVolumeOutputTypeDef",
-    {
-        "VolumeARN": str,
-        "TargetARN": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DeleteAutomaticTapeCreationPolicyInputTypeDef(TypedDict):
+    GatewayARN: str
 
-AutomaticTapeCreationPolicyInfoTypeDef = TypedDict(
-    "AutomaticTapeCreationPolicyInfoTypeDef",
-    {
-        "AutomaticTapeCreationRules": List["AutomaticTapeCreationRuleTypeDef"],
-        "GatewayARN": str,
-    },
-    total=False,
-)
+class DeleteBandwidthRateLimitInputTypeDef(TypedDict):
+    GatewayARN: str
+    BandwidthType: str
 
-_RequiredAutomaticTapeCreationRuleTypeDef = TypedDict(
-    "_RequiredAutomaticTapeCreationRuleTypeDef",
-    {
-        "TapeBarcodePrefix": str,
-        "PoolId": str,
-        "TapeSizeInBytes": int,
-        "MinimumNumTapes": int,
-    },
-)
-_OptionalAutomaticTapeCreationRuleTypeDef = TypedDict(
-    "_OptionalAutomaticTapeCreationRuleTypeDef",
-    {
-        "Worm": bool,
-    },
-    total=False,
-)
+class DeleteCacheReportInputTypeDef(TypedDict):
+    CacheReportARN: str
 
-class AutomaticTapeCreationRuleTypeDef(
-    _RequiredAutomaticTapeCreationRuleTypeDef, _OptionalAutomaticTapeCreationRuleTypeDef
-):
-    pass
+class DeleteChapCredentialsInputTypeDef(TypedDict):
+    TargetARN: str
+    InitiatorName: str
 
-_RequiredBandwidthRateLimitIntervalTypeDef = TypedDict(
-    "_RequiredBandwidthRateLimitIntervalTypeDef",
-    {
-        "StartHourOfDay": int,
-        "StartMinuteOfHour": int,
-        "EndHourOfDay": int,
-        "EndMinuteOfHour": int,
-        "DaysOfWeek": List[int],
-    },
-)
-_OptionalBandwidthRateLimitIntervalTypeDef = TypedDict(
-    "_OptionalBandwidthRateLimitIntervalTypeDef",
-    {
-        "AverageUploadRateLimitInBitsPerSec": int,
-        "AverageDownloadRateLimitInBitsPerSec": int,
-    },
-    total=False,
-)
+class DeleteFileShareInputTypeDef(TypedDict):
+    FileShareARN: str
+    ForceDelete: NotRequired[bool]
 
-class BandwidthRateLimitIntervalTypeDef(
-    _RequiredBandwidthRateLimitIntervalTypeDef, _OptionalBandwidthRateLimitIntervalTypeDef
-):
-    pass
+class DeleteGatewayInputTypeDef(TypedDict):
+    GatewayARN: str
 
-CacheAttributesTypeDef = TypedDict(
-    "CacheAttributesTypeDef",
-    {
-        "CacheStaleTimeoutInSeconds": int,
-    },
-    total=False,
-)
+class DeleteSnapshotScheduleInputTypeDef(TypedDict):
+    VolumeARN: str
 
-CachediSCSIVolumeTypeDef = TypedDict(
-    "CachediSCSIVolumeTypeDef",
-    {
-        "VolumeARN": str,
-        "VolumeId": str,
-        "VolumeType": str,
-        "VolumeStatus": str,
-        "VolumeAttachmentStatus": str,
-        "VolumeSizeInBytes": int,
-        "VolumeProgress": float,
-        "SourceSnapshotId": str,
-        "VolumeiSCSIAttributes": "VolumeiSCSIAttributesTypeDef",
-        "CreatedDate": datetime,
-        "VolumeUsedInBytes": int,
-        "KMSKey": str,
-        "TargetName": str,
-    },
-    total=False,
-)
+class DeleteTapeArchiveInputTypeDef(TypedDict):
+    TapeARN: str
+    BypassGovernanceRetention: NotRequired[bool]
 
-CancelArchivalInputRequestTypeDef = TypedDict(
-    "CancelArchivalInputRequestTypeDef",
-    {
-        "GatewayARN": str,
-        "TapeARN": str,
-    },
-)
+class DeleteTapeInputTypeDef(TypedDict):
+    GatewayARN: str
+    TapeARN: str
+    BypassGovernanceRetention: NotRequired[bool]
 
-CancelArchivalOutputTypeDef = TypedDict(
-    "CancelArchivalOutputTypeDef",
-    {
-        "TapeARN": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DeleteTapePoolInputTypeDef(TypedDict):
+    PoolARN: str
 
-CancelRetrievalInputRequestTypeDef = TypedDict(
-    "CancelRetrievalInputRequestTypeDef",
-    {
-        "GatewayARN": str,
-        "TapeARN": str,
-    },
-)
+class DeleteVolumeInputTypeDef(TypedDict):
+    VolumeARN: str
 
-CancelRetrievalOutputTypeDef = TypedDict(
-    "CancelRetrievalOutputTypeDef",
-    {
-        "TapeARN": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DescribeAvailabilityMonitorTestInputTypeDef(TypedDict):
+    GatewayARN: str
 
-ChapInfoTypeDef = TypedDict(
-    "ChapInfoTypeDef",
-    {
-        "TargetARN": str,
-        "SecretToAuthenticateInitiator": str,
-        "InitiatorName": str,
-        "SecretToAuthenticateTarget": str,
-    },
-    total=False,
-)
+class DescribeBandwidthRateLimitInputTypeDef(TypedDict):
+    GatewayARN: str
 
-_RequiredCreateCachediSCSIVolumeInputRequestTypeDef = TypedDict(
-    "_RequiredCreateCachediSCSIVolumeInputRequestTypeDef",
-    {
-        "GatewayARN": str,
-        "VolumeSizeInBytes": int,
-        "TargetName": str,
-        "NetworkInterfaceId": str,
-        "ClientToken": str,
-    },
-)
-_OptionalCreateCachediSCSIVolumeInputRequestTypeDef = TypedDict(
-    "_OptionalCreateCachediSCSIVolumeInputRequestTypeDef",
-    {
-        "SnapshotId": str,
-        "SourceVolumeARN": str,
-        "KMSEncrypted": bool,
-        "KMSKey": str,
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
+class DescribeBandwidthRateLimitScheduleInputTypeDef(TypedDict):
+    GatewayARN: str
 
-class CreateCachediSCSIVolumeInputRequestTypeDef(
-    _RequiredCreateCachediSCSIVolumeInputRequestTypeDef,
-    _OptionalCreateCachediSCSIVolumeInputRequestTypeDef,
-):
-    pass
+class DescribeCacheInputTypeDef(TypedDict):
+    GatewayARN: str
 
-CreateCachediSCSIVolumeOutputTypeDef = TypedDict(
-    "CreateCachediSCSIVolumeOutputTypeDef",
-    {
-        "VolumeARN": str,
-        "TargetARN": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DescribeCacheReportInputTypeDef(TypedDict):
+    CacheReportARN: str
 
-_RequiredCreateNFSFileShareInputRequestTypeDef = TypedDict(
-    "_RequiredCreateNFSFileShareInputRequestTypeDef",
+class DescribeCachediSCSIVolumesInputTypeDef(TypedDict):
+    VolumeARNs: Sequence[str]
+
+class DescribeChapCredentialsInputTypeDef(TypedDict):
+    TargetARN: str
+
+class DescribeFileSystemAssociationsInputTypeDef(TypedDict):
+    FileSystemAssociationARNList: Sequence[str]
+
+class DescribeGatewayInformationInputTypeDef(TypedDict):
+    GatewayARN: str
+
+class NetworkInterfaceTypeDef(TypedDict):
+    Ipv4Address: NotRequired[str]
+    MacAddress: NotRequired[str]
+    Ipv6Address: NotRequired[str]
+
+class DescribeMaintenanceStartTimeInputTypeDef(TypedDict):
+    GatewayARN: str
+
+class SoftwareUpdatePreferencesTypeDef(TypedDict):
+    AutomaticUpdatePolicy: NotRequired[AutomaticUpdatePolicyType]
+
+class DescribeNFSFileSharesInputTypeDef(TypedDict):
+    FileShareARNList: Sequence[str]
+
+class DescribeSMBFileSharesInputTypeDef(TypedDict):
+    FileShareARNList: Sequence[str]
+
+class DescribeSMBSettingsInputTypeDef(TypedDict):
+    GatewayARN: str
+
+class SMBLocalGroupsOutputTypeDef(TypedDict):
+    GatewayAdmins: NotRequired[List[str]]
+
+class DescribeSnapshotScheduleInputTypeDef(TypedDict):
+    VolumeARN: str
+
+class DescribeStorediSCSIVolumesInputTypeDef(TypedDict):
+    VolumeARNs: Sequence[str]
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class DescribeTapeArchivesInputTypeDef(TypedDict):
+    TapeARNs: NotRequired[Sequence[str]]
+    Marker: NotRequired[str]
+    Limit: NotRequired[int]
+
+class TapeArchiveTypeDef(TypedDict):
+    TapeARN: NotRequired[str]
+    TapeBarcode: NotRequired[str]
+    TapeCreatedDate: NotRequired[datetime]
+    TapeSizeInBytes: NotRequired[int]
+    CompletionTime: NotRequired[datetime]
+    RetrievedTo: NotRequired[str]
+    TapeStatus: NotRequired[str]
+    TapeUsedInBytes: NotRequired[int]
+    KMSKey: NotRequired[str]
+    PoolId: NotRequired[str]
+    Worm: NotRequired[bool]
+    RetentionStartDate: NotRequired[datetime]
+    PoolEntryDate: NotRequired[datetime]
+
+class DescribeTapeRecoveryPointsInputTypeDef(TypedDict):
+    GatewayARN: str
+    Marker: NotRequired[str]
+    Limit: NotRequired[int]
+
+class TapeRecoveryPointInfoTypeDef(TypedDict):
+    TapeARN: NotRequired[str]
+    TapeRecoveryPointTime: NotRequired[datetime]
+    TapeSizeInBytes: NotRequired[int]
+    TapeStatus: NotRequired[str]
+
+class DescribeTapesInputTypeDef(TypedDict):
+    GatewayARN: str
+    TapeARNs: NotRequired[Sequence[str]]
+    Marker: NotRequired[str]
+    Limit: NotRequired[int]
+
+class TapeTypeDef(TypedDict):
+    TapeARN: NotRequired[str]
+    TapeBarcode: NotRequired[str]
+    TapeCreatedDate: NotRequired[datetime]
+    TapeSizeInBytes: NotRequired[int]
+    TapeStatus: NotRequired[str]
+    VTLDevice: NotRequired[str]
+    Progress: NotRequired[float]
+    TapeUsedInBytes: NotRequired[int]
+    KMSKey: NotRequired[str]
+    PoolId: NotRequired[str]
+    Worm: NotRequired[bool]
+    RetentionStartDate: NotRequired[datetime]
+    PoolEntryDate: NotRequired[datetime]
+
+class DescribeUploadBufferInputTypeDef(TypedDict):
+    GatewayARN: str
+
+class DescribeVTLDevicesInputTypeDef(TypedDict):
+    GatewayARN: str
+    VTLDeviceARNs: NotRequired[Sequence[str]]
+    Marker: NotRequired[str]
+    Limit: NotRequired[int]
+
+class DescribeWorkingStorageInputTypeDef(TypedDict):
+    GatewayARN: str
+
+class DetachVolumeInputTypeDef(TypedDict):
+    VolumeARN: str
+    ForceDetach: NotRequired[bool]
+
+class DeviceiSCSIAttributesTypeDef(TypedDict):
+    TargetARN: NotRequired[str]
+    NetworkInterfaceId: NotRequired[str]
+    NetworkInterfacePort: NotRequired[int]
+    ChapEnabled: NotRequired[bool]
+
+class DisableGatewayInputTypeDef(TypedDict):
+    GatewayARN: str
+
+class DisassociateFileSystemInputTypeDef(TypedDict):
+    FileSystemAssociationARN: str
+    ForceDelete: NotRequired[bool]
+
+class DiskTypeDef(TypedDict):
+    DiskId: NotRequired[str]
+    DiskPath: NotRequired[str]
+    DiskNode: NotRequired[str]
+    DiskStatus: NotRequired[str]
+    DiskSizeInBytes: NotRequired[int]
+    DiskAllocationType: NotRequired[str]
+    DiskAllocationResource: NotRequired[str]
+    DiskAttributeList: NotRequired[List[str]]
+
+class EndpointNetworkConfigurationOutputTypeDef(TypedDict):
+    IpAddresses: NotRequired[List[str]]
+
+class EndpointNetworkConfigurationTypeDef(TypedDict):
+    IpAddresses: NotRequired[Sequence[str]]
+
+class EvictFilesFailingUploadInputTypeDef(TypedDict):
+    FileShareARN: str
+    ForceRemove: NotRequired[bool]
+
+class FileShareInfoTypeDef(TypedDict):
+    FileShareType: NotRequired[FileShareTypeType]
+    FileShareARN: NotRequired[str]
+    FileShareId: NotRequired[str]
+    FileShareStatus: NotRequired[str]
+    GatewayARN: NotRequired[str]
+
+class FileSystemAssociationStatusDetailTypeDef(TypedDict):
+    ErrorCode: NotRequired[str]
+
+class FileSystemAssociationSummaryTypeDef(TypedDict):
+    FileSystemAssociationId: NotRequired[str]
+    FileSystemAssociationARN: NotRequired[str]
+    FileSystemAssociationStatus: NotRequired[str]
+    GatewayARN: NotRequired[str]
+
+class GatewayInfoTypeDef(TypedDict):
+    GatewayId: NotRequired[str]
+    GatewayARN: NotRequired[str]
+    GatewayType: NotRequired[str]
+    GatewayOperationalState: NotRequired[str]
+    GatewayName: NotRequired[str]
+    Ec2InstanceId: NotRequired[str]
+    Ec2InstanceRegion: NotRequired[str]
+    HostEnvironment: NotRequired[HostEnvironmentType]
+    HostEnvironmentId: NotRequired[str]
+    DeprecationDate: NotRequired[str]
+    SoftwareVersion: NotRequired[str]
+
+class JoinDomainInputTypeDef(TypedDict):
+    GatewayARN: str
+    DomainName: str
+    UserName: str
+    Password: str
+    OrganizationalUnit: NotRequired[str]
+    DomainControllers: NotRequired[Sequence[str]]
+    TimeoutInSeconds: NotRequired[int]
+
+class ListAutomaticTapeCreationPoliciesInputTypeDef(TypedDict):
+    GatewayARN: NotRequired[str]
+
+class ListCacheReportsInputTypeDef(TypedDict):
+    Marker: NotRequired[str]
+
+class ListFileSharesInputTypeDef(TypedDict):
+    GatewayARN: NotRequired[str]
+    Limit: NotRequired[int]
+    Marker: NotRequired[str]
+
+class ListFileSystemAssociationsInputTypeDef(TypedDict):
+    GatewayARN: NotRequired[str]
+    Limit: NotRequired[int]
+    Marker: NotRequired[str]
+
+class ListGatewaysInputTypeDef(TypedDict):
+    Marker: NotRequired[str]
+    Limit: NotRequired[int]
+
+class ListLocalDisksInputTypeDef(TypedDict):
+    GatewayARN: str
+
+class ListTagsForResourceInputTypeDef(TypedDict):
+    ResourceARN: str
+    Marker: NotRequired[str]
+    Limit: NotRequired[int]
+
+class ListTapePoolsInputTypeDef(TypedDict):
+    PoolARNs: NotRequired[Sequence[str]]
+    Marker: NotRequired[str]
+    Limit: NotRequired[int]
+
+class PoolInfoTypeDef(TypedDict):
+    PoolARN: NotRequired[str]
+    PoolName: NotRequired[str]
+    StorageClass: NotRequired[TapeStorageClassType]
+    RetentionLockType: NotRequired[RetentionLockTypeType]
+    RetentionLockTimeInDays: NotRequired[int]
+    PoolStatus: NotRequired[PoolStatusType]
+
+class ListTapesInputTypeDef(TypedDict):
+    TapeARNs: NotRequired[Sequence[str]]
+    Marker: NotRequired[str]
+    Limit: NotRequired[int]
+
+class TapeInfoTypeDef(TypedDict):
+    TapeARN: NotRequired[str]
+    TapeBarcode: NotRequired[str]
+    TapeSizeInBytes: NotRequired[int]
+    TapeStatus: NotRequired[str]
+    GatewayARN: NotRequired[str]
+    PoolId: NotRequired[str]
+    RetentionStartDate: NotRequired[datetime]
+    PoolEntryDate: NotRequired[datetime]
+
+class ListVolumeInitiatorsInputTypeDef(TypedDict):
+    VolumeARN: str
+
+class ListVolumeRecoveryPointsInputTypeDef(TypedDict):
+    GatewayARN: str
+
+class VolumeRecoveryPointInfoTypeDef(TypedDict):
+    VolumeARN: NotRequired[str]
+    VolumeSizeInBytes: NotRequired[int]
+    VolumeUsageInBytes: NotRequired[int]
+    VolumeRecoveryPointTime: NotRequired[str]
+
+class ListVolumesInputTypeDef(TypedDict):
+    GatewayARN: NotRequired[str]
+    Marker: NotRequired[str]
+    Limit: NotRequired[int]
+
+class VolumeInfoTypeDef(TypedDict):
+    VolumeARN: NotRequired[str]
+    VolumeId: NotRequired[str]
+    GatewayARN: NotRequired[str]
+    GatewayId: NotRequired[str]
+    VolumeType: NotRequired[str]
+    VolumeSizeInBytes: NotRequired[int]
+    VolumeAttachmentStatus: NotRequired[str]
+
+class NotifyWhenUploadedInputTypeDef(TypedDict):
+    FileShareARN: str
+
+class RefreshCacheInputTypeDef(TypedDict):
+    FileShareARN: str
+    FolderList: NotRequired[Sequence[str]]
+    Recursive: NotRequired[bool]
+
+class RemoveTagsFromResourceInputTypeDef(TypedDict):
+    ResourceARN: str
+    TagKeys: Sequence[str]
+
+class ResetCacheInputTypeDef(TypedDict):
+    GatewayARN: str
+
+class RetrieveTapeArchiveInputTypeDef(TypedDict):
+    TapeARN: str
+    GatewayARN: str
+
+class RetrieveTapeRecoveryPointInputTypeDef(TypedDict):
+    TapeARN: str
+    GatewayARN: str
+
+class SMBLocalGroupsTypeDef(TypedDict):
+    GatewayAdmins: NotRequired[Sequence[str]]
+
+class SetLocalConsolePasswordInputTypeDef(TypedDict):
+    GatewayARN: str
+    LocalConsolePassword: str
+
+class SetSMBGuestPasswordInputTypeDef(TypedDict):
+    GatewayARN: str
+    Password: str
+
+class ShutdownGatewayInputTypeDef(TypedDict):
+    GatewayARN: str
+
+class StartAvailabilityMonitorTestInputTypeDef(TypedDict):
+    GatewayARN: str
+
+class StartGatewayInputTypeDef(TypedDict):
+    GatewayARN: str
+
+class UpdateBandwidthRateLimitInputTypeDef(TypedDict):
+    GatewayARN: str
+    AverageUploadRateLimitInBitsPerSec: NotRequired[int]
+    AverageDownloadRateLimitInBitsPerSec: NotRequired[int]
+
+class UpdateChapCredentialsInputTypeDef(TypedDict):
+    TargetARN: str
+    SecretToAuthenticateInitiator: str
+    InitiatorName: str
+    SecretToAuthenticateTarget: NotRequired[str]
+
+class UpdateGatewayInformationInputTypeDef(TypedDict):
+    GatewayARN: str
+    GatewayName: NotRequired[str]
+    GatewayTimezone: NotRequired[str]
+    CloudWatchLogGroupARN: NotRequired[str]
+    GatewayCapacity: NotRequired[GatewayCapacityType]
+
+class UpdateGatewaySoftwareNowInputTypeDef(TypedDict):
+    GatewayARN: str
+
+class UpdateSMBFileShareVisibilityInputTypeDef(TypedDict):
+    GatewayARN: str
+    FileSharesVisible: bool
+
+class UpdateSMBSecurityStrategyInputTypeDef(TypedDict):
+    GatewayARN: str
+    SMBSecurityStrategy: SMBSecurityStrategyType
+
+class UpdateVTLDeviceTypeInputTypeDef(TypedDict):
+    VTLDeviceARN: str
+    DeviceType: str
+
+class ActivateGatewayInputTypeDef(TypedDict):
+    ActivationKey: str
+    GatewayName: str
+    GatewayTimezone: str
+    GatewayRegion: str
+    GatewayType: NotRequired[str]
+    TapeDriveType: NotRequired[str]
+    MediumChangerType: NotRequired[str]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+
+class AddTagsToResourceInputTypeDef(TypedDict):
+    ResourceARN: str
+    Tags: Sequence[TagTypeDef]
+
+class CreateCachediSCSIVolumeInputTypeDef(TypedDict):
+    GatewayARN: str
+    VolumeSizeInBytes: int
+    TargetName: str
+    NetworkInterfaceId: str
+    ClientToken: str
+    SnapshotId: NotRequired[str]
+    SourceVolumeARN: NotRequired[str]
+    KMSEncrypted: NotRequired[bool]
+    KMSKey: NotRequired[str]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+
+class CreateSnapshotFromVolumeRecoveryPointInputTypeDef(TypedDict):
+    VolumeARN: str
+    SnapshotDescription: str
+    Tags: NotRequired[Sequence[TagTypeDef]]
+
+class CreateSnapshotInputTypeDef(TypedDict):
+    VolumeARN: str
+    SnapshotDescription: str
+    Tags: NotRequired[Sequence[TagTypeDef]]
+
+class CreateStorediSCSIVolumeInputTypeDef(TypedDict):
+    GatewayARN: str
+    DiskId: str
+    PreserveExistingData: bool
+    TargetName: str
+    NetworkInterfaceId: str
+    SnapshotId: NotRequired[str]
+    KMSEncrypted: NotRequired[bool]
+    KMSKey: NotRequired[str]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+
+class CreateTapePoolInputTypeDef(TypedDict):
+    PoolName: str
+    StorageClass: TapeStorageClassType
+    RetentionLockType: NotRequired[RetentionLockTypeType]
+    RetentionLockTimeInDays: NotRequired[int]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+
+class CreateTapeWithBarcodeInputTypeDef(TypedDict):
+    GatewayARN: str
+    TapeSizeInBytes: int
+    TapeBarcode: str
+    KMSEncrypted: NotRequired[bool]
+    KMSKey: NotRequired[str]
+    PoolId: NotRequired[str]
+    Worm: NotRequired[bool]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+
+class CreateTapesInputTypeDef(TypedDict):
+    GatewayARN: str
+    TapeSizeInBytes: int
+    ClientToken: str
+    NumTapesToCreate: int
+    TapeBarcodePrefix: str
+    KMSEncrypted: NotRequired[bool]
+    KMSKey: NotRequired[str]
+    PoolId: NotRequired[str]
+    Worm: NotRequired[bool]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+
+class UpdateSnapshotScheduleInputTypeDef(TypedDict):
+    VolumeARN: str
+    StartAt: int
+    RecurrenceInHours: int
+    Description: NotRequired[str]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+
+class ActivateGatewayOutputTypeDef(TypedDict):
+    GatewayARN: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class AddCacheOutputTypeDef(TypedDict):
+    GatewayARN: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class AddTagsToResourceOutputTypeDef(TypedDict):
+    ResourceARN: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class AddUploadBufferOutputTypeDef(TypedDict):
+    GatewayARN: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class AddWorkingStorageOutputTypeDef(TypedDict):
+    GatewayARN: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class AssignTapePoolOutputTypeDef(TypedDict):
+    TapeARN: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class AssociateFileSystemOutputTypeDef(TypedDict):
+    FileSystemAssociationARN: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class AttachVolumeOutputTypeDef(TypedDict):
+    VolumeARN: str
+    TargetARN: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CancelArchivalOutputTypeDef(TypedDict):
+    TapeARN: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CancelCacheReportOutputTypeDef(TypedDict):
+    CacheReportARN: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CancelRetrievalOutputTypeDef(TypedDict):
+    TapeARN: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateCachediSCSIVolumeOutputTypeDef(TypedDict):
+    VolumeARN: str
+    TargetARN: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateNFSFileShareOutputTypeDef(TypedDict):
+    FileShareARN: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateSMBFileShareOutputTypeDef(TypedDict):
+    FileShareARN: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateSnapshotFromVolumeRecoveryPointOutputTypeDef(TypedDict):
+    SnapshotId: str
+    VolumeARN: str
+    VolumeRecoveryPointTime: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateSnapshotOutputTypeDef(TypedDict):
+    VolumeARN: str
+    SnapshotId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateStorediSCSIVolumeOutputTypeDef(TypedDict):
+    VolumeARN: str
+    VolumeSizeInBytes: int
+    TargetARN: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateTapePoolOutputTypeDef(TypedDict):
+    PoolARN: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateTapeWithBarcodeOutputTypeDef(TypedDict):
+    TapeARN: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateTapesOutputTypeDef(TypedDict):
+    TapeARNs: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteAutomaticTapeCreationPolicyOutputTypeDef(TypedDict):
+    GatewayARN: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteBandwidthRateLimitOutputTypeDef(TypedDict):
+    GatewayARN: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteCacheReportOutputTypeDef(TypedDict):
+    CacheReportARN: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteChapCredentialsOutputTypeDef(TypedDict):
+    TargetARN: str
+    InitiatorName: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteFileShareOutputTypeDef(TypedDict):
+    FileShareARN: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteGatewayOutputTypeDef(TypedDict):
+    GatewayARN: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteSnapshotScheduleOutputTypeDef(TypedDict):
+    VolumeARN: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteTapeArchiveOutputTypeDef(TypedDict):
+    TapeARN: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteTapeOutputTypeDef(TypedDict):
+    TapeARN: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteTapePoolOutputTypeDef(TypedDict):
+    PoolARN: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteVolumeOutputTypeDef(TypedDict):
+    VolumeARN: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeAvailabilityMonitorTestOutputTypeDef(TypedDict):
+    GatewayARN: str
+    Status: AvailabilityMonitorTestStatusType
+    StartTime: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeBandwidthRateLimitOutputTypeDef(TypedDict):
+    GatewayARN: str
+    AverageUploadRateLimitInBitsPerSec: int
+    AverageDownloadRateLimitInBitsPerSec: int
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeCacheOutputTypeDef(TypedDict):
+    GatewayARN: str
+    DiskIds: List[str]
+    CacheAllocatedInBytes: int
+    CacheUsedPercentage: float
+    CacheDirtyPercentage: float
+    CacheHitPercentage: float
+    CacheMissPercentage: float
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeSnapshotScheduleOutputTypeDef(TypedDict):
+    VolumeARN: str
+    StartAt: int
+    RecurrenceInHours: int
+    Description: str
+    Timezone: str
+    Tags: List[TagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeUploadBufferOutputTypeDef(TypedDict):
+    GatewayARN: str
+    DiskIds: List[str]
+    UploadBufferUsedInBytes: int
+    UploadBufferAllocatedInBytes: int
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeWorkingStorageOutputTypeDef(TypedDict):
+    GatewayARN: str
+    DiskIds: List[str]
+    WorkingStorageUsedInBytes: int
+    WorkingStorageAllocatedInBytes: int
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DetachVolumeOutputTypeDef(TypedDict):
+    VolumeARN: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DisableGatewayOutputTypeDef(TypedDict):
+    GatewayARN: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DisassociateFileSystemOutputTypeDef(TypedDict):
+    FileSystemAssociationARN: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class EvictFilesFailingUploadOutputTypeDef(TypedDict):
+    NotificationId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class JoinDomainOutputTypeDef(TypedDict):
+    GatewayARN: str
+    ActiveDirectoryStatus: ActiveDirectoryStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListTagsForResourceOutputTypeDef(TypedDict):
+    ResourceARN: str
+    Marker: str
+    Tags: List[TagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListVolumeInitiatorsOutputTypeDef(TypedDict):
+    Initiators: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class NotifyWhenUploadedOutputTypeDef(TypedDict):
+    FileShareARN: str
+    NotificationId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class RefreshCacheOutputTypeDef(TypedDict):
+    FileShareARN: str
+    NotificationId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class RemoveTagsFromResourceOutputTypeDef(TypedDict):
+    ResourceARN: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ResetCacheOutputTypeDef(TypedDict):
+    GatewayARN: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class RetrieveTapeArchiveOutputTypeDef(TypedDict):
+    TapeARN: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class RetrieveTapeRecoveryPointOutputTypeDef(TypedDict):
+    TapeARN: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class SetLocalConsolePasswordOutputTypeDef(TypedDict):
+    GatewayARN: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class SetSMBGuestPasswordOutputTypeDef(TypedDict):
+    GatewayARN: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ShutdownGatewayOutputTypeDef(TypedDict):
+    GatewayARN: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartAvailabilityMonitorTestOutputTypeDef(TypedDict):
+    GatewayARN: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartCacheReportOutputTypeDef(TypedDict):
+    CacheReportARN: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartGatewayOutputTypeDef(TypedDict):
+    GatewayARN: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateAutomaticTapeCreationPolicyOutputTypeDef(TypedDict):
+    GatewayARN: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateBandwidthRateLimitOutputTypeDef(TypedDict):
+    GatewayARN: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateBandwidthRateLimitScheduleOutputTypeDef(TypedDict):
+    GatewayARN: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateChapCredentialsOutputTypeDef(TypedDict):
+    TargetARN: str
+    InitiatorName: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateFileSystemAssociationOutputTypeDef(TypedDict):
+    FileSystemAssociationARN: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateGatewayInformationOutputTypeDef(TypedDict):
+    GatewayARN: str
+    GatewayName: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateGatewaySoftwareNowOutputTypeDef(TypedDict):
+    GatewayARN: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateMaintenanceStartTimeOutputTypeDef(TypedDict):
+    GatewayARN: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateNFSFileShareOutputTypeDef(TypedDict):
+    FileShareARN: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateSMBFileShareOutputTypeDef(TypedDict):
+    FileShareARN: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateSMBFileShareVisibilityOutputTypeDef(TypedDict):
+    GatewayARN: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateSMBLocalGroupsOutputTypeDef(TypedDict):
+    GatewayARN: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateSMBSecurityStrategyOutputTypeDef(TypedDict):
+    GatewayARN: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateSnapshotScheduleOutputTypeDef(TypedDict):
+    VolumeARN: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateVTLDeviceTypeOutputTypeDef(TypedDict):
+    VTLDeviceARN: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+CreateSMBFileShareInputTypeDef = TypedDict(
+    "CreateSMBFileShareInputTypeDef",
     {
         "ClientToken": str,
         "GatewayARN": str,
         "Role": str,
         "LocationARN": str,
+        "EncryptionType": NotRequired[EncryptionTypeType],
+        "KMSEncrypted": NotRequired[bool],
+        "KMSKey": NotRequired[str],
+        "DefaultStorageClass": NotRequired[str],
+        "ObjectACL": NotRequired[ObjectACLType],
+        "ReadOnly": NotRequired[bool],
+        "GuessMIMETypeEnabled": NotRequired[bool],
+        "RequesterPays": NotRequired[bool],
+        "SMBACLEnabled": NotRequired[bool],
+        "AccessBasedEnumeration": NotRequired[bool],
+        "AdminUserList": NotRequired[Sequence[str]],
+        "ValidUserList": NotRequired[Sequence[str]],
+        "InvalidUserList": NotRequired[Sequence[str]],
+        "AuditDestinationARN": NotRequired[str],
+        "Authentication": NotRequired[str],
+        "CaseSensitivity": NotRequired[CaseSensitivityType],
+        "Tags": NotRequired[Sequence[TagTypeDef]],
+        "FileShareName": NotRequired[str],
+        "CacheAttributes": NotRequired[CacheAttributesTypeDef],
+        "NotificationPolicy": NotRequired[str],
+        "VPCEndpointDNSName": NotRequired[str],
+        "BucketRegion": NotRequired[str],
+        "OplocksEnabled": NotRequired[bool],
     },
 )
-_OptionalCreateNFSFileShareInputRequestTypeDef = TypedDict(
-    "_OptionalCreateNFSFileShareInputRequestTypeDef",
-    {
-        "NFSFileShareDefaults": "NFSFileShareDefaultsTypeDef",
-        "KMSEncrypted": bool,
-        "KMSKey": str,
-        "DefaultStorageClass": str,
-        "ObjectACL": ObjectACLType,
-        "ClientList": List[str],
-        "Squash": str,
-        "ReadOnly": bool,
-        "GuessMIMETypeEnabled": bool,
-        "RequesterPays": bool,
-        "Tags": List["TagTypeDef"],
-        "FileShareName": str,
-        "CacheAttributes": "CacheAttributesTypeDef",
-        "NotificationPolicy": str,
-        "VPCEndpointDNSName": str,
-        "BucketRegion": str,
-        "AuditDestinationARN": str,
-    },
-    total=False,
-)
-
-class CreateNFSFileShareInputRequestTypeDef(
-    _RequiredCreateNFSFileShareInputRequestTypeDef, _OptionalCreateNFSFileShareInputRequestTypeDef
-):
-    pass
-
-CreateNFSFileShareOutputTypeDef = TypedDict(
-    "CreateNFSFileShareOutputTypeDef",
-    {
-        "FileShareARN": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateSMBFileShareInputRequestTypeDef = TypedDict(
-    "_RequiredCreateSMBFileShareInputRequestTypeDef",
-    {
-        "ClientToken": str,
-        "GatewayARN": str,
-        "Role": str,
-        "LocationARN": str,
-    },
-)
-_OptionalCreateSMBFileShareInputRequestTypeDef = TypedDict(
-    "_OptionalCreateSMBFileShareInputRequestTypeDef",
-    {
-        "KMSEncrypted": bool,
-        "KMSKey": str,
-        "DefaultStorageClass": str,
-        "ObjectACL": ObjectACLType,
-        "ReadOnly": bool,
-        "GuessMIMETypeEnabled": bool,
-        "RequesterPays": bool,
-        "SMBACLEnabled": bool,
-        "AccessBasedEnumeration": bool,
-        "AdminUserList": List[str],
-        "ValidUserList": List[str],
-        "InvalidUserList": List[str],
-        "AuditDestinationARN": str,
-        "Authentication": str,
-        "CaseSensitivity": CaseSensitivityType,
-        "Tags": List["TagTypeDef"],
-        "FileShareName": str,
-        "CacheAttributes": "CacheAttributesTypeDef",
-        "NotificationPolicy": str,
-        "VPCEndpointDNSName": str,
-        "BucketRegion": str,
-        "OplocksEnabled": bool,
-    },
-    total=False,
-)
-
-class CreateSMBFileShareInputRequestTypeDef(
-    _RequiredCreateSMBFileShareInputRequestTypeDef, _OptionalCreateSMBFileShareInputRequestTypeDef
-):
-    pass
-
-CreateSMBFileShareOutputTypeDef = TypedDict(
-    "CreateSMBFileShareOutputTypeDef",
-    {
-        "FileShareARN": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateSnapshotFromVolumeRecoveryPointInputRequestTypeDef = TypedDict(
-    "_RequiredCreateSnapshotFromVolumeRecoveryPointInputRequestTypeDef",
-    {
-        "VolumeARN": str,
-        "SnapshotDescription": str,
-    },
-)
-_OptionalCreateSnapshotFromVolumeRecoveryPointInputRequestTypeDef = TypedDict(
-    "_OptionalCreateSnapshotFromVolumeRecoveryPointInputRequestTypeDef",
-    {
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateSnapshotFromVolumeRecoveryPointInputRequestTypeDef(
-    _RequiredCreateSnapshotFromVolumeRecoveryPointInputRequestTypeDef,
-    _OptionalCreateSnapshotFromVolumeRecoveryPointInputRequestTypeDef,
-):
-    pass
-
-CreateSnapshotFromVolumeRecoveryPointOutputTypeDef = TypedDict(
-    "CreateSnapshotFromVolumeRecoveryPointOutputTypeDef",
-    {
-        "SnapshotId": str,
-        "VolumeARN": str,
-        "VolumeRecoveryPointTime": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateSnapshotInputRequestTypeDef = TypedDict(
-    "_RequiredCreateSnapshotInputRequestTypeDef",
-    {
-        "VolumeARN": str,
-        "SnapshotDescription": str,
-    },
-)
-_OptionalCreateSnapshotInputRequestTypeDef = TypedDict(
-    "_OptionalCreateSnapshotInputRequestTypeDef",
-    {
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateSnapshotInputRequestTypeDef(
-    _RequiredCreateSnapshotInputRequestTypeDef, _OptionalCreateSnapshotInputRequestTypeDef
-):
-    pass
-
-CreateSnapshotOutputTypeDef = TypedDict(
-    "CreateSnapshotOutputTypeDef",
-    {
-        "VolumeARN": str,
-        "SnapshotId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateStorediSCSIVolumeInputRequestTypeDef = TypedDict(
-    "_RequiredCreateStorediSCSIVolumeInputRequestTypeDef",
-    {
-        "GatewayARN": str,
-        "DiskId": str,
-        "PreserveExistingData": bool,
-        "TargetName": str,
-        "NetworkInterfaceId": str,
-    },
-)
-_OptionalCreateStorediSCSIVolumeInputRequestTypeDef = TypedDict(
-    "_OptionalCreateStorediSCSIVolumeInputRequestTypeDef",
-    {
-        "SnapshotId": str,
-        "KMSEncrypted": bool,
-        "KMSKey": str,
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateStorediSCSIVolumeInputRequestTypeDef(
-    _RequiredCreateStorediSCSIVolumeInputRequestTypeDef,
-    _OptionalCreateStorediSCSIVolumeInputRequestTypeDef,
-):
-    pass
-
-CreateStorediSCSIVolumeOutputTypeDef = TypedDict(
-    "CreateStorediSCSIVolumeOutputTypeDef",
-    {
-        "VolumeARN": str,
-        "VolumeSizeInBytes": int,
-        "TargetARN": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateTapePoolInputRequestTypeDef = TypedDict(
-    "_RequiredCreateTapePoolInputRequestTypeDef",
-    {
-        "PoolName": str,
-        "StorageClass": TapeStorageClassType,
-    },
-)
-_OptionalCreateTapePoolInputRequestTypeDef = TypedDict(
-    "_OptionalCreateTapePoolInputRequestTypeDef",
-    {
-        "RetentionLockType": RetentionLockTypeType,
-        "RetentionLockTimeInDays": int,
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateTapePoolInputRequestTypeDef(
-    _RequiredCreateTapePoolInputRequestTypeDef, _OptionalCreateTapePoolInputRequestTypeDef
-):
-    pass
-
-CreateTapePoolOutputTypeDef = TypedDict(
-    "CreateTapePoolOutputTypeDef",
-    {
-        "PoolARN": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateTapeWithBarcodeInputRequestTypeDef = TypedDict(
-    "_RequiredCreateTapeWithBarcodeInputRequestTypeDef",
-    {
-        "GatewayARN": str,
-        "TapeSizeInBytes": int,
-        "TapeBarcode": str,
-    },
-)
-_OptionalCreateTapeWithBarcodeInputRequestTypeDef = TypedDict(
-    "_OptionalCreateTapeWithBarcodeInputRequestTypeDef",
-    {
-        "KMSEncrypted": bool,
-        "KMSKey": str,
-        "PoolId": str,
-        "Worm": bool,
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateTapeWithBarcodeInputRequestTypeDef(
-    _RequiredCreateTapeWithBarcodeInputRequestTypeDef,
-    _OptionalCreateTapeWithBarcodeInputRequestTypeDef,
-):
-    pass
-
-CreateTapeWithBarcodeOutputTypeDef = TypedDict(
-    "CreateTapeWithBarcodeOutputTypeDef",
-    {
-        "TapeARN": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateTapesInputRequestTypeDef = TypedDict(
-    "_RequiredCreateTapesInputRequestTypeDef",
-    {
-        "GatewayARN": str,
-        "TapeSizeInBytes": int,
-        "ClientToken": str,
-        "NumTapesToCreate": int,
-        "TapeBarcodePrefix": str,
-    },
-)
-_OptionalCreateTapesInputRequestTypeDef = TypedDict(
-    "_OptionalCreateTapesInputRequestTypeDef",
-    {
-        "KMSEncrypted": bool,
-        "KMSKey": str,
-        "PoolId": str,
-        "Worm": bool,
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateTapesInputRequestTypeDef(
-    _RequiredCreateTapesInputRequestTypeDef, _OptionalCreateTapesInputRequestTypeDef
-):
-    pass
-
-CreateTapesOutputTypeDef = TypedDict(
-    "CreateTapesOutputTypeDef",
-    {
-        "TapeARNs": List[str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteAutomaticTapeCreationPolicyInputRequestTypeDef = TypedDict(
-    "DeleteAutomaticTapeCreationPolicyInputRequestTypeDef",
-    {
-        "GatewayARN": str,
-    },
-)
-
-DeleteAutomaticTapeCreationPolicyOutputTypeDef = TypedDict(
-    "DeleteAutomaticTapeCreationPolicyOutputTypeDef",
-    {
-        "GatewayARN": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteBandwidthRateLimitInputRequestTypeDef = TypedDict(
-    "DeleteBandwidthRateLimitInputRequestTypeDef",
-    {
-        "GatewayARN": str,
-        "BandwidthType": str,
-    },
-)
-
-DeleteBandwidthRateLimitOutputTypeDef = TypedDict(
-    "DeleteBandwidthRateLimitOutputTypeDef",
-    {
-        "GatewayARN": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteChapCredentialsInputRequestTypeDef = TypedDict(
-    "DeleteChapCredentialsInputRequestTypeDef",
-    {
-        "TargetARN": str,
-        "InitiatorName": str,
-    },
-)
-
-DeleteChapCredentialsOutputTypeDef = TypedDict(
-    "DeleteChapCredentialsOutputTypeDef",
-    {
-        "TargetARN": str,
-        "InitiatorName": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDeleteFileShareInputRequestTypeDef = TypedDict(
-    "_RequiredDeleteFileShareInputRequestTypeDef",
-    {
-        "FileShareARN": str,
-    },
-)
-_OptionalDeleteFileShareInputRequestTypeDef = TypedDict(
-    "_OptionalDeleteFileShareInputRequestTypeDef",
-    {
-        "ForceDelete": bool,
-    },
-    total=False,
-)
-
-class DeleteFileShareInputRequestTypeDef(
-    _RequiredDeleteFileShareInputRequestTypeDef, _OptionalDeleteFileShareInputRequestTypeDef
-):
-    pass
-
-DeleteFileShareOutputTypeDef = TypedDict(
-    "DeleteFileShareOutputTypeDef",
-    {
-        "FileShareARN": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteGatewayInputRequestTypeDef = TypedDict(
-    "DeleteGatewayInputRequestTypeDef",
-    {
-        "GatewayARN": str,
-    },
-)
-
-DeleteGatewayOutputTypeDef = TypedDict(
-    "DeleteGatewayOutputTypeDef",
-    {
-        "GatewayARN": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteSnapshotScheduleInputRequestTypeDef = TypedDict(
-    "DeleteSnapshotScheduleInputRequestTypeDef",
-    {
-        "VolumeARN": str,
-    },
-)
-
-DeleteSnapshotScheduleOutputTypeDef = TypedDict(
-    "DeleteSnapshotScheduleOutputTypeDef",
-    {
-        "VolumeARN": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDeleteTapeArchiveInputRequestTypeDef = TypedDict(
-    "_RequiredDeleteTapeArchiveInputRequestTypeDef",
-    {
-        "TapeARN": str,
-    },
-)
-_OptionalDeleteTapeArchiveInputRequestTypeDef = TypedDict(
-    "_OptionalDeleteTapeArchiveInputRequestTypeDef",
-    {
-        "BypassGovernanceRetention": bool,
-    },
-    total=False,
-)
-
-class DeleteTapeArchiveInputRequestTypeDef(
-    _RequiredDeleteTapeArchiveInputRequestTypeDef, _OptionalDeleteTapeArchiveInputRequestTypeDef
-):
-    pass
-
-DeleteTapeArchiveOutputTypeDef = TypedDict(
-    "DeleteTapeArchiveOutputTypeDef",
-    {
-        "TapeARN": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDeleteTapeInputRequestTypeDef = TypedDict(
-    "_RequiredDeleteTapeInputRequestTypeDef",
-    {
-        "GatewayARN": str,
-        "TapeARN": str,
-    },
-)
-_OptionalDeleteTapeInputRequestTypeDef = TypedDict(
-    "_OptionalDeleteTapeInputRequestTypeDef",
-    {
-        "BypassGovernanceRetention": bool,
-    },
-    total=False,
-)
-
-class DeleteTapeInputRequestTypeDef(
-    _RequiredDeleteTapeInputRequestTypeDef, _OptionalDeleteTapeInputRequestTypeDef
-):
-    pass
-
-DeleteTapeOutputTypeDef = TypedDict(
-    "DeleteTapeOutputTypeDef",
-    {
-        "TapeARN": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteTapePoolInputRequestTypeDef = TypedDict(
-    "DeleteTapePoolInputRequestTypeDef",
-    {
-        "PoolARN": str,
-    },
-)
-
-DeleteTapePoolOutputTypeDef = TypedDict(
-    "DeleteTapePoolOutputTypeDef",
-    {
-        "PoolARN": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteVolumeInputRequestTypeDef = TypedDict(
-    "DeleteVolumeInputRequestTypeDef",
-    {
-        "VolumeARN": str,
-    },
-)
-
-DeleteVolumeOutputTypeDef = TypedDict(
-    "DeleteVolumeOutputTypeDef",
-    {
-        "VolumeARN": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeAvailabilityMonitorTestInputRequestTypeDef = TypedDict(
-    "DescribeAvailabilityMonitorTestInputRequestTypeDef",
-    {
-        "GatewayARN": str,
-    },
-)
-
-DescribeAvailabilityMonitorTestOutputTypeDef = TypedDict(
-    "DescribeAvailabilityMonitorTestOutputTypeDef",
-    {
-        "GatewayARN": str,
-        "Status": AvailabilityMonitorTestStatusType,
-        "StartTime": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeBandwidthRateLimitInputRequestTypeDef = TypedDict(
-    "DescribeBandwidthRateLimitInputRequestTypeDef",
-    {
-        "GatewayARN": str,
-    },
-)
-
-DescribeBandwidthRateLimitOutputTypeDef = TypedDict(
-    "DescribeBandwidthRateLimitOutputTypeDef",
-    {
-        "GatewayARN": str,
-        "AverageUploadRateLimitInBitsPerSec": int,
-        "AverageDownloadRateLimitInBitsPerSec": int,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeBandwidthRateLimitScheduleInputRequestTypeDef = TypedDict(
-    "DescribeBandwidthRateLimitScheduleInputRequestTypeDef",
-    {
-        "GatewayARN": str,
-    },
-)
-
-DescribeBandwidthRateLimitScheduleOutputTypeDef = TypedDict(
-    "DescribeBandwidthRateLimitScheduleOutputTypeDef",
-    {
-        "GatewayARN": str,
-        "BandwidthRateLimitIntervals": List["BandwidthRateLimitIntervalTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeCacheInputRequestTypeDef = TypedDict(
-    "DescribeCacheInputRequestTypeDef",
-    {
-        "GatewayARN": str,
-    },
-)
-
-DescribeCacheOutputTypeDef = TypedDict(
-    "DescribeCacheOutputTypeDef",
-    {
-        "GatewayARN": str,
-        "DiskIds": List[str],
-        "CacheAllocatedInBytes": int,
-        "CacheUsedPercentage": float,
-        "CacheDirtyPercentage": float,
-        "CacheHitPercentage": float,
-        "CacheMissPercentage": float,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeCachediSCSIVolumesInputRequestTypeDef = TypedDict(
-    "DescribeCachediSCSIVolumesInputRequestTypeDef",
-    {
-        "VolumeARNs": List[str],
-    },
-)
-
-DescribeCachediSCSIVolumesOutputTypeDef = TypedDict(
-    "DescribeCachediSCSIVolumesOutputTypeDef",
-    {
-        "CachediSCSIVolumes": List["CachediSCSIVolumeTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeChapCredentialsInputRequestTypeDef = TypedDict(
-    "DescribeChapCredentialsInputRequestTypeDef",
-    {
-        "TargetARN": str,
-    },
-)
-
-DescribeChapCredentialsOutputTypeDef = TypedDict(
-    "DescribeChapCredentialsOutputTypeDef",
-    {
-        "ChapCredentials": List["ChapInfoTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeFileSystemAssociationsInputRequestTypeDef = TypedDict(
-    "DescribeFileSystemAssociationsInputRequestTypeDef",
-    {
-        "FileSystemAssociationARNList": List[str],
-    },
-)
-
-DescribeFileSystemAssociationsOutputTypeDef = TypedDict(
-    "DescribeFileSystemAssociationsOutputTypeDef",
-    {
-        "FileSystemAssociationInfoList": List["FileSystemAssociationInfoTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeGatewayInformationInputRequestTypeDef = TypedDict(
-    "DescribeGatewayInformationInputRequestTypeDef",
-    {
-        "GatewayARN": str,
-    },
-)
-
-DescribeGatewayInformationOutputTypeDef = TypedDict(
-    "DescribeGatewayInformationOutputTypeDef",
-    {
-        "GatewayARN": str,
-        "GatewayId": str,
-        "GatewayName": str,
-        "GatewayTimezone": str,
-        "GatewayState": str,
-        "GatewayNetworkInterfaces": List["NetworkInterfaceTypeDef"],
-        "GatewayType": str,
-        "NextUpdateAvailabilityDate": str,
-        "LastSoftwareUpdate": str,
-        "Ec2InstanceId": str,
-        "Ec2InstanceRegion": str,
-        "Tags": List["TagTypeDef"],
-        "VPCEndpoint": str,
-        "CloudWatchLogGroupARN": str,
-        "HostEnvironment": HostEnvironmentType,
-        "EndpointType": str,
-        "SoftwareUpdatesEndDate": str,
-        "DeprecationDate": str,
-        "GatewayCapacity": GatewayCapacityType,
-        "SupportedGatewayCapacities": List[GatewayCapacityType],
-        "HostEnvironmentId": str,
-        "SoftwareVersion": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeMaintenanceStartTimeInputRequestTypeDef = TypedDict(
-    "DescribeMaintenanceStartTimeInputRequestTypeDef",
-    {
-        "GatewayARN": str,
-    },
-)
-
-DescribeMaintenanceStartTimeOutputTypeDef = TypedDict(
-    "DescribeMaintenanceStartTimeOutputTypeDef",
-    {
-        "GatewayARN": str,
-        "HourOfDay": int,
-        "MinuteOfHour": int,
-        "DayOfWeek": int,
-        "DayOfMonth": int,
-        "Timezone": str,
-        "SoftwareUpdatePreferences": "SoftwareUpdatePreferencesTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeNFSFileSharesInputRequestTypeDef = TypedDict(
-    "DescribeNFSFileSharesInputRequestTypeDef",
-    {
-        "FileShareARNList": List[str],
-    },
-)
-
-DescribeNFSFileSharesOutputTypeDef = TypedDict(
-    "DescribeNFSFileSharesOutputTypeDef",
-    {
-        "NFSFileShareInfoList": List["NFSFileShareInfoTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeSMBFileSharesInputRequestTypeDef = TypedDict(
-    "DescribeSMBFileSharesInputRequestTypeDef",
-    {
-        "FileShareARNList": List[str],
-    },
-)
-
-DescribeSMBFileSharesOutputTypeDef = TypedDict(
-    "DescribeSMBFileSharesOutputTypeDef",
-    {
-        "SMBFileShareInfoList": List["SMBFileShareInfoTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeSMBSettingsInputRequestTypeDef = TypedDict(
-    "DescribeSMBSettingsInputRequestTypeDef",
-    {
-        "GatewayARN": str,
-    },
-)
-
-DescribeSMBSettingsOutputTypeDef = TypedDict(
-    "DescribeSMBSettingsOutputTypeDef",
-    {
-        "GatewayARN": str,
-        "DomainName": str,
-        "ActiveDirectoryStatus": ActiveDirectoryStatusType,
-        "SMBGuestPasswordSet": bool,
-        "SMBSecurityStrategy": SMBSecurityStrategyType,
-        "FileSharesVisible": bool,
-        "SMBLocalGroups": "SMBLocalGroupsTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeSnapshotScheduleInputRequestTypeDef = TypedDict(
-    "DescribeSnapshotScheduleInputRequestTypeDef",
-    {
-        "VolumeARN": str,
-    },
-)
-
-DescribeSnapshotScheduleOutputTypeDef = TypedDict(
-    "DescribeSnapshotScheduleOutputTypeDef",
-    {
-        "VolumeARN": str,
-        "StartAt": int,
-        "RecurrenceInHours": int,
-        "Description": str,
-        "Timezone": str,
-        "Tags": List["TagTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeStorediSCSIVolumesInputRequestTypeDef = TypedDict(
-    "DescribeStorediSCSIVolumesInputRequestTypeDef",
-    {
-        "VolumeARNs": List[str],
-    },
-)
-
-DescribeStorediSCSIVolumesOutputTypeDef = TypedDict(
-    "DescribeStorediSCSIVolumesOutputTypeDef",
-    {
-        "StorediSCSIVolumes": List["StorediSCSIVolumeTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeTapeArchivesInputRequestTypeDef = TypedDict(
-    "DescribeTapeArchivesInputRequestTypeDef",
-    {
-        "TapeARNs": List[str],
-        "Marker": str,
-        "Limit": int,
-    },
-    total=False,
-)
-
-DescribeTapeArchivesOutputTypeDef = TypedDict(
-    "DescribeTapeArchivesOutputTypeDef",
-    {
-        "TapeArchives": List["TapeArchiveTypeDef"],
-        "Marker": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribeTapeRecoveryPointsInputRequestTypeDef = TypedDict(
-    "_RequiredDescribeTapeRecoveryPointsInputRequestTypeDef",
-    {
-        "GatewayARN": str,
-    },
-)
-_OptionalDescribeTapeRecoveryPointsInputRequestTypeDef = TypedDict(
-    "_OptionalDescribeTapeRecoveryPointsInputRequestTypeDef",
-    {
-        "Marker": str,
-        "Limit": int,
-    },
-    total=False,
-)
-
-class DescribeTapeRecoveryPointsInputRequestTypeDef(
-    _RequiredDescribeTapeRecoveryPointsInputRequestTypeDef,
-    _OptionalDescribeTapeRecoveryPointsInputRequestTypeDef,
-):
-    pass
-
-DescribeTapeRecoveryPointsOutputTypeDef = TypedDict(
-    "DescribeTapeRecoveryPointsOutputTypeDef",
-    {
-        "GatewayARN": str,
-        "TapeRecoveryPointInfos": List["TapeRecoveryPointInfoTypeDef"],
-        "Marker": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribeTapesInputRequestTypeDef = TypedDict(
-    "_RequiredDescribeTapesInputRequestTypeDef",
-    {
-        "GatewayARN": str,
-    },
-)
-_OptionalDescribeTapesInputRequestTypeDef = TypedDict(
-    "_OptionalDescribeTapesInputRequestTypeDef",
-    {
-        "TapeARNs": List[str],
-        "Marker": str,
-        "Limit": int,
-    },
-    total=False,
-)
-
-class DescribeTapesInputRequestTypeDef(
-    _RequiredDescribeTapesInputRequestTypeDef, _OptionalDescribeTapesInputRequestTypeDef
-):
-    pass
-
-DescribeTapesOutputTypeDef = TypedDict(
-    "DescribeTapesOutputTypeDef",
-    {
-        "Tapes": List["TapeTypeDef"],
-        "Marker": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeUploadBufferInputRequestTypeDef = TypedDict(
-    "DescribeUploadBufferInputRequestTypeDef",
-    {
-        "GatewayARN": str,
-    },
-)
-
-DescribeUploadBufferOutputTypeDef = TypedDict(
-    "DescribeUploadBufferOutputTypeDef",
-    {
-        "GatewayARN": str,
-        "DiskIds": List[str],
-        "UploadBufferUsedInBytes": int,
-        "UploadBufferAllocatedInBytes": int,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribeVTLDevicesInputRequestTypeDef = TypedDict(
-    "_RequiredDescribeVTLDevicesInputRequestTypeDef",
-    {
-        "GatewayARN": str,
-    },
-)
-_OptionalDescribeVTLDevicesInputRequestTypeDef = TypedDict(
-    "_OptionalDescribeVTLDevicesInputRequestTypeDef",
-    {
-        "VTLDeviceARNs": List[str],
-        "Marker": str,
-        "Limit": int,
-    },
-    total=False,
-)
-
-class DescribeVTLDevicesInputRequestTypeDef(
-    _RequiredDescribeVTLDevicesInputRequestTypeDef, _OptionalDescribeVTLDevicesInputRequestTypeDef
-):
-    pass
-
-DescribeVTLDevicesOutputTypeDef = TypedDict(
-    "DescribeVTLDevicesOutputTypeDef",
-    {
-        "GatewayARN": str,
-        "VTLDevices": List["VTLDeviceTypeDef"],
-        "Marker": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeWorkingStorageInputRequestTypeDef = TypedDict(
-    "DescribeWorkingStorageInputRequestTypeDef",
-    {
-        "GatewayARN": str,
-    },
-)
-
-DescribeWorkingStorageOutputTypeDef = TypedDict(
-    "DescribeWorkingStorageOutputTypeDef",
-    {
-        "GatewayARN": str,
-        "DiskIds": List[str],
-        "WorkingStorageUsedInBytes": int,
-        "WorkingStorageAllocatedInBytes": int,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDetachVolumeInputRequestTypeDef = TypedDict(
-    "_RequiredDetachVolumeInputRequestTypeDef",
-    {
-        "VolumeARN": str,
-    },
-)
-_OptionalDetachVolumeInputRequestTypeDef = TypedDict(
-    "_OptionalDetachVolumeInputRequestTypeDef",
-    {
-        "ForceDetach": bool,
-    },
-    total=False,
-)
-
-class DetachVolumeInputRequestTypeDef(
-    _RequiredDetachVolumeInputRequestTypeDef, _OptionalDetachVolumeInputRequestTypeDef
-):
-    pass
-
-DetachVolumeOutputTypeDef = TypedDict(
-    "DetachVolumeOutputTypeDef",
-    {
-        "VolumeARN": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeviceiSCSIAttributesTypeDef = TypedDict(
-    "DeviceiSCSIAttributesTypeDef",
-    {
-        "TargetARN": str,
-        "NetworkInterfaceId": str,
-        "NetworkInterfacePort": int,
-        "ChapEnabled": bool,
-    },
-    total=False,
-)
-
-DisableGatewayInputRequestTypeDef = TypedDict(
-    "DisableGatewayInputRequestTypeDef",
-    {
-        "GatewayARN": str,
-    },
-)
-
-DisableGatewayOutputTypeDef = TypedDict(
-    "DisableGatewayOutputTypeDef",
-    {
-        "GatewayARN": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDisassociateFileSystemInputRequestTypeDef = TypedDict(
-    "_RequiredDisassociateFileSystemInputRequestTypeDef",
-    {
-        "FileSystemAssociationARN": str,
-    },
-)
-_OptionalDisassociateFileSystemInputRequestTypeDef = TypedDict(
-    "_OptionalDisassociateFileSystemInputRequestTypeDef",
-    {
-        "ForceDelete": bool,
-    },
-    total=False,
-)
-
-class DisassociateFileSystemInputRequestTypeDef(
-    _RequiredDisassociateFileSystemInputRequestTypeDef,
-    _OptionalDisassociateFileSystemInputRequestTypeDef,
-):
-    pass
-
-DisassociateFileSystemOutputTypeDef = TypedDict(
-    "DisassociateFileSystemOutputTypeDef",
-    {
-        "FileSystemAssociationARN": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DiskTypeDef = TypedDict(
-    "DiskTypeDef",
-    {
-        "DiskId": str,
-        "DiskPath": str,
-        "DiskNode": str,
-        "DiskStatus": str,
-        "DiskSizeInBytes": int,
-        "DiskAllocationType": str,
-        "DiskAllocationResource": str,
-        "DiskAttributeList": List[str],
-    },
-    total=False,
-)
-
-EndpointNetworkConfigurationTypeDef = TypedDict(
-    "EndpointNetworkConfigurationTypeDef",
-    {
-        "IpAddresses": List[str],
-    },
-    total=False,
-)
-
-FileShareInfoTypeDef = TypedDict(
-    "FileShareInfoTypeDef",
-    {
-        "FileShareType": FileShareTypeType,
-        "FileShareARN": str,
-        "FileShareId": str,
-        "FileShareStatus": str,
-        "GatewayARN": str,
-    },
-    total=False,
-)
-
-FileSystemAssociationInfoTypeDef = TypedDict(
-    "FileSystemAssociationInfoTypeDef",
-    {
-        "FileSystemAssociationARN": str,
-        "LocationARN": str,
-        "FileSystemAssociationStatus": str,
-        "AuditDestinationARN": str,
-        "GatewayARN": str,
-        "Tags": List["TagTypeDef"],
-        "CacheAttributes": "CacheAttributesTypeDef",
-        "EndpointNetworkConfiguration": "EndpointNetworkConfigurationTypeDef",
-        "FileSystemAssociationStatusDetails": List["FileSystemAssociationStatusDetailTypeDef"],
-    },
-    total=False,
-)
-
-FileSystemAssociationStatusDetailTypeDef = TypedDict(
-    "FileSystemAssociationStatusDetailTypeDef",
-    {
-        "ErrorCode": str,
-    },
-    total=False,
-)
-
-FileSystemAssociationSummaryTypeDef = TypedDict(
-    "FileSystemAssociationSummaryTypeDef",
-    {
-        "FileSystemAssociationId": str,
-        "FileSystemAssociationARN": str,
-        "FileSystemAssociationStatus": str,
-        "GatewayARN": str,
-    },
-    total=False,
-)
-
-GatewayInfoTypeDef = TypedDict(
-    "GatewayInfoTypeDef",
-    {
-        "GatewayId": str,
-        "GatewayARN": str,
-        "GatewayType": str,
-        "GatewayOperationalState": str,
-        "GatewayName": str,
-        "Ec2InstanceId": str,
-        "Ec2InstanceRegion": str,
-        "HostEnvironment": HostEnvironmentType,
-        "HostEnvironmentId": str,
-        "DeprecationDate": str,
-        "SoftwareVersion": str,
-    },
-    total=False,
-)
-
-_RequiredJoinDomainInputRequestTypeDef = TypedDict(
-    "_RequiredJoinDomainInputRequestTypeDef",
-    {
-        "GatewayARN": str,
-        "DomainName": str,
-        "UserName": str,
-        "Password": str,
-    },
-)
-_OptionalJoinDomainInputRequestTypeDef = TypedDict(
-    "_OptionalJoinDomainInputRequestTypeDef",
-    {
-        "OrganizationalUnit": str,
-        "DomainControllers": List[str],
-        "TimeoutInSeconds": int,
-    },
-    total=False,
-)
-
-class JoinDomainInputRequestTypeDef(
-    _RequiredJoinDomainInputRequestTypeDef, _OptionalJoinDomainInputRequestTypeDef
-):
-    pass
-
-JoinDomainOutputTypeDef = TypedDict(
-    "JoinDomainOutputTypeDef",
-    {
-        "GatewayARN": str,
-        "ActiveDirectoryStatus": ActiveDirectoryStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListAutomaticTapeCreationPoliciesInputRequestTypeDef = TypedDict(
-    "ListAutomaticTapeCreationPoliciesInputRequestTypeDef",
-    {
-        "GatewayARN": str,
-    },
-    total=False,
-)
-
-ListAutomaticTapeCreationPoliciesOutputTypeDef = TypedDict(
-    "ListAutomaticTapeCreationPoliciesOutputTypeDef",
-    {
-        "AutomaticTapeCreationPolicyInfos": List["AutomaticTapeCreationPolicyInfoTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListFileSharesInputRequestTypeDef = TypedDict(
-    "ListFileSharesInputRequestTypeDef",
-    {
-        "GatewayARN": str,
-        "Limit": int,
-        "Marker": str,
-    },
-    total=False,
-)
-
-ListFileSharesOutputTypeDef = TypedDict(
-    "ListFileSharesOutputTypeDef",
-    {
-        "Marker": str,
-        "NextMarker": str,
-        "FileShareInfoList": List["FileShareInfoTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListFileSystemAssociationsInputRequestTypeDef = TypedDict(
-    "ListFileSystemAssociationsInputRequestTypeDef",
-    {
-        "GatewayARN": str,
-        "Limit": int,
-        "Marker": str,
-    },
-    total=False,
-)
-
-ListFileSystemAssociationsOutputTypeDef = TypedDict(
-    "ListFileSystemAssociationsOutputTypeDef",
-    {
-        "Marker": str,
-        "NextMarker": str,
-        "FileSystemAssociationSummaryList": List["FileSystemAssociationSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListGatewaysInputRequestTypeDef = TypedDict(
-    "ListGatewaysInputRequestTypeDef",
-    {
-        "Marker": str,
-        "Limit": int,
-    },
-    total=False,
-)
-
-ListGatewaysOutputTypeDef = TypedDict(
-    "ListGatewaysOutputTypeDef",
-    {
-        "Gateways": List["GatewayInfoTypeDef"],
-        "Marker": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListLocalDisksInputRequestTypeDef = TypedDict(
-    "ListLocalDisksInputRequestTypeDef",
-    {
-        "GatewayARN": str,
-    },
-)
-
-ListLocalDisksOutputTypeDef = TypedDict(
-    "ListLocalDisksOutputTypeDef",
-    {
-        "GatewayARN": str,
-        "Disks": List["DiskTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListTagsForResourceInputRequestTypeDef = TypedDict(
-    "_RequiredListTagsForResourceInputRequestTypeDef",
-    {
-        "ResourceARN": str,
-    },
-)
-_OptionalListTagsForResourceInputRequestTypeDef = TypedDict(
-    "_OptionalListTagsForResourceInputRequestTypeDef",
-    {
-        "Marker": str,
-        "Limit": int,
-    },
-    total=False,
-)
-
-class ListTagsForResourceInputRequestTypeDef(
-    _RequiredListTagsForResourceInputRequestTypeDef, _OptionalListTagsForResourceInputRequestTypeDef
-):
-    pass
-
-ListTagsForResourceOutputTypeDef = TypedDict(
-    "ListTagsForResourceOutputTypeDef",
-    {
-        "ResourceARN": str,
-        "Marker": str,
-        "Tags": List["TagTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTapePoolsInputRequestTypeDef = TypedDict(
-    "ListTapePoolsInputRequestTypeDef",
-    {
-        "PoolARNs": List[str],
-        "Marker": str,
-        "Limit": int,
-    },
-    total=False,
-)
-
-ListTapePoolsOutputTypeDef = TypedDict(
-    "ListTapePoolsOutputTypeDef",
-    {
-        "PoolInfos": List["PoolInfoTypeDef"],
-        "Marker": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTapesInputRequestTypeDef = TypedDict(
-    "ListTapesInputRequestTypeDef",
-    {
-        "TapeARNs": List[str],
-        "Marker": str,
-        "Limit": int,
-    },
-    total=False,
-)
-
-ListTapesOutputTypeDef = TypedDict(
-    "ListTapesOutputTypeDef",
-    {
-        "TapeInfos": List["TapeInfoTypeDef"],
-        "Marker": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListVolumeInitiatorsInputRequestTypeDef = TypedDict(
-    "ListVolumeInitiatorsInputRequestTypeDef",
-    {
-        "VolumeARN": str,
-    },
-)
-
-ListVolumeInitiatorsOutputTypeDef = TypedDict(
-    "ListVolumeInitiatorsOutputTypeDef",
-    {
-        "Initiators": List[str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListVolumeRecoveryPointsInputRequestTypeDef = TypedDict(
-    "ListVolumeRecoveryPointsInputRequestTypeDef",
-    {
-        "GatewayARN": str,
-    },
-)
-
-ListVolumeRecoveryPointsOutputTypeDef = TypedDict(
-    "ListVolumeRecoveryPointsOutputTypeDef",
-    {
-        "GatewayARN": str,
-        "VolumeRecoveryPointInfos": List["VolumeRecoveryPointInfoTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListVolumesInputRequestTypeDef = TypedDict(
-    "ListVolumesInputRequestTypeDef",
-    {
-        "GatewayARN": str,
-        "Marker": str,
-        "Limit": int,
-    },
-    total=False,
-)
-
-ListVolumesOutputTypeDef = TypedDict(
-    "ListVolumesOutputTypeDef",
-    {
-        "GatewayARN": str,
-        "Marker": str,
-        "VolumeInfos": List["VolumeInfoTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-NFSFileShareDefaultsTypeDef = TypedDict(
-    "NFSFileShareDefaultsTypeDef",
-    {
-        "FileMode": str,
-        "DirectoryMode": str,
-        "GroupId": int,
-        "OwnerId": int,
-    },
-    total=False,
-)
-
-NFSFileShareInfoTypeDef = TypedDict(
-    "NFSFileShareInfoTypeDef",
-    {
-        "NFSFileShareDefaults": "NFSFileShareDefaultsTypeDef",
-        "FileShareARN": str,
-        "FileShareId": str,
-        "FileShareStatus": str,
-        "GatewayARN": str,
-        "KMSEncrypted": bool,
-        "KMSKey": str,
-        "Path": str,
-        "Role": str,
-        "LocationARN": str,
-        "DefaultStorageClass": str,
-        "ObjectACL": ObjectACLType,
-        "ClientList": List[str],
-        "Squash": str,
-        "ReadOnly": bool,
-        "GuessMIMETypeEnabled": bool,
-        "RequesterPays": bool,
-        "Tags": List["TagTypeDef"],
-        "FileShareName": str,
-        "CacheAttributes": "CacheAttributesTypeDef",
-        "NotificationPolicy": str,
-        "VPCEndpointDNSName": str,
-        "BucketRegion": str,
-        "AuditDestinationARN": str,
-    },
-    total=False,
-)
-
-NetworkInterfaceTypeDef = TypedDict(
-    "NetworkInterfaceTypeDef",
-    {
-        "Ipv4Address": str,
-        "MacAddress": str,
-        "Ipv6Address": str,
-    },
-    total=False,
-)
-
-NotifyWhenUploadedInputRequestTypeDef = TypedDict(
-    "NotifyWhenUploadedInputRequestTypeDef",
-    {
-        "FileShareARN": str,
-    },
-)
-
-NotifyWhenUploadedOutputTypeDef = TypedDict(
-    "NotifyWhenUploadedOutputTypeDef",
-    {
-        "FileShareARN": str,
-        "NotificationId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-PoolInfoTypeDef = TypedDict(
-    "PoolInfoTypeDef",
-    {
-        "PoolARN": str,
-        "PoolName": str,
-        "StorageClass": TapeStorageClassType,
-        "RetentionLockType": RetentionLockTypeType,
-        "RetentionLockTimeInDays": int,
-        "PoolStatus": PoolStatusType,
-    },
-    total=False,
-)
-
-_RequiredRefreshCacheInputRequestTypeDef = TypedDict(
-    "_RequiredRefreshCacheInputRequestTypeDef",
-    {
-        "FileShareARN": str,
-    },
-)
-_OptionalRefreshCacheInputRequestTypeDef = TypedDict(
-    "_OptionalRefreshCacheInputRequestTypeDef",
-    {
-        "FolderList": List[str],
-        "Recursive": bool,
-    },
-    total=False,
-)
-
-class RefreshCacheInputRequestTypeDef(
-    _RequiredRefreshCacheInputRequestTypeDef, _OptionalRefreshCacheInputRequestTypeDef
-):
-    pass
-
-RefreshCacheOutputTypeDef = TypedDict(
-    "RefreshCacheOutputTypeDef",
-    {
-        "FileShareARN": str,
-        "NotificationId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-RemoveTagsFromResourceInputRequestTypeDef = TypedDict(
-    "RemoveTagsFromResourceInputRequestTypeDef",
-    {
-        "ResourceARN": str,
-        "TagKeys": List[str],
-    },
-)
-
-RemoveTagsFromResourceOutputTypeDef = TypedDict(
-    "RemoveTagsFromResourceOutputTypeDef",
-    {
-        "ResourceARN": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ResetCacheInputRequestTypeDef = TypedDict(
-    "ResetCacheInputRequestTypeDef",
-    {
-        "GatewayARN": str,
-    },
-)
-
-ResetCacheOutputTypeDef = TypedDict(
-    "ResetCacheOutputTypeDef",
-    {
-        "GatewayARN": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-RetrieveTapeArchiveInputRequestTypeDef = TypedDict(
-    "RetrieveTapeArchiveInputRequestTypeDef",
-    {
-        "TapeARN": str,
-        "GatewayARN": str,
-    },
-)
-
-RetrieveTapeArchiveOutputTypeDef = TypedDict(
-    "RetrieveTapeArchiveOutputTypeDef",
-    {
-        "TapeARN": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-RetrieveTapeRecoveryPointInputRequestTypeDef = TypedDict(
-    "RetrieveTapeRecoveryPointInputRequestTypeDef",
-    {
-        "TapeARN": str,
-        "GatewayARN": str,
-    },
-)
-
-RetrieveTapeRecoveryPointOutputTypeDef = TypedDict(
-    "RetrieveTapeRecoveryPointOutputTypeDef",
-    {
-        "TapeARN": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
 SMBFileShareInfoTypeDef = TypedDict(
     "SMBFileShareInfoTypeDef",
     {
+        "FileShareARN": NotRequired[str],
+        "FileShareId": NotRequired[str],
+        "FileShareStatus": NotRequired[str],
+        "GatewayARN": NotRequired[str],
+        "EncryptionType": NotRequired[EncryptionTypeType],
+        "KMSEncrypted": NotRequired[bool],
+        "KMSKey": NotRequired[str],
+        "Path": NotRequired[str],
+        "Role": NotRequired[str],
+        "LocationARN": NotRequired[str],
+        "DefaultStorageClass": NotRequired[str],
+        "ObjectACL": NotRequired[ObjectACLType],
+        "ReadOnly": NotRequired[bool],
+        "GuessMIMETypeEnabled": NotRequired[bool],
+        "RequesterPays": NotRequired[bool],
+        "SMBACLEnabled": NotRequired[bool],
+        "AccessBasedEnumeration": NotRequired[bool],
+        "AdminUserList": NotRequired[List[str]],
+        "ValidUserList": NotRequired[List[str]],
+        "InvalidUserList": NotRequired[List[str]],
+        "AuditDestinationARN": NotRequired[str],
+        "Authentication": NotRequired[str],
+        "CaseSensitivity": NotRequired[CaseSensitivityType],
+        "Tags": NotRequired[List[TagTypeDef]],
+        "FileShareName": NotRequired[str],
+        "CacheAttributes": NotRequired[CacheAttributesTypeDef],
+        "NotificationPolicy": NotRequired[str],
+        "VPCEndpointDNSName": NotRequired[str],
+        "BucketRegion": NotRequired[str],
+        "OplocksEnabled": NotRequired[bool],
+    },
+)
+
+class UpdateFileSystemAssociationInputTypeDef(TypedDict):
+    FileSystemAssociationARN: str
+    UserName: NotRequired[str]
+    Password: NotRequired[str]
+    AuditDestinationARN: NotRequired[str]
+    CacheAttributes: NotRequired[CacheAttributesTypeDef]
+
+UpdateSMBFileShareInputTypeDef = TypedDict(
+    "UpdateSMBFileShareInputTypeDef",
+    {
         "FileShareARN": str,
-        "FileShareId": str,
-        "FileShareStatus": str,
+        "EncryptionType": NotRequired[EncryptionTypeType],
+        "KMSEncrypted": NotRequired[bool],
+        "KMSKey": NotRequired[str],
+        "DefaultStorageClass": NotRequired[str],
+        "ObjectACL": NotRequired[ObjectACLType],
+        "ReadOnly": NotRequired[bool],
+        "GuessMIMETypeEnabled": NotRequired[bool],
+        "RequesterPays": NotRequired[bool],
+        "SMBACLEnabled": NotRequired[bool],
+        "AccessBasedEnumeration": NotRequired[bool],
+        "AdminUserList": NotRequired[Sequence[str]],
+        "ValidUserList": NotRequired[Sequence[str]],
+        "InvalidUserList": NotRequired[Sequence[str]],
+        "AuditDestinationARN": NotRequired[str],
+        "CaseSensitivity": NotRequired[CaseSensitivityType],
+        "FileShareName": NotRequired[str],
+        "CacheAttributes": NotRequired[CacheAttributesTypeDef],
+        "NotificationPolicy": NotRequired[str],
+        "OplocksEnabled": NotRequired[bool],
+    },
+)
+
+class AutomaticTapeCreationPolicyInfoTypeDef(TypedDict):
+    AutomaticTapeCreationRules: NotRequired[List[AutomaticTapeCreationRuleTypeDef]]
+    GatewayARN: NotRequired[str]
+
+class UpdateAutomaticTapeCreationPolicyInputTypeDef(TypedDict):
+    AutomaticTapeCreationRules: Sequence[AutomaticTapeCreationRuleTypeDef]
+    GatewayARN: str
+
+class DescribeBandwidthRateLimitScheduleOutputTypeDef(TypedDict):
+    GatewayARN: str
+    BandwidthRateLimitIntervals: List[BandwidthRateLimitIntervalOutputTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+BandwidthRateLimitIntervalUnionTypeDef = Union[
+    BandwidthRateLimitIntervalTypeDef, BandwidthRateLimitIntervalOutputTypeDef
+]
+
+class CacheReportInfoTypeDef(TypedDict):
+    CacheReportARN: NotRequired[str]
+    CacheReportStatus: NotRequired[CacheReportStatusType]
+    ReportCompletionPercent: NotRequired[int]
+    EndTime: NotRequired[datetime]
+    Role: NotRequired[str]
+    FileShareARN: NotRequired[str]
+    LocationARN: NotRequired[str]
+    StartTime: NotRequired[datetime]
+    InclusionFilters: NotRequired[List[CacheReportFilterOutputTypeDef]]
+    ExclusionFilters: NotRequired[List[CacheReportFilterOutputTypeDef]]
+    ReportName: NotRequired[str]
+    Tags: NotRequired[List[TagTypeDef]]
+
+CacheReportFilterUnionTypeDef = Union[CacheReportFilterTypeDef, CacheReportFilterOutputTypeDef]
+
+class CachediSCSIVolumeTypeDef(TypedDict):
+    VolumeARN: NotRequired[str]
+    VolumeId: NotRequired[str]
+    VolumeType: NotRequired[str]
+    VolumeStatus: NotRequired[str]
+    VolumeAttachmentStatus: NotRequired[str]
+    VolumeSizeInBytes: NotRequired[int]
+    VolumeProgress: NotRequired[float]
+    SourceSnapshotId: NotRequired[str]
+    VolumeiSCSIAttributes: NotRequired[VolumeiSCSIAttributesTypeDef]
+    CreatedDate: NotRequired[datetime]
+    VolumeUsedInBytes: NotRequired[int]
+    KMSKey: NotRequired[str]
+    TargetName: NotRequired[str]
+
+class StorediSCSIVolumeTypeDef(TypedDict):
+    VolumeARN: NotRequired[str]
+    VolumeId: NotRequired[str]
+    VolumeType: NotRequired[str]
+    VolumeStatus: NotRequired[str]
+    VolumeAttachmentStatus: NotRequired[str]
+    VolumeSizeInBytes: NotRequired[int]
+    VolumeProgress: NotRequired[float]
+    VolumeDiskId: NotRequired[str]
+    SourceSnapshotId: NotRequired[str]
+    PreservedExistingData: NotRequired[bool]
+    VolumeiSCSIAttributes: NotRequired[VolumeiSCSIAttributesTypeDef]
+    CreatedDate: NotRequired[datetime]
+    VolumeUsedInBytes: NotRequired[int]
+    KMSKey: NotRequired[str]
+    TargetName: NotRequired[str]
+
+class DescribeChapCredentialsOutputTypeDef(TypedDict):
+    ChapCredentials: List[ChapInfoTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+CreateNFSFileShareInputTypeDef = TypedDict(
+    "CreateNFSFileShareInputTypeDef",
+    {
+        "ClientToken": str,
         "GatewayARN": str,
-        "KMSEncrypted": bool,
-        "KMSKey": str,
-        "Path": str,
         "Role": str,
         "LocationARN": str,
-        "DefaultStorageClass": str,
-        "ObjectACL": ObjectACLType,
-        "ReadOnly": bool,
-        "GuessMIMETypeEnabled": bool,
-        "RequesterPays": bool,
-        "SMBACLEnabled": bool,
-        "AccessBasedEnumeration": bool,
-        "AdminUserList": List[str],
-        "ValidUserList": List[str],
-        "InvalidUserList": List[str],
-        "AuditDestinationARN": str,
-        "Authentication": str,
-        "CaseSensitivity": CaseSensitivityType,
-        "Tags": List["TagTypeDef"],
-        "FileShareName": str,
-        "CacheAttributes": "CacheAttributesTypeDef",
-        "NotificationPolicy": str,
-        "VPCEndpointDNSName": str,
-        "BucketRegion": str,
-        "OplocksEnabled": bool,
+        "NFSFileShareDefaults": NotRequired[NFSFileShareDefaultsTypeDef],
+        "EncryptionType": NotRequired[EncryptionTypeType],
+        "KMSEncrypted": NotRequired[bool],
+        "KMSKey": NotRequired[str],
+        "DefaultStorageClass": NotRequired[str],
+        "ObjectACL": NotRequired[ObjectACLType],
+        "ClientList": NotRequired[Sequence[str]],
+        "Squash": NotRequired[str],
+        "ReadOnly": NotRequired[bool],
+        "GuessMIMETypeEnabled": NotRequired[bool],
+        "RequesterPays": NotRequired[bool],
+        "Tags": NotRequired[Sequence[TagTypeDef]],
+        "FileShareName": NotRequired[str],
+        "CacheAttributes": NotRequired[CacheAttributesTypeDef],
+        "NotificationPolicy": NotRequired[str],
+        "VPCEndpointDNSName": NotRequired[str],
+        "BucketRegion": NotRequired[str],
+        "AuditDestinationARN": NotRequired[str],
     },
-    total=False,
 )
-
-SMBLocalGroupsTypeDef = TypedDict(
-    "SMBLocalGroupsTypeDef",
+NFSFileShareInfoTypeDef = TypedDict(
+    "NFSFileShareInfoTypeDef",
     {
-        "GatewayAdmins": List[str],
-    },
-    total=False,
-)
-
-SetLocalConsolePasswordInputRequestTypeDef = TypedDict(
-    "SetLocalConsolePasswordInputRequestTypeDef",
-    {
-        "GatewayARN": str,
-        "LocalConsolePassword": str,
-    },
-)
-
-SetLocalConsolePasswordOutputTypeDef = TypedDict(
-    "SetLocalConsolePasswordOutputTypeDef",
-    {
-        "GatewayARN": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-SetSMBGuestPasswordInputRequestTypeDef = TypedDict(
-    "SetSMBGuestPasswordInputRequestTypeDef",
-    {
-        "GatewayARN": str,
-        "Password": str,
-    },
-)
-
-SetSMBGuestPasswordOutputTypeDef = TypedDict(
-    "SetSMBGuestPasswordOutputTypeDef",
-    {
-        "GatewayARN": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "NFSFileShareDefaults": NotRequired[NFSFileShareDefaultsTypeDef],
+        "FileShareARN": NotRequired[str],
+        "FileShareId": NotRequired[str],
+        "FileShareStatus": NotRequired[str],
+        "GatewayARN": NotRequired[str],
+        "EncryptionType": NotRequired[EncryptionTypeType],
+        "KMSEncrypted": NotRequired[bool],
+        "KMSKey": NotRequired[str],
+        "Path": NotRequired[str],
+        "Role": NotRequired[str],
+        "LocationARN": NotRequired[str],
+        "DefaultStorageClass": NotRequired[str],
+        "ObjectACL": NotRequired[ObjectACLType],
+        "ClientList": NotRequired[List[str]],
+        "Squash": NotRequired[str],
+        "ReadOnly": NotRequired[bool],
+        "GuessMIMETypeEnabled": NotRequired[bool],
+        "RequesterPays": NotRequired[bool],
+        "Tags": NotRequired[List[TagTypeDef]],
+        "FileShareName": NotRequired[str],
+        "CacheAttributes": NotRequired[CacheAttributesTypeDef],
+        "NotificationPolicy": NotRequired[str],
+        "VPCEndpointDNSName": NotRequired[str],
+        "BucketRegion": NotRequired[str],
+        "AuditDestinationARN": NotRequired[str],
     },
 )
-
-ShutdownGatewayInputRequestTypeDef = TypedDict(
-    "ShutdownGatewayInputRequestTypeDef",
-    {
-        "GatewayARN": str,
-    },
-)
-
-ShutdownGatewayOutputTypeDef = TypedDict(
-    "ShutdownGatewayOutputTypeDef",
-    {
-        "GatewayARN": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-SoftwareUpdatePreferencesTypeDef = TypedDict(
-    "SoftwareUpdatePreferencesTypeDef",
-    {
-        "AutomaticUpdatePolicy": AutomaticUpdatePolicyType,
-    },
-    total=False,
-)
-
-StartAvailabilityMonitorTestInputRequestTypeDef = TypedDict(
-    "StartAvailabilityMonitorTestInputRequestTypeDef",
-    {
-        "GatewayARN": str,
-    },
-)
-
-StartAvailabilityMonitorTestOutputTypeDef = TypedDict(
-    "StartAvailabilityMonitorTestOutputTypeDef",
-    {
-        "GatewayARN": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-StartGatewayInputRequestTypeDef = TypedDict(
-    "StartGatewayInputRequestTypeDef",
-    {
-        "GatewayARN": str,
-    },
-)
-
-StartGatewayOutputTypeDef = TypedDict(
-    "StartGatewayOutputTypeDef",
-    {
-        "GatewayARN": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-StorediSCSIVolumeTypeDef = TypedDict(
-    "StorediSCSIVolumeTypeDef",
-    {
-        "VolumeARN": str,
-        "VolumeId": str,
-        "VolumeType": str,
-        "VolumeStatus": str,
-        "VolumeAttachmentStatus": str,
-        "VolumeSizeInBytes": int,
-        "VolumeProgress": float,
-        "VolumeDiskId": str,
-        "SourceSnapshotId": str,
-        "PreservedExistingData": bool,
-        "VolumeiSCSIAttributes": "VolumeiSCSIAttributesTypeDef",
-        "CreatedDate": datetime,
-        "VolumeUsedInBytes": int,
-        "KMSKey": str,
-        "TargetName": str,
-    },
-    total=False,
-)
-
-TagTypeDef = TypedDict(
-    "TagTypeDef",
-    {
-        "Key": str,
-        "Value": str,
-    },
-)
-
-TapeArchiveTypeDef = TypedDict(
-    "TapeArchiveTypeDef",
-    {
-        "TapeARN": str,
-        "TapeBarcode": str,
-        "TapeCreatedDate": datetime,
-        "TapeSizeInBytes": int,
-        "CompletionTime": datetime,
-        "RetrievedTo": str,
-        "TapeStatus": str,
-        "TapeUsedInBytes": int,
-        "KMSKey": str,
-        "PoolId": str,
-        "Worm": bool,
-        "RetentionStartDate": datetime,
-        "PoolEntryDate": datetime,
-    },
-    total=False,
-)
-
-TapeInfoTypeDef = TypedDict(
-    "TapeInfoTypeDef",
-    {
-        "TapeARN": str,
-        "TapeBarcode": str,
-        "TapeSizeInBytes": int,
-        "TapeStatus": str,
-        "GatewayARN": str,
-        "PoolId": str,
-        "RetentionStartDate": datetime,
-        "PoolEntryDate": datetime,
-    },
-    total=False,
-)
-
-TapeRecoveryPointInfoTypeDef = TypedDict(
-    "TapeRecoveryPointInfoTypeDef",
-    {
-        "TapeARN": str,
-        "TapeRecoveryPointTime": datetime,
-        "TapeSizeInBytes": int,
-        "TapeStatus": str,
-    },
-    total=False,
-)
-
-TapeTypeDef = TypedDict(
-    "TapeTypeDef",
-    {
-        "TapeARN": str,
-        "TapeBarcode": str,
-        "TapeCreatedDate": datetime,
-        "TapeSizeInBytes": int,
-        "TapeStatus": str,
-        "VTLDevice": str,
-        "Progress": float,
-        "TapeUsedInBytes": int,
-        "KMSKey": str,
-        "PoolId": str,
-        "Worm": bool,
-        "RetentionStartDate": datetime,
-        "PoolEntryDate": datetime,
-    },
-    total=False,
-)
-
-UpdateAutomaticTapeCreationPolicyInputRequestTypeDef = TypedDict(
-    "UpdateAutomaticTapeCreationPolicyInputRequestTypeDef",
-    {
-        "AutomaticTapeCreationRules": List["AutomaticTapeCreationRuleTypeDef"],
-        "GatewayARN": str,
-    },
-)
-
-UpdateAutomaticTapeCreationPolicyOutputTypeDef = TypedDict(
-    "UpdateAutomaticTapeCreationPolicyOutputTypeDef",
-    {
-        "GatewayARN": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateBandwidthRateLimitInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateBandwidthRateLimitInputRequestTypeDef",
-    {
-        "GatewayARN": str,
-    },
-)
-_OptionalUpdateBandwidthRateLimitInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateBandwidthRateLimitInputRequestTypeDef",
-    {
-        "AverageUploadRateLimitInBitsPerSec": int,
-        "AverageDownloadRateLimitInBitsPerSec": int,
-    },
-    total=False,
-)
-
-class UpdateBandwidthRateLimitInputRequestTypeDef(
-    _RequiredUpdateBandwidthRateLimitInputRequestTypeDef,
-    _OptionalUpdateBandwidthRateLimitInputRequestTypeDef,
-):
-    pass
-
-UpdateBandwidthRateLimitOutputTypeDef = TypedDict(
-    "UpdateBandwidthRateLimitOutputTypeDef",
-    {
-        "GatewayARN": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UpdateBandwidthRateLimitScheduleInputRequestTypeDef = TypedDict(
-    "UpdateBandwidthRateLimitScheduleInputRequestTypeDef",
-    {
-        "GatewayARN": str,
-        "BandwidthRateLimitIntervals": List["BandwidthRateLimitIntervalTypeDef"],
-    },
-)
-
-UpdateBandwidthRateLimitScheduleOutputTypeDef = TypedDict(
-    "UpdateBandwidthRateLimitScheduleOutputTypeDef",
-    {
-        "GatewayARN": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateChapCredentialsInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateChapCredentialsInputRequestTypeDef",
-    {
-        "TargetARN": str,
-        "SecretToAuthenticateInitiator": str,
-        "InitiatorName": str,
-    },
-)
-_OptionalUpdateChapCredentialsInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateChapCredentialsInputRequestTypeDef",
-    {
-        "SecretToAuthenticateTarget": str,
-    },
-    total=False,
-)
-
-class UpdateChapCredentialsInputRequestTypeDef(
-    _RequiredUpdateChapCredentialsInputRequestTypeDef,
-    _OptionalUpdateChapCredentialsInputRequestTypeDef,
-):
-    pass
-
-UpdateChapCredentialsOutputTypeDef = TypedDict(
-    "UpdateChapCredentialsOutputTypeDef",
-    {
-        "TargetARN": str,
-        "InitiatorName": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateFileSystemAssociationInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateFileSystemAssociationInputRequestTypeDef",
-    {
-        "FileSystemAssociationARN": str,
-    },
-)
-_OptionalUpdateFileSystemAssociationInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateFileSystemAssociationInputRequestTypeDef",
-    {
-        "UserName": str,
-        "Password": str,
-        "AuditDestinationARN": str,
-        "CacheAttributes": "CacheAttributesTypeDef",
-    },
-    total=False,
-)
-
-class UpdateFileSystemAssociationInputRequestTypeDef(
-    _RequiredUpdateFileSystemAssociationInputRequestTypeDef,
-    _OptionalUpdateFileSystemAssociationInputRequestTypeDef,
-):
-    pass
-
-UpdateFileSystemAssociationOutputTypeDef = TypedDict(
-    "UpdateFileSystemAssociationOutputTypeDef",
-    {
-        "FileSystemAssociationARN": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateGatewayInformationInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateGatewayInformationInputRequestTypeDef",
-    {
-        "GatewayARN": str,
-    },
-)
-_OptionalUpdateGatewayInformationInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateGatewayInformationInputRequestTypeDef",
-    {
-        "GatewayName": str,
-        "GatewayTimezone": str,
-        "CloudWatchLogGroupARN": str,
-        "GatewayCapacity": GatewayCapacityType,
-    },
-    total=False,
-)
-
-class UpdateGatewayInformationInputRequestTypeDef(
-    _RequiredUpdateGatewayInformationInputRequestTypeDef,
-    _OptionalUpdateGatewayInformationInputRequestTypeDef,
-):
-    pass
-
-UpdateGatewayInformationOutputTypeDef = TypedDict(
-    "UpdateGatewayInformationOutputTypeDef",
-    {
-        "GatewayARN": str,
-        "GatewayName": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UpdateGatewaySoftwareNowInputRequestTypeDef = TypedDict(
-    "UpdateGatewaySoftwareNowInputRequestTypeDef",
-    {
-        "GatewayARN": str,
-    },
-)
-
-UpdateGatewaySoftwareNowOutputTypeDef = TypedDict(
-    "UpdateGatewaySoftwareNowOutputTypeDef",
-    {
-        "GatewayARN": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateMaintenanceStartTimeInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateMaintenanceStartTimeInputRequestTypeDef",
-    {
-        "GatewayARN": str,
-    },
-)
-_OptionalUpdateMaintenanceStartTimeInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateMaintenanceStartTimeInputRequestTypeDef",
-    {
-        "HourOfDay": int,
-        "MinuteOfHour": int,
-        "DayOfWeek": int,
-        "DayOfMonth": int,
-        "SoftwareUpdatePreferences": "SoftwareUpdatePreferencesTypeDef",
-    },
-    total=False,
-)
-
-class UpdateMaintenanceStartTimeInputRequestTypeDef(
-    _RequiredUpdateMaintenanceStartTimeInputRequestTypeDef,
-    _OptionalUpdateMaintenanceStartTimeInputRequestTypeDef,
-):
-    pass
-
-UpdateMaintenanceStartTimeOutputTypeDef = TypedDict(
-    "UpdateMaintenanceStartTimeOutputTypeDef",
-    {
-        "GatewayARN": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateNFSFileShareInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateNFSFileShareInputRequestTypeDef",
+UpdateNFSFileShareInputTypeDef = TypedDict(
+    "UpdateNFSFileShareInputTypeDef",
     {
         "FileShareARN": str,
-    },
-)
-_OptionalUpdateNFSFileShareInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateNFSFileShareInputRequestTypeDef",
-    {
-        "KMSEncrypted": bool,
-        "KMSKey": str,
-        "NFSFileShareDefaults": "NFSFileShareDefaultsTypeDef",
-        "DefaultStorageClass": str,
-        "ObjectACL": ObjectACLType,
-        "ClientList": List[str],
-        "Squash": str,
-        "ReadOnly": bool,
-        "GuessMIMETypeEnabled": bool,
-        "RequesterPays": bool,
-        "FileShareName": str,
-        "CacheAttributes": "CacheAttributesTypeDef",
-        "NotificationPolicy": str,
-        "AuditDestinationARN": str,
-    },
-    total=False,
-)
-
-class UpdateNFSFileShareInputRequestTypeDef(
-    _RequiredUpdateNFSFileShareInputRequestTypeDef, _OptionalUpdateNFSFileShareInputRequestTypeDef
-):
-    pass
-
-UpdateNFSFileShareOutputTypeDef = TypedDict(
-    "UpdateNFSFileShareOutputTypeDef",
-    {
-        "FileShareARN": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "EncryptionType": NotRequired[EncryptionTypeType],
+        "KMSEncrypted": NotRequired[bool],
+        "KMSKey": NotRequired[str],
+        "NFSFileShareDefaults": NotRequired[NFSFileShareDefaultsTypeDef],
+        "DefaultStorageClass": NotRequired[str],
+        "ObjectACL": NotRequired[ObjectACLType],
+        "ClientList": NotRequired[Sequence[str]],
+        "Squash": NotRequired[str],
+        "ReadOnly": NotRequired[bool],
+        "GuessMIMETypeEnabled": NotRequired[bool],
+        "RequesterPays": NotRequired[bool],
+        "FileShareName": NotRequired[str],
+        "CacheAttributes": NotRequired[CacheAttributesTypeDef],
+        "NotificationPolicy": NotRequired[str],
+        "AuditDestinationARN": NotRequired[str],
     },
 )
 
-_RequiredUpdateSMBFileShareInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateSMBFileShareInputRequestTypeDef",
-    {
-        "FileShareARN": str,
-    },
-)
-_OptionalUpdateSMBFileShareInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateSMBFileShareInputRequestTypeDef",
-    {
-        "KMSEncrypted": bool,
-        "KMSKey": str,
-        "DefaultStorageClass": str,
-        "ObjectACL": ObjectACLType,
-        "ReadOnly": bool,
-        "GuessMIMETypeEnabled": bool,
-        "RequesterPays": bool,
-        "SMBACLEnabled": bool,
-        "AccessBasedEnumeration": bool,
-        "AdminUserList": List[str],
-        "ValidUserList": List[str],
-        "InvalidUserList": List[str],
-        "AuditDestinationARN": str,
-        "CaseSensitivity": CaseSensitivityType,
-        "FileShareName": str,
-        "CacheAttributes": "CacheAttributesTypeDef",
-        "NotificationPolicy": str,
-        "OplocksEnabled": bool,
-    },
-    total=False,
-)
+class DescribeGatewayInformationOutputTypeDef(TypedDict):
+    GatewayARN: str
+    GatewayId: str
+    GatewayName: str
+    GatewayTimezone: str
+    GatewayState: str
+    GatewayNetworkInterfaces: List[NetworkInterfaceTypeDef]
+    GatewayType: str
+    NextUpdateAvailabilityDate: str
+    LastSoftwareUpdate: str
+    Ec2InstanceId: str
+    Ec2InstanceRegion: str
+    Tags: List[TagTypeDef]
+    VPCEndpoint: str
+    CloudWatchLogGroupARN: str
+    HostEnvironment: HostEnvironmentType
+    EndpointType: str
+    SoftwareUpdatesEndDate: str
+    DeprecationDate: str
+    GatewayCapacity: GatewayCapacityType
+    SupportedGatewayCapacities: List[GatewayCapacityType]
+    HostEnvironmentId: str
+    SoftwareVersion: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateSMBFileShareInputRequestTypeDef(
-    _RequiredUpdateSMBFileShareInputRequestTypeDef, _OptionalUpdateSMBFileShareInputRequestTypeDef
-):
-    pass
+class DescribeMaintenanceStartTimeOutputTypeDef(TypedDict):
+    GatewayARN: str
+    HourOfDay: int
+    MinuteOfHour: int
+    DayOfWeek: int
+    DayOfMonth: int
+    Timezone: str
+    SoftwareUpdatePreferences: SoftwareUpdatePreferencesTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-UpdateSMBFileShareOutputTypeDef = TypedDict(
-    "UpdateSMBFileShareOutputTypeDef",
-    {
-        "FileShareARN": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class UpdateMaintenanceStartTimeInputTypeDef(TypedDict):
+    GatewayARN: str
+    HourOfDay: NotRequired[int]
+    MinuteOfHour: NotRequired[int]
+    DayOfWeek: NotRequired[int]
+    DayOfMonth: NotRequired[int]
+    SoftwareUpdatePreferences: NotRequired[SoftwareUpdatePreferencesTypeDef]
 
-UpdateSMBFileShareVisibilityInputRequestTypeDef = TypedDict(
-    "UpdateSMBFileShareVisibilityInputRequestTypeDef",
-    {
-        "GatewayARN": str,
-        "FileSharesVisible": bool,
-    },
-)
+class DescribeSMBSettingsOutputTypeDef(TypedDict):
+    GatewayARN: str
+    DomainName: str
+    ActiveDirectoryStatus: ActiveDirectoryStatusType
+    SMBGuestPasswordSet: bool
+    SMBSecurityStrategy: SMBSecurityStrategyType
+    FileSharesVisible: bool
+    SMBLocalGroups: SMBLocalGroupsOutputTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-UpdateSMBFileShareVisibilityOutputTypeDef = TypedDict(
-    "UpdateSMBFileShareVisibilityOutputTypeDef",
-    {
-        "GatewayARN": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DescribeTapeArchivesInputPaginateTypeDef(TypedDict):
+    TapeARNs: NotRequired[Sequence[str]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-UpdateSMBLocalGroupsInputRequestTypeDef = TypedDict(
-    "UpdateSMBLocalGroupsInputRequestTypeDef",
-    {
-        "GatewayARN": str,
-        "SMBLocalGroups": "SMBLocalGroupsTypeDef",
-    },
-)
+class DescribeTapeRecoveryPointsInputPaginateTypeDef(TypedDict):
+    GatewayARN: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-UpdateSMBLocalGroupsOutputTypeDef = TypedDict(
-    "UpdateSMBLocalGroupsOutputTypeDef",
-    {
-        "GatewayARN": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DescribeTapesInputPaginateTypeDef(TypedDict):
+    GatewayARN: str
+    TapeARNs: NotRequired[Sequence[str]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-UpdateSMBSecurityStrategyInputRequestTypeDef = TypedDict(
-    "UpdateSMBSecurityStrategyInputRequestTypeDef",
-    {
-        "GatewayARN": str,
-        "SMBSecurityStrategy": SMBSecurityStrategyType,
-    },
-)
+class DescribeVTLDevicesInputPaginateTypeDef(TypedDict):
+    GatewayARN: str
+    VTLDeviceARNs: NotRequired[Sequence[str]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-UpdateSMBSecurityStrategyOutputTypeDef = TypedDict(
-    "UpdateSMBSecurityStrategyOutputTypeDef",
-    {
-        "GatewayARN": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListCacheReportsInputPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-_RequiredUpdateSnapshotScheduleInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateSnapshotScheduleInputRequestTypeDef",
-    {
-        "VolumeARN": str,
-        "StartAt": int,
-        "RecurrenceInHours": int,
-    },
-)
-_OptionalUpdateSnapshotScheduleInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateSnapshotScheduleInputRequestTypeDef",
-    {
-        "Description": str,
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
+class ListFileSharesInputPaginateTypeDef(TypedDict):
+    GatewayARN: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-class UpdateSnapshotScheduleInputRequestTypeDef(
-    _RequiredUpdateSnapshotScheduleInputRequestTypeDef,
-    _OptionalUpdateSnapshotScheduleInputRequestTypeDef,
-):
-    pass
+class ListFileSystemAssociationsInputPaginateTypeDef(TypedDict):
+    GatewayARN: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-UpdateSnapshotScheduleOutputTypeDef = TypedDict(
-    "UpdateSnapshotScheduleOutputTypeDef",
-    {
-        "VolumeARN": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListGatewaysInputPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-UpdateVTLDeviceTypeInputRequestTypeDef = TypedDict(
-    "UpdateVTLDeviceTypeInputRequestTypeDef",
-    {
-        "VTLDeviceARN": str,
-        "DeviceType": str,
-    },
-)
+class ListTagsForResourceInputPaginateTypeDef(TypedDict):
+    ResourceARN: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-UpdateVTLDeviceTypeOutputTypeDef = TypedDict(
-    "UpdateVTLDeviceTypeOutputTypeDef",
-    {
-        "VTLDeviceARN": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListTapePoolsInputPaginateTypeDef(TypedDict):
+    PoolARNs: NotRequired[Sequence[str]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-VTLDeviceTypeDef = TypedDict(
-    "VTLDeviceTypeDef",
-    {
-        "VTLDeviceARN": str,
-        "VTLDeviceType": str,
-        "VTLDeviceVendor": str,
-        "VTLDeviceProductIdentifier": str,
-        "DeviceiSCSIAttributes": "DeviceiSCSIAttributesTypeDef",
-    },
-    total=False,
-)
+class ListTapesInputPaginateTypeDef(TypedDict):
+    TapeARNs: NotRequired[Sequence[str]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-VolumeInfoTypeDef = TypedDict(
-    "VolumeInfoTypeDef",
-    {
-        "VolumeARN": str,
-        "VolumeId": str,
-        "GatewayARN": str,
-        "GatewayId": str,
-        "VolumeType": str,
-        "VolumeSizeInBytes": int,
-        "VolumeAttachmentStatus": str,
-    },
-    total=False,
-)
+class ListVolumesInputPaginateTypeDef(TypedDict):
+    GatewayARN: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-VolumeRecoveryPointInfoTypeDef = TypedDict(
-    "VolumeRecoveryPointInfoTypeDef",
-    {
-        "VolumeARN": str,
-        "VolumeSizeInBytes": int,
-        "VolumeUsageInBytes": int,
-        "VolumeRecoveryPointTime": str,
-    },
-    total=False,
-)
+class DescribeTapeArchivesOutputTypeDef(TypedDict):
+    TapeArchives: List[TapeArchiveTypeDef]
+    Marker: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-VolumeiSCSIAttributesTypeDef = TypedDict(
-    "VolumeiSCSIAttributesTypeDef",
-    {
-        "TargetARN": str,
-        "NetworkInterfaceId": str,
-        "NetworkInterfacePort": int,
-        "LunNumber": int,
-        "ChapEnabled": bool,
-    },
-    total=False,
-)
+class DescribeTapeRecoveryPointsOutputTypeDef(TypedDict):
+    GatewayARN: str
+    TapeRecoveryPointInfos: List[TapeRecoveryPointInfoTypeDef]
+    Marker: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeTapesOutputTypeDef(TypedDict):
+    Tapes: List[TapeTypeDef]
+    Marker: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class VTLDeviceTypeDef(TypedDict):
+    VTLDeviceARN: NotRequired[str]
+    VTLDeviceType: NotRequired[str]
+    VTLDeviceVendor: NotRequired[str]
+    VTLDeviceProductIdentifier: NotRequired[str]
+    DeviceiSCSIAttributes: NotRequired[DeviceiSCSIAttributesTypeDef]
+
+class ListLocalDisksOutputTypeDef(TypedDict):
+    GatewayARN: str
+    Disks: List[DiskTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+EndpointNetworkConfigurationUnionTypeDef = Union[
+    EndpointNetworkConfigurationTypeDef, EndpointNetworkConfigurationOutputTypeDef
+]
+
+class ListFileSharesOutputTypeDef(TypedDict):
+    Marker: str
+    NextMarker: str
+    FileShareInfoList: List[FileShareInfoTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class FileSystemAssociationInfoTypeDef(TypedDict):
+    FileSystemAssociationARN: NotRequired[str]
+    LocationARN: NotRequired[str]
+    FileSystemAssociationStatus: NotRequired[str]
+    AuditDestinationARN: NotRequired[str]
+    GatewayARN: NotRequired[str]
+    Tags: NotRequired[List[TagTypeDef]]
+    CacheAttributes: NotRequired[CacheAttributesTypeDef]
+    EndpointNetworkConfiguration: NotRequired[EndpointNetworkConfigurationOutputTypeDef]
+    FileSystemAssociationStatusDetails: NotRequired[List[FileSystemAssociationStatusDetailTypeDef]]
+
+class ListFileSystemAssociationsOutputTypeDef(TypedDict):
+    Marker: str
+    NextMarker: str
+    FileSystemAssociationSummaryList: List[FileSystemAssociationSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListGatewaysOutputTypeDef(TypedDict):
+    Gateways: List[GatewayInfoTypeDef]
+    Marker: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListTapePoolsOutputTypeDef(TypedDict):
+    PoolInfos: List[PoolInfoTypeDef]
+    Marker: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListTapesOutputTypeDef(TypedDict):
+    TapeInfos: List[TapeInfoTypeDef]
+    Marker: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListVolumeRecoveryPointsOutputTypeDef(TypedDict):
+    GatewayARN: str
+    VolumeRecoveryPointInfos: List[VolumeRecoveryPointInfoTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListVolumesOutputTypeDef(TypedDict):
+    GatewayARN: str
+    Marker: str
+    VolumeInfos: List[VolumeInfoTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+SMBLocalGroupsUnionTypeDef = Union[SMBLocalGroupsTypeDef, SMBLocalGroupsOutputTypeDef]
+
+class DescribeSMBFileSharesOutputTypeDef(TypedDict):
+    SMBFileShareInfoList: List[SMBFileShareInfoTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListAutomaticTapeCreationPoliciesOutputTypeDef(TypedDict):
+    AutomaticTapeCreationPolicyInfos: List[AutomaticTapeCreationPolicyInfoTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateBandwidthRateLimitScheduleInputTypeDef(TypedDict):
+    GatewayARN: str
+    BandwidthRateLimitIntervals: Sequence[BandwidthRateLimitIntervalUnionTypeDef]
+
+class DescribeCacheReportOutputTypeDef(TypedDict):
+    CacheReportInfo: CacheReportInfoTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListCacheReportsOutputTypeDef(TypedDict):
+    CacheReportList: List[CacheReportInfoTypeDef]
+    Marker: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartCacheReportInputTypeDef(TypedDict):
+    FileShareARN: str
+    Role: str
+    LocationARN: str
+    BucketRegion: str
+    ClientToken: str
+    VPCEndpointDNSName: NotRequired[str]
+    InclusionFilters: NotRequired[Sequence[CacheReportFilterUnionTypeDef]]
+    ExclusionFilters: NotRequired[Sequence[CacheReportFilterUnionTypeDef]]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+
+class DescribeCachediSCSIVolumesOutputTypeDef(TypedDict):
+    CachediSCSIVolumes: List[CachediSCSIVolumeTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeStorediSCSIVolumesOutputTypeDef(TypedDict):
+    StorediSCSIVolumes: List[StorediSCSIVolumeTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeNFSFileSharesOutputTypeDef(TypedDict):
+    NFSFileShareInfoList: List[NFSFileShareInfoTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeVTLDevicesOutputTypeDef(TypedDict):
+    GatewayARN: str
+    VTLDevices: List[VTLDeviceTypeDef]
+    Marker: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class AssociateFileSystemInputTypeDef(TypedDict):
+    UserName: str
+    Password: str
+    ClientToken: str
+    GatewayARN: str
+    LocationARN: str
+    Tags: NotRequired[Sequence[TagTypeDef]]
+    AuditDestinationARN: NotRequired[str]
+    CacheAttributes: NotRequired[CacheAttributesTypeDef]
+    EndpointNetworkConfiguration: NotRequired[EndpointNetworkConfigurationUnionTypeDef]
+
+class DescribeFileSystemAssociationsOutputTypeDef(TypedDict):
+    FileSystemAssociationInfoList: List[FileSystemAssociationInfoTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateSMBLocalGroupsInputTypeDef(TypedDict):
+    GatewayARN: str
+    SMBLocalGroups: SMBLocalGroupsUnionTypeDef

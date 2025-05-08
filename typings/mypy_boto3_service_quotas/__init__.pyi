@@ -1,10 +1,14 @@
 """
 Main interface for service-quotas service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_service_quotas/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_service_quotas import (
         Client,
         ListAWSDefaultServiceQuotasPaginator,
@@ -16,14 +20,12 @@ Usage::
         ServiceQuotasClient,
     )
 
-    session = boto3.Session()
-
-    client: ServiceQuotasClient = boto3.client("service-quotas")
-    session_client: ServiceQuotasClient = session.client("service-quotas")
+    session = Session()
+    client: ServiceQuotasClient = session.client("service-quotas")
 
     list_aws_default_service_quotas_paginator: ListAWSDefaultServiceQuotasPaginator = client.get_paginator("list_aws_default_service_quotas")
-    list_requested_service_quota_change_history_paginator: ListRequestedServiceQuotaChangeHistoryPaginator = client.get_paginator("list_requested_service_quota_change_history")
     list_requested_service_quota_change_history_by_quota_paginator: ListRequestedServiceQuotaChangeHistoryByQuotaPaginator = client.get_paginator("list_requested_service_quota_change_history_by_quota")
+    list_requested_service_quota_change_history_paginator: ListRequestedServiceQuotaChangeHistoryPaginator = client.get_paginator("list_requested_service_quota_change_history")
     list_service_quota_increase_requests_in_template_paginator: ListServiceQuotaIncreaseRequestsInTemplatePaginator = client.get_paginator("list_service_quota_increase_requests_in_template")
     list_service_quotas_paginator: ListServiceQuotasPaginator = client.get_paginator("list_service_quotas")
     list_services_paginator: ListServicesPaginator = client.get_paginator("list_services")

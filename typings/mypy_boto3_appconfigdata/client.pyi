@@ -1,37 +1,50 @@
 """
-Type annotations for appconfigdata service client.
+Type annotations for appconfigdata service Client.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfigdata/client.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appconfigdata/client/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
-    from mypy_boto3_appconfigdata import AppConfigDataClient
+    from boto3.session import Session
+    from mypy_boto3_appconfigdata.client import AppConfigDataClient
 
-    client: AppConfigDataClient = boto3.client("appconfigdata")
+    session = Session()
+    client: AppConfigDataClient = session.client("appconfigdata")
     ```
 """
 
-from typing import Any, Dict, Type
+from __future__ import annotations
+
+import sys
+from typing import Any
 
 from botocore.client import BaseClient, ClientMeta
+from botocore.errorfactory import BaseClientExceptions
+from botocore.exceptions import ClientError as BotocoreClientError
 
 from .type_defs import (
+    GetLatestConfigurationRequestTypeDef,
     GetLatestConfigurationResponseTypeDef,
+    StartConfigurationSessionRequestTypeDef,
     StartConfigurationSessionResponseTypeDef,
 )
 
+if sys.version_info >= (3, 9):
+    from builtins import type as Type
+    from collections.abc import Mapping
+else:
+    from typing import Mapping, Type
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
+
 __all__ = ("AppConfigDataClient",)
 
-class BotocoreClientError(BaseException):
-    MSG_TEMPLATE: str
-
-    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
-        self.response: Dict[str, Any]
-        self.operation_name: str
-
-class Exceptions:
+class Exceptions(BaseClientExceptions):
     BadRequestException: Type[BotocoreClientError]
     ClientError: Type[BotocoreClientError]
     InternalServerException: Type[BotocoreClientError]
@@ -40,8 +53,8 @@ class Exceptions:
 
 class AppConfigDataClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appconfigdata.html#AppConfigData.Client)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfigdata/client.html)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appconfigdata.html#AppConfigData.Client)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appconfigdata/client/)
     """
 
     meta: ClientMeta
@@ -50,59 +63,45 @@ class AppConfigDataClient(BaseClient):
     def exceptions(self) -> Exceptions:
         """
         AppConfigDataClient exceptions.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appconfigdata.html#AppConfigData.Client)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appconfigdata/client/#exceptions)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        Check if an operation can be paginated.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appconfigdata.html#AppConfigData.Client.can_paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfigdata/client.html#can_paginate)
-        """
-
-    def close(self) -> None:
-        """
-        Closes underlying endpoint connections.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appconfigdata.html#AppConfigData.Client.close)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfigdata/client.html#close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appconfigdata/client/can_paginate.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appconfigdata/client/#can_paginate)
         """
 
     def generate_presigned_url(
         self,
         ClientMethod: str,
-        Params: Dict[str, Any] = None,
+        Params: Mapping[str, Any] = ...,
         ExpiresIn: int = 3600,
-        HttpMethod: str = None,
+        HttpMethod: str = ...,
     ) -> str:
         """
-        Generate a presigned url given a client, its method, and arguments.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appconfigdata.html#AppConfigData.Client.generate_presigned_url)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfigdata/client.html#generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appconfigdata/client/generate_presigned_url.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appconfigdata/client/#generate_presigned_url)
         """
 
     def get_latest_configuration(
-        self, *, ConfigurationToken: str
+        self, **kwargs: Unpack[GetLatestConfigurationRequestTypeDef]
     ) -> GetLatestConfigurationResponseTypeDef:
         """
         Retrieves the latest deployed configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appconfigdata.html#AppConfigData.Client.get_latest_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfigdata/client.html#get_latest_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appconfigdata/client/get_latest_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appconfigdata/client/#get_latest_configuration)
         """
 
     def start_configuration_session(
-        self,
-        *,
-        ApplicationIdentifier: str,
-        EnvironmentIdentifier: str,
-        ConfigurationProfileIdentifier: str,
-        RequiredMinimumPollIntervalInSeconds: int = None
+        self, **kwargs: Unpack[StartConfigurationSessionRequestTypeDef]
     ) -> StartConfigurationSessionResponseTypeDef:
         """
         Starts a configuration session used to retrieve a deployed configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appconfigdata.html#AppConfigData.Client.start_configuration_session)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfigdata/client.html#start_configuration_session)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appconfigdata/client/start_configuration_session.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appconfigdata/client/#start_configuration_session)
         """

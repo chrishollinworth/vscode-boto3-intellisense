@@ -1,10 +1,14 @@
 """
 Main interface for tnb service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_tnb/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_tnb import (
         Client,
         ListSolFunctionInstancesPaginator,
@@ -15,10 +19,8 @@ Usage::
         TelcoNetworkBuilderClient,
     )
 
-    session = boto3.Session()
-
-    client: TelcoNetworkBuilderClient = boto3.client("tnb")
-    session_client: TelcoNetworkBuilderClient = session.client("tnb")
+    session = Session()
+    client: TelcoNetworkBuilderClient = session.client("tnb")
 
     list_sol_function_instances_paginator: ListSolFunctionInstancesPaginator = client.get_paginator("list_sol_function_instances")
     list_sol_function_packages_paginator: ListSolFunctionPackagesPaginator = client.get_paginator("list_sol_function_packages")

@@ -1,10 +1,14 @@
 """
 Main interface for dynamodb service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dynamodb/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_dynamodb import (
         Client,
         DynamoDBClient,
@@ -19,13 +23,10 @@ Usage::
         TableNotExistsWaiter,
     )
 
-    session = boto3.Session()
+    session = Session()
+    client: DynamoDBClient = session.client("dynamodb")
 
-    client: DynamoDBClient = boto3.client("dynamodb")
-    session_client: DynamoDBClient = session.client("dynamodb")
-
-    resource: DynamoDBServiceResource = boto3.resource("dynamodb")
-    session_resource: DynamoDBServiceResource = session.resource("dynamodb")
+    resource: DynamoDBServiceResource = session.resource("dynamodb")
 
     table_exists_waiter: TableExistsWaiter = client.get_waiter("table_exists")
     table_not_exists_waiter: TableNotExistsWaiter = client.get_waiter("table_not_exists")
@@ -46,8 +47,12 @@ from .paginator import (
     QueryPaginator,
     ScanPaginator,
 )
-from .service_resource import DynamoDBServiceResource
 from .waiter import TableExistsWaiter, TableNotExistsWaiter
+
+try:
+    from .service_resource import DynamoDBServiceResource
+except ImportError:
+    from builtins import object as DynamoDBServiceResource  # type: ignore[assignment]
 
 Client = DynamoDBClient
 

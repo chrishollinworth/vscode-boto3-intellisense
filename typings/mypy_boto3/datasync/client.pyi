@@ -1,33 +1,30 @@
 """
-Type annotations for datasync service client.
+Type annotations for datasync service Client.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datasync/client/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
-    from mypy_boto3_datasync import DataSyncClient
+    from boto3.session import Session
+    from mypy_boto3_datasync.client import DataSyncClient
 
-    client: DataSyncClient = boto3.client("datasync")
+    session = Session()
+    client: DataSyncClient = session.client("datasync")
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from datetime import datetime
-from typing import IO, Any, Dict, List, Type, Union, overload
+from typing import Any, overload
 
 from botocore.client import BaseClient, ClientMeta
-from botocore.response import StreamingBody
+from botocore.errorfactory import BaseClientExceptions
+from botocore.exceptions import ClientError as BotocoreClientError
 
-from .literals import (
-    AzureAccessTierType,
-    DiscoveryResourceTypeType,
-    EfsInTransitEncryptionType,
-    HdfsAuthenticationTypeType,
-    ObjectStorageServerProtocolType,
-    S3StorageClassType,
-)
 from .paginator import (
     DescribeStorageSystemResourceMetricsPaginator,
     ListAgentsPaginator,
@@ -39,91 +36,137 @@ from .paginator import (
     ListTasksPaginator,
 )
 from .type_defs import (
+    AddStorageSystemRequestTypeDef,
     AddStorageSystemResponseTypeDef,
-    AzureBlobSasConfigurationTypeDef,
+    CancelTaskExecutionRequestTypeDef,
+    CreateAgentRequestTypeDef,
     CreateAgentResponseTypeDef,
+    CreateLocationAzureBlobRequestTypeDef,
     CreateLocationAzureBlobResponseTypeDef,
+    CreateLocationEfsRequestTypeDef,
     CreateLocationEfsResponseTypeDef,
+    CreateLocationFsxLustreRequestTypeDef,
     CreateLocationFsxLustreResponseTypeDef,
+    CreateLocationFsxOntapRequestTypeDef,
     CreateLocationFsxOntapResponseTypeDef,
+    CreateLocationFsxOpenZfsRequestTypeDef,
     CreateLocationFsxOpenZfsResponseTypeDef,
+    CreateLocationFsxWindowsRequestTypeDef,
     CreateLocationFsxWindowsResponseTypeDef,
+    CreateLocationHdfsRequestTypeDef,
     CreateLocationHdfsResponseTypeDef,
+    CreateLocationNfsRequestTypeDef,
     CreateLocationNfsResponseTypeDef,
+    CreateLocationObjectStorageRequestTypeDef,
     CreateLocationObjectStorageResponseTypeDef,
+    CreateLocationS3RequestTypeDef,
     CreateLocationS3ResponseTypeDef,
+    CreateLocationSmbRequestTypeDef,
     CreateLocationSmbResponseTypeDef,
+    CreateTaskRequestTypeDef,
     CreateTaskResponseTypeDef,
-    CredentialsTypeDef,
+    DeleteAgentRequestTypeDef,
+    DeleteLocationRequestTypeDef,
+    DeleteTaskRequestTypeDef,
+    DescribeAgentRequestTypeDef,
     DescribeAgentResponseTypeDef,
+    DescribeDiscoveryJobRequestTypeDef,
     DescribeDiscoveryJobResponseTypeDef,
+    DescribeLocationAzureBlobRequestTypeDef,
     DescribeLocationAzureBlobResponseTypeDef,
+    DescribeLocationEfsRequestTypeDef,
     DescribeLocationEfsResponseTypeDef,
+    DescribeLocationFsxLustreRequestTypeDef,
     DescribeLocationFsxLustreResponseTypeDef,
+    DescribeLocationFsxOntapRequestTypeDef,
     DescribeLocationFsxOntapResponseTypeDef,
+    DescribeLocationFsxOpenZfsRequestTypeDef,
     DescribeLocationFsxOpenZfsResponseTypeDef,
+    DescribeLocationFsxWindowsRequestTypeDef,
     DescribeLocationFsxWindowsResponseTypeDef,
+    DescribeLocationHdfsRequestTypeDef,
     DescribeLocationHdfsResponseTypeDef,
+    DescribeLocationNfsRequestTypeDef,
     DescribeLocationNfsResponseTypeDef,
+    DescribeLocationObjectStorageRequestTypeDef,
     DescribeLocationObjectStorageResponseTypeDef,
+    DescribeLocationS3RequestTypeDef,
     DescribeLocationS3ResponseTypeDef,
+    DescribeLocationSmbRequestTypeDef,
     DescribeLocationSmbResponseTypeDef,
+    DescribeStorageSystemRequestTypeDef,
+    DescribeStorageSystemResourceMetricsRequestTypeDef,
     DescribeStorageSystemResourceMetricsResponseTypeDef,
+    DescribeStorageSystemResourcesRequestTypeDef,
     DescribeStorageSystemResourcesResponseTypeDef,
     DescribeStorageSystemResponseTypeDef,
+    DescribeTaskExecutionRequestTypeDef,
     DescribeTaskExecutionResponseTypeDef,
+    DescribeTaskRequestTypeDef,
     DescribeTaskResponseTypeDef,
-    DiscoveryServerConfigurationTypeDef,
-    Ec2ConfigTypeDef,
-    FilterRuleTypeDef,
-    FsxProtocolTypeDef,
-    HdfsNameNodeTypeDef,
+    GenerateRecommendationsRequestTypeDef,
+    ListAgentsRequestTypeDef,
     ListAgentsResponseTypeDef,
+    ListDiscoveryJobsRequestTypeDef,
     ListDiscoveryJobsResponseTypeDef,
+    ListLocationsRequestTypeDef,
     ListLocationsResponseTypeDef,
+    ListStorageSystemsRequestTypeDef,
     ListStorageSystemsResponseTypeDef,
+    ListTagsForResourceRequestTypeDef,
     ListTagsForResourceResponseTypeDef,
+    ListTaskExecutionsRequestTypeDef,
     ListTaskExecutionsResponseTypeDef,
+    ListTasksRequestTypeDef,
     ListTasksResponseTypeDef,
-    LocationFilterTypeDef,
-    ManifestConfigTypeDef,
-    NfsMountOptionsTypeDef,
-    OnPremConfigTypeDef,
-    OptionsTypeDef,
-    QopConfigurationTypeDef,
-    S3ConfigTypeDef,
-    SmbMountOptionsTypeDef,
+    RemoveStorageSystemRequestTypeDef,
+    StartDiscoveryJobRequestTypeDef,
     StartDiscoveryJobResponseTypeDef,
+    StartTaskExecutionRequestTypeDef,
     StartTaskExecutionResponseTypeDef,
-    TagListEntryTypeDef,
-    TaskFilterTypeDef,
-    TaskReportConfigTypeDef,
-    TaskScheduleTypeDef,
+    StopDiscoveryJobRequestTypeDef,
+    TagResourceRequestTypeDef,
+    UntagResourceRequestTypeDef,
+    UpdateAgentRequestTypeDef,
+    UpdateDiscoveryJobRequestTypeDef,
+    UpdateLocationAzureBlobRequestTypeDef,
+    UpdateLocationEfsRequestTypeDef,
+    UpdateLocationFsxLustreRequestTypeDef,
+    UpdateLocationFsxOntapRequestTypeDef,
+    UpdateLocationFsxOpenZfsRequestTypeDef,
+    UpdateLocationFsxWindowsRequestTypeDef,
+    UpdateLocationHdfsRequestTypeDef,
+    UpdateLocationNfsRequestTypeDef,
+    UpdateLocationObjectStorageRequestTypeDef,
+    UpdateLocationS3RequestTypeDef,
+    UpdateLocationSmbRequestTypeDef,
+    UpdateStorageSystemRequestTypeDef,
+    UpdateTaskExecutionRequestTypeDef,
+    UpdateTaskRequestTypeDef,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import type as Type
+    from collections.abc import Mapping
 else:
-    from typing_extensions import Literal
+    from typing import Dict, Mapping, Type
+if sys.version_info >= (3, 12):
+    from typing import Literal, Unpack
+else:
+    from typing_extensions import Literal, Unpack
 
 __all__ = ("DataSyncClient",)
 
-class BotocoreClientError(BaseException):
-    MSG_TEMPLATE: str
-
-    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
-        self.response: Dict[str, Any]
-        self.operation_name: str
-
-class Exceptions:
+class Exceptions(BaseClientExceptions):
     ClientError: Type[BotocoreClientError]
     InternalException: Type[BotocoreClientError]
     InvalidRequestException: Type[BotocoreClientError]
 
 class DataSyncClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datasync.html#DataSync.Client)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datasync.html#DataSync.Client)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datasync/client/)
     """
 
     meta: ClientMeta
@@ -132,918 +175,791 @@ class DataSyncClient(BaseClient):
     def exceptions(self) -> Exceptions:
         """
         DataSyncClient exceptions.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datasync.html#DataSync.Client)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datasync/client/#exceptions)
+        """
+
+    def can_paginate(self, operation_name: str) -> bool:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datasync/client/can_paginate.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datasync/client/#can_paginate)
+        """
+
+    def generate_presigned_url(
+        self,
+        ClientMethod: str,
+        Params: Mapping[str, Any] = ...,
+        ExpiresIn: int = 3600,
+        HttpMethod: str = ...,
+    ) -> str:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datasync/client/generate_presigned_url.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datasync/client/#generate_presigned_url)
         """
 
     def add_storage_system(
-        self,
-        *,
-        ServerConfiguration: "DiscoveryServerConfigurationTypeDef",
-        SystemType: Literal["NetAppONTAP"],
-        AgentArns: List[str],
-        ClientToken: str,
-        Credentials: "CredentialsTypeDef",
-        CloudWatchLogGroupArn: str = None,
-        Tags: List["TagListEntryTypeDef"] = None,
-        Name: str = None
+        self, **kwargs: Unpack[AddStorageSystemRequestTypeDef]
     ) -> AddStorageSystemResponseTypeDef:
         """
         Creates an Amazon Web Services resource for an on-premises storage system that
         you want DataSync Discovery to collect information about.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datasync.html#DataSync.Client.add_storage_system)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#add_storage_system)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datasync/client/add_storage_system.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datasync/client/#add_storage_system)
         """
 
-    def can_paginate(self, operation_name: str) -> bool:
-        """
-        Check if an operation can be paginated.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datasync.html#DataSync.Client.can_paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#can_paginate)
-        """
-
-    def cancel_task_execution(self, *, TaskExecutionArn: str) -> Dict[str, Any]:
+    def cancel_task_execution(
+        self, **kwargs: Unpack[CancelTaskExecutionRequestTypeDef]
+    ) -> Dict[str, Any]:
         """
         Stops an DataSync task execution that's in progress.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datasync.html#DataSync.Client.cancel_task_execution)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#cancel_task_execution)
-        """
-
-    def close(self) -> None:
-        """
-        Closes underlying endpoint connections.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datasync.html#DataSync.Client.close)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datasync/client/cancel_task_execution.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datasync/client/#cancel_task_execution)
         """
 
     def create_agent(
-        self,
-        *,
-        ActivationKey: str,
-        AgentName: str = None,
-        Tags: List["TagListEntryTypeDef"] = None,
-        VpcEndpointId: str = None,
-        SubnetArns: List[str] = None,
-        SecurityGroupArns: List[str] = None
+        self, **kwargs: Unpack[CreateAgentRequestTypeDef]
     ) -> CreateAgentResponseTypeDef:
         """
-        Activates an DataSync agent that you've deployed in your storage environment.
+        Activates an DataSync agent that you deploy in your storage environment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datasync.html#DataSync.Client.create_agent)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#create_agent)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datasync/client/create_agent.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datasync/client/#create_agent)
         """
 
     def create_location_azure_blob(
-        self,
-        *,
-        ContainerUrl: str,
-        AuthenticationType: Literal["SAS"],
-        AgentArns: List[str],
-        SasConfiguration: "AzureBlobSasConfigurationTypeDef" = None,
-        BlobType: Literal["BLOCK"] = None,
-        AccessTier: AzureAccessTierType = None,
-        Subdirectory: str = None,
-        Tags: List["TagListEntryTypeDef"] = None
+        self, **kwargs: Unpack[CreateLocationAzureBlobRequestTypeDef]
     ) -> CreateLocationAzureBlobResponseTypeDef:
         """
-        Creates a transfer *location* for a Microsoft Azure Blob Storage container.
+        Creates a transfer <i>location</i> for a Microsoft Azure Blob Storage container.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datasync.html#DataSync.Client.create_location_azure_blob)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#create_location_azure_blob)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datasync/client/create_location_azure_blob.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datasync/client/#create_location_azure_blob)
         """
 
     def create_location_efs(
-        self,
-        *,
-        EfsFilesystemArn: str,
-        Ec2Config: "Ec2ConfigTypeDef",
-        Subdirectory: str = None,
-        Tags: List["TagListEntryTypeDef"] = None,
-        AccessPointArn: str = None,
-        FileSystemAccessRoleArn: str = None,
-        InTransitEncryption: EfsInTransitEncryptionType = None
+        self, **kwargs: Unpack[CreateLocationEfsRequestTypeDef]
     ) -> CreateLocationEfsResponseTypeDef:
         """
-        Creates a transfer *location* for an Amazon EFS file system.
+        Creates a transfer <i>location</i> for an Amazon EFS file system.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datasync.html#DataSync.Client.create_location_efs)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#create_location_efs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datasync/client/create_location_efs.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datasync/client/#create_location_efs)
         """
 
     def create_location_fsx_lustre(
-        self,
-        *,
-        FsxFilesystemArn: str,
-        SecurityGroupArns: List[str],
-        Subdirectory: str = None,
-        Tags: List["TagListEntryTypeDef"] = None
+        self, **kwargs: Unpack[CreateLocationFsxLustreRequestTypeDef]
     ) -> CreateLocationFsxLustreResponseTypeDef:
         """
-        Creates a transfer *location* for an Amazon FSx for Lustre file system.
+        Creates a transfer <i>location</i> for an Amazon FSx for Lustre file system.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datasync.html#DataSync.Client.create_location_fsx_lustre)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#create_location_fsx_lustre)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datasync/client/create_location_fsx_lustre.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datasync/client/#create_location_fsx_lustre)
         """
 
     def create_location_fsx_ontap(
-        self,
-        *,
-        Protocol: "FsxProtocolTypeDef",
-        SecurityGroupArns: List[str],
-        StorageVirtualMachineArn: str,
-        Subdirectory: str = None,
-        Tags: List["TagListEntryTypeDef"] = None
+        self, **kwargs: Unpack[CreateLocationFsxOntapRequestTypeDef]
     ) -> CreateLocationFsxOntapResponseTypeDef:
         """
-        Creates a transfer *location* for an Amazon FSx for NetApp ONTAP file system.
+        Creates a transfer <i>location</i> for an Amazon FSx for NetApp ONTAP file
+        system.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datasync.html#DataSync.Client.create_location_fsx_ontap)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#create_location_fsx_ontap)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datasync/client/create_location_fsx_ontap.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datasync/client/#create_location_fsx_ontap)
         """
 
     def create_location_fsx_open_zfs(
-        self,
-        *,
-        FsxFilesystemArn: str,
-        Protocol: "FsxProtocolTypeDef",
-        SecurityGroupArns: List[str],
-        Subdirectory: str = None,
-        Tags: List["TagListEntryTypeDef"] = None
+        self, **kwargs: Unpack[CreateLocationFsxOpenZfsRequestTypeDef]
     ) -> CreateLocationFsxOpenZfsResponseTypeDef:
         """
-        Creates a transfer *location* for an Amazon FSx for OpenZFS file system.
+        Creates a transfer <i>location</i> for an Amazon FSx for OpenZFS file system.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datasync.html#DataSync.Client.create_location_fsx_open_zfs)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#create_location_fsx_open_zfs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datasync/client/create_location_fsx_open_zfs.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datasync/client/#create_location_fsx_open_zfs)
         """
 
     def create_location_fsx_windows(
-        self,
-        *,
-        FsxFilesystemArn: str,
-        SecurityGroupArns: List[str],
-        User: str,
-        Password: str,
-        Subdirectory: str = None,
-        Tags: List["TagListEntryTypeDef"] = None,
-        Domain: str = None
+        self, **kwargs: Unpack[CreateLocationFsxWindowsRequestTypeDef]
     ) -> CreateLocationFsxWindowsResponseTypeDef:
         """
-        Creates a transfer *location* for an Amazon FSx for Windows File Server file
-        system.
+        Creates a transfer <i>location</i> for an Amazon FSx for Windows File Server
+        file system.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datasync.html#DataSync.Client.create_location_fsx_windows)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#create_location_fsx_windows)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datasync/client/create_location_fsx_windows.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datasync/client/#create_location_fsx_windows)
         """
 
     def create_location_hdfs(
-        self,
-        *,
-        NameNodes: List["HdfsNameNodeTypeDef"],
-        AuthenticationType: HdfsAuthenticationTypeType,
-        AgentArns: List[str],
-        Subdirectory: str = None,
-        BlockSize: int = None,
-        ReplicationFactor: int = None,
-        KmsKeyProviderUri: str = None,
-        QopConfiguration: "QopConfigurationTypeDef" = None,
-        SimpleUser: str = None,
-        KerberosPrincipal: str = None,
-        KerberosKeytab: Union[bytes, IO[bytes], StreamingBody] = None,
-        KerberosKrb5Conf: Union[bytes, IO[bytes], StreamingBody] = None,
-        Tags: List["TagListEntryTypeDef"] = None
+        self, **kwargs: Unpack[CreateLocationHdfsRequestTypeDef]
     ) -> CreateLocationHdfsResponseTypeDef:
         """
-        Creates a transfer *location* for a Hadoop Distributed File System (HDFS).
+        Creates a transfer <i>location</i> for a Hadoop Distributed File System (HDFS).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datasync.html#DataSync.Client.create_location_hdfs)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#create_location_hdfs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datasync/client/create_location_hdfs.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datasync/client/#create_location_hdfs)
         """
 
     def create_location_nfs(
-        self,
-        *,
-        Subdirectory: str,
-        ServerHostname: str,
-        OnPremConfig: "OnPremConfigTypeDef",
-        MountOptions: "NfsMountOptionsTypeDef" = None,
-        Tags: List["TagListEntryTypeDef"] = None
+        self, **kwargs: Unpack[CreateLocationNfsRequestTypeDef]
     ) -> CreateLocationNfsResponseTypeDef:
         """
-        Creates a transfer *location* for a Network File System (NFS) file server.
+        Creates a transfer <i>location</i> for a Network File System (NFS) file server.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datasync.html#DataSync.Client.create_location_nfs)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#create_location_nfs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datasync/client/create_location_nfs.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datasync/client/#create_location_nfs)
         """
 
     def create_location_object_storage(
-        self,
-        *,
-        ServerHostname: str,
-        BucketName: str,
-        AgentArns: List[str],
-        ServerPort: int = None,
-        ServerProtocol: ObjectStorageServerProtocolType = None,
-        Subdirectory: str = None,
-        AccessKey: str = None,
-        SecretKey: str = None,
-        Tags: List["TagListEntryTypeDef"] = None,
-        ServerCertificate: Union[bytes, IO[bytes], StreamingBody] = None
+        self, **kwargs: Unpack[CreateLocationObjectStorageRequestTypeDef]
     ) -> CreateLocationObjectStorageResponseTypeDef:
         """
-        Creates a transfer *location* for an object storage system.
+        Creates a transfer <i>location</i> for an object storage system.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datasync.html#DataSync.Client.create_location_object_storage)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#create_location_object_storage)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datasync/client/create_location_object_storage.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datasync/client/#create_location_object_storage)
         """
 
     def create_location_s3(
-        self,
-        *,
-        S3BucketArn: str,
-        S3Config: "S3ConfigTypeDef",
-        Subdirectory: str = None,
-        S3StorageClass: S3StorageClassType = None,
-        AgentArns: List[str] = None,
-        Tags: List["TagListEntryTypeDef"] = None
+        self, **kwargs: Unpack[CreateLocationS3RequestTypeDef]
     ) -> CreateLocationS3ResponseTypeDef:
         """
-        Creates a transfer *location* for an Amazon S3 bucket.
+        Creates a transfer <i>location</i> for an Amazon S3 bucket.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datasync.html#DataSync.Client.create_location_s3)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#create_location_s3)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datasync/client/create_location_s3.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datasync/client/#create_location_s3)
         """
 
     def create_location_smb(
-        self,
-        *,
-        Subdirectory: str,
-        ServerHostname: str,
-        User: str,
-        Password: str,
-        AgentArns: List[str],
-        Domain: str = None,
-        MountOptions: "SmbMountOptionsTypeDef" = None,
-        Tags: List["TagListEntryTypeDef"] = None
+        self, **kwargs: Unpack[CreateLocationSmbRequestTypeDef]
     ) -> CreateLocationSmbResponseTypeDef:
         """
-        Creates a transfer *location* for a Server Message Block (SMB) file server.
+        Creates a transfer <i>location</i> for a Server Message Block (SMB) file server.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datasync.html#DataSync.Client.create_location_smb)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#create_location_smb)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datasync/client/create_location_smb.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datasync/client/#create_location_smb)
         """
 
-    def create_task(
-        self,
-        *,
-        SourceLocationArn: str,
-        DestinationLocationArn: str,
-        CloudWatchLogGroupArn: str = None,
-        Name: str = None,
-        Options: "OptionsTypeDef" = None,
-        Excludes: List["FilterRuleTypeDef"] = None,
-        Schedule: "TaskScheduleTypeDef" = None,
-        Tags: List["TagListEntryTypeDef"] = None,
-        Includes: List["FilterRuleTypeDef"] = None,
-        ManifestConfig: "ManifestConfigTypeDef" = None,
-        TaskReportConfig: "TaskReportConfigTypeDef" = None
-    ) -> CreateTaskResponseTypeDef:
+    def create_task(self, **kwargs: Unpack[CreateTaskRequestTypeDef]) -> CreateTaskResponseTypeDef:
         """
-        Configures a *task*, which defines where and how DataSync transfers your data.
+        Configures a <i>task</i>, which defines where and how DataSync transfers your
+        data.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datasync.html#DataSync.Client.create_task)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#create_task)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datasync/client/create_task.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datasync/client/#create_task)
         """
 
-    def delete_agent(self, *, AgentArn: str) -> Dict[str, Any]:
+    def delete_agent(self, **kwargs: Unpack[DeleteAgentRequestTypeDef]) -> Dict[str, Any]:
         """
         Removes an DataSync agent resource from your Amazon Web Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datasync.html#DataSync.Client.delete_agent)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#delete_agent)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datasync/client/delete_agent.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datasync/client/#delete_agent)
         """
 
-    def delete_location(self, *, LocationArn: str) -> Dict[str, Any]:
+    def delete_location(self, **kwargs: Unpack[DeleteLocationRequestTypeDef]) -> Dict[str, Any]:
         """
         Deletes a transfer location resource from DataSync.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datasync.html#DataSync.Client.delete_location)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#delete_location)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datasync/client/delete_location.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datasync/client/#delete_location)
         """
 
-    def delete_task(self, *, TaskArn: str) -> Dict[str, Any]:
+    def delete_task(self, **kwargs: Unpack[DeleteTaskRequestTypeDef]) -> Dict[str, Any]:
         """
         Deletes a transfer task resource from DataSync.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datasync.html#DataSync.Client.delete_task)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#delete_task)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datasync/client/delete_task.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datasync/client/#delete_task)
         """
 
-    def describe_agent(self, *, AgentArn: str) -> DescribeAgentResponseTypeDef:
+    def describe_agent(
+        self, **kwargs: Unpack[DescribeAgentRequestTypeDef]
+    ) -> DescribeAgentResponseTypeDef:
         """
         Returns information about an DataSync agent, such as its name, service endpoint
         type, and status.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datasync.html#DataSync.Client.describe_agent)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#describe_agent)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datasync/client/describe_agent.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datasync/client/#describe_agent)
         """
 
     def describe_discovery_job(
-        self, *, DiscoveryJobArn: str
+        self, **kwargs: Unpack[DescribeDiscoveryJobRequestTypeDef]
     ) -> DescribeDiscoveryJobResponseTypeDef:
         """
         Returns information about a DataSync discovery job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datasync.html#DataSync.Client.describe_discovery_job)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#describe_discovery_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datasync/client/describe_discovery_job.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datasync/client/#describe_discovery_job)
         """
 
     def describe_location_azure_blob(
-        self, *, LocationArn: str
+        self, **kwargs: Unpack[DescribeLocationAzureBlobRequestTypeDef]
     ) -> DescribeLocationAzureBlobResponseTypeDef:
         """
         Provides details about how an DataSync transfer location for Microsoft Azure
         Blob Storage is configured.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datasync.html#DataSync.Client.describe_location_azure_blob)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#describe_location_azure_blob)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datasync/client/describe_location_azure_blob.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datasync/client/#describe_location_azure_blob)
         """
 
-    def describe_location_efs(self, *, LocationArn: str) -> DescribeLocationEfsResponseTypeDef:
+    def describe_location_efs(
+        self, **kwargs: Unpack[DescribeLocationEfsRequestTypeDef]
+    ) -> DescribeLocationEfsResponseTypeDef:
         """
         Provides details about how an DataSync transfer location for an Amazon EFS file
         system is configured.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datasync.html#DataSync.Client.describe_location_efs)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#describe_location_efs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datasync/client/describe_location_efs.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datasync/client/#describe_location_efs)
         """
 
     def describe_location_fsx_lustre(
-        self, *, LocationArn: str
+        self, **kwargs: Unpack[DescribeLocationFsxLustreRequestTypeDef]
     ) -> DescribeLocationFsxLustreResponseTypeDef:
         """
         Provides details about how an DataSync transfer location for an Amazon FSx for
         Lustre file system is configured.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datasync.html#DataSync.Client.describe_location_fsx_lustre)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#describe_location_fsx_lustre)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datasync/client/describe_location_fsx_lustre.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datasync/client/#describe_location_fsx_lustre)
         """
 
     def describe_location_fsx_ontap(
-        self, *, LocationArn: str
+        self, **kwargs: Unpack[DescribeLocationFsxOntapRequestTypeDef]
     ) -> DescribeLocationFsxOntapResponseTypeDef:
         """
         Provides details about how an DataSync transfer location for an Amazon FSx for
         NetApp ONTAP file system is configured.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datasync.html#DataSync.Client.describe_location_fsx_ontap)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#describe_location_fsx_ontap)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datasync/client/describe_location_fsx_ontap.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datasync/client/#describe_location_fsx_ontap)
         """
 
     def describe_location_fsx_open_zfs(
-        self, *, LocationArn: str
+        self, **kwargs: Unpack[DescribeLocationFsxOpenZfsRequestTypeDef]
     ) -> DescribeLocationFsxOpenZfsResponseTypeDef:
         """
         Provides details about how an DataSync transfer location for an Amazon FSx for
         OpenZFS file system is configured.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datasync.html#DataSync.Client.describe_location_fsx_open_zfs)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#describe_location_fsx_open_zfs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datasync/client/describe_location_fsx_open_zfs.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datasync/client/#describe_location_fsx_open_zfs)
         """
 
     def describe_location_fsx_windows(
-        self, *, LocationArn: str
+        self, **kwargs: Unpack[DescribeLocationFsxWindowsRequestTypeDef]
     ) -> DescribeLocationFsxWindowsResponseTypeDef:
         """
         Provides details about how an DataSync transfer location for an Amazon FSx for
         Windows File Server file system is configured.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datasync.html#DataSync.Client.describe_location_fsx_windows)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#describe_location_fsx_windows)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datasync/client/describe_location_fsx_windows.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datasync/client/#describe_location_fsx_windows)
         """
 
-    def describe_location_hdfs(self, *, LocationArn: str) -> DescribeLocationHdfsResponseTypeDef:
+    def describe_location_hdfs(
+        self, **kwargs: Unpack[DescribeLocationHdfsRequestTypeDef]
+    ) -> DescribeLocationHdfsResponseTypeDef:
         """
         Provides details about how an DataSync transfer location for a Hadoop
         Distributed File System (HDFS) is configured.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datasync.html#DataSync.Client.describe_location_hdfs)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#describe_location_hdfs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datasync/client/describe_location_hdfs.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datasync/client/#describe_location_hdfs)
         """
 
-    def describe_location_nfs(self, *, LocationArn: str) -> DescribeLocationNfsResponseTypeDef:
+    def describe_location_nfs(
+        self, **kwargs: Unpack[DescribeLocationNfsRequestTypeDef]
+    ) -> DescribeLocationNfsResponseTypeDef:
         """
         Provides details about how an DataSync transfer location for a Network File
         System (NFS) file server is configured.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datasync.html#DataSync.Client.describe_location_nfs)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#describe_location_nfs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datasync/client/describe_location_nfs.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datasync/client/#describe_location_nfs)
         """
 
     def describe_location_object_storage(
-        self, *, LocationArn: str
+        self, **kwargs: Unpack[DescribeLocationObjectStorageRequestTypeDef]
     ) -> DescribeLocationObjectStorageResponseTypeDef:
         """
         Provides details about how an DataSync transfer location for an object storage
         system is configured.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datasync.html#DataSync.Client.describe_location_object_storage)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#describe_location_object_storage)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datasync/client/describe_location_object_storage.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datasync/client/#describe_location_object_storage)
         """
 
-    def describe_location_s3(self, *, LocationArn: str) -> DescribeLocationS3ResponseTypeDef:
+    def describe_location_s3(
+        self, **kwargs: Unpack[DescribeLocationS3RequestTypeDef]
+    ) -> DescribeLocationS3ResponseTypeDef:
         """
         Provides details about how an DataSync transfer location for an S3 bucket is
         configured.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datasync.html#DataSync.Client.describe_location_s3)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#describe_location_s3)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datasync/client/describe_location_s3.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datasync/client/#describe_location_s3)
         """
 
-    def describe_location_smb(self, *, LocationArn: str) -> DescribeLocationSmbResponseTypeDef:
+    def describe_location_smb(
+        self, **kwargs: Unpack[DescribeLocationSmbRequestTypeDef]
+    ) -> DescribeLocationSmbResponseTypeDef:
         """
         Provides details about how an DataSync transfer location for a Server Message
         Block (SMB) file server is configured.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datasync.html#DataSync.Client.describe_location_smb)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#describe_location_smb)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datasync/client/describe_location_smb.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datasync/client/#describe_location_smb)
         """
 
     def describe_storage_system(
-        self, *, StorageSystemArn: str
+        self, **kwargs: Unpack[DescribeStorageSystemRequestTypeDef]
     ) -> DescribeStorageSystemResponseTypeDef:
         """
         Returns information about an on-premises storage system that you're using with
         DataSync Discovery.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datasync.html#DataSync.Client.describe_storage_system)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#describe_storage_system)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datasync/client/describe_storage_system.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datasync/client/#describe_storage_system)
         """
 
     def describe_storage_system_resource_metrics(
-        self,
-        *,
-        DiscoveryJobArn: str,
-        ResourceType: DiscoveryResourceTypeType,
-        ResourceId: str,
-        StartTime: Union[datetime, str] = None,
-        EndTime: Union[datetime, str] = None,
-        MaxResults: int = None,
-        NextToken: str = None
+        self, **kwargs: Unpack[DescribeStorageSystemResourceMetricsRequestTypeDef]
     ) -> DescribeStorageSystemResourceMetricsResponseTypeDef:
         """
         Returns information, including performance data and capacity usage, which
         DataSync Discovery collects about a specific resource in your-premises storage
         system.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datasync.html#DataSync.Client.describe_storage_system_resource_metrics)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#describe_storage_system_resource_metrics)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datasync/client/describe_storage_system_resource_metrics.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datasync/client/#describe_storage_system_resource_metrics)
         """
 
     def describe_storage_system_resources(
-        self,
-        *,
-        DiscoveryJobArn: str,
-        ResourceType: DiscoveryResourceTypeType,
-        ResourceIds: List[str] = None,
-        Filter: Dict[Literal["SVM"], List[str]] = None,
-        MaxResults: int = None,
-        NextToken: str = None
+        self, **kwargs: Unpack[DescribeStorageSystemResourcesRequestTypeDef]
     ) -> DescribeStorageSystemResourcesResponseTypeDef:
         """
-        Returns information that DataSync Discovery collects about resources in your on-
-        premises storage system.
+        Returns information that DataSync Discovery collects about resources in your
+        on-premises storage system.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datasync.html#DataSync.Client.describe_storage_system_resources)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#describe_storage_system_resources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datasync/client/describe_storage_system_resources.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datasync/client/#describe_storage_system_resources)
         """
 
-    def describe_task(self, *, TaskArn: str) -> DescribeTaskResponseTypeDef:
+    def describe_task(
+        self, **kwargs: Unpack[DescribeTaskRequestTypeDef]
+    ) -> DescribeTaskResponseTypeDef:
         """
-        Provides information about a *task*, which defines where and how DataSync
+        Provides information about a <i>task</i>, which defines where and how DataSync
         transfers your data.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datasync.html#DataSync.Client.describe_task)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#describe_task)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datasync/client/describe_task.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datasync/client/#describe_task)
         """
 
     def describe_task_execution(
-        self, *, TaskExecutionArn: str
+        self, **kwargs: Unpack[DescribeTaskExecutionRequestTypeDef]
     ) -> DescribeTaskExecutionResponseTypeDef:
         """
         Provides information about an execution of your DataSync task.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datasync.html#DataSync.Client.describe_task_execution)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#describe_task_execution)
-        """
-
-    def generate_presigned_url(
-        self,
-        ClientMethod: str,
-        Params: Dict[str, Any] = None,
-        ExpiresIn: int = 3600,
-        HttpMethod: str = None,
-    ) -> str:
-        """
-        Generate a presigned url given a client, its method, and arguments.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datasync.html#DataSync.Client.generate_presigned_url)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datasync/client/describe_task_execution.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datasync/client/#describe_task_execution)
         """
 
     def generate_recommendations(
-        self,
-        *,
-        DiscoveryJobArn: str,
-        ResourceIds: List[str],
-        ResourceType: DiscoveryResourceTypeType
+        self, **kwargs: Unpack[GenerateRecommendationsRequestTypeDef]
     ) -> Dict[str, Any]:
         """
         Creates recommendations about where to migrate your data to in Amazon Web
         Services.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datasync.html#DataSync.Client.generate_recommendations)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#generate_recommendations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datasync/client/generate_recommendations.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datasync/client/#generate_recommendations)
         """
 
-    def list_agents(
-        self, *, MaxResults: int = None, NextToken: str = None
-    ) -> ListAgentsResponseTypeDef:
+    def list_agents(self, **kwargs: Unpack[ListAgentsRequestTypeDef]) -> ListAgentsResponseTypeDef:
         """
         Returns a list of DataSync agents that belong to an Amazon Web Services account
         in the Amazon Web Services Region specified in the request.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datasync.html#DataSync.Client.list_agents)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#list_agents)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datasync/client/list_agents.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datasync/client/#list_agents)
         """
 
     def list_discovery_jobs(
-        self, *, StorageSystemArn: str = None, MaxResults: int = None, NextToken: str = None
+        self, **kwargs: Unpack[ListDiscoveryJobsRequestTypeDef]
     ) -> ListDiscoveryJobsResponseTypeDef:
         """
-        Provides a list of the existing discovery jobs in the Amazon Web Services Region
-        and Amazon Web Services account where you're using DataSync Discovery.
+        Provides a list of the existing discovery jobs in the Amazon Web Services
+        Region and Amazon Web Services account where you're using DataSync Discovery.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datasync.html#DataSync.Client.list_discovery_jobs)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#list_discovery_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datasync/client/list_discovery_jobs.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datasync/client/#list_discovery_jobs)
         """
 
     def list_locations(
-        self,
-        *,
-        MaxResults: int = None,
-        NextToken: str = None,
-        Filters: List["LocationFilterTypeDef"] = None
+        self, **kwargs: Unpack[ListLocationsRequestTypeDef]
     ) -> ListLocationsResponseTypeDef:
         """
         Returns a list of source and destination locations.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datasync.html#DataSync.Client.list_locations)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#list_locations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datasync/client/list_locations.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datasync/client/#list_locations)
         """
 
     def list_storage_systems(
-        self, *, MaxResults: int = None, NextToken: str = None
+        self, **kwargs: Unpack[ListStorageSystemsRequestTypeDef]
     ) -> ListStorageSystemsResponseTypeDef:
         """
         Lists the on-premises storage systems that you're using with DataSync Discovery.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datasync.html#DataSync.Client.list_storage_systems)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#list_storage_systems)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datasync/client/list_storage_systems.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datasync/client/#list_storage_systems)
         """
 
     def list_tags_for_resource(
-        self, *, ResourceArn: str, MaxResults: int = None, NextToken: str = None
+        self, **kwargs: Unpack[ListTagsForResourceRequestTypeDef]
     ) -> ListTagsForResourceResponseTypeDef:
         """
         Returns all the tags associated with an Amazon Web Services resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datasync.html#DataSync.Client.list_tags_for_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datasync/client/list_tags_for_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datasync/client/#list_tags_for_resource)
         """
 
     def list_task_executions(
-        self, *, TaskArn: str = None, MaxResults: int = None, NextToken: str = None
+        self, **kwargs: Unpack[ListTaskExecutionsRequestTypeDef]
     ) -> ListTaskExecutionsResponseTypeDef:
         """
         Returns a list of executions for an DataSync transfer task.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datasync.html#DataSync.Client.list_task_executions)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#list_task_executions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datasync/client/list_task_executions.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datasync/client/#list_task_executions)
         """
 
-    def list_tasks(
-        self,
-        *,
-        MaxResults: int = None,
-        NextToken: str = None,
-        Filters: List["TaskFilterTypeDef"] = None
-    ) -> ListTasksResponseTypeDef:
+    def list_tasks(self, **kwargs: Unpack[ListTasksRequestTypeDef]) -> ListTasksResponseTypeDef:
         """
         Returns a list of the DataSync tasks you created.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datasync.html#DataSync.Client.list_tasks)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#list_tasks)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datasync/client/list_tasks.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datasync/client/#list_tasks)
         """
 
-    def remove_storage_system(self, *, StorageSystemArn: str) -> Dict[str, Any]:
+    def remove_storage_system(
+        self, **kwargs: Unpack[RemoveStorageSystemRequestTypeDef]
+    ) -> Dict[str, Any]:
         """
-        Permanently removes a storage system resource from DataSync Discovery, including
-        the associated discovery jobs, collected data, and recommendations.
+        Permanently removes a storage system resource from DataSync Discovery,
+        including the associated discovery jobs, collected data, and recommendations.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datasync.html#DataSync.Client.remove_storage_system)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#remove_storage_system)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datasync/client/remove_storage_system.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datasync/client/#remove_storage_system)
         """
 
     def start_discovery_job(
-        self,
-        *,
-        StorageSystemArn: str,
-        CollectionDurationMinutes: int,
-        ClientToken: str,
-        Tags: List["TagListEntryTypeDef"] = None
+        self, **kwargs: Unpack[StartDiscoveryJobRequestTypeDef]
     ) -> StartDiscoveryJobResponseTypeDef:
         """
         Runs a DataSync discovery job on your on-premises storage system.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datasync.html#DataSync.Client.start_discovery_job)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#start_discovery_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datasync/client/start_discovery_job.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datasync/client/#start_discovery_job)
         """
 
     def start_task_execution(
-        self,
-        *,
-        TaskArn: str,
-        OverrideOptions: "OptionsTypeDef" = None,
-        Includes: List["FilterRuleTypeDef"] = None,
-        Excludes: List["FilterRuleTypeDef"] = None,
-        ManifestConfig: "ManifestConfigTypeDef" = None,
-        TaskReportConfig: "TaskReportConfigTypeDef" = None,
-        Tags: List["TagListEntryTypeDef"] = None
+        self, **kwargs: Unpack[StartTaskExecutionRequestTypeDef]
     ) -> StartTaskExecutionResponseTypeDef:
         """
         Starts an DataSync transfer task.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datasync.html#DataSync.Client.start_task_execution)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#start_task_execution)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datasync/client/start_task_execution.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datasync/client/#start_task_execution)
         """
 
-    def stop_discovery_job(self, *, DiscoveryJobArn: str) -> Dict[str, Any]:
+    def stop_discovery_job(
+        self, **kwargs: Unpack[StopDiscoveryJobRequestTypeDef]
+    ) -> Dict[str, Any]:
         """
         Stops a running DataSync discovery job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datasync.html#DataSync.Client.stop_discovery_job)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#stop_discovery_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datasync/client/stop_discovery_job.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datasync/client/#stop_discovery_job)
         """
 
-    def tag_resource(
-        self, *, ResourceArn: str, Tags: List["TagListEntryTypeDef"]
-    ) -> Dict[str, Any]:
+    def tag_resource(self, **kwargs: Unpack[TagResourceRequestTypeDef]) -> Dict[str, Any]:
         """
-        Applies a *tag* to an Amazon Web Services resource.
+        Applies a <i>tag</i> to an Amazon Web Services resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datasync.html#DataSync.Client.tag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datasync/client/tag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datasync/client/#tag_resource)
         """
 
-    def untag_resource(self, *, ResourceArn: str, Keys: List[str]) -> Dict[str, Any]:
+    def untag_resource(self, **kwargs: Unpack[UntagResourceRequestTypeDef]) -> Dict[str, Any]:
         """
         Removes tags from an Amazon Web Services resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datasync.html#DataSync.Client.untag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datasync/client/untag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datasync/client/#untag_resource)
         """
 
-    def update_agent(self, *, AgentArn: str, Name: str = None) -> Dict[str, Any]:
+    def update_agent(self, **kwargs: Unpack[UpdateAgentRequestTypeDef]) -> Dict[str, Any]:
         """
         Updates the name of an DataSync agent.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datasync.html#DataSync.Client.update_agent)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#update_agent)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datasync/client/update_agent.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datasync/client/#update_agent)
         """
 
     def update_discovery_job(
-        self, *, DiscoveryJobArn: str, CollectionDurationMinutes: int
+        self, **kwargs: Unpack[UpdateDiscoveryJobRequestTypeDef]
     ) -> Dict[str, Any]:
         """
         Edits a DataSync discovery job configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datasync.html#DataSync.Client.update_discovery_job)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#update_discovery_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datasync/client/update_discovery_job.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datasync/client/#update_discovery_job)
         """
 
     def update_location_azure_blob(
-        self,
-        *,
-        LocationArn: str,
-        Subdirectory: str = None,
-        AuthenticationType: Literal["SAS"] = None,
-        SasConfiguration: "AzureBlobSasConfigurationTypeDef" = None,
-        BlobType: Literal["BLOCK"] = None,
-        AccessTier: AzureAccessTierType = None,
-        AgentArns: List[str] = None
+        self, **kwargs: Unpack[UpdateLocationAzureBlobRequestTypeDef]
     ) -> Dict[str, Any]:
         """
-        Modifies some configurations of the Microsoft Azure Blob Storage transfer
+        Modifies the following configurations of the Microsoft Azure Blob Storage
+        transfer location that you're using with DataSync.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datasync/client/update_location_azure_blob.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datasync/client/#update_location_azure_blob)
+        """
+
+    def update_location_efs(
+        self, **kwargs: Unpack[UpdateLocationEfsRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Modifies the following configuration parameters of the Amazon EFS transfer
         location that you're using with DataSync.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datasync.html#DataSync.Client.update_location_azure_blob)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#update_location_azure_blob)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datasync/client/update_location_efs.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datasync/client/#update_location_efs)
+        """
+
+    def update_location_fsx_lustre(
+        self, **kwargs: Unpack[UpdateLocationFsxLustreRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Modifies the following configuration parameters of the Amazon FSx for Lustre
+        transfer location that you're using with DataSync.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datasync/client/update_location_fsx_lustre.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datasync/client/#update_location_fsx_lustre)
+        """
+
+    def update_location_fsx_ontap(
+        self, **kwargs: Unpack[UpdateLocationFsxOntapRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Modifies the following configuration parameters of the Amazon FSx for NetApp
+        ONTAP transfer location that you're using with DataSync.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datasync/client/update_location_fsx_ontap.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datasync/client/#update_location_fsx_ontap)
+        """
+
+    def update_location_fsx_open_zfs(
+        self, **kwargs: Unpack[UpdateLocationFsxOpenZfsRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Modifies the following configuration parameters of the Amazon FSx for OpenZFS
+        transfer location that you're using with DataSync.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datasync/client/update_location_fsx_open_zfs.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datasync/client/#update_location_fsx_open_zfs)
+        """
+
+    def update_location_fsx_windows(
+        self, **kwargs: Unpack[UpdateLocationFsxWindowsRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Modifies the following configuration parameters of the Amazon FSx for Windows
+        File Server transfer location that you're using with DataSync.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datasync/client/update_location_fsx_windows.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datasync/client/#update_location_fsx_windows)
         """
 
     def update_location_hdfs(
-        self,
-        *,
-        LocationArn: str,
-        Subdirectory: str = None,
-        NameNodes: List["HdfsNameNodeTypeDef"] = None,
-        BlockSize: int = None,
-        ReplicationFactor: int = None,
-        KmsKeyProviderUri: str = None,
-        QopConfiguration: "QopConfigurationTypeDef" = None,
-        AuthenticationType: HdfsAuthenticationTypeType = None,
-        SimpleUser: str = None,
-        KerberosPrincipal: str = None,
-        KerberosKeytab: Union[bytes, IO[bytes], StreamingBody] = None,
-        KerberosKrb5Conf: Union[bytes, IO[bytes], StreamingBody] = None,
-        AgentArns: List[str] = None
+        self, **kwargs: Unpack[UpdateLocationHdfsRequestTypeDef]
     ) -> Dict[str, Any]:
         """
-        Updates some parameters of a previously created location for a Hadoop
-        Distributed File System cluster.
+        Modifies the following configuration parameters of the Hadoop Distributed File
+        System (HDFS) transfer location that you're using with DataSync.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datasync.html#DataSync.Client.update_location_hdfs)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#update_location_hdfs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datasync/client/update_location_hdfs.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datasync/client/#update_location_hdfs)
         """
 
     def update_location_nfs(
-        self,
-        *,
-        LocationArn: str,
-        Subdirectory: str = None,
-        OnPremConfig: "OnPremConfigTypeDef" = None,
-        MountOptions: "NfsMountOptionsTypeDef" = None
+        self, **kwargs: Unpack[UpdateLocationNfsRequestTypeDef]
     ) -> Dict[str, Any]:
         """
-        Modifies some configurations of the Network File System (NFS) transfer location
-        that you're using with DataSync.
+        Modifies the following configuration parameters of the Network File System
+        (NFS) transfer location that you're using with DataSync.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datasync.html#DataSync.Client.update_location_nfs)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#update_location_nfs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datasync/client/update_location_nfs.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datasync/client/#update_location_nfs)
         """
 
     def update_location_object_storage(
-        self,
-        *,
-        LocationArn: str,
-        ServerPort: int = None,
-        ServerProtocol: ObjectStorageServerProtocolType = None,
-        Subdirectory: str = None,
-        AccessKey: str = None,
-        SecretKey: str = None,
-        AgentArns: List[str] = None,
-        ServerCertificate: Union[bytes, IO[bytes], StreamingBody] = None
+        self, **kwargs: Unpack[UpdateLocationObjectStorageRequestTypeDef]
     ) -> Dict[str, Any]:
         """
-        Updates some parameters of an existing DataSync location for an object storage
-        system.
+        Modifies the following configuration parameters of the object storage transfer
+        location that you're using with DataSync.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datasync.html#DataSync.Client.update_location_object_storage)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#update_location_object_storage)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datasync/client/update_location_object_storage.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datasync/client/#update_location_object_storage)
+        """
+
+    def update_location_s3(
+        self, **kwargs: Unpack[UpdateLocationS3RequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Modifies the following configuration parameters of the Amazon S3 transfer
+        location that you're using with DataSync.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datasync/client/update_location_s3.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datasync/client/#update_location_s3)
         """
 
     def update_location_smb(
-        self,
-        *,
-        LocationArn: str,
-        Subdirectory: str = None,
-        User: str = None,
-        Domain: str = None,
-        Password: str = None,
-        AgentArns: List[str] = None,
-        MountOptions: "SmbMountOptionsTypeDef" = None
+        self, **kwargs: Unpack[UpdateLocationSmbRequestTypeDef]
     ) -> Dict[str, Any]:
         """
-        Updates some of the parameters of a Server Message Block (SMB) file server
-        location that you can use for DataSync transfers.
+        Modifies the following configuration parameters of the Server Message Block
+        (SMB) transfer location that you're using with DataSync.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datasync.html#DataSync.Client.update_location_smb)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#update_location_smb)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datasync/client/update_location_smb.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datasync/client/#update_location_smb)
         """
 
     def update_storage_system(
-        self,
-        *,
-        StorageSystemArn: str,
-        ServerConfiguration: "DiscoveryServerConfigurationTypeDef" = None,
-        AgentArns: List[str] = None,
-        Name: str = None,
-        CloudWatchLogGroupArn: str = None,
-        Credentials: "CredentialsTypeDef" = None
+        self, **kwargs: Unpack[UpdateStorageSystemRequestTypeDef]
     ) -> Dict[str, Any]:
         """
         Modifies some configurations of an on-premises storage system resource that
         you're using with DataSync Discovery.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datasync.html#DataSync.Client.update_storage_system)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#update_storage_system)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datasync/client/update_storage_system.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datasync/client/#update_storage_system)
         """
 
-    def update_task(
-        self,
-        *,
-        TaskArn: str,
-        Options: "OptionsTypeDef" = None,
-        Excludes: List["FilterRuleTypeDef"] = None,
-        Schedule: "TaskScheduleTypeDef" = None,
-        Name: str = None,
-        CloudWatchLogGroupArn: str = None,
-        Includes: List["FilterRuleTypeDef"] = None,
-        ManifestConfig: "ManifestConfigTypeDef" = None,
-        TaskReportConfig: "TaskReportConfigTypeDef" = None
-    ) -> Dict[str, Any]:
+    def update_task(self, **kwargs: Unpack[UpdateTaskRequestTypeDef]) -> Dict[str, Any]:
         """
-        Updates the configuration of a *task*, which defines where and how DataSync
-        transfers your data.
+        Updates the configuration of a <i>task</i>, which defines where and how
+        DataSync transfers your data.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datasync.html#DataSync.Client.update_task)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#update_task)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datasync/client/update_task.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datasync/client/#update_task)
         """
 
     def update_task_execution(
-        self, *, TaskExecutionArn: str, Options: "OptionsTypeDef"
+        self, **kwargs: Unpack[UpdateTaskExecutionRequestTypeDef]
     ) -> Dict[str, Any]:
         """
         Updates the configuration of a running DataSync task execution.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datasync.html#DataSync.Client.update_task_execution)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/client.html#update_task_execution)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datasync/client/update_task_execution.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datasync/client/#update_task_execution)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["describe_storage_system_resource_metrics"]
     ) -> DescribeStorageSystemResourceMetricsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datasync.html#DataSync.Paginator.DescribeStorageSystemResourceMetrics)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/paginators.html#describestoragesystemresourcemetricspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datasync/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datasync/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_agents"]) -> ListAgentsPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_agents"]
+    ) -> ListAgentsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datasync.html#DataSync.Paginator.ListAgents)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/paginators.html#listagentspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datasync/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datasync/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_discovery_jobs"]
     ) -> ListDiscoveryJobsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datasync.html#DataSync.Paginator.ListDiscoveryJobs)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/paginators.html#listdiscoveryjobspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datasync/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datasync/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_locations"]) -> ListLocationsPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_locations"]
+    ) -> ListLocationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datasync.html#DataSync.Paginator.ListLocations)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/paginators.html#listlocationspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datasync/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datasync/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_storage_systems"]
     ) -> ListStorageSystemsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datasync.html#DataSync.Paginator.ListStorageSystems)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/paginators.html#liststoragesystemspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datasync/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datasync/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_tags_for_resource"]
     ) -> ListTagsForResourcePaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datasync.html#DataSync.Paginator.ListTagsForResource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/paginators.html#listtagsforresourcepaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datasync/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datasync/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_task_executions"]
     ) -> ListTaskExecutionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datasync.html#DataSync.Paginator.ListTaskExecutions)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/paginators.html#listtaskexecutionspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datasync/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datasync/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_tasks"]) -> ListTasksPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_tasks"]
+    ) -> ListTasksPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/datasync.html#DataSync.Paginator.ListTasks)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/paginators.html#listtaskspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datasync/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datasync/client/#get_paginator)
         """

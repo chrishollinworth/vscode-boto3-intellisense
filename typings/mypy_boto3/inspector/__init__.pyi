@@ -1,10 +1,14 @@
 """
 Main interface for inspector service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_inspector/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_inspector import (
         Client,
         InspectorClient,
@@ -19,10 +23,8 @@ Usage::
         PreviewAgentsPaginator,
     )
 
-    session = boto3.Session()
-
-    client: InspectorClient = boto3.client("inspector")
-    session_client: InspectorClient = session.client("inspector")
+    session = Session()
+    client: InspectorClient = session.client("inspector")
 
     list_assessment_run_agents_paginator: ListAssessmentRunAgentsPaginator = client.get_paginator("list_assessment_run_agents")
     list_assessment_runs_paginator: ListAssessmentRunsPaginator = client.get_paginator("list_assessment_runs")

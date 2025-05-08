@@ -1,10 +1,14 @@
 """
 Main interface for lightsail service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lightsail/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_lightsail import (
         Client,
         GetActiveNamesPaginator,
@@ -30,10 +34,8 @@ Usage::
         LightsailClient,
     )
 
-    session = boto3.Session()
-
-    client: LightsailClient = boto3.client("lightsail")
-    session_client: LightsailClient = session.client("lightsail")
+    session = Session()
+    client: LightsailClient = session.client("lightsail")
 
     get_active_names_paginator: GetActiveNamesPaginator = client.get_paginator("get_active_names")
     get_blueprints_paginator: GetBlueprintsPaginator = client.get_paginator("get_blueprints")

@@ -1,420 +1,257 @@
 """
 Type annotations for networkmonitor service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmonitor/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_networkmonitor/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_networkmonitor.type_defs import CreateMonitorInputRequestTypeDef
+    from mypy_boto3_networkmonitor.type_defs import CreateMonitorProbeInputTypeDef
 
-    data: CreateMonitorInputRequestTypeDef = {...}
+    data: CreateMonitorProbeInputTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
 
 from .literals import AddressFamilyType, MonitorStateType, ProbeStateType, ProtocolType
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
-    "CreateMonitorInputRequestTypeDef",
+    "CreateMonitorInputTypeDef",
     "CreateMonitorOutputTypeDef",
     "CreateMonitorProbeInputTypeDef",
-    "CreateProbeInputRequestTypeDef",
+    "CreateProbeInputTypeDef",
     "CreateProbeOutputTypeDef",
-    "DeleteMonitorInputRequestTypeDef",
-    "DeleteProbeInputRequestTypeDef",
-    "GetMonitorInputRequestTypeDef",
+    "DeleteMonitorInputTypeDef",
+    "DeleteProbeInputTypeDef",
+    "GetMonitorInputTypeDef",
     "GetMonitorOutputTypeDef",
-    "GetProbeInputRequestTypeDef",
+    "GetProbeInputTypeDef",
     "GetProbeOutputTypeDef",
-    "ListMonitorsInputRequestTypeDef",
+    "ListMonitorsInputPaginateTypeDef",
+    "ListMonitorsInputTypeDef",
     "ListMonitorsOutputTypeDef",
-    "ListTagsForResourceInputRequestTypeDef",
+    "ListTagsForResourceInputTypeDef",
     "ListTagsForResourceOutputTypeDef",
     "MonitorSummaryTypeDef",
     "PaginatorConfigTypeDef",
     "ProbeInputTypeDef",
     "ProbeTypeDef",
     "ResponseMetadataTypeDef",
-    "TagResourceInputRequestTypeDef",
-    "UntagResourceInputRequestTypeDef",
-    "UpdateMonitorInputRequestTypeDef",
+    "TagResourceInputTypeDef",
+    "UntagResourceInputTypeDef",
+    "UpdateMonitorInputTypeDef",
     "UpdateMonitorOutputTypeDef",
-    "UpdateProbeInputRequestTypeDef",
+    "UpdateProbeInputTypeDef",
     "UpdateProbeOutputTypeDef",
 )
 
-_RequiredCreateMonitorInputRequestTypeDef = TypedDict(
-    "_RequiredCreateMonitorInputRequestTypeDef",
-    {
-        "monitorName": str,
-    },
-)
-_OptionalCreateMonitorInputRequestTypeDef = TypedDict(
-    "_OptionalCreateMonitorInputRequestTypeDef",
-    {
-        "probes": List["CreateMonitorProbeInputTypeDef"],
-        "aggregationPeriod": int,
-        "clientToken": str,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
+class CreateMonitorProbeInputTypeDef(TypedDict):
+    sourceArn: str
+    destination: str
+    protocol: ProtocolType
+    destinationPort: NotRequired[int]
+    packetSize: NotRequired[int]
+    probeTags: NotRequired[Mapping[str, str]]
 
-class CreateMonitorInputRequestTypeDef(
-    _RequiredCreateMonitorInputRequestTypeDef, _OptionalCreateMonitorInputRequestTypeDef
-):
-    pass
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-CreateMonitorOutputTypeDef = TypedDict(
-    "CreateMonitorOutputTypeDef",
-    {
-        "monitorArn": str,
-        "monitorName": str,
-        "state": MonitorStateType,
-        "aggregationPeriod": int,
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ProbeInputTypeDef(TypedDict):
+    sourceArn: str
+    destination: str
+    protocol: ProtocolType
+    destinationPort: NotRequired[int]
+    packetSize: NotRequired[int]
+    tags: NotRequired[Mapping[str, str]]
 
-_RequiredCreateMonitorProbeInputTypeDef = TypedDict(
-    "_RequiredCreateMonitorProbeInputTypeDef",
-    {
-        "sourceArn": str,
-        "destination": str,
-        "protocol": ProtocolType,
-    },
-)
-_OptionalCreateMonitorProbeInputTypeDef = TypedDict(
-    "_OptionalCreateMonitorProbeInputTypeDef",
-    {
-        "destinationPort": int,
-        "packetSize": int,
-        "probeTags": Dict[str, str],
-    },
-    total=False,
-)
+class DeleteMonitorInputTypeDef(TypedDict):
+    monitorName: str
 
-class CreateMonitorProbeInputTypeDef(
-    _RequiredCreateMonitorProbeInputTypeDef, _OptionalCreateMonitorProbeInputTypeDef
-):
-    pass
+class DeleteProbeInputTypeDef(TypedDict):
+    monitorName: str
+    probeId: str
 
-_RequiredCreateProbeInputRequestTypeDef = TypedDict(
-    "_RequiredCreateProbeInputRequestTypeDef",
-    {
-        "monitorName": str,
-        "probe": "ProbeInputTypeDef",
-    },
-)
-_OptionalCreateProbeInputRequestTypeDef = TypedDict(
-    "_OptionalCreateProbeInputRequestTypeDef",
-    {
-        "clientToken": str,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
+class GetMonitorInputTypeDef(TypedDict):
+    monitorName: str
 
-class CreateProbeInputRequestTypeDef(
-    _RequiredCreateProbeInputRequestTypeDef, _OptionalCreateProbeInputRequestTypeDef
-):
-    pass
+class ProbeTypeDef(TypedDict):
+    sourceArn: str
+    destination: str
+    protocol: ProtocolType
+    probeId: NotRequired[str]
+    probeArn: NotRequired[str]
+    destinationPort: NotRequired[int]
+    packetSize: NotRequired[int]
+    addressFamily: NotRequired[AddressFamilyType]
+    vpcId: NotRequired[str]
+    state: NotRequired[ProbeStateType]
+    createdAt: NotRequired[datetime]
+    modifiedAt: NotRequired[datetime]
+    tags: NotRequired[Dict[str, str]]
 
-CreateProbeOutputTypeDef = TypedDict(
-    "CreateProbeOutputTypeDef",
-    {
-        "probeId": str,
-        "probeArn": str,
-        "sourceArn": str,
-        "destination": str,
-        "destinationPort": int,
-        "protocol": ProtocolType,
-        "packetSize": int,
-        "addressFamily": AddressFamilyType,
-        "vpcId": str,
-        "state": ProbeStateType,
-        "createdAt": datetime,
-        "modifiedAt": datetime,
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetProbeInputTypeDef(TypedDict):
+    monitorName: str
+    probeId: str
 
-DeleteMonitorInputRequestTypeDef = TypedDict(
-    "DeleteMonitorInputRequestTypeDef",
-    {
-        "monitorName": str,
-    },
-)
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
 
-DeleteProbeInputRequestTypeDef = TypedDict(
-    "DeleteProbeInputRequestTypeDef",
-    {
-        "monitorName": str,
-        "probeId": str,
-    },
-)
+class ListMonitorsInputTypeDef(TypedDict):
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+    state: NotRequired[str]
 
-GetMonitorInputRequestTypeDef = TypedDict(
-    "GetMonitorInputRequestTypeDef",
-    {
-        "monitorName": str,
-    },
-)
+class MonitorSummaryTypeDef(TypedDict):
+    monitorArn: str
+    monitorName: str
+    state: MonitorStateType
+    aggregationPeriod: NotRequired[int]
+    tags: NotRequired[Dict[str, str]]
 
-GetMonitorOutputTypeDef = TypedDict(
-    "GetMonitorOutputTypeDef",
-    {
-        "monitorArn": str,
-        "monitorName": str,
-        "state": MonitorStateType,
-        "aggregationPeriod": int,
-        "tags": Dict[str, str],
-        "probes": List["ProbeTypeDef"],
-        "createdAt": datetime,
-        "modifiedAt": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListTagsForResourceInputTypeDef(TypedDict):
+    resourceArn: str
 
-GetProbeInputRequestTypeDef = TypedDict(
-    "GetProbeInputRequestTypeDef",
-    {
-        "monitorName": str,
-        "probeId": str,
-    },
-)
+class TagResourceInputTypeDef(TypedDict):
+    resourceArn: str
+    tags: Mapping[str, str]
 
-GetProbeOutputTypeDef = TypedDict(
-    "GetProbeOutputTypeDef",
-    {
-        "probeId": str,
-        "probeArn": str,
-        "sourceArn": str,
-        "destination": str,
-        "destinationPort": int,
-        "protocol": ProtocolType,
-        "packetSize": int,
-        "addressFamily": AddressFamilyType,
-        "vpcId": str,
-        "state": ProbeStateType,
-        "createdAt": datetime,
-        "modifiedAt": datetime,
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class UntagResourceInputTypeDef(TypedDict):
+    resourceArn: str
+    tagKeys: Sequence[str]
 
-ListMonitorsInputRequestTypeDef = TypedDict(
-    "ListMonitorsInputRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-        "state": str,
-    },
-    total=False,
-)
+class UpdateMonitorInputTypeDef(TypedDict):
+    monitorName: str
+    aggregationPeriod: int
 
-ListMonitorsOutputTypeDef = TypedDict(
-    "ListMonitorsOutputTypeDef",
-    {
-        "monitors": List["MonitorSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class UpdateProbeInputTypeDef(TypedDict):
+    monitorName: str
+    probeId: str
+    state: NotRequired[ProbeStateType]
+    destination: NotRequired[str]
+    destinationPort: NotRequired[int]
+    protocol: NotRequired[ProtocolType]
+    packetSize: NotRequired[int]
 
-ListTagsForResourceInputRequestTypeDef = TypedDict(
-    "ListTagsForResourceInputRequestTypeDef",
-    {
-        "resourceArn": str,
-    },
-)
+class CreateMonitorInputTypeDef(TypedDict):
+    monitorName: str
+    probes: NotRequired[Sequence[CreateMonitorProbeInputTypeDef]]
+    aggregationPeriod: NotRequired[int]
+    clientToken: NotRequired[str]
+    tags: NotRequired[Mapping[str, str]]
 
-ListTagsForResourceOutputTypeDef = TypedDict(
-    "ListTagsForResourceOutputTypeDef",
-    {
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CreateMonitorOutputTypeDef(TypedDict):
+    monitorArn: str
+    monitorName: str
+    state: MonitorStateType
+    aggregationPeriod: int
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredMonitorSummaryTypeDef = TypedDict(
-    "_RequiredMonitorSummaryTypeDef",
-    {
-        "monitorArn": str,
-        "monitorName": str,
-        "state": MonitorStateType,
-    },
-)
-_OptionalMonitorSummaryTypeDef = TypedDict(
-    "_OptionalMonitorSummaryTypeDef",
-    {
-        "aggregationPeriod": int,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
+class CreateProbeOutputTypeDef(TypedDict):
+    probeId: str
+    probeArn: str
+    sourceArn: str
+    destination: str
+    destinationPort: int
+    protocol: ProtocolType
+    packetSize: int
+    addressFamily: AddressFamilyType
+    vpcId: str
+    state: ProbeStateType
+    createdAt: datetime
+    modifiedAt: datetime
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class MonitorSummaryTypeDef(_RequiredMonitorSummaryTypeDef, _OptionalMonitorSummaryTypeDef):
-    pass
+class GetProbeOutputTypeDef(TypedDict):
+    probeId: str
+    probeArn: str
+    sourceArn: str
+    destination: str
+    destinationPort: int
+    protocol: ProtocolType
+    packetSize: int
+    addressFamily: AddressFamilyType
+    vpcId: str
+    state: ProbeStateType
+    createdAt: datetime
+    modifiedAt: datetime
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
+class ListTagsForResourceOutputTypeDef(TypedDict):
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredProbeInputTypeDef = TypedDict(
-    "_RequiredProbeInputTypeDef",
-    {
-        "sourceArn": str,
-        "destination": str,
-        "protocol": ProtocolType,
-    },
-)
-_OptionalProbeInputTypeDef = TypedDict(
-    "_OptionalProbeInputTypeDef",
-    {
-        "destinationPort": int,
-        "packetSize": int,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
+class UpdateMonitorOutputTypeDef(TypedDict):
+    monitorArn: str
+    monitorName: str
+    state: MonitorStateType
+    aggregationPeriod: int
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class ProbeInputTypeDef(_RequiredProbeInputTypeDef, _OptionalProbeInputTypeDef):
-    pass
+class UpdateProbeOutputTypeDef(TypedDict):
+    probeId: str
+    probeArn: str
+    sourceArn: str
+    destination: str
+    destinationPort: int
+    protocol: ProtocolType
+    packetSize: int
+    addressFamily: AddressFamilyType
+    vpcId: str
+    state: ProbeStateType
+    createdAt: datetime
+    modifiedAt: datetime
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredProbeTypeDef = TypedDict(
-    "_RequiredProbeTypeDef",
-    {
-        "sourceArn": str,
-        "destination": str,
-        "protocol": ProtocolType,
-    },
-)
-_OptionalProbeTypeDef = TypedDict(
-    "_OptionalProbeTypeDef",
-    {
-        "probeId": str,
-        "probeArn": str,
-        "destinationPort": int,
-        "packetSize": int,
-        "addressFamily": AddressFamilyType,
-        "vpcId": str,
-        "state": ProbeStateType,
-        "createdAt": datetime,
-        "modifiedAt": datetime,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
+class CreateProbeInputTypeDef(TypedDict):
+    monitorName: str
+    probe: ProbeInputTypeDef
+    clientToken: NotRequired[str]
+    tags: NotRequired[Mapping[str, str]]
 
-class ProbeTypeDef(_RequiredProbeTypeDef, _OptionalProbeTypeDef):
-    pass
+class GetMonitorOutputTypeDef(TypedDict):
+    monitorArn: str
+    monitorName: str
+    state: MonitorStateType
+    aggregationPeriod: int
+    tags: Dict[str, str]
+    probes: List[ProbeTypeDef]
+    createdAt: datetime
+    modifiedAt: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
+class ListMonitorsInputPaginateTypeDef(TypedDict):
+    state: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-TagResourceInputRequestTypeDef = TypedDict(
-    "TagResourceInputRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tags": Dict[str, str],
-    },
-)
-
-UntagResourceInputRequestTypeDef = TypedDict(
-    "UntagResourceInputRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tagKeys": List[str],
-    },
-)
-
-UpdateMonitorInputRequestTypeDef = TypedDict(
-    "UpdateMonitorInputRequestTypeDef",
-    {
-        "monitorName": str,
-        "aggregationPeriod": int,
-    },
-)
-
-UpdateMonitorOutputTypeDef = TypedDict(
-    "UpdateMonitorOutputTypeDef",
-    {
-        "monitorArn": str,
-        "monitorName": str,
-        "state": MonitorStateType,
-        "aggregationPeriod": int,
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateProbeInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateProbeInputRequestTypeDef",
-    {
-        "monitorName": str,
-        "probeId": str,
-    },
-)
-_OptionalUpdateProbeInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateProbeInputRequestTypeDef",
-    {
-        "state": ProbeStateType,
-        "destination": str,
-        "destinationPort": int,
-        "protocol": ProtocolType,
-        "packetSize": int,
-    },
-    total=False,
-)
-
-class UpdateProbeInputRequestTypeDef(
-    _RequiredUpdateProbeInputRequestTypeDef, _OptionalUpdateProbeInputRequestTypeDef
-):
-    pass
-
-UpdateProbeOutputTypeDef = TypedDict(
-    "UpdateProbeOutputTypeDef",
-    {
-        "probeId": str,
-        "probeArn": str,
-        "sourceArn": str,
-        "destination": str,
-        "destinationPort": int,
-        "protocol": ProtocolType,
-        "packetSize": int,
-        "addressFamily": AddressFamilyType,
-        "vpcId": str,
-        "state": ProbeStateType,
-        "createdAt": datetime,
-        "modifiedAt": datetime,
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListMonitorsOutputTypeDef(TypedDict):
+    monitors: List[MonitorSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]

@@ -1,20 +1,24 @@
 """
 Type annotations for mturk service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mturk/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mturk/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_mturk.type_defs import AcceptQualificationRequestRequestRequestTypeDef
+    from mypy_boto3_mturk.type_defs import AcceptQualificationRequestRequestTypeDef
 
-    data: AcceptQualificationRequestRequestRequestTypeDef = {...}
+    data: AcceptQualificationRequestRequestTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List, Union
+from typing import Union
 
 from .literals import (
     AssignmentStatusType,
@@ -32,1175 +36,663 @@ from .literals import (
     ReviewPolicyLevelType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Sequence
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List, Sequence
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
-    "AcceptQualificationRequestRequestRequestTypeDef",
-    "ApproveAssignmentRequestRequestTypeDef",
+    "AcceptQualificationRequestRequestTypeDef",
+    "ApproveAssignmentRequestTypeDef",
     "AssignmentTypeDef",
-    "AssociateQualificationWithWorkerRequestRequestTypeDef",
+    "AssociateQualificationWithWorkerRequestTypeDef",
     "BonusPaymentTypeDef",
-    "CreateAdditionalAssignmentsForHITRequestRequestTypeDef",
-    "CreateHITRequestRequestTypeDef",
+    "CreateAdditionalAssignmentsForHITRequestTypeDef",
+    "CreateHITRequestTypeDef",
     "CreateHITResponseTypeDef",
-    "CreateHITTypeRequestRequestTypeDef",
+    "CreateHITTypeRequestTypeDef",
     "CreateHITTypeResponseTypeDef",
-    "CreateHITWithHITTypeRequestRequestTypeDef",
+    "CreateHITWithHITTypeRequestTypeDef",
     "CreateHITWithHITTypeResponseTypeDef",
-    "CreateQualificationTypeRequestRequestTypeDef",
+    "CreateQualificationTypeRequestTypeDef",
     "CreateQualificationTypeResponseTypeDef",
-    "CreateWorkerBlockRequestRequestTypeDef",
-    "DeleteHITRequestRequestTypeDef",
-    "DeleteQualificationTypeRequestRequestTypeDef",
-    "DeleteWorkerBlockRequestRequestTypeDef",
-    "DisassociateQualificationFromWorkerRequestRequestTypeDef",
+    "CreateWorkerBlockRequestTypeDef",
+    "DeleteHITRequestTypeDef",
+    "DeleteQualificationTypeRequestTypeDef",
+    "DeleteWorkerBlockRequestTypeDef",
+    "DisassociateQualificationFromWorkerRequestTypeDef",
     "GetAccountBalanceResponseTypeDef",
-    "GetAssignmentRequestRequestTypeDef",
+    "GetAssignmentRequestTypeDef",
     "GetAssignmentResponseTypeDef",
-    "GetFileUploadURLRequestRequestTypeDef",
+    "GetFileUploadURLRequestTypeDef",
     "GetFileUploadURLResponseTypeDef",
-    "GetHITRequestRequestTypeDef",
+    "GetHITRequestTypeDef",
     "GetHITResponseTypeDef",
-    "GetQualificationScoreRequestRequestTypeDef",
+    "GetQualificationScoreRequestTypeDef",
     "GetQualificationScoreResponseTypeDef",
-    "GetQualificationTypeRequestRequestTypeDef",
+    "GetQualificationTypeRequestTypeDef",
     "GetQualificationTypeResponseTypeDef",
     "HITLayoutParameterTypeDef",
     "HITTypeDef",
-    "ListAssignmentsForHITRequestRequestTypeDef",
+    "ListAssignmentsForHITRequestPaginateTypeDef",
+    "ListAssignmentsForHITRequestTypeDef",
     "ListAssignmentsForHITResponseTypeDef",
-    "ListBonusPaymentsRequestRequestTypeDef",
+    "ListBonusPaymentsRequestPaginateTypeDef",
+    "ListBonusPaymentsRequestTypeDef",
     "ListBonusPaymentsResponseTypeDef",
-    "ListHITsForQualificationTypeRequestRequestTypeDef",
+    "ListHITsForQualificationTypeRequestPaginateTypeDef",
+    "ListHITsForQualificationTypeRequestTypeDef",
     "ListHITsForQualificationTypeResponseTypeDef",
-    "ListHITsRequestRequestTypeDef",
+    "ListHITsRequestPaginateTypeDef",
+    "ListHITsRequestTypeDef",
     "ListHITsResponseTypeDef",
-    "ListQualificationRequestsRequestRequestTypeDef",
+    "ListQualificationRequestsRequestPaginateTypeDef",
+    "ListQualificationRequestsRequestTypeDef",
     "ListQualificationRequestsResponseTypeDef",
-    "ListQualificationTypesRequestRequestTypeDef",
+    "ListQualificationTypesRequestPaginateTypeDef",
+    "ListQualificationTypesRequestTypeDef",
     "ListQualificationTypesResponseTypeDef",
-    "ListReviewPolicyResultsForHITRequestRequestTypeDef",
+    "ListReviewPolicyResultsForHITRequestTypeDef",
     "ListReviewPolicyResultsForHITResponseTypeDef",
-    "ListReviewableHITsRequestRequestTypeDef",
+    "ListReviewableHITsRequestPaginateTypeDef",
+    "ListReviewableHITsRequestTypeDef",
     "ListReviewableHITsResponseTypeDef",
-    "ListWorkerBlocksRequestRequestTypeDef",
+    "ListWorkerBlocksRequestPaginateTypeDef",
+    "ListWorkerBlocksRequestTypeDef",
     "ListWorkerBlocksResponseTypeDef",
-    "ListWorkersWithQualificationTypeRequestRequestTypeDef",
+    "ListWorkersWithQualificationTypeRequestPaginateTypeDef",
+    "ListWorkersWithQualificationTypeRequestTypeDef",
     "ListWorkersWithQualificationTypeResponseTypeDef",
     "LocaleTypeDef",
     "NotificationSpecificationTypeDef",
     "NotifyWorkersFailureStatusTypeDef",
-    "NotifyWorkersRequestRequestTypeDef",
+    "NotifyWorkersRequestTypeDef",
     "NotifyWorkersResponseTypeDef",
     "PaginatorConfigTypeDef",
+    "ParameterMapEntryOutputTypeDef",
     "ParameterMapEntryTypeDef",
+    "PolicyParameterOutputTypeDef",
     "PolicyParameterTypeDef",
     "QualificationRequestTypeDef",
+    "QualificationRequirementOutputTypeDef",
     "QualificationRequirementTypeDef",
+    "QualificationRequirementUnionTypeDef",
     "QualificationTypeDef",
     "QualificationTypeTypeDef",
-    "RejectAssignmentRequestRequestTypeDef",
-    "RejectQualificationRequestRequestRequestTypeDef",
+    "RejectAssignmentRequestTypeDef",
+    "RejectQualificationRequestRequestTypeDef",
     "ResponseMetadataTypeDef",
     "ReviewActionDetailTypeDef",
+    "ReviewPolicyOutputTypeDef",
     "ReviewPolicyTypeDef",
+    "ReviewPolicyUnionTypeDef",
     "ReviewReportTypeDef",
     "ReviewResultDetailTypeDef",
-    "SendBonusRequestRequestTypeDef",
-    "SendTestEventNotificationRequestRequestTypeDef",
-    "UpdateExpirationForHITRequestRequestTypeDef",
-    "UpdateHITReviewStatusRequestRequestTypeDef",
-    "UpdateHITTypeOfHITRequestRequestTypeDef",
-    "UpdateNotificationSettingsRequestRequestTypeDef",
-    "UpdateQualificationTypeRequestRequestTypeDef",
+    "SendBonusRequestTypeDef",
+    "SendTestEventNotificationRequestTypeDef",
+    "TimestampTypeDef",
+    "UpdateExpirationForHITRequestTypeDef",
+    "UpdateHITReviewStatusRequestTypeDef",
+    "UpdateHITTypeOfHITRequestTypeDef",
+    "UpdateNotificationSettingsRequestTypeDef",
+    "UpdateQualificationTypeRequestTypeDef",
     "UpdateQualificationTypeResponseTypeDef",
     "WorkerBlockTypeDef",
 )
 
-_RequiredAcceptQualificationRequestRequestRequestTypeDef = TypedDict(
-    "_RequiredAcceptQualificationRequestRequestRequestTypeDef",
-    {
-        "QualificationRequestId": str,
-    },
-)
-_OptionalAcceptQualificationRequestRequestRequestTypeDef = TypedDict(
-    "_OptionalAcceptQualificationRequestRequestRequestTypeDef",
-    {
-        "IntegerValue": int,
-    },
-    total=False,
-)
-
-class AcceptQualificationRequestRequestRequestTypeDef(
-    _RequiredAcceptQualificationRequestRequestRequestTypeDef,
-    _OptionalAcceptQualificationRequestRequestRequestTypeDef,
-):
-    pass
-
-_RequiredApproveAssignmentRequestRequestTypeDef = TypedDict(
-    "_RequiredApproveAssignmentRequestRequestTypeDef",
-    {
-        "AssignmentId": str,
-    },
-)
-_OptionalApproveAssignmentRequestRequestTypeDef = TypedDict(
-    "_OptionalApproveAssignmentRequestRequestTypeDef",
-    {
-        "RequesterFeedback": str,
-        "OverrideRejection": bool,
-    },
-    total=False,
-)
-
-class ApproveAssignmentRequestRequestTypeDef(
-    _RequiredApproveAssignmentRequestRequestTypeDef, _OptionalApproveAssignmentRequestRequestTypeDef
-):
-    pass
-
-AssignmentTypeDef = TypedDict(
-    "AssignmentTypeDef",
-    {
-        "AssignmentId": str,
-        "WorkerId": str,
-        "HITId": str,
-        "AssignmentStatus": AssignmentStatusType,
-        "AutoApprovalTime": datetime,
-        "AcceptTime": datetime,
-        "SubmitTime": datetime,
-        "ApprovalTime": datetime,
-        "RejectionTime": datetime,
-        "Deadline": datetime,
-        "Answer": str,
-        "RequesterFeedback": str,
-    },
-    total=False,
-)
-
-_RequiredAssociateQualificationWithWorkerRequestRequestTypeDef = TypedDict(
-    "_RequiredAssociateQualificationWithWorkerRequestRequestTypeDef",
-    {
-        "QualificationTypeId": str,
-        "WorkerId": str,
-    },
-)
-_OptionalAssociateQualificationWithWorkerRequestRequestTypeDef = TypedDict(
-    "_OptionalAssociateQualificationWithWorkerRequestRequestTypeDef",
-    {
-        "IntegerValue": int,
-        "SendNotification": bool,
-    },
-    total=False,
-)
-
-class AssociateQualificationWithWorkerRequestRequestTypeDef(
-    _RequiredAssociateQualificationWithWorkerRequestRequestTypeDef,
-    _OptionalAssociateQualificationWithWorkerRequestRequestTypeDef,
-):
-    pass
-
-BonusPaymentTypeDef = TypedDict(
-    "BonusPaymentTypeDef",
-    {
-        "WorkerId": str,
-        "BonusAmount": str,
-        "AssignmentId": str,
-        "Reason": str,
-        "GrantTime": datetime,
-    },
-    total=False,
-)
-
-_RequiredCreateAdditionalAssignmentsForHITRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateAdditionalAssignmentsForHITRequestRequestTypeDef",
-    {
-        "HITId": str,
-        "NumberOfAdditionalAssignments": int,
-    },
-)
-_OptionalCreateAdditionalAssignmentsForHITRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateAdditionalAssignmentsForHITRequestRequestTypeDef",
-    {
-        "UniqueRequestToken": str,
-    },
-    total=False,
-)
-
-class CreateAdditionalAssignmentsForHITRequestRequestTypeDef(
-    _RequiredCreateAdditionalAssignmentsForHITRequestRequestTypeDef,
-    _OptionalCreateAdditionalAssignmentsForHITRequestRequestTypeDef,
-):
-    pass
-
-_RequiredCreateHITRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateHITRequestRequestTypeDef",
-    {
-        "LifetimeInSeconds": int,
-        "AssignmentDurationInSeconds": int,
-        "Reward": str,
-        "Title": str,
-        "Description": str,
-    },
-)
-_OptionalCreateHITRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateHITRequestRequestTypeDef",
-    {
-        "MaxAssignments": int,
-        "AutoApprovalDelayInSeconds": int,
-        "Keywords": str,
-        "Question": str,
-        "RequesterAnnotation": str,
-        "QualificationRequirements": List["QualificationRequirementTypeDef"],
-        "UniqueRequestToken": str,
-        "AssignmentReviewPolicy": "ReviewPolicyTypeDef",
-        "HITReviewPolicy": "ReviewPolicyTypeDef",
-        "HITLayoutId": str,
-        "HITLayoutParameters": List["HITLayoutParameterTypeDef"],
-    },
-    total=False,
-)
-
-class CreateHITRequestRequestTypeDef(
-    _RequiredCreateHITRequestRequestTypeDef, _OptionalCreateHITRequestRequestTypeDef
-):
-    pass
-
-CreateHITResponseTypeDef = TypedDict(
-    "CreateHITResponseTypeDef",
-    {
-        "HIT": "HITTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateHITTypeRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateHITTypeRequestRequestTypeDef",
-    {
-        "AssignmentDurationInSeconds": int,
-        "Reward": str,
-        "Title": str,
-        "Description": str,
-    },
-)
-_OptionalCreateHITTypeRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateHITTypeRequestRequestTypeDef",
-    {
-        "AutoApprovalDelayInSeconds": int,
-        "Keywords": str,
-        "QualificationRequirements": List["QualificationRequirementTypeDef"],
-    },
-    total=False,
-)
-
-class CreateHITTypeRequestRequestTypeDef(
-    _RequiredCreateHITTypeRequestRequestTypeDef, _OptionalCreateHITTypeRequestRequestTypeDef
-):
-    pass
-
-CreateHITTypeResponseTypeDef = TypedDict(
-    "CreateHITTypeResponseTypeDef",
-    {
-        "HITTypeId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateHITWithHITTypeRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateHITWithHITTypeRequestRequestTypeDef",
-    {
-        "HITTypeId": str,
-        "LifetimeInSeconds": int,
-    },
-)
-_OptionalCreateHITWithHITTypeRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateHITWithHITTypeRequestRequestTypeDef",
-    {
-        "MaxAssignments": int,
-        "Question": str,
-        "RequesterAnnotation": str,
-        "UniqueRequestToken": str,
-        "AssignmentReviewPolicy": "ReviewPolicyTypeDef",
-        "HITReviewPolicy": "ReviewPolicyTypeDef",
-        "HITLayoutId": str,
-        "HITLayoutParameters": List["HITLayoutParameterTypeDef"],
-    },
-    total=False,
-)
-
-class CreateHITWithHITTypeRequestRequestTypeDef(
-    _RequiredCreateHITWithHITTypeRequestRequestTypeDef,
-    _OptionalCreateHITWithHITTypeRequestRequestTypeDef,
-):
-    pass
-
-CreateHITWithHITTypeResponseTypeDef = TypedDict(
-    "CreateHITWithHITTypeResponseTypeDef",
-    {
-        "HIT": "HITTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateQualificationTypeRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateQualificationTypeRequestRequestTypeDef",
-    {
-        "Name": str,
-        "Description": str,
-        "QualificationTypeStatus": QualificationTypeStatusType,
-    },
-)
-_OptionalCreateQualificationTypeRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateQualificationTypeRequestRequestTypeDef",
-    {
-        "Keywords": str,
-        "RetryDelayInSeconds": int,
-        "Test": str,
-        "AnswerKey": str,
-        "TestDurationInSeconds": int,
-        "AutoGranted": bool,
-        "AutoGrantedValue": int,
-    },
-    total=False,
-)
-
-class CreateQualificationTypeRequestRequestTypeDef(
-    _RequiredCreateQualificationTypeRequestRequestTypeDef,
-    _OptionalCreateQualificationTypeRequestRequestTypeDef,
-):
-    pass
-
-CreateQualificationTypeResponseTypeDef = TypedDict(
-    "CreateQualificationTypeResponseTypeDef",
-    {
-        "QualificationType": "QualificationTypeTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateWorkerBlockRequestRequestTypeDef = TypedDict(
-    "CreateWorkerBlockRequestRequestTypeDef",
-    {
-        "WorkerId": str,
-        "Reason": str,
-    },
-)
-
-DeleteHITRequestRequestTypeDef = TypedDict(
-    "DeleteHITRequestRequestTypeDef",
-    {
-        "HITId": str,
-    },
-)
-
-DeleteQualificationTypeRequestRequestTypeDef = TypedDict(
-    "DeleteQualificationTypeRequestRequestTypeDef",
-    {
-        "QualificationTypeId": str,
-    },
-)
-
-_RequiredDeleteWorkerBlockRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteWorkerBlockRequestRequestTypeDef",
-    {
-        "WorkerId": str,
-    },
-)
-_OptionalDeleteWorkerBlockRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteWorkerBlockRequestRequestTypeDef",
-    {
-        "Reason": str,
-    },
-    total=False,
-)
-
-class DeleteWorkerBlockRequestRequestTypeDef(
-    _RequiredDeleteWorkerBlockRequestRequestTypeDef, _OptionalDeleteWorkerBlockRequestRequestTypeDef
-):
-    pass
-
-_RequiredDisassociateQualificationFromWorkerRequestRequestTypeDef = TypedDict(
-    "_RequiredDisassociateQualificationFromWorkerRequestRequestTypeDef",
-    {
-        "WorkerId": str,
-        "QualificationTypeId": str,
-    },
-)
-_OptionalDisassociateQualificationFromWorkerRequestRequestTypeDef = TypedDict(
-    "_OptionalDisassociateQualificationFromWorkerRequestRequestTypeDef",
-    {
-        "Reason": str,
-    },
-    total=False,
-)
-
-class DisassociateQualificationFromWorkerRequestRequestTypeDef(
-    _RequiredDisassociateQualificationFromWorkerRequestRequestTypeDef,
-    _OptionalDisassociateQualificationFromWorkerRequestRequestTypeDef,
-):
-    pass
-
-GetAccountBalanceResponseTypeDef = TypedDict(
-    "GetAccountBalanceResponseTypeDef",
-    {
-        "AvailableBalance": str,
-        "OnHoldBalance": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetAssignmentRequestRequestTypeDef = TypedDict(
-    "GetAssignmentRequestRequestTypeDef",
-    {
-        "AssignmentId": str,
-    },
-)
-
-GetAssignmentResponseTypeDef = TypedDict(
-    "GetAssignmentResponseTypeDef",
-    {
-        "Assignment": "AssignmentTypeDef",
-        "HIT": "HITTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetFileUploadURLRequestRequestTypeDef = TypedDict(
-    "GetFileUploadURLRequestRequestTypeDef",
-    {
-        "AssignmentId": str,
-        "QuestionIdentifier": str,
-    },
-)
-
-GetFileUploadURLResponseTypeDef = TypedDict(
-    "GetFileUploadURLResponseTypeDef",
-    {
-        "FileUploadURL": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetHITRequestRequestTypeDef = TypedDict(
-    "GetHITRequestRequestTypeDef",
-    {
-        "HITId": str,
-    },
-)
-
-GetHITResponseTypeDef = TypedDict(
-    "GetHITResponseTypeDef",
-    {
-        "HIT": "HITTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetQualificationScoreRequestRequestTypeDef = TypedDict(
-    "GetQualificationScoreRequestRequestTypeDef",
-    {
-        "QualificationTypeId": str,
-        "WorkerId": str,
-    },
-)
-
-GetQualificationScoreResponseTypeDef = TypedDict(
-    "GetQualificationScoreResponseTypeDef",
-    {
-        "Qualification": "QualificationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetQualificationTypeRequestRequestTypeDef = TypedDict(
-    "GetQualificationTypeRequestRequestTypeDef",
-    {
-        "QualificationTypeId": str,
-    },
-)
-
-GetQualificationTypeResponseTypeDef = TypedDict(
-    "GetQualificationTypeResponseTypeDef",
-    {
-        "QualificationType": "QualificationTypeTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-HITLayoutParameterTypeDef = TypedDict(
-    "HITLayoutParameterTypeDef",
-    {
-        "Name": str,
-        "Value": str,
-    },
-)
-
-HITTypeDef = TypedDict(
-    "HITTypeDef",
-    {
-        "HITId": str,
-        "HITTypeId": str,
-        "HITGroupId": str,
-        "HITLayoutId": str,
-        "CreationTime": datetime,
-        "Title": str,
-        "Description": str,
-        "Question": str,
-        "Keywords": str,
-        "HITStatus": HITStatusType,
-        "MaxAssignments": int,
-        "Reward": str,
-        "AutoApprovalDelayInSeconds": int,
-        "Expiration": datetime,
-        "AssignmentDurationInSeconds": int,
-        "RequesterAnnotation": str,
-        "QualificationRequirements": List["QualificationRequirementTypeDef"],
-        "HITReviewStatus": HITReviewStatusType,
-        "NumberOfAssignmentsPending": int,
-        "NumberOfAssignmentsAvailable": int,
-        "NumberOfAssignmentsCompleted": int,
-    },
-    total=False,
-)
-
-_RequiredListAssignmentsForHITRequestRequestTypeDef = TypedDict(
-    "_RequiredListAssignmentsForHITRequestRequestTypeDef",
-    {
-        "HITId": str,
-    },
-)
-_OptionalListAssignmentsForHITRequestRequestTypeDef = TypedDict(
-    "_OptionalListAssignmentsForHITRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-        "AssignmentStatuses": List[AssignmentStatusType],
-    },
-    total=False,
-)
-
-class ListAssignmentsForHITRequestRequestTypeDef(
-    _RequiredListAssignmentsForHITRequestRequestTypeDef,
-    _OptionalListAssignmentsForHITRequestRequestTypeDef,
-):
-    pass
-
-ListAssignmentsForHITResponseTypeDef = TypedDict(
-    "ListAssignmentsForHITResponseTypeDef",
-    {
-        "NextToken": str,
-        "NumResults": int,
-        "Assignments": List["AssignmentTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListBonusPaymentsRequestRequestTypeDef = TypedDict(
-    "ListBonusPaymentsRequestRequestTypeDef",
-    {
-        "HITId": str,
-        "AssignmentId": str,
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-ListBonusPaymentsResponseTypeDef = TypedDict(
-    "ListBonusPaymentsResponseTypeDef",
-    {
-        "NumResults": int,
-        "NextToken": str,
-        "BonusPayments": List["BonusPaymentTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListHITsForQualificationTypeRequestRequestTypeDef = TypedDict(
-    "_RequiredListHITsForQualificationTypeRequestRequestTypeDef",
-    {
-        "QualificationTypeId": str,
-    },
-)
-_OptionalListHITsForQualificationTypeRequestRequestTypeDef = TypedDict(
-    "_OptionalListHITsForQualificationTypeRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-class ListHITsForQualificationTypeRequestRequestTypeDef(
-    _RequiredListHITsForQualificationTypeRequestRequestTypeDef,
-    _OptionalListHITsForQualificationTypeRequestRequestTypeDef,
-):
-    pass
-
-ListHITsForQualificationTypeResponseTypeDef = TypedDict(
-    "ListHITsForQualificationTypeResponseTypeDef",
-    {
-        "NextToken": str,
-        "NumResults": int,
-        "HITs": List["HITTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListHITsRequestRequestTypeDef = TypedDict(
-    "ListHITsRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-ListHITsResponseTypeDef = TypedDict(
-    "ListHITsResponseTypeDef",
-    {
-        "NextToken": str,
-        "NumResults": int,
-        "HITs": List["HITTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListQualificationRequestsRequestRequestTypeDef = TypedDict(
-    "ListQualificationRequestsRequestRequestTypeDef",
-    {
-        "QualificationTypeId": str,
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-ListQualificationRequestsResponseTypeDef = TypedDict(
-    "ListQualificationRequestsResponseTypeDef",
-    {
-        "NumResults": int,
-        "NextToken": str,
-        "QualificationRequests": List["QualificationRequestTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListQualificationTypesRequestRequestTypeDef = TypedDict(
-    "_RequiredListQualificationTypesRequestRequestTypeDef",
-    {
-        "MustBeRequestable": bool,
-    },
-)
-_OptionalListQualificationTypesRequestRequestTypeDef = TypedDict(
-    "_OptionalListQualificationTypesRequestRequestTypeDef",
-    {
-        "Query": str,
-        "MustBeOwnedByCaller": bool,
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-class ListQualificationTypesRequestRequestTypeDef(
-    _RequiredListQualificationTypesRequestRequestTypeDef,
-    _OptionalListQualificationTypesRequestRequestTypeDef,
-):
-    pass
-
-ListQualificationTypesResponseTypeDef = TypedDict(
-    "ListQualificationTypesResponseTypeDef",
-    {
-        "NumResults": int,
-        "NextToken": str,
-        "QualificationTypes": List["QualificationTypeTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListReviewPolicyResultsForHITRequestRequestTypeDef = TypedDict(
-    "_RequiredListReviewPolicyResultsForHITRequestRequestTypeDef",
-    {
-        "HITId": str,
-    },
-)
-_OptionalListReviewPolicyResultsForHITRequestRequestTypeDef = TypedDict(
-    "_OptionalListReviewPolicyResultsForHITRequestRequestTypeDef",
-    {
-        "PolicyLevels": List[ReviewPolicyLevelType],
-        "RetrieveActions": bool,
-        "RetrieveResults": bool,
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-class ListReviewPolicyResultsForHITRequestRequestTypeDef(
-    _RequiredListReviewPolicyResultsForHITRequestRequestTypeDef,
-    _OptionalListReviewPolicyResultsForHITRequestRequestTypeDef,
-):
-    pass
-
-ListReviewPolicyResultsForHITResponseTypeDef = TypedDict(
-    "ListReviewPolicyResultsForHITResponseTypeDef",
-    {
-        "HITId": str,
-        "AssignmentReviewPolicy": "ReviewPolicyTypeDef",
-        "HITReviewPolicy": "ReviewPolicyTypeDef",
-        "AssignmentReviewReport": "ReviewReportTypeDef",
-        "HITReviewReport": "ReviewReportTypeDef",
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListReviewableHITsRequestRequestTypeDef = TypedDict(
-    "ListReviewableHITsRequestRequestTypeDef",
-    {
-        "HITTypeId": str,
-        "Status": ReviewableHITStatusType,
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-ListReviewableHITsResponseTypeDef = TypedDict(
-    "ListReviewableHITsResponseTypeDef",
-    {
-        "NextToken": str,
-        "NumResults": int,
-        "HITs": List["HITTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListWorkerBlocksRequestRequestTypeDef = TypedDict(
-    "ListWorkerBlocksRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-ListWorkerBlocksResponseTypeDef = TypedDict(
-    "ListWorkerBlocksResponseTypeDef",
-    {
-        "NextToken": str,
-        "NumResults": int,
-        "WorkerBlocks": List["WorkerBlockTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListWorkersWithQualificationTypeRequestRequestTypeDef = TypedDict(
-    "_RequiredListWorkersWithQualificationTypeRequestRequestTypeDef",
-    {
-        "QualificationTypeId": str,
-    },
-)
-_OptionalListWorkersWithQualificationTypeRequestRequestTypeDef = TypedDict(
-    "_OptionalListWorkersWithQualificationTypeRequestRequestTypeDef",
-    {
-        "Status": QualificationStatusType,
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-class ListWorkersWithQualificationTypeRequestRequestTypeDef(
-    _RequiredListWorkersWithQualificationTypeRequestRequestTypeDef,
-    _OptionalListWorkersWithQualificationTypeRequestRequestTypeDef,
-):
-    pass
-
-ListWorkersWithQualificationTypeResponseTypeDef = TypedDict(
-    "ListWorkersWithQualificationTypeResponseTypeDef",
-    {
-        "NextToken": str,
-        "NumResults": int,
-        "Qualifications": List["QualificationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredLocaleTypeDef = TypedDict(
-    "_RequiredLocaleTypeDef",
-    {
-        "Country": str,
-    },
-)
-_OptionalLocaleTypeDef = TypedDict(
-    "_OptionalLocaleTypeDef",
-    {
-        "Subdivision": str,
-    },
-    total=False,
-)
-
-class LocaleTypeDef(_RequiredLocaleTypeDef, _OptionalLocaleTypeDef):
-    pass
-
-NotificationSpecificationTypeDef = TypedDict(
-    "NotificationSpecificationTypeDef",
-    {
-        "Destination": str,
-        "Transport": NotificationTransportType,
-        "Version": str,
-        "EventTypes": List[EventTypeType],
-    },
-)
-
-NotifyWorkersFailureStatusTypeDef = TypedDict(
-    "NotifyWorkersFailureStatusTypeDef",
-    {
-        "NotifyWorkersFailureCode": NotifyWorkersFailureCodeType,
-        "NotifyWorkersFailureMessage": str,
-        "WorkerId": str,
-    },
-    total=False,
-)
-
-NotifyWorkersRequestRequestTypeDef = TypedDict(
-    "NotifyWorkersRequestRequestTypeDef",
-    {
-        "Subject": str,
-        "MessageText": str,
-        "WorkerIds": List[str],
-    },
-)
-
-NotifyWorkersResponseTypeDef = TypedDict(
-    "NotifyWorkersResponseTypeDef",
-    {
-        "NotifyWorkersFailureStatuses": List["NotifyWorkersFailureStatusTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-ParameterMapEntryTypeDef = TypedDict(
-    "ParameterMapEntryTypeDef",
-    {
-        "Key": str,
-        "Values": List[str],
-    },
-    total=False,
-)
-
-PolicyParameterTypeDef = TypedDict(
-    "PolicyParameterTypeDef",
-    {
-        "Key": str,
-        "Values": List[str],
-        "MapEntries": List["ParameterMapEntryTypeDef"],
-    },
-    total=False,
-)
-
-QualificationRequestTypeDef = TypedDict(
-    "QualificationRequestTypeDef",
-    {
-        "QualificationRequestId": str,
-        "QualificationTypeId": str,
-        "WorkerId": str,
-        "Test": str,
-        "Answer": str,
-        "SubmitTime": datetime,
-    },
-    total=False,
-)
-
-_RequiredQualificationRequirementTypeDef = TypedDict(
-    "_RequiredQualificationRequirementTypeDef",
-    {
-        "QualificationTypeId": str,
-        "Comparator": ComparatorType,
-    },
-)
-_OptionalQualificationRequirementTypeDef = TypedDict(
-    "_OptionalQualificationRequirementTypeDef",
-    {
-        "IntegerValues": List[int],
-        "LocaleValues": List["LocaleTypeDef"],
-        "RequiredToPreview": bool,
-        "ActionsGuarded": HITAccessActionsType,
-    },
-    total=False,
-)
-
-class QualificationRequirementTypeDef(
-    _RequiredQualificationRequirementTypeDef, _OptionalQualificationRequirementTypeDef
-):
-    pass
-
-QualificationTypeDef = TypedDict(
-    "QualificationTypeDef",
-    {
-        "QualificationTypeId": str,
-        "WorkerId": str,
-        "GrantTime": datetime,
-        "IntegerValue": int,
-        "LocaleValue": "LocaleTypeDef",
-        "Status": QualificationStatusType,
-    },
-    total=False,
-)
-
-QualificationTypeTypeDef = TypedDict(
-    "QualificationTypeTypeDef",
-    {
-        "QualificationTypeId": str,
-        "CreationTime": datetime,
-        "Name": str,
-        "Description": str,
-        "Keywords": str,
-        "QualificationTypeStatus": QualificationTypeStatusType,
-        "Test": str,
-        "TestDurationInSeconds": int,
-        "AnswerKey": str,
-        "RetryDelayInSeconds": int,
-        "IsRequestable": bool,
-        "AutoGranted": bool,
-        "AutoGrantedValue": int,
-    },
-    total=False,
-)
-
-RejectAssignmentRequestRequestTypeDef = TypedDict(
-    "RejectAssignmentRequestRequestTypeDef",
-    {
-        "AssignmentId": str,
-        "RequesterFeedback": str,
-    },
-)
-
-_RequiredRejectQualificationRequestRequestRequestTypeDef = TypedDict(
-    "_RequiredRejectQualificationRequestRequestRequestTypeDef",
-    {
-        "QualificationRequestId": str,
-    },
-)
-_OptionalRejectQualificationRequestRequestRequestTypeDef = TypedDict(
-    "_OptionalRejectQualificationRequestRequestRequestTypeDef",
-    {
-        "Reason": str,
-    },
-    total=False,
-)
-
-class RejectQualificationRequestRequestRequestTypeDef(
-    _RequiredRejectQualificationRequestRequestRequestTypeDef,
-    _OptionalRejectQualificationRequestRequestRequestTypeDef,
-):
-    pass
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-ReviewActionDetailTypeDef = TypedDict(
-    "ReviewActionDetailTypeDef",
-    {
-        "ActionId": str,
-        "ActionName": str,
-        "TargetId": str,
-        "TargetType": str,
-        "Status": ReviewActionStatusType,
-        "CompleteTime": datetime,
-        "Result": str,
-        "ErrorCode": str,
-    },
-    total=False,
-)
-
-_RequiredReviewPolicyTypeDef = TypedDict(
-    "_RequiredReviewPolicyTypeDef",
-    {
-        "PolicyName": str,
-    },
-)
-_OptionalReviewPolicyTypeDef = TypedDict(
-    "_OptionalReviewPolicyTypeDef",
-    {
-        "Parameters": List["PolicyParameterTypeDef"],
-    },
-    total=False,
-)
-
-class ReviewPolicyTypeDef(_RequiredReviewPolicyTypeDef, _OptionalReviewPolicyTypeDef):
-    pass
-
-ReviewReportTypeDef = TypedDict(
-    "ReviewReportTypeDef",
-    {
-        "ReviewResults": List["ReviewResultDetailTypeDef"],
-        "ReviewActions": List["ReviewActionDetailTypeDef"],
-    },
-    total=False,
-)
-
-ReviewResultDetailTypeDef = TypedDict(
-    "ReviewResultDetailTypeDef",
-    {
-        "ActionId": str,
-        "SubjectId": str,
-        "SubjectType": str,
-        "QuestionId": str,
-        "Key": str,
-        "Value": str,
-    },
-    total=False,
-)
-
-_RequiredSendBonusRequestRequestTypeDef = TypedDict(
-    "_RequiredSendBonusRequestRequestTypeDef",
-    {
-        "WorkerId": str,
-        "BonusAmount": str,
-        "AssignmentId": str,
-        "Reason": str,
-    },
-)
-_OptionalSendBonusRequestRequestTypeDef = TypedDict(
-    "_OptionalSendBonusRequestRequestTypeDef",
-    {
-        "UniqueRequestToken": str,
-    },
-    total=False,
-)
-
-class SendBonusRequestRequestTypeDef(
-    _RequiredSendBonusRequestRequestTypeDef, _OptionalSendBonusRequestRequestTypeDef
-):
-    pass
-
-SendTestEventNotificationRequestRequestTypeDef = TypedDict(
-    "SendTestEventNotificationRequestRequestTypeDef",
-    {
-        "Notification": "NotificationSpecificationTypeDef",
-        "TestEventType": EventTypeType,
-    },
-)
-
-UpdateExpirationForHITRequestRequestTypeDef = TypedDict(
-    "UpdateExpirationForHITRequestRequestTypeDef",
-    {
-        "HITId": str,
-        "ExpireAt": Union[datetime, str],
-    },
-)
-
-_RequiredUpdateHITReviewStatusRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateHITReviewStatusRequestRequestTypeDef",
-    {
-        "HITId": str,
-    },
-)
-_OptionalUpdateHITReviewStatusRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateHITReviewStatusRequestRequestTypeDef",
-    {
-        "Revert": bool,
-    },
-    total=False,
-)
-
-class UpdateHITReviewStatusRequestRequestTypeDef(
-    _RequiredUpdateHITReviewStatusRequestRequestTypeDef,
-    _OptionalUpdateHITReviewStatusRequestRequestTypeDef,
-):
-    pass
-
-UpdateHITTypeOfHITRequestRequestTypeDef = TypedDict(
-    "UpdateHITTypeOfHITRequestRequestTypeDef",
-    {
-        "HITId": str,
-        "HITTypeId": str,
-    },
-)
-
-_RequiredUpdateNotificationSettingsRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateNotificationSettingsRequestRequestTypeDef",
-    {
-        "HITTypeId": str,
-    },
-)
-_OptionalUpdateNotificationSettingsRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateNotificationSettingsRequestRequestTypeDef",
-    {
-        "Notification": "NotificationSpecificationTypeDef",
-        "Active": bool,
-    },
-    total=False,
-)
-
-class UpdateNotificationSettingsRequestRequestTypeDef(
-    _RequiredUpdateNotificationSettingsRequestRequestTypeDef,
-    _OptionalUpdateNotificationSettingsRequestRequestTypeDef,
-):
-    pass
-
-_RequiredUpdateQualificationTypeRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateQualificationTypeRequestRequestTypeDef",
-    {
-        "QualificationTypeId": str,
-    },
-)
-_OptionalUpdateQualificationTypeRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateQualificationTypeRequestRequestTypeDef",
-    {
-        "Description": str,
-        "QualificationTypeStatus": QualificationTypeStatusType,
-        "Test": str,
-        "AnswerKey": str,
-        "TestDurationInSeconds": int,
-        "RetryDelayInSeconds": int,
-        "AutoGranted": bool,
-        "AutoGrantedValue": int,
-    },
-    total=False,
-)
-
-class UpdateQualificationTypeRequestRequestTypeDef(
-    _RequiredUpdateQualificationTypeRequestRequestTypeDef,
-    _OptionalUpdateQualificationTypeRequestRequestTypeDef,
-):
-    pass
-
-UpdateQualificationTypeResponseTypeDef = TypedDict(
-    "UpdateQualificationTypeResponseTypeDef",
-    {
-        "QualificationType": "QualificationTypeTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-WorkerBlockTypeDef = TypedDict(
-    "WorkerBlockTypeDef",
-    {
-        "WorkerId": str,
-        "Reason": str,
-    },
-    total=False,
-)
+class AcceptQualificationRequestRequestTypeDef(TypedDict):
+    QualificationRequestId: str
+    IntegerValue: NotRequired[int]
+
+class ApproveAssignmentRequestTypeDef(TypedDict):
+    AssignmentId: str
+    RequesterFeedback: NotRequired[str]
+    OverrideRejection: NotRequired[bool]
+
+class AssignmentTypeDef(TypedDict):
+    AssignmentId: NotRequired[str]
+    WorkerId: NotRequired[str]
+    HITId: NotRequired[str]
+    AssignmentStatus: NotRequired[AssignmentStatusType]
+    AutoApprovalTime: NotRequired[datetime]
+    AcceptTime: NotRequired[datetime]
+    SubmitTime: NotRequired[datetime]
+    ApprovalTime: NotRequired[datetime]
+    RejectionTime: NotRequired[datetime]
+    Deadline: NotRequired[datetime]
+    Answer: NotRequired[str]
+    RequesterFeedback: NotRequired[str]
+
+class AssociateQualificationWithWorkerRequestTypeDef(TypedDict):
+    QualificationTypeId: str
+    WorkerId: str
+    IntegerValue: NotRequired[int]
+    SendNotification: NotRequired[bool]
+
+class BonusPaymentTypeDef(TypedDict):
+    WorkerId: NotRequired[str]
+    BonusAmount: NotRequired[str]
+    AssignmentId: NotRequired[str]
+    Reason: NotRequired[str]
+    GrantTime: NotRequired[datetime]
+
+class CreateAdditionalAssignmentsForHITRequestTypeDef(TypedDict):
+    HITId: str
+    NumberOfAdditionalAssignments: int
+    UniqueRequestToken: NotRequired[str]
+
+class HITLayoutParameterTypeDef(TypedDict):
+    Name: str
+    Value: str
+
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
+
+class CreateQualificationTypeRequestTypeDef(TypedDict):
+    Name: str
+    Description: str
+    QualificationTypeStatus: QualificationTypeStatusType
+    Keywords: NotRequired[str]
+    RetryDelayInSeconds: NotRequired[int]
+    Test: NotRequired[str]
+    AnswerKey: NotRequired[str]
+    TestDurationInSeconds: NotRequired[int]
+    AutoGranted: NotRequired[bool]
+    AutoGrantedValue: NotRequired[int]
+
+class QualificationTypeTypeDef(TypedDict):
+    QualificationTypeId: NotRequired[str]
+    CreationTime: NotRequired[datetime]
+    Name: NotRequired[str]
+    Description: NotRequired[str]
+    Keywords: NotRequired[str]
+    QualificationTypeStatus: NotRequired[QualificationTypeStatusType]
+    Test: NotRequired[str]
+    TestDurationInSeconds: NotRequired[int]
+    AnswerKey: NotRequired[str]
+    RetryDelayInSeconds: NotRequired[int]
+    IsRequestable: NotRequired[bool]
+    AutoGranted: NotRequired[bool]
+    AutoGrantedValue: NotRequired[int]
+
+class CreateWorkerBlockRequestTypeDef(TypedDict):
+    WorkerId: str
+    Reason: str
+
+class DeleteHITRequestTypeDef(TypedDict):
+    HITId: str
+
+class DeleteQualificationTypeRequestTypeDef(TypedDict):
+    QualificationTypeId: str
+
+class DeleteWorkerBlockRequestTypeDef(TypedDict):
+    WorkerId: str
+    Reason: NotRequired[str]
+
+class DisassociateQualificationFromWorkerRequestTypeDef(TypedDict):
+    WorkerId: str
+    QualificationTypeId: str
+    Reason: NotRequired[str]
+
+class GetAssignmentRequestTypeDef(TypedDict):
+    AssignmentId: str
+
+class GetFileUploadURLRequestTypeDef(TypedDict):
+    AssignmentId: str
+    QuestionIdentifier: str
+
+class GetHITRequestTypeDef(TypedDict):
+    HITId: str
+
+class GetQualificationScoreRequestTypeDef(TypedDict):
+    QualificationTypeId: str
+    WorkerId: str
+
+class GetQualificationTypeRequestTypeDef(TypedDict):
+    QualificationTypeId: str
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class ListAssignmentsForHITRequestTypeDef(TypedDict):
+    HITId: str
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+    AssignmentStatuses: NotRequired[Sequence[AssignmentStatusType]]
+
+class ListBonusPaymentsRequestTypeDef(TypedDict):
+    HITId: NotRequired[str]
+    AssignmentId: NotRequired[str]
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class ListHITsForQualificationTypeRequestTypeDef(TypedDict):
+    QualificationTypeId: str
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class ListHITsRequestTypeDef(TypedDict):
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class ListQualificationRequestsRequestTypeDef(TypedDict):
+    QualificationTypeId: NotRequired[str]
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class QualificationRequestTypeDef(TypedDict):
+    QualificationRequestId: NotRequired[str]
+    QualificationTypeId: NotRequired[str]
+    WorkerId: NotRequired[str]
+    Test: NotRequired[str]
+    Answer: NotRequired[str]
+    SubmitTime: NotRequired[datetime]
+
+class ListQualificationTypesRequestTypeDef(TypedDict):
+    MustBeRequestable: bool
+    Query: NotRequired[str]
+    MustBeOwnedByCaller: NotRequired[bool]
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class ListReviewPolicyResultsForHITRequestTypeDef(TypedDict):
+    HITId: str
+    PolicyLevels: NotRequired[Sequence[ReviewPolicyLevelType]]
+    RetrieveActions: NotRequired[bool]
+    RetrieveResults: NotRequired[bool]
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class ListReviewableHITsRequestTypeDef(TypedDict):
+    HITTypeId: NotRequired[str]
+    Status: NotRequired[ReviewableHITStatusType]
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class ListWorkerBlocksRequestTypeDef(TypedDict):
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class WorkerBlockTypeDef(TypedDict):
+    WorkerId: NotRequired[str]
+    Reason: NotRequired[str]
+
+class ListWorkersWithQualificationTypeRequestTypeDef(TypedDict):
+    QualificationTypeId: str
+    Status: NotRequired[QualificationStatusType]
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class LocaleTypeDef(TypedDict):
+    Country: str
+    Subdivision: NotRequired[str]
+
+class NotificationSpecificationTypeDef(TypedDict):
+    Destination: str
+    Transport: NotificationTransportType
+    Version: str
+    EventTypes: Sequence[EventTypeType]
+
+class NotifyWorkersFailureStatusTypeDef(TypedDict):
+    NotifyWorkersFailureCode: NotRequired[NotifyWorkersFailureCodeType]
+    NotifyWorkersFailureMessage: NotRequired[str]
+    WorkerId: NotRequired[str]
+
+class NotifyWorkersRequestTypeDef(TypedDict):
+    Subject: str
+    MessageText: str
+    WorkerIds: Sequence[str]
+
+class ParameterMapEntryOutputTypeDef(TypedDict):
+    Key: NotRequired[str]
+    Values: NotRequired[List[str]]
+
+class ParameterMapEntryTypeDef(TypedDict):
+    Key: NotRequired[str]
+    Values: NotRequired[Sequence[str]]
+
+class RejectAssignmentRequestTypeDef(TypedDict):
+    AssignmentId: str
+    RequesterFeedback: str
+
+class RejectQualificationRequestRequestTypeDef(TypedDict):
+    QualificationRequestId: str
+    Reason: NotRequired[str]
+
+class ReviewActionDetailTypeDef(TypedDict):
+    ActionId: NotRequired[str]
+    ActionName: NotRequired[str]
+    TargetId: NotRequired[str]
+    TargetType: NotRequired[str]
+    Status: NotRequired[ReviewActionStatusType]
+    CompleteTime: NotRequired[datetime]
+    Result: NotRequired[str]
+    ErrorCode: NotRequired[str]
+
+class ReviewResultDetailTypeDef(TypedDict):
+    ActionId: NotRequired[str]
+    SubjectId: NotRequired[str]
+    SubjectType: NotRequired[str]
+    QuestionId: NotRequired[str]
+    Key: NotRequired[str]
+    Value: NotRequired[str]
+
+class SendBonusRequestTypeDef(TypedDict):
+    WorkerId: str
+    BonusAmount: str
+    AssignmentId: str
+    Reason: str
+    UniqueRequestToken: NotRequired[str]
+
+TimestampTypeDef = Union[datetime, str]
+
+class UpdateHITReviewStatusRequestTypeDef(TypedDict):
+    HITId: str
+    Revert: NotRequired[bool]
+
+class UpdateHITTypeOfHITRequestTypeDef(TypedDict):
+    HITId: str
+    HITTypeId: str
+
+class UpdateQualificationTypeRequestTypeDef(TypedDict):
+    QualificationTypeId: str
+    Description: NotRequired[str]
+    QualificationTypeStatus: NotRequired[QualificationTypeStatusType]
+    Test: NotRequired[str]
+    AnswerKey: NotRequired[str]
+    TestDurationInSeconds: NotRequired[int]
+    RetryDelayInSeconds: NotRequired[int]
+    AutoGranted: NotRequired[bool]
+    AutoGrantedValue: NotRequired[int]
+
+class CreateHITTypeResponseTypeDef(TypedDict):
+    HITTypeId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetAccountBalanceResponseTypeDef(TypedDict):
+    AvailableBalance: str
+    OnHoldBalance: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetFileUploadURLResponseTypeDef(TypedDict):
+    FileUploadURL: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListAssignmentsForHITResponseTypeDef(TypedDict):
+    NumResults: int
+    Assignments: List[AssignmentTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListBonusPaymentsResponseTypeDef(TypedDict):
+    NumResults: int
+    BonusPayments: List[BonusPaymentTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class CreateQualificationTypeResponseTypeDef(TypedDict):
+    QualificationType: QualificationTypeTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetQualificationTypeResponseTypeDef(TypedDict):
+    QualificationType: QualificationTypeTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListQualificationTypesResponseTypeDef(TypedDict):
+    NumResults: int
+    QualificationTypes: List[QualificationTypeTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class UpdateQualificationTypeResponseTypeDef(TypedDict):
+    QualificationType: QualificationTypeTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListAssignmentsForHITRequestPaginateTypeDef(TypedDict):
+    HITId: str
+    AssignmentStatuses: NotRequired[Sequence[AssignmentStatusType]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListBonusPaymentsRequestPaginateTypeDef(TypedDict):
+    HITId: NotRequired[str]
+    AssignmentId: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListHITsForQualificationTypeRequestPaginateTypeDef(TypedDict):
+    QualificationTypeId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListHITsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListQualificationRequestsRequestPaginateTypeDef(TypedDict):
+    QualificationTypeId: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListQualificationTypesRequestPaginateTypeDef(TypedDict):
+    MustBeRequestable: bool
+    Query: NotRequired[str]
+    MustBeOwnedByCaller: NotRequired[bool]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListReviewableHITsRequestPaginateTypeDef(TypedDict):
+    HITTypeId: NotRequired[str]
+    Status: NotRequired[ReviewableHITStatusType]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListWorkerBlocksRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListWorkersWithQualificationTypeRequestPaginateTypeDef(TypedDict):
+    QualificationTypeId: str
+    Status: NotRequired[QualificationStatusType]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListQualificationRequestsResponseTypeDef(TypedDict):
+    NumResults: int
+    QualificationRequests: List[QualificationRequestTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListWorkerBlocksResponseTypeDef(TypedDict):
+    NumResults: int
+    WorkerBlocks: List[WorkerBlockTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class QualificationRequirementOutputTypeDef(TypedDict):
+    QualificationTypeId: str
+    Comparator: ComparatorType
+    IntegerValues: NotRequired[List[int]]
+    LocaleValues: NotRequired[List[LocaleTypeDef]]
+    RequiredToPreview: NotRequired[bool]
+    ActionsGuarded: NotRequired[HITAccessActionsType]
+
+class QualificationRequirementTypeDef(TypedDict):
+    QualificationTypeId: str
+    Comparator: ComparatorType
+    IntegerValues: NotRequired[Sequence[int]]
+    LocaleValues: NotRequired[Sequence[LocaleTypeDef]]
+    RequiredToPreview: NotRequired[bool]
+    ActionsGuarded: NotRequired[HITAccessActionsType]
+
+class QualificationTypeDef(TypedDict):
+    QualificationTypeId: NotRequired[str]
+    WorkerId: NotRequired[str]
+    GrantTime: NotRequired[datetime]
+    IntegerValue: NotRequired[int]
+    LocaleValue: NotRequired[LocaleTypeDef]
+    Status: NotRequired[QualificationStatusType]
+
+class SendTestEventNotificationRequestTypeDef(TypedDict):
+    Notification: NotificationSpecificationTypeDef
+    TestEventType: EventTypeType
+
+class UpdateNotificationSettingsRequestTypeDef(TypedDict):
+    HITTypeId: str
+    Notification: NotRequired[NotificationSpecificationTypeDef]
+    Active: NotRequired[bool]
+
+class NotifyWorkersResponseTypeDef(TypedDict):
+    NotifyWorkersFailureStatuses: List[NotifyWorkersFailureStatusTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PolicyParameterOutputTypeDef(TypedDict):
+    Key: NotRequired[str]
+    Values: NotRequired[List[str]]
+    MapEntries: NotRequired[List[ParameterMapEntryOutputTypeDef]]
+
+class PolicyParameterTypeDef(TypedDict):
+    Key: NotRequired[str]
+    Values: NotRequired[Sequence[str]]
+    MapEntries: NotRequired[Sequence[ParameterMapEntryTypeDef]]
+
+class ReviewReportTypeDef(TypedDict):
+    ReviewResults: NotRequired[List[ReviewResultDetailTypeDef]]
+    ReviewActions: NotRequired[List[ReviewActionDetailTypeDef]]
+
+class UpdateExpirationForHITRequestTypeDef(TypedDict):
+    HITId: str
+    ExpireAt: TimestampTypeDef
+
+class HITTypeDef(TypedDict):
+    HITId: NotRequired[str]
+    HITTypeId: NotRequired[str]
+    HITGroupId: NotRequired[str]
+    HITLayoutId: NotRequired[str]
+    CreationTime: NotRequired[datetime]
+    Title: NotRequired[str]
+    Description: NotRequired[str]
+    Question: NotRequired[str]
+    Keywords: NotRequired[str]
+    HITStatus: NotRequired[HITStatusType]
+    MaxAssignments: NotRequired[int]
+    Reward: NotRequired[str]
+    AutoApprovalDelayInSeconds: NotRequired[int]
+    Expiration: NotRequired[datetime]
+    AssignmentDurationInSeconds: NotRequired[int]
+    RequesterAnnotation: NotRequired[str]
+    QualificationRequirements: NotRequired[List[QualificationRequirementOutputTypeDef]]
+    HITReviewStatus: NotRequired[HITReviewStatusType]
+    NumberOfAssignmentsPending: NotRequired[int]
+    NumberOfAssignmentsAvailable: NotRequired[int]
+    NumberOfAssignmentsCompleted: NotRequired[int]
+
+QualificationRequirementUnionTypeDef = Union[
+    QualificationRequirementTypeDef, QualificationRequirementOutputTypeDef
+]
+
+class GetQualificationScoreResponseTypeDef(TypedDict):
+    Qualification: QualificationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListWorkersWithQualificationTypeResponseTypeDef(TypedDict):
+    NumResults: int
+    Qualifications: List[QualificationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ReviewPolicyOutputTypeDef(TypedDict):
+    PolicyName: str
+    Parameters: NotRequired[List[PolicyParameterOutputTypeDef]]
+
+class ReviewPolicyTypeDef(TypedDict):
+    PolicyName: str
+    Parameters: NotRequired[Sequence[PolicyParameterTypeDef]]
+
+class CreateHITResponseTypeDef(TypedDict):
+    HIT: HITTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateHITWithHITTypeResponseTypeDef(TypedDict):
+    HIT: HITTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetAssignmentResponseTypeDef(TypedDict):
+    Assignment: AssignmentTypeDef
+    HIT: HITTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetHITResponseTypeDef(TypedDict):
+    HIT: HITTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListHITsForQualificationTypeResponseTypeDef(TypedDict):
+    NumResults: int
+    HITs: List[HITTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListHITsResponseTypeDef(TypedDict):
+    NumResults: int
+    HITs: List[HITTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListReviewableHITsResponseTypeDef(TypedDict):
+    NumResults: int
+    HITs: List[HITTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class CreateHITTypeRequestTypeDef(TypedDict):
+    AssignmentDurationInSeconds: int
+    Reward: str
+    Title: str
+    Description: str
+    AutoApprovalDelayInSeconds: NotRequired[int]
+    Keywords: NotRequired[str]
+    QualificationRequirements: NotRequired[Sequence[QualificationRequirementUnionTypeDef]]
+
+class ListReviewPolicyResultsForHITResponseTypeDef(TypedDict):
+    HITId: str
+    AssignmentReviewPolicy: ReviewPolicyOutputTypeDef
+    HITReviewPolicy: ReviewPolicyOutputTypeDef
+    AssignmentReviewReport: ReviewReportTypeDef
+    HITReviewReport: ReviewReportTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+ReviewPolicyUnionTypeDef = Union[ReviewPolicyTypeDef, ReviewPolicyOutputTypeDef]
+
+class CreateHITRequestTypeDef(TypedDict):
+    LifetimeInSeconds: int
+    AssignmentDurationInSeconds: int
+    Reward: str
+    Title: str
+    Description: str
+    MaxAssignments: NotRequired[int]
+    AutoApprovalDelayInSeconds: NotRequired[int]
+    Keywords: NotRequired[str]
+    Question: NotRequired[str]
+    RequesterAnnotation: NotRequired[str]
+    QualificationRequirements: NotRequired[Sequence[QualificationRequirementUnionTypeDef]]
+    UniqueRequestToken: NotRequired[str]
+    AssignmentReviewPolicy: NotRequired[ReviewPolicyUnionTypeDef]
+    HITReviewPolicy: NotRequired[ReviewPolicyUnionTypeDef]
+    HITLayoutId: NotRequired[str]
+    HITLayoutParameters: NotRequired[Sequence[HITLayoutParameterTypeDef]]
+
+class CreateHITWithHITTypeRequestTypeDef(TypedDict):
+    HITTypeId: str
+    LifetimeInSeconds: int
+    MaxAssignments: NotRequired[int]
+    Question: NotRequired[str]
+    RequesterAnnotation: NotRequired[str]
+    UniqueRequestToken: NotRequired[str]
+    AssignmentReviewPolicy: NotRequired[ReviewPolicyUnionTypeDef]
+    HITReviewPolicy: NotRequired[ReviewPolicyUnionTypeDef]
+    HITLayoutId: NotRequired[str]
+    HITLayoutParameters: NotRequired[Sequence[HITLayoutParameterTypeDef]]

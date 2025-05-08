@@ -1,20 +1,23 @@
 """
 Type annotations for globalaccelerator service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_globalaccelerator/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_globalaccelerator/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_globalaccelerator.type_defs import AcceleratorAttributesTypeDef
 
-    data: AcceleratorAttributesTypeDef = {...}
+    data: AcceleratorAttributesTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
 
 from .literals import (
     AcceleratorStatusType,
@@ -30,39 +33,45 @@ from .literals import (
     ProtocolType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Sequence
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List, Sequence
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
     "AcceleratorAttributesTypeDef",
     "AcceleratorEventTypeDef",
     "AcceleratorTypeDef",
-    "AddCustomRoutingEndpointsRequestRequestTypeDef",
+    "AddCustomRoutingEndpointsRequestTypeDef",
     "AddCustomRoutingEndpointsResponseTypeDef",
-    "AddEndpointsRequestRequestTypeDef",
+    "AddEndpointsRequestTypeDef",
     "AddEndpointsResponseTypeDef",
-    "AdvertiseByoipCidrRequestRequestTypeDef",
+    "AdvertiseByoipCidrRequestTypeDef",
     "AdvertiseByoipCidrResponseTypeDef",
-    "AllowCustomRoutingTrafficRequestRequestTypeDef",
+    "AllowCustomRoutingTrafficRequestTypeDef",
     "AttachmentTypeDef",
     "ByoipCidrEventTypeDef",
     "ByoipCidrTypeDef",
     "CidrAuthorizationContextTypeDef",
-    "CreateAcceleratorRequestRequestTypeDef",
+    "CreateAcceleratorRequestTypeDef",
     "CreateAcceleratorResponseTypeDef",
-    "CreateCrossAccountAttachmentRequestRequestTypeDef",
+    "CreateCrossAccountAttachmentRequestTypeDef",
     "CreateCrossAccountAttachmentResponseTypeDef",
-    "CreateCustomRoutingAcceleratorRequestRequestTypeDef",
+    "CreateCustomRoutingAcceleratorRequestTypeDef",
     "CreateCustomRoutingAcceleratorResponseTypeDef",
-    "CreateCustomRoutingEndpointGroupRequestRequestTypeDef",
+    "CreateCustomRoutingEndpointGroupRequestTypeDef",
     "CreateCustomRoutingEndpointGroupResponseTypeDef",
-    "CreateCustomRoutingListenerRequestRequestTypeDef",
+    "CreateCustomRoutingListenerRequestTypeDef",
     "CreateCustomRoutingListenerResponseTypeDef",
-    "CreateEndpointGroupRequestRequestTypeDef",
+    "CreateEndpointGroupRequestTypeDef",
     "CreateEndpointGroupResponseTypeDef",
-    "CreateListenerRequestRequestTypeDef",
+    "CreateListenerRequestTypeDef",
     "CreateListenerResponseTypeDef",
     "CrossAccountResourceTypeDef",
     "CustomRoutingAcceleratorAttributesTypeDef",
@@ -73,1532 +82,798 @@ __all__ = (
     "CustomRoutingEndpointDescriptionTypeDef",
     "CustomRoutingEndpointGroupTypeDef",
     "CustomRoutingListenerTypeDef",
-    "DeleteAcceleratorRequestRequestTypeDef",
-    "DeleteCrossAccountAttachmentRequestRequestTypeDef",
-    "DeleteCustomRoutingAcceleratorRequestRequestTypeDef",
-    "DeleteCustomRoutingEndpointGroupRequestRequestTypeDef",
-    "DeleteCustomRoutingListenerRequestRequestTypeDef",
-    "DeleteEndpointGroupRequestRequestTypeDef",
-    "DeleteListenerRequestRequestTypeDef",
-    "DenyCustomRoutingTrafficRequestRequestTypeDef",
-    "DeprovisionByoipCidrRequestRequestTypeDef",
+    "DeleteAcceleratorRequestTypeDef",
+    "DeleteCrossAccountAttachmentRequestTypeDef",
+    "DeleteCustomRoutingAcceleratorRequestTypeDef",
+    "DeleteCustomRoutingEndpointGroupRequestTypeDef",
+    "DeleteCustomRoutingListenerRequestTypeDef",
+    "DeleteEndpointGroupRequestTypeDef",
+    "DeleteListenerRequestTypeDef",
+    "DenyCustomRoutingTrafficRequestTypeDef",
+    "DeprovisionByoipCidrRequestTypeDef",
     "DeprovisionByoipCidrResponseTypeDef",
-    "DescribeAcceleratorAttributesRequestRequestTypeDef",
+    "DescribeAcceleratorAttributesRequestTypeDef",
     "DescribeAcceleratorAttributesResponseTypeDef",
-    "DescribeAcceleratorRequestRequestTypeDef",
+    "DescribeAcceleratorRequestTypeDef",
     "DescribeAcceleratorResponseTypeDef",
-    "DescribeCrossAccountAttachmentRequestRequestTypeDef",
+    "DescribeCrossAccountAttachmentRequestTypeDef",
     "DescribeCrossAccountAttachmentResponseTypeDef",
-    "DescribeCustomRoutingAcceleratorAttributesRequestRequestTypeDef",
+    "DescribeCustomRoutingAcceleratorAttributesRequestTypeDef",
     "DescribeCustomRoutingAcceleratorAttributesResponseTypeDef",
-    "DescribeCustomRoutingAcceleratorRequestRequestTypeDef",
+    "DescribeCustomRoutingAcceleratorRequestTypeDef",
     "DescribeCustomRoutingAcceleratorResponseTypeDef",
-    "DescribeCustomRoutingEndpointGroupRequestRequestTypeDef",
+    "DescribeCustomRoutingEndpointGroupRequestTypeDef",
     "DescribeCustomRoutingEndpointGroupResponseTypeDef",
-    "DescribeCustomRoutingListenerRequestRequestTypeDef",
+    "DescribeCustomRoutingListenerRequestTypeDef",
     "DescribeCustomRoutingListenerResponseTypeDef",
-    "DescribeEndpointGroupRequestRequestTypeDef",
+    "DescribeEndpointGroupRequestTypeDef",
     "DescribeEndpointGroupResponseTypeDef",
-    "DescribeListenerRequestRequestTypeDef",
+    "DescribeListenerRequestTypeDef",
     "DescribeListenerResponseTypeDef",
     "DestinationPortMappingTypeDef",
+    "EmptyResponseMetadataTypeDef",
     "EndpointConfigurationTypeDef",
     "EndpointDescriptionTypeDef",
     "EndpointGroupTypeDef",
     "EndpointIdentifierTypeDef",
     "IpSetTypeDef",
-    "ListAcceleratorsRequestRequestTypeDef",
+    "ListAcceleratorsRequestPaginateTypeDef",
+    "ListAcceleratorsRequestTypeDef",
     "ListAcceleratorsResponseTypeDef",
-    "ListByoipCidrsRequestRequestTypeDef",
+    "ListByoipCidrsRequestPaginateTypeDef",
+    "ListByoipCidrsRequestTypeDef",
     "ListByoipCidrsResponseTypeDef",
-    "ListCrossAccountAttachmentsRequestRequestTypeDef",
+    "ListCrossAccountAttachmentsRequestPaginateTypeDef",
+    "ListCrossAccountAttachmentsRequestTypeDef",
     "ListCrossAccountAttachmentsResponseTypeDef",
     "ListCrossAccountResourceAccountsResponseTypeDef",
-    "ListCrossAccountResourcesRequestRequestTypeDef",
+    "ListCrossAccountResourcesRequestPaginateTypeDef",
+    "ListCrossAccountResourcesRequestTypeDef",
     "ListCrossAccountResourcesResponseTypeDef",
-    "ListCustomRoutingAcceleratorsRequestRequestTypeDef",
+    "ListCustomRoutingAcceleratorsRequestPaginateTypeDef",
+    "ListCustomRoutingAcceleratorsRequestTypeDef",
     "ListCustomRoutingAcceleratorsResponseTypeDef",
-    "ListCustomRoutingEndpointGroupsRequestRequestTypeDef",
+    "ListCustomRoutingEndpointGroupsRequestPaginateTypeDef",
+    "ListCustomRoutingEndpointGroupsRequestTypeDef",
     "ListCustomRoutingEndpointGroupsResponseTypeDef",
-    "ListCustomRoutingListenersRequestRequestTypeDef",
+    "ListCustomRoutingListenersRequestPaginateTypeDef",
+    "ListCustomRoutingListenersRequestTypeDef",
     "ListCustomRoutingListenersResponseTypeDef",
-    "ListCustomRoutingPortMappingsByDestinationRequestRequestTypeDef",
+    "ListCustomRoutingPortMappingsByDestinationRequestPaginateTypeDef",
+    "ListCustomRoutingPortMappingsByDestinationRequestTypeDef",
     "ListCustomRoutingPortMappingsByDestinationResponseTypeDef",
-    "ListCustomRoutingPortMappingsRequestRequestTypeDef",
+    "ListCustomRoutingPortMappingsRequestPaginateTypeDef",
+    "ListCustomRoutingPortMappingsRequestTypeDef",
     "ListCustomRoutingPortMappingsResponseTypeDef",
-    "ListEndpointGroupsRequestRequestTypeDef",
+    "ListEndpointGroupsRequestPaginateTypeDef",
+    "ListEndpointGroupsRequestTypeDef",
     "ListEndpointGroupsResponseTypeDef",
-    "ListListenersRequestRequestTypeDef",
+    "ListListenersRequestPaginateTypeDef",
+    "ListListenersRequestTypeDef",
     "ListListenersResponseTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "ListenerTypeDef",
     "PaginatorConfigTypeDef",
     "PortMappingTypeDef",
     "PortOverrideTypeDef",
     "PortRangeTypeDef",
-    "ProvisionByoipCidrRequestRequestTypeDef",
+    "ProvisionByoipCidrRequestTypeDef",
     "ProvisionByoipCidrResponseTypeDef",
-    "RemoveCustomRoutingEndpointsRequestRequestTypeDef",
-    "RemoveEndpointsRequestRequestTypeDef",
+    "RemoveCustomRoutingEndpointsRequestTypeDef",
+    "RemoveEndpointsRequestTypeDef",
     "ResourceTypeDef",
     "ResponseMetadataTypeDef",
     "SocketAddressTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
     "TagTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateAcceleratorAttributesRequestRequestTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateAcceleratorAttributesRequestTypeDef",
     "UpdateAcceleratorAttributesResponseTypeDef",
-    "UpdateAcceleratorRequestRequestTypeDef",
+    "UpdateAcceleratorRequestTypeDef",
     "UpdateAcceleratorResponseTypeDef",
-    "UpdateCrossAccountAttachmentRequestRequestTypeDef",
+    "UpdateCrossAccountAttachmentRequestTypeDef",
     "UpdateCrossAccountAttachmentResponseTypeDef",
-    "UpdateCustomRoutingAcceleratorAttributesRequestRequestTypeDef",
+    "UpdateCustomRoutingAcceleratorAttributesRequestTypeDef",
     "UpdateCustomRoutingAcceleratorAttributesResponseTypeDef",
-    "UpdateCustomRoutingAcceleratorRequestRequestTypeDef",
+    "UpdateCustomRoutingAcceleratorRequestTypeDef",
     "UpdateCustomRoutingAcceleratorResponseTypeDef",
-    "UpdateCustomRoutingListenerRequestRequestTypeDef",
+    "UpdateCustomRoutingListenerRequestTypeDef",
     "UpdateCustomRoutingListenerResponseTypeDef",
-    "UpdateEndpointGroupRequestRequestTypeDef",
+    "UpdateEndpointGroupRequestTypeDef",
     "UpdateEndpointGroupResponseTypeDef",
-    "UpdateListenerRequestRequestTypeDef",
+    "UpdateListenerRequestTypeDef",
     "UpdateListenerResponseTypeDef",
-    "WithdrawByoipCidrRequestRequestTypeDef",
+    "WithdrawByoipCidrRequestTypeDef",
     "WithdrawByoipCidrResponseTypeDef",
 )
 
-AcceleratorAttributesTypeDef = TypedDict(
-    "AcceleratorAttributesTypeDef",
-    {
-        "FlowLogsEnabled": bool,
-        "FlowLogsS3Bucket": str,
-        "FlowLogsS3Prefix": str,
-    },
-    total=False,
-)
+class AcceleratorAttributesTypeDef(TypedDict):
+    FlowLogsEnabled: NotRequired[bool]
+    FlowLogsS3Bucket: NotRequired[str]
+    FlowLogsS3Prefix: NotRequired[str]
 
-AcceleratorEventTypeDef = TypedDict(
-    "AcceleratorEventTypeDef",
-    {
-        "Message": str,
-        "Timestamp": datetime,
-    },
-    total=False,
-)
+class AcceleratorEventTypeDef(TypedDict):
+    Message: NotRequired[str]
+    Timestamp: NotRequired[datetime]
 
-AcceleratorTypeDef = TypedDict(
-    "AcceleratorTypeDef",
+class IpSetTypeDef(TypedDict):
+    IpFamily: NotRequired[str]
+    IpAddresses: NotRequired[List[str]]
+    IpAddressFamily: NotRequired[IpAddressFamilyType]
+
+class CustomRoutingEndpointConfigurationTypeDef(TypedDict):
+    EndpointId: NotRequired[str]
+    AttachmentArn: NotRequired[str]
+
+class CustomRoutingEndpointDescriptionTypeDef(TypedDict):
+    EndpointId: NotRequired[str]
+
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
+
+class EndpointConfigurationTypeDef(TypedDict):
+    EndpointId: NotRequired[str]
+    Weight: NotRequired[int]
+    ClientIPPreservationEnabled: NotRequired[bool]
+    AttachmentArn: NotRequired[str]
+
+class EndpointDescriptionTypeDef(TypedDict):
+    EndpointId: NotRequired[str]
+    Weight: NotRequired[int]
+    HealthState: NotRequired[HealthStateType]
+    HealthReason: NotRequired[str]
+    ClientIPPreservationEnabled: NotRequired[bool]
+
+class AdvertiseByoipCidrRequestTypeDef(TypedDict):
+    Cidr: str
+
+class AllowCustomRoutingTrafficRequestTypeDef(TypedDict):
+    EndpointGroupArn: str
+    EndpointId: str
+    DestinationAddresses: NotRequired[Sequence[str]]
+    DestinationPorts: NotRequired[Sequence[int]]
+    AllowAllTrafficToEndpoint: NotRequired[bool]
+
+class ResourceTypeDef(TypedDict):
+    EndpointId: NotRequired[str]
+    Cidr: NotRequired[str]
+    Region: NotRequired[str]
+
+class ByoipCidrEventTypeDef(TypedDict):
+    Message: NotRequired[str]
+    Timestamp: NotRequired[datetime]
+
+class CidrAuthorizationContextTypeDef(TypedDict):
+    Message: str
+    Signature: str
+
+class TagTypeDef(TypedDict):
+    Key: str
+    Value: str
+
+class CustomRoutingDestinationConfigurationTypeDef(TypedDict):
+    FromPort: int
+    ToPort: int
+    Protocols: Sequence[CustomRoutingProtocolType]
+
+class PortRangeTypeDef(TypedDict):
+    FromPort: NotRequired[int]
+    ToPort: NotRequired[int]
+
+class PortOverrideTypeDef(TypedDict):
+    ListenerPort: NotRequired[int]
+    EndpointPort: NotRequired[int]
+
+class CrossAccountResourceTypeDef(TypedDict):
+    EndpointId: NotRequired[str]
+    Cidr: NotRequired[str]
+    AttachmentArn: NotRequired[str]
+
+class CustomRoutingAcceleratorAttributesTypeDef(TypedDict):
+    FlowLogsEnabled: NotRequired[bool]
+    FlowLogsS3Bucket: NotRequired[str]
+    FlowLogsS3Prefix: NotRequired[str]
+
+class CustomRoutingDestinationDescriptionTypeDef(TypedDict):
+    FromPort: NotRequired[int]
+    ToPort: NotRequired[int]
+    Protocols: NotRequired[List[ProtocolType]]
+
+class DeleteAcceleratorRequestTypeDef(TypedDict):
+    AcceleratorArn: str
+
+class DeleteCrossAccountAttachmentRequestTypeDef(TypedDict):
+    AttachmentArn: str
+
+class DeleteCustomRoutingAcceleratorRequestTypeDef(TypedDict):
+    AcceleratorArn: str
+
+class DeleteCustomRoutingEndpointGroupRequestTypeDef(TypedDict):
+    EndpointGroupArn: str
+
+class DeleteCustomRoutingListenerRequestTypeDef(TypedDict):
+    ListenerArn: str
+
+class DeleteEndpointGroupRequestTypeDef(TypedDict):
+    EndpointGroupArn: str
+
+class DeleteListenerRequestTypeDef(TypedDict):
+    ListenerArn: str
+
+class DenyCustomRoutingTrafficRequestTypeDef(TypedDict):
+    EndpointGroupArn: str
+    EndpointId: str
+    DestinationAddresses: NotRequired[Sequence[str]]
+    DestinationPorts: NotRequired[Sequence[int]]
+    DenyAllTrafficToEndpoint: NotRequired[bool]
+
+class DeprovisionByoipCidrRequestTypeDef(TypedDict):
+    Cidr: str
+
+class DescribeAcceleratorAttributesRequestTypeDef(TypedDict):
+    AcceleratorArn: str
+
+class DescribeAcceleratorRequestTypeDef(TypedDict):
+    AcceleratorArn: str
+
+class DescribeCrossAccountAttachmentRequestTypeDef(TypedDict):
+    AttachmentArn: str
+
+class DescribeCustomRoutingAcceleratorAttributesRequestTypeDef(TypedDict):
+    AcceleratorArn: str
+
+class DescribeCustomRoutingAcceleratorRequestTypeDef(TypedDict):
+    AcceleratorArn: str
+
+class DescribeCustomRoutingEndpointGroupRequestTypeDef(TypedDict):
+    EndpointGroupArn: str
+
+class DescribeCustomRoutingListenerRequestTypeDef(TypedDict):
+    ListenerArn: str
+
+class DescribeEndpointGroupRequestTypeDef(TypedDict):
+    EndpointGroupArn: str
+
+class DescribeListenerRequestTypeDef(TypedDict):
+    ListenerArn: str
+
+class SocketAddressTypeDef(TypedDict):
+    IpAddress: NotRequired[str]
+    Port: NotRequired[int]
+
+class EndpointIdentifierTypeDef(TypedDict):
+    EndpointId: str
+    ClientIPPreservationEnabled: NotRequired[bool]
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class ListAcceleratorsRequestTypeDef(TypedDict):
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListByoipCidrsRequestTypeDef(TypedDict):
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListCrossAccountAttachmentsRequestTypeDef(TypedDict):
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListCrossAccountResourcesRequestTypeDef(TypedDict):
+    ResourceOwnerAwsAccountId: str
+    AcceleratorArn: NotRequired[str]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListCustomRoutingAcceleratorsRequestTypeDef(TypedDict):
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListCustomRoutingEndpointGroupsRequestTypeDef(TypedDict):
+    ListenerArn: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListCustomRoutingListenersRequestTypeDef(TypedDict):
+    AcceleratorArn: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListCustomRoutingPortMappingsByDestinationRequestTypeDef(TypedDict):
+    EndpointId: str
+    DestinationAddress: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListCustomRoutingPortMappingsRequestTypeDef(TypedDict):
+    AcceleratorArn: str
+    EndpointGroupArn: NotRequired[str]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListEndpointGroupsRequestTypeDef(TypedDict):
+    ListenerArn: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListListenersRequestTypeDef(TypedDict):
+    AcceleratorArn: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+
+class RemoveCustomRoutingEndpointsRequestTypeDef(TypedDict):
+    EndpointIds: Sequence[str]
+    EndpointGroupArn: str
+
+class UntagResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+    TagKeys: Sequence[str]
+
+class UpdateAcceleratorAttributesRequestTypeDef(TypedDict):
+    AcceleratorArn: str
+    FlowLogsEnabled: NotRequired[bool]
+    FlowLogsS3Bucket: NotRequired[str]
+    FlowLogsS3Prefix: NotRequired[str]
+
+class UpdateAcceleratorRequestTypeDef(TypedDict):
+    AcceleratorArn: str
+    Name: NotRequired[str]
+    IpAddressType: NotRequired[IpAddressTypeType]
+    IpAddresses: NotRequired[Sequence[str]]
+    Enabled: NotRequired[bool]
+
+class UpdateCustomRoutingAcceleratorAttributesRequestTypeDef(TypedDict):
+    AcceleratorArn: str
+    FlowLogsEnabled: NotRequired[bool]
+    FlowLogsS3Bucket: NotRequired[str]
+    FlowLogsS3Prefix: NotRequired[str]
+
+class UpdateCustomRoutingAcceleratorRequestTypeDef(TypedDict):
+    AcceleratorArn: str
+    Name: NotRequired[str]
+    IpAddressType: NotRequired[IpAddressTypeType]
+    IpAddresses: NotRequired[Sequence[str]]
+    Enabled: NotRequired[bool]
+
+class WithdrawByoipCidrRequestTypeDef(TypedDict):
+    Cidr: str
+
+class AcceleratorTypeDef(TypedDict):
+    AcceleratorArn: NotRequired[str]
+    Name: NotRequired[str]
+    IpAddressType: NotRequired[IpAddressTypeType]
+    Enabled: NotRequired[bool]
+    IpSets: NotRequired[List[IpSetTypeDef]]
+    DnsName: NotRequired[str]
+    Status: NotRequired[AcceleratorStatusType]
+    CreatedTime: NotRequired[datetime]
+    LastModifiedTime: NotRequired[datetime]
+    DualStackDnsName: NotRequired[str]
+    Events: NotRequired[List[AcceleratorEventTypeDef]]
+
+class CustomRoutingAcceleratorTypeDef(TypedDict):
+    AcceleratorArn: NotRequired[str]
+    Name: NotRequired[str]
+    IpAddressType: NotRequired[IpAddressTypeType]
+    Enabled: NotRequired[bool]
+    IpSets: NotRequired[List[IpSetTypeDef]]
+    DnsName: NotRequired[str]
+    Status: NotRequired[CustomRoutingAcceleratorStatusType]
+    CreatedTime: NotRequired[datetime]
+    LastModifiedTime: NotRequired[datetime]
+
+class AddCustomRoutingEndpointsRequestTypeDef(TypedDict):
+    EndpointConfigurations: Sequence[CustomRoutingEndpointConfigurationTypeDef]
+    EndpointGroupArn: str
+
+class AddCustomRoutingEndpointsResponseTypeDef(TypedDict):
+    EndpointDescriptions: List[CustomRoutingEndpointDescriptionTypeDef]
+    EndpointGroupArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeAcceleratorAttributesResponseTypeDef(TypedDict):
+    AcceleratorAttributes: AcceleratorAttributesTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class EmptyResponseMetadataTypeDef(TypedDict):
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListCrossAccountResourceAccountsResponseTypeDef(TypedDict):
+    ResourceOwnerAwsAccountIds: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateAcceleratorAttributesResponseTypeDef(TypedDict):
+    AcceleratorAttributes: AcceleratorAttributesTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class AddEndpointsRequestTypeDef(TypedDict):
+    EndpointConfigurations: Sequence[EndpointConfigurationTypeDef]
+    EndpointGroupArn: str
+
+class AddEndpointsResponseTypeDef(TypedDict):
+    EndpointDescriptions: List[EndpointDescriptionTypeDef]
+    EndpointGroupArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class AttachmentTypeDef(TypedDict):
+    AttachmentArn: NotRequired[str]
+    Name: NotRequired[str]
+    Principals: NotRequired[List[str]]
+    Resources: NotRequired[List[ResourceTypeDef]]
+    LastModifiedTime: NotRequired[datetime]
+    CreatedTime: NotRequired[datetime]
+
+class UpdateCrossAccountAttachmentRequestTypeDef(TypedDict):
+    AttachmentArn: str
+    Name: NotRequired[str]
+    AddPrincipals: NotRequired[Sequence[str]]
+    RemovePrincipals: NotRequired[Sequence[str]]
+    AddResources: NotRequired[Sequence[ResourceTypeDef]]
+    RemoveResources: NotRequired[Sequence[ResourceTypeDef]]
+
+class ByoipCidrTypeDef(TypedDict):
+    Cidr: NotRequired[str]
+    State: NotRequired[ByoipCidrStateType]
+    Events: NotRequired[List[ByoipCidrEventTypeDef]]
+
+class ProvisionByoipCidrRequestTypeDef(TypedDict):
+    Cidr: str
+    CidrAuthorizationContext: CidrAuthorizationContextTypeDef
+
+class CreateAcceleratorRequestTypeDef(TypedDict):
+    Name: str
+    IdempotencyToken: str
+    IpAddressType: NotRequired[IpAddressTypeType]
+    IpAddresses: NotRequired[Sequence[str]]
+    Enabled: NotRequired[bool]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+
+class CreateCrossAccountAttachmentRequestTypeDef(TypedDict):
+    Name: str
+    IdempotencyToken: str
+    Principals: NotRequired[Sequence[str]]
+    Resources: NotRequired[Sequence[ResourceTypeDef]]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+
+class CreateCustomRoutingAcceleratorRequestTypeDef(TypedDict):
+    Name: str
+    IdempotencyToken: str
+    IpAddressType: NotRequired[IpAddressTypeType]
+    IpAddresses: NotRequired[Sequence[str]]
+    Enabled: NotRequired[bool]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    Tags: List[TagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class TagResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+    Tags: Sequence[TagTypeDef]
+
+class CreateCustomRoutingEndpointGroupRequestTypeDef(TypedDict):
+    ListenerArn: str
+    EndpointGroupRegion: str
+    DestinationConfigurations: Sequence[CustomRoutingDestinationConfigurationTypeDef]
+    IdempotencyToken: str
+
+class CreateCustomRoutingListenerRequestTypeDef(TypedDict):
+    AcceleratorArn: str
+    PortRanges: Sequence[PortRangeTypeDef]
+    IdempotencyToken: str
+
+CreateListenerRequestTypeDef = TypedDict(
+    "CreateListenerRequestTypeDef",
     {
         "AcceleratorArn": str,
-        "Name": str,
-        "IpAddressType": IpAddressTypeType,
-        "Enabled": bool,
-        "IpSets": List["IpSetTypeDef"],
-        "DnsName": str,
-        "Status": AcceleratorStatusType,
-        "CreatedTime": datetime,
-        "LastModifiedTime": datetime,
-        "DualStackDnsName": str,
-        "Events": List["AcceleratorEventTypeDef"],
-    },
-    total=False,
-)
-
-AddCustomRoutingEndpointsRequestRequestTypeDef = TypedDict(
-    "AddCustomRoutingEndpointsRequestRequestTypeDef",
-    {
-        "EndpointConfigurations": List["CustomRoutingEndpointConfigurationTypeDef"],
-        "EndpointGroupArn": str,
-    },
-)
-
-AddCustomRoutingEndpointsResponseTypeDef = TypedDict(
-    "AddCustomRoutingEndpointsResponseTypeDef",
-    {
-        "EndpointDescriptions": List["CustomRoutingEndpointDescriptionTypeDef"],
-        "EndpointGroupArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-AddEndpointsRequestRequestTypeDef = TypedDict(
-    "AddEndpointsRequestRequestTypeDef",
-    {
-        "EndpointConfigurations": List["EndpointConfigurationTypeDef"],
-        "EndpointGroupArn": str,
-    },
-)
-
-AddEndpointsResponseTypeDef = TypedDict(
-    "AddEndpointsResponseTypeDef",
-    {
-        "EndpointDescriptions": List["EndpointDescriptionTypeDef"],
-        "EndpointGroupArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-AdvertiseByoipCidrRequestRequestTypeDef = TypedDict(
-    "AdvertiseByoipCidrRequestRequestTypeDef",
-    {
-        "Cidr": str,
-    },
-)
-
-AdvertiseByoipCidrResponseTypeDef = TypedDict(
-    "AdvertiseByoipCidrResponseTypeDef",
-    {
-        "ByoipCidr": "ByoipCidrTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredAllowCustomRoutingTrafficRequestRequestTypeDef = TypedDict(
-    "_RequiredAllowCustomRoutingTrafficRequestRequestTypeDef",
-    {
-        "EndpointGroupArn": str,
-        "EndpointId": str,
-    },
-)
-_OptionalAllowCustomRoutingTrafficRequestRequestTypeDef = TypedDict(
-    "_OptionalAllowCustomRoutingTrafficRequestRequestTypeDef",
-    {
-        "DestinationAddresses": List[str],
-        "DestinationPorts": List[int],
-        "AllowAllTrafficToEndpoint": bool,
-    },
-    total=False,
-)
-
-class AllowCustomRoutingTrafficRequestRequestTypeDef(
-    _RequiredAllowCustomRoutingTrafficRequestRequestTypeDef,
-    _OptionalAllowCustomRoutingTrafficRequestRequestTypeDef,
-):
-    pass
-
-AttachmentTypeDef = TypedDict(
-    "AttachmentTypeDef",
-    {
-        "AttachmentArn": str,
-        "Name": str,
-        "Principals": List[str],
-        "Resources": List["ResourceTypeDef"],
-        "LastModifiedTime": datetime,
-        "CreatedTime": datetime,
-    },
-    total=False,
-)
-
-ByoipCidrEventTypeDef = TypedDict(
-    "ByoipCidrEventTypeDef",
-    {
-        "Message": str,
-        "Timestamp": datetime,
-    },
-    total=False,
-)
-
-ByoipCidrTypeDef = TypedDict(
-    "ByoipCidrTypeDef",
-    {
-        "Cidr": str,
-        "State": ByoipCidrStateType,
-        "Events": List["ByoipCidrEventTypeDef"],
-    },
-    total=False,
-)
-
-CidrAuthorizationContextTypeDef = TypedDict(
-    "CidrAuthorizationContextTypeDef",
-    {
-        "Message": str,
-        "Signature": str,
-    },
-)
-
-_RequiredCreateAcceleratorRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateAcceleratorRequestRequestTypeDef",
-    {
-        "Name": str,
-        "IdempotencyToken": str,
-    },
-)
-_OptionalCreateAcceleratorRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateAcceleratorRequestRequestTypeDef",
-    {
-        "IpAddressType": IpAddressTypeType,
-        "IpAddresses": List[str],
-        "Enabled": bool,
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateAcceleratorRequestRequestTypeDef(
-    _RequiredCreateAcceleratorRequestRequestTypeDef, _OptionalCreateAcceleratorRequestRequestTypeDef
-):
-    pass
-
-CreateAcceleratorResponseTypeDef = TypedDict(
-    "CreateAcceleratorResponseTypeDef",
-    {
-        "Accelerator": "AcceleratorTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateCrossAccountAttachmentRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateCrossAccountAttachmentRequestRequestTypeDef",
-    {
-        "Name": str,
-        "IdempotencyToken": str,
-    },
-)
-_OptionalCreateCrossAccountAttachmentRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateCrossAccountAttachmentRequestRequestTypeDef",
-    {
-        "Principals": List[str],
-        "Resources": List["ResourceTypeDef"],
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateCrossAccountAttachmentRequestRequestTypeDef(
-    _RequiredCreateCrossAccountAttachmentRequestRequestTypeDef,
-    _OptionalCreateCrossAccountAttachmentRequestRequestTypeDef,
-):
-    pass
-
-CreateCrossAccountAttachmentResponseTypeDef = TypedDict(
-    "CreateCrossAccountAttachmentResponseTypeDef",
-    {
-        "CrossAccountAttachment": "AttachmentTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateCustomRoutingAcceleratorRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateCustomRoutingAcceleratorRequestRequestTypeDef",
-    {
-        "Name": str,
-        "IdempotencyToken": str,
-    },
-)
-_OptionalCreateCustomRoutingAcceleratorRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateCustomRoutingAcceleratorRequestRequestTypeDef",
-    {
-        "IpAddressType": IpAddressTypeType,
-        "IpAddresses": List[str],
-        "Enabled": bool,
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateCustomRoutingAcceleratorRequestRequestTypeDef(
-    _RequiredCreateCustomRoutingAcceleratorRequestRequestTypeDef,
-    _OptionalCreateCustomRoutingAcceleratorRequestRequestTypeDef,
-):
-    pass
-
-CreateCustomRoutingAcceleratorResponseTypeDef = TypedDict(
-    "CreateCustomRoutingAcceleratorResponseTypeDef",
-    {
-        "Accelerator": "CustomRoutingAcceleratorTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateCustomRoutingEndpointGroupRequestRequestTypeDef = TypedDict(
-    "CreateCustomRoutingEndpointGroupRequestRequestTypeDef",
-    {
-        "ListenerArn": str,
-        "EndpointGroupRegion": str,
-        "DestinationConfigurations": List["CustomRoutingDestinationConfigurationTypeDef"],
-        "IdempotencyToken": str,
-    },
-)
-
-CreateCustomRoutingEndpointGroupResponseTypeDef = TypedDict(
-    "CreateCustomRoutingEndpointGroupResponseTypeDef",
-    {
-        "EndpointGroup": "CustomRoutingEndpointGroupTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateCustomRoutingListenerRequestRequestTypeDef = TypedDict(
-    "CreateCustomRoutingListenerRequestRequestTypeDef",
-    {
-        "AcceleratorArn": str,
-        "PortRanges": List["PortRangeTypeDef"],
-        "IdempotencyToken": str,
-    },
-)
-
-CreateCustomRoutingListenerResponseTypeDef = TypedDict(
-    "CreateCustomRoutingListenerResponseTypeDef",
-    {
-        "Listener": "CustomRoutingListenerTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateEndpointGroupRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateEndpointGroupRequestRequestTypeDef",
-    {
-        "ListenerArn": str,
-        "EndpointGroupRegion": str,
-        "IdempotencyToken": str,
-    },
-)
-_OptionalCreateEndpointGroupRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateEndpointGroupRequestRequestTypeDef",
-    {
-        "EndpointConfigurations": List["EndpointConfigurationTypeDef"],
-        "TrafficDialPercentage": float,
-        "HealthCheckPort": int,
-        "HealthCheckProtocol": HealthCheckProtocolType,
-        "HealthCheckPath": str,
-        "HealthCheckIntervalSeconds": int,
-        "ThresholdCount": int,
-        "PortOverrides": List["PortOverrideTypeDef"],
-    },
-    total=False,
-)
-
-class CreateEndpointGroupRequestRequestTypeDef(
-    _RequiredCreateEndpointGroupRequestRequestTypeDef,
-    _OptionalCreateEndpointGroupRequestRequestTypeDef,
-):
-    pass
-
-CreateEndpointGroupResponseTypeDef = TypedDict(
-    "CreateEndpointGroupResponseTypeDef",
-    {
-        "EndpointGroup": "EndpointGroupTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateListenerRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateListenerRequestRequestTypeDef",
-    {
-        "AcceleratorArn": str,
-        "PortRanges": List["PortRangeTypeDef"],
+        "PortRanges": Sequence[PortRangeTypeDef],
         "Protocol": ProtocolType,
         "IdempotencyToken": str,
+        "ClientAffinity": NotRequired[ClientAffinityType],
     },
 )
-_OptionalCreateListenerRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateListenerRequestRequestTypeDef",
-    {
-        "ClientAffinity": ClientAffinityType,
-    },
-    total=False,
-)
-
-class CreateListenerRequestRequestTypeDef(
-    _RequiredCreateListenerRequestRequestTypeDef, _OptionalCreateListenerRequestRequestTypeDef
-):
-    pass
-
-CreateListenerResponseTypeDef = TypedDict(
-    "CreateListenerResponseTypeDef",
-    {
-        "Listener": "ListenerTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CrossAccountResourceTypeDef = TypedDict(
-    "CrossAccountResourceTypeDef",
-    {
-        "EndpointId": str,
-        "Cidr": str,
-        "AttachmentArn": str,
-    },
-    total=False,
-)
-
-CustomRoutingAcceleratorAttributesTypeDef = TypedDict(
-    "CustomRoutingAcceleratorAttributesTypeDef",
-    {
-        "FlowLogsEnabled": bool,
-        "FlowLogsS3Bucket": str,
-        "FlowLogsS3Prefix": str,
-    },
-    total=False,
-)
-
-CustomRoutingAcceleratorTypeDef = TypedDict(
-    "CustomRoutingAcceleratorTypeDef",
-    {
-        "AcceleratorArn": str,
-        "Name": str,
-        "IpAddressType": IpAddressTypeType,
-        "Enabled": bool,
-        "IpSets": List["IpSetTypeDef"],
-        "DnsName": str,
-        "Status": CustomRoutingAcceleratorStatusType,
-        "CreatedTime": datetime,
-        "LastModifiedTime": datetime,
-    },
-    total=False,
-)
-
-CustomRoutingDestinationConfigurationTypeDef = TypedDict(
-    "CustomRoutingDestinationConfigurationTypeDef",
-    {
-        "FromPort": int,
-        "ToPort": int,
-        "Protocols": List[CustomRoutingProtocolType],
-    },
-)
-
-CustomRoutingDestinationDescriptionTypeDef = TypedDict(
-    "CustomRoutingDestinationDescriptionTypeDef",
-    {
-        "FromPort": int,
-        "ToPort": int,
-        "Protocols": List[ProtocolType],
-    },
-    total=False,
-)
-
-CustomRoutingEndpointConfigurationTypeDef = TypedDict(
-    "CustomRoutingEndpointConfigurationTypeDef",
-    {
-        "EndpointId": str,
-        "AttachmentArn": str,
-    },
-    total=False,
-)
-
-CustomRoutingEndpointDescriptionTypeDef = TypedDict(
-    "CustomRoutingEndpointDescriptionTypeDef",
-    {
-        "EndpointId": str,
-    },
-    total=False,
-)
-
-CustomRoutingEndpointGroupTypeDef = TypedDict(
-    "CustomRoutingEndpointGroupTypeDef",
-    {
-        "EndpointGroupArn": str,
-        "EndpointGroupRegion": str,
-        "DestinationDescriptions": List["CustomRoutingDestinationDescriptionTypeDef"],
-        "EndpointDescriptions": List["CustomRoutingEndpointDescriptionTypeDef"],
-    },
-    total=False,
-)
-
-CustomRoutingListenerTypeDef = TypedDict(
-    "CustomRoutingListenerTypeDef",
-    {
-        "ListenerArn": str,
-        "PortRanges": List["PortRangeTypeDef"],
-    },
-    total=False,
-)
-
-DeleteAcceleratorRequestRequestTypeDef = TypedDict(
-    "DeleteAcceleratorRequestRequestTypeDef",
-    {
-        "AcceleratorArn": str,
-    },
-)
-
-DeleteCrossAccountAttachmentRequestRequestTypeDef = TypedDict(
-    "DeleteCrossAccountAttachmentRequestRequestTypeDef",
-    {
-        "AttachmentArn": str,
-    },
-)
-
-DeleteCustomRoutingAcceleratorRequestRequestTypeDef = TypedDict(
-    "DeleteCustomRoutingAcceleratorRequestRequestTypeDef",
-    {
-        "AcceleratorArn": str,
-    },
-)
-
-DeleteCustomRoutingEndpointGroupRequestRequestTypeDef = TypedDict(
-    "DeleteCustomRoutingEndpointGroupRequestRequestTypeDef",
-    {
-        "EndpointGroupArn": str,
-    },
-)
-
-DeleteCustomRoutingListenerRequestRequestTypeDef = TypedDict(
-    "DeleteCustomRoutingListenerRequestRequestTypeDef",
-    {
-        "ListenerArn": str,
-    },
-)
-
-DeleteEndpointGroupRequestRequestTypeDef = TypedDict(
-    "DeleteEndpointGroupRequestRequestTypeDef",
-    {
-        "EndpointGroupArn": str,
-    },
-)
-
-DeleteListenerRequestRequestTypeDef = TypedDict(
-    "DeleteListenerRequestRequestTypeDef",
-    {
-        "ListenerArn": str,
-    },
-)
-
-_RequiredDenyCustomRoutingTrafficRequestRequestTypeDef = TypedDict(
-    "_RequiredDenyCustomRoutingTrafficRequestRequestTypeDef",
-    {
-        "EndpointGroupArn": str,
-        "EndpointId": str,
-    },
-)
-_OptionalDenyCustomRoutingTrafficRequestRequestTypeDef = TypedDict(
-    "_OptionalDenyCustomRoutingTrafficRequestRequestTypeDef",
-    {
-        "DestinationAddresses": List[str],
-        "DestinationPorts": List[int],
-        "DenyAllTrafficToEndpoint": bool,
-    },
-    total=False,
-)
-
-class DenyCustomRoutingTrafficRequestRequestTypeDef(
-    _RequiredDenyCustomRoutingTrafficRequestRequestTypeDef,
-    _OptionalDenyCustomRoutingTrafficRequestRequestTypeDef,
-):
-    pass
-
-DeprovisionByoipCidrRequestRequestTypeDef = TypedDict(
-    "DeprovisionByoipCidrRequestRequestTypeDef",
-    {
-        "Cidr": str,
-    },
-)
-
-DeprovisionByoipCidrResponseTypeDef = TypedDict(
-    "DeprovisionByoipCidrResponseTypeDef",
-    {
-        "ByoipCidr": "ByoipCidrTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeAcceleratorAttributesRequestRequestTypeDef = TypedDict(
-    "DescribeAcceleratorAttributesRequestRequestTypeDef",
-    {
-        "AcceleratorArn": str,
-    },
-)
-
-DescribeAcceleratorAttributesResponseTypeDef = TypedDict(
-    "DescribeAcceleratorAttributesResponseTypeDef",
-    {
-        "AcceleratorAttributes": "AcceleratorAttributesTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeAcceleratorRequestRequestTypeDef = TypedDict(
-    "DescribeAcceleratorRequestRequestTypeDef",
-    {
-        "AcceleratorArn": str,
-    },
-)
-
-DescribeAcceleratorResponseTypeDef = TypedDict(
-    "DescribeAcceleratorResponseTypeDef",
-    {
-        "Accelerator": "AcceleratorTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeCrossAccountAttachmentRequestRequestTypeDef = TypedDict(
-    "DescribeCrossAccountAttachmentRequestRequestTypeDef",
-    {
-        "AttachmentArn": str,
-    },
-)
-
-DescribeCrossAccountAttachmentResponseTypeDef = TypedDict(
-    "DescribeCrossAccountAttachmentResponseTypeDef",
-    {
-        "CrossAccountAttachment": "AttachmentTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeCustomRoutingAcceleratorAttributesRequestRequestTypeDef = TypedDict(
-    "DescribeCustomRoutingAcceleratorAttributesRequestRequestTypeDef",
-    {
-        "AcceleratorArn": str,
-    },
-)
-
-DescribeCustomRoutingAcceleratorAttributesResponseTypeDef = TypedDict(
-    "DescribeCustomRoutingAcceleratorAttributesResponseTypeDef",
-    {
-        "AcceleratorAttributes": "CustomRoutingAcceleratorAttributesTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeCustomRoutingAcceleratorRequestRequestTypeDef = TypedDict(
-    "DescribeCustomRoutingAcceleratorRequestRequestTypeDef",
-    {
-        "AcceleratorArn": str,
-    },
-)
-
-DescribeCustomRoutingAcceleratorResponseTypeDef = TypedDict(
-    "DescribeCustomRoutingAcceleratorResponseTypeDef",
-    {
-        "Accelerator": "CustomRoutingAcceleratorTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeCustomRoutingEndpointGroupRequestRequestTypeDef = TypedDict(
-    "DescribeCustomRoutingEndpointGroupRequestRequestTypeDef",
-    {
-        "EndpointGroupArn": str,
-    },
-)
-
-DescribeCustomRoutingEndpointGroupResponseTypeDef = TypedDict(
-    "DescribeCustomRoutingEndpointGroupResponseTypeDef",
-    {
-        "EndpointGroup": "CustomRoutingEndpointGroupTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeCustomRoutingListenerRequestRequestTypeDef = TypedDict(
-    "DescribeCustomRoutingListenerRequestRequestTypeDef",
-    {
-        "ListenerArn": str,
-    },
-)
-
-DescribeCustomRoutingListenerResponseTypeDef = TypedDict(
-    "DescribeCustomRoutingListenerResponseTypeDef",
-    {
-        "Listener": "CustomRoutingListenerTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeEndpointGroupRequestRequestTypeDef = TypedDict(
-    "DescribeEndpointGroupRequestRequestTypeDef",
-    {
-        "EndpointGroupArn": str,
-    },
-)
-
-DescribeEndpointGroupResponseTypeDef = TypedDict(
-    "DescribeEndpointGroupResponseTypeDef",
-    {
-        "EndpointGroup": "EndpointGroupTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeListenerRequestRequestTypeDef = TypedDict(
-    "DescribeListenerRequestRequestTypeDef",
-    {
-        "ListenerArn": str,
-    },
-)
-
-DescribeListenerResponseTypeDef = TypedDict(
-    "DescribeListenerResponseTypeDef",
-    {
-        "Listener": "ListenerTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DestinationPortMappingTypeDef = TypedDict(
-    "DestinationPortMappingTypeDef",
-    {
-        "AcceleratorArn": str,
-        "AcceleratorSocketAddresses": List["SocketAddressTypeDef"],
-        "EndpointGroupArn": str,
-        "EndpointId": str,
-        "EndpointGroupRegion": str,
-        "DestinationSocketAddress": "SocketAddressTypeDef",
-        "IpAddressType": IpAddressTypeType,
-        "DestinationTrafficState": CustomRoutingDestinationTrafficStateType,
-    },
-    total=False,
-)
-
-EndpointConfigurationTypeDef = TypedDict(
-    "EndpointConfigurationTypeDef",
-    {
-        "EndpointId": str,
-        "Weight": int,
-        "ClientIPPreservationEnabled": bool,
-        "AttachmentArn": str,
-    },
-    total=False,
-)
-
-EndpointDescriptionTypeDef = TypedDict(
-    "EndpointDescriptionTypeDef",
-    {
-        "EndpointId": str,
-        "Weight": int,
-        "HealthState": HealthStateType,
-        "HealthReason": str,
-        "ClientIPPreservationEnabled": bool,
-    },
-    total=False,
-)
-
-EndpointGroupTypeDef = TypedDict(
-    "EndpointGroupTypeDef",
-    {
-        "EndpointGroupArn": str,
-        "EndpointGroupRegion": str,
-        "EndpointDescriptions": List["EndpointDescriptionTypeDef"],
-        "TrafficDialPercentage": float,
-        "HealthCheckPort": int,
-        "HealthCheckProtocol": HealthCheckProtocolType,
-        "HealthCheckPath": str,
-        "HealthCheckIntervalSeconds": int,
-        "ThresholdCount": int,
-        "PortOverrides": List["PortOverrideTypeDef"],
-    },
-    total=False,
-)
-
-_RequiredEndpointIdentifierTypeDef = TypedDict(
-    "_RequiredEndpointIdentifierTypeDef",
-    {
-        "EndpointId": str,
-    },
-)
-_OptionalEndpointIdentifierTypeDef = TypedDict(
-    "_OptionalEndpointIdentifierTypeDef",
-    {
-        "ClientIPPreservationEnabled": bool,
-    },
-    total=False,
-)
-
-class EndpointIdentifierTypeDef(
-    _RequiredEndpointIdentifierTypeDef, _OptionalEndpointIdentifierTypeDef
-):
-    pass
-
-IpSetTypeDef = TypedDict(
-    "IpSetTypeDef",
-    {
-        "IpFamily": str,
-        "IpAddresses": List[str],
-        "IpAddressFamily": IpAddressFamilyType,
-    },
-    total=False,
-)
-
-ListAcceleratorsRequestRequestTypeDef = TypedDict(
-    "ListAcceleratorsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListAcceleratorsResponseTypeDef = TypedDict(
-    "ListAcceleratorsResponseTypeDef",
-    {
-        "Accelerators": List["AcceleratorTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListByoipCidrsRequestRequestTypeDef = TypedDict(
-    "ListByoipCidrsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListByoipCidrsResponseTypeDef = TypedDict(
-    "ListByoipCidrsResponseTypeDef",
-    {
-        "ByoipCidrs": List["ByoipCidrTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListCrossAccountAttachmentsRequestRequestTypeDef = TypedDict(
-    "ListCrossAccountAttachmentsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListCrossAccountAttachmentsResponseTypeDef = TypedDict(
-    "ListCrossAccountAttachmentsResponseTypeDef",
-    {
-        "CrossAccountAttachments": List["AttachmentTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListCrossAccountResourceAccountsResponseTypeDef = TypedDict(
-    "ListCrossAccountResourceAccountsResponseTypeDef",
-    {
-        "ResourceOwnerAwsAccountIds": List[str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListCrossAccountResourcesRequestRequestTypeDef = TypedDict(
-    "_RequiredListCrossAccountResourcesRequestRequestTypeDef",
-    {
-        "ResourceOwnerAwsAccountId": str,
-    },
-)
-_OptionalListCrossAccountResourcesRequestRequestTypeDef = TypedDict(
-    "_OptionalListCrossAccountResourcesRequestRequestTypeDef",
-    {
-        "AcceleratorArn": str,
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListCrossAccountResourcesRequestRequestTypeDef(
-    _RequiredListCrossAccountResourcesRequestRequestTypeDef,
-    _OptionalListCrossAccountResourcesRequestRequestTypeDef,
-):
-    pass
-
-ListCrossAccountResourcesResponseTypeDef = TypedDict(
-    "ListCrossAccountResourcesResponseTypeDef",
-    {
-        "CrossAccountResources": List["CrossAccountResourceTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListCustomRoutingAcceleratorsRequestRequestTypeDef = TypedDict(
-    "ListCustomRoutingAcceleratorsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListCustomRoutingAcceleratorsResponseTypeDef = TypedDict(
-    "ListCustomRoutingAcceleratorsResponseTypeDef",
-    {
-        "Accelerators": List["CustomRoutingAcceleratorTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
 
-_RequiredListCustomRoutingEndpointGroupsRequestRequestTypeDef = TypedDict(
-    "_RequiredListCustomRoutingEndpointGroupsRequestRequestTypeDef",
-    {
-        "ListenerArn": str,
-    },
-)
-_OptionalListCustomRoutingEndpointGroupsRequestRequestTypeDef = TypedDict(
-    "_OptionalListCustomRoutingEndpointGroupsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListCustomRoutingEndpointGroupsRequestRequestTypeDef(
-    _RequiredListCustomRoutingEndpointGroupsRequestRequestTypeDef,
-    _OptionalListCustomRoutingEndpointGroupsRequestRequestTypeDef,
-):
-    pass
-
-ListCustomRoutingEndpointGroupsResponseTypeDef = TypedDict(
-    "ListCustomRoutingEndpointGroupsResponseTypeDef",
-    {
-        "EndpointGroups": List["CustomRoutingEndpointGroupTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListCustomRoutingListenersRequestRequestTypeDef = TypedDict(
-    "_RequiredListCustomRoutingListenersRequestRequestTypeDef",
-    {
-        "AcceleratorArn": str,
-    },
-)
-_OptionalListCustomRoutingListenersRequestRequestTypeDef = TypedDict(
-    "_OptionalListCustomRoutingListenersRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListCustomRoutingListenersRequestRequestTypeDef(
-    _RequiredListCustomRoutingListenersRequestRequestTypeDef,
-    _OptionalListCustomRoutingListenersRequestRequestTypeDef,
-):
-    pass
-
-ListCustomRoutingListenersResponseTypeDef = TypedDict(
-    "ListCustomRoutingListenersResponseTypeDef",
-    {
-        "Listeners": List["CustomRoutingListenerTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListCustomRoutingPortMappingsByDestinationRequestRequestTypeDef = TypedDict(
-    "_RequiredListCustomRoutingPortMappingsByDestinationRequestRequestTypeDef",
-    {
-        "EndpointId": str,
-        "DestinationAddress": str,
-    },
-)
-_OptionalListCustomRoutingPortMappingsByDestinationRequestRequestTypeDef = TypedDict(
-    "_OptionalListCustomRoutingPortMappingsByDestinationRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListCustomRoutingPortMappingsByDestinationRequestRequestTypeDef(
-    _RequiredListCustomRoutingPortMappingsByDestinationRequestRequestTypeDef,
-    _OptionalListCustomRoutingPortMappingsByDestinationRequestRequestTypeDef,
-):
-    pass
-
-ListCustomRoutingPortMappingsByDestinationResponseTypeDef = TypedDict(
-    "ListCustomRoutingPortMappingsByDestinationResponseTypeDef",
-    {
-        "DestinationPortMappings": List["DestinationPortMappingTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListCustomRoutingPortMappingsRequestRequestTypeDef = TypedDict(
-    "_RequiredListCustomRoutingPortMappingsRequestRequestTypeDef",
-    {
-        "AcceleratorArn": str,
-    },
-)
-_OptionalListCustomRoutingPortMappingsRequestRequestTypeDef = TypedDict(
-    "_OptionalListCustomRoutingPortMappingsRequestRequestTypeDef",
-    {
-        "EndpointGroupArn": str,
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListCustomRoutingPortMappingsRequestRequestTypeDef(
-    _RequiredListCustomRoutingPortMappingsRequestRequestTypeDef,
-    _OptionalListCustomRoutingPortMappingsRequestRequestTypeDef,
-):
-    pass
-
-ListCustomRoutingPortMappingsResponseTypeDef = TypedDict(
-    "ListCustomRoutingPortMappingsResponseTypeDef",
-    {
-        "PortMappings": List["PortMappingTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListEndpointGroupsRequestRequestTypeDef = TypedDict(
-    "_RequiredListEndpointGroupsRequestRequestTypeDef",
-    {
-        "ListenerArn": str,
-    },
-)
-_OptionalListEndpointGroupsRequestRequestTypeDef = TypedDict(
-    "_OptionalListEndpointGroupsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListEndpointGroupsRequestRequestTypeDef(
-    _RequiredListEndpointGroupsRequestRequestTypeDef,
-    _OptionalListEndpointGroupsRequestRequestTypeDef,
-):
-    pass
-
-ListEndpointGroupsResponseTypeDef = TypedDict(
-    "ListEndpointGroupsResponseTypeDef",
-    {
-        "EndpointGroups": List["EndpointGroupTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListListenersRequestRequestTypeDef = TypedDict(
-    "_RequiredListListenersRequestRequestTypeDef",
-    {
-        "AcceleratorArn": str,
-    },
-)
-_OptionalListListenersRequestRequestTypeDef = TypedDict(
-    "_OptionalListListenersRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListListenersRequestRequestTypeDef(
-    _RequiredListListenersRequestRequestTypeDef, _OptionalListListenersRequestRequestTypeDef
-):
-    pass
-
-ListListenersResponseTypeDef = TypedDict(
-    "ListListenersResponseTypeDef",
-    {
-        "Listeners": List["ListenerTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-    },
-)
-
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "Tags": List["TagTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CustomRoutingListenerTypeDef(TypedDict):
+    ListenerArn: NotRequired[str]
+    PortRanges: NotRequired[List[PortRangeTypeDef]]
 
 ListenerTypeDef = TypedDict(
     "ListenerTypeDef",
     {
-        "ListenerArn": str,
-        "PortRanges": List["PortRangeTypeDef"],
-        "Protocol": ProtocolType,
-        "ClientAffinity": ClientAffinityType,
-    },
-    total=False,
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-PortMappingTypeDef = TypedDict(
-    "PortMappingTypeDef",
-    {
-        "AcceleratorPort": int,
-        "EndpointGroupArn": str,
-        "EndpointId": str,
-        "DestinationSocketAddress": "SocketAddressTypeDef",
-        "Protocols": List[CustomRoutingProtocolType],
-        "DestinationTrafficState": CustomRoutingDestinationTrafficStateType,
-    },
-    total=False,
-)
-
-PortOverrideTypeDef = TypedDict(
-    "PortOverrideTypeDef",
-    {
-        "ListenerPort": int,
-        "EndpointPort": int,
-    },
-    total=False,
-)
-
-PortRangeTypeDef = TypedDict(
-    "PortRangeTypeDef",
-    {
-        "FromPort": int,
-        "ToPort": int,
-    },
-    total=False,
-)
-
-ProvisionByoipCidrRequestRequestTypeDef = TypedDict(
-    "ProvisionByoipCidrRequestRequestTypeDef",
-    {
-        "Cidr": str,
-        "CidrAuthorizationContext": "CidrAuthorizationContextTypeDef",
+        "ListenerArn": NotRequired[str],
+        "PortRanges": NotRequired[List[PortRangeTypeDef]],
+        "Protocol": NotRequired[ProtocolType],
+        "ClientAffinity": NotRequired[ClientAffinityType],
     },
 )
 
-ProvisionByoipCidrResponseTypeDef = TypedDict(
-    "ProvisionByoipCidrResponseTypeDef",
-    {
-        "ByoipCidr": "ByoipCidrTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class UpdateCustomRoutingListenerRequestTypeDef(TypedDict):
+    ListenerArn: str
+    PortRanges: Sequence[PortRangeTypeDef]
 
-RemoveCustomRoutingEndpointsRequestRequestTypeDef = TypedDict(
-    "RemoveCustomRoutingEndpointsRequestRequestTypeDef",
-    {
-        "EndpointIds": List[str],
-        "EndpointGroupArn": str,
-    },
-)
-
-RemoveEndpointsRequestRequestTypeDef = TypedDict(
-    "RemoveEndpointsRequestRequestTypeDef",
-    {
-        "EndpointIdentifiers": List["EndpointIdentifierTypeDef"],
-        "EndpointGroupArn": str,
-    },
-)
-
-ResourceTypeDef = TypedDict(
-    "ResourceTypeDef",
-    {
-        "EndpointId": str,
-        "Cidr": str,
-        "Region": str,
-    },
-    total=False,
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-SocketAddressTypeDef = TypedDict(
-    "SocketAddressTypeDef",
-    {
-        "IpAddress": str,
-        "Port": int,
-    },
-    total=False,
-)
-
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-        "Tags": List["TagTypeDef"],
-    },
-)
-
-TagTypeDef = TypedDict(
-    "TagTypeDef",
-    {
-        "Key": str,
-        "Value": str,
-    },
-)
-
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-        "TagKeys": List[str],
-    },
-)
-
-_RequiredUpdateAcceleratorAttributesRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateAcceleratorAttributesRequestRequestTypeDef",
-    {
-        "AcceleratorArn": str,
-    },
-)
-_OptionalUpdateAcceleratorAttributesRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateAcceleratorAttributesRequestRequestTypeDef",
-    {
-        "FlowLogsEnabled": bool,
-        "FlowLogsS3Bucket": str,
-        "FlowLogsS3Prefix": str,
-    },
-    total=False,
-)
-
-class UpdateAcceleratorAttributesRequestRequestTypeDef(
-    _RequiredUpdateAcceleratorAttributesRequestRequestTypeDef,
-    _OptionalUpdateAcceleratorAttributesRequestRequestTypeDef,
-):
-    pass
-
-UpdateAcceleratorAttributesResponseTypeDef = TypedDict(
-    "UpdateAcceleratorAttributesResponseTypeDef",
-    {
-        "AcceleratorAttributes": "AcceleratorAttributesTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateAcceleratorRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateAcceleratorRequestRequestTypeDef",
-    {
-        "AcceleratorArn": str,
-    },
-)
-_OptionalUpdateAcceleratorRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateAcceleratorRequestRequestTypeDef",
-    {
-        "Name": str,
-        "IpAddressType": IpAddressTypeType,
-        "IpAddresses": List[str],
-        "Enabled": bool,
-    },
-    total=False,
-)
-
-class UpdateAcceleratorRequestRequestTypeDef(
-    _RequiredUpdateAcceleratorRequestRequestTypeDef, _OptionalUpdateAcceleratorRequestRequestTypeDef
-):
-    pass
-
-UpdateAcceleratorResponseTypeDef = TypedDict(
-    "UpdateAcceleratorResponseTypeDef",
-    {
-        "Accelerator": "AcceleratorTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateCrossAccountAttachmentRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateCrossAccountAttachmentRequestRequestTypeDef",
-    {
-        "AttachmentArn": str,
-    },
-)
-_OptionalUpdateCrossAccountAttachmentRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateCrossAccountAttachmentRequestRequestTypeDef",
-    {
-        "Name": str,
-        "AddPrincipals": List[str],
-        "RemovePrincipals": List[str],
-        "AddResources": List["ResourceTypeDef"],
-        "RemoveResources": List["ResourceTypeDef"],
-    },
-    total=False,
-)
-
-class UpdateCrossAccountAttachmentRequestRequestTypeDef(
-    _RequiredUpdateCrossAccountAttachmentRequestRequestTypeDef,
-    _OptionalUpdateCrossAccountAttachmentRequestRequestTypeDef,
-):
-    pass
-
-UpdateCrossAccountAttachmentResponseTypeDef = TypedDict(
-    "UpdateCrossAccountAttachmentResponseTypeDef",
-    {
-        "CrossAccountAttachment": "AttachmentTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateCustomRoutingAcceleratorAttributesRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateCustomRoutingAcceleratorAttributesRequestRequestTypeDef",
-    {
-        "AcceleratorArn": str,
-    },
-)
-_OptionalUpdateCustomRoutingAcceleratorAttributesRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateCustomRoutingAcceleratorAttributesRequestRequestTypeDef",
-    {
-        "FlowLogsEnabled": bool,
-        "FlowLogsS3Bucket": str,
-        "FlowLogsS3Prefix": str,
-    },
-    total=False,
-)
-
-class UpdateCustomRoutingAcceleratorAttributesRequestRequestTypeDef(
-    _RequiredUpdateCustomRoutingAcceleratorAttributesRequestRequestTypeDef,
-    _OptionalUpdateCustomRoutingAcceleratorAttributesRequestRequestTypeDef,
-):
-    pass
-
-UpdateCustomRoutingAcceleratorAttributesResponseTypeDef = TypedDict(
-    "UpdateCustomRoutingAcceleratorAttributesResponseTypeDef",
-    {
-        "AcceleratorAttributes": "CustomRoutingAcceleratorAttributesTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateCustomRoutingAcceleratorRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateCustomRoutingAcceleratorRequestRequestTypeDef",
-    {
-        "AcceleratorArn": str,
-    },
-)
-_OptionalUpdateCustomRoutingAcceleratorRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateCustomRoutingAcceleratorRequestRequestTypeDef",
-    {
-        "Name": str,
-        "IpAddressType": IpAddressTypeType,
-        "IpAddresses": List[str],
-        "Enabled": bool,
-    },
-    total=False,
-)
-
-class UpdateCustomRoutingAcceleratorRequestRequestTypeDef(
-    _RequiredUpdateCustomRoutingAcceleratorRequestRequestTypeDef,
-    _OptionalUpdateCustomRoutingAcceleratorRequestRequestTypeDef,
-):
-    pass
-
-UpdateCustomRoutingAcceleratorResponseTypeDef = TypedDict(
-    "UpdateCustomRoutingAcceleratorResponseTypeDef",
-    {
-        "Accelerator": "CustomRoutingAcceleratorTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UpdateCustomRoutingListenerRequestRequestTypeDef = TypedDict(
-    "UpdateCustomRoutingListenerRequestRequestTypeDef",
+UpdateListenerRequestTypeDef = TypedDict(
+    "UpdateListenerRequestTypeDef",
     {
         "ListenerArn": str,
-        "PortRanges": List["PortRangeTypeDef"],
+        "PortRanges": NotRequired[Sequence[PortRangeTypeDef]],
+        "Protocol": NotRequired[ProtocolType],
+        "ClientAffinity": NotRequired[ClientAffinityType],
     },
 )
 
-UpdateCustomRoutingListenerResponseTypeDef = TypedDict(
-    "UpdateCustomRoutingListenerResponseTypeDef",
-    {
-        "Listener": "CustomRoutingListenerTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CreateEndpointGroupRequestTypeDef(TypedDict):
+    ListenerArn: str
+    EndpointGroupRegion: str
+    IdempotencyToken: str
+    EndpointConfigurations: NotRequired[Sequence[EndpointConfigurationTypeDef]]
+    TrafficDialPercentage: NotRequired[float]
+    HealthCheckPort: NotRequired[int]
+    HealthCheckProtocol: NotRequired[HealthCheckProtocolType]
+    HealthCheckPath: NotRequired[str]
+    HealthCheckIntervalSeconds: NotRequired[int]
+    ThresholdCount: NotRequired[int]
+    PortOverrides: NotRequired[Sequence[PortOverrideTypeDef]]
 
-_RequiredUpdateEndpointGroupRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateEndpointGroupRequestRequestTypeDef",
-    {
-        "EndpointGroupArn": str,
-    },
-)
-_OptionalUpdateEndpointGroupRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateEndpointGroupRequestRequestTypeDef",
-    {
-        "EndpointConfigurations": List["EndpointConfigurationTypeDef"],
-        "TrafficDialPercentage": float,
-        "HealthCheckPort": int,
-        "HealthCheckProtocol": HealthCheckProtocolType,
-        "HealthCheckPath": str,
-        "HealthCheckIntervalSeconds": int,
-        "ThresholdCount": int,
-        "PortOverrides": List["PortOverrideTypeDef"],
-    },
-    total=False,
-)
+class EndpointGroupTypeDef(TypedDict):
+    EndpointGroupArn: NotRequired[str]
+    EndpointGroupRegion: NotRequired[str]
+    EndpointDescriptions: NotRequired[List[EndpointDescriptionTypeDef]]
+    TrafficDialPercentage: NotRequired[float]
+    HealthCheckPort: NotRequired[int]
+    HealthCheckProtocol: NotRequired[HealthCheckProtocolType]
+    HealthCheckPath: NotRequired[str]
+    HealthCheckIntervalSeconds: NotRequired[int]
+    ThresholdCount: NotRequired[int]
+    PortOverrides: NotRequired[List[PortOverrideTypeDef]]
 
-class UpdateEndpointGroupRequestRequestTypeDef(
-    _RequiredUpdateEndpointGroupRequestRequestTypeDef,
-    _OptionalUpdateEndpointGroupRequestRequestTypeDef,
-):
-    pass
+class UpdateEndpointGroupRequestTypeDef(TypedDict):
+    EndpointGroupArn: str
+    EndpointConfigurations: NotRequired[Sequence[EndpointConfigurationTypeDef]]
+    TrafficDialPercentage: NotRequired[float]
+    HealthCheckPort: NotRequired[int]
+    HealthCheckProtocol: NotRequired[HealthCheckProtocolType]
+    HealthCheckPath: NotRequired[str]
+    HealthCheckIntervalSeconds: NotRequired[int]
+    ThresholdCount: NotRequired[int]
+    PortOverrides: NotRequired[Sequence[PortOverrideTypeDef]]
 
-UpdateEndpointGroupResponseTypeDef = TypedDict(
-    "UpdateEndpointGroupResponseTypeDef",
-    {
-        "EndpointGroup": "EndpointGroupTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListCrossAccountResourcesResponseTypeDef(TypedDict):
+    CrossAccountResources: List[CrossAccountResourceTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-_RequiredUpdateListenerRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateListenerRequestRequestTypeDef",
-    {
-        "ListenerArn": str,
-    },
-)
-_OptionalUpdateListenerRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateListenerRequestRequestTypeDef",
-    {
-        "PortRanges": List["PortRangeTypeDef"],
-        "Protocol": ProtocolType,
-        "ClientAffinity": ClientAffinityType,
-    },
-    total=False,
-)
+class DescribeCustomRoutingAcceleratorAttributesResponseTypeDef(TypedDict):
+    AcceleratorAttributes: CustomRoutingAcceleratorAttributesTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateListenerRequestRequestTypeDef(
-    _RequiredUpdateListenerRequestRequestTypeDef, _OptionalUpdateListenerRequestRequestTypeDef
-):
-    pass
+class UpdateCustomRoutingAcceleratorAttributesResponseTypeDef(TypedDict):
+    AcceleratorAttributes: CustomRoutingAcceleratorAttributesTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-UpdateListenerResponseTypeDef = TypedDict(
-    "UpdateListenerResponseTypeDef",
-    {
-        "Listener": "ListenerTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CustomRoutingEndpointGroupTypeDef(TypedDict):
+    EndpointGroupArn: NotRequired[str]
+    EndpointGroupRegion: NotRequired[str]
+    DestinationDescriptions: NotRequired[List[CustomRoutingDestinationDescriptionTypeDef]]
+    EndpointDescriptions: NotRequired[List[CustomRoutingEndpointDescriptionTypeDef]]
 
-WithdrawByoipCidrRequestRequestTypeDef = TypedDict(
-    "WithdrawByoipCidrRequestRequestTypeDef",
-    {
-        "Cidr": str,
-    },
-)
+class DestinationPortMappingTypeDef(TypedDict):
+    AcceleratorArn: NotRequired[str]
+    AcceleratorSocketAddresses: NotRequired[List[SocketAddressTypeDef]]
+    EndpointGroupArn: NotRequired[str]
+    EndpointId: NotRequired[str]
+    EndpointGroupRegion: NotRequired[str]
+    DestinationSocketAddress: NotRequired[SocketAddressTypeDef]
+    IpAddressType: NotRequired[IpAddressTypeType]
+    DestinationTrafficState: NotRequired[CustomRoutingDestinationTrafficStateType]
 
-WithdrawByoipCidrResponseTypeDef = TypedDict(
-    "WithdrawByoipCidrResponseTypeDef",
-    {
-        "ByoipCidr": "ByoipCidrTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class PortMappingTypeDef(TypedDict):
+    AcceleratorPort: NotRequired[int]
+    EndpointGroupArn: NotRequired[str]
+    EndpointId: NotRequired[str]
+    DestinationSocketAddress: NotRequired[SocketAddressTypeDef]
+    Protocols: NotRequired[List[CustomRoutingProtocolType]]
+    DestinationTrafficState: NotRequired[CustomRoutingDestinationTrafficStateType]
+
+class RemoveEndpointsRequestTypeDef(TypedDict):
+    EndpointIdentifiers: Sequence[EndpointIdentifierTypeDef]
+    EndpointGroupArn: str
+
+class ListAcceleratorsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListByoipCidrsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListCrossAccountAttachmentsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListCrossAccountResourcesRequestPaginateTypeDef(TypedDict):
+    ResourceOwnerAwsAccountId: str
+    AcceleratorArn: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListCustomRoutingAcceleratorsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListCustomRoutingEndpointGroupsRequestPaginateTypeDef(TypedDict):
+    ListenerArn: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListCustomRoutingListenersRequestPaginateTypeDef(TypedDict):
+    AcceleratorArn: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListCustomRoutingPortMappingsByDestinationRequestPaginateTypeDef(TypedDict):
+    EndpointId: str
+    DestinationAddress: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListCustomRoutingPortMappingsRequestPaginateTypeDef(TypedDict):
+    AcceleratorArn: str
+    EndpointGroupArn: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListEndpointGroupsRequestPaginateTypeDef(TypedDict):
+    ListenerArn: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListListenersRequestPaginateTypeDef(TypedDict):
+    AcceleratorArn: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class CreateAcceleratorResponseTypeDef(TypedDict):
+    Accelerator: AcceleratorTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeAcceleratorResponseTypeDef(TypedDict):
+    Accelerator: AcceleratorTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListAcceleratorsResponseTypeDef(TypedDict):
+    Accelerators: List[AcceleratorTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class UpdateAcceleratorResponseTypeDef(TypedDict):
+    Accelerator: AcceleratorTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateCustomRoutingAcceleratorResponseTypeDef(TypedDict):
+    Accelerator: CustomRoutingAcceleratorTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeCustomRoutingAcceleratorResponseTypeDef(TypedDict):
+    Accelerator: CustomRoutingAcceleratorTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListCustomRoutingAcceleratorsResponseTypeDef(TypedDict):
+    Accelerators: List[CustomRoutingAcceleratorTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class UpdateCustomRoutingAcceleratorResponseTypeDef(TypedDict):
+    Accelerator: CustomRoutingAcceleratorTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateCrossAccountAttachmentResponseTypeDef(TypedDict):
+    CrossAccountAttachment: AttachmentTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeCrossAccountAttachmentResponseTypeDef(TypedDict):
+    CrossAccountAttachment: AttachmentTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListCrossAccountAttachmentsResponseTypeDef(TypedDict):
+    CrossAccountAttachments: List[AttachmentTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class UpdateCrossAccountAttachmentResponseTypeDef(TypedDict):
+    CrossAccountAttachment: AttachmentTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class AdvertiseByoipCidrResponseTypeDef(TypedDict):
+    ByoipCidr: ByoipCidrTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeprovisionByoipCidrResponseTypeDef(TypedDict):
+    ByoipCidr: ByoipCidrTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListByoipCidrsResponseTypeDef(TypedDict):
+    ByoipCidrs: List[ByoipCidrTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ProvisionByoipCidrResponseTypeDef(TypedDict):
+    ByoipCidr: ByoipCidrTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class WithdrawByoipCidrResponseTypeDef(TypedDict):
+    ByoipCidr: ByoipCidrTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateCustomRoutingListenerResponseTypeDef(TypedDict):
+    Listener: CustomRoutingListenerTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeCustomRoutingListenerResponseTypeDef(TypedDict):
+    Listener: CustomRoutingListenerTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListCustomRoutingListenersResponseTypeDef(TypedDict):
+    Listeners: List[CustomRoutingListenerTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class UpdateCustomRoutingListenerResponseTypeDef(TypedDict):
+    Listener: CustomRoutingListenerTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateListenerResponseTypeDef(TypedDict):
+    Listener: ListenerTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeListenerResponseTypeDef(TypedDict):
+    Listener: ListenerTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListListenersResponseTypeDef(TypedDict):
+    Listeners: List[ListenerTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class UpdateListenerResponseTypeDef(TypedDict):
+    Listener: ListenerTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateEndpointGroupResponseTypeDef(TypedDict):
+    EndpointGroup: EndpointGroupTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeEndpointGroupResponseTypeDef(TypedDict):
+    EndpointGroup: EndpointGroupTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListEndpointGroupsResponseTypeDef(TypedDict):
+    EndpointGroups: List[EndpointGroupTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class UpdateEndpointGroupResponseTypeDef(TypedDict):
+    EndpointGroup: EndpointGroupTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateCustomRoutingEndpointGroupResponseTypeDef(TypedDict):
+    EndpointGroup: CustomRoutingEndpointGroupTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeCustomRoutingEndpointGroupResponseTypeDef(TypedDict):
+    EndpointGroup: CustomRoutingEndpointGroupTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListCustomRoutingEndpointGroupsResponseTypeDef(TypedDict):
+    EndpointGroups: List[CustomRoutingEndpointGroupTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListCustomRoutingPortMappingsByDestinationResponseTypeDef(TypedDict):
+    DestinationPortMappings: List[DestinationPortMappingTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListCustomRoutingPortMappingsResponseTypeDef(TypedDict):
+    PortMappings: List[PortMappingTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]

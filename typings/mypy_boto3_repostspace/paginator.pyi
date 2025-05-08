@@ -1,42 +1,57 @@
 """
 Type annotations for repostspace service client paginators.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_repostspace/paginators.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_repostspace/paginators/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
 
-    from mypy_boto3_repostspace import rePostPrivateClient
+    from mypy_boto3_repostspace.client import RePostPrivateClient
     from mypy_boto3_repostspace.paginator import (
         ListSpacesPaginator,
     )
 
-    client: rePostPrivateClient = boto3.client("repostspace")
+    session = Session()
+    client: RePostPrivateClient = session.client("repostspace")
 
     list_spaces_paginator: ListSpacesPaginator = client.get_paginator("list_spaces")
     ```
 """
 
-from typing import Iterator
+from __future__ import annotations
 
-from botocore.paginate import Paginator as Boto3Paginator
+import sys
+from typing import TYPE_CHECKING
 
-from .type_defs import ListSpacesOutputTypeDef, PaginatorConfigTypeDef
+from botocore.paginate import PageIterator, Paginator
+
+from .type_defs import ListSpacesInputPaginateTypeDef, ListSpacesOutputTypeDef
+
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = ("ListSpacesPaginator",)
 
-class ListSpacesPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/repostspace.html#rePostPrivate.Paginator.ListSpaces)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_repostspace/paginators.html#listspacespaginator)
-    """
+if TYPE_CHECKING:
+    _ListSpacesPaginatorBase = Paginator[ListSpacesOutputTypeDef]
+else:
+    _ListSpacesPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListSpacesOutputTypeDef]:
+class ListSpacesPaginator(_ListSpacesPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/repostspace/paginator/ListSpaces.html#RePostPrivate.Paginator.ListSpaces)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_repostspace/paginators/#listspacespaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListSpacesInputPaginateTypeDef]
+    ) -> PageIterator[ListSpacesOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/repostspace.html#rePostPrivate.Paginator.ListSpaces.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_repostspace/paginators.html#listspacespaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/repostspace/paginator/ListSpaces.html#RePostPrivate.Paginator.ListSpaces.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_repostspace/paginators/#listspacespaginator)
         """

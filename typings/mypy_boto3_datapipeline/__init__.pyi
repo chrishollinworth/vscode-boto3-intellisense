@@ -1,10 +1,14 @@
 """
 Main interface for datapipeline service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datapipeline/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_datapipeline import (
         Client,
         DataPipelineClient,
@@ -13,10 +17,8 @@ Usage::
         QueryObjectsPaginator,
     )
 
-    session = boto3.Session()
-
-    client: DataPipelineClient = boto3.client("datapipeline")
-    session_client: DataPipelineClient = session.client("datapipeline")
+    session = Session()
+    client: DataPipelineClient = session.client("datapipeline")
 
     describe_objects_paginator: DescribeObjectsPaginator = client.get_paginator("describe_objects")
     list_pipelines_paginator: ListPipelinesPaginator = client.get_paginator("list_pipelines")

@@ -1,191 +1,135 @@
 """
 Type annotations for mediastore-data service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediastore_data/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediastore_data/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_mediastore_data.type_defs import DeleteObjectRequestRequestTypeDef
+    from mypy_boto3_mediastore_data.type_defs import BlobTypeDef
 
-    data: DeleteObjectRequestRequestTypeDef = {...}
+    data: BlobTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import IO, Any, Dict, List, Union
+from typing import IO, Any, Union
 
 from botocore.response import StreamingBody
 
 from .literals import ItemTypeType, UploadAvailabilityType
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
-    "DeleteObjectRequestRequestTypeDef",
-    "DescribeObjectRequestRequestTypeDef",
+    "BlobTypeDef",
+    "DeleteObjectRequestTypeDef",
+    "DescribeObjectRequestTypeDef",
     "DescribeObjectResponseTypeDef",
-    "GetObjectRequestRequestTypeDef",
+    "GetObjectRequestTypeDef",
     "GetObjectResponseTypeDef",
     "ItemTypeDef",
-    "ListItemsRequestRequestTypeDef",
+    "ListItemsRequestPaginateTypeDef",
+    "ListItemsRequestTypeDef",
     "ListItemsResponseTypeDef",
     "PaginatorConfigTypeDef",
-    "PutObjectRequestRequestTypeDef",
+    "PutObjectRequestTypeDef",
     "PutObjectResponseTypeDef",
     "ResponseMetadataTypeDef",
 )
 
-DeleteObjectRequestRequestTypeDef = TypedDict(
-    "DeleteObjectRequestRequestTypeDef",
-    {
-        "Path": str,
-    },
-)
+BlobTypeDef = Union[str, bytes, IO[Any], StreamingBody]
 
-DescribeObjectRequestRequestTypeDef = TypedDict(
-    "DescribeObjectRequestRequestTypeDef",
-    {
-        "Path": str,
-    },
-)
+class DeleteObjectRequestTypeDef(TypedDict):
+    Path: str
 
-DescribeObjectResponseTypeDef = TypedDict(
-    "DescribeObjectResponseTypeDef",
-    {
-        "ETag": str,
-        "ContentType": str,
-        "ContentLength": int,
-        "CacheControl": str,
-        "LastModified": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DescribeObjectRequestTypeDef(TypedDict):
+    Path: str
 
-_RequiredGetObjectRequestRequestTypeDef = TypedDict(
-    "_RequiredGetObjectRequestRequestTypeDef",
-    {
-        "Path": str,
-    },
-)
-_OptionalGetObjectRequestRequestTypeDef = TypedDict(
-    "_OptionalGetObjectRequestRequestTypeDef",
-    {
-        "Range": str,
-    },
-    total=False,
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-class GetObjectRequestRequestTypeDef(
-    _RequiredGetObjectRequestRequestTypeDef, _OptionalGetObjectRequestRequestTypeDef
-):
-    pass
-
-GetObjectResponseTypeDef = TypedDict(
-    "GetObjectResponseTypeDef",
-    {
-        "Body": StreamingBody,
-        "CacheControl": str,
-        "ContentRange": str,
-        "ContentLength": int,
-        "ContentType": str,
-        "ETag": str,
-        "LastModified": datetime,
-        "StatusCode": int,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetObjectRequestTypeDef(TypedDict):
+    Path: str
+    Range: NotRequired[str]
 
 ItemTypeDef = TypedDict(
     "ItemTypeDef",
     {
-        "Name": str,
-        "Type": ItemTypeType,
-        "ETag": str,
-        "LastModified": datetime,
-        "ContentType": str,
-        "ContentLength": int,
-    },
-    total=False,
-)
-
-ListItemsRequestRequestTypeDef = TypedDict(
-    "ListItemsRequestRequestTypeDef",
-    {
-        "Path": str,
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListItemsResponseTypeDef = TypedDict(
-    "ListItemsResponseTypeDef",
-    {
-        "Items": List["ItemTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "Name": NotRequired[str],
+        "Type": NotRequired[ItemTypeType],
+        "ETag": NotRequired[str],
+        "LastModified": NotRequired[datetime],
+        "ContentType": NotRequired[str],
+        "ContentLength": NotRequired[int],
     },
 )
 
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
 
-_RequiredPutObjectRequestRequestTypeDef = TypedDict(
-    "_RequiredPutObjectRequestRequestTypeDef",
-    {
-        "Body": Union[bytes, IO[bytes], StreamingBody],
-        "Path": str,
-    },
-)
-_OptionalPutObjectRequestRequestTypeDef = TypedDict(
-    "_OptionalPutObjectRequestRequestTypeDef",
-    {
-        "ContentType": str,
-        "CacheControl": str,
-        "StorageClass": Literal["TEMPORAL"],
-        "UploadAvailability": UploadAvailabilityType,
-    },
-    total=False,
-)
+class ListItemsRequestTypeDef(TypedDict):
+    Path: NotRequired[str]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
 
-class PutObjectRequestRequestTypeDef(
-    _RequiredPutObjectRequestRequestTypeDef, _OptionalPutObjectRequestRequestTypeDef
-):
-    pass
+class PutObjectRequestTypeDef(TypedDict):
+    Body: BlobTypeDef
+    Path: str
+    ContentType: NotRequired[str]
+    CacheControl: NotRequired[str]
+    StorageClass: NotRequired[Literal["TEMPORAL"]]
+    UploadAvailability: NotRequired[UploadAvailabilityType]
 
-PutObjectResponseTypeDef = TypedDict(
-    "PutObjectResponseTypeDef",
-    {
-        "ContentSHA256": str,
-        "ETag": str,
-        "StorageClass": Literal["TEMPORAL"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DescribeObjectResponseTypeDef(TypedDict):
+    ETag: str
+    ContentType: str
+    ContentLength: int
+    CacheControl: str
+    LastModified: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
+class GetObjectResponseTypeDef(TypedDict):
+    Body: StreamingBody
+    CacheControl: str
+    ContentRange: str
+    ContentLength: int
+    ContentType: str
+    ETag: str
+    LastModified: datetime
+    StatusCode: int
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutObjectResponseTypeDef(TypedDict):
+    ContentSHA256: str
+    ETag: str
+    StorageClass: Literal["TEMPORAL"]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListItemsResponseTypeDef(TypedDict):
+    Items: List[ItemTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListItemsRequestPaginateTypeDef(TypedDict):
+    Path: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]

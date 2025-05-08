@@ -1,10 +1,14 @@
 """
 Main interface for route53-recovery-control-config service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_route53_recovery_control_config import (
         Client,
         ClusterCreatedWaiter,
@@ -21,10 +25,8 @@ Usage::
         RoutingControlDeletedWaiter,
     )
 
-    session = boto3.Session()
-
-    client: Route53RecoveryControlConfigClient = boto3.client("route53-recovery-control-config")
-    session_client: Route53RecoveryControlConfigClient = session.client("route53-recovery-control-config")
+    session = Session()
+    client: Route53RecoveryControlConfigClient = session.client("route53-recovery-control-config")
 
     cluster_created_waiter: ClusterCreatedWaiter = client.get_waiter("cluster_created")
     cluster_deleted_waiter: ClusterDeletedWaiter = client.get_waiter("cluster_deleted")

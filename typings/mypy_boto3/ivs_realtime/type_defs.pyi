@@ -1,26 +1,33 @@
 """
 Type annotations for ivs-realtime service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivs_realtime/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ivs_realtime/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_ivs_realtime.type_defs import AutoParticipantRecordingConfigurationTypeDef
+    from mypy_boto3_ivs_realtime.type_defs import ParticipantRecordingHlsConfigurationTypeDef
 
-    data: AutoParticipantRecordingConfigurationTypeDef = {...}
+    data: ParticipantRecordingHlsConfigurationTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
+from typing import Union
 
 from .literals import (
     CompositionStateType,
     DestinationStateType,
     EventErrorCodeType,
     EventNameType,
+    IngestConfigurationStateType,
+    IngestProtocolType,
+    ParticipantProtocolType,
     ParticipantRecordingFilterByRecordingStateType,
     ParticipantRecordingMediaTypeType,
     ParticipantRecordingStateType,
@@ -28,82 +35,108 @@ from .literals import (
     ParticipantTokenCapabilityType,
     PipBehaviorType,
     PipPositionType,
+    ThumbnailRecordingModeType,
+    ThumbnailStorageTypeType,
     VideoAspectRatioType,
     VideoFillModeType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
+    "AutoParticipantRecordingConfigurationOutputTypeDef",
     "AutoParticipantRecordingConfigurationTypeDef",
+    "AutoParticipantRecordingConfigurationUnionTypeDef",
     "ChannelDestinationConfigurationTypeDef",
+    "CompositionRecordingHlsConfigurationTypeDef",
     "CompositionSummaryTypeDef",
+    "CompositionThumbnailConfigurationOutputTypeDef",
+    "CompositionThumbnailConfigurationTypeDef",
+    "CompositionThumbnailConfigurationUnionTypeDef",
     "CompositionTypeDef",
-    "CreateEncoderConfigurationRequestRequestTypeDef",
+    "CreateEncoderConfigurationRequestTypeDef",
     "CreateEncoderConfigurationResponseTypeDef",
-    "CreateParticipantTokenRequestRequestTypeDef",
+    "CreateIngestConfigurationRequestTypeDef",
+    "CreateIngestConfigurationResponseTypeDef",
+    "CreateParticipantTokenRequestTypeDef",
     "CreateParticipantTokenResponseTypeDef",
-    "CreateStageRequestRequestTypeDef",
+    "CreateStageRequestTypeDef",
     "CreateStageResponseTypeDef",
-    "CreateStorageConfigurationRequestRequestTypeDef",
+    "CreateStorageConfigurationRequestTypeDef",
     "CreateStorageConfigurationResponseTypeDef",
-    "DeleteEncoderConfigurationRequestRequestTypeDef",
-    "DeletePublicKeyRequestRequestTypeDef",
-    "DeleteStageRequestRequestTypeDef",
-    "DeleteStorageConfigurationRequestRequestTypeDef",
+    "DeleteEncoderConfigurationRequestTypeDef",
+    "DeleteIngestConfigurationRequestTypeDef",
+    "DeletePublicKeyRequestTypeDef",
+    "DeleteStageRequestTypeDef",
+    "DeleteStorageConfigurationRequestTypeDef",
+    "DestinationConfigurationOutputTypeDef",
     "DestinationConfigurationTypeDef",
+    "DestinationConfigurationUnionTypeDef",
     "DestinationDetailTypeDef",
     "DestinationSummaryTypeDef",
     "DestinationTypeDef",
-    "DisconnectParticipantRequestRequestTypeDef",
+    "DisconnectParticipantRequestTypeDef",
     "EncoderConfigurationSummaryTypeDef",
     "EncoderConfigurationTypeDef",
     "EventTypeDef",
-    "GetCompositionRequestRequestTypeDef",
+    "GetCompositionRequestTypeDef",
     "GetCompositionResponseTypeDef",
-    "GetEncoderConfigurationRequestRequestTypeDef",
+    "GetEncoderConfigurationRequestTypeDef",
     "GetEncoderConfigurationResponseTypeDef",
-    "GetParticipantRequestRequestTypeDef",
+    "GetIngestConfigurationRequestTypeDef",
+    "GetIngestConfigurationResponseTypeDef",
+    "GetParticipantRequestTypeDef",
     "GetParticipantResponseTypeDef",
-    "GetPublicKeyRequestRequestTypeDef",
+    "GetPublicKeyRequestTypeDef",
     "GetPublicKeyResponseTypeDef",
-    "GetStageRequestRequestTypeDef",
+    "GetStageRequestTypeDef",
     "GetStageResponseTypeDef",
-    "GetStageSessionRequestRequestTypeDef",
+    "GetStageSessionRequestTypeDef",
     "GetStageSessionResponseTypeDef",
-    "GetStorageConfigurationRequestRequestTypeDef",
+    "GetStorageConfigurationRequestTypeDef",
     "GetStorageConfigurationResponseTypeDef",
     "GridConfigurationTypeDef",
-    "ImportPublicKeyRequestRequestTypeDef",
+    "ImportPublicKeyRequestTypeDef",
     "ImportPublicKeyResponseTypeDef",
+    "IngestConfigurationSummaryTypeDef",
+    "IngestConfigurationTypeDef",
     "LayoutConfigurationTypeDef",
-    "ListCompositionsRequestRequestTypeDef",
+    "ListCompositionsRequestTypeDef",
     "ListCompositionsResponseTypeDef",
-    "ListEncoderConfigurationsRequestRequestTypeDef",
+    "ListEncoderConfigurationsRequestTypeDef",
     "ListEncoderConfigurationsResponseTypeDef",
-    "ListParticipantEventsRequestRequestTypeDef",
+    "ListIngestConfigurationsRequestPaginateTypeDef",
+    "ListIngestConfigurationsRequestTypeDef",
+    "ListIngestConfigurationsResponseTypeDef",
+    "ListParticipantEventsRequestTypeDef",
     "ListParticipantEventsResponseTypeDef",
-    "ListParticipantsRequestRequestTypeDef",
+    "ListParticipantsRequestTypeDef",
     "ListParticipantsResponseTypeDef",
-    "ListPublicKeysRequestRequestTypeDef",
+    "ListPublicKeysRequestPaginateTypeDef",
+    "ListPublicKeysRequestTypeDef",
     "ListPublicKeysResponseTypeDef",
-    "ListStageSessionsRequestRequestTypeDef",
+    "ListStageSessionsRequestTypeDef",
     "ListStageSessionsResponseTypeDef",
-    "ListStagesRequestRequestTypeDef",
+    "ListStagesRequestTypeDef",
     "ListStagesResponseTypeDef",
-    "ListStorageConfigurationsRequestRequestTypeDef",
+    "ListStorageConfigurationsRequestTypeDef",
     "ListStorageConfigurationsResponseTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "PaginatorConfigTypeDef",
+    "ParticipantRecordingHlsConfigurationTypeDef",
     "ParticipantSummaryTypeDef",
+    "ParticipantThumbnailConfigurationOutputTypeDef",
+    "ParticipantThumbnailConfigurationTypeDef",
     "ParticipantTokenConfigurationTypeDef",
     "ParticipantTokenTypeDef",
     "ParticipantTypeDef",
@@ -112,7 +145,9 @@ __all__ = (
     "PublicKeyTypeDef",
     "RecordingConfigurationTypeDef",
     "ResponseMetadataTypeDef",
+    "S3DestinationConfigurationOutputTypeDef",
     "S3DestinationConfigurationTypeDef",
+    "S3DestinationConfigurationUnionTypeDef",
     "S3DetailTypeDef",
     "S3StorageConfigurationTypeDef",
     "StageEndpointsTypeDef",
@@ -120,1084 +155,625 @@ __all__ = (
     "StageSessionTypeDef",
     "StageSummaryTypeDef",
     "StageTypeDef",
-    "StartCompositionRequestRequestTypeDef",
+    "StartCompositionRequestTypeDef",
     "StartCompositionResponseTypeDef",
-    "StopCompositionRequestRequestTypeDef",
+    "StopCompositionRequestTypeDef",
     "StorageConfigurationSummaryTypeDef",
     "StorageConfigurationTypeDef",
-    "TagResourceRequestRequestTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateStageRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateIngestConfigurationRequestTypeDef",
+    "UpdateIngestConfigurationResponseTypeDef",
+    "UpdateStageRequestTypeDef",
     "UpdateStageResponseTypeDef",
     "VideoTypeDef",
 )
 
-_RequiredAutoParticipantRecordingConfigurationTypeDef = TypedDict(
-    "_RequiredAutoParticipantRecordingConfigurationTypeDef",
-    {
-        "storageConfigurationArn": str,
-    },
-)
-_OptionalAutoParticipantRecordingConfigurationTypeDef = TypedDict(
-    "_OptionalAutoParticipantRecordingConfigurationTypeDef",
-    {
-        "mediaTypes": List[ParticipantRecordingMediaTypeType],
-    },
-    total=False,
-)
+class ParticipantRecordingHlsConfigurationTypeDef(TypedDict):
+    targetSegmentDurationSeconds: NotRequired[int]
 
-class AutoParticipantRecordingConfigurationTypeDef(
-    _RequiredAutoParticipantRecordingConfigurationTypeDef,
-    _OptionalAutoParticipantRecordingConfigurationTypeDef,
-):
-    pass
+class ParticipantThumbnailConfigurationOutputTypeDef(TypedDict):
+    targetIntervalSeconds: NotRequired[int]
+    storage: NotRequired[List[ThumbnailStorageTypeType]]
+    recordingMode: NotRequired[ThumbnailRecordingModeType]
 
-_RequiredChannelDestinationConfigurationTypeDef = TypedDict(
-    "_RequiredChannelDestinationConfigurationTypeDef",
-    {
-        "channelArn": str,
-    },
-)
-_OptionalChannelDestinationConfigurationTypeDef = TypedDict(
-    "_OptionalChannelDestinationConfigurationTypeDef",
-    {
-        "encoderConfigurationArn": str,
-    },
-    total=False,
-)
+class ParticipantThumbnailConfigurationTypeDef(TypedDict):
+    targetIntervalSeconds: NotRequired[int]
+    storage: NotRequired[Sequence[ThumbnailStorageTypeType]]
+    recordingMode: NotRequired[ThumbnailRecordingModeType]
 
-class ChannelDestinationConfigurationTypeDef(
-    _RequiredChannelDestinationConfigurationTypeDef, _OptionalChannelDestinationConfigurationTypeDef
-):
-    pass
+class ChannelDestinationConfigurationTypeDef(TypedDict):
+    channelArn: str
+    encoderConfigurationArn: NotRequired[str]
 
-_RequiredCompositionSummaryTypeDef = TypedDict(
-    "_RequiredCompositionSummaryTypeDef",
-    {
-        "arn": str,
-        "stageArn": str,
-        "destinations": List["DestinationSummaryTypeDef"],
-        "state": CompositionStateType,
-    },
-)
-_OptionalCompositionSummaryTypeDef = TypedDict(
-    "_OptionalCompositionSummaryTypeDef",
-    {
-        "tags": Dict[str, str],
-        "startTime": datetime,
-        "endTime": datetime,
-    },
-    total=False,
-)
+class CompositionRecordingHlsConfigurationTypeDef(TypedDict):
+    targetSegmentDurationSeconds: NotRequired[int]
 
-class CompositionSummaryTypeDef(
-    _RequiredCompositionSummaryTypeDef, _OptionalCompositionSummaryTypeDef
-):
-    pass
-
-_RequiredCompositionTypeDef = TypedDict(
-    "_RequiredCompositionTypeDef",
-    {
-        "arn": str,
-        "stageArn": str,
-        "state": CompositionStateType,
-        "layout": "LayoutConfigurationTypeDef",
-        "destinations": List["DestinationTypeDef"],
-    },
-)
-_OptionalCompositionTypeDef = TypedDict(
-    "_OptionalCompositionTypeDef",
-    {
-        "tags": Dict[str, str],
-        "startTime": datetime,
-        "endTime": datetime,
-    },
-    total=False,
-)
-
-class CompositionTypeDef(_RequiredCompositionTypeDef, _OptionalCompositionTypeDef):
-    pass
-
-CreateEncoderConfigurationRequestRequestTypeDef = TypedDict(
-    "CreateEncoderConfigurationRequestRequestTypeDef",
-    {
-        "name": str,
-        "video": "VideoTypeDef",
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-CreateEncoderConfigurationResponseTypeDef = TypedDict(
-    "CreateEncoderConfigurationResponseTypeDef",
-    {
-        "encoderConfiguration": "EncoderConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateParticipantTokenRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateParticipantTokenRequestRequestTypeDef",
-    {
-        "stageArn": str,
-    },
-)
-_OptionalCreateParticipantTokenRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateParticipantTokenRequestRequestTypeDef",
-    {
-        "duration": int,
-        "userId": str,
-        "attributes": Dict[str, str],
-        "capabilities": List[ParticipantTokenCapabilityType],
-    },
-    total=False,
-)
-
-class CreateParticipantTokenRequestRequestTypeDef(
-    _RequiredCreateParticipantTokenRequestRequestTypeDef,
-    _OptionalCreateParticipantTokenRequestRequestTypeDef,
-):
-    pass
-
-CreateParticipantTokenResponseTypeDef = TypedDict(
-    "CreateParticipantTokenResponseTypeDef",
-    {
-        "participantToken": "ParticipantTokenTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateStageRequestRequestTypeDef = TypedDict(
-    "CreateStageRequestRequestTypeDef",
-    {
-        "name": str,
-        "participantTokenConfigurations": List["ParticipantTokenConfigurationTypeDef"],
-        "tags": Dict[str, str],
-        "autoParticipantRecordingConfiguration": "AutoParticipantRecordingConfigurationTypeDef",
-    },
-    total=False,
-)
-
-CreateStageResponseTypeDef = TypedDict(
-    "CreateStageResponseTypeDef",
-    {
-        "stage": "StageTypeDef",
-        "participantTokens": List["ParticipantTokenTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateStorageConfigurationRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateStorageConfigurationRequestRequestTypeDef",
-    {
-        "s3": "S3StorageConfigurationTypeDef",
-    },
-)
-_OptionalCreateStorageConfigurationRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateStorageConfigurationRequestRequestTypeDef",
-    {
-        "name": str,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class CreateStorageConfigurationRequestRequestTypeDef(
-    _RequiredCreateStorageConfigurationRequestRequestTypeDef,
-    _OptionalCreateStorageConfigurationRequestRequestTypeDef,
-):
-    pass
-
-CreateStorageConfigurationResponseTypeDef = TypedDict(
-    "CreateStorageConfigurationResponseTypeDef",
-    {
-        "storageConfiguration": "StorageConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteEncoderConfigurationRequestRequestTypeDef = TypedDict(
-    "DeleteEncoderConfigurationRequestRequestTypeDef",
-    {
-        "arn": str,
-    },
-)
-
-DeletePublicKeyRequestRequestTypeDef = TypedDict(
-    "DeletePublicKeyRequestRequestTypeDef",
-    {
-        "arn": str,
-    },
-)
-
-DeleteStageRequestRequestTypeDef = TypedDict(
-    "DeleteStageRequestRequestTypeDef",
-    {
-        "arn": str,
-    },
-)
-
-DeleteStorageConfigurationRequestRequestTypeDef = TypedDict(
-    "DeleteStorageConfigurationRequestRequestTypeDef",
-    {
-        "arn": str,
-    },
-)
-
-DestinationConfigurationTypeDef = TypedDict(
-    "DestinationConfigurationTypeDef",
-    {
-        "name": str,
-        "channel": "ChannelDestinationConfigurationTypeDef",
-        "s3": "S3DestinationConfigurationTypeDef",
-    },
-    total=False,
-)
-
-DestinationDetailTypeDef = TypedDict(
-    "DestinationDetailTypeDef",
-    {
-        "s3": "S3DetailTypeDef",
-    },
-    total=False,
-)
-
-_RequiredDestinationSummaryTypeDef = TypedDict(
-    "_RequiredDestinationSummaryTypeDef",
+DestinationSummaryTypeDef = TypedDict(
+    "DestinationSummaryTypeDef",
     {
         "id": str,
         "state": DestinationStateType,
-    },
-)
-_OptionalDestinationSummaryTypeDef = TypedDict(
-    "_OptionalDestinationSummaryTypeDef",
-    {
-        "startTime": datetime,
-        "endTime": datetime,
-    },
-    total=False,
-)
-
-class DestinationSummaryTypeDef(
-    _RequiredDestinationSummaryTypeDef, _OptionalDestinationSummaryTypeDef
-):
-    pass
-
-_RequiredDestinationTypeDef = TypedDict(
-    "_RequiredDestinationTypeDef",
-    {
-        "id": str,
-        "state": DestinationStateType,
-        "configuration": "DestinationConfigurationTypeDef",
-    },
-)
-_OptionalDestinationTypeDef = TypedDict(
-    "_OptionalDestinationTypeDef",
-    {
-        "startTime": datetime,
-        "endTime": datetime,
-        "detail": "DestinationDetailTypeDef",
-    },
-    total=False,
-)
-
-class DestinationTypeDef(_RequiredDestinationTypeDef, _OptionalDestinationTypeDef):
-    pass
-
-_RequiredDisconnectParticipantRequestRequestTypeDef = TypedDict(
-    "_RequiredDisconnectParticipantRequestRequestTypeDef",
-    {
-        "stageArn": str,
-        "participantId": str,
-    },
-)
-_OptionalDisconnectParticipantRequestRequestTypeDef = TypedDict(
-    "_OptionalDisconnectParticipantRequestRequestTypeDef",
-    {
-        "reason": str,
-    },
-    total=False,
-)
-
-class DisconnectParticipantRequestRequestTypeDef(
-    _RequiredDisconnectParticipantRequestRequestTypeDef,
-    _OptionalDisconnectParticipantRequestRequestTypeDef,
-):
-    pass
-
-_RequiredEncoderConfigurationSummaryTypeDef = TypedDict(
-    "_RequiredEncoderConfigurationSummaryTypeDef",
-    {
-        "arn": str,
-    },
-)
-_OptionalEncoderConfigurationSummaryTypeDef = TypedDict(
-    "_OptionalEncoderConfigurationSummaryTypeDef",
-    {
-        "name": str,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class EncoderConfigurationSummaryTypeDef(
-    _RequiredEncoderConfigurationSummaryTypeDef, _OptionalEncoderConfigurationSummaryTypeDef
-):
-    pass
-
-_RequiredEncoderConfigurationTypeDef = TypedDict(
-    "_RequiredEncoderConfigurationTypeDef",
-    {
-        "arn": str,
-    },
-)
-_OptionalEncoderConfigurationTypeDef = TypedDict(
-    "_OptionalEncoderConfigurationTypeDef",
-    {
-        "name": str,
-        "video": "VideoTypeDef",
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class EncoderConfigurationTypeDef(
-    _RequiredEncoderConfigurationTypeDef, _OptionalEncoderConfigurationTypeDef
-):
-    pass
-
-EventTypeDef = TypedDict(
-    "EventTypeDef",
-    {
-        "name": EventNameType,
-        "participantId": str,
-        "eventTime": datetime,
-        "remoteParticipantId": str,
-        "errorCode": EventErrorCodeType,
-    },
-    total=False,
-)
-
-GetCompositionRequestRequestTypeDef = TypedDict(
-    "GetCompositionRequestRequestTypeDef",
-    {
-        "arn": str,
+        "startTime": NotRequired[datetime],
+        "endTime": NotRequired[datetime],
     },
 )
 
-GetCompositionResponseTypeDef = TypedDict(
-    "GetCompositionResponseTypeDef",
-    {
-        "composition": "CompositionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CompositionThumbnailConfigurationOutputTypeDef(TypedDict):
+    targetIntervalSeconds: NotRequired[int]
+    storage: NotRequired[List[ThumbnailStorageTypeType]]
 
-GetEncoderConfigurationRequestRequestTypeDef = TypedDict(
-    "GetEncoderConfigurationRequestRequestTypeDef",
-    {
-        "arn": str,
-    },
-)
+class CompositionThumbnailConfigurationTypeDef(TypedDict):
+    targetIntervalSeconds: NotRequired[int]
+    storage: NotRequired[Sequence[ThumbnailStorageTypeType]]
 
-GetEncoderConfigurationResponseTypeDef = TypedDict(
-    "GetEncoderConfigurationResponseTypeDef",
-    {
-        "encoderConfiguration": "EncoderConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class VideoTypeDef(TypedDict):
+    width: NotRequired[int]
+    height: NotRequired[int]
+    framerate: NotRequired[float]
+    bitrate: NotRequired[int]
 
-GetParticipantRequestRequestTypeDef = TypedDict(
-    "GetParticipantRequestRequestTypeDef",
-    {
-        "stageArn": str,
-        "sessionId": str,
-        "participantId": str,
-    },
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-GetParticipantResponseTypeDef = TypedDict(
-    "GetParticipantResponseTypeDef",
-    {
-        "participant": "ParticipantTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CreateIngestConfigurationRequestTypeDef(TypedDict):
+    ingestProtocol: IngestProtocolType
+    name: NotRequired[str]
+    stageArn: NotRequired[str]
+    userId: NotRequired[str]
+    attributes: NotRequired[Mapping[str, str]]
+    insecureIngest: NotRequired[bool]
+    tags: NotRequired[Mapping[str, str]]
 
-GetPublicKeyRequestRequestTypeDef = TypedDict(
-    "GetPublicKeyRequestRequestTypeDef",
-    {
-        "arn": str,
-    },
-)
+class IngestConfigurationTypeDef(TypedDict):
+    arn: str
+    ingestProtocol: IngestProtocolType
+    streamKey: str
+    stageArn: str
+    participantId: str
+    state: IngestConfigurationStateType
+    name: NotRequired[str]
+    userId: NotRequired[str]
+    attributes: NotRequired[Dict[str, str]]
+    tags: NotRequired[Dict[str, str]]
 
-GetPublicKeyResponseTypeDef = TypedDict(
-    "GetPublicKeyResponseTypeDef",
-    {
-        "publicKey": "PublicKeyTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CreateParticipantTokenRequestTypeDef(TypedDict):
+    stageArn: str
+    duration: NotRequired[int]
+    userId: NotRequired[str]
+    attributes: NotRequired[Mapping[str, str]]
+    capabilities: NotRequired[Sequence[ParticipantTokenCapabilityType]]
 
-GetStageRequestRequestTypeDef = TypedDict(
-    "GetStageRequestRequestTypeDef",
-    {
-        "arn": str,
-    },
-)
+class ParticipantTokenTypeDef(TypedDict):
+    participantId: NotRequired[str]
+    token: NotRequired[str]
+    userId: NotRequired[str]
+    attributes: NotRequired[Dict[str, str]]
+    duration: NotRequired[int]
+    capabilities: NotRequired[List[ParticipantTokenCapabilityType]]
+    expirationTime: NotRequired[datetime]
 
-GetStageResponseTypeDef = TypedDict(
-    "GetStageResponseTypeDef",
-    {
-        "stage": "StageTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ParticipantTokenConfigurationTypeDef(TypedDict):
+    duration: NotRequired[int]
+    userId: NotRequired[str]
+    attributes: NotRequired[Mapping[str, str]]
+    capabilities: NotRequired[Sequence[ParticipantTokenCapabilityType]]
 
-GetStageSessionRequestRequestTypeDef = TypedDict(
-    "GetStageSessionRequestRequestTypeDef",
-    {
-        "stageArn": str,
-        "sessionId": str,
-    },
-)
+class S3StorageConfigurationTypeDef(TypedDict):
+    bucketName: str
 
-GetStageSessionResponseTypeDef = TypedDict(
-    "GetStageSessionResponseTypeDef",
-    {
-        "stageSession": "StageSessionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DeleteEncoderConfigurationRequestTypeDef(TypedDict):
+    arn: str
 
-GetStorageConfigurationRequestRequestTypeDef = TypedDict(
-    "GetStorageConfigurationRequestRequestTypeDef",
-    {
-        "arn": str,
-    },
-)
+class DeleteIngestConfigurationRequestTypeDef(TypedDict):
+    arn: str
+    force: NotRequired[bool]
 
-GetStorageConfigurationResponseTypeDef = TypedDict(
-    "GetStorageConfigurationResponseTypeDef",
-    {
-        "storageConfiguration": "StorageConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DeletePublicKeyRequestTypeDef(TypedDict):
+    arn: str
 
-GridConfigurationTypeDef = TypedDict(
-    "GridConfigurationTypeDef",
-    {
-        "featuredParticipantAttribute": str,
-        "omitStoppedVideo": bool,
-        "videoAspectRatio": VideoAspectRatioType,
-        "videoFillMode": VideoFillModeType,
-        "gridGap": int,
-    },
-    total=False,
-)
+class DeleteStageRequestTypeDef(TypedDict):
+    arn: str
 
-_RequiredImportPublicKeyRequestRequestTypeDef = TypedDict(
-    "_RequiredImportPublicKeyRequestRequestTypeDef",
-    {
-        "publicKeyMaterial": str,
-    },
-)
-_OptionalImportPublicKeyRequestRequestTypeDef = TypedDict(
-    "_OptionalImportPublicKeyRequestRequestTypeDef",
-    {
-        "name": str,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
+class DeleteStorageConfigurationRequestTypeDef(TypedDict):
+    arn: str
 
-class ImportPublicKeyRequestRequestTypeDef(
-    _RequiredImportPublicKeyRequestRequestTypeDef, _OptionalImportPublicKeyRequestRequestTypeDef
-):
-    pass
+class S3DetailTypeDef(TypedDict):
+    recordingPrefix: str
 
-ImportPublicKeyResponseTypeDef = TypedDict(
-    "ImportPublicKeyResponseTypeDef",
-    {
-        "publicKey": "PublicKeyTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DisconnectParticipantRequestTypeDef(TypedDict):
+    stageArn: str
+    participantId: str
+    reason: NotRequired[str]
 
-LayoutConfigurationTypeDef = TypedDict(
-    "LayoutConfigurationTypeDef",
-    {
-        "grid": "GridConfigurationTypeDef",
-        "pip": "PipConfigurationTypeDef",
-    },
-    total=False,
-)
+class EncoderConfigurationSummaryTypeDef(TypedDict):
+    arn: str
+    name: NotRequired[str]
+    tags: NotRequired[Dict[str, str]]
 
-ListCompositionsRequestRequestTypeDef = TypedDict(
-    "ListCompositionsRequestRequestTypeDef",
-    {
-        "filterByStageArn": str,
-        "filterByEncoderConfigurationArn": str,
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
+class EventTypeDef(TypedDict):
+    name: NotRequired[EventNameType]
+    participantId: NotRequired[str]
+    eventTime: NotRequired[datetime]
+    remoteParticipantId: NotRequired[str]
+    errorCode: NotRequired[EventErrorCodeType]
 
-ListCompositionsResponseTypeDef = TypedDict(
-    "ListCompositionsResponseTypeDef",
-    {
-        "compositions": List["CompositionSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetCompositionRequestTypeDef(TypedDict):
+    arn: str
 
-ListEncoderConfigurationsRequestRequestTypeDef = TypedDict(
-    "ListEncoderConfigurationsRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
+class GetEncoderConfigurationRequestTypeDef(TypedDict):
+    arn: str
 
-ListEncoderConfigurationsResponseTypeDef = TypedDict(
-    "ListEncoderConfigurationsResponseTypeDef",
-    {
-        "encoderConfigurations": List["EncoderConfigurationSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetIngestConfigurationRequestTypeDef(TypedDict):
+    arn: str
 
-_RequiredListParticipantEventsRequestRequestTypeDef = TypedDict(
-    "_RequiredListParticipantEventsRequestRequestTypeDef",
-    {
-        "stageArn": str,
-        "sessionId": str,
-        "participantId": str,
-    },
-)
-_OptionalListParticipantEventsRequestRequestTypeDef = TypedDict(
-    "_OptionalListParticipantEventsRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
+class GetParticipantRequestTypeDef(TypedDict):
+    stageArn: str
+    sessionId: str
+    participantId: str
 
-class ListParticipantEventsRequestRequestTypeDef(
-    _RequiredListParticipantEventsRequestRequestTypeDef,
-    _OptionalListParticipantEventsRequestRequestTypeDef,
-):
-    pass
+class ParticipantTypeDef(TypedDict):
+    participantId: NotRequired[str]
+    userId: NotRequired[str]
+    state: NotRequired[ParticipantStateType]
+    firstJoinTime: NotRequired[datetime]
+    attributes: NotRequired[Dict[str, str]]
+    published: NotRequired[bool]
+    ispName: NotRequired[str]
+    osName: NotRequired[str]
+    osVersion: NotRequired[str]
+    browserName: NotRequired[str]
+    browserVersion: NotRequired[str]
+    sdkVersion: NotRequired[str]
+    recordingS3BucketName: NotRequired[str]
+    recordingS3Prefix: NotRequired[str]
+    recordingState: NotRequired[ParticipantRecordingStateType]
+    protocol: NotRequired[ParticipantProtocolType]
 
-ListParticipantEventsResponseTypeDef = TypedDict(
-    "ListParticipantEventsResponseTypeDef",
-    {
-        "events": List["EventTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetPublicKeyRequestTypeDef(TypedDict):
+    arn: str
 
-_RequiredListParticipantsRequestRequestTypeDef = TypedDict(
-    "_RequiredListParticipantsRequestRequestTypeDef",
-    {
-        "stageArn": str,
-        "sessionId": str,
-    },
-)
-_OptionalListParticipantsRequestRequestTypeDef = TypedDict(
-    "_OptionalListParticipantsRequestRequestTypeDef",
-    {
-        "filterByUserId": str,
-        "filterByPublished": bool,
-        "filterByState": ParticipantStateType,
-        "nextToken": str,
-        "maxResults": int,
-        "filterByRecordingState": ParticipantRecordingFilterByRecordingStateType,
-    },
-    total=False,
-)
+class PublicKeyTypeDef(TypedDict):
+    arn: NotRequired[str]
+    name: NotRequired[str]
+    publicKeyMaterial: NotRequired[str]
+    fingerprint: NotRequired[str]
+    tags: NotRequired[Dict[str, str]]
 
-class ListParticipantsRequestRequestTypeDef(
-    _RequiredListParticipantsRequestRequestTypeDef, _OptionalListParticipantsRequestRequestTypeDef
-):
-    pass
+class GetStageRequestTypeDef(TypedDict):
+    arn: str
 
-ListParticipantsResponseTypeDef = TypedDict(
-    "ListParticipantsResponseTypeDef",
-    {
-        "participants": List["ParticipantSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetStageSessionRequestTypeDef(TypedDict):
+    stageArn: str
+    sessionId: str
 
-ListPublicKeysRequestRequestTypeDef = TypedDict(
-    "ListPublicKeysRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
+class StageSessionTypeDef(TypedDict):
+    sessionId: NotRequired[str]
+    startTime: NotRequired[datetime]
+    endTime: NotRequired[datetime]
 
-ListPublicKeysResponseTypeDef = TypedDict(
-    "ListPublicKeysResponseTypeDef",
-    {
-        "publicKeys": List["PublicKeySummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetStorageConfigurationRequestTypeDef(TypedDict):
+    arn: str
 
-_RequiredListStageSessionsRequestRequestTypeDef = TypedDict(
-    "_RequiredListStageSessionsRequestRequestTypeDef",
-    {
-        "stageArn": str,
-    },
-)
-_OptionalListStageSessionsRequestRequestTypeDef = TypedDict(
-    "_OptionalListStageSessionsRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
+class GridConfigurationTypeDef(TypedDict):
+    featuredParticipantAttribute: NotRequired[str]
+    omitStoppedVideo: NotRequired[bool]
+    videoAspectRatio: NotRequired[VideoAspectRatioType]
+    videoFillMode: NotRequired[VideoFillModeType]
+    gridGap: NotRequired[int]
 
-class ListStageSessionsRequestRequestTypeDef(
-    _RequiredListStageSessionsRequestRequestTypeDef, _OptionalListStageSessionsRequestRequestTypeDef
-):
-    pass
+class ImportPublicKeyRequestTypeDef(TypedDict):
+    publicKeyMaterial: str
+    name: NotRequired[str]
+    tags: NotRequired[Mapping[str, str]]
 
-ListStageSessionsResponseTypeDef = TypedDict(
-    "ListStageSessionsResponseTypeDef",
-    {
-        "stageSessions": List["StageSessionSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class IngestConfigurationSummaryTypeDef(TypedDict):
+    arn: str
+    ingestProtocol: IngestProtocolType
+    stageArn: str
+    participantId: str
+    state: IngestConfigurationStateType
+    name: NotRequired[str]
+    userId: NotRequired[str]
 
-ListStagesRequestRequestTypeDef = TypedDict(
-    "ListStagesRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
+class PipConfigurationTypeDef(TypedDict):
+    featuredParticipantAttribute: NotRequired[str]
+    omitStoppedVideo: NotRequired[bool]
+    videoFillMode: NotRequired[VideoFillModeType]
+    gridGap: NotRequired[int]
+    pipParticipantAttribute: NotRequired[str]
+    pipBehavior: NotRequired[PipBehaviorType]
+    pipOffset: NotRequired[int]
+    pipPosition: NotRequired[PipPositionType]
+    pipWidth: NotRequired[int]
+    pipHeight: NotRequired[int]
 
-ListStagesResponseTypeDef = TypedDict(
-    "ListStagesResponseTypeDef",
-    {
-        "stages": List["StageSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListCompositionsRequestTypeDef(TypedDict):
+    filterByStageArn: NotRequired[str]
+    filterByEncoderConfigurationArn: NotRequired[str]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
 
-ListStorageConfigurationsRequestRequestTypeDef = TypedDict(
-    "ListStorageConfigurationsRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
+class ListEncoderConfigurationsRequestTypeDef(TypedDict):
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
 
-ListStorageConfigurationsResponseTypeDef = TypedDict(
-    "ListStorageConfigurationsResponseTypeDef",
-    {
-        "storageConfigurations": List["StorageConfigurationSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
 
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-    },
-)
+class ListIngestConfigurationsRequestTypeDef(TypedDict):
+    filterByStageArn: NotRequired[str]
+    filterByState: NotRequired[IngestConfigurationStateType]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
 
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListParticipantEventsRequestTypeDef(TypedDict):
+    stageArn: str
+    sessionId: str
+    participantId: str
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
 
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
+class ListParticipantsRequestTypeDef(TypedDict):
+    stageArn: str
+    sessionId: str
+    filterByUserId: NotRequired[str]
+    filterByPublished: NotRequired[bool]
+    filterByState: NotRequired[ParticipantStateType]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+    filterByRecordingState: NotRequired[ParticipantRecordingFilterByRecordingStateType]
 
-ParticipantSummaryTypeDef = TypedDict(
-    "ParticipantSummaryTypeDef",
-    {
-        "participantId": str,
-        "userId": str,
-        "state": ParticipantStateType,
-        "firstJoinTime": datetime,
-        "published": bool,
-        "recordingState": ParticipantRecordingStateType,
-    },
-    total=False,
-)
+class ParticipantSummaryTypeDef(TypedDict):
+    participantId: NotRequired[str]
+    userId: NotRequired[str]
+    state: NotRequired[ParticipantStateType]
+    firstJoinTime: NotRequired[datetime]
+    published: NotRequired[bool]
+    recordingState: NotRequired[ParticipantRecordingStateType]
 
-ParticipantTokenConfigurationTypeDef = TypedDict(
-    "ParticipantTokenConfigurationTypeDef",
-    {
-        "duration": int,
-        "userId": str,
-        "attributes": Dict[str, str],
-        "capabilities": List[ParticipantTokenCapabilityType],
-    },
-    total=False,
-)
+class ListPublicKeysRequestTypeDef(TypedDict):
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
 
-ParticipantTokenTypeDef = TypedDict(
-    "ParticipantTokenTypeDef",
-    {
-        "participantId": str,
-        "token": str,
-        "userId": str,
-        "attributes": Dict[str, str],
-        "duration": int,
-        "capabilities": List[ParticipantTokenCapabilityType],
-        "expirationTime": datetime,
-    },
-    total=False,
-)
+class PublicKeySummaryTypeDef(TypedDict):
+    arn: NotRequired[str]
+    name: NotRequired[str]
+    tags: NotRequired[Dict[str, str]]
 
-ParticipantTypeDef = TypedDict(
-    "ParticipantTypeDef",
-    {
-        "participantId": str,
-        "userId": str,
-        "state": ParticipantStateType,
-        "firstJoinTime": datetime,
-        "attributes": Dict[str, str],
-        "published": bool,
-        "ispName": str,
-        "osName": str,
-        "osVersion": str,
-        "browserName": str,
-        "browserVersion": str,
-        "sdkVersion": str,
-        "recordingS3BucketName": str,
-        "recordingS3Prefix": str,
-        "recordingState": ParticipantRecordingStateType,
-    },
-    total=False,
-)
+class ListStageSessionsRequestTypeDef(TypedDict):
+    stageArn: str
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
 
-PipConfigurationTypeDef = TypedDict(
-    "PipConfigurationTypeDef",
-    {
-        "featuredParticipantAttribute": str,
-        "omitStoppedVideo": bool,
-        "videoFillMode": VideoFillModeType,
-        "gridGap": int,
-        "pipParticipantAttribute": str,
-        "pipBehavior": PipBehaviorType,
-        "pipOffset": int,
-        "pipPosition": PipPositionType,
-        "pipWidth": int,
-        "pipHeight": int,
-    },
-    total=False,
-)
+class StageSessionSummaryTypeDef(TypedDict):
+    sessionId: NotRequired[str]
+    startTime: NotRequired[datetime]
+    endTime: NotRequired[datetime]
 
-PublicKeySummaryTypeDef = TypedDict(
-    "PublicKeySummaryTypeDef",
-    {
-        "arn": str,
-        "name": str,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
+class ListStagesRequestTypeDef(TypedDict):
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
 
-PublicKeyTypeDef = TypedDict(
-    "PublicKeyTypeDef",
-    {
-        "arn": str,
-        "name": str,
-        "publicKeyMaterial": str,
-        "fingerprint": str,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
+class StageSummaryTypeDef(TypedDict):
+    arn: str
+    name: NotRequired[str]
+    activeSessionId: NotRequired[str]
+    tags: NotRequired[Dict[str, str]]
+
+class ListStorageConfigurationsRequestTypeDef(TypedDict):
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+
+class StageEndpointsTypeDef(TypedDict):
+    events: NotRequired[str]
+    whip: NotRequired[str]
+    rtmp: NotRequired[str]
+    rtmps: NotRequired[str]
+
+class StopCompositionRequestTypeDef(TypedDict):
+    arn: str
+
+class TagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tags: Mapping[str, str]
+
+class UntagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tagKeys: Sequence[str]
+
+class UpdateIngestConfigurationRequestTypeDef(TypedDict):
+    arn: str
+    stageArn: NotRequired[str]
+
+class AutoParticipantRecordingConfigurationOutputTypeDef(TypedDict):
+    storageConfigurationArn: str
+    mediaTypes: NotRequired[List[ParticipantRecordingMediaTypeType]]
+    thumbnailConfiguration: NotRequired[ParticipantThumbnailConfigurationOutputTypeDef]
+    recordingReconnectWindowSeconds: NotRequired[int]
+    hlsConfiguration: NotRequired[ParticipantRecordingHlsConfigurationTypeDef]
+
+class AutoParticipantRecordingConfigurationTypeDef(TypedDict):
+    storageConfigurationArn: str
+    mediaTypes: NotRequired[Sequence[ParticipantRecordingMediaTypeType]]
+    thumbnailConfiguration: NotRequired[ParticipantThumbnailConfigurationTypeDef]
+    recordingReconnectWindowSeconds: NotRequired[int]
+    hlsConfiguration: NotRequired[ParticipantRecordingHlsConfigurationTypeDef]
 
 RecordingConfigurationTypeDef = TypedDict(
     "RecordingConfigurationTypeDef",
     {
-        "format": Literal["HLS"],
-    },
-    total=False,
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
+        "hlsConfiguration": NotRequired[CompositionRecordingHlsConfigurationTypeDef],
+        "format": NotRequired[Literal["HLS"]],
     },
 )
 
-_RequiredS3DestinationConfigurationTypeDef = TypedDict(
-    "_RequiredS3DestinationConfigurationTypeDef",
+class CompositionSummaryTypeDef(TypedDict):
+    arn: str
+    stageArn: str
+    destinations: List[DestinationSummaryTypeDef]
+    state: CompositionStateType
+    tags: NotRequired[Dict[str, str]]
+    startTime: NotRequired[datetime]
+    endTime: NotRequired[datetime]
+
+CompositionThumbnailConfigurationUnionTypeDef = Union[
+    CompositionThumbnailConfigurationTypeDef, CompositionThumbnailConfigurationOutputTypeDef
+]
+
+class CreateEncoderConfigurationRequestTypeDef(TypedDict):
+    name: NotRequired[str]
+    video: NotRequired[VideoTypeDef]
+    tags: NotRequired[Mapping[str, str]]
+
+class EncoderConfigurationTypeDef(TypedDict):
+    arn: str
+    name: NotRequired[str]
+    video: NotRequired[VideoTypeDef]
+    tags: NotRequired[Dict[str, str]]
+
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateIngestConfigurationResponseTypeDef(TypedDict):
+    ingestConfiguration: IngestConfigurationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetIngestConfigurationResponseTypeDef(TypedDict):
+    ingestConfiguration: IngestConfigurationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateIngestConfigurationResponseTypeDef(TypedDict):
+    ingestConfiguration: IngestConfigurationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateParticipantTokenResponseTypeDef(TypedDict):
+    participantToken: ParticipantTokenTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateStorageConfigurationRequestTypeDef(TypedDict):
+    s3: S3StorageConfigurationTypeDef
+    name: NotRequired[str]
+    tags: NotRequired[Mapping[str, str]]
+
+class StorageConfigurationSummaryTypeDef(TypedDict):
+    arn: str
+    name: NotRequired[str]
+    s3: NotRequired[S3StorageConfigurationTypeDef]
+    tags: NotRequired[Dict[str, str]]
+
+class StorageConfigurationTypeDef(TypedDict):
+    arn: str
+    name: NotRequired[str]
+    s3: NotRequired[S3StorageConfigurationTypeDef]
+    tags: NotRequired[Dict[str, str]]
+
+class DestinationDetailTypeDef(TypedDict):
+    s3: NotRequired[S3DetailTypeDef]
+
+class ListEncoderConfigurationsResponseTypeDef(TypedDict):
+    encoderConfigurations: List[EncoderConfigurationSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListParticipantEventsResponseTypeDef(TypedDict):
+    events: List[EventTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class GetParticipantResponseTypeDef(TypedDict):
+    participant: ParticipantTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetPublicKeyResponseTypeDef(TypedDict):
+    publicKey: PublicKeyTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ImportPublicKeyResponseTypeDef(TypedDict):
+    publicKey: PublicKeyTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetStageSessionResponseTypeDef(TypedDict):
+    stageSession: StageSessionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListIngestConfigurationsResponseTypeDef(TypedDict):
+    ingestConfigurations: List[IngestConfigurationSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class LayoutConfigurationTypeDef(TypedDict):
+    grid: NotRequired[GridConfigurationTypeDef]
+    pip: NotRequired[PipConfigurationTypeDef]
+
+class ListIngestConfigurationsRequestPaginateTypeDef(TypedDict):
+    filterByStageArn: NotRequired[str]
+    filterByState: NotRequired[IngestConfigurationStateType]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListPublicKeysRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListParticipantsResponseTypeDef(TypedDict):
+    participants: List[ParticipantSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListPublicKeysResponseTypeDef(TypedDict):
+    publicKeys: List[PublicKeySummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListStageSessionsResponseTypeDef(TypedDict):
+    stageSessions: List[StageSessionSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListStagesResponseTypeDef(TypedDict):
+    stages: List[StageSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class StageTypeDef(TypedDict):
+    arn: str
+    name: NotRequired[str]
+    activeSessionId: NotRequired[str]
+    tags: NotRequired[Dict[str, str]]
+    autoParticipantRecordingConfiguration: NotRequired[
+        AutoParticipantRecordingConfigurationOutputTypeDef
+    ]
+    endpoints: NotRequired[StageEndpointsTypeDef]
+
+AutoParticipantRecordingConfigurationUnionTypeDef = Union[
+    AutoParticipantRecordingConfigurationTypeDef, AutoParticipantRecordingConfigurationOutputTypeDef
+]
+
+class S3DestinationConfigurationOutputTypeDef(TypedDict):
+    storageConfigurationArn: str
+    encoderConfigurationArns: List[str]
+    recordingConfiguration: NotRequired[RecordingConfigurationTypeDef]
+    thumbnailConfigurations: NotRequired[List[CompositionThumbnailConfigurationOutputTypeDef]]
+
+class ListCompositionsResponseTypeDef(TypedDict):
+    compositions: List[CompositionSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class S3DestinationConfigurationTypeDef(TypedDict):
+    storageConfigurationArn: str
+    encoderConfigurationArns: Sequence[str]
+    recordingConfiguration: NotRequired[RecordingConfigurationTypeDef]
+    thumbnailConfigurations: NotRequired[Sequence[CompositionThumbnailConfigurationUnionTypeDef]]
+
+class CreateEncoderConfigurationResponseTypeDef(TypedDict):
+    encoderConfiguration: EncoderConfigurationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetEncoderConfigurationResponseTypeDef(TypedDict):
+    encoderConfiguration: EncoderConfigurationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListStorageConfigurationsResponseTypeDef(TypedDict):
+    storageConfigurations: List[StorageConfigurationSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class CreateStorageConfigurationResponseTypeDef(TypedDict):
+    storageConfiguration: StorageConfigurationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetStorageConfigurationResponseTypeDef(TypedDict):
+    storageConfiguration: StorageConfigurationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateStageResponseTypeDef(TypedDict):
+    stage: StageTypeDef
+    participantTokens: List[ParticipantTokenTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetStageResponseTypeDef(TypedDict):
+    stage: StageTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateStageResponseTypeDef(TypedDict):
+    stage: StageTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateStageRequestTypeDef(TypedDict):
+    name: NotRequired[str]
+    participantTokenConfigurations: NotRequired[Sequence[ParticipantTokenConfigurationTypeDef]]
+    tags: NotRequired[Mapping[str, str]]
+    autoParticipantRecordingConfiguration: NotRequired[
+        AutoParticipantRecordingConfigurationUnionTypeDef
+    ]
+
+class UpdateStageRequestTypeDef(TypedDict):
+    arn: str
+    name: NotRequired[str]
+    autoParticipantRecordingConfiguration: NotRequired[
+        AutoParticipantRecordingConfigurationUnionTypeDef
+    ]
+
+class DestinationConfigurationOutputTypeDef(TypedDict):
+    name: NotRequired[str]
+    channel: NotRequired[ChannelDestinationConfigurationTypeDef]
+    s3: NotRequired[S3DestinationConfigurationOutputTypeDef]
+
+S3DestinationConfigurationUnionTypeDef = Union[
+    S3DestinationConfigurationTypeDef, S3DestinationConfigurationOutputTypeDef
+]
+DestinationTypeDef = TypedDict(
+    "DestinationTypeDef",
     {
-        "storageConfigurationArn": str,
-        "encoderConfigurationArns": List[str],
+        "id": str,
+        "state": DestinationStateType,
+        "configuration": DestinationConfigurationOutputTypeDef,
+        "startTime": NotRequired[datetime],
+        "endTime": NotRequired[datetime],
+        "detail": NotRequired[DestinationDetailTypeDef],
     },
-)
-_OptionalS3DestinationConfigurationTypeDef = TypedDict(
-    "_OptionalS3DestinationConfigurationTypeDef",
-    {
-        "recordingConfiguration": "RecordingConfigurationTypeDef",
-    },
-    total=False,
 )
 
-class S3DestinationConfigurationTypeDef(
-    _RequiredS3DestinationConfigurationTypeDef, _OptionalS3DestinationConfigurationTypeDef
-):
-    pass
+class DestinationConfigurationTypeDef(TypedDict):
+    name: NotRequired[str]
+    channel: NotRequired[ChannelDestinationConfigurationTypeDef]
+    s3: NotRequired[S3DestinationConfigurationUnionTypeDef]
 
-S3DetailTypeDef = TypedDict(
-    "S3DetailTypeDef",
-    {
-        "recordingPrefix": str,
-    },
-)
+class CompositionTypeDef(TypedDict):
+    arn: str
+    stageArn: str
+    state: CompositionStateType
+    layout: LayoutConfigurationTypeDef
+    destinations: List[DestinationTypeDef]
+    tags: NotRequired[Dict[str, str]]
+    startTime: NotRequired[datetime]
+    endTime: NotRequired[datetime]
 
-S3StorageConfigurationTypeDef = TypedDict(
-    "S3StorageConfigurationTypeDef",
-    {
-        "bucketName": str,
-    },
-)
+DestinationConfigurationUnionTypeDef = Union[
+    DestinationConfigurationTypeDef, DestinationConfigurationOutputTypeDef
+]
 
-StageEndpointsTypeDef = TypedDict(
-    "StageEndpointsTypeDef",
-    {
-        "events": str,
-        "whip": str,
-    },
-    total=False,
-)
+class GetCompositionResponseTypeDef(TypedDict):
+    composition: CompositionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-StageSessionSummaryTypeDef = TypedDict(
-    "StageSessionSummaryTypeDef",
-    {
-        "sessionId": str,
-        "startTime": datetime,
-        "endTime": datetime,
-    },
-    total=False,
-)
+class StartCompositionResponseTypeDef(TypedDict):
+    composition: CompositionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-StageSessionTypeDef = TypedDict(
-    "StageSessionTypeDef",
-    {
-        "sessionId": str,
-        "startTime": datetime,
-        "endTime": datetime,
-    },
-    total=False,
-)
-
-_RequiredStageSummaryTypeDef = TypedDict(
-    "_RequiredStageSummaryTypeDef",
-    {
-        "arn": str,
-    },
-)
-_OptionalStageSummaryTypeDef = TypedDict(
-    "_OptionalStageSummaryTypeDef",
-    {
-        "name": str,
-        "activeSessionId": str,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class StageSummaryTypeDef(_RequiredStageSummaryTypeDef, _OptionalStageSummaryTypeDef):
-    pass
-
-_RequiredStageTypeDef = TypedDict(
-    "_RequiredStageTypeDef",
-    {
-        "arn": str,
-    },
-)
-_OptionalStageTypeDef = TypedDict(
-    "_OptionalStageTypeDef",
-    {
-        "name": str,
-        "activeSessionId": str,
-        "tags": Dict[str, str],
-        "autoParticipantRecordingConfiguration": "AutoParticipantRecordingConfigurationTypeDef",
-        "endpoints": "StageEndpointsTypeDef",
-    },
-    total=False,
-)
-
-class StageTypeDef(_RequiredStageTypeDef, _OptionalStageTypeDef):
-    pass
-
-_RequiredStartCompositionRequestRequestTypeDef = TypedDict(
-    "_RequiredStartCompositionRequestRequestTypeDef",
-    {
-        "stageArn": str,
-        "destinations": List["DestinationConfigurationTypeDef"],
-    },
-)
-_OptionalStartCompositionRequestRequestTypeDef = TypedDict(
-    "_OptionalStartCompositionRequestRequestTypeDef",
-    {
-        "idempotencyToken": str,
-        "layout": "LayoutConfigurationTypeDef",
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class StartCompositionRequestRequestTypeDef(
-    _RequiredStartCompositionRequestRequestTypeDef, _OptionalStartCompositionRequestRequestTypeDef
-):
-    pass
-
-StartCompositionResponseTypeDef = TypedDict(
-    "StartCompositionResponseTypeDef",
-    {
-        "composition": "CompositionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-StopCompositionRequestRequestTypeDef = TypedDict(
-    "StopCompositionRequestRequestTypeDef",
-    {
-        "arn": str,
-    },
-)
-
-_RequiredStorageConfigurationSummaryTypeDef = TypedDict(
-    "_RequiredStorageConfigurationSummaryTypeDef",
-    {
-        "arn": str,
-    },
-)
-_OptionalStorageConfigurationSummaryTypeDef = TypedDict(
-    "_OptionalStorageConfigurationSummaryTypeDef",
-    {
-        "name": str,
-        "s3": "S3StorageConfigurationTypeDef",
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class StorageConfigurationSummaryTypeDef(
-    _RequiredStorageConfigurationSummaryTypeDef, _OptionalStorageConfigurationSummaryTypeDef
-):
-    pass
-
-_RequiredStorageConfigurationTypeDef = TypedDict(
-    "_RequiredStorageConfigurationTypeDef",
-    {
-        "arn": str,
-    },
-)
-_OptionalStorageConfigurationTypeDef = TypedDict(
-    "_OptionalStorageConfigurationTypeDef",
-    {
-        "name": str,
-        "s3": "S3StorageConfigurationTypeDef",
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class StorageConfigurationTypeDef(
-    _RequiredStorageConfigurationTypeDef, _OptionalStorageConfigurationTypeDef
-):
-    pass
-
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tags": Dict[str, str],
-    },
-)
-
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tagKeys": List[str],
-    },
-)
-
-_RequiredUpdateStageRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateStageRequestRequestTypeDef",
-    {
-        "arn": str,
-    },
-)
-_OptionalUpdateStageRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateStageRequestRequestTypeDef",
-    {
-        "name": str,
-        "autoParticipantRecordingConfiguration": "AutoParticipantRecordingConfigurationTypeDef",
-    },
-    total=False,
-)
-
-class UpdateStageRequestRequestTypeDef(
-    _RequiredUpdateStageRequestRequestTypeDef, _OptionalUpdateStageRequestRequestTypeDef
-):
-    pass
-
-UpdateStageResponseTypeDef = TypedDict(
-    "UpdateStageResponseTypeDef",
-    {
-        "stage": "StageTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-VideoTypeDef = TypedDict(
-    "VideoTypeDef",
-    {
-        "width": int,
-        "height": int,
-        "framerate": float,
-        "bitrate": int,
-    },
-    total=False,
-)
+class StartCompositionRequestTypeDef(TypedDict):
+    stageArn: str
+    destinations: Sequence[DestinationConfigurationUnionTypeDef]
+    idempotencyToken: NotRequired[str]
+    layout: NotRequired[LayoutConfigurationTypeDef]
+    tags: NotRequired[Mapping[str, str]]

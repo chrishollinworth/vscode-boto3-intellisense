@@ -1,21 +1,24 @@
 """
 Type annotations for mediapackage service client paginators.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediapackage/paginators.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediapackage/paginators/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
 
-    from mypy_boto3_mediapackage import MediaPackageClient
+    from mypy_boto3_mediapackage.client import MediaPackageClient
     from mypy_boto3_mediapackage.paginator import (
         ListChannelsPaginator,
         ListHarvestJobsPaginator,
         ListOriginEndpointsPaginator,
     )
 
-    client: MediaPackageClient = boto3.client("mediapackage")
+    session = Session()
+    client: MediaPackageClient = session.client("mediapackage")
 
     list_channels_paginator: ListChannelsPaginator = client.get_paginator("list_channels")
     list_harvest_jobs_paginator: ListHarvestJobsPaginator = client.get_paginator("list_harvest_jobs")
@@ -23,61 +26,79 @@ Usage::
     ```
 """
 
-from typing import Iterator
+from __future__ import annotations
 
-from botocore.paginate import Paginator as Boto3Paginator
+import sys
+from typing import TYPE_CHECKING
+
+from botocore.paginate import PageIterator, Paginator
 
 from .type_defs import (
+    ListChannelsRequestPaginateTypeDef,
     ListChannelsResponseTypeDef,
+    ListHarvestJobsRequestPaginateTypeDef,
     ListHarvestJobsResponseTypeDef,
+    ListOriginEndpointsRequestPaginateTypeDef,
     ListOriginEndpointsResponseTypeDef,
-    PaginatorConfigTypeDef,
 )
+
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = ("ListChannelsPaginator", "ListHarvestJobsPaginator", "ListOriginEndpointsPaginator")
 
-class ListChannelsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediapackage.html#MediaPackage.Paginator.ListChannels)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediapackage/paginators.html#listchannelspaginator)
-    """
+if TYPE_CHECKING:
+    _ListChannelsPaginatorBase = Paginator[ListChannelsResponseTypeDef]
+else:
+    _ListChannelsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListChannelsResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediapackage.html#MediaPackage.Paginator.ListChannels.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediapackage/paginators.html#listchannelspaginator)
-        """
-
-class ListHarvestJobsPaginator(Boto3Paginator):
+class ListChannelsPaginator(_ListChannelsPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediapackage.html#MediaPackage.Paginator.ListHarvestJobs)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediapackage/paginators.html#listharvestjobspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediapackage/paginator/ListChannels.html#MediaPackage.Paginator.ListChannels)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediapackage/paginators/#listchannelspaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        IncludeChannelId: str = None,
-        IncludeStatus: str = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListHarvestJobsResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListChannelsRequestPaginateTypeDef]
+    ) -> PageIterator[ListChannelsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediapackage.html#MediaPackage.Paginator.ListHarvestJobs.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediapackage/paginators.html#listharvestjobspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediapackage/paginator/ListChannels.html#MediaPackage.Paginator.ListChannels.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediapackage/paginators/#listchannelspaginator)
         """
 
-class ListOriginEndpointsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediapackage.html#MediaPackage.Paginator.ListOriginEndpoints)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediapackage/paginators.html#listoriginendpointspaginator)
-    """
+if TYPE_CHECKING:
+    _ListHarvestJobsPaginatorBase = Paginator[ListHarvestJobsResponseTypeDef]
+else:
+    _ListHarvestJobsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, ChannelId: str = None, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListOriginEndpointsResponseTypeDef]:
+class ListHarvestJobsPaginator(_ListHarvestJobsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediapackage/paginator/ListHarvestJobs.html#MediaPackage.Paginator.ListHarvestJobs)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediapackage/paginators/#listharvestjobspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListHarvestJobsRequestPaginateTypeDef]
+    ) -> PageIterator[ListHarvestJobsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediapackage.html#MediaPackage.Paginator.ListOriginEndpoints.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediapackage/paginators.html#listoriginendpointspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediapackage/paginator/ListHarvestJobs.html#MediaPackage.Paginator.ListHarvestJobs.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediapackage/paginators/#listharvestjobspaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListOriginEndpointsPaginatorBase = Paginator[ListOriginEndpointsResponseTypeDef]
+else:
+    _ListOriginEndpointsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListOriginEndpointsPaginator(_ListOriginEndpointsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediapackage/paginator/ListOriginEndpoints.html#MediaPackage.Paginator.ListOriginEndpoints)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediapackage/paginators/#listoriginendpointspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListOriginEndpointsRequestPaginateTypeDef]
+    ) -> PageIterator[ListOriginEndpointsResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediapackage/paginator/ListOriginEndpoints.html#MediaPackage.Paginator.ListOriginEndpoints.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediapackage/paginators/#listoriginendpointspaginator)
         """

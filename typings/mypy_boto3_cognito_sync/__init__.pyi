@@ -1,19 +1,21 @@
 """
 Main interface for cognito-sync service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cognito_sync/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_cognito_sync import (
         Client,
         CognitoSyncClient,
     )
 
-    session = boto3.Session()
-
-    client: CognitoSyncClient = boto3.client("cognito-sync")
-    session_client: CognitoSyncClient = session.client("cognito-sync")
+    session = Session()
+    client: CognitoSyncClient = session.client("cognito-sync")
     ```
 """
 

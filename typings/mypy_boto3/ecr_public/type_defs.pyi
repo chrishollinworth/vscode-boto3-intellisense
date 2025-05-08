@@ -1,20 +1,24 @@
 """
 Type annotations for ecr-public service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecr_public/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ecr_public/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_ecr_public.type_defs import AuthorizationDataTypeDef
 
-    data: AuthorizationDataTypeDef = {...}
+    data: AuthorizationDataTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import IO, Any, Dict, List, Union
+from typing import IO, Any, Union
 
 from botocore.response import StreamingBody
 
@@ -25,56 +29,67 @@ from .literals import (
     RegistryAliasStatusType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Sequence
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List, Sequence
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
     "AuthorizationDataTypeDef",
-    "BatchCheckLayerAvailabilityRequestRequestTypeDef",
+    "BatchCheckLayerAvailabilityRequestTypeDef",
     "BatchCheckLayerAvailabilityResponseTypeDef",
-    "BatchDeleteImageRequestRequestTypeDef",
+    "BatchDeleteImageRequestTypeDef",
     "BatchDeleteImageResponseTypeDef",
-    "CompleteLayerUploadRequestRequestTypeDef",
+    "BlobTypeDef",
+    "CompleteLayerUploadRequestTypeDef",
     "CompleteLayerUploadResponseTypeDef",
-    "CreateRepositoryRequestRequestTypeDef",
+    "CreateRepositoryRequestTypeDef",
     "CreateRepositoryResponseTypeDef",
-    "DeleteRepositoryPolicyRequestRequestTypeDef",
+    "DeleteRepositoryPolicyRequestTypeDef",
     "DeleteRepositoryPolicyResponseTypeDef",
-    "DeleteRepositoryRequestRequestTypeDef",
+    "DeleteRepositoryRequestTypeDef",
     "DeleteRepositoryResponseTypeDef",
-    "DescribeImageTagsRequestRequestTypeDef",
+    "DescribeImageTagsRequestPaginateTypeDef",
+    "DescribeImageTagsRequestTypeDef",
     "DescribeImageTagsResponseTypeDef",
-    "DescribeImagesRequestRequestTypeDef",
+    "DescribeImagesRequestPaginateTypeDef",
+    "DescribeImagesRequestTypeDef",
     "DescribeImagesResponseTypeDef",
-    "DescribeRegistriesRequestRequestTypeDef",
+    "DescribeRegistriesRequestPaginateTypeDef",
+    "DescribeRegistriesRequestTypeDef",
     "DescribeRegistriesResponseTypeDef",
-    "DescribeRepositoriesRequestRequestTypeDef",
+    "DescribeRepositoriesRequestPaginateTypeDef",
+    "DescribeRepositoriesRequestTypeDef",
     "DescribeRepositoriesResponseTypeDef",
     "GetAuthorizationTokenResponseTypeDef",
     "GetRegistryCatalogDataResponseTypeDef",
-    "GetRepositoryCatalogDataRequestRequestTypeDef",
+    "GetRepositoryCatalogDataRequestTypeDef",
     "GetRepositoryCatalogDataResponseTypeDef",
-    "GetRepositoryPolicyRequestRequestTypeDef",
+    "GetRepositoryPolicyRequestTypeDef",
     "GetRepositoryPolicyResponseTypeDef",
     "ImageDetailTypeDef",
     "ImageFailureTypeDef",
     "ImageIdentifierTypeDef",
     "ImageTagDetailTypeDef",
     "ImageTypeDef",
-    "InitiateLayerUploadRequestRequestTypeDef",
+    "InitiateLayerUploadRequestTypeDef",
     "InitiateLayerUploadResponseTypeDef",
     "LayerFailureTypeDef",
     "LayerTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "PaginatorConfigTypeDef",
-    "PutImageRequestRequestTypeDef",
+    "PutImageRequestTypeDef",
     "PutImageResponseTypeDef",
-    "PutRegistryCatalogDataRequestRequestTypeDef",
+    "PutRegistryCatalogDataRequestTypeDef",
     "PutRegistryCatalogDataResponseTypeDef",
-    "PutRepositoryCatalogDataRequestRequestTypeDef",
+    "PutRepositoryCatalogDataRequestTypeDef",
     "PutRepositoryCatalogDataResponseTypeDef",
     "ReferencedImageDetailTypeDef",
     "RegistryAliasTypeDef",
@@ -84,761 +99,351 @@ __all__ = (
     "RepositoryCatalogDataTypeDef",
     "RepositoryTypeDef",
     "ResponseMetadataTypeDef",
-    "SetRepositoryPolicyRequestRequestTypeDef",
+    "SetRepositoryPolicyRequestTypeDef",
     "SetRepositoryPolicyResponseTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
     "TagTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UploadLayerPartRequestRequestTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UploadLayerPartRequestTypeDef",
     "UploadLayerPartResponseTypeDef",
 )
 
-AuthorizationDataTypeDef = TypedDict(
-    "AuthorizationDataTypeDef",
-    {
-        "authorizationToken": str,
-        "expiresAt": datetime,
-    },
-    total=False,
-)
-
-_RequiredBatchCheckLayerAvailabilityRequestRequestTypeDef = TypedDict(
-    "_RequiredBatchCheckLayerAvailabilityRequestRequestTypeDef",
-    {
-        "repositoryName": str,
-        "layerDigests": List[str],
-    },
-)
-_OptionalBatchCheckLayerAvailabilityRequestRequestTypeDef = TypedDict(
-    "_OptionalBatchCheckLayerAvailabilityRequestRequestTypeDef",
-    {
-        "registryId": str,
-    },
-    total=False,
-)
-
-class BatchCheckLayerAvailabilityRequestRequestTypeDef(
-    _RequiredBatchCheckLayerAvailabilityRequestRequestTypeDef,
-    _OptionalBatchCheckLayerAvailabilityRequestRequestTypeDef,
-):
-    pass
-
-BatchCheckLayerAvailabilityResponseTypeDef = TypedDict(
-    "BatchCheckLayerAvailabilityResponseTypeDef",
-    {
-        "layers": List["LayerTypeDef"],
-        "failures": List["LayerFailureTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredBatchDeleteImageRequestRequestTypeDef = TypedDict(
-    "_RequiredBatchDeleteImageRequestRequestTypeDef",
-    {
-        "repositoryName": str,
-        "imageIds": List["ImageIdentifierTypeDef"],
-    },
-)
-_OptionalBatchDeleteImageRequestRequestTypeDef = TypedDict(
-    "_OptionalBatchDeleteImageRequestRequestTypeDef",
-    {
-        "registryId": str,
-    },
-    total=False,
-)
-
-class BatchDeleteImageRequestRequestTypeDef(
-    _RequiredBatchDeleteImageRequestRequestTypeDef, _OptionalBatchDeleteImageRequestRequestTypeDef
-):
-    pass
-
-BatchDeleteImageResponseTypeDef = TypedDict(
-    "BatchDeleteImageResponseTypeDef",
-    {
-        "imageIds": List["ImageIdentifierTypeDef"],
-        "failures": List["ImageFailureTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCompleteLayerUploadRequestRequestTypeDef = TypedDict(
-    "_RequiredCompleteLayerUploadRequestRequestTypeDef",
-    {
-        "repositoryName": str,
-        "uploadId": str,
-        "layerDigests": List[str],
-    },
-)
-_OptionalCompleteLayerUploadRequestRequestTypeDef = TypedDict(
-    "_OptionalCompleteLayerUploadRequestRequestTypeDef",
-    {
-        "registryId": str,
-    },
-    total=False,
-)
-
-class CompleteLayerUploadRequestRequestTypeDef(
-    _RequiredCompleteLayerUploadRequestRequestTypeDef,
-    _OptionalCompleteLayerUploadRequestRequestTypeDef,
-):
-    pass
-
-CompleteLayerUploadResponseTypeDef = TypedDict(
-    "CompleteLayerUploadResponseTypeDef",
-    {
-        "registryId": str,
-        "repositoryName": str,
-        "uploadId": str,
-        "layerDigest": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateRepositoryRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateRepositoryRequestRequestTypeDef",
-    {
-        "repositoryName": str,
-    },
-)
-_OptionalCreateRepositoryRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateRepositoryRequestRequestTypeDef",
-    {
-        "catalogData": "RepositoryCatalogDataInputTypeDef",
-        "tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateRepositoryRequestRequestTypeDef(
-    _RequiredCreateRepositoryRequestRequestTypeDef, _OptionalCreateRepositoryRequestRequestTypeDef
-):
-    pass
-
-CreateRepositoryResponseTypeDef = TypedDict(
-    "CreateRepositoryResponseTypeDef",
-    {
-        "repository": "RepositoryTypeDef",
-        "catalogData": "RepositoryCatalogDataTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDeleteRepositoryPolicyRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteRepositoryPolicyRequestRequestTypeDef",
-    {
-        "repositoryName": str,
-    },
-)
-_OptionalDeleteRepositoryPolicyRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteRepositoryPolicyRequestRequestTypeDef",
-    {
-        "registryId": str,
-    },
-    total=False,
-)
-
-class DeleteRepositoryPolicyRequestRequestTypeDef(
-    _RequiredDeleteRepositoryPolicyRequestRequestTypeDef,
-    _OptionalDeleteRepositoryPolicyRequestRequestTypeDef,
-):
-    pass
-
-DeleteRepositoryPolicyResponseTypeDef = TypedDict(
-    "DeleteRepositoryPolicyResponseTypeDef",
-    {
-        "registryId": str,
-        "repositoryName": str,
-        "policyText": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDeleteRepositoryRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteRepositoryRequestRequestTypeDef",
-    {
-        "repositoryName": str,
-    },
-)
-_OptionalDeleteRepositoryRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteRepositoryRequestRequestTypeDef",
-    {
-        "registryId": str,
-        "force": bool,
-    },
-    total=False,
-)
-
-class DeleteRepositoryRequestRequestTypeDef(
-    _RequiredDeleteRepositoryRequestRequestTypeDef, _OptionalDeleteRepositoryRequestRequestTypeDef
-):
-    pass
-
-DeleteRepositoryResponseTypeDef = TypedDict(
-    "DeleteRepositoryResponseTypeDef",
-    {
-        "repository": "RepositoryTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribeImageTagsRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeImageTagsRequestRequestTypeDef",
-    {
-        "repositoryName": str,
-    },
-)
-_OptionalDescribeImageTagsRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeImageTagsRequestRequestTypeDef",
-    {
-        "registryId": str,
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-class DescribeImageTagsRequestRequestTypeDef(
-    _RequiredDescribeImageTagsRequestRequestTypeDef, _OptionalDescribeImageTagsRequestRequestTypeDef
-):
-    pass
-
-DescribeImageTagsResponseTypeDef = TypedDict(
-    "DescribeImageTagsResponseTypeDef",
-    {
-        "imageTagDetails": List["ImageTagDetailTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribeImagesRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeImagesRequestRequestTypeDef",
-    {
-        "repositoryName": str,
-    },
-)
-_OptionalDescribeImagesRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeImagesRequestRequestTypeDef",
-    {
-        "registryId": str,
-        "imageIds": List["ImageIdentifierTypeDef"],
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-class DescribeImagesRequestRequestTypeDef(
-    _RequiredDescribeImagesRequestRequestTypeDef, _OptionalDescribeImagesRequestRequestTypeDef
-):
-    pass
-
-DescribeImagesResponseTypeDef = TypedDict(
-    "DescribeImagesResponseTypeDef",
-    {
-        "imageDetails": List["ImageDetailTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeRegistriesRequestRequestTypeDef = TypedDict(
-    "DescribeRegistriesRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-DescribeRegistriesResponseTypeDef = TypedDict(
-    "DescribeRegistriesResponseTypeDef",
-    {
-        "registries": List["RegistryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeRepositoriesRequestRequestTypeDef = TypedDict(
-    "DescribeRepositoriesRequestRequestTypeDef",
-    {
-        "registryId": str,
-        "repositoryNames": List[str],
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-DescribeRepositoriesResponseTypeDef = TypedDict(
-    "DescribeRepositoriesResponseTypeDef",
-    {
-        "repositories": List["RepositoryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetAuthorizationTokenResponseTypeDef = TypedDict(
-    "GetAuthorizationTokenResponseTypeDef",
-    {
-        "authorizationData": "AuthorizationDataTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetRegistryCatalogDataResponseTypeDef = TypedDict(
-    "GetRegistryCatalogDataResponseTypeDef",
-    {
-        "registryCatalogData": "RegistryCatalogDataTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetRepositoryCatalogDataRequestRequestTypeDef = TypedDict(
-    "_RequiredGetRepositoryCatalogDataRequestRequestTypeDef",
-    {
-        "repositoryName": str,
-    },
-)
-_OptionalGetRepositoryCatalogDataRequestRequestTypeDef = TypedDict(
-    "_OptionalGetRepositoryCatalogDataRequestRequestTypeDef",
-    {
-        "registryId": str,
-    },
-    total=False,
-)
-
-class GetRepositoryCatalogDataRequestRequestTypeDef(
-    _RequiredGetRepositoryCatalogDataRequestRequestTypeDef,
-    _OptionalGetRepositoryCatalogDataRequestRequestTypeDef,
-):
-    pass
-
-GetRepositoryCatalogDataResponseTypeDef = TypedDict(
-    "GetRepositoryCatalogDataResponseTypeDef",
-    {
-        "catalogData": "RepositoryCatalogDataTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetRepositoryPolicyRequestRequestTypeDef = TypedDict(
-    "_RequiredGetRepositoryPolicyRequestRequestTypeDef",
-    {
-        "repositoryName": str,
-    },
-)
-_OptionalGetRepositoryPolicyRequestRequestTypeDef = TypedDict(
-    "_OptionalGetRepositoryPolicyRequestRequestTypeDef",
-    {
-        "registryId": str,
-    },
-    total=False,
-)
-
-class GetRepositoryPolicyRequestRequestTypeDef(
-    _RequiredGetRepositoryPolicyRequestRequestTypeDef,
-    _OptionalGetRepositoryPolicyRequestRequestTypeDef,
-):
-    pass
-
-GetRepositoryPolicyResponseTypeDef = TypedDict(
-    "GetRepositoryPolicyResponseTypeDef",
-    {
-        "registryId": str,
-        "repositoryName": str,
-        "policyText": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ImageDetailTypeDef = TypedDict(
-    "ImageDetailTypeDef",
-    {
-        "registryId": str,
-        "repositoryName": str,
-        "imageDigest": str,
-        "imageTags": List[str],
-        "imageSizeInBytes": int,
-        "imagePushedAt": datetime,
-        "imageManifestMediaType": str,
-        "artifactMediaType": str,
-    },
-    total=False,
-)
-
-ImageFailureTypeDef = TypedDict(
-    "ImageFailureTypeDef",
-    {
-        "imageId": "ImageIdentifierTypeDef",
-        "failureCode": ImageFailureCodeType,
-        "failureReason": str,
-    },
-    total=False,
-)
-
-ImageIdentifierTypeDef = TypedDict(
-    "ImageIdentifierTypeDef",
-    {
-        "imageDigest": str,
-        "imageTag": str,
-    },
-    total=False,
-)
-
-ImageTagDetailTypeDef = TypedDict(
-    "ImageTagDetailTypeDef",
-    {
-        "imageTag": str,
-        "createdAt": datetime,
-        "imageDetail": "ReferencedImageDetailTypeDef",
-    },
-    total=False,
-)
-
-ImageTypeDef = TypedDict(
-    "ImageTypeDef",
-    {
-        "registryId": str,
-        "repositoryName": str,
-        "imageId": "ImageIdentifierTypeDef",
-        "imageManifest": str,
-        "imageManifestMediaType": str,
-    },
-    total=False,
-)
-
-_RequiredInitiateLayerUploadRequestRequestTypeDef = TypedDict(
-    "_RequiredInitiateLayerUploadRequestRequestTypeDef",
-    {
-        "repositoryName": str,
-    },
-)
-_OptionalInitiateLayerUploadRequestRequestTypeDef = TypedDict(
-    "_OptionalInitiateLayerUploadRequestRequestTypeDef",
-    {
-        "registryId": str,
-    },
-    total=False,
-)
-
-class InitiateLayerUploadRequestRequestTypeDef(
-    _RequiredInitiateLayerUploadRequestRequestTypeDef,
-    _OptionalInitiateLayerUploadRequestRequestTypeDef,
-):
-    pass
-
-InitiateLayerUploadResponseTypeDef = TypedDict(
-    "InitiateLayerUploadResponseTypeDef",
-    {
-        "uploadId": str,
-        "partSize": int,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-LayerFailureTypeDef = TypedDict(
-    "LayerFailureTypeDef",
-    {
-        "layerDigest": str,
-        "failureCode": LayerFailureCodeType,
-        "failureReason": str,
-    },
-    total=False,
-)
-
-LayerTypeDef = TypedDict(
-    "LayerTypeDef",
-    {
-        "layerDigest": str,
-        "layerAvailability": LayerAvailabilityType,
-        "layerSize": int,
-        "mediaType": str,
-    },
-    total=False,
-)
-
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-    },
-)
-
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "tags": List["TagTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-_RequiredPutImageRequestRequestTypeDef = TypedDict(
-    "_RequiredPutImageRequestRequestTypeDef",
-    {
-        "repositoryName": str,
-        "imageManifest": str,
-    },
-)
-_OptionalPutImageRequestRequestTypeDef = TypedDict(
-    "_OptionalPutImageRequestRequestTypeDef",
-    {
-        "registryId": str,
-        "imageManifestMediaType": str,
-        "imageTag": str,
-        "imageDigest": str,
-    },
-    total=False,
-)
-
-class PutImageRequestRequestTypeDef(
-    _RequiredPutImageRequestRequestTypeDef, _OptionalPutImageRequestRequestTypeDef
-):
-    pass
-
-PutImageResponseTypeDef = TypedDict(
-    "PutImageResponseTypeDef",
-    {
-        "image": "ImageTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-PutRegistryCatalogDataRequestRequestTypeDef = TypedDict(
-    "PutRegistryCatalogDataRequestRequestTypeDef",
-    {
-        "displayName": str,
-    },
-    total=False,
-)
-
-PutRegistryCatalogDataResponseTypeDef = TypedDict(
-    "PutRegistryCatalogDataResponseTypeDef",
-    {
-        "registryCatalogData": "RegistryCatalogDataTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredPutRepositoryCatalogDataRequestRequestTypeDef = TypedDict(
-    "_RequiredPutRepositoryCatalogDataRequestRequestTypeDef",
-    {
-        "repositoryName": str,
-        "catalogData": "RepositoryCatalogDataInputTypeDef",
-    },
-)
-_OptionalPutRepositoryCatalogDataRequestRequestTypeDef = TypedDict(
-    "_OptionalPutRepositoryCatalogDataRequestRequestTypeDef",
-    {
-        "registryId": str,
-    },
-    total=False,
-)
-
-class PutRepositoryCatalogDataRequestRequestTypeDef(
-    _RequiredPutRepositoryCatalogDataRequestRequestTypeDef,
-    _OptionalPutRepositoryCatalogDataRequestRequestTypeDef,
-):
-    pass
-
-PutRepositoryCatalogDataResponseTypeDef = TypedDict(
-    "PutRepositoryCatalogDataResponseTypeDef",
-    {
-        "catalogData": "RepositoryCatalogDataTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ReferencedImageDetailTypeDef = TypedDict(
-    "ReferencedImageDetailTypeDef",
-    {
-        "imageDigest": str,
-        "imageSizeInBytes": int,
-        "imagePushedAt": datetime,
-        "imageManifestMediaType": str,
-        "artifactMediaType": str,
-    },
-    total=False,
-)
-
-RegistryAliasTypeDef = TypedDict(
-    "RegistryAliasTypeDef",
-    {
-        "name": str,
-        "status": RegistryAliasStatusType,
-        "primaryRegistryAlias": bool,
-        "defaultRegistryAlias": bool,
-    },
-)
-
-RegistryCatalogDataTypeDef = TypedDict(
-    "RegistryCatalogDataTypeDef",
-    {
-        "displayName": str,
-    },
-    total=False,
-)
-
-RegistryTypeDef = TypedDict(
-    "RegistryTypeDef",
-    {
-        "registryId": str,
-        "registryArn": str,
-        "registryUri": str,
-        "verified": bool,
-        "aliases": List["RegistryAliasTypeDef"],
-    },
-)
-
-RepositoryCatalogDataInputTypeDef = TypedDict(
-    "RepositoryCatalogDataInputTypeDef",
-    {
-        "description": str,
-        "architectures": List[str],
-        "operatingSystems": List[str],
-        "logoImageBlob": Union[bytes, IO[bytes], StreamingBody],
-        "aboutText": str,
-        "usageText": str,
-    },
-    total=False,
-)
-
-RepositoryCatalogDataTypeDef = TypedDict(
-    "RepositoryCatalogDataTypeDef",
-    {
-        "description": str,
-        "architectures": List[str],
-        "operatingSystems": List[str],
-        "logoUrl": str,
-        "aboutText": str,
-        "usageText": str,
-        "marketplaceCertified": bool,
-    },
-    total=False,
-)
-
-RepositoryTypeDef = TypedDict(
-    "RepositoryTypeDef",
-    {
-        "repositoryArn": str,
-        "registryId": str,
-        "repositoryName": str,
-        "repositoryUri": str,
-        "createdAt": datetime,
-    },
-    total=False,
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-_RequiredSetRepositoryPolicyRequestRequestTypeDef = TypedDict(
-    "_RequiredSetRepositoryPolicyRequestRequestTypeDef",
-    {
-        "repositoryName": str,
-        "policyText": str,
-    },
-)
-_OptionalSetRepositoryPolicyRequestRequestTypeDef = TypedDict(
-    "_OptionalSetRepositoryPolicyRequestRequestTypeDef",
-    {
-        "registryId": str,
-        "force": bool,
-    },
-    total=False,
-)
-
-class SetRepositoryPolicyRequestRequestTypeDef(
-    _RequiredSetRepositoryPolicyRequestRequestTypeDef,
-    _OptionalSetRepositoryPolicyRequestRequestTypeDef,
-):
-    pass
-
-SetRepositoryPolicyResponseTypeDef = TypedDict(
-    "SetRepositoryPolicyResponseTypeDef",
-    {
-        "registryId": str,
-        "repositoryName": str,
-        "policyText": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tags": List["TagTypeDef"],
-    },
-)
-
-TagTypeDef = TypedDict(
-    "TagTypeDef",
-    {
-        "Key": str,
-        "Value": str,
-    },
-    total=False,
-)
-
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tagKeys": List[str],
-    },
-)
-
-_RequiredUploadLayerPartRequestRequestTypeDef = TypedDict(
-    "_RequiredUploadLayerPartRequestRequestTypeDef",
-    {
-        "repositoryName": str,
-        "uploadId": str,
-        "partFirstByte": int,
-        "partLastByte": int,
-        "layerPartBlob": Union[bytes, IO[bytes], StreamingBody],
-    },
-)
-_OptionalUploadLayerPartRequestRequestTypeDef = TypedDict(
-    "_OptionalUploadLayerPartRequestRequestTypeDef",
-    {
-        "registryId": str,
-    },
-    total=False,
-)
-
-class UploadLayerPartRequestRequestTypeDef(
-    _RequiredUploadLayerPartRequestRequestTypeDef, _OptionalUploadLayerPartRequestRequestTypeDef
-):
-    pass
-
-UploadLayerPartResponseTypeDef = TypedDict(
-    "UploadLayerPartResponseTypeDef",
-    {
-        "registryId": str,
-        "repositoryName": str,
-        "uploadId": str,
-        "lastByteReceived": int,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class AuthorizationDataTypeDef(TypedDict):
+    authorizationToken: NotRequired[str]
+    expiresAt: NotRequired[datetime]
+
+class BatchCheckLayerAvailabilityRequestTypeDef(TypedDict):
+    repositoryName: str
+    layerDigests: Sequence[str]
+    registryId: NotRequired[str]
+
+class LayerFailureTypeDef(TypedDict):
+    layerDigest: NotRequired[str]
+    failureCode: NotRequired[LayerFailureCodeType]
+    failureReason: NotRequired[str]
+
+class LayerTypeDef(TypedDict):
+    layerDigest: NotRequired[str]
+    layerAvailability: NotRequired[LayerAvailabilityType]
+    layerSize: NotRequired[int]
+    mediaType: NotRequired[str]
+
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
+
+class ImageIdentifierTypeDef(TypedDict):
+    imageDigest: NotRequired[str]
+    imageTag: NotRequired[str]
+
+BlobTypeDef = Union[str, bytes, IO[Any], StreamingBody]
+
+class CompleteLayerUploadRequestTypeDef(TypedDict):
+    repositoryName: str
+    uploadId: str
+    layerDigests: Sequence[str]
+    registryId: NotRequired[str]
+
+class TagTypeDef(TypedDict):
+    Key: NotRequired[str]
+    Value: NotRequired[str]
+
+class RepositoryCatalogDataTypeDef(TypedDict):
+    description: NotRequired[str]
+    architectures: NotRequired[List[str]]
+    operatingSystems: NotRequired[List[str]]
+    logoUrl: NotRequired[str]
+    aboutText: NotRequired[str]
+    usageText: NotRequired[str]
+    marketplaceCertified: NotRequired[bool]
+
+class RepositoryTypeDef(TypedDict):
+    repositoryArn: NotRequired[str]
+    registryId: NotRequired[str]
+    repositoryName: NotRequired[str]
+    repositoryUri: NotRequired[str]
+    createdAt: NotRequired[datetime]
+
+class DeleteRepositoryPolicyRequestTypeDef(TypedDict):
+    repositoryName: str
+    registryId: NotRequired[str]
+
+class DeleteRepositoryRequestTypeDef(TypedDict):
+    repositoryName: str
+    registryId: NotRequired[str]
+    force: NotRequired[bool]
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class DescribeImageTagsRequestTypeDef(TypedDict):
+    repositoryName: str
+    registryId: NotRequired[str]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class ImageDetailTypeDef(TypedDict):
+    registryId: NotRequired[str]
+    repositoryName: NotRequired[str]
+    imageDigest: NotRequired[str]
+    imageTags: NotRequired[List[str]]
+    imageSizeInBytes: NotRequired[int]
+    imagePushedAt: NotRequired[datetime]
+    imageManifestMediaType: NotRequired[str]
+    artifactMediaType: NotRequired[str]
+
+class DescribeRegistriesRequestTypeDef(TypedDict):
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class DescribeRepositoriesRequestTypeDef(TypedDict):
+    registryId: NotRequired[str]
+    repositoryNames: NotRequired[Sequence[str]]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class RegistryCatalogDataTypeDef(TypedDict):
+    displayName: NotRequired[str]
+
+class GetRepositoryCatalogDataRequestTypeDef(TypedDict):
+    repositoryName: str
+    registryId: NotRequired[str]
+
+class GetRepositoryPolicyRequestTypeDef(TypedDict):
+    repositoryName: str
+    registryId: NotRequired[str]
+
+class ReferencedImageDetailTypeDef(TypedDict):
+    imageDigest: NotRequired[str]
+    imageSizeInBytes: NotRequired[int]
+    imagePushedAt: NotRequired[datetime]
+    imageManifestMediaType: NotRequired[str]
+    artifactMediaType: NotRequired[str]
+
+class InitiateLayerUploadRequestTypeDef(TypedDict):
+    repositoryName: str
+    registryId: NotRequired[str]
+
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+
+class PutImageRequestTypeDef(TypedDict):
+    repositoryName: str
+    imageManifest: str
+    registryId: NotRequired[str]
+    imageManifestMediaType: NotRequired[str]
+    imageTag: NotRequired[str]
+    imageDigest: NotRequired[str]
+
+class PutRegistryCatalogDataRequestTypeDef(TypedDict):
+    displayName: NotRequired[str]
+
+class RegistryAliasTypeDef(TypedDict):
+    name: str
+    status: RegistryAliasStatusType
+    primaryRegistryAlias: bool
+    defaultRegistryAlias: bool
+
+class SetRepositoryPolicyRequestTypeDef(TypedDict):
+    repositoryName: str
+    policyText: str
+    registryId: NotRequired[str]
+    force: NotRequired[bool]
+
+class UntagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tagKeys: Sequence[str]
+
+class BatchCheckLayerAvailabilityResponseTypeDef(TypedDict):
+    layers: List[LayerTypeDef]
+    failures: List[LayerFailureTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CompleteLayerUploadResponseTypeDef(TypedDict):
+    registryId: str
+    repositoryName: str
+    uploadId: str
+    layerDigest: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteRepositoryPolicyResponseTypeDef(TypedDict):
+    registryId: str
+    repositoryName: str
+    policyText: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetAuthorizationTokenResponseTypeDef(TypedDict):
+    authorizationData: AuthorizationDataTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetRepositoryPolicyResponseTypeDef(TypedDict):
+    registryId: str
+    repositoryName: str
+    policyText: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class InitiateLayerUploadResponseTypeDef(TypedDict):
+    uploadId: str
+    partSize: int
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class SetRepositoryPolicyResponseTypeDef(TypedDict):
+    registryId: str
+    repositoryName: str
+    policyText: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UploadLayerPartResponseTypeDef(TypedDict):
+    registryId: str
+    repositoryName: str
+    uploadId: str
+    lastByteReceived: int
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class BatchDeleteImageRequestTypeDef(TypedDict):
+    repositoryName: str
+    imageIds: Sequence[ImageIdentifierTypeDef]
+    registryId: NotRequired[str]
+
+class DescribeImagesRequestTypeDef(TypedDict):
+    repositoryName: str
+    registryId: NotRequired[str]
+    imageIds: NotRequired[Sequence[ImageIdentifierTypeDef]]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class ImageFailureTypeDef(TypedDict):
+    imageId: NotRequired[ImageIdentifierTypeDef]
+    failureCode: NotRequired[ImageFailureCodeType]
+    failureReason: NotRequired[str]
+
+class ImageTypeDef(TypedDict):
+    registryId: NotRequired[str]
+    repositoryName: NotRequired[str]
+    imageId: NotRequired[ImageIdentifierTypeDef]
+    imageManifest: NotRequired[str]
+    imageManifestMediaType: NotRequired[str]
+
+class RepositoryCatalogDataInputTypeDef(TypedDict):
+    description: NotRequired[str]
+    architectures: NotRequired[Sequence[str]]
+    operatingSystems: NotRequired[Sequence[str]]
+    logoImageBlob: NotRequired[BlobTypeDef]
+    aboutText: NotRequired[str]
+    usageText: NotRequired[str]
+
+class UploadLayerPartRequestTypeDef(TypedDict):
+    repositoryName: str
+    uploadId: str
+    partFirstByte: int
+    partLastByte: int
+    layerPartBlob: BlobTypeDef
+    registryId: NotRequired[str]
+
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    tags: List[TagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class TagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tags: Sequence[TagTypeDef]
+
+class GetRepositoryCatalogDataResponseTypeDef(TypedDict):
+    catalogData: RepositoryCatalogDataTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutRepositoryCatalogDataResponseTypeDef(TypedDict):
+    catalogData: RepositoryCatalogDataTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateRepositoryResponseTypeDef(TypedDict):
+    repository: RepositoryTypeDef
+    catalogData: RepositoryCatalogDataTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteRepositoryResponseTypeDef(TypedDict):
+    repository: RepositoryTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeRepositoriesResponseTypeDef(TypedDict):
+    repositories: List[RepositoryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class DescribeImageTagsRequestPaginateTypeDef(TypedDict):
+    repositoryName: str
+    registryId: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeImagesRequestPaginateTypeDef(TypedDict):
+    repositoryName: str
+    registryId: NotRequired[str]
+    imageIds: NotRequired[Sequence[ImageIdentifierTypeDef]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeRegistriesRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeRepositoriesRequestPaginateTypeDef(TypedDict):
+    registryId: NotRequired[str]
+    repositoryNames: NotRequired[Sequence[str]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeImagesResponseTypeDef(TypedDict):
+    imageDetails: List[ImageDetailTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class GetRegistryCatalogDataResponseTypeDef(TypedDict):
+    registryCatalogData: RegistryCatalogDataTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutRegistryCatalogDataResponseTypeDef(TypedDict):
+    registryCatalogData: RegistryCatalogDataTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ImageTagDetailTypeDef(TypedDict):
+    imageTag: NotRequired[str]
+    createdAt: NotRequired[datetime]
+    imageDetail: NotRequired[ReferencedImageDetailTypeDef]
+
+class RegistryTypeDef(TypedDict):
+    registryId: str
+    registryArn: str
+    registryUri: str
+    verified: bool
+    aliases: List[RegistryAliasTypeDef]
+
+class BatchDeleteImageResponseTypeDef(TypedDict):
+    imageIds: List[ImageIdentifierTypeDef]
+    failures: List[ImageFailureTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutImageResponseTypeDef(TypedDict):
+    image: ImageTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateRepositoryRequestTypeDef(TypedDict):
+    repositoryName: str
+    catalogData: NotRequired[RepositoryCatalogDataInputTypeDef]
+    tags: NotRequired[Sequence[TagTypeDef]]
+
+class PutRepositoryCatalogDataRequestTypeDef(TypedDict):
+    repositoryName: str
+    catalogData: RepositoryCatalogDataInputTypeDef
+    registryId: NotRequired[str]
+
+class DescribeImageTagsResponseTypeDef(TypedDict):
+    imageTagDetails: List[ImageTagDetailTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class DescribeRegistriesResponseTypeDef(TypedDict):
+    registries: List[RegistryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]

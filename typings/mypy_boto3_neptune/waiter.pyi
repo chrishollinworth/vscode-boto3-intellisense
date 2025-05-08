@@ -1,70 +1,69 @@
 """
 Type annotations for neptune service client waiters.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/waiters.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_neptune/waiters/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
 
-    from mypy_boto3_neptune import NeptuneClient
+    from mypy_boto3_neptune.client import NeptuneClient
     from mypy_boto3_neptune.waiter import (
         DBInstanceAvailableWaiter,
         DBInstanceDeletedWaiter,
     )
 
-    client: NeptuneClient = boto3.client("neptune")
+    session = Session()
+    client: NeptuneClient = session.client("neptune")
 
     db_instance_available_waiter: DBInstanceAvailableWaiter = client.get_waiter("db_instance_available")
     db_instance_deleted_waiter: DBInstanceDeletedWaiter = client.get_waiter("db_instance_deleted")
     ```
 """
 
-from typing import List
+from __future__ import annotations
 
-from botocore.waiter import Waiter as Boto3Waiter
+import sys
 
-from .type_defs import FilterTypeDef, WaiterConfigTypeDef
+from botocore.waiter import Waiter
+
+from .type_defs import (
+    DescribeDBInstancesMessageWaitExtraTypeDef,
+    DescribeDBInstancesMessageWaitTypeDef,
+)
+
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = ("DBInstanceAvailableWaiter", "DBInstanceDeletedWaiter")
 
-class DBInstanceAvailableWaiter(Boto3Waiter):
+class DBInstanceAvailableWaiter(Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/neptune.html#Neptune.Waiter.DBInstanceAvailable)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/waiters.html#dbinstanceavailablewaiter)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/neptune/waiter/DBInstanceAvailable.html#Neptune.Waiter.DBInstanceAvailable)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_neptune/waiters/#dbinstanceavailablewaiter)
     """
-
-    def wait(
-        self,
-        *,
-        DBInstanceIdentifier: str = None,
-        Filters: List["FilterTypeDef"] = None,
-        MaxRecords: int = None,
-        Marker: str = None,
-        WaiterConfig: WaiterConfigTypeDef = None
+    def wait(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeDBInstancesMessageWaitTypeDef]
     ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/neptune.html#Neptune.Waiter.DBInstanceAvailable.wait)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/waiters.html#dbinstanceavailablewaiter)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/neptune/waiter/DBInstanceAvailable.html#Neptune.Waiter.DBInstanceAvailable.wait)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_neptune/waiters/#dbinstanceavailablewaiter)
         """
 
-class DBInstanceDeletedWaiter(Boto3Waiter):
+class DBInstanceDeletedWaiter(Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/neptune.html#Neptune.Waiter.DBInstanceDeleted)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/waiters.html#dbinstancedeletedwaiter)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/neptune/waiter/DBInstanceDeleted.html#Neptune.Waiter.DBInstanceDeleted)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_neptune/waiters/#dbinstancedeletedwaiter)
     """
-
-    def wait(
-        self,
-        *,
-        DBInstanceIdentifier: str = None,
-        Filters: List["FilterTypeDef"] = None,
-        MaxRecords: int = None,
-        Marker: str = None,
-        WaiterConfig: WaiterConfigTypeDef = None
+    def wait(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeDBInstancesMessageWaitExtraTypeDef]
     ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/neptune.html#Neptune.Waiter.DBInstanceDeleted.wait)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptune/waiters.html#dbinstancedeletedwaiter)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/neptune/waiter/DBInstanceDeleted.html#Neptune.Waiter.DBInstanceDeleted.wait)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_neptune/waiters/#dbinstancedeletedwaiter)
         """

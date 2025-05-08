@@ -1,103 +1,70 @@
 """
 Type annotations for kinesis-video-signaling service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesis_video_signaling/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kinesis_video_signaling/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_kinesis_video_signaling.type_defs import GetIceServerConfigRequestRequestTypeDef
+    from mypy_boto3_kinesis_video_signaling.type_defs import GetIceServerConfigRequestTypeDef
 
-    data: GetIceServerConfigRequestRequestTypeDef = {...}
+    data: GetIceServerConfigRequestTypeDef = ...
     ```
 """
 
-import sys
-from typing import Any, Dict, List
+from __future__ import annotations
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+import sys
+
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
-    "GetIceServerConfigRequestRequestTypeDef",
+    "GetIceServerConfigRequestTypeDef",
     "GetIceServerConfigResponseTypeDef",
     "IceServerTypeDef",
     "ResponseMetadataTypeDef",
-    "SendAlexaOfferToMasterRequestRequestTypeDef",
+    "SendAlexaOfferToMasterRequestTypeDef",
     "SendAlexaOfferToMasterResponseTypeDef",
 )
 
-_RequiredGetIceServerConfigRequestRequestTypeDef = TypedDict(
-    "_RequiredGetIceServerConfigRequestRequestTypeDef",
-    {
-        "ChannelARN": str,
-    },
-)
-_OptionalGetIceServerConfigRequestRequestTypeDef = TypedDict(
-    "_OptionalGetIceServerConfigRequestRequestTypeDef",
-    {
-        "ClientId": str,
-        "Service": Literal["TURN"],
-        "Username": str,
-    },
-    total=False,
-)
+class GetIceServerConfigRequestTypeDef(TypedDict):
+    ChannelARN: str
+    ClientId: NotRequired[str]
+    Service: NotRequired[Literal["TURN"]]
+    Username: NotRequired[str]
 
-class GetIceServerConfigRequestRequestTypeDef(
-    _RequiredGetIceServerConfigRequestRequestTypeDef,
-    _OptionalGetIceServerConfigRequestRequestTypeDef,
-):
-    pass
+class IceServerTypeDef(TypedDict):
+    Uris: NotRequired[List[str]]
+    Username: NotRequired[str]
+    Password: NotRequired[str]
+    Ttl: NotRequired[int]
 
-GetIceServerConfigResponseTypeDef = TypedDict(
-    "GetIceServerConfigResponseTypeDef",
-    {
-        "IceServerList": List["IceServerTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-IceServerTypeDef = TypedDict(
-    "IceServerTypeDef",
-    {
-        "Uris": List[str],
-        "Username": str,
-        "Password": str,
-        "Ttl": int,
-    },
-    total=False,
-)
+class SendAlexaOfferToMasterRequestTypeDef(TypedDict):
+    ChannelARN: str
+    SenderClientId: str
+    MessagePayload: str
 
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
+class GetIceServerConfigResponseTypeDef(TypedDict):
+    IceServerList: List[IceServerTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-SendAlexaOfferToMasterRequestRequestTypeDef = TypedDict(
-    "SendAlexaOfferToMasterRequestRequestTypeDef",
-    {
-        "ChannelARN": str,
-        "SenderClientId": str,
-        "MessagePayload": str,
-    },
-)
-
-SendAlexaOfferToMasterResponseTypeDef = TypedDict(
-    "SendAlexaOfferToMasterResponseTypeDef",
-    {
-        "Answer": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class SendAlexaOfferToMasterResponseTypeDef(TypedDict):
+    Answer: str
+    ResponseMetadata: ResponseMetadataTypeDef

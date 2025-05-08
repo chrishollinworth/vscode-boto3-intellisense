@@ -1,25 +1,30 @@
 """
-Type annotations for sms service client.
+Type annotations for sms service Client.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sms/client.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sms/client/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
-    from mypy_boto3_sms import SMSClient
+    from boto3.session import Session
+    from mypy_boto3_sms.client import SMSClient
 
-    client: SMSClient = boto3.client("sms")
+    session = Session()
+    client: SMSClient = session.client("sms")
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from datetime import datetime
-from typing import Any, Dict, List, Type, Union, overload
+from typing import Any, overload
 
 from botocore.client import BaseClient, ClientMeta
+from botocore.errorfactory import BaseClientExceptions
+from botocore.exceptions import ClientError as BotocoreClientError
 
-from .literals import LicenseTypeType, OutputFormatType
 from .paginator import (
     GetConnectorsPaginator,
     GetReplicationJobsPaginator,
@@ -28,47 +33,71 @@ from .paginator import (
     ListAppsPaginator,
 )
 from .type_defs import (
-    AppValidationConfigurationTypeDef,
+    CreateAppRequestTypeDef,
     CreateAppResponseTypeDef,
+    CreateReplicationJobRequestTypeDef,
     CreateReplicationJobResponseTypeDef,
+    DeleteAppLaunchConfigurationRequestTypeDef,
+    DeleteAppReplicationConfigurationRequestTypeDef,
+    DeleteAppRequestTypeDef,
+    DeleteAppValidationConfigurationRequestTypeDef,
+    DeleteReplicationJobRequestTypeDef,
+    DisassociateConnectorRequestTypeDef,
+    GenerateChangeSetRequestTypeDef,
     GenerateChangeSetResponseTypeDef,
+    GenerateTemplateRequestTypeDef,
     GenerateTemplateResponseTypeDef,
+    GetAppLaunchConfigurationRequestTypeDef,
     GetAppLaunchConfigurationResponseTypeDef,
+    GetAppReplicationConfigurationRequestTypeDef,
     GetAppReplicationConfigurationResponseTypeDef,
+    GetAppRequestTypeDef,
     GetAppResponseTypeDef,
+    GetAppValidationConfigurationRequestTypeDef,
     GetAppValidationConfigurationResponseTypeDef,
+    GetAppValidationOutputRequestTypeDef,
     GetAppValidationOutputResponseTypeDef,
+    GetConnectorsRequestTypeDef,
     GetConnectorsResponseTypeDef,
+    GetReplicationJobsRequestTypeDef,
     GetReplicationJobsResponseTypeDef,
+    GetReplicationRunsRequestTypeDef,
     GetReplicationRunsResponseTypeDef,
+    GetServersRequestTypeDef,
     GetServersResponseTypeDef,
+    ImportAppCatalogRequestTypeDef,
+    LaunchAppRequestTypeDef,
+    ListAppsRequestTypeDef,
     ListAppsResponseTypeDef,
-    NotificationContextTypeDef,
-    ServerGroupLaunchConfigurationTypeDef,
-    ServerGroupReplicationConfigurationTypeDef,
-    ServerGroupTypeDef,
-    ServerGroupValidationConfigurationTypeDef,
+    NotifyAppValidationOutputRequestTypeDef,
+    PutAppLaunchConfigurationRequestTypeDef,
+    PutAppReplicationConfigurationRequestTypeDef,
+    PutAppValidationConfigurationRequestTypeDef,
+    StartAppReplicationRequestTypeDef,
+    StartOnDemandAppReplicationRequestTypeDef,
+    StartOnDemandReplicationRunRequestTypeDef,
     StartOnDemandReplicationRunResponseTypeDef,
-    TagTypeDef,
+    StopAppReplicationRequestTypeDef,
+    TerminateAppRequestTypeDef,
+    UpdateAppRequestTypeDef,
     UpdateAppResponseTypeDef,
-    VmServerAddressTypeDef,
+    UpdateReplicationJobRequestTypeDef,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import type as Type
+    from collections.abc import Mapping
 else:
-    from typing_extensions import Literal
+    from typing import Dict, Mapping, Type
+if sys.version_info >= (3, 12):
+    from typing import Literal, Unpack
+else:
+    from typing_extensions import Literal, Unpack
 
 __all__ = ("SMSClient",)
 
-class BotocoreClientError(BaseException):
-    MSG_TEMPLATE: str
-
-    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
-        self.response: Dict[str, Any]
-        self.operation_name: str
-
-class Exceptions:
+class Exceptions(BaseClientExceptions):
     ClientError: Type[BotocoreClientError]
     DryRunOperationException: Type[BotocoreClientError]
     InternalError: Type[BotocoreClientError]
@@ -85,8 +114,8 @@ class Exceptions:
 
 class SMSClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sms.html#SMS.Client)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sms/client.html)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sms.html#SMS.Client)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sms/client/)
     """
 
     meta: ClientMeta
@@ -95,461 +124,417 @@ class SMSClient(BaseClient):
     def exceptions(self) -> Exceptions:
         """
         SMSClient exceptions.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sms.html#SMS.Client)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sms/client/#exceptions)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        Check if an operation can be paginated.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sms.html#SMS.Client.can_paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sms/client.html#can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sms/client/can_paginate.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sms/client/#can_paginate)
         """
 
-    def close(self) -> None:
-        """
-        Closes underlying endpoint connections.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sms.html#SMS.Client.close)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sms/client.html#close)
-        """
-
-    def create_app(
+    def generate_presigned_url(
         self,
-        *,
-        name: str = None,
-        description: str = None,
-        roleName: str = None,
-        clientToken: str = None,
-        serverGroups: List["ServerGroupTypeDef"] = None,
-        tags: List["TagTypeDef"] = None
-    ) -> CreateAppResponseTypeDef:
+        ClientMethod: str,
+        Params: Mapping[str, Any] = ...,
+        ExpiresIn: int = 3600,
+        HttpMethod: str = ...,
+    ) -> str:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sms/client/generate_presigned_url.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sms/client/#generate_presigned_url)
+        """
+
+    def create_app(self, **kwargs: Unpack[CreateAppRequestTypeDef]) -> CreateAppResponseTypeDef:
         """
         Creates an application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sms.html#SMS.Client.create_app)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sms/client.html#create_app)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sms/client/create_app.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sms/client/#create_app)
         """
 
     def create_replication_job(
-        self,
-        *,
-        serverId: str,
-        seedReplicationTime: Union[datetime, str],
-        frequency: int = None,
-        runOnce: bool = None,
-        licenseType: LicenseTypeType = None,
-        roleName: str = None,
-        description: str = None,
-        numberOfRecentAmisToKeep: int = None,
-        encrypted: bool = None,
-        kmsKeyId: str = None
+        self, **kwargs: Unpack[CreateReplicationJobRequestTypeDef]
     ) -> CreateReplicationJobResponseTypeDef:
         """
         Creates a replication job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sms.html#SMS.Client.create_replication_job)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sms/client.html#create_replication_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sms/client/create_replication_job.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sms/client/#create_replication_job)
         """
 
-    def delete_app(
-        self,
-        *,
-        appId: str = None,
-        forceStopAppReplication: bool = None,
-        forceTerminateApp: bool = None
-    ) -> Dict[str, Any]:
+    def delete_app(self, **kwargs: Unpack[DeleteAppRequestTypeDef]) -> Dict[str, Any]:
         """
         Deletes the specified application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sms.html#SMS.Client.delete_app)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sms/client.html#delete_app)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sms/client/delete_app.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sms/client/#delete_app)
         """
 
-    def delete_app_launch_configuration(self, *, appId: str = None) -> Dict[str, Any]:
+    def delete_app_launch_configuration(
+        self, **kwargs: Unpack[DeleteAppLaunchConfigurationRequestTypeDef]
+    ) -> Dict[str, Any]:
         """
         Deletes the launch configuration for the specified application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sms.html#SMS.Client.delete_app_launch_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sms/client.html#delete_app_launch_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sms/client/delete_app_launch_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sms/client/#delete_app_launch_configuration)
         """
 
-    def delete_app_replication_configuration(self, *, appId: str = None) -> Dict[str, Any]:
+    def delete_app_replication_configuration(
+        self, **kwargs: Unpack[DeleteAppReplicationConfigurationRequestTypeDef]
+    ) -> Dict[str, Any]:
         """
         Deletes the replication configuration for the specified application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sms.html#SMS.Client.delete_app_replication_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sms/client.html#delete_app_replication_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sms/client/delete_app_replication_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sms/client/#delete_app_replication_configuration)
         """
 
-    def delete_app_validation_configuration(self, *, appId: str) -> Dict[str, Any]:
+    def delete_app_validation_configuration(
+        self, **kwargs: Unpack[DeleteAppValidationConfigurationRequestTypeDef]
+    ) -> Dict[str, Any]:
         """
         Deletes the validation configuration for the specified application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sms.html#SMS.Client.delete_app_validation_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sms/client.html#delete_app_validation_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sms/client/delete_app_validation_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sms/client/#delete_app_validation_configuration)
         """
 
-    def delete_replication_job(self, *, replicationJobId: str) -> Dict[str, Any]:
+    def delete_replication_job(
+        self, **kwargs: Unpack[DeleteReplicationJobRequestTypeDef]
+    ) -> Dict[str, Any]:
         """
         Deletes the specified replication job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sms.html#SMS.Client.delete_replication_job)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sms/client.html#delete_replication_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sms/client/delete_replication_job.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sms/client/#delete_replication_job)
         """
 
     def delete_server_catalog(self) -> Dict[str, Any]:
         """
         Deletes all servers from your server catalog.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sms.html#SMS.Client.delete_server_catalog)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sms/client.html#delete_server_catalog)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sms/client/delete_server_catalog.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sms/client/#delete_server_catalog)
         """
 
-    def disassociate_connector(self, *, connectorId: str) -> Dict[str, Any]:
+    def disassociate_connector(
+        self, **kwargs: Unpack[DisassociateConnectorRequestTypeDef]
+    ) -> Dict[str, Any]:
         """
         Disassociates the specified connector from Server Migration Service.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sms.html#SMS.Client.disassociate_connector)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sms/client.html#disassociate_connector)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sms/client/disassociate_connector.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sms/client/#disassociate_connector)
         """
 
     def generate_change_set(
-        self, *, appId: str = None, changesetFormat: OutputFormatType = None
+        self, **kwargs: Unpack[GenerateChangeSetRequestTypeDef]
     ) -> GenerateChangeSetResponseTypeDef:
         """
-        Generates a target change set for a currently launched stack and writes it to an
-        Amazon S3 object in the customer’s Amazon S3 bucket.
+        Generates a target change set for a currently launched stack and writes it to
+        an Amazon S3 object in the customer's Amazon S3 bucket.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sms.html#SMS.Client.generate_change_set)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sms/client.html#generate_change_set)
-        """
-
-    def generate_presigned_url(
-        self,
-        ClientMethod: str,
-        Params: Dict[str, Any] = None,
-        ExpiresIn: int = 3600,
-        HttpMethod: str = None,
-    ) -> str:
-        """
-        Generate a presigned url given a client, its method, and arguments.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sms.html#SMS.Client.generate_presigned_url)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sms/client.html#generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sms/client/generate_change_set.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sms/client/#generate_change_set)
         """
 
     def generate_template(
-        self, *, appId: str = None, templateFormat: OutputFormatType = None
+        self, **kwargs: Unpack[GenerateTemplateRequestTypeDef]
     ) -> GenerateTemplateResponseTypeDef:
         """
         Generates an CloudFormation template based on the current launch configuration
-        and writes it to an Amazon S3 object in the customer’s Amazon S3 bucket.
+        and writes it to an Amazon S3 object in the customer's Amazon S3 bucket.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sms.html#SMS.Client.generate_template)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sms/client.html#generate_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sms/client/generate_template.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sms/client/#generate_template)
         """
 
-    def get_app(self, *, appId: str = None) -> GetAppResponseTypeDef:
+    def get_app(self, **kwargs: Unpack[GetAppRequestTypeDef]) -> GetAppResponseTypeDef:
         """
         Retrieve information about the specified application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sms.html#SMS.Client.get_app)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sms/client.html#get_app)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sms/client/get_app.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sms/client/#get_app)
         """
 
     def get_app_launch_configuration(
-        self, *, appId: str = None
+        self, **kwargs: Unpack[GetAppLaunchConfigurationRequestTypeDef]
     ) -> GetAppLaunchConfigurationResponseTypeDef:
         """
         Retrieves the application launch configuration associated with the specified
         application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sms.html#SMS.Client.get_app_launch_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sms/client.html#get_app_launch_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sms/client/get_app_launch_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sms/client/#get_app_launch_configuration)
         """
 
     def get_app_replication_configuration(
-        self, *, appId: str = None
+        self, **kwargs: Unpack[GetAppReplicationConfigurationRequestTypeDef]
     ) -> GetAppReplicationConfigurationResponseTypeDef:
         """
         Retrieves the application replication configuration associated with the
         specified application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sms.html#SMS.Client.get_app_replication_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sms/client.html#get_app_replication_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sms/client/get_app_replication_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sms/client/#get_app_replication_configuration)
         """
 
     def get_app_validation_configuration(
-        self, *, appId: str
+        self, **kwargs: Unpack[GetAppValidationConfigurationRequestTypeDef]
     ) -> GetAppValidationConfigurationResponseTypeDef:
         """
         Retrieves information about a configuration for validating an application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sms.html#SMS.Client.get_app_validation_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sms/client.html#get_app_validation_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sms/client/get_app_validation_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sms/client/#get_app_validation_configuration)
         """
 
-    def get_app_validation_output(self, *, appId: str) -> GetAppValidationOutputResponseTypeDef:
+    def get_app_validation_output(
+        self, **kwargs: Unpack[GetAppValidationOutputRequestTypeDef]
+    ) -> GetAppValidationOutputResponseTypeDef:
         """
         Retrieves output from validating an application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sms.html#SMS.Client.get_app_validation_output)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sms/client.html#get_app_validation_output)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sms/client/get_app_validation_output.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sms/client/#get_app_validation_output)
         """
 
     def get_connectors(
-        self, *, nextToken: str = None, maxResults: int = None
+        self, **kwargs: Unpack[GetConnectorsRequestTypeDef]
     ) -> GetConnectorsResponseTypeDef:
         """
         Describes the connectors registered with the Server Migration Service.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sms.html#SMS.Client.get_connectors)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sms/client.html#get_connectors)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sms/client/get_connectors.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sms/client/#get_connectors)
         """
 
     def get_replication_jobs(
-        self, *, replicationJobId: str = None, nextToken: str = None, maxResults: int = None
+        self, **kwargs: Unpack[GetReplicationJobsRequestTypeDef]
     ) -> GetReplicationJobsResponseTypeDef:
         """
         Describes the specified replication job or all of your replication jobs.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sms.html#SMS.Client.get_replication_jobs)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sms/client.html#get_replication_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sms/client/get_replication_jobs.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sms/client/#get_replication_jobs)
         """
 
     def get_replication_runs(
-        self, *, replicationJobId: str, nextToken: str = None, maxResults: int = None
+        self, **kwargs: Unpack[GetReplicationRunsRequestTypeDef]
     ) -> GetReplicationRunsResponseTypeDef:
         """
         Describes the replication runs for the specified replication job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sms.html#SMS.Client.get_replication_runs)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sms/client.html#get_replication_runs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sms/client/get_replication_runs.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sms/client/#get_replication_runs)
         """
 
-    def get_servers(
-        self,
-        *,
-        nextToken: str = None,
-        maxResults: int = None,
-        vmServerAddressList: List["VmServerAddressTypeDef"] = None
-    ) -> GetServersResponseTypeDef:
+    def get_servers(self, **kwargs: Unpack[GetServersRequestTypeDef]) -> GetServersResponseTypeDef:
         """
         Describes the servers in your server catalog.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sms.html#SMS.Client.get_servers)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sms/client.html#get_servers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sms/client/get_servers.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sms/client/#get_servers)
         """
 
-    def import_app_catalog(self, *, roleName: str = None) -> Dict[str, Any]:
+    def import_app_catalog(
+        self, **kwargs: Unpack[ImportAppCatalogRequestTypeDef]
+    ) -> Dict[str, Any]:
         """
         Allows application import from Migration Hub.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sms.html#SMS.Client.import_app_catalog)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sms/client.html#import_app_catalog)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sms/client/import_app_catalog.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sms/client/#import_app_catalog)
         """
 
     def import_server_catalog(self) -> Dict[str, Any]:
         """
         Gathers a complete list of on-premises servers.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sms.html#SMS.Client.import_server_catalog)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sms/client.html#import_server_catalog)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sms/client/import_server_catalog.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sms/client/#import_server_catalog)
         """
 
-    def launch_app(self, *, appId: str = None) -> Dict[str, Any]:
+    def launch_app(self, **kwargs: Unpack[LaunchAppRequestTypeDef]) -> Dict[str, Any]:
         """
         Launches the specified application as a stack in CloudFormation.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sms.html#SMS.Client.launch_app)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sms/client.html#launch_app)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sms/client/launch_app.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sms/client/#launch_app)
         """
 
-    def list_apps(
-        self, *, appIds: List[str] = None, nextToken: str = None, maxResults: int = None
-    ) -> ListAppsResponseTypeDef:
+    def list_apps(self, **kwargs: Unpack[ListAppsRequestTypeDef]) -> ListAppsResponseTypeDef:
         """
         Retrieves summaries for all applications.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sms.html#SMS.Client.list_apps)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sms/client.html#list_apps)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sms/client/list_apps.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sms/client/#list_apps)
         """
 
     def notify_app_validation_output(
-        self, *, appId: str, notificationContext: "NotificationContextTypeDef" = None
+        self, **kwargs: Unpack[NotifyAppValidationOutputRequestTypeDef]
     ) -> Dict[str, Any]:
         """
         Provides information to Server Migration Service about whether application
         validation is successful.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sms.html#SMS.Client.notify_app_validation_output)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sms/client.html#notify_app_validation_output)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sms/client/notify_app_validation_output.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sms/client/#notify_app_validation_output)
         """
 
     def put_app_launch_configuration(
-        self,
-        *,
-        appId: str = None,
-        roleName: str = None,
-        autoLaunch: bool = None,
-        serverGroupLaunchConfigurations: List["ServerGroupLaunchConfigurationTypeDef"] = None
+        self, **kwargs: Unpack[PutAppLaunchConfigurationRequestTypeDef]
     ) -> Dict[str, Any]:
         """
         Creates or updates the launch configuration for the specified application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sms.html#SMS.Client.put_app_launch_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sms/client.html#put_app_launch_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sms/client/put_app_launch_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sms/client/#put_app_launch_configuration)
         """
 
     def put_app_replication_configuration(
-        self,
-        *,
-        appId: str = None,
-        serverGroupReplicationConfigurations: List[
-            "ServerGroupReplicationConfigurationTypeDef"
-        ] = None
+        self, **kwargs: Unpack[PutAppReplicationConfigurationRequestTypeDef]
     ) -> Dict[str, Any]:
         """
         Creates or updates the replication configuration for the specified application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sms.html#SMS.Client.put_app_replication_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sms/client.html#put_app_replication_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sms/client/put_app_replication_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sms/client/#put_app_replication_configuration)
         """
 
     def put_app_validation_configuration(
-        self,
-        *,
-        appId: str,
-        appValidationConfigurations: List["AppValidationConfigurationTypeDef"] = None,
-        serverGroupValidationConfigurations: List[
-            "ServerGroupValidationConfigurationTypeDef"
-        ] = None
+        self, **kwargs: Unpack[PutAppValidationConfigurationRequestTypeDef]
     ) -> Dict[str, Any]:
         """
         Creates or updates a validation configuration for the specified application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sms.html#SMS.Client.put_app_validation_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sms/client.html#put_app_validation_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sms/client/put_app_validation_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sms/client/#put_app_validation_configuration)
         """
 
-    def start_app_replication(self, *, appId: str = None) -> Dict[str, Any]:
+    def start_app_replication(
+        self, **kwargs: Unpack[StartAppReplicationRequestTypeDef]
+    ) -> Dict[str, Any]:
         """
         Starts replicating the specified application by creating replication jobs for
         each server in the application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sms.html#SMS.Client.start_app_replication)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sms/client.html#start_app_replication)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sms/client/start_app_replication.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sms/client/#start_app_replication)
         """
 
     def start_on_demand_app_replication(
-        self, *, appId: str, description: str = None
+        self, **kwargs: Unpack[StartOnDemandAppReplicationRequestTypeDef]
     ) -> Dict[str, Any]:
         """
         Starts an on-demand replication run for the specified application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sms.html#SMS.Client.start_on_demand_app_replication)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sms/client.html#start_on_demand_app_replication)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sms/client/start_on_demand_app_replication.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sms/client/#start_on_demand_app_replication)
         """
 
     def start_on_demand_replication_run(
-        self, *, replicationJobId: str, description: str = None
+        self, **kwargs: Unpack[StartOnDemandReplicationRunRequestTypeDef]
     ) -> StartOnDemandReplicationRunResponseTypeDef:
         """
         Starts an on-demand replication run for the specified replication job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sms.html#SMS.Client.start_on_demand_replication_run)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sms/client.html#start_on_demand_replication_run)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sms/client/start_on_demand_replication_run.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sms/client/#start_on_demand_replication_run)
         """
 
-    def stop_app_replication(self, *, appId: str = None) -> Dict[str, Any]:
+    def stop_app_replication(
+        self, **kwargs: Unpack[StopAppReplicationRequestTypeDef]
+    ) -> Dict[str, Any]:
         """
         Stops replicating the specified application by deleting the replication job for
         each server in the application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sms.html#SMS.Client.stop_app_replication)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sms/client.html#stop_app_replication)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sms/client/stop_app_replication.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sms/client/#stop_app_replication)
         """
 
-    def terminate_app(self, *, appId: str = None) -> Dict[str, Any]:
+    def terminate_app(self, **kwargs: Unpack[TerminateAppRequestTypeDef]) -> Dict[str, Any]:
         """
         Terminates the stack for the specified application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sms.html#SMS.Client.terminate_app)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sms/client.html#terminate_app)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sms/client/terminate_app.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sms/client/#terminate_app)
         """
 
-    def update_app(
-        self,
-        *,
-        appId: str = None,
-        name: str = None,
-        description: str = None,
-        roleName: str = None,
-        serverGroups: List["ServerGroupTypeDef"] = None,
-        tags: List["TagTypeDef"] = None
-    ) -> UpdateAppResponseTypeDef:
+    def update_app(self, **kwargs: Unpack[UpdateAppRequestTypeDef]) -> UpdateAppResponseTypeDef:
         """
         Updates the specified application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sms.html#SMS.Client.update_app)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sms/client.html#update_app)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sms/client/update_app.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sms/client/#update_app)
         """
 
     def update_replication_job(
-        self,
-        *,
-        replicationJobId: str,
-        frequency: int = None,
-        nextReplicationRunStartTime: Union[datetime, str] = None,
-        licenseType: LicenseTypeType = None,
-        roleName: str = None,
-        description: str = None,
-        numberOfRecentAmisToKeep: int = None,
-        encrypted: bool = None,
-        kmsKeyId: str = None
+        self, **kwargs: Unpack[UpdateReplicationJobRequestTypeDef]
     ) -> Dict[str, Any]:
         """
         Updates the specified settings for the specified replication job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sms.html#SMS.Client.update_replication_job)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sms/client.html#update_replication_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sms/client/update_replication_job.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sms/client/#update_replication_job)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["get_connectors"]) -> GetConnectorsPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["get_connectors"]
+    ) -> GetConnectorsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sms.html#SMS.Paginator.GetConnectors)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sms/paginators.html#getconnectorspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sms/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sms/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["get_replication_jobs"]
     ) -> GetReplicationJobsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sms.html#SMS.Paginator.GetReplicationJobs)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sms/paginators.html#getreplicationjobspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sms/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sms/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["get_replication_runs"]
     ) -> GetReplicationRunsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sms.html#SMS.Paginator.GetReplicationRuns)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sms/paginators.html#getreplicationrunspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sms/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sms/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["get_servers"]) -> GetServersPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["get_servers"]
+    ) -> GetServersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sms.html#SMS.Paginator.GetServers)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sms/paginators.html#getserverspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sms/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sms/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_apps"]) -> ListAppsPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_apps"]
+    ) -> ListAppsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sms.html#SMS.Paginator.ListApps)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sms/paginators.html#listappspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sms/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sms/client/#get_paginator)
         """

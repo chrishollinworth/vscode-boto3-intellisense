@@ -1,20 +1,23 @@
 """
 Type annotations for ssm-sap service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_sap/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm_sap/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_ssm_sap.type_defs import ApplicationCredentialTypeDef
 
-    data: ApplicationCredentialTypeDef = {...}
+    data: ApplicationCredentialTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
 
 from .literals import (
     AllocationTypeType,
@@ -35,14 +38,16 @@ from .literals import (
     ReplicationModeType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
     "ApplicationCredentialTypeDef",
@@ -50,722 +55,438 @@ __all__ = (
     "ApplicationTypeDef",
     "AssociatedHostTypeDef",
     "BackintConfigTypeDef",
+    "ComponentInfoTypeDef",
     "ComponentSummaryTypeDef",
     "ComponentTypeDef",
     "DatabaseConnectionTypeDef",
     "DatabaseSummaryTypeDef",
     "DatabaseTypeDef",
-    "DeleteResourcePermissionInputRequestTypeDef",
+    "DeleteResourcePermissionInputTypeDef",
     "DeleteResourcePermissionOutputTypeDef",
-    "DeregisterApplicationInputRequestTypeDef",
+    "DeregisterApplicationInputTypeDef",
     "FilterTypeDef",
-    "GetApplicationInputRequestTypeDef",
+    "GetApplicationInputTypeDef",
     "GetApplicationOutputTypeDef",
-    "GetComponentInputRequestTypeDef",
+    "GetComponentInputTypeDef",
     "GetComponentOutputTypeDef",
-    "GetDatabaseInputRequestTypeDef",
+    "GetDatabaseInputTypeDef",
     "GetDatabaseOutputTypeDef",
-    "GetOperationInputRequestTypeDef",
+    "GetOperationInputTypeDef",
     "GetOperationOutputTypeDef",
-    "GetResourcePermissionInputRequestTypeDef",
+    "GetResourcePermissionInputTypeDef",
     "GetResourcePermissionOutputTypeDef",
     "HostTypeDef",
     "IpAddressMemberTypeDef",
-    "ListApplicationsInputRequestTypeDef",
+    "ListApplicationsInputPaginateTypeDef",
+    "ListApplicationsInputTypeDef",
     "ListApplicationsOutputTypeDef",
-    "ListComponentsInputRequestTypeDef",
+    "ListComponentsInputPaginateTypeDef",
+    "ListComponentsInputTypeDef",
     "ListComponentsOutputTypeDef",
-    "ListDatabasesInputRequestTypeDef",
+    "ListDatabasesInputPaginateTypeDef",
+    "ListDatabasesInputTypeDef",
     "ListDatabasesOutputTypeDef",
-    "ListOperationEventsInputRequestTypeDef",
+    "ListOperationEventsInputPaginateTypeDef",
+    "ListOperationEventsInputTypeDef",
     "ListOperationEventsOutputTypeDef",
-    "ListOperationsInputRequestTypeDef",
+    "ListOperationsInputPaginateTypeDef",
+    "ListOperationsInputTypeDef",
     "ListOperationsOutputTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "OperationEventTypeDef",
     "OperationTypeDef",
     "PaginatorConfigTypeDef",
-    "PutResourcePermissionInputRequestTypeDef",
+    "PutResourcePermissionInputTypeDef",
     "PutResourcePermissionOutputTypeDef",
-    "RegisterApplicationInputRequestTypeDef",
+    "RegisterApplicationInputTypeDef",
     "RegisterApplicationOutputTypeDef",
     "ResilienceTypeDef",
     "ResourceTypeDef",
     "ResponseMetadataTypeDef",
-    "StartApplicationInputRequestTypeDef",
+    "StartApplicationInputTypeDef",
     "StartApplicationOutputTypeDef",
-    "StartApplicationRefreshInputRequestTypeDef",
+    "StartApplicationRefreshInputTypeDef",
     "StartApplicationRefreshOutputTypeDef",
-    "StopApplicationInputRequestTypeDef",
+    "StopApplicationInputTypeDef",
     "StopApplicationOutputTypeDef",
-    "TagResourceRequestRequestTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateApplicationSettingsInputRequestTypeDef",
+    "TagResourceRequestTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateApplicationSettingsInputTypeDef",
     "UpdateApplicationSettingsOutputTypeDef",
 )
 
-ApplicationCredentialTypeDef = TypedDict(
-    "ApplicationCredentialTypeDef",
-    {
-        "DatabaseName": str,
-        "CredentialType": Literal["ADMIN"],
-        "SecretId": str,
-    },
-)
+class ApplicationCredentialTypeDef(TypedDict):
+    DatabaseName: str
+    CredentialType: Literal["ADMIN"]
+    SecretId: str
 
 ApplicationSummaryTypeDef = TypedDict(
     "ApplicationSummaryTypeDef",
     {
-        "Id": str,
-        "DiscoveryStatus": ApplicationDiscoveryStatusType,
-        "Type": ApplicationTypeType,
-        "Arn": str,
-        "Tags": Dict[str, str],
+        "Id": NotRequired[str],
+        "DiscoveryStatus": NotRequired[ApplicationDiscoveryStatusType],
+        "Type": NotRequired[ApplicationTypeType],
+        "Arn": NotRequired[str],
+        "Tags": NotRequired[Dict[str, str]],
     },
-    total=False,
 )
-
 ApplicationTypeDef = TypedDict(
     "ApplicationTypeDef",
     {
-        "Id": str,
-        "Type": ApplicationTypeType,
-        "Arn": str,
-        "AppRegistryArn": str,
-        "Status": ApplicationStatusType,
-        "DiscoveryStatus": ApplicationDiscoveryStatusType,
-        "Components": List[str],
-        "LastUpdated": datetime,
-        "StatusMessage": str,
-    },
-    total=False,
-)
-
-AssociatedHostTypeDef = TypedDict(
-    "AssociatedHostTypeDef",
-    {
-        "Hostname": str,
-        "Ec2InstanceId": str,
-        "IpAddresses": List["IpAddressMemberTypeDef"],
-        "OsVersion": str,
-    },
-    total=False,
-)
-
-BackintConfigTypeDef = TypedDict(
-    "BackintConfigTypeDef",
-    {
-        "BackintMode": Literal["AWSBackup"],
-        "EnsureNoBackupInProcess": bool,
+        "Id": NotRequired[str],
+        "Type": NotRequired[ApplicationTypeType],
+        "Arn": NotRequired[str],
+        "AppRegistryArn": NotRequired[str],
+        "Status": NotRequired[ApplicationStatusType],
+        "DiscoveryStatus": NotRequired[ApplicationDiscoveryStatusType],
+        "Components": NotRequired[List[str]],
+        "LastUpdated": NotRequired[datetime],
+        "StatusMessage": NotRequired[str],
+        "AssociatedApplicationArns": NotRequired[List[str]],
     },
 )
 
-ComponentSummaryTypeDef = TypedDict(
-    "ComponentSummaryTypeDef",
-    {
-        "ApplicationId": str,
-        "ComponentId": str,
-        "ComponentType": ComponentTypeType,
-        "Tags": Dict[str, str],
-        "Arn": str,
-    },
-    total=False,
-)
+class IpAddressMemberTypeDef(TypedDict):
+    IpAddress: NotRequired[str]
+    Primary: NotRequired[bool]
+    AllocationType: NotRequired[AllocationTypeType]
 
-ComponentTypeDef = TypedDict(
-    "ComponentTypeDef",
-    {
-        "ComponentId": str,
-        "Sid": str,
-        "SystemNumber": str,
-        "ParentComponent": str,
-        "ChildComponents": List[str],
-        "ApplicationId": str,
-        "ComponentType": ComponentTypeType,
-        "Status": ComponentStatusType,
-        "SapHostname": str,
-        "SapFeature": str,
-        "SapKernelVersion": str,
-        "HdbVersion": str,
-        "Resilience": "ResilienceTypeDef",
-        "AssociatedHost": "AssociatedHostTypeDef",
-        "Databases": List[str],
-        "Hosts": List["HostTypeDef"],
-        "PrimaryHost": str,
-        "DatabaseConnection": "DatabaseConnectionTypeDef",
-        "LastUpdated": datetime,
-        "Arn": str,
-    },
-    total=False,
-)
+class BackintConfigTypeDef(TypedDict):
+    BackintMode: Literal["AWSBackup"]
+    EnsureNoBackupInProcess: bool
 
-DatabaseConnectionTypeDef = TypedDict(
-    "DatabaseConnectionTypeDef",
-    {
-        "DatabaseConnectionMethod": DatabaseConnectionMethodType,
-        "DatabaseArn": str,
-        "ConnectionIp": str,
-    },
-    total=False,
-)
+class ComponentInfoTypeDef(TypedDict):
+    ComponentType: ComponentTypeType
+    Sid: str
+    Ec2InstanceId: str
 
-DatabaseSummaryTypeDef = TypedDict(
-    "DatabaseSummaryTypeDef",
-    {
-        "ApplicationId": str,
-        "ComponentId": str,
-        "DatabaseId": str,
-        "DatabaseType": DatabaseTypeType,
-        "Arn": str,
-        "Tags": Dict[str, str],
-    },
-    total=False,
-)
+class ComponentSummaryTypeDef(TypedDict):
+    ApplicationId: NotRequired[str]
+    ComponentId: NotRequired[str]
+    ComponentType: NotRequired[ComponentTypeType]
+    Tags: NotRequired[Dict[str, str]]
+    Arn: NotRequired[str]
 
-DatabaseTypeDef = TypedDict(
-    "DatabaseTypeDef",
-    {
-        "ApplicationId": str,
-        "ComponentId": str,
-        "Credentials": List["ApplicationCredentialTypeDef"],
-        "DatabaseId": str,
-        "DatabaseName": str,
-        "DatabaseType": DatabaseTypeType,
-        "Arn": str,
-        "Status": DatabaseStatusType,
-        "PrimaryHost": str,
-        "SQLPort": int,
-        "LastUpdated": datetime,
-    },
-    total=False,
-)
+class DatabaseConnectionTypeDef(TypedDict):
+    DatabaseConnectionMethod: NotRequired[DatabaseConnectionMethodType]
+    DatabaseArn: NotRequired[str]
+    ConnectionIp: NotRequired[str]
 
-_RequiredDeleteResourcePermissionInputRequestTypeDef = TypedDict(
-    "_RequiredDeleteResourcePermissionInputRequestTypeDef",
-    {
-        "ResourceArn": str,
-    },
-)
-_OptionalDeleteResourcePermissionInputRequestTypeDef = TypedDict(
-    "_OptionalDeleteResourcePermissionInputRequestTypeDef",
-    {
-        "ActionType": Literal["RESTORE"],
-        "SourceResourceArn": str,
-    },
-    total=False,
-)
+class HostTypeDef(TypedDict):
+    HostName: NotRequired[str]
+    HostIp: NotRequired[str]
+    EC2InstanceId: NotRequired[str]
+    InstanceId: NotRequired[str]
+    HostRole: NotRequired[HostRoleType]
+    OsVersion: NotRequired[str]
 
-class DeleteResourcePermissionInputRequestTypeDef(
-    _RequiredDeleteResourcePermissionInputRequestTypeDef,
-    _OptionalDeleteResourcePermissionInputRequestTypeDef,
-):
-    pass
+class ResilienceTypeDef(TypedDict):
+    HsrTier: NotRequired[str]
+    HsrReplicationMode: NotRequired[ReplicationModeType]
+    HsrOperationMode: NotRequired[OperationModeType]
+    ClusterStatus: NotRequired[ClusterStatusType]
+    EnqueueReplication: NotRequired[bool]
 
-DeleteResourcePermissionOutputTypeDef = TypedDict(
-    "DeleteResourcePermissionOutputTypeDef",
-    {
-        "Policy": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DatabaseSummaryTypeDef(TypedDict):
+    ApplicationId: NotRequired[str]
+    ComponentId: NotRequired[str]
+    DatabaseId: NotRequired[str]
+    DatabaseType: NotRequired[DatabaseTypeType]
+    Arn: NotRequired[str]
+    Tags: NotRequired[Dict[str, str]]
 
-DeregisterApplicationInputRequestTypeDef = TypedDict(
-    "DeregisterApplicationInputRequestTypeDef",
-    {
-        "ApplicationId": str,
-    },
-)
+class DeleteResourcePermissionInputTypeDef(TypedDict):
+    ResourceArn: str
+    ActionType: NotRequired[Literal["RESTORE"]]
+    SourceResourceArn: NotRequired[str]
 
-FilterTypeDef = TypedDict(
-    "FilterTypeDef",
-    {
-        "Name": str,
-        "Value": str,
-        "Operator": FilterOperatorType,
-    },
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-GetApplicationInputRequestTypeDef = TypedDict(
-    "GetApplicationInputRequestTypeDef",
-    {
-        "ApplicationId": str,
-        "ApplicationArn": str,
-        "AppRegistryArn": str,
-    },
-    total=False,
-)
+class DeregisterApplicationInputTypeDef(TypedDict):
+    ApplicationId: str
 
-GetApplicationOutputTypeDef = TypedDict(
-    "GetApplicationOutputTypeDef",
-    {
-        "Application": "ApplicationTypeDef",
-        "Tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class FilterTypeDef(TypedDict):
+    Name: str
+    Value: str
+    Operator: FilterOperatorType
 
-GetComponentInputRequestTypeDef = TypedDict(
-    "GetComponentInputRequestTypeDef",
-    {
-        "ApplicationId": str,
-        "ComponentId": str,
-    },
-)
+class GetApplicationInputTypeDef(TypedDict):
+    ApplicationId: NotRequired[str]
+    ApplicationArn: NotRequired[str]
+    AppRegistryArn: NotRequired[str]
 
-GetComponentOutputTypeDef = TypedDict(
-    "GetComponentOutputTypeDef",
-    {
-        "Component": "ComponentTypeDef",
-        "Tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetComponentInputTypeDef(TypedDict):
+    ApplicationId: str
+    ComponentId: str
 
-GetDatabaseInputRequestTypeDef = TypedDict(
-    "GetDatabaseInputRequestTypeDef",
-    {
-        "ApplicationId": str,
-        "ComponentId": str,
-        "DatabaseId": str,
-        "DatabaseArn": str,
-    },
-    total=False,
-)
+class GetDatabaseInputTypeDef(TypedDict):
+    ApplicationId: NotRequired[str]
+    ComponentId: NotRequired[str]
+    DatabaseId: NotRequired[str]
+    DatabaseArn: NotRequired[str]
 
-GetDatabaseOutputTypeDef = TypedDict(
-    "GetDatabaseOutputTypeDef",
-    {
-        "Database": "DatabaseTypeDef",
-        "Tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetOperationInputRequestTypeDef = TypedDict(
-    "GetOperationInputRequestTypeDef",
-    {
-        "OperationId": str,
-    },
-)
-
-GetOperationOutputTypeDef = TypedDict(
-    "GetOperationOutputTypeDef",
-    {
-        "Operation": "OperationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetResourcePermissionInputRequestTypeDef = TypedDict(
-    "_RequiredGetResourcePermissionInputRequestTypeDef",
-    {
-        "ResourceArn": str,
-    },
-)
-_OptionalGetResourcePermissionInputRequestTypeDef = TypedDict(
-    "_OptionalGetResourcePermissionInputRequestTypeDef",
-    {
-        "ActionType": Literal["RESTORE"],
-    },
-    total=False,
-)
-
-class GetResourcePermissionInputRequestTypeDef(
-    _RequiredGetResourcePermissionInputRequestTypeDef,
-    _OptionalGetResourcePermissionInputRequestTypeDef,
-):
-    pass
-
-GetResourcePermissionOutputTypeDef = TypedDict(
-    "GetResourcePermissionOutputTypeDef",
-    {
-        "Policy": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-HostTypeDef = TypedDict(
-    "HostTypeDef",
-    {
-        "HostName": str,
-        "HostIp": str,
-        "EC2InstanceId": str,
-        "InstanceId": str,
-        "HostRole": HostRoleType,
-        "OsVersion": str,
-    },
-    total=False,
-)
-
-IpAddressMemberTypeDef = TypedDict(
-    "IpAddressMemberTypeDef",
-    {
-        "IpAddress": str,
-        "Primary": bool,
-        "AllocationType": AllocationTypeType,
-    },
-    total=False,
-)
-
-ListApplicationsInputRequestTypeDef = TypedDict(
-    "ListApplicationsInputRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-        "Filters": List["FilterTypeDef"],
-    },
-    total=False,
-)
-
-ListApplicationsOutputTypeDef = TypedDict(
-    "ListApplicationsOutputTypeDef",
-    {
-        "Applications": List["ApplicationSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListComponentsInputRequestTypeDef = TypedDict(
-    "ListComponentsInputRequestTypeDef",
-    {
-        "ApplicationId": str,
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-ListComponentsOutputTypeDef = TypedDict(
-    "ListComponentsOutputTypeDef",
-    {
-        "Components": List["ComponentSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListDatabasesInputRequestTypeDef = TypedDict(
-    "ListDatabasesInputRequestTypeDef",
-    {
-        "ApplicationId": str,
-        "ComponentId": str,
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-ListDatabasesOutputTypeDef = TypedDict(
-    "ListDatabasesOutputTypeDef",
-    {
-        "Databases": List["DatabaseSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListOperationEventsInputRequestTypeDef = TypedDict(
-    "_RequiredListOperationEventsInputRequestTypeDef",
-    {
-        "OperationId": str,
-    },
-)
-_OptionalListOperationEventsInputRequestTypeDef = TypedDict(
-    "_OptionalListOperationEventsInputRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-        "Filters": List["FilterTypeDef"],
-    },
-    total=False,
-)
-
-class ListOperationEventsInputRequestTypeDef(
-    _RequiredListOperationEventsInputRequestTypeDef, _OptionalListOperationEventsInputRequestTypeDef
-):
-    pass
-
-ListOperationEventsOutputTypeDef = TypedDict(
-    "ListOperationEventsOutputTypeDef",
-    {
-        "OperationEvents": List["OperationEventTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListOperationsInputRequestTypeDef = TypedDict(
-    "_RequiredListOperationsInputRequestTypeDef",
-    {
-        "ApplicationId": str,
-    },
-)
-_OptionalListOperationsInputRequestTypeDef = TypedDict(
-    "_OptionalListOperationsInputRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-        "Filters": List["FilterTypeDef"],
-    },
-    total=False,
-)
-
-class ListOperationsInputRequestTypeDef(
-    _RequiredListOperationsInputRequestTypeDef, _OptionalListOperationsInputRequestTypeDef
-):
-    pass
-
-ListOperationsOutputTypeDef = TypedDict(
-    "ListOperationsOutputTypeDef",
-    {
-        "Operations": List["OperationTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-    },
-)
-
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-OperationEventTypeDef = TypedDict(
-    "OperationEventTypeDef",
-    {
-        "Description": str,
-        "Resource": "ResourceTypeDef",
-        "Status": OperationEventStatusType,
-        "StatusMessage": str,
-        "Timestamp": datetime,
-    },
-    total=False,
-)
+class GetOperationInputTypeDef(TypedDict):
+    OperationId: str
 
 OperationTypeDef = TypedDict(
     "OperationTypeDef",
     {
-        "Id": str,
-        "Type": str,
-        "Status": OperationStatusType,
-        "StatusMessage": str,
-        "Properties": Dict[str, str],
-        "ResourceType": str,
-        "ResourceId": str,
-        "ResourceArn": str,
-        "StartTime": datetime,
-        "EndTime": datetime,
-        "LastUpdatedTime": datetime,
-    },
-    total=False,
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-PutResourcePermissionInputRequestTypeDef = TypedDict(
-    "PutResourcePermissionInputRequestTypeDef",
-    {
-        "ActionType": Literal["RESTORE"],
-        "SourceResourceArn": str,
-        "ResourceArn": str,
+        "Id": NotRequired[str],
+        "Type": NotRequired[str],
+        "Status": NotRequired[OperationStatusType],
+        "StatusMessage": NotRequired[str],
+        "Properties": NotRequired[Dict[str, str]],
+        "ResourceType": NotRequired[str],
+        "ResourceId": NotRequired[str],
+        "ResourceArn": NotRequired[str],
+        "StartTime": NotRequired[datetime],
+        "EndTime": NotRequired[datetime],
+        "LastUpdatedTime": NotRequired[datetime],
     },
 )
 
-PutResourcePermissionOutputTypeDef = TypedDict(
-    "PutResourcePermissionOutputTypeDef",
-    {
-        "Policy": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetResourcePermissionInputTypeDef(TypedDict):
+    ResourceArn: str
+    ActionType: NotRequired[Literal["RESTORE"]]
 
-_RequiredRegisterApplicationInputRequestTypeDef = TypedDict(
-    "_RequiredRegisterApplicationInputRequestTypeDef",
-    {
-        "ApplicationId": str,
-        "ApplicationType": ApplicationTypeType,
-        "Instances": List[str],
-    },
-)
-_OptionalRegisterApplicationInputRequestTypeDef = TypedDict(
-    "_OptionalRegisterApplicationInputRequestTypeDef",
-    {
-        "SapInstanceNumber": str,
-        "Sid": str,
-        "Tags": Dict[str, str],
-        "Credentials": List["ApplicationCredentialTypeDef"],
-        "DatabaseArn": str,
-    },
-    total=False,
-)
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
 
-class RegisterApplicationInputRequestTypeDef(
-    _RequiredRegisterApplicationInputRequestTypeDef, _OptionalRegisterApplicationInputRequestTypeDef
-):
-    pass
+class ListComponentsInputTypeDef(TypedDict):
+    ApplicationId: NotRequired[str]
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
 
-RegisterApplicationOutputTypeDef = TypedDict(
-    "RegisterApplicationOutputTypeDef",
-    {
-        "Application": "ApplicationTypeDef",
-        "OperationId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListDatabasesInputTypeDef(TypedDict):
+    ApplicationId: NotRequired[str]
+    ComponentId: NotRequired[str]
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
 
-ResilienceTypeDef = TypedDict(
-    "ResilienceTypeDef",
-    {
-        "HsrTier": str,
-        "HsrReplicationMode": ReplicationModeType,
-        "HsrOperationMode": OperationModeType,
-        "ClusterStatus": ClusterStatusType,
-        "EnqueueReplication": bool,
-    },
-    total=False,
-)
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    resourceArn: str
 
-ResourceTypeDef = TypedDict(
-    "ResourceTypeDef",
-    {
-        "ResourceArn": str,
-        "ResourceType": str,
-    },
-    total=False,
-)
+class ResourceTypeDef(TypedDict):
+    ResourceArn: NotRequired[str]
+    ResourceType: NotRequired[str]
 
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
+class PutResourcePermissionInputTypeDef(TypedDict):
+    ActionType: Literal["RESTORE"]
+    SourceResourceArn: str
+    ResourceArn: str
 
-StartApplicationInputRequestTypeDef = TypedDict(
-    "StartApplicationInputRequestTypeDef",
-    {
-        "ApplicationId": str,
-    },
-)
+class StartApplicationInputTypeDef(TypedDict):
+    ApplicationId: str
 
-StartApplicationOutputTypeDef = TypedDict(
-    "StartApplicationOutputTypeDef",
-    {
-        "OperationId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class StartApplicationRefreshInputTypeDef(TypedDict):
+    ApplicationId: str
 
-StartApplicationRefreshInputRequestTypeDef = TypedDict(
-    "StartApplicationRefreshInputRequestTypeDef",
-    {
-        "ApplicationId": str,
-    },
-)
+class StopApplicationInputTypeDef(TypedDict):
+    ApplicationId: str
+    StopConnectedEntity: NotRequired[Literal["DBMS"]]
+    IncludeEc2InstanceShutdown: NotRequired[bool]
 
-StartApplicationRefreshOutputTypeDef = TypedDict(
-    "StartApplicationRefreshOutputTypeDef",
-    {
-        "OperationId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class TagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tags: Mapping[str, str]
 
-_RequiredStopApplicationInputRequestTypeDef = TypedDict(
-    "_RequiredStopApplicationInputRequestTypeDef",
-    {
-        "ApplicationId": str,
-    },
-)
-_OptionalStopApplicationInputRequestTypeDef = TypedDict(
-    "_OptionalStopApplicationInputRequestTypeDef",
-    {
-        "StopConnectedEntity": Literal["DBMS"],
-        "IncludeEc2InstanceShutdown": bool,
-    },
-    total=False,
-)
+class UntagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tagKeys: Sequence[str]
 
-class StopApplicationInputRequestTypeDef(
-    _RequiredStopApplicationInputRequestTypeDef, _OptionalStopApplicationInputRequestTypeDef
-):
-    pass
+class DatabaseTypeDef(TypedDict):
+    ApplicationId: NotRequired[str]
+    ComponentId: NotRequired[str]
+    Credentials: NotRequired[List[ApplicationCredentialTypeDef]]
+    DatabaseId: NotRequired[str]
+    DatabaseName: NotRequired[str]
+    DatabaseType: NotRequired[DatabaseTypeType]
+    Arn: NotRequired[str]
+    Status: NotRequired[DatabaseStatusType]
+    PrimaryHost: NotRequired[str]
+    SQLPort: NotRequired[int]
+    LastUpdated: NotRequired[datetime]
+    ConnectedComponentArns: NotRequired[List[str]]
 
-StopApplicationOutputTypeDef = TypedDict(
-    "StopApplicationOutputTypeDef",
-    {
-        "OperationId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class AssociatedHostTypeDef(TypedDict):
+    Hostname: NotRequired[str]
+    Ec2InstanceId: NotRequired[str]
+    IpAddresses: NotRequired[List[IpAddressMemberTypeDef]]
+    OsVersion: NotRequired[str]
 
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tags": Dict[str, str],
-    },
-)
+class UpdateApplicationSettingsInputTypeDef(TypedDict):
+    ApplicationId: str
+    CredentialsToAddOrUpdate: NotRequired[Sequence[ApplicationCredentialTypeDef]]
+    CredentialsToRemove: NotRequired[Sequence[ApplicationCredentialTypeDef]]
+    Backint: NotRequired[BackintConfigTypeDef]
+    DatabaseArn: NotRequired[str]
 
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tagKeys": List[str],
-    },
-)
+class RegisterApplicationInputTypeDef(TypedDict):
+    ApplicationId: str
+    ApplicationType: ApplicationTypeType
+    Instances: Sequence[str]
+    SapInstanceNumber: NotRequired[str]
+    Sid: NotRequired[str]
+    Tags: NotRequired[Mapping[str, str]]
+    Credentials: NotRequired[Sequence[ApplicationCredentialTypeDef]]
+    DatabaseArn: NotRequired[str]
+    ComponentsInfo: NotRequired[Sequence[ComponentInfoTypeDef]]
 
-_RequiredUpdateApplicationSettingsInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateApplicationSettingsInputRequestTypeDef",
-    {
-        "ApplicationId": str,
-    },
-)
-_OptionalUpdateApplicationSettingsInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateApplicationSettingsInputRequestTypeDef",
-    {
-        "CredentialsToAddOrUpdate": List["ApplicationCredentialTypeDef"],
-        "CredentialsToRemove": List["ApplicationCredentialTypeDef"],
-        "Backint": "BackintConfigTypeDef",
-        "DatabaseArn": str,
-    },
-    total=False,
-)
+class DeleteResourcePermissionOutputTypeDef(TypedDict):
+    Policy: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateApplicationSettingsInputRequestTypeDef(
-    _RequiredUpdateApplicationSettingsInputRequestTypeDef,
-    _OptionalUpdateApplicationSettingsInputRequestTypeDef,
-):
-    pass
+class GetApplicationOutputTypeDef(TypedDict):
+    Application: ApplicationTypeDef
+    Tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-UpdateApplicationSettingsOutputTypeDef = TypedDict(
-    "UpdateApplicationSettingsOutputTypeDef",
-    {
-        "Message": str,
-        "OperationIds": List[str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetResourcePermissionOutputTypeDef(TypedDict):
+    Policy: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListApplicationsOutputTypeDef(TypedDict):
+    Applications: List[ApplicationSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListComponentsOutputTypeDef(TypedDict):
+    Components: List[ComponentSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListDatabasesOutputTypeDef(TypedDict):
+    Databases: List[DatabaseSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutResourcePermissionOutputTypeDef(TypedDict):
+    Policy: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class RegisterApplicationOutputTypeDef(TypedDict):
+    Application: ApplicationTypeDef
+    OperationId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartApplicationOutputTypeDef(TypedDict):
+    OperationId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartApplicationRefreshOutputTypeDef(TypedDict):
+    OperationId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StopApplicationOutputTypeDef(TypedDict):
+    OperationId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateApplicationSettingsOutputTypeDef(TypedDict):
+    Message: str
+    OperationIds: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListApplicationsInputTypeDef(TypedDict):
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+    Filters: NotRequired[Sequence[FilterTypeDef]]
+
+class ListOperationEventsInputTypeDef(TypedDict):
+    OperationId: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+    Filters: NotRequired[Sequence[FilterTypeDef]]
+
+class ListOperationsInputTypeDef(TypedDict):
+    ApplicationId: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+    Filters: NotRequired[Sequence[FilterTypeDef]]
+
+class GetOperationOutputTypeDef(TypedDict):
+    Operation: OperationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListOperationsOutputTypeDef(TypedDict):
+    Operations: List[OperationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListApplicationsInputPaginateTypeDef(TypedDict):
+    Filters: NotRequired[Sequence[FilterTypeDef]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListComponentsInputPaginateTypeDef(TypedDict):
+    ApplicationId: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListDatabasesInputPaginateTypeDef(TypedDict):
+    ApplicationId: NotRequired[str]
+    ComponentId: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListOperationEventsInputPaginateTypeDef(TypedDict):
+    OperationId: str
+    Filters: NotRequired[Sequence[FilterTypeDef]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListOperationsInputPaginateTypeDef(TypedDict):
+    ApplicationId: str
+    Filters: NotRequired[Sequence[FilterTypeDef]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class OperationEventTypeDef(TypedDict):
+    Description: NotRequired[str]
+    Resource: NotRequired[ResourceTypeDef]
+    Status: NotRequired[OperationEventStatusType]
+    StatusMessage: NotRequired[str]
+    Timestamp: NotRequired[datetime]
+
+class GetDatabaseOutputTypeDef(TypedDict):
+    Database: DatabaseTypeDef
+    Tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ComponentTypeDef(TypedDict):
+    ComponentId: NotRequired[str]
+    Sid: NotRequired[str]
+    SystemNumber: NotRequired[str]
+    ParentComponent: NotRequired[str]
+    ChildComponents: NotRequired[List[str]]
+    ApplicationId: NotRequired[str]
+    ComponentType: NotRequired[ComponentTypeType]
+    Status: NotRequired[ComponentStatusType]
+    SapHostname: NotRequired[str]
+    SapFeature: NotRequired[str]
+    SapKernelVersion: NotRequired[str]
+    HdbVersion: NotRequired[str]
+    Resilience: NotRequired[ResilienceTypeDef]
+    AssociatedHost: NotRequired[AssociatedHostTypeDef]
+    Databases: NotRequired[List[str]]
+    Hosts: NotRequired[List[HostTypeDef]]
+    PrimaryHost: NotRequired[str]
+    DatabaseConnection: NotRequired[DatabaseConnectionTypeDef]
+    LastUpdated: NotRequired[datetime]
+    Arn: NotRequired[str]
+
+class ListOperationEventsOutputTypeDef(TypedDict):
+    OperationEvents: List[OperationEventTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class GetComponentOutputTypeDef(TypedDict):
+    Component: ComponentTypeDef
+    Tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef

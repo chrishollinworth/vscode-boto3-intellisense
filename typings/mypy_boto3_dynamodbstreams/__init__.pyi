@@ -1,19 +1,21 @@
 """
 Main interface for dynamodbstreams service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dynamodbstreams/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_dynamodbstreams import (
         Client,
         DynamoDBStreamsClient,
     )
 
-    session = boto3.Session()
-
-    client: DynamoDBStreamsClient = boto3.client("dynamodbstreams")
-    session_client: DynamoDBStreamsClient = session.client("dynamodbstreams")
+    session = Session()
+    client: DynamoDBStreamsClient = session.client("dynamodbstreams")
     ```
 """
 

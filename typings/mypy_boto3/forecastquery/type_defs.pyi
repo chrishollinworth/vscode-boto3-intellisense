@@ -1,120 +1,76 @@
 """
 Type annotations for forecastquery service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_forecastquery/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_forecastquery/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_forecastquery.type_defs import DataPointTypeDef
 
-    data: DataPointTypeDef = {...}
+    data: DataPointTypeDef = ...
     ```
 """
 
-import sys
-from typing import Any, Dict, List
+from __future__ import annotations
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+import sys
+
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List, Mapping
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
     "DataPointTypeDef",
     "ForecastTypeDef",
-    "QueryForecastRequestRequestTypeDef",
+    "QueryForecastRequestTypeDef",
     "QueryForecastResponseTypeDef",
-    "QueryWhatIfForecastRequestRequestTypeDef",
+    "QueryWhatIfForecastRequestTypeDef",
     "QueryWhatIfForecastResponseTypeDef",
     "ResponseMetadataTypeDef",
 )
 
-DataPointTypeDef = TypedDict(
-    "DataPointTypeDef",
-    {
-        "Timestamp": str,
-        "Value": float,
-    },
-    total=False,
-)
+class DataPointTypeDef(TypedDict):
+    Timestamp: NotRequired[str]
+    Value: NotRequired[float]
 
-ForecastTypeDef = TypedDict(
-    "ForecastTypeDef",
-    {
-        "Predictions": Dict[str, List["DataPointTypeDef"]],
-    },
-    total=False,
-)
+class QueryForecastRequestTypeDef(TypedDict):
+    ForecastArn: str
+    Filters: Mapping[str, str]
+    StartDate: NotRequired[str]
+    EndDate: NotRequired[str]
+    NextToken: NotRequired[str]
 
-_RequiredQueryForecastRequestRequestTypeDef = TypedDict(
-    "_RequiredQueryForecastRequestRequestTypeDef",
-    {
-        "ForecastArn": str,
-        "Filters": Dict[str, str],
-    },
-)
-_OptionalQueryForecastRequestRequestTypeDef = TypedDict(
-    "_OptionalQueryForecastRequestRequestTypeDef",
-    {
-        "StartDate": str,
-        "EndDate": str,
-        "NextToken": str,
-    },
-    total=False,
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-class QueryForecastRequestRequestTypeDef(
-    _RequiredQueryForecastRequestRequestTypeDef, _OptionalQueryForecastRequestRequestTypeDef
-):
-    pass
+class QueryWhatIfForecastRequestTypeDef(TypedDict):
+    WhatIfForecastArn: str
+    Filters: Mapping[str, str]
+    StartDate: NotRequired[str]
+    EndDate: NotRequired[str]
+    NextToken: NotRequired[str]
 
-QueryForecastResponseTypeDef = TypedDict(
-    "QueryForecastResponseTypeDef",
-    {
-        "Forecast": "ForecastTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ForecastTypeDef(TypedDict):
+    Predictions: NotRequired[Dict[str, List[DataPointTypeDef]]]
 
-_RequiredQueryWhatIfForecastRequestRequestTypeDef = TypedDict(
-    "_RequiredQueryWhatIfForecastRequestRequestTypeDef",
-    {
-        "WhatIfForecastArn": str,
-        "Filters": Dict[str, str],
-    },
-)
-_OptionalQueryWhatIfForecastRequestRequestTypeDef = TypedDict(
-    "_OptionalQueryWhatIfForecastRequestRequestTypeDef",
-    {
-        "StartDate": str,
-        "EndDate": str,
-        "NextToken": str,
-    },
-    total=False,
-)
+class QueryForecastResponseTypeDef(TypedDict):
+    Forecast: ForecastTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class QueryWhatIfForecastRequestRequestTypeDef(
-    _RequiredQueryWhatIfForecastRequestRequestTypeDef,
-    _OptionalQueryWhatIfForecastRequestRequestTypeDef,
-):
-    pass
-
-QueryWhatIfForecastResponseTypeDef = TypedDict(
-    "QueryWhatIfForecastResponseTypeDef",
-    {
-        "Forecast": "ForecastTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
+class QueryWhatIfForecastResponseTypeDef(TypedDict):
+    Forecast: ForecastTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef

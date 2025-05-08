@@ -1,20 +1,24 @@
 """
 Type annotations for appmesh service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appmesh/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appmesh/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_appmesh.type_defs import AccessLogTypeDef
+    from mypy_boto3_appmesh.type_defs import AwsCloudMapInstanceAttributeTypeDef
 
-    data: AccessLogTypeDef = {...}
+    data: AwsCloudMapInstanceAttributeTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
+from typing import Union
 
 from .literals import (
     DefaultGatewayRouteRewriteType,
@@ -38,135 +42,171 @@ from .literals import (
     VirtualServiceStatusCodeType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
+    "AccessLogOutputTypeDef",
     "AccessLogTypeDef",
     "AwsCloudMapInstanceAttributeTypeDef",
+    "AwsCloudMapServiceDiscoveryOutputTypeDef",
     "AwsCloudMapServiceDiscoveryTypeDef",
+    "BackendDefaultsOutputTypeDef",
     "BackendDefaultsTypeDef",
+    "BackendOutputTypeDef",
     "BackendTypeDef",
+    "ClientPolicyOutputTypeDef",
+    "ClientPolicyTlsOutputTypeDef",
     "ClientPolicyTlsTypeDef",
     "ClientPolicyTypeDef",
     "ClientTlsCertificateTypeDef",
-    "CreateGatewayRouteInputRequestTypeDef",
+    "CreateGatewayRouteInputTypeDef",
     "CreateGatewayRouteOutputTypeDef",
-    "CreateMeshInputRequestTypeDef",
+    "CreateMeshInputTypeDef",
     "CreateMeshOutputTypeDef",
-    "CreateRouteInputRequestTypeDef",
+    "CreateRouteInputTypeDef",
     "CreateRouteOutputTypeDef",
-    "CreateVirtualGatewayInputRequestTypeDef",
+    "CreateVirtualGatewayInputTypeDef",
     "CreateVirtualGatewayOutputTypeDef",
-    "CreateVirtualNodeInputRequestTypeDef",
+    "CreateVirtualNodeInputTypeDef",
     "CreateVirtualNodeOutputTypeDef",
-    "CreateVirtualRouterInputRequestTypeDef",
+    "CreateVirtualRouterInputTypeDef",
     "CreateVirtualRouterOutputTypeDef",
-    "CreateVirtualServiceInputRequestTypeDef",
+    "CreateVirtualServiceInputTypeDef",
     "CreateVirtualServiceOutputTypeDef",
-    "DeleteGatewayRouteInputRequestTypeDef",
+    "DeleteGatewayRouteInputTypeDef",
     "DeleteGatewayRouteOutputTypeDef",
-    "DeleteMeshInputRequestTypeDef",
+    "DeleteMeshInputTypeDef",
     "DeleteMeshOutputTypeDef",
-    "DeleteRouteInputRequestTypeDef",
+    "DeleteRouteInputTypeDef",
     "DeleteRouteOutputTypeDef",
-    "DeleteVirtualGatewayInputRequestTypeDef",
+    "DeleteVirtualGatewayInputTypeDef",
     "DeleteVirtualGatewayOutputTypeDef",
-    "DeleteVirtualNodeInputRequestTypeDef",
+    "DeleteVirtualNodeInputTypeDef",
     "DeleteVirtualNodeOutputTypeDef",
-    "DeleteVirtualRouterInputRequestTypeDef",
+    "DeleteVirtualRouterInputTypeDef",
     "DeleteVirtualRouterOutputTypeDef",
-    "DeleteVirtualServiceInputRequestTypeDef",
+    "DeleteVirtualServiceInputTypeDef",
     "DeleteVirtualServiceOutputTypeDef",
-    "DescribeGatewayRouteInputRequestTypeDef",
+    "DescribeGatewayRouteInputTypeDef",
     "DescribeGatewayRouteOutputTypeDef",
-    "DescribeMeshInputRequestTypeDef",
+    "DescribeMeshInputTypeDef",
     "DescribeMeshOutputTypeDef",
-    "DescribeRouteInputRequestTypeDef",
+    "DescribeRouteInputTypeDef",
     "DescribeRouteOutputTypeDef",
-    "DescribeVirtualGatewayInputRequestTypeDef",
+    "DescribeVirtualGatewayInputTypeDef",
     "DescribeVirtualGatewayOutputTypeDef",
-    "DescribeVirtualNodeInputRequestTypeDef",
+    "DescribeVirtualNodeInputTypeDef",
     "DescribeVirtualNodeOutputTypeDef",
-    "DescribeVirtualRouterInputRequestTypeDef",
+    "DescribeVirtualRouterInputTypeDef",
     "DescribeVirtualRouterOutputTypeDef",
-    "DescribeVirtualServiceInputRequestTypeDef",
+    "DescribeVirtualServiceInputTypeDef",
     "DescribeVirtualServiceOutputTypeDef",
     "DnsServiceDiscoveryTypeDef",
     "DurationTypeDef",
     "EgressFilterTypeDef",
+    "FileAccessLogOutputTypeDef",
     "FileAccessLogTypeDef",
     "GatewayRouteDataTypeDef",
     "GatewayRouteHostnameMatchTypeDef",
     "GatewayRouteHostnameRewriteTypeDef",
     "GatewayRouteRefTypeDef",
+    "GatewayRouteSpecOutputTypeDef",
     "GatewayRouteSpecTypeDef",
+    "GatewayRouteSpecUnionTypeDef",
     "GatewayRouteStatusTypeDef",
     "GatewayRouteTargetTypeDef",
     "GatewayRouteVirtualServiceTypeDef",
     "GrpcGatewayRouteActionTypeDef",
+    "GrpcGatewayRouteMatchOutputTypeDef",
     "GrpcGatewayRouteMatchTypeDef",
     "GrpcGatewayRouteMetadataTypeDef",
+    "GrpcGatewayRouteOutputTypeDef",
     "GrpcGatewayRouteRewriteTypeDef",
     "GrpcGatewayRouteTypeDef",
     "GrpcMetadataMatchMethodTypeDef",
+    "GrpcRetryPolicyOutputTypeDef",
     "GrpcRetryPolicyTypeDef",
+    "GrpcRouteActionOutputTypeDef",
     "GrpcRouteActionTypeDef",
+    "GrpcRouteMatchOutputTypeDef",
     "GrpcRouteMatchTypeDef",
     "GrpcRouteMetadataMatchMethodTypeDef",
     "GrpcRouteMetadataTypeDef",
+    "GrpcRouteOutputTypeDef",
     "GrpcRouteTypeDef",
     "GrpcTimeoutTypeDef",
     "HeaderMatchMethodTypeDef",
     "HealthCheckPolicyTypeDef",
     "HttpGatewayRouteActionTypeDef",
     "HttpGatewayRouteHeaderTypeDef",
+    "HttpGatewayRouteMatchOutputTypeDef",
     "HttpGatewayRouteMatchTypeDef",
+    "HttpGatewayRouteOutputTypeDef",
     "HttpGatewayRoutePathRewriteTypeDef",
     "HttpGatewayRoutePrefixRewriteTypeDef",
     "HttpGatewayRouteRewriteTypeDef",
     "HttpGatewayRouteTypeDef",
     "HttpPathMatchTypeDef",
     "HttpQueryParameterTypeDef",
+    "HttpRetryPolicyOutputTypeDef",
     "HttpRetryPolicyTypeDef",
+    "HttpRouteActionOutputTypeDef",
     "HttpRouteActionTypeDef",
     "HttpRouteHeaderTypeDef",
+    "HttpRouteMatchOutputTypeDef",
     "HttpRouteMatchTypeDef",
+    "HttpRouteOutputTypeDef",
     "HttpRouteTypeDef",
     "HttpTimeoutTypeDef",
     "JsonFormatRefTypeDef",
-    "ListGatewayRoutesInputRequestTypeDef",
+    "ListGatewayRoutesInputPaginateTypeDef",
+    "ListGatewayRoutesInputTypeDef",
     "ListGatewayRoutesOutputTypeDef",
-    "ListMeshesInputRequestTypeDef",
+    "ListMeshesInputPaginateTypeDef",
+    "ListMeshesInputTypeDef",
     "ListMeshesOutputTypeDef",
-    "ListRoutesInputRequestTypeDef",
+    "ListRoutesInputPaginateTypeDef",
+    "ListRoutesInputTypeDef",
     "ListRoutesOutputTypeDef",
-    "ListTagsForResourceInputRequestTypeDef",
+    "ListTagsForResourceInputPaginateTypeDef",
+    "ListTagsForResourceInputTypeDef",
     "ListTagsForResourceOutputTypeDef",
-    "ListVirtualGatewaysInputRequestTypeDef",
+    "ListVirtualGatewaysInputPaginateTypeDef",
+    "ListVirtualGatewaysInputTypeDef",
     "ListVirtualGatewaysOutputTypeDef",
-    "ListVirtualNodesInputRequestTypeDef",
+    "ListVirtualNodesInputPaginateTypeDef",
+    "ListVirtualNodesInputTypeDef",
     "ListVirtualNodesOutputTypeDef",
-    "ListVirtualRoutersInputRequestTypeDef",
+    "ListVirtualRoutersInputPaginateTypeDef",
+    "ListVirtualRoutersInputTypeDef",
     "ListVirtualRoutersOutputTypeDef",
-    "ListVirtualServicesInputRequestTypeDef",
+    "ListVirtualServicesInputPaginateTypeDef",
+    "ListVirtualServicesInputTypeDef",
     "ListVirtualServicesOutputTypeDef",
+    "ListenerOutputTypeDef",
     "ListenerTimeoutTypeDef",
     "ListenerTlsAcmCertificateTypeDef",
     "ListenerTlsCertificateTypeDef",
     "ListenerTlsFileCertificateTypeDef",
+    "ListenerTlsOutputTypeDef",
     "ListenerTlsSdsCertificateTypeDef",
     "ListenerTlsTypeDef",
+    "ListenerTlsValidationContextOutputTypeDef",
     "ListenerTlsValidationContextTrustTypeDef",
     "ListenerTlsValidationContextTypeDef",
     "ListenerTypeDef",
+    "LoggingFormatOutputTypeDef",
     "LoggingFormatTypeDef",
+    "LoggingOutputTypeDef",
     "LoggingTypeDef",
     "MatchRangeTypeDef",
     "MeshDataTypeDef",
@@ -182,65 +222,89 @@ __all__ = (
     "ResponseMetadataTypeDef",
     "RouteDataTypeDef",
     "RouteRefTypeDef",
+    "RouteSpecOutputTypeDef",
     "RouteSpecTypeDef",
+    "RouteSpecUnionTypeDef",
     "RouteStatusTypeDef",
+    "ServiceDiscoveryOutputTypeDef",
     "ServiceDiscoveryTypeDef",
+    "SubjectAlternativeNameMatchersOutputTypeDef",
     "SubjectAlternativeNameMatchersTypeDef",
+    "SubjectAlternativeNamesOutputTypeDef",
     "SubjectAlternativeNamesTypeDef",
     "TagRefTypeDef",
-    "TagResourceInputRequestTypeDef",
+    "TagResourceInputTypeDef",
+    "TcpRouteActionOutputTypeDef",
     "TcpRouteActionTypeDef",
     "TcpRouteMatchTypeDef",
+    "TcpRouteOutputTypeDef",
     "TcpRouteTypeDef",
     "TcpTimeoutTypeDef",
+    "TlsValidationContextAcmTrustOutputTypeDef",
     "TlsValidationContextAcmTrustTypeDef",
     "TlsValidationContextFileTrustTypeDef",
+    "TlsValidationContextOutputTypeDef",
     "TlsValidationContextSdsTrustTypeDef",
+    "TlsValidationContextTrustOutputTypeDef",
     "TlsValidationContextTrustTypeDef",
     "TlsValidationContextTypeDef",
-    "UntagResourceInputRequestTypeDef",
-    "UpdateGatewayRouteInputRequestTypeDef",
+    "UntagResourceInputTypeDef",
+    "UpdateGatewayRouteInputTypeDef",
     "UpdateGatewayRouteOutputTypeDef",
-    "UpdateMeshInputRequestTypeDef",
+    "UpdateMeshInputTypeDef",
     "UpdateMeshOutputTypeDef",
-    "UpdateRouteInputRequestTypeDef",
+    "UpdateRouteInputTypeDef",
     "UpdateRouteOutputTypeDef",
-    "UpdateVirtualGatewayInputRequestTypeDef",
+    "UpdateVirtualGatewayInputTypeDef",
     "UpdateVirtualGatewayOutputTypeDef",
-    "UpdateVirtualNodeInputRequestTypeDef",
+    "UpdateVirtualNodeInputTypeDef",
     "UpdateVirtualNodeOutputTypeDef",
-    "UpdateVirtualRouterInputRequestTypeDef",
+    "UpdateVirtualRouterInputTypeDef",
     "UpdateVirtualRouterOutputTypeDef",
-    "UpdateVirtualServiceInputRequestTypeDef",
+    "UpdateVirtualServiceInputTypeDef",
     "UpdateVirtualServiceOutputTypeDef",
+    "VirtualGatewayAccessLogOutputTypeDef",
     "VirtualGatewayAccessLogTypeDef",
+    "VirtualGatewayBackendDefaultsOutputTypeDef",
     "VirtualGatewayBackendDefaultsTypeDef",
+    "VirtualGatewayClientPolicyOutputTypeDef",
+    "VirtualGatewayClientPolicyTlsOutputTypeDef",
     "VirtualGatewayClientPolicyTlsTypeDef",
     "VirtualGatewayClientPolicyTypeDef",
     "VirtualGatewayClientTlsCertificateTypeDef",
     "VirtualGatewayConnectionPoolTypeDef",
     "VirtualGatewayDataTypeDef",
+    "VirtualGatewayFileAccessLogOutputTypeDef",
     "VirtualGatewayFileAccessLogTypeDef",
     "VirtualGatewayGrpcConnectionPoolTypeDef",
     "VirtualGatewayHealthCheckPolicyTypeDef",
     "VirtualGatewayHttp2ConnectionPoolTypeDef",
     "VirtualGatewayHttpConnectionPoolTypeDef",
+    "VirtualGatewayListenerOutputTypeDef",
     "VirtualGatewayListenerTlsAcmCertificateTypeDef",
     "VirtualGatewayListenerTlsCertificateTypeDef",
     "VirtualGatewayListenerTlsFileCertificateTypeDef",
+    "VirtualGatewayListenerTlsOutputTypeDef",
     "VirtualGatewayListenerTlsSdsCertificateTypeDef",
     "VirtualGatewayListenerTlsTypeDef",
+    "VirtualGatewayListenerTlsValidationContextOutputTypeDef",
     "VirtualGatewayListenerTlsValidationContextTrustTypeDef",
     "VirtualGatewayListenerTlsValidationContextTypeDef",
     "VirtualGatewayListenerTypeDef",
+    "VirtualGatewayLoggingOutputTypeDef",
     "VirtualGatewayLoggingTypeDef",
     "VirtualGatewayPortMappingTypeDef",
     "VirtualGatewayRefTypeDef",
+    "VirtualGatewaySpecOutputTypeDef",
     "VirtualGatewaySpecTypeDef",
+    "VirtualGatewaySpecUnionTypeDef",
     "VirtualGatewayStatusTypeDef",
+    "VirtualGatewayTlsValidationContextAcmTrustOutputTypeDef",
     "VirtualGatewayTlsValidationContextAcmTrustTypeDef",
     "VirtualGatewayTlsValidationContextFileTrustTypeDef",
+    "VirtualGatewayTlsValidationContextOutputTypeDef",
     "VirtualGatewayTlsValidationContextSdsTrustTypeDef",
+    "VirtualGatewayTlsValidationContextTrustOutputTypeDef",
     "VirtualGatewayTlsValidationContextTrustTypeDef",
     "VirtualGatewayTlsValidationContextTypeDef",
     "VirtualNodeConnectionPoolTypeDef",
@@ -250,15 +314,20 @@ __all__ = (
     "VirtualNodeHttpConnectionPoolTypeDef",
     "VirtualNodeRefTypeDef",
     "VirtualNodeServiceProviderTypeDef",
+    "VirtualNodeSpecOutputTypeDef",
     "VirtualNodeSpecTypeDef",
+    "VirtualNodeSpecUnionTypeDef",
     "VirtualNodeStatusTypeDef",
     "VirtualNodeTcpConnectionPoolTypeDef",
     "VirtualRouterDataTypeDef",
     "VirtualRouterListenerTypeDef",
     "VirtualRouterRefTypeDef",
     "VirtualRouterServiceProviderTypeDef",
+    "VirtualRouterSpecOutputTypeDef",
     "VirtualRouterSpecTypeDef",
+    "VirtualRouterSpecUnionTypeDef",
     "VirtualRouterStatusTypeDef",
+    "VirtualServiceBackendOutputTypeDef",
     "VirtualServiceBackendTypeDef",
     "VirtualServiceDataTypeDef",
     "VirtualServiceProviderTypeDef",
@@ -268,730 +337,107 @@ __all__ = (
     "WeightedTargetTypeDef",
 )
 
-AccessLogTypeDef = TypedDict(
-    "AccessLogTypeDef",
-    {
-        "file": "FileAccessLogTypeDef",
-    },
-    total=False,
-)
-
-AwsCloudMapInstanceAttributeTypeDef = TypedDict(
-    "AwsCloudMapInstanceAttributeTypeDef",
-    {
-        "key": str,
-        "value": str,
-    },
-)
-
-_RequiredAwsCloudMapServiceDiscoveryTypeDef = TypedDict(
-    "_RequiredAwsCloudMapServiceDiscoveryTypeDef",
-    {
-        "namespaceName": str,
-        "serviceName": str,
-    },
-)
-_OptionalAwsCloudMapServiceDiscoveryTypeDef = TypedDict(
-    "_OptionalAwsCloudMapServiceDiscoveryTypeDef",
-    {
-        "attributes": List["AwsCloudMapInstanceAttributeTypeDef"],
-        "ipPreference": IpPreferenceType,
-    },
-    total=False,
-)
-
-class AwsCloudMapServiceDiscoveryTypeDef(
-    _RequiredAwsCloudMapServiceDiscoveryTypeDef, _OptionalAwsCloudMapServiceDiscoveryTypeDef
-):
-    pass
-
-BackendDefaultsTypeDef = TypedDict(
-    "BackendDefaultsTypeDef",
-    {
-        "clientPolicy": "ClientPolicyTypeDef",
-    },
-    total=False,
-)
-
-BackendTypeDef = TypedDict(
-    "BackendTypeDef",
-    {
-        "virtualService": "VirtualServiceBackendTypeDef",
-    },
-    total=False,
-)
-
-_RequiredClientPolicyTlsTypeDef = TypedDict(
-    "_RequiredClientPolicyTlsTypeDef",
-    {
-        "validation": "TlsValidationContextTypeDef",
-    },
-)
-_OptionalClientPolicyTlsTypeDef = TypedDict(
-    "_OptionalClientPolicyTlsTypeDef",
-    {
-        "certificate": "ClientTlsCertificateTypeDef",
-        "enforce": bool,
-        "ports": List[int],
-    },
-    total=False,
-)
-
-class ClientPolicyTlsTypeDef(_RequiredClientPolicyTlsTypeDef, _OptionalClientPolicyTlsTypeDef):
-    pass
-
-ClientPolicyTypeDef = TypedDict(
-    "ClientPolicyTypeDef",
-    {
-        "tls": "ClientPolicyTlsTypeDef",
-    },
-    total=False,
-)
-
-ClientTlsCertificateTypeDef = TypedDict(
-    "ClientTlsCertificateTypeDef",
-    {
-        "file": "ListenerTlsFileCertificateTypeDef",
-        "sds": "ListenerTlsSdsCertificateTypeDef",
-    },
-    total=False,
-)
-
-_RequiredCreateGatewayRouteInputRequestTypeDef = TypedDict(
-    "_RequiredCreateGatewayRouteInputRequestTypeDef",
-    {
-        "gatewayRouteName": str,
-        "meshName": str,
-        "spec": "GatewayRouteSpecTypeDef",
-        "virtualGatewayName": str,
-    },
-)
-_OptionalCreateGatewayRouteInputRequestTypeDef = TypedDict(
-    "_OptionalCreateGatewayRouteInputRequestTypeDef",
-    {
-        "clientToken": str,
-        "meshOwner": str,
-        "tags": List["TagRefTypeDef"],
-    },
-    total=False,
-)
-
-class CreateGatewayRouteInputRequestTypeDef(
-    _RequiredCreateGatewayRouteInputRequestTypeDef, _OptionalCreateGatewayRouteInputRequestTypeDef
-):
-    pass
-
-CreateGatewayRouteOutputTypeDef = TypedDict(
-    "CreateGatewayRouteOutputTypeDef",
-    {
-        "gatewayRoute": "GatewayRouteDataTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateMeshInputRequestTypeDef = TypedDict(
-    "_RequiredCreateMeshInputRequestTypeDef",
-    {
-        "meshName": str,
-    },
-)
-_OptionalCreateMeshInputRequestTypeDef = TypedDict(
-    "_OptionalCreateMeshInputRequestTypeDef",
-    {
-        "clientToken": str,
-        "spec": "MeshSpecTypeDef",
-        "tags": List["TagRefTypeDef"],
-    },
-    total=False,
-)
-
-class CreateMeshInputRequestTypeDef(
-    _RequiredCreateMeshInputRequestTypeDef, _OptionalCreateMeshInputRequestTypeDef
-):
-    pass
-
-CreateMeshOutputTypeDef = TypedDict(
-    "CreateMeshOutputTypeDef",
-    {
-        "mesh": "MeshDataTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateRouteInputRequestTypeDef = TypedDict(
-    "_RequiredCreateRouteInputRequestTypeDef",
-    {
-        "meshName": str,
-        "routeName": str,
-        "spec": "RouteSpecTypeDef",
-        "virtualRouterName": str,
-    },
-)
-_OptionalCreateRouteInputRequestTypeDef = TypedDict(
-    "_OptionalCreateRouteInputRequestTypeDef",
-    {
-        "clientToken": str,
-        "meshOwner": str,
-        "tags": List["TagRefTypeDef"],
-    },
-    total=False,
-)
-
-class CreateRouteInputRequestTypeDef(
-    _RequiredCreateRouteInputRequestTypeDef, _OptionalCreateRouteInputRequestTypeDef
-):
-    pass
-
-CreateRouteOutputTypeDef = TypedDict(
-    "CreateRouteOutputTypeDef",
-    {
-        "route": "RouteDataTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateVirtualGatewayInputRequestTypeDef = TypedDict(
-    "_RequiredCreateVirtualGatewayInputRequestTypeDef",
-    {
-        "meshName": str,
-        "spec": "VirtualGatewaySpecTypeDef",
-        "virtualGatewayName": str,
-    },
-)
-_OptionalCreateVirtualGatewayInputRequestTypeDef = TypedDict(
-    "_OptionalCreateVirtualGatewayInputRequestTypeDef",
-    {
-        "clientToken": str,
-        "meshOwner": str,
-        "tags": List["TagRefTypeDef"],
-    },
-    total=False,
-)
-
-class CreateVirtualGatewayInputRequestTypeDef(
-    _RequiredCreateVirtualGatewayInputRequestTypeDef,
-    _OptionalCreateVirtualGatewayInputRequestTypeDef,
-):
-    pass
-
-CreateVirtualGatewayOutputTypeDef = TypedDict(
-    "CreateVirtualGatewayOutputTypeDef",
-    {
-        "virtualGateway": "VirtualGatewayDataTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateVirtualNodeInputRequestTypeDef = TypedDict(
-    "_RequiredCreateVirtualNodeInputRequestTypeDef",
-    {
-        "meshName": str,
-        "spec": "VirtualNodeSpecTypeDef",
-        "virtualNodeName": str,
-    },
-)
-_OptionalCreateVirtualNodeInputRequestTypeDef = TypedDict(
-    "_OptionalCreateVirtualNodeInputRequestTypeDef",
-    {
-        "clientToken": str,
-        "meshOwner": str,
-        "tags": List["TagRefTypeDef"],
-    },
-    total=False,
-)
-
-class CreateVirtualNodeInputRequestTypeDef(
-    _RequiredCreateVirtualNodeInputRequestTypeDef, _OptionalCreateVirtualNodeInputRequestTypeDef
-):
-    pass
-
-CreateVirtualNodeOutputTypeDef = TypedDict(
-    "CreateVirtualNodeOutputTypeDef",
-    {
-        "virtualNode": "VirtualNodeDataTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateVirtualRouterInputRequestTypeDef = TypedDict(
-    "_RequiredCreateVirtualRouterInputRequestTypeDef",
-    {
-        "meshName": str,
-        "spec": "VirtualRouterSpecTypeDef",
-        "virtualRouterName": str,
-    },
-)
-_OptionalCreateVirtualRouterInputRequestTypeDef = TypedDict(
-    "_OptionalCreateVirtualRouterInputRequestTypeDef",
-    {
-        "clientToken": str,
-        "meshOwner": str,
-        "tags": List["TagRefTypeDef"],
-    },
-    total=False,
-)
-
-class CreateVirtualRouterInputRequestTypeDef(
-    _RequiredCreateVirtualRouterInputRequestTypeDef, _OptionalCreateVirtualRouterInputRequestTypeDef
-):
-    pass
-
-CreateVirtualRouterOutputTypeDef = TypedDict(
-    "CreateVirtualRouterOutputTypeDef",
-    {
-        "virtualRouter": "VirtualRouterDataTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateVirtualServiceInputRequestTypeDef = TypedDict(
-    "_RequiredCreateVirtualServiceInputRequestTypeDef",
-    {
-        "meshName": str,
-        "spec": "VirtualServiceSpecTypeDef",
-        "virtualServiceName": str,
-    },
-)
-_OptionalCreateVirtualServiceInputRequestTypeDef = TypedDict(
-    "_OptionalCreateVirtualServiceInputRequestTypeDef",
-    {
-        "clientToken": str,
-        "meshOwner": str,
-        "tags": List["TagRefTypeDef"],
-    },
-    total=False,
-)
-
-class CreateVirtualServiceInputRequestTypeDef(
-    _RequiredCreateVirtualServiceInputRequestTypeDef,
-    _OptionalCreateVirtualServiceInputRequestTypeDef,
-):
-    pass
-
-CreateVirtualServiceOutputTypeDef = TypedDict(
-    "CreateVirtualServiceOutputTypeDef",
-    {
-        "virtualService": "VirtualServiceDataTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDeleteGatewayRouteInputRequestTypeDef = TypedDict(
-    "_RequiredDeleteGatewayRouteInputRequestTypeDef",
-    {
-        "gatewayRouteName": str,
-        "meshName": str,
-        "virtualGatewayName": str,
-    },
-)
-_OptionalDeleteGatewayRouteInputRequestTypeDef = TypedDict(
-    "_OptionalDeleteGatewayRouteInputRequestTypeDef",
-    {
-        "meshOwner": str,
-    },
-    total=False,
-)
-
-class DeleteGatewayRouteInputRequestTypeDef(
-    _RequiredDeleteGatewayRouteInputRequestTypeDef, _OptionalDeleteGatewayRouteInputRequestTypeDef
-):
-    pass
-
-DeleteGatewayRouteOutputTypeDef = TypedDict(
-    "DeleteGatewayRouteOutputTypeDef",
-    {
-        "gatewayRoute": "GatewayRouteDataTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteMeshInputRequestTypeDef = TypedDict(
-    "DeleteMeshInputRequestTypeDef",
-    {
-        "meshName": str,
-    },
-)
-
-DeleteMeshOutputTypeDef = TypedDict(
-    "DeleteMeshOutputTypeDef",
-    {
-        "mesh": "MeshDataTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDeleteRouteInputRequestTypeDef = TypedDict(
-    "_RequiredDeleteRouteInputRequestTypeDef",
-    {
-        "meshName": str,
-        "routeName": str,
-        "virtualRouterName": str,
-    },
-)
-_OptionalDeleteRouteInputRequestTypeDef = TypedDict(
-    "_OptionalDeleteRouteInputRequestTypeDef",
-    {
-        "meshOwner": str,
-    },
-    total=False,
-)
-
-class DeleteRouteInputRequestTypeDef(
-    _RequiredDeleteRouteInputRequestTypeDef, _OptionalDeleteRouteInputRequestTypeDef
-):
-    pass
-
-DeleteRouteOutputTypeDef = TypedDict(
-    "DeleteRouteOutputTypeDef",
-    {
-        "route": "RouteDataTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDeleteVirtualGatewayInputRequestTypeDef = TypedDict(
-    "_RequiredDeleteVirtualGatewayInputRequestTypeDef",
-    {
-        "meshName": str,
-        "virtualGatewayName": str,
-    },
-)
-_OptionalDeleteVirtualGatewayInputRequestTypeDef = TypedDict(
-    "_OptionalDeleteVirtualGatewayInputRequestTypeDef",
-    {
-        "meshOwner": str,
-    },
-    total=False,
-)
-
-class DeleteVirtualGatewayInputRequestTypeDef(
-    _RequiredDeleteVirtualGatewayInputRequestTypeDef,
-    _OptionalDeleteVirtualGatewayInputRequestTypeDef,
-):
-    pass
-
-DeleteVirtualGatewayOutputTypeDef = TypedDict(
-    "DeleteVirtualGatewayOutputTypeDef",
-    {
-        "virtualGateway": "VirtualGatewayDataTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDeleteVirtualNodeInputRequestTypeDef = TypedDict(
-    "_RequiredDeleteVirtualNodeInputRequestTypeDef",
-    {
-        "meshName": str,
-        "virtualNodeName": str,
-    },
-)
-_OptionalDeleteVirtualNodeInputRequestTypeDef = TypedDict(
-    "_OptionalDeleteVirtualNodeInputRequestTypeDef",
-    {
-        "meshOwner": str,
-    },
-    total=False,
-)
-
-class DeleteVirtualNodeInputRequestTypeDef(
-    _RequiredDeleteVirtualNodeInputRequestTypeDef, _OptionalDeleteVirtualNodeInputRequestTypeDef
-):
-    pass
-
-DeleteVirtualNodeOutputTypeDef = TypedDict(
-    "DeleteVirtualNodeOutputTypeDef",
-    {
-        "virtualNode": "VirtualNodeDataTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDeleteVirtualRouterInputRequestTypeDef = TypedDict(
-    "_RequiredDeleteVirtualRouterInputRequestTypeDef",
-    {
-        "meshName": str,
-        "virtualRouterName": str,
-    },
-)
-_OptionalDeleteVirtualRouterInputRequestTypeDef = TypedDict(
-    "_OptionalDeleteVirtualRouterInputRequestTypeDef",
-    {
-        "meshOwner": str,
-    },
-    total=False,
-)
-
-class DeleteVirtualRouterInputRequestTypeDef(
-    _RequiredDeleteVirtualRouterInputRequestTypeDef, _OptionalDeleteVirtualRouterInputRequestTypeDef
-):
-    pass
-
-DeleteVirtualRouterOutputTypeDef = TypedDict(
-    "DeleteVirtualRouterOutputTypeDef",
-    {
-        "virtualRouter": "VirtualRouterDataTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDeleteVirtualServiceInputRequestTypeDef = TypedDict(
-    "_RequiredDeleteVirtualServiceInputRequestTypeDef",
-    {
-        "meshName": str,
-        "virtualServiceName": str,
-    },
-)
-_OptionalDeleteVirtualServiceInputRequestTypeDef = TypedDict(
-    "_OptionalDeleteVirtualServiceInputRequestTypeDef",
-    {
-        "meshOwner": str,
-    },
-    total=False,
-)
-
-class DeleteVirtualServiceInputRequestTypeDef(
-    _RequiredDeleteVirtualServiceInputRequestTypeDef,
-    _OptionalDeleteVirtualServiceInputRequestTypeDef,
-):
-    pass
-
-DeleteVirtualServiceOutputTypeDef = TypedDict(
-    "DeleteVirtualServiceOutputTypeDef",
-    {
-        "virtualService": "VirtualServiceDataTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribeGatewayRouteInputRequestTypeDef = TypedDict(
-    "_RequiredDescribeGatewayRouteInputRequestTypeDef",
-    {
-        "gatewayRouteName": str,
-        "meshName": str,
-        "virtualGatewayName": str,
-    },
-)
-_OptionalDescribeGatewayRouteInputRequestTypeDef = TypedDict(
-    "_OptionalDescribeGatewayRouteInputRequestTypeDef",
-    {
-        "meshOwner": str,
-    },
-    total=False,
-)
-
-class DescribeGatewayRouteInputRequestTypeDef(
-    _RequiredDescribeGatewayRouteInputRequestTypeDef,
-    _OptionalDescribeGatewayRouteInputRequestTypeDef,
-):
-    pass
-
-DescribeGatewayRouteOutputTypeDef = TypedDict(
-    "DescribeGatewayRouteOutputTypeDef",
-    {
-        "gatewayRoute": "GatewayRouteDataTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribeMeshInputRequestTypeDef = TypedDict(
-    "_RequiredDescribeMeshInputRequestTypeDef",
-    {
-        "meshName": str,
-    },
-)
-_OptionalDescribeMeshInputRequestTypeDef = TypedDict(
-    "_OptionalDescribeMeshInputRequestTypeDef",
-    {
-        "meshOwner": str,
-    },
-    total=False,
-)
-
-class DescribeMeshInputRequestTypeDef(
-    _RequiredDescribeMeshInputRequestTypeDef, _OptionalDescribeMeshInputRequestTypeDef
-):
-    pass
-
-DescribeMeshOutputTypeDef = TypedDict(
-    "DescribeMeshOutputTypeDef",
-    {
-        "mesh": "MeshDataTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribeRouteInputRequestTypeDef = TypedDict(
-    "_RequiredDescribeRouteInputRequestTypeDef",
-    {
-        "meshName": str,
-        "routeName": str,
-        "virtualRouterName": str,
-    },
-)
-_OptionalDescribeRouteInputRequestTypeDef = TypedDict(
-    "_OptionalDescribeRouteInputRequestTypeDef",
-    {
-        "meshOwner": str,
-    },
-    total=False,
-)
-
-class DescribeRouteInputRequestTypeDef(
-    _RequiredDescribeRouteInputRequestTypeDef, _OptionalDescribeRouteInputRequestTypeDef
-):
-    pass
-
-DescribeRouteOutputTypeDef = TypedDict(
-    "DescribeRouteOutputTypeDef",
-    {
-        "route": "RouteDataTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribeVirtualGatewayInputRequestTypeDef = TypedDict(
-    "_RequiredDescribeVirtualGatewayInputRequestTypeDef",
-    {
-        "meshName": str,
-        "virtualGatewayName": str,
-    },
-)
-_OptionalDescribeVirtualGatewayInputRequestTypeDef = TypedDict(
-    "_OptionalDescribeVirtualGatewayInputRequestTypeDef",
-    {
-        "meshOwner": str,
-    },
-    total=False,
-)
-
-class DescribeVirtualGatewayInputRequestTypeDef(
-    _RequiredDescribeVirtualGatewayInputRequestTypeDef,
-    _OptionalDescribeVirtualGatewayInputRequestTypeDef,
-):
-    pass
-
-DescribeVirtualGatewayOutputTypeDef = TypedDict(
-    "DescribeVirtualGatewayOutputTypeDef",
-    {
-        "virtualGateway": "VirtualGatewayDataTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribeVirtualNodeInputRequestTypeDef = TypedDict(
-    "_RequiredDescribeVirtualNodeInputRequestTypeDef",
-    {
-        "meshName": str,
-        "virtualNodeName": str,
-    },
-)
-_OptionalDescribeVirtualNodeInputRequestTypeDef = TypedDict(
-    "_OptionalDescribeVirtualNodeInputRequestTypeDef",
-    {
-        "meshOwner": str,
-    },
-    total=False,
-)
-
-class DescribeVirtualNodeInputRequestTypeDef(
-    _RequiredDescribeVirtualNodeInputRequestTypeDef, _OptionalDescribeVirtualNodeInputRequestTypeDef
-):
-    pass
-
-DescribeVirtualNodeOutputTypeDef = TypedDict(
-    "DescribeVirtualNodeOutputTypeDef",
-    {
-        "virtualNode": "VirtualNodeDataTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribeVirtualRouterInputRequestTypeDef = TypedDict(
-    "_RequiredDescribeVirtualRouterInputRequestTypeDef",
-    {
-        "meshName": str,
-        "virtualRouterName": str,
-    },
-)
-_OptionalDescribeVirtualRouterInputRequestTypeDef = TypedDict(
-    "_OptionalDescribeVirtualRouterInputRequestTypeDef",
-    {
-        "meshOwner": str,
-    },
-    total=False,
-)
-
-class DescribeVirtualRouterInputRequestTypeDef(
-    _RequiredDescribeVirtualRouterInputRequestTypeDef,
-    _OptionalDescribeVirtualRouterInputRequestTypeDef,
-):
-    pass
-
-DescribeVirtualRouterOutputTypeDef = TypedDict(
-    "DescribeVirtualRouterOutputTypeDef",
-    {
-        "virtualRouter": "VirtualRouterDataTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribeVirtualServiceInputRequestTypeDef = TypedDict(
-    "_RequiredDescribeVirtualServiceInputRequestTypeDef",
-    {
-        "meshName": str,
-        "virtualServiceName": str,
-    },
-)
-_OptionalDescribeVirtualServiceInputRequestTypeDef = TypedDict(
-    "_OptionalDescribeVirtualServiceInputRequestTypeDef",
-    {
-        "meshOwner": str,
-    },
-    total=False,
-)
-
-class DescribeVirtualServiceInputRequestTypeDef(
-    _RequiredDescribeVirtualServiceInputRequestTypeDef,
-    _OptionalDescribeVirtualServiceInputRequestTypeDef,
-):
-    pass
-
-DescribeVirtualServiceOutputTypeDef = TypedDict(
-    "DescribeVirtualServiceOutputTypeDef",
-    {
-        "virtualService": "VirtualServiceDataTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDnsServiceDiscoveryTypeDef = TypedDict(
-    "_RequiredDnsServiceDiscoveryTypeDef",
-    {
-        "hostname": str,
-    },
-)
-_OptionalDnsServiceDiscoveryTypeDef = TypedDict(
-    "_OptionalDnsServiceDiscoveryTypeDef",
-    {
-        "ipPreference": IpPreferenceType,
-        "responseType": DnsResponseTypeType,
-    },
-    total=False,
-)
-
-class DnsServiceDiscoveryTypeDef(
-    _RequiredDnsServiceDiscoveryTypeDef, _OptionalDnsServiceDiscoveryTypeDef
-):
-    pass
-
-DurationTypeDef = TypedDict(
-    "DurationTypeDef",
-    {
-        "unit": DurationUnitType,
-        "value": int,
-    },
-    total=False,
-)
+class AwsCloudMapInstanceAttributeTypeDef(TypedDict):
+    key: str
+    value: str
+
+class ListenerTlsFileCertificateTypeDef(TypedDict):
+    certificateChain: str
+    privateKey: str
+
+class ListenerTlsSdsCertificateTypeDef(TypedDict):
+    secretName: str
+
+class TagRefTypeDef(TypedDict):
+    key: str
+    value: str
+
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
+
+class DeleteGatewayRouteInputTypeDef(TypedDict):
+    gatewayRouteName: str
+    meshName: str
+    virtualGatewayName: str
+    meshOwner: NotRequired[str]
+
+class DeleteMeshInputTypeDef(TypedDict):
+    meshName: str
+
+class DeleteRouteInputTypeDef(TypedDict):
+    meshName: str
+    routeName: str
+    virtualRouterName: str
+    meshOwner: NotRequired[str]
+
+class DeleteVirtualGatewayInputTypeDef(TypedDict):
+    meshName: str
+    virtualGatewayName: str
+    meshOwner: NotRequired[str]
+
+class DeleteVirtualNodeInputTypeDef(TypedDict):
+    meshName: str
+    virtualNodeName: str
+    meshOwner: NotRequired[str]
+
+class DeleteVirtualRouterInputTypeDef(TypedDict):
+    meshName: str
+    virtualRouterName: str
+    meshOwner: NotRequired[str]
+
+class DeleteVirtualServiceInputTypeDef(TypedDict):
+    meshName: str
+    virtualServiceName: str
+    meshOwner: NotRequired[str]
+
+class DescribeGatewayRouteInputTypeDef(TypedDict):
+    gatewayRouteName: str
+    meshName: str
+    virtualGatewayName: str
+    meshOwner: NotRequired[str]
+
+class DescribeMeshInputTypeDef(TypedDict):
+    meshName: str
+    meshOwner: NotRequired[str]
+
+class DescribeRouteInputTypeDef(TypedDict):
+    meshName: str
+    routeName: str
+    virtualRouterName: str
+    meshOwner: NotRequired[str]
+
+class DescribeVirtualGatewayInputTypeDef(TypedDict):
+    meshName: str
+    virtualGatewayName: str
+    meshOwner: NotRequired[str]
+
+class DescribeVirtualNodeInputTypeDef(TypedDict):
+    meshName: str
+    virtualNodeName: str
+    meshOwner: NotRequired[str]
+
+class DescribeVirtualRouterInputTypeDef(TypedDict):
+    meshName: str
+    virtualRouterName: str
+    meshOwner: NotRequired[str]
+
+class DescribeVirtualServiceInputTypeDef(TypedDict):
+    meshName: str
+    virtualServiceName: str
+    meshOwner: NotRequired[str]
+
+class DnsServiceDiscoveryTypeDef(TypedDict):
+    hostname: str
+    ipPreference: NotRequired[IpPreferenceType]
+    responseType: NotRequired[DnsResponseTypeType]
+
+class DurationTypeDef(TypedDict):
+    unit: NotRequired[DurationUnitType]
+    value: NotRequired[int]
 
 EgressFilterTypeDef = TypedDict(
     "EgressFilterTypeDef",
@@ -1000,2001 +446,1268 @@ EgressFilterTypeDef = TypedDict(
     },
 )
 
-_RequiredFileAccessLogTypeDef = TypedDict(
-    "_RequiredFileAccessLogTypeDef",
-    {
-        "path": str,
-    },
-)
-_OptionalFileAccessLogTypeDef = TypedDict(
-    "_OptionalFileAccessLogTypeDef",
-    {
-        "format": "LoggingFormatTypeDef",
-    },
-    total=False,
-)
+class GatewayRouteStatusTypeDef(TypedDict):
+    status: GatewayRouteStatusCodeType
 
-class FileAccessLogTypeDef(_RequiredFileAccessLogTypeDef, _OptionalFileAccessLogTypeDef):
-    pass
+class ResourceMetadataTypeDef(TypedDict):
+    arn: str
+    createdAt: datetime
+    lastUpdatedAt: datetime
+    meshOwner: str
+    resourceOwner: str
+    uid: str
+    version: int
 
-GatewayRouteDataTypeDef = TypedDict(
-    "GatewayRouteDataTypeDef",
-    {
-        "gatewayRouteName": str,
-        "meshName": str,
-        "metadata": "ResourceMetadataTypeDef",
-        "spec": "GatewayRouteSpecTypeDef",
-        "status": "GatewayRouteStatusTypeDef",
-        "virtualGatewayName": str,
-    },
-)
+class GatewayRouteHostnameMatchTypeDef(TypedDict):
+    exact: NotRequired[str]
+    suffix: NotRequired[str]
 
-GatewayRouteHostnameMatchTypeDef = TypedDict(
-    "GatewayRouteHostnameMatchTypeDef",
-    {
-        "exact": str,
-        "suffix": str,
-    },
-    total=False,
-)
+class GatewayRouteHostnameRewriteTypeDef(TypedDict):
+    defaultTargetHostname: NotRequired[DefaultGatewayRouteRewriteType]
 
-GatewayRouteHostnameRewriteTypeDef = TypedDict(
-    "GatewayRouteHostnameRewriteTypeDef",
-    {
-        "defaultTargetHostname": DefaultGatewayRouteRewriteType,
-    },
-    total=False,
-)
+class GatewayRouteRefTypeDef(TypedDict):
+    arn: str
+    createdAt: datetime
+    gatewayRouteName: str
+    lastUpdatedAt: datetime
+    meshName: str
+    meshOwner: str
+    resourceOwner: str
+    version: int
+    virtualGatewayName: str
 
-GatewayRouteRefTypeDef = TypedDict(
-    "GatewayRouteRefTypeDef",
-    {
-        "arn": str,
-        "createdAt": datetime,
-        "gatewayRouteName": str,
-        "lastUpdatedAt": datetime,
-        "meshName": str,
-        "meshOwner": str,
-        "resourceOwner": str,
-        "version": int,
-        "virtualGatewayName": str,
-    },
-)
+class GatewayRouteVirtualServiceTypeDef(TypedDict):
+    virtualServiceName: str
 
-GatewayRouteSpecTypeDef = TypedDict(
-    "GatewayRouteSpecTypeDef",
-    {
-        "grpcRoute": "GrpcGatewayRouteTypeDef",
-        "http2Route": "HttpGatewayRouteTypeDef",
-        "httpRoute": "HttpGatewayRouteTypeDef",
-        "priority": int,
-    },
-    total=False,
-)
+class MatchRangeTypeDef(TypedDict):
+    end: int
+    start: int
 
-GatewayRouteStatusTypeDef = TypedDict(
-    "GatewayRouteStatusTypeDef",
-    {
-        "status": GatewayRouteStatusCodeType,
-    },
-)
+class WeightedTargetTypeDef(TypedDict):
+    virtualNode: str
+    weight: int
+    port: NotRequired[int]
 
-_RequiredGatewayRouteTargetTypeDef = TypedDict(
-    "_RequiredGatewayRouteTargetTypeDef",
-    {
-        "virtualService": "GatewayRouteVirtualServiceTypeDef",
-    },
-)
-_OptionalGatewayRouteTargetTypeDef = TypedDict(
-    "_OptionalGatewayRouteTargetTypeDef",
-    {
-        "port": int,
-    },
-    total=False,
-)
+class HealthCheckPolicyTypeDef(TypedDict):
+    healthyThreshold: int
+    intervalMillis: int
+    protocol: PortProtocolType
+    timeoutMillis: int
+    unhealthyThreshold: int
+    path: NotRequired[str]
+    port: NotRequired[int]
 
-class GatewayRouteTargetTypeDef(
-    _RequiredGatewayRouteTargetTypeDef, _OptionalGatewayRouteTargetTypeDef
-):
-    pass
+class HttpPathMatchTypeDef(TypedDict):
+    exact: NotRequired[str]
+    regex: NotRequired[str]
 
-GatewayRouteVirtualServiceTypeDef = TypedDict(
-    "GatewayRouteVirtualServiceTypeDef",
-    {
-        "virtualServiceName": str,
-    },
-)
+class HttpGatewayRoutePathRewriteTypeDef(TypedDict):
+    exact: NotRequired[str]
 
-_RequiredGrpcGatewayRouteActionTypeDef = TypedDict(
-    "_RequiredGrpcGatewayRouteActionTypeDef",
-    {
-        "target": "GatewayRouteTargetTypeDef",
-    },
-)
-_OptionalGrpcGatewayRouteActionTypeDef = TypedDict(
-    "_OptionalGrpcGatewayRouteActionTypeDef",
-    {
-        "rewrite": "GrpcGatewayRouteRewriteTypeDef",
-    },
-    total=False,
-)
+class HttpGatewayRoutePrefixRewriteTypeDef(TypedDict):
+    defaultPrefix: NotRequired[DefaultGatewayRouteRewriteType]
+    value: NotRequired[str]
 
-class GrpcGatewayRouteActionTypeDef(
-    _RequiredGrpcGatewayRouteActionTypeDef, _OptionalGrpcGatewayRouteActionTypeDef
-):
-    pass
+class QueryParameterMatchTypeDef(TypedDict):
+    exact: NotRequired[str]
 
-GrpcGatewayRouteMatchTypeDef = TypedDict(
-    "GrpcGatewayRouteMatchTypeDef",
-    {
-        "hostname": "GatewayRouteHostnameMatchTypeDef",
-        "metadata": List["GrpcGatewayRouteMetadataTypeDef"],
-        "port": int,
-        "serviceName": str,
-    },
-    total=False,
-)
+class JsonFormatRefTypeDef(TypedDict):
+    key: str
+    value: str
 
-_RequiredGrpcGatewayRouteMetadataTypeDef = TypedDict(
-    "_RequiredGrpcGatewayRouteMetadataTypeDef",
-    {
-        "name": str,
-    },
-)
-_OptionalGrpcGatewayRouteMetadataTypeDef = TypedDict(
-    "_OptionalGrpcGatewayRouteMetadataTypeDef",
-    {
-        "invert": bool,
-        "match": "GrpcMetadataMatchMethodTypeDef",
-    },
-    total=False,
-)
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
 
-class GrpcGatewayRouteMetadataTypeDef(
-    _RequiredGrpcGatewayRouteMetadataTypeDef, _OptionalGrpcGatewayRouteMetadataTypeDef
-):
-    pass
+class ListGatewayRoutesInputTypeDef(TypedDict):
+    meshName: str
+    virtualGatewayName: str
+    limit: NotRequired[int]
+    meshOwner: NotRequired[str]
+    nextToken: NotRequired[str]
 
-GrpcGatewayRouteRewriteTypeDef = TypedDict(
-    "GrpcGatewayRouteRewriteTypeDef",
-    {
-        "hostname": "GatewayRouteHostnameRewriteTypeDef",
-    },
-    total=False,
-)
+class ListMeshesInputTypeDef(TypedDict):
+    limit: NotRequired[int]
+    nextToken: NotRequired[str]
 
-GrpcGatewayRouteTypeDef = TypedDict(
-    "GrpcGatewayRouteTypeDef",
-    {
-        "action": "GrpcGatewayRouteActionTypeDef",
-        "match": "GrpcGatewayRouteMatchTypeDef",
-    },
-)
+class MeshRefTypeDef(TypedDict):
+    arn: str
+    createdAt: datetime
+    lastUpdatedAt: datetime
+    meshName: str
+    meshOwner: str
+    resourceOwner: str
+    version: int
+
+class ListRoutesInputTypeDef(TypedDict):
+    meshName: str
+    virtualRouterName: str
+    limit: NotRequired[int]
+    meshOwner: NotRequired[str]
+    nextToken: NotRequired[str]
+
+class RouteRefTypeDef(TypedDict):
+    arn: str
+    createdAt: datetime
+    lastUpdatedAt: datetime
+    meshName: str
+    meshOwner: str
+    resourceOwner: str
+    routeName: str
+    version: int
+    virtualRouterName: str
+
+class ListTagsForResourceInputTypeDef(TypedDict):
+    resourceArn: str
+    limit: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListVirtualGatewaysInputTypeDef(TypedDict):
+    meshName: str
+    limit: NotRequired[int]
+    meshOwner: NotRequired[str]
+    nextToken: NotRequired[str]
+
+class VirtualGatewayRefTypeDef(TypedDict):
+    arn: str
+    createdAt: datetime
+    lastUpdatedAt: datetime
+    meshName: str
+    meshOwner: str
+    resourceOwner: str
+    version: int
+    virtualGatewayName: str
+
+class ListVirtualNodesInputTypeDef(TypedDict):
+    meshName: str
+    limit: NotRequired[int]
+    meshOwner: NotRequired[str]
+    nextToken: NotRequired[str]
+
+class VirtualNodeRefTypeDef(TypedDict):
+    arn: str
+    createdAt: datetime
+    lastUpdatedAt: datetime
+    meshName: str
+    meshOwner: str
+    resourceOwner: str
+    version: int
+    virtualNodeName: str
+
+class ListVirtualRoutersInputTypeDef(TypedDict):
+    meshName: str
+    limit: NotRequired[int]
+    meshOwner: NotRequired[str]
+    nextToken: NotRequired[str]
+
+class VirtualRouterRefTypeDef(TypedDict):
+    arn: str
+    createdAt: datetime
+    lastUpdatedAt: datetime
+    meshName: str
+    meshOwner: str
+    resourceOwner: str
+    version: int
+    virtualRouterName: str
+
+class ListVirtualServicesInputTypeDef(TypedDict):
+    meshName: str
+    limit: NotRequired[int]
+    meshOwner: NotRequired[str]
+    nextToken: NotRequired[str]
+
+class VirtualServiceRefTypeDef(TypedDict):
+    arn: str
+    createdAt: datetime
+    lastUpdatedAt: datetime
+    meshName: str
+    meshOwner: str
+    resourceOwner: str
+    version: int
+    virtualServiceName: str
+
+class PortMappingTypeDef(TypedDict):
+    port: int
+    protocol: PortProtocolType
+
+class ListenerTlsAcmCertificateTypeDef(TypedDict):
+    certificateArn: str
+
+class TlsValidationContextFileTrustTypeDef(TypedDict):
+    certificateChain: str
+
+class TlsValidationContextSdsTrustTypeDef(TypedDict):
+    secretName: str
+
+class MeshStatusTypeDef(TypedDict):
+    status: NotRequired[MeshStatusCodeType]
+
+class MeshServiceDiscoveryTypeDef(TypedDict):
+    ipPreference: NotRequired[IpPreferenceType]
+
+class RouteStatusTypeDef(TypedDict):
+    status: RouteStatusCodeType
+
+class SubjectAlternativeNameMatchersOutputTypeDef(TypedDict):
+    exact: List[str]
+
+class SubjectAlternativeNameMatchersTypeDef(TypedDict):
+    exact: Sequence[str]
+
+class TcpRouteMatchTypeDef(TypedDict):
+    port: NotRequired[int]
+
+class TlsValidationContextAcmTrustOutputTypeDef(TypedDict):
+    certificateAuthorityArns: List[str]
+
+class TlsValidationContextAcmTrustTypeDef(TypedDict):
+    certificateAuthorityArns: Sequence[str]
+
+class UntagResourceInputTypeDef(TypedDict):
+    resourceArn: str
+    tagKeys: Sequence[str]
+
+class VirtualGatewayListenerTlsFileCertificateTypeDef(TypedDict):
+    certificateChain: str
+    privateKey: str
+
+class VirtualGatewayListenerTlsSdsCertificateTypeDef(TypedDict):
+    secretName: str
+
+class VirtualGatewayGrpcConnectionPoolTypeDef(TypedDict):
+    maxRequests: int
+
+class VirtualGatewayHttp2ConnectionPoolTypeDef(TypedDict):
+    maxRequests: int
+
+class VirtualGatewayHttpConnectionPoolTypeDef(TypedDict):
+    maxConnections: int
+    maxPendingRequests: NotRequired[int]
+
+class VirtualGatewayStatusTypeDef(TypedDict):
+    status: VirtualGatewayStatusCodeType
+
+class VirtualGatewayHealthCheckPolicyTypeDef(TypedDict):
+    healthyThreshold: int
+    intervalMillis: int
+    protocol: VirtualGatewayPortProtocolType
+    timeoutMillis: int
+    unhealthyThreshold: int
+    path: NotRequired[str]
+    port: NotRequired[int]
+
+class VirtualGatewayPortMappingTypeDef(TypedDict):
+    port: int
+    protocol: VirtualGatewayPortProtocolType
+
+class VirtualGatewayListenerTlsAcmCertificateTypeDef(TypedDict):
+    certificateArn: str
+
+class VirtualGatewayTlsValidationContextFileTrustTypeDef(TypedDict):
+    certificateChain: str
+
+class VirtualGatewayTlsValidationContextSdsTrustTypeDef(TypedDict):
+    secretName: str
+
+class VirtualGatewayTlsValidationContextAcmTrustOutputTypeDef(TypedDict):
+    certificateAuthorityArns: List[str]
+
+class VirtualGatewayTlsValidationContextAcmTrustTypeDef(TypedDict):
+    certificateAuthorityArns: Sequence[str]
+
+class VirtualNodeGrpcConnectionPoolTypeDef(TypedDict):
+    maxRequests: int
+
+class VirtualNodeHttp2ConnectionPoolTypeDef(TypedDict):
+    maxRequests: int
+
+class VirtualNodeHttpConnectionPoolTypeDef(TypedDict):
+    maxConnections: int
+    maxPendingRequests: NotRequired[int]
+
+class VirtualNodeTcpConnectionPoolTypeDef(TypedDict):
+    maxConnections: int
+
+class VirtualNodeStatusTypeDef(TypedDict):
+    status: VirtualNodeStatusCodeType
+
+class VirtualNodeServiceProviderTypeDef(TypedDict):
+    virtualNodeName: str
+
+class VirtualRouterStatusTypeDef(TypedDict):
+    status: VirtualRouterStatusCodeType
+
+class VirtualRouterServiceProviderTypeDef(TypedDict):
+    virtualRouterName: str
+
+class VirtualServiceStatusTypeDef(TypedDict):
+    status: VirtualServiceStatusCodeType
+
+class AwsCloudMapServiceDiscoveryOutputTypeDef(TypedDict):
+    namespaceName: str
+    serviceName: str
+    attributes: NotRequired[List[AwsCloudMapInstanceAttributeTypeDef]]
+    ipPreference: NotRequired[IpPreferenceType]
+
+class AwsCloudMapServiceDiscoveryTypeDef(TypedDict):
+    namespaceName: str
+    serviceName: str
+    attributes: NotRequired[Sequence[AwsCloudMapInstanceAttributeTypeDef]]
+    ipPreference: NotRequired[IpPreferenceType]
+
+class ClientTlsCertificateTypeDef(TypedDict):
+    file: NotRequired[ListenerTlsFileCertificateTypeDef]
+    sds: NotRequired[ListenerTlsSdsCertificateTypeDef]
+
+class TagResourceInputTypeDef(TypedDict):
+    resourceArn: str
+    tags: Sequence[TagRefTypeDef]
+
+class ListTagsForResourceOutputTypeDef(TypedDict):
+    tags: List[TagRefTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class GrpcRetryPolicyOutputTypeDef(TypedDict):
+    maxRetries: int
+    perRetryTimeout: DurationTypeDef
+    grpcRetryEvents: NotRequired[List[GrpcRetryPolicyEventType]]
+    httpRetryEvents: NotRequired[List[str]]
+    tcpRetryEvents: NotRequired[List[Literal["connection-error"]]]
+
+class GrpcRetryPolicyTypeDef(TypedDict):
+    maxRetries: int
+    perRetryTimeout: DurationTypeDef
+    grpcRetryEvents: NotRequired[Sequence[GrpcRetryPolicyEventType]]
+    httpRetryEvents: NotRequired[Sequence[str]]
+    tcpRetryEvents: NotRequired[Sequence[Literal["connection-error"]]]
+
+class GrpcTimeoutTypeDef(TypedDict):
+    idle: NotRequired[DurationTypeDef]
+    perRequest: NotRequired[DurationTypeDef]
+
+class HttpRetryPolicyOutputTypeDef(TypedDict):
+    maxRetries: int
+    perRetryTimeout: DurationTypeDef
+    httpRetryEvents: NotRequired[List[str]]
+    tcpRetryEvents: NotRequired[List[Literal["connection-error"]]]
+
+class HttpRetryPolicyTypeDef(TypedDict):
+    maxRetries: int
+    perRetryTimeout: DurationTypeDef
+    httpRetryEvents: NotRequired[Sequence[str]]
+    tcpRetryEvents: NotRequired[Sequence[Literal["connection-error"]]]
+
+class HttpTimeoutTypeDef(TypedDict):
+    idle: NotRequired[DurationTypeDef]
+    perRequest: NotRequired[DurationTypeDef]
+
+class OutlierDetectionTypeDef(TypedDict):
+    baseEjectionDuration: DurationTypeDef
+    interval: DurationTypeDef
+    maxEjectionPercent: int
+    maxServerErrors: int
+
+class TcpTimeoutTypeDef(TypedDict):
+    idle: NotRequired[DurationTypeDef]
+
+class GrpcGatewayRouteRewriteTypeDef(TypedDict):
+    hostname: NotRequired[GatewayRouteHostnameRewriteTypeDef]
+
+class ListGatewayRoutesOutputTypeDef(TypedDict):
+    gatewayRoutes: List[GatewayRouteRefTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class GatewayRouteTargetTypeDef(TypedDict):
+    virtualService: GatewayRouteVirtualServiceTypeDef
+    port: NotRequired[int]
 
 GrpcMetadataMatchMethodTypeDef = TypedDict(
     "GrpcMetadataMatchMethodTypeDef",
     {
-        "exact": str,
-        "prefix": str,
-        "range": "MatchRangeTypeDef",
-        "regex": str,
-        "suffix": str,
-    },
-    total=False,
-)
-
-_RequiredGrpcRetryPolicyTypeDef = TypedDict(
-    "_RequiredGrpcRetryPolicyTypeDef",
-    {
-        "maxRetries": int,
-        "perRetryTimeout": "DurationTypeDef",
+        "exact": NotRequired[str],
+        "prefix": NotRequired[str],
+        "range": NotRequired[MatchRangeTypeDef],
+        "regex": NotRequired[str],
+        "suffix": NotRequired[str],
     },
 )
-_OptionalGrpcRetryPolicyTypeDef = TypedDict(
-    "_OptionalGrpcRetryPolicyTypeDef",
-    {
-        "grpcRetryEvents": List[GrpcRetryPolicyEventType],
-        "httpRetryEvents": List[str],
-        "tcpRetryEvents": List[Literal["connection-error"]],
-    },
-    total=False,
-)
-
-class GrpcRetryPolicyTypeDef(_RequiredGrpcRetryPolicyTypeDef, _OptionalGrpcRetryPolicyTypeDef):
-    pass
-
-GrpcRouteActionTypeDef = TypedDict(
-    "GrpcRouteActionTypeDef",
-    {
-        "weightedTargets": List["WeightedTargetTypeDef"],
-    },
-)
-
-GrpcRouteMatchTypeDef = TypedDict(
-    "GrpcRouteMatchTypeDef",
-    {
-        "metadata": List["GrpcRouteMetadataTypeDef"],
-        "methodName": str,
-        "port": int,
-        "serviceName": str,
-    },
-    total=False,
-)
-
 GrpcRouteMetadataMatchMethodTypeDef = TypedDict(
     "GrpcRouteMetadataMatchMethodTypeDef",
     {
-        "exact": str,
-        "prefix": str,
-        "range": "MatchRangeTypeDef",
-        "regex": str,
-        "suffix": str,
-    },
-    total=False,
-)
-
-_RequiredGrpcRouteMetadataTypeDef = TypedDict(
-    "_RequiredGrpcRouteMetadataTypeDef",
-    {
-        "name": str,
+        "exact": NotRequired[str],
+        "prefix": NotRequired[str],
+        "range": NotRequired[MatchRangeTypeDef],
+        "regex": NotRequired[str],
+        "suffix": NotRequired[str],
     },
 )
-_OptionalGrpcRouteMetadataTypeDef = TypedDict(
-    "_OptionalGrpcRouteMetadataTypeDef",
-    {
-        "invert": bool,
-        "match": "GrpcRouteMetadataMatchMethodTypeDef",
-    },
-    total=False,
-)
-
-class GrpcRouteMetadataTypeDef(
-    _RequiredGrpcRouteMetadataTypeDef, _OptionalGrpcRouteMetadataTypeDef
-):
-    pass
-
-_RequiredGrpcRouteTypeDef = TypedDict(
-    "_RequiredGrpcRouteTypeDef",
-    {
-        "action": "GrpcRouteActionTypeDef",
-        "match": "GrpcRouteMatchTypeDef",
-    },
-)
-_OptionalGrpcRouteTypeDef = TypedDict(
-    "_OptionalGrpcRouteTypeDef",
-    {
-        "retryPolicy": "GrpcRetryPolicyTypeDef",
-        "timeout": "GrpcTimeoutTypeDef",
-    },
-    total=False,
-)
-
-class GrpcRouteTypeDef(_RequiredGrpcRouteTypeDef, _OptionalGrpcRouteTypeDef):
-    pass
-
-GrpcTimeoutTypeDef = TypedDict(
-    "GrpcTimeoutTypeDef",
-    {
-        "idle": "DurationTypeDef",
-        "perRequest": "DurationTypeDef",
-    },
-    total=False,
-)
-
 HeaderMatchMethodTypeDef = TypedDict(
     "HeaderMatchMethodTypeDef",
     {
-        "exact": str,
-        "prefix": str,
-        "range": "MatchRangeTypeDef",
-        "regex": str,
-        "suffix": str,
+        "exact": NotRequired[str],
+        "prefix": NotRequired[str],
+        "range": NotRequired[MatchRangeTypeDef],
+        "regex": NotRequired[str],
+        "suffix": NotRequired[str],
     },
-    total=False,
 )
 
-_RequiredHealthCheckPolicyTypeDef = TypedDict(
-    "_RequiredHealthCheckPolicyTypeDef",
-    {
-        "healthyThreshold": int,
-        "intervalMillis": int,
-        "protocol": PortProtocolType,
-        "timeoutMillis": int,
-        "unhealthyThreshold": int,
-    },
-)
-_OptionalHealthCheckPolicyTypeDef = TypedDict(
-    "_OptionalHealthCheckPolicyTypeDef",
+class GrpcRouteActionOutputTypeDef(TypedDict):
+    weightedTargets: List[WeightedTargetTypeDef]
+
+class GrpcRouteActionTypeDef(TypedDict):
+    weightedTargets: Sequence[WeightedTargetTypeDef]
+
+class HttpRouteActionOutputTypeDef(TypedDict):
+    weightedTargets: List[WeightedTargetTypeDef]
+
+class HttpRouteActionTypeDef(TypedDict):
+    weightedTargets: Sequence[WeightedTargetTypeDef]
+
+class TcpRouteActionOutputTypeDef(TypedDict):
+    weightedTargets: List[WeightedTargetTypeDef]
+
+class TcpRouteActionTypeDef(TypedDict):
+    weightedTargets: Sequence[WeightedTargetTypeDef]
+
+class HttpGatewayRouteRewriteTypeDef(TypedDict):
+    hostname: NotRequired[GatewayRouteHostnameRewriteTypeDef]
+    path: NotRequired[HttpGatewayRoutePathRewriteTypeDef]
+    prefix: NotRequired[HttpGatewayRoutePrefixRewriteTypeDef]
+
+class HttpQueryParameterTypeDef(TypedDict):
+    name: str
+    match: NotRequired[QueryParameterMatchTypeDef]
+
+class LoggingFormatOutputTypeDef(TypedDict):
+    json: NotRequired[List[JsonFormatRefTypeDef]]
+    text: NotRequired[str]
+
+class LoggingFormatTypeDef(TypedDict):
+    json: NotRequired[Sequence[JsonFormatRefTypeDef]]
+    text: NotRequired[str]
+
+class ListGatewayRoutesInputPaginateTypeDef(TypedDict):
+    meshName: str
+    virtualGatewayName: str
+    meshOwner: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListMeshesInputPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListRoutesInputPaginateTypeDef(TypedDict):
+    meshName: str
+    virtualRouterName: str
+    meshOwner: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListTagsForResourceInputPaginateTypeDef(TypedDict):
+    resourceArn: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListVirtualGatewaysInputPaginateTypeDef(TypedDict):
+    meshName: str
+    meshOwner: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListVirtualNodesInputPaginateTypeDef(TypedDict):
+    meshName: str
+    meshOwner: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListVirtualRoutersInputPaginateTypeDef(TypedDict):
+    meshName: str
+    meshOwner: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListVirtualServicesInputPaginateTypeDef(TypedDict):
+    meshName: str
+    meshOwner: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListMeshesOutputTypeDef(TypedDict):
+    meshes: List[MeshRefTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListRoutesOutputTypeDef(TypedDict):
+    routes: List[RouteRefTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListVirtualGatewaysOutputTypeDef(TypedDict):
+    virtualGateways: List[VirtualGatewayRefTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListVirtualNodesOutputTypeDef(TypedDict):
+    virtualNodes: List[VirtualNodeRefTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListVirtualRoutersOutputTypeDef(TypedDict):
+    virtualRouters: List[VirtualRouterRefTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListVirtualServicesOutputTypeDef(TypedDict):
+    virtualServices: List[VirtualServiceRefTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class VirtualRouterListenerTypeDef(TypedDict):
+    portMapping: PortMappingTypeDef
+
+class ListenerTlsCertificateTypeDef(TypedDict):
+    acm: NotRequired[ListenerTlsAcmCertificateTypeDef]
+    file: NotRequired[ListenerTlsFileCertificateTypeDef]
+    sds: NotRequired[ListenerTlsSdsCertificateTypeDef]
+
+class ListenerTlsValidationContextTrustTypeDef(TypedDict):
+    file: NotRequired[TlsValidationContextFileTrustTypeDef]
+    sds: NotRequired[TlsValidationContextSdsTrustTypeDef]
+
+class MeshSpecTypeDef(TypedDict):
+    egressFilter: NotRequired[EgressFilterTypeDef]
+    serviceDiscovery: NotRequired[MeshServiceDiscoveryTypeDef]
+
+class SubjectAlternativeNamesOutputTypeDef(TypedDict):
+    match: SubjectAlternativeNameMatchersOutputTypeDef
+
+class SubjectAlternativeNamesTypeDef(TypedDict):
+    match: SubjectAlternativeNameMatchersTypeDef
+
+class TlsValidationContextTrustOutputTypeDef(TypedDict):
+    acm: NotRequired[TlsValidationContextAcmTrustOutputTypeDef]
+    file: NotRequired[TlsValidationContextFileTrustTypeDef]
+    sds: NotRequired[TlsValidationContextSdsTrustTypeDef]
+
+class TlsValidationContextTrustTypeDef(TypedDict):
+    acm: NotRequired[TlsValidationContextAcmTrustTypeDef]
+    file: NotRequired[TlsValidationContextFileTrustTypeDef]
+    sds: NotRequired[TlsValidationContextSdsTrustTypeDef]
+
+class VirtualGatewayClientTlsCertificateTypeDef(TypedDict):
+    file: NotRequired[VirtualGatewayListenerTlsFileCertificateTypeDef]
+    sds: NotRequired[VirtualGatewayListenerTlsSdsCertificateTypeDef]
+
+class VirtualGatewayConnectionPoolTypeDef(TypedDict):
+    grpc: NotRequired[VirtualGatewayGrpcConnectionPoolTypeDef]
+    http: NotRequired[VirtualGatewayHttpConnectionPoolTypeDef]
+    http2: NotRequired[VirtualGatewayHttp2ConnectionPoolTypeDef]
+
+class VirtualGatewayListenerTlsCertificateTypeDef(TypedDict):
+    acm: NotRequired[VirtualGatewayListenerTlsAcmCertificateTypeDef]
+    file: NotRequired[VirtualGatewayListenerTlsFileCertificateTypeDef]
+    sds: NotRequired[VirtualGatewayListenerTlsSdsCertificateTypeDef]
+
+class VirtualGatewayListenerTlsValidationContextTrustTypeDef(TypedDict):
+    file: NotRequired[VirtualGatewayTlsValidationContextFileTrustTypeDef]
+    sds: NotRequired[VirtualGatewayTlsValidationContextSdsTrustTypeDef]
+
+class VirtualGatewayTlsValidationContextTrustOutputTypeDef(TypedDict):
+    acm: NotRequired[VirtualGatewayTlsValidationContextAcmTrustOutputTypeDef]
+    file: NotRequired[VirtualGatewayTlsValidationContextFileTrustTypeDef]
+    sds: NotRequired[VirtualGatewayTlsValidationContextSdsTrustTypeDef]
+
+class VirtualGatewayTlsValidationContextTrustTypeDef(TypedDict):
+    acm: NotRequired[VirtualGatewayTlsValidationContextAcmTrustTypeDef]
+    file: NotRequired[VirtualGatewayTlsValidationContextFileTrustTypeDef]
+    sds: NotRequired[VirtualGatewayTlsValidationContextSdsTrustTypeDef]
+
+class VirtualNodeConnectionPoolTypeDef(TypedDict):
+    grpc: NotRequired[VirtualNodeGrpcConnectionPoolTypeDef]
+    http: NotRequired[VirtualNodeHttpConnectionPoolTypeDef]
+    http2: NotRequired[VirtualNodeHttp2ConnectionPoolTypeDef]
+    tcp: NotRequired[VirtualNodeTcpConnectionPoolTypeDef]
+
+class VirtualServiceProviderTypeDef(TypedDict):
+    virtualNode: NotRequired[VirtualNodeServiceProviderTypeDef]
+    virtualRouter: NotRequired[VirtualRouterServiceProviderTypeDef]
+
+class ServiceDiscoveryOutputTypeDef(TypedDict):
+    awsCloudMap: NotRequired[AwsCloudMapServiceDiscoveryOutputTypeDef]
+    dns: NotRequired[DnsServiceDiscoveryTypeDef]
+
+class ServiceDiscoveryTypeDef(TypedDict):
+    awsCloudMap: NotRequired[AwsCloudMapServiceDiscoveryTypeDef]
+    dns: NotRequired[DnsServiceDiscoveryTypeDef]
+
+class ListenerTimeoutTypeDef(TypedDict):
+    grpc: NotRequired[GrpcTimeoutTypeDef]
+    http: NotRequired[HttpTimeoutTypeDef]
+    http2: NotRequired[HttpTimeoutTypeDef]
+    tcp: NotRequired[TcpTimeoutTypeDef]
+
+class GrpcGatewayRouteActionTypeDef(TypedDict):
+    target: GatewayRouteTargetTypeDef
+    rewrite: NotRequired[GrpcGatewayRouteRewriteTypeDef]
+
+class GrpcGatewayRouteMetadataTypeDef(TypedDict):
+    name: str
+    invert: NotRequired[bool]
+    match: NotRequired[GrpcMetadataMatchMethodTypeDef]
+
+class GrpcRouteMetadataTypeDef(TypedDict):
+    name: str
+    invert: NotRequired[bool]
+    match: NotRequired[GrpcRouteMetadataMatchMethodTypeDef]
+
+class HttpGatewayRouteHeaderTypeDef(TypedDict):
+    name: str
+    invert: NotRequired[bool]
+    match: NotRequired[HeaderMatchMethodTypeDef]
+
+class HttpRouteHeaderTypeDef(TypedDict):
+    name: str
+    invert: NotRequired[bool]
+    match: NotRequired[HeaderMatchMethodTypeDef]
+
+class TcpRouteOutputTypeDef(TypedDict):
+    action: TcpRouteActionOutputTypeDef
+    match: NotRequired[TcpRouteMatchTypeDef]
+    timeout: NotRequired[TcpTimeoutTypeDef]
+
+class TcpRouteTypeDef(TypedDict):
+    action: TcpRouteActionTypeDef
+    match: NotRequired[TcpRouteMatchTypeDef]
+    timeout: NotRequired[TcpTimeoutTypeDef]
+
+class HttpGatewayRouteActionTypeDef(TypedDict):
+    target: GatewayRouteTargetTypeDef
+    rewrite: NotRequired[HttpGatewayRouteRewriteTypeDef]
+
+FileAccessLogOutputTypeDef = TypedDict(
+    "FileAccessLogOutputTypeDef",
     {
         "path": str,
-        "port": int,
+        "format": NotRequired[LoggingFormatOutputTypeDef],
     },
-    total=False,
 )
-
-class HealthCheckPolicyTypeDef(
-    _RequiredHealthCheckPolicyTypeDef, _OptionalHealthCheckPolicyTypeDef
-):
-    pass
-
-_RequiredHttpGatewayRouteActionTypeDef = TypedDict(
-    "_RequiredHttpGatewayRouteActionTypeDef",
-    {
-        "target": "GatewayRouteTargetTypeDef",
-    },
-)
-_OptionalHttpGatewayRouteActionTypeDef = TypedDict(
-    "_OptionalHttpGatewayRouteActionTypeDef",
-    {
-        "rewrite": "HttpGatewayRouteRewriteTypeDef",
-    },
-    total=False,
-)
-
-class HttpGatewayRouteActionTypeDef(
-    _RequiredHttpGatewayRouteActionTypeDef, _OptionalHttpGatewayRouteActionTypeDef
-):
-    pass
-
-_RequiredHttpGatewayRouteHeaderTypeDef = TypedDict(
-    "_RequiredHttpGatewayRouteHeaderTypeDef",
-    {
-        "name": str,
-    },
-)
-_OptionalHttpGatewayRouteHeaderTypeDef = TypedDict(
-    "_OptionalHttpGatewayRouteHeaderTypeDef",
-    {
-        "invert": bool,
-        "match": "HeaderMatchMethodTypeDef",
-    },
-    total=False,
-)
-
-class HttpGatewayRouteHeaderTypeDef(
-    _RequiredHttpGatewayRouteHeaderTypeDef, _OptionalHttpGatewayRouteHeaderTypeDef
-):
-    pass
-
-HttpGatewayRouteMatchTypeDef = TypedDict(
-    "HttpGatewayRouteMatchTypeDef",
-    {
-        "headers": List["HttpGatewayRouteHeaderTypeDef"],
-        "hostname": "GatewayRouteHostnameMatchTypeDef",
-        "method": HttpMethodType,
-        "path": "HttpPathMatchTypeDef",
-        "port": int,
-        "prefix": str,
-        "queryParameters": List["HttpQueryParameterTypeDef"],
-    },
-    total=False,
-)
-
-HttpGatewayRoutePathRewriteTypeDef = TypedDict(
-    "HttpGatewayRoutePathRewriteTypeDef",
-    {
-        "exact": str,
-    },
-    total=False,
-)
-
-HttpGatewayRoutePrefixRewriteTypeDef = TypedDict(
-    "HttpGatewayRoutePrefixRewriteTypeDef",
-    {
-        "defaultPrefix": DefaultGatewayRouteRewriteType,
-        "value": str,
-    },
-    total=False,
-)
-
-HttpGatewayRouteRewriteTypeDef = TypedDict(
-    "HttpGatewayRouteRewriteTypeDef",
-    {
-        "hostname": "GatewayRouteHostnameRewriteTypeDef",
-        "path": "HttpGatewayRoutePathRewriteTypeDef",
-        "prefix": "HttpGatewayRoutePrefixRewriteTypeDef",
-    },
-    total=False,
-)
-
-HttpGatewayRouteTypeDef = TypedDict(
-    "HttpGatewayRouteTypeDef",
-    {
-        "action": "HttpGatewayRouteActionTypeDef",
-        "match": "HttpGatewayRouteMatchTypeDef",
-    },
-)
-
-HttpPathMatchTypeDef = TypedDict(
-    "HttpPathMatchTypeDef",
-    {
-        "exact": str,
-        "regex": str,
-    },
-    total=False,
-)
-
-_RequiredHttpQueryParameterTypeDef = TypedDict(
-    "_RequiredHttpQueryParameterTypeDef",
-    {
-        "name": str,
-    },
-)
-_OptionalHttpQueryParameterTypeDef = TypedDict(
-    "_OptionalHttpQueryParameterTypeDef",
-    {
-        "match": "QueryParameterMatchTypeDef",
-    },
-    total=False,
-)
-
-class HttpQueryParameterTypeDef(
-    _RequiredHttpQueryParameterTypeDef, _OptionalHttpQueryParameterTypeDef
-):
-    pass
-
-_RequiredHttpRetryPolicyTypeDef = TypedDict(
-    "_RequiredHttpRetryPolicyTypeDef",
-    {
-        "maxRetries": int,
-        "perRetryTimeout": "DurationTypeDef",
-    },
-)
-_OptionalHttpRetryPolicyTypeDef = TypedDict(
-    "_OptionalHttpRetryPolicyTypeDef",
-    {
-        "httpRetryEvents": List[str],
-        "tcpRetryEvents": List[Literal["connection-error"]],
-    },
-    total=False,
-)
-
-class HttpRetryPolicyTypeDef(_RequiredHttpRetryPolicyTypeDef, _OptionalHttpRetryPolicyTypeDef):
-    pass
-
-HttpRouteActionTypeDef = TypedDict(
-    "HttpRouteActionTypeDef",
-    {
-        "weightedTargets": List["WeightedTargetTypeDef"],
-    },
-)
-
-_RequiredHttpRouteHeaderTypeDef = TypedDict(
-    "_RequiredHttpRouteHeaderTypeDef",
-    {
-        "name": str,
-    },
-)
-_OptionalHttpRouteHeaderTypeDef = TypedDict(
-    "_OptionalHttpRouteHeaderTypeDef",
-    {
-        "invert": bool,
-        "match": "HeaderMatchMethodTypeDef",
-    },
-    total=False,
-)
-
-class HttpRouteHeaderTypeDef(_RequiredHttpRouteHeaderTypeDef, _OptionalHttpRouteHeaderTypeDef):
-    pass
-
-HttpRouteMatchTypeDef = TypedDict(
-    "HttpRouteMatchTypeDef",
-    {
-        "headers": List["HttpRouteHeaderTypeDef"],
-        "method": HttpMethodType,
-        "path": "HttpPathMatchTypeDef",
-        "port": int,
-        "prefix": str,
-        "queryParameters": List["HttpQueryParameterTypeDef"],
-        "scheme": HttpSchemeType,
-    },
-    total=False,
-)
-
-_RequiredHttpRouteTypeDef = TypedDict(
-    "_RequiredHttpRouteTypeDef",
-    {
-        "action": "HttpRouteActionTypeDef",
-        "match": "HttpRouteMatchTypeDef",
-    },
-)
-_OptionalHttpRouteTypeDef = TypedDict(
-    "_OptionalHttpRouteTypeDef",
-    {
-        "retryPolicy": "HttpRetryPolicyTypeDef",
-        "timeout": "HttpTimeoutTypeDef",
-    },
-    total=False,
-)
-
-class HttpRouteTypeDef(_RequiredHttpRouteTypeDef, _OptionalHttpRouteTypeDef):
-    pass
-
-HttpTimeoutTypeDef = TypedDict(
-    "HttpTimeoutTypeDef",
-    {
-        "idle": "DurationTypeDef",
-        "perRequest": "DurationTypeDef",
-    },
-    total=False,
-)
-
-JsonFormatRefTypeDef = TypedDict(
-    "JsonFormatRefTypeDef",
-    {
-        "key": str,
-        "value": str,
-    },
-)
-
-_RequiredListGatewayRoutesInputRequestTypeDef = TypedDict(
-    "_RequiredListGatewayRoutesInputRequestTypeDef",
-    {
-        "meshName": str,
-        "virtualGatewayName": str,
-    },
-)
-_OptionalListGatewayRoutesInputRequestTypeDef = TypedDict(
-    "_OptionalListGatewayRoutesInputRequestTypeDef",
-    {
-        "limit": int,
-        "meshOwner": str,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListGatewayRoutesInputRequestTypeDef(
-    _RequiredListGatewayRoutesInputRequestTypeDef, _OptionalListGatewayRoutesInputRequestTypeDef
-):
-    pass
-
-ListGatewayRoutesOutputTypeDef = TypedDict(
-    "ListGatewayRoutesOutputTypeDef",
-    {
-        "gatewayRoutes": List["GatewayRouteRefTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListMeshesInputRequestTypeDef = TypedDict(
-    "ListMeshesInputRequestTypeDef",
-    {
-        "limit": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-ListMeshesOutputTypeDef = TypedDict(
-    "ListMeshesOutputTypeDef",
-    {
-        "meshes": List["MeshRefTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListRoutesInputRequestTypeDef = TypedDict(
-    "_RequiredListRoutesInputRequestTypeDef",
-    {
-        "meshName": str,
-        "virtualRouterName": str,
-    },
-)
-_OptionalListRoutesInputRequestTypeDef = TypedDict(
-    "_OptionalListRoutesInputRequestTypeDef",
-    {
-        "limit": int,
-        "meshOwner": str,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListRoutesInputRequestTypeDef(
-    _RequiredListRoutesInputRequestTypeDef, _OptionalListRoutesInputRequestTypeDef
-):
-    pass
-
-ListRoutesOutputTypeDef = TypedDict(
-    "ListRoutesOutputTypeDef",
-    {
-        "nextToken": str,
-        "routes": List["RouteRefTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListTagsForResourceInputRequestTypeDef = TypedDict(
-    "_RequiredListTagsForResourceInputRequestTypeDef",
-    {
-        "resourceArn": str,
-    },
-)
-_OptionalListTagsForResourceInputRequestTypeDef = TypedDict(
-    "_OptionalListTagsForResourceInputRequestTypeDef",
-    {
-        "limit": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListTagsForResourceInputRequestTypeDef(
-    _RequiredListTagsForResourceInputRequestTypeDef, _OptionalListTagsForResourceInputRequestTypeDef
-):
-    pass
-
-ListTagsForResourceOutputTypeDef = TypedDict(
-    "ListTagsForResourceOutputTypeDef",
-    {
-        "nextToken": str,
-        "tags": List["TagRefTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListVirtualGatewaysInputRequestTypeDef = TypedDict(
-    "_RequiredListVirtualGatewaysInputRequestTypeDef",
-    {
-        "meshName": str,
-    },
-)
-_OptionalListVirtualGatewaysInputRequestTypeDef = TypedDict(
-    "_OptionalListVirtualGatewaysInputRequestTypeDef",
-    {
-        "limit": int,
-        "meshOwner": str,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListVirtualGatewaysInputRequestTypeDef(
-    _RequiredListVirtualGatewaysInputRequestTypeDef, _OptionalListVirtualGatewaysInputRequestTypeDef
-):
-    pass
-
-ListVirtualGatewaysOutputTypeDef = TypedDict(
-    "ListVirtualGatewaysOutputTypeDef",
-    {
-        "nextToken": str,
-        "virtualGateways": List["VirtualGatewayRefTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListVirtualNodesInputRequestTypeDef = TypedDict(
-    "_RequiredListVirtualNodesInputRequestTypeDef",
-    {
-        "meshName": str,
-    },
-)
-_OptionalListVirtualNodesInputRequestTypeDef = TypedDict(
-    "_OptionalListVirtualNodesInputRequestTypeDef",
-    {
-        "limit": int,
-        "meshOwner": str,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListVirtualNodesInputRequestTypeDef(
-    _RequiredListVirtualNodesInputRequestTypeDef, _OptionalListVirtualNodesInputRequestTypeDef
-):
-    pass
-
-ListVirtualNodesOutputTypeDef = TypedDict(
-    "ListVirtualNodesOutputTypeDef",
-    {
-        "nextToken": str,
-        "virtualNodes": List["VirtualNodeRefTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListVirtualRoutersInputRequestTypeDef = TypedDict(
-    "_RequiredListVirtualRoutersInputRequestTypeDef",
-    {
-        "meshName": str,
-    },
-)
-_OptionalListVirtualRoutersInputRequestTypeDef = TypedDict(
-    "_OptionalListVirtualRoutersInputRequestTypeDef",
-    {
-        "limit": int,
-        "meshOwner": str,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListVirtualRoutersInputRequestTypeDef(
-    _RequiredListVirtualRoutersInputRequestTypeDef, _OptionalListVirtualRoutersInputRequestTypeDef
-):
-    pass
-
-ListVirtualRoutersOutputTypeDef = TypedDict(
-    "ListVirtualRoutersOutputTypeDef",
-    {
-        "nextToken": str,
-        "virtualRouters": List["VirtualRouterRefTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListVirtualServicesInputRequestTypeDef = TypedDict(
-    "_RequiredListVirtualServicesInputRequestTypeDef",
-    {
-        "meshName": str,
-    },
-)
-_OptionalListVirtualServicesInputRequestTypeDef = TypedDict(
-    "_OptionalListVirtualServicesInputRequestTypeDef",
-    {
-        "limit": int,
-        "meshOwner": str,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListVirtualServicesInputRequestTypeDef(
-    _RequiredListVirtualServicesInputRequestTypeDef, _OptionalListVirtualServicesInputRequestTypeDef
-):
-    pass
-
-ListVirtualServicesOutputTypeDef = TypedDict(
-    "ListVirtualServicesOutputTypeDef",
-    {
-        "nextToken": str,
-        "virtualServices": List["VirtualServiceRefTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListenerTimeoutTypeDef = TypedDict(
-    "ListenerTimeoutTypeDef",
-    {
-        "grpc": "GrpcTimeoutTypeDef",
-        "http": "HttpTimeoutTypeDef",
-        "http2": "HttpTimeoutTypeDef",
-        "tcp": "TcpTimeoutTypeDef",
-    },
-    total=False,
-)
-
-ListenerTlsAcmCertificateTypeDef = TypedDict(
-    "ListenerTlsAcmCertificateTypeDef",
-    {
-        "certificateArn": str,
-    },
-)
-
-ListenerTlsCertificateTypeDef = TypedDict(
-    "ListenerTlsCertificateTypeDef",
-    {
-        "acm": "ListenerTlsAcmCertificateTypeDef",
-        "file": "ListenerTlsFileCertificateTypeDef",
-        "sds": "ListenerTlsSdsCertificateTypeDef",
-    },
-    total=False,
-)
-
-ListenerTlsFileCertificateTypeDef = TypedDict(
-    "ListenerTlsFileCertificateTypeDef",
-    {
-        "certificateChain": str,
-        "privateKey": str,
-    },
-)
-
-ListenerTlsSdsCertificateTypeDef = TypedDict(
-    "ListenerTlsSdsCertificateTypeDef",
-    {
-        "secretName": str,
-    },
-)
-
-_RequiredListenerTlsTypeDef = TypedDict(
-    "_RequiredListenerTlsTypeDef",
-    {
-        "certificate": "ListenerTlsCertificateTypeDef",
-        "mode": ListenerTlsModeType,
-    },
-)
-_OptionalListenerTlsTypeDef = TypedDict(
-    "_OptionalListenerTlsTypeDef",
-    {
-        "validation": "ListenerTlsValidationContextTypeDef",
-    },
-    total=False,
-)
-
-class ListenerTlsTypeDef(_RequiredListenerTlsTypeDef, _OptionalListenerTlsTypeDef):
-    pass
-
-ListenerTlsValidationContextTrustTypeDef = TypedDict(
-    "ListenerTlsValidationContextTrustTypeDef",
-    {
-        "file": "TlsValidationContextFileTrustTypeDef",
-        "sds": "TlsValidationContextSdsTrustTypeDef",
-    },
-    total=False,
-)
-
-_RequiredListenerTlsValidationContextTypeDef = TypedDict(
-    "_RequiredListenerTlsValidationContextTypeDef",
-    {
-        "trust": "ListenerTlsValidationContextTrustTypeDef",
-    },
-)
-_OptionalListenerTlsValidationContextTypeDef = TypedDict(
-    "_OptionalListenerTlsValidationContextTypeDef",
-    {
-        "subjectAlternativeNames": "SubjectAlternativeNamesTypeDef",
-    },
-    total=False,
-)
-
-class ListenerTlsValidationContextTypeDef(
-    _RequiredListenerTlsValidationContextTypeDef, _OptionalListenerTlsValidationContextTypeDef
-):
-    pass
-
-_RequiredListenerTypeDef = TypedDict(
-    "_RequiredListenerTypeDef",
-    {
-        "portMapping": "PortMappingTypeDef",
-    },
-)
-_OptionalListenerTypeDef = TypedDict(
-    "_OptionalListenerTypeDef",
-    {
-        "connectionPool": "VirtualNodeConnectionPoolTypeDef",
-        "healthCheck": "HealthCheckPolicyTypeDef",
-        "outlierDetection": "OutlierDetectionTypeDef",
-        "timeout": "ListenerTimeoutTypeDef",
-        "tls": "ListenerTlsTypeDef",
-    },
-    total=False,
-)
-
-class ListenerTypeDef(_RequiredListenerTypeDef, _OptionalListenerTypeDef):
-    pass
-
-LoggingFormatTypeDef = TypedDict(
-    "LoggingFormatTypeDef",
-    {
-        "json": List["JsonFormatRefTypeDef"],
-        "text": str,
-    },
-    total=False,
-)
-
-LoggingTypeDef = TypedDict(
-    "LoggingTypeDef",
-    {
-        "accessLog": "AccessLogTypeDef",
-    },
-    total=False,
-)
-
-MatchRangeTypeDef = TypedDict(
-    "MatchRangeTypeDef",
-    {
-        "end": int,
-        "start": int,
-    },
-)
-
-MeshDataTypeDef = TypedDict(
-    "MeshDataTypeDef",
-    {
-        "meshName": str,
-        "metadata": "ResourceMetadataTypeDef",
-        "spec": "MeshSpecTypeDef",
-        "status": "MeshStatusTypeDef",
-    },
-)
-
-MeshRefTypeDef = TypedDict(
-    "MeshRefTypeDef",
-    {
-        "arn": str,
-        "createdAt": datetime,
-        "lastUpdatedAt": datetime,
-        "meshName": str,
-        "meshOwner": str,
-        "resourceOwner": str,
-        "version": int,
-    },
-)
-
-MeshServiceDiscoveryTypeDef = TypedDict(
-    "MeshServiceDiscoveryTypeDef",
-    {
-        "ipPreference": IpPreferenceType,
-    },
-    total=False,
-)
-
-MeshSpecTypeDef = TypedDict(
-    "MeshSpecTypeDef",
-    {
-        "egressFilter": "EgressFilterTypeDef",
-        "serviceDiscovery": "MeshServiceDiscoveryTypeDef",
-    },
-    total=False,
-)
-
-MeshStatusTypeDef = TypedDict(
-    "MeshStatusTypeDef",
-    {
-        "status": MeshStatusCodeType,
-    },
-    total=False,
-)
-
-OutlierDetectionTypeDef = TypedDict(
-    "OutlierDetectionTypeDef",
-    {
-        "baseEjectionDuration": "DurationTypeDef",
-        "interval": "DurationTypeDef",
-        "maxEjectionPercent": int,
-        "maxServerErrors": int,
-    },
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-PortMappingTypeDef = TypedDict(
-    "PortMappingTypeDef",
-    {
-        "port": int,
-        "protocol": PortProtocolType,
-    },
-)
-
-QueryParameterMatchTypeDef = TypedDict(
-    "QueryParameterMatchTypeDef",
-    {
-        "exact": str,
-    },
-    total=False,
-)
-
-ResourceMetadataTypeDef = TypedDict(
-    "ResourceMetadataTypeDef",
-    {
-        "arn": str,
-        "createdAt": datetime,
-        "lastUpdatedAt": datetime,
-        "meshOwner": str,
-        "resourceOwner": str,
-        "uid": str,
-        "version": int,
-    },
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-RouteDataTypeDef = TypedDict(
-    "RouteDataTypeDef",
-    {
-        "meshName": str,
-        "metadata": "ResourceMetadataTypeDef",
-        "routeName": str,
-        "spec": "RouteSpecTypeDef",
-        "status": "RouteStatusTypeDef",
-        "virtualRouterName": str,
-    },
-)
-
-RouteRefTypeDef = TypedDict(
-    "RouteRefTypeDef",
-    {
-        "arn": str,
-        "createdAt": datetime,
-        "lastUpdatedAt": datetime,
-        "meshName": str,
-        "meshOwner": str,
-        "resourceOwner": str,
-        "routeName": str,
-        "version": int,
-        "virtualRouterName": str,
-    },
-)
-
-RouteSpecTypeDef = TypedDict(
-    "RouteSpecTypeDef",
-    {
-        "grpcRoute": "GrpcRouteTypeDef",
-        "http2Route": "HttpRouteTypeDef",
-        "httpRoute": "HttpRouteTypeDef",
-        "priority": int,
-        "tcpRoute": "TcpRouteTypeDef",
-    },
-    total=False,
-)
-
-RouteStatusTypeDef = TypedDict(
-    "RouteStatusTypeDef",
-    {
-        "status": RouteStatusCodeType,
-    },
-)
-
-ServiceDiscoveryTypeDef = TypedDict(
-    "ServiceDiscoveryTypeDef",
-    {
-        "awsCloudMap": "AwsCloudMapServiceDiscoveryTypeDef",
-        "dns": "DnsServiceDiscoveryTypeDef",
-    },
-    total=False,
-)
-
-SubjectAlternativeNameMatchersTypeDef = TypedDict(
-    "SubjectAlternativeNameMatchersTypeDef",
-    {
-        "exact": List[str],
-    },
-)
-
-SubjectAlternativeNamesTypeDef = TypedDict(
-    "SubjectAlternativeNamesTypeDef",
-    {
-        "match": "SubjectAlternativeNameMatchersTypeDef",
-    },
-)
-
-TagRefTypeDef = TypedDict(
-    "TagRefTypeDef",
-    {
-        "key": str,
-        "value": str,
-    },
-)
-
-TagResourceInputRequestTypeDef = TypedDict(
-    "TagResourceInputRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tags": List["TagRefTypeDef"],
-    },
-)
-
-TcpRouteActionTypeDef = TypedDict(
-    "TcpRouteActionTypeDef",
-    {
-        "weightedTargets": List["WeightedTargetTypeDef"],
-    },
-)
-
-TcpRouteMatchTypeDef = TypedDict(
-    "TcpRouteMatchTypeDef",
-    {
-        "port": int,
-    },
-    total=False,
-)
-
-_RequiredTcpRouteTypeDef = TypedDict(
-    "_RequiredTcpRouteTypeDef",
-    {
-        "action": "TcpRouteActionTypeDef",
-    },
-)
-_OptionalTcpRouteTypeDef = TypedDict(
-    "_OptionalTcpRouteTypeDef",
-    {
-        "match": "TcpRouteMatchTypeDef",
-        "timeout": "TcpTimeoutTypeDef",
-    },
-    total=False,
-)
-
-class TcpRouteTypeDef(_RequiredTcpRouteTypeDef, _OptionalTcpRouteTypeDef):
-    pass
-
-TcpTimeoutTypeDef = TypedDict(
-    "TcpTimeoutTypeDef",
-    {
-        "idle": "DurationTypeDef",
-    },
-    total=False,
-)
-
-TlsValidationContextAcmTrustTypeDef = TypedDict(
-    "TlsValidationContextAcmTrustTypeDef",
-    {
-        "certificateAuthorityArns": List[str],
-    },
-)
-
-TlsValidationContextFileTrustTypeDef = TypedDict(
-    "TlsValidationContextFileTrustTypeDef",
-    {
-        "certificateChain": str,
-    },
-)
-
-TlsValidationContextSdsTrustTypeDef = TypedDict(
-    "TlsValidationContextSdsTrustTypeDef",
-    {
-        "secretName": str,
-    },
-)
-
-TlsValidationContextTrustTypeDef = TypedDict(
-    "TlsValidationContextTrustTypeDef",
-    {
-        "acm": "TlsValidationContextAcmTrustTypeDef",
-        "file": "TlsValidationContextFileTrustTypeDef",
-        "sds": "TlsValidationContextSdsTrustTypeDef",
-    },
-    total=False,
-)
-
-_RequiredTlsValidationContextTypeDef = TypedDict(
-    "_RequiredTlsValidationContextTypeDef",
-    {
-        "trust": "TlsValidationContextTrustTypeDef",
-    },
-)
-_OptionalTlsValidationContextTypeDef = TypedDict(
-    "_OptionalTlsValidationContextTypeDef",
-    {
-        "subjectAlternativeNames": "SubjectAlternativeNamesTypeDef",
-    },
-    total=False,
-)
-
-class TlsValidationContextTypeDef(
-    _RequiredTlsValidationContextTypeDef, _OptionalTlsValidationContextTypeDef
-):
-    pass
-
-UntagResourceInputRequestTypeDef = TypedDict(
-    "UntagResourceInputRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tagKeys": List[str],
-    },
-)
-
-_RequiredUpdateGatewayRouteInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateGatewayRouteInputRequestTypeDef",
-    {
-        "gatewayRouteName": str,
-        "meshName": str,
-        "spec": "GatewayRouteSpecTypeDef",
-        "virtualGatewayName": str,
-    },
-)
-_OptionalUpdateGatewayRouteInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateGatewayRouteInputRequestTypeDef",
-    {
-        "clientToken": str,
-        "meshOwner": str,
-    },
-    total=False,
-)
-
-class UpdateGatewayRouteInputRequestTypeDef(
-    _RequiredUpdateGatewayRouteInputRequestTypeDef, _OptionalUpdateGatewayRouteInputRequestTypeDef
-):
-    pass
-
-UpdateGatewayRouteOutputTypeDef = TypedDict(
-    "UpdateGatewayRouteOutputTypeDef",
-    {
-        "gatewayRoute": "GatewayRouteDataTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateMeshInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateMeshInputRequestTypeDef",
-    {
-        "meshName": str,
-    },
-)
-_OptionalUpdateMeshInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateMeshInputRequestTypeDef",
-    {
-        "clientToken": str,
-        "spec": "MeshSpecTypeDef",
-    },
-    total=False,
-)
-
-class UpdateMeshInputRequestTypeDef(
-    _RequiredUpdateMeshInputRequestTypeDef, _OptionalUpdateMeshInputRequestTypeDef
-):
-    pass
-
-UpdateMeshOutputTypeDef = TypedDict(
-    "UpdateMeshOutputTypeDef",
-    {
-        "mesh": "MeshDataTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateRouteInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateRouteInputRequestTypeDef",
-    {
-        "meshName": str,
-        "routeName": str,
-        "spec": "RouteSpecTypeDef",
-        "virtualRouterName": str,
-    },
-)
-_OptionalUpdateRouteInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateRouteInputRequestTypeDef",
-    {
-        "clientToken": str,
-        "meshOwner": str,
-    },
-    total=False,
-)
-
-class UpdateRouteInputRequestTypeDef(
-    _RequiredUpdateRouteInputRequestTypeDef, _OptionalUpdateRouteInputRequestTypeDef
-):
-    pass
-
-UpdateRouteOutputTypeDef = TypedDict(
-    "UpdateRouteOutputTypeDef",
-    {
-        "route": "RouteDataTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateVirtualGatewayInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateVirtualGatewayInputRequestTypeDef",
-    {
-        "meshName": str,
-        "spec": "VirtualGatewaySpecTypeDef",
-        "virtualGatewayName": str,
-    },
-)
-_OptionalUpdateVirtualGatewayInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateVirtualGatewayInputRequestTypeDef",
-    {
-        "clientToken": str,
-        "meshOwner": str,
-    },
-    total=False,
-)
-
-class UpdateVirtualGatewayInputRequestTypeDef(
-    _RequiredUpdateVirtualGatewayInputRequestTypeDef,
-    _OptionalUpdateVirtualGatewayInputRequestTypeDef,
-):
-    pass
-
-UpdateVirtualGatewayOutputTypeDef = TypedDict(
-    "UpdateVirtualGatewayOutputTypeDef",
-    {
-        "virtualGateway": "VirtualGatewayDataTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateVirtualNodeInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateVirtualNodeInputRequestTypeDef",
-    {
-        "meshName": str,
-        "spec": "VirtualNodeSpecTypeDef",
-        "virtualNodeName": str,
-    },
-)
-_OptionalUpdateVirtualNodeInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateVirtualNodeInputRequestTypeDef",
-    {
-        "clientToken": str,
-        "meshOwner": str,
-    },
-    total=False,
-)
-
-class UpdateVirtualNodeInputRequestTypeDef(
-    _RequiredUpdateVirtualNodeInputRequestTypeDef, _OptionalUpdateVirtualNodeInputRequestTypeDef
-):
-    pass
-
-UpdateVirtualNodeOutputTypeDef = TypedDict(
-    "UpdateVirtualNodeOutputTypeDef",
-    {
-        "virtualNode": "VirtualNodeDataTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateVirtualRouterInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateVirtualRouterInputRequestTypeDef",
-    {
-        "meshName": str,
-        "spec": "VirtualRouterSpecTypeDef",
-        "virtualRouterName": str,
-    },
-)
-_OptionalUpdateVirtualRouterInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateVirtualRouterInputRequestTypeDef",
-    {
-        "clientToken": str,
-        "meshOwner": str,
-    },
-    total=False,
-)
-
-class UpdateVirtualRouterInputRequestTypeDef(
-    _RequiredUpdateVirtualRouterInputRequestTypeDef, _OptionalUpdateVirtualRouterInputRequestTypeDef
-):
-    pass
-
-UpdateVirtualRouterOutputTypeDef = TypedDict(
-    "UpdateVirtualRouterOutputTypeDef",
-    {
-        "virtualRouter": "VirtualRouterDataTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateVirtualServiceInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateVirtualServiceInputRequestTypeDef",
-    {
-        "meshName": str,
-        "spec": "VirtualServiceSpecTypeDef",
-        "virtualServiceName": str,
-    },
-)
-_OptionalUpdateVirtualServiceInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateVirtualServiceInputRequestTypeDef",
-    {
-        "clientToken": str,
-        "meshOwner": str,
-    },
-    total=False,
-)
-
-class UpdateVirtualServiceInputRequestTypeDef(
-    _RequiredUpdateVirtualServiceInputRequestTypeDef,
-    _OptionalUpdateVirtualServiceInputRequestTypeDef,
-):
-    pass
-
-UpdateVirtualServiceOutputTypeDef = TypedDict(
-    "UpdateVirtualServiceOutputTypeDef",
-    {
-        "virtualService": "VirtualServiceDataTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-VirtualGatewayAccessLogTypeDef = TypedDict(
-    "VirtualGatewayAccessLogTypeDef",
-    {
-        "file": "VirtualGatewayFileAccessLogTypeDef",
-    },
-    total=False,
-)
-
-VirtualGatewayBackendDefaultsTypeDef = TypedDict(
-    "VirtualGatewayBackendDefaultsTypeDef",
-    {
-        "clientPolicy": "VirtualGatewayClientPolicyTypeDef",
-    },
-    total=False,
-)
-
-_RequiredVirtualGatewayClientPolicyTlsTypeDef = TypedDict(
-    "_RequiredVirtualGatewayClientPolicyTlsTypeDef",
-    {
-        "validation": "VirtualGatewayTlsValidationContextTypeDef",
-    },
-)
-_OptionalVirtualGatewayClientPolicyTlsTypeDef = TypedDict(
-    "_OptionalVirtualGatewayClientPolicyTlsTypeDef",
-    {
-        "certificate": "VirtualGatewayClientTlsCertificateTypeDef",
-        "enforce": bool,
-        "ports": List[int],
-    },
-    total=False,
-)
-
-class VirtualGatewayClientPolicyTlsTypeDef(
-    _RequiredVirtualGatewayClientPolicyTlsTypeDef, _OptionalVirtualGatewayClientPolicyTlsTypeDef
-):
-    pass
-
-VirtualGatewayClientPolicyTypeDef = TypedDict(
-    "VirtualGatewayClientPolicyTypeDef",
-    {
-        "tls": "VirtualGatewayClientPolicyTlsTypeDef",
-    },
-    total=False,
-)
-
-VirtualGatewayClientTlsCertificateTypeDef = TypedDict(
-    "VirtualGatewayClientTlsCertificateTypeDef",
-    {
-        "file": "VirtualGatewayListenerTlsFileCertificateTypeDef",
-        "sds": "VirtualGatewayListenerTlsSdsCertificateTypeDef",
-    },
-    total=False,
-)
-
-VirtualGatewayConnectionPoolTypeDef = TypedDict(
-    "VirtualGatewayConnectionPoolTypeDef",
-    {
-        "grpc": "VirtualGatewayGrpcConnectionPoolTypeDef",
-        "http": "VirtualGatewayHttpConnectionPoolTypeDef",
-        "http2": "VirtualGatewayHttp2ConnectionPoolTypeDef",
-    },
-    total=False,
-)
-
-VirtualGatewayDataTypeDef = TypedDict(
-    "VirtualGatewayDataTypeDef",
-    {
-        "meshName": str,
-        "metadata": "ResourceMetadataTypeDef",
-        "spec": "VirtualGatewaySpecTypeDef",
-        "status": "VirtualGatewayStatusTypeDef",
-        "virtualGatewayName": str,
-    },
-)
-
-_RequiredVirtualGatewayFileAccessLogTypeDef = TypedDict(
-    "_RequiredVirtualGatewayFileAccessLogTypeDef",
+VirtualGatewayFileAccessLogOutputTypeDef = TypedDict(
+    "VirtualGatewayFileAccessLogOutputTypeDef",
     {
         "path": str,
+        "format": NotRequired[LoggingFormatOutputTypeDef],
     },
 )
-_OptionalVirtualGatewayFileAccessLogTypeDef = TypedDict(
-    "_OptionalVirtualGatewayFileAccessLogTypeDef",
-    {
-        "format": "LoggingFormatTypeDef",
-    },
-    total=False,
-)
-
-class VirtualGatewayFileAccessLogTypeDef(
-    _RequiredVirtualGatewayFileAccessLogTypeDef, _OptionalVirtualGatewayFileAccessLogTypeDef
-):
-    pass
-
-VirtualGatewayGrpcConnectionPoolTypeDef = TypedDict(
-    "VirtualGatewayGrpcConnectionPoolTypeDef",
-    {
-        "maxRequests": int,
-    },
-)
-
-_RequiredVirtualGatewayHealthCheckPolicyTypeDef = TypedDict(
-    "_RequiredVirtualGatewayHealthCheckPolicyTypeDef",
-    {
-        "healthyThreshold": int,
-        "intervalMillis": int,
-        "protocol": VirtualGatewayPortProtocolType,
-        "timeoutMillis": int,
-        "unhealthyThreshold": int,
-    },
-)
-_OptionalVirtualGatewayHealthCheckPolicyTypeDef = TypedDict(
-    "_OptionalVirtualGatewayHealthCheckPolicyTypeDef",
+FileAccessLogTypeDef = TypedDict(
+    "FileAccessLogTypeDef",
     {
         "path": str,
-        "port": int,
+        "format": NotRequired[LoggingFormatTypeDef],
     },
-    total=False,
 )
-
-class VirtualGatewayHealthCheckPolicyTypeDef(
-    _RequiredVirtualGatewayHealthCheckPolicyTypeDef, _OptionalVirtualGatewayHealthCheckPolicyTypeDef
-):
-    pass
-
-VirtualGatewayHttp2ConnectionPoolTypeDef = TypedDict(
-    "VirtualGatewayHttp2ConnectionPoolTypeDef",
+VirtualGatewayFileAccessLogTypeDef = TypedDict(
+    "VirtualGatewayFileAccessLogTypeDef",
     {
-        "maxRequests": int,
+        "path": str,
+        "format": NotRequired[LoggingFormatTypeDef],
     },
 )
 
-_RequiredVirtualGatewayHttpConnectionPoolTypeDef = TypedDict(
-    "_RequiredVirtualGatewayHttpConnectionPoolTypeDef",
-    {
-        "maxConnections": int,
-    },
-)
-_OptionalVirtualGatewayHttpConnectionPoolTypeDef = TypedDict(
-    "_OptionalVirtualGatewayHttpConnectionPoolTypeDef",
-    {
-        "maxPendingRequests": int,
-    },
-    total=False,
-)
+class VirtualRouterSpecOutputTypeDef(TypedDict):
+    listeners: NotRequired[List[VirtualRouterListenerTypeDef]]
 
-class VirtualGatewayHttpConnectionPoolTypeDef(
-    _RequiredVirtualGatewayHttpConnectionPoolTypeDef,
-    _OptionalVirtualGatewayHttpConnectionPoolTypeDef,
-):
-    pass
+class VirtualRouterSpecTypeDef(TypedDict):
+    listeners: NotRequired[Sequence[VirtualRouterListenerTypeDef]]
 
-VirtualGatewayListenerTlsAcmCertificateTypeDef = TypedDict(
-    "VirtualGatewayListenerTlsAcmCertificateTypeDef",
-    {
-        "certificateArn": str,
-    },
-)
+class CreateMeshInputTypeDef(TypedDict):
+    meshName: str
+    clientToken: NotRequired[str]
+    spec: NotRequired[MeshSpecTypeDef]
+    tags: NotRequired[Sequence[TagRefTypeDef]]
 
-VirtualGatewayListenerTlsCertificateTypeDef = TypedDict(
-    "VirtualGatewayListenerTlsCertificateTypeDef",
-    {
-        "acm": "VirtualGatewayListenerTlsAcmCertificateTypeDef",
-        "file": "VirtualGatewayListenerTlsFileCertificateTypeDef",
-        "sds": "VirtualGatewayListenerTlsSdsCertificateTypeDef",
-    },
-    total=False,
-)
+class MeshDataTypeDef(TypedDict):
+    meshName: str
+    metadata: ResourceMetadataTypeDef
+    spec: MeshSpecTypeDef
+    status: MeshStatusTypeDef
 
-VirtualGatewayListenerTlsFileCertificateTypeDef = TypedDict(
-    "VirtualGatewayListenerTlsFileCertificateTypeDef",
-    {
-        "certificateChain": str,
-        "privateKey": str,
-    },
-)
+class UpdateMeshInputTypeDef(TypedDict):
+    meshName: str
+    clientToken: NotRequired[str]
+    spec: NotRequired[MeshSpecTypeDef]
 
-VirtualGatewayListenerTlsSdsCertificateTypeDef = TypedDict(
-    "VirtualGatewayListenerTlsSdsCertificateTypeDef",
-    {
-        "secretName": str,
-    },
-)
+class ListenerTlsValidationContextOutputTypeDef(TypedDict):
+    trust: ListenerTlsValidationContextTrustTypeDef
+    subjectAlternativeNames: NotRequired[SubjectAlternativeNamesOutputTypeDef]
 
-_RequiredVirtualGatewayListenerTlsTypeDef = TypedDict(
-    "_RequiredVirtualGatewayListenerTlsTypeDef",
-    {
-        "certificate": "VirtualGatewayListenerTlsCertificateTypeDef",
-        "mode": VirtualGatewayListenerTlsModeType,
-    },
-)
-_OptionalVirtualGatewayListenerTlsTypeDef = TypedDict(
-    "_OptionalVirtualGatewayListenerTlsTypeDef",
-    {
-        "validation": "VirtualGatewayListenerTlsValidationContextTypeDef",
-    },
-    total=False,
-)
+class ListenerTlsValidationContextTypeDef(TypedDict):
+    trust: ListenerTlsValidationContextTrustTypeDef
+    subjectAlternativeNames: NotRequired[SubjectAlternativeNamesTypeDef]
 
-class VirtualGatewayListenerTlsTypeDef(
-    _RequiredVirtualGatewayListenerTlsTypeDef, _OptionalVirtualGatewayListenerTlsTypeDef
-):
-    pass
+class TlsValidationContextOutputTypeDef(TypedDict):
+    trust: TlsValidationContextTrustOutputTypeDef
+    subjectAlternativeNames: NotRequired[SubjectAlternativeNamesOutputTypeDef]
 
-VirtualGatewayListenerTlsValidationContextTrustTypeDef = TypedDict(
-    "VirtualGatewayListenerTlsValidationContextTrustTypeDef",
-    {
-        "file": "VirtualGatewayTlsValidationContextFileTrustTypeDef",
-        "sds": "VirtualGatewayTlsValidationContextSdsTrustTypeDef",
-    },
-    total=False,
-)
+class TlsValidationContextTypeDef(TypedDict):
+    trust: TlsValidationContextTrustTypeDef
+    subjectAlternativeNames: NotRequired[SubjectAlternativeNamesTypeDef]
 
-_RequiredVirtualGatewayListenerTlsValidationContextTypeDef = TypedDict(
-    "_RequiredVirtualGatewayListenerTlsValidationContextTypeDef",
-    {
-        "trust": "VirtualGatewayListenerTlsValidationContextTrustTypeDef",
-    },
-)
-_OptionalVirtualGatewayListenerTlsValidationContextTypeDef = TypedDict(
-    "_OptionalVirtualGatewayListenerTlsValidationContextTypeDef",
-    {
-        "subjectAlternativeNames": "SubjectAlternativeNamesTypeDef",
-    },
-    total=False,
-)
+class VirtualGatewayListenerTlsValidationContextOutputTypeDef(TypedDict):
+    trust: VirtualGatewayListenerTlsValidationContextTrustTypeDef
+    subjectAlternativeNames: NotRequired[SubjectAlternativeNamesOutputTypeDef]
 
-class VirtualGatewayListenerTlsValidationContextTypeDef(
-    _RequiredVirtualGatewayListenerTlsValidationContextTypeDef,
-    _OptionalVirtualGatewayListenerTlsValidationContextTypeDef,
-):
-    pass
+class VirtualGatewayListenerTlsValidationContextTypeDef(TypedDict):
+    trust: VirtualGatewayListenerTlsValidationContextTrustTypeDef
+    subjectAlternativeNames: NotRequired[SubjectAlternativeNamesTypeDef]
 
-_RequiredVirtualGatewayListenerTypeDef = TypedDict(
-    "_RequiredVirtualGatewayListenerTypeDef",
-    {
-        "portMapping": "VirtualGatewayPortMappingTypeDef",
-    },
-)
-_OptionalVirtualGatewayListenerTypeDef = TypedDict(
-    "_OptionalVirtualGatewayListenerTypeDef",
-    {
-        "connectionPool": "VirtualGatewayConnectionPoolTypeDef",
-        "healthCheck": "VirtualGatewayHealthCheckPolicyTypeDef",
-        "tls": "VirtualGatewayListenerTlsTypeDef",
-    },
-    total=False,
-)
+class VirtualGatewayTlsValidationContextOutputTypeDef(TypedDict):
+    trust: VirtualGatewayTlsValidationContextTrustOutputTypeDef
+    subjectAlternativeNames: NotRequired[SubjectAlternativeNamesOutputTypeDef]
 
-class VirtualGatewayListenerTypeDef(
-    _RequiredVirtualGatewayListenerTypeDef, _OptionalVirtualGatewayListenerTypeDef
-):
-    pass
+class VirtualGatewayTlsValidationContextTypeDef(TypedDict):
+    trust: VirtualGatewayTlsValidationContextTrustTypeDef
+    subjectAlternativeNames: NotRequired[SubjectAlternativeNamesTypeDef]
 
-VirtualGatewayLoggingTypeDef = TypedDict(
-    "VirtualGatewayLoggingTypeDef",
-    {
-        "accessLog": "VirtualGatewayAccessLogTypeDef",
-    },
-    total=False,
-)
+class VirtualServiceSpecTypeDef(TypedDict):
+    provider: NotRequired[VirtualServiceProviderTypeDef]
 
-VirtualGatewayPortMappingTypeDef = TypedDict(
-    "VirtualGatewayPortMappingTypeDef",
-    {
-        "port": int,
-        "protocol": VirtualGatewayPortProtocolType,
-    },
-)
+class GrpcGatewayRouteMatchOutputTypeDef(TypedDict):
+    hostname: NotRequired[GatewayRouteHostnameMatchTypeDef]
+    metadata: NotRequired[List[GrpcGatewayRouteMetadataTypeDef]]
+    port: NotRequired[int]
+    serviceName: NotRequired[str]
 
-VirtualGatewayRefTypeDef = TypedDict(
-    "VirtualGatewayRefTypeDef",
-    {
-        "arn": str,
-        "createdAt": datetime,
-        "lastUpdatedAt": datetime,
-        "meshName": str,
-        "meshOwner": str,
-        "resourceOwner": str,
-        "version": int,
-        "virtualGatewayName": str,
-    },
-)
+class GrpcGatewayRouteMatchTypeDef(TypedDict):
+    hostname: NotRequired[GatewayRouteHostnameMatchTypeDef]
+    metadata: NotRequired[Sequence[GrpcGatewayRouteMetadataTypeDef]]
+    port: NotRequired[int]
+    serviceName: NotRequired[str]
 
-_RequiredVirtualGatewaySpecTypeDef = TypedDict(
-    "_RequiredVirtualGatewaySpecTypeDef",
-    {
-        "listeners": List["VirtualGatewayListenerTypeDef"],
-    },
-)
-_OptionalVirtualGatewaySpecTypeDef = TypedDict(
-    "_OptionalVirtualGatewaySpecTypeDef",
-    {
-        "backendDefaults": "VirtualGatewayBackendDefaultsTypeDef",
-        "logging": "VirtualGatewayLoggingTypeDef",
-    },
-    total=False,
-)
+class GrpcRouteMatchOutputTypeDef(TypedDict):
+    metadata: NotRequired[List[GrpcRouteMetadataTypeDef]]
+    methodName: NotRequired[str]
+    port: NotRequired[int]
+    serviceName: NotRequired[str]
 
-class VirtualGatewaySpecTypeDef(
-    _RequiredVirtualGatewaySpecTypeDef, _OptionalVirtualGatewaySpecTypeDef
-):
-    pass
+class GrpcRouteMatchTypeDef(TypedDict):
+    metadata: NotRequired[Sequence[GrpcRouteMetadataTypeDef]]
+    methodName: NotRequired[str]
+    port: NotRequired[int]
+    serviceName: NotRequired[str]
 
-VirtualGatewayStatusTypeDef = TypedDict(
-    "VirtualGatewayStatusTypeDef",
-    {
-        "status": VirtualGatewayStatusCodeType,
-    },
-)
+class HttpGatewayRouteMatchOutputTypeDef(TypedDict):
+    headers: NotRequired[List[HttpGatewayRouteHeaderTypeDef]]
+    hostname: NotRequired[GatewayRouteHostnameMatchTypeDef]
+    method: NotRequired[HttpMethodType]
+    path: NotRequired[HttpPathMatchTypeDef]
+    port: NotRequired[int]
+    prefix: NotRequired[str]
+    queryParameters: NotRequired[List[HttpQueryParameterTypeDef]]
 
-VirtualGatewayTlsValidationContextAcmTrustTypeDef = TypedDict(
-    "VirtualGatewayTlsValidationContextAcmTrustTypeDef",
-    {
-        "certificateAuthorityArns": List[str],
-    },
-)
+class HttpGatewayRouteMatchTypeDef(TypedDict):
+    headers: NotRequired[Sequence[HttpGatewayRouteHeaderTypeDef]]
+    hostname: NotRequired[GatewayRouteHostnameMatchTypeDef]
+    method: NotRequired[HttpMethodType]
+    path: NotRequired[HttpPathMatchTypeDef]
+    port: NotRequired[int]
+    prefix: NotRequired[str]
+    queryParameters: NotRequired[Sequence[HttpQueryParameterTypeDef]]
 
-VirtualGatewayTlsValidationContextFileTrustTypeDef = TypedDict(
-    "VirtualGatewayTlsValidationContextFileTrustTypeDef",
-    {
-        "certificateChain": str,
-    },
-)
+class HttpRouteMatchOutputTypeDef(TypedDict):
+    headers: NotRequired[List[HttpRouteHeaderTypeDef]]
+    method: NotRequired[HttpMethodType]
+    path: NotRequired[HttpPathMatchTypeDef]
+    port: NotRequired[int]
+    prefix: NotRequired[str]
+    queryParameters: NotRequired[List[HttpQueryParameterTypeDef]]
+    scheme: NotRequired[HttpSchemeType]
 
-VirtualGatewayTlsValidationContextSdsTrustTypeDef = TypedDict(
-    "VirtualGatewayTlsValidationContextSdsTrustTypeDef",
-    {
-        "secretName": str,
-    },
-)
+class HttpRouteMatchTypeDef(TypedDict):
+    headers: NotRequired[Sequence[HttpRouteHeaderTypeDef]]
+    method: NotRequired[HttpMethodType]
+    path: NotRequired[HttpPathMatchTypeDef]
+    port: NotRequired[int]
+    prefix: NotRequired[str]
+    queryParameters: NotRequired[Sequence[HttpQueryParameterTypeDef]]
+    scheme: NotRequired[HttpSchemeType]
 
-VirtualGatewayTlsValidationContextTrustTypeDef = TypedDict(
-    "VirtualGatewayTlsValidationContextTrustTypeDef",
-    {
-        "acm": "VirtualGatewayTlsValidationContextAcmTrustTypeDef",
-        "file": "VirtualGatewayTlsValidationContextFileTrustTypeDef",
-        "sds": "VirtualGatewayTlsValidationContextSdsTrustTypeDef",
-    },
-    total=False,
-)
+class AccessLogOutputTypeDef(TypedDict):
+    file: NotRequired[FileAccessLogOutputTypeDef]
 
-_RequiredVirtualGatewayTlsValidationContextTypeDef = TypedDict(
-    "_RequiredVirtualGatewayTlsValidationContextTypeDef",
-    {
-        "trust": "VirtualGatewayTlsValidationContextTrustTypeDef",
-    },
-)
-_OptionalVirtualGatewayTlsValidationContextTypeDef = TypedDict(
-    "_OptionalVirtualGatewayTlsValidationContextTypeDef",
-    {
-        "subjectAlternativeNames": "SubjectAlternativeNamesTypeDef",
-    },
-    total=False,
-)
+class VirtualGatewayAccessLogOutputTypeDef(TypedDict):
+    file: NotRequired[VirtualGatewayFileAccessLogOutputTypeDef]
 
-class VirtualGatewayTlsValidationContextTypeDef(
-    _RequiredVirtualGatewayTlsValidationContextTypeDef,
-    _OptionalVirtualGatewayTlsValidationContextTypeDef,
-):
-    pass
+class AccessLogTypeDef(TypedDict):
+    file: NotRequired[FileAccessLogTypeDef]
 
-VirtualNodeConnectionPoolTypeDef = TypedDict(
-    "VirtualNodeConnectionPoolTypeDef",
-    {
-        "grpc": "VirtualNodeGrpcConnectionPoolTypeDef",
-        "http": "VirtualNodeHttpConnectionPoolTypeDef",
-        "http2": "VirtualNodeHttp2ConnectionPoolTypeDef",
-        "tcp": "VirtualNodeTcpConnectionPoolTypeDef",
-    },
-    total=False,
-)
+class VirtualGatewayAccessLogTypeDef(TypedDict):
+    file: NotRequired[VirtualGatewayFileAccessLogTypeDef]
 
-VirtualNodeDataTypeDef = TypedDict(
-    "VirtualNodeDataTypeDef",
-    {
-        "meshName": str,
-        "metadata": "ResourceMetadataTypeDef",
-        "spec": "VirtualNodeSpecTypeDef",
-        "status": "VirtualNodeStatusTypeDef",
-        "virtualNodeName": str,
-    },
-)
+class VirtualRouterDataTypeDef(TypedDict):
+    meshName: str
+    metadata: ResourceMetadataTypeDef
+    spec: VirtualRouterSpecOutputTypeDef
+    status: VirtualRouterStatusTypeDef
+    virtualRouterName: str
 
-VirtualNodeGrpcConnectionPoolTypeDef = TypedDict(
-    "VirtualNodeGrpcConnectionPoolTypeDef",
-    {
-        "maxRequests": int,
-    },
-)
+VirtualRouterSpecUnionTypeDef = Union[VirtualRouterSpecTypeDef, VirtualRouterSpecOutputTypeDef]
 
-VirtualNodeHttp2ConnectionPoolTypeDef = TypedDict(
-    "VirtualNodeHttp2ConnectionPoolTypeDef",
-    {
-        "maxRequests": int,
-    },
-)
+class CreateMeshOutputTypeDef(TypedDict):
+    mesh: MeshDataTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredVirtualNodeHttpConnectionPoolTypeDef = TypedDict(
-    "_RequiredVirtualNodeHttpConnectionPoolTypeDef",
-    {
-        "maxConnections": int,
-    },
-)
-_OptionalVirtualNodeHttpConnectionPoolTypeDef = TypedDict(
-    "_OptionalVirtualNodeHttpConnectionPoolTypeDef",
-    {
-        "maxPendingRequests": int,
-    },
-    total=False,
-)
+class DeleteMeshOutputTypeDef(TypedDict):
+    mesh: MeshDataTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class VirtualNodeHttpConnectionPoolTypeDef(
-    _RequiredVirtualNodeHttpConnectionPoolTypeDef, _OptionalVirtualNodeHttpConnectionPoolTypeDef
-):
-    pass
+class DescribeMeshOutputTypeDef(TypedDict):
+    mesh: MeshDataTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-VirtualNodeRefTypeDef = TypedDict(
-    "VirtualNodeRefTypeDef",
-    {
-        "arn": str,
-        "createdAt": datetime,
-        "lastUpdatedAt": datetime,
-        "meshName": str,
-        "meshOwner": str,
-        "resourceOwner": str,
-        "version": int,
-        "virtualNodeName": str,
-    },
-)
+class UpdateMeshOutputTypeDef(TypedDict):
+    mesh: MeshDataTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-VirtualNodeServiceProviderTypeDef = TypedDict(
-    "VirtualNodeServiceProviderTypeDef",
-    {
-        "virtualNodeName": str,
-    },
-)
+class ListenerTlsOutputTypeDef(TypedDict):
+    certificate: ListenerTlsCertificateTypeDef
+    mode: ListenerTlsModeType
+    validation: NotRequired[ListenerTlsValidationContextOutputTypeDef]
 
-VirtualNodeSpecTypeDef = TypedDict(
-    "VirtualNodeSpecTypeDef",
-    {
-        "backendDefaults": "BackendDefaultsTypeDef",
-        "backends": List["BackendTypeDef"],
-        "listeners": List["ListenerTypeDef"],
-        "logging": "LoggingTypeDef",
-        "serviceDiscovery": "ServiceDiscoveryTypeDef",
-    },
-    total=False,
-)
+class ListenerTlsTypeDef(TypedDict):
+    certificate: ListenerTlsCertificateTypeDef
+    mode: ListenerTlsModeType
+    validation: NotRequired[ListenerTlsValidationContextTypeDef]
 
-VirtualNodeStatusTypeDef = TypedDict(
-    "VirtualNodeStatusTypeDef",
-    {
-        "status": VirtualNodeStatusCodeType,
-    },
-)
+class ClientPolicyTlsOutputTypeDef(TypedDict):
+    validation: TlsValidationContextOutputTypeDef
+    certificate: NotRequired[ClientTlsCertificateTypeDef]
+    enforce: NotRequired[bool]
+    ports: NotRequired[List[int]]
 
-VirtualNodeTcpConnectionPoolTypeDef = TypedDict(
-    "VirtualNodeTcpConnectionPoolTypeDef",
-    {
-        "maxConnections": int,
-    },
-)
+class ClientPolicyTlsTypeDef(TypedDict):
+    validation: TlsValidationContextTypeDef
+    certificate: NotRequired[ClientTlsCertificateTypeDef]
+    enforce: NotRequired[bool]
+    ports: NotRequired[Sequence[int]]
 
-VirtualRouterDataTypeDef = TypedDict(
-    "VirtualRouterDataTypeDef",
-    {
-        "meshName": str,
-        "metadata": "ResourceMetadataTypeDef",
-        "spec": "VirtualRouterSpecTypeDef",
-        "status": "VirtualRouterStatusTypeDef",
-        "virtualRouterName": str,
-    },
-)
+class VirtualGatewayListenerTlsOutputTypeDef(TypedDict):
+    certificate: VirtualGatewayListenerTlsCertificateTypeDef
+    mode: VirtualGatewayListenerTlsModeType
+    validation: NotRequired[VirtualGatewayListenerTlsValidationContextOutputTypeDef]
 
-VirtualRouterListenerTypeDef = TypedDict(
-    "VirtualRouterListenerTypeDef",
-    {
-        "portMapping": "PortMappingTypeDef",
-    },
-)
+class VirtualGatewayListenerTlsTypeDef(TypedDict):
+    certificate: VirtualGatewayListenerTlsCertificateTypeDef
+    mode: VirtualGatewayListenerTlsModeType
+    validation: NotRequired[VirtualGatewayListenerTlsValidationContextTypeDef]
 
-VirtualRouterRefTypeDef = TypedDict(
-    "VirtualRouterRefTypeDef",
-    {
-        "arn": str,
-        "createdAt": datetime,
-        "lastUpdatedAt": datetime,
-        "meshName": str,
-        "meshOwner": str,
-        "resourceOwner": str,
-        "version": int,
-        "virtualRouterName": str,
-    },
-)
+class VirtualGatewayClientPolicyTlsOutputTypeDef(TypedDict):
+    validation: VirtualGatewayTlsValidationContextOutputTypeDef
+    certificate: NotRequired[VirtualGatewayClientTlsCertificateTypeDef]
+    enforce: NotRequired[bool]
+    ports: NotRequired[List[int]]
 
-VirtualRouterServiceProviderTypeDef = TypedDict(
-    "VirtualRouterServiceProviderTypeDef",
-    {
-        "virtualRouterName": str,
-    },
-)
+class VirtualGatewayClientPolicyTlsTypeDef(TypedDict):
+    validation: VirtualGatewayTlsValidationContextTypeDef
+    certificate: NotRequired[VirtualGatewayClientTlsCertificateTypeDef]
+    enforce: NotRequired[bool]
+    ports: NotRequired[Sequence[int]]
 
-VirtualRouterSpecTypeDef = TypedDict(
-    "VirtualRouterSpecTypeDef",
-    {
-        "listeners": List["VirtualRouterListenerTypeDef"],
-    },
-    total=False,
-)
+class CreateVirtualServiceInputTypeDef(TypedDict):
+    meshName: str
+    spec: VirtualServiceSpecTypeDef
+    virtualServiceName: str
+    clientToken: NotRequired[str]
+    meshOwner: NotRequired[str]
+    tags: NotRequired[Sequence[TagRefTypeDef]]
 
-VirtualRouterStatusTypeDef = TypedDict(
-    "VirtualRouterStatusTypeDef",
-    {
-        "status": VirtualRouterStatusCodeType,
-    },
-)
+class UpdateVirtualServiceInputTypeDef(TypedDict):
+    meshName: str
+    spec: VirtualServiceSpecTypeDef
+    virtualServiceName: str
+    clientToken: NotRequired[str]
+    meshOwner: NotRequired[str]
 
-_RequiredVirtualServiceBackendTypeDef = TypedDict(
-    "_RequiredVirtualServiceBackendTypeDef",
-    {
-        "virtualServiceName": str,
-    },
-)
-_OptionalVirtualServiceBackendTypeDef = TypedDict(
-    "_OptionalVirtualServiceBackendTypeDef",
-    {
-        "clientPolicy": "ClientPolicyTypeDef",
-    },
-    total=False,
-)
+class VirtualServiceDataTypeDef(TypedDict):
+    meshName: str
+    metadata: ResourceMetadataTypeDef
+    spec: VirtualServiceSpecTypeDef
+    status: VirtualServiceStatusTypeDef
+    virtualServiceName: str
 
-class VirtualServiceBackendTypeDef(
-    _RequiredVirtualServiceBackendTypeDef, _OptionalVirtualServiceBackendTypeDef
-):
-    pass
+class GrpcGatewayRouteOutputTypeDef(TypedDict):
+    action: GrpcGatewayRouteActionTypeDef
+    match: GrpcGatewayRouteMatchOutputTypeDef
 
-VirtualServiceDataTypeDef = TypedDict(
-    "VirtualServiceDataTypeDef",
-    {
-        "meshName": str,
-        "metadata": "ResourceMetadataTypeDef",
-        "spec": "VirtualServiceSpecTypeDef",
-        "status": "VirtualServiceStatusTypeDef",
-        "virtualServiceName": str,
-    },
-)
+class GrpcGatewayRouteTypeDef(TypedDict):
+    action: GrpcGatewayRouteActionTypeDef
+    match: GrpcGatewayRouteMatchTypeDef
 
-VirtualServiceProviderTypeDef = TypedDict(
-    "VirtualServiceProviderTypeDef",
-    {
-        "virtualNode": "VirtualNodeServiceProviderTypeDef",
-        "virtualRouter": "VirtualRouterServiceProviderTypeDef",
-    },
-    total=False,
-)
+class GrpcRouteOutputTypeDef(TypedDict):
+    action: GrpcRouteActionOutputTypeDef
+    match: GrpcRouteMatchOutputTypeDef
+    retryPolicy: NotRequired[GrpcRetryPolicyOutputTypeDef]
+    timeout: NotRequired[GrpcTimeoutTypeDef]
 
-VirtualServiceRefTypeDef = TypedDict(
-    "VirtualServiceRefTypeDef",
-    {
-        "arn": str,
-        "createdAt": datetime,
-        "lastUpdatedAt": datetime,
-        "meshName": str,
-        "meshOwner": str,
-        "resourceOwner": str,
-        "version": int,
-        "virtualServiceName": str,
-    },
-)
+class GrpcRouteTypeDef(TypedDict):
+    action: GrpcRouteActionTypeDef
+    match: GrpcRouteMatchTypeDef
+    retryPolicy: NotRequired[GrpcRetryPolicyTypeDef]
+    timeout: NotRequired[GrpcTimeoutTypeDef]
 
-VirtualServiceSpecTypeDef = TypedDict(
-    "VirtualServiceSpecTypeDef",
-    {
-        "provider": "VirtualServiceProviderTypeDef",
-    },
-    total=False,
-)
+class HttpGatewayRouteOutputTypeDef(TypedDict):
+    action: HttpGatewayRouteActionTypeDef
+    match: HttpGatewayRouteMatchOutputTypeDef
 
-VirtualServiceStatusTypeDef = TypedDict(
-    "VirtualServiceStatusTypeDef",
-    {
-        "status": VirtualServiceStatusCodeType,
-    },
-)
+class HttpGatewayRouteTypeDef(TypedDict):
+    action: HttpGatewayRouteActionTypeDef
+    match: HttpGatewayRouteMatchTypeDef
 
-_RequiredWeightedTargetTypeDef = TypedDict(
-    "_RequiredWeightedTargetTypeDef",
-    {
-        "virtualNode": str,
-        "weight": int,
-    },
-)
-_OptionalWeightedTargetTypeDef = TypedDict(
-    "_OptionalWeightedTargetTypeDef",
-    {
-        "port": int,
-    },
-    total=False,
-)
+class HttpRouteOutputTypeDef(TypedDict):
+    action: HttpRouteActionOutputTypeDef
+    match: HttpRouteMatchOutputTypeDef
+    retryPolicy: NotRequired[HttpRetryPolicyOutputTypeDef]
+    timeout: NotRequired[HttpTimeoutTypeDef]
 
-class WeightedTargetTypeDef(_RequiredWeightedTargetTypeDef, _OptionalWeightedTargetTypeDef):
-    pass
+class HttpRouteTypeDef(TypedDict):
+    action: HttpRouteActionTypeDef
+    match: HttpRouteMatchTypeDef
+    retryPolicy: NotRequired[HttpRetryPolicyTypeDef]
+    timeout: NotRequired[HttpTimeoutTypeDef]
+
+class LoggingOutputTypeDef(TypedDict):
+    accessLog: NotRequired[AccessLogOutputTypeDef]
+
+class VirtualGatewayLoggingOutputTypeDef(TypedDict):
+    accessLog: NotRequired[VirtualGatewayAccessLogOutputTypeDef]
+
+class LoggingTypeDef(TypedDict):
+    accessLog: NotRequired[AccessLogTypeDef]
+
+class VirtualGatewayLoggingTypeDef(TypedDict):
+    accessLog: NotRequired[VirtualGatewayAccessLogTypeDef]
+
+class CreateVirtualRouterOutputTypeDef(TypedDict):
+    virtualRouter: VirtualRouterDataTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteVirtualRouterOutputTypeDef(TypedDict):
+    virtualRouter: VirtualRouterDataTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeVirtualRouterOutputTypeDef(TypedDict):
+    virtualRouter: VirtualRouterDataTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateVirtualRouterOutputTypeDef(TypedDict):
+    virtualRouter: VirtualRouterDataTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateVirtualRouterInputTypeDef(TypedDict):
+    meshName: str
+    spec: VirtualRouterSpecUnionTypeDef
+    virtualRouterName: str
+    clientToken: NotRequired[str]
+    meshOwner: NotRequired[str]
+    tags: NotRequired[Sequence[TagRefTypeDef]]
+
+class UpdateVirtualRouterInputTypeDef(TypedDict):
+    meshName: str
+    spec: VirtualRouterSpecUnionTypeDef
+    virtualRouterName: str
+    clientToken: NotRequired[str]
+    meshOwner: NotRequired[str]
+
+class ListenerOutputTypeDef(TypedDict):
+    portMapping: PortMappingTypeDef
+    connectionPool: NotRequired[VirtualNodeConnectionPoolTypeDef]
+    healthCheck: NotRequired[HealthCheckPolicyTypeDef]
+    outlierDetection: NotRequired[OutlierDetectionTypeDef]
+    timeout: NotRequired[ListenerTimeoutTypeDef]
+    tls: NotRequired[ListenerTlsOutputTypeDef]
+
+class ListenerTypeDef(TypedDict):
+    portMapping: PortMappingTypeDef
+    connectionPool: NotRequired[VirtualNodeConnectionPoolTypeDef]
+    healthCheck: NotRequired[HealthCheckPolicyTypeDef]
+    outlierDetection: NotRequired[OutlierDetectionTypeDef]
+    timeout: NotRequired[ListenerTimeoutTypeDef]
+    tls: NotRequired[ListenerTlsTypeDef]
+
+class ClientPolicyOutputTypeDef(TypedDict):
+    tls: NotRequired[ClientPolicyTlsOutputTypeDef]
+
+class ClientPolicyTypeDef(TypedDict):
+    tls: NotRequired[ClientPolicyTlsTypeDef]
+
+class VirtualGatewayListenerOutputTypeDef(TypedDict):
+    portMapping: VirtualGatewayPortMappingTypeDef
+    connectionPool: NotRequired[VirtualGatewayConnectionPoolTypeDef]
+    healthCheck: NotRequired[VirtualGatewayHealthCheckPolicyTypeDef]
+    tls: NotRequired[VirtualGatewayListenerTlsOutputTypeDef]
+
+class VirtualGatewayListenerTypeDef(TypedDict):
+    portMapping: VirtualGatewayPortMappingTypeDef
+    connectionPool: NotRequired[VirtualGatewayConnectionPoolTypeDef]
+    healthCheck: NotRequired[VirtualGatewayHealthCheckPolicyTypeDef]
+    tls: NotRequired[VirtualGatewayListenerTlsTypeDef]
+
+class VirtualGatewayClientPolicyOutputTypeDef(TypedDict):
+    tls: NotRequired[VirtualGatewayClientPolicyTlsOutputTypeDef]
+
+class VirtualGatewayClientPolicyTypeDef(TypedDict):
+    tls: NotRequired[VirtualGatewayClientPolicyTlsTypeDef]
+
+class CreateVirtualServiceOutputTypeDef(TypedDict):
+    virtualService: VirtualServiceDataTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteVirtualServiceOutputTypeDef(TypedDict):
+    virtualService: VirtualServiceDataTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeVirtualServiceOutputTypeDef(TypedDict):
+    virtualService: VirtualServiceDataTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateVirtualServiceOutputTypeDef(TypedDict):
+    virtualService: VirtualServiceDataTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GatewayRouteSpecOutputTypeDef(TypedDict):
+    grpcRoute: NotRequired[GrpcGatewayRouteOutputTypeDef]
+    http2Route: NotRequired[HttpGatewayRouteOutputTypeDef]
+    httpRoute: NotRequired[HttpGatewayRouteOutputTypeDef]
+    priority: NotRequired[int]
+
+class GatewayRouteSpecTypeDef(TypedDict):
+    grpcRoute: NotRequired[GrpcGatewayRouteTypeDef]
+    http2Route: NotRequired[HttpGatewayRouteTypeDef]
+    httpRoute: NotRequired[HttpGatewayRouteTypeDef]
+    priority: NotRequired[int]
+
+class RouteSpecOutputTypeDef(TypedDict):
+    grpcRoute: NotRequired[GrpcRouteOutputTypeDef]
+    http2Route: NotRequired[HttpRouteOutputTypeDef]
+    httpRoute: NotRequired[HttpRouteOutputTypeDef]
+    priority: NotRequired[int]
+    tcpRoute: NotRequired[TcpRouteOutputTypeDef]
+
+class RouteSpecTypeDef(TypedDict):
+    grpcRoute: NotRequired[GrpcRouteTypeDef]
+    http2Route: NotRequired[HttpRouteTypeDef]
+    httpRoute: NotRequired[HttpRouteTypeDef]
+    priority: NotRequired[int]
+    tcpRoute: NotRequired[TcpRouteTypeDef]
+
+class BackendDefaultsOutputTypeDef(TypedDict):
+    clientPolicy: NotRequired[ClientPolicyOutputTypeDef]
+
+class VirtualServiceBackendOutputTypeDef(TypedDict):
+    virtualServiceName: str
+    clientPolicy: NotRequired[ClientPolicyOutputTypeDef]
+
+class BackendDefaultsTypeDef(TypedDict):
+    clientPolicy: NotRequired[ClientPolicyTypeDef]
+
+class VirtualServiceBackendTypeDef(TypedDict):
+    virtualServiceName: str
+    clientPolicy: NotRequired[ClientPolicyTypeDef]
+
+class VirtualGatewayBackendDefaultsOutputTypeDef(TypedDict):
+    clientPolicy: NotRequired[VirtualGatewayClientPolicyOutputTypeDef]
+
+class VirtualGatewayBackendDefaultsTypeDef(TypedDict):
+    clientPolicy: NotRequired[VirtualGatewayClientPolicyTypeDef]
+
+class GatewayRouteDataTypeDef(TypedDict):
+    gatewayRouteName: str
+    meshName: str
+    metadata: ResourceMetadataTypeDef
+    spec: GatewayRouteSpecOutputTypeDef
+    status: GatewayRouteStatusTypeDef
+    virtualGatewayName: str
+
+GatewayRouteSpecUnionTypeDef = Union[GatewayRouteSpecTypeDef, GatewayRouteSpecOutputTypeDef]
+
+class RouteDataTypeDef(TypedDict):
+    meshName: str
+    metadata: ResourceMetadataTypeDef
+    routeName: str
+    spec: RouteSpecOutputTypeDef
+    status: RouteStatusTypeDef
+    virtualRouterName: str
+
+RouteSpecUnionTypeDef = Union[RouteSpecTypeDef, RouteSpecOutputTypeDef]
+
+class BackendOutputTypeDef(TypedDict):
+    virtualService: NotRequired[VirtualServiceBackendOutputTypeDef]
+
+class BackendTypeDef(TypedDict):
+    virtualService: NotRequired[VirtualServiceBackendTypeDef]
+
+class VirtualGatewaySpecOutputTypeDef(TypedDict):
+    listeners: List[VirtualGatewayListenerOutputTypeDef]
+    backendDefaults: NotRequired[VirtualGatewayBackendDefaultsOutputTypeDef]
+    logging: NotRequired[VirtualGatewayLoggingOutputTypeDef]
+
+class VirtualGatewaySpecTypeDef(TypedDict):
+    listeners: Sequence[VirtualGatewayListenerTypeDef]
+    backendDefaults: NotRequired[VirtualGatewayBackendDefaultsTypeDef]
+    logging: NotRequired[VirtualGatewayLoggingTypeDef]
+
+class CreateGatewayRouteOutputTypeDef(TypedDict):
+    gatewayRoute: GatewayRouteDataTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteGatewayRouteOutputTypeDef(TypedDict):
+    gatewayRoute: GatewayRouteDataTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeGatewayRouteOutputTypeDef(TypedDict):
+    gatewayRoute: GatewayRouteDataTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateGatewayRouteOutputTypeDef(TypedDict):
+    gatewayRoute: GatewayRouteDataTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateGatewayRouteInputTypeDef(TypedDict):
+    gatewayRouteName: str
+    meshName: str
+    spec: GatewayRouteSpecUnionTypeDef
+    virtualGatewayName: str
+    clientToken: NotRequired[str]
+    meshOwner: NotRequired[str]
+    tags: NotRequired[Sequence[TagRefTypeDef]]
+
+class UpdateGatewayRouteInputTypeDef(TypedDict):
+    gatewayRouteName: str
+    meshName: str
+    spec: GatewayRouteSpecUnionTypeDef
+    virtualGatewayName: str
+    clientToken: NotRequired[str]
+    meshOwner: NotRequired[str]
+
+class CreateRouteOutputTypeDef(TypedDict):
+    route: RouteDataTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteRouteOutputTypeDef(TypedDict):
+    route: RouteDataTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeRouteOutputTypeDef(TypedDict):
+    route: RouteDataTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateRouteOutputTypeDef(TypedDict):
+    route: RouteDataTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateRouteInputTypeDef(TypedDict):
+    meshName: str
+    routeName: str
+    spec: RouteSpecUnionTypeDef
+    virtualRouterName: str
+    clientToken: NotRequired[str]
+    meshOwner: NotRequired[str]
+    tags: NotRequired[Sequence[TagRefTypeDef]]
+
+class UpdateRouteInputTypeDef(TypedDict):
+    meshName: str
+    routeName: str
+    spec: RouteSpecUnionTypeDef
+    virtualRouterName: str
+    clientToken: NotRequired[str]
+    meshOwner: NotRequired[str]
+
+class VirtualNodeSpecOutputTypeDef(TypedDict):
+    backendDefaults: NotRequired[BackendDefaultsOutputTypeDef]
+    backends: NotRequired[List[BackendOutputTypeDef]]
+    listeners: NotRequired[List[ListenerOutputTypeDef]]
+    logging: NotRequired[LoggingOutputTypeDef]
+    serviceDiscovery: NotRequired[ServiceDiscoveryOutputTypeDef]
+
+class VirtualNodeSpecTypeDef(TypedDict):
+    backendDefaults: NotRequired[BackendDefaultsTypeDef]
+    backends: NotRequired[Sequence[BackendTypeDef]]
+    listeners: NotRequired[Sequence[ListenerTypeDef]]
+    logging: NotRequired[LoggingTypeDef]
+    serviceDiscovery: NotRequired[ServiceDiscoveryTypeDef]
+
+class VirtualGatewayDataTypeDef(TypedDict):
+    meshName: str
+    metadata: ResourceMetadataTypeDef
+    spec: VirtualGatewaySpecOutputTypeDef
+    status: VirtualGatewayStatusTypeDef
+    virtualGatewayName: str
+
+VirtualGatewaySpecUnionTypeDef = Union[VirtualGatewaySpecTypeDef, VirtualGatewaySpecOutputTypeDef]
+
+class VirtualNodeDataTypeDef(TypedDict):
+    meshName: str
+    metadata: ResourceMetadataTypeDef
+    spec: VirtualNodeSpecOutputTypeDef
+    status: VirtualNodeStatusTypeDef
+    virtualNodeName: str
+
+VirtualNodeSpecUnionTypeDef = Union[VirtualNodeSpecTypeDef, VirtualNodeSpecOutputTypeDef]
+
+class CreateVirtualGatewayOutputTypeDef(TypedDict):
+    virtualGateway: VirtualGatewayDataTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteVirtualGatewayOutputTypeDef(TypedDict):
+    virtualGateway: VirtualGatewayDataTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeVirtualGatewayOutputTypeDef(TypedDict):
+    virtualGateway: VirtualGatewayDataTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateVirtualGatewayOutputTypeDef(TypedDict):
+    virtualGateway: VirtualGatewayDataTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateVirtualGatewayInputTypeDef(TypedDict):
+    meshName: str
+    spec: VirtualGatewaySpecUnionTypeDef
+    virtualGatewayName: str
+    clientToken: NotRequired[str]
+    meshOwner: NotRequired[str]
+    tags: NotRequired[Sequence[TagRefTypeDef]]
+
+class UpdateVirtualGatewayInputTypeDef(TypedDict):
+    meshName: str
+    spec: VirtualGatewaySpecUnionTypeDef
+    virtualGatewayName: str
+    clientToken: NotRequired[str]
+    meshOwner: NotRequired[str]
+
+class CreateVirtualNodeOutputTypeDef(TypedDict):
+    virtualNode: VirtualNodeDataTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteVirtualNodeOutputTypeDef(TypedDict):
+    virtualNode: VirtualNodeDataTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeVirtualNodeOutputTypeDef(TypedDict):
+    virtualNode: VirtualNodeDataTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateVirtualNodeOutputTypeDef(TypedDict):
+    virtualNode: VirtualNodeDataTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateVirtualNodeInputTypeDef(TypedDict):
+    meshName: str
+    spec: VirtualNodeSpecUnionTypeDef
+    virtualNodeName: str
+    clientToken: NotRequired[str]
+    meshOwner: NotRequired[str]
+    tags: NotRequired[Sequence[TagRefTypeDef]]
+
+class UpdateVirtualNodeInputTypeDef(TypedDict):
+    meshName: str
+    spec: VirtualNodeSpecUnionTypeDef
+    virtualNodeName: str
+    clientToken: NotRequired[str]
+    meshOwner: NotRequired[str]

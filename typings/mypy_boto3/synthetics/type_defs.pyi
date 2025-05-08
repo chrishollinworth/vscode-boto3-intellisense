@@ -1,20 +1,24 @@
 """
 Type annotations for synthetics service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_synthetics/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_synthetics/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_synthetics.type_defs import ArtifactConfigInputTypeDef
+    from mypy_boto3_synthetics.type_defs import S3EncryptionConfigTypeDef
 
-    data: ArtifactConfigInputTypeDef = {...}
+    data: S3EncryptionConfigTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import IO, Any, Dict, List, Union
+from typing import IO, Any, Union
 
 from botocore.response import StreamingBody
 
@@ -24,20 +28,32 @@ from .literals import (
     CanaryStateReasonCodeType,
     CanaryStateType,
     EncryptionModeType,
+    ProvisionedResourceCleanupSettingType,
+    RunTypeType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
+else:
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
     "ArtifactConfigInputTypeDef",
     "ArtifactConfigOutputTypeDef",
-    "AssociateResourceRequestRequestTypeDef",
+    "AssociateResourceRequestTypeDef",
+    "BaseScreenshotOutputTypeDef",
     "BaseScreenshotTypeDef",
+    "BaseScreenshotUnionTypeDef",
+    "BlobTypeDef",
     "CanaryCodeInputTypeDef",
     "CanaryCodeOutputTypeDef",
+    "CanaryDryRunConfigOutputTypeDef",
     "CanaryLastRunTypeDef",
     "CanaryRunConfigInputTypeDef",
     "CanaryRunConfigOutputTypeDef",
@@ -49,715 +65,388 @@ __all__ = (
     "CanaryStatusTypeDef",
     "CanaryTimelineTypeDef",
     "CanaryTypeDef",
-    "CreateCanaryRequestRequestTypeDef",
+    "CreateCanaryRequestTypeDef",
     "CreateCanaryResponseTypeDef",
-    "CreateGroupRequestRequestTypeDef",
+    "CreateGroupRequestTypeDef",
     "CreateGroupResponseTypeDef",
-    "DeleteCanaryRequestRequestTypeDef",
-    "DeleteGroupRequestRequestTypeDef",
-    "DescribeCanariesLastRunRequestRequestTypeDef",
+    "DeleteCanaryRequestTypeDef",
+    "DeleteGroupRequestTypeDef",
+    "DescribeCanariesLastRunRequestTypeDef",
     "DescribeCanariesLastRunResponseTypeDef",
-    "DescribeCanariesRequestRequestTypeDef",
+    "DescribeCanariesRequestTypeDef",
     "DescribeCanariesResponseTypeDef",
-    "DescribeRuntimeVersionsRequestRequestTypeDef",
+    "DescribeRuntimeVersionsRequestTypeDef",
     "DescribeRuntimeVersionsResponseTypeDef",
-    "DisassociateResourceRequestRequestTypeDef",
-    "GetCanaryRequestRequestTypeDef",
+    "DisassociateResourceRequestTypeDef",
+    "DryRunConfigOutputTypeDef",
+    "GetCanaryRequestTypeDef",
     "GetCanaryResponseTypeDef",
-    "GetCanaryRunsRequestRequestTypeDef",
+    "GetCanaryRunsRequestTypeDef",
     "GetCanaryRunsResponseTypeDef",
-    "GetGroupRequestRequestTypeDef",
+    "GetGroupRequestTypeDef",
     "GetGroupResponseTypeDef",
     "GroupSummaryTypeDef",
     "GroupTypeDef",
-    "ListAssociatedGroupsRequestRequestTypeDef",
+    "ListAssociatedGroupsRequestTypeDef",
     "ListAssociatedGroupsResponseTypeDef",
-    "ListGroupResourcesRequestRequestTypeDef",
+    "ListGroupResourcesRequestTypeDef",
     "ListGroupResourcesResponseTypeDef",
-    "ListGroupsRequestRequestTypeDef",
+    "ListGroupsRequestTypeDef",
     "ListGroupsResponseTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "ResponseMetadataTypeDef",
     "RuntimeVersionTypeDef",
     "S3EncryptionConfigTypeDef",
-    "StartCanaryRequestRequestTypeDef",
-    "StopCanaryRequestRequestTypeDef",
-    "TagResourceRequestRequestTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateCanaryRequestRequestTypeDef",
+    "StartCanaryDryRunRequestTypeDef",
+    "StartCanaryDryRunResponseTypeDef",
+    "StartCanaryRequestTypeDef",
+    "StopCanaryRequestTypeDef",
+    "TagResourceRequestTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateCanaryRequestTypeDef",
     "VisualReferenceInputTypeDef",
     "VisualReferenceOutputTypeDef",
     "VpcConfigInputTypeDef",
     "VpcConfigOutputTypeDef",
 )
 
-ArtifactConfigInputTypeDef = TypedDict(
-    "ArtifactConfigInputTypeDef",
-    {
-        "S3Encryption": "S3EncryptionConfigTypeDef",
-    },
-    total=False,
-)
-
-ArtifactConfigOutputTypeDef = TypedDict(
-    "ArtifactConfigOutputTypeDef",
-    {
-        "S3Encryption": "S3EncryptionConfigTypeDef",
-    },
-    total=False,
-)
-
-AssociateResourceRequestRequestTypeDef = TypedDict(
-    "AssociateResourceRequestRequestTypeDef",
-    {
-        "GroupIdentifier": str,
-        "ResourceArn": str,
-    },
-)
-
-_RequiredBaseScreenshotTypeDef = TypedDict(
-    "_RequiredBaseScreenshotTypeDef",
-    {
-        "ScreenshotName": str,
-    },
-)
-_OptionalBaseScreenshotTypeDef = TypedDict(
-    "_OptionalBaseScreenshotTypeDef",
-    {
-        "IgnoreCoordinates": List[str],
-    },
-    total=False,
-)
-
-class BaseScreenshotTypeDef(_RequiredBaseScreenshotTypeDef, _OptionalBaseScreenshotTypeDef):
-    pass
-
-_RequiredCanaryCodeInputTypeDef = TypedDict(
-    "_RequiredCanaryCodeInputTypeDef",
-    {
-        "Handler": str,
-    },
-)
-_OptionalCanaryCodeInputTypeDef = TypedDict(
-    "_OptionalCanaryCodeInputTypeDef",
-    {
-        "S3Bucket": str,
-        "S3Key": str,
-        "S3Version": str,
-        "ZipFile": Union[bytes, IO[bytes], StreamingBody],
-    },
-    total=False,
-)
-
-class CanaryCodeInputTypeDef(_RequiredCanaryCodeInputTypeDef, _OptionalCanaryCodeInputTypeDef):
-    pass
-
-CanaryCodeOutputTypeDef = TypedDict(
-    "CanaryCodeOutputTypeDef",
-    {
-        "SourceLocationArn": str,
-        "Handler": str,
-    },
-    total=False,
-)
-
-CanaryLastRunTypeDef = TypedDict(
-    "CanaryLastRunTypeDef",
-    {
-        "CanaryName": str,
-        "LastRun": "CanaryRunTypeDef",
-    },
-    total=False,
-)
-
-CanaryRunConfigInputTypeDef = TypedDict(
-    "CanaryRunConfigInputTypeDef",
-    {
-        "TimeoutInSeconds": int,
-        "MemoryInMB": int,
-        "ActiveTracing": bool,
-        "EnvironmentVariables": Dict[str, str],
-    },
-    total=False,
-)
-
-CanaryRunConfigOutputTypeDef = TypedDict(
-    "CanaryRunConfigOutputTypeDef",
-    {
-        "TimeoutInSeconds": int,
-        "MemoryInMB": int,
-        "ActiveTracing": bool,
-    },
-    total=False,
-)
-
-CanaryRunStatusTypeDef = TypedDict(
-    "CanaryRunStatusTypeDef",
-    {
-        "State": CanaryRunStateType,
-        "StateReason": str,
-        "StateReasonCode": CanaryRunStateReasonCodeType,
-    },
-    total=False,
-)
-
-CanaryRunTimelineTypeDef = TypedDict(
-    "CanaryRunTimelineTypeDef",
-    {
-        "Started": datetime,
-        "Completed": datetime,
-    },
-    total=False,
-)
-
-CanaryRunTypeDef = TypedDict(
-    "CanaryRunTypeDef",
-    {
-        "Id": str,
-        "Name": str,
-        "Status": "CanaryRunStatusTypeDef",
-        "Timeline": "CanaryRunTimelineTypeDef",
-        "ArtifactS3Location": str,
-    },
-    total=False,
-)
-
-_RequiredCanaryScheduleInputTypeDef = TypedDict(
-    "_RequiredCanaryScheduleInputTypeDef",
-    {
-        "Expression": str,
-    },
-)
-_OptionalCanaryScheduleInputTypeDef = TypedDict(
-    "_OptionalCanaryScheduleInputTypeDef",
-    {
-        "DurationInSeconds": int,
-    },
-    total=False,
-)
-
-class CanaryScheduleInputTypeDef(
-    _RequiredCanaryScheduleInputTypeDef, _OptionalCanaryScheduleInputTypeDef
-):
-    pass
-
-CanaryScheduleOutputTypeDef = TypedDict(
-    "CanaryScheduleOutputTypeDef",
-    {
-        "Expression": str,
-        "DurationInSeconds": int,
-    },
-    total=False,
-)
-
-CanaryStatusTypeDef = TypedDict(
-    "CanaryStatusTypeDef",
-    {
-        "State": CanaryStateType,
-        "StateReason": str,
-        "StateReasonCode": CanaryStateReasonCodeType,
-    },
-    total=False,
-)
-
-CanaryTimelineTypeDef = TypedDict(
-    "CanaryTimelineTypeDef",
-    {
-        "Created": datetime,
-        "LastModified": datetime,
-        "LastStarted": datetime,
-        "LastStopped": datetime,
-    },
-    total=False,
-)
-
-CanaryTypeDef = TypedDict(
-    "CanaryTypeDef",
-    {
-        "Id": str,
-        "Name": str,
-        "Code": "CanaryCodeOutputTypeDef",
-        "ExecutionRoleArn": str,
-        "Schedule": "CanaryScheduleOutputTypeDef",
-        "RunConfig": "CanaryRunConfigOutputTypeDef",
-        "SuccessRetentionPeriodInDays": int,
-        "FailureRetentionPeriodInDays": int,
-        "Status": "CanaryStatusTypeDef",
-        "Timeline": "CanaryTimelineTypeDef",
-        "ArtifactS3Location": str,
-        "EngineArn": str,
-        "RuntimeVersion": str,
-        "VpcConfig": "VpcConfigOutputTypeDef",
-        "VisualReference": "VisualReferenceOutputTypeDef",
-        "Tags": Dict[str, str],
-        "ArtifactConfig": "ArtifactConfigOutputTypeDef",
-    },
-    total=False,
-)
-
-_RequiredCreateCanaryRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateCanaryRequestRequestTypeDef",
-    {
-        "Name": str,
-        "Code": "CanaryCodeInputTypeDef",
-        "ArtifactS3Location": str,
-        "ExecutionRoleArn": str,
-        "Schedule": "CanaryScheduleInputTypeDef",
-        "RuntimeVersion": str,
-    },
-)
-_OptionalCreateCanaryRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateCanaryRequestRequestTypeDef",
-    {
-        "RunConfig": "CanaryRunConfigInputTypeDef",
-        "SuccessRetentionPeriodInDays": int,
-        "FailureRetentionPeriodInDays": int,
-        "VpcConfig": "VpcConfigInputTypeDef",
-        "Tags": Dict[str, str],
-        "ArtifactConfig": "ArtifactConfigInputTypeDef",
-    },
-    total=False,
-)
-
-class CreateCanaryRequestRequestTypeDef(
-    _RequiredCreateCanaryRequestRequestTypeDef, _OptionalCreateCanaryRequestRequestTypeDef
-):
-    pass
-
-CreateCanaryResponseTypeDef = TypedDict(
-    "CreateCanaryResponseTypeDef",
-    {
-        "Canary": "CanaryTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateGroupRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateGroupRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
-_OptionalCreateGroupRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateGroupRequestRequestTypeDef",
-    {
-        "Tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class CreateGroupRequestRequestTypeDef(
-    _RequiredCreateGroupRequestRequestTypeDef, _OptionalCreateGroupRequestRequestTypeDef
-):
-    pass
-
-CreateGroupResponseTypeDef = TypedDict(
-    "CreateGroupResponseTypeDef",
-    {
-        "Group": "GroupTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDeleteCanaryRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteCanaryRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
-_OptionalDeleteCanaryRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteCanaryRequestRequestTypeDef",
-    {
-        "DeleteLambda": bool,
-    },
-    total=False,
-)
-
-class DeleteCanaryRequestRequestTypeDef(
-    _RequiredDeleteCanaryRequestRequestTypeDef, _OptionalDeleteCanaryRequestRequestTypeDef
-):
-    pass
-
-DeleteGroupRequestRequestTypeDef = TypedDict(
-    "DeleteGroupRequestRequestTypeDef",
-    {
-        "GroupIdentifier": str,
-    },
-)
-
-DescribeCanariesLastRunRequestRequestTypeDef = TypedDict(
-    "DescribeCanariesLastRunRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-        "Names": List[str],
-    },
-    total=False,
-)
-
-DescribeCanariesLastRunResponseTypeDef = TypedDict(
-    "DescribeCanariesLastRunResponseTypeDef",
-    {
-        "CanariesLastRun": List["CanaryLastRunTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeCanariesRequestRequestTypeDef = TypedDict(
-    "DescribeCanariesRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-        "Names": List[str],
-    },
-    total=False,
-)
-
-DescribeCanariesResponseTypeDef = TypedDict(
-    "DescribeCanariesResponseTypeDef",
-    {
-        "Canaries": List["CanaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeRuntimeVersionsRequestRequestTypeDef = TypedDict(
-    "DescribeRuntimeVersionsRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-DescribeRuntimeVersionsResponseTypeDef = TypedDict(
-    "DescribeRuntimeVersionsResponseTypeDef",
-    {
-        "RuntimeVersions": List["RuntimeVersionTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DisassociateResourceRequestRequestTypeDef = TypedDict(
-    "DisassociateResourceRequestRequestTypeDef",
-    {
-        "GroupIdentifier": str,
-        "ResourceArn": str,
-    },
-)
-
-GetCanaryRequestRequestTypeDef = TypedDict(
-    "GetCanaryRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
-
-GetCanaryResponseTypeDef = TypedDict(
-    "GetCanaryResponseTypeDef",
-    {
-        "Canary": "CanaryTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetCanaryRunsRequestRequestTypeDef = TypedDict(
-    "_RequiredGetCanaryRunsRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
-_OptionalGetCanaryRunsRequestRequestTypeDef = TypedDict(
-    "_OptionalGetCanaryRunsRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-class GetCanaryRunsRequestRequestTypeDef(
-    _RequiredGetCanaryRunsRequestRequestTypeDef, _OptionalGetCanaryRunsRequestRequestTypeDef
-):
-    pass
-
-GetCanaryRunsResponseTypeDef = TypedDict(
-    "GetCanaryRunsResponseTypeDef",
-    {
-        "CanaryRuns": List["CanaryRunTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetGroupRequestRequestTypeDef = TypedDict(
-    "GetGroupRequestRequestTypeDef",
-    {
-        "GroupIdentifier": str,
-    },
-)
-
-GetGroupResponseTypeDef = TypedDict(
-    "GetGroupResponseTypeDef",
-    {
-        "Group": "GroupTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GroupSummaryTypeDef = TypedDict(
-    "GroupSummaryTypeDef",
-    {
-        "Id": str,
-        "Name": str,
-        "Arn": str,
-    },
-    total=False,
-)
-
-GroupTypeDef = TypedDict(
-    "GroupTypeDef",
-    {
-        "Id": str,
-        "Name": str,
-        "Arn": str,
-        "Tags": Dict[str, str],
-        "CreatedTime": datetime,
-        "LastModifiedTime": datetime,
-    },
-    total=False,
-)
-
-_RequiredListAssociatedGroupsRequestRequestTypeDef = TypedDict(
-    "_RequiredListAssociatedGroupsRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-    },
-)
-_OptionalListAssociatedGroupsRequestRequestTypeDef = TypedDict(
-    "_OptionalListAssociatedGroupsRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-class ListAssociatedGroupsRequestRequestTypeDef(
-    _RequiredListAssociatedGroupsRequestRequestTypeDef,
-    _OptionalListAssociatedGroupsRequestRequestTypeDef,
-):
-    pass
-
-ListAssociatedGroupsResponseTypeDef = TypedDict(
-    "ListAssociatedGroupsResponseTypeDef",
-    {
-        "Groups": List["GroupSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListGroupResourcesRequestRequestTypeDef = TypedDict(
-    "_RequiredListGroupResourcesRequestRequestTypeDef",
-    {
-        "GroupIdentifier": str,
-    },
-)
-_OptionalListGroupResourcesRequestRequestTypeDef = TypedDict(
-    "_OptionalListGroupResourcesRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-class ListGroupResourcesRequestRequestTypeDef(
-    _RequiredListGroupResourcesRequestRequestTypeDef,
-    _OptionalListGroupResourcesRequestRequestTypeDef,
-):
-    pass
-
-ListGroupResourcesResponseTypeDef = TypedDict(
-    "ListGroupResourcesResponseTypeDef",
-    {
-        "Resources": List[str],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListGroupsRequestRequestTypeDef = TypedDict(
-    "ListGroupsRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-ListGroupsResponseTypeDef = TypedDict(
-    "ListGroupsResponseTypeDef",
-    {
-        "Groups": List["GroupSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-    },
-)
-
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "Tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-RuntimeVersionTypeDef = TypedDict(
-    "RuntimeVersionTypeDef",
-    {
-        "VersionName": str,
-        "Description": str,
-        "ReleaseDate": datetime,
-        "DeprecationDate": datetime,
-    },
-    total=False,
-)
-
-S3EncryptionConfigTypeDef = TypedDict(
-    "S3EncryptionConfigTypeDef",
-    {
-        "EncryptionMode": EncryptionModeType,
-        "KmsKeyArn": str,
-    },
-    total=False,
-)
-
-StartCanaryRequestRequestTypeDef = TypedDict(
-    "StartCanaryRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
-
-StopCanaryRequestRequestTypeDef = TypedDict(
-    "StopCanaryRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
-
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-        "Tags": Dict[str, str],
-    },
-)
-
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-        "TagKeys": List[str],
-    },
-)
-
-_RequiredUpdateCanaryRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateCanaryRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
-_OptionalUpdateCanaryRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateCanaryRequestRequestTypeDef",
-    {
-        "Code": "CanaryCodeInputTypeDef",
-        "ExecutionRoleArn": str,
-        "RuntimeVersion": str,
-        "Schedule": "CanaryScheduleInputTypeDef",
-        "RunConfig": "CanaryRunConfigInputTypeDef",
-        "SuccessRetentionPeriodInDays": int,
-        "FailureRetentionPeriodInDays": int,
-        "VpcConfig": "VpcConfigInputTypeDef",
-        "VisualReference": "VisualReferenceInputTypeDef",
-        "ArtifactS3Location": str,
-        "ArtifactConfig": "ArtifactConfigInputTypeDef",
-    },
-    total=False,
-)
-
-class UpdateCanaryRequestRequestTypeDef(
-    _RequiredUpdateCanaryRequestRequestTypeDef, _OptionalUpdateCanaryRequestRequestTypeDef
-):
-    pass
-
-_RequiredVisualReferenceInputTypeDef = TypedDict(
-    "_RequiredVisualReferenceInputTypeDef",
-    {
-        "BaseCanaryRunId": str,
-    },
-)
-_OptionalVisualReferenceInputTypeDef = TypedDict(
-    "_OptionalVisualReferenceInputTypeDef",
-    {
-        "BaseScreenshots": List["BaseScreenshotTypeDef"],
-    },
-    total=False,
-)
-
-class VisualReferenceInputTypeDef(
-    _RequiredVisualReferenceInputTypeDef, _OptionalVisualReferenceInputTypeDef
-):
-    pass
-
-VisualReferenceOutputTypeDef = TypedDict(
-    "VisualReferenceOutputTypeDef",
-    {
-        "BaseScreenshots": List["BaseScreenshotTypeDef"],
-        "BaseCanaryRunId": str,
-    },
-    total=False,
-)
-
-VpcConfigInputTypeDef = TypedDict(
-    "VpcConfigInputTypeDef",
-    {
-        "SubnetIds": List[str],
-        "SecurityGroupIds": List[str],
-    },
-    total=False,
-)
-
-VpcConfigOutputTypeDef = TypedDict(
-    "VpcConfigOutputTypeDef",
-    {
-        "VpcId": str,
-        "SubnetIds": List[str],
-        "SecurityGroupIds": List[str],
-    },
-    total=False,
-)
+class S3EncryptionConfigTypeDef(TypedDict):
+    EncryptionMode: NotRequired[EncryptionModeType]
+    KmsKeyArn: NotRequired[str]
+
+class AssociateResourceRequestTypeDef(TypedDict):
+    GroupIdentifier: str
+    ResourceArn: str
+
+class BaseScreenshotOutputTypeDef(TypedDict):
+    ScreenshotName: str
+    IgnoreCoordinates: NotRequired[List[str]]
+
+class BaseScreenshotTypeDef(TypedDict):
+    ScreenshotName: str
+    IgnoreCoordinates: NotRequired[Sequence[str]]
+
+BlobTypeDef = Union[str, bytes, IO[Any], StreamingBody]
+
+class CanaryCodeOutputTypeDef(TypedDict):
+    SourceLocationArn: NotRequired[str]
+    Handler: NotRequired[str]
+
+class CanaryDryRunConfigOutputTypeDef(TypedDict):
+    DryRunId: NotRequired[str]
+
+class CanaryRunConfigInputTypeDef(TypedDict):
+    TimeoutInSeconds: NotRequired[int]
+    MemoryInMB: NotRequired[int]
+    ActiveTracing: NotRequired[bool]
+    EnvironmentVariables: NotRequired[Mapping[str, str]]
+
+class CanaryRunConfigOutputTypeDef(TypedDict):
+    TimeoutInSeconds: NotRequired[int]
+    MemoryInMB: NotRequired[int]
+    ActiveTracing: NotRequired[bool]
+
+class CanaryRunStatusTypeDef(TypedDict):
+    State: NotRequired[CanaryRunStateType]
+    StateReason: NotRequired[str]
+    StateReasonCode: NotRequired[CanaryRunStateReasonCodeType]
+
+class CanaryRunTimelineTypeDef(TypedDict):
+    Started: NotRequired[datetime]
+    Completed: NotRequired[datetime]
+
+class CanaryScheduleInputTypeDef(TypedDict):
+    Expression: str
+    DurationInSeconds: NotRequired[int]
+
+class CanaryScheduleOutputTypeDef(TypedDict):
+    Expression: NotRequired[str]
+    DurationInSeconds: NotRequired[int]
+
+class CanaryStatusTypeDef(TypedDict):
+    State: NotRequired[CanaryStateType]
+    StateReason: NotRequired[str]
+    StateReasonCode: NotRequired[CanaryStateReasonCodeType]
+
+class CanaryTimelineTypeDef(TypedDict):
+    Created: NotRequired[datetime]
+    LastModified: NotRequired[datetime]
+    LastStarted: NotRequired[datetime]
+    LastStopped: NotRequired[datetime]
+
+class DryRunConfigOutputTypeDef(TypedDict):
+    DryRunId: NotRequired[str]
+    LastDryRunExecutionStatus: NotRequired[str]
+
+class VpcConfigOutputTypeDef(TypedDict):
+    VpcId: NotRequired[str]
+    SubnetIds: NotRequired[List[str]]
+    SecurityGroupIds: NotRequired[List[str]]
+    Ipv6AllowedForDualStack: NotRequired[bool]
+
+class VpcConfigInputTypeDef(TypedDict):
+    SubnetIds: NotRequired[Sequence[str]]
+    SecurityGroupIds: NotRequired[Sequence[str]]
+    Ipv6AllowedForDualStack: NotRequired[bool]
+
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
+
+class CreateGroupRequestTypeDef(TypedDict):
+    Name: str
+    Tags: NotRequired[Mapping[str, str]]
+
+class GroupTypeDef(TypedDict):
+    Id: NotRequired[str]
+    Name: NotRequired[str]
+    Arn: NotRequired[str]
+    Tags: NotRequired[Dict[str, str]]
+    CreatedTime: NotRequired[datetime]
+    LastModifiedTime: NotRequired[datetime]
+
+class DeleteCanaryRequestTypeDef(TypedDict):
+    Name: str
+    DeleteLambda: NotRequired[bool]
+
+class DeleteGroupRequestTypeDef(TypedDict):
+    GroupIdentifier: str
+
+class DescribeCanariesLastRunRequestTypeDef(TypedDict):
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+    Names: NotRequired[Sequence[str]]
+
+class DescribeCanariesRequestTypeDef(TypedDict):
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+    Names: NotRequired[Sequence[str]]
+
+class DescribeRuntimeVersionsRequestTypeDef(TypedDict):
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class RuntimeVersionTypeDef(TypedDict):
+    VersionName: NotRequired[str]
+    Description: NotRequired[str]
+    ReleaseDate: NotRequired[datetime]
+    DeprecationDate: NotRequired[datetime]
+
+class DisassociateResourceRequestTypeDef(TypedDict):
+    GroupIdentifier: str
+    ResourceArn: str
+
+class GetCanaryRequestTypeDef(TypedDict):
+    Name: str
+    DryRunId: NotRequired[str]
+
+class GetCanaryRunsRequestTypeDef(TypedDict):
+    Name: str
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+    DryRunId: NotRequired[str]
+    RunType: NotRequired[RunTypeType]
+
+class GetGroupRequestTypeDef(TypedDict):
+    GroupIdentifier: str
+
+class GroupSummaryTypeDef(TypedDict):
+    Id: NotRequired[str]
+    Name: NotRequired[str]
+    Arn: NotRequired[str]
+
+class ListAssociatedGroupsRequestTypeDef(TypedDict):
+    ResourceArn: str
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class ListGroupResourcesRequestTypeDef(TypedDict):
+    GroupIdentifier: str
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class ListGroupsRequestTypeDef(TypedDict):
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+
+class StartCanaryRequestTypeDef(TypedDict):
+    Name: str
+
+class StopCanaryRequestTypeDef(TypedDict):
+    Name: str
+
+class TagResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+    Tags: Mapping[str, str]
+
+class UntagResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+    TagKeys: Sequence[str]
+
+class ArtifactConfigInputTypeDef(TypedDict):
+    S3Encryption: NotRequired[S3EncryptionConfigTypeDef]
+
+class ArtifactConfigOutputTypeDef(TypedDict):
+    S3Encryption: NotRequired[S3EncryptionConfigTypeDef]
+
+class VisualReferenceOutputTypeDef(TypedDict):
+    BaseScreenshots: NotRequired[List[BaseScreenshotOutputTypeDef]]
+    BaseCanaryRunId: NotRequired[str]
+
+BaseScreenshotUnionTypeDef = Union[BaseScreenshotTypeDef, BaseScreenshotOutputTypeDef]
+
+class CanaryCodeInputTypeDef(TypedDict):
+    Handler: str
+    S3Bucket: NotRequired[str]
+    S3Key: NotRequired[str]
+    S3Version: NotRequired[str]
+    ZipFile: NotRequired[BlobTypeDef]
+
+class CanaryRunTypeDef(TypedDict):
+    Id: NotRequired[str]
+    Name: NotRequired[str]
+    Status: NotRequired[CanaryRunStatusTypeDef]
+    Timeline: NotRequired[CanaryRunTimelineTypeDef]
+    ArtifactS3Location: NotRequired[str]
+    DryRunConfig: NotRequired[CanaryDryRunConfigOutputTypeDef]
+
+class ListGroupResourcesResponseTypeDef(TypedDict):
+    Resources: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    Tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartCanaryDryRunResponseTypeDef(TypedDict):
+    DryRunConfig: DryRunConfigOutputTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateGroupResponseTypeDef(TypedDict):
+    Group: GroupTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetGroupResponseTypeDef(TypedDict):
+    Group: GroupTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeRuntimeVersionsResponseTypeDef(TypedDict):
+    RuntimeVersions: List[RuntimeVersionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListAssociatedGroupsResponseTypeDef(TypedDict):
+    Groups: List[GroupSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListGroupsResponseTypeDef(TypedDict):
+    Groups: List[GroupSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class CanaryTypeDef(TypedDict):
+    Id: NotRequired[str]
+    Name: NotRequired[str]
+    Code: NotRequired[CanaryCodeOutputTypeDef]
+    ExecutionRoleArn: NotRequired[str]
+    Schedule: NotRequired[CanaryScheduleOutputTypeDef]
+    RunConfig: NotRequired[CanaryRunConfigOutputTypeDef]
+    SuccessRetentionPeriodInDays: NotRequired[int]
+    FailureRetentionPeriodInDays: NotRequired[int]
+    Status: NotRequired[CanaryStatusTypeDef]
+    Timeline: NotRequired[CanaryTimelineTypeDef]
+    ArtifactS3Location: NotRequired[str]
+    EngineArn: NotRequired[str]
+    RuntimeVersion: NotRequired[str]
+    VpcConfig: NotRequired[VpcConfigOutputTypeDef]
+    VisualReference: NotRequired[VisualReferenceOutputTypeDef]
+    ProvisionedResourceCleanup: NotRequired[ProvisionedResourceCleanupSettingType]
+    Tags: NotRequired[Dict[str, str]]
+    ArtifactConfig: NotRequired[ArtifactConfigOutputTypeDef]
+    DryRunConfig: NotRequired[DryRunConfigOutputTypeDef]
+
+class VisualReferenceInputTypeDef(TypedDict):
+    BaseCanaryRunId: str
+    BaseScreenshots: NotRequired[Sequence[BaseScreenshotUnionTypeDef]]
+
+class CreateCanaryRequestTypeDef(TypedDict):
+    Name: str
+    Code: CanaryCodeInputTypeDef
+    ArtifactS3Location: str
+    ExecutionRoleArn: str
+    Schedule: CanaryScheduleInputTypeDef
+    RuntimeVersion: str
+    RunConfig: NotRequired[CanaryRunConfigInputTypeDef]
+    SuccessRetentionPeriodInDays: NotRequired[int]
+    FailureRetentionPeriodInDays: NotRequired[int]
+    VpcConfig: NotRequired[VpcConfigInputTypeDef]
+    ResourcesToReplicateTags: NotRequired[Sequence[Literal["lambda-function"]]]
+    ProvisionedResourceCleanup: NotRequired[ProvisionedResourceCleanupSettingType]
+    Tags: NotRequired[Mapping[str, str]]
+    ArtifactConfig: NotRequired[ArtifactConfigInputTypeDef]
+
+class CanaryLastRunTypeDef(TypedDict):
+    CanaryName: NotRequired[str]
+    LastRun: NotRequired[CanaryRunTypeDef]
+
+class GetCanaryRunsResponseTypeDef(TypedDict):
+    CanaryRuns: List[CanaryRunTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class CreateCanaryResponseTypeDef(TypedDict):
+    Canary: CanaryTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeCanariesResponseTypeDef(TypedDict):
+    Canaries: List[CanaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class GetCanaryResponseTypeDef(TypedDict):
+    Canary: CanaryTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartCanaryDryRunRequestTypeDef(TypedDict):
+    Name: str
+    Code: NotRequired[CanaryCodeInputTypeDef]
+    RuntimeVersion: NotRequired[str]
+    RunConfig: NotRequired[CanaryRunConfigInputTypeDef]
+    VpcConfig: NotRequired[VpcConfigInputTypeDef]
+    ExecutionRoleArn: NotRequired[str]
+    SuccessRetentionPeriodInDays: NotRequired[int]
+    FailureRetentionPeriodInDays: NotRequired[int]
+    VisualReference: NotRequired[VisualReferenceInputTypeDef]
+    ArtifactS3Location: NotRequired[str]
+    ArtifactConfig: NotRequired[ArtifactConfigInputTypeDef]
+    ProvisionedResourceCleanup: NotRequired[ProvisionedResourceCleanupSettingType]
+
+class UpdateCanaryRequestTypeDef(TypedDict):
+    Name: str
+    Code: NotRequired[CanaryCodeInputTypeDef]
+    ExecutionRoleArn: NotRequired[str]
+    RuntimeVersion: NotRequired[str]
+    Schedule: NotRequired[CanaryScheduleInputTypeDef]
+    RunConfig: NotRequired[CanaryRunConfigInputTypeDef]
+    SuccessRetentionPeriodInDays: NotRequired[int]
+    FailureRetentionPeriodInDays: NotRequired[int]
+    VpcConfig: NotRequired[VpcConfigInputTypeDef]
+    VisualReference: NotRequired[VisualReferenceInputTypeDef]
+    ArtifactS3Location: NotRequired[str]
+    ArtifactConfig: NotRequired[ArtifactConfigInputTypeDef]
+    ProvisionedResourceCleanup: NotRequired[ProvisionedResourceCleanupSettingType]
+    DryRunId: NotRequired[str]
+
+class DescribeCanariesLastRunResponseTypeDef(TypedDict):
+    CanariesLastRun: List[CanaryLastRunTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]

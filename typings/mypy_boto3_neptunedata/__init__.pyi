@@ -1,19 +1,21 @@
 """
 Main interface for neptunedata service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_neptunedata/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_neptunedata import (
         Client,
         NeptuneDataClient,
     )
 
-    session = boto3.Session()
-
-    client: NeptuneDataClient = boto3.client("neptunedata")
-    session_client: NeptuneDataClient = session.client("neptunedata")
+    session = Session()
+    client: NeptuneDataClient = session.client("neptunedata")
     ```
 """
 

@@ -1,10 +1,14 @@
 """
 Main interface for pinpoint-sms-voice-v2 service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice_v2/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_pinpoint_sms_voice_v2 import (
         Client,
         DescribeAccountAttributesPaginator,
@@ -27,14 +31,13 @@ Usage::
         DescribeSpendLimitsPaginator,
         DescribeVerifiedDestinationNumbersPaginator,
         ListPoolOriginationIdentitiesPaginator,
+        ListProtectConfigurationRuleSetNumberOverridesPaginator,
         ListRegistrationAssociationsPaginator,
         PinpointSMSVoiceV2Client,
     )
 
-    session = boto3.Session()
-
-    client: PinpointSMSVoiceV2Client = boto3.client("pinpoint-sms-voice-v2")
-    session_client: PinpointSMSVoiceV2Client = session.client("pinpoint-sms-voice-v2")
+    session = Session()
+    client: PinpointSMSVoiceV2Client = session.client("pinpoint-sms-voice-v2")
 
     describe_account_attributes_paginator: DescribeAccountAttributesPaginator = client.get_paginator("describe_account_attributes")
     describe_account_limits_paginator: DescribeAccountLimitsPaginator = client.get_paginator("describe_account_limits")
@@ -56,6 +59,7 @@ Usage::
     describe_spend_limits_paginator: DescribeSpendLimitsPaginator = client.get_paginator("describe_spend_limits")
     describe_verified_destination_numbers_paginator: DescribeVerifiedDestinationNumbersPaginator = client.get_paginator("describe_verified_destination_numbers")
     list_pool_origination_identities_paginator: ListPoolOriginationIdentitiesPaginator = client.get_paginator("list_pool_origination_identities")
+    list_protect_configuration_rule_set_number_overrides_paginator: ListProtectConfigurationRuleSetNumberOverridesPaginator = client.get_paginator("list_protect_configuration_rule_set_number_overrides")
     list_registration_associations_paginator: ListRegistrationAssociationsPaginator = client.get_paginator("list_registration_associations")
     ```
 """
@@ -82,6 +86,7 @@ from .paginator import (
     DescribeSpendLimitsPaginator,
     DescribeVerifiedDestinationNumbersPaginator,
     ListPoolOriginationIdentitiesPaginator,
+    ListProtectConfigurationRuleSetNumberOverridesPaginator,
     ListRegistrationAssociationsPaginator,
 )
 
@@ -109,6 +114,7 @@ __all__ = (
     "DescribeSpendLimitsPaginator",
     "DescribeVerifiedDestinationNumbersPaginator",
     "ListPoolOriginationIdentitiesPaginator",
+    "ListProtectConfigurationRuleSetNumberOverridesPaginator",
     "ListRegistrationAssociationsPaginator",
     "PinpointSMSVoiceV2Client",
 )

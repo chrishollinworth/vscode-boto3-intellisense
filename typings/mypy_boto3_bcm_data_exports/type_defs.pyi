@@ -1,20 +1,24 @@
 """
 Type annotations for bcm-data-exports service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bcm_data_exports/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bcm_data_exports/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_bcm_data_exports.type_defs import ColumnTypeDef
 
-    data: ColumnTypeDef = {...}
+    data: ColumnTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
+from typing import Union
 
 from .literals import (
     CompressionOptionType,
@@ -25,41 +29,49 @@ from .literals import (
     OverwriteOptionType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
     "ColumnTypeDef",
-    "CreateExportRequestRequestTypeDef",
+    "CreateExportRequestTypeDef",
     "CreateExportResponseTypeDef",
+    "DataQueryOutputTypeDef",
     "DataQueryTypeDef",
-    "DeleteExportRequestRequestTypeDef",
+    "DeleteExportRequestTypeDef",
     "DeleteExportResponseTypeDef",
     "DestinationConfigurationsTypeDef",
     "ExecutionReferenceTypeDef",
     "ExecutionStatusTypeDef",
+    "ExportOutputTypeDef",
     "ExportReferenceTypeDef",
     "ExportStatusTypeDef",
     "ExportTypeDef",
-    "GetExecutionRequestRequestTypeDef",
+    "ExportUnionTypeDef",
+    "GetExecutionRequestTypeDef",
     "GetExecutionResponseTypeDef",
-    "GetExportRequestRequestTypeDef",
+    "GetExportRequestTypeDef",
     "GetExportResponseTypeDef",
-    "GetTableRequestRequestTypeDef",
+    "GetTableRequestTypeDef",
     "GetTableResponseTypeDef",
-    "ListExecutionsRequestRequestTypeDef",
+    "ListExecutionsRequestPaginateTypeDef",
+    "ListExecutionsRequestTypeDef",
     "ListExecutionsResponseTypeDef",
-    "ListExportsRequestRequestTypeDef",
+    "ListExportsRequestPaginateTypeDef",
+    "ListExportsRequestTypeDef",
     "ListExportsResponseTypeDef",
-    "ListTablesRequestRequestTypeDef",
+    "ListTablesRequestPaginateTypeDef",
+    "ListTablesRequestTypeDef",
     "ListTablesResponseTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "PaginatorConfigTypeDef",
     "RefreshCadenceTypeDef",
@@ -69,414 +81,219 @@ __all__ = (
     "S3OutputConfigurationsTypeDef",
     "TablePropertyDescriptionTypeDef",
     "TableTypeDef",
-    "TagResourceRequestRequestTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateExportRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateExportRequestTypeDef",
     "UpdateExportResponseTypeDef",
 )
 
 ColumnTypeDef = TypedDict(
     "ColumnTypeDef",
     {
-        "Description": str,
-        "Name": str,
-        "Type": str,
-    },
-    total=False,
-)
-
-_RequiredCreateExportRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateExportRequestRequestTypeDef",
-    {
-        "Export": "ExportTypeDef",
-    },
-)
-_OptionalCreateExportRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateExportRequestRequestTypeDef",
-    {
-        "ResourceTags": List["ResourceTagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateExportRequestRequestTypeDef(
-    _RequiredCreateExportRequestRequestTypeDef, _OptionalCreateExportRequestRequestTypeDef
-):
-    pass
-
-CreateExportResponseTypeDef = TypedDict(
-    "CreateExportResponseTypeDef",
-    {
-        "ExportArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "Description": NotRequired[str],
+        "Name": NotRequired[str],
+        "Type": NotRequired[str],
     },
 )
 
-_RequiredDataQueryTypeDef = TypedDict(
-    "_RequiredDataQueryTypeDef",
-    {
-        "QueryStatement": str,
-    },
-)
-_OptionalDataQueryTypeDef = TypedDict(
-    "_OptionalDataQueryTypeDef",
-    {
-        "TableConfigurations": Dict[str, Dict[str, str]],
-    },
-    total=False,
-)
+class ResourceTagTypeDef(TypedDict):
+    Key: str
+    Value: str
 
-class DataQueryTypeDef(_RequiredDataQueryTypeDef, _OptionalDataQueryTypeDef):
-    pass
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-DeleteExportRequestRequestTypeDef = TypedDict(
-    "DeleteExportRequestRequestTypeDef",
-    {
-        "ExportArn": str,
-    },
-)
+class DataQueryOutputTypeDef(TypedDict):
+    QueryStatement: str
+    TableConfigurations: NotRequired[Dict[str, Dict[str, str]]]
 
-DeleteExportResponseTypeDef = TypedDict(
-    "DeleteExportResponseTypeDef",
-    {
-        "ExportArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DataQueryTypeDef(TypedDict):
+    QueryStatement: str
+    TableConfigurations: NotRequired[Mapping[str, Mapping[str, str]]]
 
-DestinationConfigurationsTypeDef = TypedDict(
-    "DestinationConfigurationsTypeDef",
-    {
-        "S3Destination": "S3DestinationTypeDef",
-    },
-)
+class DeleteExportRequestTypeDef(TypedDict):
+    ExportArn: str
 
-ExecutionReferenceTypeDef = TypedDict(
-    "ExecutionReferenceTypeDef",
-    {
-        "ExecutionId": str,
-        "ExecutionStatus": "ExecutionStatusTypeDef",
-    },
-)
+class ExecutionStatusTypeDef(TypedDict):
+    CompletedAt: NotRequired[datetime]
+    CreatedAt: NotRequired[datetime]
+    LastUpdatedAt: NotRequired[datetime]
+    StatusCode: NotRequired[ExecutionStatusCodeType]
+    StatusReason: NotRequired[ExecutionStatusReasonType]
 
-ExecutionStatusTypeDef = TypedDict(
-    "ExecutionStatusTypeDef",
-    {
-        "CompletedAt": datetime,
-        "CreatedAt": datetime,
-        "LastUpdatedAt": datetime,
-        "StatusCode": ExecutionStatusCodeType,
-        "StatusReason": ExecutionStatusReasonType,
-    },
-    total=False,
-)
+class RefreshCadenceTypeDef(TypedDict):
+    Frequency: Literal["SYNCHRONOUS"]
 
-ExportReferenceTypeDef = TypedDict(
-    "ExportReferenceTypeDef",
-    {
-        "ExportArn": str,
-        "ExportName": str,
-        "ExportStatus": "ExportStatusTypeDef",
-    },
-)
+class ExportStatusTypeDef(TypedDict):
+    CreatedAt: NotRequired[datetime]
+    LastRefreshedAt: NotRequired[datetime]
+    LastUpdatedAt: NotRequired[datetime]
+    StatusCode: NotRequired[ExportStatusCodeType]
+    StatusReason: NotRequired[ExecutionStatusReasonType]
 
-ExportStatusTypeDef = TypedDict(
-    "ExportStatusTypeDef",
-    {
-        "CreatedAt": datetime,
-        "LastRefreshedAt": datetime,
-        "LastUpdatedAt": datetime,
-        "StatusCode": ExportStatusCodeType,
-        "StatusReason": ExecutionStatusReasonType,
-    },
-    total=False,
-)
+class GetExecutionRequestTypeDef(TypedDict):
+    ExecutionId: str
+    ExportArn: str
 
-_RequiredExportTypeDef = TypedDict(
-    "_RequiredExportTypeDef",
-    {
-        "DataQuery": "DataQueryTypeDef",
-        "DestinationConfigurations": "DestinationConfigurationsTypeDef",
-        "Name": str,
-        "RefreshCadence": "RefreshCadenceTypeDef",
-    },
-)
-_OptionalExportTypeDef = TypedDict(
-    "_OptionalExportTypeDef",
-    {
-        "Description": str,
-        "ExportArn": str,
-    },
-    total=False,
-)
+class GetExportRequestTypeDef(TypedDict):
+    ExportArn: str
 
-class ExportTypeDef(_RequiredExportTypeDef, _OptionalExportTypeDef):
-    pass
+class GetTableRequestTypeDef(TypedDict):
+    TableName: str
+    TableProperties: NotRequired[Mapping[str, str]]
 
-GetExecutionRequestRequestTypeDef = TypedDict(
-    "GetExecutionRequestRequestTypeDef",
-    {
-        "ExecutionId": str,
-        "ExportArn": str,
-    },
-)
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
 
-GetExecutionResponseTypeDef = TypedDict(
-    "GetExecutionResponseTypeDef",
-    {
-        "ExecutionId": str,
-        "ExecutionStatus": "ExecutionStatusTypeDef",
-        "Export": "ExportTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListExecutionsRequestTypeDef(TypedDict):
+    ExportArn: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
 
-GetExportRequestRequestTypeDef = TypedDict(
-    "GetExportRequestRequestTypeDef",
-    {
-        "ExportArn": str,
-    },
-)
+class ListExportsRequestTypeDef(TypedDict):
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
 
-GetExportResponseTypeDef = TypedDict(
-    "GetExportResponseTypeDef",
-    {
-        "Export": "ExportTypeDef",
-        "ExportStatus": "ExportStatusTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListTablesRequestTypeDef(TypedDict):
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
 
-_RequiredGetTableRequestRequestTypeDef = TypedDict(
-    "_RequiredGetTableRequestRequestTypeDef",
-    {
-        "TableName": str,
-    },
-)
-_OptionalGetTableRequestRequestTypeDef = TypedDict(
-    "_OptionalGetTableRequestRequestTypeDef",
-    {
-        "TableProperties": Dict[str, str],
-    },
-    total=False,
-)
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
 
-class GetTableRequestRequestTypeDef(
-    _RequiredGetTableRequestRequestTypeDef, _OptionalGetTableRequestRequestTypeDef
-):
-    pass
+class S3OutputConfigurationsTypeDef(TypedDict):
+    Compression: CompressionOptionType
+    Format: FormatOptionType
+    OutputType: Literal["CUSTOM"]
+    Overwrite: OverwriteOptionType
 
-GetTableResponseTypeDef = TypedDict(
-    "GetTableResponseTypeDef",
-    {
-        "Description": str,
-        "Schema": List["ColumnTypeDef"],
-        "TableName": str,
-        "TableProperties": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class TablePropertyDescriptionTypeDef(TypedDict):
+    DefaultValue: NotRequired[str]
+    Description: NotRequired[str]
+    Name: NotRequired[str]
+    ValidValues: NotRequired[List[str]]
 
-_RequiredListExecutionsRequestRequestTypeDef = TypedDict(
-    "_RequiredListExecutionsRequestRequestTypeDef",
-    {
-        "ExportArn": str,
-    },
-)
-_OptionalListExecutionsRequestRequestTypeDef = TypedDict(
-    "_OptionalListExecutionsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
+class UntagResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+    ResourceTagKeys: Sequence[str]
 
-class ListExecutionsRequestRequestTypeDef(
-    _RequiredListExecutionsRequestRequestTypeDef, _OptionalListExecutionsRequestRequestTypeDef
-):
-    pass
+class TagResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+    ResourceTags: Sequence[ResourceTagTypeDef]
 
-ListExecutionsResponseTypeDef = TypedDict(
-    "ListExecutionsResponseTypeDef",
-    {
-        "Executions": List["ExecutionReferenceTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CreateExportResponseTypeDef(TypedDict):
+    ExportArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ListExportsRequestRequestTypeDef = TypedDict(
-    "ListExportsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
+class DeleteExportResponseTypeDef(TypedDict):
+    ExportArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ListExportsResponseTypeDef = TypedDict(
-    "ListExportsResponseTypeDef",
-    {
-        "Exports": List["ExportReferenceTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetTableResponseTypeDef(TypedDict):
+    Description: str
+    Schema: List[ColumnTypeDef]
+    TableName: str
+    TableProperties: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ListTablesRequestRequestTypeDef = TypedDict(
-    "ListTablesRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    ResourceTags: List[ResourceTagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-ListTablesResponseTypeDef = TypedDict(
-    "ListTablesResponseTypeDef",
-    {
-        "NextToken": str,
-        "Tables": List["TableTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class UpdateExportResponseTypeDef(TypedDict):
+    ExportArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "_RequiredListTagsForResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-    },
-)
-_OptionalListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "_OptionalListTagsForResourceRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
+class ExecutionReferenceTypeDef(TypedDict):
+    ExecutionId: str
+    ExecutionStatus: ExecutionStatusTypeDef
 
-class ListTagsForResourceRequestRequestTypeDef(
-    _RequiredListTagsForResourceRequestRequestTypeDef,
-    _OptionalListTagsForResourceRequestRequestTypeDef,
-):
-    pass
+class ExportReferenceTypeDef(TypedDict):
+    ExportArn: str
+    ExportName: str
+    ExportStatus: ExportStatusTypeDef
 
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "NextToken": str,
-        "ResourceTags": List["ResourceTagTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListExecutionsRequestPaginateTypeDef(TypedDict):
+    ExportArn: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
+class ListExportsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-RefreshCadenceTypeDef = TypedDict(
-    "RefreshCadenceTypeDef",
-    {
-        "Frequency": Literal["SYNCHRONOUS"],
-    },
-)
+class ListTablesRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-ResourceTagTypeDef = TypedDict(
-    "ResourceTagTypeDef",
-    {
-        "Key": str,
-        "Value": str,
-    },
-)
+class S3DestinationTypeDef(TypedDict):
+    S3Bucket: str
+    S3OutputConfigurations: S3OutputConfigurationsTypeDef
+    S3Prefix: str
+    S3Region: str
 
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
+class TableTypeDef(TypedDict):
+    Description: NotRequired[str]
+    TableName: NotRequired[str]
+    TableProperties: NotRequired[List[TablePropertyDescriptionTypeDef]]
 
-S3DestinationTypeDef = TypedDict(
-    "S3DestinationTypeDef",
-    {
-        "S3Bucket": str,
-        "S3OutputConfigurations": "S3OutputConfigurationsTypeDef",
-        "S3Prefix": str,
-        "S3Region": str,
-    },
-)
+class ListExecutionsResponseTypeDef(TypedDict):
+    Executions: List[ExecutionReferenceTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-S3OutputConfigurationsTypeDef = TypedDict(
-    "S3OutputConfigurationsTypeDef",
-    {
-        "Compression": CompressionOptionType,
-        "Format": FormatOptionType,
-        "OutputType": Literal["CUSTOM"],
-        "Overwrite": OverwriteOptionType,
-    },
-)
+class ListExportsResponseTypeDef(TypedDict):
+    Exports: List[ExportReferenceTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-TablePropertyDescriptionTypeDef = TypedDict(
-    "TablePropertyDescriptionTypeDef",
-    {
-        "DefaultValue": str,
-        "Description": str,
-        "Name": str,
-        "ValidValues": List[str],
-    },
-    total=False,
-)
+class DestinationConfigurationsTypeDef(TypedDict):
+    S3Destination: S3DestinationTypeDef
 
-TableTypeDef = TypedDict(
-    "TableTypeDef",
-    {
-        "Description": str,
-        "TableName": str,
-        "TableProperties": List["TablePropertyDescriptionTypeDef"],
-    },
-    total=False,
-)
+class ListTablesResponseTypeDef(TypedDict):
+    Tables: List[TableTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-        "ResourceTags": List["ResourceTagTypeDef"],
-    },
-)
+class ExportOutputTypeDef(TypedDict):
+    DataQuery: DataQueryOutputTypeDef
+    DestinationConfigurations: DestinationConfigurationsTypeDef
+    Name: str
+    RefreshCadence: RefreshCadenceTypeDef
+    Description: NotRequired[str]
+    ExportArn: NotRequired[str]
 
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-        "ResourceTagKeys": List[str],
-    },
-)
+class ExportTypeDef(TypedDict):
+    DataQuery: DataQueryTypeDef
+    DestinationConfigurations: DestinationConfigurationsTypeDef
+    Name: str
+    RefreshCadence: RefreshCadenceTypeDef
+    Description: NotRequired[str]
+    ExportArn: NotRequired[str]
 
-UpdateExportRequestRequestTypeDef = TypedDict(
-    "UpdateExportRequestRequestTypeDef",
-    {
-        "Export": "ExportTypeDef",
-        "ExportArn": str,
-    },
-)
+class GetExecutionResponseTypeDef(TypedDict):
+    ExecutionId: str
+    ExecutionStatus: ExecutionStatusTypeDef
+    Export: ExportOutputTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-UpdateExportResponseTypeDef = TypedDict(
-    "UpdateExportResponseTypeDef",
-    {
-        "ExportArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetExportResponseTypeDef(TypedDict):
+    Export: ExportOutputTypeDef
+    ExportStatus: ExportStatusTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+ExportUnionTypeDef = Union[ExportTypeDef, ExportOutputTypeDef]
+
+class CreateExportRequestTypeDef(TypedDict):
+    Export: ExportUnionTypeDef
+    ResourceTags: NotRequired[Sequence[ResourceTagTypeDef]]
+
+class UpdateExportRequestTypeDef(TypedDict):
+    Export: ExportUnionTypeDef
+    ExportArn: str

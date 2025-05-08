@@ -1,69 +1,84 @@
 """
 Type annotations for elb service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elb/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_elb/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_elb.type_defs import AccessLogTypeDef
 
-    data: AccessLogTypeDef = {...}
+    data: AccessLogTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
+from typing import Union
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Sequence
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List, Sequence
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
     "AccessLogTypeDef",
-    "AddAvailabilityZonesInputRequestTypeDef",
+    "AddAvailabilityZonesInputTypeDef",
     "AddAvailabilityZonesOutputTypeDef",
-    "AddTagsInputRequestTypeDef",
+    "AddTagsInputTypeDef",
     "AdditionalAttributeTypeDef",
     "AppCookieStickinessPolicyTypeDef",
-    "ApplySecurityGroupsToLoadBalancerInputRequestTypeDef",
+    "ApplySecurityGroupsToLoadBalancerInputTypeDef",
     "ApplySecurityGroupsToLoadBalancerOutputTypeDef",
-    "AttachLoadBalancerToSubnetsInputRequestTypeDef",
+    "AttachLoadBalancerToSubnetsInputTypeDef",
     "AttachLoadBalancerToSubnetsOutputTypeDef",
     "BackendServerDescriptionTypeDef",
-    "ConfigureHealthCheckInputRequestTypeDef",
+    "ConfigureHealthCheckInputTypeDef",
     "ConfigureHealthCheckOutputTypeDef",
     "ConnectionDrainingTypeDef",
     "ConnectionSettingsTypeDef",
-    "CreateAccessPointInputRequestTypeDef",
+    "CreateAccessPointInputTypeDef",
     "CreateAccessPointOutputTypeDef",
-    "CreateAppCookieStickinessPolicyInputRequestTypeDef",
-    "CreateLBCookieStickinessPolicyInputRequestTypeDef",
-    "CreateLoadBalancerListenerInputRequestTypeDef",
-    "CreateLoadBalancerPolicyInputRequestTypeDef",
+    "CreateAppCookieStickinessPolicyInputTypeDef",
+    "CreateLBCookieStickinessPolicyInputTypeDef",
+    "CreateLoadBalancerListenerInputTypeDef",
+    "CreateLoadBalancerPolicyInputTypeDef",
     "CrossZoneLoadBalancingTypeDef",
-    "DeleteAccessPointInputRequestTypeDef",
-    "DeleteLoadBalancerListenerInputRequestTypeDef",
-    "DeleteLoadBalancerPolicyInputRequestTypeDef",
-    "DeregisterEndPointsInputRequestTypeDef",
+    "DeleteAccessPointInputTypeDef",
+    "DeleteLoadBalancerListenerInputTypeDef",
+    "DeleteLoadBalancerPolicyInputTypeDef",
+    "DeregisterEndPointsInputTypeDef",
     "DeregisterEndPointsOutputTypeDef",
-    "DescribeAccessPointsInputRequestTypeDef",
+    "DescribeAccessPointsInputPaginateTypeDef",
+    "DescribeAccessPointsInputTypeDef",
     "DescribeAccessPointsOutputTypeDef",
-    "DescribeAccountLimitsInputRequestTypeDef",
+    "DescribeAccountLimitsInputPaginateTypeDef",
+    "DescribeAccountLimitsInputTypeDef",
     "DescribeAccountLimitsOutputTypeDef",
-    "DescribeEndPointStateInputRequestTypeDef",
+    "DescribeEndPointStateInputTypeDef",
+    "DescribeEndPointStateInputWaitExtraExtraTypeDef",
+    "DescribeEndPointStateInputWaitExtraTypeDef",
+    "DescribeEndPointStateInputWaitTypeDef",
     "DescribeEndPointStateOutputTypeDef",
-    "DescribeLoadBalancerAttributesInputRequestTypeDef",
+    "DescribeLoadBalancerAttributesInputTypeDef",
     "DescribeLoadBalancerAttributesOutputTypeDef",
-    "DescribeLoadBalancerPoliciesInputRequestTypeDef",
+    "DescribeLoadBalancerPoliciesInputTypeDef",
     "DescribeLoadBalancerPoliciesOutputTypeDef",
-    "DescribeLoadBalancerPolicyTypesInputRequestTypeDef",
+    "DescribeLoadBalancerPolicyTypesInputTypeDef",
     "DescribeLoadBalancerPolicyTypesOutputTypeDef",
-    "DescribeTagsInputRequestTypeDef",
+    "DescribeTagsInputTypeDef",
     "DescribeTagsOutputTypeDef",
-    "DetachLoadBalancerFromSubnetsInputRequestTypeDef",
+    "DetachLoadBalancerFromSubnetsInputTypeDef",
     "DetachLoadBalancerFromSubnetsOutputTypeDef",
     "HealthCheckTypeDef",
     "InstanceStateTypeDef",
@@ -72,9 +87,11 @@ __all__ = (
     "LimitTypeDef",
     "ListenerDescriptionTypeDef",
     "ListenerTypeDef",
+    "LoadBalancerAttributesOutputTypeDef",
     "LoadBalancerAttributesTypeDef",
+    "LoadBalancerAttributesUnionTypeDef",
     "LoadBalancerDescriptionTypeDef",
-    "ModifyLoadBalancerAttributesInputRequestTypeDef",
+    "ModifyLoadBalancerAttributesInputTypeDef",
     "ModifyLoadBalancerAttributesOutputTypeDef",
     "PaginatorConfigTypeDef",
     "PoliciesTypeDef",
@@ -83,15 +100,15 @@ __all__ = (
     "PolicyAttributeTypeDescriptionTypeDef",
     "PolicyDescriptionTypeDef",
     "PolicyTypeDescriptionTypeDef",
-    "RegisterEndPointsInputRequestTypeDef",
+    "RegisterEndPointsInputTypeDef",
     "RegisterEndPointsOutputTypeDef",
-    "RemoveAvailabilityZonesInputRequestTypeDef",
+    "RemoveAvailabilityZonesInputTypeDef",
     "RemoveAvailabilityZonesOutputTypeDef",
-    "RemoveTagsInputRequestTypeDef",
+    "RemoveTagsInputTypeDef",
     "ResponseMetadataTypeDef",
-    "SetLoadBalancerListenerSSLCertificateInputRequestTypeDef",
-    "SetLoadBalancerPoliciesForBackendServerInputRequestTypeDef",
-    "SetLoadBalancerPoliciesOfListenerInputRequestTypeDef",
+    "SetLoadBalancerListenerSSLCertificateInputTypeDef",
+    "SetLoadBalancerPoliciesForBackendServerInputTypeDef",
+    "SetLoadBalancerPoliciesOfListenerInputTypeDef",
     "SourceSecurityGroupTypeDef",
     "TagDescriptionTypeDef",
     "TagKeyOnlyTypeDef",
@@ -99,757 +116,384 @@ __all__ = (
     "WaiterConfigTypeDef",
 )
 
-_RequiredAccessLogTypeDef = TypedDict(
-    "_RequiredAccessLogTypeDef",
-    {
-        "Enabled": bool,
-    },
-)
-_OptionalAccessLogTypeDef = TypedDict(
-    "_OptionalAccessLogTypeDef",
-    {
-        "S3BucketName": str,
-        "EmitInterval": int,
-        "S3BucketPrefix": str,
-    },
-    total=False,
-)
+class AccessLogTypeDef(TypedDict):
+    Enabled: bool
+    S3BucketName: NotRequired[str]
+    EmitInterval: NotRequired[int]
+    S3BucketPrefix: NotRequired[str]
 
-class AccessLogTypeDef(_RequiredAccessLogTypeDef, _OptionalAccessLogTypeDef):
-    pass
+class AddAvailabilityZonesInputTypeDef(TypedDict):
+    LoadBalancerName: str
+    AvailabilityZones: Sequence[str]
 
-AddAvailabilityZonesInputRequestTypeDef = TypedDict(
-    "AddAvailabilityZonesInputRequestTypeDef",
-    {
-        "LoadBalancerName": str,
-        "AvailabilityZones": List[str],
-    },
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-AddAvailabilityZonesOutputTypeDef = TypedDict(
-    "AddAvailabilityZonesOutputTypeDef",
-    {
-        "AvailabilityZones": List[str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class TagTypeDef(TypedDict):
+    Key: str
+    Value: NotRequired[str]
 
-AddTagsInputRequestTypeDef = TypedDict(
-    "AddTagsInputRequestTypeDef",
-    {
-        "LoadBalancerNames": List[str],
-        "Tags": List["TagTypeDef"],
-    },
-)
+class AdditionalAttributeTypeDef(TypedDict):
+    Key: NotRequired[str]
+    Value: NotRequired[str]
 
-AdditionalAttributeTypeDef = TypedDict(
-    "AdditionalAttributeTypeDef",
-    {
-        "Key": str,
-        "Value": str,
-    },
-    total=False,
-)
+class AppCookieStickinessPolicyTypeDef(TypedDict):
+    PolicyName: NotRequired[str]
+    CookieName: NotRequired[str]
 
-AppCookieStickinessPolicyTypeDef = TypedDict(
-    "AppCookieStickinessPolicyTypeDef",
-    {
-        "PolicyName": str,
-        "CookieName": str,
-    },
-    total=False,
-)
+class ApplySecurityGroupsToLoadBalancerInputTypeDef(TypedDict):
+    LoadBalancerName: str
+    SecurityGroups: Sequence[str]
 
-ApplySecurityGroupsToLoadBalancerInputRequestTypeDef = TypedDict(
-    "ApplySecurityGroupsToLoadBalancerInputRequestTypeDef",
-    {
-        "LoadBalancerName": str,
-        "SecurityGroups": List[str],
-    },
-)
+class AttachLoadBalancerToSubnetsInputTypeDef(TypedDict):
+    LoadBalancerName: str
+    Subnets: Sequence[str]
 
-ApplySecurityGroupsToLoadBalancerOutputTypeDef = TypedDict(
-    "ApplySecurityGroupsToLoadBalancerOutputTypeDef",
-    {
-        "SecurityGroups": List[str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class BackendServerDescriptionTypeDef(TypedDict):
+    InstancePort: NotRequired[int]
+    PolicyNames: NotRequired[List[str]]
 
-AttachLoadBalancerToSubnetsInputRequestTypeDef = TypedDict(
-    "AttachLoadBalancerToSubnetsInputRequestTypeDef",
-    {
-        "LoadBalancerName": str,
-        "Subnets": List[str],
-    },
-)
+class HealthCheckTypeDef(TypedDict):
+    Target: str
+    Interval: int
+    Timeout: int
+    UnhealthyThreshold: int
+    HealthyThreshold: int
 
-AttachLoadBalancerToSubnetsOutputTypeDef = TypedDict(
-    "AttachLoadBalancerToSubnetsOutputTypeDef",
-    {
-        "Subnets": List[str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ConnectionDrainingTypeDef(TypedDict):
+    Enabled: bool
+    Timeout: NotRequired[int]
 
-BackendServerDescriptionTypeDef = TypedDict(
-    "BackendServerDescriptionTypeDef",
-    {
-        "InstancePort": int,
-        "PolicyNames": List[str],
-    },
-    total=False,
-)
+class ConnectionSettingsTypeDef(TypedDict):
+    IdleTimeout: int
 
-ConfigureHealthCheckInputRequestTypeDef = TypedDict(
-    "ConfigureHealthCheckInputRequestTypeDef",
-    {
-        "LoadBalancerName": str,
-        "HealthCheck": "HealthCheckTypeDef",
-    },
-)
-
-ConfigureHealthCheckOutputTypeDef = TypedDict(
-    "ConfigureHealthCheckOutputTypeDef",
-    {
-        "HealthCheck": "HealthCheckTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredConnectionDrainingTypeDef = TypedDict(
-    "_RequiredConnectionDrainingTypeDef",
-    {
-        "Enabled": bool,
-    },
-)
-_OptionalConnectionDrainingTypeDef = TypedDict(
-    "_OptionalConnectionDrainingTypeDef",
-    {
-        "Timeout": int,
-    },
-    total=False,
-)
-
-class ConnectionDrainingTypeDef(
-    _RequiredConnectionDrainingTypeDef, _OptionalConnectionDrainingTypeDef
-):
-    pass
-
-ConnectionSettingsTypeDef = TypedDict(
-    "ConnectionSettingsTypeDef",
-    {
-        "IdleTimeout": int,
-    },
-)
-
-_RequiredCreateAccessPointInputRequestTypeDef = TypedDict(
-    "_RequiredCreateAccessPointInputRequestTypeDef",
-    {
-        "LoadBalancerName": str,
-        "Listeners": List["ListenerTypeDef"],
-    },
-)
-_OptionalCreateAccessPointInputRequestTypeDef = TypedDict(
-    "_OptionalCreateAccessPointInputRequestTypeDef",
-    {
-        "AvailabilityZones": List[str],
-        "Subnets": List[str],
-        "SecurityGroups": List[str],
-        "Scheme": str,
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateAccessPointInputRequestTypeDef(
-    _RequiredCreateAccessPointInputRequestTypeDef, _OptionalCreateAccessPointInputRequestTypeDef
-):
-    pass
-
-CreateAccessPointOutputTypeDef = TypedDict(
-    "CreateAccessPointOutputTypeDef",
-    {
-        "DNSName": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateAppCookieStickinessPolicyInputRequestTypeDef = TypedDict(
-    "CreateAppCookieStickinessPolicyInputRequestTypeDef",
-    {
-        "LoadBalancerName": str,
-        "PolicyName": str,
-        "CookieName": str,
-    },
-)
-
-_RequiredCreateLBCookieStickinessPolicyInputRequestTypeDef = TypedDict(
-    "_RequiredCreateLBCookieStickinessPolicyInputRequestTypeDef",
-    {
-        "LoadBalancerName": str,
-        "PolicyName": str,
-    },
-)
-_OptionalCreateLBCookieStickinessPolicyInputRequestTypeDef = TypedDict(
-    "_OptionalCreateLBCookieStickinessPolicyInputRequestTypeDef",
-    {
-        "CookieExpirationPeriod": int,
-    },
-    total=False,
-)
-
-class CreateLBCookieStickinessPolicyInputRequestTypeDef(
-    _RequiredCreateLBCookieStickinessPolicyInputRequestTypeDef,
-    _OptionalCreateLBCookieStickinessPolicyInputRequestTypeDef,
-):
-    pass
-
-CreateLoadBalancerListenerInputRequestTypeDef = TypedDict(
-    "CreateLoadBalancerListenerInputRequestTypeDef",
-    {
-        "LoadBalancerName": str,
-        "Listeners": List["ListenerTypeDef"],
-    },
-)
-
-_RequiredCreateLoadBalancerPolicyInputRequestTypeDef = TypedDict(
-    "_RequiredCreateLoadBalancerPolicyInputRequestTypeDef",
-    {
-        "LoadBalancerName": str,
-        "PolicyName": str,
-        "PolicyTypeName": str,
-    },
-)
-_OptionalCreateLoadBalancerPolicyInputRequestTypeDef = TypedDict(
-    "_OptionalCreateLoadBalancerPolicyInputRequestTypeDef",
-    {
-        "PolicyAttributes": List["PolicyAttributeTypeDef"],
-    },
-    total=False,
-)
-
-class CreateLoadBalancerPolicyInputRequestTypeDef(
-    _RequiredCreateLoadBalancerPolicyInputRequestTypeDef,
-    _OptionalCreateLoadBalancerPolicyInputRequestTypeDef,
-):
-    pass
-
-CrossZoneLoadBalancingTypeDef = TypedDict(
-    "CrossZoneLoadBalancingTypeDef",
-    {
-        "Enabled": bool,
-    },
-)
-
-DeleteAccessPointInputRequestTypeDef = TypedDict(
-    "DeleteAccessPointInputRequestTypeDef",
-    {
-        "LoadBalancerName": str,
-    },
-)
-
-DeleteLoadBalancerListenerInputRequestTypeDef = TypedDict(
-    "DeleteLoadBalancerListenerInputRequestTypeDef",
-    {
-        "LoadBalancerName": str,
-        "LoadBalancerPorts": List[int],
-    },
-)
-
-DeleteLoadBalancerPolicyInputRequestTypeDef = TypedDict(
-    "DeleteLoadBalancerPolicyInputRequestTypeDef",
-    {
-        "LoadBalancerName": str,
-        "PolicyName": str,
-    },
-)
-
-DeregisterEndPointsInputRequestTypeDef = TypedDict(
-    "DeregisterEndPointsInputRequestTypeDef",
-    {
-        "LoadBalancerName": str,
-        "Instances": List["InstanceTypeDef"],
-    },
-)
-
-DeregisterEndPointsOutputTypeDef = TypedDict(
-    "DeregisterEndPointsOutputTypeDef",
-    {
-        "Instances": List["InstanceTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeAccessPointsInputRequestTypeDef = TypedDict(
-    "DescribeAccessPointsInputRequestTypeDef",
-    {
-        "LoadBalancerNames": List[str],
-        "Marker": str,
-        "PageSize": int,
-    },
-    total=False,
-)
-
-DescribeAccessPointsOutputTypeDef = TypedDict(
-    "DescribeAccessPointsOutputTypeDef",
-    {
-        "LoadBalancerDescriptions": List["LoadBalancerDescriptionTypeDef"],
-        "NextMarker": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeAccountLimitsInputRequestTypeDef = TypedDict(
-    "DescribeAccountLimitsInputRequestTypeDef",
-    {
-        "Marker": str,
-        "PageSize": int,
-    },
-    total=False,
-)
-
-DescribeAccountLimitsOutputTypeDef = TypedDict(
-    "DescribeAccountLimitsOutputTypeDef",
-    {
-        "Limits": List["LimitTypeDef"],
-        "NextMarker": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribeEndPointStateInputRequestTypeDef = TypedDict(
-    "_RequiredDescribeEndPointStateInputRequestTypeDef",
-    {
-        "LoadBalancerName": str,
-    },
-)
-_OptionalDescribeEndPointStateInputRequestTypeDef = TypedDict(
-    "_OptionalDescribeEndPointStateInputRequestTypeDef",
-    {
-        "Instances": List["InstanceTypeDef"],
-    },
-    total=False,
-)
-
-class DescribeEndPointStateInputRequestTypeDef(
-    _RequiredDescribeEndPointStateInputRequestTypeDef,
-    _OptionalDescribeEndPointStateInputRequestTypeDef,
-):
-    pass
-
-DescribeEndPointStateOutputTypeDef = TypedDict(
-    "DescribeEndPointStateOutputTypeDef",
-    {
-        "InstanceStates": List["InstanceStateTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeLoadBalancerAttributesInputRequestTypeDef = TypedDict(
-    "DescribeLoadBalancerAttributesInputRequestTypeDef",
-    {
-        "LoadBalancerName": str,
-    },
-)
-
-DescribeLoadBalancerAttributesOutputTypeDef = TypedDict(
-    "DescribeLoadBalancerAttributesOutputTypeDef",
-    {
-        "LoadBalancerAttributes": "LoadBalancerAttributesTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeLoadBalancerPoliciesInputRequestTypeDef = TypedDict(
-    "DescribeLoadBalancerPoliciesInputRequestTypeDef",
-    {
-        "LoadBalancerName": str,
-        "PolicyNames": List[str],
-    },
-    total=False,
-)
-
-DescribeLoadBalancerPoliciesOutputTypeDef = TypedDict(
-    "DescribeLoadBalancerPoliciesOutputTypeDef",
-    {
-        "PolicyDescriptions": List["PolicyDescriptionTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeLoadBalancerPolicyTypesInputRequestTypeDef = TypedDict(
-    "DescribeLoadBalancerPolicyTypesInputRequestTypeDef",
-    {
-        "PolicyTypeNames": List[str],
-    },
-    total=False,
-)
-
-DescribeLoadBalancerPolicyTypesOutputTypeDef = TypedDict(
-    "DescribeLoadBalancerPolicyTypesOutputTypeDef",
-    {
-        "PolicyTypeDescriptions": List["PolicyTypeDescriptionTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeTagsInputRequestTypeDef = TypedDict(
-    "DescribeTagsInputRequestTypeDef",
-    {
-        "LoadBalancerNames": List[str],
-    },
-)
-
-DescribeTagsOutputTypeDef = TypedDict(
-    "DescribeTagsOutputTypeDef",
-    {
-        "TagDescriptions": List["TagDescriptionTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DetachLoadBalancerFromSubnetsInputRequestTypeDef = TypedDict(
-    "DetachLoadBalancerFromSubnetsInputRequestTypeDef",
-    {
-        "LoadBalancerName": str,
-        "Subnets": List[str],
-    },
-)
-
-DetachLoadBalancerFromSubnetsOutputTypeDef = TypedDict(
-    "DetachLoadBalancerFromSubnetsOutputTypeDef",
-    {
-        "Subnets": List[str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-HealthCheckTypeDef = TypedDict(
-    "HealthCheckTypeDef",
-    {
-        "Target": str,
-        "Interval": int,
-        "Timeout": int,
-        "UnhealthyThreshold": int,
-        "HealthyThreshold": int,
-    },
-)
-
-InstanceStateTypeDef = TypedDict(
-    "InstanceStateTypeDef",
-    {
-        "InstanceId": str,
-        "State": str,
-        "ReasonCode": str,
-        "Description": str,
-    },
-    total=False,
-)
-
-InstanceTypeDef = TypedDict(
-    "InstanceTypeDef",
-    {
-        "InstanceId": str,
-    },
-    total=False,
-)
-
-LBCookieStickinessPolicyTypeDef = TypedDict(
-    "LBCookieStickinessPolicyTypeDef",
-    {
-        "PolicyName": str,
-        "CookieExpirationPeriod": int,
-    },
-    total=False,
-)
-
-LimitTypeDef = TypedDict(
-    "LimitTypeDef",
-    {
-        "Name": str,
-        "Max": str,
-    },
-    total=False,
-)
-
-ListenerDescriptionTypeDef = TypedDict(
-    "ListenerDescriptionTypeDef",
-    {
-        "Listener": "ListenerTypeDef",
-        "PolicyNames": List[str],
-    },
-    total=False,
-)
-
-_RequiredListenerTypeDef = TypedDict(
-    "_RequiredListenerTypeDef",
+ListenerTypeDef = TypedDict(
+    "ListenerTypeDef",
     {
         "Protocol": str,
         "LoadBalancerPort": int,
         "InstancePort": int,
-    },
-)
-_OptionalListenerTypeDef = TypedDict(
-    "_OptionalListenerTypeDef",
-    {
-        "InstanceProtocol": str,
-        "SSLCertificateId": str,
-    },
-    total=False,
-)
-
-class ListenerTypeDef(_RequiredListenerTypeDef, _OptionalListenerTypeDef):
-    pass
-
-LoadBalancerAttributesTypeDef = TypedDict(
-    "LoadBalancerAttributesTypeDef",
-    {
-        "CrossZoneLoadBalancing": "CrossZoneLoadBalancingTypeDef",
-        "AccessLog": "AccessLogTypeDef",
-        "ConnectionDraining": "ConnectionDrainingTypeDef",
-        "ConnectionSettings": "ConnectionSettingsTypeDef",
-        "AdditionalAttributes": List["AdditionalAttributeTypeDef"],
-    },
-    total=False,
-)
-
-LoadBalancerDescriptionTypeDef = TypedDict(
-    "LoadBalancerDescriptionTypeDef",
-    {
-        "LoadBalancerName": str,
-        "DNSName": str,
-        "CanonicalHostedZoneName": str,
-        "CanonicalHostedZoneNameID": str,
-        "ListenerDescriptions": List["ListenerDescriptionTypeDef"],
-        "Policies": "PoliciesTypeDef",
-        "BackendServerDescriptions": List["BackendServerDescriptionTypeDef"],
-        "AvailabilityZones": List[str],
-        "Subnets": List[str],
-        "VPCId": str,
-        "Instances": List["InstanceTypeDef"],
-        "HealthCheck": "HealthCheckTypeDef",
-        "SourceSecurityGroup": "SourceSecurityGroupTypeDef",
-        "SecurityGroups": List[str],
-        "CreatedTime": datetime,
-        "Scheme": str,
-    },
-    total=False,
-)
-
-ModifyLoadBalancerAttributesInputRequestTypeDef = TypedDict(
-    "ModifyLoadBalancerAttributesInputRequestTypeDef",
-    {
-        "LoadBalancerName": str,
-        "LoadBalancerAttributes": "LoadBalancerAttributesTypeDef",
+        "InstanceProtocol": NotRequired[str],
+        "SSLCertificateId": NotRequired[str],
     },
 )
 
-ModifyLoadBalancerAttributesOutputTypeDef = TypedDict(
-    "ModifyLoadBalancerAttributesOutputTypeDef",
-    {
-        "LoadBalancerName": str,
-        "LoadBalancerAttributes": "LoadBalancerAttributesTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CreateAppCookieStickinessPolicyInputTypeDef(TypedDict):
+    LoadBalancerName: str
+    PolicyName: str
+    CookieName: str
 
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
+class CreateLBCookieStickinessPolicyInputTypeDef(TypedDict):
+    LoadBalancerName: str
+    PolicyName: str
+    CookieExpirationPeriod: NotRequired[int]
 
-PoliciesTypeDef = TypedDict(
-    "PoliciesTypeDef",
-    {
-        "AppCookieStickinessPolicies": List["AppCookieStickinessPolicyTypeDef"],
-        "LBCookieStickinessPolicies": List["LBCookieStickinessPolicyTypeDef"],
-        "OtherPolicies": List[str],
-    },
-    total=False,
-)
+class PolicyAttributeTypeDef(TypedDict):
+    AttributeName: NotRequired[str]
+    AttributeValue: NotRequired[str]
 
-PolicyAttributeDescriptionTypeDef = TypedDict(
-    "PolicyAttributeDescriptionTypeDef",
-    {
-        "AttributeName": str,
-        "AttributeValue": str,
-    },
-    total=False,
-)
+class CrossZoneLoadBalancingTypeDef(TypedDict):
+    Enabled: bool
 
-PolicyAttributeTypeDef = TypedDict(
-    "PolicyAttributeTypeDef",
-    {
-        "AttributeName": str,
-        "AttributeValue": str,
-    },
-    total=False,
-)
+class DeleteAccessPointInputTypeDef(TypedDict):
+    LoadBalancerName: str
 
-PolicyAttributeTypeDescriptionTypeDef = TypedDict(
-    "PolicyAttributeTypeDescriptionTypeDef",
-    {
-        "AttributeName": str,
-        "AttributeType": str,
-        "Description": str,
-        "DefaultValue": str,
-        "Cardinality": str,
-    },
-    total=False,
-)
+class DeleteLoadBalancerListenerInputTypeDef(TypedDict):
+    LoadBalancerName: str
+    LoadBalancerPorts: Sequence[int]
 
-PolicyDescriptionTypeDef = TypedDict(
-    "PolicyDescriptionTypeDef",
-    {
-        "PolicyName": str,
-        "PolicyTypeName": str,
-        "PolicyAttributeDescriptions": List["PolicyAttributeDescriptionTypeDef"],
-    },
-    total=False,
-)
+class DeleteLoadBalancerPolicyInputTypeDef(TypedDict):
+    LoadBalancerName: str
+    PolicyName: str
 
-PolicyTypeDescriptionTypeDef = TypedDict(
-    "PolicyTypeDescriptionTypeDef",
-    {
-        "PolicyTypeName": str,
-        "Description": str,
-        "PolicyAttributeTypeDescriptions": List["PolicyAttributeTypeDescriptionTypeDef"],
-    },
-    total=False,
-)
+class InstanceTypeDef(TypedDict):
+    InstanceId: NotRequired[str]
 
-RegisterEndPointsInputRequestTypeDef = TypedDict(
-    "RegisterEndPointsInputRequestTypeDef",
-    {
-        "LoadBalancerName": str,
-        "Instances": List["InstanceTypeDef"],
-    },
-)
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
 
-RegisterEndPointsOutputTypeDef = TypedDict(
-    "RegisterEndPointsOutputTypeDef",
-    {
-        "Instances": List["InstanceTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DescribeAccessPointsInputTypeDef(TypedDict):
+    LoadBalancerNames: NotRequired[Sequence[str]]
+    Marker: NotRequired[str]
+    PageSize: NotRequired[int]
 
-RemoveAvailabilityZonesInputRequestTypeDef = TypedDict(
-    "RemoveAvailabilityZonesInputRequestTypeDef",
-    {
-        "LoadBalancerName": str,
-        "AvailabilityZones": List[str],
-    },
-)
+class DescribeAccountLimitsInputTypeDef(TypedDict):
+    Marker: NotRequired[str]
+    PageSize: NotRequired[int]
 
-RemoveAvailabilityZonesOutputTypeDef = TypedDict(
-    "RemoveAvailabilityZonesOutputTypeDef",
-    {
-        "AvailabilityZones": List[str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class LimitTypeDef(TypedDict):
+    Name: NotRequired[str]
+    Max: NotRequired[str]
 
-RemoveTagsInputRequestTypeDef = TypedDict(
-    "RemoveTagsInputRequestTypeDef",
-    {
-        "LoadBalancerNames": List[str],
-        "Tags": List["TagKeyOnlyTypeDef"],
-    },
-)
+class WaiterConfigTypeDef(TypedDict):
+    Delay: NotRequired[int]
+    MaxAttempts: NotRequired[int]
 
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
+class InstanceStateTypeDef(TypedDict):
+    InstanceId: NotRequired[str]
+    State: NotRequired[str]
+    ReasonCode: NotRequired[str]
+    Description: NotRequired[str]
 
-SetLoadBalancerListenerSSLCertificateInputRequestTypeDef = TypedDict(
-    "SetLoadBalancerListenerSSLCertificateInputRequestTypeDef",
-    {
-        "LoadBalancerName": str,
-        "LoadBalancerPort": int,
-        "SSLCertificateId": str,
-    },
-)
+class DescribeLoadBalancerAttributesInputTypeDef(TypedDict):
+    LoadBalancerName: str
 
-SetLoadBalancerPoliciesForBackendServerInputRequestTypeDef = TypedDict(
-    "SetLoadBalancerPoliciesForBackendServerInputRequestTypeDef",
-    {
-        "LoadBalancerName": str,
-        "InstancePort": int,
-        "PolicyNames": List[str],
-    },
-)
+class DescribeLoadBalancerPoliciesInputTypeDef(TypedDict):
+    LoadBalancerName: NotRequired[str]
+    PolicyNames: NotRequired[Sequence[str]]
 
-SetLoadBalancerPoliciesOfListenerInputRequestTypeDef = TypedDict(
-    "SetLoadBalancerPoliciesOfListenerInputRequestTypeDef",
-    {
-        "LoadBalancerName": str,
-        "LoadBalancerPort": int,
-        "PolicyNames": List[str],
-    },
-)
+class DescribeLoadBalancerPolicyTypesInputTypeDef(TypedDict):
+    PolicyTypeNames: NotRequired[Sequence[str]]
 
-SourceSecurityGroupTypeDef = TypedDict(
-    "SourceSecurityGroupTypeDef",
-    {
-        "OwnerAlias": str,
-        "GroupName": str,
-    },
-    total=False,
-)
+class DescribeTagsInputTypeDef(TypedDict):
+    LoadBalancerNames: Sequence[str]
 
-TagDescriptionTypeDef = TypedDict(
-    "TagDescriptionTypeDef",
-    {
-        "LoadBalancerName": str,
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
+class DetachLoadBalancerFromSubnetsInputTypeDef(TypedDict):
+    LoadBalancerName: str
+    Subnets: Sequence[str]
 
-TagKeyOnlyTypeDef = TypedDict(
-    "TagKeyOnlyTypeDef",
-    {
-        "Key": str,
-    },
-    total=False,
-)
+class LBCookieStickinessPolicyTypeDef(TypedDict):
+    PolicyName: NotRequired[str]
+    CookieExpirationPeriod: NotRequired[int]
 
-_RequiredTagTypeDef = TypedDict(
-    "_RequiredTagTypeDef",
-    {
-        "Key": str,
-    },
-)
-_OptionalTagTypeDef = TypedDict(
-    "_OptionalTagTypeDef",
-    {
-        "Value": str,
-    },
-    total=False,
-)
+class SourceSecurityGroupTypeDef(TypedDict):
+    OwnerAlias: NotRequired[str]
+    GroupName: NotRequired[str]
 
-class TagTypeDef(_RequiredTagTypeDef, _OptionalTagTypeDef):
-    pass
+class PolicyAttributeDescriptionTypeDef(TypedDict):
+    AttributeName: NotRequired[str]
+    AttributeValue: NotRequired[str]
 
-WaiterConfigTypeDef = TypedDict(
-    "WaiterConfigTypeDef",
-    {
-        "Delay": int,
-        "MaxAttempts": int,
-    },
-    total=False,
-)
+class PolicyAttributeTypeDescriptionTypeDef(TypedDict):
+    AttributeName: NotRequired[str]
+    AttributeType: NotRequired[str]
+    Description: NotRequired[str]
+    DefaultValue: NotRequired[str]
+    Cardinality: NotRequired[str]
+
+class RemoveAvailabilityZonesInputTypeDef(TypedDict):
+    LoadBalancerName: str
+    AvailabilityZones: Sequence[str]
+
+class TagKeyOnlyTypeDef(TypedDict):
+    Key: NotRequired[str]
+
+class SetLoadBalancerListenerSSLCertificateInputTypeDef(TypedDict):
+    LoadBalancerName: str
+    LoadBalancerPort: int
+    SSLCertificateId: str
+
+class SetLoadBalancerPoliciesForBackendServerInputTypeDef(TypedDict):
+    LoadBalancerName: str
+    InstancePort: int
+    PolicyNames: Sequence[str]
+
+class SetLoadBalancerPoliciesOfListenerInputTypeDef(TypedDict):
+    LoadBalancerName: str
+    LoadBalancerPort: int
+    PolicyNames: Sequence[str]
+
+class AddAvailabilityZonesOutputTypeDef(TypedDict):
+    AvailabilityZones: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ApplySecurityGroupsToLoadBalancerOutputTypeDef(TypedDict):
+    SecurityGroups: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class AttachLoadBalancerToSubnetsOutputTypeDef(TypedDict):
+    Subnets: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateAccessPointOutputTypeDef(TypedDict):
+    DNSName: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DetachLoadBalancerFromSubnetsOutputTypeDef(TypedDict):
+    Subnets: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class RemoveAvailabilityZonesOutputTypeDef(TypedDict):
+    AvailabilityZones: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class AddTagsInputTypeDef(TypedDict):
+    LoadBalancerNames: Sequence[str]
+    Tags: Sequence[TagTypeDef]
+
+class TagDescriptionTypeDef(TypedDict):
+    LoadBalancerName: NotRequired[str]
+    Tags: NotRequired[List[TagTypeDef]]
+
+class ConfigureHealthCheckInputTypeDef(TypedDict):
+    LoadBalancerName: str
+    HealthCheck: HealthCheckTypeDef
+
+class ConfigureHealthCheckOutputTypeDef(TypedDict):
+    HealthCheck: HealthCheckTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateAccessPointInputTypeDef(TypedDict):
+    LoadBalancerName: str
+    Listeners: Sequence[ListenerTypeDef]
+    AvailabilityZones: NotRequired[Sequence[str]]
+    Subnets: NotRequired[Sequence[str]]
+    SecurityGroups: NotRequired[Sequence[str]]
+    Scheme: NotRequired[str]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+
+class CreateLoadBalancerListenerInputTypeDef(TypedDict):
+    LoadBalancerName: str
+    Listeners: Sequence[ListenerTypeDef]
+
+class ListenerDescriptionTypeDef(TypedDict):
+    Listener: NotRequired[ListenerTypeDef]
+    PolicyNames: NotRequired[List[str]]
+
+class CreateLoadBalancerPolicyInputTypeDef(TypedDict):
+    LoadBalancerName: str
+    PolicyName: str
+    PolicyTypeName: str
+    PolicyAttributes: NotRequired[Sequence[PolicyAttributeTypeDef]]
+
+class LoadBalancerAttributesOutputTypeDef(TypedDict):
+    CrossZoneLoadBalancing: NotRequired[CrossZoneLoadBalancingTypeDef]
+    AccessLog: NotRequired[AccessLogTypeDef]
+    ConnectionDraining: NotRequired[ConnectionDrainingTypeDef]
+    ConnectionSettings: NotRequired[ConnectionSettingsTypeDef]
+    AdditionalAttributes: NotRequired[List[AdditionalAttributeTypeDef]]
+
+class LoadBalancerAttributesTypeDef(TypedDict):
+    CrossZoneLoadBalancing: NotRequired[CrossZoneLoadBalancingTypeDef]
+    AccessLog: NotRequired[AccessLogTypeDef]
+    ConnectionDraining: NotRequired[ConnectionDrainingTypeDef]
+    ConnectionSettings: NotRequired[ConnectionSettingsTypeDef]
+    AdditionalAttributes: NotRequired[Sequence[AdditionalAttributeTypeDef]]
+
+class DeregisterEndPointsInputTypeDef(TypedDict):
+    LoadBalancerName: str
+    Instances: Sequence[InstanceTypeDef]
+
+class DeregisterEndPointsOutputTypeDef(TypedDict):
+    Instances: List[InstanceTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeEndPointStateInputTypeDef(TypedDict):
+    LoadBalancerName: str
+    Instances: NotRequired[Sequence[InstanceTypeDef]]
+
+class RegisterEndPointsInputTypeDef(TypedDict):
+    LoadBalancerName: str
+    Instances: Sequence[InstanceTypeDef]
+
+class RegisterEndPointsOutputTypeDef(TypedDict):
+    Instances: List[InstanceTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeAccessPointsInputPaginateTypeDef(TypedDict):
+    LoadBalancerNames: NotRequired[Sequence[str]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeAccountLimitsInputPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeAccountLimitsOutputTypeDef(TypedDict):
+    Limits: List[LimitTypeDef]
+    NextMarker: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeEndPointStateInputWaitExtraExtraTypeDef(TypedDict):
+    LoadBalancerName: str
+    Instances: NotRequired[Sequence[InstanceTypeDef]]
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class DescribeEndPointStateInputWaitExtraTypeDef(TypedDict):
+    LoadBalancerName: str
+    Instances: NotRequired[Sequence[InstanceTypeDef]]
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class DescribeEndPointStateInputWaitTypeDef(TypedDict):
+    LoadBalancerName: str
+    Instances: NotRequired[Sequence[InstanceTypeDef]]
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class DescribeEndPointStateOutputTypeDef(TypedDict):
+    InstanceStates: List[InstanceStateTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PoliciesTypeDef(TypedDict):
+    AppCookieStickinessPolicies: NotRequired[List[AppCookieStickinessPolicyTypeDef]]
+    LBCookieStickinessPolicies: NotRequired[List[LBCookieStickinessPolicyTypeDef]]
+    OtherPolicies: NotRequired[List[str]]
+
+class PolicyDescriptionTypeDef(TypedDict):
+    PolicyName: NotRequired[str]
+    PolicyTypeName: NotRequired[str]
+    PolicyAttributeDescriptions: NotRequired[List[PolicyAttributeDescriptionTypeDef]]
+
+class PolicyTypeDescriptionTypeDef(TypedDict):
+    PolicyTypeName: NotRequired[str]
+    Description: NotRequired[str]
+    PolicyAttributeTypeDescriptions: NotRequired[List[PolicyAttributeTypeDescriptionTypeDef]]
+
+class RemoveTagsInputTypeDef(TypedDict):
+    LoadBalancerNames: Sequence[str]
+    Tags: Sequence[TagKeyOnlyTypeDef]
+
+class DescribeTagsOutputTypeDef(TypedDict):
+    TagDescriptions: List[TagDescriptionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeLoadBalancerAttributesOutputTypeDef(TypedDict):
+    LoadBalancerAttributes: LoadBalancerAttributesOutputTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ModifyLoadBalancerAttributesOutputTypeDef(TypedDict):
+    LoadBalancerName: str
+    LoadBalancerAttributes: LoadBalancerAttributesOutputTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+LoadBalancerAttributesUnionTypeDef = Union[
+    LoadBalancerAttributesTypeDef, LoadBalancerAttributesOutputTypeDef
+]
+
+class LoadBalancerDescriptionTypeDef(TypedDict):
+    LoadBalancerName: NotRequired[str]
+    DNSName: NotRequired[str]
+    CanonicalHostedZoneName: NotRequired[str]
+    CanonicalHostedZoneNameID: NotRequired[str]
+    ListenerDescriptions: NotRequired[List[ListenerDescriptionTypeDef]]
+    Policies: NotRequired[PoliciesTypeDef]
+    BackendServerDescriptions: NotRequired[List[BackendServerDescriptionTypeDef]]
+    AvailabilityZones: NotRequired[List[str]]
+    Subnets: NotRequired[List[str]]
+    VPCId: NotRequired[str]
+    Instances: NotRequired[List[InstanceTypeDef]]
+    HealthCheck: NotRequired[HealthCheckTypeDef]
+    SourceSecurityGroup: NotRequired[SourceSecurityGroupTypeDef]
+    SecurityGroups: NotRequired[List[str]]
+    CreatedTime: NotRequired[datetime]
+    Scheme: NotRequired[str]
+
+class DescribeLoadBalancerPoliciesOutputTypeDef(TypedDict):
+    PolicyDescriptions: List[PolicyDescriptionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeLoadBalancerPolicyTypesOutputTypeDef(TypedDict):
+    PolicyTypeDescriptions: List[PolicyTypeDescriptionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ModifyLoadBalancerAttributesInputTypeDef(TypedDict):
+    LoadBalancerName: str
+    LoadBalancerAttributes: LoadBalancerAttributesUnionTypeDef
+
+class DescribeAccessPointsOutputTypeDef(TypedDict):
+    LoadBalancerDescriptions: List[LoadBalancerDescriptionTypeDef]
+    NextMarker: str
+    ResponseMetadata: ResponseMetadataTypeDef

@@ -1,81 +1,82 @@
 """
 Type annotations for marketplace-catalog service client paginators.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_marketplace_catalog/paginators.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_marketplace_catalog/paginators/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
 
-    from mypy_boto3_marketplace_catalog import MarketplaceCatalogClient
+    from mypy_boto3_marketplace_catalog.client import MarketplaceCatalogClient
     from mypy_boto3_marketplace_catalog.paginator import (
         ListChangeSetsPaginator,
         ListEntitiesPaginator,
     )
 
-    client: MarketplaceCatalogClient = boto3.client("marketplace-catalog")
+    session = Session()
+    client: MarketplaceCatalogClient = session.client("marketplace-catalog")
 
     list_change_sets_paginator: ListChangeSetsPaginator = client.get_paginator("list_change_sets")
     list_entities_paginator: ListEntitiesPaginator = client.get_paginator("list_entities")
     ```
 """
 
-from typing import Iterator, List
+from __future__ import annotations
 
-from botocore.paginate import Paginator as Boto3Paginator
+import sys
+from typing import TYPE_CHECKING
 
-from .literals import OwnershipTypeType
+from botocore.paginate import PageIterator, Paginator
+
 from .type_defs import (
-    EntityTypeFiltersTypeDef,
-    EntityTypeSortTypeDef,
-    FilterTypeDef,
+    ListChangeSetsRequestPaginateTypeDef,
     ListChangeSetsResponseTypeDef,
+    ListEntitiesRequestPaginateTypeDef,
     ListEntitiesResponseTypeDef,
-    PaginatorConfigTypeDef,
-    SortTypeDef,
 )
+
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = ("ListChangeSetsPaginator", "ListEntitiesPaginator")
 
-class ListChangeSetsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/marketplace-catalog.html#MarketplaceCatalog.Paginator.ListChangeSets)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_marketplace_catalog/paginators.html#listchangesetspaginator)
-    """
+if TYPE_CHECKING:
+    _ListChangeSetsPaginatorBase = Paginator[ListChangeSetsResponseTypeDef]
+else:
+    _ListChangeSetsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        Catalog: str,
-        FilterList: List["FilterTypeDef"] = None,
-        Sort: "SortTypeDef" = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListChangeSetsResponseTypeDef]:
+class ListChangeSetsPaginator(_ListChangeSetsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/marketplace-catalog/paginator/ListChangeSets.html#MarketplaceCatalog.Paginator.ListChangeSets)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_marketplace_catalog/paginators/#listchangesetspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListChangeSetsRequestPaginateTypeDef]
+    ) -> PageIterator[ListChangeSetsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/marketplace-catalog.html#MarketplaceCatalog.Paginator.ListChangeSets.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_marketplace_catalog/paginators.html#listchangesetspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/marketplace-catalog/paginator/ListChangeSets.html#MarketplaceCatalog.Paginator.ListChangeSets.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_marketplace_catalog/paginators/#listchangesetspaginator)
         """
 
-class ListEntitiesPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/marketplace-catalog.html#MarketplaceCatalog.Paginator.ListEntities)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_marketplace_catalog/paginators.html#listentitiespaginator)
-    """
+if TYPE_CHECKING:
+    _ListEntitiesPaginatorBase = Paginator[ListEntitiesResponseTypeDef]
+else:
+    _ListEntitiesPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        Catalog: str,
-        EntityType: str,
-        FilterList: List["FilterTypeDef"] = None,
-        Sort: "SortTypeDef" = None,
-        OwnershipType: OwnershipTypeType = None,
-        EntityTypeFilters: "EntityTypeFiltersTypeDef" = None,
-        EntityTypeSort: "EntityTypeSortTypeDef" = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListEntitiesResponseTypeDef]:
+class ListEntitiesPaginator(_ListEntitiesPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/marketplace-catalog/paginator/ListEntities.html#MarketplaceCatalog.Paginator.ListEntities)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_marketplace_catalog/paginators/#listentitiespaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListEntitiesRequestPaginateTypeDef]
+    ) -> PageIterator[ListEntitiesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/marketplace-catalog.html#MarketplaceCatalog.Paginator.ListEntities.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_marketplace_catalog/paginators.html#listentitiespaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/marketplace-catalog/paginator/ListEntities.html#MarketplaceCatalog.Paginator.ListEntities.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_marketplace_catalog/paginators/#listentitiespaginator)
         """

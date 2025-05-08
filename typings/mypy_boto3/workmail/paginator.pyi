@@ -1,14 +1,16 @@
 """
 Type annotations for workmail service client paginators.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workmail/paginators.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_workmail/paginators/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
 
-    from mypy_boto3_workmail import WorkMailClient
+    from mypy_boto3_workmail.client import WorkMailClient
     from mypy_boto3_workmail.paginator import (
         ListAliasesPaginator,
         ListAvailabilityConfigurationsPaginator,
@@ -16,12 +18,14 @@ Usage::
         ListGroupsPaginator,
         ListMailboxPermissionsPaginator,
         ListOrganizationsPaginator,
+        ListPersonalAccessTokensPaginator,
         ListResourceDelegatesPaginator,
         ListResourcesPaginator,
         ListUsersPaginator,
     )
 
-    client: WorkMailClient = boto3.client("workmail")
+    session = Session()
+    client: WorkMailClient = session.client("workmail")
 
     list_aliases_paginator: ListAliasesPaginator = client.get_paginator("list_aliases")
     list_availability_configurations_paginator: ListAvailabilityConfigurationsPaginator = client.get_paginator("list_availability_configurations")
@@ -29,31 +33,47 @@ Usage::
     list_groups_paginator: ListGroupsPaginator = client.get_paginator("list_groups")
     list_mailbox_permissions_paginator: ListMailboxPermissionsPaginator = client.get_paginator("list_mailbox_permissions")
     list_organizations_paginator: ListOrganizationsPaginator = client.get_paginator("list_organizations")
+    list_personal_access_tokens_paginator: ListPersonalAccessTokensPaginator = client.get_paginator("list_personal_access_tokens")
     list_resource_delegates_paginator: ListResourceDelegatesPaginator = client.get_paginator("list_resource_delegates")
     list_resources_paginator: ListResourcesPaginator = client.get_paginator("list_resources")
     list_users_paginator: ListUsersPaginator = client.get_paginator("list_users")
     ```
 """
 
-from typing import Iterator
+from __future__ import annotations
 
-from botocore.paginate import Paginator as Boto3Paginator
+import sys
+from typing import TYPE_CHECKING
+
+from botocore.paginate import PageIterator, Paginator
 
 from .type_defs import (
+    ListAliasesRequestPaginateTypeDef,
     ListAliasesResponseTypeDef,
+    ListAvailabilityConfigurationsRequestPaginateTypeDef,
     ListAvailabilityConfigurationsResponseTypeDef,
+    ListGroupMembersRequestPaginateTypeDef,
     ListGroupMembersResponseTypeDef,
-    ListGroupsFiltersTypeDef,
+    ListGroupsRequestPaginateTypeDef,
     ListGroupsResponseTypeDef,
+    ListMailboxPermissionsRequestPaginateTypeDef,
     ListMailboxPermissionsResponseTypeDef,
+    ListOrganizationsRequestPaginateTypeDef,
     ListOrganizationsResponseTypeDef,
+    ListPersonalAccessTokensRequestPaginateTypeDef,
+    ListPersonalAccessTokensResponseTypeDef,
+    ListResourceDelegatesRequestPaginateTypeDef,
     ListResourceDelegatesResponseTypeDef,
-    ListResourcesFiltersTypeDef,
+    ListResourcesRequestPaginateTypeDef,
     ListResourcesResponseTypeDef,
-    ListUsersFiltersTypeDef,
+    ListUsersRequestPaginateTypeDef,
     ListUsersResponseTypeDef,
-    PaginatorConfigTypeDef,
 )
+
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = (
     "ListAliasesPaginator",
@@ -62,149 +82,190 @@ __all__ = (
     "ListGroupsPaginator",
     "ListMailboxPermissionsPaginator",
     "ListOrganizationsPaginator",
+    "ListPersonalAccessTokensPaginator",
     "ListResourceDelegatesPaginator",
     "ListResourcesPaginator",
     "ListUsersPaginator",
 )
 
-class ListAliasesPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workmail.html#WorkMail.Paginator.ListAliases)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workmail/paginators.html#listaliasespaginator)
-    """
+if TYPE_CHECKING:
+    _ListAliasesPaginatorBase = Paginator[ListAliasesResponseTypeDef]
+else:
+    _ListAliasesPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, OrganizationId: str, EntityId: str, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListAliasesResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workmail.html#WorkMail.Paginator.ListAliases.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workmail/paginators.html#listaliasespaginator)
-        """
-
-class ListAvailabilityConfigurationsPaginator(Boto3Paginator):
+class ListAliasesPaginator(_ListAliasesPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workmail.html#WorkMail.Paginator.ListAvailabilityConfigurations)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workmail/paginators.html#listavailabilityconfigurationspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/workmail/paginator/ListAliases.html#WorkMail.Paginator.ListAliases)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_workmail/paginators/#listaliasespaginator)
     """
-
-    def paginate(
-        self, *, OrganizationId: str, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListAvailabilityConfigurationsResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListAliasesRequestPaginateTypeDef]
+    ) -> PageIterator[ListAliasesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workmail.html#WorkMail.Paginator.ListAvailabilityConfigurations.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workmail/paginators.html#listavailabilityconfigurationspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/workmail/paginator/ListAliases.html#WorkMail.Paginator.ListAliases.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_workmail/paginators/#listaliasespaginator)
         """
 
-class ListGroupMembersPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workmail.html#WorkMail.Paginator.ListGroupMembers)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workmail/paginators.html#listgroupmemberspaginator)
-    """
+if TYPE_CHECKING:
+    _ListAvailabilityConfigurationsPaginatorBase = Paginator[
+        ListAvailabilityConfigurationsResponseTypeDef
+    ]
+else:
+    _ListAvailabilityConfigurationsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, OrganizationId: str, GroupId: str, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListGroupMembersResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workmail.html#WorkMail.Paginator.ListGroupMembers.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workmail/paginators.html#listgroupmemberspaginator)
-        """
-
-class ListGroupsPaginator(Boto3Paginator):
+class ListAvailabilityConfigurationsPaginator(_ListAvailabilityConfigurationsPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workmail.html#WorkMail.Paginator.ListGroups)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workmail/paginators.html#listgroupspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/workmail/paginator/ListAvailabilityConfigurations.html#WorkMail.Paginator.ListAvailabilityConfigurations)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_workmail/paginators/#listavailabilityconfigurationspaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        OrganizationId: str,
-        Filters: "ListGroupsFiltersTypeDef" = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListGroupsResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListAvailabilityConfigurationsRequestPaginateTypeDef]
+    ) -> PageIterator[ListAvailabilityConfigurationsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workmail.html#WorkMail.Paginator.ListGroups.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workmail/paginators.html#listgroupspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/workmail/paginator/ListAvailabilityConfigurations.html#WorkMail.Paginator.ListAvailabilityConfigurations.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_workmail/paginators/#listavailabilityconfigurationspaginator)
         """
 
-class ListMailboxPermissionsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workmail.html#WorkMail.Paginator.ListMailboxPermissions)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workmail/paginators.html#listmailboxpermissionspaginator)
-    """
+if TYPE_CHECKING:
+    _ListGroupMembersPaginatorBase = Paginator[ListGroupMembersResponseTypeDef]
+else:
+    _ListGroupMembersPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, OrganizationId: str, EntityId: str, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListMailboxPermissionsResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workmail.html#WorkMail.Paginator.ListMailboxPermissions.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workmail/paginators.html#listmailboxpermissionspaginator)
-        """
-
-class ListOrganizationsPaginator(Boto3Paginator):
+class ListGroupMembersPaginator(_ListGroupMembersPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workmail.html#WorkMail.Paginator.ListOrganizations)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workmail/paginators.html#listorganizationspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/workmail/paginator/ListGroupMembers.html#WorkMail.Paginator.ListGroupMembers)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_workmail/paginators/#listgroupmemberspaginator)
     """
-
-    def paginate(
-        self, *, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListOrganizationsResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListGroupMembersRequestPaginateTypeDef]
+    ) -> PageIterator[ListGroupMembersResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workmail.html#WorkMail.Paginator.ListOrganizations.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workmail/paginators.html#listorganizationspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/workmail/paginator/ListGroupMembers.html#WorkMail.Paginator.ListGroupMembers.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_workmail/paginators/#listgroupmemberspaginator)
         """
 
-class ListResourceDelegatesPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workmail.html#WorkMail.Paginator.ListResourceDelegates)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workmail/paginators.html#listresourcedelegatespaginator)
-    """
+if TYPE_CHECKING:
+    _ListGroupsPaginatorBase = Paginator[ListGroupsResponseTypeDef]
+else:
+    _ListGroupsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        OrganizationId: str,
-        ResourceId: str,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListResourceDelegatesResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workmail.html#WorkMail.Paginator.ListResourceDelegates.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workmail/paginators.html#listresourcedelegatespaginator)
-        """
-
-class ListResourcesPaginator(Boto3Paginator):
+class ListGroupsPaginator(_ListGroupsPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workmail.html#WorkMail.Paginator.ListResources)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workmail/paginators.html#listresourcespaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/workmail/paginator/ListGroups.html#WorkMail.Paginator.ListGroups)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_workmail/paginators/#listgroupspaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        OrganizationId: str,
-        Filters: "ListResourcesFiltersTypeDef" = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListResourcesResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListGroupsRequestPaginateTypeDef]
+    ) -> PageIterator[ListGroupsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workmail.html#WorkMail.Paginator.ListResources.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workmail/paginators.html#listresourcespaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/workmail/paginator/ListGroups.html#WorkMail.Paginator.ListGroups.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_workmail/paginators/#listgroupspaginator)
         """
 
-class ListUsersPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workmail.html#WorkMail.Paginator.ListUsers)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workmail/paginators.html#listuserspaginator)
-    """
+if TYPE_CHECKING:
+    _ListMailboxPermissionsPaginatorBase = Paginator[ListMailboxPermissionsResponseTypeDef]
+else:
+    _ListMailboxPermissionsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        OrganizationId: str,
-        Filters: "ListUsersFiltersTypeDef" = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListUsersResponseTypeDef]:
+class ListMailboxPermissionsPaginator(_ListMailboxPermissionsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/workmail/paginator/ListMailboxPermissions.html#WorkMail.Paginator.ListMailboxPermissions)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_workmail/paginators/#listmailboxpermissionspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListMailboxPermissionsRequestPaginateTypeDef]
+    ) -> PageIterator[ListMailboxPermissionsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/workmail.html#WorkMail.Paginator.ListUsers.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workmail/paginators.html#listuserspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/workmail/paginator/ListMailboxPermissions.html#WorkMail.Paginator.ListMailboxPermissions.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_workmail/paginators/#listmailboxpermissionspaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListOrganizationsPaginatorBase = Paginator[ListOrganizationsResponseTypeDef]
+else:
+    _ListOrganizationsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListOrganizationsPaginator(_ListOrganizationsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/workmail/paginator/ListOrganizations.html#WorkMail.Paginator.ListOrganizations)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_workmail/paginators/#listorganizationspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListOrganizationsRequestPaginateTypeDef]
+    ) -> PageIterator[ListOrganizationsResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/workmail/paginator/ListOrganizations.html#WorkMail.Paginator.ListOrganizations.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_workmail/paginators/#listorganizationspaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListPersonalAccessTokensPaginatorBase = Paginator[ListPersonalAccessTokensResponseTypeDef]
+else:
+    _ListPersonalAccessTokensPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListPersonalAccessTokensPaginator(_ListPersonalAccessTokensPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/workmail/paginator/ListPersonalAccessTokens.html#WorkMail.Paginator.ListPersonalAccessTokens)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_workmail/paginators/#listpersonalaccesstokenspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListPersonalAccessTokensRequestPaginateTypeDef]
+    ) -> PageIterator[ListPersonalAccessTokensResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/workmail/paginator/ListPersonalAccessTokens.html#WorkMail.Paginator.ListPersonalAccessTokens.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_workmail/paginators/#listpersonalaccesstokenspaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListResourceDelegatesPaginatorBase = Paginator[ListResourceDelegatesResponseTypeDef]
+else:
+    _ListResourceDelegatesPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListResourceDelegatesPaginator(_ListResourceDelegatesPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/workmail/paginator/ListResourceDelegates.html#WorkMail.Paginator.ListResourceDelegates)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_workmail/paginators/#listresourcedelegatespaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListResourceDelegatesRequestPaginateTypeDef]
+    ) -> PageIterator[ListResourceDelegatesResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/workmail/paginator/ListResourceDelegates.html#WorkMail.Paginator.ListResourceDelegates.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_workmail/paginators/#listresourcedelegatespaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListResourcesPaginatorBase = Paginator[ListResourcesResponseTypeDef]
+else:
+    _ListResourcesPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListResourcesPaginator(_ListResourcesPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/workmail/paginator/ListResources.html#WorkMail.Paginator.ListResources)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_workmail/paginators/#listresourcespaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListResourcesRequestPaginateTypeDef]
+    ) -> PageIterator[ListResourcesResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/workmail/paginator/ListResources.html#WorkMail.Paginator.ListResources.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_workmail/paginators/#listresourcespaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListUsersPaginatorBase = Paginator[ListUsersResponseTypeDef]
+else:
+    _ListUsersPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListUsersPaginator(_ListUsersPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/workmail/paginator/ListUsers.html#WorkMail.Paginator.ListUsers)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_workmail/paginators/#listuserspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListUsersRequestPaginateTypeDef]
+    ) -> PageIterator[ListUsersResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/workmail/paginator/ListUsers.html#WorkMail.Paginator.ListUsers.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_workmail/paginators/#listuserspaginator)
         """

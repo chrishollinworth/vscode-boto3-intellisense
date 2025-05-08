@@ -1,20 +1,22 @@
 """
 Main interface for mwaa service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mwaa/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_mwaa import (
         Client,
         ListEnvironmentsPaginator,
         MWAAClient,
     )
 
-    session = boto3.Session()
-
-    client: MWAAClient = boto3.client("mwaa")
-    session_client: MWAAClient = session.client("mwaa")
+    session = Session()
+    client: MWAAClient = session.client("mwaa")
 
     list_environments_paginator: ListEnvironmentsPaginator = client.get_paginator("list_environments")
     ```

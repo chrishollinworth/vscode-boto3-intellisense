@@ -1,23 +1,25 @@
 """
 Main interface for signer service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_signer/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_signer import (
         Client,
         ListSigningJobsPaginator,
         ListSigningPlatformsPaginator,
         ListSigningProfilesPaginator,
+        SignerClient,
         SuccessfulSigningJobWaiter,
-        signerClient,
     )
 
-    session = boto3.Session()
-
-    client: signerClient = boto3.client("signer")
-    session_client: signerClient = session.client("signer")
+    session = Session()
+    client: SignerClient = session.client("signer")
 
     successful_signing_job_waiter: SuccessfulSigningJobWaiter = client.get_waiter("successful_signing_job")
 
@@ -27,7 +29,7 @@ Usage::
     ```
 """
 
-from .client import signerClient
+from .client import SignerClient
 from .paginator import (
     ListSigningJobsPaginator,
     ListSigningPlatformsPaginator,
@@ -35,13 +37,13 @@ from .paginator import (
 )
 from .waiter import SuccessfulSigningJobWaiter
 
-Client = signerClient
+Client = SignerClient
 
 __all__ = (
     "Client",
     "ListSigningJobsPaginator",
     "ListSigningPlatformsPaginator",
     "ListSigningProfilesPaginator",
+    "SignerClient",
     "SuccessfulSigningJobWaiter",
-    "signerClient",
 )

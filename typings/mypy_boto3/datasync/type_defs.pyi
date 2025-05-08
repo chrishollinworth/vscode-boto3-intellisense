@@ -1,20 +1,24 @@
 """
 Type annotations for datasync service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datasync/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datasync/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_datasync.type_defs import AddStorageSystemRequestRequestTypeDef
+    from mypy_boto3_datasync.type_defs import CredentialsTypeDef
 
-    data: AddStorageSystemRequestRequestTypeDef = {...}
+    data: CredentialsTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import IO, Any, Dict, List, Union
+from typing import IO, Any, Union
 
 from botocore.response import StreamingBody
 
@@ -49,11 +53,13 @@ from .literals import (
     S3StorageClassType,
     ScheduleDisabledByType,
     ScheduleStatusType,
+    SmbAuthenticationTypeType,
     SmbSecurityDescriptorCopyFlagsType,
     SmbVersionType,
     StorageSystemConnectivityStatusType,
     TaskExecutionStatusType,
     TaskFilterNameType,
+    TaskModeType,
     TaskQueueingType,
     TaskStatusType,
     TransferModeType,
@@ -61,112 +67,127 @@ from .literals import (
     VerifyModeType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
-    "AddStorageSystemRequestRequestTypeDef",
+    "AddStorageSystemRequestTypeDef",
     "AddStorageSystemResponseTypeDef",
     "AgentListEntryTypeDef",
     "AzureBlobSasConfigurationTypeDef",
-    "CancelTaskExecutionRequestRequestTypeDef",
+    "BlobTypeDef",
+    "CancelTaskExecutionRequestTypeDef",
     "CapacityTypeDef",
-    "CreateAgentRequestRequestTypeDef",
+    "CreateAgentRequestTypeDef",
     "CreateAgentResponseTypeDef",
-    "CreateLocationAzureBlobRequestRequestTypeDef",
+    "CreateLocationAzureBlobRequestTypeDef",
     "CreateLocationAzureBlobResponseTypeDef",
-    "CreateLocationEfsRequestRequestTypeDef",
+    "CreateLocationEfsRequestTypeDef",
     "CreateLocationEfsResponseTypeDef",
-    "CreateLocationFsxLustreRequestRequestTypeDef",
+    "CreateLocationFsxLustreRequestTypeDef",
     "CreateLocationFsxLustreResponseTypeDef",
-    "CreateLocationFsxOntapRequestRequestTypeDef",
+    "CreateLocationFsxOntapRequestTypeDef",
     "CreateLocationFsxOntapResponseTypeDef",
-    "CreateLocationFsxOpenZfsRequestRequestTypeDef",
+    "CreateLocationFsxOpenZfsRequestTypeDef",
     "CreateLocationFsxOpenZfsResponseTypeDef",
-    "CreateLocationFsxWindowsRequestRequestTypeDef",
+    "CreateLocationFsxWindowsRequestTypeDef",
     "CreateLocationFsxWindowsResponseTypeDef",
-    "CreateLocationHdfsRequestRequestTypeDef",
+    "CreateLocationHdfsRequestTypeDef",
     "CreateLocationHdfsResponseTypeDef",
-    "CreateLocationNfsRequestRequestTypeDef",
+    "CreateLocationNfsRequestTypeDef",
     "CreateLocationNfsResponseTypeDef",
-    "CreateLocationObjectStorageRequestRequestTypeDef",
+    "CreateLocationObjectStorageRequestTypeDef",
     "CreateLocationObjectStorageResponseTypeDef",
-    "CreateLocationS3RequestRequestTypeDef",
+    "CreateLocationS3RequestTypeDef",
     "CreateLocationS3ResponseTypeDef",
-    "CreateLocationSmbRequestRequestTypeDef",
+    "CreateLocationSmbRequestTypeDef",
     "CreateLocationSmbResponseTypeDef",
-    "CreateTaskRequestRequestTypeDef",
+    "CreateTaskRequestTypeDef",
     "CreateTaskResponseTypeDef",
     "CredentialsTypeDef",
-    "DeleteAgentRequestRequestTypeDef",
-    "DeleteLocationRequestRequestTypeDef",
-    "DeleteTaskRequestRequestTypeDef",
-    "DescribeAgentRequestRequestTypeDef",
+    "DeleteAgentRequestTypeDef",
+    "DeleteLocationRequestTypeDef",
+    "DeleteTaskRequestTypeDef",
+    "DescribeAgentRequestTypeDef",
     "DescribeAgentResponseTypeDef",
-    "DescribeDiscoveryJobRequestRequestTypeDef",
+    "DescribeDiscoveryJobRequestTypeDef",
     "DescribeDiscoveryJobResponseTypeDef",
-    "DescribeLocationAzureBlobRequestRequestTypeDef",
+    "DescribeLocationAzureBlobRequestTypeDef",
     "DescribeLocationAzureBlobResponseTypeDef",
-    "DescribeLocationEfsRequestRequestTypeDef",
+    "DescribeLocationEfsRequestTypeDef",
     "DescribeLocationEfsResponseTypeDef",
-    "DescribeLocationFsxLustreRequestRequestTypeDef",
+    "DescribeLocationFsxLustreRequestTypeDef",
     "DescribeLocationFsxLustreResponseTypeDef",
-    "DescribeLocationFsxOntapRequestRequestTypeDef",
+    "DescribeLocationFsxOntapRequestTypeDef",
     "DescribeLocationFsxOntapResponseTypeDef",
-    "DescribeLocationFsxOpenZfsRequestRequestTypeDef",
+    "DescribeLocationFsxOpenZfsRequestTypeDef",
     "DescribeLocationFsxOpenZfsResponseTypeDef",
-    "DescribeLocationFsxWindowsRequestRequestTypeDef",
+    "DescribeLocationFsxWindowsRequestTypeDef",
     "DescribeLocationFsxWindowsResponseTypeDef",
-    "DescribeLocationHdfsRequestRequestTypeDef",
+    "DescribeLocationHdfsRequestTypeDef",
     "DescribeLocationHdfsResponseTypeDef",
-    "DescribeLocationNfsRequestRequestTypeDef",
+    "DescribeLocationNfsRequestTypeDef",
     "DescribeLocationNfsResponseTypeDef",
-    "DescribeLocationObjectStorageRequestRequestTypeDef",
+    "DescribeLocationObjectStorageRequestTypeDef",
     "DescribeLocationObjectStorageResponseTypeDef",
-    "DescribeLocationS3RequestRequestTypeDef",
+    "DescribeLocationS3RequestTypeDef",
     "DescribeLocationS3ResponseTypeDef",
-    "DescribeLocationSmbRequestRequestTypeDef",
+    "DescribeLocationSmbRequestTypeDef",
     "DescribeLocationSmbResponseTypeDef",
-    "DescribeStorageSystemRequestRequestTypeDef",
-    "DescribeStorageSystemResourceMetricsRequestRequestTypeDef",
+    "DescribeStorageSystemRequestTypeDef",
+    "DescribeStorageSystemResourceMetricsRequestPaginateTypeDef",
+    "DescribeStorageSystemResourceMetricsRequestTypeDef",
     "DescribeStorageSystemResourceMetricsResponseTypeDef",
-    "DescribeStorageSystemResourcesRequestRequestTypeDef",
+    "DescribeStorageSystemResourcesRequestTypeDef",
     "DescribeStorageSystemResourcesResponseTypeDef",
     "DescribeStorageSystemResponseTypeDef",
-    "DescribeTaskExecutionRequestRequestTypeDef",
+    "DescribeTaskExecutionRequestTypeDef",
     "DescribeTaskExecutionResponseTypeDef",
-    "DescribeTaskRequestRequestTypeDef",
+    "DescribeTaskRequestTypeDef",
     "DescribeTaskResponseTypeDef",
     "DiscoveryJobListEntryTypeDef",
     "DiscoveryServerConfigurationTypeDef",
+    "Ec2ConfigOutputTypeDef",
     "Ec2ConfigTypeDef",
+    "Ec2ConfigUnionTypeDef",
     "FilterRuleTypeDef",
     "FsxProtocolNfsTypeDef",
     "FsxProtocolSmbTypeDef",
     "FsxProtocolTypeDef",
-    "GenerateRecommendationsRequestRequestTypeDef",
+    "FsxUpdateProtocolSmbTypeDef",
+    "FsxUpdateProtocolTypeDef",
+    "GenerateRecommendationsRequestTypeDef",
     "HdfsNameNodeTypeDef",
     "IOPSTypeDef",
     "LatencyTypeDef",
-    "ListAgentsRequestRequestTypeDef",
+    "ListAgentsRequestPaginateTypeDef",
+    "ListAgentsRequestTypeDef",
     "ListAgentsResponseTypeDef",
-    "ListDiscoveryJobsRequestRequestTypeDef",
+    "ListDiscoveryJobsRequestPaginateTypeDef",
+    "ListDiscoveryJobsRequestTypeDef",
     "ListDiscoveryJobsResponseTypeDef",
-    "ListLocationsRequestRequestTypeDef",
+    "ListLocationsRequestPaginateTypeDef",
+    "ListLocationsRequestTypeDef",
     "ListLocationsResponseTypeDef",
-    "ListStorageSystemsRequestRequestTypeDef",
+    "ListStorageSystemsRequestPaginateTypeDef",
+    "ListStorageSystemsRequestTypeDef",
     "ListStorageSystemsResponseTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestPaginateTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
-    "ListTaskExecutionsRequestRequestTypeDef",
+    "ListTaskExecutionsRequestPaginateTypeDef",
+    "ListTaskExecutionsRequestTypeDef",
     "ListTaskExecutionsResponseTypeDef",
-    "ListTasksRequestRequestTypeDef",
+    "ListTasksRequestPaginateTypeDef",
+    "ListTasksRequestTypeDef",
     "ListTasksResponseTypeDef",
     "LocationFilterTypeDef",
     "LocationListEntryTypeDef",
@@ -176,7 +197,9 @@ __all__ = (
     "NetAppONTAPSVMTypeDef",
     "NetAppONTAPVolumeTypeDef",
     "NfsMountOptionsTypeDef",
+    "OnPremConfigOutputTypeDef",
     "OnPremConfigTypeDef",
+    "OnPremConfigUnionTypeDef",
     "OptionsTypeDef",
     "P95MetricsTypeDef",
     "PaginatorConfigTypeDef",
@@ -184,7 +207,7 @@ __all__ = (
     "PrivateLinkConfigTypeDef",
     "QopConfigurationTypeDef",
     "RecommendationTypeDef",
-    "RemoveStorageSystemRequestRequestTypeDef",
+    "RemoveStorageSystemRequestTypeDef",
     "ReportDestinationS3TypeDef",
     "ReportDestinationTypeDef",
     "ReportOverrideTypeDef",
@@ -197,14 +220,16 @@ __all__ = (
     "S3ManifestConfigTypeDef",
     "SmbMountOptionsTypeDef",
     "SourceManifestConfigTypeDef",
-    "StartDiscoveryJobRequestRequestTypeDef",
+    "StartDiscoveryJobRequestTypeDef",
     "StartDiscoveryJobResponseTypeDef",
-    "StartTaskExecutionRequestRequestTypeDef",
+    "StartTaskExecutionRequestTypeDef",
     "StartTaskExecutionResponseTypeDef",
-    "StopDiscoveryJobRequestRequestTypeDef",
+    "StopDiscoveryJobRequestTypeDef",
     "StorageSystemListEntryTypeDef",
     "TagListEntryTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
+    "TaskExecutionFilesFailedDetailTypeDef",
+    "TaskExecutionFilesListedDetailTypeDef",
     "TaskExecutionListEntryTypeDef",
     "TaskExecutionResultDetailTypeDef",
     "TaskFilterTypeDef",
@@ -213,1987 +238,1116 @@ __all__ = (
     "TaskScheduleDetailsTypeDef",
     "TaskScheduleTypeDef",
     "ThroughputTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateAgentRequestRequestTypeDef",
-    "UpdateDiscoveryJobRequestRequestTypeDef",
-    "UpdateLocationAzureBlobRequestRequestTypeDef",
-    "UpdateLocationHdfsRequestRequestTypeDef",
-    "UpdateLocationNfsRequestRequestTypeDef",
-    "UpdateLocationObjectStorageRequestRequestTypeDef",
-    "UpdateLocationSmbRequestRequestTypeDef",
-    "UpdateStorageSystemRequestRequestTypeDef",
-    "UpdateTaskExecutionRequestRequestTypeDef",
-    "UpdateTaskRequestRequestTypeDef",
+    "TimestampTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateAgentRequestTypeDef",
+    "UpdateDiscoveryJobRequestTypeDef",
+    "UpdateLocationAzureBlobRequestTypeDef",
+    "UpdateLocationEfsRequestTypeDef",
+    "UpdateLocationFsxLustreRequestTypeDef",
+    "UpdateLocationFsxOntapRequestTypeDef",
+    "UpdateLocationFsxOpenZfsRequestTypeDef",
+    "UpdateLocationFsxWindowsRequestTypeDef",
+    "UpdateLocationHdfsRequestTypeDef",
+    "UpdateLocationNfsRequestTypeDef",
+    "UpdateLocationObjectStorageRequestTypeDef",
+    "UpdateLocationS3RequestTypeDef",
+    "UpdateLocationSmbRequestTypeDef",
+    "UpdateStorageSystemRequestTypeDef",
+    "UpdateTaskExecutionRequestTypeDef",
+    "UpdateTaskRequestTypeDef",
 )
 
-_RequiredAddStorageSystemRequestRequestTypeDef = TypedDict(
-    "_RequiredAddStorageSystemRequestRequestTypeDef",
-    {
-        "ServerConfiguration": "DiscoveryServerConfigurationTypeDef",
-        "SystemType": Literal["NetAppONTAP"],
-        "AgentArns": List[str],
-        "ClientToken": str,
-        "Credentials": "CredentialsTypeDef",
-    },
-)
-_OptionalAddStorageSystemRequestRequestTypeDef = TypedDict(
-    "_OptionalAddStorageSystemRequestRequestTypeDef",
-    {
-        "CloudWatchLogGroupArn": str,
-        "Tags": List["TagListEntryTypeDef"],
-        "Name": str,
-    },
-    total=False,
-)
+class CredentialsTypeDef(TypedDict):
+    Username: str
+    Password: str
 
-class AddStorageSystemRequestRequestTypeDef(
-    _RequiredAddStorageSystemRequestRequestTypeDef, _OptionalAddStorageSystemRequestRequestTypeDef
-):
-    pass
+class DiscoveryServerConfigurationTypeDef(TypedDict):
+    ServerHostname: str
+    ServerPort: NotRequired[int]
 
-AddStorageSystemResponseTypeDef = TypedDict(
-    "AddStorageSystemResponseTypeDef",
-    {
-        "StorageSystemArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class TagListEntryTypeDef(TypedDict):
+    Key: str
+    Value: NotRequired[str]
 
-AgentListEntryTypeDef = TypedDict(
-    "AgentListEntryTypeDef",
-    {
-        "AgentArn": str,
-        "Name": str,
-        "Status": AgentStatusType,
-        "Platform": "PlatformTypeDef",
-    },
-    total=False,
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-AzureBlobSasConfigurationTypeDef = TypedDict(
-    "AzureBlobSasConfigurationTypeDef",
-    {
-        "Token": str,
-    },
-)
+class PlatformTypeDef(TypedDict):
+    Version: NotRequired[str]
 
-CancelTaskExecutionRequestRequestTypeDef = TypedDict(
-    "CancelTaskExecutionRequestRequestTypeDef",
-    {
-        "TaskExecutionArn": str,
-    },
-)
+class AzureBlobSasConfigurationTypeDef(TypedDict):
+    Token: str
 
-CapacityTypeDef = TypedDict(
-    "CapacityTypeDef",
-    {
-        "Used": int,
-        "Provisioned": int,
-        "LogicalUsed": int,
-        "ClusterCloudStorageUsed": int,
-    },
-    total=False,
-)
+BlobTypeDef = Union[str, bytes, IO[Any], StreamingBody]
 
-_RequiredCreateAgentRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateAgentRequestRequestTypeDef",
-    {
-        "ActivationKey": str,
-    },
-)
-_OptionalCreateAgentRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateAgentRequestRequestTypeDef",
-    {
-        "AgentName": str,
-        "Tags": List["TagListEntryTypeDef"],
-        "VpcEndpointId": str,
-        "SubnetArns": List[str],
-        "SecurityGroupArns": List[str],
-    },
-    total=False,
-)
+class CancelTaskExecutionRequestTypeDef(TypedDict):
+    TaskExecutionArn: str
 
-class CreateAgentRequestRequestTypeDef(
-    _RequiredCreateAgentRequestRequestTypeDef, _OptionalCreateAgentRequestRequestTypeDef
-):
-    pass
+class CapacityTypeDef(TypedDict):
+    Used: NotRequired[int]
+    Provisioned: NotRequired[int]
+    LogicalUsed: NotRequired[int]
+    ClusterCloudStorageUsed: NotRequired[int]
 
-CreateAgentResponseTypeDef = TypedDict(
-    "CreateAgentResponseTypeDef",
-    {
-        "AgentArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class HdfsNameNodeTypeDef(TypedDict):
+    Hostname: str
+    Port: int
 
-_RequiredCreateLocationAzureBlobRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateLocationAzureBlobRequestRequestTypeDef",
-    {
-        "ContainerUrl": str,
-        "AuthenticationType": Literal["SAS"],
-        "AgentArns": List[str],
-    },
-)
-_OptionalCreateLocationAzureBlobRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateLocationAzureBlobRequestRequestTypeDef",
-    {
-        "SasConfiguration": "AzureBlobSasConfigurationTypeDef",
-        "BlobType": Literal["BLOCK"],
-        "AccessTier": AzureAccessTierType,
-        "Subdirectory": str,
-        "Tags": List["TagListEntryTypeDef"],
-    },
-    total=False,
-)
+class QopConfigurationTypeDef(TypedDict):
+    RpcProtection: NotRequired[HdfsRpcProtectionType]
+    DataTransferProtection: NotRequired[HdfsDataTransferProtectionType]
 
-class CreateLocationAzureBlobRequestRequestTypeDef(
-    _RequiredCreateLocationAzureBlobRequestRequestTypeDef,
-    _OptionalCreateLocationAzureBlobRequestRequestTypeDef,
-):
-    pass
+class NfsMountOptionsTypeDef(TypedDict):
+    Version: NotRequired[NfsVersionType]
 
-CreateLocationAzureBlobResponseTypeDef = TypedDict(
-    "CreateLocationAzureBlobResponseTypeDef",
-    {
-        "LocationArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class S3ConfigTypeDef(TypedDict):
+    BucketAccessRoleArn: str
 
-_RequiredCreateLocationEfsRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateLocationEfsRequestRequestTypeDef",
-    {
-        "EfsFilesystemArn": str,
-        "Ec2Config": "Ec2ConfigTypeDef",
-    },
-)
-_OptionalCreateLocationEfsRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateLocationEfsRequestRequestTypeDef",
-    {
-        "Subdirectory": str,
-        "Tags": List["TagListEntryTypeDef"],
-        "AccessPointArn": str,
-        "FileSystemAccessRoleArn": str,
-        "InTransitEncryption": EfsInTransitEncryptionType,
-    },
-    total=False,
-)
+class SmbMountOptionsTypeDef(TypedDict):
+    Version: NotRequired[SmbVersionType]
 
-class CreateLocationEfsRequestRequestTypeDef(
-    _RequiredCreateLocationEfsRequestRequestTypeDef, _OptionalCreateLocationEfsRequestRequestTypeDef
-):
-    pass
+class FilterRuleTypeDef(TypedDict):
+    FilterType: NotRequired[Literal["SIMPLE_PATTERN"]]
+    Value: NotRequired[str]
 
-CreateLocationEfsResponseTypeDef = TypedDict(
-    "CreateLocationEfsResponseTypeDef",
-    {
-        "LocationArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class OptionsTypeDef(TypedDict):
+    VerifyMode: NotRequired[VerifyModeType]
+    OverwriteMode: NotRequired[OverwriteModeType]
+    Atime: NotRequired[AtimeType]
+    Mtime: NotRequired[MtimeType]
+    Uid: NotRequired[UidType]
+    Gid: NotRequired[GidType]
+    PreserveDeletedFiles: NotRequired[PreserveDeletedFilesType]
+    PreserveDevices: NotRequired[PreserveDevicesType]
+    PosixPermissions: NotRequired[PosixPermissionsType]
+    BytesPerSecond: NotRequired[int]
+    TaskQueueing: NotRequired[TaskQueueingType]
+    LogLevel: NotRequired[LogLevelType]
+    TransferMode: NotRequired[TransferModeType]
+    SecurityDescriptorCopyFlags: NotRequired[SmbSecurityDescriptorCopyFlagsType]
+    ObjectTags: NotRequired[ObjectTagsType]
 
-_RequiredCreateLocationFsxLustreRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateLocationFsxLustreRequestRequestTypeDef",
-    {
-        "FsxFilesystemArn": str,
-        "SecurityGroupArns": List[str],
-    },
-)
-_OptionalCreateLocationFsxLustreRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateLocationFsxLustreRequestRequestTypeDef",
-    {
-        "Subdirectory": str,
-        "Tags": List["TagListEntryTypeDef"],
-    },
-    total=False,
-)
+class TaskScheduleTypeDef(TypedDict):
+    ScheduleExpression: str
+    Status: NotRequired[ScheduleStatusType]
 
-class CreateLocationFsxLustreRequestRequestTypeDef(
-    _RequiredCreateLocationFsxLustreRequestRequestTypeDef,
-    _OptionalCreateLocationFsxLustreRequestRequestTypeDef,
-):
-    pass
+class DeleteAgentRequestTypeDef(TypedDict):
+    AgentArn: str
 
-CreateLocationFsxLustreResponseTypeDef = TypedDict(
-    "CreateLocationFsxLustreResponseTypeDef",
-    {
-        "LocationArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DeleteLocationRequestTypeDef(TypedDict):
+    LocationArn: str
 
-_RequiredCreateLocationFsxOntapRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateLocationFsxOntapRequestRequestTypeDef",
+class DeleteTaskRequestTypeDef(TypedDict):
+    TaskArn: str
+
+class DescribeAgentRequestTypeDef(TypedDict):
+    AgentArn: str
+
+class PrivateLinkConfigTypeDef(TypedDict):
+    VpcEndpointId: NotRequired[str]
+    PrivateLinkEndpoint: NotRequired[str]
+    SubnetArns: NotRequired[List[str]]
+    SecurityGroupArns: NotRequired[List[str]]
+
+class DescribeDiscoveryJobRequestTypeDef(TypedDict):
+    DiscoveryJobArn: str
+
+class DescribeLocationAzureBlobRequestTypeDef(TypedDict):
+    LocationArn: str
+
+class DescribeLocationEfsRequestTypeDef(TypedDict):
+    LocationArn: str
+
+class Ec2ConfigOutputTypeDef(TypedDict):
+    SubnetArn: str
+    SecurityGroupArns: List[str]
+
+class DescribeLocationFsxLustreRequestTypeDef(TypedDict):
+    LocationArn: str
+
+class DescribeLocationFsxOntapRequestTypeDef(TypedDict):
+    LocationArn: str
+
+class DescribeLocationFsxOpenZfsRequestTypeDef(TypedDict):
+    LocationArn: str
+
+class DescribeLocationFsxWindowsRequestTypeDef(TypedDict):
+    LocationArn: str
+
+class DescribeLocationHdfsRequestTypeDef(TypedDict):
+    LocationArn: str
+
+class DescribeLocationNfsRequestTypeDef(TypedDict):
+    LocationArn: str
+
+class OnPremConfigOutputTypeDef(TypedDict):
+    AgentArns: List[str]
+
+class DescribeLocationObjectStorageRequestTypeDef(TypedDict):
+    LocationArn: str
+
+class DescribeLocationS3RequestTypeDef(TypedDict):
+    LocationArn: str
+
+class DescribeLocationSmbRequestTypeDef(TypedDict):
+    LocationArn: str
+
+class DescribeStorageSystemRequestTypeDef(TypedDict):
+    StorageSystemArn: str
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+TimestampTypeDef = Union[datetime, str]
+
+class DescribeStorageSystemResourcesRequestTypeDef(TypedDict):
+    DiscoveryJobArn: str
+    ResourceType: DiscoveryResourceTypeType
+    ResourceIds: NotRequired[Sequence[str]]
+    Filter: NotRequired[Mapping[Literal["SVM"], Sequence[str]]]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class DescribeTaskExecutionRequestTypeDef(TypedDict):
+    TaskExecutionArn: str
+
+class ReportResultTypeDef(TypedDict):
+    Status: NotRequired[PhaseStatusType]
+    ErrorCode: NotRequired[str]
+    ErrorDetail: NotRequired[str]
+
+class TaskExecutionFilesFailedDetailTypeDef(TypedDict):
+    Prepare: NotRequired[int]
+    Transfer: NotRequired[int]
+    Verify: NotRequired[int]
+    Delete: NotRequired[int]
+
+class TaskExecutionFilesListedDetailTypeDef(TypedDict):
+    AtSource: NotRequired[int]
+    AtDestinationForDelete: NotRequired[int]
+
+class TaskExecutionResultDetailTypeDef(TypedDict):
+    PrepareDuration: NotRequired[int]
+    PrepareStatus: NotRequired[PhaseStatusType]
+    TotalDuration: NotRequired[int]
+    TransferDuration: NotRequired[int]
+    TransferStatus: NotRequired[PhaseStatusType]
+    VerifyDuration: NotRequired[int]
+    VerifyStatus: NotRequired[PhaseStatusType]
+    ErrorCode: NotRequired[str]
+    ErrorDetail: NotRequired[str]
+
+class DescribeTaskRequestTypeDef(TypedDict):
+    TaskArn: str
+
+class TaskScheduleDetailsTypeDef(TypedDict):
+    StatusUpdateTime: NotRequired[datetime]
+    DisabledReason: NotRequired[str]
+    DisabledBy: NotRequired[ScheduleDisabledByType]
+
+class DiscoveryJobListEntryTypeDef(TypedDict):
+    DiscoveryJobArn: NotRequired[str]
+    Status: NotRequired[DiscoveryJobStatusType]
+
+class Ec2ConfigTypeDef(TypedDict):
+    SubnetArn: str
+    SecurityGroupArns: Sequence[str]
+
+class GenerateRecommendationsRequestTypeDef(TypedDict):
+    DiscoveryJobArn: str
+    ResourceIds: Sequence[str]
+    ResourceType: DiscoveryResourceTypeType
+
+class IOPSTypeDef(TypedDict):
+    Read: NotRequired[float]
+    Write: NotRequired[float]
+    Other: NotRequired[float]
+    Total: NotRequired[float]
+
+class LatencyTypeDef(TypedDict):
+    Read: NotRequired[float]
+    Write: NotRequired[float]
+    Other: NotRequired[float]
+
+class ListAgentsRequestTypeDef(TypedDict):
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListDiscoveryJobsRequestTypeDef(TypedDict):
+    StorageSystemArn: NotRequired[str]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class LocationFilterTypeDef(TypedDict):
+    Name: LocationFilterNameType
+    Values: Sequence[str]
+    Operator: OperatorType
+
+class LocationListEntryTypeDef(TypedDict):
+    LocationArn: NotRequired[str]
+    LocationUri: NotRequired[str]
+
+class ListStorageSystemsRequestTypeDef(TypedDict):
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class StorageSystemListEntryTypeDef(TypedDict):
+    StorageSystemArn: NotRequired[str]
+    Name: NotRequired[str]
+
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListTaskExecutionsRequestTypeDef(TypedDict):
+    TaskArn: NotRequired[str]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class TaskExecutionListEntryTypeDef(TypedDict):
+    TaskExecutionArn: NotRequired[str]
+    Status: NotRequired[TaskExecutionStatusType]
+    TaskMode: NotRequired[TaskModeType]
+
+class TaskFilterTypeDef(TypedDict):
+    Name: TaskFilterNameType
+    Values: Sequence[str]
+    Operator: OperatorType
+
+class TaskListEntryTypeDef(TypedDict):
+    TaskArn: NotRequired[str]
+    Status: NotRequired[TaskStatusType]
+    Name: NotRequired[str]
+    TaskMode: NotRequired[TaskModeType]
+
+class MaxP95PerformanceTypeDef(TypedDict):
+    IopsRead: NotRequired[float]
+    IopsWrite: NotRequired[float]
+    IopsOther: NotRequired[float]
+    IopsTotal: NotRequired[float]
+    ThroughputRead: NotRequired[float]
+    ThroughputWrite: NotRequired[float]
+    ThroughputOther: NotRequired[float]
+    ThroughputTotal: NotRequired[float]
+    LatencyRead: NotRequired[float]
+    LatencyWrite: NotRequired[float]
+    LatencyOther: NotRequired[float]
+
+class RecommendationTypeDef(TypedDict):
+    StorageType: NotRequired[str]
+    StorageConfiguration: NotRequired[Dict[str, str]]
+    EstimatedMonthlyStorageCost: NotRequired[str]
+
+class OnPremConfigTypeDef(TypedDict):
+    AgentArns: Sequence[str]
+
+class ThroughputTypeDef(TypedDict):
+    Read: NotRequired[float]
+    Write: NotRequired[float]
+    Other: NotRequired[float]
+    Total: NotRequired[float]
+
+class RemoveStorageSystemRequestTypeDef(TypedDict):
+    StorageSystemArn: str
+
+class ReportDestinationS3TypeDef(TypedDict):
+    S3BucketArn: str
+    BucketAccessRoleArn: str
+    Subdirectory: NotRequired[str]
+
+class ReportOverrideTypeDef(TypedDict):
+    ReportLevel: NotRequired[ReportLevelType]
+
+class S3ManifestConfigTypeDef(TypedDict):
+    ManifestObjectPath: str
+    BucketAccessRoleArn: str
+    S3BucketArn: str
+    ManifestObjectVersionId: NotRequired[str]
+
+class StopDiscoveryJobRequestTypeDef(TypedDict):
+    DiscoveryJobArn: str
+
+class UntagResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+    Keys: Sequence[str]
+
+class UpdateAgentRequestTypeDef(TypedDict):
+    AgentArn: str
+    Name: NotRequired[str]
+
+class UpdateDiscoveryJobRequestTypeDef(TypedDict):
+    DiscoveryJobArn: str
+    CollectionDurationMinutes: int
+
+class UpdateLocationEfsRequestTypeDef(TypedDict):
+    LocationArn: str
+    Subdirectory: NotRequired[str]
+    AccessPointArn: NotRequired[str]
+    FileSystemAccessRoleArn: NotRequired[str]
+    InTransitEncryption: NotRequired[EfsInTransitEncryptionType]
+
+class UpdateLocationFsxLustreRequestTypeDef(TypedDict):
+    LocationArn: str
+    Subdirectory: NotRequired[str]
+
+class UpdateLocationFsxWindowsRequestTypeDef(TypedDict):
+    LocationArn: str
+    Subdirectory: NotRequired[str]
+    Domain: NotRequired[str]
+    User: NotRequired[str]
+    Password: NotRequired[str]
+
+class UpdateStorageSystemRequestTypeDef(TypedDict):
+    StorageSystemArn: str
+    ServerConfiguration: NotRequired[DiscoveryServerConfigurationTypeDef]
+    AgentArns: NotRequired[Sequence[str]]
+    Name: NotRequired[str]
+    CloudWatchLogGroupArn: NotRequired[str]
+    Credentials: NotRequired[CredentialsTypeDef]
+
+class AddStorageSystemRequestTypeDef(TypedDict):
+    ServerConfiguration: DiscoveryServerConfigurationTypeDef
+    SystemType: Literal["NetAppONTAP"]
+    AgentArns: Sequence[str]
+    ClientToken: str
+    Credentials: CredentialsTypeDef
+    CloudWatchLogGroupArn: NotRequired[str]
+    Tags: NotRequired[Sequence[TagListEntryTypeDef]]
+    Name: NotRequired[str]
+
+class CreateAgentRequestTypeDef(TypedDict):
+    ActivationKey: str
+    AgentName: NotRequired[str]
+    Tags: NotRequired[Sequence[TagListEntryTypeDef]]
+    VpcEndpointId: NotRequired[str]
+    SubnetArns: NotRequired[Sequence[str]]
+    SecurityGroupArns: NotRequired[Sequence[str]]
+
+class CreateLocationFsxLustreRequestTypeDef(TypedDict):
+    FsxFilesystemArn: str
+    SecurityGroupArns: Sequence[str]
+    Subdirectory: NotRequired[str]
+    Tags: NotRequired[Sequence[TagListEntryTypeDef]]
+
+class CreateLocationFsxWindowsRequestTypeDef(TypedDict):
+    FsxFilesystemArn: str
+    SecurityGroupArns: Sequence[str]
+    User: str
+    Password: str
+    Subdirectory: NotRequired[str]
+    Tags: NotRequired[Sequence[TagListEntryTypeDef]]
+    Domain: NotRequired[str]
+
+class StartDiscoveryJobRequestTypeDef(TypedDict):
+    StorageSystemArn: str
+    CollectionDurationMinutes: int
+    ClientToken: str
+    Tags: NotRequired[Sequence[TagListEntryTypeDef]]
+
+class TagResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+    Tags: Sequence[TagListEntryTypeDef]
+
+class AddStorageSystemResponseTypeDef(TypedDict):
+    StorageSystemArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateAgentResponseTypeDef(TypedDict):
+    AgentArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateLocationAzureBlobResponseTypeDef(TypedDict):
+    LocationArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateLocationEfsResponseTypeDef(TypedDict):
+    LocationArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateLocationFsxLustreResponseTypeDef(TypedDict):
+    LocationArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateLocationFsxOntapResponseTypeDef(TypedDict):
+    LocationArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateLocationFsxOpenZfsResponseTypeDef(TypedDict):
+    LocationArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateLocationFsxWindowsResponseTypeDef(TypedDict):
+    LocationArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateLocationHdfsResponseTypeDef(TypedDict):
+    LocationArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateLocationNfsResponseTypeDef(TypedDict):
+    LocationArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateLocationObjectStorageResponseTypeDef(TypedDict):
+    LocationArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateLocationS3ResponseTypeDef(TypedDict):
+    LocationArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateLocationSmbResponseTypeDef(TypedDict):
+    LocationArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateTaskResponseTypeDef(TypedDict):
+    TaskArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeDiscoveryJobResponseTypeDef(TypedDict):
+    StorageSystemArn: str
+    DiscoveryJobArn: str
+    CollectionDurationMinutes: int
+    Status: DiscoveryJobStatusType
+    JobStartTime: datetime
+    JobEndTime: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeLocationAzureBlobResponseTypeDef(TypedDict):
+    LocationArn: str
+    LocationUri: str
+    AuthenticationType: Literal["SAS"]
+    BlobType: Literal["BLOCK"]
+    AccessTier: AzureAccessTierType
+    AgentArns: List[str]
+    CreationTime: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeLocationFsxLustreResponseTypeDef(TypedDict):
+    LocationArn: str
+    LocationUri: str
+    SecurityGroupArns: List[str]
+    CreationTime: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeLocationFsxWindowsResponseTypeDef(TypedDict):
+    LocationArn: str
+    LocationUri: str
+    SecurityGroupArns: List[str]
+    CreationTime: datetime
+    User: str
+    Domain: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeLocationObjectStorageResponseTypeDef(TypedDict):
+    LocationArn: str
+    LocationUri: str
+    AccessKey: str
+    ServerPort: int
+    ServerProtocol: ObjectStorageServerProtocolType
+    AgentArns: List[str]
+    CreationTime: datetime
+    ServerCertificate: bytes
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeStorageSystemResponseTypeDef(TypedDict):
+    StorageSystemArn: str
+    ServerConfiguration: DiscoveryServerConfigurationTypeDef
+    SystemType: Literal["NetAppONTAP"]
+    AgentArns: List[str]
+    Name: str
+    ErrorMessage: str
+    ConnectivityStatus: StorageSystemConnectivityStatusType
+    CloudWatchLogGroupArn: str
+    CreationTime: datetime
+    SecretsManagerArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    Tags: List[TagListEntryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class StartDiscoveryJobResponseTypeDef(TypedDict):
+    DiscoveryJobArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartTaskExecutionResponseTypeDef(TypedDict):
+    TaskExecutionArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class AgentListEntryTypeDef(TypedDict):
+    AgentArn: NotRequired[str]
+    Name: NotRequired[str]
+    Status: NotRequired[AgentStatusType]
+    Platform: NotRequired[PlatformTypeDef]
+
+class CreateLocationAzureBlobRequestTypeDef(TypedDict):
+    ContainerUrl: str
+    AuthenticationType: Literal["SAS"]
+    AgentArns: Sequence[str]
+    SasConfiguration: NotRequired[AzureBlobSasConfigurationTypeDef]
+    BlobType: NotRequired[Literal["BLOCK"]]
+    AccessTier: NotRequired[AzureAccessTierType]
+    Subdirectory: NotRequired[str]
+    Tags: NotRequired[Sequence[TagListEntryTypeDef]]
+
+class UpdateLocationAzureBlobRequestTypeDef(TypedDict):
+    LocationArn: str
+    Subdirectory: NotRequired[str]
+    AuthenticationType: NotRequired[Literal["SAS"]]
+    SasConfiguration: NotRequired[AzureBlobSasConfigurationTypeDef]
+    BlobType: NotRequired[Literal["BLOCK"]]
+    AccessTier: NotRequired[AzureAccessTierType]
+    AgentArns: NotRequired[Sequence[str]]
+
+class CreateLocationObjectStorageRequestTypeDef(TypedDict):
+    ServerHostname: str
+    BucketName: str
+    AgentArns: Sequence[str]
+    ServerPort: NotRequired[int]
+    ServerProtocol: NotRequired[ObjectStorageServerProtocolType]
+    Subdirectory: NotRequired[str]
+    AccessKey: NotRequired[str]
+    SecretKey: NotRequired[str]
+    Tags: NotRequired[Sequence[TagListEntryTypeDef]]
+    ServerCertificate: NotRequired[BlobTypeDef]
+
+class UpdateLocationObjectStorageRequestTypeDef(TypedDict):
+    LocationArn: str
+    ServerPort: NotRequired[int]
+    ServerProtocol: NotRequired[ObjectStorageServerProtocolType]
+    Subdirectory: NotRequired[str]
+    ServerHostname: NotRequired[str]
+    AccessKey: NotRequired[str]
+    SecretKey: NotRequired[str]
+    AgentArns: NotRequired[Sequence[str]]
+    ServerCertificate: NotRequired[BlobTypeDef]
+
+class CreateLocationHdfsRequestTypeDef(TypedDict):
+    NameNodes: Sequence[HdfsNameNodeTypeDef]
+    AuthenticationType: HdfsAuthenticationTypeType
+    AgentArns: Sequence[str]
+    Subdirectory: NotRequired[str]
+    BlockSize: NotRequired[int]
+    ReplicationFactor: NotRequired[int]
+    KmsKeyProviderUri: NotRequired[str]
+    QopConfiguration: NotRequired[QopConfigurationTypeDef]
+    SimpleUser: NotRequired[str]
+    KerberosPrincipal: NotRequired[str]
+    KerberosKeytab: NotRequired[BlobTypeDef]
+    KerberosKrb5Conf: NotRequired[BlobTypeDef]
+    Tags: NotRequired[Sequence[TagListEntryTypeDef]]
+
+class DescribeLocationHdfsResponseTypeDef(TypedDict):
+    LocationArn: str
+    LocationUri: str
+    NameNodes: List[HdfsNameNodeTypeDef]
+    BlockSize: int
+    ReplicationFactor: int
+    KmsKeyProviderUri: str
+    QopConfiguration: QopConfigurationTypeDef
+    AuthenticationType: HdfsAuthenticationTypeType
+    SimpleUser: str
+    KerberosPrincipal: str
+    AgentArns: List[str]
+    CreationTime: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateLocationHdfsRequestTypeDef(TypedDict):
+    LocationArn: str
+    Subdirectory: NotRequired[str]
+    NameNodes: NotRequired[Sequence[HdfsNameNodeTypeDef]]
+    BlockSize: NotRequired[int]
+    ReplicationFactor: NotRequired[int]
+    KmsKeyProviderUri: NotRequired[str]
+    QopConfiguration: NotRequired[QopConfigurationTypeDef]
+    AuthenticationType: NotRequired[HdfsAuthenticationTypeType]
+    SimpleUser: NotRequired[str]
+    KerberosPrincipal: NotRequired[str]
+    KerberosKeytab: NotRequired[BlobTypeDef]
+    KerberosKrb5Conf: NotRequired[BlobTypeDef]
+    AgentArns: NotRequired[Sequence[str]]
+
+class FsxProtocolNfsTypeDef(TypedDict):
+    MountOptions: NotRequired[NfsMountOptionsTypeDef]
+
+class CreateLocationS3RequestTypeDef(TypedDict):
+    S3BucketArn: str
+    S3Config: S3ConfigTypeDef
+    Subdirectory: NotRequired[str]
+    S3StorageClass: NotRequired[S3StorageClassType]
+    AgentArns: NotRequired[Sequence[str]]
+    Tags: NotRequired[Sequence[TagListEntryTypeDef]]
+
+class DescribeLocationS3ResponseTypeDef(TypedDict):
+    LocationArn: str
+    LocationUri: str
+    S3StorageClass: S3StorageClassType
+    S3Config: S3ConfigTypeDef
+    AgentArns: List[str]
+    CreationTime: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateLocationS3RequestTypeDef(TypedDict):
+    LocationArn: str
+    Subdirectory: NotRequired[str]
+    S3StorageClass: NotRequired[S3StorageClassType]
+    S3Config: NotRequired[S3ConfigTypeDef]
+
+class CreateLocationSmbRequestTypeDef(TypedDict):
+    Subdirectory: str
+    ServerHostname: str
+    AgentArns: Sequence[str]
+    User: NotRequired[str]
+    Domain: NotRequired[str]
+    Password: NotRequired[str]
+    MountOptions: NotRequired[SmbMountOptionsTypeDef]
+    Tags: NotRequired[Sequence[TagListEntryTypeDef]]
+    AuthenticationType: NotRequired[SmbAuthenticationTypeType]
+    DnsIpAddresses: NotRequired[Sequence[str]]
+    KerberosPrincipal: NotRequired[str]
+    KerberosKeytab: NotRequired[BlobTypeDef]
+    KerberosKrb5Conf: NotRequired[BlobTypeDef]
+
+class DescribeLocationSmbResponseTypeDef(TypedDict):
+    LocationArn: str
+    LocationUri: str
+    AgentArns: List[str]
+    User: str
+    Domain: str
+    MountOptions: SmbMountOptionsTypeDef
+    CreationTime: datetime
+    DnsIpAddresses: List[str]
+    KerberosPrincipal: str
+    AuthenticationType: SmbAuthenticationTypeType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class FsxProtocolSmbTypeDef(TypedDict):
+    Password: str
+    User: str
+    Domain: NotRequired[str]
+    MountOptions: NotRequired[SmbMountOptionsTypeDef]
+
+class FsxUpdateProtocolSmbTypeDef(TypedDict):
+    Domain: NotRequired[str]
+    MountOptions: NotRequired[SmbMountOptionsTypeDef]
+    Password: NotRequired[str]
+    User: NotRequired[str]
+
+class UpdateLocationSmbRequestTypeDef(TypedDict):
+    LocationArn: str
+    Subdirectory: NotRequired[str]
+    ServerHostname: NotRequired[str]
+    User: NotRequired[str]
+    Domain: NotRequired[str]
+    Password: NotRequired[str]
+    AgentArns: NotRequired[Sequence[str]]
+    MountOptions: NotRequired[SmbMountOptionsTypeDef]
+    AuthenticationType: NotRequired[SmbAuthenticationTypeType]
+    DnsIpAddresses: NotRequired[Sequence[str]]
+    KerberosPrincipal: NotRequired[str]
+    KerberosKeytab: NotRequired[BlobTypeDef]
+    KerberosKrb5Conf: NotRequired[BlobTypeDef]
+
+class UpdateTaskExecutionRequestTypeDef(TypedDict):
+    TaskExecutionArn: str
+    Options: OptionsTypeDef
+
+class DescribeAgentResponseTypeDef(TypedDict):
+    AgentArn: str
+    Name: str
+    Status: AgentStatusType
+    LastConnectionTime: datetime
+    CreationTime: datetime
+    EndpointType: EndpointTypeType
+    PrivateLinkConfig: PrivateLinkConfigTypeDef
+    Platform: PlatformTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeLocationEfsResponseTypeDef(TypedDict):
+    LocationArn: str
+    LocationUri: str
+    Ec2Config: Ec2ConfigOutputTypeDef
+    CreationTime: datetime
+    AccessPointArn: str
+    FileSystemAccessRoleArn: str
+    InTransitEncryption: EfsInTransitEncryptionType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeLocationNfsResponseTypeDef(TypedDict):
+    LocationArn: str
+    LocationUri: str
+    OnPremConfig: OnPremConfigOutputTypeDef
+    MountOptions: NfsMountOptionsTypeDef
+    CreationTime: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListAgentsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListDiscoveryJobsRequestPaginateTypeDef(TypedDict):
+    StorageSystemArn: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListStorageSystemsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListTagsForResourceRequestPaginateTypeDef(TypedDict):
+    ResourceArn: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListTaskExecutionsRequestPaginateTypeDef(TypedDict):
+    TaskArn: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeStorageSystemResourceMetricsRequestPaginateTypeDef(TypedDict):
+    DiscoveryJobArn: str
+    ResourceType: DiscoveryResourceTypeType
+    ResourceId: str
+    StartTime: NotRequired[TimestampTypeDef]
+    EndTime: NotRequired[TimestampTypeDef]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeStorageSystemResourceMetricsRequestTypeDef(TypedDict):
+    DiscoveryJobArn: str
+    ResourceType: DiscoveryResourceTypeType
+    ResourceId: str
+    StartTime: NotRequired[TimestampTypeDef]
+    EndTime: NotRequired[TimestampTypeDef]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListDiscoveryJobsResponseTypeDef(TypedDict):
+    DiscoveryJobs: List[DiscoveryJobListEntryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+Ec2ConfigUnionTypeDef = Union[Ec2ConfigTypeDef, Ec2ConfigOutputTypeDef]
+
+class ListLocationsRequestPaginateTypeDef(TypedDict):
+    Filters: NotRequired[Sequence[LocationFilterTypeDef]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListLocationsRequestTypeDef(TypedDict):
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+    Filters: NotRequired[Sequence[LocationFilterTypeDef]]
+
+class ListLocationsResponseTypeDef(TypedDict):
+    Locations: List[LocationListEntryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListStorageSystemsResponseTypeDef(TypedDict):
+    StorageSystems: List[StorageSystemListEntryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListTaskExecutionsResponseTypeDef(TypedDict):
+    TaskExecutions: List[TaskExecutionListEntryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListTasksRequestPaginateTypeDef(TypedDict):
+    Filters: NotRequired[Sequence[TaskFilterTypeDef]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListTasksRequestTypeDef(TypedDict):
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+    Filters: NotRequired[Sequence[TaskFilterTypeDef]]
+
+class ListTasksResponseTypeDef(TypedDict):
+    Tasks: List[TaskListEntryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class NetAppONTAPClusterTypeDef(TypedDict):
+    CifsShareCount: NotRequired[int]
+    NfsExportedVolumes: NotRequired[int]
+    ResourceId: NotRequired[str]
+    ClusterName: NotRequired[str]
+    MaxP95Performance: NotRequired[MaxP95PerformanceTypeDef]
+    ClusterBlockStorageSize: NotRequired[int]
+    ClusterBlockStorageUsed: NotRequired[int]
+    ClusterBlockStorageLogicalUsed: NotRequired[int]
+    Recommendations: NotRequired[List[RecommendationTypeDef]]
+    RecommendationStatus: NotRequired[RecommendationStatusType]
+    LunCount: NotRequired[int]
+    ClusterCloudStorageUsed: NotRequired[int]
+
+class NetAppONTAPSVMTypeDef(TypedDict):
+    ClusterUuid: NotRequired[str]
+    ResourceId: NotRequired[str]
+    SvmName: NotRequired[str]
+    CifsShareCount: NotRequired[int]
+    EnabledProtocols: NotRequired[List[str]]
+    TotalCapacityUsed: NotRequired[int]
+    TotalCapacityProvisioned: NotRequired[int]
+    TotalLogicalCapacityUsed: NotRequired[int]
+    MaxP95Performance: NotRequired[MaxP95PerformanceTypeDef]
+    Recommendations: NotRequired[List[RecommendationTypeDef]]
+    NfsExportedVolumes: NotRequired[int]
+    RecommendationStatus: NotRequired[RecommendationStatusType]
+    TotalSnapshotCapacityUsed: NotRequired[int]
+    LunCount: NotRequired[int]
+
+class NetAppONTAPVolumeTypeDef(TypedDict):
+    VolumeName: NotRequired[str]
+    ResourceId: NotRequired[str]
+    CifsShareCount: NotRequired[int]
+    SecurityStyle: NotRequired[str]
+    SvmUuid: NotRequired[str]
+    SvmName: NotRequired[str]
+    CapacityUsed: NotRequired[int]
+    CapacityProvisioned: NotRequired[int]
+    LogicalCapacityUsed: NotRequired[int]
+    NfsExported: NotRequired[bool]
+    SnapshotCapacityUsed: NotRequired[int]
+    MaxP95Performance: NotRequired[MaxP95PerformanceTypeDef]
+    Recommendations: NotRequired[List[RecommendationTypeDef]]
+    RecommendationStatus: NotRequired[RecommendationStatusType]
+    LunCount: NotRequired[int]
+
+OnPremConfigUnionTypeDef = Union[OnPremConfigTypeDef, OnPremConfigOutputTypeDef]
+
+class P95MetricsTypeDef(TypedDict):
+    IOPS: NotRequired[IOPSTypeDef]
+    Throughput: NotRequired[ThroughputTypeDef]
+    Latency: NotRequired[LatencyTypeDef]
+
+class ReportDestinationTypeDef(TypedDict):
+    S3: NotRequired[ReportDestinationS3TypeDef]
+
+class ReportOverridesTypeDef(TypedDict):
+    Transferred: NotRequired[ReportOverrideTypeDef]
+    Verified: NotRequired[ReportOverrideTypeDef]
+    Deleted: NotRequired[ReportOverrideTypeDef]
+    Skipped: NotRequired[ReportOverrideTypeDef]
+
+class SourceManifestConfigTypeDef(TypedDict):
+    S3: S3ManifestConfigTypeDef
+
+class ListAgentsResponseTypeDef(TypedDict):
+    Agents: List[AgentListEntryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class FsxProtocolTypeDef(TypedDict):
+    NFS: NotRequired[FsxProtocolNfsTypeDef]
+    SMB: NotRequired[FsxProtocolSmbTypeDef]
+
+class FsxUpdateProtocolTypeDef(TypedDict):
+    NFS: NotRequired[FsxProtocolNfsTypeDef]
+    SMB: NotRequired[FsxUpdateProtocolSmbTypeDef]
+
+class CreateLocationEfsRequestTypeDef(TypedDict):
+    EfsFilesystemArn: str
+    Ec2Config: Ec2ConfigUnionTypeDef
+    Subdirectory: NotRequired[str]
+    Tags: NotRequired[Sequence[TagListEntryTypeDef]]
+    AccessPointArn: NotRequired[str]
+    FileSystemAccessRoleArn: NotRequired[str]
+    InTransitEncryption: NotRequired[EfsInTransitEncryptionType]
+
+class ResourceDetailsTypeDef(TypedDict):
+    NetAppONTAPSVMs: NotRequired[List[NetAppONTAPSVMTypeDef]]
+    NetAppONTAPVolumes: NotRequired[List[NetAppONTAPVolumeTypeDef]]
+    NetAppONTAPClusters: NotRequired[List[NetAppONTAPClusterTypeDef]]
+
+class CreateLocationNfsRequestTypeDef(TypedDict):
+    Subdirectory: str
+    ServerHostname: str
+    OnPremConfig: OnPremConfigUnionTypeDef
+    MountOptions: NotRequired[NfsMountOptionsTypeDef]
+    Tags: NotRequired[Sequence[TagListEntryTypeDef]]
+
+class UpdateLocationNfsRequestTypeDef(TypedDict):
+    LocationArn: str
+    Subdirectory: NotRequired[str]
+    ServerHostname: NotRequired[str]
+    OnPremConfig: NotRequired[OnPremConfigUnionTypeDef]
+    MountOptions: NotRequired[NfsMountOptionsTypeDef]
+
+class ResourceMetricsTypeDef(TypedDict):
+    Timestamp: NotRequired[datetime]
+    P95Metrics: NotRequired[P95MetricsTypeDef]
+    Capacity: NotRequired[CapacityTypeDef]
+    ResourceId: NotRequired[str]
+    ResourceType: NotRequired[DiscoveryResourceTypeType]
+
+class TaskReportConfigTypeDef(TypedDict):
+    Destination: NotRequired[ReportDestinationTypeDef]
+    OutputType: NotRequired[ReportOutputTypeType]
+    ReportLevel: NotRequired[ReportLevelType]
+    ObjectVersionIds: NotRequired[ObjectVersionIdsType]
+    Overrides: NotRequired[ReportOverridesTypeDef]
+
+class ManifestConfigTypeDef(TypedDict):
+    Action: NotRequired[Literal["TRANSFER"]]
+    Format: NotRequired[Literal["CSV"]]
+    Source: NotRequired[SourceManifestConfigTypeDef]
+
+CreateLocationFsxOntapRequestTypeDef = TypedDict(
+    "CreateLocationFsxOntapRequestTypeDef",
     {
-        "Protocol": "FsxProtocolTypeDef",
-        "SecurityGroupArns": List[str],
+        "Protocol": FsxProtocolTypeDef,
+        "SecurityGroupArns": Sequence[str],
         "StorageVirtualMachineArn": str,
+        "Subdirectory": NotRequired[str],
+        "Tags": NotRequired[Sequence[TagListEntryTypeDef]],
     },
 )
-_OptionalCreateLocationFsxOntapRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateLocationFsxOntapRequestRequestTypeDef",
-    {
-        "Subdirectory": str,
-        "Tags": List["TagListEntryTypeDef"],
-    },
-    total=False,
-)
-
-class CreateLocationFsxOntapRequestRequestTypeDef(
-    _RequiredCreateLocationFsxOntapRequestRequestTypeDef,
-    _OptionalCreateLocationFsxOntapRequestRequestTypeDef,
-):
-    pass
-
-CreateLocationFsxOntapResponseTypeDef = TypedDict(
-    "CreateLocationFsxOntapResponseTypeDef",
-    {
-        "LocationArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateLocationFsxOpenZfsRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateLocationFsxOpenZfsRequestRequestTypeDef",
+CreateLocationFsxOpenZfsRequestTypeDef = TypedDict(
+    "CreateLocationFsxOpenZfsRequestTypeDef",
     {
         "FsxFilesystemArn": str,
-        "Protocol": "FsxProtocolTypeDef",
-        "SecurityGroupArns": List[str],
+        "Protocol": FsxProtocolTypeDef,
+        "SecurityGroupArns": Sequence[str],
+        "Subdirectory": NotRequired[str],
+        "Tags": NotRequired[Sequence[TagListEntryTypeDef]],
     },
 )
-_OptionalCreateLocationFsxOpenZfsRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateLocationFsxOpenZfsRequestRequestTypeDef",
-    {
-        "Subdirectory": str,
-        "Tags": List["TagListEntryTypeDef"],
-    },
-    total=False,
-)
-
-class CreateLocationFsxOpenZfsRequestRequestTypeDef(
-    _RequiredCreateLocationFsxOpenZfsRequestRequestTypeDef,
-    _OptionalCreateLocationFsxOpenZfsRequestRequestTypeDef,
-):
-    pass
-
-CreateLocationFsxOpenZfsResponseTypeDef = TypedDict(
-    "CreateLocationFsxOpenZfsResponseTypeDef",
-    {
-        "LocationArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateLocationFsxWindowsRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateLocationFsxWindowsRequestRequestTypeDef",
-    {
-        "FsxFilesystemArn": str,
-        "SecurityGroupArns": List[str],
-        "User": str,
-        "Password": str,
-    },
-)
-_OptionalCreateLocationFsxWindowsRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateLocationFsxWindowsRequestRequestTypeDef",
-    {
-        "Subdirectory": str,
-        "Tags": List["TagListEntryTypeDef"],
-        "Domain": str,
-    },
-    total=False,
-)
-
-class CreateLocationFsxWindowsRequestRequestTypeDef(
-    _RequiredCreateLocationFsxWindowsRequestRequestTypeDef,
-    _OptionalCreateLocationFsxWindowsRequestRequestTypeDef,
-):
-    pass
-
-CreateLocationFsxWindowsResponseTypeDef = TypedDict(
-    "CreateLocationFsxWindowsResponseTypeDef",
-    {
-        "LocationArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateLocationHdfsRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateLocationHdfsRequestRequestTypeDef",
-    {
-        "NameNodes": List["HdfsNameNodeTypeDef"],
-        "AuthenticationType": HdfsAuthenticationTypeType,
-        "AgentArns": List[str],
-    },
-)
-_OptionalCreateLocationHdfsRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateLocationHdfsRequestRequestTypeDef",
-    {
-        "Subdirectory": str,
-        "BlockSize": int,
-        "ReplicationFactor": int,
-        "KmsKeyProviderUri": str,
-        "QopConfiguration": "QopConfigurationTypeDef",
-        "SimpleUser": str,
-        "KerberosPrincipal": str,
-        "KerberosKeytab": Union[bytes, IO[bytes], StreamingBody],
-        "KerberosKrb5Conf": Union[bytes, IO[bytes], StreamingBody],
-        "Tags": List["TagListEntryTypeDef"],
-    },
-    total=False,
-)
-
-class CreateLocationHdfsRequestRequestTypeDef(
-    _RequiredCreateLocationHdfsRequestRequestTypeDef,
-    _OptionalCreateLocationHdfsRequestRequestTypeDef,
-):
-    pass
-
-CreateLocationHdfsResponseTypeDef = TypedDict(
-    "CreateLocationHdfsResponseTypeDef",
-    {
-        "LocationArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateLocationNfsRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateLocationNfsRequestRequestTypeDef",
-    {
-        "Subdirectory": str,
-        "ServerHostname": str,
-        "OnPremConfig": "OnPremConfigTypeDef",
-    },
-)
-_OptionalCreateLocationNfsRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateLocationNfsRequestRequestTypeDef",
-    {
-        "MountOptions": "NfsMountOptionsTypeDef",
-        "Tags": List["TagListEntryTypeDef"],
-    },
-    total=False,
-)
-
-class CreateLocationNfsRequestRequestTypeDef(
-    _RequiredCreateLocationNfsRequestRequestTypeDef, _OptionalCreateLocationNfsRequestRequestTypeDef
-):
-    pass
-
-CreateLocationNfsResponseTypeDef = TypedDict(
-    "CreateLocationNfsResponseTypeDef",
-    {
-        "LocationArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateLocationObjectStorageRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateLocationObjectStorageRequestRequestTypeDef",
-    {
-        "ServerHostname": str,
-        "BucketName": str,
-        "AgentArns": List[str],
-    },
-)
-_OptionalCreateLocationObjectStorageRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateLocationObjectStorageRequestRequestTypeDef",
-    {
-        "ServerPort": int,
-        "ServerProtocol": ObjectStorageServerProtocolType,
-        "Subdirectory": str,
-        "AccessKey": str,
-        "SecretKey": str,
-        "Tags": List["TagListEntryTypeDef"],
-        "ServerCertificate": Union[bytes, IO[bytes], StreamingBody],
-    },
-    total=False,
-)
-
-class CreateLocationObjectStorageRequestRequestTypeDef(
-    _RequiredCreateLocationObjectStorageRequestRequestTypeDef,
-    _OptionalCreateLocationObjectStorageRequestRequestTypeDef,
-):
-    pass
-
-CreateLocationObjectStorageResponseTypeDef = TypedDict(
-    "CreateLocationObjectStorageResponseTypeDef",
-    {
-        "LocationArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateLocationS3RequestRequestTypeDef = TypedDict(
-    "_RequiredCreateLocationS3RequestRequestTypeDef",
-    {
-        "S3BucketArn": str,
-        "S3Config": "S3ConfigTypeDef",
-    },
-)
-_OptionalCreateLocationS3RequestRequestTypeDef = TypedDict(
-    "_OptionalCreateLocationS3RequestRequestTypeDef",
-    {
-        "Subdirectory": str,
-        "S3StorageClass": S3StorageClassType,
-        "AgentArns": List[str],
-        "Tags": List["TagListEntryTypeDef"],
-    },
-    total=False,
-)
-
-class CreateLocationS3RequestRequestTypeDef(
-    _RequiredCreateLocationS3RequestRequestTypeDef, _OptionalCreateLocationS3RequestRequestTypeDef
-):
-    pass
-
-CreateLocationS3ResponseTypeDef = TypedDict(
-    "CreateLocationS3ResponseTypeDef",
-    {
-        "LocationArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateLocationSmbRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateLocationSmbRequestRequestTypeDef",
-    {
-        "Subdirectory": str,
-        "ServerHostname": str,
-        "User": str,
-        "Password": str,
-        "AgentArns": List[str],
-    },
-)
-_OptionalCreateLocationSmbRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateLocationSmbRequestRequestTypeDef",
-    {
-        "Domain": str,
-        "MountOptions": "SmbMountOptionsTypeDef",
-        "Tags": List["TagListEntryTypeDef"],
-    },
-    total=False,
-)
-
-class CreateLocationSmbRequestRequestTypeDef(
-    _RequiredCreateLocationSmbRequestRequestTypeDef, _OptionalCreateLocationSmbRequestRequestTypeDef
-):
-    pass
-
-CreateLocationSmbResponseTypeDef = TypedDict(
-    "CreateLocationSmbResponseTypeDef",
-    {
-        "LocationArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateTaskRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateTaskRequestRequestTypeDef",
-    {
-        "SourceLocationArn": str,
-        "DestinationLocationArn": str,
-    },
-)
-_OptionalCreateTaskRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateTaskRequestRequestTypeDef",
-    {
-        "CloudWatchLogGroupArn": str,
-        "Name": str,
-        "Options": "OptionsTypeDef",
-        "Excludes": List["FilterRuleTypeDef"],
-        "Schedule": "TaskScheduleTypeDef",
-        "Tags": List["TagListEntryTypeDef"],
-        "Includes": List["FilterRuleTypeDef"],
-        "ManifestConfig": "ManifestConfigTypeDef",
-        "TaskReportConfig": "TaskReportConfigTypeDef",
-    },
-    total=False,
-)
-
-class CreateTaskRequestRequestTypeDef(
-    _RequiredCreateTaskRequestRequestTypeDef, _OptionalCreateTaskRequestRequestTypeDef
-):
-    pass
-
-CreateTaskResponseTypeDef = TypedDict(
-    "CreateTaskResponseTypeDef",
-    {
-        "TaskArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CredentialsTypeDef = TypedDict(
-    "CredentialsTypeDef",
-    {
-        "Username": str,
-        "Password": str,
-    },
-)
-
-DeleteAgentRequestRequestTypeDef = TypedDict(
-    "DeleteAgentRequestRequestTypeDef",
-    {
-        "AgentArn": str,
-    },
-)
-
-DeleteLocationRequestRequestTypeDef = TypedDict(
-    "DeleteLocationRequestRequestTypeDef",
-    {
-        "LocationArn": str,
-    },
-)
-
-DeleteTaskRequestRequestTypeDef = TypedDict(
-    "DeleteTaskRequestRequestTypeDef",
-    {
-        "TaskArn": str,
-    },
-)
-
-DescribeAgentRequestRequestTypeDef = TypedDict(
-    "DescribeAgentRequestRequestTypeDef",
-    {
-        "AgentArn": str,
-    },
-)
-
-DescribeAgentResponseTypeDef = TypedDict(
-    "DescribeAgentResponseTypeDef",
-    {
-        "AgentArn": str,
-        "Name": str,
-        "Status": AgentStatusType,
-        "LastConnectionTime": datetime,
-        "CreationTime": datetime,
-        "EndpointType": EndpointTypeType,
-        "PrivateLinkConfig": "PrivateLinkConfigTypeDef",
-        "Platform": "PlatformTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeDiscoveryJobRequestRequestTypeDef = TypedDict(
-    "DescribeDiscoveryJobRequestRequestTypeDef",
-    {
-        "DiscoveryJobArn": str,
-    },
-)
-
-DescribeDiscoveryJobResponseTypeDef = TypedDict(
-    "DescribeDiscoveryJobResponseTypeDef",
-    {
-        "StorageSystemArn": str,
-        "DiscoveryJobArn": str,
-        "CollectionDurationMinutes": int,
-        "Status": DiscoveryJobStatusType,
-        "JobStartTime": datetime,
-        "JobEndTime": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeLocationAzureBlobRequestRequestTypeDef = TypedDict(
-    "DescribeLocationAzureBlobRequestRequestTypeDef",
-    {
-        "LocationArn": str,
-    },
-)
-
-DescribeLocationAzureBlobResponseTypeDef = TypedDict(
-    "DescribeLocationAzureBlobResponseTypeDef",
-    {
-        "LocationArn": str,
-        "LocationUri": str,
-        "AuthenticationType": Literal["SAS"],
-        "BlobType": Literal["BLOCK"],
-        "AccessTier": AzureAccessTierType,
-        "AgentArns": List[str],
-        "CreationTime": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeLocationEfsRequestRequestTypeDef = TypedDict(
-    "DescribeLocationEfsRequestRequestTypeDef",
-    {
-        "LocationArn": str,
-    },
-)
-
-DescribeLocationEfsResponseTypeDef = TypedDict(
-    "DescribeLocationEfsResponseTypeDef",
-    {
-        "LocationArn": str,
-        "LocationUri": str,
-        "Ec2Config": "Ec2ConfigTypeDef",
-        "CreationTime": datetime,
-        "AccessPointArn": str,
-        "FileSystemAccessRoleArn": str,
-        "InTransitEncryption": EfsInTransitEncryptionType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeLocationFsxLustreRequestRequestTypeDef = TypedDict(
-    "DescribeLocationFsxLustreRequestRequestTypeDef",
-    {
-        "LocationArn": str,
-    },
-)
-
-DescribeLocationFsxLustreResponseTypeDef = TypedDict(
-    "DescribeLocationFsxLustreResponseTypeDef",
-    {
-        "LocationArn": str,
-        "LocationUri": str,
-        "SecurityGroupArns": List[str],
-        "CreationTime": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeLocationFsxOntapRequestRequestTypeDef = TypedDict(
-    "DescribeLocationFsxOntapRequestRequestTypeDef",
-    {
-        "LocationArn": str,
-    },
-)
-
 DescribeLocationFsxOntapResponseTypeDef = TypedDict(
     "DescribeLocationFsxOntapResponseTypeDef",
     {
         "CreationTime": datetime,
         "LocationArn": str,
         "LocationUri": str,
-        "Protocol": "FsxProtocolTypeDef",
+        "Protocol": FsxProtocolTypeDef,
         "SecurityGroupArns": List[str],
         "StorageVirtualMachineArn": str,
         "FsxFilesystemArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
-
-DescribeLocationFsxOpenZfsRequestRequestTypeDef = TypedDict(
-    "DescribeLocationFsxOpenZfsRequestRequestTypeDef",
-    {
-        "LocationArn": str,
-    },
-)
-
 DescribeLocationFsxOpenZfsResponseTypeDef = TypedDict(
     "DescribeLocationFsxOpenZfsResponseTypeDef",
     {
         "LocationArn": str,
         "LocationUri": str,
         "SecurityGroupArns": List[str],
-        "Protocol": "FsxProtocolTypeDef",
+        "Protocol": FsxProtocolTypeDef,
         "CreationTime": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
-
-DescribeLocationFsxWindowsRequestRequestTypeDef = TypedDict(
-    "DescribeLocationFsxWindowsRequestRequestTypeDef",
+UpdateLocationFsxOpenZfsRequestTypeDef = TypedDict(
+    "UpdateLocationFsxOpenZfsRequestTypeDef",
     {
         "LocationArn": str,
+        "Protocol": NotRequired[FsxProtocolTypeDef],
+        "Subdirectory": NotRequired[str],
     },
 )
-
-DescribeLocationFsxWindowsResponseTypeDef = TypedDict(
-    "DescribeLocationFsxWindowsResponseTypeDef",
+UpdateLocationFsxOntapRequestTypeDef = TypedDict(
+    "UpdateLocationFsxOntapRequestTypeDef",
     {
         "LocationArn": str,
-        "LocationUri": str,
-        "SecurityGroupArns": List[str],
-        "CreationTime": datetime,
-        "User": str,
-        "Domain": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeLocationHdfsRequestRequestTypeDef = TypedDict(
-    "DescribeLocationHdfsRequestRequestTypeDef",
-    {
-        "LocationArn": str,
-    },
-)
-
-DescribeLocationHdfsResponseTypeDef = TypedDict(
-    "DescribeLocationHdfsResponseTypeDef",
-    {
-        "LocationArn": str,
-        "LocationUri": str,
-        "NameNodes": List["HdfsNameNodeTypeDef"],
-        "BlockSize": int,
-        "ReplicationFactor": int,
-        "KmsKeyProviderUri": str,
-        "QopConfiguration": "QopConfigurationTypeDef",
-        "AuthenticationType": HdfsAuthenticationTypeType,
-        "SimpleUser": str,
-        "KerberosPrincipal": str,
-        "AgentArns": List[str],
-        "CreationTime": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeLocationNfsRequestRequestTypeDef = TypedDict(
-    "DescribeLocationNfsRequestRequestTypeDef",
-    {
-        "LocationArn": str,
-    },
-)
-
-DescribeLocationNfsResponseTypeDef = TypedDict(
-    "DescribeLocationNfsResponseTypeDef",
-    {
-        "LocationArn": str,
-        "LocationUri": str,
-        "OnPremConfig": "OnPremConfigTypeDef",
-        "MountOptions": "NfsMountOptionsTypeDef",
-        "CreationTime": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeLocationObjectStorageRequestRequestTypeDef = TypedDict(
-    "DescribeLocationObjectStorageRequestRequestTypeDef",
-    {
-        "LocationArn": str,
-    },
-)
-
-DescribeLocationObjectStorageResponseTypeDef = TypedDict(
-    "DescribeLocationObjectStorageResponseTypeDef",
-    {
-        "LocationArn": str,
-        "LocationUri": str,
-        "AccessKey": str,
-        "ServerPort": int,
-        "ServerProtocol": ObjectStorageServerProtocolType,
-        "AgentArns": List[str],
-        "CreationTime": datetime,
-        "ServerCertificate": bytes,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeLocationS3RequestRequestTypeDef = TypedDict(
-    "DescribeLocationS3RequestRequestTypeDef",
-    {
-        "LocationArn": str,
-    },
-)
-
-DescribeLocationS3ResponseTypeDef = TypedDict(
-    "DescribeLocationS3ResponseTypeDef",
-    {
-        "LocationArn": str,
-        "LocationUri": str,
-        "S3StorageClass": S3StorageClassType,
-        "S3Config": "S3ConfigTypeDef",
-        "AgentArns": List[str],
-        "CreationTime": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeLocationSmbRequestRequestTypeDef = TypedDict(
-    "DescribeLocationSmbRequestRequestTypeDef",
-    {
-        "LocationArn": str,
-    },
-)
-
-DescribeLocationSmbResponseTypeDef = TypedDict(
-    "DescribeLocationSmbResponseTypeDef",
-    {
-        "LocationArn": str,
-        "LocationUri": str,
-        "AgentArns": List[str],
-        "User": str,
-        "Domain": str,
-        "MountOptions": "SmbMountOptionsTypeDef",
-        "CreationTime": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeStorageSystemRequestRequestTypeDef = TypedDict(
-    "DescribeStorageSystemRequestRequestTypeDef",
-    {
-        "StorageSystemArn": str,
-    },
-)
-
-_RequiredDescribeStorageSystemResourceMetricsRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeStorageSystemResourceMetricsRequestRequestTypeDef",
-    {
-        "DiscoveryJobArn": str,
-        "ResourceType": DiscoveryResourceTypeType,
-        "ResourceId": str,
-    },
-)
-_OptionalDescribeStorageSystemResourceMetricsRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeStorageSystemResourceMetricsRequestRequestTypeDef",
-    {
-        "StartTime": Union[datetime, str],
-        "EndTime": Union[datetime, str],
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class DescribeStorageSystemResourceMetricsRequestRequestTypeDef(
-    _RequiredDescribeStorageSystemResourceMetricsRequestRequestTypeDef,
-    _OptionalDescribeStorageSystemResourceMetricsRequestRequestTypeDef,
-):
-    pass
-
-DescribeStorageSystemResourceMetricsResponseTypeDef = TypedDict(
-    "DescribeStorageSystemResourceMetricsResponseTypeDef",
-    {
-        "Metrics": List["ResourceMetricsTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribeStorageSystemResourcesRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeStorageSystemResourcesRequestRequestTypeDef",
-    {
-        "DiscoveryJobArn": str,
-        "ResourceType": DiscoveryResourceTypeType,
-    },
-)
-_OptionalDescribeStorageSystemResourcesRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeStorageSystemResourcesRequestRequestTypeDef",
-    {
-        "ResourceIds": List[str],
-        "Filter": Dict[Literal["SVM"], List[str]],
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class DescribeStorageSystemResourcesRequestRequestTypeDef(
-    _RequiredDescribeStorageSystemResourcesRequestRequestTypeDef,
-    _OptionalDescribeStorageSystemResourcesRequestRequestTypeDef,
-):
-    pass
-
-DescribeStorageSystemResourcesResponseTypeDef = TypedDict(
-    "DescribeStorageSystemResourcesResponseTypeDef",
-    {
-        "ResourceDetails": "ResourceDetailsTypeDef",
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeStorageSystemResponseTypeDef = TypedDict(
-    "DescribeStorageSystemResponseTypeDef",
-    {
-        "StorageSystemArn": str,
-        "ServerConfiguration": "DiscoveryServerConfigurationTypeDef",
-        "SystemType": Literal["NetAppONTAP"],
-        "AgentArns": List[str],
-        "Name": str,
-        "ErrorMessage": str,
-        "ConnectivityStatus": StorageSystemConnectivityStatusType,
-        "CloudWatchLogGroupArn": str,
-        "CreationTime": datetime,
-        "SecretsManagerArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeTaskExecutionRequestRequestTypeDef = TypedDict(
-    "DescribeTaskExecutionRequestRequestTypeDef",
-    {
-        "TaskExecutionArn": str,
-    },
-)
-
-DescribeTaskExecutionResponseTypeDef = TypedDict(
-    "DescribeTaskExecutionResponseTypeDef",
-    {
-        "TaskExecutionArn": str,
-        "Status": TaskExecutionStatusType,
-        "Options": "OptionsTypeDef",
-        "Excludes": List["FilterRuleTypeDef"],
-        "Includes": List["FilterRuleTypeDef"],
-        "ManifestConfig": "ManifestConfigTypeDef",
-        "StartTime": datetime,
-        "EstimatedFilesToTransfer": int,
-        "EstimatedBytesToTransfer": int,
-        "FilesTransferred": int,
-        "BytesWritten": int,
-        "BytesTransferred": int,
-        "BytesCompressed": int,
-        "Result": "TaskExecutionResultDetailTypeDef",
-        "TaskReportConfig": "TaskReportConfigTypeDef",
-        "FilesDeleted": int,
-        "FilesSkipped": int,
-        "FilesVerified": int,
-        "ReportResult": "ReportResultTypeDef",
-        "EstimatedFilesToDelete": int,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeTaskRequestRequestTypeDef = TypedDict(
-    "DescribeTaskRequestRequestTypeDef",
-    {
-        "TaskArn": str,
-    },
-)
-
-DescribeTaskResponseTypeDef = TypedDict(
-    "DescribeTaskResponseTypeDef",
-    {
-        "TaskArn": str,
-        "Status": TaskStatusType,
-        "Name": str,
-        "CurrentTaskExecutionArn": str,
-        "SourceLocationArn": str,
-        "DestinationLocationArn": str,
-        "CloudWatchLogGroupArn": str,
-        "SourceNetworkInterfaceArns": List[str],
-        "DestinationNetworkInterfaceArns": List[str],
-        "Options": "OptionsTypeDef",
-        "Excludes": List["FilterRuleTypeDef"],
-        "Schedule": "TaskScheduleTypeDef",
-        "ErrorCode": str,
-        "ErrorDetail": str,
-        "CreationTime": datetime,
-        "Includes": List["FilterRuleTypeDef"],
-        "ManifestConfig": "ManifestConfigTypeDef",
-        "TaskReportConfig": "TaskReportConfigTypeDef",
-        "ScheduleDetails": "TaskScheduleDetailsTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DiscoveryJobListEntryTypeDef = TypedDict(
-    "DiscoveryJobListEntryTypeDef",
-    {
-        "DiscoveryJobArn": str,
-        "Status": DiscoveryJobStatusType,
-    },
-    total=False,
-)
-
-_RequiredDiscoveryServerConfigurationTypeDef = TypedDict(
-    "_RequiredDiscoveryServerConfigurationTypeDef",
-    {
-        "ServerHostname": str,
-    },
-)
-_OptionalDiscoveryServerConfigurationTypeDef = TypedDict(
-    "_OptionalDiscoveryServerConfigurationTypeDef",
-    {
-        "ServerPort": int,
-    },
-    total=False,
-)
-
-class DiscoveryServerConfigurationTypeDef(
-    _RequiredDiscoveryServerConfigurationTypeDef, _OptionalDiscoveryServerConfigurationTypeDef
-):
-    pass
-
-Ec2ConfigTypeDef = TypedDict(
-    "Ec2ConfigTypeDef",
-    {
-        "SubnetArn": str,
-        "SecurityGroupArns": List[str],
-    },
-)
-
-FilterRuleTypeDef = TypedDict(
-    "FilterRuleTypeDef",
-    {
-        "FilterType": Literal["SIMPLE_PATTERN"],
-        "Value": str,
-    },
-    total=False,
-)
-
-FsxProtocolNfsTypeDef = TypedDict(
-    "FsxProtocolNfsTypeDef",
-    {
-        "MountOptions": "NfsMountOptionsTypeDef",
-    },
-    total=False,
-)
-
-_RequiredFsxProtocolSmbTypeDef = TypedDict(
-    "_RequiredFsxProtocolSmbTypeDef",
-    {
-        "Password": str,
-        "User": str,
-    },
-)
-_OptionalFsxProtocolSmbTypeDef = TypedDict(
-    "_OptionalFsxProtocolSmbTypeDef",
-    {
-        "Domain": str,
-        "MountOptions": "SmbMountOptionsTypeDef",
-    },
-    total=False,
-)
-
-class FsxProtocolSmbTypeDef(_RequiredFsxProtocolSmbTypeDef, _OptionalFsxProtocolSmbTypeDef):
-    pass
-
-FsxProtocolTypeDef = TypedDict(
-    "FsxProtocolTypeDef",
-    {
-        "NFS": "FsxProtocolNfsTypeDef",
-        "SMB": "FsxProtocolSmbTypeDef",
-    },
-    total=False,
-)
-
-GenerateRecommendationsRequestRequestTypeDef = TypedDict(
-    "GenerateRecommendationsRequestRequestTypeDef",
-    {
-        "DiscoveryJobArn": str,
-        "ResourceIds": List[str],
-        "ResourceType": DiscoveryResourceTypeType,
-    },
-)
-
-HdfsNameNodeTypeDef = TypedDict(
-    "HdfsNameNodeTypeDef",
-    {
-        "Hostname": str,
-        "Port": int,
-    },
-)
-
-IOPSTypeDef = TypedDict(
-    "IOPSTypeDef",
-    {
-        "Read": float,
-        "Write": float,
-        "Other": float,
-        "Total": float,
-    },
-    total=False,
-)
-
-LatencyTypeDef = TypedDict(
-    "LatencyTypeDef",
-    {
-        "Read": float,
-        "Write": float,
-        "Other": float,
-    },
-    total=False,
-)
-
-ListAgentsRequestRequestTypeDef = TypedDict(
-    "ListAgentsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListAgentsResponseTypeDef = TypedDict(
-    "ListAgentsResponseTypeDef",
-    {
-        "Agents": List["AgentListEntryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListDiscoveryJobsRequestRequestTypeDef = TypedDict(
-    "ListDiscoveryJobsRequestRequestTypeDef",
-    {
-        "StorageSystemArn": str,
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListDiscoveryJobsResponseTypeDef = TypedDict(
-    "ListDiscoveryJobsResponseTypeDef",
-    {
-        "DiscoveryJobs": List["DiscoveryJobListEntryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListLocationsRequestRequestTypeDef = TypedDict(
-    "ListLocationsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-        "Filters": List["LocationFilterTypeDef"],
-    },
-    total=False,
-)
-
-ListLocationsResponseTypeDef = TypedDict(
-    "ListLocationsResponseTypeDef",
-    {
-        "Locations": List["LocationListEntryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListStorageSystemsRequestRequestTypeDef = TypedDict(
-    "ListStorageSystemsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListStorageSystemsResponseTypeDef = TypedDict(
-    "ListStorageSystemsResponseTypeDef",
-    {
-        "StorageSystems": List["StorageSystemListEntryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "_RequiredListTagsForResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-    },
-)
-_OptionalListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "_OptionalListTagsForResourceRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListTagsForResourceRequestRequestTypeDef(
-    _RequiredListTagsForResourceRequestRequestTypeDef,
-    _OptionalListTagsForResourceRequestRequestTypeDef,
-):
-    pass
-
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "Tags": List["TagListEntryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTaskExecutionsRequestRequestTypeDef = TypedDict(
-    "ListTaskExecutionsRequestRequestTypeDef",
-    {
-        "TaskArn": str,
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListTaskExecutionsResponseTypeDef = TypedDict(
-    "ListTaskExecutionsResponseTypeDef",
-    {
-        "TaskExecutions": List["TaskExecutionListEntryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTasksRequestRequestTypeDef = TypedDict(
-    "ListTasksRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-        "Filters": List["TaskFilterTypeDef"],
-    },
-    total=False,
-)
-
-ListTasksResponseTypeDef = TypedDict(
-    "ListTasksResponseTypeDef",
-    {
-        "Tasks": List["TaskListEntryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-LocationFilterTypeDef = TypedDict(
-    "LocationFilterTypeDef",
-    {
-        "Name": LocationFilterNameType,
-        "Values": List[str],
-        "Operator": OperatorType,
-    },
-)
-
-LocationListEntryTypeDef = TypedDict(
-    "LocationListEntryTypeDef",
-    {
-        "LocationArn": str,
-        "LocationUri": str,
-    },
-    total=False,
-)
-
-ManifestConfigTypeDef = TypedDict(
-    "ManifestConfigTypeDef",
-    {
-        "Action": Literal["TRANSFER"],
-        "Format": Literal["CSV"],
-        "Source": "SourceManifestConfigTypeDef",
-    },
-    total=False,
-)
-
-MaxP95PerformanceTypeDef = TypedDict(
-    "MaxP95PerformanceTypeDef",
-    {
-        "IopsRead": float,
-        "IopsWrite": float,
-        "IopsOther": float,
-        "IopsTotal": float,
-        "ThroughputRead": float,
-        "ThroughputWrite": float,
-        "ThroughputOther": float,
-        "ThroughputTotal": float,
-        "LatencyRead": float,
-        "LatencyWrite": float,
-        "LatencyOther": float,
-    },
-    total=False,
-)
-
-NetAppONTAPClusterTypeDef = TypedDict(
-    "NetAppONTAPClusterTypeDef",
-    {
-        "CifsShareCount": int,
-        "NfsExportedVolumes": int,
-        "ResourceId": str,
-        "ClusterName": str,
-        "MaxP95Performance": "MaxP95PerformanceTypeDef",
-        "ClusterBlockStorageSize": int,
-        "ClusterBlockStorageUsed": int,
-        "ClusterBlockStorageLogicalUsed": int,
-        "Recommendations": List["RecommendationTypeDef"],
-        "RecommendationStatus": RecommendationStatusType,
-        "LunCount": int,
-        "ClusterCloudStorageUsed": int,
-    },
-    total=False,
-)
-
-NetAppONTAPSVMTypeDef = TypedDict(
-    "NetAppONTAPSVMTypeDef",
-    {
-        "ClusterUuid": str,
-        "ResourceId": str,
-        "SvmName": str,
-        "CifsShareCount": int,
-        "EnabledProtocols": List[str],
-        "TotalCapacityUsed": int,
-        "TotalCapacityProvisioned": int,
-        "TotalLogicalCapacityUsed": int,
-        "MaxP95Performance": "MaxP95PerformanceTypeDef",
-        "Recommendations": List["RecommendationTypeDef"],
-        "NfsExportedVolumes": int,
-        "RecommendationStatus": RecommendationStatusType,
-        "TotalSnapshotCapacityUsed": int,
-        "LunCount": int,
-    },
-    total=False,
-)
-
-NetAppONTAPVolumeTypeDef = TypedDict(
-    "NetAppONTAPVolumeTypeDef",
-    {
-        "VolumeName": str,
-        "ResourceId": str,
-        "CifsShareCount": int,
-        "SecurityStyle": str,
-        "SvmUuid": str,
-        "SvmName": str,
-        "CapacityUsed": int,
-        "CapacityProvisioned": int,
-        "LogicalCapacityUsed": int,
-        "NfsExported": bool,
-        "SnapshotCapacityUsed": int,
-        "MaxP95Performance": "MaxP95PerformanceTypeDef",
-        "Recommendations": List["RecommendationTypeDef"],
-        "RecommendationStatus": RecommendationStatusType,
-        "LunCount": int,
-    },
-    total=False,
-)
-
-NfsMountOptionsTypeDef = TypedDict(
-    "NfsMountOptionsTypeDef",
-    {
-        "Version": NfsVersionType,
-    },
-    total=False,
-)
-
-OnPremConfigTypeDef = TypedDict(
-    "OnPremConfigTypeDef",
-    {
-        "AgentArns": List[str],
-    },
-)
-
-OptionsTypeDef = TypedDict(
-    "OptionsTypeDef",
-    {
-        "VerifyMode": VerifyModeType,
-        "OverwriteMode": OverwriteModeType,
-        "Atime": AtimeType,
-        "Mtime": MtimeType,
-        "Uid": UidType,
-        "Gid": GidType,
-        "PreserveDeletedFiles": PreserveDeletedFilesType,
-        "PreserveDevices": PreserveDevicesType,
-        "PosixPermissions": PosixPermissionsType,
-        "BytesPerSecond": int,
-        "TaskQueueing": TaskQueueingType,
-        "LogLevel": LogLevelType,
-        "TransferMode": TransferModeType,
-        "SecurityDescriptorCopyFlags": SmbSecurityDescriptorCopyFlagsType,
-        "ObjectTags": ObjectTagsType,
-    },
-    total=False,
-)
-
-P95MetricsTypeDef = TypedDict(
-    "P95MetricsTypeDef",
-    {
-        "IOPS": "IOPSTypeDef",
-        "Throughput": "ThroughputTypeDef",
-        "Latency": "LatencyTypeDef",
-    },
-    total=False,
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-PlatformTypeDef = TypedDict(
-    "PlatformTypeDef",
-    {
-        "Version": str,
-    },
-    total=False,
-)
-
-PrivateLinkConfigTypeDef = TypedDict(
-    "PrivateLinkConfigTypeDef",
-    {
-        "VpcEndpointId": str,
-        "PrivateLinkEndpoint": str,
-        "SubnetArns": List[str],
-        "SecurityGroupArns": List[str],
-    },
-    total=False,
-)
-
-QopConfigurationTypeDef = TypedDict(
-    "QopConfigurationTypeDef",
-    {
-        "RpcProtection": HdfsRpcProtectionType,
-        "DataTransferProtection": HdfsDataTransferProtectionType,
-    },
-    total=False,
-)
-
-RecommendationTypeDef = TypedDict(
-    "RecommendationTypeDef",
-    {
-        "StorageType": str,
-        "StorageConfiguration": Dict[str, str],
-        "EstimatedMonthlyStorageCost": str,
-    },
-    total=False,
-)
-
-RemoveStorageSystemRequestRequestTypeDef = TypedDict(
-    "RemoveStorageSystemRequestRequestTypeDef",
-    {
-        "StorageSystemArn": str,
-    },
-)
-
-_RequiredReportDestinationS3TypeDef = TypedDict(
-    "_RequiredReportDestinationS3TypeDef",
-    {
-        "S3BucketArn": str,
-        "BucketAccessRoleArn": str,
-    },
-)
-_OptionalReportDestinationS3TypeDef = TypedDict(
-    "_OptionalReportDestinationS3TypeDef",
-    {
-        "Subdirectory": str,
-    },
-    total=False,
-)
-
-class ReportDestinationS3TypeDef(
-    _RequiredReportDestinationS3TypeDef, _OptionalReportDestinationS3TypeDef
-):
-    pass
-
-ReportDestinationTypeDef = TypedDict(
-    "ReportDestinationTypeDef",
-    {
-        "S3": "ReportDestinationS3TypeDef",
-    },
-    total=False,
-)
-
-ReportOverrideTypeDef = TypedDict(
-    "ReportOverrideTypeDef",
-    {
-        "ReportLevel": ReportLevelType,
-    },
-    total=False,
-)
-
-ReportOverridesTypeDef = TypedDict(
-    "ReportOverridesTypeDef",
-    {
-        "Transferred": "ReportOverrideTypeDef",
-        "Verified": "ReportOverrideTypeDef",
-        "Deleted": "ReportOverrideTypeDef",
-        "Skipped": "ReportOverrideTypeDef",
-    },
-    total=False,
-)
-
-ReportResultTypeDef = TypedDict(
-    "ReportResultTypeDef",
-    {
-        "Status": PhaseStatusType,
-        "ErrorCode": str,
-        "ErrorDetail": str,
-    },
-    total=False,
-)
-
-ResourceDetailsTypeDef = TypedDict(
-    "ResourceDetailsTypeDef",
-    {
-        "NetAppONTAPSVMs": List["NetAppONTAPSVMTypeDef"],
-        "NetAppONTAPVolumes": List["NetAppONTAPVolumeTypeDef"],
-        "NetAppONTAPClusters": List["NetAppONTAPClusterTypeDef"],
-    },
-    total=False,
-)
-
-ResourceMetricsTypeDef = TypedDict(
-    "ResourceMetricsTypeDef",
-    {
-        "Timestamp": datetime,
-        "P95Metrics": "P95MetricsTypeDef",
-        "Capacity": "CapacityTypeDef",
-        "ResourceId": str,
-        "ResourceType": DiscoveryResourceTypeType,
-    },
-    total=False,
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-S3ConfigTypeDef = TypedDict(
-    "S3ConfigTypeDef",
-    {
-        "BucketAccessRoleArn": str,
-    },
-)
-
-_RequiredS3ManifestConfigTypeDef = TypedDict(
-    "_RequiredS3ManifestConfigTypeDef",
-    {
-        "ManifestObjectPath": str,
-        "BucketAccessRoleArn": str,
-        "S3BucketArn": str,
-    },
-)
-_OptionalS3ManifestConfigTypeDef = TypedDict(
-    "_OptionalS3ManifestConfigTypeDef",
-    {
-        "ManifestObjectVersionId": str,
-    },
-    total=False,
-)
-
-class S3ManifestConfigTypeDef(_RequiredS3ManifestConfigTypeDef, _OptionalS3ManifestConfigTypeDef):
-    pass
-
-SmbMountOptionsTypeDef = TypedDict(
-    "SmbMountOptionsTypeDef",
-    {
-        "Version": SmbVersionType,
-    },
-    total=False,
-)
-
-SourceManifestConfigTypeDef = TypedDict(
-    "SourceManifestConfigTypeDef",
-    {
-        "S3": "S3ManifestConfigTypeDef",
-    },
-)
-
-_RequiredStartDiscoveryJobRequestRequestTypeDef = TypedDict(
-    "_RequiredStartDiscoveryJobRequestRequestTypeDef",
-    {
-        "StorageSystemArn": str,
-        "CollectionDurationMinutes": int,
-        "ClientToken": str,
-    },
-)
-_OptionalStartDiscoveryJobRequestRequestTypeDef = TypedDict(
-    "_OptionalStartDiscoveryJobRequestRequestTypeDef",
-    {
-        "Tags": List["TagListEntryTypeDef"],
-    },
-    total=False,
-)
-
-class StartDiscoveryJobRequestRequestTypeDef(
-    _RequiredStartDiscoveryJobRequestRequestTypeDef, _OptionalStartDiscoveryJobRequestRequestTypeDef
-):
-    pass
-
-StartDiscoveryJobResponseTypeDef = TypedDict(
-    "StartDiscoveryJobResponseTypeDef",
-    {
-        "DiscoveryJobArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredStartTaskExecutionRequestRequestTypeDef = TypedDict(
-    "_RequiredStartTaskExecutionRequestRequestTypeDef",
-    {
-        "TaskArn": str,
-    },
-)
-_OptionalStartTaskExecutionRequestRequestTypeDef = TypedDict(
-    "_OptionalStartTaskExecutionRequestRequestTypeDef",
-    {
-        "OverrideOptions": "OptionsTypeDef",
-        "Includes": List["FilterRuleTypeDef"],
-        "Excludes": List["FilterRuleTypeDef"],
-        "ManifestConfig": "ManifestConfigTypeDef",
-        "TaskReportConfig": "TaskReportConfigTypeDef",
-        "Tags": List["TagListEntryTypeDef"],
-    },
-    total=False,
-)
-
-class StartTaskExecutionRequestRequestTypeDef(
-    _RequiredStartTaskExecutionRequestRequestTypeDef,
-    _OptionalStartTaskExecutionRequestRequestTypeDef,
-):
-    pass
-
-StartTaskExecutionResponseTypeDef = TypedDict(
-    "StartTaskExecutionResponseTypeDef",
-    {
-        "TaskExecutionArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-StopDiscoveryJobRequestRequestTypeDef = TypedDict(
-    "StopDiscoveryJobRequestRequestTypeDef",
-    {
-        "DiscoveryJobArn": str,
-    },
-)
-
-StorageSystemListEntryTypeDef = TypedDict(
-    "StorageSystemListEntryTypeDef",
-    {
-        "StorageSystemArn": str,
-        "Name": str,
-    },
-    total=False,
-)
-
-_RequiredTagListEntryTypeDef = TypedDict(
-    "_RequiredTagListEntryTypeDef",
-    {
-        "Key": str,
-    },
-)
-_OptionalTagListEntryTypeDef = TypedDict(
-    "_OptionalTagListEntryTypeDef",
-    {
-        "Value": str,
-    },
-    total=False,
-)
-
-class TagListEntryTypeDef(_RequiredTagListEntryTypeDef, _OptionalTagListEntryTypeDef):
-    pass
-
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-        "Tags": List["TagListEntryTypeDef"],
-    },
-)
-
-TaskExecutionListEntryTypeDef = TypedDict(
-    "TaskExecutionListEntryTypeDef",
-    {
-        "TaskExecutionArn": str,
-        "Status": TaskExecutionStatusType,
-    },
-    total=False,
-)
-
-TaskExecutionResultDetailTypeDef = TypedDict(
-    "TaskExecutionResultDetailTypeDef",
-    {
-        "PrepareDuration": int,
-        "PrepareStatus": PhaseStatusType,
-        "TotalDuration": int,
-        "TransferDuration": int,
-        "TransferStatus": PhaseStatusType,
-        "VerifyDuration": int,
-        "VerifyStatus": PhaseStatusType,
-        "ErrorCode": str,
-        "ErrorDetail": str,
-    },
-    total=False,
-)
-
-TaskFilterTypeDef = TypedDict(
-    "TaskFilterTypeDef",
-    {
-        "Name": TaskFilterNameType,
-        "Values": List[str],
-        "Operator": OperatorType,
-    },
-)
-
-TaskListEntryTypeDef = TypedDict(
-    "TaskListEntryTypeDef",
-    {
-        "TaskArn": str,
-        "Status": TaskStatusType,
-        "Name": str,
-    },
-    total=False,
-)
-
-TaskReportConfigTypeDef = TypedDict(
-    "TaskReportConfigTypeDef",
-    {
-        "Destination": "ReportDestinationTypeDef",
-        "OutputType": ReportOutputTypeType,
-        "ReportLevel": ReportLevelType,
-        "ObjectVersionIds": ObjectVersionIdsType,
-        "Overrides": "ReportOverridesTypeDef",
-    },
-    total=False,
-)
-
-TaskScheduleDetailsTypeDef = TypedDict(
-    "TaskScheduleDetailsTypeDef",
-    {
-        "StatusUpdateTime": datetime,
-        "DisabledReason": str,
-        "DisabledBy": ScheduleDisabledByType,
-    },
-    total=False,
-)
-
-_RequiredTaskScheduleTypeDef = TypedDict(
-    "_RequiredTaskScheduleTypeDef",
-    {
-        "ScheduleExpression": str,
-    },
-)
-_OptionalTaskScheduleTypeDef = TypedDict(
-    "_OptionalTaskScheduleTypeDef",
-    {
-        "Status": ScheduleStatusType,
-    },
-    total=False,
-)
-
-class TaskScheduleTypeDef(_RequiredTaskScheduleTypeDef, _OptionalTaskScheduleTypeDef):
-    pass
-
-ThroughputTypeDef = TypedDict(
-    "ThroughputTypeDef",
-    {
-        "Read": float,
-        "Write": float,
-        "Other": float,
-        "Total": float,
-    },
-    total=False,
-)
-
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-        "Keys": List[str],
-    },
-)
-
-_RequiredUpdateAgentRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateAgentRequestRequestTypeDef",
-    {
-        "AgentArn": str,
-    },
-)
-_OptionalUpdateAgentRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateAgentRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-    total=False,
-)
-
-class UpdateAgentRequestRequestTypeDef(
-    _RequiredUpdateAgentRequestRequestTypeDef, _OptionalUpdateAgentRequestRequestTypeDef
-):
-    pass
-
-UpdateDiscoveryJobRequestRequestTypeDef = TypedDict(
-    "UpdateDiscoveryJobRequestRequestTypeDef",
-    {
-        "DiscoveryJobArn": str,
-        "CollectionDurationMinutes": int,
-    },
-)
-
-_RequiredUpdateLocationAzureBlobRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateLocationAzureBlobRequestRequestTypeDef",
-    {
-        "LocationArn": str,
-    },
-)
-_OptionalUpdateLocationAzureBlobRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateLocationAzureBlobRequestRequestTypeDef",
-    {
-        "Subdirectory": str,
-        "AuthenticationType": Literal["SAS"],
-        "SasConfiguration": "AzureBlobSasConfigurationTypeDef",
-        "BlobType": Literal["BLOCK"],
-        "AccessTier": AzureAccessTierType,
-        "AgentArns": List[str],
-    },
-    total=False,
-)
-
-class UpdateLocationAzureBlobRequestRequestTypeDef(
-    _RequiredUpdateLocationAzureBlobRequestRequestTypeDef,
-    _OptionalUpdateLocationAzureBlobRequestRequestTypeDef,
-):
-    pass
-
-_RequiredUpdateLocationHdfsRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateLocationHdfsRequestRequestTypeDef",
-    {
-        "LocationArn": str,
-    },
-)
-_OptionalUpdateLocationHdfsRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateLocationHdfsRequestRequestTypeDef",
-    {
-        "Subdirectory": str,
-        "NameNodes": List["HdfsNameNodeTypeDef"],
-        "BlockSize": int,
-        "ReplicationFactor": int,
-        "KmsKeyProviderUri": str,
-        "QopConfiguration": "QopConfigurationTypeDef",
-        "AuthenticationType": HdfsAuthenticationTypeType,
-        "SimpleUser": str,
-        "KerberosPrincipal": str,
-        "KerberosKeytab": Union[bytes, IO[bytes], StreamingBody],
-        "KerberosKrb5Conf": Union[bytes, IO[bytes], StreamingBody],
-        "AgentArns": List[str],
-    },
-    total=False,
-)
-
-class UpdateLocationHdfsRequestRequestTypeDef(
-    _RequiredUpdateLocationHdfsRequestRequestTypeDef,
-    _OptionalUpdateLocationHdfsRequestRequestTypeDef,
-):
-    pass
-
-_RequiredUpdateLocationNfsRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateLocationNfsRequestRequestTypeDef",
-    {
-        "LocationArn": str,
-    },
-)
-_OptionalUpdateLocationNfsRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateLocationNfsRequestRequestTypeDef",
-    {
-        "Subdirectory": str,
-        "OnPremConfig": "OnPremConfigTypeDef",
-        "MountOptions": "NfsMountOptionsTypeDef",
-    },
-    total=False,
-)
-
-class UpdateLocationNfsRequestRequestTypeDef(
-    _RequiredUpdateLocationNfsRequestRequestTypeDef, _OptionalUpdateLocationNfsRequestRequestTypeDef
-):
-    pass
-
-_RequiredUpdateLocationObjectStorageRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateLocationObjectStorageRequestRequestTypeDef",
-    {
-        "LocationArn": str,
-    },
-)
-_OptionalUpdateLocationObjectStorageRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateLocationObjectStorageRequestRequestTypeDef",
-    {
-        "ServerPort": int,
-        "ServerProtocol": ObjectStorageServerProtocolType,
-        "Subdirectory": str,
-        "AccessKey": str,
-        "SecretKey": str,
-        "AgentArns": List[str],
-        "ServerCertificate": Union[bytes, IO[bytes], StreamingBody],
-    },
-    total=False,
-)
-
-class UpdateLocationObjectStorageRequestRequestTypeDef(
-    _RequiredUpdateLocationObjectStorageRequestRequestTypeDef,
-    _OptionalUpdateLocationObjectStorageRequestRequestTypeDef,
-):
-    pass
-
-_RequiredUpdateLocationSmbRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateLocationSmbRequestRequestTypeDef",
-    {
-        "LocationArn": str,
-    },
-)
-_OptionalUpdateLocationSmbRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateLocationSmbRequestRequestTypeDef",
-    {
-        "Subdirectory": str,
-        "User": str,
-        "Domain": str,
-        "Password": str,
-        "AgentArns": List[str],
-        "MountOptions": "SmbMountOptionsTypeDef",
-    },
-    total=False,
-)
-
-class UpdateLocationSmbRequestRequestTypeDef(
-    _RequiredUpdateLocationSmbRequestRequestTypeDef, _OptionalUpdateLocationSmbRequestRequestTypeDef
-):
-    pass
-
-_RequiredUpdateStorageSystemRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateStorageSystemRequestRequestTypeDef",
-    {
-        "StorageSystemArn": str,
-    },
-)
-_OptionalUpdateStorageSystemRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateStorageSystemRequestRequestTypeDef",
-    {
-        "ServerConfiguration": "DiscoveryServerConfigurationTypeDef",
-        "AgentArns": List[str],
-        "Name": str,
-        "CloudWatchLogGroupArn": str,
-        "Credentials": "CredentialsTypeDef",
-    },
-    total=False,
-)
-
-class UpdateStorageSystemRequestRequestTypeDef(
-    _RequiredUpdateStorageSystemRequestRequestTypeDef,
-    _OptionalUpdateStorageSystemRequestRequestTypeDef,
-):
-    pass
-
-UpdateTaskExecutionRequestRequestTypeDef = TypedDict(
-    "UpdateTaskExecutionRequestRequestTypeDef",
-    {
-        "TaskExecutionArn": str,
-        "Options": "OptionsTypeDef",
-    },
-)
-
-_RequiredUpdateTaskRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateTaskRequestRequestTypeDef",
-    {
-        "TaskArn": str,
-    },
-)
-_OptionalUpdateTaskRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateTaskRequestRequestTypeDef",
-    {
-        "Options": "OptionsTypeDef",
-        "Excludes": List["FilterRuleTypeDef"],
-        "Schedule": "TaskScheduleTypeDef",
-        "Name": str,
-        "CloudWatchLogGroupArn": str,
-        "Includes": List["FilterRuleTypeDef"],
-        "ManifestConfig": "ManifestConfigTypeDef",
-        "TaskReportConfig": "TaskReportConfigTypeDef",
-    },
-    total=False,
-)
-
-class UpdateTaskRequestRequestTypeDef(
-    _RequiredUpdateTaskRequestRequestTypeDef, _OptionalUpdateTaskRequestRequestTypeDef
-):
-    pass
+        "Protocol": NotRequired[FsxUpdateProtocolTypeDef],
+        "Subdirectory": NotRequired[str],
+    },
+)
+
+class DescribeStorageSystemResourcesResponseTypeDef(TypedDict):
+    ResourceDetails: ResourceDetailsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class DescribeStorageSystemResourceMetricsResponseTypeDef(TypedDict):
+    Metrics: List[ResourceMetricsTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class CreateTaskRequestTypeDef(TypedDict):
+    SourceLocationArn: str
+    DestinationLocationArn: str
+    CloudWatchLogGroupArn: NotRequired[str]
+    Name: NotRequired[str]
+    Options: NotRequired[OptionsTypeDef]
+    Excludes: NotRequired[Sequence[FilterRuleTypeDef]]
+    Schedule: NotRequired[TaskScheduleTypeDef]
+    Tags: NotRequired[Sequence[TagListEntryTypeDef]]
+    Includes: NotRequired[Sequence[FilterRuleTypeDef]]
+    ManifestConfig: NotRequired[ManifestConfigTypeDef]
+    TaskReportConfig: NotRequired[TaskReportConfigTypeDef]
+    TaskMode: NotRequired[TaskModeType]
+
+class DescribeTaskExecutionResponseTypeDef(TypedDict):
+    TaskExecutionArn: str
+    Status: TaskExecutionStatusType
+    Options: OptionsTypeDef
+    Excludes: List[FilterRuleTypeDef]
+    Includes: List[FilterRuleTypeDef]
+    ManifestConfig: ManifestConfigTypeDef
+    StartTime: datetime
+    EstimatedFilesToTransfer: int
+    EstimatedBytesToTransfer: int
+    FilesTransferred: int
+    BytesWritten: int
+    BytesTransferred: int
+    BytesCompressed: int
+    Result: TaskExecutionResultDetailTypeDef
+    TaskReportConfig: TaskReportConfigTypeDef
+    FilesDeleted: int
+    FilesSkipped: int
+    FilesVerified: int
+    ReportResult: ReportResultTypeDef
+    EstimatedFilesToDelete: int
+    TaskMode: TaskModeType
+    FilesPrepared: int
+    FilesListed: TaskExecutionFilesListedDetailTypeDef
+    FilesFailed: TaskExecutionFilesFailedDetailTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeTaskResponseTypeDef(TypedDict):
+    TaskArn: str
+    Status: TaskStatusType
+    Name: str
+    CurrentTaskExecutionArn: str
+    SourceLocationArn: str
+    DestinationLocationArn: str
+    CloudWatchLogGroupArn: str
+    SourceNetworkInterfaceArns: List[str]
+    DestinationNetworkInterfaceArns: List[str]
+    Options: OptionsTypeDef
+    Excludes: List[FilterRuleTypeDef]
+    Schedule: TaskScheduleTypeDef
+    ErrorCode: str
+    ErrorDetail: str
+    CreationTime: datetime
+    Includes: List[FilterRuleTypeDef]
+    ManifestConfig: ManifestConfigTypeDef
+    TaskReportConfig: TaskReportConfigTypeDef
+    ScheduleDetails: TaskScheduleDetailsTypeDef
+    TaskMode: TaskModeType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartTaskExecutionRequestTypeDef(TypedDict):
+    TaskArn: str
+    OverrideOptions: NotRequired[OptionsTypeDef]
+    Includes: NotRequired[Sequence[FilterRuleTypeDef]]
+    Excludes: NotRequired[Sequence[FilterRuleTypeDef]]
+    ManifestConfig: NotRequired[ManifestConfigTypeDef]
+    TaskReportConfig: NotRequired[TaskReportConfigTypeDef]
+    Tags: NotRequired[Sequence[TagListEntryTypeDef]]
+
+class UpdateTaskRequestTypeDef(TypedDict):
+    TaskArn: str
+    Options: NotRequired[OptionsTypeDef]
+    Excludes: NotRequired[Sequence[FilterRuleTypeDef]]
+    Schedule: NotRequired[TaskScheduleTypeDef]
+    Name: NotRequired[str]
+    CloudWatchLogGroupArn: NotRequired[str]
+    Includes: NotRequired[Sequence[FilterRuleTypeDef]]
+    ManifestConfig: NotRequired[ManifestConfigTypeDef]
+    TaskReportConfig: NotRequired[TaskReportConfigTypeDef]

@@ -1,19 +1,21 @@
 """
 Main interface for comprehendmedical service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_comprehendmedical/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_comprehendmedical import (
         Client,
         ComprehendMedicalClient,
     )
 
-    session = boto3.Session()
-
-    client: ComprehendMedicalClient = boto3.client("comprehendmedical")
-    session_client: ComprehendMedicalClient = session.client("comprehendmedical")
+    session = Session()
+    client: ComprehendMedicalClient = session.client("comprehendmedical")
     ```
 """
 

@@ -1,10 +1,14 @@
 """
 Main interface for apptest service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_apptest/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_apptest import (
         Client,
         ListTestCasesPaginator,
@@ -16,10 +20,8 @@ Usage::
         MainframeModernizationApplicationTestingClient,
     )
 
-    session = boto3.Session()
-
-    client: MainframeModernizationApplicationTestingClient = boto3.client("apptest")
-    session_client: MainframeModernizationApplicationTestingClient = session.client("apptest")
+    session = Session()
+    client: MainframeModernizationApplicationTestingClient = session.client("apptest")
 
     list_test_cases_paginator: ListTestCasesPaginator = client.get_paginator("list_test_cases")
     list_test_configurations_paginator: ListTestConfigurationsPaginator = client.get_paginator("list_test_configurations")

@@ -1,10 +1,14 @@
 """
 Main interface for autoscaling-plans service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_autoscaling_plans/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_autoscaling_plans import (
         AutoScalingPlansClient,
         Client,
@@ -12,10 +16,8 @@ Usage::
         DescribeScalingPlansPaginator,
     )
 
-    session = boto3.Session()
-
-    client: AutoScalingPlansClient = boto3.client("autoscaling-plans")
-    session_client: AutoScalingPlansClient = session.client("autoscaling-plans")
+    session = Session()
+    client: AutoScalingPlansClient = session.client("autoscaling-plans")
 
     describe_scaling_plan_resources_paginator: DescribeScalingPlanResourcesPaginator = client.get_paginator("describe_scaling_plan_resources")
     describe_scaling_plans_paginator: DescribeScalingPlansPaginator = client.get_paginator("describe_scaling_plans")

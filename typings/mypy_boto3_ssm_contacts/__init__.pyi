@@ -1,10 +1,14 @@
 """
 Main interface for ssm-contacts service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm_contacts/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_ssm_contacts import (
         Client,
         ListContactChannelsPaginator,
@@ -21,10 +25,8 @@ Usage::
         SSMContactsClient,
     )
 
-    session = boto3.Session()
-
-    client: SSMContactsClient = boto3.client("ssm-contacts")
-    session_client: SSMContactsClient = session.client("ssm-contacts")
+    session = Session()
+    client: SSMContactsClient = session.client("ssm-contacts")
 
     list_contact_channels_paginator: ListContactChannelsPaginator = client.get_paginator("list_contact_channels")
     list_contacts_paginator: ListContactsPaginator = client.get_paginator("list_contacts")

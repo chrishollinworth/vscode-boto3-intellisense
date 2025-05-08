@@ -1,720 +1,550 @@
 """
 Type annotations for chatbot service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chatbot/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chatbot/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_chatbot.type_defs import AccountPreferencesTypeDef
 
-    data: AccountPreferencesTypeDef = {...}
+    data: AccountPreferencesTypeDef = ...
     ```
 """
 
-import sys
-from typing import Any, Dict, List
+from __future__ import annotations
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+import sys
+from typing import Union
+
+from .literals import CustomActionAttachmentCriteriaOperatorType
+
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
     "AccountPreferencesTypeDef",
+    "AssociateToConfigurationRequestTypeDef",
+    "AssociationListingTypeDef",
     "ChimeWebhookConfigurationTypeDef",
     "ConfiguredTeamTypeDef",
-    "CreateChimeWebhookConfigurationRequestRequestTypeDef",
+    "CreateChimeWebhookConfigurationRequestTypeDef",
     "CreateChimeWebhookConfigurationResultTypeDef",
-    "CreateSlackChannelConfigurationRequestRequestTypeDef",
+    "CreateCustomActionRequestTypeDef",
+    "CreateCustomActionResultTypeDef",
+    "CreateSlackChannelConfigurationRequestTypeDef",
     "CreateSlackChannelConfigurationResultTypeDef",
-    "CreateTeamsChannelConfigurationRequestRequestTypeDef",
+    "CreateTeamsChannelConfigurationRequestTypeDef",
     "CreateTeamsChannelConfigurationResultTypeDef",
-    "DeleteChimeWebhookConfigurationRequestRequestTypeDef",
-    "DeleteMicrosoftTeamsUserIdentityRequestRequestTypeDef",
-    "DeleteSlackChannelConfigurationRequestRequestTypeDef",
-    "DeleteSlackUserIdentityRequestRequestTypeDef",
-    "DeleteSlackWorkspaceAuthorizationRequestRequestTypeDef",
-    "DeleteTeamsChannelConfigurationRequestRequestTypeDef",
-    "DeleteTeamsConfiguredTeamRequestRequestTypeDef",
-    "DescribeChimeWebhookConfigurationsRequestRequestTypeDef",
+    "CustomActionAttachmentCriteriaTypeDef",
+    "CustomActionAttachmentOutputTypeDef",
+    "CustomActionAttachmentTypeDef",
+    "CustomActionAttachmentUnionTypeDef",
+    "CustomActionDefinitionTypeDef",
+    "CustomActionTypeDef",
+    "DeleteChimeWebhookConfigurationRequestTypeDef",
+    "DeleteCustomActionRequestTypeDef",
+    "DeleteMicrosoftTeamsUserIdentityRequestTypeDef",
+    "DeleteSlackChannelConfigurationRequestTypeDef",
+    "DeleteSlackUserIdentityRequestTypeDef",
+    "DeleteSlackWorkspaceAuthorizationRequestTypeDef",
+    "DeleteTeamsChannelConfigurationRequestTypeDef",
+    "DeleteTeamsConfiguredTeamRequestTypeDef",
+    "DescribeChimeWebhookConfigurationsRequestPaginateTypeDef",
+    "DescribeChimeWebhookConfigurationsRequestTypeDef",
     "DescribeChimeWebhookConfigurationsResultTypeDef",
-    "DescribeSlackChannelConfigurationsRequestRequestTypeDef",
+    "DescribeSlackChannelConfigurationsRequestPaginateTypeDef",
+    "DescribeSlackChannelConfigurationsRequestTypeDef",
     "DescribeSlackChannelConfigurationsResultTypeDef",
-    "DescribeSlackUserIdentitiesRequestRequestTypeDef",
+    "DescribeSlackUserIdentitiesRequestPaginateTypeDef",
+    "DescribeSlackUserIdentitiesRequestTypeDef",
     "DescribeSlackUserIdentitiesResultTypeDef",
-    "DescribeSlackWorkspacesRequestRequestTypeDef",
+    "DescribeSlackWorkspacesRequestPaginateTypeDef",
+    "DescribeSlackWorkspacesRequestTypeDef",
     "DescribeSlackWorkspacesResultTypeDef",
+    "DisassociateFromConfigurationRequestTypeDef",
     "GetAccountPreferencesResultTypeDef",
-    "GetTeamsChannelConfigurationRequestRequestTypeDef",
+    "GetCustomActionRequestTypeDef",
+    "GetCustomActionResultTypeDef",
+    "GetTeamsChannelConfigurationRequestTypeDef",
     "GetTeamsChannelConfigurationResultTypeDef",
-    "ListMicrosoftTeamsConfiguredTeamsRequestRequestTypeDef",
+    "ListAssociationsRequestPaginateTypeDef",
+    "ListAssociationsRequestTypeDef",
+    "ListAssociationsResultTypeDef",
+    "ListCustomActionsRequestPaginateTypeDef",
+    "ListCustomActionsRequestTypeDef",
+    "ListCustomActionsResultTypeDef",
+    "ListMicrosoftTeamsConfiguredTeamsRequestPaginateTypeDef",
+    "ListMicrosoftTeamsConfiguredTeamsRequestTypeDef",
     "ListMicrosoftTeamsConfiguredTeamsResultTypeDef",
-    "ListMicrosoftTeamsUserIdentitiesRequestRequestTypeDef",
+    "ListMicrosoftTeamsUserIdentitiesRequestPaginateTypeDef",
+    "ListMicrosoftTeamsUserIdentitiesRequestTypeDef",
     "ListMicrosoftTeamsUserIdentitiesResultTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
-    "ListTeamsChannelConfigurationsRequestRequestTypeDef",
+    "ListTeamsChannelConfigurationsRequestPaginateTypeDef",
+    "ListTeamsChannelConfigurationsRequestTypeDef",
     "ListTeamsChannelConfigurationsResultTypeDef",
+    "PaginatorConfigTypeDef",
     "ResponseMetadataTypeDef",
     "SlackChannelConfigurationTypeDef",
     "SlackUserIdentityTypeDef",
     "SlackWorkspaceTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
     "TagTypeDef",
     "TeamsChannelConfigurationTypeDef",
     "TeamsUserIdentityTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateAccountPreferencesRequestRequestTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateAccountPreferencesRequestTypeDef",
     "UpdateAccountPreferencesResultTypeDef",
-    "UpdateChimeWebhookConfigurationRequestRequestTypeDef",
+    "UpdateChimeWebhookConfigurationRequestTypeDef",
     "UpdateChimeWebhookConfigurationResultTypeDef",
-    "UpdateSlackChannelConfigurationRequestRequestTypeDef",
+    "UpdateCustomActionRequestTypeDef",
+    "UpdateCustomActionResultTypeDef",
+    "UpdateSlackChannelConfigurationRequestTypeDef",
     "UpdateSlackChannelConfigurationResultTypeDef",
-    "UpdateTeamsChannelConfigurationRequestRequestTypeDef",
+    "UpdateTeamsChannelConfigurationRequestTypeDef",
     "UpdateTeamsChannelConfigurationResultTypeDef",
 )
 
-AccountPreferencesTypeDef = TypedDict(
-    "AccountPreferencesTypeDef",
-    {
-        "UserAuthorizationRequired": bool,
-        "TrainingDataCollectionEnabled": bool,
-    },
-    total=False,
-)
+class AccountPreferencesTypeDef(TypedDict):
+    UserAuthorizationRequired: NotRequired[bool]
+    TrainingDataCollectionEnabled: NotRequired[bool]
 
-_RequiredChimeWebhookConfigurationTypeDef = TypedDict(
-    "_RequiredChimeWebhookConfigurationTypeDef",
-    {
-        "WebhookDescription": str,
-        "ChatConfigurationArn": str,
-        "IamRoleArn": str,
-        "SnsTopicArns": List[str],
-    },
-)
-_OptionalChimeWebhookConfigurationTypeDef = TypedDict(
-    "_OptionalChimeWebhookConfigurationTypeDef",
-    {
-        "ConfigurationName": str,
-        "LoggingLevel": str,
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
+class AssociateToConfigurationRequestTypeDef(TypedDict):
+    Resource: str
+    ChatConfiguration: str
 
-class ChimeWebhookConfigurationTypeDef(
-    _RequiredChimeWebhookConfigurationTypeDef, _OptionalChimeWebhookConfigurationTypeDef
-):
-    pass
+class AssociationListingTypeDef(TypedDict):
+    Resource: str
 
-_RequiredConfiguredTeamTypeDef = TypedDict(
-    "_RequiredConfiguredTeamTypeDef",
-    {
-        "TenantId": str,
-        "TeamId": str,
-    },
-)
-_OptionalConfiguredTeamTypeDef = TypedDict(
-    "_OptionalConfiguredTeamTypeDef",
-    {
-        "TeamName": str,
-    },
-    total=False,
-)
+class TagTypeDef(TypedDict):
+    TagKey: str
+    TagValue: str
 
-class ConfiguredTeamTypeDef(_RequiredConfiguredTeamTypeDef, _OptionalConfiguredTeamTypeDef):
-    pass
+class ConfiguredTeamTypeDef(TypedDict):
+    TenantId: str
+    TeamId: str
+    TeamName: NotRequired[str]
+    State: NotRequired[str]
+    StateReason: NotRequired[str]
 
-_RequiredCreateChimeWebhookConfigurationRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateChimeWebhookConfigurationRequestRequestTypeDef",
-    {
-        "WebhookDescription": str,
-        "WebhookUrl": str,
-        "SnsTopicArns": List[str],
-        "IamRoleArn": str,
-        "ConfigurationName": str,
-    },
-)
-_OptionalCreateChimeWebhookConfigurationRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateChimeWebhookConfigurationRequestRequestTypeDef",
-    {
-        "LoggingLevel": str,
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-class CreateChimeWebhookConfigurationRequestRequestTypeDef(
-    _RequiredCreateChimeWebhookConfigurationRequestRequestTypeDef,
-    _OptionalCreateChimeWebhookConfigurationRequestRequestTypeDef,
-):
-    pass
+class CustomActionDefinitionTypeDef(TypedDict):
+    CommandText: str
 
-CreateChimeWebhookConfigurationResultTypeDef = TypedDict(
-    "CreateChimeWebhookConfigurationResultTypeDef",
-    {
-        "WebhookConfiguration": "ChimeWebhookConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CustomActionAttachmentCriteriaTypeDef(TypedDict):
+    Operator: CustomActionAttachmentCriteriaOperatorType
+    VariableName: str
+    Value: NotRequired[str]
 
-_RequiredCreateSlackChannelConfigurationRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateSlackChannelConfigurationRequestRequestTypeDef",
-    {
-        "SlackTeamId": str,
-        "SlackChannelId": str,
-        "IamRoleArn": str,
-        "ConfigurationName": str,
-    },
-)
-_OptionalCreateSlackChannelConfigurationRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateSlackChannelConfigurationRequestRequestTypeDef",
-    {
-        "SlackChannelName": str,
-        "SnsTopicArns": List[str],
-        "LoggingLevel": str,
-        "GuardrailPolicyArns": List[str],
-        "UserAuthorizationRequired": bool,
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
+class DeleteChimeWebhookConfigurationRequestTypeDef(TypedDict):
+    ChatConfigurationArn: str
 
-class CreateSlackChannelConfigurationRequestRequestTypeDef(
-    _RequiredCreateSlackChannelConfigurationRequestRequestTypeDef,
-    _OptionalCreateSlackChannelConfigurationRequestRequestTypeDef,
-):
-    pass
+class DeleteCustomActionRequestTypeDef(TypedDict):
+    CustomActionArn: str
 
-CreateSlackChannelConfigurationResultTypeDef = TypedDict(
-    "CreateSlackChannelConfigurationResultTypeDef",
-    {
-        "ChannelConfiguration": "SlackChannelConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DeleteMicrosoftTeamsUserIdentityRequestTypeDef(TypedDict):
+    ChatConfigurationArn: str
+    UserId: str
 
-_RequiredCreateTeamsChannelConfigurationRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateTeamsChannelConfigurationRequestRequestTypeDef",
-    {
-        "ChannelId": str,
-        "TeamId": str,
-        "TenantId": str,
-        "IamRoleArn": str,
-        "ConfigurationName": str,
-    },
-)
-_OptionalCreateTeamsChannelConfigurationRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateTeamsChannelConfigurationRequestRequestTypeDef",
-    {
-        "ChannelName": str,
-        "TeamName": str,
-        "SnsTopicArns": List[str],
-        "LoggingLevel": str,
-        "GuardrailPolicyArns": List[str],
-        "UserAuthorizationRequired": bool,
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
+class DeleteSlackChannelConfigurationRequestTypeDef(TypedDict):
+    ChatConfigurationArn: str
 
-class CreateTeamsChannelConfigurationRequestRequestTypeDef(
-    _RequiredCreateTeamsChannelConfigurationRequestRequestTypeDef,
-    _OptionalCreateTeamsChannelConfigurationRequestRequestTypeDef,
-):
-    pass
+class DeleteSlackUserIdentityRequestTypeDef(TypedDict):
+    ChatConfigurationArn: str
+    SlackTeamId: str
+    SlackUserId: str
 
-CreateTeamsChannelConfigurationResultTypeDef = TypedDict(
-    "CreateTeamsChannelConfigurationResultTypeDef",
-    {
-        "ChannelConfiguration": "TeamsChannelConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DeleteSlackWorkspaceAuthorizationRequestTypeDef(TypedDict):
+    SlackTeamId: str
 
-DeleteChimeWebhookConfigurationRequestRequestTypeDef = TypedDict(
-    "DeleteChimeWebhookConfigurationRequestRequestTypeDef",
-    {
-        "ChatConfigurationArn": str,
-    },
-)
+class DeleteTeamsChannelConfigurationRequestTypeDef(TypedDict):
+    ChatConfigurationArn: str
 
-DeleteMicrosoftTeamsUserIdentityRequestRequestTypeDef = TypedDict(
-    "DeleteMicrosoftTeamsUserIdentityRequestRequestTypeDef",
-    {
-        "ChatConfigurationArn": str,
-        "UserId": str,
-    },
-)
+class DeleteTeamsConfiguredTeamRequestTypeDef(TypedDict):
+    TeamId: str
 
-DeleteSlackChannelConfigurationRequestRequestTypeDef = TypedDict(
-    "DeleteSlackChannelConfigurationRequestRequestTypeDef",
-    {
-        "ChatConfigurationArn": str,
-    },
-)
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
 
-DeleteSlackUserIdentityRequestRequestTypeDef = TypedDict(
-    "DeleteSlackUserIdentityRequestRequestTypeDef",
-    {
-        "ChatConfigurationArn": str,
-        "SlackTeamId": str,
-        "SlackUserId": str,
-    },
-)
+class DescribeChimeWebhookConfigurationsRequestTypeDef(TypedDict):
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+    ChatConfigurationArn: NotRequired[str]
 
-DeleteSlackWorkspaceAuthorizationRequestRequestTypeDef = TypedDict(
-    "DeleteSlackWorkspaceAuthorizationRequestRequestTypeDef",
-    {
-        "SlackTeamId": str,
-    },
-)
+class DescribeSlackChannelConfigurationsRequestTypeDef(TypedDict):
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+    ChatConfigurationArn: NotRequired[str]
 
-DeleteTeamsChannelConfigurationRequestRequestTypeDef = TypedDict(
-    "DeleteTeamsChannelConfigurationRequestRequestTypeDef",
-    {
-        "ChatConfigurationArn": str,
-    },
-)
+class DescribeSlackUserIdentitiesRequestTypeDef(TypedDict):
+    ChatConfigurationArn: NotRequired[str]
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
 
-DeleteTeamsConfiguredTeamRequestRequestTypeDef = TypedDict(
-    "DeleteTeamsConfiguredTeamRequestRequestTypeDef",
-    {
-        "TeamId": str,
-    },
-)
+class SlackUserIdentityTypeDef(TypedDict):
+    IamRoleArn: str
+    ChatConfigurationArn: str
+    SlackTeamId: str
+    SlackUserId: str
+    AwsUserIdentity: NotRequired[str]
 
-DescribeChimeWebhookConfigurationsRequestRequestTypeDef = TypedDict(
-    "DescribeChimeWebhookConfigurationsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-        "ChatConfigurationArn": str,
-    },
-    total=False,
-)
+class DescribeSlackWorkspacesRequestTypeDef(TypedDict):
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
 
-DescribeChimeWebhookConfigurationsResultTypeDef = TypedDict(
-    "DescribeChimeWebhookConfigurationsResultTypeDef",
-    {
-        "NextToken": str,
-        "WebhookConfigurations": List["ChimeWebhookConfigurationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class SlackWorkspaceTypeDef(TypedDict):
+    SlackTeamId: str
+    SlackTeamName: str
+    State: NotRequired[str]
+    StateReason: NotRequired[str]
 
-DescribeSlackChannelConfigurationsRequestRequestTypeDef = TypedDict(
-    "DescribeSlackChannelConfigurationsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-        "ChatConfigurationArn": str,
-    },
-    total=False,
-)
+class DisassociateFromConfigurationRequestTypeDef(TypedDict):
+    Resource: str
+    ChatConfiguration: str
 
-DescribeSlackChannelConfigurationsResultTypeDef = TypedDict(
-    "DescribeSlackChannelConfigurationsResultTypeDef",
-    {
-        "NextToken": str,
-        "SlackChannelConfigurations": List["SlackChannelConfigurationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetCustomActionRequestTypeDef(TypedDict):
+    CustomActionArn: str
 
-DescribeSlackUserIdentitiesRequestRequestTypeDef = TypedDict(
-    "DescribeSlackUserIdentitiesRequestRequestTypeDef",
-    {
-        "ChatConfigurationArn": str,
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
+class GetTeamsChannelConfigurationRequestTypeDef(TypedDict):
+    ChatConfigurationArn: str
 
-DescribeSlackUserIdentitiesResultTypeDef = TypedDict(
-    "DescribeSlackUserIdentitiesResultTypeDef",
-    {
-        "SlackUserIdentities": List["SlackUserIdentityTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListAssociationsRequestTypeDef(TypedDict):
+    ChatConfiguration: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
 
-DescribeSlackWorkspacesRequestRequestTypeDef = TypedDict(
-    "DescribeSlackWorkspacesRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
+class ListCustomActionsRequestTypeDef(TypedDict):
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
 
-DescribeSlackWorkspacesResultTypeDef = TypedDict(
-    "DescribeSlackWorkspacesResultTypeDef",
-    {
-        "SlackWorkspaces": List["SlackWorkspaceTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListMicrosoftTeamsConfiguredTeamsRequestTypeDef(TypedDict):
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
 
-GetAccountPreferencesResultTypeDef = TypedDict(
-    "GetAccountPreferencesResultTypeDef",
-    {
-        "AccountPreferences": "AccountPreferencesTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListMicrosoftTeamsUserIdentitiesRequestTypeDef(TypedDict):
+    ChatConfigurationArn: NotRequired[str]
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
 
-GetTeamsChannelConfigurationRequestRequestTypeDef = TypedDict(
-    "GetTeamsChannelConfigurationRequestRequestTypeDef",
-    {
-        "ChatConfigurationArn": str,
-    },
-)
+class TeamsUserIdentityTypeDef(TypedDict):
+    IamRoleArn: str
+    ChatConfigurationArn: str
+    TeamId: str
+    UserId: NotRequired[str]
+    AwsUserIdentity: NotRequired[str]
+    TeamsChannelId: NotRequired[str]
+    TeamsTenantId: NotRequired[str]
 
-GetTeamsChannelConfigurationResultTypeDef = TypedDict(
-    "GetTeamsChannelConfigurationResultTypeDef",
-    {
-        "ChannelConfiguration": "TeamsChannelConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    ResourceARN: str
 
-ListMicrosoftTeamsConfiguredTeamsRequestRequestTypeDef = TypedDict(
-    "ListMicrosoftTeamsConfiguredTeamsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
+class ListTeamsChannelConfigurationsRequestTypeDef(TypedDict):
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+    TeamId: NotRequired[str]
 
-ListMicrosoftTeamsConfiguredTeamsResultTypeDef = TypedDict(
-    "ListMicrosoftTeamsConfiguredTeamsResultTypeDef",
-    {
-        "ConfiguredTeams": List["ConfiguredTeamTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class UntagResourceRequestTypeDef(TypedDict):
+    ResourceARN: str
+    TagKeys: Sequence[str]
 
-ListMicrosoftTeamsUserIdentitiesRequestRequestTypeDef = TypedDict(
-    "ListMicrosoftTeamsUserIdentitiesRequestRequestTypeDef",
-    {
-        "ChatConfigurationArn": str,
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
+class UpdateAccountPreferencesRequestTypeDef(TypedDict):
+    UserAuthorizationRequired: NotRequired[bool]
+    TrainingDataCollectionEnabled: NotRequired[bool]
 
-ListMicrosoftTeamsUserIdentitiesResultTypeDef = TypedDict(
-    "ListMicrosoftTeamsUserIdentitiesResultTypeDef",
-    {
-        "TeamsUserIdentities": List["TeamsUserIdentityTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class UpdateChimeWebhookConfigurationRequestTypeDef(TypedDict):
+    ChatConfigurationArn: str
+    WebhookDescription: NotRequired[str]
+    WebhookUrl: NotRequired[str]
+    SnsTopicArns: NotRequired[Sequence[str]]
+    IamRoleArn: NotRequired[str]
+    LoggingLevel: NotRequired[str]
 
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "ResourceARN": str,
-    },
-)
+class UpdateSlackChannelConfigurationRequestTypeDef(TypedDict):
+    ChatConfigurationArn: str
+    SlackChannelId: str
+    SlackChannelName: NotRequired[str]
+    SnsTopicArns: NotRequired[Sequence[str]]
+    IamRoleArn: NotRequired[str]
+    LoggingLevel: NotRequired[str]
+    GuardrailPolicyArns: NotRequired[Sequence[str]]
+    UserAuthorizationRequired: NotRequired[bool]
 
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "Tags": List["TagTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class UpdateTeamsChannelConfigurationRequestTypeDef(TypedDict):
+    ChatConfigurationArn: str
+    ChannelId: str
+    ChannelName: NotRequired[str]
+    SnsTopicArns: NotRequired[Sequence[str]]
+    IamRoleArn: NotRequired[str]
+    LoggingLevel: NotRequired[str]
+    GuardrailPolicyArns: NotRequired[Sequence[str]]
+    UserAuthorizationRequired: NotRequired[bool]
 
-ListTeamsChannelConfigurationsRequestRequestTypeDef = TypedDict(
-    "ListTeamsChannelConfigurationsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-        "TeamId": str,
-    },
-    total=False,
-)
+class ChimeWebhookConfigurationTypeDef(TypedDict):
+    WebhookDescription: str
+    ChatConfigurationArn: str
+    IamRoleArn: str
+    SnsTopicArns: List[str]
+    ConfigurationName: NotRequired[str]
+    LoggingLevel: NotRequired[str]
+    Tags: NotRequired[List[TagTypeDef]]
+    State: NotRequired[str]
+    StateReason: NotRequired[str]
 
-ListTeamsChannelConfigurationsResultTypeDef = TypedDict(
-    "ListTeamsChannelConfigurationsResultTypeDef",
-    {
-        "NextToken": str,
-        "TeamChannelConfigurations": List["TeamsChannelConfigurationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CreateChimeWebhookConfigurationRequestTypeDef(TypedDict):
+    WebhookDescription: str
+    WebhookUrl: str
+    SnsTopicArns: Sequence[str]
+    IamRoleArn: str
+    ConfigurationName: str
+    LoggingLevel: NotRequired[str]
+    Tags: NotRequired[Sequence[TagTypeDef]]
 
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
+class CreateSlackChannelConfigurationRequestTypeDef(TypedDict):
+    SlackTeamId: str
+    SlackChannelId: str
+    IamRoleArn: str
+    ConfigurationName: str
+    SlackChannelName: NotRequired[str]
+    SnsTopicArns: NotRequired[Sequence[str]]
+    LoggingLevel: NotRequired[str]
+    GuardrailPolicyArns: NotRequired[Sequence[str]]
+    UserAuthorizationRequired: NotRequired[bool]
+    Tags: NotRequired[Sequence[TagTypeDef]]
 
-_RequiredSlackChannelConfigurationTypeDef = TypedDict(
-    "_RequiredSlackChannelConfigurationTypeDef",
-    {
-        "SlackTeamName": str,
-        "SlackTeamId": str,
-        "SlackChannelId": str,
-        "SlackChannelName": str,
-        "ChatConfigurationArn": str,
-        "IamRoleArn": str,
-        "SnsTopicArns": List[str],
-    },
-)
-_OptionalSlackChannelConfigurationTypeDef = TypedDict(
-    "_OptionalSlackChannelConfigurationTypeDef",
-    {
-        "ConfigurationName": str,
-        "LoggingLevel": str,
-        "GuardrailPolicyArns": List[str],
-        "UserAuthorizationRequired": bool,
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
+class CreateTeamsChannelConfigurationRequestTypeDef(TypedDict):
+    ChannelId: str
+    TeamId: str
+    TenantId: str
+    IamRoleArn: str
+    ConfigurationName: str
+    ChannelName: NotRequired[str]
+    TeamName: NotRequired[str]
+    SnsTopicArns: NotRequired[Sequence[str]]
+    LoggingLevel: NotRequired[str]
+    GuardrailPolicyArns: NotRequired[Sequence[str]]
+    UserAuthorizationRequired: NotRequired[bool]
+    Tags: NotRequired[Sequence[TagTypeDef]]
 
-class SlackChannelConfigurationTypeDef(
-    _RequiredSlackChannelConfigurationTypeDef, _OptionalSlackChannelConfigurationTypeDef
-):
-    pass
+class SlackChannelConfigurationTypeDef(TypedDict):
+    SlackTeamName: str
+    SlackTeamId: str
+    SlackChannelId: str
+    SlackChannelName: str
+    ChatConfigurationArn: str
+    IamRoleArn: str
+    SnsTopicArns: List[str]
+    ConfigurationName: NotRequired[str]
+    LoggingLevel: NotRequired[str]
+    GuardrailPolicyArns: NotRequired[List[str]]
+    UserAuthorizationRequired: NotRequired[bool]
+    Tags: NotRequired[List[TagTypeDef]]
+    State: NotRequired[str]
+    StateReason: NotRequired[str]
 
-_RequiredSlackUserIdentityTypeDef = TypedDict(
-    "_RequiredSlackUserIdentityTypeDef",
-    {
-        "IamRoleArn": str,
-        "ChatConfigurationArn": str,
-        "SlackTeamId": str,
-        "SlackUserId": str,
-    },
-)
-_OptionalSlackUserIdentityTypeDef = TypedDict(
-    "_OptionalSlackUserIdentityTypeDef",
-    {
-        "AwsUserIdentity": str,
-    },
-    total=False,
-)
+class TagResourceRequestTypeDef(TypedDict):
+    ResourceARN: str
+    Tags: Sequence[TagTypeDef]
 
-class SlackUserIdentityTypeDef(
-    _RequiredSlackUserIdentityTypeDef, _OptionalSlackUserIdentityTypeDef
-):
-    pass
+class TeamsChannelConfigurationTypeDef(TypedDict):
+    ChannelId: str
+    TeamId: str
+    TenantId: str
+    ChatConfigurationArn: str
+    IamRoleArn: str
+    SnsTopicArns: List[str]
+    ChannelName: NotRequired[str]
+    TeamName: NotRequired[str]
+    ConfigurationName: NotRequired[str]
+    LoggingLevel: NotRequired[str]
+    GuardrailPolicyArns: NotRequired[List[str]]
+    UserAuthorizationRequired: NotRequired[bool]
+    Tags: NotRequired[List[TagTypeDef]]
+    State: NotRequired[str]
+    StateReason: NotRequired[str]
 
-SlackWorkspaceTypeDef = TypedDict(
-    "SlackWorkspaceTypeDef",
-    {
-        "SlackTeamId": str,
-        "SlackTeamName": str,
-    },
-)
+class CreateCustomActionResultTypeDef(TypedDict):
+    CustomActionArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "ResourceARN": str,
-        "Tags": List["TagTypeDef"],
-    },
-)
+class GetAccountPreferencesResultTypeDef(TypedDict):
+    AccountPreferences: AccountPreferencesTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-TagTypeDef = TypedDict(
-    "TagTypeDef",
-    {
-        "TagKey": str,
-        "TagValue": str,
-    },
-)
+class ListAssociationsResultTypeDef(TypedDict):
+    Associations: List[AssociationListingTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-_RequiredTeamsChannelConfigurationTypeDef = TypedDict(
-    "_RequiredTeamsChannelConfigurationTypeDef",
-    {
-        "ChannelId": str,
-        "TeamId": str,
-        "TenantId": str,
-        "ChatConfigurationArn": str,
-        "IamRoleArn": str,
-        "SnsTopicArns": List[str],
-    },
-)
-_OptionalTeamsChannelConfigurationTypeDef = TypedDict(
-    "_OptionalTeamsChannelConfigurationTypeDef",
-    {
-        "ChannelName": str,
-        "TeamName": str,
-        "ConfigurationName": str,
-        "LoggingLevel": str,
-        "GuardrailPolicyArns": List[str],
-        "UserAuthorizationRequired": bool,
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
+class ListCustomActionsResultTypeDef(TypedDict):
+    CustomActions: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-class TeamsChannelConfigurationTypeDef(
-    _RequiredTeamsChannelConfigurationTypeDef, _OptionalTeamsChannelConfigurationTypeDef
-):
-    pass
+class ListMicrosoftTeamsConfiguredTeamsResultTypeDef(TypedDict):
+    ConfiguredTeams: List[ConfiguredTeamTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-_RequiredTeamsUserIdentityTypeDef = TypedDict(
-    "_RequiredTeamsUserIdentityTypeDef",
-    {
-        "IamRoleArn": str,
-        "ChatConfigurationArn": str,
-        "TeamId": str,
-    },
-)
-_OptionalTeamsUserIdentityTypeDef = TypedDict(
-    "_OptionalTeamsUserIdentityTypeDef",
-    {
-        "UserId": str,
-        "AwsUserIdentity": str,
-        "TeamsChannelId": str,
-        "TeamsTenantId": str,
-    },
-    total=False,
-)
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    Tags: List[TagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class TeamsUserIdentityTypeDef(
-    _RequiredTeamsUserIdentityTypeDef, _OptionalTeamsUserIdentityTypeDef
-):
-    pass
+class UpdateAccountPreferencesResultTypeDef(TypedDict):
+    AccountPreferences: AccountPreferencesTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "ResourceARN": str,
-        "TagKeys": List[str],
-    },
-)
+class UpdateCustomActionResultTypeDef(TypedDict):
+    CustomActionArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-UpdateAccountPreferencesRequestRequestTypeDef = TypedDict(
-    "UpdateAccountPreferencesRequestRequestTypeDef",
-    {
-        "UserAuthorizationRequired": bool,
-        "TrainingDataCollectionEnabled": bool,
-    },
-    total=False,
-)
+class CustomActionAttachmentOutputTypeDef(TypedDict):
+    NotificationType: NotRequired[str]
+    ButtonText: NotRequired[str]
+    Criteria: NotRequired[List[CustomActionAttachmentCriteriaTypeDef]]
+    Variables: NotRequired[Dict[str, str]]
 
-UpdateAccountPreferencesResultTypeDef = TypedDict(
-    "UpdateAccountPreferencesResultTypeDef",
-    {
-        "AccountPreferences": "AccountPreferencesTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CustomActionAttachmentTypeDef(TypedDict):
+    NotificationType: NotRequired[str]
+    ButtonText: NotRequired[str]
+    Criteria: NotRequired[Sequence[CustomActionAttachmentCriteriaTypeDef]]
+    Variables: NotRequired[Mapping[str, str]]
 
-_RequiredUpdateChimeWebhookConfigurationRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateChimeWebhookConfigurationRequestRequestTypeDef",
-    {
-        "ChatConfigurationArn": str,
-    },
-)
-_OptionalUpdateChimeWebhookConfigurationRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateChimeWebhookConfigurationRequestRequestTypeDef",
-    {
-        "WebhookDescription": str,
-        "WebhookUrl": str,
-        "SnsTopicArns": List[str],
-        "IamRoleArn": str,
-        "LoggingLevel": str,
-    },
-    total=False,
-)
+class DescribeChimeWebhookConfigurationsRequestPaginateTypeDef(TypedDict):
+    ChatConfigurationArn: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-class UpdateChimeWebhookConfigurationRequestRequestTypeDef(
-    _RequiredUpdateChimeWebhookConfigurationRequestRequestTypeDef,
-    _OptionalUpdateChimeWebhookConfigurationRequestRequestTypeDef,
-):
-    pass
+class DescribeSlackChannelConfigurationsRequestPaginateTypeDef(TypedDict):
+    ChatConfigurationArn: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-UpdateChimeWebhookConfigurationResultTypeDef = TypedDict(
-    "UpdateChimeWebhookConfigurationResultTypeDef",
-    {
-        "WebhookConfiguration": "ChimeWebhookConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DescribeSlackUserIdentitiesRequestPaginateTypeDef(TypedDict):
+    ChatConfigurationArn: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-_RequiredUpdateSlackChannelConfigurationRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateSlackChannelConfigurationRequestRequestTypeDef",
-    {
-        "ChatConfigurationArn": str,
-        "SlackChannelId": str,
-    },
-)
-_OptionalUpdateSlackChannelConfigurationRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateSlackChannelConfigurationRequestRequestTypeDef",
-    {
-        "SlackChannelName": str,
-        "SnsTopicArns": List[str],
-        "IamRoleArn": str,
-        "LoggingLevel": str,
-        "GuardrailPolicyArns": List[str],
-        "UserAuthorizationRequired": bool,
-    },
-    total=False,
-)
+class DescribeSlackWorkspacesRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-class UpdateSlackChannelConfigurationRequestRequestTypeDef(
-    _RequiredUpdateSlackChannelConfigurationRequestRequestTypeDef,
-    _OptionalUpdateSlackChannelConfigurationRequestRequestTypeDef,
-):
-    pass
+class ListAssociationsRequestPaginateTypeDef(TypedDict):
+    ChatConfiguration: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-UpdateSlackChannelConfigurationResultTypeDef = TypedDict(
-    "UpdateSlackChannelConfigurationResultTypeDef",
-    {
-        "ChannelConfiguration": "SlackChannelConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListCustomActionsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-_RequiredUpdateTeamsChannelConfigurationRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateTeamsChannelConfigurationRequestRequestTypeDef",
-    {
-        "ChatConfigurationArn": str,
-        "ChannelId": str,
-    },
-)
-_OptionalUpdateTeamsChannelConfigurationRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateTeamsChannelConfigurationRequestRequestTypeDef",
-    {
-        "ChannelName": str,
-        "SnsTopicArns": List[str],
-        "IamRoleArn": str,
-        "LoggingLevel": str,
-        "GuardrailPolicyArns": List[str],
-        "UserAuthorizationRequired": bool,
-    },
-    total=False,
-)
+class ListMicrosoftTeamsConfiguredTeamsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-class UpdateTeamsChannelConfigurationRequestRequestTypeDef(
-    _RequiredUpdateTeamsChannelConfigurationRequestRequestTypeDef,
-    _OptionalUpdateTeamsChannelConfigurationRequestRequestTypeDef,
-):
-    pass
+class ListMicrosoftTeamsUserIdentitiesRequestPaginateTypeDef(TypedDict):
+    ChatConfigurationArn: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-UpdateTeamsChannelConfigurationResultTypeDef = TypedDict(
-    "UpdateTeamsChannelConfigurationResultTypeDef",
-    {
-        "ChannelConfiguration": "TeamsChannelConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListTeamsChannelConfigurationsRequestPaginateTypeDef(TypedDict):
+    TeamId: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeSlackUserIdentitiesResultTypeDef(TypedDict):
+    SlackUserIdentities: List[SlackUserIdentityTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class DescribeSlackWorkspacesResultTypeDef(TypedDict):
+    SlackWorkspaces: List[SlackWorkspaceTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListMicrosoftTeamsUserIdentitiesResultTypeDef(TypedDict):
+    TeamsUserIdentities: List[TeamsUserIdentityTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class CreateChimeWebhookConfigurationResultTypeDef(TypedDict):
+    WebhookConfiguration: ChimeWebhookConfigurationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeChimeWebhookConfigurationsResultTypeDef(TypedDict):
+    WebhookConfigurations: List[ChimeWebhookConfigurationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class UpdateChimeWebhookConfigurationResultTypeDef(TypedDict):
+    WebhookConfiguration: ChimeWebhookConfigurationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateSlackChannelConfigurationResultTypeDef(TypedDict):
+    ChannelConfiguration: SlackChannelConfigurationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeSlackChannelConfigurationsResultTypeDef(TypedDict):
+    SlackChannelConfigurations: List[SlackChannelConfigurationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class UpdateSlackChannelConfigurationResultTypeDef(TypedDict):
+    ChannelConfiguration: SlackChannelConfigurationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateTeamsChannelConfigurationResultTypeDef(TypedDict):
+    ChannelConfiguration: TeamsChannelConfigurationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetTeamsChannelConfigurationResultTypeDef(TypedDict):
+    ChannelConfiguration: TeamsChannelConfigurationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListTeamsChannelConfigurationsResultTypeDef(TypedDict):
+    TeamChannelConfigurations: List[TeamsChannelConfigurationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class UpdateTeamsChannelConfigurationResultTypeDef(TypedDict):
+    ChannelConfiguration: TeamsChannelConfigurationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CustomActionTypeDef(TypedDict):
+    CustomActionArn: str
+    Definition: CustomActionDefinitionTypeDef
+    AliasName: NotRequired[str]
+    Attachments: NotRequired[List[CustomActionAttachmentOutputTypeDef]]
+    ActionName: NotRequired[str]
+
+CustomActionAttachmentUnionTypeDef = Union[
+    CustomActionAttachmentTypeDef, CustomActionAttachmentOutputTypeDef
+]
+
+class GetCustomActionResultTypeDef(TypedDict):
+    CustomAction: CustomActionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateCustomActionRequestTypeDef(TypedDict):
+    Definition: CustomActionDefinitionTypeDef
+    ActionName: str
+    AliasName: NotRequired[str]
+    Attachments: NotRequired[Sequence[CustomActionAttachmentUnionTypeDef]]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+    ClientToken: NotRequired[str]
+
+class UpdateCustomActionRequestTypeDef(TypedDict):
+    CustomActionArn: str
+    Definition: CustomActionDefinitionTypeDef
+    AliasName: NotRequired[str]
+    Attachments: NotRequired[Sequence[CustomActionAttachmentUnionTypeDef]]

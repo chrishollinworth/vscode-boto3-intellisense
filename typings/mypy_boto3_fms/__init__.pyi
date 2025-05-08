@@ -1,10 +1,14 @@
 """
 Main interface for fms service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fms/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_fms import (
         Client,
         FMSClient,
@@ -18,10 +22,8 @@ Usage::
         ListThirdPartyFirewallFirewallPoliciesPaginator,
     )
 
-    session = boto3.Session()
-
-    client: FMSClient = boto3.client("fms")
-    session_client: FMSClient = session.client("fms")
+    session = Session()
+    client: FMSClient = session.client("fms")
 
     list_admin_accounts_for_organization_paginator: ListAdminAccountsForOrganizationPaginator = client.get_paginator("list_admin_accounts_for_organization")
     list_admins_managing_account_paginator: ListAdminsManagingAccountPaginator = client.get_paginator("list_admins_managing_account")

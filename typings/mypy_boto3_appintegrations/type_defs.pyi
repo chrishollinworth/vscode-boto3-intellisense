@@ -1,715 +1,453 @@
 """
 Type annotations for appintegrations service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appintegrations/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_appintegrations.type_defs import ApplicationAssociationSummaryTypeDef
 
-    data: ApplicationAssociationSummaryTypeDef = {...}
+    data: ApplicationAssociationSummaryTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
+from typing import Union
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+from .literals import ExecutionModeType, ExecutionStatusType
+
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
     "ApplicationAssociationSummaryTypeDef",
+    "ApplicationSourceConfigOutputTypeDef",
     "ApplicationSourceConfigTypeDef",
+    "ApplicationSourceConfigUnionTypeDef",
     "ApplicationSummaryTypeDef",
-    "CreateApplicationRequestRequestTypeDef",
+    "CreateApplicationRequestTypeDef",
     "CreateApplicationResponseTypeDef",
-    "CreateDataIntegrationRequestRequestTypeDef",
+    "CreateDataIntegrationAssociationRequestTypeDef",
+    "CreateDataIntegrationAssociationResponseTypeDef",
+    "CreateDataIntegrationRequestTypeDef",
     "CreateDataIntegrationResponseTypeDef",
-    "CreateEventIntegrationRequestRequestTypeDef",
+    "CreateEventIntegrationRequestTypeDef",
     "CreateEventIntegrationResponseTypeDef",
     "DataIntegrationAssociationSummaryTypeDef",
     "DataIntegrationSummaryTypeDef",
-    "DeleteApplicationRequestRequestTypeDef",
-    "DeleteDataIntegrationRequestRequestTypeDef",
-    "DeleteEventIntegrationRequestRequestTypeDef",
+    "DeleteApplicationRequestTypeDef",
+    "DeleteDataIntegrationRequestTypeDef",
+    "DeleteEventIntegrationRequestTypeDef",
     "EventFilterTypeDef",
     "EventIntegrationAssociationTypeDef",
     "EventIntegrationTypeDef",
+    "ExecutionConfigurationTypeDef",
+    "ExternalUrlConfigOutputTypeDef",
     "ExternalUrlConfigTypeDef",
+    "FileConfigurationOutputTypeDef",
     "FileConfigurationTypeDef",
-    "GetApplicationRequestRequestTypeDef",
+    "FileConfigurationUnionTypeDef",
+    "GetApplicationRequestTypeDef",
     "GetApplicationResponseTypeDef",
-    "GetDataIntegrationRequestRequestTypeDef",
+    "GetDataIntegrationRequestTypeDef",
     "GetDataIntegrationResponseTypeDef",
-    "GetEventIntegrationRequestRequestTypeDef",
+    "GetEventIntegrationRequestTypeDef",
     "GetEventIntegrationResponseTypeDef",
-    "ListApplicationAssociationsRequestRequestTypeDef",
+    "LastExecutionStatusTypeDef",
+    "ListApplicationAssociationsRequestPaginateTypeDef",
+    "ListApplicationAssociationsRequestTypeDef",
     "ListApplicationAssociationsResponseTypeDef",
-    "ListApplicationsRequestRequestTypeDef",
+    "ListApplicationsRequestPaginateTypeDef",
+    "ListApplicationsRequestTypeDef",
     "ListApplicationsResponseTypeDef",
-    "ListDataIntegrationAssociationsRequestRequestTypeDef",
+    "ListDataIntegrationAssociationsRequestPaginateTypeDef",
+    "ListDataIntegrationAssociationsRequestTypeDef",
     "ListDataIntegrationAssociationsResponseTypeDef",
-    "ListDataIntegrationsRequestRequestTypeDef",
+    "ListDataIntegrationsRequestPaginateTypeDef",
+    "ListDataIntegrationsRequestTypeDef",
     "ListDataIntegrationsResponseTypeDef",
-    "ListEventIntegrationAssociationsRequestRequestTypeDef",
+    "ListEventIntegrationAssociationsRequestPaginateTypeDef",
+    "ListEventIntegrationAssociationsRequestTypeDef",
     "ListEventIntegrationAssociationsResponseTypeDef",
-    "ListEventIntegrationsRequestRequestTypeDef",
+    "ListEventIntegrationsRequestPaginateTypeDef",
+    "ListEventIntegrationsRequestTypeDef",
     "ListEventIntegrationsResponseTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
+    "OnDemandConfigurationTypeDef",
     "PaginatorConfigTypeDef",
     "PublicationTypeDef",
     "ResponseMetadataTypeDef",
     "ScheduleConfigurationTypeDef",
     "SubscriptionTypeDef",
-    "TagResourceRequestRequestTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateApplicationRequestRequestTypeDef",
-    "UpdateDataIntegrationRequestRequestTypeDef",
-    "UpdateEventIntegrationRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateApplicationRequestTypeDef",
+    "UpdateDataIntegrationAssociationRequestTypeDef",
+    "UpdateDataIntegrationRequestTypeDef",
+    "UpdateEventIntegrationRequestTypeDef",
 )
 
-ApplicationAssociationSummaryTypeDef = TypedDict(
-    "ApplicationAssociationSummaryTypeDef",
-    {
-        "ApplicationAssociationArn": str,
-        "ApplicationArn": str,
-        "ClientId": str,
-    },
-    total=False,
-)
+class ApplicationAssociationSummaryTypeDef(TypedDict):
+    ApplicationAssociationArn: NotRequired[str]
+    ApplicationArn: NotRequired[str]
+    ClientId: NotRequired[str]
 
-ApplicationSourceConfigTypeDef = TypedDict(
-    "ApplicationSourceConfigTypeDef",
-    {
-        "ExternalUrlConfig": "ExternalUrlConfigTypeDef",
-    },
-    total=False,
-)
+class ExternalUrlConfigOutputTypeDef(TypedDict):
+    AccessUrl: str
+    ApprovedOrigins: NotRequired[List[str]]
 
-ApplicationSummaryTypeDef = TypedDict(
-    "ApplicationSummaryTypeDef",
-    {
-        "Arn": str,
-        "Id": str,
-        "Name": str,
-        "Namespace": str,
-        "CreatedTime": datetime,
-        "LastModifiedTime": datetime,
-    },
-    total=False,
-)
+class ExternalUrlConfigTypeDef(TypedDict):
+    AccessUrl: str
+    ApprovedOrigins: NotRequired[Sequence[str]]
 
-_RequiredCreateApplicationRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateApplicationRequestRequestTypeDef",
-    {
-        "Name": str,
-        "Namespace": str,
-        "ApplicationSourceConfig": "ApplicationSourceConfigTypeDef",
-    },
-)
-_OptionalCreateApplicationRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateApplicationRequestRequestTypeDef",
-    {
-        "Description": str,
-        "Subscriptions": List["SubscriptionTypeDef"],
-        "Publications": List["PublicationTypeDef"],
-        "ClientToken": str,
-        "Tags": Dict[str, str],
-        "Permissions": List[str],
-    },
-    total=False,
-)
+class ApplicationSummaryTypeDef(TypedDict):
+    Arn: NotRequired[str]
+    Id: NotRequired[str]
+    Name: NotRequired[str]
+    Namespace: NotRequired[str]
+    CreatedTime: NotRequired[datetime]
+    LastModifiedTime: NotRequired[datetime]
 
-class CreateApplicationRequestRequestTypeDef(
-    _RequiredCreateApplicationRequestRequestTypeDef, _OptionalCreateApplicationRequestRequestTypeDef
-):
-    pass
+class PublicationTypeDef(TypedDict):
+    Event: str
+    Schema: str
+    Description: NotRequired[str]
 
-CreateApplicationResponseTypeDef = TypedDict(
-    "CreateApplicationResponseTypeDef",
-    {
-        "Arn": str,
-        "Id": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class SubscriptionTypeDef(TypedDict):
+    Event: str
+    Description: NotRequired[str]
 
-_RequiredCreateDataIntegrationRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateDataIntegrationRequestRequestTypeDef",
-    {
-        "Name": str,
-        "KmsKey": str,
-        "SourceURI": str,
-    },
-)
-_OptionalCreateDataIntegrationRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateDataIntegrationRequestRequestTypeDef",
-    {
-        "Description": str,
-        "ScheduleConfig": "ScheduleConfigurationTypeDef",
-        "Tags": Dict[str, str],
-        "ClientToken": str,
-        "FileConfiguration": "FileConfigurationTypeDef",
-        "ObjectConfiguration": Dict[str, Dict[str, List[str]]],
-    },
-    total=False,
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-class CreateDataIntegrationRequestRequestTypeDef(
-    _RequiredCreateDataIntegrationRequestRequestTypeDef,
-    _OptionalCreateDataIntegrationRequestRequestTypeDef,
-):
-    pass
+class ScheduleConfigurationTypeDef(TypedDict):
+    ScheduleExpression: str
+    FirstExecutionFrom: NotRequired[str]
+    Object: NotRequired[str]
 
-CreateDataIntegrationResponseTypeDef = TypedDict(
-    "CreateDataIntegrationResponseTypeDef",
-    {
-        "Arn": str,
-        "Id": str,
-        "Name": str,
-        "Description": str,
-        "KmsKey": str,
-        "SourceURI": str,
-        "ScheduleConfiguration": "ScheduleConfigurationTypeDef",
-        "Tags": Dict[str, str],
-        "ClientToken": str,
-        "FileConfiguration": "FileConfigurationTypeDef",
-        "ObjectConfiguration": Dict[str, Dict[str, List[str]]],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class FileConfigurationOutputTypeDef(TypedDict):
+    Folders: List[str]
+    Filters: NotRequired[Dict[str, List[str]]]
 
-_RequiredCreateEventIntegrationRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateEventIntegrationRequestRequestTypeDef",
-    {
-        "Name": str,
-        "EventFilter": "EventFilterTypeDef",
-        "EventBridgeBus": str,
-    },
-)
-_OptionalCreateEventIntegrationRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateEventIntegrationRequestRequestTypeDef",
-    {
-        "Description": str,
-        "ClientToken": str,
-        "Tags": Dict[str, str],
-    },
-    total=False,
-)
+class EventFilterTypeDef(TypedDict):
+    Source: str
 
-class CreateEventIntegrationRequestRequestTypeDef(
-    _RequiredCreateEventIntegrationRequestRequestTypeDef,
-    _OptionalCreateEventIntegrationRequestRequestTypeDef,
-):
-    pass
+class LastExecutionStatusTypeDef(TypedDict):
+    ExecutionStatus: NotRequired[ExecutionStatusType]
+    StatusMessage: NotRequired[str]
 
-CreateEventIntegrationResponseTypeDef = TypedDict(
-    "CreateEventIntegrationResponseTypeDef",
-    {
-        "EventIntegrationArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DataIntegrationSummaryTypeDef(TypedDict):
+    Arn: NotRequired[str]
+    Name: NotRequired[str]
+    SourceURI: NotRequired[str]
 
-DataIntegrationAssociationSummaryTypeDef = TypedDict(
-    "DataIntegrationAssociationSummaryTypeDef",
-    {
-        "DataIntegrationAssociationArn": str,
-        "DataIntegrationArn": str,
-        "ClientId": str,
-    },
-    total=False,
-)
+class DeleteApplicationRequestTypeDef(TypedDict):
+    Arn: str
 
-DataIntegrationSummaryTypeDef = TypedDict(
-    "DataIntegrationSummaryTypeDef",
-    {
-        "Arn": str,
-        "Name": str,
-        "SourceURI": str,
-    },
-    total=False,
-)
+class DeleteDataIntegrationRequestTypeDef(TypedDict):
+    DataIntegrationIdentifier: str
 
-DeleteApplicationRequestRequestTypeDef = TypedDict(
-    "DeleteApplicationRequestRequestTypeDef",
-    {
-        "Arn": str,
-    },
-)
+class DeleteEventIntegrationRequestTypeDef(TypedDict):
+    Name: str
 
-DeleteDataIntegrationRequestRequestTypeDef = TypedDict(
-    "DeleteDataIntegrationRequestRequestTypeDef",
-    {
-        "DataIntegrationIdentifier": str,
-    },
-)
+class EventIntegrationAssociationTypeDef(TypedDict):
+    EventIntegrationAssociationArn: NotRequired[str]
+    EventIntegrationAssociationId: NotRequired[str]
+    EventIntegrationName: NotRequired[str]
+    ClientId: NotRequired[str]
+    EventBridgeRuleName: NotRequired[str]
+    ClientAssociationMetadata: NotRequired[Dict[str, str]]
 
-DeleteEventIntegrationRequestRequestTypeDef = TypedDict(
-    "DeleteEventIntegrationRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
+class OnDemandConfigurationTypeDef(TypedDict):
+    StartTime: str
+    EndTime: NotRequired[str]
 
-EventFilterTypeDef = TypedDict(
-    "EventFilterTypeDef",
-    {
-        "Source": str,
-    },
-)
+class FileConfigurationTypeDef(TypedDict):
+    Folders: Sequence[str]
+    Filters: NotRequired[Mapping[str, Sequence[str]]]
 
-EventIntegrationAssociationTypeDef = TypedDict(
-    "EventIntegrationAssociationTypeDef",
-    {
-        "EventIntegrationAssociationArn": str,
-        "EventIntegrationAssociationId": str,
-        "EventIntegrationName": str,
-        "ClientId": str,
-        "EventBridgeRuleName": str,
-        "ClientAssociationMetadata": Dict[str, str],
-    },
-    total=False,
-)
+class GetApplicationRequestTypeDef(TypedDict):
+    Arn: str
 
-EventIntegrationTypeDef = TypedDict(
-    "EventIntegrationTypeDef",
-    {
-        "EventIntegrationArn": str,
-        "Name": str,
-        "Description": str,
-        "EventFilter": "EventFilterTypeDef",
-        "EventBridgeBus": str,
-        "Tags": Dict[str, str],
-    },
-    total=False,
-)
+class GetDataIntegrationRequestTypeDef(TypedDict):
+    Identifier: str
 
-_RequiredExternalUrlConfigTypeDef = TypedDict(
-    "_RequiredExternalUrlConfigTypeDef",
-    {
-        "AccessUrl": str,
-    },
-)
-_OptionalExternalUrlConfigTypeDef = TypedDict(
-    "_OptionalExternalUrlConfigTypeDef",
-    {
-        "ApprovedOrigins": List[str],
-    },
-    total=False,
-)
+class GetEventIntegrationRequestTypeDef(TypedDict):
+    Name: str
 
-class ExternalUrlConfigTypeDef(
-    _RequiredExternalUrlConfigTypeDef, _OptionalExternalUrlConfigTypeDef
-):
-    pass
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
 
-_RequiredFileConfigurationTypeDef = TypedDict(
-    "_RequiredFileConfigurationTypeDef",
-    {
-        "Folders": List[str],
-    },
-)
-_OptionalFileConfigurationTypeDef = TypedDict(
-    "_OptionalFileConfigurationTypeDef",
-    {
-        "Filters": Dict[str, List[str]],
-    },
-    total=False,
-)
+class ListApplicationAssociationsRequestTypeDef(TypedDict):
+    ApplicationId: str
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
 
-class FileConfigurationTypeDef(
-    _RequiredFileConfigurationTypeDef, _OptionalFileConfigurationTypeDef
-):
-    pass
+class ListApplicationsRequestTypeDef(TypedDict):
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
 
-GetApplicationRequestRequestTypeDef = TypedDict(
-    "GetApplicationRequestRequestTypeDef",
-    {
-        "Arn": str,
-    },
-)
+class ListDataIntegrationAssociationsRequestTypeDef(TypedDict):
+    DataIntegrationIdentifier: str
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
 
-GetApplicationResponseTypeDef = TypedDict(
-    "GetApplicationResponseTypeDef",
-    {
-        "Arn": str,
-        "Id": str,
-        "Name": str,
-        "Namespace": str,
-        "Description": str,
-        "ApplicationSourceConfig": "ApplicationSourceConfigTypeDef",
-        "Subscriptions": List["SubscriptionTypeDef"],
-        "Publications": List["PublicationTypeDef"],
-        "CreatedTime": datetime,
-        "LastModifiedTime": datetime,
-        "Tags": Dict[str, str],
-        "Permissions": List[str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListDataIntegrationsRequestTypeDef(TypedDict):
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
 
-GetDataIntegrationRequestRequestTypeDef = TypedDict(
-    "GetDataIntegrationRequestRequestTypeDef",
-    {
-        "Identifier": str,
-    },
-)
+class ListEventIntegrationAssociationsRequestTypeDef(TypedDict):
+    EventIntegrationName: str
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
 
-GetDataIntegrationResponseTypeDef = TypedDict(
-    "GetDataIntegrationResponseTypeDef",
-    {
-        "Arn": str,
-        "Id": str,
-        "Name": str,
-        "Description": str,
-        "KmsKey": str,
-        "SourceURI": str,
-        "ScheduleConfiguration": "ScheduleConfigurationTypeDef",
-        "Tags": Dict[str, str],
-        "FileConfiguration": "FileConfigurationTypeDef",
-        "ObjectConfiguration": Dict[str, Dict[str, List[str]]],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListEventIntegrationsRequestTypeDef(TypedDict):
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
 
-GetEventIntegrationRequestRequestTypeDef = TypedDict(
-    "GetEventIntegrationRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    resourceArn: str
 
-GetEventIntegrationResponseTypeDef = TypedDict(
-    "GetEventIntegrationResponseTypeDef",
-    {
-        "Name": str,
-        "Description": str,
-        "EventIntegrationArn": str,
-        "EventBridgeBus": str,
-        "EventFilter": "EventFilterTypeDef",
-        "Tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class TagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tags: Mapping[str, str]
 
-_RequiredListApplicationAssociationsRequestRequestTypeDef = TypedDict(
-    "_RequiredListApplicationAssociationsRequestRequestTypeDef",
-    {
-        "ApplicationId": str,
-    },
-)
-_OptionalListApplicationAssociationsRequestRequestTypeDef = TypedDict(
-    "_OptionalListApplicationAssociationsRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
+class UntagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tagKeys: Sequence[str]
 
-class ListApplicationAssociationsRequestRequestTypeDef(
-    _RequiredListApplicationAssociationsRequestRequestTypeDef,
-    _OptionalListApplicationAssociationsRequestRequestTypeDef,
-):
-    pass
+class UpdateDataIntegrationRequestTypeDef(TypedDict):
+    Identifier: str
+    Name: NotRequired[str]
+    Description: NotRequired[str]
 
-ListApplicationAssociationsResponseTypeDef = TypedDict(
-    "ListApplicationAssociationsResponseTypeDef",
-    {
-        "ApplicationAssociations": List["ApplicationAssociationSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class UpdateEventIntegrationRequestTypeDef(TypedDict):
+    Name: str
+    Description: NotRequired[str]
 
-ListApplicationsRequestRequestTypeDef = TypedDict(
-    "ListApplicationsRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
+class ApplicationSourceConfigOutputTypeDef(TypedDict):
+    ExternalUrlConfig: NotRequired[ExternalUrlConfigOutputTypeDef]
 
-ListApplicationsResponseTypeDef = TypedDict(
-    "ListApplicationsResponseTypeDef",
-    {
-        "Applications": List["ApplicationSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ApplicationSourceConfigTypeDef(TypedDict):
+    ExternalUrlConfig: NotRequired[ExternalUrlConfigTypeDef]
 
-_RequiredListDataIntegrationAssociationsRequestRequestTypeDef = TypedDict(
-    "_RequiredListDataIntegrationAssociationsRequestRequestTypeDef",
-    {
-        "DataIntegrationIdentifier": str,
-    },
-)
-_OptionalListDataIntegrationAssociationsRequestRequestTypeDef = TypedDict(
-    "_OptionalListDataIntegrationAssociationsRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
+class CreateApplicationResponseTypeDef(TypedDict):
+    Arn: str
+    Id: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class ListDataIntegrationAssociationsRequestRequestTypeDef(
-    _RequiredListDataIntegrationAssociationsRequestRequestTypeDef,
-    _OptionalListDataIntegrationAssociationsRequestRequestTypeDef,
-):
-    pass
+class CreateDataIntegrationAssociationResponseTypeDef(TypedDict):
+    DataIntegrationAssociationId: str
+    DataIntegrationArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ListDataIntegrationAssociationsResponseTypeDef = TypedDict(
-    "ListDataIntegrationAssociationsResponseTypeDef",
-    {
-        "DataIntegrationAssociations": List["DataIntegrationAssociationSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CreateEventIntegrationResponseTypeDef(TypedDict):
+    EventIntegrationArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ListDataIntegrationsRequestRequestTypeDef = TypedDict(
-    "ListDataIntegrationsRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
+class ListApplicationAssociationsResponseTypeDef(TypedDict):
+    ApplicationAssociations: List[ApplicationAssociationSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-ListDataIntegrationsResponseTypeDef = TypedDict(
-    "ListDataIntegrationsResponseTypeDef",
-    {
-        "DataIntegrations": List["DataIntegrationSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListApplicationsResponseTypeDef(TypedDict):
+    Applications: List[ApplicationSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-_RequiredListEventIntegrationAssociationsRequestRequestTypeDef = TypedDict(
-    "_RequiredListEventIntegrationAssociationsRequestRequestTypeDef",
-    {
-        "EventIntegrationName": str,
-    },
-)
-_OptionalListEventIntegrationAssociationsRequestRequestTypeDef = TypedDict(
-    "_OptionalListEventIntegrationAssociationsRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class ListEventIntegrationAssociationsRequestRequestTypeDef(
-    _RequiredListEventIntegrationAssociationsRequestRequestTypeDef,
-    _OptionalListEventIntegrationAssociationsRequestRequestTypeDef,
-):
-    pass
+class CreateDataIntegrationResponseTypeDef(TypedDict):
+    Arn: str
+    Id: str
+    Name: str
+    Description: str
+    KmsKey: str
+    SourceURI: str
+    ScheduleConfiguration: ScheduleConfigurationTypeDef
+    Tags: Dict[str, str]
+    ClientToken: str
+    FileConfiguration: FileConfigurationOutputTypeDef
+    ObjectConfiguration: Dict[str, Dict[str, List[str]]]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ListEventIntegrationAssociationsResponseTypeDef = TypedDict(
-    "ListEventIntegrationAssociationsResponseTypeDef",
-    {
-        "EventIntegrationAssociations": List["EventIntegrationAssociationTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetDataIntegrationResponseTypeDef(TypedDict):
+    Arn: str
+    Id: str
+    Name: str
+    Description: str
+    KmsKey: str
+    SourceURI: str
+    ScheduleConfiguration: ScheduleConfigurationTypeDef
+    Tags: Dict[str, str]
+    FileConfiguration: FileConfigurationOutputTypeDef
+    ObjectConfiguration: Dict[str, Dict[str, List[str]]]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ListEventIntegrationsRequestRequestTypeDef = TypedDict(
-    "ListEventIntegrationsRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
+class CreateEventIntegrationRequestTypeDef(TypedDict):
+    Name: str
+    EventFilter: EventFilterTypeDef
+    EventBridgeBus: str
+    Description: NotRequired[str]
+    ClientToken: NotRequired[str]
+    Tags: NotRequired[Mapping[str, str]]
 
-ListEventIntegrationsResponseTypeDef = TypedDict(
-    "ListEventIntegrationsResponseTypeDef",
-    {
-        "EventIntegrations": List["EventIntegrationTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class EventIntegrationTypeDef(TypedDict):
+    EventIntegrationArn: NotRequired[str]
+    Name: NotRequired[str]
+    Description: NotRequired[str]
+    EventFilter: NotRequired[EventFilterTypeDef]
+    EventBridgeBus: NotRequired[str]
+    Tags: NotRequired[Dict[str, str]]
 
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-    },
-)
+class GetEventIntegrationResponseTypeDef(TypedDict):
+    Name: str
+    Description: str
+    EventIntegrationArn: str
+    EventBridgeBus: str
+    EventFilter: EventFilterTypeDef
+    Tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListDataIntegrationsResponseTypeDef(TypedDict):
+    DataIntegrations: List[DataIntegrationSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
+class ListEventIntegrationAssociationsResponseTypeDef(TypedDict):
+    EventIntegrationAssociations: List[EventIntegrationAssociationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-_RequiredPublicationTypeDef = TypedDict(
-    "_RequiredPublicationTypeDef",
-    {
-        "Event": str,
-        "Schema": str,
-    },
-)
-_OptionalPublicationTypeDef = TypedDict(
-    "_OptionalPublicationTypeDef",
-    {
-        "Description": str,
-    },
-    total=False,
-)
+class ExecutionConfigurationTypeDef(TypedDict):
+    ExecutionMode: ExecutionModeType
+    OnDemandConfiguration: NotRequired[OnDemandConfigurationTypeDef]
+    ScheduleConfiguration: NotRequired[ScheduleConfigurationTypeDef]
 
-class PublicationTypeDef(_RequiredPublicationTypeDef, _OptionalPublicationTypeDef):
-    pass
+FileConfigurationUnionTypeDef = Union[FileConfigurationTypeDef, FileConfigurationOutputTypeDef]
 
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
+class ListApplicationAssociationsRequestPaginateTypeDef(TypedDict):
+    ApplicationId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-_RequiredScheduleConfigurationTypeDef = TypedDict(
-    "_RequiredScheduleConfigurationTypeDef",
-    {
-        "ScheduleExpression": str,
-    },
-)
-_OptionalScheduleConfigurationTypeDef = TypedDict(
-    "_OptionalScheduleConfigurationTypeDef",
-    {
-        "FirstExecutionFrom": str,
-        "Object": str,
-    },
-    total=False,
-)
+class ListApplicationsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-class ScheduleConfigurationTypeDef(
-    _RequiredScheduleConfigurationTypeDef, _OptionalScheduleConfigurationTypeDef
-):
-    pass
+class ListDataIntegrationAssociationsRequestPaginateTypeDef(TypedDict):
+    DataIntegrationIdentifier: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-_RequiredSubscriptionTypeDef = TypedDict(
-    "_RequiredSubscriptionTypeDef",
-    {
-        "Event": str,
-    },
-)
-_OptionalSubscriptionTypeDef = TypedDict(
-    "_OptionalSubscriptionTypeDef",
-    {
-        "Description": str,
-    },
-    total=False,
-)
+class ListDataIntegrationsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-class SubscriptionTypeDef(_RequiredSubscriptionTypeDef, _OptionalSubscriptionTypeDef):
-    pass
+class ListEventIntegrationAssociationsRequestPaginateTypeDef(TypedDict):
+    EventIntegrationName: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tags": Dict[str, str],
-    },
-)
+class ListEventIntegrationsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tagKeys": List[str],
-    },
-)
+class GetApplicationResponseTypeDef(TypedDict):
+    Arn: str
+    Id: str
+    Name: str
+    Namespace: str
+    Description: str
+    ApplicationSourceConfig: ApplicationSourceConfigOutputTypeDef
+    Subscriptions: List[SubscriptionTypeDef]
+    Publications: List[PublicationTypeDef]
+    CreatedTime: datetime
+    LastModifiedTime: datetime
+    Tags: Dict[str, str]
+    Permissions: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredUpdateApplicationRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateApplicationRequestRequestTypeDef",
-    {
-        "Arn": str,
-    },
-)
-_OptionalUpdateApplicationRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateApplicationRequestRequestTypeDef",
-    {
-        "Name": str,
-        "Description": str,
-        "ApplicationSourceConfig": "ApplicationSourceConfigTypeDef",
-        "Subscriptions": List["SubscriptionTypeDef"],
-        "Publications": List["PublicationTypeDef"],
-        "Permissions": List[str],
-    },
-    total=False,
-)
+ApplicationSourceConfigUnionTypeDef = Union[
+    ApplicationSourceConfigTypeDef, ApplicationSourceConfigOutputTypeDef
+]
 
-class UpdateApplicationRequestRequestTypeDef(
-    _RequiredUpdateApplicationRequestRequestTypeDef, _OptionalUpdateApplicationRequestRequestTypeDef
-):
-    pass
+class ListEventIntegrationsResponseTypeDef(TypedDict):
+    EventIntegrations: List[EventIntegrationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-_RequiredUpdateDataIntegrationRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateDataIntegrationRequestRequestTypeDef",
-    {
-        "Identifier": str,
-    },
-)
-_OptionalUpdateDataIntegrationRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateDataIntegrationRequestRequestTypeDef",
-    {
-        "Name": str,
-        "Description": str,
-    },
-    total=False,
-)
+class CreateDataIntegrationAssociationRequestTypeDef(TypedDict):
+    DataIntegrationIdentifier: str
+    ClientId: NotRequired[str]
+    ObjectConfiguration: NotRequired[Mapping[str, Mapping[str, Sequence[str]]]]
+    DestinationURI: NotRequired[str]
+    ClientAssociationMetadata: NotRequired[Mapping[str, str]]
+    ClientToken: NotRequired[str]
+    ExecutionConfiguration: NotRequired[ExecutionConfigurationTypeDef]
 
-class UpdateDataIntegrationRequestRequestTypeDef(
-    _RequiredUpdateDataIntegrationRequestRequestTypeDef,
-    _OptionalUpdateDataIntegrationRequestRequestTypeDef,
-):
-    pass
+class DataIntegrationAssociationSummaryTypeDef(TypedDict):
+    DataIntegrationAssociationArn: NotRequired[str]
+    DataIntegrationArn: NotRequired[str]
+    ClientId: NotRequired[str]
+    DestinationURI: NotRequired[str]
+    LastExecutionStatus: NotRequired[LastExecutionStatusTypeDef]
+    ExecutionConfiguration: NotRequired[ExecutionConfigurationTypeDef]
 
-_RequiredUpdateEventIntegrationRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateEventIntegrationRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
-_OptionalUpdateEventIntegrationRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateEventIntegrationRequestRequestTypeDef",
-    {
-        "Description": str,
-    },
-    total=False,
-)
+class UpdateDataIntegrationAssociationRequestTypeDef(TypedDict):
+    DataIntegrationIdentifier: str
+    DataIntegrationAssociationIdentifier: str
+    ExecutionConfiguration: ExecutionConfigurationTypeDef
 
-class UpdateEventIntegrationRequestRequestTypeDef(
-    _RequiredUpdateEventIntegrationRequestRequestTypeDef,
-    _OptionalUpdateEventIntegrationRequestRequestTypeDef,
-):
-    pass
+class CreateDataIntegrationRequestTypeDef(TypedDict):
+    Name: str
+    KmsKey: str
+    Description: NotRequired[str]
+    SourceURI: NotRequired[str]
+    ScheduleConfig: NotRequired[ScheduleConfigurationTypeDef]
+    Tags: NotRequired[Mapping[str, str]]
+    ClientToken: NotRequired[str]
+    FileConfiguration: NotRequired[FileConfigurationUnionTypeDef]
+    ObjectConfiguration: NotRequired[Mapping[str, Mapping[str, Sequence[str]]]]
+
+class CreateApplicationRequestTypeDef(TypedDict):
+    Name: str
+    Namespace: str
+    ApplicationSourceConfig: ApplicationSourceConfigUnionTypeDef
+    Description: NotRequired[str]
+    Subscriptions: NotRequired[Sequence[SubscriptionTypeDef]]
+    Publications: NotRequired[Sequence[PublicationTypeDef]]
+    ClientToken: NotRequired[str]
+    Tags: NotRequired[Mapping[str, str]]
+    Permissions: NotRequired[Sequence[str]]
+
+class UpdateApplicationRequestTypeDef(TypedDict):
+    Arn: str
+    Name: NotRequired[str]
+    Description: NotRequired[str]
+    ApplicationSourceConfig: NotRequired[ApplicationSourceConfigUnionTypeDef]
+    Subscriptions: NotRequired[Sequence[SubscriptionTypeDef]]
+    Publications: NotRequired[Sequence[PublicationTypeDef]]
+    Permissions: NotRequired[Sequence[str]]
+
+class ListDataIntegrationAssociationsResponseTypeDef(TypedDict):
+    DataIntegrationAssociations: List[DataIntegrationAssociationSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]

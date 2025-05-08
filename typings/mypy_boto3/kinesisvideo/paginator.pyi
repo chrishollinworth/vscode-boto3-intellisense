@@ -1,14 +1,16 @@
 """
 Type annotations for kinesisvideo service client paginators.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisvideo/paginators.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kinesisvideo/paginators/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
 
-    from mypy_boto3_kinesisvideo import KinesisVideoClient
+    from mypy_boto3_kinesisvideo.client import KinesisVideoClient
     from mypy_boto3_kinesisvideo.paginator import (
         DescribeMappedResourceConfigurationPaginator,
         ListEdgeAgentConfigurationsPaginator,
@@ -16,7 +18,8 @@ Usage::
         ListStreamsPaginator,
     )
 
-    client: KinesisVideoClient = boto3.client("kinesisvideo")
+    session = Session()
+    client: KinesisVideoClient = session.client("kinesisvideo")
 
     describe_mapped_resource_configuration_paginator: DescribeMappedResourceConfigurationPaginator = client.get_paginator("describe_mapped_resource_configuration")
     list_edge_agent_configurations_paginator: ListEdgeAgentConfigurationsPaginator = client.get_paginator("list_edge_agent_configurations")
@@ -25,19 +28,28 @@ Usage::
     ```
 """
 
-from typing import Iterator
+from __future__ import annotations
 
-from botocore.paginate import Paginator as Boto3Paginator
+import sys
+from typing import TYPE_CHECKING
+
+from botocore.paginate import PageIterator, Paginator
 
 from .type_defs import (
-    ChannelNameConditionTypeDef,
+    DescribeMappedResourceConfigurationInputPaginateTypeDef,
     DescribeMappedResourceConfigurationOutputTypeDef,
+    ListEdgeAgentConfigurationsInputPaginateTypeDef,
     ListEdgeAgentConfigurationsOutputTypeDef,
+    ListSignalingChannelsInputPaginateTypeDef,
     ListSignalingChannelsOutputTypeDef,
+    ListStreamsInputPaginateTypeDef,
     ListStreamsOutputTypeDef,
-    PaginatorConfigTypeDef,
-    StreamNameConditionTypeDef,
 )
+
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = (
     "DescribeMappedResourceConfigurationPaginator",
@@ -46,68 +58,78 @@ __all__ = (
     "ListStreamsPaginator",
 )
 
-class DescribeMappedResourceConfigurationPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kinesisvideo.html#KinesisVideo.Paginator.DescribeMappedResourceConfiguration)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisvideo/paginators.html#describemappedresourceconfigurationpaginator)
-    """
+if TYPE_CHECKING:
+    _DescribeMappedResourceConfigurationPaginatorBase = Paginator[
+        DescribeMappedResourceConfigurationOutputTypeDef
+    ]
+else:
+    _DescribeMappedResourceConfigurationPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        StreamName: str = None,
-        StreamARN: str = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[DescribeMappedResourceConfigurationOutputTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kinesisvideo.html#KinesisVideo.Paginator.DescribeMappedResourceConfiguration.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisvideo/paginators.html#describemappedresourceconfigurationpaginator)
-        """
-
-class ListEdgeAgentConfigurationsPaginator(Boto3Paginator):
+class DescribeMappedResourceConfigurationPaginator(
+    _DescribeMappedResourceConfigurationPaginatorBase
+):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kinesisvideo.html#KinesisVideo.Paginator.ListEdgeAgentConfigurations)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisvideo/paginators.html#listedgeagentconfigurationspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kinesisvideo/paginator/DescribeMappedResourceConfiguration.html#KinesisVideo.Paginator.DescribeMappedResourceConfiguration)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kinesisvideo/paginators/#describemappedresourceconfigurationpaginator)
     """
-
-    def paginate(
-        self, *, HubDeviceArn: str, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListEdgeAgentConfigurationsOutputTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeMappedResourceConfigurationInputPaginateTypeDef]
+    ) -> PageIterator[DescribeMappedResourceConfigurationOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kinesisvideo.html#KinesisVideo.Paginator.ListEdgeAgentConfigurations.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisvideo/paginators.html#listedgeagentconfigurationspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kinesisvideo/paginator/DescribeMappedResourceConfiguration.html#KinesisVideo.Paginator.DescribeMappedResourceConfiguration.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kinesisvideo/paginators/#describemappedresourceconfigurationpaginator)
         """
 
-class ListSignalingChannelsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kinesisvideo.html#KinesisVideo.Paginator.ListSignalingChannels)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisvideo/paginators.html#listsignalingchannelspaginator)
-    """
+if TYPE_CHECKING:
+    _ListEdgeAgentConfigurationsPaginatorBase = Paginator[ListEdgeAgentConfigurationsOutputTypeDef]
+else:
+    _ListEdgeAgentConfigurationsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        ChannelNameCondition: "ChannelNameConditionTypeDef" = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListSignalingChannelsOutputTypeDef]:
+class ListEdgeAgentConfigurationsPaginator(_ListEdgeAgentConfigurationsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kinesisvideo/paginator/ListEdgeAgentConfigurations.html#KinesisVideo.Paginator.ListEdgeAgentConfigurations)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kinesisvideo/paginators/#listedgeagentconfigurationspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListEdgeAgentConfigurationsInputPaginateTypeDef]
+    ) -> PageIterator[ListEdgeAgentConfigurationsOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kinesisvideo.html#KinesisVideo.Paginator.ListSignalingChannels.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisvideo/paginators.html#listsignalingchannelspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kinesisvideo/paginator/ListEdgeAgentConfigurations.html#KinesisVideo.Paginator.ListEdgeAgentConfigurations.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kinesisvideo/paginators/#listedgeagentconfigurationspaginator)
         """
 
-class ListStreamsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kinesisvideo.html#KinesisVideo.Paginator.ListStreams)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisvideo/paginators.html#liststreamspaginator)
-    """
+if TYPE_CHECKING:
+    _ListSignalingChannelsPaginatorBase = Paginator[ListSignalingChannelsOutputTypeDef]
+else:
+    _ListSignalingChannelsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        StreamNameCondition: "StreamNameConditionTypeDef" = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListStreamsOutputTypeDef]:
+class ListSignalingChannelsPaginator(_ListSignalingChannelsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kinesisvideo/paginator/ListSignalingChannels.html#KinesisVideo.Paginator.ListSignalingChannels)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kinesisvideo/paginators/#listsignalingchannelspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListSignalingChannelsInputPaginateTypeDef]
+    ) -> PageIterator[ListSignalingChannelsOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kinesisvideo.html#KinesisVideo.Paginator.ListStreams.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisvideo/paginators.html#liststreamspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kinesisvideo/paginator/ListSignalingChannels.html#KinesisVideo.Paginator.ListSignalingChannels.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kinesisvideo/paginators/#listsignalingchannelspaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListStreamsPaginatorBase = Paginator[ListStreamsOutputTypeDef]
+else:
+    _ListStreamsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListStreamsPaginator(_ListStreamsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kinesisvideo/paginator/ListStreams.html#KinesisVideo.Paginator.ListStreams)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kinesisvideo/paginators/#liststreamspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListStreamsInputPaginateTypeDef]
+    ) -> PageIterator[ListStreamsOutputTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kinesisvideo/paginator/ListStreams.html#KinesisVideo.Paginator.ListStreams.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kinesisvideo/paginators/#liststreamspaginator)
         """

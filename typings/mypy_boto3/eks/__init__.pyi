@@ -1,10 +1,14 @@
 """
 Main interface for eks service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_eks import (
         AddonActiveWaiter,
         AddonDeletedWaiter,
@@ -12,6 +16,7 @@ Usage::
         ClusterActiveWaiter,
         ClusterDeletedWaiter,
         DescribeAddonVersionsPaginator,
+        DescribeClusterVersionsPaginator,
         EKSClient,
         FargateProfileActiveWaiter,
         FargateProfileDeletedWaiter,
@@ -31,10 +36,8 @@ Usage::
         NodegroupDeletedWaiter,
     )
 
-    session = boto3.Session()
-
-    client: EKSClient = boto3.client("eks")
-    session_client: EKSClient = session.client("eks")
+    session = Session()
+    client: EKSClient = session.client("eks")
 
     addon_active_waiter: AddonActiveWaiter = client.get_waiter("addon_active")
     addon_deleted_waiter: AddonDeletedWaiter = client.get_waiter("addon_deleted")
@@ -46,6 +49,7 @@ Usage::
     nodegroup_deleted_waiter: NodegroupDeletedWaiter = client.get_waiter("nodegroup_deleted")
 
     describe_addon_versions_paginator: DescribeAddonVersionsPaginator = client.get_paginator("describe_addon_versions")
+    describe_cluster_versions_paginator: DescribeClusterVersionsPaginator = client.get_paginator("describe_cluster_versions")
     list_access_entries_paginator: ListAccessEntriesPaginator = client.get_paginator("list_access_entries")
     list_access_policies_paginator: ListAccessPoliciesPaginator = client.get_paginator("list_access_policies")
     list_addons_paginator: ListAddonsPaginator = client.get_paginator("list_addons")
@@ -64,6 +68,7 @@ Usage::
 from .client import EKSClient
 from .paginator import (
     DescribeAddonVersionsPaginator,
+    DescribeClusterVersionsPaginator,
     ListAccessEntriesPaginator,
     ListAccessPoliciesPaginator,
     ListAddonsPaginator,
@@ -97,6 +102,7 @@ __all__ = (
     "ClusterActiveWaiter",
     "ClusterDeletedWaiter",
     "DescribeAddonVersionsPaginator",
+    "DescribeClusterVersionsPaginator",
     "EKSClient",
     "FargateProfileActiveWaiter",
     "FargateProfileDeletedWaiter",

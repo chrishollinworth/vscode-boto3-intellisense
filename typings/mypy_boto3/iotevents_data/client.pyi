@@ -1,55 +1,70 @@
 """
-Type annotations for iotevents-data service client.
+Type annotations for iotevents-data service Client.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotevents_data/client.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotevents_data/client/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
-    from mypy_boto3_iotevents_data import IoTEventsDataClient
+    from boto3.session import Session
+    from mypy_boto3_iotevents_data.client import IoTEventsDataClient
 
-    client: IoTEventsDataClient = boto3.client("iotevents-data")
+    session = Session()
+    client: IoTEventsDataClient = session.client("iotevents-data")
     ```
 """
 
-from typing import Any, Dict, List, Type
+from __future__ import annotations
+
+import sys
+from typing import Any
 
 from botocore.client import BaseClient, ClientMeta
+from botocore.errorfactory import BaseClientExceptions
+from botocore.exceptions import ClientError as BotocoreClientError
 
 from .type_defs import (
-    AcknowledgeAlarmActionRequestTypeDef,
+    BatchAcknowledgeAlarmRequestTypeDef,
     BatchAcknowledgeAlarmResponseTypeDef,
+    BatchDeleteDetectorRequestTypeDef,
     BatchDeleteDetectorResponseTypeDef,
+    BatchDisableAlarmRequestTypeDef,
     BatchDisableAlarmResponseTypeDef,
+    BatchEnableAlarmRequestTypeDef,
     BatchEnableAlarmResponseTypeDef,
+    BatchPutMessageRequestTypeDef,
     BatchPutMessageResponseTypeDef,
+    BatchResetAlarmRequestTypeDef,
     BatchResetAlarmResponseTypeDef,
+    BatchSnoozeAlarmRequestTypeDef,
     BatchSnoozeAlarmResponseTypeDef,
+    BatchUpdateDetectorRequestTypeDef,
     BatchUpdateDetectorResponseTypeDef,
-    DeleteDetectorRequestTypeDef,
+    DescribeAlarmRequestTypeDef,
     DescribeAlarmResponseTypeDef,
+    DescribeDetectorRequestTypeDef,
     DescribeDetectorResponseTypeDef,
-    DisableAlarmActionRequestTypeDef,
-    EnableAlarmActionRequestTypeDef,
+    ListAlarmsRequestTypeDef,
     ListAlarmsResponseTypeDef,
+    ListDetectorsRequestTypeDef,
     ListDetectorsResponseTypeDef,
-    MessageTypeDef,
-    ResetAlarmActionRequestTypeDef,
-    SnoozeAlarmActionRequestTypeDef,
-    UpdateDetectorRequestTypeDef,
 )
+
+if sys.version_info >= (3, 9):
+    from builtins import type as Type
+    from collections.abc import Mapping
+else:
+    from typing import Mapping, Type
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = ("IoTEventsDataClient",)
 
-class BotocoreClientError(BaseException):
-    MSG_TEMPLATE: str
-
-    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
-        self.response: Dict[str, Any]
-        self.operation_name: str
-
-class Exceptions:
+class Exceptions(BaseClientExceptions):
     ClientError: Type[BotocoreClientError]
     InternalFailureException: Type[BotocoreClientError]
     InvalidRequestException: Type[BotocoreClientError]
@@ -59,8 +74,8 @@ class Exceptions:
 
 class IoTEventsDataClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotevents-data.html#IoTEventsData.Client)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotevents_data/client.html)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotevents-data.html#IoTEventsData.Client)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotevents_data/client/)
     """
 
     meta: ClientMeta
@@ -69,160 +84,144 @@ class IoTEventsDataClient(BaseClient):
     def exceptions(self) -> Exceptions:
         """
         IoTEventsDataClient exceptions.
-        """
 
-    def batch_acknowledge_alarm(
-        self, *, acknowledgeActionRequests: List["AcknowledgeAlarmActionRequestTypeDef"]
-    ) -> BatchAcknowledgeAlarmResponseTypeDef:
-        """
-        Acknowledges one or more alarms.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotevents-data.html#IoTEventsData.Client.batch_acknowledge_alarm)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotevents_data/client.html#batch_acknowledge_alarm)
-        """
-
-    def batch_delete_detector(
-        self, *, detectors: List["DeleteDetectorRequestTypeDef"]
-    ) -> BatchDeleteDetectorResponseTypeDef:
-        """
-        Deletes one or more detectors that were created.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotevents-data.html#IoTEventsData.Client.batch_delete_detector)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotevents_data/client.html#batch_delete_detector)
-        """
-
-    def batch_disable_alarm(
-        self, *, disableActionRequests: List["DisableAlarmActionRequestTypeDef"]
-    ) -> BatchDisableAlarmResponseTypeDef:
-        """
-        Disables one or more alarms.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotevents-data.html#IoTEventsData.Client.batch_disable_alarm)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotevents_data/client.html#batch_disable_alarm)
-        """
-
-    def batch_enable_alarm(
-        self, *, enableActionRequests: List["EnableAlarmActionRequestTypeDef"]
-    ) -> BatchEnableAlarmResponseTypeDef:
-        """
-        Enables one or more alarms.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotevents-data.html#IoTEventsData.Client.batch_enable_alarm)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotevents_data/client.html#batch_enable_alarm)
-        """
-
-    def batch_put_message(
-        self, *, messages: List["MessageTypeDef"]
-    ) -> BatchPutMessageResponseTypeDef:
-        """
-        Sends a set of messages to the IoT Events system.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotevents-data.html#IoTEventsData.Client.batch_put_message)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotevents_data/client.html#batch_put_message)
-        """
-
-    def batch_reset_alarm(
-        self, *, resetActionRequests: List["ResetAlarmActionRequestTypeDef"]
-    ) -> BatchResetAlarmResponseTypeDef:
-        """
-        Resets one or more alarms.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotevents-data.html#IoTEventsData.Client.batch_reset_alarm)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotevents_data/client.html#batch_reset_alarm)
-        """
-
-    def batch_snooze_alarm(
-        self, *, snoozeActionRequests: List["SnoozeAlarmActionRequestTypeDef"]
-    ) -> BatchSnoozeAlarmResponseTypeDef:
-        """
-        Changes one or more alarms to the snooze mode.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotevents-data.html#IoTEventsData.Client.batch_snooze_alarm)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotevents_data/client.html#batch_snooze_alarm)
-        """
-
-    def batch_update_detector(
-        self, *, detectors: List["UpdateDetectorRequestTypeDef"]
-    ) -> BatchUpdateDetectorResponseTypeDef:
-        """
-        Updates the state, variable values, and timer settings of one or more detectors
-        (instances) of a specified detector model.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotevents-data.html#IoTEventsData.Client.batch_update_detector)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotevents_data/client.html#batch_update_detector)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotevents-data.html#IoTEventsData.Client)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotevents_data/client/#exceptions)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        Check if an operation can be paginated.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotevents-data.html#IoTEventsData.Client.can_paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotevents_data/client.html#can_paginate)
-        """
-
-    def close(self) -> None:
-        """
-        Closes underlying endpoint connections.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotevents-data.html#IoTEventsData.Client.close)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotevents_data/client.html#close)
-        """
-
-    def describe_alarm(
-        self, *, alarmModelName: str, keyValue: str = None
-    ) -> DescribeAlarmResponseTypeDef:
-        """
-        Retrieves information about an alarm.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotevents-data.html#IoTEventsData.Client.describe_alarm)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotevents_data/client.html#describe_alarm)
-        """
-
-    def describe_detector(
-        self, *, detectorModelName: str, keyValue: str = None
-    ) -> DescribeDetectorResponseTypeDef:
-        """
-        Returns information about the specified detector (instance).
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotevents-data.html#IoTEventsData.Client.describe_detector)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotevents_data/client.html#describe_detector)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotevents-data/client/can_paginate.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotevents_data/client/#can_paginate)
         """
 
     def generate_presigned_url(
         self,
         ClientMethod: str,
-        Params: Dict[str, Any] = None,
+        Params: Mapping[str, Any] = ...,
         ExpiresIn: int = 3600,
-        HttpMethod: str = None,
+        HttpMethod: str = ...,
     ) -> str:
         """
-        Generate a presigned url given a client, its method, and arguments.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotevents-data.html#IoTEventsData.Client.generate_presigned_url)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotevents_data/client.html#generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotevents-data/client/generate_presigned_url.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotevents_data/client/#generate_presigned_url)
         """
 
-    def list_alarms(
-        self, *, alarmModelName: str, nextToken: str = None, maxResults: int = None
-    ) -> ListAlarmsResponseTypeDef:
+    def batch_acknowledge_alarm(
+        self, **kwargs: Unpack[BatchAcknowledgeAlarmRequestTypeDef]
+    ) -> BatchAcknowledgeAlarmResponseTypeDef:
+        """
+        Acknowledges one or more alarms.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotevents-data/client/batch_acknowledge_alarm.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotevents_data/client/#batch_acknowledge_alarm)
+        """
+
+    def batch_delete_detector(
+        self, **kwargs: Unpack[BatchDeleteDetectorRequestTypeDef]
+    ) -> BatchDeleteDetectorResponseTypeDef:
+        """
+        Deletes one or more detectors that were created.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotevents-data/client/batch_delete_detector.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotevents_data/client/#batch_delete_detector)
+        """
+
+    def batch_disable_alarm(
+        self, **kwargs: Unpack[BatchDisableAlarmRequestTypeDef]
+    ) -> BatchDisableAlarmResponseTypeDef:
+        """
+        Disables one or more alarms.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotevents-data/client/batch_disable_alarm.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotevents_data/client/#batch_disable_alarm)
+        """
+
+    def batch_enable_alarm(
+        self, **kwargs: Unpack[BatchEnableAlarmRequestTypeDef]
+    ) -> BatchEnableAlarmResponseTypeDef:
+        """
+        Enables one or more alarms.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotevents-data/client/batch_enable_alarm.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotevents_data/client/#batch_enable_alarm)
+        """
+
+    def batch_put_message(
+        self, **kwargs: Unpack[BatchPutMessageRequestTypeDef]
+    ) -> BatchPutMessageResponseTypeDef:
+        """
+        Sends a set of messages to the IoT Events system.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotevents-data/client/batch_put_message.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotevents_data/client/#batch_put_message)
+        """
+
+    def batch_reset_alarm(
+        self, **kwargs: Unpack[BatchResetAlarmRequestTypeDef]
+    ) -> BatchResetAlarmResponseTypeDef:
+        """
+        Resets one or more alarms.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotevents-data/client/batch_reset_alarm.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotevents_data/client/#batch_reset_alarm)
+        """
+
+    def batch_snooze_alarm(
+        self, **kwargs: Unpack[BatchSnoozeAlarmRequestTypeDef]
+    ) -> BatchSnoozeAlarmResponseTypeDef:
+        """
+        Changes one or more alarms to the snooze mode.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotevents-data/client/batch_snooze_alarm.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotevents_data/client/#batch_snooze_alarm)
+        """
+
+    def batch_update_detector(
+        self, **kwargs: Unpack[BatchUpdateDetectorRequestTypeDef]
+    ) -> BatchUpdateDetectorResponseTypeDef:
+        """
+        Updates the state, variable values, and timer settings of one or more detectors
+        (instances) of a specified detector model.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotevents-data/client/batch_update_detector.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotevents_data/client/#batch_update_detector)
+        """
+
+    def describe_alarm(
+        self, **kwargs: Unpack[DescribeAlarmRequestTypeDef]
+    ) -> DescribeAlarmResponseTypeDef:
+        """
+        Retrieves information about an alarm.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotevents-data/client/describe_alarm.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotevents_data/client/#describe_alarm)
+        """
+
+    def describe_detector(
+        self, **kwargs: Unpack[DescribeDetectorRequestTypeDef]
+    ) -> DescribeDetectorResponseTypeDef:
+        """
+        Returns information about the specified detector (instance).
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotevents-data/client/describe_detector.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotevents_data/client/#describe_detector)
+        """
+
+    def list_alarms(self, **kwargs: Unpack[ListAlarmsRequestTypeDef]) -> ListAlarmsResponseTypeDef:
         """
         Lists one or more alarms.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotevents-data.html#IoTEventsData.Client.list_alarms)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotevents_data/client.html#list_alarms)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotevents-data/client/list_alarms.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotevents_data/client/#list_alarms)
         """
 
     def list_detectors(
-        self,
-        *,
-        detectorModelName: str,
-        stateName: str = None,
-        nextToken: str = None,
-        maxResults: int = None
+        self, **kwargs: Unpack[ListDetectorsRequestTypeDef]
     ) -> ListDetectorsResponseTypeDef:
         """
         Lists detectors (the instances of a detector model).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotevents-data.html#IoTEventsData.Client.list_detectors)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotevents_data/client.html#list_detectors)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotevents-data/client/list_detectors.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotevents_data/client/#list_detectors)
         """

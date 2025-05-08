@@ -1,14 +1,16 @@
 """
 Type annotations for config service client paginators.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/paginators.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/paginators/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
 
-    from mypy_boto3_config import ConfigServiceClient
+    from mypy_boto3_config.client import ConfigServiceClient
     from mypy_boto3_config.paginator import (
         DescribeAggregateComplianceByConfigRulesPaginator,
         DescribeAggregateComplianceByConformancePacksPaginator,
@@ -36,6 +38,7 @@ Usage::
         GetOrganizationConformancePackDetailedStatusPaginator,
         GetResourceConfigHistoryPaginator,
         ListAggregateDiscoveredResourcesPaginator,
+        ListConfigurationRecordersPaginator,
         ListDiscoveredResourcesPaginator,
         ListResourceEvaluationsPaginator,
         ListTagsForResourcePaginator,
@@ -43,7 +46,8 @@ Usage::
         SelectResourceConfigPaginator,
     )
 
-    client: ConfigServiceClient = boto3.client("config")
+    session = Session()
+    client: ConfigServiceClient = session.client("config")
 
     describe_aggregate_compliance_by_config_rules_paginator: DescribeAggregateComplianceByConfigRulesPaginator = client.get_paginator("describe_aggregate_compliance_by_config_rules")
     describe_aggregate_compliance_by_conformance_packs_paginator: DescribeAggregateComplianceByConformancePacksPaginator = client.get_paginator("describe_aggregate_compliance_by_conformance_packs")
@@ -71,6 +75,7 @@ Usage::
     get_organization_conformance_pack_detailed_status_paginator: GetOrganizationConformancePackDetailedStatusPaginator = client.get_paginator("get_organization_conformance_pack_detailed_status")
     get_resource_config_history_paginator: GetResourceConfigHistoryPaginator = client.get_paginator("get_resource_config_history")
     list_aggregate_discovered_resources_paginator: ListAggregateDiscoveredResourcesPaginator = client.get_paginator("list_aggregate_discovered_resources")
+    list_configuration_recorders_paginator: ListConfigurationRecordersPaginator = client.get_paginator("list_configuration_recorders")
     list_discovered_resources_paginator: ListDiscoveredResourcesPaginator = client.get_paginator("list_discovered_resources")
     list_resource_evaluations_paginator: ListResourceEvaluationsPaginator = client.get_paginator("list_resource_evaluations")
     list_tags_for_resource_paginator: ListTagsForResourcePaginator = client.get_paginator("list_tags_for_resource")
@@ -79,59 +84,84 @@ Usage::
     ```
 """
 
-from datetime import datetime
-from typing import Iterator, List, Union
+from __future__ import annotations
 
-from botocore.paginate import Paginator as Boto3Paginator
+import sys
+from typing import TYPE_CHECKING
 
-from .literals import (
-    AggregatedSourceStatusTypeType,
-    ChronologicalOrderType,
-    ComplianceTypeType,
-    ResourceTypeType,
-)
+from botocore.paginate import PageIterator, Paginator
+
 from .type_defs import (
-    AggregateConformancePackComplianceFiltersTypeDef,
-    ConfigRuleComplianceFiltersTypeDef,
+    DescribeAggregateComplianceByConfigRulesRequestPaginateTypeDef,
     DescribeAggregateComplianceByConfigRulesResponseTypeDef,
+    DescribeAggregateComplianceByConformancePacksRequestPaginateTypeDef,
     DescribeAggregateComplianceByConformancePacksResponseTypeDef,
+    DescribeAggregationAuthorizationsRequestPaginateTypeDef,
     DescribeAggregationAuthorizationsResponseTypeDef,
+    DescribeComplianceByConfigRuleRequestPaginateTypeDef,
     DescribeComplianceByConfigRuleResponseTypeDef,
+    DescribeComplianceByResourceRequestPaginateTypeDef,
     DescribeComplianceByResourceResponseTypeDef,
+    DescribeConfigRuleEvaluationStatusRequestPaginateTypeDef,
     DescribeConfigRuleEvaluationStatusResponseTypeDef,
-    DescribeConfigRulesFiltersTypeDef,
+    DescribeConfigRulesRequestPaginateTypeDef,
     DescribeConfigRulesResponseTypeDef,
+    DescribeConfigurationAggregatorSourcesStatusRequestPaginateTypeDef,
     DescribeConfigurationAggregatorSourcesStatusResponseTypeDef,
+    DescribeConfigurationAggregatorsRequestPaginateTypeDef,
     DescribeConfigurationAggregatorsResponseTypeDef,
+    DescribeConformancePacksRequestPaginateTypeDef,
     DescribeConformancePacksResponseTypeDef,
+    DescribeConformancePackStatusRequestPaginateTypeDef,
     DescribeConformancePackStatusResponseTypeDef,
+    DescribeOrganizationConfigRulesRequestPaginateTypeDef,
     DescribeOrganizationConfigRulesResponseTypeDef,
+    DescribeOrganizationConfigRuleStatusesRequestPaginateTypeDef,
     DescribeOrganizationConfigRuleStatusesResponseTypeDef,
+    DescribeOrganizationConformancePacksRequestPaginateTypeDef,
     DescribeOrganizationConformancePacksResponseTypeDef,
+    DescribeOrganizationConformancePackStatusesRequestPaginateTypeDef,
     DescribeOrganizationConformancePackStatusesResponseTypeDef,
+    DescribePendingAggregationRequestsRequestPaginateTypeDef,
     DescribePendingAggregationRequestsResponseTypeDef,
+    DescribeRemediationExecutionStatusRequestPaginateTypeDef,
     DescribeRemediationExecutionStatusResponseTypeDef,
+    DescribeRetentionConfigurationsRequestPaginateTypeDef,
     DescribeRetentionConfigurationsResponseTypeDef,
+    GetAggregateComplianceDetailsByConfigRuleRequestPaginateTypeDef,
     GetAggregateComplianceDetailsByConfigRuleResponseTypeDef,
+    GetComplianceDetailsByConfigRuleRequestPaginateTypeDef,
     GetComplianceDetailsByConfigRuleResponseTypeDef,
+    GetComplianceDetailsByResourceRequestPaginateTypeDef,
     GetComplianceDetailsByResourceResponseTypeDef,
+    GetConformancePackComplianceSummaryRequestPaginateTypeDef,
     GetConformancePackComplianceSummaryResponseTypeDef,
+    GetOrganizationConfigRuleDetailedStatusRequestPaginateTypeDef,
     GetOrganizationConfigRuleDetailedStatusResponseTypeDef,
+    GetOrganizationConformancePackDetailedStatusRequestPaginateTypeDef,
     GetOrganizationConformancePackDetailedStatusResponseTypeDef,
+    GetResourceConfigHistoryRequestPaginateTypeDef,
     GetResourceConfigHistoryResponseTypeDef,
+    ListAggregateDiscoveredResourcesRequestPaginateTypeDef,
     ListAggregateDiscoveredResourcesResponseTypeDef,
+    ListConfigurationRecordersRequestPaginateTypeDef,
+    ListConfigurationRecordersResponseTypeDef,
+    ListDiscoveredResourcesRequestPaginateTypeDef,
     ListDiscoveredResourcesResponseTypeDef,
+    ListResourceEvaluationsRequestPaginateTypeDef,
     ListResourceEvaluationsResponseTypeDef,
+    ListTagsForResourceRequestPaginateTypeDef,
     ListTagsForResourceResponseTypeDef,
-    OrganizationResourceDetailedStatusFiltersTypeDef,
-    PaginatorConfigTypeDef,
-    ResourceEvaluationFiltersTypeDef,
-    ResourceFiltersTypeDef,
-    ResourceKeyTypeDef,
+    SelectAggregateResourceConfigRequestPaginateTypeDef,
     SelectAggregateResourceConfigResponseTypeDef,
+    SelectResourceConfigRequestPaginateTypeDef,
     SelectResourceConfigResponseTypeDef,
-    StatusDetailFiltersTypeDef,
 )
+
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = (
     "DescribeAggregateComplianceByConfigRulesPaginator",
@@ -160,6 +190,7 @@ __all__ = (
     "GetOrganizationConformancePackDetailedStatusPaginator",
     "GetResourceConfigHistoryPaginator",
     "ListAggregateDiscoveredResourcesPaginator",
+    "ListConfigurationRecordersPaginator",
     "ListDiscoveredResourcesPaginator",
     "ListResourceEvaluationsPaginator",
     "ListTagsForResourcePaginator",
@@ -167,540 +198,646 @@ __all__ = (
     "SelectResourceConfigPaginator",
 )
 
-class DescribeAggregateComplianceByConfigRulesPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Paginator.DescribeAggregateComplianceByConfigRules)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/paginators.html#describeaggregatecompliancebyconfigrulespaginator)
-    """
+if TYPE_CHECKING:
+    _DescribeAggregateComplianceByConfigRulesPaginatorBase = Paginator[
+        DescribeAggregateComplianceByConfigRulesResponseTypeDef
+    ]
+else:
+    _DescribeAggregateComplianceByConfigRulesPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        ConfigurationAggregatorName: str,
-        Filters: "ConfigRuleComplianceFiltersTypeDef" = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[DescribeAggregateComplianceByConfigRulesResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Paginator.DescribeAggregateComplianceByConfigRules.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/paginators.html#describeaggregatecompliancebyconfigrulespaginator)
-        """
-
-class DescribeAggregateComplianceByConformancePacksPaginator(Boto3Paginator):
+class DescribeAggregateComplianceByConfigRulesPaginator(
+    _DescribeAggregateComplianceByConfigRulesPaginatorBase
+):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Paginator.DescribeAggregateComplianceByConformancePacks)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/paginators.html#describeaggregatecompliancebyconformancepackspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/paginator/DescribeAggregateComplianceByConfigRules.html#ConfigService.Paginator.DescribeAggregateComplianceByConfigRules)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/paginators/#describeaggregatecompliancebyconfigrulespaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        ConfigurationAggregatorName: str,
-        Filters: "AggregateConformancePackComplianceFiltersTypeDef" = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[DescribeAggregateComplianceByConformancePacksResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeAggregateComplianceByConfigRulesRequestPaginateTypeDef]
+    ) -> PageIterator[DescribeAggregateComplianceByConfigRulesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Paginator.DescribeAggregateComplianceByConformancePacks.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/paginators.html#describeaggregatecompliancebyconformancepackspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/paginator/DescribeAggregateComplianceByConfigRules.html#ConfigService.Paginator.DescribeAggregateComplianceByConfigRules.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/paginators/#describeaggregatecompliancebyconfigrulespaginator)
         """
 
-class DescribeAggregationAuthorizationsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Paginator.DescribeAggregationAuthorizations)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/paginators.html#describeaggregationauthorizationspaginator)
-    """
+if TYPE_CHECKING:
+    _DescribeAggregateComplianceByConformancePacksPaginatorBase = Paginator[
+        DescribeAggregateComplianceByConformancePacksResponseTypeDef
+    ]
+else:
+    _DescribeAggregateComplianceByConformancePacksPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[DescribeAggregationAuthorizationsResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Paginator.DescribeAggregationAuthorizations.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/paginators.html#describeaggregationauthorizationspaginator)
-        """
-
-class DescribeComplianceByConfigRulePaginator(Boto3Paginator):
+class DescribeAggregateComplianceByConformancePacksPaginator(
+    _DescribeAggregateComplianceByConformancePacksPaginatorBase
+):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Paginator.DescribeComplianceByConfigRule)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/paginators.html#describecompliancebyconfigrulepaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/paginator/DescribeAggregateComplianceByConformancePacks.html#ConfigService.Paginator.DescribeAggregateComplianceByConformancePacks)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/paginators/#describeaggregatecompliancebyconformancepackspaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        ConfigRuleNames: List[str] = None,
-        ComplianceTypes: List[ComplianceTypeType] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[DescribeComplianceByConfigRuleResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeAggregateComplianceByConformancePacksRequestPaginateTypeDef]
+    ) -> PageIterator[DescribeAggregateComplianceByConformancePacksResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Paginator.DescribeComplianceByConfigRule.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/paginators.html#describecompliancebyconfigrulepaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/paginator/DescribeAggregateComplianceByConformancePacks.html#ConfigService.Paginator.DescribeAggregateComplianceByConformancePacks.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/paginators/#describeaggregatecompliancebyconformancepackspaginator)
         """
 
-class DescribeComplianceByResourcePaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Paginator.DescribeComplianceByResource)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/paginators.html#describecompliancebyresourcepaginator)
-    """
+if TYPE_CHECKING:
+    _DescribeAggregationAuthorizationsPaginatorBase = Paginator[
+        DescribeAggregationAuthorizationsResponseTypeDef
+    ]
+else:
+    _DescribeAggregationAuthorizationsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        ResourceType: str = None,
-        ResourceId: str = None,
-        ComplianceTypes: List[ComplianceTypeType] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[DescribeComplianceByResourceResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Paginator.DescribeComplianceByResource.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/paginators.html#describecompliancebyresourcepaginator)
-        """
-
-class DescribeConfigRuleEvaluationStatusPaginator(Boto3Paginator):
+class DescribeAggregationAuthorizationsPaginator(_DescribeAggregationAuthorizationsPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Paginator.DescribeConfigRuleEvaluationStatus)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/paginators.html#describeconfigruleevaluationstatuspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/paginator/DescribeAggregationAuthorizations.html#ConfigService.Paginator.DescribeAggregationAuthorizations)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/paginators/#describeaggregationauthorizationspaginator)
     """
-
-    def paginate(
-        self, *, ConfigRuleNames: List[str] = None, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[DescribeConfigRuleEvaluationStatusResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeAggregationAuthorizationsRequestPaginateTypeDef]
+    ) -> PageIterator[DescribeAggregationAuthorizationsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Paginator.DescribeConfigRuleEvaluationStatus.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/paginators.html#describeconfigruleevaluationstatuspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/paginator/DescribeAggregationAuthorizations.html#ConfigService.Paginator.DescribeAggregationAuthorizations.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/paginators/#describeaggregationauthorizationspaginator)
         """
 
-class DescribeConfigRulesPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Paginator.DescribeConfigRules)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/paginators.html#describeconfigrulespaginator)
-    """
+if TYPE_CHECKING:
+    _DescribeComplianceByConfigRulePaginatorBase = Paginator[
+        DescribeComplianceByConfigRuleResponseTypeDef
+    ]
+else:
+    _DescribeComplianceByConfigRulePaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        ConfigRuleNames: List[str] = None,
-        Filters: "DescribeConfigRulesFiltersTypeDef" = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[DescribeConfigRulesResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Paginator.DescribeConfigRules.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/paginators.html#describeconfigrulespaginator)
-        """
-
-class DescribeConfigurationAggregatorSourcesStatusPaginator(Boto3Paginator):
+class DescribeComplianceByConfigRulePaginator(_DescribeComplianceByConfigRulePaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Paginator.DescribeConfigurationAggregatorSourcesStatus)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/paginators.html#describeconfigurationaggregatorsourcesstatuspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/paginator/DescribeComplianceByConfigRule.html#ConfigService.Paginator.DescribeComplianceByConfigRule)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/paginators/#describecompliancebyconfigrulepaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        ConfigurationAggregatorName: str,
-        UpdateStatus: List[AggregatedSourceStatusTypeType] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[DescribeConfigurationAggregatorSourcesStatusResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeComplianceByConfigRuleRequestPaginateTypeDef]
+    ) -> PageIterator[DescribeComplianceByConfigRuleResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Paginator.DescribeConfigurationAggregatorSourcesStatus.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/paginators.html#describeconfigurationaggregatorsourcesstatuspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/paginator/DescribeComplianceByConfigRule.html#ConfigService.Paginator.DescribeComplianceByConfigRule.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/paginators/#describecompliancebyconfigrulepaginator)
         """
 
-class DescribeConfigurationAggregatorsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Paginator.DescribeConfigurationAggregators)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/paginators.html#describeconfigurationaggregatorspaginator)
-    """
+if TYPE_CHECKING:
+    _DescribeComplianceByResourcePaginatorBase = Paginator[
+        DescribeComplianceByResourceResponseTypeDef
+    ]
+else:
+    _DescribeComplianceByResourcePaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        ConfigurationAggregatorNames: List[str] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[DescribeConfigurationAggregatorsResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Paginator.DescribeConfigurationAggregators.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/paginators.html#describeconfigurationaggregatorspaginator)
-        """
-
-class DescribeConformancePackStatusPaginator(Boto3Paginator):
+class DescribeComplianceByResourcePaginator(_DescribeComplianceByResourcePaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Paginator.DescribeConformancePackStatus)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/paginators.html#describeconformancepackstatuspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/paginator/DescribeComplianceByResource.html#ConfigService.Paginator.DescribeComplianceByResource)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/paginators/#describecompliancebyresourcepaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        ConformancePackNames: List[str] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[DescribeConformancePackStatusResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeComplianceByResourceRequestPaginateTypeDef]
+    ) -> PageIterator[DescribeComplianceByResourceResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Paginator.DescribeConformancePackStatus.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/paginators.html#describeconformancepackstatuspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/paginator/DescribeComplianceByResource.html#ConfigService.Paginator.DescribeComplianceByResource.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/paginators/#describecompliancebyresourcepaginator)
         """
 
-class DescribeConformancePacksPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Paginator.DescribeConformancePacks)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/paginators.html#describeconformancepackspaginator)
-    """
+if TYPE_CHECKING:
+    _DescribeConfigRuleEvaluationStatusPaginatorBase = Paginator[
+        DescribeConfigRuleEvaluationStatusResponseTypeDef
+    ]
+else:
+    _DescribeConfigRuleEvaluationStatusPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        ConformancePackNames: List[str] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[DescribeConformancePacksResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Paginator.DescribeConformancePacks.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/paginators.html#describeconformancepackspaginator)
-        """
-
-class DescribeOrganizationConfigRuleStatusesPaginator(Boto3Paginator):
+class DescribeConfigRuleEvaluationStatusPaginator(_DescribeConfigRuleEvaluationStatusPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Paginator.DescribeOrganizationConfigRuleStatuses)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/paginators.html#describeorganizationconfigrulestatusespaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/paginator/DescribeConfigRuleEvaluationStatus.html#ConfigService.Paginator.DescribeConfigRuleEvaluationStatus)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/paginators/#describeconfigruleevaluationstatuspaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        OrganizationConfigRuleNames: List[str] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[DescribeOrganizationConfigRuleStatusesResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeConfigRuleEvaluationStatusRequestPaginateTypeDef]
+    ) -> PageIterator[DescribeConfigRuleEvaluationStatusResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Paginator.DescribeOrganizationConfigRuleStatuses.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/paginators.html#describeorganizationconfigrulestatusespaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/paginator/DescribeConfigRuleEvaluationStatus.html#ConfigService.Paginator.DescribeConfigRuleEvaluationStatus.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/paginators/#describeconfigruleevaluationstatuspaginator)
         """
 
-class DescribeOrganizationConfigRulesPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Paginator.DescribeOrganizationConfigRules)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/paginators.html#describeorganizationconfigrulespaginator)
-    """
+if TYPE_CHECKING:
+    _DescribeConfigRulesPaginatorBase = Paginator[DescribeConfigRulesResponseTypeDef]
+else:
+    _DescribeConfigRulesPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        OrganizationConfigRuleNames: List[str] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[DescribeOrganizationConfigRulesResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Paginator.DescribeOrganizationConfigRules.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/paginators.html#describeorganizationconfigrulespaginator)
-        """
-
-class DescribeOrganizationConformancePackStatusesPaginator(Boto3Paginator):
+class DescribeConfigRulesPaginator(_DescribeConfigRulesPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Paginator.DescribeOrganizationConformancePackStatuses)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/paginators.html#describeorganizationconformancepackstatusespaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/paginator/DescribeConfigRules.html#ConfigService.Paginator.DescribeConfigRules)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/paginators/#describeconfigrulespaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        OrganizationConformancePackNames: List[str] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[DescribeOrganizationConformancePackStatusesResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeConfigRulesRequestPaginateTypeDef]
+    ) -> PageIterator[DescribeConfigRulesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Paginator.DescribeOrganizationConformancePackStatuses.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/paginators.html#describeorganizationconformancepackstatusespaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/paginator/DescribeConfigRules.html#ConfigService.Paginator.DescribeConfigRules.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/paginators/#describeconfigrulespaginator)
         """
 
-class DescribeOrganizationConformancePacksPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Paginator.DescribeOrganizationConformancePacks)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/paginators.html#describeorganizationconformancepackspaginator)
-    """
+if TYPE_CHECKING:
+    _DescribeConfigurationAggregatorSourcesStatusPaginatorBase = Paginator[
+        DescribeConfigurationAggregatorSourcesStatusResponseTypeDef
+    ]
+else:
+    _DescribeConfigurationAggregatorSourcesStatusPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        OrganizationConformancePackNames: List[str] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[DescribeOrganizationConformancePacksResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Paginator.DescribeOrganizationConformancePacks.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/paginators.html#describeorganizationconformancepackspaginator)
-        """
-
-class DescribePendingAggregationRequestsPaginator(Boto3Paginator):
+class DescribeConfigurationAggregatorSourcesStatusPaginator(
+    _DescribeConfigurationAggregatorSourcesStatusPaginatorBase
+):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Paginator.DescribePendingAggregationRequests)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/paginators.html#describependingaggregationrequestspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/paginator/DescribeConfigurationAggregatorSourcesStatus.html#ConfigService.Paginator.DescribeConfigurationAggregatorSourcesStatus)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/paginators/#describeconfigurationaggregatorsourcesstatuspaginator)
     """
-
-    def paginate(
-        self, *, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[DescribePendingAggregationRequestsResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeConfigurationAggregatorSourcesStatusRequestPaginateTypeDef]
+    ) -> PageIterator[DescribeConfigurationAggregatorSourcesStatusResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Paginator.DescribePendingAggregationRequests.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/paginators.html#describependingaggregationrequestspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/paginator/DescribeConfigurationAggregatorSourcesStatus.html#ConfigService.Paginator.DescribeConfigurationAggregatorSourcesStatus.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/paginators/#describeconfigurationaggregatorsourcesstatuspaginator)
         """
 
-class DescribeRemediationExecutionStatusPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Paginator.DescribeRemediationExecutionStatus)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/paginators.html#describeremediationexecutionstatuspaginator)
-    """
+if TYPE_CHECKING:
+    _DescribeConfigurationAggregatorsPaginatorBase = Paginator[
+        DescribeConfigurationAggregatorsResponseTypeDef
+    ]
+else:
+    _DescribeConfigurationAggregatorsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        ConfigRuleName: str,
-        ResourceKeys: List["ResourceKeyTypeDef"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[DescribeRemediationExecutionStatusResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Paginator.DescribeRemediationExecutionStatus.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/paginators.html#describeremediationexecutionstatuspaginator)
-        """
-
-class DescribeRetentionConfigurationsPaginator(Boto3Paginator):
+class DescribeConfigurationAggregatorsPaginator(_DescribeConfigurationAggregatorsPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Paginator.DescribeRetentionConfigurations)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/paginators.html#describeretentionconfigurationspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/paginator/DescribeConfigurationAggregators.html#ConfigService.Paginator.DescribeConfigurationAggregators)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/paginators/#describeconfigurationaggregatorspaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        RetentionConfigurationNames: List[str] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[DescribeRetentionConfigurationsResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeConfigurationAggregatorsRequestPaginateTypeDef]
+    ) -> PageIterator[DescribeConfigurationAggregatorsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Paginator.DescribeRetentionConfigurations.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/paginators.html#describeretentionconfigurationspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/paginator/DescribeConfigurationAggregators.html#ConfigService.Paginator.DescribeConfigurationAggregators.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/paginators/#describeconfigurationaggregatorspaginator)
         """
 
-class GetAggregateComplianceDetailsByConfigRulePaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Paginator.GetAggregateComplianceDetailsByConfigRule)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/paginators.html#getaggregatecompliancedetailsbyconfigrulepaginator)
-    """
+if TYPE_CHECKING:
+    _DescribeConformancePackStatusPaginatorBase = Paginator[
+        DescribeConformancePackStatusResponseTypeDef
+    ]
+else:
+    _DescribeConformancePackStatusPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        ConfigurationAggregatorName: str,
-        ConfigRuleName: str,
-        AccountId: str,
-        AwsRegion: str,
-        ComplianceType: ComplianceTypeType = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[GetAggregateComplianceDetailsByConfigRuleResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Paginator.GetAggregateComplianceDetailsByConfigRule.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/paginators.html#getaggregatecompliancedetailsbyconfigrulepaginator)
-        """
-
-class GetComplianceDetailsByConfigRulePaginator(Boto3Paginator):
+class DescribeConformancePackStatusPaginator(_DescribeConformancePackStatusPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Paginator.GetComplianceDetailsByConfigRule)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/paginators.html#getcompliancedetailsbyconfigrulepaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/paginator/DescribeConformancePackStatus.html#ConfigService.Paginator.DescribeConformancePackStatus)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/paginators/#describeconformancepackstatuspaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        ConfigRuleName: str,
-        ComplianceTypes: List[ComplianceTypeType] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[GetComplianceDetailsByConfigRuleResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeConformancePackStatusRequestPaginateTypeDef]
+    ) -> PageIterator[DescribeConformancePackStatusResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Paginator.GetComplianceDetailsByConfigRule.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/paginators.html#getcompliancedetailsbyconfigrulepaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/paginator/DescribeConformancePackStatus.html#ConfigService.Paginator.DescribeConformancePackStatus.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/paginators/#describeconformancepackstatuspaginator)
         """
 
-class GetComplianceDetailsByResourcePaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Paginator.GetComplianceDetailsByResource)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/paginators.html#getcompliancedetailsbyresourcepaginator)
-    """
+if TYPE_CHECKING:
+    _DescribeConformancePacksPaginatorBase = Paginator[DescribeConformancePacksResponseTypeDef]
+else:
+    _DescribeConformancePacksPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        ResourceType: str = None,
-        ResourceId: str = None,
-        ComplianceTypes: List[ComplianceTypeType] = None,
-        ResourceEvaluationId: str = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[GetComplianceDetailsByResourceResponseTypeDef]:
+class DescribeConformancePacksPaginator(_DescribeConformancePacksPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/paginator/DescribeConformancePacks.html#ConfigService.Paginator.DescribeConformancePacks)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/paginators/#describeconformancepackspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeConformancePacksRequestPaginateTypeDef]
+    ) -> PageIterator[DescribeConformancePacksResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Paginator.GetComplianceDetailsByResource.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/paginators.html#getcompliancedetailsbyresourcepaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/paginator/DescribeConformancePacks.html#ConfigService.Paginator.DescribeConformancePacks.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/paginators/#describeconformancepackspaginator)
         """
 
-class GetConformancePackComplianceSummaryPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Paginator.GetConformancePackComplianceSummary)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/paginators.html#getconformancepackcompliancesummarypaginator)
-    """
+if TYPE_CHECKING:
+    _DescribeOrganizationConfigRuleStatusesPaginatorBase = Paginator[
+        DescribeOrganizationConfigRuleStatusesResponseTypeDef
+    ]
+else:
+    _DescribeOrganizationConfigRuleStatusesPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, ConformancePackNames: List[str], PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[GetConformancePackComplianceSummaryResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Paginator.GetConformancePackComplianceSummary.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/paginators.html#getconformancepackcompliancesummarypaginator)
-        """
-
-class GetOrganizationConfigRuleDetailedStatusPaginator(Boto3Paginator):
+class DescribeOrganizationConfigRuleStatusesPaginator(
+    _DescribeOrganizationConfigRuleStatusesPaginatorBase
+):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Paginator.GetOrganizationConfigRuleDetailedStatus)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/paginators.html#getorganizationconfigruledetailedstatuspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/paginator/DescribeOrganizationConfigRuleStatuses.html#ConfigService.Paginator.DescribeOrganizationConfigRuleStatuses)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/paginators/#describeorganizationconfigrulestatusespaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        OrganizationConfigRuleName: str,
-        Filters: "StatusDetailFiltersTypeDef" = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[GetOrganizationConfigRuleDetailedStatusResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeOrganizationConfigRuleStatusesRequestPaginateTypeDef]
+    ) -> PageIterator[DescribeOrganizationConfigRuleStatusesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Paginator.GetOrganizationConfigRuleDetailedStatus.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/paginators.html#getorganizationconfigruledetailedstatuspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/paginator/DescribeOrganizationConfigRuleStatuses.html#ConfigService.Paginator.DescribeOrganizationConfigRuleStatuses.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/paginators/#describeorganizationconfigrulestatusespaginator)
         """
 
-class GetOrganizationConformancePackDetailedStatusPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Paginator.GetOrganizationConformancePackDetailedStatus)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/paginators.html#getorganizationconformancepackdetailedstatuspaginator)
-    """
+if TYPE_CHECKING:
+    _DescribeOrganizationConfigRulesPaginatorBase = Paginator[
+        DescribeOrganizationConfigRulesResponseTypeDef
+    ]
+else:
+    _DescribeOrganizationConfigRulesPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        OrganizationConformancePackName: str,
-        Filters: "OrganizationResourceDetailedStatusFiltersTypeDef" = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[GetOrganizationConformancePackDetailedStatusResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Paginator.GetOrganizationConformancePackDetailedStatus.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/paginators.html#getorganizationconformancepackdetailedstatuspaginator)
-        """
-
-class GetResourceConfigHistoryPaginator(Boto3Paginator):
+class DescribeOrganizationConfigRulesPaginator(_DescribeOrganizationConfigRulesPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Paginator.GetResourceConfigHistory)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/paginators.html#getresourceconfighistorypaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/paginator/DescribeOrganizationConfigRules.html#ConfigService.Paginator.DescribeOrganizationConfigRules)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/paginators/#describeorganizationconfigrulespaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        resourceType: ResourceTypeType,
-        resourceId: str,
-        laterTime: Union[datetime, str] = None,
-        earlierTime: Union[datetime, str] = None,
-        chronologicalOrder: ChronologicalOrderType = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[GetResourceConfigHistoryResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeOrganizationConfigRulesRequestPaginateTypeDef]
+    ) -> PageIterator[DescribeOrganizationConfigRulesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Paginator.GetResourceConfigHistory.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/paginators.html#getresourceconfighistorypaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/paginator/DescribeOrganizationConfigRules.html#ConfigService.Paginator.DescribeOrganizationConfigRules.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/paginators/#describeorganizationconfigrulespaginator)
         """
 
-class ListAggregateDiscoveredResourcesPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Paginator.ListAggregateDiscoveredResources)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/paginators.html#listaggregatediscoveredresourcespaginator)
-    """
+if TYPE_CHECKING:
+    _DescribeOrganizationConformancePackStatusesPaginatorBase = Paginator[
+        DescribeOrganizationConformancePackStatusesResponseTypeDef
+    ]
+else:
+    _DescribeOrganizationConformancePackStatusesPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        ConfigurationAggregatorName: str,
-        ResourceType: ResourceTypeType,
-        Filters: "ResourceFiltersTypeDef" = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListAggregateDiscoveredResourcesResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Paginator.ListAggregateDiscoveredResources.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/paginators.html#listaggregatediscoveredresourcespaginator)
-        """
-
-class ListDiscoveredResourcesPaginator(Boto3Paginator):
+class DescribeOrganizationConformancePackStatusesPaginator(
+    _DescribeOrganizationConformancePackStatusesPaginatorBase
+):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Paginator.ListDiscoveredResources)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/paginators.html#listdiscoveredresourcespaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/paginator/DescribeOrganizationConformancePackStatuses.html#ConfigService.Paginator.DescribeOrganizationConformancePackStatuses)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/paginators/#describeorganizationconformancepackstatusespaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        resourceType: ResourceTypeType,
-        resourceIds: List[str] = None,
-        resourceName: str = None,
-        includeDeletedResources: bool = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListDiscoveredResourcesResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeOrganizationConformancePackStatusesRequestPaginateTypeDef]
+    ) -> PageIterator[DescribeOrganizationConformancePackStatusesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Paginator.ListDiscoveredResources.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/paginators.html#listdiscoveredresourcespaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/paginator/DescribeOrganizationConformancePackStatuses.html#ConfigService.Paginator.DescribeOrganizationConformancePackStatuses.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/paginators/#describeorganizationconformancepackstatusespaginator)
         """
 
-class ListResourceEvaluationsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Paginator.ListResourceEvaluations)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/paginators.html#listresourceevaluationspaginator)
-    """
+if TYPE_CHECKING:
+    _DescribeOrganizationConformancePacksPaginatorBase = Paginator[
+        DescribeOrganizationConformancePacksResponseTypeDef
+    ]
+else:
+    _DescribeOrganizationConformancePacksPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        Filters: "ResourceEvaluationFiltersTypeDef" = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListResourceEvaluationsResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Paginator.ListResourceEvaluations.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/paginators.html#listresourceevaluationspaginator)
-        """
-
-class ListTagsForResourcePaginator(Boto3Paginator):
+class DescribeOrganizationConformancePacksPaginator(
+    _DescribeOrganizationConformancePacksPaginatorBase
+):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Paginator.ListTagsForResource)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/paginators.html#listtagsforresourcepaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/paginator/DescribeOrganizationConformancePacks.html#ConfigService.Paginator.DescribeOrganizationConformancePacks)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/paginators/#describeorganizationconformancepackspaginator)
     """
-
-    def paginate(
-        self, *, ResourceArn: str, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListTagsForResourceResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeOrganizationConformancePacksRequestPaginateTypeDef]
+    ) -> PageIterator[DescribeOrganizationConformancePacksResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Paginator.ListTagsForResource.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/paginators.html#listtagsforresourcepaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/paginator/DescribeOrganizationConformancePacks.html#ConfigService.Paginator.DescribeOrganizationConformancePacks.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/paginators/#describeorganizationconformancepackspaginator)
         """
 
-class SelectAggregateResourceConfigPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Paginator.SelectAggregateResourceConfig)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/paginators.html#selectaggregateresourceconfigpaginator)
-    """
+if TYPE_CHECKING:
+    _DescribePendingAggregationRequestsPaginatorBase = Paginator[
+        DescribePendingAggregationRequestsResponseTypeDef
+    ]
+else:
+    _DescribePendingAggregationRequestsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        Expression: str,
-        ConfigurationAggregatorName: str,
-        MaxResults: int = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[SelectAggregateResourceConfigResponseTypeDef]:
+class DescribePendingAggregationRequestsPaginator(_DescribePendingAggregationRequestsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/paginator/DescribePendingAggregationRequests.html#ConfigService.Paginator.DescribePendingAggregationRequests)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/paginators/#describependingaggregationrequestspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribePendingAggregationRequestsRequestPaginateTypeDef]
+    ) -> PageIterator[DescribePendingAggregationRequestsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Paginator.SelectAggregateResourceConfig.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/paginators.html#selectaggregateresourceconfigpaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/paginator/DescribePendingAggregationRequests.html#ConfigService.Paginator.DescribePendingAggregationRequests.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/paginators/#describependingaggregationrequestspaginator)
         """
 
-class SelectResourceConfigPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Paginator.SelectResourceConfig)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/paginators.html#selectresourceconfigpaginator)
-    """
+if TYPE_CHECKING:
+    _DescribeRemediationExecutionStatusPaginatorBase = Paginator[
+        DescribeRemediationExecutionStatusResponseTypeDef
+    ]
+else:
+    _DescribeRemediationExecutionStatusPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, Expression: str, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[SelectResourceConfigResponseTypeDef]:
+class DescribeRemediationExecutionStatusPaginator(_DescribeRemediationExecutionStatusPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/paginator/DescribeRemediationExecutionStatus.html#ConfigService.Paginator.DescribeRemediationExecutionStatus)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/paginators/#describeremediationexecutionstatuspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeRemediationExecutionStatusRequestPaginateTypeDef]
+    ) -> PageIterator[DescribeRemediationExecutionStatusResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Paginator.SelectResourceConfig.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/paginators.html#selectresourceconfigpaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/paginator/DescribeRemediationExecutionStatus.html#ConfigService.Paginator.DescribeRemediationExecutionStatus.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/paginators/#describeremediationexecutionstatuspaginator)
+        """
+
+if TYPE_CHECKING:
+    _DescribeRetentionConfigurationsPaginatorBase = Paginator[
+        DescribeRetentionConfigurationsResponseTypeDef
+    ]
+else:
+    _DescribeRetentionConfigurationsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class DescribeRetentionConfigurationsPaginator(_DescribeRetentionConfigurationsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/paginator/DescribeRetentionConfigurations.html#ConfigService.Paginator.DescribeRetentionConfigurations)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/paginators/#describeretentionconfigurationspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeRetentionConfigurationsRequestPaginateTypeDef]
+    ) -> PageIterator[DescribeRetentionConfigurationsResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/paginator/DescribeRetentionConfigurations.html#ConfigService.Paginator.DescribeRetentionConfigurations.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/paginators/#describeretentionconfigurationspaginator)
+        """
+
+if TYPE_CHECKING:
+    _GetAggregateComplianceDetailsByConfigRulePaginatorBase = Paginator[
+        GetAggregateComplianceDetailsByConfigRuleResponseTypeDef
+    ]
+else:
+    _GetAggregateComplianceDetailsByConfigRulePaginatorBase = Paginator  # type: ignore[assignment]
+
+class GetAggregateComplianceDetailsByConfigRulePaginator(
+    _GetAggregateComplianceDetailsByConfigRulePaginatorBase
+):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/paginator/GetAggregateComplianceDetailsByConfigRule.html#ConfigService.Paginator.GetAggregateComplianceDetailsByConfigRule)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/paginators/#getaggregatecompliancedetailsbyconfigrulepaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[GetAggregateComplianceDetailsByConfigRuleRequestPaginateTypeDef]
+    ) -> PageIterator[GetAggregateComplianceDetailsByConfigRuleResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/paginator/GetAggregateComplianceDetailsByConfigRule.html#ConfigService.Paginator.GetAggregateComplianceDetailsByConfigRule.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/paginators/#getaggregatecompliancedetailsbyconfigrulepaginator)
+        """
+
+if TYPE_CHECKING:
+    _GetComplianceDetailsByConfigRulePaginatorBase = Paginator[
+        GetComplianceDetailsByConfigRuleResponseTypeDef
+    ]
+else:
+    _GetComplianceDetailsByConfigRulePaginatorBase = Paginator  # type: ignore[assignment]
+
+class GetComplianceDetailsByConfigRulePaginator(_GetComplianceDetailsByConfigRulePaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/paginator/GetComplianceDetailsByConfigRule.html#ConfigService.Paginator.GetComplianceDetailsByConfigRule)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/paginators/#getcompliancedetailsbyconfigrulepaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[GetComplianceDetailsByConfigRuleRequestPaginateTypeDef]
+    ) -> PageIterator[GetComplianceDetailsByConfigRuleResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/paginator/GetComplianceDetailsByConfigRule.html#ConfigService.Paginator.GetComplianceDetailsByConfigRule.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/paginators/#getcompliancedetailsbyconfigrulepaginator)
+        """
+
+if TYPE_CHECKING:
+    _GetComplianceDetailsByResourcePaginatorBase = Paginator[
+        GetComplianceDetailsByResourceResponseTypeDef
+    ]
+else:
+    _GetComplianceDetailsByResourcePaginatorBase = Paginator  # type: ignore[assignment]
+
+class GetComplianceDetailsByResourcePaginator(_GetComplianceDetailsByResourcePaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/paginator/GetComplianceDetailsByResource.html#ConfigService.Paginator.GetComplianceDetailsByResource)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/paginators/#getcompliancedetailsbyresourcepaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[GetComplianceDetailsByResourceRequestPaginateTypeDef]
+    ) -> PageIterator[GetComplianceDetailsByResourceResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/paginator/GetComplianceDetailsByResource.html#ConfigService.Paginator.GetComplianceDetailsByResource.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/paginators/#getcompliancedetailsbyresourcepaginator)
+        """
+
+if TYPE_CHECKING:
+    _GetConformancePackComplianceSummaryPaginatorBase = Paginator[
+        GetConformancePackComplianceSummaryResponseTypeDef
+    ]
+else:
+    _GetConformancePackComplianceSummaryPaginatorBase = Paginator  # type: ignore[assignment]
+
+class GetConformancePackComplianceSummaryPaginator(
+    _GetConformancePackComplianceSummaryPaginatorBase
+):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/paginator/GetConformancePackComplianceSummary.html#ConfigService.Paginator.GetConformancePackComplianceSummary)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/paginators/#getconformancepackcompliancesummarypaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[GetConformancePackComplianceSummaryRequestPaginateTypeDef]
+    ) -> PageIterator[GetConformancePackComplianceSummaryResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/paginator/GetConformancePackComplianceSummary.html#ConfigService.Paginator.GetConformancePackComplianceSummary.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/paginators/#getconformancepackcompliancesummarypaginator)
+        """
+
+if TYPE_CHECKING:
+    _GetOrganizationConfigRuleDetailedStatusPaginatorBase = Paginator[
+        GetOrganizationConfigRuleDetailedStatusResponseTypeDef
+    ]
+else:
+    _GetOrganizationConfigRuleDetailedStatusPaginatorBase = Paginator  # type: ignore[assignment]
+
+class GetOrganizationConfigRuleDetailedStatusPaginator(
+    _GetOrganizationConfigRuleDetailedStatusPaginatorBase
+):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/paginator/GetOrganizationConfigRuleDetailedStatus.html#ConfigService.Paginator.GetOrganizationConfigRuleDetailedStatus)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/paginators/#getorganizationconfigruledetailedstatuspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[GetOrganizationConfigRuleDetailedStatusRequestPaginateTypeDef]
+    ) -> PageIterator[GetOrganizationConfigRuleDetailedStatusResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/paginator/GetOrganizationConfigRuleDetailedStatus.html#ConfigService.Paginator.GetOrganizationConfigRuleDetailedStatus.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/paginators/#getorganizationconfigruledetailedstatuspaginator)
+        """
+
+if TYPE_CHECKING:
+    _GetOrganizationConformancePackDetailedStatusPaginatorBase = Paginator[
+        GetOrganizationConformancePackDetailedStatusResponseTypeDef
+    ]
+else:
+    _GetOrganizationConformancePackDetailedStatusPaginatorBase = Paginator  # type: ignore[assignment]
+
+class GetOrganizationConformancePackDetailedStatusPaginator(
+    _GetOrganizationConformancePackDetailedStatusPaginatorBase
+):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/paginator/GetOrganizationConformancePackDetailedStatus.html#ConfigService.Paginator.GetOrganizationConformancePackDetailedStatus)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/paginators/#getorganizationconformancepackdetailedstatuspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[GetOrganizationConformancePackDetailedStatusRequestPaginateTypeDef]
+    ) -> PageIterator[GetOrganizationConformancePackDetailedStatusResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/paginator/GetOrganizationConformancePackDetailedStatus.html#ConfigService.Paginator.GetOrganizationConformancePackDetailedStatus.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/paginators/#getorganizationconformancepackdetailedstatuspaginator)
+        """
+
+if TYPE_CHECKING:
+    _GetResourceConfigHistoryPaginatorBase = Paginator[GetResourceConfigHistoryResponseTypeDef]
+else:
+    _GetResourceConfigHistoryPaginatorBase = Paginator  # type: ignore[assignment]
+
+class GetResourceConfigHistoryPaginator(_GetResourceConfigHistoryPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/paginator/GetResourceConfigHistory.html#ConfigService.Paginator.GetResourceConfigHistory)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/paginators/#getresourceconfighistorypaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[GetResourceConfigHistoryRequestPaginateTypeDef]
+    ) -> PageIterator[GetResourceConfigHistoryResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/paginator/GetResourceConfigHistory.html#ConfigService.Paginator.GetResourceConfigHistory.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/paginators/#getresourceconfighistorypaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListAggregateDiscoveredResourcesPaginatorBase = Paginator[
+        ListAggregateDiscoveredResourcesResponseTypeDef
+    ]
+else:
+    _ListAggregateDiscoveredResourcesPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListAggregateDiscoveredResourcesPaginator(_ListAggregateDiscoveredResourcesPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/paginator/ListAggregateDiscoveredResources.html#ConfigService.Paginator.ListAggregateDiscoveredResources)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/paginators/#listaggregatediscoveredresourcespaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListAggregateDiscoveredResourcesRequestPaginateTypeDef]
+    ) -> PageIterator[ListAggregateDiscoveredResourcesResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/paginator/ListAggregateDiscoveredResources.html#ConfigService.Paginator.ListAggregateDiscoveredResources.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/paginators/#listaggregatediscoveredresourcespaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListConfigurationRecordersPaginatorBase = Paginator[ListConfigurationRecordersResponseTypeDef]
+else:
+    _ListConfigurationRecordersPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListConfigurationRecordersPaginator(_ListConfigurationRecordersPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/paginator/ListConfigurationRecorders.html#ConfigService.Paginator.ListConfigurationRecorders)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/paginators/#listconfigurationrecorderspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListConfigurationRecordersRequestPaginateTypeDef]
+    ) -> PageIterator[ListConfigurationRecordersResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/paginator/ListConfigurationRecorders.html#ConfigService.Paginator.ListConfigurationRecorders.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/paginators/#listconfigurationrecorderspaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListDiscoveredResourcesPaginatorBase = Paginator[ListDiscoveredResourcesResponseTypeDef]
+else:
+    _ListDiscoveredResourcesPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListDiscoveredResourcesPaginator(_ListDiscoveredResourcesPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/paginator/ListDiscoveredResources.html#ConfigService.Paginator.ListDiscoveredResources)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/paginators/#listdiscoveredresourcespaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListDiscoveredResourcesRequestPaginateTypeDef]
+    ) -> PageIterator[ListDiscoveredResourcesResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/paginator/ListDiscoveredResources.html#ConfigService.Paginator.ListDiscoveredResources.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/paginators/#listdiscoveredresourcespaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListResourceEvaluationsPaginatorBase = Paginator[ListResourceEvaluationsResponseTypeDef]
+else:
+    _ListResourceEvaluationsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListResourceEvaluationsPaginator(_ListResourceEvaluationsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/paginator/ListResourceEvaluations.html#ConfigService.Paginator.ListResourceEvaluations)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/paginators/#listresourceevaluationspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListResourceEvaluationsRequestPaginateTypeDef]
+    ) -> PageIterator[ListResourceEvaluationsResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/paginator/ListResourceEvaluations.html#ConfigService.Paginator.ListResourceEvaluations.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/paginators/#listresourceevaluationspaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListTagsForResourcePaginatorBase = Paginator[ListTagsForResourceResponseTypeDef]
+else:
+    _ListTagsForResourcePaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListTagsForResourcePaginator(_ListTagsForResourcePaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/paginator/ListTagsForResource.html#ConfigService.Paginator.ListTagsForResource)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/paginators/#listtagsforresourcepaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListTagsForResourceRequestPaginateTypeDef]
+    ) -> PageIterator[ListTagsForResourceResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/paginator/ListTagsForResource.html#ConfigService.Paginator.ListTagsForResource.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/paginators/#listtagsforresourcepaginator)
+        """
+
+if TYPE_CHECKING:
+    _SelectAggregateResourceConfigPaginatorBase = Paginator[
+        SelectAggregateResourceConfigResponseTypeDef
+    ]
+else:
+    _SelectAggregateResourceConfigPaginatorBase = Paginator  # type: ignore[assignment]
+
+class SelectAggregateResourceConfigPaginator(_SelectAggregateResourceConfigPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/paginator/SelectAggregateResourceConfig.html#ConfigService.Paginator.SelectAggregateResourceConfig)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/paginators/#selectaggregateresourceconfigpaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[SelectAggregateResourceConfigRequestPaginateTypeDef]
+    ) -> PageIterator[SelectAggregateResourceConfigResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/paginator/SelectAggregateResourceConfig.html#ConfigService.Paginator.SelectAggregateResourceConfig.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/paginators/#selectaggregateresourceconfigpaginator)
+        """
+
+if TYPE_CHECKING:
+    _SelectResourceConfigPaginatorBase = Paginator[SelectResourceConfigResponseTypeDef]
+else:
+    _SelectResourceConfigPaginatorBase = Paginator  # type: ignore[assignment]
+
+class SelectResourceConfigPaginator(_SelectResourceConfigPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/paginator/SelectResourceConfig.html#ConfigService.Paginator.SelectResourceConfig)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/paginators/#selectresourceconfigpaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[SelectResourceConfigRequestPaginateTypeDef]
+    ) -> PageIterator[SelectResourceConfigResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/paginator/SelectResourceConfig.html#ConfigService.Paginator.SelectResourceConfig.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/paginators/#selectresourceconfigpaginator)
         """

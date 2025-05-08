@@ -1,42 +1,57 @@
 """
 Type annotations for mediastore-data service client paginators.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediastore_data/paginators.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediastore_data/paginators/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
 
-    from mypy_boto3_mediastore_data import MediaStoreDataClient
+    from mypy_boto3_mediastore_data.client import MediaStoreDataClient
     from mypy_boto3_mediastore_data.paginator import (
         ListItemsPaginator,
     )
 
-    client: MediaStoreDataClient = boto3.client("mediastore-data")
+    session = Session()
+    client: MediaStoreDataClient = session.client("mediastore-data")
 
     list_items_paginator: ListItemsPaginator = client.get_paginator("list_items")
     ```
 """
 
-from typing import Iterator
+from __future__ import annotations
 
-from botocore.paginate import Paginator as Boto3Paginator
+import sys
+from typing import TYPE_CHECKING
 
-from .type_defs import ListItemsResponseTypeDef, PaginatorConfigTypeDef
+from botocore.paginate import PageIterator, Paginator
+
+from .type_defs import ListItemsRequestPaginateTypeDef, ListItemsResponseTypeDef
+
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = ("ListItemsPaginator",)
 
-class ListItemsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediastore-data.html#MediaStoreData.Paginator.ListItems)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediastore_data/paginators.html#listitemspaginator)
-    """
+if TYPE_CHECKING:
+    _ListItemsPaginatorBase = Paginator[ListItemsResponseTypeDef]
+else:
+    _ListItemsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, Path: str = None, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListItemsResponseTypeDef]:
+class ListItemsPaginator(_ListItemsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediastore-data/paginator/ListItems.html#MediaStoreData.Paginator.ListItems)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediastore_data/paginators/#listitemspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListItemsRequestPaginateTypeDef]
+    ) -> PageIterator[ListItemsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/mediastore-data.html#MediaStoreData.Paginator.ListItems.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediastore_data/paginators.html#listitemspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediastore-data/paginator/ListItems.html#MediaStoreData.Paginator.ListItems.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediastore_data/paginators/#listitemspaginator)
         """

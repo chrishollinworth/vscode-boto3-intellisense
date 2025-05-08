@@ -1,10 +1,14 @@
 """
 Main interface for controltower service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_controltower/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_controltower import (
         Client,
         ControlTowerClient,
@@ -16,10 +20,8 @@ Usage::
         ListLandingZonesPaginator,
     )
 
-    session = boto3.Session()
-
-    client: ControlTowerClient = boto3.client("controltower")
-    session_client: ControlTowerClient = session.client("controltower")
+    session = Session()
+    client: ControlTowerClient = session.client("controltower")
 
     list_baselines_paginator: ListBaselinesPaginator = client.get_paginator("list_baselines")
     list_control_operations_paginator: ListControlOperationsPaginator = client.get_paginator("list_control_operations")

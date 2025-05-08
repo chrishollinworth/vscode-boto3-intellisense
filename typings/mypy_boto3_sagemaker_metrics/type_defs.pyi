@@ -1,87 +1,102 @@
 """
 Type annotations for sagemaker-metrics service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker_metrics/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sagemaker_metrics/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_sagemaker_metrics.type_defs import BatchPutMetricsErrorTypeDef
+    from mypy_boto3_sagemaker_metrics.type_defs import MetricQueryTypeDef
 
-    data: BatchPutMetricsErrorTypeDef = {...}
+    data: MetricQueryTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List, Union
+from typing import Union
 
-from .literals import PutMetricsErrorCodeType
+from .literals import (
+    MetricQueryResultStatusType,
+    MetricStatisticType,
+    PeriodType,
+    PutMetricsErrorCodeType,
+    XAxisTypeType,
+)
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Sequence
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List, Sequence
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
+    "BatchGetMetricsRequestTypeDef",
+    "BatchGetMetricsResponseTypeDef",
     "BatchPutMetricsErrorTypeDef",
-    "BatchPutMetricsRequestRequestTypeDef",
+    "BatchPutMetricsRequestTypeDef",
     "BatchPutMetricsResponseTypeDef",
+    "MetricQueryResultTypeDef",
+    "MetricQueryTypeDef",
     "RawMetricDataTypeDef",
     "ResponseMetadataTypeDef",
+    "TimestampTypeDef",
 )
 
-BatchPutMetricsErrorTypeDef = TypedDict(
-    "BatchPutMetricsErrorTypeDef",
-    {
-        "Code": PutMetricsErrorCodeType,
-        "MetricIndex": int,
-    },
-    total=False,
-)
+class MetricQueryTypeDef(TypedDict):
+    MetricName: str
+    ResourceArn: str
+    MetricStat: MetricStatisticType
+    Period: PeriodType
+    XAxisType: XAxisTypeType
+    Start: NotRequired[int]
+    End: NotRequired[int]
 
-BatchPutMetricsRequestRequestTypeDef = TypedDict(
-    "BatchPutMetricsRequestRequestTypeDef",
-    {
-        "TrialComponentName": str,
-        "MetricData": List["RawMetricDataTypeDef"],
-    },
-)
+class MetricQueryResultTypeDef(TypedDict):
+    Status: MetricQueryResultStatusType
+    XAxisValues: List[int]
+    MetricValues: List[float]
+    Message: NotRequired[str]
 
-BatchPutMetricsResponseTypeDef = TypedDict(
-    "BatchPutMetricsResponseTypeDef",
-    {
-        "Errors": List["BatchPutMetricsErrorTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-_RequiredRawMetricDataTypeDef = TypedDict(
-    "_RequiredRawMetricDataTypeDef",
-    {
-        "MetricName": str,
-        "Timestamp": Union[datetime, str],
-        "Value": float,
-    },
-)
-_OptionalRawMetricDataTypeDef = TypedDict(
-    "_OptionalRawMetricDataTypeDef",
-    {
-        "Step": int,
-    },
-    total=False,
-)
+class BatchPutMetricsErrorTypeDef(TypedDict):
+    Code: NotRequired[PutMetricsErrorCodeType]
+    MetricIndex: NotRequired[int]
 
-class RawMetricDataTypeDef(_RequiredRawMetricDataTypeDef, _OptionalRawMetricDataTypeDef):
-    pass
+TimestampTypeDef = Union[datetime, str]
 
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
+class BatchGetMetricsRequestTypeDef(TypedDict):
+    MetricQueries: Sequence[MetricQueryTypeDef]
+
+class BatchGetMetricsResponseTypeDef(TypedDict):
+    MetricQueryResults: List[MetricQueryResultTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class BatchPutMetricsResponseTypeDef(TypedDict):
+    Errors: List[BatchPutMetricsErrorTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class RawMetricDataTypeDef(TypedDict):
+    MetricName: str
+    Timestamp: TimestampTypeDef
+    Value: float
+    Step: NotRequired[int]
+
+class BatchPutMetricsRequestTypeDef(TypedDict):
+    TrialComponentName: str
+    MetricData: Sequence[RawMetricDataTypeDef]

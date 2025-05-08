@@ -1,502 +1,301 @@
 """
 Type annotations for cloudhsm service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudhsm/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudhsm/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_cloudhsm.type_defs import AddTagsToResourceRequestRequestTypeDef
+    from mypy_boto3_cloudhsm.type_defs import TagTypeDef
 
-    data: AddTagsToResourceRequestRequestTypeDef = {...}
+    data: TagTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from typing import Any, Dict, List
 
 from .literals import ClientVersionType, CloudHsmObjectStateType, HsmStatusType
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
-    "AddTagsToResourceRequestRequestTypeDef",
+    "AddTagsToResourceRequestTypeDef",
     "AddTagsToResourceResponseTypeDef",
-    "CreateHapgRequestRequestTypeDef",
+    "CreateHapgRequestTypeDef",
     "CreateHapgResponseTypeDef",
-    "CreateHsmRequestRequestTypeDef",
+    "CreateHsmRequestTypeDef",
     "CreateHsmResponseTypeDef",
-    "CreateLunaClientRequestRequestTypeDef",
+    "CreateLunaClientRequestTypeDef",
     "CreateLunaClientResponseTypeDef",
-    "DeleteHapgRequestRequestTypeDef",
+    "DeleteHapgRequestTypeDef",
     "DeleteHapgResponseTypeDef",
-    "DeleteHsmRequestRequestTypeDef",
+    "DeleteHsmRequestTypeDef",
     "DeleteHsmResponseTypeDef",
-    "DeleteLunaClientRequestRequestTypeDef",
+    "DeleteLunaClientRequestTypeDef",
     "DeleteLunaClientResponseTypeDef",
-    "DescribeHapgRequestRequestTypeDef",
+    "DescribeHapgRequestTypeDef",
     "DescribeHapgResponseTypeDef",
-    "DescribeHsmRequestRequestTypeDef",
+    "DescribeHsmRequestTypeDef",
     "DescribeHsmResponseTypeDef",
-    "DescribeLunaClientRequestRequestTypeDef",
+    "DescribeLunaClientRequestTypeDef",
     "DescribeLunaClientResponseTypeDef",
-    "GetConfigRequestRequestTypeDef",
+    "GetConfigRequestTypeDef",
     "GetConfigResponseTypeDef",
     "ListAvailableZonesResponseTypeDef",
-    "ListHapgsRequestRequestTypeDef",
+    "ListHapgsRequestPaginateTypeDef",
+    "ListHapgsRequestTypeDef",
     "ListHapgsResponseTypeDef",
-    "ListHsmsRequestRequestTypeDef",
+    "ListHsmsRequestPaginateTypeDef",
+    "ListHsmsRequestTypeDef",
     "ListHsmsResponseTypeDef",
-    "ListLunaClientsRequestRequestTypeDef",
+    "ListLunaClientsRequestPaginateTypeDef",
+    "ListLunaClientsRequestTypeDef",
     "ListLunaClientsResponseTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
-    "ModifyHapgRequestRequestTypeDef",
+    "ModifyHapgRequestTypeDef",
     "ModifyHapgResponseTypeDef",
-    "ModifyHsmRequestRequestTypeDef",
+    "ModifyHsmRequestTypeDef",
     "ModifyHsmResponseTypeDef",
-    "ModifyLunaClientRequestRequestTypeDef",
+    "ModifyLunaClientRequestTypeDef",
     "ModifyLunaClientResponseTypeDef",
     "PaginatorConfigTypeDef",
-    "RemoveTagsFromResourceRequestRequestTypeDef",
+    "RemoveTagsFromResourceRequestTypeDef",
     "RemoveTagsFromResourceResponseTypeDef",
     "ResponseMetadataTypeDef",
     "TagTypeDef",
 )
 
-AddTagsToResourceRequestRequestTypeDef = TypedDict(
-    "AddTagsToResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-        "TagList": List["TagTypeDef"],
-    },
-)
+class TagTypeDef(TypedDict):
+    Key: str
+    Value: str
 
-AddTagsToResourceResponseTypeDef = TypedDict(
-    "AddTagsToResourceResponseTypeDef",
-    {
-        "Status": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-CreateHapgRequestRequestTypeDef = TypedDict(
-    "CreateHapgRequestRequestTypeDef",
-    {
-        "Label": str,
-    },
-)
+class CreateHapgRequestTypeDef(TypedDict):
+    Label: str
 
-CreateHapgResponseTypeDef = TypedDict(
-    "CreateHapgResponseTypeDef",
-    {
-        "HapgArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CreateHsmRequestTypeDef(TypedDict):
+    SubnetId: str
+    SshKey: str
+    IamRoleArn: str
+    SubscriptionType: Literal["PRODUCTION"]
+    EniIp: NotRequired[str]
+    ExternalId: NotRequired[str]
+    ClientToken: NotRequired[str]
+    SyslogIp: NotRequired[str]
 
-_RequiredCreateHsmRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateHsmRequestRequestTypeDef",
-    {
-        "SubnetId": str,
-        "SshKey": str,
-        "IamRoleArn": str,
-        "SubscriptionType": Literal["PRODUCTION"],
-    },
-)
-_OptionalCreateHsmRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateHsmRequestRequestTypeDef",
-    {
-        "EniIp": str,
-        "ExternalId": str,
-        "ClientToken": str,
-        "SyslogIp": str,
-    },
-    total=False,
-)
+class CreateLunaClientRequestTypeDef(TypedDict):
+    Certificate: str
+    Label: NotRequired[str]
 
-class CreateHsmRequestRequestTypeDef(
-    _RequiredCreateHsmRequestRequestTypeDef, _OptionalCreateHsmRequestRequestTypeDef
-):
-    pass
+class DeleteHapgRequestTypeDef(TypedDict):
+    HapgArn: str
 
-CreateHsmResponseTypeDef = TypedDict(
-    "CreateHsmResponseTypeDef",
-    {
-        "HsmArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DeleteHsmRequestTypeDef(TypedDict):
+    HsmArn: str
 
-_RequiredCreateLunaClientRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateLunaClientRequestRequestTypeDef",
-    {
-        "Certificate": str,
-    },
-)
-_OptionalCreateLunaClientRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateLunaClientRequestRequestTypeDef",
-    {
-        "Label": str,
-    },
-    total=False,
-)
+class DeleteLunaClientRequestTypeDef(TypedDict):
+    ClientArn: str
 
-class CreateLunaClientRequestRequestTypeDef(
-    _RequiredCreateLunaClientRequestRequestTypeDef, _OptionalCreateLunaClientRequestRequestTypeDef
-):
-    pass
+class DescribeHapgRequestTypeDef(TypedDict):
+    HapgArn: str
 
-CreateLunaClientResponseTypeDef = TypedDict(
-    "CreateLunaClientResponseTypeDef",
-    {
-        "ClientArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DescribeHsmRequestTypeDef(TypedDict):
+    HsmArn: NotRequired[str]
+    HsmSerialNumber: NotRequired[str]
 
-DeleteHapgRequestRequestTypeDef = TypedDict(
-    "DeleteHapgRequestRequestTypeDef",
-    {
-        "HapgArn": str,
-    },
-)
+class DescribeLunaClientRequestTypeDef(TypedDict):
+    ClientArn: NotRequired[str]
+    CertificateFingerprint: NotRequired[str]
 
-DeleteHapgResponseTypeDef = TypedDict(
-    "DeleteHapgResponseTypeDef",
-    {
-        "Status": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetConfigRequestTypeDef(TypedDict):
+    ClientArn: str
+    ClientVersion: ClientVersionType
+    HapgList: Sequence[str]
 
-DeleteHsmRequestRequestTypeDef = TypedDict(
-    "DeleteHsmRequestRequestTypeDef",
-    {
-        "HsmArn": str,
-    },
-)
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
 
-DeleteHsmResponseTypeDef = TypedDict(
-    "DeleteHsmResponseTypeDef",
-    {
-        "Status": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListHapgsRequestTypeDef(TypedDict):
+    NextToken: NotRequired[str]
 
-DeleteLunaClientRequestRequestTypeDef = TypedDict(
-    "DeleteLunaClientRequestRequestTypeDef",
-    {
-        "ClientArn": str,
-    },
-)
+class ListHsmsRequestTypeDef(TypedDict):
+    NextToken: NotRequired[str]
 
-DeleteLunaClientResponseTypeDef = TypedDict(
-    "DeleteLunaClientResponseTypeDef",
-    {
-        "Status": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListLunaClientsRequestTypeDef(TypedDict):
+    NextToken: NotRequired[str]
 
-DescribeHapgRequestRequestTypeDef = TypedDict(
-    "DescribeHapgRequestRequestTypeDef",
-    {
-        "HapgArn": str,
-    },
-)
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
 
-DescribeHapgResponseTypeDef = TypedDict(
-    "DescribeHapgResponseTypeDef",
-    {
-        "HapgArn": str,
-        "HapgSerial": str,
-        "HsmsLastActionFailed": List[str],
-        "HsmsPendingDeletion": List[str],
-        "HsmsPendingRegistration": List[str],
-        "Label": str,
-        "LastModifiedTimestamp": str,
-        "PartitionSerialList": List[str],
-        "State": CloudHsmObjectStateType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ModifyHapgRequestTypeDef(TypedDict):
+    HapgArn: str
+    Label: NotRequired[str]
+    PartitionSerialList: NotRequired[Sequence[str]]
 
-DescribeHsmRequestRequestTypeDef = TypedDict(
-    "DescribeHsmRequestRequestTypeDef",
-    {
-        "HsmArn": str,
-        "HsmSerialNumber": str,
-    },
-    total=False,
-)
+class ModifyHsmRequestTypeDef(TypedDict):
+    HsmArn: str
+    SubnetId: NotRequired[str]
+    EniIp: NotRequired[str]
+    IamRoleArn: NotRequired[str]
+    ExternalId: NotRequired[str]
+    SyslogIp: NotRequired[str]
 
-DescribeHsmResponseTypeDef = TypedDict(
-    "DescribeHsmResponseTypeDef",
-    {
-        "HsmArn": str,
-        "Status": HsmStatusType,
-        "StatusDetails": str,
-        "AvailabilityZone": str,
-        "EniId": str,
-        "EniIp": str,
-        "SubscriptionType": Literal["PRODUCTION"],
-        "SubscriptionStartDate": str,
-        "SubscriptionEndDate": str,
-        "VpcId": str,
-        "SubnetId": str,
-        "IamRoleArn": str,
-        "SerialNumber": str,
-        "VendorName": str,
-        "HsmType": str,
-        "SoftwareVersion": str,
-        "SshPublicKey": str,
-        "SshKeyLastUpdated": str,
-        "ServerCertUri": str,
-        "ServerCertLastUpdated": str,
-        "Partitions": List[str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ModifyLunaClientRequestTypeDef(TypedDict):
+    ClientArn: str
+    Certificate: str
 
-DescribeLunaClientRequestRequestTypeDef = TypedDict(
-    "DescribeLunaClientRequestRequestTypeDef",
-    {
-        "ClientArn": str,
-        "CertificateFingerprint": str,
-    },
-    total=False,
-)
+class RemoveTagsFromResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+    TagKeyList: Sequence[str]
 
-DescribeLunaClientResponseTypeDef = TypedDict(
-    "DescribeLunaClientResponseTypeDef",
-    {
-        "ClientArn": str,
-        "Certificate": str,
-        "CertificateFingerprint": str,
-        "LastModifiedTimestamp": str,
-        "Label": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class AddTagsToResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+    TagList: Sequence[TagTypeDef]
 
-GetConfigRequestRequestTypeDef = TypedDict(
-    "GetConfigRequestRequestTypeDef",
-    {
-        "ClientArn": str,
-        "ClientVersion": ClientVersionType,
-        "HapgList": List[str],
-    },
-)
+class AddTagsToResourceResponseTypeDef(TypedDict):
+    Status: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-GetConfigResponseTypeDef = TypedDict(
-    "GetConfigResponseTypeDef",
-    {
-        "ConfigType": str,
-        "ConfigFile": str,
-        "ConfigCred": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CreateHapgResponseTypeDef(TypedDict):
+    HapgArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ListAvailableZonesResponseTypeDef = TypedDict(
-    "ListAvailableZonesResponseTypeDef",
-    {
-        "AZList": List[str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CreateHsmResponseTypeDef(TypedDict):
+    HsmArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ListHapgsRequestRequestTypeDef = TypedDict(
-    "ListHapgsRequestRequestTypeDef",
-    {
-        "NextToken": str,
-    },
-    total=False,
-)
+class CreateLunaClientResponseTypeDef(TypedDict):
+    ClientArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ListHapgsResponseTypeDef = TypedDict(
-    "ListHapgsResponseTypeDef",
-    {
-        "HapgList": List[str],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DeleteHapgResponseTypeDef(TypedDict):
+    Status: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ListHsmsRequestRequestTypeDef = TypedDict(
-    "ListHsmsRequestRequestTypeDef",
-    {
-        "NextToken": str,
-    },
-    total=False,
-)
+class DeleteHsmResponseTypeDef(TypedDict):
+    Status: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ListHsmsResponseTypeDef = TypedDict(
-    "ListHsmsResponseTypeDef",
-    {
-        "HsmList": List[str],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DeleteLunaClientResponseTypeDef(TypedDict):
+    Status: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ListLunaClientsRequestRequestTypeDef = TypedDict(
-    "ListLunaClientsRequestRequestTypeDef",
-    {
-        "NextToken": str,
-    },
-    total=False,
-)
+class DescribeHapgResponseTypeDef(TypedDict):
+    HapgArn: str
+    HapgSerial: str
+    HsmsLastActionFailed: List[str]
+    HsmsPendingDeletion: List[str]
+    HsmsPendingRegistration: List[str]
+    Label: str
+    LastModifiedTimestamp: str
+    PartitionSerialList: List[str]
+    State: CloudHsmObjectStateType
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ListLunaClientsResponseTypeDef = TypedDict(
-    "ListLunaClientsResponseTypeDef",
-    {
-        "ClientList": List[str],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DescribeHsmResponseTypeDef(TypedDict):
+    HsmArn: str
+    Status: HsmStatusType
+    StatusDetails: str
+    AvailabilityZone: str
+    EniId: str
+    EniIp: str
+    SubscriptionType: Literal["PRODUCTION"]
+    SubscriptionStartDate: str
+    SubscriptionEndDate: str
+    VpcId: str
+    SubnetId: str
+    IamRoleArn: str
+    SerialNumber: str
+    VendorName: str
+    HsmType: str
+    SoftwareVersion: str
+    SshPublicKey: str
+    SshKeyLastUpdated: str
+    ServerCertUri: str
+    ServerCertLastUpdated: str
+    Partitions: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-    },
-)
+class DescribeLunaClientResponseTypeDef(TypedDict):
+    ClientArn: str
+    Certificate: str
+    CertificateFingerprint: str
+    LastModifiedTimestamp: str
+    Label: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "TagList": List["TagTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetConfigResponseTypeDef(TypedDict):
+    ConfigType: str
+    ConfigFile: str
+    ConfigCred: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredModifyHapgRequestRequestTypeDef = TypedDict(
-    "_RequiredModifyHapgRequestRequestTypeDef",
-    {
-        "HapgArn": str,
-    },
-)
-_OptionalModifyHapgRequestRequestTypeDef = TypedDict(
-    "_OptionalModifyHapgRequestRequestTypeDef",
-    {
-        "Label": str,
-        "PartitionSerialList": List[str],
-    },
-    total=False,
-)
+class ListAvailableZonesResponseTypeDef(TypedDict):
+    AZList: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class ModifyHapgRequestRequestTypeDef(
-    _RequiredModifyHapgRequestRequestTypeDef, _OptionalModifyHapgRequestRequestTypeDef
-):
-    pass
+class ListHapgsResponseTypeDef(TypedDict):
+    HapgList: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-ModifyHapgResponseTypeDef = TypedDict(
-    "ModifyHapgResponseTypeDef",
-    {
-        "HapgArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListHsmsResponseTypeDef(TypedDict):
+    HsmList: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-_RequiredModifyHsmRequestRequestTypeDef = TypedDict(
-    "_RequiredModifyHsmRequestRequestTypeDef",
-    {
-        "HsmArn": str,
-    },
-)
-_OptionalModifyHsmRequestRequestTypeDef = TypedDict(
-    "_OptionalModifyHsmRequestRequestTypeDef",
-    {
-        "SubnetId": str,
-        "EniIp": str,
-        "IamRoleArn": str,
-        "ExternalId": str,
-        "SyslogIp": str,
-    },
-    total=False,
-)
+class ListLunaClientsResponseTypeDef(TypedDict):
+    ClientList: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-class ModifyHsmRequestRequestTypeDef(
-    _RequiredModifyHsmRequestRequestTypeDef, _OptionalModifyHsmRequestRequestTypeDef
-):
-    pass
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    TagList: List[TagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ModifyHsmResponseTypeDef = TypedDict(
-    "ModifyHsmResponseTypeDef",
-    {
-        "HsmArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ModifyHapgResponseTypeDef(TypedDict):
+    HapgArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ModifyLunaClientRequestRequestTypeDef = TypedDict(
-    "ModifyLunaClientRequestRequestTypeDef",
-    {
-        "ClientArn": str,
-        "Certificate": str,
-    },
-)
+class ModifyHsmResponseTypeDef(TypedDict):
+    HsmArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ModifyLunaClientResponseTypeDef = TypedDict(
-    "ModifyLunaClientResponseTypeDef",
-    {
-        "ClientArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ModifyLunaClientResponseTypeDef(TypedDict):
+    ClientArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
+class RemoveTagsFromResourceResponseTypeDef(TypedDict):
+    Status: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-RemoveTagsFromResourceRequestRequestTypeDef = TypedDict(
-    "RemoveTagsFromResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-        "TagKeyList": List[str],
-    },
-)
+class ListHapgsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-RemoveTagsFromResourceResponseTypeDef = TypedDict(
-    "RemoveTagsFromResourceResponseTypeDef",
-    {
-        "Status": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListHsmsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-TagTypeDef = TypedDict(
-    "TagTypeDef",
-    {
-        "Key": str,
-        "Value": str,
-    },
-)
+class ListLunaClientsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]

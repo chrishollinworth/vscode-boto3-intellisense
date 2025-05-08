@@ -1,20 +1,24 @@
 """
 Type annotations for kafka service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kafka/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kafka/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_kafka.type_defs import AmazonMskClusterTypeDef
 
-    data: AmazonMskClusterTypeDef = {...}
+    data: AmazonMskClusterTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import IO, Any, Dict, List, Union
+from typing import IO, Any, Union
 
 from botocore.response import StreamingBody
 
@@ -27,6 +31,7 @@ from .literals import (
     EnhancedMonitoringType,
     KafkaVersionStatusType,
     ReplicationStartingPositionTypeType,
+    ReplicationTopicNameConfigurationTypeType,
     ReplicatorStateType,
     StorageModeType,
     TargetCompressionTypeType,
@@ -34,28 +39,35 @@ from .literals import (
     VpcConnectionStateType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
     "AmazonMskClusterTypeDef",
-    "BatchAssociateScramSecretRequestRequestTypeDef",
+    "BatchAssociateScramSecretRequestTypeDef",
     "BatchAssociateScramSecretResponseTypeDef",
-    "BatchDisassociateScramSecretRequestRequestTypeDef",
+    "BatchDisassociateScramSecretRequestTypeDef",
     "BatchDisassociateScramSecretResponseTypeDef",
+    "BlobTypeDef",
     "BrokerCountUpdateInfoTypeDef",
     "BrokerEBSVolumeInfoTypeDef",
     "BrokerLogsTypeDef",
+    "BrokerNodeGroupInfoOutputTypeDef",
     "BrokerNodeGroupInfoTypeDef",
+    "BrokerNodeGroupInfoUnionTypeDef",
     "BrokerNodeInfoTypeDef",
     "BrokerSoftwareInfoTypeDef",
+    "ClientAuthenticationOutputTypeDef",
     "ClientAuthenticationTypeDef",
+    "ClientAuthenticationUnionTypeDef",
     "ClientVpcConnectionTypeDef",
     "CloudWatchLogsTypeDef",
     "ClusterInfoTypeDef",
@@ -72,89 +84,106 @@ __all__ = (
     "ConfigurationRevisionTypeDef",
     "ConfigurationTypeDef",
     "ConnectivityInfoTypeDef",
+    "ConsumerGroupReplicationOutputTypeDef",
     "ConsumerGroupReplicationTypeDef",
+    "ConsumerGroupReplicationUnionTypeDef",
     "ConsumerGroupReplicationUpdateTypeDef",
     "ControllerNodeInfoTypeDef",
-    "CreateClusterRequestRequestTypeDef",
+    "CreateClusterRequestTypeDef",
     "CreateClusterResponseTypeDef",
-    "CreateClusterV2RequestRequestTypeDef",
+    "CreateClusterV2RequestTypeDef",
     "CreateClusterV2ResponseTypeDef",
-    "CreateConfigurationRequestRequestTypeDef",
+    "CreateConfigurationRequestTypeDef",
     "CreateConfigurationResponseTypeDef",
-    "CreateReplicatorRequestRequestTypeDef",
+    "CreateReplicatorRequestTypeDef",
     "CreateReplicatorResponseTypeDef",
-    "CreateVpcConnectionRequestRequestTypeDef",
+    "CreateVpcConnectionRequestTypeDef",
     "CreateVpcConnectionResponseTypeDef",
-    "DeleteClusterPolicyRequestRequestTypeDef",
-    "DeleteClusterRequestRequestTypeDef",
+    "DeleteClusterPolicyRequestTypeDef",
+    "DeleteClusterRequestTypeDef",
     "DeleteClusterResponseTypeDef",
-    "DeleteConfigurationRequestRequestTypeDef",
+    "DeleteConfigurationRequestTypeDef",
     "DeleteConfigurationResponseTypeDef",
-    "DeleteReplicatorRequestRequestTypeDef",
+    "DeleteReplicatorRequestTypeDef",
     "DeleteReplicatorResponseTypeDef",
-    "DeleteVpcConnectionRequestRequestTypeDef",
+    "DeleteVpcConnectionRequestTypeDef",
     "DeleteVpcConnectionResponseTypeDef",
-    "DescribeClusterOperationRequestRequestTypeDef",
+    "DescribeClusterOperationRequestTypeDef",
     "DescribeClusterOperationResponseTypeDef",
-    "DescribeClusterOperationV2RequestRequestTypeDef",
+    "DescribeClusterOperationV2RequestTypeDef",
     "DescribeClusterOperationV2ResponseTypeDef",
-    "DescribeClusterRequestRequestTypeDef",
+    "DescribeClusterRequestTypeDef",
     "DescribeClusterResponseTypeDef",
-    "DescribeClusterV2RequestRequestTypeDef",
+    "DescribeClusterV2RequestTypeDef",
     "DescribeClusterV2ResponseTypeDef",
-    "DescribeConfigurationRequestRequestTypeDef",
+    "DescribeConfigurationRequestTypeDef",
     "DescribeConfigurationResponseTypeDef",
-    "DescribeConfigurationRevisionRequestRequestTypeDef",
+    "DescribeConfigurationRevisionRequestTypeDef",
     "DescribeConfigurationRevisionResponseTypeDef",
-    "DescribeReplicatorRequestRequestTypeDef",
+    "DescribeReplicatorRequestTypeDef",
     "DescribeReplicatorResponseTypeDef",
-    "DescribeVpcConnectionRequestRequestTypeDef",
+    "DescribeVpcConnectionRequestTypeDef",
     "DescribeVpcConnectionResponseTypeDef",
     "EBSStorageInfoTypeDef",
+    "EmptyResponseMetadataTypeDef",
     "EncryptionAtRestTypeDef",
     "EncryptionInTransitTypeDef",
     "EncryptionInfoTypeDef",
     "ErrorInfoTypeDef",
     "FirehoseTypeDef",
-    "GetBootstrapBrokersRequestRequestTypeDef",
+    "GetBootstrapBrokersRequestTypeDef",
     "GetBootstrapBrokersResponseTypeDef",
-    "GetClusterPolicyRequestRequestTypeDef",
+    "GetClusterPolicyRequestTypeDef",
     "GetClusterPolicyResponseTypeDef",
-    "GetCompatibleKafkaVersionsRequestRequestTypeDef",
+    "GetCompatibleKafkaVersionsRequestTypeDef",
     "GetCompatibleKafkaVersionsResponseTypeDef",
     "IamTypeDef",
     "JmxExporterInfoTypeDef",
     "JmxExporterTypeDef",
+    "KafkaClusterClientVpcConfigOutputTypeDef",
     "KafkaClusterClientVpcConfigTypeDef",
+    "KafkaClusterClientVpcConfigUnionTypeDef",
     "KafkaClusterDescriptionTypeDef",
     "KafkaClusterSummaryTypeDef",
     "KafkaClusterTypeDef",
     "KafkaVersionTypeDef",
-    "ListClientVpcConnectionsRequestRequestTypeDef",
+    "ListClientVpcConnectionsRequestPaginateTypeDef",
+    "ListClientVpcConnectionsRequestTypeDef",
     "ListClientVpcConnectionsResponseTypeDef",
-    "ListClusterOperationsRequestRequestTypeDef",
+    "ListClusterOperationsRequestPaginateTypeDef",
+    "ListClusterOperationsRequestTypeDef",
     "ListClusterOperationsResponseTypeDef",
-    "ListClusterOperationsV2RequestRequestTypeDef",
+    "ListClusterOperationsV2RequestPaginateTypeDef",
+    "ListClusterOperationsV2RequestTypeDef",
     "ListClusterOperationsV2ResponseTypeDef",
-    "ListClustersRequestRequestTypeDef",
+    "ListClustersRequestPaginateTypeDef",
+    "ListClustersRequestTypeDef",
     "ListClustersResponseTypeDef",
-    "ListClustersV2RequestRequestTypeDef",
+    "ListClustersV2RequestPaginateTypeDef",
+    "ListClustersV2RequestTypeDef",
     "ListClustersV2ResponseTypeDef",
-    "ListConfigurationRevisionsRequestRequestTypeDef",
+    "ListConfigurationRevisionsRequestPaginateTypeDef",
+    "ListConfigurationRevisionsRequestTypeDef",
     "ListConfigurationRevisionsResponseTypeDef",
-    "ListConfigurationsRequestRequestTypeDef",
+    "ListConfigurationsRequestPaginateTypeDef",
+    "ListConfigurationsRequestTypeDef",
     "ListConfigurationsResponseTypeDef",
-    "ListKafkaVersionsRequestRequestTypeDef",
+    "ListKafkaVersionsRequestPaginateTypeDef",
+    "ListKafkaVersionsRequestTypeDef",
     "ListKafkaVersionsResponseTypeDef",
-    "ListNodesRequestRequestTypeDef",
+    "ListNodesRequestPaginateTypeDef",
+    "ListNodesRequestTypeDef",
     "ListNodesResponseTypeDef",
-    "ListReplicatorsRequestRequestTypeDef",
+    "ListReplicatorsRequestPaginateTypeDef",
+    "ListReplicatorsRequestTypeDef",
     "ListReplicatorsResponseTypeDef",
-    "ListScramSecretsRequestRequestTypeDef",
+    "ListScramSecretsRequestPaginateTypeDef",
+    "ListScramSecretsRequestTypeDef",
     "ListScramSecretsResponseTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
-    "ListVpcConnectionsRequestRequestTypeDef",
+    "ListVpcConnectionsRequestPaginateTypeDef",
+    "ListVpcConnectionsRequestTypeDef",
     "ListVpcConnectionsResponseTypeDef",
     "LoggingInfoTypeDef",
     "MutableClusterInfoTypeDef",
@@ -170,16 +199,17 @@ __all__ = (
     "ProvisionedThroughputTypeDef",
     "ProvisionedTypeDef",
     "PublicAccessTypeDef",
-    "PutClusterPolicyRequestRequestTypeDef",
+    "PutClusterPolicyRequestTypeDef",
     "PutClusterPolicyResponseTypeDef",
-    "RebootBrokerRequestRequestTypeDef",
+    "RebootBrokerRequestTypeDef",
     "RebootBrokerResponseTypeDef",
-    "RejectClientVpcConnectionRequestRequestTypeDef",
+    "RejectClientVpcConnectionRequestTypeDef",
     "ReplicationInfoDescriptionTypeDef",
     "ReplicationInfoSummaryTypeDef",
     "ReplicationInfoTypeDef",
     "ReplicationStartingPositionTypeDef",
     "ReplicationStateInfoTypeDef",
+    "ReplicationTopicNameConfigurationTypeDef",
     "ReplicatorSummaryTypeDef",
     "ResponseMetadataTypeDef",
     "S3TypeDef",
@@ -191,37 +221,43 @@ __all__ = (
     "ServerlessTypeDef",
     "StateInfoTypeDef",
     "StorageInfoTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
+    "TlsOutputTypeDef",
     "TlsTypeDef",
+    "TlsUnionTypeDef",
+    "TopicReplicationOutputTypeDef",
     "TopicReplicationTypeDef",
+    "TopicReplicationUnionTypeDef",
     "TopicReplicationUpdateTypeDef",
     "UnauthenticatedTypeDef",
     "UnprocessedScramSecretTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateBrokerCountRequestRequestTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateBrokerCountRequestTypeDef",
     "UpdateBrokerCountResponseTypeDef",
-    "UpdateBrokerStorageRequestRequestTypeDef",
+    "UpdateBrokerStorageRequestTypeDef",
     "UpdateBrokerStorageResponseTypeDef",
-    "UpdateBrokerTypeRequestRequestTypeDef",
+    "UpdateBrokerTypeRequestTypeDef",
     "UpdateBrokerTypeResponseTypeDef",
-    "UpdateClusterConfigurationRequestRequestTypeDef",
+    "UpdateClusterConfigurationRequestTypeDef",
     "UpdateClusterConfigurationResponseTypeDef",
-    "UpdateClusterKafkaVersionRequestRequestTypeDef",
+    "UpdateClusterKafkaVersionRequestTypeDef",
     "UpdateClusterKafkaVersionResponseTypeDef",
-    "UpdateConfigurationRequestRequestTypeDef",
+    "UpdateConfigurationRequestTypeDef",
     "UpdateConfigurationResponseTypeDef",
-    "UpdateConnectivityRequestRequestTypeDef",
+    "UpdateConnectivityRequestTypeDef",
     "UpdateConnectivityResponseTypeDef",
-    "UpdateMonitoringRequestRequestTypeDef",
+    "UpdateMonitoringRequestTypeDef",
     "UpdateMonitoringResponseTypeDef",
-    "UpdateReplicationInfoRequestRequestTypeDef",
+    "UpdateReplicationInfoRequestTypeDef",
     "UpdateReplicationInfoResponseTypeDef",
-    "UpdateSecurityRequestRequestTypeDef",
+    "UpdateSecurityRequestTypeDef",
     "UpdateSecurityResponseTypeDef",
-    "UpdateStorageRequestRequestTypeDef",
+    "UpdateStorageRequestTypeDef",
     "UpdateStorageResponseTypeDef",
     "UserIdentityTypeDef",
+    "VpcConfigOutputTypeDef",
     "VpcConfigTypeDef",
+    "VpcConfigUnionTypeDef",
     "VpcConnectionInfoServerlessTypeDef",
     "VpcConnectionInfoTypeDef",
     "VpcConnectionTypeDef",
@@ -234,2211 +270,1140 @@ __all__ = (
     "ZookeeperNodeInfoTypeDef",
 )
 
-AmazonMskClusterTypeDef = TypedDict(
-    "AmazonMskClusterTypeDef",
-    {
-        "MskClusterArn": str,
-    },
-)
-
-BatchAssociateScramSecretRequestRequestTypeDef = TypedDict(
-    "BatchAssociateScramSecretRequestRequestTypeDef",
-    {
-        "ClusterArn": str,
-        "SecretArnList": List[str],
-    },
-)
-
-BatchAssociateScramSecretResponseTypeDef = TypedDict(
-    "BatchAssociateScramSecretResponseTypeDef",
-    {
-        "ClusterArn": str,
-        "UnprocessedScramSecrets": List["UnprocessedScramSecretTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-BatchDisassociateScramSecretRequestRequestTypeDef = TypedDict(
-    "BatchDisassociateScramSecretRequestRequestTypeDef",
-    {
-        "ClusterArn": str,
-        "SecretArnList": List[str],
-    },
-)
-
-BatchDisassociateScramSecretResponseTypeDef = TypedDict(
-    "BatchDisassociateScramSecretResponseTypeDef",
-    {
-        "ClusterArn": str,
-        "UnprocessedScramSecrets": List["UnprocessedScramSecretTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-BrokerCountUpdateInfoTypeDef = TypedDict(
-    "BrokerCountUpdateInfoTypeDef",
-    {
-        "CreatedBrokerIds": List[float],
-        "DeletedBrokerIds": List[float],
-    },
-    total=False,
-)
-
-_RequiredBrokerEBSVolumeInfoTypeDef = TypedDict(
-    "_RequiredBrokerEBSVolumeInfoTypeDef",
-    {
-        "KafkaBrokerNodeId": str,
-    },
-)
-_OptionalBrokerEBSVolumeInfoTypeDef = TypedDict(
-    "_OptionalBrokerEBSVolumeInfoTypeDef",
-    {
-        "ProvisionedThroughput": "ProvisionedThroughputTypeDef",
-        "VolumeSizeGB": int,
-    },
-    total=False,
-)
-
-class BrokerEBSVolumeInfoTypeDef(
-    _RequiredBrokerEBSVolumeInfoTypeDef, _OptionalBrokerEBSVolumeInfoTypeDef
-):
-    pass
-
-BrokerLogsTypeDef = TypedDict(
-    "BrokerLogsTypeDef",
-    {
-        "CloudWatchLogs": "CloudWatchLogsTypeDef",
-        "Firehose": "FirehoseTypeDef",
-        "S3": "S3TypeDef",
-    },
-    total=False,
-)
-
-_RequiredBrokerNodeGroupInfoTypeDef = TypedDict(
-    "_RequiredBrokerNodeGroupInfoTypeDef",
-    {
-        "ClientSubnets": List[str],
-        "InstanceType": str,
-    },
-)
-_OptionalBrokerNodeGroupInfoTypeDef = TypedDict(
-    "_OptionalBrokerNodeGroupInfoTypeDef",
-    {
-        "BrokerAZDistribution": Literal["DEFAULT"],
-        "SecurityGroups": List[str],
-        "StorageInfo": "StorageInfoTypeDef",
-        "ConnectivityInfo": "ConnectivityInfoTypeDef",
-        "ZoneIds": List[str],
-    },
-    total=False,
-)
-
-class BrokerNodeGroupInfoTypeDef(
-    _RequiredBrokerNodeGroupInfoTypeDef, _OptionalBrokerNodeGroupInfoTypeDef
-):
-    pass
-
-BrokerNodeInfoTypeDef = TypedDict(
-    "BrokerNodeInfoTypeDef",
-    {
-        "AttachedENIId": str,
-        "BrokerId": float,
-        "ClientSubnet": str,
-        "ClientVpcIpAddress": str,
-        "CurrentBrokerSoftwareInfo": "BrokerSoftwareInfoTypeDef",
-        "Endpoints": List[str],
-    },
-    total=False,
-)
-
-BrokerSoftwareInfoTypeDef = TypedDict(
-    "BrokerSoftwareInfoTypeDef",
-    {
-        "ConfigurationArn": str,
-        "ConfigurationRevision": int,
-        "KafkaVersion": str,
-    },
-    total=False,
-)
-
-ClientAuthenticationTypeDef = TypedDict(
-    "ClientAuthenticationTypeDef",
-    {
-        "Sasl": "SaslTypeDef",
-        "Tls": "TlsTypeDef",
-        "Unauthenticated": "UnauthenticatedTypeDef",
-    },
-    total=False,
-)
-
-_RequiredClientVpcConnectionTypeDef = TypedDict(
-    "_RequiredClientVpcConnectionTypeDef",
-    {
-        "VpcConnectionArn": str,
-    },
-)
-_OptionalClientVpcConnectionTypeDef = TypedDict(
-    "_OptionalClientVpcConnectionTypeDef",
-    {
-        "Authentication": str,
-        "CreationTime": datetime,
-        "State": VpcConnectionStateType,
-        "Owner": str,
-    },
-    total=False,
-)
-
-class ClientVpcConnectionTypeDef(
-    _RequiredClientVpcConnectionTypeDef, _OptionalClientVpcConnectionTypeDef
-):
-    pass
-
-_RequiredCloudWatchLogsTypeDef = TypedDict(
-    "_RequiredCloudWatchLogsTypeDef",
-    {
-        "Enabled": bool,
-    },
-)
-_OptionalCloudWatchLogsTypeDef = TypedDict(
-    "_OptionalCloudWatchLogsTypeDef",
-    {
-        "LogGroup": str,
-    },
-    total=False,
-)
-
-class CloudWatchLogsTypeDef(_RequiredCloudWatchLogsTypeDef, _OptionalCloudWatchLogsTypeDef):
-    pass
-
-ClusterInfoTypeDef = TypedDict(
-    "ClusterInfoTypeDef",
-    {
-        "ActiveOperationArn": str,
-        "BrokerNodeGroupInfo": "BrokerNodeGroupInfoTypeDef",
-        "ClientAuthentication": "ClientAuthenticationTypeDef",
-        "ClusterArn": str,
-        "ClusterName": str,
-        "CreationTime": datetime,
-        "CurrentBrokerSoftwareInfo": "BrokerSoftwareInfoTypeDef",
-        "CurrentVersion": str,
-        "EncryptionInfo": "EncryptionInfoTypeDef",
-        "EnhancedMonitoring": EnhancedMonitoringType,
-        "OpenMonitoring": "OpenMonitoringTypeDef",
-        "LoggingInfo": "LoggingInfoTypeDef",
-        "NumberOfBrokerNodes": int,
-        "State": ClusterStateType,
-        "StateInfo": "StateInfoTypeDef",
-        "Tags": Dict[str, str],
-        "ZookeeperConnectString": str,
-        "ZookeeperConnectStringTls": str,
-        "StorageMode": StorageModeType,
-        "CustomerActionStatus": CustomerActionStatusType,
-    },
-    total=False,
-)
-
-ClusterOperationInfoTypeDef = TypedDict(
-    "ClusterOperationInfoTypeDef",
-    {
-        "ClientRequestId": str,
-        "ClusterArn": str,
-        "CreationTime": datetime,
-        "EndTime": datetime,
-        "ErrorInfo": "ErrorInfoTypeDef",
-        "OperationArn": str,
-        "OperationState": str,
-        "OperationSteps": List["ClusterOperationStepTypeDef"],
-        "OperationType": str,
-        "SourceClusterInfo": "MutableClusterInfoTypeDef",
-        "TargetClusterInfo": "MutableClusterInfoTypeDef",
-        "VpcConnectionInfo": "VpcConnectionInfoTypeDef",
-    },
-    total=False,
-)
-
-ClusterOperationStepInfoTypeDef = TypedDict(
-    "ClusterOperationStepInfoTypeDef",
-    {
-        "StepStatus": str,
-    },
-    total=False,
-)
-
-ClusterOperationStepTypeDef = TypedDict(
-    "ClusterOperationStepTypeDef",
-    {
-        "StepInfo": "ClusterOperationStepInfoTypeDef",
-        "StepName": str,
-    },
-    total=False,
-)
-
-ClusterOperationV2ProvisionedTypeDef = TypedDict(
-    "ClusterOperationV2ProvisionedTypeDef",
-    {
-        "OperationSteps": List["ClusterOperationStepTypeDef"],
-        "SourceClusterInfo": "MutableClusterInfoTypeDef",
-        "TargetClusterInfo": "MutableClusterInfoTypeDef",
-        "VpcConnectionInfo": "VpcConnectionInfoTypeDef",
-    },
-    total=False,
-)
-
-ClusterOperationV2ServerlessTypeDef = TypedDict(
-    "ClusterOperationV2ServerlessTypeDef",
-    {
-        "VpcConnectionInfo": "VpcConnectionInfoServerlessTypeDef",
-    },
-    total=False,
-)
-
-ClusterOperationV2SummaryTypeDef = TypedDict(
-    "ClusterOperationV2SummaryTypeDef",
-    {
-        "ClusterArn": str,
-        "ClusterType": ClusterTypeType,
-        "StartTime": datetime,
-        "EndTime": datetime,
-        "OperationArn": str,
-        "OperationState": str,
-        "OperationType": str,
-    },
-    total=False,
-)
-
-ClusterOperationV2TypeDef = TypedDict(
-    "ClusterOperationV2TypeDef",
-    {
-        "ClusterArn": str,
-        "ClusterType": ClusterTypeType,
-        "StartTime": datetime,
-        "EndTime": datetime,
-        "ErrorInfo": "ErrorInfoTypeDef",
-        "OperationArn": str,
-        "OperationState": str,
-        "OperationType": str,
-        "Provisioned": "ClusterOperationV2ProvisionedTypeDef",
-        "Serverless": "ClusterOperationV2ServerlessTypeDef",
-    },
-    total=False,
-)
-
-ClusterTypeDef = TypedDict(
-    "ClusterTypeDef",
-    {
-        "ActiveOperationArn": str,
-        "ClusterType": ClusterTypeType,
-        "ClusterArn": str,
-        "ClusterName": str,
-        "CreationTime": datetime,
-        "CurrentVersion": str,
-        "State": ClusterStateType,
-        "StateInfo": "StateInfoTypeDef",
-        "Tags": Dict[str, str],
-        "Provisioned": "ProvisionedTypeDef",
-        "Serverless": "ServerlessTypeDef",
-    },
-    total=False,
-)
-
-CompatibleKafkaVersionTypeDef = TypedDict(
-    "CompatibleKafkaVersionTypeDef",
-    {
-        "SourceVersion": str,
-        "TargetVersions": List[str],
-    },
-    total=False,
-)
-
-ConfigurationInfoTypeDef = TypedDict(
-    "ConfigurationInfoTypeDef",
-    {
-        "Arn": str,
-        "Revision": int,
-    },
-)
-
-_RequiredConfigurationRevisionTypeDef = TypedDict(
-    "_RequiredConfigurationRevisionTypeDef",
-    {
-        "CreationTime": datetime,
-        "Revision": int,
-    },
-)
-_OptionalConfigurationRevisionTypeDef = TypedDict(
-    "_OptionalConfigurationRevisionTypeDef",
-    {
-        "Description": str,
-    },
-    total=False,
-)
-
-class ConfigurationRevisionTypeDef(
-    _RequiredConfigurationRevisionTypeDef, _OptionalConfigurationRevisionTypeDef
-):
-    pass
-
-ConfigurationTypeDef = TypedDict(
-    "ConfigurationTypeDef",
-    {
-        "Arn": str,
-        "CreationTime": datetime,
-        "Description": str,
-        "KafkaVersions": List[str],
-        "LatestRevision": "ConfigurationRevisionTypeDef",
-        "Name": str,
-        "State": ConfigurationStateType,
-    },
-)
-
-ConnectivityInfoTypeDef = TypedDict(
-    "ConnectivityInfoTypeDef",
-    {
-        "PublicAccess": "PublicAccessTypeDef",
-        "VpcConnectivity": "VpcConnectivityTypeDef",
-    },
-    total=False,
-)
-
-_RequiredConsumerGroupReplicationTypeDef = TypedDict(
-    "_RequiredConsumerGroupReplicationTypeDef",
-    {
-        "ConsumerGroupsToReplicate": List[str],
-    },
-)
-_OptionalConsumerGroupReplicationTypeDef = TypedDict(
-    "_OptionalConsumerGroupReplicationTypeDef",
-    {
-        "ConsumerGroupsToExclude": List[str],
-        "DetectAndCopyNewConsumerGroups": bool,
-        "SynchroniseConsumerGroupOffsets": bool,
-    },
-    total=False,
-)
-
-class ConsumerGroupReplicationTypeDef(
-    _RequiredConsumerGroupReplicationTypeDef, _OptionalConsumerGroupReplicationTypeDef
-):
-    pass
-
-ConsumerGroupReplicationUpdateTypeDef = TypedDict(
-    "ConsumerGroupReplicationUpdateTypeDef",
-    {
-        "ConsumerGroupsToExclude": List[str],
-        "ConsumerGroupsToReplicate": List[str],
-        "DetectAndCopyNewConsumerGroups": bool,
-        "SynchroniseConsumerGroupOffsets": bool,
-    },
-)
-
-ControllerNodeInfoTypeDef = TypedDict(
-    "ControllerNodeInfoTypeDef",
-    {
-        "Endpoints": List[str],
-    },
-    total=False,
-)
-
-_RequiredCreateClusterRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateClusterRequestRequestTypeDef",
-    {
-        "BrokerNodeGroupInfo": "BrokerNodeGroupInfoTypeDef",
-        "ClusterName": str,
-        "KafkaVersion": str,
-        "NumberOfBrokerNodes": int,
-    },
-)
-_OptionalCreateClusterRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateClusterRequestRequestTypeDef",
-    {
-        "ClientAuthentication": "ClientAuthenticationTypeDef",
-        "ConfigurationInfo": "ConfigurationInfoTypeDef",
-        "EncryptionInfo": "EncryptionInfoTypeDef",
-        "EnhancedMonitoring": EnhancedMonitoringType,
-        "OpenMonitoring": "OpenMonitoringInfoTypeDef",
-        "LoggingInfo": "LoggingInfoTypeDef",
-        "Tags": Dict[str, str],
-        "StorageMode": StorageModeType,
-    },
-    total=False,
-)
-
-class CreateClusterRequestRequestTypeDef(
-    _RequiredCreateClusterRequestRequestTypeDef, _OptionalCreateClusterRequestRequestTypeDef
-):
-    pass
-
-CreateClusterResponseTypeDef = TypedDict(
-    "CreateClusterResponseTypeDef",
-    {
-        "ClusterArn": str,
-        "ClusterName": str,
-        "State": ClusterStateType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateClusterV2RequestRequestTypeDef = TypedDict(
-    "_RequiredCreateClusterV2RequestRequestTypeDef",
-    {
-        "ClusterName": str,
-    },
-)
-_OptionalCreateClusterV2RequestRequestTypeDef = TypedDict(
-    "_OptionalCreateClusterV2RequestRequestTypeDef",
-    {
-        "Tags": Dict[str, str],
-        "Provisioned": "ProvisionedRequestTypeDef",
-        "Serverless": "ServerlessRequestTypeDef",
-    },
-    total=False,
-)
-
-class CreateClusterV2RequestRequestTypeDef(
-    _RequiredCreateClusterV2RequestRequestTypeDef, _OptionalCreateClusterV2RequestRequestTypeDef
-):
-    pass
-
-CreateClusterV2ResponseTypeDef = TypedDict(
-    "CreateClusterV2ResponseTypeDef",
-    {
-        "ClusterArn": str,
-        "ClusterName": str,
-        "State": ClusterStateType,
-        "ClusterType": ClusterTypeType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateConfigurationRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateConfigurationRequestRequestTypeDef",
-    {
-        "Name": str,
-        "ServerProperties": Union[bytes, IO[bytes], StreamingBody],
-    },
-)
-_OptionalCreateConfigurationRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateConfigurationRequestRequestTypeDef",
-    {
-        "Description": str,
-        "KafkaVersions": List[str],
-    },
-    total=False,
-)
-
-class CreateConfigurationRequestRequestTypeDef(
-    _RequiredCreateConfigurationRequestRequestTypeDef,
-    _OptionalCreateConfigurationRequestRequestTypeDef,
-):
-    pass
-
-CreateConfigurationResponseTypeDef = TypedDict(
-    "CreateConfigurationResponseTypeDef",
-    {
-        "Arn": str,
-        "CreationTime": datetime,
-        "LatestRevision": "ConfigurationRevisionTypeDef",
-        "Name": str,
-        "State": ConfigurationStateType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateReplicatorRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateReplicatorRequestRequestTypeDef",
-    {
-        "KafkaClusters": List["KafkaClusterTypeDef"],
-        "ReplicationInfoList": List["ReplicationInfoTypeDef"],
-        "ReplicatorName": str,
-        "ServiceExecutionRoleArn": str,
-    },
-)
-_OptionalCreateReplicatorRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateReplicatorRequestRequestTypeDef",
-    {
-        "Description": str,
-        "Tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class CreateReplicatorRequestRequestTypeDef(
-    _RequiredCreateReplicatorRequestRequestTypeDef, _OptionalCreateReplicatorRequestRequestTypeDef
-):
-    pass
-
-CreateReplicatorResponseTypeDef = TypedDict(
-    "CreateReplicatorResponseTypeDef",
-    {
-        "ReplicatorArn": str,
-        "ReplicatorName": str,
-        "ReplicatorState": ReplicatorStateType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateVpcConnectionRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateVpcConnectionRequestRequestTypeDef",
-    {
-        "TargetClusterArn": str,
-        "Authentication": str,
-        "VpcId": str,
-        "ClientSubnets": List[str],
-        "SecurityGroups": List[str],
-    },
-)
-_OptionalCreateVpcConnectionRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateVpcConnectionRequestRequestTypeDef",
-    {
-        "Tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class CreateVpcConnectionRequestRequestTypeDef(
-    _RequiredCreateVpcConnectionRequestRequestTypeDef,
-    _OptionalCreateVpcConnectionRequestRequestTypeDef,
-):
-    pass
-
-CreateVpcConnectionResponseTypeDef = TypedDict(
-    "CreateVpcConnectionResponseTypeDef",
-    {
-        "VpcConnectionArn": str,
-        "State": VpcConnectionStateType,
-        "Authentication": str,
-        "VpcId": str,
-        "ClientSubnets": List[str],
-        "SecurityGroups": List[str],
-        "CreationTime": datetime,
-        "Tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteClusterPolicyRequestRequestTypeDef = TypedDict(
-    "DeleteClusterPolicyRequestRequestTypeDef",
-    {
-        "ClusterArn": str,
-    },
-)
-
-_RequiredDeleteClusterRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteClusterRequestRequestTypeDef",
-    {
-        "ClusterArn": str,
-    },
-)
-_OptionalDeleteClusterRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteClusterRequestRequestTypeDef",
-    {
-        "CurrentVersion": str,
-    },
-    total=False,
-)
-
-class DeleteClusterRequestRequestTypeDef(
-    _RequiredDeleteClusterRequestRequestTypeDef, _OptionalDeleteClusterRequestRequestTypeDef
-):
-    pass
-
-DeleteClusterResponseTypeDef = TypedDict(
-    "DeleteClusterResponseTypeDef",
-    {
-        "ClusterArn": str,
-        "State": ClusterStateType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteConfigurationRequestRequestTypeDef = TypedDict(
-    "DeleteConfigurationRequestRequestTypeDef",
-    {
-        "Arn": str,
-    },
-)
-
-DeleteConfigurationResponseTypeDef = TypedDict(
-    "DeleteConfigurationResponseTypeDef",
-    {
-        "Arn": str,
-        "State": ConfigurationStateType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDeleteReplicatorRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteReplicatorRequestRequestTypeDef",
-    {
-        "ReplicatorArn": str,
-    },
-)
-_OptionalDeleteReplicatorRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteReplicatorRequestRequestTypeDef",
-    {
-        "CurrentVersion": str,
-    },
-    total=False,
-)
-
-class DeleteReplicatorRequestRequestTypeDef(
-    _RequiredDeleteReplicatorRequestRequestTypeDef, _OptionalDeleteReplicatorRequestRequestTypeDef
-):
-    pass
-
-DeleteReplicatorResponseTypeDef = TypedDict(
-    "DeleteReplicatorResponseTypeDef",
-    {
-        "ReplicatorArn": str,
-        "ReplicatorState": ReplicatorStateType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteVpcConnectionRequestRequestTypeDef = TypedDict(
-    "DeleteVpcConnectionRequestRequestTypeDef",
-    {
-        "Arn": str,
-    },
-)
-
-DeleteVpcConnectionResponseTypeDef = TypedDict(
-    "DeleteVpcConnectionResponseTypeDef",
-    {
-        "VpcConnectionArn": str,
-        "State": VpcConnectionStateType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeClusterOperationRequestRequestTypeDef = TypedDict(
-    "DescribeClusterOperationRequestRequestTypeDef",
-    {
-        "ClusterOperationArn": str,
-    },
-)
-
-DescribeClusterOperationResponseTypeDef = TypedDict(
-    "DescribeClusterOperationResponseTypeDef",
-    {
-        "ClusterOperationInfo": "ClusterOperationInfoTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeClusterOperationV2RequestRequestTypeDef = TypedDict(
-    "DescribeClusterOperationV2RequestRequestTypeDef",
-    {
-        "ClusterOperationArn": str,
-    },
-)
-
-DescribeClusterOperationV2ResponseTypeDef = TypedDict(
-    "DescribeClusterOperationV2ResponseTypeDef",
-    {
-        "ClusterOperationInfo": "ClusterOperationV2TypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeClusterRequestRequestTypeDef = TypedDict(
-    "DescribeClusterRequestRequestTypeDef",
-    {
-        "ClusterArn": str,
-    },
-)
-
-DescribeClusterResponseTypeDef = TypedDict(
-    "DescribeClusterResponseTypeDef",
-    {
-        "ClusterInfo": "ClusterInfoTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeClusterV2RequestRequestTypeDef = TypedDict(
-    "DescribeClusterV2RequestRequestTypeDef",
-    {
-        "ClusterArn": str,
-    },
-)
-
-DescribeClusterV2ResponseTypeDef = TypedDict(
-    "DescribeClusterV2ResponseTypeDef",
-    {
-        "ClusterInfo": "ClusterTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeConfigurationRequestRequestTypeDef = TypedDict(
-    "DescribeConfigurationRequestRequestTypeDef",
-    {
-        "Arn": str,
-    },
-)
-
-DescribeConfigurationResponseTypeDef = TypedDict(
-    "DescribeConfigurationResponseTypeDef",
-    {
-        "Arn": str,
-        "CreationTime": datetime,
-        "Description": str,
-        "KafkaVersions": List[str],
-        "LatestRevision": "ConfigurationRevisionTypeDef",
-        "Name": str,
-        "State": ConfigurationStateType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeConfigurationRevisionRequestRequestTypeDef = TypedDict(
-    "DescribeConfigurationRevisionRequestRequestTypeDef",
-    {
-        "Arn": str,
-        "Revision": int,
-    },
-)
-
-DescribeConfigurationRevisionResponseTypeDef = TypedDict(
-    "DescribeConfigurationRevisionResponseTypeDef",
-    {
-        "Arn": str,
-        "CreationTime": datetime,
-        "Description": str,
-        "Revision": int,
-        "ServerProperties": bytes,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeReplicatorRequestRequestTypeDef = TypedDict(
-    "DescribeReplicatorRequestRequestTypeDef",
-    {
-        "ReplicatorArn": str,
-    },
-)
-
-DescribeReplicatorResponseTypeDef = TypedDict(
-    "DescribeReplicatorResponseTypeDef",
-    {
-        "CreationTime": datetime,
-        "CurrentVersion": str,
-        "IsReplicatorReference": bool,
-        "KafkaClusters": List["KafkaClusterDescriptionTypeDef"],
-        "ReplicationInfoList": List["ReplicationInfoDescriptionTypeDef"],
-        "ReplicatorArn": str,
-        "ReplicatorDescription": str,
-        "ReplicatorName": str,
-        "ReplicatorResourceArn": str,
-        "ReplicatorState": ReplicatorStateType,
-        "ServiceExecutionRoleArn": str,
-        "StateInfo": "ReplicationStateInfoTypeDef",
-        "Tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeVpcConnectionRequestRequestTypeDef = TypedDict(
-    "DescribeVpcConnectionRequestRequestTypeDef",
-    {
-        "Arn": str,
-    },
-)
-
-DescribeVpcConnectionResponseTypeDef = TypedDict(
-    "DescribeVpcConnectionResponseTypeDef",
-    {
-        "VpcConnectionArn": str,
-        "TargetClusterArn": str,
-        "State": VpcConnectionStateType,
-        "Authentication": str,
-        "VpcId": str,
-        "Subnets": List[str],
-        "SecurityGroups": List[str],
-        "CreationTime": datetime,
-        "Tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-EBSStorageInfoTypeDef = TypedDict(
-    "EBSStorageInfoTypeDef",
-    {
-        "ProvisionedThroughput": "ProvisionedThroughputTypeDef",
-        "VolumeSize": int,
-    },
-    total=False,
-)
-
-EncryptionAtRestTypeDef = TypedDict(
-    "EncryptionAtRestTypeDef",
-    {
-        "DataVolumeKMSKeyId": str,
-    },
-)
-
-EncryptionInTransitTypeDef = TypedDict(
-    "EncryptionInTransitTypeDef",
-    {
-        "ClientBroker": ClientBrokerType,
-        "InCluster": bool,
-    },
-    total=False,
-)
-
-EncryptionInfoTypeDef = TypedDict(
-    "EncryptionInfoTypeDef",
-    {
-        "EncryptionAtRest": "EncryptionAtRestTypeDef",
-        "EncryptionInTransit": "EncryptionInTransitTypeDef",
-    },
-    total=False,
-)
-
-ErrorInfoTypeDef = TypedDict(
-    "ErrorInfoTypeDef",
-    {
-        "ErrorCode": str,
-        "ErrorString": str,
-    },
-    total=False,
-)
-
-_RequiredFirehoseTypeDef = TypedDict(
-    "_RequiredFirehoseTypeDef",
-    {
-        "Enabled": bool,
-    },
-)
-_OptionalFirehoseTypeDef = TypedDict(
-    "_OptionalFirehoseTypeDef",
-    {
-        "DeliveryStream": str,
-    },
-    total=False,
-)
-
-class FirehoseTypeDef(_RequiredFirehoseTypeDef, _OptionalFirehoseTypeDef):
-    pass
-
-GetBootstrapBrokersRequestRequestTypeDef = TypedDict(
-    "GetBootstrapBrokersRequestRequestTypeDef",
-    {
-        "ClusterArn": str,
-    },
-)
-
-GetBootstrapBrokersResponseTypeDef = TypedDict(
-    "GetBootstrapBrokersResponseTypeDef",
-    {
-        "BootstrapBrokerString": str,
-        "BootstrapBrokerStringTls": str,
-        "BootstrapBrokerStringSaslScram": str,
-        "BootstrapBrokerStringSaslIam": str,
-        "BootstrapBrokerStringPublicTls": str,
-        "BootstrapBrokerStringPublicSaslScram": str,
-        "BootstrapBrokerStringPublicSaslIam": str,
-        "BootstrapBrokerStringVpcConnectivityTls": str,
-        "BootstrapBrokerStringVpcConnectivitySaslScram": str,
-        "BootstrapBrokerStringVpcConnectivitySaslIam": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetClusterPolicyRequestRequestTypeDef = TypedDict(
-    "GetClusterPolicyRequestRequestTypeDef",
-    {
-        "ClusterArn": str,
-    },
-)
-
-GetClusterPolicyResponseTypeDef = TypedDict(
-    "GetClusterPolicyResponseTypeDef",
-    {
-        "CurrentVersion": str,
-        "Policy": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetCompatibleKafkaVersionsRequestRequestTypeDef = TypedDict(
-    "GetCompatibleKafkaVersionsRequestRequestTypeDef",
-    {
-        "ClusterArn": str,
-    },
-    total=False,
-)
-
-GetCompatibleKafkaVersionsResponseTypeDef = TypedDict(
-    "GetCompatibleKafkaVersionsResponseTypeDef",
-    {
-        "CompatibleKafkaVersions": List["CompatibleKafkaVersionTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-IamTypeDef = TypedDict(
-    "IamTypeDef",
-    {
-        "Enabled": bool,
-    },
-    total=False,
-)
-
-JmxExporterInfoTypeDef = TypedDict(
-    "JmxExporterInfoTypeDef",
-    {
-        "EnabledInBroker": bool,
-    },
-)
-
-JmxExporterTypeDef = TypedDict(
-    "JmxExporterTypeDef",
-    {
-        "EnabledInBroker": bool,
-    },
-)
-
-_RequiredKafkaClusterClientVpcConfigTypeDef = TypedDict(
-    "_RequiredKafkaClusterClientVpcConfigTypeDef",
-    {
-        "SubnetIds": List[str],
-    },
-)
-_OptionalKafkaClusterClientVpcConfigTypeDef = TypedDict(
-    "_OptionalKafkaClusterClientVpcConfigTypeDef",
-    {
-        "SecurityGroupIds": List[str],
-    },
-    total=False,
-)
-
-class KafkaClusterClientVpcConfigTypeDef(
-    _RequiredKafkaClusterClientVpcConfigTypeDef, _OptionalKafkaClusterClientVpcConfigTypeDef
-):
-    pass
-
-KafkaClusterDescriptionTypeDef = TypedDict(
-    "KafkaClusterDescriptionTypeDef",
-    {
-        "AmazonMskCluster": "AmazonMskClusterTypeDef",
-        "KafkaClusterAlias": str,
-        "VpcConfig": "KafkaClusterClientVpcConfigTypeDef",
-    },
-    total=False,
-)
-
-KafkaClusterSummaryTypeDef = TypedDict(
-    "KafkaClusterSummaryTypeDef",
-    {
-        "AmazonMskCluster": "AmazonMskClusterTypeDef",
-        "KafkaClusterAlias": str,
-    },
-    total=False,
-)
-
-KafkaClusterTypeDef = TypedDict(
-    "KafkaClusterTypeDef",
-    {
-        "AmazonMskCluster": "AmazonMskClusterTypeDef",
-        "VpcConfig": "KafkaClusterClientVpcConfigTypeDef",
-    },
-)
-
-KafkaVersionTypeDef = TypedDict(
-    "KafkaVersionTypeDef",
-    {
-        "Version": str,
-        "Status": KafkaVersionStatusType,
-    },
-    total=False,
-)
-
-_RequiredListClientVpcConnectionsRequestRequestTypeDef = TypedDict(
-    "_RequiredListClientVpcConnectionsRequestRequestTypeDef",
-    {
-        "ClusterArn": str,
-    },
-)
-_OptionalListClientVpcConnectionsRequestRequestTypeDef = TypedDict(
-    "_OptionalListClientVpcConnectionsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListClientVpcConnectionsRequestRequestTypeDef(
-    _RequiredListClientVpcConnectionsRequestRequestTypeDef,
-    _OptionalListClientVpcConnectionsRequestRequestTypeDef,
-):
-    pass
-
-ListClientVpcConnectionsResponseTypeDef = TypedDict(
-    "ListClientVpcConnectionsResponseTypeDef",
-    {
-        "ClientVpcConnections": List["ClientVpcConnectionTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListClusterOperationsRequestRequestTypeDef = TypedDict(
-    "_RequiredListClusterOperationsRequestRequestTypeDef",
-    {
-        "ClusterArn": str,
-    },
-)
-_OptionalListClusterOperationsRequestRequestTypeDef = TypedDict(
-    "_OptionalListClusterOperationsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListClusterOperationsRequestRequestTypeDef(
-    _RequiredListClusterOperationsRequestRequestTypeDef,
-    _OptionalListClusterOperationsRequestRequestTypeDef,
-):
-    pass
-
-ListClusterOperationsResponseTypeDef = TypedDict(
-    "ListClusterOperationsResponseTypeDef",
-    {
-        "ClusterOperationInfoList": List["ClusterOperationInfoTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListClusterOperationsV2RequestRequestTypeDef = TypedDict(
-    "_RequiredListClusterOperationsV2RequestRequestTypeDef",
-    {
-        "ClusterArn": str,
-    },
-)
-_OptionalListClusterOperationsV2RequestRequestTypeDef = TypedDict(
-    "_OptionalListClusterOperationsV2RequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListClusterOperationsV2RequestRequestTypeDef(
-    _RequiredListClusterOperationsV2RequestRequestTypeDef,
-    _OptionalListClusterOperationsV2RequestRequestTypeDef,
-):
-    pass
-
-ListClusterOperationsV2ResponseTypeDef = TypedDict(
-    "ListClusterOperationsV2ResponseTypeDef",
-    {
-        "ClusterOperationInfoList": List["ClusterOperationV2SummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListClustersRequestRequestTypeDef = TypedDict(
-    "ListClustersRequestRequestTypeDef",
-    {
-        "ClusterNameFilter": str,
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListClustersResponseTypeDef = TypedDict(
-    "ListClustersResponseTypeDef",
-    {
-        "ClusterInfoList": List["ClusterInfoTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListClustersV2RequestRequestTypeDef = TypedDict(
-    "ListClustersV2RequestRequestTypeDef",
-    {
-        "ClusterNameFilter": str,
-        "ClusterTypeFilter": str,
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListClustersV2ResponseTypeDef = TypedDict(
-    "ListClustersV2ResponseTypeDef",
-    {
-        "ClusterInfoList": List["ClusterTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListConfigurationRevisionsRequestRequestTypeDef = TypedDict(
-    "_RequiredListConfigurationRevisionsRequestRequestTypeDef",
-    {
-        "Arn": str,
-    },
-)
-_OptionalListConfigurationRevisionsRequestRequestTypeDef = TypedDict(
-    "_OptionalListConfigurationRevisionsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListConfigurationRevisionsRequestRequestTypeDef(
-    _RequiredListConfigurationRevisionsRequestRequestTypeDef,
-    _OptionalListConfigurationRevisionsRequestRequestTypeDef,
-):
-    pass
-
-ListConfigurationRevisionsResponseTypeDef = TypedDict(
-    "ListConfigurationRevisionsResponseTypeDef",
-    {
-        "NextToken": str,
-        "Revisions": List["ConfigurationRevisionTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListConfigurationsRequestRequestTypeDef = TypedDict(
-    "ListConfigurationsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListConfigurationsResponseTypeDef = TypedDict(
-    "ListConfigurationsResponseTypeDef",
-    {
-        "Configurations": List["ConfigurationTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListKafkaVersionsRequestRequestTypeDef = TypedDict(
-    "ListKafkaVersionsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListKafkaVersionsResponseTypeDef = TypedDict(
-    "ListKafkaVersionsResponseTypeDef",
-    {
-        "KafkaVersions": List["KafkaVersionTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListNodesRequestRequestTypeDef = TypedDict(
-    "_RequiredListNodesRequestRequestTypeDef",
-    {
-        "ClusterArn": str,
-    },
-)
-_OptionalListNodesRequestRequestTypeDef = TypedDict(
-    "_OptionalListNodesRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListNodesRequestRequestTypeDef(
-    _RequiredListNodesRequestRequestTypeDef, _OptionalListNodesRequestRequestTypeDef
-):
-    pass
-
-ListNodesResponseTypeDef = TypedDict(
-    "ListNodesResponseTypeDef",
-    {
-        "NextToken": str,
-        "NodeInfoList": List["NodeInfoTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListReplicatorsRequestRequestTypeDef = TypedDict(
-    "ListReplicatorsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-        "ReplicatorNameFilter": str,
-    },
-    total=False,
-)
-
-ListReplicatorsResponseTypeDef = TypedDict(
-    "ListReplicatorsResponseTypeDef",
-    {
-        "NextToken": str,
-        "Replicators": List["ReplicatorSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListScramSecretsRequestRequestTypeDef = TypedDict(
-    "_RequiredListScramSecretsRequestRequestTypeDef",
-    {
-        "ClusterArn": str,
-    },
-)
-_OptionalListScramSecretsRequestRequestTypeDef = TypedDict(
-    "_OptionalListScramSecretsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListScramSecretsRequestRequestTypeDef(
-    _RequiredListScramSecretsRequestRequestTypeDef, _OptionalListScramSecretsRequestRequestTypeDef
-):
-    pass
-
-ListScramSecretsResponseTypeDef = TypedDict(
-    "ListScramSecretsResponseTypeDef",
-    {
-        "NextToken": str,
-        "SecretArnList": List[str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-    },
-)
-
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "Tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListVpcConnectionsRequestRequestTypeDef = TypedDict(
-    "ListVpcConnectionsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListVpcConnectionsResponseTypeDef = TypedDict(
-    "ListVpcConnectionsResponseTypeDef",
-    {
-        "VpcConnections": List["VpcConnectionTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-LoggingInfoTypeDef = TypedDict(
-    "LoggingInfoTypeDef",
-    {
-        "BrokerLogs": "BrokerLogsTypeDef",
-    },
-)
-
-MutableClusterInfoTypeDef = TypedDict(
-    "MutableClusterInfoTypeDef",
-    {
-        "BrokerEBSVolumeInfo": List["BrokerEBSVolumeInfoTypeDef"],
-        "ConfigurationInfo": "ConfigurationInfoTypeDef",
-        "NumberOfBrokerNodes": int,
-        "EnhancedMonitoring": EnhancedMonitoringType,
-        "OpenMonitoring": "OpenMonitoringTypeDef",
-        "KafkaVersion": str,
-        "LoggingInfo": "LoggingInfoTypeDef",
-        "InstanceType": str,
-        "ClientAuthentication": "ClientAuthenticationTypeDef",
-        "EncryptionInfo": "EncryptionInfoTypeDef",
-        "ConnectivityInfo": "ConnectivityInfoTypeDef",
-        "StorageMode": StorageModeType,
-        "BrokerCountUpdateInfo": "BrokerCountUpdateInfoTypeDef",
-    },
-    total=False,
-)
-
-NodeExporterInfoTypeDef = TypedDict(
-    "NodeExporterInfoTypeDef",
-    {
-        "EnabledInBroker": bool,
-    },
-)
-
-NodeExporterTypeDef = TypedDict(
-    "NodeExporterTypeDef",
-    {
-        "EnabledInBroker": bool,
-    },
-)
-
-NodeInfoTypeDef = TypedDict(
-    "NodeInfoTypeDef",
-    {
-        "AddedToClusterTime": str,
-        "BrokerNodeInfo": "BrokerNodeInfoTypeDef",
-        "ControllerNodeInfo": "ControllerNodeInfoTypeDef",
-        "InstanceType": str,
-        "NodeARN": str,
-        "NodeType": Literal["BROKER"],
-        "ZookeeperNodeInfo": "ZookeeperNodeInfoTypeDef",
-    },
-    total=False,
-)
-
-OpenMonitoringInfoTypeDef = TypedDict(
-    "OpenMonitoringInfoTypeDef",
-    {
-        "Prometheus": "PrometheusInfoTypeDef",
-    },
-)
-
-OpenMonitoringTypeDef = TypedDict(
-    "OpenMonitoringTypeDef",
-    {
-        "Prometheus": "PrometheusTypeDef",
-    },
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-PrometheusInfoTypeDef = TypedDict(
-    "PrometheusInfoTypeDef",
-    {
-        "JmxExporter": "JmxExporterInfoTypeDef",
-        "NodeExporter": "NodeExporterInfoTypeDef",
-    },
-    total=False,
-)
-
-PrometheusTypeDef = TypedDict(
-    "PrometheusTypeDef",
-    {
-        "JmxExporter": "JmxExporterTypeDef",
-        "NodeExporter": "NodeExporterTypeDef",
-    },
-    total=False,
-)
-
-_RequiredProvisionedRequestTypeDef = TypedDict(
-    "_RequiredProvisionedRequestTypeDef",
-    {
-        "BrokerNodeGroupInfo": "BrokerNodeGroupInfoTypeDef",
-        "KafkaVersion": str,
-        "NumberOfBrokerNodes": int,
-    },
-)
-_OptionalProvisionedRequestTypeDef = TypedDict(
-    "_OptionalProvisionedRequestTypeDef",
-    {
-        "ClientAuthentication": "ClientAuthenticationTypeDef",
-        "ConfigurationInfo": "ConfigurationInfoTypeDef",
-        "EncryptionInfo": "EncryptionInfoTypeDef",
-        "EnhancedMonitoring": EnhancedMonitoringType,
-        "OpenMonitoring": "OpenMonitoringInfoTypeDef",
-        "LoggingInfo": "LoggingInfoTypeDef",
-        "StorageMode": StorageModeType,
-    },
-    total=False,
-)
-
-class ProvisionedRequestTypeDef(
-    _RequiredProvisionedRequestTypeDef, _OptionalProvisionedRequestTypeDef
-):
-    pass
-
-ProvisionedThroughputTypeDef = TypedDict(
-    "ProvisionedThroughputTypeDef",
-    {
-        "Enabled": bool,
-        "VolumeThroughput": int,
-    },
-    total=False,
-)
-
-_RequiredProvisionedTypeDef = TypedDict(
-    "_RequiredProvisionedTypeDef",
-    {
-        "BrokerNodeGroupInfo": "BrokerNodeGroupInfoTypeDef",
-        "NumberOfBrokerNodes": int,
-    },
-)
-_OptionalProvisionedTypeDef = TypedDict(
-    "_OptionalProvisionedTypeDef",
-    {
-        "CurrentBrokerSoftwareInfo": "BrokerSoftwareInfoTypeDef",
-        "ClientAuthentication": "ClientAuthenticationTypeDef",
-        "EncryptionInfo": "EncryptionInfoTypeDef",
-        "EnhancedMonitoring": EnhancedMonitoringType,
-        "OpenMonitoring": "OpenMonitoringInfoTypeDef",
-        "LoggingInfo": "LoggingInfoTypeDef",
-        "ZookeeperConnectString": str,
-        "ZookeeperConnectStringTls": str,
-        "StorageMode": StorageModeType,
-        "CustomerActionStatus": CustomerActionStatusType,
-    },
-    total=False,
-)
-
-class ProvisionedTypeDef(_RequiredProvisionedTypeDef, _OptionalProvisionedTypeDef):
-    pass
+class AmazonMskClusterTypeDef(TypedDict):
+    MskClusterArn: str
+
+class BatchAssociateScramSecretRequestTypeDef(TypedDict):
+    ClusterArn: str
+    SecretArnList: Sequence[str]
+
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
+
+class UnprocessedScramSecretTypeDef(TypedDict):
+    ErrorCode: NotRequired[str]
+    ErrorMessage: NotRequired[str]
+    SecretArn: NotRequired[str]
+
+class BatchDisassociateScramSecretRequestTypeDef(TypedDict):
+    ClusterArn: str
+    SecretArnList: Sequence[str]
+
+BlobTypeDef = Union[str, bytes, IO[Any], StreamingBody]
+
+class BrokerCountUpdateInfoTypeDef(TypedDict):
+    CreatedBrokerIds: NotRequired[List[float]]
+    DeletedBrokerIds: NotRequired[List[float]]
+
+class ProvisionedThroughputTypeDef(TypedDict):
+    Enabled: NotRequired[bool]
+    VolumeThroughput: NotRequired[int]
+
+class CloudWatchLogsTypeDef(TypedDict):
+    Enabled: bool
+    LogGroup: NotRequired[str]
+
+class FirehoseTypeDef(TypedDict):
+    Enabled: bool
+    DeliveryStream: NotRequired[str]
+
+class S3TypeDef(TypedDict):
+    Enabled: bool
+    Bucket: NotRequired[str]
+    Prefix: NotRequired[str]
+
+class BrokerSoftwareInfoTypeDef(TypedDict):
+    ConfigurationArn: NotRequired[str]
+    ConfigurationRevision: NotRequired[int]
+    KafkaVersion: NotRequired[str]
+
+class TlsOutputTypeDef(TypedDict):
+    CertificateAuthorityArnList: NotRequired[List[str]]
+    Enabled: NotRequired[bool]
+
+class UnauthenticatedTypeDef(TypedDict):
+    Enabled: NotRequired[bool]
+
+class ClientVpcConnectionTypeDef(TypedDict):
+    VpcConnectionArn: str
+    Authentication: NotRequired[str]
+    CreationTime: NotRequired[datetime]
+    State: NotRequired[VpcConnectionStateType]
+    Owner: NotRequired[str]
+
+class StateInfoTypeDef(TypedDict):
+    Code: NotRequired[str]
+    Message: NotRequired[str]
+
+class ErrorInfoTypeDef(TypedDict):
+    ErrorCode: NotRequired[str]
+    ErrorString: NotRequired[str]
+
+class ClusterOperationStepInfoTypeDef(TypedDict):
+    StepStatus: NotRequired[str]
+
+class ClusterOperationV2SummaryTypeDef(TypedDict):
+    ClusterArn: NotRequired[str]
+    ClusterType: NotRequired[ClusterTypeType]
+    StartTime: NotRequired[datetime]
+    EndTime: NotRequired[datetime]
+    OperationArn: NotRequired[str]
+    OperationState: NotRequired[str]
+    OperationType: NotRequired[str]
+
+class CompatibleKafkaVersionTypeDef(TypedDict):
+    SourceVersion: NotRequired[str]
+    TargetVersions: NotRequired[List[str]]
+
+class ConfigurationInfoTypeDef(TypedDict):
+    Arn: str
+    Revision: int
+
+class ConfigurationRevisionTypeDef(TypedDict):
+    CreationTime: datetime
+    Revision: int
+    Description: NotRequired[str]
 
 PublicAccessTypeDef = TypedDict(
     "PublicAccessTypeDef",
     {
-        "Type": str,
-    },
-    total=False,
-)
-
-_RequiredPutClusterPolicyRequestRequestTypeDef = TypedDict(
-    "_RequiredPutClusterPolicyRequestRequestTypeDef",
-    {
-        "ClusterArn": str,
-        "Policy": str,
-    },
-)
-_OptionalPutClusterPolicyRequestRequestTypeDef = TypedDict(
-    "_OptionalPutClusterPolicyRequestRequestTypeDef",
-    {
-        "CurrentVersion": str,
-    },
-    total=False,
-)
-
-class PutClusterPolicyRequestRequestTypeDef(
-    _RequiredPutClusterPolicyRequestRequestTypeDef, _OptionalPutClusterPolicyRequestRequestTypeDef
-):
-    pass
-
-PutClusterPolicyResponseTypeDef = TypedDict(
-    "PutClusterPolicyResponseTypeDef",
-    {
-        "CurrentVersion": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "Type": NotRequired[str],
     },
 )
 
-RebootBrokerRequestRequestTypeDef = TypedDict(
-    "RebootBrokerRequestRequestTypeDef",
-    {
-        "BrokerIds": List[str],
-        "ClusterArn": str,
-    },
-)
+class ConsumerGroupReplicationOutputTypeDef(TypedDict):
+    ConsumerGroupsToReplicate: List[str]
+    ConsumerGroupsToExclude: NotRequired[List[str]]
+    DetectAndCopyNewConsumerGroups: NotRequired[bool]
+    SynchroniseConsumerGroupOffsets: NotRequired[bool]
 
-RebootBrokerResponseTypeDef = TypedDict(
-    "RebootBrokerResponseTypeDef",
-    {
-        "ClusterArn": str,
-        "ClusterOperationArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ConsumerGroupReplicationTypeDef(TypedDict):
+    ConsumerGroupsToReplicate: Sequence[str]
+    ConsumerGroupsToExclude: NotRequired[Sequence[str]]
+    DetectAndCopyNewConsumerGroups: NotRequired[bool]
+    SynchroniseConsumerGroupOffsets: NotRequired[bool]
 
-RejectClientVpcConnectionRequestRequestTypeDef = TypedDict(
-    "RejectClientVpcConnectionRequestRequestTypeDef",
-    {
-        "ClusterArn": str,
-        "VpcConnectionArn": str,
-    },
-)
+class ConsumerGroupReplicationUpdateTypeDef(TypedDict):
+    ConsumerGroupsToExclude: Sequence[str]
+    ConsumerGroupsToReplicate: Sequence[str]
+    DetectAndCopyNewConsumerGroups: bool
+    SynchroniseConsumerGroupOffsets: bool
 
-ReplicationInfoDescriptionTypeDef = TypedDict(
-    "ReplicationInfoDescriptionTypeDef",
-    {
-        "ConsumerGroupReplication": "ConsumerGroupReplicationTypeDef",
-        "SourceKafkaClusterAlias": str,
-        "TargetCompressionType": TargetCompressionTypeType,
-        "TargetKafkaClusterAlias": str,
-        "TopicReplication": "TopicReplicationTypeDef",
-    },
-    total=False,
-)
+class ControllerNodeInfoTypeDef(TypedDict):
+    Endpoints: NotRequired[List[str]]
 
-ReplicationInfoSummaryTypeDef = TypedDict(
-    "ReplicationInfoSummaryTypeDef",
-    {
-        "SourceKafkaClusterAlias": str,
-        "TargetKafkaClusterAlias": str,
-    },
-    total=False,
-)
+class CreateVpcConnectionRequestTypeDef(TypedDict):
+    TargetClusterArn: str
+    Authentication: str
+    VpcId: str
+    ClientSubnets: Sequence[str]
+    SecurityGroups: Sequence[str]
+    Tags: NotRequired[Mapping[str, str]]
 
-ReplicationInfoTypeDef = TypedDict(
-    "ReplicationInfoTypeDef",
-    {
-        "ConsumerGroupReplication": "ConsumerGroupReplicationTypeDef",
-        "SourceKafkaClusterArn": str,
-        "TargetCompressionType": TargetCompressionTypeType,
-        "TargetKafkaClusterArn": str,
-        "TopicReplication": "TopicReplicationTypeDef",
-    },
-)
+class DeleteClusterPolicyRequestTypeDef(TypedDict):
+    ClusterArn: str
+
+class DeleteClusterRequestTypeDef(TypedDict):
+    ClusterArn: str
+    CurrentVersion: NotRequired[str]
+
+class DeleteConfigurationRequestTypeDef(TypedDict):
+    Arn: str
+
+class DeleteReplicatorRequestTypeDef(TypedDict):
+    ReplicatorArn: str
+    CurrentVersion: NotRequired[str]
+
+class DeleteVpcConnectionRequestTypeDef(TypedDict):
+    Arn: str
+
+class DescribeClusterOperationRequestTypeDef(TypedDict):
+    ClusterOperationArn: str
+
+class DescribeClusterOperationV2RequestTypeDef(TypedDict):
+    ClusterOperationArn: str
+
+class DescribeClusterRequestTypeDef(TypedDict):
+    ClusterArn: str
+
+class DescribeClusterV2RequestTypeDef(TypedDict):
+    ClusterArn: str
+
+class DescribeConfigurationRequestTypeDef(TypedDict):
+    Arn: str
+
+class DescribeConfigurationRevisionRequestTypeDef(TypedDict):
+    Arn: str
+    Revision: int
+
+class DescribeReplicatorRequestTypeDef(TypedDict):
+    ReplicatorArn: str
+
+class ReplicationStateInfoTypeDef(TypedDict):
+    Code: NotRequired[str]
+    Message: NotRequired[str]
+
+class DescribeVpcConnectionRequestTypeDef(TypedDict):
+    Arn: str
+
+class EncryptionAtRestTypeDef(TypedDict):
+    DataVolumeKMSKeyId: str
+
+class EncryptionInTransitTypeDef(TypedDict):
+    ClientBroker: NotRequired[ClientBrokerType]
+    InCluster: NotRequired[bool]
+
+class GetBootstrapBrokersRequestTypeDef(TypedDict):
+    ClusterArn: str
+
+class GetClusterPolicyRequestTypeDef(TypedDict):
+    ClusterArn: str
+
+class GetCompatibleKafkaVersionsRequestTypeDef(TypedDict):
+    ClusterArn: NotRequired[str]
+
+class IamTypeDef(TypedDict):
+    Enabled: NotRequired[bool]
+
+class JmxExporterInfoTypeDef(TypedDict):
+    EnabledInBroker: bool
+
+class JmxExporterTypeDef(TypedDict):
+    EnabledInBroker: bool
+
+class KafkaClusterClientVpcConfigOutputTypeDef(TypedDict):
+    SubnetIds: List[str]
+    SecurityGroupIds: NotRequired[List[str]]
+
+class KafkaClusterClientVpcConfigTypeDef(TypedDict):
+    SubnetIds: Sequence[str]
+    SecurityGroupIds: NotRequired[Sequence[str]]
+
+class KafkaVersionTypeDef(TypedDict):
+    Version: NotRequired[str]
+    Status: NotRequired[KafkaVersionStatusType]
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class ListClientVpcConnectionsRequestTypeDef(TypedDict):
+    ClusterArn: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListClusterOperationsRequestTypeDef(TypedDict):
+    ClusterArn: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListClusterOperationsV2RequestTypeDef(TypedDict):
+    ClusterArn: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListClustersRequestTypeDef(TypedDict):
+    ClusterNameFilter: NotRequired[str]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListClustersV2RequestTypeDef(TypedDict):
+    ClusterNameFilter: NotRequired[str]
+    ClusterTypeFilter: NotRequired[str]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListConfigurationRevisionsRequestTypeDef(TypedDict):
+    Arn: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListConfigurationsRequestTypeDef(TypedDict):
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListKafkaVersionsRequestTypeDef(TypedDict):
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListNodesRequestTypeDef(TypedDict):
+    ClusterArn: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListReplicatorsRequestTypeDef(TypedDict):
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+    ReplicatorNameFilter: NotRequired[str]
+
+class ListScramSecretsRequestTypeDef(TypedDict):
+    ClusterArn: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+
+class ListVpcConnectionsRequestTypeDef(TypedDict):
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class VpcConnectionTypeDef(TypedDict):
+    VpcConnectionArn: str
+    TargetClusterArn: str
+    CreationTime: NotRequired[datetime]
+    Authentication: NotRequired[str]
+    VpcId: NotRequired[str]
+    State: NotRequired[VpcConnectionStateType]
+
+class NodeExporterInfoTypeDef(TypedDict):
+    EnabledInBroker: bool
+
+class NodeExporterTypeDef(TypedDict):
+    EnabledInBroker: bool
+
+class ZookeeperNodeInfoTypeDef(TypedDict):
+    AttachedENIId: NotRequired[str]
+    ClientVpcIpAddress: NotRequired[str]
+    Endpoints: NotRequired[List[str]]
+    ZookeeperId: NotRequired[float]
+    ZookeeperVersion: NotRequired[str]
+
+class PutClusterPolicyRequestTypeDef(TypedDict):
+    ClusterArn: str
+    Policy: str
+    CurrentVersion: NotRequired[str]
+
+class RebootBrokerRequestTypeDef(TypedDict):
+    BrokerIds: Sequence[str]
+    ClusterArn: str
+
+class RejectClientVpcConnectionRequestTypeDef(TypedDict):
+    ClusterArn: str
+    VpcConnectionArn: str
+
+class ReplicationInfoSummaryTypeDef(TypedDict):
+    SourceKafkaClusterAlias: NotRequired[str]
+    TargetKafkaClusterAlias: NotRequired[str]
 
 ReplicationStartingPositionTypeDef = TypedDict(
     "ReplicationStartingPositionTypeDef",
     {
-        "Type": ReplicationStartingPositionTypeType,
+        "Type": NotRequired[ReplicationStartingPositionTypeType],
     },
-    total=False,
 )
-
-ReplicationStateInfoTypeDef = TypedDict(
-    "ReplicationStateInfoTypeDef",
+ReplicationTopicNameConfigurationTypeDef = TypedDict(
+    "ReplicationTopicNameConfigurationTypeDef",
     {
-        "Code": str,
-        "Message": str,
-    },
-    total=False,
-)
-
-ReplicatorSummaryTypeDef = TypedDict(
-    "ReplicatorSummaryTypeDef",
-    {
-        "CreationTime": datetime,
-        "CurrentVersion": str,
-        "IsReplicatorReference": bool,
-        "KafkaClustersSummary": List["KafkaClusterSummaryTypeDef"],
-        "ReplicationInfoSummaryList": List["ReplicationInfoSummaryTypeDef"],
-        "ReplicatorArn": str,
-        "ReplicatorName": str,
-        "ReplicatorResourceArn": str,
-        "ReplicatorState": ReplicatorStateType,
-    },
-    total=False,
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
+        "Type": NotRequired[ReplicationTopicNameConfigurationTypeType],
     },
 )
 
-_RequiredS3TypeDef = TypedDict(
-    "_RequiredS3TypeDef",
-    {
-        "Enabled": bool,
-    },
-)
-_OptionalS3TypeDef = TypedDict(
-    "_OptionalS3TypeDef",
-    {
-        "Bucket": str,
-        "Prefix": str,
-    },
-    total=False,
-)
+class ScramTypeDef(TypedDict):
+    Enabled: NotRequired[bool]
 
-class S3TypeDef(_RequiredS3TypeDef, _OptionalS3TypeDef):
-    pass
+class VpcConfigOutputTypeDef(TypedDict):
+    SubnetIds: List[str]
+    SecurityGroupIds: NotRequired[List[str]]
 
-SaslTypeDef = TypedDict(
-    "SaslTypeDef",
-    {
-        "Scram": "ScramTypeDef",
-        "Iam": "IamTypeDef",
-    },
-    total=False,
-)
+class TagResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+    Tags: Mapping[str, str]
 
-ScramTypeDef = TypedDict(
-    "ScramTypeDef",
-    {
-        "Enabled": bool,
-    },
-    total=False,
-)
+class TlsTypeDef(TypedDict):
+    CertificateAuthorityArnList: NotRequired[Sequence[str]]
+    Enabled: NotRequired[bool]
 
-ServerlessClientAuthenticationTypeDef = TypedDict(
-    "ServerlessClientAuthenticationTypeDef",
-    {
-        "Sasl": "ServerlessSaslTypeDef",
-    },
-    total=False,
-)
+class TopicReplicationUpdateTypeDef(TypedDict):
+    CopyAccessControlListsForTopics: bool
+    CopyTopicConfigurations: bool
+    DetectAndCopyNewTopics: bool
+    TopicsToExclude: Sequence[str]
+    TopicsToReplicate: Sequence[str]
 
-_RequiredServerlessRequestTypeDef = TypedDict(
-    "_RequiredServerlessRequestTypeDef",
-    {
-        "VpcConfigs": List["VpcConfigTypeDef"],
-    },
-)
-_OptionalServerlessRequestTypeDef = TypedDict(
-    "_OptionalServerlessRequestTypeDef",
-    {
-        "ClientAuthentication": "ServerlessClientAuthenticationTypeDef",
-    },
-    total=False,
-)
+class UntagResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+    TagKeys: Sequence[str]
 
-class ServerlessRequestTypeDef(
-    _RequiredServerlessRequestTypeDef, _OptionalServerlessRequestTypeDef
-):
-    pass
+class UpdateBrokerCountRequestTypeDef(TypedDict):
+    ClusterArn: str
+    CurrentVersion: str
+    TargetNumberOfBrokerNodes: int
 
-ServerlessSaslTypeDef = TypedDict(
-    "ServerlessSaslTypeDef",
-    {
-        "Iam": "IamTypeDef",
-    },
-    total=False,
-)
-
-_RequiredServerlessTypeDef = TypedDict(
-    "_RequiredServerlessTypeDef",
-    {
-        "VpcConfigs": List["VpcConfigTypeDef"],
-    },
-)
-_OptionalServerlessTypeDef = TypedDict(
-    "_OptionalServerlessTypeDef",
-    {
-        "ClientAuthentication": "ServerlessClientAuthenticationTypeDef",
-    },
-    total=False,
-)
-
-class ServerlessTypeDef(_RequiredServerlessTypeDef, _OptionalServerlessTypeDef):
-    pass
-
-StateInfoTypeDef = TypedDict(
-    "StateInfoTypeDef",
-    {
-        "Code": str,
-        "Message": str,
-    },
-    total=False,
-)
-
-StorageInfoTypeDef = TypedDict(
-    "StorageInfoTypeDef",
-    {
-        "EbsStorageInfo": "EBSStorageInfoTypeDef",
-    },
-    total=False,
-)
-
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-        "Tags": Dict[str, str],
-    },
-)
-
-TlsTypeDef = TypedDict(
-    "TlsTypeDef",
-    {
-        "CertificateAuthorityArnList": List[str],
-        "Enabled": bool,
-    },
-    total=False,
-)
-
-_RequiredTopicReplicationTypeDef = TypedDict(
-    "_RequiredTopicReplicationTypeDef",
-    {
-        "TopicsToReplicate": List[str],
-    },
-)
-_OptionalTopicReplicationTypeDef = TypedDict(
-    "_OptionalTopicReplicationTypeDef",
-    {
-        "CopyAccessControlListsForTopics": bool,
-        "CopyTopicConfigurations": bool,
-        "DetectAndCopyNewTopics": bool,
-        "StartingPosition": "ReplicationStartingPositionTypeDef",
-        "TopicsToExclude": List[str],
-    },
-    total=False,
-)
-
-class TopicReplicationTypeDef(_RequiredTopicReplicationTypeDef, _OptionalTopicReplicationTypeDef):
-    pass
-
-TopicReplicationUpdateTypeDef = TypedDict(
-    "TopicReplicationUpdateTypeDef",
-    {
-        "CopyAccessControlListsForTopics": bool,
-        "CopyTopicConfigurations": bool,
-        "DetectAndCopyNewTopics": bool,
-        "TopicsToExclude": List[str],
-        "TopicsToReplicate": List[str],
-    },
-)
-
-UnauthenticatedTypeDef = TypedDict(
-    "UnauthenticatedTypeDef",
-    {
-        "Enabled": bool,
-    },
-    total=False,
-)
-
-UnprocessedScramSecretTypeDef = TypedDict(
-    "UnprocessedScramSecretTypeDef",
-    {
-        "ErrorCode": str,
-        "ErrorMessage": str,
-        "SecretArn": str,
-    },
-    total=False,
-)
-
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-        "TagKeys": List[str],
-    },
-)
-
-UpdateBrokerCountRequestRequestTypeDef = TypedDict(
-    "UpdateBrokerCountRequestRequestTypeDef",
-    {
-        "ClusterArn": str,
-        "CurrentVersion": str,
-        "TargetNumberOfBrokerNodes": int,
-    },
-)
-
-UpdateBrokerCountResponseTypeDef = TypedDict(
-    "UpdateBrokerCountResponseTypeDef",
-    {
-        "ClusterArn": str,
-        "ClusterOperationArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UpdateBrokerStorageRequestRequestTypeDef = TypedDict(
-    "UpdateBrokerStorageRequestRequestTypeDef",
-    {
-        "ClusterArn": str,
-        "CurrentVersion": str,
-        "TargetBrokerEBSVolumeInfo": List["BrokerEBSVolumeInfoTypeDef"],
-    },
-)
-
-UpdateBrokerStorageResponseTypeDef = TypedDict(
-    "UpdateBrokerStorageResponseTypeDef",
-    {
-        "ClusterArn": str,
-        "ClusterOperationArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UpdateBrokerTypeRequestRequestTypeDef = TypedDict(
-    "UpdateBrokerTypeRequestRequestTypeDef",
-    {
-        "ClusterArn": str,
-        "CurrentVersion": str,
-        "TargetInstanceType": str,
-    },
-)
-
-UpdateBrokerTypeResponseTypeDef = TypedDict(
-    "UpdateBrokerTypeResponseTypeDef",
-    {
-        "ClusterArn": str,
-        "ClusterOperationArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UpdateClusterConfigurationRequestRequestTypeDef = TypedDict(
-    "UpdateClusterConfigurationRequestRequestTypeDef",
-    {
-        "ClusterArn": str,
-        "ConfigurationInfo": "ConfigurationInfoTypeDef",
-        "CurrentVersion": str,
-    },
-)
-
-UpdateClusterConfigurationResponseTypeDef = TypedDict(
-    "UpdateClusterConfigurationResponseTypeDef",
-    {
-        "ClusterArn": str,
-        "ClusterOperationArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateClusterKafkaVersionRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateClusterKafkaVersionRequestRequestTypeDef",
-    {
-        "ClusterArn": str,
-        "CurrentVersion": str,
-        "TargetKafkaVersion": str,
-    },
-)
-_OptionalUpdateClusterKafkaVersionRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateClusterKafkaVersionRequestRequestTypeDef",
-    {
-        "ConfigurationInfo": "ConfigurationInfoTypeDef",
-    },
-    total=False,
-)
-
-class UpdateClusterKafkaVersionRequestRequestTypeDef(
-    _RequiredUpdateClusterKafkaVersionRequestRequestTypeDef,
-    _OptionalUpdateClusterKafkaVersionRequestRequestTypeDef,
-):
-    pass
-
-UpdateClusterKafkaVersionResponseTypeDef = TypedDict(
-    "UpdateClusterKafkaVersionResponseTypeDef",
-    {
-        "ClusterArn": str,
-        "ClusterOperationArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateConfigurationRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateConfigurationRequestRequestTypeDef",
-    {
-        "Arn": str,
-        "ServerProperties": Union[bytes, IO[bytes], StreamingBody],
-    },
-)
-_OptionalUpdateConfigurationRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateConfigurationRequestRequestTypeDef",
-    {
-        "Description": str,
-    },
-    total=False,
-)
-
-class UpdateConfigurationRequestRequestTypeDef(
-    _RequiredUpdateConfigurationRequestRequestTypeDef,
-    _OptionalUpdateConfigurationRequestRequestTypeDef,
-):
-    pass
-
-UpdateConfigurationResponseTypeDef = TypedDict(
-    "UpdateConfigurationResponseTypeDef",
-    {
-        "Arn": str,
-        "LatestRevision": "ConfigurationRevisionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UpdateConnectivityRequestRequestTypeDef = TypedDict(
-    "UpdateConnectivityRequestRequestTypeDef",
-    {
-        "ClusterArn": str,
-        "ConnectivityInfo": "ConnectivityInfoTypeDef",
-        "CurrentVersion": str,
-    },
-)
-
-UpdateConnectivityResponseTypeDef = TypedDict(
-    "UpdateConnectivityResponseTypeDef",
-    {
-        "ClusterArn": str,
-        "ClusterOperationArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateMonitoringRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateMonitoringRequestRequestTypeDef",
-    {
-        "ClusterArn": str,
-        "CurrentVersion": str,
-    },
-)
-_OptionalUpdateMonitoringRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateMonitoringRequestRequestTypeDef",
-    {
-        "EnhancedMonitoring": EnhancedMonitoringType,
-        "OpenMonitoring": "OpenMonitoringInfoTypeDef",
-        "LoggingInfo": "LoggingInfoTypeDef",
-    },
-    total=False,
-)
-
-class UpdateMonitoringRequestRequestTypeDef(
-    _RequiredUpdateMonitoringRequestRequestTypeDef, _OptionalUpdateMonitoringRequestRequestTypeDef
-):
-    pass
-
-UpdateMonitoringResponseTypeDef = TypedDict(
-    "UpdateMonitoringResponseTypeDef",
-    {
-        "ClusterArn": str,
-        "ClusterOperationArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateReplicationInfoRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateReplicationInfoRequestRequestTypeDef",
-    {
-        "CurrentVersion": str,
-        "ReplicatorArn": str,
-        "SourceKafkaClusterArn": str,
-        "TargetKafkaClusterArn": str,
-    },
-)
-_OptionalUpdateReplicationInfoRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateReplicationInfoRequestRequestTypeDef",
-    {
-        "ConsumerGroupReplication": "ConsumerGroupReplicationUpdateTypeDef",
-        "TopicReplication": "TopicReplicationUpdateTypeDef",
-    },
-    total=False,
-)
-
-class UpdateReplicationInfoRequestRequestTypeDef(
-    _RequiredUpdateReplicationInfoRequestRequestTypeDef,
-    _OptionalUpdateReplicationInfoRequestRequestTypeDef,
-):
-    pass
-
-UpdateReplicationInfoResponseTypeDef = TypedDict(
-    "UpdateReplicationInfoResponseTypeDef",
-    {
-        "ReplicatorArn": str,
-        "ReplicatorState": ReplicatorStateType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateSecurityRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateSecurityRequestRequestTypeDef",
-    {
-        "ClusterArn": str,
-        "CurrentVersion": str,
-    },
-)
-_OptionalUpdateSecurityRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateSecurityRequestRequestTypeDef",
-    {
-        "ClientAuthentication": "ClientAuthenticationTypeDef",
-        "EncryptionInfo": "EncryptionInfoTypeDef",
-    },
-    total=False,
-)
-
-class UpdateSecurityRequestRequestTypeDef(
-    _RequiredUpdateSecurityRequestRequestTypeDef, _OptionalUpdateSecurityRequestRequestTypeDef
-):
-    pass
-
-UpdateSecurityResponseTypeDef = TypedDict(
-    "UpdateSecurityResponseTypeDef",
-    {
-        "ClusterArn": str,
-        "ClusterOperationArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateStorageRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateStorageRequestRequestTypeDef",
-    {
-        "ClusterArn": str,
-        "CurrentVersion": str,
-    },
-)
-_OptionalUpdateStorageRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateStorageRequestRequestTypeDef",
-    {
-        "ProvisionedThroughput": "ProvisionedThroughputTypeDef",
-        "StorageMode": StorageModeType,
-        "VolumeSizeGB": int,
-    },
-    total=False,
-)
-
-class UpdateStorageRequestRequestTypeDef(
-    _RequiredUpdateStorageRequestRequestTypeDef, _OptionalUpdateStorageRequestRequestTypeDef
-):
-    pass
-
-UpdateStorageResponseTypeDef = TypedDict(
-    "UpdateStorageResponseTypeDef",
-    {
-        "ClusterArn": str,
-        "ClusterOperationArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class UpdateBrokerTypeRequestTypeDef(TypedDict):
+    ClusterArn: str
+    CurrentVersion: str
+    TargetInstanceType: str
 
 UserIdentityTypeDef = TypedDict(
     "UserIdentityTypeDef",
     {
-        "Type": UserIdentityTypeType,
-        "PrincipalId": str,
+        "Type": NotRequired[UserIdentityTypeType],
+        "PrincipalId": NotRequired[str],
     },
-    total=False,
 )
 
-_RequiredVpcConfigTypeDef = TypedDict(
-    "_RequiredVpcConfigTypeDef",
-    {
-        "SubnetIds": List[str],
-    },
-)
-_OptionalVpcConfigTypeDef = TypedDict(
-    "_OptionalVpcConfigTypeDef",
-    {
-        "SecurityGroupIds": List[str],
-    },
-    total=False,
-)
+class VpcConfigTypeDef(TypedDict):
+    SubnetIds: Sequence[str]
+    SecurityGroupIds: NotRequired[Sequence[str]]
 
-class VpcConfigTypeDef(_RequiredVpcConfigTypeDef, _OptionalVpcConfigTypeDef):
-    pass
+class VpcConnectivityTlsTypeDef(TypedDict):
+    Enabled: NotRequired[bool]
 
-VpcConnectionInfoServerlessTypeDef = TypedDict(
-    "VpcConnectionInfoServerlessTypeDef",
-    {
-        "CreationTime": datetime,
-        "Owner": str,
-        "UserIdentity": "UserIdentityTypeDef",
-        "VpcConnectionArn": str,
-    },
-    total=False,
-)
+class VpcConnectivityIamTypeDef(TypedDict):
+    Enabled: NotRequired[bool]
 
-VpcConnectionInfoTypeDef = TypedDict(
-    "VpcConnectionInfoTypeDef",
-    {
-        "VpcConnectionArn": str,
-        "Owner": str,
-        "UserIdentity": "UserIdentityTypeDef",
-        "CreationTime": datetime,
-    },
-    total=False,
-)
+class VpcConnectivityScramTypeDef(TypedDict):
+    Enabled: NotRequired[bool]
 
-_RequiredVpcConnectionTypeDef = TypedDict(
-    "_RequiredVpcConnectionTypeDef",
-    {
-        "VpcConnectionArn": str,
-        "TargetClusterArn": str,
-    },
-)
-_OptionalVpcConnectionTypeDef = TypedDict(
-    "_OptionalVpcConnectionTypeDef",
-    {
-        "CreationTime": datetime,
-        "Authentication": str,
-        "VpcId": str,
-        "State": VpcConnectionStateType,
-    },
-    total=False,
-)
+class KafkaClusterSummaryTypeDef(TypedDict):
+    AmazonMskCluster: NotRequired[AmazonMskClusterTypeDef]
+    KafkaClusterAlias: NotRequired[str]
 
-class VpcConnectionTypeDef(_RequiredVpcConnectionTypeDef, _OptionalVpcConnectionTypeDef):
-    pass
+class CreateClusterResponseTypeDef(TypedDict):
+    ClusterArn: str
+    ClusterName: str
+    State: ClusterStateType
+    ResponseMetadata: ResponseMetadataTypeDef
 
-VpcConnectivityClientAuthenticationTypeDef = TypedDict(
-    "VpcConnectivityClientAuthenticationTypeDef",
-    {
-        "Sasl": "VpcConnectivitySaslTypeDef",
-        "Tls": "VpcConnectivityTlsTypeDef",
-    },
-    total=False,
-)
+class CreateClusterV2ResponseTypeDef(TypedDict):
+    ClusterArn: str
+    ClusterName: str
+    State: ClusterStateType
+    ClusterType: ClusterTypeType
+    ResponseMetadata: ResponseMetadataTypeDef
 
-VpcConnectivityIamTypeDef = TypedDict(
-    "VpcConnectivityIamTypeDef",
-    {
-        "Enabled": bool,
-    },
-    total=False,
-)
+class CreateReplicatorResponseTypeDef(TypedDict):
+    ReplicatorArn: str
+    ReplicatorName: str
+    ReplicatorState: ReplicatorStateType
+    ResponseMetadata: ResponseMetadataTypeDef
 
-VpcConnectivitySaslTypeDef = TypedDict(
-    "VpcConnectivitySaslTypeDef",
-    {
-        "Scram": "VpcConnectivityScramTypeDef",
-        "Iam": "VpcConnectivityIamTypeDef",
-    },
-    total=False,
-)
+class CreateVpcConnectionResponseTypeDef(TypedDict):
+    VpcConnectionArn: str
+    State: VpcConnectionStateType
+    Authentication: str
+    VpcId: str
+    ClientSubnets: List[str]
+    SecurityGroups: List[str]
+    CreationTime: datetime
+    Tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-VpcConnectivityScramTypeDef = TypedDict(
-    "VpcConnectivityScramTypeDef",
-    {
-        "Enabled": bool,
-    },
-    total=False,
-)
+class DeleteClusterResponseTypeDef(TypedDict):
+    ClusterArn: str
+    State: ClusterStateType
+    ResponseMetadata: ResponseMetadataTypeDef
 
-VpcConnectivityTlsTypeDef = TypedDict(
-    "VpcConnectivityTlsTypeDef",
-    {
-        "Enabled": bool,
-    },
-    total=False,
-)
+class DeleteConfigurationResponseTypeDef(TypedDict):
+    Arn: str
+    State: ConfigurationStateType
+    ResponseMetadata: ResponseMetadataTypeDef
 
-VpcConnectivityTypeDef = TypedDict(
-    "VpcConnectivityTypeDef",
-    {
-        "ClientAuthentication": "VpcConnectivityClientAuthenticationTypeDef",
-    },
-    total=False,
-)
+class DeleteReplicatorResponseTypeDef(TypedDict):
+    ReplicatorArn: str
+    ReplicatorState: ReplicatorStateType
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ZookeeperNodeInfoTypeDef = TypedDict(
-    "ZookeeperNodeInfoTypeDef",
-    {
-        "AttachedENIId": str,
-        "ClientVpcIpAddress": str,
-        "Endpoints": List[str],
-        "ZookeeperId": float,
-        "ZookeeperVersion": str,
-    },
-    total=False,
-)
+class DeleteVpcConnectionResponseTypeDef(TypedDict):
+    VpcConnectionArn: str
+    State: VpcConnectionStateType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeConfigurationRevisionResponseTypeDef(TypedDict):
+    Arn: str
+    CreationTime: datetime
+    Description: str
+    Revision: int
+    ServerProperties: bytes
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeVpcConnectionResponseTypeDef(TypedDict):
+    VpcConnectionArn: str
+    TargetClusterArn: str
+    State: VpcConnectionStateType
+    Authentication: str
+    VpcId: str
+    Subnets: List[str]
+    SecurityGroups: List[str]
+    CreationTime: datetime
+    Tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class EmptyResponseMetadataTypeDef(TypedDict):
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetBootstrapBrokersResponseTypeDef(TypedDict):
+    BootstrapBrokerString: str
+    BootstrapBrokerStringTls: str
+    BootstrapBrokerStringSaslScram: str
+    BootstrapBrokerStringSaslIam: str
+    BootstrapBrokerStringPublicTls: str
+    BootstrapBrokerStringPublicSaslScram: str
+    BootstrapBrokerStringPublicSaslIam: str
+    BootstrapBrokerStringVpcConnectivityTls: str
+    BootstrapBrokerStringVpcConnectivitySaslScram: str
+    BootstrapBrokerStringVpcConnectivitySaslIam: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetClusterPolicyResponseTypeDef(TypedDict):
+    CurrentVersion: str
+    Policy: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListScramSecretsResponseTypeDef(TypedDict):
+    SecretArnList: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    Tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutClusterPolicyResponseTypeDef(TypedDict):
+    CurrentVersion: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class RebootBrokerResponseTypeDef(TypedDict):
+    ClusterArn: str
+    ClusterOperationArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateBrokerCountResponseTypeDef(TypedDict):
+    ClusterArn: str
+    ClusterOperationArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateBrokerStorageResponseTypeDef(TypedDict):
+    ClusterArn: str
+    ClusterOperationArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateBrokerTypeResponseTypeDef(TypedDict):
+    ClusterArn: str
+    ClusterOperationArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateClusterConfigurationResponseTypeDef(TypedDict):
+    ClusterArn: str
+    ClusterOperationArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateClusterKafkaVersionResponseTypeDef(TypedDict):
+    ClusterArn: str
+    ClusterOperationArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateConnectivityResponseTypeDef(TypedDict):
+    ClusterArn: str
+    ClusterOperationArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateMonitoringResponseTypeDef(TypedDict):
+    ClusterArn: str
+    ClusterOperationArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateReplicationInfoResponseTypeDef(TypedDict):
+    ReplicatorArn: str
+    ReplicatorState: ReplicatorStateType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateSecurityResponseTypeDef(TypedDict):
+    ClusterArn: str
+    ClusterOperationArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateStorageResponseTypeDef(TypedDict):
+    ClusterArn: str
+    ClusterOperationArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class BatchAssociateScramSecretResponseTypeDef(TypedDict):
+    ClusterArn: str
+    UnprocessedScramSecrets: List[UnprocessedScramSecretTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class BatchDisassociateScramSecretResponseTypeDef(TypedDict):
+    ClusterArn: str
+    UnprocessedScramSecrets: List[UnprocessedScramSecretTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateConfigurationRequestTypeDef(TypedDict):
+    Name: str
+    ServerProperties: BlobTypeDef
+    Description: NotRequired[str]
+    KafkaVersions: NotRequired[Sequence[str]]
+
+class UpdateConfigurationRequestTypeDef(TypedDict):
+    Arn: str
+    ServerProperties: BlobTypeDef
+    Description: NotRequired[str]
+
+class BrokerEBSVolumeInfoTypeDef(TypedDict):
+    KafkaBrokerNodeId: str
+    ProvisionedThroughput: NotRequired[ProvisionedThroughputTypeDef]
+    VolumeSizeGB: NotRequired[int]
+
+class EBSStorageInfoTypeDef(TypedDict):
+    ProvisionedThroughput: NotRequired[ProvisionedThroughputTypeDef]
+    VolumeSize: NotRequired[int]
+
+class UpdateStorageRequestTypeDef(TypedDict):
+    ClusterArn: str
+    CurrentVersion: str
+    ProvisionedThroughput: NotRequired[ProvisionedThroughputTypeDef]
+    StorageMode: NotRequired[StorageModeType]
+    VolumeSizeGB: NotRequired[int]
+
+class BrokerLogsTypeDef(TypedDict):
+    CloudWatchLogs: NotRequired[CloudWatchLogsTypeDef]
+    Firehose: NotRequired[FirehoseTypeDef]
+    S3: NotRequired[S3TypeDef]
+
+class BrokerNodeInfoTypeDef(TypedDict):
+    AttachedENIId: NotRequired[str]
+    BrokerId: NotRequired[float]
+    ClientSubnet: NotRequired[str]
+    ClientVpcIpAddress: NotRequired[str]
+    CurrentBrokerSoftwareInfo: NotRequired[BrokerSoftwareInfoTypeDef]
+    Endpoints: NotRequired[List[str]]
+
+class ListClientVpcConnectionsResponseTypeDef(TypedDict):
+    ClientVpcConnections: List[ClientVpcConnectionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ClusterOperationStepTypeDef(TypedDict):
+    StepInfo: NotRequired[ClusterOperationStepInfoTypeDef]
+    StepName: NotRequired[str]
+
+class ListClusterOperationsV2ResponseTypeDef(TypedDict):
+    ClusterOperationInfoList: List[ClusterOperationV2SummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class GetCompatibleKafkaVersionsResponseTypeDef(TypedDict):
+    CompatibleKafkaVersions: List[CompatibleKafkaVersionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateClusterConfigurationRequestTypeDef(TypedDict):
+    ClusterArn: str
+    ConfigurationInfo: ConfigurationInfoTypeDef
+    CurrentVersion: str
+
+class UpdateClusterKafkaVersionRequestTypeDef(TypedDict):
+    ClusterArn: str
+    CurrentVersion: str
+    TargetKafkaVersion: str
+    ConfigurationInfo: NotRequired[ConfigurationInfoTypeDef]
+
+class ConfigurationTypeDef(TypedDict):
+    Arn: str
+    CreationTime: datetime
+    Description: str
+    KafkaVersions: List[str]
+    LatestRevision: ConfigurationRevisionTypeDef
+    Name: str
+    State: ConfigurationStateType
+
+class CreateConfigurationResponseTypeDef(TypedDict):
+    Arn: str
+    CreationTime: datetime
+    LatestRevision: ConfigurationRevisionTypeDef
+    Name: str
+    State: ConfigurationStateType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeConfigurationResponseTypeDef(TypedDict):
+    Arn: str
+    CreationTime: datetime
+    Description: str
+    KafkaVersions: List[str]
+    LatestRevision: ConfigurationRevisionTypeDef
+    Name: str
+    State: ConfigurationStateType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListConfigurationRevisionsResponseTypeDef(TypedDict):
+    Revisions: List[ConfigurationRevisionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class UpdateConfigurationResponseTypeDef(TypedDict):
+    Arn: str
+    LatestRevision: ConfigurationRevisionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+ConsumerGroupReplicationUnionTypeDef = Union[
+    ConsumerGroupReplicationTypeDef, ConsumerGroupReplicationOutputTypeDef
+]
+
+class EncryptionInfoTypeDef(TypedDict):
+    EncryptionAtRest: NotRequired[EncryptionAtRestTypeDef]
+    EncryptionInTransit: NotRequired[EncryptionInTransitTypeDef]
+
+class ServerlessSaslTypeDef(TypedDict):
+    Iam: NotRequired[IamTypeDef]
+
+class KafkaClusterDescriptionTypeDef(TypedDict):
+    AmazonMskCluster: NotRequired[AmazonMskClusterTypeDef]
+    KafkaClusterAlias: NotRequired[str]
+    VpcConfig: NotRequired[KafkaClusterClientVpcConfigOutputTypeDef]
+
+KafkaClusterClientVpcConfigUnionTypeDef = Union[
+    KafkaClusterClientVpcConfigTypeDef, KafkaClusterClientVpcConfigOutputTypeDef
+]
+
+class ListKafkaVersionsResponseTypeDef(TypedDict):
+    KafkaVersions: List[KafkaVersionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListClientVpcConnectionsRequestPaginateTypeDef(TypedDict):
+    ClusterArn: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListClusterOperationsRequestPaginateTypeDef(TypedDict):
+    ClusterArn: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListClusterOperationsV2RequestPaginateTypeDef(TypedDict):
+    ClusterArn: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListClustersRequestPaginateTypeDef(TypedDict):
+    ClusterNameFilter: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListClustersV2RequestPaginateTypeDef(TypedDict):
+    ClusterNameFilter: NotRequired[str]
+    ClusterTypeFilter: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListConfigurationRevisionsRequestPaginateTypeDef(TypedDict):
+    Arn: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListConfigurationsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListKafkaVersionsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListNodesRequestPaginateTypeDef(TypedDict):
+    ClusterArn: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListReplicatorsRequestPaginateTypeDef(TypedDict):
+    ReplicatorNameFilter: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListScramSecretsRequestPaginateTypeDef(TypedDict):
+    ClusterArn: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListVpcConnectionsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListVpcConnectionsResponseTypeDef(TypedDict):
+    VpcConnections: List[VpcConnectionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class PrometheusInfoTypeDef(TypedDict):
+    JmxExporter: NotRequired[JmxExporterInfoTypeDef]
+    NodeExporter: NotRequired[NodeExporterInfoTypeDef]
+
+class PrometheusTypeDef(TypedDict):
+    JmxExporter: NotRequired[JmxExporterTypeDef]
+    NodeExporter: NotRequired[NodeExporterTypeDef]
+
+class TopicReplicationOutputTypeDef(TypedDict):
+    TopicsToReplicate: List[str]
+    CopyAccessControlListsForTopics: NotRequired[bool]
+    CopyTopicConfigurations: NotRequired[bool]
+    DetectAndCopyNewTopics: NotRequired[bool]
+    StartingPosition: NotRequired[ReplicationStartingPositionTypeDef]
+    TopicNameConfiguration: NotRequired[ReplicationTopicNameConfigurationTypeDef]
+    TopicsToExclude: NotRequired[List[str]]
+
+class TopicReplicationTypeDef(TypedDict):
+    TopicsToReplicate: Sequence[str]
+    CopyAccessControlListsForTopics: NotRequired[bool]
+    CopyTopicConfigurations: NotRequired[bool]
+    DetectAndCopyNewTopics: NotRequired[bool]
+    StartingPosition: NotRequired[ReplicationStartingPositionTypeDef]
+    TopicNameConfiguration: NotRequired[ReplicationTopicNameConfigurationTypeDef]
+    TopicsToExclude: NotRequired[Sequence[str]]
+
+class SaslTypeDef(TypedDict):
+    Scram: NotRequired[ScramTypeDef]
+    Iam: NotRequired[IamTypeDef]
+
+TlsUnionTypeDef = Union[TlsTypeDef, TlsOutputTypeDef]
+
+class UpdateReplicationInfoRequestTypeDef(TypedDict):
+    CurrentVersion: str
+    ReplicatorArn: str
+    SourceKafkaClusterArn: str
+    TargetKafkaClusterArn: str
+    ConsumerGroupReplication: NotRequired[ConsumerGroupReplicationUpdateTypeDef]
+    TopicReplication: NotRequired[TopicReplicationUpdateTypeDef]
+
+class VpcConnectionInfoServerlessTypeDef(TypedDict):
+    CreationTime: NotRequired[datetime]
+    Owner: NotRequired[str]
+    UserIdentity: NotRequired[UserIdentityTypeDef]
+    VpcConnectionArn: NotRequired[str]
+
+class VpcConnectionInfoTypeDef(TypedDict):
+    VpcConnectionArn: NotRequired[str]
+    Owner: NotRequired[str]
+    UserIdentity: NotRequired[UserIdentityTypeDef]
+    CreationTime: NotRequired[datetime]
+
+VpcConfigUnionTypeDef = Union[VpcConfigTypeDef, VpcConfigOutputTypeDef]
+
+class VpcConnectivitySaslTypeDef(TypedDict):
+    Scram: NotRequired[VpcConnectivityScramTypeDef]
+    Iam: NotRequired[VpcConnectivityIamTypeDef]
+
+class ReplicatorSummaryTypeDef(TypedDict):
+    CreationTime: NotRequired[datetime]
+    CurrentVersion: NotRequired[str]
+    IsReplicatorReference: NotRequired[bool]
+    KafkaClustersSummary: NotRequired[List[KafkaClusterSummaryTypeDef]]
+    ReplicationInfoSummaryList: NotRequired[List[ReplicationInfoSummaryTypeDef]]
+    ReplicatorArn: NotRequired[str]
+    ReplicatorName: NotRequired[str]
+    ReplicatorResourceArn: NotRequired[str]
+    ReplicatorState: NotRequired[ReplicatorStateType]
+
+class UpdateBrokerStorageRequestTypeDef(TypedDict):
+    ClusterArn: str
+    CurrentVersion: str
+    TargetBrokerEBSVolumeInfo: Sequence[BrokerEBSVolumeInfoTypeDef]
+
+class StorageInfoTypeDef(TypedDict):
+    EbsStorageInfo: NotRequired[EBSStorageInfoTypeDef]
+
+class LoggingInfoTypeDef(TypedDict):
+    BrokerLogs: BrokerLogsTypeDef
+
+class NodeInfoTypeDef(TypedDict):
+    AddedToClusterTime: NotRequired[str]
+    BrokerNodeInfo: NotRequired[BrokerNodeInfoTypeDef]
+    ControllerNodeInfo: NotRequired[ControllerNodeInfoTypeDef]
+    InstanceType: NotRequired[str]
+    NodeARN: NotRequired[str]
+    NodeType: NotRequired[Literal["BROKER"]]
+    ZookeeperNodeInfo: NotRequired[ZookeeperNodeInfoTypeDef]
+
+class ListConfigurationsResponseTypeDef(TypedDict):
+    Configurations: List[ConfigurationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ServerlessClientAuthenticationTypeDef(TypedDict):
+    Sasl: NotRequired[ServerlessSaslTypeDef]
+
+class KafkaClusterTypeDef(TypedDict):
+    AmazonMskCluster: AmazonMskClusterTypeDef
+    VpcConfig: KafkaClusterClientVpcConfigUnionTypeDef
+
+class OpenMonitoringInfoTypeDef(TypedDict):
+    Prometheus: PrometheusInfoTypeDef
+
+class OpenMonitoringTypeDef(TypedDict):
+    Prometheus: PrometheusTypeDef
+
+class ReplicationInfoDescriptionTypeDef(TypedDict):
+    ConsumerGroupReplication: NotRequired[ConsumerGroupReplicationOutputTypeDef]
+    SourceKafkaClusterAlias: NotRequired[str]
+    TargetCompressionType: NotRequired[TargetCompressionTypeType]
+    TargetKafkaClusterAlias: NotRequired[str]
+    TopicReplication: NotRequired[TopicReplicationOutputTypeDef]
+
+TopicReplicationUnionTypeDef = Union[TopicReplicationTypeDef, TopicReplicationOutputTypeDef]
+
+class ClientAuthenticationOutputTypeDef(TypedDict):
+    Sasl: NotRequired[SaslTypeDef]
+    Tls: NotRequired[TlsOutputTypeDef]
+    Unauthenticated: NotRequired[UnauthenticatedTypeDef]
+
+class ClientAuthenticationTypeDef(TypedDict):
+    Sasl: NotRequired[SaslTypeDef]
+    Tls: NotRequired[TlsUnionTypeDef]
+    Unauthenticated: NotRequired[UnauthenticatedTypeDef]
+
+class ClusterOperationV2ServerlessTypeDef(TypedDict):
+    VpcConnectionInfo: NotRequired[VpcConnectionInfoServerlessTypeDef]
+
+class VpcConnectivityClientAuthenticationTypeDef(TypedDict):
+    Sasl: NotRequired[VpcConnectivitySaslTypeDef]
+    Tls: NotRequired[VpcConnectivityTlsTypeDef]
+
+class ListReplicatorsResponseTypeDef(TypedDict):
+    Replicators: List[ReplicatorSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListNodesResponseTypeDef(TypedDict):
+    NodeInfoList: List[NodeInfoTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ServerlessRequestTypeDef(TypedDict):
+    VpcConfigs: Sequence[VpcConfigUnionTypeDef]
+    ClientAuthentication: NotRequired[ServerlessClientAuthenticationTypeDef]
+
+class ServerlessTypeDef(TypedDict):
+    VpcConfigs: List[VpcConfigOutputTypeDef]
+    ClientAuthentication: NotRequired[ServerlessClientAuthenticationTypeDef]
+
+class UpdateMonitoringRequestTypeDef(TypedDict):
+    ClusterArn: str
+    CurrentVersion: str
+    EnhancedMonitoring: NotRequired[EnhancedMonitoringType]
+    OpenMonitoring: NotRequired[OpenMonitoringInfoTypeDef]
+    LoggingInfo: NotRequired[LoggingInfoTypeDef]
+
+class DescribeReplicatorResponseTypeDef(TypedDict):
+    CreationTime: datetime
+    CurrentVersion: str
+    IsReplicatorReference: bool
+    KafkaClusters: List[KafkaClusterDescriptionTypeDef]
+    ReplicationInfoList: List[ReplicationInfoDescriptionTypeDef]
+    ReplicatorArn: str
+    ReplicatorDescription: str
+    ReplicatorName: str
+    ReplicatorResourceArn: str
+    ReplicatorState: ReplicatorStateType
+    ServiceExecutionRoleArn: str
+    StateInfo: ReplicationStateInfoTypeDef
+    Tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ReplicationInfoTypeDef(TypedDict):
+    ConsumerGroupReplication: ConsumerGroupReplicationUnionTypeDef
+    SourceKafkaClusterArn: str
+    TargetCompressionType: TargetCompressionTypeType
+    TargetKafkaClusterArn: str
+    TopicReplication: TopicReplicationUnionTypeDef
+
+ClientAuthenticationUnionTypeDef = Union[
+    ClientAuthenticationTypeDef, ClientAuthenticationOutputTypeDef
+]
+
+class VpcConnectivityTypeDef(TypedDict):
+    ClientAuthentication: NotRequired[VpcConnectivityClientAuthenticationTypeDef]
+
+class CreateReplicatorRequestTypeDef(TypedDict):
+    KafkaClusters: Sequence[KafkaClusterTypeDef]
+    ReplicationInfoList: Sequence[ReplicationInfoTypeDef]
+    ReplicatorName: str
+    ServiceExecutionRoleArn: str
+    Description: NotRequired[str]
+    Tags: NotRequired[Mapping[str, str]]
+
+class UpdateSecurityRequestTypeDef(TypedDict):
+    ClusterArn: str
+    CurrentVersion: str
+    ClientAuthentication: NotRequired[ClientAuthenticationUnionTypeDef]
+    EncryptionInfo: NotRequired[EncryptionInfoTypeDef]
+
+class ConnectivityInfoTypeDef(TypedDict):
+    PublicAccess: NotRequired[PublicAccessTypeDef]
+    VpcConnectivity: NotRequired[VpcConnectivityTypeDef]
+
+class BrokerNodeGroupInfoOutputTypeDef(TypedDict):
+    ClientSubnets: List[str]
+    InstanceType: str
+    BrokerAZDistribution: NotRequired[Literal["DEFAULT"]]
+    SecurityGroups: NotRequired[List[str]]
+    StorageInfo: NotRequired[StorageInfoTypeDef]
+    ConnectivityInfo: NotRequired[ConnectivityInfoTypeDef]
+    ZoneIds: NotRequired[List[str]]
+
+class BrokerNodeGroupInfoTypeDef(TypedDict):
+    ClientSubnets: Sequence[str]
+    InstanceType: str
+    BrokerAZDistribution: NotRequired[Literal["DEFAULT"]]
+    SecurityGroups: NotRequired[Sequence[str]]
+    StorageInfo: NotRequired[StorageInfoTypeDef]
+    ConnectivityInfo: NotRequired[ConnectivityInfoTypeDef]
+    ZoneIds: NotRequired[Sequence[str]]
+
+class MutableClusterInfoTypeDef(TypedDict):
+    BrokerEBSVolumeInfo: NotRequired[List[BrokerEBSVolumeInfoTypeDef]]
+    ConfigurationInfo: NotRequired[ConfigurationInfoTypeDef]
+    NumberOfBrokerNodes: NotRequired[int]
+    EnhancedMonitoring: NotRequired[EnhancedMonitoringType]
+    OpenMonitoring: NotRequired[OpenMonitoringTypeDef]
+    KafkaVersion: NotRequired[str]
+    LoggingInfo: NotRequired[LoggingInfoTypeDef]
+    InstanceType: NotRequired[str]
+    ClientAuthentication: NotRequired[ClientAuthenticationOutputTypeDef]
+    EncryptionInfo: NotRequired[EncryptionInfoTypeDef]
+    ConnectivityInfo: NotRequired[ConnectivityInfoTypeDef]
+    StorageMode: NotRequired[StorageModeType]
+    BrokerCountUpdateInfo: NotRequired[BrokerCountUpdateInfoTypeDef]
+
+class UpdateConnectivityRequestTypeDef(TypedDict):
+    ClusterArn: str
+    ConnectivityInfo: ConnectivityInfoTypeDef
+    CurrentVersion: str
+
+class ClusterInfoTypeDef(TypedDict):
+    ActiveOperationArn: NotRequired[str]
+    BrokerNodeGroupInfo: NotRequired[BrokerNodeGroupInfoOutputTypeDef]
+    ClientAuthentication: NotRequired[ClientAuthenticationOutputTypeDef]
+    ClusterArn: NotRequired[str]
+    ClusterName: NotRequired[str]
+    CreationTime: NotRequired[datetime]
+    CurrentBrokerSoftwareInfo: NotRequired[BrokerSoftwareInfoTypeDef]
+    CurrentVersion: NotRequired[str]
+    EncryptionInfo: NotRequired[EncryptionInfoTypeDef]
+    EnhancedMonitoring: NotRequired[EnhancedMonitoringType]
+    OpenMonitoring: NotRequired[OpenMonitoringTypeDef]
+    LoggingInfo: NotRequired[LoggingInfoTypeDef]
+    NumberOfBrokerNodes: NotRequired[int]
+    State: NotRequired[ClusterStateType]
+    StateInfo: NotRequired[StateInfoTypeDef]
+    Tags: NotRequired[Dict[str, str]]
+    ZookeeperConnectString: NotRequired[str]
+    ZookeeperConnectStringTls: NotRequired[str]
+    StorageMode: NotRequired[StorageModeType]
+    CustomerActionStatus: NotRequired[CustomerActionStatusType]
+
+class ProvisionedTypeDef(TypedDict):
+    BrokerNodeGroupInfo: BrokerNodeGroupInfoOutputTypeDef
+    NumberOfBrokerNodes: int
+    CurrentBrokerSoftwareInfo: NotRequired[BrokerSoftwareInfoTypeDef]
+    ClientAuthentication: NotRequired[ClientAuthenticationOutputTypeDef]
+    EncryptionInfo: NotRequired[EncryptionInfoTypeDef]
+    EnhancedMonitoring: NotRequired[EnhancedMonitoringType]
+    OpenMonitoring: NotRequired[OpenMonitoringInfoTypeDef]
+    LoggingInfo: NotRequired[LoggingInfoTypeDef]
+    ZookeeperConnectString: NotRequired[str]
+    ZookeeperConnectStringTls: NotRequired[str]
+    StorageMode: NotRequired[StorageModeType]
+    CustomerActionStatus: NotRequired[CustomerActionStatusType]
+
+BrokerNodeGroupInfoUnionTypeDef = Union[
+    BrokerNodeGroupInfoTypeDef, BrokerNodeGroupInfoOutputTypeDef
+]
+
+class ClusterOperationInfoTypeDef(TypedDict):
+    ClientRequestId: NotRequired[str]
+    ClusterArn: NotRequired[str]
+    CreationTime: NotRequired[datetime]
+    EndTime: NotRequired[datetime]
+    ErrorInfo: NotRequired[ErrorInfoTypeDef]
+    OperationArn: NotRequired[str]
+    OperationState: NotRequired[str]
+    OperationSteps: NotRequired[List[ClusterOperationStepTypeDef]]
+    OperationType: NotRequired[str]
+    SourceClusterInfo: NotRequired[MutableClusterInfoTypeDef]
+    TargetClusterInfo: NotRequired[MutableClusterInfoTypeDef]
+    VpcConnectionInfo: NotRequired[VpcConnectionInfoTypeDef]
+
+class ClusterOperationV2ProvisionedTypeDef(TypedDict):
+    OperationSteps: NotRequired[List[ClusterOperationStepTypeDef]]
+    SourceClusterInfo: NotRequired[MutableClusterInfoTypeDef]
+    TargetClusterInfo: NotRequired[MutableClusterInfoTypeDef]
+    VpcConnectionInfo: NotRequired[VpcConnectionInfoTypeDef]
+
+class DescribeClusterResponseTypeDef(TypedDict):
+    ClusterInfo: ClusterInfoTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListClustersResponseTypeDef(TypedDict):
+    ClusterInfoList: List[ClusterInfoTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ClusterTypeDef(TypedDict):
+    ActiveOperationArn: NotRequired[str]
+    ClusterType: NotRequired[ClusterTypeType]
+    ClusterArn: NotRequired[str]
+    ClusterName: NotRequired[str]
+    CreationTime: NotRequired[datetime]
+    CurrentVersion: NotRequired[str]
+    State: NotRequired[ClusterStateType]
+    StateInfo: NotRequired[StateInfoTypeDef]
+    Tags: NotRequired[Dict[str, str]]
+    Provisioned: NotRequired[ProvisionedTypeDef]
+    Serverless: NotRequired[ServerlessTypeDef]
+
+class CreateClusterRequestTypeDef(TypedDict):
+    BrokerNodeGroupInfo: BrokerNodeGroupInfoUnionTypeDef
+    ClusterName: str
+    KafkaVersion: str
+    NumberOfBrokerNodes: int
+    ClientAuthentication: NotRequired[ClientAuthenticationUnionTypeDef]
+    ConfigurationInfo: NotRequired[ConfigurationInfoTypeDef]
+    EncryptionInfo: NotRequired[EncryptionInfoTypeDef]
+    EnhancedMonitoring: NotRequired[EnhancedMonitoringType]
+    OpenMonitoring: NotRequired[OpenMonitoringInfoTypeDef]
+    LoggingInfo: NotRequired[LoggingInfoTypeDef]
+    Tags: NotRequired[Mapping[str, str]]
+    StorageMode: NotRequired[StorageModeType]
+
+class ProvisionedRequestTypeDef(TypedDict):
+    BrokerNodeGroupInfo: BrokerNodeGroupInfoUnionTypeDef
+    KafkaVersion: str
+    NumberOfBrokerNodes: int
+    ClientAuthentication: NotRequired[ClientAuthenticationUnionTypeDef]
+    ConfigurationInfo: NotRequired[ConfigurationInfoTypeDef]
+    EncryptionInfo: NotRequired[EncryptionInfoTypeDef]
+    EnhancedMonitoring: NotRequired[EnhancedMonitoringType]
+    OpenMonitoring: NotRequired[OpenMonitoringInfoTypeDef]
+    LoggingInfo: NotRequired[LoggingInfoTypeDef]
+    StorageMode: NotRequired[StorageModeType]
+
+class DescribeClusterOperationResponseTypeDef(TypedDict):
+    ClusterOperationInfo: ClusterOperationInfoTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListClusterOperationsResponseTypeDef(TypedDict):
+    ClusterOperationInfoList: List[ClusterOperationInfoTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ClusterOperationV2TypeDef(TypedDict):
+    ClusterArn: NotRequired[str]
+    ClusterType: NotRequired[ClusterTypeType]
+    StartTime: NotRequired[datetime]
+    EndTime: NotRequired[datetime]
+    ErrorInfo: NotRequired[ErrorInfoTypeDef]
+    OperationArn: NotRequired[str]
+    OperationState: NotRequired[str]
+    OperationType: NotRequired[str]
+    Provisioned: NotRequired[ClusterOperationV2ProvisionedTypeDef]
+    Serverless: NotRequired[ClusterOperationV2ServerlessTypeDef]
+
+class DescribeClusterV2ResponseTypeDef(TypedDict):
+    ClusterInfo: ClusterTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListClustersV2ResponseTypeDef(TypedDict):
+    ClusterInfoList: List[ClusterTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class CreateClusterV2RequestTypeDef(TypedDict):
+    ClusterName: str
+    Tags: NotRequired[Mapping[str, str]]
+    Provisioned: NotRequired[ProvisionedRequestTypeDef]
+    Serverless: NotRequired[ServerlessRequestTypeDef]
+
+class DescribeClusterOperationV2ResponseTypeDef(TypedDict):
+    ClusterOperationInfo: ClusterOperationV2TypeDef
+    ResponseMetadata: ResponseMetadataTypeDef

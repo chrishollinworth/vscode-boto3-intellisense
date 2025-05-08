@@ -1,10 +1,14 @@
 """
 Main interface for braket service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_braket/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_braket import (
         BraketClient,
         Client,
@@ -13,10 +17,8 @@ Usage::
         SearchQuantumTasksPaginator,
     )
 
-    session = boto3.Session()
-
-    client: BraketClient = boto3.client("braket")
-    session_client: BraketClient = session.client("braket")
+    session = Session()
+    client: BraketClient = session.client("braket")
 
     search_devices_paginator: SearchDevicesPaginator = client.get_paginator("search_devices")
     search_jobs_paginator: SearchJobsPaginator = client.get_paginator("search_jobs")

@@ -1,21 +1,25 @@
 """
 Type annotations for dynamodb service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dynamodb/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dynamodb/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_dynamodb.type_defs import ArchivalSummaryTypeDef
 
-    data: ArchivalSummaryTypeDef = {...}
+    data: ArchivalSummaryTypeDef = ...
     ```
 """
+
+from __future__ import annotations
 
 import sys
 from datetime import datetime
 from decimal import Decimal
-from typing import Any, Dict, List, Set, Union
+from typing import Any, Union
 
 from boto3.dynamodb.conditions import ConditionBase
 
@@ -43,6 +47,7 @@ from .literals import (
     InputCompressionTypeType,
     InputFormatType,
     KeyTypeType,
+    MultiRegionConsistencyType,
     PointInTimeRecoveryStatusType,
     ProjectionTypeType,
     ReplicaStatusType,
@@ -61,14 +66,23 @@ from .literals import (
     TimeToLiveStatusType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from builtins import set as Set
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List, Mapping, Sequence, Set
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
     "ArchivalSummaryTypeDef",
     "AttributeDefinitionTypeDef",
+    "AttributeValueTypeDef",
+    "AttributeValueUpdateTableTypeDef",
     "AttributeValueUpdateTypeDef",
     "AutoScalingPolicyDescriptionTypeDef",
     "AutoScalingPolicyUpdateTypeDef",
@@ -79,125 +93,159 @@ __all__ = (
     "BackupDescriptionTypeDef",
     "BackupDetailsTypeDef",
     "BackupSummaryTypeDef",
-    "BatchExecuteStatementInputRequestTypeDef",
+    "BatchExecuteStatementInputTypeDef",
     "BatchExecuteStatementOutputTypeDef",
-    "BatchGetItemInputRequestTypeDef",
-    "BatchGetItemInputServiceResourceTypeDef",
+    "BatchGetItemInputServiceResourceBatchGetItemTypeDef",
+    "BatchGetItemInputTypeDef",
+    "BatchGetItemOutputServiceResourceTypeDef",
     "BatchGetItemOutputTypeDef",
     "BatchStatementErrorTypeDef",
     "BatchStatementRequestTypeDef",
     "BatchStatementResponseTypeDef",
-    "BatchWriteItemInputRequestTypeDef",
-    "BatchWriteItemInputServiceResourceTypeDef",
+    "BatchWriteItemInputServiceResourceBatchWriteItemTypeDef",
+    "BatchWriteItemInputTypeDef",
+    "BatchWriteItemOutputServiceResourceTypeDef",
     "BatchWriteItemOutputTypeDef",
     "BillingModeSummaryTypeDef",
     "CapacityTypeDef",
+    "ConditionBaseImportTypeDef",
     "ConditionCheckTypeDef",
+    "ConditionTableTypeDef",
     "ConditionTypeDef",
     "ConsumedCapacityTypeDef",
     "ContinuousBackupsDescriptionTypeDef",
     "ContributorInsightsSummaryTypeDef",
-    "CreateBackupInputRequestTypeDef",
+    "CreateBackupInputTypeDef",
     "CreateBackupOutputTypeDef",
     "CreateGlobalSecondaryIndexActionTypeDef",
-    "CreateGlobalTableInputRequestTypeDef",
+    "CreateGlobalTableInputTypeDef",
     "CreateGlobalTableOutputTypeDef",
     "CreateReplicaActionTypeDef",
     "CreateReplicationGroupMemberActionTypeDef",
-    "CreateTableInputRequestTypeDef",
-    "CreateTableInputServiceResourceTypeDef",
+    "CreateTableInputServiceResourceCreateTableTypeDef",
+    "CreateTableInputTypeDef",
     "CreateTableOutputTypeDef",
+    "CsvOptionsOutputTypeDef",
     "CsvOptionsTypeDef",
-    "DeleteBackupInputRequestTypeDef",
+    "DeleteBackupInputTypeDef",
     "DeleteBackupOutputTypeDef",
     "DeleteGlobalSecondaryIndexActionTypeDef",
-    "DeleteItemInputRequestTypeDef",
-    "DeleteItemInputTableTypeDef",
+    "DeleteItemInputTableDeleteItemTypeDef",
+    "DeleteItemInputTypeDef",
+    "DeleteItemOutputTableTypeDef",
     "DeleteItemOutputTypeDef",
     "DeleteReplicaActionTypeDef",
     "DeleteReplicationGroupMemberActionTypeDef",
+    "DeleteRequestOutputTypeDef",
+    "DeleteRequestServiceResourceOutputTypeDef",
+    "DeleteRequestServiceResourceTypeDef",
+    "DeleteRequestServiceResourceUnionTypeDef",
     "DeleteRequestTypeDef",
-    "DeleteResourcePolicyInputRequestTypeDef",
+    "DeleteRequestUnionTypeDef",
+    "DeleteResourcePolicyInputTypeDef",
     "DeleteResourcePolicyOutputTypeDef",
-    "DeleteTableInputRequestTypeDef",
+    "DeleteTableInputTypeDef",
     "DeleteTableOutputTypeDef",
     "DeleteTypeDef",
-    "DescribeBackupInputRequestTypeDef",
+    "DescribeBackupInputTypeDef",
     "DescribeBackupOutputTypeDef",
-    "DescribeContinuousBackupsInputRequestTypeDef",
+    "DescribeContinuousBackupsInputTypeDef",
     "DescribeContinuousBackupsOutputTypeDef",
-    "DescribeContributorInsightsInputRequestTypeDef",
+    "DescribeContributorInsightsInputTypeDef",
     "DescribeContributorInsightsOutputTypeDef",
     "DescribeEndpointsResponseTypeDef",
-    "DescribeExportInputRequestTypeDef",
+    "DescribeExportInputTypeDef",
     "DescribeExportOutputTypeDef",
-    "DescribeGlobalTableInputRequestTypeDef",
+    "DescribeGlobalTableInputTypeDef",
     "DescribeGlobalTableOutputTypeDef",
-    "DescribeGlobalTableSettingsInputRequestTypeDef",
+    "DescribeGlobalTableSettingsInputTypeDef",
     "DescribeGlobalTableSettingsOutputTypeDef",
-    "DescribeImportInputRequestTypeDef",
+    "DescribeImportInputTypeDef",
     "DescribeImportOutputTypeDef",
-    "DescribeKinesisStreamingDestinationInputRequestTypeDef",
+    "DescribeKinesisStreamingDestinationInputTypeDef",
     "DescribeKinesisStreamingDestinationOutputTypeDef",
     "DescribeLimitsOutputTypeDef",
-    "DescribeTableInputRequestTypeDef",
+    "DescribeTableInputTypeDef",
+    "DescribeTableInputWaitExtraTypeDef",
+    "DescribeTableInputWaitTypeDef",
     "DescribeTableOutputTypeDef",
-    "DescribeTableReplicaAutoScalingInputRequestTypeDef",
+    "DescribeTableReplicaAutoScalingInputTypeDef",
     "DescribeTableReplicaAutoScalingOutputTypeDef",
-    "DescribeTimeToLiveInputRequestTypeDef",
+    "DescribeTimeToLiveInputTypeDef",
     "DescribeTimeToLiveOutputTypeDef",
+    "EmptyResponseMetadataTypeDef",
     "EnableKinesisStreamingConfigurationTypeDef",
     "EndpointTypeDef",
-    "ExecuteStatementInputRequestTypeDef",
+    "ExecuteStatementInputTypeDef",
     "ExecuteStatementOutputTypeDef",
-    "ExecuteTransactionInputRequestTypeDef",
+    "ExecuteTransactionInputTypeDef",
     "ExecuteTransactionOutputTypeDef",
+    "ExpectedAttributeValueTableTypeDef",
     "ExpectedAttributeValueTypeDef",
     "ExportDescriptionTypeDef",
     "ExportSummaryTypeDef",
-    "ExportTableToPointInTimeInputRequestTypeDef",
+    "ExportTableToPointInTimeInputTypeDef",
     "ExportTableToPointInTimeOutputTypeDef",
     "FailureExceptionTypeDef",
-    "GetItemInputRequestTypeDef",
-    "GetItemInputTableTypeDef",
+    "GetItemInputTableGetItemTypeDef",
+    "GetItemInputTypeDef",
+    "GetItemOutputTableTypeDef",
     "GetItemOutputTypeDef",
-    "GetResourcePolicyInputRequestTypeDef",
+    "GetResourcePolicyInputTypeDef",
     "GetResourcePolicyOutputTypeDef",
     "GetTypeDef",
     "GlobalSecondaryIndexAutoScalingUpdateTypeDef",
     "GlobalSecondaryIndexDescriptionTypeDef",
     "GlobalSecondaryIndexInfoTypeDef",
+    "GlobalSecondaryIndexOutputTypeDef",
     "GlobalSecondaryIndexTypeDef",
+    "GlobalSecondaryIndexUnionTypeDef",
     "GlobalSecondaryIndexUpdateTypeDef",
+    "GlobalSecondaryIndexWarmThroughputDescriptionTypeDef",
     "GlobalTableDescriptionTypeDef",
     "GlobalTableGlobalSecondaryIndexSettingsUpdateTypeDef",
     "GlobalTableTypeDef",
     "ImportSummaryTypeDef",
     "ImportTableDescriptionTypeDef",
-    "ImportTableInputRequestTypeDef",
+    "ImportTableInputTypeDef",
     "ImportTableOutputTypeDef",
+    "IncrementalExportSpecificationOutputTypeDef",
     "IncrementalExportSpecificationTypeDef",
+    "IncrementalExportSpecificationUnionTypeDef",
+    "InputFormatOptionsOutputTypeDef",
     "InputFormatOptionsTypeDef",
+    "InputFormatOptionsUnionTypeDef",
+    "ItemCollectionMetricsServiceResourceTypeDef",
+    "ItemCollectionMetricsTableTypeDef",
     "ItemCollectionMetricsTypeDef",
     "ItemResponseTypeDef",
     "KeySchemaElementTypeDef",
+    "KeysAndAttributesOutputTypeDef",
+    "KeysAndAttributesServiceResourceOutputTypeDef",
+    "KeysAndAttributesServiceResourceTypeDef",
+    "KeysAndAttributesServiceResourceUnionTypeDef",
     "KeysAndAttributesTypeDef",
+    "KeysAndAttributesUnionTypeDef",
     "KinesisDataStreamDestinationTypeDef",
     "KinesisStreamingDestinationInputRequestTypeDef",
+    "KinesisStreamingDestinationInputTypeDef",
     "KinesisStreamingDestinationOutputTypeDef",
-    "ListBackupsInputRequestTypeDef",
+    "ListBackupsInputPaginateTypeDef",
+    "ListBackupsInputTypeDef",
     "ListBackupsOutputTypeDef",
-    "ListContributorInsightsInputRequestTypeDef",
+    "ListContributorInsightsInputTypeDef",
     "ListContributorInsightsOutputTypeDef",
-    "ListExportsInputRequestTypeDef",
+    "ListExportsInputTypeDef",
     "ListExportsOutputTypeDef",
-    "ListGlobalTablesInputRequestTypeDef",
+    "ListGlobalTablesInputTypeDef",
     "ListGlobalTablesOutputTypeDef",
-    "ListImportsInputRequestTypeDef",
+    "ListImportsInputTypeDef",
     "ListImportsOutputTypeDef",
-    "ListTablesInputRequestTypeDef",
+    "ListTablesInputPaginateTypeDef",
+    "ListTablesInputTypeDef",
     "ListTablesOutputTypeDef",
-    "ListTagsOfResourceInputRequestTypeDef",
+    "ListTagsOfResourceInputPaginateTypeDef",
+    "ListTagsOfResourceInputTypeDef",
     "ListTagsOfResourceOutputTypeDef",
     "LocalSecondaryIndexDescriptionTypeDef",
     "LocalSecondaryIndexInfoTypeDef",
@@ -208,19 +256,29 @@ __all__ = (
     "ParameterizedStatementTypeDef",
     "PointInTimeRecoveryDescriptionTypeDef",
     "PointInTimeRecoverySpecificationTypeDef",
+    "ProjectionOutputTypeDef",
     "ProjectionTypeDef",
+    "ProjectionUnionTypeDef",
     "ProvisionedThroughputDescriptionTypeDef",
     "ProvisionedThroughputOverrideTypeDef",
     "ProvisionedThroughputTypeDef",
-    "PutItemInputRequestTypeDef",
-    "PutItemInputTableTypeDef",
+    "PutItemInputTablePutItemTypeDef",
+    "PutItemInputTypeDef",
+    "PutItemOutputTableTypeDef",
     "PutItemOutputTypeDef",
+    "PutRequestOutputTypeDef",
+    "PutRequestServiceResourceOutputTypeDef",
+    "PutRequestServiceResourceTypeDef",
+    "PutRequestServiceResourceUnionTypeDef",
     "PutRequestTypeDef",
-    "PutResourcePolicyInputRequestTypeDef",
+    "PutRequestUnionTypeDef",
+    "PutResourcePolicyInputTypeDef",
     "PutResourcePolicyOutputTypeDef",
     "PutTypeDef",
-    "QueryInputRequestTypeDef",
-    "QueryInputTableTypeDef",
+    "QueryInputPaginateTypeDef",
+    "QueryInputTableQueryTypeDef",
+    "QueryInputTypeDef",
+    "QueryOutputTableTypeDef",
     "QueryOutputTypeDef",
     "ReplicaAutoScalingDescriptionTypeDef",
     "ReplicaAutoScalingUpdateTypeDef",
@@ -238,705 +296,204 @@ __all__ = (
     "ReplicationGroupUpdateTypeDef",
     "ResponseMetadataTypeDef",
     "RestoreSummaryTypeDef",
-    "RestoreTableFromBackupInputRequestTypeDef",
+    "RestoreTableFromBackupInputTypeDef",
     "RestoreTableFromBackupOutputTypeDef",
-    "RestoreTableToPointInTimeInputRequestTypeDef",
+    "RestoreTableToPointInTimeInputTypeDef",
     "RestoreTableToPointInTimeOutputTypeDef",
     "S3BucketSourceTypeDef",
     "SSEDescriptionTypeDef",
     "SSESpecificationTypeDef",
-    "ScanInputRequestTypeDef",
-    "ScanInputTableTypeDef",
+    "ScanInputPaginateTypeDef",
+    "ScanInputTableScanTypeDef",
+    "ScanInputTypeDef",
+    "ScanOutputTableTypeDef",
     "ScanOutputTypeDef",
-    "ServiceResourceTableRequestTypeDef",
     "SourceTableDetailsTypeDef",
     "SourceTableFeatureDetailsTypeDef",
     "StreamSpecificationTypeDef",
+    "TableAttributeValueTypeDef",
     "TableAutoScalingDescriptionTypeDef",
     "TableBatchWriterRequestTypeDef",
     "TableClassSummaryTypeDef",
+    "TableCreationParametersOutputTypeDef",
     "TableCreationParametersTypeDef",
+    "TableCreationParametersUnionTypeDef",
     "TableDescriptionTypeDef",
-    "TagResourceInputRequestTypeDef",
+    "TableWarmThroughputDescriptionTypeDef",
+    "TagResourceInputTypeDef",
     "TagTypeDef",
     "TimeToLiveDescriptionTypeDef",
     "TimeToLiveSpecificationTypeDef",
+    "TimestampTypeDef",
     "TransactGetItemTypeDef",
-    "TransactGetItemsInputRequestTypeDef",
+    "TransactGetItemsInputTypeDef",
     "TransactGetItemsOutputTypeDef",
     "TransactWriteItemTypeDef",
-    "TransactWriteItemsInputRequestTypeDef",
+    "TransactWriteItemsInputTypeDef",
     "TransactWriteItemsOutputTypeDef",
-    "UntagResourceInputRequestTypeDef",
-    "UpdateContinuousBackupsInputRequestTypeDef",
+    "UniversalAttributeValueTypeDef",
+    "UntagResourceInputTypeDef",
+    "UpdateContinuousBackupsInputTypeDef",
     "UpdateContinuousBackupsOutputTypeDef",
-    "UpdateContributorInsightsInputRequestTypeDef",
+    "UpdateContributorInsightsInputTypeDef",
     "UpdateContributorInsightsOutputTypeDef",
     "UpdateGlobalSecondaryIndexActionTypeDef",
-    "UpdateGlobalTableInputRequestTypeDef",
+    "UpdateGlobalTableInputTypeDef",
     "UpdateGlobalTableOutputTypeDef",
-    "UpdateGlobalTableSettingsInputRequestTypeDef",
+    "UpdateGlobalTableSettingsInputTypeDef",
     "UpdateGlobalTableSettingsOutputTypeDef",
-    "UpdateItemInputRequestTypeDef",
-    "UpdateItemInputTableTypeDef",
+    "UpdateItemInputTableUpdateItemTypeDef",
+    "UpdateItemInputTypeDef",
+    "UpdateItemOutputTableTypeDef",
     "UpdateItemOutputTypeDef",
     "UpdateKinesisStreamingConfigurationTypeDef",
-    "UpdateKinesisStreamingDestinationInputRequestTypeDef",
+    "UpdateKinesisStreamingDestinationInputTypeDef",
     "UpdateKinesisStreamingDestinationOutputTypeDef",
     "UpdateReplicationGroupMemberActionTypeDef",
-    "UpdateTableInputRequestTypeDef",
-    "UpdateTableInputTableTypeDef",
+    "UpdateTableInputTableUpdateTypeDef",
+    "UpdateTableInputTypeDef",
     "UpdateTableOutputTypeDef",
-    "UpdateTableReplicaAutoScalingInputRequestTypeDef",
+    "UpdateTableReplicaAutoScalingInputTypeDef",
     "UpdateTableReplicaAutoScalingOutputTypeDef",
-    "UpdateTimeToLiveInputRequestTypeDef",
+    "UpdateTimeToLiveInputTypeDef",
     "UpdateTimeToLiveOutputTypeDef",
     "UpdateTypeDef",
     "WaiterConfigTypeDef",
+    "WarmThroughputTypeDef",
+    "WriteRequestOutputTypeDef",
+    "WriteRequestServiceResourceOutputTypeDef",
+    "WriteRequestServiceResourceTypeDef",
+    "WriteRequestServiceResourceUnionTypeDef",
     "WriteRequestTypeDef",
+    "WriteRequestUnionTypeDef",
 )
 
-ArchivalSummaryTypeDef = TypedDict(
-    "ArchivalSummaryTypeDef",
-    {
-        "ArchivalDateTime": datetime,
-        "ArchivalReason": str,
-        "ArchivalBackupArn": str,
-    },
-    total=False,
-)
+class ArchivalSummaryTypeDef(TypedDict):
+    ArchivalDateTime: NotRequired[datetime]
+    ArchivalReason: NotRequired[str]
+    ArchivalBackupArn: NotRequired[str]
 
-AttributeDefinitionTypeDef = TypedDict(
-    "AttributeDefinitionTypeDef",
-    {
-        "AttributeName": str,
-        "AttributeType": ScalarAttributeTypeType,
-    },
-)
+class AttributeDefinitionTypeDef(TypedDict):
+    AttributeName: str
+    AttributeType: ScalarAttributeTypeType
 
-AttributeValueUpdateTypeDef = TypedDict(
-    "AttributeValueUpdateTypeDef",
-    {
-        "Value": Union[
-            bytes,
-            bytearray,
-            str,
-            int,
-            Decimal,
-            bool,
-            Set[int],
-            Set[Decimal],
-            Set[str],
-            Set[bytes],
-            Set[bytearray],
-            List[Any],
-            Dict[str, Any],
-            None,
-        ],
-        "Action": AttributeActionType,
-    },
-    total=False,
-)
+class AttributeValueTypeDef(TypedDict):
+    S: NotRequired[str]
+    N: NotRequired[str]
+    B: NotRequired[bytes]
+    SS: NotRequired[Sequence[str]]
+    NS: NotRequired[Sequence[str]]
+    BS: NotRequired[Sequence[bytes]]
+    M: NotRequired[Mapping[str, Any]]
+    L: NotRequired[Sequence[Any]]
+    NULL: NotRequired[bool]
+    BOOL: NotRequired[bool]
 
-AutoScalingPolicyDescriptionTypeDef = TypedDict(
-    "AutoScalingPolicyDescriptionTypeDef",
-    {
-        "PolicyName": str,
-        "TargetTrackingScalingPolicyConfiguration": "AutoScalingTargetTrackingScalingPolicyConfigurationDescriptionTypeDef",
-    },
-    total=False,
-)
+TableAttributeValueTypeDef = Union[
+    bytes,
+    bytearray,
+    str,
+    int,
+    Decimal,
+    bool,
+    Set[int],
+    Set[Decimal],
+    Set[str],
+    Set[bytes],
+    Set[bytearray],
+    Sequence[Any],
+    Mapping[str, Any],
+    None,
+]
 
-_RequiredAutoScalingPolicyUpdateTypeDef = TypedDict(
-    "_RequiredAutoScalingPolicyUpdateTypeDef",
-    {
-        "TargetTrackingScalingPolicyConfiguration": "AutoScalingTargetTrackingScalingPolicyConfigurationUpdateTypeDef",
-    },
-)
-_OptionalAutoScalingPolicyUpdateTypeDef = TypedDict(
-    "_OptionalAutoScalingPolicyUpdateTypeDef",
-    {
-        "PolicyName": str,
-    },
-    total=False,
-)
+class AutoScalingTargetTrackingScalingPolicyConfigurationDescriptionTypeDef(TypedDict):
+    TargetValue: float
+    DisableScaleIn: NotRequired[bool]
+    ScaleInCooldown: NotRequired[int]
+    ScaleOutCooldown: NotRequired[int]
 
-class AutoScalingPolicyUpdateTypeDef(
-    _RequiredAutoScalingPolicyUpdateTypeDef, _OptionalAutoScalingPolicyUpdateTypeDef
-):
-    pass
+class AutoScalingTargetTrackingScalingPolicyConfigurationUpdateTypeDef(TypedDict):
+    TargetValue: float
+    DisableScaleIn: NotRequired[bool]
+    ScaleInCooldown: NotRequired[int]
+    ScaleOutCooldown: NotRequired[int]
 
-AutoScalingSettingsDescriptionTypeDef = TypedDict(
-    "AutoScalingSettingsDescriptionTypeDef",
-    {
-        "MinimumUnits": int,
-        "MaximumUnits": int,
-        "AutoScalingDisabled": bool,
-        "AutoScalingRoleArn": str,
-        "ScalingPolicies": List["AutoScalingPolicyDescriptionTypeDef"],
-    },
-    total=False,
-)
+class BackupDetailsTypeDef(TypedDict):
+    BackupArn: str
+    BackupName: str
+    BackupStatus: BackupStatusType
+    BackupType: BackupTypeType
+    BackupCreationDateTime: datetime
+    BackupSizeBytes: NotRequired[int]
+    BackupExpiryDateTime: NotRequired[datetime]
 
-AutoScalingSettingsUpdateTypeDef = TypedDict(
-    "AutoScalingSettingsUpdateTypeDef",
-    {
-        "MinimumUnits": int,
-        "MaximumUnits": int,
-        "AutoScalingDisabled": bool,
-        "AutoScalingRoleArn": str,
-        "ScalingPolicyUpdate": "AutoScalingPolicyUpdateTypeDef",
-    },
-    total=False,
-)
+class BackupSummaryTypeDef(TypedDict):
+    TableName: NotRequired[str]
+    TableId: NotRequired[str]
+    TableArn: NotRequired[str]
+    BackupArn: NotRequired[str]
+    BackupName: NotRequired[str]
+    BackupCreationDateTime: NotRequired[datetime]
+    BackupExpiryDateTime: NotRequired[datetime]
+    BackupStatus: NotRequired[BackupStatusType]
+    BackupType: NotRequired[BackupTypeType]
+    BackupSizeBytes: NotRequired[int]
 
-_RequiredAutoScalingTargetTrackingScalingPolicyConfigurationDescriptionTypeDef = TypedDict(
-    "_RequiredAutoScalingTargetTrackingScalingPolicyConfigurationDescriptionTypeDef",
-    {
-        "TargetValue": float,
-    },
-)
-_OptionalAutoScalingTargetTrackingScalingPolicyConfigurationDescriptionTypeDef = TypedDict(
-    "_OptionalAutoScalingTargetTrackingScalingPolicyConfigurationDescriptionTypeDef",
-    {
-        "DisableScaleIn": bool,
-        "ScaleInCooldown": int,
-        "ScaleOutCooldown": int,
-    },
-    total=False,
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-class AutoScalingTargetTrackingScalingPolicyConfigurationDescriptionTypeDef(
-    _RequiredAutoScalingTargetTrackingScalingPolicyConfigurationDescriptionTypeDef,
-    _OptionalAutoScalingTargetTrackingScalingPolicyConfigurationDescriptionTypeDef,
-):
-    pass
+class BillingModeSummaryTypeDef(TypedDict):
+    BillingMode: NotRequired[BillingModeType]
+    LastUpdateToPayPerRequestDateTime: NotRequired[datetime]
 
-_RequiredAutoScalingTargetTrackingScalingPolicyConfigurationUpdateTypeDef = TypedDict(
-    "_RequiredAutoScalingTargetTrackingScalingPolicyConfigurationUpdateTypeDef",
-    {
-        "TargetValue": float,
-    },
-)
-_OptionalAutoScalingTargetTrackingScalingPolicyConfigurationUpdateTypeDef = TypedDict(
-    "_OptionalAutoScalingTargetTrackingScalingPolicyConfigurationUpdateTypeDef",
-    {
-        "DisableScaleIn": bool,
-        "ScaleInCooldown": int,
-        "ScaleOutCooldown": int,
-    },
-    total=False,
-)
+class CapacityTypeDef(TypedDict):
+    ReadCapacityUnits: NotRequired[float]
+    WriteCapacityUnits: NotRequired[float]
+    CapacityUnits: NotRequired[float]
 
-class AutoScalingTargetTrackingScalingPolicyConfigurationUpdateTypeDef(
-    _RequiredAutoScalingTargetTrackingScalingPolicyConfigurationUpdateTypeDef,
-    _OptionalAutoScalingTargetTrackingScalingPolicyConfigurationUpdateTypeDef,
-):
-    pass
+ConditionBaseImportTypeDef = Union[str, ConditionBase]
 
-BackupDescriptionTypeDef = TypedDict(
-    "BackupDescriptionTypeDef",
-    {
-        "BackupDetails": "BackupDetailsTypeDef",
-        "SourceTableDetails": "SourceTableDetailsTypeDef",
-        "SourceTableFeatureDetails": "SourceTableFeatureDetailsTypeDef",
-    },
-    total=False,
-)
+class PointInTimeRecoveryDescriptionTypeDef(TypedDict):
+    PointInTimeRecoveryStatus: NotRequired[PointInTimeRecoveryStatusType]
+    RecoveryPeriodInDays: NotRequired[int]
+    EarliestRestorableDateTime: NotRequired[datetime]
+    LatestRestorableDateTime: NotRequired[datetime]
 
-_RequiredBackupDetailsTypeDef = TypedDict(
-    "_RequiredBackupDetailsTypeDef",
+class ContributorInsightsSummaryTypeDef(TypedDict):
+    TableName: NotRequired[str]
+    IndexName: NotRequired[str]
+    ContributorInsightsStatus: NotRequired[ContributorInsightsStatusType]
+
+class CreateBackupInputTypeDef(TypedDict):
+    TableName: str
+    BackupName: str
+
+class KeySchemaElementTypeDef(TypedDict):
+    AttributeName: str
+    KeyType: KeyTypeType
+
+class OnDemandThroughputTypeDef(TypedDict):
+    MaxReadRequestUnits: NotRequired[int]
+    MaxWriteRequestUnits: NotRequired[int]
+
+class ProvisionedThroughputTypeDef(TypedDict):
+    ReadCapacityUnits: int
+    WriteCapacityUnits: int
+
+class WarmThroughputTypeDef(TypedDict):
+    ReadUnitsPerSecond: NotRequired[int]
+    WriteUnitsPerSecond: NotRequired[int]
+
+ReplicaTypeDef = TypedDict(
+    "ReplicaTypeDef",
     {
-        "BackupArn": str,
-        "BackupName": str,
-        "BackupStatus": BackupStatusType,
-        "BackupType": BackupTypeType,
-        "BackupCreationDateTime": datetime,
+        "RegionName": NotRequired[str],
     },
 )
-_OptionalBackupDetailsTypeDef = TypedDict(
-    "_OptionalBackupDetailsTypeDef",
-    {
-        "BackupSizeBytes": int,
-        "BackupExpiryDateTime": datetime,
-    },
-    total=False,
-)
-
-class BackupDetailsTypeDef(_RequiredBackupDetailsTypeDef, _OptionalBackupDetailsTypeDef):
-    pass
-
-BackupSummaryTypeDef = TypedDict(
-    "BackupSummaryTypeDef",
-    {
-        "TableName": str,
-        "TableId": str,
-        "TableArn": str,
-        "BackupArn": str,
-        "BackupName": str,
-        "BackupCreationDateTime": datetime,
-        "BackupExpiryDateTime": datetime,
-        "BackupStatus": BackupStatusType,
-        "BackupType": BackupTypeType,
-        "BackupSizeBytes": int,
-    },
-    total=False,
-)
-
-_RequiredBatchExecuteStatementInputRequestTypeDef = TypedDict(
-    "_RequiredBatchExecuteStatementInputRequestTypeDef",
-    {
-        "Statements": List["BatchStatementRequestTypeDef"],
-    },
-)
-_OptionalBatchExecuteStatementInputRequestTypeDef = TypedDict(
-    "_OptionalBatchExecuteStatementInputRequestTypeDef",
-    {
-        "ReturnConsumedCapacity": ReturnConsumedCapacityType,
-    },
-    total=False,
-)
-
-class BatchExecuteStatementInputRequestTypeDef(
-    _RequiredBatchExecuteStatementInputRequestTypeDef,
-    _OptionalBatchExecuteStatementInputRequestTypeDef,
-):
-    pass
-
-BatchExecuteStatementOutputTypeDef = TypedDict(
-    "BatchExecuteStatementOutputTypeDef",
-    {
-        "Responses": List["BatchStatementResponseTypeDef"],
-        "ConsumedCapacity": List["ConsumedCapacityTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredBatchGetItemInputRequestTypeDef = TypedDict(
-    "_RequiredBatchGetItemInputRequestTypeDef",
-    {
-        "RequestItems": Dict[str, "KeysAndAttributesTypeDef"],
-    },
-)
-_OptionalBatchGetItemInputRequestTypeDef = TypedDict(
-    "_OptionalBatchGetItemInputRequestTypeDef",
-    {
-        "ReturnConsumedCapacity": ReturnConsumedCapacityType,
-    },
-    total=False,
-)
-
-class BatchGetItemInputRequestTypeDef(
-    _RequiredBatchGetItemInputRequestTypeDef, _OptionalBatchGetItemInputRequestTypeDef
-):
-    pass
-
-_RequiredBatchGetItemInputServiceResourceTypeDef = TypedDict(
-    "_RequiredBatchGetItemInputServiceResourceTypeDef",
-    {
-        "RequestItems": Dict[str, "KeysAndAttributesTypeDef"],
-    },
-)
-_OptionalBatchGetItemInputServiceResourceTypeDef = TypedDict(
-    "_OptionalBatchGetItemInputServiceResourceTypeDef",
-    {
-        "ReturnConsumedCapacity": ReturnConsumedCapacityType,
-    },
-    total=False,
-)
-
-class BatchGetItemInputServiceResourceTypeDef(
-    _RequiredBatchGetItemInputServiceResourceTypeDef,
-    _OptionalBatchGetItemInputServiceResourceTypeDef,
-):
-    pass
-
-BatchGetItemOutputTypeDef = TypedDict(
-    "BatchGetItemOutputTypeDef",
-    {
-        "Responses": Dict[
-            str,
-            List[
-                Dict[
-                    str,
-                    Union[
-                        bytes,
-                        bytearray,
-                        str,
-                        int,
-                        Decimal,
-                        bool,
-                        Set[int],
-                        Set[Decimal],
-                        Set[str],
-                        Set[bytes],
-                        Set[bytearray],
-                        List[Any],
-                        Dict[str, Any],
-                        None,
-                    ],
-                ]
-            ],
-        ],
-        "UnprocessedKeys": Dict[str, "KeysAndAttributesTypeDef"],
-        "ConsumedCapacity": List["ConsumedCapacityTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-BatchStatementErrorTypeDef = TypedDict(
-    "BatchStatementErrorTypeDef",
-    {
-        "Code": BatchStatementErrorCodeEnumType,
-        "Message": str,
-        "Item": Dict[
-            str,
-            Union[
-                bytes,
-                bytearray,
-                str,
-                int,
-                Decimal,
-                bool,
-                Set[int],
-                Set[Decimal],
-                Set[str],
-                Set[bytes],
-                Set[bytearray],
-                List[Any],
-                Dict[str, Any],
-                None,
-            ],
-        ],
-    },
-    total=False,
-)
-
-_RequiredBatchStatementRequestTypeDef = TypedDict(
-    "_RequiredBatchStatementRequestTypeDef",
-    {
-        "Statement": str,
-    },
-)
-_OptionalBatchStatementRequestTypeDef = TypedDict(
-    "_OptionalBatchStatementRequestTypeDef",
-    {
-        "Parameters": List[
-            Union[
-                bytes,
-                bytearray,
-                str,
-                int,
-                Decimal,
-                bool,
-                Set[int],
-                Set[Decimal],
-                Set[str],
-                Set[bytes],
-                Set[bytearray],
-                List[Any],
-                Dict[str, Any],
-                None,
-            ]
-        ],
-        "ConsistentRead": bool,
-        "ReturnValuesOnConditionCheckFailure": ReturnValuesOnConditionCheckFailureType,
-    },
-    total=False,
-)
-
-class BatchStatementRequestTypeDef(
-    _RequiredBatchStatementRequestTypeDef, _OptionalBatchStatementRequestTypeDef
-):
-    pass
-
-BatchStatementResponseTypeDef = TypedDict(
-    "BatchStatementResponseTypeDef",
-    {
-        "Error": "BatchStatementErrorTypeDef",
-        "TableName": str,
-        "Item": Dict[
-            str,
-            Union[
-                bytes,
-                bytearray,
-                str,
-                int,
-                Decimal,
-                bool,
-                Set[int],
-                Set[Decimal],
-                Set[str],
-                Set[bytes],
-                Set[bytearray],
-                List[Any],
-                Dict[str, Any],
-                None,
-            ],
-        ],
-    },
-    total=False,
-)
-
-_RequiredBatchWriteItemInputRequestTypeDef = TypedDict(
-    "_RequiredBatchWriteItemInputRequestTypeDef",
-    {
-        "RequestItems": Dict[str, List["WriteRequestTypeDef"]],
-    },
-)
-_OptionalBatchWriteItemInputRequestTypeDef = TypedDict(
-    "_OptionalBatchWriteItemInputRequestTypeDef",
-    {
-        "ReturnConsumedCapacity": ReturnConsumedCapacityType,
-        "ReturnItemCollectionMetrics": ReturnItemCollectionMetricsType,
-    },
-    total=False,
-)
-
-class BatchWriteItemInputRequestTypeDef(
-    _RequiredBatchWriteItemInputRequestTypeDef, _OptionalBatchWriteItemInputRequestTypeDef
-):
-    pass
-
-_RequiredBatchWriteItemInputServiceResourceTypeDef = TypedDict(
-    "_RequiredBatchWriteItemInputServiceResourceTypeDef",
-    {
-        "RequestItems": Dict[str, List["WriteRequestTypeDef"]],
-    },
-)
-_OptionalBatchWriteItemInputServiceResourceTypeDef = TypedDict(
-    "_OptionalBatchWriteItemInputServiceResourceTypeDef",
-    {
-        "ReturnConsumedCapacity": ReturnConsumedCapacityType,
-        "ReturnItemCollectionMetrics": ReturnItemCollectionMetricsType,
-    },
-    total=False,
-)
-
-class BatchWriteItemInputServiceResourceTypeDef(
-    _RequiredBatchWriteItemInputServiceResourceTypeDef,
-    _OptionalBatchWriteItemInputServiceResourceTypeDef,
-):
-    pass
-
-BatchWriteItemOutputTypeDef = TypedDict(
-    "BatchWriteItemOutputTypeDef",
-    {
-        "UnprocessedItems": Dict[str, List["WriteRequestTypeDef"]],
-        "ItemCollectionMetrics": Dict[str, List["ItemCollectionMetricsTypeDef"]],
-        "ConsumedCapacity": List["ConsumedCapacityTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-BillingModeSummaryTypeDef = TypedDict(
-    "BillingModeSummaryTypeDef",
-    {
-        "BillingMode": BillingModeType,
-        "LastUpdateToPayPerRequestDateTime": datetime,
-    },
-    total=False,
-)
-
-CapacityTypeDef = TypedDict(
-    "CapacityTypeDef",
-    {
-        "ReadCapacityUnits": float,
-        "WriteCapacityUnits": float,
-        "CapacityUnits": float,
-    },
-    total=False,
-)
-
-_RequiredConditionCheckTypeDef = TypedDict(
-    "_RequiredConditionCheckTypeDef",
-    {
-        "Key": Dict[
-            str,
-            Union[
-                bytes,
-                bytearray,
-                str,
-                int,
-                Decimal,
-                bool,
-                Set[int],
-                Set[Decimal],
-                Set[str],
-                Set[bytes],
-                Set[bytearray],
-                List[Any],
-                Dict[str, Any],
-                None,
-            ],
-        ],
-        "TableName": str,
-        "ConditionExpression": str,
-    },
-)
-_OptionalConditionCheckTypeDef = TypedDict(
-    "_OptionalConditionCheckTypeDef",
-    {
-        "ExpressionAttributeNames": Dict[str, str],
-        "ExpressionAttributeValues": Dict[
-            str,
-            Union[
-                bytes,
-                bytearray,
-                str,
-                int,
-                Decimal,
-                bool,
-                Set[int],
-                Set[Decimal],
-                Set[str],
-                Set[bytes],
-                Set[bytearray],
-                List[Any],
-                Dict[str, Any],
-                None,
-            ],
-        ],
-        "ReturnValuesOnConditionCheckFailure": ReturnValuesOnConditionCheckFailureType,
-    },
-    total=False,
-)
-
-class ConditionCheckTypeDef(_RequiredConditionCheckTypeDef, _OptionalConditionCheckTypeDef):
-    pass
-
-_RequiredConditionTypeDef = TypedDict(
-    "_RequiredConditionTypeDef",
-    {
-        "ComparisonOperator": ComparisonOperatorType,
-    },
-)
-_OptionalConditionTypeDef = TypedDict(
-    "_OptionalConditionTypeDef",
-    {
-        "AttributeValueList": List[
-            Union[
-                bytes,
-                bytearray,
-                str,
-                int,
-                Decimal,
-                bool,
-                Set[int],
-                Set[Decimal],
-                Set[str],
-                Set[bytes],
-                Set[bytearray],
-                List[Any],
-                Dict[str, Any],
-                None,
-            ]
-        ],
-    },
-    total=False,
-)
-
-class ConditionTypeDef(_RequiredConditionTypeDef, _OptionalConditionTypeDef):
-    pass
-
-ConsumedCapacityTypeDef = TypedDict(
-    "ConsumedCapacityTypeDef",
-    {
-        "TableName": str,
-        "CapacityUnits": float,
-        "ReadCapacityUnits": float,
-        "WriteCapacityUnits": float,
-        "Table": "CapacityTypeDef",
-        "LocalSecondaryIndexes": Dict[str, "CapacityTypeDef"],
-        "GlobalSecondaryIndexes": Dict[str, "CapacityTypeDef"],
-    },
-    total=False,
-)
-
-_RequiredContinuousBackupsDescriptionTypeDef = TypedDict(
-    "_RequiredContinuousBackupsDescriptionTypeDef",
-    {
-        "ContinuousBackupsStatus": ContinuousBackupsStatusType,
-    },
-)
-_OptionalContinuousBackupsDescriptionTypeDef = TypedDict(
-    "_OptionalContinuousBackupsDescriptionTypeDef",
-    {
-        "PointInTimeRecoveryDescription": "PointInTimeRecoveryDescriptionTypeDef",
-    },
-    total=False,
-)
-
-class ContinuousBackupsDescriptionTypeDef(
-    _RequiredContinuousBackupsDescriptionTypeDef, _OptionalContinuousBackupsDescriptionTypeDef
-):
-    pass
-
-ContributorInsightsSummaryTypeDef = TypedDict(
-    "ContributorInsightsSummaryTypeDef",
-    {
-        "TableName": str,
-        "IndexName": str,
-        "ContributorInsightsStatus": ContributorInsightsStatusType,
-    },
-    total=False,
-)
-
-CreateBackupInputRequestTypeDef = TypedDict(
-    "CreateBackupInputRequestTypeDef",
-    {
-        "TableName": str,
-        "BackupName": str,
-    },
-)
-
-CreateBackupOutputTypeDef = TypedDict(
-    "CreateBackupOutputTypeDef",
-    {
-        "BackupDetails": "BackupDetailsTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateGlobalSecondaryIndexActionTypeDef = TypedDict(
-    "_RequiredCreateGlobalSecondaryIndexActionTypeDef",
-    {
-        "IndexName": str,
-        "KeySchema": List["KeySchemaElementTypeDef"],
-        "Projection": "ProjectionTypeDef",
-    },
-)
-_OptionalCreateGlobalSecondaryIndexActionTypeDef = TypedDict(
-    "_OptionalCreateGlobalSecondaryIndexActionTypeDef",
-    {
-        "ProvisionedThroughput": "ProvisionedThroughputTypeDef",
-        "OnDemandThroughput": "OnDemandThroughputTypeDef",
-    },
-    total=False,
-)
-
-class CreateGlobalSecondaryIndexActionTypeDef(
-    _RequiredCreateGlobalSecondaryIndexActionTypeDef,
-    _OptionalCreateGlobalSecondaryIndexActionTypeDef,
-):
-    pass
-
-CreateGlobalTableInputRequestTypeDef = TypedDict(
-    "CreateGlobalTableInputRequestTypeDef",
-    {
-        "GlobalTableName": str,
-        "ReplicationGroup": List["ReplicaTypeDef"],
-    },
-)
-
-CreateGlobalTableOutputTypeDef = TypedDict(
-    "CreateGlobalTableOutputTypeDef",
-    {
-        "GlobalTableDescription": "GlobalTableDescriptionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
 CreateReplicaActionTypeDef = TypedDict(
     "CreateReplicaActionTypeDef",
     {
@@ -944,285 +501,38 @@ CreateReplicaActionTypeDef = TypedDict(
     },
 )
 
-_RequiredCreateReplicationGroupMemberActionTypeDef = TypedDict(
-    "_RequiredCreateReplicationGroupMemberActionTypeDef",
-    {
-        "RegionName": str,
-    },
-)
-_OptionalCreateReplicationGroupMemberActionTypeDef = TypedDict(
-    "_OptionalCreateReplicationGroupMemberActionTypeDef",
-    {
-        "KMSMasterKeyId": str,
-        "ProvisionedThroughputOverride": "ProvisionedThroughputOverrideTypeDef",
-        "OnDemandThroughputOverride": "OnDemandThroughputOverrideTypeDef",
-        "GlobalSecondaryIndexes": List["ReplicaGlobalSecondaryIndexTypeDef"],
-        "TableClassOverride": TableClassType,
-    },
-    total=False,
-)
+class OnDemandThroughputOverrideTypeDef(TypedDict):
+    MaxReadRequestUnits: NotRequired[int]
 
-class CreateReplicationGroupMemberActionTypeDef(
-    _RequiredCreateReplicationGroupMemberActionTypeDef,
-    _OptionalCreateReplicationGroupMemberActionTypeDef,
-):
-    pass
+class ProvisionedThroughputOverrideTypeDef(TypedDict):
+    ReadCapacityUnits: NotRequired[int]
 
-_RequiredCreateTableInputRequestTypeDef = TypedDict(
-    "_RequiredCreateTableInputRequestTypeDef",
-    {
-        "AttributeDefinitions": List["AttributeDefinitionTypeDef"],
-        "TableName": str,
-        "KeySchema": List["KeySchemaElementTypeDef"],
-    },
-)
-_OptionalCreateTableInputRequestTypeDef = TypedDict(
-    "_OptionalCreateTableInputRequestTypeDef",
-    {
-        "LocalSecondaryIndexes": List["LocalSecondaryIndexTypeDef"],
-        "GlobalSecondaryIndexes": List["GlobalSecondaryIndexTypeDef"],
-        "BillingMode": BillingModeType,
-        "ProvisionedThroughput": "ProvisionedThroughputTypeDef",
-        "StreamSpecification": "StreamSpecificationTypeDef",
-        "SSESpecification": "SSESpecificationTypeDef",
-        "Tags": List["TagTypeDef"],
-        "TableClass": TableClassType,
-        "DeletionProtectionEnabled": bool,
-        "ResourcePolicy": str,
-        "OnDemandThroughput": "OnDemandThroughputTypeDef",
-    },
-    total=False,
-)
+class SSESpecificationTypeDef(TypedDict):
+    Enabled: NotRequired[bool]
+    SSEType: NotRequired[SSETypeType]
+    KMSMasterKeyId: NotRequired[str]
 
-class CreateTableInputRequestTypeDef(
-    _RequiredCreateTableInputRequestTypeDef, _OptionalCreateTableInputRequestTypeDef
-):
-    pass
+class StreamSpecificationTypeDef(TypedDict):
+    StreamEnabled: bool
+    StreamViewType: NotRequired[StreamViewTypeType]
 
-_RequiredCreateTableInputServiceResourceTypeDef = TypedDict(
-    "_RequiredCreateTableInputServiceResourceTypeDef",
-    {
-        "AttributeDefinitions": List["AttributeDefinitionTypeDef"],
-        "TableName": str,
-        "KeySchema": List["KeySchemaElementTypeDef"],
-    },
-)
-_OptionalCreateTableInputServiceResourceTypeDef = TypedDict(
-    "_OptionalCreateTableInputServiceResourceTypeDef",
-    {
-        "LocalSecondaryIndexes": List["LocalSecondaryIndexTypeDef"],
-        "GlobalSecondaryIndexes": List["GlobalSecondaryIndexTypeDef"],
-        "BillingMode": BillingModeType,
-        "ProvisionedThroughput": "ProvisionedThroughputTypeDef",
-        "StreamSpecification": "StreamSpecificationTypeDef",
-        "SSESpecification": "SSESpecificationTypeDef",
-        "Tags": List["TagTypeDef"],
-        "TableClass": TableClassType,
-        "DeletionProtectionEnabled": bool,
-        "ResourcePolicy": str,
-        "OnDemandThroughput": "OnDemandThroughputTypeDef",
-    },
-    total=False,
-)
+class TagTypeDef(TypedDict):
+    Key: str
+    Value: str
 
-class CreateTableInputServiceResourceTypeDef(
-    _RequiredCreateTableInputServiceResourceTypeDef, _OptionalCreateTableInputServiceResourceTypeDef
-):
-    pass
+class CsvOptionsOutputTypeDef(TypedDict):
+    Delimiter: NotRequired[str]
+    HeaderList: NotRequired[List[str]]
 
-CreateTableOutputTypeDef = TypedDict(
-    "CreateTableOutputTypeDef",
-    {
-        "TableDescription": "TableDescriptionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CsvOptionsTypeDef(TypedDict):
+    Delimiter: NotRequired[str]
+    HeaderList: NotRequired[Sequence[str]]
 
-CsvOptionsTypeDef = TypedDict(
-    "CsvOptionsTypeDef",
-    {
-        "Delimiter": str,
-        "HeaderList": List[str],
-    },
-    total=False,
-)
+class DeleteBackupInputTypeDef(TypedDict):
+    BackupArn: str
 
-DeleteBackupInputRequestTypeDef = TypedDict(
-    "DeleteBackupInputRequestTypeDef",
-    {
-        "BackupArn": str,
-    },
-)
-
-DeleteBackupOutputTypeDef = TypedDict(
-    "DeleteBackupOutputTypeDef",
-    {
-        "BackupDescription": "BackupDescriptionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteGlobalSecondaryIndexActionTypeDef = TypedDict(
-    "DeleteGlobalSecondaryIndexActionTypeDef",
-    {
-        "IndexName": str,
-    },
-)
-
-_RequiredDeleteItemInputRequestTypeDef = TypedDict(
-    "_RequiredDeleteItemInputRequestTypeDef",
-    {
-        "TableName": str,
-        "Key": Dict[
-            str,
-            Union[
-                bytes,
-                bytearray,
-                str,
-                int,
-                Decimal,
-                bool,
-                Set[int],
-                Set[Decimal],
-                Set[str],
-                Set[bytes],
-                Set[bytearray],
-                List[Any],
-                Dict[str, Any],
-                None,
-            ],
-        ],
-    },
-)
-_OptionalDeleteItemInputRequestTypeDef = TypedDict(
-    "_OptionalDeleteItemInputRequestTypeDef",
-    {
-        "Expected": Dict[str, "ExpectedAttributeValueTypeDef"],
-        "ConditionalOperator": ConditionalOperatorType,
-        "ReturnValues": ReturnValueType,
-        "ReturnConsumedCapacity": ReturnConsumedCapacityType,
-        "ReturnItemCollectionMetrics": ReturnItemCollectionMetricsType,
-        "ConditionExpression": str,
-        "ExpressionAttributeNames": Dict[str, str],
-        "ExpressionAttributeValues": Dict[
-            str,
-            Union[
-                bytes,
-                bytearray,
-                str,
-                int,
-                Decimal,
-                bool,
-                Set[int],
-                Set[Decimal],
-                Set[str],
-                Set[bytes],
-                Set[bytearray],
-                List[Any],
-                Dict[str, Any],
-                None,
-            ],
-        ],
-        "ReturnValuesOnConditionCheckFailure": ReturnValuesOnConditionCheckFailureType,
-    },
-    total=False,
-)
-
-class DeleteItemInputRequestTypeDef(
-    _RequiredDeleteItemInputRequestTypeDef, _OptionalDeleteItemInputRequestTypeDef
-):
-    pass
-
-_RequiredDeleteItemInputTableTypeDef = TypedDict(
-    "_RequiredDeleteItemInputTableTypeDef",
-    {
-        "Key": Dict[
-            str,
-            Union[
-                bytes,
-                bytearray,
-                str,
-                int,
-                Decimal,
-                bool,
-                Set[int],
-                Set[Decimal],
-                Set[str],
-                Set[bytes],
-                Set[bytearray],
-                List[Any],
-                Dict[str, Any],
-                None,
-            ],
-        ],
-    },
-)
-_OptionalDeleteItemInputTableTypeDef = TypedDict(
-    "_OptionalDeleteItemInputTableTypeDef",
-    {
-        "Expected": Dict[str, "ExpectedAttributeValueTypeDef"],
-        "ConditionalOperator": ConditionalOperatorType,
-        "ReturnValues": ReturnValueType,
-        "ReturnConsumedCapacity": ReturnConsumedCapacityType,
-        "ReturnItemCollectionMetrics": ReturnItemCollectionMetricsType,
-        "ConditionExpression": str,
-        "ExpressionAttributeNames": Dict[str, str],
-        "ExpressionAttributeValues": Dict[
-            str,
-            Union[
-                bytes,
-                bytearray,
-                str,
-                int,
-                Decimal,
-                bool,
-                Set[int],
-                Set[Decimal],
-                Set[str],
-                Set[bytes],
-                Set[bytearray],
-                List[Any],
-                Dict[str, Any],
-                None,
-            ],
-        ],
-        "ReturnValuesOnConditionCheckFailure": ReturnValuesOnConditionCheckFailureType,
-    },
-    total=False,
-)
-
-class DeleteItemInputTableTypeDef(
-    _RequiredDeleteItemInputTableTypeDef, _OptionalDeleteItemInputTableTypeDef
-):
-    pass
-
-DeleteItemOutputTypeDef = TypedDict(
-    "DeleteItemOutputTypeDef",
-    {
-        "Attributes": Dict[
-            str,
-            Union[
-                bytes,
-                bytearray,
-                str,
-                int,
-                Decimal,
-                bool,
-                Set[int],
-                Set[Decimal],
-                Set[str],
-                Set[bytes],
-                Set[bytearray],
-                List[Any],
-                Dict[str, Any],
-                None,
-            ],
-        ],
-        "ConsumedCapacity": "ConsumedCapacityTypeDef",
-        "ItemCollectionMetrics": "ItemCollectionMetricsTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DeleteGlobalSecondaryIndexActionTypeDef(TypedDict):
+    IndexName: str
 
 DeleteReplicaActionTypeDef = TypedDict(
     "DeleteReplicaActionTypeDef",
@@ -1230,7 +540,6 @@ DeleteReplicaActionTypeDef = TypedDict(
         "RegionName": str,
     },
 )
-
 DeleteReplicationGroupMemberActionTypeDef = TypedDict(
     "DeleteReplicationGroupMemberActionTypeDef",
     {
@@ -1238,3165 +547,1611 @@ DeleteReplicationGroupMemberActionTypeDef = TypedDict(
     },
 )
 
-DeleteRequestTypeDef = TypedDict(
-    "DeleteRequestTypeDef",
-    {
-        "Key": Dict[
-            str,
-            Union[
-                bytes,
-                bytearray,
-                str,
-                int,
-                Decimal,
-                bool,
-                Set[int],
-                Set[Decimal],
-                Set[str],
-                Set[bytes],
-                Set[bytearray],
-                List[Any],
-                Dict[str, Any],
-                None,
-            ],
-        ],
-    },
-)
-
-_RequiredDeleteResourcePolicyInputRequestTypeDef = TypedDict(
-    "_RequiredDeleteResourcePolicyInputRequestTypeDef",
-    {
-        "ResourceArn": str,
-    },
-)
-_OptionalDeleteResourcePolicyInputRequestTypeDef = TypedDict(
-    "_OptionalDeleteResourcePolicyInputRequestTypeDef",
-    {
-        "ExpectedRevisionId": str,
-    },
-    total=False,
-)
-
-class DeleteResourcePolicyInputRequestTypeDef(
-    _RequiredDeleteResourcePolicyInputRequestTypeDef,
-    _OptionalDeleteResourcePolicyInputRequestTypeDef,
-):
-    pass
-
-DeleteResourcePolicyOutputTypeDef = TypedDict(
-    "DeleteResourcePolicyOutputTypeDef",
-    {
-        "RevisionId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteTableInputRequestTypeDef = TypedDict(
-    "DeleteTableInputRequestTypeDef",
-    {
-        "TableName": str,
-    },
-)
-
-DeleteTableOutputTypeDef = TypedDict(
-    "DeleteTableOutputTypeDef",
-    {
-        "TableDescription": "TableDescriptionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDeleteTypeDef = TypedDict(
-    "_RequiredDeleteTypeDef",
-    {
-        "Key": Dict[
-            str,
-            Union[
-                bytes,
-                bytearray,
-                str,
-                int,
-                Decimal,
-                bool,
-                Set[int],
-                Set[Decimal],
-                Set[str],
-                Set[bytes],
-                Set[bytearray],
-                List[Any],
-                Dict[str, Any],
-                None,
-            ],
-        ],
-        "TableName": str,
-    },
-)
-_OptionalDeleteTypeDef = TypedDict(
-    "_OptionalDeleteTypeDef",
-    {
-        "ConditionExpression": str,
-        "ExpressionAttributeNames": Dict[str, str],
-        "ExpressionAttributeValues": Dict[
-            str,
-            Union[
-                bytes,
-                bytearray,
-                str,
-                int,
-                Decimal,
-                bool,
-                Set[int],
-                Set[Decimal],
-                Set[str],
-                Set[bytes],
-                Set[bytearray],
-                List[Any],
-                Dict[str, Any],
-                None,
-            ],
-        ],
-        "ReturnValuesOnConditionCheckFailure": ReturnValuesOnConditionCheckFailureType,
-    },
-    total=False,
-)
-
-class DeleteTypeDef(_RequiredDeleteTypeDef, _OptionalDeleteTypeDef):
-    pass
-
-DescribeBackupInputRequestTypeDef = TypedDict(
-    "DescribeBackupInputRequestTypeDef",
-    {
-        "BackupArn": str,
-    },
-)
-
-DescribeBackupOutputTypeDef = TypedDict(
-    "DescribeBackupOutputTypeDef",
-    {
-        "BackupDescription": "BackupDescriptionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeContinuousBackupsInputRequestTypeDef = TypedDict(
-    "DescribeContinuousBackupsInputRequestTypeDef",
-    {
-        "TableName": str,
-    },
-)
-
-DescribeContinuousBackupsOutputTypeDef = TypedDict(
-    "DescribeContinuousBackupsOutputTypeDef",
-    {
-        "ContinuousBackupsDescription": "ContinuousBackupsDescriptionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribeContributorInsightsInputRequestTypeDef = TypedDict(
-    "_RequiredDescribeContributorInsightsInputRequestTypeDef",
-    {
-        "TableName": str,
-    },
-)
-_OptionalDescribeContributorInsightsInputRequestTypeDef = TypedDict(
-    "_OptionalDescribeContributorInsightsInputRequestTypeDef",
-    {
-        "IndexName": str,
-    },
-    total=False,
-)
-
-class DescribeContributorInsightsInputRequestTypeDef(
-    _RequiredDescribeContributorInsightsInputRequestTypeDef,
-    _OptionalDescribeContributorInsightsInputRequestTypeDef,
-):
-    pass
-
-DescribeContributorInsightsOutputTypeDef = TypedDict(
-    "DescribeContributorInsightsOutputTypeDef",
-    {
-        "TableName": str,
-        "IndexName": str,
-        "ContributorInsightsRuleList": List[str],
-        "ContributorInsightsStatus": ContributorInsightsStatusType,
-        "LastUpdateDateTime": datetime,
-        "FailureException": "FailureExceptionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeEndpointsResponseTypeDef = TypedDict(
-    "DescribeEndpointsResponseTypeDef",
-    {
-        "Endpoints": List["EndpointTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeExportInputRequestTypeDef = TypedDict(
-    "DescribeExportInputRequestTypeDef",
-    {
-        "ExportArn": str,
-    },
-)
-
-DescribeExportOutputTypeDef = TypedDict(
-    "DescribeExportOutputTypeDef",
-    {
-        "ExportDescription": "ExportDescriptionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeGlobalTableInputRequestTypeDef = TypedDict(
-    "DescribeGlobalTableInputRequestTypeDef",
-    {
-        "GlobalTableName": str,
-    },
-)
-
-DescribeGlobalTableOutputTypeDef = TypedDict(
-    "DescribeGlobalTableOutputTypeDef",
-    {
-        "GlobalTableDescription": "GlobalTableDescriptionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeGlobalTableSettingsInputRequestTypeDef = TypedDict(
-    "DescribeGlobalTableSettingsInputRequestTypeDef",
-    {
-        "GlobalTableName": str,
-    },
-)
-
-DescribeGlobalTableSettingsOutputTypeDef = TypedDict(
-    "DescribeGlobalTableSettingsOutputTypeDef",
-    {
-        "GlobalTableName": str,
-        "ReplicaSettings": List["ReplicaSettingsDescriptionTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeImportInputRequestTypeDef = TypedDict(
-    "DescribeImportInputRequestTypeDef",
-    {
-        "ImportArn": str,
-    },
-)
-
-DescribeImportOutputTypeDef = TypedDict(
-    "DescribeImportOutputTypeDef",
-    {
-        "ImportTableDescription": "ImportTableDescriptionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeKinesisStreamingDestinationInputRequestTypeDef = TypedDict(
-    "DescribeKinesisStreamingDestinationInputRequestTypeDef",
-    {
-        "TableName": str,
-    },
-)
-
-DescribeKinesisStreamingDestinationOutputTypeDef = TypedDict(
-    "DescribeKinesisStreamingDestinationOutputTypeDef",
-    {
-        "TableName": str,
-        "KinesisDataStreamDestinations": List["KinesisDataStreamDestinationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeLimitsOutputTypeDef = TypedDict(
-    "DescribeLimitsOutputTypeDef",
-    {
-        "AccountMaxReadCapacityUnits": int,
-        "AccountMaxWriteCapacityUnits": int,
-        "TableMaxReadCapacityUnits": int,
-        "TableMaxWriteCapacityUnits": int,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeTableInputRequestTypeDef = TypedDict(
-    "DescribeTableInputRequestTypeDef",
-    {
-        "TableName": str,
-    },
-)
-
-DescribeTableOutputTypeDef = TypedDict(
-    "DescribeTableOutputTypeDef",
-    {
-        "Table": "TableDescriptionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeTableReplicaAutoScalingInputRequestTypeDef = TypedDict(
-    "DescribeTableReplicaAutoScalingInputRequestTypeDef",
-    {
-        "TableName": str,
-    },
-)
-
-DescribeTableReplicaAutoScalingOutputTypeDef = TypedDict(
-    "DescribeTableReplicaAutoScalingOutputTypeDef",
-    {
-        "TableAutoScalingDescription": "TableAutoScalingDescriptionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeTimeToLiveInputRequestTypeDef = TypedDict(
-    "DescribeTimeToLiveInputRequestTypeDef",
-    {
-        "TableName": str,
-    },
-)
-
-DescribeTimeToLiveOutputTypeDef = TypedDict(
-    "DescribeTimeToLiveOutputTypeDef",
-    {
-        "TimeToLiveDescription": "TimeToLiveDescriptionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-EnableKinesisStreamingConfigurationTypeDef = TypedDict(
-    "EnableKinesisStreamingConfigurationTypeDef",
-    {
-        "ApproximateCreationDateTimePrecision": ApproximateCreationDateTimePrecisionType,
-    },
-    total=False,
-)
-
-EndpointTypeDef = TypedDict(
-    "EndpointTypeDef",
-    {
-        "Address": str,
-        "CachePeriodInMinutes": int,
-    },
-)
-
-_RequiredExecuteStatementInputRequestTypeDef = TypedDict(
-    "_RequiredExecuteStatementInputRequestTypeDef",
-    {
-        "Statement": str,
-    },
-)
-_OptionalExecuteStatementInputRequestTypeDef = TypedDict(
-    "_OptionalExecuteStatementInputRequestTypeDef",
-    {
-        "Parameters": List[
-            Union[
-                bytes,
-                bytearray,
-                str,
-                int,
-                Decimal,
-                bool,
-                Set[int],
-                Set[Decimal],
-                Set[str],
-                Set[bytes],
-                Set[bytearray],
-                List[Any],
-                Dict[str, Any],
-                None,
-            ]
-        ],
-        "ConsistentRead": bool,
-        "NextToken": str,
-        "ReturnConsumedCapacity": ReturnConsumedCapacityType,
-        "Limit": int,
-        "ReturnValuesOnConditionCheckFailure": ReturnValuesOnConditionCheckFailureType,
-    },
-    total=False,
-)
-
-class ExecuteStatementInputRequestTypeDef(
-    _RequiredExecuteStatementInputRequestTypeDef, _OptionalExecuteStatementInputRequestTypeDef
-):
-    pass
-
-ExecuteStatementOutputTypeDef = TypedDict(
-    "ExecuteStatementOutputTypeDef",
-    {
-        "Items": List[
-            Dict[
-                str,
-                Union[
-                    bytes,
-                    bytearray,
-                    str,
-                    int,
-                    Decimal,
-                    bool,
-                    Set[int],
-                    Set[Decimal],
-                    Set[str],
-                    Set[bytes],
-                    Set[bytearray],
-                    List[Any],
-                    Dict[str, Any],
-                    None,
-                ],
-            ]
-        ],
-        "NextToken": str,
-        "ConsumedCapacity": "ConsumedCapacityTypeDef",
-        "LastEvaluatedKey": Dict[
-            str,
-            Union[
-                bytes,
-                bytearray,
-                str,
-                int,
-                Decimal,
-                bool,
-                Set[int],
-                Set[Decimal],
-                Set[str],
-                Set[bytes],
-                Set[bytearray],
-                List[Any],
-                Dict[str, Any],
-                None,
-            ],
-        ],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredExecuteTransactionInputRequestTypeDef = TypedDict(
-    "_RequiredExecuteTransactionInputRequestTypeDef",
-    {
-        "TransactStatements": List["ParameterizedStatementTypeDef"],
-    },
-)
-_OptionalExecuteTransactionInputRequestTypeDef = TypedDict(
-    "_OptionalExecuteTransactionInputRequestTypeDef",
-    {
-        "ClientRequestToken": str,
-        "ReturnConsumedCapacity": ReturnConsumedCapacityType,
-    },
-    total=False,
-)
-
-class ExecuteTransactionInputRequestTypeDef(
-    _RequiredExecuteTransactionInputRequestTypeDef, _OptionalExecuteTransactionInputRequestTypeDef
-):
-    pass
-
-ExecuteTransactionOutputTypeDef = TypedDict(
-    "ExecuteTransactionOutputTypeDef",
-    {
-        "Responses": List["ItemResponseTypeDef"],
-        "ConsumedCapacity": List["ConsumedCapacityTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ExpectedAttributeValueTypeDef = TypedDict(
-    "ExpectedAttributeValueTypeDef",
-    {
-        "Value": Union[
-            bytes,
-            bytearray,
-            str,
-            int,
-            Decimal,
-            bool,
-            Set[int],
-            Set[Decimal],
-            Set[str],
-            Set[bytes],
-            Set[bytearray],
-            List[Any],
-            Dict[str, Any],
-            None,
-        ],
-        "Exists": bool,
-        "ComparisonOperator": ComparisonOperatorType,
-        "AttributeValueList": List[
-            Union[
-                bytes,
-                bytearray,
-                str,
-                int,
-                Decimal,
-                bool,
-                Set[int],
-                Set[Decimal],
-                Set[str],
-                Set[bytes],
-                Set[bytearray],
-                List[Any],
-                Dict[str, Any],
-                None,
-            ]
-        ],
-    },
-    total=False,
-)
-
-ExportDescriptionTypeDef = TypedDict(
-    "ExportDescriptionTypeDef",
-    {
-        "ExportArn": str,
-        "ExportStatus": ExportStatusType,
-        "StartTime": datetime,
-        "EndTime": datetime,
-        "ExportManifest": str,
-        "TableArn": str,
-        "TableId": str,
-        "ExportTime": datetime,
-        "ClientToken": str,
-        "S3Bucket": str,
-        "S3BucketOwner": str,
-        "S3Prefix": str,
-        "S3SseAlgorithm": S3SseAlgorithmType,
-        "S3SseKmsKeyId": str,
-        "FailureCode": str,
-        "FailureMessage": str,
-        "ExportFormat": ExportFormatType,
-        "BilledSizeBytes": int,
-        "ItemCount": int,
-        "ExportType": ExportTypeType,
-        "IncrementalExportSpecification": "IncrementalExportSpecificationTypeDef",
-    },
-    total=False,
-)
-
-ExportSummaryTypeDef = TypedDict(
-    "ExportSummaryTypeDef",
-    {
-        "ExportArn": str,
-        "ExportStatus": ExportStatusType,
-        "ExportType": ExportTypeType,
-    },
-    total=False,
-)
-
-_RequiredExportTableToPointInTimeInputRequestTypeDef = TypedDict(
-    "_RequiredExportTableToPointInTimeInputRequestTypeDef",
-    {
-        "TableArn": str,
-        "S3Bucket": str,
-    },
-)
-_OptionalExportTableToPointInTimeInputRequestTypeDef = TypedDict(
-    "_OptionalExportTableToPointInTimeInputRequestTypeDef",
-    {
-        "ExportTime": Union[datetime, str],
-        "ClientToken": str,
-        "S3BucketOwner": str,
-        "S3Prefix": str,
-        "S3SseAlgorithm": S3SseAlgorithmType,
-        "S3SseKmsKeyId": str,
-        "ExportFormat": ExportFormatType,
-        "ExportType": ExportTypeType,
-        "IncrementalExportSpecification": "IncrementalExportSpecificationTypeDef",
-    },
-    total=False,
-)
-
-class ExportTableToPointInTimeInputRequestTypeDef(
-    _RequiredExportTableToPointInTimeInputRequestTypeDef,
-    _OptionalExportTableToPointInTimeInputRequestTypeDef,
-):
-    pass
-
-ExportTableToPointInTimeOutputTypeDef = TypedDict(
-    "ExportTableToPointInTimeOutputTypeDef",
-    {
-        "ExportDescription": "ExportDescriptionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-FailureExceptionTypeDef = TypedDict(
-    "FailureExceptionTypeDef",
-    {
-        "ExceptionName": str,
-        "ExceptionDescription": str,
-    },
-    total=False,
-)
-
-_RequiredGetItemInputRequestTypeDef = TypedDict(
-    "_RequiredGetItemInputRequestTypeDef",
-    {
-        "TableName": str,
-        "Key": Dict[
-            str,
-            Union[
-                bytes,
-                bytearray,
-                str,
-                int,
-                Decimal,
-                bool,
-                Set[int],
-                Set[Decimal],
-                Set[str],
-                Set[bytes],
-                Set[bytearray],
-                List[Any],
-                Dict[str, Any],
-                None,
-            ],
-        ],
-    },
-)
-_OptionalGetItemInputRequestTypeDef = TypedDict(
-    "_OptionalGetItemInputRequestTypeDef",
-    {
-        "AttributesToGet": List[str],
-        "ConsistentRead": bool,
-        "ReturnConsumedCapacity": ReturnConsumedCapacityType,
-        "ProjectionExpression": str,
-        "ExpressionAttributeNames": Dict[str, str],
-    },
-    total=False,
-)
-
-class GetItemInputRequestTypeDef(
-    _RequiredGetItemInputRequestTypeDef, _OptionalGetItemInputRequestTypeDef
-):
-    pass
-
-_RequiredGetItemInputTableTypeDef = TypedDict(
-    "_RequiredGetItemInputTableTypeDef",
-    {
-        "Key": Dict[
-            str,
-            Union[
-                bytes,
-                bytearray,
-                str,
-                int,
-                Decimal,
-                bool,
-                Set[int],
-                Set[Decimal],
-                Set[str],
-                Set[bytes],
-                Set[bytearray],
-                List[Any],
-                Dict[str, Any],
-                None,
-            ],
-        ],
-    },
-)
-_OptionalGetItemInputTableTypeDef = TypedDict(
-    "_OptionalGetItemInputTableTypeDef",
-    {
-        "AttributesToGet": List[str],
-        "ConsistentRead": bool,
-        "ReturnConsumedCapacity": ReturnConsumedCapacityType,
-        "ProjectionExpression": str,
-        "ExpressionAttributeNames": Dict[str, str],
-    },
-    total=False,
-)
-
-class GetItemInputTableTypeDef(
-    _RequiredGetItemInputTableTypeDef, _OptionalGetItemInputTableTypeDef
-):
-    pass
-
-GetItemOutputTypeDef = TypedDict(
-    "GetItemOutputTypeDef",
-    {
-        "Item": Dict[
-            str,
-            Union[
-                bytes,
-                bytearray,
-                str,
-                int,
-                Decimal,
-                bool,
-                Set[int],
-                Set[Decimal],
-                Set[str],
-                Set[bytes],
-                Set[bytearray],
-                List[Any],
-                Dict[str, Any],
-                None,
-            ],
-        ],
-        "ConsumedCapacity": "ConsumedCapacityTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetResourcePolicyInputRequestTypeDef = TypedDict(
-    "GetResourcePolicyInputRequestTypeDef",
-    {
-        "ResourceArn": str,
-    },
-)
-
-GetResourcePolicyOutputTypeDef = TypedDict(
-    "GetResourcePolicyOutputTypeDef",
-    {
-        "Policy": str,
-        "RevisionId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetTypeDef = TypedDict(
-    "_RequiredGetTypeDef",
-    {
-        "Key": Dict[
-            str,
-            Union[
-                bytes,
-                bytearray,
-                str,
-                int,
-                Decimal,
-                bool,
-                Set[int],
-                Set[Decimal],
-                Set[str],
-                Set[bytes],
-                Set[bytearray],
-                List[Any],
-                Dict[str, Any],
-                None,
-            ],
-        ],
-        "TableName": str,
-    },
-)
-_OptionalGetTypeDef = TypedDict(
-    "_OptionalGetTypeDef",
-    {
-        "ProjectionExpression": str,
-        "ExpressionAttributeNames": Dict[str, str],
-    },
-    total=False,
-)
-
-class GetTypeDef(_RequiredGetTypeDef, _OptionalGetTypeDef):
-    pass
-
-GlobalSecondaryIndexAutoScalingUpdateTypeDef = TypedDict(
-    "GlobalSecondaryIndexAutoScalingUpdateTypeDef",
-    {
-        "IndexName": str,
-        "ProvisionedWriteCapacityAutoScalingUpdate": "AutoScalingSettingsUpdateTypeDef",
-    },
-    total=False,
-)
-
-GlobalSecondaryIndexDescriptionTypeDef = TypedDict(
-    "GlobalSecondaryIndexDescriptionTypeDef",
-    {
-        "IndexName": str,
-        "KeySchema": List["KeySchemaElementTypeDef"],
-        "Projection": "ProjectionTypeDef",
-        "IndexStatus": IndexStatusType,
-        "Backfilling": bool,
-        "ProvisionedThroughput": "ProvisionedThroughputDescriptionTypeDef",
-        "IndexSizeBytes": int,
-        "ItemCount": int,
-        "IndexArn": str,
-        "OnDemandThroughput": "OnDemandThroughputTypeDef",
-    },
-    total=False,
-)
-
-GlobalSecondaryIndexInfoTypeDef = TypedDict(
-    "GlobalSecondaryIndexInfoTypeDef",
-    {
-        "IndexName": str,
-        "KeySchema": List["KeySchemaElementTypeDef"],
-        "Projection": "ProjectionTypeDef",
-        "ProvisionedThroughput": "ProvisionedThroughputTypeDef",
-        "OnDemandThroughput": "OnDemandThroughputTypeDef",
-    },
-    total=False,
-)
-
-_RequiredGlobalSecondaryIndexTypeDef = TypedDict(
-    "_RequiredGlobalSecondaryIndexTypeDef",
-    {
-        "IndexName": str,
-        "KeySchema": List["KeySchemaElementTypeDef"],
-        "Projection": "ProjectionTypeDef",
-    },
-)
-_OptionalGlobalSecondaryIndexTypeDef = TypedDict(
-    "_OptionalGlobalSecondaryIndexTypeDef",
-    {
-        "ProvisionedThroughput": "ProvisionedThroughputTypeDef",
-        "OnDemandThroughput": "OnDemandThroughputTypeDef",
-    },
-    total=False,
-)
-
-class GlobalSecondaryIndexTypeDef(
-    _RequiredGlobalSecondaryIndexTypeDef, _OptionalGlobalSecondaryIndexTypeDef
-):
-    pass
-
-GlobalSecondaryIndexUpdateTypeDef = TypedDict(
-    "GlobalSecondaryIndexUpdateTypeDef",
-    {
-        "Update": "UpdateGlobalSecondaryIndexActionTypeDef",
-        "Create": "CreateGlobalSecondaryIndexActionTypeDef",
-        "Delete": "DeleteGlobalSecondaryIndexActionTypeDef",
-    },
-    total=False,
-)
-
-GlobalTableDescriptionTypeDef = TypedDict(
-    "GlobalTableDescriptionTypeDef",
-    {
-        "ReplicationGroup": List["ReplicaDescriptionTypeDef"],
-        "GlobalTableArn": str,
-        "CreationDateTime": datetime,
-        "GlobalTableStatus": GlobalTableStatusType,
-        "GlobalTableName": str,
-    },
-    total=False,
-)
-
-_RequiredGlobalTableGlobalSecondaryIndexSettingsUpdateTypeDef = TypedDict(
-    "_RequiredGlobalTableGlobalSecondaryIndexSettingsUpdateTypeDef",
-    {
-        "IndexName": str,
-    },
-)
-_OptionalGlobalTableGlobalSecondaryIndexSettingsUpdateTypeDef = TypedDict(
-    "_OptionalGlobalTableGlobalSecondaryIndexSettingsUpdateTypeDef",
-    {
-        "ProvisionedWriteCapacityUnits": int,
-        "ProvisionedWriteCapacityAutoScalingSettingsUpdate": "AutoScalingSettingsUpdateTypeDef",
-    },
-    total=False,
-)
-
-class GlobalTableGlobalSecondaryIndexSettingsUpdateTypeDef(
-    _RequiredGlobalTableGlobalSecondaryIndexSettingsUpdateTypeDef,
-    _OptionalGlobalTableGlobalSecondaryIndexSettingsUpdateTypeDef,
-):
-    pass
-
-GlobalTableTypeDef = TypedDict(
-    "GlobalTableTypeDef",
-    {
-        "GlobalTableName": str,
-        "ReplicationGroup": List["ReplicaTypeDef"],
-    },
-    total=False,
-)
-
-ImportSummaryTypeDef = TypedDict(
-    "ImportSummaryTypeDef",
-    {
-        "ImportArn": str,
-        "ImportStatus": ImportStatusType,
-        "TableArn": str,
-        "S3BucketSource": "S3BucketSourceTypeDef",
-        "CloudWatchLogGroupArn": str,
-        "InputFormat": InputFormatType,
-        "StartTime": datetime,
-        "EndTime": datetime,
-    },
-    total=False,
-)
-
-ImportTableDescriptionTypeDef = TypedDict(
-    "ImportTableDescriptionTypeDef",
-    {
-        "ImportArn": str,
-        "ImportStatus": ImportStatusType,
-        "TableArn": str,
-        "TableId": str,
-        "ClientToken": str,
-        "S3BucketSource": "S3BucketSourceTypeDef",
-        "ErrorCount": int,
-        "CloudWatchLogGroupArn": str,
-        "InputFormat": InputFormatType,
-        "InputFormatOptions": "InputFormatOptionsTypeDef",
-        "InputCompressionType": InputCompressionTypeType,
-        "TableCreationParameters": "TableCreationParametersTypeDef",
-        "StartTime": datetime,
-        "EndTime": datetime,
-        "ProcessedSizeBytes": int,
-        "ProcessedItemCount": int,
-        "ImportedItemCount": int,
-        "FailureCode": str,
-        "FailureMessage": str,
-    },
-    total=False,
-)
-
-_RequiredImportTableInputRequestTypeDef = TypedDict(
-    "_RequiredImportTableInputRequestTypeDef",
-    {
-        "S3BucketSource": "S3BucketSourceTypeDef",
-        "InputFormat": InputFormatType,
-        "TableCreationParameters": "TableCreationParametersTypeDef",
-    },
-)
-_OptionalImportTableInputRequestTypeDef = TypedDict(
-    "_OptionalImportTableInputRequestTypeDef",
-    {
-        "ClientToken": str,
-        "InputFormatOptions": "InputFormatOptionsTypeDef",
-        "InputCompressionType": InputCompressionTypeType,
-    },
-    total=False,
-)
-
-class ImportTableInputRequestTypeDef(
-    _RequiredImportTableInputRequestTypeDef, _OptionalImportTableInputRequestTypeDef
-):
-    pass
-
-ImportTableOutputTypeDef = TypedDict(
-    "ImportTableOutputTypeDef",
-    {
-        "ImportTableDescription": "ImportTableDescriptionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-IncrementalExportSpecificationTypeDef = TypedDict(
-    "IncrementalExportSpecificationTypeDef",
-    {
-        "ExportFromTime": datetime,
-        "ExportToTime": datetime,
-        "ExportViewType": ExportViewTypeType,
-    },
-    total=False,
-)
-
-InputFormatOptionsTypeDef = TypedDict(
-    "InputFormatOptionsTypeDef",
-    {
-        "Csv": "CsvOptionsTypeDef",
-    },
-    total=False,
-)
-
-ItemCollectionMetricsTypeDef = TypedDict(
-    "ItemCollectionMetricsTypeDef",
-    {
-        "ItemCollectionKey": Dict[
-            str,
-            Union[
-                bytes,
-                bytearray,
-                str,
-                int,
-                Decimal,
-                bool,
-                Set[int],
-                Set[Decimal],
-                Set[str],
-                Set[bytes],
-                Set[bytearray],
-                List[Any],
-                Dict[str, Any],
-                None,
-            ],
-        ],
-        "SizeEstimateRangeGB": List[float],
-    },
-    total=False,
-)
-
-ItemResponseTypeDef = TypedDict(
-    "ItemResponseTypeDef",
-    {
-        "Item": Dict[
-            str,
-            Union[
-                bytes,
-                bytearray,
-                str,
-                int,
-                Decimal,
-                bool,
-                Set[int],
-                Set[Decimal],
-                Set[str],
-                Set[bytes],
-                Set[bytearray],
-                List[Any],
-                Dict[str, Any],
-                None,
-            ],
-        ],
-    },
-    total=False,
-)
-
-KeySchemaElementTypeDef = TypedDict(
-    "KeySchemaElementTypeDef",
-    {
-        "AttributeName": str,
-        "KeyType": KeyTypeType,
-    },
-)
-
-_RequiredKeysAndAttributesTypeDef = TypedDict(
-    "_RequiredKeysAndAttributesTypeDef",
-    {
-        "Keys": List[
-            Dict[
-                str,
-                Union[
-                    bytes,
-                    bytearray,
-                    str,
-                    int,
-                    Decimal,
-                    bool,
-                    Set[int],
-                    Set[Decimal],
-                    Set[str],
-                    Set[bytes],
-                    Set[bytearray],
-                    List[Any],
-                    Dict[str, Any],
-                    None,
-                ],
-            ]
-        ],
-    },
-)
-_OptionalKeysAndAttributesTypeDef = TypedDict(
-    "_OptionalKeysAndAttributesTypeDef",
-    {
-        "AttributesToGet": List[str],
-        "ConsistentRead": bool,
-        "ProjectionExpression": str,
-        "ExpressionAttributeNames": Dict[str, str],
-    },
-    total=False,
-)
-
-class KeysAndAttributesTypeDef(
-    _RequiredKeysAndAttributesTypeDef, _OptionalKeysAndAttributesTypeDef
-):
-    pass
-
-KinesisDataStreamDestinationTypeDef = TypedDict(
-    "KinesisDataStreamDestinationTypeDef",
-    {
-        "StreamArn": str,
-        "DestinationStatus": DestinationStatusType,
-        "DestinationStatusDescription": str,
-        "ApproximateCreationDateTimePrecision": ApproximateCreationDateTimePrecisionType,
-    },
-    total=False,
-)
-
-_RequiredKinesisStreamingDestinationInputRequestTypeDef = TypedDict(
-    "_RequiredKinesisStreamingDestinationInputRequestTypeDef",
-    {
-        "TableName": str,
-        "StreamArn": str,
-    },
-)
-_OptionalKinesisStreamingDestinationInputRequestTypeDef = TypedDict(
-    "_OptionalKinesisStreamingDestinationInputRequestTypeDef",
-    {
-        "EnableKinesisStreamingConfiguration": "EnableKinesisStreamingConfigurationTypeDef",
-    },
-    total=False,
-)
-
-class KinesisStreamingDestinationInputRequestTypeDef(
-    _RequiredKinesisStreamingDestinationInputRequestTypeDef,
-    _OptionalKinesisStreamingDestinationInputRequestTypeDef,
-):
-    pass
-
-KinesisStreamingDestinationOutputTypeDef = TypedDict(
-    "KinesisStreamingDestinationOutputTypeDef",
-    {
-        "TableName": str,
-        "StreamArn": str,
-        "DestinationStatus": DestinationStatusType,
-        "EnableKinesisStreamingConfiguration": "EnableKinesisStreamingConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListBackupsInputRequestTypeDef = TypedDict(
-    "ListBackupsInputRequestTypeDef",
-    {
-        "TableName": str,
-        "Limit": int,
-        "TimeRangeLowerBound": Union[datetime, str],
-        "TimeRangeUpperBound": Union[datetime, str],
-        "ExclusiveStartBackupArn": str,
-        "BackupType": BackupTypeFilterType,
-    },
-    total=False,
-)
-
-ListBackupsOutputTypeDef = TypedDict(
-    "ListBackupsOutputTypeDef",
-    {
-        "BackupSummaries": List["BackupSummaryTypeDef"],
-        "LastEvaluatedBackupArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListContributorInsightsInputRequestTypeDef = TypedDict(
-    "ListContributorInsightsInputRequestTypeDef",
-    {
-        "TableName": str,
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-ListContributorInsightsOutputTypeDef = TypedDict(
-    "ListContributorInsightsOutputTypeDef",
-    {
-        "ContributorInsightsSummaries": List["ContributorInsightsSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListExportsInputRequestTypeDef = TypedDict(
-    "ListExportsInputRequestTypeDef",
-    {
-        "TableArn": str,
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListExportsOutputTypeDef = TypedDict(
-    "ListExportsOutputTypeDef",
-    {
-        "ExportSummaries": List["ExportSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListGlobalTablesInputRequestTypeDef = TypedDict(
-    "ListGlobalTablesInputRequestTypeDef",
-    {
-        "ExclusiveStartGlobalTableName": str,
-        "Limit": int,
-        "RegionName": str,
-    },
-    total=False,
-)
-
-ListGlobalTablesOutputTypeDef = TypedDict(
-    "ListGlobalTablesOutputTypeDef",
-    {
-        "GlobalTables": List["GlobalTableTypeDef"],
-        "LastEvaluatedGlobalTableName": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DeleteResourcePolicyInputTypeDef(TypedDict):
+    ResourceArn: str
+    ExpectedRevisionId: NotRequired[str]
 
-ListImportsInputRequestTypeDef = TypedDict(
-    "ListImportsInputRequestTypeDef",
-    {
-        "TableArn": str,
-        "PageSize": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListImportsOutputTypeDef = TypedDict(
-    "ListImportsOutputTypeDef",
-    {
-        "ImportSummaryList": List["ImportSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTablesInputRequestTypeDef = TypedDict(
-    "ListTablesInputRequestTypeDef",
-    {
-        "ExclusiveStartTableName": str,
-        "Limit": int,
-    },
-    total=False,
-)
-
-ListTablesOutputTypeDef = TypedDict(
-    "ListTablesOutputTypeDef",
-    {
-        "TableNames": List[str],
-        "LastEvaluatedTableName": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListTagsOfResourceInputRequestTypeDef = TypedDict(
-    "_RequiredListTagsOfResourceInputRequestTypeDef",
-    {
-        "ResourceArn": str,
-    },
-)
-_OptionalListTagsOfResourceInputRequestTypeDef = TypedDict(
-    "_OptionalListTagsOfResourceInputRequestTypeDef",
-    {
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListTagsOfResourceInputRequestTypeDef(
-    _RequiredListTagsOfResourceInputRequestTypeDef, _OptionalListTagsOfResourceInputRequestTypeDef
-):
-    pass
-
-ListTagsOfResourceOutputTypeDef = TypedDict(
-    "ListTagsOfResourceOutputTypeDef",
-    {
-        "Tags": List["TagTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-LocalSecondaryIndexDescriptionTypeDef = TypedDict(
-    "LocalSecondaryIndexDescriptionTypeDef",
-    {
-        "IndexName": str,
-        "KeySchema": List["KeySchemaElementTypeDef"],
-        "Projection": "ProjectionTypeDef",
-        "IndexSizeBytes": int,
-        "ItemCount": int,
-        "IndexArn": str,
-    },
-    total=False,
-)
-
-LocalSecondaryIndexInfoTypeDef = TypedDict(
-    "LocalSecondaryIndexInfoTypeDef",
-    {
-        "IndexName": str,
-        "KeySchema": List["KeySchemaElementTypeDef"],
-        "Projection": "ProjectionTypeDef",
-    },
-    total=False,
-)
-
-LocalSecondaryIndexTypeDef = TypedDict(
-    "LocalSecondaryIndexTypeDef",
-    {
-        "IndexName": str,
-        "KeySchema": List["KeySchemaElementTypeDef"],
-        "Projection": "ProjectionTypeDef",
-    },
-)
-
-OnDemandThroughputOverrideTypeDef = TypedDict(
-    "OnDemandThroughputOverrideTypeDef",
-    {
-        "MaxReadRequestUnits": int,
-    },
-    total=False,
-)
-
-OnDemandThroughputTypeDef = TypedDict(
-    "OnDemandThroughputTypeDef",
-    {
-        "MaxReadRequestUnits": int,
-        "MaxWriteRequestUnits": int,
-    },
-    total=False,
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
+class DeleteTableInputTypeDef(TypedDict):
+    TableName: str
 
-_RequiredParameterizedStatementTypeDef = TypedDict(
-    "_RequiredParameterizedStatementTypeDef",
-    {
-        "Statement": str,
-    },
-)
-_OptionalParameterizedStatementTypeDef = TypedDict(
-    "_OptionalParameterizedStatementTypeDef",
-    {
-        "Parameters": List[
-            Union[
-                bytes,
-                bytearray,
-                str,
-                int,
-                Decimal,
-                bool,
-                Set[int],
-                Set[Decimal],
-                Set[str],
-                Set[bytes],
-                Set[bytearray],
-                List[Any],
-                Dict[str, Any],
-                None,
-            ]
-        ],
-        "ReturnValuesOnConditionCheckFailure": ReturnValuesOnConditionCheckFailureType,
-    },
-    total=False,
-)
+class DescribeBackupInputTypeDef(TypedDict):
+    BackupArn: str
 
-class ParameterizedStatementTypeDef(
-    _RequiredParameterizedStatementTypeDef, _OptionalParameterizedStatementTypeDef
-):
-    pass
+class DescribeContinuousBackupsInputTypeDef(TypedDict):
+    TableName: str
 
-PointInTimeRecoveryDescriptionTypeDef = TypedDict(
-    "PointInTimeRecoveryDescriptionTypeDef",
-    {
-        "PointInTimeRecoveryStatus": PointInTimeRecoveryStatusType,
-        "EarliestRestorableDateTime": datetime,
-        "LatestRestorableDateTime": datetime,
-    },
-    total=False,
-)
+class DescribeContributorInsightsInputTypeDef(TypedDict):
+    TableName: str
+    IndexName: NotRequired[str]
 
-PointInTimeRecoverySpecificationTypeDef = TypedDict(
-    "PointInTimeRecoverySpecificationTypeDef",
-    {
-        "PointInTimeRecoveryEnabled": bool,
-    },
-)
+class FailureExceptionTypeDef(TypedDict):
+    ExceptionName: NotRequired[str]
+    ExceptionDescription: NotRequired[str]
 
-ProjectionTypeDef = TypedDict(
-    "ProjectionTypeDef",
-    {
-        "ProjectionType": ProjectionTypeType,
-        "NonKeyAttributes": List[str],
-    },
-    total=False,
-)
+class EndpointTypeDef(TypedDict):
+    Address: str
+    CachePeriodInMinutes: int
 
-ProvisionedThroughputDescriptionTypeDef = TypedDict(
-    "ProvisionedThroughputDescriptionTypeDef",
-    {
-        "LastIncreaseDateTime": datetime,
-        "LastDecreaseDateTime": datetime,
-        "NumberOfDecreasesToday": int,
-        "ReadCapacityUnits": int,
-        "WriteCapacityUnits": int,
-    },
-    total=False,
-)
+class DescribeExportInputTypeDef(TypedDict):
+    ExportArn: str
 
-ProvisionedThroughputOverrideTypeDef = TypedDict(
-    "ProvisionedThroughputOverrideTypeDef",
-    {
-        "ReadCapacityUnits": int,
-    },
-    total=False,
-)
+class DescribeGlobalTableInputTypeDef(TypedDict):
+    GlobalTableName: str
 
-ProvisionedThroughputTypeDef = TypedDict(
-    "ProvisionedThroughputTypeDef",
-    {
-        "ReadCapacityUnits": int,
-        "WriteCapacityUnits": int,
-    },
-)
+class DescribeGlobalTableSettingsInputTypeDef(TypedDict):
+    GlobalTableName: str
 
-_RequiredPutItemInputRequestTypeDef = TypedDict(
-    "_RequiredPutItemInputRequestTypeDef",
-    {
-        "TableName": str,
-        "Item": Dict[
-            str,
-            Union[
-                bytes,
-                bytearray,
-                str,
-                int,
-                Decimal,
-                bool,
-                Set[int],
-                Set[Decimal],
-                Set[str],
-                Set[bytes],
-                Set[bytearray],
-                List[Any],
-                Dict[str, Any],
-                None,
-            ],
-        ],
-    },
-)
-_OptionalPutItemInputRequestTypeDef = TypedDict(
-    "_OptionalPutItemInputRequestTypeDef",
-    {
-        "Expected": Dict[str, "ExpectedAttributeValueTypeDef"],
-        "ReturnValues": ReturnValueType,
-        "ReturnConsumedCapacity": ReturnConsumedCapacityType,
-        "ReturnItemCollectionMetrics": ReturnItemCollectionMetricsType,
-        "ConditionalOperator": ConditionalOperatorType,
-        "ConditionExpression": str,
-        "ExpressionAttributeNames": Dict[str, str],
-        "ExpressionAttributeValues": Dict[
-            str,
-            Union[
-                bytes,
-                bytearray,
-                str,
-                int,
-                Decimal,
-                bool,
-                Set[int],
-                Set[Decimal],
-                Set[str],
-                Set[bytes],
-                Set[bytearray],
-                List[Any],
-                Dict[str, Any],
-                None,
-            ],
-        ],
-        "ReturnValuesOnConditionCheckFailure": ReturnValuesOnConditionCheckFailureType,
-    },
-    total=False,
-)
+class DescribeImportInputTypeDef(TypedDict):
+    ImportArn: str
 
-class PutItemInputRequestTypeDef(
-    _RequiredPutItemInputRequestTypeDef, _OptionalPutItemInputRequestTypeDef
-):
-    pass
+class DescribeKinesisStreamingDestinationInputTypeDef(TypedDict):
+    TableName: str
 
-_RequiredPutItemInputTableTypeDef = TypedDict(
-    "_RequiredPutItemInputTableTypeDef",
-    {
-        "Item": Dict[
-            str,
-            Union[
-                bytes,
-                bytearray,
-                str,
-                int,
-                Decimal,
-                bool,
-                Set[int],
-                Set[Decimal],
-                Set[str],
-                Set[bytes],
-                Set[bytearray],
-                List[Any],
-                Dict[str, Any],
-                None,
-            ],
-        ],
-    },
-)
-_OptionalPutItemInputTableTypeDef = TypedDict(
-    "_OptionalPutItemInputTableTypeDef",
-    {
-        "Expected": Dict[str, "ExpectedAttributeValueTypeDef"],
-        "ReturnValues": ReturnValueType,
-        "ReturnConsumedCapacity": ReturnConsumedCapacityType,
-        "ReturnItemCollectionMetrics": ReturnItemCollectionMetricsType,
-        "ConditionalOperator": ConditionalOperatorType,
-        "ConditionExpression": str,
-        "ExpressionAttributeNames": Dict[str, str],
-        "ExpressionAttributeValues": Dict[
-            str,
-            Union[
-                bytes,
-                bytearray,
-                str,
-                int,
-                Decimal,
-                bool,
-                Set[int],
-                Set[Decimal],
-                Set[str],
-                Set[bytes],
-                Set[bytearray],
-                List[Any],
-                Dict[str, Any],
-                None,
-            ],
-        ],
-        "ReturnValuesOnConditionCheckFailure": ReturnValuesOnConditionCheckFailureType,
-    },
-    total=False,
-)
+class KinesisDataStreamDestinationTypeDef(TypedDict):
+    StreamArn: NotRequired[str]
+    DestinationStatus: NotRequired[DestinationStatusType]
+    DestinationStatusDescription: NotRequired[str]
+    ApproximateCreationDateTimePrecision: NotRequired[ApproximateCreationDateTimePrecisionType]
 
-class PutItemInputTableTypeDef(
-    _RequiredPutItemInputTableTypeDef, _OptionalPutItemInputTableTypeDef
-):
-    pass
+class DescribeTableInputTypeDef(TypedDict):
+    TableName: str
 
-PutItemOutputTypeDef = TypedDict(
-    "PutItemOutputTypeDef",
-    {
-        "Attributes": Dict[
-            str,
-            Union[
-                bytes,
-                bytearray,
-                str,
-                int,
-                Decimal,
-                bool,
-                Set[int],
-                Set[Decimal],
-                Set[str],
-                Set[bytes],
-                Set[bytearray],
-                List[Any],
-                Dict[str, Any],
-                None,
-            ],
-        ],
-        "ConsumedCapacity": "ConsumedCapacityTypeDef",
-        "ItemCollectionMetrics": "ItemCollectionMetricsTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class WaiterConfigTypeDef(TypedDict):
+    Delay: NotRequired[int]
+    MaxAttempts: NotRequired[int]
 
-PutRequestTypeDef = TypedDict(
-    "PutRequestTypeDef",
-    {
-        "Item": Dict[
-            str,
-            Union[
-                bytes,
-                bytearray,
-                str,
-                int,
-                Decimal,
-                bool,
-                Set[int],
-                Set[Decimal],
-                Set[str],
-                Set[bytes],
-                Set[bytearray],
-                List[Any],
-                Dict[str, Any],
-                None,
-            ],
-        ],
-    },
-)
+class DescribeTableReplicaAutoScalingInputTypeDef(TypedDict):
+    TableName: str
 
-_RequiredPutResourcePolicyInputRequestTypeDef = TypedDict(
-    "_RequiredPutResourcePolicyInputRequestTypeDef",
-    {
-        "ResourceArn": str,
-        "Policy": str,
-    },
-)
-_OptionalPutResourcePolicyInputRequestTypeDef = TypedDict(
-    "_OptionalPutResourcePolicyInputRequestTypeDef",
-    {
-        "ExpectedRevisionId": str,
-        "ConfirmRemoveSelfResourceAccess": bool,
-    },
-    total=False,
-)
+class DescribeTimeToLiveInputTypeDef(TypedDict):
+    TableName: str
 
-class PutResourcePolicyInputRequestTypeDef(
-    _RequiredPutResourcePolicyInputRequestTypeDef, _OptionalPutResourcePolicyInputRequestTypeDef
-):
-    pass
+class TimeToLiveDescriptionTypeDef(TypedDict):
+    TimeToLiveStatus: NotRequired[TimeToLiveStatusType]
+    AttributeName: NotRequired[str]
 
-PutResourcePolicyOutputTypeDef = TypedDict(
-    "PutResourcePolicyOutputTypeDef",
-    {
-        "RevisionId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class EnableKinesisStreamingConfigurationTypeDef(TypedDict):
+    ApproximateCreationDateTimePrecision: NotRequired[ApproximateCreationDateTimePrecisionType]
 
-_RequiredPutTypeDef = TypedDict(
-    "_RequiredPutTypeDef",
-    {
-        "Item": Dict[
-            str,
-            Union[
-                bytes,
-                bytearray,
-                str,
-                int,
-                Decimal,
-                bool,
-                Set[int],
-                Set[Decimal],
-                Set[str],
-                Set[bytes],
-                Set[bytearray],
-                List[Any],
-                Dict[str, Any],
-                None,
-            ],
-        ],
-        "TableName": str,
-    },
-)
-_OptionalPutTypeDef = TypedDict(
-    "_OptionalPutTypeDef",
-    {
-        "ConditionExpression": str,
-        "ExpressionAttributeNames": Dict[str, str],
-        "ExpressionAttributeValues": Dict[
-            str,
-            Union[
-                bytes,
-                bytearray,
-                str,
-                int,
-                Decimal,
-                bool,
-                Set[int],
-                Set[Decimal],
-                Set[str],
-                Set[bytes],
-                Set[bytearray],
-                List[Any],
-                Dict[str, Any],
-                None,
-            ],
-        ],
-        "ReturnValuesOnConditionCheckFailure": ReturnValuesOnConditionCheckFailureType,
-    },
-    total=False,
-)
+class IncrementalExportSpecificationOutputTypeDef(TypedDict):
+    ExportFromTime: NotRequired[datetime]
+    ExportToTime: NotRequired[datetime]
+    ExportViewType: NotRequired[ExportViewTypeType]
 
-class PutTypeDef(_RequiredPutTypeDef, _OptionalPutTypeDef):
-    pass
+class ExportSummaryTypeDef(TypedDict):
+    ExportArn: NotRequired[str]
+    ExportStatus: NotRequired[ExportStatusType]
+    ExportType: NotRequired[ExportTypeType]
 
-_RequiredQueryInputRequestTypeDef = TypedDict(
-    "_RequiredQueryInputRequestTypeDef",
-    {
-        "TableName": str,
-    },
-)
-_OptionalQueryInputRequestTypeDef = TypedDict(
-    "_OptionalQueryInputRequestTypeDef",
-    {
-        "IndexName": str,
-        "Select": SelectType,
-        "AttributesToGet": List[str],
-        "Limit": int,
-        "ConsistentRead": bool,
-        "KeyConditions": Dict[str, "ConditionTypeDef"],
-        "QueryFilter": Dict[str, "ConditionTypeDef"],
-        "ConditionalOperator": ConditionalOperatorType,
-        "ScanIndexForward": bool,
-        "ExclusiveStartKey": Dict[
-            str,
-            Union[
-                bytes,
-                bytearray,
-                str,
-                int,
-                Decimal,
-                bool,
-                Set[int],
-                Set[Decimal],
-                Set[str],
-                Set[bytes],
-                Set[bytearray],
-                List[Any],
-                Dict[str, Any],
-                None,
-            ],
-        ],
-        "ReturnConsumedCapacity": ReturnConsumedCapacityType,
-        "ProjectionExpression": str,
-        "FilterExpression": str,
-        "KeyConditionExpression": str,
-        "ExpressionAttributeNames": Dict[str, str],
-        "ExpressionAttributeValues": Dict[
-            str,
-            Union[
-                bytes,
-                bytearray,
-                str,
-                int,
-                Decimal,
-                bool,
-                Set[int],
-                Set[Decimal],
-                Set[str],
-                Set[bytes],
-                Set[bytearray],
-                List[Any],
-                Dict[str, Any],
-                None,
-            ],
-        ],
-    },
-    total=False,
-)
+TimestampTypeDef = Union[datetime, str]
 
-class QueryInputRequestTypeDef(
-    _RequiredQueryInputRequestTypeDef, _OptionalQueryInputRequestTypeDef
-):
-    pass
+class GetResourcePolicyInputTypeDef(TypedDict):
+    ResourceArn: str
 
-QueryInputTableTypeDef = TypedDict(
-    "QueryInputTableTypeDef",
-    {
-        "IndexName": str,
-        "Select": SelectType,
-        "AttributesToGet": List[str],
-        "Limit": int,
-        "ConsistentRead": bool,
-        "KeyConditions": Dict[str, "ConditionTypeDef"],
-        "QueryFilter": Dict[str, "ConditionTypeDef"],
-        "ConditionalOperator": ConditionalOperatorType,
-        "ScanIndexForward": bool,
-        "ExclusiveStartKey": Dict[
-            str,
-            Union[
-                bytes,
-                bytearray,
-                str,
-                int,
-                Decimal,
-                bool,
-                Set[int],
-                Set[Decimal],
-                Set[str],
-                Set[bytes],
-                Set[bytearray],
-                List[Any],
-                Dict[str, Any],
-                None,
-            ],
-        ],
-        "ReturnConsumedCapacity": ReturnConsumedCapacityType,
-        "ProjectionExpression": str,
-        "FilterExpression": Union[str, ConditionBase],
-        "KeyConditionExpression": Union[str, ConditionBase],
-        "ExpressionAttributeNames": Dict[str, str],
-        "ExpressionAttributeValues": Dict[
-            str,
-            Union[
-                bytes,
-                bytearray,
-                str,
-                int,
-                Decimal,
-                bool,
-                Set[int],
-                Set[Decimal],
-                Set[str],
-                Set[bytes],
-                Set[bytearray],
-                List[Any],
-                Dict[str, Any],
-                None,
-            ],
-        ],
-    },
-    total=False,
-)
+class GlobalSecondaryIndexWarmThroughputDescriptionTypeDef(TypedDict):
+    ReadUnitsPerSecond: NotRequired[int]
+    WriteUnitsPerSecond: NotRequired[int]
+    Status: NotRequired[IndexStatusType]
 
-QueryOutputTypeDef = TypedDict(
-    "QueryOutputTypeDef",
-    {
-        "Items": List[
-            Dict[
-                str,
-                Union[
-                    bytes,
-                    bytearray,
-                    str,
-                    int,
-                    Decimal,
-                    bool,
-                    Set[int],
-                    Set[Decimal],
-                    Set[str],
-                    Set[bytes],
-                    Set[bytearray],
-                    List[Any],
-                    Dict[str, Any],
-                    None,
-                ],
-            ]
-        ],
-        "Count": int,
-        "ScannedCount": int,
-        "LastEvaluatedKey": Dict[
-            str,
-            Union[
-                bytes,
-                bytearray,
-                str,
-                int,
-                Decimal,
-                bool,
-                Set[int],
-                Set[Decimal],
-                Set[str],
-                Set[bytes],
-                Set[bytearray],
-                List[Any],
-                Dict[str, Any],
-                None,
-            ],
-        ],
-        "ConsumedCapacity": "ConsumedCapacityTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ProjectionOutputTypeDef(TypedDict):
+    ProjectionType: NotRequired[ProjectionTypeType]
+    NonKeyAttributes: NotRequired[List[str]]
+
+class ProvisionedThroughputDescriptionTypeDef(TypedDict):
+    LastIncreaseDateTime: NotRequired[datetime]
+    LastDecreaseDateTime: NotRequired[datetime]
+    NumberOfDecreasesToday: NotRequired[int]
+    ReadCapacityUnits: NotRequired[int]
+    WriteCapacityUnits: NotRequired[int]
 
-ReplicaAutoScalingDescriptionTypeDef = TypedDict(
-    "ReplicaAutoScalingDescriptionTypeDef",
+class S3BucketSourceTypeDef(TypedDict):
+    S3Bucket: str
+    S3BucketOwner: NotRequired[str]
+    S3KeyPrefix: NotRequired[str]
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class ListContributorInsightsInputTypeDef(TypedDict):
+    TableName: NotRequired[str]
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class ListExportsInputTypeDef(TypedDict):
+    TableArn: NotRequired[str]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+ListGlobalTablesInputTypeDef = TypedDict(
+    "ListGlobalTablesInputTypeDef",
+    {
+        "ExclusiveStartGlobalTableName": NotRequired[str],
+        "Limit": NotRequired[int],
+        "RegionName": NotRequired[str],
+    },
+)
+
+class ListImportsInputTypeDef(TypedDict):
+    TableArn: NotRequired[str]
+    PageSize: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListTablesInputTypeDef(TypedDict):
+    ExclusiveStartTableName: NotRequired[str]
+    Limit: NotRequired[int]
+
+class ListTagsOfResourceInputTypeDef(TypedDict):
+    ResourceArn: str
+    NextToken: NotRequired[str]
+
+class PointInTimeRecoverySpecificationTypeDef(TypedDict):
+    PointInTimeRecoveryEnabled: bool
+    RecoveryPeriodInDays: NotRequired[int]
+
+class ProjectionTypeDef(TypedDict):
+    ProjectionType: NotRequired[ProjectionTypeType]
+    NonKeyAttributes: NotRequired[Sequence[str]]
+
+class PutResourcePolicyInputTypeDef(TypedDict):
+    ResourceArn: str
+    Policy: str
+    ExpectedRevisionId: NotRequired[str]
+    ConfirmRemoveSelfResourceAccess: NotRequired[bool]
+
+class TableClassSummaryTypeDef(TypedDict):
+    TableClass: NotRequired[TableClassType]
+    LastUpdateDateTime: NotRequired[datetime]
+
+class TableWarmThroughputDescriptionTypeDef(TypedDict):
+    ReadUnitsPerSecond: NotRequired[int]
+    WriteUnitsPerSecond: NotRequired[int]
+    Status: NotRequired[TableStatusType]
+
+class RestoreSummaryTypeDef(TypedDict):
+    RestoreDateTime: datetime
+    RestoreInProgress: bool
+    SourceBackupArn: NotRequired[str]
+    SourceTableArn: NotRequired[str]
+
+class SSEDescriptionTypeDef(TypedDict):
+    Status: NotRequired[SSEStatusType]
+    SSEType: NotRequired[SSETypeType]
+    KMSMasterKeyArn: NotRequired[str]
+    InaccessibleEncryptionDateTime: NotRequired[datetime]
+
+class TableBatchWriterRequestTypeDef(TypedDict):
+    overwrite_by_pkeys: NotRequired[List[str]]
+
+class TimeToLiveSpecificationTypeDef(TypedDict):
+    Enabled: bool
+    AttributeName: str
+
+class UntagResourceInputTypeDef(TypedDict):
+    ResourceArn: str
+    TagKeys: Sequence[str]
+
+class UpdateContributorInsightsInputTypeDef(TypedDict):
+    TableName: str
+    ContributorInsightsAction: ContributorInsightsActionType
+    IndexName: NotRequired[str]
+
+class UpdateKinesisStreamingConfigurationTypeDef(TypedDict):
+    ApproximateCreationDateTimePrecision: NotRequired[ApproximateCreationDateTimePrecisionType]
+
+class BatchStatementErrorTypeDef(TypedDict):
+    Code: NotRequired[BatchStatementErrorCodeEnumType]
+    Message: NotRequired[str]
+    Item: NotRequired[Dict[str, AttributeValueTypeDef]]
+
+class DeleteRequestOutputTypeDef(TypedDict):
+    Key: Dict[str, AttributeValueTypeDef]
+
+class ItemCollectionMetricsTypeDef(TypedDict):
+    ItemCollectionKey: NotRequired[Dict[str, AttributeValueTypeDef]]
+    SizeEstimateRangeGB: NotRequired[List[float]]
+
+class ItemResponseTypeDef(TypedDict):
+    Item: NotRequired[Dict[str, AttributeValueTypeDef]]
+
+class KeysAndAttributesOutputTypeDef(TypedDict):
+    Keys: List[Dict[str, AttributeValueTypeDef]]
+    AttributesToGet: NotRequired[List[str]]
+    ConsistentRead: NotRequired[bool]
+    ProjectionExpression: NotRequired[str]
+    ExpressionAttributeNames: NotRequired[Dict[str, str]]
+
+class PutRequestOutputTypeDef(TypedDict):
+    Item: Dict[str, AttributeValueTypeDef]
+
+UniversalAttributeValueTypeDef = Union[
+    AttributeValueTypeDef,
+    bytes,
+    bytearray,
+    str,
+    int,
+    Decimal,
+    bool,
+    Set[int],
+    Set[Decimal],
+    Set[str],
+    Set[bytes],
+    Set[bytearray],
+    Sequence[Any],
+    Mapping[str, Any],
+    None,
+]
+
+class AttributeValueUpdateTableTypeDef(TypedDict):
+    Value: NotRequired[TableAttributeValueTypeDef]
+    Action: NotRequired[AttributeActionType]
+
+class ConditionTableTypeDef(TypedDict):
+    ComparisonOperator: ComparisonOperatorType
+    AttributeValueList: NotRequired[Sequence[TableAttributeValueTypeDef]]
+
+class DeleteRequestServiceResourceOutputTypeDef(TypedDict):
+    Key: Dict[str, TableAttributeValueTypeDef]
+
+class DeleteRequestServiceResourceTypeDef(TypedDict):
+    Key: Mapping[str, TableAttributeValueTypeDef]
+
+class ExpectedAttributeValueTableTypeDef(TypedDict):
+    Value: NotRequired[TableAttributeValueTypeDef]
+    Exists: NotRequired[bool]
+    ComparisonOperator: NotRequired[ComparisonOperatorType]
+    AttributeValueList: NotRequired[Sequence[TableAttributeValueTypeDef]]
+
+class GetItemInputTableGetItemTypeDef(TypedDict):
+    Key: Mapping[str, TableAttributeValueTypeDef]
+    AttributesToGet: NotRequired[Sequence[str]]
+    ConsistentRead: NotRequired[bool]
+    ReturnConsumedCapacity: NotRequired[ReturnConsumedCapacityType]
+    ProjectionExpression: NotRequired[str]
+    ExpressionAttributeNames: NotRequired[Mapping[str, str]]
+
+class ItemCollectionMetricsServiceResourceTypeDef(TypedDict):
+    ItemCollectionKey: NotRequired[Dict[str, TableAttributeValueTypeDef]]
+    SizeEstimateRangeGB: NotRequired[List[float]]
+
+class ItemCollectionMetricsTableTypeDef(TypedDict):
+    ItemCollectionKey: NotRequired[Dict[str, TableAttributeValueTypeDef]]
+    SizeEstimateRangeGB: NotRequired[List[float]]
+
+class KeysAndAttributesServiceResourceOutputTypeDef(TypedDict):
+    Keys: List[Dict[str, TableAttributeValueTypeDef]]
+    AttributesToGet: NotRequired[List[str]]
+    ConsistentRead: NotRequired[bool]
+    ProjectionExpression: NotRequired[str]
+    ExpressionAttributeNames: NotRequired[Dict[str, str]]
+
+class KeysAndAttributesServiceResourceTypeDef(TypedDict):
+    Keys: Sequence[Mapping[str, TableAttributeValueTypeDef]]
+    AttributesToGet: NotRequired[Sequence[str]]
+    ConsistentRead: NotRequired[bool]
+    ProjectionExpression: NotRequired[str]
+    ExpressionAttributeNames: NotRequired[Mapping[str, str]]
+
+class PutRequestServiceResourceOutputTypeDef(TypedDict):
+    Item: Dict[str, TableAttributeValueTypeDef]
+
+class PutRequestServiceResourceTypeDef(TypedDict):
+    Item: Mapping[str, TableAttributeValueTypeDef]
+
+class AutoScalingPolicyDescriptionTypeDef(TypedDict):
+    PolicyName: NotRequired[str]
+    TargetTrackingScalingPolicyConfiguration: NotRequired[
+        AutoScalingTargetTrackingScalingPolicyConfigurationDescriptionTypeDef
+    ]
+
+class AutoScalingPolicyUpdateTypeDef(TypedDict):
+    TargetTrackingScalingPolicyConfiguration: (
+        AutoScalingTargetTrackingScalingPolicyConfigurationUpdateTypeDef
+    )
+    PolicyName: NotRequired[str]
+
+class CreateBackupOutputTypeDef(TypedDict):
+    BackupDetails: BackupDetailsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteResourcePolicyOutputTypeDef(TypedDict):
+    RevisionId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeLimitsOutputTypeDef(TypedDict):
+    AccountMaxReadCapacityUnits: int
+    AccountMaxWriteCapacityUnits: int
+    TableMaxReadCapacityUnits: int
+    TableMaxWriteCapacityUnits: int
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class EmptyResponseMetadataTypeDef(TypedDict):
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetResourcePolicyOutputTypeDef(TypedDict):
+    Policy: str
+    RevisionId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListBackupsOutputTypeDef(TypedDict):
+    BackupSummaries: List[BackupSummaryTypeDef]
+    LastEvaluatedBackupArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListTablesOutputTypeDef(TypedDict):
+    TableNames: List[str]
+    LastEvaluatedTableName: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutResourcePolicyOutputTypeDef(TypedDict):
+    RevisionId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateContributorInsightsOutputTypeDef(TypedDict):
+    TableName: str
+    IndexName: str
+    ContributorInsightsStatus: ContributorInsightsStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ConsumedCapacityTypeDef(TypedDict):
+    TableName: NotRequired[str]
+    CapacityUnits: NotRequired[float]
+    ReadCapacityUnits: NotRequired[float]
+    WriteCapacityUnits: NotRequired[float]
+    Table: NotRequired[CapacityTypeDef]
+    LocalSecondaryIndexes: NotRequired[Dict[str, CapacityTypeDef]]
+    GlobalSecondaryIndexes: NotRequired[Dict[str, CapacityTypeDef]]
+
+class ContinuousBackupsDescriptionTypeDef(TypedDict):
+    ContinuousBackupsStatus: ContinuousBackupsStatusType
+    PointInTimeRecoveryDescription: NotRequired[PointInTimeRecoveryDescriptionTypeDef]
+
+class ListContributorInsightsOutputTypeDef(TypedDict):
+    ContributorInsightsSummaries: List[ContributorInsightsSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class SourceTableDetailsTypeDef(TypedDict):
+    TableName: str
+    TableId: str
+    KeySchema: List[KeySchemaElementTypeDef]
+    TableCreationDateTime: datetime
+    ProvisionedThroughput: ProvisionedThroughputTypeDef
+    TableArn: NotRequired[str]
+    TableSizeBytes: NotRequired[int]
+    OnDemandThroughput: NotRequired[OnDemandThroughputTypeDef]
+    ItemCount: NotRequired[int]
+    BillingMode: NotRequired[BillingModeType]
+
+class UpdateGlobalSecondaryIndexActionTypeDef(TypedDict):
+    IndexName: str
+    ProvisionedThroughput: NotRequired[ProvisionedThroughputTypeDef]
+    OnDemandThroughput: NotRequired[OnDemandThroughputTypeDef]
+    WarmThroughput: NotRequired[WarmThroughputTypeDef]
+
+class CreateGlobalTableInputTypeDef(TypedDict):
+    GlobalTableName: str
+    ReplicationGroup: Sequence[ReplicaTypeDef]
+
+class GlobalTableTypeDef(TypedDict):
+    GlobalTableName: NotRequired[str]
+    ReplicationGroup: NotRequired[List[ReplicaTypeDef]]
+
+class ReplicaGlobalSecondaryIndexTypeDef(TypedDict):
+    IndexName: str
+    ProvisionedThroughputOverride: NotRequired[ProvisionedThroughputOverrideTypeDef]
+    OnDemandThroughputOverride: NotRequired[OnDemandThroughputOverrideTypeDef]
+
+class ListTagsOfResourceOutputTypeDef(TypedDict):
+    Tags: List[TagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class TagResourceInputTypeDef(TypedDict):
+    ResourceArn: str
+    Tags: Sequence[TagTypeDef]
+
+class InputFormatOptionsOutputTypeDef(TypedDict):
+    Csv: NotRequired[CsvOptionsOutputTypeDef]
+
+class InputFormatOptionsTypeDef(TypedDict):
+    Csv: NotRequired[CsvOptionsTypeDef]
+
+class ReplicaUpdateTypeDef(TypedDict):
+    Create: NotRequired[CreateReplicaActionTypeDef]
+    Delete: NotRequired[DeleteReplicaActionTypeDef]
+
+class DescribeContributorInsightsOutputTypeDef(TypedDict):
+    TableName: str
+    IndexName: str
+    ContributorInsightsRuleList: List[str]
+    ContributorInsightsStatus: ContributorInsightsStatusType
+    LastUpdateDateTime: datetime
+    FailureException: FailureExceptionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeEndpointsResponseTypeDef(TypedDict):
+    Endpoints: List[EndpointTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeKinesisStreamingDestinationOutputTypeDef(TypedDict):
+    TableName: str
+    KinesisDataStreamDestinations: List[KinesisDataStreamDestinationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeTableInputWaitExtraTypeDef(TypedDict):
+    TableName: str
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class DescribeTableInputWaitTypeDef(TypedDict):
+    TableName: str
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class DescribeTimeToLiveOutputTypeDef(TypedDict):
+    TimeToLiveDescription: TimeToLiveDescriptionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class KinesisStreamingDestinationInputRequestTypeDef(TypedDict):
+    TableName: str
+    StreamArn: str
+    EnableKinesisStreamingConfiguration: NotRequired[EnableKinesisStreamingConfigurationTypeDef]
+
+class KinesisStreamingDestinationInputTypeDef(TypedDict):
+    TableName: str
+    StreamArn: str
+    EnableKinesisStreamingConfiguration: NotRequired[EnableKinesisStreamingConfigurationTypeDef]
+
+class KinesisStreamingDestinationOutputTypeDef(TypedDict):
+    TableName: str
+    StreamArn: str
+    DestinationStatus: DestinationStatusType
+    EnableKinesisStreamingConfiguration: EnableKinesisStreamingConfigurationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ExportDescriptionTypeDef(TypedDict):
+    ExportArn: NotRequired[str]
+    ExportStatus: NotRequired[ExportStatusType]
+    StartTime: NotRequired[datetime]
+    EndTime: NotRequired[datetime]
+    ExportManifest: NotRequired[str]
+    TableArn: NotRequired[str]
+    TableId: NotRequired[str]
+    ExportTime: NotRequired[datetime]
+    ClientToken: NotRequired[str]
+    S3Bucket: NotRequired[str]
+    S3BucketOwner: NotRequired[str]
+    S3Prefix: NotRequired[str]
+    S3SseAlgorithm: NotRequired[S3SseAlgorithmType]
+    S3SseKmsKeyId: NotRequired[str]
+    FailureCode: NotRequired[str]
+    FailureMessage: NotRequired[str]
+    ExportFormat: NotRequired[ExportFormatType]
+    BilledSizeBytes: NotRequired[int]
+    ItemCount: NotRequired[int]
+    ExportType: NotRequired[ExportTypeType]
+    IncrementalExportSpecification: NotRequired[IncrementalExportSpecificationOutputTypeDef]
+
+class ListExportsOutputTypeDef(TypedDict):
+    ExportSummaries: List[ExportSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class IncrementalExportSpecificationTypeDef(TypedDict):
+    ExportFromTime: NotRequired[TimestampTypeDef]
+    ExportToTime: NotRequired[TimestampTypeDef]
+    ExportViewType: NotRequired[ExportViewTypeType]
+
+class ListBackupsInputTypeDef(TypedDict):
+    TableName: NotRequired[str]
+    Limit: NotRequired[int]
+    TimeRangeLowerBound: NotRequired[TimestampTypeDef]
+    TimeRangeUpperBound: NotRequired[TimestampTypeDef]
+    ExclusiveStartBackupArn: NotRequired[str]
+    BackupType: NotRequired[BackupTypeFilterType]
+
+class ReplicaGlobalSecondaryIndexDescriptionTypeDef(TypedDict):
+    IndexName: NotRequired[str]
+    ProvisionedThroughputOverride: NotRequired[ProvisionedThroughputOverrideTypeDef]
+    OnDemandThroughputOverride: NotRequired[OnDemandThroughputOverrideTypeDef]
+    WarmThroughput: NotRequired[GlobalSecondaryIndexWarmThroughputDescriptionTypeDef]
+
+class GlobalSecondaryIndexInfoTypeDef(TypedDict):
+    IndexName: NotRequired[str]
+    KeySchema: NotRequired[List[KeySchemaElementTypeDef]]
+    Projection: NotRequired[ProjectionOutputTypeDef]
+    ProvisionedThroughput: NotRequired[ProvisionedThroughputTypeDef]
+    OnDemandThroughput: NotRequired[OnDemandThroughputTypeDef]
+
+class GlobalSecondaryIndexOutputTypeDef(TypedDict):
+    IndexName: str
+    KeySchema: List[KeySchemaElementTypeDef]
+    Projection: ProjectionOutputTypeDef
+    ProvisionedThroughput: NotRequired[ProvisionedThroughputTypeDef]
+    OnDemandThroughput: NotRequired[OnDemandThroughputTypeDef]
+    WarmThroughput: NotRequired[WarmThroughputTypeDef]
+
+class LocalSecondaryIndexDescriptionTypeDef(TypedDict):
+    IndexName: NotRequired[str]
+    KeySchema: NotRequired[List[KeySchemaElementTypeDef]]
+    Projection: NotRequired[ProjectionOutputTypeDef]
+    IndexSizeBytes: NotRequired[int]
+    ItemCount: NotRequired[int]
+    IndexArn: NotRequired[str]
+
+class LocalSecondaryIndexInfoTypeDef(TypedDict):
+    IndexName: NotRequired[str]
+    KeySchema: NotRequired[List[KeySchemaElementTypeDef]]
+    Projection: NotRequired[ProjectionOutputTypeDef]
+
+class GlobalSecondaryIndexDescriptionTypeDef(TypedDict):
+    IndexName: NotRequired[str]
+    KeySchema: NotRequired[List[KeySchemaElementTypeDef]]
+    Projection: NotRequired[ProjectionOutputTypeDef]
+    IndexStatus: NotRequired[IndexStatusType]
+    Backfilling: NotRequired[bool]
+    ProvisionedThroughput: NotRequired[ProvisionedThroughputDescriptionTypeDef]
+    IndexSizeBytes: NotRequired[int]
+    ItemCount: NotRequired[int]
+    IndexArn: NotRequired[str]
+    OnDemandThroughput: NotRequired[OnDemandThroughputTypeDef]
+    WarmThroughput: NotRequired[GlobalSecondaryIndexWarmThroughputDescriptionTypeDef]
+
+class ImportSummaryTypeDef(TypedDict):
+    ImportArn: NotRequired[str]
+    ImportStatus: NotRequired[ImportStatusType]
+    TableArn: NotRequired[str]
+    S3BucketSource: NotRequired[S3BucketSourceTypeDef]
+    CloudWatchLogGroupArn: NotRequired[str]
+    InputFormat: NotRequired[InputFormatType]
+    StartTime: NotRequired[datetime]
+    EndTime: NotRequired[datetime]
+
+class ListBackupsInputPaginateTypeDef(TypedDict):
+    TableName: NotRequired[str]
+    TimeRangeLowerBound: NotRequired[TimestampTypeDef]
+    TimeRangeUpperBound: NotRequired[TimestampTypeDef]
+    BackupType: NotRequired[BackupTypeFilterType]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListTablesInputPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListTagsOfResourceInputPaginateTypeDef(TypedDict):
+    ResourceArn: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class UpdateContinuousBackupsInputTypeDef(TypedDict):
+    TableName: str
+    PointInTimeRecoverySpecification: PointInTimeRecoverySpecificationTypeDef
+
+ProjectionUnionTypeDef = Union[ProjectionTypeDef, ProjectionOutputTypeDef]
+
+class UpdateTimeToLiveInputTypeDef(TypedDict):
+    TableName: str
+    TimeToLiveSpecification: TimeToLiveSpecificationTypeDef
+
+class UpdateTimeToLiveOutputTypeDef(TypedDict):
+    TimeToLiveSpecification: TimeToLiveSpecificationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateKinesisStreamingDestinationInputTypeDef(TypedDict):
+    TableName: str
+    StreamArn: str
+    UpdateKinesisStreamingConfiguration: NotRequired[UpdateKinesisStreamingConfigurationTypeDef]
+
+class UpdateKinesisStreamingDestinationOutputTypeDef(TypedDict):
+    TableName: str
+    StreamArn: str
+    DestinationStatus: DestinationStatusType
+    UpdateKinesisStreamingConfiguration: UpdateKinesisStreamingConfigurationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class BatchStatementResponseTypeDef(TypedDict):
+    Error: NotRequired[BatchStatementErrorTypeDef]
+    TableName: NotRequired[str]
+    Item: NotRequired[Dict[str, AttributeValueTypeDef]]
+
+class WriteRequestOutputTypeDef(TypedDict):
+    PutRequest: NotRequired[PutRequestOutputTypeDef]
+    DeleteRequest: NotRequired[DeleteRequestOutputTypeDef]
+
+class AttributeValueUpdateTypeDef(TypedDict):
+    Value: NotRequired[UniversalAttributeValueTypeDef]
+    Action: NotRequired[AttributeActionType]
+
+class BatchStatementRequestTypeDef(TypedDict):
+    Statement: str
+    Parameters: NotRequired[Sequence[UniversalAttributeValueTypeDef]]
+    ConsistentRead: NotRequired[bool]
+    ReturnValuesOnConditionCheckFailure: NotRequired[ReturnValuesOnConditionCheckFailureType]
+
+class ConditionCheckTypeDef(TypedDict):
+    Key: Mapping[str, UniversalAttributeValueTypeDef]
+    TableName: str
+    ConditionExpression: str
+    ExpressionAttributeNames: NotRequired[Mapping[str, str]]
+    ExpressionAttributeValues: NotRequired[Mapping[str, UniversalAttributeValueTypeDef]]
+    ReturnValuesOnConditionCheckFailure: NotRequired[ReturnValuesOnConditionCheckFailureType]
+
+class ConditionTypeDef(TypedDict):
+    ComparisonOperator: ComparisonOperatorType
+    AttributeValueList: NotRequired[Sequence[UniversalAttributeValueTypeDef]]
+
+class DeleteRequestTypeDef(TypedDict):
+    Key: Mapping[str, UniversalAttributeValueTypeDef]
+
+class DeleteTypeDef(TypedDict):
+    Key: Mapping[str, UniversalAttributeValueTypeDef]
+    TableName: str
+    ConditionExpression: NotRequired[str]
+    ExpressionAttributeNames: NotRequired[Mapping[str, str]]
+    ExpressionAttributeValues: NotRequired[Mapping[str, UniversalAttributeValueTypeDef]]
+    ReturnValuesOnConditionCheckFailure: NotRequired[ReturnValuesOnConditionCheckFailureType]
+
+class ExecuteStatementInputTypeDef(TypedDict):
+    Statement: str
+    Parameters: NotRequired[Sequence[UniversalAttributeValueTypeDef]]
+    ConsistentRead: NotRequired[bool]
+    NextToken: NotRequired[str]
+    ReturnConsumedCapacity: NotRequired[ReturnConsumedCapacityType]
+    Limit: NotRequired[int]
+    ReturnValuesOnConditionCheckFailure: NotRequired[ReturnValuesOnConditionCheckFailureType]
+
+class ExpectedAttributeValueTypeDef(TypedDict):
+    Value: NotRequired[UniversalAttributeValueTypeDef]
+    Exists: NotRequired[bool]
+    ComparisonOperator: NotRequired[ComparisonOperatorType]
+    AttributeValueList: NotRequired[Sequence[UniversalAttributeValueTypeDef]]
+
+class GetItemInputTypeDef(TypedDict):
+    TableName: str
+    Key: Mapping[str, UniversalAttributeValueTypeDef]
+    AttributesToGet: NotRequired[Sequence[str]]
+    ConsistentRead: NotRequired[bool]
+    ReturnConsumedCapacity: NotRequired[ReturnConsumedCapacityType]
+    ProjectionExpression: NotRequired[str]
+    ExpressionAttributeNames: NotRequired[Mapping[str, str]]
+
+class GetTypeDef(TypedDict):
+    Key: Mapping[str, UniversalAttributeValueTypeDef]
+    TableName: str
+    ProjectionExpression: NotRequired[str]
+    ExpressionAttributeNames: NotRequired[Mapping[str, str]]
+
+class KeysAndAttributesTypeDef(TypedDict):
+    Keys: Sequence[Mapping[str, UniversalAttributeValueTypeDef]]
+    AttributesToGet: NotRequired[Sequence[str]]
+    ConsistentRead: NotRequired[bool]
+    ProjectionExpression: NotRequired[str]
+    ExpressionAttributeNames: NotRequired[Mapping[str, str]]
+
+class ParameterizedStatementTypeDef(TypedDict):
+    Statement: str
+    Parameters: NotRequired[Sequence[UniversalAttributeValueTypeDef]]
+    ReturnValuesOnConditionCheckFailure: NotRequired[ReturnValuesOnConditionCheckFailureType]
+
+class PutRequestTypeDef(TypedDict):
+    Item: Mapping[str, UniversalAttributeValueTypeDef]
+
+class PutTypeDef(TypedDict):
+    Item: Mapping[str, UniversalAttributeValueTypeDef]
+    TableName: str
+    ConditionExpression: NotRequired[str]
+    ExpressionAttributeNames: NotRequired[Mapping[str, str]]
+    ExpressionAttributeValues: NotRequired[Mapping[str, UniversalAttributeValueTypeDef]]
+    ReturnValuesOnConditionCheckFailure: NotRequired[ReturnValuesOnConditionCheckFailureType]
+
+class UpdateTypeDef(TypedDict):
+    Key: Mapping[str, UniversalAttributeValueTypeDef]
+    UpdateExpression: str
+    TableName: str
+    ConditionExpression: NotRequired[str]
+    ExpressionAttributeNames: NotRequired[Mapping[str, str]]
+    ExpressionAttributeValues: NotRequired[Mapping[str, UniversalAttributeValueTypeDef]]
+    ReturnValuesOnConditionCheckFailure: NotRequired[ReturnValuesOnConditionCheckFailureType]
+
+class QueryInputTableQueryTypeDef(TypedDict):
+    IndexName: NotRequired[str]
+    Select: NotRequired[SelectType]
+    AttributesToGet: NotRequired[Sequence[str]]
+    Limit: NotRequired[int]
+    ConsistentRead: NotRequired[bool]
+    KeyConditions: NotRequired[Mapping[str, ConditionTableTypeDef]]
+    QueryFilter: NotRequired[Mapping[str, ConditionTableTypeDef]]
+    ConditionalOperator: NotRequired[ConditionalOperatorType]
+    ScanIndexForward: NotRequired[bool]
+    ExclusiveStartKey: NotRequired[Mapping[str, TableAttributeValueTypeDef]]
+    ReturnConsumedCapacity: NotRequired[ReturnConsumedCapacityType]
+    ProjectionExpression: NotRequired[str]
+    FilterExpression: NotRequired[ConditionBaseImportTypeDef]
+    KeyConditionExpression: NotRequired[ConditionBaseImportTypeDef]
+    ExpressionAttributeNames: NotRequired[Mapping[str, str]]
+    ExpressionAttributeValues: NotRequired[Mapping[str, TableAttributeValueTypeDef]]
+
+class ScanInputTableScanTypeDef(TypedDict):
+    IndexName: NotRequired[str]
+    AttributesToGet: NotRequired[Sequence[str]]
+    Limit: NotRequired[int]
+    Select: NotRequired[SelectType]
+    ScanFilter: NotRequired[Mapping[str, ConditionTableTypeDef]]
+    ConditionalOperator: NotRequired[ConditionalOperatorType]
+    ExclusiveStartKey: NotRequired[Mapping[str, TableAttributeValueTypeDef]]
+    ReturnConsumedCapacity: NotRequired[ReturnConsumedCapacityType]
+    TotalSegments: NotRequired[int]
+    Segment: NotRequired[int]
+    ProjectionExpression: NotRequired[str]
+    FilterExpression: NotRequired[ConditionBaseImportTypeDef]
+    ExpressionAttributeNames: NotRequired[Mapping[str, str]]
+    ExpressionAttributeValues: NotRequired[Mapping[str, TableAttributeValueTypeDef]]
+    ConsistentRead: NotRequired[bool]
+
+DeleteRequestServiceResourceUnionTypeDef = Union[
+    DeleteRequestServiceResourceTypeDef, DeleteRequestServiceResourceOutputTypeDef
+]
+
+class DeleteItemInputTableDeleteItemTypeDef(TypedDict):
+    Key: Mapping[str, TableAttributeValueTypeDef]
+    Expected: NotRequired[Mapping[str, ExpectedAttributeValueTableTypeDef]]
+    ConditionalOperator: NotRequired[ConditionalOperatorType]
+    ReturnValues: NotRequired[ReturnValueType]
+    ReturnConsumedCapacity: NotRequired[ReturnConsumedCapacityType]
+    ReturnItemCollectionMetrics: NotRequired[ReturnItemCollectionMetricsType]
+    ConditionExpression: NotRequired[ConditionBaseImportTypeDef]
+    ExpressionAttributeNames: NotRequired[Mapping[str, str]]
+    ExpressionAttributeValues: NotRequired[Mapping[str, TableAttributeValueTypeDef]]
+    ReturnValuesOnConditionCheckFailure: NotRequired[ReturnValuesOnConditionCheckFailureType]
+
+class PutItemInputTablePutItemTypeDef(TypedDict):
+    Item: Mapping[str, TableAttributeValueTypeDef]
+    Expected: NotRequired[Mapping[str, ExpectedAttributeValueTableTypeDef]]
+    ReturnValues: NotRequired[ReturnValueType]
+    ReturnConsumedCapacity: NotRequired[ReturnConsumedCapacityType]
+    ReturnItemCollectionMetrics: NotRequired[ReturnItemCollectionMetricsType]
+    ConditionalOperator: NotRequired[ConditionalOperatorType]
+    ConditionExpression: NotRequired[ConditionBaseImportTypeDef]
+    ExpressionAttributeNames: NotRequired[Mapping[str, str]]
+    ExpressionAttributeValues: NotRequired[Mapping[str, TableAttributeValueTypeDef]]
+    ReturnValuesOnConditionCheckFailure: NotRequired[ReturnValuesOnConditionCheckFailureType]
+
+class UpdateItemInputTableUpdateItemTypeDef(TypedDict):
+    Key: Mapping[str, TableAttributeValueTypeDef]
+    AttributeUpdates: NotRequired[Mapping[str, AttributeValueUpdateTableTypeDef]]
+    Expected: NotRequired[Mapping[str, ExpectedAttributeValueTableTypeDef]]
+    ConditionalOperator: NotRequired[ConditionalOperatorType]
+    ReturnValues: NotRequired[ReturnValueType]
+    ReturnConsumedCapacity: NotRequired[ReturnConsumedCapacityType]
+    ReturnItemCollectionMetrics: NotRequired[ReturnItemCollectionMetricsType]
+    UpdateExpression: NotRequired[str]
+    ConditionExpression: NotRequired[ConditionBaseImportTypeDef]
+    ExpressionAttributeNames: NotRequired[Mapping[str, str]]
+    ExpressionAttributeValues: NotRequired[Mapping[str, TableAttributeValueTypeDef]]
+    ReturnValuesOnConditionCheckFailure: NotRequired[ReturnValuesOnConditionCheckFailureType]
+
+KeysAndAttributesServiceResourceUnionTypeDef = Union[
+    KeysAndAttributesServiceResourceTypeDef, KeysAndAttributesServiceResourceOutputTypeDef
+]
+
+class WriteRequestServiceResourceOutputTypeDef(TypedDict):
+    PutRequest: NotRequired[PutRequestServiceResourceOutputTypeDef]
+    DeleteRequest: NotRequired[DeleteRequestServiceResourceOutputTypeDef]
+
+PutRequestServiceResourceUnionTypeDef = Union[
+    PutRequestServiceResourceTypeDef, PutRequestServiceResourceOutputTypeDef
+]
+
+class AutoScalingSettingsDescriptionTypeDef(TypedDict):
+    MinimumUnits: NotRequired[int]
+    MaximumUnits: NotRequired[int]
+    AutoScalingDisabled: NotRequired[bool]
+    AutoScalingRoleArn: NotRequired[str]
+    ScalingPolicies: NotRequired[List[AutoScalingPolicyDescriptionTypeDef]]
+
+class AutoScalingSettingsUpdateTypeDef(TypedDict):
+    MinimumUnits: NotRequired[int]
+    MaximumUnits: NotRequired[int]
+    AutoScalingDisabled: NotRequired[bool]
+    AutoScalingRoleArn: NotRequired[str]
+    ScalingPolicyUpdate: NotRequired[AutoScalingPolicyUpdateTypeDef]
+
+class BatchGetItemOutputServiceResourceTypeDef(TypedDict):
+    Responses: Dict[str, List[Dict[str, TableAttributeValueTypeDef]]]
+    UnprocessedKeys: Dict[str, KeysAndAttributesServiceResourceOutputTypeDef]
+    ConsumedCapacity: List[ConsumedCapacityTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class BatchGetItemOutputTypeDef(TypedDict):
+    Responses: Dict[str, List[Dict[str, AttributeValueTypeDef]]]
+    UnprocessedKeys: Dict[str, KeysAndAttributesOutputTypeDef]
+    ConsumedCapacity: List[ConsumedCapacityTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteItemOutputTableTypeDef(TypedDict):
+    Attributes: Dict[str, TableAttributeValueTypeDef]
+    ConsumedCapacity: ConsumedCapacityTypeDef
+    ItemCollectionMetrics: ItemCollectionMetricsTableTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteItemOutputTypeDef(TypedDict):
+    Attributes: Dict[str, AttributeValueTypeDef]
+    ConsumedCapacity: ConsumedCapacityTypeDef
+    ItemCollectionMetrics: ItemCollectionMetricsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ExecuteStatementOutputTypeDef(TypedDict):
+    Items: List[Dict[str, AttributeValueTypeDef]]
+    ConsumedCapacity: ConsumedCapacityTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+    LastEvaluatedKey: NotRequired[Dict[str, AttributeValueTypeDef]]
+
+class ExecuteTransactionOutputTypeDef(TypedDict):
+    Responses: List[ItemResponseTypeDef]
+    ConsumedCapacity: List[ConsumedCapacityTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetItemOutputTableTypeDef(TypedDict):
+    ConsumedCapacity: ConsumedCapacityTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+    Item: NotRequired[Dict[str, TableAttributeValueTypeDef]]
+
+class GetItemOutputTypeDef(TypedDict):
+    ConsumedCapacity: ConsumedCapacityTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+    Item: NotRequired[Dict[str, AttributeValueTypeDef]]
+
+class PutItemOutputTableTypeDef(TypedDict):
+    Attributes: Dict[str, TableAttributeValueTypeDef]
+    ConsumedCapacity: ConsumedCapacityTypeDef
+    ItemCollectionMetrics: ItemCollectionMetricsTableTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutItemOutputTypeDef(TypedDict):
+    Attributes: Dict[str, AttributeValueTypeDef]
+    ConsumedCapacity: ConsumedCapacityTypeDef
+    ItemCollectionMetrics: ItemCollectionMetricsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class QueryOutputTableTypeDef(TypedDict):
+    Items: List[Dict[str, TableAttributeValueTypeDef]]
+    Count: int
+    ScannedCount: int
+    ConsumedCapacity: ConsumedCapacityTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+    LastEvaluatedKey: NotRequired[Dict[str, TableAttributeValueTypeDef]]
+
+class QueryOutputTypeDef(TypedDict):
+    Items: List[Dict[str, AttributeValueTypeDef]]
+    Count: int
+    ScannedCount: int
+    ConsumedCapacity: ConsumedCapacityTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+    LastEvaluatedKey: NotRequired[Dict[str, AttributeValueTypeDef]]
+
+class ScanOutputTableTypeDef(TypedDict):
+    Items: List[Dict[str, TableAttributeValueTypeDef]]
+    Count: int
+    ScannedCount: int
+    ConsumedCapacity: ConsumedCapacityTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+    LastEvaluatedKey: NotRequired[Dict[str, TableAttributeValueTypeDef]]
+
+class ScanOutputTypeDef(TypedDict):
+    Items: List[Dict[str, AttributeValueTypeDef]]
+    Count: int
+    ScannedCount: int
+    ConsumedCapacity: ConsumedCapacityTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+    LastEvaluatedKey: NotRequired[Dict[str, AttributeValueTypeDef]]
+
+class TransactGetItemsOutputTypeDef(TypedDict):
+    ConsumedCapacity: List[ConsumedCapacityTypeDef]
+    Responses: List[ItemResponseTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class TransactWriteItemsOutputTypeDef(TypedDict):
+    ConsumedCapacity: List[ConsumedCapacityTypeDef]
+    ItemCollectionMetrics: Dict[str, List[ItemCollectionMetricsTypeDef]]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateItemOutputTableTypeDef(TypedDict):
+    Attributes: Dict[str, TableAttributeValueTypeDef]
+    ConsumedCapacity: ConsumedCapacityTypeDef
+    ItemCollectionMetrics: ItemCollectionMetricsTableTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateItemOutputTypeDef(TypedDict):
+    Attributes: Dict[str, AttributeValueTypeDef]
+    ConsumedCapacity: ConsumedCapacityTypeDef
+    ItemCollectionMetrics: ItemCollectionMetricsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeContinuousBackupsOutputTypeDef(TypedDict):
+    ContinuousBackupsDescription: ContinuousBackupsDescriptionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateContinuousBackupsOutputTypeDef(TypedDict):
+    ContinuousBackupsDescription: ContinuousBackupsDescriptionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListGlobalTablesOutputTypeDef(TypedDict):
+    GlobalTables: List[GlobalTableTypeDef]
+    LastEvaluatedGlobalTableName: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+CreateReplicationGroupMemberActionTypeDef = TypedDict(
+    "CreateReplicationGroupMemberActionTypeDef",
     {
         "RegionName": str,
-        "GlobalSecondaryIndexes": List["ReplicaGlobalSecondaryIndexAutoScalingDescriptionTypeDef"],
-        "ReplicaProvisionedReadCapacityAutoScalingSettings": "AutoScalingSettingsDescriptionTypeDef",
-        "ReplicaProvisionedWriteCapacityAutoScalingSettings": "AutoScalingSettingsDescriptionTypeDef",
-        "ReplicaStatus": ReplicaStatusType,
+        "KMSMasterKeyId": NotRequired[str],
+        "ProvisionedThroughputOverride": NotRequired[ProvisionedThroughputOverrideTypeDef],
+        "OnDemandThroughputOverride": NotRequired[OnDemandThroughputOverrideTypeDef],
+        "GlobalSecondaryIndexes": NotRequired[Sequence[ReplicaGlobalSecondaryIndexTypeDef]],
+        "TableClassOverride": NotRequired[TableClassType],
     },
-    total=False,
 )
-
-_RequiredReplicaAutoScalingUpdateTypeDef = TypedDict(
-    "_RequiredReplicaAutoScalingUpdateTypeDef",
+UpdateReplicationGroupMemberActionTypeDef = TypedDict(
+    "UpdateReplicationGroupMemberActionTypeDef",
     {
         "RegionName": str,
+        "KMSMasterKeyId": NotRequired[str],
+        "ProvisionedThroughputOverride": NotRequired[ProvisionedThroughputOverrideTypeDef],
+        "OnDemandThroughputOverride": NotRequired[OnDemandThroughputOverrideTypeDef],
+        "GlobalSecondaryIndexes": NotRequired[Sequence[ReplicaGlobalSecondaryIndexTypeDef]],
+        "TableClassOverride": NotRequired[TableClassType],
     },
 )
-_OptionalReplicaAutoScalingUpdateTypeDef = TypedDict(
-    "_OptionalReplicaAutoScalingUpdateTypeDef",
-    {
-        "ReplicaGlobalSecondaryIndexUpdates": List[
-            "ReplicaGlobalSecondaryIndexAutoScalingUpdateTypeDef"
-        ],
-        "ReplicaProvisionedReadCapacityAutoScalingUpdate": "AutoScalingSettingsUpdateTypeDef",
-    },
-    total=False,
-)
+InputFormatOptionsUnionTypeDef = Union[InputFormatOptionsTypeDef, InputFormatOptionsOutputTypeDef]
 
-class ReplicaAutoScalingUpdateTypeDef(
-    _RequiredReplicaAutoScalingUpdateTypeDef, _OptionalReplicaAutoScalingUpdateTypeDef
-):
-    pass
+class UpdateGlobalTableInputTypeDef(TypedDict):
+    GlobalTableName: str
+    ReplicaUpdates: Sequence[ReplicaUpdateTypeDef]
 
+class DescribeExportOutputTypeDef(TypedDict):
+    ExportDescription: ExportDescriptionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ExportTableToPointInTimeOutputTypeDef(TypedDict):
+    ExportDescription: ExportDescriptionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+IncrementalExportSpecificationUnionTypeDef = Union[
+    IncrementalExportSpecificationTypeDef, IncrementalExportSpecificationOutputTypeDef
+]
 ReplicaDescriptionTypeDef = TypedDict(
     "ReplicaDescriptionTypeDef",
     {
-        "RegionName": str,
-        "ReplicaStatus": ReplicaStatusType,
-        "ReplicaStatusDescription": str,
-        "ReplicaStatusPercentProgress": str,
-        "KMSMasterKeyId": str,
-        "ProvisionedThroughputOverride": "ProvisionedThroughputOverrideTypeDef",
-        "OnDemandThroughputOverride": "OnDemandThroughputOverrideTypeDef",
-        "GlobalSecondaryIndexes": List["ReplicaGlobalSecondaryIndexDescriptionTypeDef"],
-        "ReplicaInaccessibleDateTime": datetime,
-        "ReplicaTableClassSummary": "TableClassSummaryTypeDef",
+        "RegionName": NotRequired[str],
+        "ReplicaStatus": NotRequired[ReplicaStatusType],
+        "ReplicaStatusDescription": NotRequired[str],
+        "ReplicaStatusPercentProgress": NotRequired[str],
+        "KMSMasterKeyId": NotRequired[str],
+        "ProvisionedThroughputOverride": NotRequired[ProvisionedThroughputOverrideTypeDef],
+        "OnDemandThroughputOverride": NotRequired[OnDemandThroughputOverrideTypeDef],
+        "WarmThroughput": NotRequired[TableWarmThroughputDescriptionTypeDef],
+        "GlobalSecondaryIndexes": NotRequired[List[ReplicaGlobalSecondaryIndexDescriptionTypeDef]],
+        "ReplicaInaccessibleDateTime": NotRequired[datetime],
+        "ReplicaTableClassSummary": NotRequired[TableClassSummaryTypeDef],
     },
-    total=False,
 )
 
-ReplicaGlobalSecondaryIndexAutoScalingDescriptionTypeDef = TypedDict(
-    "ReplicaGlobalSecondaryIndexAutoScalingDescriptionTypeDef",
-    {
-        "IndexName": str,
-        "IndexStatus": IndexStatusType,
-        "ProvisionedReadCapacityAutoScalingSettings": "AutoScalingSettingsDescriptionTypeDef",
-        "ProvisionedWriteCapacityAutoScalingSettings": "AutoScalingSettingsDescriptionTypeDef",
-    },
-    total=False,
-)
+class TableCreationParametersOutputTypeDef(TypedDict):
+    TableName: str
+    AttributeDefinitions: List[AttributeDefinitionTypeDef]
+    KeySchema: List[KeySchemaElementTypeDef]
+    BillingMode: NotRequired[BillingModeType]
+    ProvisionedThroughput: NotRequired[ProvisionedThroughputTypeDef]
+    OnDemandThroughput: NotRequired[OnDemandThroughputTypeDef]
+    SSESpecification: NotRequired[SSESpecificationTypeDef]
+    GlobalSecondaryIndexes: NotRequired[List[GlobalSecondaryIndexOutputTypeDef]]
 
-ReplicaGlobalSecondaryIndexAutoScalingUpdateTypeDef = TypedDict(
-    "ReplicaGlobalSecondaryIndexAutoScalingUpdateTypeDef",
-    {
-        "IndexName": str,
-        "ProvisionedReadCapacityAutoScalingUpdate": "AutoScalingSettingsUpdateTypeDef",
-    },
-    total=False,
-)
+class SourceTableFeatureDetailsTypeDef(TypedDict):
+    LocalSecondaryIndexes: NotRequired[List[LocalSecondaryIndexInfoTypeDef]]
+    GlobalSecondaryIndexes: NotRequired[List[GlobalSecondaryIndexInfoTypeDef]]
+    StreamDescription: NotRequired[StreamSpecificationTypeDef]
+    TimeToLiveDescription: NotRequired[TimeToLiveDescriptionTypeDef]
+    SSEDescription: NotRequired[SSEDescriptionTypeDef]
 
-ReplicaGlobalSecondaryIndexDescriptionTypeDef = TypedDict(
-    "ReplicaGlobalSecondaryIndexDescriptionTypeDef",
-    {
-        "IndexName": str,
-        "ProvisionedThroughputOverride": "ProvisionedThroughputOverrideTypeDef",
-        "OnDemandThroughputOverride": "OnDemandThroughputOverrideTypeDef",
-    },
-    total=False,
-)
+class ListImportsOutputTypeDef(TypedDict):
+    ImportSummaryList: List[ImportSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-_RequiredReplicaGlobalSecondaryIndexSettingsDescriptionTypeDef = TypedDict(
-    "_RequiredReplicaGlobalSecondaryIndexSettingsDescriptionTypeDef",
-    {
-        "IndexName": str,
-    },
-)
-_OptionalReplicaGlobalSecondaryIndexSettingsDescriptionTypeDef = TypedDict(
-    "_OptionalReplicaGlobalSecondaryIndexSettingsDescriptionTypeDef",
-    {
-        "IndexStatus": IndexStatusType,
-        "ProvisionedReadCapacityUnits": int,
-        "ProvisionedReadCapacityAutoScalingSettings": "AutoScalingSettingsDescriptionTypeDef",
-        "ProvisionedWriteCapacityUnits": int,
-        "ProvisionedWriteCapacityAutoScalingSettings": "AutoScalingSettingsDescriptionTypeDef",
-    },
-    total=False,
-)
+class CreateGlobalSecondaryIndexActionTypeDef(TypedDict):
+    IndexName: str
+    KeySchema: Sequence[KeySchemaElementTypeDef]
+    Projection: ProjectionUnionTypeDef
+    ProvisionedThroughput: NotRequired[ProvisionedThroughputTypeDef]
+    OnDemandThroughput: NotRequired[OnDemandThroughputTypeDef]
+    WarmThroughput: NotRequired[WarmThroughputTypeDef]
 
-class ReplicaGlobalSecondaryIndexSettingsDescriptionTypeDef(
-    _RequiredReplicaGlobalSecondaryIndexSettingsDescriptionTypeDef,
-    _OptionalReplicaGlobalSecondaryIndexSettingsDescriptionTypeDef,
-):
-    pass
+class GlobalSecondaryIndexTypeDef(TypedDict):
+    IndexName: str
+    KeySchema: Sequence[KeySchemaElementTypeDef]
+    Projection: ProjectionUnionTypeDef
+    ProvisionedThroughput: NotRequired[ProvisionedThroughputTypeDef]
+    OnDemandThroughput: NotRequired[OnDemandThroughputTypeDef]
+    WarmThroughput: NotRequired[WarmThroughputTypeDef]
 
-_RequiredReplicaGlobalSecondaryIndexSettingsUpdateTypeDef = TypedDict(
-    "_RequiredReplicaGlobalSecondaryIndexSettingsUpdateTypeDef",
-    {
-        "IndexName": str,
-    },
-)
-_OptionalReplicaGlobalSecondaryIndexSettingsUpdateTypeDef = TypedDict(
-    "_OptionalReplicaGlobalSecondaryIndexSettingsUpdateTypeDef",
-    {
-        "ProvisionedReadCapacityUnits": int,
-        "ProvisionedReadCapacityAutoScalingSettingsUpdate": "AutoScalingSettingsUpdateTypeDef",
-    },
-    total=False,
-)
+class LocalSecondaryIndexTypeDef(TypedDict):
+    IndexName: str
+    KeySchema: Sequence[KeySchemaElementTypeDef]
+    Projection: ProjectionUnionTypeDef
 
-class ReplicaGlobalSecondaryIndexSettingsUpdateTypeDef(
-    _RequiredReplicaGlobalSecondaryIndexSettingsUpdateTypeDef,
-    _OptionalReplicaGlobalSecondaryIndexSettingsUpdateTypeDef,
-):
-    pass
+class BatchExecuteStatementOutputTypeDef(TypedDict):
+    Responses: List[BatchStatementResponseTypeDef]
+    ConsumedCapacity: List[ConsumedCapacityTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredReplicaGlobalSecondaryIndexTypeDef = TypedDict(
-    "_RequiredReplicaGlobalSecondaryIndexTypeDef",
-    {
-        "IndexName": str,
-    },
-)
-_OptionalReplicaGlobalSecondaryIndexTypeDef = TypedDict(
-    "_OptionalReplicaGlobalSecondaryIndexTypeDef",
-    {
-        "ProvisionedThroughputOverride": "ProvisionedThroughputOverrideTypeDef",
-        "OnDemandThroughputOverride": "OnDemandThroughputOverrideTypeDef",
-    },
-    total=False,
-)
+class BatchWriteItemOutputTypeDef(TypedDict):
+    UnprocessedItems: Dict[str, List[WriteRequestOutputTypeDef]]
+    ItemCollectionMetrics: Dict[str, List[ItemCollectionMetricsTypeDef]]
+    ConsumedCapacity: List[ConsumedCapacityTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class ReplicaGlobalSecondaryIndexTypeDef(
-    _RequiredReplicaGlobalSecondaryIndexTypeDef, _OptionalReplicaGlobalSecondaryIndexTypeDef
-):
-    pass
+class BatchExecuteStatementInputTypeDef(TypedDict):
+    Statements: Sequence[BatchStatementRequestTypeDef]
+    ReturnConsumedCapacity: NotRequired[ReturnConsumedCapacityType]
 
-_RequiredReplicaSettingsDescriptionTypeDef = TypedDict(
-    "_RequiredReplicaSettingsDescriptionTypeDef",
+class QueryInputPaginateTypeDef(TypedDict):
+    TableName: str
+    IndexName: NotRequired[str]
+    Select: NotRequired[SelectType]
+    AttributesToGet: NotRequired[Sequence[str]]
+    ConsistentRead: NotRequired[bool]
+    KeyConditions: NotRequired[Mapping[str, ConditionTypeDef]]
+    QueryFilter: NotRequired[Mapping[str, ConditionTypeDef]]
+    ConditionalOperator: NotRequired[ConditionalOperatorType]
+    ScanIndexForward: NotRequired[bool]
+    ReturnConsumedCapacity: NotRequired[ReturnConsumedCapacityType]
+    ProjectionExpression: NotRequired[str]
+    FilterExpression: NotRequired[str]
+    KeyConditionExpression: NotRequired[str]
+    ExpressionAttributeNames: NotRequired[Mapping[str, str]]
+    ExpressionAttributeValues: NotRequired[Mapping[str, UniversalAttributeValueTypeDef]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class QueryInputTypeDef(TypedDict):
+    TableName: str
+    IndexName: NotRequired[str]
+    Select: NotRequired[SelectType]
+    AttributesToGet: NotRequired[Sequence[str]]
+    Limit: NotRequired[int]
+    ConsistentRead: NotRequired[bool]
+    KeyConditions: NotRequired[Mapping[str, ConditionTypeDef]]
+    QueryFilter: NotRequired[Mapping[str, ConditionTypeDef]]
+    ConditionalOperator: NotRequired[ConditionalOperatorType]
+    ScanIndexForward: NotRequired[bool]
+    ExclusiveStartKey: NotRequired[Mapping[str, UniversalAttributeValueTypeDef]]
+    ReturnConsumedCapacity: NotRequired[ReturnConsumedCapacityType]
+    ProjectionExpression: NotRequired[str]
+    FilterExpression: NotRequired[str]
+    KeyConditionExpression: NotRequired[str]
+    ExpressionAttributeNames: NotRequired[Mapping[str, str]]
+    ExpressionAttributeValues: NotRequired[Mapping[str, UniversalAttributeValueTypeDef]]
+
+class ScanInputPaginateTypeDef(TypedDict):
+    TableName: str
+    IndexName: NotRequired[str]
+    AttributesToGet: NotRequired[Sequence[str]]
+    Select: NotRequired[SelectType]
+    ScanFilter: NotRequired[Mapping[str, ConditionTypeDef]]
+    ConditionalOperator: NotRequired[ConditionalOperatorType]
+    ReturnConsumedCapacity: NotRequired[ReturnConsumedCapacityType]
+    TotalSegments: NotRequired[int]
+    Segment: NotRequired[int]
+    ProjectionExpression: NotRequired[str]
+    FilterExpression: NotRequired[str]
+    ExpressionAttributeNames: NotRequired[Mapping[str, str]]
+    ExpressionAttributeValues: NotRequired[Mapping[str, UniversalAttributeValueTypeDef]]
+    ConsistentRead: NotRequired[bool]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ScanInputTypeDef(TypedDict):
+    TableName: str
+    IndexName: NotRequired[str]
+    AttributesToGet: NotRequired[Sequence[str]]
+    Limit: NotRequired[int]
+    Select: NotRequired[SelectType]
+    ScanFilter: NotRequired[Mapping[str, ConditionTypeDef]]
+    ConditionalOperator: NotRequired[ConditionalOperatorType]
+    ExclusiveStartKey: NotRequired[Mapping[str, UniversalAttributeValueTypeDef]]
+    ReturnConsumedCapacity: NotRequired[ReturnConsumedCapacityType]
+    TotalSegments: NotRequired[int]
+    Segment: NotRequired[int]
+    ProjectionExpression: NotRequired[str]
+    FilterExpression: NotRequired[str]
+    ExpressionAttributeNames: NotRequired[Mapping[str, str]]
+    ExpressionAttributeValues: NotRequired[Mapping[str, UniversalAttributeValueTypeDef]]
+    ConsistentRead: NotRequired[bool]
+
+DeleteRequestUnionTypeDef = Union[DeleteRequestTypeDef, DeleteRequestOutputTypeDef]
+
+class DeleteItemInputTypeDef(TypedDict):
+    TableName: str
+    Key: Mapping[str, UniversalAttributeValueTypeDef]
+    Expected: NotRequired[Mapping[str, ExpectedAttributeValueTypeDef]]
+    ConditionalOperator: NotRequired[ConditionalOperatorType]
+    ReturnValues: NotRequired[ReturnValueType]
+    ReturnConsumedCapacity: NotRequired[ReturnConsumedCapacityType]
+    ReturnItemCollectionMetrics: NotRequired[ReturnItemCollectionMetricsType]
+    ConditionExpression: NotRequired[str]
+    ExpressionAttributeNames: NotRequired[Mapping[str, str]]
+    ExpressionAttributeValues: NotRequired[Mapping[str, UniversalAttributeValueTypeDef]]
+    ReturnValuesOnConditionCheckFailure: NotRequired[ReturnValuesOnConditionCheckFailureType]
+
+class PutItemInputTypeDef(TypedDict):
+    TableName: str
+    Item: Mapping[str, UniversalAttributeValueTypeDef]
+    Expected: NotRequired[Mapping[str, ExpectedAttributeValueTypeDef]]
+    ReturnValues: NotRequired[ReturnValueType]
+    ReturnConsumedCapacity: NotRequired[ReturnConsumedCapacityType]
+    ReturnItemCollectionMetrics: NotRequired[ReturnItemCollectionMetricsType]
+    ConditionalOperator: NotRequired[ConditionalOperatorType]
+    ConditionExpression: NotRequired[str]
+    ExpressionAttributeNames: NotRequired[Mapping[str, str]]
+    ExpressionAttributeValues: NotRequired[Mapping[str, UniversalAttributeValueTypeDef]]
+    ReturnValuesOnConditionCheckFailure: NotRequired[ReturnValuesOnConditionCheckFailureType]
+
+class UpdateItemInputTypeDef(TypedDict):
+    TableName: str
+    Key: Mapping[str, UniversalAttributeValueTypeDef]
+    AttributeUpdates: NotRequired[Mapping[str, AttributeValueUpdateTypeDef]]
+    Expected: NotRequired[Mapping[str, ExpectedAttributeValueTypeDef]]
+    ConditionalOperator: NotRequired[ConditionalOperatorType]
+    ReturnValues: NotRequired[ReturnValueType]
+    ReturnConsumedCapacity: NotRequired[ReturnConsumedCapacityType]
+    ReturnItemCollectionMetrics: NotRequired[ReturnItemCollectionMetricsType]
+    UpdateExpression: NotRequired[str]
+    ConditionExpression: NotRequired[str]
+    ExpressionAttributeNames: NotRequired[Mapping[str, str]]
+    ExpressionAttributeValues: NotRequired[Mapping[str, UniversalAttributeValueTypeDef]]
+    ReturnValuesOnConditionCheckFailure: NotRequired[ReturnValuesOnConditionCheckFailureType]
+
+class TransactGetItemTypeDef(TypedDict):
+    Get: GetTypeDef
+
+KeysAndAttributesUnionTypeDef = Union[KeysAndAttributesTypeDef, KeysAndAttributesOutputTypeDef]
+
+class ExecuteTransactionInputTypeDef(TypedDict):
+    TransactStatements: Sequence[ParameterizedStatementTypeDef]
+    ClientRequestToken: NotRequired[str]
+    ReturnConsumedCapacity: NotRequired[ReturnConsumedCapacityType]
+
+PutRequestUnionTypeDef = Union[PutRequestTypeDef, PutRequestOutputTypeDef]
+
+class TransactWriteItemTypeDef(TypedDict):
+    ConditionCheck: NotRequired[ConditionCheckTypeDef]
+    Put: NotRequired[PutTypeDef]
+    Delete: NotRequired[DeleteTypeDef]
+    Update: NotRequired[UpdateTypeDef]
+
+class BatchGetItemInputServiceResourceBatchGetItemTypeDef(TypedDict):
+    RequestItems: Mapping[str, KeysAndAttributesServiceResourceUnionTypeDef]
+    ReturnConsumedCapacity: NotRequired[ReturnConsumedCapacityType]
+
+class BatchWriteItemOutputServiceResourceTypeDef(TypedDict):
+    UnprocessedItems: Dict[str, List[WriteRequestServiceResourceOutputTypeDef]]
+    ItemCollectionMetrics: Dict[str, List[ItemCollectionMetricsServiceResourceTypeDef]]
+    ConsumedCapacity: List[ConsumedCapacityTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class WriteRequestServiceResourceTypeDef(TypedDict):
+    PutRequest: NotRequired[PutRequestServiceResourceUnionTypeDef]
+    DeleteRequest: NotRequired[DeleteRequestServiceResourceUnionTypeDef]
+
+class ReplicaGlobalSecondaryIndexAutoScalingDescriptionTypeDef(TypedDict):
+    IndexName: NotRequired[str]
+    IndexStatus: NotRequired[IndexStatusType]
+    ProvisionedReadCapacityAutoScalingSettings: NotRequired[AutoScalingSettingsDescriptionTypeDef]
+    ProvisionedWriteCapacityAutoScalingSettings: NotRequired[AutoScalingSettingsDescriptionTypeDef]
+
+class ReplicaGlobalSecondaryIndexSettingsDescriptionTypeDef(TypedDict):
+    IndexName: str
+    IndexStatus: NotRequired[IndexStatusType]
+    ProvisionedReadCapacityUnits: NotRequired[int]
+    ProvisionedReadCapacityAutoScalingSettings: NotRequired[AutoScalingSettingsDescriptionTypeDef]
+    ProvisionedWriteCapacityUnits: NotRequired[int]
+    ProvisionedWriteCapacityAutoScalingSettings: NotRequired[AutoScalingSettingsDescriptionTypeDef]
+
+class GlobalSecondaryIndexAutoScalingUpdateTypeDef(TypedDict):
+    IndexName: NotRequired[str]
+    ProvisionedWriteCapacityAutoScalingUpdate: NotRequired[AutoScalingSettingsUpdateTypeDef]
+
+class GlobalTableGlobalSecondaryIndexSettingsUpdateTypeDef(TypedDict):
+    IndexName: str
+    ProvisionedWriteCapacityUnits: NotRequired[int]
+    ProvisionedWriteCapacityAutoScalingSettingsUpdate: NotRequired[AutoScalingSettingsUpdateTypeDef]
+
+class ReplicaGlobalSecondaryIndexAutoScalingUpdateTypeDef(TypedDict):
+    IndexName: NotRequired[str]
+    ProvisionedReadCapacityAutoScalingUpdate: NotRequired[AutoScalingSettingsUpdateTypeDef]
+
+class ReplicaGlobalSecondaryIndexSettingsUpdateTypeDef(TypedDict):
+    IndexName: str
+    ProvisionedReadCapacityUnits: NotRequired[int]
+    ProvisionedReadCapacityAutoScalingSettingsUpdate: NotRequired[AutoScalingSettingsUpdateTypeDef]
+
+class ReplicationGroupUpdateTypeDef(TypedDict):
+    Create: NotRequired[CreateReplicationGroupMemberActionTypeDef]
+    Update: NotRequired[UpdateReplicationGroupMemberActionTypeDef]
+    Delete: NotRequired[DeleteReplicationGroupMemberActionTypeDef]
+
+class ExportTableToPointInTimeInputTypeDef(TypedDict):
+    TableArn: str
+    S3Bucket: str
+    ExportTime: NotRequired[TimestampTypeDef]
+    ClientToken: NotRequired[str]
+    S3BucketOwner: NotRequired[str]
+    S3Prefix: NotRequired[str]
+    S3SseAlgorithm: NotRequired[S3SseAlgorithmType]
+    S3SseKmsKeyId: NotRequired[str]
+    ExportFormat: NotRequired[ExportFormatType]
+    ExportType: NotRequired[ExportTypeType]
+    IncrementalExportSpecification: NotRequired[IncrementalExportSpecificationUnionTypeDef]
+
+class GlobalTableDescriptionTypeDef(TypedDict):
+    ReplicationGroup: NotRequired[List[ReplicaDescriptionTypeDef]]
+    GlobalTableArn: NotRequired[str]
+    CreationDateTime: NotRequired[datetime]
+    GlobalTableStatus: NotRequired[GlobalTableStatusType]
+    GlobalTableName: NotRequired[str]
+
+class TableDescriptionTypeDef(TypedDict):
+    AttributeDefinitions: NotRequired[List[AttributeDefinitionTypeDef]]
+    TableName: NotRequired[str]
+    KeySchema: NotRequired[List[KeySchemaElementTypeDef]]
+    TableStatus: NotRequired[TableStatusType]
+    CreationDateTime: NotRequired[datetime]
+    ProvisionedThroughput: NotRequired[ProvisionedThroughputDescriptionTypeDef]
+    TableSizeBytes: NotRequired[int]
+    ItemCount: NotRequired[int]
+    TableArn: NotRequired[str]
+    TableId: NotRequired[str]
+    BillingModeSummary: NotRequired[BillingModeSummaryTypeDef]
+    LocalSecondaryIndexes: NotRequired[List[LocalSecondaryIndexDescriptionTypeDef]]
+    GlobalSecondaryIndexes: NotRequired[List[GlobalSecondaryIndexDescriptionTypeDef]]
+    StreamSpecification: NotRequired[StreamSpecificationTypeDef]
+    LatestStreamLabel: NotRequired[str]
+    LatestStreamArn: NotRequired[str]
+    GlobalTableVersion: NotRequired[str]
+    Replicas: NotRequired[List[ReplicaDescriptionTypeDef]]
+    RestoreSummary: NotRequired[RestoreSummaryTypeDef]
+    SSEDescription: NotRequired[SSEDescriptionTypeDef]
+    ArchivalSummary: NotRequired[ArchivalSummaryTypeDef]
+    TableClassSummary: NotRequired[TableClassSummaryTypeDef]
+    DeletionProtectionEnabled: NotRequired[bool]
+    OnDemandThroughput: NotRequired[OnDemandThroughputTypeDef]
+    WarmThroughput: NotRequired[TableWarmThroughputDescriptionTypeDef]
+    MultiRegionConsistency: NotRequired[MultiRegionConsistencyType]
+
+class ImportTableDescriptionTypeDef(TypedDict):
+    ImportArn: NotRequired[str]
+    ImportStatus: NotRequired[ImportStatusType]
+    TableArn: NotRequired[str]
+    TableId: NotRequired[str]
+    ClientToken: NotRequired[str]
+    S3BucketSource: NotRequired[S3BucketSourceTypeDef]
+    ErrorCount: NotRequired[int]
+    CloudWatchLogGroupArn: NotRequired[str]
+    InputFormat: NotRequired[InputFormatType]
+    InputFormatOptions: NotRequired[InputFormatOptionsOutputTypeDef]
+    InputCompressionType: NotRequired[InputCompressionTypeType]
+    TableCreationParameters: NotRequired[TableCreationParametersOutputTypeDef]
+    StartTime: NotRequired[datetime]
+    EndTime: NotRequired[datetime]
+    ProcessedSizeBytes: NotRequired[int]
+    ProcessedItemCount: NotRequired[int]
+    ImportedItemCount: NotRequired[int]
+    FailureCode: NotRequired[str]
+    FailureMessage: NotRequired[str]
+
+class BackupDescriptionTypeDef(TypedDict):
+    BackupDetails: NotRequired[BackupDetailsTypeDef]
+    SourceTableDetails: NotRequired[SourceTableDetailsTypeDef]
+    SourceTableFeatureDetails: NotRequired[SourceTableFeatureDetailsTypeDef]
+
+class GlobalSecondaryIndexUpdateTypeDef(TypedDict):
+    Update: NotRequired[UpdateGlobalSecondaryIndexActionTypeDef]
+    Create: NotRequired[CreateGlobalSecondaryIndexActionTypeDef]
+    Delete: NotRequired[DeleteGlobalSecondaryIndexActionTypeDef]
+
+GlobalSecondaryIndexUnionTypeDef = Union[
+    GlobalSecondaryIndexTypeDef, GlobalSecondaryIndexOutputTypeDef
+]
+
+class TableCreationParametersTypeDef(TypedDict):
+    TableName: str
+    AttributeDefinitions: Sequence[AttributeDefinitionTypeDef]
+    KeySchema: Sequence[KeySchemaElementTypeDef]
+    BillingMode: NotRequired[BillingModeType]
+    ProvisionedThroughput: NotRequired[ProvisionedThroughputTypeDef]
+    OnDemandThroughput: NotRequired[OnDemandThroughputTypeDef]
+    SSESpecification: NotRequired[SSESpecificationTypeDef]
+    GlobalSecondaryIndexes: NotRequired[Sequence[GlobalSecondaryIndexTypeDef]]
+
+class TransactGetItemsInputTypeDef(TypedDict):
+    TransactItems: Sequence[TransactGetItemTypeDef]
+    ReturnConsumedCapacity: NotRequired[ReturnConsumedCapacityType]
+
+class BatchGetItemInputTypeDef(TypedDict):
+    RequestItems: Mapping[str, KeysAndAttributesUnionTypeDef]
+    ReturnConsumedCapacity: NotRequired[ReturnConsumedCapacityType]
+
+class WriteRequestTypeDef(TypedDict):
+    PutRequest: NotRequired[PutRequestUnionTypeDef]
+    DeleteRequest: NotRequired[DeleteRequestUnionTypeDef]
+
+class TransactWriteItemsInputTypeDef(TypedDict):
+    TransactItems: Sequence[TransactWriteItemTypeDef]
+    ReturnConsumedCapacity: NotRequired[ReturnConsumedCapacityType]
+    ReturnItemCollectionMetrics: NotRequired[ReturnItemCollectionMetricsType]
+    ClientRequestToken: NotRequired[str]
+
+WriteRequestServiceResourceUnionTypeDef = Union[
+    WriteRequestServiceResourceTypeDef, WriteRequestServiceResourceOutputTypeDef
+]
+ReplicaAutoScalingDescriptionTypeDef = TypedDict(
+    "ReplicaAutoScalingDescriptionTypeDef",
     {
-        "RegionName": str,
-    },
-)
-_OptionalReplicaSettingsDescriptionTypeDef = TypedDict(
-    "_OptionalReplicaSettingsDescriptionTypeDef",
-    {
-        "ReplicaStatus": ReplicaStatusType,
-        "ReplicaBillingModeSummary": "BillingModeSummaryTypeDef",
-        "ReplicaProvisionedReadCapacityUnits": int,
-        "ReplicaProvisionedReadCapacityAutoScalingSettings": "AutoScalingSettingsDescriptionTypeDef",
-        "ReplicaProvisionedWriteCapacityUnits": int,
-        "ReplicaProvisionedWriteCapacityAutoScalingSettings": "AutoScalingSettingsDescriptionTypeDef",
-        "ReplicaGlobalSecondaryIndexSettings": List[
-            "ReplicaGlobalSecondaryIndexSettingsDescriptionTypeDef"
+        "RegionName": NotRequired[str],
+        "GlobalSecondaryIndexes": NotRequired[
+            List[ReplicaGlobalSecondaryIndexAutoScalingDescriptionTypeDef]
         ],
-        "ReplicaTableClassSummary": "TableClassSummaryTypeDef",
-    },
-    total=False,
-)
-
-class ReplicaSettingsDescriptionTypeDef(
-    _RequiredReplicaSettingsDescriptionTypeDef, _OptionalReplicaSettingsDescriptionTypeDef
-):
-    pass
-
-_RequiredReplicaSettingsUpdateTypeDef = TypedDict(
-    "_RequiredReplicaSettingsUpdateTypeDef",
-    {
-        "RegionName": str,
-    },
-)
-_OptionalReplicaSettingsUpdateTypeDef = TypedDict(
-    "_OptionalReplicaSettingsUpdateTypeDef",
-    {
-        "ReplicaProvisionedReadCapacityUnits": int,
-        "ReplicaProvisionedReadCapacityAutoScalingSettingsUpdate": "AutoScalingSettingsUpdateTypeDef",
-        "ReplicaGlobalSecondaryIndexSettingsUpdate": List[
-            "ReplicaGlobalSecondaryIndexSettingsUpdateTypeDef"
+        "ReplicaProvisionedReadCapacityAutoScalingSettings": NotRequired[
+            AutoScalingSettingsDescriptionTypeDef
         ],
-        "ReplicaTableClass": TableClassType,
-    },
-    total=False,
-)
-
-class ReplicaSettingsUpdateTypeDef(
-    _RequiredReplicaSettingsUpdateTypeDef, _OptionalReplicaSettingsUpdateTypeDef
-):
-    pass
-
-ReplicaTypeDef = TypedDict(
-    "ReplicaTypeDef",
-    {
-        "RegionName": str,
-    },
-    total=False,
-)
-
-ReplicaUpdateTypeDef = TypedDict(
-    "ReplicaUpdateTypeDef",
-    {
-        "Create": "CreateReplicaActionTypeDef",
-        "Delete": "DeleteReplicaActionTypeDef",
-    },
-    total=False,
-)
-
-ReplicationGroupUpdateTypeDef = TypedDict(
-    "ReplicationGroupUpdateTypeDef",
-    {
-        "Create": "CreateReplicationGroupMemberActionTypeDef",
-        "Update": "UpdateReplicationGroupMemberActionTypeDef",
-        "Delete": "DeleteReplicationGroupMemberActionTypeDef",
-    },
-    total=False,
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-_RequiredRestoreSummaryTypeDef = TypedDict(
-    "_RequiredRestoreSummaryTypeDef",
-    {
-        "RestoreDateTime": datetime,
-        "RestoreInProgress": bool,
-    },
-)
-_OptionalRestoreSummaryTypeDef = TypedDict(
-    "_OptionalRestoreSummaryTypeDef",
-    {
-        "SourceBackupArn": str,
-        "SourceTableArn": str,
-    },
-    total=False,
-)
-
-class RestoreSummaryTypeDef(_RequiredRestoreSummaryTypeDef, _OptionalRestoreSummaryTypeDef):
-    pass
-
-_RequiredRestoreTableFromBackupInputRequestTypeDef = TypedDict(
-    "_RequiredRestoreTableFromBackupInputRequestTypeDef",
-    {
-        "TargetTableName": str,
-        "BackupArn": str,
-    },
-)
-_OptionalRestoreTableFromBackupInputRequestTypeDef = TypedDict(
-    "_OptionalRestoreTableFromBackupInputRequestTypeDef",
-    {
-        "BillingModeOverride": BillingModeType,
-        "GlobalSecondaryIndexOverride": List["GlobalSecondaryIndexTypeDef"],
-        "LocalSecondaryIndexOverride": List["LocalSecondaryIndexTypeDef"],
-        "ProvisionedThroughputOverride": "ProvisionedThroughputTypeDef",
-        "OnDemandThroughputOverride": "OnDemandThroughputTypeDef",
-        "SSESpecificationOverride": "SSESpecificationTypeDef",
-    },
-    total=False,
-)
-
-class RestoreTableFromBackupInputRequestTypeDef(
-    _RequiredRestoreTableFromBackupInputRequestTypeDef,
-    _OptionalRestoreTableFromBackupInputRequestTypeDef,
-):
-    pass
-
-RestoreTableFromBackupOutputTypeDef = TypedDict(
-    "RestoreTableFromBackupOutputTypeDef",
-    {
-        "TableDescription": "TableDescriptionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredRestoreTableToPointInTimeInputRequestTypeDef = TypedDict(
-    "_RequiredRestoreTableToPointInTimeInputRequestTypeDef",
-    {
-        "TargetTableName": str,
-    },
-)
-_OptionalRestoreTableToPointInTimeInputRequestTypeDef = TypedDict(
-    "_OptionalRestoreTableToPointInTimeInputRequestTypeDef",
-    {
-        "SourceTableArn": str,
-        "SourceTableName": str,
-        "UseLatestRestorableTime": bool,
-        "RestoreDateTime": Union[datetime, str],
-        "BillingModeOverride": BillingModeType,
-        "GlobalSecondaryIndexOverride": List["GlobalSecondaryIndexTypeDef"],
-        "LocalSecondaryIndexOverride": List["LocalSecondaryIndexTypeDef"],
-        "ProvisionedThroughputOverride": "ProvisionedThroughputTypeDef",
-        "OnDemandThroughputOverride": "OnDemandThroughputTypeDef",
-        "SSESpecificationOverride": "SSESpecificationTypeDef",
-    },
-    total=False,
-)
-
-class RestoreTableToPointInTimeInputRequestTypeDef(
-    _RequiredRestoreTableToPointInTimeInputRequestTypeDef,
-    _OptionalRestoreTableToPointInTimeInputRequestTypeDef,
-):
-    pass
-
-RestoreTableToPointInTimeOutputTypeDef = TypedDict(
-    "RestoreTableToPointInTimeOutputTypeDef",
-    {
-        "TableDescription": "TableDescriptionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredS3BucketSourceTypeDef = TypedDict(
-    "_RequiredS3BucketSourceTypeDef",
-    {
-        "S3Bucket": str,
-    },
-)
-_OptionalS3BucketSourceTypeDef = TypedDict(
-    "_OptionalS3BucketSourceTypeDef",
-    {
-        "S3BucketOwner": str,
-        "S3KeyPrefix": str,
-    },
-    total=False,
-)
-
-class S3BucketSourceTypeDef(_RequiredS3BucketSourceTypeDef, _OptionalS3BucketSourceTypeDef):
-    pass
-
-SSEDescriptionTypeDef = TypedDict(
-    "SSEDescriptionTypeDef",
-    {
-        "Status": SSEStatusType,
-        "SSEType": SSETypeType,
-        "KMSMasterKeyArn": str,
-        "InaccessibleEncryptionDateTime": datetime,
-    },
-    total=False,
-)
-
-SSESpecificationTypeDef = TypedDict(
-    "SSESpecificationTypeDef",
-    {
-        "Enabled": bool,
-        "SSEType": SSETypeType,
-        "KMSMasterKeyId": str,
-    },
-    total=False,
-)
-
-_RequiredScanInputRequestTypeDef = TypedDict(
-    "_RequiredScanInputRequestTypeDef",
-    {
-        "TableName": str,
-    },
-)
-_OptionalScanInputRequestTypeDef = TypedDict(
-    "_OptionalScanInputRequestTypeDef",
-    {
-        "IndexName": str,
-        "AttributesToGet": List[str],
-        "Limit": int,
-        "Select": SelectType,
-        "ScanFilter": Dict[str, "ConditionTypeDef"],
-        "ConditionalOperator": ConditionalOperatorType,
-        "ExclusiveStartKey": Dict[
-            str,
-            Union[
-                bytes,
-                bytearray,
-                str,
-                int,
-                Decimal,
-                bool,
-                Set[int],
-                Set[Decimal],
-                Set[str],
-                Set[bytes],
-                Set[bytearray],
-                List[Any],
-                Dict[str, Any],
-                None,
-            ],
+        "ReplicaProvisionedWriteCapacityAutoScalingSettings": NotRequired[
+            AutoScalingSettingsDescriptionTypeDef
         ],
-        "ReturnConsumedCapacity": ReturnConsumedCapacityType,
-        "TotalSegments": int,
-        "Segment": int,
-        "ProjectionExpression": str,
-        "FilterExpression": str,
-        "ExpressionAttributeNames": Dict[str, str],
-        "ExpressionAttributeValues": Dict[
-            str,
-            Union[
-                bytes,
-                bytearray,
-                str,
-                int,
-                Decimal,
-                bool,
-                Set[int],
-                Set[Decimal],
-                Set[str],
-                Set[bytes],
-                Set[bytearray],
-                List[Any],
-                Dict[str, Any],
-                None,
-            ],
-        ],
-        "ConsistentRead": bool,
-    },
-    total=False,
-)
-
-class ScanInputRequestTypeDef(_RequiredScanInputRequestTypeDef, _OptionalScanInputRequestTypeDef):
-    pass
-
-ScanInputTableTypeDef = TypedDict(
-    "ScanInputTableTypeDef",
-    {
-        "IndexName": str,
-        "AttributesToGet": List[str],
-        "Limit": int,
-        "Select": SelectType,
-        "ScanFilter": Dict[str, "ConditionTypeDef"],
-        "ConditionalOperator": ConditionalOperatorType,
-        "ExclusiveStartKey": Dict[
-            str,
-            Union[
-                bytes,
-                bytearray,
-                str,
-                int,
-                Decimal,
-                bool,
-                Set[int],
-                Set[Decimal],
-                Set[str],
-                Set[bytes],
-                Set[bytearray],
-                List[Any],
-                Dict[str, Any],
-                None,
-            ],
-        ],
-        "ReturnConsumedCapacity": ReturnConsumedCapacityType,
-        "TotalSegments": int,
-        "Segment": int,
-        "ProjectionExpression": str,
-        "FilterExpression": Union[str, ConditionBase],
-        "ExpressionAttributeNames": Dict[str, str],
-        "ExpressionAttributeValues": Dict[
-            str,
-            Union[
-                bytes,
-                bytearray,
-                str,
-                int,
-                Decimal,
-                bool,
-                Set[int],
-                Set[Decimal],
-                Set[str],
-                Set[bytes],
-                Set[bytearray],
-                List[Any],
-                Dict[str, Any],
-                None,
-            ],
-        ],
-        "ConsistentRead": bool,
-    },
-    total=False,
-)
-
-ScanOutputTypeDef = TypedDict(
-    "ScanOutputTypeDef",
-    {
-        "Items": List[
-            Dict[
-                str,
-                Union[
-                    bytes,
-                    bytearray,
-                    str,
-                    int,
-                    Decimal,
-                    bool,
-                    Set[int],
-                    Set[Decimal],
-                    Set[str],
-                    Set[bytes],
-                    Set[bytearray],
-                    List[Any],
-                    Dict[str, Any],
-                    None,
-                ],
-            ]
-        ],
-        "Count": int,
-        "ScannedCount": int,
-        "LastEvaluatedKey": Dict[
-            str,
-            Union[
-                bytes,
-                bytearray,
-                str,
-                int,
-                Decimal,
-                bool,
-                Set[int],
-                Set[Decimal],
-                Set[str],
-                Set[bytes],
-                Set[bytearray],
-                List[Any],
-                Dict[str, Any],
-                None,
-            ],
-        ],
-        "ConsumedCapacity": "ConsumedCapacityTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ReplicaStatus": NotRequired[ReplicaStatusType],
     },
 )
-
-ServiceResourceTableRequestTypeDef = TypedDict(
-    "ServiceResourceTableRequestTypeDef",
-    {
-        "name": str,
-    },
-)
-
-_RequiredSourceTableDetailsTypeDef = TypedDict(
-    "_RequiredSourceTableDetailsTypeDef",
-    {
-        "TableName": str,
-        "TableId": str,
-        "KeySchema": List["KeySchemaElementTypeDef"],
-        "TableCreationDateTime": datetime,
-        "ProvisionedThroughput": "ProvisionedThroughputTypeDef",
-    },
-)
-_OptionalSourceTableDetailsTypeDef = TypedDict(
-    "_OptionalSourceTableDetailsTypeDef",
-    {
-        "TableArn": str,
-        "TableSizeBytes": int,
-        "OnDemandThroughput": "OnDemandThroughputTypeDef",
-        "ItemCount": int,
-        "BillingMode": BillingModeType,
-    },
-    total=False,
-)
-
-class SourceTableDetailsTypeDef(
-    _RequiredSourceTableDetailsTypeDef, _OptionalSourceTableDetailsTypeDef
-):
-    pass
-
-SourceTableFeatureDetailsTypeDef = TypedDict(
-    "SourceTableFeatureDetailsTypeDef",
-    {
-        "LocalSecondaryIndexes": List["LocalSecondaryIndexInfoTypeDef"],
-        "GlobalSecondaryIndexes": List["GlobalSecondaryIndexInfoTypeDef"],
-        "StreamDescription": "StreamSpecificationTypeDef",
-        "TimeToLiveDescription": "TimeToLiveDescriptionTypeDef",
-        "SSEDescription": "SSEDescriptionTypeDef",
-    },
-    total=False,
-)
-
-_RequiredStreamSpecificationTypeDef = TypedDict(
-    "_RequiredStreamSpecificationTypeDef",
-    {
-        "StreamEnabled": bool,
-    },
-)
-_OptionalStreamSpecificationTypeDef = TypedDict(
-    "_OptionalStreamSpecificationTypeDef",
-    {
-        "StreamViewType": StreamViewTypeType,
-    },
-    total=False,
-)
-
-class StreamSpecificationTypeDef(
-    _RequiredStreamSpecificationTypeDef, _OptionalStreamSpecificationTypeDef
-):
-    pass
-
-TableAutoScalingDescriptionTypeDef = TypedDict(
-    "TableAutoScalingDescriptionTypeDef",
-    {
-        "TableName": str,
-        "TableStatus": TableStatusType,
-        "Replicas": List["ReplicaAutoScalingDescriptionTypeDef"],
-    },
-    total=False,
-)
-
-TableBatchWriterRequestTypeDef = TypedDict(
-    "TableBatchWriterRequestTypeDef",
-    {
-        "overwrite_by_pkeys": List[str],
-    },
-    total=False,
-)
-
-TableClassSummaryTypeDef = TypedDict(
-    "TableClassSummaryTypeDef",
-    {
-        "TableClass": TableClassType,
-        "LastUpdateDateTime": datetime,
-    },
-    total=False,
-)
-
-_RequiredTableCreationParametersTypeDef = TypedDict(
-    "_RequiredTableCreationParametersTypeDef",
-    {
-        "TableName": str,
-        "AttributeDefinitions": List["AttributeDefinitionTypeDef"],
-        "KeySchema": List["KeySchemaElementTypeDef"],
-    },
-)
-_OptionalTableCreationParametersTypeDef = TypedDict(
-    "_OptionalTableCreationParametersTypeDef",
-    {
-        "BillingMode": BillingModeType,
-        "ProvisionedThroughput": "ProvisionedThroughputTypeDef",
-        "OnDemandThroughput": "OnDemandThroughputTypeDef",
-        "SSESpecification": "SSESpecificationTypeDef",
-        "GlobalSecondaryIndexes": List["GlobalSecondaryIndexTypeDef"],
-    },
-    total=False,
-)
-
-class TableCreationParametersTypeDef(
-    _RequiredTableCreationParametersTypeDef, _OptionalTableCreationParametersTypeDef
-):
-    pass
-
-TableDescriptionTypeDef = TypedDict(
-    "TableDescriptionTypeDef",
-    {
-        "AttributeDefinitions": List["AttributeDefinitionTypeDef"],
-        "TableName": str,
-        "KeySchema": List["KeySchemaElementTypeDef"],
-        "TableStatus": TableStatusType,
-        "CreationDateTime": datetime,
-        "ProvisionedThroughput": "ProvisionedThroughputDescriptionTypeDef",
-        "TableSizeBytes": int,
-        "ItemCount": int,
-        "TableArn": str,
-        "TableId": str,
-        "BillingModeSummary": "BillingModeSummaryTypeDef",
-        "LocalSecondaryIndexes": List["LocalSecondaryIndexDescriptionTypeDef"],
-        "GlobalSecondaryIndexes": List["GlobalSecondaryIndexDescriptionTypeDef"],
-        "StreamSpecification": "StreamSpecificationTypeDef",
-        "LatestStreamLabel": str,
-        "LatestStreamArn": str,
-        "GlobalTableVersion": str,
-        "Replicas": List["ReplicaDescriptionTypeDef"],
-        "RestoreSummary": "RestoreSummaryTypeDef",
-        "SSEDescription": "SSEDescriptionTypeDef",
-        "ArchivalSummary": "ArchivalSummaryTypeDef",
-        "TableClassSummary": "TableClassSummaryTypeDef",
-        "DeletionProtectionEnabled": bool,
-        "OnDemandThroughput": "OnDemandThroughputTypeDef",
-    },
-    total=False,
-)
-
-TagResourceInputRequestTypeDef = TypedDict(
-    "TagResourceInputRequestTypeDef",
-    {
-        "ResourceArn": str,
-        "Tags": List["TagTypeDef"],
-    },
-)
-
-TagTypeDef = TypedDict(
-    "TagTypeDef",
-    {
-        "Key": str,
-        "Value": str,
-    },
-)
-
-TimeToLiveDescriptionTypeDef = TypedDict(
-    "TimeToLiveDescriptionTypeDef",
-    {
-        "TimeToLiveStatus": TimeToLiveStatusType,
-        "AttributeName": str,
-    },
-    total=False,
-)
-
-TimeToLiveSpecificationTypeDef = TypedDict(
-    "TimeToLiveSpecificationTypeDef",
-    {
-        "Enabled": bool,
-        "AttributeName": str,
-    },
-)
-
-TransactGetItemTypeDef = TypedDict(
-    "TransactGetItemTypeDef",
-    {
-        "Get": "GetTypeDef",
-    },
-)
-
-_RequiredTransactGetItemsInputRequestTypeDef = TypedDict(
-    "_RequiredTransactGetItemsInputRequestTypeDef",
-    {
-        "TransactItems": List["TransactGetItemTypeDef"],
-    },
-)
-_OptionalTransactGetItemsInputRequestTypeDef = TypedDict(
-    "_OptionalTransactGetItemsInputRequestTypeDef",
-    {
-        "ReturnConsumedCapacity": ReturnConsumedCapacityType,
-    },
-    total=False,
-)
-
-class TransactGetItemsInputRequestTypeDef(
-    _RequiredTransactGetItemsInputRequestTypeDef, _OptionalTransactGetItemsInputRequestTypeDef
-):
-    pass
-
-TransactGetItemsOutputTypeDef = TypedDict(
-    "TransactGetItemsOutputTypeDef",
-    {
-        "ConsumedCapacity": List["ConsumedCapacityTypeDef"],
-        "Responses": List["ItemResponseTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-TransactWriteItemTypeDef = TypedDict(
-    "TransactWriteItemTypeDef",
-    {
-        "ConditionCheck": "ConditionCheckTypeDef",
-        "Put": "PutTypeDef",
-        "Delete": "DeleteTypeDef",
-        "Update": "UpdateTypeDef",
-    },
-    total=False,
-)
-
-_RequiredTransactWriteItemsInputRequestTypeDef = TypedDict(
-    "_RequiredTransactWriteItemsInputRequestTypeDef",
-    {
-        "TransactItems": List["TransactWriteItemTypeDef"],
-    },
-)
-_OptionalTransactWriteItemsInputRequestTypeDef = TypedDict(
-    "_OptionalTransactWriteItemsInputRequestTypeDef",
-    {
-        "ReturnConsumedCapacity": ReturnConsumedCapacityType,
-        "ReturnItemCollectionMetrics": ReturnItemCollectionMetricsType,
-        "ClientRequestToken": str,
-    },
-    total=False,
-)
-
-class TransactWriteItemsInputRequestTypeDef(
-    _RequiredTransactWriteItemsInputRequestTypeDef, _OptionalTransactWriteItemsInputRequestTypeDef
-):
-    pass
-
-TransactWriteItemsOutputTypeDef = TypedDict(
-    "TransactWriteItemsOutputTypeDef",
-    {
-        "ConsumedCapacity": List["ConsumedCapacityTypeDef"],
-        "ItemCollectionMetrics": Dict[str, List["ItemCollectionMetricsTypeDef"]],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UntagResourceInputRequestTypeDef = TypedDict(
-    "UntagResourceInputRequestTypeDef",
-    {
-        "ResourceArn": str,
-        "TagKeys": List[str],
-    },
-)
-
-UpdateContinuousBackupsInputRequestTypeDef = TypedDict(
-    "UpdateContinuousBackupsInputRequestTypeDef",
-    {
-        "TableName": str,
-        "PointInTimeRecoverySpecification": "PointInTimeRecoverySpecificationTypeDef",
-    },
-)
-
-UpdateContinuousBackupsOutputTypeDef = TypedDict(
-    "UpdateContinuousBackupsOutputTypeDef",
-    {
-        "ContinuousBackupsDescription": "ContinuousBackupsDescriptionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateContributorInsightsInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateContributorInsightsInputRequestTypeDef",
-    {
-        "TableName": str,
-        "ContributorInsightsAction": ContributorInsightsActionType,
-    },
-)
-_OptionalUpdateContributorInsightsInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateContributorInsightsInputRequestTypeDef",
-    {
-        "IndexName": str,
-    },
-    total=False,
-)
-
-class UpdateContributorInsightsInputRequestTypeDef(
-    _RequiredUpdateContributorInsightsInputRequestTypeDef,
-    _OptionalUpdateContributorInsightsInputRequestTypeDef,
-):
-    pass
-
-UpdateContributorInsightsOutputTypeDef = TypedDict(
-    "UpdateContributorInsightsOutputTypeDef",
-    {
-        "TableName": str,
-        "IndexName": str,
-        "ContributorInsightsStatus": ContributorInsightsStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateGlobalSecondaryIndexActionTypeDef = TypedDict(
-    "_RequiredUpdateGlobalSecondaryIndexActionTypeDef",
-    {
-        "IndexName": str,
-    },
-)
-_OptionalUpdateGlobalSecondaryIndexActionTypeDef = TypedDict(
-    "_OptionalUpdateGlobalSecondaryIndexActionTypeDef",
-    {
-        "ProvisionedThroughput": "ProvisionedThroughputTypeDef",
-        "OnDemandThroughput": "OnDemandThroughputTypeDef",
-    },
-    total=False,
-)
-
-class UpdateGlobalSecondaryIndexActionTypeDef(
-    _RequiredUpdateGlobalSecondaryIndexActionTypeDef,
-    _OptionalUpdateGlobalSecondaryIndexActionTypeDef,
-):
-    pass
-
-UpdateGlobalTableInputRequestTypeDef = TypedDict(
-    "UpdateGlobalTableInputRequestTypeDef",
-    {
-        "GlobalTableName": str,
-        "ReplicaUpdates": List["ReplicaUpdateTypeDef"],
-    },
-)
-
-UpdateGlobalTableOutputTypeDef = TypedDict(
-    "UpdateGlobalTableOutputTypeDef",
-    {
-        "GlobalTableDescription": "GlobalTableDescriptionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateGlobalTableSettingsInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateGlobalTableSettingsInputRequestTypeDef",
-    {
-        "GlobalTableName": str,
-    },
-)
-_OptionalUpdateGlobalTableSettingsInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateGlobalTableSettingsInputRequestTypeDef",
-    {
-        "GlobalTableBillingMode": BillingModeType,
-        "GlobalTableProvisionedWriteCapacityUnits": int,
-        "GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate": "AutoScalingSettingsUpdateTypeDef",
-        "GlobalTableGlobalSecondaryIndexSettingsUpdate": List[
-            "GlobalTableGlobalSecondaryIndexSettingsUpdateTypeDef"
-        ],
-        "ReplicaSettingsUpdate": List["ReplicaSettingsUpdateTypeDef"],
-    },
-    total=False,
-)
-
-class UpdateGlobalTableSettingsInputRequestTypeDef(
-    _RequiredUpdateGlobalTableSettingsInputRequestTypeDef,
-    _OptionalUpdateGlobalTableSettingsInputRequestTypeDef,
-):
-    pass
-
-UpdateGlobalTableSettingsOutputTypeDef = TypedDict(
-    "UpdateGlobalTableSettingsOutputTypeDef",
-    {
-        "GlobalTableName": str,
-        "ReplicaSettings": List["ReplicaSettingsDescriptionTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateItemInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateItemInputRequestTypeDef",
-    {
-        "TableName": str,
-        "Key": Dict[
-            str,
-            Union[
-                bytes,
-                bytearray,
-                str,
-                int,
-                Decimal,
-                bool,
-                Set[int],
-                Set[Decimal],
-                Set[str],
-                Set[bytes],
-                Set[bytearray],
-                List[Any],
-                Dict[str, Any],
-                None,
-            ],
-        ],
-    },
-)
-_OptionalUpdateItemInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateItemInputRequestTypeDef",
-    {
-        "AttributeUpdates": Dict[str, "AttributeValueUpdateTypeDef"],
-        "Expected": Dict[str, "ExpectedAttributeValueTypeDef"],
-        "ConditionalOperator": ConditionalOperatorType,
-        "ReturnValues": ReturnValueType,
-        "ReturnConsumedCapacity": ReturnConsumedCapacityType,
-        "ReturnItemCollectionMetrics": ReturnItemCollectionMetricsType,
-        "UpdateExpression": str,
-        "ConditionExpression": str,
-        "ExpressionAttributeNames": Dict[str, str],
-        "ExpressionAttributeValues": Dict[
-            str,
-            Union[
-                bytes,
-                bytearray,
-                str,
-                int,
-                Decimal,
-                bool,
-                Set[int],
-                Set[Decimal],
-                Set[str],
-                Set[bytes],
-                Set[bytearray],
-                List[Any],
-                Dict[str, Any],
-                None,
-            ],
-        ],
-        "ReturnValuesOnConditionCheckFailure": ReturnValuesOnConditionCheckFailureType,
-    },
-    total=False,
-)
-
-class UpdateItemInputRequestTypeDef(
-    _RequiredUpdateItemInputRequestTypeDef, _OptionalUpdateItemInputRequestTypeDef
-):
-    pass
-
-_RequiredUpdateItemInputTableTypeDef = TypedDict(
-    "_RequiredUpdateItemInputTableTypeDef",
-    {
-        "Key": Dict[
-            str,
-            Union[
-                bytes,
-                bytearray,
-                str,
-                int,
-                Decimal,
-                bool,
-                Set[int],
-                Set[Decimal],
-                Set[str],
-                Set[bytes],
-                Set[bytearray],
-                List[Any],
-                Dict[str, Any],
-                None,
-            ],
-        ],
-    },
-)
-_OptionalUpdateItemInputTableTypeDef = TypedDict(
-    "_OptionalUpdateItemInputTableTypeDef",
-    {
-        "AttributeUpdates": Dict[str, "AttributeValueUpdateTypeDef"],
-        "Expected": Dict[str, "ExpectedAttributeValueTypeDef"],
-        "ConditionalOperator": ConditionalOperatorType,
-        "ReturnValues": ReturnValueType,
-        "ReturnConsumedCapacity": ReturnConsumedCapacityType,
-        "ReturnItemCollectionMetrics": ReturnItemCollectionMetricsType,
-        "UpdateExpression": str,
-        "ConditionExpression": str,
-        "ExpressionAttributeNames": Dict[str, str],
-        "ExpressionAttributeValues": Dict[
-            str,
-            Union[
-                bytes,
-                bytearray,
-                str,
-                int,
-                Decimal,
-                bool,
-                Set[int],
-                Set[Decimal],
-                Set[str],
-                Set[bytes],
-                Set[bytearray],
-                List[Any],
-                Dict[str, Any],
-                None,
-            ],
-        ],
-        "ReturnValuesOnConditionCheckFailure": ReturnValuesOnConditionCheckFailureType,
-    },
-    total=False,
-)
-
-class UpdateItemInputTableTypeDef(
-    _RequiredUpdateItemInputTableTypeDef, _OptionalUpdateItemInputTableTypeDef
-):
-    pass
-
-UpdateItemOutputTypeDef = TypedDict(
-    "UpdateItemOutputTypeDef",
-    {
-        "Attributes": Dict[
-            str,
-            Union[
-                bytes,
-                bytearray,
-                str,
-                int,
-                Decimal,
-                bool,
-                Set[int],
-                Set[Decimal],
-                Set[str],
-                Set[bytes],
-                Set[bytearray],
-                List[Any],
-                Dict[str, Any],
-                None,
-            ],
-        ],
-        "ConsumedCapacity": "ConsumedCapacityTypeDef",
-        "ItemCollectionMetrics": "ItemCollectionMetricsTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UpdateKinesisStreamingConfigurationTypeDef = TypedDict(
-    "UpdateKinesisStreamingConfigurationTypeDef",
-    {
-        "ApproximateCreationDateTimePrecision": ApproximateCreationDateTimePrecisionType,
-    },
-    total=False,
-)
-
-_RequiredUpdateKinesisStreamingDestinationInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateKinesisStreamingDestinationInputRequestTypeDef",
-    {
-        "TableName": str,
-        "StreamArn": str,
-    },
-)
-_OptionalUpdateKinesisStreamingDestinationInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateKinesisStreamingDestinationInputRequestTypeDef",
-    {
-        "UpdateKinesisStreamingConfiguration": "UpdateKinesisStreamingConfigurationTypeDef",
-    },
-    total=False,
-)
-
-class UpdateKinesisStreamingDestinationInputRequestTypeDef(
-    _RequiredUpdateKinesisStreamingDestinationInputRequestTypeDef,
-    _OptionalUpdateKinesisStreamingDestinationInputRequestTypeDef,
-):
-    pass
-
-UpdateKinesisStreamingDestinationOutputTypeDef = TypedDict(
-    "UpdateKinesisStreamingDestinationOutputTypeDef",
-    {
-        "TableName": str,
-        "StreamArn": str,
-        "DestinationStatus": DestinationStatusType,
-        "UpdateKinesisStreamingConfiguration": "UpdateKinesisStreamingConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateReplicationGroupMemberActionTypeDef = TypedDict(
-    "_RequiredUpdateReplicationGroupMemberActionTypeDef",
+ReplicaSettingsDescriptionTypeDef = TypedDict(
+    "ReplicaSettingsDescriptionTypeDef",
     {
         "RegionName": str,
-    },
-)
-_OptionalUpdateReplicationGroupMemberActionTypeDef = TypedDict(
-    "_OptionalUpdateReplicationGroupMemberActionTypeDef",
-    {
-        "KMSMasterKeyId": str,
-        "ProvisionedThroughputOverride": "ProvisionedThroughputOverrideTypeDef",
-        "OnDemandThroughputOverride": "OnDemandThroughputOverrideTypeDef",
-        "GlobalSecondaryIndexes": List["ReplicaGlobalSecondaryIndexTypeDef"],
-        "TableClassOverride": TableClassType,
-    },
-    total=False,
-)
-
-class UpdateReplicationGroupMemberActionTypeDef(
-    _RequiredUpdateReplicationGroupMemberActionTypeDef,
-    _OptionalUpdateReplicationGroupMemberActionTypeDef,
-):
-    pass
-
-_RequiredUpdateTableInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateTableInputRequestTypeDef",
-    {
-        "TableName": str,
-    },
-)
-_OptionalUpdateTableInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateTableInputRequestTypeDef",
-    {
-        "AttributeDefinitions": List["AttributeDefinitionTypeDef"],
-        "BillingMode": BillingModeType,
-        "ProvisionedThroughput": "ProvisionedThroughputTypeDef",
-        "GlobalSecondaryIndexUpdates": List["GlobalSecondaryIndexUpdateTypeDef"],
-        "StreamSpecification": "StreamSpecificationTypeDef",
-        "SSESpecification": "SSESpecificationTypeDef",
-        "ReplicaUpdates": List["ReplicationGroupUpdateTypeDef"],
-        "TableClass": TableClassType,
-        "DeletionProtectionEnabled": bool,
-        "OnDemandThroughput": "OnDemandThroughputTypeDef",
-    },
-    total=False,
-)
-
-class UpdateTableInputRequestTypeDef(
-    _RequiredUpdateTableInputRequestTypeDef, _OptionalUpdateTableInputRequestTypeDef
-):
-    pass
-
-UpdateTableInputTableTypeDef = TypedDict(
-    "UpdateTableInputTableTypeDef",
-    {
-        "AttributeDefinitions": List["AttributeDefinitionTypeDef"],
-        "BillingMode": BillingModeType,
-        "ProvisionedThroughput": "ProvisionedThroughputTypeDef",
-        "GlobalSecondaryIndexUpdates": List["GlobalSecondaryIndexUpdateTypeDef"],
-        "StreamSpecification": "StreamSpecificationTypeDef",
-        "SSESpecification": "SSESpecificationTypeDef",
-        "ReplicaUpdates": List["ReplicationGroupUpdateTypeDef"],
-        "TableClass": TableClassType,
-        "DeletionProtectionEnabled": bool,
-        "OnDemandThroughput": "OnDemandThroughputTypeDef",
-    },
-    total=False,
-)
-
-UpdateTableOutputTypeDef = TypedDict(
-    "UpdateTableOutputTypeDef",
-    {
-        "TableDescription": "TableDescriptionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateTableReplicaAutoScalingInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateTableReplicaAutoScalingInputRequestTypeDef",
-    {
-        "TableName": str,
-    },
-)
-_OptionalUpdateTableReplicaAutoScalingInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateTableReplicaAutoScalingInputRequestTypeDef",
-    {
-        "GlobalSecondaryIndexUpdates": List["GlobalSecondaryIndexAutoScalingUpdateTypeDef"],
-        "ProvisionedWriteCapacityAutoScalingUpdate": "AutoScalingSettingsUpdateTypeDef",
-        "ReplicaUpdates": List["ReplicaAutoScalingUpdateTypeDef"],
-    },
-    total=False,
-)
-
-class UpdateTableReplicaAutoScalingInputRequestTypeDef(
-    _RequiredUpdateTableReplicaAutoScalingInputRequestTypeDef,
-    _OptionalUpdateTableReplicaAutoScalingInputRequestTypeDef,
-):
-    pass
-
-UpdateTableReplicaAutoScalingOutputTypeDef = TypedDict(
-    "UpdateTableReplicaAutoScalingOutputTypeDef",
-    {
-        "TableAutoScalingDescription": "TableAutoScalingDescriptionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UpdateTimeToLiveInputRequestTypeDef = TypedDict(
-    "UpdateTimeToLiveInputRequestTypeDef",
-    {
-        "TableName": str,
-        "TimeToLiveSpecification": "TimeToLiveSpecificationTypeDef",
-    },
-)
-
-UpdateTimeToLiveOutputTypeDef = TypedDict(
-    "UpdateTimeToLiveOutputTypeDef",
-    {
-        "TimeToLiveSpecification": "TimeToLiveSpecificationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateTypeDef = TypedDict(
-    "_RequiredUpdateTypeDef",
-    {
-        "Key": Dict[
-            str,
-            Union[
-                bytes,
-                bytearray,
-                str,
-                int,
-                Decimal,
-                bool,
-                Set[int],
-                Set[Decimal],
-                Set[str],
-                Set[bytes],
-                Set[bytearray],
-                List[Any],
-                Dict[str, Any],
-                None,
-            ],
+        "ReplicaStatus": NotRequired[ReplicaStatusType],
+        "ReplicaBillingModeSummary": NotRequired[BillingModeSummaryTypeDef],
+        "ReplicaProvisionedReadCapacityUnits": NotRequired[int],
+        "ReplicaProvisionedReadCapacityAutoScalingSettings": NotRequired[
+            AutoScalingSettingsDescriptionTypeDef
         ],
-        "UpdateExpression": str,
-        "TableName": str,
-    },
-)
-_OptionalUpdateTypeDef = TypedDict(
-    "_OptionalUpdateTypeDef",
-    {
-        "ConditionExpression": str,
-        "ExpressionAttributeNames": Dict[str, str],
-        "ExpressionAttributeValues": Dict[
-            str,
-            Union[
-                bytes,
-                bytearray,
-                str,
-                int,
-                Decimal,
-                bool,
-                Set[int],
-                Set[Decimal],
-                Set[str],
-                Set[bytes],
-                Set[bytearray],
-                List[Any],
-                Dict[str, Any],
-                None,
-            ],
+        "ReplicaProvisionedWriteCapacityUnits": NotRequired[int],
+        "ReplicaProvisionedWriteCapacityAutoScalingSettings": NotRequired[
+            AutoScalingSettingsDescriptionTypeDef
         ],
-        "ReturnValuesOnConditionCheckFailure": ReturnValuesOnConditionCheckFailureType,
+        "ReplicaGlobalSecondaryIndexSettings": NotRequired[
+            List[ReplicaGlobalSecondaryIndexSettingsDescriptionTypeDef]
+        ],
+        "ReplicaTableClassSummary": NotRequired[TableClassSummaryTypeDef],
     },
-    total=False,
 )
-
-class UpdateTypeDef(_RequiredUpdateTypeDef, _OptionalUpdateTypeDef):
-    pass
-
-WaiterConfigTypeDef = TypedDict(
-    "WaiterConfigTypeDef",
+ReplicaAutoScalingUpdateTypeDef = TypedDict(
+    "ReplicaAutoScalingUpdateTypeDef",
     {
-        "Delay": int,
-        "MaxAttempts": int,
+        "RegionName": str,
+        "ReplicaGlobalSecondaryIndexUpdates": NotRequired[
+            Sequence[ReplicaGlobalSecondaryIndexAutoScalingUpdateTypeDef]
+        ],
+        "ReplicaProvisionedReadCapacityAutoScalingUpdate": NotRequired[
+            AutoScalingSettingsUpdateTypeDef
+        ],
     },
-    total=False,
+)
+ReplicaSettingsUpdateTypeDef = TypedDict(
+    "ReplicaSettingsUpdateTypeDef",
+    {
+        "RegionName": str,
+        "ReplicaProvisionedReadCapacityUnits": NotRequired[int],
+        "ReplicaProvisionedReadCapacityAutoScalingSettingsUpdate": NotRequired[
+            AutoScalingSettingsUpdateTypeDef
+        ],
+        "ReplicaGlobalSecondaryIndexSettingsUpdate": NotRequired[
+            Sequence[ReplicaGlobalSecondaryIndexSettingsUpdateTypeDef]
+        ],
+        "ReplicaTableClass": NotRequired[TableClassType],
+    },
 )
 
-WriteRequestTypeDef = TypedDict(
-    "WriteRequestTypeDef",
-    {
-        "PutRequest": "PutRequestTypeDef",
-        "DeleteRequest": "DeleteRequestTypeDef",
-    },
-    total=False,
-)
+class CreateGlobalTableOutputTypeDef(TypedDict):
+    GlobalTableDescription: GlobalTableDescriptionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeGlobalTableOutputTypeDef(TypedDict):
+    GlobalTableDescription: GlobalTableDescriptionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateGlobalTableOutputTypeDef(TypedDict):
+    GlobalTableDescription: GlobalTableDescriptionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateTableOutputTypeDef(TypedDict):
+    TableDescription: TableDescriptionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteTableOutputTypeDef(TypedDict):
+    TableDescription: TableDescriptionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeTableOutputTypeDef(TypedDict):
+    Table: TableDescriptionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class RestoreTableFromBackupOutputTypeDef(TypedDict):
+    TableDescription: TableDescriptionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class RestoreTableToPointInTimeOutputTypeDef(TypedDict):
+    TableDescription: TableDescriptionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateTableOutputTypeDef(TypedDict):
+    TableDescription: TableDescriptionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeImportOutputTypeDef(TypedDict):
+    ImportTableDescription: ImportTableDescriptionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ImportTableOutputTypeDef(TypedDict):
+    ImportTableDescription: ImportTableDescriptionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteBackupOutputTypeDef(TypedDict):
+    BackupDescription: BackupDescriptionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeBackupOutputTypeDef(TypedDict):
+    BackupDescription: BackupDescriptionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateTableInputTableUpdateTypeDef(TypedDict):
+    AttributeDefinitions: NotRequired[Sequence[AttributeDefinitionTypeDef]]
+    BillingMode: NotRequired[BillingModeType]
+    ProvisionedThroughput: NotRequired[ProvisionedThroughputTypeDef]
+    GlobalSecondaryIndexUpdates: NotRequired[Sequence[GlobalSecondaryIndexUpdateTypeDef]]
+    StreamSpecification: NotRequired[StreamSpecificationTypeDef]
+    SSESpecification: NotRequired[SSESpecificationTypeDef]
+    ReplicaUpdates: NotRequired[Sequence[ReplicationGroupUpdateTypeDef]]
+    TableClass: NotRequired[TableClassType]
+    DeletionProtectionEnabled: NotRequired[bool]
+    MultiRegionConsistency: NotRequired[MultiRegionConsistencyType]
+    OnDemandThroughput: NotRequired[OnDemandThroughputTypeDef]
+    WarmThroughput: NotRequired[WarmThroughputTypeDef]
+
+class UpdateTableInputTypeDef(TypedDict):
+    TableName: str
+    AttributeDefinitions: NotRequired[Sequence[AttributeDefinitionTypeDef]]
+    BillingMode: NotRequired[BillingModeType]
+    ProvisionedThroughput: NotRequired[ProvisionedThroughputTypeDef]
+    GlobalSecondaryIndexUpdates: NotRequired[Sequence[GlobalSecondaryIndexUpdateTypeDef]]
+    StreamSpecification: NotRequired[StreamSpecificationTypeDef]
+    SSESpecification: NotRequired[SSESpecificationTypeDef]
+    ReplicaUpdates: NotRequired[Sequence[ReplicationGroupUpdateTypeDef]]
+    TableClass: NotRequired[TableClassType]
+    DeletionProtectionEnabled: NotRequired[bool]
+    MultiRegionConsistency: NotRequired[MultiRegionConsistencyType]
+    OnDemandThroughput: NotRequired[OnDemandThroughputTypeDef]
+    WarmThroughput: NotRequired[WarmThroughputTypeDef]
+
+class CreateTableInputServiceResourceCreateTableTypeDef(TypedDict):
+    AttributeDefinitions: Sequence[AttributeDefinitionTypeDef]
+    TableName: str
+    KeySchema: Sequence[KeySchemaElementTypeDef]
+    LocalSecondaryIndexes: NotRequired[Sequence[LocalSecondaryIndexTypeDef]]
+    GlobalSecondaryIndexes: NotRequired[Sequence[GlobalSecondaryIndexUnionTypeDef]]
+    BillingMode: NotRequired[BillingModeType]
+    ProvisionedThroughput: NotRequired[ProvisionedThroughputTypeDef]
+    StreamSpecification: NotRequired[StreamSpecificationTypeDef]
+    SSESpecification: NotRequired[SSESpecificationTypeDef]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+    TableClass: NotRequired[TableClassType]
+    DeletionProtectionEnabled: NotRequired[bool]
+    WarmThroughput: NotRequired[WarmThroughputTypeDef]
+    ResourcePolicy: NotRequired[str]
+    OnDemandThroughput: NotRequired[OnDemandThroughputTypeDef]
+
+class CreateTableInputTypeDef(TypedDict):
+    AttributeDefinitions: Sequence[AttributeDefinitionTypeDef]
+    TableName: str
+    KeySchema: Sequence[KeySchemaElementTypeDef]
+    LocalSecondaryIndexes: NotRequired[Sequence[LocalSecondaryIndexTypeDef]]
+    GlobalSecondaryIndexes: NotRequired[Sequence[GlobalSecondaryIndexUnionTypeDef]]
+    BillingMode: NotRequired[BillingModeType]
+    ProvisionedThroughput: NotRequired[ProvisionedThroughputTypeDef]
+    StreamSpecification: NotRequired[StreamSpecificationTypeDef]
+    SSESpecification: NotRequired[SSESpecificationTypeDef]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+    TableClass: NotRequired[TableClassType]
+    DeletionProtectionEnabled: NotRequired[bool]
+    WarmThroughput: NotRequired[WarmThroughputTypeDef]
+    ResourcePolicy: NotRequired[str]
+    OnDemandThroughput: NotRequired[OnDemandThroughputTypeDef]
+
+class RestoreTableFromBackupInputTypeDef(TypedDict):
+    TargetTableName: str
+    BackupArn: str
+    BillingModeOverride: NotRequired[BillingModeType]
+    GlobalSecondaryIndexOverride: NotRequired[Sequence[GlobalSecondaryIndexUnionTypeDef]]
+    LocalSecondaryIndexOverride: NotRequired[Sequence[LocalSecondaryIndexTypeDef]]
+    ProvisionedThroughputOverride: NotRequired[ProvisionedThroughputTypeDef]
+    OnDemandThroughputOverride: NotRequired[OnDemandThroughputTypeDef]
+    SSESpecificationOverride: NotRequired[SSESpecificationTypeDef]
+
+class RestoreTableToPointInTimeInputTypeDef(TypedDict):
+    TargetTableName: str
+    SourceTableArn: NotRequired[str]
+    SourceTableName: NotRequired[str]
+    UseLatestRestorableTime: NotRequired[bool]
+    RestoreDateTime: NotRequired[TimestampTypeDef]
+    BillingModeOverride: NotRequired[BillingModeType]
+    GlobalSecondaryIndexOverride: NotRequired[Sequence[GlobalSecondaryIndexUnionTypeDef]]
+    LocalSecondaryIndexOverride: NotRequired[Sequence[LocalSecondaryIndexTypeDef]]
+    ProvisionedThroughputOverride: NotRequired[ProvisionedThroughputTypeDef]
+    OnDemandThroughputOverride: NotRequired[OnDemandThroughputTypeDef]
+    SSESpecificationOverride: NotRequired[SSESpecificationTypeDef]
+
+TableCreationParametersUnionTypeDef = Union[
+    TableCreationParametersTypeDef, TableCreationParametersOutputTypeDef
+]
+WriteRequestUnionTypeDef = Union[WriteRequestTypeDef, WriteRequestOutputTypeDef]
+
+class BatchWriteItemInputServiceResourceBatchWriteItemTypeDef(TypedDict):
+    RequestItems: Mapping[str, Sequence[WriteRequestServiceResourceUnionTypeDef]]
+    ReturnConsumedCapacity: NotRequired[ReturnConsumedCapacityType]
+    ReturnItemCollectionMetrics: NotRequired[ReturnItemCollectionMetricsType]
+
+class TableAutoScalingDescriptionTypeDef(TypedDict):
+    TableName: NotRequired[str]
+    TableStatus: NotRequired[TableStatusType]
+    Replicas: NotRequired[List[ReplicaAutoScalingDescriptionTypeDef]]
+
+class DescribeGlobalTableSettingsOutputTypeDef(TypedDict):
+    GlobalTableName: str
+    ReplicaSettings: List[ReplicaSettingsDescriptionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateGlobalTableSettingsOutputTypeDef(TypedDict):
+    GlobalTableName: str
+    ReplicaSettings: List[ReplicaSettingsDescriptionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateTableReplicaAutoScalingInputTypeDef(TypedDict):
+    TableName: str
+    GlobalSecondaryIndexUpdates: NotRequired[Sequence[GlobalSecondaryIndexAutoScalingUpdateTypeDef]]
+    ProvisionedWriteCapacityAutoScalingUpdate: NotRequired[AutoScalingSettingsUpdateTypeDef]
+    ReplicaUpdates: NotRequired[Sequence[ReplicaAutoScalingUpdateTypeDef]]
+
+class UpdateGlobalTableSettingsInputTypeDef(TypedDict):
+    GlobalTableName: str
+    GlobalTableBillingMode: NotRequired[BillingModeType]
+    GlobalTableProvisionedWriteCapacityUnits: NotRequired[int]
+    GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate: NotRequired[
+        AutoScalingSettingsUpdateTypeDef
+    ]
+    GlobalTableGlobalSecondaryIndexSettingsUpdate: NotRequired[
+        Sequence[GlobalTableGlobalSecondaryIndexSettingsUpdateTypeDef]
+    ]
+    ReplicaSettingsUpdate: NotRequired[Sequence[ReplicaSettingsUpdateTypeDef]]
+
+class ImportTableInputTypeDef(TypedDict):
+    S3BucketSource: S3BucketSourceTypeDef
+    InputFormat: InputFormatType
+    TableCreationParameters: TableCreationParametersUnionTypeDef
+    ClientToken: NotRequired[str]
+    InputFormatOptions: NotRequired[InputFormatOptionsUnionTypeDef]
+    InputCompressionType: NotRequired[InputCompressionTypeType]
+
+class BatchWriteItemInputTypeDef(TypedDict):
+    RequestItems: Mapping[str, Sequence[WriteRequestUnionTypeDef]]
+    ReturnConsumedCapacity: NotRequired[ReturnConsumedCapacityType]
+    ReturnItemCollectionMetrics: NotRequired[ReturnItemCollectionMetricsType]
+
+class DescribeTableReplicaAutoScalingOutputTypeDef(TypedDict):
+    TableAutoScalingDescription: TableAutoScalingDescriptionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateTableReplicaAutoScalingOutputTypeDef(TypedDict):
+    TableAutoScalingDescription: TableAutoScalingDescriptionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef

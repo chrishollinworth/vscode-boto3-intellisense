@@ -1,20 +1,24 @@
 """
 Type annotations for cloudwatch service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_cloudwatch.type_defs import AlarmHistoryItemTypeDef
 
-    data: AlarmHistoryItemTypeDef = {...}
+    data: AlarmHistoryItemTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List, Union
+from typing import Union
 
 from .literals import (
     ActionsSuppressedByType,
@@ -31,75 +35,97 @@ from .literals import (
     StatusCodeType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
     "AlarmHistoryItemTypeDef",
+    "AnomalyDetectorConfigurationOutputTypeDef",
     "AnomalyDetectorConfigurationTypeDef",
+    "AnomalyDetectorConfigurationUnionTypeDef",
     "AnomalyDetectorTypeDef",
+    "CloudwatchEventDetailConfigurationTypeDef",
+    "CloudwatchEventDetailTypeDef",
+    "CloudwatchEventMetricStatsMetricTypeDef",
+    "CloudwatchEventMetricStatsTypeDef",
+    "CloudwatchEventMetricTypeDef",
+    "CloudwatchEventStateTypeDef",
+    "CloudwatchEventTypeDef",
     "CompositeAlarmTypeDef",
     "DashboardEntryTypeDef",
     "DashboardValidationMessageTypeDef",
     "DatapointTypeDef",
-    "DeleteAlarmsInputRequestTypeDef",
-    "DeleteAnomalyDetectorInputRequestTypeDef",
-    "DeleteDashboardsInputRequestTypeDef",
-    "DeleteInsightRulesInputRequestTypeDef",
+    "DeleteAlarmsInputTypeDef",
+    "DeleteAnomalyDetectorInputTypeDef",
+    "DeleteDashboardsInputTypeDef",
+    "DeleteInsightRulesInputTypeDef",
     "DeleteInsightRulesOutputTypeDef",
-    "DeleteMetricStreamInputRequestTypeDef",
-    "DescribeAlarmHistoryInputAlarmTypeDef",
-    "DescribeAlarmHistoryInputRequestTypeDef",
+    "DeleteMetricStreamInputTypeDef",
+    "DescribeAlarmHistoryInputAlarmDescribeHistoryTypeDef",
+    "DescribeAlarmHistoryInputPaginateTypeDef",
+    "DescribeAlarmHistoryInputTypeDef",
     "DescribeAlarmHistoryOutputTypeDef",
-    "DescribeAlarmsForMetricInputRequestTypeDef",
+    "DescribeAlarmsForMetricInputTypeDef",
     "DescribeAlarmsForMetricOutputTypeDef",
-    "DescribeAlarmsInputRequestTypeDef",
+    "DescribeAlarmsInputPaginateTypeDef",
+    "DescribeAlarmsInputTypeDef",
+    "DescribeAlarmsInputWaitExtraTypeDef",
+    "DescribeAlarmsInputWaitTypeDef",
     "DescribeAlarmsOutputTypeDef",
-    "DescribeAnomalyDetectorsInputRequestTypeDef",
+    "DescribeAnomalyDetectorsInputPaginateTypeDef",
+    "DescribeAnomalyDetectorsInputTypeDef",
     "DescribeAnomalyDetectorsOutputTypeDef",
-    "DescribeInsightRulesInputRequestTypeDef",
+    "DescribeInsightRulesInputTypeDef",
     "DescribeInsightRulesOutputTypeDef",
     "DimensionFilterTypeDef",
     "DimensionTypeDef",
-    "DisableAlarmActionsInputRequestTypeDef",
-    "DisableInsightRulesInputRequestTypeDef",
+    "DisableAlarmActionsInputTypeDef",
+    "DisableInsightRulesInputTypeDef",
     "DisableInsightRulesOutputTypeDef",
-    "EnableAlarmActionsInputRequestTypeDef",
-    "EnableInsightRulesInputRequestTypeDef",
+    "EmptyResponseMetadataTypeDef",
+    "EnableAlarmActionsInputTypeDef",
+    "EnableInsightRulesInputTypeDef",
     "EnableInsightRulesOutputTypeDef",
-    "GetDashboardInputRequestTypeDef",
+    "EntityMetricDataTypeDef",
+    "EntityTypeDef",
+    "GetDashboardInputTypeDef",
     "GetDashboardOutputTypeDef",
-    "GetInsightRuleReportInputRequestTypeDef",
+    "GetInsightRuleReportInputTypeDef",
     "GetInsightRuleReportOutputTypeDef",
-    "GetMetricDataInputRequestTypeDef",
+    "GetMetricDataInputPaginateTypeDef",
+    "GetMetricDataInputTypeDef",
     "GetMetricDataOutputTypeDef",
-    "GetMetricStatisticsInputMetricTypeDef",
-    "GetMetricStatisticsInputRequestTypeDef",
+    "GetMetricStatisticsInputMetricGetStatisticsTypeDef",
+    "GetMetricStatisticsInputTypeDef",
     "GetMetricStatisticsOutputTypeDef",
-    "GetMetricStreamInputRequestTypeDef",
+    "GetMetricStreamInputTypeDef",
     "GetMetricStreamOutputTypeDef",
-    "GetMetricWidgetImageInputRequestTypeDef",
+    "GetMetricWidgetImageInputTypeDef",
     "GetMetricWidgetImageOutputTypeDef",
     "InsightRuleContributorDatapointTypeDef",
     "InsightRuleContributorTypeDef",
     "InsightRuleMetricDatapointTypeDef",
     "InsightRuleTypeDef",
     "LabelOptionsTypeDef",
-    "ListDashboardsInputRequestTypeDef",
+    "ListDashboardsInputPaginateTypeDef",
+    "ListDashboardsInputTypeDef",
     "ListDashboardsOutputTypeDef",
-    "ListManagedInsightRulesInputRequestTypeDef",
+    "ListManagedInsightRulesInputTypeDef",
     "ListManagedInsightRulesOutputTypeDef",
-    "ListMetricStreamsInputRequestTypeDef",
+    "ListMetricStreamsInputTypeDef",
     "ListMetricStreamsOutputTypeDef",
-    "ListMetricsInputRequestTypeDef",
+    "ListMetricsInputPaginateTypeDef",
+    "ListMetricsInputTypeDef",
     "ListMetricsOutputTypeDef",
-    "ListTagsForResourceInputRequestTypeDef",
+    "ListTagsForResourceInputTypeDef",
     "ListTagsForResourceOutputTypeDef",
     "ManagedRuleDescriptionTypeDef",
     "ManagedRuleStateTypeDef",
@@ -107,1375 +133,963 @@ __all__ = (
     "MessageDataTypeDef",
     "MetricAlarmTypeDef",
     "MetricCharacteristicsTypeDef",
+    "MetricDataQueryAlarmTypeDef",
+    "MetricDataQueryOutputTypeDef",
     "MetricDataQueryTypeDef",
+    "MetricDataQueryUnionTypeDef",
     "MetricDataResultTypeDef",
     "MetricDatumTypeDef",
+    "MetricMathAnomalyDetectorOutputTypeDef",
     "MetricMathAnomalyDetectorTypeDef",
+    "MetricMathAnomalyDetectorUnionTypeDef",
+    "MetricOutputTypeDef",
+    "MetricStatAlarmTypeDef",
+    "MetricStatOutputTypeDef",
     "MetricStatTypeDef",
+    "MetricStatUnionTypeDef",
     "MetricStreamEntryTypeDef",
+    "MetricStreamFilterOutputTypeDef",
     "MetricStreamFilterTypeDef",
+    "MetricStreamFilterUnionTypeDef",
+    "MetricStreamStatisticsConfigurationOutputTypeDef",
     "MetricStreamStatisticsConfigurationTypeDef",
+    "MetricStreamStatisticsConfigurationUnionTypeDef",
     "MetricStreamStatisticsMetricTypeDef",
     "MetricTypeDef",
+    "MetricUnionTypeDef",
     "PaginatorConfigTypeDef",
     "PartialFailureTypeDef",
-    "PutAnomalyDetectorInputRequestTypeDef",
-    "PutCompositeAlarmInputRequestTypeDef",
-    "PutDashboardInputRequestTypeDef",
+    "PutAnomalyDetectorInputTypeDef",
+    "PutCompositeAlarmInputTypeDef",
+    "PutDashboardInputTypeDef",
     "PutDashboardOutputTypeDef",
-    "PutInsightRuleInputRequestTypeDef",
-    "PutManagedInsightRulesInputRequestTypeDef",
+    "PutInsightRuleInputTypeDef",
+    "PutManagedInsightRulesInputTypeDef",
     "PutManagedInsightRulesOutputTypeDef",
-    "PutMetricAlarmInputMetricTypeDef",
-    "PutMetricAlarmInputRequestTypeDef",
-    "PutMetricDataInputRequestTypeDef",
-    "PutMetricStreamInputRequestTypeDef",
+    "PutMetricAlarmInputMetricPutAlarmTypeDef",
+    "PutMetricAlarmInputTypeDef",
+    "PutMetricDataInputMetricPutDataTypeDef",
+    "PutMetricDataInputTypeDef",
+    "PutMetricStreamInputTypeDef",
     "PutMetricStreamOutputTypeDef",
+    "RangeOutputTypeDef",
     "RangeTypeDef",
     "ResponseMetadataTypeDef",
-    "ServiceResourceAlarmRequestTypeDef",
-    "ServiceResourceMetricRequestTypeDef",
-    "SetAlarmStateInputAlarmTypeDef",
-    "SetAlarmStateInputRequestTypeDef",
+    "SetAlarmStateInputAlarmSetStateTypeDef",
+    "SetAlarmStateInputTypeDef",
+    "SingleMetricAnomalyDetectorOutputTypeDef",
     "SingleMetricAnomalyDetectorTypeDef",
-    "StartMetricStreamsInputRequestTypeDef",
+    "SingleMetricAnomalyDetectorUnionTypeDef",
+    "StartMetricStreamsInputTypeDef",
     "StatisticSetTypeDef",
-    "StopMetricStreamsInputRequestTypeDef",
-    "TagResourceInputRequestTypeDef",
+    "StopMetricStreamsInputTypeDef",
+    "TagResourceInputTypeDef",
     "TagTypeDef",
-    "UntagResourceInputRequestTypeDef",
+    "TimestampTypeDef",
+    "UntagResourceInputTypeDef",
     "WaiterConfigTypeDef",
 )
 
-AlarmHistoryItemTypeDef = TypedDict(
-    "AlarmHistoryItemTypeDef",
-    {
-        "AlarmName": str,
-        "AlarmType": AlarmTypeType,
-        "Timestamp": datetime,
-        "HistoryItemType": HistoryItemTypeType,
-        "HistorySummary": str,
-        "HistoryData": str,
-    },
-    total=False,
-)
-
-AnomalyDetectorConfigurationTypeDef = TypedDict(
-    "AnomalyDetectorConfigurationTypeDef",
-    {
-        "ExcludedTimeRanges": List["RangeTypeDef"],
-        "MetricTimezone": str,
-    },
-    total=False,
-)
-
-AnomalyDetectorTypeDef = TypedDict(
-    "AnomalyDetectorTypeDef",
-    {
-        "Namespace": str,
-        "MetricName": str,
-        "Dimensions": List["DimensionTypeDef"],
-        "Stat": str,
-        "Configuration": "AnomalyDetectorConfigurationTypeDef",
-        "StateValue": AnomalyDetectorStateValueType,
-        "MetricCharacteristics": "MetricCharacteristicsTypeDef",
-        "SingleMetricAnomalyDetector": "SingleMetricAnomalyDetectorTypeDef",
-        "MetricMathAnomalyDetector": "MetricMathAnomalyDetectorTypeDef",
-    },
-    total=False,
-)
-
-CompositeAlarmTypeDef = TypedDict(
-    "CompositeAlarmTypeDef",
-    {
-        "ActionsEnabled": bool,
-        "AlarmActions": List[str],
-        "AlarmArn": str,
-        "AlarmConfigurationUpdatedTimestamp": datetime,
-        "AlarmDescription": str,
-        "AlarmName": str,
-        "AlarmRule": str,
-        "InsufficientDataActions": List[str],
-        "OKActions": List[str],
-        "StateReason": str,
-        "StateReasonData": str,
-        "StateUpdatedTimestamp": datetime,
-        "StateValue": StateValueType,
-        "StateTransitionedTimestamp": datetime,
-        "ActionsSuppressedBy": ActionsSuppressedByType,
-        "ActionsSuppressedReason": str,
-        "ActionsSuppressor": str,
-        "ActionsSuppressorWaitPeriod": int,
-        "ActionsSuppressorExtensionPeriod": int,
-    },
-    total=False,
-)
-
-DashboardEntryTypeDef = TypedDict(
-    "DashboardEntryTypeDef",
-    {
-        "DashboardName": str,
-        "DashboardArn": str,
-        "LastModified": datetime,
-        "Size": int,
-    },
-    total=False,
-)
-
-DashboardValidationMessageTypeDef = TypedDict(
-    "DashboardValidationMessageTypeDef",
-    {
-        "DataPath": str,
-        "Message": str,
-    },
-    total=False,
-)
-
-DatapointTypeDef = TypedDict(
-    "DatapointTypeDef",
-    {
-        "Timestamp": datetime,
-        "SampleCount": float,
-        "Average": float,
-        "Sum": float,
-        "Minimum": float,
-        "Maximum": float,
-        "Unit": StandardUnitType,
-        "ExtendedStatistics": Dict[str, float],
-    },
-    total=False,
-)
-
-DeleteAlarmsInputRequestTypeDef = TypedDict(
-    "DeleteAlarmsInputRequestTypeDef",
-    {
-        "AlarmNames": List[str],
-    },
-)
-
-DeleteAnomalyDetectorInputRequestTypeDef = TypedDict(
-    "DeleteAnomalyDetectorInputRequestTypeDef",
-    {
-        "Namespace": str,
-        "MetricName": str,
-        "Dimensions": List["DimensionTypeDef"],
-        "Stat": str,
-        "SingleMetricAnomalyDetector": "SingleMetricAnomalyDetectorTypeDef",
-        "MetricMathAnomalyDetector": "MetricMathAnomalyDetectorTypeDef",
-    },
-    total=False,
-)
-
-DeleteDashboardsInputRequestTypeDef = TypedDict(
-    "DeleteDashboardsInputRequestTypeDef",
-    {
-        "DashboardNames": List[str],
-    },
-)
-
-DeleteInsightRulesInputRequestTypeDef = TypedDict(
-    "DeleteInsightRulesInputRequestTypeDef",
-    {
-        "RuleNames": List[str],
-    },
-)
-
-DeleteInsightRulesOutputTypeDef = TypedDict(
-    "DeleteInsightRulesOutputTypeDef",
-    {
-        "Failures": List["PartialFailureTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteMetricStreamInputRequestTypeDef = TypedDict(
-    "DeleteMetricStreamInputRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
-
-DescribeAlarmHistoryInputAlarmTypeDef = TypedDict(
-    "DescribeAlarmHistoryInputAlarmTypeDef",
-    {
-        "AlarmTypes": List[AlarmTypeType],
-        "HistoryItemType": HistoryItemTypeType,
-        "StartDate": Union[datetime, str],
-        "EndDate": Union[datetime, str],
-        "MaxRecords": int,
-        "NextToken": str,
-        "ScanBy": ScanByType,
-    },
-    total=False,
-)
-
-DescribeAlarmHistoryInputRequestTypeDef = TypedDict(
-    "DescribeAlarmHistoryInputRequestTypeDef",
-    {
-        "AlarmName": str,
-        "AlarmTypes": List[AlarmTypeType],
-        "HistoryItemType": HistoryItemTypeType,
-        "StartDate": Union[datetime, str],
-        "EndDate": Union[datetime, str],
-        "MaxRecords": int,
-        "NextToken": str,
-        "ScanBy": ScanByType,
-    },
-    total=False,
-)
-
-DescribeAlarmHistoryOutputTypeDef = TypedDict(
-    "DescribeAlarmHistoryOutputTypeDef",
-    {
-        "AlarmHistoryItems": List["AlarmHistoryItemTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribeAlarmsForMetricInputRequestTypeDef = TypedDict(
-    "_RequiredDescribeAlarmsForMetricInputRequestTypeDef",
-    {
-        "MetricName": str,
-        "Namespace": str,
-    },
-)
-_OptionalDescribeAlarmsForMetricInputRequestTypeDef = TypedDict(
-    "_OptionalDescribeAlarmsForMetricInputRequestTypeDef",
-    {
-        "Statistic": StatisticType,
-        "ExtendedStatistic": str,
-        "Dimensions": List["DimensionTypeDef"],
-        "Period": int,
-        "Unit": StandardUnitType,
-    },
-    total=False,
-)
-
-class DescribeAlarmsForMetricInputRequestTypeDef(
-    _RequiredDescribeAlarmsForMetricInputRequestTypeDef,
-    _OptionalDescribeAlarmsForMetricInputRequestTypeDef,
-):
-    pass
-
-DescribeAlarmsForMetricOutputTypeDef = TypedDict(
-    "DescribeAlarmsForMetricOutputTypeDef",
-    {
-        "MetricAlarms": List["MetricAlarmTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeAlarmsInputRequestTypeDef = TypedDict(
-    "DescribeAlarmsInputRequestTypeDef",
-    {
-        "AlarmNames": List[str],
-        "AlarmNamePrefix": str,
-        "AlarmTypes": List[AlarmTypeType],
-        "ChildrenOfAlarmName": str,
-        "ParentsOfAlarmName": str,
-        "StateValue": StateValueType,
-        "ActionPrefix": str,
-        "MaxRecords": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-DescribeAlarmsOutputTypeDef = TypedDict(
-    "DescribeAlarmsOutputTypeDef",
-    {
-        "CompositeAlarms": List["CompositeAlarmTypeDef"],
-        "MetricAlarms": List["MetricAlarmTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeAnomalyDetectorsInputRequestTypeDef = TypedDict(
-    "DescribeAnomalyDetectorsInputRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-        "Namespace": str,
-        "MetricName": str,
-        "Dimensions": List["DimensionTypeDef"],
-        "AnomalyDetectorTypes": List[AnomalyDetectorTypeType],
-    },
-    total=False,
-)
-
-DescribeAnomalyDetectorsOutputTypeDef = TypedDict(
-    "DescribeAnomalyDetectorsOutputTypeDef",
-    {
-        "AnomalyDetectors": List["AnomalyDetectorTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeInsightRulesInputRequestTypeDef = TypedDict(
-    "DescribeInsightRulesInputRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-DescribeInsightRulesOutputTypeDef = TypedDict(
-    "DescribeInsightRulesOutputTypeDef",
-    {
-        "NextToken": str,
-        "InsightRules": List["InsightRuleTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDimensionFilterTypeDef = TypedDict(
-    "_RequiredDimensionFilterTypeDef",
-    {
-        "Name": str,
-    },
-)
-_OptionalDimensionFilterTypeDef = TypedDict(
-    "_OptionalDimensionFilterTypeDef",
-    {
-        "Value": str,
-    },
-    total=False,
-)
-
-class DimensionFilterTypeDef(_RequiredDimensionFilterTypeDef, _OptionalDimensionFilterTypeDef):
-    pass
-
-DimensionTypeDef = TypedDict(
-    "DimensionTypeDef",
-    {
-        "Name": str,
-        "Value": str,
-    },
-)
-
-DisableAlarmActionsInputRequestTypeDef = TypedDict(
-    "DisableAlarmActionsInputRequestTypeDef",
-    {
-        "AlarmNames": List[str],
-    },
-)
-
-DisableInsightRulesInputRequestTypeDef = TypedDict(
-    "DisableInsightRulesInputRequestTypeDef",
-    {
-        "RuleNames": List[str],
-    },
-)
-
-DisableInsightRulesOutputTypeDef = TypedDict(
-    "DisableInsightRulesOutputTypeDef",
-    {
-        "Failures": List["PartialFailureTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-EnableAlarmActionsInputRequestTypeDef = TypedDict(
-    "EnableAlarmActionsInputRequestTypeDef",
-    {
-        "AlarmNames": List[str],
-    },
-)
-
-EnableInsightRulesInputRequestTypeDef = TypedDict(
-    "EnableInsightRulesInputRequestTypeDef",
-    {
-        "RuleNames": List[str],
-    },
-)
-
-EnableInsightRulesOutputTypeDef = TypedDict(
-    "EnableInsightRulesOutputTypeDef",
-    {
-        "Failures": List["PartialFailureTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetDashboardInputRequestTypeDef = TypedDict(
-    "GetDashboardInputRequestTypeDef",
-    {
-        "DashboardName": str,
-    },
-)
-
-GetDashboardOutputTypeDef = TypedDict(
-    "GetDashboardOutputTypeDef",
-    {
-        "DashboardArn": str,
-        "DashboardBody": str,
-        "DashboardName": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetInsightRuleReportInputRequestTypeDef = TypedDict(
-    "_RequiredGetInsightRuleReportInputRequestTypeDef",
-    {
-        "RuleName": str,
-        "StartTime": Union[datetime, str],
-        "EndTime": Union[datetime, str],
-        "Period": int,
-    },
-)
-_OptionalGetInsightRuleReportInputRequestTypeDef = TypedDict(
-    "_OptionalGetInsightRuleReportInputRequestTypeDef",
-    {
-        "MaxContributorCount": int,
-        "Metrics": List[str],
-        "OrderBy": str,
-    },
-    total=False,
-)
-
-class GetInsightRuleReportInputRequestTypeDef(
-    _RequiredGetInsightRuleReportInputRequestTypeDef,
-    _OptionalGetInsightRuleReportInputRequestTypeDef,
-):
-    pass
-
-GetInsightRuleReportOutputTypeDef = TypedDict(
-    "GetInsightRuleReportOutputTypeDef",
-    {
-        "KeyLabels": List[str],
-        "AggregationStatistic": str,
-        "AggregateValue": float,
-        "ApproximateUniqueCount": int,
-        "Contributors": List["InsightRuleContributorTypeDef"],
-        "MetricDatapoints": List["InsightRuleMetricDatapointTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetMetricDataInputRequestTypeDef = TypedDict(
-    "_RequiredGetMetricDataInputRequestTypeDef",
-    {
-        "MetricDataQueries": List["MetricDataQueryTypeDef"],
-        "StartTime": Union[datetime, str],
-        "EndTime": Union[datetime, str],
-    },
-)
-_OptionalGetMetricDataInputRequestTypeDef = TypedDict(
-    "_OptionalGetMetricDataInputRequestTypeDef",
-    {
-        "NextToken": str,
-        "ScanBy": ScanByType,
-        "MaxDatapoints": int,
-        "LabelOptions": "LabelOptionsTypeDef",
-    },
-    total=False,
-)
-
-class GetMetricDataInputRequestTypeDef(
-    _RequiredGetMetricDataInputRequestTypeDef, _OptionalGetMetricDataInputRequestTypeDef
-):
-    pass
-
-GetMetricDataOutputTypeDef = TypedDict(
-    "GetMetricDataOutputTypeDef",
-    {
-        "MetricDataResults": List["MetricDataResultTypeDef"],
-        "NextToken": str,
-        "Messages": List["MessageDataTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetMetricStatisticsInputMetricTypeDef = TypedDict(
-    "_RequiredGetMetricStatisticsInputMetricTypeDef",
-    {
-        "StartTime": Union[datetime, str],
-        "EndTime": Union[datetime, str],
-        "Period": int,
-    },
-)
-_OptionalGetMetricStatisticsInputMetricTypeDef = TypedDict(
-    "_OptionalGetMetricStatisticsInputMetricTypeDef",
-    {
-        "Dimensions": List["DimensionTypeDef"],
-        "Statistics": List[StatisticType],
-        "ExtendedStatistics": List[str],
-        "Unit": StandardUnitType,
-    },
-    total=False,
-)
-
-class GetMetricStatisticsInputMetricTypeDef(
-    _RequiredGetMetricStatisticsInputMetricTypeDef, _OptionalGetMetricStatisticsInputMetricTypeDef
-):
-    pass
-
-_RequiredGetMetricStatisticsInputRequestTypeDef = TypedDict(
-    "_RequiredGetMetricStatisticsInputRequestTypeDef",
-    {
-        "Namespace": str,
-        "MetricName": str,
-        "StartTime": Union[datetime, str],
-        "EndTime": Union[datetime, str],
-        "Period": int,
-    },
-)
-_OptionalGetMetricStatisticsInputRequestTypeDef = TypedDict(
-    "_OptionalGetMetricStatisticsInputRequestTypeDef",
-    {
-        "Dimensions": List["DimensionTypeDef"],
-        "Statistics": List[StatisticType],
-        "ExtendedStatistics": List[str],
-        "Unit": StandardUnitType,
-    },
-    total=False,
-)
-
-class GetMetricStatisticsInputRequestTypeDef(
-    _RequiredGetMetricStatisticsInputRequestTypeDef, _OptionalGetMetricStatisticsInputRequestTypeDef
-):
-    pass
-
-GetMetricStatisticsOutputTypeDef = TypedDict(
-    "GetMetricStatisticsOutputTypeDef",
-    {
-        "Label": str,
-        "Datapoints": List["DatapointTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetMetricStreamInputRequestTypeDef = TypedDict(
-    "GetMetricStreamInputRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
-
-GetMetricStreamOutputTypeDef = TypedDict(
-    "GetMetricStreamOutputTypeDef",
-    {
-        "Arn": str,
-        "Name": str,
-        "IncludeFilters": List["MetricStreamFilterTypeDef"],
-        "ExcludeFilters": List["MetricStreamFilterTypeDef"],
-        "FirehoseArn": str,
-        "RoleArn": str,
-        "State": str,
-        "CreationDate": datetime,
-        "LastUpdateDate": datetime,
-        "OutputFormat": MetricStreamOutputFormatType,
-        "StatisticsConfigurations": List["MetricStreamStatisticsConfigurationTypeDef"],
-        "IncludeLinkedAccountsMetrics": bool,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetMetricWidgetImageInputRequestTypeDef = TypedDict(
-    "_RequiredGetMetricWidgetImageInputRequestTypeDef",
-    {
-        "MetricWidget": str,
-    },
-)
-_OptionalGetMetricWidgetImageInputRequestTypeDef = TypedDict(
-    "_OptionalGetMetricWidgetImageInputRequestTypeDef",
-    {
-        "OutputFormat": str,
-    },
-    total=False,
-)
-
-class GetMetricWidgetImageInputRequestTypeDef(
-    _RequiredGetMetricWidgetImageInputRequestTypeDef,
-    _OptionalGetMetricWidgetImageInputRequestTypeDef,
-):
-    pass
-
-GetMetricWidgetImageOutputTypeDef = TypedDict(
-    "GetMetricWidgetImageOutputTypeDef",
-    {
-        "MetricWidgetImage": bytes,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-InsightRuleContributorDatapointTypeDef = TypedDict(
-    "InsightRuleContributorDatapointTypeDef",
-    {
-        "Timestamp": datetime,
-        "ApproximateValue": float,
-    },
-)
-
-InsightRuleContributorTypeDef = TypedDict(
-    "InsightRuleContributorTypeDef",
-    {
-        "Keys": List[str],
-        "ApproximateAggregateValue": float,
-        "Datapoints": List["InsightRuleContributorDatapointTypeDef"],
-    },
-)
-
-_RequiredInsightRuleMetricDatapointTypeDef = TypedDict(
-    "_RequiredInsightRuleMetricDatapointTypeDef",
-    {
-        "Timestamp": datetime,
-    },
-)
-_OptionalInsightRuleMetricDatapointTypeDef = TypedDict(
-    "_OptionalInsightRuleMetricDatapointTypeDef",
-    {
-        "UniqueContributors": float,
-        "MaxContributorValue": float,
-        "SampleCount": float,
-        "Average": float,
-        "Sum": float,
-        "Minimum": float,
-        "Maximum": float,
-    },
-    total=False,
-)
-
-class InsightRuleMetricDatapointTypeDef(
-    _RequiredInsightRuleMetricDatapointTypeDef, _OptionalInsightRuleMetricDatapointTypeDef
-):
-    pass
-
-_RequiredInsightRuleTypeDef = TypedDict(
-    "_RequiredInsightRuleTypeDef",
-    {
-        "Name": str,
-        "State": str,
-        "Schema": str,
-        "Definition": str,
-    },
-)
-_OptionalInsightRuleTypeDef = TypedDict(
-    "_OptionalInsightRuleTypeDef",
-    {
-        "ManagedRule": bool,
-    },
-    total=False,
-)
-
-class InsightRuleTypeDef(_RequiredInsightRuleTypeDef, _OptionalInsightRuleTypeDef):
-    pass
-
-LabelOptionsTypeDef = TypedDict(
-    "LabelOptionsTypeDef",
-    {
-        "Timezone": str,
-    },
-    total=False,
-)
-
-ListDashboardsInputRequestTypeDef = TypedDict(
-    "ListDashboardsInputRequestTypeDef",
-    {
-        "DashboardNamePrefix": str,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListDashboardsOutputTypeDef = TypedDict(
-    "ListDashboardsOutputTypeDef",
-    {
-        "DashboardEntries": List["DashboardEntryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListManagedInsightRulesInputRequestTypeDef = TypedDict(
-    "_RequiredListManagedInsightRulesInputRequestTypeDef",
-    {
-        "ResourceARN": str,
-    },
-)
-_OptionalListManagedInsightRulesInputRequestTypeDef = TypedDict(
-    "_OptionalListManagedInsightRulesInputRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-class ListManagedInsightRulesInputRequestTypeDef(
-    _RequiredListManagedInsightRulesInputRequestTypeDef,
-    _OptionalListManagedInsightRulesInputRequestTypeDef,
-):
-    pass
-
-ListManagedInsightRulesOutputTypeDef = TypedDict(
-    "ListManagedInsightRulesOutputTypeDef",
-    {
-        "ManagedRules": List["ManagedRuleDescriptionTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListMetricStreamsInputRequestTypeDef = TypedDict(
-    "ListMetricStreamsInputRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-ListMetricStreamsOutputTypeDef = TypedDict(
-    "ListMetricStreamsOutputTypeDef",
-    {
-        "NextToken": str,
-        "Entries": List["MetricStreamEntryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListMetricsInputRequestTypeDef = TypedDict(
-    "ListMetricsInputRequestTypeDef",
-    {
-        "Namespace": str,
-        "MetricName": str,
-        "Dimensions": List["DimensionFilterTypeDef"],
-        "NextToken": str,
-        "RecentlyActive": Literal["PT3H"],
-        "IncludeLinkedAccounts": bool,
-        "OwningAccount": str,
-    },
-    total=False,
-)
-
-ListMetricsOutputTypeDef = TypedDict(
-    "ListMetricsOutputTypeDef",
-    {
-        "Metrics": List["MetricTypeDef"],
-        "NextToken": str,
-        "OwningAccounts": List[str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTagsForResourceInputRequestTypeDef = TypedDict(
-    "ListTagsForResourceInputRequestTypeDef",
-    {
-        "ResourceARN": str,
-    },
-)
-
-ListTagsForResourceOutputTypeDef = TypedDict(
-    "ListTagsForResourceOutputTypeDef",
-    {
-        "Tags": List["TagTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ManagedRuleDescriptionTypeDef = TypedDict(
-    "ManagedRuleDescriptionTypeDef",
-    {
-        "TemplateName": str,
-        "ResourceARN": str,
-        "RuleState": "ManagedRuleStateTypeDef",
-    },
-    total=False,
-)
-
-ManagedRuleStateTypeDef = TypedDict(
-    "ManagedRuleStateTypeDef",
-    {
-        "RuleName": str,
-        "State": str,
-    },
-)
-
-_RequiredManagedRuleTypeDef = TypedDict(
-    "_RequiredManagedRuleTypeDef",
-    {
-        "TemplateName": str,
-        "ResourceARN": str,
-    },
-)
-_OptionalManagedRuleTypeDef = TypedDict(
-    "_OptionalManagedRuleTypeDef",
-    {
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class ManagedRuleTypeDef(_RequiredManagedRuleTypeDef, _OptionalManagedRuleTypeDef):
-    pass
-
-MessageDataTypeDef = TypedDict(
-    "MessageDataTypeDef",
-    {
-        "Code": str,
-        "Value": str,
-    },
-    total=False,
-)
-
-MetricAlarmTypeDef = TypedDict(
-    "MetricAlarmTypeDef",
-    {
-        "AlarmName": str,
-        "AlarmArn": str,
-        "AlarmDescription": str,
-        "AlarmConfigurationUpdatedTimestamp": datetime,
-        "ActionsEnabled": bool,
-        "OKActions": List[str],
-        "AlarmActions": List[str],
-        "InsufficientDataActions": List[str],
-        "StateValue": StateValueType,
-        "StateReason": str,
-        "StateReasonData": str,
-        "StateUpdatedTimestamp": datetime,
-        "MetricName": str,
-        "Namespace": str,
-        "Statistic": StatisticType,
-        "ExtendedStatistic": str,
-        "Dimensions": List["DimensionTypeDef"],
-        "Period": int,
-        "Unit": StandardUnitType,
-        "EvaluationPeriods": int,
-        "DatapointsToAlarm": int,
-        "Threshold": float,
-        "ComparisonOperator": ComparisonOperatorType,
-        "TreatMissingData": str,
-        "EvaluateLowSampleCountPercentile": str,
-        "Metrics": List["MetricDataQueryTypeDef"],
-        "ThresholdMetricId": str,
-        "EvaluationState": Literal["PARTIAL_DATA"],
-        "StateTransitionedTimestamp": datetime,
-    },
-    total=False,
-)
-
-MetricCharacteristicsTypeDef = TypedDict(
-    "MetricCharacteristicsTypeDef",
-    {
-        "PeriodicSpikes": bool,
-    },
-    total=False,
-)
-
-_RequiredMetricDataQueryTypeDef = TypedDict(
-    "_RequiredMetricDataQueryTypeDef",
-    {
-        "Id": str,
-    },
-)
-_OptionalMetricDataQueryTypeDef = TypedDict(
-    "_OptionalMetricDataQueryTypeDef",
-    {
-        "MetricStat": "MetricStatTypeDef",
-        "Expression": str,
-        "Label": str,
-        "ReturnData": bool,
-        "Period": int,
-        "AccountId": str,
-    },
-    total=False,
-)
-
-class MetricDataQueryTypeDef(_RequiredMetricDataQueryTypeDef, _OptionalMetricDataQueryTypeDef):
-    pass
-
-MetricDataResultTypeDef = TypedDict(
-    "MetricDataResultTypeDef",
-    {
-        "Id": str,
-        "Label": str,
-        "Timestamps": List[datetime],
-        "Values": List[float],
-        "StatusCode": StatusCodeType,
-        "Messages": List["MessageDataTypeDef"],
-    },
-    total=False,
-)
-
-_RequiredMetricDatumTypeDef = TypedDict(
-    "_RequiredMetricDatumTypeDef",
-    {
-        "MetricName": str,
-    },
-)
-_OptionalMetricDatumTypeDef = TypedDict(
-    "_OptionalMetricDatumTypeDef",
-    {
-        "Dimensions": List["DimensionTypeDef"],
-        "Timestamp": Union[datetime, str],
-        "Value": float,
-        "StatisticValues": "StatisticSetTypeDef",
-        "Values": List[float],
-        "Counts": List[float],
-        "Unit": StandardUnitType,
-        "StorageResolution": int,
-    },
-    total=False,
-)
-
-class MetricDatumTypeDef(_RequiredMetricDatumTypeDef, _OptionalMetricDatumTypeDef):
-    pass
-
-MetricMathAnomalyDetectorTypeDef = TypedDict(
-    "MetricMathAnomalyDetectorTypeDef",
-    {
-        "MetricDataQueries": List["MetricDataQueryTypeDef"],
-    },
-    total=False,
-)
-
-_RequiredMetricStatTypeDef = TypedDict(
-    "_RequiredMetricStatTypeDef",
-    {
-        "Metric": "MetricTypeDef",
-        "Period": int,
-        "Stat": str,
-    },
-)
-_OptionalMetricStatTypeDef = TypedDict(
-    "_OptionalMetricStatTypeDef",
-    {
-        "Unit": StandardUnitType,
-    },
-    total=False,
-)
-
-class MetricStatTypeDef(_RequiredMetricStatTypeDef, _OptionalMetricStatTypeDef):
-    pass
-
-MetricStreamEntryTypeDef = TypedDict(
-    "MetricStreamEntryTypeDef",
-    {
-        "Arn": str,
-        "CreationDate": datetime,
-        "LastUpdateDate": datetime,
-        "Name": str,
-        "FirehoseArn": str,
-        "State": str,
-        "OutputFormat": MetricStreamOutputFormatType,
-    },
-    total=False,
-)
-
-MetricStreamFilterTypeDef = TypedDict(
-    "MetricStreamFilterTypeDef",
-    {
-        "Namespace": str,
-        "MetricNames": List[str],
-    },
-    total=False,
-)
-
-MetricStreamStatisticsConfigurationTypeDef = TypedDict(
-    "MetricStreamStatisticsConfigurationTypeDef",
-    {
-        "IncludeMetrics": List["MetricStreamStatisticsMetricTypeDef"],
-        "AdditionalStatistics": List[str],
-    },
-)
-
-MetricStreamStatisticsMetricTypeDef = TypedDict(
-    "MetricStreamStatisticsMetricTypeDef",
-    {
-        "Namespace": str,
-        "MetricName": str,
-    },
-)
-
-MetricTypeDef = TypedDict(
-    "MetricTypeDef",
-    {
-        "Namespace": str,
-        "MetricName": str,
-        "Dimensions": List["DimensionTypeDef"],
-    },
-    total=False,
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-PartialFailureTypeDef = TypedDict(
-    "PartialFailureTypeDef",
-    {
-        "FailureResource": str,
-        "ExceptionType": str,
-        "FailureCode": str,
-        "FailureDescription": str,
-    },
-    total=False,
-)
-
-PutAnomalyDetectorInputRequestTypeDef = TypedDict(
-    "PutAnomalyDetectorInputRequestTypeDef",
-    {
-        "Namespace": str,
-        "MetricName": str,
-        "Dimensions": List["DimensionTypeDef"],
-        "Stat": str,
-        "Configuration": "AnomalyDetectorConfigurationTypeDef",
-        "MetricCharacteristics": "MetricCharacteristicsTypeDef",
-        "SingleMetricAnomalyDetector": "SingleMetricAnomalyDetectorTypeDef",
-        "MetricMathAnomalyDetector": "MetricMathAnomalyDetectorTypeDef",
-    },
-    total=False,
-)
-
-_RequiredPutCompositeAlarmInputRequestTypeDef = TypedDict(
-    "_RequiredPutCompositeAlarmInputRequestTypeDef",
-    {
-        "AlarmName": str,
-        "AlarmRule": str,
-    },
-)
-_OptionalPutCompositeAlarmInputRequestTypeDef = TypedDict(
-    "_OptionalPutCompositeAlarmInputRequestTypeDef",
-    {
-        "ActionsEnabled": bool,
-        "AlarmActions": List[str],
-        "AlarmDescription": str,
-        "InsufficientDataActions": List[str],
-        "OKActions": List[str],
-        "Tags": List["TagTypeDef"],
-        "ActionsSuppressor": str,
-        "ActionsSuppressorWaitPeriod": int,
-        "ActionsSuppressorExtensionPeriod": int,
-    },
-    total=False,
-)
-
-class PutCompositeAlarmInputRequestTypeDef(
-    _RequiredPutCompositeAlarmInputRequestTypeDef, _OptionalPutCompositeAlarmInputRequestTypeDef
-):
-    pass
-
-PutDashboardInputRequestTypeDef = TypedDict(
-    "PutDashboardInputRequestTypeDef",
-    {
-        "DashboardName": str,
-        "DashboardBody": str,
-    },
-)
-
-PutDashboardOutputTypeDef = TypedDict(
-    "PutDashboardOutputTypeDef",
-    {
-        "DashboardValidationMessages": List["DashboardValidationMessageTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredPutInsightRuleInputRequestTypeDef = TypedDict(
-    "_RequiredPutInsightRuleInputRequestTypeDef",
-    {
-        "RuleName": str,
-        "RuleDefinition": str,
-    },
-)
-_OptionalPutInsightRuleInputRequestTypeDef = TypedDict(
-    "_OptionalPutInsightRuleInputRequestTypeDef",
-    {
-        "RuleState": str,
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class PutInsightRuleInputRequestTypeDef(
-    _RequiredPutInsightRuleInputRequestTypeDef, _OptionalPutInsightRuleInputRequestTypeDef
-):
-    pass
-
-PutManagedInsightRulesInputRequestTypeDef = TypedDict(
-    "PutManagedInsightRulesInputRequestTypeDef",
-    {
-        "ManagedRules": List["ManagedRuleTypeDef"],
-    },
-)
-
-PutManagedInsightRulesOutputTypeDef = TypedDict(
-    "PutManagedInsightRulesOutputTypeDef",
-    {
-        "Failures": List["PartialFailureTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredPutMetricAlarmInputMetricTypeDef = TypedDict(
-    "_RequiredPutMetricAlarmInputMetricTypeDef",
-    {
-        "AlarmName": str,
-        "EvaluationPeriods": int,
-        "ComparisonOperator": ComparisonOperatorType,
-    },
-)
-_OptionalPutMetricAlarmInputMetricTypeDef = TypedDict(
-    "_OptionalPutMetricAlarmInputMetricTypeDef",
-    {
-        "AlarmDescription": str,
-        "ActionsEnabled": bool,
-        "OKActions": List[str],
-        "AlarmActions": List[str],
-        "InsufficientDataActions": List[str],
-        "Statistic": StatisticType,
-        "ExtendedStatistic": str,
-        "Dimensions": List["DimensionTypeDef"],
-        "Period": int,
-        "Unit": StandardUnitType,
-        "DatapointsToAlarm": int,
-        "Threshold": float,
-        "TreatMissingData": str,
-        "EvaluateLowSampleCountPercentile": str,
-        "Metrics": List["MetricDataQueryTypeDef"],
-        "Tags": List["TagTypeDef"],
-        "ThresholdMetricId": str,
-    },
-    total=False,
-)
-
-class PutMetricAlarmInputMetricTypeDef(
-    _RequiredPutMetricAlarmInputMetricTypeDef, _OptionalPutMetricAlarmInputMetricTypeDef
-):
-    pass
-
-_RequiredPutMetricAlarmInputRequestTypeDef = TypedDict(
-    "_RequiredPutMetricAlarmInputRequestTypeDef",
-    {
-        "AlarmName": str,
-        "EvaluationPeriods": int,
-        "ComparisonOperator": ComparisonOperatorType,
-    },
-)
-_OptionalPutMetricAlarmInputRequestTypeDef = TypedDict(
-    "_OptionalPutMetricAlarmInputRequestTypeDef",
-    {
-        "AlarmDescription": str,
-        "ActionsEnabled": bool,
-        "OKActions": List[str],
-        "AlarmActions": List[str],
-        "InsufficientDataActions": List[str],
-        "MetricName": str,
-        "Namespace": str,
-        "Statistic": StatisticType,
-        "ExtendedStatistic": str,
-        "Dimensions": List["DimensionTypeDef"],
-        "Period": int,
-        "Unit": StandardUnitType,
-        "DatapointsToAlarm": int,
-        "Threshold": float,
-        "TreatMissingData": str,
-        "EvaluateLowSampleCountPercentile": str,
-        "Metrics": List["MetricDataQueryTypeDef"],
-        "Tags": List["TagTypeDef"],
-        "ThresholdMetricId": str,
-    },
-    total=False,
-)
-
-class PutMetricAlarmInputRequestTypeDef(
-    _RequiredPutMetricAlarmInputRequestTypeDef, _OptionalPutMetricAlarmInputRequestTypeDef
-):
-    pass
-
-PutMetricDataInputRequestTypeDef = TypedDict(
-    "PutMetricDataInputRequestTypeDef",
-    {
-        "Namespace": str,
-        "MetricData": List["MetricDatumTypeDef"],
-    },
-)
-
-_RequiredPutMetricStreamInputRequestTypeDef = TypedDict(
-    "_RequiredPutMetricStreamInputRequestTypeDef",
-    {
-        "Name": str,
-        "FirehoseArn": str,
-        "RoleArn": str,
-        "OutputFormat": MetricStreamOutputFormatType,
-    },
-)
-_OptionalPutMetricStreamInputRequestTypeDef = TypedDict(
-    "_OptionalPutMetricStreamInputRequestTypeDef",
-    {
-        "IncludeFilters": List["MetricStreamFilterTypeDef"],
-        "ExcludeFilters": List["MetricStreamFilterTypeDef"],
-        "Tags": List["TagTypeDef"],
-        "StatisticsConfigurations": List["MetricStreamStatisticsConfigurationTypeDef"],
-        "IncludeLinkedAccountsMetrics": bool,
-    },
-    total=False,
-)
-
-class PutMetricStreamInputRequestTypeDef(
-    _RequiredPutMetricStreamInputRequestTypeDef, _OptionalPutMetricStreamInputRequestTypeDef
-):
-    pass
-
-PutMetricStreamOutputTypeDef = TypedDict(
-    "PutMetricStreamOutputTypeDef",
-    {
-        "Arn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-RangeTypeDef = TypedDict(
-    "RangeTypeDef",
-    {
-        "StartTime": datetime,
-        "EndTime": datetime,
-    },
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-ServiceResourceAlarmRequestTypeDef = TypedDict(
-    "ServiceResourceAlarmRequestTypeDef",
-    {
-        "name": str,
-    },
-)
-
-ServiceResourceMetricRequestTypeDef = TypedDict(
-    "ServiceResourceMetricRequestTypeDef",
-    {
-        "namespace": str,
-        "name": str,
-    },
-)
-
-_RequiredSetAlarmStateInputAlarmTypeDef = TypedDict(
-    "_RequiredSetAlarmStateInputAlarmTypeDef",
-    {
-        "StateValue": StateValueType,
-        "StateReason": str,
-    },
-)
-_OptionalSetAlarmStateInputAlarmTypeDef = TypedDict(
-    "_OptionalSetAlarmStateInputAlarmTypeDef",
-    {
-        "StateReasonData": str,
-    },
-    total=False,
-)
-
-class SetAlarmStateInputAlarmTypeDef(
-    _RequiredSetAlarmStateInputAlarmTypeDef, _OptionalSetAlarmStateInputAlarmTypeDef
-):
-    pass
-
-_RequiredSetAlarmStateInputRequestTypeDef = TypedDict(
-    "_RequiredSetAlarmStateInputRequestTypeDef",
-    {
-        "AlarmName": str,
-        "StateValue": StateValueType,
-        "StateReason": str,
-    },
-)
-_OptionalSetAlarmStateInputRequestTypeDef = TypedDict(
-    "_OptionalSetAlarmStateInputRequestTypeDef",
-    {
-        "StateReasonData": str,
-    },
-    total=False,
-)
-
-class SetAlarmStateInputRequestTypeDef(
-    _RequiredSetAlarmStateInputRequestTypeDef, _OptionalSetAlarmStateInputRequestTypeDef
-):
-    pass
-
-SingleMetricAnomalyDetectorTypeDef = TypedDict(
-    "SingleMetricAnomalyDetectorTypeDef",
-    {
-        "AccountId": str,
-        "Namespace": str,
-        "MetricName": str,
-        "Dimensions": List["DimensionTypeDef"],
-        "Stat": str,
-    },
-    total=False,
-)
-
-StartMetricStreamsInputRequestTypeDef = TypedDict(
-    "StartMetricStreamsInputRequestTypeDef",
-    {
-        "Names": List[str],
-    },
-)
-
-StatisticSetTypeDef = TypedDict(
-    "StatisticSetTypeDef",
-    {
-        "SampleCount": float,
-        "Sum": float,
-        "Minimum": float,
-        "Maximum": float,
-    },
-)
-
-StopMetricStreamsInputRequestTypeDef = TypedDict(
-    "StopMetricStreamsInputRequestTypeDef",
-    {
-        "Names": List[str],
-    },
-)
-
-TagResourceInputRequestTypeDef = TypedDict(
-    "TagResourceInputRequestTypeDef",
-    {
-        "ResourceARN": str,
-        "Tags": List["TagTypeDef"],
-    },
-)
-
-TagTypeDef = TypedDict(
-    "TagTypeDef",
-    {
-        "Key": str,
-        "Value": str,
-    },
-)
-
-UntagResourceInputRequestTypeDef = TypedDict(
-    "UntagResourceInputRequestTypeDef",
-    {
-        "ResourceARN": str,
-        "TagKeys": List[str],
-    },
-)
-
-WaiterConfigTypeDef = TypedDict(
-    "WaiterConfigTypeDef",
-    {
-        "Delay": int,
-        "MaxAttempts": int,
-    },
-    total=False,
-)
+class AlarmHistoryItemTypeDef(TypedDict):
+    AlarmName: NotRequired[str]
+    AlarmType: NotRequired[AlarmTypeType]
+    Timestamp: NotRequired[datetime]
+    HistoryItemType: NotRequired[HistoryItemTypeType]
+    HistorySummary: NotRequired[str]
+    HistoryData: NotRequired[str]
+
+class RangeOutputTypeDef(TypedDict):
+    StartTime: datetime
+    EndTime: datetime
+
+class DimensionTypeDef(TypedDict):
+    Name: str
+    Value: str
+
+class MetricCharacteristicsTypeDef(TypedDict):
+    PeriodicSpikes: NotRequired[bool]
+
+class CloudwatchEventStateTypeDef(TypedDict):
+    timestamp: str
+    value: str
+    reason: NotRequired[str]
+    reasonData: NotRequired[str]
+    actionsSuppressedBy: NotRequired[str]
+    actionsSuppressedReason: NotRequired[str]
+
+class CloudwatchEventMetricStatsMetricTypeDef(TypedDict):
+    metricName: str
+    namespace: str
+    dimensions: Dict[str, str]
+
+class CompositeAlarmTypeDef(TypedDict):
+    ActionsEnabled: NotRequired[bool]
+    AlarmActions: NotRequired[List[str]]
+    AlarmArn: NotRequired[str]
+    AlarmConfigurationUpdatedTimestamp: NotRequired[datetime]
+    AlarmDescription: NotRequired[str]
+    AlarmName: NotRequired[str]
+    AlarmRule: NotRequired[str]
+    InsufficientDataActions: NotRequired[List[str]]
+    OKActions: NotRequired[List[str]]
+    StateReason: NotRequired[str]
+    StateReasonData: NotRequired[str]
+    StateUpdatedTimestamp: NotRequired[datetime]
+    StateValue: NotRequired[StateValueType]
+    StateTransitionedTimestamp: NotRequired[datetime]
+    ActionsSuppressedBy: NotRequired[ActionsSuppressedByType]
+    ActionsSuppressedReason: NotRequired[str]
+    ActionsSuppressor: NotRequired[str]
+    ActionsSuppressorWaitPeriod: NotRequired[int]
+    ActionsSuppressorExtensionPeriod: NotRequired[int]
+
+class DashboardEntryTypeDef(TypedDict):
+    DashboardName: NotRequired[str]
+    DashboardArn: NotRequired[str]
+    LastModified: NotRequired[datetime]
+    Size: NotRequired[int]
+
+class DashboardValidationMessageTypeDef(TypedDict):
+    DataPath: NotRequired[str]
+    Message: NotRequired[str]
+
+class DatapointTypeDef(TypedDict):
+    Timestamp: NotRequired[datetime]
+    SampleCount: NotRequired[float]
+    Average: NotRequired[float]
+    Sum: NotRequired[float]
+    Minimum: NotRequired[float]
+    Maximum: NotRequired[float]
+    Unit: NotRequired[StandardUnitType]
+    ExtendedStatistics: NotRequired[Dict[str, float]]
+
+class DeleteAlarmsInputTypeDef(TypedDict):
+    AlarmNames: Sequence[str]
+
+class DeleteDashboardsInputTypeDef(TypedDict):
+    DashboardNames: Sequence[str]
+
+class DeleteInsightRulesInputTypeDef(TypedDict):
+    RuleNames: Sequence[str]
+
+class PartialFailureTypeDef(TypedDict):
+    FailureResource: NotRequired[str]
+    ExceptionType: NotRequired[str]
+    FailureCode: NotRequired[str]
+    FailureDescription: NotRequired[str]
+
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
+
+class DeleteMetricStreamInputTypeDef(TypedDict):
+    Name: str
+
+TimestampTypeDef = Union[datetime, str]
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class DescribeAlarmsInputTypeDef(TypedDict):
+    AlarmNames: NotRequired[Sequence[str]]
+    AlarmNamePrefix: NotRequired[str]
+    AlarmTypes: NotRequired[Sequence[AlarmTypeType]]
+    ChildrenOfAlarmName: NotRequired[str]
+    ParentsOfAlarmName: NotRequired[str]
+    StateValue: NotRequired[StateValueType]
+    ActionPrefix: NotRequired[str]
+    MaxRecords: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class WaiterConfigTypeDef(TypedDict):
+    Delay: NotRequired[int]
+    MaxAttempts: NotRequired[int]
+
+class DescribeInsightRulesInputTypeDef(TypedDict):
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class InsightRuleTypeDef(TypedDict):
+    Name: str
+    State: str
+    Schema: str
+    Definition: str
+    ManagedRule: NotRequired[bool]
+
+class DimensionFilterTypeDef(TypedDict):
+    Name: str
+    Value: NotRequired[str]
+
+class DisableAlarmActionsInputTypeDef(TypedDict):
+    AlarmNames: Sequence[str]
+
+class DisableInsightRulesInputTypeDef(TypedDict):
+    RuleNames: Sequence[str]
+
+class EnableAlarmActionsInputTypeDef(TypedDict):
+    AlarmNames: Sequence[str]
+
+class EnableInsightRulesInputTypeDef(TypedDict):
+    RuleNames: Sequence[str]
+
+class EntityTypeDef(TypedDict):
+    KeyAttributes: NotRequired[Mapping[str, str]]
+    Attributes: NotRequired[Mapping[str, str]]
+
+class GetDashboardInputTypeDef(TypedDict):
+    DashboardName: str
+
+class InsightRuleMetricDatapointTypeDef(TypedDict):
+    Timestamp: datetime
+    UniqueContributors: NotRequired[float]
+    MaxContributorValue: NotRequired[float]
+    SampleCount: NotRequired[float]
+    Average: NotRequired[float]
+    Sum: NotRequired[float]
+    Minimum: NotRequired[float]
+    Maximum: NotRequired[float]
+
+class LabelOptionsTypeDef(TypedDict):
+    Timezone: NotRequired[str]
+
+class MessageDataTypeDef(TypedDict):
+    Code: NotRequired[str]
+    Value: NotRequired[str]
+
+class GetMetricStreamInputTypeDef(TypedDict):
+    Name: str
+
+class MetricStreamFilterOutputTypeDef(TypedDict):
+    Namespace: NotRequired[str]
+    MetricNames: NotRequired[List[str]]
+
+class GetMetricWidgetImageInputTypeDef(TypedDict):
+    MetricWidget: str
+    OutputFormat: NotRequired[str]
+
+class InsightRuleContributorDatapointTypeDef(TypedDict):
+    Timestamp: datetime
+    ApproximateValue: float
+
+class ListDashboardsInputTypeDef(TypedDict):
+    DashboardNamePrefix: NotRequired[str]
+    NextToken: NotRequired[str]
+
+class ListManagedInsightRulesInputTypeDef(TypedDict):
+    ResourceARN: str
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class ListMetricStreamsInputTypeDef(TypedDict):
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class MetricStreamEntryTypeDef(TypedDict):
+    Arn: NotRequired[str]
+    CreationDate: NotRequired[datetime]
+    LastUpdateDate: NotRequired[datetime]
+    Name: NotRequired[str]
+    FirehoseArn: NotRequired[str]
+    State: NotRequired[str]
+    OutputFormat: NotRequired[MetricStreamOutputFormatType]
+
+class ListTagsForResourceInputTypeDef(TypedDict):
+    ResourceARN: str
+
+class TagTypeDef(TypedDict):
+    Key: str
+    Value: str
+
+class ManagedRuleStateTypeDef(TypedDict):
+    RuleName: str
+    State: str
+
+class StatisticSetTypeDef(TypedDict):
+    SampleCount: float
+    Sum: float
+    Minimum: float
+    Maximum: float
+
+class MetricStreamFilterTypeDef(TypedDict):
+    Namespace: NotRequired[str]
+    MetricNames: NotRequired[Sequence[str]]
+
+class MetricStreamStatisticsMetricTypeDef(TypedDict):
+    Namespace: str
+    MetricName: str
+
+class PutDashboardInputTypeDef(TypedDict):
+    DashboardName: str
+    DashboardBody: str
+
+class SetAlarmStateInputAlarmSetStateTypeDef(TypedDict):
+    StateValue: StateValueType
+    StateReason: str
+    StateReasonData: NotRequired[str]
+
+class SetAlarmStateInputTypeDef(TypedDict):
+    AlarmName: str
+    StateValue: StateValueType
+    StateReason: str
+    StateReasonData: NotRequired[str]
+
+class StartMetricStreamsInputTypeDef(TypedDict):
+    Names: Sequence[str]
+
+class StopMetricStreamsInputTypeDef(TypedDict):
+    Names: Sequence[str]
+
+class UntagResourceInputTypeDef(TypedDict):
+    ResourceARN: str
+    TagKeys: Sequence[str]
+
+class AnomalyDetectorConfigurationOutputTypeDef(TypedDict):
+    ExcludedTimeRanges: NotRequired[List[RangeOutputTypeDef]]
+    MetricTimezone: NotRequired[str]
+
+class DescribeAlarmsForMetricInputTypeDef(TypedDict):
+    MetricName: str
+    Namespace: str
+    Statistic: NotRequired[StatisticType]
+    ExtendedStatistic: NotRequired[str]
+    Dimensions: NotRequired[Sequence[DimensionTypeDef]]
+    Period: NotRequired[int]
+    Unit: NotRequired[StandardUnitType]
+
+class DescribeAnomalyDetectorsInputTypeDef(TypedDict):
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+    Namespace: NotRequired[str]
+    MetricName: NotRequired[str]
+    Dimensions: NotRequired[Sequence[DimensionTypeDef]]
+    AnomalyDetectorTypes: NotRequired[Sequence[AnomalyDetectorTypeType]]
+
+class MetricOutputTypeDef(TypedDict):
+    Namespace: NotRequired[str]
+    MetricName: NotRequired[str]
+    Dimensions: NotRequired[List[DimensionTypeDef]]
+
+class MetricTypeDef(TypedDict):
+    Namespace: NotRequired[str]
+    MetricName: NotRequired[str]
+    Dimensions: NotRequired[Sequence[DimensionTypeDef]]
+
+class SingleMetricAnomalyDetectorOutputTypeDef(TypedDict):
+    AccountId: NotRequired[str]
+    Namespace: NotRequired[str]
+    MetricName: NotRequired[str]
+    Dimensions: NotRequired[List[DimensionTypeDef]]
+    Stat: NotRequired[str]
+
+class SingleMetricAnomalyDetectorTypeDef(TypedDict):
+    AccountId: NotRequired[str]
+    Namespace: NotRequired[str]
+    MetricName: NotRequired[str]
+    Dimensions: NotRequired[Sequence[DimensionTypeDef]]
+    Stat: NotRequired[str]
+
+class CloudwatchEventMetricStatsTypeDef(TypedDict):
+    period: str
+    stat: str
+    metric: NotRequired[CloudwatchEventMetricStatsMetricTypeDef]
+
+class DeleteInsightRulesOutputTypeDef(TypedDict):
+    Failures: List[PartialFailureTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeAlarmHistoryOutputTypeDef(TypedDict):
+    AlarmHistoryItems: List[AlarmHistoryItemTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class DisableInsightRulesOutputTypeDef(TypedDict):
+    Failures: List[PartialFailureTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class EmptyResponseMetadataTypeDef(TypedDict):
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class EnableInsightRulesOutputTypeDef(TypedDict):
+    Failures: List[PartialFailureTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetDashboardOutputTypeDef(TypedDict):
+    DashboardArn: str
+    DashboardBody: str
+    DashboardName: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetMetricStatisticsOutputTypeDef(TypedDict):
+    Label: str
+    Datapoints: List[DatapointTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetMetricWidgetImageOutputTypeDef(TypedDict):
+    MetricWidgetImage: bytes
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListDashboardsOutputTypeDef(TypedDict):
+    DashboardEntries: List[DashboardEntryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class PutDashboardOutputTypeDef(TypedDict):
+    DashboardValidationMessages: List[DashboardValidationMessageTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutManagedInsightRulesOutputTypeDef(TypedDict):
+    Failures: List[PartialFailureTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutMetricStreamOutputTypeDef(TypedDict):
+    Arn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeAlarmHistoryInputAlarmDescribeHistoryTypeDef(TypedDict):
+    AlarmTypes: NotRequired[Sequence[AlarmTypeType]]
+    HistoryItemType: NotRequired[HistoryItemTypeType]
+    StartDate: NotRequired[TimestampTypeDef]
+    EndDate: NotRequired[TimestampTypeDef]
+    MaxRecords: NotRequired[int]
+    NextToken: NotRequired[str]
+    ScanBy: NotRequired[ScanByType]
+
+class DescribeAlarmHistoryInputTypeDef(TypedDict):
+    AlarmName: NotRequired[str]
+    AlarmTypes: NotRequired[Sequence[AlarmTypeType]]
+    HistoryItemType: NotRequired[HistoryItemTypeType]
+    StartDate: NotRequired[TimestampTypeDef]
+    EndDate: NotRequired[TimestampTypeDef]
+    MaxRecords: NotRequired[int]
+    NextToken: NotRequired[str]
+    ScanBy: NotRequired[ScanByType]
+
+class GetInsightRuleReportInputTypeDef(TypedDict):
+    RuleName: str
+    StartTime: TimestampTypeDef
+    EndTime: TimestampTypeDef
+    Period: int
+    MaxContributorCount: NotRequired[int]
+    Metrics: NotRequired[Sequence[str]]
+    OrderBy: NotRequired[str]
+
+class GetMetricStatisticsInputMetricGetStatisticsTypeDef(TypedDict):
+    StartTime: TimestampTypeDef
+    EndTime: TimestampTypeDef
+    Period: int
+    Dimensions: NotRequired[Sequence[DimensionTypeDef]]
+    Statistics: NotRequired[Sequence[StatisticType]]
+    ExtendedStatistics: NotRequired[Sequence[str]]
+    Unit: NotRequired[StandardUnitType]
+
+class GetMetricStatisticsInputTypeDef(TypedDict):
+    Namespace: str
+    MetricName: str
+    StartTime: TimestampTypeDef
+    EndTime: TimestampTypeDef
+    Period: int
+    Dimensions: NotRequired[Sequence[DimensionTypeDef]]
+    Statistics: NotRequired[Sequence[StatisticType]]
+    ExtendedStatistics: NotRequired[Sequence[str]]
+    Unit: NotRequired[StandardUnitType]
+
+class RangeTypeDef(TypedDict):
+    StartTime: TimestampTypeDef
+    EndTime: TimestampTypeDef
+
+class DescribeAlarmHistoryInputPaginateTypeDef(TypedDict):
+    AlarmName: NotRequired[str]
+    AlarmTypes: NotRequired[Sequence[AlarmTypeType]]
+    HistoryItemType: NotRequired[HistoryItemTypeType]
+    StartDate: NotRequired[TimestampTypeDef]
+    EndDate: NotRequired[TimestampTypeDef]
+    ScanBy: NotRequired[ScanByType]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeAlarmsInputPaginateTypeDef(TypedDict):
+    AlarmNames: NotRequired[Sequence[str]]
+    AlarmNamePrefix: NotRequired[str]
+    AlarmTypes: NotRequired[Sequence[AlarmTypeType]]
+    ChildrenOfAlarmName: NotRequired[str]
+    ParentsOfAlarmName: NotRequired[str]
+    StateValue: NotRequired[StateValueType]
+    ActionPrefix: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeAnomalyDetectorsInputPaginateTypeDef(TypedDict):
+    Namespace: NotRequired[str]
+    MetricName: NotRequired[str]
+    Dimensions: NotRequired[Sequence[DimensionTypeDef]]
+    AnomalyDetectorTypes: NotRequired[Sequence[AnomalyDetectorTypeType]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListDashboardsInputPaginateTypeDef(TypedDict):
+    DashboardNamePrefix: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeAlarmsInputWaitExtraTypeDef(TypedDict):
+    AlarmNames: NotRequired[Sequence[str]]
+    AlarmNamePrefix: NotRequired[str]
+    AlarmTypes: NotRequired[Sequence[AlarmTypeType]]
+    ChildrenOfAlarmName: NotRequired[str]
+    ParentsOfAlarmName: NotRequired[str]
+    StateValue: NotRequired[StateValueType]
+    ActionPrefix: NotRequired[str]
+    MaxRecords: NotRequired[int]
+    NextToken: NotRequired[str]
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class DescribeAlarmsInputWaitTypeDef(TypedDict):
+    AlarmNames: NotRequired[Sequence[str]]
+    AlarmNamePrefix: NotRequired[str]
+    AlarmTypes: NotRequired[Sequence[AlarmTypeType]]
+    ChildrenOfAlarmName: NotRequired[str]
+    ParentsOfAlarmName: NotRequired[str]
+    StateValue: NotRequired[StateValueType]
+    ActionPrefix: NotRequired[str]
+    MaxRecords: NotRequired[int]
+    NextToken: NotRequired[str]
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class DescribeInsightRulesOutputTypeDef(TypedDict):
+    InsightRules: List[InsightRuleTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListMetricsInputPaginateTypeDef(TypedDict):
+    Namespace: NotRequired[str]
+    MetricName: NotRequired[str]
+    Dimensions: NotRequired[Sequence[DimensionFilterTypeDef]]
+    RecentlyActive: NotRequired[Literal["PT3H"]]
+    IncludeLinkedAccounts: NotRequired[bool]
+    OwningAccount: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListMetricsInputTypeDef(TypedDict):
+    Namespace: NotRequired[str]
+    MetricName: NotRequired[str]
+    Dimensions: NotRequired[Sequence[DimensionFilterTypeDef]]
+    NextToken: NotRequired[str]
+    RecentlyActive: NotRequired[Literal["PT3H"]]
+    IncludeLinkedAccounts: NotRequired[bool]
+    OwningAccount: NotRequired[str]
+
+class MetricDataResultTypeDef(TypedDict):
+    Id: NotRequired[str]
+    Label: NotRequired[str]
+    Timestamps: NotRequired[List[datetime]]
+    Values: NotRequired[List[float]]
+    StatusCode: NotRequired[StatusCodeType]
+    Messages: NotRequired[List[MessageDataTypeDef]]
+
+class InsightRuleContributorTypeDef(TypedDict):
+    Keys: List[str]
+    ApproximateAggregateValue: float
+    Datapoints: List[InsightRuleContributorDatapointTypeDef]
+
+class ListMetricStreamsOutputTypeDef(TypedDict):
+    Entries: List[MetricStreamEntryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListTagsForResourceOutputTypeDef(TypedDict):
+    Tags: List[TagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ManagedRuleTypeDef(TypedDict):
+    TemplateName: str
+    ResourceARN: str
+    Tags: NotRequired[Sequence[TagTypeDef]]
+
+class PutCompositeAlarmInputTypeDef(TypedDict):
+    AlarmName: str
+    AlarmRule: str
+    ActionsEnabled: NotRequired[bool]
+    AlarmActions: NotRequired[Sequence[str]]
+    AlarmDescription: NotRequired[str]
+    InsufficientDataActions: NotRequired[Sequence[str]]
+    OKActions: NotRequired[Sequence[str]]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+    ActionsSuppressor: NotRequired[str]
+    ActionsSuppressorWaitPeriod: NotRequired[int]
+    ActionsSuppressorExtensionPeriod: NotRequired[int]
+
+class PutInsightRuleInputTypeDef(TypedDict):
+    RuleName: str
+    RuleDefinition: str
+    RuleState: NotRequired[str]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+
+class TagResourceInputTypeDef(TypedDict):
+    ResourceARN: str
+    Tags: Sequence[TagTypeDef]
+
+class ManagedRuleDescriptionTypeDef(TypedDict):
+    TemplateName: NotRequired[str]
+    ResourceARN: NotRequired[str]
+    RuleState: NotRequired[ManagedRuleStateTypeDef]
+
+class MetricDatumTypeDef(TypedDict):
+    MetricName: str
+    Dimensions: NotRequired[Sequence[DimensionTypeDef]]
+    Timestamp: NotRequired[TimestampTypeDef]
+    Value: NotRequired[float]
+    StatisticValues: NotRequired[StatisticSetTypeDef]
+    Values: NotRequired[Sequence[float]]
+    Counts: NotRequired[Sequence[float]]
+    Unit: NotRequired[StandardUnitType]
+    StorageResolution: NotRequired[int]
+
+MetricStreamFilterUnionTypeDef = Union[MetricStreamFilterTypeDef, MetricStreamFilterOutputTypeDef]
+
+class MetricStreamStatisticsConfigurationOutputTypeDef(TypedDict):
+    IncludeMetrics: List[MetricStreamStatisticsMetricTypeDef]
+    AdditionalStatistics: List[str]
+
+class MetricStreamStatisticsConfigurationTypeDef(TypedDict):
+    IncludeMetrics: Sequence[MetricStreamStatisticsMetricTypeDef]
+    AdditionalStatistics: Sequence[str]
+
+class ListMetricsOutputTypeDef(TypedDict):
+    Metrics: List[MetricOutputTypeDef]
+    OwningAccounts: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class MetricStatOutputTypeDef(TypedDict):
+    Metric: MetricOutputTypeDef
+    Period: int
+    Stat: str
+    Unit: NotRequired[StandardUnitType]
+
+MetricUnionTypeDef = Union[MetricTypeDef, MetricOutputTypeDef]
+SingleMetricAnomalyDetectorUnionTypeDef = Union[
+    SingleMetricAnomalyDetectorTypeDef, SingleMetricAnomalyDetectorOutputTypeDef
+]
+CloudwatchEventMetricTypeDef = TypedDict(
+    "CloudwatchEventMetricTypeDef",
+    {
+        "id": str,
+        "returnData": bool,
+        "metricStat": NotRequired[CloudwatchEventMetricStatsTypeDef],
+        "expression": NotRequired[str],
+        "label": NotRequired[str],
+        "period": NotRequired[int],
+    },
+)
+
+class AnomalyDetectorConfigurationTypeDef(TypedDict):
+    ExcludedTimeRanges: NotRequired[Sequence[RangeTypeDef]]
+    MetricTimezone: NotRequired[str]
+
+class GetMetricDataOutputTypeDef(TypedDict):
+    MetricDataResults: List[MetricDataResultTypeDef]
+    Messages: List[MessageDataTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class GetInsightRuleReportOutputTypeDef(TypedDict):
+    KeyLabels: List[str]
+    AggregationStatistic: str
+    AggregateValue: float
+    ApproximateUniqueCount: int
+    Contributors: List[InsightRuleContributorTypeDef]
+    MetricDatapoints: List[InsightRuleMetricDatapointTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutManagedInsightRulesInputTypeDef(TypedDict):
+    ManagedRules: Sequence[ManagedRuleTypeDef]
+
+class ListManagedInsightRulesOutputTypeDef(TypedDict):
+    ManagedRules: List[ManagedRuleDescriptionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class EntityMetricDataTypeDef(TypedDict):
+    Entity: NotRequired[EntityTypeDef]
+    MetricData: NotRequired[Sequence[MetricDatumTypeDef]]
+
+class GetMetricStreamOutputTypeDef(TypedDict):
+    Arn: str
+    Name: str
+    IncludeFilters: List[MetricStreamFilterOutputTypeDef]
+    ExcludeFilters: List[MetricStreamFilterOutputTypeDef]
+    FirehoseArn: str
+    RoleArn: str
+    State: str
+    CreationDate: datetime
+    LastUpdateDate: datetime
+    OutputFormat: MetricStreamOutputFormatType
+    StatisticsConfigurations: List[MetricStreamStatisticsConfigurationOutputTypeDef]
+    IncludeLinkedAccountsMetrics: bool
+    ResponseMetadata: ResponseMetadataTypeDef
+
+MetricStreamStatisticsConfigurationUnionTypeDef = Union[
+    MetricStreamStatisticsConfigurationTypeDef, MetricStreamStatisticsConfigurationOutputTypeDef
+]
+
+class MetricDataQueryOutputTypeDef(TypedDict):
+    Id: str
+    MetricStat: NotRequired[MetricStatOutputTypeDef]
+    Expression: NotRequired[str]
+    Label: NotRequired[str]
+    ReturnData: NotRequired[bool]
+    Period: NotRequired[int]
+    AccountId: NotRequired[str]
+
+class MetricStatTypeDef(TypedDict):
+    Metric: MetricUnionTypeDef
+    Period: int
+    Stat: str
+    Unit: NotRequired[StandardUnitType]
+
+CloudwatchEventDetailConfigurationTypeDef = TypedDict(
+    "CloudwatchEventDetailConfigurationTypeDef",
+    {
+        "id": NotRequired[str],
+        "description": NotRequired[str],
+        "metrics": NotRequired[List[CloudwatchEventMetricTypeDef]],
+        "actionsSuppressor": NotRequired[str],
+        "actionsSuppressorWaitPeriod": NotRequired[int],
+        "actionsSuppressorExtensionPeriod": NotRequired[int],
+        "threshold": NotRequired[int],
+        "evaluationPeriods": NotRequired[int],
+        "alarmRule": NotRequired[str],
+        "alarmName": NotRequired[str],
+        "treatMissingData": NotRequired[str],
+        "comparisonOperator": NotRequired[str],
+        "timestamp": NotRequired[str],
+        "actionsEnabled": NotRequired[bool],
+        "okActions": NotRequired[List[str]],
+        "alarmActions": NotRequired[List[str]],
+        "insufficientDataActions": NotRequired[List[str]],
+    },
+)
+AnomalyDetectorConfigurationUnionTypeDef = Union[
+    AnomalyDetectorConfigurationTypeDef, AnomalyDetectorConfigurationOutputTypeDef
+]
+
+class PutMetricDataInputMetricPutDataTypeDef(TypedDict):
+    EntityMetricData: NotRequired[Sequence[EntityMetricDataTypeDef]]
+    StrictEntityValidation: NotRequired[bool]
+
+class PutMetricDataInputTypeDef(TypedDict):
+    Namespace: str
+    MetricData: NotRequired[Sequence[MetricDatumTypeDef]]
+    EntityMetricData: NotRequired[Sequence[EntityMetricDataTypeDef]]
+    StrictEntityValidation: NotRequired[bool]
+
+class PutMetricStreamInputTypeDef(TypedDict):
+    Name: str
+    FirehoseArn: str
+    RoleArn: str
+    OutputFormat: MetricStreamOutputFormatType
+    IncludeFilters: NotRequired[Sequence[MetricStreamFilterUnionTypeDef]]
+    ExcludeFilters: NotRequired[Sequence[MetricStreamFilterUnionTypeDef]]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+    StatisticsConfigurations: NotRequired[Sequence[MetricStreamStatisticsConfigurationUnionTypeDef]]
+    IncludeLinkedAccountsMetrics: NotRequired[bool]
+
+class MetricAlarmTypeDef(TypedDict):
+    AlarmName: NotRequired[str]
+    AlarmArn: NotRequired[str]
+    AlarmDescription: NotRequired[str]
+    AlarmConfigurationUpdatedTimestamp: NotRequired[datetime]
+    ActionsEnabled: NotRequired[bool]
+    OKActions: NotRequired[List[str]]
+    AlarmActions: NotRequired[List[str]]
+    InsufficientDataActions: NotRequired[List[str]]
+    StateValue: NotRequired[StateValueType]
+    StateReason: NotRequired[str]
+    StateReasonData: NotRequired[str]
+    StateUpdatedTimestamp: NotRequired[datetime]
+    MetricName: NotRequired[str]
+    Namespace: NotRequired[str]
+    Statistic: NotRequired[StatisticType]
+    ExtendedStatistic: NotRequired[str]
+    Dimensions: NotRequired[List[DimensionTypeDef]]
+    Period: NotRequired[int]
+    Unit: NotRequired[StandardUnitType]
+    EvaluationPeriods: NotRequired[int]
+    DatapointsToAlarm: NotRequired[int]
+    Threshold: NotRequired[float]
+    ComparisonOperator: NotRequired[ComparisonOperatorType]
+    TreatMissingData: NotRequired[str]
+    EvaluateLowSampleCountPercentile: NotRequired[str]
+    Metrics: NotRequired[List[MetricDataQueryOutputTypeDef]]
+    ThresholdMetricId: NotRequired[str]
+    EvaluationState: NotRequired[Literal["PARTIAL_DATA"]]
+    StateTransitionedTimestamp: NotRequired[datetime]
+
+class MetricMathAnomalyDetectorOutputTypeDef(TypedDict):
+    MetricDataQueries: NotRequired[List[MetricDataQueryOutputTypeDef]]
+
+MetricStatUnionTypeDef = Union[MetricStatTypeDef, MetricStatOutputTypeDef]
+
+class CloudwatchEventDetailTypeDef(TypedDict):
+    alarmName: str
+    state: CloudwatchEventStateTypeDef
+    operation: NotRequired[str]
+    configuration: NotRequired[CloudwatchEventDetailConfigurationTypeDef]
+    previousConfiguration: NotRequired[CloudwatchEventDetailConfigurationTypeDef]
+    previousState: NotRequired[CloudwatchEventStateTypeDef]
+
+class DescribeAlarmsForMetricOutputTypeDef(TypedDict):
+    MetricAlarms: List[MetricAlarmTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeAlarmsOutputTypeDef(TypedDict):
+    CompositeAlarms: List[CompositeAlarmTypeDef]
+    MetricAlarms: List[MetricAlarmTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class MetricStatAlarmTypeDef(TypedDict):
+    Metric: MetricAlarmTypeDef
+    Period: int
+    Stat: str
+    Unit: NotRequired[StandardUnitType]
+
+class AnomalyDetectorTypeDef(TypedDict):
+    Namespace: NotRequired[str]
+    MetricName: NotRequired[str]
+    Dimensions: NotRequired[List[DimensionTypeDef]]
+    Stat: NotRequired[str]
+    Configuration: NotRequired[AnomalyDetectorConfigurationOutputTypeDef]
+    StateValue: NotRequired[AnomalyDetectorStateValueType]
+    MetricCharacteristics: NotRequired[MetricCharacteristicsTypeDef]
+    SingleMetricAnomalyDetector: NotRequired[SingleMetricAnomalyDetectorOutputTypeDef]
+    MetricMathAnomalyDetector: NotRequired[MetricMathAnomalyDetectorOutputTypeDef]
+
+class MetricDataQueryTypeDef(TypedDict):
+    Id: str
+    MetricStat: NotRequired[MetricStatUnionTypeDef]
+    Expression: NotRequired[str]
+    Label: NotRequired[str]
+    ReturnData: NotRequired[bool]
+    Period: NotRequired[int]
+    AccountId: NotRequired[str]
+
+CloudwatchEventTypeDef = TypedDict(
+    "CloudwatchEventTypeDef",
+    {
+        "version": str,
+        "id": str,
+        "detail-type": str,
+        "source": str,
+        "account": str,
+        "time": str,
+        "region": str,
+        "resources": List[str],
+        "detail": CloudwatchEventDetailTypeDef,
+    },
+)
+
+class MetricDataQueryAlarmTypeDef(TypedDict):
+    Id: str
+    MetricStat: NotRequired[MetricStatAlarmTypeDef]
+    Expression: NotRequired[str]
+    Label: NotRequired[str]
+    ReturnData: NotRequired[bool]
+    Period: NotRequired[int]
+    AccountId: NotRequired[str]
+
+class DescribeAnomalyDetectorsOutputTypeDef(TypedDict):
+    AnomalyDetectors: List[AnomalyDetectorTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+MetricDataQueryUnionTypeDef = Union[MetricDataQueryTypeDef, MetricDataQueryOutputTypeDef]
+
+class MetricMathAnomalyDetectorTypeDef(TypedDict):
+    MetricDataQueries: NotRequired[Sequence[MetricDataQueryTypeDef]]
+
+class GetMetricDataInputPaginateTypeDef(TypedDict):
+    MetricDataQueries: Sequence[MetricDataQueryUnionTypeDef]
+    StartTime: TimestampTypeDef
+    EndTime: TimestampTypeDef
+    ScanBy: NotRequired[ScanByType]
+    LabelOptions: NotRequired[LabelOptionsTypeDef]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class GetMetricDataInputTypeDef(TypedDict):
+    MetricDataQueries: Sequence[MetricDataQueryUnionTypeDef]
+    StartTime: TimestampTypeDef
+    EndTime: TimestampTypeDef
+    NextToken: NotRequired[str]
+    ScanBy: NotRequired[ScanByType]
+    MaxDatapoints: NotRequired[int]
+    LabelOptions: NotRequired[LabelOptionsTypeDef]
+
+class PutMetricAlarmInputMetricPutAlarmTypeDef(TypedDict):
+    AlarmName: str
+    EvaluationPeriods: int
+    ComparisonOperator: ComparisonOperatorType
+    AlarmDescription: NotRequired[str]
+    ActionsEnabled: NotRequired[bool]
+    OKActions: NotRequired[Sequence[str]]
+    AlarmActions: NotRequired[Sequence[str]]
+    InsufficientDataActions: NotRequired[Sequence[str]]
+    Statistic: NotRequired[StatisticType]
+    ExtendedStatistic: NotRequired[str]
+    Dimensions: NotRequired[Sequence[DimensionTypeDef]]
+    Period: NotRequired[int]
+    Unit: NotRequired[StandardUnitType]
+    DatapointsToAlarm: NotRequired[int]
+    Threshold: NotRequired[float]
+    TreatMissingData: NotRequired[str]
+    EvaluateLowSampleCountPercentile: NotRequired[str]
+    Metrics: NotRequired[Sequence[MetricDataQueryUnionTypeDef]]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+    ThresholdMetricId: NotRequired[str]
+
+class PutMetricAlarmInputTypeDef(TypedDict):
+    AlarmName: str
+    EvaluationPeriods: int
+    ComparisonOperator: ComparisonOperatorType
+    AlarmDescription: NotRequired[str]
+    ActionsEnabled: NotRequired[bool]
+    OKActions: NotRequired[Sequence[str]]
+    AlarmActions: NotRequired[Sequence[str]]
+    InsufficientDataActions: NotRequired[Sequence[str]]
+    MetricName: NotRequired[str]
+    Namespace: NotRequired[str]
+    Statistic: NotRequired[StatisticType]
+    ExtendedStatistic: NotRequired[str]
+    Dimensions: NotRequired[Sequence[DimensionTypeDef]]
+    Period: NotRequired[int]
+    Unit: NotRequired[StandardUnitType]
+    DatapointsToAlarm: NotRequired[int]
+    Threshold: NotRequired[float]
+    TreatMissingData: NotRequired[str]
+    EvaluateLowSampleCountPercentile: NotRequired[str]
+    Metrics: NotRequired[Sequence[MetricDataQueryUnionTypeDef]]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+    ThresholdMetricId: NotRequired[str]
+
+MetricMathAnomalyDetectorUnionTypeDef = Union[
+    MetricMathAnomalyDetectorTypeDef, MetricMathAnomalyDetectorOutputTypeDef
+]
+
+class DeleteAnomalyDetectorInputTypeDef(TypedDict):
+    Namespace: NotRequired[str]
+    MetricName: NotRequired[str]
+    Dimensions: NotRequired[Sequence[DimensionTypeDef]]
+    Stat: NotRequired[str]
+    SingleMetricAnomalyDetector: NotRequired[SingleMetricAnomalyDetectorUnionTypeDef]
+    MetricMathAnomalyDetector: NotRequired[MetricMathAnomalyDetectorUnionTypeDef]
+
+class PutAnomalyDetectorInputTypeDef(TypedDict):
+    Namespace: NotRequired[str]
+    MetricName: NotRequired[str]
+    Dimensions: NotRequired[Sequence[DimensionTypeDef]]
+    Stat: NotRequired[str]
+    Configuration: NotRequired[AnomalyDetectorConfigurationUnionTypeDef]
+    MetricCharacteristics: NotRequired[MetricCharacteristicsTypeDef]
+    SingleMetricAnomalyDetector: NotRequired[SingleMetricAnomalyDetectorUnionTypeDef]
+    MetricMathAnomalyDetector: NotRequired[MetricMathAnomalyDetectorUnionTypeDef]

@@ -1,14 +1,16 @@
 """
 Type annotations for guardduty service client paginators.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/paginators.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_guardduty/paginators/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
 
-    from mypy_boto3_guardduty import GuardDutyClient
+    from mypy_boto3_guardduty.client import GuardDutyClient
     from mypy_boto3_guardduty.paginator import (
         DescribeMalwareScansPaginator,
         ListCoveragePaginator,
@@ -22,7 +24,8 @@ Usage::
         ListThreatIntelSetsPaginator,
     )
 
-    client: GuardDutyClient = boto3.client("guardduty")
+    session = Session()
+    client: GuardDutyClient = session.client("guardduty")
 
     describe_malware_scans_paginator: DescribeMalwareScansPaginator = client.get_paginator("describe_malware_scans")
     list_coverage_paginator: ListCoveragePaginator = client.get_paginator("list_coverage")
@@ -37,28 +40,40 @@ Usage::
     ```
 """
 
-from typing import Iterator
+from __future__ import annotations
 
-from botocore.paginate import Paginator as Boto3Paginator
+import sys
+from typing import TYPE_CHECKING
+
+from botocore.paginate import PageIterator, Paginator
 
 from .type_defs import (
-    CoverageFilterCriteriaTypeDef,
-    CoverageSortCriteriaTypeDef,
+    DescribeMalwareScansRequestPaginateTypeDef,
     DescribeMalwareScansResponseTypeDef,
-    FilterCriteriaTypeDef,
-    FindingCriteriaTypeDef,
+    ListCoverageRequestPaginateTypeDef,
     ListCoverageResponseTypeDef,
+    ListDetectorsRequestPaginateTypeDef,
     ListDetectorsResponseTypeDef,
+    ListFiltersRequestPaginateTypeDef,
     ListFiltersResponseTypeDef,
+    ListFindingsRequestPaginateTypeDef,
     ListFindingsResponseTypeDef,
+    ListInvitationsRequestPaginateTypeDef,
     ListInvitationsResponseTypeDef,
+    ListIPSetsRequestPaginateTypeDef,
     ListIPSetsResponseTypeDef,
+    ListMembersRequestPaginateTypeDef,
     ListMembersResponseTypeDef,
+    ListOrganizationAdminAccountsRequestPaginateTypeDef,
     ListOrganizationAdminAccountsResponseTypeDef,
+    ListThreatIntelSetsRequestPaginateTypeDef,
     ListThreatIntelSetsResponseTypeDef,
-    PaginatorConfigTypeDef,
-    SortCriteriaTypeDef,
 )
+
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = (
     "DescribeMalwareScansPaginator",
@@ -73,161 +88,184 @@ __all__ = (
     "ListThreatIntelSetsPaginator",
 )
 
-class DescribeMalwareScansPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Paginator.DescribeMalwareScans)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/paginators.html#describemalwarescanspaginator)
-    """
+if TYPE_CHECKING:
+    _DescribeMalwareScansPaginatorBase = Paginator[DescribeMalwareScansResponseTypeDef]
+else:
+    _DescribeMalwareScansPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        DetectorId: str,
-        FilterCriteria: "FilterCriteriaTypeDef" = None,
-        SortCriteria: "SortCriteriaTypeDef" = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[DescribeMalwareScansResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Paginator.DescribeMalwareScans.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/paginators.html#describemalwarescanspaginator)
-        """
-
-class ListCoveragePaginator(Boto3Paginator):
+class DescribeMalwareScansPaginator(_DescribeMalwareScansPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Paginator.ListCoverage)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/paginators.html#listcoveragepaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/guardduty/paginator/DescribeMalwareScans.html#GuardDuty.Paginator.DescribeMalwareScans)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_guardduty/paginators/#describemalwarescanspaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        DetectorId: str,
-        FilterCriteria: "CoverageFilterCriteriaTypeDef" = None,
-        SortCriteria: "CoverageSortCriteriaTypeDef" = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListCoverageResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeMalwareScansRequestPaginateTypeDef]
+    ) -> PageIterator[DescribeMalwareScansResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Paginator.ListCoverage.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/paginators.html#listcoveragepaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/guardduty/paginator/DescribeMalwareScans.html#GuardDuty.Paginator.DescribeMalwareScans.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_guardduty/paginators/#describemalwarescanspaginator)
         """
 
-class ListDetectorsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Paginator.ListDetectors)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/paginators.html#listdetectorspaginator)
-    """
+if TYPE_CHECKING:
+    _ListCoveragePaginatorBase = Paginator[ListCoverageResponseTypeDef]
+else:
+    _ListCoveragePaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListDetectorsResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Paginator.ListDetectors.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/paginators.html#listdetectorspaginator)
-        """
-
-class ListFiltersPaginator(Boto3Paginator):
+class ListCoveragePaginator(_ListCoveragePaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Paginator.ListFilters)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/paginators.html#listfilterspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/guardduty/paginator/ListCoverage.html#GuardDuty.Paginator.ListCoverage)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_guardduty/paginators/#listcoveragepaginator)
     """
-
-    def paginate(
-        self, *, DetectorId: str, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListFiltersResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListCoverageRequestPaginateTypeDef]
+    ) -> PageIterator[ListCoverageResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Paginator.ListFilters.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/paginators.html#listfilterspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/guardduty/paginator/ListCoverage.html#GuardDuty.Paginator.ListCoverage.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_guardduty/paginators/#listcoveragepaginator)
         """
 
-class ListFindingsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Paginator.ListFindings)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/paginators.html#listfindingspaginator)
-    """
+if TYPE_CHECKING:
+    _ListDetectorsPaginatorBase = Paginator[ListDetectorsResponseTypeDef]
+else:
+    _ListDetectorsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        DetectorId: str,
-        FindingCriteria: "FindingCriteriaTypeDef" = None,
-        SortCriteria: "SortCriteriaTypeDef" = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListFindingsResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Paginator.ListFindings.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/paginators.html#listfindingspaginator)
-        """
-
-class ListIPSetsPaginator(Boto3Paginator):
+class ListDetectorsPaginator(_ListDetectorsPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Paginator.ListIPSets)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/paginators.html#listipsetspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/guardduty/paginator/ListDetectors.html#GuardDuty.Paginator.ListDetectors)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_guardduty/paginators/#listdetectorspaginator)
     """
-
-    def paginate(
-        self, *, DetectorId: str, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListIPSetsResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListDetectorsRequestPaginateTypeDef]
+    ) -> PageIterator[ListDetectorsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Paginator.ListIPSets.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/paginators.html#listipsetspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/guardduty/paginator/ListDetectors.html#GuardDuty.Paginator.ListDetectors.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_guardduty/paginators/#listdetectorspaginator)
         """
 
-class ListInvitationsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Paginator.ListInvitations)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/paginators.html#listinvitationspaginator)
-    """
+if TYPE_CHECKING:
+    _ListFiltersPaginatorBase = Paginator[ListFiltersResponseTypeDef]
+else:
+    _ListFiltersPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListInvitationsResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Paginator.ListInvitations.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/paginators.html#listinvitationspaginator)
-        """
-
-class ListMembersPaginator(Boto3Paginator):
+class ListFiltersPaginator(_ListFiltersPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Paginator.ListMembers)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/paginators.html#listmemberspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/guardduty/paginator/ListFilters.html#GuardDuty.Paginator.ListFilters)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_guardduty/paginators/#listfilterspaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        DetectorId: str,
-        OnlyAssociated: str = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListMembersResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListFiltersRequestPaginateTypeDef]
+    ) -> PageIterator[ListFiltersResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Paginator.ListMembers.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/paginators.html#listmemberspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/guardduty/paginator/ListFilters.html#GuardDuty.Paginator.ListFilters.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_guardduty/paginators/#listfilterspaginator)
         """
 
-class ListOrganizationAdminAccountsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Paginator.ListOrganizationAdminAccounts)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/paginators.html#listorganizationadminaccountspaginator)
-    """
+if TYPE_CHECKING:
+    _ListFindingsPaginatorBase = Paginator[ListFindingsResponseTypeDef]
+else:
+    _ListFindingsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListOrganizationAdminAccountsResponseTypeDef]:
+class ListFindingsPaginator(_ListFindingsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/guardduty/paginator/ListFindings.html#GuardDuty.Paginator.ListFindings)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_guardduty/paginators/#listfindingspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListFindingsRequestPaginateTypeDef]
+    ) -> PageIterator[ListFindingsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Paginator.ListOrganizationAdminAccounts.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/paginators.html#listorganizationadminaccountspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/guardduty/paginator/ListFindings.html#GuardDuty.Paginator.ListFindings.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_guardduty/paginators/#listfindingspaginator)
         """
 
-class ListThreatIntelSetsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Paginator.ListThreatIntelSets)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/paginators.html#listthreatintelsetspaginator)
-    """
+if TYPE_CHECKING:
+    _ListIPSetsPaginatorBase = Paginator[ListIPSetsResponseTypeDef]
+else:
+    _ListIPSetsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, DetectorId: str, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListThreatIntelSetsResponseTypeDef]:
+class ListIPSetsPaginator(_ListIPSetsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/guardduty/paginator/ListIPSets.html#GuardDuty.Paginator.ListIPSets)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_guardduty/paginators/#listipsetspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListIPSetsRequestPaginateTypeDef]
+    ) -> PageIterator[ListIPSetsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/guardduty.html#GuardDuty.Paginator.ListThreatIntelSets.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_guardduty/paginators.html#listthreatintelsetspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/guardduty/paginator/ListIPSets.html#GuardDuty.Paginator.ListIPSets.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_guardduty/paginators/#listipsetspaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListInvitationsPaginatorBase = Paginator[ListInvitationsResponseTypeDef]
+else:
+    _ListInvitationsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListInvitationsPaginator(_ListInvitationsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/guardduty/paginator/ListInvitations.html#GuardDuty.Paginator.ListInvitations)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_guardduty/paginators/#listinvitationspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListInvitationsRequestPaginateTypeDef]
+    ) -> PageIterator[ListInvitationsResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/guardduty/paginator/ListInvitations.html#GuardDuty.Paginator.ListInvitations.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_guardduty/paginators/#listinvitationspaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListMembersPaginatorBase = Paginator[ListMembersResponseTypeDef]
+else:
+    _ListMembersPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListMembersPaginator(_ListMembersPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/guardduty/paginator/ListMembers.html#GuardDuty.Paginator.ListMembers)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_guardduty/paginators/#listmemberspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListMembersRequestPaginateTypeDef]
+    ) -> PageIterator[ListMembersResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/guardduty/paginator/ListMembers.html#GuardDuty.Paginator.ListMembers.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_guardduty/paginators/#listmemberspaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListOrganizationAdminAccountsPaginatorBase = Paginator[
+        ListOrganizationAdminAccountsResponseTypeDef
+    ]
+else:
+    _ListOrganizationAdminAccountsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListOrganizationAdminAccountsPaginator(_ListOrganizationAdminAccountsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/guardduty/paginator/ListOrganizationAdminAccounts.html#GuardDuty.Paginator.ListOrganizationAdminAccounts)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_guardduty/paginators/#listorganizationadminaccountspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListOrganizationAdminAccountsRequestPaginateTypeDef]
+    ) -> PageIterator[ListOrganizationAdminAccountsResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/guardduty/paginator/ListOrganizationAdminAccounts.html#GuardDuty.Paginator.ListOrganizationAdminAccounts.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_guardduty/paginators/#listorganizationadminaccountspaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListThreatIntelSetsPaginatorBase = Paginator[ListThreatIntelSetsResponseTypeDef]
+else:
+    _ListThreatIntelSetsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListThreatIntelSetsPaginator(_ListThreatIntelSetsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/guardduty/paginator/ListThreatIntelSets.html#GuardDuty.Paginator.ListThreatIntelSets)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_guardduty/paginators/#listthreatintelsetspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListThreatIntelSetsRequestPaginateTypeDef]
+    ) -> PageIterator[ListThreatIntelSetsResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/guardduty/paginator/ListThreatIntelSets.html#GuardDuty.Paginator.ListThreatIntelSets.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_guardduty/paginators/#listthreatintelsetspaginator)
         """

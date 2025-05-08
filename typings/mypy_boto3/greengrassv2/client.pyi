@@ -1,33 +1,30 @@
 """
-Type annotations for greengrassv2 service client.
+Type annotations for greengrassv2 service Client.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_greengrassv2/client.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_greengrassv2/client/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
-    from mypy_boto3_greengrassv2 import GreengrassV2Client
+    from boto3.session import Session
+    from mypy_boto3_greengrassv2.client import GreengrassV2Client
 
-    client: GreengrassV2Client = boto3.client("greengrassv2")
+    session = Session()
+    client: GreengrassV2Client = session.client("greengrassv2")
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from typing import IO, Any, Dict, List, Type, Union, overload
+from typing import Any, overload
 
 from botocore.client import BaseClient, ClientMeta
-from botocore.response import StreamingBody
+from botocore.errorfactory import BaseClientExceptions
+from botocore.exceptions import ClientError as BotocoreClientError
 
-from .literals import (
-    ComponentVisibilityScopeType,
-    CoreDeviceStatusType,
-    DeploymentHistoryFilterType,
-    InstalledComponentTopologyFilterType,
-    IotEndpointTypeType,
-    RecipeOutputFormatType,
-    S3EndpointTypeType,
-)
 from .paginator import (
     ListClientDevicesAssociatedWithCoreDevicePaginator,
     ListComponentsPaginator,
@@ -38,56 +35,74 @@ from .paginator import (
     ListInstalledComponentsPaginator,
 )
 from .type_defs import (
-    AssociateClientDeviceWithCoreDeviceEntryTypeDef,
+    AssociateServiceRoleToAccountRequestTypeDef,
     AssociateServiceRoleToAccountResponseTypeDef,
+    BatchAssociateClientDeviceWithCoreDeviceRequestTypeDef,
     BatchAssociateClientDeviceWithCoreDeviceResponseTypeDef,
+    BatchDisassociateClientDeviceFromCoreDeviceRequestTypeDef,
     BatchDisassociateClientDeviceFromCoreDeviceResponseTypeDef,
+    CancelDeploymentRequestTypeDef,
     CancelDeploymentResponseTypeDef,
-    ComponentCandidateTypeDef,
-    ComponentDeploymentSpecificationTypeDef,
-    ComponentPlatformTypeDef,
-    ConnectivityInfoTypeDef,
+    CreateComponentVersionRequestTypeDef,
     CreateComponentVersionResponseTypeDef,
+    CreateDeploymentRequestTypeDef,
     CreateDeploymentResponseTypeDef,
-    DeploymentIoTJobConfigurationTypeDef,
-    DeploymentPoliciesTypeDef,
+    DeleteComponentRequestTypeDef,
+    DeleteCoreDeviceRequestTypeDef,
+    DeleteDeploymentRequestTypeDef,
+    DescribeComponentRequestTypeDef,
     DescribeComponentResponseTypeDef,
-    DisassociateClientDeviceFromCoreDeviceEntryTypeDef,
     DisassociateServiceRoleFromAccountResponseTypeDef,
+    EmptyResponseMetadataTypeDef,
+    GetComponentRequestTypeDef,
     GetComponentResponseTypeDef,
+    GetComponentVersionArtifactRequestTypeDef,
     GetComponentVersionArtifactResponseTypeDef,
+    GetConnectivityInfoRequestTypeDef,
     GetConnectivityInfoResponseTypeDef,
+    GetCoreDeviceRequestTypeDef,
     GetCoreDeviceResponseTypeDef,
+    GetDeploymentRequestTypeDef,
     GetDeploymentResponseTypeDef,
     GetServiceRoleForAccountResponseTypeDef,
-    LambdaFunctionRecipeSourceTypeDef,
+    ListClientDevicesAssociatedWithCoreDeviceRequestTypeDef,
     ListClientDevicesAssociatedWithCoreDeviceResponseTypeDef,
+    ListComponentsRequestTypeDef,
     ListComponentsResponseTypeDef,
+    ListComponentVersionsRequestTypeDef,
     ListComponentVersionsResponseTypeDef,
+    ListCoreDevicesRequestTypeDef,
     ListCoreDevicesResponseTypeDef,
+    ListDeploymentsRequestTypeDef,
     ListDeploymentsResponseTypeDef,
+    ListEffectiveDeploymentsRequestTypeDef,
     ListEffectiveDeploymentsResponseTypeDef,
+    ListInstalledComponentsRequestTypeDef,
     ListInstalledComponentsResponseTypeDef,
+    ListTagsForResourceRequestTypeDef,
     ListTagsForResourceResponseTypeDef,
+    ResolveComponentCandidatesRequestTypeDef,
     ResolveComponentCandidatesResponseTypeDef,
+    TagResourceRequestTypeDef,
+    UntagResourceRequestTypeDef,
+    UpdateConnectivityInfoRequestTypeDef,
     UpdateConnectivityInfoResponseTypeDef,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import type as Type
+    from collections.abc import Mapping
 else:
-    from typing_extensions import Literal
+    from typing import Dict, Mapping, Type
+if sys.version_info >= (3, 12):
+    from typing import Literal, Unpack
+else:
+    from typing_extensions import Literal, Unpack
 
 __all__ = ("GreengrassV2Client",)
 
-class BotocoreClientError(BaseException):
-    MSG_TEMPLATE: str
-
-    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
-        self.response: Dict[str, Any]
-        self.operation_name: str
-
-class Exceptions:
+class Exceptions(BaseClientExceptions):
     AccessDeniedException: Type[BotocoreClientError]
     ClientError: Type[BotocoreClientError]
     ConflictException: Type[BotocoreClientError]
@@ -100,8 +115,8 @@ class Exceptions:
 
 class GreengrassV2Client(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/greengrassv2.html#GreengrassV2.Client)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_greengrassv2/client.html)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/greengrassv2.html#GreengrassV2.Client)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_greengrassv2/client/)
     """
 
     meta: ClientMeta
@@ -110,134 +125,129 @@ class GreengrassV2Client(BaseClient):
     def exceptions(self) -> Exceptions:
         """
         GreengrassV2Client exceptions.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/greengrassv2.html#GreengrassV2.Client)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_greengrassv2/client/#exceptions)
+        """
+
+    def can_paginate(self, operation_name: str) -> bool:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/greengrassv2/client/can_paginate.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_greengrassv2/client/#can_paginate)
+        """
+
+    def generate_presigned_url(
+        self,
+        ClientMethod: str,
+        Params: Mapping[str, Any] = ...,
+        ExpiresIn: int = 3600,
+        HttpMethod: str = ...,
+    ) -> str:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/greengrassv2/client/generate_presigned_url.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_greengrassv2/client/#generate_presigned_url)
         """
 
     def associate_service_role_to_account(
-        self, *, roleArn: str
+        self, **kwargs: Unpack[AssociateServiceRoleToAccountRequestTypeDef]
     ) -> AssociateServiceRoleToAccountResponseTypeDef:
         """
         Associates a Greengrass service role with IoT Greengrass for your Amazon Web
         Services account in this Amazon Web Services Region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/greengrassv2.html#GreengrassV2.Client.associate_service_role_to_account)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_greengrassv2/client.html#associate_service_role_to_account)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/greengrassv2/client/associate_service_role_to_account.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_greengrassv2/client/#associate_service_role_to_account)
         """
 
     def batch_associate_client_device_with_core_device(
-        self,
-        *,
-        coreDeviceThingName: str,
-        entries: List["AssociateClientDeviceWithCoreDeviceEntryTypeDef"] = None
+        self, **kwargs: Unpack[BatchAssociateClientDeviceWithCoreDeviceRequestTypeDef]
     ) -> BatchAssociateClientDeviceWithCoreDeviceResponseTypeDef:
         """
         Associates a list of client devices with a core device.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/greengrassv2.html#GreengrassV2.Client.batch_associate_client_device_with_core_device)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_greengrassv2/client.html#batch_associate_client_device_with_core_device)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/greengrassv2/client/batch_associate_client_device_with_core_device.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_greengrassv2/client/#batch_associate_client_device_with_core_device)
         """
 
     def batch_disassociate_client_device_from_core_device(
-        self,
-        *,
-        coreDeviceThingName: str,
-        entries: List["DisassociateClientDeviceFromCoreDeviceEntryTypeDef"] = None
+        self, **kwargs: Unpack[BatchDisassociateClientDeviceFromCoreDeviceRequestTypeDef]
     ) -> BatchDisassociateClientDeviceFromCoreDeviceResponseTypeDef:
         """
         Disassociates a list of client devices from a core device.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/greengrassv2.html#GreengrassV2.Client.batch_disassociate_client_device_from_core_device)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_greengrassv2/client.html#batch_disassociate_client_device_from_core_device)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/greengrassv2/client/batch_disassociate_client_device_from_core_device.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_greengrassv2/client/#batch_disassociate_client_device_from_core_device)
         """
 
-    def can_paginate(self, operation_name: str) -> bool:
-        """
-        Check if an operation can be paginated.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/greengrassv2.html#GreengrassV2.Client.can_paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_greengrassv2/client.html#can_paginate)
-        """
-
-    def cancel_deployment(self, *, deploymentId: str) -> CancelDeploymentResponseTypeDef:
+    def cancel_deployment(
+        self, **kwargs: Unpack[CancelDeploymentRequestTypeDef]
+    ) -> CancelDeploymentResponseTypeDef:
         """
         Cancels a deployment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/greengrassv2.html#GreengrassV2.Client.cancel_deployment)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_greengrassv2/client.html#cancel_deployment)
-        """
-
-    def close(self) -> None:
-        """
-        Closes underlying endpoint connections.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/greengrassv2.html#GreengrassV2.Client.close)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_greengrassv2/client.html#close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/greengrassv2/client/cancel_deployment.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_greengrassv2/client/#cancel_deployment)
         """
 
     def create_component_version(
-        self,
-        *,
-        inlineRecipe: Union[bytes, IO[bytes], StreamingBody] = None,
-        lambdaFunction: "LambdaFunctionRecipeSourceTypeDef" = None,
-        tags: Dict[str, str] = None,
-        clientToken: str = None
+        self, **kwargs: Unpack[CreateComponentVersionRequestTypeDef]
     ) -> CreateComponentVersionResponseTypeDef:
         """
         Creates a component.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/greengrassv2.html#GreengrassV2.Client.create_component_version)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_greengrassv2/client.html#create_component_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/greengrassv2/client/create_component_version.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_greengrassv2/client/#create_component_version)
         """
 
     def create_deployment(
-        self,
-        *,
-        targetArn: str,
-        deploymentName: str = None,
-        components: Dict[str, "ComponentDeploymentSpecificationTypeDef"] = None,
-        iotJobConfiguration: "DeploymentIoTJobConfigurationTypeDef" = None,
-        deploymentPolicies: "DeploymentPoliciesTypeDef" = None,
-        parentTargetArn: str = None,
-        tags: Dict[str, str] = None,
-        clientToken: str = None
+        self, **kwargs: Unpack[CreateDeploymentRequestTypeDef]
     ) -> CreateDeploymentResponseTypeDef:
         """
         Creates a continuous deployment for a target, which is a Greengrass core device
         or group of core devices.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/greengrassv2.html#GreengrassV2.Client.create_deployment)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_greengrassv2/client.html#create_deployment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/greengrassv2/client/create_deployment.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_greengrassv2/client/#create_deployment)
         """
 
-    def delete_component(self, *, arn: str) -> None:
+    def delete_component(
+        self, **kwargs: Unpack[DeleteComponentRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Deletes a version of a component from IoT Greengrass.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/greengrassv2.html#GreengrassV2.Client.delete_component)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_greengrassv2/client.html#delete_component)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/greengrassv2/client/delete_component.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_greengrassv2/client/#delete_component)
         """
 
-    def delete_core_device(self, *, coreDeviceThingName: str) -> None:
+    def delete_core_device(
+        self, **kwargs: Unpack[DeleteCoreDeviceRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Deletes a Greengrass core device, which is an IoT thing.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/greengrassv2.html#GreengrassV2.Client.delete_core_device)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_greengrassv2/client.html#delete_core_device)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/greengrassv2/client/delete_core_device.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_greengrassv2/client/#delete_core_device)
         """
 
-    def delete_deployment(self, *, deploymentId: str) -> None:
+    def delete_deployment(
+        self, **kwargs: Unpack[DeleteDeploymentRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Deletes a deployment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/greengrassv2.html#GreengrassV2.Client.delete_deployment)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_greengrassv2/client.html#delete_deployment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/greengrassv2/client/delete_deployment.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_greengrassv2/client/#delete_deployment)
         """
 
-    def describe_component(self, *, arn: str) -> DescribeComponentResponseTypeDef:
+    def describe_component(
+        self, **kwargs: Unpack[DescribeComponentRequestTypeDef]
+    ) -> DescribeComponentResponseTypeDef:
         """
         Retrieves metadata for a version of a component.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/greengrassv2.html#GreengrassV2.Client.describe_component)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_greengrassv2/client.html#describe_component)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/greengrassv2/client/describe_component.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_greengrassv2/client/#describe_component)
         """
 
     def disassociate_service_role_from_account(
@@ -247,71 +257,58 @@ class GreengrassV2Client(BaseClient):
         Disassociates the Greengrass service role from IoT Greengrass for your Amazon
         Web Services account in this Amazon Web Services Region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/greengrassv2.html#GreengrassV2.Client.disassociate_service_role_from_account)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_greengrassv2/client.html#disassociate_service_role_from_account)
-        """
-
-    def generate_presigned_url(
-        self,
-        ClientMethod: str,
-        Params: Dict[str, Any] = None,
-        ExpiresIn: int = 3600,
-        HttpMethod: str = None,
-    ) -> str:
-        """
-        Generate a presigned url given a client, its method, and arguments.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/greengrassv2.html#GreengrassV2.Client.generate_presigned_url)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_greengrassv2/client.html#generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/greengrassv2/client/disassociate_service_role_from_account.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_greengrassv2/client/#disassociate_service_role_from_account)
         """
 
     def get_component(
-        self, *, arn: str, recipeOutputFormat: RecipeOutputFormatType = None
+        self, **kwargs: Unpack[GetComponentRequestTypeDef]
     ) -> GetComponentResponseTypeDef:
         """
         Gets the recipe for a version of a component.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/greengrassv2.html#GreengrassV2.Client.get_component)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_greengrassv2/client.html#get_component)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/greengrassv2/client/get_component.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_greengrassv2/client/#get_component)
         """
 
     def get_component_version_artifact(
-        self,
-        *,
-        arn: str,
-        artifactName: str,
-        s3EndpointType: S3EndpointTypeType = None,
-        iotEndpointType: IotEndpointTypeType = None
+        self, **kwargs: Unpack[GetComponentVersionArtifactRequestTypeDef]
     ) -> GetComponentVersionArtifactResponseTypeDef:
         """
         Gets the pre-signed URL to download a public or a Lambda component artifact.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/greengrassv2.html#GreengrassV2.Client.get_component_version_artifact)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_greengrassv2/client.html#get_component_version_artifact)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/greengrassv2/client/get_component_version_artifact.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_greengrassv2/client/#get_component_version_artifact)
         """
 
-    def get_connectivity_info(self, *, thingName: str) -> GetConnectivityInfoResponseTypeDef:
+    def get_connectivity_info(
+        self, **kwargs: Unpack[GetConnectivityInfoRequestTypeDef]
+    ) -> GetConnectivityInfoResponseTypeDef:
         """
         Retrieves connectivity information for a Greengrass core device.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/greengrassv2.html#GreengrassV2.Client.get_connectivity_info)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_greengrassv2/client.html#get_connectivity_info)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/greengrassv2/client/get_connectivity_info.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_greengrassv2/client/#get_connectivity_info)
         """
 
-    def get_core_device(self, *, coreDeviceThingName: str) -> GetCoreDeviceResponseTypeDef:
+    def get_core_device(
+        self, **kwargs: Unpack[GetCoreDeviceRequestTypeDef]
+    ) -> GetCoreDeviceResponseTypeDef:
         """
         Retrieves metadata for a Greengrass core device.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/greengrassv2.html#GreengrassV2.Client.get_core_device)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_greengrassv2/client.html#get_core_device)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/greengrassv2/client/get_core_device.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_greengrassv2/client/#get_core_device)
         """
 
-    def get_deployment(self, *, deploymentId: str) -> GetDeploymentResponseTypeDef:
+    def get_deployment(
+        self, **kwargs: Unpack[GetDeploymentRequestTypeDef]
+    ) -> GetDeploymentResponseTypeDef:
         """
         Gets a deployment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/greengrassv2.html#GreengrassV2.Client.get_deployment)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_greengrassv2/client.html#get_deployment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/greengrassv2/client/get_deployment.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_greengrassv2/client/#get_deployment)
         """
 
     def get_service_role_for_account(self) -> GetServiceRoleForAccountResponseTypeDef:
@@ -319,207 +316,202 @@ class GreengrassV2Client(BaseClient):
         Gets the service role associated with IoT Greengrass for your Amazon Web
         Services account in this Amazon Web Services Region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/greengrassv2.html#GreengrassV2.Client.get_service_role_for_account)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_greengrassv2/client.html#get_service_role_for_account)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/greengrassv2/client/get_service_role_for_account.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_greengrassv2/client/#get_service_role_for_account)
         """
 
     def list_client_devices_associated_with_core_device(
-        self, *, coreDeviceThingName: str, maxResults: int = None, nextToken: str = None
+        self, **kwargs: Unpack[ListClientDevicesAssociatedWithCoreDeviceRequestTypeDef]
     ) -> ListClientDevicesAssociatedWithCoreDeviceResponseTypeDef:
         """
         Retrieves a paginated list of client devices that are associated with a core
         device.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/greengrassv2.html#GreengrassV2.Client.list_client_devices_associated_with_core_device)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_greengrassv2/client.html#list_client_devices_associated_with_core_device)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/greengrassv2/client/list_client_devices_associated_with_core_device.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_greengrassv2/client/#list_client_devices_associated_with_core_device)
         """
 
     def list_component_versions(
-        self, *, arn: str, maxResults: int = None, nextToken: str = None
+        self, **kwargs: Unpack[ListComponentVersionsRequestTypeDef]
     ) -> ListComponentVersionsResponseTypeDef:
         """
         Retrieves a paginated list of all versions for a component.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/greengrassv2.html#GreengrassV2.Client.list_component_versions)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_greengrassv2/client.html#list_component_versions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/greengrassv2/client/list_component_versions.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_greengrassv2/client/#list_component_versions)
         """
 
     def list_components(
-        self,
-        *,
-        scope: ComponentVisibilityScopeType = None,
-        maxResults: int = None,
-        nextToken: str = None
+        self, **kwargs: Unpack[ListComponentsRequestTypeDef]
     ) -> ListComponentsResponseTypeDef:
         """
         Retrieves a paginated list of component summaries.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/greengrassv2.html#GreengrassV2.Client.list_components)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_greengrassv2/client.html#list_components)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/greengrassv2/client/list_components.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_greengrassv2/client/#list_components)
         """
 
     def list_core_devices(
-        self,
-        *,
-        thingGroupArn: str = None,
-        status: CoreDeviceStatusType = None,
-        maxResults: int = None,
-        nextToken: str = None
+        self, **kwargs: Unpack[ListCoreDevicesRequestTypeDef]
     ) -> ListCoreDevicesResponseTypeDef:
         """
         Retrieves a paginated list of Greengrass core devices.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/greengrassv2.html#GreengrassV2.Client.list_core_devices)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_greengrassv2/client.html#list_core_devices)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/greengrassv2/client/list_core_devices.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_greengrassv2/client/#list_core_devices)
         """
 
     def list_deployments(
-        self,
-        *,
-        targetArn: str = None,
-        historyFilter: DeploymentHistoryFilterType = None,
-        parentTargetArn: str = None,
-        maxResults: int = None,
-        nextToken: str = None
+        self, **kwargs: Unpack[ListDeploymentsRequestTypeDef]
     ) -> ListDeploymentsResponseTypeDef:
         """
         Retrieves a paginated list of deployments.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/greengrassv2.html#GreengrassV2.Client.list_deployments)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_greengrassv2/client.html#list_deployments)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/greengrassv2/client/list_deployments.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_greengrassv2/client/#list_deployments)
         """
 
     def list_effective_deployments(
-        self, *, coreDeviceThingName: str, maxResults: int = None, nextToken: str = None
+        self, **kwargs: Unpack[ListEffectiveDeploymentsRequestTypeDef]
     ) -> ListEffectiveDeploymentsResponseTypeDef:
         """
         Retrieves a paginated list of deployment jobs that IoT Greengrass sends to
         Greengrass core devices.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/greengrassv2.html#GreengrassV2.Client.list_effective_deployments)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_greengrassv2/client.html#list_effective_deployments)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/greengrassv2/client/list_effective_deployments.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_greengrassv2/client/#list_effective_deployments)
         """
 
     def list_installed_components(
-        self,
-        *,
-        coreDeviceThingName: str,
-        maxResults: int = None,
-        nextToken: str = None,
-        topologyFilter: InstalledComponentTopologyFilterType = None
+        self, **kwargs: Unpack[ListInstalledComponentsRequestTypeDef]
     ) -> ListInstalledComponentsResponseTypeDef:
         """
         Retrieves a paginated list of the components that a Greengrass core device runs.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/greengrassv2.html#GreengrassV2.Client.list_installed_components)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_greengrassv2/client.html#list_installed_components)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/greengrassv2/client/list_installed_components.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_greengrassv2/client/#list_installed_components)
         """
 
-    def list_tags_for_resource(self, *, resourceArn: str) -> ListTagsForResourceResponseTypeDef:
+    def list_tags_for_resource(
+        self, **kwargs: Unpack[ListTagsForResourceRequestTypeDef]
+    ) -> ListTagsForResourceResponseTypeDef:
         """
         Retrieves the list of tags for an IoT Greengrass resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/greengrassv2.html#GreengrassV2.Client.list_tags_for_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_greengrassv2/client.html#list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/greengrassv2/client/list_tags_for_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_greengrassv2/client/#list_tags_for_resource)
         """
 
     def resolve_component_candidates(
-        self,
-        *,
-        platform: "ComponentPlatformTypeDef" = None,
-        componentCandidates: List["ComponentCandidateTypeDef"] = None
+        self, **kwargs: Unpack[ResolveComponentCandidatesRequestTypeDef]
     ) -> ResolveComponentCandidatesResponseTypeDef:
         """
         Retrieves a list of components that meet the component, version, and platform
         requirements of a deployment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/greengrassv2.html#GreengrassV2.Client.resolve_component_candidates)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_greengrassv2/client.html#resolve_component_candidates)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/greengrassv2/client/resolve_component_candidates.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_greengrassv2/client/#resolve_component_candidates)
         """
 
-    def tag_resource(self, *, resourceArn: str, tags: Dict[str, str]) -> Dict[str, Any]:
+    def tag_resource(self, **kwargs: Unpack[TagResourceRequestTypeDef]) -> Dict[str, Any]:
         """
         Adds tags to an IoT Greengrass resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/greengrassv2.html#GreengrassV2.Client.tag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_greengrassv2/client.html#tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/greengrassv2/client/tag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_greengrassv2/client/#tag_resource)
         """
 
-    def untag_resource(self, *, resourceArn: str, tagKeys: List[str]) -> Dict[str, Any]:
+    def untag_resource(self, **kwargs: Unpack[UntagResourceRequestTypeDef]) -> Dict[str, Any]:
         """
         Removes a tag from an IoT Greengrass resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/greengrassv2.html#GreengrassV2.Client.untag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_greengrassv2/client.html#untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/greengrassv2/client/untag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_greengrassv2/client/#untag_resource)
         """
 
     def update_connectivity_info(
-        self, *, thingName: str, connectivityInfo: List["ConnectivityInfoTypeDef"]
+        self, **kwargs: Unpack[UpdateConnectivityInfoRequestTypeDef]
     ) -> UpdateConnectivityInfoResponseTypeDef:
         """
         Updates connectivity information for a Greengrass core device.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/greengrassv2.html#GreengrassV2.Client.update_connectivity_info)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_greengrassv2/client.html#update_connectivity_info)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/greengrassv2/client/update_connectivity_info.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_greengrassv2/client/#update_connectivity_info)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_client_devices_associated_with_core_device"]
     ) -> ListClientDevicesAssociatedWithCoreDevicePaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/greengrassv2.html#GreengrassV2.Paginator.ListClientDevicesAssociatedWithCoreDevice)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_greengrassv2/paginators.html#listclientdevicesassociatedwithcoredevicepaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/greengrassv2/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_greengrassv2/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_component_versions"]
     ) -> ListComponentVersionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/greengrassv2.html#GreengrassV2.Paginator.ListComponentVersions)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_greengrassv2/paginators.html#listcomponentversionspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/greengrassv2/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_greengrassv2/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_components"]) -> ListComponentsPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_components"]
+    ) -> ListComponentsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/greengrassv2.html#GreengrassV2.Paginator.ListComponents)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_greengrassv2/paginators.html#listcomponentspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/greengrassv2/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_greengrassv2/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_core_devices"]
     ) -> ListCoreDevicesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/greengrassv2.html#GreengrassV2.Paginator.ListCoreDevices)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_greengrassv2/paginators.html#listcoredevicespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/greengrassv2/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_greengrassv2/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_deployments"]
     ) -> ListDeploymentsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/greengrassv2.html#GreengrassV2.Paginator.ListDeployments)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_greengrassv2/paginators.html#listdeploymentspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/greengrassv2/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_greengrassv2/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_effective_deployments"]
     ) -> ListEffectiveDeploymentsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/greengrassv2.html#GreengrassV2.Paginator.ListEffectiveDeployments)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_greengrassv2/paginators.html#listeffectivedeploymentspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/greengrassv2/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_greengrassv2/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_installed_components"]
     ) -> ListInstalledComponentsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/greengrassv2.html#GreengrassV2.Paginator.ListInstalledComponents)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_greengrassv2/paginators.html#listinstalledcomponentspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/greengrassv2/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_greengrassv2/client/#get_paginator)
         """

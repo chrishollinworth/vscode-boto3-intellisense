@@ -1,21 +1,24 @@
 """
 Type annotations for emr-serverless service client paginators.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_serverless/paginators.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_emr_serverless/paginators/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
 
-    from mypy_boto3_emr_serverless import EMRServerlessClient
+    from mypy_boto3_emr_serverless.client import EMRServerlessClient
     from mypy_boto3_emr_serverless.paginator import (
         ListApplicationsPaginator,
         ListJobRunAttemptsPaginator,
         ListJobRunsPaginator,
     )
 
-    client: EMRServerlessClient = boto3.client("emr-serverless")
+    session = Session()
+    client: EMRServerlessClient = session.client("emr-serverless")
 
     list_applications_paginator: ListApplicationsPaginator = client.get_paginator("list_applications")
     list_job_run_attempts_paginator: ListJobRunAttemptsPaginator = client.get_paginator("list_job_run_attempts")
@@ -23,69 +26,79 @@ Usage::
     ```
 """
 
-from datetime import datetime
-from typing import Iterator, List, Union
+from __future__ import annotations
 
-from botocore.paginate import Paginator as Boto3Paginator
+import sys
+from typing import TYPE_CHECKING
 
-from .literals import ApplicationStateType, JobRunModeType, JobRunStateType
+from botocore.paginate import PageIterator, Paginator
+
 from .type_defs import (
+    ListApplicationsRequestPaginateTypeDef,
     ListApplicationsResponseTypeDef,
+    ListJobRunAttemptsRequestPaginateTypeDef,
     ListJobRunAttemptsResponseTypeDef,
+    ListJobRunsRequestPaginateTypeDef,
     ListJobRunsResponseTypeDef,
-    PaginatorConfigTypeDef,
 )
+
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = ("ListApplicationsPaginator", "ListJobRunAttemptsPaginator", "ListJobRunsPaginator")
 
-class ListApplicationsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr-serverless.html#EMRServerless.Paginator.ListApplications)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_serverless/paginators.html#listapplicationspaginator)
-    """
+if TYPE_CHECKING:
+    _ListApplicationsPaginatorBase = Paginator[ListApplicationsResponseTypeDef]
+else:
+    _ListApplicationsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        states: List[ApplicationStateType] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListApplicationsResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr-serverless.html#EMRServerless.Paginator.ListApplications.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_serverless/paginators.html#listapplicationspaginator)
-        """
-
-class ListJobRunAttemptsPaginator(Boto3Paginator):
+class ListApplicationsPaginator(_ListApplicationsPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr-serverless.html#EMRServerless.Paginator.ListJobRunAttempts)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_serverless/paginators.html#listjobrunattemptspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/emr-serverless/paginator/ListApplications.html#EMRServerless.Paginator.ListApplications)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_emr_serverless/paginators/#listapplicationspaginator)
     """
-
-    def paginate(
-        self, *, applicationId: str, jobRunId: str, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListJobRunAttemptsResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListApplicationsRequestPaginateTypeDef]
+    ) -> PageIterator[ListApplicationsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr-serverless.html#EMRServerless.Paginator.ListJobRunAttempts.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_serverless/paginators.html#listjobrunattemptspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/emr-serverless/paginator/ListApplications.html#EMRServerless.Paginator.ListApplications.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_emr_serverless/paginators/#listapplicationspaginator)
         """
 
-class ListJobRunsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr-serverless.html#EMRServerless.Paginator.ListJobRuns)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_serverless/paginators.html#listjobrunspaginator)
-    """
+if TYPE_CHECKING:
+    _ListJobRunAttemptsPaginatorBase = Paginator[ListJobRunAttemptsResponseTypeDef]
+else:
+    _ListJobRunAttemptsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        applicationId: str,
-        createdAtAfter: Union[datetime, str] = None,
-        createdAtBefore: Union[datetime, str] = None,
-        states: List[JobRunStateType] = None,
-        mode: JobRunModeType = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListJobRunsResponseTypeDef]:
+class ListJobRunAttemptsPaginator(_ListJobRunAttemptsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/emr-serverless/paginator/ListJobRunAttempts.html#EMRServerless.Paginator.ListJobRunAttempts)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_emr_serverless/paginators/#listjobrunattemptspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListJobRunAttemptsRequestPaginateTypeDef]
+    ) -> PageIterator[ListJobRunAttemptsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr-serverless.html#EMRServerless.Paginator.ListJobRuns.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_serverless/paginators.html#listjobrunspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/emr-serverless/paginator/ListJobRunAttempts.html#EMRServerless.Paginator.ListJobRunAttempts.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_emr_serverless/paginators/#listjobrunattemptspaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListJobRunsPaginatorBase = Paginator[ListJobRunsResponseTypeDef]
+else:
+    _ListJobRunsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListJobRunsPaginator(_ListJobRunsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/emr-serverless/paginator/ListJobRuns.html#EMRServerless.Paginator.ListJobRuns)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_emr_serverless/paginators/#listjobrunspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListJobRunsRequestPaginateTypeDef]
+    ) -> PageIterator[ListJobRunsResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/emr-serverless/paginator/ListJobRuns.html#EMRServerless.Paginator.ListJobRuns.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_emr_serverless/paginators/#listjobrunspaginator)
         """

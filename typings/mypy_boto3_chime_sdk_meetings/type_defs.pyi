@@ -1,19 +1,22 @@
 """
 Type annotations for chime-sdk-meetings service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_meetings/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_meetings/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_chime_sdk_meetings.type_defs import AttendeeCapabilitiesTypeDef
 
-    data: AttendeeCapabilitiesTypeDef = {...}
+    data: AttendeeCapabilitiesTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from typing import Any, Dict, List
 
 from .literals import (
     ContentResolutionType,
@@ -29,14 +32,16 @@ from .literals import (
     VideoResolutionType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
     "AttendeeCapabilitiesTypeDef",
@@ -44,520 +49,277 @@ __all__ = (
     "AttendeeIdItemTypeDef",
     "AttendeeTypeDef",
     "AudioFeaturesTypeDef",
-    "BatchCreateAttendeeRequestRequestTypeDef",
+    "BatchCreateAttendeeRequestTypeDef",
     "BatchCreateAttendeeResponseTypeDef",
-    "BatchUpdateAttendeeCapabilitiesExceptRequestRequestTypeDef",
+    "BatchUpdateAttendeeCapabilitiesExceptRequestTypeDef",
     "ContentFeaturesTypeDef",
     "CreateAttendeeErrorTypeDef",
     "CreateAttendeeRequestItemTypeDef",
-    "CreateAttendeeRequestRequestTypeDef",
+    "CreateAttendeeRequestTypeDef",
     "CreateAttendeeResponseTypeDef",
-    "CreateMeetingRequestRequestTypeDef",
+    "CreateMeetingRequestTypeDef",
     "CreateMeetingResponseTypeDef",
-    "CreateMeetingWithAttendeesRequestRequestTypeDef",
+    "CreateMeetingWithAttendeesRequestTypeDef",
     "CreateMeetingWithAttendeesResponseTypeDef",
-    "DeleteAttendeeRequestRequestTypeDef",
-    "DeleteMeetingRequestRequestTypeDef",
+    "DeleteAttendeeRequestTypeDef",
+    "DeleteMeetingRequestTypeDef",
+    "EmptyResponseMetadataTypeDef",
     "EngineTranscribeMedicalSettingsTypeDef",
     "EngineTranscribeSettingsTypeDef",
-    "GetAttendeeRequestRequestTypeDef",
+    "GetAttendeeRequestTypeDef",
     "GetAttendeeResponseTypeDef",
-    "GetMeetingRequestRequestTypeDef",
+    "GetMeetingRequestTypeDef",
     "GetMeetingResponseTypeDef",
-    "ListAttendeesRequestRequestTypeDef",
+    "ListAttendeesRequestTypeDef",
     "ListAttendeesResponseTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "MediaPlacementTypeDef",
     "MeetingFeaturesConfigurationTypeDef",
     "MeetingTypeDef",
     "NotificationsConfigurationTypeDef",
     "ResponseMetadataTypeDef",
-    "StartMeetingTranscriptionRequestRequestTypeDef",
-    "StopMeetingTranscriptionRequestRequestTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "StartMeetingTranscriptionRequestTypeDef",
+    "StopMeetingTranscriptionRequestTypeDef",
+    "TagResourceRequestTypeDef",
     "TagTypeDef",
     "TranscriptionConfigurationTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateAttendeeCapabilitiesRequestRequestTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateAttendeeCapabilitiesRequestTypeDef",
     "UpdateAttendeeCapabilitiesResponseTypeDef",
     "VideoFeaturesTypeDef",
 )
 
-AttendeeCapabilitiesTypeDef = TypedDict(
-    "AttendeeCapabilitiesTypeDef",
-    {
-        "Audio": MediaCapabilitiesType,
-        "Video": MediaCapabilitiesType,
-        "Content": MediaCapabilitiesType,
-    },
-)
+class AttendeeCapabilitiesTypeDef(TypedDict):
+    Audio: MediaCapabilitiesType
+    Video: MediaCapabilitiesType
+    Content: MediaCapabilitiesType
 
-AttendeeFeaturesTypeDef = TypedDict(
-    "AttendeeFeaturesTypeDef",
-    {
-        "MaxCount": int,
-    },
-    total=False,
-)
+class AttendeeFeaturesTypeDef(TypedDict):
+    MaxCount: NotRequired[int]
 
-AttendeeIdItemTypeDef = TypedDict(
-    "AttendeeIdItemTypeDef",
-    {
-        "AttendeeId": str,
-    },
-)
+class AttendeeIdItemTypeDef(TypedDict):
+    AttendeeId: str
 
-AttendeeTypeDef = TypedDict(
-    "AttendeeTypeDef",
-    {
-        "ExternalUserId": str,
-        "AttendeeId": str,
-        "JoinToken": str,
-        "Capabilities": "AttendeeCapabilitiesTypeDef",
-    },
-    total=False,
-)
+class AudioFeaturesTypeDef(TypedDict):
+    EchoReduction: NotRequired[MeetingFeatureStatusType]
 
-AudioFeaturesTypeDef = TypedDict(
-    "AudioFeaturesTypeDef",
-    {
-        "EchoReduction": MeetingFeatureStatusType,
-    },
-    total=False,
-)
+class CreateAttendeeErrorTypeDef(TypedDict):
+    ExternalUserId: NotRequired[str]
+    ErrorCode: NotRequired[str]
+    ErrorMessage: NotRequired[str]
 
-BatchCreateAttendeeRequestRequestTypeDef = TypedDict(
-    "BatchCreateAttendeeRequestRequestTypeDef",
-    {
-        "MeetingId": str,
-        "Attendees": List["CreateAttendeeRequestItemTypeDef"],
-    },
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-BatchCreateAttendeeResponseTypeDef = TypedDict(
-    "BatchCreateAttendeeResponseTypeDef",
-    {
-        "Attendees": List["AttendeeTypeDef"],
-        "Errors": List["CreateAttendeeErrorTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ContentFeaturesTypeDef(TypedDict):
+    MaxResolution: NotRequired[ContentResolutionType]
 
-BatchUpdateAttendeeCapabilitiesExceptRequestRequestTypeDef = TypedDict(
-    "BatchUpdateAttendeeCapabilitiesExceptRequestRequestTypeDef",
-    {
-        "MeetingId": str,
-        "ExcludedAttendeeIds": List["AttendeeIdItemTypeDef"],
-        "Capabilities": "AttendeeCapabilitiesTypeDef",
-    },
-)
+class NotificationsConfigurationTypeDef(TypedDict):
+    LambdaFunctionArn: NotRequired[str]
+    SnsTopicArn: NotRequired[str]
+    SqsQueueArn: NotRequired[str]
 
-ContentFeaturesTypeDef = TypedDict(
-    "ContentFeaturesTypeDef",
-    {
-        "MaxResolution": ContentResolutionType,
-    },
-    total=False,
-)
+class TagTypeDef(TypedDict):
+    Key: str
+    Value: str
 
-CreateAttendeeErrorTypeDef = TypedDict(
-    "CreateAttendeeErrorTypeDef",
-    {
-        "ExternalUserId": str,
-        "ErrorCode": str,
-        "ErrorMessage": str,
-    },
-    total=False,
-)
+class DeleteAttendeeRequestTypeDef(TypedDict):
+    MeetingId: str
+    AttendeeId: str
 
-_RequiredCreateAttendeeRequestItemTypeDef = TypedDict(
-    "_RequiredCreateAttendeeRequestItemTypeDef",
-    {
-        "ExternalUserId": str,
-    },
-)
-_OptionalCreateAttendeeRequestItemTypeDef = TypedDict(
-    "_OptionalCreateAttendeeRequestItemTypeDef",
-    {
-        "Capabilities": "AttendeeCapabilitiesTypeDef",
-    },
-    total=False,
-)
+class DeleteMeetingRequestTypeDef(TypedDict):
+    MeetingId: str
 
-class CreateAttendeeRequestItemTypeDef(
-    _RequiredCreateAttendeeRequestItemTypeDef, _OptionalCreateAttendeeRequestItemTypeDef
-):
-    pass
-
-_RequiredCreateAttendeeRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateAttendeeRequestRequestTypeDef",
-    {
-        "MeetingId": str,
-        "ExternalUserId": str,
-    },
-)
-_OptionalCreateAttendeeRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateAttendeeRequestRequestTypeDef",
-    {
-        "Capabilities": "AttendeeCapabilitiesTypeDef",
-    },
-    total=False,
-)
-
-class CreateAttendeeRequestRequestTypeDef(
-    _RequiredCreateAttendeeRequestRequestTypeDef, _OptionalCreateAttendeeRequestRequestTypeDef
-):
-    pass
-
-CreateAttendeeResponseTypeDef = TypedDict(
-    "CreateAttendeeResponseTypeDef",
-    {
-        "Attendee": "AttendeeTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateMeetingRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateMeetingRequestRequestTypeDef",
-    {
-        "ClientRequestToken": str,
-        "MediaRegion": str,
-        "ExternalMeetingId": str,
-    },
-)
-_OptionalCreateMeetingRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateMeetingRequestRequestTypeDef",
-    {
-        "MeetingHostId": str,
-        "NotificationsConfiguration": "NotificationsConfigurationTypeDef",
-        "MeetingFeatures": "MeetingFeaturesConfigurationTypeDef",
-        "PrimaryMeetingId": str,
-        "TenantIds": List[str],
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateMeetingRequestRequestTypeDef(
-    _RequiredCreateMeetingRequestRequestTypeDef, _OptionalCreateMeetingRequestRequestTypeDef
-):
-    pass
-
-CreateMeetingResponseTypeDef = TypedDict(
-    "CreateMeetingResponseTypeDef",
-    {
-        "Meeting": "MeetingTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateMeetingWithAttendeesRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateMeetingWithAttendeesRequestRequestTypeDef",
-    {
-        "ClientRequestToken": str,
-        "MediaRegion": str,
-        "ExternalMeetingId": str,
-        "Attendees": List["CreateAttendeeRequestItemTypeDef"],
-    },
-)
-_OptionalCreateMeetingWithAttendeesRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateMeetingWithAttendeesRequestRequestTypeDef",
-    {
-        "MeetingHostId": str,
-        "MeetingFeatures": "MeetingFeaturesConfigurationTypeDef",
-        "NotificationsConfiguration": "NotificationsConfigurationTypeDef",
-        "PrimaryMeetingId": str,
-        "TenantIds": List[str],
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateMeetingWithAttendeesRequestRequestTypeDef(
-    _RequiredCreateMeetingWithAttendeesRequestRequestTypeDef,
-    _OptionalCreateMeetingWithAttendeesRequestRequestTypeDef,
-):
-    pass
-
-CreateMeetingWithAttendeesResponseTypeDef = TypedDict(
-    "CreateMeetingWithAttendeesResponseTypeDef",
-    {
-        "Meeting": "MeetingTypeDef",
-        "Attendees": List["AttendeeTypeDef"],
-        "Errors": List["CreateAttendeeErrorTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteAttendeeRequestRequestTypeDef = TypedDict(
-    "DeleteAttendeeRequestRequestTypeDef",
-    {
-        "MeetingId": str,
-        "AttendeeId": str,
-    },
-)
-
-DeleteMeetingRequestRequestTypeDef = TypedDict(
-    "DeleteMeetingRequestRequestTypeDef",
-    {
-        "MeetingId": str,
-    },
-)
-
-_RequiredEngineTranscribeMedicalSettingsTypeDef = TypedDict(
-    "_RequiredEngineTranscribeMedicalSettingsTypeDef",
+EngineTranscribeMedicalSettingsTypeDef = TypedDict(
+    "EngineTranscribeMedicalSettingsTypeDef",
     {
         "LanguageCode": Literal["en-US"],
         "Specialty": TranscribeMedicalSpecialtyType,
         "Type": TranscribeMedicalTypeType,
-    },
-)
-_OptionalEngineTranscribeMedicalSettingsTypeDef = TypedDict(
-    "_OptionalEngineTranscribeMedicalSettingsTypeDef",
-    {
-        "VocabularyName": str,
-        "Region": TranscribeMedicalRegionType,
-        "ContentIdentificationType": Literal["PHI"],
-    },
-    total=False,
-)
-
-class EngineTranscribeMedicalSettingsTypeDef(
-    _RequiredEngineTranscribeMedicalSettingsTypeDef, _OptionalEngineTranscribeMedicalSettingsTypeDef
-):
-    pass
-
-EngineTranscribeSettingsTypeDef = TypedDict(
-    "EngineTranscribeSettingsTypeDef",
-    {
-        "LanguageCode": TranscribeLanguageCodeType,
-        "VocabularyFilterMethod": TranscribeVocabularyFilterMethodType,
-        "VocabularyFilterName": str,
-        "VocabularyName": str,
-        "Region": TranscribeRegionType,
-        "EnablePartialResultsStabilization": bool,
-        "PartialResultsStability": TranscribePartialResultsStabilityType,
-        "ContentIdentificationType": Literal["PII"],
-        "ContentRedactionType": Literal["PII"],
-        "PiiEntityTypes": str,
-        "LanguageModelName": str,
-        "IdentifyLanguage": bool,
-        "LanguageOptions": str,
-        "PreferredLanguage": TranscribeLanguageCodeType,
-        "VocabularyNames": str,
-        "VocabularyFilterNames": str,
-    },
-    total=False,
-)
-
-GetAttendeeRequestRequestTypeDef = TypedDict(
-    "GetAttendeeRequestRequestTypeDef",
-    {
-        "MeetingId": str,
-        "AttendeeId": str,
+        "VocabularyName": NotRequired[str],
+        "Region": NotRequired[TranscribeMedicalRegionType],
+        "ContentIdentificationType": NotRequired[Literal["PHI"]],
     },
 )
 
-GetAttendeeResponseTypeDef = TypedDict(
-    "GetAttendeeResponseTypeDef",
-    {
-        "Attendee": "AttendeeTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class EngineTranscribeSettingsTypeDef(TypedDict):
+    LanguageCode: NotRequired[TranscribeLanguageCodeType]
+    VocabularyFilterMethod: NotRequired[TranscribeVocabularyFilterMethodType]
+    VocabularyFilterName: NotRequired[str]
+    VocabularyName: NotRequired[str]
+    Region: NotRequired[TranscribeRegionType]
+    EnablePartialResultsStabilization: NotRequired[bool]
+    PartialResultsStability: NotRequired[TranscribePartialResultsStabilityType]
+    ContentIdentificationType: NotRequired[Literal["PII"]]
+    ContentRedactionType: NotRequired[Literal["PII"]]
+    PiiEntityTypes: NotRequired[str]
+    LanguageModelName: NotRequired[str]
+    IdentifyLanguage: NotRequired[bool]
+    LanguageOptions: NotRequired[str]
+    PreferredLanguage: NotRequired[TranscribeLanguageCodeType]
+    VocabularyNames: NotRequired[str]
+    VocabularyFilterNames: NotRequired[str]
 
-GetMeetingRequestRequestTypeDef = TypedDict(
-    "GetMeetingRequestRequestTypeDef",
-    {
-        "MeetingId": str,
-    },
-)
+class GetAttendeeRequestTypeDef(TypedDict):
+    MeetingId: str
+    AttendeeId: str
 
-GetMeetingResponseTypeDef = TypedDict(
-    "GetMeetingResponseTypeDef",
-    {
-        "Meeting": "MeetingTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetMeetingRequestTypeDef(TypedDict):
+    MeetingId: str
 
-_RequiredListAttendeesRequestRequestTypeDef = TypedDict(
-    "_RequiredListAttendeesRequestRequestTypeDef",
-    {
-        "MeetingId": str,
-    },
-)
-_OptionalListAttendeesRequestRequestTypeDef = TypedDict(
-    "_OptionalListAttendeesRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
+class ListAttendeesRequestTypeDef(TypedDict):
+    MeetingId: str
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
 
-class ListAttendeesRequestRequestTypeDef(
-    _RequiredListAttendeesRequestRequestTypeDef, _OptionalListAttendeesRequestRequestTypeDef
-):
-    pass
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    ResourceARN: str
 
-ListAttendeesResponseTypeDef = TypedDict(
-    "ListAttendeesResponseTypeDef",
-    {
-        "Attendees": List["AttendeeTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class MediaPlacementTypeDef(TypedDict):
+    AudioHostUrl: NotRequired[str]
+    AudioFallbackUrl: NotRequired[str]
+    SignalingUrl: NotRequired[str]
+    TurnControlUrl: NotRequired[str]
+    ScreenDataUrl: NotRequired[str]
+    ScreenViewingUrl: NotRequired[str]
+    ScreenSharingUrl: NotRequired[str]
+    EventIngestionUrl: NotRequired[str]
 
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "ResourceARN": str,
-    },
-)
+class VideoFeaturesTypeDef(TypedDict):
+    MaxResolution: NotRequired[VideoResolutionType]
 
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "Tags": List["TagTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class StopMeetingTranscriptionRequestTypeDef(TypedDict):
+    MeetingId: str
 
-MediaPlacementTypeDef = TypedDict(
-    "MediaPlacementTypeDef",
-    {
-        "AudioHostUrl": str,
-        "AudioFallbackUrl": str,
-        "SignalingUrl": str,
-        "TurnControlUrl": str,
-        "ScreenDataUrl": str,
-        "ScreenViewingUrl": str,
-        "ScreenSharingUrl": str,
-        "EventIngestionUrl": str,
-    },
-    total=False,
-)
+class UntagResourceRequestTypeDef(TypedDict):
+    ResourceARN: str
+    TagKeys: Sequence[str]
 
-MeetingFeaturesConfigurationTypeDef = TypedDict(
-    "MeetingFeaturesConfigurationTypeDef",
-    {
-        "Audio": "AudioFeaturesTypeDef",
-        "Video": "VideoFeaturesTypeDef",
-        "Content": "ContentFeaturesTypeDef",
-        "Attendee": "AttendeeFeaturesTypeDef",
-    },
-    total=False,
-)
+class AttendeeTypeDef(TypedDict):
+    ExternalUserId: NotRequired[str]
+    AttendeeId: NotRequired[str]
+    JoinToken: NotRequired[str]
+    Capabilities: NotRequired[AttendeeCapabilitiesTypeDef]
 
-MeetingTypeDef = TypedDict(
-    "MeetingTypeDef",
-    {
-        "MeetingId": str,
-        "MeetingHostId": str,
-        "ExternalMeetingId": str,
-        "MediaRegion": str,
-        "MediaPlacement": "MediaPlacementTypeDef",
-        "MeetingFeatures": "MeetingFeaturesConfigurationTypeDef",
-        "PrimaryMeetingId": str,
-        "TenantIds": List[str],
-        "MeetingArn": str,
-    },
-    total=False,
-)
+class CreateAttendeeRequestItemTypeDef(TypedDict):
+    ExternalUserId: str
+    Capabilities: NotRequired[AttendeeCapabilitiesTypeDef]
 
-NotificationsConfigurationTypeDef = TypedDict(
-    "NotificationsConfigurationTypeDef",
-    {
-        "LambdaFunctionArn": str,
-        "SnsTopicArn": str,
-        "SqsQueueArn": str,
-    },
-    total=False,
-)
+class CreateAttendeeRequestTypeDef(TypedDict):
+    MeetingId: str
+    ExternalUserId: str
+    Capabilities: NotRequired[AttendeeCapabilitiesTypeDef]
 
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
+class UpdateAttendeeCapabilitiesRequestTypeDef(TypedDict):
+    MeetingId: str
+    AttendeeId: str
+    Capabilities: AttendeeCapabilitiesTypeDef
 
-StartMeetingTranscriptionRequestRequestTypeDef = TypedDict(
-    "StartMeetingTranscriptionRequestRequestTypeDef",
-    {
-        "MeetingId": str,
-        "TranscriptionConfiguration": "TranscriptionConfigurationTypeDef",
-    },
-)
+class BatchUpdateAttendeeCapabilitiesExceptRequestTypeDef(TypedDict):
+    MeetingId: str
+    ExcludedAttendeeIds: Sequence[AttendeeIdItemTypeDef]
+    Capabilities: AttendeeCapabilitiesTypeDef
 
-StopMeetingTranscriptionRequestRequestTypeDef = TypedDict(
-    "StopMeetingTranscriptionRequestRequestTypeDef",
-    {
-        "MeetingId": str,
-    },
-)
+class EmptyResponseMetadataTypeDef(TypedDict):
+    ResponseMetadata: ResponseMetadataTypeDef
 
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "ResourceARN": str,
-        "Tags": List["TagTypeDef"],
-    },
-)
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    Tags: List[TagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-TagTypeDef = TypedDict(
-    "TagTypeDef",
-    {
-        "Key": str,
-        "Value": str,
-    },
-)
+class TagResourceRequestTypeDef(TypedDict):
+    ResourceARN: str
+    Tags: Sequence[TagTypeDef]
 
-TranscriptionConfigurationTypeDef = TypedDict(
-    "TranscriptionConfigurationTypeDef",
-    {
-        "EngineTranscribeSettings": "EngineTranscribeSettingsTypeDef",
-        "EngineTranscribeMedicalSettings": "EngineTranscribeMedicalSettingsTypeDef",
-    },
-    total=False,
-)
+class TranscriptionConfigurationTypeDef(TypedDict):
+    EngineTranscribeSettings: NotRequired[EngineTranscribeSettingsTypeDef]
+    EngineTranscribeMedicalSettings: NotRequired[EngineTranscribeMedicalSettingsTypeDef]
 
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "ResourceARN": str,
-        "TagKeys": List[str],
-    },
-)
+class MeetingFeaturesConfigurationTypeDef(TypedDict):
+    Audio: NotRequired[AudioFeaturesTypeDef]
+    Video: NotRequired[VideoFeaturesTypeDef]
+    Content: NotRequired[ContentFeaturesTypeDef]
+    Attendee: NotRequired[AttendeeFeaturesTypeDef]
 
-UpdateAttendeeCapabilitiesRequestRequestTypeDef = TypedDict(
-    "UpdateAttendeeCapabilitiesRequestRequestTypeDef",
-    {
-        "MeetingId": str,
-        "AttendeeId": str,
-        "Capabilities": "AttendeeCapabilitiesTypeDef",
-    },
-)
+class BatchCreateAttendeeResponseTypeDef(TypedDict):
+    Attendees: List[AttendeeTypeDef]
+    Errors: List[CreateAttendeeErrorTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-UpdateAttendeeCapabilitiesResponseTypeDef = TypedDict(
-    "UpdateAttendeeCapabilitiesResponseTypeDef",
-    {
-        "Attendee": "AttendeeTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CreateAttendeeResponseTypeDef(TypedDict):
+    Attendee: AttendeeTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-VideoFeaturesTypeDef = TypedDict(
-    "VideoFeaturesTypeDef",
-    {
-        "MaxResolution": VideoResolutionType,
-    },
-    total=False,
-)
+class GetAttendeeResponseTypeDef(TypedDict):
+    Attendee: AttendeeTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListAttendeesResponseTypeDef(TypedDict):
+    Attendees: List[AttendeeTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class UpdateAttendeeCapabilitiesResponseTypeDef(TypedDict):
+    Attendee: AttendeeTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class BatchCreateAttendeeRequestTypeDef(TypedDict):
+    MeetingId: str
+    Attendees: Sequence[CreateAttendeeRequestItemTypeDef]
+
+class StartMeetingTranscriptionRequestTypeDef(TypedDict):
+    MeetingId: str
+    TranscriptionConfiguration: TranscriptionConfigurationTypeDef
+
+class CreateMeetingRequestTypeDef(TypedDict):
+    ClientRequestToken: str
+    MediaRegion: str
+    ExternalMeetingId: str
+    MeetingHostId: NotRequired[str]
+    NotificationsConfiguration: NotRequired[NotificationsConfigurationTypeDef]
+    MeetingFeatures: NotRequired[MeetingFeaturesConfigurationTypeDef]
+    PrimaryMeetingId: NotRequired[str]
+    TenantIds: NotRequired[Sequence[str]]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+
+class CreateMeetingWithAttendeesRequestTypeDef(TypedDict):
+    ClientRequestToken: str
+    MediaRegion: str
+    ExternalMeetingId: str
+    Attendees: Sequence[CreateAttendeeRequestItemTypeDef]
+    MeetingHostId: NotRequired[str]
+    MeetingFeatures: NotRequired[MeetingFeaturesConfigurationTypeDef]
+    NotificationsConfiguration: NotRequired[NotificationsConfigurationTypeDef]
+    PrimaryMeetingId: NotRequired[str]
+    TenantIds: NotRequired[Sequence[str]]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+
+class MeetingTypeDef(TypedDict):
+    MeetingId: NotRequired[str]
+    MeetingHostId: NotRequired[str]
+    ExternalMeetingId: NotRequired[str]
+    MediaRegion: NotRequired[str]
+    MediaPlacement: NotRequired[MediaPlacementTypeDef]
+    MeetingFeatures: NotRequired[MeetingFeaturesConfigurationTypeDef]
+    PrimaryMeetingId: NotRequired[str]
+    TenantIds: NotRequired[List[str]]
+    MeetingArn: NotRequired[str]
+
+class CreateMeetingResponseTypeDef(TypedDict):
+    Meeting: MeetingTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateMeetingWithAttendeesResponseTypeDef(TypedDict):
+    Meeting: MeetingTypeDef
+    Attendees: List[AttendeeTypeDef]
+    Errors: List[CreateAttendeeErrorTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetMeetingResponseTypeDef(TypedDict):
+    Meeting: MeetingTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef

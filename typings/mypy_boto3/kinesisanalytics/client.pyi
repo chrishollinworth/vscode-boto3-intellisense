@@ -1,51 +1,72 @@
 """
-Type annotations for kinesisanalytics service client.
+Type annotations for kinesisanalytics service Client.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisanalytics/client.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kinesisanalytics/client/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
-    from mypy_boto3_kinesisanalytics import KinesisAnalyticsClient
+    from boto3.session import Session
+    from mypy_boto3_kinesisanalytics.client import KinesisAnalyticsClient
 
-    client: KinesisAnalyticsClient = boto3.client("kinesisanalytics")
+    session = Session()
+    client: KinesisAnalyticsClient = session.client("kinesisanalytics")
     ```
 """
 
-from datetime import datetime
-from typing import Any, Dict, List, Type, Union
+from __future__ import annotations
+
+import sys
+from typing import Any
 
 from botocore.client import BaseClient, ClientMeta
+from botocore.errorfactory import BaseClientExceptions
+from botocore.exceptions import ClientError as BotocoreClientError
 
 from .type_defs import (
-    ApplicationUpdateTypeDef,
-    CloudWatchLoggingOptionTypeDef,
+    AddApplicationCloudWatchLoggingOptionRequestTypeDef,
+    AddApplicationInputProcessingConfigurationRequestTypeDef,
+    AddApplicationInputRequestTypeDef,
+    AddApplicationOutputRequestTypeDef,
+    AddApplicationReferenceDataSourceRequestTypeDef,
+    CreateApplicationRequestTypeDef,
     CreateApplicationResponseTypeDef,
+    DeleteApplicationCloudWatchLoggingOptionRequestTypeDef,
+    DeleteApplicationInputProcessingConfigurationRequestTypeDef,
+    DeleteApplicationOutputRequestTypeDef,
+    DeleteApplicationReferenceDataSourceRequestTypeDef,
+    DeleteApplicationRequestTypeDef,
+    DescribeApplicationRequestTypeDef,
     DescribeApplicationResponseTypeDef,
+    DiscoverInputSchemaRequestTypeDef,
     DiscoverInputSchemaResponseTypeDef,
-    InputConfigurationTypeDef,
-    InputProcessingConfigurationTypeDef,
-    InputStartingPositionConfigurationTypeDef,
-    InputTypeDef,
+    ListApplicationsRequestTypeDef,
     ListApplicationsResponseTypeDef,
+    ListTagsForResourceRequestTypeDef,
     ListTagsForResourceResponseTypeDef,
-    OutputTypeDef,
-    ReferenceDataSourceTypeDef,
-    S3ConfigurationTypeDef,
-    TagTypeDef,
+    StartApplicationRequestTypeDef,
+    StopApplicationRequestTypeDef,
+    TagResourceRequestTypeDef,
+    UntagResourceRequestTypeDef,
+    UpdateApplicationRequestTypeDef,
 )
+
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import type as Type
+    from collections.abc import Mapping
+else:
+    from typing import Dict, Mapping, Type
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = ("KinesisAnalyticsClient",)
 
-class BotocoreClientError(BaseException):
-    MSG_TEMPLATE: str
-
-    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
-        self.response: Dict[str, Any]
-        self.operation_name: str
-
-class Exceptions:
+class Exceptions(BaseClientExceptions):
     ClientError: Type[BotocoreClientError]
     CodeValidationException: Type[BotocoreClientError]
     ConcurrentModificationException: Type[BotocoreClientError]
@@ -62,8 +83,8 @@ class Exceptions:
 
 class KinesisAnalyticsClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kinesisanalytics.html#KinesisAnalytics.Client)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisanalytics/client.html)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kinesisanalytics.html#KinesisAnalytics.Client)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kinesisanalytics/client/)
     """
 
     meta: ClientMeta
@@ -72,259 +93,234 @@ class KinesisAnalyticsClient(BaseClient):
     def exceptions(self) -> Exceptions:
         """
         KinesisAnalyticsClient exceptions.
-        """
 
-    def add_application_cloud_watch_logging_option(
-        self,
-        *,
-        ApplicationName: str,
-        CurrentApplicationVersionId: int,
-        CloudWatchLoggingOption: "CloudWatchLoggingOptionTypeDef"
-    ) -> Dict[str, Any]:
-        """
-        .
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kinesisanalytics.html#KinesisAnalytics.Client.add_application_cloud_watch_logging_option)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisanalytics/client.html#add_application_cloud_watch_logging_option)
-        """
-
-    def add_application_input(
-        self, *, ApplicationName: str, CurrentApplicationVersionId: int, Input: "InputTypeDef"
-    ) -> Dict[str, Any]:
-        """
-        .
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kinesisanalytics.html#KinesisAnalytics.Client.add_application_input)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisanalytics/client.html#add_application_input)
-        """
-
-    def add_application_input_processing_configuration(
-        self,
-        *,
-        ApplicationName: str,
-        CurrentApplicationVersionId: int,
-        InputId: str,
-        InputProcessingConfiguration: "InputProcessingConfigurationTypeDef"
-    ) -> Dict[str, Any]:
-        """
-        .
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kinesisanalytics.html#KinesisAnalytics.Client.add_application_input_processing_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisanalytics/client.html#add_application_input_processing_configuration)
-        """
-
-    def add_application_output(
-        self, *, ApplicationName: str, CurrentApplicationVersionId: int, Output: "OutputTypeDef"
-    ) -> Dict[str, Any]:
-        """
-        .
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kinesisanalytics.html#KinesisAnalytics.Client.add_application_output)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisanalytics/client.html#add_application_output)
-        """
-
-    def add_application_reference_data_source(
-        self,
-        *,
-        ApplicationName: str,
-        CurrentApplicationVersionId: int,
-        ReferenceDataSource: "ReferenceDataSourceTypeDef"
-    ) -> Dict[str, Any]:
-        """
-        .
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kinesisanalytics.html#KinesisAnalytics.Client.add_application_reference_data_source)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisanalytics/client.html#add_application_reference_data_source)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kinesisanalytics.html#KinesisAnalytics.Client)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kinesisanalytics/client/#exceptions)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        Check if an operation can be paginated.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kinesisanalytics.html#KinesisAnalytics.Client.can_paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisanalytics/client.html#can_paginate)
-        """
-
-    def close(self) -> None:
-        """
-        Closes underlying endpoint connections.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kinesisanalytics.html#KinesisAnalytics.Client.close)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisanalytics/client.html#close)
-        """
-
-    def create_application(
-        self,
-        *,
-        ApplicationName: str,
-        ApplicationDescription: str = None,
-        Inputs: List["InputTypeDef"] = None,
-        Outputs: List["OutputTypeDef"] = None,
-        CloudWatchLoggingOptions: List["CloudWatchLoggingOptionTypeDef"] = None,
-        ApplicationCode: str = None,
-        Tags: List["TagTypeDef"] = None
-    ) -> CreateApplicationResponseTypeDef:
-        """
-        .
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kinesisanalytics.html#KinesisAnalytics.Client.create_application)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisanalytics/client.html#create_application)
-        """
-
-    def delete_application(
-        self, *, ApplicationName: str, CreateTimestamp: Union[datetime, str]
-    ) -> Dict[str, Any]:
-        """
-        .
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kinesisanalytics.html#KinesisAnalytics.Client.delete_application)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisanalytics/client.html#delete_application)
-        """
-
-    def delete_application_cloud_watch_logging_option(
-        self,
-        *,
-        ApplicationName: str,
-        CurrentApplicationVersionId: int,
-        CloudWatchLoggingOptionId: str
-    ) -> Dict[str, Any]:
-        """
-        .
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kinesisanalytics.html#KinesisAnalytics.Client.delete_application_cloud_watch_logging_option)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisanalytics/client.html#delete_application_cloud_watch_logging_option)
-        """
-
-    def delete_application_input_processing_configuration(
-        self, *, ApplicationName: str, CurrentApplicationVersionId: int, InputId: str
-    ) -> Dict[str, Any]:
-        """
-        .
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kinesisanalytics.html#KinesisAnalytics.Client.delete_application_input_processing_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisanalytics/client.html#delete_application_input_processing_configuration)
-        """
-
-    def delete_application_output(
-        self, *, ApplicationName: str, CurrentApplicationVersionId: int, OutputId: str
-    ) -> Dict[str, Any]:
-        """
-        .
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kinesisanalytics.html#KinesisAnalytics.Client.delete_application_output)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisanalytics/client.html#delete_application_output)
-        """
-
-    def delete_application_reference_data_source(
-        self, *, ApplicationName: str, CurrentApplicationVersionId: int, ReferenceId: str
-    ) -> Dict[str, Any]:
-        """
-        .
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kinesisanalytics.html#KinesisAnalytics.Client.delete_application_reference_data_source)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisanalytics/client.html#delete_application_reference_data_source)
-        """
-
-    def describe_application(self, *, ApplicationName: str) -> DescribeApplicationResponseTypeDef:
-        """
-        .
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kinesisanalytics.html#KinesisAnalytics.Client.describe_application)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisanalytics/client.html#describe_application)
-        """
-
-    def discover_input_schema(
-        self,
-        *,
-        ResourceARN: str = None,
-        RoleARN: str = None,
-        InputStartingPositionConfiguration: "InputStartingPositionConfigurationTypeDef" = None,
-        S3Configuration: "S3ConfigurationTypeDef" = None,
-        InputProcessingConfiguration: "InputProcessingConfigurationTypeDef" = None
-    ) -> DiscoverInputSchemaResponseTypeDef:
-        """
-        .
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kinesisanalytics.html#KinesisAnalytics.Client.discover_input_schema)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisanalytics/client.html#discover_input_schema)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kinesisanalytics/client/can_paginate.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kinesisanalytics/client/#can_paginate)
         """
 
     def generate_presigned_url(
         self,
         ClientMethod: str,
-        Params: Dict[str, Any] = None,
+        Params: Mapping[str, Any] = ...,
         ExpiresIn: int = 3600,
-        HttpMethod: str = None,
+        HttpMethod: str = ...,
     ) -> str:
         """
-        Generate a presigned url given a client, its method, and arguments.
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kinesisanalytics/client/generate_presigned_url.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kinesisanalytics/client/#generate_presigned_url)
+        """
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kinesisanalytics.html#KinesisAnalytics.Client.generate_presigned_url)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisanalytics/client.html#generate_presigned_url)
+    def add_application_cloud_watch_logging_option(
+        self, **kwargs: Unpack[AddApplicationCloudWatchLoggingOptionRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        This documentation is for version 1 of the Amazon Kinesis Data Analytics API,
+        which only supports SQL applications.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kinesisanalytics/client/add_application_cloud_watch_logging_option.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kinesisanalytics/client/#add_application_cloud_watch_logging_option)
+        """
+
+    def add_application_input(
+        self, **kwargs: Unpack[AddApplicationInputRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        This documentation is for version 1 of the Amazon Kinesis Data Analytics API,
+        which only supports SQL applications.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kinesisanalytics/client/add_application_input.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kinesisanalytics/client/#add_application_input)
+        """
+
+    def add_application_input_processing_configuration(
+        self, **kwargs: Unpack[AddApplicationInputProcessingConfigurationRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        This documentation is for version 1 of the Amazon Kinesis Data Analytics API,
+        which only supports SQL applications.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kinesisanalytics/client/add_application_input_processing_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kinesisanalytics/client/#add_application_input_processing_configuration)
+        """
+
+    def add_application_output(
+        self, **kwargs: Unpack[AddApplicationOutputRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        This documentation is for version 1 of the Amazon Kinesis Data Analytics API,
+        which only supports SQL applications.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kinesisanalytics/client/add_application_output.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kinesisanalytics/client/#add_application_output)
+        """
+
+    def add_application_reference_data_source(
+        self, **kwargs: Unpack[AddApplicationReferenceDataSourceRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        This documentation is for version 1 of the Amazon Kinesis Data Analytics API,
+        which only supports SQL applications.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kinesisanalytics/client/add_application_reference_data_source.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kinesisanalytics/client/#add_application_reference_data_source)
+        """
+
+    def create_application(
+        self, **kwargs: Unpack[CreateApplicationRequestTypeDef]
+    ) -> CreateApplicationResponseTypeDef:
+        """
+        This documentation is for version 1 of the Amazon Kinesis Data Analytics API,
+        which only supports SQL applications.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kinesisanalytics/client/create_application.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kinesisanalytics/client/#create_application)
+        """
+
+    def delete_application(
+        self, **kwargs: Unpack[DeleteApplicationRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        This documentation is for version 1 of the Amazon Kinesis Data Analytics API,
+        which only supports SQL applications.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kinesisanalytics/client/delete_application.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kinesisanalytics/client/#delete_application)
+        """
+
+    def delete_application_cloud_watch_logging_option(
+        self, **kwargs: Unpack[DeleteApplicationCloudWatchLoggingOptionRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        This documentation is for version 1 of the Amazon Kinesis Data Analytics API,
+        which only supports SQL applications.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kinesisanalytics/client/delete_application_cloud_watch_logging_option.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kinesisanalytics/client/#delete_application_cloud_watch_logging_option)
+        """
+
+    def delete_application_input_processing_configuration(
+        self, **kwargs: Unpack[DeleteApplicationInputProcessingConfigurationRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        This documentation is for version 1 of the Amazon Kinesis Data Analytics API,
+        which only supports SQL applications.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kinesisanalytics/client/delete_application_input_processing_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kinesisanalytics/client/#delete_application_input_processing_configuration)
+        """
+
+    def delete_application_output(
+        self, **kwargs: Unpack[DeleteApplicationOutputRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        This documentation is for version 1 of the Amazon Kinesis Data Analytics API,
+        which only supports SQL applications.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kinesisanalytics/client/delete_application_output.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kinesisanalytics/client/#delete_application_output)
+        """
+
+    def delete_application_reference_data_source(
+        self, **kwargs: Unpack[DeleteApplicationReferenceDataSourceRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        This documentation is for version 1 of the Amazon Kinesis Data Analytics API,
+        which only supports SQL applications.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kinesisanalytics/client/delete_application_reference_data_source.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kinesisanalytics/client/#delete_application_reference_data_source)
+        """
+
+    def describe_application(
+        self, **kwargs: Unpack[DescribeApplicationRequestTypeDef]
+    ) -> DescribeApplicationResponseTypeDef:
+        """
+        This documentation is for version 1 of the Amazon Kinesis Data Analytics API,
+        which only supports SQL applications.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kinesisanalytics/client/describe_application.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kinesisanalytics/client/#describe_application)
+        """
+
+    def discover_input_schema(
+        self, **kwargs: Unpack[DiscoverInputSchemaRequestTypeDef]
+    ) -> DiscoverInputSchemaResponseTypeDef:
+        """
+        This documentation is for version 1 of the Amazon Kinesis Data Analytics API,
+        which only supports SQL applications.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kinesisanalytics/client/discover_input_schema.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kinesisanalytics/client/#discover_input_schema)
         """
 
     def list_applications(
-        self, *, Limit: int = None, ExclusiveStartApplicationName: str = None
+        self, **kwargs: Unpack[ListApplicationsRequestTypeDef]
     ) -> ListApplicationsResponseTypeDef:
         """
-        .
+        This documentation is for version 1 of the Amazon Kinesis Data Analytics API,
+        which only supports SQL applications.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kinesisanalytics.html#KinesisAnalytics.Client.list_applications)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisanalytics/client.html#list_applications)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kinesisanalytics/client/list_applications.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kinesisanalytics/client/#list_applications)
         """
 
-    def list_tags_for_resource(self, *, ResourceARN: str) -> ListTagsForResourceResponseTypeDef:
+    def list_tags_for_resource(
+        self, **kwargs: Unpack[ListTagsForResourceRequestTypeDef]
+    ) -> ListTagsForResourceResponseTypeDef:
         """
         Retrieves the list of key-value tags assigned to the application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kinesisanalytics.html#KinesisAnalytics.Client.list_tags_for_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisanalytics/client.html#list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kinesisanalytics/client/list_tags_for_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kinesisanalytics/client/#list_tags_for_resource)
         """
 
-    def start_application(
-        self, *, ApplicationName: str, InputConfigurations: List["InputConfigurationTypeDef"]
-    ) -> Dict[str, Any]:
+    def start_application(self, **kwargs: Unpack[StartApplicationRequestTypeDef]) -> Dict[str, Any]:
         """
-        .
+        This documentation is for version 1 of the Amazon Kinesis Data Analytics API,
+        which only supports SQL applications.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kinesisanalytics.html#KinesisAnalytics.Client.start_application)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisanalytics/client.html#start_application)
-        """
-
-    def stop_application(self, *, ApplicationName: str) -> Dict[str, Any]:
-        """
-        .
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kinesisanalytics.html#KinesisAnalytics.Client.stop_application)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisanalytics/client.html#stop_application)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kinesisanalytics/client/start_application.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kinesisanalytics/client/#start_application)
         """
 
-    def tag_resource(self, *, ResourceARN: str, Tags: List["TagTypeDef"]) -> Dict[str, Any]:
+    def stop_application(self, **kwargs: Unpack[StopApplicationRequestTypeDef]) -> Dict[str, Any]:
+        """
+        This documentation is for version 1 of the Amazon Kinesis Data Analytics API,
+        which only supports SQL applications.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kinesisanalytics/client/stop_application.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kinesisanalytics/client/#stop_application)
+        """
+
+    def tag_resource(self, **kwargs: Unpack[TagResourceRequestTypeDef]) -> Dict[str, Any]:
         """
         Adds one or more key-value tags to a Kinesis Analytics application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kinesisanalytics.html#KinesisAnalytics.Client.tag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisanalytics/client.html#tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kinesisanalytics/client/tag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kinesisanalytics/client/#tag_resource)
         """
 
-    def untag_resource(self, *, ResourceARN: str, TagKeys: List[str]) -> Dict[str, Any]:
+    def untag_resource(self, **kwargs: Unpack[UntagResourceRequestTypeDef]) -> Dict[str, Any]:
         """
         Removes one or more tags from a Kinesis Analytics application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kinesisanalytics.html#KinesisAnalytics.Client.untag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisanalytics/client.html#untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kinesisanalytics/client/untag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kinesisanalytics/client/#untag_resource)
         """
 
     def update_application(
-        self,
-        *,
-        ApplicationName: str,
-        CurrentApplicationVersionId: int,
-        ApplicationUpdate: "ApplicationUpdateTypeDef"
+        self, **kwargs: Unpack[UpdateApplicationRequestTypeDef]
     ) -> Dict[str, Any]:
         """
-        .
+        This documentation is for version 1 of the Amazon Kinesis Data Analytics API,
+        which only supports SQL applications.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kinesisanalytics.html#KinesisAnalytics.Client.update_application)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesisanalytics/client.html#update_application)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kinesisanalytics/client/update_application.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kinesisanalytics/client/#update_application)
         """

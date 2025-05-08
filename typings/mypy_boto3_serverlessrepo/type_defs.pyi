@@ -1,535 +1,212 @@
 """
 Type annotations for serverlessrepo service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_serverlessrepo/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_serverlessrepo/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_serverlessrepo.type_defs import ApplicationDependencySummaryTypeDef
 
-    data: ApplicationDependencySummaryTypeDef = {...}
+    data: ApplicationDependencySummaryTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from typing import Any, Dict, List
+from typing import Union
 
 from .literals import CapabilityType, StatusType
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Sequence
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List, Sequence
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
     "ApplicationDependencySummaryTypeDef",
+    "ApplicationPolicyStatementOutputTypeDef",
     "ApplicationPolicyStatementTypeDef",
+    "ApplicationPolicyStatementUnionTypeDef",
     "ApplicationSummaryTypeDef",
-    "CreateApplicationRequestRequestTypeDef",
+    "CreateApplicationRequestTypeDef",
     "CreateApplicationResponseTypeDef",
-    "CreateApplicationVersionRequestRequestTypeDef",
+    "CreateApplicationVersionRequestTypeDef",
     "CreateApplicationVersionResponseTypeDef",
-    "CreateCloudFormationChangeSetRequestRequestTypeDef",
+    "CreateCloudFormationChangeSetRequestTypeDef",
     "CreateCloudFormationChangeSetResponseTypeDef",
-    "CreateCloudFormationTemplateRequestRequestTypeDef",
+    "CreateCloudFormationTemplateRequestTypeDef",
     "CreateCloudFormationTemplateResponseTypeDef",
-    "DeleteApplicationRequestRequestTypeDef",
-    "GetApplicationPolicyRequestRequestTypeDef",
+    "DeleteApplicationRequestTypeDef",
+    "EmptyResponseMetadataTypeDef",
+    "GetApplicationPolicyRequestTypeDef",
     "GetApplicationPolicyResponseTypeDef",
-    "GetApplicationRequestRequestTypeDef",
+    "GetApplicationRequestTypeDef",
     "GetApplicationResponseTypeDef",
-    "GetCloudFormationTemplateRequestRequestTypeDef",
+    "GetCloudFormationTemplateRequestTypeDef",
     "GetCloudFormationTemplateResponseTypeDef",
-    "ListApplicationDependenciesRequestRequestTypeDef",
+    "ListApplicationDependenciesRequestPaginateTypeDef",
+    "ListApplicationDependenciesRequestTypeDef",
     "ListApplicationDependenciesResponseTypeDef",
-    "ListApplicationVersionsRequestRequestTypeDef",
+    "ListApplicationVersionsRequestPaginateTypeDef",
+    "ListApplicationVersionsRequestTypeDef",
     "ListApplicationVersionsResponseTypeDef",
-    "ListApplicationsRequestRequestTypeDef",
+    "ListApplicationsRequestPaginateTypeDef",
+    "ListApplicationsRequestTypeDef",
     "ListApplicationsResponseTypeDef",
     "PaginatorConfigTypeDef",
     "ParameterDefinitionTypeDef",
     "ParameterValueTypeDef",
-    "PutApplicationPolicyRequestRequestTypeDef",
+    "PutApplicationPolicyRequestTypeDef",
     "PutApplicationPolicyResponseTypeDef",
     "ResponseMetadataTypeDef",
     "RollbackConfigurationTypeDef",
     "RollbackTriggerTypeDef",
     "TagTypeDef",
-    "UnshareApplicationRequestRequestTypeDef",
-    "UpdateApplicationRequestRequestTypeDef",
+    "UnshareApplicationRequestTypeDef",
+    "UpdateApplicationRequestTypeDef",
     "UpdateApplicationResponseTypeDef",
     "VersionSummaryTypeDef",
     "VersionTypeDef",
 )
 
-ApplicationDependencySummaryTypeDef = TypedDict(
-    "ApplicationDependencySummaryTypeDef",
-    {
-        "ApplicationId": str,
-        "SemanticVersion": str,
-    },
-)
+class ApplicationDependencySummaryTypeDef(TypedDict):
+    ApplicationId: str
+    SemanticVersion: str
 
-_RequiredApplicationPolicyStatementTypeDef = TypedDict(
-    "_RequiredApplicationPolicyStatementTypeDef",
-    {
-        "Actions": List[str],
-        "Principals": List[str],
-    },
-)
-_OptionalApplicationPolicyStatementTypeDef = TypedDict(
-    "_OptionalApplicationPolicyStatementTypeDef",
-    {
-        "PrincipalOrgIDs": List[str],
-        "StatementId": str,
-    },
-    total=False,
-)
+class ApplicationPolicyStatementOutputTypeDef(TypedDict):
+    Actions: List[str]
+    Principals: List[str]
+    PrincipalOrgIDs: NotRequired[List[str]]
+    StatementId: NotRequired[str]
 
-class ApplicationPolicyStatementTypeDef(
-    _RequiredApplicationPolicyStatementTypeDef, _OptionalApplicationPolicyStatementTypeDef
-):
-    pass
+class ApplicationPolicyStatementTypeDef(TypedDict):
+    Actions: Sequence[str]
+    Principals: Sequence[str]
+    PrincipalOrgIDs: NotRequired[Sequence[str]]
+    StatementId: NotRequired[str]
 
-_RequiredApplicationSummaryTypeDef = TypedDict(
-    "_RequiredApplicationSummaryTypeDef",
-    {
-        "ApplicationId": str,
-        "Author": str,
-        "Description": str,
-        "Name": str,
-    },
-)
-_OptionalApplicationSummaryTypeDef = TypedDict(
-    "_OptionalApplicationSummaryTypeDef",
-    {
-        "CreationTime": str,
-        "HomePageUrl": str,
-        "Labels": List[str],
-        "SpdxLicenseId": str,
-    },
-    total=False,
-)
+class ApplicationSummaryTypeDef(TypedDict):
+    ApplicationId: str
+    Author: str
+    Description: str
+    Name: str
+    CreationTime: NotRequired[str]
+    HomePageUrl: NotRequired[str]
+    Labels: NotRequired[List[str]]
+    SpdxLicenseId: NotRequired[str]
 
-class ApplicationSummaryTypeDef(
-    _RequiredApplicationSummaryTypeDef, _OptionalApplicationSummaryTypeDef
-):
-    pass
+class CreateApplicationRequestTypeDef(TypedDict):
+    Author: str
+    Description: str
+    Name: str
+    HomePageUrl: NotRequired[str]
+    Labels: NotRequired[Sequence[str]]
+    LicenseBody: NotRequired[str]
+    LicenseUrl: NotRequired[str]
+    ReadmeBody: NotRequired[str]
+    ReadmeUrl: NotRequired[str]
+    SemanticVersion: NotRequired[str]
+    SourceCodeArchiveUrl: NotRequired[str]
+    SourceCodeUrl: NotRequired[str]
+    SpdxLicenseId: NotRequired[str]
+    TemplateBody: NotRequired[str]
+    TemplateUrl: NotRequired[str]
 
-_RequiredCreateApplicationRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateApplicationRequestRequestTypeDef",
-    {
-        "Author": str,
-        "Description": str,
-        "Name": str,
-    },
-)
-_OptionalCreateApplicationRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateApplicationRequestRequestTypeDef",
-    {
-        "HomePageUrl": str,
-        "Labels": List[str],
-        "LicenseBody": str,
-        "LicenseUrl": str,
-        "ReadmeBody": str,
-        "ReadmeUrl": str,
-        "SemanticVersion": str,
-        "SourceCodeArchiveUrl": str,
-        "SourceCodeUrl": str,
-        "SpdxLicenseId": str,
-        "TemplateBody": str,
-        "TemplateUrl": str,
-    },
-    total=False,
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-class CreateApplicationRequestRequestTypeDef(
-    _RequiredCreateApplicationRequestRequestTypeDef, _OptionalCreateApplicationRequestRequestTypeDef
-):
-    pass
+class CreateApplicationVersionRequestTypeDef(TypedDict):
+    ApplicationId: str
+    SemanticVersion: str
+    SourceCodeArchiveUrl: NotRequired[str]
+    SourceCodeUrl: NotRequired[str]
+    TemplateBody: NotRequired[str]
+    TemplateUrl: NotRequired[str]
 
-CreateApplicationResponseTypeDef = TypedDict(
-    "CreateApplicationResponseTypeDef",
-    {
-        "ApplicationId": str,
-        "Author": str,
-        "CreationTime": str,
-        "Description": str,
-        "HomePageUrl": str,
-        "IsVerifiedAuthor": bool,
-        "Labels": List[str],
-        "LicenseUrl": str,
-        "Name": str,
-        "ReadmeUrl": str,
-        "SpdxLicenseId": str,
-        "VerifiedAuthorUrl": str,
-        "Version": "VersionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateApplicationVersionRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateApplicationVersionRequestRequestTypeDef",
-    {
-        "ApplicationId": str,
-        "SemanticVersion": str,
-    },
-)
-_OptionalCreateApplicationVersionRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateApplicationVersionRequestRequestTypeDef",
-    {
-        "SourceCodeArchiveUrl": str,
-        "SourceCodeUrl": str,
-        "TemplateBody": str,
-        "TemplateUrl": str,
-    },
-    total=False,
-)
-
-class CreateApplicationVersionRequestRequestTypeDef(
-    _RequiredCreateApplicationVersionRequestRequestTypeDef,
-    _OptionalCreateApplicationVersionRequestRequestTypeDef,
-):
-    pass
-
-CreateApplicationVersionResponseTypeDef = TypedDict(
-    "CreateApplicationVersionResponseTypeDef",
-    {
-        "ApplicationId": str,
-        "CreationTime": str,
-        "ParameterDefinitions": List["ParameterDefinitionTypeDef"],
-        "RequiredCapabilities": List[CapabilityType],
-        "ResourcesSupported": bool,
-        "SemanticVersion": str,
-        "SourceCodeArchiveUrl": str,
-        "SourceCodeUrl": str,
-        "TemplateUrl": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateCloudFormationChangeSetRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateCloudFormationChangeSetRequestRequestTypeDef",
-    {
-        "ApplicationId": str,
-        "StackName": str,
-    },
-)
-_OptionalCreateCloudFormationChangeSetRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateCloudFormationChangeSetRequestRequestTypeDef",
-    {
-        "Capabilities": List[str],
-        "ChangeSetName": str,
-        "ClientToken": str,
-        "Description": str,
-        "NotificationArns": List[str],
-        "ParameterOverrides": List["ParameterValueTypeDef"],
-        "ResourceTypes": List[str],
-        "RollbackConfiguration": "RollbackConfigurationTypeDef",
-        "SemanticVersion": str,
-        "Tags": List["TagTypeDef"],
-        "TemplateId": str,
-    },
-    total=False,
-)
-
-class CreateCloudFormationChangeSetRequestRequestTypeDef(
-    _RequiredCreateCloudFormationChangeSetRequestRequestTypeDef,
-    _OptionalCreateCloudFormationChangeSetRequestRequestTypeDef,
-):
-    pass
-
-CreateCloudFormationChangeSetResponseTypeDef = TypedDict(
-    "CreateCloudFormationChangeSetResponseTypeDef",
-    {
-        "ApplicationId": str,
-        "ChangeSetId": str,
-        "SemanticVersion": str,
-        "StackId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateCloudFormationTemplateRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateCloudFormationTemplateRequestRequestTypeDef",
-    {
-        "ApplicationId": str,
-    },
-)
-_OptionalCreateCloudFormationTemplateRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateCloudFormationTemplateRequestRequestTypeDef",
-    {
-        "SemanticVersion": str,
-    },
-    total=False,
-)
-
-class CreateCloudFormationTemplateRequestRequestTypeDef(
-    _RequiredCreateCloudFormationTemplateRequestRequestTypeDef,
-    _OptionalCreateCloudFormationTemplateRequestRequestTypeDef,
-):
-    pass
-
-CreateCloudFormationTemplateResponseTypeDef = TypedDict(
-    "CreateCloudFormationTemplateResponseTypeDef",
-    {
-        "ApplicationId": str,
-        "CreationTime": str,
-        "ExpirationTime": str,
-        "SemanticVersion": str,
-        "Status": StatusType,
-        "TemplateId": str,
-        "TemplateUrl": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteApplicationRequestRequestTypeDef = TypedDict(
-    "DeleteApplicationRequestRequestTypeDef",
-    {
-        "ApplicationId": str,
-    },
-)
-
-GetApplicationPolicyRequestRequestTypeDef = TypedDict(
-    "GetApplicationPolicyRequestRequestTypeDef",
-    {
-        "ApplicationId": str,
-    },
-)
-
-GetApplicationPolicyResponseTypeDef = TypedDict(
-    "GetApplicationPolicyResponseTypeDef",
-    {
-        "Statements": List["ApplicationPolicyStatementTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetApplicationRequestRequestTypeDef = TypedDict(
-    "_RequiredGetApplicationRequestRequestTypeDef",
-    {
-        "ApplicationId": str,
-    },
-)
-_OptionalGetApplicationRequestRequestTypeDef = TypedDict(
-    "_OptionalGetApplicationRequestRequestTypeDef",
-    {
-        "SemanticVersion": str,
-    },
-    total=False,
-)
-
-class GetApplicationRequestRequestTypeDef(
-    _RequiredGetApplicationRequestRequestTypeDef, _OptionalGetApplicationRequestRequestTypeDef
-):
-    pass
-
-GetApplicationResponseTypeDef = TypedDict(
-    "GetApplicationResponseTypeDef",
-    {
-        "ApplicationId": str,
-        "Author": str,
-        "CreationTime": str,
-        "Description": str,
-        "HomePageUrl": str,
-        "IsVerifiedAuthor": bool,
-        "Labels": List[str],
-        "LicenseUrl": str,
-        "Name": str,
-        "ReadmeUrl": str,
-        "SpdxLicenseId": str,
-        "VerifiedAuthorUrl": str,
-        "Version": "VersionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetCloudFormationTemplateRequestRequestTypeDef = TypedDict(
-    "GetCloudFormationTemplateRequestRequestTypeDef",
-    {
-        "ApplicationId": str,
-        "TemplateId": str,
-    },
-)
-
-GetCloudFormationTemplateResponseTypeDef = TypedDict(
-    "GetCloudFormationTemplateResponseTypeDef",
-    {
-        "ApplicationId": str,
-        "CreationTime": str,
-        "ExpirationTime": str,
-        "SemanticVersion": str,
-        "Status": StatusType,
-        "TemplateId": str,
-        "TemplateUrl": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListApplicationDependenciesRequestRequestTypeDef = TypedDict(
-    "_RequiredListApplicationDependenciesRequestRequestTypeDef",
-    {
-        "ApplicationId": str,
-    },
-)
-_OptionalListApplicationDependenciesRequestRequestTypeDef = TypedDict(
-    "_OptionalListApplicationDependenciesRequestRequestTypeDef",
-    {
-        "MaxItems": int,
-        "NextToken": str,
-        "SemanticVersion": str,
-    },
-    total=False,
-)
-
-class ListApplicationDependenciesRequestRequestTypeDef(
-    _RequiredListApplicationDependenciesRequestRequestTypeDef,
-    _OptionalListApplicationDependenciesRequestRequestTypeDef,
-):
-    pass
-
-ListApplicationDependenciesResponseTypeDef = TypedDict(
-    "ListApplicationDependenciesResponseTypeDef",
-    {
-        "Dependencies": List["ApplicationDependencySummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListApplicationVersionsRequestRequestTypeDef = TypedDict(
-    "_RequiredListApplicationVersionsRequestRequestTypeDef",
-    {
-        "ApplicationId": str,
-    },
-)
-_OptionalListApplicationVersionsRequestRequestTypeDef = TypedDict(
-    "_OptionalListApplicationVersionsRequestRequestTypeDef",
-    {
-        "MaxItems": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListApplicationVersionsRequestRequestTypeDef(
-    _RequiredListApplicationVersionsRequestRequestTypeDef,
-    _OptionalListApplicationVersionsRequestRequestTypeDef,
-):
-    pass
-
-ListApplicationVersionsResponseTypeDef = TypedDict(
-    "ListApplicationVersionsResponseTypeDef",
-    {
-        "NextToken": str,
-        "Versions": List["VersionSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListApplicationsRequestRequestTypeDef = TypedDict(
-    "ListApplicationsRequestRequestTypeDef",
-    {
-        "MaxItems": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListApplicationsResponseTypeDef = TypedDict(
-    "ListApplicationsResponseTypeDef",
-    {
-        "Applications": List["ApplicationSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-_RequiredParameterDefinitionTypeDef = TypedDict(
-    "_RequiredParameterDefinitionTypeDef",
+ParameterDefinitionTypeDef = TypedDict(
+    "ParameterDefinitionTypeDef",
     {
         "Name": str,
         "ReferencedByResources": List[str],
-    },
-)
-_OptionalParameterDefinitionTypeDef = TypedDict(
-    "_OptionalParameterDefinitionTypeDef",
-    {
-        "AllowedPattern": str,
-        "AllowedValues": List[str],
-        "ConstraintDescription": str,
-        "DefaultValue": str,
-        "Description": str,
-        "MaxLength": int,
-        "MaxValue": int,
-        "MinLength": int,
-        "MinValue": int,
-        "NoEcho": bool,
-        "Type": str,
-    },
-    total=False,
-)
-
-class ParameterDefinitionTypeDef(
-    _RequiredParameterDefinitionTypeDef, _OptionalParameterDefinitionTypeDef
-):
-    pass
-
-ParameterValueTypeDef = TypedDict(
-    "ParameterValueTypeDef",
-    {
-        "Name": str,
-        "Value": str,
+        "AllowedPattern": NotRequired[str],
+        "AllowedValues": NotRequired[List[str]],
+        "ConstraintDescription": NotRequired[str],
+        "DefaultValue": NotRequired[str],
+        "Description": NotRequired[str],
+        "MaxLength": NotRequired[int],
+        "MaxValue": NotRequired[int],
+        "MinLength": NotRequired[int],
+        "MinValue": NotRequired[int],
+        "NoEcho": NotRequired[bool],
+        "Type": NotRequired[str],
     },
 )
 
-PutApplicationPolicyRequestRequestTypeDef = TypedDict(
-    "PutApplicationPolicyRequestRequestTypeDef",
-    {
-        "ApplicationId": str,
-        "Statements": List["ApplicationPolicyStatementTypeDef"],
-    },
-)
+class ParameterValueTypeDef(TypedDict):
+    Name: str
+    Value: str
 
-PutApplicationPolicyResponseTypeDef = TypedDict(
-    "PutApplicationPolicyResponseTypeDef",
-    {
-        "Statements": List["ApplicationPolicyStatementTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class TagTypeDef(TypedDict):
+    Key: str
+    Value: str
 
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
+class CreateCloudFormationTemplateRequestTypeDef(TypedDict):
+    ApplicationId: str
+    SemanticVersion: NotRequired[str]
 
-RollbackConfigurationTypeDef = TypedDict(
-    "RollbackConfigurationTypeDef",
-    {
-        "MonitoringTimeInMinutes": int,
-        "RollbackTriggers": List["RollbackTriggerTypeDef"],
-    },
-    total=False,
-)
+class DeleteApplicationRequestTypeDef(TypedDict):
+    ApplicationId: str
+
+class GetApplicationPolicyRequestTypeDef(TypedDict):
+    ApplicationId: str
+
+class GetApplicationRequestTypeDef(TypedDict):
+    ApplicationId: str
+    SemanticVersion: NotRequired[str]
+
+class GetCloudFormationTemplateRequestTypeDef(TypedDict):
+    ApplicationId: str
+    TemplateId: str
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class ListApplicationDependenciesRequestTypeDef(TypedDict):
+    ApplicationId: str
+    MaxItems: NotRequired[int]
+    NextToken: NotRequired[str]
+    SemanticVersion: NotRequired[str]
+
+class ListApplicationVersionsRequestTypeDef(TypedDict):
+    ApplicationId: str
+    MaxItems: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class VersionSummaryTypeDef(TypedDict):
+    ApplicationId: str
+    CreationTime: str
+    SemanticVersion: str
+    SourceCodeUrl: NotRequired[str]
+
+class ListApplicationsRequestTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    NextToken: NotRequired[str]
 
 RollbackTriggerTypeDef = TypedDict(
     "RollbackTriggerTypeDef",
@@ -539,105 +216,178 @@ RollbackTriggerTypeDef = TypedDict(
     },
 )
 
-TagTypeDef = TypedDict(
-    "TagTypeDef",
-    {
-        "Key": str,
-        "Value": str,
-    },
-)
+class UnshareApplicationRequestTypeDef(TypedDict):
+    ApplicationId: str
+    OrganizationId: str
 
-UnshareApplicationRequestRequestTypeDef = TypedDict(
-    "UnshareApplicationRequestRequestTypeDef",
-    {
-        "ApplicationId": str,
-        "OrganizationId": str,
-    },
-)
+class UpdateApplicationRequestTypeDef(TypedDict):
+    ApplicationId: str
+    Author: NotRequired[str]
+    Description: NotRequired[str]
+    HomePageUrl: NotRequired[str]
+    Labels: NotRequired[Sequence[str]]
+    ReadmeBody: NotRequired[str]
+    ReadmeUrl: NotRequired[str]
 
-_RequiredUpdateApplicationRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateApplicationRequestRequestTypeDef",
-    {
-        "ApplicationId": str,
-    },
-)
-_OptionalUpdateApplicationRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateApplicationRequestRequestTypeDef",
-    {
-        "Author": str,
-        "Description": str,
-        "HomePageUrl": str,
-        "Labels": List[str],
-        "ReadmeBody": str,
-        "ReadmeUrl": str,
-    },
-    total=False,
-)
+ApplicationPolicyStatementUnionTypeDef = Union[
+    ApplicationPolicyStatementTypeDef, ApplicationPolicyStatementOutputTypeDef
+]
 
-class UpdateApplicationRequestRequestTypeDef(
-    _RequiredUpdateApplicationRequestRequestTypeDef, _OptionalUpdateApplicationRequestRequestTypeDef
-):
-    pass
+class CreateCloudFormationChangeSetResponseTypeDef(TypedDict):
+    ApplicationId: str
+    ChangeSetId: str
+    SemanticVersion: str
+    StackId: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-UpdateApplicationResponseTypeDef = TypedDict(
-    "UpdateApplicationResponseTypeDef",
-    {
-        "ApplicationId": str,
-        "Author": str,
-        "CreationTime": str,
-        "Description": str,
-        "HomePageUrl": str,
-        "IsVerifiedAuthor": bool,
-        "Labels": List[str],
-        "LicenseUrl": str,
-        "Name": str,
-        "ReadmeUrl": str,
-        "SpdxLicenseId": str,
-        "VerifiedAuthorUrl": str,
-        "Version": "VersionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CreateCloudFormationTemplateResponseTypeDef(TypedDict):
+    ApplicationId: str
+    CreationTime: str
+    ExpirationTime: str
+    SemanticVersion: str
+    Status: StatusType
+    TemplateId: str
+    TemplateUrl: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredVersionSummaryTypeDef = TypedDict(
-    "_RequiredVersionSummaryTypeDef",
-    {
-        "ApplicationId": str,
-        "CreationTime": str,
-        "SemanticVersion": str,
-    },
-)
-_OptionalVersionSummaryTypeDef = TypedDict(
-    "_OptionalVersionSummaryTypeDef",
-    {
-        "SourceCodeUrl": str,
-    },
-    total=False,
-)
+class EmptyResponseMetadataTypeDef(TypedDict):
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class VersionSummaryTypeDef(_RequiredVersionSummaryTypeDef, _OptionalVersionSummaryTypeDef):
-    pass
+class GetApplicationPolicyResponseTypeDef(TypedDict):
+    Statements: List[ApplicationPolicyStatementOutputTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredVersionTypeDef = TypedDict(
-    "_RequiredVersionTypeDef",
-    {
-        "ApplicationId": str,
-        "CreationTime": str,
-        "ParameterDefinitions": List["ParameterDefinitionTypeDef"],
-        "RequiredCapabilities": List[CapabilityType],
-        "ResourcesSupported": bool,
-        "SemanticVersion": str,
-        "TemplateUrl": str,
-    },
-)
-_OptionalVersionTypeDef = TypedDict(
-    "_OptionalVersionTypeDef",
-    {
-        "SourceCodeArchiveUrl": str,
-        "SourceCodeUrl": str,
-    },
-    total=False,
-)
+class GetCloudFormationTemplateResponseTypeDef(TypedDict):
+    ApplicationId: str
+    CreationTime: str
+    ExpirationTime: str
+    SemanticVersion: str
+    Status: StatusType
+    TemplateId: str
+    TemplateUrl: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class VersionTypeDef(_RequiredVersionTypeDef, _OptionalVersionTypeDef):
-    pass
+class ListApplicationDependenciesResponseTypeDef(TypedDict):
+    Dependencies: List[ApplicationDependencySummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListApplicationsResponseTypeDef(TypedDict):
+    Applications: List[ApplicationSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class PutApplicationPolicyResponseTypeDef(TypedDict):
+    Statements: List[ApplicationPolicyStatementOutputTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateApplicationVersionResponseTypeDef(TypedDict):
+    ApplicationId: str
+    CreationTime: str
+    ParameterDefinitions: List[ParameterDefinitionTypeDef]
+    RequiredCapabilities: List[CapabilityType]
+    ResourcesSupported: bool
+    SemanticVersion: str
+    SourceCodeArchiveUrl: str
+    SourceCodeUrl: str
+    TemplateUrl: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class VersionTypeDef(TypedDict):
+    ApplicationId: str
+    CreationTime: str
+    ParameterDefinitions: List[ParameterDefinitionTypeDef]
+    RequiredCapabilities: List[CapabilityType]
+    ResourcesSupported: bool
+    SemanticVersion: str
+    TemplateUrl: str
+    SourceCodeArchiveUrl: NotRequired[str]
+    SourceCodeUrl: NotRequired[str]
+
+class ListApplicationDependenciesRequestPaginateTypeDef(TypedDict):
+    ApplicationId: str
+    SemanticVersion: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListApplicationVersionsRequestPaginateTypeDef(TypedDict):
+    ApplicationId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListApplicationsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListApplicationVersionsResponseTypeDef(TypedDict):
+    Versions: List[VersionSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class RollbackConfigurationTypeDef(TypedDict):
+    MonitoringTimeInMinutes: NotRequired[int]
+    RollbackTriggers: NotRequired[Sequence[RollbackTriggerTypeDef]]
+
+class PutApplicationPolicyRequestTypeDef(TypedDict):
+    ApplicationId: str
+    Statements: Sequence[ApplicationPolicyStatementUnionTypeDef]
+
+class CreateApplicationResponseTypeDef(TypedDict):
+    ApplicationId: str
+    Author: str
+    CreationTime: str
+    Description: str
+    HomePageUrl: str
+    IsVerifiedAuthor: bool
+    Labels: List[str]
+    LicenseUrl: str
+    Name: str
+    ReadmeUrl: str
+    SpdxLicenseId: str
+    VerifiedAuthorUrl: str
+    Version: VersionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetApplicationResponseTypeDef(TypedDict):
+    ApplicationId: str
+    Author: str
+    CreationTime: str
+    Description: str
+    HomePageUrl: str
+    IsVerifiedAuthor: bool
+    Labels: List[str]
+    LicenseUrl: str
+    Name: str
+    ReadmeUrl: str
+    SpdxLicenseId: str
+    VerifiedAuthorUrl: str
+    Version: VersionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateApplicationResponseTypeDef(TypedDict):
+    ApplicationId: str
+    Author: str
+    CreationTime: str
+    Description: str
+    HomePageUrl: str
+    IsVerifiedAuthor: bool
+    Labels: List[str]
+    LicenseUrl: str
+    Name: str
+    ReadmeUrl: str
+    SpdxLicenseId: str
+    VerifiedAuthorUrl: str
+    Version: VersionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateCloudFormationChangeSetRequestTypeDef(TypedDict):
+    ApplicationId: str
+    StackName: str
+    Capabilities: NotRequired[Sequence[str]]
+    ChangeSetName: NotRequired[str]
+    ClientToken: NotRequired[str]
+    Description: NotRequired[str]
+    NotificationArns: NotRequired[Sequence[str]]
+    ParameterOverrides: NotRequired[Sequence[ParameterValueTypeDef]]
+    ResourceTypes: NotRequired[Sequence[str]]
+    RollbackConfiguration: NotRequired[RollbackConfigurationTypeDef]
+    SemanticVersion: NotRequired[str]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+    TemplateId: NotRequired[str]

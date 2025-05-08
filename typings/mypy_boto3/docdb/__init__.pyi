@@ -1,10 +1,14 @@
 """
 Main interface for docdb service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_docdb/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_docdb import (
         Client,
         DBInstanceAvailableWaiter,
@@ -25,10 +29,8 @@ Usage::
         DocDBClient,
     )
 
-    session = boto3.Session()
-
-    client: DocDBClient = boto3.client("docdb")
-    session_client: DocDBClient = session.client("docdb")
+    session = Session()
+    client: DocDBClient = session.client("docdb")
 
     db_instance_available_waiter: DBInstanceAvailableWaiter = client.get_waiter("db_instance_available")
     db_instance_deleted_waiter: DBInstanceDeletedWaiter = client.get_waiter("db_instance_deleted")

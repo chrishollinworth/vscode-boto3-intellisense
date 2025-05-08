@@ -1,21 +1,24 @@
 """
 Type annotations for route53profiles service client paginators.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53profiles/paginators.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53profiles/paginators/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
 
-    from mypy_boto3_route53profiles import Route53ProfilesClient
+    from mypy_boto3_route53profiles.client import Route53ProfilesClient
     from mypy_boto3_route53profiles.paginator import (
         ListProfileAssociationsPaginator,
         ListProfileResourceAssociationsPaginator,
         ListProfilesPaginator,
     )
 
-    client: Route53ProfilesClient = boto3.client("route53profiles")
+    session = Session()
+    client: Route53ProfilesClient = session.client("route53profiles")
 
     list_profile_associations_paginator: ListProfileAssociationsPaginator = client.get_paginator("list_profile_associations")
     list_profile_resource_associations_paginator: ListProfileResourceAssociationsPaginator = client.get_paginator("list_profile_resource_associations")
@@ -23,16 +26,26 @@ Usage::
     ```
 """
 
-from typing import Iterator
+from __future__ import annotations
 
-from botocore.paginate import Paginator as Boto3Paginator
+import sys
+from typing import TYPE_CHECKING
+
+from botocore.paginate import PageIterator, Paginator
 
 from .type_defs import (
+    ListProfileAssociationsRequestPaginateTypeDef,
     ListProfileAssociationsResponseTypeDef,
+    ListProfileResourceAssociationsRequestPaginateTypeDef,
     ListProfileResourceAssociationsResponseTypeDef,
+    ListProfilesRequestPaginateTypeDef,
     ListProfilesResponseTypeDef,
-    PaginatorConfigTypeDef,
 )
+
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = (
     "ListProfileAssociationsPaginator",
@@ -40,52 +53,58 @@ __all__ = (
     "ListProfilesPaginator",
 )
 
-class ListProfileAssociationsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53profiles.html#Route53Profiles.Paginator.ListProfileAssociations)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53profiles/paginators.html#listprofileassociationspaginator)
-    """
+if TYPE_CHECKING:
+    _ListProfileAssociationsPaginatorBase = Paginator[ListProfileAssociationsResponseTypeDef]
+else:
+    _ListProfileAssociationsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        ProfileId: str = None,
-        ResourceId: str = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListProfileAssociationsResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53profiles.html#Route53Profiles.Paginator.ListProfileAssociations.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53profiles/paginators.html#listprofileassociationspaginator)
-        """
-
-class ListProfileResourceAssociationsPaginator(Boto3Paginator):
+class ListProfileAssociationsPaginator(_ListProfileAssociationsPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53profiles.html#Route53Profiles.Paginator.ListProfileResourceAssociations)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53profiles/paginators.html#listprofileresourceassociationspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53profiles/paginator/ListProfileAssociations.html#Route53Profiles.Paginator.ListProfileAssociations)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53profiles/paginators/#listprofileassociationspaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        ProfileId: str,
-        ResourceType: str = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListProfileResourceAssociationsResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListProfileAssociationsRequestPaginateTypeDef]
+    ) -> PageIterator[ListProfileAssociationsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53profiles.html#Route53Profiles.Paginator.ListProfileResourceAssociations.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53profiles/paginators.html#listprofileresourceassociationspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53profiles/paginator/ListProfileAssociations.html#Route53Profiles.Paginator.ListProfileAssociations.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53profiles/paginators/#listprofileassociationspaginator)
         """
 
-class ListProfilesPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53profiles.html#Route53Profiles.Paginator.ListProfiles)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53profiles/paginators.html#listprofilespaginator)
-    """
+if TYPE_CHECKING:
+    _ListProfileResourceAssociationsPaginatorBase = Paginator[
+        ListProfileResourceAssociationsResponseTypeDef
+    ]
+else:
+    _ListProfileResourceAssociationsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListProfilesResponseTypeDef]:
+class ListProfileResourceAssociationsPaginator(_ListProfileResourceAssociationsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53profiles/paginator/ListProfileResourceAssociations.html#Route53Profiles.Paginator.ListProfileResourceAssociations)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53profiles/paginators/#listprofileresourceassociationspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListProfileResourceAssociationsRequestPaginateTypeDef]
+    ) -> PageIterator[ListProfileResourceAssociationsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53profiles.html#Route53Profiles.Paginator.ListProfiles.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53profiles/paginators.html#listprofilespaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53profiles/paginator/ListProfileResourceAssociations.html#Route53Profiles.Paginator.ListProfileResourceAssociations.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53profiles/paginators/#listprofileresourceassociationspaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListProfilesPaginatorBase = Paginator[ListProfilesResponseTypeDef]
+else:
+    _ListProfilesPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListProfilesPaginator(_ListProfilesPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53profiles/paginator/ListProfiles.html#Route53Profiles.Paginator.ListProfiles)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53profiles/paginators/#listprofilespaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListProfilesRequestPaginateTypeDef]
+    ) -> PageIterator[ListProfilesResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53profiles/paginator/ListProfiles.html#Route53Profiles.Paginator.ListProfiles.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53profiles/paginators/#listprofilespaginator)
         """

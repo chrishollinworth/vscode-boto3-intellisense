@@ -1,25 +1,30 @@
 """
-Type annotations for appconfig service client.
+Type annotations for appconfig service Client.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
-    from mypy_boto3_appconfig import AppConfigClient
+    from boto3.session import Session
+    from mypy_boto3_appconfig.client import AppConfigClient
 
-    client: AppConfigClient = boto3.client("appconfig")
+    session = Session()
+    client: AppConfigClient = session.client("appconfig")
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from typing import IO, Any, Dict, List, Type, Union, overload
+from typing import Any, overload
 
 from botocore.client import BaseClient, ClientMeta
-from botocore.response import StreamingBody
+from botocore.errorfactory import BaseClientExceptions
+from botocore.exceptions import ClientError as BotocoreClientError
 
-from .literals import ActionPointType, GrowthTypeType, ReplicateToType
 from .paginator import (
     ListApplicationsPaginator,
     ListConfigurationProfilesPaginator,
@@ -31,45 +36,86 @@ from .paginator import (
     ListHostedConfigurationVersionsPaginator,
 )
 from .type_defs import (
-    ActionTypeDef,
-    ApplicationResponseMetadataTypeDef,
+    AccountSettingsTypeDef,
+    ApplicationResponseTypeDef,
     ApplicationsTypeDef,
     ConfigurationProfilesTypeDef,
     ConfigurationProfileTypeDef,
     ConfigurationTypeDef,
+    CreateApplicationRequestTypeDef,
+    CreateConfigurationProfileRequestTypeDef,
+    CreateDeploymentStrategyRequestTypeDef,
+    CreateEnvironmentRequestTypeDef,
+    CreateExtensionAssociationRequestTypeDef,
+    CreateExtensionRequestTypeDef,
+    CreateHostedConfigurationVersionRequestTypeDef,
+    DeleteApplicationRequestTypeDef,
+    DeleteConfigurationProfileRequestTypeDef,
+    DeleteDeploymentStrategyRequestTypeDef,
+    DeleteEnvironmentRequestTypeDef,
+    DeleteExtensionAssociationRequestTypeDef,
+    DeleteExtensionRequestTypeDef,
+    DeleteHostedConfigurationVersionRequestTypeDef,
     DeploymentStrategiesTypeDef,
-    DeploymentStrategyResponseMetadataTypeDef,
+    DeploymentStrategyResponseTypeDef,
     DeploymentsTypeDef,
     DeploymentTypeDef,
-    EnvironmentResponseMetadataTypeDef,
+    EmptyResponseMetadataTypeDef,
+    EnvironmentResponseTypeDef,
     EnvironmentsTypeDef,
     ExtensionAssociationsTypeDef,
     ExtensionAssociationTypeDef,
     ExtensionsTypeDef,
     ExtensionTypeDef,
+    GetApplicationRequestTypeDef,
+    GetConfigurationProfileRequestTypeDef,
+    GetConfigurationRequestTypeDef,
+    GetDeploymentRequestTypeDef,
+    GetDeploymentStrategyRequestTypeDef,
+    GetEnvironmentRequestTypeDef,
+    GetExtensionAssociationRequestTypeDef,
+    GetExtensionRequestTypeDef,
+    GetHostedConfigurationVersionRequestTypeDef,
     HostedConfigurationVersionsTypeDef,
     HostedConfigurationVersionTypeDef,
-    MonitorTypeDef,
-    ParameterTypeDef,
+    ListApplicationsRequestTypeDef,
+    ListConfigurationProfilesRequestTypeDef,
+    ListDeploymentsRequestTypeDef,
+    ListDeploymentStrategiesRequestTypeDef,
+    ListEnvironmentsRequestTypeDef,
+    ListExtensionAssociationsRequestTypeDef,
+    ListExtensionsRequestTypeDef,
+    ListHostedConfigurationVersionsRequestTypeDef,
+    ListTagsForResourceRequestTypeDef,
     ResourceTagsTypeDef,
-    ValidatorTypeDef,
+    StartDeploymentRequestTypeDef,
+    StopDeploymentRequestTypeDef,
+    TagResourceRequestTypeDef,
+    UntagResourceRequestTypeDef,
+    UpdateAccountSettingsRequestTypeDef,
+    UpdateApplicationRequestTypeDef,
+    UpdateConfigurationProfileRequestTypeDef,
+    UpdateDeploymentStrategyRequestTypeDef,
+    UpdateEnvironmentRequestTypeDef,
+    UpdateExtensionAssociationRequestTypeDef,
+    UpdateExtensionRequestTypeDef,
+    ValidateConfigurationRequestTypeDef,
 )
+from .waiter import DeploymentCompleteWaiter, EnvironmentReadyForDeploymentWaiter
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import type as Type
+    from collections.abc import Mapping
 else:
-    from typing_extensions import Literal
+    from typing import Mapping, Type
+if sys.version_info >= (3, 12):
+    from typing import Literal, Unpack
+else:
+    from typing_extensions import Literal, Unpack
 
 __all__ = ("AppConfigClient",)
 
-class BotocoreClientError(BaseException):
-    MSG_TEMPLATE: str
-
-    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
-        self.response: Dict[str, Any]
-        self.operation_name: str
-
-class Exceptions:
+class Exceptions(BaseClientExceptions):
     BadRequestException: Type[BotocoreClientError]
     ClientError: Type[BotocoreClientError]
     ConflictException: Type[BotocoreClientError]
@@ -80,8 +126,8 @@ class Exceptions:
 
 class AppConfigClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appconfig.html#AppConfig.Client)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client.html)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appconfig.html#AppConfig.Client)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client/)
     """
 
     meta: ClientMeta
@@ -90,629 +136,579 @@ class AppConfigClient(BaseClient):
     def exceptions(self) -> Exceptions:
         """
         AppConfigClient exceptions.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appconfig.html#AppConfig.Client)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client/#exceptions)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        Check if an operation can be paginated.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appconfig.html#AppConfig.Client.can_paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client.html#can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appconfig/client/can_paginate.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client/#can_paginate)
         """
 
-    def close(self) -> None:
+    def generate_presigned_url(
+        self,
+        ClientMethod: str,
+        Params: Mapping[str, Any] = ...,
+        ExpiresIn: int = 3600,
+        HttpMethod: str = ...,
+    ) -> str:
         """
-        Closes underlying endpoint connections.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appconfig.html#AppConfig.Client.close)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client.html#close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appconfig/client/generate_presigned_url.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client/#generate_presigned_url)
         """
 
     def create_application(
-        self, *, Name: str, Description: str = None, Tags: Dict[str, str] = None
-    ) -> ApplicationResponseMetadataTypeDef:
+        self, **kwargs: Unpack[CreateApplicationRequestTypeDef]
+    ) -> ApplicationResponseTypeDef:
         """
         Creates an application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appconfig.html#AppConfig.Client.create_application)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client.html#create_application)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appconfig/client/create_application.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client/#create_application)
         """
 
     def create_configuration_profile(
-        self,
-        *,
-        ApplicationId: str,
-        Name: str,
-        LocationUri: str,
-        Description: str = None,
-        RetrievalRoleArn: str = None,
-        Validators: List["ValidatorTypeDef"] = None,
-        Tags: Dict[str, str] = None,
-        Type: str = None,
-        KmsKeyIdentifier: str = None
+        self, **kwargs: Unpack[CreateConfigurationProfileRequestTypeDef]
     ) -> ConfigurationProfileTypeDef:
         """
         Creates a configuration profile, which is information that enables AppConfig to
         access the configuration source.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appconfig.html#AppConfig.Client.create_configuration_profile)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client.html#create_configuration_profile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appconfig/client/create_configuration_profile.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client/#create_configuration_profile)
         """
 
     def create_deployment_strategy(
-        self,
-        *,
-        Name: str,
-        DeploymentDurationInMinutes: int,
-        GrowthFactor: float,
-        Description: str = None,
-        FinalBakeTimeInMinutes: int = None,
-        GrowthType: GrowthTypeType = None,
-        ReplicateTo: ReplicateToType = None,
-        Tags: Dict[str, str] = None
-    ) -> DeploymentStrategyResponseMetadataTypeDef:
+        self, **kwargs: Unpack[CreateDeploymentStrategyRequestTypeDef]
+    ) -> DeploymentStrategyResponseTypeDef:
         """
         Creates a deployment strategy that defines important criteria for rolling out
         your configuration to the designated targets.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appconfig.html#AppConfig.Client.create_deployment_strategy)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client.html#create_deployment_strategy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appconfig/client/create_deployment_strategy.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client/#create_deployment_strategy)
         """
 
     def create_environment(
-        self,
-        *,
-        ApplicationId: str,
-        Name: str,
-        Description: str = None,
-        Monitors: List["MonitorTypeDef"] = None,
-        Tags: Dict[str, str] = None
-    ) -> EnvironmentResponseMetadataTypeDef:
+        self, **kwargs: Unpack[CreateEnvironmentRequestTypeDef]
+    ) -> EnvironmentResponseTypeDef:
         """
         Creates an environment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appconfig.html#AppConfig.Client.create_environment)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client.html#create_environment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appconfig/client/create_environment.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client/#create_environment)
         """
 
-    def create_extension(
-        self,
-        *,
-        Name: str,
-        Actions: Dict[ActionPointType, List["ActionTypeDef"]],
-        Description: str = None,
-        Parameters: Dict[str, "ParameterTypeDef"] = None,
-        Tags: Dict[str, str] = None,
-        LatestVersionNumber: int = None
-    ) -> ExtensionTypeDef:
+    def create_extension(self, **kwargs: Unpack[CreateExtensionRequestTypeDef]) -> ExtensionTypeDef:
         """
         Creates an AppConfig extension.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appconfig.html#AppConfig.Client.create_extension)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client.html#create_extension)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appconfig/client/create_extension.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client/#create_extension)
         """
 
     def create_extension_association(
-        self,
-        *,
-        ExtensionIdentifier: str,
-        ResourceIdentifier: str,
-        ExtensionVersionNumber: int = None,
-        Parameters: Dict[str, str] = None,
-        Tags: Dict[str, str] = None
+        self, **kwargs: Unpack[CreateExtensionAssociationRequestTypeDef]
     ) -> ExtensionAssociationTypeDef:
         """
         When you create an extension or configure an Amazon Web Services authored
         extension, you associate the extension with an AppConfig application,
         environment, or configuration profile.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appconfig.html#AppConfig.Client.create_extension_association)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client.html#create_extension_association)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appconfig/client/create_extension_association.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client/#create_extension_association)
         """
 
     def create_hosted_configuration_version(
-        self,
-        *,
-        ApplicationId: str,
-        ConfigurationProfileId: str,
-        Content: Union[bytes, IO[bytes], StreamingBody],
-        ContentType: str,
-        Description: str = None,
-        LatestVersionNumber: int = None,
-        VersionLabel: str = None
+        self, **kwargs: Unpack[CreateHostedConfigurationVersionRequestTypeDef]
     ) -> HostedConfigurationVersionTypeDef:
         """
         Creates a new configuration in the AppConfig hosted configuration store.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appconfig.html#AppConfig.Client.create_hosted_configuration_version)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client.html#create_hosted_configuration_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appconfig/client/create_hosted_configuration_version.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client/#create_hosted_configuration_version)
         """
 
-    def delete_application(self, *, ApplicationId: str) -> None:
+    def delete_application(
+        self, **kwargs: Unpack[DeleteApplicationRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Deletes an application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appconfig.html#AppConfig.Client.delete_application)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client.html#delete_application)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appconfig/client/delete_application.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client/#delete_application)
         """
 
     def delete_configuration_profile(
-        self, *, ApplicationId: str, ConfigurationProfileId: str
-    ) -> None:
+        self, **kwargs: Unpack[DeleteConfigurationProfileRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Deletes a configuration profile.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appconfig.html#AppConfig.Client.delete_configuration_profile)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client.html#delete_configuration_profile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appconfig/client/delete_configuration_profile.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client/#delete_configuration_profile)
         """
 
-    def delete_deployment_strategy(self, *, DeploymentStrategyId: str) -> None:
+    def delete_deployment_strategy(
+        self, **kwargs: Unpack[DeleteDeploymentStrategyRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Deletes a deployment strategy.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appconfig.html#AppConfig.Client.delete_deployment_strategy)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client.html#delete_deployment_strategy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appconfig/client/delete_deployment_strategy.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client/#delete_deployment_strategy)
         """
 
-    def delete_environment(self, *, ApplicationId: str, EnvironmentId: str) -> None:
+    def delete_environment(
+        self, **kwargs: Unpack[DeleteEnvironmentRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Deletes an environment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appconfig.html#AppConfig.Client.delete_environment)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client.html#delete_environment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appconfig/client/delete_environment.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client/#delete_environment)
         """
 
-    def delete_extension(self, *, ExtensionIdentifier: str, VersionNumber: int = None) -> None:
+    def delete_extension(
+        self, **kwargs: Unpack[DeleteExtensionRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Deletes an AppConfig extension.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appconfig.html#AppConfig.Client.delete_extension)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client.html#delete_extension)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appconfig/client/delete_extension.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client/#delete_extension)
         """
 
-    def delete_extension_association(self, *, ExtensionAssociationId: str) -> None:
+    def delete_extension_association(
+        self, **kwargs: Unpack[DeleteExtensionAssociationRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Deletes an extension association.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appconfig.html#AppConfig.Client.delete_extension_association)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client.html#delete_extension_association)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appconfig/client/delete_extension_association.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client/#delete_extension_association)
         """
 
     def delete_hosted_configuration_version(
-        self, *, ApplicationId: str, ConfigurationProfileId: str, VersionNumber: int
-    ) -> None:
+        self, **kwargs: Unpack[DeleteHostedConfigurationVersionRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Deletes a version of a configuration from the AppConfig hosted configuration
         store.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appconfig.html#AppConfig.Client.delete_hosted_configuration_version)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client.html#delete_hosted_configuration_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appconfig/client/delete_hosted_configuration_version.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client/#delete_hosted_configuration_version)
         """
 
-    def generate_presigned_url(
-        self,
-        ClientMethod: str,
-        Params: Dict[str, Any] = None,
-        ExpiresIn: int = 3600,
-        HttpMethod: str = None,
-    ) -> str:
+    def get_account_settings(self) -> AccountSettingsTypeDef:
         """
-        Generate a presigned url given a client, its method, and arguments.
+        Returns information about the status of the <code>DeletionProtection</code>
+        parameter.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appconfig.html#AppConfig.Client.generate_presigned_url)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client.html#generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appconfig/client/get_account_settings.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client/#get_account_settings)
         """
 
-    def get_application(self, *, ApplicationId: str) -> ApplicationResponseMetadataTypeDef:
+    def get_application(
+        self, **kwargs: Unpack[GetApplicationRequestTypeDef]
+    ) -> ApplicationResponseTypeDef:
         """
         Retrieves information about an application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appconfig.html#AppConfig.Client.get_application)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client.html#get_application)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appconfig/client/get_application.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client/#get_application)
         """
 
     def get_configuration(
-        self,
-        *,
-        Application: str,
-        Environment: str,
-        Configuration: str,
-        ClientId: str,
-        ClientConfigurationVersion: str = None
+        self, **kwargs: Unpack[GetConfigurationRequestTypeDef]
     ) -> ConfigurationTypeDef:
         """
         (Deprecated) Retrieves the latest deployed configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appconfig.html#AppConfig.Client.get_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client.html#get_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appconfig/client/get_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client/#get_configuration)
         """
 
     def get_configuration_profile(
-        self, *, ApplicationId: str, ConfigurationProfileId: str
+        self, **kwargs: Unpack[GetConfigurationProfileRequestTypeDef]
     ) -> ConfigurationProfileTypeDef:
         """
         Retrieves information about a configuration profile.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appconfig.html#AppConfig.Client.get_configuration_profile)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client.html#get_configuration_profile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appconfig/client/get_configuration_profile.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client/#get_configuration_profile)
         """
 
-    def get_deployment(
-        self, *, ApplicationId: str, EnvironmentId: str, DeploymentNumber: int
-    ) -> DeploymentTypeDef:
+    def get_deployment(self, **kwargs: Unpack[GetDeploymentRequestTypeDef]) -> DeploymentTypeDef:
         """
         Retrieves information about a configuration deployment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appconfig.html#AppConfig.Client.get_deployment)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client.html#get_deployment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appconfig/client/get_deployment.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client/#get_deployment)
         """
 
     def get_deployment_strategy(
-        self, *, DeploymentStrategyId: str
-    ) -> DeploymentStrategyResponseMetadataTypeDef:
+        self, **kwargs: Unpack[GetDeploymentStrategyRequestTypeDef]
+    ) -> DeploymentStrategyResponseTypeDef:
         """
         Retrieves information about a deployment strategy.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appconfig.html#AppConfig.Client.get_deployment_strategy)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client.html#get_deployment_strategy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appconfig/client/get_deployment_strategy.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client/#get_deployment_strategy)
         """
 
     def get_environment(
-        self, *, ApplicationId: str, EnvironmentId: str
-    ) -> EnvironmentResponseMetadataTypeDef:
+        self, **kwargs: Unpack[GetEnvironmentRequestTypeDef]
+    ) -> EnvironmentResponseTypeDef:
         """
         Retrieves information about an environment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appconfig.html#AppConfig.Client.get_environment)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client.html#get_environment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appconfig/client/get_environment.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client/#get_environment)
         """
 
-    def get_extension(
-        self, *, ExtensionIdentifier: str, VersionNumber: int = None
-    ) -> ExtensionTypeDef:
+    def get_extension(self, **kwargs: Unpack[GetExtensionRequestTypeDef]) -> ExtensionTypeDef:
         """
         Returns information about an AppConfig extension.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appconfig.html#AppConfig.Client.get_extension)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client.html#get_extension)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appconfig/client/get_extension.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client/#get_extension)
         """
 
     def get_extension_association(
-        self, *, ExtensionAssociationId: str
+        self, **kwargs: Unpack[GetExtensionAssociationRequestTypeDef]
     ) -> ExtensionAssociationTypeDef:
         """
         Returns information about an AppConfig extension association.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appconfig.html#AppConfig.Client.get_extension_association)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client.html#get_extension_association)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appconfig/client/get_extension_association.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client/#get_extension_association)
         """
 
     def get_hosted_configuration_version(
-        self, *, ApplicationId: str, ConfigurationProfileId: str, VersionNumber: int
+        self, **kwargs: Unpack[GetHostedConfigurationVersionRequestTypeDef]
     ) -> HostedConfigurationVersionTypeDef:
         """
         Retrieves information about a specific configuration version.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appconfig.html#AppConfig.Client.get_hosted_configuration_version)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client.html#get_hosted_configuration_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appconfig/client/get_hosted_configuration_version.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client/#get_hosted_configuration_version)
         """
 
     def list_applications(
-        self, *, MaxResults: int = None, NextToken: str = None
+        self, **kwargs: Unpack[ListApplicationsRequestTypeDef]
     ) -> ApplicationsTypeDef:
         """
         Lists all applications in your Amazon Web Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appconfig.html#AppConfig.Client.list_applications)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client.html#list_applications)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appconfig/client/list_applications.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client/#list_applications)
         """
 
     def list_configuration_profiles(
-        self, *, ApplicationId: str, MaxResults: int = None, NextToken: str = None, Type: str = None
+        self, **kwargs: Unpack[ListConfigurationProfilesRequestTypeDef]
     ) -> ConfigurationProfilesTypeDef:
         """
         Lists the configuration profiles for an application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appconfig.html#AppConfig.Client.list_configuration_profiles)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client.html#list_configuration_profiles)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appconfig/client/list_configuration_profiles.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client/#list_configuration_profiles)
         """
 
     def list_deployment_strategies(
-        self, *, MaxResults: int = None, NextToken: str = None
+        self, **kwargs: Unpack[ListDeploymentStrategiesRequestTypeDef]
     ) -> DeploymentStrategiesTypeDef:
         """
         Lists deployment strategies.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appconfig.html#AppConfig.Client.list_deployment_strategies)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client.html#list_deployment_strategies)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appconfig/client/list_deployment_strategies.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client/#list_deployment_strategies)
         """
 
     def list_deployments(
-        self,
-        *,
-        ApplicationId: str,
-        EnvironmentId: str,
-        MaxResults: int = None,
-        NextToken: str = None
+        self, **kwargs: Unpack[ListDeploymentsRequestTypeDef]
     ) -> DeploymentsTypeDef:
         """
         Lists the deployments for an environment in descending deployment number order.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appconfig.html#AppConfig.Client.list_deployments)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client.html#list_deployments)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appconfig/client/list_deployments.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client/#list_deployments)
         """
 
     def list_environments(
-        self, *, ApplicationId: str, MaxResults: int = None, NextToken: str = None
+        self, **kwargs: Unpack[ListEnvironmentsRequestTypeDef]
     ) -> EnvironmentsTypeDef:
         """
         Lists the environments for an application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appconfig.html#AppConfig.Client.list_environments)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client.html#list_environments)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appconfig/client/list_environments.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client/#list_environments)
         """
 
     def list_extension_associations(
-        self,
-        *,
-        ResourceIdentifier: str = None,
-        ExtensionIdentifier: str = None,
-        ExtensionVersionNumber: int = None,
-        MaxResults: int = None,
-        NextToken: str = None
+        self, **kwargs: Unpack[ListExtensionAssociationsRequestTypeDef]
     ) -> ExtensionAssociationsTypeDef:
         """
         Lists all AppConfig extension associations in the account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appconfig.html#AppConfig.Client.list_extension_associations)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client.html#list_extension_associations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appconfig/client/list_extension_associations.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client/#list_extension_associations)
         """
 
-    def list_extensions(
-        self, *, MaxResults: int = None, NextToken: str = None, Name: str = None
-    ) -> ExtensionsTypeDef:
+    def list_extensions(self, **kwargs: Unpack[ListExtensionsRequestTypeDef]) -> ExtensionsTypeDef:
         """
         Lists all custom and Amazon Web Services authored AppConfig extensions in the
         account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appconfig.html#AppConfig.Client.list_extensions)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client.html#list_extensions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appconfig/client/list_extensions.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client/#list_extensions)
         """
 
     def list_hosted_configuration_versions(
-        self,
-        *,
-        ApplicationId: str,
-        ConfigurationProfileId: str,
-        MaxResults: int = None,
-        NextToken: str = None,
-        VersionLabel: str = None
+        self, **kwargs: Unpack[ListHostedConfigurationVersionsRequestTypeDef]
     ) -> HostedConfigurationVersionsTypeDef:
         """
         Lists configurations stored in the AppConfig hosted configuration store by
         version.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appconfig.html#AppConfig.Client.list_hosted_configuration_versions)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client.html#list_hosted_configuration_versions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appconfig/client/list_hosted_configuration_versions.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client/#list_hosted_configuration_versions)
         """
 
-    def list_tags_for_resource(self, *, ResourceArn: str) -> ResourceTagsTypeDef:
+    def list_tags_for_resource(
+        self, **kwargs: Unpack[ListTagsForResourceRequestTypeDef]
+    ) -> ResourceTagsTypeDef:
         """
         Retrieves the list of key-value tags assigned to the resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appconfig.html#AppConfig.Client.list_tags_for_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client.html#list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appconfig/client/list_tags_for_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client/#list_tags_for_resource)
         """
 
     def start_deployment(
-        self,
-        *,
-        ApplicationId: str,
-        EnvironmentId: str,
-        DeploymentStrategyId: str,
-        ConfigurationProfileId: str,
-        ConfigurationVersion: str,
-        Description: str = None,
-        Tags: Dict[str, str] = None,
-        KmsKeyIdentifier: str = None,
-        DynamicExtensionParameters: Dict[str, str] = None
+        self, **kwargs: Unpack[StartDeploymentRequestTypeDef]
     ) -> DeploymentTypeDef:
         """
         Starts a deployment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appconfig.html#AppConfig.Client.start_deployment)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client.html#start_deployment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appconfig/client/start_deployment.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client/#start_deployment)
         """
 
-    def stop_deployment(
-        self, *, ApplicationId: str, EnvironmentId: str, DeploymentNumber: int
-    ) -> DeploymentTypeDef:
+    def stop_deployment(self, **kwargs: Unpack[StopDeploymentRequestTypeDef]) -> DeploymentTypeDef:
         """
         Stops a deployment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appconfig.html#AppConfig.Client.stop_deployment)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client.html#stop_deployment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appconfig/client/stop_deployment.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client/#stop_deployment)
         """
 
-    def tag_resource(self, *, ResourceArn: str, Tags: Dict[str, str]) -> None:
+    def tag_resource(
+        self, **kwargs: Unpack[TagResourceRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Assigns metadata to an AppConfig resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appconfig.html#AppConfig.Client.tag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client.html#tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appconfig/client/tag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client/#tag_resource)
         """
 
-    def untag_resource(self, *, ResourceArn: str, TagKeys: List[str]) -> None:
+    def untag_resource(
+        self, **kwargs: Unpack[UntagResourceRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Deletes a tag key and value from an AppConfig resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appconfig.html#AppConfig.Client.untag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client.html#untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appconfig/client/untag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client/#untag_resource)
+        """
+
+    def update_account_settings(
+        self, **kwargs: Unpack[UpdateAccountSettingsRequestTypeDef]
+    ) -> AccountSettingsTypeDef:
+        """
+        Updates the value of the <code>DeletionProtection</code> parameter.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appconfig/client/update_account_settings.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client/#update_account_settings)
         """
 
     def update_application(
-        self, *, ApplicationId: str, Name: str = None, Description: str = None
-    ) -> ApplicationResponseMetadataTypeDef:
+        self, **kwargs: Unpack[UpdateApplicationRequestTypeDef]
+    ) -> ApplicationResponseTypeDef:
         """
         Updates an application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appconfig.html#AppConfig.Client.update_application)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client.html#update_application)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appconfig/client/update_application.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client/#update_application)
         """
 
     def update_configuration_profile(
-        self,
-        *,
-        ApplicationId: str,
-        ConfigurationProfileId: str,
-        Name: str = None,
-        Description: str = None,
-        RetrievalRoleArn: str = None,
-        Validators: List["ValidatorTypeDef"] = None,
-        KmsKeyIdentifier: str = None
+        self, **kwargs: Unpack[UpdateConfigurationProfileRequestTypeDef]
     ) -> ConfigurationProfileTypeDef:
         """
         Updates a configuration profile.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appconfig.html#AppConfig.Client.update_configuration_profile)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client.html#update_configuration_profile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appconfig/client/update_configuration_profile.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client/#update_configuration_profile)
         """
 
     def update_deployment_strategy(
-        self,
-        *,
-        DeploymentStrategyId: str,
-        Description: str = None,
-        DeploymentDurationInMinutes: int = None,
-        FinalBakeTimeInMinutes: int = None,
-        GrowthFactor: float = None,
-        GrowthType: GrowthTypeType = None
-    ) -> DeploymentStrategyResponseMetadataTypeDef:
+        self, **kwargs: Unpack[UpdateDeploymentStrategyRequestTypeDef]
+    ) -> DeploymentStrategyResponseTypeDef:
         """
         Updates a deployment strategy.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appconfig.html#AppConfig.Client.update_deployment_strategy)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client.html#update_deployment_strategy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appconfig/client/update_deployment_strategy.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client/#update_deployment_strategy)
         """
 
     def update_environment(
-        self,
-        *,
-        ApplicationId: str,
-        EnvironmentId: str,
-        Name: str = None,
-        Description: str = None,
-        Monitors: List["MonitorTypeDef"] = None
-    ) -> EnvironmentResponseMetadataTypeDef:
+        self, **kwargs: Unpack[UpdateEnvironmentRequestTypeDef]
+    ) -> EnvironmentResponseTypeDef:
         """
         Updates an environment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appconfig.html#AppConfig.Client.update_environment)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client.html#update_environment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appconfig/client/update_environment.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client/#update_environment)
         """
 
-    def update_extension(
-        self,
-        *,
-        ExtensionIdentifier: str,
-        Description: str = None,
-        Actions: Dict[ActionPointType, List["ActionTypeDef"]] = None,
-        Parameters: Dict[str, "ParameterTypeDef"] = None,
-        VersionNumber: int = None
-    ) -> ExtensionTypeDef:
+    def update_extension(self, **kwargs: Unpack[UpdateExtensionRequestTypeDef]) -> ExtensionTypeDef:
         """
         Updates an AppConfig extension.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appconfig.html#AppConfig.Client.update_extension)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client.html#update_extension)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appconfig/client/update_extension.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client/#update_extension)
         """
 
     def update_extension_association(
-        self, *, ExtensionAssociationId: str, Parameters: Dict[str, str] = None
+        self, **kwargs: Unpack[UpdateExtensionAssociationRequestTypeDef]
     ) -> ExtensionAssociationTypeDef:
         """
         Updates an association.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appconfig.html#AppConfig.Client.update_extension_association)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client.html#update_extension_association)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appconfig/client/update_extension_association.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client/#update_extension_association)
         """
 
     def validate_configuration(
-        self, *, ApplicationId: str, ConfigurationProfileId: str, ConfigurationVersion: str
-    ) -> None:
+        self, **kwargs: Unpack[ValidateConfigurationRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Uses the validators in a configuration profile to validate a configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appconfig.html#AppConfig.Client.validate_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client.html#validate_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appconfig/client/validate_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client/#validate_configuration)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_applications"]
     ) -> ListApplicationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appconfig.html#AppConfig.Paginator.ListApplications)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/paginators.html#listapplicationspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appconfig/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_configuration_profiles"]
     ) -> ListConfigurationProfilesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appconfig.html#AppConfig.Paginator.ListConfigurationProfiles)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/paginators.html#listconfigurationprofilespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appconfig/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_deployment_strategies"]
     ) -> ListDeploymentStrategiesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appconfig.html#AppConfig.Paginator.ListDeploymentStrategies)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/paginators.html#listdeploymentstrategiespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appconfig/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_deployments"]
     ) -> ListDeploymentsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appconfig.html#AppConfig.Paginator.ListDeployments)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/paginators.html#listdeploymentspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appconfig/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_environments"]
     ) -> ListEnvironmentsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appconfig.html#AppConfig.Paginator.ListEnvironments)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/paginators.html#listenvironmentspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appconfig/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_extension_associations"]
     ) -> ListExtensionAssociationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appconfig.html#AppConfig.Paginator.ListExtensionAssociations)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/paginators.html#listextensionassociationspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appconfig/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_extensions"]) -> ListExtensionsPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_extensions"]
+    ) -> ListExtensionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appconfig.html#AppConfig.Paginator.ListExtensions)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/paginators.html#listextensionspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appconfig/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_hosted_configuration_versions"]
     ) -> ListHostedConfigurationVersionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/appconfig.html#AppConfig.Paginator.ListHostedConfigurationVersions)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfig/paginators.html#listhostedconfigurationversionspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appconfig/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_waiter(  # type: ignore[override]
+        self, waiter_name: Literal["deployment_complete"]
+    ) -> DeploymentCompleteWaiter:
+        """
+        Returns an object that can wait for some condition.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appconfig/client/get_waiter.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client/#get_waiter)
+        """
+
+    @overload  # type: ignore[override]
+    def get_waiter(  # type: ignore[override]
+        self, waiter_name: Literal["environment_ready_for_deployment"]
+    ) -> EnvironmentReadyForDeploymentWaiter:
+        """
+        Returns an object that can wait for some condition.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appconfig/client/get_waiter.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appconfig/client/#get_waiter)
         """

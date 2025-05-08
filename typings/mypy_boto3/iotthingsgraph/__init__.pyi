@@ -1,10 +1,14 @@
 """
 Main interface for iotthingsgraph service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_iotthingsgraph import (
         Client,
         GetFlowTemplateRevisionsPaginator,
@@ -20,10 +24,8 @@ Usage::
         SearchThingsPaginator,
     )
 
-    session = boto3.Session()
-
-    client: IoTThingsGraphClient = boto3.client("iotthingsgraph")
-    session_client: IoTThingsGraphClient = session.client("iotthingsgraph")
+    session = Session()
+    client: IoTThingsGraphClient = session.client("iotthingsgraph")
 
     get_flow_template_revisions_paginator: GetFlowTemplateRevisionsPaginator = client.get_paginator("get_flow_template_revisions")
     get_system_template_revisions_paginator: GetSystemTemplateRevisionsPaginator = client.get_paginator("get_system_template_revisions")

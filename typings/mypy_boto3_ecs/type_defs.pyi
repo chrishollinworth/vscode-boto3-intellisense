@@ -1,25 +1,30 @@
 """
 Type annotations for ecs service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ecs/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ecs/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_ecs.type_defs import AttachmentStateChangeTypeDef
 
-    data: AttachmentStateChangeTypeDef = {...}
+    data: AttachmentStateChangeTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List, Union
+from typing import Union
 
 from .literals import (
     AgentUpdateStatusType,
     ApplicationProtocolType,
     AssignPublicIpType,
+    AvailabilityZoneRebalancingType,
     CapacityProviderStatusType,
     CapacityProviderUpdateStatusType,
     ClusterFieldType,
@@ -54,26 +59,32 @@ from .literals import (
     ResourceTypeType,
     SchedulingStrategyType,
     ScopeType,
+    ServiceDeploymentRollbackMonitorsStatusType,
+    ServiceDeploymentStatusType,
     SettingNameType,
     SettingTypeType,
     SortOrderType,
     StabilityStatusType,
+    StopServiceDeploymentStopTypeType,
     TaskDefinitionFamilyStatusType,
     TaskDefinitionStatusType,
     TaskFilesystemTypeType,
     TaskStopCodeType,
     TransportProtocolType,
     UlimitNameType,
+    VersionConsistencyType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
     "AttachmentStateChangeTypeDef",
@@ -81,6 +92,7 @@ __all__ = (
     "AttributeTypeDef",
     "AutoScalingGroupProviderTypeDef",
     "AutoScalingGroupProviderUpdateTypeDef",
+    "AwsVpcConfigurationOutputTypeDef",
     "AwsVpcConfigurationTypeDef",
     "CapacityProviderStrategyItemTypeDef",
     "CapacityProviderTypeDef",
@@ -89,116 +101,164 @@ __all__ = (
     "ClusterServiceConnectDefaultsTypeDef",
     "ClusterSettingTypeDef",
     "ClusterTypeDef",
+    "ContainerDefinitionOutputTypeDef",
     "ContainerDefinitionTypeDef",
+    "ContainerDefinitionUnionTypeDef",
     "ContainerDependencyTypeDef",
+    "ContainerImageTypeDef",
     "ContainerInstanceHealthStatusTypeDef",
     "ContainerInstanceTypeDef",
+    "ContainerOverrideOutputTypeDef",
     "ContainerOverrideTypeDef",
+    "ContainerRestartPolicyOutputTypeDef",
+    "ContainerRestartPolicyTypeDef",
+    "ContainerRestartPolicyUnionTypeDef",
     "ContainerStateChangeTypeDef",
     "ContainerTypeDef",
-    "CreateCapacityProviderRequestRequestTypeDef",
+    "CreateCapacityProviderRequestTypeDef",
     "CreateCapacityProviderResponseTypeDef",
-    "CreateClusterRequestRequestTypeDef",
+    "CreateClusterRequestTypeDef",
     "CreateClusterResponseTypeDef",
-    "CreateServiceRequestRequestTypeDef",
+    "CreateServiceRequestTypeDef",
     "CreateServiceResponseTypeDef",
-    "CreateTaskSetRequestRequestTypeDef",
+    "CreateTaskSetRequestTypeDef",
     "CreateTaskSetResponseTypeDef",
-    "DeleteAccountSettingRequestRequestTypeDef",
+    "CreatedAtTypeDef",
+    "DeleteAccountSettingRequestTypeDef",
     "DeleteAccountSettingResponseTypeDef",
-    "DeleteAttributesRequestRequestTypeDef",
+    "DeleteAttributesRequestTypeDef",
     "DeleteAttributesResponseTypeDef",
-    "DeleteCapacityProviderRequestRequestTypeDef",
+    "DeleteCapacityProviderRequestTypeDef",
     "DeleteCapacityProviderResponseTypeDef",
-    "DeleteClusterRequestRequestTypeDef",
+    "DeleteClusterRequestTypeDef",
     "DeleteClusterResponseTypeDef",
-    "DeleteServiceRequestRequestTypeDef",
+    "DeleteServiceRequestTypeDef",
     "DeleteServiceResponseTypeDef",
-    "DeleteTaskDefinitionsRequestRequestTypeDef",
+    "DeleteTaskDefinitionsRequestTypeDef",
     "DeleteTaskDefinitionsResponseTypeDef",
-    "DeleteTaskSetRequestRequestTypeDef",
+    "DeleteTaskSetRequestTypeDef",
     "DeleteTaskSetResponseTypeDef",
+    "DeploymentAlarmsOutputTypeDef",
     "DeploymentAlarmsTypeDef",
     "DeploymentCircuitBreakerTypeDef",
+    "DeploymentConfigurationOutputTypeDef",
     "DeploymentConfigurationTypeDef",
+    "DeploymentConfigurationUnionTypeDef",
     "DeploymentControllerTypeDef",
     "DeploymentEphemeralStorageTypeDef",
     "DeploymentTypeDef",
-    "DeregisterContainerInstanceRequestRequestTypeDef",
+    "DeregisterContainerInstanceRequestTypeDef",
     "DeregisterContainerInstanceResponseTypeDef",
-    "DeregisterTaskDefinitionRequestRequestTypeDef",
+    "DeregisterTaskDefinitionRequestTypeDef",
     "DeregisterTaskDefinitionResponseTypeDef",
-    "DescribeCapacityProvidersRequestRequestTypeDef",
+    "DescribeCapacityProvidersRequestTypeDef",
     "DescribeCapacityProvidersResponseTypeDef",
-    "DescribeClustersRequestRequestTypeDef",
+    "DescribeClustersRequestTypeDef",
     "DescribeClustersResponseTypeDef",
-    "DescribeContainerInstancesRequestRequestTypeDef",
+    "DescribeContainerInstancesRequestTypeDef",
     "DescribeContainerInstancesResponseTypeDef",
-    "DescribeServicesRequestRequestTypeDef",
+    "DescribeServiceDeploymentsRequestTypeDef",
+    "DescribeServiceDeploymentsResponseTypeDef",
+    "DescribeServiceRevisionsRequestTypeDef",
+    "DescribeServiceRevisionsResponseTypeDef",
+    "DescribeServicesRequestTypeDef",
+    "DescribeServicesRequestWaitExtraTypeDef",
+    "DescribeServicesRequestWaitTypeDef",
     "DescribeServicesResponseTypeDef",
-    "DescribeTaskDefinitionRequestRequestTypeDef",
+    "DescribeTaskDefinitionRequestTypeDef",
     "DescribeTaskDefinitionResponseTypeDef",
-    "DescribeTaskSetsRequestRequestTypeDef",
+    "DescribeTaskSetsRequestTypeDef",
     "DescribeTaskSetsResponseTypeDef",
-    "DescribeTasksRequestRequestTypeDef",
+    "DescribeTasksRequestTypeDef",
+    "DescribeTasksRequestWaitExtraTypeDef",
+    "DescribeTasksRequestWaitTypeDef",
     "DescribeTasksResponseTypeDef",
+    "DeviceOutputTypeDef",
     "DeviceTypeDef",
-    "DiscoverPollEndpointRequestRequestTypeDef",
+    "DeviceUnionTypeDef",
+    "DiscoverPollEndpointRequestTypeDef",
     "DiscoverPollEndpointResponseTypeDef",
+    "DockerVolumeConfigurationOutputTypeDef",
     "DockerVolumeConfigurationTypeDef",
+    "DockerVolumeConfigurationUnionTypeDef",
+    "EBSTagSpecificationOutputTypeDef",
     "EBSTagSpecificationTypeDef",
+    "EBSTagSpecificationUnionTypeDef",
     "EFSAuthorizationConfigTypeDef",
     "EFSVolumeConfigurationTypeDef",
     "EnvironmentFileTypeDef",
     "EphemeralStorageTypeDef",
     "ExecuteCommandConfigurationTypeDef",
     "ExecuteCommandLogConfigurationTypeDef",
-    "ExecuteCommandRequestRequestTypeDef",
+    "ExecuteCommandRequestTypeDef",
     "ExecuteCommandResponseTypeDef",
     "FSxWindowsFileServerAuthorizationConfigTypeDef",
     "FSxWindowsFileServerVolumeConfigurationTypeDef",
     "FailureTypeDef",
+    "FirelensConfigurationOutputTypeDef",
     "FirelensConfigurationTypeDef",
-    "GetTaskProtectionRequestRequestTypeDef",
+    "FirelensConfigurationUnionTypeDef",
+    "GetTaskProtectionRequestTypeDef",
     "GetTaskProtectionResponseTypeDef",
+    "HealthCheckOutputTypeDef",
     "HealthCheckTypeDef",
+    "HealthCheckUnionTypeDef",
     "HostEntryTypeDef",
     "HostVolumePropertiesTypeDef",
     "InferenceAcceleratorOverrideTypeDef",
     "InferenceAcceleratorTypeDef",
     "InstanceHealthCheckResultTypeDef",
+    "KernelCapabilitiesOutputTypeDef",
     "KernelCapabilitiesTypeDef",
+    "KernelCapabilitiesUnionTypeDef",
     "KeyValuePairTypeDef",
+    "LinuxParametersOutputTypeDef",
     "LinuxParametersTypeDef",
-    "ListAccountSettingsRequestRequestTypeDef",
+    "LinuxParametersUnionTypeDef",
+    "ListAccountSettingsRequestPaginateTypeDef",
+    "ListAccountSettingsRequestTypeDef",
     "ListAccountSettingsResponseTypeDef",
-    "ListAttributesRequestRequestTypeDef",
+    "ListAttributesRequestPaginateTypeDef",
+    "ListAttributesRequestTypeDef",
     "ListAttributesResponseTypeDef",
-    "ListClustersRequestRequestTypeDef",
+    "ListClustersRequestPaginateTypeDef",
+    "ListClustersRequestTypeDef",
     "ListClustersResponseTypeDef",
-    "ListContainerInstancesRequestRequestTypeDef",
+    "ListContainerInstancesRequestPaginateTypeDef",
+    "ListContainerInstancesRequestTypeDef",
     "ListContainerInstancesResponseTypeDef",
-    "ListServicesByNamespaceRequestRequestTypeDef",
+    "ListServiceDeploymentsRequestTypeDef",
+    "ListServiceDeploymentsResponseTypeDef",
+    "ListServicesByNamespaceRequestPaginateTypeDef",
+    "ListServicesByNamespaceRequestTypeDef",
     "ListServicesByNamespaceResponseTypeDef",
-    "ListServicesRequestRequestTypeDef",
+    "ListServicesRequestPaginateTypeDef",
+    "ListServicesRequestTypeDef",
     "ListServicesResponseTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
-    "ListTaskDefinitionFamiliesRequestRequestTypeDef",
+    "ListTaskDefinitionFamiliesRequestPaginateTypeDef",
+    "ListTaskDefinitionFamiliesRequestTypeDef",
     "ListTaskDefinitionFamiliesResponseTypeDef",
-    "ListTaskDefinitionsRequestRequestTypeDef",
+    "ListTaskDefinitionsRequestPaginateTypeDef",
+    "ListTaskDefinitionsRequestTypeDef",
     "ListTaskDefinitionsResponseTypeDef",
-    "ListTasksRequestRequestTypeDef",
+    "ListTasksRequestPaginateTypeDef",
+    "ListTasksRequestTypeDef",
     "ListTasksResponseTypeDef",
     "LoadBalancerTypeDef",
+    "LogConfigurationOutputTypeDef",
     "LogConfigurationTypeDef",
+    "LogConfigurationUnionTypeDef",
     "ManagedAgentStateChangeTypeDef",
     "ManagedAgentTypeDef",
     "ManagedScalingTypeDef",
     "ManagedStorageConfigurationTypeDef",
     "MountPointTypeDef",
     "NetworkBindingTypeDef",
+    "NetworkConfigurationOutputTypeDef",
     "NetworkConfigurationTypeDef",
+    "NetworkConfigurationUnionTypeDef",
     "NetworkInterfaceTypeDef",
     "PaginatorConfigTypeDef",
     "PlacementConstraintTypeDef",
@@ -206,1107 +266,181 @@ __all__ = (
     "PlatformDeviceTypeDef",
     "PortMappingTypeDef",
     "ProtectedTaskTypeDef",
+    "ProxyConfigurationOutputTypeDef",
     "ProxyConfigurationTypeDef",
-    "PutAccountSettingDefaultRequestRequestTypeDef",
+    "ProxyConfigurationUnionTypeDef",
+    "PutAccountSettingDefaultRequestTypeDef",
     "PutAccountSettingDefaultResponseTypeDef",
-    "PutAccountSettingRequestRequestTypeDef",
+    "PutAccountSettingRequestTypeDef",
     "PutAccountSettingResponseTypeDef",
-    "PutAttributesRequestRequestTypeDef",
+    "PutAttributesRequestTypeDef",
     "PutAttributesResponseTypeDef",
-    "PutClusterCapacityProvidersRequestRequestTypeDef",
+    "PutClusterCapacityProvidersRequestTypeDef",
     "PutClusterCapacityProvidersResponseTypeDef",
-    "RegisterContainerInstanceRequestRequestTypeDef",
+    "RegisterContainerInstanceRequestTypeDef",
     "RegisterContainerInstanceResponseTypeDef",
-    "RegisterTaskDefinitionRequestRequestTypeDef",
+    "RegisterTaskDefinitionRequestTypeDef",
     "RegisterTaskDefinitionResponseTypeDef",
     "RepositoryCredentialsTypeDef",
+    "ResourceOutputTypeDef",
     "ResourceRequirementTypeDef",
     "ResourceTypeDef",
+    "ResourceUnionTypeDef",
     "ResponseMetadataTypeDef",
-    "RunTaskRequestRequestTypeDef",
+    "RollbackTypeDef",
+    "RunTaskRequestTypeDef",
     "RunTaskResponseTypeDef",
     "RuntimePlatformTypeDef",
     "ScaleTypeDef",
     "SecretTypeDef",
     "ServiceConnectClientAliasTypeDef",
+    "ServiceConnectConfigurationOutputTypeDef",
     "ServiceConnectConfigurationTypeDef",
+    "ServiceConnectConfigurationUnionTypeDef",
+    "ServiceConnectServiceOutputTypeDef",
     "ServiceConnectServiceResourceTypeDef",
     "ServiceConnectServiceTypeDef",
     "ServiceConnectTlsCertificateAuthorityTypeDef",
     "ServiceConnectTlsConfigurationTypeDef",
+    "ServiceDeploymentAlarmsTypeDef",
+    "ServiceDeploymentBriefTypeDef",
+    "ServiceDeploymentCircuitBreakerTypeDef",
+    "ServiceDeploymentTypeDef",
     "ServiceEventTypeDef",
+    "ServiceManagedEBSVolumeConfigurationOutputTypeDef",
     "ServiceManagedEBSVolumeConfigurationTypeDef",
+    "ServiceManagedEBSVolumeConfigurationUnionTypeDef",
     "ServiceRegistryTypeDef",
+    "ServiceRevisionSummaryTypeDef",
+    "ServiceRevisionTypeDef",
     "ServiceTypeDef",
+    "ServiceVolumeConfigurationOutputTypeDef",
     "ServiceVolumeConfigurationTypeDef",
+    "ServiceVolumeConfigurationUnionTypeDef",
     "SessionTypeDef",
     "SettingTypeDef",
-    "StartTaskRequestRequestTypeDef",
+    "StartTaskRequestTypeDef",
     "StartTaskResponseTypeDef",
-    "StopTaskRequestRequestTypeDef",
+    "StopServiceDeploymentRequestTypeDef",
+    "StopServiceDeploymentResponseTypeDef",
+    "StopTaskRequestTypeDef",
     "StopTaskResponseTypeDef",
-    "SubmitAttachmentStateChangesRequestRequestTypeDef",
+    "SubmitAttachmentStateChangesRequestTypeDef",
     "SubmitAttachmentStateChangesResponseTypeDef",
-    "SubmitContainerStateChangeRequestRequestTypeDef",
+    "SubmitContainerStateChangeRequestTypeDef",
     "SubmitContainerStateChangeResponseTypeDef",
-    "SubmitTaskStateChangeRequestRequestTypeDef",
+    "SubmitTaskStateChangeRequestTypeDef",
     "SubmitTaskStateChangeResponseTypeDef",
     "SystemControlTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
     "TagTypeDef",
     "TaskDefinitionPlacementConstraintTypeDef",
     "TaskDefinitionTypeDef",
     "TaskEphemeralStorageTypeDef",
     "TaskManagedEBSVolumeConfigurationTypeDef",
     "TaskManagedEBSVolumeTerminationPolicyTypeDef",
+    "TaskOverrideOutputTypeDef",
     "TaskOverrideTypeDef",
+    "TaskOverrideUnionTypeDef",
     "TaskSetTypeDef",
     "TaskTypeDef",
     "TaskVolumeConfigurationTypeDef",
     "TimeoutConfigurationTypeDef",
+    "TimestampTypeDef",
+    "TmpfsOutputTypeDef",
     "TmpfsTypeDef",
+    "TmpfsUnionTypeDef",
     "UlimitTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateCapacityProviderRequestRequestTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateCapacityProviderRequestTypeDef",
     "UpdateCapacityProviderResponseTypeDef",
-    "UpdateClusterRequestRequestTypeDef",
+    "UpdateClusterRequestTypeDef",
     "UpdateClusterResponseTypeDef",
-    "UpdateClusterSettingsRequestRequestTypeDef",
+    "UpdateClusterSettingsRequestTypeDef",
     "UpdateClusterSettingsResponseTypeDef",
-    "UpdateContainerAgentRequestRequestTypeDef",
+    "UpdateContainerAgentRequestTypeDef",
     "UpdateContainerAgentResponseTypeDef",
-    "UpdateContainerInstancesStateRequestRequestTypeDef",
+    "UpdateContainerInstancesStateRequestTypeDef",
     "UpdateContainerInstancesStateResponseTypeDef",
-    "UpdateServicePrimaryTaskSetRequestRequestTypeDef",
+    "UpdateServicePrimaryTaskSetRequestTypeDef",
     "UpdateServicePrimaryTaskSetResponseTypeDef",
-    "UpdateServiceRequestRequestTypeDef",
+    "UpdateServiceRequestTypeDef",
     "UpdateServiceResponseTypeDef",
-    "UpdateTaskProtectionRequestRequestTypeDef",
+    "UpdateTaskProtectionRequestTypeDef",
     "UpdateTaskProtectionResponseTypeDef",
-    "UpdateTaskSetRequestRequestTypeDef",
+    "UpdateTaskSetRequestTypeDef",
     "UpdateTaskSetResponseTypeDef",
     "VersionInfoTypeDef",
     "VolumeFromTypeDef",
+    "VolumeOutputTypeDef",
     "VolumeTypeDef",
+    "VolumeUnionTypeDef",
+    "VpcLatticeConfigurationTypeDef",
     "WaiterConfigTypeDef",
 )
 
-AttachmentStateChangeTypeDef = TypedDict(
-    "AttachmentStateChangeTypeDef",
-    {
-        "attachmentArn": str,
-        "status": str,
-    },
-)
-
-AttachmentTypeDef = TypedDict(
-    "AttachmentTypeDef",
-    {
-        "id": str,
-        "type": str,
-        "status": str,
-        "details": List["KeyValuePairTypeDef"],
-    },
-    total=False,
-)
-
-_RequiredAttributeTypeDef = TypedDict(
-    "_RequiredAttributeTypeDef",
-    {
-        "name": str,
-    },
-)
-_OptionalAttributeTypeDef = TypedDict(
-    "_OptionalAttributeTypeDef",
-    {
-        "value": str,
-        "targetType": Literal["container-instance"],
-        "targetId": str,
-    },
-    total=False,
-)
-
-class AttributeTypeDef(_RequiredAttributeTypeDef, _OptionalAttributeTypeDef):
-    pass
-
-_RequiredAutoScalingGroupProviderTypeDef = TypedDict(
-    "_RequiredAutoScalingGroupProviderTypeDef",
-    {
-        "autoScalingGroupArn": str,
-    },
-)
-_OptionalAutoScalingGroupProviderTypeDef = TypedDict(
-    "_OptionalAutoScalingGroupProviderTypeDef",
-    {
-        "managedScaling": "ManagedScalingTypeDef",
-        "managedTerminationProtection": ManagedTerminationProtectionType,
-        "managedDraining": ManagedDrainingType,
-    },
-    total=False,
-)
-
-class AutoScalingGroupProviderTypeDef(
-    _RequiredAutoScalingGroupProviderTypeDef, _OptionalAutoScalingGroupProviderTypeDef
-):
-    pass
-
-AutoScalingGroupProviderUpdateTypeDef = TypedDict(
-    "AutoScalingGroupProviderUpdateTypeDef",
-    {
-        "managedScaling": "ManagedScalingTypeDef",
-        "managedTerminationProtection": ManagedTerminationProtectionType,
-        "managedDraining": ManagedDrainingType,
-    },
-    total=False,
-)
-
-_RequiredAwsVpcConfigurationTypeDef = TypedDict(
-    "_RequiredAwsVpcConfigurationTypeDef",
-    {
-        "subnets": List[str],
-    },
-)
-_OptionalAwsVpcConfigurationTypeDef = TypedDict(
-    "_OptionalAwsVpcConfigurationTypeDef",
-    {
-        "securityGroups": List[str],
-        "assignPublicIp": AssignPublicIpType,
-    },
-    total=False,
-)
-
-class AwsVpcConfigurationTypeDef(
-    _RequiredAwsVpcConfigurationTypeDef, _OptionalAwsVpcConfigurationTypeDef
-):
-    pass
-
-_RequiredCapacityProviderStrategyItemTypeDef = TypedDict(
-    "_RequiredCapacityProviderStrategyItemTypeDef",
-    {
-        "capacityProvider": str,
-    },
-)
-_OptionalCapacityProviderStrategyItemTypeDef = TypedDict(
-    "_OptionalCapacityProviderStrategyItemTypeDef",
-    {
-        "weight": int,
-        "base": int,
-    },
-    total=False,
-)
-
-class CapacityProviderStrategyItemTypeDef(
-    _RequiredCapacityProviderStrategyItemTypeDef, _OptionalCapacityProviderStrategyItemTypeDef
-):
-    pass
-
-CapacityProviderTypeDef = TypedDict(
-    "CapacityProviderTypeDef",
-    {
-        "capacityProviderArn": str,
-        "name": str,
-        "status": CapacityProviderStatusType,
-        "autoScalingGroupProvider": "AutoScalingGroupProviderTypeDef",
-        "updateStatus": CapacityProviderUpdateStatusType,
-        "updateStatusReason": str,
-        "tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-ClusterConfigurationTypeDef = TypedDict(
-    "ClusterConfigurationTypeDef",
-    {
-        "executeCommandConfiguration": "ExecuteCommandConfigurationTypeDef",
-        "managedStorageConfiguration": "ManagedStorageConfigurationTypeDef",
-    },
-    total=False,
-)
-
-ClusterServiceConnectDefaultsRequestTypeDef = TypedDict(
-    "ClusterServiceConnectDefaultsRequestTypeDef",
-    {
-        "namespace": str,
-    },
-)
-
-ClusterServiceConnectDefaultsTypeDef = TypedDict(
-    "ClusterServiceConnectDefaultsTypeDef",
-    {
-        "namespace": str,
-    },
-    total=False,
-)
-
-ClusterSettingTypeDef = TypedDict(
-    "ClusterSettingTypeDef",
-    {
-        "name": Literal["containerInsights"],
-        "value": str,
-    },
-    total=False,
-)
-
-ClusterTypeDef = TypedDict(
-    "ClusterTypeDef",
-    {
-        "clusterArn": str,
-        "clusterName": str,
-        "configuration": "ClusterConfigurationTypeDef",
-        "status": str,
-        "registeredContainerInstancesCount": int,
-        "runningTasksCount": int,
-        "pendingTasksCount": int,
-        "activeServicesCount": int,
-        "statistics": List["KeyValuePairTypeDef"],
-        "tags": List["TagTypeDef"],
-        "settings": List["ClusterSettingTypeDef"],
-        "capacityProviders": List[str],
-        "defaultCapacityProviderStrategy": List["CapacityProviderStrategyItemTypeDef"],
-        "attachments": List["AttachmentTypeDef"],
-        "attachmentsStatus": str,
-        "serviceConnectDefaults": "ClusterServiceConnectDefaultsTypeDef",
-    },
-    total=False,
-)
-
-ContainerDefinitionTypeDef = TypedDict(
-    "ContainerDefinitionTypeDef",
-    {
-        "name": str,
-        "image": str,
-        "repositoryCredentials": "RepositoryCredentialsTypeDef",
-        "cpu": int,
-        "memory": int,
-        "memoryReservation": int,
-        "links": List[str],
-        "portMappings": List["PortMappingTypeDef"],
-        "essential": bool,
-        "entryPoint": List[str],
-        "command": List[str],
-        "environment": List["KeyValuePairTypeDef"],
-        "environmentFiles": List["EnvironmentFileTypeDef"],
-        "mountPoints": List["MountPointTypeDef"],
-        "volumesFrom": List["VolumeFromTypeDef"],
-        "linuxParameters": "LinuxParametersTypeDef",
-        "secrets": List["SecretTypeDef"],
-        "dependsOn": List["ContainerDependencyTypeDef"],
-        "startTimeout": int,
-        "stopTimeout": int,
-        "hostname": str,
-        "user": str,
-        "workingDirectory": str,
-        "disableNetworking": bool,
-        "privileged": bool,
-        "readonlyRootFilesystem": bool,
-        "dnsServers": List[str],
-        "dnsSearchDomains": List[str],
-        "extraHosts": List["HostEntryTypeDef"],
-        "dockerSecurityOptions": List[str],
-        "interactive": bool,
-        "pseudoTerminal": bool,
-        "dockerLabels": Dict[str, str],
-        "ulimits": List["UlimitTypeDef"],
-        "logConfiguration": "LogConfigurationTypeDef",
-        "healthCheck": "HealthCheckTypeDef",
-        "systemControls": List["SystemControlTypeDef"],
-        "resourceRequirements": List["ResourceRequirementTypeDef"],
-        "firelensConfiguration": "FirelensConfigurationTypeDef",
-        "credentialSpecs": List[str],
-    },
-    total=False,
-)
-
-ContainerDependencyTypeDef = TypedDict(
-    "ContainerDependencyTypeDef",
-    {
-        "containerName": str,
-        "condition": ContainerConditionType,
-    },
-)
-
-ContainerInstanceHealthStatusTypeDef = TypedDict(
-    "ContainerInstanceHealthStatusTypeDef",
-    {
-        "overallStatus": InstanceHealthCheckStateType,
-        "details": List["InstanceHealthCheckResultTypeDef"],
-    },
-    total=False,
-)
-
-ContainerInstanceTypeDef = TypedDict(
-    "ContainerInstanceTypeDef",
-    {
-        "containerInstanceArn": str,
-        "ec2InstanceId": str,
-        "capacityProviderName": str,
-        "version": int,
-        "versionInfo": "VersionInfoTypeDef",
-        "remainingResources": List["ResourceTypeDef"],
-        "registeredResources": List["ResourceTypeDef"],
-        "status": str,
-        "statusReason": str,
-        "agentConnected": bool,
-        "runningTasksCount": int,
-        "pendingTasksCount": int,
-        "agentUpdateStatus": AgentUpdateStatusType,
-        "attributes": List["AttributeTypeDef"],
-        "registeredAt": datetime,
-        "attachments": List["AttachmentTypeDef"],
-        "tags": List["TagTypeDef"],
-        "healthStatus": "ContainerInstanceHealthStatusTypeDef",
-    },
-    total=False,
-)
-
-ContainerOverrideTypeDef = TypedDict(
-    "ContainerOverrideTypeDef",
-    {
-        "name": str,
-        "command": List[str],
-        "environment": List["KeyValuePairTypeDef"],
-        "environmentFiles": List["EnvironmentFileTypeDef"],
-        "cpu": int,
-        "memory": int,
-        "memoryReservation": int,
-        "resourceRequirements": List["ResourceRequirementTypeDef"],
-    },
-    total=False,
-)
-
-ContainerStateChangeTypeDef = TypedDict(
-    "ContainerStateChangeTypeDef",
-    {
-        "containerName": str,
-        "imageDigest": str,
-        "runtimeId": str,
-        "exitCode": int,
-        "networkBindings": List["NetworkBindingTypeDef"],
-        "reason": str,
-        "status": str,
-    },
-    total=False,
-)
-
-ContainerTypeDef = TypedDict(
-    "ContainerTypeDef",
-    {
-        "containerArn": str,
-        "taskArn": str,
-        "name": str,
-        "image": str,
-        "imageDigest": str,
-        "runtimeId": str,
-        "lastStatus": str,
-        "exitCode": int,
-        "reason": str,
-        "networkBindings": List["NetworkBindingTypeDef"],
-        "networkInterfaces": List["NetworkInterfaceTypeDef"],
-        "healthStatus": HealthStatusType,
-        "managedAgents": List["ManagedAgentTypeDef"],
-        "cpu": str,
-        "memory": str,
-        "memoryReservation": str,
-        "gpuIds": List[str],
-    },
-    total=False,
-)
-
-_RequiredCreateCapacityProviderRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateCapacityProviderRequestRequestTypeDef",
-    {
-        "name": str,
-        "autoScalingGroupProvider": "AutoScalingGroupProviderTypeDef",
-    },
-)
-_OptionalCreateCapacityProviderRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateCapacityProviderRequestRequestTypeDef",
-    {
-        "tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateCapacityProviderRequestRequestTypeDef(
-    _RequiredCreateCapacityProviderRequestRequestTypeDef,
-    _OptionalCreateCapacityProviderRequestRequestTypeDef,
-):
-    pass
-
-CreateCapacityProviderResponseTypeDef = TypedDict(
-    "CreateCapacityProviderResponseTypeDef",
-    {
-        "capacityProvider": "CapacityProviderTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateClusterRequestRequestTypeDef = TypedDict(
-    "CreateClusterRequestRequestTypeDef",
-    {
-        "clusterName": str,
-        "tags": List["TagTypeDef"],
-        "settings": List["ClusterSettingTypeDef"],
-        "configuration": "ClusterConfigurationTypeDef",
-        "capacityProviders": List[str],
-        "defaultCapacityProviderStrategy": List["CapacityProviderStrategyItemTypeDef"],
-        "serviceConnectDefaults": "ClusterServiceConnectDefaultsRequestTypeDef",
-    },
-    total=False,
-)
-
-CreateClusterResponseTypeDef = TypedDict(
-    "CreateClusterResponseTypeDef",
-    {
-        "cluster": "ClusterTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateServiceRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateServiceRequestRequestTypeDef",
-    {
-        "serviceName": str,
-    },
-)
-_OptionalCreateServiceRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateServiceRequestRequestTypeDef",
-    {
-        "cluster": str,
-        "taskDefinition": str,
-        "loadBalancers": List["LoadBalancerTypeDef"],
-        "serviceRegistries": List["ServiceRegistryTypeDef"],
-        "desiredCount": int,
-        "clientToken": str,
-        "launchType": LaunchTypeType,
-        "capacityProviderStrategy": List["CapacityProviderStrategyItemTypeDef"],
-        "platformVersion": str,
-        "role": str,
-        "deploymentConfiguration": "DeploymentConfigurationTypeDef",
-        "placementConstraints": List["PlacementConstraintTypeDef"],
-        "placementStrategy": List["PlacementStrategyTypeDef"],
-        "networkConfiguration": "NetworkConfigurationTypeDef",
-        "healthCheckGracePeriodSeconds": int,
-        "schedulingStrategy": SchedulingStrategyType,
-        "deploymentController": "DeploymentControllerTypeDef",
-        "tags": List["TagTypeDef"],
-        "enableECSManagedTags": bool,
-        "propagateTags": PropagateTagsType,
-        "enableExecuteCommand": bool,
-        "serviceConnectConfiguration": "ServiceConnectConfigurationTypeDef",
-        "volumeConfigurations": List["ServiceVolumeConfigurationTypeDef"],
-    },
-    total=False,
-)
-
-class CreateServiceRequestRequestTypeDef(
-    _RequiredCreateServiceRequestRequestTypeDef, _OptionalCreateServiceRequestRequestTypeDef
-):
-    pass
-
-CreateServiceResponseTypeDef = TypedDict(
-    "CreateServiceResponseTypeDef",
-    {
-        "service": "ServiceTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateTaskSetRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateTaskSetRequestRequestTypeDef",
-    {
-        "service": str,
-        "cluster": str,
-        "taskDefinition": str,
-    },
-)
-_OptionalCreateTaskSetRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateTaskSetRequestRequestTypeDef",
-    {
-        "externalId": str,
-        "networkConfiguration": "NetworkConfigurationTypeDef",
-        "loadBalancers": List["LoadBalancerTypeDef"],
-        "serviceRegistries": List["ServiceRegistryTypeDef"],
-        "launchType": LaunchTypeType,
-        "capacityProviderStrategy": List["CapacityProviderStrategyItemTypeDef"],
-        "platformVersion": str,
-        "scale": "ScaleTypeDef",
-        "clientToken": str,
-        "tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateTaskSetRequestRequestTypeDef(
-    _RequiredCreateTaskSetRequestRequestTypeDef, _OptionalCreateTaskSetRequestRequestTypeDef
-):
-    pass
-
-CreateTaskSetResponseTypeDef = TypedDict(
-    "CreateTaskSetResponseTypeDef",
-    {
-        "taskSet": "TaskSetTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDeleteAccountSettingRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteAccountSettingRequestRequestTypeDef",
-    {
-        "name": SettingNameType,
-    },
-)
-_OptionalDeleteAccountSettingRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteAccountSettingRequestRequestTypeDef",
-    {
-        "principalArn": str,
-    },
-    total=False,
-)
-
-class DeleteAccountSettingRequestRequestTypeDef(
-    _RequiredDeleteAccountSettingRequestRequestTypeDef,
-    _OptionalDeleteAccountSettingRequestRequestTypeDef,
-):
-    pass
-
-DeleteAccountSettingResponseTypeDef = TypedDict(
-    "DeleteAccountSettingResponseTypeDef",
-    {
-        "setting": "SettingTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDeleteAttributesRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteAttributesRequestRequestTypeDef",
-    {
-        "attributes": List["AttributeTypeDef"],
-    },
-)
-_OptionalDeleteAttributesRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteAttributesRequestRequestTypeDef",
-    {
-        "cluster": str,
-    },
-    total=False,
-)
-
-class DeleteAttributesRequestRequestTypeDef(
-    _RequiredDeleteAttributesRequestRequestTypeDef, _OptionalDeleteAttributesRequestRequestTypeDef
-):
-    pass
-
-DeleteAttributesResponseTypeDef = TypedDict(
-    "DeleteAttributesResponseTypeDef",
-    {
-        "attributes": List["AttributeTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteCapacityProviderRequestRequestTypeDef = TypedDict(
-    "DeleteCapacityProviderRequestRequestTypeDef",
-    {
-        "capacityProvider": str,
-    },
-)
-
-DeleteCapacityProviderResponseTypeDef = TypedDict(
-    "DeleteCapacityProviderResponseTypeDef",
-    {
-        "capacityProvider": "CapacityProviderTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteClusterRequestRequestTypeDef = TypedDict(
-    "DeleteClusterRequestRequestTypeDef",
-    {
-        "cluster": str,
-    },
-)
-
-DeleteClusterResponseTypeDef = TypedDict(
-    "DeleteClusterResponseTypeDef",
-    {
-        "cluster": "ClusterTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDeleteServiceRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteServiceRequestRequestTypeDef",
-    {
-        "service": str,
-    },
-)
-_OptionalDeleteServiceRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteServiceRequestRequestTypeDef",
-    {
-        "cluster": str,
-        "force": bool,
-    },
-    total=False,
-)
-
-class DeleteServiceRequestRequestTypeDef(
-    _RequiredDeleteServiceRequestRequestTypeDef, _OptionalDeleteServiceRequestRequestTypeDef
-):
-    pass
-
-DeleteServiceResponseTypeDef = TypedDict(
-    "DeleteServiceResponseTypeDef",
-    {
-        "service": "ServiceTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteTaskDefinitionsRequestRequestTypeDef = TypedDict(
-    "DeleteTaskDefinitionsRequestRequestTypeDef",
-    {
-        "taskDefinitions": List[str],
-    },
-)
-
-DeleteTaskDefinitionsResponseTypeDef = TypedDict(
-    "DeleteTaskDefinitionsResponseTypeDef",
-    {
-        "taskDefinitions": List["TaskDefinitionTypeDef"],
-        "failures": List["FailureTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDeleteTaskSetRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteTaskSetRequestRequestTypeDef",
-    {
-        "cluster": str,
-        "service": str,
-        "taskSet": str,
-    },
-)
-_OptionalDeleteTaskSetRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteTaskSetRequestRequestTypeDef",
-    {
-        "force": bool,
-    },
-    total=False,
-)
-
-class DeleteTaskSetRequestRequestTypeDef(
-    _RequiredDeleteTaskSetRequestRequestTypeDef, _OptionalDeleteTaskSetRequestRequestTypeDef
-):
-    pass
-
-DeleteTaskSetResponseTypeDef = TypedDict(
-    "DeleteTaskSetResponseTypeDef",
-    {
-        "taskSet": "TaskSetTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeploymentAlarmsTypeDef = TypedDict(
-    "DeploymentAlarmsTypeDef",
-    {
-        "alarmNames": List[str],
-        "enable": bool,
-        "rollback": bool,
-    },
-)
-
-DeploymentCircuitBreakerTypeDef = TypedDict(
-    "DeploymentCircuitBreakerTypeDef",
-    {
-        "enable": bool,
-        "rollback": bool,
-    },
-)
-
-DeploymentConfigurationTypeDef = TypedDict(
-    "DeploymentConfigurationTypeDef",
-    {
-        "deploymentCircuitBreaker": "DeploymentCircuitBreakerTypeDef",
-        "maximumPercent": int,
-        "minimumHealthyPercent": int,
-        "alarms": "DeploymentAlarmsTypeDef",
-    },
-    total=False,
-)
-
-DeploymentControllerTypeDef = TypedDict(
-    "DeploymentControllerTypeDef",
-    {
-        "type": DeploymentControllerTypeType,
-    },
-)
-
-DeploymentEphemeralStorageTypeDef = TypedDict(
-    "DeploymentEphemeralStorageTypeDef",
-    {
-        "kmsKeyId": str,
-    },
-    total=False,
-)
-
-DeploymentTypeDef = TypedDict(
-    "DeploymentTypeDef",
-    {
-        "id": str,
-        "status": str,
-        "taskDefinition": str,
-        "desiredCount": int,
-        "pendingCount": int,
-        "runningCount": int,
-        "failedTasks": int,
-        "createdAt": datetime,
-        "updatedAt": datetime,
-        "capacityProviderStrategy": List["CapacityProviderStrategyItemTypeDef"],
-        "launchType": LaunchTypeType,
-        "platformVersion": str,
-        "platformFamily": str,
-        "networkConfiguration": "NetworkConfigurationTypeDef",
-        "rolloutState": DeploymentRolloutStateType,
-        "rolloutStateReason": str,
-        "serviceConnectConfiguration": "ServiceConnectConfigurationTypeDef",
-        "serviceConnectResources": List["ServiceConnectServiceResourceTypeDef"],
-        "volumeConfigurations": List["ServiceVolumeConfigurationTypeDef"],
-        "fargateEphemeralStorage": "DeploymentEphemeralStorageTypeDef",
-    },
-    total=False,
-)
-
-_RequiredDeregisterContainerInstanceRequestRequestTypeDef = TypedDict(
-    "_RequiredDeregisterContainerInstanceRequestRequestTypeDef",
-    {
-        "containerInstance": str,
-    },
-)
-_OptionalDeregisterContainerInstanceRequestRequestTypeDef = TypedDict(
-    "_OptionalDeregisterContainerInstanceRequestRequestTypeDef",
-    {
-        "cluster": str,
-        "force": bool,
-    },
-    total=False,
-)
-
-class DeregisterContainerInstanceRequestRequestTypeDef(
-    _RequiredDeregisterContainerInstanceRequestRequestTypeDef,
-    _OptionalDeregisterContainerInstanceRequestRequestTypeDef,
-):
-    pass
-
-DeregisterContainerInstanceResponseTypeDef = TypedDict(
-    "DeregisterContainerInstanceResponseTypeDef",
-    {
-        "containerInstance": "ContainerInstanceTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeregisterTaskDefinitionRequestRequestTypeDef = TypedDict(
-    "DeregisterTaskDefinitionRequestRequestTypeDef",
-    {
-        "taskDefinition": str,
-    },
-)
-
-DeregisterTaskDefinitionResponseTypeDef = TypedDict(
-    "DeregisterTaskDefinitionResponseTypeDef",
-    {
-        "taskDefinition": "TaskDefinitionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeCapacityProvidersRequestRequestTypeDef = TypedDict(
-    "DescribeCapacityProvidersRequestRequestTypeDef",
-    {
-        "capacityProviders": List[str],
-        "include": List[Literal["TAGS"]],
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-DescribeCapacityProvidersResponseTypeDef = TypedDict(
-    "DescribeCapacityProvidersResponseTypeDef",
-    {
-        "capacityProviders": List["CapacityProviderTypeDef"],
-        "failures": List["FailureTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeClustersRequestRequestTypeDef = TypedDict(
-    "DescribeClustersRequestRequestTypeDef",
-    {
-        "clusters": List[str],
-        "include": List[ClusterFieldType],
-    },
-    total=False,
-)
-
-DescribeClustersResponseTypeDef = TypedDict(
-    "DescribeClustersResponseTypeDef",
-    {
-        "clusters": List["ClusterTypeDef"],
-        "failures": List["FailureTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribeContainerInstancesRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeContainerInstancesRequestRequestTypeDef",
-    {
-        "containerInstances": List[str],
-    },
-)
-_OptionalDescribeContainerInstancesRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeContainerInstancesRequestRequestTypeDef",
-    {
-        "cluster": str,
-        "include": List[ContainerInstanceFieldType],
-    },
-    total=False,
-)
-
-class DescribeContainerInstancesRequestRequestTypeDef(
-    _RequiredDescribeContainerInstancesRequestRequestTypeDef,
-    _OptionalDescribeContainerInstancesRequestRequestTypeDef,
-):
-    pass
-
-DescribeContainerInstancesResponseTypeDef = TypedDict(
-    "DescribeContainerInstancesResponseTypeDef",
-    {
-        "containerInstances": List["ContainerInstanceTypeDef"],
-        "failures": List["FailureTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribeServicesRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeServicesRequestRequestTypeDef",
-    {
-        "services": List[str],
-    },
-)
-_OptionalDescribeServicesRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeServicesRequestRequestTypeDef",
-    {
-        "cluster": str,
-        "include": List[Literal["TAGS"]],
-    },
-    total=False,
-)
-
-class DescribeServicesRequestRequestTypeDef(
-    _RequiredDescribeServicesRequestRequestTypeDef, _OptionalDescribeServicesRequestRequestTypeDef
-):
-    pass
-
-DescribeServicesResponseTypeDef = TypedDict(
-    "DescribeServicesResponseTypeDef",
-    {
-        "services": List["ServiceTypeDef"],
-        "failures": List["FailureTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribeTaskDefinitionRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeTaskDefinitionRequestRequestTypeDef",
-    {
-        "taskDefinition": str,
-    },
-)
-_OptionalDescribeTaskDefinitionRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeTaskDefinitionRequestRequestTypeDef",
-    {
-        "include": List[Literal["TAGS"]],
-    },
-    total=False,
-)
-
-class DescribeTaskDefinitionRequestRequestTypeDef(
-    _RequiredDescribeTaskDefinitionRequestRequestTypeDef,
-    _OptionalDescribeTaskDefinitionRequestRequestTypeDef,
-):
-    pass
-
-DescribeTaskDefinitionResponseTypeDef = TypedDict(
-    "DescribeTaskDefinitionResponseTypeDef",
-    {
-        "taskDefinition": "TaskDefinitionTypeDef",
-        "tags": List["TagTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribeTaskSetsRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeTaskSetsRequestRequestTypeDef",
-    {
-        "cluster": str,
-        "service": str,
-    },
-)
-_OptionalDescribeTaskSetsRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeTaskSetsRequestRequestTypeDef",
-    {
-        "taskSets": List[str],
-        "include": List[Literal["TAGS"]],
-    },
-    total=False,
-)
-
-class DescribeTaskSetsRequestRequestTypeDef(
-    _RequiredDescribeTaskSetsRequestRequestTypeDef, _OptionalDescribeTaskSetsRequestRequestTypeDef
-):
-    pass
-
-DescribeTaskSetsResponseTypeDef = TypedDict(
-    "DescribeTaskSetsResponseTypeDef",
-    {
-        "taskSets": List["TaskSetTypeDef"],
-        "failures": List["FailureTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribeTasksRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeTasksRequestRequestTypeDef",
-    {
-        "tasks": List[str],
-    },
-)
-_OptionalDescribeTasksRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeTasksRequestRequestTypeDef",
-    {
-        "cluster": str,
-        "include": List[Literal["TAGS"]],
-    },
-    total=False,
-)
-
-class DescribeTasksRequestRequestTypeDef(
-    _RequiredDescribeTasksRequestRequestTypeDef, _OptionalDescribeTasksRequestRequestTypeDef
-):
-    pass
-
-DescribeTasksResponseTypeDef = TypedDict(
-    "DescribeTasksResponseTypeDef",
-    {
-        "tasks": List["TaskTypeDef"],
-        "failures": List["FailureTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDeviceTypeDef = TypedDict(
-    "_RequiredDeviceTypeDef",
-    {
-        "hostPath": str,
-    },
-)
-_OptionalDeviceTypeDef = TypedDict(
-    "_OptionalDeviceTypeDef",
-    {
-        "containerPath": str,
-        "permissions": List[DeviceCgroupPermissionType],
-    },
-    total=False,
-)
-
-class DeviceTypeDef(_RequiredDeviceTypeDef, _OptionalDeviceTypeDef):
-    pass
-
-DiscoverPollEndpointRequestRequestTypeDef = TypedDict(
-    "DiscoverPollEndpointRequestRequestTypeDef",
-    {
-        "containerInstance": str,
-        "cluster": str,
-    },
-    total=False,
-)
-
-DiscoverPollEndpointResponseTypeDef = TypedDict(
-    "DiscoverPollEndpointResponseTypeDef",
-    {
-        "endpoint": str,
-        "telemetryEndpoint": str,
-        "serviceConnectEndpoint": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DockerVolumeConfigurationTypeDef = TypedDict(
-    "DockerVolumeConfigurationTypeDef",
-    {
-        "scope": ScopeType,
-        "autoprovision": bool,
-        "driver": str,
-        "driverOpts": Dict[str, str],
-        "labels": Dict[str, str],
-    },
-    total=False,
-)
-
-_RequiredEBSTagSpecificationTypeDef = TypedDict(
-    "_RequiredEBSTagSpecificationTypeDef",
-    {
-        "resourceType": Literal["volume"],
-    },
-)
-_OptionalEBSTagSpecificationTypeDef = TypedDict(
-    "_OptionalEBSTagSpecificationTypeDef",
-    {
-        "tags": List["TagTypeDef"],
-        "propagateTags": PropagateTagsType,
-    },
-    total=False,
-)
-
-class EBSTagSpecificationTypeDef(
-    _RequiredEBSTagSpecificationTypeDef, _OptionalEBSTagSpecificationTypeDef
-):
-    pass
-
-EFSAuthorizationConfigTypeDef = TypedDict(
-    "EFSAuthorizationConfigTypeDef",
-    {
-        "accessPointId": str,
-        "iam": EFSAuthorizationConfigIAMType,
-    },
-    total=False,
-)
-
-_RequiredEFSVolumeConfigurationTypeDef = TypedDict(
-    "_RequiredEFSVolumeConfigurationTypeDef",
-    {
-        "fileSystemId": str,
-    },
-)
-_OptionalEFSVolumeConfigurationTypeDef = TypedDict(
-    "_OptionalEFSVolumeConfigurationTypeDef",
-    {
-        "rootDirectory": str,
-        "transitEncryption": EFSTransitEncryptionType,
-        "transitEncryptionPort": int,
-        "authorizationConfig": "EFSAuthorizationConfigTypeDef",
-    },
-    total=False,
-)
-
-class EFSVolumeConfigurationTypeDef(
-    _RequiredEFSVolumeConfigurationTypeDef, _OptionalEFSVolumeConfigurationTypeDef
-):
-    pass
+class AttachmentStateChangeTypeDef(TypedDict):
+    attachmentArn: str
+    status: str
+
+class KeyValuePairTypeDef(TypedDict):
+    name: NotRequired[str]
+    value: NotRequired[str]
+
+class AttributeTypeDef(TypedDict):
+    name: str
+    value: NotRequired[str]
+    targetType: NotRequired[Literal["container-instance"]]
+    targetId: NotRequired[str]
+
+class ManagedScalingTypeDef(TypedDict):
+    status: NotRequired[ManagedScalingStatusType]
+    targetCapacity: NotRequired[int]
+    minimumScalingStepSize: NotRequired[int]
+    maximumScalingStepSize: NotRequired[int]
+    instanceWarmupPeriod: NotRequired[int]
+
+class AwsVpcConfigurationOutputTypeDef(TypedDict):
+    subnets: List[str]
+    securityGroups: NotRequired[List[str]]
+    assignPublicIp: NotRequired[AssignPublicIpType]
+
+class AwsVpcConfigurationTypeDef(TypedDict):
+    subnets: Sequence[str]
+    securityGroups: NotRequired[Sequence[str]]
+    assignPublicIp: NotRequired[AssignPublicIpType]
+
+class CapacityProviderStrategyItemTypeDef(TypedDict):
+    capacityProvider: str
+    weight: NotRequired[int]
+    base: NotRequired[int]
+
+class TagTypeDef(TypedDict):
+    key: NotRequired[str]
+    value: NotRequired[str]
+
+class ManagedStorageConfigurationTypeDef(TypedDict):
+    kmsKeyId: NotRequired[str]
+    fargateEphemeralStorageKmsKeyId: NotRequired[str]
+
+class ClusterServiceConnectDefaultsRequestTypeDef(TypedDict):
+    namespace: str
+
+class ClusterServiceConnectDefaultsTypeDef(TypedDict):
+    namespace: NotRequired[str]
+
+class ClusterSettingTypeDef(TypedDict):
+    name: NotRequired[Literal["containerInsights"]]
+    value: NotRequired[str]
+
+class ContainerDependencyTypeDef(TypedDict):
+    containerName: str
+    condition: ContainerConditionType
+
+class ContainerRestartPolicyOutputTypeDef(TypedDict):
+    enabled: bool
+    ignoredExitCodes: NotRequired[List[int]]
+    restartAttemptPeriod: NotRequired[int]
 
 EnvironmentFileTypeDef = TypedDict(
     "EnvironmentFileTypeDef",
@@ -1315,830 +449,40 @@ EnvironmentFileTypeDef = TypedDict(
         "type": Literal["s3"],
     },
 )
-
-EphemeralStorageTypeDef = TypedDict(
-    "EphemeralStorageTypeDef",
-    {
-        "sizeInGiB": int,
-    },
-)
-
-ExecuteCommandConfigurationTypeDef = TypedDict(
-    "ExecuteCommandConfigurationTypeDef",
-    {
-        "kmsKeyId": str,
-        "logging": ExecuteCommandLoggingType,
-        "logConfiguration": "ExecuteCommandLogConfigurationTypeDef",
-    },
-    total=False,
-)
-
-ExecuteCommandLogConfigurationTypeDef = TypedDict(
-    "ExecuteCommandLogConfigurationTypeDef",
-    {
-        "cloudWatchLogGroupName": str,
-        "cloudWatchEncryptionEnabled": bool,
-        "s3BucketName": str,
-        "s3EncryptionEnabled": bool,
-        "s3KeyPrefix": str,
-    },
-    total=False,
-)
-
-_RequiredExecuteCommandRequestRequestTypeDef = TypedDict(
-    "_RequiredExecuteCommandRequestRequestTypeDef",
-    {
-        "command": str,
-        "interactive": bool,
-        "task": str,
-    },
-)
-_OptionalExecuteCommandRequestRequestTypeDef = TypedDict(
-    "_OptionalExecuteCommandRequestRequestTypeDef",
-    {
-        "cluster": str,
-        "container": str,
-    },
-    total=False,
-)
-
-class ExecuteCommandRequestRequestTypeDef(
-    _RequiredExecuteCommandRequestRequestTypeDef, _OptionalExecuteCommandRequestRequestTypeDef
-):
-    pass
-
-ExecuteCommandResponseTypeDef = TypedDict(
-    "ExecuteCommandResponseTypeDef",
-    {
-        "clusterArn": str,
-        "containerArn": str,
-        "containerName": str,
-        "interactive": bool,
-        "session": "SessionTypeDef",
-        "taskArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-FSxWindowsFileServerAuthorizationConfigTypeDef = TypedDict(
-    "FSxWindowsFileServerAuthorizationConfigTypeDef",
-    {
-        "credentialsParameter": str,
-        "domain": str,
-    },
-)
-
-FSxWindowsFileServerVolumeConfigurationTypeDef = TypedDict(
-    "FSxWindowsFileServerVolumeConfigurationTypeDef",
-    {
-        "fileSystemId": str,
-        "rootDirectory": str,
-        "authorizationConfig": "FSxWindowsFileServerAuthorizationConfigTypeDef",
-    },
-)
-
-FailureTypeDef = TypedDict(
-    "FailureTypeDef",
-    {
-        "arn": str,
-        "reason": str,
-        "detail": str,
-    },
-    total=False,
-)
-
-_RequiredFirelensConfigurationTypeDef = TypedDict(
-    "_RequiredFirelensConfigurationTypeDef",
+FirelensConfigurationOutputTypeDef = TypedDict(
+    "FirelensConfigurationOutputTypeDef",
     {
         "type": FirelensConfigurationTypeType,
-    },
-)
-_OptionalFirelensConfigurationTypeDef = TypedDict(
-    "_OptionalFirelensConfigurationTypeDef",
-    {
-        "options": Dict[str, str],
-    },
-    total=False,
-)
-
-class FirelensConfigurationTypeDef(
-    _RequiredFirelensConfigurationTypeDef, _OptionalFirelensConfigurationTypeDef
-):
-    pass
-
-_RequiredGetTaskProtectionRequestRequestTypeDef = TypedDict(
-    "_RequiredGetTaskProtectionRequestRequestTypeDef",
-    {
-        "cluster": str,
-    },
-)
-_OptionalGetTaskProtectionRequestRequestTypeDef = TypedDict(
-    "_OptionalGetTaskProtectionRequestRequestTypeDef",
-    {
-        "tasks": List[str],
-    },
-    total=False,
-)
-
-class GetTaskProtectionRequestRequestTypeDef(
-    _RequiredGetTaskProtectionRequestRequestTypeDef, _OptionalGetTaskProtectionRequestRequestTypeDef
-):
-    pass
-
-GetTaskProtectionResponseTypeDef = TypedDict(
-    "GetTaskProtectionResponseTypeDef",
-    {
-        "protectedTasks": List["ProtectedTaskTypeDef"],
-        "failures": List["FailureTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredHealthCheckTypeDef = TypedDict(
-    "_RequiredHealthCheckTypeDef",
-    {
-        "command": List[str],
-    },
-)
-_OptionalHealthCheckTypeDef = TypedDict(
-    "_OptionalHealthCheckTypeDef",
-    {
-        "interval": int,
-        "timeout": int,
-        "retries": int,
-        "startPeriod": int,
-    },
-    total=False,
-)
-
-class HealthCheckTypeDef(_RequiredHealthCheckTypeDef, _OptionalHealthCheckTypeDef):
-    pass
-
-HostEntryTypeDef = TypedDict(
-    "HostEntryTypeDef",
-    {
-        "hostname": str,
-        "ipAddress": str,
-    },
-)
-
-HostVolumePropertiesTypeDef = TypedDict(
-    "HostVolumePropertiesTypeDef",
-    {
-        "sourcePath": str,
-    },
-    total=False,
-)
-
-InferenceAcceleratorOverrideTypeDef = TypedDict(
-    "InferenceAcceleratorOverrideTypeDef",
-    {
-        "deviceName": str,
-        "deviceType": str,
-    },
-    total=False,
-)
-
-InferenceAcceleratorTypeDef = TypedDict(
-    "InferenceAcceleratorTypeDef",
-    {
-        "deviceName": str,
-        "deviceType": str,
-    },
-)
-
-InstanceHealthCheckResultTypeDef = TypedDict(
-    "InstanceHealthCheckResultTypeDef",
-    {
-        "type": Literal["CONTAINER_RUNTIME"],
-        "status": InstanceHealthCheckStateType,
-        "lastUpdated": datetime,
-        "lastStatusChange": datetime,
-    },
-    total=False,
-)
-
-KernelCapabilitiesTypeDef = TypedDict(
-    "KernelCapabilitiesTypeDef",
-    {
-        "add": List[str],
-        "drop": List[str],
-    },
-    total=False,
-)
-
-KeyValuePairTypeDef = TypedDict(
-    "KeyValuePairTypeDef",
-    {
-        "name": str,
-        "value": str,
-    },
-    total=False,
-)
-
-LinuxParametersTypeDef = TypedDict(
-    "LinuxParametersTypeDef",
-    {
-        "capabilities": "KernelCapabilitiesTypeDef",
-        "devices": List["DeviceTypeDef"],
-        "initProcessEnabled": bool,
-        "sharedMemorySize": int,
-        "tmpfs": List["TmpfsTypeDef"],
-        "maxSwap": int,
-        "swappiness": int,
-    },
-    total=False,
-)
-
-ListAccountSettingsRequestRequestTypeDef = TypedDict(
-    "ListAccountSettingsRequestRequestTypeDef",
-    {
-        "name": SettingNameType,
-        "value": str,
-        "principalArn": str,
-        "effectiveSettings": bool,
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-ListAccountSettingsResponseTypeDef = TypedDict(
-    "ListAccountSettingsResponseTypeDef",
-    {
-        "settings": List["SettingTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListAttributesRequestRequestTypeDef = TypedDict(
-    "_RequiredListAttributesRequestRequestTypeDef",
-    {
-        "targetType": Literal["container-instance"],
-    },
-)
-_OptionalListAttributesRequestRequestTypeDef = TypedDict(
-    "_OptionalListAttributesRequestRequestTypeDef",
-    {
-        "cluster": str,
-        "attributeName": str,
-        "attributeValue": str,
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-class ListAttributesRequestRequestTypeDef(
-    _RequiredListAttributesRequestRequestTypeDef, _OptionalListAttributesRequestRequestTypeDef
-):
-    pass
-
-ListAttributesResponseTypeDef = TypedDict(
-    "ListAttributesResponseTypeDef",
-    {
-        "attributes": List["AttributeTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListClustersRequestRequestTypeDef = TypedDict(
-    "ListClustersRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-ListClustersResponseTypeDef = TypedDict(
-    "ListClustersResponseTypeDef",
-    {
-        "clusterArns": List[str],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListContainerInstancesRequestRequestTypeDef = TypedDict(
-    "ListContainerInstancesRequestRequestTypeDef",
-    {
-        "cluster": str,
-        "filter": str,
-        "nextToken": str,
-        "maxResults": int,
-        "status": ContainerInstanceStatusType,
-    },
-    total=False,
-)
-
-ListContainerInstancesResponseTypeDef = TypedDict(
-    "ListContainerInstancesResponseTypeDef",
-    {
-        "containerInstanceArns": List[str],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListServicesByNamespaceRequestRequestTypeDef = TypedDict(
-    "_RequiredListServicesByNamespaceRequestRequestTypeDef",
-    {
-        "namespace": str,
-    },
-)
-_OptionalListServicesByNamespaceRequestRequestTypeDef = TypedDict(
-    "_OptionalListServicesByNamespaceRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-class ListServicesByNamespaceRequestRequestTypeDef(
-    _RequiredListServicesByNamespaceRequestRequestTypeDef,
-    _OptionalListServicesByNamespaceRequestRequestTypeDef,
-):
-    pass
-
-ListServicesByNamespaceResponseTypeDef = TypedDict(
-    "ListServicesByNamespaceResponseTypeDef",
-    {
-        "serviceArns": List[str],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListServicesRequestRequestTypeDef = TypedDict(
-    "ListServicesRequestRequestTypeDef",
-    {
-        "cluster": str,
-        "nextToken": str,
-        "maxResults": int,
-        "launchType": LaunchTypeType,
-        "schedulingStrategy": SchedulingStrategyType,
-    },
-    total=False,
-)
-
-ListServicesResponseTypeDef = TypedDict(
-    "ListServicesResponseTypeDef",
-    {
-        "serviceArns": List[str],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-    },
-)
-
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "tags": List["TagTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTaskDefinitionFamiliesRequestRequestTypeDef = TypedDict(
-    "ListTaskDefinitionFamiliesRequestRequestTypeDef",
-    {
-        "familyPrefix": str,
-        "status": TaskDefinitionFamilyStatusType,
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-ListTaskDefinitionFamiliesResponseTypeDef = TypedDict(
-    "ListTaskDefinitionFamiliesResponseTypeDef",
-    {
-        "families": List[str],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTaskDefinitionsRequestRequestTypeDef = TypedDict(
-    "ListTaskDefinitionsRequestRequestTypeDef",
-    {
-        "familyPrefix": str,
-        "status": TaskDefinitionStatusType,
-        "sort": SortOrderType,
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-ListTaskDefinitionsResponseTypeDef = TypedDict(
-    "ListTaskDefinitionsResponseTypeDef",
-    {
-        "taskDefinitionArns": List[str],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTasksRequestRequestTypeDef = TypedDict(
-    "ListTasksRequestRequestTypeDef",
-    {
-        "cluster": str,
-        "containerInstance": str,
-        "family": str,
-        "nextToken": str,
-        "maxResults": int,
-        "startedBy": str,
-        "serviceName": str,
-        "desiredStatus": DesiredStatusType,
-        "launchType": LaunchTypeType,
-    },
-    total=False,
-)
-
-ListTasksResponseTypeDef = TypedDict(
-    "ListTasksResponseTypeDef",
-    {
-        "taskArns": List[str],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-LoadBalancerTypeDef = TypedDict(
-    "LoadBalancerTypeDef",
-    {
-        "targetGroupArn": str,
-        "loadBalancerName": str,
-        "containerName": str,
-        "containerPort": int,
-    },
-    total=False,
-)
-
-_RequiredLogConfigurationTypeDef = TypedDict(
-    "_RequiredLogConfigurationTypeDef",
-    {
-        "logDriver": LogDriverType,
-    },
-)
-_OptionalLogConfigurationTypeDef = TypedDict(
-    "_OptionalLogConfigurationTypeDef",
-    {
-        "options": Dict[str, str],
-        "secretOptions": List["SecretTypeDef"],
-    },
-    total=False,
-)
-
-class LogConfigurationTypeDef(_RequiredLogConfigurationTypeDef, _OptionalLogConfigurationTypeDef):
-    pass
-
-_RequiredManagedAgentStateChangeTypeDef = TypedDict(
-    "_RequiredManagedAgentStateChangeTypeDef",
-    {
-        "containerName": str,
-        "managedAgentName": Literal["ExecuteCommandAgent"],
-        "status": str,
-    },
-)
-_OptionalManagedAgentStateChangeTypeDef = TypedDict(
-    "_OptionalManagedAgentStateChangeTypeDef",
-    {
-        "reason": str,
-    },
-    total=False,
-)
-
-class ManagedAgentStateChangeTypeDef(
-    _RequiredManagedAgentStateChangeTypeDef, _OptionalManagedAgentStateChangeTypeDef
-):
-    pass
-
-ManagedAgentTypeDef = TypedDict(
-    "ManagedAgentTypeDef",
-    {
-        "lastStartedAt": datetime,
-        "name": Literal["ExecuteCommandAgent"],
-        "reason": str,
-        "lastStatus": str,
-    },
-    total=False,
-)
-
-ManagedScalingTypeDef = TypedDict(
-    "ManagedScalingTypeDef",
-    {
-        "status": ManagedScalingStatusType,
-        "targetCapacity": int,
-        "minimumScalingStepSize": int,
-        "maximumScalingStepSize": int,
-        "instanceWarmupPeriod": int,
-    },
-    total=False,
-)
-
-ManagedStorageConfigurationTypeDef = TypedDict(
-    "ManagedStorageConfigurationTypeDef",
-    {
-        "kmsKeyId": str,
-        "fargateEphemeralStorageKmsKeyId": str,
-    },
-    total=False,
-)
-
-MountPointTypeDef = TypedDict(
-    "MountPointTypeDef",
-    {
-        "sourceVolume": str,
-        "containerPath": str,
-        "readOnly": bool,
-    },
-    total=False,
-)
-
-NetworkBindingTypeDef = TypedDict(
-    "NetworkBindingTypeDef",
-    {
-        "bindIP": str,
-        "containerPort": int,
-        "hostPort": int,
-        "protocol": TransportProtocolType,
-        "containerPortRange": str,
-        "hostPortRange": str,
-    },
-    total=False,
-)
-
-NetworkConfigurationTypeDef = TypedDict(
-    "NetworkConfigurationTypeDef",
-    {
-        "awsvpcConfiguration": "AwsVpcConfigurationTypeDef",
-    },
-    total=False,
-)
-
-NetworkInterfaceTypeDef = TypedDict(
-    "NetworkInterfaceTypeDef",
-    {
-        "attachmentId": str,
-        "privateIpv4Address": str,
-        "ipv6Address": str,
-    },
-    total=False,
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-PlacementConstraintTypeDef = TypedDict(
-    "PlacementConstraintTypeDef",
-    {
-        "type": PlacementConstraintTypeType,
-        "expression": str,
-    },
-    total=False,
-)
-
-PlacementStrategyTypeDef = TypedDict(
-    "PlacementStrategyTypeDef",
-    {
-        "type": PlacementStrategyTypeType,
-        "field": str,
-    },
-    total=False,
-)
-
-PlatformDeviceTypeDef = TypedDict(
-    "PlatformDeviceTypeDef",
-    {
-        "id": str,
-        "type": Literal["GPU"],
-    },
-)
-
-PortMappingTypeDef = TypedDict(
-    "PortMappingTypeDef",
-    {
-        "containerPort": int,
-        "hostPort": int,
-        "protocol": TransportProtocolType,
-        "name": str,
-        "appProtocol": ApplicationProtocolType,
-        "containerPortRange": str,
-    },
-    total=False,
-)
-
-ProtectedTaskTypeDef = TypedDict(
-    "ProtectedTaskTypeDef",
-    {
-        "taskArn": str,
-        "protectionEnabled": bool,
-        "expirationDate": datetime,
-    },
-    total=False,
-)
-
-_RequiredProxyConfigurationTypeDef = TypedDict(
-    "_RequiredProxyConfigurationTypeDef",
-    {
-        "containerName": str,
-    },
-)
-_OptionalProxyConfigurationTypeDef = TypedDict(
-    "_OptionalProxyConfigurationTypeDef",
-    {
-        "type": Literal["APPMESH"],
-        "properties": List["KeyValuePairTypeDef"],
-    },
-    total=False,
-)
-
-class ProxyConfigurationTypeDef(
-    _RequiredProxyConfigurationTypeDef, _OptionalProxyConfigurationTypeDef
-):
-    pass
-
-PutAccountSettingDefaultRequestRequestTypeDef = TypedDict(
-    "PutAccountSettingDefaultRequestRequestTypeDef",
-    {
-        "name": SettingNameType,
-        "value": str,
-    },
-)
-
-PutAccountSettingDefaultResponseTypeDef = TypedDict(
-    "PutAccountSettingDefaultResponseTypeDef",
-    {
-        "setting": "SettingTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredPutAccountSettingRequestRequestTypeDef = TypedDict(
-    "_RequiredPutAccountSettingRequestRequestTypeDef",
-    {
-        "name": SettingNameType,
-        "value": str,
-    },
-)
-_OptionalPutAccountSettingRequestRequestTypeDef = TypedDict(
-    "_OptionalPutAccountSettingRequestRequestTypeDef",
-    {
-        "principalArn": str,
-    },
-    total=False,
-)
-
-class PutAccountSettingRequestRequestTypeDef(
-    _RequiredPutAccountSettingRequestRequestTypeDef, _OptionalPutAccountSettingRequestRequestTypeDef
-):
-    pass
-
-PutAccountSettingResponseTypeDef = TypedDict(
-    "PutAccountSettingResponseTypeDef",
-    {
-        "setting": "SettingTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredPutAttributesRequestRequestTypeDef = TypedDict(
-    "_RequiredPutAttributesRequestRequestTypeDef",
-    {
-        "attributes": List["AttributeTypeDef"],
-    },
-)
-_OptionalPutAttributesRequestRequestTypeDef = TypedDict(
-    "_OptionalPutAttributesRequestRequestTypeDef",
-    {
-        "cluster": str,
-    },
-    total=False,
-)
-
-class PutAttributesRequestRequestTypeDef(
-    _RequiredPutAttributesRequestRequestTypeDef, _OptionalPutAttributesRequestRequestTypeDef
-):
-    pass
-
-PutAttributesResponseTypeDef = TypedDict(
-    "PutAttributesResponseTypeDef",
-    {
-        "attributes": List["AttributeTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-PutClusterCapacityProvidersRequestRequestTypeDef = TypedDict(
-    "PutClusterCapacityProvidersRequestRequestTypeDef",
-    {
-        "cluster": str,
-        "capacityProviders": List[str],
-        "defaultCapacityProviderStrategy": List["CapacityProviderStrategyItemTypeDef"],
-    },
-)
-
-PutClusterCapacityProvidersResponseTypeDef = TypedDict(
-    "PutClusterCapacityProvidersResponseTypeDef",
-    {
-        "cluster": "ClusterTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-RegisterContainerInstanceRequestRequestTypeDef = TypedDict(
-    "RegisterContainerInstanceRequestRequestTypeDef",
-    {
-        "cluster": str,
-        "instanceIdentityDocument": str,
-        "instanceIdentityDocumentSignature": str,
-        "totalResources": List["ResourceTypeDef"],
-        "versionInfo": "VersionInfoTypeDef",
-        "containerInstanceArn": str,
-        "attributes": List["AttributeTypeDef"],
-        "platformDevices": List["PlatformDeviceTypeDef"],
-        "tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-RegisterContainerInstanceResponseTypeDef = TypedDict(
-    "RegisterContainerInstanceResponseTypeDef",
-    {
-        "containerInstance": "ContainerInstanceTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredRegisterTaskDefinitionRequestRequestTypeDef = TypedDict(
-    "_RequiredRegisterTaskDefinitionRequestRequestTypeDef",
-    {
-        "family": str,
-        "containerDefinitions": List["ContainerDefinitionTypeDef"],
-    },
-)
-_OptionalRegisterTaskDefinitionRequestRequestTypeDef = TypedDict(
-    "_OptionalRegisterTaskDefinitionRequestRequestTypeDef",
-    {
-        "taskRoleArn": str,
-        "executionRoleArn": str,
-        "networkMode": NetworkModeType,
-        "volumes": List["VolumeTypeDef"],
-        "placementConstraints": List["TaskDefinitionPlacementConstraintTypeDef"],
-        "requiresCompatibilities": List[CompatibilityType],
-        "cpu": str,
-        "memory": str,
-        "tags": List["TagTypeDef"],
-        "pidMode": PidModeType,
-        "ipcMode": IpcModeType,
-        "proxyConfiguration": "ProxyConfigurationTypeDef",
-        "inferenceAccelerators": List["InferenceAcceleratorTypeDef"],
-        "ephemeralStorage": "EphemeralStorageTypeDef",
-        "runtimePlatform": "RuntimePlatformTypeDef",
-    },
-    total=False,
-)
-
-class RegisterTaskDefinitionRequestRequestTypeDef(
-    _RequiredRegisterTaskDefinitionRequestRequestTypeDef,
-    _OptionalRegisterTaskDefinitionRequestRequestTypeDef,
-):
-    pass
-
-RegisterTaskDefinitionResponseTypeDef = TypedDict(
-    "RegisterTaskDefinitionResponseTypeDef",
-    {
-        "taskDefinition": "TaskDefinitionTypeDef",
-        "tags": List["TagTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-RepositoryCredentialsTypeDef = TypedDict(
-    "RepositoryCredentialsTypeDef",
-    {
-        "credentialsParameter": str,
-    },
-)
+        "options": NotRequired[Dict[str, str]],
+    },
+)
+
+class HealthCheckOutputTypeDef(TypedDict):
+    command: List[str]
+    interval: NotRequired[int]
+    timeout: NotRequired[int]
+    retries: NotRequired[int]
+    startPeriod: NotRequired[int]
+
+class HostEntryTypeDef(TypedDict):
+    hostname: str
+    ipAddress: str
+
+class MountPointTypeDef(TypedDict):
+    sourceVolume: NotRequired[str]
+    containerPath: NotRequired[str]
+    readOnly: NotRequired[bool]
+
+class PortMappingTypeDef(TypedDict):
+    containerPort: NotRequired[int]
+    hostPort: NotRequired[int]
+    protocol: NotRequired[TransportProtocolType]
+    name: NotRequired[str]
+    appProtocol: NotRequired[ApplicationProtocolType]
+    containerPortRange: NotRequired[str]
+
+class RepositoryCredentialsTypeDef(TypedDict):
+    credentialsParameter: str
 
 ResourceRequirementTypeDef = TypedDict(
     "ResourceRequirementTypeDef",
@@ -2148,1001 +492,1804 @@ ResourceRequirementTypeDef = TypedDict(
     },
 )
 
-ResourceTypeDef = TypedDict(
-    "ResourceTypeDef",
-    {
-        "name": str,
-        "type": str,
-        "doubleValue": float,
-        "longValue": int,
-        "integerValue": int,
-        "stringSetValue": List[str],
-    },
-    total=False,
-)
+class SecretTypeDef(TypedDict):
+    name: str
+    valueFrom: str
 
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
+class SystemControlTypeDef(TypedDict):
+    namespace: NotRequired[str]
+    value: NotRequired[str]
+
+class UlimitTypeDef(TypedDict):
+    name: UlimitNameType
+    softLimit: int
+    hardLimit: int
+
+class VolumeFromTypeDef(TypedDict):
+    sourceContainer: NotRequired[str]
+    readOnly: NotRequired[bool]
+
+class ContainerImageTypeDef(TypedDict):
+    containerName: NotRequired[str]
+    imageDigest: NotRequired[str]
+    image: NotRequired[str]
+
+InstanceHealthCheckResultTypeDef = TypedDict(
+    "InstanceHealthCheckResultTypeDef",
     {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
+        "type": NotRequired[Literal["CONTAINER_RUNTIME"]],
+        "status": NotRequired[InstanceHealthCheckStateType],
+        "lastUpdated": NotRequired[datetime],
+        "lastStatusChange": NotRequired[datetime],
     },
 )
-
-_RequiredRunTaskRequestRequestTypeDef = TypedDict(
-    "_RequiredRunTaskRequestRequestTypeDef",
+ResourceOutputTypeDef = TypedDict(
+    "ResourceOutputTypeDef",
     {
-        "taskDefinition": str,
-    },
-)
-_OptionalRunTaskRequestRequestTypeDef = TypedDict(
-    "_OptionalRunTaskRequestRequestTypeDef",
-    {
-        "capacityProviderStrategy": List["CapacityProviderStrategyItemTypeDef"],
-        "cluster": str,
-        "count": int,
-        "enableECSManagedTags": bool,
-        "enableExecuteCommand": bool,
-        "group": str,
-        "launchType": LaunchTypeType,
-        "networkConfiguration": "NetworkConfigurationTypeDef",
-        "overrides": "TaskOverrideTypeDef",
-        "placementConstraints": List["PlacementConstraintTypeDef"],
-        "placementStrategy": List["PlacementStrategyTypeDef"],
-        "platformVersion": str,
-        "propagateTags": PropagateTagsType,
-        "referenceId": str,
-        "startedBy": str,
-        "tags": List["TagTypeDef"],
-        "clientToken": str,
-        "volumeConfigurations": List["TaskVolumeConfigurationTypeDef"],
-    },
-    total=False,
-)
-
-class RunTaskRequestRequestTypeDef(
-    _RequiredRunTaskRequestRequestTypeDef, _OptionalRunTaskRequestRequestTypeDef
-):
-    pass
-
-RunTaskResponseTypeDef = TypedDict(
-    "RunTaskResponseTypeDef",
-    {
-        "tasks": List["TaskTypeDef"],
-        "failures": List["FailureTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "name": NotRequired[str],
+        "type": NotRequired[str],
+        "doubleValue": NotRequired[float],
+        "longValue": NotRequired[int],
+        "integerValue": NotRequired[int],
+        "stringSetValue": NotRequired[List[str]],
     },
 )
 
-RuntimePlatformTypeDef = TypedDict(
-    "RuntimePlatformTypeDef",
+class VersionInfoTypeDef(TypedDict):
+    agentVersion: NotRequired[str]
+    agentHash: NotRequired[str]
+    dockerVersion: NotRequired[str]
+
+class ContainerRestartPolicyTypeDef(TypedDict):
+    enabled: bool
+    ignoredExitCodes: NotRequired[Sequence[int]]
+    restartAttemptPeriod: NotRequired[int]
+
+class NetworkBindingTypeDef(TypedDict):
+    bindIP: NotRequired[str]
+    containerPort: NotRequired[int]
+    hostPort: NotRequired[int]
+    protocol: NotRequired[TransportProtocolType]
+    containerPortRange: NotRequired[str]
+    hostPortRange: NotRequired[str]
+
+class ManagedAgentTypeDef(TypedDict):
+    lastStartedAt: NotRequired[datetime]
+    name: NotRequired[Literal["ExecuteCommandAgent"]]
+    reason: NotRequired[str]
+    lastStatus: NotRequired[str]
+
+class NetworkInterfaceTypeDef(TypedDict):
+    attachmentId: NotRequired[str]
+    privateIpv4Address: NotRequired[str]
+    ipv6Address: NotRequired[str]
+
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
+
+DeploymentControllerTypeDef = TypedDict(
+    "DeploymentControllerTypeDef",
     {
-        "cpuArchitecture": CPUArchitectureType,
-        "operatingSystemFamily": OSFamilyType,
+        "type": DeploymentControllerTypeType,
     },
-    total=False,
 )
 
-ScaleTypeDef = TypedDict(
-    "ScaleTypeDef",
+class LoadBalancerTypeDef(TypedDict):
+    targetGroupArn: NotRequired[str]
+    loadBalancerName: NotRequired[str]
+    containerName: NotRequired[str]
+    containerPort: NotRequired[int]
+
+PlacementConstraintTypeDef = TypedDict(
+    "PlacementConstraintTypeDef",
     {
-        "value": float,
-        "unit": Literal["PERCENT"],
+        "type": NotRequired[PlacementConstraintTypeType],
+        "expression": NotRequired[str],
     },
-    total=False,
+)
+PlacementStrategyTypeDef = TypedDict(
+    "PlacementStrategyTypeDef",
+    {
+        "type": NotRequired[PlacementStrategyTypeType],
+        "field": NotRequired[str],
+    },
 )
 
-SecretTypeDef = TypedDict(
-    "SecretTypeDef",
-    {
-        "name": str,
-        "valueFrom": str,
-    },
-)
+class ServiceRegistryTypeDef(TypedDict):
+    registryArn: NotRequired[str]
+    port: NotRequired[int]
+    containerName: NotRequired[str]
+    containerPort: NotRequired[int]
 
-_RequiredServiceConnectClientAliasTypeDef = TypedDict(
-    "_RequiredServiceConnectClientAliasTypeDef",
-    {
-        "port": int,
-    },
-)
-_OptionalServiceConnectClientAliasTypeDef = TypedDict(
-    "_OptionalServiceConnectClientAliasTypeDef",
-    {
-        "dnsName": str,
-    },
-    total=False,
-)
+class VpcLatticeConfigurationTypeDef(TypedDict):
+    roleArn: str
+    targetGroupArn: str
+    portName: str
 
-class ServiceConnectClientAliasTypeDef(
-    _RequiredServiceConnectClientAliasTypeDef, _OptionalServiceConnectClientAliasTypeDef
-):
-    pass
+class ScaleTypeDef(TypedDict):
+    value: NotRequired[float]
+    unit: NotRequired[Literal["PERCENT"]]
 
-_RequiredServiceConnectConfigurationTypeDef = TypedDict(
-    "_RequiredServiceConnectConfigurationTypeDef",
-    {
-        "enabled": bool,
-    },
-)
-_OptionalServiceConnectConfigurationTypeDef = TypedDict(
-    "_OptionalServiceConnectConfigurationTypeDef",
-    {
-        "namespace": str,
-        "services": List["ServiceConnectServiceTypeDef"],
-        "logConfiguration": "LogConfigurationTypeDef",
-    },
-    total=False,
-)
+TimestampTypeDef = Union[datetime, str]
 
-class ServiceConnectConfigurationTypeDef(
-    _RequiredServiceConnectConfigurationTypeDef, _OptionalServiceConnectConfigurationTypeDef
-):
-    pass
-
-ServiceConnectServiceResourceTypeDef = TypedDict(
-    "ServiceConnectServiceResourceTypeDef",
-    {
-        "discoveryName": str,
-        "discoveryArn": str,
-    },
-    total=False,
-)
-
-_RequiredServiceConnectServiceTypeDef = TypedDict(
-    "_RequiredServiceConnectServiceTypeDef",
-    {
-        "portName": str,
-    },
-)
-_OptionalServiceConnectServiceTypeDef = TypedDict(
-    "_OptionalServiceConnectServiceTypeDef",
-    {
-        "discoveryName": str,
-        "clientAliases": List["ServiceConnectClientAliasTypeDef"],
-        "ingressPortOverride": int,
-        "timeout": "TimeoutConfigurationTypeDef",
-        "tls": "ServiceConnectTlsConfigurationTypeDef",
-    },
-    total=False,
-)
-
-class ServiceConnectServiceTypeDef(
-    _RequiredServiceConnectServiceTypeDef, _OptionalServiceConnectServiceTypeDef
-):
-    pass
-
-ServiceConnectTlsCertificateAuthorityTypeDef = TypedDict(
-    "ServiceConnectTlsCertificateAuthorityTypeDef",
-    {
-        "awsPcaAuthorityArn": str,
-    },
-    total=False,
-)
-
-_RequiredServiceConnectTlsConfigurationTypeDef = TypedDict(
-    "_RequiredServiceConnectTlsConfigurationTypeDef",
-    {
-        "issuerCertificateAuthority": "ServiceConnectTlsCertificateAuthorityTypeDef",
-    },
-)
-_OptionalServiceConnectTlsConfigurationTypeDef = TypedDict(
-    "_OptionalServiceConnectTlsConfigurationTypeDef",
-    {
-        "kmsKey": str,
-        "roleArn": str,
-    },
-    total=False,
-)
-
-class ServiceConnectTlsConfigurationTypeDef(
-    _RequiredServiceConnectTlsConfigurationTypeDef, _OptionalServiceConnectTlsConfigurationTypeDef
-):
-    pass
-
-ServiceEventTypeDef = TypedDict(
-    "ServiceEventTypeDef",
-    {
-        "id": str,
-        "createdAt": datetime,
-        "message": str,
-    },
-    total=False,
-)
-
-_RequiredServiceManagedEBSVolumeConfigurationTypeDef = TypedDict(
-    "_RequiredServiceManagedEBSVolumeConfigurationTypeDef",
-    {
-        "roleArn": str,
-    },
-)
-_OptionalServiceManagedEBSVolumeConfigurationTypeDef = TypedDict(
-    "_OptionalServiceManagedEBSVolumeConfigurationTypeDef",
-    {
-        "encrypted": bool,
-        "kmsKeyId": str,
-        "volumeType": str,
-        "sizeInGiB": int,
-        "snapshotId": str,
-        "iops": int,
-        "throughput": int,
-        "tagSpecifications": List["EBSTagSpecificationTypeDef"],
-        "filesystemType": TaskFilesystemTypeType,
-    },
-    total=False,
-)
-
-class ServiceManagedEBSVolumeConfigurationTypeDef(
-    _RequiredServiceManagedEBSVolumeConfigurationTypeDef,
-    _OptionalServiceManagedEBSVolumeConfigurationTypeDef,
-):
-    pass
-
-ServiceRegistryTypeDef = TypedDict(
-    "ServiceRegistryTypeDef",
-    {
-        "registryArn": str,
-        "port": int,
-        "containerName": str,
-        "containerPort": int,
-    },
-    total=False,
-)
-
-ServiceTypeDef = TypedDict(
-    "ServiceTypeDef",
-    {
-        "serviceArn": str,
-        "serviceName": str,
-        "clusterArn": str,
-        "loadBalancers": List["LoadBalancerTypeDef"],
-        "serviceRegistries": List["ServiceRegistryTypeDef"],
-        "status": str,
-        "desiredCount": int,
-        "runningCount": int,
-        "pendingCount": int,
-        "launchType": LaunchTypeType,
-        "capacityProviderStrategy": List["CapacityProviderStrategyItemTypeDef"],
-        "platformVersion": str,
-        "platformFamily": str,
-        "taskDefinition": str,
-        "deploymentConfiguration": "DeploymentConfigurationTypeDef",
-        "taskSets": List["TaskSetTypeDef"],
-        "deployments": List["DeploymentTypeDef"],
-        "roleArn": str,
-        "events": List["ServiceEventTypeDef"],
-        "createdAt": datetime,
-        "placementConstraints": List["PlacementConstraintTypeDef"],
-        "placementStrategy": List["PlacementStrategyTypeDef"],
-        "networkConfiguration": "NetworkConfigurationTypeDef",
-        "healthCheckGracePeriodSeconds": int,
-        "schedulingStrategy": SchedulingStrategyType,
-        "deploymentController": "DeploymentControllerTypeDef",
-        "tags": List["TagTypeDef"],
-        "createdBy": str,
-        "enableECSManagedTags": bool,
-        "propagateTags": PropagateTagsType,
-        "enableExecuteCommand": bool,
-    },
-    total=False,
-)
-
-_RequiredServiceVolumeConfigurationTypeDef = TypedDict(
-    "_RequiredServiceVolumeConfigurationTypeDef",
-    {
-        "name": str,
-    },
-)
-_OptionalServiceVolumeConfigurationTypeDef = TypedDict(
-    "_OptionalServiceVolumeConfigurationTypeDef",
-    {
-        "managedEBSVolume": "ServiceManagedEBSVolumeConfigurationTypeDef",
-    },
-    total=False,
-)
-
-class ServiceVolumeConfigurationTypeDef(
-    _RequiredServiceVolumeConfigurationTypeDef, _OptionalServiceVolumeConfigurationTypeDef
-):
-    pass
-
-SessionTypeDef = TypedDict(
-    "SessionTypeDef",
-    {
-        "sessionId": str,
-        "streamUrl": str,
-        "tokenValue": str,
-    },
-    total=False,
-)
+class DeleteAccountSettingRequestTypeDef(TypedDict):
+    name: SettingNameType
+    principalArn: NotRequired[str]
 
 SettingTypeDef = TypedDict(
     "SettingTypeDef",
     {
-        "name": SettingNameType,
-        "value": str,
-        "principalArn": str,
-        "type": SettingTypeType,
-    },
-    total=False,
-)
-
-_RequiredStartTaskRequestRequestTypeDef = TypedDict(
-    "_RequiredStartTaskRequestRequestTypeDef",
-    {
-        "containerInstances": List[str],
-        "taskDefinition": str,
-    },
-)
-_OptionalStartTaskRequestRequestTypeDef = TypedDict(
-    "_OptionalStartTaskRequestRequestTypeDef",
-    {
-        "cluster": str,
-        "enableECSManagedTags": bool,
-        "enableExecuteCommand": bool,
-        "group": str,
-        "networkConfiguration": "NetworkConfigurationTypeDef",
-        "overrides": "TaskOverrideTypeDef",
-        "propagateTags": PropagateTagsType,
-        "referenceId": str,
-        "startedBy": str,
-        "tags": List["TagTypeDef"],
-        "volumeConfigurations": List["TaskVolumeConfigurationTypeDef"],
-    },
-    total=False,
-)
-
-class StartTaskRequestRequestTypeDef(
-    _RequiredStartTaskRequestRequestTypeDef, _OptionalStartTaskRequestRequestTypeDef
-):
-    pass
-
-StartTaskResponseTypeDef = TypedDict(
-    "StartTaskResponseTypeDef",
-    {
-        "tasks": List["TaskTypeDef"],
-        "failures": List["FailureTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "name": NotRequired[SettingNameType],
+        "value": NotRequired[str],
+        "principalArn": NotRequired[str],
+        "type": NotRequired[SettingTypeType],
     },
 )
 
-_RequiredStopTaskRequestRequestTypeDef = TypedDict(
-    "_RequiredStopTaskRequestRequestTypeDef",
+class DeleteCapacityProviderRequestTypeDef(TypedDict):
+    capacityProvider: str
+
+class DeleteClusterRequestTypeDef(TypedDict):
+    cluster: str
+
+class DeleteServiceRequestTypeDef(TypedDict):
+    service: str
+    cluster: NotRequired[str]
+    force: NotRequired[bool]
+
+class DeleteTaskDefinitionsRequestTypeDef(TypedDict):
+    taskDefinitions: Sequence[str]
+
+class FailureTypeDef(TypedDict):
+    arn: NotRequired[str]
+    reason: NotRequired[str]
+    detail: NotRequired[str]
+
+class DeleteTaskSetRequestTypeDef(TypedDict):
+    cluster: str
+    service: str
+    taskSet: str
+    force: NotRequired[bool]
+
+class DeploymentAlarmsOutputTypeDef(TypedDict):
+    alarmNames: List[str]
+    rollback: bool
+    enable: bool
+
+class DeploymentAlarmsTypeDef(TypedDict):
+    alarmNames: Sequence[str]
+    rollback: bool
+    enable: bool
+
+class DeploymentCircuitBreakerTypeDef(TypedDict):
+    enable: bool
+    rollback: bool
+
+class DeploymentEphemeralStorageTypeDef(TypedDict):
+    kmsKeyId: NotRequired[str]
+
+class ServiceConnectServiceResourceTypeDef(TypedDict):
+    discoveryName: NotRequired[str]
+    discoveryArn: NotRequired[str]
+
+class DeregisterContainerInstanceRequestTypeDef(TypedDict):
+    containerInstance: str
+    cluster: NotRequired[str]
+    force: NotRequired[bool]
+
+class DeregisterTaskDefinitionRequestTypeDef(TypedDict):
+    taskDefinition: str
+
+class DescribeCapacityProvidersRequestTypeDef(TypedDict):
+    capacityProviders: NotRequired[Sequence[str]]
+    include: NotRequired[Sequence[Literal["TAGS"]]]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class DescribeClustersRequestTypeDef(TypedDict):
+    clusters: NotRequired[Sequence[str]]
+    include: NotRequired[Sequence[ClusterFieldType]]
+
+class DescribeContainerInstancesRequestTypeDef(TypedDict):
+    containerInstances: Sequence[str]
+    cluster: NotRequired[str]
+    include: NotRequired[Sequence[ContainerInstanceFieldType]]
+
+class DescribeServiceDeploymentsRequestTypeDef(TypedDict):
+    serviceDeploymentArns: Sequence[str]
+
+class DescribeServiceRevisionsRequestTypeDef(TypedDict):
+    serviceRevisionArns: Sequence[str]
+
+class DescribeServicesRequestTypeDef(TypedDict):
+    services: Sequence[str]
+    cluster: NotRequired[str]
+    include: NotRequired[Sequence[Literal["TAGS"]]]
+
+class WaiterConfigTypeDef(TypedDict):
+    Delay: NotRequired[int]
+    MaxAttempts: NotRequired[int]
+
+class DescribeTaskDefinitionRequestTypeDef(TypedDict):
+    taskDefinition: str
+    include: NotRequired[Sequence[Literal["TAGS"]]]
+
+class DescribeTaskSetsRequestTypeDef(TypedDict):
+    cluster: str
+    service: str
+    taskSets: NotRequired[Sequence[str]]
+    include: NotRequired[Sequence[Literal["TAGS"]]]
+
+class DescribeTasksRequestTypeDef(TypedDict):
+    tasks: Sequence[str]
+    cluster: NotRequired[str]
+    include: NotRequired[Sequence[Literal["TAGS"]]]
+
+class DeviceOutputTypeDef(TypedDict):
+    hostPath: str
+    containerPath: NotRequired[str]
+    permissions: NotRequired[List[DeviceCgroupPermissionType]]
+
+class DeviceTypeDef(TypedDict):
+    hostPath: str
+    containerPath: NotRequired[str]
+    permissions: NotRequired[Sequence[DeviceCgroupPermissionType]]
+
+class DiscoverPollEndpointRequestTypeDef(TypedDict):
+    containerInstance: NotRequired[str]
+    cluster: NotRequired[str]
+
+class DockerVolumeConfigurationOutputTypeDef(TypedDict):
+    scope: NotRequired[ScopeType]
+    autoprovision: NotRequired[bool]
+    driver: NotRequired[str]
+    driverOpts: NotRequired[Dict[str, str]]
+    labels: NotRequired[Dict[str, str]]
+
+class DockerVolumeConfigurationTypeDef(TypedDict):
+    scope: NotRequired[ScopeType]
+    autoprovision: NotRequired[bool]
+    driver: NotRequired[str]
+    driverOpts: NotRequired[Mapping[str, str]]
+    labels: NotRequired[Mapping[str, str]]
+
+class EFSAuthorizationConfigTypeDef(TypedDict):
+    accessPointId: NotRequired[str]
+    iam: NotRequired[EFSAuthorizationConfigIAMType]
+
+class EphemeralStorageTypeDef(TypedDict):
+    sizeInGiB: int
+
+class ExecuteCommandLogConfigurationTypeDef(TypedDict):
+    cloudWatchLogGroupName: NotRequired[str]
+    cloudWatchEncryptionEnabled: NotRequired[bool]
+    s3BucketName: NotRequired[str]
+    s3EncryptionEnabled: NotRequired[bool]
+    s3KeyPrefix: NotRequired[str]
+
+class ExecuteCommandRequestTypeDef(TypedDict):
+    command: str
+    interactive: bool
+    task: str
+    cluster: NotRequired[str]
+    container: NotRequired[str]
+
+class SessionTypeDef(TypedDict):
+    sessionId: NotRequired[str]
+    streamUrl: NotRequired[str]
+    tokenValue: NotRequired[str]
+
+class FSxWindowsFileServerAuthorizationConfigTypeDef(TypedDict):
+    credentialsParameter: str
+    domain: str
+
+FirelensConfigurationTypeDef = TypedDict(
+    "FirelensConfigurationTypeDef",
     {
-        "task": str,
+        "type": FirelensConfigurationTypeType,
+        "options": NotRequired[Mapping[str, str]],
     },
-)
-_OptionalStopTaskRequestRequestTypeDef = TypedDict(
-    "_OptionalStopTaskRequestRequestTypeDef",
-    {
-        "cluster": str,
-        "reason": str,
-    },
-    total=False,
 )
 
-class StopTaskRequestRequestTypeDef(
-    _RequiredStopTaskRequestRequestTypeDef, _OptionalStopTaskRequestRequestTypeDef
-):
-    pass
+class GetTaskProtectionRequestTypeDef(TypedDict):
+    cluster: str
+    tasks: NotRequired[Sequence[str]]
 
-StopTaskResponseTypeDef = TypedDict(
-    "StopTaskResponseTypeDef",
+class ProtectedTaskTypeDef(TypedDict):
+    taskArn: NotRequired[str]
+    protectionEnabled: NotRequired[bool]
+    expirationDate: NotRequired[datetime]
+
+class HealthCheckTypeDef(TypedDict):
+    command: Sequence[str]
+    interval: NotRequired[int]
+    timeout: NotRequired[int]
+    retries: NotRequired[int]
+    startPeriod: NotRequired[int]
+
+class HostVolumePropertiesTypeDef(TypedDict):
+    sourcePath: NotRequired[str]
+
+class InferenceAcceleratorOverrideTypeDef(TypedDict):
+    deviceName: NotRequired[str]
+    deviceType: NotRequired[str]
+
+class InferenceAcceleratorTypeDef(TypedDict):
+    deviceName: str
+    deviceType: str
+
+class KernelCapabilitiesOutputTypeDef(TypedDict):
+    add: NotRequired[List[str]]
+    drop: NotRequired[List[str]]
+
+class KernelCapabilitiesTypeDef(TypedDict):
+    add: NotRequired[Sequence[str]]
+    drop: NotRequired[Sequence[str]]
+
+class TmpfsOutputTypeDef(TypedDict):
+    containerPath: str
+    size: int
+    mountOptions: NotRequired[List[str]]
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class ListAccountSettingsRequestTypeDef(TypedDict):
+    name: NotRequired[SettingNameType]
+    value: NotRequired[str]
+    principalArn: NotRequired[str]
+    effectiveSettings: NotRequired[bool]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class ListAttributesRequestTypeDef(TypedDict):
+    targetType: Literal["container-instance"]
+    cluster: NotRequired[str]
+    attributeName: NotRequired[str]
+    attributeValue: NotRequired[str]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class ListClustersRequestTypeDef(TypedDict):
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+ListContainerInstancesRequestTypeDef = TypedDict(
+    "ListContainerInstancesRequestTypeDef",
     {
-        "task": "TaskTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "cluster": NotRequired[str],
+        "filter": NotRequired[str],
+        "nextToken": NotRequired[str],
+        "maxResults": NotRequired[int],
+        "status": NotRequired[ContainerInstanceStatusType],
     },
 )
 
-_RequiredSubmitAttachmentStateChangesRequestRequestTypeDef = TypedDict(
-    "_RequiredSubmitAttachmentStateChangesRequestRequestTypeDef",
-    {
-        "attachments": List["AttachmentStateChangeTypeDef"],
-    },
-)
-_OptionalSubmitAttachmentStateChangesRequestRequestTypeDef = TypedDict(
-    "_OptionalSubmitAttachmentStateChangesRequestRequestTypeDef",
-    {
-        "cluster": str,
-    },
-    total=False,
-)
+class ServiceDeploymentBriefTypeDef(TypedDict):
+    serviceDeploymentArn: NotRequired[str]
+    serviceArn: NotRequired[str]
+    clusterArn: NotRequired[str]
+    startedAt: NotRequired[datetime]
+    createdAt: NotRequired[datetime]
+    finishedAt: NotRequired[datetime]
+    targetServiceRevisionArn: NotRequired[str]
+    status: NotRequired[ServiceDeploymentStatusType]
+    statusReason: NotRequired[str]
 
-class SubmitAttachmentStateChangesRequestRequestTypeDef(
-    _RequiredSubmitAttachmentStateChangesRequestRequestTypeDef,
-    _OptionalSubmitAttachmentStateChangesRequestRequestTypeDef,
-):
-    pass
+class ListServicesByNamespaceRequestTypeDef(TypedDict):
+    namespace: str
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
 
-SubmitAttachmentStateChangesResponseTypeDef = TypedDict(
-    "SubmitAttachmentStateChangesResponseTypeDef",
-    {
-        "acknowledgment": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListServicesRequestTypeDef(TypedDict):
+    cluster: NotRequired[str]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+    launchType: NotRequired[LaunchTypeType]
+    schedulingStrategy: NotRequired[SchedulingStrategyType]
 
-SubmitContainerStateChangeRequestRequestTypeDef = TypedDict(
-    "SubmitContainerStateChangeRequestRequestTypeDef",
-    {
-        "cluster": str,
-        "task": str,
-        "containerName": str,
-        "runtimeId": str,
-        "status": str,
-        "exitCode": int,
-        "reason": str,
-        "networkBindings": List["NetworkBindingTypeDef"],
-    },
-    total=False,
-)
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    resourceArn: str
 
-SubmitContainerStateChangeResponseTypeDef = TypedDict(
-    "SubmitContainerStateChangeResponseTypeDef",
-    {
-        "acknowledgment": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListTaskDefinitionFamiliesRequestTypeDef(TypedDict):
+    familyPrefix: NotRequired[str]
+    status: NotRequired[TaskDefinitionFamilyStatusType]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
 
-SubmitTaskStateChangeRequestRequestTypeDef = TypedDict(
-    "SubmitTaskStateChangeRequestRequestTypeDef",
-    {
-        "cluster": str,
-        "task": str,
-        "status": str,
-        "reason": str,
-        "containers": List["ContainerStateChangeTypeDef"],
-        "attachments": List["AttachmentStateChangeTypeDef"],
-        "managedAgents": List["ManagedAgentStateChangeTypeDef"],
-        "pullStartedAt": Union[datetime, str],
-        "pullStoppedAt": Union[datetime, str],
-        "executionStoppedAt": Union[datetime, str],
-    },
-    total=False,
-)
+class ListTaskDefinitionsRequestTypeDef(TypedDict):
+    familyPrefix: NotRequired[str]
+    status: NotRequired[TaskDefinitionStatusType]
+    sort: NotRequired[SortOrderType]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
 
-SubmitTaskStateChangeResponseTypeDef = TypedDict(
-    "SubmitTaskStateChangeResponseTypeDef",
+class ListTasksRequestTypeDef(TypedDict):
+    cluster: NotRequired[str]
+    containerInstance: NotRequired[str]
+    family: NotRequired[str]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+    startedBy: NotRequired[str]
+    serviceName: NotRequired[str]
+    desiredStatus: NotRequired[DesiredStatusType]
+    launchType: NotRequired[LaunchTypeType]
+
+class ManagedAgentStateChangeTypeDef(TypedDict):
+    containerName: str
+    managedAgentName: Literal["ExecuteCommandAgent"]
+    status: str
+    reason: NotRequired[str]
+
+PlatformDeviceTypeDef = TypedDict(
+    "PlatformDeviceTypeDef",
     {
-        "acknowledgment": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "id": str,
+        "type": Literal["GPU"],
     },
 )
 
-SystemControlTypeDef = TypedDict(
-    "SystemControlTypeDef",
-    {
-        "namespace": str,
-        "value": str,
-    },
-    total=False,
-)
+class PutAccountSettingDefaultRequestTypeDef(TypedDict):
+    name: SettingNameType
+    value: str
 
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tags": List["TagTypeDef"],
-    },
-)
+class PutAccountSettingRequestTypeDef(TypedDict):
+    name: SettingNameType
+    value: str
+    principalArn: NotRequired[str]
 
-TagTypeDef = TypedDict(
-    "TagTypeDef",
-    {
-        "key": str,
-        "value": str,
-    },
-    total=False,
-)
+class RuntimePlatformTypeDef(TypedDict):
+    cpuArchitecture: NotRequired[CPUArchitectureType]
+    operatingSystemFamily: NotRequired[OSFamilyType]
 
 TaskDefinitionPlacementConstraintTypeDef = TypedDict(
     "TaskDefinitionPlacementConstraintTypeDef",
     {
-        "type": Literal["memberOf"],
-        "expression": str,
-    },
-    total=False,
-)
-
-TaskDefinitionTypeDef = TypedDict(
-    "TaskDefinitionTypeDef",
-    {
-        "taskDefinitionArn": str,
-        "containerDefinitions": List["ContainerDefinitionTypeDef"],
-        "family": str,
-        "taskRoleArn": str,
-        "executionRoleArn": str,
-        "networkMode": NetworkModeType,
-        "revision": int,
-        "volumes": List["VolumeTypeDef"],
-        "status": TaskDefinitionStatusType,
-        "requiresAttributes": List["AttributeTypeDef"],
-        "placementConstraints": List["TaskDefinitionPlacementConstraintTypeDef"],
-        "compatibilities": List[CompatibilityType],
-        "runtimePlatform": "RuntimePlatformTypeDef",
-        "requiresCompatibilities": List[CompatibilityType],
-        "cpu": str,
-        "memory": str,
-        "inferenceAccelerators": List["InferenceAcceleratorTypeDef"],
-        "pidMode": PidModeType,
-        "ipcMode": IpcModeType,
-        "proxyConfiguration": "ProxyConfigurationTypeDef",
-        "registeredAt": datetime,
-        "deregisteredAt": datetime,
-        "registeredBy": str,
-        "ephemeralStorage": "EphemeralStorageTypeDef",
-    },
-    total=False,
-)
-
-TaskEphemeralStorageTypeDef = TypedDict(
-    "TaskEphemeralStorageTypeDef",
-    {
-        "sizeInGiB": int,
-        "kmsKeyId": str,
-    },
-    total=False,
-)
-
-_RequiredTaskManagedEBSVolumeConfigurationTypeDef = TypedDict(
-    "_RequiredTaskManagedEBSVolumeConfigurationTypeDef",
-    {
-        "roleArn": str,
+        "type": NotRequired[Literal["memberOf"]],
+        "expression": NotRequired[str],
     },
 )
-_OptionalTaskManagedEBSVolumeConfigurationTypeDef = TypedDict(
-    "_OptionalTaskManagedEBSVolumeConfigurationTypeDef",
+ResourceTypeDef = TypedDict(
+    "ResourceTypeDef",
     {
-        "encrypted": bool,
-        "kmsKeyId": str,
-        "volumeType": str,
-        "sizeInGiB": int,
-        "snapshotId": str,
-        "iops": int,
-        "throughput": int,
-        "tagSpecifications": List["EBSTagSpecificationTypeDef"],
-        "terminationPolicy": "TaskManagedEBSVolumeTerminationPolicyTypeDef",
-        "filesystemType": TaskFilesystemTypeType,
-    },
-    total=False,
-)
-
-class TaskManagedEBSVolumeConfigurationTypeDef(
-    _RequiredTaskManagedEBSVolumeConfigurationTypeDef,
-    _OptionalTaskManagedEBSVolumeConfigurationTypeDef,
-):
-    pass
-
-TaskManagedEBSVolumeTerminationPolicyTypeDef = TypedDict(
-    "TaskManagedEBSVolumeTerminationPolicyTypeDef",
-    {
-        "deleteOnTermination": bool,
+        "name": NotRequired[str],
+        "type": NotRequired[str],
+        "doubleValue": NotRequired[float],
+        "longValue": NotRequired[int],
+        "integerValue": NotRequired[int],
+        "stringSetValue": NotRequired[Sequence[str]],
     },
 )
 
-TaskOverrideTypeDef = TypedDict(
-    "TaskOverrideTypeDef",
+class RollbackTypeDef(TypedDict):
+    reason: NotRequired[str]
+    startedAt: NotRequired[datetime]
+    serviceRevisionArn: NotRequired[str]
+
+class ServiceConnectClientAliasTypeDef(TypedDict):
+    port: int
+    dnsName: NotRequired[str]
+
+class TimeoutConfigurationTypeDef(TypedDict):
+    idleTimeoutSeconds: NotRequired[int]
+    perRequestTimeoutSeconds: NotRequired[int]
+
+class ServiceConnectTlsCertificateAuthorityTypeDef(TypedDict):
+    awsPcaAuthorityArn: NotRequired[str]
+
+class ServiceDeploymentAlarmsTypeDef(TypedDict):
+    status: NotRequired[ServiceDeploymentRollbackMonitorsStatusType]
+    alarmNames: NotRequired[List[str]]
+    triggeredAlarmNames: NotRequired[List[str]]
+
+class ServiceDeploymentCircuitBreakerTypeDef(TypedDict):
+    status: NotRequired[ServiceDeploymentRollbackMonitorsStatusType]
+    failureCount: NotRequired[int]
+    threshold: NotRequired[int]
+
+class ServiceRevisionSummaryTypeDef(TypedDict):
+    arn: NotRequired[str]
+    requestedTaskCount: NotRequired[int]
+    runningTaskCount: NotRequired[int]
+    pendingTaskCount: NotRequired[int]
+
+ServiceEventTypeDef = TypedDict(
+    "ServiceEventTypeDef",
     {
-        "containerOverrides": List["ContainerOverrideTypeDef"],
-        "cpu": str,
-        "inferenceAcceleratorOverrides": List["InferenceAcceleratorOverrideTypeDef"],
-        "executionRoleArn": str,
-        "memory": str,
-        "taskRoleArn": str,
-        "ephemeralStorage": "EphemeralStorageTypeDef",
+        "id": NotRequired[str],
+        "createdAt": NotRequired[datetime],
+        "message": NotRequired[str],
     },
-    total=False,
 )
+
+class StopServiceDeploymentRequestTypeDef(TypedDict):
+    serviceDeploymentArn: str
+    stopType: NotRequired[StopServiceDeploymentStopTypeType]
+
+class StopTaskRequestTypeDef(TypedDict):
+    task: str
+    cluster: NotRequired[str]
+    reason: NotRequired[str]
+
+class TaskEphemeralStorageTypeDef(TypedDict):
+    sizeInGiB: NotRequired[int]
+    kmsKeyId: NotRequired[str]
+
+class TaskManagedEBSVolumeTerminationPolicyTypeDef(TypedDict):
+    deleteOnTermination: bool
+
+class TmpfsTypeDef(TypedDict):
+    containerPath: str
+    size: int
+    mountOptions: NotRequired[Sequence[str]]
+
+class UntagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tagKeys: Sequence[str]
+
+class UpdateContainerAgentRequestTypeDef(TypedDict):
+    containerInstance: str
+    cluster: NotRequired[str]
+
+class UpdateContainerInstancesStateRequestTypeDef(TypedDict):
+    containerInstances: Sequence[str]
+    status: ContainerInstanceStatusType
+    cluster: NotRequired[str]
+
+class UpdateServicePrimaryTaskSetRequestTypeDef(TypedDict):
+    cluster: str
+    service: str
+    primaryTaskSet: str
+
+class UpdateTaskProtectionRequestTypeDef(TypedDict):
+    cluster: str
+    tasks: Sequence[str]
+    protectionEnabled: bool
+    expiresInMinutes: NotRequired[int]
+
+class SubmitAttachmentStateChangesRequestTypeDef(TypedDict):
+    attachments: Sequence[AttachmentStateChangeTypeDef]
+    cluster: NotRequired[str]
+
+AttachmentTypeDef = TypedDict(
+    "AttachmentTypeDef",
+    {
+        "id": NotRequired[str],
+        "type": NotRequired[str],
+        "status": NotRequired[str],
+        "details": NotRequired[List[KeyValuePairTypeDef]],
+    },
+)
+ProxyConfigurationOutputTypeDef = TypedDict(
+    "ProxyConfigurationOutputTypeDef",
+    {
+        "containerName": str,
+        "type": NotRequired[Literal["APPMESH"]],
+        "properties": NotRequired[List[KeyValuePairTypeDef]],
+    },
+)
+ProxyConfigurationTypeDef = TypedDict(
+    "ProxyConfigurationTypeDef",
+    {
+        "containerName": str,
+        "type": NotRequired[Literal["APPMESH"]],
+        "properties": NotRequired[Sequence[KeyValuePairTypeDef]],
+    },
+)
+
+class DeleteAttributesRequestTypeDef(TypedDict):
+    attributes: Sequence[AttributeTypeDef]
+    cluster: NotRequired[str]
+
+class PutAttributesRequestTypeDef(TypedDict):
+    attributes: Sequence[AttributeTypeDef]
+    cluster: NotRequired[str]
+
+class AutoScalingGroupProviderTypeDef(TypedDict):
+    autoScalingGroupArn: str
+    managedScaling: NotRequired[ManagedScalingTypeDef]
+    managedTerminationProtection: NotRequired[ManagedTerminationProtectionType]
+    managedDraining: NotRequired[ManagedDrainingType]
+
+class AutoScalingGroupProviderUpdateTypeDef(TypedDict):
+    managedScaling: NotRequired[ManagedScalingTypeDef]
+    managedTerminationProtection: NotRequired[ManagedTerminationProtectionType]
+    managedDraining: NotRequired[ManagedDrainingType]
+
+class NetworkConfigurationOutputTypeDef(TypedDict):
+    awsvpcConfiguration: NotRequired[AwsVpcConfigurationOutputTypeDef]
+
+class NetworkConfigurationTypeDef(TypedDict):
+    awsvpcConfiguration: NotRequired[AwsVpcConfigurationTypeDef]
+
+class PutClusterCapacityProvidersRequestTypeDef(TypedDict):
+    cluster: str
+    capacityProviders: Sequence[str]
+    defaultCapacityProviderStrategy: Sequence[CapacityProviderStrategyItemTypeDef]
+
+class EBSTagSpecificationOutputTypeDef(TypedDict):
+    resourceType: Literal["volume"]
+    tags: NotRequired[List[TagTypeDef]]
+    propagateTags: NotRequired[PropagateTagsType]
+
+class EBSTagSpecificationTypeDef(TypedDict):
+    resourceType: Literal["volume"]
+    tags: NotRequired[Sequence[TagTypeDef]]
+    propagateTags: NotRequired[PropagateTagsType]
+
+class TagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tags: Sequence[TagTypeDef]
+
+class UpdateClusterSettingsRequestTypeDef(TypedDict):
+    cluster: str
+    settings: Sequence[ClusterSettingTypeDef]
+
+class ContainerOverrideOutputTypeDef(TypedDict):
+    name: NotRequired[str]
+    command: NotRequired[List[str]]
+    environment: NotRequired[List[KeyValuePairTypeDef]]
+    environmentFiles: NotRequired[List[EnvironmentFileTypeDef]]
+    cpu: NotRequired[int]
+    memory: NotRequired[int]
+    memoryReservation: NotRequired[int]
+    resourceRequirements: NotRequired[List[ResourceRequirementTypeDef]]
+
+class ContainerOverrideTypeDef(TypedDict):
+    name: NotRequired[str]
+    command: NotRequired[Sequence[str]]
+    environment: NotRequired[Sequence[KeyValuePairTypeDef]]
+    environmentFiles: NotRequired[Sequence[EnvironmentFileTypeDef]]
+    cpu: NotRequired[int]
+    memory: NotRequired[int]
+    memoryReservation: NotRequired[int]
+    resourceRequirements: NotRequired[Sequence[ResourceRequirementTypeDef]]
+
+class LogConfigurationOutputTypeDef(TypedDict):
+    logDriver: LogDriverType
+    options: NotRequired[Dict[str, str]]
+    secretOptions: NotRequired[List[SecretTypeDef]]
+
+class LogConfigurationTypeDef(TypedDict):
+    logDriver: LogDriverType
+    options: NotRequired[Mapping[str, str]]
+    secretOptions: NotRequired[Sequence[SecretTypeDef]]
+
+class ContainerInstanceHealthStatusTypeDef(TypedDict):
+    overallStatus: NotRequired[InstanceHealthCheckStateType]
+    details: NotRequired[List[InstanceHealthCheckResultTypeDef]]
+
+ContainerRestartPolicyUnionTypeDef = Union[
+    ContainerRestartPolicyTypeDef, ContainerRestartPolicyOutputTypeDef
+]
+
+class ContainerStateChangeTypeDef(TypedDict):
+    containerName: NotRequired[str]
+    imageDigest: NotRequired[str]
+    runtimeId: NotRequired[str]
+    exitCode: NotRequired[int]
+    networkBindings: NotRequired[Sequence[NetworkBindingTypeDef]]
+    reason: NotRequired[str]
+    status: NotRequired[str]
+
+class SubmitContainerStateChangeRequestTypeDef(TypedDict):
+    cluster: NotRequired[str]
+    task: NotRequired[str]
+    containerName: NotRequired[str]
+    runtimeId: NotRequired[str]
+    status: NotRequired[str]
+    exitCode: NotRequired[int]
+    reason: NotRequired[str]
+    networkBindings: NotRequired[Sequence[NetworkBindingTypeDef]]
+
+class ContainerTypeDef(TypedDict):
+    containerArn: NotRequired[str]
+    taskArn: NotRequired[str]
+    name: NotRequired[str]
+    image: NotRequired[str]
+    imageDigest: NotRequired[str]
+    runtimeId: NotRequired[str]
+    lastStatus: NotRequired[str]
+    exitCode: NotRequired[int]
+    reason: NotRequired[str]
+    networkBindings: NotRequired[List[NetworkBindingTypeDef]]
+    networkInterfaces: NotRequired[List[NetworkInterfaceTypeDef]]
+    healthStatus: NotRequired[HealthStatusType]
+    managedAgents: NotRequired[List[ManagedAgentTypeDef]]
+    cpu: NotRequired[str]
+    memory: NotRequired[str]
+    memoryReservation: NotRequired[str]
+    gpuIds: NotRequired[List[str]]
+
+class DeleteAttributesResponseTypeDef(TypedDict):
+    attributes: List[AttributeTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DiscoverPollEndpointResponseTypeDef(TypedDict):
+    endpoint: str
+    telemetryEndpoint: str
+    serviceConnectEndpoint: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListAttributesResponseTypeDef(TypedDict):
+    attributes: List[AttributeTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListClustersResponseTypeDef(TypedDict):
+    clusterArns: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListContainerInstancesResponseTypeDef(TypedDict):
+    containerInstanceArns: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListServicesByNamespaceResponseTypeDef(TypedDict):
+    serviceArns: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListServicesResponseTypeDef(TypedDict):
+    serviceArns: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    tags: List[TagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListTaskDefinitionFamiliesResponseTypeDef(TypedDict):
+    families: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListTaskDefinitionsResponseTypeDef(TypedDict):
+    taskDefinitionArns: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListTasksResponseTypeDef(TypedDict):
+    taskArns: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class PutAttributesResponseTypeDef(TypedDict):
+    attributes: List[AttributeTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StopServiceDeploymentResponseTypeDef(TypedDict):
+    serviceDeploymentArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class SubmitAttachmentStateChangesResponseTypeDef(TypedDict):
+    acknowledgment: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class SubmitContainerStateChangeResponseTypeDef(TypedDict):
+    acknowledgment: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class SubmitTaskStateChangeResponseTypeDef(TypedDict):
+    acknowledgment: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateTaskSetRequestTypeDef(TypedDict):
+    cluster: str
+    service: str
+    taskSet: str
+    scale: ScaleTypeDef
+
+class CreatedAtTypeDef(TypedDict):
+    before: NotRequired[TimestampTypeDef]
+    after: NotRequired[TimestampTypeDef]
+
+class DeleteAccountSettingResponseTypeDef(TypedDict):
+    setting: SettingTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListAccountSettingsResponseTypeDef(TypedDict):
+    settings: List[SettingTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class PutAccountSettingDefaultResponseTypeDef(TypedDict):
+    setting: SettingTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutAccountSettingResponseTypeDef(TypedDict):
+    setting: SettingTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeploymentConfigurationOutputTypeDef(TypedDict):
+    deploymentCircuitBreaker: NotRequired[DeploymentCircuitBreakerTypeDef]
+    maximumPercent: NotRequired[int]
+    minimumHealthyPercent: NotRequired[int]
+    alarms: NotRequired[DeploymentAlarmsOutputTypeDef]
+
+class DeploymentConfigurationTypeDef(TypedDict):
+    deploymentCircuitBreaker: NotRequired[DeploymentCircuitBreakerTypeDef]
+    maximumPercent: NotRequired[int]
+    minimumHealthyPercent: NotRequired[int]
+    alarms: NotRequired[DeploymentAlarmsTypeDef]
+
+class DescribeServicesRequestWaitExtraTypeDef(TypedDict):
+    services: Sequence[str]
+    cluster: NotRequired[str]
+    include: NotRequired[Sequence[Literal["TAGS"]]]
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class DescribeServicesRequestWaitTypeDef(TypedDict):
+    services: Sequence[str]
+    cluster: NotRequired[str]
+    include: NotRequired[Sequence[Literal["TAGS"]]]
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class DescribeTasksRequestWaitExtraTypeDef(TypedDict):
+    tasks: Sequence[str]
+    cluster: NotRequired[str]
+    include: NotRequired[Sequence[Literal["TAGS"]]]
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class DescribeTasksRequestWaitTypeDef(TypedDict):
+    tasks: Sequence[str]
+    cluster: NotRequired[str]
+    include: NotRequired[Sequence[Literal["TAGS"]]]
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+DeviceUnionTypeDef = Union[DeviceTypeDef, DeviceOutputTypeDef]
+DockerVolumeConfigurationUnionTypeDef = Union[
+    DockerVolumeConfigurationTypeDef, DockerVolumeConfigurationOutputTypeDef
+]
+
+class EFSVolumeConfigurationTypeDef(TypedDict):
+    fileSystemId: str
+    rootDirectory: NotRequired[str]
+    transitEncryption: NotRequired[EFSTransitEncryptionType]
+    transitEncryptionPort: NotRequired[int]
+    authorizationConfig: NotRequired[EFSAuthorizationConfigTypeDef]
+
+class ExecuteCommandConfigurationTypeDef(TypedDict):
+    kmsKeyId: NotRequired[str]
+    logging: NotRequired[ExecuteCommandLoggingType]
+    logConfiguration: NotRequired[ExecuteCommandLogConfigurationTypeDef]
+
+class ExecuteCommandResponseTypeDef(TypedDict):
+    clusterArn: str
+    containerArn: str
+    containerName: str
+    interactive: bool
+    session: SessionTypeDef
+    taskArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class FSxWindowsFileServerVolumeConfigurationTypeDef(TypedDict):
+    fileSystemId: str
+    rootDirectory: str
+    authorizationConfig: FSxWindowsFileServerAuthorizationConfigTypeDef
+
+FirelensConfigurationUnionTypeDef = Union[
+    FirelensConfigurationTypeDef, FirelensConfigurationOutputTypeDef
+]
+
+class GetTaskProtectionResponseTypeDef(TypedDict):
+    protectedTasks: List[ProtectedTaskTypeDef]
+    failures: List[FailureTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateTaskProtectionResponseTypeDef(TypedDict):
+    protectedTasks: List[ProtectedTaskTypeDef]
+    failures: List[FailureTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+HealthCheckUnionTypeDef = Union[HealthCheckTypeDef, HealthCheckOutputTypeDef]
+KernelCapabilitiesUnionTypeDef = Union[KernelCapabilitiesTypeDef, KernelCapabilitiesOutputTypeDef]
+
+class LinuxParametersOutputTypeDef(TypedDict):
+    capabilities: NotRequired[KernelCapabilitiesOutputTypeDef]
+    devices: NotRequired[List[DeviceOutputTypeDef]]
+    initProcessEnabled: NotRequired[bool]
+    sharedMemorySize: NotRequired[int]
+    tmpfs: NotRequired[List[TmpfsOutputTypeDef]]
+    maxSwap: NotRequired[int]
+    swappiness: NotRequired[int]
+
+class ListAccountSettingsRequestPaginateTypeDef(TypedDict):
+    name: NotRequired[SettingNameType]
+    value: NotRequired[str]
+    principalArn: NotRequired[str]
+    effectiveSettings: NotRequired[bool]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListAttributesRequestPaginateTypeDef(TypedDict):
+    targetType: Literal["container-instance"]
+    cluster: NotRequired[str]
+    attributeName: NotRequired[str]
+    attributeValue: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListClustersRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+ListContainerInstancesRequestPaginateTypeDef = TypedDict(
+    "ListContainerInstancesRequestPaginateTypeDef",
+    {
+        "cluster": NotRequired[str],
+        "filter": NotRequired[str],
+        "status": NotRequired[ContainerInstanceStatusType],
+        "PaginationConfig": NotRequired[PaginatorConfigTypeDef],
+    },
+)
+
+class ListServicesByNamespaceRequestPaginateTypeDef(TypedDict):
+    namespace: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListServicesRequestPaginateTypeDef(TypedDict):
+    cluster: NotRequired[str]
+    launchType: NotRequired[LaunchTypeType]
+    schedulingStrategy: NotRequired[SchedulingStrategyType]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListTaskDefinitionFamiliesRequestPaginateTypeDef(TypedDict):
+    familyPrefix: NotRequired[str]
+    status: NotRequired[TaskDefinitionFamilyStatusType]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListTaskDefinitionsRequestPaginateTypeDef(TypedDict):
+    familyPrefix: NotRequired[str]
+    status: NotRequired[TaskDefinitionStatusType]
+    sort: NotRequired[SortOrderType]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListTasksRequestPaginateTypeDef(TypedDict):
+    cluster: NotRequired[str]
+    containerInstance: NotRequired[str]
+    family: NotRequired[str]
+    startedBy: NotRequired[str]
+    serviceName: NotRequired[str]
+    desiredStatus: NotRequired[DesiredStatusType]
+    launchType: NotRequired[LaunchTypeType]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListServiceDeploymentsResponseTypeDef(TypedDict):
+    serviceDeployments: List[ServiceDeploymentBriefTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+ResourceUnionTypeDef = Union[ResourceTypeDef, ResourceOutputTypeDef]
+
+class ServiceConnectTlsConfigurationTypeDef(TypedDict):
+    issuerCertificateAuthority: ServiceConnectTlsCertificateAuthorityTypeDef
+    kmsKey: NotRequired[str]
+    roleArn: NotRequired[str]
+
+TmpfsUnionTypeDef = Union[TmpfsTypeDef, TmpfsOutputTypeDef]
+ProxyConfigurationUnionTypeDef = Union[ProxyConfigurationTypeDef, ProxyConfigurationOutputTypeDef]
+
+class CapacityProviderTypeDef(TypedDict):
+    capacityProviderArn: NotRequired[str]
+    name: NotRequired[str]
+    status: NotRequired[CapacityProviderStatusType]
+    autoScalingGroupProvider: NotRequired[AutoScalingGroupProviderTypeDef]
+    updateStatus: NotRequired[CapacityProviderUpdateStatusType]
+    updateStatusReason: NotRequired[str]
+    tags: NotRequired[List[TagTypeDef]]
+
+class CreateCapacityProviderRequestTypeDef(TypedDict):
+    name: str
+    autoScalingGroupProvider: AutoScalingGroupProviderTypeDef
+    tags: NotRequired[Sequence[TagTypeDef]]
+
+class UpdateCapacityProviderRequestTypeDef(TypedDict):
+    name: str
+    autoScalingGroupProvider: AutoScalingGroupProviderUpdateTypeDef
 
 TaskSetTypeDef = TypedDict(
     "TaskSetTypeDef",
     {
-        "id": str,
-        "taskSetArn": str,
-        "serviceArn": str,
-        "clusterArn": str,
-        "startedBy": str,
-        "externalId": str,
-        "status": str,
-        "taskDefinition": str,
-        "computedDesiredCount": int,
-        "pendingCount": int,
-        "runningCount": int,
-        "createdAt": datetime,
-        "updatedAt": datetime,
-        "launchType": LaunchTypeType,
-        "capacityProviderStrategy": List["CapacityProviderStrategyItemTypeDef"],
-        "platformVersion": str,
-        "platformFamily": str,
-        "networkConfiguration": "NetworkConfigurationTypeDef",
-        "loadBalancers": List["LoadBalancerTypeDef"],
-        "serviceRegistries": List["ServiceRegistryTypeDef"],
-        "scale": "ScaleTypeDef",
-        "stabilityStatus": StabilityStatusType,
-        "stabilityStatusAt": datetime,
-        "tags": List["TagTypeDef"],
-        "fargateEphemeralStorage": "DeploymentEphemeralStorageTypeDef",
+        "id": NotRequired[str],
+        "taskSetArn": NotRequired[str],
+        "serviceArn": NotRequired[str],
+        "clusterArn": NotRequired[str],
+        "startedBy": NotRequired[str],
+        "externalId": NotRequired[str],
+        "status": NotRequired[str],
+        "taskDefinition": NotRequired[str],
+        "computedDesiredCount": NotRequired[int],
+        "pendingCount": NotRequired[int],
+        "runningCount": NotRequired[int],
+        "createdAt": NotRequired[datetime],
+        "updatedAt": NotRequired[datetime],
+        "launchType": NotRequired[LaunchTypeType],
+        "capacityProviderStrategy": NotRequired[List[CapacityProviderStrategyItemTypeDef]],
+        "platformVersion": NotRequired[str],
+        "platformFamily": NotRequired[str],
+        "networkConfiguration": NotRequired[NetworkConfigurationOutputTypeDef],
+        "loadBalancers": NotRequired[List[LoadBalancerTypeDef]],
+        "serviceRegistries": NotRequired[List[ServiceRegistryTypeDef]],
+        "scale": NotRequired[ScaleTypeDef],
+        "stabilityStatus": NotRequired[StabilityStatusType],
+        "stabilityStatusAt": NotRequired[datetime],
+        "tags": NotRequired[List[TagTypeDef]],
+        "fargateEphemeralStorage": NotRequired[DeploymentEphemeralStorageTypeDef],
     },
-    total=False,
+)
+NetworkConfigurationUnionTypeDef = Union[
+    NetworkConfigurationTypeDef, NetworkConfigurationOutputTypeDef
+]
+
+class ServiceManagedEBSVolumeConfigurationOutputTypeDef(TypedDict):
+    roleArn: str
+    encrypted: NotRequired[bool]
+    kmsKeyId: NotRequired[str]
+    volumeType: NotRequired[str]
+    sizeInGiB: NotRequired[int]
+    snapshotId: NotRequired[str]
+    iops: NotRequired[int]
+    throughput: NotRequired[int]
+    tagSpecifications: NotRequired[List[EBSTagSpecificationOutputTypeDef]]
+    filesystemType: NotRequired[TaskFilesystemTypeType]
+
+EBSTagSpecificationUnionTypeDef = Union[
+    EBSTagSpecificationTypeDef, EBSTagSpecificationOutputTypeDef
+]
+
+class TaskOverrideOutputTypeDef(TypedDict):
+    containerOverrides: NotRequired[List[ContainerOverrideOutputTypeDef]]
+    cpu: NotRequired[str]
+    inferenceAcceleratorOverrides: NotRequired[List[InferenceAcceleratorOverrideTypeDef]]
+    executionRoleArn: NotRequired[str]
+    memory: NotRequired[str]
+    taskRoleArn: NotRequired[str]
+    ephemeralStorage: NotRequired[EphemeralStorageTypeDef]
+
+class TaskOverrideTypeDef(TypedDict):
+    containerOverrides: NotRequired[Sequence[ContainerOverrideTypeDef]]
+    cpu: NotRequired[str]
+    inferenceAcceleratorOverrides: NotRequired[Sequence[InferenceAcceleratorOverrideTypeDef]]
+    executionRoleArn: NotRequired[str]
+    memory: NotRequired[str]
+    taskRoleArn: NotRequired[str]
+    ephemeralStorage: NotRequired[EphemeralStorageTypeDef]
+
+LogConfigurationUnionTypeDef = Union[LogConfigurationTypeDef, LogConfigurationOutputTypeDef]
+
+class ContainerInstanceTypeDef(TypedDict):
+    containerInstanceArn: NotRequired[str]
+    ec2InstanceId: NotRequired[str]
+    capacityProviderName: NotRequired[str]
+    version: NotRequired[int]
+    versionInfo: NotRequired[VersionInfoTypeDef]
+    remainingResources: NotRequired[List[ResourceOutputTypeDef]]
+    registeredResources: NotRequired[List[ResourceOutputTypeDef]]
+    status: NotRequired[str]
+    statusReason: NotRequired[str]
+    agentConnected: NotRequired[bool]
+    runningTasksCount: NotRequired[int]
+    pendingTasksCount: NotRequired[int]
+    agentUpdateStatus: NotRequired[AgentUpdateStatusType]
+    attributes: NotRequired[List[AttributeTypeDef]]
+    registeredAt: NotRequired[datetime]
+    attachments: NotRequired[List[AttachmentTypeDef]]
+    tags: NotRequired[List[TagTypeDef]]
+    healthStatus: NotRequired[ContainerInstanceHealthStatusTypeDef]
+
+class SubmitTaskStateChangeRequestTypeDef(TypedDict):
+    cluster: NotRequired[str]
+    task: NotRequired[str]
+    status: NotRequired[str]
+    reason: NotRequired[str]
+    containers: NotRequired[Sequence[ContainerStateChangeTypeDef]]
+    attachments: NotRequired[Sequence[AttachmentStateChangeTypeDef]]
+    managedAgents: NotRequired[Sequence[ManagedAgentStateChangeTypeDef]]
+    pullStartedAt: NotRequired[TimestampTypeDef]
+    pullStoppedAt: NotRequired[TimestampTypeDef]
+    executionStoppedAt: NotRequired[TimestampTypeDef]
+
+class ListServiceDeploymentsRequestTypeDef(TypedDict):
+    service: str
+    cluster: NotRequired[str]
+    status: NotRequired[Sequence[ServiceDeploymentStatusType]]
+    createdAt: NotRequired[CreatedAtTypeDef]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class ServiceDeploymentTypeDef(TypedDict):
+    serviceDeploymentArn: NotRequired[str]
+    serviceArn: NotRequired[str]
+    clusterArn: NotRequired[str]
+    createdAt: NotRequired[datetime]
+    startedAt: NotRequired[datetime]
+    finishedAt: NotRequired[datetime]
+    stoppedAt: NotRequired[datetime]
+    updatedAt: NotRequired[datetime]
+    sourceServiceRevisions: NotRequired[List[ServiceRevisionSummaryTypeDef]]
+    targetServiceRevision: NotRequired[ServiceRevisionSummaryTypeDef]
+    status: NotRequired[ServiceDeploymentStatusType]
+    statusReason: NotRequired[str]
+    deploymentConfiguration: NotRequired[DeploymentConfigurationOutputTypeDef]
+    rollback: NotRequired[RollbackTypeDef]
+    deploymentCircuitBreaker: NotRequired[ServiceDeploymentCircuitBreakerTypeDef]
+    alarms: NotRequired[ServiceDeploymentAlarmsTypeDef]
+
+DeploymentConfigurationUnionTypeDef = Union[
+    DeploymentConfigurationTypeDef, DeploymentConfigurationOutputTypeDef
+]
+
+class ClusterConfigurationTypeDef(TypedDict):
+    executeCommandConfiguration: NotRequired[ExecuteCommandConfigurationTypeDef]
+    managedStorageConfiguration: NotRequired[ManagedStorageConfigurationTypeDef]
+
+class VolumeOutputTypeDef(TypedDict):
+    name: NotRequired[str]
+    host: NotRequired[HostVolumePropertiesTypeDef]
+    dockerVolumeConfiguration: NotRequired[DockerVolumeConfigurationOutputTypeDef]
+    efsVolumeConfiguration: NotRequired[EFSVolumeConfigurationTypeDef]
+    fsxWindowsFileServerVolumeConfiguration: NotRequired[
+        FSxWindowsFileServerVolumeConfigurationTypeDef
+    ]
+    configuredAtLaunch: NotRequired[bool]
+
+class VolumeTypeDef(TypedDict):
+    name: NotRequired[str]
+    host: NotRequired[HostVolumePropertiesTypeDef]
+    dockerVolumeConfiguration: NotRequired[DockerVolumeConfigurationUnionTypeDef]
+    efsVolumeConfiguration: NotRequired[EFSVolumeConfigurationTypeDef]
+    fsxWindowsFileServerVolumeConfiguration: NotRequired[
+        FSxWindowsFileServerVolumeConfigurationTypeDef
+    ]
+    configuredAtLaunch: NotRequired[bool]
+
+class ContainerDefinitionOutputTypeDef(TypedDict):
+    name: NotRequired[str]
+    image: NotRequired[str]
+    repositoryCredentials: NotRequired[RepositoryCredentialsTypeDef]
+    cpu: NotRequired[int]
+    memory: NotRequired[int]
+    memoryReservation: NotRequired[int]
+    links: NotRequired[List[str]]
+    portMappings: NotRequired[List[PortMappingTypeDef]]
+    essential: NotRequired[bool]
+    restartPolicy: NotRequired[ContainerRestartPolicyOutputTypeDef]
+    entryPoint: NotRequired[List[str]]
+    command: NotRequired[List[str]]
+    environment: NotRequired[List[KeyValuePairTypeDef]]
+    environmentFiles: NotRequired[List[EnvironmentFileTypeDef]]
+    mountPoints: NotRequired[List[MountPointTypeDef]]
+    volumesFrom: NotRequired[List[VolumeFromTypeDef]]
+    linuxParameters: NotRequired[LinuxParametersOutputTypeDef]
+    secrets: NotRequired[List[SecretTypeDef]]
+    dependsOn: NotRequired[List[ContainerDependencyTypeDef]]
+    startTimeout: NotRequired[int]
+    stopTimeout: NotRequired[int]
+    versionConsistency: NotRequired[VersionConsistencyType]
+    hostname: NotRequired[str]
+    user: NotRequired[str]
+    workingDirectory: NotRequired[str]
+    disableNetworking: NotRequired[bool]
+    privileged: NotRequired[bool]
+    readonlyRootFilesystem: NotRequired[bool]
+    dnsServers: NotRequired[List[str]]
+    dnsSearchDomains: NotRequired[List[str]]
+    extraHosts: NotRequired[List[HostEntryTypeDef]]
+    dockerSecurityOptions: NotRequired[List[str]]
+    interactive: NotRequired[bool]
+    pseudoTerminal: NotRequired[bool]
+    dockerLabels: NotRequired[Dict[str, str]]
+    ulimits: NotRequired[List[UlimitTypeDef]]
+    logConfiguration: NotRequired[LogConfigurationOutputTypeDef]
+    healthCheck: NotRequired[HealthCheckOutputTypeDef]
+    systemControls: NotRequired[List[SystemControlTypeDef]]
+    resourceRequirements: NotRequired[List[ResourceRequirementTypeDef]]
+    firelensConfiguration: NotRequired[FirelensConfigurationOutputTypeDef]
+    credentialSpecs: NotRequired[List[str]]
+
+class RegisterContainerInstanceRequestTypeDef(TypedDict):
+    cluster: NotRequired[str]
+    instanceIdentityDocument: NotRequired[str]
+    instanceIdentityDocumentSignature: NotRequired[str]
+    totalResources: NotRequired[Sequence[ResourceUnionTypeDef]]
+    versionInfo: NotRequired[VersionInfoTypeDef]
+    containerInstanceArn: NotRequired[str]
+    attributes: NotRequired[Sequence[AttributeTypeDef]]
+    platformDevices: NotRequired[Sequence[PlatformDeviceTypeDef]]
+    tags: NotRequired[Sequence[TagTypeDef]]
+
+class ServiceConnectServiceOutputTypeDef(TypedDict):
+    portName: str
+    discoveryName: NotRequired[str]
+    clientAliases: NotRequired[List[ServiceConnectClientAliasTypeDef]]
+    ingressPortOverride: NotRequired[int]
+    timeout: NotRequired[TimeoutConfigurationTypeDef]
+    tls: NotRequired[ServiceConnectTlsConfigurationTypeDef]
+
+class ServiceConnectServiceTypeDef(TypedDict):
+    portName: str
+    discoveryName: NotRequired[str]
+    clientAliases: NotRequired[Sequence[ServiceConnectClientAliasTypeDef]]
+    ingressPortOverride: NotRequired[int]
+    timeout: NotRequired[TimeoutConfigurationTypeDef]
+    tls: NotRequired[ServiceConnectTlsConfigurationTypeDef]
+
+class LinuxParametersTypeDef(TypedDict):
+    capabilities: NotRequired[KernelCapabilitiesUnionTypeDef]
+    devices: NotRequired[Sequence[DeviceUnionTypeDef]]
+    initProcessEnabled: NotRequired[bool]
+    sharedMemorySize: NotRequired[int]
+    tmpfs: NotRequired[Sequence[TmpfsUnionTypeDef]]
+    maxSwap: NotRequired[int]
+    swappiness: NotRequired[int]
+
+class CreateCapacityProviderResponseTypeDef(TypedDict):
+    capacityProvider: CapacityProviderTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteCapacityProviderResponseTypeDef(TypedDict):
+    capacityProvider: CapacityProviderTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeCapacityProvidersResponseTypeDef(TypedDict):
+    capacityProviders: List[CapacityProviderTypeDef]
+    failures: List[FailureTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class UpdateCapacityProviderResponseTypeDef(TypedDict):
+    capacityProvider: CapacityProviderTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateTaskSetResponseTypeDef(TypedDict):
+    taskSet: TaskSetTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteTaskSetResponseTypeDef(TypedDict):
+    taskSet: TaskSetTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeTaskSetsResponseTypeDef(TypedDict):
+    taskSets: List[TaskSetTypeDef]
+    failures: List[FailureTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateServicePrimaryTaskSetResponseTypeDef(TypedDict):
+    taskSet: TaskSetTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateTaskSetResponseTypeDef(TypedDict):
+    taskSet: TaskSetTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateTaskSetRequestTypeDef(TypedDict):
+    service: str
+    cluster: str
+    taskDefinition: str
+    externalId: NotRequired[str]
+    networkConfiguration: NotRequired[NetworkConfigurationUnionTypeDef]
+    loadBalancers: NotRequired[Sequence[LoadBalancerTypeDef]]
+    serviceRegistries: NotRequired[Sequence[ServiceRegistryTypeDef]]
+    launchType: NotRequired[LaunchTypeType]
+    capacityProviderStrategy: NotRequired[Sequence[CapacityProviderStrategyItemTypeDef]]
+    platformVersion: NotRequired[str]
+    scale: NotRequired[ScaleTypeDef]
+    clientToken: NotRequired[str]
+    tags: NotRequired[Sequence[TagTypeDef]]
+
+class ServiceVolumeConfigurationOutputTypeDef(TypedDict):
+    name: str
+    managedEBSVolume: NotRequired[ServiceManagedEBSVolumeConfigurationOutputTypeDef]
+
+class ServiceManagedEBSVolumeConfigurationTypeDef(TypedDict):
+    roleArn: str
+    encrypted: NotRequired[bool]
+    kmsKeyId: NotRequired[str]
+    volumeType: NotRequired[str]
+    sizeInGiB: NotRequired[int]
+    snapshotId: NotRequired[str]
+    iops: NotRequired[int]
+    throughput: NotRequired[int]
+    tagSpecifications: NotRequired[Sequence[EBSTagSpecificationUnionTypeDef]]
+    filesystemType: NotRequired[TaskFilesystemTypeType]
+
+class TaskManagedEBSVolumeConfigurationTypeDef(TypedDict):
+    roleArn: str
+    encrypted: NotRequired[bool]
+    kmsKeyId: NotRequired[str]
+    volumeType: NotRequired[str]
+    sizeInGiB: NotRequired[int]
+    snapshotId: NotRequired[str]
+    iops: NotRequired[int]
+    throughput: NotRequired[int]
+    tagSpecifications: NotRequired[Sequence[EBSTagSpecificationUnionTypeDef]]
+    terminationPolicy: NotRequired[TaskManagedEBSVolumeTerminationPolicyTypeDef]
+    filesystemType: NotRequired[TaskFilesystemTypeType]
+
+class TaskTypeDef(TypedDict):
+    attachments: NotRequired[List[AttachmentTypeDef]]
+    attributes: NotRequired[List[AttributeTypeDef]]
+    availabilityZone: NotRequired[str]
+    capacityProviderName: NotRequired[str]
+    clusterArn: NotRequired[str]
+    connectivity: NotRequired[ConnectivityType]
+    connectivityAt: NotRequired[datetime]
+    containerInstanceArn: NotRequired[str]
+    containers: NotRequired[List[ContainerTypeDef]]
+    cpu: NotRequired[str]
+    createdAt: NotRequired[datetime]
+    desiredStatus: NotRequired[str]
+    enableExecuteCommand: NotRequired[bool]
+    executionStoppedAt: NotRequired[datetime]
+    group: NotRequired[str]
+    healthStatus: NotRequired[HealthStatusType]
+    inferenceAccelerators: NotRequired[List[InferenceAcceleratorTypeDef]]
+    lastStatus: NotRequired[str]
+    launchType: NotRequired[LaunchTypeType]
+    memory: NotRequired[str]
+    overrides: NotRequired[TaskOverrideOutputTypeDef]
+    platformVersion: NotRequired[str]
+    platformFamily: NotRequired[str]
+    pullStartedAt: NotRequired[datetime]
+    pullStoppedAt: NotRequired[datetime]
+    startedAt: NotRequired[datetime]
+    startedBy: NotRequired[str]
+    stopCode: NotRequired[TaskStopCodeType]
+    stoppedAt: NotRequired[datetime]
+    stoppedReason: NotRequired[str]
+    stoppingAt: NotRequired[datetime]
+    tags: NotRequired[List[TagTypeDef]]
+    taskArn: NotRequired[str]
+    taskDefinitionArn: NotRequired[str]
+    version: NotRequired[int]
+    ephemeralStorage: NotRequired[EphemeralStorageTypeDef]
+    fargateEphemeralStorage: NotRequired[TaskEphemeralStorageTypeDef]
+
+TaskOverrideUnionTypeDef = Union[TaskOverrideTypeDef, TaskOverrideOutputTypeDef]
+
+class DeregisterContainerInstanceResponseTypeDef(TypedDict):
+    containerInstance: ContainerInstanceTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeContainerInstancesResponseTypeDef(TypedDict):
+    containerInstances: List[ContainerInstanceTypeDef]
+    failures: List[FailureTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class RegisterContainerInstanceResponseTypeDef(TypedDict):
+    containerInstance: ContainerInstanceTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateContainerAgentResponseTypeDef(TypedDict):
+    containerInstance: ContainerInstanceTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateContainerInstancesStateResponseTypeDef(TypedDict):
+    containerInstances: List[ContainerInstanceTypeDef]
+    failures: List[FailureTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeServiceDeploymentsResponseTypeDef(TypedDict):
+    serviceDeployments: List[ServiceDeploymentTypeDef]
+    failures: List[FailureTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ClusterTypeDef(TypedDict):
+    clusterArn: NotRequired[str]
+    clusterName: NotRequired[str]
+    configuration: NotRequired[ClusterConfigurationTypeDef]
+    status: NotRequired[str]
+    registeredContainerInstancesCount: NotRequired[int]
+    runningTasksCount: NotRequired[int]
+    pendingTasksCount: NotRequired[int]
+    activeServicesCount: NotRequired[int]
+    statistics: NotRequired[List[KeyValuePairTypeDef]]
+    tags: NotRequired[List[TagTypeDef]]
+    settings: NotRequired[List[ClusterSettingTypeDef]]
+    capacityProviders: NotRequired[List[str]]
+    defaultCapacityProviderStrategy: NotRequired[List[CapacityProviderStrategyItemTypeDef]]
+    attachments: NotRequired[List[AttachmentTypeDef]]
+    attachmentsStatus: NotRequired[str]
+    serviceConnectDefaults: NotRequired[ClusterServiceConnectDefaultsTypeDef]
+
+class CreateClusterRequestTypeDef(TypedDict):
+    clusterName: NotRequired[str]
+    tags: NotRequired[Sequence[TagTypeDef]]
+    settings: NotRequired[Sequence[ClusterSettingTypeDef]]
+    configuration: NotRequired[ClusterConfigurationTypeDef]
+    capacityProviders: NotRequired[Sequence[str]]
+    defaultCapacityProviderStrategy: NotRequired[Sequence[CapacityProviderStrategyItemTypeDef]]
+    serviceConnectDefaults: NotRequired[ClusterServiceConnectDefaultsRequestTypeDef]
+
+class UpdateClusterRequestTypeDef(TypedDict):
+    cluster: str
+    settings: NotRequired[Sequence[ClusterSettingTypeDef]]
+    configuration: NotRequired[ClusterConfigurationTypeDef]
+    serviceConnectDefaults: NotRequired[ClusterServiceConnectDefaultsRequestTypeDef]
+
+VolumeUnionTypeDef = Union[VolumeTypeDef, VolumeOutputTypeDef]
+
+class TaskDefinitionTypeDef(TypedDict):
+    taskDefinitionArn: NotRequired[str]
+    containerDefinitions: NotRequired[List[ContainerDefinitionOutputTypeDef]]
+    family: NotRequired[str]
+    taskRoleArn: NotRequired[str]
+    executionRoleArn: NotRequired[str]
+    networkMode: NotRequired[NetworkModeType]
+    revision: NotRequired[int]
+    volumes: NotRequired[List[VolumeOutputTypeDef]]
+    status: NotRequired[TaskDefinitionStatusType]
+    requiresAttributes: NotRequired[List[AttributeTypeDef]]
+    placementConstraints: NotRequired[List[TaskDefinitionPlacementConstraintTypeDef]]
+    compatibilities: NotRequired[List[CompatibilityType]]
+    runtimePlatform: NotRequired[RuntimePlatformTypeDef]
+    requiresCompatibilities: NotRequired[List[CompatibilityType]]
+    cpu: NotRequired[str]
+    memory: NotRequired[str]
+    inferenceAccelerators: NotRequired[List[InferenceAcceleratorTypeDef]]
+    pidMode: NotRequired[PidModeType]
+    ipcMode: NotRequired[IpcModeType]
+    proxyConfiguration: NotRequired[ProxyConfigurationOutputTypeDef]
+    registeredAt: NotRequired[datetime]
+    deregisteredAt: NotRequired[datetime]
+    registeredBy: NotRequired[str]
+    ephemeralStorage: NotRequired[EphemeralStorageTypeDef]
+    enableFaultInjection: NotRequired[bool]
+
+class ServiceConnectConfigurationOutputTypeDef(TypedDict):
+    enabled: bool
+    namespace: NotRequired[str]
+    services: NotRequired[List[ServiceConnectServiceOutputTypeDef]]
+    logConfiguration: NotRequired[LogConfigurationOutputTypeDef]
+
+class ServiceConnectConfigurationTypeDef(TypedDict):
+    enabled: bool
+    namespace: NotRequired[str]
+    services: NotRequired[Sequence[ServiceConnectServiceTypeDef]]
+    logConfiguration: NotRequired[LogConfigurationTypeDef]
+
+LinuxParametersUnionTypeDef = Union[LinuxParametersTypeDef, LinuxParametersOutputTypeDef]
+ServiceManagedEBSVolumeConfigurationUnionTypeDef = Union[
+    ServiceManagedEBSVolumeConfigurationTypeDef, ServiceManagedEBSVolumeConfigurationOutputTypeDef
+]
+
+class TaskVolumeConfigurationTypeDef(TypedDict):
+    name: str
+    managedEBSVolume: NotRequired[TaskManagedEBSVolumeConfigurationTypeDef]
+
+class DescribeTasksResponseTypeDef(TypedDict):
+    tasks: List[TaskTypeDef]
+    failures: List[FailureTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class RunTaskResponseTypeDef(TypedDict):
+    tasks: List[TaskTypeDef]
+    failures: List[FailureTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartTaskResponseTypeDef(TypedDict):
+    tasks: List[TaskTypeDef]
+    failures: List[FailureTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StopTaskResponseTypeDef(TypedDict):
+    task: TaskTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateClusterResponseTypeDef(TypedDict):
+    cluster: ClusterTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteClusterResponseTypeDef(TypedDict):
+    cluster: ClusterTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeClustersResponseTypeDef(TypedDict):
+    clusters: List[ClusterTypeDef]
+    failures: List[FailureTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutClusterCapacityProvidersResponseTypeDef(TypedDict):
+    cluster: ClusterTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateClusterResponseTypeDef(TypedDict):
+    cluster: ClusterTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateClusterSettingsResponseTypeDef(TypedDict):
+    cluster: ClusterTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteTaskDefinitionsResponseTypeDef(TypedDict):
+    taskDefinitions: List[TaskDefinitionTypeDef]
+    failures: List[FailureTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeregisterTaskDefinitionResponseTypeDef(TypedDict):
+    taskDefinition: TaskDefinitionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeTaskDefinitionResponseTypeDef(TypedDict):
+    taskDefinition: TaskDefinitionTypeDef
+    tags: List[TagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class RegisterTaskDefinitionResponseTypeDef(TypedDict):
+    taskDefinition: TaskDefinitionTypeDef
+    tags: List[TagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+DeploymentTypeDef = TypedDict(
+    "DeploymentTypeDef",
+    {
+        "id": NotRequired[str],
+        "status": NotRequired[str],
+        "taskDefinition": NotRequired[str],
+        "desiredCount": NotRequired[int],
+        "pendingCount": NotRequired[int],
+        "runningCount": NotRequired[int],
+        "failedTasks": NotRequired[int],
+        "createdAt": NotRequired[datetime],
+        "updatedAt": NotRequired[datetime],
+        "capacityProviderStrategy": NotRequired[List[CapacityProviderStrategyItemTypeDef]],
+        "launchType": NotRequired[LaunchTypeType],
+        "platformVersion": NotRequired[str],
+        "platformFamily": NotRequired[str],
+        "networkConfiguration": NotRequired[NetworkConfigurationOutputTypeDef],
+        "rolloutState": NotRequired[DeploymentRolloutStateType],
+        "rolloutStateReason": NotRequired[str],
+        "serviceConnectConfiguration": NotRequired[ServiceConnectConfigurationOutputTypeDef],
+        "serviceConnectResources": NotRequired[List[ServiceConnectServiceResourceTypeDef]],
+        "volumeConfigurations": NotRequired[List[ServiceVolumeConfigurationOutputTypeDef]],
+        "fargateEphemeralStorage": NotRequired[DeploymentEphemeralStorageTypeDef],
+        "vpcLatticeConfigurations": NotRequired[List[VpcLatticeConfigurationTypeDef]],
+    },
 )
 
-TaskTypeDef = TypedDict(
-    "TaskTypeDef",
-    {
-        "attachments": List["AttachmentTypeDef"],
-        "attributes": List["AttributeTypeDef"],
-        "availabilityZone": str,
-        "capacityProviderName": str,
-        "clusterArn": str,
-        "connectivity": ConnectivityType,
-        "connectivityAt": datetime,
-        "containerInstanceArn": str,
-        "containers": List["ContainerTypeDef"],
-        "cpu": str,
-        "createdAt": datetime,
-        "desiredStatus": str,
-        "enableExecuteCommand": bool,
-        "executionStoppedAt": datetime,
-        "group": str,
-        "healthStatus": HealthStatusType,
-        "inferenceAccelerators": List["InferenceAcceleratorTypeDef"],
-        "lastStatus": str,
-        "launchType": LaunchTypeType,
-        "memory": str,
-        "overrides": "TaskOverrideTypeDef",
-        "platformVersion": str,
-        "platformFamily": str,
-        "pullStartedAt": datetime,
-        "pullStoppedAt": datetime,
-        "startedAt": datetime,
-        "startedBy": str,
-        "stopCode": TaskStopCodeType,
-        "stoppedAt": datetime,
-        "stoppedReason": str,
-        "stoppingAt": datetime,
-        "tags": List["TagTypeDef"],
-        "taskArn": str,
-        "taskDefinitionArn": str,
-        "version": int,
-        "ephemeralStorage": "EphemeralStorageTypeDef",
-        "fargateEphemeralStorage": "TaskEphemeralStorageTypeDef",
-    },
-    total=False,
-)
+class ServiceRevisionTypeDef(TypedDict):
+    serviceRevisionArn: NotRequired[str]
+    serviceArn: NotRequired[str]
+    clusterArn: NotRequired[str]
+    taskDefinition: NotRequired[str]
+    capacityProviderStrategy: NotRequired[List[CapacityProviderStrategyItemTypeDef]]
+    launchType: NotRequired[LaunchTypeType]
+    platformVersion: NotRequired[str]
+    platformFamily: NotRequired[str]
+    loadBalancers: NotRequired[List[LoadBalancerTypeDef]]
+    serviceRegistries: NotRequired[List[ServiceRegistryTypeDef]]
+    networkConfiguration: NotRequired[NetworkConfigurationOutputTypeDef]
+    containerImages: NotRequired[List[ContainerImageTypeDef]]
+    guardDutyEnabled: NotRequired[bool]
+    serviceConnectConfiguration: NotRequired[ServiceConnectConfigurationOutputTypeDef]
+    volumeConfigurations: NotRequired[List[ServiceVolumeConfigurationOutputTypeDef]]
+    fargateEphemeralStorage: NotRequired[DeploymentEphemeralStorageTypeDef]
+    createdAt: NotRequired[datetime]
+    vpcLatticeConfigurations: NotRequired[List[VpcLatticeConfigurationTypeDef]]
 
-_RequiredTaskVolumeConfigurationTypeDef = TypedDict(
-    "_RequiredTaskVolumeConfigurationTypeDef",
-    {
-        "name": str,
-    },
-)
-_OptionalTaskVolumeConfigurationTypeDef = TypedDict(
-    "_OptionalTaskVolumeConfigurationTypeDef",
-    {
-        "managedEBSVolume": "TaskManagedEBSVolumeConfigurationTypeDef",
-    },
-    total=False,
-)
+ServiceConnectConfigurationUnionTypeDef = Union[
+    ServiceConnectConfigurationTypeDef, ServiceConnectConfigurationOutputTypeDef
+]
 
-class TaskVolumeConfigurationTypeDef(
-    _RequiredTaskVolumeConfigurationTypeDef, _OptionalTaskVolumeConfigurationTypeDef
-):
-    pass
+class ContainerDefinitionTypeDef(TypedDict):
+    name: NotRequired[str]
+    image: NotRequired[str]
+    repositoryCredentials: NotRequired[RepositoryCredentialsTypeDef]
+    cpu: NotRequired[int]
+    memory: NotRequired[int]
+    memoryReservation: NotRequired[int]
+    links: NotRequired[Sequence[str]]
+    portMappings: NotRequired[Sequence[PortMappingTypeDef]]
+    essential: NotRequired[bool]
+    restartPolicy: NotRequired[ContainerRestartPolicyUnionTypeDef]
+    entryPoint: NotRequired[Sequence[str]]
+    command: NotRequired[Sequence[str]]
+    environment: NotRequired[Sequence[KeyValuePairTypeDef]]
+    environmentFiles: NotRequired[Sequence[EnvironmentFileTypeDef]]
+    mountPoints: NotRequired[Sequence[MountPointTypeDef]]
+    volumesFrom: NotRequired[Sequence[VolumeFromTypeDef]]
+    linuxParameters: NotRequired[LinuxParametersUnionTypeDef]
+    secrets: NotRequired[Sequence[SecretTypeDef]]
+    dependsOn: NotRequired[Sequence[ContainerDependencyTypeDef]]
+    startTimeout: NotRequired[int]
+    stopTimeout: NotRequired[int]
+    versionConsistency: NotRequired[VersionConsistencyType]
+    hostname: NotRequired[str]
+    user: NotRequired[str]
+    workingDirectory: NotRequired[str]
+    disableNetworking: NotRequired[bool]
+    privileged: NotRequired[bool]
+    readonlyRootFilesystem: NotRequired[bool]
+    dnsServers: NotRequired[Sequence[str]]
+    dnsSearchDomains: NotRequired[Sequence[str]]
+    extraHosts: NotRequired[Sequence[HostEntryTypeDef]]
+    dockerSecurityOptions: NotRequired[Sequence[str]]
+    interactive: NotRequired[bool]
+    pseudoTerminal: NotRequired[bool]
+    dockerLabels: NotRequired[Mapping[str, str]]
+    ulimits: NotRequired[Sequence[UlimitTypeDef]]
+    logConfiguration: NotRequired[LogConfigurationUnionTypeDef]
+    healthCheck: NotRequired[HealthCheckUnionTypeDef]
+    systemControls: NotRequired[Sequence[SystemControlTypeDef]]
+    resourceRequirements: NotRequired[Sequence[ResourceRequirementTypeDef]]
+    firelensConfiguration: NotRequired[FirelensConfigurationUnionTypeDef]
+    credentialSpecs: NotRequired[Sequence[str]]
 
-TimeoutConfigurationTypeDef = TypedDict(
-    "TimeoutConfigurationTypeDef",
-    {
-        "idleTimeoutSeconds": int,
-        "perRequestTimeoutSeconds": int,
-    },
-    total=False,
-)
+class ServiceVolumeConfigurationTypeDef(TypedDict):
+    name: str
+    managedEBSVolume: NotRequired[ServiceManagedEBSVolumeConfigurationUnionTypeDef]
 
-_RequiredTmpfsTypeDef = TypedDict(
-    "_RequiredTmpfsTypeDef",
-    {
-        "containerPath": str,
-        "size": int,
-    },
-)
-_OptionalTmpfsTypeDef = TypedDict(
-    "_OptionalTmpfsTypeDef",
-    {
-        "mountOptions": List[str],
-    },
-    total=False,
-)
+class RunTaskRequestTypeDef(TypedDict):
+    taskDefinition: str
+    capacityProviderStrategy: NotRequired[Sequence[CapacityProviderStrategyItemTypeDef]]
+    cluster: NotRequired[str]
+    count: NotRequired[int]
+    enableECSManagedTags: NotRequired[bool]
+    enableExecuteCommand: NotRequired[bool]
+    group: NotRequired[str]
+    launchType: NotRequired[LaunchTypeType]
+    networkConfiguration: NotRequired[NetworkConfigurationUnionTypeDef]
+    overrides: NotRequired[TaskOverrideUnionTypeDef]
+    placementConstraints: NotRequired[Sequence[PlacementConstraintTypeDef]]
+    placementStrategy: NotRequired[Sequence[PlacementStrategyTypeDef]]
+    platformVersion: NotRequired[str]
+    propagateTags: NotRequired[PropagateTagsType]
+    referenceId: NotRequired[str]
+    startedBy: NotRequired[str]
+    tags: NotRequired[Sequence[TagTypeDef]]
+    clientToken: NotRequired[str]
+    volumeConfigurations: NotRequired[Sequence[TaskVolumeConfigurationTypeDef]]
 
-class TmpfsTypeDef(_RequiredTmpfsTypeDef, _OptionalTmpfsTypeDef):
-    pass
+class StartTaskRequestTypeDef(TypedDict):
+    containerInstances: Sequence[str]
+    taskDefinition: str
+    cluster: NotRequired[str]
+    enableECSManagedTags: NotRequired[bool]
+    enableExecuteCommand: NotRequired[bool]
+    group: NotRequired[str]
+    networkConfiguration: NotRequired[NetworkConfigurationUnionTypeDef]
+    overrides: NotRequired[TaskOverrideUnionTypeDef]
+    propagateTags: NotRequired[PropagateTagsType]
+    referenceId: NotRequired[str]
+    startedBy: NotRequired[str]
+    tags: NotRequired[Sequence[TagTypeDef]]
+    volumeConfigurations: NotRequired[Sequence[TaskVolumeConfigurationTypeDef]]
 
-UlimitTypeDef = TypedDict(
-    "UlimitTypeDef",
-    {
-        "name": UlimitNameType,
-        "softLimit": int,
-        "hardLimit": int,
-    },
-)
+class ServiceTypeDef(TypedDict):
+    serviceArn: NotRequired[str]
+    serviceName: NotRequired[str]
+    clusterArn: NotRequired[str]
+    loadBalancers: NotRequired[List[LoadBalancerTypeDef]]
+    serviceRegistries: NotRequired[List[ServiceRegistryTypeDef]]
+    status: NotRequired[str]
+    desiredCount: NotRequired[int]
+    runningCount: NotRequired[int]
+    pendingCount: NotRequired[int]
+    launchType: NotRequired[LaunchTypeType]
+    capacityProviderStrategy: NotRequired[List[CapacityProviderStrategyItemTypeDef]]
+    platformVersion: NotRequired[str]
+    platformFamily: NotRequired[str]
+    taskDefinition: NotRequired[str]
+    deploymentConfiguration: NotRequired[DeploymentConfigurationOutputTypeDef]
+    taskSets: NotRequired[List[TaskSetTypeDef]]
+    deployments: NotRequired[List[DeploymentTypeDef]]
+    roleArn: NotRequired[str]
+    events: NotRequired[List[ServiceEventTypeDef]]
+    createdAt: NotRequired[datetime]
+    placementConstraints: NotRequired[List[PlacementConstraintTypeDef]]
+    placementStrategy: NotRequired[List[PlacementStrategyTypeDef]]
+    networkConfiguration: NotRequired[NetworkConfigurationOutputTypeDef]
+    healthCheckGracePeriodSeconds: NotRequired[int]
+    schedulingStrategy: NotRequired[SchedulingStrategyType]
+    deploymentController: NotRequired[DeploymentControllerTypeDef]
+    tags: NotRequired[List[TagTypeDef]]
+    createdBy: NotRequired[str]
+    enableECSManagedTags: NotRequired[bool]
+    propagateTags: NotRequired[PropagateTagsType]
+    enableExecuteCommand: NotRequired[bool]
+    availabilityZoneRebalancing: NotRequired[AvailabilityZoneRebalancingType]
 
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tagKeys": List[str],
-    },
-)
+class DescribeServiceRevisionsResponseTypeDef(TypedDict):
+    serviceRevisions: List[ServiceRevisionTypeDef]
+    failures: List[FailureTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-UpdateCapacityProviderRequestRequestTypeDef = TypedDict(
-    "UpdateCapacityProviderRequestRequestTypeDef",
-    {
-        "name": str,
-        "autoScalingGroupProvider": "AutoScalingGroupProviderUpdateTypeDef",
-    },
-)
+ContainerDefinitionUnionTypeDef = Union[
+    ContainerDefinitionTypeDef, ContainerDefinitionOutputTypeDef
+]
+ServiceVolumeConfigurationUnionTypeDef = Union[
+    ServiceVolumeConfigurationTypeDef, ServiceVolumeConfigurationOutputTypeDef
+]
 
-UpdateCapacityProviderResponseTypeDef = TypedDict(
-    "UpdateCapacityProviderResponseTypeDef",
-    {
-        "capacityProvider": "CapacityProviderTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CreateServiceResponseTypeDef(TypedDict):
+    service: ServiceTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredUpdateClusterRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateClusterRequestRequestTypeDef",
-    {
-        "cluster": str,
-    },
-)
-_OptionalUpdateClusterRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateClusterRequestRequestTypeDef",
-    {
-        "settings": List["ClusterSettingTypeDef"],
-        "configuration": "ClusterConfigurationTypeDef",
-        "serviceConnectDefaults": "ClusterServiceConnectDefaultsRequestTypeDef",
-    },
-    total=False,
-)
+class DeleteServiceResponseTypeDef(TypedDict):
+    service: ServiceTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateClusterRequestRequestTypeDef(
-    _RequiredUpdateClusterRequestRequestTypeDef, _OptionalUpdateClusterRequestRequestTypeDef
-):
-    pass
+class DescribeServicesResponseTypeDef(TypedDict):
+    services: List[ServiceTypeDef]
+    failures: List[FailureTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-UpdateClusterResponseTypeDef = TypedDict(
-    "UpdateClusterResponseTypeDef",
-    {
-        "cluster": "ClusterTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class UpdateServiceResponseTypeDef(TypedDict):
+    service: ServiceTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-UpdateClusterSettingsRequestRequestTypeDef = TypedDict(
-    "UpdateClusterSettingsRequestRequestTypeDef",
-    {
-        "cluster": str,
-        "settings": List["ClusterSettingTypeDef"],
-    },
-)
+class RegisterTaskDefinitionRequestTypeDef(TypedDict):
+    family: str
+    containerDefinitions: Sequence[ContainerDefinitionUnionTypeDef]
+    taskRoleArn: NotRequired[str]
+    executionRoleArn: NotRequired[str]
+    networkMode: NotRequired[NetworkModeType]
+    volumes: NotRequired[Sequence[VolumeUnionTypeDef]]
+    placementConstraints: NotRequired[Sequence[TaskDefinitionPlacementConstraintTypeDef]]
+    requiresCompatibilities: NotRequired[Sequence[CompatibilityType]]
+    cpu: NotRequired[str]
+    memory: NotRequired[str]
+    tags: NotRequired[Sequence[TagTypeDef]]
+    pidMode: NotRequired[PidModeType]
+    ipcMode: NotRequired[IpcModeType]
+    proxyConfiguration: NotRequired[ProxyConfigurationUnionTypeDef]
+    inferenceAccelerators: NotRequired[Sequence[InferenceAcceleratorTypeDef]]
+    ephemeralStorage: NotRequired[EphemeralStorageTypeDef]
+    runtimePlatform: NotRequired[RuntimePlatformTypeDef]
+    enableFaultInjection: NotRequired[bool]
 
-UpdateClusterSettingsResponseTypeDef = TypedDict(
-    "UpdateClusterSettingsResponseTypeDef",
-    {
-        "cluster": "ClusterTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CreateServiceRequestTypeDef(TypedDict):
+    serviceName: str
+    cluster: NotRequired[str]
+    taskDefinition: NotRequired[str]
+    availabilityZoneRebalancing: NotRequired[AvailabilityZoneRebalancingType]
+    loadBalancers: NotRequired[Sequence[LoadBalancerTypeDef]]
+    serviceRegistries: NotRequired[Sequence[ServiceRegistryTypeDef]]
+    desiredCount: NotRequired[int]
+    clientToken: NotRequired[str]
+    launchType: NotRequired[LaunchTypeType]
+    capacityProviderStrategy: NotRequired[Sequence[CapacityProviderStrategyItemTypeDef]]
+    platformVersion: NotRequired[str]
+    role: NotRequired[str]
+    deploymentConfiguration: NotRequired[DeploymentConfigurationUnionTypeDef]
+    placementConstraints: NotRequired[Sequence[PlacementConstraintTypeDef]]
+    placementStrategy: NotRequired[Sequence[PlacementStrategyTypeDef]]
+    networkConfiguration: NotRequired[NetworkConfigurationUnionTypeDef]
+    healthCheckGracePeriodSeconds: NotRequired[int]
+    schedulingStrategy: NotRequired[SchedulingStrategyType]
+    deploymentController: NotRequired[DeploymentControllerTypeDef]
+    tags: NotRequired[Sequence[TagTypeDef]]
+    enableECSManagedTags: NotRequired[bool]
+    propagateTags: NotRequired[PropagateTagsType]
+    enableExecuteCommand: NotRequired[bool]
+    serviceConnectConfiguration: NotRequired[ServiceConnectConfigurationUnionTypeDef]
+    volumeConfigurations: NotRequired[Sequence[ServiceVolumeConfigurationUnionTypeDef]]
+    vpcLatticeConfigurations: NotRequired[Sequence[VpcLatticeConfigurationTypeDef]]
 
-_RequiredUpdateContainerAgentRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateContainerAgentRequestRequestTypeDef",
-    {
-        "containerInstance": str,
-    },
-)
-_OptionalUpdateContainerAgentRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateContainerAgentRequestRequestTypeDef",
-    {
-        "cluster": str,
-    },
-    total=False,
-)
-
-class UpdateContainerAgentRequestRequestTypeDef(
-    _RequiredUpdateContainerAgentRequestRequestTypeDef,
-    _OptionalUpdateContainerAgentRequestRequestTypeDef,
-):
-    pass
-
-UpdateContainerAgentResponseTypeDef = TypedDict(
-    "UpdateContainerAgentResponseTypeDef",
-    {
-        "containerInstance": "ContainerInstanceTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateContainerInstancesStateRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateContainerInstancesStateRequestRequestTypeDef",
-    {
-        "containerInstances": List[str],
-        "status": ContainerInstanceStatusType,
-    },
-)
-_OptionalUpdateContainerInstancesStateRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateContainerInstancesStateRequestRequestTypeDef",
-    {
-        "cluster": str,
-    },
-    total=False,
-)
-
-class UpdateContainerInstancesStateRequestRequestTypeDef(
-    _RequiredUpdateContainerInstancesStateRequestRequestTypeDef,
-    _OptionalUpdateContainerInstancesStateRequestRequestTypeDef,
-):
-    pass
-
-UpdateContainerInstancesStateResponseTypeDef = TypedDict(
-    "UpdateContainerInstancesStateResponseTypeDef",
-    {
-        "containerInstances": List["ContainerInstanceTypeDef"],
-        "failures": List["FailureTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UpdateServicePrimaryTaskSetRequestRequestTypeDef = TypedDict(
-    "UpdateServicePrimaryTaskSetRequestRequestTypeDef",
-    {
-        "cluster": str,
-        "service": str,
-        "primaryTaskSet": str,
-    },
-)
-
-UpdateServicePrimaryTaskSetResponseTypeDef = TypedDict(
-    "UpdateServicePrimaryTaskSetResponseTypeDef",
-    {
-        "taskSet": "TaskSetTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateServiceRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateServiceRequestRequestTypeDef",
-    {
-        "service": str,
-    },
-)
-_OptionalUpdateServiceRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateServiceRequestRequestTypeDef",
-    {
-        "cluster": str,
-        "desiredCount": int,
-        "taskDefinition": str,
-        "capacityProviderStrategy": List["CapacityProviderStrategyItemTypeDef"],
-        "deploymentConfiguration": "DeploymentConfigurationTypeDef",
-        "networkConfiguration": "NetworkConfigurationTypeDef",
-        "placementConstraints": List["PlacementConstraintTypeDef"],
-        "placementStrategy": List["PlacementStrategyTypeDef"],
-        "platformVersion": str,
-        "forceNewDeployment": bool,
-        "healthCheckGracePeriodSeconds": int,
-        "enableExecuteCommand": bool,
-        "enableECSManagedTags": bool,
-        "loadBalancers": List["LoadBalancerTypeDef"],
-        "propagateTags": PropagateTagsType,
-        "serviceRegistries": List["ServiceRegistryTypeDef"],
-        "serviceConnectConfiguration": "ServiceConnectConfigurationTypeDef",
-        "volumeConfigurations": List["ServiceVolumeConfigurationTypeDef"],
-    },
-    total=False,
-)
-
-class UpdateServiceRequestRequestTypeDef(
-    _RequiredUpdateServiceRequestRequestTypeDef, _OptionalUpdateServiceRequestRequestTypeDef
-):
-    pass
-
-UpdateServiceResponseTypeDef = TypedDict(
-    "UpdateServiceResponseTypeDef",
-    {
-        "service": "ServiceTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateTaskProtectionRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateTaskProtectionRequestRequestTypeDef",
-    {
-        "cluster": str,
-        "tasks": List[str],
-        "protectionEnabled": bool,
-    },
-)
-_OptionalUpdateTaskProtectionRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateTaskProtectionRequestRequestTypeDef",
-    {
-        "expiresInMinutes": int,
-    },
-    total=False,
-)
-
-class UpdateTaskProtectionRequestRequestTypeDef(
-    _RequiredUpdateTaskProtectionRequestRequestTypeDef,
-    _OptionalUpdateTaskProtectionRequestRequestTypeDef,
-):
-    pass
-
-UpdateTaskProtectionResponseTypeDef = TypedDict(
-    "UpdateTaskProtectionResponseTypeDef",
-    {
-        "protectedTasks": List["ProtectedTaskTypeDef"],
-        "failures": List["FailureTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UpdateTaskSetRequestRequestTypeDef = TypedDict(
-    "UpdateTaskSetRequestRequestTypeDef",
-    {
-        "cluster": str,
-        "service": str,
-        "taskSet": str,
-        "scale": "ScaleTypeDef",
-    },
-)
-
-UpdateTaskSetResponseTypeDef = TypedDict(
-    "UpdateTaskSetResponseTypeDef",
-    {
-        "taskSet": "TaskSetTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-VersionInfoTypeDef = TypedDict(
-    "VersionInfoTypeDef",
-    {
-        "agentVersion": str,
-        "agentHash": str,
-        "dockerVersion": str,
-    },
-    total=False,
-)
-
-VolumeFromTypeDef = TypedDict(
-    "VolumeFromTypeDef",
-    {
-        "sourceContainer": str,
-        "readOnly": bool,
-    },
-    total=False,
-)
-
-VolumeTypeDef = TypedDict(
-    "VolumeTypeDef",
-    {
-        "name": str,
-        "host": "HostVolumePropertiesTypeDef",
-        "dockerVolumeConfiguration": "DockerVolumeConfigurationTypeDef",
-        "efsVolumeConfiguration": "EFSVolumeConfigurationTypeDef",
-        "fsxWindowsFileServerVolumeConfiguration": "FSxWindowsFileServerVolumeConfigurationTypeDef",
-        "configuredAtLaunch": bool,
-    },
-    total=False,
-)
-
-WaiterConfigTypeDef = TypedDict(
-    "WaiterConfigTypeDef",
-    {
-        "Delay": int,
-        "MaxAttempts": int,
-    },
-    total=False,
-)
+class UpdateServiceRequestTypeDef(TypedDict):
+    service: str
+    cluster: NotRequired[str]
+    desiredCount: NotRequired[int]
+    taskDefinition: NotRequired[str]
+    capacityProviderStrategy: NotRequired[Sequence[CapacityProviderStrategyItemTypeDef]]
+    deploymentConfiguration: NotRequired[DeploymentConfigurationUnionTypeDef]
+    availabilityZoneRebalancing: NotRequired[AvailabilityZoneRebalancingType]
+    networkConfiguration: NotRequired[NetworkConfigurationUnionTypeDef]
+    placementConstraints: NotRequired[Sequence[PlacementConstraintTypeDef]]
+    placementStrategy: NotRequired[Sequence[PlacementStrategyTypeDef]]
+    platformVersion: NotRequired[str]
+    forceNewDeployment: NotRequired[bool]
+    healthCheckGracePeriodSeconds: NotRequired[int]
+    enableExecuteCommand: NotRequired[bool]
+    enableECSManagedTags: NotRequired[bool]
+    loadBalancers: NotRequired[Sequence[LoadBalancerTypeDef]]
+    propagateTags: NotRequired[PropagateTagsType]
+    serviceRegistries: NotRequired[Sequence[ServiceRegistryTypeDef]]
+    serviceConnectConfiguration: NotRequired[ServiceConnectConfigurationUnionTypeDef]
+    volumeConfigurations: NotRequired[Sequence[ServiceVolumeConfigurationUnionTypeDef]]
+    vpcLatticeConfigurations: NotRequired[Sequence[VpcLatticeConfigurationTypeDef]]

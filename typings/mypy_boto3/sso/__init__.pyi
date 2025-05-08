@@ -1,10 +1,14 @@
 """
 Main interface for sso service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sso/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_sso import (
         Client,
         ListAccountRolesPaginator,
@@ -12,10 +16,8 @@ Usage::
         SSOClient,
     )
 
-    session = boto3.Session()
-
-    client: SSOClient = boto3.client("sso")
-    session_client: SSOClient = session.client("sso")
+    session = Session()
+    client: SSOClient = session.client("sso")
 
     list_account_roles_paginator: ListAccountRolesPaginator = client.get_paginator("list_account_roles")
     list_accounts_paginator: ListAccountsPaginator = client.get_paginator("list_accounts")

@@ -1,63 +1,49 @@
 """
 Type annotations for inspector-scan service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector_scan/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_inspector_scan/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_inspector_scan.type_defs import ResponseMetadataTypeDef
 
-    data: ResponseMetadataTypeDef = {...}
+    data: ResponseMetadataTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from typing import Any, Dict
+from typing import Any
 
 from .literals import OutputFormatType
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from collections.abc import Mapping
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, Mapping
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
-__all__ = ("ResponseMetadataTypeDef", "ScanSbomRequestRequestTypeDef", "ScanSbomResponseTypeDef")
+__all__ = ("ResponseMetadataTypeDef", "ScanSbomRequestTypeDef", "ScanSbomResponseTypeDef")
 
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-_RequiredScanSbomRequestRequestTypeDef = TypedDict(
-    "_RequiredScanSbomRequestRequestTypeDef",
-    {
-        "sbom": Dict[str, Any],
-    },
-)
-_OptionalScanSbomRequestRequestTypeDef = TypedDict(
-    "_OptionalScanSbomRequestRequestTypeDef",
-    {
-        "outputFormat": OutputFormatType,
-    },
-    total=False,
-)
+class ScanSbomRequestTypeDef(TypedDict):
+    sbom: Mapping[str, Any]
+    outputFormat: NotRequired[OutputFormatType]
 
-class ScanSbomRequestRequestTypeDef(
-    _RequiredScanSbomRequestRequestTypeDef, _OptionalScanSbomRequestRequestTypeDef
-):
-    pass
-
-ScanSbomResponseTypeDef = TypedDict(
-    "ScanSbomResponseTypeDef",
-    {
-        "sbom": Dict[str, Any],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ScanSbomResponseTypeDef(TypedDict):
+    sbom: Dict[str, Any]
+    ResponseMetadata: ResponseMetadataTypeDef

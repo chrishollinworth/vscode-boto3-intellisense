@@ -1,10 +1,14 @@
 """
 Main interface for elasticache service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_elasticache/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_elasticache import (
         CacheClusterAvailableWaiter,
         CacheClusterDeletedWaiter,
@@ -33,10 +37,8 @@ Usage::
         ReplicationGroupDeletedWaiter,
     )
 
-    session = boto3.Session()
-
-    client: ElastiCacheClient = boto3.client("elasticache")
-    session_client: ElastiCacheClient = session.client("elasticache")
+    session = Session()
+    client: ElastiCacheClient = session.client("elasticache")
 
     cache_cluster_available_waiter: CacheClusterAvailableWaiter = client.get_waiter("cache_cluster_available")
     cache_cluster_deleted_waiter: CacheClusterDeletedWaiter = client.get_waiter("cache_cluster_deleted")
@@ -53,8 +55,8 @@ Usage::
     describe_events_paginator: DescribeEventsPaginator = client.get_paginator("describe_events")
     describe_global_replication_groups_paginator: DescribeGlobalReplicationGroupsPaginator = client.get_paginator("describe_global_replication_groups")
     describe_replication_groups_paginator: DescribeReplicationGroupsPaginator = client.get_paginator("describe_replication_groups")
-    describe_reserved_cache_nodes_paginator: DescribeReservedCacheNodesPaginator = client.get_paginator("describe_reserved_cache_nodes")
     describe_reserved_cache_nodes_offerings_paginator: DescribeReservedCacheNodesOfferingsPaginator = client.get_paginator("describe_reserved_cache_nodes_offerings")
+    describe_reserved_cache_nodes_paginator: DescribeReservedCacheNodesPaginator = client.get_paginator("describe_reserved_cache_nodes")
     describe_serverless_cache_snapshots_paginator: DescribeServerlessCacheSnapshotsPaginator = client.get_paginator("describe_serverless_cache_snapshots")
     describe_serverless_caches_paginator: DescribeServerlessCachesPaginator = client.get_paginator("describe_serverless_caches")
     describe_service_updates_paginator: DescribeServiceUpdatesPaginator = client.get_paginator("describe_service_updates")

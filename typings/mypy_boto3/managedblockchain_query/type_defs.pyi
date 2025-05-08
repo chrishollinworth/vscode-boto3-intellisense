@@ -1,20 +1,24 @@
 """
 Type annotations for managedblockchain-query service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain_query/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain_query/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_managedblockchain_query.type_defs import AddressIdentifierFilterTypeDef
 
-    data: AddressIdentifierFilterTypeDef = {...}
+    data: AddressIdentifierFilterTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List, Union
+from typing import Union
 
 from .literals import (
     ConfirmationStatusType,
@@ -26,44 +30,53 @@ from .literals import (
     SortOrderType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
     "AddressIdentifierFilterTypeDef",
     "AssetContractTypeDef",
     "BatchGetTokenBalanceErrorItemTypeDef",
     "BatchGetTokenBalanceInputItemTypeDef",
-    "BatchGetTokenBalanceInputRequestTypeDef",
+    "BatchGetTokenBalanceInputTypeDef",
     "BatchGetTokenBalanceOutputItemTypeDef",
     "BatchGetTokenBalanceOutputTypeDef",
+    "BlockchainInstantOutputTypeDef",
     "BlockchainInstantTypeDef",
+    "BlockchainInstantUnionTypeDef",
     "ConfirmationStatusFilterTypeDef",
     "ContractFilterTypeDef",
     "ContractIdentifierTypeDef",
     "ContractMetadataTypeDef",
-    "GetAssetContractInputRequestTypeDef",
+    "GetAssetContractInputTypeDef",
     "GetAssetContractOutputTypeDef",
-    "GetTokenBalanceInputRequestTypeDef",
+    "GetTokenBalanceInputTypeDef",
     "GetTokenBalanceOutputTypeDef",
-    "GetTransactionInputRequestTypeDef",
+    "GetTransactionInputTypeDef",
     "GetTransactionOutputTypeDef",
-    "ListAssetContractsInputRequestTypeDef",
+    "ListAssetContractsInputPaginateTypeDef",
+    "ListAssetContractsInputTypeDef",
     "ListAssetContractsOutputTypeDef",
-    "ListFilteredTransactionEventsInputRequestTypeDef",
+    "ListFilteredTransactionEventsInputPaginateTypeDef",
+    "ListFilteredTransactionEventsInputTypeDef",
     "ListFilteredTransactionEventsOutputTypeDef",
     "ListFilteredTransactionEventsSortTypeDef",
-    "ListTokenBalancesInputRequestTypeDef",
+    "ListTokenBalancesInputPaginateTypeDef",
+    "ListTokenBalancesInputTypeDef",
     "ListTokenBalancesOutputTypeDef",
-    "ListTransactionEventsInputRequestTypeDef",
+    "ListTransactionEventsInputPaginateTypeDef",
+    "ListTransactionEventsInputTypeDef",
     "ListTransactionEventsOutputTypeDef",
-    "ListTransactionsInputRequestTypeDef",
+    "ListTransactionsInputPaginateTypeDef",
+    "ListTransactionsInputTypeDef",
     "ListTransactionsOutputTypeDef",
     "ListTransactionsSortTypeDef",
     "OwnerFilterTypeDef",
@@ -71,6 +84,7 @@ __all__ = (
     "PaginatorConfigTypeDef",
     "ResponseMetadataTypeDef",
     "TimeFilterTypeDef",
+    "TimestampTypeDef",
     "TokenBalanceTypeDef",
     "TokenFilterTypeDef",
     "TokenIdentifierTypeDef",
@@ -80,557 +94,53 @@ __all__ = (
     "VoutFilterTypeDef",
 )
 
-AddressIdentifierFilterTypeDef = TypedDict(
-    "AddressIdentifierFilterTypeDef",
-    {
-        "transactionEventToAddress": List[str],
-    },
-)
+class AddressIdentifierFilterTypeDef(TypedDict):
+    transactionEventToAddress: Sequence[str]
 
-AssetContractTypeDef = TypedDict(
-    "AssetContractTypeDef",
-    {
-        "contractIdentifier": "ContractIdentifierTypeDef",
-        "tokenStandard": QueryTokenStandardType,
-        "deployerAddress": str,
-    },
-)
+class ContractIdentifierTypeDef(TypedDict):
+    network: QueryNetworkType
+    contractAddress: str
 
-_RequiredBatchGetTokenBalanceErrorItemTypeDef = TypedDict(
-    "_RequiredBatchGetTokenBalanceErrorItemTypeDef",
-    {
-        "errorCode": str,
-        "errorMessage": str,
-        "errorType": ErrorTypeType,
-    },
-)
-_OptionalBatchGetTokenBalanceErrorItemTypeDef = TypedDict(
-    "_OptionalBatchGetTokenBalanceErrorItemTypeDef",
-    {
-        "tokenIdentifier": "TokenIdentifierTypeDef",
-        "ownerIdentifier": "OwnerIdentifierTypeDef",
-        "atBlockchainInstant": "BlockchainInstantTypeDef",
-    },
-    total=False,
-)
+class BlockchainInstantOutputTypeDef(TypedDict):
+    time: NotRequired[datetime]
 
-class BatchGetTokenBalanceErrorItemTypeDef(
-    _RequiredBatchGetTokenBalanceErrorItemTypeDef, _OptionalBatchGetTokenBalanceErrorItemTypeDef
-):
-    pass
+class OwnerIdentifierTypeDef(TypedDict):
+    address: str
 
-_RequiredBatchGetTokenBalanceInputItemTypeDef = TypedDict(
-    "_RequiredBatchGetTokenBalanceInputItemTypeDef",
-    {
-        "tokenIdentifier": "TokenIdentifierTypeDef",
-        "ownerIdentifier": "OwnerIdentifierTypeDef",
-    },
-)
-_OptionalBatchGetTokenBalanceInputItemTypeDef = TypedDict(
-    "_OptionalBatchGetTokenBalanceInputItemTypeDef",
-    {
-        "atBlockchainInstant": "BlockchainInstantTypeDef",
-    },
-    total=False,
-)
+class TokenIdentifierTypeDef(TypedDict):
+    network: QueryNetworkType
+    contractAddress: NotRequired[str]
+    tokenId: NotRequired[str]
 
-class BatchGetTokenBalanceInputItemTypeDef(
-    _RequiredBatchGetTokenBalanceInputItemTypeDef, _OptionalBatchGetTokenBalanceInputItemTypeDef
-):
-    pass
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-BatchGetTokenBalanceInputRequestTypeDef = TypedDict(
-    "BatchGetTokenBalanceInputRequestTypeDef",
-    {
-        "getTokenBalanceInputs": List["BatchGetTokenBalanceInputItemTypeDef"],
-    },
-    total=False,
-)
+TimestampTypeDef = Union[datetime, str]
 
-_RequiredBatchGetTokenBalanceOutputItemTypeDef = TypedDict(
-    "_RequiredBatchGetTokenBalanceOutputItemTypeDef",
-    {
-        "balance": str,
-        "atBlockchainInstant": "BlockchainInstantTypeDef",
-    },
-)
-_OptionalBatchGetTokenBalanceOutputItemTypeDef = TypedDict(
-    "_OptionalBatchGetTokenBalanceOutputItemTypeDef",
-    {
-        "ownerIdentifier": "OwnerIdentifierTypeDef",
-        "tokenIdentifier": "TokenIdentifierTypeDef",
-        "lastUpdatedTime": "BlockchainInstantTypeDef",
-    },
-    total=False,
-)
+class ConfirmationStatusFilterTypeDef(TypedDict):
+    include: Sequence[ConfirmationStatusType]
 
-class BatchGetTokenBalanceOutputItemTypeDef(
-    _RequiredBatchGetTokenBalanceOutputItemTypeDef, _OptionalBatchGetTokenBalanceOutputItemTypeDef
-):
-    pass
+class ContractFilterTypeDef(TypedDict):
+    network: QueryNetworkType
+    tokenStandard: QueryTokenStandardType
+    deployerAddress: str
 
-BatchGetTokenBalanceOutputTypeDef = TypedDict(
-    "BatchGetTokenBalanceOutputTypeDef",
-    {
-        "tokenBalances": List["BatchGetTokenBalanceOutputItemTypeDef"],
-        "errors": List["BatchGetTokenBalanceErrorItemTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ContractMetadataTypeDef(TypedDict):
+    name: NotRequired[str]
+    symbol: NotRequired[str]
+    decimals: NotRequired[int]
 
-BlockchainInstantTypeDef = TypedDict(
-    "BlockchainInstantTypeDef",
-    {
-        "time": Union[datetime, str],
-    },
-    total=False,
-)
+class GetTransactionInputTypeDef(TypedDict):
+    network: QueryNetworkType
+    transactionHash: NotRequired[str]
+    transactionId: NotRequired[str]
 
-ConfirmationStatusFilterTypeDef = TypedDict(
-    "ConfirmationStatusFilterTypeDef",
-    {
-        "include": List[ConfirmationStatusType],
-    },
-)
-
-ContractFilterTypeDef = TypedDict(
-    "ContractFilterTypeDef",
-    {
-        "network": QueryNetworkType,
-        "tokenStandard": QueryTokenStandardType,
-        "deployerAddress": str,
-    },
-)
-
-ContractIdentifierTypeDef = TypedDict(
-    "ContractIdentifierTypeDef",
-    {
-        "network": QueryNetworkType,
-        "contractAddress": str,
-    },
-)
-
-ContractMetadataTypeDef = TypedDict(
-    "ContractMetadataTypeDef",
-    {
-        "name": str,
-        "symbol": str,
-        "decimals": int,
-    },
-    total=False,
-)
-
-GetAssetContractInputRequestTypeDef = TypedDict(
-    "GetAssetContractInputRequestTypeDef",
-    {
-        "contractIdentifier": "ContractIdentifierTypeDef",
-    },
-)
-
-GetAssetContractOutputTypeDef = TypedDict(
-    "GetAssetContractOutputTypeDef",
-    {
-        "contractIdentifier": "ContractIdentifierTypeDef",
-        "tokenStandard": QueryTokenStandardType,
-        "deployerAddress": str,
-        "metadata": "ContractMetadataTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetTokenBalanceInputRequestTypeDef = TypedDict(
-    "_RequiredGetTokenBalanceInputRequestTypeDef",
-    {
-        "tokenIdentifier": "TokenIdentifierTypeDef",
-        "ownerIdentifier": "OwnerIdentifierTypeDef",
-    },
-)
-_OptionalGetTokenBalanceInputRequestTypeDef = TypedDict(
-    "_OptionalGetTokenBalanceInputRequestTypeDef",
-    {
-        "atBlockchainInstant": "BlockchainInstantTypeDef",
-    },
-    total=False,
-)
-
-class GetTokenBalanceInputRequestTypeDef(
-    _RequiredGetTokenBalanceInputRequestTypeDef, _OptionalGetTokenBalanceInputRequestTypeDef
-):
-    pass
-
-GetTokenBalanceOutputTypeDef = TypedDict(
-    "GetTokenBalanceOutputTypeDef",
-    {
-        "ownerIdentifier": "OwnerIdentifierTypeDef",
-        "tokenIdentifier": "TokenIdentifierTypeDef",
-        "balance": str,
-        "atBlockchainInstant": "BlockchainInstantTypeDef",
-        "lastUpdatedTime": "BlockchainInstantTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetTransactionInputRequestTypeDef = TypedDict(
-    "_RequiredGetTransactionInputRequestTypeDef",
-    {
-        "network": QueryNetworkType,
-    },
-)
-_OptionalGetTransactionInputRequestTypeDef = TypedDict(
-    "_OptionalGetTransactionInputRequestTypeDef",
-    {
-        "transactionHash": str,
-        "transactionId": str,
-    },
-    total=False,
-)
-
-class GetTransactionInputRequestTypeDef(
-    _RequiredGetTransactionInputRequestTypeDef, _OptionalGetTransactionInputRequestTypeDef
-):
-    pass
-
-GetTransactionOutputTypeDef = TypedDict(
-    "GetTransactionOutputTypeDef",
-    {
-        "transaction": "TransactionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListAssetContractsInputRequestTypeDef = TypedDict(
-    "_RequiredListAssetContractsInputRequestTypeDef",
-    {
-        "contractFilter": "ContractFilterTypeDef",
-    },
-)
-_OptionalListAssetContractsInputRequestTypeDef = TypedDict(
-    "_OptionalListAssetContractsInputRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-class ListAssetContractsInputRequestTypeDef(
-    _RequiredListAssetContractsInputRequestTypeDef, _OptionalListAssetContractsInputRequestTypeDef
-):
-    pass
-
-ListAssetContractsOutputTypeDef = TypedDict(
-    "ListAssetContractsOutputTypeDef",
-    {
-        "contracts": List["AssetContractTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListFilteredTransactionEventsInputRequestTypeDef = TypedDict(
-    "_RequiredListFilteredTransactionEventsInputRequestTypeDef",
-    {
-        "network": str,
-        "addressIdentifierFilter": "AddressIdentifierFilterTypeDef",
-    },
-)
-_OptionalListFilteredTransactionEventsInputRequestTypeDef = TypedDict(
-    "_OptionalListFilteredTransactionEventsInputRequestTypeDef",
-    {
-        "timeFilter": "TimeFilterTypeDef",
-        "voutFilter": "VoutFilterTypeDef",
-        "confirmationStatusFilter": "ConfirmationStatusFilterTypeDef",
-        "sort": "ListFilteredTransactionEventsSortTypeDef",
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-class ListFilteredTransactionEventsInputRequestTypeDef(
-    _RequiredListFilteredTransactionEventsInputRequestTypeDef,
-    _OptionalListFilteredTransactionEventsInputRequestTypeDef,
-):
-    pass
-
-ListFilteredTransactionEventsOutputTypeDef = TypedDict(
-    "ListFilteredTransactionEventsOutputTypeDef",
-    {
-        "events": List["TransactionEventTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListFilteredTransactionEventsSortTypeDef = TypedDict(
-    "ListFilteredTransactionEventsSortTypeDef",
-    {
-        "sortBy": Literal["blockchainInstant"],
-        "sortOrder": SortOrderType,
-    },
-    total=False,
-)
-
-_RequiredListTokenBalancesInputRequestTypeDef = TypedDict(
-    "_RequiredListTokenBalancesInputRequestTypeDef",
-    {
-        "tokenFilter": "TokenFilterTypeDef",
-    },
-)
-_OptionalListTokenBalancesInputRequestTypeDef = TypedDict(
-    "_OptionalListTokenBalancesInputRequestTypeDef",
-    {
-        "ownerFilter": "OwnerFilterTypeDef",
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-class ListTokenBalancesInputRequestTypeDef(
-    _RequiredListTokenBalancesInputRequestTypeDef, _OptionalListTokenBalancesInputRequestTypeDef
-):
-    pass
-
-ListTokenBalancesOutputTypeDef = TypedDict(
-    "ListTokenBalancesOutputTypeDef",
-    {
-        "tokenBalances": List["TokenBalanceTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListTransactionEventsInputRequestTypeDef = TypedDict(
-    "_RequiredListTransactionEventsInputRequestTypeDef",
-    {
-        "network": QueryNetworkType,
-    },
-)
-_OptionalListTransactionEventsInputRequestTypeDef = TypedDict(
-    "_OptionalListTransactionEventsInputRequestTypeDef",
-    {
-        "transactionHash": str,
-        "transactionId": str,
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-class ListTransactionEventsInputRequestTypeDef(
-    _RequiredListTransactionEventsInputRequestTypeDef,
-    _OptionalListTransactionEventsInputRequestTypeDef,
-):
-    pass
-
-ListTransactionEventsOutputTypeDef = TypedDict(
-    "ListTransactionEventsOutputTypeDef",
-    {
-        "events": List["TransactionEventTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListTransactionsInputRequestTypeDef = TypedDict(
-    "_RequiredListTransactionsInputRequestTypeDef",
-    {
-        "address": str,
-        "network": QueryNetworkType,
-    },
-)
-_OptionalListTransactionsInputRequestTypeDef = TypedDict(
-    "_OptionalListTransactionsInputRequestTypeDef",
-    {
-        "fromBlockchainInstant": "BlockchainInstantTypeDef",
-        "toBlockchainInstant": "BlockchainInstantTypeDef",
-        "sort": "ListTransactionsSortTypeDef",
-        "nextToken": str,
-        "maxResults": int,
-        "confirmationStatusFilter": "ConfirmationStatusFilterTypeDef",
-    },
-    total=False,
-)
-
-class ListTransactionsInputRequestTypeDef(
-    _RequiredListTransactionsInputRequestTypeDef, _OptionalListTransactionsInputRequestTypeDef
-):
-    pass
-
-ListTransactionsOutputTypeDef = TypedDict(
-    "ListTransactionsOutputTypeDef",
-    {
-        "transactions": List["TransactionOutputItemTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTransactionsSortTypeDef = TypedDict(
-    "ListTransactionsSortTypeDef",
-    {
-        "sortBy": Literal["TRANSACTION_TIMESTAMP"],
-        "sortOrder": SortOrderType,
-    },
-    total=False,
-)
-
-OwnerFilterTypeDef = TypedDict(
-    "OwnerFilterTypeDef",
-    {
-        "address": str,
-    },
-)
-
-OwnerIdentifierTypeDef = TypedDict(
-    "OwnerIdentifierTypeDef",
-    {
-        "address": str,
-    },
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-TimeFilterTypeDef = TypedDict(
-    "TimeFilterTypeDef",
-    {
-        "from": "BlockchainInstantTypeDef",
-        "to": "BlockchainInstantTypeDef",
-    },
-    total=False,
-)
-
-_RequiredTokenBalanceTypeDef = TypedDict(
-    "_RequiredTokenBalanceTypeDef",
-    {
-        "balance": str,
-        "atBlockchainInstant": "BlockchainInstantTypeDef",
-    },
-)
-_OptionalTokenBalanceTypeDef = TypedDict(
-    "_OptionalTokenBalanceTypeDef",
-    {
-        "ownerIdentifier": "OwnerIdentifierTypeDef",
-        "tokenIdentifier": "TokenIdentifierTypeDef",
-        "lastUpdatedTime": "BlockchainInstantTypeDef",
-    },
-    total=False,
-)
-
-class TokenBalanceTypeDef(_RequiredTokenBalanceTypeDef, _OptionalTokenBalanceTypeDef):
-    pass
-
-_RequiredTokenFilterTypeDef = TypedDict(
-    "_RequiredTokenFilterTypeDef",
-    {
-        "network": QueryNetworkType,
-    },
-)
-_OptionalTokenFilterTypeDef = TypedDict(
-    "_OptionalTokenFilterTypeDef",
-    {
-        "contractAddress": str,
-        "tokenId": str,
-    },
-    total=False,
-)
-
-class TokenFilterTypeDef(_RequiredTokenFilterTypeDef, _OptionalTokenFilterTypeDef):
-    pass
-
-_RequiredTokenIdentifierTypeDef = TypedDict(
-    "_RequiredTokenIdentifierTypeDef",
-    {
-        "network": QueryNetworkType,
-    },
-)
-_OptionalTokenIdentifierTypeDef = TypedDict(
-    "_OptionalTokenIdentifierTypeDef",
-    {
-        "contractAddress": str,
-        "tokenId": str,
-    },
-    total=False,
-)
-
-class TokenIdentifierTypeDef(_RequiredTokenIdentifierTypeDef, _OptionalTokenIdentifierTypeDef):
-    pass
-
-_RequiredTransactionEventTypeDef = TypedDict(
-    "_RequiredTransactionEventTypeDef",
-    {
-        "network": QueryNetworkType,
-        "transactionHash": str,
-        "eventType": QueryTransactionEventTypeType,
-    },
-)
-_OptionalTransactionEventTypeDef = TypedDict(
-    "_OptionalTransactionEventTypeDef",
-    {
-        "from": str,
-        "to": str,
-        "value": str,
-        "contractAddress": str,
-        "tokenId": str,
-        "transactionId": str,
-        "voutIndex": int,
-        "voutSpent": bool,
-        "spentVoutTransactionId": str,
-        "spentVoutTransactionHash": str,
-        "spentVoutIndex": int,
-        "blockchainInstant": "BlockchainInstantTypeDef",
-        "confirmationStatus": ConfirmationStatusType,
-    },
-    total=False,
-)
-
-class TransactionEventTypeDef(_RequiredTransactionEventTypeDef, _OptionalTransactionEventTypeDef):
-    pass
-
-_RequiredTransactionOutputItemTypeDef = TypedDict(
-    "_RequiredTransactionOutputItemTypeDef",
-    {
-        "transactionHash": str,
-        "network": QueryNetworkType,
-        "transactionTimestamp": datetime,
-    },
-)
-_OptionalTransactionOutputItemTypeDef = TypedDict(
-    "_OptionalTransactionOutputItemTypeDef",
-    {
-        "transactionId": str,
-        "confirmationStatus": ConfirmationStatusType,
-    },
-    total=False,
-)
-
-class TransactionOutputItemTypeDef(
-    _RequiredTransactionOutputItemTypeDef, _OptionalTransactionOutputItemTypeDef
-):
-    pass
-
-_RequiredTransactionTypeDef = TypedDict(
-    "_RequiredTransactionTypeDef",
+TransactionTypeDef = TypedDict(
+    "TransactionTypeDef",
     {
         "network": QueryNetworkType,
         "transactionHash": str,
@@ -638,35 +148,248 @@ _RequiredTransactionTypeDef = TypedDict(
         "transactionIndex": int,
         "numberOfTransactions": int,
         "to": str,
+        "blockHash": NotRequired[str],
+        "blockNumber": NotRequired[str],
+        "from": NotRequired[str],
+        "contractAddress": NotRequired[str],
+        "gasUsed": NotRequired[str],
+        "cumulativeGasUsed": NotRequired[str],
+        "effectiveGasPrice": NotRequired[str],
+        "signatureV": NotRequired[int],
+        "signatureR": NotRequired[str],
+        "signatureS": NotRequired[str],
+        "transactionFee": NotRequired[str],
+        "transactionId": NotRequired[str],
+        "confirmationStatus": NotRequired[ConfirmationStatusType],
+        "executionStatus": NotRequired[ExecutionStatusType],
     },
-)
-_OptionalTransactionTypeDef = TypedDict(
-    "_OptionalTransactionTypeDef",
-    {
-        "blockHash": str,
-        "blockNumber": str,
-        "from": str,
-        "contractAddress": str,
-        "gasUsed": str,
-        "cumulativeGasUsed": str,
-        "effectiveGasPrice": str,
-        "signatureV": int,
-        "signatureR": str,
-        "signatureS": str,
-        "transactionFee": str,
-        "transactionId": str,
-        "confirmationStatus": ConfirmationStatusType,
-        "executionStatus": ExecutionStatusType,
-    },
-    total=False,
 )
 
-class TransactionTypeDef(_RequiredTransactionTypeDef, _OptionalTransactionTypeDef):
-    pass
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
 
-VoutFilterTypeDef = TypedDict(
-    "VoutFilterTypeDef",
+class ListFilteredTransactionEventsSortTypeDef(TypedDict):
+    sortBy: NotRequired[Literal["blockchainInstant"]]
+    sortOrder: NotRequired[SortOrderType]
+
+class VoutFilterTypeDef(TypedDict):
+    voutSpent: bool
+
+class OwnerFilterTypeDef(TypedDict):
+    address: str
+
+class TokenFilterTypeDef(TypedDict):
+    network: QueryNetworkType
+    contractAddress: NotRequired[str]
+    tokenId: NotRequired[str]
+
+class ListTransactionEventsInputTypeDef(TypedDict):
+    network: QueryNetworkType
+    transactionHash: NotRequired[str]
+    transactionId: NotRequired[str]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class ListTransactionsSortTypeDef(TypedDict):
+    sortBy: NotRequired[Literal["TRANSACTION_TIMESTAMP"]]
+    sortOrder: NotRequired[SortOrderType]
+
+class TransactionOutputItemTypeDef(TypedDict):
+    transactionHash: str
+    network: QueryNetworkType
+    transactionTimestamp: datetime
+    transactionId: NotRequired[str]
+    confirmationStatus: NotRequired[ConfirmationStatusType]
+
+class AssetContractTypeDef(TypedDict):
+    contractIdentifier: ContractIdentifierTypeDef
+    tokenStandard: QueryTokenStandardType
+    deployerAddress: str
+
+class GetAssetContractInputTypeDef(TypedDict):
+    contractIdentifier: ContractIdentifierTypeDef
+
+TransactionEventTypeDef = TypedDict(
+    "TransactionEventTypeDef",
     {
-        "voutSpent": bool,
+        "network": QueryNetworkType,
+        "transactionHash": str,
+        "eventType": QueryTransactionEventTypeType,
+        "from": NotRequired[str],
+        "to": NotRequired[str],
+        "value": NotRequired[str],
+        "contractAddress": NotRequired[str],
+        "tokenId": NotRequired[str],
+        "transactionId": NotRequired[str],
+        "voutIndex": NotRequired[int],
+        "voutSpent": NotRequired[bool],
+        "spentVoutTransactionId": NotRequired[str],
+        "spentVoutTransactionHash": NotRequired[str],
+        "spentVoutIndex": NotRequired[int],
+        "blockchainInstant": NotRequired[BlockchainInstantOutputTypeDef],
+        "confirmationStatus": NotRequired[ConfirmationStatusType],
     },
 )
+
+class BatchGetTokenBalanceErrorItemTypeDef(TypedDict):
+    errorCode: str
+    errorMessage: str
+    errorType: ErrorTypeType
+    tokenIdentifier: NotRequired[TokenIdentifierTypeDef]
+    ownerIdentifier: NotRequired[OwnerIdentifierTypeDef]
+    atBlockchainInstant: NotRequired[BlockchainInstantOutputTypeDef]
+
+class BatchGetTokenBalanceOutputItemTypeDef(TypedDict):
+    balance: str
+    atBlockchainInstant: BlockchainInstantOutputTypeDef
+    ownerIdentifier: NotRequired[OwnerIdentifierTypeDef]
+    tokenIdentifier: NotRequired[TokenIdentifierTypeDef]
+    lastUpdatedTime: NotRequired[BlockchainInstantOutputTypeDef]
+
+class TokenBalanceTypeDef(TypedDict):
+    balance: str
+    atBlockchainInstant: BlockchainInstantOutputTypeDef
+    ownerIdentifier: NotRequired[OwnerIdentifierTypeDef]
+    tokenIdentifier: NotRequired[TokenIdentifierTypeDef]
+    lastUpdatedTime: NotRequired[BlockchainInstantOutputTypeDef]
+
+class GetTokenBalanceOutputTypeDef(TypedDict):
+    ownerIdentifier: OwnerIdentifierTypeDef
+    tokenIdentifier: TokenIdentifierTypeDef
+    balance: str
+    atBlockchainInstant: BlockchainInstantOutputTypeDef
+    lastUpdatedTime: BlockchainInstantOutputTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class BlockchainInstantTypeDef(TypedDict):
+    time: NotRequired[TimestampTypeDef]
+
+class ListAssetContractsInputTypeDef(TypedDict):
+    contractFilter: ContractFilterTypeDef
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class GetAssetContractOutputTypeDef(TypedDict):
+    contractIdentifier: ContractIdentifierTypeDef
+    tokenStandard: QueryTokenStandardType
+    deployerAddress: str
+    metadata: ContractMetadataTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetTransactionOutputTypeDef(TypedDict):
+    transaction: TransactionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListAssetContractsInputPaginateTypeDef(TypedDict):
+    contractFilter: ContractFilterTypeDef
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListTransactionEventsInputPaginateTypeDef(TypedDict):
+    network: QueryNetworkType
+    transactionHash: NotRequired[str]
+    transactionId: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListTokenBalancesInputPaginateTypeDef(TypedDict):
+    tokenFilter: TokenFilterTypeDef
+    ownerFilter: NotRequired[OwnerFilterTypeDef]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListTokenBalancesInputTypeDef(TypedDict):
+    tokenFilter: TokenFilterTypeDef
+    ownerFilter: NotRequired[OwnerFilterTypeDef]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class ListTransactionsOutputTypeDef(TypedDict):
+    transactions: List[TransactionOutputItemTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListAssetContractsOutputTypeDef(TypedDict):
+    contracts: List[AssetContractTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListFilteredTransactionEventsOutputTypeDef(TypedDict):
+    events: List[TransactionEventTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListTransactionEventsOutputTypeDef(TypedDict):
+    events: List[TransactionEventTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class BatchGetTokenBalanceOutputTypeDef(TypedDict):
+    tokenBalances: List[BatchGetTokenBalanceOutputItemTypeDef]
+    errors: List[BatchGetTokenBalanceErrorItemTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListTokenBalancesOutputTypeDef(TypedDict):
+    tokenBalances: List[TokenBalanceTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+BlockchainInstantUnionTypeDef = Union[BlockchainInstantTypeDef, BlockchainInstantOutputTypeDef]
+
+class BatchGetTokenBalanceInputItemTypeDef(TypedDict):
+    tokenIdentifier: TokenIdentifierTypeDef
+    ownerIdentifier: OwnerIdentifierTypeDef
+    atBlockchainInstant: NotRequired[BlockchainInstantUnionTypeDef]
+
+class GetTokenBalanceInputTypeDef(TypedDict):
+    tokenIdentifier: TokenIdentifierTypeDef
+    ownerIdentifier: OwnerIdentifierTypeDef
+    atBlockchainInstant: NotRequired[BlockchainInstantUnionTypeDef]
+
+class ListTransactionsInputPaginateTypeDef(TypedDict):
+    address: str
+    network: QueryNetworkType
+    fromBlockchainInstant: NotRequired[BlockchainInstantUnionTypeDef]
+    toBlockchainInstant: NotRequired[BlockchainInstantUnionTypeDef]
+    sort: NotRequired[ListTransactionsSortTypeDef]
+    confirmationStatusFilter: NotRequired[ConfirmationStatusFilterTypeDef]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListTransactionsInputTypeDef(TypedDict):
+    address: str
+    network: QueryNetworkType
+    fromBlockchainInstant: NotRequired[BlockchainInstantUnionTypeDef]
+    toBlockchainInstant: NotRequired[BlockchainInstantUnionTypeDef]
+    sort: NotRequired[ListTransactionsSortTypeDef]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+    confirmationStatusFilter: NotRequired[ConfirmationStatusFilterTypeDef]
+
+TimeFilterTypeDef = TypedDict(
+    "TimeFilterTypeDef",
+    {
+        "from": NotRequired[BlockchainInstantUnionTypeDef],
+        "to": NotRequired[BlockchainInstantUnionTypeDef],
+    },
+)
+
+class BatchGetTokenBalanceInputTypeDef(TypedDict):
+    getTokenBalanceInputs: NotRequired[Sequence[BatchGetTokenBalanceInputItemTypeDef]]
+
+class ListFilteredTransactionEventsInputPaginateTypeDef(TypedDict):
+    network: str
+    addressIdentifierFilter: AddressIdentifierFilterTypeDef
+    timeFilter: NotRequired[TimeFilterTypeDef]
+    voutFilter: NotRequired[VoutFilterTypeDef]
+    confirmationStatusFilter: NotRequired[ConfirmationStatusFilterTypeDef]
+    sort: NotRequired[ListFilteredTransactionEventsSortTypeDef]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListFilteredTransactionEventsInputTypeDef(TypedDict):
+    network: str
+    addressIdentifierFilter: AddressIdentifierFilterTypeDef
+    timeFilter: NotRequired[TimeFilterTypeDef]
+    voutFilter: NotRequired[VoutFilterTypeDef]
+    confirmationStatusFilter: NotRequired[ConfirmationStatusFilterTypeDef]
+    sort: NotRequired[ListFilteredTransactionEventsSortTypeDef]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]

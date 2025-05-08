@@ -1,10 +1,14 @@
 """
 Main interface for lexv2-models service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lexv2_models/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_lexv2_models import (
         BotAliasAvailableWaiter,
         BotAvailableWaiter,
@@ -18,10 +22,8 @@ Usage::
         LexModelsV2Client,
     )
 
-    session = boto3.Session()
-
-    client: LexModelsV2Client = boto3.client("lexv2-models")
-    session_client: LexModelsV2Client = session.client("lexv2-models")
+    session = Session()
+    client: LexModelsV2Client = session.client("lexv2-models")
 
     bot_alias_available_waiter: BotAliasAvailableWaiter = client.get_waiter("bot_alias_available")
     bot_available_waiter: BotAvailableWaiter = client.get_waiter("bot_available")

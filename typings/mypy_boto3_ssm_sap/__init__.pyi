@@ -1,10 +1,14 @@
 """
 Main interface for ssm-sap service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm_sap/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_ssm_sap import (
         Client,
         ListApplicationsPaginator,
@@ -15,10 +19,8 @@ Usage::
         SsmSapClient,
     )
 
-    session = boto3.Session()
-
-    client: SsmSapClient = boto3.client("ssm-sap")
-    session_client: SsmSapClient = session.client("ssm-sap")
+    session = Session()
+    client: SsmSapClient = session.client("ssm-sap")
 
     list_applications_paginator: ListApplicationsPaginator = client.get_paginator("list_applications")
     list_components_paginator: ListComponentsPaginator = client.get_paginator("list_components")

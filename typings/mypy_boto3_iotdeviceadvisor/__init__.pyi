@@ -1,19 +1,21 @@
 """
 Main interface for iotdeviceadvisor service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotdeviceadvisor/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_iotdeviceadvisor import (
         Client,
         IoTDeviceAdvisorClient,
     )
 
-    session = boto3.Session()
-
-    client: IoTDeviceAdvisorClient = boto3.client("iotdeviceadvisor")
-    session_client: IoTDeviceAdvisorClient = session.client("iotdeviceadvisor")
+    session = Session()
+    client: IoTDeviceAdvisorClient = session.client("iotdeviceadvisor")
     ```
 """
 

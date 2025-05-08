@@ -1,20 +1,24 @@
 """
 Type annotations for application-insights service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_application_insights/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_application_insights/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_application_insights.type_defs import AddWorkloadRequestRequestTypeDef
+    from mypy_boto3_application_insights.type_defs import WorkloadConfigurationTypeDef
 
-    data: AddWorkloadRequestRequestTypeDef = {...}
+    data: WorkloadConfigurationTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List, Union
+from typing import Union
 
 from .literals import (
     CloudWatchEventSourceType,
@@ -32,184 +36,143 @@ from .literals import (
     VisibilityType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
-    "AddWorkloadRequestRequestTypeDef",
+    "AddWorkloadRequestTypeDef",
     "AddWorkloadResponseTypeDef",
     "ApplicationComponentTypeDef",
     "ApplicationInfoTypeDef",
     "ConfigurationEventTypeDef",
-    "CreateApplicationRequestRequestTypeDef",
+    "CreateApplicationRequestTypeDef",
     "CreateApplicationResponseTypeDef",
-    "CreateComponentRequestRequestTypeDef",
-    "CreateLogPatternRequestRequestTypeDef",
+    "CreateComponentRequestTypeDef",
+    "CreateLogPatternRequestTypeDef",
     "CreateLogPatternResponseTypeDef",
-    "DeleteApplicationRequestRequestTypeDef",
-    "DeleteComponentRequestRequestTypeDef",
-    "DeleteLogPatternRequestRequestTypeDef",
-    "DescribeApplicationRequestRequestTypeDef",
+    "DeleteApplicationRequestTypeDef",
+    "DeleteComponentRequestTypeDef",
+    "DeleteLogPatternRequestTypeDef",
+    "DescribeApplicationRequestTypeDef",
     "DescribeApplicationResponseTypeDef",
-    "DescribeComponentConfigurationRecommendationRequestRequestTypeDef",
+    "DescribeComponentConfigurationRecommendationRequestTypeDef",
     "DescribeComponentConfigurationRecommendationResponseTypeDef",
-    "DescribeComponentConfigurationRequestRequestTypeDef",
+    "DescribeComponentConfigurationRequestTypeDef",
     "DescribeComponentConfigurationResponseTypeDef",
-    "DescribeComponentRequestRequestTypeDef",
+    "DescribeComponentRequestTypeDef",
     "DescribeComponentResponseTypeDef",
-    "DescribeLogPatternRequestRequestTypeDef",
+    "DescribeLogPatternRequestTypeDef",
     "DescribeLogPatternResponseTypeDef",
-    "DescribeObservationRequestRequestTypeDef",
+    "DescribeObservationRequestTypeDef",
     "DescribeObservationResponseTypeDef",
-    "DescribeProblemObservationsRequestRequestTypeDef",
+    "DescribeProblemObservationsRequestTypeDef",
     "DescribeProblemObservationsResponseTypeDef",
-    "DescribeProblemRequestRequestTypeDef",
+    "DescribeProblemRequestTypeDef",
     "DescribeProblemResponseTypeDef",
-    "DescribeWorkloadRequestRequestTypeDef",
+    "DescribeWorkloadRequestTypeDef",
     "DescribeWorkloadResponseTypeDef",
-    "ListApplicationsRequestRequestTypeDef",
+    "ListApplicationsRequestTypeDef",
     "ListApplicationsResponseTypeDef",
-    "ListComponentsRequestRequestTypeDef",
+    "ListComponentsRequestTypeDef",
     "ListComponentsResponseTypeDef",
-    "ListConfigurationHistoryRequestRequestTypeDef",
+    "ListConfigurationHistoryRequestTypeDef",
     "ListConfigurationHistoryResponseTypeDef",
-    "ListLogPatternSetsRequestRequestTypeDef",
+    "ListLogPatternSetsRequestTypeDef",
     "ListLogPatternSetsResponseTypeDef",
-    "ListLogPatternsRequestRequestTypeDef",
+    "ListLogPatternsRequestTypeDef",
     "ListLogPatternsResponseTypeDef",
-    "ListProblemsRequestRequestTypeDef",
+    "ListProblemsRequestTypeDef",
     "ListProblemsResponseTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
-    "ListWorkloadsRequestRequestTypeDef",
+    "ListWorkloadsRequestTypeDef",
     "ListWorkloadsResponseTypeDef",
     "LogPatternTypeDef",
     "ObservationTypeDef",
     "ProblemTypeDef",
     "RelatedObservationsTypeDef",
-    "RemoveWorkloadRequestRequestTypeDef",
+    "RemoveWorkloadRequestTypeDef",
     "ResponseMetadataTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
     "TagTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateApplicationRequestRequestTypeDef",
+    "TimestampTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateApplicationRequestTypeDef",
     "UpdateApplicationResponseTypeDef",
-    "UpdateComponentConfigurationRequestRequestTypeDef",
-    "UpdateComponentRequestRequestTypeDef",
-    "UpdateLogPatternRequestRequestTypeDef",
+    "UpdateComponentConfigurationRequestTypeDef",
+    "UpdateComponentRequestTypeDef",
+    "UpdateLogPatternRequestTypeDef",
     "UpdateLogPatternResponseTypeDef",
-    "UpdateProblemRequestRequestTypeDef",
-    "UpdateWorkloadRequestRequestTypeDef",
+    "UpdateProblemRequestTypeDef",
+    "UpdateWorkloadRequestTypeDef",
     "UpdateWorkloadResponseTypeDef",
     "WorkloadConfigurationTypeDef",
     "WorkloadTypeDef",
 )
 
-AddWorkloadRequestRequestTypeDef = TypedDict(
-    "AddWorkloadRequestRequestTypeDef",
-    {
-        "ResourceGroupName": str,
-        "ComponentName": str,
-        "WorkloadConfiguration": "WorkloadConfigurationTypeDef",
-    },
-)
+class WorkloadConfigurationTypeDef(TypedDict):
+    WorkloadName: NotRequired[str]
+    Tier: NotRequired[TierType]
+    Configuration: NotRequired[str]
 
-AddWorkloadResponseTypeDef = TypedDict(
-    "AddWorkloadResponseTypeDef",
-    {
-        "WorkloadId": str,
-        "WorkloadConfiguration": "WorkloadConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-ApplicationComponentTypeDef = TypedDict(
-    "ApplicationComponentTypeDef",
-    {
-        "ComponentName": str,
-        "ComponentRemarks": str,
-        "ResourceType": str,
-        "OsType": OsTypeType,
-        "Tier": TierType,
-        "Monitor": bool,
-        "DetectedWorkload": Dict[TierType, Dict[str, str]],
-    },
-    total=False,
-)
+class ApplicationComponentTypeDef(TypedDict):
+    ComponentName: NotRequired[str]
+    ComponentRemarks: NotRequired[str]
+    ResourceType: NotRequired[str]
+    OsType: NotRequired[OsTypeType]
+    Tier: NotRequired[TierType]
+    Monitor: NotRequired[bool]
+    DetectedWorkload: NotRequired[Dict[TierType, Dict[str, str]]]
 
-ApplicationInfoTypeDef = TypedDict(
-    "ApplicationInfoTypeDef",
-    {
-        "AccountId": str,
-        "ResourceGroupName": str,
-        "LifeCycle": str,
-        "OpsItemSNSTopicArn": str,
-        "OpsCenterEnabled": bool,
-        "CWEMonitorEnabled": bool,
-        "Remarks": str,
-        "AutoConfigEnabled": bool,
-        "DiscoveryType": DiscoveryTypeType,
-        "AttachMissingPermission": bool,
-    },
-    total=False,
-)
+class ApplicationInfoTypeDef(TypedDict):
+    AccountId: NotRequired[str]
+    ResourceGroupName: NotRequired[str]
+    LifeCycle: NotRequired[str]
+    OpsItemSNSTopicArn: NotRequired[str]
+    SNSNotificationArn: NotRequired[str]
+    OpsCenterEnabled: NotRequired[bool]
+    CWEMonitorEnabled: NotRequired[bool]
+    Remarks: NotRequired[str]
+    AutoConfigEnabled: NotRequired[bool]
+    DiscoveryType: NotRequired[DiscoveryTypeType]
+    AttachMissingPermission: NotRequired[bool]
 
-ConfigurationEventTypeDef = TypedDict(
-    "ConfigurationEventTypeDef",
-    {
-        "ResourceGroupName": str,
-        "AccountId": str,
-        "MonitoredResourceARN": str,
-        "EventStatus": ConfigurationEventStatusType,
-        "EventResourceType": ConfigurationEventResourceTypeType,
-        "EventTime": datetime,
-        "EventDetail": str,
-        "EventResourceName": str,
-    },
-    total=False,
-)
+class ConfigurationEventTypeDef(TypedDict):
+    ResourceGroupName: NotRequired[str]
+    AccountId: NotRequired[str]
+    MonitoredResourceARN: NotRequired[str]
+    EventStatus: NotRequired[ConfigurationEventStatusType]
+    EventResourceType: NotRequired[ConfigurationEventResourceTypeType]
+    EventTime: NotRequired[datetime]
+    EventDetail: NotRequired[str]
+    EventResourceName: NotRequired[str]
 
-CreateApplicationRequestRequestTypeDef = TypedDict(
-    "CreateApplicationRequestRequestTypeDef",
-    {
-        "ResourceGroupName": str,
-        "OpsCenterEnabled": bool,
-        "CWEMonitorEnabled": bool,
-        "OpsItemSNSTopicArn": str,
-        "Tags": List["TagTypeDef"],
-        "AutoConfigEnabled": bool,
-        "AutoCreate": bool,
-        "GroupingType": Literal["ACCOUNT_BASED"],
-        "AttachMissingPermission": bool,
-    },
-    total=False,
-)
+class TagTypeDef(TypedDict):
+    Key: str
+    Value: str
 
-CreateApplicationResponseTypeDef = TypedDict(
-    "CreateApplicationResponseTypeDef",
-    {
-        "ApplicationInfo": "ApplicationInfoTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CreateComponentRequestTypeDef(TypedDict):
+    ResourceGroupName: str
+    ComponentName: str
+    ResourceList: Sequence[str]
 
-CreateComponentRequestRequestTypeDef = TypedDict(
-    "CreateComponentRequestRequestTypeDef",
-    {
-        "ResourceGroupName": str,
-        "ComponentName": str,
-        "ResourceList": List[str],
-    },
-)
-
-CreateLogPatternRequestRequestTypeDef = TypedDict(
-    "CreateLogPatternRequestRequestTypeDef",
+CreateLogPatternRequestTypeDef = TypedDict(
+    "CreateLogPatternRequestTypeDef",
     {
         "ResourceGroupName": str,
         "PatternSetName": str,
@@ -218,828 +181,393 @@ CreateLogPatternRequestRequestTypeDef = TypedDict(
         "Rank": int,
     },
 )
-
-CreateLogPatternResponseTypeDef = TypedDict(
-    "CreateLogPatternResponseTypeDef",
-    {
-        "LogPattern": "LogPatternTypeDef",
-        "ResourceGroupName": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteApplicationRequestRequestTypeDef = TypedDict(
-    "DeleteApplicationRequestRequestTypeDef",
-    {
-        "ResourceGroupName": str,
-    },
-)
-
-DeleteComponentRequestRequestTypeDef = TypedDict(
-    "DeleteComponentRequestRequestTypeDef",
-    {
-        "ResourceGroupName": str,
-        "ComponentName": str,
-    },
-)
-
-DeleteLogPatternRequestRequestTypeDef = TypedDict(
-    "DeleteLogPatternRequestRequestTypeDef",
-    {
-        "ResourceGroupName": str,
-        "PatternSetName": str,
-        "PatternName": str,
-    },
-)
-
-_RequiredDescribeApplicationRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeApplicationRequestRequestTypeDef",
-    {
-        "ResourceGroupName": str,
-    },
-)
-_OptionalDescribeApplicationRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeApplicationRequestRequestTypeDef",
-    {
-        "AccountId": str,
-    },
-    total=False,
-)
-
-class DescribeApplicationRequestRequestTypeDef(
-    _RequiredDescribeApplicationRequestRequestTypeDef,
-    _OptionalDescribeApplicationRequestRequestTypeDef,
-):
-    pass
-
-DescribeApplicationResponseTypeDef = TypedDict(
-    "DescribeApplicationResponseTypeDef",
-    {
-        "ApplicationInfo": "ApplicationInfoTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribeComponentConfigurationRecommendationRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeComponentConfigurationRecommendationRequestRequestTypeDef",
-    {
-        "ResourceGroupName": str,
-        "ComponentName": str,
-        "Tier": TierType,
-    },
-)
-_OptionalDescribeComponentConfigurationRecommendationRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeComponentConfigurationRecommendationRequestRequestTypeDef",
-    {
-        "WorkloadName": str,
-        "RecommendationType": RecommendationTypeType,
-    },
-    total=False,
-)
-
-class DescribeComponentConfigurationRecommendationRequestRequestTypeDef(
-    _RequiredDescribeComponentConfigurationRecommendationRequestRequestTypeDef,
-    _OptionalDescribeComponentConfigurationRecommendationRequestRequestTypeDef,
-):
-    pass
-
-DescribeComponentConfigurationRecommendationResponseTypeDef = TypedDict(
-    "DescribeComponentConfigurationRecommendationResponseTypeDef",
-    {
-        "ComponentConfiguration": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribeComponentConfigurationRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeComponentConfigurationRequestRequestTypeDef",
-    {
-        "ResourceGroupName": str,
-        "ComponentName": str,
-    },
-)
-_OptionalDescribeComponentConfigurationRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeComponentConfigurationRequestRequestTypeDef",
-    {
-        "AccountId": str,
-    },
-    total=False,
-)
-
-class DescribeComponentConfigurationRequestRequestTypeDef(
-    _RequiredDescribeComponentConfigurationRequestRequestTypeDef,
-    _OptionalDescribeComponentConfigurationRequestRequestTypeDef,
-):
-    pass
-
-DescribeComponentConfigurationResponseTypeDef = TypedDict(
-    "DescribeComponentConfigurationResponseTypeDef",
-    {
-        "Monitor": bool,
-        "Tier": TierType,
-        "ComponentConfiguration": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribeComponentRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeComponentRequestRequestTypeDef",
-    {
-        "ResourceGroupName": str,
-        "ComponentName": str,
-    },
-)
-_OptionalDescribeComponentRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeComponentRequestRequestTypeDef",
-    {
-        "AccountId": str,
-    },
-    total=False,
-)
-
-class DescribeComponentRequestRequestTypeDef(
-    _RequiredDescribeComponentRequestRequestTypeDef, _OptionalDescribeComponentRequestRequestTypeDef
-):
-    pass
-
-DescribeComponentResponseTypeDef = TypedDict(
-    "DescribeComponentResponseTypeDef",
-    {
-        "ApplicationComponent": "ApplicationComponentTypeDef",
-        "ResourceList": List[str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribeLogPatternRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeLogPatternRequestRequestTypeDef",
-    {
-        "ResourceGroupName": str,
-        "PatternSetName": str,
-        "PatternName": str,
-    },
-)
-_OptionalDescribeLogPatternRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeLogPatternRequestRequestTypeDef",
-    {
-        "AccountId": str,
-    },
-    total=False,
-)
-
-class DescribeLogPatternRequestRequestTypeDef(
-    _RequiredDescribeLogPatternRequestRequestTypeDef,
-    _OptionalDescribeLogPatternRequestRequestTypeDef,
-):
-    pass
-
-DescribeLogPatternResponseTypeDef = TypedDict(
-    "DescribeLogPatternResponseTypeDef",
-    {
-        "ResourceGroupName": str,
-        "AccountId": str,
-        "LogPattern": "LogPatternTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribeObservationRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeObservationRequestRequestTypeDef",
-    {
-        "ObservationId": str,
-    },
-)
-_OptionalDescribeObservationRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeObservationRequestRequestTypeDef",
-    {
-        "AccountId": str,
-    },
-    total=False,
-)
-
-class DescribeObservationRequestRequestTypeDef(
-    _RequiredDescribeObservationRequestRequestTypeDef,
-    _OptionalDescribeObservationRequestRequestTypeDef,
-):
-    pass
-
-DescribeObservationResponseTypeDef = TypedDict(
-    "DescribeObservationResponseTypeDef",
-    {
-        "Observation": "ObservationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribeProblemObservationsRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeProblemObservationsRequestRequestTypeDef",
-    {
-        "ProblemId": str,
-    },
-)
-_OptionalDescribeProblemObservationsRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeProblemObservationsRequestRequestTypeDef",
-    {
-        "AccountId": str,
-    },
-    total=False,
-)
-
-class DescribeProblemObservationsRequestRequestTypeDef(
-    _RequiredDescribeProblemObservationsRequestRequestTypeDef,
-    _OptionalDescribeProblemObservationsRequestRequestTypeDef,
-):
-    pass
-
-DescribeProblemObservationsResponseTypeDef = TypedDict(
-    "DescribeProblemObservationsResponseTypeDef",
-    {
-        "RelatedObservations": "RelatedObservationsTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribeProblemRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeProblemRequestRequestTypeDef",
-    {
-        "ProblemId": str,
-    },
-)
-_OptionalDescribeProblemRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeProblemRequestRequestTypeDef",
-    {
-        "AccountId": str,
-    },
-    total=False,
-)
-
-class DescribeProblemRequestRequestTypeDef(
-    _RequiredDescribeProblemRequestRequestTypeDef, _OptionalDescribeProblemRequestRequestTypeDef
-):
-    pass
-
-DescribeProblemResponseTypeDef = TypedDict(
-    "DescribeProblemResponseTypeDef",
-    {
-        "Problem": "ProblemTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribeWorkloadRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeWorkloadRequestRequestTypeDef",
-    {
-        "ResourceGroupName": str,
-        "ComponentName": str,
-        "WorkloadId": str,
-    },
-)
-_OptionalDescribeWorkloadRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeWorkloadRequestRequestTypeDef",
-    {
-        "AccountId": str,
-    },
-    total=False,
-)
-
-class DescribeWorkloadRequestRequestTypeDef(
-    _RequiredDescribeWorkloadRequestRequestTypeDef, _OptionalDescribeWorkloadRequestRequestTypeDef
-):
-    pass
-
-DescribeWorkloadResponseTypeDef = TypedDict(
-    "DescribeWorkloadResponseTypeDef",
-    {
-        "WorkloadId": str,
-        "WorkloadRemarks": str,
-        "WorkloadConfiguration": "WorkloadConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListApplicationsRequestRequestTypeDef = TypedDict(
-    "ListApplicationsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-        "AccountId": str,
-    },
-    total=False,
-)
-
-ListApplicationsResponseTypeDef = TypedDict(
-    "ListApplicationsResponseTypeDef",
-    {
-        "ApplicationInfoList": List["ApplicationInfoTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListComponentsRequestRequestTypeDef = TypedDict(
-    "_RequiredListComponentsRequestRequestTypeDef",
-    {
-        "ResourceGroupName": str,
-    },
-)
-_OptionalListComponentsRequestRequestTypeDef = TypedDict(
-    "_OptionalListComponentsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-        "AccountId": str,
-    },
-    total=False,
-)
-
-class ListComponentsRequestRequestTypeDef(
-    _RequiredListComponentsRequestRequestTypeDef, _OptionalListComponentsRequestRequestTypeDef
-):
-    pass
-
-ListComponentsResponseTypeDef = TypedDict(
-    "ListComponentsResponseTypeDef",
-    {
-        "ApplicationComponentList": List["ApplicationComponentTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListConfigurationHistoryRequestRequestTypeDef = TypedDict(
-    "ListConfigurationHistoryRequestRequestTypeDef",
-    {
-        "ResourceGroupName": str,
-        "StartTime": Union[datetime, str],
-        "EndTime": Union[datetime, str],
-        "EventStatus": ConfigurationEventStatusType,
-        "MaxResults": int,
-        "NextToken": str,
-        "AccountId": str,
-    },
-    total=False,
-)
-
-ListConfigurationHistoryResponseTypeDef = TypedDict(
-    "ListConfigurationHistoryResponseTypeDef",
-    {
-        "EventList": List["ConfigurationEventTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListLogPatternSetsRequestRequestTypeDef = TypedDict(
-    "_RequiredListLogPatternSetsRequestRequestTypeDef",
-    {
-        "ResourceGroupName": str,
-    },
-)
-_OptionalListLogPatternSetsRequestRequestTypeDef = TypedDict(
-    "_OptionalListLogPatternSetsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-        "AccountId": str,
-    },
-    total=False,
-)
-
-class ListLogPatternSetsRequestRequestTypeDef(
-    _RequiredListLogPatternSetsRequestRequestTypeDef,
-    _OptionalListLogPatternSetsRequestRequestTypeDef,
-):
-    pass
-
-ListLogPatternSetsResponseTypeDef = TypedDict(
-    "ListLogPatternSetsResponseTypeDef",
-    {
-        "ResourceGroupName": str,
-        "AccountId": str,
-        "LogPatternSets": List[str],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListLogPatternsRequestRequestTypeDef = TypedDict(
-    "_RequiredListLogPatternsRequestRequestTypeDef",
-    {
-        "ResourceGroupName": str,
-    },
-)
-_OptionalListLogPatternsRequestRequestTypeDef = TypedDict(
-    "_OptionalListLogPatternsRequestRequestTypeDef",
-    {
-        "PatternSetName": str,
-        "MaxResults": int,
-        "NextToken": str,
-        "AccountId": str,
-    },
-    total=False,
-)
-
-class ListLogPatternsRequestRequestTypeDef(
-    _RequiredListLogPatternsRequestRequestTypeDef, _OptionalListLogPatternsRequestRequestTypeDef
-):
-    pass
-
-ListLogPatternsResponseTypeDef = TypedDict(
-    "ListLogPatternsResponseTypeDef",
-    {
-        "ResourceGroupName": str,
-        "AccountId": str,
-        "LogPatterns": List["LogPatternTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListProblemsRequestRequestTypeDef = TypedDict(
-    "ListProblemsRequestRequestTypeDef",
-    {
-        "AccountId": str,
-        "ResourceGroupName": str,
-        "StartTime": Union[datetime, str],
-        "EndTime": Union[datetime, str],
-        "MaxResults": int,
-        "NextToken": str,
-        "ComponentName": str,
-        "Visibility": VisibilityType,
-    },
-    total=False,
-)
-
-ListProblemsResponseTypeDef = TypedDict(
-    "ListProblemsResponseTypeDef",
-    {
-        "ProblemList": List["ProblemTypeDef"],
-        "NextToken": str,
-        "ResourceGroupName": str,
-        "AccountId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "ResourceARN": str,
-    },
-)
-
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "Tags": List["TagTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListWorkloadsRequestRequestTypeDef = TypedDict(
-    "_RequiredListWorkloadsRequestRequestTypeDef",
-    {
-        "ResourceGroupName": str,
-        "ComponentName": str,
-    },
-)
-_OptionalListWorkloadsRequestRequestTypeDef = TypedDict(
-    "_OptionalListWorkloadsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-        "AccountId": str,
-    },
-    total=False,
-)
-
-class ListWorkloadsRequestRequestTypeDef(
-    _RequiredListWorkloadsRequestRequestTypeDef, _OptionalListWorkloadsRequestRequestTypeDef
-):
-    pass
-
-ListWorkloadsResponseTypeDef = TypedDict(
-    "ListWorkloadsResponseTypeDef",
-    {
-        "WorkloadList": List["WorkloadTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
 LogPatternTypeDef = TypedDict(
     "LogPatternTypeDef",
     {
-        "PatternSetName": str,
-        "PatternName": str,
-        "Pattern": str,
-        "Rank": int,
-    },
-    total=False,
-)
-
-ObservationTypeDef = TypedDict(
-    "ObservationTypeDef",
-    {
-        "Id": str,
-        "StartTime": datetime,
-        "EndTime": datetime,
-        "SourceType": str,
-        "SourceARN": str,
-        "LogGroup": str,
-        "LineTime": datetime,
-        "LogText": str,
-        "LogFilter": LogFilterType,
-        "MetricNamespace": str,
-        "MetricName": str,
-        "Unit": str,
-        "Value": float,
-        "CloudWatchEventId": str,
-        "CloudWatchEventSource": CloudWatchEventSourceType,
-        "CloudWatchEventDetailType": str,
-        "HealthEventArn": str,
-        "HealthService": str,
-        "HealthEventTypeCode": str,
-        "HealthEventTypeCategory": str,
-        "HealthEventDescription": str,
-        "CodeDeployDeploymentId": str,
-        "CodeDeployDeploymentGroup": str,
-        "CodeDeployState": str,
-        "CodeDeployApplication": str,
-        "CodeDeployInstanceGroupId": str,
-        "Ec2State": str,
-        "RdsEventCategories": str,
-        "RdsEventMessage": str,
-        "S3EventName": str,
-        "StatesExecutionArn": str,
-        "StatesArn": str,
-        "StatesStatus": str,
-        "StatesInput": str,
-        "EbsEvent": str,
-        "EbsResult": str,
-        "EbsCause": str,
-        "EbsRequestId": str,
-        "XRayFaultPercent": int,
-        "XRayThrottlePercent": int,
-        "XRayErrorPercent": int,
-        "XRayRequestCount": int,
-        "XRayRequestAverageLatency": int,
-        "XRayNodeName": str,
-        "XRayNodeType": str,
-    },
-    total=False,
-)
-
-ProblemTypeDef = TypedDict(
-    "ProblemTypeDef",
-    {
-        "Id": str,
-        "Title": str,
-        "Insights": str,
-        "Status": StatusType,
-        "AffectedResource": str,
-        "StartTime": datetime,
-        "EndTime": datetime,
-        "SeverityLevel": SeverityLevelType,
-        "AccountId": str,
-        "ResourceGroupName": str,
-        "Feedback": Dict[Literal["INSIGHTS_FEEDBACK"], FeedbackValueType],
-        "RecurringCount": int,
-        "LastRecurrenceTime": datetime,
-        "Visibility": VisibilityType,
-        "ResolutionMethod": ResolutionMethodType,
-    },
-    total=False,
-)
-
-RelatedObservationsTypeDef = TypedDict(
-    "RelatedObservationsTypeDef",
-    {
-        "ObservationList": List["ObservationTypeDef"],
-    },
-    total=False,
-)
-
-RemoveWorkloadRequestRequestTypeDef = TypedDict(
-    "RemoveWorkloadRequestRequestTypeDef",
-    {
-        "ResourceGroupName": str,
-        "ComponentName": str,
-        "WorkloadId": str,
+        "PatternSetName": NotRequired[str],
+        "PatternName": NotRequired[str],
+        "Pattern": NotRequired[str],
+        "Rank": NotRequired[int],
     },
 )
 
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
+class DeleteApplicationRequestTypeDef(TypedDict):
+    ResourceGroupName: str
 
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "ResourceARN": str,
-        "Tags": List["TagTypeDef"],
-    },
-)
+class DeleteComponentRequestTypeDef(TypedDict):
+    ResourceGroupName: str
+    ComponentName: str
 
-TagTypeDef = TypedDict(
-    "TagTypeDef",
-    {
-        "Key": str,
-        "Value": str,
-    },
-)
+class DeleteLogPatternRequestTypeDef(TypedDict):
+    ResourceGroupName: str
+    PatternSetName: str
+    PatternName: str
 
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "ResourceARN": str,
-        "TagKeys": List[str],
-    },
-)
+class DescribeApplicationRequestTypeDef(TypedDict):
+    ResourceGroupName: str
+    AccountId: NotRequired[str]
 
-_RequiredUpdateApplicationRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateApplicationRequestRequestTypeDef",
-    {
-        "ResourceGroupName": str,
-    },
-)
-_OptionalUpdateApplicationRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateApplicationRequestRequestTypeDef",
-    {
-        "OpsCenterEnabled": bool,
-        "CWEMonitorEnabled": bool,
-        "OpsItemSNSTopicArn": str,
-        "RemoveSNSTopic": bool,
-        "AutoConfigEnabled": bool,
-        "AttachMissingPermission": bool,
-    },
-    total=False,
-)
+class DescribeComponentConfigurationRecommendationRequestTypeDef(TypedDict):
+    ResourceGroupName: str
+    ComponentName: str
+    Tier: TierType
+    WorkloadName: NotRequired[str]
+    RecommendationType: NotRequired[RecommendationTypeType]
 
-class UpdateApplicationRequestRequestTypeDef(
-    _RequiredUpdateApplicationRequestRequestTypeDef, _OptionalUpdateApplicationRequestRequestTypeDef
-):
-    pass
+class DescribeComponentConfigurationRequestTypeDef(TypedDict):
+    ResourceGroupName: str
+    ComponentName: str
+    AccountId: NotRequired[str]
 
-UpdateApplicationResponseTypeDef = TypedDict(
-    "UpdateApplicationResponseTypeDef",
-    {
-        "ApplicationInfo": "ApplicationInfoTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DescribeComponentRequestTypeDef(TypedDict):
+    ResourceGroupName: str
+    ComponentName: str
+    AccountId: NotRequired[str]
 
-_RequiredUpdateComponentConfigurationRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateComponentConfigurationRequestRequestTypeDef",
-    {
-        "ResourceGroupName": str,
-        "ComponentName": str,
-    },
-)
-_OptionalUpdateComponentConfigurationRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateComponentConfigurationRequestRequestTypeDef",
-    {
-        "Monitor": bool,
-        "Tier": TierType,
-        "ComponentConfiguration": str,
-        "AutoConfigEnabled": bool,
-    },
-    total=False,
-)
+class DescribeLogPatternRequestTypeDef(TypedDict):
+    ResourceGroupName: str
+    PatternSetName: str
+    PatternName: str
+    AccountId: NotRequired[str]
 
-class UpdateComponentConfigurationRequestRequestTypeDef(
-    _RequiredUpdateComponentConfigurationRequestRequestTypeDef,
-    _OptionalUpdateComponentConfigurationRequestRequestTypeDef,
-):
-    pass
+class DescribeObservationRequestTypeDef(TypedDict):
+    ObservationId: str
+    AccountId: NotRequired[str]
 
-_RequiredUpdateComponentRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateComponentRequestRequestTypeDef",
-    {
-        "ResourceGroupName": str,
-        "ComponentName": str,
-    },
-)
-_OptionalUpdateComponentRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateComponentRequestRequestTypeDef",
-    {
-        "NewComponentName": str,
-        "ResourceList": List[str],
-    },
-    total=False,
-)
+class ObservationTypeDef(TypedDict):
+    Id: NotRequired[str]
+    StartTime: NotRequired[datetime]
+    EndTime: NotRequired[datetime]
+    SourceType: NotRequired[str]
+    SourceARN: NotRequired[str]
+    LogGroup: NotRequired[str]
+    LineTime: NotRequired[datetime]
+    LogText: NotRequired[str]
+    LogFilter: NotRequired[LogFilterType]
+    MetricNamespace: NotRequired[str]
+    MetricName: NotRequired[str]
+    Unit: NotRequired[str]
+    Value: NotRequired[float]
+    CloudWatchEventId: NotRequired[str]
+    CloudWatchEventSource: NotRequired[CloudWatchEventSourceType]
+    CloudWatchEventDetailType: NotRequired[str]
+    HealthEventArn: NotRequired[str]
+    HealthService: NotRequired[str]
+    HealthEventTypeCode: NotRequired[str]
+    HealthEventTypeCategory: NotRequired[str]
+    HealthEventDescription: NotRequired[str]
+    CodeDeployDeploymentId: NotRequired[str]
+    CodeDeployDeploymentGroup: NotRequired[str]
+    CodeDeployState: NotRequired[str]
+    CodeDeployApplication: NotRequired[str]
+    CodeDeployInstanceGroupId: NotRequired[str]
+    Ec2State: NotRequired[str]
+    RdsEventCategories: NotRequired[str]
+    RdsEventMessage: NotRequired[str]
+    S3EventName: NotRequired[str]
+    StatesExecutionArn: NotRequired[str]
+    StatesArn: NotRequired[str]
+    StatesStatus: NotRequired[str]
+    StatesInput: NotRequired[str]
+    EbsEvent: NotRequired[str]
+    EbsResult: NotRequired[str]
+    EbsCause: NotRequired[str]
+    EbsRequestId: NotRequired[str]
+    XRayFaultPercent: NotRequired[int]
+    XRayThrottlePercent: NotRequired[int]
+    XRayErrorPercent: NotRequired[int]
+    XRayRequestCount: NotRequired[int]
+    XRayRequestAverageLatency: NotRequired[int]
+    XRayNodeName: NotRequired[str]
+    XRayNodeType: NotRequired[str]
 
-class UpdateComponentRequestRequestTypeDef(
-    _RequiredUpdateComponentRequestRequestTypeDef, _OptionalUpdateComponentRequestRequestTypeDef
-):
-    pass
+class DescribeProblemObservationsRequestTypeDef(TypedDict):
+    ProblemId: str
+    AccountId: NotRequired[str]
 
-_RequiredUpdateLogPatternRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateLogPatternRequestRequestTypeDef",
+class DescribeProblemRequestTypeDef(TypedDict):
+    ProblemId: str
+    AccountId: NotRequired[str]
+
+class ProblemTypeDef(TypedDict):
+    Id: NotRequired[str]
+    Title: NotRequired[str]
+    ShortName: NotRequired[str]
+    Insights: NotRequired[str]
+    Status: NotRequired[StatusType]
+    AffectedResource: NotRequired[str]
+    StartTime: NotRequired[datetime]
+    EndTime: NotRequired[datetime]
+    SeverityLevel: NotRequired[SeverityLevelType]
+    AccountId: NotRequired[str]
+    ResourceGroupName: NotRequired[str]
+    Feedback: NotRequired[Dict[Literal["INSIGHTS_FEEDBACK"], FeedbackValueType]]
+    RecurringCount: NotRequired[int]
+    LastRecurrenceTime: NotRequired[datetime]
+    Visibility: NotRequired[VisibilityType]
+    ResolutionMethod: NotRequired[ResolutionMethodType]
+
+class DescribeWorkloadRequestTypeDef(TypedDict):
+    ResourceGroupName: str
+    ComponentName: str
+    WorkloadId: str
+    AccountId: NotRequired[str]
+
+class ListApplicationsRequestTypeDef(TypedDict):
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+    AccountId: NotRequired[str]
+
+class ListComponentsRequestTypeDef(TypedDict):
+    ResourceGroupName: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+    AccountId: NotRequired[str]
+
+TimestampTypeDef = Union[datetime, str]
+
+class ListLogPatternSetsRequestTypeDef(TypedDict):
+    ResourceGroupName: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+    AccountId: NotRequired[str]
+
+class ListLogPatternsRequestTypeDef(TypedDict):
+    ResourceGroupName: str
+    PatternSetName: NotRequired[str]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+    AccountId: NotRequired[str]
+
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    ResourceARN: str
+
+class ListWorkloadsRequestTypeDef(TypedDict):
+    ResourceGroupName: str
+    ComponentName: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+    AccountId: NotRequired[str]
+
+class WorkloadTypeDef(TypedDict):
+    WorkloadId: NotRequired[str]
+    ComponentName: NotRequired[str]
+    WorkloadName: NotRequired[str]
+    Tier: NotRequired[TierType]
+    WorkloadRemarks: NotRequired[str]
+    MissingWorkloadConfig: NotRequired[bool]
+
+class RemoveWorkloadRequestTypeDef(TypedDict):
+    ResourceGroupName: str
+    ComponentName: str
+    WorkloadId: str
+
+class UntagResourceRequestTypeDef(TypedDict):
+    ResourceARN: str
+    TagKeys: Sequence[str]
+
+class UpdateApplicationRequestTypeDef(TypedDict):
+    ResourceGroupName: str
+    OpsCenterEnabled: NotRequired[bool]
+    CWEMonitorEnabled: NotRequired[bool]
+    OpsItemSNSTopicArn: NotRequired[str]
+    SNSNotificationArn: NotRequired[str]
+    RemoveSNSTopic: NotRequired[bool]
+    AutoConfigEnabled: NotRequired[bool]
+    AttachMissingPermission: NotRequired[bool]
+
+class UpdateComponentConfigurationRequestTypeDef(TypedDict):
+    ResourceGroupName: str
+    ComponentName: str
+    Monitor: NotRequired[bool]
+    Tier: NotRequired[TierType]
+    ComponentConfiguration: NotRequired[str]
+    AutoConfigEnabled: NotRequired[bool]
+
+class UpdateComponentRequestTypeDef(TypedDict):
+    ResourceGroupName: str
+    ComponentName: str
+    NewComponentName: NotRequired[str]
+    ResourceList: NotRequired[Sequence[str]]
+
+UpdateLogPatternRequestTypeDef = TypedDict(
+    "UpdateLogPatternRequestTypeDef",
     {
         "ResourceGroupName": str,
         "PatternSetName": str,
         "PatternName": str,
-    },
-)
-_OptionalUpdateLogPatternRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateLogPatternRequestRequestTypeDef",
-    {
-        "Pattern": str,
-        "Rank": int,
-    },
-    total=False,
-)
-
-class UpdateLogPatternRequestRequestTypeDef(
-    _RequiredUpdateLogPatternRequestRequestTypeDef, _OptionalUpdateLogPatternRequestRequestTypeDef
-):
-    pass
-
-UpdateLogPatternResponseTypeDef = TypedDict(
-    "UpdateLogPatternResponseTypeDef",
-    {
-        "ResourceGroupName": str,
-        "LogPattern": "LogPatternTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "Pattern": NotRequired[str],
+        "Rank": NotRequired[int],
     },
 )
 
-_RequiredUpdateProblemRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateProblemRequestRequestTypeDef",
-    {
-        "ProblemId": str,
-    },
-)
-_OptionalUpdateProblemRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateProblemRequestRequestTypeDef",
-    {
-        "UpdateStatus": Literal["RESOLVED"],
-        "Visibility": VisibilityType,
-    },
-    total=False,
-)
+class UpdateProblemRequestTypeDef(TypedDict):
+    ProblemId: str
+    UpdateStatus: NotRequired[Literal["RESOLVED"]]
+    Visibility: NotRequired[VisibilityType]
 
-class UpdateProblemRequestRequestTypeDef(
-    _RequiredUpdateProblemRequestRequestTypeDef, _OptionalUpdateProblemRequestRequestTypeDef
-):
-    pass
+class AddWorkloadRequestTypeDef(TypedDict):
+    ResourceGroupName: str
+    ComponentName: str
+    WorkloadConfiguration: WorkloadConfigurationTypeDef
 
-_RequiredUpdateWorkloadRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateWorkloadRequestRequestTypeDef",
-    {
-        "ResourceGroupName": str,
-        "ComponentName": str,
-        "WorkloadConfiguration": "WorkloadConfigurationTypeDef",
-    },
-)
-_OptionalUpdateWorkloadRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateWorkloadRequestRequestTypeDef",
-    {
-        "WorkloadId": str,
-    },
-    total=False,
-)
+class UpdateWorkloadRequestTypeDef(TypedDict):
+    ResourceGroupName: str
+    ComponentName: str
+    WorkloadConfiguration: WorkloadConfigurationTypeDef
+    WorkloadId: NotRequired[str]
 
-class UpdateWorkloadRequestRequestTypeDef(
-    _RequiredUpdateWorkloadRequestRequestTypeDef, _OptionalUpdateWorkloadRequestRequestTypeDef
-):
-    pass
+class AddWorkloadResponseTypeDef(TypedDict):
+    WorkloadId: str
+    WorkloadConfiguration: WorkloadConfigurationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-UpdateWorkloadResponseTypeDef = TypedDict(
-    "UpdateWorkloadResponseTypeDef",
-    {
-        "WorkloadId": str,
-        "WorkloadConfiguration": "WorkloadConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DescribeComponentConfigurationRecommendationResponseTypeDef(TypedDict):
+    ComponentConfiguration: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-WorkloadConfigurationTypeDef = TypedDict(
-    "WorkloadConfigurationTypeDef",
-    {
-        "WorkloadName": str,
-        "Tier": TierType,
-        "Configuration": str,
-    },
-    total=False,
-)
+class DescribeComponentConfigurationResponseTypeDef(TypedDict):
+    Monitor: bool
+    Tier: TierType
+    ComponentConfiguration: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-WorkloadTypeDef = TypedDict(
-    "WorkloadTypeDef",
-    {
-        "WorkloadId": str,
-        "ComponentName": str,
-        "WorkloadName": str,
-        "Tier": TierType,
-        "WorkloadRemarks": str,
-    },
-    total=False,
-)
+class DescribeWorkloadResponseTypeDef(TypedDict):
+    WorkloadId: str
+    WorkloadRemarks: str
+    WorkloadConfiguration: WorkloadConfigurationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListLogPatternSetsResponseTypeDef(TypedDict):
+    ResourceGroupName: str
+    AccountId: str
+    LogPatternSets: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class UpdateWorkloadResponseTypeDef(TypedDict):
+    WorkloadId: str
+    WorkloadConfiguration: WorkloadConfigurationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeComponentResponseTypeDef(TypedDict):
+    ApplicationComponent: ApplicationComponentTypeDef
+    ResourceList: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListComponentsResponseTypeDef(TypedDict):
+    ApplicationComponentList: List[ApplicationComponentTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class CreateApplicationResponseTypeDef(TypedDict):
+    ApplicationInfo: ApplicationInfoTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeApplicationResponseTypeDef(TypedDict):
+    ApplicationInfo: ApplicationInfoTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListApplicationsResponseTypeDef(TypedDict):
+    ApplicationInfoList: List[ApplicationInfoTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class UpdateApplicationResponseTypeDef(TypedDict):
+    ApplicationInfo: ApplicationInfoTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListConfigurationHistoryResponseTypeDef(TypedDict):
+    EventList: List[ConfigurationEventTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class CreateApplicationRequestTypeDef(TypedDict):
+    ResourceGroupName: NotRequired[str]
+    OpsCenterEnabled: NotRequired[bool]
+    CWEMonitorEnabled: NotRequired[bool]
+    OpsItemSNSTopicArn: NotRequired[str]
+    SNSNotificationArn: NotRequired[str]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+    AutoConfigEnabled: NotRequired[bool]
+    AutoCreate: NotRequired[bool]
+    GroupingType: NotRequired[Literal["ACCOUNT_BASED"]]
+    AttachMissingPermission: NotRequired[bool]
+
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    Tags: List[TagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class TagResourceRequestTypeDef(TypedDict):
+    ResourceARN: str
+    Tags: Sequence[TagTypeDef]
+
+class CreateLogPatternResponseTypeDef(TypedDict):
+    LogPattern: LogPatternTypeDef
+    ResourceGroupName: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeLogPatternResponseTypeDef(TypedDict):
+    ResourceGroupName: str
+    AccountId: str
+    LogPattern: LogPatternTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListLogPatternsResponseTypeDef(TypedDict):
+    ResourceGroupName: str
+    AccountId: str
+    LogPatterns: List[LogPatternTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class UpdateLogPatternResponseTypeDef(TypedDict):
+    ResourceGroupName: str
+    LogPattern: LogPatternTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeObservationResponseTypeDef(TypedDict):
+    Observation: ObservationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class RelatedObservationsTypeDef(TypedDict):
+    ObservationList: NotRequired[List[ObservationTypeDef]]
+
+class DescribeProblemResponseTypeDef(TypedDict):
+    Problem: ProblemTypeDef
+    SNSNotificationArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListProblemsResponseTypeDef(TypedDict):
+    ProblemList: List[ProblemTypeDef]
+    ResourceGroupName: str
+    AccountId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListConfigurationHistoryRequestTypeDef(TypedDict):
+    ResourceGroupName: NotRequired[str]
+    StartTime: NotRequired[TimestampTypeDef]
+    EndTime: NotRequired[TimestampTypeDef]
+    EventStatus: NotRequired[ConfigurationEventStatusType]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+    AccountId: NotRequired[str]
+
+class ListProblemsRequestTypeDef(TypedDict):
+    AccountId: NotRequired[str]
+    ResourceGroupName: NotRequired[str]
+    StartTime: NotRequired[TimestampTypeDef]
+    EndTime: NotRequired[TimestampTypeDef]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+    ComponentName: NotRequired[str]
+    Visibility: NotRequired[VisibilityType]
+
+class ListWorkloadsResponseTypeDef(TypedDict):
+    WorkloadList: List[WorkloadTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class DescribeProblemObservationsResponseTypeDef(TypedDict):
+    RelatedObservations: RelatedObservationsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef

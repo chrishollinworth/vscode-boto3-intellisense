@@ -1,22 +1,29 @@
 """
-Type annotations for controltower service client.
+Type annotations for controltower service Client.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controltower/client.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_controltower/client/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
-    from mypy_boto3_controltower import ControlTowerClient
+    from boto3.session import Session
+    from mypy_boto3_controltower.client import ControlTowerClient
 
-    client: ControlTowerClient = boto3.client("controltower")
+    session = Session()
+    client: ControlTowerClient = session.client("controltower")
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from typing import Any, Dict, List, Type, overload
+from typing import Any, overload
 
 from botocore.client import BaseClient, ClientMeta
+from botocore.errorfactory import BaseClientExceptions
+from botocore.exceptions import ClientError as BotocoreClientError
 
 from .paginator import (
     ListBaselinesPaginator,
@@ -27,54 +34,76 @@ from .paginator import (
     ListLandingZonesPaginator,
 )
 from .type_defs import (
-    ControlOperationFilterTypeDef,
+    CreateLandingZoneInputTypeDef,
     CreateLandingZoneOutputTypeDef,
+    DeleteLandingZoneInputTypeDef,
     DeleteLandingZoneOutputTypeDef,
+    DisableBaselineInputTypeDef,
     DisableBaselineOutputTypeDef,
+    DisableControlInputTypeDef,
     DisableControlOutputTypeDef,
+    EnableBaselineInputTypeDef,
     EnableBaselineOutputTypeDef,
+    EnableControlInputTypeDef,
     EnableControlOutputTypeDef,
-    EnabledBaselineFilterTypeDef,
-    EnabledBaselineParameterTypeDef,
-    EnabledControlFilterTypeDef,
-    EnabledControlParameterTypeDef,
+    GetBaselineInputTypeDef,
+    GetBaselineOperationInputTypeDef,
     GetBaselineOperationOutputTypeDef,
     GetBaselineOutputTypeDef,
+    GetControlOperationInputTypeDef,
     GetControlOperationOutputTypeDef,
+    GetEnabledBaselineInputTypeDef,
     GetEnabledBaselineOutputTypeDef,
+    GetEnabledControlInputTypeDef,
     GetEnabledControlOutputTypeDef,
+    GetLandingZoneInputTypeDef,
+    GetLandingZoneOperationInputTypeDef,
     GetLandingZoneOperationOutputTypeDef,
     GetLandingZoneOutputTypeDef,
-    LandingZoneOperationFilterTypeDef,
+    ListBaselinesInputTypeDef,
     ListBaselinesOutputTypeDef,
+    ListControlOperationsInputTypeDef,
     ListControlOperationsOutputTypeDef,
+    ListEnabledBaselinesInputTypeDef,
     ListEnabledBaselinesOutputTypeDef,
+    ListEnabledControlsInputTypeDef,
     ListEnabledControlsOutputTypeDef,
+    ListLandingZoneOperationsInputTypeDef,
     ListLandingZoneOperationsOutputTypeDef,
+    ListLandingZonesInputTypeDef,
     ListLandingZonesOutputTypeDef,
+    ListTagsForResourceInputTypeDef,
     ListTagsForResourceOutputTypeDef,
+    ResetEnabledBaselineInputTypeDef,
     ResetEnabledBaselineOutputTypeDef,
+    ResetEnabledControlInputTypeDef,
+    ResetEnabledControlOutputTypeDef,
+    ResetLandingZoneInputTypeDef,
     ResetLandingZoneOutputTypeDef,
+    TagResourceInputTypeDef,
+    UntagResourceInputTypeDef,
+    UpdateEnabledBaselineInputTypeDef,
     UpdateEnabledBaselineOutputTypeDef,
+    UpdateEnabledControlInputTypeDef,
     UpdateEnabledControlOutputTypeDef,
+    UpdateLandingZoneInputTypeDef,
     UpdateLandingZoneOutputTypeDef,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import type as Type
+    from collections.abc import Mapping
 else:
-    from typing_extensions import Literal
+    from typing import Dict, Mapping, Type
+if sys.version_info >= (3, 12):
+    from typing import Literal, Unpack
+else:
+    from typing_extensions import Literal, Unpack
 
 __all__ = ("ControlTowerClient",)
 
-class BotocoreClientError(BaseException):
-    MSG_TEMPLATE: str
-
-    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
-        self.response: Dict[str, Any]
-        self.operation_name: str
-
-class Exceptions:
+class Exceptions(BaseClientExceptions):
     AccessDeniedException: Type[BotocoreClientError]
     ClientError: Type[BotocoreClientError]
     ConflictException: Type[BotocoreClientError]
@@ -86,8 +115,8 @@ class Exceptions:
 
 class ControlTowerClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controltower.html#ControlTower.Client)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controltower/client.html)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/controltower.html#ControlTower.Client)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_controltower/client/)
     """
 
     meta: ClientMeta
@@ -96,378 +125,373 @@ class ControlTowerClient(BaseClient):
     def exceptions(self) -> Exceptions:
         """
         ControlTowerClient exceptions.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/controltower.html#ControlTower.Client)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_controltower/client/#exceptions)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        Check if an operation can be paginated.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controltower.html#ControlTower.Client.can_paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controltower/client.html#can_paginate)
-        """
-
-    def close(self) -> None:
-        """
-        Closes underlying endpoint connections.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controltower.html#ControlTower.Client.close)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controltower/client.html#close)
-        """
-
-    def create_landing_zone(
-        self, *, manifest: Dict[str, Any], version: str, tags: Dict[str, str] = None
-    ) -> CreateLandingZoneOutputTypeDef:
-        """
-        Creates a new landing zone.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controltower.html#ControlTower.Client.create_landing_zone)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controltower/client.html#create_landing_zone)
-        """
-
-    def delete_landing_zone(self, *, landingZoneIdentifier: str) -> DeleteLandingZoneOutputTypeDef:
-        """
-        Decommissions a landing zone.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controltower.html#ControlTower.Client.delete_landing_zone)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controltower/client.html#delete_landing_zone)
-        """
-
-    def disable_baseline(self, *, enabledBaselineIdentifier: str) -> DisableBaselineOutputTypeDef:
-        """
-        Disable an `EnabledBaseline` resource on the specified Target.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controltower.html#ControlTower.Client.disable_baseline)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controltower/client.html#disable_baseline)
-        """
-
-    def disable_control(
-        self, *, controlIdentifier: str, targetIdentifier: str
-    ) -> DisableControlOutputTypeDef:
-        """
-        This API call turns off a control.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controltower.html#ControlTower.Client.disable_control)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controltower/client.html#disable_control)
-        """
-
-    def enable_baseline(
-        self,
-        *,
-        baselineIdentifier: str,
-        baselineVersion: str,
-        targetIdentifier: str,
-        parameters: List["EnabledBaselineParameterTypeDef"] = None,
-        tags: Dict[str, str] = None
-    ) -> EnableBaselineOutputTypeDef:
-        """
-        Enable (apply) a `Baseline` to a Target.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controltower.html#ControlTower.Client.enable_baseline)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controltower/client.html#enable_baseline)
-        """
-
-    def enable_control(
-        self,
-        *,
-        controlIdentifier: str,
-        targetIdentifier: str,
-        parameters: List["EnabledControlParameterTypeDef"] = None,
-        tags: Dict[str, str] = None
-    ) -> EnableControlOutputTypeDef:
-        """
-        This API call activates a control.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controltower.html#ControlTower.Client.enable_control)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controltower/client.html#enable_control)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/controltower/client/can_paginate.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_controltower/client/#can_paginate)
         """
 
     def generate_presigned_url(
         self,
         ClientMethod: str,
-        Params: Dict[str, Any] = None,
+        Params: Mapping[str, Any] = ...,
         ExpiresIn: int = 3600,
-        HttpMethod: str = None,
+        HttpMethod: str = ...,
     ) -> str:
         """
-        Generate a presigned url given a client, its method, and arguments.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controltower.html#ControlTower.Client.generate_presigned_url)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controltower/client.html#generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/controltower/client/generate_presigned_url.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_controltower/client/#generate_presigned_url)
         """
 
-    def get_baseline(self, *, baselineIdentifier: str) -> GetBaselineOutputTypeDef:
+    def create_landing_zone(
+        self, **kwargs: Unpack[CreateLandingZoneInputTypeDef]
+    ) -> CreateLandingZoneOutputTypeDef:
         """
-        Retrieve details about an existing `Baseline` resource by specifying its
-        identifier.
+        Creates a new landing zone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controltower.html#ControlTower.Client.get_baseline)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controltower/client.html#get_baseline)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/controltower/client/create_landing_zone.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_controltower/client/#create_landing_zone)
+        """
+
+    def delete_landing_zone(
+        self, **kwargs: Unpack[DeleteLandingZoneInputTypeDef]
+    ) -> DeleteLandingZoneOutputTypeDef:
+        """
+        Decommissions a landing zone.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/controltower/client/delete_landing_zone.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_controltower/client/#delete_landing_zone)
+        """
+
+    def disable_baseline(
+        self, **kwargs: Unpack[DisableBaselineInputTypeDef]
+    ) -> DisableBaselineOutputTypeDef:
+        """
+        Disable an <code>EnabledBaseline</code> resource on the specified Target.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/controltower/client/disable_baseline.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_controltower/client/#disable_baseline)
+        """
+
+    def disable_control(
+        self, **kwargs: Unpack[DisableControlInputTypeDef]
+    ) -> DisableControlOutputTypeDef:
+        """
+        This API call turns off a control.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/controltower/client/disable_control.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_controltower/client/#disable_control)
+        """
+
+    def enable_baseline(
+        self, **kwargs: Unpack[EnableBaselineInputTypeDef]
+    ) -> EnableBaselineOutputTypeDef:
+        """
+        Enable (apply) a <code>Baseline</code> to a Target.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/controltower/client/enable_baseline.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_controltower/client/#enable_baseline)
+        """
+
+    def enable_control(
+        self, **kwargs: Unpack[EnableControlInputTypeDef]
+    ) -> EnableControlOutputTypeDef:
+        """
+        This API call activates a control.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/controltower/client/enable_control.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_controltower/client/#enable_control)
+        """
+
+    def get_baseline(self, **kwargs: Unpack[GetBaselineInputTypeDef]) -> GetBaselineOutputTypeDef:
+        """
+        Retrieve details about an existing <code>Baseline</code> resource by specifying
+        its identifier.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/controltower/client/get_baseline.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_controltower/client/#get_baseline)
         """
 
     def get_baseline_operation(
-        self, *, operationIdentifier: str
+        self, **kwargs: Unpack[GetBaselineOperationInputTypeDef]
     ) -> GetBaselineOperationOutputTypeDef:
         """
         Returns the details of an asynchronous baseline operation, as initiated by any
-        of these APIs: `EnableBaseline`, `DisableBaseline`, `UpdateEnabledBaseline`,
-        `ResetEnabledBaseline`.
+        of these APIs: <code>EnableBaseline</code>, <code>DisableBaseline</code>,
+        <code>UpdateEnabledBaseline</code>, <code>ResetEnabledBaseline</code>.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controltower.html#ControlTower.Client.get_baseline_operation)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controltower/client.html#get_baseline_operation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/controltower/client/get_baseline_operation.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_controltower/client/#get_baseline_operation)
         """
 
     def get_control_operation(
-        self, *, operationIdentifier: str
+        self, **kwargs: Unpack[GetControlOperationInputTypeDef]
     ) -> GetControlOperationOutputTypeDef:
         """
-        Returns the status of a particular `EnableControl` or `DisableControl`
-        operation.
+        Returns the status of a particular <code>EnableControl</code> or
+        <code>DisableControl</code> operation.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controltower.html#ControlTower.Client.get_control_operation)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controltower/client.html#get_control_operation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/controltower/client/get_control_operation.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_controltower/client/#get_control_operation)
         """
 
     def get_enabled_baseline(
-        self, *, enabledBaselineIdentifier: str
+        self, **kwargs: Unpack[GetEnabledBaselineInputTypeDef]
     ) -> GetEnabledBaselineOutputTypeDef:
         """
-        Retrieve details of an `EnabledBaseline` resource by specifying its identifier.
+        Retrieve details of an <code>EnabledBaseline</code> resource by specifying its
+        identifier.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controltower.html#ControlTower.Client.get_enabled_baseline)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controltower/client.html#get_enabled_baseline)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/controltower/client/get_enabled_baseline.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_controltower/client/#get_enabled_baseline)
         """
 
     def get_enabled_control(
-        self, *, enabledControlIdentifier: str
+        self, **kwargs: Unpack[GetEnabledControlInputTypeDef]
     ) -> GetEnabledControlOutputTypeDef:
         """
         Retrieves details about an enabled control.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controltower.html#ControlTower.Client.get_enabled_control)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controltower/client.html#get_enabled_control)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/controltower/client/get_enabled_control.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_controltower/client/#get_enabled_control)
         """
 
-    def get_landing_zone(self, *, landingZoneIdentifier: str) -> GetLandingZoneOutputTypeDef:
+    def get_landing_zone(
+        self, **kwargs: Unpack[GetLandingZoneInputTypeDef]
+    ) -> GetLandingZoneOutputTypeDef:
         """
         Returns details about the landing zone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controltower.html#ControlTower.Client.get_landing_zone)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controltower/client.html#get_landing_zone)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/controltower/client/get_landing_zone.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_controltower/client/#get_landing_zone)
         """
 
     def get_landing_zone_operation(
-        self, *, operationIdentifier: str
+        self, **kwargs: Unpack[GetLandingZoneOperationInputTypeDef]
     ) -> GetLandingZoneOperationOutputTypeDef:
         """
         Returns the status of the specified landing zone operation.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controltower.html#ControlTower.Client.get_landing_zone_operation)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controltower/client.html#get_landing_zone_operation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/controltower/client/get_landing_zone_operation.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_controltower/client/#get_landing_zone_operation)
         """
 
     def list_baselines(
-        self, *, maxResults: int = None, nextToken: str = None
+        self, **kwargs: Unpack[ListBaselinesInputTypeDef]
     ) -> ListBaselinesOutputTypeDef:
         """
         Returns a summary list of all available baselines.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controltower.html#ControlTower.Client.list_baselines)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controltower/client.html#list_baselines)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/controltower/client/list_baselines.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_controltower/client/#list_baselines)
         """
 
     def list_control_operations(
-        self,
-        *,
-        filter: "ControlOperationFilterTypeDef" = None,
-        maxResults: int = None,
-        nextToken: str = None
+        self, **kwargs: Unpack[ListControlOperationsInputTypeDef]
     ) -> ListControlOperationsOutputTypeDef:
         """
         Provides a list of operations in progress or queued.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controltower.html#ControlTower.Client.list_control_operations)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controltower/client.html#list_control_operations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/controltower/client/list_control_operations.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_controltower/client/#list_control_operations)
         """
 
     def list_enabled_baselines(
-        self,
-        *,
-        filter: "EnabledBaselineFilterTypeDef" = None,
-        maxResults: int = None,
-        nextToken: str = None
+        self, **kwargs: Unpack[ListEnabledBaselinesInputTypeDef]
     ) -> ListEnabledBaselinesOutputTypeDef:
         """
-        Returns a list of summaries describing `EnabledBaseline` resources.
+        Returns a list of summaries describing <code>EnabledBaseline</code> resources.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controltower.html#ControlTower.Client.list_enabled_baselines)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controltower/client.html#list_enabled_baselines)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/controltower/client/list_enabled_baselines.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_controltower/client/#list_enabled_baselines)
         """
 
     def list_enabled_controls(
-        self,
-        *,
-        filter: "EnabledControlFilterTypeDef" = None,
-        maxResults: int = None,
-        nextToken: str = None,
-        targetIdentifier: str = None
+        self, **kwargs: Unpack[ListEnabledControlsInputTypeDef]
     ) -> ListEnabledControlsOutputTypeDef:
         """
-        Lists the controls enabled by Amazon Web Services Control Tower on the specified
-        organizational unit and the accounts it contains.
+        Lists the controls enabled by Amazon Web Services Control Tower on the
+        specified organizational unit and the accounts it contains.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controltower.html#ControlTower.Client.list_enabled_controls)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controltower/client.html#list_enabled_controls)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/controltower/client/list_enabled_controls.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_controltower/client/#list_enabled_controls)
         """
 
     def list_landing_zone_operations(
-        self,
-        *,
-        filter: "LandingZoneOperationFilterTypeDef" = None,
-        maxResults: int = None,
-        nextToken: str = None
+        self, **kwargs: Unpack[ListLandingZoneOperationsInputTypeDef]
     ) -> ListLandingZoneOperationsOutputTypeDef:
         """
         Lists all landing zone operations from the past 90 days.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controltower.html#ControlTower.Client.list_landing_zone_operations)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controltower/client.html#list_landing_zone_operations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/controltower/client/list_landing_zone_operations.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_controltower/client/#list_landing_zone_operations)
         """
 
     def list_landing_zones(
-        self, *, maxResults: int = None, nextToken: str = None
+        self, **kwargs: Unpack[ListLandingZonesInputTypeDef]
     ) -> ListLandingZonesOutputTypeDef:
         """
         Returns the landing zone ARN for the landing zone deployed in your managed
         account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controltower.html#ControlTower.Client.list_landing_zones)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controltower/client.html#list_landing_zones)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/controltower/client/list_landing_zones.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_controltower/client/#list_landing_zones)
         """
 
-    def list_tags_for_resource(self, *, resourceArn: str) -> ListTagsForResourceOutputTypeDef:
+    def list_tags_for_resource(
+        self, **kwargs: Unpack[ListTagsForResourceInputTypeDef]
+    ) -> ListTagsForResourceOutputTypeDef:
         """
         Returns a list of tags associated with the resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controltower.html#ControlTower.Client.list_tags_for_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controltower/client.html#list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/controltower/client/list_tags_for_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_controltower/client/#list_tags_for_resource)
         """
 
     def reset_enabled_baseline(
-        self, *, enabledBaselineIdentifier: str
+        self, **kwargs: Unpack[ResetEnabledBaselineInputTypeDef]
     ) -> ResetEnabledBaselineOutputTypeDef:
         """
-        Re-enables an `EnabledBaseline` resource.
+        Re-enables an <code>EnabledBaseline</code> resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controltower.html#ControlTower.Client.reset_enabled_baseline)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controltower/client.html#reset_enabled_baseline)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/controltower/client/reset_enabled_baseline.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_controltower/client/#reset_enabled_baseline)
         """
 
-    def reset_landing_zone(self, *, landingZoneIdentifier: str) -> ResetLandingZoneOutputTypeDef:
+    def reset_enabled_control(
+        self, **kwargs: Unpack[ResetEnabledControlInputTypeDef]
+    ) -> ResetEnabledControlOutputTypeDef:
+        """
+        Resets an enabled control.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/controltower/client/reset_enabled_control.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_controltower/client/#reset_enabled_control)
+        """
+
+    def reset_landing_zone(
+        self, **kwargs: Unpack[ResetLandingZoneInputTypeDef]
+    ) -> ResetLandingZoneOutputTypeDef:
         """
         This API call resets a landing zone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controltower.html#ControlTower.Client.reset_landing_zone)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controltower/client.html#reset_landing_zone)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/controltower/client/reset_landing_zone.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_controltower/client/#reset_landing_zone)
         """
 
-    def tag_resource(self, *, resourceArn: str, tags: Dict[str, str]) -> Dict[str, Any]:
+    def tag_resource(self, **kwargs: Unpack[TagResourceInputTypeDef]) -> Dict[str, Any]:
         """
         Applies tags to a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controltower.html#ControlTower.Client.tag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controltower/client.html#tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/controltower/client/tag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_controltower/client/#tag_resource)
         """
 
-    def untag_resource(self, *, resourceArn: str, tagKeys: List[str]) -> Dict[str, Any]:
+    def untag_resource(self, **kwargs: Unpack[UntagResourceInputTypeDef]) -> Dict[str, Any]:
         """
         Removes tags from a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controltower.html#ControlTower.Client.untag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controltower/client.html#untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/controltower/client/untag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_controltower/client/#untag_resource)
         """
 
     def update_enabled_baseline(
-        self,
-        *,
-        baselineVersion: str,
-        enabledBaselineIdentifier: str,
-        parameters: List["EnabledBaselineParameterTypeDef"] = None
+        self, **kwargs: Unpack[UpdateEnabledBaselineInputTypeDef]
     ) -> UpdateEnabledBaselineOutputTypeDef:
         """
-        Updates an `EnabledBaseline` resource's applied parameters or version.
+        Updates an <code>EnabledBaseline</code> resource's applied parameters or
+        version.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controltower.html#ControlTower.Client.update_enabled_baseline)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controltower/client.html#update_enabled_baseline)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/controltower/client/update_enabled_baseline.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_controltower/client/#update_enabled_baseline)
         """
 
     def update_enabled_control(
-        self, *, enabledControlIdentifier: str, parameters: List["EnabledControlParameterTypeDef"]
+        self, **kwargs: Unpack[UpdateEnabledControlInputTypeDef]
     ) -> UpdateEnabledControlOutputTypeDef:
         """
         Updates the configuration of an already enabled control.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controltower.html#ControlTower.Client.update_enabled_control)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controltower/client.html#update_enabled_control)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/controltower/client/update_enabled_control.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_controltower/client/#update_enabled_control)
         """
 
     def update_landing_zone(
-        self, *, landingZoneIdentifier: str, manifest: Dict[str, Any], version: str
+        self, **kwargs: Unpack[UpdateLandingZoneInputTypeDef]
     ) -> UpdateLandingZoneOutputTypeDef:
         """
         This API call updates the landing zone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controltower.html#ControlTower.Client.update_landing_zone)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controltower/client.html#update_landing_zone)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/controltower/client/update_landing_zone.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_controltower/client/#update_landing_zone)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_baselines"]) -> ListBaselinesPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_baselines"]
+    ) -> ListBaselinesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controltower.html#ControlTower.Paginator.ListBaselines)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controltower/paginators.html#listbaselinespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/controltower/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_controltower/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_control_operations"]
     ) -> ListControlOperationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controltower.html#ControlTower.Paginator.ListControlOperations)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controltower/paginators.html#listcontroloperationspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/controltower/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_controltower/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_enabled_baselines"]
     ) -> ListEnabledBaselinesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controltower.html#ControlTower.Paginator.ListEnabledBaselines)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controltower/paginators.html#listenabledbaselinespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/controltower/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_controltower/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_enabled_controls"]
     ) -> ListEnabledControlsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controltower.html#ControlTower.Paginator.ListEnabledControls)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controltower/paginators.html#listenabledcontrolspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/controltower/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_controltower/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_landing_zone_operations"]
     ) -> ListLandingZoneOperationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controltower.html#ControlTower.Paginator.ListLandingZoneOperations)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controltower/paginators.html#listlandingzoneoperationspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/controltower/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_controltower/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_landing_zones"]
     ) -> ListLandingZonesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controltower.html#ControlTower.Paginator.ListLandingZones)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controltower/paginators.html#listlandingzonespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/controltower/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_controltower/client/#get_paginator)
         """

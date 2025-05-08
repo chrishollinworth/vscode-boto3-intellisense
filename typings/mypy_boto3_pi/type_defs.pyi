@@ -1,20 +1,24 @@
 """
 Type annotations for pi service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pi/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_pi/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_pi.type_defs import AnalysisReportSummaryTypeDef
+    from mypy_boto3_pi.type_defs import TagTypeDef
 
-    data: AnalysisReportSummaryTypeDef = {...}
+    data: TagTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List, Union
+from typing import Any, Union
 
 from .literals import (
     AnalysisStatusType,
@@ -28,24 +32,26 @@ from .literals import (
     TextFormatType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
     "AnalysisReportSummaryTypeDef",
     "AnalysisReportTypeDef",
-    "CreatePerformanceAnalysisReportRequestRequestTypeDef",
+    "CreatePerformanceAnalysisReportRequestTypeDef",
     "CreatePerformanceAnalysisReportResponseTypeDef",
     "DataPointTypeDef",
     "DataTypeDef",
-    "DeletePerformanceAnalysisReportRequestRequestTypeDef",
-    "DescribeDimensionKeysRequestRequestTypeDef",
+    "DeletePerformanceAnalysisReportRequestTypeDef",
+    "DescribeDimensionKeysRequestTypeDef",
     "DescribeDimensionKeysResponseTypeDef",
     "DimensionDetailTypeDef",
     "DimensionGroupDetailTypeDef",
@@ -53,22 +59,22 @@ __all__ = (
     "DimensionKeyDescriptionTypeDef",
     "DimensionKeyDetailTypeDef",
     "FeatureMetadataTypeDef",
-    "GetDimensionKeyDetailsRequestRequestTypeDef",
+    "GetDimensionKeyDetailsRequestTypeDef",
     "GetDimensionKeyDetailsResponseTypeDef",
-    "GetPerformanceAnalysisReportRequestRequestTypeDef",
+    "GetPerformanceAnalysisReportRequestTypeDef",
     "GetPerformanceAnalysisReportResponseTypeDef",
-    "GetResourceMetadataRequestRequestTypeDef",
+    "GetResourceMetadataRequestTypeDef",
     "GetResourceMetadataResponseTypeDef",
-    "GetResourceMetricsRequestRequestTypeDef",
+    "GetResourceMetricsRequestTypeDef",
     "GetResourceMetricsResponseTypeDef",
     "InsightTypeDef",
-    "ListAvailableResourceDimensionsRequestRequestTypeDef",
+    "ListAvailableResourceDimensionsRequestTypeDef",
     "ListAvailableResourceDimensionsResponseTypeDef",
-    "ListAvailableResourceMetricsRequestRequestTypeDef",
+    "ListAvailableResourceMetricsRequestTypeDef",
     "ListAvailableResourceMetricsResponseTypeDef",
-    "ListPerformanceAnalysisReportsRequestRequestTypeDef",
+    "ListPerformanceAnalysisReportsRequestTypeDef",
     "ListPerformanceAnalysisReportsResponseTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "MetricDimensionGroupsTypeDef",
     "MetricKeyDataPointsTypeDef",
@@ -79,591 +85,264 @@ __all__ = (
     "ResponsePartitionKeyTypeDef",
     "ResponseResourceMetricKeyTypeDef",
     "ResponseResourceMetricTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
     "TagTypeDef",
-    "UntagResourceRequestRequestTypeDef",
+    "TimestampTypeDef",
+    "UntagResourceRequestTypeDef",
 )
 
-AnalysisReportSummaryTypeDef = TypedDict(
-    "AnalysisReportSummaryTypeDef",
-    {
-        "AnalysisReportId": str,
-        "CreateTime": datetime,
-        "StartTime": datetime,
-        "EndTime": datetime,
-        "Status": AnalysisStatusType,
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
+class TagTypeDef(TypedDict):
+    Key: str
+    Value: str
 
-_RequiredAnalysisReportTypeDef = TypedDict(
-    "_RequiredAnalysisReportTypeDef",
-    {
-        "AnalysisReportId": str,
-    },
-)
-_OptionalAnalysisReportTypeDef = TypedDict(
-    "_OptionalAnalysisReportTypeDef",
-    {
-        "Identifier": str,
-        "ServiceType": ServiceTypeType,
-        "CreateTime": datetime,
-        "StartTime": datetime,
-        "EndTime": datetime,
-        "Status": AnalysisStatusType,
-        "Insights": List["InsightTypeDef"],
-    },
-    total=False,
-)
+TimestampTypeDef = Union[datetime, str]
 
-class AnalysisReportTypeDef(_RequiredAnalysisReportTypeDef, _OptionalAnalysisReportTypeDef):
-    pass
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-_RequiredCreatePerformanceAnalysisReportRequestRequestTypeDef = TypedDict(
-    "_RequiredCreatePerformanceAnalysisReportRequestRequestTypeDef",
-    {
-        "ServiceType": ServiceTypeType,
-        "Identifier": str,
-        "StartTime": Union[datetime, str],
-        "EndTime": Union[datetime, str],
-    },
-)
-_OptionalCreatePerformanceAnalysisReportRequestRequestTypeDef = TypedDict(
-    "_OptionalCreatePerformanceAnalysisReportRequestRequestTypeDef",
-    {
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
+class DataPointTypeDef(TypedDict):
+    Timestamp: datetime
+    Value: float
 
-class CreatePerformanceAnalysisReportRequestRequestTypeDef(
-    _RequiredCreatePerformanceAnalysisReportRequestRequestTypeDef,
-    _OptionalCreatePerformanceAnalysisReportRequestRequestTypeDef,
-):
-    pass
+class PerformanceInsightsMetricTypeDef(TypedDict):
+    Metric: NotRequired[str]
+    DisplayName: NotRequired[str]
+    Dimensions: NotRequired[Dict[str, str]]
+    Filter: NotRequired[Dict[str, str]]
+    Value: NotRequired[float]
 
-CreatePerformanceAnalysisReportResponseTypeDef = TypedDict(
-    "CreatePerformanceAnalysisReportResponseTypeDef",
-    {
-        "AnalysisReportId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DeletePerformanceAnalysisReportRequestTypeDef(TypedDict):
+    ServiceType: ServiceTypeType
+    Identifier: str
+    AnalysisReportId: str
 
-DataPointTypeDef = TypedDict(
-    "DataPointTypeDef",
-    {
-        "Timestamp": datetime,
-        "Value": float,
-    },
-)
+class DimensionGroupTypeDef(TypedDict):
+    Group: str
+    Dimensions: NotRequired[Sequence[str]]
+    Limit: NotRequired[int]
 
-DataTypeDef = TypedDict(
-    "DataTypeDef",
-    {
-        "PerformanceInsightsMetric": "PerformanceInsightsMetricTypeDef",
-    },
-    total=False,
-)
+class DimensionKeyDescriptionTypeDef(TypedDict):
+    Dimensions: NotRequired[Dict[str, str]]
+    Total: NotRequired[float]
+    AdditionalMetrics: NotRequired[Dict[str, float]]
+    Partitions: NotRequired[List[float]]
 
-DeletePerformanceAnalysisReportRequestRequestTypeDef = TypedDict(
-    "DeletePerformanceAnalysisReportRequestRequestTypeDef",
-    {
-        "ServiceType": ServiceTypeType,
-        "Identifier": str,
-        "AnalysisReportId": str,
-    },
-)
+class ResponsePartitionKeyTypeDef(TypedDict):
+    Dimensions: Dict[str, str]
 
-_RequiredDescribeDimensionKeysRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeDimensionKeysRequestRequestTypeDef",
-    {
-        "ServiceType": ServiceTypeType,
-        "Identifier": str,
-        "StartTime": Union[datetime, str],
-        "EndTime": Union[datetime, str],
-        "Metric": str,
-        "GroupBy": "DimensionGroupTypeDef",
-    },
-)
-_OptionalDescribeDimensionKeysRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeDimensionKeysRequestRequestTypeDef",
-    {
-        "PeriodInSeconds": int,
-        "AdditionalMetrics": List[str],
-        "PartitionBy": "DimensionGroupTypeDef",
-        "Filter": Dict[str, str],
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
+class DimensionDetailTypeDef(TypedDict):
+    Identifier: NotRequired[str]
 
-class DescribeDimensionKeysRequestRequestTypeDef(
-    _RequiredDescribeDimensionKeysRequestRequestTypeDef,
-    _OptionalDescribeDimensionKeysRequestRequestTypeDef,
-):
-    pass
+class DimensionKeyDetailTypeDef(TypedDict):
+    Value: NotRequired[str]
+    Dimension: NotRequired[str]
+    Status: NotRequired[DetailStatusType]
 
-DescribeDimensionKeysResponseTypeDef = TypedDict(
-    "DescribeDimensionKeysResponseTypeDef",
-    {
-        "AlignedStartTime": datetime,
-        "AlignedEndTime": datetime,
-        "PartitionKeys": List["ResponsePartitionKeyTypeDef"],
-        "Keys": List["DimensionKeyDescriptionTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class FeatureMetadataTypeDef(TypedDict):
+    Status: NotRequired[FeatureStatusType]
 
-DimensionDetailTypeDef = TypedDict(
-    "DimensionDetailTypeDef",
-    {
-        "Identifier": str,
-    },
-    total=False,
-)
+class GetDimensionKeyDetailsRequestTypeDef(TypedDict):
+    ServiceType: ServiceTypeType
+    Identifier: str
+    Group: str
+    GroupIdentifier: str
+    RequestedDimensions: NotRequired[Sequence[str]]
 
-DimensionGroupDetailTypeDef = TypedDict(
-    "DimensionGroupDetailTypeDef",
-    {
-        "Group": str,
-        "Dimensions": List["DimensionDetailTypeDef"],
-    },
-    total=False,
-)
+class GetPerformanceAnalysisReportRequestTypeDef(TypedDict):
+    ServiceType: ServiceTypeType
+    Identifier: str
+    AnalysisReportId: str
+    TextFormat: NotRequired[TextFormatType]
+    AcceptLanguage: NotRequired[Literal["EN_US"]]
 
-_RequiredDimensionGroupTypeDef = TypedDict(
-    "_RequiredDimensionGroupTypeDef",
-    {
-        "Group": str,
-    },
-)
-_OptionalDimensionGroupTypeDef = TypedDict(
-    "_OptionalDimensionGroupTypeDef",
-    {
-        "Dimensions": List[str],
-        "Limit": int,
-    },
-    total=False,
-)
+class GetResourceMetadataRequestTypeDef(TypedDict):
+    ServiceType: ServiceTypeType
+    Identifier: str
 
-class DimensionGroupTypeDef(_RequiredDimensionGroupTypeDef, _OptionalDimensionGroupTypeDef):
-    pass
+class RecommendationTypeDef(TypedDict):
+    RecommendationId: NotRequired[str]
+    RecommendationDescription: NotRequired[str]
 
-DimensionKeyDescriptionTypeDef = TypedDict(
-    "DimensionKeyDescriptionTypeDef",
-    {
-        "Dimensions": Dict[str, str],
-        "Total": float,
-        "AdditionalMetrics": Dict[str, float],
-        "Partitions": List[float],
-    },
-    total=False,
-)
+class ListAvailableResourceDimensionsRequestTypeDef(TypedDict):
+    ServiceType: ServiceTypeType
+    Identifier: str
+    Metrics: Sequence[str]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+    AuthorizedActions: NotRequired[Sequence[FineGrainedActionType]]
 
-DimensionKeyDetailTypeDef = TypedDict(
-    "DimensionKeyDetailTypeDef",
-    {
-        "Value": str,
-        "Dimension": str,
-        "Status": DetailStatusType,
-    },
-    total=False,
-)
+class ListAvailableResourceMetricsRequestTypeDef(TypedDict):
+    ServiceType: ServiceTypeType
+    Identifier: str
+    MetricTypes: Sequence[str]
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
 
-FeatureMetadataTypeDef = TypedDict(
-    "FeatureMetadataTypeDef",
-    {
-        "Status": FeatureStatusType,
-    },
-    total=False,
-)
+class ResponseResourceMetricTypeDef(TypedDict):
+    Metric: NotRequired[str]
+    Description: NotRequired[str]
+    Unit: NotRequired[str]
 
-_RequiredGetDimensionKeyDetailsRequestRequestTypeDef = TypedDict(
-    "_RequiredGetDimensionKeyDetailsRequestRequestTypeDef",
-    {
-        "ServiceType": ServiceTypeType,
-        "Identifier": str,
-        "Group": str,
-        "GroupIdentifier": str,
-    },
-)
-_OptionalGetDimensionKeyDetailsRequestRequestTypeDef = TypedDict(
-    "_OptionalGetDimensionKeyDetailsRequestRequestTypeDef",
-    {
-        "RequestedDimensions": List[str],
-    },
-    total=False,
-)
+class ListPerformanceAnalysisReportsRequestTypeDef(TypedDict):
+    ServiceType: ServiceTypeType
+    Identifier: str
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+    ListTags: NotRequired[bool]
 
-class GetDimensionKeyDetailsRequestRequestTypeDef(
-    _RequiredGetDimensionKeyDetailsRequestRequestTypeDef,
-    _OptionalGetDimensionKeyDetailsRequestRequestTypeDef,
-):
-    pass
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    ServiceType: ServiceTypeType
+    ResourceARN: str
 
-GetDimensionKeyDetailsResponseTypeDef = TypedDict(
-    "GetDimensionKeyDetailsResponseTypeDef",
-    {
-        "Dimensions": List["DimensionKeyDetailTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ResponseResourceMetricKeyTypeDef(TypedDict):
+    Metric: str
+    Dimensions: NotRequired[Dict[str, str]]
 
-_RequiredGetPerformanceAnalysisReportRequestRequestTypeDef = TypedDict(
-    "_RequiredGetPerformanceAnalysisReportRequestRequestTypeDef",
-    {
-        "ServiceType": ServiceTypeType,
-        "Identifier": str,
-        "AnalysisReportId": str,
-    },
-)
-_OptionalGetPerformanceAnalysisReportRequestRequestTypeDef = TypedDict(
-    "_OptionalGetPerformanceAnalysisReportRequestRequestTypeDef",
-    {
-        "TextFormat": TextFormatType,
-        "AcceptLanguage": Literal["EN_US"],
-    },
-    total=False,
-)
+class UntagResourceRequestTypeDef(TypedDict):
+    ServiceType: ServiceTypeType
+    ResourceARN: str
+    TagKeys: Sequence[str]
 
-class GetPerformanceAnalysisReportRequestRequestTypeDef(
-    _RequiredGetPerformanceAnalysisReportRequestRequestTypeDef,
-    _OptionalGetPerformanceAnalysisReportRequestRequestTypeDef,
-):
-    pass
+class AnalysisReportSummaryTypeDef(TypedDict):
+    AnalysisReportId: NotRequired[str]
+    CreateTime: NotRequired[datetime]
+    StartTime: NotRequired[datetime]
+    EndTime: NotRequired[datetime]
+    Status: NotRequired[AnalysisStatusType]
+    Tags: NotRequired[List[TagTypeDef]]
 
-GetPerformanceAnalysisReportResponseTypeDef = TypedDict(
-    "GetPerformanceAnalysisReportResponseTypeDef",
-    {
-        "AnalysisReport": "AnalysisReportTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class TagResourceRequestTypeDef(TypedDict):
+    ServiceType: ServiceTypeType
+    ResourceARN: str
+    Tags: Sequence[TagTypeDef]
 
-GetResourceMetadataRequestRequestTypeDef = TypedDict(
-    "GetResourceMetadataRequestRequestTypeDef",
-    {
-        "ServiceType": ServiceTypeType,
-        "Identifier": str,
-    },
-)
+class CreatePerformanceAnalysisReportRequestTypeDef(TypedDict):
+    ServiceType: ServiceTypeType
+    Identifier: str
+    StartTime: TimestampTypeDef
+    EndTime: TimestampTypeDef
+    Tags: NotRequired[Sequence[TagTypeDef]]
 
-GetResourceMetadataResponseTypeDef = TypedDict(
-    "GetResourceMetadataResponseTypeDef",
-    {
-        "Identifier": str,
-        "Features": Dict[str, "FeatureMetadataTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CreatePerformanceAnalysisReportResponseTypeDef(TypedDict):
+    AnalysisReportId: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredGetResourceMetricsRequestRequestTypeDef = TypedDict(
-    "_RequiredGetResourceMetricsRequestRequestTypeDef",
-    {
-        "ServiceType": ServiceTypeType,
-        "Identifier": str,
-        "MetricQueries": List["MetricQueryTypeDef"],
-        "StartTime": Union[datetime, str],
-        "EndTime": Union[datetime, str],
-    },
-)
-_OptionalGetResourceMetricsRequestRequestTypeDef = TypedDict(
-    "_OptionalGetResourceMetricsRequestRequestTypeDef",
-    {
-        "PeriodInSeconds": int,
-        "MaxResults": int,
-        "NextToken": str,
-        "PeriodAlignment": PeriodAlignmentType,
-    },
-    total=False,
-)
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    Tags: List[TagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class GetResourceMetricsRequestRequestTypeDef(
-    _RequiredGetResourceMetricsRequestRequestTypeDef,
-    _OptionalGetResourceMetricsRequestRequestTypeDef,
-):
-    pass
+class DataTypeDef(TypedDict):
+    PerformanceInsightsMetric: NotRequired[PerformanceInsightsMetricTypeDef]
 
-GetResourceMetricsResponseTypeDef = TypedDict(
-    "GetResourceMetricsResponseTypeDef",
-    {
-        "AlignedStartTime": datetime,
-        "AlignedEndTime": datetime,
-        "Identifier": str,
-        "MetricList": List["MetricKeyDataPointsTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DescribeDimensionKeysRequestTypeDef(TypedDict):
+    ServiceType: ServiceTypeType
+    Identifier: str
+    StartTime: TimestampTypeDef
+    EndTime: TimestampTypeDef
+    Metric: str
+    GroupBy: DimensionGroupTypeDef
+    PeriodInSeconds: NotRequired[int]
+    AdditionalMetrics: NotRequired[Sequence[str]]
+    PartitionBy: NotRequired[DimensionGroupTypeDef]
+    Filter: NotRequired[Mapping[str, str]]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
 
-_RequiredInsightTypeDef = TypedDict(
-    "_RequiredInsightTypeDef",
-    {
-        "InsightId": str,
-    },
-)
-_OptionalInsightTypeDef = TypedDict(
-    "_OptionalInsightTypeDef",
-    {
-        "InsightType": str,
-        "Context": ContextTypeType,
-        "StartTime": datetime,
-        "EndTime": datetime,
-        "Severity": SeverityType,
-        "SupportingInsights": List[Dict[str, Any]],
-        "Description": str,
-        "Recommendations": List["RecommendationTypeDef"],
-        "InsightData": List["DataTypeDef"],
-        "BaselineData": List["DataTypeDef"],
-    },
-    total=False,
-)
+class MetricQueryTypeDef(TypedDict):
+    Metric: str
+    GroupBy: NotRequired[DimensionGroupTypeDef]
+    Filter: NotRequired[Mapping[str, str]]
 
-class InsightTypeDef(_RequiredInsightTypeDef, _OptionalInsightTypeDef):
-    pass
+class DescribeDimensionKeysResponseTypeDef(TypedDict):
+    AlignedStartTime: datetime
+    AlignedEndTime: datetime
+    PartitionKeys: List[ResponsePartitionKeyTypeDef]
+    Keys: List[DimensionKeyDescriptionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-_RequiredListAvailableResourceDimensionsRequestRequestTypeDef = TypedDict(
-    "_RequiredListAvailableResourceDimensionsRequestRequestTypeDef",
-    {
-        "ServiceType": ServiceTypeType,
-        "Identifier": str,
-        "Metrics": List[str],
-    },
-)
-_OptionalListAvailableResourceDimensionsRequestRequestTypeDef = TypedDict(
-    "_OptionalListAvailableResourceDimensionsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-        "AuthorizedActions": List[FineGrainedActionType],
-    },
-    total=False,
-)
+class DimensionGroupDetailTypeDef(TypedDict):
+    Group: NotRequired[str]
+    Dimensions: NotRequired[List[DimensionDetailTypeDef]]
 
-class ListAvailableResourceDimensionsRequestRequestTypeDef(
-    _RequiredListAvailableResourceDimensionsRequestRequestTypeDef,
-    _OptionalListAvailableResourceDimensionsRequestRequestTypeDef,
-):
-    pass
+class GetDimensionKeyDetailsResponseTypeDef(TypedDict):
+    Dimensions: List[DimensionKeyDetailTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ListAvailableResourceDimensionsResponseTypeDef = TypedDict(
-    "ListAvailableResourceDimensionsResponseTypeDef",
-    {
-        "MetricDimensions": List["MetricDimensionGroupsTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetResourceMetadataResponseTypeDef(TypedDict):
+    Identifier: str
+    Features: Dict[str, FeatureMetadataTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredListAvailableResourceMetricsRequestRequestTypeDef = TypedDict(
-    "_RequiredListAvailableResourceMetricsRequestRequestTypeDef",
-    {
-        "ServiceType": ServiceTypeType,
-        "Identifier": str,
-        "MetricTypes": List[str],
-    },
-)
-_OptionalListAvailableResourceMetricsRequestRequestTypeDef = TypedDict(
-    "_OptionalListAvailableResourceMetricsRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
+class ListAvailableResourceMetricsResponseTypeDef(TypedDict):
+    Metrics: List[ResponseResourceMetricTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-class ListAvailableResourceMetricsRequestRequestTypeDef(
-    _RequiredListAvailableResourceMetricsRequestRequestTypeDef,
-    _OptionalListAvailableResourceMetricsRequestRequestTypeDef,
-):
-    pass
+class MetricKeyDataPointsTypeDef(TypedDict):
+    Key: NotRequired[ResponseResourceMetricKeyTypeDef]
+    DataPoints: NotRequired[List[DataPointTypeDef]]
 
-ListAvailableResourceMetricsResponseTypeDef = TypedDict(
-    "ListAvailableResourceMetricsResponseTypeDef",
-    {
-        "Metrics": List["ResponseResourceMetricTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListPerformanceAnalysisReportsResponseTypeDef(TypedDict):
+    AnalysisReports: List[AnalysisReportSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-_RequiredListPerformanceAnalysisReportsRequestRequestTypeDef = TypedDict(
-    "_RequiredListPerformanceAnalysisReportsRequestRequestTypeDef",
-    {
-        "ServiceType": ServiceTypeType,
-        "Identifier": str,
-    },
-)
-_OptionalListPerformanceAnalysisReportsRequestRequestTypeDef = TypedDict(
-    "_OptionalListPerformanceAnalysisReportsRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-        "ListTags": bool,
-    },
-    total=False,
-)
+class InsightTypeDef(TypedDict):
+    InsightId: str
+    InsightType: NotRequired[str]
+    Context: NotRequired[ContextTypeType]
+    StartTime: NotRequired[datetime]
+    EndTime: NotRequired[datetime]
+    Severity: NotRequired[SeverityType]
+    SupportingInsights: NotRequired[List[Dict[str, Any]]]
+    Description: NotRequired[str]
+    Recommendations: NotRequired[List[RecommendationTypeDef]]
+    InsightData: NotRequired[List[DataTypeDef]]
+    BaselineData: NotRequired[List[DataTypeDef]]
 
-class ListPerformanceAnalysisReportsRequestRequestTypeDef(
-    _RequiredListPerformanceAnalysisReportsRequestRequestTypeDef,
-    _OptionalListPerformanceAnalysisReportsRequestRequestTypeDef,
-):
-    pass
+class GetResourceMetricsRequestTypeDef(TypedDict):
+    ServiceType: ServiceTypeType
+    Identifier: str
+    MetricQueries: Sequence[MetricQueryTypeDef]
+    StartTime: TimestampTypeDef
+    EndTime: TimestampTypeDef
+    PeriodInSeconds: NotRequired[int]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+    PeriodAlignment: NotRequired[PeriodAlignmentType]
 
-ListPerformanceAnalysisReportsResponseTypeDef = TypedDict(
-    "ListPerformanceAnalysisReportsResponseTypeDef",
-    {
-        "AnalysisReports": List["AnalysisReportSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class MetricDimensionGroupsTypeDef(TypedDict):
+    Metric: NotRequired[str]
+    Groups: NotRequired[List[DimensionGroupDetailTypeDef]]
 
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "ServiceType": ServiceTypeType,
-        "ResourceARN": str,
-    },
-)
+class GetResourceMetricsResponseTypeDef(TypedDict):
+    AlignedStartTime: datetime
+    AlignedEndTime: datetime
+    Identifier: str
+    MetricList: List[MetricKeyDataPointsTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "Tags": List["TagTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class AnalysisReportTypeDef(TypedDict):
+    AnalysisReportId: str
+    Identifier: NotRequired[str]
+    ServiceType: NotRequired[ServiceTypeType]
+    CreateTime: NotRequired[datetime]
+    StartTime: NotRequired[datetime]
+    EndTime: NotRequired[datetime]
+    Status: NotRequired[AnalysisStatusType]
+    Insights: NotRequired[List[InsightTypeDef]]
 
-MetricDimensionGroupsTypeDef = TypedDict(
-    "MetricDimensionGroupsTypeDef",
-    {
-        "Metric": str,
-        "Groups": List["DimensionGroupDetailTypeDef"],
-    },
-    total=False,
-)
+class ListAvailableResourceDimensionsResponseTypeDef(TypedDict):
+    MetricDimensions: List[MetricDimensionGroupsTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-MetricKeyDataPointsTypeDef = TypedDict(
-    "MetricKeyDataPointsTypeDef",
-    {
-        "Key": "ResponseResourceMetricKeyTypeDef",
-        "DataPoints": List["DataPointTypeDef"],
-    },
-    total=False,
-)
-
-_RequiredMetricQueryTypeDef = TypedDict(
-    "_RequiredMetricQueryTypeDef",
-    {
-        "Metric": str,
-    },
-)
-_OptionalMetricQueryTypeDef = TypedDict(
-    "_OptionalMetricQueryTypeDef",
-    {
-        "GroupBy": "DimensionGroupTypeDef",
-        "Filter": Dict[str, str],
-    },
-    total=False,
-)
-
-class MetricQueryTypeDef(_RequiredMetricQueryTypeDef, _OptionalMetricQueryTypeDef):
-    pass
-
-PerformanceInsightsMetricTypeDef = TypedDict(
-    "PerformanceInsightsMetricTypeDef",
-    {
-        "Metric": str,
-        "DisplayName": str,
-        "Dimensions": Dict[str, str],
-        "Value": float,
-    },
-    total=False,
-)
-
-RecommendationTypeDef = TypedDict(
-    "RecommendationTypeDef",
-    {
-        "RecommendationId": str,
-        "RecommendationDescription": str,
-    },
-    total=False,
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-ResponsePartitionKeyTypeDef = TypedDict(
-    "ResponsePartitionKeyTypeDef",
-    {
-        "Dimensions": Dict[str, str],
-    },
-)
-
-_RequiredResponseResourceMetricKeyTypeDef = TypedDict(
-    "_RequiredResponseResourceMetricKeyTypeDef",
-    {
-        "Metric": str,
-    },
-)
-_OptionalResponseResourceMetricKeyTypeDef = TypedDict(
-    "_OptionalResponseResourceMetricKeyTypeDef",
-    {
-        "Dimensions": Dict[str, str],
-    },
-    total=False,
-)
-
-class ResponseResourceMetricKeyTypeDef(
-    _RequiredResponseResourceMetricKeyTypeDef, _OptionalResponseResourceMetricKeyTypeDef
-):
-    pass
-
-ResponseResourceMetricTypeDef = TypedDict(
-    "ResponseResourceMetricTypeDef",
-    {
-        "Metric": str,
-        "Description": str,
-        "Unit": str,
-    },
-    total=False,
-)
-
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "ServiceType": ServiceTypeType,
-        "ResourceARN": str,
-        "Tags": List["TagTypeDef"],
-    },
-)
-
-TagTypeDef = TypedDict(
-    "TagTypeDef",
-    {
-        "Key": str,
-        "Value": str,
-    },
-)
-
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "ServiceType": ServiceTypeType,
-        "ResourceARN": str,
-        "TagKeys": List[str],
-    },
-)
+class GetPerformanceAnalysisReportResponseTypeDef(TypedDict):
+    AnalysisReport: AnalysisReportTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef

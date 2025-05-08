@@ -1,19 +1,21 @@
 """
 Main interface for meteringmarketplace service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_meteringmarketplace/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_meteringmarketplace import (
         Client,
         MarketplaceMeteringClient,
     )
 
-    session = boto3.Session()
-
-    client: MarketplaceMeteringClient = boto3.client("meteringmarketplace")
-    session_client: MarketplaceMeteringClient = session.client("meteringmarketplace")
+    session = Session()
+    client: MarketplaceMeteringClient = session.client("meteringmarketplace")
     ```
 """
 

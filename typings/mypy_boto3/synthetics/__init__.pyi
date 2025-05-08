@@ -1,19 +1,21 @@
 """
 Main interface for synthetics service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_synthetics/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_synthetics import (
         Client,
         SyntheticsClient,
     )
 
-    session = boto3.Session()
-
-    client: SyntheticsClient = boto3.client("synthetics")
-    session_client: SyntheticsClient = session.client("synthetics")
+    session = Session()
+    client: SyntheticsClient = session.client("synthetics")
     ```
 """
 

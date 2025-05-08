@@ -1,49 +1,64 @@
 """
 Type annotations for rds-data service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rds_data/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_rds_data/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_rds_data.type_defs import ArrayValueTypeDef
+    from mypy_boto3_rds_data.type_defs import ArrayValueOutputTypeDef
 
-    data: ArrayValueTypeDef = {...}
+    data: ArrayValueOutputTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from typing import IO, Any, Dict, List, Union
+from typing import IO, Any, Union
 
 from botocore.response import StreamingBody
 
 from .literals import DecimalReturnTypeType, LongReturnTypeType, RecordsFormatTypeType, TypeHintType
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
+    "ArrayValueOutputTypeDef",
     "ArrayValueTypeDef",
-    "BatchExecuteStatementRequestRequestTypeDef",
+    "ArrayValueUnionTypeDef",
+    "BatchExecuteStatementRequestTypeDef",
     "BatchExecuteStatementResponseTypeDef",
-    "BeginTransactionRequestRequestTypeDef",
+    "BeginTransactionRequestTypeDef",
     "BeginTransactionResponseTypeDef",
+    "BlobTypeDef",
     "ColumnMetadataTypeDef",
-    "CommitTransactionRequestRequestTypeDef",
+    "CommitTransactionRequestTypeDef",
     "CommitTransactionResponseTypeDef",
-    "ExecuteSqlRequestRequestTypeDef",
+    "ExecuteSqlRequestTypeDef",
     "ExecuteSqlResponseTypeDef",
-    "ExecuteStatementRequestRequestTypeDef",
+    "ExecuteStatementRequestTypeDef",
     "ExecuteStatementResponseTypeDef",
+    "FieldOutputTypeDef",
     "FieldTypeDef",
+    "FieldUnionTypeDef",
     "RecordTypeDef",
     "ResponseMetadataTypeDef",
     "ResultFrameTypeDef",
     "ResultSetMetadataTypeDef",
     "ResultSetOptionsTypeDef",
-    "RollbackTransactionRequestRequestTypeDef",
+    "RollbackTransactionRequestTypeDef",
     "RollbackTransactionResponseTypeDef",
     "SqlParameterTypeDef",
     "SqlStatementResultTypeDef",
@@ -52,313 +67,181 @@ __all__ = (
     "ValueTypeDef",
 )
 
-ArrayValueTypeDef = TypedDict(
-    "ArrayValueTypeDef",
-    {
-        "booleanValues": List[bool],
-        "longValues": List[int],
-        "doubleValues": List[float],
-        "stringValues": List[str],
-        "arrayValues": List[Dict[str, Any]],
-    },
-    total=False,
-)
+class ArrayValueOutputTypeDef(TypedDict):
+    booleanValues: NotRequired[List[bool]]
+    longValues: NotRequired[List[int]]
+    doubleValues: NotRequired[List[float]]
+    stringValues: NotRequired[List[str]]
+    arrayValues: NotRequired[List[Dict[str, Any]]]
 
-_RequiredBatchExecuteStatementRequestRequestTypeDef = TypedDict(
-    "_RequiredBatchExecuteStatementRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "secretArn": str,
-        "sql": str,
-    },
-)
-_OptionalBatchExecuteStatementRequestRequestTypeDef = TypedDict(
-    "_OptionalBatchExecuteStatementRequestRequestTypeDef",
-    {
-        "database": str,
-        "schema": str,
-        "parameterSets": List[List["SqlParameterTypeDef"]],
-        "transactionId": str,
-    },
-    total=False,
-)
+class ArrayValueTypeDef(TypedDict):
+    booleanValues: NotRequired[Sequence[bool]]
+    longValues: NotRequired[Sequence[int]]
+    doubleValues: NotRequired[Sequence[float]]
+    stringValues: NotRequired[Sequence[str]]
+    arrayValues: NotRequired[Sequence[Mapping[str, Any]]]
 
-class BatchExecuteStatementRequestRequestTypeDef(
-    _RequiredBatchExecuteStatementRequestRequestTypeDef,
-    _OptionalBatchExecuteStatementRequestRequestTypeDef,
-):
-    pass
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-BatchExecuteStatementResponseTypeDef = TypedDict(
-    "BatchExecuteStatementResponseTypeDef",
-    {
-        "updateResults": List["UpdateResultTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class BeginTransactionRequestTypeDef(TypedDict):
+    resourceArn: str
+    secretArn: str
+    database: NotRequired[str]
+    schema: NotRequired[str]
 
-_RequiredBeginTransactionRequestRequestTypeDef = TypedDict(
-    "_RequiredBeginTransactionRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "secretArn": str,
-    },
-)
-_OptionalBeginTransactionRequestRequestTypeDef = TypedDict(
-    "_OptionalBeginTransactionRequestRequestTypeDef",
-    {
-        "database": str,
-        "schema": str,
-    },
-    total=False,
-)
-
-class BeginTransactionRequestRequestTypeDef(
-    _RequiredBeginTransactionRequestRequestTypeDef, _OptionalBeginTransactionRequestRequestTypeDef
-):
-    pass
-
-BeginTransactionResponseTypeDef = TypedDict(
-    "BeginTransactionResponseTypeDef",
-    {
-        "transactionId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
+BlobTypeDef = Union[str, bytes, IO[Any], StreamingBody]
 ColumnMetadataTypeDef = TypedDict(
     "ColumnMetadataTypeDef",
     {
-        "name": str,
-        "type": int,
-        "typeName": str,
-        "label": str,
-        "schemaName": str,
-        "tableName": str,
-        "isAutoIncrement": bool,
-        "isSigned": bool,
-        "isCurrency": bool,
-        "isCaseSensitive": bool,
-        "nullable": int,
-        "precision": int,
-        "scale": int,
-        "arrayBaseColumnType": int,
-    },
-    total=False,
-)
-
-CommitTransactionRequestRequestTypeDef = TypedDict(
-    "CommitTransactionRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "secretArn": str,
-        "transactionId": str,
+        "name": NotRequired[str],
+        "type": NotRequired[int],
+        "typeName": NotRequired[str],
+        "label": NotRequired[str],
+        "schemaName": NotRequired[str],
+        "tableName": NotRequired[str],
+        "isAutoIncrement": NotRequired[bool],
+        "isSigned": NotRequired[bool],
+        "isCurrency": NotRequired[bool],
+        "isCaseSensitive": NotRequired[bool],
+        "nullable": NotRequired[int],
+        "precision": NotRequired[int],
+        "scale": NotRequired[int],
+        "arrayBaseColumnType": NotRequired[int],
     },
 )
 
-CommitTransactionResponseTypeDef = TypedDict(
-    "CommitTransactionResponseTypeDef",
-    {
-        "transactionStatus": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CommitTransactionRequestTypeDef(TypedDict):
+    resourceArn: str
+    secretArn: str
+    transactionId: str
 
-_RequiredExecuteSqlRequestRequestTypeDef = TypedDict(
-    "_RequiredExecuteSqlRequestRequestTypeDef",
-    {
-        "dbClusterOrInstanceArn": str,
-        "awsSecretStoreArn": str,
-        "sqlStatements": str,
-    },
-)
-_OptionalExecuteSqlRequestRequestTypeDef = TypedDict(
-    "_OptionalExecuteSqlRequestRequestTypeDef",
-    {
-        "database": str,
-        "schema": str,
-    },
-    total=False,
-)
+class ExecuteSqlRequestTypeDef(TypedDict):
+    dbClusterOrInstanceArn: str
+    awsSecretStoreArn: str
+    sqlStatements: str
+    database: NotRequired[str]
+    schema: NotRequired[str]
 
-class ExecuteSqlRequestRequestTypeDef(
-    _RequiredExecuteSqlRequestRequestTypeDef, _OptionalExecuteSqlRequestRequestTypeDef
-):
-    pass
+class ResultSetOptionsTypeDef(TypedDict):
+    decimalReturnType: NotRequired[DecimalReturnTypeType]
+    longReturnType: NotRequired[LongReturnTypeType]
 
-ExecuteSqlResponseTypeDef = TypedDict(
-    "ExecuteSqlResponseTypeDef",
-    {
-        "sqlStatementResults": List["SqlStatementResultTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class RollbackTransactionRequestTypeDef(TypedDict):
+    resourceArn: str
+    secretArn: str
+    transactionId: str
 
-_RequiredExecuteStatementRequestRequestTypeDef = TypedDict(
-    "_RequiredExecuteStatementRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "secretArn": str,
-        "sql": str,
-    },
-)
-_OptionalExecuteStatementRequestRequestTypeDef = TypedDict(
-    "_OptionalExecuteStatementRequestRequestTypeDef",
-    {
-        "database": str,
-        "schema": str,
-        "parameters": List["SqlParameterTypeDef"],
-        "transactionId": str,
-        "includeResultMetadata": bool,
-        "continueAfterTimeout": bool,
-        "resultSetOptions": "ResultSetOptionsTypeDef",
-        "formatRecordsAs": RecordsFormatTypeType,
-    },
-    total=False,
-)
+class StructValueTypeDef(TypedDict):
+    attributes: NotRequired[List[Dict[str, Any]]]
 
-class ExecuteStatementRequestRequestTypeDef(
-    _RequiredExecuteStatementRequestRequestTypeDef, _OptionalExecuteStatementRequestRequestTypeDef
-):
-    pass
+class FieldOutputTypeDef(TypedDict):
+    isNull: NotRequired[bool]
+    booleanValue: NotRequired[bool]
+    longValue: NotRequired[int]
+    doubleValue: NotRequired[float]
+    stringValue: NotRequired[str]
+    blobValue: NotRequired[bytes]
+    arrayValue: NotRequired[ArrayValueOutputTypeDef]
 
-ExecuteStatementResponseTypeDef = TypedDict(
-    "ExecuteStatementResponseTypeDef",
-    {
-        "records": List[List["FieldTypeDef"]],
-        "columnMetadata": List["ColumnMetadataTypeDef"],
-        "numberOfRecordsUpdated": int,
-        "generatedFields": List["FieldTypeDef"],
-        "formattedRecords": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+ArrayValueUnionTypeDef = Union[ArrayValueTypeDef, ArrayValueOutputTypeDef]
 
-FieldTypeDef = TypedDict(
-    "FieldTypeDef",
-    {
-        "isNull": bool,
-        "booleanValue": bool,
-        "longValue": int,
-        "doubleValue": float,
-        "stringValue": str,
-        "blobValue": Union[bytes, IO[bytes], StreamingBody],
-        "arrayValue": "ArrayValueTypeDef",
-    },
-    total=False,
-)
+class BeginTransactionResponseTypeDef(TypedDict):
+    transactionId: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-RecordTypeDef = TypedDict(
-    "RecordTypeDef",
-    {
-        "values": List["ValueTypeDef"],
-    },
-    total=False,
-)
+class CommitTransactionResponseTypeDef(TypedDict):
+    transactionStatus: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
+class RollbackTransactionResponseTypeDef(TypedDict):
+    transactionStatus: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ResultFrameTypeDef = TypedDict(
-    "ResultFrameTypeDef",
-    {
-        "resultSetMetadata": "ResultSetMetadataTypeDef",
-        "records": List["RecordTypeDef"],
-    },
-    total=False,
-)
+class ResultSetMetadataTypeDef(TypedDict):
+    columnCount: NotRequired[int]
+    columnMetadata: NotRequired[List[ColumnMetadataTypeDef]]
 
-ResultSetMetadataTypeDef = TypedDict(
-    "ResultSetMetadataTypeDef",
-    {
-        "columnCount": int,
-        "columnMetadata": List["ColumnMetadataTypeDef"],
-    },
-    total=False,
-)
+class ValueTypeDef(TypedDict):
+    isNull: NotRequired[bool]
+    bitValue: NotRequired[bool]
+    bigIntValue: NotRequired[int]
+    intValue: NotRequired[int]
+    doubleValue: NotRequired[float]
+    realValue: NotRequired[float]
+    stringValue: NotRequired[str]
+    blobValue: NotRequired[bytes]
+    arrayValues: NotRequired[List[Dict[str, Any]]]
+    structValue: NotRequired[StructValueTypeDef]
 
-ResultSetOptionsTypeDef = TypedDict(
-    "ResultSetOptionsTypeDef",
-    {
-        "decimalReturnType": DecimalReturnTypeType,
-        "longReturnType": LongReturnTypeType,
-    },
-    total=False,
-)
+class ExecuteStatementResponseTypeDef(TypedDict):
+    records: List[List[FieldOutputTypeDef]]
+    columnMetadata: List[ColumnMetadataTypeDef]
+    numberOfRecordsUpdated: int
+    generatedFields: List[FieldOutputTypeDef]
+    formattedRecords: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-RollbackTransactionRequestRequestTypeDef = TypedDict(
-    "RollbackTransactionRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "secretArn": str,
-        "transactionId": str,
-    },
-)
+class UpdateResultTypeDef(TypedDict):
+    generatedFields: NotRequired[List[FieldOutputTypeDef]]
 
-RollbackTransactionResponseTypeDef = TypedDict(
-    "RollbackTransactionResponseTypeDef",
-    {
-        "transactionStatus": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class FieldTypeDef(TypedDict):
+    isNull: NotRequired[bool]
+    booleanValue: NotRequired[bool]
+    longValue: NotRequired[int]
+    doubleValue: NotRequired[float]
+    stringValue: NotRequired[str]
+    blobValue: NotRequired[BlobTypeDef]
+    arrayValue: NotRequired[ArrayValueUnionTypeDef]
 
-SqlParameterTypeDef = TypedDict(
-    "SqlParameterTypeDef",
-    {
-        "name": str,
-        "value": "FieldTypeDef",
-        "typeHint": TypeHintType,
-    },
-    total=False,
-)
+class RecordTypeDef(TypedDict):
+    values: NotRequired[List[ValueTypeDef]]
 
-SqlStatementResultTypeDef = TypedDict(
-    "SqlStatementResultTypeDef",
-    {
-        "resultFrame": "ResultFrameTypeDef",
-        "numberOfRecordsUpdated": int,
-    },
-    total=False,
-)
+class BatchExecuteStatementResponseTypeDef(TypedDict):
+    updateResults: List[UpdateResultTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-StructValueTypeDef = TypedDict(
-    "StructValueTypeDef",
-    {
-        "attributes": List[Dict[str, Any]],
-    },
-    total=False,
-)
+FieldUnionTypeDef = Union[FieldTypeDef, FieldOutputTypeDef]
 
-UpdateResultTypeDef = TypedDict(
-    "UpdateResultTypeDef",
-    {
-        "generatedFields": List["FieldTypeDef"],
-    },
-    total=False,
-)
+class ResultFrameTypeDef(TypedDict):
+    resultSetMetadata: NotRequired[ResultSetMetadataTypeDef]
+    records: NotRequired[List[RecordTypeDef]]
 
-ValueTypeDef = TypedDict(
-    "ValueTypeDef",
-    {
-        "isNull": bool,
-        "bitValue": bool,
-        "bigIntValue": int,
-        "intValue": int,
-        "doubleValue": float,
-        "realValue": float,
-        "stringValue": str,
-        "blobValue": bytes,
-        "arrayValues": List[Dict[str, Any]],
-        "structValue": Dict[str, Any],
-    },
-    total=False,
-)
+class SqlParameterTypeDef(TypedDict):
+    name: NotRequired[str]
+    value: NotRequired[FieldUnionTypeDef]
+    typeHint: NotRequired[TypeHintType]
+
+class SqlStatementResultTypeDef(TypedDict):
+    resultFrame: NotRequired[ResultFrameTypeDef]
+    numberOfRecordsUpdated: NotRequired[int]
+
+class BatchExecuteStatementRequestTypeDef(TypedDict):
+    resourceArn: str
+    secretArn: str
+    sql: str
+    database: NotRequired[str]
+    schema: NotRequired[str]
+    parameterSets: NotRequired[Sequence[Sequence[SqlParameterTypeDef]]]
+    transactionId: NotRequired[str]
+
+class ExecuteStatementRequestTypeDef(TypedDict):
+    resourceArn: str
+    secretArn: str
+    sql: str
+    database: NotRequired[str]
+    schema: NotRequired[str]
+    parameters: NotRequired[Sequence[SqlParameterTypeDef]]
+    transactionId: NotRequired[str]
+    includeResultMetadata: NotRequired[bool]
+    continueAfterTimeout: NotRequired[bool]
+    resultSetOptions: NotRequired[ResultSetOptionsTypeDef]
+    formatRecordsAs: NotRequired[RecordsFormatTypeType]
+
+class ExecuteSqlResponseTypeDef(TypedDict):
+    sqlStatementResults: List[SqlStatementResultTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef

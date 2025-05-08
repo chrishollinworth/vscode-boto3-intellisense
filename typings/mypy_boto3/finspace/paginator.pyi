@@ -1,42 +1,57 @@
 """
 Type annotations for finspace service client paginators.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace/paginators.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_finspace/paginators/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
 
-    from mypy_boto3_finspace import finspaceClient
+    from mypy_boto3_finspace.client import FinspaceClient
     from mypy_boto3_finspace.paginator import (
         ListKxEnvironmentsPaginator,
     )
 
-    client: finspaceClient = boto3.client("finspace")
+    session = Session()
+    client: FinspaceClient = session.client("finspace")
 
     list_kx_environments_paginator: ListKxEnvironmentsPaginator = client.get_paginator("list_kx_environments")
     ```
 """
 
-from typing import Iterator
+from __future__ import annotations
 
-from botocore.paginate import Paginator as Boto3Paginator
+import sys
+from typing import TYPE_CHECKING
 
-from .type_defs import ListKxEnvironmentsResponseTypeDef, PaginatorConfigTypeDef
+from botocore.paginate import PageIterator, Paginator
+
+from .type_defs import ListKxEnvironmentsRequestPaginateTypeDef, ListKxEnvironmentsResponseTypeDef
+
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = ("ListKxEnvironmentsPaginator",)
 
-class ListKxEnvironmentsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace.html#finspace.Paginator.ListKxEnvironments)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace/paginators.html#listkxenvironmentspaginator)
-    """
+if TYPE_CHECKING:
+    _ListKxEnvironmentsPaginatorBase = Paginator[ListKxEnvironmentsResponseTypeDef]
+else:
+    _ListKxEnvironmentsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListKxEnvironmentsResponseTypeDef]:
+class ListKxEnvironmentsPaginator(_ListKxEnvironmentsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/finspace/paginator/ListKxEnvironments.html#Finspace.Paginator.ListKxEnvironments)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_finspace/paginators/#listkxenvironmentspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListKxEnvironmentsRequestPaginateTypeDef]
+    ) -> PageIterator[ListKxEnvironmentsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace.html#finspace.Paginator.ListKxEnvironments.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace/paginators.html#listkxenvironmentspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/finspace/paginator/ListKxEnvironments.html#Finspace.Paginator.ListKxEnvironments.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_finspace/paginators/#listkxenvironmentspaginator)
         """

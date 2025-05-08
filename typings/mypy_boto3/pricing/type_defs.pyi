@@ -1,77 +1,84 @@
 """
 Type annotations for pricing service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pricing/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_pricing/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_pricing.type_defs import AttributeValueTypeDef
 
-    data: AttributeValueTypeDef = {...}
+    data: AttributeValueTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List, Union
+from typing import Union
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
     "AttributeValueTypeDef",
-    "DescribeServicesRequestRequestTypeDef",
+    "DescribeServicesRequestPaginateTypeDef",
+    "DescribeServicesRequestTypeDef",
     "DescribeServicesResponseTypeDef",
     "FilterTypeDef",
-    "GetAttributeValuesRequestRequestTypeDef",
+    "GetAttributeValuesRequestPaginateTypeDef",
+    "GetAttributeValuesRequestTypeDef",
     "GetAttributeValuesResponseTypeDef",
-    "GetPriceListFileUrlRequestRequestTypeDef",
+    "GetPriceListFileUrlRequestTypeDef",
     "GetPriceListFileUrlResponseTypeDef",
-    "GetProductsRequestRequestTypeDef",
+    "GetProductsRequestPaginateTypeDef",
+    "GetProductsRequestTypeDef",
     "GetProductsResponseTypeDef",
-    "ListPriceListsRequestRequestTypeDef",
+    "ListPriceListsRequestPaginateTypeDef",
+    "ListPriceListsRequestTypeDef",
     "ListPriceListsResponseTypeDef",
     "PaginatorConfigTypeDef",
     "PriceListTypeDef",
     "ResponseMetadataTypeDef",
     "ServiceTypeDef",
+    "TimestampTypeDef",
 )
 
-AttributeValueTypeDef = TypedDict(
-    "AttributeValueTypeDef",
-    {
-        "Value": str,
-    },
-    total=False,
-)
+class AttributeValueTypeDef(TypedDict):
+    Value: NotRequired[str]
 
-DescribeServicesRequestRequestTypeDef = TypedDict(
-    "DescribeServicesRequestRequestTypeDef",
-    {
-        "ServiceCode": str,
-        "FormatVersion": str,
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
 
-DescribeServicesResponseTypeDef = TypedDict(
-    "DescribeServicesResponseTypeDef",
-    {
-        "Services": List["ServiceTypeDef"],
-        "FormatVersion": str,
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DescribeServicesRequestTypeDef(TypedDict):
+    ServiceCode: NotRequired[str]
+    FormatVersion: NotRequired[str]
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
+
+class ServiceTypeDef(TypedDict):
+    ServiceCode: str
+    AttributeNames: NotRequired[List[str]]
 
 FilterTypeDef = TypedDict(
     "FilterTypeDef",
@@ -82,162 +89,84 @@ FilterTypeDef = TypedDict(
     },
 )
 
-_RequiredGetAttributeValuesRequestRequestTypeDef = TypedDict(
-    "_RequiredGetAttributeValuesRequestRequestTypeDef",
-    {
-        "ServiceCode": str,
-        "AttributeName": str,
-    },
-)
-_OptionalGetAttributeValuesRequestRequestTypeDef = TypedDict(
-    "_OptionalGetAttributeValuesRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
+class GetAttributeValuesRequestTypeDef(TypedDict):
+    ServiceCode: str
+    AttributeName: str
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
 
-class GetAttributeValuesRequestRequestTypeDef(
-    _RequiredGetAttributeValuesRequestRequestTypeDef,
-    _OptionalGetAttributeValuesRequestRequestTypeDef,
-):
-    pass
+class GetPriceListFileUrlRequestTypeDef(TypedDict):
+    PriceListArn: str
+    FileFormat: str
 
-GetAttributeValuesResponseTypeDef = TypedDict(
-    "GetAttributeValuesResponseTypeDef",
-    {
-        "AttributeValues": List["AttributeValueTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+TimestampTypeDef = Union[datetime, str]
 
-GetPriceListFileUrlRequestRequestTypeDef = TypedDict(
-    "GetPriceListFileUrlRequestRequestTypeDef",
-    {
-        "PriceListArn": str,
-        "FileFormat": str,
-    },
-)
+class PriceListTypeDef(TypedDict):
+    PriceListArn: NotRequired[str]
+    RegionCode: NotRequired[str]
+    CurrencyCode: NotRequired[str]
+    FileFormats: NotRequired[List[str]]
 
-GetPriceListFileUrlResponseTypeDef = TypedDict(
-    "GetPriceListFileUrlResponseTypeDef",
-    {
-        "Url": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DescribeServicesRequestPaginateTypeDef(TypedDict):
+    ServiceCode: NotRequired[str]
+    FormatVersion: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-_RequiredGetProductsRequestRequestTypeDef = TypedDict(
-    "_RequiredGetProductsRequestRequestTypeDef",
-    {
-        "ServiceCode": str,
-    },
-)
-_OptionalGetProductsRequestRequestTypeDef = TypedDict(
-    "_OptionalGetProductsRequestRequestTypeDef",
-    {
-        "Filters": List["FilterTypeDef"],
-        "FormatVersion": str,
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
+class GetAttributeValuesRequestPaginateTypeDef(TypedDict):
+    ServiceCode: str
+    AttributeName: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-class GetProductsRequestRequestTypeDef(
-    _RequiredGetProductsRequestRequestTypeDef, _OptionalGetProductsRequestRequestTypeDef
-):
-    pass
+class GetAttributeValuesResponseTypeDef(TypedDict):
+    AttributeValues: List[AttributeValueTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-GetProductsResponseTypeDef = TypedDict(
-    "GetProductsResponseTypeDef",
-    {
-        "FormatVersion": str,
-        "PriceList": List[str],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetPriceListFileUrlResponseTypeDef(TypedDict):
+    Url: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredListPriceListsRequestRequestTypeDef = TypedDict(
-    "_RequiredListPriceListsRequestRequestTypeDef",
-    {
-        "ServiceCode": str,
-        "EffectiveDate": Union[datetime, str],
-        "CurrencyCode": str,
-    },
-)
-_OptionalListPriceListsRequestRequestTypeDef = TypedDict(
-    "_OptionalListPriceListsRequestRequestTypeDef",
-    {
-        "RegionCode": str,
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
+class GetProductsResponseTypeDef(TypedDict):
+    FormatVersion: str
+    PriceList: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-class ListPriceListsRequestRequestTypeDef(
-    _RequiredListPriceListsRequestRequestTypeDef, _OptionalListPriceListsRequestRequestTypeDef
-):
-    pass
+class DescribeServicesResponseTypeDef(TypedDict):
+    Services: List[ServiceTypeDef]
+    FormatVersion: str
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-ListPriceListsResponseTypeDef = TypedDict(
-    "ListPriceListsResponseTypeDef",
-    {
-        "PriceLists": List["PriceListTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetProductsRequestPaginateTypeDef(TypedDict):
+    ServiceCode: str
+    Filters: NotRequired[Sequence[FilterTypeDef]]
+    FormatVersion: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
+class GetProductsRequestTypeDef(TypedDict):
+    ServiceCode: str
+    Filters: NotRequired[Sequence[FilterTypeDef]]
+    FormatVersion: NotRequired[str]
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
 
-PriceListTypeDef = TypedDict(
-    "PriceListTypeDef",
-    {
-        "PriceListArn": str,
-        "RegionCode": str,
-        "CurrencyCode": str,
-        "FileFormats": List[str],
-    },
-    total=False,
-)
+class ListPriceListsRequestPaginateTypeDef(TypedDict):
+    ServiceCode: str
+    EffectiveDate: TimestampTypeDef
+    CurrencyCode: str
+    RegionCode: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
+class ListPriceListsRequestTypeDef(TypedDict):
+    ServiceCode: str
+    EffectiveDate: TimestampTypeDef
+    CurrencyCode: str
+    RegionCode: NotRequired[str]
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
 
-_RequiredServiceTypeDef = TypedDict(
-    "_RequiredServiceTypeDef",
-    {
-        "ServiceCode": str,
-    },
-)
-_OptionalServiceTypeDef = TypedDict(
-    "_OptionalServiceTypeDef",
-    {
-        "AttributeNames": List[str],
-    },
-    total=False,
-)
-
-class ServiceTypeDef(_RequiredServiceTypeDef, _OptionalServiceTypeDef):
-    pass
+class ListPriceListsResponseTypeDef(TypedDict):
+    PriceLists: List[PriceListTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]

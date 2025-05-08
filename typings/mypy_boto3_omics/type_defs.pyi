@@ -1,25 +1,30 @@
 """
 Type annotations for omics service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_omics/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_omics/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_omics.type_defs import AbortMultipartReadSetUploadRequestRequestTypeDef
+    from mypy_boto3_omics.type_defs import AbortMultipartReadSetUploadRequestTypeDef
 
-    data: AbortMultipartReadSetUploadRequestRequestTypeDef = {...}
+    data: AbortMultipartReadSetUploadRequestTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import IO, Any, Dict, List, Union
+from typing import IO, Any, Union
 
 from botocore.response import StreamingBody
 
 from .literals import (
     AnnotationTypeType,
+    CacheBehaviorType,
     CreationTypeType,
     ETagAlgorithmFamilyType,
     ETagAlgorithmType,
@@ -40,15 +45,18 @@ from .literals import (
     ReferenceImportJobStatusType,
     ReferenceStatusType,
     ResourceOwnerType,
+    RunCacheStatusType,
     RunLogLevelType,
     RunRetentionModeType,
     RunStatusType,
     SchemaValueTypeType,
+    SequenceStoreStatusType,
     ShareResourceTypeType,
     ShareStatusType,
     StorageTypeType,
     StoreFormatType,
     StoreStatusType,
+    StoreTypeType,
     TaskStatusType,
     VersionStatusType,
     WorkflowEngineType,
@@ -56,18 +64,20 @@ from .literals import (
     WorkflowTypeType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
-    "AbortMultipartReadSetUploadRequestRequestTypeDef",
-    "AcceptShareRequestRequestTypeDef",
+    "AbortMultipartReadSetUploadRequestTypeDef",
+    "AcceptShareRequestTypeDef",
     "AcceptShareResponseTypeDef",
     "ActivateReadSetFilterTypeDef",
     "ActivateReadSetJobItemTypeDef",
@@ -77,47 +87,56 @@ __all__ = (
     "AnnotationImportJobItemTypeDef",
     "AnnotationStoreItemTypeDef",
     "AnnotationStoreVersionItemTypeDef",
-    "BatchDeleteReadSetRequestRequestTypeDef",
+    "BatchDeleteReadSetRequestTypeDef",
     "BatchDeleteReadSetResponseTypeDef",
-    "CancelAnnotationImportRequestRequestTypeDef",
-    "CancelRunRequestRequestTypeDef",
-    "CancelVariantImportRequestRequestTypeDef",
-    "CompleteMultipartReadSetUploadRequestRequestTypeDef",
+    "BlobTypeDef",
+    "CancelAnnotationImportRequestTypeDef",
+    "CancelRunRequestTypeDef",
+    "CancelVariantImportRequestTypeDef",
+    "CompleteMultipartReadSetUploadRequestTypeDef",
     "CompleteMultipartReadSetUploadResponseTypeDef",
     "CompleteReadSetUploadPartListItemTypeDef",
-    "CreateAnnotationStoreRequestRequestTypeDef",
+    "CreateAnnotationStoreRequestTypeDef",
     "CreateAnnotationStoreResponseTypeDef",
-    "CreateAnnotationStoreVersionRequestRequestTypeDef",
+    "CreateAnnotationStoreVersionRequestTypeDef",
     "CreateAnnotationStoreVersionResponseTypeDef",
-    "CreateMultipartReadSetUploadRequestRequestTypeDef",
+    "CreateMultipartReadSetUploadRequestTypeDef",
     "CreateMultipartReadSetUploadResponseTypeDef",
-    "CreateReferenceStoreRequestRequestTypeDef",
+    "CreateReferenceStoreRequestTypeDef",
     "CreateReferenceStoreResponseTypeDef",
-    "CreateRunGroupRequestRequestTypeDef",
+    "CreateRunCacheRequestTypeDef",
+    "CreateRunCacheResponseTypeDef",
+    "CreateRunGroupRequestTypeDef",
     "CreateRunGroupResponseTypeDef",
-    "CreateSequenceStoreRequestRequestTypeDef",
+    "CreateSequenceStoreRequestTypeDef",
     "CreateSequenceStoreResponseTypeDef",
-    "CreateShareRequestRequestTypeDef",
+    "CreateShareRequestTypeDef",
     "CreateShareResponseTypeDef",
-    "CreateVariantStoreRequestRequestTypeDef",
+    "CreateVariantStoreRequestTypeDef",
     "CreateVariantStoreResponseTypeDef",
-    "CreateWorkflowRequestRequestTypeDef",
+    "CreateWorkflowRequestTypeDef",
     "CreateWorkflowResponseTypeDef",
-    "DeleteAnnotationStoreRequestRequestTypeDef",
+    "CreateWorkflowVersionRequestTypeDef",
+    "CreateWorkflowVersionResponseTypeDef",
+    "DeleteAnnotationStoreRequestTypeDef",
     "DeleteAnnotationStoreResponseTypeDef",
-    "DeleteAnnotationStoreVersionsRequestRequestTypeDef",
+    "DeleteAnnotationStoreVersionsRequestTypeDef",
     "DeleteAnnotationStoreVersionsResponseTypeDef",
-    "DeleteReferenceRequestRequestTypeDef",
-    "DeleteReferenceStoreRequestRequestTypeDef",
-    "DeleteRunGroupRequestRequestTypeDef",
-    "DeleteRunRequestRequestTypeDef",
-    "DeleteSequenceStoreRequestRequestTypeDef",
-    "DeleteShareRequestRequestTypeDef",
+    "DeleteReferenceRequestTypeDef",
+    "DeleteReferenceStoreRequestTypeDef",
+    "DeleteRunCacheRequestTypeDef",
+    "DeleteRunGroupRequestTypeDef",
+    "DeleteRunRequestTypeDef",
+    "DeleteS3AccessPolicyRequestTypeDef",
+    "DeleteSequenceStoreRequestTypeDef",
+    "DeleteShareRequestTypeDef",
     "DeleteShareResponseTypeDef",
-    "DeleteVariantStoreRequestRequestTypeDef",
+    "DeleteVariantStoreRequestTypeDef",
     "DeleteVariantStoreResponseTypeDef",
-    "DeleteWorkflowRequestRequestTypeDef",
+    "DeleteWorkflowRequestTypeDef",
+    "DeleteWorkflowVersionRequestTypeDef",
     "ETagTypeDef",
+    "EmptyResponseMetadataTypeDef",
     "ExportReadSetDetailTypeDef",
     "ExportReadSetFilterTypeDef",
     "ExportReadSetJobDetailTypeDef",
@@ -125,46 +144,70 @@ __all__ = (
     "FileInformationTypeDef",
     "FilterTypeDef",
     "FormatOptionsTypeDef",
-    "GetAnnotationImportRequestRequestTypeDef",
+    "GetAnnotationImportRequestTypeDef",
+    "GetAnnotationImportRequestWaitTypeDef",
     "GetAnnotationImportResponseTypeDef",
-    "GetAnnotationStoreRequestRequestTypeDef",
+    "GetAnnotationStoreRequestTypeDef",
+    "GetAnnotationStoreRequestWaitExtraTypeDef",
+    "GetAnnotationStoreRequestWaitTypeDef",
     "GetAnnotationStoreResponseTypeDef",
-    "GetAnnotationStoreVersionRequestRequestTypeDef",
+    "GetAnnotationStoreVersionRequestTypeDef",
+    "GetAnnotationStoreVersionRequestWaitExtraTypeDef",
+    "GetAnnotationStoreVersionRequestWaitTypeDef",
     "GetAnnotationStoreVersionResponseTypeDef",
-    "GetReadSetActivationJobRequestRequestTypeDef",
+    "GetReadSetActivationJobRequestTypeDef",
+    "GetReadSetActivationJobRequestWaitTypeDef",
     "GetReadSetActivationJobResponseTypeDef",
-    "GetReadSetExportJobRequestRequestTypeDef",
+    "GetReadSetExportJobRequestTypeDef",
+    "GetReadSetExportJobRequestWaitTypeDef",
     "GetReadSetExportJobResponseTypeDef",
-    "GetReadSetImportJobRequestRequestTypeDef",
+    "GetReadSetImportJobRequestTypeDef",
+    "GetReadSetImportJobRequestWaitTypeDef",
     "GetReadSetImportJobResponseTypeDef",
-    "GetReadSetMetadataRequestRequestTypeDef",
+    "GetReadSetMetadataRequestTypeDef",
     "GetReadSetMetadataResponseTypeDef",
-    "GetReadSetRequestRequestTypeDef",
+    "GetReadSetRequestTypeDef",
     "GetReadSetResponseTypeDef",
-    "GetReferenceImportJobRequestRequestTypeDef",
+    "GetReferenceImportJobRequestTypeDef",
+    "GetReferenceImportJobRequestWaitTypeDef",
     "GetReferenceImportJobResponseTypeDef",
-    "GetReferenceMetadataRequestRequestTypeDef",
+    "GetReferenceMetadataRequestTypeDef",
     "GetReferenceMetadataResponseTypeDef",
-    "GetReferenceRequestRequestTypeDef",
+    "GetReferenceRequestTypeDef",
     "GetReferenceResponseTypeDef",
-    "GetReferenceStoreRequestRequestTypeDef",
+    "GetReferenceStoreRequestTypeDef",
     "GetReferenceStoreResponseTypeDef",
-    "GetRunGroupRequestRequestTypeDef",
+    "GetRunCacheRequestTypeDef",
+    "GetRunCacheResponseTypeDef",
+    "GetRunGroupRequestTypeDef",
     "GetRunGroupResponseTypeDef",
-    "GetRunRequestRequestTypeDef",
+    "GetRunRequestTypeDef",
+    "GetRunRequestWaitExtraTypeDef",
+    "GetRunRequestWaitTypeDef",
     "GetRunResponseTypeDef",
-    "GetRunTaskRequestRequestTypeDef",
+    "GetRunTaskRequestTypeDef",
+    "GetRunTaskRequestWaitExtraTypeDef",
+    "GetRunTaskRequestWaitTypeDef",
     "GetRunTaskResponseTypeDef",
-    "GetSequenceStoreRequestRequestTypeDef",
+    "GetS3AccessPolicyRequestTypeDef",
+    "GetS3AccessPolicyResponseTypeDef",
+    "GetSequenceStoreRequestTypeDef",
     "GetSequenceStoreResponseTypeDef",
-    "GetShareRequestRequestTypeDef",
+    "GetShareRequestTypeDef",
     "GetShareResponseTypeDef",
-    "GetVariantImportRequestRequestTypeDef",
+    "GetVariantImportRequestTypeDef",
+    "GetVariantImportRequestWaitTypeDef",
     "GetVariantImportResponseTypeDef",
-    "GetVariantStoreRequestRequestTypeDef",
+    "GetVariantStoreRequestTypeDef",
+    "GetVariantStoreRequestWaitExtraTypeDef",
+    "GetVariantStoreRequestWaitTypeDef",
     "GetVariantStoreResponseTypeDef",
-    "GetWorkflowRequestRequestTypeDef",
+    "GetWorkflowRequestTypeDef",
+    "GetWorkflowRequestWaitTypeDef",
     "GetWorkflowResponseTypeDef",
+    "GetWorkflowVersionRequestTypeDef",
+    "GetWorkflowVersionRequestWaitTypeDef",
+    "GetWorkflowVersionResponseTypeDef",
     "ImportReadSetFilterTypeDef",
     "ImportReadSetJobItemTypeDef",
     "ImportReadSetSourceItemTypeDef",
@@ -172,54 +215,82 @@ __all__ = (
     "ImportReferenceJobItemTypeDef",
     "ImportReferenceSourceItemTypeDef",
     "ListAnnotationImportJobsFilterTypeDef",
-    "ListAnnotationImportJobsRequestRequestTypeDef",
+    "ListAnnotationImportJobsRequestPaginateTypeDef",
+    "ListAnnotationImportJobsRequestTypeDef",
     "ListAnnotationImportJobsResponseTypeDef",
     "ListAnnotationStoreVersionsFilterTypeDef",
-    "ListAnnotationStoreVersionsRequestRequestTypeDef",
+    "ListAnnotationStoreVersionsRequestPaginateTypeDef",
+    "ListAnnotationStoreVersionsRequestTypeDef",
     "ListAnnotationStoreVersionsResponseTypeDef",
     "ListAnnotationStoresFilterTypeDef",
-    "ListAnnotationStoresRequestRequestTypeDef",
+    "ListAnnotationStoresRequestPaginateTypeDef",
+    "ListAnnotationStoresRequestTypeDef",
     "ListAnnotationStoresResponseTypeDef",
-    "ListMultipartReadSetUploadsRequestRequestTypeDef",
+    "ListMultipartReadSetUploadsRequestPaginateTypeDef",
+    "ListMultipartReadSetUploadsRequestTypeDef",
     "ListMultipartReadSetUploadsResponseTypeDef",
-    "ListReadSetActivationJobsRequestRequestTypeDef",
+    "ListReadSetActivationJobsRequestPaginateTypeDef",
+    "ListReadSetActivationJobsRequestTypeDef",
     "ListReadSetActivationJobsResponseTypeDef",
-    "ListReadSetExportJobsRequestRequestTypeDef",
+    "ListReadSetExportJobsRequestPaginateTypeDef",
+    "ListReadSetExportJobsRequestTypeDef",
     "ListReadSetExportJobsResponseTypeDef",
-    "ListReadSetImportJobsRequestRequestTypeDef",
+    "ListReadSetImportJobsRequestPaginateTypeDef",
+    "ListReadSetImportJobsRequestTypeDef",
     "ListReadSetImportJobsResponseTypeDef",
-    "ListReadSetUploadPartsRequestRequestTypeDef",
+    "ListReadSetUploadPartsRequestPaginateTypeDef",
+    "ListReadSetUploadPartsRequestTypeDef",
     "ListReadSetUploadPartsResponseTypeDef",
-    "ListReadSetsRequestRequestTypeDef",
+    "ListReadSetsRequestPaginateTypeDef",
+    "ListReadSetsRequestTypeDef",
     "ListReadSetsResponseTypeDef",
-    "ListReferenceImportJobsRequestRequestTypeDef",
+    "ListReferenceImportJobsRequestPaginateTypeDef",
+    "ListReferenceImportJobsRequestTypeDef",
     "ListReferenceImportJobsResponseTypeDef",
-    "ListReferenceStoresRequestRequestTypeDef",
+    "ListReferenceStoresRequestPaginateTypeDef",
+    "ListReferenceStoresRequestTypeDef",
     "ListReferenceStoresResponseTypeDef",
-    "ListReferencesRequestRequestTypeDef",
+    "ListReferencesRequestPaginateTypeDef",
+    "ListReferencesRequestTypeDef",
     "ListReferencesResponseTypeDef",
-    "ListRunGroupsRequestRequestTypeDef",
+    "ListRunCachesRequestPaginateTypeDef",
+    "ListRunCachesRequestTypeDef",
+    "ListRunCachesResponseTypeDef",
+    "ListRunGroupsRequestPaginateTypeDef",
+    "ListRunGroupsRequestTypeDef",
     "ListRunGroupsResponseTypeDef",
-    "ListRunTasksRequestRequestTypeDef",
+    "ListRunTasksRequestPaginateTypeDef",
+    "ListRunTasksRequestTypeDef",
     "ListRunTasksResponseTypeDef",
-    "ListRunsRequestRequestTypeDef",
+    "ListRunsRequestPaginateTypeDef",
+    "ListRunsRequestTypeDef",
     "ListRunsResponseTypeDef",
-    "ListSequenceStoresRequestRequestTypeDef",
+    "ListSequenceStoresRequestPaginateTypeDef",
+    "ListSequenceStoresRequestTypeDef",
     "ListSequenceStoresResponseTypeDef",
-    "ListSharesRequestRequestTypeDef",
+    "ListSharesRequestPaginateTypeDef",
+    "ListSharesRequestTypeDef",
     "ListSharesResponseTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "ListVariantImportJobsFilterTypeDef",
-    "ListVariantImportJobsRequestRequestTypeDef",
+    "ListVariantImportJobsRequestPaginateTypeDef",
+    "ListVariantImportJobsRequestTypeDef",
     "ListVariantImportJobsResponseTypeDef",
     "ListVariantStoresFilterTypeDef",
-    "ListVariantStoresRequestRequestTypeDef",
+    "ListVariantStoresRequestPaginateTypeDef",
+    "ListVariantStoresRequestTypeDef",
     "ListVariantStoresResponseTypeDef",
-    "ListWorkflowsRequestRequestTypeDef",
+    "ListWorkflowVersionsRequestPaginateTypeDef",
+    "ListWorkflowVersionsRequestTypeDef",
+    "ListWorkflowVersionsResponseTypeDef",
+    "ListWorkflowsRequestPaginateTypeDef",
+    "ListWorkflowsRequestTypeDef",
     "ListWorkflowsResponseTypeDef",
     "MultipartReadSetUploadListItemTypeDef",
     "PaginatorConfigTypeDef",
+    "PutS3AccessPolicyRequestTypeDef",
+    "PutS3AccessPolicyResponseTypeDef",
     "ReadOptionsTypeDef",
     "ReadSetBatchErrorTypeDef",
     "ReadSetFilesTypeDef",
@@ -235,9 +306,11 @@ __all__ = (
     "ReferenceStoreDetailTypeDef",
     "ReferenceStoreFilterTypeDef",
     "ResponseMetadataTypeDef",
+    "RunCacheListItemTypeDef",
     "RunGroupListItemTypeDef",
     "RunListItemTypeDef",
     "RunLogLocationTypeDef",
+    "S3AccessConfigTypeDef",
     "SequenceInformationTypeDef",
     "SequenceStoreDetailTypeDef",
     "SequenceStoreFilterTypeDef",
@@ -245,39 +318,48 @@ __all__ = (
     "ShareDetailsTypeDef",
     "SourceFilesTypeDef",
     "SseConfigTypeDef",
-    "StartAnnotationImportRequestRequestTypeDef",
+    "StartAnnotationImportRequestTypeDef",
     "StartAnnotationImportResponseTypeDef",
-    "StartReadSetActivationJobRequestRequestTypeDef",
+    "StartReadSetActivationJobRequestTypeDef",
     "StartReadSetActivationJobResponseTypeDef",
     "StartReadSetActivationJobSourceItemTypeDef",
-    "StartReadSetExportJobRequestRequestTypeDef",
+    "StartReadSetExportJobRequestTypeDef",
     "StartReadSetExportJobResponseTypeDef",
-    "StartReadSetImportJobRequestRequestTypeDef",
+    "StartReadSetImportJobRequestTypeDef",
     "StartReadSetImportJobResponseTypeDef",
     "StartReadSetImportJobSourceItemTypeDef",
-    "StartReferenceImportJobRequestRequestTypeDef",
+    "StartReferenceImportJobRequestTypeDef",
     "StartReferenceImportJobResponseTypeDef",
     "StartReferenceImportJobSourceItemTypeDef",
-    "StartRunRequestRequestTypeDef",
+    "StartRunRequestTypeDef",
     "StartRunResponseTypeDef",
-    "StartVariantImportRequestRequestTypeDef",
+    "StartVariantImportRequestTypeDef",
     "StartVariantImportResponseTypeDef",
+    "StoreOptionsOutputTypeDef",
     "StoreOptionsTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "StoreOptionsUnionTypeDef",
+    "TagResourceRequestTypeDef",
     "TaskListItemTypeDef",
+    "TimestampTypeDef",
     "TsvOptionsTypeDef",
+    "TsvStoreOptionsOutputTypeDef",
     "TsvStoreOptionsTypeDef",
+    "TsvVersionOptionsOutputTypeDef",
     "TsvVersionOptionsTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateAnnotationStoreRequestRequestTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateAnnotationStoreRequestTypeDef",
     "UpdateAnnotationStoreResponseTypeDef",
-    "UpdateAnnotationStoreVersionRequestRequestTypeDef",
+    "UpdateAnnotationStoreVersionRequestTypeDef",
     "UpdateAnnotationStoreVersionResponseTypeDef",
-    "UpdateRunGroupRequestRequestTypeDef",
-    "UpdateVariantStoreRequestRequestTypeDef",
+    "UpdateRunCacheRequestTypeDef",
+    "UpdateRunGroupRequestTypeDef",
+    "UpdateSequenceStoreRequestTypeDef",
+    "UpdateSequenceStoreResponseTypeDef",
+    "UpdateVariantStoreRequestTypeDef",
     "UpdateVariantStoreResponseTypeDef",
-    "UpdateWorkflowRequestRequestTypeDef",
-    "UploadReadSetPartRequestRequestTypeDef",
+    "UpdateWorkflowRequestTypeDef",
+    "UpdateWorkflowVersionRequestTypeDef",
+    "UploadReadSetPartRequestTypeDef",
     "UploadReadSetPartResponseTypeDef",
     "VariantImportItemDetailTypeDef",
     "VariantImportItemSourceTypeDef",
@@ -285,104 +367,55 @@ __all__ = (
     "VariantStoreItemTypeDef",
     "VcfOptionsTypeDef",
     "VersionDeleteErrorTypeDef",
+    "VersionOptionsOutputTypeDef",
     "VersionOptionsTypeDef",
+    "VersionOptionsUnionTypeDef",
     "WaiterConfigTypeDef",
     "WorkflowListItemTypeDef",
     "WorkflowParameterTypeDef",
+    "WorkflowVersionListItemTypeDef",
 )
 
-AbortMultipartReadSetUploadRequestRequestTypeDef = TypedDict(
-    "AbortMultipartReadSetUploadRequestRequestTypeDef",
-    {
-        "sequenceStoreId": str,
-        "uploadId": str,
-    },
-)
+class AbortMultipartReadSetUploadRequestTypeDef(TypedDict):
+    sequenceStoreId: str
+    uploadId: str
 
-AcceptShareRequestRequestTypeDef = TypedDict(
-    "AcceptShareRequestRequestTypeDef",
-    {
-        "shareId": str,
-    },
-)
+class AcceptShareRequestTypeDef(TypedDict):
+    shareId: str
 
-AcceptShareResponseTypeDef = TypedDict(
-    "AcceptShareResponseTypeDef",
-    {
-        "status": ShareStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-ActivateReadSetFilterTypeDef = TypedDict(
-    "ActivateReadSetFilterTypeDef",
-    {
-        "status": ReadSetActivationJobStatusType,
-        "createdAfter": Union[datetime, str],
-        "createdBefore": Union[datetime, str],
-    },
-    total=False,
-)
-
-_RequiredActivateReadSetJobItemTypeDef = TypedDict(
-    "_RequiredActivateReadSetJobItemTypeDef",
+TimestampTypeDef = Union[datetime, str]
+ActivateReadSetJobItemTypeDef = TypedDict(
+    "ActivateReadSetJobItemTypeDef",
     {
         "id": str,
         "sequenceStoreId": str,
         "status": ReadSetActivationJobStatusType,
         "creationTime": datetime,
-    },
-)
-_OptionalActivateReadSetJobItemTypeDef = TypedDict(
-    "_OptionalActivateReadSetJobItemTypeDef",
-    {
-        "completionTime": datetime,
-    },
-    total=False,
-)
-
-class ActivateReadSetJobItemTypeDef(
-    _RequiredActivateReadSetJobItemTypeDef, _OptionalActivateReadSetJobItemTypeDef
-):
-    pass
-
-_RequiredActivateReadSetSourceItemTypeDef = TypedDict(
-    "_RequiredActivateReadSetSourceItemTypeDef",
-    {
-        "readSetId": str,
-        "status": ReadSetActivationJobItemStatusType,
-    },
-)
-_OptionalActivateReadSetSourceItemTypeDef = TypedDict(
-    "_OptionalActivateReadSetSourceItemTypeDef",
-    {
-        "statusMessage": str,
-    },
-    total=False,
-)
-
-class ActivateReadSetSourceItemTypeDef(
-    _RequiredActivateReadSetSourceItemTypeDef, _OptionalActivateReadSetSourceItemTypeDef
-):
-    pass
-
-AnnotationImportItemDetailTypeDef = TypedDict(
-    "AnnotationImportItemDetailTypeDef",
-    {
-        "source": str,
-        "jobStatus": JobStatusType,
+        "completionTime": NotRequired[datetime],
     },
 )
 
-AnnotationImportItemSourceTypeDef = TypedDict(
-    "AnnotationImportItemSourceTypeDef",
-    {
-        "source": str,
-    },
-)
+class ActivateReadSetSourceItemTypeDef(TypedDict):
+    readSetId: str
+    status: ReadSetActivationJobItemStatusType
+    statusMessage: NotRequired[str]
 
-_RequiredAnnotationImportJobItemTypeDef = TypedDict(
-    "_RequiredAnnotationImportJobItemTypeDef",
+class AnnotationImportItemDetailTypeDef(TypedDict):
+    source: str
+    jobStatus: JobStatusType
+
+class AnnotationImportItemSourceTypeDef(TypedDict):
+    source: str
+
+AnnotationImportJobItemTypeDef = TypedDict(
+    "AnnotationImportJobItemTypeDef",
     {
         "id": str,
         "destinationName": str,
@@ -391,41 +424,22 @@ _RequiredAnnotationImportJobItemTypeDef = TypedDict(
         "status": JobStatusType,
         "creationTime": datetime,
         "updateTime": datetime,
+        "completionTime": NotRequired[datetime],
+        "runLeftNormalization": NotRequired[bool],
+        "annotationFields": NotRequired[Dict[str, str]],
     },
 )
-_OptionalAnnotationImportJobItemTypeDef = TypedDict(
-    "_OptionalAnnotationImportJobItemTypeDef",
+
+class ReferenceItemTypeDef(TypedDict):
+    referenceArn: NotRequired[str]
+
+SseConfigTypeDef = TypedDict(
+    "SseConfigTypeDef",
     {
-        "completionTime": datetime,
-        "runLeftNormalization": bool,
-        "annotationFields": Dict[str, str],
-    },
-    total=False,
-)
-
-class AnnotationImportJobItemTypeDef(
-    _RequiredAnnotationImportJobItemTypeDef, _OptionalAnnotationImportJobItemTypeDef
-):
-    pass
-
-AnnotationStoreItemTypeDef = TypedDict(
-    "AnnotationStoreItemTypeDef",
-    {
-        "id": str,
-        "reference": "ReferenceItemTypeDef",
-        "status": StoreStatusType,
-        "storeArn": str,
-        "name": str,
-        "storeFormat": StoreFormatType,
-        "description": str,
-        "sseConfig": "SseConfigTypeDef",
-        "creationTime": datetime,
-        "updateTime": datetime,
-        "statusMessage": str,
-        "storeSizeBytes": int,
+        "type": Literal["KMS"],
+        "keyArn": NotRequired[str],
     },
 )
-
 AnnotationStoreVersionItemTypeDef = TypedDict(
     "AnnotationStoreVersionItemTypeDef",
     {
@@ -443,395 +457,802 @@ AnnotationStoreVersionItemTypeDef = TypedDict(
     },
 )
 
-BatchDeleteReadSetRequestRequestTypeDef = TypedDict(
-    "BatchDeleteReadSetRequestRequestTypeDef",
+class BatchDeleteReadSetRequestTypeDef(TypedDict):
+    ids: Sequence[str]
+    sequenceStoreId: str
+
+ReadSetBatchErrorTypeDef = TypedDict(
+    "ReadSetBatchErrorTypeDef",
     {
-        "ids": List[str],
-        "sequenceStoreId": str,
+        "id": str,
+        "code": str,
+        "message": str,
     },
 )
+BlobTypeDef = Union[str, bytes, IO[Any], StreamingBody]
 
-BatchDeleteReadSetResponseTypeDef = TypedDict(
-    "BatchDeleteReadSetResponseTypeDef",
-    {
-        "errors": List["ReadSetBatchErrorTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CancelAnnotationImportRequestTypeDef(TypedDict):
+    jobId: str
 
-CancelAnnotationImportRequestRequestTypeDef = TypedDict(
-    "CancelAnnotationImportRequestRequestTypeDef",
-    {
-        "jobId": str,
-    },
-)
-
-CancelRunRequestRequestTypeDef = TypedDict(
-    "CancelRunRequestRequestTypeDef",
+CancelRunRequestTypeDef = TypedDict(
+    "CancelRunRequestTypeDef",
     {
         "id": str,
     },
 )
 
-CancelVariantImportRequestRequestTypeDef = TypedDict(
-    "CancelVariantImportRequestRequestTypeDef",
+class CancelVariantImportRequestTypeDef(TypedDict):
+    jobId: str
+
+class CompleteReadSetUploadPartListItemTypeDef(TypedDict):
+    partNumber: int
+    partSource: ReadSetPartSourceType
+    checksum: str
+
+class CreateMultipartReadSetUploadRequestTypeDef(TypedDict):
+    sequenceStoreId: str
+    sourceFileType: FileTypeType
+    subjectId: str
+    sampleId: str
+    name: str
+    clientToken: NotRequired[str]
+    generatedFrom: NotRequired[str]
+    referenceArn: NotRequired[str]
+    description: NotRequired[str]
+    tags: NotRequired[Mapping[str, str]]
+
+class CreateRunCacheRequestTypeDef(TypedDict):
+    cacheS3Location: str
+    requestId: str
+    cacheBehavior: NotRequired[CacheBehaviorType]
+    description: NotRequired[str]
+    name: NotRequired[str]
+    tags: NotRequired[Mapping[str, str]]
+    cacheBucketOwnerId: NotRequired[str]
+
+class CreateRunGroupRequestTypeDef(TypedDict):
+    requestId: str
+    name: NotRequired[str]
+    maxCpus: NotRequired[int]
+    maxRuns: NotRequired[int]
+    maxDuration: NotRequired[int]
+    tags: NotRequired[Mapping[str, str]]
+    maxGpus: NotRequired[int]
+
+class S3AccessConfigTypeDef(TypedDict):
+    accessLogLocation: NotRequired[str]
+
+class SequenceStoreS3AccessTypeDef(TypedDict):
+    s3Uri: NotRequired[str]
+    s3AccessPointArn: NotRequired[str]
+    accessLogLocation: NotRequired[str]
+
+class CreateShareRequestTypeDef(TypedDict):
+    resourceArn: str
+    principalSubscriber: str
+    shareName: NotRequired[str]
+
+class WorkflowParameterTypeDef(TypedDict):
+    description: NotRequired[str]
+    optional: NotRequired[bool]
+
+class DeleteAnnotationStoreRequestTypeDef(TypedDict):
+    name: str
+    force: NotRequired[bool]
+
+class DeleteAnnotationStoreVersionsRequestTypeDef(TypedDict):
+    name: str
+    versions: Sequence[str]
+    force: NotRequired[bool]
+
+class VersionDeleteErrorTypeDef(TypedDict):
+    versionName: str
+    message: str
+
+DeleteReferenceRequestTypeDef = TypedDict(
+    "DeleteReferenceRequestTypeDef",
     {
-        "jobId": str,
+        "id": str,
+        "referenceStoreId": str,
+    },
+)
+DeleteReferenceStoreRequestTypeDef = TypedDict(
+    "DeleteReferenceStoreRequestTypeDef",
+    {
+        "id": str,
+    },
+)
+DeleteRunCacheRequestTypeDef = TypedDict(
+    "DeleteRunCacheRequestTypeDef",
+    {
+        "id": str,
+    },
+)
+DeleteRunGroupRequestTypeDef = TypedDict(
+    "DeleteRunGroupRequestTypeDef",
+    {
+        "id": str,
+    },
+)
+DeleteRunRequestTypeDef = TypedDict(
+    "DeleteRunRequestTypeDef",
+    {
+        "id": str,
     },
 )
 
-CompleteMultipartReadSetUploadRequestRequestTypeDef = TypedDict(
-    "CompleteMultipartReadSetUploadRequestRequestTypeDef",
+class DeleteS3AccessPolicyRequestTypeDef(TypedDict):
+    s3AccessPointArn: str
+
+DeleteSequenceStoreRequestTypeDef = TypedDict(
+    "DeleteSequenceStoreRequestTypeDef",
+    {
+        "id": str,
+    },
+)
+
+class DeleteShareRequestTypeDef(TypedDict):
+    shareId: str
+
+class DeleteVariantStoreRequestTypeDef(TypedDict):
+    name: str
+    force: NotRequired[bool]
+
+DeleteWorkflowRequestTypeDef = TypedDict(
+    "DeleteWorkflowRequestTypeDef",
+    {
+        "id": str,
+    },
+)
+
+class DeleteWorkflowVersionRequestTypeDef(TypedDict):
+    workflowId: str
+    versionName: str
+
+class ETagTypeDef(TypedDict):
+    algorithm: NotRequired[ETagAlgorithmType]
+    source1: NotRequired[str]
+    source2: NotRequired[str]
+
+ExportReadSetDetailTypeDef = TypedDict(
+    "ExportReadSetDetailTypeDef",
+    {
+        "id": str,
+        "status": ReadSetExportJobItemStatusType,
+        "statusMessage": NotRequired[str],
+    },
+)
+ExportReadSetJobDetailTypeDef = TypedDict(
+    "ExportReadSetJobDetailTypeDef",
+    {
+        "id": str,
+        "sequenceStoreId": str,
+        "destination": str,
+        "status": ReadSetExportJobStatusType,
+        "creationTime": datetime,
+        "completionTime": NotRequired[datetime],
+    },
+)
+
+class ExportReadSetTypeDef(TypedDict):
+    readSetId: str
+
+class ReadSetS3AccessTypeDef(TypedDict):
+    s3Uri: NotRequired[str]
+
+FilterTypeDef = TypedDict(
+    "FilterTypeDef",
+    {
+        "resourceArns": NotRequired[Sequence[str]],
+        "status": NotRequired[Sequence[ShareStatusType]],
+        "type": NotRequired[Sequence[ShareResourceTypeType]],
+    },
+)
+
+class VcfOptionsTypeDef(TypedDict):
+    ignoreQualField: NotRequired[bool]
+    ignoreFilterField: NotRequired[bool]
+
+class GetAnnotationImportRequestTypeDef(TypedDict):
+    jobId: str
+
+class WaiterConfigTypeDef(TypedDict):
+    Delay: NotRequired[int]
+    MaxAttempts: NotRequired[int]
+
+class GetAnnotationStoreRequestTypeDef(TypedDict):
+    name: str
+
+class GetAnnotationStoreVersionRequestTypeDef(TypedDict):
+    name: str
+    versionName: str
+
+GetReadSetActivationJobRequestTypeDef = TypedDict(
+    "GetReadSetActivationJobRequestTypeDef",
+    {
+        "id": str,
+        "sequenceStoreId": str,
+    },
+)
+GetReadSetExportJobRequestTypeDef = TypedDict(
+    "GetReadSetExportJobRequestTypeDef",
     {
         "sequenceStoreId": str,
-        "uploadId": str,
-        "parts": List["CompleteReadSetUploadPartListItemTypeDef"],
+        "id": str,
+    },
+)
+GetReadSetImportJobRequestTypeDef = TypedDict(
+    "GetReadSetImportJobRequestTypeDef",
+    {
+        "id": str,
+        "sequenceStoreId": str,
+    },
+)
+GetReadSetMetadataRequestTypeDef = TypedDict(
+    "GetReadSetMetadataRequestTypeDef",
+    {
+        "id": str,
+        "sequenceStoreId": str,
     },
 )
 
-CompleteMultipartReadSetUploadResponseTypeDef = TypedDict(
-    "CompleteMultipartReadSetUploadResponseTypeDef",
-    {
-        "readSetId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class SequenceInformationTypeDef(TypedDict):
+    totalReadCount: NotRequired[int]
+    totalBaseCount: NotRequired[int]
+    generatedFrom: NotRequired[str]
+    alignment: NotRequired[str]
 
-CompleteReadSetUploadPartListItemTypeDef = TypedDict(
-    "CompleteReadSetUploadPartListItemTypeDef",
+GetReadSetRequestTypeDef = TypedDict(
+    "GetReadSetRequestTypeDef",
     {
+        "id": str,
+        "sequenceStoreId": str,
         "partNumber": int,
-        "partSource": ReadSetPartSourceType,
-        "checksum": str,
+        "file": NotRequired[ReadSetFileType],
     },
 )
-
-_RequiredCreateAnnotationStoreRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateAnnotationStoreRequestRequestTypeDef",
-    {
-        "storeFormat": StoreFormatType,
-    },
-)
-_OptionalCreateAnnotationStoreRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateAnnotationStoreRequestRequestTypeDef",
-    {
-        "reference": "ReferenceItemTypeDef",
-        "name": str,
-        "description": str,
-        "tags": Dict[str, str],
-        "versionName": str,
-        "sseConfig": "SseConfigTypeDef",
-        "storeOptions": "StoreOptionsTypeDef",
-    },
-    total=False,
-)
-
-class CreateAnnotationStoreRequestRequestTypeDef(
-    _RequiredCreateAnnotationStoreRequestRequestTypeDef,
-    _OptionalCreateAnnotationStoreRequestRequestTypeDef,
-):
-    pass
-
-CreateAnnotationStoreResponseTypeDef = TypedDict(
-    "CreateAnnotationStoreResponseTypeDef",
+GetReferenceImportJobRequestTypeDef = TypedDict(
+    "GetReferenceImportJobRequestTypeDef",
     {
         "id": str,
-        "reference": "ReferenceItemTypeDef",
-        "storeFormat": StoreFormatType,
-        "storeOptions": "StoreOptionsTypeDef",
-        "status": StoreStatusType,
-        "name": str,
-        "versionName": str,
-        "creationTime": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "referenceStoreId": str,
     },
 )
 
-_RequiredCreateAnnotationStoreVersionRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateAnnotationStoreVersionRequestRequestTypeDef",
-    {
-        "name": str,
-        "versionName": str,
-    },
-)
-_OptionalCreateAnnotationStoreVersionRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateAnnotationStoreVersionRequestRequestTypeDef",
-    {
-        "description": str,
-        "versionOptions": "VersionOptionsTypeDef",
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
+class ImportReferenceSourceItemTypeDef(TypedDict):
+    status: ReferenceImportJobItemStatusType
+    sourceFile: NotRequired[str]
+    statusMessage: NotRequired[str]
+    name: NotRequired[str]
+    description: NotRequired[str]
+    tags: NotRequired[Dict[str, str]]
+    referenceId: NotRequired[str]
 
-class CreateAnnotationStoreVersionRequestRequestTypeDef(
-    _RequiredCreateAnnotationStoreVersionRequestRequestTypeDef,
-    _OptionalCreateAnnotationStoreVersionRequestRequestTypeDef,
-):
-    pass
-
-CreateAnnotationStoreVersionResponseTypeDef = TypedDict(
-    "CreateAnnotationStoreVersionResponseTypeDef",
+GetReferenceMetadataRequestTypeDef = TypedDict(
+    "GetReferenceMetadataRequestTypeDef",
     {
         "id": str,
+        "referenceStoreId": str,
+    },
+)
+GetReferenceRequestTypeDef = TypedDict(
+    "GetReferenceRequestTypeDef",
+    {
+        "id": str,
+        "referenceStoreId": str,
+        "partNumber": int,
+        "range": NotRequired[str],
+        "file": NotRequired[ReferenceFileType],
+    },
+)
+GetReferenceStoreRequestTypeDef = TypedDict(
+    "GetReferenceStoreRequestTypeDef",
+    {
+        "id": str,
+    },
+)
+GetRunCacheRequestTypeDef = TypedDict(
+    "GetRunCacheRequestTypeDef",
+    {
+        "id": str,
+    },
+)
+GetRunGroupRequestTypeDef = TypedDict(
+    "GetRunGroupRequestTypeDef",
+    {
+        "id": str,
+    },
+)
+GetRunRequestTypeDef = TypedDict(
+    "GetRunRequestTypeDef",
+    {
+        "id": str,
+        "export": NotRequired[Sequence[Literal["DEFINITION"]]],
+    },
+)
+
+class RunLogLocationTypeDef(TypedDict):
+    engineLogStream: NotRequired[str]
+    runLogStream: NotRequired[str]
+
+GetRunTaskRequestTypeDef = TypedDict(
+    "GetRunTaskRequestTypeDef",
+    {
+        "id": str,
+        "taskId": str,
+    },
+)
+
+class GetS3AccessPolicyRequestTypeDef(TypedDict):
+    s3AccessPointArn: str
+
+GetSequenceStoreRequestTypeDef = TypedDict(
+    "GetSequenceStoreRequestTypeDef",
+    {
+        "id": str,
+    },
+)
+
+class GetShareRequestTypeDef(TypedDict):
+    shareId: str
+
+class ShareDetailsTypeDef(TypedDict):
+    shareId: NotRequired[str]
+    resourceArn: NotRequired[str]
+    resourceId: NotRequired[str]
+    principalSubscriber: NotRequired[str]
+    ownerId: NotRequired[str]
+    status: NotRequired[ShareStatusType]
+    statusMessage: NotRequired[str]
+    shareName: NotRequired[str]
+    creationTime: NotRequired[datetime]
+    updateTime: NotRequired[datetime]
+
+class GetVariantImportRequestTypeDef(TypedDict):
+    jobId: str
+
+class VariantImportItemDetailTypeDef(TypedDict):
+    source: str
+    jobStatus: JobStatusType
+    statusMessage: NotRequired[str]
+
+class GetVariantStoreRequestTypeDef(TypedDict):
+    name: str
+
+GetWorkflowRequestTypeDef = TypedDict(
+    "GetWorkflowRequestTypeDef",
+    {
+        "id": str,
+        "type": NotRequired[WorkflowTypeType],
+        "export": NotRequired[Sequence[Literal["DEFINITION"]]],
+        "workflowOwnerId": NotRequired[str],
+    },
+)
+GetWorkflowVersionRequestTypeDef = TypedDict(
+    "GetWorkflowVersionRequestTypeDef",
+    {
+        "workflowId": str,
         "versionName": str,
-        "storeId": str,
-        "versionOptions": "VersionOptionsTypeDef",
-        "name": str,
-        "status": VersionStatusType,
-        "creationTime": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "type": NotRequired[WorkflowTypeType],
+        "export": NotRequired[Sequence[Literal["DEFINITION"]]],
+        "workflowOwnerId": NotRequired[str],
     },
 )
-
-_RequiredCreateMultipartReadSetUploadRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateMultipartReadSetUploadRequestRequestTypeDef",
+ImportReadSetJobItemTypeDef = TypedDict(
+    "ImportReadSetJobItemTypeDef",
     {
+        "id": str,
         "sequenceStoreId": str,
-        "sourceFileType": FileTypeType,
-        "subjectId": str,
-        "sampleId": str,
-        "name": str,
-    },
-)
-_OptionalCreateMultipartReadSetUploadRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateMultipartReadSetUploadRequestRequestTypeDef",
-    {
-        "clientToken": str,
-        "generatedFrom": str,
-        "referenceArn": str,
-        "description": str,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class CreateMultipartReadSetUploadRequestRequestTypeDef(
-    _RequiredCreateMultipartReadSetUploadRequestRequestTypeDef,
-    _OptionalCreateMultipartReadSetUploadRequestRequestTypeDef,
-):
-    pass
-
-CreateMultipartReadSetUploadResponseTypeDef = TypedDict(
-    "CreateMultipartReadSetUploadResponseTypeDef",
-    {
-        "sequenceStoreId": str,
-        "uploadId": str,
-        "sourceFileType": FileTypeType,
-        "subjectId": str,
-        "sampleId": str,
-        "generatedFrom": str,
-        "referenceArn": str,
-        "name": str,
-        "description": str,
-        "tags": Dict[str, str],
+        "roleArn": str,
+        "status": ReadSetImportJobStatusType,
         "creationTime": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "completionTime": NotRequired[datetime],
     },
 )
 
-_RequiredCreateReferenceStoreRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateReferenceStoreRequestRequestTypeDef",
+class SourceFilesTypeDef(TypedDict):
+    source1: str
+    source2: NotRequired[str]
+
+ImportReferenceJobItemTypeDef = TypedDict(
+    "ImportReferenceJobItemTypeDef",
     {
-        "name": str,
+        "id": str,
+        "referenceStoreId": str,
+        "roleArn": str,
+        "status": ReferenceImportJobStatusType,
+        "creationTime": datetime,
+        "completionTime": NotRequired[datetime],
     },
 )
-_OptionalCreateReferenceStoreRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateReferenceStoreRequestRequestTypeDef",
-    {
-        "description": str,
-        "sseConfig": "SseConfigTypeDef",
-        "tags": Dict[str, str],
-        "clientToken": str,
-    },
-    total=False,
-)
 
-class CreateReferenceStoreRequestRequestTypeDef(
-    _RequiredCreateReferenceStoreRequestRequestTypeDef,
-    _OptionalCreateReferenceStoreRequestRequestTypeDef,
-):
-    pass
+class ListAnnotationImportJobsFilterTypeDef(TypedDict):
+    status: NotRequired[JobStatusType]
+    storeName: NotRequired[str]
 
-CreateReferenceStoreResponseTypeDef = TypedDict(
-    "CreateReferenceStoreResponseTypeDef",
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class ListAnnotationStoreVersionsFilterTypeDef(TypedDict):
+    status: NotRequired[VersionStatusType]
+
+class ListAnnotationStoresFilterTypeDef(TypedDict):
+    status: NotRequired[StoreStatusType]
+
+class ListMultipartReadSetUploadsRequestTypeDef(TypedDict):
+    sequenceStoreId: str
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class MultipartReadSetUploadListItemTypeDef(TypedDict):
+    sequenceStoreId: str
+    uploadId: str
+    sourceFileType: FileTypeType
+    subjectId: str
+    sampleId: str
+    generatedFrom: str
+    referenceArn: str
+    creationTime: datetime
+    name: NotRequired[str]
+    description: NotRequired[str]
+    tags: NotRequired[Dict[str, str]]
+
+class ReadSetUploadPartListItemTypeDef(TypedDict):
+    partNumber: int
+    partSize: int
+    partSource: ReadSetPartSourceType
+    checksum: str
+    creationTime: NotRequired[datetime]
+    lastUpdatedTime: NotRequired[datetime]
+
+ReferenceListItemTypeDef = TypedDict(
+    "ReferenceListItemTypeDef",
     {
         "id": str,
         "arn": str,
-        "name": str,
-        "description": str,
-        "sseConfig": "SseConfigTypeDef",
+        "referenceStoreId": str,
+        "md5": str,
         "creationTime": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "updateTime": datetime,
+        "status": NotRequired[ReferenceStatusType],
+        "name": NotRequired[str],
+        "description": NotRequired[str],
     },
 )
 
-_RequiredCreateRunGroupRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateRunGroupRequestRequestTypeDef",
+class ListRunCachesRequestTypeDef(TypedDict):
+    maxResults: NotRequired[int]
+    startingToken: NotRequired[str]
+
+RunCacheListItemTypeDef = TypedDict(
+    "RunCacheListItemTypeDef",
     {
-        "requestId": str,
+        "arn": NotRequired[str],
+        "cacheBehavior": NotRequired[CacheBehaviorType],
+        "cacheS3Uri": NotRequired[str],
+        "creationTime": NotRequired[datetime],
+        "id": NotRequired[str],
+        "name": NotRequired[str],
+        "status": NotRequired[RunCacheStatusType],
     },
 )
-_OptionalCreateRunGroupRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateRunGroupRequestRequestTypeDef",
+
+class ListRunGroupsRequestTypeDef(TypedDict):
+    name: NotRequired[str]
+    startingToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+RunGroupListItemTypeDef = TypedDict(
+    "RunGroupListItemTypeDef",
     {
-        "name": str,
-        "maxCpus": int,
-        "maxRuns": int,
-        "maxDuration": int,
+        "arn": NotRequired[str],
+        "id": NotRequired[str],
+        "name": NotRequired[str],
+        "maxCpus": NotRequired[int],
+        "maxRuns": NotRequired[int],
+        "maxDuration": NotRequired[int],
+        "creationTime": NotRequired[datetime],
+        "maxGpus": NotRequired[int],
+    },
+)
+ListRunTasksRequestTypeDef = TypedDict(
+    "ListRunTasksRequestTypeDef",
+    {
+        "id": str,
+        "status": NotRequired[TaskStatusType],
+        "startingToken": NotRequired[str],
+        "maxResults": NotRequired[int],
+    },
+)
+
+class TaskListItemTypeDef(TypedDict):
+    taskId: NotRequired[str]
+    status: NotRequired[TaskStatusType]
+    name: NotRequired[str]
+    cpus: NotRequired[int]
+    cacheHit: NotRequired[bool]
+    cacheS3Uri: NotRequired[str]
+    memory: NotRequired[int]
+    creationTime: NotRequired[datetime]
+    startTime: NotRequired[datetime]
+    stopTime: NotRequired[datetime]
+    gpus: NotRequired[int]
+    instanceType: NotRequired[str]
+
+class ListRunsRequestTypeDef(TypedDict):
+    name: NotRequired[str]
+    runGroupId: NotRequired[str]
+    startingToken: NotRequired[str]
+    maxResults: NotRequired[int]
+    status: NotRequired[RunStatusType]
+
+RunListItemTypeDef = TypedDict(
+    "RunListItemTypeDef",
+    {
+        "arn": NotRequired[str],
+        "id": NotRequired[str],
+        "status": NotRequired[RunStatusType],
+        "workflowId": NotRequired[str],
+        "name": NotRequired[str],
+        "priority": NotRequired[int],
+        "storageCapacity": NotRequired[int],
+        "creationTime": NotRequired[datetime],
+        "startTime": NotRequired[datetime],
+        "stopTime": NotRequired[datetime],
+        "storageType": NotRequired[StorageTypeType],
+        "workflowVersionName": NotRequired[str],
+    },
+)
+
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+
+class ListVariantImportJobsFilterTypeDef(TypedDict):
+    status: NotRequired[JobStatusType]
+    storeName: NotRequired[str]
+
+VariantImportJobItemTypeDef = TypedDict(
+    "VariantImportJobItemTypeDef",
+    {
+        "id": str,
+        "destinationName": str,
+        "roleArn": str,
+        "status": JobStatusType,
+        "creationTime": datetime,
+        "updateTime": datetime,
+        "completionTime": NotRequired[datetime],
+        "runLeftNormalization": NotRequired[bool],
+        "annotationFields": NotRequired[Dict[str, str]],
+    },
+)
+
+class ListVariantStoresFilterTypeDef(TypedDict):
+    status: NotRequired[StoreStatusType]
+
+ListWorkflowVersionsRequestTypeDef = TypedDict(
+    "ListWorkflowVersionsRequestTypeDef",
+    {
+        "workflowId": str,
+        "type": NotRequired[WorkflowTypeType],
+        "workflowOwnerId": NotRequired[str],
+        "startingToken": NotRequired[str],
+        "maxResults": NotRequired[int],
+    },
+)
+WorkflowVersionListItemTypeDef = TypedDict(
+    "WorkflowVersionListItemTypeDef",
+    {
+        "arn": NotRequired[str],
+        "workflowId": NotRequired[str],
+        "versionName": NotRequired[str],
+        "description": NotRequired[str],
+        "status": NotRequired[WorkflowStatusType],
+        "type": NotRequired[WorkflowTypeType],
+        "digest": NotRequired[str],
+        "creationTime": NotRequired[datetime],
+        "metadata": NotRequired[Dict[str, str]],
+    },
+)
+ListWorkflowsRequestTypeDef = TypedDict(
+    "ListWorkflowsRequestTypeDef",
+    {
+        "type": NotRequired[WorkflowTypeType],
+        "name": NotRequired[str],
+        "startingToken": NotRequired[str],
+        "maxResults": NotRequired[int],
+    },
+)
+WorkflowListItemTypeDef = TypedDict(
+    "WorkflowListItemTypeDef",
+    {
+        "arn": NotRequired[str],
+        "id": NotRequired[str],
+        "name": NotRequired[str],
+        "status": NotRequired[WorkflowStatusType],
+        "type": NotRequired[WorkflowTypeType],
+        "digest": NotRequired[str],
+        "creationTime": NotRequired[datetime],
+        "metadata": NotRequired[Dict[str, str]],
+    },
+)
+
+class PutS3AccessPolicyRequestTypeDef(TypedDict):
+    s3AccessPointArn: str
+    s3AccessPolicy: str
+
+class ReadOptionsTypeDef(TypedDict):
+    sep: NotRequired[str]
+    encoding: NotRequired[str]
+    quote: NotRequired[str]
+    quoteAll: NotRequired[bool]
+    escape: NotRequired[str]
+    escapeQuotes: NotRequired[bool]
+    comment: NotRequired[str]
+    header: NotRequired[bool]
+    lineSep: NotRequired[str]
+
+class StartReadSetActivationJobSourceItemTypeDef(TypedDict):
+    readSetId: str
+
+class StartReferenceImportJobSourceItemTypeDef(TypedDict):
+    sourceFile: str
+    name: str
+    description: NotRequired[str]
+    tags: NotRequired[Mapping[str, str]]
+
+class StartRunRequestTypeDef(TypedDict):
+    roleArn: str
+    requestId: str
+    workflowId: NotRequired[str]
+    workflowType: NotRequired[WorkflowTypeType]
+    runId: NotRequired[str]
+    name: NotRequired[str]
+    cacheId: NotRequired[str]
+    cacheBehavior: NotRequired[CacheBehaviorType]
+    runGroupId: NotRequired[str]
+    priority: NotRequired[int]
+    parameters: NotRequired[Mapping[str, Any]]
+    storageCapacity: NotRequired[int]
+    outputUri: NotRequired[str]
+    logLevel: NotRequired[RunLogLevelType]
+    tags: NotRequired[Mapping[str, str]]
+    retentionMode: NotRequired[RunRetentionModeType]
+    storageType: NotRequired[StorageTypeType]
+    workflowOwnerId: NotRequired[str]
+    workflowVersionName: NotRequired[str]
+
+class VariantImportItemSourceTypeDef(TypedDict):
+    source: str
+
+class TsvStoreOptionsOutputTypeDef(TypedDict):
+    annotationType: NotRequired[AnnotationTypeType]
+    formatToHeader: NotRequired[Dict[FormatToHeaderKeyType, str]]
+    schema: NotRequired[List[Dict[str, SchemaValueTypeType]]]
+
+class TsvStoreOptionsTypeDef(TypedDict):
+    annotationType: NotRequired[AnnotationTypeType]
+    formatToHeader: NotRequired[Mapping[FormatToHeaderKeyType, str]]
+    schema: NotRequired[Sequence[Mapping[str, SchemaValueTypeType]]]
+
+class TagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tags: Mapping[str, str]
+
+class TsvVersionOptionsOutputTypeDef(TypedDict):
+    annotationType: NotRequired[AnnotationTypeType]
+    formatToHeader: NotRequired[Dict[FormatToHeaderKeyType, str]]
+    schema: NotRequired[List[Dict[str, SchemaValueTypeType]]]
+
+class TsvVersionOptionsTypeDef(TypedDict):
+    annotationType: NotRequired[AnnotationTypeType]
+    formatToHeader: NotRequired[Mapping[FormatToHeaderKeyType, str]]
+    schema: NotRequired[Sequence[Mapping[str, SchemaValueTypeType]]]
+
+class UntagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tagKeys: Sequence[str]
+
+class UpdateAnnotationStoreRequestTypeDef(TypedDict):
+    name: str
+    description: NotRequired[str]
+
+class UpdateAnnotationStoreVersionRequestTypeDef(TypedDict):
+    name: str
+    versionName: str
+    description: NotRequired[str]
+
+UpdateRunCacheRequestTypeDef = TypedDict(
+    "UpdateRunCacheRequestTypeDef",
+    {
+        "id": str,
+        "cacheBehavior": NotRequired[CacheBehaviorType],
+        "description": NotRequired[str],
+        "name": NotRequired[str],
+    },
+)
+UpdateRunGroupRequestTypeDef = TypedDict(
+    "UpdateRunGroupRequestTypeDef",
+    {
+        "id": str,
+        "name": NotRequired[str],
+        "maxCpus": NotRequired[int],
+        "maxRuns": NotRequired[int],
+        "maxDuration": NotRequired[int],
+        "maxGpus": NotRequired[int],
+    },
+)
+
+class UpdateVariantStoreRequestTypeDef(TypedDict):
+    name: str
+    description: NotRequired[str]
+
+UpdateWorkflowRequestTypeDef = TypedDict(
+    "UpdateWorkflowRequestTypeDef",
+    {
+        "id": str,
+        "name": NotRequired[str],
+        "description": NotRequired[str],
+        "storageType": NotRequired[StorageTypeType],
+        "storageCapacity": NotRequired[int],
+    },
+)
+
+class UpdateWorkflowVersionRequestTypeDef(TypedDict):
+    workflowId: str
+    versionName: str
+    description: NotRequired[str]
+    storageType: NotRequired[StorageTypeType]
+    storageCapacity: NotRequired[int]
+
+class AcceptShareResponseTypeDef(TypedDict):
+    status: ShareStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CompleteMultipartReadSetUploadResponseTypeDef(TypedDict):
+    readSetId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateMultipartReadSetUploadResponseTypeDef(TypedDict):
+    sequenceStoreId: str
+    uploadId: str
+    sourceFileType: FileTypeType
+    subjectId: str
+    sampleId: str
+    generatedFrom: str
+    referenceArn: str
+    name: str
+    description: str
+    tags: Dict[str, str]
+    creationTime: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+CreateRunCacheResponseTypeDef = TypedDict(
+    "CreateRunCacheResponseTypeDef",
+    {
+        "arn": str,
+        "id": str,
+        "status": RunCacheStatusType,
         "tags": Dict[str, str],
-        "maxGpus": int,
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
-    total=False,
 )
-
-class CreateRunGroupRequestRequestTypeDef(
-    _RequiredCreateRunGroupRequestRequestTypeDef, _OptionalCreateRunGroupRequestRequestTypeDef
-):
-    pass
-
 CreateRunGroupResponseTypeDef = TypedDict(
     "CreateRunGroupResponseTypeDef",
     {
         "arn": str,
         "id": str,
         "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
 
-_RequiredCreateSequenceStoreRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateSequenceStoreRequestRequestTypeDef",
-    {
-        "name": str,
-    },
-)
-_OptionalCreateSequenceStoreRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateSequenceStoreRequestRequestTypeDef",
-    {
-        "description": str,
-        "sseConfig": "SseConfigTypeDef",
-        "tags": Dict[str, str],
-        "clientToken": str,
-        "fallbackLocation": str,
-        "eTagAlgorithmFamily": ETagAlgorithmFamilyType,
-    },
-    total=False,
-)
-
-class CreateSequenceStoreRequestRequestTypeDef(
-    _RequiredCreateSequenceStoreRequestRequestTypeDef,
-    _OptionalCreateSequenceStoreRequestRequestTypeDef,
-):
-    pass
-
-CreateSequenceStoreResponseTypeDef = TypedDict(
-    "CreateSequenceStoreResponseTypeDef",
-    {
-        "id": str,
-        "arn": str,
-        "name": str,
-        "description": str,
-        "sseConfig": "SseConfigTypeDef",
-        "creationTime": datetime,
-        "fallbackLocation": str,
-        "eTagAlgorithmFamily": ETagAlgorithmFamilyType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateShareRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateShareRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "principalSubscriber": str,
-    },
-)
-_OptionalCreateShareRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateShareRequestRequestTypeDef",
-    {
-        "shareName": str,
-    },
-    total=False,
-)
-
-class CreateShareRequestRequestTypeDef(
-    _RequiredCreateShareRequestRequestTypeDef, _OptionalCreateShareRequestRequestTypeDef
-):
-    pass
-
-CreateShareResponseTypeDef = TypedDict(
-    "CreateShareResponseTypeDef",
-    {
-        "shareId": str,
-        "status": ShareStatusType,
-        "shareName": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateVariantStoreRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateVariantStoreRequestRequestTypeDef",
-    {
-        "reference": "ReferenceItemTypeDef",
-    },
-)
-_OptionalCreateVariantStoreRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateVariantStoreRequestRequestTypeDef",
-    {
-        "name": str,
-        "description": str,
-        "tags": Dict[str, str],
-        "sseConfig": "SseConfigTypeDef",
-    },
-    total=False,
-)
-
-class CreateVariantStoreRequestRequestTypeDef(
-    _RequiredCreateVariantStoreRequestRequestTypeDef,
-    _OptionalCreateVariantStoreRequestRequestTypeDef,
-):
-    pass
-
-CreateVariantStoreResponseTypeDef = TypedDict(
-    "CreateVariantStoreResponseTypeDef",
-    {
-        "id": str,
-        "reference": "ReferenceItemTypeDef",
-        "status": StoreStatusType,
-        "name": str,
-        "creationTime": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateWorkflowRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateWorkflowRequestRequestTypeDef",
-    {
-        "requestId": str,
-    },
-)
-_OptionalCreateWorkflowRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateWorkflowRequestRequestTypeDef",
-    {
-        "name": str,
-        "description": str,
-        "engine": WorkflowEngineType,
-        "definitionZip": Union[bytes, IO[bytes], StreamingBody],
-        "definitionUri": str,
-        "main": str,
-        "parameterTemplate": Dict[str, "WorkflowParameterTypeDef"],
-        "storageCapacity": int,
-        "tags": Dict[str, str],
-        "accelerators": Literal["GPU"],
-    },
-    total=False,
-)
-
-class CreateWorkflowRequestRequestTypeDef(
-    _RequiredCreateWorkflowRequestRequestTypeDef, _OptionalCreateWorkflowRequestRequestTypeDef
-):
-    pass
+class CreateShareResponseTypeDef(TypedDict):
+    shareId: str
+    status: ShareStatusType
+    shareName: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
 CreateWorkflowResponseTypeDef = TypedDict(
     "CreateWorkflowResponseTypeDef",
@@ -840,570 +1261,59 @@ CreateWorkflowResponseTypeDef = TypedDict(
         "id": str,
         "status": WorkflowStatusType,
         "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "uuid": str,
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
 
-_RequiredDeleteAnnotationStoreRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteAnnotationStoreRequestRequestTypeDef",
-    {
-        "name": str,
-    },
-)
-_OptionalDeleteAnnotationStoreRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteAnnotationStoreRequestRequestTypeDef",
-    {
-        "force": bool,
-    },
-    total=False,
-)
+class CreateWorkflowVersionResponseTypeDef(TypedDict):
+    arn: str
+    workflowId: str
+    versionName: str
+    status: WorkflowStatusType
+    tags: Dict[str, str]
+    uuid: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteAnnotationStoreRequestRequestTypeDef(
-    _RequiredDeleteAnnotationStoreRequestRequestTypeDef,
-    _OptionalDeleteAnnotationStoreRequestRequestTypeDef,
-):
-    pass
+class DeleteAnnotationStoreResponseTypeDef(TypedDict):
+    status: StoreStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
 
-DeleteAnnotationStoreResponseTypeDef = TypedDict(
-    "DeleteAnnotationStoreResponseTypeDef",
-    {
-        "status": StoreStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DeleteShareResponseTypeDef(TypedDict):
+    status: ShareStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredDeleteAnnotationStoreVersionsRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteAnnotationStoreVersionsRequestRequestTypeDef",
-    {
-        "name": str,
-        "versions": List[str],
-    },
-)
-_OptionalDeleteAnnotationStoreVersionsRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteAnnotationStoreVersionsRequestRequestTypeDef",
-    {
-        "force": bool,
-    },
-    total=False,
-)
+class DeleteVariantStoreResponseTypeDef(TypedDict):
+    status: StoreStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteAnnotationStoreVersionsRequestRequestTypeDef(
-    _RequiredDeleteAnnotationStoreVersionsRequestRequestTypeDef,
-    _OptionalDeleteAnnotationStoreVersionsRequestRequestTypeDef,
-):
-    pass
+class EmptyResponseMetadataTypeDef(TypedDict):
+    ResponseMetadata: ResponseMetadataTypeDef
 
-DeleteAnnotationStoreVersionsResponseTypeDef = TypedDict(
-    "DeleteAnnotationStoreVersionsResponseTypeDef",
-    {
-        "errors": List["VersionDeleteErrorTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetReadSetResponseTypeDef(TypedDict):
+    payload: StreamingBody
+    ResponseMetadata: ResponseMetadataTypeDef
 
-DeleteReferenceRequestRequestTypeDef = TypedDict(
-    "DeleteReferenceRequestRequestTypeDef",
-    {
-        "id": str,
-        "referenceStoreId": str,
-    },
-)
+class GetReferenceResponseTypeDef(TypedDict):
+    payload: StreamingBody
+    ResponseMetadata: ResponseMetadataTypeDef
 
-DeleteReferenceStoreRequestRequestTypeDef = TypedDict(
-    "DeleteReferenceStoreRequestRequestTypeDef",
+GetRunCacheResponseTypeDef = TypedDict(
+    "GetRunCacheResponseTypeDef",
     {
-        "id": str,
-    },
-)
-
-DeleteRunGroupRequestRequestTypeDef = TypedDict(
-    "DeleteRunGroupRequestRequestTypeDef",
-    {
-        "id": str,
-    },
-)
-
-DeleteRunRequestRequestTypeDef = TypedDict(
-    "DeleteRunRequestRequestTypeDef",
-    {
-        "id": str,
-    },
-)
-
-DeleteSequenceStoreRequestRequestTypeDef = TypedDict(
-    "DeleteSequenceStoreRequestRequestTypeDef",
-    {
-        "id": str,
-    },
-)
-
-DeleteShareRequestRequestTypeDef = TypedDict(
-    "DeleteShareRequestRequestTypeDef",
-    {
-        "shareId": str,
-    },
-)
-
-DeleteShareResponseTypeDef = TypedDict(
-    "DeleteShareResponseTypeDef",
-    {
-        "status": ShareStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDeleteVariantStoreRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteVariantStoreRequestRequestTypeDef",
-    {
-        "name": str,
-    },
-)
-_OptionalDeleteVariantStoreRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteVariantStoreRequestRequestTypeDef",
-    {
-        "force": bool,
-    },
-    total=False,
-)
-
-class DeleteVariantStoreRequestRequestTypeDef(
-    _RequiredDeleteVariantStoreRequestRequestTypeDef,
-    _OptionalDeleteVariantStoreRequestRequestTypeDef,
-):
-    pass
-
-DeleteVariantStoreResponseTypeDef = TypedDict(
-    "DeleteVariantStoreResponseTypeDef",
-    {
-        "status": StoreStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteWorkflowRequestRequestTypeDef = TypedDict(
-    "DeleteWorkflowRequestRequestTypeDef",
-    {
-        "id": str,
-    },
-)
-
-ETagTypeDef = TypedDict(
-    "ETagTypeDef",
-    {
-        "algorithm": ETagAlgorithmType,
-        "source1": str,
-        "source2": str,
-    },
-    total=False,
-)
-
-_RequiredExportReadSetDetailTypeDef = TypedDict(
-    "_RequiredExportReadSetDetailTypeDef",
-    {
-        "id": str,
-        "status": ReadSetExportJobItemStatusType,
-    },
-)
-_OptionalExportReadSetDetailTypeDef = TypedDict(
-    "_OptionalExportReadSetDetailTypeDef",
-    {
-        "statusMessage": str,
-    },
-    total=False,
-)
-
-class ExportReadSetDetailTypeDef(
-    _RequiredExportReadSetDetailTypeDef, _OptionalExportReadSetDetailTypeDef
-):
-    pass
-
-ExportReadSetFilterTypeDef = TypedDict(
-    "ExportReadSetFilterTypeDef",
-    {
-        "status": ReadSetExportJobStatusType,
-        "createdAfter": Union[datetime, str],
-        "createdBefore": Union[datetime, str],
-    },
-    total=False,
-)
-
-_RequiredExportReadSetJobDetailTypeDef = TypedDict(
-    "_RequiredExportReadSetJobDetailTypeDef",
-    {
-        "id": str,
-        "sequenceStoreId": str,
-        "destination": str,
-        "status": ReadSetExportJobStatusType,
+        "arn": str,
+        "cacheBehavior": CacheBehaviorType,
+        "cacheBucketOwnerId": str,
+        "cacheS3Uri": str,
         "creationTime": datetime,
-    },
-)
-_OptionalExportReadSetJobDetailTypeDef = TypedDict(
-    "_OptionalExportReadSetJobDetailTypeDef",
-    {
-        "completionTime": datetime,
-    },
-    total=False,
-)
-
-class ExportReadSetJobDetailTypeDef(
-    _RequiredExportReadSetJobDetailTypeDef, _OptionalExportReadSetJobDetailTypeDef
-):
-    pass
-
-ExportReadSetTypeDef = TypedDict(
-    "ExportReadSetTypeDef",
-    {
-        "readSetId": str,
-    },
-)
-
-FileInformationTypeDef = TypedDict(
-    "FileInformationTypeDef",
-    {
-        "totalParts": int,
-        "partSize": int,
-        "contentLength": int,
-        "s3Access": "ReadSetS3AccessTypeDef",
-    },
-    total=False,
-)
-
-FilterTypeDef = TypedDict(
-    "FilterTypeDef",
-    {
-        "resourceArns": List[str],
-        "status": List[ShareStatusType],
-        "type": List[ShareResourceTypeType],
-    },
-    total=False,
-)
-
-FormatOptionsTypeDef = TypedDict(
-    "FormatOptionsTypeDef",
-    {
-        "tsvOptions": "TsvOptionsTypeDef",
-        "vcfOptions": "VcfOptionsTypeDef",
-    },
-    total=False,
-)
-
-GetAnnotationImportRequestRequestTypeDef = TypedDict(
-    "GetAnnotationImportRequestRequestTypeDef",
-    {
-        "jobId": str,
-    },
-)
-
-GetAnnotationImportResponseTypeDef = TypedDict(
-    "GetAnnotationImportResponseTypeDef",
-    {
-        "id": str,
-        "destinationName": str,
-        "versionName": str,
-        "roleArn": str,
-        "status": JobStatusType,
-        "statusMessage": str,
-        "creationTime": datetime,
-        "updateTime": datetime,
-        "completionTime": datetime,
-        "items": List["AnnotationImportItemDetailTypeDef"],
-        "runLeftNormalization": bool,
-        "formatOptions": "FormatOptionsTypeDef",
-        "annotationFields": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetAnnotationStoreRequestRequestTypeDef = TypedDict(
-    "GetAnnotationStoreRequestRequestTypeDef",
-    {
-        "name": str,
-    },
-)
-
-GetAnnotationStoreResponseTypeDef = TypedDict(
-    "GetAnnotationStoreResponseTypeDef",
-    {
-        "id": str,
-        "reference": "ReferenceItemTypeDef",
-        "status": StoreStatusType,
-        "storeArn": str,
-        "name": str,
         "description": str,
-        "sseConfig": "SseConfigTypeDef",
-        "creationTime": datetime,
-        "updateTime": datetime,
+        "id": str,
+        "name": str,
+        "status": RunCacheStatusType,
         "tags": Dict[str, str],
-        "storeOptions": "StoreOptionsTypeDef",
-        "storeFormat": StoreFormatType,
-        "statusMessage": str,
-        "storeSizeBytes": int,
-        "numVersions": int,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
-
-GetAnnotationStoreVersionRequestRequestTypeDef = TypedDict(
-    "GetAnnotationStoreVersionRequestRequestTypeDef",
-    {
-        "name": str,
-        "versionName": str,
-    },
-)
-
-GetAnnotationStoreVersionResponseTypeDef = TypedDict(
-    "GetAnnotationStoreVersionResponseTypeDef",
-    {
-        "storeId": str,
-        "id": str,
-        "status": VersionStatusType,
-        "versionArn": str,
-        "name": str,
-        "versionName": str,
-        "description": str,
-        "creationTime": datetime,
-        "updateTime": datetime,
-        "tags": Dict[str, str],
-        "versionOptions": "VersionOptionsTypeDef",
-        "statusMessage": str,
-        "versionSizeBytes": int,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetReadSetActivationJobRequestRequestTypeDef = TypedDict(
-    "GetReadSetActivationJobRequestRequestTypeDef",
-    {
-        "id": str,
-        "sequenceStoreId": str,
-    },
-)
-
-GetReadSetActivationJobResponseTypeDef = TypedDict(
-    "GetReadSetActivationJobResponseTypeDef",
-    {
-        "id": str,
-        "sequenceStoreId": str,
-        "status": ReadSetActivationJobStatusType,
-        "statusMessage": str,
-        "creationTime": datetime,
-        "completionTime": datetime,
-        "sources": List["ActivateReadSetSourceItemTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetReadSetExportJobRequestRequestTypeDef = TypedDict(
-    "GetReadSetExportJobRequestRequestTypeDef",
-    {
-        "sequenceStoreId": str,
-        "id": str,
-    },
-)
-
-GetReadSetExportJobResponseTypeDef = TypedDict(
-    "GetReadSetExportJobResponseTypeDef",
-    {
-        "id": str,
-        "sequenceStoreId": str,
-        "destination": str,
-        "status": ReadSetExportJobStatusType,
-        "statusMessage": str,
-        "creationTime": datetime,
-        "completionTime": datetime,
-        "readSets": List["ExportReadSetDetailTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetReadSetImportJobRequestRequestTypeDef = TypedDict(
-    "GetReadSetImportJobRequestRequestTypeDef",
-    {
-        "id": str,
-        "sequenceStoreId": str,
-    },
-)
-
-GetReadSetImportJobResponseTypeDef = TypedDict(
-    "GetReadSetImportJobResponseTypeDef",
-    {
-        "id": str,
-        "sequenceStoreId": str,
-        "roleArn": str,
-        "status": ReadSetImportJobStatusType,
-        "statusMessage": str,
-        "creationTime": datetime,
-        "completionTime": datetime,
-        "sources": List["ImportReadSetSourceItemTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetReadSetMetadataRequestRequestTypeDef = TypedDict(
-    "GetReadSetMetadataRequestRequestTypeDef",
-    {
-        "id": str,
-        "sequenceStoreId": str,
-    },
-)
-
-GetReadSetMetadataResponseTypeDef = TypedDict(
-    "GetReadSetMetadataResponseTypeDef",
-    {
-        "id": str,
-        "arn": str,
-        "sequenceStoreId": str,
-        "subjectId": str,
-        "sampleId": str,
-        "status": ReadSetStatusType,
-        "name": str,
-        "description": str,
-        "fileType": FileTypeType,
-        "creationTime": datetime,
-        "sequenceInformation": "SequenceInformationTypeDef",
-        "referenceArn": str,
-        "files": "ReadSetFilesTypeDef",
-        "statusMessage": str,
-        "creationType": CreationTypeType,
-        "etag": "ETagTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetReadSetRequestRequestTypeDef = TypedDict(
-    "_RequiredGetReadSetRequestRequestTypeDef",
-    {
-        "id": str,
-        "sequenceStoreId": str,
-        "partNumber": int,
-    },
-)
-_OptionalGetReadSetRequestRequestTypeDef = TypedDict(
-    "_OptionalGetReadSetRequestRequestTypeDef",
-    {
-        "file": ReadSetFileType,
-    },
-    total=False,
-)
-
-class GetReadSetRequestRequestTypeDef(
-    _RequiredGetReadSetRequestRequestTypeDef, _OptionalGetReadSetRequestRequestTypeDef
-):
-    pass
-
-GetReadSetResponseTypeDef = TypedDict(
-    "GetReadSetResponseTypeDef",
-    {
-        "payload": StreamingBody,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetReferenceImportJobRequestRequestTypeDef = TypedDict(
-    "GetReferenceImportJobRequestRequestTypeDef",
-    {
-        "id": str,
-        "referenceStoreId": str,
-    },
-)
-
-GetReferenceImportJobResponseTypeDef = TypedDict(
-    "GetReferenceImportJobResponseTypeDef",
-    {
-        "id": str,
-        "referenceStoreId": str,
-        "roleArn": str,
-        "status": ReferenceImportJobStatusType,
-        "statusMessage": str,
-        "creationTime": datetime,
-        "completionTime": datetime,
-        "sources": List["ImportReferenceSourceItemTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetReferenceMetadataRequestRequestTypeDef = TypedDict(
-    "GetReferenceMetadataRequestRequestTypeDef",
-    {
-        "id": str,
-        "referenceStoreId": str,
-    },
-)
-
-GetReferenceMetadataResponseTypeDef = TypedDict(
-    "GetReferenceMetadataResponseTypeDef",
-    {
-        "id": str,
-        "arn": str,
-        "referenceStoreId": str,
-        "md5": str,
-        "status": ReferenceStatusType,
-        "name": str,
-        "description": str,
-        "creationTime": datetime,
-        "updateTime": datetime,
-        "files": "ReferenceFilesTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetReferenceRequestRequestTypeDef = TypedDict(
-    "_RequiredGetReferenceRequestRequestTypeDef",
-    {
-        "id": str,
-        "referenceStoreId": str,
-        "partNumber": int,
-    },
-)
-_OptionalGetReferenceRequestRequestTypeDef = TypedDict(
-    "_OptionalGetReferenceRequestRequestTypeDef",
-    {
-        "range": str,
-        "file": ReferenceFileType,
-    },
-    total=False,
-)
-
-class GetReferenceRequestRequestTypeDef(
-    _RequiredGetReferenceRequestRequestTypeDef, _OptionalGetReferenceRequestRequestTypeDef
-):
-    pass
-
-GetReferenceResponseTypeDef = TypedDict(
-    "GetReferenceResponseTypeDef",
-    {
-        "payload": StreamingBody,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetReferenceStoreRequestRequestTypeDef = TypedDict(
-    "GetReferenceStoreRequestRequestTypeDef",
-    {
-        "id": str,
-    },
-)
-
-GetReferenceStoreResponseTypeDef = TypedDict(
-    "GetReferenceStoreResponseTypeDef",
-    {
-        "id": str,
-        "arn": str,
-        "name": str,
-        "description": str,
-        "sseConfig": "SseConfigTypeDef",
-        "creationTime": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetRunGroupRequestRequestTypeDef = TypedDict(
-    "GetRunGroupRequestRequestTypeDef",
-    {
-        "id": str,
-    },
-)
-
 GetRunGroupResponseTypeDef = TypedDict(
     "GetRunGroupResponseTypeDef",
     {
@@ -1416,34 +1326,742 @@ GetRunGroupResponseTypeDef = TypedDict(
         "creationTime": datetime,
         "tags": Dict[str, str],
         "maxGpus": int,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
 
-_RequiredGetRunRequestRequestTypeDef = TypedDict(
-    "_RequiredGetRunRequestRequestTypeDef",
+class GetRunTaskResponseTypeDef(TypedDict):
+    taskId: str
+    status: TaskStatusType
+    name: str
+    cpus: int
+    cacheHit: bool
+    cacheS3Uri: str
+    memory: int
+    creationTime: datetime
+    startTime: datetime
+    stopTime: datetime
+    statusMessage: str
+    logStream: str
+    gpus: int
+    instanceType: str
+    failureReason: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetS3AccessPolicyResponseTypeDef(TypedDict):
+    s3AccessPointArn: str
+    storeId: str
+    storeType: StoreTypeType
+    updateTime: datetime
+    s3AccessPolicy: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutS3AccessPolicyResponseTypeDef(TypedDict):
+    s3AccessPointArn: str
+    storeId: str
+    storeType: StoreTypeType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartAnnotationImportResponseTypeDef(TypedDict):
+    jobId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+StartReadSetActivationJobResponseTypeDef = TypedDict(
+    "StartReadSetActivationJobResponseTypeDef",
     {
         "id": str,
+        "sequenceStoreId": str,
+        "status": ReadSetActivationJobStatusType,
+        "creationTime": datetime,
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
-_OptionalGetRunRequestRequestTypeDef = TypedDict(
-    "_OptionalGetRunRequestRequestTypeDef",
+StartReadSetExportJobResponseTypeDef = TypedDict(
+    "StartReadSetExportJobResponseTypeDef",
     {
-        "export": List[Literal["DEFINITION"]],
+        "id": str,
+        "sequenceStoreId": str,
+        "destination": str,
+        "status": ReadSetExportJobStatusType,
+        "creationTime": datetime,
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
-    total=False,
+)
+StartReadSetImportJobResponseTypeDef = TypedDict(
+    "StartReadSetImportJobResponseTypeDef",
+    {
+        "id": str,
+        "sequenceStoreId": str,
+        "roleArn": str,
+        "status": ReadSetImportJobStatusType,
+        "creationTime": datetime,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+StartReferenceImportJobResponseTypeDef = TypedDict(
+    "StartReferenceImportJobResponseTypeDef",
+    {
+        "id": str,
+        "referenceStoreId": str,
+        "roleArn": str,
+        "status": ReferenceImportJobStatusType,
+        "creationTime": datetime,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+StartRunResponseTypeDef = TypedDict(
+    "StartRunResponseTypeDef",
+    {
+        "arn": str,
+        "id": str,
+        "status": RunStatusType,
+        "tags": Dict[str, str],
+        "uuid": str,
+        "runOutputUri": str,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
 )
 
-class GetRunRequestRequestTypeDef(
-    _RequiredGetRunRequestRequestTypeDef, _OptionalGetRunRequestRequestTypeDef
-):
-    pass
+class StartVariantImportResponseTypeDef(TypedDict):
+    jobId: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
+UpdateAnnotationStoreVersionResponseTypeDef = TypedDict(
+    "UpdateAnnotationStoreVersionResponseTypeDef",
+    {
+        "storeId": str,
+        "id": str,
+        "status": VersionStatusType,
+        "name": str,
+        "versionName": str,
+        "description": str,
+        "creationTime": datetime,
+        "updateTime": datetime,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+
+class UploadReadSetPartResponseTypeDef(TypedDict):
+    checksum: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ActivateReadSetFilterTypeDef(TypedDict):
+    status: NotRequired[ReadSetActivationJobStatusType]
+    createdAfter: NotRequired[TimestampTypeDef]
+    createdBefore: NotRequired[TimestampTypeDef]
+
+class ExportReadSetFilterTypeDef(TypedDict):
+    status: NotRequired[ReadSetExportJobStatusType]
+    createdAfter: NotRequired[TimestampTypeDef]
+    createdBefore: NotRequired[TimestampTypeDef]
+
+class ImportReadSetFilterTypeDef(TypedDict):
+    status: NotRequired[ReadSetImportJobStatusType]
+    createdAfter: NotRequired[TimestampTypeDef]
+    createdBefore: NotRequired[TimestampTypeDef]
+
+class ImportReferenceFilterTypeDef(TypedDict):
+    status: NotRequired[ReferenceImportJobStatusType]
+    createdAfter: NotRequired[TimestampTypeDef]
+    createdBefore: NotRequired[TimestampTypeDef]
+
+class ReadSetFilterTypeDef(TypedDict):
+    name: NotRequired[str]
+    status: NotRequired[ReadSetStatusType]
+    referenceArn: NotRequired[str]
+    createdAfter: NotRequired[TimestampTypeDef]
+    createdBefore: NotRequired[TimestampTypeDef]
+    sampleId: NotRequired[str]
+    subjectId: NotRequired[str]
+    generatedFrom: NotRequired[str]
+    creationType: NotRequired[CreationTypeType]
+
+class ReadSetUploadPartListFilterTypeDef(TypedDict):
+    createdAfter: NotRequired[TimestampTypeDef]
+    createdBefore: NotRequired[TimestampTypeDef]
+
+class ReferenceFilterTypeDef(TypedDict):
+    name: NotRequired[str]
+    md5: NotRequired[str]
+    createdAfter: NotRequired[TimestampTypeDef]
+    createdBefore: NotRequired[TimestampTypeDef]
+
+class ReferenceStoreFilterTypeDef(TypedDict):
+    name: NotRequired[str]
+    createdAfter: NotRequired[TimestampTypeDef]
+    createdBefore: NotRequired[TimestampTypeDef]
+
+class SequenceStoreFilterTypeDef(TypedDict):
+    name: NotRequired[str]
+    createdAfter: NotRequired[TimestampTypeDef]
+    createdBefore: NotRequired[TimestampTypeDef]
+    status: NotRequired[SequenceStoreStatusType]
+    updatedAfter: NotRequired[TimestampTypeDef]
+    updatedBefore: NotRequired[TimestampTypeDef]
+
+class ListReadSetActivationJobsResponseTypeDef(TypedDict):
+    activationJobs: List[ActivateReadSetJobItemTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+GetReadSetActivationJobResponseTypeDef = TypedDict(
+    "GetReadSetActivationJobResponseTypeDef",
+    {
+        "id": str,
+        "sequenceStoreId": str,
+        "status": ReadSetActivationJobStatusType,
+        "statusMessage": str,
+        "creationTime": datetime,
+        "completionTime": datetime,
+        "sources": List[ActivateReadSetSourceItemTypeDef],
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+
+class ListAnnotationImportJobsResponseTypeDef(TypedDict):
+    annotationImportJobs: List[AnnotationImportJobItemTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+CreateVariantStoreResponseTypeDef = TypedDict(
+    "CreateVariantStoreResponseTypeDef",
+    {
+        "id": str,
+        "reference": ReferenceItemTypeDef,
+        "status": StoreStatusType,
+        "name": str,
+        "creationTime": datetime,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+UpdateVariantStoreResponseTypeDef = TypedDict(
+    "UpdateVariantStoreResponseTypeDef",
+    {
+        "id": str,
+        "reference": ReferenceItemTypeDef,
+        "status": StoreStatusType,
+        "name": str,
+        "description": str,
+        "creationTime": datetime,
+        "updateTime": datetime,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+AnnotationStoreItemTypeDef = TypedDict(
+    "AnnotationStoreItemTypeDef",
+    {
+        "id": str,
+        "reference": ReferenceItemTypeDef,
+        "status": StoreStatusType,
+        "storeArn": str,
+        "name": str,
+        "storeFormat": StoreFormatType,
+        "description": str,
+        "sseConfig": SseConfigTypeDef,
+        "creationTime": datetime,
+        "updateTime": datetime,
+        "statusMessage": str,
+        "storeSizeBytes": int,
+    },
+)
+
+class CreateReferenceStoreRequestTypeDef(TypedDict):
+    name: str
+    description: NotRequired[str]
+    sseConfig: NotRequired[SseConfigTypeDef]
+    tags: NotRequired[Mapping[str, str]]
+    clientToken: NotRequired[str]
+
+CreateReferenceStoreResponseTypeDef = TypedDict(
+    "CreateReferenceStoreResponseTypeDef",
+    {
+        "id": str,
+        "arn": str,
+        "name": str,
+        "description": str,
+        "sseConfig": SseConfigTypeDef,
+        "creationTime": datetime,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+
+class CreateVariantStoreRequestTypeDef(TypedDict):
+    reference: ReferenceItemTypeDef
+    name: NotRequired[str]
+    description: NotRequired[str]
+    tags: NotRequired[Mapping[str, str]]
+    sseConfig: NotRequired[SseConfigTypeDef]
+
+GetReferenceStoreResponseTypeDef = TypedDict(
+    "GetReferenceStoreResponseTypeDef",
+    {
+        "id": str,
+        "arn": str,
+        "name": str,
+        "description": str,
+        "sseConfig": SseConfigTypeDef,
+        "creationTime": datetime,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+GetVariantStoreResponseTypeDef = TypedDict(
+    "GetVariantStoreResponseTypeDef",
+    {
+        "id": str,
+        "reference": ReferenceItemTypeDef,
+        "status": StoreStatusType,
+        "storeArn": str,
+        "name": str,
+        "description": str,
+        "sseConfig": SseConfigTypeDef,
+        "creationTime": datetime,
+        "updateTime": datetime,
+        "tags": Dict[str, str],
+        "statusMessage": str,
+        "storeSizeBytes": int,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+ReferenceStoreDetailTypeDef = TypedDict(
+    "ReferenceStoreDetailTypeDef",
+    {
+        "arn": str,
+        "id": str,
+        "creationTime": datetime,
+        "name": NotRequired[str],
+        "description": NotRequired[str],
+        "sseConfig": NotRequired[SseConfigTypeDef],
+    },
+)
+SequenceStoreDetailTypeDef = TypedDict(
+    "SequenceStoreDetailTypeDef",
+    {
+        "arn": str,
+        "id": str,
+        "creationTime": datetime,
+        "name": NotRequired[str],
+        "description": NotRequired[str],
+        "sseConfig": NotRequired[SseConfigTypeDef],
+        "fallbackLocation": NotRequired[str],
+        "eTagAlgorithmFamily": NotRequired[ETagAlgorithmFamilyType],
+        "status": NotRequired[SequenceStoreStatusType],
+        "statusMessage": NotRequired[str],
+        "updateTime": NotRequired[datetime],
+    },
+)
+VariantStoreItemTypeDef = TypedDict(
+    "VariantStoreItemTypeDef",
+    {
+        "id": str,
+        "reference": ReferenceItemTypeDef,
+        "status": StoreStatusType,
+        "storeArn": str,
+        "name": str,
+        "description": str,
+        "sseConfig": SseConfigTypeDef,
+        "creationTime": datetime,
+        "updateTime": datetime,
+        "statusMessage": str,
+        "storeSizeBytes": int,
+    },
+)
+
+class ListAnnotationStoreVersionsResponseTypeDef(TypedDict):
+    annotationStoreVersions: List[AnnotationStoreVersionItemTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class BatchDeleteReadSetResponseTypeDef(TypedDict):
+    errors: List[ReadSetBatchErrorTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UploadReadSetPartRequestTypeDef(TypedDict):
+    sequenceStoreId: str
+    uploadId: str
+    partSource: ReadSetPartSourceType
+    partNumber: int
+    payload: BlobTypeDef
+
+class CompleteMultipartReadSetUploadRequestTypeDef(TypedDict):
+    sequenceStoreId: str
+    uploadId: str
+    parts: Sequence[CompleteReadSetUploadPartListItemTypeDef]
+
+class CreateSequenceStoreRequestTypeDef(TypedDict):
+    name: str
+    description: NotRequired[str]
+    sseConfig: NotRequired[SseConfigTypeDef]
+    tags: NotRequired[Mapping[str, str]]
+    clientToken: NotRequired[str]
+    fallbackLocation: NotRequired[str]
+    eTagAlgorithmFamily: NotRequired[ETagAlgorithmFamilyType]
+    propagatedSetLevelTags: NotRequired[Sequence[str]]
+    s3AccessConfig: NotRequired[S3AccessConfigTypeDef]
+
+UpdateSequenceStoreRequestTypeDef = TypedDict(
+    "UpdateSequenceStoreRequestTypeDef",
+    {
+        "id": str,
+        "name": NotRequired[str],
+        "description": NotRequired[str],
+        "clientToken": NotRequired[str],
+        "fallbackLocation": NotRequired[str],
+        "propagatedSetLevelTags": NotRequired[Sequence[str]],
+        "s3AccessConfig": NotRequired[S3AccessConfigTypeDef],
+    },
+)
+CreateSequenceStoreResponseTypeDef = TypedDict(
+    "CreateSequenceStoreResponseTypeDef",
+    {
+        "id": str,
+        "arn": str,
+        "name": str,
+        "description": str,
+        "sseConfig": SseConfigTypeDef,
+        "creationTime": datetime,
+        "fallbackLocation": str,
+        "eTagAlgorithmFamily": ETagAlgorithmFamilyType,
+        "status": SequenceStoreStatusType,
+        "statusMessage": str,
+        "propagatedSetLevelTags": List[str],
+        "s3Access": SequenceStoreS3AccessTypeDef,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+GetSequenceStoreResponseTypeDef = TypedDict(
+    "GetSequenceStoreResponseTypeDef",
+    {
+        "id": str,
+        "arn": str,
+        "name": str,
+        "description": str,
+        "sseConfig": SseConfigTypeDef,
+        "creationTime": datetime,
+        "fallbackLocation": str,
+        "s3Access": SequenceStoreS3AccessTypeDef,
+        "eTagAlgorithmFamily": ETagAlgorithmFamilyType,
+        "status": SequenceStoreStatusType,
+        "statusMessage": str,
+        "propagatedSetLevelTags": List[str],
+        "updateTime": datetime,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+UpdateSequenceStoreResponseTypeDef = TypedDict(
+    "UpdateSequenceStoreResponseTypeDef",
+    {
+        "id": str,
+        "arn": str,
+        "name": str,
+        "description": str,
+        "sseConfig": SseConfigTypeDef,
+        "creationTime": datetime,
+        "updateTime": datetime,
+        "propagatedSetLevelTags": List[str],
+        "status": SequenceStoreStatusType,
+        "statusMessage": str,
+        "fallbackLocation": str,
+        "s3Access": SequenceStoreS3AccessTypeDef,
+        "eTagAlgorithmFamily": ETagAlgorithmFamilyType,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+
+class CreateWorkflowRequestTypeDef(TypedDict):
+    requestId: str
+    name: NotRequired[str]
+    description: NotRequired[str]
+    engine: NotRequired[WorkflowEngineType]
+    definitionZip: NotRequired[BlobTypeDef]
+    definitionUri: NotRequired[str]
+    main: NotRequired[str]
+    parameterTemplate: NotRequired[Mapping[str, WorkflowParameterTypeDef]]
+    storageCapacity: NotRequired[int]
+    tags: NotRequired[Mapping[str, str]]
+    accelerators: NotRequired[Literal["GPU"]]
+    storageType: NotRequired[StorageTypeType]
+
+class CreateWorkflowVersionRequestTypeDef(TypedDict):
+    workflowId: str
+    versionName: str
+    requestId: str
+    definitionZip: NotRequired[BlobTypeDef]
+    definitionUri: NotRequired[str]
+    accelerators: NotRequired[Literal["GPU"]]
+    description: NotRequired[str]
+    engine: NotRequired[WorkflowEngineType]
+    main: NotRequired[str]
+    parameterTemplate: NotRequired[Mapping[str, WorkflowParameterTypeDef]]
+    storageType: NotRequired[StorageTypeType]
+    storageCapacity: NotRequired[int]
+    tags: NotRequired[Mapping[str, str]]
+    workflowBucketOwnerId: NotRequired[str]
+
+GetWorkflowResponseTypeDef = TypedDict(
+    "GetWorkflowResponseTypeDef",
+    {
+        "arn": str,
+        "id": str,
+        "status": WorkflowStatusType,
+        "type": WorkflowTypeType,
+        "name": str,
+        "description": str,
+        "engine": WorkflowEngineType,
+        "definition": str,
+        "main": str,
+        "digest": str,
+        "parameterTemplate": Dict[str, WorkflowParameterTypeDef],
+        "storageCapacity": int,
+        "creationTime": datetime,
+        "statusMessage": str,
+        "tags": Dict[str, str],
+        "metadata": Dict[str, str],
+        "accelerators": Literal["GPU"],
+        "storageType": StorageTypeType,
+        "uuid": str,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+GetWorkflowVersionResponseTypeDef = TypedDict(
+    "GetWorkflowVersionResponseTypeDef",
+    {
+        "arn": str,
+        "workflowId": str,
+        "versionName": str,
+        "accelerators": Literal["GPU"],
+        "creationTime": datetime,
+        "description": str,
+        "definition": str,
+        "digest": str,
+        "engine": WorkflowEngineType,
+        "main": str,
+        "metadata": Dict[str, str],
+        "parameterTemplate": Dict[str, WorkflowParameterTypeDef],
+        "status": WorkflowStatusType,
+        "statusMessage": str,
+        "storageType": StorageTypeType,
+        "storageCapacity": int,
+        "type": WorkflowTypeType,
+        "tags": Dict[str, str],
+        "uuid": str,
+        "workflowBucketOwnerId": str,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+
+class DeleteAnnotationStoreVersionsResponseTypeDef(TypedDict):
+    errors: List[VersionDeleteErrorTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+GetReadSetExportJobResponseTypeDef = TypedDict(
+    "GetReadSetExportJobResponseTypeDef",
+    {
+        "id": str,
+        "sequenceStoreId": str,
+        "destination": str,
+        "status": ReadSetExportJobStatusType,
+        "statusMessage": str,
+        "creationTime": datetime,
+        "completionTime": datetime,
+        "readSets": List[ExportReadSetDetailTypeDef],
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+
+class ListReadSetExportJobsResponseTypeDef(TypedDict):
+    exportJobs: List[ExportReadSetJobDetailTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class StartReadSetExportJobRequestTypeDef(TypedDict):
+    sequenceStoreId: str
+    destination: str
+    roleArn: str
+    sources: Sequence[ExportReadSetTypeDef]
+    clientToken: NotRequired[str]
+
+class FileInformationTypeDef(TypedDict):
+    totalParts: NotRequired[int]
+    partSize: NotRequired[int]
+    contentLength: NotRequired[int]
+    s3Access: NotRequired[ReadSetS3AccessTypeDef]
+
+ListSharesRequestTypeDef = TypedDict(
+    "ListSharesRequestTypeDef",
+    {
+        "resourceOwner": ResourceOwnerType,
+        "filter": NotRequired[FilterTypeDef],
+        "nextToken": NotRequired[str],
+        "maxResults": NotRequired[int],
+    },
+)
+
+class GetAnnotationImportRequestWaitTypeDef(TypedDict):
+    jobId: str
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class GetAnnotationStoreRequestWaitExtraTypeDef(TypedDict):
+    name: str
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class GetAnnotationStoreRequestWaitTypeDef(TypedDict):
+    name: str
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class GetAnnotationStoreVersionRequestWaitExtraTypeDef(TypedDict):
+    name: str
+    versionName: str
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class GetAnnotationStoreVersionRequestWaitTypeDef(TypedDict):
+    name: str
+    versionName: str
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+GetReadSetActivationJobRequestWaitTypeDef = TypedDict(
+    "GetReadSetActivationJobRequestWaitTypeDef",
+    {
+        "id": str,
+        "sequenceStoreId": str,
+        "WaiterConfig": NotRequired[WaiterConfigTypeDef],
+    },
+)
+GetReadSetExportJobRequestWaitTypeDef = TypedDict(
+    "GetReadSetExportJobRequestWaitTypeDef",
+    {
+        "sequenceStoreId": str,
+        "id": str,
+        "WaiterConfig": NotRequired[WaiterConfigTypeDef],
+    },
+)
+GetReadSetImportJobRequestWaitTypeDef = TypedDict(
+    "GetReadSetImportJobRequestWaitTypeDef",
+    {
+        "id": str,
+        "sequenceStoreId": str,
+        "WaiterConfig": NotRequired[WaiterConfigTypeDef],
+    },
+)
+GetReferenceImportJobRequestWaitTypeDef = TypedDict(
+    "GetReferenceImportJobRequestWaitTypeDef",
+    {
+        "id": str,
+        "referenceStoreId": str,
+        "WaiterConfig": NotRequired[WaiterConfigTypeDef],
+    },
+)
+GetRunRequestWaitExtraTypeDef = TypedDict(
+    "GetRunRequestWaitExtraTypeDef",
+    {
+        "id": str,
+        "export": NotRequired[Sequence[Literal["DEFINITION"]]],
+        "WaiterConfig": NotRequired[WaiterConfigTypeDef],
+    },
+)
+GetRunRequestWaitTypeDef = TypedDict(
+    "GetRunRequestWaitTypeDef",
+    {
+        "id": str,
+        "export": NotRequired[Sequence[Literal["DEFINITION"]]],
+        "WaiterConfig": NotRequired[WaiterConfigTypeDef],
+    },
+)
+GetRunTaskRequestWaitExtraTypeDef = TypedDict(
+    "GetRunTaskRequestWaitExtraTypeDef",
+    {
+        "id": str,
+        "taskId": str,
+        "WaiterConfig": NotRequired[WaiterConfigTypeDef],
+    },
+)
+GetRunTaskRequestWaitTypeDef = TypedDict(
+    "GetRunTaskRequestWaitTypeDef",
+    {
+        "id": str,
+        "taskId": str,
+        "WaiterConfig": NotRequired[WaiterConfigTypeDef],
+    },
+)
+
+class GetVariantImportRequestWaitTypeDef(TypedDict):
+    jobId: str
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class GetVariantStoreRequestWaitExtraTypeDef(TypedDict):
+    name: str
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class GetVariantStoreRequestWaitTypeDef(TypedDict):
+    name: str
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+GetWorkflowRequestWaitTypeDef = TypedDict(
+    "GetWorkflowRequestWaitTypeDef",
+    {
+        "id": str,
+        "type": NotRequired[WorkflowTypeType],
+        "export": NotRequired[Sequence[Literal["DEFINITION"]]],
+        "workflowOwnerId": NotRequired[str],
+        "WaiterConfig": NotRequired[WaiterConfigTypeDef],
+    },
+)
+GetWorkflowVersionRequestWaitTypeDef = TypedDict(
+    "GetWorkflowVersionRequestWaitTypeDef",
+    {
+        "workflowId": str,
+        "versionName": str,
+        "type": NotRequired[WorkflowTypeType],
+        "export": NotRequired[Sequence[Literal["DEFINITION"]]],
+        "workflowOwnerId": NotRequired[str],
+        "WaiterConfig": NotRequired[WaiterConfigTypeDef],
+    },
+)
+ReadSetListItemTypeDef = TypedDict(
+    "ReadSetListItemTypeDef",
+    {
+        "id": str,
+        "arn": str,
+        "sequenceStoreId": str,
+        "status": ReadSetStatusType,
+        "fileType": FileTypeType,
+        "creationTime": datetime,
+        "subjectId": NotRequired[str],
+        "sampleId": NotRequired[str],
+        "name": NotRequired[str],
+        "description": NotRequired[str],
+        "referenceArn": NotRequired[str],
+        "sequenceInformation": NotRequired[SequenceInformationTypeDef],
+        "statusMessage": NotRequired[str],
+        "creationType": NotRequired[CreationTypeType],
+        "etag": NotRequired[ETagTypeDef],
+    },
+)
+GetReferenceImportJobResponseTypeDef = TypedDict(
+    "GetReferenceImportJobResponseTypeDef",
+    {
+        "id": str,
+        "referenceStoreId": str,
+        "roleArn": str,
+        "status": ReferenceImportJobStatusType,
+        "statusMessage": str,
+        "creationTime": datetime,
+        "completionTime": datetime,
+        "sources": List[ImportReferenceSourceItemTypeDef],
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
 GetRunResponseTypeDef = TypedDict(
     "GetRunResponseTypeDef",
     {
         "arn": str,
         "id": str,
+        "cacheId": str,
+        "cacheBehavior": CacheBehaviorType,
+        "engineVersion": str,
         "status": RunStatusType,
         "workflowId": str,
         "workflowType": WorkflowTypeType,
@@ -1468,87 +2086,25 @@ GetRunResponseTypeDef = TypedDict(
         "accelerators": Literal["GPU"],
         "retentionMode": RunRetentionModeType,
         "failureReason": str,
-        "logLocation": "RunLogLocationTypeDef",
+        "logLocation": RunLogLocationTypeDef,
         "uuid": str,
         "runOutputUri": str,
         "storageType": StorageTypeType,
         "workflowOwnerId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "workflowVersionName": str,
+        "workflowUuid": str,
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
 
-GetRunTaskRequestRequestTypeDef = TypedDict(
-    "GetRunTaskRequestRequestTypeDef",
-    {
-        "id": str,
-        "taskId": str,
-    },
-)
+class GetShareResponseTypeDef(TypedDict):
+    share: ShareDetailsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-GetRunTaskResponseTypeDef = TypedDict(
-    "GetRunTaskResponseTypeDef",
-    {
-        "taskId": str,
-        "status": TaskStatusType,
-        "name": str,
-        "cpus": int,
-        "memory": int,
-        "creationTime": datetime,
-        "startTime": datetime,
-        "stopTime": datetime,
-        "statusMessage": str,
-        "logStream": str,
-        "gpus": int,
-        "instanceType": str,
-        "failureReason": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetSequenceStoreRequestRequestTypeDef = TypedDict(
-    "GetSequenceStoreRequestRequestTypeDef",
-    {
-        "id": str,
-    },
-)
-
-GetSequenceStoreResponseTypeDef = TypedDict(
-    "GetSequenceStoreResponseTypeDef",
-    {
-        "id": str,
-        "arn": str,
-        "name": str,
-        "description": str,
-        "sseConfig": "SseConfigTypeDef",
-        "creationTime": datetime,
-        "fallbackLocation": str,
-        "s3Access": "SequenceStoreS3AccessTypeDef",
-        "eTagAlgorithmFamily": ETagAlgorithmFamilyType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetShareRequestRequestTypeDef = TypedDict(
-    "GetShareRequestRequestTypeDef",
-    {
-        "shareId": str,
-    },
-)
-
-GetShareResponseTypeDef = TypedDict(
-    "GetShareResponseTypeDef",
-    {
-        "share": "ShareDetailsTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetVariantImportRequestRequestTypeDef = TypedDict(
-    "GetVariantImportRequestRequestTypeDef",
-    {
-        "jobId": str,
-    },
-)
+class ListSharesResponseTypeDef(TypedDict):
+    shares: List[ShareDetailsTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
 GetVariantImportResponseTypeDef = TypedDict(
     "GetVariantImportResponseTypeDef",
@@ -1561,1840 +2117,651 @@ GetVariantImportResponseTypeDef = TypedDict(
         "creationTime": datetime,
         "updateTime": datetime,
         "completionTime": datetime,
-        "items": List["VariantImportItemDetailTypeDef"],
+        "items": List[VariantImportItemDetailTypeDef],
         "runLeftNormalization": bool,
         "annotationFields": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
 
-GetVariantStoreRequestRequestTypeDef = TypedDict(
-    "GetVariantStoreRequestRequestTypeDef",
+class ListReadSetImportJobsResponseTypeDef(TypedDict):
+    importJobs: List[ImportReadSetJobItemTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ImportReadSetSourceItemTypeDef(TypedDict):
+    sourceFiles: SourceFilesTypeDef
+    sourceFileType: FileTypeType
+    status: ReadSetImportJobItemStatusType
+    subjectId: str
+    sampleId: str
+    statusMessage: NotRequired[str]
+    generatedFrom: NotRequired[str]
+    referenceArn: NotRequired[str]
+    name: NotRequired[str]
+    description: NotRequired[str]
+    tags: NotRequired[Dict[str, str]]
+    readSetId: NotRequired[str]
+
+class StartReadSetImportJobSourceItemTypeDef(TypedDict):
+    sourceFiles: SourceFilesTypeDef
+    sourceFileType: FileTypeType
+    subjectId: str
+    sampleId: str
+    generatedFrom: NotRequired[str]
+    referenceArn: NotRequired[str]
+    name: NotRequired[str]
+    description: NotRequired[str]
+    tags: NotRequired[Mapping[str, str]]
+
+class ListReferenceImportJobsResponseTypeDef(TypedDict):
+    importJobs: List[ImportReferenceJobItemTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+ListAnnotationImportJobsRequestTypeDef = TypedDict(
+    "ListAnnotationImportJobsRequestTypeDef",
     {
-        "name": str,
+        "maxResults": NotRequired[int],
+        "ids": NotRequired[Sequence[str]],
+        "nextToken": NotRequired[str],
+        "filter": NotRequired[ListAnnotationImportJobsFilterTypeDef],
+    },
+)
+ListAnnotationImportJobsRequestPaginateTypeDef = TypedDict(
+    "ListAnnotationImportJobsRequestPaginateTypeDef",
+    {
+        "ids": NotRequired[Sequence[str]],
+        "filter": NotRequired[ListAnnotationImportJobsFilterTypeDef],
+        "PaginationConfig": NotRequired[PaginatorConfigTypeDef],
     },
 )
 
-GetVariantStoreResponseTypeDef = TypedDict(
-    "GetVariantStoreResponseTypeDef",
+class ListMultipartReadSetUploadsRequestPaginateTypeDef(TypedDict):
+    sequenceStoreId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListRunCachesRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListRunGroupsRequestPaginateTypeDef(TypedDict):
+    name: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+ListRunTasksRequestPaginateTypeDef = TypedDict(
+    "ListRunTasksRequestPaginateTypeDef",
     {
         "id": str,
-        "reference": "ReferenceItemTypeDef",
+        "status": NotRequired[TaskStatusType],
+        "PaginationConfig": NotRequired[PaginatorConfigTypeDef],
+    },
+)
+
+class ListRunsRequestPaginateTypeDef(TypedDict):
+    name: NotRequired[str]
+    runGroupId: NotRequired[str]
+    status: NotRequired[RunStatusType]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+ListSharesRequestPaginateTypeDef = TypedDict(
+    "ListSharesRequestPaginateTypeDef",
+    {
+        "resourceOwner": ResourceOwnerType,
+        "filter": NotRequired[FilterTypeDef],
+        "PaginationConfig": NotRequired[PaginatorConfigTypeDef],
+    },
+)
+ListWorkflowVersionsRequestPaginateTypeDef = TypedDict(
+    "ListWorkflowVersionsRequestPaginateTypeDef",
+    {
+        "workflowId": str,
+        "type": NotRequired[WorkflowTypeType],
+        "workflowOwnerId": NotRequired[str],
+        "PaginationConfig": NotRequired[PaginatorConfigTypeDef],
+    },
+)
+ListWorkflowsRequestPaginateTypeDef = TypedDict(
+    "ListWorkflowsRequestPaginateTypeDef",
+    {
+        "type": NotRequired[WorkflowTypeType],
+        "name": NotRequired[str],
+        "PaginationConfig": NotRequired[PaginatorConfigTypeDef],
+    },
+)
+ListAnnotationStoreVersionsRequestPaginateTypeDef = TypedDict(
+    "ListAnnotationStoreVersionsRequestPaginateTypeDef",
+    {
+        "name": str,
+        "filter": NotRequired[ListAnnotationStoreVersionsFilterTypeDef],
+        "PaginationConfig": NotRequired[PaginatorConfigTypeDef],
+    },
+)
+ListAnnotationStoreVersionsRequestTypeDef = TypedDict(
+    "ListAnnotationStoreVersionsRequestTypeDef",
+    {
+        "name": str,
+        "maxResults": NotRequired[int],
+        "nextToken": NotRequired[str],
+        "filter": NotRequired[ListAnnotationStoreVersionsFilterTypeDef],
+    },
+)
+ListAnnotationStoresRequestPaginateTypeDef = TypedDict(
+    "ListAnnotationStoresRequestPaginateTypeDef",
+    {
+        "ids": NotRequired[Sequence[str]],
+        "filter": NotRequired[ListAnnotationStoresFilterTypeDef],
+        "PaginationConfig": NotRequired[PaginatorConfigTypeDef],
+    },
+)
+ListAnnotationStoresRequestTypeDef = TypedDict(
+    "ListAnnotationStoresRequestTypeDef",
+    {
+        "ids": NotRequired[Sequence[str]],
+        "maxResults": NotRequired[int],
+        "nextToken": NotRequired[str],
+        "filter": NotRequired[ListAnnotationStoresFilterTypeDef],
+    },
+)
+
+class ListMultipartReadSetUploadsResponseTypeDef(TypedDict):
+    uploads: List[MultipartReadSetUploadListItemTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListReadSetUploadPartsResponseTypeDef(TypedDict):
+    parts: List[ReadSetUploadPartListItemTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListReferencesResponseTypeDef(TypedDict):
+    references: List[ReferenceListItemTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListRunCachesResponseTypeDef(TypedDict):
+    items: List[RunCacheListItemTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListRunGroupsResponseTypeDef(TypedDict):
+    items: List[RunGroupListItemTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListRunTasksResponseTypeDef(TypedDict):
+    items: List[TaskListItemTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListRunsResponseTypeDef(TypedDict):
+    items: List[RunListItemTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+ListVariantImportJobsRequestPaginateTypeDef = TypedDict(
+    "ListVariantImportJobsRequestPaginateTypeDef",
+    {
+        "ids": NotRequired[Sequence[str]],
+        "filter": NotRequired[ListVariantImportJobsFilterTypeDef],
+        "PaginationConfig": NotRequired[PaginatorConfigTypeDef],
+    },
+)
+ListVariantImportJobsRequestTypeDef = TypedDict(
+    "ListVariantImportJobsRequestTypeDef",
+    {
+        "maxResults": NotRequired[int],
+        "ids": NotRequired[Sequence[str]],
+        "nextToken": NotRequired[str],
+        "filter": NotRequired[ListVariantImportJobsFilterTypeDef],
+    },
+)
+
+class ListVariantImportJobsResponseTypeDef(TypedDict):
+    variantImportJobs: List[VariantImportJobItemTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+ListVariantStoresRequestPaginateTypeDef = TypedDict(
+    "ListVariantStoresRequestPaginateTypeDef",
+    {
+        "ids": NotRequired[Sequence[str]],
+        "filter": NotRequired[ListVariantStoresFilterTypeDef],
+        "PaginationConfig": NotRequired[PaginatorConfigTypeDef],
+    },
+)
+ListVariantStoresRequestTypeDef = TypedDict(
+    "ListVariantStoresRequestTypeDef",
+    {
+        "maxResults": NotRequired[int],
+        "ids": NotRequired[Sequence[str]],
+        "nextToken": NotRequired[str],
+        "filter": NotRequired[ListVariantStoresFilterTypeDef],
+    },
+)
+
+class ListWorkflowVersionsResponseTypeDef(TypedDict):
+    items: List[WorkflowVersionListItemTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListWorkflowsResponseTypeDef(TypedDict):
+    items: List[WorkflowListItemTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class TsvOptionsTypeDef(TypedDict):
+    readOptions: NotRequired[ReadOptionsTypeDef]
+
+class StartReadSetActivationJobRequestTypeDef(TypedDict):
+    sequenceStoreId: str
+    sources: Sequence[StartReadSetActivationJobSourceItemTypeDef]
+    clientToken: NotRequired[str]
+
+class StartReferenceImportJobRequestTypeDef(TypedDict):
+    referenceStoreId: str
+    roleArn: str
+    sources: Sequence[StartReferenceImportJobSourceItemTypeDef]
+    clientToken: NotRequired[str]
+
+class StartVariantImportRequestTypeDef(TypedDict):
+    destinationName: str
+    roleArn: str
+    items: Sequence[VariantImportItemSourceTypeDef]
+    runLeftNormalization: NotRequired[bool]
+    annotationFields: NotRequired[Mapping[str, str]]
+
+class StoreOptionsOutputTypeDef(TypedDict):
+    tsvStoreOptions: NotRequired[TsvStoreOptionsOutputTypeDef]
+
+class StoreOptionsTypeDef(TypedDict):
+    tsvStoreOptions: NotRequired[TsvStoreOptionsTypeDef]
+
+class VersionOptionsOutputTypeDef(TypedDict):
+    tsvVersionOptions: NotRequired[TsvVersionOptionsOutputTypeDef]
+
+class VersionOptionsTypeDef(TypedDict):
+    tsvVersionOptions: NotRequired[TsvVersionOptionsTypeDef]
+
+ListReadSetActivationJobsRequestPaginateTypeDef = TypedDict(
+    "ListReadSetActivationJobsRequestPaginateTypeDef",
+    {
+        "sequenceStoreId": str,
+        "filter": NotRequired[ActivateReadSetFilterTypeDef],
+        "PaginationConfig": NotRequired[PaginatorConfigTypeDef],
+    },
+)
+ListReadSetActivationJobsRequestTypeDef = TypedDict(
+    "ListReadSetActivationJobsRequestTypeDef",
+    {
+        "sequenceStoreId": str,
+        "maxResults": NotRequired[int],
+        "nextToken": NotRequired[str],
+        "filter": NotRequired[ActivateReadSetFilterTypeDef],
+    },
+)
+ListReadSetExportJobsRequestPaginateTypeDef = TypedDict(
+    "ListReadSetExportJobsRequestPaginateTypeDef",
+    {
+        "sequenceStoreId": str,
+        "filter": NotRequired[ExportReadSetFilterTypeDef],
+        "PaginationConfig": NotRequired[PaginatorConfigTypeDef],
+    },
+)
+ListReadSetExportJobsRequestTypeDef = TypedDict(
+    "ListReadSetExportJobsRequestTypeDef",
+    {
+        "sequenceStoreId": str,
+        "maxResults": NotRequired[int],
+        "nextToken": NotRequired[str],
+        "filter": NotRequired[ExportReadSetFilterTypeDef],
+    },
+)
+ListReadSetImportJobsRequestPaginateTypeDef = TypedDict(
+    "ListReadSetImportJobsRequestPaginateTypeDef",
+    {
+        "sequenceStoreId": str,
+        "filter": NotRequired[ImportReadSetFilterTypeDef],
+        "PaginationConfig": NotRequired[PaginatorConfigTypeDef],
+    },
+)
+ListReadSetImportJobsRequestTypeDef = TypedDict(
+    "ListReadSetImportJobsRequestTypeDef",
+    {
+        "sequenceStoreId": str,
+        "maxResults": NotRequired[int],
+        "nextToken": NotRequired[str],
+        "filter": NotRequired[ImportReadSetFilterTypeDef],
+    },
+)
+ListReferenceImportJobsRequestPaginateTypeDef = TypedDict(
+    "ListReferenceImportJobsRequestPaginateTypeDef",
+    {
+        "referenceStoreId": str,
+        "filter": NotRequired[ImportReferenceFilterTypeDef],
+        "PaginationConfig": NotRequired[PaginatorConfigTypeDef],
+    },
+)
+ListReferenceImportJobsRequestTypeDef = TypedDict(
+    "ListReferenceImportJobsRequestTypeDef",
+    {
+        "referenceStoreId": str,
+        "maxResults": NotRequired[int],
+        "nextToken": NotRequired[str],
+        "filter": NotRequired[ImportReferenceFilterTypeDef],
+    },
+)
+ListReadSetsRequestPaginateTypeDef = TypedDict(
+    "ListReadSetsRequestPaginateTypeDef",
+    {
+        "sequenceStoreId": str,
+        "filter": NotRequired[ReadSetFilterTypeDef],
+        "PaginationConfig": NotRequired[PaginatorConfigTypeDef],
+    },
+)
+ListReadSetsRequestTypeDef = TypedDict(
+    "ListReadSetsRequestTypeDef",
+    {
+        "sequenceStoreId": str,
+        "maxResults": NotRequired[int],
+        "nextToken": NotRequired[str],
+        "filter": NotRequired[ReadSetFilterTypeDef],
+    },
+)
+ListReadSetUploadPartsRequestPaginateTypeDef = TypedDict(
+    "ListReadSetUploadPartsRequestPaginateTypeDef",
+    {
+        "sequenceStoreId": str,
+        "uploadId": str,
+        "partSource": ReadSetPartSourceType,
+        "filter": NotRequired[ReadSetUploadPartListFilterTypeDef],
+        "PaginationConfig": NotRequired[PaginatorConfigTypeDef],
+    },
+)
+ListReadSetUploadPartsRequestTypeDef = TypedDict(
+    "ListReadSetUploadPartsRequestTypeDef",
+    {
+        "sequenceStoreId": str,
+        "uploadId": str,
+        "partSource": ReadSetPartSourceType,
+        "maxResults": NotRequired[int],
+        "nextToken": NotRequired[str],
+        "filter": NotRequired[ReadSetUploadPartListFilterTypeDef],
+    },
+)
+ListReferencesRequestPaginateTypeDef = TypedDict(
+    "ListReferencesRequestPaginateTypeDef",
+    {
+        "referenceStoreId": str,
+        "filter": NotRequired[ReferenceFilterTypeDef],
+        "PaginationConfig": NotRequired[PaginatorConfigTypeDef],
+    },
+)
+ListReferencesRequestTypeDef = TypedDict(
+    "ListReferencesRequestTypeDef",
+    {
+        "referenceStoreId": str,
+        "maxResults": NotRequired[int],
+        "nextToken": NotRequired[str],
+        "filter": NotRequired[ReferenceFilterTypeDef],
+    },
+)
+ListReferenceStoresRequestPaginateTypeDef = TypedDict(
+    "ListReferenceStoresRequestPaginateTypeDef",
+    {
+        "filter": NotRequired[ReferenceStoreFilterTypeDef],
+        "PaginationConfig": NotRequired[PaginatorConfigTypeDef],
+    },
+)
+ListReferenceStoresRequestTypeDef = TypedDict(
+    "ListReferenceStoresRequestTypeDef",
+    {
+        "maxResults": NotRequired[int],
+        "nextToken": NotRequired[str],
+        "filter": NotRequired[ReferenceStoreFilterTypeDef],
+    },
+)
+ListSequenceStoresRequestPaginateTypeDef = TypedDict(
+    "ListSequenceStoresRequestPaginateTypeDef",
+    {
+        "filter": NotRequired[SequenceStoreFilterTypeDef],
+        "PaginationConfig": NotRequired[PaginatorConfigTypeDef],
+    },
+)
+ListSequenceStoresRequestTypeDef = TypedDict(
+    "ListSequenceStoresRequestTypeDef",
+    {
+        "maxResults": NotRequired[int],
+        "nextToken": NotRequired[str],
+        "filter": NotRequired[SequenceStoreFilterTypeDef],
+    },
+)
+
+class ListAnnotationStoresResponseTypeDef(TypedDict):
+    annotationStores: List[AnnotationStoreItemTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListReferenceStoresResponseTypeDef(TypedDict):
+    referenceStores: List[ReferenceStoreDetailTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListSequenceStoresResponseTypeDef(TypedDict):
+    sequenceStores: List[SequenceStoreDetailTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListVariantStoresResponseTypeDef(TypedDict):
+    variantStores: List[VariantStoreItemTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ReadSetFilesTypeDef(TypedDict):
+    source1: NotRequired[FileInformationTypeDef]
+    source2: NotRequired[FileInformationTypeDef]
+    index: NotRequired[FileInformationTypeDef]
+
+class ReferenceFilesTypeDef(TypedDict):
+    source: NotRequired[FileInformationTypeDef]
+    index: NotRequired[FileInformationTypeDef]
+
+class ListReadSetsResponseTypeDef(TypedDict):
+    readSets: List[ReadSetListItemTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+GetReadSetImportJobResponseTypeDef = TypedDict(
+    "GetReadSetImportJobResponseTypeDef",
+    {
+        "id": str,
+        "sequenceStoreId": str,
+        "roleArn": str,
+        "status": ReadSetImportJobStatusType,
+        "statusMessage": str,
+        "creationTime": datetime,
+        "completionTime": datetime,
+        "sources": List[ImportReadSetSourceItemTypeDef],
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+
+class StartReadSetImportJobRequestTypeDef(TypedDict):
+    sequenceStoreId: str
+    roleArn: str
+    sources: Sequence[StartReadSetImportJobSourceItemTypeDef]
+    clientToken: NotRequired[str]
+
+class FormatOptionsTypeDef(TypedDict):
+    tsvOptions: NotRequired[TsvOptionsTypeDef]
+    vcfOptions: NotRequired[VcfOptionsTypeDef]
+
+CreateAnnotationStoreResponseTypeDef = TypedDict(
+    "CreateAnnotationStoreResponseTypeDef",
+    {
+        "id": str,
+        "reference": ReferenceItemTypeDef,
+        "storeFormat": StoreFormatType,
+        "storeOptions": StoreOptionsOutputTypeDef,
+        "status": StoreStatusType,
+        "name": str,
+        "versionName": str,
+        "creationTime": datetime,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+GetAnnotationStoreResponseTypeDef = TypedDict(
+    "GetAnnotationStoreResponseTypeDef",
+    {
+        "id": str,
+        "reference": ReferenceItemTypeDef,
         "status": StoreStatusType,
         "storeArn": str,
         "name": str,
         "description": str,
-        "sseConfig": "SseConfigTypeDef",
+        "sseConfig": SseConfigTypeDef,
         "creationTime": datetime,
         "updateTime": datetime,
         "tags": Dict[str, str],
+        "storeOptions": StoreOptionsOutputTypeDef,
+        "storeFormat": StoreFormatType,
         "statusMessage": str,
         "storeSizeBytes": int,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "numVersions": int,
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
-
-_RequiredGetWorkflowRequestRequestTypeDef = TypedDict(
-    "_RequiredGetWorkflowRequestRequestTypeDef",
-    {
-        "id": str,
-    },
-)
-_OptionalGetWorkflowRequestRequestTypeDef = TypedDict(
-    "_OptionalGetWorkflowRequestRequestTypeDef",
-    {
-        "type": WorkflowTypeType,
-        "export": List[Literal["DEFINITION"]],
-        "workflowOwnerId": str,
-    },
-    total=False,
-)
-
-class GetWorkflowRequestRequestTypeDef(
-    _RequiredGetWorkflowRequestRequestTypeDef, _OptionalGetWorkflowRequestRequestTypeDef
-):
-    pass
-
-GetWorkflowResponseTypeDef = TypedDict(
-    "GetWorkflowResponseTypeDef",
-    {
-        "arn": str,
-        "id": str,
-        "status": WorkflowStatusType,
-        "type": WorkflowTypeType,
-        "name": str,
-        "description": str,
-        "engine": WorkflowEngineType,
-        "definition": str,
-        "main": str,
-        "digest": str,
-        "parameterTemplate": Dict[str, "WorkflowParameterTypeDef"],
-        "storageCapacity": int,
-        "creationTime": datetime,
-        "statusMessage": str,
-        "tags": Dict[str, str],
-        "metadata": Dict[str, str],
-        "accelerators": Literal["GPU"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ImportReadSetFilterTypeDef = TypedDict(
-    "ImportReadSetFilterTypeDef",
-    {
-        "status": ReadSetImportJobStatusType,
-        "createdAfter": Union[datetime, str],
-        "createdBefore": Union[datetime, str],
-    },
-    total=False,
-)
-
-_RequiredImportReadSetJobItemTypeDef = TypedDict(
-    "_RequiredImportReadSetJobItemTypeDef",
-    {
-        "id": str,
-        "sequenceStoreId": str,
-        "roleArn": str,
-        "status": ReadSetImportJobStatusType,
-        "creationTime": datetime,
-    },
-)
-_OptionalImportReadSetJobItemTypeDef = TypedDict(
-    "_OptionalImportReadSetJobItemTypeDef",
-    {
-        "completionTime": datetime,
-    },
-    total=False,
-)
-
-class ImportReadSetJobItemTypeDef(
-    _RequiredImportReadSetJobItemTypeDef, _OptionalImportReadSetJobItemTypeDef
-):
-    pass
-
-_RequiredImportReadSetSourceItemTypeDef = TypedDict(
-    "_RequiredImportReadSetSourceItemTypeDef",
-    {
-        "sourceFiles": "SourceFilesTypeDef",
-        "sourceFileType": FileTypeType,
-        "status": ReadSetImportJobItemStatusType,
-        "subjectId": str,
-        "sampleId": str,
-    },
-)
-_OptionalImportReadSetSourceItemTypeDef = TypedDict(
-    "_OptionalImportReadSetSourceItemTypeDef",
-    {
-        "statusMessage": str,
-        "generatedFrom": str,
-        "referenceArn": str,
-        "name": str,
-        "description": str,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class ImportReadSetSourceItemTypeDef(
-    _RequiredImportReadSetSourceItemTypeDef, _OptionalImportReadSetSourceItemTypeDef
-):
-    pass
-
-ImportReferenceFilterTypeDef = TypedDict(
-    "ImportReferenceFilterTypeDef",
-    {
-        "status": ReferenceImportJobStatusType,
-        "createdAfter": Union[datetime, str],
-        "createdBefore": Union[datetime, str],
-    },
-    total=False,
-)
-
-_RequiredImportReferenceJobItemTypeDef = TypedDict(
-    "_RequiredImportReferenceJobItemTypeDef",
-    {
-        "id": str,
-        "referenceStoreId": str,
-        "roleArn": str,
-        "status": ReferenceImportJobStatusType,
-        "creationTime": datetime,
-    },
-)
-_OptionalImportReferenceJobItemTypeDef = TypedDict(
-    "_OptionalImportReferenceJobItemTypeDef",
-    {
-        "completionTime": datetime,
-    },
-    total=False,
-)
-
-class ImportReferenceJobItemTypeDef(
-    _RequiredImportReferenceJobItemTypeDef, _OptionalImportReferenceJobItemTypeDef
-):
-    pass
-
-_RequiredImportReferenceSourceItemTypeDef = TypedDict(
-    "_RequiredImportReferenceSourceItemTypeDef",
-    {
-        "status": ReferenceImportJobItemStatusType,
-    },
-)
-_OptionalImportReferenceSourceItemTypeDef = TypedDict(
-    "_OptionalImportReferenceSourceItemTypeDef",
-    {
-        "sourceFile": str,
-        "statusMessage": str,
-        "name": str,
-        "description": str,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class ImportReferenceSourceItemTypeDef(
-    _RequiredImportReferenceSourceItemTypeDef, _OptionalImportReferenceSourceItemTypeDef
-):
-    pass
-
-ListAnnotationImportJobsFilterTypeDef = TypedDict(
-    "ListAnnotationImportJobsFilterTypeDef",
-    {
-        "status": JobStatusType,
-        "storeName": str,
-    },
-    total=False,
-)
-
-ListAnnotationImportJobsRequestRequestTypeDef = TypedDict(
-    "ListAnnotationImportJobsRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "ids": List[str],
-        "nextToken": str,
-        "filter": "ListAnnotationImportJobsFilterTypeDef",
-    },
-    total=False,
-)
-
-ListAnnotationImportJobsResponseTypeDef = TypedDict(
-    "ListAnnotationImportJobsResponseTypeDef",
-    {
-        "annotationImportJobs": List["AnnotationImportJobItemTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListAnnotationStoreVersionsFilterTypeDef = TypedDict(
-    "ListAnnotationStoreVersionsFilterTypeDef",
-    {
-        "status": VersionStatusType,
-    },
-    total=False,
-)
-
-_RequiredListAnnotationStoreVersionsRequestRequestTypeDef = TypedDict(
-    "_RequiredListAnnotationStoreVersionsRequestRequestTypeDef",
-    {
-        "name": str,
-    },
-)
-_OptionalListAnnotationStoreVersionsRequestRequestTypeDef = TypedDict(
-    "_OptionalListAnnotationStoreVersionsRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-        "filter": "ListAnnotationStoreVersionsFilterTypeDef",
-    },
-    total=False,
-)
-
-class ListAnnotationStoreVersionsRequestRequestTypeDef(
-    _RequiredListAnnotationStoreVersionsRequestRequestTypeDef,
-    _OptionalListAnnotationStoreVersionsRequestRequestTypeDef,
-):
-    pass
-
-ListAnnotationStoreVersionsResponseTypeDef = TypedDict(
-    "ListAnnotationStoreVersionsResponseTypeDef",
-    {
-        "annotationStoreVersions": List["AnnotationStoreVersionItemTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListAnnotationStoresFilterTypeDef = TypedDict(
-    "ListAnnotationStoresFilterTypeDef",
-    {
-        "status": StoreStatusType,
-    },
-    total=False,
-)
-
-ListAnnotationStoresRequestRequestTypeDef = TypedDict(
-    "ListAnnotationStoresRequestRequestTypeDef",
-    {
-        "ids": List[str],
-        "maxResults": int,
-        "nextToken": str,
-        "filter": "ListAnnotationStoresFilterTypeDef",
-    },
-    total=False,
-)
-
-ListAnnotationStoresResponseTypeDef = TypedDict(
-    "ListAnnotationStoresResponseTypeDef",
-    {
-        "annotationStores": List["AnnotationStoreItemTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListMultipartReadSetUploadsRequestRequestTypeDef = TypedDict(
-    "_RequiredListMultipartReadSetUploadsRequestRequestTypeDef",
-    {
-        "sequenceStoreId": str,
-    },
-)
-_OptionalListMultipartReadSetUploadsRequestRequestTypeDef = TypedDict(
-    "_OptionalListMultipartReadSetUploadsRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListMultipartReadSetUploadsRequestRequestTypeDef(
-    _RequiredListMultipartReadSetUploadsRequestRequestTypeDef,
-    _OptionalListMultipartReadSetUploadsRequestRequestTypeDef,
-):
-    pass
-
-ListMultipartReadSetUploadsResponseTypeDef = TypedDict(
-    "ListMultipartReadSetUploadsResponseTypeDef",
-    {
-        "nextToken": str,
-        "uploads": List["MultipartReadSetUploadListItemTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListReadSetActivationJobsRequestRequestTypeDef = TypedDict(
-    "_RequiredListReadSetActivationJobsRequestRequestTypeDef",
-    {
-        "sequenceStoreId": str,
-    },
-)
-_OptionalListReadSetActivationJobsRequestRequestTypeDef = TypedDict(
-    "_OptionalListReadSetActivationJobsRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-        "filter": "ActivateReadSetFilterTypeDef",
-    },
-    total=False,
-)
-
-class ListReadSetActivationJobsRequestRequestTypeDef(
-    _RequiredListReadSetActivationJobsRequestRequestTypeDef,
-    _OptionalListReadSetActivationJobsRequestRequestTypeDef,
-):
-    pass
-
-ListReadSetActivationJobsResponseTypeDef = TypedDict(
-    "ListReadSetActivationJobsResponseTypeDef",
-    {
-        "nextToken": str,
-        "activationJobs": List["ActivateReadSetJobItemTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListReadSetExportJobsRequestRequestTypeDef = TypedDict(
-    "_RequiredListReadSetExportJobsRequestRequestTypeDef",
-    {
-        "sequenceStoreId": str,
-    },
-)
-_OptionalListReadSetExportJobsRequestRequestTypeDef = TypedDict(
-    "_OptionalListReadSetExportJobsRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-        "filter": "ExportReadSetFilterTypeDef",
-    },
-    total=False,
-)
-
-class ListReadSetExportJobsRequestRequestTypeDef(
-    _RequiredListReadSetExportJobsRequestRequestTypeDef,
-    _OptionalListReadSetExportJobsRequestRequestTypeDef,
-):
-    pass
-
-ListReadSetExportJobsResponseTypeDef = TypedDict(
-    "ListReadSetExportJobsResponseTypeDef",
-    {
-        "nextToken": str,
-        "exportJobs": List["ExportReadSetJobDetailTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListReadSetImportJobsRequestRequestTypeDef = TypedDict(
-    "_RequiredListReadSetImportJobsRequestRequestTypeDef",
-    {
-        "sequenceStoreId": str,
-    },
-)
-_OptionalListReadSetImportJobsRequestRequestTypeDef = TypedDict(
-    "_OptionalListReadSetImportJobsRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-        "filter": "ImportReadSetFilterTypeDef",
-    },
-    total=False,
-)
-
-class ListReadSetImportJobsRequestRequestTypeDef(
-    _RequiredListReadSetImportJobsRequestRequestTypeDef,
-    _OptionalListReadSetImportJobsRequestRequestTypeDef,
-):
-    pass
-
-ListReadSetImportJobsResponseTypeDef = TypedDict(
-    "ListReadSetImportJobsResponseTypeDef",
-    {
-        "nextToken": str,
-        "importJobs": List["ImportReadSetJobItemTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListReadSetUploadPartsRequestRequestTypeDef = TypedDict(
-    "_RequiredListReadSetUploadPartsRequestRequestTypeDef",
-    {
-        "sequenceStoreId": str,
-        "uploadId": str,
-        "partSource": ReadSetPartSourceType,
-    },
-)
-_OptionalListReadSetUploadPartsRequestRequestTypeDef = TypedDict(
-    "_OptionalListReadSetUploadPartsRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-        "filter": "ReadSetUploadPartListFilterTypeDef",
-    },
-    total=False,
-)
-
-class ListReadSetUploadPartsRequestRequestTypeDef(
-    _RequiredListReadSetUploadPartsRequestRequestTypeDef,
-    _OptionalListReadSetUploadPartsRequestRequestTypeDef,
-):
-    pass
-
-ListReadSetUploadPartsResponseTypeDef = TypedDict(
-    "ListReadSetUploadPartsResponseTypeDef",
-    {
-        "nextToken": str,
-        "parts": List["ReadSetUploadPartListItemTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListReadSetsRequestRequestTypeDef = TypedDict(
-    "_RequiredListReadSetsRequestRequestTypeDef",
-    {
-        "sequenceStoreId": str,
-    },
-)
-_OptionalListReadSetsRequestRequestTypeDef = TypedDict(
-    "_OptionalListReadSetsRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-        "filter": "ReadSetFilterTypeDef",
-    },
-    total=False,
-)
-
-class ListReadSetsRequestRequestTypeDef(
-    _RequiredListReadSetsRequestRequestTypeDef, _OptionalListReadSetsRequestRequestTypeDef
-):
-    pass
-
-ListReadSetsResponseTypeDef = TypedDict(
-    "ListReadSetsResponseTypeDef",
-    {
-        "nextToken": str,
-        "readSets": List["ReadSetListItemTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListReferenceImportJobsRequestRequestTypeDef = TypedDict(
-    "_RequiredListReferenceImportJobsRequestRequestTypeDef",
-    {
-        "referenceStoreId": str,
-    },
-)
-_OptionalListReferenceImportJobsRequestRequestTypeDef = TypedDict(
-    "_OptionalListReferenceImportJobsRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-        "filter": "ImportReferenceFilterTypeDef",
-    },
-    total=False,
-)
-
-class ListReferenceImportJobsRequestRequestTypeDef(
-    _RequiredListReferenceImportJobsRequestRequestTypeDef,
-    _OptionalListReferenceImportJobsRequestRequestTypeDef,
-):
-    pass
-
-ListReferenceImportJobsResponseTypeDef = TypedDict(
-    "ListReferenceImportJobsResponseTypeDef",
-    {
-        "nextToken": str,
-        "importJobs": List["ImportReferenceJobItemTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListReferenceStoresRequestRequestTypeDef = TypedDict(
-    "ListReferenceStoresRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-        "filter": "ReferenceStoreFilterTypeDef",
-    },
-    total=False,
-)
-
-ListReferenceStoresResponseTypeDef = TypedDict(
-    "ListReferenceStoresResponseTypeDef",
-    {
-        "nextToken": str,
-        "referenceStores": List["ReferenceStoreDetailTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListReferencesRequestRequestTypeDef = TypedDict(
-    "_RequiredListReferencesRequestRequestTypeDef",
-    {
-        "referenceStoreId": str,
-    },
-)
-_OptionalListReferencesRequestRequestTypeDef = TypedDict(
-    "_OptionalListReferencesRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-        "filter": "ReferenceFilterTypeDef",
-    },
-    total=False,
-)
-
-class ListReferencesRequestRequestTypeDef(
-    _RequiredListReferencesRequestRequestTypeDef, _OptionalListReferencesRequestRequestTypeDef
-):
-    pass
-
-ListReferencesResponseTypeDef = TypedDict(
-    "ListReferencesResponseTypeDef",
-    {
-        "nextToken": str,
-        "references": List["ReferenceListItemTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListRunGroupsRequestRequestTypeDef = TypedDict(
-    "ListRunGroupsRequestRequestTypeDef",
-    {
-        "name": str,
-        "startingToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-ListRunGroupsResponseTypeDef = TypedDict(
-    "ListRunGroupsResponseTypeDef",
-    {
-        "items": List["RunGroupListItemTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListRunTasksRequestRequestTypeDef = TypedDict(
-    "_RequiredListRunTasksRequestRequestTypeDef",
-    {
-        "id": str,
-    },
-)
-_OptionalListRunTasksRequestRequestTypeDef = TypedDict(
-    "_OptionalListRunTasksRequestRequestTypeDef",
-    {
-        "status": TaskStatusType,
-        "startingToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-class ListRunTasksRequestRequestTypeDef(
-    _RequiredListRunTasksRequestRequestTypeDef, _OptionalListRunTasksRequestRequestTypeDef
-):
-    pass
-
-ListRunTasksResponseTypeDef = TypedDict(
-    "ListRunTasksResponseTypeDef",
-    {
-        "items": List["TaskListItemTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListRunsRequestRequestTypeDef = TypedDict(
-    "ListRunsRequestRequestTypeDef",
-    {
-        "name": str,
-        "runGroupId": str,
-        "startingToken": str,
-        "maxResults": int,
-        "status": RunStatusType,
-    },
-    total=False,
-)
-
-ListRunsResponseTypeDef = TypedDict(
-    "ListRunsResponseTypeDef",
-    {
-        "items": List["RunListItemTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListSequenceStoresRequestRequestTypeDef = TypedDict(
-    "ListSequenceStoresRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-        "filter": "SequenceStoreFilterTypeDef",
-    },
-    total=False,
-)
-
-ListSequenceStoresResponseTypeDef = TypedDict(
-    "ListSequenceStoresResponseTypeDef",
-    {
-        "nextToken": str,
-        "sequenceStores": List["SequenceStoreDetailTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListSharesRequestRequestTypeDef = TypedDict(
-    "_RequiredListSharesRequestRequestTypeDef",
-    {
-        "resourceOwner": ResourceOwnerType,
-    },
-)
-_OptionalListSharesRequestRequestTypeDef = TypedDict(
-    "_OptionalListSharesRequestRequestTypeDef",
-    {
-        "filter": "FilterTypeDef",
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-class ListSharesRequestRequestTypeDef(
-    _RequiredListSharesRequestRequestTypeDef, _OptionalListSharesRequestRequestTypeDef
-):
-    pass
-
-ListSharesResponseTypeDef = TypedDict(
-    "ListSharesResponseTypeDef",
-    {
-        "shares": List["ShareDetailsTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-    },
-)
-
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListVariantImportJobsFilterTypeDef = TypedDict(
-    "ListVariantImportJobsFilterTypeDef",
-    {
-        "status": JobStatusType,
-        "storeName": str,
-    },
-    total=False,
-)
-
-ListVariantImportJobsRequestRequestTypeDef = TypedDict(
-    "ListVariantImportJobsRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "ids": List[str],
-        "nextToken": str,
-        "filter": "ListVariantImportJobsFilterTypeDef",
-    },
-    total=False,
-)
-
-ListVariantImportJobsResponseTypeDef = TypedDict(
-    "ListVariantImportJobsResponseTypeDef",
-    {
-        "variantImportJobs": List["VariantImportJobItemTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListVariantStoresFilterTypeDef = TypedDict(
-    "ListVariantStoresFilterTypeDef",
-    {
-        "status": StoreStatusType,
-    },
-    total=False,
-)
-
-ListVariantStoresRequestRequestTypeDef = TypedDict(
-    "ListVariantStoresRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "ids": List[str],
-        "nextToken": str,
-        "filter": "ListVariantStoresFilterTypeDef",
-    },
-    total=False,
-)
-
-ListVariantStoresResponseTypeDef = TypedDict(
-    "ListVariantStoresResponseTypeDef",
-    {
-        "variantStores": List["VariantStoreItemTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListWorkflowsRequestRequestTypeDef = TypedDict(
-    "ListWorkflowsRequestRequestTypeDef",
-    {
-        "type": WorkflowTypeType,
-        "name": str,
-        "startingToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-ListWorkflowsResponseTypeDef = TypedDict(
-    "ListWorkflowsResponseTypeDef",
-    {
-        "items": List["WorkflowListItemTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredMultipartReadSetUploadListItemTypeDef = TypedDict(
-    "_RequiredMultipartReadSetUploadListItemTypeDef",
-    {
-        "sequenceStoreId": str,
-        "uploadId": str,
-        "sourceFileType": FileTypeType,
-        "subjectId": str,
-        "sampleId": str,
-        "generatedFrom": str,
-        "referenceArn": str,
-        "creationTime": datetime,
-    },
-)
-_OptionalMultipartReadSetUploadListItemTypeDef = TypedDict(
-    "_OptionalMultipartReadSetUploadListItemTypeDef",
-    {
-        "name": str,
-        "description": str,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class MultipartReadSetUploadListItemTypeDef(
-    _RequiredMultipartReadSetUploadListItemTypeDef, _OptionalMultipartReadSetUploadListItemTypeDef
-):
-    pass
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-ReadOptionsTypeDef = TypedDict(
-    "ReadOptionsTypeDef",
-    {
-        "sep": str,
-        "encoding": str,
-        "quote": str,
-        "quoteAll": bool,
-        "escape": str,
-        "escapeQuotes": bool,
-        "comment": str,
-        "header": bool,
-        "lineSep": str,
-    },
-    total=False,
-)
-
-ReadSetBatchErrorTypeDef = TypedDict(
-    "ReadSetBatchErrorTypeDef",
-    {
-        "id": str,
-        "code": str,
-        "message": str,
-    },
-)
-
-ReadSetFilesTypeDef = TypedDict(
-    "ReadSetFilesTypeDef",
-    {
-        "source1": "FileInformationTypeDef",
-        "source2": "FileInformationTypeDef",
-        "index": "FileInformationTypeDef",
-    },
-    total=False,
-)
-
-ReadSetFilterTypeDef = TypedDict(
-    "ReadSetFilterTypeDef",
-    {
-        "name": str,
-        "status": ReadSetStatusType,
-        "referenceArn": str,
-        "createdAfter": Union[datetime, str],
-        "createdBefore": Union[datetime, str],
-        "sampleId": str,
-        "subjectId": str,
-        "generatedFrom": str,
-        "creationType": CreationTypeType,
-    },
-    total=False,
-)
-
-_RequiredReadSetListItemTypeDef = TypedDict(
-    "_RequiredReadSetListItemTypeDef",
-    {
-        "id": str,
-        "arn": str,
-        "sequenceStoreId": str,
-        "status": ReadSetStatusType,
-        "fileType": FileTypeType,
-        "creationTime": datetime,
-    },
-)
-_OptionalReadSetListItemTypeDef = TypedDict(
-    "_OptionalReadSetListItemTypeDef",
-    {
-        "subjectId": str,
-        "sampleId": str,
-        "name": str,
-        "description": str,
-        "referenceArn": str,
-        "sequenceInformation": "SequenceInformationTypeDef",
-        "statusMessage": str,
-        "creationType": CreationTypeType,
-        "etag": "ETagTypeDef",
-    },
-    total=False,
-)
-
-class ReadSetListItemTypeDef(_RequiredReadSetListItemTypeDef, _OptionalReadSetListItemTypeDef):
-    pass
-
-ReadSetS3AccessTypeDef = TypedDict(
-    "ReadSetS3AccessTypeDef",
-    {
-        "s3Uri": str,
-    },
-    total=False,
-)
-
-ReadSetUploadPartListFilterTypeDef = TypedDict(
-    "ReadSetUploadPartListFilterTypeDef",
-    {
-        "createdAfter": Union[datetime, str],
-        "createdBefore": Union[datetime, str],
-    },
-    total=False,
-)
-
-_RequiredReadSetUploadPartListItemTypeDef = TypedDict(
-    "_RequiredReadSetUploadPartListItemTypeDef",
-    {
-        "partNumber": int,
-        "partSize": int,
-        "partSource": ReadSetPartSourceType,
-        "checksum": str,
-    },
-)
-_OptionalReadSetUploadPartListItemTypeDef = TypedDict(
-    "_OptionalReadSetUploadPartListItemTypeDef",
-    {
-        "creationTime": datetime,
-        "lastUpdatedTime": datetime,
-    },
-    total=False,
-)
-
-class ReadSetUploadPartListItemTypeDef(
-    _RequiredReadSetUploadPartListItemTypeDef, _OptionalReadSetUploadPartListItemTypeDef
-):
-    pass
-
-ReferenceFilesTypeDef = TypedDict(
-    "ReferenceFilesTypeDef",
-    {
-        "source": "FileInformationTypeDef",
-        "index": "FileInformationTypeDef",
-    },
-    total=False,
-)
-
-ReferenceFilterTypeDef = TypedDict(
-    "ReferenceFilterTypeDef",
-    {
-        "name": str,
-        "md5": str,
-        "createdAfter": Union[datetime, str],
-        "createdBefore": Union[datetime, str],
-    },
-    total=False,
-)
-
-ReferenceItemTypeDef = TypedDict(
-    "ReferenceItemTypeDef",
-    {
-        "referenceArn": str,
-    },
-    total=False,
-)
-
-_RequiredReferenceListItemTypeDef = TypedDict(
-    "_RequiredReferenceListItemTypeDef",
-    {
-        "id": str,
-        "arn": str,
-        "referenceStoreId": str,
-        "md5": str,
-        "creationTime": datetime,
-        "updateTime": datetime,
-    },
-)
-_OptionalReferenceListItemTypeDef = TypedDict(
-    "_OptionalReferenceListItemTypeDef",
-    {
-        "status": ReferenceStatusType,
-        "name": str,
-        "description": str,
-    },
-    total=False,
-)
-
-class ReferenceListItemTypeDef(
-    _RequiredReferenceListItemTypeDef, _OptionalReferenceListItemTypeDef
-):
-    pass
-
-_RequiredReferenceStoreDetailTypeDef = TypedDict(
-    "_RequiredReferenceStoreDetailTypeDef",
-    {
-        "arn": str,
-        "id": str,
-        "creationTime": datetime,
-    },
-)
-_OptionalReferenceStoreDetailTypeDef = TypedDict(
-    "_OptionalReferenceStoreDetailTypeDef",
-    {
-        "name": str,
-        "description": str,
-        "sseConfig": "SseConfigTypeDef",
-    },
-    total=False,
-)
-
-class ReferenceStoreDetailTypeDef(
-    _RequiredReferenceStoreDetailTypeDef, _OptionalReferenceStoreDetailTypeDef
-):
-    pass
-
-ReferenceStoreFilterTypeDef = TypedDict(
-    "ReferenceStoreFilterTypeDef",
-    {
-        "name": str,
-        "createdAfter": Union[datetime, str],
-        "createdBefore": Union[datetime, str],
-    },
-    total=False,
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-RunGroupListItemTypeDef = TypedDict(
-    "RunGroupListItemTypeDef",
-    {
-        "arn": str,
-        "id": str,
-        "name": str,
-        "maxCpus": int,
-        "maxRuns": int,
-        "maxDuration": int,
-        "creationTime": datetime,
-        "maxGpus": int,
-    },
-    total=False,
-)
-
-RunListItemTypeDef = TypedDict(
-    "RunListItemTypeDef",
-    {
-        "arn": str,
-        "id": str,
-        "status": RunStatusType,
-        "workflowId": str,
-        "name": str,
-        "priority": int,
-        "storageCapacity": int,
-        "creationTime": datetime,
-        "startTime": datetime,
-        "stopTime": datetime,
-        "storageType": StorageTypeType,
-    },
-    total=False,
-)
-
-RunLogLocationTypeDef = TypedDict(
-    "RunLogLocationTypeDef",
-    {
-        "engineLogStream": str,
-        "runLogStream": str,
-    },
-    total=False,
-)
-
-SequenceInformationTypeDef = TypedDict(
-    "SequenceInformationTypeDef",
-    {
-        "totalReadCount": int,
-        "totalBaseCount": int,
-        "generatedFrom": str,
-        "alignment": str,
-    },
-    total=False,
-)
-
-_RequiredSequenceStoreDetailTypeDef = TypedDict(
-    "_RequiredSequenceStoreDetailTypeDef",
-    {
-        "arn": str,
-        "id": str,
-        "creationTime": datetime,
-    },
-)
-_OptionalSequenceStoreDetailTypeDef = TypedDict(
-    "_OptionalSequenceStoreDetailTypeDef",
-    {
-        "name": str,
-        "description": str,
-        "sseConfig": "SseConfigTypeDef",
-        "fallbackLocation": str,
-        "eTagAlgorithmFamily": ETagAlgorithmFamilyType,
-    },
-    total=False,
-)
-
-class SequenceStoreDetailTypeDef(
-    _RequiredSequenceStoreDetailTypeDef, _OptionalSequenceStoreDetailTypeDef
-):
-    pass
-
-SequenceStoreFilterTypeDef = TypedDict(
-    "SequenceStoreFilterTypeDef",
-    {
-        "name": str,
-        "createdAfter": Union[datetime, str],
-        "createdBefore": Union[datetime, str],
-    },
-    total=False,
-)
-
-SequenceStoreS3AccessTypeDef = TypedDict(
-    "SequenceStoreS3AccessTypeDef",
-    {
-        "s3Uri": str,
-        "s3AccessPointArn": str,
-    },
-    total=False,
-)
-
-ShareDetailsTypeDef = TypedDict(
-    "ShareDetailsTypeDef",
-    {
-        "shareId": str,
-        "resourceArn": str,
-        "resourceId": str,
-        "principalSubscriber": str,
-        "ownerId": str,
-        "status": ShareStatusType,
-        "statusMessage": str,
-        "shareName": str,
-        "creationTime": datetime,
-        "updateTime": datetime,
-    },
-    total=False,
-)
-
-_RequiredSourceFilesTypeDef = TypedDict(
-    "_RequiredSourceFilesTypeDef",
-    {
-        "source1": str,
-    },
-)
-_OptionalSourceFilesTypeDef = TypedDict(
-    "_OptionalSourceFilesTypeDef",
-    {
-        "source2": str,
-    },
-    total=False,
-)
-
-class SourceFilesTypeDef(_RequiredSourceFilesTypeDef, _OptionalSourceFilesTypeDef):
-    pass
-
-_RequiredSseConfigTypeDef = TypedDict(
-    "_RequiredSseConfigTypeDef",
-    {
-        "type": Literal["KMS"],
-    },
-)
-_OptionalSseConfigTypeDef = TypedDict(
-    "_OptionalSseConfigTypeDef",
-    {
-        "keyArn": str,
-    },
-    total=False,
-)
-
-class SseConfigTypeDef(_RequiredSseConfigTypeDef, _OptionalSseConfigTypeDef):
-    pass
-
-_RequiredStartAnnotationImportRequestRequestTypeDef = TypedDict(
-    "_RequiredStartAnnotationImportRequestRequestTypeDef",
-    {
-        "destinationName": str,
-        "roleArn": str,
-        "items": List["AnnotationImportItemSourceTypeDef"],
-    },
-)
-_OptionalStartAnnotationImportRequestRequestTypeDef = TypedDict(
-    "_OptionalStartAnnotationImportRequestRequestTypeDef",
-    {
-        "versionName": str,
-        "formatOptions": "FormatOptionsTypeDef",
-        "runLeftNormalization": bool,
-        "annotationFields": Dict[str, str],
-    },
-    total=False,
-)
-
-class StartAnnotationImportRequestRequestTypeDef(
-    _RequiredStartAnnotationImportRequestRequestTypeDef,
-    _OptionalStartAnnotationImportRequestRequestTypeDef,
-):
-    pass
-
-StartAnnotationImportResponseTypeDef = TypedDict(
-    "StartAnnotationImportResponseTypeDef",
-    {
-        "jobId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredStartReadSetActivationJobRequestRequestTypeDef = TypedDict(
-    "_RequiredStartReadSetActivationJobRequestRequestTypeDef",
-    {
-        "sequenceStoreId": str,
-        "sources": List["StartReadSetActivationJobSourceItemTypeDef"],
-    },
-)
-_OptionalStartReadSetActivationJobRequestRequestTypeDef = TypedDict(
-    "_OptionalStartReadSetActivationJobRequestRequestTypeDef",
-    {
-        "clientToken": str,
-    },
-    total=False,
-)
-
-class StartReadSetActivationJobRequestRequestTypeDef(
-    _RequiredStartReadSetActivationJobRequestRequestTypeDef,
-    _OptionalStartReadSetActivationJobRequestRequestTypeDef,
-):
-    pass
-
-StartReadSetActivationJobResponseTypeDef = TypedDict(
-    "StartReadSetActivationJobResponseTypeDef",
-    {
-        "id": str,
-        "sequenceStoreId": str,
-        "status": ReadSetActivationJobStatusType,
-        "creationTime": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-StartReadSetActivationJobSourceItemTypeDef = TypedDict(
-    "StartReadSetActivationJobSourceItemTypeDef",
-    {
-        "readSetId": str,
-    },
-)
-
-_RequiredStartReadSetExportJobRequestRequestTypeDef = TypedDict(
-    "_RequiredStartReadSetExportJobRequestRequestTypeDef",
-    {
-        "sequenceStoreId": str,
-        "destination": str,
-        "roleArn": str,
-        "sources": List["ExportReadSetTypeDef"],
-    },
-)
-_OptionalStartReadSetExportJobRequestRequestTypeDef = TypedDict(
-    "_OptionalStartReadSetExportJobRequestRequestTypeDef",
-    {
-        "clientToken": str,
-    },
-    total=False,
-)
-
-class StartReadSetExportJobRequestRequestTypeDef(
-    _RequiredStartReadSetExportJobRequestRequestTypeDef,
-    _OptionalStartReadSetExportJobRequestRequestTypeDef,
-):
-    pass
-
-StartReadSetExportJobResponseTypeDef = TypedDict(
-    "StartReadSetExportJobResponseTypeDef",
-    {
-        "id": str,
-        "sequenceStoreId": str,
-        "destination": str,
-        "status": ReadSetExportJobStatusType,
-        "creationTime": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredStartReadSetImportJobRequestRequestTypeDef = TypedDict(
-    "_RequiredStartReadSetImportJobRequestRequestTypeDef",
-    {
-        "sequenceStoreId": str,
-        "roleArn": str,
-        "sources": List["StartReadSetImportJobSourceItemTypeDef"],
-    },
-)
-_OptionalStartReadSetImportJobRequestRequestTypeDef = TypedDict(
-    "_OptionalStartReadSetImportJobRequestRequestTypeDef",
-    {
-        "clientToken": str,
-    },
-    total=False,
-)
-
-class StartReadSetImportJobRequestRequestTypeDef(
-    _RequiredStartReadSetImportJobRequestRequestTypeDef,
-    _OptionalStartReadSetImportJobRequestRequestTypeDef,
-):
-    pass
-
-StartReadSetImportJobResponseTypeDef = TypedDict(
-    "StartReadSetImportJobResponseTypeDef",
-    {
-        "id": str,
-        "sequenceStoreId": str,
-        "roleArn": str,
-        "status": ReadSetImportJobStatusType,
-        "creationTime": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredStartReadSetImportJobSourceItemTypeDef = TypedDict(
-    "_RequiredStartReadSetImportJobSourceItemTypeDef",
-    {
-        "sourceFiles": "SourceFilesTypeDef",
-        "sourceFileType": FileTypeType,
-        "subjectId": str,
-        "sampleId": str,
-    },
-)
-_OptionalStartReadSetImportJobSourceItemTypeDef = TypedDict(
-    "_OptionalStartReadSetImportJobSourceItemTypeDef",
-    {
-        "generatedFrom": str,
-        "referenceArn": str,
-        "name": str,
-        "description": str,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class StartReadSetImportJobSourceItemTypeDef(
-    _RequiredStartReadSetImportJobSourceItemTypeDef, _OptionalStartReadSetImportJobSourceItemTypeDef
-):
-    pass
-
-_RequiredStartReferenceImportJobRequestRequestTypeDef = TypedDict(
-    "_RequiredStartReferenceImportJobRequestRequestTypeDef",
-    {
-        "referenceStoreId": str,
-        "roleArn": str,
-        "sources": List["StartReferenceImportJobSourceItemTypeDef"],
-    },
-)
-_OptionalStartReferenceImportJobRequestRequestTypeDef = TypedDict(
-    "_OptionalStartReferenceImportJobRequestRequestTypeDef",
-    {
-        "clientToken": str,
-    },
-    total=False,
-)
-
-class StartReferenceImportJobRequestRequestTypeDef(
-    _RequiredStartReferenceImportJobRequestRequestTypeDef,
-    _OptionalStartReferenceImportJobRequestRequestTypeDef,
-):
-    pass
-
-StartReferenceImportJobResponseTypeDef = TypedDict(
-    "StartReferenceImportJobResponseTypeDef",
-    {
-        "id": str,
-        "referenceStoreId": str,
-        "roleArn": str,
-        "status": ReferenceImportJobStatusType,
-        "creationTime": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredStartReferenceImportJobSourceItemTypeDef = TypedDict(
-    "_RequiredStartReferenceImportJobSourceItemTypeDef",
-    {
-        "sourceFile": str,
-        "name": str,
-    },
-)
-_OptionalStartReferenceImportJobSourceItemTypeDef = TypedDict(
-    "_OptionalStartReferenceImportJobSourceItemTypeDef",
-    {
-        "description": str,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class StartReferenceImportJobSourceItemTypeDef(
-    _RequiredStartReferenceImportJobSourceItemTypeDef,
-    _OptionalStartReferenceImportJobSourceItemTypeDef,
-):
-    pass
-
-_RequiredStartRunRequestRequestTypeDef = TypedDict(
-    "_RequiredStartRunRequestRequestTypeDef",
-    {
-        "roleArn": str,
-        "requestId": str,
-    },
-)
-_OptionalStartRunRequestRequestTypeDef = TypedDict(
-    "_OptionalStartRunRequestRequestTypeDef",
-    {
-        "workflowId": str,
-        "workflowType": WorkflowTypeType,
-        "runId": str,
-        "name": str,
-        "runGroupId": str,
-        "priority": int,
-        "parameters": Dict[str, Any],
-        "storageCapacity": int,
-        "outputUri": str,
-        "logLevel": RunLogLevelType,
-        "tags": Dict[str, str],
-        "retentionMode": RunRetentionModeType,
-        "storageType": StorageTypeType,
-        "workflowOwnerId": str,
-    },
-    total=False,
-)
-
-class StartRunRequestRequestTypeDef(
-    _RequiredStartRunRequestRequestTypeDef, _OptionalStartRunRequestRequestTypeDef
-):
-    pass
-
-StartRunResponseTypeDef = TypedDict(
-    "StartRunResponseTypeDef",
-    {
-        "arn": str,
-        "id": str,
-        "status": RunStatusType,
-        "tags": Dict[str, str],
-        "uuid": str,
-        "runOutputUri": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredStartVariantImportRequestRequestTypeDef = TypedDict(
-    "_RequiredStartVariantImportRequestRequestTypeDef",
-    {
-        "destinationName": str,
-        "roleArn": str,
-        "items": List["VariantImportItemSourceTypeDef"],
-    },
-)
-_OptionalStartVariantImportRequestRequestTypeDef = TypedDict(
-    "_OptionalStartVariantImportRequestRequestTypeDef",
-    {
-        "runLeftNormalization": bool,
-        "annotationFields": Dict[str, str],
-    },
-    total=False,
-)
-
-class StartVariantImportRequestRequestTypeDef(
-    _RequiredStartVariantImportRequestRequestTypeDef,
-    _OptionalStartVariantImportRequestRequestTypeDef,
-):
-    pass
-
-StartVariantImportResponseTypeDef = TypedDict(
-    "StartVariantImportResponseTypeDef",
-    {
-        "jobId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-StoreOptionsTypeDef = TypedDict(
-    "StoreOptionsTypeDef",
-    {
-        "tsvStoreOptions": "TsvStoreOptionsTypeDef",
-    },
-    total=False,
-)
-
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tags": Dict[str, str],
-    },
-)
-
-TaskListItemTypeDef = TypedDict(
-    "TaskListItemTypeDef",
-    {
-        "taskId": str,
-        "status": TaskStatusType,
-        "name": str,
-        "cpus": int,
-        "memory": int,
-        "creationTime": datetime,
-        "startTime": datetime,
-        "stopTime": datetime,
-        "gpus": int,
-        "instanceType": str,
-    },
-    total=False,
-)
-
-TsvOptionsTypeDef = TypedDict(
-    "TsvOptionsTypeDef",
-    {
-        "readOptions": "ReadOptionsTypeDef",
-    },
-    total=False,
-)
-
-TsvStoreOptionsTypeDef = TypedDict(
-    "TsvStoreOptionsTypeDef",
-    {
-        "annotationType": AnnotationTypeType,
-        "formatToHeader": Dict[FormatToHeaderKeyType, str],
-        "schema": List[Dict[str, SchemaValueTypeType]],
-    },
-    total=False,
-)
-
-TsvVersionOptionsTypeDef = TypedDict(
-    "TsvVersionOptionsTypeDef",
-    {
-        "annotationType": AnnotationTypeType,
-        "formatToHeader": Dict[FormatToHeaderKeyType, str],
-        "schema": List[Dict[str, SchemaValueTypeType]],
-    },
-    total=False,
-)
-
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tagKeys": List[str],
-    },
-)
-
-_RequiredUpdateAnnotationStoreRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateAnnotationStoreRequestRequestTypeDef",
-    {
-        "name": str,
-    },
-)
-_OptionalUpdateAnnotationStoreRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateAnnotationStoreRequestRequestTypeDef",
-    {
-        "description": str,
-    },
-    total=False,
-)
-
-class UpdateAnnotationStoreRequestRequestTypeDef(
-    _RequiredUpdateAnnotationStoreRequestRequestTypeDef,
-    _OptionalUpdateAnnotationStoreRequestRequestTypeDef,
-):
-    pass
-
 UpdateAnnotationStoreResponseTypeDef = TypedDict(
     "UpdateAnnotationStoreResponseTypeDef",
     {
         "id": str,
-        "reference": "ReferenceItemTypeDef",
+        "reference": ReferenceItemTypeDef,
         "status": StoreStatusType,
         "name": str,
         "description": str,
         "creationTime": datetime,
         "updateTime": datetime,
-        "storeOptions": "StoreOptionsTypeDef",
+        "storeOptions": StoreOptionsOutputTypeDef,
         "storeFormat": StoreFormatType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
-
-_RequiredUpdateAnnotationStoreVersionRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateAnnotationStoreVersionRequestRequestTypeDef",
+StoreOptionsUnionTypeDef = Union[StoreOptionsTypeDef, StoreOptionsOutputTypeDef]
+CreateAnnotationStoreVersionResponseTypeDef = TypedDict(
+    "CreateAnnotationStoreVersionResponseTypeDef",
     {
-        "name": str,
+        "id": str,
         "versionName": str,
+        "storeId": str,
+        "versionOptions": VersionOptionsOutputTypeDef,
+        "name": str,
+        "status": VersionStatusType,
+        "creationTime": datetime,
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
-_OptionalUpdateAnnotationStoreVersionRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateAnnotationStoreVersionRequestRequestTypeDef",
-    {
-        "description": str,
-    },
-    total=False,
-)
-
-class UpdateAnnotationStoreVersionRequestRequestTypeDef(
-    _RequiredUpdateAnnotationStoreVersionRequestRequestTypeDef,
-    _OptionalUpdateAnnotationStoreVersionRequestRequestTypeDef,
-):
-    pass
-
-UpdateAnnotationStoreVersionResponseTypeDef = TypedDict(
-    "UpdateAnnotationStoreVersionResponseTypeDef",
+GetAnnotationStoreVersionResponseTypeDef = TypedDict(
+    "GetAnnotationStoreVersionResponseTypeDef",
     {
         "storeId": str,
         "id": str,
         "status": VersionStatusType,
+        "versionArn": str,
         "name": str,
         "versionName": str,
         "description": str,
         "creationTime": datetime,
         "updateTime": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "tags": Dict[str, str],
+        "versionOptions": VersionOptionsOutputTypeDef,
+        "statusMessage": str,
+        "versionSizeBytes": int,
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
-
-_RequiredUpdateRunGroupRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateRunGroupRequestRequestTypeDef",
+VersionOptionsUnionTypeDef = Union[VersionOptionsTypeDef, VersionOptionsOutputTypeDef]
+GetReadSetMetadataResponseTypeDef = TypedDict(
+    "GetReadSetMetadataResponseTypeDef",
     {
         "id": str,
-    },
-)
-_OptionalUpdateRunGroupRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateRunGroupRequestRequestTypeDef",
-    {
+        "arn": str,
+        "sequenceStoreId": str,
+        "subjectId": str,
+        "sampleId": str,
+        "status": ReadSetStatusType,
         "name": str,
-        "maxCpus": int,
-        "maxRuns": int,
-        "maxDuration": int,
-        "maxGpus": int,
-    },
-    total=False,
-)
-
-class UpdateRunGroupRequestRequestTypeDef(
-    _RequiredUpdateRunGroupRequestRequestTypeDef, _OptionalUpdateRunGroupRequestRequestTypeDef
-):
-    pass
-
-_RequiredUpdateVariantStoreRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateVariantStoreRequestRequestTypeDef",
-    {
-        "name": str,
-    },
-)
-_OptionalUpdateVariantStoreRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateVariantStoreRequestRequestTypeDef",
-    {
         "description": str,
+        "fileType": FileTypeType,
+        "creationTime": datetime,
+        "sequenceInformation": SequenceInformationTypeDef,
+        "referenceArn": str,
+        "files": ReadSetFilesTypeDef,
+        "statusMessage": str,
+        "creationType": CreationTypeType,
+        "etag": ETagTypeDef,
+        "creationJobId": str,
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
-    total=False,
 )
-
-class UpdateVariantStoreRequestRequestTypeDef(
-    _RequiredUpdateVariantStoreRequestRequestTypeDef,
-    _OptionalUpdateVariantStoreRequestRequestTypeDef,
-):
-    pass
-
-UpdateVariantStoreResponseTypeDef = TypedDict(
-    "UpdateVariantStoreResponseTypeDef",
+GetReferenceMetadataResponseTypeDef = TypedDict(
+    "GetReferenceMetadataResponseTypeDef",
     {
         "id": str,
-        "reference": "ReferenceItemTypeDef",
-        "status": StoreStatusType,
+        "arn": str,
+        "referenceStoreId": str,
+        "md5": str,
+        "status": ReferenceStatusType,
         "name": str,
         "description": str,
         "creationTime": datetime,
         "updateTime": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "files": ReferenceFilesTypeDef,
+        "creationType": Literal["IMPORT"],
+        "creationJobId": str,
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
-
-_RequiredUpdateWorkflowRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateWorkflowRequestRequestTypeDef",
-    {
-        "id": str,
-    },
-)
-_OptionalUpdateWorkflowRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateWorkflowRequestRequestTypeDef",
-    {
-        "name": str,
-        "description": str,
-    },
-    total=False,
-)
-
-class UpdateWorkflowRequestRequestTypeDef(
-    _RequiredUpdateWorkflowRequestRequestTypeDef, _OptionalUpdateWorkflowRequestRequestTypeDef
-):
-    pass
-
-UploadReadSetPartRequestRequestTypeDef = TypedDict(
-    "UploadReadSetPartRequestRequestTypeDef",
-    {
-        "sequenceStoreId": str,
-        "uploadId": str,
-        "partSource": ReadSetPartSourceType,
-        "partNumber": int,
-        "payload": Union[bytes, IO[bytes], StreamingBody],
-    },
-)
-
-UploadReadSetPartResponseTypeDef = TypedDict(
-    "UploadReadSetPartResponseTypeDef",
-    {
-        "checksum": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredVariantImportItemDetailTypeDef = TypedDict(
-    "_RequiredVariantImportItemDetailTypeDef",
-    {
-        "source": str,
-        "jobStatus": JobStatusType,
-    },
-)
-_OptionalVariantImportItemDetailTypeDef = TypedDict(
-    "_OptionalVariantImportItemDetailTypeDef",
-    {
-        "statusMessage": str,
-    },
-    total=False,
-)
-
-class VariantImportItemDetailTypeDef(
-    _RequiredVariantImportItemDetailTypeDef, _OptionalVariantImportItemDetailTypeDef
-):
-    pass
-
-VariantImportItemSourceTypeDef = TypedDict(
-    "VariantImportItemSourceTypeDef",
-    {
-        "source": str,
-    },
-)
-
-_RequiredVariantImportJobItemTypeDef = TypedDict(
-    "_RequiredVariantImportJobItemTypeDef",
+GetAnnotationImportResponseTypeDef = TypedDict(
+    "GetAnnotationImportResponseTypeDef",
     {
         "id": str,
         "destinationName": str,
+        "versionName": str,
         "roleArn": str,
         "status": JobStatusType,
-        "creationTime": datetime,
-        "updateTime": datetime,
-    },
-)
-_OptionalVariantImportJobItemTypeDef = TypedDict(
-    "_OptionalVariantImportJobItemTypeDef",
-    {
-        "completionTime": datetime,
-        "runLeftNormalization": bool,
-        "annotationFields": Dict[str, str],
-    },
-    total=False,
-)
-
-class VariantImportJobItemTypeDef(
-    _RequiredVariantImportJobItemTypeDef, _OptionalVariantImportJobItemTypeDef
-):
-    pass
-
-VariantStoreItemTypeDef = TypedDict(
-    "VariantStoreItemTypeDef",
-    {
-        "id": str,
-        "reference": "ReferenceItemTypeDef",
-        "status": StoreStatusType,
-        "storeArn": str,
-        "name": str,
-        "description": str,
-        "sseConfig": "SseConfigTypeDef",
-        "creationTime": datetime,
-        "updateTime": datetime,
         "statusMessage": str,
-        "storeSizeBytes": int,
-    },
-)
-
-VcfOptionsTypeDef = TypedDict(
-    "VcfOptionsTypeDef",
-    {
-        "ignoreQualField": bool,
-        "ignoreFilterField": bool,
-    },
-    total=False,
-)
-
-VersionDeleteErrorTypeDef = TypedDict(
-    "VersionDeleteErrorTypeDef",
-    {
-        "versionName": str,
-        "message": str,
-    },
-)
-
-VersionOptionsTypeDef = TypedDict(
-    "VersionOptionsTypeDef",
-    {
-        "tsvVersionOptions": "TsvVersionOptionsTypeDef",
-    },
-    total=False,
-)
-
-WaiterConfigTypeDef = TypedDict(
-    "WaiterConfigTypeDef",
-    {
-        "Delay": int,
-        "MaxAttempts": int,
-    },
-    total=False,
-)
-
-WorkflowListItemTypeDef = TypedDict(
-    "WorkflowListItemTypeDef",
-    {
-        "arn": str,
-        "id": str,
-        "name": str,
-        "status": WorkflowStatusType,
-        "type": WorkflowTypeType,
-        "digest": str,
         "creationTime": datetime,
-        "metadata": Dict[str, str],
+        "updateTime": datetime,
+        "completionTime": datetime,
+        "items": List[AnnotationImportItemDetailTypeDef],
+        "runLeftNormalization": bool,
+        "formatOptions": FormatOptionsTypeDef,
+        "annotationFields": Dict[str, str],
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
-    total=False,
 )
 
-WorkflowParameterTypeDef = TypedDict(
-    "WorkflowParameterTypeDef",
-    {
-        "description": str,
-        "optional": bool,
-    },
-    total=False,
-)
+class StartAnnotationImportRequestTypeDef(TypedDict):
+    destinationName: str
+    roleArn: str
+    items: Sequence[AnnotationImportItemSourceTypeDef]
+    versionName: NotRequired[str]
+    formatOptions: NotRequired[FormatOptionsTypeDef]
+    runLeftNormalization: NotRequired[bool]
+    annotationFields: NotRequired[Mapping[str, str]]
+
+class CreateAnnotationStoreRequestTypeDef(TypedDict):
+    storeFormat: StoreFormatType
+    reference: NotRequired[ReferenceItemTypeDef]
+    name: NotRequired[str]
+    description: NotRequired[str]
+    tags: NotRequired[Mapping[str, str]]
+    versionName: NotRequired[str]
+    sseConfig: NotRequired[SseConfigTypeDef]
+    storeOptions: NotRequired[StoreOptionsUnionTypeDef]
+
+class CreateAnnotationStoreVersionRequestTypeDef(TypedDict):
+    name: str
+    versionName: str
+    description: NotRequired[str]
+    versionOptions: NotRequired[VersionOptionsUnionTypeDef]
+    tags: NotRequired[Mapping[str, str]]

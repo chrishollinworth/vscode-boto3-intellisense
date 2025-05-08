@@ -1,20 +1,24 @@
 """
 Type annotations for migrationhubstrategy service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migrationhubstrategy/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_migrationhubstrategy/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_migrationhubstrategy.type_defs import AnalysisStatusUnionTypeDef
 
-    data: AnalysisStatusUnionTypeDef = {...}
+    data: AnalysisStatusUnionTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
+from typing import Union
 
 from .literals import (
     AnalysisTypeType,
@@ -61,14 +65,16 @@ from .literals import (
     VersionControlTypeType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
     "AnalysisStatusUnionTypeDef",
@@ -81,65 +87,85 @@ __all__ = (
     "ApplicationComponentStatusSummaryTypeDef",
     "ApplicationComponentStrategyTypeDef",
     "ApplicationComponentSummaryTypeDef",
+    "ApplicationPreferencesOutputTypeDef",
     "ApplicationPreferencesTypeDef",
+    "ApplicationPreferencesUnionTypeDef",
     "AssessmentSummaryTypeDef",
+    "AssessmentTargetOutputTypeDef",
     "AssessmentTargetTypeDef",
+    "AssessmentTargetUnionTypeDef",
     "AssociatedApplicationTypeDef",
+    "AwsManagedResourcesOutputTypeDef",
     "AwsManagedResourcesTypeDef",
     "BusinessGoalsTypeDef",
     "CollectorTypeDef",
     "ConfigurationSummaryTypeDef",
     "DataCollectionDetailsTypeDef",
     "DatabaseConfigDetailTypeDef",
+    "DatabaseMigrationPreferenceOutputTypeDef",
     "DatabaseMigrationPreferenceTypeDef",
+    "DatabasePreferencesOutputTypeDef",
     "DatabasePreferencesTypeDef",
-    "GetApplicationComponentDetailsRequestRequestTypeDef",
+    "DatabasePreferencesUnionTypeDef",
+    "GetApplicationComponentDetailsRequestTypeDef",
     "GetApplicationComponentDetailsResponseTypeDef",
-    "GetApplicationComponentStrategiesRequestRequestTypeDef",
+    "GetApplicationComponentStrategiesRequestTypeDef",
     "GetApplicationComponentStrategiesResponseTypeDef",
-    "GetAssessmentRequestRequestTypeDef",
+    "GetAssessmentRequestTypeDef",
     "GetAssessmentResponseTypeDef",
-    "GetImportFileTaskRequestRequestTypeDef",
+    "GetImportFileTaskRequestTypeDef",
     "GetImportFileTaskResponseTypeDef",
     "GetLatestAssessmentIdResponseTypeDef",
     "GetPortfolioPreferencesResponseTypeDef",
     "GetPortfolioSummaryResponseTypeDef",
-    "GetRecommendationReportDetailsRequestRequestTypeDef",
+    "GetRecommendationReportDetailsRequestTypeDef",
     "GetRecommendationReportDetailsResponseTypeDef",
-    "GetServerDetailsRequestRequestTypeDef",
+    "GetServerDetailsRequestPaginateTypeDef",
+    "GetServerDetailsRequestTypeDef",
     "GetServerDetailsResponseTypeDef",
-    "GetServerStrategiesRequestRequestTypeDef",
+    "GetServerStrategiesRequestTypeDef",
     "GetServerStrategiesResponseTypeDef",
     "GroupTypeDef",
+    "HeterogeneousOutputTypeDef",
     "HeterogeneousTypeDef",
+    "HomogeneousOutputTypeDef",
     "HomogeneousTypeDef",
     "IPAddressBasedRemoteInfoTypeDef",
     "ImportFileTaskInformationTypeDef",
-    "ListAnalyzableServersRequestRequestTypeDef",
+    "ListAnalyzableServersRequestPaginateTypeDef",
+    "ListAnalyzableServersRequestTypeDef",
     "ListAnalyzableServersResponseTypeDef",
-    "ListApplicationComponentsRequestRequestTypeDef",
+    "ListApplicationComponentsRequestPaginateTypeDef",
+    "ListApplicationComponentsRequestTypeDef",
     "ListApplicationComponentsResponseTypeDef",
-    "ListCollectorsRequestRequestTypeDef",
+    "ListCollectorsRequestPaginateTypeDef",
+    "ListCollectorsRequestTypeDef",
     "ListCollectorsResponseTypeDef",
-    "ListImportFileTaskRequestRequestTypeDef",
+    "ListImportFileTaskRequestPaginateTypeDef",
+    "ListImportFileTaskRequestTypeDef",
     "ListImportFileTaskResponseTypeDef",
-    "ListServersRequestRequestTypeDef",
+    "ListServersRequestPaginateTypeDef",
+    "ListServersRequestTypeDef",
     "ListServersResponseTypeDef",
+    "ManagementPreferenceOutputTypeDef",
     "ManagementPreferenceTypeDef",
     "NetworkInfoTypeDef",
+    "NoDatabaseMigrationPreferenceOutputTypeDef",
     "NoDatabaseMigrationPreferenceTypeDef",
+    "NoManagementPreferenceOutputTypeDef",
     "NoManagementPreferenceTypeDef",
     "OSInfoTypeDef",
     "PaginatorConfigTypeDef",
     "PipelineInfoTypeDef",
     "PrioritizeBusinessGoalsTypeDef",
-    "PutPortfolioPreferencesRequestRequestTypeDef",
+    "PutPortfolioPreferencesRequestTypeDef",
     "RecommendationReportDetailsTypeDef",
     "RecommendationSetTypeDef",
     "RemoteSourceCodeAnalysisServerInfoTypeDef",
     "ResponseMetadataTypeDef",
     "ResultTypeDef",
     "S3ObjectTypeDef",
+    "SelfManageResourcesOutputTypeDef",
     "SelfManageResourcesTypeDef",
     "ServerDetailTypeDef",
     "ServerErrorTypeDef",
@@ -148,327 +174,344 @@ __all__ = (
     "ServerSummaryTypeDef",
     "SourceCodeRepositoryTypeDef",
     "SourceCodeTypeDef",
-    "StartAssessmentRequestRequestTypeDef",
+    "StartAssessmentRequestTypeDef",
     "StartAssessmentResponseTypeDef",
-    "StartImportFileTaskRequestRequestTypeDef",
+    "StartImportFileTaskRequestTypeDef",
     "StartImportFileTaskResponseTypeDef",
-    "StartRecommendationReportGenerationRequestRequestTypeDef",
+    "StartRecommendationReportGenerationRequestTypeDef",
     "StartRecommendationReportGenerationResponseTypeDef",
-    "StopAssessmentRequestRequestTypeDef",
+    "StopAssessmentRequestTypeDef",
     "StrategyOptionTypeDef",
     "StrategySummaryTypeDef",
     "SystemInfoTypeDef",
     "TransformationToolTypeDef",
-    "UpdateApplicationComponentConfigRequestRequestTypeDef",
-    "UpdateServerConfigRequestRequestTypeDef",
+    "UpdateApplicationComponentConfigRequestTypeDef",
+    "UpdateServerConfigRequestTypeDef",
     "VcenterBasedRemoteInfoTypeDef",
     "VersionControlInfoTypeDef",
 )
 
-AnalysisStatusUnionTypeDef = TypedDict(
-    "AnalysisStatusUnionTypeDef",
-    {
-        "runtimeAnalysisStatus": RuntimeAnalysisStatusType,
-        "srcCodeOrDbAnalysisStatus": SrcCodeOrDbAnalysisStatusType,
-    },
-    total=False,
-)
+class AnalysisStatusUnionTypeDef(TypedDict):
+    runtimeAnalysisStatus: NotRequired[RuntimeAnalysisStatusType]
+    srcCodeOrDbAnalysisStatus: NotRequired[SrcCodeOrDbAnalysisStatusType]
 
-AnalyzableServerSummaryTypeDef = TypedDict(
-    "AnalyzableServerSummaryTypeDef",
-    {
-        "hostname": str,
-        "ipAddress": str,
-        "source": str,
-        "vmId": str,
-    },
-    total=False,
-)
+class AnalyzableServerSummaryTypeDef(TypedDict):
+    hostname: NotRequired[str]
+    ipAddress: NotRequired[str]
+    source: NotRequired[str]
+    vmId: NotRequired[str]
 
-AnalyzerNameUnionTypeDef = TypedDict(
-    "AnalyzerNameUnionTypeDef",
-    {
-        "binaryAnalyzerName": BinaryAnalyzerNameType,
-        "runTimeAnalyzerName": RunTimeAnalyzerNameType,
-        "sourceCodeAnalyzerName": SourceCodeAnalyzerNameType,
-    },
-    total=False,
-)
+class AnalyzerNameUnionTypeDef(TypedDict):
+    binaryAnalyzerName: NotRequired[BinaryAnalyzerNameType]
+    runTimeAnalyzerName: NotRequired[RunTimeAnalyzerNameType]
+    sourceCodeAnalyzerName: NotRequired[SourceCodeAnalyzerNameType]
 
-AntipatternReportResultTypeDef = TypedDict(
-    "AntipatternReportResultTypeDef",
-    {
-        "analyzerName": "AnalyzerNameUnionTypeDef",
-        "antiPatternReportS3Object": "S3ObjectTypeDef",
-        "antipatternReportStatus": AntipatternReportStatusType,
-        "antipatternReportStatusMessage": str,
-    },
-    total=False,
-)
+class S3ObjectTypeDef(TypedDict):
+    s3Bucket: NotRequired[str]
+    s3key: NotRequired[str]
 
-AntipatternSeveritySummaryTypeDef = TypedDict(
-    "AntipatternSeveritySummaryTypeDef",
-    {
-        "count": int,
-        "severity": SeverityType,
-    },
-    total=False,
-)
+class AntipatternSeveritySummaryTypeDef(TypedDict):
+    count: NotRequired[int]
+    severity: NotRequired[SeverityType]
 
-AppUnitErrorTypeDef = TypedDict(
-    "AppUnitErrorTypeDef",
-    {
-        "appUnitErrorCategory": AppUnitErrorCategoryType,
-    },
-    total=False,
-)
+class AppUnitErrorTypeDef(TypedDict):
+    appUnitErrorCategory: NotRequired[AppUnitErrorCategoryType]
 
-ApplicationComponentDetailTypeDef = TypedDict(
-    "ApplicationComponentDetailTypeDef",
-    {
-        "analysisStatus": SrcCodeOrDbAnalysisStatusType,
-        "antipatternReportS3Object": "S3ObjectTypeDef",
-        "antipatternReportStatus": AntipatternReportStatusType,
-        "antipatternReportStatusMessage": str,
-        "appType": AppTypeType,
-        "appUnitError": "AppUnitErrorTypeDef",
-        "associatedServerId": str,
-        "databaseConfigDetail": "DatabaseConfigDetailTypeDef",
-        "id": str,
-        "inclusionStatus": InclusionStatusType,
-        "lastAnalyzedTimestamp": datetime,
-        "listAntipatternSeveritySummary": List["AntipatternSeveritySummaryTypeDef"],
-        "moreServerAssociationExists": bool,
-        "name": str,
-        "osDriver": str,
-        "osVersion": str,
-        "recommendationSet": "RecommendationSetTypeDef",
-        "resourceSubType": ResourceSubTypeType,
-        "resultList": List["ResultTypeDef"],
-        "runtimeStatus": RuntimeAnalysisStatusType,
-        "runtimeStatusMessage": str,
-        "sourceCodeRepositories": List["SourceCodeRepositoryTypeDef"],
-        "statusMessage": str,
-    },
-    total=False,
-)
+class DatabaseConfigDetailTypeDef(TypedDict):
+    secretName: NotRequired[str]
 
-ApplicationComponentStatusSummaryTypeDef = TypedDict(
-    "ApplicationComponentStatusSummaryTypeDef",
-    {
-        "count": int,
-        "srcCodeOrDbAnalysisStatus": SrcCodeOrDbAnalysisStatusType,
-    },
-    total=False,
-)
+class SourceCodeRepositoryTypeDef(TypedDict):
+    branch: NotRequired[str]
+    projectName: NotRequired[str]
+    repository: NotRequired[str]
+    versionControlType: NotRequired[str]
 
-ApplicationComponentStrategyTypeDef = TypedDict(
-    "ApplicationComponentStrategyTypeDef",
-    {
-        "isPreferred": bool,
-        "recommendation": "RecommendationSetTypeDef",
-        "status": StrategyRecommendationType,
-    },
-    total=False,
-)
+class ApplicationComponentStatusSummaryTypeDef(TypedDict):
+    count: NotRequired[int]
+    srcCodeOrDbAnalysisStatus: NotRequired[SrcCodeOrDbAnalysisStatusType]
 
-ApplicationComponentSummaryTypeDef = TypedDict(
-    "ApplicationComponentSummaryTypeDef",
-    {
-        "appType": AppTypeType,
-        "count": int,
-    },
-    total=False,
-)
+class ApplicationComponentSummaryTypeDef(TypedDict):
+    appType: NotRequired[AppTypeType]
+    count: NotRequired[int]
 
-ApplicationPreferencesTypeDef = TypedDict(
-    "ApplicationPreferencesTypeDef",
-    {
-        "managementPreference": "ManagementPreferenceTypeDef",
-    },
-    total=False,
-)
+class ServerStatusSummaryTypeDef(TypedDict):
+    count: NotRequired[int]
+    runTimeAssessmentStatus: NotRequired[RunTimeAssessmentStatusType]
 
-AssessmentSummaryTypeDef = TypedDict(
-    "AssessmentSummaryTypeDef",
-    {
-        "antipatternReportS3Object": "S3ObjectTypeDef",
-        "antipatternReportStatus": AntipatternReportStatusType,
-        "antipatternReportStatusMessage": str,
-        "lastAnalyzedTimestamp": datetime,
-        "listAntipatternSeveritySummary": List["AntipatternSeveritySummaryTypeDef"],
-        "listApplicationComponentStatusSummary": List["ApplicationComponentStatusSummaryTypeDef"],
-        "listApplicationComponentStrategySummary": List["StrategySummaryTypeDef"],
-        "listApplicationComponentSummary": List["ApplicationComponentSummaryTypeDef"],
-        "listServerStatusSummary": List["ServerStatusSummaryTypeDef"],
-        "listServerStrategySummary": List["StrategySummaryTypeDef"],
-        "listServerSummary": List["ServerSummaryTypeDef"],
-    },
-    total=False,
-)
+class ServerSummaryTypeDef(TypedDict):
+    ServerOsType: NotRequired[ServerOsTypeType]
+    count: NotRequired[int]
 
-AssessmentTargetTypeDef = TypedDict(
-    "AssessmentTargetTypeDef",
-    {
-        "condition": ConditionType,
-        "name": str,
-        "values": List[str],
-    },
-)
+class StrategySummaryTypeDef(TypedDict):
+    count: NotRequired[int]
+    strategy: NotRequired[StrategyType]
+
+class AssessmentTargetOutputTypeDef(TypedDict):
+    condition: ConditionType
+    name: str
+    values: List[str]
+
+class AssessmentTargetTypeDef(TypedDict):
+    condition: ConditionType
+    name: str
+    values: Sequence[str]
 
 AssociatedApplicationTypeDef = TypedDict(
     "AssociatedApplicationTypeDef",
     {
-        "id": str,
-        "name": str,
-    },
-    total=False,
-)
-
-AwsManagedResourcesTypeDef = TypedDict(
-    "AwsManagedResourcesTypeDef",
-    {
-        "targetDestination": List[AwsManagedTargetDestinationType],
+        "id": NotRequired[str],
+        "name": NotRequired[str],
     },
 )
 
-BusinessGoalsTypeDef = TypedDict(
-    "BusinessGoalsTypeDef",
-    {
-        "licenseCostReduction": int,
-        "modernizeInfrastructureWithCloudNativeTechnologies": int,
-        "reduceOperationalOverheadWithManagedServices": int,
-        "speedOfMigration": int,
-    },
-    total=False,
-)
+class AwsManagedResourcesOutputTypeDef(TypedDict):
+    targetDestination: List[AwsManagedTargetDestinationType]
 
-CollectorTypeDef = TypedDict(
-    "CollectorTypeDef",
-    {
-        "collectorHealth": CollectorHealthType,
-        "collectorId": str,
-        "collectorVersion": str,
-        "configurationSummary": "ConfigurationSummaryTypeDef",
-        "hostName": str,
-        "ipAddress": str,
-        "lastActivityTimeStamp": str,
-        "registeredTimeStamp": str,
-    },
-    total=False,
-)
+class AwsManagedResourcesTypeDef(TypedDict):
+    targetDestination: Sequence[AwsManagedTargetDestinationType]
 
-ConfigurationSummaryTypeDef = TypedDict(
-    "ConfigurationSummaryTypeDef",
-    {
-        "ipAddressBasedRemoteInfoList": List["IPAddressBasedRemoteInfoTypeDef"],
-        "pipelineInfoList": List["PipelineInfoTypeDef"],
-        "remoteSourceCodeAnalysisServerInfo": "RemoteSourceCodeAnalysisServerInfoTypeDef",
-        "vcenterBasedRemoteInfoList": List["VcenterBasedRemoteInfoTypeDef"],
-        "versionControlInfoList": List["VersionControlInfoTypeDef"],
-    },
-    total=False,
-)
+class BusinessGoalsTypeDef(TypedDict):
+    licenseCostReduction: NotRequired[int]
+    modernizeInfrastructureWithCloudNativeTechnologies: NotRequired[int]
+    reduceOperationalOverheadWithManagedServices: NotRequired[int]
+    speedOfMigration: NotRequired[int]
 
-DataCollectionDetailsTypeDef = TypedDict(
-    "DataCollectionDetailsTypeDef",
-    {
-        "completionTime": datetime,
-        "failed": int,
-        "inProgress": int,
-        "servers": int,
-        "startTime": datetime,
-        "status": AssessmentStatusType,
-        "statusMessage": str,
-        "success": int,
-    },
-    total=False,
-)
+class IPAddressBasedRemoteInfoTypeDef(TypedDict):
+    authType: NotRequired[AuthTypeType]
+    ipAddressConfigurationTimeStamp: NotRequired[str]
+    osType: NotRequired[OSTypeType]
 
-DatabaseConfigDetailTypeDef = TypedDict(
-    "DatabaseConfigDetailTypeDef",
-    {
-        "secretName": str,
-    },
-    total=False,
-)
+class PipelineInfoTypeDef(TypedDict):
+    pipelineConfigurationTimeStamp: NotRequired[str]
+    pipelineType: NotRequired[Literal["AZURE_DEVOPS"]]
 
-DatabaseMigrationPreferenceTypeDef = TypedDict(
-    "DatabaseMigrationPreferenceTypeDef",
-    {
-        "heterogeneous": "HeterogeneousTypeDef",
-        "homogeneous": "HomogeneousTypeDef",
-        "noPreference": "NoDatabaseMigrationPreferenceTypeDef",
-    },
-    total=False,
-)
+class RemoteSourceCodeAnalysisServerInfoTypeDef(TypedDict):
+    remoteSourceCodeAnalysisServerConfigurationTimestamp: NotRequired[str]
 
-DatabasePreferencesTypeDef = TypedDict(
-    "DatabasePreferencesTypeDef",
-    {
-        "databaseManagementPreference": DatabaseManagementPreferenceType,
-        "databaseMigrationPreference": "DatabaseMigrationPreferenceTypeDef",
-    },
-    total=False,
-)
+class VcenterBasedRemoteInfoTypeDef(TypedDict):
+    osType: NotRequired[OSTypeType]
+    vcenterConfigurationTimeStamp: NotRequired[str]
 
-GetApplicationComponentDetailsRequestRequestTypeDef = TypedDict(
-    "GetApplicationComponentDetailsRequestRequestTypeDef",
-    {
-        "applicationComponentId": str,
-    },
-)
+class VersionControlInfoTypeDef(TypedDict):
+    versionControlConfigurationTimeStamp: NotRequired[str]
+    versionControlType: NotRequired[VersionControlTypeType]
 
-GetApplicationComponentDetailsResponseTypeDef = TypedDict(
-    "GetApplicationComponentDetailsResponseTypeDef",
-    {
-        "applicationComponentDetail": "ApplicationComponentDetailTypeDef",
-        "associatedApplications": List["AssociatedApplicationTypeDef"],
-        "associatedServerIds": List[str],
-        "moreApplicationResource": bool,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DataCollectionDetailsTypeDef(TypedDict):
+    completionTime: NotRequired[datetime]
+    failed: NotRequired[int]
+    inProgress: NotRequired[int]
+    servers: NotRequired[int]
+    startTime: NotRequired[datetime]
+    status: NotRequired[AssessmentStatusType]
+    statusMessage: NotRequired[str]
+    success: NotRequired[int]
 
-GetApplicationComponentStrategiesRequestRequestTypeDef = TypedDict(
-    "GetApplicationComponentStrategiesRequestRequestTypeDef",
-    {
-        "applicationComponentId": str,
-    },
-)
+class HeterogeneousOutputTypeDef(TypedDict):
+    targetDatabaseEngine: List[HeterogeneousTargetDatabaseEngineType]
 
-GetApplicationComponentStrategiesResponseTypeDef = TypedDict(
-    "GetApplicationComponentStrategiesResponseTypeDef",
-    {
-        "applicationComponentStrategies": List["ApplicationComponentStrategyTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class HomogeneousOutputTypeDef(TypedDict):
+    targetDatabaseEngine: NotRequired[List[Literal["None specified"]]]
 
-GetAssessmentRequestRequestTypeDef = TypedDict(
-    "GetAssessmentRequestRequestTypeDef",
+class NoDatabaseMigrationPreferenceOutputTypeDef(TypedDict):
+    targetDatabaseEngine: List[TargetDatabaseEngineType]
+
+class HeterogeneousTypeDef(TypedDict):
+    targetDatabaseEngine: Sequence[HeterogeneousTargetDatabaseEngineType]
+
+class HomogeneousTypeDef(TypedDict):
+    targetDatabaseEngine: NotRequired[Sequence[Literal["None specified"]]]
+
+class NoDatabaseMigrationPreferenceTypeDef(TypedDict):
+    targetDatabaseEngine: Sequence[TargetDatabaseEngineType]
+
+class GetApplicationComponentDetailsRequestTypeDef(TypedDict):
+    applicationComponentId: str
+
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
+
+class GetApplicationComponentStrategiesRequestTypeDef(TypedDict):
+    applicationComponentId: str
+
+GetAssessmentRequestTypeDef = TypedDict(
+    "GetAssessmentRequestTypeDef",
     {
         "id": str,
     },
 )
+GetImportFileTaskRequestTypeDef = TypedDict(
+    "GetImportFileTaskRequestTypeDef",
+    {
+        "id": str,
+    },
+)
+GetRecommendationReportDetailsRequestTypeDef = TypedDict(
+    "GetRecommendationReportDetailsRequestTypeDef",
+    {
+        "id": str,
+    },
+)
+
+class RecommendationReportDetailsTypeDef(TypedDict):
+    completionTime: NotRequired[datetime]
+    s3Bucket: NotRequired[str]
+    s3Keys: NotRequired[List[str]]
+    startTime: NotRequired[datetime]
+    status: NotRequired[RecommendationReportStatusType]
+    statusMessage: NotRequired[str]
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class GetServerDetailsRequestTypeDef(TypedDict):
+    serverId: str
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class GetServerStrategiesRequestTypeDef(TypedDict):
+    serverId: str
+
+class GroupTypeDef(TypedDict):
+    name: NotRequired[GroupNameType]
+    value: NotRequired[str]
+
+ImportFileTaskInformationTypeDef = TypedDict(
+    "ImportFileTaskInformationTypeDef",
+    {
+        "completionTime": NotRequired[datetime],
+        "id": NotRequired[str],
+        "importName": NotRequired[str],
+        "inputS3Bucket": NotRequired[str],
+        "inputS3Key": NotRequired[str],
+        "numberOfRecordsFailed": NotRequired[int],
+        "numberOfRecordsSuccess": NotRequired[int],
+        "startTime": NotRequired[datetime],
+        "status": NotRequired[ImportFileTaskStatusType],
+        "statusReportS3Bucket": NotRequired[str],
+        "statusReportS3Key": NotRequired[str],
+    },
+)
+
+class ListAnalyzableServersRequestTypeDef(TypedDict):
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+    sort: NotRequired[SortOrderType]
+
+class ListCollectorsRequestTypeDef(TypedDict):
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListImportFileTaskRequestTypeDef(TypedDict):
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class NoManagementPreferenceOutputTypeDef(TypedDict):
+    targetDestination: List[NoPreferenceTargetDestinationType]
+
+class SelfManageResourcesOutputTypeDef(TypedDict):
+    targetDestination: List[SelfManageTargetDestinationType]
+
+class NoManagementPreferenceTypeDef(TypedDict):
+    targetDestination: Sequence[NoPreferenceTargetDestinationType]
+
+class SelfManageResourcesTypeDef(TypedDict):
+    targetDestination: Sequence[SelfManageTargetDestinationType]
+
+class NetworkInfoTypeDef(TypedDict):
+    interfaceName: str
+    ipAddress: str
+    macAddress: str
+    netMask: str
+
+OSInfoTypeDef = TypedDict(
+    "OSInfoTypeDef",
+    {
+        "type": NotRequired[OSTypeType],
+        "version": NotRequired[str],
+    },
+)
+
+class TransformationToolTypeDef(TypedDict):
+    description: NotRequired[str]
+    name: NotRequired[TransformationToolNameType]
+    tranformationToolInstallationLink: NotRequired[str]
+
+class ServerErrorTypeDef(TypedDict):
+    serverErrorCategory: NotRequired[ServerErrorCategoryType]
+
+class SourceCodeTypeDef(TypedDict):
+    location: NotRequired[str]
+    projectName: NotRequired[str]
+    sourceVersion: NotRequired[str]
+    versionControl: NotRequired[VersionControlType]
+
+class StopAssessmentRequestTypeDef(TypedDict):
+    assessmentId: str
+
+class StrategyOptionTypeDef(TypedDict):
+    isPreferred: NotRequired[bool]
+    strategy: NotRequired[StrategyType]
+    targetDestination: NotRequired[TargetDestinationType]
+    toolName: NotRequired[TransformationToolNameType]
+
+class AntipatternReportResultTypeDef(TypedDict):
+    analyzerName: NotRequired[AnalyzerNameUnionTypeDef]
+    antiPatternReportS3Object: NotRequired[S3ObjectTypeDef]
+    antipatternReportStatus: NotRequired[AntipatternReportStatusType]
+    antipatternReportStatusMessage: NotRequired[str]
+
+class AssessmentSummaryTypeDef(TypedDict):
+    antipatternReportS3Object: NotRequired[S3ObjectTypeDef]
+    antipatternReportStatus: NotRequired[AntipatternReportStatusType]
+    antipatternReportStatusMessage: NotRequired[str]
+    lastAnalyzedTimestamp: NotRequired[datetime]
+    listAntipatternSeveritySummary: NotRequired[List[AntipatternSeveritySummaryTypeDef]]
+    listApplicationComponentStatusSummary: NotRequired[
+        List[ApplicationComponentStatusSummaryTypeDef]
+    ]
+    listApplicationComponentStrategySummary: NotRequired[List[StrategySummaryTypeDef]]
+    listApplicationComponentSummary: NotRequired[List[ApplicationComponentSummaryTypeDef]]
+    listServerStatusSummary: NotRequired[List[ServerStatusSummaryTypeDef]]
+    listServerStrategySummary: NotRequired[List[StrategySummaryTypeDef]]
+    listServerSummary: NotRequired[List[ServerSummaryTypeDef]]
+
+AssessmentTargetUnionTypeDef = Union[AssessmentTargetTypeDef, AssessmentTargetOutputTypeDef]
+
+class PrioritizeBusinessGoalsTypeDef(TypedDict):
+    businessGoals: NotRequired[BusinessGoalsTypeDef]
+
+class ConfigurationSummaryTypeDef(TypedDict):
+    ipAddressBasedRemoteInfoList: NotRequired[List[IPAddressBasedRemoteInfoTypeDef]]
+    pipelineInfoList: NotRequired[List[PipelineInfoTypeDef]]
+    remoteSourceCodeAnalysisServerInfo: NotRequired[RemoteSourceCodeAnalysisServerInfoTypeDef]
+    vcenterBasedRemoteInfoList: NotRequired[List[VcenterBasedRemoteInfoTypeDef]]
+    versionControlInfoList: NotRequired[List[VersionControlInfoTypeDef]]
+
+class DatabaseMigrationPreferenceOutputTypeDef(TypedDict):
+    heterogeneous: NotRequired[HeterogeneousOutputTypeDef]
+    homogeneous: NotRequired[HomogeneousOutputTypeDef]
+    noPreference: NotRequired[NoDatabaseMigrationPreferenceOutputTypeDef]
+
+class DatabaseMigrationPreferenceTypeDef(TypedDict):
+    heterogeneous: NotRequired[HeterogeneousTypeDef]
+    homogeneous: NotRequired[HomogeneousTypeDef]
+    noPreference: NotRequired[NoDatabaseMigrationPreferenceTypeDef]
 
 GetAssessmentResponseTypeDef = TypedDict(
     "GetAssessmentResponseTypeDef",
     {
-        "assessmentTargets": List["AssessmentTargetTypeDef"],
-        "dataCollectionDetails": "DataCollectionDetailsTypeDef",
+        "assessmentTargets": List[AssessmentTargetOutputTypeDef],
+        "dataCollectionDetails": DataCollectionDetailsTypeDef,
         "id": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
-
-GetImportFileTaskRequestRequestTypeDef = TypedDict(
-    "GetImportFileTaskRequestRequestTypeDef",
-    {
-        "id": str,
-    },
-)
-
 GetImportFileTaskResponseTypeDef = TypedDict(
     "GetImportFileTaskResponseTypeDef",
     {
@@ -483,654 +526,297 @@ GetImportFileTaskResponseTypeDef = TypedDict(
         "status": ImportFileTaskStatusType,
         "statusReportS3Bucket": str,
         "statusReportS3Key": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
-
 GetLatestAssessmentIdResponseTypeDef = TypedDict(
     "GetLatestAssessmentIdResponseTypeDef",
     {
         "id": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
 
-GetPortfolioPreferencesResponseTypeDef = TypedDict(
-    "GetPortfolioPreferencesResponseTypeDef",
-    {
-        "applicationMode": ApplicationModeType,
-        "applicationPreferences": "ApplicationPreferencesTypeDef",
-        "databasePreferences": "DatabasePreferencesTypeDef",
-        "prioritizeBusinessGoals": "PrioritizeBusinessGoalsTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListAnalyzableServersResponseTypeDef(TypedDict):
+    analyzableServers: List[AnalyzableServerSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-GetPortfolioSummaryResponseTypeDef = TypedDict(
-    "GetPortfolioSummaryResponseTypeDef",
-    {
-        "assessmentSummary": "AssessmentSummaryTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetRecommendationReportDetailsRequestRequestTypeDef = TypedDict(
-    "GetRecommendationReportDetailsRequestRequestTypeDef",
-    {
-        "id": str,
-    },
-)
-
-GetRecommendationReportDetailsResponseTypeDef = TypedDict(
-    "GetRecommendationReportDetailsResponseTypeDef",
-    {
-        "id": str,
-        "recommendationReportDetails": "RecommendationReportDetailsTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetServerDetailsRequestRequestTypeDef = TypedDict(
-    "_RequiredGetServerDetailsRequestRequestTypeDef",
-    {
-        "serverId": str,
-    },
-)
-_OptionalGetServerDetailsRequestRequestTypeDef = TypedDict(
-    "_OptionalGetServerDetailsRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class GetServerDetailsRequestRequestTypeDef(
-    _RequiredGetServerDetailsRequestRequestTypeDef, _OptionalGetServerDetailsRequestRequestTypeDef
-):
-    pass
-
-GetServerDetailsResponseTypeDef = TypedDict(
-    "GetServerDetailsResponseTypeDef",
-    {
-        "associatedApplications": List["AssociatedApplicationTypeDef"],
-        "nextToken": str,
-        "serverDetail": "ServerDetailTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetServerStrategiesRequestRequestTypeDef = TypedDict(
-    "GetServerStrategiesRequestRequestTypeDef",
-    {
-        "serverId": str,
-    },
-)
-
-GetServerStrategiesResponseTypeDef = TypedDict(
-    "GetServerStrategiesResponseTypeDef",
-    {
-        "serverStrategies": List["ServerStrategyTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GroupTypeDef = TypedDict(
-    "GroupTypeDef",
-    {
-        "name": GroupNameType,
-        "value": str,
-    },
-    total=False,
-)
-
-HeterogeneousTypeDef = TypedDict(
-    "HeterogeneousTypeDef",
-    {
-        "targetDatabaseEngine": List[HeterogeneousTargetDatabaseEngineType],
-    },
-)
-
-HomogeneousTypeDef = TypedDict(
-    "HomogeneousTypeDef",
-    {
-        "targetDatabaseEngine": List[Literal["None specified"]],
-    },
-    total=False,
-)
-
-IPAddressBasedRemoteInfoTypeDef = TypedDict(
-    "IPAddressBasedRemoteInfoTypeDef",
-    {
-        "authType": AuthTypeType,
-        "ipAddressConfigurationTimeStamp": str,
-        "osType": OSTypeType,
-    },
-    total=False,
-)
-
-ImportFileTaskInformationTypeDef = TypedDict(
-    "ImportFileTaskInformationTypeDef",
-    {
-        "completionTime": datetime,
-        "id": str,
-        "importName": str,
-        "inputS3Bucket": str,
-        "inputS3Key": str,
-        "numberOfRecordsFailed": int,
-        "numberOfRecordsSuccess": int,
-        "startTime": datetime,
-        "status": ImportFileTaskStatusType,
-        "statusReportS3Bucket": str,
-        "statusReportS3Key": str,
-    },
-    total=False,
-)
-
-ListAnalyzableServersRequestRequestTypeDef = TypedDict(
-    "ListAnalyzableServersRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-        "sort": SortOrderType,
-    },
-    total=False,
-)
-
-ListAnalyzableServersResponseTypeDef = TypedDict(
-    "ListAnalyzableServersResponseTypeDef",
-    {
-        "analyzableServers": List["AnalyzableServerSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListApplicationComponentsRequestRequestTypeDef = TypedDict(
-    "ListApplicationComponentsRequestRequestTypeDef",
-    {
-        "applicationComponentCriteria": ApplicationComponentCriteriaType,
-        "filterValue": str,
-        "groupIdFilter": List["GroupTypeDef"],
-        "maxResults": int,
-        "nextToken": str,
-        "sort": SortOrderType,
-    },
-    total=False,
-)
-
-ListApplicationComponentsResponseTypeDef = TypedDict(
-    "ListApplicationComponentsResponseTypeDef",
-    {
-        "applicationComponentInfos": List["ApplicationComponentDetailTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListCollectorsRequestRequestTypeDef = TypedDict(
-    "ListCollectorsRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-ListCollectorsResponseTypeDef = TypedDict(
-    "ListCollectorsResponseTypeDef",
-    {
-        "Collectors": List["CollectorTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListImportFileTaskRequestRequestTypeDef = TypedDict(
-    "ListImportFileTaskRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-ListImportFileTaskResponseTypeDef = TypedDict(
-    "ListImportFileTaskResponseTypeDef",
-    {
-        "nextToken": str,
-        "taskInfos": List["ImportFileTaskInformationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListServersRequestRequestTypeDef = TypedDict(
-    "ListServersRequestRequestTypeDef",
-    {
-        "filterValue": str,
-        "groupIdFilter": List["GroupTypeDef"],
-        "maxResults": int,
-        "nextToken": str,
-        "serverCriteria": ServerCriteriaType,
-        "sort": SortOrderType,
-    },
-    total=False,
-)
-
-ListServersResponseTypeDef = TypedDict(
-    "ListServersResponseTypeDef",
-    {
-        "nextToken": str,
-        "serverInfos": List["ServerDetailTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ManagementPreferenceTypeDef = TypedDict(
-    "ManagementPreferenceTypeDef",
-    {
-        "awsManagedResources": "AwsManagedResourcesTypeDef",
-        "noPreference": "NoManagementPreferenceTypeDef",
-        "selfManageResources": "SelfManageResourcesTypeDef",
-    },
-    total=False,
-)
-
-NetworkInfoTypeDef = TypedDict(
-    "NetworkInfoTypeDef",
-    {
-        "interfaceName": str,
-        "ipAddress": str,
-        "macAddress": str,
-        "netMask": str,
-    },
-)
-
-NoDatabaseMigrationPreferenceTypeDef = TypedDict(
-    "NoDatabaseMigrationPreferenceTypeDef",
-    {
-        "targetDatabaseEngine": List[TargetDatabaseEngineType],
-    },
-)
-
-NoManagementPreferenceTypeDef = TypedDict(
-    "NoManagementPreferenceTypeDef",
-    {
-        "targetDestination": List[NoPreferenceTargetDestinationType],
-    },
-)
-
-OSInfoTypeDef = TypedDict(
-    "OSInfoTypeDef",
-    {
-        "type": OSTypeType,
-        "version": str,
-    },
-    total=False,
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-PipelineInfoTypeDef = TypedDict(
-    "PipelineInfoTypeDef",
-    {
-        "pipelineConfigurationTimeStamp": str,
-        "pipelineType": Literal["AZURE_DEVOPS"],
-    },
-    total=False,
-)
-
-PrioritizeBusinessGoalsTypeDef = TypedDict(
-    "PrioritizeBusinessGoalsTypeDef",
-    {
-        "businessGoals": "BusinessGoalsTypeDef",
-    },
-    total=False,
-)
-
-PutPortfolioPreferencesRequestRequestTypeDef = TypedDict(
-    "PutPortfolioPreferencesRequestRequestTypeDef",
-    {
-        "applicationMode": ApplicationModeType,
-        "applicationPreferences": "ApplicationPreferencesTypeDef",
-        "databasePreferences": "DatabasePreferencesTypeDef",
-        "prioritizeBusinessGoals": "PrioritizeBusinessGoalsTypeDef",
-    },
-    total=False,
-)
-
-RecommendationReportDetailsTypeDef = TypedDict(
-    "RecommendationReportDetailsTypeDef",
-    {
-        "completionTime": datetime,
-        "s3Bucket": str,
-        "s3Keys": List[str],
-        "startTime": datetime,
-        "status": RecommendationReportStatusType,
-        "statusMessage": str,
-    },
-    total=False,
-)
-
-RecommendationSetTypeDef = TypedDict(
-    "RecommendationSetTypeDef",
-    {
-        "strategy": StrategyType,
-        "targetDestination": TargetDestinationType,
-        "transformationTool": "TransformationToolTypeDef",
-    },
-    total=False,
-)
-
-RemoteSourceCodeAnalysisServerInfoTypeDef = TypedDict(
-    "RemoteSourceCodeAnalysisServerInfoTypeDef",
-    {
-        "remoteSourceCodeAnalysisServerConfigurationTimestamp": str,
-    },
-    total=False,
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-ResultTypeDef = TypedDict(
-    "ResultTypeDef",
-    {
-        "analysisStatus": "AnalysisStatusUnionTypeDef",
-        "analysisType": AnalysisTypeType,
-        "antipatternReportResultList": List["AntipatternReportResultTypeDef"],
-        "statusMessage": str,
-    },
-    total=False,
-)
-
-S3ObjectTypeDef = TypedDict(
-    "S3ObjectTypeDef",
-    {
-        "s3Bucket": str,
-        "s3key": str,
-    },
-    total=False,
-)
-
-SelfManageResourcesTypeDef = TypedDict(
-    "SelfManageResourcesTypeDef",
-    {
-        "targetDestination": List[SelfManageTargetDestinationType],
-    },
-)
-
-ServerDetailTypeDef = TypedDict(
-    "ServerDetailTypeDef",
-    {
-        "antipatternReportS3Object": "S3ObjectTypeDef",
-        "antipatternReportStatus": AntipatternReportStatusType,
-        "antipatternReportStatusMessage": str,
-        "applicationComponentStrategySummary": List["StrategySummaryTypeDef"],
-        "dataCollectionStatus": RunTimeAssessmentStatusType,
-        "id": str,
-        "lastAnalyzedTimestamp": datetime,
-        "listAntipatternSeveritySummary": List["AntipatternSeveritySummaryTypeDef"],
-        "name": str,
-        "recommendationSet": "RecommendationSetTypeDef",
-        "serverError": "ServerErrorTypeDef",
-        "serverType": str,
-        "statusMessage": str,
-        "systemInfo": "SystemInfoTypeDef",
-    },
-    total=False,
-)
-
-ServerErrorTypeDef = TypedDict(
-    "ServerErrorTypeDef",
-    {
-        "serverErrorCategory": ServerErrorCategoryType,
-    },
-    total=False,
-)
-
-ServerStatusSummaryTypeDef = TypedDict(
-    "ServerStatusSummaryTypeDef",
-    {
-        "count": int,
-        "runTimeAssessmentStatus": RunTimeAssessmentStatusType,
-    },
-    total=False,
-)
-
-ServerStrategyTypeDef = TypedDict(
-    "ServerStrategyTypeDef",
-    {
-        "isPreferred": bool,
-        "numberOfApplicationComponents": int,
-        "recommendation": "RecommendationSetTypeDef",
-        "status": StrategyRecommendationType,
-    },
-    total=False,
-)
-
-ServerSummaryTypeDef = TypedDict(
-    "ServerSummaryTypeDef",
-    {
-        "ServerOsType": ServerOsTypeType,
-        "count": int,
-    },
-    total=False,
-)
-
-SourceCodeRepositoryTypeDef = TypedDict(
-    "SourceCodeRepositoryTypeDef",
-    {
-        "branch": str,
-        "projectName": str,
-        "repository": str,
-        "versionControlType": str,
-    },
-    total=False,
-)
-
-SourceCodeTypeDef = TypedDict(
-    "SourceCodeTypeDef",
-    {
-        "location": str,
-        "projectName": str,
-        "sourceVersion": str,
-        "versionControl": VersionControlType,
-    },
-    total=False,
-)
-
-StartAssessmentRequestRequestTypeDef = TypedDict(
-    "StartAssessmentRequestRequestTypeDef",
-    {
-        "assessmentDataSourceType": AssessmentDataSourceTypeType,
-        "assessmentTargets": List["AssessmentTargetTypeDef"],
-        "s3bucketForAnalysisData": str,
-        "s3bucketForReportData": str,
-    },
-    total=False,
-)
-
-StartAssessmentResponseTypeDef = TypedDict(
-    "StartAssessmentResponseTypeDef",
-    {
-        "assessmentId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredStartImportFileTaskRequestRequestTypeDef = TypedDict(
-    "_RequiredStartImportFileTaskRequestRequestTypeDef",
-    {
-        "S3Bucket": str,
-        "name": str,
-        "s3key": str,
-    },
-)
-_OptionalStartImportFileTaskRequestRequestTypeDef = TypedDict(
-    "_OptionalStartImportFileTaskRequestRequestTypeDef",
-    {
-        "dataSourceType": DataSourceTypeType,
-        "groupId": List["GroupTypeDef"],
-        "s3bucketForReportData": str,
-    },
-    total=False,
-)
-
-class StartImportFileTaskRequestRequestTypeDef(
-    _RequiredStartImportFileTaskRequestRequestTypeDef,
-    _OptionalStartImportFileTaskRequestRequestTypeDef,
-):
-    pass
+class StartAssessmentResponseTypeDef(TypedDict):
+    assessmentId: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
 StartImportFileTaskResponseTypeDef = TypedDict(
     "StartImportFileTaskResponseTypeDef",
     {
         "id": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
-
-StartRecommendationReportGenerationRequestRequestTypeDef = TypedDict(
-    "StartRecommendationReportGenerationRequestRequestTypeDef",
-    {
-        "groupIdFilter": List["GroupTypeDef"],
-        "outputFormat": OutputFormatType,
-    },
-    total=False,
-)
-
 StartRecommendationReportGenerationResponseTypeDef = TypedDict(
     "StartRecommendationReportGenerationResponseTypeDef",
     {
         "id": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+GetRecommendationReportDetailsResponseTypeDef = TypedDict(
+    "GetRecommendationReportDetailsResponseTypeDef",
+    {
+        "id": str,
+        "recommendationReportDetails": RecommendationReportDetailsTypeDef,
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
 
-StopAssessmentRequestRequestTypeDef = TypedDict(
-    "StopAssessmentRequestRequestTypeDef",
+class GetServerDetailsRequestPaginateTypeDef(TypedDict):
+    serverId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListAnalyzableServersRequestPaginateTypeDef(TypedDict):
+    sort: NotRequired[SortOrderType]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListCollectorsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListImportFileTaskRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListApplicationComponentsRequestPaginateTypeDef(TypedDict):
+    applicationComponentCriteria: NotRequired[ApplicationComponentCriteriaType]
+    filterValue: NotRequired[str]
+    groupIdFilter: NotRequired[Sequence[GroupTypeDef]]
+    sort: NotRequired[SortOrderType]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListApplicationComponentsRequestTypeDef(TypedDict):
+    applicationComponentCriteria: NotRequired[ApplicationComponentCriteriaType]
+    filterValue: NotRequired[str]
+    groupIdFilter: NotRequired[Sequence[GroupTypeDef]]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+    sort: NotRequired[SortOrderType]
+
+class ListServersRequestPaginateTypeDef(TypedDict):
+    filterValue: NotRequired[str]
+    groupIdFilter: NotRequired[Sequence[GroupTypeDef]]
+    serverCriteria: NotRequired[ServerCriteriaType]
+    sort: NotRequired[SortOrderType]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListServersRequestTypeDef(TypedDict):
+    filterValue: NotRequired[str]
+    groupIdFilter: NotRequired[Sequence[GroupTypeDef]]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+    serverCriteria: NotRequired[ServerCriteriaType]
+    sort: NotRequired[SortOrderType]
+
+class StartImportFileTaskRequestTypeDef(TypedDict):
+    S3Bucket: str
+    name: str
+    s3key: str
+    dataSourceType: NotRequired[DataSourceTypeType]
+    groupId: NotRequired[Sequence[GroupTypeDef]]
+    s3bucketForReportData: NotRequired[str]
+
+class StartRecommendationReportGenerationRequestTypeDef(TypedDict):
+    groupIdFilter: NotRequired[Sequence[GroupTypeDef]]
+    outputFormat: NotRequired[OutputFormatType]
+
+class ListImportFileTaskResponseTypeDef(TypedDict):
+    taskInfos: List[ImportFileTaskInformationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ManagementPreferenceOutputTypeDef(TypedDict):
+    awsManagedResources: NotRequired[AwsManagedResourcesOutputTypeDef]
+    noPreference: NotRequired[NoManagementPreferenceOutputTypeDef]
+    selfManageResources: NotRequired[SelfManageResourcesOutputTypeDef]
+
+class ManagementPreferenceTypeDef(TypedDict):
+    awsManagedResources: NotRequired[AwsManagedResourcesTypeDef]
+    noPreference: NotRequired[NoManagementPreferenceTypeDef]
+    selfManageResources: NotRequired[SelfManageResourcesTypeDef]
+
+class SystemInfoTypeDef(TypedDict):
+    cpuArchitecture: NotRequired[str]
+    fileSystemType: NotRequired[str]
+    networkInfoList: NotRequired[List[NetworkInfoTypeDef]]
+    osInfo: NotRequired[OSInfoTypeDef]
+
+class RecommendationSetTypeDef(TypedDict):
+    strategy: NotRequired[StrategyType]
+    targetDestination: NotRequired[TargetDestinationType]
+    transformationTool: NotRequired[TransformationToolTypeDef]
+
+class UpdateApplicationComponentConfigRequestTypeDef(TypedDict):
+    applicationComponentId: str
+    appType: NotRequired[AppTypeType]
+    configureOnly: NotRequired[bool]
+    inclusionStatus: NotRequired[InclusionStatusType]
+    secretsManagerKey: NotRequired[str]
+    sourceCodeList: NotRequired[Sequence[SourceCodeTypeDef]]
+    strategyOption: NotRequired[StrategyOptionTypeDef]
+
+class UpdateServerConfigRequestTypeDef(TypedDict):
+    serverId: str
+    strategyOption: NotRequired[StrategyOptionTypeDef]
+
+class ResultTypeDef(TypedDict):
+    analysisStatus: NotRequired[AnalysisStatusUnionTypeDef]
+    analysisType: NotRequired[AnalysisTypeType]
+    antipatternReportResultList: NotRequired[List[AntipatternReportResultTypeDef]]
+    statusMessage: NotRequired[str]
+
+class GetPortfolioSummaryResponseTypeDef(TypedDict):
+    assessmentSummary: AssessmentSummaryTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartAssessmentRequestTypeDef(TypedDict):
+    assessmentDataSourceType: NotRequired[AssessmentDataSourceTypeType]
+    assessmentTargets: NotRequired[Sequence[AssessmentTargetUnionTypeDef]]
+    s3bucketForAnalysisData: NotRequired[str]
+    s3bucketForReportData: NotRequired[str]
+
+class CollectorTypeDef(TypedDict):
+    collectorHealth: NotRequired[CollectorHealthType]
+    collectorId: NotRequired[str]
+    collectorVersion: NotRequired[str]
+    configurationSummary: NotRequired[ConfigurationSummaryTypeDef]
+    hostName: NotRequired[str]
+    ipAddress: NotRequired[str]
+    lastActivityTimeStamp: NotRequired[str]
+    registeredTimeStamp: NotRequired[str]
+
+class DatabasePreferencesOutputTypeDef(TypedDict):
+    databaseManagementPreference: NotRequired[DatabaseManagementPreferenceType]
+    databaseMigrationPreference: NotRequired[DatabaseMigrationPreferenceOutputTypeDef]
+
+class DatabasePreferencesTypeDef(TypedDict):
+    databaseManagementPreference: NotRequired[DatabaseManagementPreferenceType]
+    databaseMigrationPreference: NotRequired[DatabaseMigrationPreferenceTypeDef]
+
+class ApplicationPreferencesOutputTypeDef(TypedDict):
+    managementPreference: NotRequired[ManagementPreferenceOutputTypeDef]
+
+class ApplicationPreferencesTypeDef(TypedDict):
+    managementPreference: NotRequired[ManagementPreferenceTypeDef]
+
+class ApplicationComponentStrategyTypeDef(TypedDict):
+    isPreferred: NotRequired[bool]
+    recommendation: NotRequired[RecommendationSetTypeDef]
+    status: NotRequired[StrategyRecommendationType]
+
+ServerDetailTypeDef = TypedDict(
+    "ServerDetailTypeDef",
     {
-        "assessmentId": str,
+        "antipatternReportS3Object": NotRequired[S3ObjectTypeDef],
+        "antipatternReportStatus": NotRequired[AntipatternReportStatusType],
+        "antipatternReportStatusMessage": NotRequired[str],
+        "applicationComponentStrategySummary": NotRequired[List[StrategySummaryTypeDef]],
+        "dataCollectionStatus": NotRequired[RunTimeAssessmentStatusType],
+        "id": NotRequired[str],
+        "lastAnalyzedTimestamp": NotRequired[datetime],
+        "listAntipatternSeveritySummary": NotRequired[List[AntipatternSeveritySummaryTypeDef]],
+        "name": NotRequired[str],
+        "recommendationSet": NotRequired[RecommendationSetTypeDef],
+        "serverError": NotRequired[ServerErrorTypeDef],
+        "serverType": NotRequired[str],
+        "statusMessage": NotRequired[str],
+        "systemInfo": NotRequired[SystemInfoTypeDef],
     },
 )
 
-StrategyOptionTypeDef = TypedDict(
-    "StrategyOptionTypeDef",
+class ServerStrategyTypeDef(TypedDict):
+    isPreferred: NotRequired[bool]
+    numberOfApplicationComponents: NotRequired[int]
+    recommendation: NotRequired[RecommendationSetTypeDef]
+    status: NotRequired[StrategyRecommendationType]
+
+ApplicationComponentDetailTypeDef = TypedDict(
+    "ApplicationComponentDetailTypeDef",
     {
-        "isPreferred": bool,
-        "strategy": StrategyType,
-        "targetDestination": TargetDestinationType,
-        "toolName": TransformationToolNameType,
+        "analysisStatus": NotRequired[SrcCodeOrDbAnalysisStatusType],
+        "antipatternReportS3Object": NotRequired[S3ObjectTypeDef],
+        "antipatternReportStatus": NotRequired[AntipatternReportStatusType],
+        "antipatternReportStatusMessage": NotRequired[str],
+        "appType": NotRequired[AppTypeType],
+        "appUnitError": NotRequired[AppUnitErrorTypeDef],
+        "associatedServerId": NotRequired[str],
+        "databaseConfigDetail": NotRequired[DatabaseConfigDetailTypeDef],
+        "id": NotRequired[str],
+        "inclusionStatus": NotRequired[InclusionStatusType],
+        "lastAnalyzedTimestamp": NotRequired[datetime],
+        "listAntipatternSeveritySummary": NotRequired[List[AntipatternSeveritySummaryTypeDef]],
+        "moreServerAssociationExists": NotRequired[bool],
+        "name": NotRequired[str],
+        "osDriver": NotRequired[str],
+        "osVersion": NotRequired[str],
+        "recommendationSet": NotRequired[RecommendationSetTypeDef],
+        "resourceSubType": NotRequired[ResourceSubTypeType],
+        "resultList": NotRequired[List[ResultTypeDef]],
+        "runtimeStatus": NotRequired[RuntimeAnalysisStatusType],
+        "runtimeStatusMessage": NotRequired[str],
+        "sourceCodeRepositories": NotRequired[List[SourceCodeRepositoryTypeDef]],
+        "statusMessage": NotRequired[str],
     },
-    total=False,
 )
 
-StrategySummaryTypeDef = TypedDict(
-    "StrategySummaryTypeDef",
-    {
-        "count": int,
-        "strategy": StrategyType,
-    },
-    total=False,
-)
+class ListCollectorsResponseTypeDef(TypedDict):
+    Collectors: List[CollectorTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-SystemInfoTypeDef = TypedDict(
-    "SystemInfoTypeDef",
-    {
-        "cpuArchitecture": str,
-        "fileSystemType": str,
-        "networkInfoList": List["NetworkInfoTypeDef"],
-        "osInfo": "OSInfoTypeDef",
-    },
-    total=False,
-)
+DatabasePreferencesUnionTypeDef = Union[
+    DatabasePreferencesTypeDef, DatabasePreferencesOutputTypeDef
+]
 
-TransformationToolTypeDef = TypedDict(
-    "TransformationToolTypeDef",
-    {
-        "description": str,
-        "name": TransformationToolNameType,
-        "tranformationToolInstallationLink": str,
-    },
-    total=False,
-)
+class GetPortfolioPreferencesResponseTypeDef(TypedDict):
+    applicationMode: ApplicationModeType
+    applicationPreferences: ApplicationPreferencesOutputTypeDef
+    databasePreferences: DatabasePreferencesOutputTypeDef
+    prioritizeBusinessGoals: PrioritizeBusinessGoalsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredUpdateApplicationComponentConfigRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateApplicationComponentConfigRequestRequestTypeDef",
-    {
-        "applicationComponentId": str,
-    },
-)
-_OptionalUpdateApplicationComponentConfigRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateApplicationComponentConfigRequestRequestTypeDef",
-    {
-        "appType": AppTypeType,
-        "configureOnly": bool,
-        "inclusionStatus": InclusionStatusType,
-        "secretsManagerKey": str,
-        "sourceCodeList": List["SourceCodeTypeDef"],
-        "strategyOption": "StrategyOptionTypeDef",
-    },
-    total=False,
-)
+ApplicationPreferencesUnionTypeDef = Union[
+    ApplicationPreferencesTypeDef, ApplicationPreferencesOutputTypeDef
+]
 
-class UpdateApplicationComponentConfigRequestRequestTypeDef(
-    _RequiredUpdateApplicationComponentConfigRequestRequestTypeDef,
-    _OptionalUpdateApplicationComponentConfigRequestRequestTypeDef,
-):
-    pass
+class GetApplicationComponentStrategiesResponseTypeDef(TypedDict):
+    applicationComponentStrategies: List[ApplicationComponentStrategyTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredUpdateServerConfigRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateServerConfigRequestRequestTypeDef",
-    {
-        "serverId": str,
-    },
-)
-_OptionalUpdateServerConfigRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateServerConfigRequestRequestTypeDef",
-    {
-        "strategyOption": "StrategyOptionTypeDef",
-    },
-    total=False,
-)
+class GetServerDetailsResponseTypeDef(TypedDict):
+    associatedApplications: List[AssociatedApplicationTypeDef]
+    serverDetail: ServerDetailTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-class UpdateServerConfigRequestRequestTypeDef(
-    _RequiredUpdateServerConfigRequestRequestTypeDef,
-    _OptionalUpdateServerConfigRequestRequestTypeDef,
-):
-    pass
+class ListServersResponseTypeDef(TypedDict):
+    serverInfos: List[ServerDetailTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-VcenterBasedRemoteInfoTypeDef = TypedDict(
-    "VcenterBasedRemoteInfoTypeDef",
-    {
-        "osType": OSTypeType,
-        "vcenterConfigurationTimeStamp": str,
-    },
-    total=False,
-)
+class GetServerStrategiesResponseTypeDef(TypedDict):
+    serverStrategies: List[ServerStrategyTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-VersionControlInfoTypeDef = TypedDict(
-    "VersionControlInfoTypeDef",
-    {
-        "versionControlConfigurationTimeStamp": str,
-        "versionControlType": VersionControlTypeType,
-    },
-    total=False,
-)
+class GetApplicationComponentDetailsResponseTypeDef(TypedDict):
+    applicationComponentDetail: ApplicationComponentDetailTypeDef
+    associatedApplications: List[AssociatedApplicationTypeDef]
+    associatedServerIds: List[str]
+    moreApplicationResource: bool
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListApplicationComponentsResponseTypeDef(TypedDict):
+    applicationComponentInfos: List[ApplicationComponentDetailTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class PutPortfolioPreferencesRequestTypeDef(TypedDict):
+    applicationMode: NotRequired[ApplicationModeType]
+    applicationPreferences: NotRequired[ApplicationPreferencesUnionTypeDef]
+    databasePreferences: NotRequired[DatabasePreferencesUnionTypeDef]
+    prioritizeBusinessGoals: NotRequired[PrioritizeBusinessGoalsTypeDef]

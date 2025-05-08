@@ -1,19 +1,21 @@
 """
 Main interface for panorama service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_panorama/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_panorama import (
         Client,
         PanoramaClient,
     )
 
-    session = boto3.Session()
-
-    client: PanoramaClient = boto3.client("panorama")
-    session_client: PanoramaClient = session.client("panorama")
+    session = Session()
+    client: PanoramaClient = session.client("panorama")
     ```
 """
 

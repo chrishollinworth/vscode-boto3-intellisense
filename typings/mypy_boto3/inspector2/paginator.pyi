@@ -1,14 +1,16 @@
 """
 Type annotations for inspector2 service client paginators.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector2/paginators.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_inspector2/paginators/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
 
-    from mypy_boto3_inspector2 import Inspector2Client
+    from mypy_boto3_inspector2.client import Inspector2Client
     from mypy_boto3_inspector2.paginator import (
         GetCisScanResultDetailsPaginator,
         ListAccountPermissionsPaginator,
@@ -27,7 +29,8 @@ Usage::
         SearchVulnerabilitiesPaginator,
     )
 
-    client: Inspector2Client = boto3.client("inspector2")
+    session = Session()
+    client: Inspector2Client = session.client("inspector2")
 
     get_cis_scan_result_details_paginator: GetCisScanResultDetailsPaginator = client.get_paginator("get_cis_scan_result_details")
     list_account_permissions_paginator: ListAccountPermissionsPaginator = client.get_paginator("list_account_permissions")
@@ -47,52 +50,50 @@ Usage::
     ```
 """
 
-from typing import Iterator, List
+from __future__ import annotations
 
-from botocore.paginate import Paginator as Boto3Paginator
+import sys
+from typing import TYPE_CHECKING
 
-from .literals import (
-    AggregationTypeType,
-    CisScanConfigurationsSortByType,
-    CisScanResultDetailsSortByType,
-    CisScanResultsAggregatedByChecksSortByType,
-    CisScanResultsAggregatedByTargetResourceSortByType,
-    CisSortOrderType,
-    FilterActionType,
-    GroupKeyType,
-    ListCisScansDetailLevelType,
-    ListCisScansSortByType,
-    ServiceType,
-)
+from botocore.paginate import PageIterator, Paginator
+
 from .type_defs import (
-    AggregationRequestTypeDef,
-    CisScanResultDetailsFilterCriteriaTypeDef,
-    CisScanResultsAggregatedByChecksFilterCriteriaTypeDef,
-    CisScanResultsAggregatedByTargetResourceFilterCriteriaTypeDef,
-    CoverageFilterCriteriaTypeDef,
-    FilterCriteriaTypeDef,
+    GetCisScanResultDetailsRequestPaginateTypeDef,
     GetCisScanResultDetailsResponseTypeDef,
+    ListAccountPermissionsRequestPaginateTypeDef,
     ListAccountPermissionsResponseTypeDef,
-    ListCisScanConfigurationsFilterCriteriaTypeDef,
+    ListCisScanConfigurationsRequestPaginateTypeDef,
     ListCisScanConfigurationsResponseTypeDef,
+    ListCisScanResultsAggregatedByChecksRequestPaginateTypeDef,
     ListCisScanResultsAggregatedByChecksResponseTypeDef,
+    ListCisScanResultsAggregatedByTargetResourceRequestPaginateTypeDef,
     ListCisScanResultsAggregatedByTargetResourceResponseTypeDef,
-    ListCisScansFilterCriteriaTypeDef,
+    ListCisScansRequestPaginateTypeDef,
     ListCisScansResponseTypeDef,
+    ListCoverageRequestPaginateTypeDef,
     ListCoverageResponseTypeDef,
+    ListCoverageStatisticsRequestPaginateTypeDef,
     ListCoverageStatisticsResponseTypeDef,
+    ListDelegatedAdminAccountsRequestPaginateTypeDef,
     ListDelegatedAdminAccountsResponseTypeDef,
+    ListFiltersRequestPaginateTypeDef,
     ListFiltersResponseTypeDef,
+    ListFindingAggregationsRequestPaginateTypeDef,
     ListFindingAggregationsResponseTypeDef,
+    ListFindingsRequestPaginateTypeDef,
     ListFindingsResponseTypeDef,
+    ListMembersRequestPaginateTypeDef,
     ListMembersResponseTypeDef,
+    ListUsageTotalsRequestPaginateTypeDef,
     ListUsageTotalsResponseTypeDef,
-    PaginatorConfigTypeDef,
-    SearchVulnerabilitiesFilterCriteriaTypeDef,
+    SearchVulnerabilitiesRequestPaginateTypeDef,
     SearchVulnerabilitiesResponseTypeDef,
-    SortCriteriaTypeDef,
-    StringFilterTypeDef,
 )
+
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = (
     "GetCisScanResultDetailsPaginator",
@@ -112,266 +113,280 @@ __all__ = (
     "SearchVulnerabilitiesPaginator",
 )
 
-class GetCisScanResultDetailsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/inspector2.html#Inspector2.Paginator.GetCisScanResultDetails)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector2/paginators.html#getcisscanresultdetailspaginator)
-    """
+if TYPE_CHECKING:
+    _GetCisScanResultDetailsPaginatorBase = Paginator[GetCisScanResultDetailsResponseTypeDef]
+else:
+    _GetCisScanResultDetailsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        accountId: str,
-        scanArn: str,
-        targetResourceId: str,
-        filterCriteria: "CisScanResultDetailsFilterCriteriaTypeDef" = None,
-        sortBy: CisScanResultDetailsSortByType = None,
-        sortOrder: CisSortOrderType = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[GetCisScanResultDetailsResponseTypeDef]:
+class GetCisScanResultDetailsPaginator(_GetCisScanResultDetailsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/inspector2/paginator/GetCisScanResultDetails.html#Inspector2.Paginator.GetCisScanResultDetails)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_inspector2/paginators/#getcisscanresultdetailspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[GetCisScanResultDetailsRequestPaginateTypeDef]
+    ) -> PageIterator[GetCisScanResultDetailsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/inspector2.html#Inspector2.Paginator.GetCisScanResultDetails.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector2/paginators.html#getcisscanresultdetailspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/inspector2/paginator/GetCisScanResultDetails.html#Inspector2.Paginator.GetCisScanResultDetails.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_inspector2/paginators/#getcisscanresultdetailspaginator)
         """
 
-class ListAccountPermissionsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/inspector2.html#Inspector2.Paginator.ListAccountPermissions)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector2/paginators.html#listaccountpermissionspaginator)
-    """
+if TYPE_CHECKING:
+    _ListAccountPermissionsPaginatorBase = Paginator[ListAccountPermissionsResponseTypeDef]
+else:
+    _ListAccountPermissionsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, service: ServiceType = None, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListAccountPermissionsResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/inspector2.html#Inspector2.Paginator.ListAccountPermissions.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector2/paginators.html#listaccountpermissionspaginator)
-        """
-
-class ListCisScanConfigurationsPaginator(Boto3Paginator):
+class ListAccountPermissionsPaginator(_ListAccountPermissionsPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/inspector2.html#Inspector2.Paginator.ListCisScanConfigurations)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector2/paginators.html#listcisscanconfigurationspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/inspector2/paginator/ListAccountPermissions.html#Inspector2.Paginator.ListAccountPermissions)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_inspector2/paginators/#listaccountpermissionspaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        filterCriteria: "ListCisScanConfigurationsFilterCriteriaTypeDef" = None,
-        sortBy: CisScanConfigurationsSortByType = None,
-        sortOrder: CisSortOrderType = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListCisScanConfigurationsResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListAccountPermissionsRequestPaginateTypeDef]
+    ) -> PageIterator[ListAccountPermissionsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/inspector2.html#Inspector2.Paginator.ListCisScanConfigurations.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector2/paginators.html#listcisscanconfigurationspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/inspector2/paginator/ListAccountPermissions.html#Inspector2.Paginator.ListAccountPermissions.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_inspector2/paginators/#listaccountpermissionspaginator)
         """
 
-class ListCisScanResultsAggregatedByChecksPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/inspector2.html#Inspector2.Paginator.ListCisScanResultsAggregatedByChecks)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector2/paginators.html#listcisscanresultsaggregatedbycheckspaginator)
-    """
+if TYPE_CHECKING:
+    _ListCisScanConfigurationsPaginatorBase = Paginator[ListCisScanConfigurationsResponseTypeDef]
+else:
+    _ListCisScanConfigurationsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        scanArn: str,
-        filterCriteria: "CisScanResultsAggregatedByChecksFilterCriteriaTypeDef" = None,
-        sortBy: CisScanResultsAggregatedByChecksSortByType = None,
-        sortOrder: CisSortOrderType = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListCisScanResultsAggregatedByChecksResponseTypeDef]:
+class ListCisScanConfigurationsPaginator(_ListCisScanConfigurationsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/inspector2/paginator/ListCisScanConfigurations.html#Inspector2.Paginator.ListCisScanConfigurations)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_inspector2/paginators/#listcisscanconfigurationspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListCisScanConfigurationsRequestPaginateTypeDef]
+    ) -> PageIterator[ListCisScanConfigurationsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/inspector2.html#Inspector2.Paginator.ListCisScanResultsAggregatedByChecks.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector2/paginators.html#listcisscanresultsaggregatedbycheckspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/inspector2/paginator/ListCisScanConfigurations.html#Inspector2.Paginator.ListCisScanConfigurations.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_inspector2/paginators/#listcisscanconfigurationspaginator)
         """
 
-class ListCisScanResultsAggregatedByTargetResourcePaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/inspector2.html#Inspector2.Paginator.ListCisScanResultsAggregatedByTargetResource)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector2/paginators.html#listcisscanresultsaggregatedbytargetresourcepaginator)
-    """
+if TYPE_CHECKING:
+    _ListCisScanResultsAggregatedByChecksPaginatorBase = Paginator[
+        ListCisScanResultsAggregatedByChecksResponseTypeDef
+    ]
+else:
+    _ListCisScanResultsAggregatedByChecksPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        scanArn: str,
-        filterCriteria: "CisScanResultsAggregatedByTargetResourceFilterCriteriaTypeDef" = None,
-        sortBy: CisScanResultsAggregatedByTargetResourceSortByType = None,
-        sortOrder: CisSortOrderType = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListCisScanResultsAggregatedByTargetResourceResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/inspector2.html#Inspector2.Paginator.ListCisScanResultsAggregatedByTargetResource.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector2/paginators.html#listcisscanresultsaggregatedbytargetresourcepaginator)
-        """
-
-class ListCisScansPaginator(Boto3Paginator):
+class ListCisScanResultsAggregatedByChecksPaginator(
+    _ListCisScanResultsAggregatedByChecksPaginatorBase
+):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/inspector2.html#Inspector2.Paginator.ListCisScans)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector2/paginators.html#listcisscanspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/inspector2/paginator/ListCisScanResultsAggregatedByChecks.html#Inspector2.Paginator.ListCisScanResultsAggregatedByChecks)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_inspector2/paginators/#listcisscanresultsaggregatedbycheckspaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        detailLevel: ListCisScansDetailLevelType = None,
-        filterCriteria: "ListCisScansFilterCriteriaTypeDef" = None,
-        sortBy: ListCisScansSortByType = None,
-        sortOrder: CisSortOrderType = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListCisScansResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListCisScanResultsAggregatedByChecksRequestPaginateTypeDef]
+    ) -> PageIterator[ListCisScanResultsAggregatedByChecksResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/inspector2.html#Inspector2.Paginator.ListCisScans.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector2/paginators.html#listcisscanspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/inspector2/paginator/ListCisScanResultsAggregatedByChecks.html#Inspector2.Paginator.ListCisScanResultsAggregatedByChecks.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_inspector2/paginators/#listcisscanresultsaggregatedbycheckspaginator)
         """
 
-class ListCoveragePaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/inspector2.html#Inspector2.Paginator.ListCoverage)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector2/paginators.html#listcoveragepaginator)
-    """
+if TYPE_CHECKING:
+    _ListCisScanResultsAggregatedByTargetResourcePaginatorBase = Paginator[
+        ListCisScanResultsAggregatedByTargetResourceResponseTypeDef
+    ]
+else:
+    _ListCisScanResultsAggregatedByTargetResourcePaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        filterCriteria: "CoverageFilterCriteriaTypeDef" = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListCoverageResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/inspector2.html#Inspector2.Paginator.ListCoverage.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector2/paginators.html#listcoveragepaginator)
-        """
-
-class ListCoverageStatisticsPaginator(Boto3Paginator):
+class ListCisScanResultsAggregatedByTargetResourcePaginator(
+    _ListCisScanResultsAggregatedByTargetResourcePaginatorBase
+):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/inspector2.html#Inspector2.Paginator.ListCoverageStatistics)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector2/paginators.html#listcoveragestatisticspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/inspector2/paginator/ListCisScanResultsAggregatedByTargetResource.html#Inspector2.Paginator.ListCisScanResultsAggregatedByTargetResource)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_inspector2/paginators/#listcisscanresultsaggregatedbytargetresourcepaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        filterCriteria: "CoverageFilterCriteriaTypeDef" = None,
-        groupBy: GroupKeyType = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListCoverageStatisticsResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListCisScanResultsAggregatedByTargetResourceRequestPaginateTypeDef]
+    ) -> PageIterator[ListCisScanResultsAggregatedByTargetResourceResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/inspector2.html#Inspector2.Paginator.ListCoverageStatistics.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector2/paginators.html#listcoveragestatisticspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/inspector2/paginator/ListCisScanResultsAggregatedByTargetResource.html#Inspector2.Paginator.ListCisScanResultsAggregatedByTargetResource.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_inspector2/paginators/#listcisscanresultsaggregatedbytargetresourcepaginator)
         """
 
-class ListDelegatedAdminAccountsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/inspector2.html#Inspector2.Paginator.ListDelegatedAdminAccounts)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector2/paginators.html#listdelegatedadminaccountspaginator)
-    """
+if TYPE_CHECKING:
+    _ListCisScansPaginatorBase = Paginator[ListCisScansResponseTypeDef]
+else:
+    _ListCisScansPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListDelegatedAdminAccountsResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/inspector2.html#Inspector2.Paginator.ListDelegatedAdminAccounts.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector2/paginators.html#listdelegatedadminaccountspaginator)
-        """
-
-class ListFiltersPaginator(Boto3Paginator):
+class ListCisScansPaginator(_ListCisScansPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/inspector2.html#Inspector2.Paginator.ListFilters)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector2/paginators.html#listfilterspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/inspector2/paginator/ListCisScans.html#Inspector2.Paginator.ListCisScans)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_inspector2/paginators/#listcisscanspaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        action: FilterActionType = None,
-        arns: List[str] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListFiltersResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListCisScansRequestPaginateTypeDef]
+    ) -> PageIterator[ListCisScansResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/inspector2.html#Inspector2.Paginator.ListFilters.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector2/paginators.html#listfilterspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/inspector2/paginator/ListCisScans.html#Inspector2.Paginator.ListCisScans.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_inspector2/paginators/#listcisscanspaginator)
         """
 
-class ListFindingAggregationsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/inspector2.html#Inspector2.Paginator.ListFindingAggregations)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector2/paginators.html#listfindingaggregationspaginator)
-    """
+if TYPE_CHECKING:
+    _ListCoveragePaginatorBase = Paginator[ListCoverageResponseTypeDef]
+else:
+    _ListCoveragePaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        aggregationType: AggregationTypeType,
-        accountIds: List["StringFilterTypeDef"] = None,
-        aggregationRequest: "AggregationRequestTypeDef" = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListFindingAggregationsResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/inspector2.html#Inspector2.Paginator.ListFindingAggregations.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector2/paginators.html#listfindingaggregationspaginator)
-        """
-
-class ListFindingsPaginator(Boto3Paginator):
+class ListCoveragePaginator(_ListCoveragePaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/inspector2.html#Inspector2.Paginator.ListFindings)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector2/paginators.html#listfindingspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/inspector2/paginator/ListCoverage.html#Inspector2.Paginator.ListCoverage)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_inspector2/paginators/#listcoveragepaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        filterCriteria: "FilterCriteriaTypeDef" = None,
-        sortCriteria: "SortCriteriaTypeDef" = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListFindingsResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListCoverageRequestPaginateTypeDef]
+    ) -> PageIterator[ListCoverageResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/inspector2.html#Inspector2.Paginator.ListFindings.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector2/paginators.html#listfindingspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/inspector2/paginator/ListCoverage.html#Inspector2.Paginator.ListCoverage.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_inspector2/paginators/#listcoveragepaginator)
         """
 
-class ListMembersPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/inspector2.html#Inspector2.Paginator.ListMembers)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector2/paginators.html#listmemberspaginator)
-    """
+if TYPE_CHECKING:
+    _ListCoverageStatisticsPaginatorBase = Paginator[ListCoverageStatisticsResponseTypeDef]
+else:
+    _ListCoverageStatisticsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, onlyAssociated: bool = None, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListMembersResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/inspector2.html#Inspector2.Paginator.ListMembers.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector2/paginators.html#listmemberspaginator)
-        """
-
-class ListUsageTotalsPaginator(Boto3Paginator):
+class ListCoverageStatisticsPaginator(_ListCoverageStatisticsPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/inspector2.html#Inspector2.Paginator.ListUsageTotals)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector2/paginators.html#listusagetotalspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/inspector2/paginator/ListCoverageStatistics.html#Inspector2.Paginator.ListCoverageStatistics)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_inspector2/paginators/#listcoveragestatisticspaginator)
     """
-
-    def paginate(
-        self, *, accountIds: List[str] = None, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListUsageTotalsResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListCoverageStatisticsRequestPaginateTypeDef]
+    ) -> PageIterator[ListCoverageStatisticsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/inspector2.html#Inspector2.Paginator.ListUsageTotals.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector2/paginators.html#listusagetotalspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/inspector2/paginator/ListCoverageStatistics.html#Inspector2.Paginator.ListCoverageStatistics.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_inspector2/paginators/#listcoveragestatisticspaginator)
         """
 
-class SearchVulnerabilitiesPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/inspector2.html#Inspector2.Paginator.SearchVulnerabilities)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector2/paginators.html#searchvulnerabilitiespaginator)
-    """
+if TYPE_CHECKING:
+    _ListDelegatedAdminAccountsPaginatorBase = Paginator[ListDelegatedAdminAccountsResponseTypeDef]
+else:
+    _ListDelegatedAdminAccountsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        filterCriteria: "SearchVulnerabilitiesFilterCriteriaTypeDef",
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[SearchVulnerabilitiesResponseTypeDef]:
+class ListDelegatedAdminAccountsPaginator(_ListDelegatedAdminAccountsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/inspector2/paginator/ListDelegatedAdminAccounts.html#Inspector2.Paginator.ListDelegatedAdminAccounts)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_inspector2/paginators/#listdelegatedadminaccountspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListDelegatedAdminAccountsRequestPaginateTypeDef]
+    ) -> PageIterator[ListDelegatedAdminAccountsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/inspector2.html#Inspector2.Paginator.SearchVulnerabilities.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_inspector2/paginators.html#searchvulnerabilitiespaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/inspector2/paginator/ListDelegatedAdminAccounts.html#Inspector2.Paginator.ListDelegatedAdminAccounts.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_inspector2/paginators/#listdelegatedadminaccountspaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListFiltersPaginatorBase = Paginator[ListFiltersResponseTypeDef]
+else:
+    _ListFiltersPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListFiltersPaginator(_ListFiltersPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/inspector2/paginator/ListFilters.html#Inspector2.Paginator.ListFilters)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_inspector2/paginators/#listfilterspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListFiltersRequestPaginateTypeDef]
+    ) -> PageIterator[ListFiltersResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/inspector2/paginator/ListFilters.html#Inspector2.Paginator.ListFilters.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_inspector2/paginators/#listfilterspaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListFindingAggregationsPaginatorBase = Paginator[ListFindingAggregationsResponseTypeDef]
+else:
+    _ListFindingAggregationsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListFindingAggregationsPaginator(_ListFindingAggregationsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/inspector2/paginator/ListFindingAggregations.html#Inspector2.Paginator.ListFindingAggregations)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_inspector2/paginators/#listfindingaggregationspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListFindingAggregationsRequestPaginateTypeDef]
+    ) -> PageIterator[ListFindingAggregationsResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/inspector2/paginator/ListFindingAggregations.html#Inspector2.Paginator.ListFindingAggregations.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_inspector2/paginators/#listfindingaggregationspaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListFindingsPaginatorBase = Paginator[ListFindingsResponseTypeDef]
+else:
+    _ListFindingsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListFindingsPaginator(_ListFindingsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/inspector2/paginator/ListFindings.html#Inspector2.Paginator.ListFindings)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_inspector2/paginators/#listfindingspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListFindingsRequestPaginateTypeDef]
+    ) -> PageIterator[ListFindingsResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/inspector2/paginator/ListFindings.html#Inspector2.Paginator.ListFindings.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_inspector2/paginators/#listfindingspaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListMembersPaginatorBase = Paginator[ListMembersResponseTypeDef]
+else:
+    _ListMembersPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListMembersPaginator(_ListMembersPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/inspector2/paginator/ListMembers.html#Inspector2.Paginator.ListMembers)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_inspector2/paginators/#listmemberspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListMembersRequestPaginateTypeDef]
+    ) -> PageIterator[ListMembersResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/inspector2/paginator/ListMembers.html#Inspector2.Paginator.ListMembers.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_inspector2/paginators/#listmemberspaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListUsageTotalsPaginatorBase = Paginator[ListUsageTotalsResponseTypeDef]
+else:
+    _ListUsageTotalsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListUsageTotalsPaginator(_ListUsageTotalsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/inspector2/paginator/ListUsageTotals.html#Inspector2.Paginator.ListUsageTotals)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_inspector2/paginators/#listusagetotalspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListUsageTotalsRequestPaginateTypeDef]
+    ) -> PageIterator[ListUsageTotalsResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/inspector2/paginator/ListUsageTotals.html#Inspector2.Paginator.ListUsageTotals.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_inspector2/paginators/#listusagetotalspaginator)
+        """
+
+if TYPE_CHECKING:
+    _SearchVulnerabilitiesPaginatorBase = Paginator[SearchVulnerabilitiesResponseTypeDef]
+else:
+    _SearchVulnerabilitiesPaginatorBase = Paginator  # type: ignore[assignment]
+
+class SearchVulnerabilitiesPaginator(_SearchVulnerabilitiesPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/inspector2/paginator/SearchVulnerabilities.html#Inspector2.Paginator.SearchVulnerabilities)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_inspector2/paginators/#searchvulnerabilitiespaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[SearchVulnerabilitiesRequestPaginateTypeDef]
+    ) -> PageIterator[SearchVulnerabilitiesResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/inspector2/paginator/SearchVulnerabilities.html#Inspector2.Paginator.SearchVulnerabilities.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_inspector2/paginators/#searchvulnerabilitiespaginator)
         """

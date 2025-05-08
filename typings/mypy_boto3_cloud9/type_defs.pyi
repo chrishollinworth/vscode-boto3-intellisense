@@ -1,20 +1,23 @@
 """
 Type annotations for cloud9 service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloud9/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloud9/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_cloud9.type_defs import CreateEnvironmentEC2RequestRequestTypeDef
+    from mypy_boto3_cloud9.type_defs import TagTypeDef
 
-    data: CreateEnvironmentEC2RequestRequestTypeDef = {...}
+    data: TagTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
 
 from .literals import (
     ConnectionTypeType,
@@ -27,330 +30,196 @@ from .literals import (
     PermissionsType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Sequence
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List, Sequence
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
-    "CreateEnvironmentEC2RequestRequestTypeDef",
+    "CreateEnvironmentEC2RequestTypeDef",
     "CreateEnvironmentEC2ResultTypeDef",
-    "CreateEnvironmentMembershipRequestRequestTypeDef",
+    "CreateEnvironmentMembershipRequestTypeDef",
     "CreateEnvironmentMembershipResultTypeDef",
-    "DeleteEnvironmentMembershipRequestRequestTypeDef",
-    "DeleteEnvironmentRequestRequestTypeDef",
-    "DescribeEnvironmentMembershipsRequestRequestTypeDef",
+    "DeleteEnvironmentMembershipRequestTypeDef",
+    "DeleteEnvironmentRequestTypeDef",
+    "DescribeEnvironmentMembershipsRequestPaginateTypeDef",
+    "DescribeEnvironmentMembershipsRequestTypeDef",
     "DescribeEnvironmentMembershipsResultTypeDef",
-    "DescribeEnvironmentStatusRequestRequestTypeDef",
+    "DescribeEnvironmentStatusRequestTypeDef",
     "DescribeEnvironmentStatusResultTypeDef",
-    "DescribeEnvironmentsRequestRequestTypeDef",
+    "DescribeEnvironmentsRequestTypeDef",
     "DescribeEnvironmentsResultTypeDef",
     "EnvironmentLifecycleTypeDef",
     "EnvironmentMemberTypeDef",
     "EnvironmentTypeDef",
-    "ListEnvironmentsRequestRequestTypeDef",
+    "ListEnvironmentsRequestPaginateTypeDef",
+    "ListEnvironmentsRequestTypeDef",
     "ListEnvironmentsResultTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "PaginatorConfigTypeDef",
     "ResponseMetadataTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
     "TagTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateEnvironmentMembershipRequestRequestTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateEnvironmentMembershipRequestTypeDef",
     "UpdateEnvironmentMembershipResultTypeDef",
-    "UpdateEnvironmentRequestRequestTypeDef",
+    "UpdateEnvironmentRequestTypeDef",
 )
 
-_RequiredCreateEnvironmentEC2RequestRequestTypeDef = TypedDict(
-    "_RequiredCreateEnvironmentEC2RequestRequestTypeDef",
-    {
-        "name": str,
-        "instanceType": str,
-        "imageId": str,
-    },
-)
-_OptionalCreateEnvironmentEC2RequestRequestTypeDef = TypedDict(
-    "_OptionalCreateEnvironmentEC2RequestRequestTypeDef",
-    {
-        "description": str,
-        "clientRequestToken": str,
-        "subnetId": str,
-        "automaticStopTimeMinutes": int,
-        "ownerArn": str,
-        "tags": List["TagTypeDef"],
-        "connectionType": ConnectionTypeType,
-        "dryRun": bool,
-    },
-    total=False,
-)
+class TagTypeDef(TypedDict):
+    Key: str
+    Value: str
 
-class CreateEnvironmentEC2RequestRequestTypeDef(
-    _RequiredCreateEnvironmentEC2RequestRequestTypeDef,
-    _OptionalCreateEnvironmentEC2RequestRequestTypeDef,
-):
-    pass
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-CreateEnvironmentEC2ResultTypeDef = TypedDict(
-    "CreateEnvironmentEC2ResultTypeDef",
-    {
-        "environmentId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CreateEnvironmentMembershipRequestTypeDef(TypedDict):
+    environmentId: str
+    userArn: str
+    permissions: MemberPermissionsType
 
-CreateEnvironmentMembershipRequestRequestTypeDef = TypedDict(
-    "CreateEnvironmentMembershipRequestRequestTypeDef",
-    {
-        "environmentId": str,
-        "userArn": str,
-        "permissions": MemberPermissionsType,
-    },
-)
+class EnvironmentMemberTypeDef(TypedDict):
+    permissions: PermissionsType
+    userId: str
+    userArn: str
+    environmentId: str
+    lastAccess: NotRequired[datetime]
 
-CreateEnvironmentMembershipResultTypeDef = TypedDict(
-    "CreateEnvironmentMembershipResultTypeDef",
-    {
-        "membership": "EnvironmentMemberTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DeleteEnvironmentMembershipRequestTypeDef(TypedDict):
+    environmentId: str
+    userArn: str
 
-DeleteEnvironmentMembershipRequestRequestTypeDef = TypedDict(
-    "DeleteEnvironmentMembershipRequestRequestTypeDef",
-    {
-        "environmentId": str,
-        "userArn": str,
-    },
-)
+class DeleteEnvironmentRequestTypeDef(TypedDict):
+    environmentId: str
 
-DeleteEnvironmentRequestRequestTypeDef = TypedDict(
-    "DeleteEnvironmentRequestRequestTypeDef",
-    {
-        "environmentId": str,
-    },
-)
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
 
-DescribeEnvironmentMembershipsRequestRequestTypeDef = TypedDict(
-    "DescribeEnvironmentMembershipsRequestRequestTypeDef",
-    {
-        "userArn": str,
-        "environmentId": str,
-        "permissions": List[PermissionsType],
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
+class DescribeEnvironmentMembershipsRequestTypeDef(TypedDict):
+    userArn: NotRequired[str]
+    environmentId: NotRequired[str]
+    permissions: NotRequired[Sequence[PermissionsType]]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
 
-DescribeEnvironmentMembershipsResultTypeDef = TypedDict(
-    "DescribeEnvironmentMembershipsResultTypeDef",
-    {
-        "memberships": List["EnvironmentMemberTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DescribeEnvironmentStatusRequestTypeDef(TypedDict):
+    environmentId: str
 
-DescribeEnvironmentStatusRequestRequestTypeDef = TypedDict(
-    "DescribeEnvironmentStatusRequestRequestTypeDef",
-    {
-        "environmentId": str,
-    },
-)
+class DescribeEnvironmentsRequestTypeDef(TypedDict):
+    environmentIds: Sequence[str]
 
-DescribeEnvironmentStatusResultTypeDef = TypedDict(
-    "DescribeEnvironmentStatusResultTypeDef",
-    {
-        "status": EnvironmentStatusType,
-        "message": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class EnvironmentLifecycleTypeDef(TypedDict):
+    status: NotRequired[EnvironmentLifecycleStatusType]
+    reason: NotRequired[str]
+    failureResource: NotRequired[str]
 
-DescribeEnvironmentsRequestRequestTypeDef = TypedDict(
-    "DescribeEnvironmentsRequestRequestTypeDef",
-    {
-        "environmentIds": List[str],
-    },
-)
+class ListEnvironmentsRequestTypeDef(TypedDict):
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
 
-DescribeEnvironmentsResultTypeDef = TypedDict(
-    "DescribeEnvironmentsResultTypeDef",
-    {
-        "environments": List["EnvironmentTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    ResourceARN: str
 
-EnvironmentLifecycleTypeDef = TypedDict(
-    "EnvironmentLifecycleTypeDef",
-    {
-        "status": EnvironmentLifecycleStatusType,
-        "reason": str,
-        "failureResource": str,
-    },
-    total=False,
-)
+class UntagResourceRequestTypeDef(TypedDict):
+    ResourceARN: str
+    TagKeys: Sequence[str]
 
-_RequiredEnvironmentMemberTypeDef = TypedDict(
-    "_RequiredEnvironmentMemberTypeDef",
-    {
-        "permissions": PermissionsType,
-        "userId": str,
-        "userArn": str,
-        "environmentId": str,
-    },
-)
-_OptionalEnvironmentMemberTypeDef = TypedDict(
-    "_OptionalEnvironmentMemberTypeDef",
-    {
-        "lastAccess": datetime,
-    },
-    total=False,
-)
+class UpdateEnvironmentMembershipRequestTypeDef(TypedDict):
+    environmentId: str
+    userArn: str
+    permissions: MemberPermissionsType
 
-class EnvironmentMemberTypeDef(
-    _RequiredEnvironmentMemberTypeDef, _OptionalEnvironmentMemberTypeDef
-):
-    pass
+class UpdateEnvironmentRequestTypeDef(TypedDict):
+    environmentId: str
+    name: NotRequired[str]
+    description: NotRequired[str]
+    managedCredentialsAction: NotRequired[ManagedCredentialsActionType]
 
-_RequiredEnvironmentTypeDef = TypedDict(
-    "_RequiredEnvironmentTypeDef",
+class CreateEnvironmentEC2RequestTypeDef(TypedDict):
+    name: str
+    instanceType: str
+    imageId: str
+    description: NotRequired[str]
+    clientRequestToken: NotRequired[str]
+    subnetId: NotRequired[str]
+    automaticStopTimeMinutes: NotRequired[int]
+    ownerArn: NotRequired[str]
+    tags: NotRequired[Sequence[TagTypeDef]]
+    connectionType: NotRequired[ConnectionTypeType]
+    dryRun: NotRequired[bool]
+
+class TagResourceRequestTypeDef(TypedDict):
+    ResourceARN: str
+    Tags: Sequence[TagTypeDef]
+
+class CreateEnvironmentEC2ResultTypeDef(TypedDict):
+    environmentId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeEnvironmentStatusResultTypeDef(TypedDict):
+    status: EnvironmentStatusType
+    message: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListEnvironmentsResultTypeDef(TypedDict):
+    environmentIds: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    Tags: List[TagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateEnvironmentMembershipResultTypeDef(TypedDict):
+    membership: EnvironmentMemberTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeEnvironmentMembershipsResultTypeDef(TypedDict):
+    memberships: List[EnvironmentMemberTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class UpdateEnvironmentMembershipResultTypeDef(TypedDict):
+    membership: EnvironmentMemberTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeEnvironmentMembershipsRequestPaginateTypeDef(TypedDict):
+    userArn: NotRequired[str]
+    environmentId: NotRequired[str]
+    permissions: NotRequired[Sequence[PermissionsType]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListEnvironmentsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+EnvironmentTypeDef = TypedDict(
+    "EnvironmentTypeDef",
     {
         "type": EnvironmentTypeType,
         "arn": str,
         "ownerArn": str,
-    },
-)
-_OptionalEnvironmentTypeDef = TypedDict(
-    "_OptionalEnvironmentTypeDef",
-    {
-        "id": str,
-        "name": str,
-        "description": str,
-        "connectionType": ConnectionTypeType,
-        "lifecycle": "EnvironmentLifecycleTypeDef",
-        "managedCredentialsStatus": ManagedCredentialsStatusType,
-    },
-    total=False,
-)
-
-class EnvironmentTypeDef(_RequiredEnvironmentTypeDef, _OptionalEnvironmentTypeDef):
-    pass
-
-ListEnvironmentsRequestRequestTypeDef = TypedDict(
-    "ListEnvironmentsRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-ListEnvironmentsResultTypeDef = TypedDict(
-    "ListEnvironmentsResultTypeDef",
-    {
-        "nextToken": str,
-        "environmentIds": List[str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "id": NotRequired[str],
+        "name": NotRequired[str],
+        "description": NotRequired[str],
+        "connectionType": NotRequired[ConnectionTypeType],
+        "lifecycle": NotRequired[EnvironmentLifecycleTypeDef],
+        "managedCredentialsStatus": NotRequired[ManagedCredentialsStatusType],
     },
 )
 
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "ResourceARN": str,
-    },
-)
-
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "Tags": List["TagTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "ResourceARN": str,
-        "Tags": List["TagTypeDef"],
-    },
-)
-
-TagTypeDef = TypedDict(
-    "TagTypeDef",
-    {
-        "Key": str,
-        "Value": str,
-    },
-)
-
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "ResourceARN": str,
-        "TagKeys": List[str],
-    },
-)
-
-UpdateEnvironmentMembershipRequestRequestTypeDef = TypedDict(
-    "UpdateEnvironmentMembershipRequestRequestTypeDef",
-    {
-        "environmentId": str,
-        "userArn": str,
-        "permissions": MemberPermissionsType,
-    },
-)
-
-UpdateEnvironmentMembershipResultTypeDef = TypedDict(
-    "UpdateEnvironmentMembershipResultTypeDef",
-    {
-        "membership": "EnvironmentMemberTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateEnvironmentRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateEnvironmentRequestRequestTypeDef",
-    {
-        "environmentId": str,
-    },
-)
-_OptionalUpdateEnvironmentRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateEnvironmentRequestRequestTypeDef",
-    {
-        "name": str,
-        "description": str,
-        "managedCredentialsAction": ManagedCredentialsActionType,
-    },
-    total=False,
-)
-
-class UpdateEnvironmentRequestRequestTypeDef(
-    _RequiredUpdateEnvironmentRequestRequestTypeDef, _OptionalUpdateEnvironmentRequestRequestTypeDef
-):
-    pass
+class DescribeEnvironmentsResultTypeDef(TypedDict):
+    environments: List[EnvironmentTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef

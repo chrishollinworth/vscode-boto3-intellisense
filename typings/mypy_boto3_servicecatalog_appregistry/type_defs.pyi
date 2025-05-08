@@ -1,20 +1,23 @@
 """
 Type annotations for servicecatalog-appregistry service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog_appregistry/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog_appregistry/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_servicecatalog_appregistry.type_defs import AppRegistryConfigurationTypeDef
+    from mypy_boto3_servicecatalog_appregistry.type_defs import TagQueryConfigurationTypeDef
 
-    data: AppRegistryConfigurationTypeDef = {...}
+    data: TagQueryConfigurationTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
 
 from .literals import (
     ApplicationTagStatusType,
@@ -25,57 +28,69 @@ from .literals import (
     SyncActionType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
     "AppRegistryConfigurationTypeDef",
     "ApplicationSummaryTypeDef",
     "ApplicationTagResultTypeDef",
     "ApplicationTypeDef",
-    "AssociateAttributeGroupRequestRequestTypeDef",
+    "AssociateAttributeGroupRequestTypeDef",
     "AssociateAttributeGroupResponseTypeDef",
-    "AssociateResourceRequestRequestTypeDef",
+    "AssociateResourceRequestTypeDef",
     "AssociateResourceResponseTypeDef",
     "AttributeGroupDetailsTypeDef",
     "AttributeGroupSummaryTypeDef",
     "AttributeGroupTypeDef",
-    "CreateApplicationRequestRequestTypeDef",
+    "CreateApplicationRequestTypeDef",
     "CreateApplicationResponseTypeDef",
-    "CreateAttributeGroupRequestRequestTypeDef",
+    "CreateAttributeGroupRequestTypeDef",
     "CreateAttributeGroupResponseTypeDef",
-    "DeleteApplicationRequestRequestTypeDef",
+    "DeleteApplicationRequestTypeDef",
     "DeleteApplicationResponseTypeDef",
-    "DeleteAttributeGroupRequestRequestTypeDef",
+    "DeleteAttributeGroupRequestTypeDef",
     "DeleteAttributeGroupResponseTypeDef",
-    "DisassociateAttributeGroupRequestRequestTypeDef",
+    "DisassociateAttributeGroupRequestTypeDef",
     "DisassociateAttributeGroupResponseTypeDef",
-    "DisassociateResourceRequestRequestTypeDef",
+    "DisassociateResourceRequestTypeDef",
     "DisassociateResourceResponseTypeDef",
-    "GetApplicationRequestRequestTypeDef",
+    "EmptyResponseMetadataTypeDef",
+    "GetApplicationRequestTypeDef",
     "GetApplicationResponseTypeDef",
-    "GetAssociatedResourceRequestRequestTypeDef",
+    "GetAssociatedResourceRequestTypeDef",
     "GetAssociatedResourceResponseTypeDef",
-    "GetAttributeGroupRequestRequestTypeDef",
+    "GetAttributeGroupRequestTypeDef",
     "GetAttributeGroupResponseTypeDef",
     "GetConfigurationResponseTypeDef",
     "IntegrationsTypeDef",
-    "ListApplicationsRequestRequestTypeDef",
+    "ListApplicationsRequestPaginateTypeDef",
+    "ListApplicationsRequestTypeDef",
     "ListApplicationsResponseTypeDef",
-    "ListAssociatedAttributeGroupsRequestRequestTypeDef",
+    "ListAssociatedAttributeGroupsRequestPaginateTypeDef",
+    "ListAssociatedAttributeGroupsRequestTypeDef",
     "ListAssociatedAttributeGroupsResponseTypeDef",
-    "ListAssociatedResourcesRequestRequestTypeDef",
+    "ListAssociatedResourcesRequestPaginateTypeDef",
+    "ListAssociatedResourcesRequestTypeDef",
     "ListAssociatedResourcesResponseTypeDef",
-    "ListAttributeGroupsForApplicationRequestRequestTypeDef",
+    "ListAttributeGroupsForApplicationRequestPaginateTypeDef",
+    "ListAttributeGroupsForApplicationRequestTypeDef",
     "ListAttributeGroupsForApplicationResponseTypeDef",
-    "ListAttributeGroupsRequestRequestTypeDef",
+    "ListAttributeGroupsRequestPaginateTypeDef",
+    "ListAttributeGroupsRequestTypeDef",
     "ListAttributeGroupsResponseTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "PaginatorConfigTypeDef",
-    "PutConfigurationRequestRequestTypeDef",
+    "PutConfigurationRequestTypeDef",
     "ResourceDetailsTypeDef",
     "ResourceGroupTypeDef",
     "ResourceInfoTypeDef",
@@ -83,340 +98,247 @@ __all__ = (
     "ResourceTypeDef",
     "ResourcesListItemTypeDef",
     "ResponseMetadataTypeDef",
-    "SyncResourceRequestRequestTypeDef",
+    "SyncResourceRequestTypeDef",
     "SyncResourceResponseTypeDef",
     "TagQueryConfigurationTypeDef",
-    "TagResourceRequestRequestTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateApplicationRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateApplicationRequestTypeDef",
     "UpdateApplicationResponseTypeDef",
-    "UpdateAttributeGroupRequestRequestTypeDef",
+    "UpdateAttributeGroupRequestTypeDef",
     "UpdateAttributeGroupResponseTypeDef",
 )
 
-AppRegistryConfigurationTypeDef = TypedDict(
-    "AppRegistryConfigurationTypeDef",
-    {
-        "tagQueryConfiguration": "TagQueryConfigurationTypeDef",
-    },
-    total=False,
-)
+class TagQueryConfigurationTypeDef(TypedDict):
+    tagKey: NotRequired[str]
 
 ApplicationSummaryTypeDef = TypedDict(
     "ApplicationSummaryTypeDef",
     {
-        "id": str,
-        "arn": str,
-        "name": str,
-        "description": str,
-        "creationTime": datetime,
-        "lastUpdateTime": datetime,
+        "id": NotRequired[str],
+        "arn": NotRequired[str],
+        "name": NotRequired[str],
+        "description": NotRequired[str],
+        "creationTime": NotRequired[datetime],
+        "lastUpdateTime": NotRequired[datetime],
     },
-    total=False,
 )
 
-ApplicationTagResultTypeDef = TypedDict(
-    "ApplicationTagResultTypeDef",
-    {
-        "applicationTagStatus": ApplicationTagStatusType,
-        "errorMessage": str,
-        "resources": List["ResourcesListItemTypeDef"],
-        "nextToken": str,
-    },
-    total=False,
-)
+class ResourcesListItemTypeDef(TypedDict):
+    resourceArn: NotRequired[str]
+    errorMessage: NotRequired[str]
+    status: NotRequired[str]
+    resourceType: NotRequired[str]
 
 ApplicationTypeDef = TypedDict(
     "ApplicationTypeDef",
     {
-        "id": str,
-        "arn": str,
-        "name": str,
-        "description": str,
-        "creationTime": datetime,
-        "lastUpdateTime": datetime,
-        "tags": Dict[str, str],
-        "applicationTag": Dict[str, str],
-    },
-    total=False,
-)
-
-AssociateAttributeGroupRequestRequestTypeDef = TypedDict(
-    "AssociateAttributeGroupRequestRequestTypeDef",
-    {
-        "application": str,
-        "attributeGroup": str,
+        "id": NotRequired[str],
+        "arn": NotRequired[str],
+        "name": NotRequired[str],
+        "description": NotRequired[str],
+        "creationTime": NotRequired[datetime],
+        "lastUpdateTime": NotRequired[datetime],
+        "tags": NotRequired[Dict[str, str]],
+        "applicationTag": NotRequired[Dict[str, str]],
     },
 )
 
-AssociateAttributeGroupResponseTypeDef = TypedDict(
-    "AssociateAttributeGroupResponseTypeDef",
-    {
-        "applicationArn": str,
-        "attributeGroupArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class AssociateAttributeGroupRequestTypeDef(TypedDict):
+    application: str
+    attributeGroup: str
 
-_RequiredAssociateResourceRequestRequestTypeDef = TypedDict(
-    "_RequiredAssociateResourceRequestRequestTypeDef",
-    {
-        "application": str,
-        "resourceType": ResourceTypeType,
-        "resource": str,
-    },
-)
-_OptionalAssociateResourceRequestRequestTypeDef = TypedDict(
-    "_OptionalAssociateResourceRequestRequestTypeDef",
-    {
-        "options": List[AssociationOptionType],
-    },
-    total=False,
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-class AssociateResourceRequestRequestTypeDef(
-    _RequiredAssociateResourceRequestRequestTypeDef, _OptionalAssociateResourceRequestRequestTypeDef
-):
-    pass
-
-AssociateResourceResponseTypeDef = TypedDict(
-    "AssociateResourceResponseTypeDef",
-    {
-        "applicationArn": str,
-        "resourceArn": str,
-        "options": List[AssociationOptionType],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class AssociateResourceRequestTypeDef(TypedDict):
+    application: str
+    resourceType: ResourceTypeType
+    resource: str
+    options: NotRequired[Sequence[AssociationOptionType]]
 
 AttributeGroupDetailsTypeDef = TypedDict(
     "AttributeGroupDetailsTypeDef",
     {
-        "id": str,
-        "arn": str,
-        "name": str,
-        "createdBy": str,
+        "id": NotRequired[str],
+        "arn": NotRequired[str],
+        "name": NotRequired[str],
+        "createdBy": NotRequired[str],
     },
-    total=False,
 )
-
 AttributeGroupSummaryTypeDef = TypedDict(
     "AttributeGroupSummaryTypeDef",
     {
-        "id": str,
-        "arn": str,
-        "name": str,
-        "description": str,
-        "creationTime": datetime,
-        "lastUpdateTime": datetime,
-        "createdBy": str,
+        "id": NotRequired[str],
+        "arn": NotRequired[str],
+        "name": NotRequired[str],
+        "description": NotRequired[str],
+        "creationTime": NotRequired[datetime],
+        "lastUpdateTime": NotRequired[datetime],
+        "createdBy": NotRequired[str],
     },
-    total=False,
 )
-
 AttributeGroupTypeDef = TypedDict(
     "AttributeGroupTypeDef",
     {
-        "id": str,
-        "arn": str,
-        "name": str,
-        "description": str,
-        "creationTime": datetime,
-        "lastUpdateTime": datetime,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-_RequiredCreateApplicationRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateApplicationRequestRequestTypeDef",
-    {
-        "name": str,
-        "clientToken": str,
-    },
-)
-_OptionalCreateApplicationRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateApplicationRequestRequestTypeDef",
-    {
-        "description": str,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class CreateApplicationRequestRequestTypeDef(
-    _RequiredCreateApplicationRequestRequestTypeDef, _OptionalCreateApplicationRequestRequestTypeDef
-):
-    pass
-
-CreateApplicationResponseTypeDef = TypedDict(
-    "CreateApplicationResponseTypeDef",
-    {
-        "application": "ApplicationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "id": NotRequired[str],
+        "arn": NotRequired[str],
+        "name": NotRequired[str],
+        "description": NotRequired[str],
+        "creationTime": NotRequired[datetime],
+        "lastUpdateTime": NotRequired[datetime],
+        "tags": NotRequired[Dict[str, str]],
     },
 )
 
-_RequiredCreateAttributeGroupRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateAttributeGroupRequestRequestTypeDef",
-    {
-        "name": str,
-        "attributes": str,
-        "clientToken": str,
-    },
-)
-_OptionalCreateAttributeGroupRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateAttributeGroupRequestRequestTypeDef",
-    {
-        "description": str,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
+class CreateApplicationRequestTypeDef(TypedDict):
+    name: str
+    clientToken: str
+    description: NotRequired[str]
+    tags: NotRequired[Mapping[str, str]]
 
-class CreateAttributeGroupRequestRequestTypeDef(
-    _RequiredCreateAttributeGroupRequestRequestTypeDef,
-    _OptionalCreateAttributeGroupRequestRequestTypeDef,
-):
-    pass
+class CreateAttributeGroupRequestTypeDef(TypedDict):
+    name: str
+    attributes: str
+    clientToken: str
+    description: NotRequired[str]
+    tags: NotRequired[Mapping[str, str]]
 
-CreateAttributeGroupResponseTypeDef = TypedDict(
-    "CreateAttributeGroupResponseTypeDef",
-    {
-        "attributeGroup": "AttributeGroupTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DeleteApplicationRequestTypeDef(TypedDict):
+    application: str
 
-DeleteApplicationRequestRequestTypeDef = TypedDict(
-    "DeleteApplicationRequestRequestTypeDef",
-    {
-        "application": str,
-    },
-)
+class DeleteAttributeGroupRequestTypeDef(TypedDict):
+    attributeGroup: str
 
-DeleteApplicationResponseTypeDef = TypedDict(
-    "DeleteApplicationResponseTypeDef",
-    {
-        "application": "ApplicationSummaryTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DisassociateAttributeGroupRequestTypeDef(TypedDict):
+    application: str
+    attributeGroup: str
 
-DeleteAttributeGroupRequestRequestTypeDef = TypedDict(
-    "DeleteAttributeGroupRequestRequestTypeDef",
-    {
-        "attributeGroup": str,
-    },
-)
+class DisassociateResourceRequestTypeDef(TypedDict):
+    application: str
+    resourceType: ResourceTypeType
+    resource: str
 
-DeleteAttributeGroupResponseTypeDef = TypedDict(
-    "DeleteAttributeGroupResponseTypeDef",
-    {
-        "attributeGroup": "AttributeGroupSummaryTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetApplicationRequestTypeDef(TypedDict):
+    application: str
 
-DisassociateAttributeGroupRequestRequestTypeDef = TypedDict(
-    "DisassociateAttributeGroupRequestRequestTypeDef",
-    {
-        "application": str,
-        "attributeGroup": str,
-    },
-)
+class GetAssociatedResourceRequestTypeDef(TypedDict):
+    application: str
+    resourceType: ResourceTypeType
+    resource: str
+    nextToken: NotRequired[str]
+    resourceTagStatus: NotRequired[Sequence[ResourceItemStatusType]]
+    maxResults: NotRequired[int]
 
-DisassociateAttributeGroupResponseTypeDef = TypedDict(
-    "DisassociateAttributeGroupResponseTypeDef",
-    {
-        "applicationArn": str,
-        "attributeGroupArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetAttributeGroupRequestTypeDef(TypedDict):
+    attributeGroup: str
 
-DisassociateResourceRequestRequestTypeDef = TypedDict(
-    "DisassociateResourceRequestRequestTypeDef",
-    {
-        "application": str,
-        "resourceType": ResourceTypeType,
-        "resource": str,
-    },
-)
+class ResourceGroupTypeDef(TypedDict):
+    state: NotRequired[ResourceGroupStateType]
+    arn: NotRequired[str]
+    errorMessage: NotRequired[str]
 
-DisassociateResourceResponseTypeDef = TypedDict(
-    "DisassociateResourceResponseTypeDef",
-    {
-        "applicationArn": str,
-        "resourceArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
 
-GetApplicationRequestRequestTypeDef = TypedDict(
-    "GetApplicationRequestRequestTypeDef",
-    {
-        "application": str,
-    },
-)
+class ListApplicationsRequestTypeDef(TypedDict):
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
 
-GetApplicationResponseTypeDef = TypedDict(
-    "GetApplicationResponseTypeDef",
-    {
-        "id": str,
-        "arn": str,
-        "name": str,
-        "description": str,
-        "creationTime": datetime,
-        "lastUpdateTime": datetime,
-        "associatedResourceCount": int,
-        "tags": Dict[str, str],
-        "integrations": "IntegrationsTypeDef",
-        "applicationTag": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListAssociatedAttributeGroupsRequestTypeDef(TypedDict):
+    application: str
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
 
-_RequiredGetAssociatedResourceRequestRequestTypeDef = TypedDict(
-    "_RequiredGetAssociatedResourceRequestRequestTypeDef",
-    {
-        "application": str,
-        "resourceType": ResourceTypeType,
-        "resource": str,
-    },
-)
-_OptionalGetAssociatedResourceRequestRequestTypeDef = TypedDict(
-    "_OptionalGetAssociatedResourceRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "resourceTagStatus": List[ResourceItemStatusType],
-        "maxResults": int,
-    },
-    total=False,
-)
+class ListAssociatedResourcesRequestTypeDef(TypedDict):
+    application: str
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
 
-class GetAssociatedResourceRequestRequestTypeDef(
-    _RequiredGetAssociatedResourceRequestRequestTypeDef,
-    _OptionalGetAssociatedResourceRequestRequestTypeDef,
-):
-    pass
+class ListAttributeGroupsForApplicationRequestTypeDef(TypedDict):
+    application: str
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
 
-GetAssociatedResourceResponseTypeDef = TypedDict(
-    "GetAssociatedResourceResponseTypeDef",
-    {
-        "resource": "ResourceTypeDef",
-        "options": List[AssociationOptionType],
-        "applicationTagResult": "ApplicationTagResultTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListAttributeGroupsRequestTypeDef(TypedDict):
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
 
-GetAttributeGroupRequestRequestTypeDef = TypedDict(
-    "GetAttributeGroupRequestRequestTypeDef",
-    {
-        "attributeGroup": str,
-    },
-)
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+
+class ResourceDetailsTypeDef(TypedDict):
+    tagValue: NotRequired[str]
+
+class SyncResourceRequestTypeDef(TypedDict):
+    resourceType: ResourceTypeType
+    resource: str
+
+class TagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tags: Mapping[str, str]
+
+class UntagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tagKeys: Sequence[str]
+
+class UpdateApplicationRequestTypeDef(TypedDict):
+    application: str
+    name: NotRequired[str]
+    description: NotRequired[str]
+
+class UpdateAttributeGroupRequestTypeDef(TypedDict):
+    attributeGroup: str
+    name: NotRequired[str]
+    description: NotRequired[str]
+    attributes: NotRequired[str]
+
+class AppRegistryConfigurationTypeDef(TypedDict):
+    tagQueryConfiguration: NotRequired[TagQueryConfigurationTypeDef]
+
+class ApplicationTagResultTypeDef(TypedDict):
+    applicationTagStatus: NotRequired[ApplicationTagStatusType]
+    errorMessage: NotRequired[str]
+    resources: NotRequired[List[ResourcesListItemTypeDef]]
+    nextToken: NotRequired[str]
+
+class AssociateAttributeGroupResponseTypeDef(TypedDict):
+    applicationArn: str
+    attributeGroupArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class AssociateResourceResponseTypeDef(TypedDict):
+    applicationArn: str
+    resourceArn: str
+    options: List[AssociationOptionType]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateApplicationResponseTypeDef(TypedDict):
+    application: ApplicationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteApplicationResponseTypeDef(TypedDict):
+    application: ApplicationSummaryTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DisassociateAttributeGroupResponseTypeDef(TypedDict):
+    applicationArn: str
+    attributeGroupArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DisassociateResourceResponseTypeDef(TypedDict):
+    applicationArn: str
+    resourceArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class EmptyResponseMetadataTypeDef(TypedDict):
+    ResponseMetadata: ResponseMetadataTypeDef
 
 GetAttributeGroupResponseTypeDef = TypedDict(
     "GetAttributeGroupResponseTypeDef",
@@ -430,352 +352,125 @@ GetAttributeGroupResponseTypeDef = TypedDict(
         "lastUpdateTime": datetime,
         "tags": Dict[str, str],
         "createdBy": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
 
-GetConfigurationResponseTypeDef = TypedDict(
-    "GetConfigurationResponseTypeDef",
-    {
-        "configuration": "AppRegistryConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListApplicationsResponseTypeDef(TypedDict):
+    applications: List[ApplicationSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-IntegrationsTypeDef = TypedDict(
-    "IntegrationsTypeDef",
-    {
-        "resourceGroup": "ResourceGroupTypeDef",
-        "applicationTagResourceGroup": "ResourceGroupTypeDef",
-    },
-    total=False,
-)
+class ListAssociatedAttributeGroupsResponseTypeDef(TypedDict):
+    attributeGroups: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-ListApplicationsRequestRequestTypeDef = TypedDict(
-    "ListApplicationsRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ListApplicationsResponseTypeDef = TypedDict(
-    "ListApplicationsResponseTypeDef",
-    {
-        "applications": List["ApplicationSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class SyncResourceResponseTypeDef(TypedDict):
+    applicationArn: str
+    resourceArn: str
+    actionTaken: SyncActionType
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredListAssociatedAttributeGroupsRequestRequestTypeDef = TypedDict(
-    "_RequiredListAssociatedAttributeGroupsRequestRequestTypeDef",
-    {
-        "application": str,
-    },
-)
-_OptionalListAssociatedAttributeGroupsRequestRequestTypeDef = TypedDict(
-    "_OptionalListAssociatedAttributeGroupsRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
+class UpdateApplicationResponseTypeDef(TypedDict):
+    application: ApplicationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class ListAssociatedAttributeGroupsRequestRequestTypeDef(
-    _RequiredListAssociatedAttributeGroupsRequestRequestTypeDef,
-    _OptionalListAssociatedAttributeGroupsRequestRequestTypeDef,
-):
-    pass
+class ListAttributeGroupsForApplicationResponseTypeDef(TypedDict):
+    attributeGroupsDetails: List[AttributeGroupDetailsTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-ListAssociatedAttributeGroupsResponseTypeDef = TypedDict(
-    "ListAssociatedAttributeGroupsResponseTypeDef",
-    {
-        "attributeGroups": List[str],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DeleteAttributeGroupResponseTypeDef(TypedDict):
+    attributeGroup: AttributeGroupSummaryTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredListAssociatedResourcesRequestRequestTypeDef = TypedDict(
-    "_RequiredListAssociatedResourcesRequestRequestTypeDef",
-    {
-        "application": str,
-    },
-)
-_OptionalListAssociatedResourcesRequestRequestTypeDef = TypedDict(
-    "_OptionalListAssociatedResourcesRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
+class ListAttributeGroupsResponseTypeDef(TypedDict):
+    attributeGroups: List[AttributeGroupSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-class ListAssociatedResourcesRequestRequestTypeDef(
-    _RequiredListAssociatedResourcesRequestRequestTypeDef,
-    _OptionalListAssociatedResourcesRequestRequestTypeDef,
-):
-    pass
+class CreateAttributeGroupResponseTypeDef(TypedDict):
+    attributeGroup: AttributeGroupTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ListAssociatedResourcesResponseTypeDef = TypedDict(
-    "ListAssociatedResourcesResponseTypeDef",
-    {
-        "resources": List["ResourceInfoTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class UpdateAttributeGroupResponseTypeDef(TypedDict):
+    attributeGroup: AttributeGroupTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredListAttributeGroupsForApplicationRequestRequestTypeDef = TypedDict(
-    "_RequiredListAttributeGroupsForApplicationRequestRequestTypeDef",
-    {
-        "application": str,
-    },
-)
-_OptionalListAttributeGroupsForApplicationRequestRequestTypeDef = TypedDict(
-    "_OptionalListAttributeGroupsForApplicationRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
+class IntegrationsTypeDef(TypedDict):
+    resourceGroup: NotRequired[ResourceGroupTypeDef]
+    applicationTagResourceGroup: NotRequired[ResourceGroupTypeDef]
 
-class ListAttributeGroupsForApplicationRequestRequestTypeDef(
-    _RequiredListAttributeGroupsForApplicationRequestRequestTypeDef,
-    _OptionalListAttributeGroupsForApplicationRequestRequestTypeDef,
-):
-    pass
+class ResourceIntegrationsTypeDef(TypedDict):
+    resourceGroup: NotRequired[ResourceGroupTypeDef]
 
-ListAttributeGroupsForApplicationResponseTypeDef = TypedDict(
-    "ListAttributeGroupsForApplicationResponseTypeDef",
-    {
-        "attributeGroupsDetails": List["AttributeGroupDetailsTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListApplicationsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-ListAttributeGroupsRequestRequestTypeDef = TypedDict(
-    "ListAttributeGroupsRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
+class ListAssociatedAttributeGroupsRequestPaginateTypeDef(TypedDict):
+    application: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-ListAttributeGroupsResponseTypeDef = TypedDict(
-    "ListAttributeGroupsResponseTypeDef",
-    {
-        "attributeGroups": List["AttributeGroupSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListAssociatedResourcesRequestPaginateTypeDef(TypedDict):
+    application: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-    },
-)
+class ListAttributeGroupsForApplicationRequestPaginateTypeDef(TypedDict):
+    application: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListAttributeGroupsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
+class ResourceInfoTypeDef(TypedDict):
+    name: NotRequired[str]
+    arn: NotRequired[str]
+    resourceType: NotRequired[ResourceTypeType]
+    resourceDetails: NotRequired[ResourceDetailsTypeDef]
+    options: NotRequired[List[AssociationOptionType]]
 
-PutConfigurationRequestRequestTypeDef = TypedDict(
-    "PutConfigurationRequestRequestTypeDef",
-    {
-        "configuration": "AppRegistryConfigurationTypeDef",
-    },
-)
+class GetConfigurationResponseTypeDef(TypedDict):
+    configuration: AppRegistryConfigurationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ResourceDetailsTypeDef = TypedDict(
-    "ResourceDetailsTypeDef",
-    {
-        "tagValue": str,
-    },
-    total=False,
-)
+class PutConfigurationRequestTypeDef(TypedDict):
+    configuration: AppRegistryConfigurationTypeDef
 
-ResourceGroupTypeDef = TypedDict(
-    "ResourceGroupTypeDef",
+GetApplicationResponseTypeDef = TypedDict(
+    "GetApplicationResponseTypeDef",
     {
-        "state": ResourceGroupStateType,
+        "id": str,
         "arn": str,
-        "errorMessage": str,
-    },
-    total=False,
-)
-
-ResourceInfoTypeDef = TypedDict(
-    "ResourceInfoTypeDef",
-    {
-        "name": str,
-        "arn": str,
-        "resourceType": ResourceTypeType,
-        "resourceDetails": "ResourceDetailsTypeDef",
-        "options": List[AssociationOptionType],
-    },
-    total=False,
-)
-
-ResourceIntegrationsTypeDef = TypedDict(
-    "ResourceIntegrationsTypeDef",
-    {
-        "resourceGroup": "ResourceGroupTypeDef",
-    },
-    total=False,
-)
-
-ResourceTypeDef = TypedDict(
-    "ResourceTypeDef",
-    {
-        "name": str,
-        "arn": str,
-        "associationTime": datetime,
-        "integrations": "ResourceIntegrationsTypeDef",
-    },
-    total=False,
-)
-
-ResourcesListItemTypeDef = TypedDict(
-    "ResourcesListItemTypeDef",
-    {
-        "resourceArn": str,
-        "errorMessage": str,
-        "status": str,
-        "resourceType": str,
-    },
-    total=False,
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-SyncResourceRequestRequestTypeDef = TypedDict(
-    "SyncResourceRequestRequestTypeDef",
-    {
-        "resourceType": ResourceTypeType,
-        "resource": str,
-    },
-)
-
-SyncResourceResponseTypeDef = TypedDict(
-    "SyncResourceResponseTypeDef",
-    {
-        "applicationArn": str,
-        "resourceArn": str,
-        "actionTaken": SyncActionType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-TagQueryConfigurationTypeDef = TypedDict(
-    "TagQueryConfigurationTypeDef",
-    {
-        "tagKey": str,
-    },
-    total=False,
-)
-
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tags": Dict[str, str],
-    },
-)
-
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tagKeys": List[str],
-    },
-)
-
-_RequiredUpdateApplicationRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateApplicationRequestRequestTypeDef",
-    {
-        "application": str,
-    },
-)
-_OptionalUpdateApplicationRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateApplicationRequestRequestTypeDef",
-    {
         "name": str,
         "description": str,
-    },
-    total=False,
-)
-
-class UpdateApplicationRequestRequestTypeDef(
-    _RequiredUpdateApplicationRequestRequestTypeDef, _OptionalUpdateApplicationRequestRequestTypeDef
-):
-    pass
-
-UpdateApplicationResponseTypeDef = TypedDict(
-    "UpdateApplicationResponseTypeDef",
-    {
-        "application": "ApplicationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "creationTime": datetime,
+        "lastUpdateTime": datetime,
+        "associatedResourceCount": int,
+        "tags": Dict[str, str],
+        "integrations": IntegrationsTypeDef,
+        "applicationTag": Dict[str, str],
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
 
-_RequiredUpdateAttributeGroupRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateAttributeGroupRequestRequestTypeDef",
-    {
-        "attributeGroup": str,
-    },
-)
-_OptionalUpdateAttributeGroupRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateAttributeGroupRequestRequestTypeDef",
-    {
-        "name": str,
-        "description": str,
-        "attributes": str,
-    },
-    total=False,
-)
+class ResourceTypeDef(TypedDict):
+    name: NotRequired[str]
+    arn: NotRequired[str]
+    associationTime: NotRequired[datetime]
+    integrations: NotRequired[ResourceIntegrationsTypeDef]
 
-class UpdateAttributeGroupRequestRequestTypeDef(
-    _RequiredUpdateAttributeGroupRequestRequestTypeDef,
-    _OptionalUpdateAttributeGroupRequestRequestTypeDef,
-):
-    pass
+class ListAssociatedResourcesResponseTypeDef(TypedDict):
+    resources: List[ResourceInfoTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-UpdateAttributeGroupResponseTypeDef = TypedDict(
-    "UpdateAttributeGroupResponseTypeDef",
-    {
-        "attributeGroup": "AttributeGroupTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetAssociatedResourceResponseTypeDef(TypedDict):
+    resource: ResourceTypeDef
+    options: List[AssociationOptionType]
+    applicationTagResult: ApplicationTagResultTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef

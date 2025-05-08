@@ -1,10 +1,14 @@
 """
 Main interface for codeguru-reviewer service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codeguru_reviewer/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_codeguru_reviewer import (
         Client,
         CodeGuruReviewerClient,
@@ -13,10 +17,8 @@ Usage::
         RepositoryAssociationSucceededWaiter,
     )
 
-    session = boto3.Session()
-
-    client: CodeGuruReviewerClient = boto3.client("codeguru-reviewer")
-    session_client: CodeGuruReviewerClient = session.client("codeguru-reviewer")
+    session = Session()
+    client: CodeGuruReviewerClient = session.client("codeguru-reviewer")
 
     code_review_completed_waiter: CodeReviewCompletedWaiter = client.get_waiter("code_review_completed")
     repository_association_succeeded_waiter: RepositoryAssociationSucceededWaiter = client.get_waiter("repository_association_succeeded")

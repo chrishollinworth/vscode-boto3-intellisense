@@ -1,10 +1,14 @@
 """
 Main interface for dax service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dax/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_dax import (
         Client,
         DAXClient,
@@ -17,10 +21,8 @@ Usage::
         ListTagsPaginator,
     )
 
-    session = boto3.Session()
-
-    client: DAXClient = boto3.client("dax")
-    session_client: DAXClient = session.client("dax")
+    session = Session()
+    client: DAXClient = session.client("dax")
 
     describe_clusters_paginator: DescribeClustersPaginator = client.get_paginator("describe_clusters")
     describe_default_parameters_paginator: DescribeDefaultParametersPaginator = client.get_paginator("describe_default_parameters")

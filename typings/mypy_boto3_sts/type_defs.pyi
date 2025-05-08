@@ -1,44 +1,54 @@
 """
 Type annotations for sts service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sts/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sts/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_sts.type_defs import AssumeRoleRequestRequestTypeDef
+    from mypy_boto3_sts.type_defs import PolicyDescriptorTypeTypeDef
 
-    data: AssumeRoleRequestRequestTypeDef = {...}
+    data: PolicyDescriptorTypeTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from collections.abc import Sequence
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, Sequence
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
-    "AssumeRoleRequestRequestTypeDef",
+    "AssumeRoleRequestTypeDef",
     "AssumeRoleResponseTypeDef",
-    "AssumeRoleWithSAMLRequestRequestTypeDef",
+    "AssumeRoleWithSAMLRequestTypeDef",
     "AssumeRoleWithSAMLResponseTypeDef",
-    "AssumeRoleWithWebIdentityRequestRequestTypeDef",
+    "AssumeRoleWithWebIdentityRequestTypeDef",
     "AssumeRoleWithWebIdentityResponseTypeDef",
+    "AssumeRootRequestTypeDef",
+    "AssumeRootResponseTypeDef",
     "AssumedRoleUserTypeDef",
     "CredentialsTypeDef",
-    "DecodeAuthorizationMessageRequestRequestTypeDef",
+    "DecodeAuthorizationMessageRequestTypeDef",
     "DecodeAuthorizationMessageResponseTypeDef",
     "FederatedUserTypeDef",
-    "GetAccessKeyInfoRequestRequestTypeDef",
+    "GetAccessKeyInfoRequestTypeDef",
     "GetAccessKeyInfoResponseTypeDef",
     "GetCallerIdentityResponseTypeDef",
-    "GetFederationTokenRequestRequestTypeDef",
+    "GetFederationTokenRequestTypeDef",
     "GetFederationTokenResponseTypeDef",
-    "GetSessionTokenRequestRequestTypeDef",
+    "GetSessionTokenRequestTypeDef",
     "GetSessionTokenResponseTypeDef",
     "PolicyDescriptorTypeTypeDef",
     "ProvidedContextTypeDef",
@@ -46,274 +56,146 @@ __all__ = (
     "TagTypeDef",
 )
 
-_RequiredAssumeRoleRequestRequestTypeDef = TypedDict(
-    "_RequiredAssumeRoleRequestRequestTypeDef",
-    {
-        "RoleArn": str,
-        "RoleSessionName": str,
-    },
-)
-_OptionalAssumeRoleRequestRequestTypeDef = TypedDict(
-    "_OptionalAssumeRoleRequestRequestTypeDef",
-    {
-        "PolicyArns": List["PolicyDescriptorTypeTypeDef"],
-        "Policy": str,
-        "DurationSeconds": int,
-        "Tags": List["TagTypeDef"],
-        "TransitiveTagKeys": List[str],
-        "ExternalId": str,
-        "SerialNumber": str,
-        "TokenCode": str,
-        "SourceIdentity": str,
-        "ProvidedContexts": List["ProvidedContextTypeDef"],
-    },
-    total=False,
-)
+class PolicyDescriptorTypeTypeDef(TypedDict):
+    arn: NotRequired[str]
 
-class AssumeRoleRequestRequestTypeDef(
-    _RequiredAssumeRoleRequestRequestTypeDef, _OptionalAssumeRoleRequestRequestTypeDef
-):
-    pass
+class ProvidedContextTypeDef(TypedDict):
+    ProviderArn: NotRequired[str]
+    ContextAssertion: NotRequired[str]
 
-AssumeRoleResponseTypeDef = TypedDict(
-    "AssumeRoleResponseTypeDef",
-    {
-        "Credentials": "CredentialsTypeDef",
-        "AssumedRoleUser": "AssumedRoleUserTypeDef",
-        "PackedPolicySize": int,
-        "SourceIdentity": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class TagTypeDef(TypedDict):
+    Key: str
+    Value: str
 
-_RequiredAssumeRoleWithSAMLRequestRequestTypeDef = TypedDict(
-    "_RequiredAssumeRoleWithSAMLRequestRequestTypeDef",
-    {
-        "RoleArn": str,
-        "PrincipalArn": str,
-        "SAMLAssertion": str,
-    },
-)
-_OptionalAssumeRoleWithSAMLRequestRequestTypeDef = TypedDict(
-    "_OptionalAssumeRoleWithSAMLRequestRequestTypeDef",
-    {
-        "PolicyArns": List["PolicyDescriptorTypeTypeDef"],
-        "Policy": str,
-        "DurationSeconds": int,
-    },
-    total=False,
-)
+class AssumedRoleUserTypeDef(TypedDict):
+    AssumedRoleId: str
+    Arn: str
 
-class AssumeRoleWithSAMLRequestRequestTypeDef(
-    _RequiredAssumeRoleWithSAMLRequestRequestTypeDef,
-    _OptionalAssumeRoleWithSAMLRequestRequestTypeDef,
-):
-    pass
+class CredentialsTypeDef(TypedDict):
+    AccessKeyId: str
+    SecretAccessKey: str
+    SessionToken: str
+    Expiration: datetime
 
-AssumeRoleWithSAMLResponseTypeDef = TypedDict(
-    "AssumeRoleWithSAMLResponseTypeDef",
-    {
-        "Credentials": "CredentialsTypeDef",
-        "AssumedRoleUser": "AssumedRoleUserTypeDef",
-        "PackedPolicySize": int,
-        "Subject": str,
-        "SubjectType": str,
-        "Issuer": str,
-        "Audience": str,
-        "NameQualifier": str,
-        "SourceIdentity": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-_RequiredAssumeRoleWithWebIdentityRequestRequestTypeDef = TypedDict(
-    "_RequiredAssumeRoleWithWebIdentityRequestRequestTypeDef",
-    {
-        "RoleArn": str,
-        "RoleSessionName": str,
-        "WebIdentityToken": str,
-    },
-)
-_OptionalAssumeRoleWithWebIdentityRequestRequestTypeDef = TypedDict(
-    "_OptionalAssumeRoleWithWebIdentityRequestRequestTypeDef",
-    {
-        "ProviderId": str,
-        "PolicyArns": List["PolicyDescriptorTypeTypeDef"],
-        "Policy": str,
-        "DurationSeconds": int,
-    },
-    total=False,
-)
+class DecodeAuthorizationMessageRequestTypeDef(TypedDict):
+    EncodedMessage: str
 
-class AssumeRoleWithWebIdentityRequestRequestTypeDef(
-    _RequiredAssumeRoleWithWebIdentityRequestRequestTypeDef,
-    _OptionalAssumeRoleWithWebIdentityRequestRequestTypeDef,
-):
-    pass
+class FederatedUserTypeDef(TypedDict):
+    FederatedUserId: str
+    Arn: str
 
-AssumeRoleWithWebIdentityResponseTypeDef = TypedDict(
-    "AssumeRoleWithWebIdentityResponseTypeDef",
-    {
-        "Credentials": "CredentialsTypeDef",
-        "SubjectFromWebIdentityToken": str,
-        "AssumedRoleUser": "AssumedRoleUserTypeDef",
-        "PackedPolicySize": int,
-        "Provider": str,
-        "Audience": str,
-        "SourceIdentity": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetAccessKeyInfoRequestTypeDef(TypedDict):
+    AccessKeyId: str
 
-AssumedRoleUserTypeDef = TypedDict(
-    "AssumedRoleUserTypeDef",
-    {
-        "AssumedRoleId": str,
-        "Arn": str,
-    },
-)
+class GetSessionTokenRequestTypeDef(TypedDict):
+    DurationSeconds: NotRequired[int]
+    SerialNumber: NotRequired[str]
+    TokenCode: NotRequired[str]
 
-CredentialsTypeDef = TypedDict(
-    "CredentialsTypeDef",
-    {
-        "AccessKeyId": str,
-        "SecretAccessKey": str,
-        "SessionToken": str,
-        "Expiration": datetime,
-    },
-)
+class AssumeRoleWithSAMLRequestTypeDef(TypedDict):
+    RoleArn: str
+    PrincipalArn: str
+    SAMLAssertion: str
+    PolicyArns: NotRequired[Sequence[PolicyDescriptorTypeTypeDef]]
+    Policy: NotRequired[str]
+    DurationSeconds: NotRequired[int]
 
-DecodeAuthorizationMessageRequestRequestTypeDef = TypedDict(
-    "DecodeAuthorizationMessageRequestRequestTypeDef",
-    {
-        "EncodedMessage": str,
-    },
-)
+class AssumeRoleWithWebIdentityRequestTypeDef(TypedDict):
+    RoleArn: str
+    RoleSessionName: str
+    WebIdentityToken: str
+    ProviderId: NotRequired[str]
+    PolicyArns: NotRequired[Sequence[PolicyDescriptorTypeTypeDef]]
+    Policy: NotRequired[str]
+    DurationSeconds: NotRequired[int]
 
-DecodeAuthorizationMessageResponseTypeDef = TypedDict(
-    "DecodeAuthorizationMessageResponseTypeDef",
-    {
-        "DecodedMessage": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class AssumeRootRequestTypeDef(TypedDict):
+    TargetPrincipal: str
+    TaskPolicyArn: PolicyDescriptorTypeTypeDef
+    DurationSeconds: NotRequired[int]
 
-FederatedUserTypeDef = TypedDict(
-    "FederatedUserTypeDef",
-    {
-        "FederatedUserId": str,
-        "Arn": str,
-    },
-)
+class AssumeRoleRequestTypeDef(TypedDict):
+    RoleArn: str
+    RoleSessionName: str
+    PolicyArns: NotRequired[Sequence[PolicyDescriptorTypeTypeDef]]
+    Policy: NotRequired[str]
+    DurationSeconds: NotRequired[int]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+    TransitiveTagKeys: NotRequired[Sequence[str]]
+    ExternalId: NotRequired[str]
+    SerialNumber: NotRequired[str]
+    TokenCode: NotRequired[str]
+    SourceIdentity: NotRequired[str]
+    ProvidedContexts: NotRequired[Sequence[ProvidedContextTypeDef]]
 
-GetAccessKeyInfoRequestRequestTypeDef = TypedDict(
-    "GetAccessKeyInfoRequestRequestTypeDef",
-    {
-        "AccessKeyId": str,
-    },
-)
+class GetFederationTokenRequestTypeDef(TypedDict):
+    Name: str
+    Policy: NotRequired[str]
+    PolicyArns: NotRequired[Sequence[PolicyDescriptorTypeTypeDef]]
+    DurationSeconds: NotRequired[int]
+    Tags: NotRequired[Sequence[TagTypeDef]]
 
-GetAccessKeyInfoResponseTypeDef = TypedDict(
-    "GetAccessKeyInfoResponseTypeDef",
-    {
-        "Account": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class AssumeRoleResponseTypeDef(TypedDict):
+    Credentials: CredentialsTypeDef
+    AssumedRoleUser: AssumedRoleUserTypeDef
+    PackedPolicySize: int
+    SourceIdentity: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-GetCallerIdentityResponseTypeDef = TypedDict(
-    "GetCallerIdentityResponseTypeDef",
-    {
-        "UserId": str,
-        "Account": str,
-        "Arn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class AssumeRoleWithSAMLResponseTypeDef(TypedDict):
+    Credentials: CredentialsTypeDef
+    AssumedRoleUser: AssumedRoleUserTypeDef
+    PackedPolicySize: int
+    Subject: str
+    SubjectType: str
+    Issuer: str
+    Audience: str
+    NameQualifier: str
+    SourceIdentity: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredGetFederationTokenRequestRequestTypeDef = TypedDict(
-    "_RequiredGetFederationTokenRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
-_OptionalGetFederationTokenRequestRequestTypeDef = TypedDict(
-    "_OptionalGetFederationTokenRequestRequestTypeDef",
-    {
-        "Policy": str,
-        "PolicyArns": List["PolicyDescriptorTypeTypeDef"],
-        "DurationSeconds": int,
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
+class AssumeRoleWithWebIdentityResponseTypeDef(TypedDict):
+    Credentials: CredentialsTypeDef
+    SubjectFromWebIdentityToken: str
+    AssumedRoleUser: AssumedRoleUserTypeDef
+    PackedPolicySize: int
+    Provider: str
+    Audience: str
+    SourceIdentity: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class GetFederationTokenRequestRequestTypeDef(
-    _RequiredGetFederationTokenRequestRequestTypeDef,
-    _OptionalGetFederationTokenRequestRequestTypeDef,
-):
-    pass
+class AssumeRootResponseTypeDef(TypedDict):
+    Credentials: CredentialsTypeDef
+    SourceIdentity: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-GetFederationTokenResponseTypeDef = TypedDict(
-    "GetFederationTokenResponseTypeDef",
-    {
-        "Credentials": "CredentialsTypeDef",
-        "FederatedUser": "FederatedUserTypeDef",
-        "PackedPolicySize": int,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DecodeAuthorizationMessageResponseTypeDef(TypedDict):
+    DecodedMessage: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-GetSessionTokenRequestRequestTypeDef = TypedDict(
-    "GetSessionTokenRequestRequestTypeDef",
-    {
-        "DurationSeconds": int,
-        "SerialNumber": str,
-        "TokenCode": str,
-    },
-    total=False,
-)
+class GetAccessKeyInfoResponseTypeDef(TypedDict):
+    Account: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-GetSessionTokenResponseTypeDef = TypedDict(
-    "GetSessionTokenResponseTypeDef",
-    {
-        "Credentials": "CredentialsTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetCallerIdentityResponseTypeDef(TypedDict):
+    UserId: str
+    Account: str
+    Arn: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-PolicyDescriptorTypeTypeDef = TypedDict(
-    "PolicyDescriptorTypeTypeDef",
-    {
-        "arn": str,
-    },
-    total=False,
-)
+class GetSessionTokenResponseTypeDef(TypedDict):
+    Credentials: CredentialsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ProvidedContextTypeDef = TypedDict(
-    "ProvidedContextTypeDef",
-    {
-        "ProviderArn": str,
-        "ContextAssertion": str,
-    },
-    total=False,
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-TagTypeDef = TypedDict(
-    "TagTypeDef",
-    {
-        "Key": str,
-        "Value": str,
-    },
-)
+class GetFederationTokenResponseTypeDef(TypedDict):
+    Credentials: CredentialsTypeDef
+    FederatedUser: FederatedUserTypeDef
+    PackedPolicySize: int
+    ResponseMetadata: ResponseMetadataTypeDef

@@ -1,20 +1,24 @@
 """
 Type annotations for apptest service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apptest/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_apptest/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_apptest.type_defs import BatchStepInputTypeDef
+    from mypy_boto3_apptest.type_defs import BatchOutputTypeDef
 
-    data: BatchStepInputTypeDef = {...}
+    data: BatchOutputTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
+from typing import Any, Union
 
 from .literals import (
     CaptureToolType,
@@ -31,25 +35,33 @@ from .literals import (
     TestSuiteLifecycleType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
+    "BatchOutputTypeDef",
     "BatchStepInputTypeDef",
     "BatchStepOutputTypeDef",
     "BatchSummaryTypeDef",
     "BatchTypeDef",
+    "BatchUnionTypeDef",
     "CloudFormationActionTypeDef",
+    "CloudFormationOutputTypeDef",
     "CloudFormationStepSummaryTypeDef",
     "CloudFormationTypeDef",
+    "CloudFormationUnionTypeDef",
+    "CompareActionOutputTypeDef",
     "CompareActionSummaryTypeDef",
     "CompareActionTypeDef",
+    "CompareActionUnionTypeDef",
     "CompareDataSetsStepInputTypeDef",
     "CompareDataSetsStepOutputTypeDef",
     "CompareDataSetsSummaryTypeDef",
@@ -60,45 +72,57 @@ __all__ = (
     "CreateCloudFormationStepInputTypeDef",
     "CreateCloudFormationStepOutputTypeDef",
     "CreateCloudFormationSummaryTypeDef",
-    "CreateTestCaseRequestRequestTypeDef",
+    "CreateTestCaseRequestTypeDef",
     "CreateTestCaseResponseTypeDef",
-    "CreateTestConfigurationRequestRequestTypeDef",
+    "CreateTestConfigurationRequestTypeDef",
     "CreateTestConfigurationResponseTypeDef",
-    "CreateTestSuiteRequestRequestTypeDef",
+    "CreateTestSuiteRequestTypeDef",
     "CreateTestSuiteResponseTypeDef",
     "DataSetTypeDef",
     "DatabaseCDCTypeDef",
     "DeleteCloudFormationStepInputTypeDef",
     "DeleteCloudFormationSummaryTypeDef",
-    "DeleteTestCaseRequestRequestTypeDef",
-    "DeleteTestConfigurationRequestRequestTypeDef",
-    "DeleteTestRunRequestRequestTypeDef",
-    "DeleteTestSuiteRequestRequestTypeDef",
+    "DeleteTestCaseRequestTypeDef",
+    "DeleteTestConfigurationRequestTypeDef",
+    "DeleteTestRunRequestTypeDef",
+    "DeleteTestSuiteRequestTypeDef",
+    "FileMetadataOutputTypeDef",
     "FileMetadataTypeDef",
+    "FileMetadataUnionTypeDef",
     "FileTypeDef",
-    "GetTestCaseRequestRequestTypeDef",
+    "GetTestCaseRequestTypeDef",
     "GetTestCaseResponseTypeDef",
-    "GetTestConfigurationRequestRequestTypeDef",
+    "GetTestConfigurationRequestTypeDef",
     "GetTestConfigurationResponseTypeDef",
-    "GetTestRunStepRequestRequestTypeDef",
+    "GetTestRunStepRequestTypeDef",
     "GetTestRunStepResponseTypeDef",
-    "GetTestSuiteRequestRequestTypeDef",
+    "GetTestSuiteRequestTypeDef",
     "GetTestSuiteResponseTypeDef",
+    "InputFileOutputTypeDef",
     "InputFileTypeDef",
+    "InputFileUnionTypeDef",
+    "InputOutputTypeDef",
     "InputTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "InputUnionTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
-    "ListTestCasesRequestRequestTypeDef",
+    "ListTestCasesRequestPaginateTypeDef",
+    "ListTestCasesRequestTypeDef",
     "ListTestCasesResponseTypeDef",
-    "ListTestConfigurationsRequestRequestTypeDef",
+    "ListTestConfigurationsRequestPaginateTypeDef",
+    "ListTestConfigurationsRequestTypeDef",
     "ListTestConfigurationsResponseTypeDef",
-    "ListTestRunStepsRequestRequestTypeDef",
+    "ListTestRunStepsRequestPaginateTypeDef",
+    "ListTestRunStepsRequestTypeDef",
     "ListTestRunStepsResponseTypeDef",
-    "ListTestRunTestCasesRequestRequestTypeDef",
+    "ListTestRunTestCasesRequestPaginateTypeDef",
+    "ListTestRunTestCasesRequestTypeDef",
     "ListTestRunTestCasesResponseTypeDef",
-    "ListTestRunsRequestRequestTypeDef",
+    "ListTestRunsRequestPaginateTypeDef",
+    "ListTestRunsRequestTypeDef",
     "ListTestRunsResponseTypeDef",
-    "ListTestSuitesRequestRequestTypeDef",
+    "ListTestSuitesRequestPaginateTypeDef",
+    "ListTestSuitesRequestTypeDef",
     "ListTestSuitesResponseTypeDef",
     "M2ManagedActionPropertiesTypeDef",
     "M2ManagedApplicationActionTypeDef",
@@ -112,436 +136,76 @@ __all__ = (
     "M2NonManagedApplicationStepSummaryTypeDef",
     "M2NonManagedApplicationSummaryTypeDef",
     "M2NonManagedApplicationTypeDef",
+    "MainframeActionOutputTypeDef",
     "MainframeActionPropertiesTypeDef",
     "MainframeActionSummaryTypeDef",
     "MainframeActionTypeDef",
+    "MainframeActionTypeOutputTypeDef",
     "MainframeActionTypeTypeDef",
+    "MainframeActionTypeUnionTypeDef",
+    "MainframeActionUnionTypeDef",
     "MainframeResourceSummaryTypeDef",
     "OutputFileTypeDef",
     "OutputTypeDef",
     "PaginatorConfigTypeDef",
     "ResourceActionSummaryTypeDef",
     "ResourceActionTypeDef",
+    "ResourceOutputTypeDef",
     "ResourceTypeDef",
+    "ResourceTypeOutputTypeDef",
     "ResourceTypeTypeDef",
+    "ResourceTypeUnionTypeDef",
+    "ResourceUnionTypeDef",
     "ResponseMetadataTypeDef",
     "ScriptSummaryTypeDef",
     "ScriptTypeDef",
     "ServiceSettingsTypeDef",
     "SourceDatabaseMetadataTypeDef",
-    "StartTestRunRequestRequestTypeDef",
+    "StartTestRunRequestTypeDef",
     "StartTestRunResponseTypeDef",
+    "StepActionOutputTypeDef",
     "StepActionTypeDef",
+    "StepActionUnionTypeDef",
+    "StepOutputTypeDef",
     "StepRunSummaryTypeDef",
     "StepTypeDef",
+    "StepUnionTypeDef",
+    "TN3270OutputTypeDef",
     "TN3270StepInputTypeDef",
     "TN3270StepOutputTypeDef",
     "TN3270SummaryTypeDef",
     "TN3270TypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "TN3270UnionTypeDef",
+    "TagResourceRequestTypeDef",
     "TargetDatabaseMetadataTypeDef",
     "TestCaseLatestVersionTypeDef",
     "TestCaseRunSummaryTypeDef",
     "TestCaseSummaryTypeDef",
+    "TestCasesOutputTypeDef",
     "TestCasesTypeDef",
+    "TestCasesUnionTypeDef",
     "TestConfigurationLatestVersionTypeDef",
     "TestConfigurationSummaryTypeDef",
     "TestRunStepSummaryTypeDef",
     "TestRunSummaryTypeDef",
     "TestSuiteLatestVersionTypeDef",
     "TestSuiteSummaryTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateTestCaseRequestRequestTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateTestCaseRequestTypeDef",
     "UpdateTestCaseResponseTypeDef",
-    "UpdateTestConfigurationRequestRequestTypeDef",
+    "UpdateTestConfigurationRequestTypeDef",
     "UpdateTestConfigurationResponseTypeDef",
-    "UpdateTestSuiteRequestRequestTypeDef",
+    "UpdateTestSuiteRequestTypeDef",
     "UpdateTestSuiteResponseTypeDef",
 )
 
-_RequiredBatchStepInputTypeDef = TypedDict(
-    "_RequiredBatchStepInputTypeDef",
-    {
-        "resource": "MainframeResourceSummaryTypeDef",
-        "batchJobName": str,
-    },
-)
-_OptionalBatchStepInputTypeDef = TypedDict(
-    "_OptionalBatchStepInputTypeDef",
-    {
-        "batchJobParameters": Dict[str, str],
-        "exportDataSetNames": List[str],
-        "properties": "MainframeActionPropertiesTypeDef",
-    },
-    total=False,
-)
+class BatchOutputTypeDef(TypedDict):
+    batchJobName: str
+    batchJobParameters: NotRequired[Dict[str, str]]
+    exportDataSetNames: NotRequired[List[str]]
 
-class BatchStepInputTypeDef(_RequiredBatchStepInputTypeDef, _OptionalBatchStepInputTypeDef):
-    pass
-
-BatchStepOutputTypeDef = TypedDict(
-    "BatchStepOutputTypeDef",
-    {
-        "dataSetExportLocation": str,
-        "dmsOutputLocation": str,
-        "dataSetDetails": List["DataSetTypeDef"],
-    },
-    total=False,
-)
-
-_RequiredBatchSummaryTypeDef = TypedDict(
-    "_RequiredBatchSummaryTypeDef",
-    {
-        "stepInput": "BatchStepInputTypeDef",
-    },
-)
-_OptionalBatchSummaryTypeDef = TypedDict(
-    "_OptionalBatchSummaryTypeDef",
-    {
-        "stepOutput": "BatchStepOutputTypeDef",
-    },
-    total=False,
-)
-
-class BatchSummaryTypeDef(_RequiredBatchSummaryTypeDef, _OptionalBatchSummaryTypeDef):
-    pass
-
-_RequiredBatchTypeDef = TypedDict(
-    "_RequiredBatchTypeDef",
-    {
-        "batchJobName": str,
-    },
-)
-_OptionalBatchTypeDef = TypedDict(
-    "_OptionalBatchTypeDef",
-    {
-        "batchJobParameters": Dict[str, str],
-        "exportDataSetNames": List[str],
-    },
-    total=False,
-)
-
-class BatchTypeDef(_RequiredBatchTypeDef, _OptionalBatchTypeDef):
-    pass
-
-_RequiredCloudFormationActionTypeDef = TypedDict(
-    "_RequiredCloudFormationActionTypeDef",
-    {
-        "resource": str,
-    },
-)
-_OptionalCloudFormationActionTypeDef = TypedDict(
-    "_OptionalCloudFormationActionTypeDef",
-    {
-        "actionType": CloudFormationActionTypeType,
-    },
-    total=False,
-)
-
-class CloudFormationActionTypeDef(
-    _RequiredCloudFormationActionTypeDef, _OptionalCloudFormationActionTypeDef
-):
-    pass
-
-CloudFormationStepSummaryTypeDef = TypedDict(
-    "CloudFormationStepSummaryTypeDef",
-    {
-        "createCloudformation": "CreateCloudFormationSummaryTypeDef",
-        "deleteCloudformation": "DeleteCloudFormationSummaryTypeDef",
-    },
-    total=False,
-)
-
-_RequiredCloudFormationTypeDef = TypedDict(
-    "_RequiredCloudFormationTypeDef",
-    {
-        "templateLocation": str,
-    },
-)
-_OptionalCloudFormationTypeDef = TypedDict(
-    "_OptionalCloudFormationTypeDef",
-    {
-        "parameters": Dict[str, str],
-    },
-    total=False,
-)
-
-class CloudFormationTypeDef(_RequiredCloudFormationTypeDef, _OptionalCloudFormationTypeDef):
-    pass
-
-CompareActionSummaryTypeDef = TypedDict(
-    "CompareActionSummaryTypeDef",
-    {
-        "type": "FileTypeDef",
-    },
-)
-
-_RequiredCompareActionTypeDef = TypedDict(
-    "_RequiredCompareActionTypeDef",
-    {
-        "input": "InputTypeDef",
-    },
-)
-_OptionalCompareActionTypeDef = TypedDict(
-    "_OptionalCompareActionTypeDef",
-    {
-        "output": "OutputTypeDef",
-    },
-    total=False,
-)
-
-class CompareActionTypeDef(_RequiredCompareActionTypeDef, _OptionalCompareActionTypeDef):
-    pass
-
-CompareDataSetsStepInputTypeDef = TypedDict(
-    "CompareDataSetsStepInputTypeDef",
-    {
-        "sourceLocation": str,
-        "targetLocation": str,
-        "sourceDataSets": List["DataSetTypeDef"],
-        "targetDataSets": List["DataSetTypeDef"],
-    },
-)
-
-CompareDataSetsStepOutputTypeDef = TypedDict(
-    "CompareDataSetsStepOutputTypeDef",
-    {
-        "comparisonOutputLocation": str,
-        "comparisonStatus": ComparisonStatusEnumType,
-    },
-)
-
-_RequiredCompareDataSetsSummaryTypeDef = TypedDict(
-    "_RequiredCompareDataSetsSummaryTypeDef",
-    {
-        "stepInput": "CompareDataSetsStepInputTypeDef",
-    },
-)
-_OptionalCompareDataSetsSummaryTypeDef = TypedDict(
-    "_OptionalCompareDataSetsSummaryTypeDef",
-    {
-        "stepOutput": "CompareDataSetsStepOutputTypeDef",
-    },
-    total=False,
-)
-
-class CompareDataSetsSummaryTypeDef(
-    _RequiredCompareDataSetsSummaryTypeDef, _OptionalCompareDataSetsSummaryTypeDef
-):
-    pass
-
-_RequiredCompareDatabaseCDCStepInputTypeDef = TypedDict(
-    "_RequiredCompareDatabaseCDCStepInputTypeDef",
-    {
-        "sourceLocation": str,
-        "targetLocation": str,
-        "sourceMetadata": "SourceDatabaseMetadataTypeDef",
-        "targetMetadata": "TargetDatabaseMetadataTypeDef",
-    },
-)
-_OptionalCompareDatabaseCDCStepInputTypeDef = TypedDict(
-    "_OptionalCompareDatabaseCDCStepInputTypeDef",
-    {
-        "outputLocation": str,
-    },
-    total=False,
-)
-
-class CompareDatabaseCDCStepInputTypeDef(
-    _RequiredCompareDatabaseCDCStepInputTypeDef, _OptionalCompareDatabaseCDCStepInputTypeDef
-):
-    pass
-
-CompareDatabaseCDCStepOutputTypeDef = TypedDict(
-    "CompareDatabaseCDCStepOutputTypeDef",
-    {
-        "comparisonOutputLocation": str,
-        "comparisonStatus": ComparisonStatusEnumType,
-    },
-)
-
-_RequiredCompareDatabaseCDCSummaryTypeDef = TypedDict(
-    "_RequiredCompareDatabaseCDCSummaryTypeDef",
-    {
-        "stepInput": "CompareDatabaseCDCStepInputTypeDef",
-    },
-)
-_OptionalCompareDatabaseCDCSummaryTypeDef = TypedDict(
-    "_OptionalCompareDatabaseCDCSummaryTypeDef",
-    {
-        "stepOutput": "CompareDatabaseCDCStepOutputTypeDef",
-    },
-    total=False,
-)
-
-class CompareDatabaseCDCSummaryTypeDef(
-    _RequiredCompareDatabaseCDCSummaryTypeDef, _OptionalCompareDatabaseCDCSummaryTypeDef
-):
-    pass
-
-CompareFileTypeTypeDef = TypedDict(
-    "CompareFileTypeTypeDef",
-    {
-        "datasets": "CompareDataSetsSummaryTypeDef",
-        "databaseCDC": "CompareDatabaseCDCSummaryTypeDef",
-    },
-    total=False,
-)
-
-_RequiredCreateCloudFormationStepInputTypeDef = TypedDict(
-    "_RequiredCreateCloudFormationStepInputTypeDef",
-    {
-        "templateLocation": str,
-    },
-)
-_OptionalCreateCloudFormationStepInputTypeDef = TypedDict(
-    "_OptionalCreateCloudFormationStepInputTypeDef",
-    {
-        "parameters": Dict[str, str],
-    },
-    total=False,
-)
-
-class CreateCloudFormationStepInputTypeDef(
-    _RequiredCreateCloudFormationStepInputTypeDef, _OptionalCreateCloudFormationStepInputTypeDef
-):
-    pass
-
-_RequiredCreateCloudFormationStepOutputTypeDef = TypedDict(
-    "_RequiredCreateCloudFormationStepOutputTypeDef",
-    {
-        "stackId": str,
-    },
-)
-_OptionalCreateCloudFormationStepOutputTypeDef = TypedDict(
-    "_OptionalCreateCloudFormationStepOutputTypeDef",
-    {
-        "exports": Dict[str, str],
-    },
-    total=False,
-)
-
-class CreateCloudFormationStepOutputTypeDef(
-    _RequiredCreateCloudFormationStepOutputTypeDef, _OptionalCreateCloudFormationStepOutputTypeDef
-):
-    pass
-
-_RequiredCreateCloudFormationSummaryTypeDef = TypedDict(
-    "_RequiredCreateCloudFormationSummaryTypeDef",
-    {
-        "stepInput": "CreateCloudFormationStepInputTypeDef",
-    },
-)
-_OptionalCreateCloudFormationSummaryTypeDef = TypedDict(
-    "_OptionalCreateCloudFormationSummaryTypeDef",
-    {
-        "stepOutput": "CreateCloudFormationStepOutputTypeDef",
-    },
-    total=False,
-)
-
-class CreateCloudFormationSummaryTypeDef(
-    _RequiredCreateCloudFormationSummaryTypeDef, _OptionalCreateCloudFormationSummaryTypeDef
-):
-    pass
-
-_RequiredCreateTestCaseRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateTestCaseRequestRequestTypeDef",
-    {
-        "name": str,
-        "steps": List["StepTypeDef"],
-    },
-)
-_OptionalCreateTestCaseRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateTestCaseRequestRequestTypeDef",
-    {
-        "description": str,
-        "clientToken": str,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class CreateTestCaseRequestRequestTypeDef(
-    _RequiredCreateTestCaseRequestRequestTypeDef, _OptionalCreateTestCaseRequestRequestTypeDef
-):
-    pass
-
-CreateTestCaseResponseTypeDef = TypedDict(
-    "CreateTestCaseResponseTypeDef",
-    {
-        "testCaseId": str,
-        "testCaseVersion": int,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateTestConfigurationRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateTestConfigurationRequestRequestTypeDef",
-    {
-        "name": str,
-        "resources": List["ResourceTypeDef"],
-    },
-)
-_OptionalCreateTestConfigurationRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateTestConfigurationRequestRequestTypeDef",
-    {
-        "description": str,
-        "properties": Dict[str, str],
-        "clientToken": str,
-        "tags": Dict[str, str],
-        "serviceSettings": "ServiceSettingsTypeDef",
-    },
-    total=False,
-)
-
-class CreateTestConfigurationRequestRequestTypeDef(
-    _RequiredCreateTestConfigurationRequestRequestTypeDef,
-    _OptionalCreateTestConfigurationRequestRequestTypeDef,
-):
-    pass
-
-CreateTestConfigurationResponseTypeDef = TypedDict(
-    "CreateTestConfigurationResponseTypeDef",
-    {
-        "testConfigurationId": str,
-        "testConfigurationVersion": int,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateTestSuiteRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateTestSuiteRequestRequestTypeDef",
-    {
-        "name": str,
-        "testCases": "TestCasesTypeDef",
-    },
-)
-_OptionalCreateTestSuiteRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateTestSuiteRequestRequestTypeDef",
-    {
-        "description": str,
-        "beforeSteps": List["StepTypeDef"],
-        "afterSteps": List["StepTypeDef"],
-        "clientToken": str,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class CreateTestSuiteRequestRequestTypeDef(
-    _RequiredCreateTestSuiteRequestRequestTypeDef, _OptionalCreateTestSuiteRequestRequestTypeDef
-):
-    pass
-
-CreateTestSuiteResponseTypeDef = TypedDict(
-    "CreateTestSuiteResponseTypeDef",
-    {
-        "testSuiteId": str,
-        "testSuiteVersion": int,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class MainframeActionPropertiesTypeDef(TypedDict):
+    dmsTaskArn: NotRequired[str]
 
 DataSetTypeDef = TypedDict(
     "DataSetTypeDef",
@@ -554,779 +218,26 @@ DataSetTypeDef = TypedDict(
     },
 )
 
-DatabaseCDCTypeDef = TypedDict(
-    "DatabaseCDCTypeDef",
-    {
-        "sourceMetadata": "SourceDatabaseMetadataTypeDef",
-        "targetMetadata": "TargetDatabaseMetadataTypeDef",
-    },
-)
-
-DeleteCloudFormationStepInputTypeDef = TypedDict(
-    "DeleteCloudFormationStepInputTypeDef",
-    {
-        "stackId": str,
-    },
-)
-
-_RequiredDeleteCloudFormationSummaryTypeDef = TypedDict(
-    "_RequiredDeleteCloudFormationSummaryTypeDef",
-    {
-        "stepInput": "DeleteCloudFormationStepInputTypeDef",
-    },
-)
-_OptionalDeleteCloudFormationSummaryTypeDef = TypedDict(
-    "_OptionalDeleteCloudFormationSummaryTypeDef",
-    {
-        "stepOutput": Dict[str, Any],
-    },
-    total=False,
-)
-
-class DeleteCloudFormationSummaryTypeDef(
-    _RequiredDeleteCloudFormationSummaryTypeDef, _OptionalDeleteCloudFormationSummaryTypeDef
-):
-    pass
-
-DeleteTestCaseRequestRequestTypeDef = TypedDict(
-    "DeleteTestCaseRequestRequestTypeDef",
-    {
-        "testCaseId": str,
-    },
-)
-
-DeleteTestConfigurationRequestRequestTypeDef = TypedDict(
-    "DeleteTestConfigurationRequestRequestTypeDef",
-    {
-        "testConfigurationId": str,
-    },
-)
-
-DeleteTestRunRequestRequestTypeDef = TypedDict(
-    "DeleteTestRunRequestRequestTypeDef",
-    {
-        "testRunId": str,
-    },
-)
-
-DeleteTestSuiteRequestRequestTypeDef = TypedDict(
-    "DeleteTestSuiteRequestRequestTypeDef",
-    {
-        "testSuiteId": str,
-    },
-)
-
-FileMetadataTypeDef = TypedDict(
-    "FileMetadataTypeDef",
-    {
-        "dataSets": List["DataSetTypeDef"],
-        "databaseCDC": "DatabaseCDCTypeDef",
-    },
-    total=False,
-)
-
-FileTypeDef = TypedDict(
-    "FileTypeDef",
-    {
-        "fileType": "CompareFileTypeTypeDef",
-    },
-    total=False,
-)
-
-_RequiredGetTestCaseRequestRequestTypeDef = TypedDict(
-    "_RequiredGetTestCaseRequestRequestTypeDef",
-    {
-        "testCaseId": str,
-    },
-)
-_OptionalGetTestCaseRequestRequestTypeDef = TypedDict(
-    "_OptionalGetTestCaseRequestRequestTypeDef",
-    {
-        "testCaseVersion": int,
-    },
-    total=False,
-)
-
-class GetTestCaseRequestRequestTypeDef(
-    _RequiredGetTestCaseRequestRequestTypeDef, _OptionalGetTestCaseRequestRequestTypeDef
-):
-    pass
-
-GetTestCaseResponseTypeDef = TypedDict(
-    "GetTestCaseResponseTypeDef",
-    {
-        "testCaseId": str,
-        "testCaseArn": str,
-        "name": str,
-        "description": str,
-        "latestVersion": "TestCaseLatestVersionTypeDef",
-        "testCaseVersion": int,
-        "status": TestCaseLifecycleType,
-        "statusReason": str,
-        "creationTime": datetime,
-        "lastUpdateTime": datetime,
-        "steps": List["StepTypeDef"],
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetTestConfigurationRequestRequestTypeDef = TypedDict(
-    "_RequiredGetTestConfigurationRequestRequestTypeDef",
-    {
-        "testConfigurationId": str,
-    },
-)
-_OptionalGetTestConfigurationRequestRequestTypeDef = TypedDict(
-    "_OptionalGetTestConfigurationRequestRequestTypeDef",
-    {
-        "testConfigurationVersion": int,
-    },
-    total=False,
-)
-
-class GetTestConfigurationRequestRequestTypeDef(
-    _RequiredGetTestConfigurationRequestRequestTypeDef,
-    _OptionalGetTestConfigurationRequestRequestTypeDef,
-):
-    pass
-
-GetTestConfigurationResponseTypeDef = TypedDict(
-    "GetTestConfigurationResponseTypeDef",
-    {
-        "testConfigurationId": str,
-        "name": str,
-        "testConfigurationArn": str,
-        "latestVersion": "TestConfigurationLatestVersionTypeDef",
-        "testConfigurationVersion": int,
-        "status": TestConfigurationLifecycleType,
-        "statusReason": str,
-        "creationTime": datetime,
-        "lastUpdateTime": datetime,
-        "description": str,
-        "resources": List["ResourceTypeDef"],
-        "properties": Dict[str, str],
-        "tags": Dict[str, str],
-        "serviceSettings": "ServiceSettingsTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetTestRunStepRequestRequestTypeDef = TypedDict(
-    "_RequiredGetTestRunStepRequestRequestTypeDef",
-    {
-        "testRunId": str,
-        "stepName": str,
-    },
-)
-_OptionalGetTestRunStepRequestRequestTypeDef = TypedDict(
-    "_OptionalGetTestRunStepRequestRequestTypeDef",
-    {
-        "testCaseId": str,
-        "testSuiteId": str,
-    },
-    total=False,
-)
-
-class GetTestRunStepRequestRequestTypeDef(
-    _RequiredGetTestRunStepRequestRequestTypeDef, _OptionalGetTestRunStepRequestRequestTypeDef
-):
-    pass
-
-GetTestRunStepResponseTypeDef = TypedDict(
-    "GetTestRunStepResponseTypeDef",
-    {
-        "stepName": str,
-        "testRunId": str,
-        "testCaseId": str,
-        "testCaseVersion": int,
-        "testSuiteId": str,
-        "testSuiteVersion": int,
-        "beforeStep": bool,
-        "afterStep": bool,
-        "status": StepRunStatusType,
-        "statusReason": str,
-        "runStartTime": datetime,
-        "runEndTime": datetime,
-        "stepRunSummary": "StepRunSummaryTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetTestSuiteRequestRequestTypeDef = TypedDict(
-    "_RequiredGetTestSuiteRequestRequestTypeDef",
-    {
-        "testSuiteId": str,
-    },
-)
-_OptionalGetTestSuiteRequestRequestTypeDef = TypedDict(
-    "_OptionalGetTestSuiteRequestRequestTypeDef",
-    {
-        "testSuiteVersion": int,
-    },
-    total=False,
-)
-
-class GetTestSuiteRequestRequestTypeDef(
-    _RequiredGetTestSuiteRequestRequestTypeDef, _OptionalGetTestSuiteRequestRequestTypeDef
-):
-    pass
-
-GetTestSuiteResponseTypeDef = TypedDict(
-    "GetTestSuiteResponseTypeDef",
-    {
-        "testSuiteId": str,
-        "name": str,
-        "latestVersion": "TestSuiteLatestVersionTypeDef",
-        "testSuiteVersion": int,
-        "status": TestSuiteLifecycleType,
-        "statusReason": str,
-        "testSuiteArn": str,
-        "creationTime": datetime,
-        "lastUpdateTime": datetime,
-        "description": str,
-        "beforeSteps": List["StepTypeDef"],
-        "afterSteps": List["StepTypeDef"],
-        "testCases": "TestCasesTypeDef",
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-InputFileTypeDef = TypedDict(
-    "InputFileTypeDef",
-    {
-        "sourceLocation": str,
-        "targetLocation": str,
-        "fileMetadata": "FileMetadataTypeDef",
-    },
-)
-
-InputTypeDef = TypedDict(
-    "InputTypeDef",
-    {
-        "file": "InputFileTypeDef",
-    },
-    total=False,
-)
-
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-    },
-)
-
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTestCasesRequestRequestTypeDef = TypedDict(
-    "ListTestCasesRequestRequestTypeDef",
-    {
-        "testCaseIds": List[str],
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-ListTestCasesResponseTypeDef = TypedDict(
-    "ListTestCasesResponseTypeDef",
-    {
-        "testCases": List["TestCaseSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTestConfigurationsRequestRequestTypeDef = TypedDict(
-    "ListTestConfigurationsRequestRequestTypeDef",
-    {
-        "testConfigurationIds": List[str],
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-ListTestConfigurationsResponseTypeDef = TypedDict(
-    "ListTestConfigurationsResponseTypeDef",
-    {
-        "testConfigurations": List["TestConfigurationSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListTestRunStepsRequestRequestTypeDef = TypedDict(
-    "_RequiredListTestRunStepsRequestRequestTypeDef",
-    {
-        "testRunId": str,
-    },
-)
-_OptionalListTestRunStepsRequestRequestTypeDef = TypedDict(
-    "_OptionalListTestRunStepsRequestRequestTypeDef",
-    {
-        "testCaseId": str,
-        "testSuiteId": str,
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-class ListTestRunStepsRequestRequestTypeDef(
-    _RequiredListTestRunStepsRequestRequestTypeDef, _OptionalListTestRunStepsRequestRequestTypeDef
-):
-    pass
-
-ListTestRunStepsResponseTypeDef = TypedDict(
-    "ListTestRunStepsResponseTypeDef",
-    {
-        "testRunSteps": List["TestRunStepSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListTestRunTestCasesRequestRequestTypeDef = TypedDict(
-    "_RequiredListTestRunTestCasesRequestRequestTypeDef",
-    {
-        "testRunId": str,
-    },
-)
-_OptionalListTestRunTestCasesRequestRequestTypeDef = TypedDict(
-    "_OptionalListTestRunTestCasesRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-class ListTestRunTestCasesRequestRequestTypeDef(
-    _RequiredListTestRunTestCasesRequestRequestTypeDef,
-    _OptionalListTestRunTestCasesRequestRequestTypeDef,
-):
-    pass
-
-ListTestRunTestCasesResponseTypeDef = TypedDict(
-    "ListTestRunTestCasesResponseTypeDef",
-    {
-        "testRunTestCases": List["TestCaseRunSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTestRunsRequestRequestTypeDef = TypedDict(
-    "ListTestRunsRequestRequestTypeDef",
-    {
-        "testSuiteId": str,
-        "testRunIds": List[str],
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-ListTestRunsResponseTypeDef = TypedDict(
-    "ListTestRunsResponseTypeDef",
-    {
-        "testRuns": List["TestRunSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTestSuitesRequestRequestTypeDef = TypedDict(
-    "ListTestSuitesRequestRequestTypeDef",
-    {
-        "testSuiteIds": List[str],
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-ListTestSuitesResponseTypeDef = TypedDict(
-    "ListTestSuitesResponseTypeDef",
-    {
-        "testSuites": List["TestSuiteSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-M2ManagedActionPropertiesTypeDef = TypedDict(
-    "M2ManagedActionPropertiesTypeDef",
-    {
-        "forceStop": bool,
-        "importDataSetLocation": str,
-    },
-    total=False,
-)
-
-_RequiredM2ManagedApplicationActionTypeDef = TypedDict(
-    "_RequiredM2ManagedApplicationActionTypeDef",
-    {
-        "resource": str,
-        "actionType": M2ManagedActionTypeType,
-    },
-)
-_OptionalM2ManagedApplicationActionTypeDef = TypedDict(
-    "_OptionalM2ManagedApplicationActionTypeDef",
-    {
-        "properties": "M2ManagedActionPropertiesTypeDef",
-    },
-    total=False,
-)
-
-class M2ManagedApplicationActionTypeDef(
-    _RequiredM2ManagedApplicationActionTypeDef, _OptionalM2ManagedApplicationActionTypeDef
-):
-    pass
-
-_RequiredM2ManagedApplicationStepInputTypeDef = TypedDict(
-    "_RequiredM2ManagedApplicationStepInputTypeDef",
-    {
-        "applicationId": str,
-        "runtime": str,
-        "actionType": M2ManagedActionTypeType,
-    },
-)
-_OptionalM2ManagedApplicationStepInputTypeDef = TypedDict(
-    "_OptionalM2ManagedApplicationStepInputTypeDef",
-    {
-        "vpcEndpointServiceName": str,
-        "listenerPort": int,
-        "properties": "M2ManagedActionPropertiesTypeDef",
-    },
-    total=False,
-)
-
-class M2ManagedApplicationStepInputTypeDef(
-    _RequiredM2ManagedApplicationStepInputTypeDef, _OptionalM2ManagedApplicationStepInputTypeDef
-):
-    pass
-
-M2ManagedApplicationStepOutputTypeDef = TypedDict(
-    "M2ManagedApplicationStepOutputTypeDef",
-    {
-        "importDataSetSummary": Dict[str, str],
-    },
-    total=False,
-)
-
-_RequiredM2ManagedApplicationStepSummaryTypeDef = TypedDict(
-    "_RequiredM2ManagedApplicationStepSummaryTypeDef",
-    {
-        "stepInput": "M2ManagedApplicationStepInputTypeDef",
-    },
-)
-_OptionalM2ManagedApplicationStepSummaryTypeDef = TypedDict(
-    "_OptionalM2ManagedApplicationStepSummaryTypeDef",
-    {
-        "stepOutput": "M2ManagedApplicationStepOutputTypeDef",
-    },
-    total=False,
-)
-
-class M2ManagedApplicationStepSummaryTypeDef(
-    _RequiredM2ManagedApplicationStepSummaryTypeDef, _OptionalM2ManagedApplicationStepSummaryTypeDef
-):
-    pass
-
-_RequiredM2ManagedApplicationSummaryTypeDef = TypedDict(
-    "_RequiredM2ManagedApplicationSummaryTypeDef",
-    {
-        "applicationId": str,
-        "runtime": Literal["MicroFocus"],
-    },
-)
-_OptionalM2ManagedApplicationSummaryTypeDef = TypedDict(
-    "_OptionalM2ManagedApplicationSummaryTypeDef",
-    {
-        "listenerPort": int,
-    },
-    total=False,
-)
-
-class M2ManagedApplicationSummaryTypeDef(
-    _RequiredM2ManagedApplicationSummaryTypeDef, _OptionalM2ManagedApplicationSummaryTypeDef
-):
-    pass
-
-_RequiredM2ManagedApplicationTypeDef = TypedDict(
-    "_RequiredM2ManagedApplicationTypeDef",
-    {
-        "applicationId": str,
-        "runtime": Literal["MicroFocus"],
-    },
-)
-_OptionalM2ManagedApplicationTypeDef = TypedDict(
-    "_OptionalM2ManagedApplicationTypeDef",
-    {
-        "vpcEndpointServiceName": str,
-        "listenerPort": str,
-    },
-    total=False,
-)
-
-class M2ManagedApplicationTypeDef(
-    _RequiredM2ManagedApplicationTypeDef, _OptionalM2ManagedApplicationTypeDef
-):
-    pass
-
-M2NonManagedApplicationActionTypeDef = TypedDict(
-    "M2NonManagedApplicationActionTypeDef",
-    {
-        "resource": str,
-        "actionType": M2NonManagedActionTypeType,
-    },
-)
-
-_RequiredM2NonManagedApplicationStepInputTypeDef = TypedDict(
-    "_RequiredM2NonManagedApplicationStepInputTypeDef",
-    {
-        "vpcEndpointServiceName": str,
-        "listenerPort": int,
-        "runtime": Literal["BluAge"],
-        "actionType": M2NonManagedActionTypeType,
-    },
-)
-_OptionalM2NonManagedApplicationStepInputTypeDef = TypedDict(
-    "_OptionalM2NonManagedApplicationStepInputTypeDef",
-    {
-        "webAppName": str,
-    },
-    total=False,
-)
-
-class M2NonManagedApplicationStepInputTypeDef(
-    _RequiredM2NonManagedApplicationStepInputTypeDef,
-    _OptionalM2NonManagedApplicationStepInputTypeDef,
-):
-    pass
-
-_RequiredM2NonManagedApplicationStepSummaryTypeDef = TypedDict(
-    "_RequiredM2NonManagedApplicationStepSummaryTypeDef",
-    {
-        "stepInput": "M2NonManagedApplicationStepInputTypeDef",
-    },
-)
-_OptionalM2NonManagedApplicationStepSummaryTypeDef = TypedDict(
-    "_OptionalM2NonManagedApplicationStepSummaryTypeDef",
-    {
-        "stepOutput": Dict[str, Any],
-    },
-    total=False,
-)
-
-class M2NonManagedApplicationStepSummaryTypeDef(
-    _RequiredM2NonManagedApplicationStepSummaryTypeDef,
-    _OptionalM2NonManagedApplicationStepSummaryTypeDef,
-):
-    pass
-
-_RequiredM2NonManagedApplicationSummaryTypeDef = TypedDict(
-    "_RequiredM2NonManagedApplicationSummaryTypeDef",
-    {
-        "vpcEndpointServiceName": str,
-        "listenerPort": int,
-        "runtime": Literal["BluAge"],
-    },
-)
-_OptionalM2NonManagedApplicationSummaryTypeDef = TypedDict(
-    "_OptionalM2NonManagedApplicationSummaryTypeDef",
-    {
-        "webAppName": str,
-    },
-    total=False,
-)
-
-class M2NonManagedApplicationSummaryTypeDef(
-    _RequiredM2NonManagedApplicationSummaryTypeDef, _OptionalM2NonManagedApplicationSummaryTypeDef
-):
-    pass
-
-_RequiredM2NonManagedApplicationTypeDef = TypedDict(
-    "_RequiredM2NonManagedApplicationTypeDef",
-    {
-        "vpcEndpointServiceName": str,
-        "listenerPort": str,
-        "runtime": Literal["BluAge"],
-    },
-)
-_OptionalM2NonManagedApplicationTypeDef = TypedDict(
-    "_OptionalM2NonManagedApplicationTypeDef",
-    {
-        "webAppName": str,
-    },
-    total=False,
-)
-
-class M2NonManagedApplicationTypeDef(
-    _RequiredM2NonManagedApplicationTypeDef, _OptionalM2NonManagedApplicationTypeDef
-):
-    pass
-
-MainframeActionPropertiesTypeDef = TypedDict(
-    "MainframeActionPropertiesTypeDef",
-    {
-        "dmsTaskArn": str,
-    },
-    total=False,
-)
-
-MainframeActionSummaryTypeDef = TypedDict(
-    "MainframeActionSummaryTypeDef",
-    {
-        "batch": "BatchSummaryTypeDef",
-        "tn3270": "TN3270SummaryTypeDef",
-    },
-    total=False,
-)
-
-_RequiredMainframeActionTypeDef = TypedDict(
-    "_RequiredMainframeActionTypeDef",
-    {
-        "resource": str,
-        "actionType": "MainframeActionTypeTypeDef",
-    },
-)
-_OptionalMainframeActionTypeDef = TypedDict(
-    "_OptionalMainframeActionTypeDef",
-    {
-        "properties": "MainframeActionPropertiesTypeDef",
-    },
-    total=False,
-)
-
-class MainframeActionTypeDef(_RequiredMainframeActionTypeDef, _OptionalMainframeActionTypeDef):
-    pass
-
-MainframeActionTypeTypeDef = TypedDict(
-    "MainframeActionTypeTypeDef",
-    {
-        "batch": "BatchTypeDef",
-        "tn3270": "TN3270TypeDef",
-    },
-    total=False,
-)
-
-MainframeResourceSummaryTypeDef = TypedDict(
-    "MainframeResourceSummaryTypeDef",
-    {
-        "m2ManagedApplication": "M2ManagedApplicationSummaryTypeDef",
-        "m2NonManagedApplication": "M2NonManagedApplicationSummaryTypeDef",
-    },
-    total=False,
-)
-
-OutputFileTypeDef = TypedDict(
-    "OutputFileTypeDef",
-    {
-        "fileLocation": str,
-    },
-    total=False,
-)
-
-OutputTypeDef = TypedDict(
-    "OutputTypeDef",
-    {
-        "file": "OutputFileTypeDef",
-    },
-    total=False,
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-ResourceActionSummaryTypeDef = TypedDict(
-    "ResourceActionSummaryTypeDef",
-    {
-        "cloudFormation": "CloudFormationStepSummaryTypeDef",
-        "m2ManagedApplication": "M2ManagedApplicationStepSummaryTypeDef",
-        "m2NonManagedApplication": "M2NonManagedApplicationStepSummaryTypeDef",
-    },
-    total=False,
-)
-
-ResourceActionTypeDef = TypedDict(
-    "ResourceActionTypeDef",
-    {
-        "m2ManagedApplicationAction": "M2ManagedApplicationActionTypeDef",
-        "m2NonManagedApplicationAction": "M2NonManagedApplicationActionTypeDef",
-        "cloudFormationAction": "CloudFormationActionTypeDef",
-    },
-    total=False,
-)
-
-ResourceTypeDef = TypedDict(
-    "ResourceTypeDef",
-    {
-        "name": str,
-        "type": "ResourceTypeTypeDef",
-    },
-)
-
-ResourceTypeTypeDef = TypedDict(
-    "ResourceTypeTypeDef",
-    {
-        "cloudFormation": "CloudFormationTypeDef",
-        "m2ManagedApplication": "M2ManagedApplicationTypeDef",
-        "m2NonManagedApplication": "M2NonManagedApplicationTypeDef",
-    },
-    total=False,
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-ScriptSummaryTypeDef = TypedDict(
-    "ScriptSummaryTypeDef",
-    {
-        "scriptLocation": str,
-        "type": Literal["Selenium"],
-    },
-)
-
-ScriptTypeDef = TypedDict(
-    "ScriptTypeDef",
-    {
-        "scriptLocation": str,
-        "type": Literal["Selenium"],
-    },
-)
-
-ServiceSettingsTypeDef = TypedDict(
-    "ServiceSettingsTypeDef",
-    {
-        "kmsKeyId": str,
-    },
-    total=False,
-)
+class BatchTypeDef(TypedDict):
+    batchJobName: str
+    batchJobParameters: NotRequired[Mapping[str, str]]
+    exportDataSetNames: NotRequired[Sequence[str]]
+
+class CloudFormationActionTypeDef(TypedDict):
+    resource: str
+    actionType: NotRequired[CloudFormationActionTypeType]
+
+class CloudFormationOutputTypeDef(TypedDict):
+    templateLocation: str
+    parameters: NotRequired[Dict[str, str]]
+
+class CloudFormationTypeDef(TypedDict):
+    templateLocation: str
+    parameters: NotRequired[Mapping[str, str]]
+
+class CompareDataSetsStepOutputTypeDef(TypedDict):
+    comparisonOutputLocation: str
+    comparisonStatus: ComparisonStatusEnumType
 
 SourceDatabaseMetadataTypeDef = TypedDict(
     "SourceDatabaseMetadataTypeDef",
@@ -1335,155 +246,6 @@ SourceDatabaseMetadataTypeDef = TypedDict(
         "captureTool": CaptureToolType,
     },
 )
-
-_RequiredStartTestRunRequestRequestTypeDef = TypedDict(
-    "_RequiredStartTestRunRequestRequestTypeDef",
-    {
-        "testSuiteId": str,
-    },
-)
-_OptionalStartTestRunRequestRequestTypeDef = TypedDict(
-    "_OptionalStartTestRunRequestRequestTypeDef",
-    {
-        "testConfigurationId": str,
-        "clientToken": str,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class StartTestRunRequestRequestTypeDef(
-    _RequiredStartTestRunRequestRequestTypeDef, _OptionalStartTestRunRequestRequestTypeDef
-):
-    pass
-
-StartTestRunResponseTypeDef = TypedDict(
-    "StartTestRunResponseTypeDef",
-    {
-        "testRunId": str,
-        "testRunStatus": TestRunStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-StepActionTypeDef = TypedDict(
-    "StepActionTypeDef",
-    {
-        "resourceAction": "ResourceActionTypeDef",
-        "mainframeAction": "MainframeActionTypeDef",
-        "compareAction": "CompareActionTypeDef",
-    },
-    total=False,
-)
-
-StepRunSummaryTypeDef = TypedDict(
-    "StepRunSummaryTypeDef",
-    {
-        "mainframeAction": "MainframeActionSummaryTypeDef",
-        "compareAction": "CompareActionSummaryTypeDef",
-        "resourceAction": "ResourceActionSummaryTypeDef",
-    },
-    total=False,
-)
-
-_RequiredStepTypeDef = TypedDict(
-    "_RequiredStepTypeDef",
-    {
-        "name": str,
-        "action": "StepActionTypeDef",
-    },
-)
-_OptionalStepTypeDef = TypedDict(
-    "_OptionalStepTypeDef",
-    {
-        "description": str,
-    },
-    total=False,
-)
-
-class StepTypeDef(_RequiredStepTypeDef, _OptionalStepTypeDef):
-    pass
-
-_RequiredTN3270StepInputTypeDef = TypedDict(
-    "_RequiredTN3270StepInputTypeDef",
-    {
-        "resource": "MainframeResourceSummaryTypeDef",
-        "script": "ScriptSummaryTypeDef",
-    },
-)
-_OptionalTN3270StepInputTypeDef = TypedDict(
-    "_OptionalTN3270StepInputTypeDef",
-    {
-        "exportDataSetNames": List[str],
-        "properties": "MainframeActionPropertiesTypeDef",
-    },
-    total=False,
-)
-
-class TN3270StepInputTypeDef(_RequiredTN3270StepInputTypeDef, _OptionalTN3270StepInputTypeDef):
-    pass
-
-_RequiredTN3270StepOutputTypeDef = TypedDict(
-    "_RequiredTN3270StepOutputTypeDef",
-    {
-        "scriptOutputLocation": str,
-    },
-)
-_OptionalTN3270StepOutputTypeDef = TypedDict(
-    "_OptionalTN3270StepOutputTypeDef",
-    {
-        "dataSetExportLocation": str,
-        "dmsOutputLocation": str,
-        "dataSetDetails": List["DataSetTypeDef"],
-    },
-    total=False,
-)
-
-class TN3270StepOutputTypeDef(_RequiredTN3270StepOutputTypeDef, _OptionalTN3270StepOutputTypeDef):
-    pass
-
-_RequiredTN3270SummaryTypeDef = TypedDict(
-    "_RequiredTN3270SummaryTypeDef",
-    {
-        "stepInput": "TN3270StepInputTypeDef",
-    },
-)
-_OptionalTN3270SummaryTypeDef = TypedDict(
-    "_OptionalTN3270SummaryTypeDef",
-    {
-        "stepOutput": "TN3270StepOutputTypeDef",
-    },
-    total=False,
-)
-
-class TN3270SummaryTypeDef(_RequiredTN3270SummaryTypeDef, _OptionalTN3270SummaryTypeDef):
-    pass
-
-_RequiredTN3270TypeDef = TypedDict(
-    "_RequiredTN3270TypeDef",
-    {
-        "script": "ScriptTypeDef",
-    },
-)
-_OptionalTN3270TypeDef = TypedDict(
-    "_OptionalTN3270TypeDef",
-    {
-        "exportDataSetNames": List[str],
-    },
-    total=False,
-)
-
-class TN3270TypeDef(_RequiredTN3270TypeDef, _OptionalTN3270TypeDef):
-    pass
-
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tags": Dict[str, str],
-    },
-)
-
 TargetDatabaseMetadataTypeDef = TypedDict(
     "TargetDatabaseMetadataTypeDef",
     {
@@ -1492,319 +254,727 @@ TargetDatabaseMetadataTypeDef = TypedDict(
     },
 )
 
-_RequiredTestCaseLatestVersionTypeDef = TypedDict(
-    "_RequiredTestCaseLatestVersionTypeDef",
+class CompareDatabaseCDCStepOutputTypeDef(TypedDict):
+    comparisonOutputLocation: str
+    comparisonStatus: ComparisonStatusEnumType
+
+class CreateCloudFormationStepInputTypeDef(TypedDict):
+    templateLocation: str
+    parameters: NotRequired[Dict[str, str]]
+
+class CreateCloudFormationStepOutputTypeDef(TypedDict):
+    stackId: str
+    exports: NotRequired[Dict[str, str]]
+
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
+
+class ServiceSettingsTypeDef(TypedDict):
+    kmsKeyId: NotRequired[str]
+
+class DeleteCloudFormationStepInputTypeDef(TypedDict):
+    stackId: str
+
+class DeleteTestCaseRequestTypeDef(TypedDict):
+    testCaseId: str
+
+class DeleteTestConfigurationRequestTypeDef(TypedDict):
+    testConfigurationId: str
+
+class DeleteTestRunRequestTypeDef(TypedDict):
+    testRunId: str
+
+class DeleteTestSuiteRequestTypeDef(TypedDict):
+    testSuiteId: str
+
+class GetTestCaseRequestTypeDef(TypedDict):
+    testCaseId: str
+    testCaseVersion: NotRequired[int]
+
+class TestCaseLatestVersionTypeDef(TypedDict):
+    version: int
+    status: TestCaseLifecycleType
+    statusReason: NotRequired[str]
+
+class GetTestConfigurationRequestTypeDef(TypedDict):
+    testConfigurationId: str
+    testConfigurationVersion: NotRequired[int]
+
+class TestConfigurationLatestVersionTypeDef(TypedDict):
+    version: int
+    status: TestConfigurationLifecycleType
+    statusReason: NotRequired[str]
+
+class GetTestRunStepRequestTypeDef(TypedDict):
+    testRunId: str
+    stepName: str
+    testCaseId: NotRequired[str]
+    testSuiteId: NotRequired[str]
+
+class GetTestSuiteRequestTypeDef(TypedDict):
+    testSuiteId: str
+    testSuiteVersion: NotRequired[int]
+
+class TestCasesOutputTypeDef(TypedDict):
+    sequential: NotRequired[List[str]]
+
+class TestSuiteLatestVersionTypeDef(TypedDict):
+    version: int
+    status: TestSuiteLifecycleType
+    statusReason: NotRequired[str]
+
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class ListTestCasesRequestTypeDef(TypedDict):
+    testCaseIds: NotRequired[Sequence[str]]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class TestCaseSummaryTypeDef(TypedDict):
+    testCaseId: str
+    testCaseArn: str
+    name: str
+    latestVersion: int
+    status: TestCaseLifecycleType
+    creationTime: datetime
+    lastUpdateTime: datetime
+    statusReason: NotRequired[str]
+
+class ListTestConfigurationsRequestTypeDef(TypedDict):
+    testConfigurationIds: NotRequired[Sequence[str]]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class TestConfigurationSummaryTypeDef(TypedDict):
+    testConfigurationId: str
+    name: str
+    latestVersion: int
+    testConfigurationArn: str
+    status: TestConfigurationLifecycleType
+    creationTime: datetime
+    lastUpdateTime: datetime
+    statusReason: NotRequired[str]
+
+class ListTestRunStepsRequestTypeDef(TypedDict):
+    testRunId: str
+    testCaseId: NotRequired[str]
+    testSuiteId: NotRequired[str]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class TestRunStepSummaryTypeDef(TypedDict):
+    stepName: str
+    testRunId: str
+    status: StepRunStatusType
+    runStartTime: datetime
+    testCaseId: NotRequired[str]
+    testCaseVersion: NotRequired[int]
+    testSuiteId: NotRequired[str]
+    testSuiteVersion: NotRequired[int]
+    beforeStep: NotRequired[bool]
+    afterStep: NotRequired[bool]
+    statusReason: NotRequired[str]
+    runEndTime: NotRequired[datetime]
+
+class ListTestRunTestCasesRequestTypeDef(TypedDict):
+    testRunId: str
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class TestCaseRunSummaryTypeDef(TypedDict):
+    testCaseId: str
+    testCaseVersion: int
+    testRunId: str
+    status: TestCaseRunStatusType
+    runStartTime: datetime
+    statusReason: NotRequired[str]
+    runEndTime: NotRequired[datetime]
+
+class ListTestRunsRequestTypeDef(TypedDict):
+    testSuiteId: NotRequired[str]
+    testRunIds: NotRequired[Sequence[str]]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class TestRunSummaryTypeDef(TypedDict):
+    testRunId: str
+    testRunArn: str
+    testSuiteId: str
+    testSuiteVersion: int
+    status: TestRunStatusType
+    runStartTime: datetime
+    testConfigurationId: NotRequired[str]
+    testConfigurationVersion: NotRequired[int]
+    statusReason: NotRequired[str]
+    runEndTime: NotRequired[datetime]
+
+class ListTestSuitesRequestTypeDef(TypedDict):
+    testSuiteIds: NotRequired[Sequence[str]]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class TestSuiteSummaryTypeDef(TypedDict):
+    testSuiteId: str
+    name: str
+    latestVersion: int
+    testSuiteArn: str
+    status: TestSuiteLifecycleType
+    creationTime: datetime
+    lastUpdateTime: datetime
+    statusReason: NotRequired[str]
+
+class M2ManagedActionPropertiesTypeDef(TypedDict):
+    forceStop: NotRequired[bool]
+    importDataSetLocation: NotRequired[str]
+
+class M2ManagedApplicationStepOutputTypeDef(TypedDict):
+    importDataSetSummary: NotRequired[Dict[str, str]]
+
+class M2ManagedApplicationSummaryTypeDef(TypedDict):
+    applicationId: str
+    runtime: Literal["MicroFocus"]
+    listenerPort: NotRequired[int]
+
+class M2ManagedApplicationTypeDef(TypedDict):
+    applicationId: str
+    runtime: Literal["MicroFocus"]
+    vpcEndpointServiceName: NotRequired[str]
+    listenerPort: NotRequired[str]
+
+class M2NonManagedApplicationActionTypeDef(TypedDict):
+    resource: str
+    actionType: M2NonManagedActionTypeType
+
+class M2NonManagedApplicationStepInputTypeDef(TypedDict):
+    vpcEndpointServiceName: str
+    listenerPort: int
+    runtime: Literal["BluAge"]
+    actionType: M2NonManagedActionTypeType
+    webAppName: NotRequired[str]
+
+class M2NonManagedApplicationSummaryTypeDef(TypedDict):
+    vpcEndpointServiceName: str
+    listenerPort: int
+    runtime: Literal["BluAge"]
+    webAppName: NotRequired[str]
+
+class M2NonManagedApplicationTypeDef(TypedDict):
+    vpcEndpointServiceName: str
+    listenerPort: str
+    runtime: Literal["BluAge"]
+    webAppName: NotRequired[str]
+
+class OutputFileTypeDef(TypedDict):
+    fileLocation: NotRequired[str]
+
+ScriptSummaryTypeDef = TypedDict(
+    "ScriptSummaryTypeDef",
     {
-        "version": int,
-        "status": TestCaseLifecycleType,
+        "scriptLocation": str,
+        "type": Literal["Selenium"],
     },
 )
-_OptionalTestCaseLatestVersionTypeDef = TypedDict(
-    "_OptionalTestCaseLatestVersionTypeDef",
+ScriptTypeDef = TypedDict(
+    "ScriptTypeDef",
     {
-        "statusReason": str,
-    },
-    total=False,
-)
-
-class TestCaseLatestVersionTypeDef(
-    _RequiredTestCaseLatestVersionTypeDef, _OptionalTestCaseLatestVersionTypeDef
-):
-    pass
-
-_RequiredTestCaseRunSummaryTypeDef = TypedDict(
-    "_RequiredTestCaseRunSummaryTypeDef",
-    {
-        "testCaseId": str,
-        "testCaseVersion": int,
-        "testRunId": str,
-        "status": TestCaseRunStatusType,
-        "runStartTime": datetime,
+        "scriptLocation": str,
+        "type": Literal["Selenium"],
     },
 )
-_OptionalTestCaseRunSummaryTypeDef = TypedDict(
-    "_OptionalTestCaseRunSummaryTypeDef",
-    {
-        "statusReason": str,
-        "runEndTime": datetime,
-    },
-    total=False,
-)
 
-class TestCaseRunSummaryTypeDef(
-    _RequiredTestCaseRunSummaryTypeDef, _OptionalTestCaseRunSummaryTypeDef
-):
-    pass
+class StartTestRunRequestTypeDef(TypedDict):
+    testSuiteId: str
+    testConfigurationId: NotRequired[str]
+    clientToken: NotRequired[str]
+    tags: NotRequired[Mapping[str, str]]
 
-_RequiredTestCaseSummaryTypeDef = TypedDict(
-    "_RequiredTestCaseSummaryTypeDef",
+class TagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tags: Mapping[str, str]
+
+class TestCasesTypeDef(TypedDict):
+    sequential: NotRequired[Sequence[str]]
+
+class UntagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tagKeys: Sequence[str]
+
+class BatchStepOutputTypeDef(TypedDict):
+    dataSetExportLocation: NotRequired[str]
+    dmsOutputLocation: NotRequired[str]
+    dataSetDetails: NotRequired[List[DataSetTypeDef]]
+
+class CompareDataSetsStepInputTypeDef(TypedDict):
+    sourceLocation: str
+    targetLocation: str
+    sourceDataSets: List[DataSetTypeDef]
+    targetDataSets: List[DataSetTypeDef]
+
+class TN3270StepOutputTypeDef(TypedDict):
+    scriptOutputLocation: str
+    dataSetExportLocation: NotRequired[str]
+    dmsOutputLocation: NotRequired[str]
+    dataSetDetails: NotRequired[List[DataSetTypeDef]]
+
+BatchUnionTypeDef = Union[BatchTypeDef, BatchOutputTypeDef]
+CloudFormationUnionTypeDef = Union[CloudFormationTypeDef, CloudFormationOutputTypeDef]
+
+class CompareDatabaseCDCStepInputTypeDef(TypedDict):
+    sourceLocation: str
+    targetLocation: str
+    sourceMetadata: SourceDatabaseMetadataTypeDef
+    targetMetadata: TargetDatabaseMetadataTypeDef
+    outputLocation: NotRequired[str]
+
+class DatabaseCDCTypeDef(TypedDict):
+    sourceMetadata: SourceDatabaseMetadataTypeDef
+    targetMetadata: TargetDatabaseMetadataTypeDef
+
+class CreateCloudFormationSummaryTypeDef(TypedDict):
+    stepInput: CreateCloudFormationStepInputTypeDef
+    stepOutput: NotRequired[CreateCloudFormationStepOutputTypeDef]
+
+class CreateTestCaseResponseTypeDef(TypedDict):
+    testCaseId: str
+    testCaseVersion: int
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateTestConfigurationResponseTypeDef(TypedDict):
+    testConfigurationId: str
+    testConfigurationVersion: int
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateTestSuiteResponseTypeDef(TypedDict):
+    testSuiteId: str
+    testSuiteVersion: int
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartTestRunResponseTypeDef(TypedDict):
+    testRunId: str
+    testRunStatus: TestRunStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateTestCaseResponseTypeDef(TypedDict):
+    testCaseId: str
+    testCaseVersion: int
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateTestConfigurationResponseTypeDef(TypedDict):
+    testConfigurationId: str
+    testConfigurationVersion: int
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateTestSuiteResponseTypeDef(TypedDict):
+    testSuiteId: str
+    testSuiteVersion: int
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteCloudFormationSummaryTypeDef(TypedDict):
+    stepInput: DeleteCloudFormationStepInputTypeDef
+    stepOutput: NotRequired[Dict[str, Any]]
+
+class ListTestCasesRequestPaginateTypeDef(TypedDict):
+    testCaseIds: NotRequired[Sequence[str]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListTestConfigurationsRequestPaginateTypeDef(TypedDict):
+    testConfigurationIds: NotRequired[Sequence[str]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListTestRunStepsRequestPaginateTypeDef(TypedDict):
+    testRunId: str
+    testCaseId: NotRequired[str]
+    testSuiteId: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListTestRunTestCasesRequestPaginateTypeDef(TypedDict):
+    testRunId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListTestRunsRequestPaginateTypeDef(TypedDict):
+    testSuiteId: NotRequired[str]
+    testRunIds: NotRequired[Sequence[str]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListTestSuitesRequestPaginateTypeDef(TypedDict):
+    testSuiteIds: NotRequired[Sequence[str]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListTestCasesResponseTypeDef(TypedDict):
+    testCases: List[TestCaseSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListTestConfigurationsResponseTypeDef(TypedDict):
+    testConfigurations: List[TestConfigurationSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListTestRunStepsResponseTypeDef(TypedDict):
+    testRunSteps: List[TestRunStepSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListTestRunTestCasesResponseTypeDef(TypedDict):
+    testRunTestCases: List[TestCaseRunSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListTestRunsResponseTypeDef(TypedDict):
+    testRuns: List[TestRunSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListTestSuitesResponseTypeDef(TypedDict):
+    testSuites: List[TestSuiteSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class M2ManagedApplicationActionTypeDef(TypedDict):
+    resource: str
+    actionType: M2ManagedActionTypeType
+    properties: NotRequired[M2ManagedActionPropertiesTypeDef]
+
+class M2ManagedApplicationStepInputTypeDef(TypedDict):
+    applicationId: str
+    runtime: str
+    actionType: M2ManagedActionTypeType
+    vpcEndpointServiceName: NotRequired[str]
+    listenerPort: NotRequired[int]
+    properties: NotRequired[M2ManagedActionPropertiesTypeDef]
+
+class M2NonManagedApplicationStepSummaryTypeDef(TypedDict):
+    stepInput: M2NonManagedApplicationStepInputTypeDef
+    stepOutput: NotRequired[Dict[str, Any]]
+
+class MainframeResourceSummaryTypeDef(TypedDict):
+    m2ManagedApplication: NotRequired[M2ManagedApplicationSummaryTypeDef]
+    m2NonManagedApplication: NotRequired[M2NonManagedApplicationSummaryTypeDef]
+
+class ResourceTypeOutputTypeDef(TypedDict):
+    cloudFormation: NotRequired[CloudFormationOutputTypeDef]
+    m2ManagedApplication: NotRequired[M2ManagedApplicationTypeDef]
+    m2NonManagedApplication: NotRequired[M2NonManagedApplicationTypeDef]
+
+class OutputTypeDef(TypedDict):
+    file: NotRequired[OutputFileTypeDef]
+
+class TN3270OutputTypeDef(TypedDict):
+    script: ScriptTypeDef
+    exportDataSetNames: NotRequired[List[str]]
+
+class TN3270TypeDef(TypedDict):
+    script: ScriptTypeDef
+    exportDataSetNames: NotRequired[Sequence[str]]
+
+TestCasesUnionTypeDef = Union[TestCasesTypeDef, TestCasesOutputTypeDef]
+
+class CompareDataSetsSummaryTypeDef(TypedDict):
+    stepInput: CompareDataSetsStepInputTypeDef
+    stepOutput: NotRequired[CompareDataSetsStepOutputTypeDef]
+
+class ResourceTypeTypeDef(TypedDict):
+    cloudFormation: NotRequired[CloudFormationUnionTypeDef]
+    m2ManagedApplication: NotRequired[M2ManagedApplicationTypeDef]
+    m2NonManagedApplication: NotRequired[M2NonManagedApplicationTypeDef]
+
+class CompareDatabaseCDCSummaryTypeDef(TypedDict):
+    stepInput: CompareDatabaseCDCStepInputTypeDef
+    stepOutput: NotRequired[CompareDatabaseCDCStepOutputTypeDef]
+
+class FileMetadataOutputTypeDef(TypedDict):
+    dataSets: NotRequired[List[DataSetTypeDef]]
+    databaseCDC: NotRequired[DatabaseCDCTypeDef]
+
+class FileMetadataTypeDef(TypedDict):
+    dataSets: NotRequired[Sequence[DataSetTypeDef]]
+    databaseCDC: NotRequired[DatabaseCDCTypeDef]
+
+class CloudFormationStepSummaryTypeDef(TypedDict):
+    createCloudformation: NotRequired[CreateCloudFormationSummaryTypeDef]
+    deleteCloudformation: NotRequired[DeleteCloudFormationSummaryTypeDef]
+
+class ResourceActionTypeDef(TypedDict):
+    m2ManagedApplicationAction: NotRequired[M2ManagedApplicationActionTypeDef]
+    m2NonManagedApplicationAction: NotRequired[M2NonManagedApplicationActionTypeDef]
+    cloudFormationAction: NotRequired[CloudFormationActionTypeDef]
+
+class M2ManagedApplicationStepSummaryTypeDef(TypedDict):
+    stepInput: M2ManagedApplicationStepInputTypeDef
+    stepOutput: NotRequired[M2ManagedApplicationStepOutputTypeDef]
+
+class BatchStepInputTypeDef(TypedDict):
+    resource: MainframeResourceSummaryTypeDef
+    batchJobName: str
+    batchJobParameters: NotRequired[Dict[str, str]]
+    exportDataSetNames: NotRequired[List[str]]
+    properties: NotRequired[MainframeActionPropertiesTypeDef]
+
+class TN3270StepInputTypeDef(TypedDict):
+    resource: MainframeResourceSummaryTypeDef
+    script: ScriptSummaryTypeDef
+    exportDataSetNames: NotRequired[List[str]]
+    properties: NotRequired[MainframeActionPropertiesTypeDef]
+
+ResourceOutputTypeDef = TypedDict(
+    "ResourceOutputTypeDef",
     {
-        "testCaseId": str,
-        "testCaseArn": str,
         "name": str,
-        "latestVersion": int,
-        "status": TestCaseLifecycleType,
-        "creationTime": datetime,
-        "lastUpdateTime": datetime,
+        "type": ResourceTypeOutputTypeDef,
     },
 )
-_OptionalTestCaseSummaryTypeDef = TypedDict(
-    "_OptionalTestCaseSummaryTypeDef",
-    {
-        "statusReason": str,
-    },
-    total=False,
-)
 
-class TestCaseSummaryTypeDef(_RequiredTestCaseSummaryTypeDef, _OptionalTestCaseSummaryTypeDef):
-    pass
+class MainframeActionTypeOutputTypeDef(TypedDict):
+    batch: NotRequired[BatchOutputTypeDef]
+    tn3270: NotRequired[TN3270OutputTypeDef]
 
-TestCasesTypeDef = TypedDict(
-    "TestCasesTypeDef",
-    {
-        "sequential": List[str],
-    },
-    total=False,
-)
+TN3270UnionTypeDef = Union[TN3270TypeDef, TN3270OutputTypeDef]
+ResourceTypeUnionTypeDef = Union[ResourceTypeTypeDef, ResourceTypeOutputTypeDef]
 
-_RequiredTestConfigurationLatestVersionTypeDef = TypedDict(
-    "_RequiredTestConfigurationLatestVersionTypeDef",
-    {
-        "version": int,
-        "status": TestConfigurationLifecycleType,
-    },
-)
-_OptionalTestConfigurationLatestVersionTypeDef = TypedDict(
-    "_OptionalTestConfigurationLatestVersionTypeDef",
-    {
-        "statusReason": str,
-    },
-    total=False,
-)
+class CompareFileTypeTypeDef(TypedDict):
+    datasets: NotRequired[CompareDataSetsSummaryTypeDef]
+    databaseCDC: NotRequired[CompareDatabaseCDCSummaryTypeDef]
 
-class TestConfigurationLatestVersionTypeDef(
-    _RequiredTestConfigurationLatestVersionTypeDef, _OptionalTestConfigurationLatestVersionTypeDef
-):
-    pass
+class InputFileOutputTypeDef(TypedDict):
+    sourceLocation: str
+    targetLocation: str
+    fileMetadata: FileMetadataOutputTypeDef
 
-_RequiredTestConfigurationSummaryTypeDef = TypedDict(
-    "_RequiredTestConfigurationSummaryTypeDef",
+FileMetadataUnionTypeDef = Union[FileMetadataTypeDef, FileMetadataOutputTypeDef]
+
+class ResourceActionSummaryTypeDef(TypedDict):
+    cloudFormation: NotRequired[CloudFormationStepSummaryTypeDef]
+    m2ManagedApplication: NotRequired[M2ManagedApplicationStepSummaryTypeDef]
+    m2NonManagedApplication: NotRequired[M2NonManagedApplicationStepSummaryTypeDef]
+
+class BatchSummaryTypeDef(TypedDict):
+    stepInput: BatchStepInputTypeDef
+    stepOutput: NotRequired[BatchStepOutputTypeDef]
+
+class TN3270SummaryTypeDef(TypedDict):
+    stepInput: TN3270StepInputTypeDef
+    stepOutput: NotRequired[TN3270StepOutputTypeDef]
+
+class GetTestConfigurationResponseTypeDef(TypedDict):
+    testConfigurationId: str
+    name: str
+    testConfigurationArn: str
+    latestVersion: TestConfigurationLatestVersionTypeDef
+    testConfigurationVersion: int
+    status: TestConfigurationLifecycleType
+    statusReason: str
+    creationTime: datetime
+    lastUpdateTime: datetime
+    description: str
+    resources: List[ResourceOutputTypeDef]
+    properties: Dict[str, str]
+    tags: Dict[str, str]
+    serviceSettings: ServiceSettingsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class MainframeActionOutputTypeDef(TypedDict):
+    resource: str
+    actionType: MainframeActionTypeOutputTypeDef
+    properties: NotRequired[MainframeActionPropertiesTypeDef]
+
+class MainframeActionTypeTypeDef(TypedDict):
+    batch: NotRequired[BatchUnionTypeDef]
+    tn3270: NotRequired[TN3270UnionTypeDef]
+
+ResourceTypeDef = TypedDict(
+    "ResourceTypeDef",
     {
-        "testConfigurationId": str,
         "name": str,
-        "latestVersion": int,
-        "testConfigurationArn": str,
-        "status": TestConfigurationLifecycleType,
-        "creationTime": datetime,
-        "lastUpdateTime": datetime,
-    },
-)
-_OptionalTestConfigurationSummaryTypeDef = TypedDict(
-    "_OptionalTestConfigurationSummaryTypeDef",
-    {
-        "statusReason": str,
-    },
-    total=False,
-)
-
-class TestConfigurationSummaryTypeDef(
-    _RequiredTestConfigurationSummaryTypeDef, _OptionalTestConfigurationSummaryTypeDef
-):
-    pass
-
-_RequiredTestRunStepSummaryTypeDef = TypedDict(
-    "_RequiredTestRunStepSummaryTypeDef",
-    {
-        "stepName": str,
-        "testRunId": str,
-        "status": StepRunStatusType,
-        "runStartTime": datetime,
-    },
-)
-_OptionalTestRunStepSummaryTypeDef = TypedDict(
-    "_OptionalTestRunStepSummaryTypeDef",
-    {
-        "testCaseId": str,
-        "testCaseVersion": int,
-        "testSuiteId": str,
-        "testSuiteVersion": int,
-        "beforeStep": bool,
-        "afterStep": bool,
-        "statusReason": str,
-        "runEndTime": datetime,
-    },
-    total=False,
-)
-
-class TestRunStepSummaryTypeDef(
-    _RequiredTestRunStepSummaryTypeDef, _OptionalTestRunStepSummaryTypeDef
-):
-    pass
-
-_RequiredTestRunSummaryTypeDef = TypedDict(
-    "_RequiredTestRunSummaryTypeDef",
-    {
-        "testRunId": str,
-        "testRunArn": str,
-        "testSuiteId": str,
-        "testSuiteVersion": int,
-        "status": TestRunStatusType,
-        "runStartTime": datetime,
-    },
-)
-_OptionalTestRunSummaryTypeDef = TypedDict(
-    "_OptionalTestRunSummaryTypeDef",
-    {
-        "testConfigurationId": str,
-        "testConfigurationVersion": int,
-        "statusReason": str,
-        "runEndTime": datetime,
-    },
-    total=False,
-)
-
-class TestRunSummaryTypeDef(_RequiredTestRunSummaryTypeDef, _OptionalTestRunSummaryTypeDef):
-    pass
-
-_RequiredTestSuiteLatestVersionTypeDef = TypedDict(
-    "_RequiredTestSuiteLatestVersionTypeDef",
-    {
-        "version": int,
-        "status": TestSuiteLifecycleType,
-    },
-)
-_OptionalTestSuiteLatestVersionTypeDef = TypedDict(
-    "_OptionalTestSuiteLatestVersionTypeDef",
-    {
-        "statusReason": str,
-    },
-    total=False,
-)
-
-class TestSuiteLatestVersionTypeDef(
-    _RequiredTestSuiteLatestVersionTypeDef, _OptionalTestSuiteLatestVersionTypeDef
-):
-    pass
-
-_RequiredTestSuiteSummaryTypeDef = TypedDict(
-    "_RequiredTestSuiteSummaryTypeDef",
-    {
-        "testSuiteId": str,
-        "name": str,
-        "latestVersion": int,
-        "testSuiteArn": str,
-        "status": TestSuiteLifecycleType,
-        "creationTime": datetime,
-        "lastUpdateTime": datetime,
-    },
-)
-_OptionalTestSuiteSummaryTypeDef = TypedDict(
-    "_OptionalTestSuiteSummaryTypeDef",
-    {
-        "statusReason": str,
-    },
-    total=False,
-)
-
-class TestSuiteSummaryTypeDef(_RequiredTestSuiteSummaryTypeDef, _OptionalTestSuiteSummaryTypeDef):
-    pass
-
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tagKeys": List[str],
+        "type": ResourceTypeUnionTypeDef,
     },
 )
 
-_RequiredUpdateTestCaseRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateTestCaseRequestRequestTypeDef",
-    {
-        "testCaseId": str,
-    },
-)
-_OptionalUpdateTestCaseRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateTestCaseRequestRequestTypeDef",
-    {
-        "description": str,
-        "steps": List["StepTypeDef"],
-    },
-    total=False,
-)
+class FileTypeDef(TypedDict):
+    fileType: NotRequired[CompareFileTypeTypeDef]
 
-class UpdateTestCaseRequestRequestTypeDef(
-    _RequiredUpdateTestCaseRequestRequestTypeDef, _OptionalUpdateTestCaseRequestRequestTypeDef
-):
-    pass
+class InputOutputTypeDef(TypedDict):
+    file: NotRequired[InputFileOutputTypeDef]
 
-UpdateTestCaseResponseTypeDef = TypedDict(
-    "UpdateTestCaseResponseTypeDef",
+class InputFileTypeDef(TypedDict):
+    sourceLocation: str
+    targetLocation: str
+    fileMetadata: FileMetadataUnionTypeDef
+
+class MainframeActionSummaryTypeDef(TypedDict):
+    batch: NotRequired[BatchSummaryTypeDef]
+    tn3270: NotRequired[TN3270SummaryTypeDef]
+
+MainframeActionTypeUnionTypeDef = Union[
+    MainframeActionTypeTypeDef, MainframeActionTypeOutputTypeDef
+]
+ResourceUnionTypeDef = Union[ResourceTypeDef, ResourceOutputTypeDef]
+CompareActionSummaryTypeDef = TypedDict(
+    "CompareActionSummaryTypeDef",
     {
-        "testCaseId": str,
-        "testCaseVersion": int,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "type": FileTypeDef,
     },
 )
-
-_RequiredUpdateTestConfigurationRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateTestConfigurationRequestRequestTypeDef",
+CompareActionOutputTypeDef = TypedDict(
+    "CompareActionOutputTypeDef",
     {
-        "testConfigurationId": str,
+        "input": InputOutputTypeDef,
+        "output": NotRequired[OutputTypeDef],
     },
 )
-_OptionalUpdateTestConfigurationRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateTestConfigurationRequestRequestTypeDef",
-    {
-        "description": str,
-        "resources": List["ResourceTypeDef"],
-        "properties": Dict[str, str],
-        "serviceSettings": "ServiceSettingsTypeDef",
-    },
-    total=False,
-)
+InputFileUnionTypeDef = Union[InputFileTypeDef, InputFileOutputTypeDef]
 
-class UpdateTestConfigurationRequestRequestTypeDef(
-    _RequiredUpdateTestConfigurationRequestRequestTypeDef,
-    _OptionalUpdateTestConfigurationRequestRequestTypeDef,
-):
-    pass
+class MainframeActionTypeDef(TypedDict):
+    resource: str
+    actionType: MainframeActionTypeUnionTypeDef
+    properties: NotRequired[MainframeActionPropertiesTypeDef]
 
-UpdateTestConfigurationResponseTypeDef = TypedDict(
-    "UpdateTestConfigurationResponseTypeDef",
+class CreateTestConfigurationRequestTypeDef(TypedDict):
+    name: str
+    resources: Sequence[ResourceUnionTypeDef]
+    description: NotRequired[str]
+    properties: NotRequired[Mapping[str, str]]
+    clientToken: NotRequired[str]
+    tags: NotRequired[Mapping[str, str]]
+    serviceSettings: NotRequired[ServiceSettingsTypeDef]
+
+class UpdateTestConfigurationRequestTypeDef(TypedDict):
+    testConfigurationId: str
+    description: NotRequired[str]
+    resources: NotRequired[Sequence[ResourceUnionTypeDef]]
+    properties: NotRequired[Mapping[str, str]]
+    serviceSettings: NotRequired[ServiceSettingsTypeDef]
+
+class StepRunSummaryTypeDef(TypedDict):
+    mainframeAction: NotRequired[MainframeActionSummaryTypeDef]
+    compareAction: NotRequired[CompareActionSummaryTypeDef]
+    resourceAction: NotRequired[ResourceActionSummaryTypeDef]
+
+class StepActionOutputTypeDef(TypedDict):
+    resourceAction: NotRequired[ResourceActionTypeDef]
+    mainframeAction: NotRequired[MainframeActionOutputTypeDef]
+    compareAction: NotRequired[CompareActionOutputTypeDef]
+
+class InputTypeDef(TypedDict):
+    file: NotRequired[InputFileUnionTypeDef]
+
+MainframeActionUnionTypeDef = Union[MainframeActionTypeDef, MainframeActionOutputTypeDef]
+
+class GetTestRunStepResponseTypeDef(TypedDict):
+    stepName: str
+    testRunId: str
+    testCaseId: str
+    testCaseVersion: int
+    testSuiteId: str
+    testSuiteVersion: int
+    beforeStep: bool
+    afterStep: bool
+    status: StepRunStatusType
+    statusReason: str
+    runStartTime: datetime
+    runEndTime: datetime
+    stepRunSummary: StepRunSummaryTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StepOutputTypeDef(TypedDict):
+    name: str
+    action: StepActionOutputTypeDef
+    description: NotRequired[str]
+
+InputUnionTypeDef = Union[InputTypeDef, InputOutputTypeDef]
+
+class GetTestCaseResponseTypeDef(TypedDict):
+    testCaseId: str
+    testCaseArn: str
+    name: str
+    description: str
+    latestVersion: TestCaseLatestVersionTypeDef
+    testCaseVersion: int
+    status: TestCaseLifecycleType
+    statusReason: str
+    creationTime: datetime
+    lastUpdateTime: datetime
+    steps: List[StepOutputTypeDef]
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetTestSuiteResponseTypeDef(TypedDict):
+    testSuiteId: str
+    name: str
+    latestVersion: TestSuiteLatestVersionTypeDef
+    testSuiteVersion: int
+    status: TestSuiteLifecycleType
+    statusReason: str
+    testSuiteArn: str
+    creationTime: datetime
+    lastUpdateTime: datetime
+    description: str
+    beforeSteps: List[StepOutputTypeDef]
+    afterSteps: List[StepOutputTypeDef]
+    testCases: TestCasesOutputTypeDef
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+CompareActionTypeDef = TypedDict(
+    "CompareActionTypeDef",
     {
-        "testConfigurationId": str,
-        "testConfigurationVersion": int,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "input": InputUnionTypeDef,
+        "output": NotRequired[OutputTypeDef],
     },
 )
+CompareActionUnionTypeDef = Union[CompareActionTypeDef, CompareActionOutputTypeDef]
 
-_RequiredUpdateTestSuiteRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateTestSuiteRequestRequestTypeDef",
-    {
-        "testSuiteId": str,
-    },
-)
-_OptionalUpdateTestSuiteRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateTestSuiteRequestRequestTypeDef",
-    {
-        "description": str,
-        "beforeSteps": List["StepTypeDef"],
-        "afterSteps": List["StepTypeDef"],
-        "testCases": "TestCasesTypeDef",
-    },
-    total=False,
-)
+class StepActionTypeDef(TypedDict):
+    resourceAction: NotRequired[ResourceActionTypeDef]
+    mainframeAction: NotRequired[MainframeActionUnionTypeDef]
+    compareAction: NotRequired[CompareActionUnionTypeDef]
 
-class UpdateTestSuiteRequestRequestTypeDef(
-    _RequiredUpdateTestSuiteRequestRequestTypeDef, _OptionalUpdateTestSuiteRequestRequestTypeDef
-):
-    pass
+StepActionUnionTypeDef = Union[StepActionTypeDef, StepActionOutputTypeDef]
 
-UpdateTestSuiteResponseTypeDef = TypedDict(
-    "UpdateTestSuiteResponseTypeDef",
-    {
-        "testSuiteId": str,
-        "testSuiteVersion": int,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class StepTypeDef(TypedDict):
+    name: str
+    action: StepActionUnionTypeDef
+    description: NotRequired[str]
+
+StepUnionTypeDef = Union[StepTypeDef, StepOutputTypeDef]
+
+class CreateTestCaseRequestTypeDef(TypedDict):
+    name: str
+    steps: Sequence[StepUnionTypeDef]
+    description: NotRequired[str]
+    clientToken: NotRequired[str]
+    tags: NotRequired[Mapping[str, str]]
+
+class CreateTestSuiteRequestTypeDef(TypedDict):
+    name: str
+    testCases: TestCasesUnionTypeDef
+    description: NotRequired[str]
+    beforeSteps: NotRequired[Sequence[StepUnionTypeDef]]
+    afterSteps: NotRequired[Sequence[StepUnionTypeDef]]
+    clientToken: NotRequired[str]
+    tags: NotRequired[Mapping[str, str]]
+
+class UpdateTestCaseRequestTypeDef(TypedDict):
+    testCaseId: str
+    description: NotRequired[str]
+    steps: NotRequired[Sequence[StepUnionTypeDef]]
+
+class UpdateTestSuiteRequestTypeDef(TypedDict):
+    testSuiteId: str
+    description: NotRequired[str]
+    beforeSteps: NotRequired[Sequence[StepUnionTypeDef]]
+    afterSteps: NotRequired[Sequence[StepUnionTypeDef]]
+    testCases: NotRequired[TestCasesUnionTypeDef]

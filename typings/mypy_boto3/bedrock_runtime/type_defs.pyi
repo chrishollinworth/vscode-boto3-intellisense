@@ -1,813 +1,261 @@
 """
 Type annotations for bedrock-runtime service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock_runtime/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock_runtime/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_bedrock_runtime.type_defs import ContentBlockDeltaEventTypeDef
+    from mypy_boto3_bedrock_runtime.type_defs import GuardrailOutputContentTypeDef
 
-    data: ContentBlockDeltaEventTypeDef = {...}
+    data: GuardrailOutputContentTypeDef = ...
     ```
 """
 
-import sys
-from typing import IO, Any, Dict, List, Union
+from __future__ import annotations
 
+import sys
+from datetime import datetime
+from typing import IO, Any, Union
+
+from botocore.eventstream import EventStream
 from botocore.response import StreamingBody
 
 from .literals import (
+    AsyncInvokeStatusType,
     ConversationRoleType,
     DocumentFormatType,
+    GuardrailActionType,
     GuardrailContentFilterConfidenceType,
+    GuardrailContentFilterStrengthType,
     GuardrailContentFilterTypeType,
+    GuardrailContentPolicyActionType,
+    GuardrailContentQualifierType,
+    GuardrailContentSourceType,
+    GuardrailContextualGroundingFilterTypeType,
+    GuardrailContextualGroundingPolicyActionType,
+    GuardrailConverseContentQualifierType,
+    GuardrailConverseImageFormatType,
+    GuardrailImageFormatType,
+    GuardrailOutputScopeType,
     GuardrailPiiEntityTypeType,
     GuardrailSensitiveInformationPolicyActionType,
     GuardrailStreamProcessingModeType,
+    GuardrailTopicPolicyActionType,
     GuardrailTraceType,
+    GuardrailWordPolicyActionType,
     ImageFormatType,
+    PerformanceConfigLatencyType,
+    SortOrderType,
     StopReasonType,
     ToolResultStatusType,
     TraceType,
+    VideoFormatType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
+    "ApplyGuardrailRequestTypeDef",
+    "ApplyGuardrailResponseTypeDef",
+    "AsyncInvokeOutputDataConfigTypeDef",
+    "AsyncInvokeS3OutputDataConfigTypeDef",
+    "AsyncInvokeSummaryTypeDef",
+    "BidirectionalInputPayloadPartTypeDef",
+    "BidirectionalOutputPayloadPartTypeDef",
+    "BlobTypeDef",
+    "CachePointBlockTypeDef",
     "ContentBlockDeltaEventTypeDef",
     "ContentBlockDeltaTypeDef",
+    "ContentBlockOutputTypeDef",
     "ContentBlockStartEventTypeDef",
     "ContentBlockStartTypeDef",
     "ContentBlockStopEventTypeDef",
     "ContentBlockTypeDef",
+    "ContentBlockUnionTypeDef",
     "ConverseMetricsTypeDef",
     "ConverseOutputTypeDef",
-    "ConverseRequestRequestTypeDef",
+    "ConverseRequestTypeDef",
     "ConverseResponseTypeDef",
     "ConverseStreamMetadataEventTypeDef",
     "ConverseStreamMetricsTypeDef",
     "ConverseStreamOutputTypeDef",
-    "ConverseStreamRequestRequestTypeDef",
+    "ConverseStreamRequestTypeDef",
     "ConverseStreamResponseTypeDef",
     "ConverseStreamTraceTypeDef",
     "ConverseTraceTypeDef",
+    "DocumentBlockOutputTypeDef",
     "DocumentBlockTypeDef",
+    "DocumentBlockUnionTypeDef",
+    "DocumentSourceOutputTypeDef",
     "DocumentSourceTypeDef",
+    "DocumentSourceUnionTypeDef",
+    "GetAsyncInvokeRequestTypeDef",
+    "GetAsyncInvokeResponseTypeDef",
     "GuardrailAssessmentTypeDef",
     "GuardrailConfigurationTypeDef",
+    "GuardrailContentBlockTypeDef",
     "GuardrailContentFilterTypeDef",
     "GuardrailContentPolicyAssessmentTypeDef",
+    "GuardrailContextualGroundingFilterTypeDef",
+    "GuardrailContextualGroundingPolicyAssessmentTypeDef",
+    "GuardrailConverseContentBlockOutputTypeDef",
     "GuardrailConverseContentBlockTypeDef",
+    "GuardrailConverseContentBlockUnionTypeDef",
+    "GuardrailConverseImageBlockOutputTypeDef",
+    "GuardrailConverseImageBlockTypeDef",
+    "GuardrailConverseImageBlockUnionTypeDef",
+    "GuardrailConverseImageSourceOutputTypeDef",
+    "GuardrailConverseImageSourceTypeDef",
+    "GuardrailConverseImageSourceUnionTypeDef",
+    "GuardrailConverseTextBlockOutputTypeDef",
     "GuardrailConverseTextBlockTypeDef",
+    "GuardrailConverseTextBlockUnionTypeDef",
+    "GuardrailCoverageTypeDef",
     "GuardrailCustomWordTypeDef",
+    "GuardrailImageBlockTypeDef",
+    "GuardrailImageCoverageTypeDef",
+    "GuardrailImageSourceTypeDef",
+    "GuardrailInvocationMetricsTypeDef",
     "GuardrailManagedWordTypeDef",
+    "GuardrailOutputContentTypeDef",
     "GuardrailPiiEntityFilterTypeDef",
     "GuardrailRegexFilterTypeDef",
     "GuardrailSensitiveInformationPolicyAssessmentTypeDef",
     "GuardrailStreamConfigurationTypeDef",
+    "GuardrailTextBlockTypeDef",
+    "GuardrailTextCharactersCoverageTypeDef",
     "GuardrailTopicPolicyAssessmentTypeDef",
     "GuardrailTopicTypeDef",
     "GuardrailTraceAssessmentTypeDef",
+    "GuardrailUsageTypeDef",
     "GuardrailWordPolicyAssessmentTypeDef",
+    "ImageBlockOutputTypeDef",
     "ImageBlockTypeDef",
+    "ImageBlockUnionTypeDef",
+    "ImageSourceOutputTypeDef",
     "ImageSourceTypeDef",
+    "ImageSourceUnionTypeDef",
     "InferenceConfigurationTypeDef",
     "InternalServerExceptionTypeDef",
-    "InvokeModelRequestRequestTypeDef",
+    "InvokeModelRequestTypeDef",
     "InvokeModelResponseTypeDef",
-    "InvokeModelWithResponseStreamRequestRequestTypeDef",
+    "InvokeModelWithBidirectionalStreamInputTypeDef",
+    "InvokeModelWithBidirectionalStreamOutputTypeDef",
+    "InvokeModelWithBidirectionalStreamRequestTypeDef",
+    "InvokeModelWithBidirectionalStreamResponseTypeDef",
+    "InvokeModelWithResponseStreamRequestTypeDef",
     "InvokeModelWithResponseStreamResponseTypeDef",
+    "ListAsyncInvokesRequestPaginateTypeDef",
+    "ListAsyncInvokesRequestTypeDef",
+    "ListAsyncInvokesResponseTypeDef",
+    "MessageOutputTypeDef",
     "MessageStartEventTypeDef",
     "MessageStopEventTypeDef",
     "MessageTypeDef",
+    "MessageUnionTypeDef",
     "ModelStreamErrorExceptionTypeDef",
     "ModelTimeoutExceptionTypeDef",
+    "PaginatorConfigTypeDef",
     "PayloadPartTypeDef",
+    "PerformanceConfigurationTypeDef",
+    "PromptRouterTraceTypeDef",
+    "PromptVariableValuesTypeDef",
+    "ReasoningContentBlockDeltaTypeDef",
+    "ReasoningContentBlockOutputTypeDef",
+    "ReasoningContentBlockTypeDef",
+    "ReasoningContentBlockUnionTypeDef",
+    "ReasoningTextBlockTypeDef",
     "ResponseMetadataTypeDef",
     "ResponseStreamTypeDef",
+    "S3LocationTypeDef",
+    "ServiceUnavailableExceptionTypeDef",
     "SpecificToolChoiceTypeDef",
+    "StartAsyncInvokeRequestTypeDef",
+    "StartAsyncInvokeResponseTypeDef",
     "SystemContentBlockTypeDef",
+    "TagTypeDef",
     "ThrottlingExceptionTypeDef",
+    "TimestampTypeDef",
     "TokenUsageTypeDef",
     "ToolChoiceTypeDef",
     "ToolConfigurationTypeDef",
     "ToolInputSchemaTypeDef",
+    "ToolResultBlockOutputTypeDef",
     "ToolResultBlockTypeDef",
+    "ToolResultBlockUnionTypeDef",
+    "ToolResultContentBlockOutputTypeDef",
     "ToolResultContentBlockTypeDef",
+    "ToolResultContentBlockUnionTypeDef",
     "ToolSpecificationTypeDef",
     "ToolTypeDef",
     "ToolUseBlockDeltaTypeDef",
+    "ToolUseBlockOutputTypeDef",
     "ToolUseBlockStartTypeDef",
     "ToolUseBlockTypeDef",
+    "ToolUseBlockUnionTypeDef",
     "ValidationExceptionTypeDef",
+    "VideoBlockOutputTypeDef",
+    "VideoBlockTypeDef",
+    "VideoBlockUnionTypeDef",
+    "VideoSourceOutputTypeDef",
+    "VideoSourceTypeDef",
+    "VideoSourceUnionTypeDef",
 )
 
-ContentBlockDeltaEventTypeDef = TypedDict(
-    "ContentBlockDeltaEventTypeDef",
-    {
-        "delta": "ContentBlockDeltaTypeDef",
-        "contentBlockIndex": int,
-    },
-)
-
-ContentBlockDeltaTypeDef = TypedDict(
-    "ContentBlockDeltaTypeDef",
-    {
-        "text": str,
-        "toolUse": "ToolUseBlockDeltaTypeDef",
-    },
-    total=False,
-)
-
-ContentBlockStartEventTypeDef = TypedDict(
-    "ContentBlockStartEventTypeDef",
-    {
-        "start": "ContentBlockStartTypeDef",
-        "contentBlockIndex": int,
-    },
-)
-
-ContentBlockStartTypeDef = TypedDict(
-    "ContentBlockStartTypeDef",
-    {
-        "toolUse": "ToolUseBlockStartTypeDef",
-    },
-    total=False,
-)
-
-ContentBlockStopEventTypeDef = TypedDict(
-    "ContentBlockStopEventTypeDef",
-    {
-        "contentBlockIndex": int,
-    },
-)
-
-ContentBlockTypeDef = TypedDict(
-    "ContentBlockTypeDef",
-    {
-        "text": str,
-        "image": "ImageBlockTypeDef",
-        "document": "DocumentBlockTypeDef",
-        "toolUse": "ToolUseBlockTypeDef",
-        "toolResult": "ToolResultBlockTypeDef",
-        "guardContent": "GuardrailConverseContentBlockTypeDef",
-    },
-    total=False,
-)
-
-ConverseMetricsTypeDef = TypedDict(
-    "ConverseMetricsTypeDef",
-    {
-        "latencyMs": int,
-    },
-)
-
-ConverseOutputTypeDef = TypedDict(
-    "ConverseOutputTypeDef",
-    {
-        "message": "MessageTypeDef",
-    },
-    total=False,
-)
-
-_RequiredConverseRequestRequestTypeDef = TypedDict(
-    "_RequiredConverseRequestRequestTypeDef",
-    {
-        "modelId": str,
-        "messages": List["MessageTypeDef"],
-    },
-)
-_OptionalConverseRequestRequestTypeDef = TypedDict(
-    "_OptionalConverseRequestRequestTypeDef",
-    {
-        "system": List["SystemContentBlockTypeDef"],
-        "inferenceConfig": "InferenceConfigurationTypeDef",
-        "toolConfig": "ToolConfigurationTypeDef",
-        "guardrailConfig": "GuardrailConfigurationTypeDef",
-        "additionalModelRequestFields": Dict[str, Any],
-        "additionalModelResponseFieldPaths": List[str],
-    },
-    total=False,
-)
-
-class ConverseRequestRequestTypeDef(
-    _RequiredConverseRequestRequestTypeDef, _OptionalConverseRequestRequestTypeDef
-):
-    pass
-
-ConverseResponseTypeDef = TypedDict(
-    "ConverseResponseTypeDef",
-    {
-        "output": "ConverseOutputTypeDef",
-        "stopReason": StopReasonType,
-        "usage": "TokenUsageTypeDef",
-        "metrics": "ConverseMetricsTypeDef",
-        "additionalModelResponseFields": Dict[str, Any],
-        "trace": "ConverseTraceTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredConverseStreamMetadataEventTypeDef = TypedDict(
-    "_RequiredConverseStreamMetadataEventTypeDef",
-    {
-        "usage": "TokenUsageTypeDef",
-        "metrics": "ConverseStreamMetricsTypeDef",
-    },
-)
-_OptionalConverseStreamMetadataEventTypeDef = TypedDict(
-    "_OptionalConverseStreamMetadataEventTypeDef",
-    {
-        "trace": "ConverseStreamTraceTypeDef",
-    },
-    total=False,
-)
-
-class ConverseStreamMetadataEventTypeDef(
-    _RequiredConverseStreamMetadataEventTypeDef, _OptionalConverseStreamMetadataEventTypeDef
-):
-    pass
-
-ConverseStreamMetricsTypeDef = TypedDict(
-    "ConverseStreamMetricsTypeDef",
-    {
-        "latencyMs": int,
-    },
-)
-
-ConverseStreamOutputTypeDef = TypedDict(
-    "ConverseStreamOutputTypeDef",
-    {
-        "messageStart": "MessageStartEventTypeDef",
-        "contentBlockStart": "ContentBlockStartEventTypeDef",
-        "contentBlockDelta": "ContentBlockDeltaEventTypeDef",
-        "contentBlockStop": "ContentBlockStopEventTypeDef",
-        "messageStop": "MessageStopEventTypeDef",
-        "metadata": "ConverseStreamMetadataEventTypeDef",
-        "internalServerException": "InternalServerExceptionTypeDef",
-        "modelStreamErrorException": "ModelStreamErrorExceptionTypeDef",
-        "validationException": "ValidationExceptionTypeDef",
-        "throttlingException": "ThrottlingExceptionTypeDef",
-    },
-    total=False,
-)
-
-_RequiredConverseStreamRequestRequestTypeDef = TypedDict(
-    "_RequiredConverseStreamRequestRequestTypeDef",
-    {
-        "modelId": str,
-        "messages": List["MessageTypeDef"],
-    },
-)
-_OptionalConverseStreamRequestRequestTypeDef = TypedDict(
-    "_OptionalConverseStreamRequestRequestTypeDef",
-    {
-        "system": List["SystemContentBlockTypeDef"],
-        "inferenceConfig": "InferenceConfigurationTypeDef",
-        "toolConfig": "ToolConfigurationTypeDef",
-        "guardrailConfig": "GuardrailStreamConfigurationTypeDef",
-        "additionalModelRequestFields": Dict[str, Any],
-        "additionalModelResponseFieldPaths": List[str],
-    },
-    total=False,
-)
-
-class ConverseStreamRequestRequestTypeDef(
-    _RequiredConverseStreamRequestRequestTypeDef, _OptionalConverseStreamRequestRequestTypeDef
-):
-    pass
-
-ConverseStreamResponseTypeDef = TypedDict(
-    "ConverseStreamResponseTypeDef",
-    {
-        "stream": "ConverseStreamOutputTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ConverseStreamTraceTypeDef = TypedDict(
-    "ConverseStreamTraceTypeDef",
-    {
-        "guardrail": "GuardrailTraceAssessmentTypeDef",
-    },
-    total=False,
-)
-
-ConverseTraceTypeDef = TypedDict(
-    "ConverseTraceTypeDef",
-    {
-        "guardrail": "GuardrailTraceAssessmentTypeDef",
-    },
-    total=False,
-)
-
-DocumentBlockTypeDef = TypedDict(
-    "DocumentBlockTypeDef",
-    {
-        "format": DocumentFormatType,
-        "name": str,
-        "source": "DocumentSourceTypeDef",
-    },
-)
-
-DocumentSourceTypeDef = TypedDict(
-    "DocumentSourceTypeDef",
-    {
-        "bytes": Union[bytes, IO[bytes], StreamingBody],
-    },
-    total=False,
-)
-
-GuardrailAssessmentTypeDef = TypedDict(
-    "GuardrailAssessmentTypeDef",
-    {
-        "topicPolicy": "GuardrailTopicPolicyAssessmentTypeDef",
-        "contentPolicy": "GuardrailContentPolicyAssessmentTypeDef",
-        "wordPolicy": "GuardrailWordPolicyAssessmentTypeDef",
-        "sensitiveInformationPolicy": "GuardrailSensitiveInformationPolicyAssessmentTypeDef",
-    },
-    total=False,
-)
-
-_RequiredGuardrailConfigurationTypeDef = TypedDict(
-    "_RequiredGuardrailConfigurationTypeDef",
-    {
-        "guardrailIdentifier": str,
-        "guardrailVersion": str,
-    },
-)
-_OptionalGuardrailConfigurationTypeDef = TypedDict(
-    "_OptionalGuardrailConfigurationTypeDef",
-    {
-        "trace": GuardrailTraceType,
-    },
-    total=False,
-)
-
-class GuardrailConfigurationTypeDef(
-    _RequiredGuardrailConfigurationTypeDef, _OptionalGuardrailConfigurationTypeDef
-):
-    pass
-
-GuardrailContentFilterTypeDef = TypedDict(
-    "GuardrailContentFilterTypeDef",
-    {
-        "type": GuardrailContentFilterTypeType,
-        "confidence": GuardrailContentFilterConfidenceType,
-        "action": Literal["BLOCKED"],
-    },
-)
-
-GuardrailContentPolicyAssessmentTypeDef = TypedDict(
-    "GuardrailContentPolicyAssessmentTypeDef",
-    {
-        "filters": List["GuardrailContentFilterTypeDef"],
-    },
-)
-
-GuardrailConverseContentBlockTypeDef = TypedDict(
-    "GuardrailConverseContentBlockTypeDef",
-    {
-        "text": "GuardrailConverseTextBlockTypeDef",
-    },
-    total=False,
-)
-
-GuardrailConverseTextBlockTypeDef = TypedDict(
-    "GuardrailConverseTextBlockTypeDef",
-    {
-        "text": str,
-    },
-)
-
-GuardrailCustomWordTypeDef = TypedDict(
-    "GuardrailCustomWordTypeDef",
-    {
-        "match": str,
-        "action": Literal["BLOCKED"],
-    },
-)
-
-GuardrailManagedWordTypeDef = TypedDict(
-    "GuardrailManagedWordTypeDef",
-    {
-        "match": str,
-        "type": Literal["PROFANITY"],
-        "action": Literal["BLOCKED"],
-    },
-)
-
-GuardrailPiiEntityFilterTypeDef = TypedDict(
-    "GuardrailPiiEntityFilterTypeDef",
-    {
-        "match": str,
-        "type": GuardrailPiiEntityTypeType,
-        "action": GuardrailSensitiveInformationPolicyActionType,
-    },
-)
-
-_RequiredGuardrailRegexFilterTypeDef = TypedDict(
-    "_RequiredGuardrailRegexFilterTypeDef",
-    {
-        "action": GuardrailSensitiveInformationPolicyActionType,
-    },
-)
-_OptionalGuardrailRegexFilterTypeDef = TypedDict(
-    "_OptionalGuardrailRegexFilterTypeDef",
-    {
-        "name": str,
-        "match": str,
-        "regex": str,
-    },
-    total=False,
-)
-
-class GuardrailRegexFilterTypeDef(
-    _RequiredGuardrailRegexFilterTypeDef, _OptionalGuardrailRegexFilterTypeDef
-):
-    pass
-
-GuardrailSensitiveInformationPolicyAssessmentTypeDef = TypedDict(
-    "GuardrailSensitiveInformationPolicyAssessmentTypeDef",
-    {
-        "piiEntities": List["GuardrailPiiEntityFilterTypeDef"],
-        "regexes": List["GuardrailRegexFilterTypeDef"],
-    },
-)
-
-_RequiredGuardrailStreamConfigurationTypeDef = TypedDict(
-    "_RequiredGuardrailStreamConfigurationTypeDef",
-    {
-        "guardrailIdentifier": str,
-        "guardrailVersion": str,
-    },
-)
-_OptionalGuardrailStreamConfigurationTypeDef = TypedDict(
-    "_OptionalGuardrailStreamConfigurationTypeDef",
-    {
-        "trace": GuardrailTraceType,
-        "streamProcessingMode": GuardrailStreamProcessingModeType,
-    },
-    total=False,
-)
-
-class GuardrailStreamConfigurationTypeDef(
-    _RequiredGuardrailStreamConfigurationTypeDef, _OptionalGuardrailStreamConfigurationTypeDef
-):
-    pass
-
-GuardrailTopicPolicyAssessmentTypeDef = TypedDict(
-    "GuardrailTopicPolicyAssessmentTypeDef",
-    {
-        "topics": List["GuardrailTopicTypeDef"],
-    },
-)
-
-GuardrailTopicTypeDef = TypedDict(
-    "GuardrailTopicTypeDef",
-    {
-        "name": str,
-        "type": Literal["DENY"],
-        "action": Literal["BLOCKED"],
-    },
-)
-
-GuardrailTraceAssessmentTypeDef = TypedDict(
-    "GuardrailTraceAssessmentTypeDef",
-    {
-        "modelOutput": List[str],
-        "inputAssessment": Dict[str, "GuardrailAssessmentTypeDef"],
-        "outputAssessments": Dict[str, List["GuardrailAssessmentTypeDef"]],
-    },
-    total=False,
-)
-
-GuardrailWordPolicyAssessmentTypeDef = TypedDict(
-    "GuardrailWordPolicyAssessmentTypeDef",
-    {
-        "customWords": List["GuardrailCustomWordTypeDef"],
-        "managedWordLists": List["GuardrailManagedWordTypeDef"],
-    },
-)
-
-ImageBlockTypeDef = TypedDict(
-    "ImageBlockTypeDef",
-    {
-        "format": ImageFormatType,
-        "source": "ImageSourceTypeDef",
-    },
-)
-
-ImageSourceTypeDef = TypedDict(
-    "ImageSourceTypeDef",
-    {
-        "bytes": Union[bytes, IO[bytes], StreamingBody],
-    },
-    total=False,
-)
-
-InferenceConfigurationTypeDef = TypedDict(
-    "InferenceConfigurationTypeDef",
-    {
-        "maxTokens": int,
-        "temperature": float,
-        "topP": float,
-        "stopSequences": List[str],
-    },
-    total=False,
-)
-
-InternalServerExceptionTypeDef = TypedDict(
-    "InternalServerExceptionTypeDef",
-    {
-        "message": str,
-    },
-    total=False,
-)
-
-_RequiredInvokeModelRequestRequestTypeDef = TypedDict(
-    "_RequiredInvokeModelRequestRequestTypeDef",
-    {
-        "body": Union[bytes, IO[bytes], StreamingBody],
-        "modelId": str,
-    },
-)
-_OptionalInvokeModelRequestRequestTypeDef = TypedDict(
-    "_OptionalInvokeModelRequestRequestTypeDef",
-    {
-        "contentType": str,
-        "accept": str,
-        "trace": TraceType,
-        "guardrailIdentifier": str,
-        "guardrailVersion": str,
-    },
-    total=False,
-)
-
-class InvokeModelRequestRequestTypeDef(
-    _RequiredInvokeModelRequestRequestTypeDef, _OptionalInvokeModelRequestRequestTypeDef
-):
-    pass
-
-InvokeModelResponseTypeDef = TypedDict(
-    "InvokeModelResponseTypeDef",
-    {
-        "body": bytes,
-        "contentType": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredInvokeModelWithResponseStreamRequestRequestTypeDef = TypedDict(
-    "_RequiredInvokeModelWithResponseStreamRequestRequestTypeDef",
-    {
-        "body": Union[bytes, IO[bytes], StreamingBody],
-        "modelId": str,
-    },
-)
-_OptionalInvokeModelWithResponseStreamRequestRequestTypeDef = TypedDict(
-    "_OptionalInvokeModelWithResponseStreamRequestRequestTypeDef",
-    {
-        "contentType": str,
-        "accept": str,
-        "trace": TraceType,
-        "guardrailIdentifier": str,
-        "guardrailVersion": str,
-    },
-    total=False,
-)
-
-class InvokeModelWithResponseStreamRequestRequestTypeDef(
-    _RequiredInvokeModelWithResponseStreamRequestRequestTypeDef,
-    _OptionalInvokeModelWithResponseStreamRequestRequestTypeDef,
-):
-    pass
-
-InvokeModelWithResponseStreamResponseTypeDef = TypedDict(
-    "InvokeModelWithResponseStreamResponseTypeDef",
-    {
-        "body": "ResponseStreamTypeDef",
-        "contentType": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-MessageStartEventTypeDef = TypedDict(
-    "MessageStartEventTypeDef",
-    {
-        "role": ConversationRoleType,
-    },
-)
-
-_RequiredMessageStopEventTypeDef = TypedDict(
-    "_RequiredMessageStopEventTypeDef",
-    {
-        "stopReason": StopReasonType,
-    },
-)
-_OptionalMessageStopEventTypeDef = TypedDict(
-    "_OptionalMessageStopEventTypeDef",
-    {
-        "additionalModelResponseFields": Dict[str, Any],
-    },
-    total=False,
-)
-
-class MessageStopEventTypeDef(_RequiredMessageStopEventTypeDef, _OptionalMessageStopEventTypeDef):
-    pass
-
-MessageTypeDef = TypedDict(
-    "MessageTypeDef",
-    {
-        "role": ConversationRoleType,
-        "content": List["ContentBlockTypeDef"],
-    },
-)
-
-ModelStreamErrorExceptionTypeDef = TypedDict(
-    "ModelStreamErrorExceptionTypeDef",
-    {
-        "message": str,
-        "originalStatusCode": int,
-        "originalMessage": str,
-    },
-    total=False,
-)
-
-ModelTimeoutExceptionTypeDef = TypedDict(
-    "ModelTimeoutExceptionTypeDef",
-    {
-        "message": str,
-    },
-    total=False,
-)
-
-PayloadPartTypeDef = TypedDict(
-    "PayloadPartTypeDef",
-    {
-        "bytes": bytes,
-    },
-    total=False,
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-ResponseStreamTypeDef = TypedDict(
-    "ResponseStreamTypeDef",
-    {
-        "chunk": "PayloadPartTypeDef",
-        "internalServerException": "InternalServerExceptionTypeDef",
-        "modelStreamErrorException": "ModelStreamErrorExceptionTypeDef",
-        "validationException": "ValidationExceptionTypeDef",
-        "throttlingException": "ThrottlingExceptionTypeDef",
-        "modelTimeoutException": "ModelTimeoutExceptionTypeDef",
-    },
-    total=False,
-)
-
-SpecificToolChoiceTypeDef = TypedDict(
-    "SpecificToolChoiceTypeDef",
-    {
-        "name": str,
-    },
-)
-
-SystemContentBlockTypeDef = TypedDict(
-    "SystemContentBlockTypeDef",
-    {
-        "text": str,
-        "guardContent": "GuardrailConverseContentBlockTypeDef",
-    },
-    total=False,
-)
-
-ThrottlingExceptionTypeDef = TypedDict(
-    "ThrottlingExceptionTypeDef",
-    {
-        "message": str,
-    },
-    total=False,
-)
-
-TokenUsageTypeDef = TypedDict(
-    "TokenUsageTypeDef",
-    {
-        "inputTokens": int,
-        "outputTokens": int,
-        "totalTokens": int,
-    },
-)
-
-ToolChoiceTypeDef = TypedDict(
-    "ToolChoiceTypeDef",
-    {
-        "auto": Dict[str, Any],
-        "any": Dict[str, Any],
-        "tool": "SpecificToolChoiceTypeDef",
-    },
-    total=False,
-)
-
-_RequiredToolConfigurationTypeDef = TypedDict(
-    "_RequiredToolConfigurationTypeDef",
-    {
-        "tools": List["ToolTypeDef"],
-    },
-)
-_OptionalToolConfigurationTypeDef = TypedDict(
-    "_OptionalToolConfigurationTypeDef",
-    {
-        "toolChoice": "ToolChoiceTypeDef",
-    },
-    total=False,
-)
+class GuardrailOutputContentTypeDef(TypedDict):
+    text: NotRequired[str]
 
-class ToolConfigurationTypeDef(
-    _RequiredToolConfigurationTypeDef, _OptionalToolConfigurationTypeDef
-):
-    pass
+class GuardrailUsageTypeDef(TypedDict):
+    topicPolicyUnits: int
+    contentPolicyUnits: int
+    wordPolicyUnits: int
+    sensitiveInformationPolicyUnits: int
+    sensitiveInformationPolicyFreeUnits: int
+    contextualGroundingPolicyUnits: int
+    contentPolicyImageUnits: NotRequired[int]
 
-ToolInputSchemaTypeDef = TypedDict(
-    "ToolInputSchemaTypeDef",
-    {
-        "json": Dict[str, Any],
-    },
-    total=False,
-)
-
-_RequiredToolResultBlockTypeDef = TypedDict(
-    "_RequiredToolResultBlockTypeDef",
-    {
-        "toolUseId": str,
-        "content": List["ToolResultContentBlockTypeDef"],
-    },
-)
-_OptionalToolResultBlockTypeDef = TypedDict(
-    "_OptionalToolResultBlockTypeDef",
-    {
-        "status": ToolResultStatusType,
-    },
-    total=False,
-)
-
-class ToolResultBlockTypeDef(_RequiredToolResultBlockTypeDef, _OptionalToolResultBlockTypeDef):
-    pass
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-ToolResultContentBlockTypeDef = TypedDict(
-    "ToolResultContentBlockTypeDef",
-    {
-        "json": Dict[str, Any],
-        "text": str,
-        "image": "ImageBlockTypeDef",
-        "document": "DocumentBlockTypeDef",
-    },
-    total=False,
-)
+class AsyncInvokeS3OutputDataConfigTypeDef(TypedDict):
+    s3Uri: str
+    kmsKeyId: NotRequired[str]
+    bucketOwner: NotRequired[str]
 
-_RequiredToolSpecificationTypeDef = TypedDict(
-    "_RequiredToolSpecificationTypeDef",
+BlobTypeDef = Union[str, bytes, IO[Any], StreamingBody]
+BidirectionalOutputPayloadPartTypeDef = TypedDict(
+    "BidirectionalOutputPayloadPartTypeDef",
     {
-        "name": str,
-        "inputSchema": "ToolInputSchemaTypeDef",
+        "bytes": NotRequired[bytes],
     },
 )
-_OptionalToolSpecificationTypeDef = TypedDict(
-    "_OptionalToolSpecificationTypeDef",
+CachePointBlockTypeDef = TypedDict(
+    "CachePointBlockTypeDef",
     {
-        "description": str,
+        "type": Literal["default"],
     },
-    total=False,
 )
-
-class ToolSpecificationTypeDef(
-    _RequiredToolSpecificationTypeDef, _OptionalToolSpecificationTypeDef
-):
-    pass
 
-ToolTypeDef = TypedDict(
-    "ToolTypeDef",
-    {
-        "toolSpec": "ToolSpecificationTypeDef",
-    },
-    total=False,
-)
+class ReasoningContentBlockDeltaTypeDef(TypedDict):
+    text: NotRequired[str]
+    redactedContent: NotRequired[bytes]
+    signature: NotRequired[str]
 
 ToolUseBlockDeltaTypeDef = TypedDict(
     "ToolUseBlockDeltaTypeDef",
@@ -815,17 +263,8 @@ ToolUseBlockDeltaTypeDef = TypedDict(
         "input": str,
     },
 )
-
-ToolUseBlockStartTypeDef = TypedDict(
-    "ToolUseBlockStartTypeDef",
-    {
-        "toolUseId": str,
-        "name": str,
-    },
-)
-
-ToolUseBlockTypeDef = TypedDict(
-    "ToolUseBlockTypeDef",
+ToolUseBlockOutputTypeDef = TypedDict(
+    "ToolUseBlockOutputTypeDef",
     {
         "toolUseId": str,
         "name": str,
@@ -833,10 +272,741 @@ ToolUseBlockTypeDef = TypedDict(
     },
 )
 
-ValidationExceptionTypeDef = TypedDict(
-    "ValidationExceptionTypeDef",
+class ToolUseBlockStartTypeDef(TypedDict):
+    toolUseId: str
+    name: str
+
+class ContentBlockStopEventTypeDef(TypedDict):
+    contentBlockIndex: int
+
+class ConverseMetricsTypeDef(TypedDict):
+    latencyMs: int
+
+class GuardrailConfigurationTypeDef(TypedDict):
+    guardrailIdentifier: str
+    guardrailVersion: str
+    trace: NotRequired[GuardrailTraceType]
+
+class InferenceConfigurationTypeDef(TypedDict):
+    maxTokens: NotRequired[int]
+    temperature: NotRequired[float]
+    topP: NotRequired[float]
+    stopSequences: NotRequired[Sequence[str]]
+
+class PerformanceConfigurationTypeDef(TypedDict):
+    latency: NotRequired[PerformanceConfigLatencyType]
+
+class PromptVariableValuesTypeDef(TypedDict):
+    text: NotRequired[str]
+
+class TokenUsageTypeDef(TypedDict):
+    inputTokens: int
+    outputTokens: int
+    totalTokens: int
+    cacheReadInputTokens: NotRequired[int]
+    cacheWriteInputTokens: NotRequired[int]
+
+class ConverseStreamMetricsTypeDef(TypedDict):
+    latencyMs: int
+
+class InternalServerExceptionTypeDef(TypedDict):
+    message: NotRequired[str]
+
+class MessageStartEventTypeDef(TypedDict):
+    role: ConversationRoleType
+
+class MessageStopEventTypeDef(TypedDict):
+    stopReason: StopReasonType
+    additionalModelResponseFields: NotRequired[Dict[str, Any]]
+
+class ModelStreamErrorExceptionTypeDef(TypedDict):
+    message: NotRequired[str]
+    originalStatusCode: NotRequired[int]
+    originalMessage: NotRequired[str]
+
+class ServiceUnavailableExceptionTypeDef(TypedDict):
+    message: NotRequired[str]
+
+class ThrottlingExceptionTypeDef(TypedDict):
+    message: NotRequired[str]
+
+class ValidationExceptionTypeDef(TypedDict):
+    message: NotRequired[str]
+
+class GuardrailStreamConfigurationTypeDef(TypedDict):
+    guardrailIdentifier: str
+    guardrailVersion: str
+    trace: NotRequired[GuardrailTraceType]
+    streamProcessingMode: NotRequired[GuardrailStreamProcessingModeType]
+
+class PromptRouterTraceTypeDef(TypedDict):
+    invokedModelId: NotRequired[str]
+
+class S3LocationTypeDef(TypedDict):
+    uri: str
+    bucketOwner: NotRequired[str]
+
+class GetAsyncInvokeRequestTypeDef(TypedDict):
+    invocationArn: str
+
+class GuardrailTextBlockTypeDef(TypedDict):
+    text: str
+    qualifiers: NotRequired[Sequence[GuardrailContentQualifierType]]
+
+GuardrailContentFilterTypeDef = TypedDict(
+    "GuardrailContentFilterTypeDef",
     {
-        "message": str,
+        "type": GuardrailContentFilterTypeType,
+        "confidence": GuardrailContentFilterConfidenceType,
+        "action": GuardrailContentPolicyActionType,
+        "filterStrength": NotRequired[GuardrailContentFilterStrengthType],
+        "detected": NotRequired[bool],
     },
-    total=False,
 )
+GuardrailContextualGroundingFilterTypeDef = TypedDict(
+    "GuardrailContextualGroundingFilterTypeDef",
+    {
+        "type": GuardrailContextualGroundingFilterTypeType,
+        "threshold": float,
+        "score": float,
+        "action": GuardrailContextualGroundingPolicyActionType,
+        "detected": NotRequired[bool],
+    },
+)
+
+class GuardrailConverseTextBlockOutputTypeDef(TypedDict):
+    text: str
+    qualifiers: NotRequired[List[GuardrailConverseContentQualifierType]]
+
+GuardrailConverseImageSourceOutputTypeDef = TypedDict(
+    "GuardrailConverseImageSourceOutputTypeDef",
+    {
+        "bytes": NotRequired[bytes],
+    },
+)
+
+class GuardrailConverseTextBlockTypeDef(TypedDict):
+    text: str
+    qualifiers: NotRequired[Sequence[GuardrailConverseContentQualifierType]]
+
+class GuardrailImageCoverageTypeDef(TypedDict):
+    guarded: NotRequired[int]
+    total: NotRequired[int]
+
+class GuardrailTextCharactersCoverageTypeDef(TypedDict):
+    guarded: NotRequired[int]
+    total: NotRequired[int]
+
+class GuardrailCustomWordTypeDef(TypedDict):
+    match: str
+    action: GuardrailWordPolicyActionType
+    detected: NotRequired[bool]
+
+GuardrailManagedWordTypeDef = TypedDict(
+    "GuardrailManagedWordTypeDef",
+    {
+        "match": str,
+        "type": Literal["PROFANITY"],
+        "action": GuardrailWordPolicyActionType,
+        "detected": NotRequired[bool],
+    },
+)
+GuardrailPiiEntityFilterTypeDef = TypedDict(
+    "GuardrailPiiEntityFilterTypeDef",
+    {
+        "match": str,
+        "type": GuardrailPiiEntityTypeType,
+        "action": GuardrailSensitiveInformationPolicyActionType,
+        "detected": NotRequired[bool],
+    },
+)
+
+class GuardrailRegexFilterTypeDef(TypedDict):
+    action: GuardrailSensitiveInformationPolicyActionType
+    name: NotRequired[str]
+    match: NotRequired[str]
+    regex: NotRequired[str]
+    detected: NotRequired[bool]
+
+GuardrailTopicTypeDef = TypedDict(
+    "GuardrailTopicTypeDef",
+    {
+        "name": str,
+        "type": Literal["DENY"],
+        "action": GuardrailTopicPolicyActionType,
+        "detected": NotRequired[bool],
+    },
+)
+
+class ModelTimeoutExceptionTypeDef(TypedDict):
+    message: NotRequired[str]
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+TimestampTypeDef = Union[datetime, str]
+PayloadPartTypeDef = TypedDict(
+    "PayloadPartTypeDef",
+    {
+        "bytes": NotRequired[bytes],
+    },
+)
+
+class ReasoningTextBlockTypeDef(TypedDict):
+    text: str
+    signature: NotRequired[str]
+
+class SpecificToolChoiceTypeDef(TypedDict):
+    name: str
+
+class TagTypeDef(TypedDict):
+    key: str
+    value: str
+
+class ToolInputSchemaTypeDef(TypedDict):
+    json: NotRequired[Mapping[str, Any]]
+
+ToolUseBlockTypeDef = TypedDict(
+    "ToolUseBlockTypeDef",
+    {
+        "toolUseId": str,
+        "name": str,
+        "input": Mapping[str, Any],
+    },
+)
+
+class InvokeModelResponseTypeDef(TypedDict):
+    body: StreamingBody
+    contentType: str
+    performanceConfigLatency: PerformanceConfigLatencyType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartAsyncInvokeResponseTypeDef(TypedDict):
+    invocationArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class AsyncInvokeOutputDataConfigTypeDef(TypedDict):
+    s3OutputDataConfig: NotRequired[AsyncInvokeS3OutputDataConfigTypeDef]
+
+BidirectionalInputPayloadPartTypeDef = TypedDict(
+    "BidirectionalInputPayloadPartTypeDef",
+    {
+        "bytes": NotRequired[BlobTypeDef],
+    },
+)
+GuardrailConverseImageSourceTypeDef = TypedDict(
+    "GuardrailConverseImageSourceTypeDef",
+    {
+        "bytes": NotRequired[BlobTypeDef],
+    },
+)
+GuardrailImageSourceTypeDef = TypedDict(
+    "GuardrailImageSourceTypeDef",
+    {
+        "bytes": NotRequired[BlobTypeDef],
+    },
+)
+
+class InvokeModelRequestTypeDef(TypedDict):
+    modelId: str
+    body: NotRequired[BlobTypeDef]
+    contentType: NotRequired[str]
+    accept: NotRequired[str]
+    trace: NotRequired[TraceType]
+    guardrailIdentifier: NotRequired[str]
+    guardrailVersion: NotRequired[str]
+    performanceConfigLatency: NotRequired[PerformanceConfigLatencyType]
+
+class InvokeModelWithResponseStreamRequestTypeDef(TypedDict):
+    modelId: str
+    body: NotRequired[BlobTypeDef]
+    contentType: NotRequired[str]
+    accept: NotRequired[str]
+    trace: NotRequired[TraceType]
+    guardrailIdentifier: NotRequired[str]
+    guardrailVersion: NotRequired[str]
+    performanceConfigLatency: NotRequired[PerformanceConfigLatencyType]
+
+class ContentBlockDeltaTypeDef(TypedDict):
+    text: NotRequired[str]
+    toolUse: NotRequired[ToolUseBlockDeltaTypeDef]
+    reasoningContent: NotRequired[ReasoningContentBlockDeltaTypeDef]
+
+class ContentBlockStartTypeDef(TypedDict):
+    toolUse: NotRequired[ToolUseBlockStartTypeDef]
+
+DocumentSourceOutputTypeDef = TypedDict(
+    "DocumentSourceOutputTypeDef",
+    {
+        "bytes": NotRequired[bytes],
+        "s3Location": NotRequired[S3LocationTypeDef],
+    },
+)
+DocumentSourceTypeDef = TypedDict(
+    "DocumentSourceTypeDef",
+    {
+        "bytes": NotRequired[BlobTypeDef],
+        "s3Location": NotRequired[S3LocationTypeDef],
+    },
+)
+ImageSourceOutputTypeDef = TypedDict(
+    "ImageSourceOutputTypeDef",
+    {
+        "bytes": NotRequired[bytes],
+        "s3Location": NotRequired[S3LocationTypeDef],
+    },
+)
+ImageSourceTypeDef = TypedDict(
+    "ImageSourceTypeDef",
+    {
+        "bytes": NotRequired[BlobTypeDef],
+        "s3Location": NotRequired[S3LocationTypeDef],
+    },
+)
+VideoSourceOutputTypeDef = TypedDict(
+    "VideoSourceOutputTypeDef",
+    {
+        "bytes": NotRequired[bytes],
+        "s3Location": NotRequired[S3LocationTypeDef],
+    },
+)
+VideoSourceTypeDef = TypedDict(
+    "VideoSourceTypeDef",
+    {
+        "bytes": NotRequired[BlobTypeDef],
+        "s3Location": NotRequired[S3LocationTypeDef],
+    },
+)
+
+class GuardrailContentPolicyAssessmentTypeDef(TypedDict):
+    filters: List[GuardrailContentFilterTypeDef]
+
+class GuardrailContextualGroundingPolicyAssessmentTypeDef(TypedDict):
+    filters: NotRequired[List[GuardrailContextualGroundingFilterTypeDef]]
+
+GuardrailConverseImageBlockOutputTypeDef = TypedDict(
+    "GuardrailConverseImageBlockOutputTypeDef",
+    {
+        "format": GuardrailConverseImageFormatType,
+        "source": GuardrailConverseImageSourceOutputTypeDef,
+    },
+)
+GuardrailConverseTextBlockUnionTypeDef = Union[
+    GuardrailConverseTextBlockTypeDef, GuardrailConverseTextBlockOutputTypeDef
+]
+
+class GuardrailCoverageTypeDef(TypedDict):
+    textCharacters: NotRequired[GuardrailTextCharactersCoverageTypeDef]
+    images: NotRequired[GuardrailImageCoverageTypeDef]
+
+class GuardrailWordPolicyAssessmentTypeDef(TypedDict):
+    customWords: List[GuardrailCustomWordTypeDef]
+    managedWordLists: List[GuardrailManagedWordTypeDef]
+
+class GuardrailSensitiveInformationPolicyAssessmentTypeDef(TypedDict):
+    piiEntities: List[GuardrailPiiEntityFilterTypeDef]
+    regexes: List[GuardrailRegexFilterTypeDef]
+
+class GuardrailTopicPolicyAssessmentTypeDef(TypedDict):
+    topics: List[GuardrailTopicTypeDef]
+
+class InvokeModelWithBidirectionalStreamOutputTypeDef(TypedDict):
+    chunk: NotRequired[BidirectionalOutputPayloadPartTypeDef]
+    internalServerException: NotRequired[InternalServerExceptionTypeDef]
+    modelStreamErrorException: NotRequired[ModelStreamErrorExceptionTypeDef]
+    validationException: NotRequired[ValidationExceptionTypeDef]
+    throttlingException: NotRequired[ThrottlingExceptionTypeDef]
+    modelTimeoutException: NotRequired[ModelTimeoutExceptionTypeDef]
+    serviceUnavailableException: NotRequired[ServiceUnavailableExceptionTypeDef]
+
+class ListAsyncInvokesRequestPaginateTypeDef(TypedDict):
+    submitTimeAfter: NotRequired[TimestampTypeDef]
+    submitTimeBefore: NotRequired[TimestampTypeDef]
+    statusEquals: NotRequired[AsyncInvokeStatusType]
+    sortBy: NotRequired[Literal["SubmissionTime"]]
+    sortOrder: NotRequired[SortOrderType]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListAsyncInvokesRequestTypeDef(TypedDict):
+    submitTimeAfter: NotRequired[TimestampTypeDef]
+    submitTimeBefore: NotRequired[TimestampTypeDef]
+    statusEquals: NotRequired[AsyncInvokeStatusType]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+    sortBy: NotRequired[Literal["SubmissionTime"]]
+    sortOrder: NotRequired[SortOrderType]
+
+class ResponseStreamTypeDef(TypedDict):
+    chunk: NotRequired[PayloadPartTypeDef]
+    internalServerException: NotRequired[InternalServerExceptionTypeDef]
+    modelStreamErrorException: NotRequired[ModelStreamErrorExceptionTypeDef]
+    validationException: NotRequired[ValidationExceptionTypeDef]
+    throttlingException: NotRequired[ThrottlingExceptionTypeDef]
+    modelTimeoutException: NotRequired[ModelTimeoutExceptionTypeDef]
+    serviceUnavailableException: NotRequired[ServiceUnavailableExceptionTypeDef]
+
+class ReasoningContentBlockOutputTypeDef(TypedDict):
+    reasoningText: NotRequired[ReasoningTextBlockTypeDef]
+    redactedContent: NotRequired[bytes]
+
+class ReasoningContentBlockTypeDef(TypedDict):
+    reasoningText: NotRequired[ReasoningTextBlockTypeDef]
+    redactedContent: NotRequired[BlobTypeDef]
+
+ToolChoiceTypeDef = TypedDict(
+    "ToolChoiceTypeDef",
+    {
+        "auto": NotRequired[Mapping[str, Any]],
+        "any": NotRequired[Mapping[str, Any]],
+        "tool": NotRequired[SpecificToolChoiceTypeDef],
+    },
+)
+
+class ToolSpecificationTypeDef(TypedDict):
+    name: str
+    inputSchema: ToolInputSchemaTypeDef
+    description: NotRequired[str]
+
+ToolUseBlockUnionTypeDef = Union[ToolUseBlockTypeDef, ToolUseBlockOutputTypeDef]
+
+class AsyncInvokeSummaryTypeDef(TypedDict):
+    invocationArn: str
+    modelArn: str
+    submitTime: datetime
+    outputDataConfig: AsyncInvokeOutputDataConfigTypeDef
+    clientRequestToken: NotRequired[str]
+    status: NotRequired[AsyncInvokeStatusType]
+    failureMessage: NotRequired[str]
+    lastModifiedTime: NotRequired[datetime]
+    endTime: NotRequired[datetime]
+
+class GetAsyncInvokeResponseTypeDef(TypedDict):
+    invocationArn: str
+    modelArn: str
+    clientRequestToken: str
+    status: AsyncInvokeStatusType
+    failureMessage: str
+    submitTime: datetime
+    lastModifiedTime: datetime
+    endTime: datetime
+    outputDataConfig: AsyncInvokeOutputDataConfigTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartAsyncInvokeRequestTypeDef(TypedDict):
+    modelId: str
+    modelInput: Mapping[str, Any]
+    outputDataConfig: AsyncInvokeOutputDataConfigTypeDef
+    clientRequestToken: NotRequired[str]
+    tags: NotRequired[Sequence[TagTypeDef]]
+
+class InvokeModelWithBidirectionalStreamInputTypeDef(TypedDict):
+    chunk: NotRequired[BidirectionalInputPayloadPartTypeDef]
+
+GuardrailConverseImageSourceUnionTypeDef = Union[
+    GuardrailConverseImageSourceTypeDef, GuardrailConverseImageSourceOutputTypeDef
+]
+GuardrailImageBlockTypeDef = TypedDict(
+    "GuardrailImageBlockTypeDef",
+    {
+        "format": GuardrailImageFormatType,
+        "source": GuardrailImageSourceTypeDef,
+    },
+)
+
+class ContentBlockDeltaEventTypeDef(TypedDict):
+    delta: ContentBlockDeltaTypeDef
+    contentBlockIndex: int
+
+class ContentBlockStartEventTypeDef(TypedDict):
+    start: ContentBlockStartTypeDef
+    contentBlockIndex: int
+
+DocumentBlockOutputTypeDef = TypedDict(
+    "DocumentBlockOutputTypeDef",
+    {
+        "format": DocumentFormatType,
+        "name": str,
+        "source": DocumentSourceOutputTypeDef,
+    },
+)
+DocumentSourceUnionTypeDef = Union[DocumentSourceTypeDef, DocumentSourceOutputTypeDef]
+ImageBlockOutputTypeDef = TypedDict(
+    "ImageBlockOutputTypeDef",
+    {
+        "format": ImageFormatType,
+        "source": ImageSourceOutputTypeDef,
+    },
+)
+ImageSourceUnionTypeDef = Union[ImageSourceTypeDef, ImageSourceOutputTypeDef]
+VideoBlockOutputTypeDef = TypedDict(
+    "VideoBlockOutputTypeDef",
+    {
+        "format": VideoFormatType,
+        "source": VideoSourceOutputTypeDef,
+    },
+)
+VideoSourceUnionTypeDef = Union[VideoSourceTypeDef, VideoSourceOutputTypeDef]
+
+class GuardrailConverseContentBlockOutputTypeDef(TypedDict):
+    text: NotRequired[GuardrailConverseTextBlockOutputTypeDef]
+    image: NotRequired[GuardrailConverseImageBlockOutputTypeDef]
+
+class GuardrailInvocationMetricsTypeDef(TypedDict):
+    guardrailProcessingLatency: NotRequired[int]
+    usage: NotRequired[GuardrailUsageTypeDef]
+    guardrailCoverage: NotRequired[GuardrailCoverageTypeDef]
+
+class InvokeModelWithBidirectionalStreamResponseTypeDef(TypedDict):
+    body: EventStream[InvokeModelWithBidirectionalStreamOutputTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class InvokeModelWithResponseStreamResponseTypeDef(TypedDict):
+    body: EventStream[ResponseStreamTypeDef]
+    contentType: str
+    performanceConfigLatency: PerformanceConfigLatencyType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+ReasoningContentBlockUnionTypeDef = Union[
+    ReasoningContentBlockTypeDef, ReasoningContentBlockOutputTypeDef
+]
+
+class ToolTypeDef(TypedDict):
+    toolSpec: NotRequired[ToolSpecificationTypeDef]
+    cachePoint: NotRequired[CachePointBlockTypeDef]
+
+class ListAsyncInvokesResponseTypeDef(TypedDict):
+    asyncInvokeSummaries: List[AsyncInvokeSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class InvokeModelWithBidirectionalStreamRequestTypeDef(TypedDict):
+    modelId: str
+    body: EventStream[InvokeModelWithBidirectionalStreamInputTypeDef]
+
+GuardrailConverseImageBlockTypeDef = TypedDict(
+    "GuardrailConverseImageBlockTypeDef",
+    {
+        "format": GuardrailConverseImageFormatType,
+        "source": GuardrailConverseImageSourceUnionTypeDef,
+    },
+)
+
+class GuardrailContentBlockTypeDef(TypedDict):
+    text: NotRequired[GuardrailTextBlockTypeDef]
+    image: NotRequired[GuardrailImageBlockTypeDef]
+
+DocumentBlockTypeDef = TypedDict(
+    "DocumentBlockTypeDef",
+    {
+        "format": DocumentFormatType,
+        "name": str,
+        "source": DocumentSourceUnionTypeDef,
+    },
+)
+ImageBlockTypeDef = TypedDict(
+    "ImageBlockTypeDef",
+    {
+        "format": ImageFormatType,
+        "source": ImageSourceUnionTypeDef,
+    },
+)
+
+class ToolResultContentBlockOutputTypeDef(TypedDict):
+    json: NotRequired[Dict[str, Any]]
+    text: NotRequired[str]
+    image: NotRequired[ImageBlockOutputTypeDef]
+    document: NotRequired[DocumentBlockOutputTypeDef]
+    video: NotRequired[VideoBlockOutputTypeDef]
+
+VideoBlockTypeDef = TypedDict(
+    "VideoBlockTypeDef",
+    {
+        "format": VideoFormatType,
+        "source": VideoSourceUnionTypeDef,
+    },
+)
+
+class GuardrailAssessmentTypeDef(TypedDict):
+    topicPolicy: NotRequired[GuardrailTopicPolicyAssessmentTypeDef]
+    contentPolicy: NotRequired[GuardrailContentPolicyAssessmentTypeDef]
+    wordPolicy: NotRequired[GuardrailWordPolicyAssessmentTypeDef]
+    sensitiveInformationPolicy: NotRequired[GuardrailSensitiveInformationPolicyAssessmentTypeDef]
+    contextualGroundingPolicy: NotRequired[GuardrailContextualGroundingPolicyAssessmentTypeDef]
+    invocationMetrics: NotRequired[GuardrailInvocationMetricsTypeDef]
+
+class ToolConfigurationTypeDef(TypedDict):
+    tools: Sequence[ToolTypeDef]
+    toolChoice: NotRequired[ToolChoiceTypeDef]
+
+GuardrailConverseImageBlockUnionTypeDef = Union[
+    GuardrailConverseImageBlockTypeDef, GuardrailConverseImageBlockOutputTypeDef
+]
+
+class ApplyGuardrailRequestTypeDef(TypedDict):
+    guardrailIdentifier: str
+    guardrailVersion: str
+    source: GuardrailContentSourceType
+    content: Sequence[GuardrailContentBlockTypeDef]
+    outputScope: NotRequired[GuardrailOutputScopeType]
+
+DocumentBlockUnionTypeDef = Union[DocumentBlockTypeDef, DocumentBlockOutputTypeDef]
+ImageBlockUnionTypeDef = Union[ImageBlockTypeDef, ImageBlockOutputTypeDef]
+
+class ToolResultBlockOutputTypeDef(TypedDict):
+    toolUseId: str
+    content: List[ToolResultContentBlockOutputTypeDef]
+    status: NotRequired[ToolResultStatusType]
+
+VideoBlockUnionTypeDef = Union[VideoBlockTypeDef, VideoBlockOutputTypeDef]
+
+class ApplyGuardrailResponseTypeDef(TypedDict):
+    usage: GuardrailUsageTypeDef
+    action: GuardrailActionType
+    actionReason: str
+    outputs: List[GuardrailOutputContentTypeDef]
+    assessments: List[GuardrailAssessmentTypeDef]
+    guardrailCoverage: GuardrailCoverageTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GuardrailTraceAssessmentTypeDef(TypedDict):
+    modelOutput: NotRequired[List[str]]
+    inputAssessment: NotRequired[Dict[str, GuardrailAssessmentTypeDef]]
+    outputAssessments: NotRequired[Dict[str, List[GuardrailAssessmentTypeDef]]]
+    actionReason: NotRequired[str]
+
+class GuardrailConverseContentBlockTypeDef(TypedDict):
+    text: NotRequired[GuardrailConverseTextBlockUnionTypeDef]
+    image: NotRequired[GuardrailConverseImageBlockUnionTypeDef]
+
+class ContentBlockOutputTypeDef(TypedDict):
+    text: NotRequired[str]
+    image: NotRequired[ImageBlockOutputTypeDef]
+    document: NotRequired[DocumentBlockOutputTypeDef]
+    video: NotRequired[VideoBlockOutputTypeDef]
+    toolUse: NotRequired[ToolUseBlockOutputTypeDef]
+    toolResult: NotRequired[ToolResultBlockOutputTypeDef]
+    guardContent: NotRequired[GuardrailConverseContentBlockOutputTypeDef]
+    cachePoint: NotRequired[CachePointBlockTypeDef]
+    reasoningContent: NotRequired[ReasoningContentBlockOutputTypeDef]
+
+class ToolResultContentBlockTypeDef(TypedDict):
+    json: NotRequired[Mapping[str, Any]]
+    text: NotRequired[str]
+    image: NotRequired[ImageBlockUnionTypeDef]
+    document: NotRequired[DocumentBlockUnionTypeDef]
+    video: NotRequired[VideoBlockUnionTypeDef]
+
+class ConverseStreamTraceTypeDef(TypedDict):
+    guardrail: NotRequired[GuardrailTraceAssessmentTypeDef]
+    promptRouter: NotRequired[PromptRouterTraceTypeDef]
+
+class ConverseTraceTypeDef(TypedDict):
+    guardrail: NotRequired[GuardrailTraceAssessmentTypeDef]
+    promptRouter: NotRequired[PromptRouterTraceTypeDef]
+
+GuardrailConverseContentBlockUnionTypeDef = Union[
+    GuardrailConverseContentBlockTypeDef, GuardrailConverseContentBlockOutputTypeDef
+]
+
+class MessageOutputTypeDef(TypedDict):
+    role: ConversationRoleType
+    content: List[ContentBlockOutputTypeDef]
+
+ToolResultContentBlockUnionTypeDef = Union[
+    ToolResultContentBlockTypeDef, ToolResultContentBlockOutputTypeDef
+]
+
+class ConverseStreamMetadataEventTypeDef(TypedDict):
+    usage: TokenUsageTypeDef
+    metrics: ConverseStreamMetricsTypeDef
+    trace: NotRequired[ConverseStreamTraceTypeDef]
+    performanceConfig: NotRequired[PerformanceConfigurationTypeDef]
+
+class SystemContentBlockTypeDef(TypedDict):
+    text: NotRequired[str]
+    guardContent: NotRequired[GuardrailConverseContentBlockUnionTypeDef]
+    cachePoint: NotRequired[CachePointBlockTypeDef]
+
+class ConverseOutputTypeDef(TypedDict):
+    message: NotRequired[MessageOutputTypeDef]
+
+class ToolResultBlockTypeDef(TypedDict):
+    toolUseId: str
+    content: Sequence[ToolResultContentBlockUnionTypeDef]
+    status: NotRequired[ToolResultStatusType]
+
+class ConverseStreamOutputTypeDef(TypedDict):
+    messageStart: NotRequired[MessageStartEventTypeDef]
+    contentBlockStart: NotRequired[ContentBlockStartEventTypeDef]
+    contentBlockDelta: NotRequired[ContentBlockDeltaEventTypeDef]
+    contentBlockStop: NotRequired[ContentBlockStopEventTypeDef]
+    messageStop: NotRequired[MessageStopEventTypeDef]
+    metadata: NotRequired[ConverseStreamMetadataEventTypeDef]
+    internalServerException: NotRequired[InternalServerExceptionTypeDef]
+    modelStreamErrorException: NotRequired[ModelStreamErrorExceptionTypeDef]
+    validationException: NotRequired[ValidationExceptionTypeDef]
+    throttlingException: NotRequired[ThrottlingExceptionTypeDef]
+    serviceUnavailableException: NotRequired[ServiceUnavailableExceptionTypeDef]
+
+class ConverseResponseTypeDef(TypedDict):
+    output: ConverseOutputTypeDef
+    stopReason: StopReasonType
+    usage: TokenUsageTypeDef
+    metrics: ConverseMetricsTypeDef
+    additionalModelResponseFields: Dict[str, Any]
+    trace: ConverseTraceTypeDef
+    performanceConfig: PerformanceConfigurationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+ToolResultBlockUnionTypeDef = Union[ToolResultBlockTypeDef, ToolResultBlockOutputTypeDef]
+
+class ConverseStreamResponseTypeDef(TypedDict):
+    stream: EventStream[ConverseStreamOutputTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ContentBlockTypeDef(TypedDict):
+    text: NotRequired[str]
+    image: NotRequired[ImageBlockUnionTypeDef]
+    document: NotRequired[DocumentBlockUnionTypeDef]
+    video: NotRequired[VideoBlockUnionTypeDef]
+    toolUse: NotRequired[ToolUseBlockUnionTypeDef]
+    toolResult: NotRequired[ToolResultBlockUnionTypeDef]
+    guardContent: NotRequired[GuardrailConverseContentBlockUnionTypeDef]
+    cachePoint: NotRequired[CachePointBlockTypeDef]
+    reasoningContent: NotRequired[ReasoningContentBlockUnionTypeDef]
+
+ContentBlockUnionTypeDef = Union[ContentBlockTypeDef, ContentBlockOutputTypeDef]
+
+class MessageTypeDef(TypedDict):
+    role: ConversationRoleType
+    content: Sequence[ContentBlockUnionTypeDef]
+
+MessageUnionTypeDef = Union[MessageTypeDef, MessageOutputTypeDef]
+
+class ConverseRequestTypeDef(TypedDict):
+    modelId: str
+    messages: NotRequired[Sequence[MessageUnionTypeDef]]
+    system: NotRequired[Sequence[SystemContentBlockTypeDef]]
+    inferenceConfig: NotRequired[InferenceConfigurationTypeDef]
+    toolConfig: NotRequired[ToolConfigurationTypeDef]
+    guardrailConfig: NotRequired[GuardrailConfigurationTypeDef]
+    additionalModelRequestFields: NotRequired[Mapping[str, Any]]
+    promptVariables: NotRequired[Mapping[str, PromptVariableValuesTypeDef]]
+    additionalModelResponseFieldPaths: NotRequired[Sequence[str]]
+    requestMetadata: NotRequired[Mapping[str, str]]
+    performanceConfig: NotRequired[PerformanceConfigurationTypeDef]
+
+class ConverseStreamRequestTypeDef(TypedDict):
+    modelId: str
+    messages: NotRequired[Sequence[MessageUnionTypeDef]]
+    system: NotRequired[Sequence[SystemContentBlockTypeDef]]
+    inferenceConfig: NotRequired[InferenceConfigurationTypeDef]
+    toolConfig: NotRequired[ToolConfigurationTypeDef]
+    guardrailConfig: NotRequired[GuardrailStreamConfigurationTypeDef]
+    additionalModelRequestFields: NotRequired[Mapping[str, Any]]
+    promptVariables: NotRequired[Mapping[str, PromptVariableValuesTypeDef]]
+    additionalModelResponseFieldPaths: NotRequired[Sequence[str]]
+    requestMetadata: NotRequired[Mapping[str, str]]
+    performanceConfig: NotRequired[PerformanceConfigurationTypeDef]

@@ -1,93 +1,110 @@
 """
 Type annotations for entityresolution service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_entityresolution/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_entityresolution/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_entityresolution.type_defs import AddPolicyStatementInputRequestTypeDef
+    from mypy_boto3_entityresolution.type_defs import AddPolicyStatementInputTypeDef
 
-    data: AddPolicyStatementInputRequestTypeDef = {...}
+    data: AddPolicyStatementInputTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
+from typing import Any, Union
 
 from .literals import (
     AttributeMatchingModelType,
     DeleteUniqueIdErrorTypeType,
     DeleteUniqueIdStatusType,
+    IdMappingTypeType,
+    IdMappingWorkflowRuleDefinitionTypeType,
     IdNamespaceTypeType,
     JobStatusType,
+    MatchPurposeType,
+    RecordMatchingModelType,
     ResolutionTypeType,
     SchemaAttributeTypeType,
     ServiceTypeType,
     StatementEffectType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
-    "AddPolicyStatementInputRequestTypeDef",
+    "AddPolicyStatementInputTypeDef",
     "AddPolicyStatementOutputTypeDef",
-    "BatchDeleteUniqueIdInputRequestTypeDef",
+    "BatchDeleteUniqueIdInputTypeDef",
     "BatchDeleteUniqueIdOutputTypeDef",
-    "CreateIdMappingWorkflowInputRequestTypeDef",
+    "CreateIdMappingWorkflowInputTypeDef",
     "CreateIdMappingWorkflowOutputTypeDef",
-    "CreateIdNamespaceInputRequestTypeDef",
+    "CreateIdNamespaceInputTypeDef",
     "CreateIdNamespaceOutputTypeDef",
-    "CreateMatchingWorkflowInputRequestTypeDef",
+    "CreateMatchingWorkflowInputTypeDef",
     "CreateMatchingWorkflowOutputTypeDef",
-    "CreateSchemaMappingInputRequestTypeDef",
+    "CreateSchemaMappingInputTypeDef",
     "CreateSchemaMappingOutputTypeDef",
-    "DeleteIdMappingWorkflowInputRequestTypeDef",
+    "DeleteIdMappingWorkflowInputTypeDef",
     "DeleteIdMappingWorkflowOutputTypeDef",
-    "DeleteIdNamespaceInputRequestTypeDef",
+    "DeleteIdNamespaceInputTypeDef",
     "DeleteIdNamespaceOutputTypeDef",
-    "DeleteMatchingWorkflowInputRequestTypeDef",
+    "DeleteMatchingWorkflowInputTypeDef",
     "DeleteMatchingWorkflowOutputTypeDef",
-    "DeletePolicyStatementInputRequestTypeDef",
+    "DeletePolicyStatementInputTypeDef",
     "DeletePolicyStatementOutputTypeDef",
-    "DeleteSchemaMappingInputRequestTypeDef",
+    "DeleteSchemaMappingInputTypeDef",
     "DeleteSchemaMappingOutputTypeDef",
     "DeleteUniqueIdErrorTypeDef",
     "DeletedUniqueIdTypeDef",
     "ErrorDetailsTypeDef",
-    "GetIdMappingJobInputRequestTypeDef",
+    "GetIdMappingJobInputTypeDef",
     "GetIdMappingJobOutputTypeDef",
-    "GetIdMappingWorkflowInputRequestTypeDef",
+    "GetIdMappingWorkflowInputTypeDef",
     "GetIdMappingWorkflowOutputTypeDef",
-    "GetIdNamespaceInputRequestTypeDef",
+    "GetIdNamespaceInputTypeDef",
     "GetIdNamespaceOutputTypeDef",
-    "GetMatchIdInputRequestTypeDef",
+    "GetMatchIdInputTypeDef",
     "GetMatchIdOutputTypeDef",
-    "GetMatchingJobInputRequestTypeDef",
+    "GetMatchingJobInputTypeDef",
     "GetMatchingJobOutputTypeDef",
-    "GetMatchingWorkflowInputRequestTypeDef",
+    "GetMatchingWorkflowInputTypeDef",
     "GetMatchingWorkflowOutputTypeDef",
-    "GetPolicyInputRequestTypeDef",
+    "GetPolicyInputTypeDef",
     "GetPolicyOutputTypeDef",
-    "GetProviderServiceInputRequestTypeDef",
+    "GetProviderServiceInputTypeDef",
     "GetProviderServiceOutputTypeDef",
-    "GetSchemaMappingInputRequestTypeDef",
+    "GetSchemaMappingInputTypeDef",
     "GetSchemaMappingOutputTypeDef",
     "IdMappingJobMetricsTypeDef",
     "IdMappingJobOutputSourceTypeDef",
+    "IdMappingRuleBasedPropertiesOutputTypeDef",
+    "IdMappingRuleBasedPropertiesTypeDef",
+    "IdMappingTechniquesOutputTypeDef",
     "IdMappingTechniquesTypeDef",
+    "IdMappingTechniquesUnionTypeDef",
     "IdMappingWorkflowInputSourceTypeDef",
     "IdMappingWorkflowOutputSourceTypeDef",
     "IdMappingWorkflowSummaryTypeDef",
+    "IdNamespaceIdMappingWorkflowMetadataTypeDef",
+    "IdNamespaceIdMappingWorkflowPropertiesOutputTypeDef",
     "IdNamespaceIdMappingWorkflowPropertiesTypeDef",
+    "IdNamespaceIdMappingWorkflowPropertiesUnionTypeDef",
     "IdNamespaceInputSourceTypeDef",
     "IdNamespaceSummaryTypeDef",
     "IncrementalRunConfigTypeDef",
@@ -96,1480 +113,860 @@ __all__ = (
     "JobMetricsTypeDef",
     "JobOutputSourceTypeDef",
     "JobSummaryTypeDef",
-    "ListIdMappingJobsInputRequestTypeDef",
+    "ListIdMappingJobsInputPaginateTypeDef",
+    "ListIdMappingJobsInputTypeDef",
     "ListIdMappingJobsOutputTypeDef",
-    "ListIdMappingWorkflowsInputRequestTypeDef",
+    "ListIdMappingWorkflowsInputPaginateTypeDef",
+    "ListIdMappingWorkflowsInputTypeDef",
     "ListIdMappingWorkflowsOutputTypeDef",
-    "ListIdNamespacesInputRequestTypeDef",
+    "ListIdNamespacesInputPaginateTypeDef",
+    "ListIdNamespacesInputTypeDef",
     "ListIdNamespacesOutputTypeDef",
-    "ListMatchingJobsInputRequestTypeDef",
+    "ListMatchingJobsInputPaginateTypeDef",
+    "ListMatchingJobsInputTypeDef",
     "ListMatchingJobsOutputTypeDef",
-    "ListMatchingWorkflowsInputRequestTypeDef",
+    "ListMatchingWorkflowsInputPaginateTypeDef",
+    "ListMatchingWorkflowsInputTypeDef",
     "ListMatchingWorkflowsOutputTypeDef",
-    "ListProviderServicesInputRequestTypeDef",
+    "ListProviderServicesInputPaginateTypeDef",
+    "ListProviderServicesInputTypeDef",
     "ListProviderServicesOutputTypeDef",
-    "ListSchemaMappingsInputRequestTypeDef",
+    "ListSchemaMappingsInputPaginateTypeDef",
+    "ListSchemaMappingsInputTypeDef",
     "ListSchemaMappingsOutputTypeDef",
-    "ListTagsForResourceInputRequestTypeDef",
+    "ListTagsForResourceInputTypeDef",
     "ListTagsForResourceOutputTypeDef",
     "MatchingWorkflowSummaryTypeDef",
+    "NamespaceProviderPropertiesOutputTypeDef",
     "NamespaceProviderPropertiesTypeDef",
+    "NamespaceProviderPropertiesUnionTypeDef",
+    "NamespaceRuleBasedPropertiesOutputTypeDef",
+    "NamespaceRuleBasedPropertiesTypeDef",
+    "NamespaceRuleBasedPropertiesUnionTypeDef",
     "OutputAttributeTypeDef",
+    "OutputSourceOutputTypeDef",
     "OutputSourceTypeDef",
+    "OutputSourceUnionTypeDef",
     "PaginatorConfigTypeDef",
     "ProviderComponentSchemaTypeDef",
     "ProviderEndpointConfigurationTypeDef",
     "ProviderIdNameSpaceConfigurationTypeDef",
     "ProviderIntermediateDataAccessConfigurationTypeDef",
     "ProviderMarketplaceConfigurationTypeDef",
+    "ProviderPropertiesOutputTypeDef",
     "ProviderPropertiesTypeDef",
     "ProviderSchemaAttributeTypeDef",
     "ProviderServiceSummaryTypeDef",
-    "PutPolicyInputRequestTypeDef",
+    "PutPolicyInputTypeDef",
     "PutPolicyOutputTypeDef",
+    "ResolutionTechniquesOutputTypeDef",
     "ResolutionTechniquesTypeDef",
+    "ResolutionTechniquesUnionTypeDef",
     "ResponseMetadataTypeDef",
+    "RuleBasedPropertiesOutputTypeDef",
     "RuleBasedPropertiesTypeDef",
+    "RuleOutputTypeDef",
     "RuleTypeDef",
+    "RuleUnionTypeDef",
     "SchemaInputAttributeTypeDef",
     "SchemaMappingSummaryTypeDef",
-    "StartIdMappingJobInputRequestTypeDef",
+    "StartIdMappingJobInputTypeDef",
     "StartIdMappingJobOutputTypeDef",
-    "StartMatchingJobInputRequestTypeDef",
+    "StartMatchingJobInputTypeDef",
     "StartMatchingJobOutputTypeDef",
-    "TagResourceInputRequestTypeDef",
-    "UntagResourceInputRequestTypeDef",
-    "UpdateIdMappingWorkflowInputRequestTypeDef",
+    "TagResourceInputTypeDef",
+    "UntagResourceInputTypeDef",
+    "UpdateIdMappingWorkflowInputTypeDef",
     "UpdateIdMappingWorkflowOutputTypeDef",
-    "UpdateIdNamespaceInputRequestTypeDef",
+    "UpdateIdNamespaceInputTypeDef",
     "UpdateIdNamespaceOutputTypeDef",
-    "UpdateMatchingWorkflowInputRequestTypeDef",
+    "UpdateMatchingWorkflowInputTypeDef",
     "UpdateMatchingWorkflowOutputTypeDef",
-    "UpdateSchemaMappingInputRequestTypeDef",
+    "UpdateSchemaMappingInputTypeDef",
     "UpdateSchemaMappingOutputTypeDef",
 )
 
-_RequiredAddPolicyStatementInputRequestTypeDef = TypedDict(
-    "_RequiredAddPolicyStatementInputRequestTypeDef",
-    {
-        "action": List[str],
-        "arn": str,
-        "effect": StatementEffectType,
-        "principal": List[str],
-        "statementId": str,
-    },
-)
-_OptionalAddPolicyStatementInputRequestTypeDef = TypedDict(
-    "_OptionalAddPolicyStatementInputRequestTypeDef",
-    {
-        "condition": str,
-    },
-    total=False,
-)
+class AddPolicyStatementInputTypeDef(TypedDict):
+    arn: str
+    statementId: str
+    effect: StatementEffectType
+    action: Sequence[str]
+    principal: Sequence[str]
+    condition: NotRequired[str]
 
-class AddPolicyStatementInputRequestTypeDef(
-    _RequiredAddPolicyStatementInputRequestTypeDef, _OptionalAddPolicyStatementInputRequestTypeDef
-):
-    pass
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-AddPolicyStatementOutputTypeDef = TypedDict(
-    "AddPolicyStatementOutputTypeDef",
-    {
-        "arn": str,
-        "policy": str,
-        "token": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class BatchDeleteUniqueIdInputTypeDef(TypedDict):
+    workflowName: str
+    uniqueIds: Sequence[str]
+    inputSource: NotRequired[str]
 
-_RequiredBatchDeleteUniqueIdInputRequestTypeDef = TypedDict(
-    "_RequiredBatchDeleteUniqueIdInputRequestTypeDef",
-    {
-        "uniqueIds": List[str],
-        "workflowName": str,
-    },
-)
-_OptionalBatchDeleteUniqueIdInputRequestTypeDef = TypedDict(
-    "_OptionalBatchDeleteUniqueIdInputRequestTypeDef",
-    {
-        "inputSource": str,
-    },
-    total=False,
-)
+class DeleteUniqueIdErrorTypeDef(TypedDict):
+    uniqueId: str
+    errorType: DeleteUniqueIdErrorTypeType
 
-class BatchDeleteUniqueIdInputRequestTypeDef(
-    _RequiredBatchDeleteUniqueIdInputRequestTypeDef, _OptionalBatchDeleteUniqueIdInputRequestTypeDef
-):
-    pass
+class DeletedUniqueIdTypeDef(TypedDict):
+    uniqueId: str
 
-BatchDeleteUniqueIdOutputTypeDef = TypedDict(
-    "BatchDeleteUniqueIdOutputTypeDef",
+IdMappingWorkflowInputSourceTypeDef = TypedDict(
+    "IdMappingWorkflowInputSourceTypeDef",
     {
-        "deleted": List["DeletedUniqueIdTypeDef"],
-        "disconnectedUniqueIds": List[str],
-        "errors": List["DeleteUniqueIdErrorTypeDef"],
-        "status": DeleteUniqueIdStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "inputSourceARN": str,
+        "schemaName": NotRequired[str],
+        "type": NotRequired[IdNamespaceTypeType],
     },
 )
 
-_RequiredCreateIdMappingWorkflowInputRequestTypeDef = TypedDict(
-    "_RequiredCreateIdMappingWorkflowInputRequestTypeDef",
-    {
-        "idMappingTechniques": "IdMappingTechniquesTypeDef",
-        "inputSourceConfig": List["IdMappingWorkflowInputSourceTypeDef"],
-        "roleArn": str,
-        "workflowName": str,
-    },
-)
-_OptionalCreateIdMappingWorkflowInputRequestTypeDef = TypedDict(
-    "_OptionalCreateIdMappingWorkflowInputRequestTypeDef",
-    {
-        "description": str,
-        "outputSourceConfig": List["IdMappingWorkflowOutputSourceTypeDef"],
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
+class IdMappingWorkflowOutputSourceTypeDef(TypedDict):
+    outputS3Path: str
+    KMSArn: NotRequired[str]
 
-class CreateIdMappingWorkflowInputRequestTypeDef(
-    _RequiredCreateIdMappingWorkflowInputRequestTypeDef,
-    _OptionalCreateIdMappingWorkflowInputRequestTypeDef,
-):
-    pass
+class IdNamespaceInputSourceTypeDef(TypedDict):
+    inputSourceARN: str
+    schemaName: NotRequired[str]
 
-CreateIdMappingWorkflowOutputTypeDef = TypedDict(
-    "CreateIdMappingWorkflowOutputTypeDef",
+class IncrementalRunConfigTypeDef(TypedDict):
+    incrementalRunType: NotRequired[Literal["IMMEDIATE"]]
+
+class InputSourceTypeDef(TypedDict):
+    inputSourceARN: str
+    schemaName: str
+    applyNormalization: NotRequired[bool]
+
+SchemaInputAttributeTypeDef = TypedDict(
+    "SchemaInputAttributeTypeDef",
     {
-        "description": str,
-        "idMappingTechniques": "IdMappingTechniquesTypeDef",
-        "inputSourceConfig": List["IdMappingWorkflowInputSourceTypeDef"],
-        "outputSourceConfig": List["IdMappingWorkflowOutputSourceTypeDef"],
-        "roleArn": str,
-        "workflowArn": str,
-        "workflowName": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "fieldName": str,
+        "type": SchemaAttributeTypeType,
+        "groupName": NotRequired[str],
+        "matchKey": NotRequired[str],
+        "subType": NotRequired[str],
+        "hashed": NotRequired[bool],
     },
 )
 
-_RequiredCreateIdNamespaceInputRequestTypeDef = TypedDict(
-    "_RequiredCreateIdNamespaceInputRequestTypeDef",
+class DeleteIdMappingWorkflowInputTypeDef(TypedDict):
+    workflowName: str
+
+class DeleteIdNamespaceInputTypeDef(TypedDict):
+    idNamespaceName: str
+
+class DeleteMatchingWorkflowInputTypeDef(TypedDict):
+    workflowName: str
+
+class DeletePolicyStatementInputTypeDef(TypedDict):
+    arn: str
+    statementId: str
+
+class DeleteSchemaMappingInputTypeDef(TypedDict):
+    schemaName: str
+
+class ErrorDetailsTypeDef(TypedDict):
+    errorMessage: NotRequired[str]
+
+class GetIdMappingJobInputTypeDef(TypedDict):
+    workflowName: str
+    jobId: str
+
+class IdMappingJobMetricsTypeDef(TypedDict):
+    inputRecords: NotRequired[int]
+    totalRecordsProcessed: NotRequired[int]
+    recordsNotProcessed: NotRequired[int]
+    totalMappedRecords: NotRequired[int]
+    totalMappedSourceRecords: NotRequired[int]
+    totalMappedTargetRecords: NotRequired[int]
+    uniqueRecordsLoaded: NotRequired[int]
+
+class IdMappingJobOutputSourceTypeDef(TypedDict):
+    roleArn: str
+    outputS3Path: str
+    KMSArn: NotRequired[str]
+
+class GetIdMappingWorkflowInputTypeDef(TypedDict):
+    workflowName: str
+
+class GetIdNamespaceInputTypeDef(TypedDict):
+    idNamespaceName: str
+
+class GetMatchIdInputTypeDef(TypedDict):
+    workflowName: str
+    record: Mapping[str, str]
+    applyNormalization: NotRequired[bool]
+
+class GetMatchingJobInputTypeDef(TypedDict):
+    workflowName: str
+    jobId: str
+
+class JobMetricsTypeDef(TypedDict):
+    inputRecords: NotRequired[int]
+    totalRecordsProcessed: NotRequired[int]
+    recordsNotProcessed: NotRequired[int]
+    matchIDs: NotRequired[int]
+
+class JobOutputSourceTypeDef(TypedDict):
+    roleArn: str
+    outputS3Path: str
+    KMSArn: NotRequired[str]
+
+class GetMatchingWorkflowInputTypeDef(TypedDict):
+    workflowName: str
+
+class GetPolicyInputTypeDef(TypedDict):
+    arn: str
+
+class GetProviderServiceInputTypeDef(TypedDict):
+    providerName: str
+    providerServiceName: str
+
+class ProviderIdNameSpaceConfigurationTypeDef(TypedDict):
+    description: NotRequired[str]
+    providerTargetConfigurationDefinition: NotRequired[Dict[str, Any]]
+    providerSourceConfigurationDefinition: NotRequired[Dict[str, Any]]
+
+class ProviderIntermediateDataAccessConfigurationTypeDef(TypedDict):
+    awsAccountIds: NotRequired[List[str]]
+    requiredBucketActions: NotRequired[List[str]]
+
+class GetSchemaMappingInputTypeDef(TypedDict):
+    schemaName: str
+
+class RuleOutputTypeDef(TypedDict):
+    ruleName: str
+    matchingKeys: List[str]
+
+class RuleTypeDef(TypedDict):
+    ruleName: str
+    matchingKeys: Sequence[str]
+
+class IdMappingWorkflowSummaryTypeDef(TypedDict):
+    workflowName: str
+    workflowArn: str
+    createdAt: datetime
+    updatedAt: datetime
+
+class IdNamespaceIdMappingWorkflowMetadataTypeDef(TypedDict):
+    idMappingType: IdMappingTypeType
+
+class NamespaceProviderPropertiesOutputTypeDef(TypedDict):
+    providerServiceArn: str
+    providerConfiguration: NotRequired[Dict[str, Any]]
+
+class IntermediateSourceConfigurationTypeDef(TypedDict):
+    intermediateS3Path: str
+
+class JobSummaryTypeDef(TypedDict):
+    jobId: str
+    status: JobStatusType
+    startTime: datetime
+    endTime: NotRequired[datetime]
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class ListIdMappingJobsInputTypeDef(TypedDict):
+    workflowName: str
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class ListIdMappingWorkflowsInputTypeDef(TypedDict):
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class ListIdNamespacesInputTypeDef(TypedDict):
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class ListMatchingJobsInputTypeDef(TypedDict):
+    workflowName: str
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class ListMatchingWorkflowsInputTypeDef(TypedDict):
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class MatchingWorkflowSummaryTypeDef(TypedDict):
+    workflowName: str
+    workflowArn: str
+    createdAt: datetime
+    updatedAt: datetime
+    resolutionType: ResolutionTypeType
+
+class ListProviderServicesInputTypeDef(TypedDict):
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+    providerName: NotRequired[str]
+
+class ProviderServiceSummaryTypeDef(TypedDict):
+    providerServiceArn: str
+    providerName: str
+    providerServiceDisplayName: str
+    providerServiceName: str
+    providerServiceType: ServiceTypeType
+
+class ListSchemaMappingsInputTypeDef(TypedDict):
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class SchemaMappingSummaryTypeDef(TypedDict):
+    schemaName: str
+    schemaArn: str
+    createdAt: datetime
+    updatedAt: datetime
+    hasWorkflows: bool
+
+class ListTagsForResourceInputTypeDef(TypedDict):
+    resourceArn: str
+
+class NamespaceProviderPropertiesTypeDef(TypedDict):
+    providerServiceArn: str
+    providerConfiguration: NotRequired[Mapping[str, Any]]
+
+class OutputAttributeTypeDef(TypedDict):
+    name: str
+    hashed: NotRequired[bool]
+
+ProviderSchemaAttributeTypeDef = TypedDict(
+    "ProviderSchemaAttributeTypeDef",
+    {
+        "fieldName": str,
+        "type": SchemaAttributeTypeType,
+        "subType": NotRequired[str],
+        "hashing": NotRequired[bool],
+    },
+)
+
+class ProviderMarketplaceConfigurationTypeDef(TypedDict):
+    dataSetId: str
+    revisionId: str
+    assetId: str
+    listingId: str
+
+class PutPolicyInputTypeDef(TypedDict):
+    arn: str
+    policy: str
+    token: NotRequired[str]
+
+class StartMatchingJobInputTypeDef(TypedDict):
+    workflowName: str
+
+class TagResourceInputTypeDef(TypedDict):
+    resourceArn: str
+    tags: Mapping[str, str]
+
+class UntagResourceInputTypeDef(TypedDict):
+    resourceArn: str
+    tagKeys: Sequence[str]
+
+class AddPolicyStatementOutputTypeDef(TypedDict):
+    arn: str
+    token: str
+    policy: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteIdMappingWorkflowOutputTypeDef(TypedDict):
+    message: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteIdNamespaceOutputTypeDef(TypedDict):
+    message: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteMatchingWorkflowOutputTypeDef(TypedDict):
+    message: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeletePolicyStatementOutputTypeDef(TypedDict):
+    arn: str
+    token: str
+    policy: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteSchemaMappingOutputTypeDef(TypedDict):
+    message: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetMatchIdOutputTypeDef(TypedDict):
+    matchId: str
+    matchRule: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetPolicyOutputTypeDef(TypedDict):
+    arn: str
+    token: str
+    policy: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListTagsForResourceOutputTypeDef(TypedDict):
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutPolicyOutputTypeDef(TypedDict):
+    arn: str
+    token: str
+    policy: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartMatchingJobOutputTypeDef(TypedDict):
+    jobId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class BatchDeleteUniqueIdOutputTypeDef(TypedDict):
+    status: DeleteUniqueIdStatusType
+    errors: List[DeleteUniqueIdErrorTypeDef]
+    deleted: List[DeletedUniqueIdTypeDef]
+    disconnectedUniqueIds: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateSchemaMappingInputTypeDef(TypedDict):
+    schemaName: str
+    mappedInputFields: Sequence[SchemaInputAttributeTypeDef]
+    description: NotRequired[str]
+    tags: NotRequired[Mapping[str, str]]
+
+class CreateSchemaMappingOutputTypeDef(TypedDict):
+    schemaName: str
+    schemaArn: str
+    description: str
+    mappedInputFields: List[SchemaInputAttributeTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetSchemaMappingOutputTypeDef(TypedDict):
+    schemaName: str
+    schemaArn: str
+    description: str
+    mappedInputFields: List[SchemaInputAttributeTypeDef]
+    createdAt: datetime
+    updatedAt: datetime
+    tags: Dict[str, str]
+    hasWorkflows: bool
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateSchemaMappingInputTypeDef(TypedDict):
+    schemaName: str
+    mappedInputFields: Sequence[SchemaInputAttributeTypeDef]
+    description: NotRequired[str]
+
+class UpdateSchemaMappingOutputTypeDef(TypedDict):
+    schemaName: str
+    schemaArn: str
+    description: str
+    mappedInputFields: List[SchemaInputAttributeTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetIdMappingJobOutputTypeDef(TypedDict):
+    jobId: str
+    status: JobStatusType
+    startTime: datetime
+    endTime: datetime
+    metrics: IdMappingJobMetricsTypeDef
+    errorDetails: ErrorDetailsTypeDef
+    outputSourceConfig: List[IdMappingJobOutputSourceTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartIdMappingJobInputTypeDef(TypedDict):
+    workflowName: str
+    outputSourceConfig: NotRequired[Sequence[IdMappingJobOutputSourceTypeDef]]
+
+class StartIdMappingJobOutputTypeDef(TypedDict):
+    jobId: str
+    outputSourceConfig: List[IdMappingJobOutputSourceTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetMatchingJobOutputTypeDef(TypedDict):
+    jobId: str
+    status: JobStatusType
+    startTime: datetime
+    endTime: datetime
+    metrics: JobMetricsTypeDef
+    errorDetails: ErrorDetailsTypeDef
+    outputSourceConfig: List[JobOutputSourceTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class IdMappingRuleBasedPropertiesOutputTypeDef(TypedDict):
+    ruleDefinitionType: IdMappingWorkflowRuleDefinitionTypeType
+    attributeMatchingModel: AttributeMatchingModelType
+    recordMatchingModel: RecordMatchingModelType
+    rules: NotRequired[List[RuleOutputTypeDef]]
+
+class NamespaceRuleBasedPropertiesOutputTypeDef(TypedDict):
+    rules: NotRequired[List[RuleOutputTypeDef]]
+    ruleDefinitionTypes: NotRequired[List[IdMappingWorkflowRuleDefinitionTypeType]]
+    attributeMatchingModel: NotRequired[AttributeMatchingModelType]
+    recordMatchingModels: NotRequired[List[RecordMatchingModelType]]
+
+class RuleBasedPropertiesOutputTypeDef(TypedDict):
+    rules: List[RuleOutputTypeDef]
+    attributeMatchingModel: AttributeMatchingModelType
+    matchPurpose: NotRequired[MatchPurposeType]
+
+class IdMappingRuleBasedPropertiesTypeDef(TypedDict):
+    ruleDefinitionType: IdMappingWorkflowRuleDefinitionTypeType
+    attributeMatchingModel: AttributeMatchingModelType
+    recordMatchingModel: RecordMatchingModelType
+    rules: NotRequired[Sequence[RuleTypeDef]]
+
+class RuleBasedPropertiesTypeDef(TypedDict):
+    rules: Sequence[RuleTypeDef]
+    attributeMatchingModel: AttributeMatchingModelType
+    matchPurpose: NotRequired[MatchPurposeType]
+
+RuleUnionTypeDef = Union[RuleTypeDef, RuleOutputTypeDef]
+
+class ListIdMappingWorkflowsOutputTypeDef(TypedDict):
+    workflowSummaries: List[IdMappingWorkflowSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+IdNamespaceSummaryTypeDef = TypedDict(
+    "IdNamespaceSummaryTypeDef",
     {
         "idNamespaceName": str,
+        "idNamespaceArn": str,
         "type": IdNamespaceTypeType,
+        "createdAt": datetime,
+        "updatedAt": datetime,
+        "description": NotRequired[str],
+        "idMappingWorkflowProperties": NotRequired[
+            List[IdNamespaceIdMappingWorkflowMetadataTypeDef]
+        ],
     },
-)
-_OptionalCreateIdNamespaceInputRequestTypeDef = TypedDict(
-    "_OptionalCreateIdNamespaceInputRequestTypeDef",
-    {
-        "description": str,
-        "idMappingWorkflowProperties": List["IdNamespaceIdMappingWorkflowPropertiesTypeDef"],
-        "inputSourceConfig": List["IdNamespaceInputSourceTypeDef"],
-        "roleArn": str,
-        "tags": Dict[str, str],
-    },
-    total=False,
 )
 
-class CreateIdNamespaceInputRequestTypeDef(
-    _RequiredCreateIdNamespaceInputRequestTypeDef, _OptionalCreateIdNamespaceInputRequestTypeDef
-):
-    pass
+class ProviderPropertiesOutputTypeDef(TypedDict):
+    providerServiceArn: str
+    providerConfiguration: NotRequired[Dict[str, Any]]
+    intermediateSourceConfiguration: NotRequired[IntermediateSourceConfigurationTypeDef]
+
+class ProviderPropertiesTypeDef(TypedDict):
+    providerServiceArn: str
+    providerConfiguration: NotRequired[Mapping[str, Any]]
+    intermediateSourceConfiguration: NotRequired[IntermediateSourceConfigurationTypeDef]
+
+class ListIdMappingJobsOutputTypeDef(TypedDict):
+    jobs: List[JobSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListMatchingJobsOutputTypeDef(TypedDict):
+    jobs: List[JobSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListIdMappingJobsInputPaginateTypeDef(TypedDict):
+    workflowName: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListIdMappingWorkflowsInputPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListIdNamespacesInputPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListMatchingJobsInputPaginateTypeDef(TypedDict):
+    workflowName: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListMatchingWorkflowsInputPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListProviderServicesInputPaginateTypeDef(TypedDict):
+    providerName: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListSchemaMappingsInputPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListMatchingWorkflowsOutputTypeDef(TypedDict):
+    workflowSummaries: List[MatchingWorkflowSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListProviderServicesOutputTypeDef(TypedDict):
+    providerServiceSummaries: List[ProviderServiceSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListSchemaMappingsOutputTypeDef(TypedDict):
+    schemaList: List[SchemaMappingSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+NamespaceProviderPropertiesUnionTypeDef = Union[
+    NamespaceProviderPropertiesTypeDef, NamespaceProviderPropertiesOutputTypeDef
+]
+
+class OutputSourceOutputTypeDef(TypedDict):
+    outputS3Path: str
+    output: List[OutputAttributeTypeDef]
+    KMSArn: NotRequired[str]
+    applyNormalization: NotRequired[bool]
+
+class OutputSourceTypeDef(TypedDict):
+    outputS3Path: str
+    output: Sequence[OutputAttributeTypeDef]
+    KMSArn: NotRequired[str]
+    applyNormalization: NotRequired[bool]
+
+class ProviderComponentSchemaTypeDef(TypedDict):
+    schemas: NotRequired[List[List[str]]]
+    providerSchemaAttributes: NotRequired[List[ProviderSchemaAttributeTypeDef]]
+
+class ProviderEndpointConfigurationTypeDef(TypedDict):
+    marketplaceConfiguration: NotRequired[ProviderMarketplaceConfigurationTypeDef]
+
+class IdNamespaceIdMappingWorkflowPropertiesOutputTypeDef(TypedDict):
+    idMappingType: IdMappingTypeType
+    ruleBasedProperties: NotRequired[NamespaceRuleBasedPropertiesOutputTypeDef]
+    providerProperties: NotRequired[NamespaceProviderPropertiesOutputTypeDef]
+
+class NamespaceRuleBasedPropertiesTypeDef(TypedDict):
+    rules: NotRequired[Sequence[RuleUnionTypeDef]]
+    ruleDefinitionTypes: NotRequired[Sequence[IdMappingWorkflowRuleDefinitionTypeType]]
+    attributeMatchingModel: NotRequired[AttributeMatchingModelType]
+    recordMatchingModels: NotRequired[Sequence[RecordMatchingModelType]]
+
+class ListIdNamespacesOutputTypeDef(TypedDict):
+    idNamespaceSummaries: List[IdNamespaceSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class IdMappingTechniquesOutputTypeDef(TypedDict):
+    idMappingType: IdMappingTypeType
+    ruleBasedProperties: NotRequired[IdMappingRuleBasedPropertiesOutputTypeDef]
+    providerProperties: NotRequired[ProviderPropertiesOutputTypeDef]
+
+class ResolutionTechniquesOutputTypeDef(TypedDict):
+    resolutionType: ResolutionTypeType
+    ruleBasedProperties: NotRequired[RuleBasedPropertiesOutputTypeDef]
+    providerProperties: NotRequired[ProviderPropertiesOutputTypeDef]
+
+class IdMappingTechniquesTypeDef(TypedDict):
+    idMappingType: IdMappingTypeType
+    ruleBasedProperties: NotRequired[IdMappingRuleBasedPropertiesTypeDef]
+    providerProperties: NotRequired[ProviderPropertiesTypeDef]
+
+class ResolutionTechniquesTypeDef(TypedDict):
+    resolutionType: ResolutionTypeType
+    ruleBasedProperties: NotRequired[RuleBasedPropertiesTypeDef]
+    providerProperties: NotRequired[ProviderPropertiesTypeDef]
+
+OutputSourceUnionTypeDef = Union[OutputSourceTypeDef, OutputSourceOutputTypeDef]
+
+class GetProviderServiceOutputTypeDef(TypedDict):
+    providerName: str
+    providerServiceName: str
+    providerServiceDisplayName: str
+    providerServiceType: ServiceTypeType
+    providerServiceArn: str
+    providerConfigurationDefinition: Dict[str, Any]
+    providerIdNameSpaceConfiguration: ProviderIdNameSpaceConfigurationTypeDef
+    providerJobConfiguration: Dict[str, Any]
+    providerEndpointConfiguration: ProviderEndpointConfigurationTypeDef
+    anonymizedOutput: bool
+    providerEntityOutputDefinition: Dict[str, Any]
+    providerIntermediateDataAccessConfiguration: ProviderIntermediateDataAccessConfigurationTypeDef
+    providerComponentSchema: ProviderComponentSchemaTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
 CreateIdNamespaceOutputTypeDef = TypedDict(
     "CreateIdNamespaceOutputTypeDef",
     {
-        "createdAt": datetime,
-        "description": str,
-        "idMappingWorkflowProperties": List["IdNamespaceIdMappingWorkflowPropertiesTypeDef"],
+        "idNamespaceName": str,
         "idNamespaceArn": str,
-        "idNamespaceName": str,
-        "inputSourceConfig": List["IdNamespaceInputSourceTypeDef"],
-        "roleArn": str,
-        "tags": Dict[str, str],
+        "description": str,
+        "inputSourceConfig": List[IdNamespaceInputSourceTypeDef],
+        "idMappingWorkflowProperties": List[IdNamespaceIdMappingWorkflowPropertiesOutputTypeDef],
         "type": IdNamespaceTypeType,
-        "updatedAt": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateMatchingWorkflowInputRequestTypeDef = TypedDict(
-    "_RequiredCreateMatchingWorkflowInputRequestTypeDef",
-    {
-        "inputSourceConfig": List["InputSourceTypeDef"],
-        "outputSourceConfig": List["OutputSourceTypeDef"],
-        "resolutionTechniques": "ResolutionTechniquesTypeDef",
         "roleArn": str,
-        "workflowName": str,
-    },
-)
-_OptionalCreateMatchingWorkflowInputRequestTypeDef = TypedDict(
-    "_OptionalCreateMatchingWorkflowInputRequestTypeDef",
-    {
-        "description": str,
-        "incrementalRunConfig": "IncrementalRunConfigTypeDef",
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class CreateMatchingWorkflowInputRequestTypeDef(
-    _RequiredCreateMatchingWorkflowInputRequestTypeDef,
-    _OptionalCreateMatchingWorkflowInputRequestTypeDef,
-):
-    pass
-
-CreateMatchingWorkflowOutputTypeDef = TypedDict(
-    "CreateMatchingWorkflowOutputTypeDef",
-    {
-        "description": str,
-        "incrementalRunConfig": "IncrementalRunConfigTypeDef",
-        "inputSourceConfig": List["InputSourceTypeDef"],
-        "outputSourceConfig": List["OutputSourceTypeDef"],
-        "resolutionTechniques": "ResolutionTechniquesTypeDef",
-        "roleArn": str,
-        "workflowArn": str,
-        "workflowName": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateSchemaMappingInputRequestTypeDef = TypedDict(
-    "_RequiredCreateSchemaMappingInputRequestTypeDef",
-    {
-        "mappedInputFields": List["SchemaInputAttributeTypeDef"],
-        "schemaName": str,
-    },
-)
-_OptionalCreateSchemaMappingInputRequestTypeDef = TypedDict(
-    "_OptionalCreateSchemaMappingInputRequestTypeDef",
-    {
-        "description": str,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class CreateSchemaMappingInputRequestTypeDef(
-    _RequiredCreateSchemaMappingInputRequestTypeDef, _OptionalCreateSchemaMappingInputRequestTypeDef
-):
-    pass
-
-CreateSchemaMappingOutputTypeDef = TypedDict(
-    "CreateSchemaMappingOutputTypeDef",
-    {
-        "description": str,
-        "mappedInputFields": List["SchemaInputAttributeTypeDef"],
-        "schemaArn": str,
-        "schemaName": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteIdMappingWorkflowInputRequestTypeDef = TypedDict(
-    "DeleteIdMappingWorkflowInputRequestTypeDef",
-    {
-        "workflowName": str,
-    },
-)
-
-DeleteIdMappingWorkflowOutputTypeDef = TypedDict(
-    "DeleteIdMappingWorkflowOutputTypeDef",
-    {
-        "message": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteIdNamespaceInputRequestTypeDef = TypedDict(
-    "DeleteIdNamespaceInputRequestTypeDef",
-    {
-        "idNamespaceName": str,
-    },
-)
-
-DeleteIdNamespaceOutputTypeDef = TypedDict(
-    "DeleteIdNamespaceOutputTypeDef",
-    {
-        "message": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteMatchingWorkflowInputRequestTypeDef = TypedDict(
-    "DeleteMatchingWorkflowInputRequestTypeDef",
-    {
-        "workflowName": str,
-    },
-)
-
-DeleteMatchingWorkflowOutputTypeDef = TypedDict(
-    "DeleteMatchingWorkflowOutputTypeDef",
-    {
-        "message": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeletePolicyStatementInputRequestTypeDef = TypedDict(
-    "DeletePolicyStatementInputRequestTypeDef",
-    {
-        "arn": str,
-        "statementId": str,
-    },
-)
-
-DeletePolicyStatementOutputTypeDef = TypedDict(
-    "DeletePolicyStatementOutputTypeDef",
-    {
-        "arn": str,
-        "policy": str,
-        "token": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteSchemaMappingInputRequestTypeDef = TypedDict(
-    "DeleteSchemaMappingInputRequestTypeDef",
-    {
-        "schemaName": str,
-    },
-)
-
-DeleteSchemaMappingOutputTypeDef = TypedDict(
-    "DeleteSchemaMappingOutputTypeDef",
-    {
-        "message": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteUniqueIdErrorTypeDef = TypedDict(
-    "DeleteUniqueIdErrorTypeDef",
-    {
-        "errorType": DeleteUniqueIdErrorTypeType,
-        "uniqueId": str,
-    },
-)
-
-DeletedUniqueIdTypeDef = TypedDict(
-    "DeletedUniqueIdTypeDef",
-    {
-        "uniqueId": str,
-    },
-)
-
-ErrorDetailsTypeDef = TypedDict(
-    "ErrorDetailsTypeDef",
-    {
-        "errorMessage": str,
-    },
-    total=False,
-)
-
-GetIdMappingJobInputRequestTypeDef = TypedDict(
-    "GetIdMappingJobInputRequestTypeDef",
-    {
-        "jobId": str,
-        "workflowName": str,
-    },
-)
-
-GetIdMappingJobOutputTypeDef = TypedDict(
-    "GetIdMappingJobOutputTypeDef",
-    {
-        "endTime": datetime,
-        "errorDetails": "ErrorDetailsTypeDef",
-        "jobId": str,
-        "metrics": "IdMappingJobMetricsTypeDef",
-        "outputSourceConfig": List["IdMappingJobOutputSourceTypeDef"],
-        "startTime": datetime,
-        "status": JobStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetIdMappingWorkflowInputRequestTypeDef = TypedDict(
-    "GetIdMappingWorkflowInputRequestTypeDef",
-    {
-        "workflowName": str,
-    },
-)
-
-GetIdMappingWorkflowOutputTypeDef = TypedDict(
-    "GetIdMappingWorkflowOutputTypeDef",
-    {
         "createdAt": datetime,
-        "description": str,
-        "idMappingTechniques": "IdMappingTechniquesTypeDef",
-        "inputSourceConfig": List["IdMappingWorkflowInputSourceTypeDef"],
-        "outputSourceConfig": List["IdMappingWorkflowOutputSourceTypeDef"],
-        "roleArn": str,
-        "tags": Dict[str, str],
         "updatedAt": datetime,
-        "workflowArn": str,
-        "workflowName": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "tags": Dict[str, str],
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
-
-GetIdNamespaceInputRequestTypeDef = TypedDict(
-    "GetIdNamespaceInputRequestTypeDef",
-    {
-        "idNamespaceName": str,
-    },
-)
-
 GetIdNamespaceOutputTypeDef = TypedDict(
     "GetIdNamespaceOutputTypeDef",
     {
-        "createdAt": datetime,
-        "description": str,
-        "idMappingWorkflowProperties": List["IdNamespaceIdMappingWorkflowPropertiesTypeDef"],
+        "idNamespaceName": str,
         "idNamespaceArn": str,
-        "idNamespaceName": str,
-        "inputSourceConfig": List["IdNamespaceInputSourceTypeDef"],
-        "roleArn": str,
-        "tags": Dict[str, str],
+        "description": str,
+        "inputSourceConfig": List[IdNamespaceInputSourceTypeDef],
+        "idMappingWorkflowProperties": List[IdNamespaceIdMappingWorkflowPropertiesOutputTypeDef],
         "type": IdNamespaceTypeType,
-        "updatedAt": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetMatchIdInputRequestTypeDef = TypedDict(
-    "_RequiredGetMatchIdInputRequestTypeDef",
-    {
-        "record": Dict[str, str],
-        "workflowName": str,
-    },
-)
-_OptionalGetMatchIdInputRequestTypeDef = TypedDict(
-    "_OptionalGetMatchIdInputRequestTypeDef",
-    {
-        "applyNormalization": bool,
-    },
-    total=False,
-)
-
-class GetMatchIdInputRequestTypeDef(
-    _RequiredGetMatchIdInputRequestTypeDef, _OptionalGetMatchIdInputRequestTypeDef
-):
-    pass
-
-GetMatchIdOutputTypeDef = TypedDict(
-    "GetMatchIdOutputTypeDef",
-    {
-        "matchId": str,
-        "matchRule": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetMatchingJobInputRequestTypeDef = TypedDict(
-    "GetMatchingJobInputRequestTypeDef",
-    {
-        "jobId": str,
-        "workflowName": str,
-    },
-)
-
-GetMatchingJobOutputTypeDef = TypedDict(
-    "GetMatchingJobOutputTypeDef",
-    {
-        "endTime": datetime,
-        "errorDetails": "ErrorDetailsTypeDef",
-        "jobId": str,
-        "metrics": "JobMetricsTypeDef",
-        "outputSourceConfig": List["JobOutputSourceTypeDef"],
-        "startTime": datetime,
-        "status": JobStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetMatchingWorkflowInputRequestTypeDef = TypedDict(
-    "GetMatchingWorkflowInputRequestTypeDef",
-    {
-        "workflowName": str,
-    },
-)
-
-GetMatchingWorkflowOutputTypeDef = TypedDict(
-    "GetMatchingWorkflowOutputTypeDef",
-    {
-        "createdAt": datetime,
-        "description": str,
-        "incrementalRunConfig": "IncrementalRunConfigTypeDef",
-        "inputSourceConfig": List["InputSourceTypeDef"],
-        "outputSourceConfig": List["OutputSourceTypeDef"],
-        "resolutionTechniques": "ResolutionTechniquesTypeDef",
         "roleArn": str,
+        "createdAt": datetime,
+        "updatedAt": datetime,
         "tags": Dict[str, str],
-        "updatedAt": datetime,
-        "workflowArn": str,
-        "workflowName": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
-
-GetPolicyInputRequestTypeDef = TypedDict(
-    "GetPolicyInputRequestTypeDef",
-    {
-        "arn": str,
-    },
-)
-
-GetPolicyOutputTypeDef = TypedDict(
-    "GetPolicyOutputTypeDef",
-    {
-        "arn": str,
-        "policy": str,
-        "token": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetProviderServiceInputRequestTypeDef = TypedDict(
-    "GetProviderServiceInputRequestTypeDef",
-    {
-        "providerName": str,
-        "providerServiceName": str,
-    },
-)
-
-GetProviderServiceOutputTypeDef = TypedDict(
-    "GetProviderServiceOutputTypeDef",
-    {
-        "anonymizedOutput": bool,
-        "providerComponentSchema": "ProviderComponentSchemaTypeDef",
-        "providerConfigurationDefinition": Dict[str, Any],
-        "providerEndpointConfiguration": "ProviderEndpointConfigurationTypeDef",
-        "providerEntityOutputDefinition": Dict[str, Any],
-        "providerIdNameSpaceConfiguration": "ProviderIdNameSpaceConfigurationTypeDef",
-        "providerIntermediateDataAccessConfiguration": "ProviderIntermediateDataAccessConfigurationTypeDef",
-        "providerJobConfiguration": Dict[str, Any],
-        "providerName": str,
-        "providerServiceArn": str,
-        "providerServiceDisplayName": str,
-        "providerServiceName": str,
-        "providerServiceType": ServiceTypeType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetSchemaMappingInputRequestTypeDef = TypedDict(
-    "GetSchemaMappingInputRequestTypeDef",
-    {
-        "schemaName": str,
-    },
-)
-
-GetSchemaMappingOutputTypeDef = TypedDict(
-    "GetSchemaMappingOutputTypeDef",
-    {
-        "createdAt": datetime,
-        "description": str,
-        "hasWorkflows": bool,
-        "mappedInputFields": List["SchemaInputAttributeTypeDef"],
-        "schemaArn": str,
-        "schemaName": str,
-        "tags": Dict[str, str],
-        "updatedAt": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-IdMappingJobMetricsTypeDef = TypedDict(
-    "IdMappingJobMetricsTypeDef",
-    {
-        "inputRecords": int,
-        "recordsNotProcessed": int,
-        "totalRecordsProcessed": int,
-    },
-    total=False,
-)
-
-_RequiredIdMappingJobOutputSourceTypeDef = TypedDict(
-    "_RequiredIdMappingJobOutputSourceTypeDef",
-    {
-        "outputS3Path": str,
-        "roleArn": str,
-    },
-)
-_OptionalIdMappingJobOutputSourceTypeDef = TypedDict(
-    "_OptionalIdMappingJobOutputSourceTypeDef",
-    {
-        "KMSArn": str,
-    },
-    total=False,
-)
-
-class IdMappingJobOutputSourceTypeDef(
-    _RequiredIdMappingJobOutputSourceTypeDef, _OptionalIdMappingJobOutputSourceTypeDef
-):
-    pass
-
-_RequiredIdMappingTechniquesTypeDef = TypedDict(
-    "_RequiredIdMappingTechniquesTypeDef",
-    {
-        "idMappingType": Literal["PROVIDER"],
-    },
-)
-_OptionalIdMappingTechniquesTypeDef = TypedDict(
-    "_OptionalIdMappingTechniquesTypeDef",
-    {
-        "providerProperties": "ProviderPropertiesTypeDef",
-    },
-    total=False,
-)
-
-class IdMappingTechniquesTypeDef(
-    _RequiredIdMappingTechniquesTypeDef, _OptionalIdMappingTechniquesTypeDef
-):
-    pass
-
-_RequiredIdMappingWorkflowInputSourceTypeDef = TypedDict(
-    "_RequiredIdMappingWorkflowInputSourceTypeDef",
-    {
-        "inputSourceARN": str,
-    },
-)
-_OptionalIdMappingWorkflowInputSourceTypeDef = TypedDict(
-    "_OptionalIdMappingWorkflowInputSourceTypeDef",
-    {
-        "schemaName": str,
-        "type": IdNamespaceTypeType,
-    },
-    total=False,
-)
-
-class IdMappingWorkflowInputSourceTypeDef(
-    _RequiredIdMappingWorkflowInputSourceTypeDef, _OptionalIdMappingWorkflowInputSourceTypeDef
-):
-    pass
-
-_RequiredIdMappingWorkflowOutputSourceTypeDef = TypedDict(
-    "_RequiredIdMappingWorkflowOutputSourceTypeDef",
-    {
-        "outputS3Path": str,
-    },
-)
-_OptionalIdMappingWorkflowOutputSourceTypeDef = TypedDict(
-    "_OptionalIdMappingWorkflowOutputSourceTypeDef",
-    {
-        "KMSArn": str,
-    },
-    total=False,
-)
-
-class IdMappingWorkflowOutputSourceTypeDef(
-    _RequiredIdMappingWorkflowOutputSourceTypeDef, _OptionalIdMappingWorkflowOutputSourceTypeDef
-):
-    pass
-
-IdMappingWorkflowSummaryTypeDef = TypedDict(
-    "IdMappingWorkflowSummaryTypeDef",
-    {
-        "createdAt": datetime,
-        "updatedAt": datetime,
-        "workflowArn": str,
-        "workflowName": str,
-    },
-)
-
-_RequiredIdNamespaceIdMappingWorkflowPropertiesTypeDef = TypedDict(
-    "_RequiredIdNamespaceIdMappingWorkflowPropertiesTypeDef",
-    {
-        "idMappingType": Literal["PROVIDER"],
-    },
-)
-_OptionalIdNamespaceIdMappingWorkflowPropertiesTypeDef = TypedDict(
-    "_OptionalIdNamespaceIdMappingWorkflowPropertiesTypeDef",
-    {
-        "providerProperties": "NamespaceProviderPropertiesTypeDef",
-    },
-    total=False,
-)
-
-class IdNamespaceIdMappingWorkflowPropertiesTypeDef(
-    _RequiredIdNamespaceIdMappingWorkflowPropertiesTypeDef,
-    _OptionalIdNamespaceIdMappingWorkflowPropertiesTypeDef,
-):
-    pass
-
-_RequiredIdNamespaceInputSourceTypeDef = TypedDict(
-    "_RequiredIdNamespaceInputSourceTypeDef",
-    {
-        "inputSourceARN": str,
-    },
-)
-_OptionalIdNamespaceInputSourceTypeDef = TypedDict(
-    "_OptionalIdNamespaceInputSourceTypeDef",
-    {
-        "schemaName": str,
-    },
-    total=False,
-)
-
-class IdNamespaceInputSourceTypeDef(
-    _RequiredIdNamespaceInputSourceTypeDef, _OptionalIdNamespaceInputSourceTypeDef
-):
-    pass
-
-_RequiredIdNamespaceSummaryTypeDef = TypedDict(
-    "_RequiredIdNamespaceSummaryTypeDef",
-    {
-        "createdAt": datetime,
-        "idNamespaceArn": str,
-        "idNamespaceName": str,
-        "type": IdNamespaceTypeType,
-        "updatedAt": datetime,
-    },
-)
-_OptionalIdNamespaceSummaryTypeDef = TypedDict(
-    "_OptionalIdNamespaceSummaryTypeDef",
-    {
-        "description": str,
-    },
-    total=False,
-)
-
-class IdNamespaceSummaryTypeDef(
-    _RequiredIdNamespaceSummaryTypeDef, _OptionalIdNamespaceSummaryTypeDef
-):
-    pass
-
-IncrementalRunConfigTypeDef = TypedDict(
-    "IncrementalRunConfigTypeDef",
-    {
-        "incrementalRunType": Literal["IMMEDIATE"],
-    },
-    total=False,
-)
-
-_RequiredInputSourceTypeDef = TypedDict(
-    "_RequiredInputSourceTypeDef",
-    {
-        "inputSourceARN": str,
-        "schemaName": str,
-    },
-)
-_OptionalInputSourceTypeDef = TypedDict(
-    "_OptionalInputSourceTypeDef",
-    {
-        "applyNormalization": bool,
-    },
-    total=False,
-)
-
-class InputSourceTypeDef(_RequiredInputSourceTypeDef, _OptionalInputSourceTypeDef):
-    pass
-
-IntermediateSourceConfigurationTypeDef = TypedDict(
-    "IntermediateSourceConfigurationTypeDef",
-    {
-        "intermediateS3Path": str,
-    },
-)
-
-JobMetricsTypeDef = TypedDict(
-    "JobMetricsTypeDef",
-    {
-        "inputRecords": int,
-        "matchIDs": int,
-        "recordsNotProcessed": int,
-        "totalRecordsProcessed": int,
-    },
-    total=False,
-)
-
-_RequiredJobOutputSourceTypeDef = TypedDict(
-    "_RequiredJobOutputSourceTypeDef",
-    {
-        "outputS3Path": str,
-        "roleArn": str,
-    },
-)
-_OptionalJobOutputSourceTypeDef = TypedDict(
-    "_OptionalJobOutputSourceTypeDef",
-    {
-        "KMSArn": str,
-    },
-    total=False,
-)
-
-class JobOutputSourceTypeDef(_RequiredJobOutputSourceTypeDef, _OptionalJobOutputSourceTypeDef):
-    pass
-
-_RequiredJobSummaryTypeDef = TypedDict(
-    "_RequiredJobSummaryTypeDef",
-    {
-        "jobId": str,
-        "startTime": datetime,
-        "status": JobStatusType,
-    },
-)
-_OptionalJobSummaryTypeDef = TypedDict(
-    "_OptionalJobSummaryTypeDef",
-    {
-        "endTime": datetime,
-    },
-    total=False,
-)
-
-class JobSummaryTypeDef(_RequiredJobSummaryTypeDef, _OptionalJobSummaryTypeDef):
-    pass
-
-_RequiredListIdMappingJobsInputRequestTypeDef = TypedDict(
-    "_RequiredListIdMappingJobsInputRequestTypeDef",
-    {
-        "workflowName": str,
-    },
-)
-_OptionalListIdMappingJobsInputRequestTypeDef = TypedDict(
-    "_OptionalListIdMappingJobsInputRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListIdMappingJobsInputRequestTypeDef(
-    _RequiredListIdMappingJobsInputRequestTypeDef, _OptionalListIdMappingJobsInputRequestTypeDef
-):
-    pass
-
-ListIdMappingJobsOutputTypeDef = TypedDict(
-    "ListIdMappingJobsOutputTypeDef",
-    {
-        "jobs": List["JobSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListIdMappingWorkflowsInputRequestTypeDef = TypedDict(
-    "ListIdMappingWorkflowsInputRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-ListIdMappingWorkflowsOutputTypeDef = TypedDict(
-    "ListIdMappingWorkflowsOutputTypeDef",
-    {
-        "nextToken": str,
-        "workflowSummaries": List["IdMappingWorkflowSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListIdNamespacesInputRequestTypeDef = TypedDict(
-    "ListIdNamespacesInputRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-ListIdNamespacesOutputTypeDef = TypedDict(
-    "ListIdNamespacesOutputTypeDef",
-    {
-        "idNamespaceSummaries": List["IdNamespaceSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListMatchingJobsInputRequestTypeDef = TypedDict(
-    "_RequiredListMatchingJobsInputRequestTypeDef",
-    {
-        "workflowName": str,
-    },
-)
-_OptionalListMatchingJobsInputRequestTypeDef = TypedDict(
-    "_OptionalListMatchingJobsInputRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListMatchingJobsInputRequestTypeDef(
-    _RequiredListMatchingJobsInputRequestTypeDef, _OptionalListMatchingJobsInputRequestTypeDef
-):
-    pass
-
-ListMatchingJobsOutputTypeDef = TypedDict(
-    "ListMatchingJobsOutputTypeDef",
-    {
-        "jobs": List["JobSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListMatchingWorkflowsInputRequestTypeDef = TypedDict(
-    "ListMatchingWorkflowsInputRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-ListMatchingWorkflowsOutputTypeDef = TypedDict(
-    "ListMatchingWorkflowsOutputTypeDef",
-    {
-        "nextToken": str,
-        "workflowSummaries": List["MatchingWorkflowSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListProviderServicesInputRequestTypeDef = TypedDict(
-    "ListProviderServicesInputRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-        "providerName": str,
-    },
-    total=False,
-)
-
-ListProviderServicesOutputTypeDef = TypedDict(
-    "ListProviderServicesOutputTypeDef",
-    {
-        "nextToken": str,
-        "providerServiceSummaries": List["ProviderServiceSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListSchemaMappingsInputRequestTypeDef = TypedDict(
-    "ListSchemaMappingsInputRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-ListSchemaMappingsOutputTypeDef = TypedDict(
-    "ListSchemaMappingsOutputTypeDef",
-    {
-        "nextToken": str,
-        "schemaList": List["SchemaMappingSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTagsForResourceInputRequestTypeDef = TypedDict(
-    "ListTagsForResourceInputRequestTypeDef",
-    {
-        "resourceArn": str,
-    },
-)
-
-ListTagsForResourceOutputTypeDef = TypedDict(
-    "ListTagsForResourceOutputTypeDef",
-    {
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-MatchingWorkflowSummaryTypeDef = TypedDict(
-    "MatchingWorkflowSummaryTypeDef",
-    {
-        "createdAt": datetime,
-        "resolutionType": ResolutionTypeType,
-        "updatedAt": datetime,
-        "workflowArn": str,
-        "workflowName": str,
-    },
-)
-
-_RequiredNamespaceProviderPropertiesTypeDef = TypedDict(
-    "_RequiredNamespaceProviderPropertiesTypeDef",
-    {
-        "providerServiceArn": str,
-    },
-)
-_OptionalNamespaceProviderPropertiesTypeDef = TypedDict(
-    "_OptionalNamespaceProviderPropertiesTypeDef",
-    {
-        "providerConfiguration": Dict[str, Any],
-    },
-    total=False,
-)
-
-class NamespaceProviderPropertiesTypeDef(
-    _RequiredNamespaceProviderPropertiesTypeDef, _OptionalNamespaceProviderPropertiesTypeDef
-):
-    pass
-
-_RequiredOutputAttributeTypeDef = TypedDict(
-    "_RequiredOutputAttributeTypeDef",
-    {
-        "name": str,
-    },
-)
-_OptionalOutputAttributeTypeDef = TypedDict(
-    "_OptionalOutputAttributeTypeDef",
-    {
-        "hashed": bool,
-    },
-    total=False,
-)
-
-class OutputAttributeTypeDef(_RequiredOutputAttributeTypeDef, _OptionalOutputAttributeTypeDef):
-    pass
-
-_RequiredOutputSourceTypeDef = TypedDict(
-    "_RequiredOutputSourceTypeDef",
-    {
-        "output": List["OutputAttributeTypeDef"],
-        "outputS3Path": str,
-    },
-)
-_OptionalOutputSourceTypeDef = TypedDict(
-    "_OptionalOutputSourceTypeDef",
-    {
-        "KMSArn": str,
-        "applyNormalization": bool,
-    },
-    total=False,
-)
-
-class OutputSourceTypeDef(_RequiredOutputSourceTypeDef, _OptionalOutputSourceTypeDef):
-    pass
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-ProviderComponentSchemaTypeDef = TypedDict(
-    "ProviderComponentSchemaTypeDef",
-    {
-        "providerSchemaAttributes": List["ProviderSchemaAttributeTypeDef"],
-        "schemas": List[List[str]],
-    },
-    total=False,
-)
-
-ProviderEndpointConfigurationTypeDef = TypedDict(
-    "ProviderEndpointConfigurationTypeDef",
-    {
-        "marketplaceConfiguration": "ProviderMarketplaceConfigurationTypeDef",
-    },
-    total=False,
-)
-
-ProviderIdNameSpaceConfigurationTypeDef = TypedDict(
-    "ProviderIdNameSpaceConfigurationTypeDef",
-    {
-        "description": str,
-        "providerSourceConfigurationDefinition": Dict[str, Any],
-        "providerTargetConfigurationDefinition": Dict[str, Any],
-    },
-    total=False,
-)
-
-ProviderIntermediateDataAccessConfigurationTypeDef = TypedDict(
-    "ProviderIntermediateDataAccessConfigurationTypeDef",
-    {
-        "awsAccountIds": List[str],
-        "requiredBucketActions": List[str],
-    },
-    total=False,
-)
-
-ProviderMarketplaceConfigurationTypeDef = TypedDict(
-    "ProviderMarketplaceConfigurationTypeDef",
-    {
-        "assetId": str,
-        "dataSetId": str,
-        "listingId": str,
-        "revisionId": str,
-    },
-)
-
-_RequiredProviderPropertiesTypeDef = TypedDict(
-    "_RequiredProviderPropertiesTypeDef",
-    {
-        "providerServiceArn": str,
-    },
-)
-_OptionalProviderPropertiesTypeDef = TypedDict(
-    "_OptionalProviderPropertiesTypeDef",
-    {
-        "intermediateSourceConfiguration": "IntermediateSourceConfigurationTypeDef",
-        "providerConfiguration": Dict[str, Any],
-    },
-    total=False,
-)
-
-class ProviderPropertiesTypeDef(
-    _RequiredProviderPropertiesTypeDef, _OptionalProviderPropertiesTypeDef
-):
-    pass
-
-_RequiredProviderSchemaAttributeTypeDef = TypedDict(
-    "_RequiredProviderSchemaAttributeTypeDef",
-    {
-        "fieldName": str,
-        "type": SchemaAttributeTypeType,
-    },
-)
-_OptionalProviderSchemaAttributeTypeDef = TypedDict(
-    "_OptionalProviderSchemaAttributeTypeDef",
-    {
-        "hashing": bool,
-        "subType": str,
-    },
-    total=False,
-)
-
-class ProviderSchemaAttributeTypeDef(
-    _RequiredProviderSchemaAttributeTypeDef, _OptionalProviderSchemaAttributeTypeDef
-):
-    pass
-
-ProviderServiceSummaryTypeDef = TypedDict(
-    "ProviderServiceSummaryTypeDef",
-    {
-        "providerName": str,
-        "providerServiceArn": str,
-        "providerServiceDisplayName": str,
-        "providerServiceName": str,
-        "providerServiceType": ServiceTypeType,
-    },
-)
-
-_RequiredPutPolicyInputRequestTypeDef = TypedDict(
-    "_RequiredPutPolicyInputRequestTypeDef",
-    {
-        "arn": str,
-        "policy": str,
-    },
-)
-_OptionalPutPolicyInputRequestTypeDef = TypedDict(
-    "_OptionalPutPolicyInputRequestTypeDef",
-    {
-        "token": str,
-    },
-    total=False,
-)
-
-class PutPolicyInputRequestTypeDef(
-    _RequiredPutPolicyInputRequestTypeDef, _OptionalPutPolicyInputRequestTypeDef
-):
-    pass
-
-PutPolicyOutputTypeDef = TypedDict(
-    "PutPolicyOutputTypeDef",
-    {
-        "arn": str,
-        "policy": str,
-        "token": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredResolutionTechniquesTypeDef = TypedDict(
-    "_RequiredResolutionTechniquesTypeDef",
-    {
-        "resolutionType": ResolutionTypeType,
-    },
-)
-_OptionalResolutionTechniquesTypeDef = TypedDict(
-    "_OptionalResolutionTechniquesTypeDef",
-    {
-        "providerProperties": "ProviderPropertiesTypeDef",
-        "ruleBasedProperties": "RuleBasedPropertiesTypeDef",
-    },
-    total=False,
-)
-
-class ResolutionTechniquesTypeDef(
-    _RequiredResolutionTechniquesTypeDef, _OptionalResolutionTechniquesTypeDef
-):
-    pass
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-RuleBasedPropertiesTypeDef = TypedDict(
-    "RuleBasedPropertiesTypeDef",
-    {
-        "attributeMatchingModel": AttributeMatchingModelType,
-        "rules": List["RuleTypeDef"],
-    },
-)
-
-RuleTypeDef = TypedDict(
-    "RuleTypeDef",
-    {
-        "matchingKeys": List[str],
-        "ruleName": str,
-    },
-)
-
-_RequiredSchemaInputAttributeTypeDef = TypedDict(
-    "_RequiredSchemaInputAttributeTypeDef",
-    {
-        "fieldName": str,
-        "type": SchemaAttributeTypeType,
-    },
-)
-_OptionalSchemaInputAttributeTypeDef = TypedDict(
-    "_OptionalSchemaInputAttributeTypeDef",
-    {
-        "groupName": str,
-        "matchKey": str,
-        "subType": str,
-    },
-    total=False,
-)
-
-class SchemaInputAttributeTypeDef(
-    _RequiredSchemaInputAttributeTypeDef, _OptionalSchemaInputAttributeTypeDef
-):
-    pass
-
-SchemaMappingSummaryTypeDef = TypedDict(
-    "SchemaMappingSummaryTypeDef",
-    {
-        "createdAt": datetime,
-        "hasWorkflows": bool,
-        "schemaArn": str,
-        "schemaName": str,
-        "updatedAt": datetime,
-    },
-)
-
-_RequiredStartIdMappingJobInputRequestTypeDef = TypedDict(
-    "_RequiredStartIdMappingJobInputRequestTypeDef",
-    {
-        "workflowName": str,
-    },
-)
-_OptionalStartIdMappingJobInputRequestTypeDef = TypedDict(
-    "_OptionalStartIdMappingJobInputRequestTypeDef",
-    {
-        "outputSourceConfig": List["IdMappingJobOutputSourceTypeDef"],
-    },
-    total=False,
-)
-
-class StartIdMappingJobInputRequestTypeDef(
-    _RequiredStartIdMappingJobInputRequestTypeDef, _OptionalStartIdMappingJobInputRequestTypeDef
-):
-    pass
-
-StartIdMappingJobOutputTypeDef = TypedDict(
-    "StartIdMappingJobOutputTypeDef",
-    {
-        "jobId": str,
-        "outputSourceConfig": List["IdMappingJobOutputSourceTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-StartMatchingJobInputRequestTypeDef = TypedDict(
-    "StartMatchingJobInputRequestTypeDef",
-    {
-        "workflowName": str,
-    },
-)
-
-StartMatchingJobOutputTypeDef = TypedDict(
-    "StartMatchingJobOutputTypeDef",
-    {
-        "jobId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-TagResourceInputRequestTypeDef = TypedDict(
-    "TagResourceInputRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tags": Dict[str, str],
-    },
-)
-
-UntagResourceInputRequestTypeDef = TypedDict(
-    "UntagResourceInputRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tagKeys": List[str],
-    },
-)
-
-_RequiredUpdateIdMappingWorkflowInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateIdMappingWorkflowInputRequestTypeDef",
-    {
-        "idMappingTechniques": "IdMappingTechniquesTypeDef",
-        "inputSourceConfig": List["IdMappingWorkflowInputSourceTypeDef"],
-        "roleArn": str,
-        "workflowName": str,
-    },
-)
-_OptionalUpdateIdMappingWorkflowInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateIdMappingWorkflowInputRequestTypeDef",
-    {
-        "description": str,
-        "outputSourceConfig": List["IdMappingWorkflowOutputSourceTypeDef"],
-    },
-    total=False,
-)
-
-class UpdateIdMappingWorkflowInputRequestTypeDef(
-    _RequiredUpdateIdMappingWorkflowInputRequestTypeDef,
-    _OptionalUpdateIdMappingWorkflowInputRequestTypeDef,
-):
-    pass
-
-UpdateIdMappingWorkflowOutputTypeDef = TypedDict(
-    "UpdateIdMappingWorkflowOutputTypeDef",
-    {
-        "description": str,
-        "idMappingTechniques": "IdMappingTechniquesTypeDef",
-        "inputSourceConfig": List["IdMappingWorkflowInputSourceTypeDef"],
-        "outputSourceConfig": List["IdMappingWorkflowOutputSourceTypeDef"],
-        "roleArn": str,
-        "workflowArn": str,
-        "workflowName": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateIdNamespaceInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateIdNamespaceInputRequestTypeDef",
-    {
-        "idNamespaceName": str,
-    },
-)
-_OptionalUpdateIdNamespaceInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateIdNamespaceInputRequestTypeDef",
-    {
-        "description": str,
-        "idMappingWorkflowProperties": List["IdNamespaceIdMappingWorkflowPropertiesTypeDef"],
-        "inputSourceConfig": List["IdNamespaceInputSourceTypeDef"],
-        "roleArn": str,
-    },
-    total=False,
-)
-
-class UpdateIdNamespaceInputRequestTypeDef(
-    _RequiredUpdateIdNamespaceInputRequestTypeDef, _OptionalUpdateIdNamespaceInputRequestTypeDef
-):
-    pass
-
 UpdateIdNamespaceOutputTypeDef = TypedDict(
     "UpdateIdNamespaceOutputTypeDef",
     {
-        "createdAt": datetime,
-        "description": str,
-        "idMappingWorkflowProperties": List["IdNamespaceIdMappingWorkflowPropertiesTypeDef"],
-        "idNamespaceArn": str,
         "idNamespaceName": str,
-        "inputSourceConfig": List["IdNamespaceInputSourceTypeDef"],
-        "roleArn": str,
+        "idNamespaceArn": str,
+        "description": str,
+        "inputSourceConfig": List[IdNamespaceInputSourceTypeDef],
+        "idMappingWorkflowProperties": List[IdNamespaceIdMappingWorkflowPropertiesOutputTypeDef],
         "type": IdNamespaceTypeType,
+        "roleArn": str,
+        "createdAt": datetime,
         "updatedAt": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+NamespaceRuleBasedPropertiesUnionTypeDef = Union[
+    NamespaceRuleBasedPropertiesTypeDef, NamespaceRuleBasedPropertiesOutputTypeDef
+]
+
+class CreateIdMappingWorkflowOutputTypeDef(TypedDict):
+    workflowName: str
+    workflowArn: str
+    description: str
+    inputSourceConfig: List[IdMappingWorkflowInputSourceTypeDef]
+    outputSourceConfig: List[IdMappingWorkflowOutputSourceTypeDef]
+    idMappingTechniques: IdMappingTechniquesOutputTypeDef
+    roleArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetIdMappingWorkflowOutputTypeDef(TypedDict):
+    workflowName: str
+    workflowArn: str
+    description: str
+    inputSourceConfig: List[IdMappingWorkflowInputSourceTypeDef]
+    outputSourceConfig: List[IdMappingWorkflowOutputSourceTypeDef]
+    idMappingTechniques: IdMappingTechniquesOutputTypeDef
+    createdAt: datetime
+    updatedAt: datetime
+    roleArn: str
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateIdMappingWorkflowOutputTypeDef(TypedDict):
+    workflowName: str
+    workflowArn: str
+    description: str
+    inputSourceConfig: List[IdMappingWorkflowInputSourceTypeDef]
+    outputSourceConfig: List[IdMappingWorkflowOutputSourceTypeDef]
+    idMappingTechniques: IdMappingTechniquesOutputTypeDef
+    roleArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateMatchingWorkflowOutputTypeDef(TypedDict):
+    workflowName: str
+    workflowArn: str
+    description: str
+    inputSourceConfig: List[InputSourceTypeDef]
+    outputSourceConfig: List[OutputSourceOutputTypeDef]
+    resolutionTechniques: ResolutionTechniquesOutputTypeDef
+    incrementalRunConfig: IncrementalRunConfigTypeDef
+    roleArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetMatchingWorkflowOutputTypeDef(TypedDict):
+    workflowName: str
+    workflowArn: str
+    description: str
+    inputSourceConfig: List[InputSourceTypeDef]
+    outputSourceConfig: List[OutputSourceOutputTypeDef]
+    resolutionTechniques: ResolutionTechniquesOutputTypeDef
+    createdAt: datetime
+    updatedAt: datetime
+    incrementalRunConfig: IncrementalRunConfigTypeDef
+    roleArn: str
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateMatchingWorkflowOutputTypeDef(TypedDict):
+    workflowName: str
+    description: str
+    inputSourceConfig: List[InputSourceTypeDef]
+    outputSourceConfig: List[OutputSourceOutputTypeDef]
+    resolutionTechniques: ResolutionTechniquesOutputTypeDef
+    incrementalRunConfig: IncrementalRunConfigTypeDef
+    roleArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+IdMappingTechniquesUnionTypeDef = Union[
+    IdMappingTechniquesTypeDef, IdMappingTechniquesOutputTypeDef
+]
+ResolutionTechniquesUnionTypeDef = Union[
+    ResolutionTechniquesTypeDef, ResolutionTechniquesOutputTypeDef
+]
+
+class IdNamespaceIdMappingWorkflowPropertiesTypeDef(TypedDict):
+    idMappingType: IdMappingTypeType
+    ruleBasedProperties: NotRequired[NamespaceRuleBasedPropertiesUnionTypeDef]
+    providerProperties: NotRequired[NamespaceProviderPropertiesUnionTypeDef]
+
+class CreateIdMappingWorkflowInputTypeDef(TypedDict):
+    workflowName: str
+    inputSourceConfig: Sequence[IdMappingWorkflowInputSourceTypeDef]
+    idMappingTechniques: IdMappingTechniquesUnionTypeDef
+    description: NotRequired[str]
+    outputSourceConfig: NotRequired[Sequence[IdMappingWorkflowOutputSourceTypeDef]]
+    roleArn: NotRequired[str]
+    tags: NotRequired[Mapping[str, str]]
+
+class UpdateIdMappingWorkflowInputTypeDef(TypedDict):
+    workflowName: str
+    inputSourceConfig: Sequence[IdMappingWorkflowInputSourceTypeDef]
+    idMappingTechniques: IdMappingTechniquesUnionTypeDef
+    description: NotRequired[str]
+    outputSourceConfig: NotRequired[Sequence[IdMappingWorkflowOutputSourceTypeDef]]
+    roleArn: NotRequired[str]
+
+class CreateMatchingWorkflowInputTypeDef(TypedDict):
+    workflowName: str
+    inputSourceConfig: Sequence[InputSourceTypeDef]
+    outputSourceConfig: Sequence[OutputSourceUnionTypeDef]
+    resolutionTechniques: ResolutionTechniquesUnionTypeDef
+    roleArn: str
+    description: NotRequired[str]
+    incrementalRunConfig: NotRequired[IncrementalRunConfigTypeDef]
+    tags: NotRequired[Mapping[str, str]]
+
+class UpdateMatchingWorkflowInputTypeDef(TypedDict):
+    workflowName: str
+    inputSourceConfig: Sequence[InputSourceTypeDef]
+    outputSourceConfig: Sequence[OutputSourceUnionTypeDef]
+    resolutionTechniques: ResolutionTechniquesUnionTypeDef
+    roleArn: str
+    description: NotRequired[str]
+    incrementalRunConfig: NotRequired[IncrementalRunConfigTypeDef]
+
+IdNamespaceIdMappingWorkflowPropertiesUnionTypeDef = Union[
+    IdNamespaceIdMappingWorkflowPropertiesTypeDef,
+    IdNamespaceIdMappingWorkflowPropertiesOutputTypeDef,
+]
+CreateIdNamespaceInputTypeDef = TypedDict(
+    "CreateIdNamespaceInputTypeDef",
+    {
+        "idNamespaceName": str,
+        "type": IdNamespaceTypeType,
+        "description": NotRequired[str],
+        "inputSourceConfig": NotRequired[Sequence[IdNamespaceInputSourceTypeDef]],
+        "idMappingWorkflowProperties": NotRequired[
+            Sequence[IdNamespaceIdMappingWorkflowPropertiesUnionTypeDef]
+        ],
+        "roleArn": NotRequired[str],
+        "tags": NotRequired[Mapping[str, str]],
     },
 )
 
-_RequiredUpdateMatchingWorkflowInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateMatchingWorkflowInputRequestTypeDef",
-    {
-        "inputSourceConfig": List["InputSourceTypeDef"],
-        "outputSourceConfig": List["OutputSourceTypeDef"],
-        "resolutionTechniques": "ResolutionTechniquesTypeDef",
-        "roleArn": str,
-        "workflowName": str,
-    },
-)
-_OptionalUpdateMatchingWorkflowInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateMatchingWorkflowInputRequestTypeDef",
-    {
-        "description": str,
-        "incrementalRunConfig": "IncrementalRunConfigTypeDef",
-    },
-    total=False,
-)
-
-class UpdateMatchingWorkflowInputRequestTypeDef(
-    _RequiredUpdateMatchingWorkflowInputRequestTypeDef,
-    _OptionalUpdateMatchingWorkflowInputRequestTypeDef,
-):
-    pass
-
-UpdateMatchingWorkflowOutputTypeDef = TypedDict(
-    "UpdateMatchingWorkflowOutputTypeDef",
-    {
-        "description": str,
-        "incrementalRunConfig": "IncrementalRunConfigTypeDef",
-        "inputSourceConfig": List["InputSourceTypeDef"],
-        "outputSourceConfig": List["OutputSourceTypeDef"],
-        "resolutionTechniques": "ResolutionTechniquesTypeDef",
-        "roleArn": str,
-        "workflowName": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateSchemaMappingInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateSchemaMappingInputRequestTypeDef",
-    {
-        "mappedInputFields": List["SchemaInputAttributeTypeDef"],
-        "schemaName": str,
-    },
-)
-_OptionalUpdateSchemaMappingInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateSchemaMappingInputRequestTypeDef",
-    {
-        "description": str,
-    },
-    total=False,
-)
-
-class UpdateSchemaMappingInputRequestTypeDef(
-    _RequiredUpdateSchemaMappingInputRequestTypeDef, _OptionalUpdateSchemaMappingInputRequestTypeDef
-):
-    pass
-
-UpdateSchemaMappingOutputTypeDef = TypedDict(
-    "UpdateSchemaMappingOutputTypeDef",
-    {
-        "description": str,
-        "mappedInputFields": List["SchemaInputAttributeTypeDef"],
-        "schemaArn": str,
-        "schemaName": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class UpdateIdNamespaceInputTypeDef(TypedDict):
+    idNamespaceName: str
+    description: NotRequired[str]
+    inputSourceConfig: NotRequired[Sequence[IdNamespaceInputSourceTypeDef]]
+    idMappingWorkflowProperties: NotRequired[
+        Sequence[IdNamespaceIdMappingWorkflowPropertiesUnionTypeDef]
+    ]
+    roleArn: NotRequired[str]

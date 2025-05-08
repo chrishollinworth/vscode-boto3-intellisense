@@ -1,19 +1,21 @@
 """
 Main interface for sts service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sts/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_sts import (
         Client,
         STSClient,
     )
 
-    session = boto3.Session()
-
-    client: STSClient = boto3.client("sts")
-    session_client: STSClient = session.client("sts")
+    session = Session()
+    client: STSClient = session.client("sts")
     ```
 """
 

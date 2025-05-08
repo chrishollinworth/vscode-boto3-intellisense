@@ -1,14 +1,16 @@
 """
 Type annotations for elasticache service client paginators.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/paginators.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_elasticache/paginators/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
 
-    from mypy_boto3_elasticache import ElastiCacheClient
+    from mypy_boto3_elasticache.client import ElastiCacheClient
     from mypy_boto3_elasticache.paginator import (
         DescribeCacheClustersPaginator,
         DescribeCacheEngineVersionsPaginator,
@@ -20,8 +22,8 @@ Usage::
         DescribeEventsPaginator,
         DescribeGlobalReplicationGroupsPaginator,
         DescribeReplicationGroupsPaginator,
-        DescribeReservedCacheNodesPaginator,
         DescribeReservedCacheNodesOfferingsPaginator,
+        DescribeReservedCacheNodesPaginator,
         DescribeServerlessCacheSnapshotsPaginator,
         DescribeServerlessCachesPaginator,
         DescribeServiceUpdatesPaginator,
@@ -31,7 +33,8 @@ Usage::
         DescribeUsersPaginator,
     )
 
-    client: ElastiCacheClient = boto3.client("elasticache")
+    session = Session()
+    client: ElastiCacheClient = session.client("elasticache")
 
     describe_cache_clusters_paginator: DescribeCacheClustersPaginator = client.get_paginator("describe_cache_clusters")
     describe_cache_engine_versions_paginator: DescribeCacheEngineVersionsPaginator = client.get_paginator("describe_cache_engine_versions")
@@ -43,8 +46,8 @@ Usage::
     describe_events_paginator: DescribeEventsPaginator = client.get_paginator("describe_events")
     describe_global_replication_groups_paginator: DescribeGlobalReplicationGroupsPaginator = client.get_paginator("describe_global_replication_groups")
     describe_replication_groups_paginator: DescribeReplicationGroupsPaginator = client.get_paginator("describe_replication_groups")
-    describe_reserved_cache_nodes_paginator: DescribeReservedCacheNodesPaginator = client.get_paginator("describe_reserved_cache_nodes")
     describe_reserved_cache_nodes_offerings_paginator: DescribeReservedCacheNodesOfferingsPaginator = client.get_paginator("describe_reserved_cache_nodes_offerings")
+    describe_reserved_cache_nodes_paginator: DescribeReservedCacheNodesPaginator = client.get_paginator("describe_reserved_cache_nodes")
     describe_serverless_cache_snapshots_paginator: DescribeServerlessCacheSnapshotsPaginator = client.get_paginator("describe_serverless_cache_snapshots")
     describe_serverless_caches_paginator: DescribeServerlessCachesPaginator = client.get_paginator("describe_serverless_caches")
     describe_service_updates_paginator: DescribeServiceUpdatesPaginator = client.get_paginator("describe_service_updates")
@@ -55,12 +58,13 @@ Usage::
     ```
 """
 
-from datetime import datetime
-from typing import Iterator, List, Union
+from __future__ import annotations
 
-from botocore.paginate import Paginator as Boto3Paginator
+import sys
+from typing import TYPE_CHECKING
 
-from .literals import ServiceUpdateStatusType, SourceTypeType, UpdateActionStatusType
+from botocore.paginate import PageIterator, Paginator
+
 from .type_defs import (
     CacheClusterMessageTypeDef,
     CacheEngineVersionMessageTypeDef,
@@ -68,23 +72,44 @@ from .type_defs import (
     CacheParameterGroupsMessageTypeDef,
     CacheSecurityGroupMessageTypeDef,
     CacheSubnetGroupMessageTypeDef,
+    DescribeCacheClustersMessagePaginateTypeDef,
+    DescribeCacheEngineVersionsMessagePaginateTypeDef,
+    DescribeCacheParameterGroupsMessagePaginateTypeDef,
+    DescribeCacheParametersMessagePaginateTypeDef,
+    DescribeCacheSecurityGroupsMessagePaginateTypeDef,
+    DescribeCacheSubnetGroupsMessagePaginateTypeDef,
+    DescribeEngineDefaultParametersMessagePaginateTypeDef,
     DescribeEngineDefaultParametersResultTypeDef,
+    DescribeEventsMessagePaginateTypeDef,
+    DescribeGlobalReplicationGroupsMessagePaginateTypeDef,
     DescribeGlobalReplicationGroupsResultTypeDef,
+    DescribeReplicationGroupsMessagePaginateTypeDef,
+    DescribeReservedCacheNodesMessagePaginateTypeDef,
+    DescribeReservedCacheNodesOfferingsMessagePaginateTypeDef,
+    DescribeServerlessCacheSnapshotsRequestPaginateTypeDef,
     DescribeServerlessCacheSnapshotsResponseTypeDef,
+    DescribeServerlessCachesRequestPaginateTypeDef,
     DescribeServerlessCachesResponseTypeDef,
+    DescribeServiceUpdatesMessagePaginateTypeDef,
     DescribeSnapshotsListMessageTypeDef,
+    DescribeSnapshotsMessagePaginateTypeDef,
+    DescribeUpdateActionsMessagePaginateTypeDef,
+    DescribeUserGroupsMessagePaginateTypeDef,
     DescribeUserGroupsResultTypeDef,
+    DescribeUsersMessagePaginateTypeDef,
     DescribeUsersResultTypeDef,
     EventsMessageTypeDef,
-    FilterTypeDef,
-    PaginatorConfigTypeDef,
     ReplicationGroupMessageTypeDef,
     ReservedCacheNodeMessageTypeDef,
     ReservedCacheNodesOfferingMessageTypeDef,
     ServiceUpdatesMessageTypeDef,
-    TimeRangeFilterTypeDef,
     UpdateActionsMessageTypeDef,
 )
+
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = (
     "DescribeCacheClustersPaginator",
@@ -97,8 +122,8 @@ __all__ = (
     "DescribeEventsPaginator",
     "DescribeGlobalReplicationGroupsPaginator",
     "DescribeReplicationGroupsPaginator",
-    "DescribeReservedCacheNodesPaginator",
     "DescribeReservedCacheNodesOfferingsPaginator",
+    "DescribeReservedCacheNodesPaginator",
     "DescribeServerlessCacheSnapshotsPaginator",
     "DescribeServerlessCachesPaginator",
     "DescribeServiceUpdatesPaginator",
@@ -108,343 +133,354 @@ __all__ = (
     "DescribeUsersPaginator",
 )
 
-class DescribeCacheClustersPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/elasticache.html#ElastiCache.Paginator.DescribeCacheClusters)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/paginators.html#describecacheclusterspaginator)
-    """
+if TYPE_CHECKING:
+    _DescribeCacheClustersPaginatorBase = Paginator[CacheClusterMessageTypeDef]
+else:
+    _DescribeCacheClustersPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        CacheClusterId: str = None,
-        ShowCacheNodeInfo: bool = None,
-        ShowCacheClustersNotInReplicationGroups: bool = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[CacheClusterMessageTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/elasticache.html#ElastiCache.Paginator.DescribeCacheClusters.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/paginators.html#describecacheclusterspaginator)
-        """
-
-class DescribeCacheEngineVersionsPaginator(Boto3Paginator):
+class DescribeCacheClustersPaginator(_DescribeCacheClustersPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/elasticache.html#ElastiCache.Paginator.DescribeCacheEngineVersions)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/paginators.html#describecacheengineversionspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elasticache/paginator/DescribeCacheClusters.html#ElastiCache.Paginator.DescribeCacheClusters)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_elasticache/paginators/#describecacheclusterspaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        Engine: str = None,
-        EngineVersion: str = None,
-        CacheParameterGroupFamily: str = None,
-        DefaultOnly: bool = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[CacheEngineVersionMessageTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeCacheClustersMessagePaginateTypeDef]
+    ) -> PageIterator[CacheClusterMessageTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/elasticache.html#ElastiCache.Paginator.DescribeCacheEngineVersions.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/paginators.html#describecacheengineversionspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elasticache/paginator/DescribeCacheClusters.html#ElastiCache.Paginator.DescribeCacheClusters.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_elasticache/paginators/#describecacheclusterspaginator)
         """
 
-class DescribeCacheParameterGroupsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/elasticache.html#ElastiCache.Paginator.DescribeCacheParameterGroups)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/paginators.html#describecacheparametergroupspaginator)
-    """
+if TYPE_CHECKING:
+    _DescribeCacheEngineVersionsPaginatorBase = Paginator[CacheEngineVersionMessageTypeDef]
+else:
+    _DescribeCacheEngineVersionsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        CacheParameterGroupName: str = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[CacheParameterGroupsMessageTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/elasticache.html#ElastiCache.Paginator.DescribeCacheParameterGroups.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/paginators.html#describecacheparametergroupspaginator)
-        """
-
-class DescribeCacheParametersPaginator(Boto3Paginator):
+class DescribeCacheEngineVersionsPaginator(_DescribeCacheEngineVersionsPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/elasticache.html#ElastiCache.Paginator.DescribeCacheParameters)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/paginators.html#describecacheparameterspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elasticache/paginator/DescribeCacheEngineVersions.html#ElastiCache.Paginator.DescribeCacheEngineVersions)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_elasticache/paginators/#describecacheengineversionspaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        CacheParameterGroupName: str,
-        Source: str = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[CacheParameterGroupDetailsTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeCacheEngineVersionsMessagePaginateTypeDef]
+    ) -> PageIterator[CacheEngineVersionMessageTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/elasticache.html#ElastiCache.Paginator.DescribeCacheParameters.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/paginators.html#describecacheparameterspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elasticache/paginator/DescribeCacheEngineVersions.html#ElastiCache.Paginator.DescribeCacheEngineVersions.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_elasticache/paginators/#describecacheengineversionspaginator)
         """
 
-class DescribeCacheSecurityGroupsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/elasticache.html#ElastiCache.Paginator.DescribeCacheSecurityGroups)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/paginators.html#describecachesecuritygroupspaginator)
-    """
+if TYPE_CHECKING:
+    _DescribeCacheParameterGroupsPaginatorBase = Paginator[CacheParameterGroupsMessageTypeDef]
+else:
+    _DescribeCacheParameterGroupsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, CacheSecurityGroupName: str = None, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[CacheSecurityGroupMessageTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/elasticache.html#ElastiCache.Paginator.DescribeCacheSecurityGroups.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/paginators.html#describecachesecuritygroupspaginator)
-        """
-
-class DescribeCacheSubnetGroupsPaginator(Boto3Paginator):
+class DescribeCacheParameterGroupsPaginator(_DescribeCacheParameterGroupsPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/elasticache.html#ElastiCache.Paginator.DescribeCacheSubnetGroups)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/paginators.html#describecachesubnetgroupspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elasticache/paginator/DescribeCacheParameterGroups.html#ElastiCache.Paginator.DescribeCacheParameterGroups)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_elasticache/paginators/#describecacheparametergroupspaginator)
     """
-
-    def paginate(
-        self, *, CacheSubnetGroupName: str = None, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[CacheSubnetGroupMessageTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeCacheParameterGroupsMessagePaginateTypeDef]
+    ) -> PageIterator[CacheParameterGroupsMessageTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/elasticache.html#ElastiCache.Paginator.DescribeCacheSubnetGroups.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/paginators.html#describecachesubnetgroupspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elasticache/paginator/DescribeCacheParameterGroups.html#ElastiCache.Paginator.DescribeCacheParameterGroups.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_elasticache/paginators/#describecacheparametergroupspaginator)
         """
 
-class DescribeEngineDefaultParametersPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/elasticache.html#ElastiCache.Paginator.DescribeEngineDefaultParameters)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/paginators.html#describeenginedefaultparameterspaginator)
-    """
+if TYPE_CHECKING:
+    _DescribeCacheParametersPaginatorBase = Paginator[CacheParameterGroupDetailsTypeDef]
+else:
+    _DescribeCacheParametersPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, CacheParameterGroupFamily: str, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[DescribeEngineDefaultParametersResultTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/elasticache.html#ElastiCache.Paginator.DescribeEngineDefaultParameters.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/paginators.html#describeenginedefaultparameterspaginator)
-        """
-
-class DescribeEventsPaginator(Boto3Paginator):
+class DescribeCacheParametersPaginator(_DescribeCacheParametersPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/elasticache.html#ElastiCache.Paginator.DescribeEvents)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/paginators.html#describeeventspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elasticache/paginator/DescribeCacheParameters.html#ElastiCache.Paginator.DescribeCacheParameters)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_elasticache/paginators/#describecacheparameterspaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        SourceIdentifier: str = None,
-        SourceType: SourceTypeType = None,
-        StartTime: Union[datetime, str] = None,
-        EndTime: Union[datetime, str] = None,
-        Duration: int = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[EventsMessageTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeCacheParametersMessagePaginateTypeDef]
+    ) -> PageIterator[CacheParameterGroupDetailsTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/elasticache.html#ElastiCache.Paginator.DescribeEvents.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/paginators.html#describeeventspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elasticache/paginator/DescribeCacheParameters.html#ElastiCache.Paginator.DescribeCacheParameters.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_elasticache/paginators/#describecacheparameterspaginator)
         """
 
-class DescribeGlobalReplicationGroupsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/elasticache.html#ElastiCache.Paginator.DescribeGlobalReplicationGroups)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/paginators.html#describeglobalreplicationgroupspaginator)
-    """
+if TYPE_CHECKING:
+    _DescribeCacheSecurityGroupsPaginatorBase = Paginator[CacheSecurityGroupMessageTypeDef]
+else:
+    _DescribeCacheSecurityGroupsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        GlobalReplicationGroupId: str = None,
-        ShowMemberInfo: bool = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[DescribeGlobalReplicationGroupsResultTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/elasticache.html#ElastiCache.Paginator.DescribeGlobalReplicationGroups.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/paginators.html#describeglobalreplicationgroupspaginator)
-        """
-
-class DescribeReplicationGroupsPaginator(Boto3Paginator):
+class DescribeCacheSecurityGroupsPaginator(_DescribeCacheSecurityGroupsPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/elasticache.html#ElastiCache.Paginator.DescribeReplicationGroups)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/paginators.html#describereplicationgroupspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elasticache/paginator/DescribeCacheSecurityGroups.html#ElastiCache.Paginator.DescribeCacheSecurityGroups)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_elasticache/paginators/#describecachesecuritygroupspaginator)
     """
-
-    def paginate(
-        self, *, ReplicationGroupId: str = None, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ReplicationGroupMessageTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeCacheSecurityGroupsMessagePaginateTypeDef]
+    ) -> PageIterator[CacheSecurityGroupMessageTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/elasticache.html#ElastiCache.Paginator.DescribeReplicationGroups.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/paginators.html#describereplicationgroupspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elasticache/paginator/DescribeCacheSecurityGroups.html#ElastiCache.Paginator.DescribeCacheSecurityGroups.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_elasticache/paginators/#describecachesecuritygroupspaginator)
         """
 
-class DescribeReservedCacheNodesPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/elasticache.html#ElastiCache.Paginator.DescribeReservedCacheNodes)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/paginators.html#describereservedcachenodespaginator)
-    """
+if TYPE_CHECKING:
+    _DescribeCacheSubnetGroupsPaginatorBase = Paginator[CacheSubnetGroupMessageTypeDef]
+else:
+    _DescribeCacheSubnetGroupsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        ReservedCacheNodeId: str = None,
-        ReservedCacheNodesOfferingId: str = None,
-        CacheNodeType: str = None,
-        Duration: str = None,
-        ProductDescription: str = None,
-        OfferingType: str = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ReservedCacheNodeMessageTypeDef]:
+class DescribeCacheSubnetGroupsPaginator(_DescribeCacheSubnetGroupsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elasticache/paginator/DescribeCacheSubnetGroups.html#ElastiCache.Paginator.DescribeCacheSubnetGroups)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_elasticache/paginators/#describecachesubnetgroupspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeCacheSubnetGroupsMessagePaginateTypeDef]
+    ) -> PageIterator[CacheSubnetGroupMessageTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/elasticache.html#ElastiCache.Paginator.DescribeReservedCacheNodes.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/paginators.html#describereservedcachenodespaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elasticache/paginator/DescribeCacheSubnetGroups.html#ElastiCache.Paginator.DescribeCacheSubnetGroups.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_elasticache/paginators/#describecachesubnetgroupspaginator)
         """
 
-class DescribeReservedCacheNodesOfferingsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/elasticache.html#ElastiCache.Paginator.DescribeReservedCacheNodesOfferings)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/paginators.html#describereservedcachenodesofferingspaginator)
-    """
+if TYPE_CHECKING:
+    _DescribeEngineDefaultParametersPaginatorBase = Paginator[
+        DescribeEngineDefaultParametersResultTypeDef
+    ]
+else:
+    _DescribeEngineDefaultParametersPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        ReservedCacheNodesOfferingId: str = None,
-        CacheNodeType: str = None,
-        Duration: str = None,
-        ProductDescription: str = None,
-        OfferingType: str = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ReservedCacheNodesOfferingMessageTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/elasticache.html#ElastiCache.Paginator.DescribeReservedCacheNodesOfferings.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/paginators.html#describereservedcachenodesofferingspaginator)
-        """
-
-class DescribeServerlessCacheSnapshotsPaginator(Boto3Paginator):
+class DescribeEngineDefaultParametersPaginator(_DescribeEngineDefaultParametersPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/elasticache.html#ElastiCache.Paginator.DescribeServerlessCacheSnapshots)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/paginators.html#describeserverlesscachesnapshotspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elasticache/paginator/DescribeEngineDefaultParameters.html#ElastiCache.Paginator.DescribeEngineDefaultParameters)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_elasticache/paginators/#describeenginedefaultparameterspaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        ServerlessCacheName: str = None,
-        ServerlessCacheSnapshotName: str = None,
-        SnapshotType: str = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[DescribeServerlessCacheSnapshotsResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeEngineDefaultParametersMessagePaginateTypeDef]
+    ) -> PageIterator[DescribeEngineDefaultParametersResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/elasticache.html#ElastiCache.Paginator.DescribeServerlessCacheSnapshots.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/paginators.html#describeserverlesscachesnapshotspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elasticache/paginator/DescribeEngineDefaultParameters.html#ElastiCache.Paginator.DescribeEngineDefaultParameters.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_elasticache/paginators/#describeenginedefaultparameterspaginator)
         """
 
-class DescribeServerlessCachesPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/elasticache.html#ElastiCache.Paginator.DescribeServerlessCaches)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/paginators.html#describeserverlesscachespaginator)
-    """
+if TYPE_CHECKING:
+    _DescribeEventsPaginatorBase = Paginator[EventsMessageTypeDef]
+else:
+    _DescribeEventsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, ServerlessCacheName: str = None, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[DescribeServerlessCachesResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/elasticache.html#ElastiCache.Paginator.DescribeServerlessCaches.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/paginators.html#describeserverlesscachespaginator)
-        """
-
-class DescribeServiceUpdatesPaginator(Boto3Paginator):
+class DescribeEventsPaginator(_DescribeEventsPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/elasticache.html#ElastiCache.Paginator.DescribeServiceUpdates)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/paginators.html#describeserviceupdatespaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elasticache/paginator/DescribeEvents.html#ElastiCache.Paginator.DescribeEvents)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_elasticache/paginators/#describeeventspaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        ServiceUpdateName: str = None,
-        ServiceUpdateStatus: List[ServiceUpdateStatusType] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ServiceUpdatesMessageTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeEventsMessagePaginateTypeDef]
+    ) -> PageIterator[EventsMessageTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/elasticache.html#ElastiCache.Paginator.DescribeServiceUpdates.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/paginators.html#describeserviceupdatespaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elasticache/paginator/DescribeEvents.html#ElastiCache.Paginator.DescribeEvents.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_elasticache/paginators/#describeeventspaginator)
         """
 
-class DescribeSnapshotsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/elasticache.html#ElastiCache.Paginator.DescribeSnapshots)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/paginators.html#describesnapshotspaginator)
-    """
+if TYPE_CHECKING:
+    _DescribeGlobalReplicationGroupsPaginatorBase = Paginator[
+        DescribeGlobalReplicationGroupsResultTypeDef
+    ]
+else:
+    _DescribeGlobalReplicationGroupsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        ReplicationGroupId: str = None,
-        CacheClusterId: str = None,
-        SnapshotName: str = None,
-        SnapshotSource: str = None,
-        ShowNodeGroupConfig: bool = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[DescribeSnapshotsListMessageTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/elasticache.html#ElastiCache.Paginator.DescribeSnapshots.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/paginators.html#describesnapshotspaginator)
-        """
-
-class DescribeUpdateActionsPaginator(Boto3Paginator):
+class DescribeGlobalReplicationGroupsPaginator(_DescribeGlobalReplicationGroupsPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/elasticache.html#ElastiCache.Paginator.DescribeUpdateActions)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/paginators.html#describeupdateactionspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elasticache/paginator/DescribeGlobalReplicationGroups.html#ElastiCache.Paginator.DescribeGlobalReplicationGroups)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_elasticache/paginators/#describeglobalreplicationgroupspaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        ServiceUpdateName: str = None,
-        ReplicationGroupIds: List[str] = None,
-        CacheClusterIds: List[str] = None,
-        Engine: str = None,
-        ServiceUpdateStatus: List[ServiceUpdateStatusType] = None,
-        ServiceUpdateTimeRange: "TimeRangeFilterTypeDef" = None,
-        UpdateActionStatus: List[UpdateActionStatusType] = None,
-        ShowNodeLevelUpdateStatus: bool = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[UpdateActionsMessageTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeGlobalReplicationGroupsMessagePaginateTypeDef]
+    ) -> PageIterator[DescribeGlobalReplicationGroupsResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/elasticache.html#ElastiCache.Paginator.DescribeUpdateActions.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/paginators.html#describeupdateactionspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elasticache/paginator/DescribeGlobalReplicationGroups.html#ElastiCache.Paginator.DescribeGlobalReplicationGroups.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_elasticache/paginators/#describeglobalreplicationgroupspaginator)
         """
 
-class DescribeUserGroupsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/elasticache.html#ElastiCache.Paginator.DescribeUserGroups)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/paginators.html#describeusergroupspaginator)
-    """
+if TYPE_CHECKING:
+    _DescribeReplicationGroupsPaginatorBase = Paginator[ReplicationGroupMessageTypeDef]
+else:
+    _DescribeReplicationGroupsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, UserGroupId: str = None, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[DescribeUserGroupsResultTypeDef]:
+class DescribeReplicationGroupsPaginator(_DescribeReplicationGroupsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elasticache/paginator/DescribeReplicationGroups.html#ElastiCache.Paginator.DescribeReplicationGroups)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_elasticache/paginators/#describereplicationgroupspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeReplicationGroupsMessagePaginateTypeDef]
+    ) -> PageIterator[ReplicationGroupMessageTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/elasticache.html#ElastiCache.Paginator.DescribeUserGroups.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/paginators.html#describeusergroupspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elasticache/paginator/DescribeReplicationGroups.html#ElastiCache.Paginator.DescribeReplicationGroups.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_elasticache/paginators/#describereplicationgroupspaginator)
         """
 
-class DescribeUsersPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/elasticache.html#ElastiCache.Paginator.DescribeUsers)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/paginators.html#describeuserspaginator)
-    """
+if TYPE_CHECKING:
+    _DescribeReservedCacheNodesOfferingsPaginatorBase = Paginator[
+        ReservedCacheNodesOfferingMessageTypeDef
+    ]
+else:
+    _DescribeReservedCacheNodesOfferingsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        Engine: str = None,
-        UserId: str = None,
-        Filters: List["FilterTypeDef"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[DescribeUsersResultTypeDef]:
+class DescribeReservedCacheNodesOfferingsPaginator(
+    _DescribeReservedCacheNodesOfferingsPaginatorBase
+):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elasticache/paginator/DescribeReservedCacheNodesOfferings.html#ElastiCache.Paginator.DescribeReservedCacheNodesOfferings)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_elasticache/paginators/#describereservedcachenodesofferingspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeReservedCacheNodesOfferingsMessagePaginateTypeDef]
+    ) -> PageIterator[ReservedCacheNodesOfferingMessageTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/elasticache.html#ElastiCache.Paginator.DescribeUsers.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elasticache/paginators.html#describeuserspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elasticache/paginator/DescribeReservedCacheNodesOfferings.html#ElastiCache.Paginator.DescribeReservedCacheNodesOfferings.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_elasticache/paginators/#describereservedcachenodesofferingspaginator)
+        """
+
+if TYPE_CHECKING:
+    _DescribeReservedCacheNodesPaginatorBase = Paginator[ReservedCacheNodeMessageTypeDef]
+else:
+    _DescribeReservedCacheNodesPaginatorBase = Paginator  # type: ignore[assignment]
+
+class DescribeReservedCacheNodesPaginator(_DescribeReservedCacheNodesPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elasticache/paginator/DescribeReservedCacheNodes.html#ElastiCache.Paginator.DescribeReservedCacheNodes)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_elasticache/paginators/#describereservedcachenodespaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeReservedCacheNodesMessagePaginateTypeDef]
+    ) -> PageIterator[ReservedCacheNodeMessageTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elasticache/paginator/DescribeReservedCacheNodes.html#ElastiCache.Paginator.DescribeReservedCacheNodes.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_elasticache/paginators/#describereservedcachenodespaginator)
+        """
+
+if TYPE_CHECKING:
+    _DescribeServerlessCacheSnapshotsPaginatorBase = Paginator[
+        DescribeServerlessCacheSnapshotsResponseTypeDef
+    ]
+else:
+    _DescribeServerlessCacheSnapshotsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class DescribeServerlessCacheSnapshotsPaginator(_DescribeServerlessCacheSnapshotsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elasticache/paginator/DescribeServerlessCacheSnapshots.html#ElastiCache.Paginator.DescribeServerlessCacheSnapshots)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_elasticache/paginators/#describeserverlesscachesnapshotspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeServerlessCacheSnapshotsRequestPaginateTypeDef]
+    ) -> PageIterator[DescribeServerlessCacheSnapshotsResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elasticache/paginator/DescribeServerlessCacheSnapshots.html#ElastiCache.Paginator.DescribeServerlessCacheSnapshots.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_elasticache/paginators/#describeserverlesscachesnapshotspaginator)
+        """
+
+if TYPE_CHECKING:
+    _DescribeServerlessCachesPaginatorBase = Paginator[DescribeServerlessCachesResponseTypeDef]
+else:
+    _DescribeServerlessCachesPaginatorBase = Paginator  # type: ignore[assignment]
+
+class DescribeServerlessCachesPaginator(_DescribeServerlessCachesPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elasticache/paginator/DescribeServerlessCaches.html#ElastiCache.Paginator.DescribeServerlessCaches)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_elasticache/paginators/#describeserverlesscachespaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeServerlessCachesRequestPaginateTypeDef]
+    ) -> PageIterator[DescribeServerlessCachesResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elasticache/paginator/DescribeServerlessCaches.html#ElastiCache.Paginator.DescribeServerlessCaches.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_elasticache/paginators/#describeserverlesscachespaginator)
+        """
+
+if TYPE_CHECKING:
+    _DescribeServiceUpdatesPaginatorBase = Paginator[ServiceUpdatesMessageTypeDef]
+else:
+    _DescribeServiceUpdatesPaginatorBase = Paginator  # type: ignore[assignment]
+
+class DescribeServiceUpdatesPaginator(_DescribeServiceUpdatesPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elasticache/paginator/DescribeServiceUpdates.html#ElastiCache.Paginator.DescribeServiceUpdates)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_elasticache/paginators/#describeserviceupdatespaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeServiceUpdatesMessagePaginateTypeDef]
+    ) -> PageIterator[ServiceUpdatesMessageTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elasticache/paginator/DescribeServiceUpdates.html#ElastiCache.Paginator.DescribeServiceUpdates.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_elasticache/paginators/#describeserviceupdatespaginator)
+        """
+
+if TYPE_CHECKING:
+    _DescribeSnapshotsPaginatorBase = Paginator[DescribeSnapshotsListMessageTypeDef]
+else:
+    _DescribeSnapshotsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class DescribeSnapshotsPaginator(_DescribeSnapshotsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elasticache/paginator/DescribeSnapshots.html#ElastiCache.Paginator.DescribeSnapshots)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_elasticache/paginators/#describesnapshotspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeSnapshotsMessagePaginateTypeDef]
+    ) -> PageIterator[DescribeSnapshotsListMessageTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elasticache/paginator/DescribeSnapshots.html#ElastiCache.Paginator.DescribeSnapshots.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_elasticache/paginators/#describesnapshotspaginator)
+        """
+
+if TYPE_CHECKING:
+    _DescribeUpdateActionsPaginatorBase = Paginator[UpdateActionsMessageTypeDef]
+else:
+    _DescribeUpdateActionsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class DescribeUpdateActionsPaginator(_DescribeUpdateActionsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elasticache/paginator/DescribeUpdateActions.html#ElastiCache.Paginator.DescribeUpdateActions)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_elasticache/paginators/#describeupdateactionspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeUpdateActionsMessagePaginateTypeDef]
+    ) -> PageIterator[UpdateActionsMessageTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elasticache/paginator/DescribeUpdateActions.html#ElastiCache.Paginator.DescribeUpdateActions.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_elasticache/paginators/#describeupdateactionspaginator)
+        """
+
+if TYPE_CHECKING:
+    _DescribeUserGroupsPaginatorBase = Paginator[DescribeUserGroupsResultTypeDef]
+else:
+    _DescribeUserGroupsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class DescribeUserGroupsPaginator(_DescribeUserGroupsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elasticache/paginator/DescribeUserGroups.html#ElastiCache.Paginator.DescribeUserGroups)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_elasticache/paginators/#describeusergroupspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeUserGroupsMessagePaginateTypeDef]
+    ) -> PageIterator[DescribeUserGroupsResultTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elasticache/paginator/DescribeUserGroups.html#ElastiCache.Paginator.DescribeUserGroups.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_elasticache/paginators/#describeusergroupspaginator)
+        """
+
+if TYPE_CHECKING:
+    _DescribeUsersPaginatorBase = Paginator[DescribeUsersResultTypeDef]
+else:
+    _DescribeUsersPaginatorBase = Paginator  # type: ignore[assignment]
+
+class DescribeUsersPaginator(_DescribeUsersPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elasticache/paginator/DescribeUsers.html#ElastiCache.Paginator.DescribeUsers)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_elasticache/paginators/#describeuserspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeUsersMessagePaginateTypeDef]
+    ) -> PageIterator[DescribeUsersResultTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elasticache/paginator/DescribeUsers.html#ElastiCache.Paginator.DescribeUsers.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_elasticache/paginators/#describeuserspaginator)
         """

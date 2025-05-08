@@ -1,10 +1,14 @@
 """
 Main interface for groundstation service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_groundstation/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_groundstation import (
         Client,
         ContactScheduledWaiter,
@@ -18,10 +22,8 @@ Usage::
         ListSatellitesPaginator,
     )
 
-    session = boto3.Session()
-
-    client: GroundStationClient = boto3.client("groundstation")
-    session_client: GroundStationClient = session.client("groundstation")
+    session = Session()
+    client: GroundStationClient = session.client("groundstation")
 
     contact_scheduled_waiter: ContactScheduledWaiter = client.get_waiter("contact_scheduled")
 

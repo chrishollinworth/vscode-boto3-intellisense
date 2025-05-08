@@ -1,30 +1,36 @@
 """
-Type annotations for memorydb service client.
+Type annotations for memorydb service Client.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
-    from mypy_boto3_memorydb import MemoryDBClient
+    from boto3.session import Session
+    from mypy_boto3_memorydb.client import MemoryDBClient
 
-    client: MemoryDBClient = boto3.client("memorydb")
+    session = Session()
+    client: MemoryDBClient = session.client("memorydb")
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from datetime import datetime
-from typing import Any, Dict, List, Type, Union, overload
+from typing import Any, overload
 
 from botocore.client import BaseClient, ClientMeta
+from botocore.errorfactory import BaseClientExceptions
+from botocore.exceptions import ClientError as BotocoreClientError
 
-from .literals import ServiceUpdateStatusType, SourceTypeType
 from .paginator import (
     DescribeACLsPaginator,
     DescribeClustersPaginator,
     DescribeEngineVersionsPaginator,
     DescribeEventsPaginator,
+    DescribeMultiRegionClustersPaginator,
     DescribeParameterGroupsPaginator,
     DescribeParametersPaginator,
     DescribeReservedNodesOfferingsPaginator,
@@ -35,68 +41,107 @@ from .paginator import (
     DescribeUsersPaginator,
 )
 from .type_defs import (
-    AuthenticationModeTypeDef,
+    BatchUpdateClusterRequestTypeDef,
     BatchUpdateClusterResponseTypeDef,
+    CopySnapshotRequestTypeDef,
     CopySnapshotResponseTypeDef,
+    CreateACLRequestTypeDef,
     CreateACLResponseTypeDef,
+    CreateClusterRequestTypeDef,
     CreateClusterResponseTypeDef,
+    CreateMultiRegionClusterRequestTypeDef,
+    CreateMultiRegionClusterResponseTypeDef,
+    CreateParameterGroupRequestTypeDef,
     CreateParameterGroupResponseTypeDef,
+    CreateSnapshotRequestTypeDef,
     CreateSnapshotResponseTypeDef,
+    CreateSubnetGroupRequestTypeDef,
     CreateSubnetGroupResponseTypeDef,
+    CreateUserRequestTypeDef,
     CreateUserResponseTypeDef,
+    DeleteACLRequestTypeDef,
     DeleteACLResponseTypeDef,
+    DeleteClusterRequestTypeDef,
     DeleteClusterResponseTypeDef,
+    DeleteMultiRegionClusterRequestTypeDef,
+    DeleteMultiRegionClusterResponseTypeDef,
+    DeleteParameterGroupRequestTypeDef,
     DeleteParameterGroupResponseTypeDef,
+    DeleteSnapshotRequestTypeDef,
     DeleteSnapshotResponseTypeDef,
+    DeleteSubnetGroupRequestTypeDef,
     DeleteSubnetGroupResponseTypeDef,
+    DeleteUserRequestTypeDef,
     DeleteUserResponseTypeDef,
+    DescribeACLsRequestTypeDef,
     DescribeACLsResponseTypeDef,
+    DescribeClustersRequestTypeDef,
     DescribeClustersResponseTypeDef,
+    DescribeEngineVersionsRequestTypeDef,
     DescribeEngineVersionsResponseTypeDef,
+    DescribeEventsRequestTypeDef,
     DescribeEventsResponseTypeDef,
+    DescribeMultiRegionClustersRequestTypeDef,
+    DescribeMultiRegionClustersResponseTypeDef,
+    DescribeParameterGroupsRequestTypeDef,
     DescribeParameterGroupsResponseTypeDef,
+    DescribeParametersRequestTypeDef,
     DescribeParametersResponseTypeDef,
+    DescribeReservedNodesOfferingsRequestTypeDef,
     DescribeReservedNodesOfferingsResponseTypeDef,
+    DescribeReservedNodesRequestTypeDef,
     DescribeReservedNodesResponseTypeDef,
+    DescribeServiceUpdatesRequestTypeDef,
     DescribeServiceUpdatesResponseTypeDef,
+    DescribeSnapshotsRequestTypeDef,
     DescribeSnapshotsResponseTypeDef,
+    DescribeSubnetGroupsRequestTypeDef,
     DescribeSubnetGroupsResponseTypeDef,
+    DescribeUsersRequestTypeDef,
     DescribeUsersResponseTypeDef,
+    FailoverShardRequestTypeDef,
     FailoverShardResponseTypeDef,
-    FilterTypeDef,
+    ListAllowedMultiRegionClusterUpdatesRequestTypeDef,
+    ListAllowedMultiRegionClusterUpdatesResponseTypeDef,
+    ListAllowedNodeTypeUpdatesRequestTypeDef,
     ListAllowedNodeTypeUpdatesResponseTypeDef,
+    ListTagsRequestTypeDef,
     ListTagsResponseTypeDef,
-    ParameterNameValueTypeDef,
+    PurchaseReservedNodesOfferingRequestTypeDef,
     PurchaseReservedNodesOfferingResponseTypeDef,
-    ReplicaConfigurationRequestTypeDef,
+    ResetParameterGroupRequestTypeDef,
     ResetParameterGroupResponseTypeDef,
-    ServiceUpdateRequestTypeDef,
-    ShardConfigurationRequestTypeDef,
+    TagResourceRequestTypeDef,
     TagResourceResponseTypeDef,
-    TagTypeDef,
+    UntagResourceRequestTypeDef,
     UntagResourceResponseTypeDef,
+    UpdateACLRequestTypeDef,
     UpdateACLResponseTypeDef,
+    UpdateClusterRequestTypeDef,
     UpdateClusterResponseTypeDef,
+    UpdateMultiRegionClusterRequestTypeDef,
+    UpdateMultiRegionClusterResponseTypeDef,
+    UpdateParameterGroupRequestTypeDef,
     UpdateParameterGroupResponseTypeDef,
+    UpdateSubnetGroupRequestTypeDef,
     UpdateSubnetGroupResponseTypeDef,
+    UpdateUserRequestTypeDef,
     UpdateUserResponseTypeDef,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import type as Type
+    from collections.abc import Mapping
 else:
-    from typing_extensions import Literal
+    from typing import Mapping, Type
+if sys.version_info >= (3, 12):
+    from typing import Literal, Unpack
+else:
+    from typing_extensions import Literal, Unpack
 
 __all__ = ("MemoryDBClient",)
 
-class BotocoreClientError(BaseException):
-    MSG_TEMPLATE: str
-
-    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
-        self.response: Dict[str, Any]
-        self.operation_name: str
-
-class Exceptions:
+class Exceptions(BaseClientExceptions):
     ACLAlreadyExistsFault: Type[BotocoreClientError]
     ACLNotFoundFault: Type[BotocoreClientError]
     ACLQuotaExceededFault: Type[BotocoreClientError]
@@ -113,6 +158,7 @@ class Exceptions:
     InvalidClusterStateFault: Type[BotocoreClientError]
     InvalidCredentialsException: Type[BotocoreClientError]
     InvalidKMSKeyFault: Type[BotocoreClientError]
+    InvalidMultiRegionClusterStateFault: Type[BotocoreClientError]
     InvalidNodeStateFault: Type[BotocoreClientError]
     InvalidParameterCombinationException: Type[BotocoreClientError]
     InvalidParameterGroupStateFault: Type[BotocoreClientError]
@@ -121,6 +167,9 @@ class Exceptions:
     InvalidSubnet: Type[BotocoreClientError]
     InvalidUserStateFault: Type[BotocoreClientError]
     InvalidVPCNetworkStateFault: Type[BotocoreClientError]
+    MultiRegionClusterAlreadyExistsFault: Type[BotocoreClientError]
+    MultiRegionClusterNotFoundFault: Type[BotocoreClientError]
+    MultiRegionParameterGroupNotFoundFault: Type[BotocoreClientError]
     NoOperationFault: Type[BotocoreClientError]
     NodeQuotaForClusterExceededFault: Type[BotocoreClientError]
     NodeQuotaForCustomerExceededFault: Type[BotocoreClientError]
@@ -154,8 +203,8 @@ class Exceptions:
 
 class MemoryDBClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/memorydb.html#MemoryDB.Client)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client.html)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/memorydb.html#MemoryDB.Client)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client/)
     """
 
     meta: ClientMeta
@@ -164,646 +213,588 @@ class MemoryDBClient(BaseClient):
     def exceptions(self) -> Exceptions:
         """
         MemoryDBClient exceptions.
-        """
 
-    def batch_update_cluster(
-        self, *, ClusterNames: List[str], ServiceUpdate: "ServiceUpdateRequestTypeDef" = None
-    ) -> BatchUpdateClusterResponseTypeDef:
-        """
-        Apply the service update to a list of clusters supplied.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/memorydb.html#MemoryDB.Client.batch_update_cluster)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client.html#batch_update_cluster)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/memorydb.html#MemoryDB.Client)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client/#exceptions)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        Check if an operation can be paginated.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/memorydb.html#MemoryDB.Client.can_paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client.html#can_paginate)
-        """
-
-    def close(self) -> None:
-        """
-        Closes underlying endpoint connections.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/memorydb.html#MemoryDB.Client.close)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client.html#close)
-        """
-
-    def copy_snapshot(
-        self,
-        *,
-        SourceSnapshotName: str,
-        TargetSnapshotName: str,
-        TargetBucket: str = None,
-        KmsKeyId: str = None,
-        Tags: List["TagTypeDef"] = None
-    ) -> CopySnapshotResponseTypeDef:
-        """
-        Makes a copy of an existing snapshot.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/memorydb.html#MemoryDB.Client.copy_snapshot)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client.html#copy_snapshot)
-        """
-
-    def create_acl(
-        self, *, ACLName: str, UserNames: List[str] = None, Tags: List["TagTypeDef"] = None
-    ) -> CreateACLResponseTypeDef:
-        """
-        Creates an Access Control List.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/memorydb.html#MemoryDB.Client.create_acl)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client.html#create_acl)
-        """
-
-    def create_cluster(
-        self,
-        *,
-        ClusterName: str,
-        NodeType: str,
-        ACLName: str,
-        ParameterGroupName: str = None,
-        Description: str = None,
-        NumShards: int = None,
-        NumReplicasPerShard: int = None,
-        SubnetGroupName: str = None,
-        SecurityGroupIds: List[str] = None,
-        MaintenanceWindow: str = None,
-        Port: int = None,
-        SnsTopicArn: str = None,
-        TLSEnabled: bool = None,
-        KmsKeyId: str = None,
-        SnapshotArns: List[str] = None,
-        SnapshotName: str = None,
-        SnapshotRetentionLimit: int = None,
-        Tags: List["TagTypeDef"] = None,
-        SnapshotWindow: str = None,
-        EngineVersion: str = None,
-        AutoMinorVersionUpgrade: bool = None,
-        DataTiering: bool = None
-    ) -> CreateClusterResponseTypeDef:
-        """
-        Creates a cluster.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/memorydb.html#MemoryDB.Client.create_cluster)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client.html#create_cluster)
-        """
-
-    def create_parameter_group(
-        self,
-        *,
-        ParameterGroupName: str,
-        Family: str,
-        Description: str = None,
-        Tags: List["TagTypeDef"] = None
-    ) -> CreateParameterGroupResponseTypeDef:
-        """
-        Creates a new MemoryDB parameter group.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/memorydb.html#MemoryDB.Client.create_parameter_group)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client.html#create_parameter_group)
-        """
-
-    def create_snapshot(
-        self,
-        *,
-        ClusterName: str,
-        SnapshotName: str,
-        KmsKeyId: str = None,
-        Tags: List["TagTypeDef"] = None
-    ) -> CreateSnapshotResponseTypeDef:
-        """
-        Creates a copy of an entire cluster at a specific moment in time.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/memorydb.html#MemoryDB.Client.create_snapshot)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client.html#create_snapshot)
-        """
-
-    def create_subnet_group(
-        self,
-        *,
-        SubnetGroupName: str,
-        SubnetIds: List[str],
-        Description: str = None,
-        Tags: List["TagTypeDef"] = None
-    ) -> CreateSubnetGroupResponseTypeDef:
-        """
-        Creates a subnet group.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/memorydb.html#MemoryDB.Client.create_subnet_group)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client.html#create_subnet_group)
-        """
-
-    def create_user(
-        self,
-        *,
-        UserName: str,
-        AuthenticationMode: "AuthenticationModeTypeDef",
-        AccessString: str,
-        Tags: List["TagTypeDef"] = None
-    ) -> CreateUserResponseTypeDef:
-        """
-        Creates a MemoryDB user.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/memorydb.html#MemoryDB.Client.create_user)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client.html#create_user)
-        """
-
-    def delete_acl(self, *, ACLName: str) -> DeleteACLResponseTypeDef:
-        """
-        Deletes an Access Control List.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/memorydb.html#MemoryDB.Client.delete_acl)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client.html#delete_acl)
-        """
-
-    def delete_cluster(
-        self, *, ClusterName: str, FinalSnapshotName: str = None
-    ) -> DeleteClusterResponseTypeDef:
-        """
-        Deletes a cluster.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/memorydb.html#MemoryDB.Client.delete_cluster)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client.html#delete_cluster)
-        """
-
-    def delete_parameter_group(
-        self, *, ParameterGroupName: str
-    ) -> DeleteParameterGroupResponseTypeDef:
-        """
-        Deletes the specified parameter group.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/memorydb.html#MemoryDB.Client.delete_parameter_group)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client.html#delete_parameter_group)
-        """
-
-    def delete_snapshot(self, *, SnapshotName: str) -> DeleteSnapshotResponseTypeDef:
-        """
-        Deletes an existing snapshot.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/memorydb.html#MemoryDB.Client.delete_snapshot)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client.html#delete_snapshot)
-        """
-
-    def delete_subnet_group(self, *, SubnetGroupName: str) -> DeleteSubnetGroupResponseTypeDef:
-        """
-        Deletes a subnet group.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/memorydb.html#MemoryDB.Client.delete_subnet_group)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client.html#delete_subnet_group)
-        """
-
-    def delete_user(self, *, UserName: str) -> DeleteUserResponseTypeDef:
-        """
-        Deletes a user.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/memorydb.html#MemoryDB.Client.delete_user)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client.html#delete_user)
-        """
-
-    def describe_acls(
-        self, *, ACLName: str = None, MaxResults: int = None, NextToken: str = None
-    ) -> DescribeACLsResponseTypeDef:
-        """
-        Returns a list of ACLs See also: `AWS API Documentation
-        <https://docs.aws.amazon.com/goto/WebAPI/memorydb-2021-01-01/DescribeACLs>`_
-        **Request Syntax** response = client.describe_acls( ACLName='string',
-        MaxResults=123, NextToken='string' ).
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/memorydb.html#MemoryDB.Client.describe_acls)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client.html#describe_acls)
-        """
-
-    def describe_clusters(
-        self,
-        *,
-        ClusterName: str = None,
-        MaxResults: int = None,
-        NextToken: str = None,
-        ShowShardDetails: bool = None
-    ) -> DescribeClustersResponseTypeDef:
-        """
-        Returns information about all provisioned clusters if no cluster identifier is
-        specified, or about a specific cluster if a cluster name is supplied.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/memorydb.html#MemoryDB.Client.describe_clusters)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client.html#describe_clusters)
-        """
-
-    def describe_engine_versions(
-        self,
-        *,
-        EngineVersion: str = None,
-        ParameterGroupFamily: str = None,
-        MaxResults: int = None,
-        NextToken: str = None,
-        DefaultOnly: bool = None
-    ) -> DescribeEngineVersionsResponseTypeDef:
-        """
-        Returns a list of the available Redis engine versions.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/memorydb.html#MemoryDB.Client.describe_engine_versions)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client.html#describe_engine_versions)
-        """
-
-    def describe_events(
-        self,
-        *,
-        SourceName: str = None,
-        SourceType: SourceTypeType = None,
-        StartTime: Union[datetime, str] = None,
-        EndTime: Union[datetime, str] = None,
-        Duration: int = None,
-        MaxResults: int = None,
-        NextToken: str = None
-    ) -> DescribeEventsResponseTypeDef:
-        """
-        Returns events related to clusters, security groups, and parameter groups.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/memorydb.html#MemoryDB.Client.describe_events)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client.html#describe_events)
-        """
-
-    def describe_parameter_groups(
-        self, *, ParameterGroupName: str = None, MaxResults: int = None, NextToken: str = None
-    ) -> DescribeParameterGroupsResponseTypeDef:
-        """
-        Returns a list of parameter group descriptions.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/memorydb.html#MemoryDB.Client.describe_parameter_groups)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client.html#describe_parameter_groups)
-        """
-
-    def describe_parameters(
-        self, *, ParameterGroupName: str, MaxResults: int = None, NextToken: str = None
-    ) -> DescribeParametersResponseTypeDef:
-        """
-        Returns the detailed parameter list for a particular parameter group.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/memorydb.html#MemoryDB.Client.describe_parameters)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client.html#describe_parameters)
-        """
-
-    def describe_reserved_nodes(
-        self,
-        *,
-        ReservationId: str = None,
-        ReservedNodesOfferingId: str = None,
-        NodeType: str = None,
-        Duration: str = None,
-        OfferingType: str = None,
-        MaxResults: int = None,
-        NextToken: str = None
-    ) -> DescribeReservedNodesResponseTypeDef:
-        """
-        Returns information about reserved nodes for this account, or about a specified
-        reserved node.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/memorydb.html#MemoryDB.Client.describe_reserved_nodes)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client.html#describe_reserved_nodes)
-        """
-
-    def describe_reserved_nodes_offerings(
-        self,
-        *,
-        ReservedNodesOfferingId: str = None,
-        NodeType: str = None,
-        Duration: str = None,
-        OfferingType: str = None,
-        MaxResults: int = None,
-        NextToken: str = None
-    ) -> DescribeReservedNodesOfferingsResponseTypeDef:
-        """
-        Lists available reserved node offerings.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/memorydb.html#MemoryDB.Client.describe_reserved_nodes_offerings)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client.html#describe_reserved_nodes_offerings)
-        """
-
-    def describe_service_updates(
-        self,
-        *,
-        ServiceUpdateName: str = None,
-        ClusterNames: List[str] = None,
-        Status: List[ServiceUpdateStatusType] = None,
-        MaxResults: int = None,
-        NextToken: str = None
-    ) -> DescribeServiceUpdatesResponseTypeDef:
-        """
-        Returns details of the service updates See also: `AWS API Documentation <https:/
-        /docs.aws.amazon.com/goto/WebAPI/memorydb-2021-01-01/DescribeServiceUpdates>`_
-        **Request Syntax** response = client.describe_service_updates(
-        ServiceUpdateName='string', ClusterNames=[ ...
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/memorydb.html#MemoryDB.Client.describe_service_updates)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client.html#describe_service_updates)
-        """
-
-    def describe_snapshots(
-        self,
-        *,
-        ClusterName: str = None,
-        SnapshotName: str = None,
-        Source: str = None,
-        NextToken: str = None,
-        MaxResults: int = None,
-        ShowDetail: bool = None
-    ) -> DescribeSnapshotsResponseTypeDef:
-        """
-        Returns information about cluster snapshots.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/memorydb.html#MemoryDB.Client.describe_snapshots)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client.html#describe_snapshots)
-        """
-
-    def describe_subnet_groups(
-        self, *, SubnetGroupName: str = None, MaxResults: int = None, NextToken: str = None
-    ) -> DescribeSubnetGroupsResponseTypeDef:
-        """
-        Returns a list of subnet group descriptions.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/memorydb.html#MemoryDB.Client.describe_subnet_groups)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client.html#describe_subnet_groups)
-        """
-
-    def describe_users(
-        self,
-        *,
-        UserName: str = None,
-        Filters: List["FilterTypeDef"] = None,
-        MaxResults: int = None,
-        NextToken: str = None
-    ) -> DescribeUsersResponseTypeDef:
-        """
-        Returns a list of users.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/memorydb.html#MemoryDB.Client.describe_users)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client.html#describe_users)
-        """
-
-    def failover_shard(self, *, ClusterName: str, ShardName: str) -> FailoverShardResponseTypeDef:
-        """
-        Used to failover a shard.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/memorydb.html#MemoryDB.Client.failover_shard)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client.html#failover_shard)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/memorydb/client/can_paginate.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client/#can_paginate)
         """
 
     def generate_presigned_url(
         self,
         ClientMethod: str,
-        Params: Dict[str, Any] = None,
+        Params: Mapping[str, Any] = ...,
         ExpiresIn: int = 3600,
-        HttpMethod: str = None,
+        HttpMethod: str = ...,
     ) -> str:
         """
-        Generate a presigned url given a client, its method, and arguments.
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/memorydb/client/generate_presigned_url.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client/#generate_presigned_url)
+        """
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/memorydb.html#MemoryDB.Client.generate_presigned_url)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client.html#generate_presigned_url)
+    def batch_update_cluster(
+        self, **kwargs: Unpack[BatchUpdateClusterRequestTypeDef]
+    ) -> BatchUpdateClusterResponseTypeDef:
+        """
+        Apply the service update to a list of clusters supplied.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/memorydb/client/batch_update_cluster.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client/#batch_update_cluster)
+        """
+
+    def copy_snapshot(
+        self, **kwargs: Unpack[CopySnapshotRequestTypeDef]
+    ) -> CopySnapshotResponseTypeDef:
+        """
+        Makes a copy of an existing snapshot.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/memorydb/client/copy_snapshot.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client/#copy_snapshot)
+        """
+
+    def create_acl(self, **kwargs: Unpack[CreateACLRequestTypeDef]) -> CreateACLResponseTypeDef:
+        """
+        Creates an Access Control List.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/memorydb/client/create_acl.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client/#create_acl)
+        """
+
+    def create_cluster(
+        self, **kwargs: Unpack[CreateClusterRequestTypeDef]
+    ) -> CreateClusterResponseTypeDef:
+        """
+        Creates a cluster.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/memorydb/client/create_cluster.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client/#create_cluster)
+        """
+
+    def create_multi_region_cluster(
+        self, **kwargs: Unpack[CreateMultiRegionClusterRequestTypeDef]
+    ) -> CreateMultiRegionClusterResponseTypeDef:
+        """
+        Creates a new multi-Region cluster.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/memorydb/client/create_multi_region_cluster.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client/#create_multi_region_cluster)
+        """
+
+    def create_parameter_group(
+        self, **kwargs: Unpack[CreateParameterGroupRequestTypeDef]
+    ) -> CreateParameterGroupResponseTypeDef:
+        """
+        Creates a new MemoryDB parameter group.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/memorydb/client/create_parameter_group.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client/#create_parameter_group)
+        """
+
+    def create_snapshot(
+        self, **kwargs: Unpack[CreateSnapshotRequestTypeDef]
+    ) -> CreateSnapshotResponseTypeDef:
+        """
+        Creates a copy of an entire cluster at a specific moment in time.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/memorydb/client/create_snapshot.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client/#create_snapshot)
+        """
+
+    def create_subnet_group(
+        self, **kwargs: Unpack[CreateSubnetGroupRequestTypeDef]
+    ) -> CreateSubnetGroupResponseTypeDef:
+        """
+        Creates a subnet group.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/memorydb/client/create_subnet_group.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client/#create_subnet_group)
+        """
+
+    def create_user(self, **kwargs: Unpack[CreateUserRequestTypeDef]) -> CreateUserResponseTypeDef:
+        """
+        Creates a MemoryDB user.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/memorydb/client/create_user.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client/#create_user)
+        """
+
+    def delete_acl(self, **kwargs: Unpack[DeleteACLRequestTypeDef]) -> DeleteACLResponseTypeDef:
+        """
+        Deletes an Access Control List.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/memorydb/client/delete_acl.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client/#delete_acl)
+        """
+
+    def delete_cluster(
+        self, **kwargs: Unpack[DeleteClusterRequestTypeDef]
+    ) -> DeleteClusterResponseTypeDef:
+        """
+        Deletes a cluster.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/memorydb/client/delete_cluster.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client/#delete_cluster)
+        """
+
+    def delete_multi_region_cluster(
+        self, **kwargs: Unpack[DeleteMultiRegionClusterRequestTypeDef]
+    ) -> DeleteMultiRegionClusterResponseTypeDef:
+        """
+        Deletes an existing multi-Region cluster.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/memorydb/client/delete_multi_region_cluster.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client/#delete_multi_region_cluster)
+        """
+
+    def delete_parameter_group(
+        self, **kwargs: Unpack[DeleteParameterGroupRequestTypeDef]
+    ) -> DeleteParameterGroupResponseTypeDef:
+        """
+        Deletes the specified parameter group.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/memorydb/client/delete_parameter_group.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client/#delete_parameter_group)
+        """
+
+    def delete_snapshot(
+        self, **kwargs: Unpack[DeleteSnapshotRequestTypeDef]
+    ) -> DeleteSnapshotResponseTypeDef:
+        """
+        Deletes an existing snapshot.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/memorydb/client/delete_snapshot.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client/#delete_snapshot)
+        """
+
+    def delete_subnet_group(
+        self, **kwargs: Unpack[DeleteSubnetGroupRequestTypeDef]
+    ) -> DeleteSubnetGroupResponseTypeDef:
+        """
+        Deletes a subnet group.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/memorydb/client/delete_subnet_group.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client/#delete_subnet_group)
+        """
+
+    def delete_user(self, **kwargs: Unpack[DeleteUserRequestTypeDef]) -> DeleteUserResponseTypeDef:
+        """
+        Deletes a user.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/memorydb/client/delete_user.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client/#delete_user)
+        """
+
+    def describe_acls(
+        self, **kwargs: Unpack[DescribeACLsRequestTypeDef]
+    ) -> DescribeACLsResponseTypeDef:
+        """
+        Returns a list of ACLs.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/memorydb/client/describe_acls.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client/#describe_acls)
+        """
+
+    def describe_clusters(
+        self, **kwargs: Unpack[DescribeClustersRequestTypeDef]
+    ) -> DescribeClustersResponseTypeDef:
+        """
+        Returns information about all provisioned clusters if no cluster identifier is
+        specified, or about a specific cluster if a cluster name is supplied.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/memorydb/client/describe_clusters.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client/#describe_clusters)
+        """
+
+    def describe_engine_versions(
+        self, **kwargs: Unpack[DescribeEngineVersionsRequestTypeDef]
+    ) -> DescribeEngineVersionsResponseTypeDef:
+        """
+        Returns a list of the available Redis OSS engine versions.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/memorydb/client/describe_engine_versions.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client/#describe_engine_versions)
+        """
+
+    def describe_events(
+        self, **kwargs: Unpack[DescribeEventsRequestTypeDef]
+    ) -> DescribeEventsResponseTypeDef:
+        """
+        Returns events related to clusters, security groups, and parameter groups.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/memorydb/client/describe_events.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client/#describe_events)
+        """
+
+    def describe_multi_region_clusters(
+        self, **kwargs: Unpack[DescribeMultiRegionClustersRequestTypeDef]
+    ) -> DescribeMultiRegionClustersResponseTypeDef:
+        """
+        Returns details about one or more multi-Region clusters.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/memorydb/client/describe_multi_region_clusters.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client/#describe_multi_region_clusters)
+        """
+
+    def describe_parameter_groups(
+        self, **kwargs: Unpack[DescribeParameterGroupsRequestTypeDef]
+    ) -> DescribeParameterGroupsResponseTypeDef:
+        """
+        Returns a list of parameter group descriptions.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/memorydb/client/describe_parameter_groups.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client/#describe_parameter_groups)
+        """
+
+    def describe_parameters(
+        self, **kwargs: Unpack[DescribeParametersRequestTypeDef]
+    ) -> DescribeParametersResponseTypeDef:
+        """
+        Returns the detailed parameter list for a particular parameter group.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/memorydb/client/describe_parameters.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client/#describe_parameters)
+        """
+
+    def describe_reserved_nodes(
+        self, **kwargs: Unpack[DescribeReservedNodesRequestTypeDef]
+    ) -> DescribeReservedNodesResponseTypeDef:
+        """
+        Returns information about reserved nodes for this account, or about a specified
+        reserved node.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/memorydb/client/describe_reserved_nodes.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client/#describe_reserved_nodes)
+        """
+
+    def describe_reserved_nodes_offerings(
+        self, **kwargs: Unpack[DescribeReservedNodesOfferingsRequestTypeDef]
+    ) -> DescribeReservedNodesOfferingsResponseTypeDef:
+        """
+        Lists available reserved node offerings.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/memorydb/client/describe_reserved_nodes_offerings.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client/#describe_reserved_nodes_offerings)
+        """
+
+    def describe_service_updates(
+        self, **kwargs: Unpack[DescribeServiceUpdatesRequestTypeDef]
+    ) -> DescribeServiceUpdatesResponseTypeDef:
+        """
+        Returns details of the service updates.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/memorydb/client/describe_service_updates.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client/#describe_service_updates)
+        """
+
+    def describe_snapshots(
+        self, **kwargs: Unpack[DescribeSnapshotsRequestTypeDef]
+    ) -> DescribeSnapshotsResponseTypeDef:
+        """
+        Returns information about cluster snapshots.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/memorydb/client/describe_snapshots.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client/#describe_snapshots)
+        """
+
+    def describe_subnet_groups(
+        self, **kwargs: Unpack[DescribeSubnetGroupsRequestTypeDef]
+    ) -> DescribeSubnetGroupsResponseTypeDef:
+        """
+        Returns a list of subnet group descriptions.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/memorydb/client/describe_subnet_groups.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client/#describe_subnet_groups)
+        """
+
+    def describe_users(
+        self, **kwargs: Unpack[DescribeUsersRequestTypeDef]
+    ) -> DescribeUsersResponseTypeDef:
+        """
+        Returns a list of users.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/memorydb/client/describe_users.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client/#describe_users)
+        """
+
+    def failover_shard(
+        self, **kwargs: Unpack[FailoverShardRequestTypeDef]
+    ) -> FailoverShardResponseTypeDef:
+        """
+        Used to failover a shard.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/memorydb/client/failover_shard.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client/#failover_shard)
+        """
+
+    def list_allowed_multi_region_cluster_updates(
+        self, **kwargs: Unpack[ListAllowedMultiRegionClusterUpdatesRequestTypeDef]
+    ) -> ListAllowedMultiRegionClusterUpdatesResponseTypeDef:
+        """
+        Lists the allowed updates for a multi-Region cluster.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/memorydb/client/list_allowed_multi_region_cluster_updates.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client/#list_allowed_multi_region_cluster_updates)
         """
 
     def list_allowed_node_type_updates(
-        self, *, ClusterName: str
+        self, **kwargs: Unpack[ListAllowedNodeTypeUpdatesRequestTypeDef]
     ) -> ListAllowedNodeTypeUpdatesResponseTypeDef:
         """
-        Lists all available node types that you can scale to from your cluster's current
-        node type.
+        Lists all available node types that you can scale to from your cluster's
+        current node type.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/memorydb.html#MemoryDB.Client.list_allowed_node_type_updates)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client.html#list_allowed_node_type_updates)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/memorydb/client/list_allowed_node_type_updates.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client/#list_allowed_node_type_updates)
         """
 
-    def list_tags(self, *, ResourceArn: str) -> ListTagsResponseTypeDef:
+    def list_tags(self, **kwargs: Unpack[ListTagsRequestTypeDef]) -> ListTagsResponseTypeDef:
         """
         Lists all tags currently on a named resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/memorydb.html#MemoryDB.Client.list_tags)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client.html#list_tags)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/memorydb/client/list_tags.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client/#list_tags)
         """
 
     def purchase_reserved_nodes_offering(
-        self,
-        *,
-        ReservedNodesOfferingId: str,
-        ReservationId: str = None,
-        NodeCount: int = None,
-        Tags: List["TagTypeDef"] = None
+        self, **kwargs: Unpack[PurchaseReservedNodesOfferingRequestTypeDef]
     ) -> PurchaseReservedNodesOfferingResponseTypeDef:
         """
         Allows you to purchase a reserved node offering.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/memorydb.html#MemoryDB.Client.purchase_reserved_nodes_offering)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client.html#purchase_reserved_nodes_offering)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/memorydb/client/purchase_reserved_nodes_offering.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client/#purchase_reserved_nodes_offering)
         """
 
     def reset_parameter_group(
-        self,
-        *,
-        ParameterGroupName: str,
-        AllParameters: bool = None,
-        ParameterNames: List[str] = None
+        self, **kwargs: Unpack[ResetParameterGroupRequestTypeDef]
     ) -> ResetParameterGroupResponseTypeDef:
         """
         Modifies the parameters of a parameter group to the engine or system default
         value.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/memorydb.html#MemoryDB.Client.reset_parameter_group)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client.html#reset_parameter_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/memorydb/client/reset_parameter_group.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client/#reset_parameter_group)
         """
 
     def tag_resource(
-        self, *, ResourceArn: str, Tags: List["TagTypeDef"]
+        self, **kwargs: Unpack[TagResourceRequestTypeDef]
     ) -> TagResourceResponseTypeDef:
         """
-        A tag is a key-value pair where the key and value are case-sensitive.
+        Use this operation to add tags to a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/memorydb.html#MemoryDB.Client.tag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client.html#tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/memorydb/client/tag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client/#tag_resource)
         """
 
     def untag_resource(
-        self, *, ResourceArn: str, TagKeys: List[str]
+        self, **kwargs: Unpack[UntagResourceRequestTypeDef]
     ) -> UntagResourceResponseTypeDef:
         """
-        Use this operation to remove tags on a resource See also: `AWS API Documentation
-        <https://docs.aws.amazon.com/goto/WebAPI/memorydb-2021-01-01/UntagResource>`_
-        **Request Syntax** response = client.untag_resource( ResourceArn='string',
-        TagKeys=[ 'string', ] ...
+        Use this operation to remove tags on a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/memorydb.html#MemoryDB.Client.untag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client.html#untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/memorydb/client/untag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client/#untag_resource)
         """
 
-    def update_acl(
-        self, *, ACLName: str, UserNamesToAdd: List[str] = None, UserNamesToRemove: List[str] = None
-    ) -> UpdateACLResponseTypeDef:
+    def update_acl(self, **kwargs: Unpack[UpdateACLRequestTypeDef]) -> UpdateACLResponseTypeDef:
         """
         Changes the list of users that belong to the Access Control List.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/memorydb.html#MemoryDB.Client.update_acl)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client.html#update_acl)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/memorydb/client/update_acl.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client/#update_acl)
         """
 
     def update_cluster(
-        self,
-        *,
-        ClusterName: str,
-        Description: str = None,
-        SecurityGroupIds: List[str] = None,
-        MaintenanceWindow: str = None,
-        SnsTopicArn: str = None,
-        SnsTopicStatus: str = None,
-        ParameterGroupName: str = None,
-        SnapshotWindow: str = None,
-        SnapshotRetentionLimit: int = None,
-        NodeType: str = None,
-        EngineVersion: str = None,
-        ReplicaConfiguration: "ReplicaConfigurationRequestTypeDef" = None,
-        ShardConfiguration: "ShardConfigurationRequestTypeDef" = None,
-        ACLName: str = None
+        self, **kwargs: Unpack[UpdateClusterRequestTypeDef]
     ) -> UpdateClusterResponseTypeDef:
         """
         Modifies the settings for a cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/memorydb.html#MemoryDB.Client.update_cluster)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client.html#update_cluster)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/memorydb/client/update_cluster.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client/#update_cluster)
+        """
+
+    def update_multi_region_cluster(
+        self, **kwargs: Unpack[UpdateMultiRegionClusterRequestTypeDef]
+    ) -> UpdateMultiRegionClusterResponseTypeDef:
+        """
+        Updates the configuration of an existing multi-Region cluster.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/memorydb/client/update_multi_region_cluster.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client/#update_multi_region_cluster)
         """
 
     def update_parameter_group(
-        self, *, ParameterGroupName: str, ParameterNameValues: List["ParameterNameValueTypeDef"]
+        self, **kwargs: Unpack[UpdateParameterGroupRequestTypeDef]
     ) -> UpdateParameterGroupResponseTypeDef:
         """
         Updates the parameters of a parameter group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/memorydb.html#MemoryDB.Client.update_parameter_group)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client.html#update_parameter_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/memorydb/client/update_parameter_group.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client/#update_parameter_group)
         """
 
     def update_subnet_group(
-        self, *, SubnetGroupName: str, Description: str = None, SubnetIds: List[str] = None
+        self, **kwargs: Unpack[UpdateSubnetGroupRequestTypeDef]
     ) -> UpdateSubnetGroupResponseTypeDef:
         """
         Updates a subnet group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/memorydb.html#MemoryDB.Client.update_subnet_group)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client.html#update_subnet_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/memorydb/client/update_subnet_group.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client/#update_subnet_group)
         """
 
-    def update_user(
-        self,
-        *,
-        UserName: str,
-        AuthenticationMode: "AuthenticationModeTypeDef" = None,
-        AccessString: str = None
-    ) -> UpdateUserResponseTypeDef:
+    def update_user(self, **kwargs: Unpack[UpdateUserRequestTypeDef]) -> UpdateUserResponseTypeDef:
         """
         Changes user password(s) and/or access string.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/memorydb.html#MemoryDB.Client.update_user)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client.html#update_user)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/memorydb/client/update_user.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client/#update_user)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["describe_acls"]) -> DescribeACLsPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["describe_acls"]
+    ) -> DescribeACLsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/memorydb.html#MemoryDB.Paginator.DescribeACLs)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_memorydb/paginators.html#describeaclspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/memorydb/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["describe_clusters"]
     ) -> DescribeClustersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/memorydb.html#MemoryDB.Paginator.DescribeClusters)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_memorydb/paginators.html#describeclusterspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/memorydb/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["describe_engine_versions"]
     ) -> DescribeEngineVersionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/memorydb.html#MemoryDB.Paginator.DescribeEngineVersions)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_memorydb/paginators.html#describeengineversionspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/memorydb/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["describe_events"]) -> DescribeEventsPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["describe_events"]
+    ) -> DescribeEventsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/memorydb.html#MemoryDB.Paginator.DescribeEvents)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_memorydb/paginators.html#describeeventspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/memorydb/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["describe_multi_region_clusters"]
+    ) -> DescribeMultiRegionClustersPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/memorydb/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["describe_parameter_groups"]
     ) -> DescribeParameterGroupsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/memorydb.html#MemoryDB.Paginator.DescribeParameterGroups)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_memorydb/paginators.html#describeparametergroupspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/memorydb/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["describe_parameters"]
     ) -> DescribeParametersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/memorydb.html#MemoryDB.Paginator.DescribeParameters)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_memorydb/paginators.html#describeparameterspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/memorydb/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
-        self, operation_name: Literal["describe_reserved_nodes"]
-    ) -> DescribeReservedNodesPaginator:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/memorydb.html#MemoryDB.Paginator.DescribeReservedNodes)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_memorydb/paginators.html#describereservednodespaginator)
-        """
-
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["describe_reserved_nodes_offerings"]
     ) -> DescribeReservedNodesOfferingsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/memorydb.html#MemoryDB.Paginator.DescribeReservedNodesOfferings)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_memorydb/paginators.html#describereservednodesofferingspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/memorydb/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["describe_reserved_nodes"]
+    ) -> DescribeReservedNodesPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/memorydb/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["describe_service_updates"]
     ) -> DescribeServiceUpdatesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/memorydb.html#MemoryDB.Paginator.DescribeServiceUpdates)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_memorydb/paginators.html#describeserviceupdatespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/memorydb/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["describe_snapshots"]
     ) -> DescribeSnapshotsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/memorydb.html#MemoryDB.Paginator.DescribeSnapshots)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_memorydb/paginators.html#describesnapshotspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/memorydb/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["describe_subnet_groups"]
     ) -> DescribeSubnetGroupsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/memorydb.html#MemoryDB.Paginator.DescribeSubnetGroups)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_memorydb/paginators.html#describesubnetgroupspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/memorydb/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["describe_users"]) -> DescribeUsersPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["describe_users"]
+    ) -> DescribeUsersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/memorydb.html#MemoryDB.Paginator.DescribeUsers)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_memorydb/paginators.html#describeuserspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/memorydb/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_memorydb/client/#get_paginator)
         """

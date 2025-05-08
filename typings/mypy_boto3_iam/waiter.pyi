@@ -1,14 +1,16 @@
 """
 Type annotations for iam service client waiters.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/waiters.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iam/waiters/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
 
-    from mypy_boto3_iam import IAMClient
+    from mypy_boto3_iam.client import IAMClient
     from mypy_boto3_iam.waiter import (
         InstanceProfileExistsWaiter,
         PolicyExistsWaiter,
@@ -16,7 +18,8 @@ Usage::
         UserExistsWaiter,
     )
 
-    client: IAMClient = boto3.client("iam")
+    session = Session()
+    client: IAMClient = session.client("iam")
 
     instance_profile_exists_waiter: InstanceProfileExistsWaiter = client.get_waiter("instance_profile_exists")
     policy_exists_waiter: PolicyExistsWaiter = client.get_waiter("policy_exists")
@@ -25,9 +28,23 @@ Usage::
     ```
 """
 
-from botocore.waiter import Waiter as Boto3Waiter
+from __future__ import annotations
 
-from .type_defs import WaiterConfigTypeDef
+import sys
+
+from botocore.waiter import Waiter
+
+from .type_defs import (
+    GetInstanceProfileRequestWaitTypeDef,
+    GetPolicyRequestWaitTypeDef,
+    GetRoleRequestWaitTypeDef,
+    GetUserRequestWaitTypeDef,
+)
+
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = (
     "InstanceProfileExistsWaiter",
@@ -36,50 +53,54 @@ __all__ = (
     "UserExistsWaiter",
 )
 
-class InstanceProfileExistsWaiter(Boto3Waiter):
+class InstanceProfileExistsWaiter(Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iam.html#IAM.Waiter.InstanceProfileExists)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/waiters.html#instanceprofileexistswaiter)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iam/waiter/InstanceProfileExists.html#IAM.Waiter.InstanceProfileExists)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iam/waiters/#instanceprofileexistswaiter)
     """
-
-    def wait(self, *, InstanceProfileName: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
+    def wait(  # type: ignore[override]
+        self, **kwargs: Unpack[GetInstanceProfileRequestWaitTypeDef]
+    ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iam.html#IAM.Waiter.InstanceProfileExists.wait)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/waiters.html#instanceprofileexistswaiter)
-        """
-
-class PolicyExistsWaiter(Boto3Waiter):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iam.html#IAM.Waiter.PolicyExists)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/waiters.html#policyexistswaiter)
-    """
-
-    def wait(self, *, PolicyArn: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iam.html#IAM.Waiter.PolicyExists.wait)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/waiters.html#policyexistswaiter)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iam/waiter/InstanceProfileExists.html#IAM.Waiter.InstanceProfileExists.wait)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iam/waiters/#instanceprofileexistswaiter)
         """
 
-class RoleExistsWaiter(Boto3Waiter):
+class PolicyExistsWaiter(Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iam.html#IAM.Waiter.RoleExists)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/waiters.html#roleexistswaiter)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iam/waiter/PolicyExists.html#IAM.Waiter.PolicyExists)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iam/waiters/#policyexistswaiter)
     """
-
-    def wait(self, *, RoleName: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
+    def wait(  # type: ignore[override]
+        self, **kwargs: Unpack[GetPolicyRequestWaitTypeDef]
+    ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iam.html#IAM.Waiter.RoleExists.wait)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/waiters.html#roleexistswaiter)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iam/waiter/PolicyExists.html#IAM.Waiter.PolicyExists.wait)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iam/waiters/#policyexistswaiter)
         """
 
-class UserExistsWaiter(Boto3Waiter):
+class RoleExistsWaiter(Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iam.html#IAM.Waiter.UserExists)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/waiters.html#userexistswaiter)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iam/waiter/RoleExists.html#IAM.Waiter.RoleExists)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iam/waiters/#roleexistswaiter)
     """
-
-    def wait(self, *, UserName: str = None, WaiterConfig: WaiterConfigTypeDef = None) -> None:
+    def wait(  # type: ignore[override]
+        self, **kwargs: Unpack[GetRoleRequestWaitTypeDef]
+    ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iam.html#IAM.Waiter.UserExists.wait)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iam/waiters.html#userexistswaiter)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iam/waiter/RoleExists.html#IAM.Waiter.RoleExists.wait)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iam/waiters/#roleexistswaiter)
+        """
+
+class UserExistsWaiter(Waiter):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iam/waiter/UserExists.html#IAM.Waiter.UserExists)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iam/waiters/#userexistswaiter)
+    """
+    def wait(  # type: ignore[override]
+        self, **kwargs: Unpack[GetUserRequestWaitTypeDef]
+    ) -> None:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iam/waiter/UserExists.html#IAM.Waiter.UserExists.wait)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iam/waiters/#userexistswaiter)
         """

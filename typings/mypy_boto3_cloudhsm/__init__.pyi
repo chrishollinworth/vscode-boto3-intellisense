@@ -1,10 +1,14 @@
 """
 Main interface for cloudhsm service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudhsm/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_cloudhsm import (
         Client,
         CloudHSMClient,
@@ -13,10 +17,8 @@ Usage::
         ListLunaClientsPaginator,
     )
 
-    session = boto3.Session()
-
-    client: CloudHSMClient = boto3.client("cloudhsm")
-    session_client: CloudHSMClient = session.client("cloudhsm")
+    session = Session()
+    client: CloudHSMClient = session.client("cloudhsm")
 
     list_hapgs_paginator: ListHapgsPaginator = client.get_paginator("list_hapgs")
     list_hsms_paginator: ListHsmsPaginator = client.get_paginator("list_hsms")

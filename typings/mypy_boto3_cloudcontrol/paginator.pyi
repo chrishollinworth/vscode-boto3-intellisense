@@ -1,72 +1,82 @@
 """
 Type annotations for cloudcontrol service client paginators.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudcontrol/paginators.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudcontrol/paginators/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
 
-    from mypy_boto3_cloudcontrol import CloudControlApiClient
+    from mypy_boto3_cloudcontrol.client import CloudControlApiClient
     from mypy_boto3_cloudcontrol.paginator import (
         ListResourceRequestsPaginator,
         ListResourcesPaginator,
     )
 
-    client: CloudControlApiClient = boto3.client("cloudcontrol")
+    session = Session()
+    client: CloudControlApiClient = session.client("cloudcontrol")
 
     list_resource_requests_paginator: ListResourceRequestsPaginator = client.get_paginator("list_resource_requests")
     list_resources_paginator: ListResourcesPaginator = client.get_paginator("list_resources")
     ```
 """
 
-from typing import Iterator
+from __future__ import annotations
 
-from botocore.paginate import Paginator as Boto3Paginator
+import sys
+from typing import TYPE_CHECKING
+
+from botocore.paginate import PageIterator, Paginator
 
 from .type_defs import (
+    ListResourceRequestsInputPaginateTypeDef,
     ListResourceRequestsOutputTypeDef,
+    ListResourcesInputPaginateTypeDef,
     ListResourcesOutputTypeDef,
-    PaginatorConfigTypeDef,
-    ResourceRequestStatusFilterTypeDef,
 )
+
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = ("ListResourceRequestsPaginator", "ListResourcesPaginator")
 
-class ListResourceRequestsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudcontrol.html#CloudControlApi.Paginator.ListResourceRequests)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudcontrol/paginators.html#listresourcerequestspaginator)
-    """
+if TYPE_CHECKING:
+    _ListResourceRequestsPaginatorBase = Paginator[ListResourceRequestsOutputTypeDef]
+else:
+    _ListResourceRequestsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        ResourceRequestStatusFilter: "ResourceRequestStatusFilterTypeDef" = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListResourceRequestsOutputTypeDef]:
+class ListResourceRequestsPaginator(_ListResourceRequestsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudcontrol/paginator/ListResourceRequests.html#CloudControlApi.Paginator.ListResourceRequests)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudcontrol/paginators/#listresourcerequestspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListResourceRequestsInputPaginateTypeDef]
+    ) -> PageIterator[ListResourceRequestsOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudcontrol.html#CloudControlApi.Paginator.ListResourceRequests.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudcontrol/paginators.html#listresourcerequestspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudcontrol/paginator/ListResourceRequests.html#CloudControlApi.Paginator.ListResourceRequests.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudcontrol/paginators/#listresourcerequestspaginator)
         """
 
-class ListResourcesPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudcontrol.html#CloudControlApi.Paginator.ListResources)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudcontrol/paginators.html#listresourcespaginator)
-    """
+if TYPE_CHECKING:
+    _ListResourcesPaginatorBase = Paginator[ListResourcesOutputTypeDef]
+else:
+    _ListResourcesPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        TypeName: str,
-        TypeVersionId: str = None,
-        RoleArn: str = None,
-        ResourceModel: str = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListResourcesOutputTypeDef]:
+class ListResourcesPaginator(_ListResourcesPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudcontrol/paginator/ListResources.html#CloudControlApi.Paginator.ListResources)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudcontrol/paginators/#listresourcespaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListResourcesInputPaginateTypeDef]
+    ) -> PageIterator[ListResourcesOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cloudcontrol.html#CloudControlApi.Paginator.ListResources.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudcontrol/paginators.html#listresourcespaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudcontrol/paginator/ListResources.html#CloudControlApi.Paginator.ListResources.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudcontrol/paginators/#listresourcespaginator)
         """

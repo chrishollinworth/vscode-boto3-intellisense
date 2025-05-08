@@ -1,19 +1,23 @@
 """
 Type annotations for sagemaker-featurestore-runtime service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker_featurestore_runtime/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sagemaker_featurestore_runtime/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_sagemaker_featurestore_runtime.type_defs import BatchGetRecordErrorTypeDef
 
-    data: BatchGetRecordErrorTypeDef = {...}
+    data: BatchGetRecordErrorTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from typing import Any, Dict, List
+from typing import Union
 
 from .literals import (
     DeletionModeType,
@@ -22,212 +26,119 @@ from .literals import (
     TtlDurationUnitType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Sequence
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List, Sequence
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
     "BatchGetRecordErrorTypeDef",
+    "BatchGetRecordIdentifierOutputTypeDef",
     "BatchGetRecordIdentifierTypeDef",
-    "BatchGetRecordRequestRequestTypeDef",
+    "BatchGetRecordIdentifierUnionTypeDef",
+    "BatchGetRecordRequestTypeDef",
     "BatchGetRecordResponseTypeDef",
     "BatchGetRecordResultDetailTypeDef",
-    "DeleteRecordRequestRequestTypeDef",
+    "DeleteRecordRequestTypeDef",
+    "EmptyResponseMetadataTypeDef",
+    "FeatureValueOutputTypeDef",
     "FeatureValueTypeDef",
-    "GetRecordRequestRequestTypeDef",
+    "FeatureValueUnionTypeDef",
+    "GetRecordRequestTypeDef",
     "GetRecordResponseTypeDef",
-    "PutRecordRequestRequestTypeDef",
+    "PutRecordRequestTypeDef",
     "ResponseMetadataTypeDef",
     "TtlDurationTypeDef",
 )
 
-BatchGetRecordErrorTypeDef = TypedDict(
-    "BatchGetRecordErrorTypeDef",
-    {
-        "FeatureGroupName": str,
-        "RecordIdentifierValueAsString": str,
-        "ErrorCode": str,
-        "ErrorMessage": str,
-    },
-)
+class BatchGetRecordErrorTypeDef(TypedDict):
+    FeatureGroupName: str
+    RecordIdentifierValueAsString: str
+    ErrorCode: str
+    ErrorMessage: str
 
-_RequiredBatchGetRecordIdentifierTypeDef = TypedDict(
-    "_RequiredBatchGetRecordIdentifierTypeDef",
-    {
-        "FeatureGroupName": str,
-        "RecordIdentifiersValueAsString": List[str],
-    },
-)
-_OptionalBatchGetRecordIdentifierTypeDef = TypedDict(
-    "_OptionalBatchGetRecordIdentifierTypeDef",
-    {
-        "FeatureNames": List[str],
-    },
-    total=False,
-)
+class BatchGetRecordIdentifierOutputTypeDef(TypedDict):
+    FeatureGroupName: str
+    RecordIdentifiersValueAsString: List[str]
+    FeatureNames: NotRequired[List[str]]
 
-class BatchGetRecordIdentifierTypeDef(
-    _RequiredBatchGetRecordIdentifierTypeDef, _OptionalBatchGetRecordIdentifierTypeDef
-):
-    pass
+class BatchGetRecordIdentifierTypeDef(TypedDict):
+    FeatureGroupName: str
+    RecordIdentifiersValueAsString: Sequence[str]
+    FeatureNames: NotRequired[Sequence[str]]
 
-_RequiredBatchGetRecordRequestRequestTypeDef = TypedDict(
-    "_RequiredBatchGetRecordRequestRequestTypeDef",
-    {
-        "Identifiers": List["BatchGetRecordIdentifierTypeDef"],
-    },
-)
-_OptionalBatchGetRecordRequestRequestTypeDef = TypedDict(
-    "_OptionalBatchGetRecordRequestRequestTypeDef",
-    {
-        "ExpirationTimeResponse": ExpirationTimeResponseType,
-    },
-    total=False,
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-class BatchGetRecordRequestRequestTypeDef(
-    _RequiredBatchGetRecordRequestRequestTypeDef, _OptionalBatchGetRecordRequestRequestTypeDef
-):
-    pass
+class FeatureValueOutputTypeDef(TypedDict):
+    FeatureName: str
+    ValueAsString: NotRequired[str]
+    ValueAsStringList: NotRequired[List[str]]
 
-BatchGetRecordResponseTypeDef = TypedDict(
-    "BatchGetRecordResponseTypeDef",
-    {
-        "Records": List["BatchGetRecordResultDetailTypeDef"],
-        "Errors": List["BatchGetRecordErrorTypeDef"],
-        "UnprocessedIdentifiers": List["BatchGetRecordIdentifierTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DeleteRecordRequestTypeDef(TypedDict):
+    FeatureGroupName: str
+    RecordIdentifierValueAsString: str
+    EventTime: str
+    TargetStores: NotRequired[Sequence[TargetStoreType]]
+    DeletionMode: NotRequired[DeletionModeType]
 
-_RequiredBatchGetRecordResultDetailTypeDef = TypedDict(
-    "_RequiredBatchGetRecordResultDetailTypeDef",
-    {
-        "FeatureGroupName": str,
-        "RecordIdentifierValueAsString": str,
-        "Record": List["FeatureValueTypeDef"],
-    },
-)
-_OptionalBatchGetRecordResultDetailTypeDef = TypedDict(
-    "_OptionalBatchGetRecordResultDetailTypeDef",
-    {
-        "ExpiresAt": str,
-    },
-    total=False,
-)
+class FeatureValueTypeDef(TypedDict):
+    FeatureName: str
+    ValueAsString: NotRequired[str]
+    ValueAsStringList: NotRequired[Sequence[str]]
 
-class BatchGetRecordResultDetailTypeDef(
-    _RequiredBatchGetRecordResultDetailTypeDef, _OptionalBatchGetRecordResultDetailTypeDef
-):
-    pass
+class GetRecordRequestTypeDef(TypedDict):
+    FeatureGroupName: str
+    RecordIdentifierValueAsString: str
+    FeatureNames: NotRequired[Sequence[str]]
+    ExpirationTimeResponse: NotRequired[ExpirationTimeResponseType]
 
-_RequiredDeleteRecordRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteRecordRequestRequestTypeDef",
-    {
-        "FeatureGroupName": str,
-        "RecordIdentifierValueAsString": str,
-        "EventTime": str,
-    },
-)
-_OptionalDeleteRecordRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteRecordRequestRequestTypeDef",
-    {
-        "TargetStores": List[TargetStoreType],
-        "DeletionMode": DeletionModeType,
-    },
-    total=False,
-)
+class TtlDurationTypeDef(TypedDict):
+    Unit: TtlDurationUnitType
+    Value: int
 
-class DeleteRecordRequestRequestTypeDef(
-    _RequiredDeleteRecordRequestRequestTypeDef, _OptionalDeleteRecordRequestRequestTypeDef
-):
-    pass
+BatchGetRecordIdentifierUnionTypeDef = Union[
+    BatchGetRecordIdentifierTypeDef, BatchGetRecordIdentifierOutputTypeDef
+]
 
-_RequiredFeatureValueTypeDef = TypedDict(
-    "_RequiredFeatureValueTypeDef",
-    {
-        "FeatureName": str,
-    },
-)
-_OptionalFeatureValueTypeDef = TypedDict(
-    "_OptionalFeatureValueTypeDef",
-    {
-        "ValueAsString": str,
-        "ValueAsStringList": List[str],
-    },
-    total=False,
-)
+class EmptyResponseMetadataTypeDef(TypedDict):
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class FeatureValueTypeDef(_RequiredFeatureValueTypeDef, _OptionalFeatureValueTypeDef):
-    pass
+class BatchGetRecordResultDetailTypeDef(TypedDict):
+    FeatureGroupName: str
+    RecordIdentifierValueAsString: str
+    Record: List[FeatureValueOutputTypeDef]
+    ExpiresAt: NotRequired[str]
 
-_RequiredGetRecordRequestRequestTypeDef = TypedDict(
-    "_RequiredGetRecordRequestRequestTypeDef",
-    {
-        "FeatureGroupName": str,
-        "RecordIdentifierValueAsString": str,
-    },
-)
-_OptionalGetRecordRequestRequestTypeDef = TypedDict(
-    "_OptionalGetRecordRequestRequestTypeDef",
-    {
-        "FeatureNames": List[str],
-        "ExpirationTimeResponse": ExpirationTimeResponseType,
-    },
-    total=False,
-)
+class GetRecordResponseTypeDef(TypedDict):
+    Record: List[FeatureValueOutputTypeDef]
+    ExpiresAt: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class GetRecordRequestRequestTypeDef(
-    _RequiredGetRecordRequestRequestTypeDef, _OptionalGetRecordRequestRequestTypeDef
-):
-    pass
+FeatureValueUnionTypeDef = Union[FeatureValueTypeDef, FeatureValueOutputTypeDef]
 
-GetRecordResponseTypeDef = TypedDict(
-    "GetRecordResponseTypeDef",
-    {
-        "Record": List["FeatureValueTypeDef"],
-        "ExpiresAt": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class BatchGetRecordRequestTypeDef(TypedDict):
+    Identifiers: Sequence[BatchGetRecordIdentifierUnionTypeDef]
+    ExpirationTimeResponse: NotRequired[ExpirationTimeResponseType]
 
-_RequiredPutRecordRequestRequestTypeDef = TypedDict(
-    "_RequiredPutRecordRequestRequestTypeDef",
-    {
-        "FeatureGroupName": str,
-        "Record": List["FeatureValueTypeDef"],
-    },
-)
-_OptionalPutRecordRequestRequestTypeDef = TypedDict(
-    "_OptionalPutRecordRequestRequestTypeDef",
-    {
-        "TargetStores": List[TargetStoreType],
-        "TtlDuration": "TtlDurationTypeDef",
-    },
-    total=False,
-)
+class BatchGetRecordResponseTypeDef(TypedDict):
+    Records: List[BatchGetRecordResultDetailTypeDef]
+    Errors: List[BatchGetRecordErrorTypeDef]
+    UnprocessedIdentifiers: List[BatchGetRecordIdentifierOutputTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class PutRecordRequestRequestTypeDef(
-    _RequiredPutRecordRequestRequestTypeDef, _OptionalPutRecordRequestRequestTypeDef
-):
-    pass
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-TtlDurationTypeDef = TypedDict(
-    "TtlDurationTypeDef",
-    {
-        "Unit": TtlDurationUnitType,
-        "Value": int,
-    },
-)
+class PutRecordRequestTypeDef(TypedDict):
+    FeatureGroupName: str
+    Record: Sequence[FeatureValueUnionTypeDef]
+    TargetStores: NotRequired[Sequence[TargetStoreType]]
+    TtlDuration: NotRequired[TtlDurationTypeDef]

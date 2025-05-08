@@ -1,10 +1,14 @@
 """
 Main interface for pinpoint-email service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_email/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_pinpoint_email import (
         Client,
         GetDedicatedIpsPaginator,
@@ -15,10 +19,8 @@ Usage::
         PinpointEmailClient,
     )
 
-    session = boto3.Session()
-
-    client: PinpointEmailClient = boto3.client("pinpoint-email")
-    session_client: PinpointEmailClient = session.client("pinpoint-email")
+    session = Session()
+    client: PinpointEmailClient = session.client("pinpoint-email")
 
     get_dedicated_ips_paginator: GetDedicatedIpsPaginator = client.get_paginator("get_dedicated_ips")
     list_configuration_sets_paginator: ListConfigurationSetsPaginator = client.get_paginator("list_configuration_sets")

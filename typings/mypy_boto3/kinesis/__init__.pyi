@@ -1,10 +1,14 @@
 """
 Main interface for kinesis service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kinesis/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_kinesis import (
         Client,
         DescribeStreamPaginator,
@@ -16,10 +20,8 @@ Usage::
         StreamNotExistsWaiter,
     )
 
-    session = boto3.Session()
-
-    client: KinesisClient = boto3.client("kinesis")
-    session_client: KinesisClient = session.client("kinesis")
+    session = Session()
+    client: KinesisClient = session.client("kinesis")
 
     stream_exists_waiter: StreamExistsWaiter = client.get_waiter("stream_exists")
     stream_not_exists_waiter: StreamNotExistsWaiter = client.get_waiter("stream_not_exists")

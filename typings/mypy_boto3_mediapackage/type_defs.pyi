@@ -1,23 +1,28 @@
 """
 Type annotations for mediapackage service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediapackage/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediapackage/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_mediapackage.type_defs import AuthorizationTypeDef
 
-    data: AuthorizationTypeDef = {...}
+    data: AuthorizationTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from typing import Any, Dict, List
+from typing import Union
 
 from .literals import (
     AdMarkersType,
     AdsOnDeliveryRestrictionsType,
+    AdTriggersElementType,
     CmafEncryptionMethodType,
     EncryptionMethodType,
     ManifestLayoutType,
@@ -30,899 +35,638 @@ from .literals import (
     StatusType,
     StreamOrderType,
     UtcTimingType,
-    __AdTriggersElementType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
     "AuthorizationTypeDef",
     "ChannelTypeDef",
+    "CmafEncryptionOutputTypeDef",
     "CmafEncryptionTypeDef",
+    "CmafEncryptionUnionTypeDef",
     "CmafPackageCreateOrUpdateParametersTypeDef",
     "CmafPackageTypeDef",
-    "ConfigureLogsRequestRequestTypeDef",
+    "ConfigureLogsRequestTypeDef",
     "ConfigureLogsResponseTypeDef",
-    "CreateChannelRequestRequestTypeDef",
+    "CreateChannelRequestTypeDef",
     "CreateChannelResponseTypeDef",
-    "CreateHarvestJobRequestRequestTypeDef",
+    "CreateHarvestJobRequestTypeDef",
     "CreateHarvestJobResponseTypeDef",
-    "CreateOriginEndpointRequestRequestTypeDef",
+    "CreateOriginEndpointRequestTypeDef",
     "CreateOriginEndpointResponseTypeDef",
+    "DashEncryptionOutputTypeDef",
     "DashEncryptionTypeDef",
+    "DashPackageOutputTypeDef",
     "DashPackageTypeDef",
-    "DeleteChannelRequestRequestTypeDef",
-    "DeleteOriginEndpointRequestRequestTypeDef",
-    "DescribeChannelRequestRequestTypeDef",
+    "DashPackageUnionTypeDef",
+    "DeleteChannelRequestTypeDef",
+    "DeleteOriginEndpointRequestTypeDef",
+    "DescribeChannelRequestTypeDef",
     "DescribeChannelResponseTypeDef",
-    "DescribeHarvestJobRequestRequestTypeDef",
+    "DescribeHarvestJobRequestTypeDef",
     "DescribeHarvestJobResponseTypeDef",
-    "DescribeOriginEndpointRequestRequestTypeDef",
+    "DescribeOriginEndpointRequestTypeDef",
     "DescribeOriginEndpointResponseTypeDef",
     "EgressAccessLogsTypeDef",
+    "EmptyResponseMetadataTypeDef",
     "EncryptionContractConfigurationTypeDef",
     "HarvestJobTypeDef",
+    "HlsEncryptionOutputTypeDef",
     "HlsEncryptionTypeDef",
     "HlsIngestTypeDef",
     "HlsManifestCreateOrUpdateParametersTypeDef",
     "HlsManifestTypeDef",
+    "HlsPackageOutputTypeDef",
     "HlsPackageTypeDef",
+    "HlsPackageUnionTypeDef",
     "IngestEndpointTypeDef",
     "IngressAccessLogsTypeDef",
-    "ListChannelsRequestRequestTypeDef",
+    "ListChannelsRequestPaginateTypeDef",
+    "ListChannelsRequestTypeDef",
     "ListChannelsResponseTypeDef",
-    "ListHarvestJobsRequestRequestTypeDef",
+    "ListHarvestJobsRequestPaginateTypeDef",
+    "ListHarvestJobsRequestTypeDef",
     "ListHarvestJobsResponseTypeDef",
-    "ListOriginEndpointsRequestRequestTypeDef",
+    "ListOriginEndpointsRequestPaginateTypeDef",
+    "ListOriginEndpointsRequestTypeDef",
     "ListOriginEndpointsResponseTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
+    "MssEncryptionOutputTypeDef",
     "MssEncryptionTypeDef",
+    "MssPackageOutputTypeDef",
     "MssPackageTypeDef",
+    "MssPackageUnionTypeDef",
     "OriginEndpointTypeDef",
     "PaginatorConfigTypeDef",
     "ResponseMetadataTypeDef",
-    "RotateChannelCredentialsRequestRequestTypeDef",
+    "RotateChannelCredentialsRequestTypeDef",
     "RotateChannelCredentialsResponseTypeDef",
-    "RotateIngestEndpointCredentialsRequestRequestTypeDef",
+    "RotateIngestEndpointCredentialsRequestTypeDef",
     "RotateIngestEndpointCredentialsResponseTypeDef",
     "S3DestinationTypeDef",
+    "SpekeKeyProviderOutputTypeDef",
     "SpekeKeyProviderTypeDef",
+    "SpekeKeyProviderUnionTypeDef",
     "StreamSelectionTypeDef",
-    "TagResourceRequestRequestTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateChannelRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateChannelRequestTypeDef",
     "UpdateChannelResponseTypeDef",
-    "UpdateOriginEndpointRequestRequestTypeDef",
+    "UpdateOriginEndpointRequestTypeDef",
     "UpdateOriginEndpointResponseTypeDef",
 )
 
-AuthorizationTypeDef = TypedDict(
-    "AuthorizationTypeDef",
-    {
-        "CdnIdentifierSecret": str,
-        "SecretsRoleArn": str,
-    },
-)
-
-ChannelTypeDef = TypedDict(
-    "ChannelTypeDef",
-    {
-        "Arn": str,
-        "CreatedAt": str,
-        "Description": str,
-        "EgressAccessLogs": "EgressAccessLogsTypeDef",
-        "HlsIngest": "HlsIngestTypeDef",
-        "Id": str,
-        "IngressAccessLogs": "IngressAccessLogsTypeDef",
-        "Tags": Dict[str, str],
-    },
-    total=False,
-)
-
-_RequiredCmafEncryptionTypeDef = TypedDict(
-    "_RequiredCmafEncryptionTypeDef",
-    {
-        "SpekeKeyProvider": "SpekeKeyProviderTypeDef",
-    },
-)
-_OptionalCmafEncryptionTypeDef = TypedDict(
-    "_OptionalCmafEncryptionTypeDef",
-    {
-        "ConstantInitializationVector": str,
-        "EncryptionMethod": CmafEncryptionMethodType,
-        "KeyRotationIntervalSeconds": int,
-    },
-    total=False,
-)
-
-class CmafEncryptionTypeDef(_RequiredCmafEncryptionTypeDef, _OptionalCmafEncryptionTypeDef):
-    pass
-
-CmafPackageCreateOrUpdateParametersTypeDef = TypedDict(
-    "CmafPackageCreateOrUpdateParametersTypeDef",
-    {
-        "Encryption": "CmafEncryptionTypeDef",
-        "HlsManifests": List["HlsManifestCreateOrUpdateParametersTypeDef"],
-        "SegmentDurationSeconds": int,
-        "SegmentPrefix": str,
-        "StreamSelection": "StreamSelectionTypeDef",
-    },
-    total=False,
-)
-
-CmafPackageTypeDef = TypedDict(
-    "CmafPackageTypeDef",
-    {
-        "Encryption": "CmafEncryptionTypeDef",
-        "HlsManifests": List["HlsManifestTypeDef"],
-        "SegmentDurationSeconds": int,
-        "SegmentPrefix": str,
-        "StreamSelection": "StreamSelectionTypeDef",
-    },
-    total=False,
-)
-
-_RequiredConfigureLogsRequestRequestTypeDef = TypedDict(
-    "_RequiredConfigureLogsRequestRequestTypeDef",
-    {
-        "Id": str,
-    },
-)
-_OptionalConfigureLogsRequestRequestTypeDef = TypedDict(
-    "_OptionalConfigureLogsRequestRequestTypeDef",
-    {
-        "EgressAccessLogs": "EgressAccessLogsTypeDef",
-        "IngressAccessLogs": "IngressAccessLogsTypeDef",
-    },
-    total=False,
-)
-
-class ConfigureLogsRequestRequestTypeDef(
-    _RequiredConfigureLogsRequestRequestTypeDef, _OptionalConfigureLogsRequestRequestTypeDef
-):
-    pass
-
-ConfigureLogsResponseTypeDef = TypedDict(
-    "ConfigureLogsResponseTypeDef",
-    {
-        "Arn": str,
-        "CreatedAt": str,
-        "Description": str,
-        "EgressAccessLogs": "EgressAccessLogsTypeDef",
-        "HlsIngest": "HlsIngestTypeDef",
-        "Id": str,
-        "IngressAccessLogs": "IngressAccessLogsTypeDef",
-        "Tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateChannelRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateChannelRequestRequestTypeDef",
-    {
-        "Id": str,
-    },
-)
-_OptionalCreateChannelRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateChannelRequestRequestTypeDef",
-    {
-        "Description": str,
-        "Tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class CreateChannelRequestRequestTypeDef(
-    _RequiredCreateChannelRequestRequestTypeDef, _OptionalCreateChannelRequestRequestTypeDef
-):
-    pass
-
-CreateChannelResponseTypeDef = TypedDict(
-    "CreateChannelResponseTypeDef",
-    {
-        "Arn": str,
-        "CreatedAt": str,
-        "Description": str,
-        "EgressAccessLogs": "EgressAccessLogsTypeDef",
-        "HlsIngest": "HlsIngestTypeDef",
-        "Id": str,
-        "IngressAccessLogs": "IngressAccessLogsTypeDef",
-        "Tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateHarvestJobRequestRequestTypeDef = TypedDict(
-    "CreateHarvestJobRequestRequestTypeDef",
-    {
-        "EndTime": str,
-        "Id": str,
-        "OriginEndpointId": str,
-        "S3Destination": "S3DestinationTypeDef",
-        "StartTime": str,
-    },
-)
-
-CreateHarvestJobResponseTypeDef = TypedDict(
-    "CreateHarvestJobResponseTypeDef",
-    {
-        "Arn": str,
-        "ChannelId": str,
-        "CreatedAt": str,
-        "EndTime": str,
-        "Id": str,
-        "OriginEndpointId": str,
-        "S3Destination": "S3DestinationTypeDef",
-        "StartTime": str,
-        "Status": StatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateOriginEndpointRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateOriginEndpointRequestRequestTypeDef",
-    {
-        "ChannelId": str,
-        "Id": str,
-    },
-)
-_OptionalCreateOriginEndpointRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateOriginEndpointRequestRequestTypeDef",
-    {
-        "Authorization": "AuthorizationTypeDef",
-        "CmafPackage": "CmafPackageCreateOrUpdateParametersTypeDef",
-        "DashPackage": "DashPackageTypeDef",
-        "Description": str,
-        "HlsPackage": "HlsPackageTypeDef",
-        "ManifestName": str,
-        "MssPackage": "MssPackageTypeDef",
-        "Origination": OriginationType,
-        "StartoverWindowSeconds": int,
-        "Tags": Dict[str, str],
-        "TimeDelaySeconds": int,
-        "Whitelist": List[str],
-    },
-    total=False,
-)
-
-class CreateOriginEndpointRequestRequestTypeDef(
-    _RequiredCreateOriginEndpointRequestRequestTypeDef,
-    _OptionalCreateOriginEndpointRequestRequestTypeDef,
-):
-    pass
-
-CreateOriginEndpointResponseTypeDef = TypedDict(
-    "CreateOriginEndpointResponseTypeDef",
-    {
-        "Arn": str,
-        "Authorization": "AuthorizationTypeDef",
-        "ChannelId": str,
-        "CmafPackage": "CmafPackageTypeDef",
-        "CreatedAt": str,
-        "DashPackage": "DashPackageTypeDef",
-        "Description": str,
-        "HlsPackage": "HlsPackageTypeDef",
-        "Id": str,
-        "ManifestName": str,
-        "MssPackage": "MssPackageTypeDef",
-        "Origination": OriginationType,
-        "StartoverWindowSeconds": int,
-        "Tags": Dict[str, str],
-        "TimeDelaySeconds": int,
-        "Url": str,
-        "Whitelist": List[str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDashEncryptionTypeDef = TypedDict(
-    "_RequiredDashEncryptionTypeDef",
-    {
-        "SpekeKeyProvider": "SpekeKeyProviderTypeDef",
-    },
-)
-_OptionalDashEncryptionTypeDef = TypedDict(
-    "_OptionalDashEncryptionTypeDef",
-    {
-        "KeyRotationIntervalSeconds": int,
-    },
-    total=False,
-)
-
-class DashEncryptionTypeDef(_RequiredDashEncryptionTypeDef, _OptionalDashEncryptionTypeDef):
-    pass
-
-DashPackageTypeDef = TypedDict(
-    "DashPackageTypeDef",
-    {
-        "AdTriggers": List[__AdTriggersElementType],
-        "AdsOnDeliveryRestrictions": AdsOnDeliveryRestrictionsType,
-        "Encryption": "DashEncryptionTypeDef",
-        "IncludeIframeOnlyStream": bool,
-        "ManifestLayout": ManifestLayoutType,
-        "ManifestWindowSeconds": int,
-        "MinBufferTimeSeconds": int,
-        "MinUpdatePeriodSeconds": int,
-        "PeriodTriggers": List[Literal["ADS"]],
-        "Profile": ProfileType,
-        "SegmentDurationSeconds": int,
-        "SegmentTemplateFormat": SegmentTemplateFormatType,
-        "StreamSelection": "StreamSelectionTypeDef",
-        "SuggestedPresentationDelaySeconds": int,
-        "UtcTiming": UtcTimingType,
-        "UtcTimingUri": str,
-    },
-    total=False,
-)
-
-DeleteChannelRequestRequestTypeDef = TypedDict(
-    "DeleteChannelRequestRequestTypeDef",
-    {
-        "Id": str,
-    },
-)
-
-DeleteOriginEndpointRequestRequestTypeDef = TypedDict(
-    "DeleteOriginEndpointRequestRequestTypeDef",
-    {
-        "Id": str,
-    },
-)
-
-DescribeChannelRequestRequestTypeDef = TypedDict(
-    "DescribeChannelRequestRequestTypeDef",
-    {
-        "Id": str,
-    },
-)
-
-DescribeChannelResponseTypeDef = TypedDict(
-    "DescribeChannelResponseTypeDef",
-    {
-        "Arn": str,
-        "CreatedAt": str,
-        "Description": str,
-        "EgressAccessLogs": "EgressAccessLogsTypeDef",
-        "HlsIngest": "HlsIngestTypeDef",
-        "Id": str,
-        "IngressAccessLogs": "IngressAccessLogsTypeDef",
-        "Tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeHarvestJobRequestRequestTypeDef = TypedDict(
-    "DescribeHarvestJobRequestRequestTypeDef",
-    {
-        "Id": str,
-    },
-)
-
-DescribeHarvestJobResponseTypeDef = TypedDict(
-    "DescribeHarvestJobResponseTypeDef",
-    {
-        "Arn": str,
-        "ChannelId": str,
-        "CreatedAt": str,
-        "EndTime": str,
-        "Id": str,
-        "OriginEndpointId": str,
-        "S3Destination": "S3DestinationTypeDef",
-        "StartTime": str,
-        "Status": StatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeOriginEndpointRequestRequestTypeDef = TypedDict(
-    "DescribeOriginEndpointRequestRequestTypeDef",
-    {
-        "Id": str,
-    },
-)
-
-DescribeOriginEndpointResponseTypeDef = TypedDict(
-    "DescribeOriginEndpointResponseTypeDef",
-    {
-        "Arn": str,
-        "Authorization": "AuthorizationTypeDef",
-        "ChannelId": str,
-        "CmafPackage": "CmafPackageTypeDef",
-        "CreatedAt": str,
-        "DashPackage": "DashPackageTypeDef",
-        "Description": str,
-        "HlsPackage": "HlsPackageTypeDef",
-        "Id": str,
-        "ManifestName": str,
-        "MssPackage": "MssPackageTypeDef",
-        "Origination": OriginationType,
-        "StartoverWindowSeconds": int,
-        "Tags": Dict[str, str],
-        "TimeDelaySeconds": int,
-        "Url": str,
-        "Whitelist": List[str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-EgressAccessLogsTypeDef = TypedDict(
-    "EgressAccessLogsTypeDef",
-    {
-        "LogGroupName": str,
-    },
-    total=False,
-)
-
-EncryptionContractConfigurationTypeDef = TypedDict(
-    "EncryptionContractConfigurationTypeDef",
-    {
-        "PresetSpeke20Audio": PresetSpeke20AudioType,
-        "PresetSpeke20Video": PresetSpeke20VideoType,
-    },
-)
-
-HarvestJobTypeDef = TypedDict(
-    "HarvestJobTypeDef",
-    {
-        "Arn": str,
-        "ChannelId": str,
-        "CreatedAt": str,
-        "EndTime": str,
-        "Id": str,
-        "OriginEndpointId": str,
-        "S3Destination": "S3DestinationTypeDef",
-        "StartTime": str,
-        "Status": StatusType,
-    },
-    total=False,
-)
-
-_RequiredHlsEncryptionTypeDef = TypedDict(
-    "_RequiredHlsEncryptionTypeDef",
-    {
-        "SpekeKeyProvider": "SpekeKeyProviderTypeDef",
-    },
-)
-_OptionalHlsEncryptionTypeDef = TypedDict(
-    "_OptionalHlsEncryptionTypeDef",
-    {
-        "ConstantInitializationVector": str,
-        "EncryptionMethod": EncryptionMethodType,
-        "KeyRotationIntervalSeconds": int,
-        "RepeatExtXKey": bool,
-    },
-    total=False,
-)
-
-class HlsEncryptionTypeDef(_RequiredHlsEncryptionTypeDef, _OptionalHlsEncryptionTypeDef):
-    pass
-
-HlsIngestTypeDef = TypedDict(
-    "HlsIngestTypeDef",
-    {
-        "IngestEndpoints": List["IngestEndpointTypeDef"],
-    },
-    total=False,
-)
-
-_RequiredHlsManifestCreateOrUpdateParametersTypeDef = TypedDict(
-    "_RequiredHlsManifestCreateOrUpdateParametersTypeDef",
-    {
-        "Id": str,
-    },
-)
-_OptionalHlsManifestCreateOrUpdateParametersTypeDef = TypedDict(
-    "_OptionalHlsManifestCreateOrUpdateParametersTypeDef",
-    {
-        "AdMarkers": AdMarkersType,
-        "AdTriggers": List[__AdTriggersElementType],
-        "AdsOnDeliveryRestrictions": AdsOnDeliveryRestrictionsType,
-        "IncludeIframeOnlyStream": bool,
-        "ManifestName": str,
-        "PlaylistType": PlaylistTypeType,
-        "PlaylistWindowSeconds": int,
-        "ProgramDateTimeIntervalSeconds": int,
-    },
-    total=False,
-)
-
-class HlsManifestCreateOrUpdateParametersTypeDef(
-    _RequiredHlsManifestCreateOrUpdateParametersTypeDef,
-    _OptionalHlsManifestCreateOrUpdateParametersTypeDef,
-):
-    pass
-
-_RequiredHlsManifestTypeDef = TypedDict(
-    "_RequiredHlsManifestTypeDef",
-    {
-        "Id": str,
-    },
-)
-_OptionalHlsManifestTypeDef = TypedDict(
-    "_OptionalHlsManifestTypeDef",
-    {
-        "AdMarkers": AdMarkersType,
-        "IncludeIframeOnlyStream": bool,
-        "ManifestName": str,
-        "PlaylistType": PlaylistTypeType,
-        "PlaylistWindowSeconds": int,
-        "ProgramDateTimeIntervalSeconds": int,
-        "Url": str,
-        "AdTriggers": List[__AdTriggersElementType],
-        "AdsOnDeliveryRestrictions": AdsOnDeliveryRestrictionsType,
-    },
-    total=False,
-)
-
-class HlsManifestTypeDef(_RequiredHlsManifestTypeDef, _OptionalHlsManifestTypeDef):
-    pass
-
-HlsPackageTypeDef = TypedDict(
-    "HlsPackageTypeDef",
-    {
-        "AdMarkers": AdMarkersType,
-        "AdTriggers": List[__AdTriggersElementType],
-        "AdsOnDeliveryRestrictions": AdsOnDeliveryRestrictionsType,
-        "Encryption": "HlsEncryptionTypeDef",
-        "IncludeDvbSubtitles": bool,
-        "IncludeIframeOnlyStream": bool,
-        "PlaylistType": PlaylistTypeType,
-        "PlaylistWindowSeconds": int,
-        "ProgramDateTimeIntervalSeconds": int,
-        "SegmentDurationSeconds": int,
-        "StreamSelection": "StreamSelectionTypeDef",
-        "UseAudioRenditionGroup": bool,
-    },
-    total=False,
-)
-
-IngestEndpointTypeDef = TypedDict(
-    "IngestEndpointTypeDef",
-    {
-        "Id": str,
-        "Password": str,
-        "Url": str,
-        "Username": str,
-    },
-    total=False,
-)
-
-IngressAccessLogsTypeDef = TypedDict(
-    "IngressAccessLogsTypeDef",
-    {
-        "LogGroupName": str,
-    },
-    total=False,
-)
-
-ListChannelsRequestRequestTypeDef = TypedDict(
-    "ListChannelsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListChannelsResponseTypeDef = TypedDict(
-    "ListChannelsResponseTypeDef",
-    {
-        "Channels": List["ChannelTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListHarvestJobsRequestRequestTypeDef = TypedDict(
-    "ListHarvestJobsRequestRequestTypeDef",
-    {
-        "IncludeChannelId": str,
-        "IncludeStatus": str,
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListHarvestJobsResponseTypeDef = TypedDict(
-    "ListHarvestJobsResponseTypeDef",
-    {
-        "HarvestJobs": List["HarvestJobTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListOriginEndpointsRequestRequestTypeDef = TypedDict(
-    "ListOriginEndpointsRequestRequestTypeDef",
-    {
-        "ChannelId": str,
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListOriginEndpointsResponseTypeDef = TypedDict(
-    "ListOriginEndpointsResponseTypeDef",
-    {
-        "NextToken": str,
-        "OriginEndpoints": List["OriginEndpointTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-    },
-)
-
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "Tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-MssEncryptionTypeDef = TypedDict(
-    "MssEncryptionTypeDef",
-    {
-        "SpekeKeyProvider": "SpekeKeyProviderTypeDef",
-    },
-)
-
-MssPackageTypeDef = TypedDict(
-    "MssPackageTypeDef",
-    {
-        "Encryption": "MssEncryptionTypeDef",
-        "ManifestWindowSeconds": int,
-        "SegmentDurationSeconds": int,
-        "StreamSelection": "StreamSelectionTypeDef",
-    },
-    total=False,
-)
-
-OriginEndpointTypeDef = TypedDict(
-    "OriginEndpointTypeDef",
-    {
-        "Arn": str,
-        "Authorization": "AuthorizationTypeDef",
-        "ChannelId": str,
-        "CmafPackage": "CmafPackageTypeDef",
-        "CreatedAt": str,
-        "DashPackage": "DashPackageTypeDef",
-        "Description": str,
-        "HlsPackage": "HlsPackageTypeDef",
-        "Id": str,
-        "ManifestName": str,
-        "MssPackage": "MssPackageTypeDef",
-        "Origination": OriginationType,
-        "StartoverWindowSeconds": int,
-        "Tags": Dict[str, str],
-        "TimeDelaySeconds": int,
-        "Url": str,
-        "Whitelist": List[str],
-    },
-    total=False,
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-RotateChannelCredentialsRequestRequestTypeDef = TypedDict(
-    "RotateChannelCredentialsRequestRequestTypeDef",
-    {
-        "Id": str,
-    },
-)
-
-RotateChannelCredentialsResponseTypeDef = TypedDict(
-    "RotateChannelCredentialsResponseTypeDef",
-    {
-        "Arn": str,
-        "CreatedAt": str,
-        "Description": str,
-        "EgressAccessLogs": "EgressAccessLogsTypeDef",
-        "HlsIngest": "HlsIngestTypeDef",
-        "Id": str,
-        "IngressAccessLogs": "IngressAccessLogsTypeDef",
-        "Tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-RotateIngestEndpointCredentialsRequestRequestTypeDef = TypedDict(
-    "RotateIngestEndpointCredentialsRequestRequestTypeDef",
-    {
-        "Id": str,
-        "IngestEndpointId": str,
-    },
-)
-
-RotateIngestEndpointCredentialsResponseTypeDef = TypedDict(
-    "RotateIngestEndpointCredentialsResponseTypeDef",
-    {
-        "Arn": str,
-        "CreatedAt": str,
-        "Description": str,
-        "EgressAccessLogs": "EgressAccessLogsTypeDef",
-        "HlsIngest": "HlsIngestTypeDef",
-        "Id": str,
-        "IngressAccessLogs": "IngressAccessLogsTypeDef",
-        "Tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-S3DestinationTypeDef = TypedDict(
-    "S3DestinationTypeDef",
-    {
-        "BucketName": str,
-        "ManifestKey": str,
-        "RoleArn": str,
-    },
-)
-
-_RequiredSpekeKeyProviderTypeDef = TypedDict(
-    "_RequiredSpekeKeyProviderTypeDef",
-    {
-        "ResourceId": str,
-        "RoleArn": str,
-        "SystemIds": List[str],
-        "Url": str,
-    },
-)
-_OptionalSpekeKeyProviderTypeDef = TypedDict(
-    "_OptionalSpekeKeyProviderTypeDef",
-    {
-        "CertificateArn": str,
-        "EncryptionContractConfiguration": "EncryptionContractConfigurationTypeDef",
-    },
-    total=False,
-)
-
-class SpekeKeyProviderTypeDef(_RequiredSpekeKeyProviderTypeDef, _OptionalSpekeKeyProviderTypeDef):
-    pass
-
-StreamSelectionTypeDef = TypedDict(
-    "StreamSelectionTypeDef",
-    {
-        "MaxVideoBitsPerSecond": int,
-        "MinVideoBitsPerSecond": int,
-        "StreamOrder": StreamOrderType,
-    },
-    total=False,
-)
-
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-        "Tags": Dict[str, str],
-    },
-)
-
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-        "TagKeys": List[str],
-    },
-)
-
-_RequiredUpdateChannelRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateChannelRequestRequestTypeDef",
-    {
-        "Id": str,
-    },
-)
-_OptionalUpdateChannelRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateChannelRequestRequestTypeDef",
-    {
-        "Description": str,
-    },
-    total=False,
-)
-
-class UpdateChannelRequestRequestTypeDef(
-    _RequiredUpdateChannelRequestRequestTypeDef, _OptionalUpdateChannelRequestRequestTypeDef
-):
-    pass
-
-UpdateChannelResponseTypeDef = TypedDict(
-    "UpdateChannelResponseTypeDef",
-    {
-        "Arn": str,
-        "CreatedAt": str,
-        "Description": str,
-        "EgressAccessLogs": "EgressAccessLogsTypeDef",
-        "HlsIngest": "HlsIngestTypeDef",
-        "Id": str,
-        "IngressAccessLogs": "IngressAccessLogsTypeDef",
-        "Tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateOriginEndpointRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateOriginEndpointRequestRequestTypeDef",
-    {
-        "Id": str,
-    },
-)
-_OptionalUpdateOriginEndpointRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateOriginEndpointRequestRequestTypeDef",
-    {
-        "Authorization": "AuthorizationTypeDef",
-        "CmafPackage": "CmafPackageCreateOrUpdateParametersTypeDef",
-        "DashPackage": "DashPackageTypeDef",
-        "Description": str,
-        "HlsPackage": "HlsPackageTypeDef",
-        "ManifestName": str,
-        "MssPackage": "MssPackageTypeDef",
-        "Origination": OriginationType,
-        "StartoverWindowSeconds": int,
-        "TimeDelaySeconds": int,
-        "Whitelist": List[str],
-    },
-    total=False,
-)
-
-class UpdateOriginEndpointRequestRequestTypeDef(
-    _RequiredUpdateOriginEndpointRequestRequestTypeDef,
-    _OptionalUpdateOriginEndpointRequestRequestTypeDef,
-):
-    pass
-
-UpdateOriginEndpointResponseTypeDef = TypedDict(
-    "UpdateOriginEndpointResponseTypeDef",
-    {
-        "Arn": str,
-        "Authorization": "AuthorizationTypeDef",
-        "ChannelId": str,
-        "CmafPackage": "CmafPackageTypeDef",
-        "CreatedAt": str,
-        "DashPackage": "DashPackageTypeDef",
-        "Description": str,
-        "HlsPackage": "HlsPackageTypeDef",
-        "Id": str,
-        "ManifestName": str,
-        "MssPackage": "MssPackageTypeDef",
-        "Origination": OriginationType,
-        "StartoverWindowSeconds": int,
-        "Tags": Dict[str, str],
-        "TimeDelaySeconds": int,
-        "Url": str,
-        "Whitelist": List[str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class AuthorizationTypeDef(TypedDict):
+    CdnIdentifierSecret: str
+    SecretsRoleArn: str
+
+class EgressAccessLogsTypeDef(TypedDict):
+    LogGroupName: NotRequired[str]
+
+class IngressAccessLogsTypeDef(TypedDict):
+    LogGroupName: NotRequired[str]
+
+class HlsManifestCreateOrUpdateParametersTypeDef(TypedDict):
+    Id: str
+    AdMarkers: NotRequired[AdMarkersType]
+    AdTriggers: NotRequired[Sequence[AdTriggersElementType]]
+    AdsOnDeliveryRestrictions: NotRequired[AdsOnDeliveryRestrictionsType]
+    IncludeIframeOnlyStream: NotRequired[bool]
+    ManifestName: NotRequired[str]
+    PlaylistType: NotRequired[PlaylistTypeType]
+    PlaylistWindowSeconds: NotRequired[int]
+    ProgramDateTimeIntervalSeconds: NotRequired[int]
+
+class StreamSelectionTypeDef(TypedDict):
+    MaxVideoBitsPerSecond: NotRequired[int]
+    MinVideoBitsPerSecond: NotRequired[int]
+    StreamOrder: NotRequired[StreamOrderType]
+
+class HlsManifestTypeDef(TypedDict):
+    Id: str
+    AdMarkers: NotRequired[AdMarkersType]
+    IncludeIframeOnlyStream: NotRequired[bool]
+    ManifestName: NotRequired[str]
+    PlaylistType: NotRequired[PlaylistTypeType]
+    PlaylistWindowSeconds: NotRequired[int]
+    ProgramDateTimeIntervalSeconds: NotRequired[int]
+    Url: NotRequired[str]
+    AdTriggers: NotRequired[List[AdTriggersElementType]]
+    AdsOnDeliveryRestrictions: NotRequired[AdsOnDeliveryRestrictionsType]
+
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
+
+class CreateChannelRequestTypeDef(TypedDict):
+    Id: str
+    Description: NotRequired[str]
+    Tags: NotRequired[Mapping[str, str]]
+
+class S3DestinationTypeDef(TypedDict):
+    BucketName: str
+    ManifestKey: str
+    RoleArn: str
+
+class DeleteChannelRequestTypeDef(TypedDict):
+    Id: str
+
+class DeleteOriginEndpointRequestTypeDef(TypedDict):
+    Id: str
+
+class DescribeChannelRequestTypeDef(TypedDict):
+    Id: str
+
+class DescribeHarvestJobRequestTypeDef(TypedDict):
+    Id: str
+
+class DescribeOriginEndpointRequestTypeDef(TypedDict):
+    Id: str
+
+class EncryptionContractConfigurationTypeDef(TypedDict):
+    PresetSpeke20Audio: PresetSpeke20AudioType
+    PresetSpeke20Video: PresetSpeke20VideoType
+
+class IngestEndpointTypeDef(TypedDict):
+    Id: NotRequired[str]
+    Password: NotRequired[str]
+    Url: NotRequired[str]
+    Username: NotRequired[str]
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class ListChannelsRequestTypeDef(TypedDict):
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListHarvestJobsRequestTypeDef(TypedDict):
+    IncludeChannelId: NotRequired[str]
+    IncludeStatus: NotRequired[str]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListOriginEndpointsRequestTypeDef(TypedDict):
+    ChannelId: NotRequired[str]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+
+class RotateChannelCredentialsRequestTypeDef(TypedDict):
+    Id: str
+
+class RotateIngestEndpointCredentialsRequestTypeDef(TypedDict):
+    Id: str
+    IngestEndpointId: str
+
+class TagResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+    Tags: Mapping[str, str]
+
+class UntagResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+    TagKeys: Sequence[str]
+
+class UpdateChannelRequestTypeDef(TypedDict):
+    Id: str
+    Description: NotRequired[str]
+
+class ConfigureLogsRequestTypeDef(TypedDict):
+    Id: str
+    EgressAccessLogs: NotRequired[EgressAccessLogsTypeDef]
+    IngressAccessLogs: NotRequired[IngressAccessLogsTypeDef]
+
+class EmptyResponseMetadataTypeDef(TypedDict):
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    Tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateHarvestJobRequestTypeDef(TypedDict):
+    EndTime: str
+    Id: str
+    OriginEndpointId: str
+    S3Destination: S3DestinationTypeDef
+    StartTime: str
+
+class CreateHarvestJobResponseTypeDef(TypedDict):
+    Arn: str
+    ChannelId: str
+    CreatedAt: str
+    EndTime: str
+    Id: str
+    OriginEndpointId: str
+    S3Destination: S3DestinationTypeDef
+    StartTime: str
+    Status: StatusType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeHarvestJobResponseTypeDef(TypedDict):
+    Arn: str
+    ChannelId: str
+    CreatedAt: str
+    EndTime: str
+    Id: str
+    OriginEndpointId: str
+    S3Destination: S3DestinationTypeDef
+    StartTime: str
+    Status: StatusType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class HarvestJobTypeDef(TypedDict):
+    Arn: NotRequired[str]
+    ChannelId: NotRequired[str]
+    CreatedAt: NotRequired[str]
+    EndTime: NotRequired[str]
+    Id: NotRequired[str]
+    OriginEndpointId: NotRequired[str]
+    S3Destination: NotRequired[S3DestinationTypeDef]
+    StartTime: NotRequired[str]
+    Status: NotRequired[StatusType]
+
+class SpekeKeyProviderOutputTypeDef(TypedDict):
+    ResourceId: str
+    RoleArn: str
+    SystemIds: List[str]
+    Url: str
+    CertificateArn: NotRequired[str]
+    EncryptionContractConfiguration: NotRequired[EncryptionContractConfigurationTypeDef]
+
+class SpekeKeyProviderTypeDef(TypedDict):
+    ResourceId: str
+    RoleArn: str
+    SystemIds: Sequence[str]
+    Url: str
+    CertificateArn: NotRequired[str]
+    EncryptionContractConfiguration: NotRequired[EncryptionContractConfigurationTypeDef]
+
+class HlsIngestTypeDef(TypedDict):
+    IngestEndpoints: NotRequired[List[IngestEndpointTypeDef]]
+
+class ListChannelsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListHarvestJobsRequestPaginateTypeDef(TypedDict):
+    IncludeChannelId: NotRequired[str]
+    IncludeStatus: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListOriginEndpointsRequestPaginateTypeDef(TypedDict):
+    ChannelId: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListHarvestJobsResponseTypeDef(TypedDict):
+    HarvestJobs: List[HarvestJobTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class CmafEncryptionOutputTypeDef(TypedDict):
+    SpekeKeyProvider: SpekeKeyProviderOutputTypeDef
+    ConstantInitializationVector: NotRequired[str]
+    EncryptionMethod: NotRequired[CmafEncryptionMethodType]
+    KeyRotationIntervalSeconds: NotRequired[int]
+
+class DashEncryptionOutputTypeDef(TypedDict):
+    SpekeKeyProvider: SpekeKeyProviderOutputTypeDef
+    KeyRotationIntervalSeconds: NotRequired[int]
+
+class HlsEncryptionOutputTypeDef(TypedDict):
+    SpekeKeyProvider: SpekeKeyProviderOutputTypeDef
+    ConstantInitializationVector: NotRequired[str]
+    EncryptionMethod: NotRequired[EncryptionMethodType]
+    KeyRotationIntervalSeconds: NotRequired[int]
+    RepeatExtXKey: NotRequired[bool]
+
+class MssEncryptionOutputTypeDef(TypedDict):
+    SpekeKeyProvider: SpekeKeyProviderOutputTypeDef
+
+class DashEncryptionTypeDef(TypedDict):
+    SpekeKeyProvider: SpekeKeyProviderTypeDef
+    KeyRotationIntervalSeconds: NotRequired[int]
+
+class HlsEncryptionTypeDef(TypedDict):
+    SpekeKeyProvider: SpekeKeyProviderTypeDef
+    ConstantInitializationVector: NotRequired[str]
+    EncryptionMethod: NotRequired[EncryptionMethodType]
+    KeyRotationIntervalSeconds: NotRequired[int]
+    RepeatExtXKey: NotRequired[bool]
+
+class MssEncryptionTypeDef(TypedDict):
+    SpekeKeyProvider: SpekeKeyProviderTypeDef
+
+SpekeKeyProviderUnionTypeDef = Union[SpekeKeyProviderTypeDef, SpekeKeyProviderOutputTypeDef]
+
+class ChannelTypeDef(TypedDict):
+    Arn: NotRequired[str]
+    CreatedAt: NotRequired[str]
+    Description: NotRequired[str]
+    EgressAccessLogs: NotRequired[EgressAccessLogsTypeDef]
+    HlsIngest: NotRequired[HlsIngestTypeDef]
+    Id: NotRequired[str]
+    IngressAccessLogs: NotRequired[IngressAccessLogsTypeDef]
+    Tags: NotRequired[Dict[str, str]]
+
+class ConfigureLogsResponseTypeDef(TypedDict):
+    Arn: str
+    CreatedAt: str
+    Description: str
+    EgressAccessLogs: EgressAccessLogsTypeDef
+    HlsIngest: HlsIngestTypeDef
+    Id: str
+    IngressAccessLogs: IngressAccessLogsTypeDef
+    Tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateChannelResponseTypeDef(TypedDict):
+    Arn: str
+    CreatedAt: str
+    Description: str
+    EgressAccessLogs: EgressAccessLogsTypeDef
+    HlsIngest: HlsIngestTypeDef
+    Id: str
+    IngressAccessLogs: IngressAccessLogsTypeDef
+    Tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeChannelResponseTypeDef(TypedDict):
+    Arn: str
+    CreatedAt: str
+    Description: str
+    EgressAccessLogs: EgressAccessLogsTypeDef
+    HlsIngest: HlsIngestTypeDef
+    Id: str
+    IngressAccessLogs: IngressAccessLogsTypeDef
+    Tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class RotateChannelCredentialsResponseTypeDef(TypedDict):
+    Arn: str
+    CreatedAt: str
+    Description: str
+    EgressAccessLogs: EgressAccessLogsTypeDef
+    HlsIngest: HlsIngestTypeDef
+    Id: str
+    IngressAccessLogs: IngressAccessLogsTypeDef
+    Tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class RotateIngestEndpointCredentialsResponseTypeDef(TypedDict):
+    Arn: str
+    CreatedAt: str
+    Description: str
+    EgressAccessLogs: EgressAccessLogsTypeDef
+    HlsIngest: HlsIngestTypeDef
+    Id: str
+    IngressAccessLogs: IngressAccessLogsTypeDef
+    Tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateChannelResponseTypeDef(TypedDict):
+    Arn: str
+    CreatedAt: str
+    Description: str
+    EgressAccessLogs: EgressAccessLogsTypeDef
+    HlsIngest: HlsIngestTypeDef
+    Id: str
+    IngressAccessLogs: IngressAccessLogsTypeDef
+    Tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CmafPackageTypeDef(TypedDict):
+    Encryption: NotRequired[CmafEncryptionOutputTypeDef]
+    HlsManifests: NotRequired[List[HlsManifestTypeDef]]
+    SegmentDurationSeconds: NotRequired[int]
+    SegmentPrefix: NotRequired[str]
+    StreamSelection: NotRequired[StreamSelectionTypeDef]
+
+class DashPackageOutputTypeDef(TypedDict):
+    AdTriggers: NotRequired[List[AdTriggersElementType]]
+    AdsOnDeliveryRestrictions: NotRequired[AdsOnDeliveryRestrictionsType]
+    Encryption: NotRequired[DashEncryptionOutputTypeDef]
+    IncludeIframeOnlyStream: NotRequired[bool]
+    ManifestLayout: NotRequired[ManifestLayoutType]
+    ManifestWindowSeconds: NotRequired[int]
+    MinBufferTimeSeconds: NotRequired[int]
+    MinUpdatePeriodSeconds: NotRequired[int]
+    PeriodTriggers: NotRequired[List[Literal["ADS"]]]
+    Profile: NotRequired[ProfileType]
+    SegmentDurationSeconds: NotRequired[int]
+    SegmentTemplateFormat: NotRequired[SegmentTemplateFormatType]
+    StreamSelection: NotRequired[StreamSelectionTypeDef]
+    SuggestedPresentationDelaySeconds: NotRequired[int]
+    UtcTiming: NotRequired[UtcTimingType]
+    UtcTimingUri: NotRequired[str]
+
+class HlsPackageOutputTypeDef(TypedDict):
+    AdMarkers: NotRequired[AdMarkersType]
+    AdTriggers: NotRequired[List[AdTriggersElementType]]
+    AdsOnDeliveryRestrictions: NotRequired[AdsOnDeliveryRestrictionsType]
+    Encryption: NotRequired[HlsEncryptionOutputTypeDef]
+    IncludeDvbSubtitles: NotRequired[bool]
+    IncludeIframeOnlyStream: NotRequired[bool]
+    PlaylistType: NotRequired[PlaylistTypeType]
+    PlaylistWindowSeconds: NotRequired[int]
+    ProgramDateTimeIntervalSeconds: NotRequired[int]
+    SegmentDurationSeconds: NotRequired[int]
+    StreamSelection: NotRequired[StreamSelectionTypeDef]
+    UseAudioRenditionGroup: NotRequired[bool]
+
+class MssPackageOutputTypeDef(TypedDict):
+    Encryption: NotRequired[MssEncryptionOutputTypeDef]
+    ManifestWindowSeconds: NotRequired[int]
+    SegmentDurationSeconds: NotRequired[int]
+    StreamSelection: NotRequired[StreamSelectionTypeDef]
+
+class DashPackageTypeDef(TypedDict):
+    AdTriggers: NotRequired[Sequence[AdTriggersElementType]]
+    AdsOnDeliveryRestrictions: NotRequired[AdsOnDeliveryRestrictionsType]
+    Encryption: NotRequired[DashEncryptionTypeDef]
+    IncludeIframeOnlyStream: NotRequired[bool]
+    ManifestLayout: NotRequired[ManifestLayoutType]
+    ManifestWindowSeconds: NotRequired[int]
+    MinBufferTimeSeconds: NotRequired[int]
+    MinUpdatePeriodSeconds: NotRequired[int]
+    PeriodTriggers: NotRequired[Sequence[Literal["ADS"]]]
+    Profile: NotRequired[ProfileType]
+    SegmentDurationSeconds: NotRequired[int]
+    SegmentTemplateFormat: NotRequired[SegmentTemplateFormatType]
+    StreamSelection: NotRequired[StreamSelectionTypeDef]
+    SuggestedPresentationDelaySeconds: NotRequired[int]
+    UtcTiming: NotRequired[UtcTimingType]
+    UtcTimingUri: NotRequired[str]
+
+class HlsPackageTypeDef(TypedDict):
+    AdMarkers: NotRequired[AdMarkersType]
+    AdTriggers: NotRequired[Sequence[AdTriggersElementType]]
+    AdsOnDeliveryRestrictions: NotRequired[AdsOnDeliveryRestrictionsType]
+    Encryption: NotRequired[HlsEncryptionTypeDef]
+    IncludeDvbSubtitles: NotRequired[bool]
+    IncludeIframeOnlyStream: NotRequired[bool]
+    PlaylistType: NotRequired[PlaylistTypeType]
+    PlaylistWindowSeconds: NotRequired[int]
+    ProgramDateTimeIntervalSeconds: NotRequired[int]
+    SegmentDurationSeconds: NotRequired[int]
+    StreamSelection: NotRequired[StreamSelectionTypeDef]
+    UseAudioRenditionGroup: NotRequired[bool]
+
+class MssPackageTypeDef(TypedDict):
+    Encryption: NotRequired[MssEncryptionTypeDef]
+    ManifestWindowSeconds: NotRequired[int]
+    SegmentDurationSeconds: NotRequired[int]
+    StreamSelection: NotRequired[StreamSelectionTypeDef]
+
+class CmafEncryptionTypeDef(TypedDict):
+    SpekeKeyProvider: SpekeKeyProviderUnionTypeDef
+    ConstantInitializationVector: NotRequired[str]
+    EncryptionMethod: NotRequired[CmafEncryptionMethodType]
+    KeyRotationIntervalSeconds: NotRequired[int]
+
+class ListChannelsResponseTypeDef(TypedDict):
+    Channels: List[ChannelTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class CreateOriginEndpointResponseTypeDef(TypedDict):
+    Arn: str
+    Authorization: AuthorizationTypeDef
+    ChannelId: str
+    CmafPackage: CmafPackageTypeDef
+    CreatedAt: str
+    DashPackage: DashPackageOutputTypeDef
+    Description: str
+    HlsPackage: HlsPackageOutputTypeDef
+    Id: str
+    ManifestName: str
+    MssPackage: MssPackageOutputTypeDef
+    Origination: OriginationType
+    StartoverWindowSeconds: int
+    Tags: Dict[str, str]
+    TimeDelaySeconds: int
+    Url: str
+    Whitelist: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeOriginEndpointResponseTypeDef(TypedDict):
+    Arn: str
+    Authorization: AuthorizationTypeDef
+    ChannelId: str
+    CmafPackage: CmafPackageTypeDef
+    CreatedAt: str
+    DashPackage: DashPackageOutputTypeDef
+    Description: str
+    HlsPackage: HlsPackageOutputTypeDef
+    Id: str
+    ManifestName: str
+    MssPackage: MssPackageOutputTypeDef
+    Origination: OriginationType
+    StartoverWindowSeconds: int
+    Tags: Dict[str, str]
+    TimeDelaySeconds: int
+    Url: str
+    Whitelist: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class OriginEndpointTypeDef(TypedDict):
+    Arn: NotRequired[str]
+    Authorization: NotRequired[AuthorizationTypeDef]
+    ChannelId: NotRequired[str]
+    CmafPackage: NotRequired[CmafPackageTypeDef]
+    CreatedAt: NotRequired[str]
+    DashPackage: NotRequired[DashPackageOutputTypeDef]
+    Description: NotRequired[str]
+    HlsPackage: NotRequired[HlsPackageOutputTypeDef]
+    Id: NotRequired[str]
+    ManifestName: NotRequired[str]
+    MssPackage: NotRequired[MssPackageOutputTypeDef]
+    Origination: NotRequired[OriginationType]
+    StartoverWindowSeconds: NotRequired[int]
+    Tags: NotRequired[Dict[str, str]]
+    TimeDelaySeconds: NotRequired[int]
+    Url: NotRequired[str]
+    Whitelist: NotRequired[List[str]]
+
+class UpdateOriginEndpointResponseTypeDef(TypedDict):
+    Arn: str
+    Authorization: AuthorizationTypeDef
+    ChannelId: str
+    CmafPackage: CmafPackageTypeDef
+    CreatedAt: str
+    DashPackage: DashPackageOutputTypeDef
+    Description: str
+    HlsPackage: HlsPackageOutputTypeDef
+    Id: str
+    ManifestName: str
+    MssPackage: MssPackageOutputTypeDef
+    Origination: OriginationType
+    StartoverWindowSeconds: int
+    Tags: Dict[str, str]
+    TimeDelaySeconds: int
+    Url: str
+    Whitelist: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+DashPackageUnionTypeDef = Union[DashPackageTypeDef, DashPackageOutputTypeDef]
+HlsPackageUnionTypeDef = Union[HlsPackageTypeDef, HlsPackageOutputTypeDef]
+MssPackageUnionTypeDef = Union[MssPackageTypeDef, MssPackageOutputTypeDef]
+CmafEncryptionUnionTypeDef = Union[CmafEncryptionTypeDef, CmafEncryptionOutputTypeDef]
+
+class ListOriginEndpointsResponseTypeDef(TypedDict):
+    OriginEndpoints: List[OriginEndpointTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class CmafPackageCreateOrUpdateParametersTypeDef(TypedDict):
+    Encryption: NotRequired[CmafEncryptionUnionTypeDef]
+    HlsManifests: NotRequired[Sequence[HlsManifestCreateOrUpdateParametersTypeDef]]
+    SegmentDurationSeconds: NotRequired[int]
+    SegmentPrefix: NotRequired[str]
+    StreamSelection: NotRequired[StreamSelectionTypeDef]
+
+class CreateOriginEndpointRequestTypeDef(TypedDict):
+    ChannelId: str
+    Id: str
+    Authorization: NotRequired[AuthorizationTypeDef]
+    CmafPackage: NotRequired[CmafPackageCreateOrUpdateParametersTypeDef]
+    DashPackage: NotRequired[DashPackageUnionTypeDef]
+    Description: NotRequired[str]
+    HlsPackage: NotRequired[HlsPackageUnionTypeDef]
+    ManifestName: NotRequired[str]
+    MssPackage: NotRequired[MssPackageUnionTypeDef]
+    Origination: NotRequired[OriginationType]
+    StartoverWindowSeconds: NotRequired[int]
+    Tags: NotRequired[Mapping[str, str]]
+    TimeDelaySeconds: NotRequired[int]
+    Whitelist: NotRequired[Sequence[str]]
+
+class UpdateOriginEndpointRequestTypeDef(TypedDict):
+    Id: str
+    Authorization: NotRequired[AuthorizationTypeDef]
+    CmafPackage: NotRequired[CmafPackageCreateOrUpdateParametersTypeDef]
+    DashPackage: NotRequired[DashPackageUnionTypeDef]
+    Description: NotRequired[str]
+    HlsPackage: NotRequired[HlsPackageUnionTypeDef]
+    ManifestName: NotRequired[str]
+    MssPackage: NotRequired[MssPackageUnionTypeDef]
+    Origination: NotRequired[OriginationType]
+    StartoverWindowSeconds: NotRequired[int]
+    TimeDelaySeconds: NotRequired[int]
+    Whitelist: NotRequired[Sequence[str]]

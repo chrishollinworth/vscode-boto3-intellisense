@@ -1,20 +1,24 @@
 """
 Type annotations for workspaces-web service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces_web/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_workspaces_web/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_workspaces_web.type_defs import AssociateBrowserSettingsRequestRequestTypeDef
+    from mypy_boto3_workspaces_web.type_defs import AssociateBrowserSettingsRequestTypeDef
 
-    data: AssociateBrowserSettingsRequestRequestTypeDef = {...}
+    data: AssociateBrowserSettingsRequestTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import IO, Any, Dict, List, Union
+from typing import IO, Any, Union
 
 from botocore.response import StreamingBody
 
@@ -23,137 +27,182 @@ from .literals import (
     EnabledTypeType,
     IdentityProviderTypeType,
     InstanceTypeType,
+    MaxDisplayResolutionType,
     PortalStatusType,
+    SessionSortByType,
+    SessionStatusType,
+    ToolbarItemType,
+    ToolbarTypeType,
+    VisualModeType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
-    "AssociateBrowserSettingsRequestRequestTypeDef",
+    "AssociateBrowserSettingsRequestTypeDef",
     "AssociateBrowserSettingsResponseTypeDef",
-    "AssociateIpAccessSettingsRequestRequestTypeDef",
+    "AssociateDataProtectionSettingsRequestTypeDef",
+    "AssociateDataProtectionSettingsResponseTypeDef",
+    "AssociateIpAccessSettingsRequestTypeDef",
     "AssociateIpAccessSettingsResponseTypeDef",
-    "AssociateNetworkSettingsRequestRequestTypeDef",
+    "AssociateNetworkSettingsRequestTypeDef",
     "AssociateNetworkSettingsResponseTypeDef",
-    "AssociateTrustStoreRequestRequestTypeDef",
+    "AssociateTrustStoreRequestTypeDef",
     "AssociateTrustStoreResponseTypeDef",
-    "AssociateUserAccessLoggingSettingsRequestRequestTypeDef",
+    "AssociateUserAccessLoggingSettingsRequestTypeDef",
     "AssociateUserAccessLoggingSettingsResponseTypeDef",
-    "AssociateUserSettingsRequestRequestTypeDef",
+    "AssociateUserSettingsRequestTypeDef",
     "AssociateUserSettingsResponseTypeDef",
+    "BlobTypeDef",
     "BrowserSettingsSummaryTypeDef",
     "BrowserSettingsTypeDef",
     "CertificateSummaryTypeDef",
     "CertificateTypeDef",
     "CookieSpecificationTypeDef",
+    "CookieSynchronizationConfigurationOutputTypeDef",
     "CookieSynchronizationConfigurationTypeDef",
-    "CreateBrowserSettingsRequestRequestTypeDef",
+    "CookieSynchronizationConfigurationUnionTypeDef",
+    "CreateBrowserSettingsRequestTypeDef",
     "CreateBrowserSettingsResponseTypeDef",
-    "CreateIdentityProviderRequestRequestTypeDef",
+    "CreateDataProtectionSettingsRequestTypeDef",
+    "CreateDataProtectionSettingsResponseTypeDef",
+    "CreateIdentityProviderRequestTypeDef",
     "CreateIdentityProviderResponseTypeDef",
-    "CreateIpAccessSettingsRequestRequestTypeDef",
+    "CreateIpAccessSettingsRequestTypeDef",
     "CreateIpAccessSettingsResponseTypeDef",
-    "CreateNetworkSettingsRequestRequestTypeDef",
+    "CreateNetworkSettingsRequestTypeDef",
     "CreateNetworkSettingsResponseTypeDef",
-    "CreatePortalRequestRequestTypeDef",
+    "CreatePortalRequestTypeDef",
     "CreatePortalResponseTypeDef",
-    "CreateTrustStoreRequestRequestTypeDef",
+    "CreateTrustStoreRequestTypeDef",
     "CreateTrustStoreResponseTypeDef",
-    "CreateUserAccessLoggingSettingsRequestRequestTypeDef",
+    "CreateUserAccessLoggingSettingsRequestTypeDef",
     "CreateUserAccessLoggingSettingsResponseTypeDef",
-    "CreateUserSettingsRequestRequestTypeDef",
+    "CreateUserSettingsRequestTypeDef",
     "CreateUserSettingsResponseTypeDef",
-    "DeleteBrowserSettingsRequestRequestTypeDef",
-    "DeleteIdentityProviderRequestRequestTypeDef",
-    "DeleteIpAccessSettingsRequestRequestTypeDef",
-    "DeleteNetworkSettingsRequestRequestTypeDef",
-    "DeletePortalRequestRequestTypeDef",
-    "DeleteTrustStoreRequestRequestTypeDef",
-    "DeleteUserAccessLoggingSettingsRequestRequestTypeDef",
-    "DeleteUserSettingsRequestRequestTypeDef",
-    "DisassociateBrowserSettingsRequestRequestTypeDef",
-    "DisassociateIpAccessSettingsRequestRequestTypeDef",
-    "DisassociateNetworkSettingsRequestRequestTypeDef",
-    "DisassociateTrustStoreRequestRequestTypeDef",
-    "DisassociateUserAccessLoggingSettingsRequestRequestTypeDef",
-    "DisassociateUserSettingsRequestRequestTypeDef",
-    "GetBrowserSettingsRequestRequestTypeDef",
+    "CustomPatternTypeDef",
+    "DataProtectionSettingsSummaryTypeDef",
+    "DataProtectionSettingsTypeDef",
+    "DeleteBrowserSettingsRequestTypeDef",
+    "DeleteDataProtectionSettingsRequestTypeDef",
+    "DeleteIdentityProviderRequestTypeDef",
+    "DeleteIpAccessSettingsRequestTypeDef",
+    "DeleteNetworkSettingsRequestTypeDef",
+    "DeletePortalRequestTypeDef",
+    "DeleteTrustStoreRequestTypeDef",
+    "DeleteUserAccessLoggingSettingsRequestTypeDef",
+    "DeleteUserSettingsRequestTypeDef",
+    "DisassociateBrowserSettingsRequestTypeDef",
+    "DisassociateDataProtectionSettingsRequestTypeDef",
+    "DisassociateIpAccessSettingsRequestTypeDef",
+    "DisassociateNetworkSettingsRequestTypeDef",
+    "DisassociateTrustStoreRequestTypeDef",
+    "DisassociateUserAccessLoggingSettingsRequestTypeDef",
+    "DisassociateUserSettingsRequestTypeDef",
+    "ExpireSessionRequestTypeDef",
+    "GetBrowserSettingsRequestTypeDef",
     "GetBrowserSettingsResponseTypeDef",
-    "GetIdentityProviderRequestRequestTypeDef",
+    "GetDataProtectionSettingsRequestTypeDef",
+    "GetDataProtectionSettingsResponseTypeDef",
+    "GetIdentityProviderRequestTypeDef",
     "GetIdentityProviderResponseTypeDef",
-    "GetIpAccessSettingsRequestRequestTypeDef",
+    "GetIpAccessSettingsRequestTypeDef",
     "GetIpAccessSettingsResponseTypeDef",
-    "GetNetworkSettingsRequestRequestTypeDef",
+    "GetNetworkSettingsRequestTypeDef",
     "GetNetworkSettingsResponseTypeDef",
-    "GetPortalRequestRequestTypeDef",
+    "GetPortalRequestTypeDef",
     "GetPortalResponseTypeDef",
-    "GetPortalServiceProviderMetadataRequestRequestTypeDef",
+    "GetPortalServiceProviderMetadataRequestTypeDef",
     "GetPortalServiceProviderMetadataResponseTypeDef",
-    "GetTrustStoreCertificateRequestRequestTypeDef",
+    "GetSessionRequestTypeDef",
+    "GetSessionResponseTypeDef",
+    "GetTrustStoreCertificateRequestTypeDef",
     "GetTrustStoreCertificateResponseTypeDef",
-    "GetTrustStoreRequestRequestTypeDef",
+    "GetTrustStoreRequestTypeDef",
     "GetTrustStoreResponseTypeDef",
-    "GetUserAccessLoggingSettingsRequestRequestTypeDef",
+    "GetUserAccessLoggingSettingsRequestTypeDef",
     "GetUserAccessLoggingSettingsResponseTypeDef",
-    "GetUserSettingsRequestRequestTypeDef",
+    "GetUserSettingsRequestTypeDef",
     "GetUserSettingsResponseTypeDef",
     "IdentityProviderSummaryTypeDef",
     "IdentityProviderTypeDef",
+    "InlineRedactionConfigurationOutputTypeDef",
+    "InlineRedactionConfigurationTypeDef",
+    "InlineRedactionConfigurationUnionTypeDef",
+    "InlineRedactionPatternOutputTypeDef",
+    "InlineRedactionPatternTypeDef",
     "IpAccessSettingsSummaryTypeDef",
     "IpAccessSettingsTypeDef",
     "IpRuleTypeDef",
-    "ListBrowserSettingsRequestRequestTypeDef",
+    "ListBrowserSettingsRequestTypeDef",
     "ListBrowserSettingsResponseTypeDef",
-    "ListIdentityProvidersRequestRequestTypeDef",
+    "ListDataProtectionSettingsRequestPaginateTypeDef",
+    "ListDataProtectionSettingsRequestTypeDef",
+    "ListDataProtectionSettingsResponseTypeDef",
+    "ListIdentityProvidersRequestTypeDef",
     "ListIdentityProvidersResponseTypeDef",
-    "ListIpAccessSettingsRequestRequestTypeDef",
+    "ListIpAccessSettingsRequestTypeDef",
     "ListIpAccessSettingsResponseTypeDef",
-    "ListNetworkSettingsRequestRequestTypeDef",
+    "ListNetworkSettingsRequestTypeDef",
     "ListNetworkSettingsResponseTypeDef",
-    "ListPortalsRequestRequestTypeDef",
+    "ListPortalsRequestTypeDef",
     "ListPortalsResponseTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListSessionsRequestPaginateTypeDef",
+    "ListSessionsRequestTypeDef",
+    "ListSessionsResponseTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
-    "ListTrustStoreCertificatesRequestRequestTypeDef",
+    "ListTrustStoreCertificatesRequestTypeDef",
     "ListTrustStoreCertificatesResponseTypeDef",
-    "ListTrustStoresRequestRequestTypeDef",
+    "ListTrustStoresRequestTypeDef",
     "ListTrustStoresResponseTypeDef",
-    "ListUserAccessLoggingSettingsRequestRequestTypeDef",
+    "ListUserAccessLoggingSettingsRequestTypeDef",
     "ListUserAccessLoggingSettingsResponseTypeDef",
-    "ListUserSettingsRequestRequestTypeDef",
+    "ListUserSettingsRequestTypeDef",
     "ListUserSettingsResponseTypeDef",
     "NetworkSettingsSummaryTypeDef",
     "NetworkSettingsTypeDef",
+    "PaginatorConfigTypeDef",
     "PortalSummaryTypeDef",
     "PortalTypeDef",
+    "RedactionPlaceHolderTypeDef",
     "ResponseMetadataTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "SessionSummaryTypeDef",
+    "SessionTypeDef",
+    "TagResourceRequestTypeDef",
     "TagTypeDef",
+    "ToolbarConfigurationOutputTypeDef",
+    "ToolbarConfigurationTypeDef",
+    "ToolbarConfigurationUnionTypeDef",
     "TrustStoreSummaryTypeDef",
     "TrustStoreTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateBrowserSettingsRequestRequestTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateBrowserSettingsRequestTypeDef",
     "UpdateBrowserSettingsResponseTypeDef",
-    "UpdateIdentityProviderRequestRequestTypeDef",
+    "UpdateDataProtectionSettingsRequestTypeDef",
+    "UpdateDataProtectionSettingsResponseTypeDef",
+    "UpdateIdentityProviderRequestTypeDef",
     "UpdateIdentityProviderResponseTypeDef",
-    "UpdateIpAccessSettingsRequestRequestTypeDef",
+    "UpdateIpAccessSettingsRequestTypeDef",
     "UpdateIpAccessSettingsResponseTypeDef",
-    "UpdateNetworkSettingsRequestRequestTypeDef",
+    "UpdateNetworkSettingsRequestTypeDef",
     "UpdateNetworkSettingsResponseTypeDef",
-    "UpdatePortalRequestRequestTypeDef",
+    "UpdatePortalRequestTypeDef",
     "UpdatePortalResponseTypeDef",
-    "UpdateTrustStoreRequestRequestTypeDef",
+    "UpdateTrustStoreRequestTypeDef",
     "UpdateTrustStoreResponseTypeDef",
-    "UpdateUserAccessLoggingSettingsRequestRequestTypeDef",
+    "UpdateUserAccessLoggingSettingsRequestTypeDef",
     "UpdateUserAccessLoggingSettingsResponseTypeDef",
-    "UpdateUserSettingsRequestRequestTypeDef",
+    "UpdateUserSettingsRequestTypeDef",
     "UpdateUserSettingsResponseTypeDef",
     "UserAccessLoggingSettingsSummaryTypeDef",
     "UserAccessLoggingSettingsTypeDef",
@@ -161,1514 +210,832 @@ __all__ = (
     "UserSettingsTypeDef",
 )
 
-AssociateBrowserSettingsRequestRequestTypeDef = TypedDict(
-    "AssociateBrowserSettingsRequestRequestTypeDef",
-    {
-        "browserSettingsArn": str,
-        "portalArn": str,
-    },
-)
-
-AssociateBrowserSettingsResponseTypeDef = TypedDict(
-    "AssociateBrowserSettingsResponseTypeDef",
-    {
-        "browserSettingsArn": str,
-        "portalArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-AssociateIpAccessSettingsRequestRequestTypeDef = TypedDict(
-    "AssociateIpAccessSettingsRequestRequestTypeDef",
-    {
-        "ipAccessSettingsArn": str,
-        "portalArn": str,
-    },
-)
-
-AssociateIpAccessSettingsResponseTypeDef = TypedDict(
-    "AssociateIpAccessSettingsResponseTypeDef",
-    {
-        "ipAccessSettingsArn": str,
-        "portalArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-AssociateNetworkSettingsRequestRequestTypeDef = TypedDict(
-    "AssociateNetworkSettingsRequestRequestTypeDef",
-    {
-        "networkSettingsArn": str,
-        "portalArn": str,
-    },
-)
-
-AssociateNetworkSettingsResponseTypeDef = TypedDict(
-    "AssociateNetworkSettingsResponseTypeDef",
-    {
-        "networkSettingsArn": str,
-        "portalArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-AssociateTrustStoreRequestRequestTypeDef = TypedDict(
-    "AssociateTrustStoreRequestRequestTypeDef",
-    {
-        "portalArn": str,
-        "trustStoreArn": str,
-    },
-)
-
-AssociateTrustStoreResponseTypeDef = TypedDict(
-    "AssociateTrustStoreResponseTypeDef",
-    {
-        "portalArn": str,
-        "trustStoreArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-AssociateUserAccessLoggingSettingsRequestRequestTypeDef = TypedDict(
-    "AssociateUserAccessLoggingSettingsRequestRequestTypeDef",
-    {
-        "portalArn": str,
-        "userAccessLoggingSettingsArn": str,
-    },
-)
-
-AssociateUserAccessLoggingSettingsResponseTypeDef = TypedDict(
-    "AssociateUserAccessLoggingSettingsResponseTypeDef",
-    {
-        "portalArn": str,
-        "userAccessLoggingSettingsArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-AssociateUserSettingsRequestRequestTypeDef = TypedDict(
-    "AssociateUserSettingsRequestRequestTypeDef",
-    {
-        "portalArn": str,
-        "userSettingsArn": str,
-    },
-)
-
-AssociateUserSettingsResponseTypeDef = TypedDict(
-    "AssociateUserSettingsResponseTypeDef",
-    {
-        "portalArn": str,
-        "userSettingsArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-BrowserSettingsSummaryTypeDef = TypedDict(
-    "BrowserSettingsSummaryTypeDef",
-    {
-        "browserSettingsArn": str,
-    },
-)
-
-_RequiredBrowserSettingsTypeDef = TypedDict(
-    "_RequiredBrowserSettingsTypeDef",
-    {
-        "browserSettingsArn": str,
-    },
-)
-_OptionalBrowserSettingsTypeDef = TypedDict(
-    "_OptionalBrowserSettingsTypeDef",
-    {
-        "additionalEncryptionContext": Dict[str, str],
-        "associatedPortalArns": List[str],
-        "browserPolicy": str,
-        "customerManagedKey": str,
-    },
-    total=False,
-)
-
-class BrowserSettingsTypeDef(_RequiredBrowserSettingsTypeDef, _OptionalBrowserSettingsTypeDef):
-    pass
-
-CertificateSummaryTypeDef = TypedDict(
-    "CertificateSummaryTypeDef",
-    {
-        "issuer": str,
-        "notValidAfter": datetime,
-        "notValidBefore": datetime,
-        "subject": str,
-        "thumbprint": str,
-    },
-    total=False,
-)
-
-CertificateTypeDef = TypedDict(
-    "CertificateTypeDef",
-    {
-        "body": bytes,
-        "issuer": str,
-        "notValidAfter": datetime,
-        "notValidBefore": datetime,
-        "subject": str,
-        "thumbprint": str,
-    },
-    total=False,
-)
-
-_RequiredCookieSpecificationTypeDef = TypedDict(
-    "_RequiredCookieSpecificationTypeDef",
-    {
-        "domain": str,
-    },
-)
-_OptionalCookieSpecificationTypeDef = TypedDict(
-    "_OptionalCookieSpecificationTypeDef",
-    {
-        "name": str,
-        "path": str,
-    },
-    total=False,
-)
-
-class CookieSpecificationTypeDef(
-    _RequiredCookieSpecificationTypeDef, _OptionalCookieSpecificationTypeDef
-):
-    pass
-
-_RequiredCookieSynchronizationConfigurationTypeDef = TypedDict(
-    "_RequiredCookieSynchronizationConfigurationTypeDef",
-    {
-        "allowlist": List["CookieSpecificationTypeDef"],
-    },
-)
-_OptionalCookieSynchronizationConfigurationTypeDef = TypedDict(
-    "_OptionalCookieSynchronizationConfigurationTypeDef",
-    {
-        "blocklist": List["CookieSpecificationTypeDef"],
-    },
-    total=False,
-)
-
-class CookieSynchronizationConfigurationTypeDef(
-    _RequiredCookieSynchronizationConfigurationTypeDef,
-    _OptionalCookieSynchronizationConfigurationTypeDef,
-):
-    pass
-
-_RequiredCreateBrowserSettingsRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateBrowserSettingsRequestRequestTypeDef",
-    {
-        "browserPolicy": str,
-    },
-)
-_OptionalCreateBrowserSettingsRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateBrowserSettingsRequestRequestTypeDef",
-    {
-        "additionalEncryptionContext": Dict[str, str],
-        "clientToken": str,
-        "customerManagedKey": str,
-        "tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateBrowserSettingsRequestRequestTypeDef(
-    _RequiredCreateBrowserSettingsRequestRequestTypeDef,
-    _OptionalCreateBrowserSettingsRequestRequestTypeDef,
-):
-    pass
-
-CreateBrowserSettingsResponseTypeDef = TypedDict(
-    "CreateBrowserSettingsResponseTypeDef",
-    {
-        "browserSettingsArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateIdentityProviderRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateIdentityProviderRequestRequestTypeDef",
-    {
-        "identityProviderDetails": Dict[str, str],
-        "identityProviderName": str,
-        "identityProviderType": IdentityProviderTypeType,
-        "portalArn": str,
-    },
-)
-_OptionalCreateIdentityProviderRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateIdentityProviderRequestRequestTypeDef",
-    {
-        "clientToken": str,
-        "tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateIdentityProviderRequestRequestTypeDef(
-    _RequiredCreateIdentityProviderRequestRequestTypeDef,
-    _OptionalCreateIdentityProviderRequestRequestTypeDef,
-):
-    pass
-
-CreateIdentityProviderResponseTypeDef = TypedDict(
-    "CreateIdentityProviderResponseTypeDef",
-    {
-        "identityProviderArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateIpAccessSettingsRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateIpAccessSettingsRequestRequestTypeDef",
-    {
-        "ipRules": List["IpRuleTypeDef"],
-    },
-)
-_OptionalCreateIpAccessSettingsRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateIpAccessSettingsRequestRequestTypeDef",
-    {
-        "additionalEncryptionContext": Dict[str, str],
-        "clientToken": str,
-        "customerManagedKey": str,
-        "description": str,
-        "displayName": str,
-        "tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateIpAccessSettingsRequestRequestTypeDef(
-    _RequiredCreateIpAccessSettingsRequestRequestTypeDef,
-    _OptionalCreateIpAccessSettingsRequestRequestTypeDef,
-):
-    pass
-
-CreateIpAccessSettingsResponseTypeDef = TypedDict(
-    "CreateIpAccessSettingsResponseTypeDef",
-    {
-        "ipAccessSettingsArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateNetworkSettingsRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateNetworkSettingsRequestRequestTypeDef",
-    {
-        "securityGroupIds": List[str],
-        "subnetIds": List[str],
-        "vpcId": str,
-    },
-)
-_OptionalCreateNetworkSettingsRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateNetworkSettingsRequestRequestTypeDef",
-    {
-        "clientToken": str,
-        "tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateNetworkSettingsRequestRequestTypeDef(
-    _RequiredCreateNetworkSettingsRequestRequestTypeDef,
-    _OptionalCreateNetworkSettingsRequestRequestTypeDef,
-):
-    pass
-
-CreateNetworkSettingsResponseTypeDef = TypedDict(
-    "CreateNetworkSettingsResponseTypeDef",
-    {
-        "networkSettingsArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreatePortalRequestRequestTypeDef = TypedDict(
-    "CreatePortalRequestRequestTypeDef",
-    {
-        "additionalEncryptionContext": Dict[str, str],
-        "authenticationType": AuthenticationTypeType,
-        "clientToken": str,
-        "customerManagedKey": str,
-        "displayName": str,
-        "instanceType": InstanceTypeType,
-        "maxConcurrentSessions": int,
-        "tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-CreatePortalResponseTypeDef = TypedDict(
-    "CreatePortalResponseTypeDef",
-    {
-        "portalArn": str,
-        "portalEndpoint": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateTrustStoreRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateTrustStoreRequestRequestTypeDef",
-    {
-        "certificateList": List[Union[bytes, IO[bytes], StreamingBody]],
-    },
-)
-_OptionalCreateTrustStoreRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateTrustStoreRequestRequestTypeDef",
-    {
-        "clientToken": str,
-        "tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateTrustStoreRequestRequestTypeDef(
-    _RequiredCreateTrustStoreRequestRequestTypeDef, _OptionalCreateTrustStoreRequestRequestTypeDef
-):
-    pass
-
-CreateTrustStoreResponseTypeDef = TypedDict(
-    "CreateTrustStoreResponseTypeDef",
-    {
-        "trustStoreArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateUserAccessLoggingSettingsRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateUserAccessLoggingSettingsRequestRequestTypeDef",
-    {
-        "kinesisStreamArn": str,
-    },
-)
-_OptionalCreateUserAccessLoggingSettingsRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateUserAccessLoggingSettingsRequestRequestTypeDef",
-    {
-        "clientToken": str,
-        "tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateUserAccessLoggingSettingsRequestRequestTypeDef(
-    _RequiredCreateUserAccessLoggingSettingsRequestRequestTypeDef,
-    _OptionalCreateUserAccessLoggingSettingsRequestRequestTypeDef,
-):
-    pass
-
-CreateUserAccessLoggingSettingsResponseTypeDef = TypedDict(
-    "CreateUserAccessLoggingSettingsResponseTypeDef",
-    {
-        "userAccessLoggingSettingsArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateUserSettingsRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateUserSettingsRequestRequestTypeDef",
-    {
-        "copyAllowed": EnabledTypeType,
-        "downloadAllowed": EnabledTypeType,
-        "pasteAllowed": EnabledTypeType,
-        "printAllowed": EnabledTypeType,
-        "uploadAllowed": EnabledTypeType,
-    },
-)
-_OptionalCreateUserSettingsRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateUserSettingsRequestRequestTypeDef",
-    {
-        "additionalEncryptionContext": Dict[str, str],
-        "clientToken": str,
-        "cookieSynchronizationConfiguration": "CookieSynchronizationConfigurationTypeDef",
-        "customerManagedKey": str,
-        "deepLinkAllowed": EnabledTypeType,
-        "disconnectTimeoutInMinutes": int,
-        "idleDisconnectTimeoutInMinutes": int,
-        "tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateUserSettingsRequestRequestTypeDef(
-    _RequiredCreateUserSettingsRequestRequestTypeDef,
-    _OptionalCreateUserSettingsRequestRequestTypeDef,
-):
-    pass
-
-CreateUserSettingsResponseTypeDef = TypedDict(
-    "CreateUserSettingsResponseTypeDef",
-    {
-        "userSettingsArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteBrowserSettingsRequestRequestTypeDef = TypedDict(
-    "DeleteBrowserSettingsRequestRequestTypeDef",
-    {
-        "browserSettingsArn": str,
-    },
-)
-
-DeleteIdentityProviderRequestRequestTypeDef = TypedDict(
-    "DeleteIdentityProviderRequestRequestTypeDef",
-    {
-        "identityProviderArn": str,
-    },
-)
-
-DeleteIpAccessSettingsRequestRequestTypeDef = TypedDict(
-    "DeleteIpAccessSettingsRequestRequestTypeDef",
-    {
-        "ipAccessSettingsArn": str,
-    },
-)
-
-DeleteNetworkSettingsRequestRequestTypeDef = TypedDict(
-    "DeleteNetworkSettingsRequestRequestTypeDef",
-    {
-        "networkSettingsArn": str,
-    },
-)
-
-DeletePortalRequestRequestTypeDef = TypedDict(
-    "DeletePortalRequestRequestTypeDef",
-    {
-        "portalArn": str,
-    },
-)
-
-DeleteTrustStoreRequestRequestTypeDef = TypedDict(
-    "DeleteTrustStoreRequestRequestTypeDef",
-    {
-        "trustStoreArn": str,
-    },
-)
-
-DeleteUserAccessLoggingSettingsRequestRequestTypeDef = TypedDict(
-    "DeleteUserAccessLoggingSettingsRequestRequestTypeDef",
-    {
-        "userAccessLoggingSettingsArn": str,
-    },
-)
-
-DeleteUserSettingsRequestRequestTypeDef = TypedDict(
-    "DeleteUserSettingsRequestRequestTypeDef",
-    {
-        "userSettingsArn": str,
-    },
-)
-
-DisassociateBrowserSettingsRequestRequestTypeDef = TypedDict(
-    "DisassociateBrowserSettingsRequestRequestTypeDef",
-    {
-        "portalArn": str,
-    },
-)
-
-DisassociateIpAccessSettingsRequestRequestTypeDef = TypedDict(
-    "DisassociateIpAccessSettingsRequestRequestTypeDef",
-    {
-        "portalArn": str,
-    },
-)
-
-DisassociateNetworkSettingsRequestRequestTypeDef = TypedDict(
-    "DisassociateNetworkSettingsRequestRequestTypeDef",
-    {
-        "portalArn": str,
-    },
-)
-
-DisassociateTrustStoreRequestRequestTypeDef = TypedDict(
-    "DisassociateTrustStoreRequestRequestTypeDef",
-    {
-        "portalArn": str,
-    },
-)
-
-DisassociateUserAccessLoggingSettingsRequestRequestTypeDef = TypedDict(
-    "DisassociateUserAccessLoggingSettingsRequestRequestTypeDef",
-    {
-        "portalArn": str,
-    },
-)
-
-DisassociateUserSettingsRequestRequestTypeDef = TypedDict(
-    "DisassociateUserSettingsRequestRequestTypeDef",
-    {
-        "portalArn": str,
-    },
-)
-
-GetBrowserSettingsRequestRequestTypeDef = TypedDict(
-    "GetBrowserSettingsRequestRequestTypeDef",
-    {
-        "browserSettingsArn": str,
-    },
-)
-
-GetBrowserSettingsResponseTypeDef = TypedDict(
-    "GetBrowserSettingsResponseTypeDef",
-    {
-        "browserSettings": "BrowserSettingsTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetIdentityProviderRequestRequestTypeDef = TypedDict(
-    "GetIdentityProviderRequestRequestTypeDef",
-    {
-        "identityProviderArn": str,
-    },
-)
-
-GetIdentityProviderResponseTypeDef = TypedDict(
-    "GetIdentityProviderResponseTypeDef",
-    {
-        "identityProvider": "IdentityProviderTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetIpAccessSettingsRequestRequestTypeDef = TypedDict(
-    "GetIpAccessSettingsRequestRequestTypeDef",
-    {
-        "ipAccessSettingsArn": str,
-    },
-)
-
-GetIpAccessSettingsResponseTypeDef = TypedDict(
-    "GetIpAccessSettingsResponseTypeDef",
-    {
-        "ipAccessSettings": "IpAccessSettingsTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetNetworkSettingsRequestRequestTypeDef = TypedDict(
-    "GetNetworkSettingsRequestRequestTypeDef",
-    {
-        "networkSettingsArn": str,
-    },
-)
-
-GetNetworkSettingsResponseTypeDef = TypedDict(
-    "GetNetworkSettingsResponseTypeDef",
-    {
-        "networkSettings": "NetworkSettingsTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetPortalRequestRequestTypeDef = TypedDict(
-    "GetPortalRequestRequestTypeDef",
-    {
-        "portalArn": str,
-    },
-)
-
-GetPortalResponseTypeDef = TypedDict(
-    "GetPortalResponseTypeDef",
-    {
-        "portal": "PortalTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetPortalServiceProviderMetadataRequestRequestTypeDef = TypedDict(
-    "GetPortalServiceProviderMetadataRequestRequestTypeDef",
-    {
-        "portalArn": str,
-    },
-)
-
-GetPortalServiceProviderMetadataResponseTypeDef = TypedDict(
-    "GetPortalServiceProviderMetadataResponseTypeDef",
-    {
-        "portalArn": str,
-        "serviceProviderSamlMetadata": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetTrustStoreCertificateRequestRequestTypeDef = TypedDict(
-    "GetTrustStoreCertificateRequestRequestTypeDef",
-    {
-        "thumbprint": str,
-        "trustStoreArn": str,
-    },
-)
-
-GetTrustStoreCertificateResponseTypeDef = TypedDict(
-    "GetTrustStoreCertificateResponseTypeDef",
-    {
-        "certificate": "CertificateTypeDef",
-        "trustStoreArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetTrustStoreRequestRequestTypeDef = TypedDict(
-    "GetTrustStoreRequestRequestTypeDef",
-    {
-        "trustStoreArn": str,
-    },
-)
-
-GetTrustStoreResponseTypeDef = TypedDict(
-    "GetTrustStoreResponseTypeDef",
-    {
-        "trustStore": "TrustStoreTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetUserAccessLoggingSettingsRequestRequestTypeDef = TypedDict(
-    "GetUserAccessLoggingSettingsRequestRequestTypeDef",
-    {
-        "userAccessLoggingSettingsArn": str,
-    },
-)
-
-GetUserAccessLoggingSettingsResponseTypeDef = TypedDict(
-    "GetUserAccessLoggingSettingsResponseTypeDef",
-    {
-        "userAccessLoggingSettings": "UserAccessLoggingSettingsTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetUserSettingsRequestRequestTypeDef = TypedDict(
-    "GetUserSettingsRequestRequestTypeDef",
-    {
-        "userSettingsArn": str,
-    },
-)
-
-GetUserSettingsResponseTypeDef = TypedDict(
-    "GetUserSettingsResponseTypeDef",
-    {
-        "userSettings": "UserSettingsTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredIdentityProviderSummaryTypeDef = TypedDict(
-    "_RequiredIdentityProviderSummaryTypeDef",
-    {
-        "identityProviderArn": str,
-    },
-)
-_OptionalIdentityProviderSummaryTypeDef = TypedDict(
-    "_OptionalIdentityProviderSummaryTypeDef",
-    {
-        "identityProviderName": str,
-        "identityProviderType": IdentityProviderTypeType,
-    },
-    total=False,
-)
-
-class IdentityProviderSummaryTypeDef(
-    _RequiredIdentityProviderSummaryTypeDef, _OptionalIdentityProviderSummaryTypeDef
-):
-    pass
-
-_RequiredIdentityProviderTypeDef = TypedDict(
-    "_RequiredIdentityProviderTypeDef",
-    {
-        "identityProviderArn": str,
-    },
-)
-_OptionalIdentityProviderTypeDef = TypedDict(
-    "_OptionalIdentityProviderTypeDef",
-    {
-        "identityProviderDetails": Dict[str, str],
-        "identityProviderName": str,
-        "identityProviderType": IdentityProviderTypeType,
-    },
-    total=False,
-)
-
-class IdentityProviderTypeDef(_RequiredIdentityProviderTypeDef, _OptionalIdentityProviderTypeDef):
-    pass
-
-_RequiredIpAccessSettingsSummaryTypeDef = TypedDict(
-    "_RequiredIpAccessSettingsSummaryTypeDef",
-    {
-        "ipAccessSettingsArn": str,
-    },
-)
-_OptionalIpAccessSettingsSummaryTypeDef = TypedDict(
-    "_OptionalIpAccessSettingsSummaryTypeDef",
-    {
-        "creationDate": datetime,
-        "description": str,
-        "displayName": str,
-    },
-    total=False,
-)
-
-class IpAccessSettingsSummaryTypeDef(
-    _RequiredIpAccessSettingsSummaryTypeDef, _OptionalIpAccessSettingsSummaryTypeDef
-):
-    pass
-
-_RequiredIpAccessSettingsTypeDef = TypedDict(
-    "_RequiredIpAccessSettingsTypeDef",
-    {
-        "ipAccessSettingsArn": str,
-    },
-)
-_OptionalIpAccessSettingsTypeDef = TypedDict(
-    "_OptionalIpAccessSettingsTypeDef",
-    {
-        "additionalEncryptionContext": Dict[str, str],
-        "associatedPortalArns": List[str],
-        "creationDate": datetime,
-        "customerManagedKey": str,
-        "description": str,
-        "displayName": str,
-        "ipRules": List["IpRuleTypeDef"],
-    },
-    total=False,
-)
-
-class IpAccessSettingsTypeDef(_RequiredIpAccessSettingsTypeDef, _OptionalIpAccessSettingsTypeDef):
-    pass
-
-_RequiredIpRuleTypeDef = TypedDict(
-    "_RequiredIpRuleTypeDef",
-    {
-        "ipRange": str,
-    },
-)
-_OptionalIpRuleTypeDef = TypedDict(
-    "_OptionalIpRuleTypeDef",
-    {
-        "description": str,
-    },
-    total=False,
-)
-
-class IpRuleTypeDef(_RequiredIpRuleTypeDef, _OptionalIpRuleTypeDef):
-    pass
-
-ListBrowserSettingsRequestRequestTypeDef = TypedDict(
-    "ListBrowserSettingsRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-ListBrowserSettingsResponseTypeDef = TypedDict(
-    "ListBrowserSettingsResponseTypeDef",
-    {
-        "browserSettings": List["BrowserSettingsSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListIdentityProvidersRequestRequestTypeDef = TypedDict(
-    "_RequiredListIdentityProvidersRequestRequestTypeDef",
-    {
-        "portalArn": str,
-    },
-)
-_OptionalListIdentityProvidersRequestRequestTypeDef = TypedDict(
-    "_OptionalListIdentityProvidersRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListIdentityProvidersRequestRequestTypeDef(
-    _RequiredListIdentityProvidersRequestRequestTypeDef,
-    _OptionalListIdentityProvidersRequestRequestTypeDef,
-):
-    pass
-
-ListIdentityProvidersResponseTypeDef = TypedDict(
-    "ListIdentityProvidersResponseTypeDef",
-    {
-        "identityProviders": List["IdentityProviderSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListIpAccessSettingsRequestRequestTypeDef = TypedDict(
-    "ListIpAccessSettingsRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-ListIpAccessSettingsResponseTypeDef = TypedDict(
-    "ListIpAccessSettingsResponseTypeDef",
-    {
-        "ipAccessSettings": List["IpAccessSettingsSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListNetworkSettingsRequestRequestTypeDef = TypedDict(
-    "ListNetworkSettingsRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-ListNetworkSettingsResponseTypeDef = TypedDict(
-    "ListNetworkSettingsResponseTypeDef",
-    {
-        "networkSettings": List["NetworkSettingsSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListPortalsRequestRequestTypeDef = TypedDict(
-    "ListPortalsRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-ListPortalsResponseTypeDef = TypedDict(
-    "ListPortalsResponseTypeDef",
-    {
-        "nextToken": str,
-        "portals": List["PortalSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-    },
-)
-
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "tags": List["TagTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListTrustStoreCertificatesRequestRequestTypeDef = TypedDict(
-    "_RequiredListTrustStoreCertificatesRequestRequestTypeDef",
-    {
-        "trustStoreArn": str,
-    },
-)
-_OptionalListTrustStoreCertificatesRequestRequestTypeDef = TypedDict(
-    "_OptionalListTrustStoreCertificatesRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListTrustStoreCertificatesRequestRequestTypeDef(
-    _RequiredListTrustStoreCertificatesRequestRequestTypeDef,
-    _OptionalListTrustStoreCertificatesRequestRequestTypeDef,
-):
-    pass
-
-ListTrustStoreCertificatesResponseTypeDef = TypedDict(
-    "ListTrustStoreCertificatesResponseTypeDef",
-    {
-        "certificateList": List["CertificateSummaryTypeDef"],
-        "nextToken": str,
-        "trustStoreArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTrustStoresRequestRequestTypeDef = TypedDict(
-    "ListTrustStoresRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-ListTrustStoresResponseTypeDef = TypedDict(
-    "ListTrustStoresResponseTypeDef",
-    {
-        "nextToken": str,
-        "trustStores": List["TrustStoreSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListUserAccessLoggingSettingsRequestRequestTypeDef = TypedDict(
-    "ListUserAccessLoggingSettingsRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-ListUserAccessLoggingSettingsResponseTypeDef = TypedDict(
-    "ListUserAccessLoggingSettingsResponseTypeDef",
-    {
-        "nextToken": str,
-        "userAccessLoggingSettings": List["UserAccessLoggingSettingsSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListUserSettingsRequestRequestTypeDef = TypedDict(
-    "ListUserSettingsRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-ListUserSettingsResponseTypeDef = TypedDict(
-    "ListUserSettingsResponseTypeDef",
-    {
-        "nextToken": str,
-        "userSettings": List["UserSettingsSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredNetworkSettingsSummaryTypeDef = TypedDict(
-    "_RequiredNetworkSettingsSummaryTypeDef",
-    {
-        "networkSettingsArn": str,
-    },
-)
-_OptionalNetworkSettingsSummaryTypeDef = TypedDict(
-    "_OptionalNetworkSettingsSummaryTypeDef",
-    {
-        "vpcId": str,
-    },
-    total=False,
-)
-
-class NetworkSettingsSummaryTypeDef(
-    _RequiredNetworkSettingsSummaryTypeDef, _OptionalNetworkSettingsSummaryTypeDef
-):
-    pass
-
-_RequiredNetworkSettingsTypeDef = TypedDict(
-    "_RequiredNetworkSettingsTypeDef",
-    {
-        "networkSettingsArn": str,
-    },
-)
-_OptionalNetworkSettingsTypeDef = TypedDict(
-    "_OptionalNetworkSettingsTypeDef",
-    {
-        "associatedPortalArns": List[str],
-        "securityGroupIds": List[str],
-        "subnetIds": List[str],
-        "vpcId": str,
-    },
-    total=False,
-)
-
-class NetworkSettingsTypeDef(_RequiredNetworkSettingsTypeDef, _OptionalNetworkSettingsTypeDef):
-    pass
-
-_RequiredPortalSummaryTypeDef = TypedDict(
-    "_RequiredPortalSummaryTypeDef",
-    {
-        "portalArn": str,
-    },
-)
-_OptionalPortalSummaryTypeDef = TypedDict(
-    "_OptionalPortalSummaryTypeDef",
-    {
-        "authenticationType": AuthenticationTypeType,
-        "browserSettingsArn": str,
-        "browserType": Literal["Chrome"],
-        "creationDate": datetime,
-        "displayName": str,
-        "instanceType": InstanceTypeType,
-        "ipAccessSettingsArn": str,
-        "maxConcurrentSessions": int,
-        "networkSettingsArn": str,
-        "portalEndpoint": str,
-        "portalStatus": PortalStatusType,
-        "rendererType": Literal["AppStream"],
-        "trustStoreArn": str,
-        "userAccessLoggingSettingsArn": str,
-        "userSettingsArn": str,
-    },
-    total=False,
-)
-
-class PortalSummaryTypeDef(_RequiredPortalSummaryTypeDef, _OptionalPortalSummaryTypeDef):
-    pass
-
-_RequiredPortalTypeDef = TypedDict(
-    "_RequiredPortalTypeDef",
-    {
-        "portalArn": str,
-    },
-)
-_OptionalPortalTypeDef = TypedDict(
-    "_OptionalPortalTypeDef",
-    {
-        "additionalEncryptionContext": Dict[str, str],
-        "authenticationType": AuthenticationTypeType,
-        "browserSettingsArn": str,
-        "browserType": Literal["Chrome"],
-        "creationDate": datetime,
-        "customerManagedKey": str,
-        "displayName": str,
-        "instanceType": InstanceTypeType,
-        "ipAccessSettingsArn": str,
-        "maxConcurrentSessions": int,
-        "networkSettingsArn": str,
-        "portalEndpoint": str,
-        "portalStatus": PortalStatusType,
-        "rendererType": Literal["AppStream"],
-        "statusReason": str,
-        "trustStoreArn": str,
-        "userAccessLoggingSettingsArn": str,
-        "userSettingsArn": str,
-    },
-    total=False,
-)
-
-class PortalTypeDef(_RequiredPortalTypeDef, _OptionalPortalTypeDef):
-    pass
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-_RequiredTagResourceRequestRequestTypeDef = TypedDict(
-    "_RequiredTagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tags": List["TagTypeDef"],
-    },
-)
-_OptionalTagResourceRequestRequestTypeDef = TypedDict(
-    "_OptionalTagResourceRequestRequestTypeDef",
-    {
-        "clientToken": str,
-    },
-    total=False,
-)
-
-class TagResourceRequestRequestTypeDef(
-    _RequiredTagResourceRequestRequestTypeDef, _OptionalTagResourceRequestRequestTypeDef
-):
-    pass
-
-TagTypeDef = TypedDict(
-    "TagTypeDef",
-    {
-        "Key": str,
-        "Value": str,
-    },
-)
-
-TrustStoreSummaryTypeDef = TypedDict(
-    "TrustStoreSummaryTypeDef",
-    {
-        "trustStoreArn": str,
-    },
-    total=False,
-)
-
-_RequiredTrustStoreTypeDef = TypedDict(
-    "_RequiredTrustStoreTypeDef",
-    {
-        "trustStoreArn": str,
-    },
-)
-_OptionalTrustStoreTypeDef = TypedDict(
-    "_OptionalTrustStoreTypeDef",
-    {
-        "associatedPortalArns": List[str],
-    },
-    total=False,
-)
-
-class TrustStoreTypeDef(_RequiredTrustStoreTypeDef, _OptionalTrustStoreTypeDef):
-    pass
-
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tagKeys": List[str],
-    },
-)
-
-_RequiredUpdateBrowserSettingsRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateBrowserSettingsRequestRequestTypeDef",
-    {
-        "browserSettingsArn": str,
-    },
-)
-_OptionalUpdateBrowserSettingsRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateBrowserSettingsRequestRequestTypeDef",
-    {
-        "browserPolicy": str,
-        "clientToken": str,
-    },
-    total=False,
-)
-
-class UpdateBrowserSettingsRequestRequestTypeDef(
-    _RequiredUpdateBrowserSettingsRequestRequestTypeDef,
-    _OptionalUpdateBrowserSettingsRequestRequestTypeDef,
-):
-    pass
-
-UpdateBrowserSettingsResponseTypeDef = TypedDict(
-    "UpdateBrowserSettingsResponseTypeDef",
-    {
-        "browserSettings": "BrowserSettingsTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateIdentityProviderRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateIdentityProviderRequestRequestTypeDef",
-    {
-        "identityProviderArn": str,
-    },
-)
-_OptionalUpdateIdentityProviderRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateIdentityProviderRequestRequestTypeDef",
-    {
-        "clientToken": str,
-        "identityProviderDetails": Dict[str, str],
-        "identityProviderName": str,
-        "identityProviderType": IdentityProviderTypeType,
-    },
-    total=False,
-)
-
-class UpdateIdentityProviderRequestRequestTypeDef(
-    _RequiredUpdateIdentityProviderRequestRequestTypeDef,
-    _OptionalUpdateIdentityProviderRequestRequestTypeDef,
-):
-    pass
-
-UpdateIdentityProviderResponseTypeDef = TypedDict(
-    "UpdateIdentityProviderResponseTypeDef",
-    {
-        "identityProvider": "IdentityProviderTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateIpAccessSettingsRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateIpAccessSettingsRequestRequestTypeDef",
-    {
-        "ipAccessSettingsArn": str,
-    },
-)
-_OptionalUpdateIpAccessSettingsRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateIpAccessSettingsRequestRequestTypeDef",
-    {
-        "clientToken": str,
-        "description": str,
-        "displayName": str,
-        "ipRules": List["IpRuleTypeDef"],
-    },
-    total=False,
-)
-
-class UpdateIpAccessSettingsRequestRequestTypeDef(
-    _RequiredUpdateIpAccessSettingsRequestRequestTypeDef,
-    _OptionalUpdateIpAccessSettingsRequestRequestTypeDef,
-):
-    pass
-
-UpdateIpAccessSettingsResponseTypeDef = TypedDict(
-    "UpdateIpAccessSettingsResponseTypeDef",
-    {
-        "ipAccessSettings": "IpAccessSettingsTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateNetworkSettingsRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateNetworkSettingsRequestRequestTypeDef",
-    {
-        "networkSettingsArn": str,
-    },
-)
-_OptionalUpdateNetworkSettingsRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateNetworkSettingsRequestRequestTypeDef",
-    {
-        "clientToken": str,
-        "securityGroupIds": List[str],
-        "subnetIds": List[str],
-        "vpcId": str,
-    },
-    total=False,
-)
-
-class UpdateNetworkSettingsRequestRequestTypeDef(
-    _RequiredUpdateNetworkSettingsRequestRequestTypeDef,
-    _OptionalUpdateNetworkSettingsRequestRequestTypeDef,
-):
-    pass
-
-UpdateNetworkSettingsResponseTypeDef = TypedDict(
-    "UpdateNetworkSettingsResponseTypeDef",
-    {
-        "networkSettings": "NetworkSettingsTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdatePortalRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdatePortalRequestRequestTypeDef",
-    {
-        "portalArn": str,
-    },
-)
-_OptionalUpdatePortalRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdatePortalRequestRequestTypeDef",
-    {
-        "authenticationType": AuthenticationTypeType,
-        "displayName": str,
-        "instanceType": InstanceTypeType,
-        "maxConcurrentSessions": int,
-    },
-    total=False,
-)
-
-class UpdatePortalRequestRequestTypeDef(
-    _RequiredUpdatePortalRequestRequestTypeDef, _OptionalUpdatePortalRequestRequestTypeDef
-):
-    pass
-
-UpdatePortalResponseTypeDef = TypedDict(
-    "UpdatePortalResponseTypeDef",
-    {
-        "portal": "PortalTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateTrustStoreRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateTrustStoreRequestRequestTypeDef",
-    {
-        "trustStoreArn": str,
-    },
-)
-_OptionalUpdateTrustStoreRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateTrustStoreRequestRequestTypeDef",
-    {
-        "certificatesToAdd": List[Union[bytes, IO[bytes], StreamingBody]],
-        "certificatesToDelete": List[str],
-        "clientToken": str,
-    },
-    total=False,
-)
-
-class UpdateTrustStoreRequestRequestTypeDef(
-    _RequiredUpdateTrustStoreRequestRequestTypeDef, _OptionalUpdateTrustStoreRequestRequestTypeDef
-):
-    pass
-
-UpdateTrustStoreResponseTypeDef = TypedDict(
-    "UpdateTrustStoreResponseTypeDef",
-    {
-        "trustStoreArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateUserAccessLoggingSettingsRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateUserAccessLoggingSettingsRequestRequestTypeDef",
-    {
-        "userAccessLoggingSettingsArn": str,
-    },
-)
-_OptionalUpdateUserAccessLoggingSettingsRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateUserAccessLoggingSettingsRequestRequestTypeDef",
-    {
-        "clientToken": str,
-        "kinesisStreamArn": str,
-    },
-    total=False,
-)
-
-class UpdateUserAccessLoggingSettingsRequestRequestTypeDef(
-    _RequiredUpdateUserAccessLoggingSettingsRequestRequestTypeDef,
-    _OptionalUpdateUserAccessLoggingSettingsRequestRequestTypeDef,
-):
-    pass
-
-UpdateUserAccessLoggingSettingsResponseTypeDef = TypedDict(
-    "UpdateUserAccessLoggingSettingsResponseTypeDef",
-    {
-        "userAccessLoggingSettings": "UserAccessLoggingSettingsTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateUserSettingsRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateUserSettingsRequestRequestTypeDef",
-    {
-        "userSettingsArn": str,
-    },
-)
-_OptionalUpdateUserSettingsRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateUserSettingsRequestRequestTypeDef",
-    {
-        "clientToken": str,
-        "cookieSynchronizationConfiguration": "CookieSynchronizationConfigurationTypeDef",
-        "copyAllowed": EnabledTypeType,
-        "deepLinkAllowed": EnabledTypeType,
-        "disconnectTimeoutInMinutes": int,
-        "downloadAllowed": EnabledTypeType,
-        "idleDisconnectTimeoutInMinutes": int,
-        "pasteAllowed": EnabledTypeType,
-        "printAllowed": EnabledTypeType,
-        "uploadAllowed": EnabledTypeType,
-    },
-    total=False,
-)
-
-class UpdateUserSettingsRequestRequestTypeDef(
-    _RequiredUpdateUserSettingsRequestRequestTypeDef,
-    _OptionalUpdateUserSettingsRequestRequestTypeDef,
-):
-    pass
-
-UpdateUserSettingsResponseTypeDef = TypedDict(
-    "UpdateUserSettingsResponseTypeDef",
-    {
-        "userSettings": "UserSettingsTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUserAccessLoggingSettingsSummaryTypeDef = TypedDict(
-    "_RequiredUserAccessLoggingSettingsSummaryTypeDef",
-    {
-        "userAccessLoggingSettingsArn": str,
-    },
-)
-_OptionalUserAccessLoggingSettingsSummaryTypeDef = TypedDict(
-    "_OptionalUserAccessLoggingSettingsSummaryTypeDef",
-    {
-        "kinesisStreamArn": str,
-    },
-    total=False,
-)
-
-class UserAccessLoggingSettingsSummaryTypeDef(
-    _RequiredUserAccessLoggingSettingsSummaryTypeDef,
-    _OptionalUserAccessLoggingSettingsSummaryTypeDef,
-):
-    pass
-
-_RequiredUserAccessLoggingSettingsTypeDef = TypedDict(
-    "_RequiredUserAccessLoggingSettingsTypeDef",
-    {
-        "userAccessLoggingSettingsArn": str,
-    },
-)
-_OptionalUserAccessLoggingSettingsTypeDef = TypedDict(
-    "_OptionalUserAccessLoggingSettingsTypeDef",
-    {
-        "associatedPortalArns": List[str],
-        "kinesisStreamArn": str,
-    },
-    total=False,
-)
-
-class UserAccessLoggingSettingsTypeDef(
-    _RequiredUserAccessLoggingSettingsTypeDef, _OptionalUserAccessLoggingSettingsTypeDef
-):
-    pass
-
-_RequiredUserSettingsSummaryTypeDef = TypedDict(
-    "_RequiredUserSettingsSummaryTypeDef",
-    {
-        "userSettingsArn": str,
-    },
-)
-_OptionalUserSettingsSummaryTypeDef = TypedDict(
-    "_OptionalUserSettingsSummaryTypeDef",
-    {
-        "cookieSynchronizationConfiguration": "CookieSynchronizationConfigurationTypeDef",
-        "copyAllowed": EnabledTypeType,
-        "deepLinkAllowed": EnabledTypeType,
-        "disconnectTimeoutInMinutes": int,
-        "downloadAllowed": EnabledTypeType,
-        "idleDisconnectTimeoutInMinutes": int,
-        "pasteAllowed": EnabledTypeType,
-        "printAllowed": EnabledTypeType,
-        "uploadAllowed": EnabledTypeType,
-    },
-    total=False,
-)
-
-class UserSettingsSummaryTypeDef(
-    _RequiredUserSettingsSummaryTypeDef, _OptionalUserSettingsSummaryTypeDef
-):
-    pass
-
-_RequiredUserSettingsTypeDef = TypedDict(
-    "_RequiredUserSettingsTypeDef",
-    {
-        "userSettingsArn": str,
-    },
-)
-_OptionalUserSettingsTypeDef = TypedDict(
-    "_OptionalUserSettingsTypeDef",
-    {
-        "additionalEncryptionContext": Dict[str, str],
-        "associatedPortalArns": List[str],
-        "cookieSynchronizationConfiguration": "CookieSynchronizationConfigurationTypeDef",
-        "copyAllowed": EnabledTypeType,
-        "customerManagedKey": str,
-        "deepLinkAllowed": EnabledTypeType,
-        "disconnectTimeoutInMinutes": int,
-        "downloadAllowed": EnabledTypeType,
-        "idleDisconnectTimeoutInMinutes": int,
-        "pasteAllowed": EnabledTypeType,
-        "printAllowed": EnabledTypeType,
-        "uploadAllowed": EnabledTypeType,
-    },
-    total=False,
-)
-
-class UserSettingsTypeDef(_RequiredUserSettingsTypeDef, _OptionalUserSettingsTypeDef):
-    pass
+class AssociateBrowserSettingsRequestTypeDef(TypedDict):
+    browserSettingsArn: str
+    portalArn: str
+
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
+
+class AssociateDataProtectionSettingsRequestTypeDef(TypedDict):
+    dataProtectionSettingsArn: str
+    portalArn: str
+
+class AssociateIpAccessSettingsRequestTypeDef(TypedDict):
+    ipAccessSettingsArn: str
+    portalArn: str
+
+class AssociateNetworkSettingsRequestTypeDef(TypedDict):
+    networkSettingsArn: str
+    portalArn: str
+
+class AssociateTrustStoreRequestTypeDef(TypedDict):
+    portalArn: str
+    trustStoreArn: str
+
+class AssociateUserAccessLoggingSettingsRequestTypeDef(TypedDict):
+    portalArn: str
+    userAccessLoggingSettingsArn: str
+
+class AssociateUserSettingsRequestTypeDef(TypedDict):
+    portalArn: str
+    userSettingsArn: str
+
+BlobTypeDef = Union[str, bytes, IO[Any], StreamingBody]
+
+class BrowserSettingsSummaryTypeDef(TypedDict):
+    browserSettingsArn: str
+
+class BrowserSettingsTypeDef(TypedDict):
+    browserSettingsArn: str
+    additionalEncryptionContext: NotRequired[Dict[str, str]]
+    associatedPortalArns: NotRequired[List[str]]
+    browserPolicy: NotRequired[str]
+    customerManagedKey: NotRequired[str]
+
+class CertificateSummaryTypeDef(TypedDict):
+    issuer: NotRequired[str]
+    notValidAfter: NotRequired[datetime]
+    notValidBefore: NotRequired[datetime]
+    subject: NotRequired[str]
+    thumbprint: NotRequired[str]
+
+class CertificateTypeDef(TypedDict):
+    body: NotRequired[bytes]
+    issuer: NotRequired[str]
+    notValidAfter: NotRequired[datetime]
+    notValidBefore: NotRequired[datetime]
+    subject: NotRequired[str]
+    thumbprint: NotRequired[str]
+
+class CookieSpecificationTypeDef(TypedDict):
+    domain: str
+    name: NotRequired[str]
+    path: NotRequired[str]
+
+class TagTypeDef(TypedDict):
+    Key: str
+    Value: str
+
+class IpRuleTypeDef(TypedDict):
+    ipRange: str
+    description: NotRequired[str]
+
+class CustomPatternTypeDef(TypedDict):
+    patternName: str
+    patternRegex: str
+    keywordRegex: NotRequired[str]
+    patternDescription: NotRequired[str]
+
+class DataProtectionSettingsSummaryTypeDef(TypedDict):
+    dataProtectionSettingsArn: str
+    creationDate: NotRequired[datetime]
+    description: NotRequired[str]
+    displayName: NotRequired[str]
+
+class DeleteBrowserSettingsRequestTypeDef(TypedDict):
+    browserSettingsArn: str
+
+class DeleteDataProtectionSettingsRequestTypeDef(TypedDict):
+    dataProtectionSettingsArn: str
+
+class DeleteIdentityProviderRequestTypeDef(TypedDict):
+    identityProviderArn: str
+
+class DeleteIpAccessSettingsRequestTypeDef(TypedDict):
+    ipAccessSettingsArn: str
+
+class DeleteNetworkSettingsRequestTypeDef(TypedDict):
+    networkSettingsArn: str
+
+class DeletePortalRequestTypeDef(TypedDict):
+    portalArn: str
+
+class DeleteTrustStoreRequestTypeDef(TypedDict):
+    trustStoreArn: str
+
+class DeleteUserAccessLoggingSettingsRequestTypeDef(TypedDict):
+    userAccessLoggingSettingsArn: str
+
+class DeleteUserSettingsRequestTypeDef(TypedDict):
+    userSettingsArn: str
+
+class DisassociateBrowserSettingsRequestTypeDef(TypedDict):
+    portalArn: str
+
+class DisassociateDataProtectionSettingsRequestTypeDef(TypedDict):
+    portalArn: str
+
+class DisassociateIpAccessSettingsRequestTypeDef(TypedDict):
+    portalArn: str
+
+class DisassociateNetworkSettingsRequestTypeDef(TypedDict):
+    portalArn: str
+
+class DisassociateTrustStoreRequestTypeDef(TypedDict):
+    portalArn: str
+
+class DisassociateUserAccessLoggingSettingsRequestTypeDef(TypedDict):
+    portalArn: str
+
+class DisassociateUserSettingsRequestTypeDef(TypedDict):
+    portalArn: str
+
+class ExpireSessionRequestTypeDef(TypedDict):
+    portalId: str
+    sessionId: str
+
+class GetBrowserSettingsRequestTypeDef(TypedDict):
+    browserSettingsArn: str
+
+class GetDataProtectionSettingsRequestTypeDef(TypedDict):
+    dataProtectionSettingsArn: str
+
+class GetIdentityProviderRequestTypeDef(TypedDict):
+    identityProviderArn: str
+
+class IdentityProviderTypeDef(TypedDict):
+    identityProviderArn: str
+    identityProviderDetails: NotRequired[Dict[str, str]]
+    identityProviderName: NotRequired[str]
+    identityProviderType: NotRequired[IdentityProviderTypeType]
+
+class GetIpAccessSettingsRequestTypeDef(TypedDict):
+    ipAccessSettingsArn: str
+
+class GetNetworkSettingsRequestTypeDef(TypedDict):
+    networkSettingsArn: str
+
+class NetworkSettingsTypeDef(TypedDict):
+    networkSettingsArn: str
+    associatedPortalArns: NotRequired[List[str]]
+    securityGroupIds: NotRequired[List[str]]
+    subnetIds: NotRequired[List[str]]
+    vpcId: NotRequired[str]
+
+class GetPortalRequestTypeDef(TypedDict):
+    portalArn: str
+
+class PortalTypeDef(TypedDict):
+    portalArn: str
+    additionalEncryptionContext: NotRequired[Dict[str, str]]
+    authenticationType: NotRequired[AuthenticationTypeType]
+    browserSettingsArn: NotRequired[str]
+    browserType: NotRequired[Literal["Chrome"]]
+    creationDate: NotRequired[datetime]
+    customerManagedKey: NotRequired[str]
+    dataProtectionSettingsArn: NotRequired[str]
+    displayName: NotRequired[str]
+    instanceType: NotRequired[InstanceTypeType]
+    ipAccessSettingsArn: NotRequired[str]
+    maxConcurrentSessions: NotRequired[int]
+    networkSettingsArn: NotRequired[str]
+    portalEndpoint: NotRequired[str]
+    portalStatus: NotRequired[PortalStatusType]
+    rendererType: NotRequired[Literal["AppStream"]]
+    statusReason: NotRequired[str]
+    trustStoreArn: NotRequired[str]
+    userAccessLoggingSettingsArn: NotRequired[str]
+    userSettingsArn: NotRequired[str]
+
+class GetPortalServiceProviderMetadataRequestTypeDef(TypedDict):
+    portalArn: str
+
+class GetSessionRequestTypeDef(TypedDict):
+    portalId: str
+    sessionId: str
+
+class SessionTypeDef(TypedDict):
+    clientIpAddresses: NotRequired[List[str]]
+    endTime: NotRequired[datetime]
+    portalArn: NotRequired[str]
+    sessionId: NotRequired[str]
+    startTime: NotRequired[datetime]
+    status: NotRequired[SessionStatusType]
+    username: NotRequired[str]
+
+class GetTrustStoreCertificateRequestTypeDef(TypedDict):
+    thumbprint: str
+    trustStoreArn: str
+
+class GetTrustStoreRequestTypeDef(TypedDict):
+    trustStoreArn: str
+
+class TrustStoreTypeDef(TypedDict):
+    trustStoreArn: str
+    associatedPortalArns: NotRequired[List[str]]
+
+class GetUserAccessLoggingSettingsRequestTypeDef(TypedDict):
+    userAccessLoggingSettingsArn: str
+
+class UserAccessLoggingSettingsTypeDef(TypedDict):
+    userAccessLoggingSettingsArn: str
+    associatedPortalArns: NotRequired[List[str]]
+    kinesisStreamArn: NotRequired[str]
+
+class GetUserSettingsRequestTypeDef(TypedDict):
+    userSettingsArn: str
+
+class IdentityProviderSummaryTypeDef(TypedDict):
+    identityProviderArn: str
+    identityProviderName: NotRequired[str]
+    identityProviderType: NotRequired[IdentityProviderTypeType]
+
+class RedactionPlaceHolderTypeDef(TypedDict):
+    redactionPlaceHolderType: Literal["CustomText"]
+    redactionPlaceHolderText: NotRequired[str]
+
+class IpAccessSettingsSummaryTypeDef(TypedDict):
+    ipAccessSettingsArn: str
+    creationDate: NotRequired[datetime]
+    description: NotRequired[str]
+    displayName: NotRequired[str]
+
+class ListBrowserSettingsRequestTypeDef(TypedDict):
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class ListDataProtectionSettingsRequestTypeDef(TypedDict):
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListIdentityProvidersRequestTypeDef(TypedDict):
+    portalArn: str
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListIpAccessSettingsRequestTypeDef(TypedDict):
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListNetworkSettingsRequestTypeDef(TypedDict):
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class NetworkSettingsSummaryTypeDef(TypedDict):
+    networkSettingsArn: str
+    vpcId: NotRequired[str]
+
+class ListPortalsRequestTypeDef(TypedDict):
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class PortalSummaryTypeDef(TypedDict):
+    portalArn: str
+    authenticationType: NotRequired[AuthenticationTypeType]
+    browserSettingsArn: NotRequired[str]
+    browserType: NotRequired[Literal["Chrome"]]
+    creationDate: NotRequired[datetime]
+    dataProtectionSettingsArn: NotRequired[str]
+    displayName: NotRequired[str]
+    instanceType: NotRequired[InstanceTypeType]
+    ipAccessSettingsArn: NotRequired[str]
+    maxConcurrentSessions: NotRequired[int]
+    networkSettingsArn: NotRequired[str]
+    portalEndpoint: NotRequired[str]
+    portalStatus: NotRequired[PortalStatusType]
+    rendererType: NotRequired[Literal["AppStream"]]
+    trustStoreArn: NotRequired[str]
+    userAccessLoggingSettingsArn: NotRequired[str]
+    userSettingsArn: NotRequired[str]
+
+class ListSessionsRequestTypeDef(TypedDict):
+    portalId: str
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+    sessionId: NotRequired[str]
+    sortBy: NotRequired[SessionSortByType]
+    status: NotRequired[SessionStatusType]
+    username: NotRequired[str]
+
+class SessionSummaryTypeDef(TypedDict):
+    endTime: NotRequired[datetime]
+    portalArn: NotRequired[str]
+    sessionId: NotRequired[str]
+    startTime: NotRequired[datetime]
+    status: NotRequired[SessionStatusType]
+    username: NotRequired[str]
+
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+
+class ListTrustStoreCertificatesRequestTypeDef(TypedDict):
+    trustStoreArn: str
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListTrustStoresRequestTypeDef(TypedDict):
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class TrustStoreSummaryTypeDef(TypedDict):
+    trustStoreArn: NotRequired[str]
+
+class ListUserAccessLoggingSettingsRequestTypeDef(TypedDict):
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class UserAccessLoggingSettingsSummaryTypeDef(TypedDict):
+    userAccessLoggingSettingsArn: str
+    kinesisStreamArn: NotRequired[str]
+
+class ListUserSettingsRequestTypeDef(TypedDict):
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ToolbarConfigurationOutputTypeDef(TypedDict):
+    hiddenToolbarItems: NotRequired[List[ToolbarItemType]]
+    maxDisplayResolution: NotRequired[MaxDisplayResolutionType]
+    toolbarType: NotRequired[ToolbarTypeType]
+    visualMode: NotRequired[VisualModeType]
+
+class ToolbarConfigurationTypeDef(TypedDict):
+    hiddenToolbarItems: NotRequired[Sequence[ToolbarItemType]]
+    maxDisplayResolution: NotRequired[MaxDisplayResolutionType]
+    toolbarType: NotRequired[ToolbarTypeType]
+    visualMode: NotRequired[VisualModeType]
+
+class UntagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tagKeys: Sequence[str]
+
+class UpdateBrowserSettingsRequestTypeDef(TypedDict):
+    browserSettingsArn: str
+    browserPolicy: NotRequired[str]
+    clientToken: NotRequired[str]
+
+class UpdateIdentityProviderRequestTypeDef(TypedDict):
+    identityProviderArn: str
+    clientToken: NotRequired[str]
+    identityProviderDetails: NotRequired[Mapping[str, str]]
+    identityProviderName: NotRequired[str]
+    identityProviderType: NotRequired[IdentityProviderTypeType]
+
+class UpdateNetworkSettingsRequestTypeDef(TypedDict):
+    networkSettingsArn: str
+    clientToken: NotRequired[str]
+    securityGroupIds: NotRequired[Sequence[str]]
+    subnetIds: NotRequired[Sequence[str]]
+    vpcId: NotRequired[str]
+
+class UpdatePortalRequestTypeDef(TypedDict):
+    portalArn: str
+    authenticationType: NotRequired[AuthenticationTypeType]
+    displayName: NotRequired[str]
+    instanceType: NotRequired[InstanceTypeType]
+    maxConcurrentSessions: NotRequired[int]
+
+class UpdateUserAccessLoggingSettingsRequestTypeDef(TypedDict):
+    userAccessLoggingSettingsArn: str
+    clientToken: NotRequired[str]
+    kinesisStreamArn: NotRequired[str]
+
+class AssociateBrowserSettingsResponseTypeDef(TypedDict):
+    browserSettingsArn: str
+    portalArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class AssociateDataProtectionSettingsResponseTypeDef(TypedDict):
+    dataProtectionSettingsArn: str
+    portalArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class AssociateIpAccessSettingsResponseTypeDef(TypedDict):
+    ipAccessSettingsArn: str
+    portalArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class AssociateNetworkSettingsResponseTypeDef(TypedDict):
+    networkSettingsArn: str
+    portalArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class AssociateTrustStoreResponseTypeDef(TypedDict):
+    portalArn: str
+    trustStoreArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class AssociateUserAccessLoggingSettingsResponseTypeDef(TypedDict):
+    portalArn: str
+    userAccessLoggingSettingsArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class AssociateUserSettingsResponseTypeDef(TypedDict):
+    portalArn: str
+    userSettingsArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateBrowserSettingsResponseTypeDef(TypedDict):
+    browserSettingsArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateDataProtectionSettingsResponseTypeDef(TypedDict):
+    dataProtectionSettingsArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateIdentityProviderResponseTypeDef(TypedDict):
+    identityProviderArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateIpAccessSettingsResponseTypeDef(TypedDict):
+    ipAccessSettingsArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateNetworkSettingsResponseTypeDef(TypedDict):
+    networkSettingsArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreatePortalResponseTypeDef(TypedDict):
+    portalArn: str
+    portalEndpoint: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateTrustStoreResponseTypeDef(TypedDict):
+    trustStoreArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateUserAccessLoggingSettingsResponseTypeDef(TypedDict):
+    userAccessLoggingSettingsArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateUserSettingsResponseTypeDef(TypedDict):
+    userSettingsArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetPortalServiceProviderMetadataResponseTypeDef(TypedDict):
+    portalArn: str
+    serviceProviderSamlMetadata: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateTrustStoreResponseTypeDef(TypedDict):
+    trustStoreArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateTrustStoreRequestTypeDef(TypedDict):
+    trustStoreArn: str
+    certificatesToAdd: NotRequired[Sequence[BlobTypeDef]]
+    certificatesToDelete: NotRequired[Sequence[str]]
+    clientToken: NotRequired[str]
+
+class ListBrowserSettingsResponseTypeDef(TypedDict):
+    browserSettings: List[BrowserSettingsSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class GetBrowserSettingsResponseTypeDef(TypedDict):
+    browserSettings: BrowserSettingsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateBrowserSettingsResponseTypeDef(TypedDict):
+    browserSettings: BrowserSettingsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListTrustStoreCertificatesResponseTypeDef(TypedDict):
+    certificateList: List[CertificateSummaryTypeDef]
+    trustStoreArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class GetTrustStoreCertificateResponseTypeDef(TypedDict):
+    certificate: CertificateTypeDef
+    trustStoreArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CookieSynchronizationConfigurationOutputTypeDef(TypedDict):
+    allowlist: List[CookieSpecificationTypeDef]
+    blocklist: NotRequired[List[CookieSpecificationTypeDef]]
+
+class CookieSynchronizationConfigurationTypeDef(TypedDict):
+    allowlist: Sequence[CookieSpecificationTypeDef]
+    blocklist: NotRequired[Sequence[CookieSpecificationTypeDef]]
+
+class CreateBrowserSettingsRequestTypeDef(TypedDict):
+    browserPolicy: str
+    additionalEncryptionContext: NotRequired[Mapping[str, str]]
+    clientToken: NotRequired[str]
+    customerManagedKey: NotRequired[str]
+    tags: NotRequired[Sequence[TagTypeDef]]
+
+class CreateIdentityProviderRequestTypeDef(TypedDict):
+    identityProviderDetails: Mapping[str, str]
+    identityProviderName: str
+    identityProviderType: IdentityProviderTypeType
+    portalArn: str
+    clientToken: NotRequired[str]
+    tags: NotRequired[Sequence[TagTypeDef]]
+
+class CreateNetworkSettingsRequestTypeDef(TypedDict):
+    securityGroupIds: Sequence[str]
+    subnetIds: Sequence[str]
+    vpcId: str
+    clientToken: NotRequired[str]
+    tags: NotRequired[Sequence[TagTypeDef]]
+
+class CreatePortalRequestTypeDef(TypedDict):
+    additionalEncryptionContext: NotRequired[Mapping[str, str]]
+    authenticationType: NotRequired[AuthenticationTypeType]
+    clientToken: NotRequired[str]
+    customerManagedKey: NotRequired[str]
+    displayName: NotRequired[str]
+    instanceType: NotRequired[InstanceTypeType]
+    maxConcurrentSessions: NotRequired[int]
+    tags: NotRequired[Sequence[TagTypeDef]]
+
+class CreateTrustStoreRequestTypeDef(TypedDict):
+    certificateList: Sequence[BlobTypeDef]
+    clientToken: NotRequired[str]
+    tags: NotRequired[Sequence[TagTypeDef]]
+
+class CreateUserAccessLoggingSettingsRequestTypeDef(TypedDict):
+    kinesisStreamArn: str
+    clientToken: NotRequired[str]
+    tags: NotRequired[Sequence[TagTypeDef]]
+
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    tags: List[TagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class TagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tags: Sequence[TagTypeDef]
+    clientToken: NotRequired[str]
+
+class CreateIpAccessSettingsRequestTypeDef(TypedDict):
+    ipRules: Sequence[IpRuleTypeDef]
+    additionalEncryptionContext: NotRequired[Mapping[str, str]]
+    clientToken: NotRequired[str]
+    customerManagedKey: NotRequired[str]
+    description: NotRequired[str]
+    displayName: NotRequired[str]
+    tags: NotRequired[Sequence[TagTypeDef]]
+
+class IpAccessSettingsTypeDef(TypedDict):
+    ipAccessSettingsArn: str
+    additionalEncryptionContext: NotRequired[Dict[str, str]]
+    associatedPortalArns: NotRequired[List[str]]
+    creationDate: NotRequired[datetime]
+    customerManagedKey: NotRequired[str]
+    description: NotRequired[str]
+    displayName: NotRequired[str]
+    ipRules: NotRequired[List[IpRuleTypeDef]]
+
+class UpdateIpAccessSettingsRequestTypeDef(TypedDict):
+    ipAccessSettingsArn: str
+    clientToken: NotRequired[str]
+    description: NotRequired[str]
+    displayName: NotRequired[str]
+    ipRules: NotRequired[Sequence[IpRuleTypeDef]]
+
+class ListDataProtectionSettingsResponseTypeDef(TypedDict):
+    dataProtectionSettings: List[DataProtectionSettingsSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class GetIdentityProviderResponseTypeDef(TypedDict):
+    identityProvider: IdentityProviderTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateIdentityProviderResponseTypeDef(TypedDict):
+    identityProvider: IdentityProviderTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetNetworkSettingsResponseTypeDef(TypedDict):
+    networkSettings: NetworkSettingsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateNetworkSettingsResponseTypeDef(TypedDict):
+    networkSettings: NetworkSettingsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetPortalResponseTypeDef(TypedDict):
+    portal: PortalTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdatePortalResponseTypeDef(TypedDict):
+    portal: PortalTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetSessionResponseTypeDef(TypedDict):
+    session: SessionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetTrustStoreResponseTypeDef(TypedDict):
+    trustStore: TrustStoreTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetUserAccessLoggingSettingsResponseTypeDef(TypedDict):
+    userAccessLoggingSettings: UserAccessLoggingSettingsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateUserAccessLoggingSettingsResponseTypeDef(TypedDict):
+    userAccessLoggingSettings: UserAccessLoggingSettingsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListIdentityProvidersResponseTypeDef(TypedDict):
+    identityProviders: List[IdentityProviderSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class InlineRedactionPatternOutputTypeDef(TypedDict):
+    redactionPlaceHolder: RedactionPlaceHolderTypeDef
+    builtInPatternId: NotRequired[str]
+    confidenceLevel: NotRequired[int]
+    customPattern: NotRequired[CustomPatternTypeDef]
+    enforcedUrls: NotRequired[List[str]]
+    exemptUrls: NotRequired[List[str]]
+
+class InlineRedactionPatternTypeDef(TypedDict):
+    redactionPlaceHolder: RedactionPlaceHolderTypeDef
+    builtInPatternId: NotRequired[str]
+    confidenceLevel: NotRequired[int]
+    customPattern: NotRequired[CustomPatternTypeDef]
+    enforcedUrls: NotRequired[Sequence[str]]
+    exemptUrls: NotRequired[Sequence[str]]
+
+class ListIpAccessSettingsResponseTypeDef(TypedDict):
+    ipAccessSettings: List[IpAccessSettingsSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListDataProtectionSettingsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListSessionsRequestPaginateTypeDef(TypedDict):
+    portalId: str
+    sessionId: NotRequired[str]
+    sortBy: NotRequired[SessionSortByType]
+    status: NotRequired[SessionStatusType]
+    username: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListNetworkSettingsResponseTypeDef(TypedDict):
+    networkSettings: List[NetworkSettingsSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListPortalsResponseTypeDef(TypedDict):
+    portals: List[PortalSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListSessionsResponseTypeDef(TypedDict):
+    sessions: List[SessionSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListTrustStoresResponseTypeDef(TypedDict):
+    trustStores: List[TrustStoreSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListUserAccessLoggingSettingsResponseTypeDef(TypedDict):
+    userAccessLoggingSettings: List[UserAccessLoggingSettingsSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+ToolbarConfigurationUnionTypeDef = Union[
+    ToolbarConfigurationTypeDef, ToolbarConfigurationOutputTypeDef
+]
+
+class UserSettingsSummaryTypeDef(TypedDict):
+    userSettingsArn: str
+    cookieSynchronizationConfiguration: NotRequired[CookieSynchronizationConfigurationOutputTypeDef]
+    copyAllowed: NotRequired[EnabledTypeType]
+    deepLinkAllowed: NotRequired[EnabledTypeType]
+    disconnectTimeoutInMinutes: NotRequired[int]
+    downloadAllowed: NotRequired[EnabledTypeType]
+    idleDisconnectTimeoutInMinutes: NotRequired[int]
+    pasteAllowed: NotRequired[EnabledTypeType]
+    printAllowed: NotRequired[EnabledTypeType]
+    toolbarConfiguration: NotRequired[ToolbarConfigurationOutputTypeDef]
+    uploadAllowed: NotRequired[EnabledTypeType]
+
+class UserSettingsTypeDef(TypedDict):
+    userSettingsArn: str
+    additionalEncryptionContext: NotRequired[Dict[str, str]]
+    associatedPortalArns: NotRequired[List[str]]
+    cookieSynchronizationConfiguration: NotRequired[CookieSynchronizationConfigurationOutputTypeDef]
+    copyAllowed: NotRequired[EnabledTypeType]
+    customerManagedKey: NotRequired[str]
+    deepLinkAllowed: NotRequired[EnabledTypeType]
+    disconnectTimeoutInMinutes: NotRequired[int]
+    downloadAllowed: NotRequired[EnabledTypeType]
+    idleDisconnectTimeoutInMinutes: NotRequired[int]
+    pasteAllowed: NotRequired[EnabledTypeType]
+    printAllowed: NotRequired[EnabledTypeType]
+    toolbarConfiguration: NotRequired[ToolbarConfigurationOutputTypeDef]
+    uploadAllowed: NotRequired[EnabledTypeType]
+
+CookieSynchronizationConfigurationUnionTypeDef = Union[
+    CookieSynchronizationConfigurationTypeDef, CookieSynchronizationConfigurationOutputTypeDef
+]
+
+class GetIpAccessSettingsResponseTypeDef(TypedDict):
+    ipAccessSettings: IpAccessSettingsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateIpAccessSettingsResponseTypeDef(TypedDict):
+    ipAccessSettings: IpAccessSettingsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class InlineRedactionConfigurationOutputTypeDef(TypedDict):
+    inlineRedactionPatterns: List[InlineRedactionPatternOutputTypeDef]
+    globalConfidenceLevel: NotRequired[int]
+    globalEnforcedUrls: NotRequired[List[str]]
+    globalExemptUrls: NotRequired[List[str]]
+
+class InlineRedactionConfigurationTypeDef(TypedDict):
+    inlineRedactionPatterns: Sequence[InlineRedactionPatternTypeDef]
+    globalConfidenceLevel: NotRequired[int]
+    globalEnforcedUrls: NotRequired[Sequence[str]]
+    globalExemptUrls: NotRequired[Sequence[str]]
+
+class ListUserSettingsResponseTypeDef(TypedDict):
+    userSettings: List[UserSettingsSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class GetUserSettingsResponseTypeDef(TypedDict):
+    userSettings: UserSettingsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateUserSettingsResponseTypeDef(TypedDict):
+    userSettings: UserSettingsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateUserSettingsRequestTypeDef(TypedDict):
+    copyAllowed: EnabledTypeType
+    downloadAllowed: EnabledTypeType
+    pasteAllowed: EnabledTypeType
+    printAllowed: EnabledTypeType
+    uploadAllowed: EnabledTypeType
+    additionalEncryptionContext: NotRequired[Mapping[str, str]]
+    clientToken: NotRequired[str]
+    cookieSynchronizationConfiguration: NotRequired[CookieSynchronizationConfigurationUnionTypeDef]
+    customerManagedKey: NotRequired[str]
+    deepLinkAllowed: NotRequired[EnabledTypeType]
+    disconnectTimeoutInMinutes: NotRequired[int]
+    idleDisconnectTimeoutInMinutes: NotRequired[int]
+    tags: NotRequired[Sequence[TagTypeDef]]
+    toolbarConfiguration: NotRequired[ToolbarConfigurationUnionTypeDef]
+
+class UpdateUserSettingsRequestTypeDef(TypedDict):
+    userSettingsArn: str
+    clientToken: NotRequired[str]
+    cookieSynchronizationConfiguration: NotRequired[CookieSynchronizationConfigurationUnionTypeDef]
+    copyAllowed: NotRequired[EnabledTypeType]
+    deepLinkAllowed: NotRequired[EnabledTypeType]
+    disconnectTimeoutInMinutes: NotRequired[int]
+    downloadAllowed: NotRequired[EnabledTypeType]
+    idleDisconnectTimeoutInMinutes: NotRequired[int]
+    pasteAllowed: NotRequired[EnabledTypeType]
+    printAllowed: NotRequired[EnabledTypeType]
+    toolbarConfiguration: NotRequired[ToolbarConfigurationUnionTypeDef]
+    uploadAllowed: NotRequired[EnabledTypeType]
+
+class DataProtectionSettingsTypeDef(TypedDict):
+    dataProtectionSettingsArn: str
+    additionalEncryptionContext: NotRequired[Dict[str, str]]
+    associatedPortalArns: NotRequired[List[str]]
+    creationDate: NotRequired[datetime]
+    customerManagedKey: NotRequired[str]
+    description: NotRequired[str]
+    displayName: NotRequired[str]
+    inlineRedactionConfiguration: NotRequired[InlineRedactionConfigurationOutputTypeDef]
+
+InlineRedactionConfigurationUnionTypeDef = Union[
+    InlineRedactionConfigurationTypeDef, InlineRedactionConfigurationOutputTypeDef
+]
+
+class GetDataProtectionSettingsResponseTypeDef(TypedDict):
+    dataProtectionSettings: DataProtectionSettingsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateDataProtectionSettingsResponseTypeDef(TypedDict):
+    dataProtectionSettings: DataProtectionSettingsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateDataProtectionSettingsRequestTypeDef(TypedDict):
+    additionalEncryptionContext: NotRequired[Mapping[str, str]]
+    clientToken: NotRequired[str]
+    customerManagedKey: NotRequired[str]
+    description: NotRequired[str]
+    displayName: NotRequired[str]
+    inlineRedactionConfiguration: NotRequired[InlineRedactionConfigurationUnionTypeDef]
+    tags: NotRequired[Sequence[TagTypeDef]]
+
+class UpdateDataProtectionSettingsRequestTypeDef(TypedDict):
+    dataProtectionSettingsArn: str
+    clientToken: NotRequired[str]
+    description: NotRequired[str]
+    displayName: NotRequired[str]
+    inlineRedactionConfiguration: NotRequired[InlineRedactionConfigurationUnionTypeDef]

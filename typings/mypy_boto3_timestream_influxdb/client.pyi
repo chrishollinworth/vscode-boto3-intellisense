@@ -1,54 +1,85 @@
 """
-Type annotations for timestream-influxdb service client.
+Type annotations for timestream-influxdb service Client.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_timestream_influxdb/client.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_timestream_influxdb/client/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
-    from mypy_boto3_timestream_influxdb import TimestreamInfluxDBClient
+    from boto3.session import Session
+    from mypy_boto3_timestream_influxdb.client import TimestreamInfluxDBClient
 
-    client: TimestreamInfluxDBClient = boto3.client("timestream-influxdb")
+    session = Session()
+    client: TimestreamInfluxDBClient = session.client("timestream-influxdb")
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from typing import Any, Dict, List, Type, overload
+from typing import Any, overload
 
 from botocore.client import BaseClient, ClientMeta
+from botocore.errorfactory import BaseClientExceptions
+from botocore.exceptions import ClientError as BotocoreClientError
 
-from .literals import DbInstanceTypeType, DbStorageTypeType, DeploymentTypeType
-from .paginator import ListDbInstancesPaginator, ListDbParameterGroupsPaginator
+from .paginator import (
+    ListDbClustersPaginator,
+    ListDbInstancesForClusterPaginator,
+    ListDbInstancesPaginator,
+    ListDbParameterGroupsPaginator,
+)
 from .type_defs import (
+    CreateDbClusterInputTypeDef,
+    CreateDbClusterOutputTypeDef,
+    CreateDbInstanceInputTypeDef,
     CreateDbInstanceOutputTypeDef,
+    CreateDbParameterGroupInputTypeDef,
     CreateDbParameterGroupOutputTypeDef,
+    DeleteDbClusterInputTypeDef,
+    DeleteDbClusterOutputTypeDef,
+    DeleteDbInstanceInputTypeDef,
     DeleteDbInstanceOutputTypeDef,
+    EmptyResponseMetadataTypeDef,
+    GetDbClusterInputTypeDef,
+    GetDbClusterOutputTypeDef,
+    GetDbInstanceInputTypeDef,
     GetDbInstanceOutputTypeDef,
+    GetDbParameterGroupInputTypeDef,
     GetDbParameterGroupOutputTypeDef,
+    ListDbClustersInputTypeDef,
+    ListDbClustersOutputTypeDef,
+    ListDbInstancesForClusterInputTypeDef,
+    ListDbInstancesForClusterOutputTypeDef,
+    ListDbInstancesInputTypeDef,
     ListDbInstancesOutputTypeDef,
+    ListDbParameterGroupsInputTypeDef,
     ListDbParameterGroupsOutputTypeDef,
+    ListTagsForResourceRequestTypeDef,
     ListTagsForResourceResponseTypeDef,
-    LogDeliveryConfigurationTypeDef,
-    ParametersTypeDef,
+    TagResourceRequestTypeDef,
+    UntagResourceRequestTypeDef,
+    UpdateDbClusterInputTypeDef,
+    UpdateDbClusterOutputTypeDef,
+    UpdateDbInstanceInputTypeDef,
     UpdateDbInstanceOutputTypeDef,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import type as Type
+    from collections.abc import Mapping
 else:
-    from typing_extensions import Literal
+    from typing import Mapping, Type
+if sys.version_info >= (3, 12):
+    from typing import Literal, Unpack
+else:
+    from typing_extensions import Literal, Unpack
 
 __all__ = ("TimestreamInfluxDBClient",)
 
-class BotocoreClientError(BaseException):
-    MSG_TEMPLATE: str
-
-    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
-        self.response: Dict[str, Any]
-        self.operation_name: str
-
-class Exceptions:
+class Exceptions(BaseClientExceptions):
     AccessDeniedException: Type[BotocoreClientError]
     ClientError: Type[BotocoreClientError]
     ConflictException: Type[BotocoreClientError]
@@ -60,8 +91,8 @@ class Exceptions:
 
 class TimestreamInfluxDBClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/timestream-influxdb.html#TimestreamInfluxDB.Client)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_timestream_influxdb/client.html)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/timestream-influxdb.html#TimestreamInfluxDB.Client)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_timestream_influxdb/client/)
     """
 
     meta: ClientMeta
@@ -70,176 +101,240 @@ class TimestreamInfluxDBClient(BaseClient):
     def exceptions(self) -> Exceptions:
         """
         TimestreamInfluxDBClient exceptions.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/timestream-influxdb.html#TimestreamInfluxDB.Client)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_timestream_influxdb/client/#exceptions)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        Check if an operation can be paginated.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/timestream-influxdb.html#TimestreamInfluxDB.Client.can_paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_timestream_influxdb/client.html#can_paginate)
-        """
-
-    def close(self) -> None:
-        """
-        Closes underlying endpoint connections.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/timestream-influxdb.html#TimestreamInfluxDB.Client.close)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_timestream_influxdb/client.html#close)
-        """
-
-    def create_db_instance(
-        self,
-        *,
-        name: str,
-        password: str,
-        dbInstanceType: DbInstanceTypeType,
-        vpcSubnetIds: List[str],
-        vpcSecurityGroupIds: List[str],
-        allocatedStorage: int,
-        username: str = None,
-        organization: str = None,
-        bucket: str = None,
-        publiclyAccessible: bool = None,
-        dbStorageType: DbStorageTypeType = None,
-        dbParameterGroupIdentifier: str = None,
-        deploymentType: DeploymentTypeType = None,
-        logDeliveryConfiguration: "LogDeliveryConfigurationTypeDef" = None,
-        tags: Dict[str, str] = None
-    ) -> CreateDbInstanceOutputTypeDef:
-        """
-        Creates a new Timestream for InfluxDB DB instance.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/timestream-influxdb.html#TimestreamInfluxDB.Client.create_db_instance)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_timestream_influxdb/client.html#create_db_instance)
-        """
-
-    def create_db_parameter_group(
-        self,
-        *,
-        name: str,
-        description: str = None,
-        parameters: "ParametersTypeDef" = None,
-        tags: Dict[str, str] = None
-    ) -> CreateDbParameterGroupOutputTypeDef:
-        """
-        Creates a new Timestream for InfluxDB DB parameter group to associate with DB
-        instances.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/timestream-influxdb.html#TimestreamInfluxDB.Client.create_db_parameter_group)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_timestream_influxdb/client.html#create_db_parameter_group)
-        """
-
-    def delete_db_instance(self, *, identifier: str) -> DeleteDbInstanceOutputTypeDef:
-        """
-        Deletes a Timestream for InfluxDB DB instance.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/timestream-influxdb.html#TimestreamInfluxDB.Client.delete_db_instance)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_timestream_influxdb/client.html#delete_db_instance)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/timestream-influxdb/client/can_paginate.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_timestream_influxdb/client/#can_paginate)
         """
 
     def generate_presigned_url(
         self,
         ClientMethod: str,
-        Params: Dict[str, Any] = None,
+        Params: Mapping[str, Any] = ...,
         ExpiresIn: int = 3600,
-        HttpMethod: str = None,
+        HttpMethod: str = ...,
     ) -> str:
         """
-        Generate a presigned url given a client, its method, and arguments.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/timestream-influxdb.html#TimestreamInfluxDB.Client.generate_presigned_url)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_timestream_influxdb/client.html#generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/timestream-influxdb/client/generate_presigned_url.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_timestream_influxdb/client/#generate_presigned_url)
         """
 
-    def get_db_instance(self, *, identifier: str) -> GetDbInstanceOutputTypeDef:
+    def create_db_cluster(
+        self, **kwargs: Unpack[CreateDbClusterInputTypeDef]
+    ) -> CreateDbClusterOutputTypeDef:
+        """
+        Creates a new Timestream for InfluxDB cluster.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/timestream-influxdb/client/create_db_cluster.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_timestream_influxdb/client/#create_db_cluster)
+        """
+
+    def create_db_instance(
+        self, **kwargs: Unpack[CreateDbInstanceInputTypeDef]
+    ) -> CreateDbInstanceOutputTypeDef:
+        """
+        Creates a new Timestream for InfluxDB DB instance.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/timestream-influxdb/client/create_db_instance.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_timestream_influxdb/client/#create_db_instance)
+        """
+
+    def create_db_parameter_group(
+        self, **kwargs: Unpack[CreateDbParameterGroupInputTypeDef]
+    ) -> CreateDbParameterGroupOutputTypeDef:
+        """
+        Creates a new Timestream for InfluxDB DB parameter group to associate with DB
+        instances.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/timestream-influxdb/client/create_db_parameter_group.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_timestream_influxdb/client/#create_db_parameter_group)
+        """
+
+    def delete_db_cluster(
+        self, **kwargs: Unpack[DeleteDbClusterInputTypeDef]
+    ) -> DeleteDbClusterOutputTypeDef:
+        """
+        Deletes a Timestream for InfluxDB cluster.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/timestream-influxdb/client/delete_db_cluster.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_timestream_influxdb/client/#delete_db_cluster)
+        """
+
+    def delete_db_instance(
+        self, **kwargs: Unpack[DeleteDbInstanceInputTypeDef]
+    ) -> DeleteDbInstanceOutputTypeDef:
+        """
+        Deletes a Timestream for InfluxDB DB instance.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/timestream-influxdb/client/delete_db_instance.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_timestream_influxdb/client/#delete_db_instance)
+        """
+
+    def get_db_cluster(
+        self, **kwargs: Unpack[GetDbClusterInputTypeDef]
+    ) -> GetDbClusterOutputTypeDef:
+        """
+        Retrieves information about a Timestream for InfluxDB cluster.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/timestream-influxdb/client/get_db_cluster.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_timestream_influxdb/client/#get_db_cluster)
+        """
+
+    def get_db_instance(
+        self, **kwargs: Unpack[GetDbInstanceInputTypeDef]
+    ) -> GetDbInstanceOutputTypeDef:
         """
         Returns a Timestream for InfluxDB DB instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/timestream-influxdb.html#TimestreamInfluxDB.Client.get_db_instance)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_timestream_influxdb/client.html#get_db_instance)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/timestream-influxdb/client/get_db_instance.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_timestream_influxdb/client/#get_db_instance)
         """
 
-    def get_db_parameter_group(self, *, identifier: str) -> GetDbParameterGroupOutputTypeDef:
+    def get_db_parameter_group(
+        self, **kwargs: Unpack[GetDbParameterGroupInputTypeDef]
+    ) -> GetDbParameterGroupOutputTypeDef:
         """
         Returns a Timestream for InfluxDB DB parameter group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/timestream-influxdb.html#TimestreamInfluxDB.Client.get_db_parameter_group)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_timestream_influxdb/client.html#get_db_parameter_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/timestream-influxdb/client/get_db_parameter_group.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_timestream_influxdb/client/#get_db_parameter_group)
+        """
+
+    def list_db_clusters(
+        self, **kwargs: Unpack[ListDbClustersInputTypeDef]
+    ) -> ListDbClustersOutputTypeDef:
+        """
+        Returns a list of Timestream for InfluxDB DB clusters.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/timestream-influxdb/client/list_db_clusters.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_timestream_influxdb/client/#list_db_clusters)
         """
 
     def list_db_instances(
-        self, *, nextToken: str = None, maxResults: int = None
+        self, **kwargs: Unpack[ListDbInstancesInputTypeDef]
     ) -> ListDbInstancesOutputTypeDef:
         """
         Returns a list of Timestream for InfluxDB DB instances.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/timestream-influxdb.html#TimestreamInfluxDB.Client.list_db_instances)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_timestream_influxdb/client.html#list_db_instances)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/timestream-influxdb/client/list_db_instances.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_timestream_influxdb/client/#list_db_instances)
+        """
+
+    def list_db_instances_for_cluster(
+        self, **kwargs: Unpack[ListDbInstancesForClusterInputTypeDef]
+    ) -> ListDbInstancesForClusterOutputTypeDef:
+        """
+        Returns a list of Timestream for InfluxDB clusters.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/timestream-influxdb/client/list_db_instances_for_cluster.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_timestream_influxdb/client/#list_db_instances_for_cluster)
         """
 
     def list_db_parameter_groups(
-        self, *, nextToken: str = None, maxResults: int = None
+        self, **kwargs: Unpack[ListDbParameterGroupsInputTypeDef]
     ) -> ListDbParameterGroupsOutputTypeDef:
         """
         Returns a list of Timestream for InfluxDB DB parameter groups.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/timestream-influxdb.html#TimestreamInfluxDB.Client.list_db_parameter_groups)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_timestream_influxdb/client.html#list_db_parameter_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/timestream-influxdb/client/list_db_parameter_groups.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_timestream_influxdb/client/#list_db_parameter_groups)
         """
 
-    def list_tags_for_resource(self, *, resourceArn: str) -> ListTagsForResourceResponseTypeDef:
+    def list_tags_for_resource(
+        self, **kwargs: Unpack[ListTagsForResourceRequestTypeDef]
+    ) -> ListTagsForResourceResponseTypeDef:
         """
         A list of tags applied to the resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/timestream-influxdb.html#TimestreamInfluxDB.Client.list_tags_for_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_timestream_influxdb/client.html#list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/timestream-influxdb/client/list_tags_for_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_timestream_influxdb/client/#list_tags_for_resource)
         """
 
-    def tag_resource(self, *, resourceArn: str, tags: Dict[str, str]) -> None:
+    def tag_resource(
+        self, **kwargs: Unpack[TagResourceRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Tags are composed of a Key/Value pairs.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/timestream-influxdb.html#TimestreamInfluxDB.Client.tag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_timestream_influxdb/client.html#tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/timestream-influxdb/client/tag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_timestream_influxdb/client/#tag_resource)
         """
 
-    def untag_resource(self, *, resourceArn: str, tagKeys: List[str]) -> None:
+    def untag_resource(
+        self, **kwargs: Unpack[UntagResourceRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Removes the tag from the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/timestream-influxdb.html#TimestreamInfluxDB.Client.untag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_timestream_influxdb/client.html#untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/timestream-influxdb/client/untag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_timestream_influxdb/client/#untag_resource)
+        """
+
+    def update_db_cluster(
+        self, **kwargs: Unpack[UpdateDbClusterInputTypeDef]
+    ) -> UpdateDbClusterOutputTypeDef:
+        """
+        Updates a Timestream for InfluxDB cluster.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/timestream-influxdb/client/update_db_cluster.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_timestream_influxdb/client/#update_db_cluster)
         """
 
     def update_db_instance(
-        self,
-        *,
-        identifier: str,
-        logDeliveryConfiguration: "LogDeliveryConfigurationTypeDef" = None,
-        dbParameterGroupIdentifier: str = None
+        self, **kwargs: Unpack[UpdateDbInstanceInputTypeDef]
     ) -> UpdateDbInstanceOutputTypeDef:
         """
         Updates a Timestream for InfluxDB DB instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/timestream-influxdb.html#TimestreamInfluxDB.Client.update_db_instance)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_timestream_influxdb/client.html#update_db_instance)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/timestream-influxdb/client/update_db_instance.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_timestream_influxdb/client/#update_db_instance)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_db_clusters"]
+    ) -> ListDbClustersPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/timestream-influxdb/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_timestream_influxdb/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_db_instances_for_cluster"]
+    ) -> ListDbInstancesForClusterPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/timestream-influxdb/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_timestream_influxdb/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_db_instances"]
     ) -> ListDbInstancesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/timestream-influxdb.html#TimestreamInfluxDB.Paginator.ListDbInstances)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_timestream_influxdb/paginators.html#listdbinstancespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/timestream-influxdb/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_timestream_influxdb/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_db_parameter_groups"]
     ) -> ListDbParameterGroupsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/timestream-influxdb.html#TimestreamInfluxDB.Paginator.ListDbParameterGroups)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_timestream_influxdb/paginators.html#listdbparametergroupspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/timestream-influxdb/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_timestream_influxdb/client/#get_paginator)
         """

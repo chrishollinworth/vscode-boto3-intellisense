@@ -1,10 +1,14 @@
 """
 Main interface for internetmonitor service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_internetmonitor/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_internetmonitor import (
         Client,
         CloudWatchInternetMonitorClient,
@@ -13,10 +17,8 @@ Usage::
         ListMonitorsPaginator,
     )
 
-    session = boto3.Session()
-
-    client: CloudWatchInternetMonitorClient = boto3.client("internetmonitor")
-    session_client: CloudWatchInternetMonitorClient = session.client("internetmonitor")
+    session = Session()
+    client: CloudWatchInternetMonitorClient = session.client("internetmonitor")
 
     list_health_events_paginator: ListHealthEventsPaginator = client.get_paginator("list_health_events")
     list_internet_events_paginator: ListInternetEventsPaginator = client.get_paginator("list_internet_events")

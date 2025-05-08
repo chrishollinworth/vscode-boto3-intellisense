@@ -1,35 +1,51 @@
 """
-Type annotations for apigatewaymanagementapi service client.
+Type annotations for apigatewaymanagementapi service Client.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigatewaymanagementapi/client.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_apigatewaymanagementapi/client/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
-    from mypy_boto3_apigatewaymanagementapi import ApiGatewayManagementApiClient
+    from boto3.session import Session
+    from mypy_boto3_apigatewaymanagementapi.client import ApiGatewayManagementApiClient
 
-    client: ApiGatewayManagementApiClient = boto3.client("apigatewaymanagementapi")
+    session = Session()
+    client: ApiGatewayManagementApiClient = session.client("apigatewaymanagementapi")
     ```
 """
 
-from typing import IO, Any, Dict, Type, Union
+from __future__ import annotations
+
+import sys
+from typing import Any
 
 from botocore.client import BaseClient, ClientMeta
-from botocore.response import StreamingBody
+from botocore.errorfactory import BaseClientExceptions
+from botocore.exceptions import ClientError as BotocoreClientError
 
-from .type_defs import GetConnectionResponseTypeDef
+from .type_defs import (
+    DeleteConnectionRequestTypeDef,
+    EmptyResponseMetadataTypeDef,
+    GetConnectionRequestTypeDef,
+    GetConnectionResponseTypeDef,
+    PostToConnectionRequestTypeDef,
+)
+
+if sys.version_info >= (3, 9):
+    from builtins import type as Type
+    from collections.abc import Mapping
+else:
+    from typing import Mapping, Type
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = ("ApiGatewayManagementApiClient",)
 
-class BotocoreClientError(BaseException):
-    MSG_TEMPLATE: str
-
-    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
-        self.response: Dict[str, Any]
-        self.operation_name: str
-
-class Exceptions:
+class Exceptions(BaseClientExceptions):
     ClientError: Type[BotocoreClientError]
     ForbiddenException: Type[BotocoreClientError]
     GoneException: Type[BotocoreClientError]
@@ -38,8 +54,8 @@ class Exceptions:
 
 class ApiGatewayManagementApiClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigatewaymanagementapi.html#ApiGatewayManagementApi.Client)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigatewaymanagementapi/client.html)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apigatewaymanagementapi.html#ApiGatewayManagementApi.Client)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_apigatewaymanagementapi/client/)
     """
 
     meta: ClientMeta
@@ -48,60 +64,55 @@ class ApiGatewayManagementApiClient(BaseClient):
     def exceptions(self) -> Exceptions:
         """
         ApiGatewayManagementApiClient exceptions.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apigatewaymanagementapi.html#ApiGatewayManagementApi.Client)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_apigatewaymanagementapi/client/#exceptions)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        Check if an operation can be paginated.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigatewaymanagementapi.html#ApiGatewayManagementApi.Client.can_paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigatewaymanagementapi/client.html#can_paginate)
-        """
-
-    def close(self) -> None:
-        """
-        Closes underlying endpoint connections.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigatewaymanagementapi.html#ApiGatewayManagementApi.Client.close)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigatewaymanagementapi/client.html#close)
-        """
-
-    def delete_connection(self, *, ConnectionId: str) -> None:
-        """
-        Delete the connection with the provided id.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigatewaymanagementapi.html#ApiGatewayManagementApi.Client.delete_connection)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigatewaymanagementapi/client.html#delete_connection)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apigatewaymanagementapi/client/can_paginate.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_apigatewaymanagementapi/client/#can_paginate)
         """
 
     def generate_presigned_url(
         self,
         ClientMethod: str,
-        Params: Dict[str, Any] = None,
+        Params: Mapping[str, Any] = ...,
         ExpiresIn: int = 3600,
-        HttpMethod: str = None,
+        HttpMethod: str = ...,
     ) -> str:
         """
-        Generate a presigned url given a client, its method, and arguments.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigatewaymanagementapi.html#ApiGatewayManagementApi.Client.generate_presigned_url)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigatewaymanagementapi/client.html#generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apigatewaymanagementapi/client/generate_presigned_url.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_apigatewaymanagementapi/client/#generate_presigned_url)
         """
 
-    def get_connection(self, *, ConnectionId: str) -> GetConnectionResponseTypeDef:
+    def delete_connection(
+        self, **kwargs: Unpack[DeleteConnectionRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Delete the connection with the provided id.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apigatewaymanagementapi/client/delete_connection.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_apigatewaymanagementapi/client/#delete_connection)
+        """
+
+    def get_connection(
+        self, **kwargs: Unpack[GetConnectionRequestTypeDef]
+    ) -> GetConnectionResponseTypeDef:
         """
         Get information about the connection with the provided id.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigatewaymanagementapi.html#ApiGatewayManagementApi.Client.get_connection)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigatewaymanagementapi/client.html#get_connection)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apigatewaymanagementapi/client/get_connection.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_apigatewaymanagementapi/client/#get_connection)
         """
 
     def post_to_connection(
-        self, *, Data: Union[bytes, IO[bytes], StreamingBody], ConnectionId: str
-    ) -> None:
+        self, **kwargs: Unpack[PostToConnectionRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Sends the provided data to the specified connection.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apigatewaymanagementapi.html#ApiGatewayManagementApi.Client.post_to_connection)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigatewaymanagementapi/client.html#post_to_connection)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apigatewaymanagementapi/client/post_to_connection.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_apigatewaymanagementapi/client/#post_to_connection)
         """

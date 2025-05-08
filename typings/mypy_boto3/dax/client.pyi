@@ -1,25 +1,30 @@
 """
-Type annotations for dax service client.
+Type annotations for dax service Client.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dax/client.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dax/client/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
-    from mypy_boto3_dax import DAXClient
+    from boto3.session import Session
+    from mypy_boto3_dax.client import DAXClient
 
-    client: DAXClient = boto3.client("dax")
+    session = Session()
+    client: DAXClient = session.client("dax")
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from datetime import datetime
-from typing import Any, Dict, List, Type, Union, overload
+from typing import Any, overload
 
 from botocore.client import BaseClient, ClientMeta
+from botocore.errorfactory import BaseClientExceptions
+from botocore.exceptions import ClientError as BotocoreClientError
 
-from .literals import ClusterEndpointEncryptionTypeType, SourceTypeType
 from .paginator import (
     DescribeClustersPaginator,
     DescribeDefaultParametersPaginator,
@@ -30,47 +35,63 @@ from .paginator import (
     ListTagsPaginator,
 )
 from .type_defs import (
+    CreateClusterRequestTypeDef,
     CreateClusterResponseTypeDef,
+    CreateParameterGroupRequestTypeDef,
     CreateParameterGroupResponseTypeDef,
+    CreateSubnetGroupRequestTypeDef,
     CreateSubnetGroupResponseTypeDef,
+    DecreaseReplicationFactorRequestTypeDef,
     DecreaseReplicationFactorResponseTypeDef,
+    DeleteClusterRequestTypeDef,
     DeleteClusterResponseTypeDef,
+    DeleteParameterGroupRequestTypeDef,
     DeleteParameterGroupResponseTypeDef,
+    DeleteSubnetGroupRequestTypeDef,
     DeleteSubnetGroupResponseTypeDef,
+    DescribeClustersRequestTypeDef,
     DescribeClustersResponseTypeDef,
+    DescribeDefaultParametersRequestTypeDef,
     DescribeDefaultParametersResponseTypeDef,
+    DescribeEventsRequestTypeDef,
     DescribeEventsResponseTypeDef,
+    DescribeParameterGroupsRequestTypeDef,
     DescribeParameterGroupsResponseTypeDef,
+    DescribeParametersRequestTypeDef,
     DescribeParametersResponseTypeDef,
+    DescribeSubnetGroupsRequestTypeDef,
     DescribeSubnetGroupsResponseTypeDef,
+    IncreaseReplicationFactorRequestTypeDef,
     IncreaseReplicationFactorResponseTypeDef,
+    ListTagsRequestTypeDef,
     ListTagsResponseTypeDef,
-    ParameterNameValueTypeDef,
+    RebootNodeRequestTypeDef,
     RebootNodeResponseTypeDef,
-    SSESpecificationTypeDef,
+    TagResourceRequestTypeDef,
     TagResourceResponseTypeDef,
-    TagTypeDef,
+    UntagResourceRequestTypeDef,
     UntagResourceResponseTypeDef,
+    UpdateClusterRequestTypeDef,
     UpdateClusterResponseTypeDef,
+    UpdateParameterGroupRequestTypeDef,
     UpdateParameterGroupResponseTypeDef,
+    UpdateSubnetGroupRequestTypeDef,
     UpdateSubnetGroupResponseTypeDef,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import type as Type
+    from collections.abc import Mapping
 else:
-    from typing_extensions import Literal
+    from typing import Mapping, Type
+if sys.version_info >= (3, 12):
+    from typing import Literal, Unpack
+else:
+    from typing_extensions import Literal, Unpack
 
 __all__ = ("DAXClient",)
 
-class BotocoreClientError(BaseException):
-    MSG_TEMPLATE: str
-
-    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
-        self.response: Dict[str, Any]
-        self.operation_name: str
-
-class Exceptions:
+class Exceptions(BaseClientExceptions):
     ClientError: Type[BotocoreClientError]
     ClusterAlreadyExistsFault: Type[BotocoreClientError]
     ClusterNotFoundFault: Type[BotocoreClientError]
@@ -102,8 +123,8 @@ class Exceptions:
 
 class DAXClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dax.html#DAX.Client)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dax/client.html)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dax.html#DAX.Client)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dax/client/)
     """
 
     meta: ClientMeta
@@ -112,342 +133,310 @@ class DAXClient(BaseClient):
     def exceptions(self) -> Exceptions:
         """
         DAXClient exceptions.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dax.html#DAX.Client)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dax/client/#exceptions)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        Check if an operation can be paginated.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dax.html#DAX.Client.can_paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dax/client.html#can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dax/client/can_paginate.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dax/client/#can_paginate)
         """
 
-    def close(self) -> None:
+    def generate_presigned_url(
+        self,
+        ClientMethod: str,
+        Params: Mapping[str, Any] = ...,
+        ExpiresIn: int = 3600,
+        HttpMethod: str = ...,
+    ) -> str:
         """
-        Closes underlying endpoint connections.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dax.html#DAX.Client.close)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dax/client.html#close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dax/client/generate_presigned_url.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dax/client/#generate_presigned_url)
         """
 
     def create_cluster(
-        self,
-        *,
-        ClusterName: str,
-        NodeType: str,
-        ReplicationFactor: int,
-        IamRoleArn: str,
-        Description: str = None,
-        AvailabilityZones: List[str] = None,
-        SubnetGroupName: str = None,
-        SecurityGroupIds: List[str] = None,
-        PreferredMaintenanceWindow: str = None,
-        NotificationTopicArn: str = None,
-        ParameterGroupName: str = None,
-        Tags: List["TagTypeDef"] = None,
-        SSESpecification: "SSESpecificationTypeDef" = None,
-        ClusterEndpointEncryptionType: ClusterEndpointEncryptionTypeType = None
+        self, **kwargs: Unpack[CreateClusterRequestTypeDef]
     ) -> CreateClusterResponseTypeDef:
         """
         Creates a DAX cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dax.html#DAX.Client.create_cluster)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dax/client.html#create_cluster)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dax/client/create_cluster.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dax/client/#create_cluster)
         """
 
     def create_parameter_group(
-        self, *, ParameterGroupName: str, Description: str = None
+        self, **kwargs: Unpack[CreateParameterGroupRequestTypeDef]
     ) -> CreateParameterGroupResponseTypeDef:
         """
         Creates a new parameter group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dax.html#DAX.Client.create_parameter_group)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dax/client.html#create_parameter_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dax/client/create_parameter_group.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dax/client/#create_parameter_group)
         """
 
     def create_subnet_group(
-        self, *, SubnetGroupName: str, SubnetIds: List[str], Description: str = None
+        self, **kwargs: Unpack[CreateSubnetGroupRequestTypeDef]
     ) -> CreateSubnetGroupResponseTypeDef:
         """
         Creates a new subnet group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dax.html#DAX.Client.create_subnet_group)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dax/client.html#create_subnet_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dax/client/create_subnet_group.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dax/client/#create_subnet_group)
         """
 
     def decrease_replication_factor(
-        self,
-        *,
-        ClusterName: str,
-        NewReplicationFactor: int,
-        AvailabilityZones: List[str] = None,
-        NodeIdsToRemove: List[str] = None
+        self, **kwargs: Unpack[DecreaseReplicationFactorRequestTypeDef]
     ) -> DecreaseReplicationFactorResponseTypeDef:
         """
         Removes one or more nodes from a DAX cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dax.html#DAX.Client.decrease_replication_factor)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dax/client.html#decrease_replication_factor)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dax/client/decrease_replication_factor.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dax/client/#decrease_replication_factor)
         """
 
-    def delete_cluster(self, *, ClusterName: str) -> DeleteClusterResponseTypeDef:
+    def delete_cluster(
+        self, **kwargs: Unpack[DeleteClusterRequestTypeDef]
+    ) -> DeleteClusterResponseTypeDef:
         """
         Deletes a previously provisioned DAX cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dax.html#DAX.Client.delete_cluster)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dax/client.html#delete_cluster)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dax/client/delete_cluster.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dax/client/#delete_cluster)
         """
 
     def delete_parameter_group(
-        self, *, ParameterGroupName: str
+        self, **kwargs: Unpack[DeleteParameterGroupRequestTypeDef]
     ) -> DeleteParameterGroupResponseTypeDef:
         """
         Deletes the specified parameter group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dax.html#DAX.Client.delete_parameter_group)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dax/client.html#delete_parameter_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dax/client/delete_parameter_group.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dax/client/#delete_parameter_group)
         """
 
-    def delete_subnet_group(self, *, SubnetGroupName: str) -> DeleteSubnetGroupResponseTypeDef:
+    def delete_subnet_group(
+        self, **kwargs: Unpack[DeleteSubnetGroupRequestTypeDef]
+    ) -> DeleteSubnetGroupResponseTypeDef:
         """
         Deletes a subnet group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dax.html#DAX.Client.delete_subnet_group)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dax/client.html#delete_subnet_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dax/client/delete_subnet_group.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dax/client/#delete_subnet_group)
         """
 
     def describe_clusters(
-        self, *, ClusterNames: List[str] = None, MaxResults: int = None, NextToken: str = None
+        self, **kwargs: Unpack[DescribeClustersRequestTypeDef]
     ) -> DescribeClustersResponseTypeDef:
         """
         Returns information about all provisioned DAX clusters if no cluster identifier
         is specified, or about a specific DAX cluster if a cluster identifier is
         supplied.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dax.html#DAX.Client.describe_clusters)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dax/client.html#describe_clusters)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dax/client/describe_clusters.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dax/client/#describe_clusters)
         """
 
     def describe_default_parameters(
-        self, *, MaxResults: int = None, NextToken: str = None
+        self, **kwargs: Unpack[DescribeDefaultParametersRequestTypeDef]
     ) -> DescribeDefaultParametersResponseTypeDef:
         """
         Returns the default system parameter information for the DAX caching software.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dax.html#DAX.Client.describe_default_parameters)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dax/client.html#describe_default_parameters)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dax/client/describe_default_parameters.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dax/client/#describe_default_parameters)
         """
 
     def describe_events(
-        self,
-        *,
-        SourceName: str = None,
-        SourceType: SourceTypeType = None,
-        StartTime: Union[datetime, str] = None,
-        EndTime: Union[datetime, str] = None,
-        Duration: int = None,
-        MaxResults: int = None,
-        NextToken: str = None
+        self, **kwargs: Unpack[DescribeEventsRequestTypeDef]
     ) -> DescribeEventsResponseTypeDef:
         """
         Returns events related to DAX clusters and parameter groups.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dax.html#DAX.Client.describe_events)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dax/client.html#describe_events)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dax/client/describe_events.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dax/client/#describe_events)
         """
 
     def describe_parameter_groups(
-        self,
-        *,
-        ParameterGroupNames: List[str] = None,
-        MaxResults: int = None,
-        NextToken: str = None
+        self, **kwargs: Unpack[DescribeParameterGroupsRequestTypeDef]
     ) -> DescribeParameterGroupsResponseTypeDef:
         """
         Returns a list of parameter group descriptions.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dax.html#DAX.Client.describe_parameter_groups)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dax/client.html#describe_parameter_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dax/client/describe_parameter_groups.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dax/client/#describe_parameter_groups)
         """
 
     def describe_parameters(
-        self,
-        *,
-        ParameterGroupName: str,
-        Source: str = None,
-        MaxResults: int = None,
-        NextToken: str = None
+        self, **kwargs: Unpack[DescribeParametersRequestTypeDef]
     ) -> DescribeParametersResponseTypeDef:
         """
         Returns the detailed parameter list for a particular parameter group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dax.html#DAX.Client.describe_parameters)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dax/client.html#describe_parameters)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dax/client/describe_parameters.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dax/client/#describe_parameters)
         """
 
     def describe_subnet_groups(
-        self, *, SubnetGroupNames: List[str] = None, MaxResults: int = None, NextToken: str = None
+        self, **kwargs: Unpack[DescribeSubnetGroupsRequestTypeDef]
     ) -> DescribeSubnetGroupsResponseTypeDef:
         """
         Returns a list of subnet group descriptions.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dax.html#DAX.Client.describe_subnet_groups)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dax/client.html#describe_subnet_groups)
-        """
-
-    def generate_presigned_url(
-        self,
-        ClientMethod: str,
-        Params: Dict[str, Any] = None,
-        ExpiresIn: int = 3600,
-        HttpMethod: str = None,
-    ) -> str:
-        """
-        Generate a presigned url given a client, its method, and arguments.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dax.html#DAX.Client.generate_presigned_url)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dax/client.html#generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dax/client/describe_subnet_groups.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dax/client/#describe_subnet_groups)
         """
 
     def increase_replication_factor(
-        self, *, ClusterName: str, NewReplicationFactor: int, AvailabilityZones: List[str] = None
+        self, **kwargs: Unpack[IncreaseReplicationFactorRequestTypeDef]
     ) -> IncreaseReplicationFactorResponseTypeDef:
         """
         Adds one or more nodes to a DAX cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dax.html#DAX.Client.increase_replication_factor)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dax/client.html#increase_replication_factor)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dax/client/increase_replication_factor.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dax/client/#increase_replication_factor)
         """
 
-    def list_tags(self, *, ResourceName: str, NextToken: str = None) -> ListTagsResponseTypeDef:
+    def list_tags(self, **kwargs: Unpack[ListTagsRequestTypeDef]) -> ListTagsResponseTypeDef:
         """
         List all of the tags for a DAX cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dax.html#DAX.Client.list_tags)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dax/client.html#list_tags)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dax/client/list_tags.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dax/client/#list_tags)
         """
 
-    def reboot_node(self, *, ClusterName: str, NodeId: str) -> RebootNodeResponseTypeDef:
+    def reboot_node(self, **kwargs: Unpack[RebootNodeRequestTypeDef]) -> RebootNodeResponseTypeDef:
         """
         Reboots a single node of a DAX cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dax.html#DAX.Client.reboot_node)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dax/client.html#reboot_node)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dax/client/reboot_node.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dax/client/#reboot_node)
         """
 
     def tag_resource(
-        self, *, ResourceName: str, Tags: List["TagTypeDef"]
+        self, **kwargs: Unpack[TagResourceRequestTypeDef]
     ) -> TagResourceResponseTypeDef:
         """
         Associates a set of tags with a DAX resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dax.html#DAX.Client.tag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dax/client.html#tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dax/client/tag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dax/client/#tag_resource)
         """
 
     def untag_resource(
-        self, *, ResourceName: str, TagKeys: List[str]
+        self, **kwargs: Unpack[UntagResourceRequestTypeDef]
     ) -> UntagResourceResponseTypeDef:
         """
         Removes the association of tags from a DAX resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dax.html#DAX.Client.untag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dax/client.html#untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dax/client/untag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dax/client/#untag_resource)
         """
 
     def update_cluster(
-        self,
-        *,
-        ClusterName: str,
-        Description: str = None,
-        PreferredMaintenanceWindow: str = None,
-        NotificationTopicArn: str = None,
-        NotificationTopicStatus: str = None,
-        ParameterGroupName: str = None,
-        SecurityGroupIds: List[str] = None
+        self, **kwargs: Unpack[UpdateClusterRequestTypeDef]
     ) -> UpdateClusterResponseTypeDef:
         """
         Modifies the settings for a DAX cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dax.html#DAX.Client.update_cluster)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dax/client.html#update_cluster)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dax/client/update_cluster.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dax/client/#update_cluster)
         """
 
     def update_parameter_group(
-        self, *, ParameterGroupName: str, ParameterNameValues: List["ParameterNameValueTypeDef"]
+        self, **kwargs: Unpack[UpdateParameterGroupRequestTypeDef]
     ) -> UpdateParameterGroupResponseTypeDef:
         """
         Modifies the parameters of a parameter group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dax.html#DAX.Client.update_parameter_group)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dax/client.html#update_parameter_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dax/client/update_parameter_group.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dax/client/#update_parameter_group)
         """
 
     def update_subnet_group(
-        self, *, SubnetGroupName: str, Description: str = None, SubnetIds: List[str] = None
+        self, **kwargs: Unpack[UpdateSubnetGroupRequestTypeDef]
     ) -> UpdateSubnetGroupResponseTypeDef:
         """
         Modifies an existing subnet group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dax.html#DAX.Client.update_subnet_group)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dax/client.html#update_subnet_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dax/client/update_subnet_group.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dax/client/#update_subnet_group)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["describe_clusters"]
     ) -> DescribeClustersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dax.html#DAX.Paginator.DescribeClusters)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dax/paginators.html#describeclusterspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dax/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dax/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["describe_default_parameters"]
     ) -> DescribeDefaultParametersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dax.html#DAX.Paginator.DescribeDefaultParameters)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dax/paginators.html#describedefaultparameterspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dax/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dax/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["describe_events"]) -> DescribeEventsPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["describe_events"]
+    ) -> DescribeEventsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dax.html#DAX.Paginator.DescribeEvents)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dax/paginators.html#describeeventspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dax/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dax/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["describe_parameter_groups"]
     ) -> DescribeParameterGroupsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dax.html#DAX.Paginator.DescribeParameterGroups)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dax/paginators.html#describeparametergroupspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dax/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dax/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["describe_parameters"]
     ) -> DescribeParametersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dax.html#DAX.Paginator.DescribeParameters)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dax/paginators.html#describeparameterspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dax/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dax/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["describe_subnet_groups"]
     ) -> DescribeSubnetGroupsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dax.html#DAX.Paginator.DescribeSubnetGroups)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dax/paginators.html#describesubnetgroupspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dax/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dax/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_tags"]) -> ListTagsPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_tags"]
+    ) -> ListTagsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dax.html#DAX.Paginator.ListTags)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dax/paginators.html#listtagspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dax/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dax/client/#get_paginator)
         """

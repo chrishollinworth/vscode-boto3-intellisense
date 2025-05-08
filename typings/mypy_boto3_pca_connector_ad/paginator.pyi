@@ -1,14 +1,16 @@
 """
 Type annotations for pca-connector-ad service client paginators.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_ad/paginators.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_ad/paginators/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
 
-    from mypy_boto3_pca_connector_ad import PcaConnectorAdClient
+    from mypy_boto3_pca_connector_ad.client import PcaConnectorAdClient
     from mypy_boto3_pca_connector_ad.paginator import (
         ListConnectorsPaginator,
         ListDirectoryRegistrationsPaginator,
@@ -17,7 +19,8 @@ Usage::
         ListTemplatesPaginator,
     )
 
-    client: PcaConnectorAdClient = boto3.client("pca-connector-ad")
+    session = Session()
+    client: PcaConnectorAdClient = session.client("pca-connector-ad")
 
     list_connectors_paginator: ListConnectorsPaginator = client.get_paginator("list_connectors")
     list_directory_registrations_paginator: ListDirectoryRegistrationsPaginator = client.get_paginator("list_directory_registrations")
@@ -27,18 +30,30 @@ Usage::
     ```
 """
 
-from typing import Iterator
+from __future__ import annotations
 
-from botocore.paginate import Paginator as Boto3Paginator
+import sys
+from typing import TYPE_CHECKING
+
+from botocore.paginate import PageIterator, Paginator
 
 from .type_defs import (
+    ListConnectorsRequestPaginateTypeDef,
     ListConnectorsResponseTypeDef,
+    ListDirectoryRegistrationsRequestPaginateTypeDef,
     ListDirectoryRegistrationsResponseTypeDef,
+    ListServicePrincipalNamesRequestPaginateTypeDef,
     ListServicePrincipalNamesResponseTypeDef,
+    ListTemplateGroupAccessControlEntriesRequestPaginateTypeDef,
     ListTemplateGroupAccessControlEntriesResponseTypeDef,
+    ListTemplatesRequestPaginateTypeDef,
     ListTemplatesResponseTypeDef,
-    PaginatorConfigTypeDef,
 )
+
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = (
     "ListConnectorsPaginator",
@@ -48,72 +63,96 @@ __all__ = (
     "ListTemplatesPaginator",
 )
 
-class ListConnectorsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pca-connector-ad.html#PcaConnectorAd.Paginator.ListConnectors)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_ad/paginators.html#listconnectorspaginator)
-    """
+if TYPE_CHECKING:
+    _ListConnectorsPaginatorBase = Paginator[ListConnectorsResponseTypeDef]
+else:
+    _ListConnectorsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListConnectorsResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pca-connector-ad.html#PcaConnectorAd.Paginator.ListConnectors.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_ad/paginators.html#listconnectorspaginator)
-        """
-
-class ListDirectoryRegistrationsPaginator(Boto3Paginator):
+class ListConnectorsPaginator(_ListConnectorsPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pca-connector-ad.html#PcaConnectorAd.Paginator.ListDirectoryRegistrations)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_ad/paginators.html#listdirectoryregistrationspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/pca-connector-ad/paginator/ListConnectors.html#PcaConnectorAd.Paginator.ListConnectors)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_ad/paginators/#listconnectorspaginator)
     """
-
-    def paginate(
-        self, *, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListDirectoryRegistrationsResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListConnectorsRequestPaginateTypeDef]
+    ) -> PageIterator[ListConnectorsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pca-connector-ad.html#PcaConnectorAd.Paginator.ListDirectoryRegistrations.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_ad/paginators.html#listdirectoryregistrationspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/pca-connector-ad/paginator/ListConnectors.html#PcaConnectorAd.Paginator.ListConnectors.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_ad/paginators/#listconnectorspaginator)
         """
 
-class ListServicePrincipalNamesPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pca-connector-ad.html#PcaConnectorAd.Paginator.ListServicePrincipalNames)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_ad/paginators.html#listserviceprincipalnamespaginator)
-    """
+if TYPE_CHECKING:
+    _ListDirectoryRegistrationsPaginatorBase = Paginator[ListDirectoryRegistrationsResponseTypeDef]
+else:
+    _ListDirectoryRegistrationsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, DirectoryRegistrationArn: str, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListServicePrincipalNamesResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pca-connector-ad.html#PcaConnectorAd.Paginator.ListServicePrincipalNames.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_ad/paginators.html#listserviceprincipalnamespaginator)
-        """
-
-class ListTemplateGroupAccessControlEntriesPaginator(Boto3Paginator):
+class ListDirectoryRegistrationsPaginator(_ListDirectoryRegistrationsPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pca-connector-ad.html#PcaConnectorAd.Paginator.ListTemplateGroupAccessControlEntries)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_ad/paginators.html#listtemplategroupaccesscontrolentriespaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/pca-connector-ad/paginator/ListDirectoryRegistrations.html#PcaConnectorAd.Paginator.ListDirectoryRegistrations)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_ad/paginators/#listdirectoryregistrationspaginator)
     """
-
-    def paginate(
-        self, *, TemplateArn: str, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListTemplateGroupAccessControlEntriesResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListDirectoryRegistrationsRequestPaginateTypeDef]
+    ) -> PageIterator[ListDirectoryRegistrationsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pca-connector-ad.html#PcaConnectorAd.Paginator.ListTemplateGroupAccessControlEntries.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_ad/paginators.html#listtemplategroupaccesscontrolentriespaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/pca-connector-ad/paginator/ListDirectoryRegistrations.html#PcaConnectorAd.Paginator.ListDirectoryRegistrations.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_ad/paginators/#listdirectoryregistrationspaginator)
         """
 
-class ListTemplatesPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pca-connector-ad.html#PcaConnectorAd.Paginator.ListTemplates)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_ad/paginators.html#listtemplatespaginator)
-    """
+if TYPE_CHECKING:
+    _ListServicePrincipalNamesPaginatorBase = Paginator[ListServicePrincipalNamesResponseTypeDef]
+else:
+    _ListServicePrincipalNamesPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, ConnectorArn: str, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListTemplatesResponseTypeDef]:
+class ListServicePrincipalNamesPaginator(_ListServicePrincipalNamesPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/pca-connector-ad/paginator/ListServicePrincipalNames.html#PcaConnectorAd.Paginator.ListServicePrincipalNames)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_ad/paginators/#listserviceprincipalnamespaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListServicePrincipalNamesRequestPaginateTypeDef]
+    ) -> PageIterator[ListServicePrincipalNamesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pca-connector-ad.html#PcaConnectorAd.Paginator.ListTemplates.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_ad/paginators.html#listtemplatespaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/pca-connector-ad/paginator/ListServicePrincipalNames.html#PcaConnectorAd.Paginator.ListServicePrincipalNames.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_ad/paginators/#listserviceprincipalnamespaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListTemplateGroupAccessControlEntriesPaginatorBase = Paginator[
+        ListTemplateGroupAccessControlEntriesResponseTypeDef
+    ]
+else:
+    _ListTemplateGroupAccessControlEntriesPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListTemplateGroupAccessControlEntriesPaginator(
+    _ListTemplateGroupAccessControlEntriesPaginatorBase
+):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/pca-connector-ad/paginator/ListTemplateGroupAccessControlEntries.html#PcaConnectorAd.Paginator.ListTemplateGroupAccessControlEntries)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_ad/paginators/#listtemplategroupaccesscontrolentriespaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListTemplateGroupAccessControlEntriesRequestPaginateTypeDef]
+    ) -> PageIterator[ListTemplateGroupAccessControlEntriesResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/pca-connector-ad/paginator/ListTemplateGroupAccessControlEntries.html#PcaConnectorAd.Paginator.ListTemplateGroupAccessControlEntries.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_ad/paginators/#listtemplategroupaccesscontrolentriespaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListTemplatesPaginatorBase = Paginator[ListTemplatesResponseTypeDef]
+else:
+    _ListTemplatesPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListTemplatesPaginator(_ListTemplatesPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/pca-connector-ad/paginator/ListTemplates.html#PcaConnectorAd.Paginator.ListTemplates)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_ad/paginators/#listtemplatespaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListTemplatesRequestPaginateTypeDef]
+    ) -> PageIterator[ListTemplatesResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/pca-connector-ad/paginator/ListTemplates.html#PcaConnectorAd.Paginator.ListTemplates.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_ad/paginators/#listtemplatespaginator)
         """

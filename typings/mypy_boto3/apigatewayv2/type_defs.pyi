@@ -1,20 +1,26 @@
 """
 Type annotations for apigatewayv2 service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apigatewayv2/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_apigatewayv2/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_apigatewayv2.type_defs import AccessLogSettingsTypeDef
 
-    data: AccessLogSettingsTypeDef = {...}
+    data: AccessLogSettingsTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List, Union
+from typing import Union
+
+from botocore.response import StreamingBody
 
 from .literals import (
     AuthorizationTypeType,
@@ -25,6 +31,7 @@ from .literals import (
     DomainNameStatusType,
     EndpointTypeType,
     IntegrationTypeType,
+    IpAddressTypeType,
     JSONYAMLType,
     LoggingLevelType,
     PassthroughBehaviorType,
@@ -33,2496 +40,1491 @@ from .literals import (
     VpcLinkStatusType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
     "AccessLogSettingsTypeDef",
     "ApiMappingTypeDef",
     "ApiTypeDef",
     "AuthorizerTypeDef",
+    "CorsOutputTypeDef",
     "CorsTypeDef",
-    "CreateApiMappingRequestRequestTypeDef",
+    "CorsUnionTypeDef",
+    "CreateApiMappingRequestTypeDef",
     "CreateApiMappingResponseTypeDef",
-    "CreateApiRequestRequestTypeDef",
+    "CreateApiRequestTypeDef",
     "CreateApiResponseTypeDef",
-    "CreateAuthorizerRequestRequestTypeDef",
+    "CreateAuthorizerRequestTypeDef",
     "CreateAuthorizerResponseTypeDef",
-    "CreateDeploymentRequestRequestTypeDef",
+    "CreateDeploymentRequestTypeDef",
     "CreateDeploymentResponseTypeDef",
-    "CreateDomainNameRequestRequestTypeDef",
+    "CreateDomainNameRequestTypeDef",
     "CreateDomainNameResponseTypeDef",
-    "CreateIntegrationRequestRequestTypeDef",
-    "CreateIntegrationResponseRequestRequestTypeDef",
+    "CreateIntegrationRequestTypeDef",
+    "CreateIntegrationResponseRequestTypeDef",
     "CreateIntegrationResponseResponseTypeDef",
     "CreateIntegrationResultTypeDef",
-    "CreateModelRequestRequestTypeDef",
+    "CreateModelRequestTypeDef",
     "CreateModelResponseTypeDef",
-    "CreateRouteRequestRequestTypeDef",
-    "CreateRouteResponseRequestRequestTypeDef",
+    "CreateRouteRequestTypeDef",
+    "CreateRouteResponseRequestTypeDef",
     "CreateRouteResponseResponseTypeDef",
     "CreateRouteResultTypeDef",
-    "CreateStageRequestRequestTypeDef",
+    "CreateStageRequestTypeDef",
     "CreateStageResponseTypeDef",
-    "CreateVpcLinkRequestRequestTypeDef",
+    "CreateVpcLinkRequestTypeDef",
     "CreateVpcLinkResponseTypeDef",
-    "DeleteAccessLogSettingsRequestRequestTypeDef",
-    "DeleteApiMappingRequestRequestTypeDef",
-    "DeleteApiRequestRequestTypeDef",
-    "DeleteAuthorizerRequestRequestTypeDef",
-    "DeleteCorsConfigurationRequestRequestTypeDef",
-    "DeleteDeploymentRequestRequestTypeDef",
-    "DeleteDomainNameRequestRequestTypeDef",
-    "DeleteIntegrationRequestRequestTypeDef",
-    "DeleteIntegrationResponseRequestRequestTypeDef",
-    "DeleteModelRequestRequestTypeDef",
-    "DeleteRouteRequestParameterRequestRequestTypeDef",
-    "DeleteRouteRequestRequestTypeDef",
-    "DeleteRouteResponseRequestRequestTypeDef",
-    "DeleteRouteSettingsRequestRequestTypeDef",
-    "DeleteStageRequestRequestTypeDef",
-    "DeleteVpcLinkRequestRequestTypeDef",
+    "DeleteAccessLogSettingsRequestTypeDef",
+    "DeleteApiMappingRequestTypeDef",
+    "DeleteApiRequestTypeDef",
+    "DeleteAuthorizerRequestTypeDef",
+    "DeleteCorsConfigurationRequestTypeDef",
+    "DeleteDeploymentRequestTypeDef",
+    "DeleteDomainNameRequestTypeDef",
+    "DeleteIntegrationRequestTypeDef",
+    "DeleteIntegrationResponseRequestTypeDef",
+    "DeleteModelRequestTypeDef",
+    "DeleteRouteRequestParameterRequestTypeDef",
+    "DeleteRouteRequestTypeDef",
+    "DeleteRouteResponseRequestTypeDef",
+    "DeleteRouteSettingsRequestTypeDef",
+    "DeleteStageRequestTypeDef",
+    "DeleteVpcLinkRequestTypeDef",
     "DeploymentTypeDef",
+    "DomainNameConfigurationOutputTypeDef",
     "DomainNameConfigurationTypeDef",
+    "DomainNameConfigurationUnionTypeDef",
     "DomainNameTypeDef",
-    "ExportApiRequestRequestTypeDef",
+    "EmptyResponseMetadataTypeDef",
+    "ExportApiRequestTypeDef",
     "ExportApiResponseTypeDef",
-    "GetApiMappingRequestRequestTypeDef",
+    "GetApiMappingRequestTypeDef",
     "GetApiMappingResponseTypeDef",
-    "GetApiMappingsRequestRequestTypeDef",
+    "GetApiMappingsRequestTypeDef",
     "GetApiMappingsResponseTypeDef",
-    "GetApiRequestRequestTypeDef",
+    "GetApiRequestTypeDef",
     "GetApiResponseTypeDef",
-    "GetApisRequestRequestTypeDef",
+    "GetApisRequestPaginateTypeDef",
+    "GetApisRequestTypeDef",
     "GetApisResponseTypeDef",
-    "GetAuthorizerRequestRequestTypeDef",
+    "GetAuthorizerRequestTypeDef",
     "GetAuthorizerResponseTypeDef",
-    "GetAuthorizersRequestRequestTypeDef",
+    "GetAuthorizersRequestPaginateTypeDef",
+    "GetAuthorizersRequestTypeDef",
     "GetAuthorizersResponseTypeDef",
-    "GetDeploymentRequestRequestTypeDef",
+    "GetDeploymentRequestTypeDef",
     "GetDeploymentResponseTypeDef",
-    "GetDeploymentsRequestRequestTypeDef",
+    "GetDeploymentsRequestPaginateTypeDef",
+    "GetDeploymentsRequestTypeDef",
     "GetDeploymentsResponseTypeDef",
-    "GetDomainNameRequestRequestTypeDef",
+    "GetDomainNameRequestTypeDef",
     "GetDomainNameResponseTypeDef",
-    "GetDomainNamesRequestRequestTypeDef",
+    "GetDomainNamesRequestPaginateTypeDef",
+    "GetDomainNamesRequestTypeDef",
     "GetDomainNamesResponseTypeDef",
-    "GetIntegrationRequestRequestTypeDef",
-    "GetIntegrationResponseRequestRequestTypeDef",
+    "GetIntegrationRequestTypeDef",
+    "GetIntegrationResponseRequestTypeDef",
     "GetIntegrationResponseResponseTypeDef",
-    "GetIntegrationResponsesRequestRequestTypeDef",
+    "GetIntegrationResponsesRequestPaginateTypeDef",
+    "GetIntegrationResponsesRequestTypeDef",
     "GetIntegrationResponsesResponseTypeDef",
     "GetIntegrationResultTypeDef",
-    "GetIntegrationsRequestRequestTypeDef",
+    "GetIntegrationsRequestPaginateTypeDef",
+    "GetIntegrationsRequestTypeDef",
     "GetIntegrationsResponseTypeDef",
-    "GetModelRequestRequestTypeDef",
+    "GetModelRequestTypeDef",
     "GetModelResponseTypeDef",
-    "GetModelTemplateRequestRequestTypeDef",
+    "GetModelTemplateRequestTypeDef",
     "GetModelTemplateResponseTypeDef",
-    "GetModelsRequestRequestTypeDef",
+    "GetModelsRequestPaginateTypeDef",
+    "GetModelsRequestTypeDef",
     "GetModelsResponseTypeDef",
-    "GetRouteRequestRequestTypeDef",
-    "GetRouteResponseRequestRequestTypeDef",
+    "GetRouteRequestTypeDef",
+    "GetRouteResponseRequestTypeDef",
     "GetRouteResponseResponseTypeDef",
-    "GetRouteResponsesRequestRequestTypeDef",
+    "GetRouteResponsesRequestPaginateTypeDef",
+    "GetRouteResponsesRequestTypeDef",
     "GetRouteResponsesResponseTypeDef",
     "GetRouteResultTypeDef",
-    "GetRoutesRequestRequestTypeDef",
+    "GetRoutesRequestPaginateTypeDef",
+    "GetRoutesRequestTypeDef",
     "GetRoutesResponseTypeDef",
-    "GetStageRequestRequestTypeDef",
+    "GetStageRequestTypeDef",
     "GetStageResponseTypeDef",
-    "GetStagesRequestRequestTypeDef",
+    "GetStagesRequestPaginateTypeDef",
+    "GetStagesRequestTypeDef",
     "GetStagesResponseTypeDef",
-    "GetTagsRequestRequestTypeDef",
+    "GetTagsRequestTypeDef",
     "GetTagsResponseTypeDef",
-    "GetVpcLinkRequestRequestTypeDef",
+    "GetVpcLinkRequestTypeDef",
     "GetVpcLinkResponseTypeDef",
-    "GetVpcLinksRequestRequestTypeDef",
+    "GetVpcLinksRequestTypeDef",
     "GetVpcLinksResponseTypeDef",
-    "ImportApiRequestRequestTypeDef",
+    "ImportApiRequestTypeDef",
     "ImportApiResponseTypeDef",
     "IntegrationResponseTypeDef",
     "IntegrationTypeDef",
+    "JWTConfigurationOutputTypeDef",
     "JWTConfigurationTypeDef",
+    "JWTConfigurationUnionTypeDef",
     "ModelTypeDef",
     "MutualTlsAuthenticationInputTypeDef",
     "MutualTlsAuthenticationTypeDef",
     "PaginatorConfigTypeDef",
     "ParameterConstraintsTypeDef",
-    "ReimportApiRequestRequestTypeDef",
+    "ReimportApiRequestTypeDef",
     "ReimportApiResponseTypeDef",
-    "ResetAuthorizersCacheRequestRequestTypeDef",
+    "ResetAuthorizersCacheRequestTypeDef",
     "ResponseMetadataTypeDef",
     "RouteResponseTypeDef",
     "RouteSettingsTypeDef",
     "RouteTypeDef",
     "StageTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
+    "TimestampTypeDef",
     "TlsConfigInputTypeDef",
     "TlsConfigTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateApiMappingRequestRequestTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateApiMappingRequestTypeDef",
     "UpdateApiMappingResponseTypeDef",
-    "UpdateApiRequestRequestTypeDef",
+    "UpdateApiRequestTypeDef",
     "UpdateApiResponseTypeDef",
-    "UpdateAuthorizerRequestRequestTypeDef",
+    "UpdateAuthorizerRequestTypeDef",
     "UpdateAuthorizerResponseTypeDef",
-    "UpdateDeploymentRequestRequestTypeDef",
+    "UpdateDeploymentRequestTypeDef",
     "UpdateDeploymentResponseTypeDef",
-    "UpdateDomainNameRequestRequestTypeDef",
+    "UpdateDomainNameRequestTypeDef",
     "UpdateDomainNameResponseTypeDef",
-    "UpdateIntegrationRequestRequestTypeDef",
-    "UpdateIntegrationResponseRequestRequestTypeDef",
+    "UpdateIntegrationRequestTypeDef",
+    "UpdateIntegrationResponseRequestTypeDef",
     "UpdateIntegrationResponseResponseTypeDef",
     "UpdateIntegrationResultTypeDef",
-    "UpdateModelRequestRequestTypeDef",
+    "UpdateModelRequestTypeDef",
     "UpdateModelResponseTypeDef",
-    "UpdateRouteRequestRequestTypeDef",
-    "UpdateRouteResponseRequestRequestTypeDef",
+    "UpdateRouteRequestTypeDef",
+    "UpdateRouteResponseRequestTypeDef",
     "UpdateRouteResponseResponseTypeDef",
     "UpdateRouteResultTypeDef",
-    "UpdateStageRequestRequestTypeDef",
+    "UpdateStageRequestTypeDef",
     "UpdateStageResponseTypeDef",
-    "UpdateVpcLinkRequestRequestTypeDef",
+    "UpdateVpcLinkRequestTypeDef",
     "UpdateVpcLinkResponseTypeDef",
     "VpcLinkTypeDef",
 )
 
-AccessLogSettingsTypeDef = TypedDict(
-    "AccessLogSettingsTypeDef",
-    {
-        "DestinationArn": str,
-        "Format": str,
-    },
-    total=False,
-)
-
-_RequiredApiMappingTypeDef = TypedDict(
-    "_RequiredApiMappingTypeDef",
-    {
-        "ApiId": str,
-        "Stage": str,
-    },
-)
-_OptionalApiMappingTypeDef = TypedDict(
-    "_OptionalApiMappingTypeDef",
-    {
-        "ApiMappingId": str,
-        "ApiMappingKey": str,
-    },
-    total=False,
-)
-
-class ApiMappingTypeDef(_RequiredApiMappingTypeDef, _OptionalApiMappingTypeDef):
-    pass
-
-_RequiredApiTypeDef = TypedDict(
-    "_RequiredApiTypeDef",
-    {
-        "Name": str,
-        "ProtocolType": ProtocolTypeType,
-        "RouteSelectionExpression": str,
-    },
-)
-_OptionalApiTypeDef = TypedDict(
-    "_OptionalApiTypeDef",
-    {
-        "ApiEndpoint": str,
-        "ApiGatewayManaged": bool,
-        "ApiId": str,
-        "ApiKeySelectionExpression": str,
-        "CorsConfiguration": "CorsTypeDef",
-        "CreatedDate": datetime,
-        "Description": str,
-        "DisableSchemaValidation": bool,
-        "DisableExecuteApiEndpoint": bool,
-        "ImportInfo": List[str],
-        "Tags": Dict[str, str],
-        "Version": str,
-        "Warnings": List[str],
-    },
-    total=False,
-)
-
-class ApiTypeDef(_RequiredApiTypeDef, _OptionalApiTypeDef):
-    pass
-
-_RequiredAuthorizerTypeDef = TypedDict(
-    "_RequiredAuthorizerTypeDef",
-    {
-        "Name": str,
-    },
-)
-_OptionalAuthorizerTypeDef = TypedDict(
-    "_OptionalAuthorizerTypeDef",
-    {
-        "AuthorizerCredentialsArn": str,
-        "AuthorizerId": str,
-        "AuthorizerPayloadFormatVersion": str,
-        "AuthorizerResultTtlInSeconds": int,
-        "AuthorizerType": AuthorizerTypeType,
-        "AuthorizerUri": str,
-        "EnableSimpleResponses": bool,
-        "IdentitySource": List[str],
-        "IdentityValidationExpression": str,
-        "JwtConfiguration": "JWTConfigurationTypeDef",
-    },
-    total=False,
-)
-
-class AuthorizerTypeDef(_RequiredAuthorizerTypeDef, _OptionalAuthorizerTypeDef):
-    pass
-
-CorsTypeDef = TypedDict(
-    "CorsTypeDef",
-    {
-        "AllowCredentials": bool,
-        "AllowHeaders": List[str],
-        "AllowMethods": List[str],
-        "AllowOrigins": List[str],
-        "ExposeHeaders": List[str],
-        "MaxAge": int,
-    },
-    total=False,
-)
-
-_RequiredCreateApiMappingRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateApiMappingRequestRequestTypeDef",
-    {
-        "ApiId": str,
-        "DomainName": str,
-        "Stage": str,
-    },
-)
-_OptionalCreateApiMappingRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateApiMappingRequestRequestTypeDef",
-    {
-        "ApiMappingKey": str,
-    },
-    total=False,
-)
-
-class CreateApiMappingRequestRequestTypeDef(
-    _RequiredCreateApiMappingRequestRequestTypeDef, _OptionalCreateApiMappingRequestRequestTypeDef
-):
-    pass
-
-CreateApiMappingResponseTypeDef = TypedDict(
-    "CreateApiMappingResponseTypeDef",
-    {
-        "ApiId": str,
-        "ApiMappingId": str,
-        "ApiMappingKey": str,
-        "Stage": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateApiRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateApiRequestRequestTypeDef",
-    {
-        "Name": str,
-        "ProtocolType": ProtocolTypeType,
-    },
-)
-_OptionalCreateApiRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateApiRequestRequestTypeDef",
-    {
-        "ApiKeySelectionExpression": str,
-        "CorsConfiguration": "CorsTypeDef",
-        "CredentialsArn": str,
-        "Description": str,
-        "DisableSchemaValidation": bool,
-        "DisableExecuteApiEndpoint": bool,
-        "RouteKey": str,
-        "RouteSelectionExpression": str,
-        "Tags": Dict[str, str],
-        "Target": str,
-        "Version": str,
-    },
-    total=False,
-)
-
-class CreateApiRequestRequestTypeDef(
-    _RequiredCreateApiRequestRequestTypeDef, _OptionalCreateApiRequestRequestTypeDef
-):
-    pass
-
-CreateApiResponseTypeDef = TypedDict(
-    "CreateApiResponseTypeDef",
-    {
-        "ApiEndpoint": str,
-        "ApiGatewayManaged": bool,
-        "ApiId": str,
-        "ApiKeySelectionExpression": str,
-        "CorsConfiguration": "CorsTypeDef",
-        "CreatedDate": datetime,
-        "Description": str,
-        "DisableSchemaValidation": bool,
-        "DisableExecuteApiEndpoint": bool,
-        "ImportInfo": List[str],
-        "Name": str,
-        "ProtocolType": ProtocolTypeType,
-        "RouteSelectionExpression": str,
-        "Tags": Dict[str, str],
-        "Version": str,
-        "Warnings": List[str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateAuthorizerRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateAuthorizerRequestRequestTypeDef",
-    {
-        "ApiId": str,
-        "AuthorizerType": AuthorizerTypeType,
-        "IdentitySource": List[str],
-        "Name": str,
-    },
-)
-_OptionalCreateAuthorizerRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateAuthorizerRequestRequestTypeDef",
-    {
-        "AuthorizerCredentialsArn": str,
-        "AuthorizerPayloadFormatVersion": str,
-        "AuthorizerResultTtlInSeconds": int,
-        "AuthorizerUri": str,
-        "EnableSimpleResponses": bool,
-        "IdentityValidationExpression": str,
-        "JwtConfiguration": "JWTConfigurationTypeDef",
-    },
-    total=False,
-)
-
-class CreateAuthorizerRequestRequestTypeDef(
-    _RequiredCreateAuthorizerRequestRequestTypeDef, _OptionalCreateAuthorizerRequestRequestTypeDef
-):
-    pass
-
-CreateAuthorizerResponseTypeDef = TypedDict(
-    "CreateAuthorizerResponseTypeDef",
-    {
-        "AuthorizerCredentialsArn": str,
-        "AuthorizerId": str,
-        "AuthorizerPayloadFormatVersion": str,
-        "AuthorizerResultTtlInSeconds": int,
-        "AuthorizerType": AuthorizerTypeType,
-        "AuthorizerUri": str,
-        "EnableSimpleResponses": bool,
-        "IdentitySource": List[str],
-        "IdentityValidationExpression": str,
-        "JwtConfiguration": "JWTConfigurationTypeDef",
-        "Name": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateDeploymentRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateDeploymentRequestRequestTypeDef",
-    {
-        "ApiId": str,
-    },
-)
-_OptionalCreateDeploymentRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateDeploymentRequestRequestTypeDef",
-    {
-        "Description": str,
-        "StageName": str,
-    },
-    total=False,
-)
-
-class CreateDeploymentRequestRequestTypeDef(
-    _RequiredCreateDeploymentRequestRequestTypeDef, _OptionalCreateDeploymentRequestRequestTypeDef
-):
-    pass
-
-CreateDeploymentResponseTypeDef = TypedDict(
-    "CreateDeploymentResponseTypeDef",
-    {
-        "AutoDeployed": bool,
-        "CreatedDate": datetime,
-        "DeploymentId": str,
-        "DeploymentStatus": DeploymentStatusType,
-        "DeploymentStatusMessage": str,
-        "Description": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateDomainNameRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateDomainNameRequestRequestTypeDef",
-    {
-        "DomainName": str,
-    },
-)
-_OptionalCreateDomainNameRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateDomainNameRequestRequestTypeDef",
-    {
-        "DomainNameConfigurations": List["DomainNameConfigurationTypeDef"],
-        "MutualTlsAuthentication": "MutualTlsAuthenticationInputTypeDef",
-        "Tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class CreateDomainNameRequestRequestTypeDef(
-    _RequiredCreateDomainNameRequestRequestTypeDef, _OptionalCreateDomainNameRequestRequestTypeDef
-):
-    pass
-
-CreateDomainNameResponseTypeDef = TypedDict(
-    "CreateDomainNameResponseTypeDef",
-    {
-        "ApiMappingSelectionExpression": str,
-        "DomainName": str,
-        "DomainNameConfigurations": List["DomainNameConfigurationTypeDef"],
-        "MutualTlsAuthentication": "MutualTlsAuthenticationTypeDef",
-        "Tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateIntegrationRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateIntegrationRequestRequestTypeDef",
-    {
-        "ApiId": str,
-        "IntegrationType": IntegrationTypeType,
-    },
-)
-_OptionalCreateIntegrationRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateIntegrationRequestRequestTypeDef",
-    {
-        "ConnectionId": str,
-        "ConnectionType": ConnectionTypeType,
-        "ContentHandlingStrategy": ContentHandlingStrategyType,
-        "CredentialsArn": str,
-        "Description": str,
-        "IntegrationMethod": str,
-        "IntegrationSubtype": str,
-        "IntegrationUri": str,
-        "PassthroughBehavior": PassthroughBehaviorType,
-        "PayloadFormatVersion": str,
-        "RequestParameters": Dict[str, str],
-        "RequestTemplates": Dict[str, str],
-        "ResponseParameters": Dict[str, Dict[str, str]],
-        "TemplateSelectionExpression": str,
-        "TimeoutInMillis": int,
-        "TlsConfig": "TlsConfigInputTypeDef",
-    },
-    total=False,
-)
-
-class CreateIntegrationRequestRequestTypeDef(
-    _RequiredCreateIntegrationRequestRequestTypeDef, _OptionalCreateIntegrationRequestRequestTypeDef
-):
-    pass
-
-_RequiredCreateIntegrationResponseRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateIntegrationResponseRequestRequestTypeDef",
-    {
-        "ApiId": str,
-        "IntegrationId": str,
-        "IntegrationResponseKey": str,
-    },
-)
-_OptionalCreateIntegrationResponseRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateIntegrationResponseRequestRequestTypeDef",
-    {
-        "ContentHandlingStrategy": ContentHandlingStrategyType,
-        "ResponseParameters": Dict[str, str],
-        "ResponseTemplates": Dict[str, str],
-        "TemplateSelectionExpression": str,
-    },
-    total=False,
-)
-
-class CreateIntegrationResponseRequestRequestTypeDef(
-    _RequiredCreateIntegrationResponseRequestRequestTypeDef,
-    _OptionalCreateIntegrationResponseRequestRequestTypeDef,
-):
-    pass
-
-CreateIntegrationResponseResponseTypeDef = TypedDict(
-    "CreateIntegrationResponseResponseTypeDef",
-    {
-        "ContentHandlingStrategy": ContentHandlingStrategyType,
-        "IntegrationResponseId": str,
-        "IntegrationResponseKey": str,
-        "ResponseParameters": Dict[str, str],
-        "ResponseTemplates": Dict[str, str],
-        "TemplateSelectionExpression": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateIntegrationResultTypeDef = TypedDict(
-    "CreateIntegrationResultTypeDef",
-    {
-        "ApiGatewayManaged": bool,
-        "ConnectionId": str,
-        "ConnectionType": ConnectionTypeType,
-        "ContentHandlingStrategy": ContentHandlingStrategyType,
-        "CredentialsArn": str,
-        "Description": str,
-        "IntegrationId": str,
-        "IntegrationMethod": str,
-        "IntegrationResponseSelectionExpression": str,
-        "IntegrationSubtype": str,
-        "IntegrationType": IntegrationTypeType,
-        "IntegrationUri": str,
-        "PassthroughBehavior": PassthroughBehaviorType,
-        "PayloadFormatVersion": str,
-        "RequestParameters": Dict[str, str],
-        "RequestTemplates": Dict[str, str],
-        "ResponseParameters": Dict[str, Dict[str, str]],
-        "TemplateSelectionExpression": str,
-        "TimeoutInMillis": int,
-        "TlsConfig": "TlsConfigTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateModelRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateModelRequestRequestTypeDef",
-    {
-        "ApiId": str,
-        "Name": str,
-        "Schema": str,
-    },
-)
-_OptionalCreateModelRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateModelRequestRequestTypeDef",
-    {
-        "ContentType": str,
-        "Description": str,
-    },
-    total=False,
-)
-
-class CreateModelRequestRequestTypeDef(
-    _RequiredCreateModelRequestRequestTypeDef, _OptionalCreateModelRequestRequestTypeDef
-):
-    pass
-
-CreateModelResponseTypeDef = TypedDict(
-    "CreateModelResponseTypeDef",
-    {
-        "ContentType": str,
-        "Description": str,
-        "ModelId": str,
-        "Name": str,
-        "Schema": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateRouteRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateRouteRequestRequestTypeDef",
-    {
-        "ApiId": str,
-        "RouteKey": str,
-    },
-)
-_OptionalCreateRouteRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateRouteRequestRequestTypeDef",
-    {
-        "ApiKeyRequired": bool,
-        "AuthorizationScopes": List[str],
-        "AuthorizationType": AuthorizationTypeType,
-        "AuthorizerId": str,
-        "ModelSelectionExpression": str,
-        "OperationName": str,
-        "RequestModels": Dict[str, str],
-        "RequestParameters": Dict[str, "ParameterConstraintsTypeDef"],
-        "RouteResponseSelectionExpression": str,
-        "Target": str,
-    },
-    total=False,
-)
-
-class CreateRouteRequestRequestTypeDef(
-    _RequiredCreateRouteRequestRequestTypeDef, _OptionalCreateRouteRequestRequestTypeDef
-):
-    pass
-
-_RequiredCreateRouteResponseRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateRouteResponseRequestRequestTypeDef",
-    {
-        "ApiId": str,
-        "RouteId": str,
-        "RouteResponseKey": str,
-    },
-)
-_OptionalCreateRouteResponseRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateRouteResponseRequestRequestTypeDef",
-    {
-        "ModelSelectionExpression": str,
-        "ResponseModels": Dict[str, str],
-        "ResponseParameters": Dict[str, "ParameterConstraintsTypeDef"],
-    },
-    total=False,
-)
-
-class CreateRouteResponseRequestRequestTypeDef(
-    _RequiredCreateRouteResponseRequestRequestTypeDef,
-    _OptionalCreateRouteResponseRequestRequestTypeDef,
-):
-    pass
-
-CreateRouteResponseResponseTypeDef = TypedDict(
-    "CreateRouteResponseResponseTypeDef",
-    {
-        "ModelSelectionExpression": str,
-        "ResponseModels": Dict[str, str],
-        "ResponseParameters": Dict[str, "ParameterConstraintsTypeDef"],
-        "RouteResponseId": str,
-        "RouteResponseKey": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateRouteResultTypeDef = TypedDict(
-    "CreateRouteResultTypeDef",
-    {
-        "ApiGatewayManaged": bool,
-        "ApiKeyRequired": bool,
-        "AuthorizationScopes": List[str],
-        "AuthorizationType": AuthorizationTypeType,
-        "AuthorizerId": str,
-        "ModelSelectionExpression": str,
-        "OperationName": str,
-        "RequestModels": Dict[str, str],
-        "RequestParameters": Dict[str, "ParameterConstraintsTypeDef"],
-        "RouteId": str,
-        "RouteKey": str,
-        "RouteResponseSelectionExpression": str,
-        "Target": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateStageRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateStageRequestRequestTypeDef",
-    {
-        "ApiId": str,
-        "StageName": str,
-    },
-)
-_OptionalCreateStageRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateStageRequestRequestTypeDef",
-    {
-        "AccessLogSettings": "AccessLogSettingsTypeDef",
-        "AutoDeploy": bool,
-        "ClientCertificateId": str,
-        "DefaultRouteSettings": "RouteSettingsTypeDef",
-        "DeploymentId": str,
-        "Description": str,
-        "RouteSettings": Dict[str, "RouteSettingsTypeDef"],
-        "StageVariables": Dict[str, str],
-        "Tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class CreateStageRequestRequestTypeDef(
-    _RequiredCreateStageRequestRequestTypeDef, _OptionalCreateStageRequestRequestTypeDef
-):
-    pass
-
-CreateStageResponseTypeDef = TypedDict(
-    "CreateStageResponseTypeDef",
-    {
-        "AccessLogSettings": "AccessLogSettingsTypeDef",
-        "ApiGatewayManaged": bool,
-        "AutoDeploy": bool,
-        "ClientCertificateId": str,
-        "CreatedDate": datetime,
-        "DefaultRouteSettings": "RouteSettingsTypeDef",
-        "DeploymentId": str,
-        "Description": str,
-        "LastDeploymentStatusMessage": str,
-        "LastUpdatedDate": datetime,
-        "RouteSettings": Dict[str, "RouteSettingsTypeDef"],
-        "StageName": str,
-        "StageVariables": Dict[str, str],
-        "Tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateVpcLinkRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateVpcLinkRequestRequestTypeDef",
-    {
-        "Name": str,
-        "SubnetIds": List[str],
-    },
-)
-_OptionalCreateVpcLinkRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateVpcLinkRequestRequestTypeDef",
-    {
-        "SecurityGroupIds": List[str],
-        "Tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class CreateVpcLinkRequestRequestTypeDef(
-    _RequiredCreateVpcLinkRequestRequestTypeDef, _OptionalCreateVpcLinkRequestRequestTypeDef
-):
-    pass
-
-CreateVpcLinkResponseTypeDef = TypedDict(
-    "CreateVpcLinkResponseTypeDef",
-    {
-        "CreatedDate": datetime,
-        "Name": str,
-        "SecurityGroupIds": List[str],
-        "SubnetIds": List[str],
-        "Tags": Dict[str, str],
-        "VpcLinkId": str,
-        "VpcLinkStatus": VpcLinkStatusType,
-        "VpcLinkStatusMessage": str,
-        "VpcLinkVersion": Literal["V2"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteAccessLogSettingsRequestRequestTypeDef = TypedDict(
-    "DeleteAccessLogSettingsRequestRequestTypeDef",
-    {
-        "ApiId": str,
-        "StageName": str,
-    },
-)
-
-DeleteApiMappingRequestRequestTypeDef = TypedDict(
-    "DeleteApiMappingRequestRequestTypeDef",
-    {
-        "ApiMappingId": str,
-        "DomainName": str,
-    },
-)
-
-DeleteApiRequestRequestTypeDef = TypedDict(
-    "DeleteApiRequestRequestTypeDef",
-    {
-        "ApiId": str,
-    },
-)
-
-DeleteAuthorizerRequestRequestTypeDef = TypedDict(
-    "DeleteAuthorizerRequestRequestTypeDef",
-    {
-        "ApiId": str,
-        "AuthorizerId": str,
-    },
-)
-
-DeleteCorsConfigurationRequestRequestTypeDef = TypedDict(
-    "DeleteCorsConfigurationRequestRequestTypeDef",
-    {
-        "ApiId": str,
-    },
-)
-
-DeleteDeploymentRequestRequestTypeDef = TypedDict(
-    "DeleteDeploymentRequestRequestTypeDef",
-    {
-        "ApiId": str,
-        "DeploymentId": str,
-    },
-)
-
-DeleteDomainNameRequestRequestTypeDef = TypedDict(
-    "DeleteDomainNameRequestRequestTypeDef",
-    {
-        "DomainName": str,
-    },
-)
-
-DeleteIntegrationRequestRequestTypeDef = TypedDict(
-    "DeleteIntegrationRequestRequestTypeDef",
-    {
-        "ApiId": str,
-        "IntegrationId": str,
-    },
-)
-
-DeleteIntegrationResponseRequestRequestTypeDef = TypedDict(
-    "DeleteIntegrationResponseRequestRequestTypeDef",
-    {
-        "ApiId": str,
-        "IntegrationId": str,
-        "IntegrationResponseId": str,
-    },
-)
-
-DeleteModelRequestRequestTypeDef = TypedDict(
-    "DeleteModelRequestRequestTypeDef",
-    {
-        "ApiId": str,
-        "ModelId": str,
-    },
-)
-
-DeleteRouteRequestParameterRequestRequestTypeDef = TypedDict(
-    "DeleteRouteRequestParameterRequestRequestTypeDef",
-    {
-        "ApiId": str,
-        "RequestParameterKey": str,
-        "RouteId": str,
-    },
-)
-
-DeleteRouteRequestRequestTypeDef = TypedDict(
-    "DeleteRouteRequestRequestTypeDef",
-    {
-        "ApiId": str,
-        "RouteId": str,
-    },
-)
-
-DeleteRouteResponseRequestRequestTypeDef = TypedDict(
-    "DeleteRouteResponseRequestRequestTypeDef",
-    {
-        "ApiId": str,
-        "RouteId": str,
-        "RouteResponseId": str,
-    },
-)
-
-DeleteRouteSettingsRequestRequestTypeDef = TypedDict(
-    "DeleteRouteSettingsRequestRequestTypeDef",
-    {
-        "ApiId": str,
-        "RouteKey": str,
-        "StageName": str,
-    },
-)
-
-DeleteStageRequestRequestTypeDef = TypedDict(
-    "DeleteStageRequestRequestTypeDef",
-    {
-        "ApiId": str,
-        "StageName": str,
-    },
-)
-
-DeleteVpcLinkRequestRequestTypeDef = TypedDict(
-    "DeleteVpcLinkRequestRequestTypeDef",
-    {
-        "VpcLinkId": str,
-    },
-)
-
-DeploymentTypeDef = TypedDict(
-    "DeploymentTypeDef",
-    {
-        "AutoDeployed": bool,
-        "CreatedDate": datetime,
-        "DeploymentId": str,
-        "DeploymentStatus": DeploymentStatusType,
-        "DeploymentStatusMessage": str,
-        "Description": str,
-    },
-    total=False,
-)
-
-DomainNameConfigurationTypeDef = TypedDict(
-    "DomainNameConfigurationTypeDef",
-    {
-        "ApiGatewayDomainName": str,
-        "CertificateArn": str,
-        "CertificateName": str,
-        "CertificateUploadDate": Union[datetime, str],
-        "DomainNameStatus": DomainNameStatusType,
-        "DomainNameStatusMessage": str,
-        "EndpointType": EndpointTypeType,
-        "HostedZoneId": str,
-        "SecurityPolicy": SecurityPolicyType,
-        "OwnershipVerificationCertificateArn": str,
-    },
-    total=False,
-)
-
-_RequiredDomainNameTypeDef = TypedDict(
-    "_RequiredDomainNameTypeDef",
-    {
-        "DomainName": str,
-    },
-)
-_OptionalDomainNameTypeDef = TypedDict(
-    "_OptionalDomainNameTypeDef",
-    {
-        "ApiMappingSelectionExpression": str,
-        "DomainNameConfigurations": List["DomainNameConfigurationTypeDef"],
-        "MutualTlsAuthentication": "MutualTlsAuthenticationTypeDef",
-        "Tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class DomainNameTypeDef(_RequiredDomainNameTypeDef, _OptionalDomainNameTypeDef):
-    pass
-
-_RequiredExportApiRequestRequestTypeDef = TypedDict(
-    "_RequiredExportApiRequestRequestTypeDef",
-    {
-        "ApiId": str,
-        "OutputType": JSONYAMLType,
-        "Specification": Literal["OAS30"],
-    },
-)
-_OptionalExportApiRequestRequestTypeDef = TypedDict(
-    "_OptionalExportApiRequestRequestTypeDef",
-    {
-        "ExportVersion": str,
-        "IncludeExtensions": bool,
-        "StageName": str,
-    },
-    total=False,
-)
-
-class ExportApiRequestRequestTypeDef(
-    _RequiredExportApiRequestRequestTypeDef, _OptionalExportApiRequestRequestTypeDef
-):
-    pass
-
-ExportApiResponseTypeDef = TypedDict(
-    "ExportApiResponseTypeDef",
-    {
-        "body": bytes,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetApiMappingRequestRequestTypeDef = TypedDict(
-    "GetApiMappingRequestRequestTypeDef",
-    {
-        "ApiMappingId": str,
-        "DomainName": str,
-    },
-)
-
-GetApiMappingResponseTypeDef = TypedDict(
-    "GetApiMappingResponseTypeDef",
-    {
-        "ApiId": str,
-        "ApiMappingId": str,
-        "ApiMappingKey": str,
-        "Stage": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetApiMappingsRequestRequestTypeDef = TypedDict(
-    "_RequiredGetApiMappingsRequestRequestTypeDef",
-    {
-        "DomainName": str,
-    },
-)
-_OptionalGetApiMappingsRequestRequestTypeDef = TypedDict(
-    "_OptionalGetApiMappingsRequestRequestTypeDef",
-    {
-        "MaxResults": str,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class GetApiMappingsRequestRequestTypeDef(
-    _RequiredGetApiMappingsRequestRequestTypeDef, _OptionalGetApiMappingsRequestRequestTypeDef
-):
-    pass
-
-GetApiMappingsResponseTypeDef = TypedDict(
-    "GetApiMappingsResponseTypeDef",
-    {
-        "Items": List["ApiMappingTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetApiRequestRequestTypeDef = TypedDict(
-    "GetApiRequestRequestTypeDef",
-    {
-        "ApiId": str,
-    },
-)
-
-GetApiResponseTypeDef = TypedDict(
-    "GetApiResponseTypeDef",
-    {
-        "ApiEndpoint": str,
-        "ApiGatewayManaged": bool,
-        "ApiId": str,
-        "ApiKeySelectionExpression": str,
-        "CorsConfiguration": "CorsTypeDef",
-        "CreatedDate": datetime,
-        "Description": str,
-        "DisableSchemaValidation": bool,
-        "DisableExecuteApiEndpoint": bool,
-        "ImportInfo": List[str],
-        "Name": str,
-        "ProtocolType": ProtocolTypeType,
-        "RouteSelectionExpression": str,
-        "Tags": Dict[str, str],
-        "Version": str,
-        "Warnings": List[str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetApisRequestRequestTypeDef = TypedDict(
-    "GetApisRequestRequestTypeDef",
-    {
-        "MaxResults": str,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-GetApisResponseTypeDef = TypedDict(
-    "GetApisResponseTypeDef",
-    {
-        "Items": List["ApiTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetAuthorizerRequestRequestTypeDef = TypedDict(
-    "GetAuthorizerRequestRequestTypeDef",
-    {
-        "ApiId": str,
-        "AuthorizerId": str,
-    },
-)
-
-GetAuthorizerResponseTypeDef = TypedDict(
-    "GetAuthorizerResponseTypeDef",
-    {
-        "AuthorizerCredentialsArn": str,
-        "AuthorizerId": str,
-        "AuthorizerPayloadFormatVersion": str,
-        "AuthorizerResultTtlInSeconds": int,
-        "AuthorizerType": AuthorizerTypeType,
-        "AuthorizerUri": str,
-        "EnableSimpleResponses": bool,
-        "IdentitySource": List[str],
-        "IdentityValidationExpression": str,
-        "JwtConfiguration": "JWTConfigurationTypeDef",
-        "Name": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetAuthorizersRequestRequestTypeDef = TypedDict(
-    "_RequiredGetAuthorizersRequestRequestTypeDef",
-    {
-        "ApiId": str,
-    },
-)
-_OptionalGetAuthorizersRequestRequestTypeDef = TypedDict(
-    "_OptionalGetAuthorizersRequestRequestTypeDef",
-    {
-        "MaxResults": str,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class GetAuthorizersRequestRequestTypeDef(
-    _RequiredGetAuthorizersRequestRequestTypeDef, _OptionalGetAuthorizersRequestRequestTypeDef
-):
-    pass
-
-GetAuthorizersResponseTypeDef = TypedDict(
-    "GetAuthorizersResponseTypeDef",
-    {
-        "Items": List["AuthorizerTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetDeploymentRequestRequestTypeDef = TypedDict(
-    "GetDeploymentRequestRequestTypeDef",
-    {
-        "ApiId": str,
-        "DeploymentId": str,
-    },
-)
-
-GetDeploymentResponseTypeDef = TypedDict(
-    "GetDeploymentResponseTypeDef",
-    {
-        "AutoDeployed": bool,
-        "CreatedDate": datetime,
-        "DeploymentId": str,
-        "DeploymentStatus": DeploymentStatusType,
-        "DeploymentStatusMessage": str,
-        "Description": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetDeploymentsRequestRequestTypeDef = TypedDict(
-    "_RequiredGetDeploymentsRequestRequestTypeDef",
-    {
-        "ApiId": str,
-    },
-)
-_OptionalGetDeploymentsRequestRequestTypeDef = TypedDict(
-    "_OptionalGetDeploymentsRequestRequestTypeDef",
-    {
-        "MaxResults": str,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class GetDeploymentsRequestRequestTypeDef(
-    _RequiredGetDeploymentsRequestRequestTypeDef, _OptionalGetDeploymentsRequestRequestTypeDef
-):
-    pass
-
-GetDeploymentsResponseTypeDef = TypedDict(
-    "GetDeploymentsResponseTypeDef",
-    {
-        "Items": List["DeploymentTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetDomainNameRequestRequestTypeDef = TypedDict(
-    "GetDomainNameRequestRequestTypeDef",
-    {
-        "DomainName": str,
-    },
-)
-
-GetDomainNameResponseTypeDef = TypedDict(
-    "GetDomainNameResponseTypeDef",
-    {
-        "ApiMappingSelectionExpression": str,
-        "DomainName": str,
-        "DomainNameConfigurations": List["DomainNameConfigurationTypeDef"],
-        "MutualTlsAuthentication": "MutualTlsAuthenticationTypeDef",
-        "Tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetDomainNamesRequestRequestTypeDef = TypedDict(
-    "GetDomainNamesRequestRequestTypeDef",
-    {
-        "MaxResults": str,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-GetDomainNamesResponseTypeDef = TypedDict(
-    "GetDomainNamesResponseTypeDef",
-    {
-        "Items": List["DomainNameTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetIntegrationRequestRequestTypeDef = TypedDict(
-    "GetIntegrationRequestRequestTypeDef",
-    {
-        "ApiId": str,
-        "IntegrationId": str,
-    },
-)
-
-GetIntegrationResponseRequestRequestTypeDef = TypedDict(
-    "GetIntegrationResponseRequestRequestTypeDef",
-    {
-        "ApiId": str,
-        "IntegrationId": str,
-        "IntegrationResponseId": str,
-    },
-)
-
-GetIntegrationResponseResponseTypeDef = TypedDict(
-    "GetIntegrationResponseResponseTypeDef",
-    {
-        "ContentHandlingStrategy": ContentHandlingStrategyType,
-        "IntegrationResponseId": str,
-        "IntegrationResponseKey": str,
-        "ResponseParameters": Dict[str, str],
-        "ResponseTemplates": Dict[str, str],
-        "TemplateSelectionExpression": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetIntegrationResponsesRequestRequestTypeDef = TypedDict(
-    "_RequiredGetIntegrationResponsesRequestRequestTypeDef",
-    {
-        "ApiId": str,
-        "IntegrationId": str,
-    },
-)
-_OptionalGetIntegrationResponsesRequestRequestTypeDef = TypedDict(
-    "_OptionalGetIntegrationResponsesRequestRequestTypeDef",
-    {
-        "MaxResults": str,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class GetIntegrationResponsesRequestRequestTypeDef(
-    _RequiredGetIntegrationResponsesRequestRequestTypeDef,
-    _OptionalGetIntegrationResponsesRequestRequestTypeDef,
-):
-    pass
-
-GetIntegrationResponsesResponseTypeDef = TypedDict(
-    "GetIntegrationResponsesResponseTypeDef",
-    {
-        "Items": List["IntegrationResponseTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetIntegrationResultTypeDef = TypedDict(
-    "GetIntegrationResultTypeDef",
-    {
-        "ApiGatewayManaged": bool,
-        "ConnectionId": str,
-        "ConnectionType": ConnectionTypeType,
-        "ContentHandlingStrategy": ContentHandlingStrategyType,
-        "CredentialsArn": str,
-        "Description": str,
-        "IntegrationId": str,
-        "IntegrationMethod": str,
-        "IntegrationResponseSelectionExpression": str,
-        "IntegrationSubtype": str,
-        "IntegrationType": IntegrationTypeType,
-        "IntegrationUri": str,
-        "PassthroughBehavior": PassthroughBehaviorType,
-        "PayloadFormatVersion": str,
-        "RequestParameters": Dict[str, str],
-        "RequestTemplates": Dict[str, str],
-        "ResponseParameters": Dict[str, Dict[str, str]],
-        "TemplateSelectionExpression": str,
-        "TimeoutInMillis": int,
-        "TlsConfig": "TlsConfigTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetIntegrationsRequestRequestTypeDef = TypedDict(
-    "_RequiredGetIntegrationsRequestRequestTypeDef",
-    {
-        "ApiId": str,
-    },
-)
-_OptionalGetIntegrationsRequestRequestTypeDef = TypedDict(
-    "_OptionalGetIntegrationsRequestRequestTypeDef",
-    {
-        "MaxResults": str,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class GetIntegrationsRequestRequestTypeDef(
-    _RequiredGetIntegrationsRequestRequestTypeDef, _OptionalGetIntegrationsRequestRequestTypeDef
-):
-    pass
-
-GetIntegrationsResponseTypeDef = TypedDict(
-    "GetIntegrationsResponseTypeDef",
-    {
-        "Items": List["IntegrationTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetModelRequestRequestTypeDef = TypedDict(
-    "GetModelRequestRequestTypeDef",
-    {
-        "ApiId": str,
-        "ModelId": str,
-    },
-)
-
-GetModelResponseTypeDef = TypedDict(
-    "GetModelResponseTypeDef",
-    {
-        "ContentType": str,
-        "Description": str,
-        "ModelId": str,
-        "Name": str,
-        "Schema": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetModelTemplateRequestRequestTypeDef = TypedDict(
-    "GetModelTemplateRequestRequestTypeDef",
-    {
-        "ApiId": str,
-        "ModelId": str,
-    },
-)
-
-GetModelTemplateResponseTypeDef = TypedDict(
-    "GetModelTemplateResponseTypeDef",
-    {
-        "Value": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetModelsRequestRequestTypeDef = TypedDict(
-    "_RequiredGetModelsRequestRequestTypeDef",
-    {
-        "ApiId": str,
-    },
-)
-_OptionalGetModelsRequestRequestTypeDef = TypedDict(
-    "_OptionalGetModelsRequestRequestTypeDef",
-    {
-        "MaxResults": str,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class GetModelsRequestRequestTypeDef(
-    _RequiredGetModelsRequestRequestTypeDef, _OptionalGetModelsRequestRequestTypeDef
-):
-    pass
-
-GetModelsResponseTypeDef = TypedDict(
-    "GetModelsResponseTypeDef",
-    {
-        "Items": List["ModelTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetRouteRequestRequestTypeDef = TypedDict(
-    "GetRouteRequestRequestTypeDef",
-    {
-        "ApiId": str,
-        "RouteId": str,
-    },
-)
-
-GetRouteResponseRequestRequestTypeDef = TypedDict(
-    "GetRouteResponseRequestRequestTypeDef",
-    {
-        "ApiId": str,
-        "RouteId": str,
-        "RouteResponseId": str,
-    },
-)
-
-GetRouteResponseResponseTypeDef = TypedDict(
-    "GetRouteResponseResponseTypeDef",
-    {
-        "ModelSelectionExpression": str,
-        "ResponseModels": Dict[str, str],
-        "ResponseParameters": Dict[str, "ParameterConstraintsTypeDef"],
-        "RouteResponseId": str,
-        "RouteResponseKey": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetRouteResponsesRequestRequestTypeDef = TypedDict(
-    "_RequiredGetRouteResponsesRequestRequestTypeDef",
-    {
-        "ApiId": str,
-        "RouteId": str,
-    },
-)
-_OptionalGetRouteResponsesRequestRequestTypeDef = TypedDict(
-    "_OptionalGetRouteResponsesRequestRequestTypeDef",
-    {
-        "MaxResults": str,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class GetRouteResponsesRequestRequestTypeDef(
-    _RequiredGetRouteResponsesRequestRequestTypeDef, _OptionalGetRouteResponsesRequestRequestTypeDef
-):
-    pass
-
-GetRouteResponsesResponseTypeDef = TypedDict(
-    "GetRouteResponsesResponseTypeDef",
-    {
-        "Items": List["RouteResponseTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetRouteResultTypeDef = TypedDict(
-    "GetRouteResultTypeDef",
-    {
-        "ApiGatewayManaged": bool,
-        "ApiKeyRequired": bool,
-        "AuthorizationScopes": List[str],
-        "AuthorizationType": AuthorizationTypeType,
-        "AuthorizerId": str,
-        "ModelSelectionExpression": str,
-        "OperationName": str,
-        "RequestModels": Dict[str, str],
-        "RequestParameters": Dict[str, "ParameterConstraintsTypeDef"],
-        "RouteId": str,
-        "RouteKey": str,
-        "RouteResponseSelectionExpression": str,
-        "Target": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetRoutesRequestRequestTypeDef = TypedDict(
-    "_RequiredGetRoutesRequestRequestTypeDef",
-    {
-        "ApiId": str,
-    },
-)
-_OptionalGetRoutesRequestRequestTypeDef = TypedDict(
-    "_OptionalGetRoutesRequestRequestTypeDef",
-    {
-        "MaxResults": str,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class GetRoutesRequestRequestTypeDef(
-    _RequiredGetRoutesRequestRequestTypeDef, _OptionalGetRoutesRequestRequestTypeDef
-):
-    pass
-
-GetRoutesResponseTypeDef = TypedDict(
-    "GetRoutesResponseTypeDef",
-    {
-        "Items": List["RouteTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetStageRequestRequestTypeDef = TypedDict(
-    "GetStageRequestRequestTypeDef",
-    {
-        "ApiId": str,
-        "StageName": str,
-    },
-)
-
-GetStageResponseTypeDef = TypedDict(
-    "GetStageResponseTypeDef",
-    {
-        "AccessLogSettings": "AccessLogSettingsTypeDef",
-        "ApiGatewayManaged": bool,
-        "AutoDeploy": bool,
-        "ClientCertificateId": str,
-        "CreatedDate": datetime,
-        "DefaultRouteSettings": "RouteSettingsTypeDef",
-        "DeploymentId": str,
-        "Description": str,
-        "LastDeploymentStatusMessage": str,
-        "LastUpdatedDate": datetime,
-        "RouteSettings": Dict[str, "RouteSettingsTypeDef"],
-        "StageName": str,
-        "StageVariables": Dict[str, str],
-        "Tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetStagesRequestRequestTypeDef = TypedDict(
-    "_RequiredGetStagesRequestRequestTypeDef",
-    {
-        "ApiId": str,
-    },
-)
-_OptionalGetStagesRequestRequestTypeDef = TypedDict(
-    "_OptionalGetStagesRequestRequestTypeDef",
-    {
-        "MaxResults": str,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class GetStagesRequestRequestTypeDef(
-    _RequiredGetStagesRequestRequestTypeDef, _OptionalGetStagesRequestRequestTypeDef
-):
-    pass
-
-GetStagesResponseTypeDef = TypedDict(
-    "GetStagesResponseTypeDef",
-    {
-        "Items": List["StageTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetTagsRequestRequestTypeDef = TypedDict(
-    "GetTagsRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-    },
-)
-
-GetTagsResponseTypeDef = TypedDict(
-    "GetTagsResponseTypeDef",
-    {
-        "Tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetVpcLinkRequestRequestTypeDef = TypedDict(
-    "GetVpcLinkRequestRequestTypeDef",
-    {
-        "VpcLinkId": str,
-    },
-)
-
-GetVpcLinkResponseTypeDef = TypedDict(
-    "GetVpcLinkResponseTypeDef",
-    {
-        "CreatedDate": datetime,
-        "Name": str,
-        "SecurityGroupIds": List[str],
-        "SubnetIds": List[str],
-        "Tags": Dict[str, str],
-        "VpcLinkId": str,
-        "VpcLinkStatus": VpcLinkStatusType,
-        "VpcLinkStatusMessage": str,
-        "VpcLinkVersion": Literal["V2"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetVpcLinksRequestRequestTypeDef = TypedDict(
-    "GetVpcLinksRequestRequestTypeDef",
-    {
-        "MaxResults": str,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-GetVpcLinksResponseTypeDef = TypedDict(
-    "GetVpcLinksResponseTypeDef",
-    {
-        "Items": List["VpcLinkTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredImportApiRequestRequestTypeDef = TypedDict(
-    "_RequiredImportApiRequestRequestTypeDef",
-    {
-        "Body": str,
-    },
-)
-_OptionalImportApiRequestRequestTypeDef = TypedDict(
-    "_OptionalImportApiRequestRequestTypeDef",
-    {
-        "Basepath": str,
-        "FailOnWarnings": bool,
-    },
-    total=False,
-)
-
-class ImportApiRequestRequestTypeDef(
-    _RequiredImportApiRequestRequestTypeDef, _OptionalImportApiRequestRequestTypeDef
-):
-    pass
-
-ImportApiResponseTypeDef = TypedDict(
-    "ImportApiResponseTypeDef",
-    {
-        "ApiEndpoint": str,
-        "ApiGatewayManaged": bool,
-        "ApiId": str,
-        "ApiKeySelectionExpression": str,
-        "CorsConfiguration": "CorsTypeDef",
-        "CreatedDate": datetime,
-        "Description": str,
-        "DisableSchemaValidation": bool,
-        "DisableExecuteApiEndpoint": bool,
-        "ImportInfo": List[str],
-        "Name": str,
-        "ProtocolType": ProtocolTypeType,
-        "RouteSelectionExpression": str,
-        "Tags": Dict[str, str],
-        "Version": str,
-        "Warnings": List[str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredIntegrationResponseTypeDef = TypedDict(
-    "_RequiredIntegrationResponseTypeDef",
-    {
-        "IntegrationResponseKey": str,
-    },
-)
-_OptionalIntegrationResponseTypeDef = TypedDict(
-    "_OptionalIntegrationResponseTypeDef",
-    {
-        "ContentHandlingStrategy": ContentHandlingStrategyType,
-        "IntegrationResponseId": str,
-        "ResponseParameters": Dict[str, str],
-        "ResponseTemplates": Dict[str, str],
-        "TemplateSelectionExpression": str,
-    },
-    total=False,
-)
-
-class IntegrationResponseTypeDef(
-    _RequiredIntegrationResponseTypeDef, _OptionalIntegrationResponseTypeDef
-):
-    pass
-
-IntegrationTypeDef = TypedDict(
-    "IntegrationTypeDef",
-    {
-        "ApiGatewayManaged": bool,
-        "ConnectionId": str,
-        "ConnectionType": ConnectionTypeType,
-        "ContentHandlingStrategy": ContentHandlingStrategyType,
-        "CredentialsArn": str,
-        "Description": str,
-        "IntegrationId": str,
-        "IntegrationMethod": str,
-        "IntegrationResponseSelectionExpression": str,
-        "IntegrationSubtype": str,
-        "IntegrationType": IntegrationTypeType,
-        "IntegrationUri": str,
-        "PassthroughBehavior": PassthroughBehaviorType,
-        "PayloadFormatVersion": str,
-        "RequestParameters": Dict[str, str],
-        "RequestTemplates": Dict[str, str],
-        "ResponseParameters": Dict[str, Dict[str, str]],
-        "TemplateSelectionExpression": str,
-        "TimeoutInMillis": int,
-        "TlsConfig": "TlsConfigTypeDef",
-    },
-    total=False,
-)
-
-JWTConfigurationTypeDef = TypedDict(
-    "JWTConfigurationTypeDef",
-    {
-        "Audience": List[str],
-        "Issuer": str,
-    },
-    total=False,
-)
-
-_RequiredModelTypeDef = TypedDict(
-    "_RequiredModelTypeDef",
-    {
-        "Name": str,
-    },
-)
-_OptionalModelTypeDef = TypedDict(
-    "_OptionalModelTypeDef",
-    {
-        "ContentType": str,
-        "Description": str,
-        "ModelId": str,
-        "Schema": str,
-    },
-    total=False,
-)
-
-class ModelTypeDef(_RequiredModelTypeDef, _OptionalModelTypeDef):
-    pass
-
-MutualTlsAuthenticationInputTypeDef = TypedDict(
-    "MutualTlsAuthenticationInputTypeDef",
-    {
-        "TruststoreUri": str,
-        "TruststoreVersion": str,
-    },
-    total=False,
-)
-
-MutualTlsAuthenticationTypeDef = TypedDict(
-    "MutualTlsAuthenticationTypeDef",
-    {
-        "TruststoreUri": str,
-        "TruststoreVersion": str,
-        "TruststoreWarnings": List[str],
-    },
-    total=False,
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
+class AccessLogSettingsTypeDef(TypedDict):
+    DestinationArn: NotRequired[str]
+    Format: NotRequired[str]
+
+class ApiMappingTypeDef(TypedDict):
+    ApiId: str
+    Stage: str
+    ApiMappingId: NotRequired[str]
+    ApiMappingKey: NotRequired[str]
+
+class CorsOutputTypeDef(TypedDict):
+    AllowCredentials: NotRequired[bool]
+    AllowHeaders: NotRequired[List[str]]
+    AllowMethods: NotRequired[List[str]]
+    AllowOrigins: NotRequired[List[str]]
+    ExposeHeaders: NotRequired[List[str]]
+    MaxAge: NotRequired[int]
+
+class JWTConfigurationOutputTypeDef(TypedDict):
+    Audience: NotRequired[List[str]]
+    Issuer: NotRequired[str]
+
+class CorsTypeDef(TypedDict):
+    AllowCredentials: NotRequired[bool]
+    AllowHeaders: NotRequired[Sequence[str]]
+    AllowMethods: NotRequired[Sequence[str]]
+    AllowOrigins: NotRequired[Sequence[str]]
+    ExposeHeaders: NotRequired[Sequence[str]]
+    MaxAge: NotRequired[int]
+
+class CreateApiMappingRequestTypeDef(TypedDict):
+    ApiId: str
+    DomainName: str
+    Stage: str
+    ApiMappingKey: NotRequired[str]
+
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
+
+class CreateDeploymentRequestTypeDef(TypedDict):
+    ApiId: str
+    Description: NotRequired[str]
+    StageName: NotRequired[str]
+
+class MutualTlsAuthenticationInputTypeDef(TypedDict):
+    TruststoreUri: NotRequired[str]
+    TruststoreVersion: NotRequired[str]
+
+class DomainNameConfigurationOutputTypeDef(TypedDict):
+    ApiGatewayDomainName: NotRequired[str]
+    CertificateArn: NotRequired[str]
+    CertificateName: NotRequired[str]
+    CertificateUploadDate: NotRequired[datetime]
+    DomainNameStatus: NotRequired[DomainNameStatusType]
+    DomainNameStatusMessage: NotRequired[str]
+    EndpointType: NotRequired[EndpointTypeType]
+    HostedZoneId: NotRequired[str]
+    IpAddressType: NotRequired[IpAddressTypeType]
+    SecurityPolicy: NotRequired[SecurityPolicyType]
+    OwnershipVerificationCertificateArn: NotRequired[str]
+
+class MutualTlsAuthenticationTypeDef(TypedDict):
+    TruststoreUri: NotRequired[str]
+    TruststoreVersion: NotRequired[str]
+    TruststoreWarnings: NotRequired[List[str]]
+
+class TlsConfigInputTypeDef(TypedDict):
+    ServerNameToVerify: NotRequired[str]
+
+class CreateIntegrationResponseRequestTypeDef(TypedDict):
+    ApiId: str
+    IntegrationId: str
+    IntegrationResponseKey: str
+    ContentHandlingStrategy: NotRequired[ContentHandlingStrategyType]
+    ResponseParameters: NotRequired[Mapping[str, str]]
+    ResponseTemplates: NotRequired[Mapping[str, str]]
+    TemplateSelectionExpression: NotRequired[str]
+
+class TlsConfigTypeDef(TypedDict):
+    ServerNameToVerify: NotRequired[str]
+
+class CreateModelRequestTypeDef(TypedDict):
+    ApiId: str
+    Name: str
+    Schema: str
+    ContentType: NotRequired[str]
+    Description: NotRequired[str]
 
 ParameterConstraintsTypeDef = TypedDict(
     "ParameterConstraintsTypeDef",
     {
-        "Required": bool,
-    },
-    total=False,
-)
-
-_RequiredReimportApiRequestRequestTypeDef = TypedDict(
-    "_RequiredReimportApiRequestRequestTypeDef",
-    {
-        "ApiId": str,
-        "Body": str,
-    },
-)
-_OptionalReimportApiRequestRequestTypeDef = TypedDict(
-    "_OptionalReimportApiRequestRequestTypeDef",
-    {
-        "Basepath": str,
-        "FailOnWarnings": bool,
-    },
-    total=False,
-)
-
-class ReimportApiRequestRequestTypeDef(
-    _RequiredReimportApiRequestRequestTypeDef, _OptionalReimportApiRequestRequestTypeDef
-):
-    pass
-
-ReimportApiResponseTypeDef = TypedDict(
-    "ReimportApiResponseTypeDef",
-    {
-        "ApiEndpoint": str,
-        "ApiGatewayManaged": bool,
-        "ApiId": str,
-        "ApiKeySelectionExpression": str,
-        "CorsConfiguration": "CorsTypeDef",
-        "CreatedDate": datetime,
-        "Description": str,
-        "DisableSchemaValidation": bool,
-        "DisableExecuteApiEndpoint": bool,
-        "ImportInfo": List[str],
-        "Name": str,
-        "ProtocolType": ProtocolTypeType,
-        "RouteSelectionExpression": str,
-        "Tags": Dict[str, str],
-        "Version": str,
-        "Warnings": List[str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "Required": NotRequired[bool],
     },
 )
 
-ResetAuthorizersCacheRequestRequestTypeDef = TypedDict(
-    "ResetAuthorizersCacheRequestRequestTypeDef",
-    {
-        "ApiId": str,
-        "StageName": str,
-    },
-)
+class RouteSettingsTypeDef(TypedDict):
+    DataTraceEnabled: NotRequired[bool]
+    DetailedMetricsEnabled: NotRequired[bool]
+    LoggingLevel: NotRequired[LoggingLevelType]
+    ThrottlingBurstLimit: NotRequired[int]
+    ThrottlingRateLimit: NotRequired[float]
 
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
+class CreateVpcLinkRequestTypeDef(TypedDict):
+    Name: str
+    SubnetIds: Sequence[str]
+    SecurityGroupIds: NotRequired[Sequence[str]]
+    Tags: NotRequired[Mapping[str, str]]
 
-_RequiredRouteResponseTypeDef = TypedDict(
-    "_RequiredRouteResponseTypeDef",
-    {
-        "RouteResponseKey": str,
-    },
-)
-_OptionalRouteResponseTypeDef = TypedDict(
-    "_OptionalRouteResponseTypeDef",
-    {
-        "ModelSelectionExpression": str,
-        "ResponseModels": Dict[str, str],
-        "ResponseParameters": Dict[str, "ParameterConstraintsTypeDef"],
-        "RouteResponseId": str,
-    },
-    total=False,
-)
+class DeleteAccessLogSettingsRequestTypeDef(TypedDict):
+    ApiId: str
+    StageName: str
 
-class RouteResponseTypeDef(_RequiredRouteResponseTypeDef, _OptionalRouteResponseTypeDef):
-    pass
+class DeleteApiMappingRequestTypeDef(TypedDict):
+    ApiMappingId: str
+    DomainName: str
 
-RouteSettingsTypeDef = TypedDict(
-    "RouteSettingsTypeDef",
-    {
-        "DataTraceEnabled": bool,
-        "DetailedMetricsEnabled": bool,
-        "LoggingLevel": LoggingLevelType,
-        "ThrottlingBurstLimit": int,
-        "ThrottlingRateLimit": float,
-    },
-    total=False,
-)
+class DeleteApiRequestTypeDef(TypedDict):
+    ApiId: str
 
-_RequiredRouteTypeDef = TypedDict(
-    "_RequiredRouteTypeDef",
-    {
-        "RouteKey": str,
-    },
-)
-_OptionalRouteTypeDef = TypedDict(
-    "_OptionalRouteTypeDef",
-    {
-        "ApiGatewayManaged": bool,
-        "ApiKeyRequired": bool,
-        "AuthorizationScopes": List[str],
-        "AuthorizationType": AuthorizationTypeType,
-        "AuthorizerId": str,
-        "ModelSelectionExpression": str,
-        "OperationName": str,
-        "RequestModels": Dict[str, str],
-        "RequestParameters": Dict[str, "ParameterConstraintsTypeDef"],
-        "RouteId": str,
-        "RouteResponseSelectionExpression": str,
-        "Target": str,
-    },
-    total=False,
-)
+class DeleteAuthorizerRequestTypeDef(TypedDict):
+    ApiId: str
+    AuthorizerId: str
 
-class RouteTypeDef(_RequiredRouteTypeDef, _OptionalRouteTypeDef):
-    pass
+class DeleteCorsConfigurationRequestTypeDef(TypedDict):
+    ApiId: str
 
-_RequiredStageTypeDef = TypedDict(
-    "_RequiredStageTypeDef",
-    {
-        "StageName": str,
-    },
-)
-_OptionalStageTypeDef = TypedDict(
-    "_OptionalStageTypeDef",
-    {
-        "AccessLogSettings": "AccessLogSettingsTypeDef",
-        "ApiGatewayManaged": bool,
-        "AutoDeploy": bool,
-        "ClientCertificateId": str,
-        "CreatedDate": datetime,
-        "DefaultRouteSettings": "RouteSettingsTypeDef",
-        "DeploymentId": str,
-        "Description": str,
-        "LastDeploymentStatusMessage": str,
-        "LastUpdatedDate": datetime,
-        "RouteSettings": Dict[str, "RouteSettingsTypeDef"],
-        "StageVariables": Dict[str, str],
-        "Tags": Dict[str, str],
-    },
-    total=False,
-)
+class DeleteDeploymentRequestTypeDef(TypedDict):
+    ApiId: str
+    DeploymentId: str
 
-class StageTypeDef(_RequiredStageTypeDef, _OptionalStageTypeDef):
-    pass
+class DeleteDomainNameRequestTypeDef(TypedDict):
+    DomainName: str
 
-_RequiredTagResourceRequestRequestTypeDef = TypedDict(
-    "_RequiredTagResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-    },
-)
-_OptionalTagResourceRequestRequestTypeDef = TypedDict(
-    "_OptionalTagResourceRequestRequestTypeDef",
-    {
-        "Tags": Dict[str, str],
-    },
-    total=False,
-)
+class DeleteIntegrationRequestTypeDef(TypedDict):
+    ApiId: str
+    IntegrationId: str
 
-class TagResourceRequestRequestTypeDef(
-    _RequiredTagResourceRequestRequestTypeDef, _OptionalTagResourceRequestRequestTypeDef
-):
-    pass
+class DeleteIntegrationResponseRequestTypeDef(TypedDict):
+    ApiId: str
+    IntegrationId: str
+    IntegrationResponseId: str
 
-TlsConfigInputTypeDef = TypedDict(
-    "TlsConfigInputTypeDef",
-    {
-        "ServerNameToVerify": str,
-    },
-    total=False,
-)
+class DeleteModelRequestTypeDef(TypedDict):
+    ApiId: str
+    ModelId: str
 
-TlsConfigTypeDef = TypedDict(
-    "TlsConfigTypeDef",
-    {
-        "ServerNameToVerify": str,
-    },
-    total=False,
-)
+class DeleteRouteRequestParameterRequestTypeDef(TypedDict):
+    ApiId: str
+    RequestParameterKey: str
+    RouteId: str
 
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-        "TagKeys": List[str],
-    },
-)
+class DeleteRouteRequestTypeDef(TypedDict):
+    ApiId: str
+    RouteId: str
 
-_RequiredUpdateApiMappingRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateApiMappingRequestRequestTypeDef",
-    {
-        "ApiId": str,
-        "ApiMappingId": str,
-        "DomainName": str,
-    },
-)
-_OptionalUpdateApiMappingRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateApiMappingRequestRequestTypeDef",
-    {
-        "ApiMappingKey": str,
-        "Stage": str,
-    },
-    total=False,
-)
+class DeleteRouteResponseRequestTypeDef(TypedDict):
+    ApiId: str
+    RouteId: str
+    RouteResponseId: str
 
-class UpdateApiMappingRequestRequestTypeDef(
-    _RequiredUpdateApiMappingRequestRequestTypeDef, _OptionalUpdateApiMappingRequestRequestTypeDef
-):
-    pass
+class DeleteRouteSettingsRequestTypeDef(TypedDict):
+    ApiId: str
+    RouteKey: str
+    StageName: str
 
-UpdateApiMappingResponseTypeDef = TypedDict(
-    "UpdateApiMappingResponseTypeDef",
-    {
-        "ApiId": str,
-        "ApiMappingId": str,
-        "ApiMappingKey": str,
-        "Stage": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DeleteStageRequestTypeDef(TypedDict):
+    ApiId: str
+    StageName: str
 
-_RequiredUpdateApiRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateApiRequestRequestTypeDef",
-    {
-        "ApiId": str,
-    },
-)
-_OptionalUpdateApiRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateApiRequestRequestTypeDef",
-    {
-        "ApiKeySelectionExpression": str,
-        "CorsConfiguration": "CorsTypeDef",
-        "CredentialsArn": str,
-        "Description": str,
-        "DisableSchemaValidation": bool,
-        "DisableExecuteApiEndpoint": bool,
-        "Name": str,
-        "RouteKey": str,
-        "RouteSelectionExpression": str,
-        "Target": str,
-        "Version": str,
-    },
-    total=False,
-)
+class DeleteVpcLinkRequestTypeDef(TypedDict):
+    VpcLinkId: str
 
-class UpdateApiRequestRequestTypeDef(
-    _RequiredUpdateApiRequestRequestTypeDef, _OptionalUpdateApiRequestRequestTypeDef
-):
-    pass
+class DeploymentTypeDef(TypedDict):
+    AutoDeployed: NotRequired[bool]
+    CreatedDate: NotRequired[datetime]
+    DeploymentId: NotRequired[str]
+    DeploymentStatus: NotRequired[DeploymentStatusType]
+    DeploymentStatusMessage: NotRequired[str]
+    Description: NotRequired[str]
 
-UpdateApiResponseTypeDef = TypedDict(
-    "UpdateApiResponseTypeDef",
-    {
-        "ApiEndpoint": str,
-        "ApiGatewayManaged": bool,
-        "ApiId": str,
-        "ApiKeySelectionExpression": str,
-        "CorsConfiguration": "CorsTypeDef",
-        "CreatedDate": datetime,
-        "Description": str,
-        "DisableSchemaValidation": bool,
-        "DisableExecuteApiEndpoint": bool,
-        "ImportInfo": List[str],
-        "Name": str,
-        "ProtocolType": ProtocolTypeType,
-        "RouteSelectionExpression": str,
-        "Tags": Dict[str, str],
-        "Version": str,
-        "Warnings": List[str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+TimestampTypeDef = Union[datetime, str]
 
-_RequiredUpdateAuthorizerRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateAuthorizerRequestRequestTypeDef",
-    {
-        "ApiId": str,
-        "AuthorizerId": str,
-    },
-)
-_OptionalUpdateAuthorizerRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateAuthorizerRequestRequestTypeDef",
-    {
-        "AuthorizerCredentialsArn": str,
-        "AuthorizerPayloadFormatVersion": str,
-        "AuthorizerResultTtlInSeconds": int,
-        "AuthorizerType": AuthorizerTypeType,
-        "AuthorizerUri": str,
-        "EnableSimpleResponses": bool,
-        "IdentitySource": List[str],
-        "IdentityValidationExpression": str,
-        "JwtConfiguration": "JWTConfigurationTypeDef",
-        "Name": str,
-    },
-    total=False,
-)
+class ExportApiRequestTypeDef(TypedDict):
+    ApiId: str
+    OutputType: JSONYAMLType
+    Specification: Literal["OAS30"]
+    ExportVersion: NotRequired[str]
+    IncludeExtensions: NotRequired[bool]
+    StageName: NotRequired[str]
 
-class UpdateAuthorizerRequestRequestTypeDef(
-    _RequiredUpdateAuthorizerRequestRequestTypeDef, _OptionalUpdateAuthorizerRequestRequestTypeDef
-):
-    pass
+class GetApiMappingRequestTypeDef(TypedDict):
+    ApiMappingId: str
+    DomainName: str
 
-UpdateAuthorizerResponseTypeDef = TypedDict(
-    "UpdateAuthorizerResponseTypeDef",
-    {
-        "AuthorizerCredentialsArn": str,
-        "AuthorizerId": str,
-        "AuthorizerPayloadFormatVersion": str,
-        "AuthorizerResultTtlInSeconds": int,
-        "AuthorizerType": AuthorizerTypeType,
-        "AuthorizerUri": str,
-        "EnableSimpleResponses": bool,
-        "IdentitySource": List[str],
-        "IdentityValidationExpression": str,
-        "JwtConfiguration": "JWTConfigurationTypeDef",
-        "Name": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetApiMappingsRequestTypeDef(TypedDict):
+    DomainName: str
+    MaxResults: NotRequired[str]
+    NextToken: NotRequired[str]
 
-_RequiredUpdateDeploymentRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateDeploymentRequestRequestTypeDef",
-    {
-        "ApiId": str,
-        "DeploymentId": str,
-    },
-)
-_OptionalUpdateDeploymentRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateDeploymentRequestRequestTypeDef",
-    {
-        "Description": str,
-    },
-    total=False,
-)
+class GetApiRequestTypeDef(TypedDict):
+    ApiId: str
 
-class UpdateDeploymentRequestRequestTypeDef(
-    _RequiredUpdateDeploymentRequestRequestTypeDef, _OptionalUpdateDeploymentRequestRequestTypeDef
-):
-    pass
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
 
-UpdateDeploymentResponseTypeDef = TypedDict(
-    "UpdateDeploymentResponseTypeDef",
-    {
-        "AutoDeployed": bool,
-        "CreatedDate": datetime,
-        "DeploymentId": str,
-        "DeploymentStatus": DeploymentStatusType,
-        "DeploymentStatusMessage": str,
-        "Description": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetApisRequestTypeDef(TypedDict):
+    MaxResults: NotRequired[str]
+    NextToken: NotRequired[str]
 
-_RequiredUpdateDomainNameRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateDomainNameRequestRequestTypeDef",
-    {
-        "DomainName": str,
-    },
-)
-_OptionalUpdateDomainNameRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateDomainNameRequestRequestTypeDef",
-    {
-        "DomainNameConfigurations": List["DomainNameConfigurationTypeDef"],
-        "MutualTlsAuthentication": "MutualTlsAuthenticationInputTypeDef",
-    },
-    total=False,
-)
+class GetAuthorizerRequestTypeDef(TypedDict):
+    ApiId: str
+    AuthorizerId: str
 
-class UpdateDomainNameRequestRequestTypeDef(
-    _RequiredUpdateDomainNameRequestRequestTypeDef, _OptionalUpdateDomainNameRequestRequestTypeDef
-):
-    pass
+class GetAuthorizersRequestTypeDef(TypedDict):
+    ApiId: str
+    MaxResults: NotRequired[str]
+    NextToken: NotRequired[str]
 
-UpdateDomainNameResponseTypeDef = TypedDict(
-    "UpdateDomainNameResponseTypeDef",
-    {
-        "ApiMappingSelectionExpression": str,
-        "DomainName": str,
-        "DomainNameConfigurations": List["DomainNameConfigurationTypeDef"],
-        "MutualTlsAuthentication": "MutualTlsAuthenticationTypeDef",
-        "Tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetDeploymentRequestTypeDef(TypedDict):
+    ApiId: str
+    DeploymentId: str
 
-_RequiredUpdateIntegrationRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateIntegrationRequestRequestTypeDef",
-    {
-        "ApiId": str,
-        "IntegrationId": str,
-    },
-)
-_OptionalUpdateIntegrationRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateIntegrationRequestRequestTypeDef",
-    {
-        "ConnectionId": str,
-        "ConnectionType": ConnectionTypeType,
-        "ContentHandlingStrategy": ContentHandlingStrategyType,
-        "CredentialsArn": str,
-        "Description": str,
-        "IntegrationMethod": str,
-        "IntegrationSubtype": str,
-        "IntegrationType": IntegrationTypeType,
-        "IntegrationUri": str,
-        "PassthroughBehavior": PassthroughBehaviorType,
-        "PayloadFormatVersion": str,
-        "RequestParameters": Dict[str, str],
-        "RequestTemplates": Dict[str, str],
-        "ResponseParameters": Dict[str, Dict[str, str]],
-        "TemplateSelectionExpression": str,
-        "TimeoutInMillis": int,
-        "TlsConfig": "TlsConfigInputTypeDef",
-    },
-    total=False,
-)
+class GetDeploymentsRequestTypeDef(TypedDict):
+    ApiId: str
+    MaxResults: NotRequired[str]
+    NextToken: NotRequired[str]
 
-class UpdateIntegrationRequestRequestTypeDef(
-    _RequiredUpdateIntegrationRequestRequestTypeDef, _OptionalUpdateIntegrationRequestRequestTypeDef
-):
-    pass
+class GetDomainNameRequestTypeDef(TypedDict):
+    DomainName: str
 
-_RequiredUpdateIntegrationResponseRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateIntegrationResponseRequestRequestTypeDef",
-    {
-        "ApiId": str,
-        "IntegrationId": str,
-        "IntegrationResponseId": str,
-    },
-)
-_OptionalUpdateIntegrationResponseRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateIntegrationResponseRequestRequestTypeDef",
-    {
-        "ContentHandlingStrategy": ContentHandlingStrategyType,
-        "IntegrationResponseKey": str,
-        "ResponseParameters": Dict[str, str],
-        "ResponseTemplates": Dict[str, str],
-        "TemplateSelectionExpression": str,
-    },
-    total=False,
-)
+class GetDomainNamesRequestTypeDef(TypedDict):
+    MaxResults: NotRequired[str]
+    NextToken: NotRequired[str]
 
-class UpdateIntegrationResponseRequestRequestTypeDef(
-    _RequiredUpdateIntegrationResponseRequestRequestTypeDef,
-    _OptionalUpdateIntegrationResponseRequestRequestTypeDef,
-):
-    pass
+class GetIntegrationRequestTypeDef(TypedDict):
+    ApiId: str
+    IntegrationId: str
 
-UpdateIntegrationResponseResponseTypeDef = TypedDict(
-    "UpdateIntegrationResponseResponseTypeDef",
-    {
-        "ContentHandlingStrategy": ContentHandlingStrategyType,
-        "IntegrationResponseId": str,
-        "IntegrationResponseKey": str,
-        "ResponseParameters": Dict[str, str],
-        "ResponseTemplates": Dict[str, str],
-        "TemplateSelectionExpression": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetIntegrationResponseRequestTypeDef(TypedDict):
+    ApiId: str
+    IntegrationId: str
+    IntegrationResponseId: str
 
-UpdateIntegrationResultTypeDef = TypedDict(
-    "UpdateIntegrationResultTypeDef",
-    {
-        "ApiGatewayManaged": bool,
-        "ConnectionId": str,
-        "ConnectionType": ConnectionTypeType,
-        "ContentHandlingStrategy": ContentHandlingStrategyType,
-        "CredentialsArn": str,
-        "Description": str,
-        "IntegrationId": str,
-        "IntegrationMethod": str,
-        "IntegrationResponseSelectionExpression": str,
-        "IntegrationSubtype": str,
-        "IntegrationType": IntegrationTypeType,
-        "IntegrationUri": str,
-        "PassthroughBehavior": PassthroughBehaviorType,
-        "PayloadFormatVersion": str,
-        "RequestParameters": Dict[str, str],
-        "RequestTemplates": Dict[str, str],
-        "ResponseParameters": Dict[str, Dict[str, str]],
-        "TemplateSelectionExpression": str,
-        "TimeoutInMillis": int,
-        "TlsConfig": "TlsConfigTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetIntegrationResponsesRequestTypeDef(TypedDict):
+    ApiId: str
+    IntegrationId: str
+    MaxResults: NotRequired[str]
+    NextToken: NotRequired[str]
 
-_RequiredUpdateModelRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateModelRequestRequestTypeDef",
-    {
-        "ApiId": str,
-        "ModelId": str,
-    },
-)
-_OptionalUpdateModelRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateModelRequestRequestTypeDef",
-    {
-        "ContentType": str,
-        "Description": str,
-        "Name": str,
-        "Schema": str,
-    },
-    total=False,
-)
+class IntegrationResponseTypeDef(TypedDict):
+    IntegrationResponseKey: str
+    ContentHandlingStrategy: NotRequired[ContentHandlingStrategyType]
+    IntegrationResponseId: NotRequired[str]
+    ResponseParameters: NotRequired[Dict[str, str]]
+    ResponseTemplates: NotRequired[Dict[str, str]]
+    TemplateSelectionExpression: NotRequired[str]
 
-class UpdateModelRequestRequestTypeDef(
-    _RequiredUpdateModelRequestRequestTypeDef, _OptionalUpdateModelRequestRequestTypeDef
-):
-    pass
+class GetIntegrationsRequestTypeDef(TypedDict):
+    ApiId: str
+    MaxResults: NotRequired[str]
+    NextToken: NotRequired[str]
 
-UpdateModelResponseTypeDef = TypedDict(
-    "UpdateModelResponseTypeDef",
-    {
-        "ContentType": str,
-        "Description": str,
-        "ModelId": str,
-        "Name": str,
-        "Schema": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetModelRequestTypeDef(TypedDict):
+    ApiId: str
+    ModelId: str
 
-_RequiredUpdateRouteRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateRouteRequestRequestTypeDef",
-    {
-        "ApiId": str,
-        "RouteId": str,
-    },
-)
-_OptionalUpdateRouteRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateRouteRequestRequestTypeDef",
-    {
-        "ApiKeyRequired": bool,
-        "AuthorizationScopes": List[str],
-        "AuthorizationType": AuthorizationTypeType,
-        "AuthorizerId": str,
-        "ModelSelectionExpression": str,
-        "OperationName": str,
-        "RequestModels": Dict[str, str],
-        "RequestParameters": Dict[str, "ParameterConstraintsTypeDef"],
-        "RouteKey": str,
-        "RouteResponseSelectionExpression": str,
-        "Target": str,
-    },
-    total=False,
-)
+class GetModelTemplateRequestTypeDef(TypedDict):
+    ApiId: str
+    ModelId: str
 
-class UpdateRouteRequestRequestTypeDef(
-    _RequiredUpdateRouteRequestRequestTypeDef, _OptionalUpdateRouteRequestRequestTypeDef
-):
-    pass
+class GetModelsRequestTypeDef(TypedDict):
+    ApiId: str
+    MaxResults: NotRequired[str]
+    NextToken: NotRequired[str]
 
-_RequiredUpdateRouteResponseRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateRouteResponseRequestRequestTypeDef",
-    {
-        "ApiId": str,
-        "RouteId": str,
-        "RouteResponseId": str,
-    },
-)
-_OptionalUpdateRouteResponseRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateRouteResponseRequestRequestTypeDef",
-    {
-        "ModelSelectionExpression": str,
-        "ResponseModels": Dict[str, str],
-        "ResponseParameters": Dict[str, "ParameterConstraintsTypeDef"],
-        "RouteResponseKey": str,
-    },
-    total=False,
-)
+class ModelTypeDef(TypedDict):
+    Name: str
+    ContentType: NotRequired[str]
+    Description: NotRequired[str]
+    ModelId: NotRequired[str]
+    Schema: NotRequired[str]
 
-class UpdateRouteResponseRequestRequestTypeDef(
-    _RequiredUpdateRouteResponseRequestRequestTypeDef,
-    _OptionalUpdateRouteResponseRequestRequestTypeDef,
-):
-    pass
+class GetRouteRequestTypeDef(TypedDict):
+    ApiId: str
+    RouteId: str
 
-UpdateRouteResponseResponseTypeDef = TypedDict(
-    "UpdateRouteResponseResponseTypeDef",
-    {
-        "ModelSelectionExpression": str,
-        "ResponseModels": Dict[str, str],
-        "ResponseParameters": Dict[str, "ParameterConstraintsTypeDef"],
-        "RouteResponseId": str,
-        "RouteResponseKey": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetRouteResponseRequestTypeDef(TypedDict):
+    ApiId: str
+    RouteId: str
+    RouteResponseId: str
 
-UpdateRouteResultTypeDef = TypedDict(
-    "UpdateRouteResultTypeDef",
-    {
-        "ApiGatewayManaged": bool,
-        "ApiKeyRequired": bool,
-        "AuthorizationScopes": List[str],
-        "AuthorizationType": AuthorizationTypeType,
-        "AuthorizerId": str,
-        "ModelSelectionExpression": str,
-        "OperationName": str,
-        "RequestModels": Dict[str, str],
-        "RequestParameters": Dict[str, "ParameterConstraintsTypeDef"],
-        "RouteId": str,
-        "RouteKey": str,
-        "RouteResponseSelectionExpression": str,
-        "Target": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetRouteResponsesRequestTypeDef(TypedDict):
+    ApiId: str
+    RouteId: str
+    MaxResults: NotRequired[str]
+    NextToken: NotRequired[str]
 
-_RequiredUpdateStageRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateStageRequestRequestTypeDef",
-    {
-        "ApiId": str,
-        "StageName": str,
-    },
-)
-_OptionalUpdateStageRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateStageRequestRequestTypeDef",
-    {
-        "AccessLogSettings": "AccessLogSettingsTypeDef",
-        "AutoDeploy": bool,
-        "ClientCertificateId": str,
-        "DefaultRouteSettings": "RouteSettingsTypeDef",
-        "DeploymentId": str,
-        "Description": str,
-        "RouteSettings": Dict[str, "RouteSettingsTypeDef"],
-        "StageVariables": Dict[str, str],
-    },
-    total=False,
-)
+class GetRoutesRequestTypeDef(TypedDict):
+    ApiId: str
+    MaxResults: NotRequired[str]
+    NextToken: NotRequired[str]
 
-class UpdateStageRequestRequestTypeDef(
-    _RequiredUpdateStageRequestRequestTypeDef, _OptionalUpdateStageRequestRequestTypeDef
-):
-    pass
+class GetStageRequestTypeDef(TypedDict):
+    ApiId: str
+    StageName: str
 
-UpdateStageResponseTypeDef = TypedDict(
-    "UpdateStageResponseTypeDef",
-    {
-        "AccessLogSettings": "AccessLogSettingsTypeDef",
-        "ApiGatewayManaged": bool,
-        "AutoDeploy": bool,
-        "ClientCertificateId": str,
-        "CreatedDate": datetime,
-        "DefaultRouteSettings": "RouteSettingsTypeDef",
-        "DeploymentId": str,
-        "Description": str,
-        "LastDeploymentStatusMessage": str,
-        "LastUpdatedDate": datetime,
-        "RouteSettings": Dict[str, "RouteSettingsTypeDef"],
-        "StageName": str,
-        "StageVariables": Dict[str, str],
-        "Tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetStagesRequestTypeDef(TypedDict):
+    ApiId: str
+    MaxResults: NotRequired[str]
+    NextToken: NotRequired[str]
 
-_RequiredUpdateVpcLinkRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateVpcLinkRequestRequestTypeDef",
-    {
-        "VpcLinkId": str,
-    },
-)
-_OptionalUpdateVpcLinkRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateVpcLinkRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-    total=False,
-)
+class GetTagsRequestTypeDef(TypedDict):
+    ResourceArn: str
 
-class UpdateVpcLinkRequestRequestTypeDef(
-    _RequiredUpdateVpcLinkRequestRequestTypeDef, _OptionalUpdateVpcLinkRequestRequestTypeDef
-):
-    pass
+class GetVpcLinkRequestTypeDef(TypedDict):
+    VpcLinkId: str
 
-UpdateVpcLinkResponseTypeDef = TypedDict(
-    "UpdateVpcLinkResponseTypeDef",
-    {
-        "CreatedDate": datetime,
-        "Name": str,
-        "SecurityGroupIds": List[str],
-        "SubnetIds": List[str],
-        "Tags": Dict[str, str],
-        "VpcLinkId": str,
-        "VpcLinkStatus": VpcLinkStatusType,
-        "VpcLinkStatusMessage": str,
-        "VpcLinkVersion": Literal["V2"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetVpcLinksRequestTypeDef(TypedDict):
+    MaxResults: NotRequired[str]
+    NextToken: NotRequired[str]
 
-_RequiredVpcLinkTypeDef = TypedDict(
-    "_RequiredVpcLinkTypeDef",
-    {
-        "Name": str,
-        "SecurityGroupIds": List[str],
-        "SubnetIds": List[str],
-        "VpcLinkId": str,
-    },
-)
-_OptionalVpcLinkTypeDef = TypedDict(
-    "_OptionalVpcLinkTypeDef",
-    {
-        "CreatedDate": datetime,
-        "Tags": Dict[str, str],
-        "VpcLinkStatus": VpcLinkStatusType,
-        "VpcLinkStatusMessage": str,
-        "VpcLinkVersion": Literal["V2"],
-    },
-    total=False,
-)
+class VpcLinkTypeDef(TypedDict):
+    Name: str
+    SecurityGroupIds: List[str]
+    SubnetIds: List[str]
+    VpcLinkId: str
+    CreatedDate: NotRequired[datetime]
+    Tags: NotRequired[Dict[str, str]]
+    VpcLinkStatus: NotRequired[VpcLinkStatusType]
+    VpcLinkStatusMessage: NotRequired[str]
+    VpcLinkVersion: NotRequired[Literal["V2"]]
 
-class VpcLinkTypeDef(_RequiredVpcLinkTypeDef, _OptionalVpcLinkTypeDef):
-    pass
+class ImportApiRequestTypeDef(TypedDict):
+    Body: str
+    Basepath: NotRequired[str]
+    FailOnWarnings: NotRequired[bool]
+
+class JWTConfigurationTypeDef(TypedDict):
+    Audience: NotRequired[Sequence[str]]
+    Issuer: NotRequired[str]
+
+class ReimportApiRequestTypeDef(TypedDict):
+    ApiId: str
+    Body: str
+    Basepath: NotRequired[str]
+    FailOnWarnings: NotRequired[bool]
+
+class ResetAuthorizersCacheRequestTypeDef(TypedDict):
+    ApiId: str
+    StageName: str
+
+class TagResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+    Tags: NotRequired[Mapping[str, str]]
+
+class UntagResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+    TagKeys: Sequence[str]
+
+class UpdateApiMappingRequestTypeDef(TypedDict):
+    ApiId: str
+    ApiMappingId: str
+    DomainName: str
+    ApiMappingKey: NotRequired[str]
+    Stage: NotRequired[str]
+
+class UpdateDeploymentRequestTypeDef(TypedDict):
+    ApiId: str
+    DeploymentId: str
+    Description: NotRequired[str]
+
+class UpdateIntegrationResponseRequestTypeDef(TypedDict):
+    ApiId: str
+    IntegrationId: str
+    IntegrationResponseId: str
+    ContentHandlingStrategy: NotRequired[ContentHandlingStrategyType]
+    IntegrationResponseKey: NotRequired[str]
+    ResponseParameters: NotRequired[Mapping[str, str]]
+    ResponseTemplates: NotRequired[Mapping[str, str]]
+    TemplateSelectionExpression: NotRequired[str]
+
+class UpdateModelRequestTypeDef(TypedDict):
+    ApiId: str
+    ModelId: str
+    ContentType: NotRequired[str]
+    Description: NotRequired[str]
+    Name: NotRequired[str]
+    Schema: NotRequired[str]
+
+class UpdateVpcLinkRequestTypeDef(TypedDict):
+    VpcLinkId: str
+    Name: NotRequired[str]
+
+class ApiTypeDef(TypedDict):
+    Name: str
+    ProtocolType: ProtocolTypeType
+    RouteSelectionExpression: str
+    ApiEndpoint: NotRequired[str]
+    ApiGatewayManaged: NotRequired[bool]
+    ApiId: NotRequired[str]
+    ApiKeySelectionExpression: NotRequired[str]
+    CorsConfiguration: NotRequired[CorsOutputTypeDef]
+    CreatedDate: NotRequired[datetime]
+    Description: NotRequired[str]
+    DisableSchemaValidation: NotRequired[bool]
+    DisableExecuteApiEndpoint: NotRequired[bool]
+    ImportInfo: NotRequired[List[str]]
+    IpAddressType: NotRequired[IpAddressTypeType]
+    Tags: NotRequired[Dict[str, str]]
+    Version: NotRequired[str]
+    Warnings: NotRequired[List[str]]
+
+class AuthorizerTypeDef(TypedDict):
+    Name: str
+    AuthorizerCredentialsArn: NotRequired[str]
+    AuthorizerId: NotRequired[str]
+    AuthorizerPayloadFormatVersion: NotRequired[str]
+    AuthorizerResultTtlInSeconds: NotRequired[int]
+    AuthorizerType: NotRequired[AuthorizerTypeType]
+    AuthorizerUri: NotRequired[str]
+    EnableSimpleResponses: NotRequired[bool]
+    IdentitySource: NotRequired[List[str]]
+    IdentityValidationExpression: NotRequired[str]
+    JwtConfiguration: NotRequired[JWTConfigurationOutputTypeDef]
+
+CorsUnionTypeDef = Union[CorsTypeDef, CorsOutputTypeDef]
+
+class CreateApiMappingResponseTypeDef(TypedDict):
+    ApiId: str
+    ApiMappingId: str
+    ApiMappingKey: str
+    Stage: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateApiResponseTypeDef(TypedDict):
+    ApiEndpoint: str
+    ApiGatewayManaged: bool
+    ApiId: str
+    ApiKeySelectionExpression: str
+    CorsConfiguration: CorsOutputTypeDef
+    CreatedDate: datetime
+    Description: str
+    DisableSchemaValidation: bool
+    DisableExecuteApiEndpoint: bool
+    ImportInfo: List[str]
+    IpAddressType: IpAddressTypeType
+    Name: str
+    ProtocolType: ProtocolTypeType
+    RouteSelectionExpression: str
+    Tags: Dict[str, str]
+    Version: str
+    Warnings: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateAuthorizerResponseTypeDef(TypedDict):
+    AuthorizerCredentialsArn: str
+    AuthorizerId: str
+    AuthorizerPayloadFormatVersion: str
+    AuthorizerResultTtlInSeconds: int
+    AuthorizerType: AuthorizerTypeType
+    AuthorizerUri: str
+    EnableSimpleResponses: bool
+    IdentitySource: List[str]
+    IdentityValidationExpression: str
+    JwtConfiguration: JWTConfigurationOutputTypeDef
+    Name: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateDeploymentResponseTypeDef(TypedDict):
+    AutoDeployed: bool
+    CreatedDate: datetime
+    DeploymentId: str
+    DeploymentStatus: DeploymentStatusType
+    DeploymentStatusMessage: str
+    Description: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateIntegrationResponseResponseTypeDef(TypedDict):
+    ContentHandlingStrategy: ContentHandlingStrategyType
+    IntegrationResponseId: str
+    IntegrationResponseKey: str
+    ResponseParameters: Dict[str, str]
+    ResponseTemplates: Dict[str, str]
+    TemplateSelectionExpression: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateModelResponseTypeDef(TypedDict):
+    ContentType: str
+    Description: str
+    ModelId: str
+    Name: str
+    Schema: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateVpcLinkResponseTypeDef(TypedDict):
+    CreatedDate: datetime
+    Name: str
+    SecurityGroupIds: List[str]
+    SubnetIds: List[str]
+    Tags: Dict[str, str]
+    VpcLinkId: str
+    VpcLinkStatus: VpcLinkStatusType
+    VpcLinkStatusMessage: str
+    VpcLinkVersion: Literal["V2"]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class EmptyResponseMetadataTypeDef(TypedDict):
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ExportApiResponseTypeDef(TypedDict):
+    body: StreamingBody
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetApiMappingResponseTypeDef(TypedDict):
+    ApiId: str
+    ApiMappingId: str
+    ApiMappingKey: str
+    Stage: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetApiMappingsResponseTypeDef(TypedDict):
+    Items: List[ApiMappingTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class GetApiResponseTypeDef(TypedDict):
+    ApiEndpoint: str
+    ApiGatewayManaged: bool
+    ApiId: str
+    ApiKeySelectionExpression: str
+    CorsConfiguration: CorsOutputTypeDef
+    CreatedDate: datetime
+    Description: str
+    DisableSchemaValidation: bool
+    DisableExecuteApiEndpoint: bool
+    ImportInfo: List[str]
+    IpAddressType: IpAddressTypeType
+    Name: str
+    ProtocolType: ProtocolTypeType
+    RouteSelectionExpression: str
+    Tags: Dict[str, str]
+    Version: str
+    Warnings: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetAuthorizerResponseTypeDef(TypedDict):
+    AuthorizerCredentialsArn: str
+    AuthorizerId: str
+    AuthorizerPayloadFormatVersion: str
+    AuthorizerResultTtlInSeconds: int
+    AuthorizerType: AuthorizerTypeType
+    AuthorizerUri: str
+    EnableSimpleResponses: bool
+    IdentitySource: List[str]
+    IdentityValidationExpression: str
+    JwtConfiguration: JWTConfigurationOutputTypeDef
+    Name: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetDeploymentResponseTypeDef(TypedDict):
+    AutoDeployed: bool
+    CreatedDate: datetime
+    DeploymentId: str
+    DeploymentStatus: DeploymentStatusType
+    DeploymentStatusMessage: str
+    Description: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetIntegrationResponseResponseTypeDef(TypedDict):
+    ContentHandlingStrategy: ContentHandlingStrategyType
+    IntegrationResponseId: str
+    IntegrationResponseKey: str
+    ResponseParameters: Dict[str, str]
+    ResponseTemplates: Dict[str, str]
+    TemplateSelectionExpression: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetModelResponseTypeDef(TypedDict):
+    ContentType: str
+    Description: str
+    ModelId: str
+    Name: str
+    Schema: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetModelTemplateResponseTypeDef(TypedDict):
+    Value: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetTagsResponseTypeDef(TypedDict):
+    Tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetVpcLinkResponseTypeDef(TypedDict):
+    CreatedDate: datetime
+    Name: str
+    SecurityGroupIds: List[str]
+    SubnetIds: List[str]
+    Tags: Dict[str, str]
+    VpcLinkId: str
+    VpcLinkStatus: VpcLinkStatusType
+    VpcLinkStatusMessage: str
+    VpcLinkVersion: Literal["V2"]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ImportApiResponseTypeDef(TypedDict):
+    ApiEndpoint: str
+    ApiGatewayManaged: bool
+    ApiId: str
+    ApiKeySelectionExpression: str
+    CorsConfiguration: CorsOutputTypeDef
+    CreatedDate: datetime
+    Description: str
+    DisableSchemaValidation: bool
+    DisableExecuteApiEndpoint: bool
+    ImportInfo: List[str]
+    IpAddressType: IpAddressTypeType
+    Name: str
+    ProtocolType: ProtocolTypeType
+    RouteSelectionExpression: str
+    Tags: Dict[str, str]
+    Version: str
+    Warnings: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ReimportApiResponseTypeDef(TypedDict):
+    ApiEndpoint: str
+    ApiGatewayManaged: bool
+    ApiId: str
+    ApiKeySelectionExpression: str
+    CorsConfiguration: CorsOutputTypeDef
+    CreatedDate: datetime
+    Description: str
+    DisableSchemaValidation: bool
+    DisableExecuteApiEndpoint: bool
+    ImportInfo: List[str]
+    IpAddressType: IpAddressTypeType
+    Name: str
+    ProtocolType: ProtocolTypeType
+    RouteSelectionExpression: str
+    Tags: Dict[str, str]
+    Version: str
+    Warnings: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateApiMappingResponseTypeDef(TypedDict):
+    ApiId: str
+    ApiMappingId: str
+    ApiMappingKey: str
+    Stage: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateApiResponseTypeDef(TypedDict):
+    ApiEndpoint: str
+    ApiGatewayManaged: bool
+    ApiId: str
+    ApiKeySelectionExpression: str
+    CorsConfiguration: CorsOutputTypeDef
+    CreatedDate: datetime
+    Description: str
+    DisableSchemaValidation: bool
+    DisableExecuteApiEndpoint: bool
+    ImportInfo: List[str]
+    IpAddressType: IpAddressTypeType
+    Name: str
+    ProtocolType: ProtocolTypeType
+    RouteSelectionExpression: str
+    Tags: Dict[str, str]
+    Version: str
+    Warnings: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateAuthorizerResponseTypeDef(TypedDict):
+    AuthorizerCredentialsArn: str
+    AuthorizerId: str
+    AuthorizerPayloadFormatVersion: str
+    AuthorizerResultTtlInSeconds: int
+    AuthorizerType: AuthorizerTypeType
+    AuthorizerUri: str
+    EnableSimpleResponses: bool
+    IdentitySource: List[str]
+    IdentityValidationExpression: str
+    JwtConfiguration: JWTConfigurationOutputTypeDef
+    Name: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateDeploymentResponseTypeDef(TypedDict):
+    AutoDeployed: bool
+    CreatedDate: datetime
+    DeploymentId: str
+    DeploymentStatus: DeploymentStatusType
+    DeploymentStatusMessage: str
+    Description: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateIntegrationResponseResponseTypeDef(TypedDict):
+    ContentHandlingStrategy: ContentHandlingStrategyType
+    IntegrationResponseId: str
+    IntegrationResponseKey: str
+    ResponseParameters: Dict[str, str]
+    ResponseTemplates: Dict[str, str]
+    TemplateSelectionExpression: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateModelResponseTypeDef(TypedDict):
+    ContentType: str
+    Description: str
+    ModelId: str
+    Name: str
+    Schema: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateVpcLinkResponseTypeDef(TypedDict):
+    CreatedDate: datetime
+    Name: str
+    SecurityGroupIds: List[str]
+    SubnetIds: List[str]
+    Tags: Dict[str, str]
+    VpcLinkId: str
+    VpcLinkStatus: VpcLinkStatusType
+    VpcLinkStatusMessage: str
+    VpcLinkVersion: Literal["V2"]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateDomainNameResponseTypeDef(TypedDict):
+    ApiMappingSelectionExpression: str
+    DomainName: str
+    DomainNameConfigurations: List[DomainNameConfigurationOutputTypeDef]
+    MutualTlsAuthentication: MutualTlsAuthenticationTypeDef
+    Tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DomainNameTypeDef(TypedDict):
+    DomainName: str
+    ApiMappingSelectionExpression: NotRequired[str]
+    DomainNameConfigurations: NotRequired[List[DomainNameConfigurationOutputTypeDef]]
+    MutualTlsAuthentication: NotRequired[MutualTlsAuthenticationTypeDef]
+    Tags: NotRequired[Dict[str, str]]
+
+class GetDomainNameResponseTypeDef(TypedDict):
+    ApiMappingSelectionExpression: str
+    DomainName: str
+    DomainNameConfigurations: List[DomainNameConfigurationOutputTypeDef]
+    MutualTlsAuthentication: MutualTlsAuthenticationTypeDef
+    Tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateDomainNameResponseTypeDef(TypedDict):
+    ApiMappingSelectionExpression: str
+    DomainName: str
+    DomainNameConfigurations: List[DomainNameConfigurationOutputTypeDef]
+    MutualTlsAuthentication: MutualTlsAuthenticationTypeDef
+    Tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateIntegrationRequestTypeDef(TypedDict):
+    ApiId: str
+    IntegrationType: IntegrationTypeType
+    ConnectionId: NotRequired[str]
+    ConnectionType: NotRequired[ConnectionTypeType]
+    ContentHandlingStrategy: NotRequired[ContentHandlingStrategyType]
+    CredentialsArn: NotRequired[str]
+    Description: NotRequired[str]
+    IntegrationMethod: NotRequired[str]
+    IntegrationSubtype: NotRequired[str]
+    IntegrationUri: NotRequired[str]
+    PassthroughBehavior: NotRequired[PassthroughBehaviorType]
+    PayloadFormatVersion: NotRequired[str]
+    RequestParameters: NotRequired[Mapping[str, str]]
+    RequestTemplates: NotRequired[Mapping[str, str]]
+    ResponseParameters: NotRequired[Mapping[str, Mapping[str, str]]]
+    TemplateSelectionExpression: NotRequired[str]
+    TimeoutInMillis: NotRequired[int]
+    TlsConfig: NotRequired[TlsConfigInputTypeDef]
+
+class UpdateIntegrationRequestTypeDef(TypedDict):
+    ApiId: str
+    IntegrationId: str
+    ConnectionId: NotRequired[str]
+    ConnectionType: NotRequired[ConnectionTypeType]
+    ContentHandlingStrategy: NotRequired[ContentHandlingStrategyType]
+    CredentialsArn: NotRequired[str]
+    Description: NotRequired[str]
+    IntegrationMethod: NotRequired[str]
+    IntegrationSubtype: NotRequired[str]
+    IntegrationType: NotRequired[IntegrationTypeType]
+    IntegrationUri: NotRequired[str]
+    PassthroughBehavior: NotRequired[PassthroughBehaviorType]
+    PayloadFormatVersion: NotRequired[str]
+    RequestParameters: NotRequired[Mapping[str, str]]
+    RequestTemplates: NotRequired[Mapping[str, str]]
+    ResponseParameters: NotRequired[Mapping[str, Mapping[str, str]]]
+    TemplateSelectionExpression: NotRequired[str]
+    TimeoutInMillis: NotRequired[int]
+    TlsConfig: NotRequired[TlsConfigInputTypeDef]
+
+class CreateIntegrationResultTypeDef(TypedDict):
+    ApiGatewayManaged: bool
+    ConnectionId: str
+    ConnectionType: ConnectionTypeType
+    ContentHandlingStrategy: ContentHandlingStrategyType
+    CredentialsArn: str
+    Description: str
+    IntegrationId: str
+    IntegrationMethod: str
+    IntegrationResponseSelectionExpression: str
+    IntegrationSubtype: str
+    IntegrationType: IntegrationTypeType
+    IntegrationUri: str
+    PassthroughBehavior: PassthroughBehaviorType
+    PayloadFormatVersion: str
+    RequestParameters: Dict[str, str]
+    RequestTemplates: Dict[str, str]
+    ResponseParameters: Dict[str, Dict[str, str]]
+    TemplateSelectionExpression: str
+    TimeoutInMillis: int
+    TlsConfig: TlsConfigTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetIntegrationResultTypeDef(TypedDict):
+    ApiGatewayManaged: bool
+    ConnectionId: str
+    ConnectionType: ConnectionTypeType
+    ContentHandlingStrategy: ContentHandlingStrategyType
+    CredentialsArn: str
+    Description: str
+    IntegrationId: str
+    IntegrationMethod: str
+    IntegrationResponseSelectionExpression: str
+    IntegrationSubtype: str
+    IntegrationType: IntegrationTypeType
+    IntegrationUri: str
+    PassthroughBehavior: PassthroughBehaviorType
+    PayloadFormatVersion: str
+    RequestParameters: Dict[str, str]
+    RequestTemplates: Dict[str, str]
+    ResponseParameters: Dict[str, Dict[str, str]]
+    TemplateSelectionExpression: str
+    TimeoutInMillis: int
+    TlsConfig: TlsConfigTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class IntegrationTypeDef(TypedDict):
+    ApiGatewayManaged: NotRequired[bool]
+    ConnectionId: NotRequired[str]
+    ConnectionType: NotRequired[ConnectionTypeType]
+    ContentHandlingStrategy: NotRequired[ContentHandlingStrategyType]
+    CredentialsArn: NotRequired[str]
+    Description: NotRequired[str]
+    IntegrationId: NotRequired[str]
+    IntegrationMethod: NotRequired[str]
+    IntegrationResponseSelectionExpression: NotRequired[str]
+    IntegrationSubtype: NotRequired[str]
+    IntegrationType: NotRequired[IntegrationTypeType]
+    IntegrationUri: NotRequired[str]
+    PassthroughBehavior: NotRequired[PassthroughBehaviorType]
+    PayloadFormatVersion: NotRequired[str]
+    RequestParameters: NotRequired[Dict[str, str]]
+    RequestTemplates: NotRequired[Dict[str, str]]
+    ResponseParameters: NotRequired[Dict[str, Dict[str, str]]]
+    TemplateSelectionExpression: NotRequired[str]
+    TimeoutInMillis: NotRequired[int]
+    TlsConfig: NotRequired[TlsConfigTypeDef]
+
+class UpdateIntegrationResultTypeDef(TypedDict):
+    ApiGatewayManaged: bool
+    ConnectionId: str
+    ConnectionType: ConnectionTypeType
+    ContentHandlingStrategy: ContentHandlingStrategyType
+    CredentialsArn: str
+    Description: str
+    IntegrationId: str
+    IntegrationMethod: str
+    IntegrationResponseSelectionExpression: str
+    IntegrationSubtype: str
+    IntegrationType: IntegrationTypeType
+    IntegrationUri: str
+    PassthroughBehavior: PassthroughBehaviorType
+    PayloadFormatVersion: str
+    RequestParameters: Dict[str, str]
+    RequestTemplates: Dict[str, str]
+    ResponseParameters: Dict[str, Dict[str, str]]
+    TemplateSelectionExpression: str
+    TimeoutInMillis: int
+    TlsConfig: TlsConfigTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateRouteRequestTypeDef(TypedDict):
+    ApiId: str
+    RouteKey: str
+    ApiKeyRequired: NotRequired[bool]
+    AuthorizationScopes: NotRequired[Sequence[str]]
+    AuthorizationType: NotRequired[AuthorizationTypeType]
+    AuthorizerId: NotRequired[str]
+    ModelSelectionExpression: NotRequired[str]
+    OperationName: NotRequired[str]
+    RequestModels: NotRequired[Mapping[str, str]]
+    RequestParameters: NotRequired[Mapping[str, ParameterConstraintsTypeDef]]
+    RouteResponseSelectionExpression: NotRequired[str]
+    Target: NotRequired[str]
+
+class CreateRouteResponseRequestTypeDef(TypedDict):
+    ApiId: str
+    RouteId: str
+    RouteResponseKey: str
+    ModelSelectionExpression: NotRequired[str]
+    ResponseModels: NotRequired[Mapping[str, str]]
+    ResponseParameters: NotRequired[Mapping[str, ParameterConstraintsTypeDef]]
+
+class CreateRouteResponseResponseTypeDef(TypedDict):
+    ModelSelectionExpression: str
+    ResponseModels: Dict[str, str]
+    ResponseParameters: Dict[str, ParameterConstraintsTypeDef]
+    RouteResponseId: str
+    RouteResponseKey: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateRouteResultTypeDef(TypedDict):
+    ApiGatewayManaged: bool
+    ApiKeyRequired: bool
+    AuthorizationScopes: List[str]
+    AuthorizationType: AuthorizationTypeType
+    AuthorizerId: str
+    ModelSelectionExpression: str
+    OperationName: str
+    RequestModels: Dict[str, str]
+    RequestParameters: Dict[str, ParameterConstraintsTypeDef]
+    RouteId: str
+    RouteKey: str
+    RouteResponseSelectionExpression: str
+    Target: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetRouteResponseResponseTypeDef(TypedDict):
+    ModelSelectionExpression: str
+    ResponseModels: Dict[str, str]
+    ResponseParameters: Dict[str, ParameterConstraintsTypeDef]
+    RouteResponseId: str
+    RouteResponseKey: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetRouteResultTypeDef(TypedDict):
+    ApiGatewayManaged: bool
+    ApiKeyRequired: bool
+    AuthorizationScopes: List[str]
+    AuthorizationType: AuthorizationTypeType
+    AuthorizerId: str
+    ModelSelectionExpression: str
+    OperationName: str
+    RequestModels: Dict[str, str]
+    RequestParameters: Dict[str, ParameterConstraintsTypeDef]
+    RouteId: str
+    RouteKey: str
+    RouteResponseSelectionExpression: str
+    Target: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class RouteResponseTypeDef(TypedDict):
+    RouteResponseKey: str
+    ModelSelectionExpression: NotRequired[str]
+    ResponseModels: NotRequired[Dict[str, str]]
+    ResponseParameters: NotRequired[Dict[str, ParameterConstraintsTypeDef]]
+    RouteResponseId: NotRequired[str]
+
+class RouteTypeDef(TypedDict):
+    RouteKey: str
+    ApiGatewayManaged: NotRequired[bool]
+    ApiKeyRequired: NotRequired[bool]
+    AuthorizationScopes: NotRequired[List[str]]
+    AuthorizationType: NotRequired[AuthorizationTypeType]
+    AuthorizerId: NotRequired[str]
+    ModelSelectionExpression: NotRequired[str]
+    OperationName: NotRequired[str]
+    RequestModels: NotRequired[Dict[str, str]]
+    RequestParameters: NotRequired[Dict[str, ParameterConstraintsTypeDef]]
+    RouteId: NotRequired[str]
+    RouteResponseSelectionExpression: NotRequired[str]
+    Target: NotRequired[str]
+
+class UpdateRouteRequestTypeDef(TypedDict):
+    ApiId: str
+    RouteId: str
+    ApiKeyRequired: NotRequired[bool]
+    AuthorizationScopes: NotRequired[Sequence[str]]
+    AuthorizationType: NotRequired[AuthorizationTypeType]
+    AuthorizerId: NotRequired[str]
+    ModelSelectionExpression: NotRequired[str]
+    OperationName: NotRequired[str]
+    RequestModels: NotRequired[Mapping[str, str]]
+    RequestParameters: NotRequired[Mapping[str, ParameterConstraintsTypeDef]]
+    RouteKey: NotRequired[str]
+    RouteResponseSelectionExpression: NotRequired[str]
+    Target: NotRequired[str]
+
+class UpdateRouteResponseRequestTypeDef(TypedDict):
+    ApiId: str
+    RouteId: str
+    RouteResponseId: str
+    ModelSelectionExpression: NotRequired[str]
+    ResponseModels: NotRequired[Mapping[str, str]]
+    ResponseParameters: NotRequired[Mapping[str, ParameterConstraintsTypeDef]]
+    RouteResponseKey: NotRequired[str]
+
+class UpdateRouteResponseResponseTypeDef(TypedDict):
+    ModelSelectionExpression: str
+    ResponseModels: Dict[str, str]
+    ResponseParameters: Dict[str, ParameterConstraintsTypeDef]
+    RouteResponseId: str
+    RouteResponseKey: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateRouteResultTypeDef(TypedDict):
+    ApiGatewayManaged: bool
+    ApiKeyRequired: bool
+    AuthorizationScopes: List[str]
+    AuthorizationType: AuthorizationTypeType
+    AuthorizerId: str
+    ModelSelectionExpression: str
+    OperationName: str
+    RequestModels: Dict[str, str]
+    RequestParameters: Dict[str, ParameterConstraintsTypeDef]
+    RouteId: str
+    RouteKey: str
+    RouteResponseSelectionExpression: str
+    Target: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateStageRequestTypeDef(TypedDict):
+    ApiId: str
+    StageName: str
+    AccessLogSettings: NotRequired[AccessLogSettingsTypeDef]
+    AutoDeploy: NotRequired[bool]
+    ClientCertificateId: NotRequired[str]
+    DefaultRouteSettings: NotRequired[RouteSettingsTypeDef]
+    DeploymentId: NotRequired[str]
+    Description: NotRequired[str]
+    RouteSettings: NotRequired[Mapping[str, RouteSettingsTypeDef]]
+    StageVariables: NotRequired[Mapping[str, str]]
+    Tags: NotRequired[Mapping[str, str]]
+
+class CreateStageResponseTypeDef(TypedDict):
+    AccessLogSettings: AccessLogSettingsTypeDef
+    ApiGatewayManaged: bool
+    AutoDeploy: bool
+    ClientCertificateId: str
+    CreatedDate: datetime
+    DefaultRouteSettings: RouteSettingsTypeDef
+    DeploymentId: str
+    Description: str
+    LastDeploymentStatusMessage: str
+    LastUpdatedDate: datetime
+    RouteSettings: Dict[str, RouteSettingsTypeDef]
+    StageName: str
+    StageVariables: Dict[str, str]
+    Tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetStageResponseTypeDef(TypedDict):
+    AccessLogSettings: AccessLogSettingsTypeDef
+    ApiGatewayManaged: bool
+    AutoDeploy: bool
+    ClientCertificateId: str
+    CreatedDate: datetime
+    DefaultRouteSettings: RouteSettingsTypeDef
+    DeploymentId: str
+    Description: str
+    LastDeploymentStatusMessage: str
+    LastUpdatedDate: datetime
+    RouteSettings: Dict[str, RouteSettingsTypeDef]
+    StageName: str
+    StageVariables: Dict[str, str]
+    Tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StageTypeDef(TypedDict):
+    StageName: str
+    AccessLogSettings: NotRequired[AccessLogSettingsTypeDef]
+    ApiGatewayManaged: NotRequired[bool]
+    AutoDeploy: NotRequired[bool]
+    ClientCertificateId: NotRequired[str]
+    CreatedDate: NotRequired[datetime]
+    DefaultRouteSettings: NotRequired[RouteSettingsTypeDef]
+    DeploymentId: NotRequired[str]
+    Description: NotRequired[str]
+    LastDeploymentStatusMessage: NotRequired[str]
+    LastUpdatedDate: NotRequired[datetime]
+    RouteSettings: NotRequired[Dict[str, RouteSettingsTypeDef]]
+    StageVariables: NotRequired[Dict[str, str]]
+    Tags: NotRequired[Dict[str, str]]
+
+class UpdateStageRequestTypeDef(TypedDict):
+    ApiId: str
+    StageName: str
+    AccessLogSettings: NotRequired[AccessLogSettingsTypeDef]
+    AutoDeploy: NotRequired[bool]
+    ClientCertificateId: NotRequired[str]
+    DefaultRouteSettings: NotRequired[RouteSettingsTypeDef]
+    DeploymentId: NotRequired[str]
+    Description: NotRequired[str]
+    RouteSettings: NotRequired[Mapping[str, RouteSettingsTypeDef]]
+    StageVariables: NotRequired[Mapping[str, str]]
+
+class UpdateStageResponseTypeDef(TypedDict):
+    AccessLogSettings: AccessLogSettingsTypeDef
+    ApiGatewayManaged: bool
+    AutoDeploy: bool
+    ClientCertificateId: str
+    CreatedDate: datetime
+    DefaultRouteSettings: RouteSettingsTypeDef
+    DeploymentId: str
+    Description: str
+    LastDeploymentStatusMessage: str
+    LastUpdatedDate: datetime
+    RouteSettings: Dict[str, RouteSettingsTypeDef]
+    StageName: str
+    StageVariables: Dict[str, str]
+    Tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetDeploymentsResponseTypeDef(TypedDict):
+    Items: List[DeploymentTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class DomainNameConfigurationTypeDef(TypedDict):
+    ApiGatewayDomainName: NotRequired[str]
+    CertificateArn: NotRequired[str]
+    CertificateName: NotRequired[str]
+    CertificateUploadDate: NotRequired[TimestampTypeDef]
+    DomainNameStatus: NotRequired[DomainNameStatusType]
+    DomainNameStatusMessage: NotRequired[str]
+    EndpointType: NotRequired[EndpointTypeType]
+    HostedZoneId: NotRequired[str]
+    IpAddressType: NotRequired[IpAddressTypeType]
+    SecurityPolicy: NotRequired[SecurityPolicyType]
+    OwnershipVerificationCertificateArn: NotRequired[str]
+
+class GetApisRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class GetAuthorizersRequestPaginateTypeDef(TypedDict):
+    ApiId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class GetDeploymentsRequestPaginateTypeDef(TypedDict):
+    ApiId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class GetDomainNamesRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class GetIntegrationResponsesRequestPaginateTypeDef(TypedDict):
+    ApiId: str
+    IntegrationId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class GetIntegrationsRequestPaginateTypeDef(TypedDict):
+    ApiId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class GetModelsRequestPaginateTypeDef(TypedDict):
+    ApiId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class GetRouteResponsesRequestPaginateTypeDef(TypedDict):
+    ApiId: str
+    RouteId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class GetRoutesRequestPaginateTypeDef(TypedDict):
+    ApiId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class GetStagesRequestPaginateTypeDef(TypedDict):
+    ApiId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class GetIntegrationResponsesResponseTypeDef(TypedDict):
+    Items: List[IntegrationResponseTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class GetModelsResponseTypeDef(TypedDict):
+    Items: List[ModelTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class GetVpcLinksResponseTypeDef(TypedDict):
+    Items: List[VpcLinkTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+JWTConfigurationUnionTypeDef = Union[JWTConfigurationTypeDef, JWTConfigurationOutputTypeDef]
+
+class GetApisResponseTypeDef(TypedDict):
+    Items: List[ApiTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class GetAuthorizersResponseTypeDef(TypedDict):
+    Items: List[AuthorizerTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class CreateApiRequestTypeDef(TypedDict):
+    Name: str
+    ProtocolType: ProtocolTypeType
+    ApiKeySelectionExpression: NotRequired[str]
+    CorsConfiguration: NotRequired[CorsUnionTypeDef]
+    CredentialsArn: NotRequired[str]
+    Description: NotRequired[str]
+    DisableSchemaValidation: NotRequired[bool]
+    DisableExecuteApiEndpoint: NotRequired[bool]
+    IpAddressType: NotRequired[IpAddressTypeType]
+    RouteKey: NotRequired[str]
+    RouteSelectionExpression: NotRequired[str]
+    Tags: NotRequired[Mapping[str, str]]
+    Target: NotRequired[str]
+    Version: NotRequired[str]
+
+class UpdateApiRequestTypeDef(TypedDict):
+    ApiId: str
+    ApiKeySelectionExpression: NotRequired[str]
+    CorsConfiguration: NotRequired[CorsUnionTypeDef]
+    CredentialsArn: NotRequired[str]
+    Description: NotRequired[str]
+    DisableSchemaValidation: NotRequired[bool]
+    DisableExecuteApiEndpoint: NotRequired[bool]
+    IpAddressType: NotRequired[IpAddressTypeType]
+    Name: NotRequired[str]
+    RouteKey: NotRequired[str]
+    RouteSelectionExpression: NotRequired[str]
+    Target: NotRequired[str]
+    Version: NotRequired[str]
+
+class GetDomainNamesResponseTypeDef(TypedDict):
+    Items: List[DomainNameTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class GetIntegrationsResponseTypeDef(TypedDict):
+    Items: List[IntegrationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class GetRouteResponsesResponseTypeDef(TypedDict):
+    Items: List[RouteResponseTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class GetRoutesResponseTypeDef(TypedDict):
+    Items: List[RouteTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class GetStagesResponseTypeDef(TypedDict):
+    Items: List[StageTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+DomainNameConfigurationUnionTypeDef = Union[
+    DomainNameConfigurationTypeDef, DomainNameConfigurationOutputTypeDef
+]
+
+class CreateAuthorizerRequestTypeDef(TypedDict):
+    ApiId: str
+    AuthorizerType: AuthorizerTypeType
+    IdentitySource: Sequence[str]
+    Name: str
+    AuthorizerCredentialsArn: NotRequired[str]
+    AuthorizerPayloadFormatVersion: NotRequired[str]
+    AuthorizerResultTtlInSeconds: NotRequired[int]
+    AuthorizerUri: NotRequired[str]
+    EnableSimpleResponses: NotRequired[bool]
+    IdentityValidationExpression: NotRequired[str]
+    JwtConfiguration: NotRequired[JWTConfigurationUnionTypeDef]
+
+class UpdateAuthorizerRequestTypeDef(TypedDict):
+    ApiId: str
+    AuthorizerId: str
+    AuthorizerCredentialsArn: NotRequired[str]
+    AuthorizerPayloadFormatVersion: NotRequired[str]
+    AuthorizerResultTtlInSeconds: NotRequired[int]
+    AuthorizerType: NotRequired[AuthorizerTypeType]
+    AuthorizerUri: NotRequired[str]
+    EnableSimpleResponses: NotRequired[bool]
+    IdentitySource: NotRequired[Sequence[str]]
+    IdentityValidationExpression: NotRequired[str]
+    JwtConfiguration: NotRequired[JWTConfigurationUnionTypeDef]
+    Name: NotRequired[str]
+
+class CreateDomainNameRequestTypeDef(TypedDict):
+    DomainName: str
+    DomainNameConfigurations: NotRequired[Sequence[DomainNameConfigurationUnionTypeDef]]
+    MutualTlsAuthentication: NotRequired[MutualTlsAuthenticationInputTypeDef]
+    Tags: NotRequired[Mapping[str, str]]
+
+class UpdateDomainNameRequestTypeDef(TypedDict):
+    DomainName: str
+    DomainNameConfigurations: NotRequired[Sequence[DomainNameConfigurationUnionTypeDef]]
+    MutualTlsAuthentication: NotRequired[MutualTlsAuthenticationInputTypeDef]

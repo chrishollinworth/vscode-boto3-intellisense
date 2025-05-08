@@ -1,20 +1,24 @@
 """
 Type annotations for panorama service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_panorama/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_panorama/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_panorama.type_defs import AlternateSoftwareMetadataTypeDef
 
-    data: AlternateSoftwareMetadataTypeDef = {...}
+    data: AlternateSoftwareMetadataTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
+from typing import Union
 
 from .literals import (
     ApplicationInstanceHealthStatusType,
@@ -43,81 +47,88 @@ from .literals import (
     UpdateProgressType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
     "AlternateSoftwareMetadataTypeDef",
     "ApplicationInstanceTypeDef",
-    "CreateApplicationInstanceRequestRequestTypeDef",
+    "CreateApplicationInstanceRequestTypeDef",
     "CreateApplicationInstanceResponseTypeDef",
-    "CreateJobForDevicesRequestRequestTypeDef",
+    "CreateJobForDevicesRequestTypeDef",
     "CreateJobForDevicesResponseTypeDef",
-    "CreateNodeFromTemplateJobRequestRequestTypeDef",
+    "CreateNodeFromTemplateJobRequestTypeDef",
     "CreateNodeFromTemplateJobResponseTypeDef",
-    "CreatePackageImportJobRequestRequestTypeDef",
+    "CreatePackageImportJobRequestTypeDef",
     "CreatePackageImportJobResponseTypeDef",
-    "CreatePackageRequestRequestTypeDef",
+    "CreatePackageRequestTypeDef",
     "CreatePackageResponseTypeDef",
-    "DeleteDeviceRequestRequestTypeDef",
+    "DeleteDeviceRequestTypeDef",
     "DeleteDeviceResponseTypeDef",
-    "DeletePackageRequestRequestTypeDef",
-    "DeregisterPackageVersionRequestRequestTypeDef",
-    "DescribeApplicationInstanceDetailsRequestRequestTypeDef",
+    "DeletePackageRequestTypeDef",
+    "DeregisterPackageVersionRequestTypeDef",
+    "DescribeApplicationInstanceDetailsRequestTypeDef",
     "DescribeApplicationInstanceDetailsResponseTypeDef",
-    "DescribeApplicationInstanceRequestRequestTypeDef",
+    "DescribeApplicationInstanceRequestTypeDef",
     "DescribeApplicationInstanceResponseTypeDef",
-    "DescribeDeviceJobRequestRequestTypeDef",
+    "DescribeDeviceJobRequestTypeDef",
     "DescribeDeviceJobResponseTypeDef",
-    "DescribeDeviceRequestRequestTypeDef",
+    "DescribeDeviceRequestTypeDef",
     "DescribeDeviceResponseTypeDef",
-    "DescribeNodeFromTemplateJobRequestRequestTypeDef",
+    "DescribeNodeFromTemplateJobRequestTypeDef",
     "DescribeNodeFromTemplateJobResponseTypeDef",
-    "DescribeNodeRequestRequestTypeDef",
+    "DescribeNodeRequestTypeDef",
     "DescribeNodeResponseTypeDef",
-    "DescribePackageImportJobRequestRequestTypeDef",
+    "DescribePackageImportJobRequestTypeDef",
     "DescribePackageImportJobResponseTypeDef",
-    "DescribePackageRequestRequestTypeDef",
+    "DescribePackageRequestTypeDef",
     "DescribePackageResponseTypeDef",
-    "DescribePackageVersionRequestRequestTypeDef",
+    "DescribePackageVersionRequestTypeDef",
     "DescribePackageVersionResponseTypeDef",
     "DeviceJobConfigTypeDef",
     "DeviceJobTypeDef",
     "DeviceTypeDef",
+    "EthernetPayloadOutputTypeDef",
     "EthernetPayloadTypeDef",
     "EthernetStatusTypeDef",
+    "JobResourceTagsOutputTypeDef",
     "JobResourceTagsTypeDef",
+    "JobResourceTagsUnionTypeDef",
     "JobTypeDef",
     "LatestDeviceJobTypeDef",
-    "ListApplicationInstanceDependenciesRequestRequestTypeDef",
+    "ListApplicationInstanceDependenciesRequestTypeDef",
     "ListApplicationInstanceDependenciesResponseTypeDef",
-    "ListApplicationInstanceNodeInstancesRequestRequestTypeDef",
+    "ListApplicationInstanceNodeInstancesRequestTypeDef",
     "ListApplicationInstanceNodeInstancesResponseTypeDef",
-    "ListApplicationInstancesRequestRequestTypeDef",
+    "ListApplicationInstancesRequestTypeDef",
     "ListApplicationInstancesResponseTypeDef",
-    "ListDevicesJobsRequestRequestTypeDef",
+    "ListDevicesJobsRequestTypeDef",
     "ListDevicesJobsResponseTypeDef",
-    "ListDevicesRequestRequestTypeDef",
+    "ListDevicesRequestTypeDef",
     "ListDevicesResponseTypeDef",
-    "ListNodeFromTemplateJobsRequestRequestTypeDef",
+    "ListNodeFromTemplateJobsRequestTypeDef",
     "ListNodeFromTemplateJobsResponseTypeDef",
-    "ListNodesRequestRequestTypeDef",
+    "ListNodesRequestTypeDef",
     "ListNodesResponseTypeDef",
-    "ListPackageImportJobsRequestRequestTypeDef",
+    "ListPackageImportJobsRequestTypeDef",
     "ListPackageImportJobsResponseTypeDef",
-    "ListPackagesRequestRequestTypeDef",
+    "ListPackagesRequestTypeDef",
     "ListPackagesResponseTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "ManifestOverridesPayloadTypeDef",
     "ManifestPayloadTypeDef",
+    "NetworkPayloadOutputTypeDef",
     "NetworkPayloadTypeDef",
+    "NetworkPayloadUnionTypeDef",
     "NetworkStatusTypeDef",
     "NodeFromTemplateJobTypeDef",
     "NodeInputPortTypeDef",
@@ -126,6 +137,7 @@ __all__ = (
     "NodeOutputPortTypeDef",
     "NodeSignalTypeDef",
     "NodeTypeDef",
+    "NtpPayloadOutputTypeDef",
     "NtpPayloadTypeDef",
     "NtpStatusTypeDef",
     "OTAJobConfigTypeDef",
@@ -138,1274 +150,668 @@ __all__ = (
     "PackageObjectTypeDef",
     "PackageVersionInputConfigTypeDef",
     "PackageVersionOutputConfigTypeDef",
-    "ProvisionDeviceRequestRequestTypeDef",
+    "ProvisionDeviceRequestTypeDef",
     "ProvisionDeviceResponseTypeDef",
-    "RegisterPackageVersionRequestRequestTypeDef",
-    "RemoveApplicationInstanceRequestRequestTypeDef",
+    "RegisterPackageVersionRequestTypeDef",
+    "RemoveApplicationInstanceRequestTypeDef",
     "ReportedRuntimeContextStateTypeDef",
     "ResponseMetadataTypeDef",
     "S3LocationTypeDef",
-    "SignalApplicationInstanceNodeInstancesRequestRequestTypeDef",
+    "SignalApplicationInstanceNodeInstancesRequestTypeDef",
     "SignalApplicationInstanceNodeInstancesResponseTypeDef",
+    "StaticIpConnectionInfoOutputTypeDef",
     "StaticIpConnectionInfoTypeDef",
     "StorageLocationTypeDef",
-    "TagResourceRequestRequestTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateDeviceMetadataRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateDeviceMetadataRequestTypeDef",
     "UpdateDeviceMetadataResponseTypeDef",
 )
 
-AlternateSoftwareMetadataTypeDef = TypedDict(
-    "AlternateSoftwareMetadataTypeDef",
-    {
-        "Version": str,
-    },
-    total=False,
-)
+class AlternateSoftwareMetadataTypeDef(TypedDict):
+    Version: NotRequired[str]
 
-ApplicationInstanceTypeDef = TypedDict(
-    "ApplicationInstanceTypeDef",
-    {
-        "ApplicationInstanceId": str,
-        "Arn": str,
-        "CreatedTime": datetime,
-        "DefaultRuntimeContextDevice": str,
-        "DefaultRuntimeContextDeviceName": str,
-        "Description": str,
-        "HealthStatus": ApplicationInstanceHealthStatusType,
-        "Name": str,
-        "RuntimeContextStates": List["ReportedRuntimeContextStateTypeDef"],
-        "Status": ApplicationInstanceStatusType,
-        "StatusDescription": str,
-        "Tags": Dict[str, str],
-    },
-    total=False,
-)
+class ReportedRuntimeContextStateTypeDef(TypedDict):
+    DesiredState: DesiredStateType
+    DeviceReportedStatus: DeviceReportedStatusType
+    DeviceReportedTime: datetime
+    RuntimeContextName: str
 
-_RequiredCreateApplicationInstanceRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateApplicationInstanceRequestRequestTypeDef",
+class ManifestOverridesPayloadTypeDef(TypedDict):
+    PayloadData: NotRequired[str]
+
+class ManifestPayloadTypeDef(TypedDict):
+    PayloadData: NotRequired[str]
+
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
+
+class JobTypeDef(TypedDict):
+    DeviceId: NotRequired[str]
+    JobId: NotRequired[str]
+
+class CreatePackageRequestTypeDef(TypedDict):
+    PackageName: str
+    Tags: NotRequired[Mapping[str, str]]
+
+class StorageLocationTypeDef(TypedDict):
+    BinaryPrefixLocation: str
+    Bucket: str
+    GeneratedPrefixLocation: str
+    ManifestPrefixLocation: str
+    RepoPrefixLocation: str
+
+class DeleteDeviceRequestTypeDef(TypedDict):
+    DeviceId: str
+
+class DeletePackageRequestTypeDef(TypedDict):
+    PackageId: str
+    ForceDelete: NotRequired[bool]
+
+class DeregisterPackageVersionRequestTypeDef(TypedDict):
+    PackageId: str
+    PackageVersion: str
+    PatchVersion: str
+    OwnerAccount: NotRequired[str]
+    UpdatedLatestPatchVersion: NotRequired[str]
+
+class DescribeApplicationInstanceDetailsRequestTypeDef(TypedDict):
+    ApplicationInstanceId: str
+
+class DescribeApplicationInstanceRequestTypeDef(TypedDict):
+    ApplicationInstanceId: str
+
+class DescribeDeviceJobRequestTypeDef(TypedDict):
+    JobId: str
+
+class DescribeDeviceRequestTypeDef(TypedDict):
+    DeviceId: str
+
+class LatestDeviceJobTypeDef(TypedDict):
+    ImageVersion: NotRequired[str]
+    JobType: NotRequired[JobTypeType]
+    Status: NotRequired[UpdateProgressType]
+
+class DescribeNodeFromTemplateJobRequestTypeDef(TypedDict):
+    JobId: str
+
+class JobResourceTagsOutputTypeDef(TypedDict):
+    ResourceType: Literal["PACKAGE"]
+    Tags: Dict[str, str]
+
+class DescribeNodeRequestTypeDef(TypedDict):
+    NodeId: str
+    OwnerAccount: NotRequired[str]
+
+class DescribePackageImportJobRequestTypeDef(TypedDict):
+    JobId: str
+
+class DescribePackageRequestTypeDef(TypedDict):
+    PackageId: str
+
+class DescribePackageVersionRequestTypeDef(TypedDict):
+    PackageId: str
+    PackageVersion: str
+    OwnerAccount: NotRequired[str]
+    PatchVersion: NotRequired[str]
+
+class OTAJobConfigTypeDef(TypedDict):
+    ImageVersion: str
+    AllowMajorVersionUpdate: NotRequired[bool]
+
+class DeviceJobTypeDef(TypedDict):
+    CreatedTime: NotRequired[datetime]
+    DeviceId: NotRequired[str]
+    DeviceName: NotRequired[str]
+    JobId: NotRequired[str]
+    JobType: NotRequired[JobTypeType]
+
+class StaticIpConnectionInfoOutputTypeDef(TypedDict):
+    DefaultGateway: str
+    Dns: List[str]
+    IpAddress: str
+    Mask: str
+
+class StaticIpConnectionInfoTypeDef(TypedDict):
+    DefaultGateway: str
+    Dns: Sequence[str]
+    IpAddress: str
+    Mask: str
+
+class EthernetStatusTypeDef(TypedDict):
+    ConnectionStatus: NotRequired[NetworkConnectionStatusType]
+    HwAddress: NotRequired[str]
+    IpAddress: NotRequired[str]
+
+class JobResourceTagsTypeDef(TypedDict):
+    ResourceType: Literal["PACKAGE"]
+    Tags: Mapping[str, str]
+
+class ListApplicationInstanceDependenciesRequestTypeDef(TypedDict):
+    ApplicationInstanceId: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class PackageObjectTypeDef(TypedDict):
+    Name: str
+    PackageVersion: str
+    PatchVersion: str
+
+class ListApplicationInstanceNodeInstancesRequestTypeDef(TypedDict):
+    ApplicationInstanceId: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class NodeInstanceTypeDef(TypedDict):
+    CurrentStatus: NodeInstanceStatusType
+    NodeInstanceId: str
+    NodeId: NotRequired[str]
+    NodeName: NotRequired[str]
+    PackageName: NotRequired[str]
+    PackagePatchVersion: NotRequired[str]
+    PackageVersion: NotRequired[str]
+
+class ListApplicationInstancesRequestTypeDef(TypedDict):
+    DeviceId: NotRequired[str]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+    StatusFilter: NotRequired[StatusFilterType]
+
+class ListDevicesJobsRequestTypeDef(TypedDict):
+    DeviceId: NotRequired[str]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListDevicesRequestTypeDef(TypedDict):
+    DeviceAggregatedStatusFilter: NotRequired[DeviceAggregatedStatusType]
+    MaxResults: NotRequired[int]
+    NameFilter: NotRequired[str]
+    NextToken: NotRequired[str]
+    SortBy: NotRequired[ListDevicesSortByType]
+    SortOrder: NotRequired[SortOrderType]
+
+class ListNodeFromTemplateJobsRequestTypeDef(TypedDict):
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class NodeFromTemplateJobTypeDef(TypedDict):
+    CreatedTime: NotRequired[datetime]
+    JobId: NotRequired[str]
+    NodeName: NotRequired[str]
+    Status: NotRequired[NodeFromTemplateJobStatusType]
+    StatusMessage: NotRequired[str]
+    TemplateType: NotRequired[Literal["RTSP_CAMERA_STREAM"]]
+
+class ListNodesRequestTypeDef(TypedDict):
+    Category: NotRequired[NodeCategoryType]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+    OwnerAccount: NotRequired[str]
+    PackageName: NotRequired[str]
+    PackageVersion: NotRequired[str]
+    PatchVersion: NotRequired[str]
+
+class NodeTypeDef(TypedDict):
+    Category: NodeCategoryType
+    CreatedTime: datetime
+    Name: str
+    NodeId: str
+    PackageId: str
+    PackageName: str
+    PackageVersion: str
+    PatchVersion: str
+    Description: NotRequired[str]
+    OwnerAccount: NotRequired[str]
+    PackageArn: NotRequired[str]
+
+class ListPackageImportJobsRequestTypeDef(TypedDict):
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class PackageImportJobTypeDef(TypedDict):
+    CreatedTime: NotRequired[datetime]
+    JobId: NotRequired[str]
+    JobType: NotRequired[PackageImportJobTypeType]
+    LastUpdatedTime: NotRequired[datetime]
+    Status: NotRequired[PackageImportJobStatusType]
+    StatusMessage: NotRequired[str]
+
+class ListPackagesRequestTypeDef(TypedDict):
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class PackageListItemTypeDef(TypedDict):
+    Arn: NotRequired[str]
+    CreatedTime: NotRequired[datetime]
+    PackageId: NotRequired[str]
+    PackageName: NotRequired[str]
+    Tags: NotRequired[Dict[str, str]]
+
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+
+class NtpPayloadOutputTypeDef(TypedDict):
+    NtpServers: List[str]
+
+class NtpPayloadTypeDef(TypedDict):
+    NtpServers: Sequence[str]
+
+class NtpStatusTypeDef(TypedDict):
+    ConnectionStatus: NotRequired[NetworkConnectionStatusType]
+    IpAddress: NotRequired[str]
+    NtpServerName: NotRequired[str]
+
+NodeInputPortTypeDef = TypedDict(
+    "NodeInputPortTypeDef",
     {
-        "DefaultRuntimeContextDevice": str,
-        "ManifestPayload": "ManifestPayloadTypeDef",
+        "DefaultValue": NotRequired[str],
+        "Description": NotRequired[str],
+        "MaxConnections": NotRequired[int],
+        "Name": NotRequired[str],
+        "Type": NotRequired[PortTypeType],
     },
 )
-_OptionalCreateApplicationInstanceRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateApplicationInstanceRequestRequestTypeDef",
+NodeOutputPortTypeDef = TypedDict(
+    "NodeOutputPortTypeDef",
     {
-        "ApplicationInstanceIdToReplace": str,
-        "Description": str,
-        "ManifestOverridesPayload": "ManifestOverridesPayloadTypeDef",
-        "Name": str,
-        "RuntimeRoleArn": str,
-        "Tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class CreateApplicationInstanceRequestRequestTypeDef(
-    _RequiredCreateApplicationInstanceRequestRequestTypeDef,
-    _OptionalCreateApplicationInstanceRequestRequestTypeDef,
-):
-    pass
-
-CreateApplicationInstanceResponseTypeDef = TypedDict(
-    "CreateApplicationInstanceResponseTypeDef",
-    {
-        "ApplicationInstanceId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateJobForDevicesRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateJobForDevicesRequestRequestTypeDef",
-    {
-        "DeviceIds": List[str],
-        "JobType": JobTypeType,
-    },
-)
-_OptionalCreateJobForDevicesRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateJobForDevicesRequestRequestTypeDef",
-    {
-        "DeviceJobConfig": "DeviceJobConfigTypeDef",
-    },
-    total=False,
-)
-
-class CreateJobForDevicesRequestRequestTypeDef(
-    _RequiredCreateJobForDevicesRequestRequestTypeDef,
-    _OptionalCreateJobForDevicesRequestRequestTypeDef,
-):
-    pass
-
-CreateJobForDevicesResponseTypeDef = TypedDict(
-    "CreateJobForDevicesResponseTypeDef",
-    {
-        "Jobs": List["JobTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateNodeFromTemplateJobRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateNodeFromTemplateJobRequestRequestTypeDef",
-    {
-        "NodeName": str,
-        "OutputPackageName": str,
-        "OutputPackageVersion": str,
-        "TemplateParameters": Dict[str, str],
-        "TemplateType": Literal["RTSP_CAMERA_STREAM"],
-    },
-)
-_OptionalCreateNodeFromTemplateJobRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateNodeFromTemplateJobRequestRequestTypeDef",
-    {
-        "JobTags": List["JobResourceTagsTypeDef"],
-        "NodeDescription": str,
-    },
-    total=False,
-)
-
-class CreateNodeFromTemplateJobRequestRequestTypeDef(
-    _RequiredCreateNodeFromTemplateJobRequestRequestTypeDef,
-    _OptionalCreateNodeFromTemplateJobRequestRequestTypeDef,
-):
-    pass
-
-CreateNodeFromTemplateJobResponseTypeDef = TypedDict(
-    "CreateNodeFromTemplateJobResponseTypeDef",
-    {
-        "JobId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreatePackageImportJobRequestRequestTypeDef = TypedDict(
-    "_RequiredCreatePackageImportJobRequestRequestTypeDef",
-    {
-        "ClientToken": str,
-        "InputConfig": "PackageImportJobInputConfigTypeDef",
-        "JobType": PackageImportJobTypeType,
-        "OutputConfig": "PackageImportJobOutputConfigTypeDef",
-    },
-)
-_OptionalCreatePackageImportJobRequestRequestTypeDef = TypedDict(
-    "_OptionalCreatePackageImportJobRequestRequestTypeDef",
-    {
-        "JobTags": List["JobResourceTagsTypeDef"],
-    },
-    total=False,
-)
-
-class CreatePackageImportJobRequestRequestTypeDef(
-    _RequiredCreatePackageImportJobRequestRequestTypeDef,
-    _OptionalCreatePackageImportJobRequestRequestTypeDef,
-):
-    pass
-
-CreatePackageImportJobResponseTypeDef = TypedDict(
-    "CreatePackageImportJobResponseTypeDef",
-    {
-        "JobId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreatePackageRequestRequestTypeDef = TypedDict(
-    "_RequiredCreatePackageRequestRequestTypeDef",
-    {
-        "PackageName": str,
-    },
-)
-_OptionalCreatePackageRequestRequestTypeDef = TypedDict(
-    "_OptionalCreatePackageRequestRequestTypeDef",
-    {
-        "Tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class CreatePackageRequestRequestTypeDef(
-    _RequiredCreatePackageRequestRequestTypeDef, _OptionalCreatePackageRequestRequestTypeDef
-):
-    pass
-
-CreatePackageResponseTypeDef = TypedDict(
-    "CreatePackageResponseTypeDef",
-    {
-        "Arn": str,
-        "PackageId": str,
-        "StorageLocation": "StorageLocationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteDeviceRequestRequestTypeDef = TypedDict(
-    "DeleteDeviceRequestRequestTypeDef",
-    {
-        "DeviceId": str,
-    },
-)
-
-DeleteDeviceResponseTypeDef = TypedDict(
-    "DeleteDeviceResponseTypeDef",
-    {
-        "DeviceId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDeletePackageRequestRequestTypeDef = TypedDict(
-    "_RequiredDeletePackageRequestRequestTypeDef",
-    {
-        "PackageId": str,
-    },
-)
-_OptionalDeletePackageRequestRequestTypeDef = TypedDict(
-    "_OptionalDeletePackageRequestRequestTypeDef",
-    {
-        "ForceDelete": bool,
-    },
-    total=False,
-)
-
-class DeletePackageRequestRequestTypeDef(
-    _RequiredDeletePackageRequestRequestTypeDef, _OptionalDeletePackageRequestRequestTypeDef
-):
-    pass
-
-_RequiredDeregisterPackageVersionRequestRequestTypeDef = TypedDict(
-    "_RequiredDeregisterPackageVersionRequestRequestTypeDef",
-    {
-        "PackageId": str,
-        "PackageVersion": str,
-        "PatchVersion": str,
-    },
-)
-_OptionalDeregisterPackageVersionRequestRequestTypeDef = TypedDict(
-    "_OptionalDeregisterPackageVersionRequestRequestTypeDef",
-    {
-        "OwnerAccount": str,
-        "UpdatedLatestPatchVersion": str,
-    },
-    total=False,
-)
-
-class DeregisterPackageVersionRequestRequestTypeDef(
-    _RequiredDeregisterPackageVersionRequestRequestTypeDef,
-    _OptionalDeregisterPackageVersionRequestRequestTypeDef,
-):
-    pass
-
-DescribeApplicationInstanceDetailsRequestRequestTypeDef = TypedDict(
-    "DescribeApplicationInstanceDetailsRequestRequestTypeDef",
-    {
-        "ApplicationInstanceId": str,
-    },
-)
-
-DescribeApplicationInstanceDetailsResponseTypeDef = TypedDict(
-    "DescribeApplicationInstanceDetailsResponseTypeDef",
-    {
-        "ApplicationInstanceId": str,
-        "ApplicationInstanceIdToReplace": str,
-        "CreatedTime": datetime,
-        "DefaultRuntimeContextDevice": str,
-        "Description": str,
-        "ManifestOverridesPayload": "ManifestOverridesPayloadTypeDef",
-        "ManifestPayload": "ManifestPayloadTypeDef",
-        "Name": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "Description": NotRequired[str],
+        "Name": NotRequired[str],
+        "Type": NotRequired[PortTypeType],
     },
 )
 
-DescribeApplicationInstanceRequestRequestTypeDef = TypedDict(
-    "DescribeApplicationInstanceRequestRequestTypeDef",
+class NodeSignalTypeDef(TypedDict):
+    NodeInstanceId: str
+    Signal: NodeSignalValueType
+
+class OutPutS3LocationTypeDef(TypedDict):
+    BucketName: str
+    ObjectKey: str
+
+class PackageVersionOutputConfigTypeDef(TypedDict):
+    PackageName: str
+    PackageVersion: str
+    MarkLatest: NotRequired[bool]
+
+class S3LocationTypeDef(TypedDict):
+    BucketName: str
+    ObjectKey: str
+    Region: NotRequired[str]
+
+class RegisterPackageVersionRequestTypeDef(TypedDict):
+    PackageId: str
+    PackageVersion: str
+    PatchVersion: str
+    MarkLatest: NotRequired[bool]
+    OwnerAccount: NotRequired[str]
+
+class RemoveApplicationInstanceRequestTypeDef(TypedDict):
+    ApplicationInstanceId: str
+
+class TagResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+    Tags: Mapping[str, str]
+
+class UntagResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+    TagKeys: Sequence[str]
+
+class UpdateDeviceMetadataRequestTypeDef(TypedDict):
+    DeviceId: str
+    Description: NotRequired[str]
+
+class ApplicationInstanceTypeDef(TypedDict):
+    ApplicationInstanceId: NotRequired[str]
+    Arn: NotRequired[str]
+    CreatedTime: NotRequired[datetime]
+    DefaultRuntimeContextDevice: NotRequired[str]
+    DefaultRuntimeContextDeviceName: NotRequired[str]
+    Description: NotRequired[str]
+    HealthStatus: NotRequired[ApplicationInstanceHealthStatusType]
+    Name: NotRequired[str]
+    RuntimeContextStates: NotRequired[List[ReportedRuntimeContextStateTypeDef]]
+    Status: NotRequired[ApplicationInstanceStatusType]
+    StatusDescription: NotRequired[str]
+    Tags: NotRequired[Dict[str, str]]
+
+class CreateApplicationInstanceRequestTypeDef(TypedDict):
+    DefaultRuntimeContextDevice: str
+    ManifestPayload: ManifestPayloadTypeDef
+    ApplicationInstanceIdToReplace: NotRequired[str]
+    Description: NotRequired[str]
+    ManifestOverridesPayload: NotRequired[ManifestOverridesPayloadTypeDef]
+    Name: NotRequired[str]
+    RuntimeRoleArn: NotRequired[str]
+    Tags: NotRequired[Mapping[str, str]]
+
+class CreateApplicationInstanceResponseTypeDef(TypedDict):
+    ApplicationInstanceId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateNodeFromTemplateJobResponseTypeDef(TypedDict):
+    JobId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreatePackageImportJobResponseTypeDef(TypedDict):
+    JobId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteDeviceResponseTypeDef(TypedDict):
+    DeviceId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeApplicationInstanceDetailsResponseTypeDef(TypedDict):
+    ApplicationInstanceId: str
+    ApplicationInstanceIdToReplace: str
+    CreatedTime: datetime
+    DefaultRuntimeContextDevice: str
+    Description: str
+    ManifestOverridesPayload: ManifestOverridesPayloadTypeDef
+    ManifestPayload: ManifestPayloadTypeDef
+    Name: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeApplicationInstanceResponseTypeDef(TypedDict):
+    ApplicationInstanceId: str
+    ApplicationInstanceIdToReplace: str
+    Arn: str
+    CreatedTime: datetime
+    DefaultRuntimeContextDevice: str
+    DefaultRuntimeContextDeviceName: str
+    Description: str
+    HealthStatus: ApplicationInstanceHealthStatusType
+    LastUpdatedTime: datetime
+    Name: str
+    RuntimeContextStates: List[ReportedRuntimeContextStateTypeDef]
+    RuntimeRoleArn: str
+    Status: ApplicationInstanceStatusType
+    StatusDescription: str
+    Tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeDeviceJobResponseTypeDef(TypedDict):
+    CreatedTime: datetime
+    DeviceArn: str
+    DeviceId: str
+    DeviceName: str
+    DeviceType: DeviceTypeType
+    ImageVersion: str
+    JobId: str
+    JobType: JobTypeType
+    Status: UpdateProgressType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribePackageVersionResponseTypeDef(TypedDict):
+    IsLatestPatch: bool
+    OwnerAccount: str
+    PackageArn: str
+    PackageId: str
+    PackageName: str
+    PackageVersion: str
+    PatchVersion: str
+    RegisteredTime: datetime
+    Status: PackageVersionStatusType
+    StatusDescription: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    Tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ProvisionDeviceResponseTypeDef(TypedDict):
+    Arn: str
+    Certificates: bytes
+    DeviceId: str
+    IotThingName: str
+    Status: DeviceStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class SignalApplicationInstanceNodeInstancesResponseTypeDef(TypedDict):
+    ApplicationInstanceId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateDeviceMetadataResponseTypeDef(TypedDict):
+    DeviceId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateJobForDevicesResponseTypeDef(TypedDict):
+    Jobs: List[JobTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreatePackageResponseTypeDef(TypedDict):
+    Arn: str
+    PackageId: str
+    StorageLocation: StorageLocationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribePackageResponseTypeDef(TypedDict):
+    Arn: str
+    CreatedTime: datetime
+    PackageId: str
+    PackageName: str
+    ReadAccessPrincipalArns: List[str]
+    StorageLocation: StorageLocationTypeDef
+    Tags: Dict[str, str]
+    WriteAccessPrincipalArns: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+DeviceTypeDef = TypedDict(
+    "DeviceTypeDef",
     {
-        "ApplicationInstanceId": str,
+        "Brand": NotRequired[DeviceBrandType],
+        "CreatedTime": NotRequired[datetime],
+        "CurrentSoftware": NotRequired[str],
+        "Description": NotRequired[str],
+        "DeviceAggregatedStatus": NotRequired[DeviceAggregatedStatusType],
+        "DeviceId": NotRequired[str],
+        "LastUpdatedTime": NotRequired[datetime],
+        "LatestDeviceJob": NotRequired[LatestDeviceJobTypeDef],
+        "LeaseExpirationTime": NotRequired[datetime],
+        "Name": NotRequired[str],
+        "ProvisioningStatus": NotRequired[DeviceStatusType],
+        "Tags": NotRequired[Dict[str, str]],
+        "Type": NotRequired[DeviceTypeType],
     },
 )
 
-DescribeApplicationInstanceResponseTypeDef = TypedDict(
-    "DescribeApplicationInstanceResponseTypeDef",
-    {
-        "ApplicationInstanceId": str,
-        "ApplicationInstanceIdToReplace": str,
-        "Arn": str,
-        "CreatedTime": datetime,
-        "DefaultRuntimeContextDevice": str,
-        "DefaultRuntimeContextDeviceName": str,
-        "Description": str,
-        "HealthStatus": ApplicationInstanceHealthStatusType,
-        "LastUpdatedTime": datetime,
-        "Name": str,
-        "RuntimeContextStates": List["ReportedRuntimeContextStateTypeDef"],
-        "RuntimeRoleArn": str,
-        "Status": ApplicationInstanceStatusType,
-        "StatusDescription": str,
-        "Tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DescribeNodeFromTemplateJobResponseTypeDef(TypedDict):
+    CreatedTime: datetime
+    JobId: str
+    JobTags: List[JobResourceTagsOutputTypeDef]
+    LastUpdatedTime: datetime
+    NodeDescription: str
+    NodeName: str
+    OutputPackageName: str
+    OutputPackageVersion: str
+    Status: NodeFromTemplateJobStatusType
+    StatusMessage: str
+    TemplateParameters: Dict[str, str]
+    TemplateType: Literal["RTSP_CAMERA_STREAM"]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-DescribeDeviceJobRequestRequestTypeDef = TypedDict(
-    "DescribeDeviceJobRequestRequestTypeDef",
-    {
-        "JobId": str,
-    },
-)
+class DeviceJobConfigTypeDef(TypedDict):
+    OTAJobConfig: NotRequired[OTAJobConfigTypeDef]
 
-DescribeDeviceJobResponseTypeDef = TypedDict(
-    "DescribeDeviceJobResponseTypeDef",
-    {
-        "CreatedTime": datetime,
-        "DeviceArn": str,
-        "DeviceId": str,
-        "DeviceName": str,
-        "DeviceType": DeviceTypeType,
-        "ImageVersion": str,
-        "JobId": str,
-        "JobType": JobTypeType,
-        "Status": UpdateProgressType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListDevicesJobsResponseTypeDef(TypedDict):
+    DeviceJobs: List[DeviceJobTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-DescribeDeviceRequestRequestTypeDef = TypedDict(
-    "DescribeDeviceRequestRequestTypeDef",
-    {
-        "DeviceId": str,
-    },
-)
+class EthernetPayloadOutputTypeDef(TypedDict):
+    ConnectionType: ConnectionTypeType
+    StaticIpConnectionInfo: NotRequired[StaticIpConnectionInfoOutputTypeDef]
+
+class EthernetPayloadTypeDef(TypedDict):
+    ConnectionType: ConnectionTypeType
+    StaticIpConnectionInfo: NotRequired[StaticIpConnectionInfoTypeDef]
+
+JobResourceTagsUnionTypeDef = Union[JobResourceTagsTypeDef, JobResourceTagsOutputTypeDef]
+
+class ListApplicationInstanceDependenciesResponseTypeDef(TypedDict):
+    PackageObjects: List[PackageObjectTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListApplicationInstanceNodeInstancesResponseTypeDef(TypedDict):
+    NodeInstances: List[NodeInstanceTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListNodeFromTemplateJobsResponseTypeDef(TypedDict):
+    NodeFromTemplateJobs: List[NodeFromTemplateJobTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListNodesResponseTypeDef(TypedDict):
+    Nodes: List[NodeTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListPackageImportJobsResponseTypeDef(TypedDict):
+    PackageImportJobs: List[PackageImportJobTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListPackagesResponseTypeDef(TypedDict):
+    Packages: List[PackageListItemTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class NetworkStatusTypeDef(TypedDict):
+    Ethernet0Status: NotRequired[EthernetStatusTypeDef]
+    Ethernet1Status: NotRequired[EthernetStatusTypeDef]
+    LastUpdatedTime: NotRequired[datetime]
+    NtpStatus: NotRequired[NtpStatusTypeDef]
+
+class NodeInterfaceTypeDef(TypedDict):
+    Inputs: List[NodeInputPortTypeDef]
+    Outputs: List[NodeOutputPortTypeDef]
+
+class SignalApplicationInstanceNodeInstancesRequestTypeDef(TypedDict):
+    ApplicationInstanceId: str
+    NodeSignals: Sequence[NodeSignalTypeDef]
+
+class PackageImportJobOutputTypeDef(TypedDict):
+    OutputS3Location: OutPutS3LocationTypeDef
+    PackageId: str
+    PackageVersion: str
+    PatchVersion: str
+
+class PackageImportJobOutputConfigTypeDef(TypedDict):
+    PackageVersionOutputConfig: NotRequired[PackageVersionOutputConfigTypeDef]
+
+class PackageVersionInputConfigTypeDef(TypedDict):
+    S3Location: S3LocationTypeDef
+
+class ListApplicationInstancesResponseTypeDef(TypedDict):
+    ApplicationInstances: List[ApplicationInstanceTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListDevicesResponseTypeDef(TypedDict):
+    Devices: List[DeviceTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class CreateJobForDevicesRequestTypeDef(TypedDict):
+    DeviceIds: Sequence[str]
+    JobType: JobTypeType
+    DeviceJobConfig: NotRequired[DeviceJobConfigTypeDef]
+
+class NetworkPayloadOutputTypeDef(TypedDict):
+    Ethernet0: NotRequired[EthernetPayloadOutputTypeDef]
+    Ethernet1: NotRequired[EthernetPayloadOutputTypeDef]
+    Ntp: NotRequired[NtpPayloadOutputTypeDef]
+
+class NetworkPayloadTypeDef(TypedDict):
+    Ethernet0: NotRequired[EthernetPayloadTypeDef]
+    Ethernet1: NotRequired[EthernetPayloadTypeDef]
+    Ntp: NotRequired[NtpPayloadTypeDef]
+
+class CreateNodeFromTemplateJobRequestTypeDef(TypedDict):
+    NodeName: str
+    OutputPackageName: str
+    OutputPackageVersion: str
+    TemplateParameters: Mapping[str, str]
+    TemplateType: Literal["RTSP_CAMERA_STREAM"]
+    JobTags: NotRequired[Sequence[JobResourceTagsUnionTypeDef]]
+    NodeDescription: NotRequired[str]
+
+class DescribeNodeResponseTypeDef(TypedDict):
+    AssetName: str
+    Category: NodeCategoryType
+    CreatedTime: datetime
+    Description: str
+    LastUpdatedTime: datetime
+    Name: str
+    NodeId: str
+    NodeInterface: NodeInterfaceTypeDef
+    OwnerAccount: str
+    PackageArn: str
+    PackageId: str
+    PackageName: str
+    PackageVersion: str
+    PatchVersion: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PackageImportJobInputConfigTypeDef(TypedDict):
+    PackageVersionInputConfig: NotRequired[PackageVersionInputConfigTypeDef]
 
 DescribeDeviceResponseTypeDef = TypedDict(
     "DescribeDeviceResponseTypeDef",
     {
-        "AlternateSoftwares": List["AlternateSoftwareMetadataTypeDef"],
+        "AlternateSoftwares": List[AlternateSoftwareMetadataTypeDef],
         "Arn": str,
         "Brand": DeviceBrandType,
         "CreatedTime": datetime,
-        "CurrentNetworkingStatus": "NetworkStatusTypeDef",
+        "CurrentNetworkingStatus": NetworkStatusTypeDef,
         "CurrentSoftware": str,
         "Description": str,
         "DeviceAggregatedStatus": DeviceAggregatedStatusType,
         "DeviceConnectionStatus": DeviceConnectionStatusType,
         "DeviceId": str,
         "LatestAlternateSoftware": str,
-        "LatestDeviceJob": "LatestDeviceJobTypeDef",
+        "LatestDeviceJob": LatestDeviceJobTypeDef,
         "LatestSoftware": str,
         "LeaseExpirationTime": datetime,
         "Name": str,
-        "NetworkingConfiguration": "NetworkPayloadTypeDef",
+        "NetworkingConfiguration": NetworkPayloadOutputTypeDef,
         "ProvisioningStatus": DeviceStatusType,
         "SerialNumber": str,
         "Tags": Dict[str, str],
         "Type": DeviceTypeType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeNodeFromTemplateJobRequestRequestTypeDef = TypedDict(
-    "DescribeNodeFromTemplateJobRequestRequestTypeDef",
-    {
-        "JobId": str,
-    },
-)
-
-DescribeNodeFromTemplateJobResponseTypeDef = TypedDict(
-    "DescribeNodeFromTemplateJobResponseTypeDef",
-    {
-        "CreatedTime": datetime,
-        "JobId": str,
-        "JobTags": List["JobResourceTagsTypeDef"],
-        "LastUpdatedTime": datetime,
-        "NodeDescription": str,
-        "NodeName": str,
-        "OutputPackageName": str,
-        "OutputPackageVersion": str,
-        "Status": NodeFromTemplateJobStatusType,
-        "StatusMessage": str,
-        "TemplateParameters": Dict[str, str],
-        "TemplateType": Literal["RTSP_CAMERA_STREAM"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribeNodeRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeNodeRequestRequestTypeDef",
-    {
-        "NodeId": str,
-    },
-)
-_OptionalDescribeNodeRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeNodeRequestRequestTypeDef",
-    {
-        "OwnerAccount": str,
-    },
-    total=False,
-)
-
-class DescribeNodeRequestRequestTypeDef(
-    _RequiredDescribeNodeRequestRequestTypeDef, _OptionalDescribeNodeRequestRequestTypeDef
-):
-    pass
-
-DescribeNodeResponseTypeDef = TypedDict(
-    "DescribeNodeResponseTypeDef",
-    {
-        "AssetName": str,
-        "Category": NodeCategoryType,
-        "CreatedTime": datetime,
-        "Description": str,
-        "LastUpdatedTime": datetime,
-        "Name": str,
-        "NodeId": str,
-        "NodeInterface": "NodeInterfaceTypeDef",
-        "OwnerAccount": str,
-        "PackageArn": str,
-        "PackageId": str,
-        "PackageName": str,
-        "PackageVersion": str,
-        "PatchVersion": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribePackageImportJobRequestRequestTypeDef = TypedDict(
-    "DescribePackageImportJobRequestRequestTypeDef",
-    {
-        "JobId": str,
-    },
-)
-
-DescribePackageImportJobResponseTypeDef = TypedDict(
-    "DescribePackageImportJobResponseTypeDef",
-    {
-        "ClientToken": str,
-        "CreatedTime": datetime,
-        "InputConfig": "PackageImportJobInputConfigTypeDef",
-        "JobId": str,
-        "JobTags": List["JobResourceTagsTypeDef"],
-        "JobType": PackageImportJobTypeType,
-        "LastUpdatedTime": datetime,
-        "Output": "PackageImportJobOutputTypeDef",
-        "OutputConfig": "PackageImportJobOutputConfigTypeDef",
-        "Status": PackageImportJobStatusType,
-        "StatusMessage": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribePackageRequestRequestTypeDef = TypedDict(
-    "DescribePackageRequestRequestTypeDef",
-    {
-        "PackageId": str,
-    },
-)
-
-DescribePackageResponseTypeDef = TypedDict(
-    "DescribePackageResponseTypeDef",
-    {
-        "Arn": str,
-        "CreatedTime": datetime,
-        "PackageId": str,
-        "PackageName": str,
-        "ReadAccessPrincipalArns": List[str],
-        "StorageLocation": "StorageLocationTypeDef",
-        "Tags": Dict[str, str],
-        "WriteAccessPrincipalArns": List[str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribePackageVersionRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribePackageVersionRequestRequestTypeDef",
-    {
-        "PackageId": str,
-        "PackageVersion": str,
-    },
-)
-_OptionalDescribePackageVersionRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribePackageVersionRequestRequestTypeDef",
-    {
-        "OwnerAccount": str,
-        "PatchVersion": str,
-    },
-    total=False,
-)
-
-class DescribePackageVersionRequestRequestTypeDef(
-    _RequiredDescribePackageVersionRequestRequestTypeDef,
-    _OptionalDescribePackageVersionRequestRequestTypeDef,
-):
-    pass
-
-DescribePackageVersionResponseTypeDef = TypedDict(
-    "DescribePackageVersionResponseTypeDef",
-    {
-        "IsLatestPatch": bool,
-        "OwnerAccount": str,
-        "PackageArn": str,
-        "PackageId": str,
-        "PackageName": str,
-        "PackageVersion": str,
-        "PatchVersion": str,
-        "RegisteredTime": datetime,
-        "Status": PackageVersionStatusType,
-        "StatusDescription": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeviceJobConfigTypeDef = TypedDict(
-    "DeviceJobConfigTypeDef",
-    {
-        "OTAJobConfig": "OTAJobConfigTypeDef",
-    },
-    total=False,
-)
-
-DeviceJobTypeDef = TypedDict(
-    "DeviceJobTypeDef",
-    {
-        "CreatedTime": datetime,
-        "DeviceId": str,
-        "DeviceName": str,
-        "JobId": str,
-        "JobType": JobTypeType,
-    },
-    total=False,
-)
-
-DeviceTypeDef = TypedDict(
-    "DeviceTypeDef",
-    {
-        "Brand": DeviceBrandType,
-        "CreatedTime": datetime,
-        "CurrentSoftware": str,
-        "Description": str,
-        "DeviceAggregatedStatus": DeviceAggregatedStatusType,
-        "DeviceId": str,
-        "LastUpdatedTime": datetime,
-        "LatestDeviceJob": "LatestDeviceJobTypeDef",
-        "LeaseExpirationTime": datetime,
-        "Name": str,
-        "ProvisioningStatus": DeviceStatusType,
-        "Tags": Dict[str, str],
-        "Type": DeviceTypeType,
-    },
-    total=False,
-)
-
-_RequiredEthernetPayloadTypeDef = TypedDict(
-    "_RequiredEthernetPayloadTypeDef",
-    {
-        "ConnectionType": ConnectionTypeType,
-    },
-)
-_OptionalEthernetPayloadTypeDef = TypedDict(
-    "_OptionalEthernetPayloadTypeDef",
-    {
-        "StaticIpConnectionInfo": "StaticIpConnectionInfoTypeDef",
-    },
-    total=False,
-)
-
-class EthernetPayloadTypeDef(_RequiredEthernetPayloadTypeDef, _OptionalEthernetPayloadTypeDef):
-    pass
-
-EthernetStatusTypeDef = TypedDict(
-    "EthernetStatusTypeDef",
-    {
-        "ConnectionStatus": NetworkConnectionStatusType,
-        "HwAddress": str,
-        "IpAddress": str,
-    },
-    total=False,
-)
-
-JobResourceTagsTypeDef = TypedDict(
-    "JobResourceTagsTypeDef",
-    {
-        "ResourceType": Literal["PACKAGE"],
-        "Tags": Dict[str, str],
-    },
-)
-
-JobTypeDef = TypedDict(
-    "JobTypeDef",
-    {
-        "DeviceId": str,
-        "JobId": str,
-    },
-    total=False,
-)
-
-LatestDeviceJobTypeDef = TypedDict(
-    "LatestDeviceJobTypeDef",
-    {
-        "ImageVersion": str,
-        "JobType": JobTypeType,
-        "Status": UpdateProgressType,
-    },
-    total=False,
-)
-
-_RequiredListApplicationInstanceDependenciesRequestRequestTypeDef = TypedDict(
-    "_RequiredListApplicationInstanceDependenciesRequestRequestTypeDef",
-    {
-        "ApplicationInstanceId": str,
-    },
-)
-_OptionalListApplicationInstanceDependenciesRequestRequestTypeDef = TypedDict(
-    "_OptionalListApplicationInstanceDependenciesRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListApplicationInstanceDependenciesRequestRequestTypeDef(
-    _RequiredListApplicationInstanceDependenciesRequestRequestTypeDef,
-    _OptionalListApplicationInstanceDependenciesRequestRequestTypeDef,
-):
-    pass
-
-ListApplicationInstanceDependenciesResponseTypeDef = TypedDict(
-    "ListApplicationInstanceDependenciesResponseTypeDef",
-    {
-        "NextToken": str,
-        "PackageObjects": List["PackageObjectTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListApplicationInstanceNodeInstancesRequestRequestTypeDef = TypedDict(
-    "_RequiredListApplicationInstanceNodeInstancesRequestRequestTypeDef",
-    {
-        "ApplicationInstanceId": str,
-    },
-)
-_OptionalListApplicationInstanceNodeInstancesRequestRequestTypeDef = TypedDict(
-    "_OptionalListApplicationInstanceNodeInstancesRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListApplicationInstanceNodeInstancesRequestRequestTypeDef(
-    _RequiredListApplicationInstanceNodeInstancesRequestRequestTypeDef,
-    _OptionalListApplicationInstanceNodeInstancesRequestRequestTypeDef,
-):
-    pass
-
-ListApplicationInstanceNodeInstancesResponseTypeDef = TypedDict(
-    "ListApplicationInstanceNodeInstancesResponseTypeDef",
-    {
-        "NextToken": str,
-        "NodeInstances": List["NodeInstanceTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListApplicationInstancesRequestRequestTypeDef = TypedDict(
-    "ListApplicationInstancesRequestRequestTypeDef",
-    {
-        "DeviceId": str,
-        "MaxResults": int,
-        "NextToken": str,
-        "StatusFilter": StatusFilterType,
-    },
-    total=False,
-)
-
-ListApplicationInstancesResponseTypeDef = TypedDict(
-    "ListApplicationInstancesResponseTypeDef",
-    {
-        "ApplicationInstances": List["ApplicationInstanceTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListDevicesJobsRequestRequestTypeDef = TypedDict(
-    "ListDevicesJobsRequestRequestTypeDef",
-    {
-        "DeviceId": str,
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListDevicesJobsResponseTypeDef = TypedDict(
-    "ListDevicesJobsResponseTypeDef",
-    {
-        "DeviceJobs": List["DeviceJobTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListDevicesRequestRequestTypeDef = TypedDict(
-    "ListDevicesRequestRequestTypeDef",
-    {
-        "DeviceAggregatedStatusFilter": DeviceAggregatedStatusType,
-        "MaxResults": int,
-        "NameFilter": str,
-        "NextToken": str,
-        "SortBy": ListDevicesSortByType,
-        "SortOrder": SortOrderType,
-    },
-    total=False,
-)
-
-ListDevicesResponseTypeDef = TypedDict(
-    "ListDevicesResponseTypeDef",
-    {
-        "Devices": List["DeviceTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListNodeFromTemplateJobsRequestRequestTypeDef = TypedDict(
-    "ListNodeFromTemplateJobsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListNodeFromTemplateJobsResponseTypeDef = TypedDict(
-    "ListNodeFromTemplateJobsResponseTypeDef",
-    {
-        "NextToken": str,
-        "NodeFromTemplateJobs": List["NodeFromTemplateJobTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListNodesRequestRequestTypeDef = TypedDict(
-    "ListNodesRequestRequestTypeDef",
-    {
-        "Category": NodeCategoryType,
-        "MaxResults": int,
-        "NextToken": str,
-        "OwnerAccount": str,
-        "PackageName": str,
-        "PackageVersion": str,
-        "PatchVersion": str,
-    },
-    total=False,
-)
-
-ListNodesResponseTypeDef = TypedDict(
-    "ListNodesResponseTypeDef",
-    {
-        "NextToken": str,
-        "Nodes": List["NodeTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListPackageImportJobsRequestRequestTypeDef = TypedDict(
-    "ListPackageImportJobsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListPackageImportJobsResponseTypeDef = TypedDict(
-    "ListPackageImportJobsResponseTypeDef",
-    {
-        "NextToken": str,
-        "PackageImportJobs": List["PackageImportJobTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListPackagesRequestRequestTypeDef = TypedDict(
-    "ListPackagesRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListPackagesResponseTypeDef = TypedDict(
-    "ListPackagesResponseTypeDef",
-    {
-        "NextToken": str,
-        "Packages": List["PackageListItemTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-    },
-)
-
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "Tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ManifestOverridesPayloadTypeDef = TypedDict(
-    "ManifestOverridesPayloadTypeDef",
-    {
-        "PayloadData": str,
-    },
-    total=False,
-)
-
-ManifestPayloadTypeDef = TypedDict(
-    "ManifestPayloadTypeDef",
-    {
-        "PayloadData": str,
-    },
-    total=False,
-)
-
-NetworkPayloadTypeDef = TypedDict(
-    "NetworkPayloadTypeDef",
-    {
-        "Ethernet0": "EthernetPayloadTypeDef",
-        "Ethernet1": "EthernetPayloadTypeDef",
-        "Ntp": "NtpPayloadTypeDef",
-    },
-    total=False,
-)
-
-NetworkStatusTypeDef = TypedDict(
-    "NetworkStatusTypeDef",
-    {
-        "Ethernet0Status": "EthernetStatusTypeDef",
-        "Ethernet1Status": "EthernetStatusTypeDef",
-        "LastUpdatedTime": datetime,
-        "NtpStatus": "NtpStatusTypeDef",
-    },
-    total=False,
-)
-
-NodeFromTemplateJobTypeDef = TypedDict(
-    "NodeFromTemplateJobTypeDef",
-    {
-        "CreatedTime": datetime,
-        "JobId": str,
-        "NodeName": str,
-        "Status": NodeFromTemplateJobStatusType,
-        "StatusMessage": str,
-        "TemplateType": Literal["RTSP_CAMERA_STREAM"],
-    },
-    total=False,
-)
-
-NodeInputPortTypeDef = TypedDict(
-    "NodeInputPortTypeDef",
-    {
-        "DefaultValue": str,
-        "Description": str,
-        "MaxConnections": int,
-        "Name": str,
-        "Type": PortTypeType,
-    },
-    total=False,
-)
-
-_RequiredNodeInstanceTypeDef = TypedDict(
-    "_RequiredNodeInstanceTypeDef",
-    {
-        "CurrentStatus": NodeInstanceStatusType,
-        "NodeInstanceId": str,
-    },
-)
-_OptionalNodeInstanceTypeDef = TypedDict(
-    "_OptionalNodeInstanceTypeDef",
-    {
-        "NodeId": str,
-        "NodeName": str,
-        "PackageName": str,
-        "PackagePatchVersion": str,
-        "PackageVersion": str,
-    },
-    total=False,
-)
-
-class NodeInstanceTypeDef(_RequiredNodeInstanceTypeDef, _OptionalNodeInstanceTypeDef):
-    pass
-
-NodeInterfaceTypeDef = TypedDict(
-    "NodeInterfaceTypeDef",
-    {
-        "Inputs": List["NodeInputPortTypeDef"],
-        "Outputs": List["NodeOutputPortTypeDef"],
-    },
-)
-
-NodeOutputPortTypeDef = TypedDict(
-    "NodeOutputPortTypeDef",
-    {
-        "Description": str,
-        "Name": str,
-        "Type": PortTypeType,
-    },
-    total=False,
-)
-
-NodeSignalTypeDef = TypedDict(
-    "NodeSignalTypeDef",
-    {
-        "NodeInstanceId": str,
-        "Signal": NodeSignalValueType,
-    },
-)
-
-_RequiredNodeTypeDef = TypedDict(
-    "_RequiredNodeTypeDef",
-    {
-        "Category": NodeCategoryType,
-        "CreatedTime": datetime,
-        "Name": str,
-        "NodeId": str,
-        "PackageId": str,
-        "PackageName": str,
-        "PackageVersion": str,
-        "PatchVersion": str,
-    },
-)
-_OptionalNodeTypeDef = TypedDict(
-    "_OptionalNodeTypeDef",
-    {
-        "Description": str,
-        "OwnerAccount": str,
-        "PackageArn": str,
-    },
-    total=False,
-)
-
-class NodeTypeDef(_RequiredNodeTypeDef, _OptionalNodeTypeDef):
-    pass
-
-NtpPayloadTypeDef = TypedDict(
-    "NtpPayloadTypeDef",
-    {
-        "NtpServers": List[str],
-    },
-)
-
-NtpStatusTypeDef = TypedDict(
-    "NtpStatusTypeDef",
-    {
-        "ConnectionStatus": NetworkConnectionStatusType,
-        "IpAddress": str,
-        "NtpServerName": str,
-    },
-    total=False,
-)
-
-_RequiredOTAJobConfigTypeDef = TypedDict(
-    "_RequiredOTAJobConfigTypeDef",
-    {
-        "ImageVersion": str,
-    },
-)
-_OptionalOTAJobConfigTypeDef = TypedDict(
-    "_OptionalOTAJobConfigTypeDef",
-    {
-        "AllowMajorVersionUpdate": bool,
-    },
-    total=False,
-)
-
-class OTAJobConfigTypeDef(_RequiredOTAJobConfigTypeDef, _OptionalOTAJobConfigTypeDef):
-    pass
-
-OutPutS3LocationTypeDef = TypedDict(
-    "OutPutS3LocationTypeDef",
-    {
-        "BucketName": str,
-        "ObjectKey": str,
-    },
-)
-
-PackageImportJobInputConfigTypeDef = TypedDict(
-    "PackageImportJobInputConfigTypeDef",
-    {
-        "PackageVersionInputConfig": "PackageVersionInputConfigTypeDef",
-    },
-    total=False,
-)
-
-PackageImportJobOutputConfigTypeDef = TypedDict(
-    "PackageImportJobOutputConfigTypeDef",
-    {
-        "PackageVersionOutputConfig": "PackageVersionOutputConfigTypeDef",
-    },
-    total=False,
-)
-
-PackageImportJobOutputTypeDef = TypedDict(
-    "PackageImportJobOutputTypeDef",
-    {
-        "OutputS3Location": "OutPutS3LocationTypeDef",
-        "PackageId": str,
-        "PackageVersion": str,
-        "PatchVersion": str,
-    },
-)
-
-PackageImportJobTypeDef = TypedDict(
-    "PackageImportJobTypeDef",
-    {
-        "CreatedTime": datetime,
-        "JobId": str,
-        "JobType": PackageImportJobTypeType,
-        "LastUpdatedTime": datetime,
-        "Status": PackageImportJobStatusType,
-        "StatusMessage": str,
-    },
-    total=False,
-)
-
-PackageListItemTypeDef = TypedDict(
-    "PackageListItemTypeDef",
-    {
-        "Arn": str,
-        "CreatedTime": datetime,
-        "PackageId": str,
-        "PackageName": str,
-        "Tags": Dict[str, str],
-    },
-    total=False,
-)
-
-PackageObjectTypeDef = TypedDict(
-    "PackageObjectTypeDef",
-    {
-        "Name": str,
-        "PackageVersion": str,
-        "PatchVersion": str,
-    },
-)
-
-PackageVersionInputConfigTypeDef = TypedDict(
-    "PackageVersionInputConfigTypeDef",
-    {
-        "S3Location": "S3LocationTypeDef",
-    },
-)
-
-_RequiredPackageVersionOutputConfigTypeDef = TypedDict(
-    "_RequiredPackageVersionOutputConfigTypeDef",
-    {
-        "PackageName": str,
-        "PackageVersion": str,
-    },
-)
-_OptionalPackageVersionOutputConfigTypeDef = TypedDict(
-    "_OptionalPackageVersionOutputConfigTypeDef",
-    {
-        "MarkLatest": bool,
-    },
-    total=False,
-)
-
-class PackageVersionOutputConfigTypeDef(
-    _RequiredPackageVersionOutputConfigTypeDef, _OptionalPackageVersionOutputConfigTypeDef
-):
-    pass
-
-_RequiredProvisionDeviceRequestRequestTypeDef = TypedDict(
-    "_RequiredProvisionDeviceRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
-_OptionalProvisionDeviceRequestRequestTypeDef = TypedDict(
-    "_OptionalProvisionDeviceRequestRequestTypeDef",
-    {
-        "Description": str,
-        "NetworkingConfiguration": "NetworkPayloadTypeDef",
-        "Tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class ProvisionDeviceRequestRequestTypeDef(
-    _RequiredProvisionDeviceRequestRequestTypeDef, _OptionalProvisionDeviceRequestRequestTypeDef
-):
-    pass
-
-ProvisionDeviceResponseTypeDef = TypedDict(
-    "ProvisionDeviceResponseTypeDef",
-    {
-        "Arn": str,
-        "Certificates": bytes,
-        "DeviceId": str,
-        "IotThingName": str,
-        "Status": DeviceStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredRegisterPackageVersionRequestRequestTypeDef = TypedDict(
-    "_RequiredRegisterPackageVersionRequestRequestTypeDef",
-    {
-        "PackageId": str,
-        "PackageVersion": str,
-        "PatchVersion": str,
-    },
-)
-_OptionalRegisterPackageVersionRequestRequestTypeDef = TypedDict(
-    "_OptionalRegisterPackageVersionRequestRequestTypeDef",
-    {
-        "MarkLatest": bool,
-        "OwnerAccount": str,
-    },
-    total=False,
-)
-
-class RegisterPackageVersionRequestRequestTypeDef(
-    _RequiredRegisterPackageVersionRequestRequestTypeDef,
-    _OptionalRegisterPackageVersionRequestRequestTypeDef,
-):
-    pass
-
-RemoveApplicationInstanceRequestRequestTypeDef = TypedDict(
-    "RemoveApplicationInstanceRequestRequestTypeDef",
-    {
-        "ApplicationInstanceId": str,
-    },
-)
-
-ReportedRuntimeContextStateTypeDef = TypedDict(
-    "ReportedRuntimeContextStateTypeDef",
-    {
-        "DesiredState": DesiredStateType,
-        "DeviceReportedStatus": DeviceReportedStatusType,
-        "DeviceReportedTime": datetime,
-        "RuntimeContextName": str,
-    },
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-_RequiredS3LocationTypeDef = TypedDict(
-    "_RequiredS3LocationTypeDef",
-    {
-        "BucketName": str,
-        "ObjectKey": str,
-    },
-)
-_OptionalS3LocationTypeDef = TypedDict(
-    "_OptionalS3LocationTypeDef",
-    {
-        "Region": str,
-    },
-    total=False,
-)
-
-class S3LocationTypeDef(_RequiredS3LocationTypeDef, _OptionalS3LocationTypeDef):
-    pass
-
-SignalApplicationInstanceNodeInstancesRequestRequestTypeDef = TypedDict(
-    "SignalApplicationInstanceNodeInstancesRequestRequestTypeDef",
-    {
-        "ApplicationInstanceId": str,
-        "NodeSignals": List["NodeSignalTypeDef"],
-    },
-)
-
-SignalApplicationInstanceNodeInstancesResponseTypeDef = TypedDict(
-    "SignalApplicationInstanceNodeInstancesResponseTypeDef",
-    {
-        "ApplicationInstanceId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-StaticIpConnectionInfoTypeDef = TypedDict(
-    "StaticIpConnectionInfoTypeDef",
-    {
-        "DefaultGateway": str,
-        "Dns": List[str],
-        "IpAddress": str,
-        "Mask": str,
-    },
-)
-
-StorageLocationTypeDef = TypedDict(
-    "StorageLocationTypeDef",
-    {
-        "BinaryPrefixLocation": str,
-        "Bucket": str,
-        "GeneratedPrefixLocation": str,
-        "ManifestPrefixLocation": str,
-        "RepoPrefixLocation": str,
-    },
-)
-
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-        "Tags": Dict[str, str],
-    },
-)
-
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-        "TagKeys": List[str],
-    },
-)
-
-_RequiredUpdateDeviceMetadataRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateDeviceMetadataRequestRequestTypeDef",
-    {
-        "DeviceId": str,
-    },
-)
-_OptionalUpdateDeviceMetadataRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateDeviceMetadataRequestRequestTypeDef",
-    {
-        "Description": str,
-    },
-    total=False,
-)
-
-class UpdateDeviceMetadataRequestRequestTypeDef(
-    _RequiredUpdateDeviceMetadataRequestRequestTypeDef,
-    _OptionalUpdateDeviceMetadataRequestRequestTypeDef,
-):
-    pass
-
-UpdateDeviceMetadataResponseTypeDef = TypedDict(
-    "UpdateDeviceMetadataResponseTypeDef",
-    {
-        "DeviceId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+NetworkPayloadUnionTypeDef = Union[NetworkPayloadTypeDef, NetworkPayloadOutputTypeDef]
+
+class CreatePackageImportJobRequestTypeDef(TypedDict):
+    ClientToken: str
+    InputConfig: PackageImportJobInputConfigTypeDef
+    JobType: PackageImportJobTypeType
+    OutputConfig: PackageImportJobOutputConfigTypeDef
+    JobTags: NotRequired[Sequence[JobResourceTagsUnionTypeDef]]
+
+class DescribePackageImportJobResponseTypeDef(TypedDict):
+    ClientToken: str
+    CreatedTime: datetime
+    InputConfig: PackageImportJobInputConfigTypeDef
+    JobId: str
+    JobTags: List[JobResourceTagsOutputTypeDef]
+    JobType: PackageImportJobTypeType
+    LastUpdatedTime: datetime
+    Output: PackageImportJobOutputTypeDef
+    OutputConfig: PackageImportJobOutputConfigTypeDef
+    Status: PackageImportJobStatusType
+    StatusMessage: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ProvisionDeviceRequestTypeDef(TypedDict):
+    Name: str
+    Description: NotRequired[str]
+    NetworkingConfiguration: NotRequired[NetworkPayloadUnionTypeDef]
+    Tags: NotRequired[Mapping[str, str]]

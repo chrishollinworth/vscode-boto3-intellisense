@@ -1,19 +1,21 @@
 """
 Main interface for sso-oidc service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sso_oidc/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_sso_oidc import (
         Client,
         SSOOIDCClient,
     )
 
-    session = boto3.Session()
-
-    client: SSOOIDCClient = boto3.client("sso-oidc")
-    session_client: SSOOIDCClient = session.client("sso-oidc")
+    session = Session()
+    client: SSOOIDCClient = session.client("sso-oidc")
     ```
 """
 

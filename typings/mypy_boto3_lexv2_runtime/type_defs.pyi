@@ -1,482 +1,522 @@
 """
 Type annotations for lexv2-runtime service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lexv2_runtime/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lexv2_runtime/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_lexv2_runtime.type_defs import ActiveContextTimeToLiveTypeDef
+    from mypy_boto3_lexv2_runtime.type_defs import AccessDeniedExceptionTypeDef
 
-    data: ActiveContextTimeToLiveTypeDef = {...}
+    data: AccessDeniedExceptionTypeDef = ...
     ```
 """
 
-import sys
-from typing import IO, Any, Dict, List, Union
+from __future__ import annotations
 
+import sys
+from typing import IO, Any, Union
+
+from botocore.eventstream import EventStream
 from botocore.response import StreamingBody
 
 from .literals import (
     ConfirmationStateType,
+    ConversationModeType,
     DialogActionTypeType,
+    InputModeType,
     IntentStateType,
     InterpretationSourceType,
     MessageContentTypeType,
+    PlaybackInterruptionReasonType,
     SentimentTypeType,
     ShapeType,
     StyleTypeType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
+    "AccessDeniedExceptionTypeDef",
+    "ActiveContextOutputTypeDef",
     "ActiveContextTimeToLiveTypeDef",
     "ActiveContextTypeDef",
+    "ActiveContextUnionTypeDef",
+    "AudioInputEventTypeDef",
+    "AudioResponseEventTypeDef",
+    "BadGatewayExceptionTypeDef",
+    "BlobTypeDef",
     "ButtonTypeDef",
     "ConfidenceScoreTypeDef",
-    "DeleteSessionRequestRequestTypeDef",
+    "ConfigurationEventTypeDef",
+    "ConflictExceptionTypeDef",
+    "DTMFInputEventTypeDef",
+    "DeleteSessionRequestTypeDef",
     "DeleteSessionResponseTypeDef",
+    "DependencyFailedExceptionTypeDef",
+    "DialogActionOutputTypeDef",
     "DialogActionTypeDef",
+    "DialogActionUnionTypeDef",
+    "DisconnectionEventTypeDef",
+    "ElicitSubSlotOutputTypeDef",
     "ElicitSubSlotTypeDef",
-    "GetSessionRequestRequestTypeDef",
+    "ElicitSubSlotUnionTypeDef",
+    "GetSessionRequestTypeDef",
     "GetSessionResponseTypeDef",
+    "HeartbeatEventTypeDef",
+    "ImageResponseCardOutputTypeDef",
     "ImageResponseCardTypeDef",
+    "ImageResponseCardUnionTypeDef",
+    "IntentOutputTypeDef",
+    "IntentResultEventTypeDef",
     "IntentTypeDef",
+    "IntentUnionTypeDef",
+    "InternalServerExceptionTypeDef",
     "InterpretationTypeDef",
+    "MessageOutputTypeDef",
     "MessageTypeDef",
-    "PutSessionRequestRequestTypeDef",
+    "MessageUnionTypeDef",
+    "PlaybackCompletionEventTypeDef",
+    "PlaybackInterruptionEventTypeDef",
+    "PutSessionRequestTypeDef",
     "PutSessionResponseTypeDef",
-    "RecognizeTextRequestRequestTypeDef",
+    "RecognizeTextRequestTypeDef",
     "RecognizeTextResponseTypeDef",
-    "RecognizeUtteranceRequestRequestTypeDef",
+    "RecognizeUtteranceRequestTypeDef",
     "RecognizeUtteranceResponseTypeDef",
     "RecognizedBotMemberTypeDef",
+    "ResourceNotFoundExceptionTypeDef",
     "ResponseMetadataTypeDef",
+    "RuntimeHintDetailsOutputTypeDef",
     "RuntimeHintDetailsTypeDef",
+    "RuntimeHintDetailsUnionTypeDef",
     "RuntimeHintValueTypeDef",
+    "RuntimeHintsOutputTypeDef",
     "RuntimeHintsTypeDef",
+    "RuntimeHintsUnionTypeDef",
     "SentimentResponseTypeDef",
     "SentimentScoreTypeDef",
+    "SessionStateOutputTypeDef",
     "SessionStateTypeDef",
+    "SessionStateUnionTypeDef",
+    "SlotOutputTypeDef",
     "SlotTypeDef",
+    "SlotUnionTypeDef",
+    "StartConversationRequestEventStreamTypeDef",
+    "StartConversationRequestTypeDef",
+    "StartConversationResponseEventStreamTypeDef",
+    "StartConversationResponseTypeDef",
+    "TextInputEventTypeDef",
+    "TextResponseEventTypeDef",
+    "ThrottlingExceptionTypeDef",
+    "TranscriptEventTypeDef",
+    "ValidationExceptionTypeDef",
+    "ValueOutputTypeDef",
     "ValueTypeDef",
+    "ValueUnionTypeDef",
 )
 
-ActiveContextTimeToLiveTypeDef = TypedDict(
-    "ActiveContextTimeToLiveTypeDef",
-    {
-        "timeToLiveInSeconds": int,
-        "turnsToLive": int,
-    },
-)
+class AccessDeniedExceptionTypeDef(TypedDict):
+    message: str
 
-ActiveContextTypeDef = TypedDict(
-    "ActiveContextTypeDef",
-    {
-        "name": str,
-        "timeToLive": "ActiveContextTimeToLiveTypeDef",
-        "contextAttributes": Dict[str, str],
-    },
-)
+class ActiveContextTimeToLiveTypeDef(TypedDict):
+    timeToLiveInSeconds: int
+    turnsToLive: int
 
-ButtonTypeDef = TypedDict(
-    "ButtonTypeDef",
-    {
-        "text": str,
-        "value": str,
-    },
-)
+BlobTypeDef = Union[str, bytes, IO[Any], StreamingBody]
 
-ConfidenceScoreTypeDef = TypedDict(
-    "ConfidenceScoreTypeDef",
-    {
-        "score": float,
-    },
-    total=False,
-)
+class AudioResponseEventTypeDef(TypedDict):
+    audioChunk: NotRequired[bytes]
+    contentType: NotRequired[str]
+    eventId: NotRequired[str]
 
-DeleteSessionRequestRequestTypeDef = TypedDict(
-    "DeleteSessionRequestRequestTypeDef",
-    {
-        "botId": str,
-        "botAliasId": str,
-        "localeId": str,
-        "sessionId": str,
-    },
-)
+class BadGatewayExceptionTypeDef(TypedDict):
+    message: str
 
-DeleteSessionResponseTypeDef = TypedDict(
-    "DeleteSessionResponseTypeDef",
-    {
-        "botId": str,
-        "botAliasId": str,
-        "localeId": str,
-        "sessionId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ButtonTypeDef(TypedDict):
+    text: str
+    value: str
 
-_RequiredDialogActionTypeDef = TypedDict(
-    "_RequiredDialogActionTypeDef",
+class ConfidenceScoreTypeDef(TypedDict):
+    score: NotRequired[float]
+
+class ConflictExceptionTypeDef(TypedDict):
+    message: str
+
+class DTMFInputEventTypeDef(TypedDict):
+    inputCharacter: str
+    eventId: NotRequired[str]
+    clientTimestampMillis: NotRequired[int]
+
+class DeleteSessionRequestTypeDef(TypedDict):
+    botId: str
+    botAliasId: str
+    localeId: str
+    sessionId: str
+
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
+
+class DependencyFailedExceptionTypeDef(TypedDict):
+    message: str
+
+class ElicitSubSlotOutputTypeDef(TypedDict):
+    name: str
+    subSlotToElicit: NotRequired[Dict[str, Any]]
+
+class DisconnectionEventTypeDef(TypedDict):
+    eventId: NotRequired[str]
+    clientTimestampMillis: NotRequired[int]
+
+class ElicitSubSlotTypeDef(TypedDict):
+    name: str
+    subSlotToElicit: NotRequired[Mapping[str, Any]]
+
+class GetSessionRequestTypeDef(TypedDict):
+    botId: str
+    botAliasId: str
+    localeId: str
+    sessionId: str
+
+class HeartbeatEventTypeDef(TypedDict):
+    eventId: NotRequired[str]
+
+class RecognizedBotMemberTypeDef(TypedDict):
+    botId: str
+    botName: NotRequired[str]
+
+class InternalServerExceptionTypeDef(TypedDict):
+    message: str
+
+class PlaybackCompletionEventTypeDef(TypedDict):
+    eventId: NotRequired[str]
+    clientTimestampMillis: NotRequired[int]
+
+class PlaybackInterruptionEventTypeDef(TypedDict):
+    eventReason: NotRequired[PlaybackInterruptionReasonType]
+    causedByEventId: NotRequired[str]
+    eventId: NotRequired[str]
+
+class ResourceNotFoundExceptionTypeDef(TypedDict):
+    message: str
+
+class RuntimeHintValueTypeDef(TypedDict):
+    phrase: str
+
+class SentimentScoreTypeDef(TypedDict):
+    positive: NotRequired[float]
+    negative: NotRequired[float]
+    neutral: NotRequired[float]
+    mixed: NotRequired[float]
+
+class ValueOutputTypeDef(TypedDict):
+    interpretedValue: str
+    originalValue: NotRequired[str]
+    resolvedValues: NotRequired[List[str]]
+
+class TextInputEventTypeDef(TypedDict):
+    text: str
+    eventId: NotRequired[str]
+    clientTimestampMillis: NotRequired[int]
+
+class ThrottlingExceptionTypeDef(TypedDict):
+    message: str
+
+class TranscriptEventTypeDef(TypedDict):
+    transcript: NotRequired[str]
+    eventId: NotRequired[str]
+
+class ValidationExceptionTypeDef(TypedDict):
+    message: str
+
+class ValueTypeDef(TypedDict):
+    interpretedValue: str
+    originalValue: NotRequired[str]
+    resolvedValues: NotRequired[Sequence[str]]
+
+class ActiveContextOutputTypeDef(TypedDict):
+    name: str
+    timeToLive: ActiveContextTimeToLiveTypeDef
+    contextAttributes: Dict[str, str]
+
+class ActiveContextTypeDef(TypedDict):
+    name: str
+    timeToLive: ActiveContextTimeToLiveTypeDef
+    contextAttributes: Mapping[str, str]
+
+class AudioInputEventTypeDef(TypedDict):
+    contentType: str
+    audioChunk: NotRequired[BlobTypeDef]
+    eventId: NotRequired[str]
+    clientTimestampMillis: NotRequired[int]
+
+class RecognizeUtteranceRequestTypeDef(TypedDict):
+    botId: str
+    botAliasId: str
+    localeId: str
+    sessionId: str
+    requestContentType: str
+    sessionState: NotRequired[str]
+    requestAttributes: NotRequired[str]
+    responseContentType: NotRequired[str]
+    inputStream: NotRequired[BlobTypeDef]
+
+class ImageResponseCardOutputTypeDef(TypedDict):
+    title: str
+    subtitle: NotRequired[str]
+    imageUrl: NotRequired[str]
+    buttons: NotRequired[List[ButtonTypeDef]]
+
+class ImageResponseCardTypeDef(TypedDict):
+    title: str
+    subtitle: NotRequired[str]
+    imageUrl: NotRequired[str]
+    buttons: NotRequired[Sequence[ButtonTypeDef]]
+
+class DeleteSessionResponseTypeDef(TypedDict):
+    botId: str
+    botAliasId: str
+    localeId: str
+    sessionId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutSessionResponseTypeDef(TypedDict):
+    contentType: str
+    messages: str
+    sessionState: str
+    requestAttributes: str
+    sessionId: str
+    audioStream: StreamingBody
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class RecognizeUtteranceResponseTypeDef(TypedDict):
+    inputMode: str
+    contentType: str
+    messages: str
+    interpretations: str
+    sessionState: str
+    requestAttributes: str
+    sessionId: str
+    inputTranscript: str
+    audioStream: StreamingBody
+    recognizedBotMember: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+DialogActionOutputTypeDef = TypedDict(
+    "DialogActionOutputTypeDef",
     {
         "type": DialogActionTypeType,
+        "slotToElicit": NotRequired[str],
+        "slotElicitationStyle": NotRequired[StyleTypeType],
+        "subSlotToElicit": NotRequired[ElicitSubSlotOutputTypeDef],
     },
 )
-_OptionalDialogActionTypeDef = TypedDict(
-    "_OptionalDialogActionTypeDef",
-    {
-        "slotToElicit": str,
-        "slotElicitationStyle": StyleTypeType,
-        "subSlotToElicit": "ElicitSubSlotTypeDef",
-    },
-    total=False,
-)
+ElicitSubSlotUnionTypeDef = Union[ElicitSubSlotTypeDef, ElicitSubSlotOutputTypeDef]
 
-class DialogActionTypeDef(_RequiredDialogActionTypeDef, _OptionalDialogActionTypeDef):
-    pass
+class RuntimeHintDetailsOutputTypeDef(TypedDict):
+    runtimeHintValues: NotRequired[List[RuntimeHintValueTypeDef]]
+    subSlotHints: NotRequired[Dict[str, Dict[str, Any]]]
 
-_RequiredElicitSubSlotTypeDef = TypedDict(
-    "_RequiredElicitSubSlotTypeDef",
-    {
-        "name": str,
-    },
-)
-_OptionalElicitSubSlotTypeDef = TypedDict(
-    "_OptionalElicitSubSlotTypeDef",
-    {
-        "subSlotToElicit": Dict[str, Any],
-    },
-    total=False,
-)
+class RuntimeHintDetailsTypeDef(TypedDict):
+    runtimeHintValues: NotRequired[Sequence[RuntimeHintValueTypeDef]]
+    subSlotHints: NotRequired[Mapping[str, Mapping[str, Any]]]
 
-class ElicitSubSlotTypeDef(_RequiredElicitSubSlotTypeDef, _OptionalElicitSubSlotTypeDef):
-    pass
+class SentimentResponseTypeDef(TypedDict):
+    sentiment: NotRequired[SentimentTypeType]
+    sentimentScore: NotRequired[SentimentScoreTypeDef]
 
-GetSessionRequestRequestTypeDef = TypedDict(
-    "GetSessionRequestRequestTypeDef",
-    {
-        "botId": str,
-        "botAliasId": str,
-        "localeId": str,
-        "sessionId": str,
-    },
-)
+class SlotOutputTypeDef(TypedDict):
+    value: NotRequired[ValueOutputTypeDef]
+    shape: NotRequired[ShapeType]
+    values: NotRequired[List[Dict[str, Any]]]
+    subSlots: NotRequired[Dict[str, Dict[str, Any]]]
 
-GetSessionResponseTypeDef = TypedDict(
-    "GetSessionResponseTypeDef",
+ValueUnionTypeDef = Union[ValueTypeDef, ValueOutputTypeDef]
+ActiveContextUnionTypeDef = Union[ActiveContextTypeDef, ActiveContextOutputTypeDef]
+
+class MessageOutputTypeDef(TypedDict):
+    contentType: MessageContentTypeType
+    content: NotRequired[str]
+    imageResponseCard: NotRequired[ImageResponseCardOutputTypeDef]
+
+ImageResponseCardUnionTypeDef = Union[ImageResponseCardTypeDef, ImageResponseCardOutputTypeDef]
+DialogActionTypeDef = TypedDict(
+    "DialogActionTypeDef",
     {
-        "sessionId": str,
-        "messages": List["MessageTypeDef"],
-        "interpretations": List["InterpretationTypeDef"],
-        "sessionState": "SessionStateTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "type": DialogActionTypeType,
+        "slotToElicit": NotRequired[str],
+        "slotElicitationStyle": NotRequired[StyleTypeType],
+        "subSlotToElicit": NotRequired[ElicitSubSlotUnionTypeDef],
     },
 )
 
-_RequiredImageResponseCardTypeDef = TypedDict(
-    "_RequiredImageResponseCardTypeDef",
-    {
-        "title": str,
-    },
-)
-_OptionalImageResponseCardTypeDef = TypedDict(
-    "_OptionalImageResponseCardTypeDef",
-    {
-        "subtitle": str,
-        "imageUrl": str,
-        "buttons": List["ButtonTypeDef"],
-    },
-    total=False,
-)
+class RuntimeHintsOutputTypeDef(TypedDict):
+    slotHints: NotRequired[Dict[str, Dict[str, RuntimeHintDetailsOutputTypeDef]]]
 
-class ImageResponseCardTypeDef(
-    _RequiredImageResponseCardTypeDef, _OptionalImageResponseCardTypeDef
-):
-    pass
+RuntimeHintDetailsUnionTypeDef = Union[RuntimeHintDetailsTypeDef, RuntimeHintDetailsOutputTypeDef]
 
-_RequiredIntentTypeDef = TypedDict(
-    "_RequiredIntentTypeDef",
-    {
-        "name": str,
-    },
-)
-_OptionalIntentTypeDef = TypedDict(
-    "_OptionalIntentTypeDef",
-    {
-        "slots": Dict[str, "SlotTypeDef"],
-        "state": IntentStateType,
-        "confirmationState": ConfirmationStateType,
-    },
-    total=False,
-)
+class IntentOutputTypeDef(TypedDict):
+    name: str
+    slots: NotRequired[Dict[str, SlotOutputTypeDef]]
+    state: NotRequired[IntentStateType]
+    confirmationState: NotRequired[ConfirmationStateType]
 
-class IntentTypeDef(_RequiredIntentTypeDef, _OptionalIntentTypeDef):
-    pass
+class SlotTypeDef(TypedDict):
+    value: NotRequired[ValueUnionTypeDef]
+    shape: NotRequired[ShapeType]
+    values: NotRequired[Sequence[Mapping[str, Any]]]
+    subSlots: NotRequired[Mapping[str, Mapping[str, Any]]]
 
-InterpretationTypeDef = TypedDict(
-    "InterpretationTypeDef",
-    {
-        "nluConfidence": "ConfidenceScoreTypeDef",
-        "sentimentResponse": "SentimentResponseTypeDef",
-        "intent": "IntentTypeDef",
-        "interpretationSource": InterpretationSourceType,
-    },
-    total=False,
-)
+class TextResponseEventTypeDef(TypedDict):
+    messages: NotRequired[List[MessageOutputTypeDef]]
+    eventId: NotRequired[str]
 
-_RequiredMessageTypeDef = TypedDict(
-    "_RequiredMessageTypeDef",
-    {
-        "contentType": MessageContentTypeType,
-    },
-)
-_OptionalMessageTypeDef = TypedDict(
-    "_OptionalMessageTypeDef",
-    {
-        "content": str,
-        "imageResponseCard": "ImageResponseCardTypeDef",
-    },
-    total=False,
-)
+class MessageTypeDef(TypedDict):
+    contentType: MessageContentTypeType
+    content: NotRequired[str]
+    imageResponseCard: NotRequired[ImageResponseCardUnionTypeDef]
 
-class MessageTypeDef(_RequiredMessageTypeDef, _OptionalMessageTypeDef):
-    pass
+DialogActionUnionTypeDef = Union[DialogActionTypeDef, DialogActionOutputTypeDef]
 
-_RequiredPutSessionRequestRequestTypeDef = TypedDict(
-    "_RequiredPutSessionRequestRequestTypeDef",
-    {
-        "botId": str,
-        "botAliasId": str,
-        "localeId": str,
-        "sessionId": str,
-        "sessionState": "SessionStateTypeDef",
-    },
-)
-_OptionalPutSessionRequestRequestTypeDef = TypedDict(
-    "_OptionalPutSessionRequestRequestTypeDef",
-    {
-        "messages": List["MessageTypeDef"],
-        "requestAttributes": Dict[str, str],
-        "responseContentType": str,
-    },
-    total=False,
-)
+class RuntimeHintsTypeDef(TypedDict):
+    slotHints: NotRequired[Mapping[str, Mapping[str, RuntimeHintDetailsUnionTypeDef]]]
 
-class PutSessionRequestRequestTypeDef(
-    _RequiredPutSessionRequestRequestTypeDef, _OptionalPutSessionRequestRequestTypeDef
-):
-    pass
+class InterpretationTypeDef(TypedDict):
+    nluConfidence: NotRequired[ConfidenceScoreTypeDef]
+    sentimentResponse: NotRequired[SentimentResponseTypeDef]
+    intent: NotRequired[IntentOutputTypeDef]
+    interpretationSource: NotRequired[InterpretationSourceType]
 
-PutSessionResponseTypeDef = TypedDict(
-    "PutSessionResponseTypeDef",
-    {
-        "contentType": str,
-        "messages": str,
-        "sessionState": str,
-        "requestAttributes": str,
-        "sessionId": str,
-        "audioStream": StreamingBody,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class SessionStateOutputTypeDef(TypedDict):
+    dialogAction: NotRequired[DialogActionOutputTypeDef]
+    intent: NotRequired[IntentOutputTypeDef]
+    activeContexts: NotRequired[List[ActiveContextOutputTypeDef]]
+    sessionAttributes: NotRequired[Dict[str, str]]
+    originatingRequestId: NotRequired[str]
+    runtimeHints: NotRequired[RuntimeHintsOutputTypeDef]
 
-_RequiredRecognizeTextRequestRequestTypeDef = TypedDict(
-    "_RequiredRecognizeTextRequestRequestTypeDef",
-    {
-        "botId": str,
-        "botAliasId": str,
-        "localeId": str,
-        "sessionId": str,
-        "text": str,
-    },
-)
-_OptionalRecognizeTextRequestRequestTypeDef = TypedDict(
-    "_OptionalRecognizeTextRequestRequestTypeDef",
-    {
-        "sessionState": "SessionStateTypeDef",
-        "requestAttributes": Dict[str, str],
-    },
-    total=False,
-)
+SlotUnionTypeDef = Union[SlotTypeDef, SlotOutputTypeDef]
+MessageUnionTypeDef = Union[MessageTypeDef, MessageOutputTypeDef]
+RuntimeHintsUnionTypeDef = Union[RuntimeHintsTypeDef, RuntimeHintsOutputTypeDef]
 
-class RecognizeTextRequestRequestTypeDef(
-    _RequiredRecognizeTextRequestRequestTypeDef, _OptionalRecognizeTextRequestRequestTypeDef
-):
-    pass
+class GetSessionResponseTypeDef(TypedDict):
+    sessionId: str
+    messages: List[MessageOutputTypeDef]
+    interpretations: List[InterpretationTypeDef]
+    sessionState: SessionStateOutputTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-RecognizeTextResponseTypeDef = TypedDict(
-    "RecognizeTextResponseTypeDef",
-    {
-        "messages": List["MessageTypeDef"],
-        "sessionState": "SessionStateTypeDef",
-        "interpretations": List["InterpretationTypeDef"],
-        "requestAttributes": Dict[str, str],
-        "sessionId": str,
-        "recognizedBotMember": "RecognizedBotMemberTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class IntentResultEventTypeDef(TypedDict):
+    inputMode: NotRequired[InputModeType]
+    interpretations: NotRequired[List[InterpretationTypeDef]]
+    sessionState: NotRequired[SessionStateOutputTypeDef]
+    requestAttributes: NotRequired[Dict[str, str]]
+    sessionId: NotRequired[str]
+    eventId: NotRequired[str]
+    recognizedBotMember: NotRequired[RecognizedBotMemberTypeDef]
 
-_RequiredRecognizeUtteranceRequestRequestTypeDef = TypedDict(
-    "_RequiredRecognizeUtteranceRequestRequestTypeDef",
-    {
-        "botId": str,
-        "botAliasId": str,
-        "localeId": str,
-        "sessionId": str,
-        "requestContentType": str,
-    },
-)
-_OptionalRecognizeUtteranceRequestRequestTypeDef = TypedDict(
-    "_OptionalRecognizeUtteranceRequestRequestTypeDef",
-    {
-        "sessionState": str,
-        "requestAttributes": str,
-        "responseContentType": str,
-        "inputStream": Union[bytes, IO[bytes], StreamingBody],
-    },
-    total=False,
-)
+class RecognizeTextResponseTypeDef(TypedDict):
+    messages: List[MessageOutputTypeDef]
+    sessionState: SessionStateOutputTypeDef
+    interpretations: List[InterpretationTypeDef]
+    requestAttributes: Dict[str, str]
+    sessionId: str
+    recognizedBotMember: RecognizedBotMemberTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class RecognizeUtteranceRequestRequestTypeDef(
-    _RequiredRecognizeUtteranceRequestRequestTypeDef,
-    _OptionalRecognizeUtteranceRequestRequestTypeDef,
-):
-    pass
+class IntentTypeDef(TypedDict):
+    name: str
+    slots: NotRequired[Mapping[str, SlotUnionTypeDef]]
+    state: NotRequired[IntentStateType]
+    confirmationState: NotRequired[ConfirmationStateType]
 
-RecognizeUtteranceResponseTypeDef = TypedDict(
-    "RecognizeUtteranceResponseTypeDef",
-    {
-        "inputMode": str,
-        "contentType": str,
-        "messages": str,
-        "interpretations": str,
-        "sessionState": str,
-        "requestAttributes": str,
-        "sessionId": str,
-        "inputTranscript": str,
-        "audioStream": StreamingBody,
-        "recognizedBotMember": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class StartConversationResponseEventStreamTypeDef(TypedDict):
+    PlaybackInterruptionEvent: NotRequired[PlaybackInterruptionEventTypeDef]
+    TranscriptEvent: NotRequired[TranscriptEventTypeDef]
+    IntentResultEvent: NotRequired[IntentResultEventTypeDef]
+    TextResponseEvent: NotRequired[TextResponseEventTypeDef]
+    AudioResponseEvent: NotRequired[AudioResponseEventTypeDef]
+    HeartbeatEvent: NotRequired[HeartbeatEventTypeDef]
+    AccessDeniedException: NotRequired[AccessDeniedExceptionTypeDef]
+    ResourceNotFoundException: NotRequired[ResourceNotFoundExceptionTypeDef]
+    ValidationException: NotRequired[ValidationExceptionTypeDef]
+    ThrottlingException: NotRequired[ThrottlingExceptionTypeDef]
+    InternalServerException: NotRequired[InternalServerExceptionTypeDef]
+    ConflictException: NotRequired[ConflictExceptionTypeDef]
+    DependencyFailedException: NotRequired[DependencyFailedExceptionTypeDef]
+    BadGatewayException: NotRequired[BadGatewayExceptionTypeDef]
 
-_RequiredRecognizedBotMemberTypeDef = TypedDict(
-    "_RequiredRecognizedBotMemberTypeDef",
-    {
-        "botId": str,
-    },
-)
-_OptionalRecognizedBotMemberTypeDef = TypedDict(
-    "_OptionalRecognizedBotMemberTypeDef",
-    {
-        "botName": str,
-    },
-    total=False,
-)
+IntentUnionTypeDef = Union[IntentTypeDef, IntentOutputTypeDef]
 
-class RecognizedBotMemberTypeDef(
-    _RequiredRecognizedBotMemberTypeDef, _OptionalRecognizedBotMemberTypeDef
-):
-    pass
+class StartConversationResponseTypeDef(TypedDict):
+    responseEventStream: EventStream[StartConversationResponseEventStreamTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
+class SessionStateTypeDef(TypedDict):
+    dialogAction: NotRequired[DialogActionUnionTypeDef]
+    intent: NotRequired[IntentUnionTypeDef]
+    activeContexts: NotRequired[Sequence[ActiveContextUnionTypeDef]]
+    sessionAttributes: NotRequired[Mapping[str, str]]
+    originatingRequestId: NotRequired[str]
+    runtimeHints: NotRequired[RuntimeHintsUnionTypeDef]
 
-RuntimeHintDetailsTypeDef = TypedDict(
-    "RuntimeHintDetailsTypeDef",
-    {
-        "runtimeHintValues": List["RuntimeHintValueTypeDef"],
-        "subSlotHints": Dict[str, Dict[str, Any]],
-    },
-    total=False,
-)
+SessionStateUnionTypeDef = Union[SessionStateTypeDef, SessionStateOutputTypeDef]
 
-RuntimeHintValueTypeDef = TypedDict(
-    "RuntimeHintValueTypeDef",
-    {
-        "phrase": str,
-    },
-)
+class ConfigurationEventTypeDef(TypedDict):
+    responseContentType: str
+    requestAttributes: NotRequired[Mapping[str, str]]
+    sessionState: NotRequired[SessionStateUnionTypeDef]
+    welcomeMessages: NotRequired[Sequence[MessageUnionTypeDef]]
+    disablePlayback: NotRequired[bool]
+    eventId: NotRequired[str]
+    clientTimestampMillis: NotRequired[int]
 
-RuntimeHintsTypeDef = TypedDict(
-    "RuntimeHintsTypeDef",
-    {
-        "slotHints": Dict[str, Dict[str, "RuntimeHintDetailsTypeDef"]],
-    },
-    total=False,
-)
+class PutSessionRequestTypeDef(TypedDict):
+    botId: str
+    botAliasId: str
+    localeId: str
+    sessionId: str
+    sessionState: SessionStateUnionTypeDef
+    messages: NotRequired[Sequence[MessageUnionTypeDef]]
+    requestAttributes: NotRequired[Mapping[str, str]]
+    responseContentType: NotRequired[str]
 
-SentimentResponseTypeDef = TypedDict(
-    "SentimentResponseTypeDef",
-    {
-        "sentiment": SentimentTypeType,
-        "sentimentScore": "SentimentScoreTypeDef",
-    },
-    total=False,
-)
+class RecognizeTextRequestTypeDef(TypedDict):
+    botId: str
+    botAliasId: str
+    localeId: str
+    sessionId: str
+    text: str
+    sessionState: NotRequired[SessionStateUnionTypeDef]
+    requestAttributes: NotRequired[Mapping[str, str]]
 
-SentimentScoreTypeDef = TypedDict(
-    "SentimentScoreTypeDef",
-    {
-        "positive": float,
-        "negative": float,
-        "neutral": float,
-        "mixed": float,
-    },
-    total=False,
-)
+class StartConversationRequestEventStreamTypeDef(TypedDict):
+    ConfigurationEvent: NotRequired[ConfigurationEventTypeDef]
+    AudioInputEvent: NotRequired[AudioInputEventTypeDef]
+    DTMFInputEvent: NotRequired[DTMFInputEventTypeDef]
+    TextInputEvent: NotRequired[TextInputEventTypeDef]
+    PlaybackCompletionEvent: NotRequired[PlaybackCompletionEventTypeDef]
+    DisconnectionEvent: NotRequired[DisconnectionEventTypeDef]
 
-SessionStateTypeDef = TypedDict(
-    "SessionStateTypeDef",
-    {
-        "dialogAction": "DialogActionTypeDef",
-        "intent": "IntentTypeDef",
-        "activeContexts": List["ActiveContextTypeDef"],
-        "sessionAttributes": Dict[str, str],
-        "originatingRequestId": str,
-        "runtimeHints": "RuntimeHintsTypeDef",
-    },
-    total=False,
-)
-
-SlotTypeDef = TypedDict(
-    "SlotTypeDef",
-    {
-        "value": "ValueTypeDef",
-        "shape": ShapeType,
-        "values": List[Dict[str, Any]],
-        "subSlots": Dict[str, Dict[str, Any]],
-    },
-    total=False,
-)
-
-_RequiredValueTypeDef = TypedDict(
-    "_RequiredValueTypeDef",
-    {
-        "interpretedValue": str,
-    },
-)
-_OptionalValueTypeDef = TypedDict(
-    "_OptionalValueTypeDef",
-    {
-        "originalValue": str,
-        "resolvedValues": List[str],
-    },
-    total=False,
-)
-
-class ValueTypeDef(_RequiredValueTypeDef, _OptionalValueTypeDef):
-    pass
+class StartConversationRequestTypeDef(TypedDict):
+    botId: str
+    botAliasId: str
+    localeId: str
+    sessionId: str
+    requestEventStream: EventStream[StartConversationRequestEventStreamTypeDef]
+    conversationMode: NotRequired[ConversationModeType]

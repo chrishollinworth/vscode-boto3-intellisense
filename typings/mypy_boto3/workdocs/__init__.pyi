@@ -1,10 +1,14 @@
 """
 Main interface for workdocs service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_workdocs/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_workdocs import (
         Client,
         DescribeActivitiesPaginator,
@@ -20,10 +24,8 @@ Usage::
         WorkDocsClient,
     )
 
-    session = boto3.Session()
-
-    client: WorkDocsClient = boto3.client("workdocs")
-    session_client: WorkDocsClient = session.client("workdocs")
+    session = Session()
+    client: WorkDocsClient = session.client("workdocs")
 
     describe_activities_paginator: DescribeActivitiesPaginator = client.get_paginator("describe_activities")
     describe_comments_paginator: DescribeCommentsPaginator = client.get_paginator("describe_comments")

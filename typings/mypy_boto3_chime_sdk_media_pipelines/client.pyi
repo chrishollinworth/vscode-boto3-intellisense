@@ -1,80 +1,101 @@
 """
-Type annotations for chime-sdk-media-pipelines service client.
+Type annotations for chime-sdk-media-pipelines service Client.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_media_pipelines/client.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_media_pipelines/client/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
-    from mypy_boto3_chime_sdk_media_pipelines import ChimeSDKMediaPipelinesClient
+    from boto3.session import Session
+    from mypy_boto3_chime_sdk_media_pipelines.client import ChimeSDKMediaPipelinesClient
 
-    client: ChimeSDKMediaPipelinesClient = boto3.client("chime-sdk-media-pipelines")
+    session = Session()
+    client: ChimeSDKMediaPipelinesClient = session.client("chime-sdk-media-pipelines")
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from typing import Any, Dict, List, Type
+from typing import Any
 
 from botocore.client import BaseClient, ClientMeta
+from botocore.errorfactory import BaseClientExceptions
+from botocore.exceptions import ClientError as BotocoreClientError
 
-from .literals import MediaPipelineStatusUpdateType
 from .type_defs import (
-    ChimeSdkMeetingConfigurationTypeDef,
-    ConcatenationSinkTypeDef,
-    ConcatenationSourceTypeDef,
+    CreateMediaCapturePipelineRequestTypeDef,
     CreateMediaCapturePipelineResponseTypeDef,
+    CreateMediaConcatenationPipelineRequestTypeDef,
     CreateMediaConcatenationPipelineResponseTypeDef,
+    CreateMediaInsightsPipelineConfigurationRequestTypeDef,
     CreateMediaInsightsPipelineConfigurationResponseTypeDef,
+    CreateMediaInsightsPipelineRequestTypeDef,
     CreateMediaInsightsPipelineResponseTypeDef,
+    CreateMediaLiveConnectorPipelineRequestTypeDef,
     CreateMediaLiveConnectorPipelineResponseTypeDef,
+    CreateMediaPipelineKinesisVideoStreamPoolRequestTypeDef,
     CreateMediaPipelineKinesisVideoStreamPoolResponseTypeDef,
+    CreateMediaStreamPipelineRequestTypeDef,
     CreateMediaStreamPipelineResponseTypeDef,
+    DeleteMediaCapturePipelineRequestTypeDef,
+    DeleteMediaInsightsPipelineConfigurationRequestTypeDef,
+    DeleteMediaPipelineKinesisVideoStreamPoolRequestTypeDef,
+    DeleteMediaPipelineRequestTypeDef,
+    EmptyResponseMetadataTypeDef,
+    GetMediaCapturePipelineRequestTypeDef,
     GetMediaCapturePipelineResponseTypeDef,
+    GetMediaInsightsPipelineConfigurationRequestTypeDef,
     GetMediaInsightsPipelineConfigurationResponseTypeDef,
+    GetMediaPipelineKinesisVideoStreamPoolRequestTypeDef,
     GetMediaPipelineKinesisVideoStreamPoolResponseTypeDef,
+    GetMediaPipelineRequestTypeDef,
     GetMediaPipelineResponseTypeDef,
+    GetSpeakerSearchTaskRequestTypeDef,
     GetSpeakerSearchTaskResponseTypeDef,
+    GetVoiceToneAnalysisTaskRequestTypeDef,
     GetVoiceToneAnalysisTaskResponseTypeDef,
-    KinesisVideoStreamConfigurationTypeDef,
-    KinesisVideoStreamConfigurationUpdateTypeDef,
-    KinesisVideoStreamRecordingSourceRuntimeConfigurationTypeDef,
-    KinesisVideoStreamSourceRuntimeConfigurationTypeDef,
-    KinesisVideoStreamSourceTaskConfigurationTypeDef,
+    ListMediaCapturePipelinesRequestTypeDef,
     ListMediaCapturePipelinesResponseTypeDef,
+    ListMediaInsightsPipelineConfigurationsRequestTypeDef,
     ListMediaInsightsPipelineConfigurationsResponseTypeDef,
+    ListMediaPipelineKinesisVideoStreamPoolsRequestTypeDef,
     ListMediaPipelineKinesisVideoStreamPoolsResponseTypeDef,
+    ListMediaPipelinesRequestTypeDef,
     ListMediaPipelinesResponseTypeDef,
+    ListTagsForResourceRequestTypeDef,
     ListTagsForResourceResponseTypeDef,
-    LiveConnectorSinkConfigurationTypeDef,
-    LiveConnectorSourceConfigurationTypeDef,
-    MediaInsightsPipelineConfigurationElementTypeDef,
-    MediaStreamSinkTypeDef,
-    MediaStreamSourceTypeDef,
-    RealTimeAlertConfigurationTypeDef,
-    S3RecordingSinkRuntimeConfigurationTypeDef,
+    StartSpeakerSearchTaskRequestTypeDef,
     StartSpeakerSearchTaskResponseTypeDef,
+    StartVoiceToneAnalysisTaskRequestTypeDef,
     StartVoiceToneAnalysisTaskResponseTypeDef,
-    TagTypeDef,
+    StopSpeakerSearchTaskRequestTypeDef,
+    StopVoiceToneAnalysisTaskRequestTypeDef,
+    TagResourceRequestTypeDef,
+    UntagResourceRequestTypeDef,
+    UpdateMediaInsightsPipelineConfigurationRequestTypeDef,
     UpdateMediaInsightsPipelineConfigurationResponseTypeDef,
+    UpdateMediaInsightsPipelineStatusRequestTypeDef,
+    UpdateMediaPipelineKinesisVideoStreamPoolRequestTypeDef,
     UpdateMediaPipelineKinesisVideoStreamPoolResponseTypeDef,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import type as Type
+    from collections.abc import Mapping
 else:
-    from typing_extensions import Literal
+    from typing import Dict, Mapping, Type
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = ("ChimeSDKMediaPipelinesClient",)
 
-class BotocoreClientError(BaseException):
-    MSG_TEMPLATE: str
-
-    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
-        self.response: Dict[str, Any]
-        self.operation_name: str
-
-class Exceptions:
+class Exceptions(BaseClientExceptions):
     BadRequestException: Type[BotocoreClientError]
     ClientError: Type[BotocoreClientError]
     ConflictException: Type[BotocoreClientError]
@@ -88,8 +109,8 @@ class Exceptions:
 
 class ChimeSDKMediaPipelinesClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-media-pipelines.html#ChimeSDKMediaPipelines.Client)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_media_pipelines/client.html)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-media-pipelines.html#ChimeSDKMediaPipelines.Client)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_media_pipelines/client/)
     """
 
     meta: ClientMeta
@@ -98,388 +119,332 @@ class ChimeSDKMediaPipelinesClient(BaseClient):
     def exceptions(self) -> Exceptions:
         """
         ChimeSDKMediaPipelinesClient exceptions.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-media-pipelines.html#ChimeSDKMediaPipelines.Client)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_media_pipelines/client/#exceptions)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        Check if an operation can be paginated.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-media-pipelines.html#ChimeSDKMediaPipelines.Client.can_paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_media_pipelines/client.html#can_paginate)
-        """
-
-    def close(self) -> None:
-        """
-        Closes underlying endpoint connections.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-media-pipelines.html#ChimeSDKMediaPipelines.Client.close)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_media_pipelines/client.html#close)
-        """
-
-    def create_media_capture_pipeline(
-        self,
-        *,
-        SourceType: Literal["ChimeSdkMeeting"],
-        SourceArn: str,
-        SinkType: Literal["S3Bucket"],
-        SinkArn: str,
-        ClientRequestToken: str = None,
-        ChimeSdkMeetingConfiguration: "ChimeSdkMeetingConfigurationTypeDef" = None,
-        Tags: List["TagTypeDef"] = None
-    ) -> CreateMediaCapturePipelineResponseTypeDef:
-        """
-        Creates a media pipeline.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-media-pipelines.html#ChimeSDKMediaPipelines.Client.create_media_capture_pipeline)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_media_pipelines/client.html#create_media_capture_pipeline)
-        """
-
-    def create_media_concatenation_pipeline(
-        self,
-        *,
-        Sources: List["ConcatenationSourceTypeDef"],
-        Sinks: List["ConcatenationSinkTypeDef"],
-        ClientRequestToken: str = None,
-        Tags: List["TagTypeDef"] = None
-    ) -> CreateMediaConcatenationPipelineResponseTypeDef:
-        """
-        Creates a media concatenation pipeline.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-media-pipelines.html#ChimeSDKMediaPipelines.Client.create_media_concatenation_pipeline)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_media_pipelines/client.html#create_media_concatenation_pipeline)
-        """
-
-    def create_media_insights_pipeline(
-        self,
-        *,
-        MediaInsightsPipelineConfigurationArn: str,
-        KinesisVideoStreamSourceRuntimeConfiguration: "KinesisVideoStreamSourceRuntimeConfigurationTypeDef" = None,
-        MediaInsightsRuntimeMetadata: Dict[str, str] = None,
-        KinesisVideoStreamRecordingSourceRuntimeConfiguration: "KinesisVideoStreamRecordingSourceRuntimeConfigurationTypeDef" = None,
-        S3RecordingSinkRuntimeConfiguration: "S3RecordingSinkRuntimeConfigurationTypeDef" = None,
-        Tags: List["TagTypeDef"] = None,
-        ClientRequestToken: str = None
-    ) -> CreateMediaInsightsPipelineResponseTypeDef:
-        """
-        Creates a media insights pipeline.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-media-pipelines.html#ChimeSDKMediaPipelines.Client.create_media_insights_pipeline)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_media_pipelines/client.html#create_media_insights_pipeline)
-        """
-
-    def create_media_insights_pipeline_configuration(
-        self,
-        *,
-        MediaInsightsPipelineConfigurationName: str,
-        ResourceAccessRoleArn: str,
-        Elements: List["MediaInsightsPipelineConfigurationElementTypeDef"],
-        RealTimeAlertConfiguration: "RealTimeAlertConfigurationTypeDef" = None,
-        Tags: List["TagTypeDef"] = None,
-        ClientRequestToken: str = None
-    ) -> CreateMediaInsightsPipelineConfigurationResponseTypeDef:
-        """
-        A structure that contains the static configurations for a media insights
-        pipeline.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-media-pipelines.html#ChimeSDKMediaPipelines.Client.create_media_insights_pipeline_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_media_pipelines/client.html#create_media_insights_pipeline_configuration)
-        """
-
-    def create_media_live_connector_pipeline(
-        self,
-        *,
-        Sources: List["LiveConnectorSourceConfigurationTypeDef"],
-        Sinks: List["LiveConnectorSinkConfigurationTypeDef"],
-        ClientRequestToken: str = None,
-        Tags: List["TagTypeDef"] = None
-    ) -> CreateMediaLiveConnectorPipelineResponseTypeDef:
-        """
-        Creates a media live connector pipeline in an Amazon Chime SDK meeting.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-media-pipelines.html#ChimeSDKMediaPipelines.Client.create_media_live_connector_pipeline)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_media_pipelines/client.html#create_media_live_connector_pipeline)
-        """
-
-    def create_media_pipeline_kinesis_video_stream_pool(
-        self,
-        *,
-        StreamConfiguration: "KinesisVideoStreamConfigurationTypeDef",
-        PoolName: str,
-        ClientRequestToken: str = None,
-        Tags: List["TagTypeDef"] = None
-    ) -> CreateMediaPipelineKinesisVideoStreamPoolResponseTypeDef:
-        """
-        Creates an Amazon Kinesis Video Stream pool for use with media stream pipelines.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-media-pipelines.html#ChimeSDKMediaPipelines.Client.create_media_pipeline_kinesis_video_stream_pool)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_media_pipelines/client.html#create_media_pipeline_kinesis_video_stream_pool)
-        """
-
-    def create_media_stream_pipeline(
-        self,
-        *,
-        Sources: List["MediaStreamSourceTypeDef"],
-        Sinks: List["MediaStreamSinkTypeDef"],
-        ClientRequestToken: str = None,
-        Tags: List["TagTypeDef"] = None
-    ) -> CreateMediaStreamPipelineResponseTypeDef:
-        """
-        Creates a streaming media pipeline.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-media-pipelines.html#ChimeSDKMediaPipelines.Client.create_media_stream_pipeline)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_media_pipelines/client.html#create_media_stream_pipeline)
-        """
-
-    def delete_media_capture_pipeline(self, *, MediaPipelineId: str) -> None:
-        """
-        Deletes the media pipeline.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-media-pipelines.html#ChimeSDKMediaPipelines.Client.delete_media_capture_pipeline)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_media_pipelines/client.html#delete_media_capture_pipeline)
-        """
-
-    def delete_media_insights_pipeline_configuration(self, *, Identifier: str) -> None:
-        """
-        Deletes the specified configuration settings.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-media-pipelines.html#ChimeSDKMediaPipelines.Client.delete_media_insights_pipeline_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_media_pipelines/client.html#delete_media_insights_pipeline_configuration)
-        """
-
-    def delete_media_pipeline(self, *, MediaPipelineId: str) -> None:
-        """
-        Deletes the media pipeline.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-media-pipelines.html#ChimeSDKMediaPipelines.Client.delete_media_pipeline)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_media_pipelines/client.html#delete_media_pipeline)
-        """
-
-    def delete_media_pipeline_kinesis_video_stream_pool(self, *, Identifier: str) -> None:
-        """
-        Deletes an Amazon Kinesis Video Stream pool.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-media-pipelines.html#ChimeSDKMediaPipelines.Client.delete_media_pipeline_kinesis_video_stream_pool)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_media_pipelines/client.html#delete_media_pipeline_kinesis_video_stream_pool)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-media-pipelines/client/can_paginate.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_media_pipelines/client/#can_paginate)
         """
 
     def generate_presigned_url(
         self,
         ClientMethod: str,
-        Params: Dict[str, Any] = None,
+        Params: Mapping[str, Any] = ...,
         ExpiresIn: int = 3600,
-        HttpMethod: str = None,
+        HttpMethod: str = ...,
     ) -> str:
         """
-        Generate a presigned url given a client, its method, and arguments.
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-media-pipelines/client/generate_presigned_url.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_media_pipelines/client/#generate_presigned_url)
+        """
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-media-pipelines.html#ChimeSDKMediaPipelines.Client.generate_presigned_url)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_media_pipelines/client.html#generate_presigned_url)
+    def create_media_capture_pipeline(
+        self, **kwargs: Unpack[CreateMediaCapturePipelineRequestTypeDef]
+    ) -> CreateMediaCapturePipelineResponseTypeDef:
+        """
+        Creates a media pipeline.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-media-pipelines/client/create_media_capture_pipeline.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_media_pipelines/client/#create_media_capture_pipeline)
+        """
+
+    def create_media_concatenation_pipeline(
+        self, **kwargs: Unpack[CreateMediaConcatenationPipelineRequestTypeDef]
+    ) -> CreateMediaConcatenationPipelineResponseTypeDef:
+        """
+        Creates a media concatenation pipeline.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-media-pipelines/client/create_media_concatenation_pipeline.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_media_pipelines/client/#create_media_concatenation_pipeline)
+        """
+
+    def create_media_insights_pipeline(
+        self, **kwargs: Unpack[CreateMediaInsightsPipelineRequestTypeDef]
+    ) -> CreateMediaInsightsPipelineResponseTypeDef:
+        """
+        Creates a media insights pipeline.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-media-pipelines/client/create_media_insights_pipeline.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_media_pipelines/client/#create_media_insights_pipeline)
+        """
+
+    def create_media_insights_pipeline_configuration(
+        self, **kwargs: Unpack[CreateMediaInsightsPipelineConfigurationRequestTypeDef]
+    ) -> CreateMediaInsightsPipelineConfigurationResponseTypeDef:
+        """
+        A structure that contains the static configurations for a media insights
+        pipeline.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-media-pipelines/client/create_media_insights_pipeline_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_media_pipelines/client/#create_media_insights_pipeline_configuration)
+        """
+
+    def create_media_live_connector_pipeline(
+        self, **kwargs: Unpack[CreateMediaLiveConnectorPipelineRequestTypeDef]
+    ) -> CreateMediaLiveConnectorPipelineResponseTypeDef:
+        """
+        Creates a media live connector pipeline in an Amazon Chime SDK meeting.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-media-pipelines/client/create_media_live_connector_pipeline.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_media_pipelines/client/#create_media_live_connector_pipeline)
+        """
+
+    def create_media_pipeline_kinesis_video_stream_pool(
+        self, **kwargs: Unpack[CreateMediaPipelineKinesisVideoStreamPoolRequestTypeDef]
+    ) -> CreateMediaPipelineKinesisVideoStreamPoolResponseTypeDef:
+        """
+        Creates an Amazon Kinesis Video Stream pool for use with media stream pipelines.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-media-pipelines/client/create_media_pipeline_kinesis_video_stream_pool.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_media_pipelines/client/#create_media_pipeline_kinesis_video_stream_pool)
+        """
+
+    def create_media_stream_pipeline(
+        self, **kwargs: Unpack[CreateMediaStreamPipelineRequestTypeDef]
+    ) -> CreateMediaStreamPipelineResponseTypeDef:
+        """
+        Creates a streaming media pipeline.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-media-pipelines/client/create_media_stream_pipeline.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_media_pipelines/client/#create_media_stream_pipeline)
+        """
+
+    def delete_media_capture_pipeline(
+        self, **kwargs: Unpack[DeleteMediaCapturePipelineRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Deletes the media pipeline.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-media-pipelines/client/delete_media_capture_pipeline.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_media_pipelines/client/#delete_media_capture_pipeline)
+        """
+
+    def delete_media_insights_pipeline_configuration(
+        self, **kwargs: Unpack[DeleteMediaInsightsPipelineConfigurationRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Deletes the specified configuration settings.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-media-pipelines/client/delete_media_insights_pipeline_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_media_pipelines/client/#delete_media_insights_pipeline_configuration)
+        """
+
+    def delete_media_pipeline(
+        self, **kwargs: Unpack[DeleteMediaPipelineRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Deletes the media pipeline.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-media-pipelines/client/delete_media_pipeline.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_media_pipelines/client/#delete_media_pipeline)
+        """
+
+    def delete_media_pipeline_kinesis_video_stream_pool(
+        self, **kwargs: Unpack[DeleteMediaPipelineKinesisVideoStreamPoolRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Deletes an Amazon Kinesis Video Stream pool.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-media-pipelines/client/delete_media_pipeline_kinesis_video_stream_pool.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_media_pipelines/client/#delete_media_pipeline_kinesis_video_stream_pool)
         """
 
     def get_media_capture_pipeline(
-        self, *, MediaPipelineId: str
+        self, **kwargs: Unpack[GetMediaCapturePipelineRequestTypeDef]
     ) -> GetMediaCapturePipelineResponseTypeDef:
         """
         Gets an existing media pipeline.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-media-pipelines.html#ChimeSDKMediaPipelines.Client.get_media_capture_pipeline)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_media_pipelines/client.html#get_media_capture_pipeline)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-media-pipelines/client/get_media_capture_pipeline.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_media_pipelines/client/#get_media_capture_pipeline)
         """
 
     def get_media_insights_pipeline_configuration(
-        self, *, Identifier: str
+        self, **kwargs: Unpack[GetMediaInsightsPipelineConfigurationRequestTypeDef]
     ) -> GetMediaInsightsPipelineConfigurationResponseTypeDef:
         """
         Gets the configuration settings for a media insights pipeline.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-media-pipelines.html#ChimeSDKMediaPipelines.Client.get_media_insights_pipeline_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_media_pipelines/client.html#get_media_insights_pipeline_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-media-pipelines/client/get_media_insights_pipeline_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_media_pipelines/client/#get_media_insights_pipeline_configuration)
         """
 
-    def get_media_pipeline(self, *, MediaPipelineId: str) -> GetMediaPipelineResponseTypeDef:
+    def get_media_pipeline(
+        self, **kwargs: Unpack[GetMediaPipelineRequestTypeDef]
+    ) -> GetMediaPipelineResponseTypeDef:
         """
         Gets an existing media pipeline.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-media-pipelines.html#ChimeSDKMediaPipelines.Client.get_media_pipeline)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_media_pipelines/client.html#get_media_pipeline)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-media-pipelines/client/get_media_pipeline.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_media_pipelines/client/#get_media_pipeline)
         """
 
     def get_media_pipeline_kinesis_video_stream_pool(
-        self, *, Identifier: str
+        self, **kwargs: Unpack[GetMediaPipelineKinesisVideoStreamPoolRequestTypeDef]
     ) -> GetMediaPipelineKinesisVideoStreamPoolResponseTypeDef:
         """
         Gets an Kinesis video stream pool.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-media-pipelines.html#ChimeSDKMediaPipelines.Client.get_media_pipeline_kinesis_video_stream_pool)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_media_pipelines/client.html#get_media_pipeline_kinesis_video_stream_pool)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-media-pipelines/client/get_media_pipeline_kinesis_video_stream_pool.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_media_pipelines/client/#get_media_pipeline_kinesis_video_stream_pool)
         """
 
     def get_speaker_search_task(
-        self, *, Identifier: str, SpeakerSearchTaskId: str
+        self, **kwargs: Unpack[GetSpeakerSearchTaskRequestTypeDef]
     ) -> GetSpeakerSearchTaskResponseTypeDef:
         """
         Retrieves the details of the specified speaker search task.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-media-pipelines.html#ChimeSDKMediaPipelines.Client.get_speaker_search_task)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_media_pipelines/client.html#get_speaker_search_task)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-media-pipelines/client/get_speaker_search_task.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_media_pipelines/client/#get_speaker_search_task)
         """
 
     def get_voice_tone_analysis_task(
-        self, *, Identifier: str, VoiceToneAnalysisTaskId: str
+        self, **kwargs: Unpack[GetVoiceToneAnalysisTaskRequestTypeDef]
     ) -> GetVoiceToneAnalysisTaskResponseTypeDef:
         """
         Retrieves the details of a voice tone analysis task.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-media-pipelines.html#ChimeSDKMediaPipelines.Client.get_voice_tone_analysis_task)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_media_pipelines/client.html#get_voice_tone_analysis_task)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-media-pipelines/client/get_voice_tone_analysis_task.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_media_pipelines/client/#get_voice_tone_analysis_task)
         """
 
     def list_media_capture_pipelines(
-        self, *, NextToken: str = None, MaxResults: int = None
+        self, **kwargs: Unpack[ListMediaCapturePipelinesRequestTypeDef]
     ) -> ListMediaCapturePipelinesResponseTypeDef:
         """
         Returns a list of media pipelines.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-media-pipelines.html#ChimeSDKMediaPipelines.Client.list_media_capture_pipelines)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_media_pipelines/client.html#list_media_capture_pipelines)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-media-pipelines/client/list_media_capture_pipelines.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_media_pipelines/client/#list_media_capture_pipelines)
         """
 
     def list_media_insights_pipeline_configurations(
-        self, *, NextToken: str = None, MaxResults: int = None
+        self, **kwargs: Unpack[ListMediaInsightsPipelineConfigurationsRequestTypeDef]
     ) -> ListMediaInsightsPipelineConfigurationsResponseTypeDef:
         """
         Lists the available media insights pipeline configurations.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-media-pipelines.html#ChimeSDKMediaPipelines.Client.list_media_insights_pipeline_configurations)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_media_pipelines/client.html#list_media_insights_pipeline_configurations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-media-pipelines/client/list_media_insights_pipeline_configurations.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_media_pipelines/client/#list_media_insights_pipeline_configurations)
         """
 
     def list_media_pipeline_kinesis_video_stream_pools(
-        self, *, NextToken: str = None, MaxResults: int = None
+        self, **kwargs: Unpack[ListMediaPipelineKinesisVideoStreamPoolsRequestTypeDef]
     ) -> ListMediaPipelineKinesisVideoStreamPoolsResponseTypeDef:
         """
         Lists the video stream pools in the media pipeline.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-media-pipelines.html#ChimeSDKMediaPipelines.Client.list_media_pipeline_kinesis_video_stream_pools)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_media_pipelines/client.html#list_media_pipeline_kinesis_video_stream_pools)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-media-pipelines/client/list_media_pipeline_kinesis_video_stream_pools.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_media_pipelines/client/#list_media_pipeline_kinesis_video_stream_pools)
         """
 
     def list_media_pipelines(
-        self, *, NextToken: str = None, MaxResults: int = None
+        self, **kwargs: Unpack[ListMediaPipelinesRequestTypeDef]
     ) -> ListMediaPipelinesResponseTypeDef:
         """
         Returns a list of media pipelines.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-media-pipelines.html#ChimeSDKMediaPipelines.Client.list_media_pipelines)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_media_pipelines/client.html#list_media_pipelines)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-media-pipelines/client/list_media_pipelines.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_media_pipelines/client/#list_media_pipelines)
         """
 
-    def list_tags_for_resource(self, *, ResourceARN: str) -> ListTagsForResourceResponseTypeDef:
+    def list_tags_for_resource(
+        self, **kwargs: Unpack[ListTagsForResourceRequestTypeDef]
+    ) -> ListTagsForResourceResponseTypeDef:
         """
         Lists the tags available for a media pipeline.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-media-pipelines.html#ChimeSDKMediaPipelines.Client.list_tags_for_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_media_pipelines/client.html#list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-media-pipelines/client/list_tags_for_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_media_pipelines/client/#list_tags_for_resource)
         """
 
     def start_speaker_search_task(
-        self,
-        *,
-        Identifier: str,
-        VoiceProfileDomainArn: str,
-        KinesisVideoStreamSourceTaskConfiguration: "KinesisVideoStreamSourceTaskConfigurationTypeDef" = None,
-        ClientRequestToken: str = None
+        self, **kwargs: Unpack[StartSpeakerSearchTaskRequestTypeDef]
     ) -> StartSpeakerSearchTaskResponseTypeDef:
         """
         Starts a speaker search task.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-media-pipelines.html#ChimeSDKMediaPipelines.Client.start_speaker_search_task)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_media_pipelines/client.html#start_speaker_search_task)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-media-pipelines/client/start_speaker_search_task.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_media_pipelines/client/#start_speaker_search_task)
         """
 
     def start_voice_tone_analysis_task(
-        self,
-        *,
-        Identifier: str,
-        LanguageCode: Literal["en-US"],
-        KinesisVideoStreamSourceTaskConfiguration: "KinesisVideoStreamSourceTaskConfigurationTypeDef" = None,
-        ClientRequestToken: str = None
+        self, **kwargs: Unpack[StartVoiceToneAnalysisTaskRequestTypeDef]
     ) -> StartVoiceToneAnalysisTaskResponseTypeDef:
         """
         Starts a voice tone analysis task.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-media-pipelines.html#ChimeSDKMediaPipelines.Client.start_voice_tone_analysis_task)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_media_pipelines/client.html#start_voice_tone_analysis_task)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-media-pipelines/client/start_voice_tone_analysis_task.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_media_pipelines/client/#start_voice_tone_analysis_task)
         """
 
-    def stop_speaker_search_task(self, *, Identifier: str, SpeakerSearchTaskId: str) -> None:
+    def stop_speaker_search_task(
+        self, **kwargs: Unpack[StopSpeakerSearchTaskRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Stops a speaker search task.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-media-pipelines.html#ChimeSDKMediaPipelines.Client.stop_speaker_search_task)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_media_pipelines/client.html#stop_speaker_search_task)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-media-pipelines/client/stop_speaker_search_task.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_media_pipelines/client/#stop_speaker_search_task)
         """
 
     def stop_voice_tone_analysis_task(
-        self, *, Identifier: str, VoiceToneAnalysisTaskId: str
-    ) -> None:
+        self, **kwargs: Unpack[StopVoiceToneAnalysisTaskRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Stops a voice tone analysis task.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-media-pipelines.html#ChimeSDKMediaPipelines.Client.stop_voice_tone_analysis_task)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_media_pipelines/client.html#stop_voice_tone_analysis_task)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-media-pipelines/client/stop_voice_tone_analysis_task.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_media_pipelines/client/#stop_voice_tone_analysis_task)
         """
 
-    def tag_resource(self, *, ResourceARN: str, Tags: List["TagTypeDef"]) -> Dict[str, Any]:
+    def tag_resource(self, **kwargs: Unpack[TagResourceRequestTypeDef]) -> Dict[str, Any]:
         """
         The ARN of the media pipeline that you want to tag.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-media-pipelines.html#ChimeSDKMediaPipelines.Client.tag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_media_pipelines/client.html#tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-media-pipelines/client/tag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_media_pipelines/client/#tag_resource)
         """
 
-    def untag_resource(self, *, ResourceARN: str, TagKeys: List[str]) -> Dict[str, Any]:
+    def untag_resource(self, **kwargs: Unpack[UntagResourceRequestTypeDef]) -> Dict[str, Any]:
         """
         Removes any tags from a media pipeline.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-media-pipelines.html#ChimeSDKMediaPipelines.Client.untag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_media_pipelines/client.html#untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-media-pipelines/client/untag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_media_pipelines/client/#untag_resource)
         """
 
     def update_media_insights_pipeline_configuration(
-        self,
-        *,
-        Identifier: str,
-        ResourceAccessRoleArn: str,
-        Elements: List["MediaInsightsPipelineConfigurationElementTypeDef"],
-        RealTimeAlertConfiguration: "RealTimeAlertConfigurationTypeDef" = None
+        self, **kwargs: Unpack[UpdateMediaInsightsPipelineConfigurationRequestTypeDef]
     ) -> UpdateMediaInsightsPipelineConfigurationResponseTypeDef:
         """
         Updates the media insights pipeline's configuration settings.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-media-pipelines.html#ChimeSDKMediaPipelines.Client.update_media_insights_pipeline_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_media_pipelines/client.html#update_media_insights_pipeline_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-media-pipelines/client/update_media_insights_pipeline_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_media_pipelines/client/#update_media_insights_pipeline_configuration)
         """
 
     def update_media_insights_pipeline_status(
-        self, *, Identifier: str, UpdateStatus: MediaPipelineStatusUpdateType
-    ) -> None:
+        self, **kwargs: Unpack[UpdateMediaInsightsPipelineStatusRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Updates the status of a media insights pipeline.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-media-pipelines.html#ChimeSDKMediaPipelines.Client.update_media_insights_pipeline_status)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_media_pipelines/client.html#update_media_insights_pipeline_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-media-pipelines/client/update_media_insights_pipeline_status.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_media_pipelines/client/#update_media_insights_pipeline_status)
         """
 
     def update_media_pipeline_kinesis_video_stream_pool(
-        self,
-        *,
-        Identifier: str,
-        StreamConfiguration: "KinesisVideoStreamConfigurationUpdateTypeDef" = None
+        self, **kwargs: Unpack[UpdateMediaPipelineKinesisVideoStreamPoolRequestTypeDef]
     ) -> UpdateMediaPipelineKinesisVideoStreamPoolResponseTypeDef:
         """
         Updates an Amazon Kinesis Video Stream pool in a media pipeline.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-media-pipelines.html#ChimeSDKMediaPipelines.Client.update_media_pipeline_kinesis_video_stream_pool)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_media_pipelines/client.html#update_media_pipeline_kinesis_video_stream_pool)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-media-pipelines/client/update_media_pipeline_kinesis_video_stream_pool.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_media_pipelines/client/#update_media_pipeline_kinesis_video_stream_pool)
         """

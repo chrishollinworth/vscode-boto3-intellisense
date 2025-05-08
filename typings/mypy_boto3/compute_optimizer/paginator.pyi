@@ -1,14 +1,16 @@
 """
 Type annotations for compute-optimizer service client paginators.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_compute_optimizer/paginators.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_compute_optimizer/paginators/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
 
-    from mypy_boto3_compute_optimizer import ComputeOptimizerClient
+    from mypy_boto3_compute_optimizer.client import ComputeOptimizerClient
     from mypy_boto3_compute_optimizer.paginator import (
         DescribeRecommendationExportJobsPaginator,
         GetEnrollmentStatusesForOrganizationPaginator,
@@ -17,7 +19,8 @@ Usage::
         GetRecommendationSummariesPaginator,
     )
 
-    client: ComputeOptimizerClient = boto3.client("compute-optimizer")
+    session = Session()
+    client: ComputeOptimizerClient = session.client("compute-optimizer")
 
     describe_recommendation_export_jobs_paginator: DescribeRecommendationExportJobsPaginator = client.get_paginator("describe_recommendation_export_jobs")
     get_enrollment_statuses_for_organization_paginator: GetEnrollmentStatusesForOrganizationPaginator = client.get_paginator("get_enrollment_statuses_for_organization")
@@ -27,23 +30,30 @@ Usage::
     ```
 """
 
-from typing import Iterator, List
+from __future__ import annotations
 
-from botocore.paginate import Paginator as Boto3Paginator
+import sys
+from typing import TYPE_CHECKING
 
-from .literals import ResourceTypeType
+from botocore.paginate import PageIterator, Paginator
+
 from .type_defs import (
+    DescribeRecommendationExportJobsRequestPaginateTypeDef,
     DescribeRecommendationExportJobsResponseTypeDef,
-    EnrollmentFilterTypeDef,
+    GetEnrollmentStatusesForOrganizationRequestPaginateTypeDef,
     GetEnrollmentStatusesForOrganizationResponseTypeDef,
+    GetLambdaFunctionRecommendationsRequestPaginateTypeDef,
     GetLambdaFunctionRecommendationsResponseTypeDef,
+    GetRecommendationPreferencesRequestPaginateTypeDef,
     GetRecommendationPreferencesResponseTypeDef,
+    GetRecommendationSummariesRequestPaginateTypeDef,
     GetRecommendationSummariesResponseTypeDef,
-    JobFilterTypeDef,
-    LambdaFunctionRecommendationFilterTypeDef,
-    PaginatorConfigTypeDef,
-    ScopeTypeDef,
 )
+
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = (
     "DescribeRecommendationExportJobsPaginator",
@@ -53,88 +63,102 @@ __all__ = (
     "GetRecommendationSummariesPaginator",
 )
 
-class DescribeRecommendationExportJobsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/compute-optimizer.html#ComputeOptimizer.Paginator.DescribeRecommendationExportJobs)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_compute_optimizer/paginators.html#describerecommendationexportjobspaginator)
-    """
+if TYPE_CHECKING:
+    _DescribeRecommendationExportJobsPaginatorBase = Paginator[
+        DescribeRecommendationExportJobsResponseTypeDef
+    ]
+else:
+    _DescribeRecommendationExportJobsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        jobIds: List[str] = None,
-        filters: List["JobFilterTypeDef"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[DescribeRecommendationExportJobsResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/compute-optimizer.html#ComputeOptimizer.Paginator.DescribeRecommendationExportJobs.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_compute_optimizer/paginators.html#describerecommendationexportjobspaginator)
-        """
-
-class GetEnrollmentStatusesForOrganizationPaginator(Boto3Paginator):
+class DescribeRecommendationExportJobsPaginator(_DescribeRecommendationExportJobsPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/compute-optimizer.html#ComputeOptimizer.Paginator.GetEnrollmentStatusesForOrganization)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_compute_optimizer/paginators.html#getenrollmentstatusesfororganizationpaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/compute-optimizer/paginator/DescribeRecommendationExportJobs.html#ComputeOptimizer.Paginator.DescribeRecommendationExportJobs)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_compute_optimizer/paginators/#describerecommendationexportjobspaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        filters: List["EnrollmentFilterTypeDef"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[GetEnrollmentStatusesForOrganizationResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeRecommendationExportJobsRequestPaginateTypeDef]
+    ) -> PageIterator[DescribeRecommendationExportJobsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/compute-optimizer.html#ComputeOptimizer.Paginator.GetEnrollmentStatusesForOrganization.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_compute_optimizer/paginators.html#getenrollmentstatusesfororganizationpaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/compute-optimizer/paginator/DescribeRecommendationExportJobs.html#ComputeOptimizer.Paginator.DescribeRecommendationExportJobs.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_compute_optimizer/paginators/#describerecommendationexportjobspaginator)
         """
 
-class GetLambdaFunctionRecommendationsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/compute-optimizer.html#ComputeOptimizer.Paginator.GetLambdaFunctionRecommendations)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_compute_optimizer/paginators.html#getlambdafunctionrecommendationspaginator)
-    """
+if TYPE_CHECKING:
+    _GetEnrollmentStatusesForOrganizationPaginatorBase = Paginator[
+        GetEnrollmentStatusesForOrganizationResponseTypeDef
+    ]
+else:
+    _GetEnrollmentStatusesForOrganizationPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        functionArns: List[str] = None,
-        accountIds: List[str] = None,
-        filters: List["LambdaFunctionRecommendationFilterTypeDef"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[GetLambdaFunctionRecommendationsResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/compute-optimizer.html#ComputeOptimizer.Paginator.GetLambdaFunctionRecommendations.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_compute_optimizer/paginators.html#getlambdafunctionrecommendationspaginator)
-        """
-
-class GetRecommendationPreferencesPaginator(Boto3Paginator):
+class GetEnrollmentStatusesForOrganizationPaginator(
+    _GetEnrollmentStatusesForOrganizationPaginatorBase
+):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/compute-optimizer.html#ComputeOptimizer.Paginator.GetRecommendationPreferences)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_compute_optimizer/paginators.html#getrecommendationpreferencespaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/compute-optimizer/paginator/GetEnrollmentStatusesForOrganization.html#ComputeOptimizer.Paginator.GetEnrollmentStatusesForOrganization)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_compute_optimizer/paginators/#getenrollmentstatusesfororganizationpaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        resourceType: ResourceTypeType,
-        scope: "ScopeTypeDef" = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[GetRecommendationPreferencesResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[GetEnrollmentStatusesForOrganizationRequestPaginateTypeDef]
+    ) -> PageIterator[GetEnrollmentStatusesForOrganizationResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/compute-optimizer.html#ComputeOptimizer.Paginator.GetRecommendationPreferences.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_compute_optimizer/paginators.html#getrecommendationpreferencespaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/compute-optimizer/paginator/GetEnrollmentStatusesForOrganization.html#ComputeOptimizer.Paginator.GetEnrollmentStatusesForOrganization.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_compute_optimizer/paginators/#getenrollmentstatusesfororganizationpaginator)
         """
 
-class GetRecommendationSummariesPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/compute-optimizer.html#ComputeOptimizer.Paginator.GetRecommendationSummaries)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_compute_optimizer/paginators.html#getrecommendationsummariespaginator)
-    """
+if TYPE_CHECKING:
+    _GetLambdaFunctionRecommendationsPaginatorBase = Paginator[
+        GetLambdaFunctionRecommendationsResponseTypeDef
+    ]
+else:
+    _GetLambdaFunctionRecommendationsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, accountIds: List[str] = None, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[GetRecommendationSummariesResponseTypeDef]:
+class GetLambdaFunctionRecommendationsPaginator(_GetLambdaFunctionRecommendationsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/compute-optimizer/paginator/GetLambdaFunctionRecommendations.html#ComputeOptimizer.Paginator.GetLambdaFunctionRecommendations)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_compute_optimizer/paginators/#getlambdafunctionrecommendationspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[GetLambdaFunctionRecommendationsRequestPaginateTypeDef]
+    ) -> PageIterator[GetLambdaFunctionRecommendationsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/compute-optimizer.html#ComputeOptimizer.Paginator.GetRecommendationSummaries.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_compute_optimizer/paginators.html#getrecommendationsummariespaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/compute-optimizer/paginator/GetLambdaFunctionRecommendations.html#ComputeOptimizer.Paginator.GetLambdaFunctionRecommendations.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_compute_optimizer/paginators/#getlambdafunctionrecommendationspaginator)
+        """
+
+if TYPE_CHECKING:
+    _GetRecommendationPreferencesPaginatorBase = Paginator[
+        GetRecommendationPreferencesResponseTypeDef
+    ]
+else:
+    _GetRecommendationPreferencesPaginatorBase = Paginator  # type: ignore[assignment]
+
+class GetRecommendationPreferencesPaginator(_GetRecommendationPreferencesPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/compute-optimizer/paginator/GetRecommendationPreferences.html#ComputeOptimizer.Paginator.GetRecommendationPreferences)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_compute_optimizer/paginators/#getrecommendationpreferencespaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[GetRecommendationPreferencesRequestPaginateTypeDef]
+    ) -> PageIterator[GetRecommendationPreferencesResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/compute-optimizer/paginator/GetRecommendationPreferences.html#ComputeOptimizer.Paginator.GetRecommendationPreferences.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_compute_optimizer/paginators/#getrecommendationpreferencespaginator)
+        """
+
+if TYPE_CHECKING:
+    _GetRecommendationSummariesPaginatorBase = Paginator[GetRecommendationSummariesResponseTypeDef]
+else:
+    _GetRecommendationSummariesPaginatorBase = Paginator  # type: ignore[assignment]
+
+class GetRecommendationSummariesPaginator(_GetRecommendationSummariesPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/compute-optimizer/paginator/GetRecommendationSummaries.html#ComputeOptimizer.Paginator.GetRecommendationSummaries)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_compute_optimizer/paginators/#getrecommendationsummariespaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[GetRecommendationSummariesRequestPaginateTypeDef]
+    ) -> PageIterator[GetRecommendationSummariesResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/compute-optimizer/paginator/GetRecommendationSummaries.html#ComputeOptimizer.Paginator.GetRecommendationSummaries.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_compute_optimizer/paginators/#getrecommendationsummariespaginator)
         """

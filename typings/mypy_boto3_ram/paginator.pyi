@@ -1,14 +1,16 @@
 """
 Type annotations for ram service client paginators.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ram/paginators.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ram/paginators/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
 
-    from mypy_boto3_ram import RAMClient
+    from mypy_boto3_ram.client import RAMClient
     from mypy_boto3_ram.paginator import (
         GetResourcePoliciesPaginator,
         GetResourceShareAssociationsPaginator,
@@ -18,7 +20,8 @@ Usage::
         ListResourcesPaginator,
     )
 
-    client: RAMClient = boto3.client("ram")
+    session = Session()
+    client: RAMClient = session.client("ram")
 
     get_resource_policies_paginator: GetResourcePoliciesPaginator = client.get_paginator("get_resource_policies")
     get_resource_share_associations_paginator: GetResourceShareAssociationsPaginator = client.get_paginator("get_resource_share_associations")
@@ -29,27 +32,32 @@ Usage::
     ```
 """
 
-from typing import Iterator, List
+from __future__ import annotations
 
-from botocore.paginate import Paginator as Boto3Paginator
+import sys
+from typing import TYPE_CHECKING
 
-from .literals import (
-    ResourceOwnerType,
-    ResourceRegionScopeFilterType,
-    ResourceShareAssociationStatusType,
-    ResourceShareAssociationTypeType,
-    ResourceShareStatusType,
-)
+from botocore.paginate import PageIterator, Paginator
+
 from .type_defs import (
+    GetResourcePoliciesRequestPaginateTypeDef,
     GetResourcePoliciesResponseTypeDef,
+    GetResourceShareAssociationsRequestPaginateTypeDef,
     GetResourceShareAssociationsResponseTypeDef,
+    GetResourceShareInvitationsRequestPaginateTypeDef,
     GetResourceShareInvitationsResponseTypeDef,
+    GetResourceSharesRequestPaginateTypeDef,
     GetResourceSharesResponseTypeDef,
+    ListPrincipalsRequestPaginateTypeDef,
     ListPrincipalsResponseTypeDef,
+    ListResourcesRequestPaginateTypeDef,
     ListResourcesResponseTypeDef,
-    PaginatorConfigTypeDef,
-    TagFilterTypeDef,
 )
+
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = (
     "GetResourcePoliciesPaginator",
@@ -60,125 +68,114 @@ __all__ = (
     "ListResourcesPaginator",
 )
 
-class GetResourcePoliciesPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ram.html#RAM.Paginator.GetResourcePolicies)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ram/paginators.html#getresourcepoliciespaginator)
-    """
+if TYPE_CHECKING:
+    _GetResourcePoliciesPaginatorBase = Paginator[GetResourcePoliciesResponseTypeDef]
+else:
+    _GetResourcePoliciesPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        resourceArns: List[str],
-        principal: str = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[GetResourcePoliciesResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ram.html#RAM.Paginator.GetResourcePolicies.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ram/paginators.html#getresourcepoliciespaginator)
-        """
-
-class GetResourceShareAssociationsPaginator(Boto3Paginator):
+class GetResourcePoliciesPaginator(_GetResourcePoliciesPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ram.html#RAM.Paginator.GetResourceShareAssociations)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ram/paginators.html#getresourceshareassociationspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ram/paginator/GetResourcePolicies.html#RAM.Paginator.GetResourcePolicies)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ram/paginators/#getresourcepoliciespaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        associationType: ResourceShareAssociationTypeType,
-        resourceShareArns: List[str] = None,
-        resourceArn: str = None,
-        principal: str = None,
-        associationStatus: ResourceShareAssociationStatusType = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[GetResourceShareAssociationsResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[GetResourcePoliciesRequestPaginateTypeDef]
+    ) -> PageIterator[GetResourcePoliciesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ram.html#RAM.Paginator.GetResourceShareAssociations.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ram/paginators.html#getresourceshareassociationspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ram/paginator/GetResourcePolicies.html#RAM.Paginator.GetResourcePolicies.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ram/paginators/#getresourcepoliciespaginator)
         """
 
-class GetResourceShareInvitationsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ram.html#RAM.Paginator.GetResourceShareInvitations)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ram/paginators.html#getresourceshareinvitationspaginator)
-    """
+if TYPE_CHECKING:
+    _GetResourceShareAssociationsPaginatorBase = Paginator[
+        GetResourceShareAssociationsResponseTypeDef
+    ]
+else:
+    _GetResourceShareAssociationsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        resourceShareInvitationArns: List[str] = None,
-        resourceShareArns: List[str] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[GetResourceShareInvitationsResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ram.html#RAM.Paginator.GetResourceShareInvitations.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ram/paginators.html#getresourceshareinvitationspaginator)
-        """
-
-class GetResourceSharesPaginator(Boto3Paginator):
+class GetResourceShareAssociationsPaginator(_GetResourceShareAssociationsPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ram.html#RAM.Paginator.GetResourceShares)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ram/paginators.html#getresourcesharespaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ram/paginator/GetResourceShareAssociations.html#RAM.Paginator.GetResourceShareAssociations)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ram/paginators/#getresourceshareassociationspaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        resourceOwner: ResourceOwnerType,
-        resourceShareArns: List[str] = None,
-        resourceShareStatus: ResourceShareStatusType = None,
-        name: str = None,
-        tagFilters: List["TagFilterTypeDef"] = None,
-        permissionArn: str = None,
-        permissionVersion: int = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[GetResourceSharesResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[GetResourceShareAssociationsRequestPaginateTypeDef]
+    ) -> PageIterator[GetResourceShareAssociationsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ram.html#RAM.Paginator.GetResourceShares.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ram/paginators.html#getresourcesharespaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ram/paginator/GetResourceShareAssociations.html#RAM.Paginator.GetResourceShareAssociations.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ram/paginators/#getresourceshareassociationspaginator)
         """
 
-class ListPrincipalsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ram.html#RAM.Paginator.ListPrincipals)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ram/paginators.html#listprincipalspaginator)
-    """
+if TYPE_CHECKING:
+    _GetResourceShareInvitationsPaginatorBase = Paginator[
+        GetResourceShareInvitationsResponseTypeDef
+    ]
+else:
+    _GetResourceShareInvitationsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        resourceOwner: ResourceOwnerType,
-        resourceArn: str = None,
-        principals: List[str] = None,
-        resourceType: str = None,
-        resourceShareArns: List[str] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListPrincipalsResponseTypeDef]:
+class GetResourceShareInvitationsPaginator(_GetResourceShareInvitationsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ram/paginator/GetResourceShareInvitations.html#RAM.Paginator.GetResourceShareInvitations)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ram/paginators/#getresourceshareinvitationspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[GetResourceShareInvitationsRequestPaginateTypeDef]
+    ) -> PageIterator[GetResourceShareInvitationsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ram.html#RAM.Paginator.ListPrincipals.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ram/paginators.html#listprincipalspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ram/paginator/GetResourceShareInvitations.html#RAM.Paginator.GetResourceShareInvitations.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ram/paginators/#getresourceshareinvitationspaginator)
         """
 
-class ListResourcesPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ram.html#RAM.Paginator.ListResources)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ram/paginators.html#listresourcespaginator)
-    """
+if TYPE_CHECKING:
+    _GetResourceSharesPaginatorBase = Paginator[GetResourceSharesResponseTypeDef]
+else:
+    _GetResourceSharesPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        resourceOwner: ResourceOwnerType,
-        principal: str = None,
-        resourceType: str = None,
-        resourceArns: List[str] = None,
-        resourceShareArns: List[str] = None,
-        resourceRegionScope: ResourceRegionScopeFilterType = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListResourcesResponseTypeDef]:
+class GetResourceSharesPaginator(_GetResourceSharesPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ram/paginator/GetResourceShares.html#RAM.Paginator.GetResourceShares)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ram/paginators/#getresourcesharespaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[GetResourceSharesRequestPaginateTypeDef]
+    ) -> PageIterator[GetResourceSharesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ram.html#RAM.Paginator.ListResources.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ram/paginators.html#listresourcespaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ram/paginator/GetResourceShares.html#RAM.Paginator.GetResourceShares.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ram/paginators/#getresourcesharespaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListPrincipalsPaginatorBase = Paginator[ListPrincipalsResponseTypeDef]
+else:
+    _ListPrincipalsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListPrincipalsPaginator(_ListPrincipalsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ram/paginator/ListPrincipals.html#RAM.Paginator.ListPrincipals)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ram/paginators/#listprincipalspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListPrincipalsRequestPaginateTypeDef]
+    ) -> PageIterator[ListPrincipalsResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ram/paginator/ListPrincipals.html#RAM.Paginator.ListPrincipals.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ram/paginators/#listprincipalspaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListResourcesPaginatorBase = Paginator[ListResourcesResponseTypeDef]
+else:
+    _ListResourcesPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListResourcesPaginator(_ListResourcesPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ram/paginator/ListResources.html#RAM.Paginator.ListResources)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ram/paginators/#listresourcespaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListResourcesRequestPaginateTypeDef]
+    ) -> PageIterator[ListResourcesResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ram/paginator/ListResources.html#RAM.Paginator.ListResources.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ram/paginators/#listresourcespaginator)
         """

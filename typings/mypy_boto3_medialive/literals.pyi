@@ -1,7 +1,9 @@
 """
 Type annotations for medialive service literal definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medialive/literals.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medialive/literals/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
@@ -14,7 +16,7 @@ Usage::
 
 import sys
 
-if sys.version_info >= (3, 8):
+if sys.version_info >= (3, 12):
     from typing import Literal
 else:
     from typing_extensions import Literal
@@ -36,6 +38,7 @@ __all__ = (
     "AcceptHeaderType",
     "AccessibilityTypeType",
     "AfdSignalingType",
+    "AlgorithmType",
     "AudioDescriptionAudioTypeControlType",
     "AudioDescriptionLanguageCodeControlType",
     "AudioLanguageSelectionPolicyType",
@@ -45,7 +48,13 @@ __all__ = (
     "AudioOnlyHlsTrackTypeType",
     "AudioTypeType",
     "AuthenticationSchemeType",
+    "Av1GopSizeUnitsType",
+    "Av1LevelType",
+    "Av1LookAheadRateControlType",
+    "Av1SceneChangeDetectType",
     "AvailBlankingStateType",
+    "BandwidthReductionFilterStrengthType",
+    "BandwidthReductionPostFilterSharpeningType",
     "BlackoutSlateNetworkEndBlackoutType",
     "BlackoutSlateStateType",
     "BurnInAlignmentType",
@@ -59,6 +68,10 @@ __all__ = (
     "ChannelCreatedWaiterName",
     "ChannelDeletedWaiterName",
     "ChannelPipelineIdToRestartType",
+    "ChannelPlacementGroupAssignedWaiterName",
+    "ChannelPlacementGroupDeletedWaiterName",
+    "ChannelPlacementGroupStateType",
+    "ChannelPlacementGroupUnassignedWaiterName",
     "ChannelRunningWaiterName",
     "ChannelStateType",
     "ChannelStoppedWaiterName",
@@ -66,8 +79,16 @@ __all__ = (
     "CloudWatchAlarmTemplateStatisticType",
     "CloudWatchAlarmTemplateTargetResourceTypeType",
     "CloudWatchAlarmTemplateTreatMissingDataType",
+    "ClusterCreatedWaiterName",
+    "ClusterDeletedWaiterName",
+    "ClusterStateType",
+    "ClusterTypeType",
+    "CmafId3BehaviorType",
     "CmafIngestSegmentLengthUnitsType",
+    "CmafKLVBehaviorType",
     "CmafNielsenId3BehaviorType",
+    "CmafTimedMetadataId3FrameType",
+    "CmafTimedMetadataPassthroughType",
     "ColorSpaceType",
     "ContentTypeType",
     "DashRoleAudioType",
@@ -143,6 +164,7 @@ __all__ = (
     "H265AdaptiveQuantizationType",
     "H265AlternativeTransferFunctionType",
     "H265ColorMetadataType",
+    "H265DeblockingType",
     "H265FlickerAqType",
     "H265GopSizeUnitsType",
     "H265LevelType",
@@ -212,6 +234,7 @@ __all__ = (
     "InputLossActionForUdpOutType",
     "InputLossImageTypeType",
     "InputMaximumBitrateType",
+    "InputNetworkLocationType",
     "InputPreferenceType",
     "InputResolutionType",
     "InputSecurityGroupStateType",
@@ -221,9 +244,11 @@ __all__ = (
     "InputTimecodeSourceType",
     "InputTypeType",
     "LastFrameClippingBehaviorType",
+    "ListChannelPlacementGroupsPaginatorName",
     "ListChannelsPaginatorName",
     "ListCloudWatchAlarmTemplateGroupsPaginatorName",
     "ListCloudWatchAlarmTemplatesPaginatorName",
+    "ListClustersPaginatorName",
     "ListEventBridgeRuleTemplateGroupsPaginatorName",
     "ListEventBridgeRuleTemplatesPaginatorName",
     "ListInputDeviceTransfersPaginatorName",
@@ -232,8 +257,11 @@ __all__ = (
     "ListInputsPaginatorName",
     "ListMultiplexProgramsPaginatorName",
     "ListMultiplexesPaginatorName",
+    "ListNetworksPaginatorName",
+    "ListNodesPaginatorName",
     "ListOfferingsPaginatorName",
     "ListReservationsPaginatorName",
+    "ListSdiSourcesPaginatorName",
     "ListSignalMapsPaginatorName",
     "LogLevelType",
     "M2tsAbsentInputAudioBehaviorType",
@@ -261,6 +289,7 @@ __all__ = (
     "M3u8Scte35BehaviorType",
     "M3u8TimedMetadataBehaviorType",
     "MaintenanceDayType",
+    "MediaLiveServiceName",
     "MotionGraphicsInsertionType",
     "Mp2CodingModeType",
     "Mpeg2AdaptiveQuantizationType",
@@ -278,15 +307,24 @@ __all__ = (
     "MultiplexStateType",
     "MultiplexStoppedWaiterName",
     "NetworkInputServerValidationType",
+    "NetworkInterfaceModeType",
+    "NetworkStateType",
     "NielsenPcmToId3TaggingStateType",
     "NielsenWatermarkTimezonesType",
     "NielsenWatermarksCbetStepasideType",
     "NielsenWatermarksDistributionTypesType",
+    "NodeConnectionStateType",
+    "NodeDeregisteredWaiterName",
+    "NodeRegisteredWaiterName",
+    "NodeRoleType",
+    "NodeStateType",
     "OfferingDurationUnitsType",
     "OfferingTypeType",
+    "PaginatorName",
     "PipelineIdType",
     "PreferredChannelPipelineType",
     "RebootInputDeviceForceType",
+    "RegionName",
     "ReservationAutomaticRenewalType",
     "ReservationCodecType",
     "ReservationMaximumBitrateType",
@@ -296,6 +334,7 @@ __all__ = (
     "ReservationSpecialFeatureType",
     "ReservationStateType",
     "ReservationVideoQualityType",
+    "ResourceServiceName",
     "RtmpAdMarkersType",
     "RtmpCacheFullBehaviorType",
     "RtmpCaptionDataType",
@@ -315,6 +354,10 @@ __all__ = (
     "Scte35SpliceInsertWebDeliveryAllowedBehaviorType",
     "Scte35TypeType",
     "Scte35WebDeliveryAllowedFlagType",
+    "SdiSourceModeType",
+    "SdiSourceStateType",
+    "SdiSourceTypeType",
+    "ServiceName",
     "SignalMapCreatedWaiterName",
     "SignalMapMonitorDeletedWaiterName",
     "SignalMapMonitorDeployedWaiterName",
@@ -330,6 +373,7 @@ __all__ = (
     "SmoothGroupStreamManifestBehaviorType",
     "SmoothGroupTimestampOffsetModeType",
     "Smpte2038DataPreferenceType",
+    "SrtEncryptionTypeType",
     "TemporalFilterPostFilterSharpeningType",
     "TemporalFilterStrengthType",
     "ThumbnailStateType",
@@ -339,10 +383,12 @@ __all__ = (
     "TimecodeConfigSourceType",
     "TtmlDestinationStyleControlType",
     "UdpTimedMetadataId3FrameType",
+    "UpdateNodeStateType",
     "VideoDescriptionRespondToAfdType",
     "VideoDescriptionScalingBehaviorType",
     "VideoSelectorColorSpaceType",
     "VideoSelectorColorSpaceUsageType",
+    "WaiterName",
     "WavCodingModeType",
     "WebvttDestinationStyleControlType",
 )
@@ -378,6 +424,7 @@ AccessibilityTypeType = Literal[
     "DOES_NOT_IMPLEMENT_ACCESSIBILITY_FEATURES", "IMPLEMENTS_ACCESSIBILITY_FEATURES"
 ]
 AfdSignalingType = Literal["AUTO", "FIXED", "NONE"]
+AlgorithmType = Literal["AES128", "AES192", "AES256"]
 AudioDescriptionAudioTypeControlType = Literal["FOLLOW_INPUT", "USE_CONFIGURED"]
 AudioDescriptionLanguageCodeControlType = Literal["FOLLOW_INPUT", "USE_CONFIGURED"]
 AudioLanguageSelectionPolicyType = Literal["LOOSE", "STRICT"]
@@ -394,7 +441,33 @@ AudioTypeType = Literal[
     "CLEAN_EFFECTS", "HEARING_IMPAIRED", "UNDEFINED", "VISUAL_IMPAIRED_COMMENTARY"
 ]
 AuthenticationSchemeType = Literal["AKAMAI", "COMMON"]
+Av1GopSizeUnitsType = Literal["FRAMES", "SECONDS"]
+Av1LevelType = Literal[
+    "AV1_LEVEL_2",
+    "AV1_LEVEL_2_1",
+    "AV1_LEVEL_3",
+    "AV1_LEVEL_3_1",
+    "AV1_LEVEL_4",
+    "AV1_LEVEL_4_1",
+    "AV1_LEVEL_5",
+    "AV1_LEVEL_5_1",
+    "AV1_LEVEL_5_2",
+    "AV1_LEVEL_5_3",
+    "AV1_LEVEL_6",
+    "AV1_LEVEL_6_1",
+    "AV1_LEVEL_6_2",
+    "AV1_LEVEL_6_3",
+    "AV1_LEVEL_AUTO",
+]
+Av1LookAheadRateControlType = Literal["HIGH", "LOW", "MEDIUM"]
+Av1SceneChangeDetectType = Literal["DISABLED", "ENABLED"]
 AvailBlankingStateType = Literal["DISABLED", "ENABLED"]
+BandwidthReductionFilterStrengthType = Literal[
+    "AUTO", "STRENGTH_1", "STRENGTH_2", "STRENGTH_3", "STRENGTH_4"
+]
+BandwidthReductionPostFilterSharpeningType = Literal[
+    "DISABLED", "SHARPENING_1", "SHARPENING_2", "SHARPENING_3"
+]
 BlackoutSlateNetworkEndBlackoutType = Literal["DISABLED", "ENABLED"]
 BlackoutSlateStateType = Literal["DISABLED", "ENABLED"]
 BurnInAlignmentType = Literal["CENTERED", "LEFT", "SMART"]
@@ -408,6 +481,12 @@ ChannelClassType = Literal["SINGLE_PIPELINE", "STANDARD"]
 ChannelCreatedWaiterName = Literal["channel_created"]
 ChannelDeletedWaiterName = Literal["channel_deleted"]
 ChannelPipelineIdToRestartType = Literal["PIPELINE_0", "PIPELINE_1"]
+ChannelPlacementGroupAssignedWaiterName = Literal["channel_placement_group_assigned"]
+ChannelPlacementGroupDeletedWaiterName = Literal["channel_placement_group_deleted"]
+ChannelPlacementGroupStateType = Literal[
+    "ASSIGNED", "ASSIGNING", "DELETED", "DELETE_FAILED", "DELETING", "UNASSIGNED", "UNASSIGNING"
+]
+ChannelPlacementGroupUnassignedWaiterName = Literal["channel_placement_group_unassigned"]
 ChannelRunningWaiterName = Literal["channel_running"]
 ChannelStateType = Literal[
     "CREATE_FAILED",
@@ -440,13 +519,24 @@ CloudWatchAlarmTemplateTargetResourceTypeType = Literal[
     "MEDIALIVE_MULTIPLEX",
     "MEDIAPACKAGE_CHANNEL",
     "MEDIAPACKAGE_ORIGIN_ENDPOINT",
+    "MEDIATAILOR_PLAYBACK_CONFIGURATION",
     "S3_BUCKET",
 ]
 CloudWatchAlarmTemplateTreatMissingDataType = Literal[
     "breaching", "ignore", "missing", "notBreaching"
 ]
+ClusterCreatedWaiterName = Literal["cluster_created"]
+ClusterDeletedWaiterName = Literal["cluster_deleted"]
+ClusterStateType = Literal[
+    "ACTIVE", "CREATE_FAILED", "CREATING", "DELETED", "DELETE_FAILED", "DELETING"
+]
+ClusterTypeType = Literal["ON_PREMISES"]
+CmafId3BehaviorType = Literal["DISABLED", "ENABLED"]
 CmafIngestSegmentLengthUnitsType = Literal["MILLISECONDS", "SECONDS"]
+CmafKLVBehaviorType = Literal["NO_PASSTHROUGH", "PASSTHROUGH"]
 CmafNielsenId3BehaviorType = Literal["NO_PASSTHROUGH", "PASSTHROUGH"]
+CmafTimedMetadataId3FrameType = Literal["NONE", "PRIV", "TDRL"]
+CmafTimedMetadataPassthroughType = Literal["DISABLED", "ENABLED"]
 ColorSpaceType = Literal["HDR10", "HLG_2020", "REC_601", "REC_709"]
 ContentTypeType = Literal["image/jpeg"]
 DashRoleAudioType = Literal[
@@ -574,7 +664,7 @@ FollowPointType = Literal["END", "START"]
 FrameCaptureIntervalUnitType = Literal["MILLISECONDS", "SECONDS"]
 GlobalConfigurationInputEndActionType = Literal["NONE", "SWITCH_AND_LOOP_INPUTS"]
 GlobalConfigurationLowFramerateInputsType = Literal["DISABLED", "ENABLED"]
-GlobalConfigurationOutputLockingModeType = Literal["EPOCH_LOCKING", "PIPELINE_LOCKING"]
+GlobalConfigurationOutputLockingModeType = Literal["DISABLED", "EPOCH_LOCKING", "PIPELINE_LOCKING"]
 GlobalConfigurationOutputTimingSourceType = Literal["INPUT_CLOCK", "SYSTEM_CLOCK"]
 H264AdaptiveQuantizationType = Literal["AUTO", "HIGH", "HIGHER", "LOW", "MAX", "MEDIUM", "OFF"]
 H264ColorMetadataType = Literal["IGNORE", "INSERT"]
@@ -618,6 +708,7 @@ H264TimecodeInsertionBehaviorType = Literal["DISABLED", "PIC_TIMING_SEI"]
 H265AdaptiveQuantizationType = Literal["AUTO", "HIGH", "HIGHER", "LOW", "MAX", "MEDIUM", "OFF"]
 H265AlternativeTransferFunctionType = Literal["INSERT", "OMIT"]
 H265ColorMetadataType = Literal["IGNORE", "INSERT"]
+H265DeblockingType = Literal["DISABLED", "ENABLED"]
 H265FlickerAqType = Literal["DISABLED", "ENABLED"]
 H265GopSizeUnitsType = Literal["FRAMES", "SECONDS"]
 H265LevelType = Literal[
@@ -722,6 +813,7 @@ InputLossActionForRtmpOutType = Literal["EMIT_OUTPUT", "PAUSE_OUTPUT"]
 InputLossActionForUdpOutType = Literal["DROP_PROGRAM", "DROP_TS", "EMIT_PROGRAM"]
 InputLossImageTypeType = Literal["COLOR", "SLATE"]
 InputMaximumBitrateType = Literal["MAX_10_MBPS", "MAX_20_MBPS", "MAX_50_MBPS"]
+InputNetworkLocationType = Literal["AWS", "ON_PREMISES"]
 InputPreferenceType = Literal["EQUAL_INPUT_PREFERENCE", "PRIMARY_INPUT_PREFERRED"]
 InputResolutionType = Literal["HD", "SD", "UHD"]
 InputSecurityGroupStateType = Literal["DELETED", "IDLE", "IN_USE", "UPDATING"]
@@ -734,17 +826,23 @@ InputTypeType = Literal[
     "INPUT_DEVICE",
     "MEDIACONNECT",
     "MP4_FILE",
+    "MULTICAST",
     "RTMP_PULL",
     "RTMP_PUSH",
     "RTP_PUSH",
+    "SDI",
+    "SMPTE_2110_RECEIVER_GROUP",
+    "SRT_CALLER",
     "TS_FILE",
     "UDP_PUSH",
     "URL_PULL",
 ]
 LastFrameClippingBehaviorType = Literal["EXCLUDE_LAST_FRAME", "INCLUDE_LAST_FRAME"]
+ListChannelPlacementGroupsPaginatorName = Literal["list_channel_placement_groups"]
 ListChannelsPaginatorName = Literal["list_channels"]
 ListCloudWatchAlarmTemplateGroupsPaginatorName = Literal["list_cloud_watch_alarm_template_groups"]
 ListCloudWatchAlarmTemplatesPaginatorName = Literal["list_cloud_watch_alarm_templates"]
+ListClustersPaginatorName = Literal["list_clusters"]
 ListEventBridgeRuleTemplateGroupsPaginatorName = Literal["list_event_bridge_rule_template_groups"]
 ListEventBridgeRuleTemplatesPaginatorName = Literal["list_event_bridge_rule_templates"]
 ListInputDeviceTransfersPaginatorName = Literal["list_input_device_transfers"]
@@ -753,8 +851,11 @@ ListInputSecurityGroupsPaginatorName = Literal["list_input_security_groups"]
 ListInputsPaginatorName = Literal["list_inputs"]
 ListMultiplexProgramsPaginatorName = Literal["list_multiplex_programs"]
 ListMultiplexesPaginatorName = Literal["list_multiplexes"]
+ListNetworksPaginatorName = Literal["list_networks"]
+ListNodesPaginatorName = Literal["list_nodes"]
 ListOfferingsPaginatorName = Literal["list_offerings"]
 ListReservationsPaginatorName = Literal["list_reservations"]
+ListSdiSourcesPaginatorName = Literal["list_sdi_sources"]
 ListSignalMapsPaginatorName = Literal["list_signal_maps"]
 LogLevelType = Literal["DEBUG", "DISABLED", "ERROR", "INFO", "WARNING"]
 M2tsAbsentInputAudioBehaviorType = Literal["DROP", "ENCODE_SILENCE"]
@@ -815,6 +916,18 @@ MultiplexStoppedWaiterName = Literal["multiplex_stopped"]
 NetworkInputServerValidationType = Literal[
     "CHECK_CRYPTOGRAPHY_AND_VALIDATE_NAME", "CHECK_CRYPTOGRAPHY_ONLY"
 ]
+NetworkInterfaceModeType = Literal["BRIDGE", "NAT"]
+NetworkStateType = Literal[
+    "ACTIVE",
+    "CREATE_FAILED",
+    "CREATING",
+    "DELETED",
+    "DELETE_FAILED",
+    "DELETING",
+    "IDLE",
+    "IN_USE",
+    "UPDATING",
+]
 NielsenPcmToId3TaggingStateType = Literal["DISABLED", "ENABLED"]
 NielsenWatermarkTimezonesType = Literal[
     "AMERICA_PUERTO_RICO",
@@ -830,13 +943,31 @@ NielsenWatermarkTimezonesType = Literal[
 ]
 NielsenWatermarksCbetStepasideType = Literal["DISABLED", "ENABLED"]
 NielsenWatermarksDistributionTypesType = Literal["FINAL_DISTRIBUTOR", "PROGRAM_CONTENT"]
+NodeConnectionStateType = Literal["CONNECTED", "DISCONNECTED"]
+NodeDeregisteredWaiterName = Literal["node_deregistered"]
+NodeRegisteredWaiterName = Literal["node_registered"]
+NodeRoleType = Literal["ACTIVE", "BACKUP"]
+NodeStateType = Literal[
+    "ACTIVATION_FAILED",
+    "ACTIVE",
+    "CREATED",
+    "DEREGISTERED",
+    "DEREGISTERING",
+    "DEREGISTRATION_FAILED",
+    "DRAINING",
+    "IN_USE",
+    "READY",
+    "READY_TO_ACTIVATE",
+    "REGISTERING",
+    "REGISTRATION_FAILED",
+]
 OfferingDurationUnitsType = Literal["MONTHS"]
 OfferingTypeType = Literal["NO_UPFRONT"]
 PipelineIdType = Literal["PIPELINE_0", "PIPELINE_1"]
 PreferredChannelPipelineType = Literal["CURRENTLY_ACTIVE", "PIPELINE_0", "PIPELINE_1"]
 RebootInputDeviceForceType = Literal["NO", "YES"]
 ReservationAutomaticRenewalType = Literal["DISABLED", "ENABLED", "UNAVAILABLE"]
-ReservationCodecType = Literal["AUDIO", "AVC", "HEVC", "LINK", "MPEG2"]
+ReservationCodecType = Literal["AUDIO", "AV1", "AVC", "HEVC", "LINK", "MPEG2"]
 ReservationMaximumBitrateType = Literal["MAX_10_MBPS", "MAX_20_MBPS", "MAX_50_MBPS"]
 ReservationMaximumFramerateType = Literal["MAX_30_FPS", "MAX_60_FPS"]
 ReservationResolutionType = Literal["FHD", "HD", "SD", "UHD"]
@@ -869,6 +1000,9 @@ Scte35SpliceInsertNoRegionalBlackoutBehaviorType = Literal["FOLLOW", "IGNORE"]
 Scte35SpliceInsertWebDeliveryAllowedBehaviorType = Literal["FOLLOW", "IGNORE"]
 Scte35TypeType = Literal["NONE", "SCTE_35_WITHOUT_SEGMENTATION"]
 Scte35WebDeliveryAllowedFlagType = Literal["WEB_DELIVERY_ALLOWED", "WEB_DELIVERY_NOT_ALLOWED"]
+SdiSourceModeType = Literal["INTERLEAVE", "QUADRANT"]
+SdiSourceStateType = Literal["DELETED", "IDLE", "IN_USE"]
+SdiSourceTypeType = Literal["QUAD", "SINGLE"]
 SignalMapCreatedWaiterName = Literal["signal_map_created"]
 SignalMapMonitorDeletedWaiterName = Literal["signal_map_monitor_deleted"]
 SignalMapMonitorDeployedWaiterName = Literal["signal_map_monitor_deployed"]
@@ -905,6 +1039,7 @@ SmoothGroupSparseTrackTypeType = Literal["NONE", "SCTE_35", "SCTE_35_WITHOUT_SEG
 SmoothGroupStreamManifestBehaviorType = Literal["DO_NOT_SEND", "SEND"]
 SmoothGroupTimestampOffsetModeType = Literal["USE_CONFIGURED_OFFSET", "USE_EVENT_START_DATE"]
 Smpte2038DataPreferenceType = Literal["IGNORE", "PREFER"]
+SrtEncryptionTypeType = Literal["AES128", "AES192", "AES256"]
 TemporalFilterPostFilterSharpeningType = Literal["AUTO", "DISABLED", "ENABLED"]
 TemporalFilterStrengthType = Literal[
     "AUTO",
@@ -942,6 +1077,7 @@ TimecodeBurninPositionType = Literal[
 TimecodeConfigSourceType = Literal["EMBEDDED", "SYSTEMCLOCK", "ZEROBASED"]
 TtmlDestinationStyleControlType = Literal["PASSTHROUGH", "USE_CONFIGURED"]
 UdpTimedMetadataId3FrameType = Literal["NONE", "PRIV", "TDRL"]
+UpdateNodeStateType = Literal["ACTIVE", "DRAINING"]
 VideoDescriptionRespondToAfdType = Literal["NONE", "PASSTHROUGH", "RESPOND"]
 VideoDescriptionScalingBehaviorType = Literal["DEFAULT", "STRETCH_TO_OUTPUT"]
 VideoSelectorColorSpaceType = Literal["FOLLOW", "HDR10", "HLG_2020", "REC_601", "REC_709"]
@@ -950,3 +1086,489 @@ WavCodingModeType = Literal[
     "CODING_MODE_1_0", "CODING_MODE_2_0", "CODING_MODE_4_0", "CODING_MODE_8_0"
 ]
 WebvttDestinationStyleControlType = Literal["NO_STYLE_DATA", "PASSTHROUGH"]
+MediaLiveServiceName = Literal["medialive"]
+ServiceName = Literal[
+    "accessanalyzer",
+    "account",
+    "acm",
+    "acm-pca",
+    "amp",
+    "amplify",
+    "amplifybackend",
+    "amplifyuibuilder",
+    "apigateway",
+    "apigatewaymanagementapi",
+    "apigatewayv2",
+    "appconfig",
+    "appconfigdata",
+    "appfabric",
+    "appflow",
+    "appintegrations",
+    "application-autoscaling",
+    "application-insights",
+    "application-signals",
+    "applicationcostprofiler",
+    "appmesh",
+    "apprunner",
+    "appstream",
+    "appsync",
+    "apptest",
+    "arc-zonal-shift",
+    "artifact",
+    "athena",
+    "auditmanager",
+    "autoscaling",
+    "autoscaling-plans",
+    "b2bi",
+    "backup",
+    "backup-gateway",
+    "backupsearch",
+    "batch",
+    "bcm-data-exports",
+    "bcm-pricing-calculator",
+    "bedrock",
+    "bedrock-agent",
+    "bedrock-agent-runtime",
+    "bedrock-data-automation",
+    "bedrock-data-automation-runtime",
+    "bedrock-runtime",
+    "billing",
+    "billingconductor",
+    "braket",
+    "budgets",
+    "ce",
+    "chatbot",
+    "chime",
+    "chime-sdk-identity",
+    "chime-sdk-media-pipelines",
+    "chime-sdk-meetings",
+    "chime-sdk-messaging",
+    "chime-sdk-voice",
+    "cleanrooms",
+    "cleanroomsml",
+    "cloud9",
+    "cloudcontrol",
+    "clouddirectory",
+    "cloudformation",
+    "cloudfront",
+    "cloudfront-keyvaluestore",
+    "cloudhsm",
+    "cloudhsmv2",
+    "cloudsearch",
+    "cloudsearchdomain",
+    "cloudtrail",
+    "cloudtrail-data",
+    "cloudwatch",
+    "codeartifact",
+    "codebuild",
+    "codecatalyst",
+    "codecommit",
+    "codeconnections",
+    "codedeploy",
+    "codeguru-reviewer",
+    "codeguru-security",
+    "codeguruprofiler",
+    "codepipeline",
+    "codestar-connections",
+    "codestar-notifications",
+    "cognito-identity",
+    "cognito-idp",
+    "cognito-sync",
+    "comprehend",
+    "comprehendmedical",
+    "compute-optimizer",
+    "config",
+    "connect",
+    "connect-contact-lens",
+    "connectcampaigns",
+    "connectcampaignsv2",
+    "connectcases",
+    "connectparticipant",
+    "controlcatalog",
+    "controltower",
+    "cost-optimization-hub",
+    "cur",
+    "customer-profiles",
+    "databrew",
+    "dataexchange",
+    "datapipeline",
+    "datasync",
+    "datazone",
+    "dax",
+    "deadline",
+    "detective",
+    "devicefarm",
+    "devops-guru",
+    "directconnect",
+    "discovery",
+    "dlm",
+    "dms",
+    "docdb",
+    "docdb-elastic",
+    "drs",
+    "ds",
+    "ds-data",
+    "dsql",
+    "dynamodb",
+    "dynamodbstreams",
+    "ebs",
+    "ec2",
+    "ec2-instance-connect",
+    "ecr",
+    "ecr-public",
+    "ecs",
+    "efs",
+    "eks",
+    "eks-auth",
+    "elasticache",
+    "elasticbeanstalk",
+    "elastictranscoder",
+    "elb",
+    "elbv2",
+    "emr",
+    "emr-containers",
+    "emr-serverless",
+    "entityresolution",
+    "es",
+    "events",
+    "evidently",
+    "finspace",
+    "finspace-data",
+    "firehose",
+    "fis",
+    "fms",
+    "forecast",
+    "forecastquery",
+    "frauddetector",
+    "freetier",
+    "fsx",
+    "gamelift",
+    "gameliftstreams",
+    "geo-maps",
+    "geo-places",
+    "geo-routes",
+    "glacier",
+    "globalaccelerator",
+    "glue",
+    "grafana",
+    "greengrass",
+    "greengrassv2",
+    "groundstation",
+    "guardduty",
+    "health",
+    "healthlake",
+    "iam",
+    "identitystore",
+    "imagebuilder",
+    "importexport",
+    "inspector",
+    "inspector-scan",
+    "inspector2",
+    "internetmonitor",
+    "invoicing",
+    "iot",
+    "iot-data",
+    "iot-jobs-data",
+    "iot-managed-integrations",
+    "iotanalytics",
+    "iotdeviceadvisor",
+    "iotevents",
+    "iotevents-data",
+    "iotfleethub",
+    "iotfleetwise",
+    "iotsecuretunneling",
+    "iotsitewise",
+    "iotthingsgraph",
+    "iottwinmaker",
+    "iotwireless",
+    "ivs",
+    "ivs-realtime",
+    "ivschat",
+    "kafka",
+    "kafkaconnect",
+    "kendra",
+    "kendra-ranking",
+    "keyspaces",
+    "kinesis",
+    "kinesis-video-archived-media",
+    "kinesis-video-media",
+    "kinesis-video-signaling",
+    "kinesis-video-webrtc-storage",
+    "kinesisanalytics",
+    "kinesisanalyticsv2",
+    "kinesisvideo",
+    "kms",
+    "lakeformation",
+    "lambda",
+    "launch-wizard",
+    "lex-models",
+    "lex-runtime",
+    "lexv2-models",
+    "lexv2-runtime",
+    "license-manager",
+    "license-manager-linux-subscriptions",
+    "license-manager-user-subscriptions",
+    "lightsail",
+    "location",
+    "logs",
+    "lookoutequipment",
+    "lookoutmetrics",
+    "lookoutvision",
+    "m2",
+    "machinelearning",
+    "macie2",
+    "mailmanager",
+    "managedblockchain",
+    "managedblockchain-query",
+    "marketplace-agreement",
+    "marketplace-catalog",
+    "marketplace-deployment",
+    "marketplace-entitlement",
+    "marketplace-reporting",
+    "marketplacecommerceanalytics",
+    "mediaconnect",
+    "mediaconvert",
+    "medialive",
+    "mediapackage",
+    "mediapackage-vod",
+    "mediapackagev2",
+    "mediastore",
+    "mediastore-data",
+    "mediatailor",
+    "medical-imaging",
+    "memorydb",
+    "meteringmarketplace",
+    "mgh",
+    "mgn",
+    "migration-hub-refactor-spaces",
+    "migrationhub-config",
+    "migrationhuborchestrator",
+    "migrationhubstrategy",
+    "mq",
+    "mturk",
+    "mwaa",
+    "neptune",
+    "neptune-graph",
+    "neptunedata",
+    "network-firewall",
+    "networkflowmonitor",
+    "networkmanager",
+    "networkmonitor",
+    "notifications",
+    "notificationscontacts",
+    "oam",
+    "observabilityadmin",
+    "omics",
+    "opensearch",
+    "opensearchserverless",
+    "opsworks",
+    "opsworkscm",
+    "organizations",
+    "osis",
+    "outposts",
+    "panorama",
+    "partnercentral-selling",
+    "payment-cryptography",
+    "payment-cryptography-data",
+    "pca-connector-ad",
+    "pca-connector-scep",
+    "pcs",
+    "personalize",
+    "personalize-events",
+    "personalize-runtime",
+    "pi",
+    "pinpoint",
+    "pinpoint-email",
+    "pinpoint-sms-voice",
+    "pinpoint-sms-voice-v2",
+    "pipes",
+    "polly",
+    "pricing",
+    "privatenetworks",
+    "proton",
+    "qapps",
+    "qbusiness",
+    "qconnect",
+    "qldb",
+    "qldb-session",
+    "quicksight",
+    "ram",
+    "rbin",
+    "rds",
+    "rds-data",
+    "redshift",
+    "redshift-data",
+    "redshift-serverless",
+    "rekognition",
+    "repostspace",
+    "resiliencehub",
+    "resource-explorer-2",
+    "resource-groups",
+    "resourcegroupstaggingapi",
+    "robomaker",
+    "rolesanywhere",
+    "route53",
+    "route53-recovery-cluster",
+    "route53-recovery-control-config",
+    "route53-recovery-readiness",
+    "route53domains",
+    "route53profiles",
+    "route53resolver",
+    "rum",
+    "s3",
+    "s3control",
+    "s3outposts",
+    "s3tables",
+    "sagemaker",
+    "sagemaker-a2i-runtime",
+    "sagemaker-edge",
+    "sagemaker-featurestore-runtime",
+    "sagemaker-geospatial",
+    "sagemaker-metrics",
+    "sagemaker-runtime",
+    "savingsplans",
+    "scheduler",
+    "schemas",
+    "sdb",
+    "secretsmanager",
+    "security-ir",
+    "securityhub",
+    "securitylake",
+    "serverlessrepo",
+    "service-quotas",
+    "servicecatalog",
+    "servicecatalog-appregistry",
+    "servicediscovery",
+    "ses",
+    "sesv2",
+    "shield",
+    "signer",
+    "simspaceweaver",
+    "sms",
+    "snow-device-management",
+    "snowball",
+    "sns",
+    "socialmessaging",
+    "sqs",
+    "ssm",
+    "ssm-contacts",
+    "ssm-guiconnect",
+    "ssm-incidents",
+    "ssm-quicksetup",
+    "ssm-sap",
+    "sso",
+    "sso-admin",
+    "sso-oidc",
+    "stepfunctions",
+    "storagegateway",
+    "sts",
+    "supplychain",
+    "support",
+    "support-app",
+    "swf",
+    "synthetics",
+    "taxsettings",
+    "textract",
+    "timestream-influxdb",
+    "timestream-query",
+    "timestream-write",
+    "tnb",
+    "transcribe",
+    "transfer",
+    "translate",
+    "trustedadvisor",
+    "verifiedpermissions",
+    "voice-id",
+    "vpc-lattice",
+    "waf",
+    "waf-regional",
+    "wafv2",
+    "wellarchitected",
+    "wisdom",
+    "workdocs",
+    "workmail",
+    "workmailmessageflow",
+    "workspaces",
+    "workspaces-thin-client",
+    "workspaces-web",
+    "xray",
+]
+ResourceServiceName = Literal[
+    "cloudformation",
+    "cloudwatch",
+    "dynamodb",
+    "ec2",
+    "glacier",
+    "iam",
+    "opsworks",
+    "s3",
+    "sns",
+    "sqs",
+]
+PaginatorName = Literal[
+    "describe_schedule",
+    "list_channel_placement_groups",
+    "list_channels",
+    "list_cloud_watch_alarm_template_groups",
+    "list_cloud_watch_alarm_templates",
+    "list_clusters",
+    "list_event_bridge_rule_template_groups",
+    "list_event_bridge_rule_templates",
+    "list_input_device_transfers",
+    "list_input_devices",
+    "list_input_security_groups",
+    "list_inputs",
+    "list_multiplex_programs",
+    "list_multiplexes",
+    "list_networks",
+    "list_nodes",
+    "list_offerings",
+    "list_reservations",
+    "list_sdi_sources",
+    "list_signal_maps",
+]
+WaiterName = Literal[
+    "channel_created",
+    "channel_deleted",
+    "channel_placement_group_assigned",
+    "channel_placement_group_deleted",
+    "channel_placement_group_unassigned",
+    "channel_running",
+    "channel_stopped",
+    "cluster_created",
+    "cluster_deleted",
+    "input_attached",
+    "input_deleted",
+    "input_detached",
+    "multiplex_created",
+    "multiplex_deleted",
+    "multiplex_running",
+    "multiplex_stopped",
+    "node_deregistered",
+    "node_registered",
+    "signal_map_created",
+    "signal_map_monitor_deleted",
+    "signal_map_monitor_deployed",
+    "signal_map_updated",
+]
+RegionName = Literal[
+    "ap-northeast-1",
+    "ap-northeast-2",
+    "ap-northeast-3",
+    "ap-south-1",
+    "ap-south-2",
+    "ap-southeast-1",
+    "ap-southeast-2",
+    "ap-southeast-4",
+    "ca-central-1",
+    "eu-central-1",
+    "eu-north-1",
+    "eu-west-1",
+    "eu-west-2",
+    "eu-west-3",
+    "me-central-1",
+    "sa-east-1",
+    "us-east-1",
+    "us-east-2",
+    "us-west-2",
+]

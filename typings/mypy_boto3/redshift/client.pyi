@@ -1,39 +1,30 @@
 """
-Type annotations for redshift service client.
+Type annotations for redshift service Client.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
-    from mypy_boto3_redshift import RedshiftClient
+    from boto3.session import Session
+    from mypy_boto3_redshift.client import RedshiftClient
 
-    client: RedshiftClient = boto3.client("redshift")
+    session = Session()
+    client: RedshiftClient = session.client("redshift")
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from datetime import datetime
-from typing import Any, Dict, List, Type, Union, overload
+from typing import Any, overload
 
 from botocore.client import BaseClient, ClientMeta
+from botocore.errorfactory import BaseClientExceptions
+from botocore.exceptions import ClientError as BotocoreClientError
 
-from .literals import (
-    ActionTypeType,
-    AquaConfigurationStatusType,
-    DataShareStatusForConsumerType,
-    DataShareStatusForProducerType,
-    LogDestinationTypeType,
-    PartnerIntegrationStatusType,
-    ReservedNodeExchangeActionTypeType,
-    ScheduledActionTypeValuesType,
-    SourceTypeType,
-    UsageLimitBreachActionType,
-    UsageLimitFeatureTypeType,
-    UsageLimitLimitTypeType,
-    UsageLimitPeriodType,
-)
 from .paginator import (
     DescribeClusterDbRevisionsPaginator,
     DescribeClusterParameterGroupsPaginator,
@@ -56,6 +47,7 @@ from .paginator import (
     DescribeHsmClientCertificatesPaginator,
     DescribeHsmConfigurationsPaginator,
     DescribeInboundIntegrationsPaginator,
+    DescribeIntegrationsPaginator,
     DescribeNodeConfigurationOptionsPaginator,
     DescribeOrderableClusterOptionsPaginator,
     DescribeRedshiftIdcApplicationsPaginator,
@@ -73,13 +65,21 @@ from .paginator import (
     ListRecommendationsPaginator,
 )
 from .type_defs import (
+    AcceptReservedNodeExchangeInputMessageTypeDef,
     AcceptReservedNodeExchangeOutputMessageTypeDef,
     AccountAttributeListTypeDef,
+    AssociateDataShareConsumerMessageTypeDef,
+    AuthorizeClusterSecurityGroupIngressMessageTypeDef,
     AuthorizeClusterSecurityGroupIngressResultTypeDef,
-    AuthorizedTokenIssuerTypeDef,
+    AuthorizeDataShareMessageTypeDef,
+    AuthorizeEndpointAccessMessageTypeDef,
+    AuthorizeSnapshotAccessMessageTypeDef,
     AuthorizeSnapshotAccessResultTypeDef,
+    BatchDeleteClusterSnapshotsRequestTypeDef,
     BatchDeleteClusterSnapshotsResultTypeDef,
+    BatchModifyClusterSnapshotsMessageTypeDef,
     BatchModifyClusterSnapshotsOutputMessageTypeDef,
+    CancelResizeMessageTypeDef,
     ClusterCredentialsTypeDef,
     ClusterDbRevisionsMessageTypeDef,
     ClusterExtendedCredentialsTypeDef,
@@ -90,99 +90,225 @@ from .type_defs import (
     ClustersMessageTypeDef,
     ClusterSubnetGroupMessageTypeDef,
     ClusterVersionsMessageTypeDef,
+    CopyClusterSnapshotMessageTypeDef,
     CopyClusterSnapshotResultTypeDef,
+    CreateAuthenticationProfileMessageTypeDef,
     CreateAuthenticationProfileResultTypeDef,
+    CreateClusterMessageTypeDef,
+    CreateClusterParameterGroupMessageTypeDef,
     CreateClusterParameterGroupResultTypeDef,
     CreateClusterResultTypeDef,
+    CreateClusterSecurityGroupMessageTypeDef,
     CreateClusterSecurityGroupResultTypeDef,
+    CreateClusterSnapshotMessageTypeDef,
     CreateClusterSnapshotResultTypeDef,
+    CreateClusterSubnetGroupMessageTypeDef,
     CreateClusterSubnetGroupResultTypeDef,
+    CreateCustomDomainAssociationMessageTypeDef,
     CreateCustomDomainAssociationResultTypeDef,
+    CreateEndpointAccessMessageTypeDef,
+    CreateEventSubscriptionMessageTypeDef,
     CreateEventSubscriptionResultTypeDef,
+    CreateHsmClientCertificateMessageTypeDef,
     CreateHsmClientCertificateResultTypeDef,
+    CreateHsmConfigurationMessageTypeDef,
     CreateHsmConfigurationResultTypeDef,
+    CreateIntegrationMessageTypeDef,
+    CreateRedshiftIdcApplicationMessageTypeDef,
     CreateRedshiftIdcApplicationResultTypeDef,
+    CreateScheduledActionMessageTypeDef,
+    CreateSnapshotCopyGrantMessageTypeDef,
     CreateSnapshotCopyGrantResultTypeDef,
+    CreateSnapshotScheduleMessageTypeDef,
+    CreateTagsMessageTypeDef,
+    CreateUsageLimitMessageTypeDef,
     CustomDomainAssociationsMessageTypeDef,
     CustomerStorageMessageTypeDef,
-    DataShareResponseMetadataTypeDef,
+    DataShareResponseTypeDef,
+    DeauthorizeDataShareMessageTypeDef,
+    DeleteAuthenticationProfileMessageTypeDef,
     DeleteAuthenticationProfileResultTypeDef,
+    DeleteClusterMessageTypeDef,
+    DeleteClusterParameterGroupMessageTypeDef,
     DeleteClusterResultTypeDef,
-    DeleteClusterSnapshotMessageTypeDef,
+    DeleteClusterSecurityGroupMessageTypeDef,
+    DeleteClusterSnapshotMessageRequestTypeDef,
     DeleteClusterSnapshotResultTypeDef,
+    DeleteClusterSubnetGroupMessageTypeDef,
+    DeleteCustomDomainAssociationMessageTypeDef,
+    DeleteEndpointAccessMessageTypeDef,
+    DeleteEventSubscriptionMessageTypeDef,
+    DeleteHsmClientCertificateMessageTypeDef,
+    DeleteHsmConfigurationMessageTypeDef,
+    DeleteIntegrationMessageTypeDef,
+    DeleteRedshiftIdcApplicationMessageTypeDef,
+    DeleteResourcePolicyMessageTypeDef,
+    DeleteScheduledActionMessageTypeDef,
+    DeleteSnapshotCopyGrantMessageTypeDef,
+    DeleteSnapshotScheduleMessageTypeDef,
+    DeleteTagsMessageTypeDef,
+    DeleteUsageLimitMessageTypeDef,
+    DeregisterNamespaceInputMessageTypeDef,
+    DeregisterNamespaceOutputMessageTypeDef,
+    DescribeAccountAttributesMessageTypeDef,
+    DescribeAuthenticationProfilesMessageTypeDef,
     DescribeAuthenticationProfilesResultTypeDef,
+    DescribeClusterDbRevisionsMessageTypeDef,
+    DescribeClusterParameterGroupsMessageTypeDef,
+    DescribeClusterParametersMessageTypeDef,
+    DescribeClusterSecurityGroupsMessageTypeDef,
+    DescribeClustersMessageTypeDef,
+    DescribeClusterSnapshotsMessageTypeDef,
+    DescribeClusterSubnetGroupsMessageTypeDef,
+    DescribeClusterTracksMessageTypeDef,
+    DescribeClusterVersionsMessageTypeDef,
+    DescribeCustomDomainAssociationsMessageTypeDef,
+    DescribeDataSharesForConsumerMessageTypeDef,
     DescribeDataSharesForConsumerResultTypeDef,
+    DescribeDataSharesForProducerMessageTypeDef,
     DescribeDataSharesForProducerResultTypeDef,
+    DescribeDataSharesMessageTypeDef,
     DescribeDataSharesResultTypeDef,
+    DescribeDefaultClusterParametersMessageTypeDef,
     DescribeDefaultClusterParametersResultTypeDef,
+    DescribeEndpointAccessMessageTypeDef,
+    DescribeEndpointAuthorizationMessageTypeDef,
+    DescribeEventCategoriesMessageTypeDef,
+    DescribeEventsMessageTypeDef,
+    DescribeEventSubscriptionsMessageTypeDef,
+    DescribeHsmClientCertificatesMessageTypeDef,
+    DescribeHsmConfigurationsMessageTypeDef,
+    DescribeInboundIntegrationsMessageTypeDef,
+    DescribeIntegrationsMessageTypeDef,
+    DescribeLoggingStatusMessageTypeDef,
+    DescribeNodeConfigurationOptionsMessageTypeDef,
+    DescribeOrderableClusterOptionsMessageTypeDef,
+    DescribePartnersInputMessageTypeDef,
     DescribePartnersOutputMessageTypeDef,
+    DescribeRedshiftIdcApplicationsMessageTypeDef,
     DescribeRedshiftIdcApplicationsResultTypeDef,
+    DescribeReservedNodeExchangeStatusInputMessageTypeDef,
     DescribeReservedNodeExchangeStatusOutputMessageTypeDef,
+    DescribeReservedNodeOfferingsMessageTypeDef,
+    DescribeReservedNodesMessageTypeDef,
+    DescribeResizeMessageTypeDef,
+    DescribeScheduledActionsMessageTypeDef,
+    DescribeSnapshotCopyGrantsMessageTypeDef,
+    DescribeSnapshotSchedulesMessageTypeDef,
     DescribeSnapshotSchedulesOutputMessageTypeDef,
+    DescribeTableRestoreStatusMessageTypeDef,
+    DescribeTagsMessageTypeDef,
+    DescribeUsageLimitsMessageTypeDef,
+    DisableLoggingMessageTypeDef,
+    DisableSnapshotCopyMessageTypeDef,
     DisableSnapshotCopyResultTypeDef,
+    DisassociateDataShareConsumerMessageTypeDef,
+    EmptyResponseMetadataTypeDef,
+    EnableLoggingMessageTypeDef,
+    EnableSnapshotCopyMessageTypeDef,
     EnableSnapshotCopyResultTypeDef,
     EndpointAccessListTypeDef,
-    EndpointAccessResponseMetadataTypeDef,
+    EndpointAccessResponseTypeDef,
     EndpointAuthorizationListTypeDef,
-    EndpointAuthorizationResponseMetadataTypeDef,
+    EndpointAuthorizationResponseTypeDef,
     EventCategoriesMessageTypeDef,
     EventsMessageTypeDef,
     EventSubscriptionsMessageTypeDef,
+    FailoverPrimaryComputeInputMessageTypeDef,
     FailoverPrimaryComputeResultTypeDef,
+    GetClusterCredentialsMessageTypeDef,
+    GetClusterCredentialsWithIAMMessageTypeDef,
+    GetReservedNodeExchangeConfigurationOptionsInputMessageTypeDef,
     GetReservedNodeExchangeConfigurationOptionsOutputMessageTypeDef,
+    GetReservedNodeExchangeOfferingsInputMessageTypeDef,
     GetReservedNodeExchangeOfferingsOutputMessageTypeDef,
+    GetResourcePolicyMessageTypeDef,
     GetResourcePolicyResultTypeDef,
     HsmClientCertificateMessageTypeDef,
     HsmConfigurationMessageTypeDef,
     InboundIntegrationsMessageTypeDef,
+    IntegrationResponseTypeDef,
+    IntegrationsMessageTypeDef,
+    ListRecommendationsMessageTypeDef,
     ListRecommendationsResultTypeDef,
     LoggingStatusTypeDef,
+    ModifyAquaInputMessageTypeDef,
     ModifyAquaOutputMessageTypeDef,
+    ModifyAuthenticationProfileMessageTypeDef,
     ModifyAuthenticationProfileResultTypeDef,
+    ModifyClusterDbRevisionMessageTypeDef,
     ModifyClusterDbRevisionResultTypeDef,
+    ModifyClusterIamRolesMessageTypeDef,
     ModifyClusterIamRolesResultTypeDef,
+    ModifyClusterMaintenanceMessageTypeDef,
     ModifyClusterMaintenanceResultTypeDef,
+    ModifyClusterMessageTypeDef,
+    ModifyClusterParameterGroupMessageTypeDef,
     ModifyClusterResultTypeDef,
+    ModifyClusterSnapshotMessageTypeDef,
     ModifyClusterSnapshotResultTypeDef,
+    ModifyClusterSnapshotScheduleMessageTypeDef,
+    ModifyClusterSubnetGroupMessageTypeDef,
     ModifyClusterSubnetGroupResultTypeDef,
+    ModifyCustomDomainAssociationMessageTypeDef,
     ModifyCustomDomainAssociationResultTypeDef,
+    ModifyEndpointAccessMessageTypeDef,
+    ModifyEventSubscriptionMessageTypeDef,
     ModifyEventSubscriptionResultTypeDef,
+    ModifyIntegrationMessageTypeDef,
+    ModifyRedshiftIdcApplicationMessageTypeDef,
     ModifyRedshiftIdcApplicationResultTypeDef,
+    ModifyScheduledActionMessageTypeDef,
+    ModifySnapshotCopyRetentionPeriodMessageTypeDef,
     ModifySnapshotCopyRetentionPeriodResultTypeDef,
-    NodeConfigurationOptionsFilterTypeDef,
+    ModifySnapshotScheduleMessageTypeDef,
+    ModifyUsageLimitMessageTypeDef,
     NodeConfigurationOptionsMessageTypeDef,
     OrderableClusterOptionsMessageTypeDef,
-    ParameterTypeDef,
+    PartnerIntegrationInputMessageRequestTypeDef,
+    PartnerIntegrationInputMessageTypeDef,
     PartnerIntegrationOutputMessageTypeDef,
+    PauseClusterMessageRequestTypeDef,
     PauseClusterResultTypeDef,
+    PurchaseReservedNodeOfferingMessageTypeDef,
     PurchaseReservedNodeOfferingResultTypeDef,
+    PutResourcePolicyMessageTypeDef,
     PutResourcePolicyResultTypeDef,
+    RebootClusterMessageTypeDef,
     RebootClusterResultTypeDef,
+    RegisterNamespaceInputMessageTypeDef,
+    RegisterNamespaceOutputMessageTypeDef,
+    RejectDataShareMessageTypeDef,
     ReservedNodeOfferingsMessageTypeDef,
     ReservedNodesMessageTypeDef,
+    ResetClusterParameterGroupMessageTypeDef,
+    ResizeClusterMessageRequestTypeDef,
     ResizeClusterResultTypeDef,
     ResizeProgressMessageTypeDef,
+    RestoreFromClusterSnapshotMessageTypeDef,
     RestoreFromClusterSnapshotResultTypeDef,
+    RestoreTableFromClusterSnapshotMessageTypeDef,
     RestoreTableFromClusterSnapshotResultTypeDef,
+    ResumeClusterMessageRequestTypeDef,
     ResumeClusterResultTypeDef,
+    RevokeClusterSecurityGroupIngressMessageTypeDef,
     RevokeClusterSecurityGroupIngressResultTypeDef,
+    RevokeEndpointAccessMessageTypeDef,
+    RevokeSnapshotAccessMessageTypeDef,
     RevokeSnapshotAccessResultTypeDef,
+    RotateEncryptionKeyMessageTypeDef,
     RotateEncryptionKeyResultTypeDef,
-    ScheduledActionFilterTypeDef,
-    ScheduledActionResponseMetadataTypeDef,
+    ScheduledActionResponseTypeDef,
     ScheduledActionsMessageTypeDef,
-    ScheduledActionTypeTypeDef,
-    ServiceIntegrationsUnionTypeDef,
     SnapshotCopyGrantMessageTypeDef,
     SnapshotMessageTypeDef,
-    SnapshotScheduleResponseMetadataTypeDef,
-    SnapshotSortingEntityTypeDef,
+    SnapshotScheduleResponseTypeDef,
     TableRestoreStatusMessageTypeDef,
     TaggedResourceListMessageTypeDef,
-    TagTypeDef,
     TrackListMessageTypeDef,
+    UpdatePartnerStatusInputMessageTypeDef,
     UsageLimitListTypeDef,
-    UsageLimitResponseMetadataTypeDef,
+    UsageLimitResponseTypeDef,
 )
 from .waiter import (
     ClusterAvailableWaiter,
@@ -191,21 +317,19 @@ from .waiter import (
     SnapshotAvailableWaiter,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import type as Type
+    from collections.abc import Mapping
 else:
-    from typing_extensions import Literal
+    from typing import Mapping, Type
+if sys.version_info >= (3, 12):
+    from typing import Literal, Unpack
+else:
+    from typing_extensions import Literal, Unpack
 
 __all__ = ("RedshiftClient",)
 
-class BotocoreClientError(BaseException):
-    MSG_TEMPLATE: str
-
-    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
-        self.response: Dict[str, Any]
-        self.operation_name: str
-
-class Exceptions:
+class Exceptions(BaseClientExceptions):
     AccessToClusterDeniedFault: Type[BotocoreClientError]
     AccessToSnapshotDeniedFault: Type[BotocoreClientError]
     AuthenticationProfileAlreadyExistsFault: Type[BotocoreClientError]
@@ -260,7 +384,13 @@ class Exceptions:
     IncompatibleOrderableOptions: Type[BotocoreClientError]
     InsufficientClusterCapacityFault: Type[BotocoreClientError]
     InsufficientS3BucketPolicyFault: Type[BotocoreClientError]
+    IntegrationAlreadyExistsFault: Type[BotocoreClientError]
+    IntegrationConflictOperationFault: Type[BotocoreClientError]
+    IntegrationConflictStateFault: Type[BotocoreClientError]
     IntegrationNotFoundFault: Type[BotocoreClientError]
+    IntegrationQuotaExceededFault: Type[BotocoreClientError]
+    IntegrationSourceNotFoundFault: Type[BotocoreClientError]
+    IntegrationTargetNotFoundFault: Type[BotocoreClientError]
     InvalidAuthenticationProfileRequestFault: Type[BotocoreClientError]
     InvalidAuthorizationStateFault: Type[BotocoreClientError]
     InvalidClusterParameterGroupStateFault: Type[BotocoreClientError]
@@ -346,8 +476,8 @@ class Exceptions:
 
 class RedshiftClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift.html#Redshift.Client)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/)
     """
 
     meta: ClientMeta
@@ -356,2222 +486,1913 @@ class RedshiftClient(BaseClient):
     def exceptions(self) -> Exceptions:
         """
         RedshiftClient exceptions.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift.html#Redshift.Client)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#exceptions)
+        """
+
+    def can_paginate(self, operation_name: str) -> bool:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/can_paginate.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#can_paginate)
+        """
+
+    def generate_presigned_url(
+        self,
+        ClientMethod: str,
+        Params: Mapping[str, Any] = ...,
+        ExpiresIn: int = 3600,
+        HttpMethod: str = ...,
+    ) -> str:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/generate_presigned_url.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#generate_presigned_url)
         """
 
     def accept_reserved_node_exchange(
-        self, *, ReservedNodeId: str, TargetReservedNodeOfferingId: str
+        self, **kwargs: Unpack[AcceptReservedNodeExchangeInputMessageTypeDef]
     ) -> AcceptReservedNodeExchangeOutputMessageTypeDef:
         """
         Exchanges a DC1 Reserved Node for a DC2 Reserved Node with no changes to the
         configuration (term, payment type, or number of nodes) and no additional costs.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.accept_reserved_node_exchange)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#accept_reserved_node_exchange)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/accept_reserved_node_exchange.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#accept_reserved_node_exchange)
         """
 
     def add_partner(
-        self, *, AccountId: str, ClusterIdentifier: str, DatabaseName: str, PartnerName: str
+        self, **kwargs: Unpack[PartnerIntegrationInputMessageTypeDef]
     ) -> PartnerIntegrationOutputMessageTypeDef:
         """
         Adds a partner integration to a cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.add_partner)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#add_partner)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/add_partner.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#add_partner)
         """
 
     def associate_data_share_consumer(
-        self,
-        *,
-        DataShareArn: str,
-        AssociateEntireAccount: bool = None,
-        ConsumerArn: str = None,
-        ConsumerRegion: str = None,
-        AllowWrites: bool = None
-    ) -> DataShareResponseMetadataTypeDef:
+        self, **kwargs: Unpack[AssociateDataShareConsumerMessageTypeDef]
+    ) -> DataShareResponseTypeDef:
         """
         From a datashare consumer account, associates a datashare with the account
         (AssociateEntireAccount) or the specified namespace (ConsumerArn).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.associate_data_share_consumer)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#associate_data_share_consumer)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/associate_data_share_consumer.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#associate_data_share_consumer)
         """
 
     def authorize_cluster_security_group_ingress(
-        self,
-        *,
-        ClusterSecurityGroupName: str,
-        CIDRIP: str = None,
-        EC2SecurityGroupName: str = None,
-        EC2SecurityGroupOwnerId: str = None
+        self, **kwargs: Unpack[AuthorizeClusterSecurityGroupIngressMessageTypeDef]
     ) -> AuthorizeClusterSecurityGroupIngressResultTypeDef:
         """
         Adds an inbound (ingress) rule to an Amazon Redshift security group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.authorize_cluster_security_group_ingress)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#authorize_cluster_security_group_ingress)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/authorize_cluster_security_group_ingress.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#authorize_cluster_security_group_ingress)
         """
 
     def authorize_data_share(
-        self, *, DataShareArn: str, ConsumerIdentifier: str, AllowWrites: bool = None
-    ) -> DataShareResponseMetadataTypeDef:
+        self, **kwargs: Unpack[AuthorizeDataShareMessageTypeDef]
+    ) -> DataShareResponseTypeDef:
         """
         From a data producer account, authorizes the sharing of a datashare with one or
         more consumer accounts or managing entities.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.authorize_data_share)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#authorize_data_share)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/authorize_data_share.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#authorize_data_share)
         """
 
     def authorize_endpoint_access(
-        self, *, Account: str, ClusterIdentifier: str = None, VpcIds: List[str] = None
-    ) -> EndpointAuthorizationResponseMetadataTypeDef:
+        self, **kwargs: Unpack[AuthorizeEndpointAccessMessageTypeDef]
+    ) -> EndpointAuthorizationResponseTypeDef:
         """
         Grants access to a cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.authorize_endpoint_access)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#authorize_endpoint_access)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/authorize_endpoint_access.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#authorize_endpoint_access)
         """
 
     def authorize_snapshot_access(
-        self,
-        *,
-        AccountWithRestoreAccess: str,
-        SnapshotIdentifier: str = None,
-        SnapshotArn: str = None,
-        SnapshotClusterIdentifier: str = None
+        self, **kwargs: Unpack[AuthorizeSnapshotAccessMessageTypeDef]
     ) -> AuthorizeSnapshotAccessResultTypeDef:
         """
         Authorizes the specified Amazon Web Services account to restore the specified
         snapshot.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.authorize_snapshot_access)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#authorize_snapshot_access)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/authorize_snapshot_access.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#authorize_snapshot_access)
         """
 
     def batch_delete_cluster_snapshots(
-        self, *, Identifiers: List["DeleteClusterSnapshotMessageTypeDef"]
+        self, **kwargs: Unpack[BatchDeleteClusterSnapshotsRequestTypeDef]
     ) -> BatchDeleteClusterSnapshotsResultTypeDef:
         """
         Deletes a set of cluster snapshots.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.batch_delete_cluster_snapshots)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#batch_delete_cluster_snapshots)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/batch_delete_cluster_snapshots.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#batch_delete_cluster_snapshots)
         """
 
     def batch_modify_cluster_snapshots(
-        self,
-        *,
-        SnapshotIdentifierList: List[str],
-        ManualSnapshotRetentionPeriod: int = None,
-        Force: bool = None
+        self, **kwargs: Unpack[BatchModifyClusterSnapshotsMessageTypeDef]
     ) -> BatchModifyClusterSnapshotsOutputMessageTypeDef:
         """
         Modifies the settings for a set of cluster snapshots.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.batch_modify_cluster_snapshots)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#batch_modify_cluster_snapshots)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/batch_modify_cluster_snapshots.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#batch_modify_cluster_snapshots)
         """
 
-    def can_paginate(self, operation_name: str) -> bool:
-        """
-        Check if an operation can be paginated.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.can_paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#can_paginate)
-        """
-
-    def cancel_resize(self, *, ClusterIdentifier: str) -> ResizeProgressMessageTypeDef:
+    def cancel_resize(
+        self, **kwargs: Unpack[CancelResizeMessageTypeDef]
+    ) -> ResizeProgressMessageTypeDef:
         """
         Cancels a resize operation for a cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.cancel_resize)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#cancel_resize)
-        """
-
-    def close(self) -> None:
-        """
-        Closes underlying endpoint connections.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.close)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/cancel_resize.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#cancel_resize)
         """
 
     def copy_cluster_snapshot(
-        self,
-        *,
-        SourceSnapshotIdentifier: str,
-        TargetSnapshotIdentifier: str,
-        SourceSnapshotClusterIdentifier: str = None,
-        ManualSnapshotRetentionPeriod: int = None
+        self, **kwargs: Unpack[CopyClusterSnapshotMessageTypeDef]
     ) -> CopyClusterSnapshotResultTypeDef:
         """
         Copies the specified automated cluster snapshot to a new manual cluster
         snapshot.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.copy_cluster_snapshot)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#copy_cluster_snapshot)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/copy_cluster_snapshot.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#copy_cluster_snapshot)
         """
 
     def create_authentication_profile(
-        self, *, AuthenticationProfileName: str, AuthenticationProfileContent: str
+        self, **kwargs: Unpack[CreateAuthenticationProfileMessageTypeDef]
     ) -> CreateAuthenticationProfileResultTypeDef:
         """
         Creates an authentication profile with the specified parameters.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.create_authentication_profile)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#create_authentication_profile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/create_authentication_profile.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#create_authentication_profile)
         """
 
     def create_cluster(
-        self,
-        *,
-        ClusterIdentifier: str,
-        NodeType: str,
-        MasterUsername: str,
-        DBName: str = None,
-        ClusterType: str = None,
-        MasterUserPassword: str = None,
-        ClusterSecurityGroups: List[str] = None,
-        VpcSecurityGroupIds: List[str] = None,
-        ClusterSubnetGroupName: str = None,
-        AvailabilityZone: str = None,
-        PreferredMaintenanceWindow: str = None,
-        ClusterParameterGroupName: str = None,
-        AutomatedSnapshotRetentionPeriod: int = None,
-        ManualSnapshotRetentionPeriod: int = None,
-        Port: int = None,
-        ClusterVersion: str = None,
-        AllowVersionUpgrade: bool = None,
-        NumberOfNodes: int = None,
-        PubliclyAccessible: bool = None,
-        Encrypted: bool = None,
-        HsmClientCertificateIdentifier: str = None,
-        HsmConfigurationIdentifier: str = None,
-        ElasticIp: str = None,
-        Tags: List["TagTypeDef"] = None,
-        KmsKeyId: str = None,
-        EnhancedVpcRouting: bool = None,
-        AdditionalInfo: str = None,
-        IamRoles: List[str] = None,
-        MaintenanceTrackName: str = None,
-        SnapshotScheduleIdentifier: str = None,
-        AvailabilityZoneRelocation: bool = None,
-        AquaConfigurationStatus: AquaConfigurationStatusType = None,
-        DefaultIamRoleArn: str = None,
-        LoadSampleData: str = None,
-        ManageMasterPassword: bool = None,
-        MasterPasswordSecretKmsKeyId: str = None,
-        IpAddressType: str = None,
-        MultiAZ: bool = None,
-        RedshiftIdcApplicationArn: str = None
+        self, **kwargs: Unpack[CreateClusterMessageTypeDef]
     ) -> CreateClusterResultTypeDef:
         """
         Creates a new cluster with the specified parameters.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.create_cluster)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#create_cluster)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/create_cluster.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#create_cluster)
         """
 
     def create_cluster_parameter_group(
-        self,
-        *,
-        ParameterGroupName: str,
-        ParameterGroupFamily: str,
-        Description: str,
-        Tags: List["TagTypeDef"] = None
+        self, **kwargs: Unpack[CreateClusterParameterGroupMessageTypeDef]
     ) -> CreateClusterParameterGroupResultTypeDef:
         """
         Creates an Amazon Redshift parameter group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.create_cluster_parameter_group)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#create_cluster_parameter_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/create_cluster_parameter_group.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#create_cluster_parameter_group)
         """
 
     def create_cluster_security_group(
-        self, *, ClusterSecurityGroupName: str, Description: str, Tags: List["TagTypeDef"] = None
+        self, **kwargs: Unpack[CreateClusterSecurityGroupMessageTypeDef]
     ) -> CreateClusterSecurityGroupResultTypeDef:
         """
         Creates a new Amazon Redshift security group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.create_cluster_security_group)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#create_cluster_security_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/create_cluster_security_group.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#create_cluster_security_group)
         """
 
     def create_cluster_snapshot(
-        self,
-        *,
-        SnapshotIdentifier: str,
-        ClusterIdentifier: str,
-        ManualSnapshotRetentionPeriod: int = None,
-        Tags: List["TagTypeDef"] = None
+        self, **kwargs: Unpack[CreateClusterSnapshotMessageTypeDef]
     ) -> CreateClusterSnapshotResultTypeDef:
         """
         Creates a manual snapshot of the specified cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.create_cluster_snapshot)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#create_cluster_snapshot)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/create_cluster_snapshot.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#create_cluster_snapshot)
         """
 
     def create_cluster_subnet_group(
-        self,
-        *,
-        ClusterSubnetGroupName: str,
-        Description: str,
-        SubnetIds: List[str],
-        Tags: List["TagTypeDef"] = None
+        self, **kwargs: Unpack[CreateClusterSubnetGroupMessageTypeDef]
     ) -> CreateClusterSubnetGroupResultTypeDef:
         """
         Creates a new Amazon Redshift subnet group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.create_cluster_subnet_group)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#create_cluster_subnet_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/create_cluster_subnet_group.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#create_cluster_subnet_group)
         """
 
     def create_custom_domain_association(
-        self, *, CustomDomainName: str, CustomDomainCertificateArn: str, ClusterIdentifier: str
+        self, **kwargs: Unpack[CreateCustomDomainAssociationMessageTypeDef]
     ) -> CreateCustomDomainAssociationResultTypeDef:
         """
         Used to create a custom domain name for a cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.create_custom_domain_association)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#create_custom_domain_association)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/create_custom_domain_association.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#create_custom_domain_association)
         """
 
     def create_endpoint_access(
-        self,
-        *,
-        EndpointName: str,
-        SubnetGroupName: str,
-        ClusterIdentifier: str = None,
-        ResourceOwner: str = None,
-        VpcSecurityGroupIds: List[str] = None
-    ) -> EndpointAccessResponseMetadataTypeDef:
+        self, **kwargs: Unpack[CreateEndpointAccessMessageTypeDef]
+    ) -> EndpointAccessResponseTypeDef:
         """
         Creates a Redshift-managed VPC endpoint.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.create_endpoint_access)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#create_endpoint_access)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/create_endpoint_access.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#create_endpoint_access)
         """
 
     def create_event_subscription(
-        self,
-        *,
-        SubscriptionName: str,
-        SnsTopicArn: str,
-        SourceType: str = None,
-        SourceIds: List[str] = None,
-        EventCategories: List[str] = None,
-        Severity: str = None,
-        Enabled: bool = None,
-        Tags: List["TagTypeDef"] = None
+        self, **kwargs: Unpack[CreateEventSubscriptionMessageTypeDef]
     ) -> CreateEventSubscriptionResultTypeDef:
         """
         Creates an Amazon Redshift event notification subscription.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.create_event_subscription)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#create_event_subscription)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/create_event_subscription.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#create_event_subscription)
         """
 
     def create_hsm_client_certificate(
-        self, *, HsmClientCertificateIdentifier: str, Tags: List["TagTypeDef"] = None
+        self, **kwargs: Unpack[CreateHsmClientCertificateMessageTypeDef]
     ) -> CreateHsmClientCertificateResultTypeDef:
         """
         Creates an HSM client certificate that an Amazon Redshift cluster will use to
         connect to the client's HSM in order to store and retrieve the keys used to
         encrypt the cluster databases.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.create_hsm_client_certificate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#create_hsm_client_certificate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/create_hsm_client_certificate.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#create_hsm_client_certificate)
         """
 
     def create_hsm_configuration(
-        self,
-        *,
-        HsmConfigurationIdentifier: str,
-        Description: str,
-        HsmIpAddress: str,
-        HsmPartitionName: str,
-        HsmPartitionPassword: str,
-        HsmServerPublicCertificate: str,
-        Tags: List["TagTypeDef"] = None
+        self, **kwargs: Unpack[CreateHsmConfigurationMessageTypeDef]
     ) -> CreateHsmConfigurationResultTypeDef:
         """
-        Creates an HSM configuration that contains the information required by an Amazon
-        Redshift cluster to store and use database encryption keys in a Hardware
+        Creates an HSM configuration that contains the information required by an
+        Amazon Redshift cluster to store and use database encryption keys in a Hardware
         Security Module (HSM).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.create_hsm_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#create_hsm_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/create_hsm_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#create_hsm_configuration)
+        """
+
+    def create_integration(
+        self, **kwargs: Unpack[CreateIntegrationMessageTypeDef]
+    ) -> IntegrationResponseTypeDef:
+        """
+        Creates a zero-ETL integration or S3 event integration with Amazon Redshift.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/create_integration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#create_integration)
         """
 
     def create_redshift_idc_application(
-        self,
-        *,
-        IdcInstanceArn: str,
-        RedshiftIdcApplicationName: str,
-        IdcDisplayName: str,
-        IamRoleArn: str,
-        IdentityNamespace: str = None,
-        AuthorizedTokenIssuerList: List["AuthorizedTokenIssuerTypeDef"] = None,
-        ServiceIntegrations: List["ServiceIntegrationsUnionTypeDef"] = None
+        self, **kwargs: Unpack[CreateRedshiftIdcApplicationMessageTypeDef]
     ) -> CreateRedshiftIdcApplicationResultTypeDef:
         """
         Creates an Amazon Redshift application for use with IAM Identity Center.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.create_redshift_idc_application)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#create_redshift_idc_application)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/create_redshift_idc_application.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#create_redshift_idc_application)
         """
 
     def create_scheduled_action(
-        self,
-        *,
-        ScheduledActionName: str,
-        TargetAction: "ScheduledActionTypeTypeDef",
-        Schedule: str,
-        IamRole: str,
-        ScheduledActionDescription: str = None,
-        StartTime: Union[datetime, str] = None,
-        EndTime: Union[datetime, str] = None,
-        Enable: bool = None
-    ) -> ScheduledActionResponseMetadataTypeDef:
+        self, **kwargs: Unpack[CreateScheduledActionMessageTypeDef]
+    ) -> ScheduledActionResponseTypeDef:
         """
         Creates a scheduled action.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.create_scheduled_action)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#create_scheduled_action)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/create_scheduled_action.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#create_scheduled_action)
         """
 
     def create_snapshot_copy_grant(
-        self, *, SnapshotCopyGrantName: str, KmsKeyId: str = None, Tags: List["TagTypeDef"] = None
+        self, **kwargs: Unpack[CreateSnapshotCopyGrantMessageTypeDef]
     ) -> CreateSnapshotCopyGrantResultTypeDef:
         """
         Creates a snapshot copy grant that permits Amazon Redshift to use an encrypted
-        symmetric key from Key Management Service (KMS) to encrypt copied snapshots in a
-        destination region.
+        symmetric key from Key Management Service (KMS) to encrypt copied snapshots in
+        a destination region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.create_snapshot_copy_grant)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#create_snapshot_copy_grant)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/create_snapshot_copy_grant.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#create_snapshot_copy_grant)
         """
 
     def create_snapshot_schedule(
-        self,
-        *,
-        ScheduleDefinitions: List[str] = None,
-        ScheduleIdentifier: str = None,
-        ScheduleDescription: str = None,
-        Tags: List["TagTypeDef"] = None,
-        DryRun: bool = None,
-        NextInvocations: int = None
-    ) -> SnapshotScheduleResponseMetadataTypeDef:
+        self, **kwargs: Unpack[CreateSnapshotScheduleMessageTypeDef]
+    ) -> SnapshotScheduleResponseTypeDef:
         """
         Create a snapshot schedule that can be associated to a cluster and which
         overrides the default system backup schedule.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.create_snapshot_schedule)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#create_snapshot_schedule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/create_snapshot_schedule.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#create_snapshot_schedule)
         """
 
-    def create_tags(self, *, ResourceName: str, Tags: List["TagTypeDef"]) -> None:
+    def create_tags(
+        self, **kwargs: Unpack[CreateTagsMessageTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Adds tags to a cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.create_tags)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#create_tags)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/create_tags.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#create_tags)
         """
 
     def create_usage_limit(
-        self,
-        *,
-        ClusterIdentifier: str,
-        FeatureType: UsageLimitFeatureTypeType,
-        LimitType: UsageLimitLimitTypeType,
-        Amount: int,
-        Period: UsageLimitPeriodType = None,
-        BreachAction: UsageLimitBreachActionType = None,
-        Tags: List["TagTypeDef"] = None
-    ) -> UsageLimitResponseMetadataTypeDef:
+        self, **kwargs: Unpack[CreateUsageLimitMessageTypeDef]
+    ) -> UsageLimitResponseTypeDef:
         """
         Creates a usage limit for a specified Amazon Redshift feature on a cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.create_usage_limit)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#create_usage_limit)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/create_usage_limit.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#create_usage_limit)
         """
 
     def deauthorize_data_share(
-        self, *, DataShareArn: str, ConsumerIdentifier: str
-    ) -> DataShareResponseMetadataTypeDef:
+        self, **kwargs: Unpack[DeauthorizeDataShareMessageTypeDef]
+    ) -> DataShareResponseTypeDef:
         """
         From a datashare producer account, removes authorization from the specified
         datashare.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.deauthorize_data_share)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#deauthorize_data_share)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/deauthorize_data_share.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#deauthorize_data_share)
         """
 
     def delete_authentication_profile(
-        self, *, AuthenticationProfileName: str
+        self, **kwargs: Unpack[DeleteAuthenticationProfileMessageTypeDef]
     ) -> DeleteAuthenticationProfileResultTypeDef:
         """
         Deletes an authentication profile.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.delete_authentication_profile)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#delete_authentication_profile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/delete_authentication_profile.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#delete_authentication_profile)
         """
 
     def delete_cluster(
-        self,
-        *,
-        ClusterIdentifier: str,
-        SkipFinalClusterSnapshot: bool = None,
-        FinalClusterSnapshotIdentifier: str = None,
-        FinalClusterSnapshotRetentionPeriod: int = None
+        self, **kwargs: Unpack[DeleteClusterMessageTypeDef]
     ) -> DeleteClusterResultTypeDef:
         """
         Deletes a previously provisioned cluster without its final snapshot being
         created.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.delete_cluster)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#delete_cluster)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/delete_cluster.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#delete_cluster)
         """
 
-    def delete_cluster_parameter_group(self, *, ParameterGroupName: str) -> None:
+    def delete_cluster_parameter_group(
+        self, **kwargs: Unpack[DeleteClusterParameterGroupMessageTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Deletes a specified Amazon Redshift parameter group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.delete_cluster_parameter_group)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#delete_cluster_parameter_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/delete_cluster_parameter_group.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#delete_cluster_parameter_group)
         """
 
-    def delete_cluster_security_group(self, *, ClusterSecurityGroupName: str) -> None:
+    def delete_cluster_security_group(
+        self, **kwargs: Unpack[DeleteClusterSecurityGroupMessageTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Deletes an Amazon Redshift security group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.delete_cluster_security_group)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#delete_cluster_security_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/delete_cluster_security_group.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#delete_cluster_security_group)
         """
 
     def delete_cluster_snapshot(
-        self, *, SnapshotIdentifier: str, SnapshotClusterIdentifier: str = None
+        self, **kwargs: Unpack[DeleteClusterSnapshotMessageRequestTypeDef]
     ) -> DeleteClusterSnapshotResultTypeDef:
         """
         Deletes the specified manual snapshot.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.delete_cluster_snapshot)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#delete_cluster_snapshot)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/delete_cluster_snapshot.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#delete_cluster_snapshot)
         """
 
-    def delete_cluster_subnet_group(self, *, ClusterSubnetGroupName: str) -> None:
+    def delete_cluster_subnet_group(
+        self, **kwargs: Unpack[DeleteClusterSubnetGroupMessageTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Deletes the specified cluster subnet group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.delete_cluster_subnet_group)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#delete_cluster_subnet_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/delete_cluster_subnet_group.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#delete_cluster_subnet_group)
         """
 
     def delete_custom_domain_association(
-        self, *, ClusterIdentifier: str, CustomDomainName: str
-    ) -> None:
+        self, **kwargs: Unpack[DeleteCustomDomainAssociationMessageTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Contains information about deleting a custom domain association for a cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.delete_custom_domain_association)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#delete_custom_domain_association)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/delete_custom_domain_association.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#delete_custom_domain_association)
         """
 
-    def delete_endpoint_access(self, *, EndpointName: str) -> EndpointAccessResponseMetadataTypeDef:
+    def delete_endpoint_access(
+        self, **kwargs: Unpack[DeleteEndpointAccessMessageTypeDef]
+    ) -> EndpointAccessResponseTypeDef:
         """
         Deletes a Redshift-managed VPC endpoint.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.delete_endpoint_access)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#delete_endpoint_access)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/delete_endpoint_access.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#delete_endpoint_access)
         """
 
-    def delete_event_subscription(self, *, SubscriptionName: str) -> None:
+    def delete_event_subscription(
+        self, **kwargs: Unpack[DeleteEventSubscriptionMessageTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Deletes an Amazon Redshift event notification subscription.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.delete_event_subscription)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#delete_event_subscription)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/delete_event_subscription.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#delete_event_subscription)
         """
 
-    def delete_hsm_client_certificate(self, *, HsmClientCertificateIdentifier: str) -> None:
+    def delete_hsm_client_certificate(
+        self, **kwargs: Unpack[DeleteHsmClientCertificateMessageTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Deletes the specified HSM client certificate.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.delete_hsm_client_certificate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#delete_hsm_client_certificate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/delete_hsm_client_certificate.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#delete_hsm_client_certificate)
         """
 
-    def delete_hsm_configuration(self, *, HsmConfigurationIdentifier: str) -> None:
+    def delete_hsm_configuration(
+        self, **kwargs: Unpack[DeleteHsmConfigurationMessageTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Deletes the specified Amazon Redshift HSM configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.delete_hsm_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#delete_hsm_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/delete_hsm_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#delete_hsm_configuration)
+        """
+
+    def delete_integration(
+        self, **kwargs: Unpack[DeleteIntegrationMessageTypeDef]
+    ) -> IntegrationResponseTypeDef:
+        """
+        Deletes a zero-ETL integration or S3 event integration with Amazon Redshift.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/delete_integration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#delete_integration)
         """
 
     def delete_partner(
-        self, *, AccountId: str, ClusterIdentifier: str, DatabaseName: str, PartnerName: str
+        self, **kwargs: Unpack[PartnerIntegrationInputMessageRequestTypeDef]
     ) -> PartnerIntegrationOutputMessageTypeDef:
         """
         Deletes a partner integration from a cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.delete_partner)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#delete_partner)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/delete_partner.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#delete_partner)
         """
 
-    def delete_redshift_idc_application(self, *, RedshiftIdcApplicationArn: str) -> None:
+    def delete_redshift_idc_application(
+        self, **kwargs: Unpack[DeleteRedshiftIdcApplicationMessageTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Deletes an Amazon Redshift IAM Identity Center application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.delete_redshift_idc_application)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#delete_redshift_idc_application)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/delete_redshift_idc_application.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#delete_redshift_idc_application)
         """
 
-    def delete_resource_policy(self, *, ResourceArn: str) -> None:
+    def delete_resource_policy(
+        self, **kwargs: Unpack[DeleteResourcePolicyMessageTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Deletes the resource policy for a specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.delete_resource_policy)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#delete_resource_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/delete_resource_policy.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#delete_resource_policy)
         """
 
-    def delete_scheduled_action(self, *, ScheduledActionName: str) -> None:
+    def delete_scheduled_action(
+        self, **kwargs: Unpack[DeleteScheduledActionMessageTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Deletes a scheduled action.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.delete_scheduled_action)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#delete_scheduled_action)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/delete_scheduled_action.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#delete_scheduled_action)
         """
 
-    def delete_snapshot_copy_grant(self, *, SnapshotCopyGrantName: str) -> None:
+    def delete_snapshot_copy_grant(
+        self, **kwargs: Unpack[DeleteSnapshotCopyGrantMessageTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Deletes the specified snapshot copy grant.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.delete_snapshot_copy_grant)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#delete_snapshot_copy_grant)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/delete_snapshot_copy_grant.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#delete_snapshot_copy_grant)
         """
 
-    def delete_snapshot_schedule(self, *, ScheduleIdentifier: str) -> None:
+    def delete_snapshot_schedule(
+        self, **kwargs: Unpack[DeleteSnapshotScheduleMessageTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Deletes a snapshot schedule.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.delete_snapshot_schedule)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#delete_snapshot_schedule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/delete_snapshot_schedule.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#delete_snapshot_schedule)
         """
 
-    def delete_tags(self, *, ResourceName: str, TagKeys: List[str]) -> None:
+    def delete_tags(
+        self, **kwargs: Unpack[DeleteTagsMessageTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Deletes tags from a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.delete_tags)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#delete_tags)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/delete_tags.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#delete_tags)
         """
 
-    def delete_usage_limit(self, *, UsageLimitId: str) -> None:
+    def delete_usage_limit(
+        self, **kwargs: Unpack[DeleteUsageLimitMessageTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Deletes a usage limit from a cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.delete_usage_limit)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#delete_usage_limit)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/delete_usage_limit.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#delete_usage_limit)
+        """
+
+    def deregister_namespace(
+        self, **kwargs: Unpack[DeregisterNamespaceInputMessageTypeDef]
+    ) -> DeregisterNamespaceOutputMessageTypeDef:
+        """
+        Deregisters a cluster or serverless namespace from the Amazon Web Services Glue
+        Data Catalog.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/deregister_namespace.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#deregister_namespace)
         """
 
     def describe_account_attributes(
-        self, *, AttributeNames: List[str] = None
+        self, **kwargs: Unpack[DescribeAccountAttributesMessageTypeDef]
     ) -> AccountAttributeListTypeDef:
         """
-        Returns a list of attributes attached to an account See also: `AWS API
-        Documentation <https://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-
-        01/DescribeAccountAttributes>`_ **Request Syntax** response =
-        client.describe_account_attributes( AttributeNames=[ 'string', ...
+        Returns a list of attributes attached to an account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.describe_account_attributes)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#describe_account_attributes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/describe_account_attributes.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#describe_account_attributes)
         """
 
     def describe_authentication_profiles(
-        self, *, AuthenticationProfileName: str = None
+        self, **kwargs: Unpack[DescribeAuthenticationProfilesMessageTypeDef]
     ) -> DescribeAuthenticationProfilesResultTypeDef:
         """
         Describes an authentication profile.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.describe_authentication_profiles)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#describe_authentication_profiles)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/describe_authentication_profiles.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#describe_authentication_profiles)
         """
 
     def describe_cluster_db_revisions(
-        self, *, ClusterIdentifier: str = None, MaxRecords: int = None, Marker: str = None
+        self, **kwargs: Unpack[DescribeClusterDbRevisionsMessageTypeDef]
     ) -> ClusterDbRevisionsMessageTypeDef:
         """
-        Returns an array of `ClusterDbRevision` objects.
+        Returns an array of <code>ClusterDbRevision</code> objects.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.describe_cluster_db_revisions)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#describe_cluster_db_revisions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/describe_cluster_db_revisions.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#describe_cluster_db_revisions)
         """
 
     def describe_cluster_parameter_groups(
-        self,
-        *,
-        ParameterGroupName: str = None,
-        MaxRecords: int = None,
-        Marker: str = None,
-        TagKeys: List[str] = None,
-        TagValues: List[str] = None
+        self, **kwargs: Unpack[DescribeClusterParameterGroupsMessageTypeDef]
     ) -> ClusterParameterGroupsMessageTypeDef:
         """
         Returns a list of Amazon Redshift parameter groups, including parameter groups
         you created and the default parameter group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.describe_cluster_parameter_groups)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#describe_cluster_parameter_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/describe_cluster_parameter_groups.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#describe_cluster_parameter_groups)
         """
 
     def describe_cluster_parameters(
-        self,
-        *,
-        ParameterGroupName: str,
-        Source: str = None,
-        MaxRecords: int = None,
-        Marker: str = None
+        self, **kwargs: Unpack[DescribeClusterParametersMessageTypeDef]
     ) -> ClusterParameterGroupDetailsTypeDef:
         """
         Returns a detailed list of parameters contained within the specified Amazon
         Redshift parameter group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.describe_cluster_parameters)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#describe_cluster_parameters)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/describe_cluster_parameters.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#describe_cluster_parameters)
         """
 
     def describe_cluster_security_groups(
-        self,
-        *,
-        ClusterSecurityGroupName: str = None,
-        MaxRecords: int = None,
-        Marker: str = None,
-        TagKeys: List[str] = None,
-        TagValues: List[str] = None
+        self, **kwargs: Unpack[DescribeClusterSecurityGroupsMessageTypeDef]
     ) -> ClusterSecurityGroupMessageTypeDef:
         """
         Returns information about Amazon Redshift security groups.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.describe_cluster_security_groups)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#describe_cluster_security_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/describe_cluster_security_groups.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#describe_cluster_security_groups)
         """
 
     def describe_cluster_snapshots(
-        self,
-        *,
-        ClusterIdentifier: str = None,
-        SnapshotIdentifier: str = None,
-        SnapshotArn: str = None,
-        SnapshotType: str = None,
-        StartTime: Union[datetime, str] = None,
-        EndTime: Union[datetime, str] = None,
-        MaxRecords: int = None,
-        Marker: str = None,
-        OwnerAccount: str = None,
-        TagKeys: List[str] = None,
-        TagValues: List[str] = None,
-        ClusterExists: bool = None,
-        SortingEntities: List["SnapshotSortingEntityTypeDef"] = None
+        self, **kwargs: Unpack[DescribeClusterSnapshotsMessageTypeDef]
     ) -> SnapshotMessageTypeDef:
         """
         Returns one or more snapshot objects, which contain metadata about your cluster
         snapshots.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.describe_cluster_snapshots)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#describe_cluster_snapshots)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/describe_cluster_snapshots.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#describe_cluster_snapshots)
         """
 
     def describe_cluster_subnet_groups(
-        self,
-        *,
-        ClusterSubnetGroupName: str = None,
-        MaxRecords: int = None,
-        Marker: str = None,
-        TagKeys: List[str] = None,
-        TagValues: List[str] = None
+        self, **kwargs: Unpack[DescribeClusterSubnetGroupsMessageTypeDef]
     ) -> ClusterSubnetGroupMessageTypeDef:
         """
         Returns one or more cluster subnet group objects, which contain metadata about
         your cluster subnet groups.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.describe_cluster_subnet_groups)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#describe_cluster_subnet_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/describe_cluster_subnet_groups.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#describe_cluster_subnet_groups)
         """
 
     def describe_cluster_tracks(
-        self, *, MaintenanceTrackName: str = None, MaxRecords: int = None, Marker: str = None
+        self, **kwargs: Unpack[DescribeClusterTracksMessageTypeDef]
     ) -> TrackListMessageTypeDef:
         """
         Returns a list of all the available maintenance tracks.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.describe_cluster_tracks)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#describe_cluster_tracks)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/describe_cluster_tracks.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#describe_cluster_tracks)
         """
 
     def describe_cluster_versions(
-        self,
-        *,
-        ClusterVersion: str = None,
-        ClusterParameterGroupFamily: str = None,
-        MaxRecords: int = None,
-        Marker: str = None
+        self, **kwargs: Unpack[DescribeClusterVersionsMessageTypeDef]
     ) -> ClusterVersionsMessageTypeDef:
         """
         Returns descriptions of the available Amazon Redshift cluster versions.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.describe_cluster_versions)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#describe_cluster_versions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/describe_cluster_versions.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#describe_cluster_versions)
         """
 
     def describe_clusters(
-        self,
-        *,
-        ClusterIdentifier: str = None,
-        MaxRecords: int = None,
-        Marker: str = None,
-        TagKeys: List[str] = None,
-        TagValues: List[str] = None
+        self, **kwargs: Unpack[DescribeClustersMessageTypeDef]
     ) -> ClustersMessageTypeDef:
         """
-        Returns properties of provisioned clusters including general cluster properties,
-        cluster database properties, maintenance and backup properties, and security and
-        access properties.
+        Returns properties of provisioned clusters including general cluster
+        properties, cluster database properties, maintenance and backup properties, and
+        security and access properties.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.describe_clusters)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#describe_clusters)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/describe_clusters.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#describe_clusters)
         """
 
     def describe_custom_domain_associations(
-        self,
-        *,
-        CustomDomainName: str = None,
-        CustomDomainCertificateArn: str = None,
-        MaxRecords: int = None,
-        Marker: str = None
+        self, **kwargs: Unpack[DescribeCustomDomainAssociationsMessageTypeDef]
     ) -> CustomDomainAssociationsMessageTypeDef:
         """
         Contains information about custom domain associations for a cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.describe_custom_domain_associations)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#describe_custom_domain_associations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/describe_custom_domain_associations.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#describe_custom_domain_associations)
         """
 
     def describe_data_shares(
-        self, *, DataShareArn: str = None, MaxRecords: int = None, Marker: str = None
+        self, **kwargs: Unpack[DescribeDataSharesMessageTypeDef]
     ) -> DescribeDataSharesResultTypeDef:
         """
         Shows the status of any inbound or outbound datashares available in the
         specified account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.describe_data_shares)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#describe_data_shares)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/describe_data_shares.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#describe_data_shares)
         """
 
     def describe_data_shares_for_consumer(
-        self,
-        *,
-        ConsumerArn: str = None,
-        Status: DataShareStatusForConsumerType = None,
-        MaxRecords: int = None,
-        Marker: str = None
+        self, **kwargs: Unpack[DescribeDataSharesForConsumerMessageTypeDef]
     ) -> DescribeDataSharesForConsumerResultTypeDef:
         """
         Returns a list of datashares where the account identifier being called is a
         consumer account identifier.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.describe_data_shares_for_consumer)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#describe_data_shares_for_consumer)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/describe_data_shares_for_consumer.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#describe_data_shares_for_consumer)
         """
 
     def describe_data_shares_for_producer(
-        self,
-        *,
-        ProducerArn: str = None,
-        Status: DataShareStatusForProducerType = None,
-        MaxRecords: int = None,
-        Marker: str = None
+        self, **kwargs: Unpack[DescribeDataSharesForProducerMessageTypeDef]
     ) -> DescribeDataSharesForProducerResultTypeDef:
         """
         Returns a list of datashares when the account identifier being called is a
         producer account identifier.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.describe_data_shares_for_producer)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#describe_data_shares_for_producer)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/describe_data_shares_for_producer.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#describe_data_shares_for_producer)
         """
 
     def describe_default_cluster_parameters(
-        self, *, ParameterGroupFamily: str, MaxRecords: int = None, Marker: str = None
+        self, **kwargs: Unpack[DescribeDefaultClusterParametersMessageTypeDef]
     ) -> DescribeDefaultClusterParametersResultTypeDef:
         """
         Returns a list of parameter settings for the specified parameter group family.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.describe_default_cluster_parameters)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#describe_default_cluster_parameters)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/describe_default_cluster_parameters.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#describe_default_cluster_parameters)
         """
 
     def describe_endpoint_access(
-        self,
-        *,
-        ClusterIdentifier: str = None,
-        ResourceOwner: str = None,
-        EndpointName: str = None,
-        VpcId: str = None,
-        MaxRecords: int = None,
-        Marker: str = None
+        self, **kwargs: Unpack[DescribeEndpointAccessMessageTypeDef]
     ) -> EndpointAccessListTypeDef:
         """
         Describes a Redshift-managed VPC endpoint.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.describe_endpoint_access)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#describe_endpoint_access)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/describe_endpoint_access.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#describe_endpoint_access)
         """
 
     def describe_endpoint_authorization(
-        self,
-        *,
-        ClusterIdentifier: str = None,
-        Account: str = None,
-        Grantee: bool = None,
-        MaxRecords: int = None,
-        Marker: str = None
+        self, **kwargs: Unpack[DescribeEndpointAuthorizationMessageTypeDef]
     ) -> EndpointAuthorizationListTypeDef:
         """
         Describes an endpoint authorization.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.describe_endpoint_authorization)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#describe_endpoint_authorization)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/describe_endpoint_authorization.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#describe_endpoint_authorization)
         """
 
-    def describe_event_categories(self, *, SourceType: str = None) -> EventCategoriesMessageTypeDef:
+    def describe_event_categories(
+        self, **kwargs: Unpack[DescribeEventCategoriesMessageTypeDef]
+    ) -> EventCategoriesMessageTypeDef:
         """
         Displays a list of event categories for all event source types, or for a
         specified source type.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.describe_event_categories)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#describe_event_categories)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/describe_event_categories.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#describe_event_categories)
         """
 
     def describe_event_subscriptions(
-        self,
-        *,
-        SubscriptionName: str = None,
-        MaxRecords: int = None,
-        Marker: str = None,
-        TagKeys: List[str] = None,
-        TagValues: List[str] = None
+        self, **kwargs: Unpack[DescribeEventSubscriptionsMessageTypeDef]
     ) -> EventSubscriptionsMessageTypeDef:
         """
         Lists descriptions of all the Amazon Redshift event notification subscriptions
         for a customer account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.describe_event_subscriptions)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#describe_event_subscriptions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/describe_event_subscriptions.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#describe_event_subscriptions)
         """
 
     def describe_events(
-        self,
-        *,
-        SourceIdentifier: str = None,
-        SourceType: SourceTypeType = None,
-        StartTime: Union[datetime, str] = None,
-        EndTime: Union[datetime, str] = None,
-        Duration: int = None,
-        MaxRecords: int = None,
-        Marker: str = None
+        self, **kwargs: Unpack[DescribeEventsMessageTypeDef]
     ) -> EventsMessageTypeDef:
         """
         Returns events related to clusters, security groups, snapshots, and parameter
         groups for the past 14 days.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.describe_events)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#describe_events)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/describe_events.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#describe_events)
         """
 
     def describe_hsm_client_certificates(
-        self,
-        *,
-        HsmClientCertificateIdentifier: str = None,
-        MaxRecords: int = None,
-        Marker: str = None,
-        TagKeys: List[str] = None,
-        TagValues: List[str] = None
+        self, **kwargs: Unpack[DescribeHsmClientCertificatesMessageTypeDef]
     ) -> HsmClientCertificateMessageTypeDef:
         """
         Returns information about the specified HSM client certificate.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.describe_hsm_client_certificates)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#describe_hsm_client_certificates)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/describe_hsm_client_certificates.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#describe_hsm_client_certificates)
         """
 
     def describe_hsm_configurations(
-        self,
-        *,
-        HsmConfigurationIdentifier: str = None,
-        MaxRecords: int = None,
-        Marker: str = None,
-        TagKeys: List[str] = None,
-        TagValues: List[str] = None
+        self, **kwargs: Unpack[DescribeHsmConfigurationsMessageTypeDef]
     ) -> HsmConfigurationMessageTypeDef:
         """
         Returns information about the specified Amazon Redshift HSM configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.describe_hsm_configurations)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#describe_hsm_configurations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/describe_hsm_configurations.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#describe_hsm_configurations)
         """
 
     def describe_inbound_integrations(
-        self,
-        *,
-        IntegrationArn: str = None,
-        TargetArn: str = None,
-        MaxRecords: int = None,
-        Marker: str = None
+        self, **kwargs: Unpack[DescribeInboundIntegrationsMessageTypeDef]
     ) -> InboundIntegrationsMessageTypeDef:
         """
         Returns a list of inbound integrations.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.describe_inbound_integrations)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#describe_inbound_integrations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/describe_inbound_integrations.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#describe_inbound_integrations)
         """
 
-    def describe_logging_status(self, *, ClusterIdentifier: str) -> LoggingStatusTypeDef:
+    def describe_integrations(
+        self, **kwargs: Unpack[DescribeIntegrationsMessageTypeDef]
+    ) -> IntegrationsMessageTypeDef:
         """
-        Describes whether information, such as queries and connection attempts, is being
-        logged for the specified Amazon Redshift cluster.
+        Describes one or more zero-ETL or S3 event integrations with Amazon Redshift.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.describe_logging_status)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#describe_logging_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/describe_integrations.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#describe_integrations)
+        """
+
+    def describe_logging_status(
+        self, **kwargs: Unpack[DescribeLoggingStatusMessageTypeDef]
+    ) -> LoggingStatusTypeDef:
+        """
+        Describes whether information, such as queries and connection attempts, is
+        being logged for the specified Amazon Redshift cluster.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/describe_logging_status.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#describe_logging_status)
         """
 
     def describe_node_configuration_options(
-        self,
-        *,
-        ActionType: ActionTypeType,
-        ClusterIdentifier: str = None,
-        SnapshotIdentifier: str = None,
-        SnapshotArn: str = None,
-        OwnerAccount: str = None,
-        Filters: List["NodeConfigurationOptionsFilterTypeDef"] = None,
-        Marker: str = None,
-        MaxRecords: int = None
+        self, **kwargs: Unpack[DescribeNodeConfigurationOptionsMessageTypeDef]
     ) -> NodeConfigurationOptionsMessageTypeDef:
         """
         Returns properties of possible node configurations such as node type, number of
         nodes, and disk usage for the specified action type.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.describe_node_configuration_options)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#describe_node_configuration_options)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/describe_node_configuration_options.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#describe_node_configuration_options)
         """
 
     def describe_orderable_cluster_options(
-        self,
-        *,
-        ClusterVersion: str = None,
-        NodeType: str = None,
-        MaxRecords: int = None,
-        Marker: str = None
+        self, **kwargs: Unpack[DescribeOrderableClusterOptionsMessageTypeDef]
     ) -> OrderableClusterOptionsMessageTypeDef:
         """
         Returns a list of orderable cluster options.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.describe_orderable_cluster_options)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#describe_orderable_cluster_options)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/describe_orderable_cluster_options.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#describe_orderable_cluster_options)
         """
 
     def describe_partners(
-        self,
-        *,
-        AccountId: str,
-        ClusterIdentifier: str,
-        DatabaseName: str = None,
-        PartnerName: str = None
+        self, **kwargs: Unpack[DescribePartnersInputMessageTypeDef]
     ) -> DescribePartnersOutputMessageTypeDef:
         """
         Returns information about the partner integrations defined for a cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.describe_partners)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#describe_partners)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/describe_partners.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#describe_partners)
         """
 
     def describe_redshift_idc_applications(
-        self, *, RedshiftIdcApplicationArn: str = None, MaxRecords: int = None, Marker: str = None
+        self, **kwargs: Unpack[DescribeRedshiftIdcApplicationsMessageTypeDef]
     ) -> DescribeRedshiftIdcApplicationsResultTypeDef:
         """
         Lists the Amazon Redshift IAM Identity Center applications.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.describe_redshift_idc_applications)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#describe_redshift_idc_applications)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/describe_redshift_idc_applications.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#describe_redshift_idc_applications)
         """
 
     def describe_reserved_node_exchange_status(
-        self,
-        *,
-        ReservedNodeId: str = None,
-        ReservedNodeExchangeRequestId: str = None,
-        MaxRecords: int = None,
-        Marker: str = None
+        self, **kwargs: Unpack[DescribeReservedNodeExchangeStatusInputMessageTypeDef]
     ) -> DescribeReservedNodeExchangeStatusOutputMessageTypeDef:
         """
         Returns exchange status details and associated metadata for a reserved-node
         exchange.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.describe_reserved_node_exchange_status)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#describe_reserved_node_exchange_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/describe_reserved_node_exchange_status.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#describe_reserved_node_exchange_status)
         """
 
     def describe_reserved_node_offerings(
-        self, *, ReservedNodeOfferingId: str = None, MaxRecords: int = None, Marker: str = None
+        self, **kwargs: Unpack[DescribeReservedNodeOfferingsMessageTypeDef]
     ) -> ReservedNodeOfferingsMessageTypeDef:
         """
         Returns a list of the available reserved node offerings by Amazon Redshift with
         their descriptions including the node type, the fixed and recurring costs of
         reserving the node and duration the node will be reserved for you.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.describe_reserved_node_offerings)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#describe_reserved_node_offerings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/describe_reserved_node_offerings.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#describe_reserved_node_offerings)
         """
 
     def describe_reserved_nodes(
-        self, *, ReservedNodeId: str = None, MaxRecords: int = None, Marker: str = None
+        self, **kwargs: Unpack[DescribeReservedNodesMessageTypeDef]
     ) -> ReservedNodesMessageTypeDef:
         """
         Returns the descriptions of the reserved nodes.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.describe_reserved_nodes)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#describe_reserved_nodes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/describe_reserved_nodes.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#describe_reserved_nodes)
         """
 
-    def describe_resize(self, *, ClusterIdentifier: str) -> ResizeProgressMessageTypeDef:
+    def describe_resize(
+        self, **kwargs: Unpack[DescribeResizeMessageTypeDef]
+    ) -> ResizeProgressMessageTypeDef:
         """
         Returns information about the last resize operation for the specified cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.describe_resize)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#describe_resize)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/describe_resize.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#describe_resize)
         """
 
     def describe_scheduled_actions(
-        self,
-        *,
-        ScheduledActionName: str = None,
-        TargetActionType: ScheduledActionTypeValuesType = None,
-        StartTime: Union[datetime, str] = None,
-        EndTime: Union[datetime, str] = None,
-        Active: bool = None,
-        Filters: List["ScheduledActionFilterTypeDef"] = None,
-        Marker: str = None,
-        MaxRecords: int = None
+        self, **kwargs: Unpack[DescribeScheduledActionsMessageTypeDef]
     ) -> ScheduledActionsMessageTypeDef:
         """
         Describes properties of scheduled actions.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.describe_scheduled_actions)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#describe_scheduled_actions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/describe_scheduled_actions.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#describe_scheduled_actions)
         """
 
     def describe_snapshot_copy_grants(
-        self,
-        *,
-        SnapshotCopyGrantName: str = None,
-        MaxRecords: int = None,
-        Marker: str = None,
-        TagKeys: List[str] = None,
-        TagValues: List[str] = None
+        self, **kwargs: Unpack[DescribeSnapshotCopyGrantsMessageTypeDef]
     ) -> SnapshotCopyGrantMessageTypeDef:
         """
         Returns a list of snapshot copy grants owned by the Amazon Web Services account
         in the destination region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.describe_snapshot_copy_grants)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#describe_snapshot_copy_grants)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/describe_snapshot_copy_grants.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#describe_snapshot_copy_grants)
         """
 
     def describe_snapshot_schedules(
-        self,
-        *,
-        ClusterIdentifier: str = None,
-        ScheduleIdentifier: str = None,
-        TagKeys: List[str] = None,
-        TagValues: List[str] = None,
-        Marker: str = None,
-        MaxRecords: int = None
+        self, **kwargs: Unpack[DescribeSnapshotSchedulesMessageTypeDef]
     ) -> DescribeSnapshotSchedulesOutputMessageTypeDef:
         """
         Returns a list of snapshot schedules.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.describe_snapshot_schedules)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#describe_snapshot_schedules)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/describe_snapshot_schedules.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#describe_snapshot_schedules)
         """
 
     def describe_storage(self) -> CustomerStorageMessageTypeDef:
         """
         Returns account level backups storage size and provisional storage.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.describe_storage)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#describe_storage)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/describe_storage.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#describe_storage)
         """
 
     def describe_table_restore_status(
-        self,
-        *,
-        ClusterIdentifier: str = None,
-        TableRestoreRequestId: str = None,
-        MaxRecords: int = None,
-        Marker: str = None
+        self, **kwargs: Unpack[DescribeTableRestoreStatusMessageTypeDef]
     ) -> TableRestoreStatusMessageTypeDef:
         """
         Lists the status of one or more table restore requests made using the
-        RestoreTableFromClusterSnapshot API action.
+        <a>RestoreTableFromClusterSnapshot</a> API action.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.describe_table_restore_status)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#describe_table_restore_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/describe_table_restore_status.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#describe_table_restore_status)
         """
 
     def describe_tags(
-        self,
-        *,
-        ResourceName: str = None,
-        ResourceType: str = None,
-        MaxRecords: int = None,
-        Marker: str = None,
-        TagKeys: List[str] = None,
-        TagValues: List[str] = None
+        self, **kwargs: Unpack[DescribeTagsMessageTypeDef]
     ) -> TaggedResourceListMessageTypeDef:
         """
         Returns a list of tags.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.describe_tags)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#describe_tags)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/describe_tags.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#describe_tags)
         """
 
     def describe_usage_limits(
-        self,
-        *,
-        UsageLimitId: str = None,
-        ClusterIdentifier: str = None,
-        FeatureType: UsageLimitFeatureTypeType = None,
-        MaxRecords: int = None,
-        Marker: str = None,
-        TagKeys: List[str] = None,
-        TagValues: List[str] = None
+        self, **kwargs: Unpack[DescribeUsageLimitsMessageTypeDef]
     ) -> UsageLimitListTypeDef:
         """
         Shows usage limits on a cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.describe_usage_limits)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#describe_usage_limits)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/describe_usage_limits.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#describe_usage_limits)
         """
 
-    def disable_logging(self, *, ClusterIdentifier: str) -> LoggingStatusTypeDef:
+    def disable_logging(
+        self, **kwargs: Unpack[DisableLoggingMessageTypeDef]
+    ) -> LoggingStatusTypeDef:
         """
         Stops logging information, such as queries and connection attempts, for the
         specified Amazon Redshift cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.disable_logging)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#disable_logging)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/disable_logging.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#disable_logging)
         """
 
-    def disable_snapshot_copy(self, *, ClusterIdentifier: str) -> DisableSnapshotCopyResultTypeDef:
+    def disable_snapshot_copy(
+        self, **kwargs: Unpack[DisableSnapshotCopyMessageTypeDef]
+    ) -> DisableSnapshotCopyResultTypeDef:
         """
         Disables the automatic copying of snapshots from one region to another region
         for a specified cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.disable_snapshot_copy)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#disable_snapshot_copy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/disable_snapshot_copy.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#disable_snapshot_copy)
         """
 
     def disassociate_data_share_consumer(
-        self,
-        *,
-        DataShareArn: str,
-        DisassociateEntireAccount: bool = None,
-        ConsumerArn: str = None,
-        ConsumerRegion: str = None
-    ) -> DataShareResponseMetadataTypeDef:
+        self, **kwargs: Unpack[DisassociateDataShareConsumerMessageTypeDef]
+    ) -> DataShareResponseTypeDef:
         """
         From a datashare consumer account, remove association for the specified
         datashare.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.disassociate_data_share_consumer)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#disassociate_data_share_consumer)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/disassociate_data_share_consumer.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#disassociate_data_share_consumer)
         """
 
-    def enable_logging(
-        self,
-        *,
-        ClusterIdentifier: str,
-        BucketName: str = None,
-        S3KeyPrefix: str = None,
-        LogDestinationType: LogDestinationTypeType = None,
-        LogExports: List[str] = None
-    ) -> LoggingStatusTypeDef:
+    def enable_logging(self, **kwargs: Unpack[EnableLoggingMessageTypeDef]) -> LoggingStatusTypeDef:
         """
         Starts logging information, such as queries and connection attempts, for the
         specified Amazon Redshift cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.enable_logging)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#enable_logging)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/enable_logging.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#enable_logging)
         """
 
     def enable_snapshot_copy(
-        self,
-        *,
-        ClusterIdentifier: str,
-        DestinationRegion: str,
-        RetentionPeriod: int = None,
-        SnapshotCopyGrantName: str = None,
-        ManualSnapshotRetentionPeriod: int = None
+        self, **kwargs: Unpack[EnableSnapshotCopyMessageTypeDef]
     ) -> EnableSnapshotCopyResultTypeDef:
         """
         Enables the automatic copy of snapshots from one region to another region for a
         specified cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.enable_snapshot_copy)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#enable_snapshot_copy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/enable_snapshot_copy.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#enable_snapshot_copy)
         """
 
     def failover_primary_compute(
-        self, *, ClusterIdentifier: str
+        self, **kwargs: Unpack[FailoverPrimaryComputeInputMessageTypeDef]
     ) -> FailoverPrimaryComputeResultTypeDef:
         """
-        Fails over the primary compute unit of the specified Multi-AZ cluster to another
-        Availability Zone.
+        Fails over the primary compute unit of the specified Multi-AZ cluster to
+        another Availability Zone.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.failover_primary_compute)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#failover_primary_compute)
-        """
-
-    def generate_presigned_url(
-        self,
-        ClientMethod: str,
-        Params: Dict[str, Any] = None,
-        ExpiresIn: int = 3600,
-        HttpMethod: str = None,
-    ) -> str:
-        """
-        Generate a presigned url given a client, its method, and arguments.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.generate_presigned_url)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/failover_primary_compute.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#failover_primary_compute)
         """
 
     def get_cluster_credentials(
-        self,
-        *,
-        DbUser: str,
-        DbName: str = None,
-        ClusterIdentifier: str = None,
-        DurationSeconds: int = None,
-        AutoCreate: bool = None,
-        DbGroups: List[str] = None,
-        CustomDomainName: str = None
+        self, **kwargs: Unpack[GetClusterCredentialsMessageTypeDef]
     ) -> ClusterCredentialsTypeDef:
         """
-        Returns a database user name and temporary password with temporary authorization
-        to log on to an Amazon Redshift database.
+        Returns a database user name and temporary password with temporary
+        authorization to log on to an Amazon Redshift database.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.get_cluster_credentials)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#get_cluster_credentials)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/get_cluster_credentials.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#get_cluster_credentials)
         """
 
     def get_cluster_credentials_with_iam(
-        self,
-        *,
-        DbName: str = None,
-        ClusterIdentifier: str = None,
-        DurationSeconds: int = None,
-        CustomDomainName: str = None
+        self, **kwargs: Unpack[GetClusterCredentialsWithIAMMessageTypeDef]
     ) -> ClusterExtendedCredentialsTypeDef:
         """
-        Returns a database user name and temporary password with temporary authorization
-        to log in to an Amazon Redshift database.
+        Returns a database user name and temporary password with temporary
+        authorization to log in to an Amazon Redshift database.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.get_cluster_credentials_with_iam)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#get_cluster_credentials_with_iam)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/get_cluster_credentials_with_iam.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#get_cluster_credentials_with_iam)
         """
 
     def get_reserved_node_exchange_configuration_options(
-        self,
-        *,
-        ActionType: ReservedNodeExchangeActionTypeType,
-        ClusterIdentifier: str = None,
-        SnapshotIdentifier: str = None,
-        MaxRecords: int = None,
-        Marker: str = None
+        self, **kwargs: Unpack[GetReservedNodeExchangeConfigurationOptionsInputMessageTypeDef]
     ) -> GetReservedNodeExchangeConfigurationOptionsOutputMessageTypeDef:
         """
         Gets the configuration options for the reserved-node exchange.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.get_reserved_node_exchange_configuration_options)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#get_reserved_node_exchange_configuration_options)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/get_reserved_node_exchange_configuration_options.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#get_reserved_node_exchange_configuration_options)
         """
 
     def get_reserved_node_exchange_offerings(
-        self, *, ReservedNodeId: str, MaxRecords: int = None, Marker: str = None
+        self, **kwargs: Unpack[GetReservedNodeExchangeOfferingsInputMessageTypeDef]
     ) -> GetReservedNodeExchangeOfferingsOutputMessageTypeDef:
         """
         Returns an array of DC2 ReservedNodeOfferings that matches the payment type,
         term, and usage price of the given DC1 reserved node.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.get_reserved_node_exchange_offerings)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#get_reserved_node_exchange_offerings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/get_reserved_node_exchange_offerings.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#get_reserved_node_exchange_offerings)
         """
 
-    def get_resource_policy(self, *, ResourceArn: str) -> GetResourcePolicyResultTypeDef:
+    def get_resource_policy(
+        self, **kwargs: Unpack[GetResourcePolicyMessageTypeDef]
+    ) -> GetResourcePolicyResultTypeDef:
         """
         Get the resource policy for a specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.get_resource_policy)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#get_resource_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/get_resource_policy.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#get_resource_policy)
         """
 
     def list_recommendations(
-        self,
-        *,
-        ClusterIdentifier: str = None,
-        NamespaceArn: str = None,
-        MaxRecords: int = None,
-        Marker: str = None
+        self, **kwargs: Unpack[ListRecommendationsMessageTypeDef]
     ) -> ListRecommendationsResultTypeDef:
         """
         List the Amazon Redshift Advisor recommendations for one or multiple Amazon
         Redshift clusters in an Amazon Web Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.list_recommendations)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#list_recommendations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/list_recommendations.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#list_recommendations)
         """
 
     def modify_aqua_configuration(
-        self, *, ClusterIdentifier: str, AquaConfigurationStatus: AquaConfigurationStatusType = None
+        self, **kwargs: Unpack[ModifyAquaInputMessageTypeDef]
     ) -> ModifyAquaOutputMessageTypeDef:
         """
         This operation is retired.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.modify_aqua_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#modify_aqua_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/modify_aqua_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#modify_aqua_configuration)
         """
 
     def modify_authentication_profile(
-        self, *, AuthenticationProfileName: str, AuthenticationProfileContent: str
+        self, **kwargs: Unpack[ModifyAuthenticationProfileMessageTypeDef]
     ) -> ModifyAuthenticationProfileResultTypeDef:
         """
         Modifies an authentication profile.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.modify_authentication_profile)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#modify_authentication_profile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/modify_authentication_profile.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#modify_authentication_profile)
         """
 
     def modify_cluster(
-        self,
-        *,
-        ClusterIdentifier: str,
-        ClusterType: str = None,
-        NodeType: str = None,
-        NumberOfNodes: int = None,
-        ClusterSecurityGroups: List[str] = None,
-        VpcSecurityGroupIds: List[str] = None,
-        MasterUserPassword: str = None,
-        ClusterParameterGroupName: str = None,
-        AutomatedSnapshotRetentionPeriod: int = None,
-        ManualSnapshotRetentionPeriod: int = None,
-        PreferredMaintenanceWindow: str = None,
-        ClusterVersion: str = None,
-        AllowVersionUpgrade: bool = None,
-        HsmClientCertificateIdentifier: str = None,
-        HsmConfigurationIdentifier: str = None,
-        NewClusterIdentifier: str = None,
-        PubliclyAccessible: bool = None,
-        ElasticIp: str = None,
-        EnhancedVpcRouting: bool = None,
-        MaintenanceTrackName: str = None,
-        Encrypted: bool = None,
-        KmsKeyId: str = None,
-        AvailabilityZoneRelocation: bool = None,
-        AvailabilityZone: str = None,
-        Port: int = None,
-        ManageMasterPassword: bool = None,
-        MasterPasswordSecretKmsKeyId: str = None,
-        IpAddressType: str = None,
-        MultiAZ: bool = None
+        self, **kwargs: Unpack[ModifyClusterMessageTypeDef]
     ) -> ModifyClusterResultTypeDef:
         """
         Modifies the settings for a cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.modify_cluster)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#modify_cluster)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/modify_cluster.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#modify_cluster)
         """
 
     def modify_cluster_db_revision(
-        self, *, ClusterIdentifier: str, RevisionTarget: str
+        self, **kwargs: Unpack[ModifyClusterDbRevisionMessageTypeDef]
     ) -> ModifyClusterDbRevisionResultTypeDef:
         """
         Modifies the database revision of a cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.modify_cluster_db_revision)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#modify_cluster_db_revision)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/modify_cluster_db_revision.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#modify_cluster_db_revision)
         """
 
     def modify_cluster_iam_roles(
-        self,
-        *,
-        ClusterIdentifier: str,
-        AddIamRoles: List[str] = None,
-        RemoveIamRoles: List[str] = None,
-        DefaultIamRoleArn: str = None
+        self, **kwargs: Unpack[ModifyClusterIamRolesMessageTypeDef]
     ) -> ModifyClusterIamRolesResultTypeDef:
         """
-        Modifies the list of Identity and Access Management (IAM) roles that can be used
-        by the cluster to access other Amazon Web Services services.
+        Modifies the list of Identity and Access Management (IAM) roles that can be
+        used by the cluster to access other Amazon Web Services services.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.modify_cluster_iam_roles)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#modify_cluster_iam_roles)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/modify_cluster_iam_roles.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#modify_cluster_iam_roles)
         """
 
     def modify_cluster_maintenance(
-        self,
-        *,
-        ClusterIdentifier: str,
-        DeferMaintenance: bool = None,
-        DeferMaintenanceIdentifier: str = None,
-        DeferMaintenanceStartTime: Union[datetime, str] = None,
-        DeferMaintenanceEndTime: Union[datetime, str] = None,
-        DeferMaintenanceDuration: int = None
+        self, **kwargs: Unpack[ModifyClusterMaintenanceMessageTypeDef]
     ) -> ModifyClusterMaintenanceResultTypeDef:
         """
         Modifies the maintenance settings of a cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.modify_cluster_maintenance)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#modify_cluster_maintenance)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/modify_cluster_maintenance.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#modify_cluster_maintenance)
         """
 
     def modify_cluster_parameter_group(
-        self, *, ParameterGroupName: str, Parameters: List["ParameterTypeDef"]
+        self, **kwargs: Unpack[ModifyClusterParameterGroupMessageTypeDef]
     ) -> ClusterParameterGroupNameMessageTypeDef:
         """
         Modifies the parameters of a parameter group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.modify_cluster_parameter_group)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#modify_cluster_parameter_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/modify_cluster_parameter_group.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#modify_cluster_parameter_group)
         """
 
     def modify_cluster_snapshot(
-        self,
-        *,
-        SnapshotIdentifier: str,
-        ManualSnapshotRetentionPeriod: int = None,
-        Force: bool = None
+        self, **kwargs: Unpack[ModifyClusterSnapshotMessageTypeDef]
     ) -> ModifyClusterSnapshotResultTypeDef:
         """
         Modifies the settings for a snapshot.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.modify_cluster_snapshot)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#modify_cluster_snapshot)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/modify_cluster_snapshot.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#modify_cluster_snapshot)
         """
 
     def modify_cluster_snapshot_schedule(
-        self,
-        *,
-        ClusterIdentifier: str,
-        ScheduleIdentifier: str = None,
-        DisassociateSchedule: bool = None
-    ) -> None:
+        self, **kwargs: Unpack[ModifyClusterSnapshotScheduleMessageTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Modifies a snapshot schedule for a cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.modify_cluster_snapshot_schedule)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#modify_cluster_snapshot_schedule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/modify_cluster_snapshot_schedule.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#modify_cluster_snapshot_schedule)
         """
 
     def modify_cluster_subnet_group(
-        self, *, ClusterSubnetGroupName: str, SubnetIds: List[str], Description: str = None
+        self, **kwargs: Unpack[ModifyClusterSubnetGroupMessageTypeDef]
     ) -> ModifyClusterSubnetGroupResultTypeDef:
         """
         Modifies a cluster subnet group to include the specified list of VPC subnets.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.modify_cluster_subnet_group)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#modify_cluster_subnet_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/modify_cluster_subnet_group.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#modify_cluster_subnet_group)
         """
 
     def modify_custom_domain_association(
-        self, *, CustomDomainName: str, CustomDomainCertificateArn: str, ClusterIdentifier: str
+        self, **kwargs: Unpack[ModifyCustomDomainAssociationMessageTypeDef]
     ) -> ModifyCustomDomainAssociationResultTypeDef:
         """
         Contains information for changing a custom domain association.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.modify_custom_domain_association)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#modify_custom_domain_association)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/modify_custom_domain_association.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#modify_custom_domain_association)
         """
 
     def modify_endpoint_access(
-        self, *, EndpointName: str, VpcSecurityGroupIds: List[str] = None
-    ) -> EndpointAccessResponseMetadataTypeDef:
+        self, **kwargs: Unpack[ModifyEndpointAccessMessageTypeDef]
+    ) -> EndpointAccessResponseTypeDef:
         """
         Modifies a Redshift-managed VPC endpoint.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.modify_endpoint_access)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#modify_endpoint_access)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/modify_endpoint_access.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#modify_endpoint_access)
         """
 
     def modify_event_subscription(
-        self,
-        *,
-        SubscriptionName: str,
-        SnsTopicArn: str = None,
-        SourceType: str = None,
-        SourceIds: List[str] = None,
-        EventCategories: List[str] = None,
-        Severity: str = None,
-        Enabled: bool = None
+        self, **kwargs: Unpack[ModifyEventSubscriptionMessageTypeDef]
     ) -> ModifyEventSubscriptionResultTypeDef:
         """
         Modifies an existing Amazon Redshift event notification subscription.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.modify_event_subscription)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#modify_event_subscription)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/modify_event_subscription.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#modify_event_subscription)
+        """
+
+    def modify_integration(
+        self, **kwargs: Unpack[ModifyIntegrationMessageTypeDef]
+    ) -> IntegrationResponseTypeDef:
+        """
+        Modifies a zero-ETL integration or S3 event integration with Amazon Redshift.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/modify_integration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#modify_integration)
         """
 
     def modify_redshift_idc_application(
-        self,
-        *,
-        RedshiftIdcApplicationArn: str,
-        IdentityNamespace: str = None,
-        IamRoleArn: str = None,
-        IdcDisplayName: str = None,
-        AuthorizedTokenIssuerList: List["AuthorizedTokenIssuerTypeDef"] = None,
-        ServiceIntegrations: List["ServiceIntegrationsUnionTypeDef"] = None
+        self, **kwargs: Unpack[ModifyRedshiftIdcApplicationMessageTypeDef]
     ) -> ModifyRedshiftIdcApplicationResultTypeDef:
         """
         Changes an existing Amazon Redshift IAM Identity Center application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.modify_redshift_idc_application)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#modify_redshift_idc_application)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/modify_redshift_idc_application.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#modify_redshift_idc_application)
         """
 
     def modify_scheduled_action(
-        self,
-        *,
-        ScheduledActionName: str,
-        TargetAction: "ScheduledActionTypeTypeDef" = None,
-        Schedule: str = None,
-        IamRole: str = None,
-        ScheduledActionDescription: str = None,
-        StartTime: Union[datetime, str] = None,
-        EndTime: Union[datetime, str] = None,
-        Enable: bool = None
-    ) -> ScheduledActionResponseMetadataTypeDef:
+        self, **kwargs: Unpack[ModifyScheduledActionMessageTypeDef]
+    ) -> ScheduledActionResponseTypeDef:
         """
         Modifies a scheduled action.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.modify_scheduled_action)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#modify_scheduled_action)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/modify_scheduled_action.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#modify_scheduled_action)
         """
 
     def modify_snapshot_copy_retention_period(
-        self, *, ClusterIdentifier: str, RetentionPeriod: int, Manual: bool = None
+        self, **kwargs: Unpack[ModifySnapshotCopyRetentionPeriodMessageTypeDef]
     ) -> ModifySnapshotCopyRetentionPeriodResultTypeDef:
         """
         Modifies the number of days to retain snapshots in the destination Amazon Web
         Services Region after they are copied from the source Amazon Web Services
         Region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.modify_snapshot_copy_retention_period)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#modify_snapshot_copy_retention_period)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/modify_snapshot_copy_retention_period.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#modify_snapshot_copy_retention_period)
         """
 
     def modify_snapshot_schedule(
-        self, *, ScheduleIdentifier: str, ScheduleDefinitions: List[str]
-    ) -> SnapshotScheduleResponseMetadataTypeDef:
+        self, **kwargs: Unpack[ModifySnapshotScheduleMessageTypeDef]
+    ) -> SnapshotScheduleResponseTypeDef:
         """
         Modifies a snapshot schedule.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.modify_snapshot_schedule)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#modify_snapshot_schedule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/modify_snapshot_schedule.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#modify_snapshot_schedule)
         """
 
     def modify_usage_limit(
-        self,
-        *,
-        UsageLimitId: str,
-        Amount: int = None,
-        BreachAction: UsageLimitBreachActionType = None
-    ) -> UsageLimitResponseMetadataTypeDef:
+        self, **kwargs: Unpack[ModifyUsageLimitMessageTypeDef]
+    ) -> UsageLimitResponseTypeDef:
         """
         Modifies a usage limit in a cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.modify_usage_limit)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#modify_usage_limit)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/modify_usage_limit.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#modify_usage_limit)
         """
 
-    def pause_cluster(self, *, ClusterIdentifier: str) -> PauseClusterResultTypeDef:
+    def pause_cluster(
+        self, **kwargs: Unpack[PauseClusterMessageRequestTypeDef]
+    ) -> PauseClusterResultTypeDef:
         """
         Pauses a cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.pause_cluster)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#pause_cluster)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/pause_cluster.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#pause_cluster)
         """
 
     def purchase_reserved_node_offering(
-        self, *, ReservedNodeOfferingId: str, NodeCount: int = None
+        self, **kwargs: Unpack[PurchaseReservedNodeOfferingMessageTypeDef]
     ) -> PurchaseReservedNodeOfferingResultTypeDef:
         """
         Allows you to purchase reserved nodes.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.purchase_reserved_node_offering)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#purchase_reserved_node_offering)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/purchase_reserved_node_offering.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#purchase_reserved_node_offering)
         """
 
     def put_resource_policy(
-        self, *, ResourceArn: str, Policy: str
+        self, **kwargs: Unpack[PutResourcePolicyMessageTypeDef]
     ) -> PutResourcePolicyResultTypeDef:
         """
         Updates the resource policy for a specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.put_resource_policy)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#put_resource_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/put_resource_policy.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#put_resource_policy)
         """
 
-    def reboot_cluster(self, *, ClusterIdentifier: str) -> RebootClusterResultTypeDef:
+    def reboot_cluster(
+        self, **kwargs: Unpack[RebootClusterMessageTypeDef]
+    ) -> RebootClusterResultTypeDef:
         """
         Reboots a cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.reboot_cluster)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#reboot_cluster)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/reboot_cluster.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#reboot_cluster)
         """
 
-    def reject_data_share(self, *, DataShareArn: str) -> DataShareResponseMetadataTypeDef:
+    def register_namespace(
+        self, **kwargs: Unpack[RegisterNamespaceInputMessageTypeDef]
+    ) -> RegisterNamespaceOutputMessageTypeDef:
+        """
+        Registers a cluster or serverless namespace to the Amazon Web Services Glue
+        Data Catalog.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/register_namespace.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#register_namespace)
+        """
+
+    def reject_data_share(
+        self, **kwargs: Unpack[RejectDataShareMessageTypeDef]
+    ) -> DataShareResponseTypeDef:
         """
         From a datashare consumer account, rejects the specified datashare.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.reject_data_share)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#reject_data_share)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/reject_data_share.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#reject_data_share)
         """
 
     def reset_cluster_parameter_group(
-        self,
-        *,
-        ParameterGroupName: str,
-        ResetAllParameters: bool = None,
-        Parameters: List["ParameterTypeDef"] = None
+        self, **kwargs: Unpack[ResetClusterParameterGroupMessageTypeDef]
     ) -> ClusterParameterGroupNameMessageTypeDef:
         """
         Sets one or more parameters of the specified parameter group to their default
         values and sets the source values of the parameters to "engine-default".
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.reset_cluster_parameter_group)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#reset_cluster_parameter_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/reset_cluster_parameter_group.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#reset_cluster_parameter_group)
         """
 
     def resize_cluster(
-        self,
-        *,
-        ClusterIdentifier: str,
-        ClusterType: str = None,
-        NodeType: str = None,
-        NumberOfNodes: int = None,
-        Classic: bool = None,
-        ReservedNodeId: str = None,
-        TargetReservedNodeOfferingId: str = None
+        self, **kwargs: Unpack[ResizeClusterMessageRequestTypeDef]
     ) -> ResizeClusterResultTypeDef:
         """
         Changes the size of the cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.resize_cluster)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#resize_cluster)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/resize_cluster.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#resize_cluster)
         """
 
     def restore_from_cluster_snapshot(
-        self,
-        *,
-        ClusterIdentifier: str,
-        SnapshotIdentifier: str = None,
-        SnapshotArn: str = None,
-        SnapshotClusterIdentifier: str = None,
-        Port: int = None,
-        AvailabilityZone: str = None,
-        AllowVersionUpgrade: bool = None,
-        ClusterSubnetGroupName: str = None,
-        PubliclyAccessible: bool = None,
-        OwnerAccount: str = None,
-        HsmClientCertificateIdentifier: str = None,
-        HsmConfigurationIdentifier: str = None,
-        ElasticIp: str = None,
-        ClusterParameterGroupName: str = None,
-        ClusterSecurityGroups: List[str] = None,
-        VpcSecurityGroupIds: List[str] = None,
-        PreferredMaintenanceWindow: str = None,
-        AutomatedSnapshotRetentionPeriod: int = None,
-        ManualSnapshotRetentionPeriod: int = None,
-        KmsKeyId: str = None,
-        NodeType: str = None,
-        EnhancedVpcRouting: bool = None,
-        AdditionalInfo: str = None,
-        IamRoles: List[str] = None,
-        MaintenanceTrackName: str = None,
-        SnapshotScheduleIdentifier: str = None,
-        NumberOfNodes: int = None,
-        AvailabilityZoneRelocation: bool = None,
-        AquaConfigurationStatus: AquaConfigurationStatusType = None,
-        DefaultIamRoleArn: str = None,
-        ReservedNodeId: str = None,
-        TargetReservedNodeOfferingId: str = None,
-        Encrypted: bool = None,
-        ManageMasterPassword: bool = None,
-        MasterPasswordSecretKmsKeyId: str = None,
-        IpAddressType: str = None,
-        MultiAZ: bool = None
+        self, **kwargs: Unpack[RestoreFromClusterSnapshotMessageTypeDef]
     ) -> RestoreFromClusterSnapshotResultTypeDef:
         """
         Creates a new cluster from a snapshot.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.restore_from_cluster_snapshot)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#restore_from_cluster_snapshot)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/restore_from_cluster_snapshot.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#restore_from_cluster_snapshot)
         """
 
     def restore_table_from_cluster_snapshot(
-        self,
-        *,
-        ClusterIdentifier: str,
-        SnapshotIdentifier: str,
-        SourceDatabaseName: str,
-        SourceTableName: str,
-        NewTableName: str,
-        SourceSchemaName: str = None,
-        TargetDatabaseName: str = None,
-        TargetSchemaName: str = None,
-        EnableCaseSensitiveIdentifier: bool = None
+        self, **kwargs: Unpack[RestoreTableFromClusterSnapshotMessageTypeDef]
     ) -> RestoreTableFromClusterSnapshotResultTypeDef:
         """
         Creates a new table from a table in an Amazon Redshift cluster snapshot.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.restore_table_from_cluster_snapshot)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#restore_table_from_cluster_snapshot)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/restore_table_from_cluster_snapshot.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#restore_table_from_cluster_snapshot)
         """
 
-    def resume_cluster(self, *, ClusterIdentifier: str) -> ResumeClusterResultTypeDef:
+    def resume_cluster(
+        self, **kwargs: Unpack[ResumeClusterMessageRequestTypeDef]
+    ) -> ResumeClusterResultTypeDef:
         """
         Resumes a paused cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.resume_cluster)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#resume_cluster)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/resume_cluster.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#resume_cluster)
         """
 
     def revoke_cluster_security_group_ingress(
-        self,
-        *,
-        ClusterSecurityGroupName: str,
-        CIDRIP: str = None,
-        EC2SecurityGroupName: str = None,
-        EC2SecurityGroupOwnerId: str = None
+        self, **kwargs: Unpack[RevokeClusterSecurityGroupIngressMessageTypeDef]
     ) -> RevokeClusterSecurityGroupIngressResultTypeDef:
         """
         Revokes an ingress rule in an Amazon Redshift security group for a previously
         authorized IP range or Amazon EC2 security group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.revoke_cluster_security_group_ingress)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#revoke_cluster_security_group_ingress)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/revoke_cluster_security_group_ingress.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#revoke_cluster_security_group_ingress)
         """
 
     def revoke_endpoint_access(
-        self,
-        *,
-        ClusterIdentifier: str = None,
-        Account: str = None,
-        VpcIds: List[str] = None,
-        Force: bool = None
-    ) -> EndpointAuthorizationResponseMetadataTypeDef:
+        self, **kwargs: Unpack[RevokeEndpointAccessMessageTypeDef]
+    ) -> EndpointAuthorizationResponseTypeDef:
         """
         Revokes access to a cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.revoke_endpoint_access)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#revoke_endpoint_access)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/revoke_endpoint_access.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#revoke_endpoint_access)
         """
 
     def revoke_snapshot_access(
-        self,
-        *,
-        AccountWithRestoreAccess: str,
-        SnapshotIdentifier: str = None,
-        SnapshotArn: str = None,
-        SnapshotClusterIdentifier: str = None
+        self, **kwargs: Unpack[RevokeSnapshotAccessMessageTypeDef]
     ) -> RevokeSnapshotAccessResultTypeDef:
         """
         Removes the ability of the specified Amazon Web Services account to restore the
         specified snapshot.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.revoke_snapshot_access)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#revoke_snapshot_access)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/revoke_snapshot_access.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#revoke_snapshot_access)
         """
 
-    def rotate_encryption_key(self, *, ClusterIdentifier: str) -> RotateEncryptionKeyResultTypeDef:
+    def rotate_encryption_key(
+        self, **kwargs: Unpack[RotateEncryptionKeyMessageTypeDef]
+    ) -> RotateEncryptionKeyResultTypeDef:
         """
         Rotates the encryption keys for a cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.rotate_encryption_key)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#rotate_encryption_key)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/rotate_encryption_key.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#rotate_encryption_key)
         """
 
     def update_partner_status(
-        self,
-        *,
-        AccountId: str,
-        ClusterIdentifier: str,
-        DatabaseName: str,
-        PartnerName: str,
-        Status: PartnerIntegrationStatusType,
-        StatusMessage: str = None
+        self, **kwargs: Unpack[UpdatePartnerStatusInputMessageTypeDef]
     ) -> PartnerIntegrationOutputMessageTypeDef:
         """
         Updates the status of a partner integration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Client.update_partner_status)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/client.html#update_partner_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/update_partner_status.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#update_partner_status)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["describe_cluster_db_revisions"]
     ) -> DescribeClusterDbRevisionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Paginator.DescribeClusterDbRevisions)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/paginators.html#describeclusterdbrevisionspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["describe_cluster_parameter_groups"]
     ) -> DescribeClusterParameterGroupsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Paginator.DescribeClusterParameterGroups)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/paginators.html#describeclusterparametergroupspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["describe_cluster_parameters"]
     ) -> DescribeClusterParametersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Paginator.DescribeClusterParameters)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/paginators.html#describeclusterparameterspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["describe_cluster_security_groups"]
     ) -> DescribeClusterSecurityGroupsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Paginator.DescribeClusterSecurityGroups)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/paginators.html#describeclustersecuritygroupspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["describe_cluster_snapshots"]
     ) -> DescribeClusterSnapshotsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Paginator.DescribeClusterSnapshots)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/paginators.html#describeclustersnapshotspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["describe_cluster_subnet_groups"]
     ) -> DescribeClusterSubnetGroupsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Paginator.DescribeClusterSubnetGroups)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/paginators.html#describeclustersubnetgroupspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["describe_cluster_tracks"]
     ) -> DescribeClusterTracksPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Paginator.DescribeClusterTracks)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/paginators.html#describeclustertrackspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["describe_cluster_versions"]
     ) -> DescribeClusterVersionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Paginator.DescribeClusterVersions)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/paginators.html#describeclusterversionspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["describe_clusters"]
     ) -> DescribeClustersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Paginator.DescribeClusters)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/paginators.html#describeclusterspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["describe_custom_domain_associations"]
     ) -> DescribeCustomDomainAssociationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Paginator.DescribeCustomDomainAssociations)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/paginators.html#describecustomdomainassociationspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
-        self, operation_name: Literal["describe_data_shares"]
-    ) -> DescribeDataSharesPaginator:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Paginator.DescribeDataShares)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/paginators.html#describedatasharespaginator)
-        """
-
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["describe_data_shares_for_consumer"]
     ) -> DescribeDataSharesForConsumerPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Paginator.DescribeDataSharesForConsumer)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/paginators.html#describedatasharesforconsumerpaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["describe_data_shares_for_producer"]
     ) -> DescribeDataSharesForProducerPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Paginator.DescribeDataSharesForProducer)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/paginators.html#describedatasharesforproducerpaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["describe_data_shares"]
+    ) -> DescribeDataSharesPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["describe_default_cluster_parameters"]
     ) -> DescribeDefaultClusterParametersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Paginator.DescribeDefaultClusterParameters)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/paginators.html#describedefaultclusterparameterspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["describe_endpoint_access"]
     ) -> DescribeEndpointAccessPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Paginator.DescribeEndpointAccess)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/paginators.html#describeendpointaccesspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["describe_endpoint_authorization"]
     ) -> DescribeEndpointAuthorizationPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Paginator.DescribeEndpointAuthorization)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/paginators.html#describeendpointauthorizationpaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["describe_event_subscriptions"]
     ) -> DescribeEventSubscriptionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Paginator.DescribeEventSubscriptions)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/paginators.html#describeeventsubscriptionspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["describe_events"]) -> DescribeEventsPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["describe_events"]
+    ) -> DescribeEventsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Paginator.DescribeEvents)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/paginators.html#describeeventspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["describe_hsm_client_certificates"]
     ) -> DescribeHsmClientCertificatesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Paginator.DescribeHsmClientCertificates)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/paginators.html#describehsmclientcertificatespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["describe_hsm_configurations"]
     ) -> DescribeHsmConfigurationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Paginator.DescribeHsmConfigurations)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/paginators.html#describehsmconfigurationspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["describe_inbound_integrations"]
     ) -> DescribeInboundIntegrationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Paginator.DescribeInboundIntegrations)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/paginators.html#describeinboundintegrationspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["describe_integrations"]
+    ) -> DescribeIntegrationsPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["describe_node_configuration_options"]
     ) -> DescribeNodeConfigurationOptionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Paginator.DescribeNodeConfigurationOptions)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/paginators.html#describenodeconfigurationoptionspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["describe_orderable_cluster_options"]
     ) -> DescribeOrderableClusterOptionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Paginator.DescribeOrderableClusterOptions)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/paginators.html#describeorderableclusteroptionspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["describe_redshift_idc_applications"]
     ) -> DescribeRedshiftIdcApplicationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Paginator.DescribeRedshiftIdcApplications)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/paginators.html#describeredshiftidcapplicationspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["describe_reserved_node_exchange_status"]
     ) -> DescribeReservedNodeExchangeStatusPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Paginator.DescribeReservedNodeExchangeStatus)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/paginators.html#describereservednodeexchangestatuspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["describe_reserved_node_offerings"]
     ) -> DescribeReservedNodeOfferingsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Paginator.DescribeReservedNodeOfferings)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/paginators.html#describereservednodeofferingspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["describe_reserved_nodes"]
     ) -> DescribeReservedNodesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Paginator.DescribeReservedNodes)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/paginators.html#describereservednodespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["describe_scheduled_actions"]
     ) -> DescribeScheduledActionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Paginator.DescribeScheduledActions)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/paginators.html#describescheduledactionspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["describe_snapshot_copy_grants"]
     ) -> DescribeSnapshotCopyGrantsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Paginator.DescribeSnapshotCopyGrants)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/paginators.html#describesnapshotcopygrantspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["describe_snapshot_schedules"]
     ) -> DescribeSnapshotSchedulesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Paginator.DescribeSnapshotSchedules)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/paginators.html#describesnapshotschedulespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["describe_table_restore_status"]
     ) -> DescribeTableRestoreStatusPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Paginator.DescribeTableRestoreStatus)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/paginators.html#describetablerestorestatuspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["describe_tags"]) -> DescribeTagsPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["describe_tags"]
+    ) -> DescribeTagsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Paginator.DescribeTags)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/paginators.html#describetagspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["describe_usage_limits"]
     ) -> DescribeUsageLimitsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Paginator.DescribeUsageLimits)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/paginators.html#describeusagelimitspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["get_reserved_node_exchange_configuration_options"]
     ) -> GetReservedNodeExchangeConfigurationOptionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Paginator.GetReservedNodeExchangeConfigurationOptions)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/paginators.html#getreservednodeexchangeconfigurationoptionspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["get_reserved_node_exchange_offerings"]
     ) -> GetReservedNodeExchangeOfferingsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Paginator.GetReservedNodeExchangeOfferings)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/paginators.html#getreservednodeexchangeofferingspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_recommendations"]
     ) -> ListRecommendationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Paginator.ListRecommendations)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/paginators.html#listrecommendationspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#get_paginator)
         """
 
-    @overload
-    def get_waiter(self, waiter_name: Literal["cluster_available"]) -> ClusterAvailableWaiter:
+    @overload  # type: ignore[override]
+    def get_waiter(  # type: ignore[override]
+        self, waiter_name: Literal["cluster_available"]
+    ) -> ClusterAvailableWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Waiter.ClusterAvailable)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/waiters.html#clusteravailablewaiter)
+        Returns an object that can wait for some condition.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/get_waiter.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#get_waiter)
         """
 
-    @overload
-    def get_waiter(self, waiter_name: Literal["cluster_deleted"]) -> ClusterDeletedWaiter:
+    @overload  # type: ignore[override]
+    def get_waiter(  # type: ignore[override]
+        self, waiter_name: Literal["cluster_deleted"]
+    ) -> ClusterDeletedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Waiter.ClusterDeleted)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/waiters.html#clusterdeletedwaiter)
+        Returns an object that can wait for some condition.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/get_waiter.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#get_waiter)
         """
 
-    @overload
-    def get_waiter(self, waiter_name: Literal["cluster_restored"]) -> ClusterRestoredWaiter:
+    @overload  # type: ignore[override]
+    def get_waiter(  # type: ignore[override]
+        self, waiter_name: Literal["cluster_restored"]
+    ) -> ClusterRestoredWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Waiter.ClusterRestored)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/waiters.html#clusterrestoredwaiter)
+        Returns an object that can wait for some condition.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/get_waiter.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#get_waiter)
         """
 
-    @overload
-    def get_waiter(self, waiter_name: Literal["snapshot_available"]) -> SnapshotAvailableWaiter:
+    @overload  # type: ignore[override]
+    def get_waiter(  # type: ignore[override]
+        self, waiter_name: Literal["snapshot_available"]
+    ) -> SnapshotAvailableWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift.html#Redshift.Waiter.SnapshotAvailable)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift/waiters.html#snapshotavailablewaiter)
+        Returns an object that can wait for some condition.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift/client/get_waiter.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/client/#get_waiter)
         """

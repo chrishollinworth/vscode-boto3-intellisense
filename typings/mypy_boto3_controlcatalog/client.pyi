@@ -1,57 +1,73 @@
 """
-Type annotations for controlcatalog service client.
+Type annotations for controlcatalog service Client.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controlcatalog/client.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_controlcatalog/client/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
-    from mypy_boto3_controlcatalog import ControlCatalogClient
+    from boto3.session import Session
+    from mypy_boto3_controlcatalog.client import ControlCatalogClient
 
-    client: ControlCatalogClient = boto3.client("controlcatalog")
+    session = Session()
+    client: ControlCatalogClient = session.client("controlcatalog")
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from typing import Any, Dict, Type, overload
+from typing import Any, overload
 
 from botocore.client import BaseClient, ClientMeta
+from botocore.errorfactory import BaseClientExceptions
+from botocore.exceptions import ClientError as BotocoreClientError
 
-from .paginator import ListCommonControlsPaginator, ListDomainsPaginator, ListObjectivesPaginator
+from .paginator import (
+    ListCommonControlsPaginator,
+    ListControlsPaginator,
+    ListDomainsPaginator,
+    ListObjectivesPaginator,
+)
 from .type_defs import (
-    CommonControlFilterTypeDef,
+    GetControlRequestTypeDef,
+    GetControlResponseTypeDef,
+    ListCommonControlsRequestTypeDef,
     ListCommonControlsResponseTypeDef,
+    ListControlsRequestTypeDef,
+    ListControlsResponseTypeDef,
+    ListDomainsRequestTypeDef,
     ListDomainsResponseTypeDef,
+    ListObjectivesRequestTypeDef,
     ListObjectivesResponseTypeDef,
-    ObjectiveFilterTypeDef,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import type as Type
+    from collections.abc import Mapping
 else:
-    from typing_extensions import Literal
+    from typing import Mapping, Type
+if sys.version_info >= (3, 12):
+    from typing import Literal, Unpack
+else:
+    from typing_extensions import Literal, Unpack
 
 __all__ = ("ControlCatalogClient",)
 
-class BotocoreClientError(BaseException):
-    MSG_TEMPLATE: str
-
-    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
-        self.response: Dict[str, Any]
-        self.operation_name: str
-
-class Exceptions:
+class Exceptions(BaseClientExceptions):
     AccessDeniedException: Type[BotocoreClientError]
     ClientError: Type[BotocoreClientError]
     InternalServerException: Type[BotocoreClientError]
+    ResourceNotFoundException: Type[BotocoreClientError]
     ThrottlingException: Type[BotocoreClientError]
     ValidationException: Type[BotocoreClientError]
 
 class ControlCatalogClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controlcatalog.html#ControlCatalog.Client)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controlcatalog/client.html)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/controlcatalog.html#ControlCatalog.Client)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_controlcatalog/client/)
     """
 
     meta: ClientMeta
@@ -60,98 +76,122 @@ class ControlCatalogClient(BaseClient):
     def exceptions(self) -> Exceptions:
         """
         ControlCatalogClient exceptions.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/controlcatalog.html#ControlCatalog.Client)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_controlcatalog/client/#exceptions)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        Check if an operation can be paginated.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controlcatalog.html#ControlCatalog.Client.can_paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controlcatalog/client.html#can_paginate)
-        """
-
-    def close(self) -> None:
-        """
-        Closes underlying endpoint connections.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controlcatalog.html#ControlCatalog.Client.close)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controlcatalog/client.html#close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/controlcatalog/client/can_paginate.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_controlcatalog/client/#can_paginate)
         """
 
     def generate_presigned_url(
         self,
         ClientMethod: str,
-        Params: Dict[str, Any] = None,
+        Params: Mapping[str, Any] = ...,
         ExpiresIn: int = 3600,
-        HttpMethod: str = None,
+        HttpMethod: str = ...,
     ) -> str:
         """
-        Generate a presigned url given a client, its method, and arguments.
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/controlcatalog/client/generate_presigned_url.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_controlcatalog/client/#generate_presigned_url)
+        """
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controlcatalog.html#ControlCatalog.Client.generate_presigned_url)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controlcatalog/client.html#generate_presigned_url)
+    def get_control(self, **kwargs: Unpack[GetControlRequestTypeDef]) -> GetControlResponseTypeDef:
+        """
+        Returns details about a specific control, most notably a list of Amazon Web
+        Services Regions where this control is supported.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/controlcatalog/client/get_control.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_controlcatalog/client/#get_control)
         """
 
     def list_common_controls(
-        self,
-        *,
-        CommonControlFilter: "CommonControlFilterTypeDef" = None,
-        MaxResults: int = None,
-        NextToken: str = None
+        self, **kwargs: Unpack[ListCommonControlsRequestTypeDef]
     ) -> ListCommonControlsResponseTypeDef:
         """
-        Returns a paginated list of common controls from the Amazon Web Services Control
-        Catalog.
+        Returns a paginated list of common controls from the Amazon Web Services
+        Control Catalog.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controlcatalog.html#ControlCatalog.Client.list_common_controls)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controlcatalog/client.html#list_common_controls)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/controlcatalog/client/list_common_controls.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_controlcatalog/client/#list_common_controls)
+        """
+
+    def list_controls(
+        self, **kwargs: Unpack[ListControlsRequestTypeDef]
+    ) -> ListControlsResponseTypeDef:
+        """
+        Returns a paginated list of all available controls in the Amazon Web Services
+        Control Catalog library.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/controlcatalog/client/list_controls.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_controlcatalog/client/#list_controls)
         """
 
     def list_domains(
-        self, *, MaxResults: int = None, NextToken: str = None
+        self, **kwargs: Unpack[ListDomainsRequestTypeDef]
     ) -> ListDomainsResponseTypeDef:
         """
         Returns a paginated list of domains from the Amazon Web Services Control
         Catalog.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controlcatalog.html#ControlCatalog.Client.list_domains)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controlcatalog/client.html#list_domains)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/controlcatalog/client/list_domains.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_controlcatalog/client/#list_domains)
         """
 
     def list_objectives(
-        self,
-        *,
-        MaxResults: int = None,
-        NextToken: str = None,
-        ObjectiveFilter: "ObjectiveFilterTypeDef" = None
+        self, **kwargs: Unpack[ListObjectivesRequestTypeDef]
     ) -> ListObjectivesResponseTypeDef:
         """
         Returns a paginated list of objectives from the Amazon Web Services Control
         Catalog.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controlcatalog.html#ControlCatalog.Client.list_objectives)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controlcatalog/client.html#list_objectives)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/controlcatalog/client/list_objectives.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_controlcatalog/client/#list_objectives)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_common_controls"]
     ) -> ListCommonControlsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controlcatalog.html#ControlCatalog.Paginator.ListCommonControls)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controlcatalog/paginators.html#listcommoncontrolspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/controlcatalog/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_controlcatalog/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_domains"]) -> ListDomainsPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_controls"]
+    ) -> ListControlsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controlcatalog.html#ControlCatalog.Paginator.ListDomains)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controlcatalog/paginators.html#listdomainspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/controlcatalog/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_controlcatalog/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_objectives"]) -> ListObjectivesPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_domains"]
+    ) -> ListDomainsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/controlcatalog.html#ControlCatalog.Paginator.ListObjectives)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controlcatalog/paginators.html#listobjectivespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/controlcatalog/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_controlcatalog/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_objectives"]
+    ) -> ListObjectivesPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/controlcatalog/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_controlcatalog/client/#get_paginator)
         """

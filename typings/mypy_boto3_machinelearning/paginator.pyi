@@ -1,14 +1,16 @@
 """
 Type annotations for machinelearning service client paginators.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_machinelearning/paginators.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_machinelearning/paginators/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
 
-    from mypy_boto3_machinelearning import MachineLearningClient
+    from mypy_boto3_machinelearning.client import MachineLearningClient
     from mypy_boto3_machinelearning.paginator import (
         DescribeBatchPredictionsPaginator,
         DescribeDataSourcesPaginator,
@@ -16,7 +18,8 @@ Usage::
         DescribeMLModelsPaginator,
     )
 
-    client: MachineLearningClient = boto3.client("machinelearning")
+    session = Session()
+    client: MachineLearningClient = session.client("machinelearning")
 
     describe_batch_predictions_paginator: DescribeBatchPredictionsPaginator = client.get_paginator("describe_batch_predictions")
     describe_data_sources_paginator: DescribeDataSourcesPaginator = client.get_paginator("describe_data_sources")
@@ -25,24 +28,28 @@ Usage::
     ```
 """
 
-from typing import Iterator
+from __future__ import annotations
 
-from botocore.paginate import Paginator as Boto3Paginator
+import sys
+from typing import TYPE_CHECKING
 
-from .literals import (
-    BatchPredictionFilterVariableType,
-    DataSourceFilterVariableType,
-    EvaluationFilterVariableType,
-    MLModelFilterVariableType,
-    SortOrderType,
-)
+from botocore.paginate import PageIterator, Paginator
+
 from .type_defs import (
+    DescribeBatchPredictionsInputPaginateTypeDef,
     DescribeBatchPredictionsOutputTypeDef,
+    DescribeDataSourcesInputPaginateTypeDef,
     DescribeDataSourcesOutputTypeDef,
+    DescribeEvaluationsInputPaginateTypeDef,
     DescribeEvaluationsOutputTypeDef,
+    DescribeMLModelsInputPaginateTypeDef,
     DescribeMLModelsOutputTypeDef,
-    PaginatorConfigTypeDef,
 )
+
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = (
     "DescribeBatchPredictionsPaginator",
@@ -51,102 +58,74 @@ __all__ = (
     "DescribeMLModelsPaginator",
 )
 
-class DescribeBatchPredictionsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/machinelearning.html#MachineLearning.Paginator.DescribeBatchPredictions)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_machinelearning/paginators.html#describebatchpredictionspaginator)
-    """
+if TYPE_CHECKING:
+    _DescribeBatchPredictionsPaginatorBase = Paginator[DescribeBatchPredictionsOutputTypeDef]
+else:
+    _DescribeBatchPredictionsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        FilterVariable: BatchPredictionFilterVariableType = None,
-        EQ: str = None,
-        GT: str = None,
-        LT: str = None,
-        GE: str = None,
-        LE: str = None,
-        NE: str = None,
-        Prefix: str = None,
-        SortOrder: SortOrderType = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[DescribeBatchPredictionsOutputTypeDef]:
+class DescribeBatchPredictionsPaginator(_DescribeBatchPredictionsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/machinelearning/paginator/DescribeBatchPredictions.html#MachineLearning.Paginator.DescribeBatchPredictions)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_machinelearning/paginators/#describebatchpredictionspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeBatchPredictionsInputPaginateTypeDef]
+    ) -> PageIterator[DescribeBatchPredictionsOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/machinelearning.html#MachineLearning.Paginator.DescribeBatchPredictions.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_machinelearning/paginators.html#describebatchpredictionspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/machinelearning/paginator/DescribeBatchPredictions.html#MachineLearning.Paginator.DescribeBatchPredictions.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_machinelearning/paginators/#describebatchpredictionspaginator)
         """
 
-class DescribeDataSourcesPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/machinelearning.html#MachineLearning.Paginator.DescribeDataSources)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_machinelearning/paginators.html#describedatasourcespaginator)
-    """
+if TYPE_CHECKING:
+    _DescribeDataSourcesPaginatorBase = Paginator[DescribeDataSourcesOutputTypeDef]
+else:
+    _DescribeDataSourcesPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        FilterVariable: DataSourceFilterVariableType = None,
-        EQ: str = None,
-        GT: str = None,
-        LT: str = None,
-        GE: str = None,
-        LE: str = None,
-        NE: str = None,
-        Prefix: str = None,
-        SortOrder: SortOrderType = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[DescribeDataSourcesOutputTypeDef]:
+class DescribeDataSourcesPaginator(_DescribeDataSourcesPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/machinelearning/paginator/DescribeDataSources.html#MachineLearning.Paginator.DescribeDataSources)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_machinelearning/paginators/#describedatasourcespaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeDataSourcesInputPaginateTypeDef]
+    ) -> PageIterator[DescribeDataSourcesOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/machinelearning.html#MachineLearning.Paginator.DescribeDataSources.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_machinelearning/paginators.html#describedatasourcespaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/machinelearning/paginator/DescribeDataSources.html#MachineLearning.Paginator.DescribeDataSources.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_machinelearning/paginators/#describedatasourcespaginator)
         """
 
-class DescribeEvaluationsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/machinelearning.html#MachineLearning.Paginator.DescribeEvaluations)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_machinelearning/paginators.html#describeevaluationspaginator)
-    """
+if TYPE_CHECKING:
+    _DescribeEvaluationsPaginatorBase = Paginator[DescribeEvaluationsOutputTypeDef]
+else:
+    _DescribeEvaluationsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        FilterVariable: EvaluationFilterVariableType = None,
-        EQ: str = None,
-        GT: str = None,
-        LT: str = None,
-        GE: str = None,
-        LE: str = None,
-        NE: str = None,
-        Prefix: str = None,
-        SortOrder: SortOrderType = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[DescribeEvaluationsOutputTypeDef]:
+class DescribeEvaluationsPaginator(_DescribeEvaluationsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/machinelearning/paginator/DescribeEvaluations.html#MachineLearning.Paginator.DescribeEvaluations)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_machinelearning/paginators/#describeevaluationspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeEvaluationsInputPaginateTypeDef]
+    ) -> PageIterator[DescribeEvaluationsOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/machinelearning.html#MachineLearning.Paginator.DescribeEvaluations.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_machinelearning/paginators.html#describeevaluationspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/machinelearning/paginator/DescribeEvaluations.html#MachineLearning.Paginator.DescribeEvaluations.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_machinelearning/paginators/#describeevaluationspaginator)
         """
 
-class DescribeMLModelsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/machinelearning.html#MachineLearning.Paginator.DescribeMLModels)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_machinelearning/paginators.html#describemlmodelspaginator)
-    """
+if TYPE_CHECKING:
+    _DescribeMLModelsPaginatorBase = Paginator[DescribeMLModelsOutputTypeDef]
+else:
+    _DescribeMLModelsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        FilterVariable: MLModelFilterVariableType = None,
-        EQ: str = None,
-        GT: str = None,
-        LT: str = None,
-        GE: str = None,
-        LE: str = None,
-        NE: str = None,
-        Prefix: str = None,
-        SortOrder: SortOrderType = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[DescribeMLModelsOutputTypeDef]:
+class DescribeMLModelsPaginator(_DescribeMLModelsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/machinelearning/paginator/DescribeMLModels.html#MachineLearning.Paginator.DescribeMLModels)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_machinelearning/paginators/#describemlmodelspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeMLModelsInputPaginateTypeDef]
+    ) -> PageIterator[DescribeMLModelsOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/machinelearning.html#MachineLearning.Paginator.DescribeMLModels.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_machinelearning/paginators.html#describemlmodelspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/machinelearning/paginator/DescribeMLModels.html#MachineLearning.Paginator.DescribeMLModels.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_machinelearning/paginators/#describemlmodelspaginator)
         """

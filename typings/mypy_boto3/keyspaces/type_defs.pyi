@@ -1,38 +1,46 @@
 """
 Type annotations for keyspaces service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_keyspaces/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_keyspaces/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_keyspaces.type_defs import AutoScalingPolicyTypeDef
+    from mypy_boto3_keyspaces.type_defs import TargetTrackingScalingPolicyConfigurationTypeDef
 
-    data: AutoScalingPolicyTypeDef = {...}
+    data: TargetTrackingScalingPolicyConfigurationTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List, Union
+from typing import Union
 
 from .literals import (
     EncryptionTypeType,
+    KeyspaceStatusType,
     PointInTimeRecoveryStatusType,
+    RsType,
     SortOrderType,
     TableStatusType,
     ThroughputModeType,
-    rsType,
+    TypeStatusType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
     "AutoScalingPolicyTypeDef",
@@ -44,26 +52,39 @@ __all__ = (
     "ClusteringKeyTypeDef",
     "ColumnDefinitionTypeDef",
     "CommentTypeDef",
-    "CreateKeyspaceRequestRequestTypeDef",
+    "CreateKeyspaceRequestTypeDef",
     "CreateKeyspaceResponseTypeDef",
-    "CreateTableRequestRequestTypeDef",
+    "CreateTableRequestTypeDef",
     "CreateTableResponseTypeDef",
-    "DeleteKeyspaceRequestRequestTypeDef",
-    "DeleteTableRequestRequestTypeDef",
+    "CreateTypeRequestTypeDef",
+    "CreateTypeResponseTypeDef",
+    "DeleteKeyspaceRequestTypeDef",
+    "DeleteTableRequestTypeDef",
+    "DeleteTypeRequestTypeDef",
+    "DeleteTypeResponseTypeDef",
     "EncryptionSpecificationTypeDef",
-    "GetKeyspaceRequestRequestTypeDef",
+    "FieldDefinitionTypeDef",
+    "GetKeyspaceRequestTypeDef",
     "GetKeyspaceResponseTypeDef",
-    "GetTableAutoScalingSettingsRequestRequestTypeDef",
+    "GetTableAutoScalingSettingsRequestTypeDef",
     "GetTableAutoScalingSettingsResponseTypeDef",
-    "GetTableRequestRequestTypeDef",
+    "GetTableRequestTypeDef",
     "GetTableResponseTypeDef",
+    "GetTypeRequestTypeDef",
+    "GetTypeResponseTypeDef",
     "KeyspaceSummaryTypeDef",
-    "ListKeyspacesRequestRequestTypeDef",
+    "ListKeyspacesRequestPaginateTypeDef",
+    "ListKeyspacesRequestTypeDef",
     "ListKeyspacesResponseTypeDef",
-    "ListTablesRequestRequestTypeDef",
+    "ListTablesRequestPaginateTypeDef",
+    "ListTablesRequestTypeDef",
     "ListTablesResponseTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestPaginateTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
+    "ListTypesRequestPaginateTypeDef",
+    "ListTypesRequestTypeDef",
+    "ListTypesResponseTypeDef",
     "PaginatorConfigTypeDef",
     "PartitionKeyTypeDef",
     "PointInTimeRecoverySummaryTypeDef",
@@ -71,105 +92,51 @@ __all__ = (
     "ReplicaAutoScalingSpecificationTypeDef",
     "ReplicaSpecificationSummaryTypeDef",
     "ReplicaSpecificationTypeDef",
+    "ReplicationGroupStatusTypeDef",
     "ReplicationSpecificationTypeDef",
     "ResponseMetadataTypeDef",
-    "RestoreTableRequestRequestTypeDef",
+    "RestoreTableRequestTypeDef",
     "RestoreTableResponseTypeDef",
+    "SchemaDefinitionOutputTypeDef",
     "SchemaDefinitionTypeDef",
+    "SchemaDefinitionUnionTypeDef",
     "StaticColumnTypeDef",
     "TableSummaryTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
     "TagTypeDef",
     "TargetTrackingScalingPolicyConfigurationTypeDef",
     "TimeToLiveTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateTableRequestRequestTypeDef",
+    "TimestampTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateKeyspaceRequestTypeDef",
+    "UpdateKeyspaceResponseTypeDef",
+    "UpdateTableRequestTypeDef",
     "UpdateTableResponseTypeDef",
 )
 
-AutoScalingPolicyTypeDef = TypedDict(
-    "AutoScalingPolicyTypeDef",
-    {
-        "targetTrackingScalingPolicyConfiguration": "TargetTrackingScalingPolicyConfigurationTypeDef",
-    },
-    total=False,
-)
+class TargetTrackingScalingPolicyConfigurationTypeDef(TypedDict):
+    targetValue: float
+    disableScaleIn: NotRequired[bool]
+    scaleInCooldown: NotRequired[int]
+    scaleOutCooldown: NotRequired[int]
 
-AutoScalingSettingsTypeDef = TypedDict(
-    "AutoScalingSettingsTypeDef",
-    {
-        "autoScalingDisabled": bool,
-        "minimumUnits": int,
-        "maximumUnits": int,
-        "scalingPolicy": "AutoScalingPolicyTypeDef",
-    },
-    total=False,
-)
+class CapacitySpecificationSummaryTypeDef(TypedDict):
+    throughputMode: ThroughputModeType
+    readCapacityUnits: NotRequired[int]
+    writeCapacityUnits: NotRequired[int]
+    lastUpdateToPayPerRequestTimestamp: NotRequired[datetime]
 
-AutoScalingSpecificationTypeDef = TypedDict(
-    "AutoScalingSpecificationTypeDef",
-    {
-        "writeCapacityAutoScaling": "AutoScalingSettingsTypeDef",
-        "readCapacityAutoScaling": "AutoScalingSettingsTypeDef",
-    },
-    total=False,
-)
+class CapacitySpecificationTypeDef(TypedDict):
+    throughputMode: ThroughputModeType
+    readCapacityUnits: NotRequired[int]
+    writeCapacityUnits: NotRequired[int]
 
-_RequiredCapacitySpecificationSummaryTypeDef = TypedDict(
-    "_RequiredCapacitySpecificationSummaryTypeDef",
-    {
-        "throughputMode": ThroughputModeType,
-    },
-)
-_OptionalCapacitySpecificationSummaryTypeDef = TypedDict(
-    "_OptionalCapacitySpecificationSummaryTypeDef",
-    {
-        "readCapacityUnits": int,
-        "writeCapacityUnits": int,
-        "lastUpdateToPayPerRequestTimestamp": datetime,
-    },
-    total=False,
-)
+class ClientSideTimestampsTypeDef(TypedDict):
+    status: Literal["ENABLED"]
 
-class CapacitySpecificationSummaryTypeDef(
-    _RequiredCapacitySpecificationSummaryTypeDef, _OptionalCapacitySpecificationSummaryTypeDef
-):
-    pass
-
-_RequiredCapacitySpecificationTypeDef = TypedDict(
-    "_RequiredCapacitySpecificationTypeDef",
-    {
-        "throughputMode": ThroughputModeType,
-    },
-)
-_OptionalCapacitySpecificationTypeDef = TypedDict(
-    "_OptionalCapacitySpecificationTypeDef",
-    {
-        "readCapacityUnits": int,
-        "writeCapacityUnits": int,
-    },
-    total=False,
-)
-
-class CapacitySpecificationTypeDef(
-    _RequiredCapacitySpecificationTypeDef, _OptionalCapacitySpecificationTypeDef
-):
-    pass
-
-ClientSideTimestampsTypeDef = TypedDict(
-    "ClientSideTimestampsTypeDef",
-    {
-        "status": Literal["ENABLED"],
-    },
-)
-
-ClusteringKeyTypeDef = TypedDict(
-    "ClusteringKeyTypeDef",
-    {
-        "name": str,
-        "orderBy": SortOrderType,
-    },
-)
+class ClusteringKeyTypeDef(TypedDict):
+    name: str
+    orderBy: SortOrderType
 
 ColumnDefinitionTypeDef = TypedDict(
     "ColumnDefinitionTypeDef",
@@ -179,544 +146,341 @@ ColumnDefinitionTypeDef = TypedDict(
     },
 )
 
-CommentTypeDef = TypedDict(
-    "CommentTypeDef",
-    {
-        "message": str,
-    },
-)
+class CommentTypeDef(TypedDict):
+    message: str
 
-_RequiredCreateKeyspaceRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateKeyspaceRequestRequestTypeDef",
-    {
-        "keyspaceName": str,
-    },
-)
-_OptionalCreateKeyspaceRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateKeyspaceRequestRequestTypeDef",
-    {
-        "tags": List["TagTypeDef"],
-        "replicationSpecification": "ReplicationSpecificationTypeDef",
-    },
-    total=False,
-)
+class ReplicationSpecificationTypeDef(TypedDict):
+    replicationStrategy: RsType
+    regionList: NotRequired[Sequence[str]]
 
-class CreateKeyspaceRequestRequestTypeDef(
-    _RequiredCreateKeyspaceRequestRequestTypeDef, _OptionalCreateKeyspaceRequestRequestTypeDef
-):
-    pass
+class TagTypeDef(TypedDict):
+    key: str
+    value: str
 
-CreateKeyspaceResponseTypeDef = TypedDict(
-    "CreateKeyspaceResponseTypeDef",
-    {
-        "resourceArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-_RequiredCreateTableRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateTableRequestRequestTypeDef",
-    {
-        "keyspaceName": str,
-        "tableName": str,
-        "schemaDefinition": "SchemaDefinitionTypeDef",
-    },
-)
-_OptionalCreateTableRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateTableRequestRequestTypeDef",
-    {
-        "comment": "CommentTypeDef",
-        "capacitySpecification": "CapacitySpecificationTypeDef",
-        "encryptionSpecification": "EncryptionSpecificationTypeDef",
-        "pointInTimeRecovery": "PointInTimeRecoveryTypeDef",
-        "ttl": "TimeToLiveTypeDef",
-        "defaultTimeToLive": int,
-        "tags": List["TagTypeDef"],
-        "clientSideTimestamps": "ClientSideTimestampsTypeDef",
-        "autoScalingSpecification": "AutoScalingSpecificationTypeDef",
-        "replicaSpecifications": List["ReplicaSpecificationTypeDef"],
-    },
-    total=False,
-)
-
-class CreateTableRequestRequestTypeDef(
-    _RequiredCreateTableRequestRequestTypeDef, _OptionalCreateTableRequestRequestTypeDef
-):
-    pass
-
-CreateTableResponseTypeDef = TypedDict(
-    "CreateTableResponseTypeDef",
-    {
-        "resourceArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteKeyspaceRequestRequestTypeDef = TypedDict(
-    "DeleteKeyspaceRequestRequestTypeDef",
-    {
-        "keyspaceName": str,
-    },
-)
-
-DeleteTableRequestRequestTypeDef = TypedDict(
-    "DeleteTableRequestRequestTypeDef",
-    {
-        "keyspaceName": str,
-        "tableName": str,
-    },
-)
-
-_RequiredEncryptionSpecificationTypeDef = TypedDict(
-    "_RequiredEncryptionSpecificationTypeDef",
+EncryptionSpecificationTypeDef = TypedDict(
+    "EncryptionSpecificationTypeDef",
     {
         "type": EncryptionTypeType,
-    },
-)
-_OptionalEncryptionSpecificationTypeDef = TypedDict(
-    "_OptionalEncryptionSpecificationTypeDef",
-    {
-        "kmsKeyIdentifier": str,
-    },
-    total=False,
-)
-
-class EncryptionSpecificationTypeDef(
-    _RequiredEncryptionSpecificationTypeDef, _OptionalEncryptionSpecificationTypeDef
-):
-    pass
-
-GetKeyspaceRequestRequestTypeDef = TypedDict(
-    "GetKeyspaceRequestRequestTypeDef",
-    {
-        "keyspaceName": str,
+        "kmsKeyIdentifier": NotRequired[str],
     },
 )
 
-GetKeyspaceResponseTypeDef = TypedDict(
-    "GetKeyspaceResponseTypeDef",
-    {
-        "keyspaceName": str,
-        "resourceArn": str,
-        "replicationStrategy": rsType,
-        "replicationRegions": List[str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class PointInTimeRecoveryTypeDef(TypedDict):
+    status: PointInTimeRecoveryStatusType
 
-GetTableAutoScalingSettingsRequestRequestTypeDef = TypedDict(
-    "GetTableAutoScalingSettingsRequestRequestTypeDef",
-    {
-        "keyspaceName": str,
-        "tableName": str,
-    },
-)
+class TimeToLiveTypeDef(TypedDict):
+    status: Literal["ENABLED"]
 
-GetTableAutoScalingSettingsResponseTypeDef = TypedDict(
-    "GetTableAutoScalingSettingsResponseTypeDef",
-    {
-        "keyspaceName": str,
-        "tableName": str,
-        "resourceArn": str,
-        "autoScalingSpecification": "AutoScalingSpecificationTypeDef",
-        "replicaSpecifications": List["ReplicaAutoScalingSpecificationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetTableRequestRequestTypeDef = TypedDict(
-    "GetTableRequestRequestTypeDef",
-    {
-        "keyspaceName": str,
-        "tableName": str,
-    },
-)
-
-GetTableResponseTypeDef = TypedDict(
-    "GetTableResponseTypeDef",
-    {
-        "keyspaceName": str,
-        "tableName": str,
-        "resourceArn": str,
-        "creationTimestamp": datetime,
-        "status": TableStatusType,
-        "schemaDefinition": "SchemaDefinitionTypeDef",
-        "capacitySpecification": "CapacitySpecificationSummaryTypeDef",
-        "encryptionSpecification": "EncryptionSpecificationTypeDef",
-        "pointInTimeRecovery": "PointInTimeRecoverySummaryTypeDef",
-        "ttl": "TimeToLiveTypeDef",
-        "defaultTimeToLive": int,
-        "comment": "CommentTypeDef",
-        "clientSideTimestamps": "ClientSideTimestampsTypeDef",
-        "replicaSpecifications": List["ReplicaSpecificationSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredKeyspaceSummaryTypeDef = TypedDict(
-    "_RequiredKeyspaceSummaryTypeDef",
-    {
-        "keyspaceName": str,
-        "resourceArn": str,
-        "replicationStrategy": rsType,
-    },
-)
-_OptionalKeyspaceSummaryTypeDef = TypedDict(
-    "_OptionalKeyspaceSummaryTypeDef",
-    {
-        "replicationRegions": List[str],
-    },
-    total=False,
-)
-
-class KeyspaceSummaryTypeDef(_RequiredKeyspaceSummaryTypeDef, _OptionalKeyspaceSummaryTypeDef):
-    pass
-
-ListKeyspacesRequestRequestTypeDef = TypedDict(
-    "ListKeyspacesRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-ListKeyspacesResponseTypeDef = TypedDict(
-    "ListKeyspacesResponseTypeDef",
-    {
-        "nextToken": str,
-        "keyspaces": List["KeyspaceSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListTablesRequestRequestTypeDef = TypedDict(
-    "_RequiredListTablesRequestRequestTypeDef",
-    {
-        "keyspaceName": str,
-    },
-)
-_OptionalListTablesRequestRequestTypeDef = TypedDict(
-    "_OptionalListTablesRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-class ListTablesRequestRequestTypeDef(
-    _RequiredListTablesRequestRequestTypeDef, _OptionalListTablesRequestRequestTypeDef
-):
-    pass
-
-ListTablesResponseTypeDef = TypedDict(
-    "ListTablesResponseTypeDef",
-    {
-        "nextToken": str,
-        "tables": List["TableSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "_RequiredListTagsForResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-    },
-)
-_OptionalListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "_OptionalListTagsForResourceRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-class ListTagsForResourceRequestRequestTypeDef(
-    _RequiredListTagsForResourceRequestRequestTypeDef,
-    _OptionalListTagsForResourceRequestRequestTypeDef,
-):
-    pass
-
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "nextToken": str,
-        "tags": List["TagTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-PartitionKeyTypeDef = TypedDict(
-    "PartitionKeyTypeDef",
+FieldDefinitionTypeDef = TypedDict(
+    "FieldDefinitionTypeDef",
     {
         "name": str,
+        "type": str,
     },
 )
 
-_RequiredPointInTimeRecoverySummaryTypeDef = TypedDict(
-    "_RequiredPointInTimeRecoverySummaryTypeDef",
-    {
-        "status": PointInTimeRecoveryStatusType,
-    },
-)
-_OptionalPointInTimeRecoverySummaryTypeDef = TypedDict(
-    "_OptionalPointInTimeRecoverySummaryTypeDef",
-    {
-        "earliestRestorableTimestamp": datetime,
-    },
-    total=False,
-)
+class DeleteKeyspaceRequestTypeDef(TypedDict):
+    keyspaceName: str
 
-class PointInTimeRecoverySummaryTypeDef(
-    _RequiredPointInTimeRecoverySummaryTypeDef, _OptionalPointInTimeRecoverySummaryTypeDef
-):
-    pass
+class DeleteTableRequestTypeDef(TypedDict):
+    keyspaceName: str
+    tableName: str
 
-PointInTimeRecoveryTypeDef = TypedDict(
-    "PointInTimeRecoveryTypeDef",
-    {
-        "status": PointInTimeRecoveryStatusType,
-    },
-)
+class DeleteTypeRequestTypeDef(TypedDict):
+    keyspaceName: str
+    typeName: str
 
-ReplicaAutoScalingSpecificationTypeDef = TypedDict(
-    "ReplicaAutoScalingSpecificationTypeDef",
-    {
-        "region": str,
-        "autoScalingSpecification": "AutoScalingSpecificationTypeDef",
-    },
-    total=False,
-)
+class GetKeyspaceRequestTypeDef(TypedDict):
+    keyspaceName: str
 
-ReplicaSpecificationSummaryTypeDef = TypedDict(
-    "ReplicaSpecificationSummaryTypeDef",
-    {
-        "region": str,
-        "status": TableStatusType,
-        "capacitySpecification": "CapacitySpecificationSummaryTypeDef",
-    },
-    total=False,
-)
+class ReplicationGroupStatusTypeDef(TypedDict):
+    region: str
+    keyspaceStatus: KeyspaceStatusType
+    tablesReplicationProgress: NotRequired[str]
 
-_RequiredReplicaSpecificationTypeDef = TypedDict(
-    "_RequiredReplicaSpecificationTypeDef",
-    {
-        "region": str,
-    },
-)
-_OptionalReplicaSpecificationTypeDef = TypedDict(
-    "_OptionalReplicaSpecificationTypeDef",
-    {
-        "readCapacityUnits": int,
-        "readCapacityAutoScaling": "AutoScalingSettingsTypeDef",
-    },
-    total=False,
-)
+class GetTableAutoScalingSettingsRequestTypeDef(TypedDict):
+    keyspaceName: str
+    tableName: str
 
-class ReplicaSpecificationTypeDef(
-    _RequiredReplicaSpecificationTypeDef, _OptionalReplicaSpecificationTypeDef
-):
-    pass
+class GetTableRequestTypeDef(TypedDict):
+    keyspaceName: str
+    tableName: str
 
-_RequiredReplicationSpecificationTypeDef = TypedDict(
-    "_RequiredReplicationSpecificationTypeDef",
-    {
-        "replicationStrategy": rsType,
-    },
-)
-_OptionalReplicationSpecificationTypeDef = TypedDict(
-    "_OptionalReplicationSpecificationTypeDef",
-    {
-        "regionList": List[str],
-    },
-    total=False,
-)
+class PointInTimeRecoverySummaryTypeDef(TypedDict):
+    status: PointInTimeRecoveryStatusType
+    earliestRestorableTimestamp: NotRequired[datetime]
 
-class ReplicationSpecificationTypeDef(
-    _RequiredReplicationSpecificationTypeDef, _OptionalReplicationSpecificationTypeDef
-):
-    pass
+class GetTypeRequestTypeDef(TypedDict):
+    keyspaceName: str
+    typeName: str
 
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
+class KeyspaceSummaryTypeDef(TypedDict):
+    keyspaceName: str
+    resourceArn: str
+    replicationStrategy: RsType
+    replicationRegions: NotRequired[List[str]]
 
-_RequiredRestoreTableRequestRequestTypeDef = TypedDict(
-    "_RequiredRestoreTableRequestRequestTypeDef",
-    {
-        "sourceKeyspaceName": str,
-        "sourceTableName": str,
-        "targetKeyspaceName": str,
-        "targetTableName": str,
-    },
-)
-_OptionalRestoreTableRequestRequestTypeDef = TypedDict(
-    "_OptionalRestoreTableRequestRequestTypeDef",
-    {
-        "restoreTimestamp": Union[datetime, str],
-        "capacitySpecificationOverride": "CapacitySpecificationTypeDef",
-        "encryptionSpecificationOverride": "EncryptionSpecificationTypeDef",
-        "pointInTimeRecoveryOverride": "PointInTimeRecoveryTypeDef",
-        "tagsOverride": List["TagTypeDef"],
-        "autoScalingSpecification": "AutoScalingSpecificationTypeDef",
-        "replicaSpecifications": List["ReplicaSpecificationTypeDef"],
-    },
-    total=False,
-)
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
 
-class RestoreTableRequestRequestTypeDef(
-    _RequiredRestoreTableRequestRequestTypeDef, _OptionalRestoreTableRequestRequestTypeDef
-):
-    pass
+class ListKeyspacesRequestTypeDef(TypedDict):
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
 
-RestoreTableResponseTypeDef = TypedDict(
-    "RestoreTableResponseTypeDef",
-    {
-        "restoredTableARN": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListTablesRequestTypeDef(TypedDict):
+    keyspaceName: str
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
 
-_RequiredSchemaDefinitionTypeDef = TypedDict(
-    "_RequiredSchemaDefinitionTypeDef",
-    {
-        "allColumns": List["ColumnDefinitionTypeDef"],
-        "partitionKeys": List["PartitionKeyTypeDef"],
-    },
-)
-_OptionalSchemaDefinitionTypeDef = TypedDict(
-    "_OptionalSchemaDefinitionTypeDef",
-    {
-        "clusteringKeys": List["ClusteringKeyTypeDef"],
-        "staticColumns": List["StaticColumnTypeDef"],
-    },
-    total=False,
-)
+class TableSummaryTypeDef(TypedDict):
+    keyspaceName: str
+    tableName: str
+    resourceArn: str
 
-class SchemaDefinitionTypeDef(_RequiredSchemaDefinitionTypeDef, _OptionalSchemaDefinitionTypeDef):
-    pass
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
 
-StaticColumnTypeDef = TypedDict(
-    "StaticColumnTypeDef",
+class ListTypesRequestTypeDef(TypedDict):
+    keyspaceName: str
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class PartitionKeyTypeDef(TypedDict):
+    name: str
+
+TimestampTypeDef = Union[datetime, str]
+
+class StaticColumnTypeDef(TypedDict):
+    name: str
+
+class AutoScalingPolicyTypeDef(TypedDict):
+    targetTrackingScalingPolicyConfiguration: NotRequired[
+        TargetTrackingScalingPolicyConfigurationTypeDef
+    ]
+
+class ReplicaSpecificationSummaryTypeDef(TypedDict):
+    region: NotRequired[str]
+    status: NotRequired[TableStatusType]
+    capacitySpecification: NotRequired[CapacitySpecificationSummaryTypeDef]
+
+class UpdateKeyspaceRequestTypeDef(TypedDict):
+    keyspaceName: str
+    replicationSpecification: ReplicationSpecificationTypeDef
+    clientSideTimestamps: NotRequired[ClientSideTimestampsTypeDef]
+
+class CreateKeyspaceRequestTypeDef(TypedDict):
+    keyspaceName: str
+    tags: NotRequired[Sequence[TagTypeDef]]
+    replicationSpecification: NotRequired[ReplicationSpecificationTypeDef]
+
+class TagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tags: Sequence[TagTypeDef]
+
+class UntagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tags: Sequence[TagTypeDef]
+
+class CreateKeyspaceResponseTypeDef(TypedDict):
+    resourceArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateTableResponseTypeDef(TypedDict):
+    resourceArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateTypeResponseTypeDef(TypedDict):
+    keyspaceArn: str
+    typeName: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteTypeResponseTypeDef(TypedDict):
+    keyspaceArn: str
+    typeName: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    tags: List[TagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+ListTypesResponseTypeDef = TypedDict(
+    "ListTypesResponseTypeDef",
     {
-        "name": str,
+        "types": List[str],
+        "ResponseMetadata": ResponseMetadataTypeDef,
+        "nextToken": NotRequired[str],
     },
 )
 
-TableSummaryTypeDef = TypedDict(
-    "TableSummaryTypeDef",
-    {
-        "keyspaceName": str,
-        "tableName": str,
-        "resourceArn": str,
-    },
-)
+class RestoreTableResponseTypeDef(TypedDict):
+    restoredTableARN: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tags": List["TagTypeDef"],
-    },
-)
+class UpdateKeyspaceResponseTypeDef(TypedDict):
+    resourceArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-TagTypeDef = TypedDict(
-    "TagTypeDef",
-    {
-        "key": str,
-        "value": str,
-    },
-)
+class UpdateTableResponseTypeDef(TypedDict):
+    resourceArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredTargetTrackingScalingPolicyConfigurationTypeDef = TypedDict(
-    "_RequiredTargetTrackingScalingPolicyConfigurationTypeDef",
-    {
-        "targetValue": float,
-    },
-)
-_OptionalTargetTrackingScalingPolicyConfigurationTypeDef = TypedDict(
-    "_OptionalTargetTrackingScalingPolicyConfigurationTypeDef",
-    {
-        "disableScaleIn": bool,
-        "scaleInCooldown": int,
-        "scaleOutCooldown": int,
-    },
-    total=False,
-)
+class CreateTypeRequestTypeDef(TypedDict):
+    keyspaceName: str
+    typeName: str
+    fieldDefinitions: Sequence[FieldDefinitionTypeDef]
 
-class TargetTrackingScalingPolicyConfigurationTypeDef(
-    _RequiredTargetTrackingScalingPolicyConfigurationTypeDef,
-    _OptionalTargetTrackingScalingPolicyConfigurationTypeDef,
-):
-    pass
+class GetTypeResponseTypeDef(TypedDict):
+    keyspaceName: str
+    typeName: str
+    fieldDefinitions: List[FieldDefinitionTypeDef]
+    lastModifiedTimestamp: datetime
+    status: TypeStatusType
+    directReferringTables: List[str]
+    directParentTypes: List[str]
+    maxNestingDepth: int
+    keyspaceArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-TimeToLiveTypeDef = TypedDict(
-    "TimeToLiveTypeDef",
-    {
-        "status": Literal["ENABLED"],
-    },
-)
+class GetKeyspaceResponseTypeDef(TypedDict):
+    keyspaceName: str
+    resourceArn: str
+    replicationStrategy: RsType
+    replicationRegions: List[str]
+    replicationGroupStatuses: List[ReplicationGroupStatusTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tags": List["TagTypeDef"],
-    },
-)
+class ListKeyspacesResponseTypeDef(TypedDict):
+    keyspaces: List[KeyspaceSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-_RequiredUpdateTableRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateTableRequestRequestTypeDef",
-    {
-        "keyspaceName": str,
-        "tableName": str,
-    },
-)
-_OptionalUpdateTableRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateTableRequestRequestTypeDef",
-    {
-        "addColumns": List["ColumnDefinitionTypeDef"],
-        "capacitySpecification": "CapacitySpecificationTypeDef",
-        "encryptionSpecification": "EncryptionSpecificationTypeDef",
-        "pointInTimeRecovery": "PointInTimeRecoveryTypeDef",
-        "ttl": "TimeToLiveTypeDef",
-        "defaultTimeToLive": int,
-        "clientSideTimestamps": "ClientSideTimestampsTypeDef",
-        "autoScalingSpecification": "AutoScalingSpecificationTypeDef",
-        "replicaSpecifications": List["ReplicaSpecificationTypeDef"],
-    },
-    total=False,
-)
+class ListKeyspacesRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-class UpdateTableRequestRequestTypeDef(
-    _RequiredUpdateTableRequestRequestTypeDef, _OptionalUpdateTableRequestRequestTypeDef
-):
-    pass
+class ListTablesRequestPaginateTypeDef(TypedDict):
+    keyspaceName: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-UpdateTableResponseTypeDef = TypedDict(
-    "UpdateTableResponseTypeDef",
-    {
-        "resourceArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListTagsForResourceRequestPaginateTypeDef(TypedDict):
+    resourceArn: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListTypesRequestPaginateTypeDef(TypedDict):
+    keyspaceName: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListTablesResponseTypeDef(TypedDict):
+    tables: List[TableSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class SchemaDefinitionOutputTypeDef(TypedDict):
+    allColumns: List[ColumnDefinitionTypeDef]
+    partitionKeys: List[PartitionKeyTypeDef]
+    clusteringKeys: NotRequired[List[ClusteringKeyTypeDef]]
+    staticColumns: NotRequired[List[StaticColumnTypeDef]]
+
+class SchemaDefinitionTypeDef(TypedDict):
+    allColumns: Sequence[ColumnDefinitionTypeDef]
+    partitionKeys: Sequence[PartitionKeyTypeDef]
+    clusteringKeys: NotRequired[Sequence[ClusteringKeyTypeDef]]
+    staticColumns: NotRequired[Sequence[StaticColumnTypeDef]]
+
+class AutoScalingSettingsTypeDef(TypedDict):
+    autoScalingDisabled: NotRequired[bool]
+    minimumUnits: NotRequired[int]
+    maximumUnits: NotRequired[int]
+    scalingPolicy: NotRequired[AutoScalingPolicyTypeDef]
+
+class GetTableResponseTypeDef(TypedDict):
+    keyspaceName: str
+    tableName: str
+    resourceArn: str
+    creationTimestamp: datetime
+    status: TableStatusType
+    schemaDefinition: SchemaDefinitionOutputTypeDef
+    capacitySpecification: CapacitySpecificationSummaryTypeDef
+    encryptionSpecification: EncryptionSpecificationTypeDef
+    pointInTimeRecovery: PointInTimeRecoverySummaryTypeDef
+    ttl: TimeToLiveTypeDef
+    defaultTimeToLive: int
+    comment: CommentTypeDef
+    clientSideTimestamps: ClientSideTimestampsTypeDef
+    replicaSpecifications: List[ReplicaSpecificationSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+SchemaDefinitionUnionTypeDef = Union[SchemaDefinitionTypeDef, SchemaDefinitionOutputTypeDef]
+
+class AutoScalingSpecificationTypeDef(TypedDict):
+    writeCapacityAutoScaling: NotRequired[AutoScalingSettingsTypeDef]
+    readCapacityAutoScaling: NotRequired[AutoScalingSettingsTypeDef]
+
+class ReplicaSpecificationTypeDef(TypedDict):
+    region: str
+    readCapacityUnits: NotRequired[int]
+    readCapacityAutoScaling: NotRequired[AutoScalingSettingsTypeDef]
+
+class ReplicaAutoScalingSpecificationTypeDef(TypedDict):
+    region: NotRequired[str]
+    autoScalingSpecification: NotRequired[AutoScalingSpecificationTypeDef]
+
+class CreateTableRequestTypeDef(TypedDict):
+    keyspaceName: str
+    tableName: str
+    schemaDefinition: SchemaDefinitionUnionTypeDef
+    comment: NotRequired[CommentTypeDef]
+    capacitySpecification: NotRequired[CapacitySpecificationTypeDef]
+    encryptionSpecification: NotRequired[EncryptionSpecificationTypeDef]
+    pointInTimeRecovery: NotRequired[PointInTimeRecoveryTypeDef]
+    ttl: NotRequired[TimeToLiveTypeDef]
+    defaultTimeToLive: NotRequired[int]
+    tags: NotRequired[Sequence[TagTypeDef]]
+    clientSideTimestamps: NotRequired[ClientSideTimestampsTypeDef]
+    autoScalingSpecification: NotRequired[AutoScalingSpecificationTypeDef]
+    replicaSpecifications: NotRequired[Sequence[ReplicaSpecificationTypeDef]]
+
+class RestoreTableRequestTypeDef(TypedDict):
+    sourceKeyspaceName: str
+    sourceTableName: str
+    targetKeyspaceName: str
+    targetTableName: str
+    restoreTimestamp: NotRequired[TimestampTypeDef]
+    capacitySpecificationOverride: NotRequired[CapacitySpecificationTypeDef]
+    encryptionSpecificationOverride: NotRequired[EncryptionSpecificationTypeDef]
+    pointInTimeRecoveryOverride: NotRequired[PointInTimeRecoveryTypeDef]
+    tagsOverride: NotRequired[Sequence[TagTypeDef]]
+    autoScalingSpecification: NotRequired[AutoScalingSpecificationTypeDef]
+    replicaSpecifications: NotRequired[Sequence[ReplicaSpecificationTypeDef]]
+
+class UpdateTableRequestTypeDef(TypedDict):
+    keyspaceName: str
+    tableName: str
+    addColumns: NotRequired[Sequence[ColumnDefinitionTypeDef]]
+    capacitySpecification: NotRequired[CapacitySpecificationTypeDef]
+    encryptionSpecification: NotRequired[EncryptionSpecificationTypeDef]
+    pointInTimeRecovery: NotRequired[PointInTimeRecoveryTypeDef]
+    ttl: NotRequired[TimeToLiveTypeDef]
+    defaultTimeToLive: NotRequired[int]
+    clientSideTimestamps: NotRequired[ClientSideTimestampsTypeDef]
+    autoScalingSpecification: NotRequired[AutoScalingSpecificationTypeDef]
+    replicaSpecifications: NotRequired[Sequence[ReplicaSpecificationTypeDef]]
+
+class GetTableAutoScalingSettingsResponseTypeDef(TypedDict):
+    keyspaceName: str
+    tableName: str
+    resourceArn: str
+    autoScalingSpecification: AutoScalingSpecificationTypeDef
+    replicaSpecifications: List[ReplicaAutoScalingSpecificationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef

@@ -1,19 +1,21 @@
 """
 Main interface for qldb service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_qldb/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_qldb import (
         Client,
         QLDBClient,
     )
 
-    session = boto3.Session()
-
-    client: QLDBClient = boto3.client("qldb")
-    session_client: QLDBClient = session.client("qldb")
+    session = Session()
+    client: QLDBClient = session.client("qldb")
     ```
 """
 

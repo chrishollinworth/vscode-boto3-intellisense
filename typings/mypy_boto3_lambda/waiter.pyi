@@ -1,127 +1,140 @@
 """
 Type annotations for lambda service client waiters.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/waiters.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/waiters/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
 
-    from mypy_boto3_lambda import LambdaClient
+    from mypy_boto3_lambda.client import LambdaClient
     from mypy_boto3_lambda.waiter import (
-        FunctionActiveWaiter,
         FunctionActiveV2Waiter,
+        FunctionActiveWaiter,
         FunctionExistsWaiter,
-        FunctionUpdatedWaiter,
         FunctionUpdatedV2Waiter,
+        FunctionUpdatedWaiter,
         PublishedVersionActiveWaiter,
     )
 
-    client: LambdaClient = boto3.client("lambda")
+    session = Session()
+    client: LambdaClient = session.client("lambda")
 
-    function_active_waiter: FunctionActiveWaiter = client.get_waiter("function_active")
     function_active_v2_waiter: FunctionActiveV2Waiter = client.get_waiter("function_active_v2")
+    function_active_waiter: FunctionActiveWaiter = client.get_waiter("function_active")
     function_exists_waiter: FunctionExistsWaiter = client.get_waiter("function_exists")
-    function_updated_waiter: FunctionUpdatedWaiter = client.get_waiter("function_updated")
     function_updated_v2_waiter: FunctionUpdatedV2Waiter = client.get_waiter("function_updated_v2")
+    function_updated_waiter: FunctionUpdatedWaiter = client.get_waiter("function_updated")
     published_version_active_waiter: PublishedVersionActiveWaiter = client.get_waiter("published_version_active")
     ```
 """
 
-from botocore.waiter import Waiter as Boto3Waiter
+from __future__ import annotations
 
-from .type_defs import WaiterConfigTypeDef
+import sys
+
+from botocore.waiter import Waiter
+
+from .type_defs import (
+    GetFunctionConfigurationRequestWaitExtraExtraTypeDef,
+    GetFunctionConfigurationRequestWaitExtraTypeDef,
+    GetFunctionConfigurationRequestWaitTypeDef,
+    GetFunctionRequestWaitExtraExtraTypeDef,
+    GetFunctionRequestWaitExtraTypeDef,
+    GetFunctionRequestWaitTypeDef,
+)
+
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = (
-    "FunctionActiveWaiter",
     "FunctionActiveV2Waiter",
+    "FunctionActiveWaiter",
     "FunctionExistsWaiter",
-    "FunctionUpdatedWaiter",
     "FunctionUpdatedV2Waiter",
+    "FunctionUpdatedWaiter",
     "PublishedVersionActiveWaiter",
 )
 
-class FunctionActiveWaiter(Boto3Waiter):
+class FunctionActiveV2Waiter(Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lambda.html#Lambda.Waiter.FunctionActive)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/waiters.html#functionactivewaiter)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/waiter/FunctionActiveV2.html#Lambda.Waiter.FunctionActiveV2)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/waiters/#functionactivev2waiter)
     """
-
-    def wait(
-        self, *, FunctionName: str, Qualifier: str = None, WaiterConfig: WaiterConfigTypeDef = None
+    def wait(  # type: ignore[override]
+        self, **kwargs: Unpack[GetFunctionRequestWaitExtraTypeDef]
     ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lambda.html#Lambda.Waiter.FunctionActive.wait)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/waiters.html#functionactivewaiter)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/waiter/FunctionActiveV2.html#Lambda.Waiter.FunctionActiveV2.wait)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/waiters/#functionactivev2waiter)
         """
 
-class FunctionActiveV2Waiter(Boto3Waiter):
+class FunctionActiveWaiter(Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lambda.html#Lambda.Waiter.FunctionActiveV2)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/waiters.html#functionactivev2waiter)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/waiter/FunctionActive.html#Lambda.Waiter.FunctionActive)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/waiters/#functionactivewaiter)
     """
-
-    def wait(
-        self, *, FunctionName: str, Qualifier: str = None, WaiterConfig: WaiterConfigTypeDef = None
+    def wait(  # type: ignore[override]
+        self, **kwargs: Unpack[GetFunctionConfigurationRequestWaitTypeDef]
     ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lambda.html#Lambda.Waiter.FunctionActiveV2.wait)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/waiters.html#functionactivev2waiter)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/waiter/FunctionActive.html#Lambda.Waiter.FunctionActive.wait)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/waiters/#functionactivewaiter)
         """
 
-class FunctionExistsWaiter(Boto3Waiter):
+class FunctionExistsWaiter(Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lambda.html#Lambda.Waiter.FunctionExists)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/waiters.html#functionexistswaiter)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/waiter/FunctionExists.html#Lambda.Waiter.FunctionExists)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/waiters/#functionexistswaiter)
     """
-
-    def wait(
-        self, *, FunctionName: str, Qualifier: str = None, WaiterConfig: WaiterConfigTypeDef = None
+    def wait(  # type: ignore[override]
+        self, **kwargs: Unpack[GetFunctionRequestWaitTypeDef]
     ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lambda.html#Lambda.Waiter.FunctionExists.wait)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/waiters.html#functionexistswaiter)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/waiter/FunctionExists.html#Lambda.Waiter.FunctionExists.wait)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/waiters/#functionexistswaiter)
         """
 
-class FunctionUpdatedWaiter(Boto3Waiter):
+class FunctionUpdatedV2Waiter(Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lambda.html#Lambda.Waiter.FunctionUpdated)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/waiters.html#functionupdatedwaiter)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/waiter/FunctionUpdatedV2.html#Lambda.Waiter.FunctionUpdatedV2)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/waiters/#functionupdatedv2waiter)
     """
-
-    def wait(
-        self, *, FunctionName: str, Qualifier: str = None, WaiterConfig: WaiterConfigTypeDef = None
+    def wait(  # type: ignore[override]
+        self, **kwargs: Unpack[GetFunctionRequestWaitExtraExtraTypeDef]
     ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lambda.html#Lambda.Waiter.FunctionUpdated.wait)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/waiters.html#functionupdatedwaiter)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/waiter/FunctionUpdatedV2.html#Lambda.Waiter.FunctionUpdatedV2.wait)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/waiters/#functionupdatedv2waiter)
         """
 
-class FunctionUpdatedV2Waiter(Boto3Waiter):
+class FunctionUpdatedWaiter(Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lambda.html#Lambda.Waiter.FunctionUpdatedV2)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/waiters.html#functionupdatedv2waiter)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/waiter/FunctionUpdated.html#Lambda.Waiter.FunctionUpdated)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/waiters/#functionupdatedwaiter)
     """
-
-    def wait(
-        self, *, FunctionName: str, Qualifier: str = None, WaiterConfig: WaiterConfigTypeDef = None
+    def wait(  # type: ignore[override]
+        self, **kwargs: Unpack[GetFunctionConfigurationRequestWaitExtraTypeDef]
     ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lambda.html#Lambda.Waiter.FunctionUpdatedV2.wait)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/waiters.html#functionupdatedv2waiter)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/waiter/FunctionUpdated.html#Lambda.Waiter.FunctionUpdated.wait)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/waiters/#functionupdatedwaiter)
         """
 
-class PublishedVersionActiveWaiter(Boto3Waiter):
+class PublishedVersionActiveWaiter(Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lambda.html#Lambda.Waiter.PublishedVersionActive)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/waiters.html#publishedversionactivewaiter)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/waiter/PublishedVersionActive.html#Lambda.Waiter.PublishedVersionActive)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/waiters/#publishedversionactivewaiter)
     """
-
-    def wait(
-        self, *, FunctionName: str, Qualifier: str = None, WaiterConfig: WaiterConfigTypeDef = None
+    def wait(  # type: ignore[override]
+        self, **kwargs: Unpack[GetFunctionConfigurationRequestWaitExtraExtraTypeDef]
     ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lambda.html#Lambda.Waiter.PublishedVersionActive.wait)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/waiters.html#publishedversionactivewaiter)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/waiter/PublishedVersionActive.html#Lambda.Waiter.PublishedVersionActive.wait)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/waiters/#publishedversionactivewaiter)
         """

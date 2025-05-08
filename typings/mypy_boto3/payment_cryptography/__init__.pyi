@@ -1,10 +1,14 @@
 """
 Main interface for payment-cryptography service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_payment_cryptography import (
         Client,
         ListAliasesPaginator,
@@ -13,10 +17,8 @@ Usage::
         PaymentCryptographyControlPlaneClient,
     )
 
-    session = boto3.Session()
-
-    client: PaymentCryptographyControlPlaneClient = boto3.client("payment-cryptography")
-    session_client: PaymentCryptographyControlPlaneClient = session.client("payment-cryptography")
+    session = Session()
+    client: PaymentCryptographyControlPlaneClient = session.client("payment-cryptography")
 
     list_aliases_paginator: ListAliasesPaginator = client.get_paginator("list_aliases")
     list_keys_paginator: ListKeysPaginator = client.get_paginator("list_keys")

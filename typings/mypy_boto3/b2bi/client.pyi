@@ -1,24 +1,30 @@
 """
-Type annotations for b2bi service client.
+Type annotations for b2bi service Client.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
-    from mypy_boto3_b2bi import B2BIClient
+    from boto3.session import Session
+    from mypy_boto3_b2bi.client import B2BIClient
 
-    client: B2BIClient = boto3.client("b2bi")
+    session = Session()
+    client: B2BIClient = session.client("b2bi")
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from typing import Any, Dict, List, Type, overload
+from typing import Any, overload
 
 from botocore.client import BaseClient, ClientMeta
+from botocore.errorfactory import BaseClientExceptions
+from botocore.exceptions import ClientError as BotocoreClientError
 
-from .literals import FileFormatType, LoggingType, TransformerStatusType
 from .paginator import (
     ListCapabilitiesPaginator,
     ListPartnershipsPaginator,
@@ -26,48 +32,76 @@ from .paginator import (
     ListTransformersPaginator,
 )
 from .type_defs import (
-    CapabilityConfigurationTypeDef,
+    CreateCapabilityRequestTypeDef,
     CreateCapabilityResponseTypeDef,
+    CreatePartnershipRequestTypeDef,
     CreatePartnershipResponseTypeDef,
+    CreateProfileRequestTypeDef,
     CreateProfileResponseTypeDef,
+    CreateStarterMappingTemplateRequestTypeDef,
+    CreateStarterMappingTemplateResponseTypeDef,
+    CreateTransformerRequestTypeDef,
     CreateTransformerResponseTypeDef,
-    EdiTypeTypeDef,
+    DeleteCapabilityRequestTypeDef,
+    DeletePartnershipRequestTypeDef,
+    DeleteProfileRequestTypeDef,
+    DeleteTransformerRequestTypeDef,
+    EmptyResponseMetadataTypeDef,
+    GenerateMappingRequestTypeDef,
+    GenerateMappingResponseTypeDef,
+    GetCapabilityRequestTypeDef,
     GetCapabilityResponseTypeDef,
+    GetPartnershipRequestTypeDef,
     GetPartnershipResponseTypeDef,
+    GetProfileRequestTypeDef,
     GetProfileResponseTypeDef,
+    GetTransformerJobRequestTypeDef,
     GetTransformerJobResponseTypeDef,
+    GetTransformerRequestTypeDef,
     GetTransformerResponseTypeDef,
+    ListCapabilitiesRequestTypeDef,
     ListCapabilitiesResponseTypeDef,
+    ListPartnershipsRequestTypeDef,
     ListPartnershipsResponseTypeDef,
+    ListProfilesRequestTypeDef,
     ListProfilesResponseTypeDef,
+    ListTagsForResourceRequestTypeDef,
     ListTagsForResourceResponseTypeDef,
+    ListTransformersRequestTypeDef,
     ListTransformersResponseTypeDef,
-    S3LocationTypeDef,
+    StartTransformerJobRequestTypeDef,
     StartTransformerJobResponseTypeDef,
-    TagTypeDef,
+    TagResourceRequestTypeDef,
+    TestConversionRequestTypeDef,
+    TestConversionResponseTypeDef,
+    TestMappingRequestTypeDef,
     TestMappingResponseTypeDef,
+    TestParsingRequestTypeDef,
     TestParsingResponseTypeDef,
+    UntagResourceRequestTypeDef,
+    UpdateCapabilityRequestTypeDef,
     UpdateCapabilityResponseTypeDef,
+    UpdatePartnershipRequestTypeDef,
     UpdatePartnershipResponseTypeDef,
+    UpdateProfileRequestTypeDef,
     UpdateProfileResponseTypeDef,
+    UpdateTransformerRequestTypeDef,
     UpdateTransformerResponseTypeDef,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import type as Type
+    from collections.abc import Mapping
 else:
-    from typing_extensions import Literal
+    from typing import Mapping, Type
+if sys.version_info >= (3, 12):
+    from typing import Literal, Unpack
+else:
+    from typing_extensions import Literal, Unpack
 
 __all__ = ("B2BIClient",)
 
-class BotocoreClientError(BaseException):
-    MSG_TEMPLATE: str
-
-    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
-        self.response: Dict[str, Any]
-        self.operation_name: str
-
-class Exceptions:
+class Exceptions(BaseClientExceptions):
     AccessDeniedException: Type[BotocoreClientError]
     ClientError: Type[BotocoreClientError]
     ConflictException: Type[BotocoreClientError]
@@ -79,8 +113,8 @@ class Exceptions:
 
 class B2BIClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/b2bi.html#B2BI.Client)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client.html)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/b2bi.html#B2BI.Client)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client/)
     """
 
     meta: ClientMeta
@@ -89,387 +123,382 @@ class B2BIClient(BaseClient):
     def exceptions(self) -> Exceptions:
         """
         B2BIClient exceptions.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/b2bi.html#B2BI.Client)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client/#exceptions)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        Check if an operation can be paginated.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/b2bi.html#B2BI.Client.can_paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client.html#can_paginate)
-        """
-
-    def close(self) -> None:
-        """
-        Closes underlying endpoint connections.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/b2bi.html#B2BI.Client.close)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client.html#close)
-        """
-
-    def create_capability(
-        self,
-        *,
-        name: str,
-        type: Literal["edi"],
-        configuration: "CapabilityConfigurationTypeDef",
-        instructionsDocuments: List["S3LocationTypeDef"] = None,
-        clientToken: str = None,
-        tags: List["TagTypeDef"] = None
-    ) -> CreateCapabilityResponseTypeDef:
-        """
-        Instantiates a capability based on the specified parameters.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/b2bi.html#B2BI.Client.create_capability)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client.html#create_capability)
-        """
-
-    def create_partnership(
-        self,
-        *,
-        profileId: str,
-        name: str,
-        email: str,
-        capabilities: List[str],
-        phone: str = None,
-        clientToken: str = None,
-        tags: List["TagTypeDef"] = None
-    ) -> CreatePartnershipResponseTypeDef:
-        """
-        Creates a partnership between a customer and a trading partner, based on the
-        supplied parameters.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/b2bi.html#B2BI.Client.create_partnership)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client.html#create_partnership)
-        """
-
-    def create_profile(
-        self,
-        *,
-        name: str,
-        phone: str,
-        businessName: str,
-        logging: LoggingType,
-        email: str = None,
-        clientToken: str = None,
-        tags: List["TagTypeDef"] = None
-    ) -> CreateProfileResponseTypeDef:
-        """
-        Creates a customer profile.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/b2bi.html#B2BI.Client.create_profile)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client.html#create_profile)
-        """
-
-    def create_transformer(
-        self,
-        *,
-        name: str,
-        fileFormat: FileFormatType,
-        mappingTemplate: str,
-        ediType: "EdiTypeTypeDef",
-        sampleDocument: str = None,
-        clientToken: str = None,
-        tags: List["TagTypeDef"] = None
-    ) -> CreateTransformerResponseTypeDef:
-        """
-        Creates a transformer.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/b2bi.html#B2BI.Client.create_transformer)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client.html#create_transformer)
-        """
-
-    def delete_capability(self, *, capabilityId: str) -> None:
-        """
-        Deletes the specified capability.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/b2bi.html#B2BI.Client.delete_capability)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client.html#delete_capability)
-        """
-
-    def delete_partnership(self, *, partnershipId: str) -> None:
-        """
-        Deletes the specified partnership.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/b2bi.html#B2BI.Client.delete_partnership)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client.html#delete_partnership)
-        """
-
-    def delete_profile(self, *, profileId: str) -> None:
-        """
-        Deletes the specified profile.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/b2bi.html#B2BI.Client.delete_profile)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client.html#delete_profile)
-        """
-
-    def delete_transformer(self, *, transformerId: str) -> None:
-        """
-        Deletes the specified transformer.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/b2bi.html#B2BI.Client.delete_transformer)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client.html#delete_transformer)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/b2bi/client/can_paginate.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client/#can_paginate)
         """
 
     def generate_presigned_url(
         self,
         ClientMethod: str,
-        Params: Dict[str, Any] = None,
+        Params: Mapping[str, Any] = ...,
         ExpiresIn: int = 3600,
-        HttpMethod: str = None,
+        HttpMethod: str = ...,
     ) -> str:
         """
-        Generate a presigned url given a client, its method, and arguments.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/b2bi.html#B2BI.Client.generate_presigned_url)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client.html#generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/b2bi/client/generate_presigned_url.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client/#generate_presigned_url)
         """
 
-    def get_capability(self, *, capabilityId: str) -> GetCapabilityResponseTypeDef:
+    def create_capability(
+        self, **kwargs: Unpack[CreateCapabilityRequestTypeDef]
+    ) -> CreateCapabilityResponseTypeDef:
+        """
+        Instantiates a capability based on the specified parameters.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/b2bi/client/create_capability.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client/#create_capability)
+        """
+
+    def create_partnership(
+        self, **kwargs: Unpack[CreatePartnershipRequestTypeDef]
+    ) -> CreatePartnershipResponseTypeDef:
+        """
+        Creates a partnership between a customer and a trading partner, based on the
+        supplied parameters.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/b2bi/client/create_partnership.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client/#create_partnership)
+        """
+
+    def create_profile(
+        self, **kwargs: Unpack[CreateProfileRequestTypeDef]
+    ) -> CreateProfileResponseTypeDef:
+        """
+        Creates a customer profile.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/b2bi/client/create_profile.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client/#create_profile)
+        """
+
+    def create_starter_mapping_template(
+        self, **kwargs: Unpack[CreateStarterMappingTemplateRequestTypeDef]
+    ) -> CreateStarterMappingTemplateResponseTypeDef:
+        """
+        Amazon Web Services B2B Data Interchange uses a mapping template in JSONata or
+        XSLT format to transform a customer input file into a JSON or XML file that can
+        be converted to EDI.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/b2bi/client/create_starter_mapping_template.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client/#create_starter_mapping_template)
+        """
+
+    def create_transformer(
+        self, **kwargs: Unpack[CreateTransformerRequestTypeDef]
+    ) -> CreateTransformerResponseTypeDef:
+        """
+        Creates a transformer.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/b2bi/client/create_transformer.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client/#create_transformer)
+        """
+
+    def delete_capability(
+        self, **kwargs: Unpack[DeleteCapabilityRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Deletes the specified capability.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/b2bi/client/delete_capability.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client/#delete_capability)
+        """
+
+    def delete_partnership(
+        self, **kwargs: Unpack[DeletePartnershipRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Deletes the specified partnership.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/b2bi/client/delete_partnership.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client/#delete_partnership)
+        """
+
+    def delete_profile(
+        self, **kwargs: Unpack[DeleteProfileRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Deletes the specified profile.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/b2bi/client/delete_profile.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client/#delete_profile)
+        """
+
+    def delete_transformer(
+        self, **kwargs: Unpack[DeleteTransformerRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Deletes the specified transformer.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/b2bi/client/delete_transformer.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client/#delete_transformer)
+        """
+
+    def generate_mapping(
+        self, **kwargs: Unpack[GenerateMappingRequestTypeDef]
+    ) -> GenerateMappingResponseTypeDef:
+        """
+        Takes sample input and output documents and uses Amazon Bedrock to generate a
+        mapping automatically.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/b2bi/client/generate_mapping.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client/#generate_mapping)
+        """
+
+    def get_capability(
+        self, **kwargs: Unpack[GetCapabilityRequestTypeDef]
+    ) -> GetCapabilityResponseTypeDef:
         """
         Retrieves the details for the specified capability.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/b2bi.html#B2BI.Client.get_capability)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client.html#get_capability)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/b2bi/client/get_capability.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client/#get_capability)
         """
 
-    def get_partnership(self, *, partnershipId: str) -> GetPartnershipResponseTypeDef:
+    def get_partnership(
+        self, **kwargs: Unpack[GetPartnershipRequestTypeDef]
+    ) -> GetPartnershipResponseTypeDef:
         """
         Retrieves the details for a partnership, based on the partner and profile IDs
         specified.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/b2bi.html#B2BI.Client.get_partnership)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client.html#get_partnership)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/b2bi/client/get_partnership.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client/#get_partnership)
         """
 
-    def get_profile(self, *, profileId: str) -> GetProfileResponseTypeDef:
+    def get_profile(self, **kwargs: Unpack[GetProfileRequestTypeDef]) -> GetProfileResponseTypeDef:
         """
         Retrieves the details for the profile specified by the profile ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/b2bi.html#B2BI.Client.get_profile)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client.html#get_profile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/b2bi/client/get_profile.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client/#get_profile)
         """
 
-    def get_transformer(self, *, transformerId: str) -> GetTransformerResponseTypeDef:
+    def get_transformer(
+        self, **kwargs: Unpack[GetTransformerRequestTypeDef]
+    ) -> GetTransformerResponseTypeDef:
         """
         Retrieves the details for the transformer specified by the transformer ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/b2bi.html#B2BI.Client.get_transformer)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client.html#get_transformer)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/b2bi/client/get_transformer.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client/#get_transformer)
         """
 
     def get_transformer_job(
-        self, *, transformerJobId: str, transformerId: str
+        self, **kwargs: Unpack[GetTransformerJobRequestTypeDef]
     ) -> GetTransformerJobResponseTypeDef:
         """
         Returns the details of the transformer run, based on the Transformer job ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/b2bi.html#B2BI.Client.get_transformer_job)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client.html#get_transformer_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/b2bi/client/get_transformer_job.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client/#get_transformer_job)
         """
 
     def list_capabilities(
-        self, *, nextToken: str = None, maxResults: int = None
+        self, **kwargs: Unpack[ListCapabilitiesRequestTypeDef]
     ) -> ListCapabilitiesResponseTypeDef:
         """
-        Lists the capabilities associated with your Amazon Web Services account for your
-        current or specified region.
+        Lists the capabilities associated with your Amazon Web Services account for
+        your current or specified region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/b2bi.html#B2BI.Client.list_capabilities)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client.html#list_capabilities)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/b2bi/client/list_capabilities.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client/#list_capabilities)
         """
 
     def list_partnerships(
-        self, *, profileId: str = None, nextToken: str = None, maxResults: int = None
+        self, **kwargs: Unpack[ListPartnershipsRequestTypeDef]
     ) -> ListPartnershipsResponseTypeDef:
         """
-        Lists the partnerships associated with your Amazon Web Services account for your
-        current or specified region.
+        Lists the partnerships associated with your Amazon Web Services account for
+        your current or specified region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/b2bi.html#B2BI.Client.list_partnerships)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client.html#list_partnerships)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/b2bi/client/list_partnerships.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client/#list_partnerships)
         """
 
     def list_profiles(
-        self, *, nextToken: str = None, maxResults: int = None
+        self, **kwargs: Unpack[ListProfilesRequestTypeDef]
     ) -> ListProfilesResponseTypeDef:
         """
         Lists the profiles associated with your Amazon Web Services account for your
         current or specified region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/b2bi.html#B2BI.Client.list_profiles)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client.html#list_profiles)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/b2bi/client/list_profiles.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client/#list_profiles)
         """
 
-    def list_tags_for_resource(self, *, ResourceARN: str) -> ListTagsForResourceResponseTypeDef:
+    def list_tags_for_resource(
+        self, **kwargs: Unpack[ListTagsForResourceRequestTypeDef]
+    ) -> ListTagsForResourceResponseTypeDef:
         """
         Lists all of the tags associated with the Amazon Resource Name (ARN) that you
         specify.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/b2bi.html#B2BI.Client.list_tags_for_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client.html#list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/b2bi/client/list_tags_for_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client/#list_tags_for_resource)
         """
 
     def list_transformers(
-        self, *, nextToken: str = None, maxResults: int = None
+        self, **kwargs: Unpack[ListTransformersRequestTypeDef]
     ) -> ListTransformersResponseTypeDef:
         """
         Lists the available transformers.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/b2bi.html#B2BI.Client.list_transformers)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client.html#list_transformers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/b2bi/client/list_transformers.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client/#list_transformers)
         """
 
     def start_transformer_job(
-        self,
-        *,
-        inputFile: "S3LocationTypeDef",
-        outputLocation: "S3LocationTypeDef",
-        transformerId: str,
-        clientToken: str = None
+        self, **kwargs: Unpack[StartTransformerJobRequestTypeDef]
     ) -> StartTransformerJobResponseTypeDef:
         """
         Runs a job, using a transformer, to parse input EDI (electronic data
-        interchange) file into the output structures used by Amazon Web Services B2BI
+        interchange) file into the output structures used by Amazon Web Services B2B
         Data Interchange.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/b2bi.html#B2BI.Client.start_transformer_job)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client.html#start_transformer_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/b2bi/client/start_transformer_job.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client/#start_transformer_job)
         """
 
-    def tag_resource(self, *, ResourceARN: str, Tags: List["TagTypeDef"]) -> None:
+    def tag_resource(
+        self, **kwargs: Unpack[TagResourceRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Attaches a key-value pair to a resource, as identified by its Amazon Resource
         Name (ARN).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/b2bi.html#B2BI.Client.tag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client.html#tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/b2bi/client/tag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client/#tag_resource)
+        """
+
+    def test_conversion(
+        self, **kwargs: Unpack[TestConversionRequestTypeDef]
+    ) -> TestConversionResponseTypeDef:
+        """
+        This operation mimics the latter half of a typical Outbound EDI request.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/b2bi/client/test_conversion.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client/#test_conversion)
         """
 
     def test_mapping(
-        self, *, inputFileContent: str, mappingTemplate: str, fileFormat: FileFormatType
+        self, **kwargs: Unpack[TestMappingRequestTypeDef]
     ) -> TestMappingResponseTypeDef:
         """
         Maps the input file according to the provided template file.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/b2bi.html#B2BI.Client.test_mapping)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client.html#test_mapping)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/b2bi/client/test_mapping.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client/#test_mapping)
         """
 
     def test_parsing(
-        self,
-        *,
-        inputFile: "S3LocationTypeDef",
-        fileFormat: FileFormatType,
-        ediType: "EdiTypeTypeDef"
+        self, **kwargs: Unpack[TestParsingRequestTypeDef]
     ) -> TestParsingResponseTypeDef:
         """
         Parses the input EDI (electronic data interchange) file.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/b2bi.html#B2BI.Client.test_parsing)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client.html#test_parsing)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/b2bi/client/test_parsing.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client/#test_parsing)
         """
 
-    def untag_resource(self, *, ResourceARN: str, TagKeys: List[str]) -> None:
+    def untag_resource(
+        self, **kwargs: Unpack[UntagResourceRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Detaches a key-value pair from the specified resource, as identified by its
         Amazon Resource Name (ARN).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/b2bi.html#B2BI.Client.untag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client.html#untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/b2bi/client/untag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client/#untag_resource)
         """
 
     def update_capability(
-        self,
-        *,
-        capabilityId: str,
-        name: str = None,
-        configuration: "CapabilityConfigurationTypeDef" = None,
-        instructionsDocuments: List["S3LocationTypeDef"] = None
+        self, **kwargs: Unpack[UpdateCapabilityRequestTypeDef]
     ) -> UpdateCapabilityResponseTypeDef:
         """
         Updates some of the parameters for a capability, based on the specified
         parameters.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/b2bi.html#B2BI.Client.update_capability)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client.html#update_capability)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/b2bi/client/update_capability.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client/#update_capability)
         """
 
     def update_partnership(
-        self, *, partnershipId: str, name: str = None, capabilities: List[str] = None
+        self, **kwargs: Unpack[UpdatePartnershipRequestTypeDef]
     ) -> UpdatePartnershipResponseTypeDef:
         """
         Updates some of the parameters for a partnership between a customer and trading
         partner.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/b2bi.html#B2BI.Client.update_partnership)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client.html#update_partnership)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/b2bi/client/update_partnership.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client/#update_partnership)
         """
 
     def update_profile(
-        self,
-        *,
-        profileId: str,
-        name: str = None,
-        email: str = None,
-        phone: str = None,
-        businessName: str = None
+        self, **kwargs: Unpack[UpdateProfileRequestTypeDef]
     ) -> UpdateProfileResponseTypeDef:
         """
         Updates the specified parameters for a profile.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/b2bi.html#B2BI.Client.update_profile)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client.html#update_profile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/b2bi/client/update_profile.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client/#update_profile)
         """
 
     def update_transformer(
-        self,
-        *,
-        transformerId: str,
-        name: str = None,
-        fileFormat: FileFormatType = None,
-        mappingTemplate: str = None,
-        status: TransformerStatusType = None,
-        ediType: "EdiTypeTypeDef" = None,
-        sampleDocument: str = None
+        self, **kwargs: Unpack[UpdateTransformerRequestTypeDef]
     ) -> UpdateTransformerResponseTypeDef:
         """
         Updates the specified parameters for a transformer.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/b2bi.html#B2BI.Client.update_transformer)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client.html#update_transformer)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/b2bi/client/update_transformer.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client/#update_transformer)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_capabilities"]
     ) -> ListCapabilitiesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/b2bi.html#B2BI.Paginator.ListCapabilities)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_b2bi/paginators.html#listcapabilitiespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/b2bi/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_partnerships"]
     ) -> ListPartnershipsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/b2bi.html#B2BI.Paginator.ListPartnerships)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_b2bi/paginators.html#listpartnershipspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/b2bi/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_profiles"]) -> ListProfilesPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_profiles"]
+    ) -> ListProfilesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/b2bi.html#B2BI.Paginator.ListProfiles)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_b2bi/paginators.html#listprofilespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/b2bi/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_transformers"]
     ) -> ListTransformersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/b2bi.html#B2BI.Paginator.ListTransformers)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_b2bi/paginators.html#listtransformerspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/b2bi/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_b2bi/client/#get_paginator)
         """

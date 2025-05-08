@@ -1,19 +1,21 @@
 """
 Main interface for cloudsearch service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudsearch/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_cloudsearch import (
         Client,
         CloudSearchClient,
     )
 
-    session = boto3.Session()
-
-    client: CloudSearchClient = boto3.client("cloudsearch")
-    session_client: CloudSearchClient = session.client("cloudsearch")
+    session = Session()
+    client: CloudSearchClient = session.client("cloudsearch")
     ```
 """
 

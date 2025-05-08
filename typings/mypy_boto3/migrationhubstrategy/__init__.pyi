@@ -1,10 +1,14 @@
 """
 Main interface for migrationhubstrategy service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_migrationhubstrategy/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_migrationhubstrategy import (
         Client,
         GetServerDetailsPaginator,
@@ -16,10 +20,8 @@ Usage::
         MigrationHubStrategyRecommendationsClient,
     )
 
-    session = boto3.Session()
-
-    client: MigrationHubStrategyRecommendationsClient = boto3.client("migrationhubstrategy")
-    session_client: MigrationHubStrategyRecommendationsClient = session.client("migrationhubstrategy")
+    session = Session()
+    client: MigrationHubStrategyRecommendationsClient = session.client("migrationhubstrategy")
 
     get_server_details_paginator: GetServerDetailsPaginator = client.get_paginator("get_server_details")
     list_analyzable_servers_paginator: ListAnalyzableServersPaginator = client.get_paginator("list_analyzable_servers")

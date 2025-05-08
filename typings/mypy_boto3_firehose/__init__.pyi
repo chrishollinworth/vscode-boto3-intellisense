@@ -1,19 +1,21 @@
 """
 Main interface for firehose service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_firehose/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_firehose import (
         Client,
         FirehoseClient,
     )
 
-    session = boto3.Session()
-
-    client: FirehoseClient = boto3.client("firehose")
-    session_client: FirehoseClient = session.client("firehose")
+    session = Session()
+    client: FirehoseClient = session.client("firehose")
     ```
 """
 

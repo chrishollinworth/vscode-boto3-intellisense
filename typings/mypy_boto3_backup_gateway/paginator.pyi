@@ -1,21 +1,24 @@
 """
 Type annotations for backup-gateway service client paginators.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup_gateway/paginators.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_backup_gateway/paginators/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
 
-    from mypy_boto3_backup_gateway import BackupGatewayClient
+    from mypy_boto3_backup_gateway.client import BackupGatewayClient
     from mypy_boto3_backup_gateway.paginator import (
         ListGatewaysPaginator,
         ListHypervisorsPaginator,
         ListVirtualMachinesPaginator,
     )
 
-    client: BackupGatewayClient = boto3.client("backup-gateway")
+    session = Session()
+    client: BackupGatewayClient = session.client("backup-gateway")
 
     list_gateways_paginator: ListGatewaysPaginator = client.get_paginator("list_gateways")
     list_hypervisors_paginator: ListHypervisorsPaginator = client.get_paginator("list_hypervisors")
@@ -23,57 +26,79 @@ Usage::
     ```
 """
 
-from typing import Iterator
+from __future__ import annotations
 
-from botocore.paginate import Paginator as Boto3Paginator
+import sys
+from typing import TYPE_CHECKING
+
+from botocore.paginate import PageIterator, Paginator
 
 from .type_defs import (
+    ListGatewaysInputPaginateTypeDef,
     ListGatewaysOutputTypeDef,
+    ListHypervisorsInputPaginateTypeDef,
     ListHypervisorsOutputTypeDef,
+    ListVirtualMachinesInputPaginateTypeDef,
     ListVirtualMachinesOutputTypeDef,
-    PaginatorConfigTypeDef,
 )
+
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = ("ListGatewaysPaginator", "ListHypervisorsPaginator", "ListVirtualMachinesPaginator")
 
-class ListGatewaysPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/backup-gateway.html#BackupGateway.Paginator.ListGateways)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup_gateway/paginators.html#listgatewayspaginator)
-    """
+if TYPE_CHECKING:
+    _ListGatewaysPaginatorBase = Paginator[ListGatewaysOutputTypeDef]
+else:
+    _ListGatewaysPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListGatewaysOutputTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/backup-gateway.html#BackupGateway.Paginator.ListGateways.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup_gateway/paginators.html#listgatewayspaginator)
-        """
-
-class ListHypervisorsPaginator(Boto3Paginator):
+class ListGatewaysPaginator(_ListGatewaysPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/backup-gateway.html#BackupGateway.Paginator.ListHypervisors)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup_gateway/paginators.html#listhypervisorspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/backup-gateway/paginator/ListGateways.html#BackupGateway.Paginator.ListGateways)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_backup_gateway/paginators/#listgatewayspaginator)
     """
-
-    def paginate(
-        self, *, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListHypervisorsOutputTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListGatewaysInputPaginateTypeDef]
+    ) -> PageIterator[ListGatewaysOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/backup-gateway.html#BackupGateway.Paginator.ListHypervisors.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup_gateway/paginators.html#listhypervisorspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/backup-gateway/paginator/ListGateways.html#BackupGateway.Paginator.ListGateways.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_backup_gateway/paginators/#listgatewayspaginator)
         """
 
-class ListVirtualMachinesPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/backup-gateway.html#BackupGateway.Paginator.ListVirtualMachines)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup_gateway/paginators.html#listvirtualmachinespaginator)
-    """
+if TYPE_CHECKING:
+    _ListHypervisorsPaginatorBase = Paginator[ListHypervisorsOutputTypeDef]
+else:
+    _ListHypervisorsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, HypervisorArn: str = None, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListVirtualMachinesOutputTypeDef]:
+class ListHypervisorsPaginator(_ListHypervisorsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/backup-gateway/paginator/ListHypervisors.html#BackupGateway.Paginator.ListHypervisors)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_backup_gateway/paginators/#listhypervisorspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListHypervisorsInputPaginateTypeDef]
+    ) -> PageIterator[ListHypervisorsOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/backup-gateway.html#BackupGateway.Paginator.ListVirtualMachines.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_backup_gateway/paginators.html#listvirtualmachinespaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/backup-gateway/paginator/ListHypervisors.html#BackupGateway.Paginator.ListHypervisors.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_backup_gateway/paginators/#listhypervisorspaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListVirtualMachinesPaginatorBase = Paginator[ListVirtualMachinesOutputTypeDef]
+else:
+    _ListVirtualMachinesPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListVirtualMachinesPaginator(_ListVirtualMachinesPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/backup-gateway/paginator/ListVirtualMachines.html#BackupGateway.Paginator.ListVirtualMachines)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_backup_gateway/paginators/#listvirtualmachinespaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListVirtualMachinesInputPaginateTypeDef]
+    ) -> PageIterator[ListVirtualMachinesOutputTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/backup-gateway/paginator/ListVirtualMachines.html#BackupGateway.Paginator.ListVirtualMachines.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_backup_gateway/paginators/#listvirtualmachinespaginator)
         """

@@ -1,20 +1,24 @@
 """
 Type annotations for rekognition service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rekognition/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_rekognition/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_rekognition.type_defs import AgeRangeTypeDef
 
-    data: AgeRangeTypeDef = {...}
+    data: AgeRangeTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import IO, Any, Dict, List, Union
+from typing import IO, Any, Union
 
 from botocore.response import StreamingBody
 
@@ -63,55 +67,59 @@ from .literals import (
     VideoJobStatusType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
     "AgeRangeTypeDef",
     "AssetTypeDef",
-    "AssociateFacesRequestRequestTypeDef",
+    "AssociateFacesRequestTypeDef",
     "AssociateFacesResponseTypeDef",
     "AssociatedFaceTypeDef",
     "AudioMetadataTypeDef",
     "AuditImageTypeDef",
     "BeardTypeDef",
     "BlackFrameTypeDef",
+    "BlobTypeDef",
     "BoundingBoxTypeDef",
     "CelebrityDetailTypeDef",
     "CelebrityRecognitionTypeDef",
     "CelebrityTypeDef",
     "CompareFacesMatchTypeDef",
-    "CompareFacesRequestRequestTypeDef",
+    "CompareFacesRequestTypeDef",
     "CompareFacesResponseTypeDef",
     "ComparedFaceTypeDef",
     "ComparedSourceImageFaceTypeDef",
     "ConnectedHomeSettingsForUpdateTypeDef",
+    "ConnectedHomeSettingsOutputTypeDef",
     "ConnectedHomeSettingsTypeDef",
     "ContentModerationDetectionTypeDef",
     "ContentTypeTypeDef",
-    "CopyProjectVersionRequestRequestTypeDef",
+    "CopyProjectVersionRequestTypeDef",
     "CopyProjectVersionResponseTypeDef",
     "CoversBodyPartTypeDef",
-    "CreateCollectionRequestRequestTypeDef",
+    "CreateCollectionRequestTypeDef",
     "CreateCollectionResponseTypeDef",
-    "CreateDatasetRequestRequestTypeDef",
+    "CreateDatasetRequestTypeDef",
     "CreateDatasetResponseTypeDef",
-    "CreateFaceLivenessSessionRequestRequestTypeDef",
     "CreateFaceLivenessSessionRequestSettingsTypeDef",
+    "CreateFaceLivenessSessionRequestTypeDef",
     "CreateFaceLivenessSessionResponseTypeDef",
-    "CreateProjectRequestRequestTypeDef",
+    "CreateProjectRequestTypeDef",
     "CreateProjectResponseTypeDef",
-    "CreateProjectVersionRequestRequestTypeDef",
+    "CreateProjectVersionRequestTypeDef",
     "CreateProjectVersionResponseTypeDef",
-    "CreateStreamProcessorRequestRequestTypeDef",
+    "CreateStreamProcessorRequestTypeDef",
     "CreateStreamProcessorResponseTypeDef",
-    "CreateUserRequestRequestTypeDef",
+    "CreateUserRequestTypeDef",
     "CustomLabelTypeDef",
     "CustomizationFeatureConfigTypeDef",
     "CustomizationFeatureContentModerationConfigTypeDef",
@@ -122,52 +130,56 @@ __all__ = (
     "DatasetMetadataTypeDef",
     "DatasetSourceTypeDef",
     "DatasetStatsTypeDef",
-    "DeleteCollectionRequestRequestTypeDef",
+    "DeleteCollectionRequestTypeDef",
     "DeleteCollectionResponseTypeDef",
-    "DeleteDatasetRequestRequestTypeDef",
-    "DeleteFacesRequestRequestTypeDef",
+    "DeleteDatasetRequestTypeDef",
+    "DeleteFacesRequestTypeDef",
     "DeleteFacesResponseTypeDef",
-    "DeleteProjectPolicyRequestRequestTypeDef",
-    "DeleteProjectRequestRequestTypeDef",
+    "DeleteProjectPolicyRequestTypeDef",
+    "DeleteProjectRequestTypeDef",
     "DeleteProjectResponseTypeDef",
-    "DeleteProjectVersionRequestRequestTypeDef",
+    "DeleteProjectVersionRequestTypeDef",
     "DeleteProjectVersionResponseTypeDef",
-    "DeleteStreamProcessorRequestRequestTypeDef",
-    "DeleteUserRequestRequestTypeDef",
-    "DescribeCollectionRequestRequestTypeDef",
+    "DeleteStreamProcessorRequestTypeDef",
+    "DeleteUserRequestTypeDef",
+    "DescribeCollectionRequestTypeDef",
     "DescribeCollectionResponseTypeDef",
-    "DescribeDatasetRequestRequestTypeDef",
+    "DescribeDatasetRequestTypeDef",
     "DescribeDatasetResponseTypeDef",
-    "DescribeProjectVersionsRequestRequestTypeDef",
+    "DescribeProjectVersionsRequestPaginateTypeDef",
+    "DescribeProjectVersionsRequestTypeDef",
+    "DescribeProjectVersionsRequestWaitExtraTypeDef",
+    "DescribeProjectVersionsRequestWaitTypeDef",
     "DescribeProjectVersionsResponseTypeDef",
-    "DescribeProjectsRequestRequestTypeDef",
+    "DescribeProjectsRequestPaginateTypeDef",
+    "DescribeProjectsRequestTypeDef",
     "DescribeProjectsResponseTypeDef",
-    "DescribeStreamProcessorRequestRequestTypeDef",
+    "DescribeStreamProcessorRequestTypeDef",
     "DescribeStreamProcessorResponseTypeDef",
-    "DetectCustomLabelsRequestRequestTypeDef",
+    "DetectCustomLabelsRequestTypeDef",
     "DetectCustomLabelsResponseTypeDef",
-    "DetectFacesRequestRequestTypeDef",
+    "DetectFacesRequestTypeDef",
     "DetectFacesResponseTypeDef",
     "DetectLabelsImageBackgroundTypeDef",
     "DetectLabelsImageForegroundTypeDef",
     "DetectLabelsImagePropertiesSettingsTypeDef",
     "DetectLabelsImagePropertiesTypeDef",
     "DetectLabelsImageQualityTypeDef",
-    "DetectLabelsRequestRequestTypeDef",
+    "DetectLabelsRequestTypeDef",
     "DetectLabelsResponseTypeDef",
     "DetectLabelsSettingsTypeDef",
-    "DetectModerationLabelsRequestRequestTypeDef",
+    "DetectModerationLabelsRequestTypeDef",
     "DetectModerationLabelsResponseTypeDef",
-    "DetectProtectiveEquipmentRequestRequestTypeDef",
+    "DetectProtectiveEquipmentRequestTypeDef",
     "DetectProtectiveEquipmentResponseTypeDef",
     "DetectTextFiltersTypeDef",
-    "DetectTextRequestRequestTypeDef",
+    "DetectTextRequestTypeDef",
     "DetectTextResponseTypeDef",
     "DetectionFilterTypeDef",
-    "DisassociateFacesRequestRequestTypeDef",
+    "DisassociateFacesRequestTypeDef",
     "DisassociateFacesResponseTypeDef",
     "DisassociatedFaceTypeDef",
-    "DistributeDatasetEntriesRequestRequestTypeDef",
+    "DistributeDatasetEntriesRequestTypeDef",
     "DistributeDatasetTypeDef",
     "DominantColorTypeDef",
     "EmotionTypeDef",
@@ -186,29 +198,29 @@ __all__ = (
     "GenderTypeDef",
     "GeneralLabelsSettingsTypeDef",
     "GeometryTypeDef",
-    "GetCelebrityInfoRequestRequestTypeDef",
+    "GetCelebrityInfoRequestTypeDef",
     "GetCelebrityInfoResponseTypeDef",
-    "GetCelebrityRecognitionRequestRequestTypeDef",
+    "GetCelebrityRecognitionRequestTypeDef",
     "GetCelebrityRecognitionResponseTypeDef",
     "GetContentModerationRequestMetadataTypeDef",
-    "GetContentModerationRequestRequestTypeDef",
+    "GetContentModerationRequestTypeDef",
     "GetContentModerationResponseTypeDef",
-    "GetFaceDetectionRequestRequestTypeDef",
+    "GetFaceDetectionRequestTypeDef",
     "GetFaceDetectionResponseTypeDef",
-    "GetFaceLivenessSessionResultsRequestRequestTypeDef",
+    "GetFaceLivenessSessionResultsRequestTypeDef",
     "GetFaceLivenessSessionResultsResponseTypeDef",
-    "GetFaceSearchRequestRequestTypeDef",
+    "GetFaceSearchRequestTypeDef",
     "GetFaceSearchResponseTypeDef",
     "GetLabelDetectionRequestMetadataTypeDef",
-    "GetLabelDetectionRequestRequestTypeDef",
+    "GetLabelDetectionRequestTypeDef",
     "GetLabelDetectionResponseTypeDef",
-    "GetMediaAnalysisJobRequestRequestTypeDef",
+    "GetMediaAnalysisJobRequestTypeDef",
     "GetMediaAnalysisJobResponseTypeDef",
-    "GetPersonTrackingRequestRequestTypeDef",
+    "GetPersonTrackingRequestTypeDef",
     "GetPersonTrackingResponseTypeDef",
-    "GetSegmentDetectionRequestRequestTypeDef",
+    "GetSegmentDetectionRequestTypeDef",
     "GetSegmentDetectionResponseTypeDef",
-    "GetTextDetectionRequestRequestTypeDef",
+    "GetTextDetectionRequestTypeDef",
     "GetTextDetectionResponseTypeDef",
     "GroundTruthManifestTypeDef",
     "HumanLoopActivationOutputTypeDef",
@@ -216,7 +228,7 @@ __all__ = (
     "HumanLoopDataAttributesTypeDef",
     "ImageQualityTypeDef",
     "ImageTypeDef",
-    "IndexFacesRequestRequestTypeDef",
+    "IndexFacesRequestTypeDef",
     "IndexFacesResponseTypeDef",
     "InstanceTypeDef",
     "KinesisDataStreamTypeDef",
@@ -229,23 +241,30 @@ __all__ = (
     "LabelDetectionTypeDef",
     "LabelTypeDef",
     "LandmarkTypeDef",
-    "ListCollectionsRequestRequestTypeDef",
+    "ListCollectionsRequestPaginateTypeDef",
+    "ListCollectionsRequestTypeDef",
     "ListCollectionsResponseTypeDef",
-    "ListDatasetEntriesRequestRequestTypeDef",
+    "ListDatasetEntriesRequestPaginateTypeDef",
+    "ListDatasetEntriesRequestTypeDef",
     "ListDatasetEntriesResponseTypeDef",
-    "ListDatasetLabelsRequestRequestTypeDef",
+    "ListDatasetLabelsRequestPaginateTypeDef",
+    "ListDatasetLabelsRequestTypeDef",
     "ListDatasetLabelsResponseTypeDef",
-    "ListFacesRequestRequestTypeDef",
+    "ListFacesRequestPaginateTypeDef",
+    "ListFacesRequestTypeDef",
     "ListFacesResponseTypeDef",
-    "ListMediaAnalysisJobsRequestRequestTypeDef",
+    "ListMediaAnalysisJobsRequestTypeDef",
     "ListMediaAnalysisJobsResponseTypeDef",
-    "ListProjectPoliciesRequestRequestTypeDef",
+    "ListProjectPoliciesRequestPaginateTypeDef",
+    "ListProjectPoliciesRequestTypeDef",
     "ListProjectPoliciesResponseTypeDef",
-    "ListStreamProcessorsRequestRequestTypeDef",
+    "ListStreamProcessorsRequestPaginateTypeDef",
+    "ListStreamProcessorsRequestTypeDef",
     "ListStreamProcessorsResponseTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
-    "ListUsersRequestRequestTypeDef",
+    "ListUsersRequestPaginateTypeDef",
+    "ListUsersRequestTypeDef",
     "ListUsersResponseTypeDef",
     "LivenessOutputConfigTypeDef",
     "MatchedUserTypeDef",
@@ -277,21 +296,23 @@ __all__ = (
     "ProtectiveEquipmentPersonTypeDef",
     "ProtectiveEquipmentSummarizationAttributesTypeDef",
     "ProtectiveEquipmentSummaryTypeDef",
-    "PutProjectPolicyRequestRequestTypeDef",
+    "PutProjectPolicyRequestTypeDef",
     "PutProjectPolicyResponseTypeDef",
-    "RecognizeCelebritiesRequestRequestTypeDef",
+    "RecognizeCelebritiesRequestTypeDef",
     "RecognizeCelebritiesResponseTypeDef",
+    "RegionOfInterestOutputTypeDef",
     "RegionOfInterestTypeDef",
+    "RegionOfInterestUnionTypeDef",
     "ResponseMetadataTypeDef",
     "S3DestinationTypeDef",
     "S3ObjectTypeDef",
-    "SearchFacesByImageRequestRequestTypeDef",
+    "SearchFacesByImageRequestTypeDef",
     "SearchFacesByImageResponseTypeDef",
-    "SearchFacesRequestRequestTypeDef",
+    "SearchFacesRequestTypeDef",
     "SearchFacesResponseTypeDef",
-    "SearchUsersByImageRequestRequestTypeDef",
+    "SearchUsersByImageRequestTypeDef",
     "SearchUsersByImageResponseTypeDef",
-    "SearchUsersRequestRequestTypeDef",
+    "SearchUsersRequestTypeDef",
     "SearchUsersResponseTypeDef",
     "SearchedFaceDetailsTypeDef",
     "SearchedFaceTypeDef",
@@ -300,35 +321,35 @@ __all__ = (
     "SegmentTypeInfoTypeDef",
     "ShotSegmentTypeDef",
     "SmileTypeDef",
-    "StartCelebrityRecognitionRequestRequestTypeDef",
+    "StartCelebrityRecognitionRequestTypeDef",
     "StartCelebrityRecognitionResponseTypeDef",
-    "StartContentModerationRequestRequestTypeDef",
+    "StartContentModerationRequestTypeDef",
     "StartContentModerationResponseTypeDef",
-    "StartFaceDetectionRequestRequestTypeDef",
+    "StartFaceDetectionRequestTypeDef",
     "StartFaceDetectionResponseTypeDef",
-    "StartFaceSearchRequestRequestTypeDef",
+    "StartFaceSearchRequestTypeDef",
     "StartFaceSearchResponseTypeDef",
-    "StartLabelDetectionRequestRequestTypeDef",
+    "StartLabelDetectionRequestTypeDef",
     "StartLabelDetectionResponseTypeDef",
-    "StartMediaAnalysisJobRequestRequestTypeDef",
+    "StartMediaAnalysisJobRequestTypeDef",
     "StartMediaAnalysisJobResponseTypeDef",
-    "StartPersonTrackingRequestRequestTypeDef",
+    "StartPersonTrackingRequestTypeDef",
     "StartPersonTrackingResponseTypeDef",
-    "StartProjectVersionRequestRequestTypeDef",
+    "StartProjectVersionRequestTypeDef",
     "StartProjectVersionResponseTypeDef",
     "StartSegmentDetectionFiltersTypeDef",
-    "StartSegmentDetectionRequestRequestTypeDef",
+    "StartSegmentDetectionRequestTypeDef",
     "StartSegmentDetectionResponseTypeDef",
     "StartShotDetectionFilterTypeDef",
-    "StartStreamProcessorRequestRequestTypeDef",
+    "StartStreamProcessorRequestTypeDef",
     "StartStreamProcessorResponseTypeDef",
     "StartTechnicalCueDetectionFilterTypeDef",
     "StartTextDetectionFiltersTypeDef",
-    "StartTextDetectionRequestRequestTypeDef",
+    "StartTextDetectionRequestTypeDef",
     "StartTextDetectionResponseTypeDef",
-    "StopProjectVersionRequestRequestTypeDef",
+    "StopProjectVersionRequestTypeDef",
     "StopProjectVersionResponseTypeDef",
-    "StopStreamProcessorRequestRequestTypeDef",
+    "StopStreamProcessorRequestTypeDef",
     "StreamProcessingStartSelectorTypeDef",
     "StreamProcessingStopSelectorTypeDef",
     "StreamProcessorDataSharingPreferenceTypeDef",
@@ -336,26 +357,32 @@ __all__ = (
     "StreamProcessorNotificationChannelTypeDef",
     "StreamProcessorOutputTypeDef",
     "StreamProcessorSettingsForUpdateTypeDef",
+    "StreamProcessorSettingsOutputTypeDef",
     "StreamProcessorSettingsTypeDef",
+    "StreamProcessorSettingsUnionTypeDef",
     "StreamProcessorTypeDef",
     "SummaryTypeDef",
     "SunglassesTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
     "TechnicalCueSegmentTypeDef",
+    "TestingDataOutputTypeDef",
     "TestingDataResultTypeDef",
     "TestingDataTypeDef",
+    "TestingDataUnionTypeDef",
     "TextDetectionResultTypeDef",
     "TextDetectionTypeDef",
+    "TrainingDataOutputTypeDef",
     "TrainingDataResultTypeDef",
     "TrainingDataTypeDef",
+    "TrainingDataUnionTypeDef",
     "UnindexedFaceTypeDef",
     "UnsearchedFaceTypeDef",
     "UnsuccessfulFaceAssociationTypeDef",
     "UnsuccessfulFaceDeletionTypeDef",
     "UnsuccessfulFaceDisassociationTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateDatasetEntriesRequestRequestTypeDef",
-    "UpdateStreamProcessorRequestRequestTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateDatasetEntriesRequestTypeDef",
+    "UpdateStreamProcessorRequestTypeDef",
     "UserMatchTypeDef",
     "UserTypeDef",
     "ValidationDataTypeDef",
@@ -364,3456 +391,1646 @@ __all__ = (
     "WaiterConfigTypeDef",
 )
 
-AgeRangeTypeDef = TypedDict(
-    "AgeRangeTypeDef",
-    {
-        "Low": int,
-        "High": int,
-    },
-    total=False,
-)
-
-AssetTypeDef = TypedDict(
-    "AssetTypeDef",
-    {
-        "GroundTruthManifest": "GroundTruthManifestTypeDef",
-    },
-    total=False,
-)
-
-_RequiredAssociateFacesRequestRequestTypeDef = TypedDict(
-    "_RequiredAssociateFacesRequestRequestTypeDef",
-    {
-        "CollectionId": str,
-        "UserId": str,
-        "FaceIds": List[str],
-    },
-)
-_OptionalAssociateFacesRequestRequestTypeDef = TypedDict(
-    "_OptionalAssociateFacesRequestRequestTypeDef",
-    {
-        "UserMatchThreshold": float,
-        "ClientRequestToken": str,
-    },
-    total=False,
-)
-
-class AssociateFacesRequestRequestTypeDef(
-    _RequiredAssociateFacesRequestRequestTypeDef, _OptionalAssociateFacesRequestRequestTypeDef
-):
-    pass
-
-AssociateFacesResponseTypeDef = TypedDict(
-    "AssociateFacesResponseTypeDef",
-    {
-        "AssociatedFaces": List["AssociatedFaceTypeDef"],
-        "UnsuccessfulFaceAssociations": List["UnsuccessfulFaceAssociationTypeDef"],
-        "UserStatus": UserStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-AssociatedFaceTypeDef = TypedDict(
-    "AssociatedFaceTypeDef",
-    {
-        "FaceId": str,
-    },
-    total=False,
-)
-
-AudioMetadataTypeDef = TypedDict(
-    "AudioMetadataTypeDef",
-    {
-        "Codec": str,
-        "DurationMillis": int,
-        "SampleRate": int,
-        "NumberOfChannels": int,
-    },
-    total=False,
-)
-
-AuditImageTypeDef = TypedDict(
-    "AuditImageTypeDef",
-    {
-        "Bytes": bytes,
-        "S3Object": "S3ObjectTypeDef",
-        "BoundingBox": "BoundingBoxTypeDef",
-    },
-    total=False,
-)
-
-BeardTypeDef = TypedDict(
-    "BeardTypeDef",
-    {
-        "Value": bool,
-        "Confidence": float,
-    },
-    total=False,
-)
-
-BlackFrameTypeDef = TypedDict(
-    "BlackFrameTypeDef",
-    {
-        "MaxPixelThreshold": float,
-        "MinCoveragePercentage": float,
-    },
-    total=False,
-)
-
-BoundingBoxTypeDef = TypedDict(
-    "BoundingBoxTypeDef",
-    {
-        "Width": float,
-        "Height": float,
-        "Left": float,
-        "Top": float,
-    },
-    total=False,
-)
-
-CelebrityDetailTypeDef = TypedDict(
-    "CelebrityDetailTypeDef",
-    {
-        "Urls": List[str],
-        "Name": str,
-        "Id": str,
-        "Confidence": float,
-        "BoundingBox": "BoundingBoxTypeDef",
-        "Face": "FaceDetailTypeDef",
-        "KnownGender": "KnownGenderTypeDef",
-    },
-    total=False,
-)
-
-CelebrityRecognitionTypeDef = TypedDict(
-    "CelebrityRecognitionTypeDef",
-    {
-        "Timestamp": int,
-        "Celebrity": "CelebrityDetailTypeDef",
-    },
-    total=False,
-)
-
-CelebrityTypeDef = TypedDict(
-    "CelebrityTypeDef",
-    {
-        "Urls": List[str],
-        "Name": str,
-        "Id": str,
-        "Face": "ComparedFaceTypeDef",
-        "MatchConfidence": float,
-        "KnownGender": "KnownGenderTypeDef",
-    },
-    total=False,
-)
-
-CompareFacesMatchTypeDef = TypedDict(
-    "CompareFacesMatchTypeDef",
-    {
-        "Similarity": float,
-        "Face": "ComparedFaceTypeDef",
-    },
-    total=False,
-)
-
-_RequiredCompareFacesRequestRequestTypeDef = TypedDict(
-    "_RequiredCompareFacesRequestRequestTypeDef",
-    {
-        "SourceImage": "ImageTypeDef",
-        "TargetImage": "ImageTypeDef",
-    },
-)
-_OptionalCompareFacesRequestRequestTypeDef = TypedDict(
-    "_OptionalCompareFacesRequestRequestTypeDef",
-    {
-        "SimilarityThreshold": float,
-        "QualityFilter": QualityFilterType,
-    },
-    total=False,
-)
-
-class CompareFacesRequestRequestTypeDef(
-    _RequiredCompareFacesRequestRequestTypeDef, _OptionalCompareFacesRequestRequestTypeDef
-):
-    pass
-
-CompareFacesResponseTypeDef = TypedDict(
-    "CompareFacesResponseTypeDef",
-    {
-        "SourceImageFace": "ComparedSourceImageFaceTypeDef",
-        "FaceMatches": List["CompareFacesMatchTypeDef"],
-        "UnmatchedFaces": List["ComparedFaceTypeDef"],
-        "SourceImageOrientationCorrection": OrientationCorrectionType,
-        "TargetImageOrientationCorrection": OrientationCorrectionType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ComparedFaceTypeDef = TypedDict(
-    "ComparedFaceTypeDef",
-    {
-        "BoundingBox": "BoundingBoxTypeDef",
-        "Confidence": float,
-        "Landmarks": List["LandmarkTypeDef"],
-        "Pose": "PoseTypeDef",
-        "Quality": "ImageQualityTypeDef",
-        "Emotions": List["EmotionTypeDef"],
-        "Smile": "SmileTypeDef",
-    },
-    total=False,
-)
-
-ComparedSourceImageFaceTypeDef = TypedDict(
-    "ComparedSourceImageFaceTypeDef",
-    {
-        "BoundingBox": "BoundingBoxTypeDef",
-        "Confidence": float,
-    },
-    total=False,
-)
-
-ConnectedHomeSettingsForUpdateTypeDef = TypedDict(
-    "ConnectedHomeSettingsForUpdateTypeDef",
-    {
-        "Labels": List[str],
-        "MinConfidence": float,
-    },
-    total=False,
-)
-
-_RequiredConnectedHomeSettingsTypeDef = TypedDict(
-    "_RequiredConnectedHomeSettingsTypeDef",
-    {
-        "Labels": List[str],
-    },
-)
-_OptionalConnectedHomeSettingsTypeDef = TypedDict(
-    "_OptionalConnectedHomeSettingsTypeDef",
-    {
-        "MinConfidence": float,
-    },
-    total=False,
-)
-
-class ConnectedHomeSettingsTypeDef(
-    _RequiredConnectedHomeSettingsTypeDef, _OptionalConnectedHomeSettingsTypeDef
-):
-    pass
-
-ContentModerationDetectionTypeDef = TypedDict(
-    "ContentModerationDetectionTypeDef",
-    {
-        "Timestamp": int,
-        "ModerationLabel": "ModerationLabelTypeDef",
-        "StartTimestampMillis": int,
-        "EndTimestampMillis": int,
-        "DurationMillis": int,
-        "ContentTypes": List["ContentTypeTypeDef"],
-    },
-    total=False,
-)
-
-ContentTypeTypeDef = TypedDict(
-    "ContentTypeTypeDef",
-    {
-        "Confidence": float,
-        "Name": str,
-    },
-    total=False,
-)
-
-_RequiredCopyProjectVersionRequestRequestTypeDef = TypedDict(
-    "_RequiredCopyProjectVersionRequestRequestTypeDef",
-    {
-        "SourceProjectArn": str,
-        "SourceProjectVersionArn": str,
-        "DestinationProjectArn": str,
-        "VersionName": str,
-        "OutputConfig": "OutputConfigTypeDef",
-    },
-)
-_OptionalCopyProjectVersionRequestRequestTypeDef = TypedDict(
-    "_OptionalCopyProjectVersionRequestRequestTypeDef",
-    {
-        "Tags": Dict[str, str],
-        "KmsKeyId": str,
-    },
-    total=False,
-)
-
-class CopyProjectVersionRequestRequestTypeDef(
-    _RequiredCopyProjectVersionRequestRequestTypeDef,
-    _OptionalCopyProjectVersionRequestRequestTypeDef,
-):
-    pass
-
-CopyProjectVersionResponseTypeDef = TypedDict(
-    "CopyProjectVersionResponseTypeDef",
-    {
-        "ProjectVersionArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CoversBodyPartTypeDef = TypedDict(
-    "CoversBodyPartTypeDef",
-    {
-        "Confidence": float,
-        "Value": bool,
-    },
-    total=False,
-)
-
-_RequiredCreateCollectionRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateCollectionRequestRequestTypeDef",
-    {
-        "CollectionId": str,
-    },
-)
-_OptionalCreateCollectionRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateCollectionRequestRequestTypeDef",
-    {
-        "Tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class CreateCollectionRequestRequestTypeDef(
-    _RequiredCreateCollectionRequestRequestTypeDef, _OptionalCreateCollectionRequestRequestTypeDef
-):
-    pass
-
-CreateCollectionResponseTypeDef = TypedDict(
-    "CreateCollectionResponseTypeDef",
-    {
-        "StatusCode": int,
-        "CollectionArn": str,
-        "FaceModelVersion": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateDatasetRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateDatasetRequestRequestTypeDef",
-    {
-        "DatasetType": DatasetTypeType,
-        "ProjectArn": str,
-    },
-)
-_OptionalCreateDatasetRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateDatasetRequestRequestTypeDef",
-    {
-        "DatasetSource": "DatasetSourceTypeDef",
-    },
-    total=False,
-)
-
-class CreateDatasetRequestRequestTypeDef(
-    _RequiredCreateDatasetRequestRequestTypeDef, _OptionalCreateDatasetRequestRequestTypeDef
-):
-    pass
-
-CreateDatasetResponseTypeDef = TypedDict(
-    "CreateDatasetResponseTypeDef",
-    {
-        "DatasetArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateFaceLivenessSessionRequestRequestTypeDef = TypedDict(
-    "CreateFaceLivenessSessionRequestRequestTypeDef",
-    {
-        "KmsKeyId": str,
-        "Settings": "CreateFaceLivenessSessionRequestSettingsTypeDef",
-        "ClientRequestToken": str,
-    },
-    total=False,
-)
-
-CreateFaceLivenessSessionRequestSettingsTypeDef = TypedDict(
-    "CreateFaceLivenessSessionRequestSettingsTypeDef",
-    {
-        "OutputConfig": "LivenessOutputConfigTypeDef",
-        "AuditImagesLimit": int,
-    },
-    total=False,
-)
-
-CreateFaceLivenessSessionResponseTypeDef = TypedDict(
-    "CreateFaceLivenessSessionResponseTypeDef",
-    {
-        "SessionId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateProjectRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateProjectRequestRequestTypeDef",
-    {
-        "ProjectName": str,
-    },
-)
-_OptionalCreateProjectRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateProjectRequestRequestTypeDef",
-    {
-        "Feature": CustomizationFeatureType,
-        "AutoUpdate": ProjectAutoUpdateType,
-    },
-    total=False,
-)
-
-class CreateProjectRequestRequestTypeDef(
-    _RequiredCreateProjectRequestRequestTypeDef, _OptionalCreateProjectRequestRequestTypeDef
-):
-    pass
-
-CreateProjectResponseTypeDef = TypedDict(
-    "CreateProjectResponseTypeDef",
-    {
-        "ProjectArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateProjectVersionRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateProjectVersionRequestRequestTypeDef",
-    {
-        "ProjectArn": str,
-        "VersionName": str,
-        "OutputConfig": "OutputConfigTypeDef",
-    },
-)
-_OptionalCreateProjectVersionRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateProjectVersionRequestRequestTypeDef",
-    {
-        "TrainingData": "TrainingDataTypeDef",
-        "TestingData": "TestingDataTypeDef",
-        "Tags": Dict[str, str],
-        "KmsKeyId": str,
-        "VersionDescription": str,
-        "FeatureConfig": "CustomizationFeatureConfigTypeDef",
-    },
-    total=False,
-)
-
-class CreateProjectVersionRequestRequestTypeDef(
-    _RequiredCreateProjectVersionRequestRequestTypeDef,
-    _OptionalCreateProjectVersionRequestRequestTypeDef,
-):
-    pass
-
-CreateProjectVersionResponseTypeDef = TypedDict(
-    "CreateProjectVersionResponseTypeDef",
-    {
-        "ProjectVersionArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateStreamProcessorRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateStreamProcessorRequestRequestTypeDef",
-    {
-        "Input": "StreamProcessorInputTypeDef",
-        "Output": "StreamProcessorOutputTypeDef",
-        "Name": str,
-        "Settings": "StreamProcessorSettingsTypeDef",
-        "RoleArn": str,
-    },
-)
-_OptionalCreateStreamProcessorRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateStreamProcessorRequestRequestTypeDef",
-    {
-        "Tags": Dict[str, str],
-        "NotificationChannel": "StreamProcessorNotificationChannelTypeDef",
-        "KmsKeyId": str,
-        "RegionsOfInterest": List["RegionOfInterestTypeDef"],
-        "DataSharingPreference": "StreamProcessorDataSharingPreferenceTypeDef",
-    },
-    total=False,
-)
-
-class CreateStreamProcessorRequestRequestTypeDef(
-    _RequiredCreateStreamProcessorRequestRequestTypeDef,
-    _OptionalCreateStreamProcessorRequestRequestTypeDef,
-):
-    pass
-
-CreateStreamProcessorResponseTypeDef = TypedDict(
-    "CreateStreamProcessorResponseTypeDef",
-    {
-        "StreamProcessorArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateUserRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateUserRequestRequestTypeDef",
-    {
-        "CollectionId": str,
-        "UserId": str,
-    },
-)
-_OptionalCreateUserRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateUserRequestRequestTypeDef",
-    {
-        "ClientRequestToken": str,
-    },
-    total=False,
-)
-
-class CreateUserRequestRequestTypeDef(
-    _RequiredCreateUserRequestRequestTypeDef, _OptionalCreateUserRequestRequestTypeDef
-):
-    pass
-
-CustomLabelTypeDef = TypedDict(
-    "CustomLabelTypeDef",
-    {
-        "Name": str,
-        "Confidence": float,
-        "Geometry": "GeometryTypeDef",
-    },
-    total=False,
-)
-
-CustomizationFeatureConfigTypeDef = TypedDict(
-    "CustomizationFeatureConfigTypeDef",
-    {
-        "ContentModeration": "CustomizationFeatureContentModerationConfigTypeDef",
-    },
-    total=False,
-)
-
-CustomizationFeatureContentModerationConfigTypeDef = TypedDict(
-    "CustomizationFeatureContentModerationConfigTypeDef",
-    {
-        "ConfidenceThreshold": float,
-    },
-    total=False,
-)
-
-DatasetChangesTypeDef = TypedDict(
-    "DatasetChangesTypeDef",
-    {
-        "GroundTruth": Union[bytes, IO[bytes], StreamingBody],
-    },
-)
-
-DatasetDescriptionTypeDef = TypedDict(
-    "DatasetDescriptionTypeDef",
-    {
-        "CreationTimestamp": datetime,
-        "LastUpdatedTimestamp": datetime,
-        "Status": DatasetStatusType,
-        "StatusMessage": str,
-        "StatusMessageCode": DatasetStatusMessageCodeType,
-        "DatasetStats": "DatasetStatsTypeDef",
-    },
-    total=False,
-)
-
-DatasetLabelDescriptionTypeDef = TypedDict(
-    "DatasetLabelDescriptionTypeDef",
-    {
-        "LabelName": str,
-        "LabelStats": "DatasetLabelStatsTypeDef",
-    },
-    total=False,
-)
-
-DatasetLabelStatsTypeDef = TypedDict(
-    "DatasetLabelStatsTypeDef",
-    {
-        "EntryCount": int,
-        "BoundingBoxCount": int,
-    },
-    total=False,
-)
-
-DatasetMetadataTypeDef = TypedDict(
-    "DatasetMetadataTypeDef",
-    {
-        "CreationTimestamp": datetime,
-        "DatasetType": DatasetTypeType,
-        "DatasetArn": str,
-        "Status": DatasetStatusType,
-        "StatusMessage": str,
-        "StatusMessageCode": DatasetStatusMessageCodeType,
-    },
-    total=False,
-)
-
-DatasetSourceTypeDef = TypedDict(
-    "DatasetSourceTypeDef",
-    {
-        "GroundTruthManifest": "GroundTruthManifestTypeDef",
-        "DatasetArn": str,
-    },
-    total=False,
-)
-
-DatasetStatsTypeDef = TypedDict(
-    "DatasetStatsTypeDef",
-    {
-        "LabeledEntries": int,
-        "TotalEntries": int,
-        "TotalLabels": int,
-        "ErrorEntries": int,
-    },
-    total=False,
-)
-
-DeleteCollectionRequestRequestTypeDef = TypedDict(
-    "DeleteCollectionRequestRequestTypeDef",
-    {
-        "CollectionId": str,
-    },
-)
-
-DeleteCollectionResponseTypeDef = TypedDict(
-    "DeleteCollectionResponseTypeDef",
-    {
-        "StatusCode": int,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteDatasetRequestRequestTypeDef = TypedDict(
-    "DeleteDatasetRequestRequestTypeDef",
-    {
-        "DatasetArn": str,
-    },
-)
-
-DeleteFacesRequestRequestTypeDef = TypedDict(
-    "DeleteFacesRequestRequestTypeDef",
-    {
-        "CollectionId": str,
-        "FaceIds": List[str],
-    },
-)
-
-DeleteFacesResponseTypeDef = TypedDict(
-    "DeleteFacesResponseTypeDef",
-    {
-        "DeletedFaces": List[str],
-        "UnsuccessfulFaceDeletions": List["UnsuccessfulFaceDeletionTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDeleteProjectPolicyRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteProjectPolicyRequestRequestTypeDef",
-    {
-        "ProjectArn": str,
-        "PolicyName": str,
-    },
-)
-_OptionalDeleteProjectPolicyRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteProjectPolicyRequestRequestTypeDef",
-    {
-        "PolicyRevisionId": str,
-    },
-    total=False,
-)
-
-class DeleteProjectPolicyRequestRequestTypeDef(
-    _RequiredDeleteProjectPolicyRequestRequestTypeDef,
-    _OptionalDeleteProjectPolicyRequestRequestTypeDef,
-):
-    pass
-
-DeleteProjectRequestRequestTypeDef = TypedDict(
-    "DeleteProjectRequestRequestTypeDef",
-    {
-        "ProjectArn": str,
-    },
-)
-
-DeleteProjectResponseTypeDef = TypedDict(
-    "DeleteProjectResponseTypeDef",
-    {
-        "Status": ProjectStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteProjectVersionRequestRequestTypeDef = TypedDict(
-    "DeleteProjectVersionRequestRequestTypeDef",
-    {
-        "ProjectVersionArn": str,
-    },
-)
-
-DeleteProjectVersionResponseTypeDef = TypedDict(
-    "DeleteProjectVersionResponseTypeDef",
-    {
-        "Status": ProjectVersionStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteStreamProcessorRequestRequestTypeDef = TypedDict(
-    "DeleteStreamProcessorRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
-
-_RequiredDeleteUserRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteUserRequestRequestTypeDef",
-    {
-        "CollectionId": str,
-        "UserId": str,
-    },
-)
-_OptionalDeleteUserRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteUserRequestRequestTypeDef",
-    {
-        "ClientRequestToken": str,
-    },
-    total=False,
-)
-
-class DeleteUserRequestRequestTypeDef(
-    _RequiredDeleteUserRequestRequestTypeDef, _OptionalDeleteUserRequestRequestTypeDef
-):
-    pass
-
-DescribeCollectionRequestRequestTypeDef = TypedDict(
-    "DescribeCollectionRequestRequestTypeDef",
-    {
-        "CollectionId": str,
-    },
-)
-
-DescribeCollectionResponseTypeDef = TypedDict(
-    "DescribeCollectionResponseTypeDef",
-    {
-        "FaceCount": int,
-        "FaceModelVersion": str,
-        "CollectionARN": str,
-        "CreationTimestamp": datetime,
-        "UserCount": int,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeDatasetRequestRequestTypeDef = TypedDict(
-    "DescribeDatasetRequestRequestTypeDef",
-    {
-        "DatasetArn": str,
-    },
-)
-
-DescribeDatasetResponseTypeDef = TypedDict(
-    "DescribeDatasetResponseTypeDef",
-    {
-        "DatasetDescription": "DatasetDescriptionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribeProjectVersionsRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeProjectVersionsRequestRequestTypeDef",
-    {
-        "ProjectArn": str,
-    },
-)
-_OptionalDescribeProjectVersionsRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeProjectVersionsRequestRequestTypeDef",
-    {
-        "VersionNames": List[str],
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-class DescribeProjectVersionsRequestRequestTypeDef(
-    _RequiredDescribeProjectVersionsRequestRequestTypeDef,
-    _OptionalDescribeProjectVersionsRequestRequestTypeDef,
-):
-    pass
-
-DescribeProjectVersionsResponseTypeDef = TypedDict(
-    "DescribeProjectVersionsResponseTypeDef",
-    {
-        "ProjectVersionDescriptions": List["ProjectVersionDescriptionTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeProjectsRequestRequestTypeDef = TypedDict(
-    "DescribeProjectsRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-        "ProjectNames": List[str],
-        "Features": List[CustomizationFeatureType],
-    },
-    total=False,
-)
-
-DescribeProjectsResponseTypeDef = TypedDict(
-    "DescribeProjectsResponseTypeDef",
-    {
-        "ProjectDescriptions": List["ProjectDescriptionTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeStreamProcessorRequestRequestTypeDef = TypedDict(
-    "DescribeStreamProcessorRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
-
-DescribeStreamProcessorResponseTypeDef = TypedDict(
-    "DescribeStreamProcessorResponseTypeDef",
-    {
-        "Name": str,
-        "StreamProcessorArn": str,
-        "Status": StreamProcessorStatusType,
-        "StatusMessage": str,
-        "CreationTimestamp": datetime,
-        "LastUpdateTimestamp": datetime,
-        "Input": "StreamProcessorInputTypeDef",
-        "Output": "StreamProcessorOutputTypeDef",
-        "RoleArn": str,
-        "Settings": "StreamProcessorSettingsTypeDef",
-        "NotificationChannel": "StreamProcessorNotificationChannelTypeDef",
-        "KmsKeyId": str,
-        "RegionsOfInterest": List["RegionOfInterestTypeDef"],
-        "DataSharingPreference": "StreamProcessorDataSharingPreferenceTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDetectCustomLabelsRequestRequestTypeDef = TypedDict(
-    "_RequiredDetectCustomLabelsRequestRequestTypeDef",
-    {
-        "ProjectVersionArn": str,
-        "Image": "ImageTypeDef",
-    },
-)
-_OptionalDetectCustomLabelsRequestRequestTypeDef = TypedDict(
-    "_OptionalDetectCustomLabelsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "MinConfidence": float,
-    },
-    total=False,
-)
-
-class DetectCustomLabelsRequestRequestTypeDef(
-    _RequiredDetectCustomLabelsRequestRequestTypeDef,
-    _OptionalDetectCustomLabelsRequestRequestTypeDef,
-):
-    pass
-
-DetectCustomLabelsResponseTypeDef = TypedDict(
-    "DetectCustomLabelsResponseTypeDef",
-    {
-        "CustomLabels": List["CustomLabelTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDetectFacesRequestRequestTypeDef = TypedDict(
-    "_RequiredDetectFacesRequestRequestTypeDef",
-    {
-        "Image": "ImageTypeDef",
-    },
-)
-_OptionalDetectFacesRequestRequestTypeDef = TypedDict(
-    "_OptionalDetectFacesRequestRequestTypeDef",
-    {
-        "Attributes": List[AttributeType],
-    },
-    total=False,
-)
-
-class DetectFacesRequestRequestTypeDef(
-    _RequiredDetectFacesRequestRequestTypeDef, _OptionalDetectFacesRequestRequestTypeDef
-):
-    pass
-
-DetectFacesResponseTypeDef = TypedDict(
-    "DetectFacesResponseTypeDef",
-    {
-        "FaceDetails": List["FaceDetailTypeDef"],
-        "OrientationCorrection": OrientationCorrectionType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DetectLabelsImageBackgroundTypeDef = TypedDict(
-    "DetectLabelsImageBackgroundTypeDef",
-    {
-        "Quality": "DetectLabelsImageQualityTypeDef",
-        "DominantColors": List["DominantColorTypeDef"],
-    },
-    total=False,
-)
-
-DetectLabelsImageForegroundTypeDef = TypedDict(
-    "DetectLabelsImageForegroundTypeDef",
-    {
-        "Quality": "DetectLabelsImageQualityTypeDef",
-        "DominantColors": List["DominantColorTypeDef"],
-    },
-    total=False,
-)
-
-DetectLabelsImagePropertiesSettingsTypeDef = TypedDict(
-    "DetectLabelsImagePropertiesSettingsTypeDef",
-    {
-        "MaxDominantColors": int,
-    },
-    total=False,
-)
-
-DetectLabelsImagePropertiesTypeDef = TypedDict(
-    "DetectLabelsImagePropertiesTypeDef",
-    {
-        "Quality": "DetectLabelsImageQualityTypeDef",
-        "DominantColors": List["DominantColorTypeDef"],
-        "Foreground": "DetectLabelsImageForegroundTypeDef",
-        "Background": "DetectLabelsImageBackgroundTypeDef",
-    },
-    total=False,
-)
-
-DetectLabelsImageQualityTypeDef = TypedDict(
-    "DetectLabelsImageQualityTypeDef",
-    {
-        "Brightness": float,
-        "Sharpness": float,
-        "Contrast": float,
-    },
-    total=False,
-)
-
-_RequiredDetectLabelsRequestRequestTypeDef = TypedDict(
-    "_RequiredDetectLabelsRequestRequestTypeDef",
-    {
-        "Image": "ImageTypeDef",
-    },
-)
-_OptionalDetectLabelsRequestRequestTypeDef = TypedDict(
-    "_OptionalDetectLabelsRequestRequestTypeDef",
-    {
-        "MaxLabels": int,
-        "MinConfidence": float,
-        "Features": List[DetectLabelsFeatureNameType],
-        "Settings": "DetectLabelsSettingsTypeDef",
-    },
-    total=False,
-)
-
-class DetectLabelsRequestRequestTypeDef(
-    _RequiredDetectLabelsRequestRequestTypeDef, _OptionalDetectLabelsRequestRequestTypeDef
-):
-    pass
-
-DetectLabelsResponseTypeDef = TypedDict(
-    "DetectLabelsResponseTypeDef",
-    {
-        "Labels": List["LabelTypeDef"],
-        "OrientationCorrection": OrientationCorrectionType,
-        "LabelModelVersion": str,
-        "ImageProperties": "DetectLabelsImagePropertiesTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DetectLabelsSettingsTypeDef = TypedDict(
-    "DetectLabelsSettingsTypeDef",
-    {
-        "GeneralLabels": "GeneralLabelsSettingsTypeDef",
-        "ImageProperties": "DetectLabelsImagePropertiesSettingsTypeDef",
-    },
-    total=False,
-)
-
-_RequiredDetectModerationLabelsRequestRequestTypeDef = TypedDict(
-    "_RequiredDetectModerationLabelsRequestRequestTypeDef",
-    {
-        "Image": "ImageTypeDef",
-    },
-)
-_OptionalDetectModerationLabelsRequestRequestTypeDef = TypedDict(
-    "_OptionalDetectModerationLabelsRequestRequestTypeDef",
-    {
-        "MinConfidence": float,
-        "HumanLoopConfig": "HumanLoopConfigTypeDef",
-        "ProjectVersion": str,
-    },
-    total=False,
-)
-
-class DetectModerationLabelsRequestRequestTypeDef(
-    _RequiredDetectModerationLabelsRequestRequestTypeDef,
-    _OptionalDetectModerationLabelsRequestRequestTypeDef,
-):
-    pass
-
-DetectModerationLabelsResponseTypeDef = TypedDict(
-    "DetectModerationLabelsResponseTypeDef",
-    {
-        "ModerationLabels": List["ModerationLabelTypeDef"],
-        "ModerationModelVersion": str,
-        "HumanLoopActivationOutput": "HumanLoopActivationOutputTypeDef",
-        "ProjectVersion": str,
-        "ContentTypes": List["ContentTypeTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDetectProtectiveEquipmentRequestRequestTypeDef = TypedDict(
-    "_RequiredDetectProtectiveEquipmentRequestRequestTypeDef",
-    {
-        "Image": "ImageTypeDef",
-    },
-)
-_OptionalDetectProtectiveEquipmentRequestRequestTypeDef = TypedDict(
-    "_OptionalDetectProtectiveEquipmentRequestRequestTypeDef",
-    {
-        "SummarizationAttributes": "ProtectiveEquipmentSummarizationAttributesTypeDef",
-    },
-    total=False,
-)
-
-class DetectProtectiveEquipmentRequestRequestTypeDef(
-    _RequiredDetectProtectiveEquipmentRequestRequestTypeDef,
-    _OptionalDetectProtectiveEquipmentRequestRequestTypeDef,
-):
-    pass
-
-DetectProtectiveEquipmentResponseTypeDef = TypedDict(
-    "DetectProtectiveEquipmentResponseTypeDef",
-    {
-        "ProtectiveEquipmentModelVersion": str,
-        "Persons": List["ProtectiveEquipmentPersonTypeDef"],
-        "Summary": "ProtectiveEquipmentSummaryTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DetectTextFiltersTypeDef = TypedDict(
-    "DetectTextFiltersTypeDef",
-    {
-        "WordFilter": "DetectionFilterTypeDef",
-        "RegionsOfInterest": List["RegionOfInterestTypeDef"],
-    },
-    total=False,
-)
-
-_RequiredDetectTextRequestRequestTypeDef = TypedDict(
-    "_RequiredDetectTextRequestRequestTypeDef",
-    {
-        "Image": "ImageTypeDef",
-    },
-)
-_OptionalDetectTextRequestRequestTypeDef = TypedDict(
-    "_OptionalDetectTextRequestRequestTypeDef",
-    {
-        "Filters": "DetectTextFiltersTypeDef",
-    },
-    total=False,
-)
-
-class DetectTextRequestRequestTypeDef(
-    _RequiredDetectTextRequestRequestTypeDef, _OptionalDetectTextRequestRequestTypeDef
-):
-    pass
-
-DetectTextResponseTypeDef = TypedDict(
-    "DetectTextResponseTypeDef",
-    {
-        "TextDetections": List["TextDetectionTypeDef"],
-        "TextModelVersion": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DetectionFilterTypeDef = TypedDict(
-    "DetectionFilterTypeDef",
-    {
-        "MinConfidence": float,
-        "MinBoundingBoxHeight": float,
-        "MinBoundingBoxWidth": float,
-    },
-    total=False,
-)
-
-_RequiredDisassociateFacesRequestRequestTypeDef = TypedDict(
-    "_RequiredDisassociateFacesRequestRequestTypeDef",
-    {
-        "CollectionId": str,
-        "UserId": str,
-        "FaceIds": List[str],
-    },
-)
-_OptionalDisassociateFacesRequestRequestTypeDef = TypedDict(
-    "_OptionalDisassociateFacesRequestRequestTypeDef",
-    {
-        "ClientRequestToken": str,
-    },
-    total=False,
-)
-
-class DisassociateFacesRequestRequestTypeDef(
-    _RequiredDisassociateFacesRequestRequestTypeDef, _OptionalDisassociateFacesRequestRequestTypeDef
-):
-    pass
-
-DisassociateFacesResponseTypeDef = TypedDict(
-    "DisassociateFacesResponseTypeDef",
-    {
-        "DisassociatedFaces": List["DisassociatedFaceTypeDef"],
-        "UnsuccessfulFaceDisassociations": List["UnsuccessfulFaceDisassociationTypeDef"],
-        "UserStatus": UserStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DisassociatedFaceTypeDef = TypedDict(
-    "DisassociatedFaceTypeDef",
-    {
-        "FaceId": str,
-    },
-    total=False,
-)
-
-DistributeDatasetEntriesRequestRequestTypeDef = TypedDict(
-    "DistributeDatasetEntriesRequestRequestTypeDef",
-    {
-        "Datasets": List["DistributeDatasetTypeDef"],
-    },
-)
-
-DistributeDatasetTypeDef = TypedDict(
-    "DistributeDatasetTypeDef",
-    {
-        "Arn": str,
-    },
-)
-
-DominantColorTypeDef = TypedDict(
-    "DominantColorTypeDef",
-    {
-        "Red": int,
-        "Blue": int,
-        "Green": int,
-        "HexCode": str,
-        "CSSColor": str,
-        "SimplifiedColor": str,
-        "PixelPercent": float,
-    },
-    total=False,
-)
-
-EmotionTypeDef = TypedDict(
-    "EmotionTypeDef",
-    {
-        "Type": EmotionNameType,
-        "Confidence": float,
-    },
-    total=False,
-)
-
-EquipmentDetectionTypeDef = TypedDict(
-    "EquipmentDetectionTypeDef",
-    {
-        "BoundingBox": "BoundingBoxTypeDef",
-        "Confidence": float,
-        "Type": ProtectiveEquipmentTypeType,
-        "CoversBodyPart": "CoversBodyPartTypeDef",
-    },
-    total=False,
-)
-
-EvaluationResultTypeDef = TypedDict(
-    "EvaluationResultTypeDef",
-    {
-        "F1Score": float,
-        "Summary": "SummaryTypeDef",
-    },
-    total=False,
-)
-
-EyeDirectionTypeDef = TypedDict(
-    "EyeDirectionTypeDef",
-    {
-        "Yaw": float,
-        "Pitch": float,
-        "Confidence": float,
-    },
-    total=False,
-)
-
-EyeOpenTypeDef = TypedDict(
-    "EyeOpenTypeDef",
-    {
-        "Value": bool,
-        "Confidence": float,
-    },
-    total=False,
-)
-
-EyeglassesTypeDef = TypedDict(
-    "EyeglassesTypeDef",
-    {
-        "Value": bool,
-        "Confidence": float,
-    },
-    total=False,
-)
-
-FaceDetailTypeDef = TypedDict(
-    "FaceDetailTypeDef",
-    {
-        "BoundingBox": "BoundingBoxTypeDef",
-        "AgeRange": "AgeRangeTypeDef",
-        "Smile": "SmileTypeDef",
-        "Eyeglasses": "EyeglassesTypeDef",
-        "Sunglasses": "SunglassesTypeDef",
-        "Gender": "GenderTypeDef",
-        "Beard": "BeardTypeDef",
-        "Mustache": "MustacheTypeDef",
-        "EyesOpen": "EyeOpenTypeDef",
-        "MouthOpen": "MouthOpenTypeDef",
-        "Emotions": List["EmotionTypeDef"],
-        "Landmarks": List["LandmarkTypeDef"],
-        "Pose": "PoseTypeDef",
-        "Quality": "ImageQualityTypeDef",
-        "Confidence": float,
-        "FaceOccluded": "FaceOccludedTypeDef",
-        "EyeDirection": "EyeDirectionTypeDef",
-    },
-    total=False,
-)
-
-FaceDetectionTypeDef = TypedDict(
-    "FaceDetectionTypeDef",
-    {
-        "Timestamp": int,
-        "Face": "FaceDetailTypeDef",
-    },
-    total=False,
-)
-
-FaceMatchTypeDef = TypedDict(
-    "FaceMatchTypeDef",
-    {
-        "Similarity": float,
-        "Face": "FaceTypeDef",
-    },
-    total=False,
-)
-
-FaceOccludedTypeDef = TypedDict(
-    "FaceOccludedTypeDef",
-    {
-        "Value": bool,
-        "Confidence": float,
-    },
-    total=False,
-)
-
-FaceRecordTypeDef = TypedDict(
-    "FaceRecordTypeDef",
-    {
-        "Face": "FaceTypeDef",
-        "FaceDetail": "FaceDetailTypeDef",
-    },
-    total=False,
-)
-
-FaceSearchSettingsTypeDef = TypedDict(
-    "FaceSearchSettingsTypeDef",
-    {
-        "CollectionId": str,
-        "FaceMatchThreshold": float,
-    },
-    total=False,
-)
-
-FaceTypeDef = TypedDict(
-    "FaceTypeDef",
-    {
-        "FaceId": str,
-        "BoundingBox": "BoundingBoxTypeDef",
-        "ImageId": str,
-        "ExternalImageId": str,
-        "Confidence": float,
-        "IndexFacesModelVersion": str,
-        "UserId": str,
-    },
-    total=False,
-)
-
-GenderTypeDef = TypedDict(
-    "GenderTypeDef",
-    {
-        "Value": GenderTypeType,
-        "Confidence": float,
-    },
-    total=False,
-)
-
-GeneralLabelsSettingsTypeDef = TypedDict(
-    "GeneralLabelsSettingsTypeDef",
-    {
-        "LabelInclusionFilters": List[str],
-        "LabelExclusionFilters": List[str],
-        "LabelCategoryInclusionFilters": List[str],
-        "LabelCategoryExclusionFilters": List[str],
-    },
-    total=False,
-)
-
-GeometryTypeDef = TypedDict(
-    "GeometryTypeDef",
-    {
-        "BoundingBox": "BoundingBoxTypeDef",
-        "Polygon": List["PointTypeDef"],
-    },
-    total=False,
-)
-
-GetCelebrityInfoRequestRequestTypeDef = TypedDict(
-    "GetCelebrityInfoRequestRequestTypeDef",
-    {
-        "Id": str,
-    },
-)
-
-GetCelebrityInfoResponseTypeDef = TypedDict(
-    "GetCelebrityInfoResponseTypeDef",
-    {
-        "Urls": List[str],
-        "Name": str,
-        "KnownGender": "KnownGenderTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetCelebrityRecognitionRequestRequestTypeDef = TypedDict(
-    "_RequiredGetCelebrityRecognitionRequestRequestTypeDef",
-    {
-        "JobId": str,
-    },
-)
-_OptionalGetCelebrityRecognitionRequestRequestTypeDef = TypedDict(
-    "_OptionalGetCelebrityRecognitionRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-        "SortBy": CelebrityRecognitionSortByType,
-    },
-    total=False,
-)
-
-class GetCelebrityRecognitionRequestRequestTypeDef(
-    _RequiredGetCelebrityRecognitionRequestRequestTypeDef,
-    _OptionalGetCelebrityRecognitionRequestRequestTypeDef,
-):
-    pass
-
-GetCelebrityRecognitionResponseTypeDef = TypedDict(
-    "GetCelebrityRecognitionResponseTypeDef",
-    {
-        "JobStatus": VideoJobStatusType,
-        "StatusMessage": str,
-        "VideoMetadata": "VideoMetadataTypeDef",
-        "NextToken": str,
-        "Celebrities": List["CelebrityRecognitionTypeDef"],
-        "JobId": str,
-        "Video": "VideoTypeDef",
-        "JobTag": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetContentModerationRequestMetadataTypeDef = TypedDict(
-    "GetContentModerationRequestMetadataTypeDef",
-    {
-        "SortBy": ContentModerationSortByType,
-        "AggregateBy": ContentModerationAggregateByType,
-    },
-    total=False,
-)
-
-_RequiredGetContentModerationRequestRequestTypeDef = TypedDict(
-    "_RequiredGetContentModerationRequestRequestTypeDef",
-    {
-        "JobId": str,
-    },
-)
-_OptionalGetContentModerationRequestRequestTypeDef = TypedDict(
-    "_OptionalGetContentModerationRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-        "SortBy": ContentModerationSortByType,
-        "AggregateBy": ContentModerationAggregateByType,
-    },
-    total=False,
-)
-
-class GetContentModerationRequestRequestTypeDef(
-    _RequiredGetContentModerationRequestRequestTypeDef,
-    _OptionalGetContentModerationRequestRequestTypeDef,
-):
-    pass
-
-GetContentModerationResponseTypeDef = TypedDict(
-    "GetContentModerationResponseTypeDef",
-    {
-        "JobStatus": VideoJobStatusType,
-        "StatusMessage": str,
-        "VideoMetadata": "VideoMetadataTypeDef",
-        "ModerationLabels": List["ContentModerationDetectionTypeDef"],
-        "NextToken": str,
-        "ModerationModelVersion": str,
-        "JobId": str,
-        "Video": "VideoTypeDef",
-        "JobTag": str,
-        "GetRequestMetadata": "GetContentModerationRequestMetadataTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetFaceDetectionRequestRequestTypeDef = TypedDict(
-    "_RequiredGetFaceDetectionRequestRequestTypeDef",
-    {
-        "JobId": str,
-    },
-)
-_OptionalGetFaceDetectionRequestRequestTypeDef = TypedDict(
-    "_OptionalGetFaceDetectionRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class GetFaceDetectionRequestRequestTypeDef(
-    _RequiredGetFaceDetectionRequestRequestTypeDef, _OptionalGetFaceDetectionRequestRequestTypeDef
-):
-    pass
-
-GetFaceDetectionResponseTypeDef = TypedDict(
-    "GetFaceDetectionResponseTypeDef",
-    {
-        "JobStatus": VideoJobStatusType,
-        "StatusMessage": str,
-        "VideoMetadata": "VideoMetadataTypeDef",
-        "NextToken": str,
-        "Faces": List["FaceDetectionTypeDef"],
-        "JobId": str,
-        "Video": "VideoTypeDef",
-        "JobTag": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetFaceLivenessSessionResultsRequestRequestTypeDef = TypedDict(
-    "GetFaceLivenessSessionResultsRequestRequestTypeDef",
-    {
-        "SessionId": str,
-    },
-)
-
-GetFaceLivenessSessionResultsResponseTypeDef = TypedDict(
-    "GetFaceLivenessSessionResultsResponseTypeDef",
-    {
-        "SessionId": str,
-        "Status": LivenessSessionStatusType,
-        "Confidence": float,
-        "ReferenceImage": "AuditImageTypeDef",
-        "AuditImages": List["AuditImageTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetFaceSearchRequestRequestTypeDef = TypedDict(
-    "_RequiredGetFaceSearchRequestRequestTypeDef",
-    {
-        "JobId": str,
-    },
-)
-_OptionalGetFaceSearchRequestRequestTypeDef = TypedDict(
-    "_OptionalGetFaceSearchRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-        "SortBy": FaceSearchSortByType,
-    },
-    total=False,
-)
-
-class GetFaceSearchRequestRequestTypeDef(
-    _RequiredGetFaceSearchRequestRequestTypeDef, _OptionalGetFaceSearchRequestRequestTypeDef
-):
-    pass
-
-GetFaceSearchResponseTypeDef = TypedDict(
-    "GetFaceSearchResponseTypeDef",
-    {
-        "JobStatus": VideoJobStatusType,
-        "StatusMessage": str,
-        "NextToken": str,
-        "VideoMetadata": "VideoMetadataTypeDef",
-        "Persons": List["PersonMatchTypeDef"],
-        "JobId": str,
-        "Video": "VideoTypeDef",
-        "JobTag": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetLabelDetectionRequestMetadataTypeDef = TypedDict(
-    "GetLabelDetectionRequestMetadataTypeDef",
-    {
-        "SortBy": LabelDetectionSortByType,
-        "AggregateBy": LabelDetectionAggregateByType,
-    },
-    total=False,
-)
-
-_RequiredGetLabelDetectionRequestRequestTypeDef = TypedDict(
-    "_RequiredGetLabelDetectionRequestRequestTypeDef",
-    {
-        "JobId": str,
-    },
-)
-_OptionalGetLabelDetectionRequestRequestTypeDef = TypedDict(
-    "_OptionalGetLabelDetectionRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-        "SortBy": LabelDetectionSortByType,
-        "AggregateBy": LabelDetectionAggregateByType,
-    },
-    total=False,
-)
-
-class GetLabelDetectionRequestRequestTypeDef(
-    _RequiredGetLabelDetectionRequestRequestTypeDef, _OptionalGetLabelDetectionRequestRequestTypeDef
-):
-    pass
-
-GetLabelDetectionResponseTypeDef = TypedDict(
-    "GetLabelDetectionResponseTypeDef",
-    {
-        "JobStatus": VideoJobStatusType,
-        "StatusMessage": str,
-        "VideoMetadata": "VideoMetadataTypeDef",
-        "NextToken": str,
-        "Labels": List["LabelDetectionTypeDef"],
-        "LabelModelVersion": str,
-        "JobId": str,
-        "Video": "VideoTypeDef",
-        "JobTag": str,
-        "GetRequestMetadata": "GetLabelDetectionRequestMetadataTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetMediaAnalysisJobRequestRequestTypeDef = TypedDict(
-    "GetMediaAnalysisJobRequestRequestTypeDef",
-    {
-        "JobId": str,
-    },
-)
-
-GetMediaAnalysisJobResponseTypeDef = TypedDict(
-    "GetMediaAnalysisJobResponseTypeDef",
-    {
-        "JobId": str,
-        "JobName": str,
-        "OperationsConfig": "MediaAnalysisOperationsConfigTypeDef",
-        "Status": MediaAnalysisJobStatusType,
-        "FailureDetails": "MediaAnalysisJobFailureDetailsTypeDef",
-        "CreationTimestamp": datetime,
-        "CompletionTimestamp": datetime,
-        "Input": "MediaAnalysisInputTypeDef",
-        "OutputConfig": "MediaAnalysisOutputConfigTypeDef",
-        "KmsKeyId": str,
-        "Results": "MediaAnalysisResultsTypeDef",
-        "ManifestSummary": "MediaAnalysisManifestSummaryTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetPersonTrackingRequestRequestTypeDef = TypedDict(
-    "_RequiredGetPersonTrackingRequestRequestTypeDef",
-    {
-        "JobId": str,
-    },
-)
-_OptionalGetPersonTrackingRequestRequestTypeDef = TypedDict(
-    "_OptionalGetPersonTrackingRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-        "SortBy": PersonTrackingSortByType,
-    },
-    total=False,
-)
-
-class GetPersonTrackingRequestRequestTypeDef(
-    _RequiredGetPersonTrackingRequestRequestTypeDef, _OptionalGetPersonTrackingRequestRequestTypeDef
-):
-    pass
-
-GetPersonTrackingResponseTypeDef = TypedDict(
-    "GetPersonTrackingResponseTypeDef",
-    {
-        "JobStatus": VideoJobStatusType,
-        "StatusMessage": str,
-        "VideoMetadata": "VideoMetadataTypeDef",
-        "NextToken": str,
-        "Persons": List["PersonDetectionTypeDef"],
-        "JobId": str,
-        "Video": "VideoTypeDef",
-        "JobTag": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetSegmentDetectionRequestRequestTypeDef = TypedDict(
-    "_RequiredGetSegmentDetectionRequestRequestTypeDef",
-    {
-        "JobId": str,
-    },
-)
-_OptionalGetSegmentDetectionRequestRequestTypeDef = TypedDict(
-    "_OptionalGetSegmentDetectionRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class GetSegmentDetectionRequestRequestTypeDef(
-    _RequiredGetSegmentDetectionRequestRequestTypeDef,
-    _OptionalGetSegmentDetectionRequestRequestTypeDef,
-):
-    pass
-
-GetSegmentDetectionResponseTypeDef = TypedDict(
-    "GetSegmentDetectionResponseTypeDef",
-    {
-        "JobStatus": VideoJobStatusType,
-        "StatusMessage": str,
-        "VideoMetadata": List["VideoMetadataTypeDef"],
-        "AudioMetadata": List["AudioMetadataTypeDef"],
-        "NextToken": str,
-        "Segments": List["SegmentDetectionTypeDef"],
-        "SelectedSegmentTypes": List["SegmentTypeInfoTypeDef"],
-        "JobId": str,
-        "Video": "VideoTypeDef",
-        "JobTag": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetTextDetectionRequestRequestTypeDef = TypedDict(
-    "_RequiredGetTextDetectionRequestRequestTypeDef",
-    {
-        "JobId": str,
-    },
-)
-_OptionalGetTextDetectionRequestRequestTypeDef = TypedDict(
-    "_OptionalGetTextDetectionRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class GetTextDetectionRequestRequestTypeDef(
-    _RequiredGetTextDetectionRequestRequestTypeDef, _OptionalGetTextDetectionRequestRequestTypeDef
-):
-    pass
-
-GetTextDetectionResponseTypeDef = TypedDict(
-    "GetTextDetectionResponseTypeDef",
-    {
-        "JobStatus": VideoJobStatusType,
-        "StatusMessage": str,
-        "VideoMetadata": "VideoMetadataTypeDef",
-        "TextDetections": List["TextDetectionResultTypeDef"],
-        "NextToken": str,
-        "TextModelVersion": str,
-        "JobId": str,
-        "Video": "VideoTypeDef",
-        "JobTag": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GroundTruthManifestTypeDef = TypedDict(
-    "GroundTruthManifestTypeDef",
-    {
-        "S3Object": "S3ObjectTypeDef",
-    },
-    total=False,
-)
-
-HumanLoopActivationOutputTypeDef = TypedDict(
-    "HumanLoopActivationOutputTypeDef",
-    {
-        "HumanLoopArn": str,
-        "HumanLoopActivationReasons": List[str],
-        "HumanLoopActivationConditionsEvaluationResults": str,
-    },
-    total=False,
-)
-
-_RequiredHumanLoopConfigTypeDef = TypedDict(
-    "_RequiredHumanLoopConfigTypeDef",
-    {
-        "HumanLoopName": str,
-        "FlowDefinitionArn": str,
-    },
-)
-_OptionalHumanLoopConfigTypeDef = TypedDict(
-    "_OptionalHumanLoopConfigTypeDef",
-    {
-        "DataAttributes": "HumanLoopDataAttributesTypeDef",
-    },
-    total=False,
-)
-
-class HumanLoopConfigTypeDef(_RequiredHumanLoopConfigTypeDef, _OptionalHumanLoopConfigTypeDef):
-    pass
-
-HumanLoopDataAttributesTypeDef = TypedDict(
-    "HumanLoopDataAttributesTypeDef",
-    {
-        "ContentClassifiers": List[ContentClassifierType],
-    },
-    total=False,
-)
-
-ImageQualityTypeDef = TypedDict(
-    "ImageQualityTypeDef",
-    {
-        "Brightness": float,
-        "Sharpness": float,
-    },
-    total=False,
-)
-
-ImageTypeDef = TypedDict(
-    "ImageTypeDef",
-    {
-        "Bytes": Union[bytes, IO[bytes], StreamingBody],
-        "S3Object": "S3ObjectTypeDef",
-    },
-    total=False,
-)
-
-_RequiredIndexFacesRequestRequestTypeDef = TypedDict(
-    "_RequiredIndexFacesRequestRequestTypeDef",
-    {
-        "CollectionId": str,
-        "Image": "ImageTypeDef",
-    },
-)
-_OptionalIndexFacesRequestRequestTypeDef = TypedDict(
-    "_OptionalIndexFacesRequestRequestTypeDef",
-    {
-        "ExternalImageId": str,
-        "DetectionAttributes": List[AttributeType],
-        "MaxFaces": int,
-        "QualityFilter": QualityFilterType,
-    },
-    total=False,
-)
-
-class IndexFacesRequestRequestTypeDef(
-    _RequiredIndexFacesRequestRequestTypeDef, _OptionalIndexFacesRequestRequestTypeDef
-):
-    pass
-
-IndexFacesResponseTypeDef = TypedDict(
-    "IndexFacesResponseTypeDef",
-    {
-        "FaceRecords": List["FaceRecordTypeDef"],
-        "OrientationCorrection": OrientationCorrectionType,
-        "FaceModelVersion": str,
-        "UnindexedFaces": List["UnindexedFaceTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-InstanceTypeDef = TypedDict(
-    "InstanceTypeDef",
-    {
-        "BoundingBox": "BoundingBoxTypeDef",
-        "Confidence": float,
-        "DominantColors": List["DominantColorTypeDef"],
-    },
-    total=False,
-)
-
-KinesisDataStreamTypeDef = TypedDict(
-    "KinesisDataStreamTypeDef",
-    {
-        "Arn": str,
-    },
-    total=False,
-)
-
-KinesisVideoStreamStartSelectorTypeDef = TypedDict(
-    "KinesisVideoStreamStartSelectorTypeDef",
-    {
-        "ProducerTimestamp": int,
-        "FragmentNumber": str,
-    },
-    total=False,
-)
-
-KinesisVideoStreamTypeDef = TypedDict(
-    "KinesisVideoStreamTypeDef",
-    {
-        "Arn": str,
-    },
-    total=False,
-)
-
+class AgeRangeTypeDef(TypedDict):
+    Low: NotRequired[int]
+    High: NotRequired[int]
+
+class AssociateFacesRequestTypeDef(TypedDict):
+    CollectionId: str
+    UserId: str
+    FaceIds: Sequence[str]
+    UserMatchThreshold: NotRequired[float]
+    ClientRequestToken: NotRequired[str]
+
+class AssociatedFaceTypeDef(TypedDict):
+    FaceId: NotRequired[str]
+
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
+
+class UnsuccessfulFaceAssociationTypeDef(TypedDict):
+    FaceId: NotRequired[str]
+    UserId: NotRequired[str]
+    Confidence: NotRequired[float]
+    Reasons: NotRequired[List[UnsuccessfulFaceAssociationReasonType]]
+
+class AudioMetadataTypeDef(TypedDict):
+    Codec: NotRequired[str]
+    DurationMillis: NotRequired[int]
+    SampleRate: NotRequired[int]
+    NumberOfChannels: NotRequired[int]
+
+class BoundingBoxTypeDef(TypedDict):
+    Width: NotRequired[float]
+    Height: NotRequired[float]
+    Left: NotRequired[float]
+    Top: NotRequired[float]
+
+class S3ObjectTypeDef(TypedDict):
+    Bucket: NotRequired[str]
+    Name: NotRequired[str]
+    Version: NotRequired[str]
+
+class BeardTypeDef(TypedDict):
+    Value: NotRequired[bool]
+    Confidence: NotRequired[float]
+
+class BlackFrameTypeDef(TypedDict):
+    MaxPixelThreshold: NotRequired[float]
+    MinCoveragePercentage: NotRequired[float]
+
+BlobTypeDef = Union[str, bytes, IO[Any], StreamingBody]
 KnownGenderTypeDef = TypedDict(
     "KnownGenderTypeDef",
     {
-        "Type": KnownGenderTypeType,
+        "Type": NotRequired[KnownGenderTypeType],
     },
-    total=False,
+)
+EmotionTypeDef = TypedDict(
+    "EmotionTypeDef",
+    {
+        "Type": NotRequired[EmotionNameType],
+        "Confidence": NotRequired[float],
+    },
 )
 
-LabelAliasTypeDef = TypedDict(
-    "LabelAliasTypeDef",
-    {
-        "Name": str,
-    },
-    total=False,
-)
-
-LabelCategoryTypeDef = TypedDict(
-    "LabelCategoryTypeDef",
-    {
-        "Name": str,
-    },
-    total=False,
-)
-
-LabelDetectionSettingsTypeDef = TypedDict(
-    "LabelDetectionSettingsTypeDef",
-    {
-        "GeneralLabels": "GeneralLabelsSettingsTypeDef",
-    },
-    total=False,
-)
-
-LabelDetectionTypeDef = TypedDict(
-    "LabelDetectionTypeDef",
-    {
-        "Timestamp": int,
-        "Label": "LabelTypeDef",
-        "StartTimestampMillis": int,
-        "EndTimestampMillis": int,
-        "DurationMillis": int,
-    },
-    total=False,
-)
-
-LabelTypeDef = TypedDict(
-    "LabelTypeDef",
-    {
-        "Name": str,
-        "Confidence": float,
-        "Instances": List["InstanceTypeDef"],
-        "Parents": List["ParentTypeDef"],
-        "Aliases": List["LabelAliasTypeDef"],
-        "Categories": List["LabelCategoryTypeDef"],
-    },
-    total=False,
-)
+class ImageQualityTypeDef(TypedDict):
+    Brightness: NotRequired[float]
+    Sharpness: NotRequired[float]
 
 LandmarkTypeDef = TypedDict(
     "LandmarkTypeDef",
     {
-        "Type": LandmarkTypeType,
-        "X": float,
-        "Y": float,
-    },
-    total=False,
-)
-
-ListCollectionsRequestRequestTypeDef = TypedDict(
-    "ListCollectionsRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-ListCollectionsResponseTypeDef = TypedDict(
-    "ListCollectionsResponseTypeDef",
-    {
-        "CollectionIds": List[str],
-        "NextToken": str,
-        "FaceModelVersions": List[str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListDatasetEntriesRequestRequestTypeDef = TypedDict(
-    "_RequiredListDatasetEntriesRequestRequestTypeDef",
-    {
-        "DatasetArn": str,
-    },
-)
-_OptionalListDatasetEntriesRequestRequestTypeDef = TypedDict(
-    "_OptionalListDatasetEntriesRequestRequestTypeDef",
-    {
-        "ContainsLabels": List[str],
-        "Labeled": bool,
-        "SourceRefContains": str,
-        "HasErrors": bool,
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-class ListDatasetEntriesRequestRequestTypeDef(
-    _RequiredListDatasetEntriesRequestRequestTypeDef,
-    _OptionalListDatasetEntriesRequestRequestTypeDef,
-):
-    pass
-
-ListDatasetEntriesResponseTypeDef = TypedDict(
-    "ListDatasetEntriesResponseTypeDef",
-    {
-        "DatasetEntries": List[str],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListDatasetLabelsRequestRequestTypeDef = TypedDict(
-    "_RequiredListDatasetLabelsRequestRequestTypeDef",
-    {
-        "DatasetArn": str,
-    },
-)
-_OptionalListDatasetLabelsRequestRequestTypeDef = TypedDict(
-    "_OptionalListDatasetLabelsRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-class ListDatasetLabelsRequestRequestTypeDef(
-    _RequiredListDatasetLabelsRequestRequestTypeDef, _OptionalListDatasetLabelsRequestRequestTypeDef
-):
-    pass
-
-ListDatasetLabelsResponseTypeDef = TypedDict(
-    "ListDatasetLabelsResponseTypeDef",
-    {
-        "DatasetLabelDescriptions": List["DatasetLabelDescriptionTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListFacesRequestRequestTypeDef = TypedDict(
-    "_RequiredListFacesRequestRequestTypeDef",
-    {
-        "CollectionId": str,
-    },
-)
-_OptionalListFacesRequestRequestTypeDef = TypedDict(
-    "_OptionalListFacesRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-        "UserId": str,
-        "FaceIds": List[str],
-    },
-    total=False,
-)
-
-class ListFacesRequestRequestTypeDef(
-    _RequiredListFacesRequestRequestTypeDef, _OptionalListFacesRequestRequestTypeDef
-):
-    pass
-
-ListFacesResponseTypeDef = TypedDict(
-    "ListFacesResponseTypeDef",
-    {
-        "Faces": List["FaceTypeDef"],
-        "NextToken": str,
-        "FaceModelVersion": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListMediaAnalysisJobsRequestRequestTypeDef = TypedDict(
-    "ListMediaAnalysisJobsRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-ListMediaAnalysisJobsResponseTypeDef = TypedDict(
-    "ListMediaAnalysisJobsResponseTypeDef",
-    {
-        "NextToken": str,
-        "MediaAnalysisJobs": List["MediaAnalysisJobDescriptionTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListProjectPoliciesRequestRequestTypeDef = TypedDict(
-    "_RequiredListProjectPoliciesRequestRequestTypeDef",
-    {
-        "ProjectArn": str,
-    },
-)
-_OptionalListProjectPoliciesRequestRequestTypeDef = TypedDict(
-    "_OptionalListProjectPoliciesRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-class ListProjectPoliciesRequestRequestTypeDef(
-    _RequiredListProjectPoliciesRequestRequestTypeDef,
-    _OptionalListProjectPoliciesRequestRequestTypeDef,
-):
-    pass
-
-ListProjectPoliciesResponseTypeDef = TypedDict(
-    "ListProjectPoliciesResponseTypeDef",
-    {
-        "ProjectPolicies": List["ProjectPolicyTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListStreamProcessorsRequestRequestTypeDef = TypedDict(
-    "ListStreamProcessorsRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-ListStreamProcessorsResponseTypeDef = TypedDict(
-    "ListStreamProcessorsResponseTypeDef",
-    {
-        "NextToken": str,
-        "StreamProcessors": List["StreamProcessorTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-    },
-)
-
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "Tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListUsersRequestRequestTypeDef = TypedDict(
-    "_RequiredListUsersRequestRequestTypeDef",
-    {
-        "CollectionId": str,
-    },
-)
-_OptionalListUsersRequestRequestTypeDef = TypedDict(
-    "_OptionalListUsersRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListUsersRequestRequestTypeDef(
-    _RequiredListUsersRequestRequestTypeDef, _OptionalListUsersRequestRequestTypeDef
-):
-    pass
-
-ListUsersResponseTypeDef = TypedDict(
-    "ListUsersResponseTypeDef",
-    {
-        "Users": List["UserTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredLivenessOutputConfigTypeDef = TypedDict(
-    "_RequiredLivenessOutputConfigTypeDef",
-    {
-        "S3Bucket": str,
-    },
-)
-_OptionalLivenessOutputConfigTypeDef = TypedDict(
-    "_OptionalLivenessOutputConfigTypeDef",
-    {
-        "S3KeyPrefix": str,
-    },
-    total=False,
-)
-
-class LivenessOutputConfigTypeDef(
-    _RequiredLivenessOutputConfigTypeDef, _OptionalLivenessOutputConfigTypeDef
-):
-    pass
-
-MatchedUserTypeDef = TypedDict(
-    "MatchedUserTypeDef",
-    {
-        "UserId": str,
-        "UserStatus": UserStatusType,
-    },
-    total=False,
-)
-
-MediaAnalysisDetectModerationLabelsConfigTypeDef = TypedDict(
-    "MediaAnalysisDetectModerationLabelsConfigTypeDef",
-    {
-        "MinConfidence": float,
-        "ProjectVersion": str,
-    },
-    total=False,
-)
-
-MediaAnalysisInputTypeDef = TypedDict(
-    "MediaAnalysisInputTypeDef",
-    {
-        "S3Object": "S3ObjectTypeDef",
-    },
-)
-
-_RequiredMediaAnalysisJobDescriptionTypeDef = TypedDict(
-    "_RequiredMediaAnalysisJobDescriptionTypeDef",
-    {
-        "JobId": str,
-        "OperationsConfig": "MediaAnalysisOperationsConfigTypeDef",
-        "Status": MediaAnalysisJobStatusType,
-        "CreationTimestamp": datetime,
-        "Input": "MediaAnalysisInputTypeDef",
-        "OutputConfig": "MediaAnalysisOutputConfigTypeDef",
-    },
-)
-_OptionalMediaAnalysisJobDescriptionTypeDef = TypedDict(
-    "_OptionalMediaAnalysisJobDescriptionTypeDef",
-    {
-        "JobName": str,
-        "FailureDetails": "MediaAnalysisJobFailureDetailsTypeDef",
-        "CompletionTimestamp": datetime,
-        "KmsKeyId": str,
-        "Results": "MediaAnalysisResultsTypeDef",
-        "ManifestSummary": "MediaAnalysisManifestSummaryTypeDef",
-    },
-    total=False,
-)
-
-class MediaAnalysisJobDescriptionTypeDef(
-    _RequiredMediaAnalysisJobDescriptionTypeDef, _OptionalMediaAnalysisJobDescriptionTypeDef
-):
-    pass
-
-MediaAnalysisJobFailureDetailsTypeDef = TypedDict(
-    "MediaAnalysisJobFailureDetailsTypeDef",
-    {
-        "Code": MediaAnalysisJobFailureCodeType,
-        "Message": str,
-    },
-    total=False,
-)
-
-MediaAnalysisManifestSummaryTypeDef = TypedDict(
-    "MediaAnalysisManifestSummaryTypeDef",
-    {
-        "S3Object": "S3ObjectTypeDef",
-    },
-    total=False,
-)
-
-MediaAnalysisModelVersionsTypeDef = TypedDict(
-    "MediaAnalysisModelVersionsTypeDef",
-    {
-        "Moderation": str,
-    },
-    total=False,
-)
-
-MediaAnalysisOperationsConfigTypeDef = TypedDict(
-    "MediaAnalysisOperationsConfigTypeDef",
-    {
-        "DetectModerationLabels": "MediaAnalysisDetectModerationLabelsConfigTypeDef",
-    },
-    total=False,
-)
-
-_RequiredMediaAnalysisOutputConfigTypeDef = TypedDict(
-    "_RequiredMediaAnalysisOutputConfigTypeDef",
-    {
-        "S3Bucket": str,
-    },
-)
-_OptionalMediaAnalysisOutputConfigTypeDef = TypedDict(
-    "_OptionalMediaAnalysisOutputConfigTypeDef",
-    {
-        "S3KeyPrefix": str,
-    },
-    total=False,
-)
-
-class MediaAnalysisOutputConfigTypeDef(
-    _RequiredMediaAnalysisOutputConfigTypeDef, _OptionalMediaAnalysisOutputConfigTypeDef
-):
-    pass
-
-MediaAnalysisResultsTypeDef = TypedDict(
-    "MediaAnalysisResultsTypeDef",
-    {
-        "S3Object": "S3ObjectTypeDef",
-        "ModelVersions": "MediaAnalysisModelVersionsTypeDef",
-    },
-    total=False,
-)
-
-ModerationLabelTypeDef = TypedDict(
-    "ModerationLabelTypeDef",
-    {
-        "Confidence": float,
-        "Name": str,
-        "ParentName": str,
-        "TaxonomyLevel": int,
-    },
-    total=False,
-)
-
-MouthOpenTypeDef = TypedDict(
-    "MouthOpenTypeDef",
-    {
-        "Value": bool,
-        "Confidence": float,
-    },
-    total=False,
-)
-
-MustacheTypeDef = TypedDict(
-    "MustacheTypeDef",
-    {
-        "Value": bool,
-        "Confidence": float,
-    },
-    total=False,
-)
-
-NotificationChannelTypeDef = TypedDict(
-    "NotificationChannelTypeDef",
-    {
-        "SNSTopicArn": str,
-        "RoleArn": str,
-    },
-)
-
-OutputConfigTypeDef = TypedDict(
-    "OutputConfigTypeDef",
-    {
-        "S3Bucket": str,
-        "S3KeyPrefix": str,
-    },
-    total=False,
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-ParentTypeDef = TypedDict(
-    "ParentTypeDef",
-    {
-        "Name": str,
-    },
-    total=False,
-)
-
-PersonDetailTypeDef = TypedDict(
-    "PersonDetailTypeDef",
-    {
-        "Index": int,
-        "BoundingBox": "BoundingBoxTypeDef",
-        "Face": "FaceDetailTypeDef",
-    },
-    total=False,
-)
-
-PersonDetectionTypeDef = TypedDict(
-    "PersonDetectionTypeDef",
-    {
-        "Timestamp": int,
-        "Person": "PersonDetailTypeDef",
-    },
-    total=False,
-)
-
-PersonMatchTypeDef = TypedDict(
-    "PersonMatchTypeDef",
-    {
-        "Timestamp": int,
-        "Person": "PersonDetailTypeDef",
-        "FaceMatches": List["FaceMatchTypeDef"],
-    },
-    total=False,
-)
-
-PointTypeDef = TypedDict(
-    "PointTypeDef",
-    {
-        "X": float,
-        "Y": float,
-    },
-    total=False,
-)
-
-PoseTypeDef = TypedDict(
-    "PoseTypeDef",
-    {
-        "Roll": float,
-        "Yaw": float,
-        "Pitch": float,
-    },
-    total=False,
-)
-
-ProjectDescriptionTypeDef = TypedDict(
-    "ProjectDescriptionTypeDef",
-    {
-        "ProjectArn": str,
-        "CreationTimestamp": datetime,
-        "Status": ProjectStatusType,
-        "Datasets": List["DatasetMetadataTypeDef"],
-        "Feature": CustomizationFeatureType,
-        "AutoUpdate": ProjectAutoUpdateType,
-    },
-    total=False,
-)
-
-ProjectPolicyTypeDef = TypedDict(
-    "ProjectPolicyTypeDef",
-    {
-        "ProjectArn": str,
-        "PolicyName": str,
-        "PolicyRevisionId": str,
-        "PolicyDocument": str,
-        "CreationTimestamp": datetime,
-        "LastUpdatedTimestamp": datetime,
-    },
-    total=False,
-)
-
-ProjectVersionDescriptionTypeDef = TypedDict(
-    "ProjectVersionDescriptionTypeDef",
-    {
-        "ProjectVersionArn": str,
-        "CreationTimestamp": datetime,
-        "MinInferenceUnits": int,
-        "Status": ProjectVersionStatusType,
-        "StatusMessage": str,
-        "BillableTrainingTimeInSeconds": int,
-        "TrainingEndTimestamp": datetime,
-        "OutputConfig": "OutputConfigTypeDef",
-        "TrainingDataResult": "TrainingDataResultTypeDef",
-        "TestingDataResult": "TestingDataResultTypeDef",
-        "EvaluationResult": "EvaluationResultTypeDef",
-        "ManifestSummary": "GroundTruthManifestTypeDef",
-        "KmsKeyId": str,
-        "MaxInferenceUnits": int,
-        "SourceProjectVersionArn": str,
-        "VersionDescription": str,
-        "Feature": CustomizationFeatureType,
-        "BaseModelVersion": str,
-        "FeatureConfig": "CustomizationFeatureConfigTypeDef",
-    },
-    total=False,
-)
-
-ProtectiveEquipmentBodyPartTypeDef = TypedDict(
-    "ProtectiveEquipmentBodyPartTypeDef",
-    {
-        "Name": BodyPartType,
-        "Confidence": float,
-        "EquipmentDetections": List["EquipmentDetectionTypeDef"],
-    },
-    total=False,
-)
-
-ProtectiveEquipmentPersonTypeDef = TypedDict(
-    "ProtectiveEquipmentPersonTypeDef",
-    {
-        "BodyParts": List["ProtectiveEquipmentBodyPartTypeDef"],
-        "BoundingBox": "BoundingBoxTypeDef",
-        "Confidence": float,
-        "Id": int,
-    },
-    total=False,
-)
-
-ProtectiveEquipmentSummarizationAttributesTypeDef = TypedDict(
-    "ProtectiveEquipmentSummarizationAttributesTypeDef",
-    {
-        "MinConfidence": float,
-        "RequiredEquipmentTypes": List[ProtectiveEquipmentTypeType],
-    },
-)
-
-ProtectiveEquipmentSummaryTypeDef = TypedDict(
-    "ProtectiveEquipmentSummaryTypeDef",
-    {
-        "PersonsWithRequiredEquipment": List[int],
-        "PersonsWithoutRequiredEquipment": List[int],
-        "PersonsIndeterminate": List[int],
-    },
-    total=False,
-)
-
-_RequiredPutProjectPolicyRequestRequestTypeDef = TypedDict(
-    "_RequiredPutProjectPolicyRequestRequestTypeDef",
-    {
-        "ProjectArn": str,
-        "PolicyName": str,
-        "PolicyDocument": str,
-    },
-)
-_OptionalPutProjectPolicyRequestRequestTypeDef = TypedDict(
-    "_OptionalPutProjectPolicyRequestRequestTypeDef",
-    {
-        "PolicyRevisionId": str,
-    },
-    total=False,
-)
-
-class PutProjectPolicyRequestRequestTypeDef(
-    _RequiredPutProjectPolicyRequestRequestTypeDef, _OptionalPutProjectPolicyRequestRequestTypeDef
-):
-    pass
-
-PutProjectPolicyResponseTypeDef = TypedDict(
-    "PutProjectPolicyResponseTypeDef",
-    {
-        "PolicyRevisionId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-RecognizeCelebritiesRequestRequestTypeDef = TypedDict(
-    "RecognizeCelebritiesRequestRequestTypeDef",
-    {
-        "Image": "ImageTypeDef",
-    },
-)
+        "Type": NotRequired[LandmarkTypeType],
+        "X": NotRequired[float],
+        "Y": NotRequired[float],
+    },
+)
+
+class PoseTypeDef(TypedDict):
+    Roll: NotRequired[float]
+    Yaw: NotRequired[float]
+    Pitch: NotRequired[float]
+
+class SmileTypeDef(TypedDict):
+    Value: NotRequired[bool]
+    Confidence: NotRequired[float]
+
+class ConnectedHomeSettingsForUpdateTypeDef(TypedDict):
+    Labels: NotRequired[Sequence[str]]
+    MinConfidence: NotRequired[float]
+
+class ConnectedHomeSettingsOutputTypeDef(TypedDict):
+    Labels: List[str]
+    MinConfidence: NotRequired[float]
+
+class ConnectedHomeSettingsTypeDef(TypedDict):
+    Labels: Sequence[str]
+    MinConfidence: NotRequired[float]
+
+class ContentTypeTypeDef(TypedDict):
+    Confidence: NotRequired[float]
+    Name: NotRequired[str]
+
+class ModerationLabelTypeDef(TypedDict):
+    Confidence: NotRequired[float]
+    Name: NotRequired[str]
+    ParentName: NotRequired[str]
+    TaxonomyLevel: NotRequired[int]
 
-RecognizeCelebritiesResponseTypeDef = TypedDict(
-    "RecognizeCelebritiesResponseTypeDef",
-    {
-        "CelebrityFaces": List["CelebrityTypeDef"],
-        "UnrecognizedFaces": List["ComparedFaceTypeDef"],
-        "OrientationCorrection": OrientationCorrectionType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-RegionOfInterestTypeDef = TypedDict(
-    "RegionOfInterestTypeDef",
-    {
-        "BoundingBox": "BoundingBoxTypeDef",
-        "Polygon": List["PointTypeDef"],
-    },
-    total=False,
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-S3DestinationTypeDef = TypedDict(
-    "S3DestinationTypeDef",
-    {
-        "Bucket": str,
-        "KeyPrefix": str,
-    },
-    total=False,
-)
-
-S3ObjectTypeDef = TypedDict(
-    "S3ObjectTypeDef",
-    {
-        "Bucket": str,
-        "Name": str,
-        "Version": str,
-    },
-    total=False,
-)
-
-_RequiredSearchFacesByImageRequestRequestTypeDef = TypedDict(
-    "_RequiredSearchFacesByImageRequestRequestTypeDef",
-    {
-        "CollectionId": str,
-        "Image": "ImageTypeDef",
-    },
-)
-_OptionalSearchFacesByImageRequestRequestTypeDef = TypedDict(
-    "_OptionalSearchFacesByImageRequestRequestTypeDef",
-    {
-        "MaxFaces": int,
-        "FaceMatchThreshold": float,
-        "QualityFilter": QualityFilterType,
-    },
-    total=False,
-)
-
-class SearchFacesByImageRequestRequestTypeDef(
-    _RequiredSearchFacesByImageRequestRequestTypeDef,
-    _OptionalSearchFacesByImageRequestRequestTypeDef,
-):
-    pass
-
-SearchFacesByImageResponseTypeDef = TypedDict(
-    "SearchFacesByImageResponseTypeDef",
-    {
-        "SearchedFaceBoundingBox": "BoundingBoxTypeDef",
-        "SearchedFaceConfidence": float,
-        "FaceMatches": List["FaceMatchTypeDef"],
-        "FaceModelVersion": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredSearchFacesRequestRequestTypeDef = TypedDict(
-    "_RequiredSearchFacesRequestRequestTypeDef",
-    {
-        "CollectionId": str,
-        "FaceId": str,
-    },
-)
-_OptionalSearchFacesRequestRequestTypeDef = TypedDict(
-    "_OptionalSearchFacesRequestRequestTypeDef",
-    {
-        "MaxFaces": int,
-        "FaceMatchThreshold": float,
-    },
-    total=False,
-)
-
-class SearchFacesRequestRequestTypeDef(
-    _RequiredSearchFacesRequestRequestTypeDef, _OptionalSearchFacesRequestRequestTypeDef
-):
-    pass
-
-SearchFacesResponseTypeDef = TypedDict(
-    "SearchFacesResponseTypeDef",
-    {
-        "SearchedFaceId": str,
-        "FaceMatches": List["FaceMatchTypeDef"],
-        "FaceModelVersion": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredSearchUsersByImageRequestRequestTypeDef = TypedDict(
-    "_RequiredSearchUsersByImageRequestRequestTypeDef",
-    {
-        "CollectionId": str,
-        "Image": "ImageTypeDef",
-    },
-)
-_OptionalSearchUsersByImageRequestRequestTypeDef = TypedDict(
-    "_OptionalSearchUsersByImageRequestRequestTypeDef",
-    {
-        "UserMatchThreshold": float,
-        "MaxUsers": int,
-        "QualityFilter": QualityFilterType,
-    },
-    total=False,
-)
-
-class SearchUsersByImageRequestRequestTypeDef(
-    _RequiredSearchUsersByImageRequestRequestTypeDef,
-    _OptionalSearchUsersByImageRequestRequestTypeDef,
-):
-    pass
-
-SearchUsersByImageResponseTypeDef = TypedDict(
-    "SearchUsersByImageResponseTypeDef",
-    {
-        "UserMatches": List["UserMatchTypeDef"],
-        "FaceModelVersion": str,
-        "SearchedFace": "SearchedFaceDetailsTypeDef",
-        "UnsearchedFaces": List["UnsearchedFaceTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredSearchUsersRequestRequestTypeDef = TypedDict(
-    "_RequiredSearchUsersRequestRequestTypeDef",
-    {
-        "CollectionId": str,
-    },
-)
-_OptionalSearchUsersRequestRequestTypeDef = TypedDict(
-    "_OptionalSearchUsersRequestRequestTypeDef",
-    {
-        "UserId": str,
-        "FaceId": str,
-        "UserMatchThreshold": float,
-        "MaxUsers": int,
-    },
-    total=False,
-)
-
-class SearchUsersRequestRequestTypeDef(
-    _RequiredSearchUsersRequestRequestTypeDef, _OptionalSearchUsersRequestRequestTypeDef
-):
-    pass
-
-SearchUsersResponseTypeDef = TypedDict(
-    "SearchUsersResponseTypeDef",
-    {
-        "UserMatches": List["UserMatchTypeDef"],
-        "FaceModelVersion": str,
-        "SearchedFace": "SearchedFaceTypeDef",
-        "SearchedUser": "SearchedUserTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-SearchedFaceDetailsTypeDef = TypedDict(
-    "SearchedFaceDetailsTypeDef",
-    {
-        "FaceDetail": "FaceDetailTypeDef",
-    },
-    total=False,
-)
-
-SearchedFaceTypeDef = TypedDict(
-    "SearchedFaceTypeDef",
-    {
-        "FaceId": str,
-    },
-    total=False,
-)
-
-SearchedUserTypeDef = TypedDict(
-    "SearchedUserTypeDef",
-    {
-        "UserId": str,
-    },
-    total=False,
-)
-
-SegmentDetectionTypeDef = TypedDict(
-    "SegmentDetectionTypeDef",
-    {
-        "Type": SegmentTypeType,
-        "StartTimestampMillis": int,
-        "EndTimestampMillis": int,
-        "DurationMillis": int,
-        "StartTimecodeSMPTE": str,
-        "EndTimecodeSMPTE": str,
-        "DurationSMPTE": str,
-        "TechnicalCueSegment": "TechnicalCueSegmentTypeDef",
-        "ShotSegment": "ShotSegmentTypeDef",
-        "StartFrameNumber": int,
-        "EndFrameNumber": int,
-        "DurationFrames": int,
-    },
-    total=False,
-)
+class OutputConfigTypeDef(TypedDict):
+    S3Bucket: NotRequired[str]
+    S3KeyPrefix: NotRequired[str]
+
+class CoversBodyPartTypeDef(TypedDict):
+    Confidence: NotRequired[float]
+    Value: NotRequired[bool]
+
+class CreateCollectionRequestTypeDef(TypedDict):
+    CollectionId: str
+    Tags: NotRequired[Mapping[str, str]]
+
+class LivenessOutputConfigTypeDef(TypedDict):
+    S3Bucket: str
+    S3KeyPrefix: NotRequired[str]
+
+class CreateProjectRequestTypeDef(TypedDict):
+    ProjectName: str
+    Feature: NotRequired[CustomizationFeatureType]
+    AutoUpdate: NotRequired[ProjectAutoUpdateType]
+    Tags: NotRequired[Mapping[str, str]]
+
+class StreamProcessorDataSharingPreferenceTypeDef(TypedDict):
+    OptIn: bool
+
+class StreamProcessorNotificationChannelTypeDef(TypedDict):
+    SNSTopicArn: str
+
+class CreateUserRequestTypeDef(TypedDict):
+    CollectionId: str
+    UserId: str
+    ClientRequestToken: NotRequired[str]
+
+class CustomizationFeatureContentModerationConfigTypeDef(TypedDict):
+    ConfidenceThreshold: NotRequired[float]
+
+class DatasetStatsTypeDef(TypedDict):
+    LabeledEntries: NotRequired[int]
+    TotalEntries: NotRequired[int]
+    TotalLabels: NotRequired[int]
+    ErrorEntries: NotRequired[int]
+
+class DatasetLabelStatsTypeDef(TypedDict):
+    EntryCount: NotRequired[int]
+    BoundingBoxCount: NotRequired[int]
+
+class DatasetMetadataTypeDef(TypedDict):
+    CreationTimestamp: NotRequired[datetime]
+    DatasetType: NotRequired[DatasetTypeType]
+    DatasetArn: NotRequired[str]
+    Status: NotRequired[DatasetStatusType]
+    StatusMessage: NotRequired[str]
+    StatusMessageCode: NotRequired[DatasetStatusMessageCodeType]
+
+class DeleteCollectionRequestTypeDef(TypedDict):
+    CollectionId: str
+
+class DeleteDatasetRequestTypeDef(TypedDict):
+    DatasetArn: str
+
+class DeleteFacesRequestTypeDef(TypedDict):
+    CollectionId: str
+    FaceIds: Sequence[str]
+
+class UnsuccessfulFaceDeletionTypeDef(TypedDict):
+    FaceId: NotRequired[str]
+    UserId: NotRequired[str]
+    Reasons: NotRequired[List[UnsuccessfulFaceDeletionReasonType]]
+
+class DeleteProjectPolicyRequestTypeDef(TypedDict):
+    ProjectArn: str
+    PolicyName: str
+    PolicyRevisionId: NotRequired[str]
+
+class DeleteProjectRequestTypeDef(TypedDict):
+    ProjectArn: str
+
+class DeleteProjectVersionRequestTypeDef(TypedDict):
+    ProjectVersionArn: str
+
+class DeleteStreamProcessorRequestTypeDef(TypedDict):
+    Name: str
+
+class DeleteUserRequestTypeDef(TypedDict):
+    CollectionId: str
+    UserId: str
+    ClientRequestToken: NotRequired[str]
+
+class DescribeCollectionRequestTypeDef(TypedDict):
+    CollectionId: str
+
+class DescribeDatasetRequestTypeDef(TypedDict):
+    DatasetArn: str
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class DescribeProjectVersionsRequestTypeDef(TypedDict):
+    ProjectArn: str
+    VersionNames: NotRequired[Sequence[str]]
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class WaiterConfigTypeDef(TypedDict):
+    Delay: NotRequired[int]
+    MaxAttempts: NotRequired[int]
+
+class DescribeProjectsRequestTypeDef(TypedDict):
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+    ProjectNames: NotRequired[Sequence[str]]
+    Features: NotRequired[Sequence[CustomizationFeatureType]]
+
+class DescribeStreamProcessorRequestTypeDef(TypedDict):
+    Name: str
+
+class DetectLabelsImageQualityTypeDef(TypedDict):
+    Brightness: NotRequired[float]
+    Sharpness: NotRequired[float]
+    Contrast: NotRequired[float]
+
+class DominantColorTypeDef(TypedDict):
+    Red: NotRequired[int]
+    Blue: NotRequired[int]
+    Green: NotRequired[int]
+    HexCode: NotRequired[str]
+    CSSColor: NotRequired[str]
+    SimplifiedColor: NotRequired[str]
+    PixelPercent: NotRequired[float]
+
+class DetectLabelsImagePropertiesSettingsTypeDef(TypedDict):
+    MaxDominantColors: NotRequired[int]
+
+class GeneralLabelsSettingsTypeDef(TypedDict):
+    LabelInclusionFilters: NotRequired[Sequence[str]]
+    LabelExclusionFilters: NotRequired[Sequence[str]]
+    LabelCategoryInclusionFilters: NotRequired[Sequence[str]]
+    LabelCategoryExclusionFilters: NotRequired[Sequence[str]]
+
+class HumanLoopActivationOutputTypeDef(TypedDict):
+    HumanLoopArn: NotRequired[str]
+    HumanLoopActivationReasons: NotRequired[List[str]]
+    HumanLoopActivationConditionsEvaluationResults: NotRequired[str]
+
+class ProtectiveEquipmentSummarizationAttributesTypeDef(TypedDict):
+    MinConfidence: float
+    RequiredEquipmentTypes: Sequence[ProtectiveEquipmentTypeType]
+
+class ProtectiveEquipmentSummaryTypeDef(TypedDict):
+    PersonsWithRequiredEquipment: NotRequired[List[int]]
+    PersonsWithoutRequiredEquipment: NotRequired[List[int]]
+    PersonsIndeterminate: NotRequired[List[int]]
+
+class DetectionFilterTypeDef(TypedDict):
+    MinConfidence: NotRequired[float]
+    MinBoundingBoxHeight: NotRequired[float]
+    MinBoundingBoxWidth: NotRequired[float]
+
+class DisassociateFacesRequestTypeDef(TypedDict):
+    CollectionId: str
+    UserId: str
+    FaceIds: Sequence[str]
+    ClientRequestToken: NotRequired[str]
+
+class DisassociatedFaceTypeDef(TypedDict):
+    FaceId: NotRequired[str]
+
+class UnsuccessfulFaceDisassociationTypeDef(TypedDict):
+    FaceId: NotRequired[str]
+    UserId: NotRequired[str]
+    Reasons: NotRequired[List[UnsuccessfulFaceDisassociationReasonType]]
+
+class DistributeDatasetTypeDef(TypedDict):
+    Arn: str
+
+class EyeDirectionTypeDef(TypedDict):
+    Yaw: NotRequired[float]
+    Pitch: NotRequired[float]
+    Confidence: NotRequired[float]
+
+class EyeOpenTypeDef(TypedDict):
+    Value: NotRequired[bool]
+    Confidence: NotRequired[float]
+
+class EyeglassesTypeDef(TypedDict):
+    Value: NotRequired[bool]
+    Confidence: NotRequired[float]
+
+class FaceOccludedTypeDef(TypedDict):
+    Value: NotRequired[bool]
+    Confidence: NotRequired[float]
+
+class GenderTypeDef(TypedDict):
+    Value: NotRequired[GenderTypeType]
+    Confidence: NotRequired[float]
+
+class MouthOpenTypeDef(TypedDict):
+    Value: NotRequired[bool]
+    Confidence: NotRequired[float]
+
+class MustacheTypeDef(TypedDict):
+    Value: NotRequired[bool]
+    Confidence: NotRequired[float]
+
+class SunglassesTypeDef(TypedDict):
+    Value: NotRequired[bool]
+    Confidence: NotRequired[float]
+
+class FaceSearchSettingsTypeDef(TypedDict):
+    CollectionId: NotRequired[str]
+    FaceMatchThreshold: NotRequired[float]
+
+class PointTypeDef(TypedDict):
+    X: NotRequired[float]
+    Y: NotRequired[float]
+
+class GetCelebrityInfoRequestTypeDef(TypedDict):
+    Id: str
+
+class GetCelebrityRecognitionRequestTypeDef(TypedDict):
+    JobId: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+    SortBy: NotRequired[CelebrityRecognitionSortByType]
+
+class VideoMetadataTypeDef(TypedDict):
+    Codec: NotRequired[str]
+    DurationMillis: NotRequired[int]
+    Format: NotRequired[str]
+    FrameRate: NotRequired[float]
+    FrameHeight: NotRequired[int]
+    FrameWidth: NotRequired[int]
+    ColorRange: NotRequired[VideoColorRangeType]
+
+class GetContentModerationRequestMetadataTypeDef(TypedDict):
+    SortBy: NotRequired[ContentModerationSortByType]
+    AggregateBy: NotRequired[ContentModerationAggregateByType]
+
+class GetContentModerationRequestTypeDef(TypedDict):
+    JobId: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+    SortBy: NotRequired[ContentModerationSortByType]
+    AggregateBy: NotRequired[ContentModerationAggregateByType]
+
+class GetFaceDetectionRequestTypeDef(TypedDict):
+    JobId: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class GetFaceLivenessSessionResultsRequestTypeDef(TypedDict):
+    SessionId: str
+
+class GetFaceSearchRequestTypeDef(TypedDict):
+    JobId: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+    SortBy: NotRequired[FaceSearchSortByType]
+
+class GetLabelDetectionRequestMetadataTypeDef(TypedDict):
+    SortBy: NotRequired[LabelDetectionSortByType]
+    AggregateBy: NotRequired[LabelDetectionAggregateByType]
+
+class GetLabelDetectionRequestTypeDef(TypedDict):
+    JobId: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+    SortBy: NotRequired[LabelDetectionSortByType]
+    AggregateBy: NotRequired[LabelDetectionAggregateByType]
+
+class GetMediaAnalysisJobRequestTypeDef(TypedDict):
+    JobId: str
+
+class MediaAnalysisJobFailureDetailsTypeDef(TypedDict):
+    Code: NotRequired[MediaAnalysisJobFailureCodeType]
+    Message: NotRequired[str]
+
+class MediaAnalysisOutputConfigTypeDef(TypedDict):
+    S3Bucket: str
+    S3KeyPrefix: NotRequired[str]
+
+class GetPersonTrackingRequestTypeDef(TypedDict):
+    JobId: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+    SortBy: NotRequired[PersonTrackingSortByType]
+
+class GetSegmentDetectionRequestTypeDef(TypedDict):
+    JobId: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
 
 SegmentTypeInfoTypeDef = TypedDict(
     "SegmentTypeInfoTypeDef",
     {
-        "Type": SegmentTypeType,
-        "ModelVersion": str,
-    },
-    total=False,
-)
-
-ShotSegmentTypeDef = TypedDict(
-    "ShotSegmentTypeDef",
-    {
-        "Index": int,
-        "Confidence": float,
-    },
-    total=False,
-)
-
-SmileTypeDef = TypedDict(
-    "SmileTypeDef",
-    {
-        "Value": bool,
-        "Confidence": float,
-    },
-    total=False,
-)
-
-_RequiredStartCelebrityRecognitionRequestRequestTypeDef = TypedDict(
-    "_RequiredStartCelebrityRecognitionRequestRequestTypeDef",
-    {
-        "Video": "VideoTypeDef",
-    },
-)
-_OptionalStartCelebrityRecognitionRequestRequestTypeDef = TypedDict(
-    "_OptionalStartCelebrityRecognitionRequestRequestTypeDef",
-    {
-        "ClientRequestToken": str,
-        "NotificationChannel": "NotificationChannelTypeDef",
-        "JobTag": str,
-    },
-    total=False,
-)
-
-class StartCelebrityRecognitionRequestRequestTypeDef(
-    _RequiredStartCelebrityRecognitionRequestRequestTypeDef,
-    _OptionalStartCelebrityRecognitionRequestRequestTypeDef,
-):
-    pass
-
-StartCelebrityRecognitionResponseTypeDef = TypedDict(
-    "StartCelebrityRecognitionResponseTypeDef",
-    {
-        "JobId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "Type": NotRequired[SegmentTypeType],
+        "ModelVersion": NotRequired[str],
     },
 )
 
-_RequiredStartContentModerationRequestRequestTypeDef = TypedDict(
-    "_RequiredStartContentModerationRequestRequestTypeDef",
-    {
-        "Video": "VideoTypeDef",
-    },
-)
-_OptionalStartContentModerationRequestRequestTypeDef = TypedDict(
-    "_OptionalStartContentModerationRequestRequestTypeDef",
-    {
-        "MinConfidence": float,
-        "ClientRequestToken": str,
-        "NotificationChannel": "NotificationChannelTypeDef",
-        "JobTag": str,
-    },
-    total=False,
-)
+class GetTextDetectionRequestTypeDef(TypedDict):
+    JobId: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
 
-class StartContentModerationRequestRequestTypeDef(
-    _RequiredStartContentModerationRequestRequestTypeDef,
-    _OptionalStartContentModerationRequestRequestTypeDef,
-):
-    pass
+class HumanLoopDataAttributesTypeDef(TypedDict):
+    ContentClassifiers: NotRequired[Sequence[ContentClassifierType]]
 
-StartContentModerationResponseTypeDef = TypedDict(
-    "StartContentModerationResponseTypeDef",
-    {
-        "JobId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class KinesisDataStreamTypeDef(TypedDict):
+    Arn: NotRequired[str]
 
-_RequiredStartFaceDetectionRequestRequestTypeDef = TypedDict(
-    "_RequiredStartFaceDetectionRequestRequestTypeDef",
-    {
-        "Video": "VideoTypeDef",
-    },
-)
-_OptionalStartFaceDetectionRequestRequestTypeDef = TypedDict(
-    "_OptionalStartFaceDetectionRequestRequestTypeDef",
-    {
-        "ClientRequestToken": str,
-        "NotificationChannel": "NotificationChannelTypeDef",
-        "FaceAttributes": FaceAttributesType,
-        "JobTag": str,
-    },
-    total=False,
-)
+class KinesisVideoStreamStartSelectorTypeDef(TypedDict):
+    ProducerTimestamp: NotRequired[int]
+    FragmentNumber: NotRequired[str]
 
-class StartFaceDetectionRequestRequestTypeDef(
-    _RequiredStartFaceDetectionRequestRequestTypeDef,
-    _OptionalStartFaceDetectionRequestRequestTypeDef,
-):
-    pass
+class KinesisVideoStreamTypeDef(TypedDict):
+    Arn: NotRequired[str]
 
-StartFaceDetectionResponseTypeDef = TypedDict(
-    "StartFaceDetectionResponseTypeDef",
-    {
-        "JobId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class LabelAliasTypeDef(TypedDict):
+    Name: NotRequired[str]
 
-_RequiredStartFaceSearchRequestRequestTypeDef = TypedDict(
-    "_RequiredStartFaceSearchRequestRequestTypeDef",
-    {
-        "Video": "VideoTypeDef",
-        "CollectionId": str,
-    },
-)
-_OptionalStartFaceSearchRequestRequestTypeDef = TypedDict(
-    "_OptionalStartFaceSearchRequestRequestTypeDef",
-    {
-        "ClientRequestToken": str,
-        "FaceMatchThreshold": float,
-        "NotificationChannel": "NotificationChannelTypeDef",
-        "JobTag": str,
-    },
-    total=False,
-)
+class LabelCategoryTypeDef(TypedDict):
+    Name: NotRequired[str]
 
-class StartFaceSearchRequestRequestTypeDef(
-    _RequiredStartFaceSearchRequestRequestTypeDef, _OptionalStartFaceSearchRequestRequestTypeDef
-):
-    pass
+class ParentTypeDef(TypedDict):
+    Name: NotRequired[str]
 
-StartFaceSearchResponseTypeDef = TypedDict(
-    "StartFaceSearchResponseTypeDef",
-    {
-        "JobId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListCollectionsRequestTypeDef(TypedDict):
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
 
-_RequiredStartLabelDetectionRequestRequestTypeDef = TypedDict(
-    "_RequiredStartLabelDetectionRequestRequestTypeDef",
-    {
-        "Video": "VideoTypeDef",
-    },
-)
-_OptionalStartLabelDetectionRequestRequestTypeDef = TypedDict(
-    "_OptionalStartLabelDetectionRequestRequestTypeDef",
-    {
-        "ClientRequestToken": str,
-        "MinConfidence": float,
-        "NotificationChannel": "NotificationChannelTypeDef",
-        "JobTag": str,
-        "Features": List[Literal["GENERAL_LABELS"]],
-        "Settings": "LabelDetectionSettingsTypeDef",
-    },
-    total=False,
-)
+class ListDatasetEntriesRequestTypeDef(TypedDict):
+    DatasetArn: str
+    ContainsLabels: NotRequired[Sequence[str]]
+    Labeled: NotRequired[bool]
+    SourceRefContains: NotRequired[str]
+    HasErrors: NotRequired[bool]
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
 
-class StartLabelDetectionRequestRequestTypeDef(
-    _RequiredStartLabelDetectionRequestRequestTypeDef,
-    _OptionalStartLabelDetectionRequestRequestTypeDef,
-):
-    pass
+class ListDatasetLabelsRequestTypeDef(TypedDict):
+    DatasetArn: str
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
 
-StartLabelDetectionResponseTypeDef = TypedDict(
-    "StartLabelDetectionResponseTypeDef",
-    {
-        "JobId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListFacesRequestTypeDef(TypedDict):
+    CollectionId: str
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+    UserId: NotRequired[str]
+    FaceIds: NotRequired[Sequence[str]]
 
-_RequiredStartMediaAnalysisJobRequestRequestTypeDef = TypedDict(
-    "_RequiredStartMediaAnalysisJobRequestRequestTypeDef",
-    {
-        "OperationsConfig": "MediaAnalysisOperationsConfigTypeDef",
-        "Input": "MediaAnalysisInputTypeDef",
-        "OutputConfig": "MediaAnalysisOutputConfigTypeDef",
-    },
-)
-_OptionalStartMediaAnalysisJobRequestRequestTypeDef = TypedDict(
-    "_OptionalStartMediaAnalysisJobRequestRequestTypeDef",
-    {
-        "ClientRequestToken": str,
-        "JobName": str,
-        "KmsKeyId": str,
-    },
-    total=False,
-)
+class ListMediaAnalysisJobsRequestTypeDef(TypedDict):
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
 
-class StartMediaAnalysisJobRequestRequestTypeDef(
-    _RequiredStartMediaAnalysisJobRequestRequestTypeDef,
-    _OptionalStartMediaAnalysisJobRequestRequestTypeDef,
-):
-    pass
+class ListProjectPoliciesRequestTypeDef(TypedDict):
+    ProjectArn: str
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
 
-StartMediaAnalysisJobResponseTypeDef = TypedDict(
-    "StartMediaAnalysisJobResponseTypeDef",
-    {
-        "JobId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ProjectPolicyTypeDef(TypedDict):
+    ProjectArn: NotRequired[str]
+    PolicyName: NotRequired[str]
+    PolicyRevisionId: NotRequired[str]
+    PolicyDocument: NotRequired[str]
+    CreationTimestamp: NotRequired[datetime]
+    LastUpdatedTimestamp: NotRequired[datetime]
 
-_RequiredStartPersonTrackingRequestRequestTypeDef = TypedDict(
-    "_RequiredStartPersonTrackingRequestRequestTypeDef",
-    {
-        "Video": "VideoTypeDef",
-    },
-)
-_OptionalStartPersonTrackingRequestRequestTypeDef = TypedDict(
-    "_OptionalStartPersonTrackingRequestRequestTypeDef",
-    {
-        "ClientRequestToken": str,
-        "NotificationChannel": "NotificationChannelTypeDef",
-        "JobTag": str,
-    },
-    total=False,
-)
+class ListStreamProcessorsRequestTypeDef(TypedDict):
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
 
-class StartPersonTrackingRequestRequestTypeDef(
-    _RequiredStartPersonTrackingRequestRequestTypeDef,
-    _OptionalStartPersonTrackingRequestRequestTypeDef,
-):
-    pass
+class StreamProcessorTypeDef(TypedDict):
+    Name: NotRequired[str]
+    Status: NotRequired[StreamProcessorStatusType]
 
-StartPersonTrackingResponseTypeDef = TypedDict(
-    "StartPersonTrackingResponseTypeDef",
-    {
-        "JobId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
 
-_RequiredStartProjectVersionRequestRequestTypeDef = TypedDict(
-    "_RequiredStartProjectVersionRequestRequestTypeDef",
-    {
-        "ProjectVersionArn": str,
-        "MinInferenceUnits": int,
-    },
-)
-_OptionalStartProjectVersionRequestRequestTypeDef = TypedDict(
-    "_OptionalStartProjectVersionRequestRequestTypeDef",
-    {
-        "MaxInferenceUnits": int,
-    },
-    total=False,
-)
+class ListUsersRequestTypeDef(TypedDict):
+    CollectionId: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
 
-class StartProjectVersionRequestRequestTypeDef(
-    _RequiredStartProjectVersionRequestRequestTypeDef,
-    _OptionalStartProjectVersionRequestRequestTypeDef,
-):
-    pass
+class UserTypeDef(TypedDict):
+    UserId: NotRequired[str]
+    UserStatus: NotRequired[UserStatusType]
 
-StartProjectVersionResponseTypeDef = TypedDict(
-    "StartProjectVersionResponseTypeDef",
-    {
-        "Status": ProjectVersionStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class MatchedUserTypeDef(TypedDict):
+    UserId: NotRequired[str]
+    UserStatus: NotRequired[UserStatusType]
 
-StartSegmentDetectionFiltersTypeDef = TypedDict(
-    "StartSegmentDetectionFiltersTypeDef",
-    {
-        "TechnicalCueFilter": "StartTechnicalCueDetectionFilterTypeDef",
-        "ShotFilter": "StartShotDetectionFilterTypeDef",
-    },
-    total=False,
-)
+class MediaAnalysisDetectModerationLabelsConfigTypeDef(TypedDict):
+    MinConfidence: NotRequired[float]
+    ProjectVersion: NotRequired[str]
 
-_RequiredStartSegmentDetectionRequestRequestTypeDef = TypedDict(
-    "_RequiredStartSegmentDetectionRequestRequestTypeDef",
-    {
-        "Video": "VideoTypeDef",
-        "SegmentTypes": List[SegmentTypeType],
-    },
-)
-_OptionalStartSegmentDetectionRequestRequestTypeDef = TypedDict(
-    "_OptionalStartSegmentDetectionRequestRequestTypeDef",
-    {
-        "ClientRequestToken": str,
-        "NotificationChannel": "NotificationChannelTypeDef",
-        "JobTag": str,
-        "Filters": "StartSegmentDetectionFiltersTypeDef",
-    },
-    total=False,
-)
+class MediaAnalysisModelVersionsTypeDef(TypedDict):
+    Moderation: NotRequired[str]
 
-class StartSegmentDetectionRequestRequestTypeDef(
-    _RequiredStartSegmentDetectionRequestRequestTypeDef,
-    _OptionalStartSegmentDetectionRequestRequestTypeDef,
-):
-    pass
+class NotificationChannelTypeDef(TypedDict):
+    SNSTopicArn: str
+    RoleArn: str
 
-StartSegmentDetectionResponseTypeDef = TypedDict(
-    "StartSegmentDetectionResponseTypeDef",
-    {
-        "JobId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class PutProjectPolicyRequestTypeDef(TypedDict):
+    ProjectArn: str
+    PolicyName: str
+    PolicyDocument: str
+    PolicyRevisionId: NotRequired[str]
 
-StartShotDetectionFilterTypeDef = TypedDict(
-    "StartShotDetectionFilterTypeDef",
-    {
-        "MinSegmentConfidence": float,
-    },
-    total=False,
-)
+class S3DestinationTypeDef(TypedDict):
+    Bucket: NotRequired[str]
+    KeyPrefix: NotRequired[str]
 
-_RequiredStartStreamProcessorRequestRequestTypeDef = TypedDict(
-    "_RequiredStartStreamProcessorRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
-_OptionalStartStreamProcessorRequestRequestTypeDef = TypedDict(
-    "_OptionalStartStreamProcessorRequestRequestTypeDef",
-    {
-        "StartSelector": "StreamProcessingStartSelectorTypeDef",
-        "StopSelector": "StreamProcessingStopSelectorTypeDef",
-    },
-    total=False,
-)
+class SearchFacesRequestTypeDef(TypedDict):
+    CollectionId: str
+    FaceId: str
+    MaxFaces: NotRequired[int]
+    FaceMatchThreshold: NotRequired[float]
 
-class StartStreamProcessorRequestRequestTypeDef(
-    _RequiredStartStreamProcessorRequestRequestTypeDef,
-    _OptionalStartStreamProcessorRequestRequestTypeDef,
-):
-    pass
+class SearchUsersRequestTypeDef(TypedDict):
+    CollectionId: str
+    UserId: NotRequired[str]
+    FaceId: NotRequired[str]
+    UserMatchThreshold: NotRequired[float]
+    MaxUsers: NotRequired[int]
 
-StartStreamProcessorResponseTypeDef = TypedDict(
-    "StartStreamProcessorResponseTypeDef",
-    {
-        "SessionId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class SearchedFaceTypeDef(TypedDict):
+    FaceId: NotRequired[str]
 
-StartTechnicalCueDetectionFilterTypeDef = TypedDict(
-    "StartTechnicalCueDetectionFilterTypeDef",
-    {
-        "MinSegmentConfidence": float,
-        "BlackFrame": "BlackFrameTypeDef",
-    },
-    total=False,
-)
+class SearchedUserTypeDef(TypedDict):
+    UserId: NotRequired[str]
 
-StartTextDetectionFiltersTypeDef = TypedDict(
-    "StartTextDetectionFiltersTypeDef",
-    {
-        "WordFilter": "DetectionFilterTypeDef",
-        "RegionsOfInterest": List["RegionOfInterestTypeDef"],
-    },
-    total=False,
-)
-
-_RequiredStartTextDetectionRequestRequestTypeDef = TypedDict(
-    "_RequiredStartTextDetectionRequestRequestTypeDef",
-    {
-        "Video": "VideoTypeDef",
-    },
-)
-_OptionalStartTextDetectionRequestRequestTypeDef = TypedDict(
-    "_OptionalStartTextDetectionRequestRequestTypeDef",
-    {
-        "ClientRequestToken": str,
-        "NotificationChannel": "NotificationChannelTypeDef",
-        "JobTag": str,
-        "Filters": "StartTextDetectionFiltersTypeDef",
-    },
-    total=False,
-)
-
-class StartTextDetectionRequestRequestTypeDef(
-    _RequiredStartTextDetectionRequestRequestTypeDef,
-    _OptionalStartTextDetectionRequestRequestTypeDef,
-):
-    pass
-
-StartTextDetectionResponseTypeDef = TypedDict(
-    "StartTextDetectionResponseTypeDef",
-    {
-        "JobId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-StopProjectVersionRequestRequestTypeDef = TypedDict(
-    "StopProjectVersionRequestRequestTypeDef",
-    {
-        "ProjectVersionArn": str,
-    },
-)
-
-StopProjectVersionResponseTypeDef = TypedDict(
-    "StopProjectVersionResponseTypeDef",
-    {
-        "Status": ProjectVersionStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-StopStreamProcessorRequestRequestTypeDef = TypedDict(
-    "StopStreamProcessorRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
-
-StreamProcessingStartSelectorTypeDef = TypedDict(
-    "StreamProcessingStartSelectorTypeDef",
-    {
-        "KVSStreamStartSelector": "KinesisVideoStreamStartSelectorTypeDef",
-    },
-    total=False,
-)
-
-StreamProcessingStopSelectorTypeDef = TypedDict(
-    "StreamProcessingStopSelectorTypeDef",
-    {
-        "MaxDurationInSeconds": int,
-    },
-    total=False,
-)
-
-StreamProcessorDataSharingPreferenceTypeDef = TypedDict(
-    "StreamProcessorDataSharingPreferenceTypeDef",
-    {
-        "OptIn": bool,
-    },
-)
-
-StreamProcessorInputTypeDef = TypedDict(
-    "StreamProcessorInputTypeDef",
-    {
-        "KinesisVideoStream": "KinesisVideoStreamTypeDef",
-    },
-    total=False,
-)
-
-StreamProcessorNotificationChannelTypeDef = TypedDict(
-    "StreamProcessorNotificationChannelTypeDef",
-    {
-        "SNSTopicArn": str,
-    },
-)
-
-StreamProcessorOutputTypeDef = TypedDict(
-    "StreamProcessorOutputTypeDef",
-    {
-        "KinesisDataStream": "KinesisDataStreamTypeDef",
-        "S3Destination": "S3DestinationTypeDef",
-    },
-    total=False,
-)
-
-StreamProcessorSettingsForUpdateTypeDef = TypedDict(
-    "StreamProcessorSettingsForUpdateTypeDef",
-    {
-        "ConnectedHomeForUpdate": "ConnectedHomeSettingsForUpdateTypeDef",
-    },
-    total=False,
-)
-
-StreamProcessorSettingsTypeDef = TypedDict(
-    "StreamProcessorSettingsTypeDef",
-    {
-        "FaceSearch": "FaceSearchSettingsTypeDef",
-        "ConnectedHome": "ConnectedHomeSettingsTypeDef",
-    },
-    total=False,
-)
-
-StreamProcessorTypeDef = TypedDict(
-    "StreamProcessorTypeDef",
-    {
-        "Name": str,
-        "Status": StreamProcessorStatusType,
-    },
-    total=False,
-)
-
-SummaryTypeDef = TypedDict(
-    "SummaryTypeDef",
-    {
-        "S3Object": "S3ObjectTypeDef",
-    },
-    total=False,
-)
-
-SunglassesTypeDef = TypedDict(
-    "SunglassesTypeDef",
-    {
-        "Value": bool,
-        "Confidence": float,
-    },
-    total=False,
-)
-
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-        "Tags": Dict[str, str],
-    },
-)
+class ShotSegmentTypeDef(TypedDict):
+    Index: NotRequired[int]
+    Confidence: NotRequired[float]
 
 TechnicalCueSegmentTypeDef = TypedDict(
     "TechnicalCueSegmentTypeDef",
     {
-        "Type": TechnicalCueTypeType,
-        "Confidence": float,
+        "Type": NotRequired[TechnicalCueTypeType],
+        "Confidence": NotRequired[float],
     },
-    total=False,
 )
 
-TestingDataResultTypeDef = TypedDict(
-    "TestingDataResultTypeDef",
+class StartProjectVersionRequestTypeDef(TypedDict):
+    ProjectVersionArn: str
+    MinInferenceUnits: int
+    MaxInferenceUnits: NotRequired[int]
+
+class StartShotDetectionFilterTypeDef(TypedDict):
+    MinSegmentConfidence: NotRequired[float]
+
+class StreamProcessingStopSelectorTypeDef(TypedDict):
+    MaxDurationInSeconds: NotRequired[int]
+
+class StopProjectVersionRequestTypeDef(TypedDict):
+    ProjectVersionArn: str
+
+class StopStreamProcessorRequestTypeDef(TypedDict):
+    Name: str
+
+class TagResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+    Tags: Mapping[str, str]
+
+class UntagResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+    TagKeys: Sequence[str]
+
+class CopyProjectVersionResponseTypeDef(TypedDict):
+    ProjectVersionArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateCollectionResponseTypeDef(TypedDict):
+    StatusCode: int
+    CollectionArn: str
+    FaceModelVersion: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateDatasetResponseTypeDef(TypedDict):
+    DatasetArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateFaceLivenessSessionResponseTypeDef(TypedDict):
+    SessionId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateProjectResponseTypeDef(TypedDict):
+    ProjectArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateProjectVersionResponseTypeDef(TypedDict):
+    ProjectVersionArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateStreamProcessorResponseTypeDef(TypedDict):
+    StreamProcessorArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteCollectionResponseTypeDef(TypedDict):
+    StatusCode: int
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteProjectResponseTypeDef(TypedDict):
+    Status: ProjectStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteProjectVersionResponseTypeDef(TypedDict):
+    Status: ProjectVersionStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeCollectionResponseTypeDef(TypedDict):
+    FaceCount: int
+    FaceModelVersion: str
+    CollectionARN: str
+    CreationTimestamp: datetime
+    UserCount: int
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListCollectionsResponseTypeDef(TypedDict):
+    CollectionIds: List[str]
+    FaceModelVersions: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListDatasetEntriesResponseTypeDef(TypedDict):
+    DatasetEntries: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    Tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutProjectPolicyResponseTypeDef(TypedDict):
+    PolicyRevisionId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartCelebrityRecognitionResponseTypeDef(TypedDict):
+    JobId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartContentModerationResponseTypeDef(TypedDict):
+    JobId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartFaceDetectionResponseTypeDef(TypedDict):
+    JobId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartFaceSearchResponseTypeDef(TypedDict):
+    JobId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartLabelDetectionResponseTypeDef(TypedDict):
+    JobId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartMediaAnalysisJobResponseTypeDef(TypedDict):
+    JobId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartPersonTrackingResponseTypeDef(TypedDict):
+    JobId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartProjectVersionResponseTypeDef(TypedDict):
+    Status: ProjectVersionStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartSegmentDetectionResponseTypeDef(TypedDict):
+    JobId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartStreamProcessorResponseTypeDef(TypedDict):
+    SessionId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartTextDetectionResponseTypeDef(TypedDict):
+    JobId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StopProjectVersionResponseTypeDef(TypedDict):
+    Status: ProjectVersionStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class AssociateFacesResponseTypeDef(TypedDict):
+    AssociatedFaces: List[AssociatedFaceTypeDef]
+    UnsuccessfulFaceAssociations: List[UnsuccessfulFaceAssociationTypeDef]
+    UserStatus: UserStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ComparedSourceImageFaceTypeDef(TypedDict):
+    BoundingBox: NotRequired[BoundingBoxTypeDef]
+    Confidence: NotRequired[float]
+
+class FaceTypeDef(TypedDict):
+    FaceId: NotRequired[str]
+    BoundingBox: NotRequired[BoundingBoxTypeDef]
+    ImageId: NotRequired[str]
+    ExternalImageId: NotRequired[str]
+    Confidence: NotRequired[float]
+    IndexFacesModelVersion: NotRequired[str]
+    UserId: NotRequired[str]
+
+class AuditImageTypeDef(TypedDict):
+    Bytes: NotRequired[bytes]
+    S3Object: NotRequired[S3ObjectTypeDef]
+    BoundingBox: NotRequired[BoundingBoxTypeDef]
+
+class GroundTruthManifestTypeDef(TypedDict):
+    S3Object: NotRequired[S3ObjectTypeDef]
+
+class MediaAnalysisInputTypeDef(TypedDict):
+    S3Object: S3ObjectTypeDef
+
+class MediaAnalysisManifestSummaryTypeDef(TypedDict):
+    S3Object: NotRequired[S3ObjectTypeDef]
+
+class SummaryTypeDef(TypedDict):
+    S3Object: NotRequired[S3ObjectTypeDef]
+
+class VideoTypeDef(TypedDict):
+    S3Object: NotRequired[S3ObjectTypeDef]
+
+class StartTechnicalCueDetectionFilterTypeDef(TypedDict):
+    MinSegmentConfidence: NotRequired[float]
+    BlackFrame: NotRequired[BlackFrameTypeDef]
+
+class DatasetChangesTypeDef(TypedDict):
+    GroundTruth: BlobTypeDef
+
+class ImageTypeDef(TypedDict):
+    Bytes: NotRequired[BlobTypeDef]
+    S3Object: NotRequired[S3ObjectTypeDef]
+
+class GetCelebrityInfoResponseTypeDef(TypedDict):
+    Urls: List[str]
+    Name: str
+    KnownGender: KnownGenderTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ComparedFaceTypeDef(TypedDict):
+    BoundingBox: NotRequired[BoundingBoxTypeDef]
+    Confidence: NotRequired[float]
+    Landmarks: NotRequired[List[LandmarkTypeDef]]
+    Pose: NotRequired[PoseTypeDef]
+    Quality: NotRequired[ImageQualityTypeDef]
+    Emotions: NotRequired[List[EmotionTypeDef]]
+    Smile: NotRequired[SmileTypeDef]
+
+class StreamProcessorSettingsForUpdateTypeDef(TypedDict):
+    ConnectedHomeForUpdate: NotRequired[ConnectedHomeSettingsForUpdateTypeDef]
+
+class ContentModerationDetectionTypeDef(TypedDict):
+    Timestamp: NotRequired[int]
+    ModerationLabel: NotRequired[ModerationLabelTypeDef]
+    StartTimestampMillis: NotRequired[int]
+    EndTimestampMillis: NotRequired[int]
+    DurationMillis: NotRequired[int]
+    ContentTypes: NotRequired[List[ContentTypeTypeDef]]
+
+class CopyProjectVersionRequestTypeDef(TypedDict):
+    SourceProjectArn: str
+    SourceProjectVersionArn: str
+    DestinationProjectArn: str
+    VersionName: str
+    OutputConfig: OutputConfigTypeDef
+    Tags: NotRequired[Mapping[str, str]]
+    KmsKeyId: NotRequired[str]
+
+EquipmentDetectionTypeDef = TypedDict(
+    "EquipmentDetectionTypeDef",
     {
-        "Input": "TestingDataTypeDef",
-        "Output": "TestingDataTypeDef",
-        "Validation": "ValidationDataTypeDef",
+        "BoundingBox": NotRequired[BoundingBoxTypeDef],
+        "Confidence": NotRequired[float],
+        "Type": NotRequired[ProtectiveEquipmentTypeType],
+        "CoversBodyPart": NotRequired[CoversBodyPartTypeDef],
     },
-    total=False,
 )
 
-TestingDataTypeDef = TypedDict(
-    "TestingDataTypeDef",
+class CreateFaceLivenessSessionRequestSettingsTypeDef(TypedDict):
+    OutputConfig: NotRequired[LivenessOutputConfigTypeDef]
+    AuditImagesLimit: NotRequired[int]
+
+class CustomizationFeatureConfigTypeDef(TypedDict):
+    ContentModeration: NotRequired[CustomizationFeatureContentModerationConfigTypeDef]
+
+class DatasetDescriptionTypeDef(TypedDict):
+    CreationTimestamp: NotRequired[datetime]
+    LastUpdatedTimestamp: NotRequired[datetime]
+    Status: NotRequired[DatasetStatusType]
+    StatusMessage: NotRequired[str]
+    StatusMessageCode: NotRequired[DatasetStatusMessageCodeType]
+    DatasetStats: NotRequired[DatasetStatsTypeDef]
+
+class DatasetLabelDescriptionTypeDef(TypedDict):
+    LabelName: NotRequired[str]
+    LabelStats: NotRequired[DatasetLabelStatsTypeDef]
+
+class ProjectDescriptionTypeDef(TypedDict):
+    ProjectArn: NotRequired[str]
+    CreationTimestamp: NotRequired[datetime]
+    Status: NotRequired[ProjectStatusType]
+    Datasets: NotRequired[List[DatasetMetadataTypeDef]]
+    Feature: NotRequired[CustomizationFeatureType]
+    AutoUpdate: NotRequired[ProjectAutoUpdateType]
+
+class DeleteFacesResponseTypeDef(TypedDict):
+    DeletedFaces: List[str]
+    UnsuccessfulFaceDeletions: List[UnsuccessfulFaceDeletionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeProjectVersionsRequestPaginateTypeDef(TypedDict):
+    ProjectArn: str
+    VersionNames: NotRequired[Sequence[str]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeProjectsRequestPaginateTypeDef(TypedDict):
+    ProjectNames: NotRequired[Sequence[str]]
+    Features: NotRequired[Sequence[CustomizationFeatureType]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListCollectionsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListDatasetEntriesRequestPaginateTypeDef(TypedDict):
+    DatasetArn: str
+    ContainsLabels: NotRequired[Sequence[str]]
+    Labeled: NotRequired[bool]
+    SourceRefContains: NotRequired[str]
+    HasErrors: NotRequired[bool]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListDatasetLabelsRequestPaginateTypeDef(TypedDict):
+    DatasetArn: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListFacesRequestPaginateTypeDef(TypedDict):
+    CollectionId: str
+    UserId: NotRequired[str]
+    FaceIds: NotRequired[Sequence[str]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListProjectPoliciesRequestPaginateTypeDef(TypedDict):
+    ProjectArn: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListStreamProcessorsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListUsersRequestPaginateTypeDef(TypedDict):
+    CollectionId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeProjectVersionsRequestWaitExtraTypeDef(TypedDict):
+    ProjectArn: str
+    VersionNames: NotRequired[Sequence[str]]
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class DescribeProjectVersionsRequestWaitTypeDef(TypedDict):
+    ProjectArn: str
+    VersionNames: NotRequired[Sequence[str]]
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class DetectLabelsImageBackgroundTypeDef(TypedDict):
+    Quality: NotRequired[DetectLabelsImageQualityTypeDef]
+    DominantColors: NotRequired[List[DominantColorTypeDef]]
+
+class DetectLabelsImageForegroundTypeDef(TypedDict):
+    Quality: NotRequired[DetectLabelsImageQualityTypeDef]
+    DominantColors: NotRequired[List[DominantColorTypeDef]]
+
+class InstanceTypeDef(TypedDict):
+    BoundingBox: NotRequired[BoundingBoxTypeDef]
+    Confidence: NotRequired[float]
+    DominantColors: NotRequired[List[DominantColorTypeDef]]
+
+class DetectLabelsSettingsTypeDef(TypedDict):
+    GeneralLabels: NotRequired[GeneralLabelsSettingsTypeDef]
+    ImageProperties: NotRequired[DetectLabelsImagePropertiesSettingsTypeDef]
+
+class LabelDetectionSettingsTypeDef(TypedDict):
+    GeneralLabels: NotRequired[GeneralLabelsSettingsTypeDef]
+
+class DetectModerationLabelsResponseTypeDef(TypedDict):
+    ModerationLabels: List[ModerationLabelTypeDef]
+    ModerationModelVersion: str
+    HumanLoopActivationOutput: HumanLoopActivationOutputTypeDef
+    ProjectVersion: str
+    ContentTypes: List[ContentTypeTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DisassociateFacesResponseTypeDef(TypedDict):
+    DisassociatedFaces: List[DisassociatedFaceTypeDef]
+    UnsuccessfulFaceDisassociations: List[UnsuccessfulFaceDisassociationTypeDef]
+    UserStatus: UserStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DistributeDatasetEntriesRequestTypeDef(TypedDict):
+    Datasets: Sequence[DistributeDatasetTypeDef]
+
+class FaceDetailTypeDef(TypedDict):
+    BoundingBox: NotRequired[BoundingBoxTypeDef]
+    AgeRange: NotRequired[AgeRangeTypeDef]
+    Smile: NotRequired[SmileTypeDef]
+    Eyeglasses: NotRequired[EyeglassesTypeDef]
+    Sunglasses: NotRequired[SunglassesTypeDef]
+    Gender: NotRequired[GenderTypeDef]
+    Beard: NotRequired[BeardTypeDef]
+    Mustache: NotRequired[MustacheTypeDef]
+    EyesOpen: NotRequired[EyeOpenTypeDef]
+    MouthOpen: NotRequired[MouthOpenTypeDef]
+    Emotions: NotRequired[List[EmotionTypeDef]]
+    Landmarks: NotRequired[List[LandmarkTypeDef]]
+    Pose: NotRequired[PoseTypeDef]
+    Quality: NotRequired[ImageQualityTypeDef]
+    Confidence: NotRequired[float]
+    FaceOccluded: NotRequired[FaceOccludedTypeDef]
+    EyeDirection: NotRequired[EyeDirectionTypeDef]
+
+class StreamProcessorSettingsOutputTypeDef(TypedDict):
+    FaceSearch: NotRequired[FaceSearchSettingsTypeDef]
+    ConnectedHome: NotRequired[ConnectedHomeSettingsOutputTypeDef]
+
+class StreamProcessorSettingsTypeDef(TypedDict):
+    FaceSearch: NotRequired[FaceSearchSettingsTypeDef]
+    ConnectedHome: NotRequired[ConnectedHomeSettingsTypeDef]
+
+class GeometryTypeDef(TypedDict):
+    BoundingBox: NotRequired[BoundingBoxTypeDef]
+    Polygon: NotRequired[List[PointTypeDef]]
+
+class RegionOfInterestOutputTypeDef(TypedDict):
+    BoundingBox: NotRequired[BoundingBoxTypeDef]
+    Polygon: NotRequired[List[PointTypeDef]]
+
+class RegionOfInterestTypeDef(TypedDict):
+    BoundingBox: NotRequired[BoundingBoxTypeDef]
+    Polygon: NotRequired[Sequence[PointTypeDef]]
+
+class HumanLoopConfigTypeDef(TypedDict):
+    HumanLoopName: str
+    FlowDefinitionArn: str
+    DataAttributes: NotRequired[HumanLoopDataAttributesTypeDef]
+
+class StreamProcessingStartSelectorTypeDef(TypedDict):
+    KVSStreamStartSelector: NotRequired[KinesisVideoStreamStartSelectorTypeDef]
+
+class StreamProcessorInputTypeDef(TypedDict):
+    KinesisVideoStream: NotRequired[KinesisVideoStreamTypeDef]
+
+class ListProjectPoliciesResponseTypeDef(TypedDict):
+    ProjectPolicies: List[ProjectPolicyTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListStreamProcessorsResponseTypeDef(TypedDict):
+    StreamProcessors: List[StreamProcessorTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListUsersResponseTypeDef(TypedDict):
+    Users: List[UserTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class UserMatchTypeDef(TypedDict):
+    Similarity: NotRequired[float]
+    User: NotRequired[MatchedUserTypeDef]
+
+class MediaAnalysisOperationsConfigTypeDef(TypedDict):
+    DetectModerationLabels: NotRequired[MediaAnalysisDetectModerationLabelsConfigTypeDef]
+
+class MediaAnalysisResultsTypeDef(TypedDict):
+    S3Object: NotRequired[S3ObjectTypeDef]
+    ModelVersions: NotRequired[MediaAnalysisModelVersionsTypeDef]
+
+class StreamProcessorOutputTypeDef(TypedDict):
+    KinesisDataStream: NotRequired[KinesisDataStreamTypeDef]
+    S3Destination: NotRequired[S3DestinationTypeDef]
+
+SegmentDetectionTypeDef = TypedDict(
+    "SegmentDetectionTypeDef",
     {
-        "Assets": List["AssetTypeDef"],
-        "AutoCreate": bool,
+        "Type": NotRequired[SegmentTypeType],
+        "StartTimestampMillis": NotRequired[int],
+        "EndTimestampMillis": NotRequired[int],
+        "DurationMillis": NotRequired[int],
+        "StartTimecodeSMPTE": NotRequired[str],
+        "EndTimecodeSMPTE": NotRequired[str],
+        "DurationSMPTE": NotRequired[str],
+        "TechnicalCueSegment": NotRequired[TechnicalCueSegmentTypeDef],
+        "ShotSegment": NotRequired[ShotSegmentTypeDef],
+        "StartFrameNumber": NotRequired[int],
+        "EndFrameNumber": NotRequired[int],
+        "DurationFrames": NotRequired[int],
     },
-    total=False,
 )
 
-TextDetectionResultTypeDef = TypedDict(
-    "TextDetectionResultTypeDef",
-    {
-        "Timestamp": int,
-        "TextDetection": "TextDetectionTypeDef",
-    },
-    total=False,
-)
+class FaceMatchTypeDef(TypedDict):
+    Similarity: NotRequired[float]
+    Face: NotRequired[FaceTypeDef]
+
+class ListFacesResponseTypeDef(TypedDict):
+    Faces: List[FaceTypeDef]
+    FaceModelVersion: str
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class GetFaceLivenessSessionResultsResponseTypeDef(TypedDict):
+    SessionId: str
+    Status: LivenessSessionStatusType
+    Confidence: float
+    ReferenceImage: AuditImageTypeDef
+    AuditImages: List[AuditImageTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class AssetTypeDef(TypedDict):
+    GroundTruthManifest: NotRequired[GroundTruthManifestTypeDef]
+
+class DatasetSourceTypeDef(TypedDict):
+    GroundTruthManifest: NotRequired[GroundTruthManifestTypeDef]
+    DatasetArn: NotRequired[str]
+
+class EvaluationResultTypeDef(TypedDict):
+    F1Score: NotRequired[float]
+    Summary: NotRequired[SummaryTypeDef]
+
+class StartCelebrityRecognitionRequestTypeDef(TypedDict):
+    Video: VideoTypeDef
+    ClientRequestToken: NotRequired[str]
+    NotificationChannel: NotRequired[NotificationChannelTypeDef]
+    JobTag: NotRequired[str]
+
+class StartContentModerationRequestTypeDef(TypedDict):
+    Video: VideoTypeDef
+    MinConfidence: NotRequired[float]
+    ClientRequestToken: NotRequired[str]
+    NotificationChannel: NotRequired[NotificationChannelTypeDef]
+    JobTag: NotRequired[str]
+
+class StartFaceDetectionRequestTypeDef(TypedDict):
+    Video: VideoTypeDef
+    ClientRequestToken: NotRequired[str]
+    NotificationChannel: NotRequired[NotificationChannelTypeDef]
+    FaceAttributes: NotRequired[FaceAttributesType]
+    JobTag: NotRequired[str]
+
+class StartFaceSearchRequestTypeDef(TypedDict):
+    Video: VideoTypeDef
+    CollectionId: str
+    ClientRequestToken: NotRequired[str]
+    FaceMatchThreshold: NotRequired[float]
+    NotificationChannel: NotRequired[NotificationChannelTypeDef]
+    JobTag: NotRequired[str]
+
+class StartPersonTrackingRequestTypeDef(TypedDict):
+    Video: VideoTypeDef
+    ClientRequestToken: NotRequired[str]
+    NotificationChannel: NotRequired[NotificationChannelTypeDef]
+    JobTag: NotRequired[str]
+
+class StartSegmentDetectionFiltersTypeDef(TypedDict):
+    TechnicalCueFilter: NotRequired[StartTechnicalCueDetectionFilterTypeDef]
+    ShotFilter: NotRequired[StartShotDetectionFilterTypeDef]
+
+class UpdateDatasetEntriesRequestTypeDef(TypedDict):
+    DatasetArn: str
+    Changes: DatasetChangesTypeDef
+
+class CompareFacesRequestTypeDef(TypedDict):
+    SourceImage: ImageTypeDef
+    TargetImage: ImageTypeDef
+    SimilarityThreshold: NotRequired[float]
+    QualityFilter: NotRequired[QualityFilterType]
+
+class DetectCustomLabelsRequestTypeDef(TypedDict):
+    ProjectVersionArn: str
+    Image: ImageTypeDef
+    MaxResults: NotRequired[int]
+    MinConfidence: NotRequired[float]
+
+class DetectFacesRequestTypeDef(TypedDict):
+    Image: ImageTypeDef
+    Attributes: NotRequired[Sequence[AttributeType]]
+
+class DetectProtectiveEquipmentRequestTypeDef(TypedDict):
+    Image: ImageTypeDef
+    SummarizationAttributes: NotRequired[ProtectiveEquipmentSummarizationAttributesTypeDef]
+
+class IndexFacesRequestTypeDef(TypedDict):
+    CollectionId: str
+    Image: ImageTypeDef
+    ExternalImageId: NotRequired[str]
+    DetectionAttributes: NotRequired[Sequence[AttributeType]]
+    MaxFaces: NotRequired[int]
+    QualityFilter: NotRequired[QualityFilterType]
+
+class RecognizeCelebritiesRequestTypeDef(TypedDict):
+    Image: ImageTypeDef
+
+class SearchFacesByImageRequestTypeDef(TypedDict):
+    CollectionId: str
+    Image: ImageTypeDef
+    MaxFaces: NotRequired[int]
+    FaceMatchThreshold: NotRequired[float]
+    QualityFilter: NotRequired[QualityFilterType]
+
+class SearchUsersByImageRequestTypeDef(TypedDict):
+    CollectionId: str
+    Image: ImageTypeDef
+    UserMatchThreshold: NotRequired[float]
+    MaxUsers: NotRequired[int]
+    QualityFilter: NotRequired[QualityFilterType]
+
+class CelebrityTypeDef(TypedDict):
+    Urls: NotRequired[List[str]]
+    Name: NotRequired[str]
+    Id: NotRequired[str]
+    Face: NotRequired[ComparedFaceTypeDef]
+    MatchConfidence: NotRequired[float]
+    KnownGender: NotRequired[KnownGenderTypeDef]
+
+class CompareFacesMatchTypeDef(TypedDict):
+    Similarity: NotRequired[float]
+    Face: NotRequired[ComparedFaceTypeDef]
+
+class GetContentModerationResponseTypeDef(TypedDict):
+    JobStatus: VideoJobStatusType
+    StatusMessage: str
+    VideoMetadata: VideoMetadataTypeDef
+    ModerationLabels: List[ContentModerationDetectionTypeDef]
+    ModerationModelVersion: str
+    JobId: str
+    Video: VideoTypeDef
+    JobTag: str
+    GetRequestMetadata: GetContentModerationRequestMetadataTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ProtectiveEquipmentBodyPartTypeDef(TypedDict):
+    Name: NotRequired[BodyPartType]
+    Confidence: NotRequired[float]
+    EquipmentDetections: NotRequired[List[EquipmentDetectionTypeDef]]
+
+class CreateFaceLivenessSessionRequestTypeDef(TypedDict):
+    KmsKeyId: NotRequired[str]
+    Settings: NotRequired[CreateFaceLivenessSessionRequestSettingsTypeDef]
+    ClientRequestToken: NotRequired[str]
+
+class DescribeDatasetResponseTypeDef(TypedDict):
+    DatasetDescription: DatasetDescriptionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListDatasetLabelsResponseTypeDef(TypedDict):
+    DatasetLabelDescriptions: List[DatasetLabelDescriptionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class DescribeProjectsResponseTypeDef(TypedDict):
+    ProjectDescriptions: List[ProjectDescriptionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class DetectLabelsImagePropertiesTypeDef(TypedDict):
+    Quality: NotRequired[DetectLabelsImageQualityTypeDef]
+    DominantColors: NotRequired[List[DominantColorTypeDef]]
+    Foreground: NotRequired[DetectLabelsImageForegroundTypeDef]
+    Background: NotRequired[DetectLabelsImageBackgroundTypeDef]
+
+class LabelTypeDef(TypedDict):
+    Name: NotRequired[str]
+    Confidence: NotRequired[float]
+    Instances: NotRequired[List[InstanceTypeDef]]
+    Parents: NotRequired[List[ParentTypeDef]]
+    Aliases: NotRequired[List[LabelAliasTypeDef]]
+    Categories: NotRequired[List[LabelCategoryTypeDef]]
+
+class DetectLabelsRequestTypeDef(TypedDict):
+    Image: ImageTypeDef
+    MaxLabels: NotRequired[int]
+    MinConfidence: NotRequired[float]
+    Features: NotRequired[Sequence[DetectLabelsFeatureNameType]]
+    Settings: NotRequired[DetectLabelsSettingsTypeDef]
+
+class StartLabelDetectionRequestTypeDef(TypedDict):
+    Video: VideoTypeDef
+    ClientRequestToken: NotRequired[str]
+    MinConfidence: NotRequired[float]
+    NotificationChannel: NotRequired[NotificationChannelTypeDef]
+    JobTag: NotRequired[str]
+    Features: NotRequired[Sequence[Literal["GENERAL_LABELS"]]]
+    Settings: NotRequired[LabelDetectionSettingsTypeDef]
+
+class CelebrityDetailTypeDef(TypedDict):
+    Urls: NotRequired[List[str]]
+    Name: NotRequired[str]
+    Id: NotRequired[str]
+    Confidence: NotRequired[float]
+    BoundingBox: NotRequired[BoundingBoxTypeDef]
+    Face: NotRequired[FaceDetailTypeDef]
+    KnownGender: NotRequired[KnownGenderTypeDef]
+
+class DetectFacesResponseTypeDef(TypedDict):
+    FaceDetails: List[FaceDetailTypeDef]
+    OrientationCorrection: OrientationCorrectionType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class FaceDetectionTypeDef(TypedDict):
+    Timestamp: NotRequired[int]
+    Face: NotRequired[FaceDetailTypeDef]
+
+class FaceRecordTypeDef(TypedDict):
+    Face: NotRequired[FaceTypeDef]
+    FaceDetail: NotRequired[FaceDetailTypeDef]
+
+class PersonDetailTypeDef(TypedDict):
+    Index: NotRequired[int]
+    BoundingBox: NotRequired[BoundingBoxTypeDef]
+    Face: NotRequired[FaceDetailTypeDef]
+
+class SearchedFaceDetailsTypeDef(TypedDict):
+    FaceDetail: NotRequired[FaceDetailTypeDef]
+
+class UnindexedFaceTypeDef(TypedDict):
+    Reasons: NotRequired[List[ReasonType]]
+    FaceDetail: NotRequired[FaceDetailTypeDef]
+
+class UnsearchedFaceTypeDef(TypedDict):
+    FaceDetails: NotRequired[FaceDetailTypeDef]
+    Reasons: NotRequired[List[UnsearchedFaceReasonType]]
+
+StreamProcessorSettingsUnionTypeDef = Union[
+    StreamProcessorSettingsTypeDef, StreamProcessorSettingsOutputTypeDef
+]
+
+class CustomLabelTypeDef(TypedDict):
+    Name: NotRequired[str]
+    Confidence: NotRequired[float]
+    Geometry: NotRequired[GeometryTypeDef]
 
 TextDetectionTypeDef = TypedDict(
     "TextDetectionTypeDef",
     {
-        "DetectedText": str,
-        "Type": TextTypesType,
-        "Id": int,
-        "ParentId": int,
-        "Confidence": float,
-        "Geometry": "GeometryTypeDef",
+        "DetectedText": NotRequired[str],
+        "Type": NotRequired[TextTypesType],
+        "Id": NotRequired[int],
+        "ParentId": NotRequired[int],
+        "Confidence": NotRequired[float],
+        "Geometry": NotRequired[GeometryTypeDef],
     },
-    total=False,
 )
+RegionOfInterestUnionTypeDef = Union[RegionOfInterestTypeDef, RegionOfInterestOutputTypeDef]
 
-TrainingDataResultTypeDef = TypedDict(
-    "TrainingDataResultTypeDef",
-    {
-        "Input": "TrainingDataTypeDef",
-        "Output": "TrainingDataTypeDef",
-        "Validation": "ValidationDataTypeDef",
-    },
-    total=False,
-)
+class DetectModerationLabelsRequestTypeDef(TypedDict):
+    Image: ImageTypeDef
+    MinConfidence: NotRequired[float]
+    HumanLoopConfig: NotRequired[HumanLoopConfigTypeDef]
+    ProjectVersion: NotRequired[str]
 
-TrainingDataTypeDef = TypedDict(
-    "TrainingDataTypeDef",
-    {
-        "Assets": List["AssetTypeDef"],
-    },
-    total=False,
-)
+class StartStreamProcessorRequestTypeDef(TypedDict):
+    Name: str
+    StartSelector: NotRequired[StreamProcessingStartSelectorTypeDef]
+    StopSelector: NotRequired[StreamProcessingStopSelectorTypeDef]
 
-UnindexedFaceTypeDef = TypedDict(
-    "UnindexedFaceTypeDef",
-    {
-        "Reasons": List[ReasonType],
-        "FaceDetail": "FaceDetailTypeDef",
-    },
-    total=False,
-)
+class SearchUsersResponseTypeDef(TypedDict):
+    UserMatches: List[UserMatchTypeDef]
+    FaceModelVersion: str
+    SearchedFace: SearchedFaceTypeDef
+    SearchedUser: SearchedUserTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-UnsearchedFaceTypeDef = TypedDict(
-    "UnsearchedFaceTypeDef",
-    {
-        "FaceDetails": "FaceDetailTypeDef",
-        "Reasons": List[UnsearchedFaceReasonType],
-    },
-    total=False,
-)
+class StartMediaAnalysisJobRequestTypeDef(TypedDict):
+    OperationsConfig: MediaAnalysisOperationsConfigTypeDef
+    Input: MediaAnalysisInputTypeDef
+    OutputConfig: MediaAnalysisOutputConfigTypeDef
+    ClientRequestToken: NotRequired[str]
+    JobName: NotRequired[str]
+    KmsKeyId: NotRequired[str]
 
-UnsuccessfulFaceAssociationTypeDef = TypedDict(
-    "UnsuccessfulFaceAssociationTypeDef",
-    {
-        "FaceId": str,
-        "UserId": str,
-        "Confidence": float,
-        "Reasons": List[UnsuccessfulFaceAssociationReasonType],
-    },
-    total=False,
-)
+class GetMediaAnalysisJobResponseTypeDef(TypedDict):
+    JobId: str
+    JobName: str
+    OperationsConfig: MediaAnalysisOperationsConfigTypeDef
+    Status: MediaAnalysisJobStatusType
+    FailureDetails: MediaAnalysisJobFailureDetailsTypeDef
+    CreationTimestamp: datetime
+    CompletionTimestamp: datetime
+    Input: MediaAnalysisInputTypeDef
+    OutputConfig: MediaAnalysisOutputConfigTypeDef
+    KmsKeyId: str
+    Results: MediaAnalysisResultsTypeDef
+    ManifestSummary: MediaAnalysisManifestSummaryTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-UnsuccessfulFaceDeletionTypeDef = TypedDict(
-    "UnsuccessfulFaceDeletionTypeDef",
-    {
-        "FaceId": str,
-        "UserId": str,
-        "Reasons": List[UnsuccessfulFaceDeletionReasonType],
-    },
-    total=False,
-)
+class MediaAnalysisJobDescriptionTypeDef(TypedDict):
+    JobId: str
+    OperationsConfig: MediaAnalysisOperationsConfigTypeDef
+    Status: MediaAnalysisJobStatusType
+    CreationTimestamp: datetime
+    Input: MediaAnalysisInputTypeDef
+    OutputConfig: MediaAnalysisOutputConfigTypeDef
+    JobName: NotRequired[str]
+    FailureDetails: NotRequired[MediaAnalysisJobFailureDetailsTypeDef]
+    CompletionTimestamp: NotRequired[datetime]
+    KmsKeyId: NotRequired[str]
+    Results: NotRequired[MediaAnalysisResultsTypeDef]
+    ManifestSummary: NotRequired[MediaAnalysisManifestSummaryTypeDef]
 
-UnsuccessfulFaceDisassociationTypeDef = TypedDict(
-    "UnsuccessfulFaceDisassociationTypeDef",
-    {
-        "FaceId": str,
-        "UserId": str,
-        "Reasons": List[UnsuccessfulFaceDisassociationReasonType],
-    },
-    total=False,
-)
+class DescribeStreamProcessorResponseTypeDef(TypedDict):
+    Name: str
+    StreamProcessorArn: str
+    Status: StreamProcessorStatusType
+    StatusMessage: str
+    CreationTimestamp: datetime
+    LastUpdateTimestamp: datetime
+    Input: StreamProcessorInputTypeDef
+    Output: StreamProcessorOutputTypeDef
+    RoleArn: str
+    Settings: StreamProcessorSettingsOutputTypeDef
+    NotificationChannel: StreamProcessorNotificationChannelTypeDef
+    KmsKeyId: str
+    RegionsOfInterest: List[RegionOfInterestOutputTypeDef]
+    DataSharingPreference: StreamProcessorDataSharingPreferenceTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-        "TagKeys": List[str],
-    },
-)
+class GetSegmentDetectionResponseTypeDef(TypedDict):
+    JobStatus: VideoJobStatusType
+    StatusMessage: str
+    VideoMetadata: List[VideoMetadataTypeDef]
+    AudioMetadata: List[AudioMetadataTypeDef]
+    Segments: List[SegmentDetectionTypeDef]
+    SelectedSegmentTypes: List[SegmentTypeInfoTypeDef]
+    JobId: str
+    Video: VideoTypeDef
+    JobTag: str
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-UpdateDatasetEntriesRequestRequestTypeDef = TypedDict(
-    "UpdateDatasetEntriesRequestRequestTypeDef",
-    {
-        "DatasetArn": str,
-        "Changes": "DatasetChangesTypeDef",
-    },
-)
+class SearchFacesByImageResponseTypeDef(TypedDict):
+    SearchedFaceBoundingBox: BoundingBoxTypeDef
+    SearchedFaceConfidence: float
+    FaceMatches: List[FaceMatchTypeDef]
+    FaceModelVersion: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredUpdateStreamProcessorRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateStreamProcessorRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
-_OptionalUpdateStreamProcessorRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateStreamProcessorRequestRequestTypeDef",
-    {
-        "SettingsForUpdate": "StreamProcessorSettingsForUpdateTypeDef",
-        "RegionsOfInterestForUpdate": List["RegionOfInterestTypeDef"],
-        "DataSharingPreferenceForUpdate": "StreamProcessorDataSharingPreferenceTypeDef",
-        "ParametersToDelete": List[StreamProcessorParameterToDeleteType],
-    },
-    total=False,
-)
+class SearchFacesResponseTypeDef(TypedDict):
+    SearchedFaceId: str
+    FaceMatches: List[FaceMatchTypeDef]
+    FaceModelVersion: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateStreamProcessorRequestRequestTypeDef(
-    _RequiredUpdateStreamProcessorRequestRequestTypeDef,
-    _OptionalUpdateStreamProcessorRequestRequestTypeDef,
-):
-    pass
+class TestingDataOutputTypeDef(TypedDict):
+    Assets: NotRequired[List[AssetTypeDef]]
+    AutoCreate: NotRequired[bool]
 
-UserMatchTypeDef = TypedDict(
-    "UserMatchTypeDef",
-    {
-        "Similarity": float,
-        "User": "MatchedUserTypeDef",
-    },
-    total=False,
-)
+class TestingDataTypeDef(TypedDict):
+    Assets: NotRequired[Sequence[AssetTypeDef]]
+    AutoCreate: NotRequired[bool]
 
-UserTypeDef = TypedDict(
-    "UserTypeDef",
-    {
-        "UserId": str,
-        "UserStatus": UserStatusType,
-    },
-    total=False,
-)
+class TrainingDataOutputTypeDef(TypedDict):
+    Assets: NotRequired[List[AssetTypeDef]]
 
-ValidationDataTypeDef = TypedDict(
-    "ValidationDataTypeDef",
-    {
-        "Assets": List["AssetTypeDef"],
-    },
-    total=False,
-)
+class TrainingDataTypeDef(TypedDict):
+    Assets: NotRequired[Sequence[AssetTypeDef]]
 
-VideoMetadataTypeDef = TypedDict(
-    "VideoMetadataTypeDef",
-    {
-        "Codec": str,
-        "DurationMillis": int,
-        "Format": str,
-        "FrameRate": float,
-        "FrameHeight": int,
-        "FrameWidth": int,
-        "ColorRange": VideoColorRangeType,
-    },
-    total=False,
-)
+class ValidationDataTypeDef(TypedDict):
+    Assets: NotRequired[List[AssetTypeDef]]
 
-VideoTypeDef = TypedDict(
-    "VideoTypeDef",
-    {
-        "S3Object": "S3ObjectTypeDef",
-    },
-    total=False,
-)
+class CreateDatasetRequestTypeDef(TypedDict):
+    DatasetType: DatasetTypeType
+    ProjectArn: str
+    DatasetSource: NotRequired[DatasetSourceTypeDef]
+    Tags: NotRequired[Mapping[str, str]]
 
-WaiterConfigTypeDef = TypedDict(
-    "WaiterConfigTypeDef",
-    {
-        "Delay": int,
-        "MaxAttempts": int,
-    },
-    total=False,
-)
+class StartSegmentDetectionRequestTypeDef(TypedDict):
+    Video: VideoTypeDef
+    SegmentTypes: Sequence[SegmentTypeType]
+    ClientRequestToken: NotRequired[str]
+    NotificationChannel: NotRequired[NotificationChannelTypeDef]
+    JobTag: NotRequired[str]
+    Filters: NotRequired[StartSegmentDetectionFiltersTypeDef]
+
+class RecognizeCelebritiesResponseTypeDef(TypedDict):
+    CelebrityFaces: List[CelebrityTypeDef]
+    UnrecognizedFaces: List[ComparedFaceTypeDef]
+    OrientationCorrection: OrientationCorrectionType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CompareFacesResponseTypeDef(TypedDict):
+    SourceImageFace: ComparedSourceImageFaceTypeDef
+    FaceMatches: List[CompareFacesMatchTypeDef]
+    UnmatchedFaces: List[ComparedFaceTypeDef]
+    SourceImageOrientationCorrection: OrientationCorrectionType
+    TargetImageOrientationCorrection: OrientationCorrectionType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ProtectiveEquipmentPersonTypeDef(TypedDict):
+    BodyParts: NotRequired[List[ProtectiveEquipmentBodyPartTypeDef]]
+    BoundingBox: NotRequired[BoundingBoxTypeDef]
+    Confidence: NotRequired[float]
+    Id: NotRequired[int]
+
+class DetectLabelsResponseTypeDef(TypedDict):
+    Labels: List[LabelTypeDef]
+    OrientationCorrection: OrientationCorrectionType
+    LabelModelVersion: str
+    ImageProperties: DetectLabelsImagePropertiesTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class LabelDetectionTypeDef(TypedDict):
+    Timestamp: NotRequired[int]
+    Label: NotRequired[LabelTypeDef]
+    StartTimestampMillis: NotRequired[int]
+    EndTimestampMillis: NotRequired[int]
+    DurationMillis: NotRequired[int]
+
+class CelebrityRecognitionTypeDef(TypedDict):
+    Timestamp: NotRequired[int]
+    Celebrity: NotRequired[CelebrityDetailTypeDef]
+
+class GetFaceDetectionResponseTypeDef(TypedDict):
+    JobStatus: VideoJobStatusType
+    StatusMessage: str
+    VideoMetadata: VideoMetadataTypeDef
+    Faces: List[FaceDetectionTypeDef]
+    JobId: str
+    Video: VideoTypeDef
+    JobTag: str
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class PersonDetectionTypeDef(TypedDict):
+    Timestamp: NotRequired[int]
+    Person: NotRequired[PersonDetailTypeDef]
+
+class PersonMatchTypeDef(TypedDict):
+    Timestamp: NotRequired[int]
+    Person: NotRequired[PersonDetailTypeDef]
+    FaceMatches: NotRequired[List[FaceMatchTypeDef]]
+
+class IndexFacesResponseTypeDef(TypedDict):
+    FaceRecords: List[FaceRecordTypeDef]
+    OrientationCorrection: OrientationCorrectionType
+    FaceModelVersion: str
+    UnindexedFaces: List[UnindexedFaceTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class SearchUsersByImageResponseTypeDef(TypedDict):
+    UserMatches: List[UserMatchTypeDef]
+    FaceModelVersion: str
+    SearchedFace: SearchedFaceDetailsTypeDef
+    UnsearchedFaces: List[UnsearchedFaceTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DetectCustomLabelsResponseTypeDef(TypedDict):
+    CustomLabels: List[CustomLabelTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DetectTextResponseTypeDef(TypedDict):
+    TextDetections: List[TextDetectionTypeDef]
+    TextModelVersion: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class TextDetectionResultTypeDef(TypedDict):
+    Timestamp: NotRequired[int]
+    TextDetection: NotRequired[TextDetectionTypeDef]
+
+class CreateStreamProcessorRequestTypeDef(TypedDict):
+    Input: StreamProcessorInputTypeDef
+    Output: StreamProcessorOutputTypeDef
+    Name: str
+    Settings: StreamProcessorSettingsUnionTypeDef
+    RoleArn: str
+    Tags: NotRequired[Mapping[str, str]]
+    NotificationChannel: NotRequired[StreamProcessorNotificationChannelTypeDef]
+    KmsKeyId: NotRequired[str]
+    RegionsOfInterest: NotRequired[Sequence[RegionOfInterestUnionTypeDef]]
+    DataSharingPreference: NotRequired[StreamProcessorDataSharingPreferenceTypeDef]
+
+class DetectTextFiltersTypeDef(TypedDict):
+    WordFilter: NotRequired[DetectionFilterTypeDef]
+    RegionsOfInterest: NotRequired[Sequence[RegionOfInterestUnionTypeDef]]
+
+class StartTextDetectionFiltersTypeDef(TypedDict):
+    WordFilter: NotRequired[DetectionFilterTypeDef]
+    RegionsOfInterest: NotRequired[Sequence[RegionOfInterestUnionTypeDef]]
+
+class UpdateStreamProcessorRequestTypeDef(TypedDict):
+    Name: str
+    SettingsForUpdate: NotRequired[StreamProcessorSettingsForUpdateTypeDef]
+    RegionsOfInterestForUpdate: NotRequired[Sequence[RegionOfInterestUnionTypeDef]]
+    DataSharingPreferenceForUpdate: NotRequired[StreamProcessorDataSharingPreferenceTypeDef]
+    ParametersToDelete: NotRequired[Sequence[StreamProcessorParameterToDeleteType]]
+
+class ListMediaAnalysisJobsResponseTypeDef(TypedDict):
+    MediaAnalysisJobs: List[MediaAnalysisJobDescriptionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+TestingDataUnionTypeDef = Union[TestingDataTypeDef, TestingDataOutputTypeDef]
+TrainingDataUnionTypeDef = Union[TrainingDataTypeDef, TrainingDataOutputTypeDef]
+
+class TestingDataResultTypeDef(TypedDict):
+    Input: NotRequired[TestingDataOutputTypeDef]
+    Output: NotRequired[TestingDataOutputTypeDef]
+    Validation: NotRequired[ValidationDataTypeDef]
+
+class TrainingDataResultTypeDef(TypedDict):
+    Input: NotRequired[TrainingDataOutputTypeDef]
+    Output: NotRequired[TrainingDataOutputTypeDef]
+    Validation: NotRequired[ValidationDataTypeDef]
+
+class DetectProtectiveEquipmentResponseTypeDef(TypedDict):
+    ProtectiveEquipmentModelVersion: str
+    Persons: List[ProtectiveEquipmentPersonTypeDef]
+    Summary: ProtectiveEquipmentSummaryTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetLabelDetectionResponseTypeDef(TypedDict):
+    JobStatus: VideoJobStatusType
+    StatusMessage: str
+    VideoMetadata: VideoMetadataTypeDef
+    Labels: List[LabelDetectionTypeDef]
+    LabelModelVersion: str
+    JobId: str
+    Video: VideoTypeDef
+    JobTag: str
+    GetRequestMetadata: GetLabelDetectionRequestMetadataTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class GetCelebrityRecognitionResponseTypeDef(TypedDict):
+    JobStatus: VideoJobStatusType
+    StatusMessage: str
+    VideoMetadata: VideoMetadataTypeDef
+    Celebrities: List[CelebrityRecognitionTypeDef]
+    JobId: str
+    Video: VideoTypeDef
+    JobTag: str
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class GetPersonTrackingResponseTypeDef(TypedDict):
+    JobStatus: VideoJobStatusType
+    StatusMessage: str
+    VideoMetadata: VideoMetadataTypeDef
+    Persons: List[PersonDetectionTypeDef]
+    JobId: str
+    Video: VideoTypeDef
+    JobTag: str
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class GetFaceSearchResponseTypeDef(TypedDict):
+    JobStatus: VideoJobStatusType
+    StatusMessage: str
+    VideoMetadata: VideoMetadataTypeDef
+    Persons: List[PersonMatchTypeDef]
+    JobId: str
+    Video: VideoTypeDef
+    JobTag: str
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class GetTextDetectionResponseTypeDef(TypedDict):
+    JobStatus: VideoJobStatusType
+    StatusMessage: str
+    VideoMetadata: VideoMetadataTypeDef
+    TextDetections: List[TextDetectionResultTypeDef]
+    TextModelVersion: str
+    JobId: str
+    Video: VideoTypeDef
+    JobTag: str
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class DetectTextRequestTypeDef(TypedDict):
+    Image: ImageTypeDef
+    Filters: NotRequired[DetectTextFiltersTypeDef]
+
+class StartTextDetectionRequestTypeDef(TypedDict):
+    Video: VideoTypeDef
+    ClientRequestToken: NotRequired[str]
+    NotificationChannel: NotRequired[NotificationChannelTypeDef]
+    JobTag: NotRequired[str]
+    Filters: NotRequired[StartTextDetectionFiltersTypeDef]
+
+class CreateProjectVersionRequestTypeDef(TypedDict):
+    ProjectArn: str
+    VersionName: str
+    OutputConfig: OutputConfigTypeDef
+    TrainingData: NotRequired[TrainingDataUnionTypeDef]
+    TestingData: NotRequired[TestingDataUnionTypeDef]
+    Tags: NotRequired[Mapping[str, str]]
+    KmsKeyId: NotRequired[str]
+    VersionDescription: NotRequired[str]
+    FeatureConfig: NotRequired[CustomizationFeatureConfigTypeDef]
+
+class ProjectVersionDescriptionTypeDef(TypedDict):
+    ProjectVersionArn: NotRequired[str]
+    CreationTimestamp: NotRequired[datetime]
+    MinInferenceUnits: NotRequired[int]
+    Status: NotRequired[ProjectVersionStatusType]
+    StatusMessage: NotRequired[str]
+    BillableTrainingTimeInSeconds: NotRequired[int]
+    TrainingEndTimestamp: NotRequired[datetime]
+    OutputConfig: NotRequired[OutputConfigTypeDef]
+    TrainingDataResult: NotRequired[TrainingDataResultTypeDef]
+    TestingDataResult: NotRequired[TestingDataResultTypeDef]
+    EvaluationResult: NotRequired[EvaluationResultTypeDef]
+    ManifestSummary: NotRequired[GroundTruthManifestTypeDef]
+    KmsKeyId: NotRequired[str]
+    MaxInferenceUnits: NotRequired[int]
+    SourceProjectVersionArn: NotRequired[str]
+    VersionDescription: NotRequired[str]
+    Feature: NotRequired[CustomizationFeatureType]
+    BaseModelVersion: NotRequired[str]
+    FeatureConfig: NotRequired[CustomizationFeatureConfigTypeDef]
+
+class DescribeProjectVersionsResponseTypeDef(TypedDict):
+    ProjectVersionDescriptions: List[ProjectVersionDescriptionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]

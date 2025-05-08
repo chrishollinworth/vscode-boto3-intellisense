@@ -1,100 +1,64 @@
 """
 Type annotations for ec2-instance-connect service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ec2_instance_connect/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ec2_instance_connect/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_ec2_instance_connect.type_defs import ResponseMetadataTypeDef
 
-    data: ResponseMetadataTypeDef = {...}
+    data: ResponseMetadataTypeDef = ...
     ```
 """
 
-import sys
-from typing import Any, Dict
+from __future__ import annotations
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+import sys
+
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
     "ResponseMetadataTypeDef",
-    "SendSSHPublicKeyRequestRequestTypeDef",
+    "SendSSHPublicKeyRequestTypeDef",
     "SendSSHPublicKeyResponseTypeDef",
-    "SendSerialConsoleSSHPublicKeyRequestRequestTypeDef",
+    "SendSerialConsoleSSHPublicKeyRequestTypeDef",
     "SendSerialConsoleSSHPublicKeyResponseTypeDef",
 )
 
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-_RequiredSendSSHPublicKeyRequestRequestTypeDef = TypedDict(
-    "_RequiredSendSSHPublicKeyRequestRequestTypeDef",
-    {
-        "InstanceId": str,
-        "InstanceOSUser": str,
-        "SSHPublicKey": str,
-    },
-)
-_OptionalSendSSHPublicKeyRequestRequestTypeDef = TypedDict(
-    "_OptionalSendSSHPublicKeyRequestRequestTypeDef",
-    {
-        "AvailabilityZone": str,
-    },
-    total=False,
-)
+class SendSSHPublicKeyRequestTypeDef(TypedDict):
+    InstanceId: str
+    InstanceOSUser: str
+    SSHPublicKey: str
+    AvailabilityZone: NotRequired[str]
 
-class SendSSHPublicKeyRequestRequestTypeDef(
-    _RequiredSendSSHPublicKeyRequestRequestTypeDef, _OptionalSendSSHPublicKeyRequestRequestTypeDef
-):
-    pass
+class SendSerialConsoleSSHPublicKeyRequestTypeDef(TypedDict):
+    InstanceId: str
+    SSHPublicKey: str
+    SerialPort: NotRequired[int]
 
-SendSSHPublicKeyResponseTypeDef = TypedDict(
-    "SendSSHPublicKeyResponseTypeDef",
-    {
-        "RequestId": str,
-        "Success": bool,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class SendSSHPublicKeyResponseTypeDef(TypedDict):
+    RequestId: str
+    Success: bool
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredSendSerialConsoleSSHPublicKeyRequestRequestTypeDef = TypedDict(
-    "_RequiredSendSerialConsoleSSHPublicKeyRequestRequestTypeDef",
-    {
-        "InstanceId": str,
-        "SSHPublicKey": str,
-    },
-)
-_OptionalSendSerialConsoleSSHPublicKeyRequestRequestTypeDef = TypedDict(
-    "_OptionalSendSerialConsoleSSHPublicKeyRequestRequestTypeDef",
-    {
-        "SerialPort": int,
-    },
-    total=False,
-)
-
-class SendSerialConsoleSSHPublicKeyRequestRequestTypeDef(
-    _RequiredSendSerialConsoleSSHPublicKeyRequestRequestTypeDef,
-    _OptionalSendSerialConsoleSSHPublicKeyRequestRequestTypeDef,
-):
-    pass
-
-SendSerialConsoleSSHPublicKeyResponseTypeDef = TypedDict(
-    "SendSerialConsoleSSHPublicKeyResponseTypeDef",
-    {
-        "RequestId": str,
-        "Success": bool,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class SendSerialConsoleSSHPublicKeyResponseTypeDef(TypedDict):
+    RequestId: str
+    Success: bool
+    ResponseMetadata: ResponseMetadataTypeDef

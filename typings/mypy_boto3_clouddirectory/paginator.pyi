@@ -1,14 +1,16 @@
 """
 Type annotations for clouddirectory service client paginators.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/paginators.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/paginators/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
 
-    from mypy_boto3_clouddirectory import CloudDirectoryClient
+    from mypy_boto3_clouddirectory.client import CloudDirectoryClient
     from mypy_boto3_clouddirectory.paginator import (
         ListAppliedSchemaArnsPaginator,
         ListAttachedIndicesPaginator,
@@ -31,7 +33,8 @@ Usage::
         LookupPolicyPaginator,
     )
 
-    client: CloudDirectoryClient = boto3.client("clouddirectory")
+    session = Session()
+    client: CloudDirectoryClient = session.client("clouddirectory")
 
     list_applied_schema_arns_paginator: ListAppliedSchemaArnsPaginator = client.get_paginator("list_applied_schema_arns")
     list_attached_indices_paginator: ListAttachedIndicesPaginator = client.get_paginator("list_attached_indices")
@@ -55,38 +58,58 @@ Usage::
     ```
 """
 
-from typing import Iterator, List
+from __future__ import annotations
 
-from botocore.paginate import Paginator as Boto3Paginator
+import sys
+from typing import TYPE_CHECKING
 
-from .literals import ConsistencyLevelType, DirectoryStateType
+from botocore.paginate import PageIterator, Paginator
+
 from .type_defs import (
+    ListAppliedSchemaArnsRequestPaginateTypeDef,
     ListAppliedSchemaArnsResponseTypeDef,
+    ListAttachedIndicesRequestPaginateTypeDef,
     ListAttachedIndicesResponseTypeDef,
+    ListDevelopmentSchemaArnsRequestPaginateTypeDef,
     ListDevelopmentSchemaArnsResponseTypeDef,
+    ListDirectoriesRequestPaginateTypeDef,
     ListDirectoriesResponseTypeDef,
+    ListFacetAttributesRequestPaginateTypeDef,
     ListFacetAttributesResponseTypeDef,
+    ListFacetNamesRequestPaginateTypeDef,
     ListFacetNamesResponseTypeDef,
+    ListIncomingTypedLinksRequestPaginateTypeDef,
     ListIncomingTypedLinksResponseTypeDef,
+    ListIndexRequestPaginateTypeDef,
     ListIndexResponseTypeDef,
+    ListManagedSchemaArnsRequestPaginateTypeDef,
     ListManagedSchemaArnsResponseTypeDef,
+    ListObjectAttributesRequestPaginateTypeDef,
     ListObjectAttributesResponseTypeDef,
+    ListObjectParentPathsRequestPaginateTypeDef,
     ListObjectParentPathsResponseTypeDef,
+    ListObjectPoliciesRequestPaginateTypeDef,
     ListObjectPoliciesResponseTypeDef,
+    ListOutgoingTypedLinksRequestPaginateTypeDef,
     ListOutgoingTypedLinksResponseTypeDef,
+    ListPolicyAttachmentsRequestPaginateTypeDef,
     ListPolicyAttachmentsResponseTypeDef,
+    ListPublishedSchemaArnsRequestPaginateTypeDef,
     ListPublishedSchemaArnsResponseTypeDef,
+    ListTagsForResourceRequestPaginateTypeDef,
     ListTagsForResourceResponseTypeDef,
+    ListTypedLinkFacetAttributesRequestPaginateTypeDef,
     ListTypedLinkFacetAttributesResponseTypeDef,
+    ListTypedLinkFacetNamesRequestPaginateTypeDef,
     ListTypedLinkFacetNamesResponseTypeDef,
+    LookupPolicyRequestPaginateTypeDef,
     LookupPolicyResponseTypeDef,
-    ObjectAttributeRangeTypeDef,
-    ObjectReferenceTypeDef,
-    PaginatorConfigTypeDef,
-    SchemaFacetTypeDef,
-    TypedLinkAttributeRangeTypeDef,
-    TypedLinkSchemaAndFacetNameTypeDef,
 )
+
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = (
     "ListAppliedSchemaArnsPaginator",
@@ -110,321 +133,346 @@ __all__ = (
     "LookupPolicyPaginator",
 )
 
-class ListAppliedSchemaArnsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListAppliedSchemaArns)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/paginators.html#listappliedschemaarnspaginator)
-    """
+if TYPE_CHECKING:
+    _ListAppliedSchemaArnsPaginatorBase = Paginator[ListAppliedSchemaArnsResponseTypeDef]
+else:
+    _ListAppliedSchemaArnsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        DirectoryArn: str,
-        SchemaArn: str = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListAppliedSchemaArnsResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListAppliedSchemaArns.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/paginators.html#listappliedschemaarnspaginator)
-        """
-
-class ListAttachedIndicesPaginator(Boto3Paginator):
+class ListAppliedSchemaArnsPaginator(_ListAppliedSchemaArnsPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListAttachedIndices)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/paginators.html#listattachedindicespaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/clouddirectory/paginator/ListAppliedSchemaArns.html#CloudDirectory.Paginator.ListAppliedSchemaArns)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/paginators/#listappliedschemaarnspaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        DirectoryArn: str,
-        TargetReference: "ObjectReferenceTypeDef",
-        ConsistencyLevel: ConsistencyLevelType = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListAttachedIndicesResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListAppliedSchemaArnsRequestPaginateTypeDef]
+    ) -> PageIterator[ListAppliedSchemaArnsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListAttachedIndices.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/paginators.html#listattachedindicespaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/clouddirectory/paginator/ListAppliedSchemaArns.html#CloudDirectory.Paginator.ListAppliedSchemaArns.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/paginators/#listappliedschemaarnspaginator)
         """
 
-class ListDevelopmentSchemaArnsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListDevelopmentSchemaArns)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/paginators.html#listdevelopmentschemaarnspaginator)
-    """
+if TYPE_CHECKING:
+    _ListAttachedIndicesPaginatorBase = Paginator[ListAttachedIndicesResponseTypeDef]
+else:
+    _ListAttachedIndicesPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListDevelopmentSchemaArnsResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListDevelopmentSchemaArns.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/paginators.html#listdevelopmentschemaarnspaginator)
-        """
-
-class ListDirectoriesPaginator(Boto3Paginator):
+class ListAttachedIndicesPaginator(_ListAttachedIndicesPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListDirectories)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/paginators.html#listdirectoriespaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/clouddirectory/paginator/ListAttachedIndices.html#CloudDirectory.Paginator.ListAttachedIndices)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/paginators/#listattachedindicespaginator)
     """
-
-    def paginate(
-        self, *, state: DirectoryStateType = None, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListDirectoriesResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListAttachedIndicesRequestPaginateTypeDef]
+    ) -> PageIterator[ListAttachedIndicesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListDirectories.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/paginators.html#listdirectoriespaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/clouddirectory/paginator/ListAttachedIndices.html#CloudDirectory.Paginator.ListAttachedIndices.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/paginators/#listattachedindicespaginator)
         """
 
-class ListFacetAttributesPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListFacetAttributes)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/paginators.html#listfacetattributespaginator)
-    """
+if TYPE_CHECKING:
+    _ListDevelopmentSchemaArnsPaginatorBase = Paginator[ListDevelopmentSchemaArnsResponseTypeDef]
+else:
+    _ListDevelopmentSchemaArnsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, SchemaArn: str, Name: str, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListFacetAttributesResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListFacetAttributes.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/paginators.html#listfacetattributespaginator)
-        """
-
-class ListFacetNamesPaginator(Boto3Paginator):
+class ListDevelopmentSchemaArnsPaginator(_ListDevelopmentSchemaArnsPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListFacetNames)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/paginators.html#listfacetnamespaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/clouddirectory/paginator/ListDevelopmentSchemaArns.html#CloudDirectory.Paginator.ListDevelopmentSchemaArns)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/paginators/#listdevelopmentschemaarnspaginator)
     """
-
-    def paginate(
-        self, *, SchemaArn: str, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListFacetNamesResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListDevelopmentSchemaArnsRequestPaginateTypeDef]
+    ) -> PageIterator[ListDevelopmentSchemaArnsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListFacetNames.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/paginators.html#listfacetnamespaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/clouddirectory/paginator/ListDevelopmentSchemaArns.html#CloudDirectory.Paginator.ListDevelopmentSchemaArns.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/paginators/#listdevelopmentschemaarnspaginator)
         """
 
-class ListIncomingTypedLinksPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListIncomingTypedLinks)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/paginators.html#listincomingtypedlinkspaginator)
-    """
+if TYPE_CHECKING:
+    _ListDirectoriesPaginatorBase = Paginator[ListDirectoriesResponseTypeDef]
+else:
+    _ListDirectoriesPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        DirectoryArn: str,
-        ObjectReference: "ObjectReferenceTypeDef",
-        FilterAttributeRanges: List["TypedLinkAttributeRangeTypeDef"] = None,
-        FilterTypedLink: "TypedLinkSchemaAndFacetNameTypeDef" = None,
-        ConsistencyLevel: ConsistencyLevelType = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListIncomingTypedLinksResponseTypeDef]:
+class ListDirectoriesPaginator(_ListDirectoriesPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/clouddirectory/paginator/ListDirectories.html#CloudDirectory.Paginator.ListDirectories)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/paginators/#listdirectoriespaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListDirectoriesRequestPaginateTypeDef]
+    ) -> PageIterator[ListDirectoriesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListIncomingTypedLinks.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/paginators.html#listincomingtypedlinkspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/clouddirectory/paginator/ListDirectories.html#CloudDirectory.Paginator.ListDirectories.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/paginators/#listdirectoriespaginator)
         """
 
-class ListIndexPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListIndex)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/paginators.html#listindexpaginator)
-    """
+if TYPE_CHECKING:
+    _ListFacetAttributesPaginatorBase = Paginator[ListFacetAttributesResponseTypeDef]
+else:
+    _ListFacetAttributesPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        DirectoryArn: str,
-        IndexReference: "ObjectReferenceTypeDef",
-        RangesOnIndexedValues: List["ObjectAttributeRangeTypeDef"] = None,
-        ConsistencyLevel: ConsistencyLevelType = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListIndexResponseTypeDef]:
+class ListFacetAttributesPaginator(_ListFacetAttributesPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/clouddirectory/paginator/ListFacetAttributes.html#CloudDirectory.Paginator.ListFacetAttributes)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/paginators/#listfacetattributespaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListFacetAttributesRequestPaginateTypeDef]
+    ) -> PageIterator[ListFacetAttributesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListIndex.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/paginators.html#listindexpaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/clouddirectory/paginator/ListFacetAttributes.html#CloudDirectory.Paginator.ListFacetAttributes.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/paginators/#listfacetattributespaginator)
         """
 
-class ListManagedSchemaArnsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListManagedSchemaArns)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/paginators.html#listmanagedschemaarnspaginator)
-    """
+if TYPE_CHECKING:
+    _ListFacetNamesPaginatorBase = Paginator[ListFacetNamesResponseTypeDef]
+else:
+    _ListFacetNamesPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, SchemaArn: str = None, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListManagedSchemaArnsResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListManagedSchemaArns.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/paginators.html#listmanagedschemaarnspaginator)
-        """
-
-class ListObjectAttributesPaginator(Boto3Paginator):
+class ListFacetNamesPaginator(_ListFacetNamesPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListObjectAttributes)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/paginators.html#listobjectattributespaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/clouddirectory/paginator/ListFacetNames.html#CloudDirectory.Paginator.ListFacetNames)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/paginators/#listfacetnamespaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        DirectoryArn: str,
-        ObjectReference: "ObjectReferenceTypeDef",
-        ConsistencyLevel: ConsistencyLevelType = None,
-        FacetFilter: "SchemaFacetTypeDef" = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListObjectAttributesResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListFacetNamesRequestPaginateTypeDef]
+    ) -> PageIterator[ListFacetNamesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListObjectAttributes.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/paginators.html#listobjectattributespaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/clouddirectory/paginator/ListFacetNames.html#CloudDirectory.Paginator.ListFacetNames.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/paginators/#listfacetnamespaginator)
         """
 
-class ListObjectParentPathsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListObjectParentPaths)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/paginators.html#listobjectparentpathspaginator)
-    """
+if TYPE_CHECKING:
+    _ListIncomingTypedLinksPaginatorBase = Paginator[ListIncomingTypedLinksResponseTypeDef]
+else:
+    _ListIncomingTypedLinksPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        DirectoryArn: str,
-        ObjectReference: "ObjectReferenceTypeDef",
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListObjectParentPathsResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListObjectParentPaths.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/paginators.html#listobjectparentpathspaginator)
-        """
-
-class ListObjectPoliciesPaginator(Boto3Paginator):
+class ListIncomingTypedLinksPaginator(_ListIncomingTypedLinksPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListObjectPolicies)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/paginators.html#listobjectpoliciespaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/clouddirectory/paginator/ListIncomingTypedLinks.html#CloudDirectory.Paginator.ListIncomingTypedLinks)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/paginators/#listincomingtypedlinkspaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        DirectoryArn: str,
-        ObjectReference: "ObjectReferenceTypeDef",
-        ConsistencyLevel: ConsistencyLevelType = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListObjectPoliciesResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListIncomingTypedLinksRequestPaginateTypeDef]
+    ) -> PageIterator[ListIncomingTypedLinksResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListObjectPolicies.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/paginators.html#listobjectpoliciespaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/clouddirectory/paginator/ListIncomingTypedLinks.html#CloudDirectory.Paginator.ListIncomingTypedLinks.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/paginators/#listincomingtypedlinkspaginator)
         """
 
-class ListOutgoingTypedLinksPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListOutgoingTypedLinks)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/paginators.html#listoutgoingtypedlinkspaginator)
-    """
+if TYPE_CHECKING:
+    _ListIndexPaginatorBase = Paginator[ListIndexResponseTypeDef]
+else:
+    _ListIndexPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        DirectoryArn: str,
-        ObjectReference: "ObjectReferenceTypeDef",
-        FilterAttributeRanges: List["TypedLinkAttributeRangeTypeDef"] = None,
-        FilterTypedLink: "TypedLinkSchemaAndFacetNameTypeDef" = None,
-        ConsistencyLevel: ConsistencyLevelType = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListOutgoingTypedLinksResponseTypeDef]:
+class ListIndexPaginator(_ListIndexPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/clouddirectory/paginator/ListIndex.html#CloudDirectory.Paginator.ListIndex)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/paginators/#listindexpaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListIndexRequestPaginateTypeDef]
+    ) -> PageIterator[ListIndexResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListOutgoingTypedLinks.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/paginators.html#listoutgoingtypedlinkspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/clouddirectory/paginator/ListIndex.html#CloudDirectory.Paginator.ListIndex.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/paginators/#listindexpaginator)
         """
 
-class ListPolicyAttachmentsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListPolicyAttachments)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/paginators.html#listpolicyattachmentspaginator)
-    """
+if TYPE_CHECKING:
+    _ListManagedSchemaArnsPaginatorBase = Paginator[ListManagedSchemaArnsResponseTypeDef]
+else:
+    _ListManagedSchemaArnsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        DirectoryArn: str,
-        PolicyReference: "ObjectReferenceTypeDef",
-        ConsistencyLevel: ConsistencyLevelType = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListPolicyAttachmentsResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListPolicyAttachments.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/paginators.html#listpolicyattachmentspaginator)
-        """
-
-class ListPublishedSchemaArnsPaginator(Boto3Paginator):
+class ListManagedSchemaArnsPaginator(_ListManagedSchemaArnsPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListPublishedSchemaArns)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/paginators.html#listpublishedschemaarnspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/clouddirectory/paginator/ListManagedSchemaArns.html#CloudDirectory.Paginator.ListManagedSchemaArns)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/paginators/#listmanagedschemaarnspaginator)
     """
-
-    def paginate(
-        self, *, SchemaArn: str = None, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListPublishedSchemaArnsResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListManagedSchemaArnsRequestPaginateTypeDef]
+    ) -> PageIterator[ListManagedSchemaArnsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListPublishedSchemaArns.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/paginators.html#listpublishedschemaarnspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/clouddirectory/paginator/ListManagedSchemaArns.html#CloudDirectory.Paginator.ListManagedSchemaArns.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/paginators/#listmanagedschemaarnspaginator)
         """
 
-class ListTagsForResourcePaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListTagsForResource)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/paginators.html#listtagsforresourcepaginator)
-    """
+if TYPE_CHECKING:
+    _ListObjectAttributesPaginatorBase = Paginator[ListObjectAttributesResponseTypeDef]
+else:
+    _ListObjectAttributesPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, ResourceArn: str, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListTagsForResourceResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListTagsForResource.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/paginators.html#listtagsforresourcepaginator)
-        """
-
-class ListTypedLinkFacetAttributesPaginator(Boto3Paginator):
+class ListObjectAttributesPaginator(_ListObjectAttributesPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListTypedLinkFacetAttributes)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/paginators.html#listtypedlinkfacetattributespaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/clouddirectory/paginator/ListObjectAttributes.html#CloudDirectory.Paginator.ListObjectAttributes)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/paginators/#listobjectattributespaginator)
     """
-
-    def paginate(
-        self, *, SchemaArn: str, Name: str, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListTypedLinkFacetAttributesResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListObjectAttributesRequestPaginateTypeDef]
+    ) -> PageIterator[ListObjectAttributesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListTypedLinkFacetAttributes.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/paginators.html#listtypedlinkfacetattributespaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/clouddirectory/paginator/ListObjectAttributes.html#CloudDirectory.Paginator.ListObjectAttributes.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/paginators/#listobjectattributespaginator)
         """
 
-class ListTypedLinkFacetNamesPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListTypedLinkFacetNames)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/paginators.html#listtypedlinkfacetnamespaginator)
-    """
+if TYPE_CHECKING:
+    _ListObjectParentPathsPaginatorBase = Paginator[ListObjectParentPathsResponseTypeDef]
+else:
+    _ListObjectParentPathsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, SchemaArn: str, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListTypedLinkFacetNamesResponseTypeDef]:
+class ListObjectParentPathsPaginator(_ListObjectParentPathsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/clouddirectory/paginator/ListObjectParentPaths.html#CloudDirectory.Paginator.ListObjectParentPaths)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/paginators/#listobjectparentpathspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListObjectParentPathsRequestPaginateTypeDef]
+    ) -> PageIterator[ListObjectParentPathsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListTypedLinkFacetNames.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/paginators.html#listtypedlinkfacetnamespaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/clouddirectory/paginator/ListObjectParentPaths.html#CloudDirectory.Paginator.ListObjectParentPaths.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/paginators/#listobjectparentpathspaginator)
         """
 
-class LookupPolicyPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/clouddirectory.html#CloudDirectory.Paginator.LookupPolicy)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/paginators.html#lookuppolicypaginator)
-    """
+if TYPE_CHECKING:
+    _ListObjectPoliciesPaginatorBase = Paginator[ListObjectPoliciesResponseTypeDef]
+else:
+    _ListObjectPoliciesPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        DirectoryArn: str,
-        ObjectReference: "ObjectReferenceTypeDef",
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[LookupPolicyResponseTypeDef]:
+class ListObjectPoliciesPaginator(_ListObjectPoliciesPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/clouddirectory/paginator/ListObjectPolicies.html#CloudDirectory.Paginator.ListObjectPolicies)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/paginators/#listobjectpoliciespaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListObjectPoliciesRequestPaginateTypeDef]
+    ) -> PageIterator[ListObjectPoliciesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/clouddirectory.html#CloudDirectory.Paginator.LookupPolicy.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/paginators.html#lookuppolicypaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/clouddirectory/paginator/ListObjectPolicies.html#CloudDirectory.Paginator.ListObjectPolicies.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/paginators/#listobjectpoliciespaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListOutgoingTypedLinksPaginatorBase = Paginator[ListOutgoingTypedLinksResponseTypeDef]
+else:
+    _ListOutgoingTypedLinksPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListOutgoingTypedLinksPaginator(_ListOutgoingTypedLinksPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/clouddirectory/paginator/ListOutgoingTypedLinks.html#CloudDirectory.Paginator.ListOutgoingTypedLinks)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/paginators/#listoutgoingtypedlinkspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListOutgoingTypedLinksRequestPaginateTypeDef]
+    ) -> PageIterator[ListOutgoingTypedLinksResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/clouddirectory/paginator/ListOutgoingTypedLinks.html#CloudDirectory.Paginator.ListOutgoingTypedLinks.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/paginators/#listoutgoingtypedlinkspaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListPolicyAttachmentsPaginatorBase = Paginator[ListPolicyAttachmentsResponseTypeDef]
+else:
+    _ListPolicyAttachmentsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListPolicyAttachmentsPaginator(_ListPolicyAttachmentsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/clouddirectory/paginator/ListPolicyAttachments.html#CloudDirectory.Paginator.ListPolicyAttachments)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/paginators/#listpolicyattachmentspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListPolicyAttachmentsRequestPaginateTypeDef]
+    ) -> PageIterator[ListPolicyAttachmentsResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/clouddirectory/paginator/ListPolicyAttachments.html#CloudDirectory.Paginator.ListPolicyAttachments.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/paginators/#listpolicyattachmentspaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListPublishedSchemaArnsPaginatorBase = Paginator[ListPublishedSchemaArnsResponseTypeDef]
+else:
+    _ListPublishedSchemaArnsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListPublishedSchemaArnsPaginator(_ListPublishedSchemaArnsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/clouddirectory/paginator/ListPublishedSchemaArns.html#CloudDirectory.Paginator.ListPublishedSchemaArns)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/paginators/#listpublishedschemaarnspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListPublishedSchemaArnsRequestPaginateTypeDef]
+    ) -> PageIterator[ListPublishedSchemaArnsResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/clouddirectory/paginator/ListPublishedSchemaArns.html#CloudDirectory.Paginator.ListPublishedSchemaArns.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/paginators/#listpublishedschemaarnspaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListTagsForResourcePaginatorBase = Paginator[ListTagsForResourceResponseTypeDef]
+else:
+    _ListTagsForResourcePaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListTagsForResourcePaginator(_ListTagsForResourcePaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/clouddirectory/paginator/ListTagsForResource.html#CloudDirectory.Paginator.ListTagsForResource)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/paginators/#listtagsforresourcepaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListTagsForResourceRequestPaginateTypeDef]
+    ) -> PageIterator[ListTagsForResourceResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/clouddirectory/paginator/ListTagsForResource.html#CloudDirectory.Paginator.ListTagsForResource.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/paginators/#listtagsforresourcepaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListTypedLinkFacetAttributesPaginatorBase = Paginator[
+        ListTypedLinkFacetAttributesResponseTypeDef
+    ]
+else:
+    _ListTypedLinkFacetAttributesPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListTypedLinkFacetAttributesPaginator(_ListTypedLinkFacetAttributesPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/clouddirectory/paginator/ListTypedLinkFacetAttributes.html#CloudDirectory.Paginator.ListTypedLinkFacetAttributes)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/paginators/#listtypedlinkfacetattributespaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListTypedLinkFacetAttributesRequestPaginateTypeDef]
+    ) -> PageIterator[ListTypedLinkFacetAttributesResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/clouddirectory/paginator/ListTypedLinkFacetAttributes.html#CloudDirectory.Paginator.ListTypedLinkFacetAttributes.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/paginators/#listtypedlinkfacetattributespaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListTypedLinkFacetNamesPaginatorBase = Paginator[ListTypedLinkFacetNamesResponseTypeDef]
+else:
+    _ListTypedLinkFacetNamesPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListTypedLinkFacetNamesPaginator(_ListTypedLinkFacetNamesPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/clouddirectory/paginator/ListTypedLinkFacetNames.html#CloudDirectory.Paginator.ListTypedLinkFacetNames)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/paginators/#listtypedlinkfacetnamespaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListTypedLinkFacetNamesRequestPaginateTypeDef]
+    ) -> PageIterator[ListTypedLinkFacetNamesResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/clouddirectory/paginator/ListTypedLinkFacetNames.html#CloudDirectory.Paginator.ListTypedLinkFacetNames.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/paginators/#listtypedlinkfacetnamespaginator)
+        """
+
+if TYPE_CHECKING:
+    _LookupPolicyPaginatorBase = Paginator[LookupPolicyResponseTypeDef]
+else:
+    _LookupPolicyPaginatorBase = Paginator  # type: ignore[assignment]
+
+class LookupPolicyPaginator(_LookupPolicyPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/clouddirectory/paginator/LookupPolicy.html#CloudDirectory.Paginator.LookupPolicy)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/paginators/#lookuppolicypaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[LookupPolicyRequestPaginateTypeDef]
+    ) -> PageIterator[LookupPolicyResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/clouddirectory/paginator/LookupPolicy.html#CloudDirectory.Paginator.LookupPolicy.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/paginators/#lookuppolicypaginator)
         """

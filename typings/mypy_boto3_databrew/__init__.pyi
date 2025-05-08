@@ -1,10 +1,14 @@
 """
 Main interface for databrew service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_databrew/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_databrew import (
         Client,
         GlueDataBrewClient,
@@ -18,10 +22,8 @@ Usage::
         ListSchedulesPaginator,
     )
 
-    session = boto3.Session()
-
-    client: GlueDataBrewClient = boto3.client("databrew")
-    session_client: GlueDataBrewClient = session.client("databrew")
+    session = Session()
+    client: GlueDataBrewClient = session.client("databrew")
 
     list_datasets_paginator: ListDatasetsPaginator = client.get_paginator("list_datasets")
     list_job_runs_paginator: ListJobRunsPaginator = client.get_paginator("list_job_runs")

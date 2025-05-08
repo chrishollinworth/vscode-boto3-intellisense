@@ -1,40 +1,50 @@
 """
-Type annotations for kinesis-video-signaling service client.
+Type annotations for kinesis-video-signaling service Client.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesis_video_signaling/client.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kinesis_video_signaling/client/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
-    from mypy_boto3_kinesis_video_signaling import KinesisVideoSignalingChannelsClient
+    from boto3.session import Session
+    from mypy_boto3_kinesis_video_signaling.client import KinesisVideoSignalingChannelsClient
 
-    client: KinesisVideoSignalingChannelsClient = boto3.client("kinesis-video-signaling")
+    session = Session()
+    client: KinesisVideoSignalingChannelsClient = session.client("kinesis-video-signaling")
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from typing import Any, Dict, Type
+from typing import Any
 
 from botocore.client import BaseClient, ClientMeta
+from botocore.errorfactory import BaseClientExceptions
+from botocore.exceptions import ClientError as BotocoreClientError
 
-from .type_defs import GetIceServerConfigResponseTypeDef, SendAlexaOfferToMasterResponseTypeDef
+from .type_defs import (
+    GetIceServerConfigRequestTypeDef,
+    GetIceServerConfigResponseTypeDef,
+    SendAlexaOfferToMasterRequestTypeDef,
+    SendAlexaOfferToMasterResponseTypeDef,
+)
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import type as Type
+    from collections.abc import Mapping
 else:
-    from typing_extensions import Literal
+    from typing import Mapping, Type
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = ("KinesisVideoSignalingChannelsClient",)
 
-class BotocoreClientError(BaseException):
-    MSG_TEMPLATE: str
-
-    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
-        self.response: Dict[str, Any]
-        self.operation_name: str
-
-class Exceptions:
+class Exceptions(BaseClientExceptions):
     ClientError: Type[BotocoreClientError]
     ClientLimitExceededException: Type[BotocoreClientError]
     InvalidArgumentException: Type[BotocoreClientError]
@@ -45,8 +55,8 @@ class Exceptions:
 
 class KinesisVideoSignalingChannelsClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kinesis-video-signaling.html#KinesisVideoSignalingChannels.Client)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesis_video_signaling/client.html)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kinesis-video-signaling.html#KinesisVideoSignalingChannels.Client)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kinesis_video_signaling/client/)
     """
 
     meta: ClientMeta
@@ -55,62 +65,48 @@ class KinesisVideoSignalingChannelsClient(BaseClient):
     def exceptions(self) -> Exceptions:
         """
         KinesisVideoSignalingChannelsClient exceptions.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kinesis-video-signaling.html#KinesisVideoSignalingChannels.Client)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kinesis_video_signaling/client/#exceptions)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        Check if an operation can be paginated.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kinesis-video-signaling.html#KinesisVideoSignalingChannels.Client.can_paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesis_video_signaling/client.html#can_paginate)
-        """
-
-    def close(self) -> None:
-        """
-        Closes underlying endpoint connections.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kinesis-video-signaling.html#KinesisVideoSignalingChannels.Client.close)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesis_video_signaling/client.html#close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kinesis-video-signaling/client/can_paginate.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kinesis_video_signaling/client/#can_paginate)
         """
 
     def generate_presigned_url(
         self,
         ClientMethod: str,
-        Params: Dict[str, Any] = None,
+        Params: Mapping[str, Any] = ...,
         ExpiresIn: int = 3600,
-        HttpMethod: str = None,
+        HttpMethod: str = ...,
     ) -> str:
         """
-        Generate a presigned url given a client, its method, and arguments.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kinesis-video-signaling.html#KinesisVideoSignalingChannels.Client.generate_presigned_url)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesis_video_signaling/client.html#generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kinesis-video-signaling/client/generate_presigned_url.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kinesis_video_signaling/client/#generate_presigned_url)
         """
 
     def get_ice_server_config(
-        self,
-        *,
-        ChannelARN: str,
-        ClientId: str = None,
-        Service: Literal["TURN"] = None,
-        Username: str = None
+        self, **kwargs: Unpack[GetIceServerConfigRequestTypeDef]
     ) -> GetIceServerConfigResponseTypeDef:
         """
         Gets the Interactive Connectivity Establishment (ICE) server configuration
         information, including URIs, username, and password which can be used to
         configure the WebRTC connection.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kinesis-video-signaling.html#KinesisVideoSignalingChannels.Client.get_ice_server_config)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesis_video_signaling/client.html#get_ice_server_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kinesis-video-signaling/client/get_ice_server_config.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kinesis_video_signaling/client/#get_ice_server_config)
         """
 
     def send_alexa_offer_to_master(
-        self, *, ChannelARN: str, SenderClientId: str, MessagePayload: str
+        self, **kwargs: Unpack[SendAlexaOfferToMasterRequestTypeDef]
     ) -> SendAlexaOfferToMasterResponseTypeDef:
         """
         This API allows you to connect WebRTC-enabled devices with Alexa display
         devices.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kinesis-video-signaling.html#KinesisVideoSignalingChannels.Client.send_alexa_offer_to_master)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesis_video_signaling/client.html#send_alexa_offer_to_master)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kinesis-video-signaling/client/send_alexa_offer_to_master.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kinesis_video_signaling/client/#send_alexa_offer_to_master)
         """

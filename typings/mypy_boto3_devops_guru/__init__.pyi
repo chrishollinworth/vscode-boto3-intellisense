@@ -1,10 +1,14 @@
 """
 Main interface for devops-guru service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_devops_guru import (
         Client,
         DescribeOrganizationResourceCollectionHealthPaginator,
@@ -24,10 +28,8 @@ Usage::
         SearchOrganizationInsightsPaginator,
     )
 
-    session = boto3.Session()
-
-    client: DevOpsGuruClient = boto3.client("devops-guru")
-    session_client: DevOpsGuruClient = session.client("devops-guru")
+    session = Session()
+    client: DevOpsGuruClient = session.client("devops-guru")
 
     describe_organization_resource_collection_health_paginator: DescribeOrganizationResourceCollectionHealthPaginator = client.get_paginator("describe_organization_resource_collection_health")
     describe_resource_collection_health_paginator: DescribeResourceCollectionHealthPaginator = client.get_paginator("describe_resource_collection_health")

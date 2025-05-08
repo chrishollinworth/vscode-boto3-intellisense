@@ -1,19 +1,23 @@
 """
 Type annotations for lex-runtime service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lex_runtime/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lex_runtime/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_lex_runtime.type_defs import ActiveContextTimeToLiveTypeDef
 
-    data: ActiveContextTimeToLiveTypeDef = {...}
+    data: ActiveContextTimeToLiveTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from typing import IO, Any, Dict, List, Union
+from typing import IO, Any, Union
 
 from botocore.response import StreamingBody
 
@@ -25,358 +29,253 @@ from .literals import (
     MessageFormatTypeType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
+    "ActiveContextOutputTypeDef",
     "ActiveContextTimeToLiveTypeDef",
     "ActiveContextTypeDef",
+    "ActiveContextUnionTypeDef",
+    "BlobTypeDef",
     "ButtonTypeDef",
-    "DeleteSessionRequestRequestTypeDef",
+    "DeleteSessionRequestTypeDef",
     "DeleteSessionResponseTypeDef",
+    "DialogActionOutputTypeDef",
     "DialogActionTypeDef",
+    "DialogActionUnionTypeDef",
     "GenericAttachmentTypeDef",
-    "GetSessionRequestRequestTypeDef",
+    "GetSessionRequestTypeDef",
     "GetSessionResponseTypeDef",
     "IntentConfidenceTypeDef",
+    "IntentSummaryOutputTypeDef",
     "IntentSummaryTypeDef",
-    "PostContentRequestRequestTypeDef",
+    "IntentSummaryUnionTypeDef",
+    "PostContentRequestTypeDef",
     "PostContentResponseTypeDef",
-    "PostTextRequestRequestTypeDef",
+    "PostTextRequestTypeDef",
     "PostTextResponseTypeDef",
     "PredictedIntentTypeDef",
-    "PutSessionRequestRequestTypeDef",
+    "PutSessionRequestTypeDef",
     "PutSessionResponseTypeDef",
     "ResponseCardTypeDef",
     "ResponseMetadataTypeDef",
     "SentimentResponseTypeDef",
 )
 
-ActiveContextTimeToLiveTypeDef = TypedDict(
-    "ActiveContextTimeToLiveTypeDef",
-    {
-        "timeToLiveInSeconds": int,
-        "turnsToLive": int,
-    },
-    total=False,
-)
+class ActiveContextTimeToLiveTypeDef(TypedDict):
+    timeToLiveInSeconds: NotRequired[int]
+    turnsToLive: NotRequired[int]
 
-ActiveContextTypeDef = TypedDict(
-    "ActiveContextTypeDef",
-    {
-        "name": str,
-        "timeToLive": "ActiveContextTimeToLiveTypeDef",
-        "parameters": Dict[str, str],
-    },
-)
+BlobTypeDef = Union[str, bytes, IO[Any], StreamingBody]
 
-ButtonTypeDef = TypedDict(
-    "ButtonTypeDef",
-    {
-        "text": str,
-        "value": str,
-    },
-)
+class ButtonTypeDef(TypedDict):
+    text: str
+    value: str
 
-DeleteSessionRequestRequestTypeDef = TypedDict(
-    "DeleteSessionRequestRequestTypeDef",
-    {
-        "botName": str,
-        "botAlias": str,
-        "userId": str,
-    },
-)
+class DeleteSessionRequestTypeDef(TypedDict):
+    botName: str
+    botAlias: str
+    userId: str
 
-DeleteSessionResponseTypeDef = TypedDict(
-    "DeleteSessionResponseTypeDef",
-    {
-        "botName": str,
-        "botAlias": str,
-        "userId": str,
-        "sessionId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-_RequiredDialogActionTypeDef = TypedDict(
-    "_RequiredDialogActionTypeDef",
+DialogActionOutputTypeDef = TypedDict(
+    "DialogActionOutputTypeDef",
     {
         "type": DialogActionTypeType,
+        "intentName": NotRequired[str],
+        "slots": NotRequired[Dict[str, str]],
+        "slotToElicit": NotRequired[str],
+        "fulfillmentState": NotRequired[FulfillmentStateType],
+        "message": NotRequired[str],
+        "messageFormat": NotRequired[MessageFormatTypeType],
     },
 )
-_OptionalDialogActionTypeDef = TypedDict(
-    "_OptionalDialogActionTypeDef",
+DialogActionTypeDef = TypedDict(
+    "DialogActionTypeDef",
     {
-        "intentName": str,
-        "slots": Dict[str, str],
-        "slotToElicit": str,
-        "fulfillmentState": FulfillmentStateType,
-        "message": str,
-        "messageFormat": MessageFormatTypeType,
-    },
-    total=False,
-)
-
-class DialogActionTypeDef(_RequiredDialogActionTypeDef, _OptionalDialogActionTypeDef):
-    pass
-
-GenericAttachmentTypeDef = TypedDict(
-    "GenericAttachmentTypeDef",
-    {
-        "title": str,
-        "subTitle": str,
-        "attachmentLinkUrl": str,
-        "imageUrl": str,
-        "buttons": List["ButtonTypeDef"],
-    },
-    total=False,
-)
-
-_RequiredGetSessionRequestRequestTypeDef = TypedDict(
-    "_RequiredGetSessionRequestRequestTypeDef",
-    {
-        "botName": str,
-        "botAlias": str,
-        "userId": str,
-    },
-)
-_OptionalGetSessionRequestRequestTypeDef = TypedDict(
-    "_OptionalGetSessionRequestRequestTypeDef",
-    {
-        "checkpointLabelFilter": str,
-    },
-    total=False,
-)
-
-class GetSessionRequestRequestTypeDef(
-    _RequiredGetSessionRequestRequestTypeDef, _OptionalGetSessionRequestRequestTypeDef
-):
-    pass
-
-GetSessionResponseTypeDef = TypedDict(
-    "GetSessionResponseTypeDef",
-    {
-        "recentIntentSummaryView": List["IntentSummaryTypeDef"],
-        "sessionAttributes": Dict[str, str],
-        "sessionId": str,
-        "dialogAction": "DialogActionTypeDef",
-        "activeContexts": List["ActiveContextTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "type": DialogActionTypeType,
+        "intentName": NotRequired[str],
+        "slots": NotRequired[Mapping[str, str]],
+        "slotToElicit": NotRequired[str],
+        "fulfillmentState": NotRequired[FulfillmentStateType],
+        "message": NotRequired[str],
+        "messageFormat": NotRequired[MessageFormatTypeType],
     },
 )
 
-IntentConfidenceTypeDef = TypedDict(
-    "IntentConfidenceTypeDef",
-    {
-        "score": float,
-    },
-    total=False,
-)
+class GetSessionRequestTypeDef(TypedDict):
+    botName: str
+    botAlias: str
+    userId: str
+    checkpointLabelFilter: NotRequired[str]
 
-_RequiredIntentSummaryTypeDef = TypedDict(
-    "_RequiredIntentSummaryTypeDef",
-    {
-        "dialogActionType": DialogActionTypeType,
-    },
-)
-_OptionalIntentSummaryTypeDef = TypedDict(
-    "_OptionalIntentSummaryTypeDef",
-    {
-        "intentName": str,
-        "checkpointLabel": str,
-        "slots": Dict[str, str],
-        "confirmationStatus": ConfirmationStatusType,
-        "fulfillmentState": FulfillmentStateType,
-        "slotToElicit": str,
-    },
-    total=False,
-)
+class IntentSummaryOutputTypeDef(TypedDict):
+    dialogActionType: DialogActionTypeType
+    intentName: NotRequired[str]
+    checkpointLabel: NotRequired[str]
+    slots: NotRequired[Dict[str, str]]
+    confirmationStatus: NotRequired[ConfirmationStatusType]
+    fulfillmentState: NotRequired[FulfillmentStateType]
+    slotToElicit: NotRequired[str]
 
-class IntentSummaryTypeDef(_RequiredIntentSummaryTypeDef, _OptionalIntentSummaryTypeDef):
-    pass
+class IntentConfidenceTypeDef(TypedDict):
+    score: NotRequired[float]
 
-_RequiredPostContentRequestRequestTypeDef = TypedDict(
-    "_RequiredPostContentRequestRequestTypeDef",
-    {
-        "botName": str,
-        "botAlias": str,
-        "userId": str,
-        "contentType": str,
-        "inputStream": Union[bytes, IO[bytes], StreamingBody],
-    },
-)
-_OptionalPostContentRequestRequestTypeDef = TypedDict(
-    "_OptionalPostContentRequestRequestTypeDef",
-    {
-        "sessionAttributes": str,
-        "requestAttributes": str,
-        "accept": str,
-        "activeContexts": str,
-    },
-    total=False,
-)
+class IntentSummaryTypeDef(TypedDict):
+    dialogActionType: DialogActionTypeType
+    intentName: NotRequired[str]
+    checkpointLabel: NotRequired[str]
+    slots: NotRequired[Mapping[str, str]]
+    confirmationStatus: NotRequired[ConfirmationStatusType]
+    fulfillmentState: NotRequired[FulfillmentStateType]
+    slotToElicit: NotRequired[str]
 
-class PostContentRequestRequestTypeDef(
-    _RequiredPostContentRequestRequestTypeDef, _OptionalPostContentRequestRequestTypeDef
-):
-    pass
+class SentimentResponseTypeDef(TypedDict):
+    sentimentLabel: NotRequired[str]
+    sentimentScore: NotRequired[str]
 
-PostContentResponseTypeDef = TypedDict(
-    "PostContentResponseTypeDef",
-    {
-        "contentType": str,
-        "intentName": str,
-        "nluIntentConfidence": str,
-        "alternativeIntents": str,
-        "slots": str,
-        "sessionAttributes": str,
-        "sentimentResponse": str,
-        "message": str,
-        "encodedMessage": str,
-        "messageFormat": MessageFormatTypeType,
-        "dialogState": DialogStateType,
-        "slotToElicit": str,
-        "inputTranscript": str,
-        "encodedInputTranscript": str,
-        "audioStream": StreamingBody,
-        "botVersion": str,
-        "sessionId": str,
-        "activeContexts": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ActiveContextOutputTypeDef(TypedDict):
+    name: str
+    timeToLive: ActiveContextTimeToLiveTypeDef
+    parameters: Dict[str, str]
 
-_RequiredPostTextRequestRequestTypeDef = TypedDict(
-    "_RequiredPostTextRequestRequestTypeDef",
-    {
-        "botName": str,
-        "botAlias": str,
-        "userId": str,
-        "inputText": str,
-    },
-)
-_OptionalPostTextRequestRequestTypeDef = TypedDict(
-    "_OptionalPostTextRequestRequestTypeDef",
-    {
-        "sessionAttributes": Dict[str, str],
-        "requestAttributes": Dict[str, str],
-        "activeContexts": List["ActiveContextTypeDef"],
-    },
-    total=False,
-)
+class ActiveContextTypeDef(TypedDict):
+    name: str
+    timeToLive: ActiveContextTimeToLiveTypeDef
+    parameters: Mapping[str, str]
 
-class PostTextRequestRequestTypeDef(
-    _RequiredPostTextRequestRequestTypeDef, _OptionalPostTextRequestRequestTypeDef
-):
-    pass
+class PostContentRequestTypeDef(TypedDict):
+    botName: str
+    botAlias: str
+    userId: str
+    contentType: str
+    inputStream: BlobTypeDef
+    sessionAttributes: NotRequired[str]
+    requestAttributes: NotRequired[str]
+    accept: NotRequired[str]
+    activeContexts: NotRequired[str]
 
-PostTextResponseTypeDef = TypedDict(
-    "PostTextResponseTypeDef",
-    {
-        "intentName": str,
-        "nluIntentConfidence": "IntentConfidenceTypeDef",
-        "alternativeIntents": List["PredictedIntentTypeDef"],
-        "slots": Dict[str, str],
-        "sessionAttributes": Dict[str, str],
-        "message": str,
-        "sentimentResponse": "SentimentResponseTypeDef",
-        "messageFormat": MessageFormatTypeType,
-        "dialogState": DialogStateType,
-        "slotToElicit": str,
-        "responseCard": "ResponseCardTypeDef",
-        "sessionId": str,
-        "botVersion": str,
-        "activeContexts": List["ActiveContextTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GenericAttachmentTypeDef(TypedDict):
+    title: NotRequired[str]
+    subTitle: NotRequired[str]
+    attachmentLinkUrl: NotRequired[str]
+    imageUrl: NotRequired[str]
+    buttons: NotRequired[List[ButtonTypeDef]]
 
-PredictedIntentTypeDef = TypedDict(
-    "PredictedIntentTypeDef",
-    {
-        "intentName": str,
-        "nluIntentConfidence": "IntentConfidenceTypeDef",
-        "slots": Dict[str, str],
-    },
-    total=False,
-)
+class DeleteSessionResponseTypeDef(TypedDict):
+    botName: str
+    botAlias: str
+    userId: str
+    sessionId: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredPutSessionRequestRequestTypeDef = TypedDict(
-    "_RequiredPutSessionRequestRequestTypeDef",
-    {
-        "botName": str,
-        "botAlias": str,
-        "userId": str,
-    },
-)
-_OptionalPutSessionRequestRequestTypeDef = TypedDict(
-    "_OptionalPutSessionRequestRequestTypeDef",
-    {
-        "sessionAttributes": Dict[str, str],
-        "dialogAction": "DialogActionTypeDef",
-        "recentIntentSummaryView": List["IntentSummaryTypeDef"],
-        "accept": str,
-        "activeContexts": List["ActiveContextTypeDef"],
-    },
-    total=False,
-)
+class PostContentResponseTypeDef(TypedDict):
+    contentType: str
+    intentName: str
+    nluIntentConfidence: str
+    alternativeIntents: str
+    slots: str
+    sessionAttributes: str
+    sentimentResponse: str
+    message: str
+    encodedMessage: str
+    messageFormat: MessageFormatTypeType
+    dialogState: DialogStateType
+    slotToElicit: str
+    inputTranscript: str
+    encodedInputTranscript: str
+    audioStream: StreamingBody
+    botVersion: str
+    sessionId: str
+    activeContexts: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class PutSessionRequestRequestTypeDef(
-    _RequiredPutSessionRequestRequestTypeDef, _OptionalPutSessionRequestRequestTypeDef
-):
-    pass
+class PutSessionResponseTypeDef(TypedDict):
+    contentType: str
+    intentName: str
+    slots: str
+    sessionAttributes: str
+    message: str
+    encodedMessage: str
+    messageFormat: MessageFormatTypeType
+    dialogState: DialogStateType
+    slotToElicit: str
+    audioStream: StreamingBody
+    sessionId: str
+    activeContexts: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-PutSessionResponseTypeDef = TypedDict(
-    "PutSessionResponseTypeDef",
-    {
-        "contentType": str,
-        "intentName": str,
-        "slots": str,
-        "sessionAttributes": str,
-        "message": str,
-        "encodedMessage": str,
-        "messageFormat": MessageFormatTypeType,
-        "dialogState": DialogStateType,
-        "slotToElicit": str,
-        "audioStream": StreamingBody,
-        "sessionId": str,
-        "activeContexts": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+DialogActionUnionTypeDef = Union[DialogActionTypeDef, DialogActionOutputTypeDef]
 
-ResponseCardTypeDef = TypedDict(
-    "ResponseCardTypeDef",
-    {
-        "version": str,
-        "contentType": Literal["application/vnd.amazonaws.card.generic"],
-        "genericAttachments": List["GenericAttachmentTypeDef"],
-    },
-    total=False,
-)
+class PredictedIntentTypeDef(TypedDict):
+    intentName: NotRequired[str]
+    nluIntentConfidence: NotRequired[IntentConfidenceTypeDef]
+    slots: NotRequired[Dict[str, str]]
 
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
+IntentSummaryUnionTypeDef = Union[IntentSummaryTypeDef, IntentSummaryOutputTypeDef]
 
-SentimentResponseTypeDef = TypedDict(
-    "SentimentResponseTypeDef",
-    {
-        "sentimentLabel": str,
-        "sentimentScore": str,
-    },
-    total=False,
-)
+class GetSessionResponseTypeDef(TypedDict):
+    recentIntentSummaryView: List[IntentSummaryOutputTypeDef]
+    sessionAttributes: Dict[str, str]
+    sessionId: str
+    dialogAction: DialogActionOutputTypeDef
+    activeContexts: List[ActiveContextOutputTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+ActiveContextUnionTypeDef = Union[ActiveContextTypeDef, ActiveContextOutputTypeDef]
+
+class ResponseCardTypeDef(TypedDict):
+    version: NotRequired[str]
+    contentType: NotRequired[Literal["application/vnd.amazonaws.card.generic"]]
+    genericAttachments: NotRequired[List[GenericAttachmentTypeDef]]
+
+class PostTextRequestTypeDef(TypedDict):
+    botName: str
+    botAlias: str
+    userId: str
+    inputText: str
+    sessionAttributes: NotRequired[Mapping[str, str]]
+    requestAttributes: NotRequired[Mapping[str, str]]
+    activeContexts: NotRequired[Sequence[ActiveContextUnionTypeDef]]
+
+class PutSessionRequestTypeDef(TypedDict):
+    botName: str
+    botAlias: str
+    userId: str
+    sessionAttributes: NotRequired[Mapping[str, str]]
+    dialogAction: NotRequired[DialogActionUnionTypeDef]
+    recentIntentSummaryView: NotRequired[Sequence[IntentSummaryUnionTypeDef]]
+    accept: NotRequired[str]
+    activeContexts: NotRequired[Sequence[ActiveContextUnionTypeDef]]
+
+class PostTextResponseTypeDef(TypedDict):
+    intentName: str
+    nluIntentConfidence: IntentConfidenceTypeDef
+    alternativeIntents: List[PredictedIntentTypeDef]
+    slots: Dict[str, str]
+    sessionAttributes: Dict[str, str]
+    message: str
+    sentimentResponse: SentimentResponseTypeDef
+    messageFormat: MessageFormatTypeType
+    dialogState: DialogStateType
+    slotToElicit: str
+    responseCard: ResponseCardTypeDef
+    sessionId: str
+    botVersion: str
+    activeContexts: List[ActiveContextOutputTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef

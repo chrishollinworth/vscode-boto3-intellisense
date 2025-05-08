@@ -1,20 +1,23 @@
 """
 Type annotations for networkmanager service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_networkmanager.type_defs import AWSLocationTypeDef
 
-    data: AWSLocationTypeDef = {...}
+    data: AWSLocationTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
 
 from .literals import (
     AttachmentErrorCodeType,
@@ -53,27 +56,29 @@ from .literals import (
     TunnelProtocolType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
     "AWSLocationTypeDef",
-    "AcceptAttachmentRequestRequestTypeDef",
+    "AcceptAttachmentRequestTypeDef",
     "AcceptAttachmentResponseTypeDef",
     "AccountStatusTypeDef",
-    "AssociateConnectPeerRequestRequestTypeDef",
+    "AssociateConnectPeerRequestTypeDef",
     "AssociateConnectPeerResponseTypeDef",
-    "AssociateCustomerGatewayRequestRequestTypeDef",
+    "AssociateCustomerGatewayRequestTypeDef",
     "AssociateCustomerGatewayResponseTypeDef",
-    "AssociateLinkRequestRequestTypeDef",
+    "AssociateLinkRequestTypeDef",
     "AssociateLinkResponseTypeDef",
-    "AssociateTransitGatewayConnectPeerRequestRequestTypeDef",
+    "AssociateTransitGatewayConnectPeerRequestTypeDef",
     "AssociateTransitGatewayConnectPeerResponseTypeDef",
     "AttachmentErrorTypeDef",
     "AttachmentTypeDef",
@@ -103,135 +108,161 @@ __all__ = (
     "CoreNetworkSegmentTypeDef",
     "CoreNetworkSummaryTypeDef",
     "CoreNetworkTypeDef",
-    "CreateConnectAttachmentRequestRequestTypeDef",
+    "CreateConnectAttachmentRequestTypeDef",
     "CreateConnectAttachmentResponseTypeDef",
-    "CreateConnectPeerRequestRequestTypeDef",
+    "CreateConnectPeerRequestTypeDef",
     "CreateConnectPeerResponseTypeDef",
-    "CreateConnectionRequestRequestTypeDef",
+    "CreateConnectionRequestTypeDef",
     "CreateConnectionResponseTypeDef",
-    "CreateCoreNetworkRequestRequestTypeDef",
+    "CreateCoreNetworkRequestTypeDef",
     "CreateCoreNetworkResponseTypeDef",
-    "CreateDeviceRequestRequestTypeDef",
+    "CreateDeviceRequestTypeDef",
     "CreateDeviceResponseTypeDef",
-    "CreateGlobalNetworkRequestRequestTypeDef",
+    "CreateDirectConnectGatewayAttachmentRequestTypeDef",
+    "CreateDirectConnectGatewayAttachmentResponseTypeDef",
+    "CreateGlobalNetworkRequestTypeDef",
     "CreateGlobalNetworkResponseTypeDef",
-    "CreateLinkRequestRequestTypeDef",
+    "CreateLinkRequestTypeDef",
     "CreateLinkResponseTypeDef",
-    "CreateSiteRequestRequestTypeDef",
+    "CreateSiteRequestTypeDef",
     "CreateSiteResponseTypeDef",
-    "CreateSiteToSiteVpnAttachmentRequestRequestTypeDef",
+    "CreateSiteToSiteVpnAttachmentRequestTypeDef",
     "CreateSiteToSiteVpnAttachmentResponseTypeDef",
-    "CreateTransitGatewayPeeringRequestRequestTypeDef",
+    "CreateTransitGatewayPeeringRequestTypeDef",
     "CreateTransitGatewayPeeringResponseTypeDef",
-    "CreateTransitGatewayRouteTableAttachmentRequestRequestTypeDef",
+    "CreateTransitGatewayRouteTableAttachmentRequestTypeDef",
     "CreateTransitGatewayRouteTableAttachmentResponseTypeDef",
-    "CreateVpcAttachmentRequestRequestTypeDef",
+    "CreateVpcAttachmentRequestTypeDef",
     "CreateVpcAttachmentResponseTypeDef",
     "CustomerGatewayAssociationTypeDef",
-    "DeleteAttachmentRequestRequestTypeDef",
+    "DeleteAttachmentRequestTypeDef",
     "DeleteAttachmentResponseTypeDef",
-    "DeleteConnectPeerRequestRequestTypeDef",
+    "DeleteConnectPeerRequestTypeDef",
     "DeleteConnectPeerResponseTypeDef",
-    "DeleteConnectionRequestRequestTypeDef",
+    "DeleteConnectionRequestTypeDef",
     "DeleteConnectionResponseTypeDef",
-    "DeleteCoreNetworkPolicyVersionRequestRequestTypeDef",
+    "DeleteCoreNetworkPolicyVersionRequestTypeDef",
     "DeleteCoreNetworkPolicyVersionResponseTypeDef",
-    "DeleteCoreNetworkRequestRequestTypeDef",
+    "DeleteCoreNetworkRequestTypeDef",
     "DeleteCoreNetworkResponseTypeDef",
-    "DeleteDeviceRequestRequestTypeDef",
+    "DeleteDeviceRequestTypeDef",
     "DeleteDeviceResponseTypeDef",
-    "DeleteGlobalNetworkRequestRequestTypeDef",
+    "DeleteGlobalNetworkRequestTypeDef",
     "DeleteGlobalNetworkResponseTypeDef",
-    "DeleteLinkRequestRequestTypeDef",
+    "DeleteLinkRequestTypeDef",
     "DeleteLinkResponseTypeDef",
-    "DeletePeeringRequestRequestTypeDef",
+    "DeletePeeringRequestTypeDef",
     "DeletePeeringResponseTypeDef",
-    "DeleteResourcePolicyRequestRequestTypeDef",
-    "DeleteSiteRequestRequestTypeDef",
+    "DeleteResourcePolicyRequestTypeDef",
+    "DeleteSiteRequestTypeDef",
     "DeleteSiteResponseTypeDef",
-    "DeregisterTransitGatewayRequestRequestTypeDef",
+    "DeregisterTransitGatewayRequestTypeDef",
     "DeregisterTransitGatewayResponseTypeDef",
-    "DescribeGlobalNetworksRequestRequestTypeDef",
+    "DescribeGlobalNetworksRequestPaginateTypeDef",
+    "DescribeGlobalNetworksRequestTypeDef",
     "DescribeGlobalNetworksResponseTypeDef",
     "DeviceTypeDef",
-    "DisassociateConnectPeerRequestRequestTypeDef",
+    "DirectConnectGatewayAttachmentTypeDef",
+    "DisassociateConnectPeerRequestTypeDef",
     "DisassociateConnectPeerResponseTypeDef",
-    "DisassociateCustomerGatewayRequestRequestTypeDef",
+    "DisassociateCustomerGatewayRequestTypeDef",
     "DisassociateCustomerGatewayResponseTypeDef",
-    "DisassociateLinkRequestRequestTypeDef",
+    "DisassociateLinkRequestTypeDef",
     "DisassociateLinkResponseTypeDef",
-    "DisassociateTransitGatewayConnectPeerRequestRequestTypeDef",
+    "DisassociateTransitGatewayConnectPeerRequestTypeDef",
     "DisassociateTransitGatewayConnectPeerResponseTypeDef",
     "EdgeOverrideTypeDef",
-    "ExecuteCoreNetworkChangeSetRequestRequestTypeDef",
-    "GetConnectAttachmentRequestRequestTypeDef",
+    "ExecuteCoreNetworkChangeSetRequestTypeDef",
+    "GetConnectAttachmentRequestTypeDef",
     "GetConnectAttachmentResponseTypeDef",
-    "GetConnectPeerAssociationsRequestRequestTypeDef",
+    "GetConnectPeerAssociationsRequestPaginateTypeDef",
+    "GetConnectPeerAssociationsRequestTypeDef",
     "GetConnectPeerAssociationsResponseTypeDef",
-    "GetConnectPeerRequestRequestTypeDef",
+    "GetConnectPeerRequestTypeDef",
     "GetConnectPeerResponseTypeDef",
-    "GetConnectionsRequestRequestTypeDef",
+    "GetConnectionsRequestPaginateTypeDef",
+    "GetConnectionsRequestTypeDef",
     "GetConnectionsResponseTypeDef",
-    "GetCoreNetworkChangeEventsRequestRequestTypeDef",
+    "GetCoreNetworkChangeEventsRequestPaginateTypeDef",
+    "GetCoreNetworkChangeEventsRequestTypeDef",
     "GetCoreNetworkChangeEventsResponseTypeDef",
-    "GetCoreNetworkChangeSetRequestRequestTypeDef",
+    "GetCoreNetworkChangeSetRequestPaginateTypeDef",
+    "GetCoreNetworkChangeSetRequestTypeDef",
     "GetCoreNetworkChangeSetResponseTypeDef",
-    "GetCoreNetworkPolicyRequestRequestTypeDef",
+    "GetCoreNetworkPolicyRequestTypeDef",
     "GetCoreNetworkPolicyResponseTypeDef",
-    "GetCoreNetworkRequestRequestTypeDef",
+    "GetCoreNetworkRequestTypeDef",
     "GetCoreNetworkResponseTypeDef",
-    "GetCustomerGatewayAssociationsRequestRequestTypeDef",
+    "GetCustomerGatewayAssociationsRequestPaginateTypeDef",
+    "GetCustomerGatewayAssociationsRequestTypeDef",
     "GetCustomerGatewayAssociationsResponseTypeDef",
-    "GetDevicesRequestRequestTypeDef",
+    "GetDevicesRequestPaginateTypeDef",
+    "GetDevicesRequestTypeDef",
     "GetDevicesResponseTypeDef",
-    "GetLinkAssociationsRequestRequestTypeDef",
+    "GetDirectConnectGatewayAttachmentRequestTypeDef",
+    "GetDirectConnectGatewayAttachmentResponseTypeDef",
+    "GetLinkAssociationsRequestPaginateTypeDef",
+    "GetLinkAssociationsRequestTypeDef",
     "GetLinkAssociationsResponseTypeDef",
-    "GetLinksRequestRequestTypeDef",
+    "GetLinksRequestPaginateTypeDef",
+    "GetLinksRequestTypeDef",
     "GetLinksResponseTypeDef",
-    "GetNetworkResourceCountsRequestRequestTypeDef",
+    "GetNetworkResourceCountsRequestPaginateTypeDef",
+    "GetNetworkResourceCountsRequestTypeDef",
     "GetNetworkResourceCountsResponseTypeDef",
-    "GetNetworkResourceRelationshipsRequestRequestTypeDef",
+    "GetNetworkResourceRelationshipsRequestPaginateTypeDef",
+    "GetNetworkResourceRelationshipsRequestTypeDef",
     "GetNetworkResourceRelationshipsResponseTypeDef",
-    "GetNetworkResourcesRequestRequestTypeDef",
+    "GetNetworkResourcesRequestPaginateTypeDef",
+    "GetNetworkResourcesRequestTypeDef",
     "GetNetworkResourcesResponseTypeDef",
-    "GetNetworkRoutesRequestRequestTypeDef",
+    "GetNetworkRoutesRequestTypeDef",
     "GetNetworkRoutesResponseTypeDef",
-    "GetNetworkTelemetryRequestRequestTypeDef",
+    "GetNetworkTelemetryRequestPaginateTypeDef",
+    "GetNetworkTelemetryRequestTypeDef",
     "GetNetworkTelemetryResponseTypeDef",
-    "GetResourcePolicyRequestRequestTypeDef",
+    "GetResourcePolicyRequestTypeDef",
     "GetResourcePolicyResponseTypeDef",
-    "GetRouteAnalysisRequestRequestTypeDef",
+    "GetRouteAnalysisRequestTypeDef",
     "GetRouteAnalysisResponseTypeDef",
-    "GetSiteToSiteVpnAttachmentRequestRequestTypeDef",
+    "GetSiteToSiteVpnAttachmentRequestTypeDef",
     "GetSiteToSiteVpnAttachmentResponseTypeDef",
-    "GetSitesRequestRequestTypeDef",
+    "GetSitesRequestPaginateTypeDef",
+    "GetSitesRequestTypeDef",
     "GetSitesResponseTypeDef",
-    "GetTransitGatewayConnectPeerAssociationsRequestRequestTypeDef",
+    "GetTransitGatewayConnectPeerAssociationsRequestPaginateTypeDef",
+    "GetTransitGatewayConnectPeerAssociationsRequestTypeDef",
     "GetTransitGatewayConnectPeerAssociationsResponseTypeDef",
-    "GetTransitGatewayPeeringRequestRequestTypeDef",
+    "GetTransitGatewayPeeringRequestTypeDef",
     "GetTransitGatewayPeeringResponseTypeDef",
-    "GetTransitGatewayRegistrationsRequestRequestTypeDef",
+    "GetTransitGatewayRegistrationsRequestPaginateTypeDef",
+    "GetTransitGatewayRegistrationsRequestTypeDef",
     "GetTransitGatewayRegistrationsResponseTypeDef",
-    "GetTransitGatewayRouteTableAttachmentRequestRequestTypeDef",
+    "GetTransitGatewayRouteTableAttachmentRequestTypeDef",
     "GetTransitGatewayRouteTableAttachmentResponseTypeDef",
-    "GetVpcAttachmentRequestRequestTypeDef",
+    "GetVpcAttachmentRequestTypeDef",
     "GetVpcAttachmentResponseTypeDef",
     "GlobalNetworkTypeDef",
     "LinkAssociationTypeDef",
     "LinkTypeDef",
-    "ListAttachmentsRequestRequestTypeDef",
+    "ListAttachmentsRequestPaginateTypeDef",
+    "ListAttachmentsRequestTypeDef",
     "ListAttachmentsResponseTypeDef",
-    "ListConnectPeersRequestRequestTypeDef",
+    "ListConnectPeersRequestPaginateTypeDef",
+    "ListConnectPeersRequestTypeDef",
     "ListConnectPeersResponseTypeDef",
-    "ListCoreNetworkPolicyVersionsRequestRequestTypeDef",
+    "ListCoreNetworkPolicyVersionsRequestPaginateTypeDef",
+    "ListCoreNetworkPolicyVersionsRequestTypeDef",
     "ListCoreNetworkPolicyVersionsResponseTypeDef",
-    "ListCoreNetworksRequestRequestTypeDef",
+    "ListCoreNetworksRequestPaginateTypeDef",
+    "ListCoreNetworksRequestTypeDef",
     "ListCoreNetworksResponseTypeDef",
-    "ListOrganizationServiceAccessStatusRequestRequestTypeDef",
+    "ListOrganizationServiceAccessStatusRequestTypeDef",
     "ListOrganizationServiceAccessStatusResponseTypeDef",
-    "ListPeeringsRequestRequestTypeDef",
+    "ListPeeringsRequestPaginateTypeDef",
+    "ListPeeringsRequestTypeDef",
     "ListPeeringsResponseTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "LocationTypeDef",
     "NetworkFunctionGroupTypeDef",
@@ -249,16 +280,16 @@ __all__ = (
     "PermissionsErrorContextTypeDef",
     "ProposedNetworkFunctionGroupChangeTypeDef",
     "ProposedSegmentChangeTypeDef",
-    "PutCoreNetworkPolicyRequestRequestTypeDef",
+    "PutCoreNetworkPolicyRequestTypeDef",
     "PutCoreNetworkPolicyResponseTypeDef",
-    "PutResourcePolicyRequestRequestTypeDef",
-    "RegisterTransitGatewayRequestRequestTypeDef",
+    "PutResourcePolicyRequestTypeDef",
+    "RegisterTransitGatewayRequestTypeDef",
     "RegisterTransitGatewayResponseTypeDef",
-    "RejectAttachmentRequestRequestTypeDef",
+    "RejectAttachmentRequestTypeDef",
     "RejectAttachmentResponseTypeDef",
     "RelationshipTypeDef",
     "ResponseMetadataTypeDef",
-    "RestoreCoreNetworkPolicyVersionRequestRequestTypeDef",
+    "RestoreCoreNetworkPolicyVersionRequestTypeDef",
     "RestoreCoreNetworkPolicyVersionResponseTypeDef",
     "RouteAnalysisCompletionTypeDef",
     "RouteAnalysisEndpointOptionsSpecificationTypeDef",
@@ -270,33 +301,35 @@ __all__ = (
     "ServiceInsertionSegmentsTypeDef",
     "SiteToSiteVpnAttachmentTypeDef",
     "SiteTypeDef",
-    "StartOrganizationServiceAccessUpdateRequestRequestTypeDef",
+    "StartOrganizationServiceAccessUpdateRequestTypeDef",
     "StartOrganizationServiceAccessUpdateResponseTypeDef",
-    "StartRouteAnalysisRequestRequestTypeDef",
+    "StartRouteAnalysisRequestTypeDef",
     "StartRouteAnalysisResponseTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
     "TagTypeDef",
     "TransitGatewayConnectPeerAssociationTypeDef",
     "TransitGatewayPeeringTypeDef",
     "TransitGatewayRegistrationStateReasonTypeDef",
     "TransitGatewayRegistrationTypeDef",
     "TransitGatewayRouteTableAttachmentTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateConnectionRequestRequestTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateConnectionRequestTypeDef",
     "UpdateConnectionResponseTypeDef",
-    "UpdateCoreNetworkRequestRequestTypeDef",
+    "UpdateCoreNetworkRequestTypeDef",
     "UpdateCoreNetworkResponseTypeDef",
-    "UpdateDeviceRequestRequestTypeDef",
+    "UpdateDeviceRequestTypeDef",
     "UpdateDeviceResponseTypeDef",
-    "UpdateGlobalNetworkRequestRequestTypeDef",
+    "UpdateDirectConnectGatewayAttachmentRequestTypeDef",
+    "UpdateDirectConnectGatewayAttachmentResponseTypeDef",
+    "UpdateGlobalNetworkRequestTypeDef",
     "UpdateGlobalNetworkResponseTypeDef",
-    "UpdateLinkRequestRequestTypeDef",
+    "UpdateLinkRequestTypeDef",
     "UpdateLinkResponseTypeDef",
-    "UpdateNetworkResourceMetadataRequestRequestTypeDef",
+    "UpdateNetworkResourceMetadataRequestTypeDef",
     "UpdateNetworkResourceMetadataResponseTypeDef",
-    "UpdateSiteRequestRequestTypeDef",
+    "UpdateSiteRequestTypeDef",
     "UpdateSiteResponseTypeDef",
-    "UpdateVpcAttachmentRequestRequestTypeDef",
+    "UpdateVpcAttachmentRequestTypeDef",
     "UpdateVpcAttachmentResponseTypeDef",
     "ViaTypeDef",
     "VpcAttachmentTypeDef",
@@ -304,2841 +337,1531 @@ __all__ = (
     "WhenSentToTypeDef",
 )
 
-AWSLocationTypeDef = TypedDict(
-    "AWSLocationTypeDef",
-    {
-        "Zone": str,
-        "SubnetArn": str,
-    },
-    total=False,
-)
+class AWSLocationTypeDef(TypedDict):
+    Zone: NotRequired[str]
+    SubnetArn: NotRequired[str]
 
-AcceptAttachmentRequestRequestTypeDef = TypedDict(
-    "AcceptAttachmentRequestRequestTypeDef",
-    {
-        "AttachmentId": str,
-    },
-)
+class AcceptAttachmentRequestTypeDef(TypedDict):
+    AttachmentId: str
 
-AcceptAttachmentResponseTypeDef = TypedDict(
-    "AcceptAttachmentResponseTypeDef",
-    {
-        "Attachment": "AttachmentTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-AccountStatusTypeDef = TypedDict(
-    "AccountStatusTypeDef",
-    {
-        "AccountId": str,
-        "SLRDeploymentStatus": str,
-    },
-    total=False,
-)
+class AccountStatusTypeDef(TypedDict):
+    AccountId: NotRequired[str]
+    SLRDeploymentStatus: NotRequired[str]
 
-_RequiredAssociateConnectPeerRequestRequestTypeDef = TypedDict(
-    "_RequiredAssociateConnectPeerRequestRequestTypeDef",
-    {
-        "GlobalNetworkId": str,
-        "ConnectPeerId": str,
-        "DeviceId": str,
-    },
-)
-_OptionalAssociateConnectPeerRequestRequestTypeDef = TypedDict(
-    "_OptionalAssociateConnectPeerRequestRequestTypeDef",
-    {
-        "LinkId": str,
-    },
-    total=False,
-)
+class AssociateConnectPeerRequestTypeDef(TypedDict):
+    GlobalNetworkId: str
+    ConnectPeerId: str
+    DeviceId: str
+    LinkId: NotRequired[str]
 
-class AssociateConnectPeerRequestRequestTypeDef(
-    _RequiredAssociateConnectPeerRequestRequestTypeDef,
-    _OptionalAssociateConnectPeerRequestRequestTypeDef,
-):
-    pass
+class ConnectPeerAssociationTypeDef(TypedDict):
+    ConnectPeerId: NotRequired[str]
+    GlobalNetworkId: NotRequired[str]
+    DeviceId: NotRequired[str]
+    LinkId: NotRequired[str]
+    State: NotRequired[ConnectPeerAssociationStateType]
 
-AssociateConnectPeerResponseTypeDef = TypedDict(
-    "AssociateConnectPeerResponseTypeDef",
-    {
-        "ConnectPeerAssociation": "ConnectPeerAssociationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class AssociateCustomerGatewayRequestTypeDef(TypedDict):
+    CustomerGatewayArn: str
+    GlobalNetworkId: str
+    DeviceId: str
+    LinkId: NotRequired[str]
 
-_RequiredAssociateCustomerGatewayRequestRequestTypeDef = TypedDict(
-    "_RequiredAssociateCustomerGatewayRequestRequestTypeDef",
-    {
-        "CustomerGatewayArn": str,
-        "GlobalNetworkId": str,
-        "DeviceId": str,
-    },
-)
-_OptionalAssociateCustomerGatewayRequestRequestTypeDef = TypedDict(
-    "_OptionalAssociateCustomerGatewayRequestRequestTypeDef",
-    {
-        "LinkId": str,
-    },
-    total=False,
-)
+class CustomerGatewayAssociationTypeDef(TypedDict):
+    CustomerGatewayArn: NotRequired[str]
+    GlobalNetworkId: NotRequired[str]
+    DeviceId: NotRequired[str]
+    LinkId: NotRequired[str]
+    State: NotRequired[CustomerGatewayAssociationStateType]
 
-class AssociateCustomerGatewayRequestRequestTypeDef(
-    _RequiredAssociateCustomerGatewayRequestRequestTypeDef,
-    _OptionalAssociateCustomerGatewayRequestRequestTypeDef,
-):
-    pass
+class AssociateLinkRequestTypeDef(TypedDict):
+    GlobalNetworkId: str
+    DeviceId: str
+    LinkId: str
 
-AssociateCustomerGatewayResponseTypeDef = TypedDict(
-    "AssociateCustomerGatewayResponseTypeDef",
-    {
-        "CustomerGatewayAssociation": "CustomerGatewayAssociationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class LinkAssociationTypeDef(TypedDict):
+    GlobalNetworkId: NotRequired[str]
+    DeviceId: NotRequired[str]
+    LinkId: NotRequired[str]
+    LinkAssociationState: NotRequired[LinkAssociationStateType]
 
-AssociateLinkRequestRequestTypeDef = TypedDict(
-    "AssociateLinkRequestRequestTypeDef",
-    {
-        "GlobalNetworkId": str,
-        "DeviceId": str,
-        "LinkId": str,
-    },
-)
+class AssociateTransitGatewayConnectPeerRequestTypeDef(TypedDict):
+    GlobalNetworkId: str
+    TransitGatewayConnectPeerArn: str
+    DeviceId: str
+    LinkId: NotRequired[str]
 
-AssociateLinkResponseTypeDef = TypedDict(
-    "AssociateLinkResponseTypeDef",
-    {
-        "LinkAssociation": "LinkAssociationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class TransitGatewayConnectPeerAssociationTypeDef(TypedDict):
+    TransitGatewayConnectPeerArn: NotRequired[str]
+    GlobalNetworkId: NotRequired[str]
+    DeviceId: NotRequired[str]
+    LinkId: NotRequired[str]
+    State: NotRequired[TransitGatewayConnectPeerAssociationStateType]
 
-_RequiredAssociateTransitGatewayConnectPeerRequestRequestTypeDef = TypedDict(
-    "_RequiredAssociateTransitGatewayConnectPeerRequestRequestTypeDef",
-    {
-        "GlobalNetworkId": str,
-        "TransitGatewayConnectPeerArn": str,
-        "DeviceId": str,
-    },
-)
-_OptionalAssociateTransitGatewayConnectPeerRequestRequestTypeDef = TypedDict(
-    "_OptionalAssociateTransitGatewayConnectPeerRequestRequestTypeDef",
-    {
-        "LinkId": str,
-    },
-    total=False,
-)
+class AttachmentErrorTypeDef(TypedDict):
+    Code: NotRequired[AttachmentErrorCodeType]
+    Message: NotRequired[str]
+    ResourceArn: NotRequired[str]
+    RequestId: NotRequired[str]
 
-class AssociateTransitGatewayConnectPeerRequestRequestTypeDef(
-    _RequiredAssociateTransitGatewayConnectPeerRequestRequestTypeDef,
-    _OptionalAssociateTransitGatewayConnectPeerRequestRequestTypeDef,
-):
-    pass
+class TagTypeDef(TypedDict):
+    Key: NotRequired[str]
+    Value: NotRequired[str]
 
-AssociateTransitGatewayConnectPeerResponseTypeDef = TypedDict(
-    "AssociateTransitGatewayConnectPeerResponseTypeDef",
-    {
-        "TransitGatewayConnectPeerAssociation": "TransitGatewayConnectPeerAssociationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class BandwidthTypeDef(TypedDict):
+    UploadSpeed: NotRequired[int]
+    DownloadSpeed: NotRequired[int]
 
-AttachmentErrorTypeDef = TypedDict(
-    "AttachmentErrorTypeDef",
-    {
-        "Code": AttachmentErrorCodeType,
-        "Message": str,
-        "ResourceArn": str,
-        "RequestId": str,
-    },
-    total=False,
-)
-
-AttachmentTypeDef = TypedDict(
-    "AttachmentTypeDef",
-    {
-        "CoreNetworkId": str,
-        "CoreNetworkArn": str,
-        "AttachmentId": str,
-        "OwnerAccountId": str,
-        "AttachmentType": AttachmentTypeType,
-        "State": AttachmentStateType,
-        "EdgeLocation": str,
-        "ResourceArn": str,
-        "AttachmentPolicyRuleNumber": int,
-        "SegmentName": str,
-        "NetworkFunctionGroupName": str,
-        "Tags": List["TagTypeDef"],
-        "ProposedSegmentChange": "ProposedSegmentChangeTypeDef",
-        "ProposedNetworkFunctionGroupChange": "ProposedNetworkFunctionGroupChangeTypeDef",
-        "CreatedAt": datetime,
-        "UpdatedAt": datetime,
-        "LastModificationErrors": List["AttachmentErrorTypeDef"],
-    },
-    total=False,
-)
-
-BandwidthTypeDef = TypedDict(
-    "BandwidthTypeDef",
-    {
-        "UploadSpeed": int,
-        "DownloadSpeed": int,
-    },
-    total=False,
-)
-
-BgpOptionsTypeDef = TypedDict(
-    "BgpOptionsTypeDef",
-    {
-        "PeerAsn": int,
-    },
-    total=False,
-)
+class BgpOptionsTypeDef(TypedDict):
+    PeerAsn: NotRequired[int]
 
 ConnectAttachmentOptionsTypeDef = TypedDict(
     "ConnectAttachmentOptionsTypeDef",
     {
-        "Protocol": TunnelProtocolType,
+        "Protocol": NotRequired[TunnelProtocolType],
     },
-    total=False,
 )
 
-ConnectAttachmentTypeDef = TypedDict(
-    "ConnectAttachmentTypeDef",
-    {
-        "Attachment": "AttachmentTypeDef",
-        "TransportAttachmentId": str,
-        "Options": "ConnectAttachmentOptionsTypeDef",
-    },
-    total=False,
-)
+class ConnectPeerBgpConfigurationTypeDef(TypedDict):
+    CoreNetworkAsn: NotRequired[int]
+    PeerAsn: NotRequired[int]
+    CoreNetworkAddress: NotRequired[str]
+    PeerAddress: NotRequired[str]
 
-ConnectPeerAssociationTypeDef = TypedDict(
-    "ConnectPeerAssociationTypeDef",
-    {
-        "ConnectPeerId": str,
-        "GlobalNetworkId": str,
-        "DeviceId": str,
-        "LinkId": str,
-        "State": ConnectPeerAssociationStateType,
-    },
-    total=False,
-)
-
-ConnectPeerBgpConfigurationTypeDef = TypedDict(
-    "ConnectPeerBgpConfigurationTypeDef",
-    {
-        "CoreNetworkAsn": int,
-        "PeerAsn": int,
-        "CoreNetworkAddress": str,
-        "PeerAddress": str,
-    },
-    total=False,
-)
-
-ConnectPeerConfigurationTypeDef = TypedDict(
-    "ConnectPeerConfigurationTypeDef",
-    {
-        "CoreNetworkAddress": str,
-        "PeerAddress": str,
-        "InsideCidrBlocks": List[str],
-        "Protocol": TunnelProtocolType,
-        "BgpConfigurations": List["ConnectPeerBgpConfigurationTypeDef"],
-    },
-    total=False,
-)
-
-ConnectPeerErrorTypeDef = TypedDict(
-    "ConnectPeerErrorTypeDef",
-    {
-        "Code": ConnectPeerErrorCodeType,
-        "Message": str,
-        "ResourceArn": str,
-        "RequestId": str,
-    },
-    total=False,
-)
-
-ConnectPeerSummaryTypeDef = TypedDict(
-    "ConnectPeerSummaryTypeDef",
-    {
-        "CoreNetworkId": str,
-        "ConnectAttachmentId": str,
-        "ConnectPeerId": str,
-        "EdgeLocation": str,
-        "ConnectPeerState": ConnectPeerStateType,
-        "CreatedAt": datetime,
-        "Tags": List["TagTypeDef"],
-        "SubnetArn": str,
-    },
-    total=False,
-)
-
-ConnectPeerTypeDef = TypedDict(
-    "ConnectPeerTypeDef",
-    {
-        "CoreNetworkId": str,
-        "ConnectAttachmentId": str,
-        "ConnectPeerId": str,
-        "EdgeLocation": str,
-        "State": ConnectPeerStateType,
-        "CreatedAt": datetime,
-        "Configuration": "ConnectPeerConfigurationTypeDef",
-        "Tags": List["TagTypeDef"],
-        "SubnetArn": str,
-        "LastModificationErrors": List["ConnectPeerErrorTypeDef"],
-    },
-    total=False,
-)
+class ConnectPeerErrorTypeDef(TypedDict):
+    Code: NotRequired[ConnectPeerErrorCodeType]
+    Message: NotRequired[str]
+    ResourceArn: NotRequired[str]
+    RequestId: NotRequired[str]
 
 ConnectionHealthTypeDef = TypedDict(
     "ConnectionHealthTypeDef",
     {
-        "Type": ConnectionTypeType,
-        "Status": ConnectionStatusType,
-        "Timestamp": datetime,
+        "Type": NotRequired[ConnectionTypeType],
+        "Status": NotRequired[ConnectionStatusType],
+        "Timestamp": NotRequired[datetime],
     },
-    total=False,
 )
 
-ConnectionTypeDef = TypedDict(
-    "ConnectionTypeDef",
+class CoreNetworkChangeEventValuesTypeDef(TypedDict):
+    EdgeLocation: NotRequired[str]
+    SegmentName: NotRequired[str]
+    NetworkFunctionGroupName: NotRequired[str]
+    AttachmentId: NotRequired[str]
+    Cidr: NotRequired[str]
+
+class CoreNetworkEdgeTypeDef(TypedDict):
+    EdgeLocation: NotRequired[str]
+    Asn: NotRequired[int]
+    InsideCidrBlocks: NotRequired[List[str]]
+
+class CoreNetworkNetworkFunctionGroupIdentifierTypeDef(TypedDict):
+    CoreNetworkId: NotRequired[str]
+    NetworkFunctionGroupName: NotRequired[str]
+    EdgeLocation: NotRequired[str]
+
+class ServiceInsertionSegmentsTypeDef(TypedDict):
+    SendVia: NotRequired[List[str]]
+    SendTo: NotRequired[List[str]]
+
+class CoreNetworkPolicyErrorTypeDef(TypedDict):
+    ErrorCode: str
+    Message: str
+    Path: NotRequired[str]
+
+class CoreNetworkPolicyVersionTypeDef(TypedDict):
+    CoreNetworkId: NotRequired[str]
+    PolicyVersionId: NotRequired[int]
+    Alias: NotRequired[CoreNetworkPolicyAliasType]
+    Description: NotRequired[str]
+    CreatedAt: NotRequired[datetime]
+    ChangeSetState: NotRequired[ChangeSetStateType]
+
+class CoreNetworkSegmentEdgeIdentifierTypeDef(TypedDict):
+    CoreNetworkId: NotRequired[str]
+    SegmentName: NotRequired[str]
+    EdgeLocation: NotRequired[str]
+
+class CoreNetworkSegmentTypeDef(TypedDict):
+    Name: NotRequired[str]
+    EdgeLocations: NotRequired[List[str]]
+    SharedSegments: NotRequired[List[str]]
+
+class LocationTypeDef(TypedDict):
+    Address: NotRequired[str]
+    Latitude: NotRequired[str]
+    Longitude: NotRequired[str]
+
+class VpcOptionsTypeDef(TypedDict):
+    Ipv6Support: NotRequired[bool]
+    ApplianceModeSupport: NotRequired[bool]
+
+class DeleteAttachmentRequestTypeDef(TypedDict):
+    AttachmentId: str
+
+class DeleteConnectPeerRequestTypeDef(TypedDict):
+    ConnectPeerId: str
+
+class DeleteConnectionRequestTypeDef(TypedDict):
+    GlobalNetworkId: str
+    ConnectionId: str
+
+class DeleteCoreNetworkPolicyVersionRequestTypeDef(TypedDict):
+    CoreNetworkId: str
+    PolicyVersionId: int
+
+class DeleteCoreNetworkRequestTypeDef(TypedDict):
+    CoreNetworkId: str
+
+class DeleteDeviceRequestTypeDef(TypedDict):
+    GlobalNetworkId: str
+    DeviceId: str
+
+class DeleteGlobalNetworkRequestTypeDef(TypedDict):
+    GlobalNetworkId: str
+
+class DeleteLinkRequestTypeDef(TypedDict):
+    GlobalNetworkId: str
+    LinkId: str
+
+class DeletePeeringRequestTypeDef(TypedDict):
+    PeeringId: str
+
+class DeleteResourcePolicyRequestTypeDef(TypedDict):
+    ResourceArn: str
+
+class DeleteSiteRequestTypeDef(TypedDict):
+    GlobalNetworkId: str
+    SiteId: str
+
+class DeregisterTransitGatewayRequestTypeDef(TypedDict):
+    GlobalNetworkId: str
+    TransitGatewayArn: str
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class DescribeGlobalNetworksRequestTypeDef(TypedDict):
+    GlobalNetworkIds: NotRequired[Sequence[str]]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class DisassociateConnectPeerRequestTypeDef(TypedDict):
+    GlobalNetworkId: str
+    ConnectPeerId: str
+
+class DisassociateCustomerGatewayRequestTypeDef(TypedDict):
+    GlobalNetworkId: str
+    CustomerGatewayArn: str
+
+class DisassociateLinkRequestTypeDef(TypedDict):
+    GlobalNetworkId: str
+    DeviceId: str
+    LinkId: str
+
+class DisassociateTransitGatewayConnectPeerRequestTypeDef(TypedDict):
+    GlobalNetworkId: str
+    TransitGatewayConnectPeerArn: str
+
+class EdgeOverrideTypeDef(TypedDict):
+    EdgeSets: NotRequired[List[List[str]]]
+    UseEdge: NotRequired[str]
+
+class ExecuteCoreNetworkChangeSetRequestTypeDef(TypedDict):
+    CoreNetworkId: str
+    PolicyVersionId: int
+
+class GetConnectAttachmentRequestTypeDef(TypedDict):
+    AttachmentId: str
+
+class GetConnectPeerAssociationsRequestTypeDef(TypedDict):
+    GlobalNetworkId: str
+    ConnectPeerIds: NotRequired[Sequence[str]]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class GetConnectPeerRequestTypeDef(TypedDict):
+    ConnectPeerId: str
+
+class GetConnectionsRequestTypeDef(TypedDict):
+    GlobalNetworkId: str
+    ConnectionIds: NotRequired[Sequence[str]]
+    DeviceId: NotRequired[str]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class GetCoreNetworkChangeEventsRequestTypeDef(TypedDict):
+    CoreNetworkId: str
+    PolicyVersionId: int
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class GetCoreNetworkChangeSetRequestTypeDef(TypedDict):
+    CoreNetworkId: str
+    PolicyVersionId: int
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class GetCoreNetworkPolicyRequestTypeDef(TypedDict):
+    CoreNetworkId: str
+    PolicyVersionId: NotRequired[int]
+    Alias: NotRequired[CoreNetworkPolicyAliasType]
+
+class GetCoreNetworkRequestTypeDef(TypedDict):
+    CoreNetworkId: str
+
+class GetCustomerGatewayAssociationsRequestTypeDef(TypedDict):
+    GlobalNetworkId: str
+    CustomerGatewayArns: NotRequired[Sequence[str]]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class GetDevicesRequestTypeDef(TypedDict):
+    GlobalNetworkId: str
+    DeviceIds: NotRequired[Sequence[str]]
+    SiteId: NotRequired[str]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class GetDirectConnectGatewayAttachmentRequestTypeDef(TypedDict):
+    AttachmentId: str
+
+class GetLinkAssociationsRequestTypeDef(TypedDict):
+    GlobalNetworkId: str
+    DeviceId: NotRequired[str]
+    LinkId: NotRequired[str]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+GetLinksRequestTypeDef = TypedDict(
+    "GetLinksRequestTypeDef",
     {
-        "ConnectionId": str,
-        "ConnectionArn": str,
         "GlobalNetworkId": str,
-        "DeviceId": str,
-        "ConnectedDeviceId": str,
-        "LinkId": str,
-        "ConnectedLinkId": str,
-        "Description": str,
-        "CreatedAt": datetime,
-        "State": ConnectionStateType,
-        "Tags": List["TagTypeDef"],
+        "LinkIds": NotRequired[Sequence[str]],
+        "SiteId": NotRequired[str],
+        "Type": NotRequired[str],
+        "Provider": NotRequired[str],
+        "MaxResults": NotRequired[int],
+        "NextToken": NotRequired[str],
     },
-    total=False,
 )
+
+class GetNetworkResourceCountsRequestTypeDef(TypedDict):
+    GlobalNetworkId: str
+    ResourceType: NotRequired[str]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class NetworkResourceCountTypeDef(TypedDict):
+    ResourceType: NotRequired[str]
+    Count: NotRequired[int]
+
+class GetNetworkResourceRelationshipsRequestTypeDef(TypedDict):
+    GlobalNetworkId: str
+    CoreNetworkId: NotRequired[str]
+    RegisteredGatewayArn: NotRequired[str]
+    AwsRegion: NotRequired[str]
+    AccountId: NotRequired[str]
+    ResourceType: NotRequired[str]
+    ResourceArn: NotRequired[str]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class RelationshipTypeDef(TypedDict):
+    From: NotRequired[str]
+    To: NotRequired[str]
+
+class GetNetworkResourcesRequestTypeDef(TypedDict):
+    GlobalNetworkId: str
+    CoreNetworkId: NotRequired[str]
+    RegisteredGatewayArn: NotRequired[str]
+    AwsRegion: NotRequired[str]
+    AccountId: NotRequired[str]
+    ResourceType: NotRequired[str]
+    ResourceArn: NotRequired[str]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class GetNetworkTelemetryRequestTypeDef(TypedDict):
+    GlobalNetworkId: str
+    CoreNetworkId: NotRequired[str]
+    RegisteredGatewayArn: NotRequired[str]
+    AwsRegion: NotRequired[str]
+    AccountId: NotRequired[str]
+    ResourceType: NotRequired[str]
+    ResourceArn: NotRequired[str]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class GetResourcePolicyRequestTypeDef(TypedDict):
+    ResourceArn: str
+
+class GetRouteAnalysisRequestTypeDef(TypedDict):
+    GlobalNetworkId: str
+    RouteAnalysisId: str
+
+class GetSiteToSiteVpnAttachmentRequestTypeDef(TypedDict):
+    AttachmentId: str
+
+class GetSitesRequestTypeDef(TypedDict):
+    GlobalNetworkId: str
+    SiteIds: NotRequired[Sequence[str]]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class GetTransitGatewayConnectPeerAssociationsRequestTypeDef(TypedDict):
+    GlobalNetworkId: str
+    TransitGatewayConnectPeerArns: NotRequired[Sequence[str]]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class GetTransitGatewayPeeringRequestTypeDef(TypedDict):
+    PeeringId: str
+
+class GetTransitGatewayRegistrationsRequestTypeDef(TypedDict):
+    GlobalNetworkId: str
+    TransitGatewayArns: NotRequired[Sequence[str]]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class GetTransitGatewayRouteTableAttachmentRequestTypeDef(TypedDict):
+    AttachmentId: str
+
+class GetVpcAttachmentRequestTypeDef(TypedDict):
+    AttachmentId: str
+
+class ListAttachmentsRequestTypeDef(TypedDict):
+    CoreNetworkId: NotRequired[str]
+    AttachmentType: NotRequired[AttachmentTypeType]
+    EdgeLocation: NotRequired[str]
+    State: NotRequired[AttachmentStateType]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListConnectPeersRequestTypeDef(TypedDict):
+    CoreNetworkId: NotRequired[str]
+    ConnectAttachmentId: NotRequired[str]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListCoreNetworkPolicyVersionsRequestTypeDef(TypedDict):
+    CoreNetworkId: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListCoreNetworksRequestTypeDef(TypedDict):
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListOrganizationServiceAccessStatusRequestTypeDef(TypedDict):
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListPeeringsRequestTypeDef(TypedDict):
+    CoreNetworkId: NotRequired[str]
+    PeeringType: NotRequired[Literal["TRANSIT_GATEWAY"]]
+    EdgeLocation: NotRequired[str]
+    State: NotRequired[PeeringStateType]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+
+class NetworkFunctionGroupTypeDef(TypedDict):
+    Name: NotRequired[str]
+
+class NetworkResourceSummaryTypeDef(TypedDict):
+    RegisteredGatewayArn: NotRequired[str]
+    ResourceArn: NotRequired[str]
+    ResourceType: NotRequired[str]
+    Definition: NotRequired[str]
+    NameTag: NotRequired[str]
+    IsMiddlebox: NotRequired[bool]
+
+class NetworkRouteDestinationTypeDef(TypedDict):
+    CoreNetworkAttachmentId: NotRequired[str]
+    TransitGatewayAttachmentId: NotRequired[str]
+    SegmentName: NotRequired[str]
+    NetworkFunctionGroupName: NotRequired[str]
+    EdgeLocation: NotRequired[str]
+    ResourceType: NotRequired[str]
+    ResourceId: NotRequired[str]
+
+class PermissionsErrorContextTypeDef(TypedDict):
+    MissingPermission: NotRequired[str]
+
+class PutCoreNetworkPolicyRequestTypeDef(TypedDict):
+    CoreNetworkId: str
+    PolicyDocument: str
+    Description: NotRequired[str]
+    LatestVersionId: NotRequired[int]
+    ClientToken: NotRequired[str]
+
+class PutResourcePolicyRequestTypeDef(TypedDict):
+    PolicyDocument: str
+    ResourceArn: str
+
+class RegisterTransitGatewayRequestTypeDef(TypedDict):
+    GlobalNetworkId: str
+    TransitGatewayArn: str
+
+class RejectAttachmentRequestTypeDef(TypedDict):
+    AttachmentId: str
+
+class RestoreCoreNetworkPolicyVersionRequestTypeDef(TypedDict):
+    CoreNetworkId: str
+    PolicyVersionId: int
+
+class RouteAnalysisCompletionTypeDef(TypedDict):
+    ResultCode: NotRequired[RouteAnalysisCompletionResultCodeType]
+    ReasonCode: NotRequired[RouteAnalysisCompletionReasonCodeType]
+    ReasonContext: NotRequired[Dict[str, str]]
+
+class RouteAnalysisEndpointOptionsSpecificationTypeDef(TypedDict):
+    TransitGatewayAttachmentArn: NotRequired[str]
+    IpAddress: NotRequired[str]
+
+class RouteAnalysisEndpointOptionsTypeDef(TypedDict):
+    TransitGatewayAttachmentArn: NotRequired[str]
+    TransitGatewayArn: NotRequired[str]
+    IpAddress: NotRequired[str]
+
+class WhenSentToTypeDef(TypedDict):
+    WhenSentToSegmentsList: NotRequired[List[str]]
+
+class StartOrganizationServiceAccessUpdateRequestTypeDef(TypedDict):
+    Action: str
+
+class TransitGatewayRegistrationStateReasonTypeDef(TypedDict):
+    Code: NotRequired[TransitGatewayRegistrationStateType]
+    Message: NotRequired[str]
+
+class UntagResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+    TagKeys: Sequence[str]
+
+class UpdateConnectionRequestTypeDef(TypedDict):
+    GlobalNetworkId: str
+    ConnectionId: str
+    LinkId: NotRequired[str]
+    ConnectedLinkId: NotRequired[str]
+    Description: NotRequired[str]
+
+class UpdateCoreNetworkRequestTypeDef(TypedDict):
+    CoreNetworkId: str
+    Description: NotRequired[str]
+
+class UpdateDirectConnectGatewayAttachmentRequestTypeDef(TypedDict):
+    AttachmentId: str
+    EdgeLocations: NotRequired[Sequence[str]]
+
+class UpdateGlobalNetworkRequestTypeDef(TypedDict):
+    GlobalNetworkId: str
+    Description: NotRequired[str]
+
+class UpdateNetworkResourceMetadataRequestTypeDef(TypedDict):
+    GlobalNetworkId: str
+    ResourceArn: str
+    Metadata: Mapping[str, str]
+
+class GetResourcePolicyResponseTypeDef(TypedDict):
+    PolicyDocument: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateNetworkResourceMetadataResponseTypeDef(TypedDict):
+    ResourceArn: str
+    Metadata: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class OrganizationStatusTypeDef(TypedDict):
+    OrganizationId: NotRequired[str]
+    OrganizationAwsServiceAccessStatus: NotRequired[str]
+    SLRDeploymentStatus: NotRequired[str]
+    AccountStatusList: NotRequired[List[AccountStatusTypeDef]]
+
+class AssociateConnectPeerResponseTypeDef(TypedDict):
+    ConnectPeerAssociation: ConnectPeerAssociationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DisassociateConnectPeerResponseTypeDef(TypedDict):
+    ConnectPeerAssociation: ConnectPeerAssociationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetConnectPeerAssociationsResponseTypeDef(TypedDict):
+    ConnectPeerAssociations: List[ConnectPeerAssociationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class AssociateCustomerGatewayResponseTypeDef(TypedDict):
+    CustomerGatewayAssociation: CustomerGatewayAssociationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DisassociateCustomerGatewayResponseTypeDef(TypedDict):
+    CustomerGatewayAssociation: CustomerGatewayAssociationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetCustomerGatewayAssociationsResponseTypeDef(TypedDict):
+    CustomerGatewayAssociations: List[CustomerGatewayAssociationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class AssociateLinkResponseTypeDef(TypedDict):
+    LinkAssociation: LinkAssociationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DisassociateLinkResponseTypeDef(TypedDict):
+    LinkAssociation: LinkAssociationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetLinkAssociationsResponseTypeDef(TypedDict):
+    LinkAssociations: List[LinkAssociationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class AssociateTransitGatewayConnectPeerResponseTypeDef(TypedDict):
+    TransitGatewayConnectPeerAssociation: TransitGatewayConnectPeerAssociationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DisassociateTransitGatewayConnectPeerResponseTypeDef(TypedDict):
+    TransitGatewayConnectPeerAssociation: TransitGatewayConnectPeerAssociationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetTransitGatewayConnectPeerAssociationsResponseTypeDef(TypedDict):
+    TransitGatewayConnectPeerAssociations: List[TransitGatewayConnectPeerAssociationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ConnectPeerSummaryTypeDef(TypedDict):
+    CoreNetworkId: NotRequired[str]
+    ConnectAttachmentId: NotRequired[str]
+    ConnectPeerId: NotRequired[str]
+    EdgeLocation: NotRequired[str]
+    ConnectPeerState: NotRequired[ConnectPeerStateType]
+    CreatedAt: NotRequired[datetime]
+    Tags: NotRequired[List[TagTypeDef]]
+    SubnetArn: NotRequired[str]
+
+class ConnectionTypeDef(TypedDict):
+    ConnectionId: NotRequired[str]
+    ConnectionArn: NotRequired[str]
+    GlobalNetworkId: NotRequired[str]
+    DeviceId: NotRequired[str]
+    ConnectedDeviceId: NotRequired[str]
+    LinkId: NotRequired[str]
+    ConnectedLinkId: NotRequired[str]
+    Description: NotRequired[str]
+    CreatedAt: NotRequired[datetime]
+    State: NotRequired[ConnectionStateType]
+    Tags: NotRequired[List[TagTypeDef]]
+
+class CoreNetworkSummaryTypeDef(TypedDict):
+    CoreNetworkId: NotRequired[str]
+    CoreNetworkArn: NotRequired[str]
+    GlobalNetworkId: NotRequired[str]
+    OwnerAccountId: NotRequired[str]
+    State: NotRequired[CoreNetworkStateType]
+    Description: NotRequired[str]
+    Tags: NotRequired[List[TagTypeDef]]
+
+class CreateConnectionRequestTypeDef(TypedDict):
+    GlobalNetworkId: str
+    DeviceId: str
+    ConnectedDeviceId: str
+    LinkId: NotRequired[str]
+    ConnectedLinkId: NotRequired[str]
+    Description: NotRequired[str]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+
+class CreateCoreNetworkRequestTypeDef(TypedDict):
+    GlobalNetworkId: str
+    Description: NotRequired[str]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+    PolicyDocument: NotRequired[str]
+    ClientToken: NotRequired[str]
+
+class CreateDirectConnectGatewayAttachmentRequestTypeDef(TypedDict):
+    CoreNetworkId: str
+    DirectConnectGatewayArn: str
+    EdgeLocations: Sequence[str]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+    ClientToken: NotRequired[str]
+
+class CreateGlobalNetworkRequestTypeDef(TypedDict):
+    Description: NotRequired[str]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+
+class CreateSiteToSiteVpnAttachmentRequestTypeDef(TypedDict):
+    CoreNetworkId: str
+    VpnConnectionArn: str
+    Tags: NotRequired[Sequence[TagTypeDef]]
+    ClientToken: NotRequired[str]
+
+class CreateTransitGatewayPeeringRequestTypeDef(TypedDict):
+    CoreNetworkId: str
+    TransitGatewayArn: str
+    Tags: NotRequired[Sequence[TagTypeDef]]
+    ClientToken: NotRequired[str]
+
+class CreateTransitGatewayRouteTableAttachmentRequestTypeDef(TypedDict):
+    PeeringId: str
+    TransitGatewayRouteTableArn: str
+    Tags: NotRequired[Sequence[TagTypeDef]]
+    ClientToken: NotRequired[str]
+
+class GlobalNetworkTypeDef(TypedDict):
+    GlobalNetworkId: NotRequired[str]
+    GlobalNetworkArn: NotRequired[str]
+    Description: NotRequired[str]
+    CreatedAt: NotRequired[datetime]
+    State: NotRequired[GlobalNetworkStateType]
+    Tags: NotRequired[List[TagTypeDef]]
+
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    TagList: List[TagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class NetworkResourceTypeDef(TypedDict):
+    RegisteredGatewayArn: NotRequired[str]
+    CoreNetworkId: NotRequired[str]
+    AwsRegion: NotRequired[str]
+    AccountId: NotRequired[str]
+    ResourceType: NotRequired[str]
+    ResourceId: NotRequired[str]
+    ResourceArn: NotRequired[str]
+    Definition: NotRequired[str]
+    DefinitionTimestamp: NotRequired[datetime]
+    Tags: NotRequired[List[TagTypeDef]]
+    Metadata: NotRequired[Dict[str, str]]
+
+class ProposedNetworkFunctionGroupChangeTypeDef(TypedDict):
+    Tags: NotRequired[List[TagTypeDef]]
+    AttachmentPolicyRuleNumber: NotRequired[int]
+    NetworkFunctionGroupName: NotRequired[str]
+
+class ProposedSegmentChangeTypeDef(TypedDict):
+    Tags: NotRequired[List[TagTypeDef]]
+    AttachmentPolicyRuleNumber: NotRequired[int]
+    SegmentName: NotRequired[str]
+
+class TagResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+    Tags: Sequence[TagTypeDef]
+
+CreateLinkRequestTypeDef = TypedDict(
+    "CreateLinkRequestTypeDef",
+    {
+        "GlobalNetworkId": str,
+        "Bandwidth": BandwidthTypeDef,
+        "SiteId": str,
+        "Description": NotRequired[str],
+        "Type": NotRequired[str],
+        "Provider": NotRequired[str],
+        "Tags": NotRequired[Sequence[TagTypeDef]],
+    },
+)
+LinkTypeDef = TypedDict(
+    "LinkTypeDef",
+    {
+        "LinkId": NotRequired[str],
+        "LinkArn": NotRequired[str],
+        "GlobalNetworkId": NotRequired[str],
+        "SiteId": NotRequired[str],
+        "Description": NotRequired[str],
+        "Type": NotRequired[str],
+        "Bandwidth": NotRequired[BandwidthTypeDef],
+        "Provider": NotRequired[str],
+        "CreatedAt": NotRequired[datetime],
+        "State": NotRequired[LinkStateType],
+        "Tags": NotRequired[List[TagTypeDef]],
+    },
+)
+UpdateLinkRequestTypeDef = TypedDict(
+    "UpdateLinkRequestTypeDef",
+    {
+        "GlobalNetworkId": str,
+        "LinkId": str,
+        "Description": NotRequired[str],
+        "Type": NotRequired[str],
+        "Bandwidth": NotRequired[BandwidthTypeDef],
+        "Provider": NotRequired[str],
+    },
+)
+
+class CreateConnectPeerRequestTypeDef(TypedDict):
+    ConnectAttachmentId: str
+    PeerAddress: str
+    CoreNetworkAddress: NotRequired[str]
+    BgpOptions: NotRequired[BgpOptionsTypeDef]
+    InsideCidrBlocks: NotRequired[Sequence[str]]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+    ClientToken: NotRequired[str]
+    SubnetArn: NotRequired[str]
+
+class CreateConnectAttachmentRequestTypeDef(TypedDict):
+    CoreNetworkId: str
+    EdgeLocation: str
+    TransportAttachmentId: str
+    Options: ConnectAttachmentOptionsTypeDef
+    Tags: NotRequired[Sequence[TagTypeDef]]
+    ClientToken: NotRequired[str]
+
+ConnectPeerConfigurationTypeDef = TypedDict(
+    "ConnectPeerConfigurationTypeDef",
+    {
+        "CoreNetworkAddress": NotRequired[str],
+        "PeerAddress": NotRequired[str],
+        "InsideCidrBlocks": NotRequired[List[str]],
+        "Protocol": NotRequired[TunnelProtocolType],
+        "BgpConfigurations": NotRequired[List[ConnectPeerBgpConfigurationTypeDef]],
+    },
+)
+
+class NetworkTelemetryTypeDef(TypedDict):
+    RegisteredGatewayArn: NotRequired[str]
+    CoreNetworkId: NotRequired[str]
+    AwsRegion: NotRequired[str]
+    AccountId: NotRequired[str]
+    ResourceType: NotRequired[str]
+    ResourceId: NotRequired[str]
+    ResourceArn: NotRequired[str]
+    Address: NotRequired[str]
+    Health: NotRequired[ConnectionHealthTypeDef]
 
 CoreNetworkChangeEventTypeDef = TypedDict(
     "CoreNetworkChangeEventTypeDef",
     {
-        "Type": ChangeTypeType,
-        "Action": ChangeActionType,
-        "IdentifierPath": str,
-        "EventTime": datetime,
-        "Status": ChangeStatusType,
-        "Values": "CoreNetworkChangeEventValuesTypeDef",
-    },
-    total=False,
-)
-
-CoreNetworkChangeEventValuesTypeDef = TypedDict(
-    "CoreNetworkChangeEventValuesTypeDef",
-    {
-        "EdgeLocation": str,
-        "SegmentName": str,
-        "NetworkFunctionGroupName": str,
-        "AttachmentId": str,
-        "Cidr": str,
-    },
-    total=False,
-)
-
-CoreNetworkChangeTypeDef = TypedDict(
-    "CoreNetworkChangeTypeDef",
-    {
-        "Type": ChangeTypeType,
-        "Action": ChangeActionType,
-        "Identifier": str,
-        "PreviousValues": "CoreNetworkChangeValuesTypeDef",
-        "NewValues": "CoreNetworkChangeValuesTypeDef",
-        "IdentifierPath": str,
-    },
-    total=False,
-)
-
-CoreNetworkChangeValuesTypeDef = TypedDict(
-    "CoreNetworkChangeValuesTypeDef",
-    {
-        "SegmentName": str,
-        "NetworkFunctionGroupName": str,
-        "EdgeLocations": List[str],
-        "Asn": int,
-        "Cidr": str,
-        "DestinationIdentifier": str,
-        "InsideCidrBlocks": List[str],
-        "SharedSegments": List[str],
-        "ServiceInsertionActions": List["ServiceInsertionActionTypeDef"],
-    },
-    total=False,
-)
-
-CoreNetworkEdgeTypeDef = TypedDict(
-    "CoreNetworkEdgeTypeDef",
-    {
-        "EdgeLocation": str,
-        "Asn": int,
-        "InsideCidrBlocks": List[str],
-    },
-    total=False,
-)
-
-CoreNetworkNetworkFunctionGroupIdentifierTypeDef = TypedDict(
-    "CoreNetworkNetworkFunctionGroupIdentifierTypeDef",
-    {
-        "CoreNetworkId": str,
-        "NetworkFunctionGroupName": str,
-        "EdgeLocation": str,
-    },
-    total=False,
-)
-
-CoreNetworkNetworkFunctionGroupTypeDef = TypedDict(
-    "CoreNetworkNetworkFunctionGroupTypeDef",
-    {
-        "Name": str,
-        "EdgeLocations": List[str],
-        "Segments": "ServiceInsertionSegmentsTypeDef",
-    },
-    total=False,
-)
-
-_RequiredCoreNetworkPolicyErrorTypeDef = TypedDict(
-    "_RequiredCoreNetworkPolicyErrorTypeDef",
-    {
-        "ErrorCode": str,
-        "Message": str,
+        "Type": NotRequired[ChangeTypeType],
+        "Action": NotRequired[ChangeActionType],
+        "IdentifierPath": NotRequired[str],
+        "EventTime": NotRequired[datetime],
+        "Status": NotRequired[ChangeStatusType],
+        "Values": NotRequired[CoreNetworkChangeEventValuesTypeDef],
     },
 )
-_OptionalCoreNetworkPolicyErrorTypeDef = TypedDict(
-    "_OptionalCoreNetworkPolicyErrorTypeDef",
-    {
-        "Path": str,
-    },
-    total=False,
-)
 
-class CoreNetworkPolicyErrorTypeDef(
-    _RequiredCoreNetworkPolicyErrorTypeDef, _OptionalCoreNetworkPolicyErrorTypeDef
-):
-    pass
+class CoreNetworkNetworkFunctionGroupTypeDef(TypedDict):
+    Name: NotRequired[str]
+    EdgeLocations: NotRequired[List[str]]
+    Segments: NotRequired[ServiceInsertionSegmentsTypeDef]
 
-CoreNetworkPolicyTypeDef = TypedDict(
-    "CoreNetworkPolicyTypeDef",
-    {
-        "CoreNetworkId": str,
-        "PolicyVersionId": int,
-        "Alias": CoreNetworkPolicyAliasType,
-        "Description": str,
-        "CreatedAt": datetime,
-        "ChangeSetState": ChangeSetStateType,
-        "PolicyErrors": List["CoreNetworkPolicyErrorTypeDef"],
-        "PolicyDocument": str,
-    },
-    total=False,
-)
+class CoreNetworkPolicyTypeDef(TypedDict):
+    CoreNetworkId: NotRequired[str]
+    PolicyVersionId: NotRequired[int]
+    Alias: NotRequired[CoreNetworkPolicyAliasType]
+    Description: NotRequired[str]
+    CreatedAt: NotRequired[datetime]
+    ChangeSetState: NotRequired[ChangeSetStateType]
+    PolicyErrors: NotRequired[List[CoreNetworkPolicyErrorTypeDef]]
+    PolicyDocument: NotRequired[str]
 
-CoreNetworkPolicyVersionTypeDef = TypedDict(
-    "CoreNetworkPolicyVersionTypeDef",
-    {
-        "CoreNetworkId": str,
-        "PolicyVersionId": int,
-        "Alias": CoreNetworkPolicyAliasType,
-        "Description": str,
-        "CreatedAt": datetime,
-        "ChangeSetState": ChangeSetStateType,
-    },
-    total=False,
-)
+class ListCoreNetworkPolicyVersionsResponseTypeDef(TypedDict):
+    CoreNetworkPolicyVersions: List[CoreNetworkPolicyVersionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-CoreNetworkSegmentEdgeIdentifierTypeDef = TypedDict(
-    "CoreNetworkSegmentEdgeIdentifierTypeDef",
-    {
-        "CoreNetworkId": str,
-        "SegmentName": str,
-        "EdgeLocation": str,
-    },
-    total=False,
-)
+class RouteTableIdentifierTypeDef(TypedDict):
+    TransitGatewayRouteTableArn: NotRequired[str]
+    CoreNetworkSegmentEdge: NotRequired[CoreNetworkSegmentEdgeIdentifierTypeDef]
+    CoreNetworkNetworkFunctionGroup: NotRequired[CoreNetworkNetworkFunctionGroupIdentifierTypeDef]
 
-CoreNetworkSegmentTypeDef = TypedDict(
-    "CoreNetworkSegmentTypeDef",
-    {
-        "Name": str,
-        "EdgeLocations": List[str],
-        "SharedSegments": List[str],
-    },
-    total=False,
-)
-
-CoreNetworkSummaryTypeDef = TypedDict(
-    "CoreNetworkSummaryTypeDef",
-    {
-        "CoreNetworkId": str,
-        "CoreNetworkArn": str,
-        "GlobalNetworkId": str,
-        "OwnerAccountId": str,
-        "State": CoreNetworkStateType,
-        "Description": str,
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-CoreNetworkTypeDef = TypedDict(
-    "CoreNetworkTypeDef",
+CreateDeviceRequestTypeDef = TypedDict(
+    "CreateDeviceRequestTypeDef",
     {
         "GlobalNetworkId": str,
-        "CoreNetworkId": str,
-        "CoreNetworkArn": str,
-        "Description": str,
-        "CreatedAt": datetime,
-        "State": CoreNetworkStateType,
-        "Segments": List["CoreNetworkSegmentTypeDef"],
-        "NetworkFunctionGroups": List["CoreNetworkNetworkFunctionGroupTypeDef"],
-        "Edges": List["CoreNetworkEdgeTypeDef"],
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-_RequiredCreateConnectAttachmentRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateConnectAttachmentRequestRequestTypeDef",
-    {
-        "CoreNetworkId": str,
-        "EdgeLocation": str,
-        "TransportAttachmentId": str,
-        "Options": "ConnectAttachmentOptionsTypeDef",
-    },
-)
-_OptionalCreateConnectAttachmentRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateConnectAttachmentRequestRequestTypeDef",
-    {
-        "Tags": List["TagTypeDef"],
-        "ClientToken": str,
-    },
-    total=False,
-)
-
-class CreateConnectAttachmentRequestRequestTypeDef(
-    _RequiredCreateConnectAttachmentRequestRequestTypeDef,
-    _OptionalCreateConnectAttachmentRequestRequestTypeDef,
-):
-    pass
-
-CreateConnectAttachmentResponseTypeDef = TypedDict(
-    "CreateConnectAttachmentResponseTypeDef",
-    {
-        "ConnectAttachment": "ConnectAttachmentTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "AWSLocation": NotRequired[AWSLocationTypeDef],
+        "Description": NotRequired[str],
+        "Type": NotRequired[str],
+        "Vendor": NotRequired[str],
+        "Model": NotRequired[str],
+        "SerialNumber": NotRequired[str],
+        "Location": NotRequired[LocationTypeDef],
+        "SiteId": NotRequired[str],
+        "Tags": NotRequired[Sequence[TagTypeDef]],
     },
 )
 
-_RequiredCreateConnectPeerRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateConnectPeerRequestRequestTypeDef",
-    {
-        "ConnectAttachmentId": str,
-        "PeerAddress": str,
-    },
-)
-_OptionalCreateConnectPeerRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateConnectPeerRequestRequestTypeDef",
-    {
-        "CoreNetworkAddress": str,
-        "BgpOptions": "BgpOptionsTypeDef",
-        "InsideCidrBlocks": List[str],
-        "Tags": List["TagTypeDef"],
-        "ClientToken": str,
-        "SubnetArn": str,
-    },
-    total=False,
-)
-
-class CreateConnectPeerRequestRequestTypeDef(
-    _RequiredCreateConnectPeerRequestRequestTypeDef, _OptionalCreateConnectPeerRequestRequestTypeDef
-):
-    pass
-
-CreateConnectPeerResponseTypeDef = TypedDict(
-    "CreateConnectPeerResponseTypeDef",
-    {
-        "ConnectPeer": "ConnectPeerTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateConnectionRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateConnectionRequestRequestTypeDef",
-    {
-        "GlobalNetworkId": str,
-        "DeviceId": str,
-        "ConnectedDeviceId": str,
-    },
-)
-_OptionalCreateConnectionRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateConnectionRequestRequestTypeDef",
-    {
-        "LinkId": str,
-        "ConnectedLinkId": str,
-        "Description": str,
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateConnectionRequestRequestTypeDef(
-    _RequiredCreateConnectionRequestRequestTypeDef, _OptionalCreateConnectionRequestRequestTypeDef
-):
-    pass
-
-CreateConnectionResponseTypeDef = TypedDict(
-    "CreateConnectionResponseTypeDef",
-    {
-        "Connection": "ConnectionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateCoreNetworkRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateCoreNetworkRequestRequestTypeDef",
-    {
-        "GlobalNetworkId": str,
-    },
-)
-_OptionalCreateCoreNetworkRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateCoreNetworkRequestRequestTypeDef",
-    {
-        "Description": str,
-        "Tags": List["TagTypeDef"],
-        "PolicyDocument": str,
-        "ClientToken": str,
-    },
-    total=False,
-)
-
-class CreateCoreNetworkRequestRequestTypeDef(
-    _RequiredCreateCoreNetworkRequestRequestTypeDef, _OptionalCreateCoreNetworkRequestRequestTypeDef
-):
-    pass
-
-CreateCoreNetworkResponseTypeDef = TypedDict(
-    "CreateCoreNetworkResponseTypeDef",
-    {
-        "CoreNetwork": "CoreNetworkTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateDeviceRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateDeviceRequestRequestTypeDef",
-    {
-        "GlobalNetworkId": str,
-    },
-)
-_OptionalCreateDeviceRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateDeviceRequestRequestTypeDef",
-    {
-        "AWSLocation": "AWSLocationTypeDef",
-        "Description": str,
-        "Type": str,
-        "Vendor": str,
-        "Model": str,
-        "SerialNumber": str,
-        "Location": "LocationTypeDef",
-        "SiteId": str,
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateDeviceRequestRequestTypeDef(
-    _RequiredCreateDeviceRequestRequestTypeDef, _OptionalCreateDeviceRequestRequestTypeDef
-):
-    pass
-
-CreateDeviceResponseTypeDef = TypedDict(
-    "CreateDeviceResponseTypeDef",
-    {
-        "Device": "DeviceTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateGlobalNetworkRequestRequestTypeDef = TypedDict(
-    "CreateGlobalNetworkRequestRequestTypeDef",
-    {
-        "Description": str,
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-CreateGlobalNetworkResponseTypeDef = TypedDict(
-    "CreateGlobalNetworkResponseTypeDef",
-    {
-        "GlobalNetwork": "GlobalNetworkTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateLinkRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateLinkRequestRequestTypeDef",
-    {
-        "GlobalNetworkId": str,
-        "Bandwidth": "BandwidthTypeDef",
-        "SiteId": str,
-    },
-)
-_OptionalCreateLinkRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateLinkRequestRequestTypeDef",
-    {
-        "Description": str,
-        "Type": str,
-        "Provider": str,
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateLinkRequestRequestTypeDef(
-    _RequiredCreateLinkRequestRequestTypeDef, _OptionalCreateLinkRequestRequestTypeDef
-):
-    pass
-
-CreateLinkResponseTypeDef = TypedDict(
-    "CreateLinkResponseTypeDef",
-    {
-        "Link": "LinkTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateSiteRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateSiteRequestRequestTypeDef",
-    {
-        "GlobalNetworkId": str,
-    },
-)
-_OptionalCreateSiteRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateSiteRequestRequestTypeDef",
-    {
-        "Description": str,
-        "Location": "LocationTypeDef",
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateSiteRequestRequestTypeDef(
-    _RequiredCreateSiteRequestRequestTypeDef, _OptionalCreateSiteRequestRequestTypeDef
-):
-    pass
-
-CreateSiteResponseTypeDef = TypedDict(
-    "CreateSiteResponseTypeDef",
-    {
-        "Site": "SiteTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateSiteToSiteVpnAttachmentRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateSiteToSiteVpnAttachmentRequestRequestTypeDef",
-    {
-        "CoreNetworkId": str,
-        "VpnConnectionArn": str,
-    },
-)
-_OptionalCreateSiteToSiteVpnAttachmentRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateSiteToSiteVpnAttachmentRequestRequestTypeDef",
-    {
-        "Tags": List["TagTypeDef"],
-        "ClientToken": str,
-    },
-    total=False,
-)
-
-class CreateSiteToSiteVpnAttachmentRequestRequestTypeDef(
-    _RequiredCreateSiteToSiteVpnAttachmentRequestRequestTypeDef,
-    _OptionalCreateSiteToSiteVpnAttachmentRequestRequestTypeDef,
-):
-    pass
-
-CreateSiteToSiteVpnAttachmentResponseTypeDef = TypedDict(
-    "CreateSiteToSiteVpnAttachmentResponseTypeDef",
-    {
-        "SiteToSiteVpnAttachment": "SiteToSiteVpnAttachmentTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateTransitGatewayPeeringRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateTransitGatewayPeeringRequestRequestTypeDef",
-    {
-        "CoreNetworkId": str,
-        "TransitGatewayArn": str,
-    },
-)
-_OptionalCreateTransitGatewayPeeringRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateTransitGatewayPeeringRequestRequestTypeDef",
-    {
-        "Tags": List["TagTypeDef"],
-        "ClientToken": str,
-    },
-    total=False,
-)
-
-class CreateTransitGatewayPeeringRequestRequestTypeDef(
-    _RequiredCreateTransitGatewayPeeringRequestRequestTypeDef,
-    _OptionalCreateTransitGatewayPeeringRequestRequestTypeDef,
-):
-    pass
-
-CreateTransitGatewayPeeringResponseTypeDef = TypedDict(
-    "CreateTransitGatewayPeeringResponseTypeDef",
-    {
-        "TransitGatewayPeering": "TransitGatewayPeeringTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateTransitGatewayRouteTableAttachmentRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateTransitGatewayRouteTableAttachmentRequestRequestTypeDef",
-    {
-        "PeeringId": str,
-        "TransitGatewayRouteTableArn": str,
-    },
-)
-_OptionalCreateTransitGatewayRouteTableAttachmentRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateTransitGatewayRouteTableAttachmentRequestRequestTypeDef",
-    {
-        "Tags": List["TagTypeDef"],
-        "ClientToken": str,
-    },
-    total=False,
-)
-
-class CreateTransitGatewayRouteTableAttachmentRequestRequestTypeDef(
-    _RequiredCreateTransitGatewayRouteTableAttachmentRequestRequestTypeDef,
-    _OptionalCreateTransitGatewayRouteTableAttachmentRequestRequestTypeDef,
-):
-    pass
-
-CreateTransitGatewayRouteTableAttachmentResponseTypeDef = TypedDict(
-    "CreateTransitGatewayRouteTableAttachmentResponseTypeDef",
-    {
-        "TransitGatewayRouteTableAttachment": "TransitGatewayRouteTableAttachmentTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateVpcAttachmentRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateVpcAttachmentRequestRequestTypeDef",
-    {
-        "CoreNetworkId": str,
-        "VpcArn": str,
-        "SubnetArns": List[str],
-    },
-)
-_OptionalCreateVpcAttachmentRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateVpcAttachmentRequestRequestTypeDef",
-    {
-        "Options": "VpcOptionsTypeDef",
-        "Tags": List["TagTypeDef"],
-        "ClientToken": str,
-    },
-    total=False,
-)
-
-class CreateVpcAttachmentRequestRequestTypeDef(
-    _RequiredCreateVpcAttachmentRequestRequestTypeDef,
-    _OptionalCreateVpcAttachmentRequestRequestTypeDef,
-):
-    pass
-
-CreateVpcAttachmentResponseTypeDef = TypedDict(
-    "CreateVpcAttachmentResponseTypeDef",
-    {
-        "VpcAttachment": "VpcAttachmentTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CustomerGatewayAssociationTypeDef = TypedDict(
-    "CustomerGatewayAssociationTypeDef",
-    {
-        "CustomerGatewayArn": str,
-        "GlobalNetworkId": str,
-        "DeviceId": str,
-        "LinkId": str,
-        "State": CustomerGatewayAssociationStateType,
-    },
-    total=False,
-)
-
-DeleteAttachmentRequestRequestTypeDef = TypedDict(
-    "DeleteAttachmentRequestRequestTypeDef",
-    {
-        "AttachmentId": str,
-    },
-)
-
-DeleteAttachmentResponseTypeDef = TypedDict(
-    "DeleteAttachmentResponseTypeDef",
-    {
-        "Attachment": "AttachmentTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteConnectPeerRequestRequestTypeDef = TypedDict(
-    "DeleteConnectPeerRequestRequestTypeDef",
-    {
-        "ConnectPeerId": str,
-    },
-)
-
-DeleteConnectPeerResponseTypeDef = TypedDict(
-    "DeleteConnectPeerResponseTypeDef",
-    {
-        "ConnectPeer": "ConnectPeerTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteConnectionRequestRequestTypeDef = TypedDict(
-    "DeleteConnectionRequestRequestTypeDef",
-    {
-        "GlobalNetworkId": str,
-        "ConnectionId": str,
-    },
-)
-
-DeleteConnectionResponseTypeDef = TypedDict(
-    "DeleteConnectionResponseTypeDef",
-    {
-        "Connection": "ConnectionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteCoreNetworkPolicyVersionRequestRequestTypeDef = TypedDict(
-    "DeleteCoreNetworkPolicyVersionRequestRequestTypeDef",
-    {
-        "CoreNetworkId": str,
-        "PolicyVersionId": int,
-    },
-)
-
-DeleteCoreNetworkPolicyVersionResponseTypeDef = TypedDict(
-    "DeleteCoreNetworkPolicyVersionResponseTypeDef",
-    {
-        "CoreNetworkPolicy": "CoreNetworkPolicyTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteCoreNetworkRequestRequestTypeDef = TypedDict(
-    "DeleteCoreNetworkRequestRequestTypeDef",
-    {
-        "CoreNetworkId": str,
-    },
-)
-
-DeleteCoreNetworkResponseTypeDef = TypedDict(
-    "DeleteCoreNetworkResponseTypeDef",
-    {
-        "CoreNetwork": "CoreNetworkTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteDeviceRequestRequestTypeDef = TypedDict(
-    "DeleteDeviceRequestRequestTypeDef",
-    {
-        "GlobalNetworkId": str,
-        "DeviceId": str,
-    },
-)
-
-DeleteDeviceResponseTypeDef = TypedDict(
-    "DeleteDeviceResponseTypeDef",
-    {
-        "Device": "DeviceTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteGlobalNetworkRequestRequestTypeDef = TypedDict(
-    "DeleteGlobalNetworkRequestRequestTypeDef",
-    {
-        "GlobalNetworkId": str,
-    },
-)
-
-DeleteGlobalNetworkResponseTypeDef = TypedDict(
-    "DeleteGlobalNetworkResponseTypeDef",
-    {
-        "GlobalNetwork": "GlobalNetworkTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteLinkRequestRequestTypeDef = TypedDict(
-    "DeleteLinkRequestRequestTypeDef",
-    {
-        "GlobalNetworkId": str,
-        "LinkId": str,
-    },
-)
-
-DeleteLinkResponseTypeDef = TypedDict(
-    "DeleteLinkResponseTypeDef",
-    {
-        "Link": "LinkTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeletePeeringRequestRequestTypeDef = TypedDict(
-    "DeletePeeringRequestRequestTypeDef",
-    {
-        "PeeringId": str,
-    },
-)
-
-DeletePeeringResponseTypeDef = TypedDict(
-    "DeletePeeringResponseTypeDef",
-    {
-        "Peering": "PeeringTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteResourcePolicyRequestRequestTypeDef = TypedDict(
-    "DeleteResourcePolicyRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-    },
-)
-
-DeleteSiteRequestRequestTypeDef = TypedDict(
-    "DeleteSiteRequestRequestTypeDef",
-    {
-        "GlobalNetworkId": str,
-        "SiteId": str,
-    },
-)
-
-DeleteSiteResponseTypeDef = TypedDict(
-    "DeleteSiteResponseTypeDef",
-    {
-        "Site": "SiteTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeregisterTransitGatewayRequestRequestTypeDef = TypedDict(
-    "DeregisterTransitGatewayRequestRequestTypeDef",
-    {
-        "GlobalNetworkId": str,
-        "TransitGatewayArn": str,
-    },
-)
-
-DeregisterTransitGatewayResponseTypeDef = TypedDict(
-    "DeregisterTransitGatewayResponseTypeDef",
-    {
-        "TransitGatewayRegistration": "TransitGatewayRegistrationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeGlobalNetworksRequestRequestTypeDef = TypedDict(
-    "DescribeGlobalNetworksRequestRequestTypeDef",
-    {
-        "GlobalNetworkIds": List[str],
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-DescribeGlobalNetworksResponseTypeDef = TypedDict(
-    "DescribeGlobalNetworksResponseTypeDef",
-    {
-        "GlobalNetworks": List["GlobalNetworkTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CreateSiteRequestTypeDef(TypedDict):
+    GlobalNetworkId: str
+    Description: NotRequired[str]
+    Location: NotRequired[LocationTypeDef]
+    Tags: NotRequired[Sequence[TagTypeDef]]
 
 DeviceTypeDef = TypedDict(
     "DeviceTypeDef",
     {
-        "DeviceId": str,
-        "DeviceArn": str,
-        "GlobalNetworkId": str,
-        "AWSLocation": "AWSLocationTypeDef",
-        "Description": str,
-        "Type": str,
-        "Vendor": str,
-        "Model": str,
-        "SerialNumber": str,
-        "Location": "LocationTypeDef",
-        "SiteId": str,
-        "CreatedAt": datetime,
-        "State": DeviceStateType,
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-DisassociateConnectPeerRequestRequestTypeDef = TypedDict(
-    "DisassociateConnectPeerRequestRequestTypeDef",
-    {
-        "GlobalNetworkId": str,
-        "ConnectPeerId": str,
+        "DeviceId": NotRequired[str],
+        "DeviceArn": NotRequired[str],
+        "GlobalNetworkId": NotRequired[str],
+        "AWSLocation": NotRequired[AWSLocationTypeDef],
+        "Description": NotRequired[str],
+        "Type": NotRequired[str],
+        "Vendor": NotRequired[str],
+        "Model": NotRequired[str],
+        "SerialNumber": NotRequired[str],
+        "Location": NotRequired[LocationTypeDef],
+        "SiteId": NotRequired[str],
+        "CreatedAt": NotRequired[datetime],
+        "State": NotRequired[DeviceStateType],
+        "Tags": NotRequired[List[TagTypeDef]],
     },
 )
 
-DisassociateConnectPeerResponseTypeDef = TypedDict(
-    "DisassociateConnectPeerResponseTypeDef",
-    {
-        "ConnectPeerAssociation": "ConnectPeerAssociationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class SiteTypeDef(TypedDict):
+    SiteId: NotRequired[str]
+    SiteArn: NotRequired[str]
+    GlobalNetworkId: NotRequired[str]
+    Description: NotRequired[str]
+    Location: NotRequired[LocationTypeDef]
+    CreatedAt: NotRequired[datetime]
+    State: NotRequired[SiteStateType]
+    Tags: NotRequired[List[TagTypeDef]]
 
-DisassociateCustomerGatewayRequestRequestTypeDef = TypedDict(
-    "DisassociateCustomerGatewayRequestRequestTypeDef",
-    {
-        "GlobalNetworkId": str,
-        "CustomerGatewayArn": str,
-    },
-)
-
-DisassociateCustomerGatewayResponseTypeDef = TypedDict(
-    "DisassociateCustomerGatewayResponseTypeDef",
-    {
-        "CustomerGatewayAssociation": "CustomerGatewayAssociationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DisassociateLinkRequestRequestTypeDef = TypedDict(
-    "DisassociateLinkRequestRequestTypeDef",
+UpdateDeviceRequestTypeDef = TypedDict(
+    "UpdateDeviceRequestTypeDef",
     {
         "GlobalNetworkId": str,
         "DeviceId": str,
-        "LinkId": str,
+        "AWSLocation": NotRequired[AWSLocationTypeDef],
+        "Description": NotRequired[str],
+        "Type": NotRequired[str],
+        "Vendor": NotRequired[str],
+        "Model": NotRequired[str],
+        "SerialNumber": NotRequired[str],
+        "Location": NotRequired[LocationTypeDef],
+        "SiteId": NotRequired[str],
     },
 )
 
-DisassociateLinkResponseTypeDef = TypedDict(
-    "DisassociateLinkResponseTypeDef",
-    {
-        "LinkAssociation": "LinkAssociationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class UpdateSiteRequestTypeDef(TypedDict):
+    GlobalNetworkId: str
+    SiteId: str
+    Description: NotRequired[str]
+    Location: NotRequired[LocationTypeDef]
 
-DisassociateTransitGatewayConnectPeerRequestRequestTypeDef = TypedDict(
-    "DisassociateTransitGatewayConnectPeerRequestRequestTypeDef",
-    {
-        "GlobalNetworkId": str,
-        "TransitGatewayConnectPeerArn": str,
-    },
-)
+class CreateVpcAttachmentRequestTypeDef(TypedDict):
+    CoreNetworkId: str
+    VpcArn: str
+    SubnetArns: Sequence[str]
+    Options: NotRequired[VpcOptionsTypeDef]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+    ClientToken: NotRequired[str]
 
-DisassociateTransitGatewayConnectPeerResponseTypeDef = TypedDict(
-    "DisassociateTransitGatewayConnectPeerResponseTypeDef",
-    {
-        "TransitGatewayConnectPeerAssociation": "TransitGatewayConnectPeerAssociationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class UpdateVpcAttachmentRequestTypeDef(TypedDict):
+    AttachmentId: str
+    AddSubnetArns: NotRequired[Sequence[str]]
+    RemoveSubnetArns: NotRequired[Sequence[str]]
+    Options: NotRequired[VpcOptionsTypeDef]
 
-EdgeOverrideTypeDef = TypedDict(
-    "EdgeOverrideTypeDef",
-    {
-        "EdgeSets": List[List[str]],
-        "UseEdge": str,
-    },
-    total=False,
-)
+class DescribeGlobalNetworksRequestPaginateTypeDef(TypedDict):
+    GlobalNetworkIds: NotRequired[Sequence[str]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-ExecuteCoreNetworkChangeSetRequestRequestTypeDef = TypedDict(
-    "ExecuteCoreNetworkChangeSetRequestRequestTypeDef",
-    {
-        "CoreNetworkId": str,
-        "PolicyVersionId": int,
-    },
-)
+class GetConnectPeerAssociationsRequestPaginateTypeDef(TypedDict):
+    GlobalNetworkId: str
+    ConnectPeerIds: NotRequired[Sequence[str]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-GetConnectAttachmentRequestRequestTypeDef = TypedDict(
-    "GetConnectAttachmentRequestRequestTypeDef",
-    {
-        "AttachmentId": str,
-    },
-)
+class GetConnectionsRequestPaginateTypeDef(TypedDict):
+    GlobalNetworkId: str
+    ConnectionIds: NotRequired[Sequence[str]]
+    DeviceId: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-GetConnectAttachmentResponseTypeDef = TypedDict(
-    "GetConnectAttachmentResponseTypeDef",
-    {
-        "ConnectAttachment": "ConnectAttachmentTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetCoreNetworkChangeEventsRequestPaginateTypeDef(TypedDict):
+    CoreNetworkId: str
+    PolicyVersionId: int
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-_RequiredGetConnectPeerAssociationsRequestRequestTypeDef = TypedDict(
-    "_RequiredGetConnectPeerAssociationsRequestRequestTypeDef",
-    {
-        "GlobalNetworkId": str,
-    },
-)
-_OptionalGetConnectPeerAssociationsRequestRequestTypeDef = TypedDict(
-    "_OptionalGetConnectPeerAssociationsRequestRequestTypeDef",
-    {
-        "ConnectPeerIds": List[str],
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
+class GetCoreNetworkChangeSetRequestPaginateTypeDef(TypedDict):
+    CoreNetworkId: str
+    PolicyVersionId: int
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-class GetConnectPeerAssociationsRequestRequestTypeDef(
-    _RequiredGetConnectPeerAssociationsRequestRequestTypeDef,
-    _OptionalGetConnectPeerAssociationsRequestRequestTypeDef,
-):
-    pass
+class GetCustomerGatewayAssociationsRequestPaginateTypeDef(TypedDict):
+    GlobalNetworkId: str
+    CustomerGatewayArns: NotRequired[Sequence[str]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-GetConnectPeerAssociationsResponseTypeDef = TypedDict(
-    "GetConnectPeerAssociationsResponseTypeDef",
-    {
-        "ConnectPeerAssociations": List["ConnectPeerAssociationTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetDevicesRequestPaginateTypeDef(TypedDict):
+    GlobalNetworkId: str
+    DeviceIds: NotRequired[Sequence[str]]
+    SiteId: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-GetConnectPeerRequestRequestTypeDef = TypedDict(
-    "GetConnectPeerRequestRequestTypeDef",
-    {
-        "ConnectPeerId": str,
-    },
-)
+class GetLinkAssociationsRequestPaginateTypeDef(TypedDict):
+    GlobalNetworkId: str
+    DeviceId: NotRequired[str]
+    LinkId: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-GetConnectPeerResponseTypeDef = TypedDict(
-    "GetConnectPeerResponseTypeDef",
-    {
-        "ConnectPeer": "ConnectPeerTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetConnectionsRequestRequestTypeDef = TypedDict(
-    "_RequiredGetConnectionsRequestRequestTypeDef",
+GetLinksRequestPaginateTypeDef = TypedDict(
+    "GetLinksRequestPaginateTypeDef",
     {
         "GlobalNetworkId": str,
-    },
-)
-_OptionalGetConnectionsRequestRequestTypeDef = TypedDict(
-    "_OptionalGetConnectionsRequestRequestTypeDef",
-    {
-        "ConnectionIds": List[str],
-        "DeviceId": str,
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class GetConnectionsRequestRequestTypeDef(
-    _RequiredGetConnectionsRequestRequestTypeDef, _OptionalGetConnectionsRequestRequestTypeDef
-):
-    pass
-
-GetConnectionsResponseTypeDef = TypedDict(
-    "GetConnectionsResponseTypeDef",
-    {
-        "Connections": List["ConnectionTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetCoreNetworkChangeEventsRequestRequestTypeDef = TypedDict(
-    "_RequiredGetCoreNetworkChangeEventsRequestRequestTypeDef",
-    {
-        "CoreNetworkId": str,
-        "PolicyVersionId": int,
-    },
-)
-_OptionalGetCoreNetworkChangeEventsRequestRequestTypeDef = TypedDict(
-    "_OptionalGetCoreNetworkChangeEventsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class GetCoreNetworkChangeEventsRequestRequestTypeDef(
-    _RequiredGetCoreNetworkChangeEventsRequestRequestTypeDef,
-    _OptionalGetCoreNetworkChangeEventsRequestRequestTypeDef,
-):
-    pass
-
-GetCoreNetworkChangeEventsResponseTypeDef = TypedDict(
-    "GetCoreNetworkChangeEventsResponseTypeDef",
-    {
-        "CoreNetworkChangeEvents": List["CoreNetworkChangeEventTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetCoreNetworkChangeSetRequestRequestTypeDef = TypedDict(
-    "_RequiredGetCoreNetworkChangeSetRequestRequestTypeDef",
-    {
-        "CoreNetworkId": str,
-        "PolicyVersionId": int,
-    },
-)
-_OptionalGetCoreNetworkChangeSetRequestRequestTypeDef = TypedDict(
-    "_OptionalGetCoreNetworkChangeSetRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class GetCoreNetworkChangeSetRequestRequestTypeDef(
-    _RequiredGetCoreNetworkChangeSetRequestRequestTypeDef,
-    _OptionalGetCoreNetworkChangeSetRequestRequestTypeDef,
-):
-    pass
-
-GetCoreNetworkChangeSetResponseTypeDef = TypedDict(
-    "GetCoreNetworkChangeSetResponseTypeDef",
-    {
-        "CoreNetworkChanges": List["CoreNetworkChangeTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetCoreNetworkPolicyRequestRequestTypeDef = TypedDict(
-    "_RequiredGetCoreNetworkPolicyRequestRequestTypeDef",
-    {
-        "CoreNetworkId": str,
-    },
-)
-_OptionalGetCoreNetworkPolicyRequestRequestTypeDef = TypedDict(
-    "_OptionalGetCoreNetworkPolicyRequestRequestTypeDef",
-    {
-        "PolicyVersionId": int,
-        "Alias": CoreNetworkPolicyAliasType,
-    },
-    total=False,
-)
-
-class GetCoreNetworkPolicyRequestRequestTypeDef(
-    _RequiredGetCoreNetworkPolicyRequestRequestTypeDef,
-    _OptionalGetCoreNetworkPolicyRequestRequestTypeDef,
-):
-    pass
-
-GetCoreNetworkPolicyResponseTypeDef = TypedDict(
-    "GetCoreNetworkPolicyResponseTypeDef",
-    {
-        "CoreNetworkPolicy": "CoreNetworkPolicyTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetCoreNetworkRequestRequestTypeDef = TypedDict(
-    "GetCoreNetworkRequestRequestTypeDef",
-    {
-        "CoreNetworkId": str,
-    },
-)
-
-GetCoreNetworkResponseTypeDef = TypedDict(
-    "GetCoreNetworkResponseTypeDef",
-    {
-        "CoreNetwork": "CoreNetworkTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetCustomerGatewayAssociationsRequestRequestTypeDef = TypedDict(
-    "_RequiredGetCustomerGatewayAssociationsRequestRequestTypeDef",
-    {
-        "GlobalNetworkId": str,
-    },
-)
-_OptionalGetCustomerGatewayAssociationsRequestRequestTypeDef = TypedDict(
-    "_OptionalGetCustomerGatewayAssociationsRequestRequestTypeDef",
-    {
-        "CustomerGatewayArns": List[str],
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class GetCustomerGatewayAssociationsRequestRequestTypeDef(
-    _RequiredGetCustomerGatewayAssociationsRequestRequestTypeDef,
-    _OptionalGetCustomerGatewayAssociationsRequestRequestTypeDef,
-):
-    pass
-
-GetCustomerGatewayAssociationsResponseTypeDef = TypedDict(
-    "GetCustomerGatewayAssociationsResponseTypeDef",
-    {
-        "CustomerGatewayAssociations": List["CustomerGatewayAssociationTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetDevicesRequestRequestTypeDef = TypedDict(
-    "_RequiredGetDevicesRequestRequestTypeDef",
-    {
-        "GlobalNetworkId": str,
-    },
-)
-_OptionalGetDevicesRequestRequestTypeDef = TypedDict(
-    "_OptionalGetDevicesRequestRequestTypeDef",
-    {
-        "DeviceIds": List[str],
-        "SiteId": str,
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class GetDevicesRequestRequestTypeDef(
-    _RequiredGetDevicesRequestRequestTypeDef, _OptionalGetDevicesRequestRequestTypeDef
-):
-    pass
-
-GetDevicesResponseTypeDef = TypedDict(
-    "GetDevicesResponseTypeDef",
-    {
-        "Devices": List["DeviceTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetLinkAssociationsRequestRequestTypeDef = TypedDict(
-    "_RequiredGetLinkAssociationsRequestRequestTypeDef",
-    {
-        "GlobalNetworkId": str,
-    },
-)
-_OptionalGetLinkAssociationsRequestRequestTypeDef = TypedDict(
-    "_OptionalGetLinkAssociationsRequestRequestTypeDef",
-    {
-        "DeviceId": str,
-        "LinkId": str,
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class GetLinkAssociationsRequestRequestTypeDef(
-    _RequiredGetLinkAssociationsRequestRequestTypeDef,
-    _OptionalGetLinkAssociationsRequestRequestTypeDef,
-):
-    pass
-
-GetLinkAssociationsResponseTypeDef = TypedDict(
-    "GetLinkAssociationsResponseTypeDef",
-    {
-        "LinkAssociations": List["LinkAssociationTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetLinksRequestRequestTypeDef = TypedDict(
-    "_RequiredGetLinksRequestRequestTypeDef",
-    {
-        "GlobalNetworkId": str,
-    },
-)
-_OptionalGetLinksRequestRequestTypeDef = TypedDict(
-    "_OptionalGetLinksRequestRequestTypeDef",
-    {
-        "LinkIds": List[str],
-        "SiteId": str,
-        "Type": str,
-        "Provider": str,
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class GetLinksRequestRequestTypeDef(
-    _RequiredGetLinksRequestRequestTypeDef, _OptionalGetLinksRequestRequestTypeDef
-):
-    pass
-
-GetLinksResponseTypeDef = TypedDict(
-    "GetLinksResponseTypeDef",
-    {
-        "Links": List["LinkTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetNetworkResourceCountsRequestRequestTypeDef = TypedDict(
-    "_RequiredGetNetworkResourceCountsRequestRequestTypeDef",
-    {
-        "GlobalNetworkId": str,
-    },
-)
-_OptionalGetNetworkResourceCountsRequestRequestTypeDef = TypedDict(
-    "_OptionalGetNetworkResourceCountsRequestRequestTypeDef",
-    {
-        "ResourceType": str,
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class GetNetworkResourceCountsRequestRequestTypeDef(
-    _RequiredGetNetworkResourceCountsRequestRequestTypeDef,
-    _OptionalGetNetworkResourceCountsRequestRequestTypeDef,
-):
-    pass
-
-GetNetworkResourceCountsResponseTypeDef = TypedDict(
-    "GetNetworkResourceCountsResponseTypeDef",
-    {
-        "NetworkResourceCounts": List["NetworkResourceCountTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetNetworkResourceRelationshipsRequestRequestTypeDef = TypedDict(
-    "_RequiredGetNetworkResourceRelationshipsRequestRequestTypeDef",
-    {
-        "GlobalNetworkId": str,
-    },
-)
-_OptionalGetNetworkResourceRelationshipsRequestRequestTypeDef = TypedDict(
-    "_OptionalGetNetworkResourceRelationshipsRequestRequestTypeDef",
-    {
-        "CoreNetworkId": str,
-        "RegisteredGatewayArn": str,
-        "AwsRegion": str,
-        "AccountId": str,
-        "ResourceType": str,
-        "ResourceArn": str,
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class GetNetworkResourceRelationshipsRequestRequestTypeDef(
-    _RequiredGetNetworkResourceRelationshipsRequestRequestTypeDef,
-    _OptionalGetNetworkResourceRelationshipsRequestRequestTypeDef,
-):
-    pass
-
-GetNetworkResourceRelationshipsResponseTypeDef = TypedDict(
-    "GetNetworkResourceRelationshipsResponseTypeDef",
-    {
-        "Relationships": List["RelationshipTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetNetworkResourcesRequestRequestTypeDef = TypedDict(
-    "_RequiredGetNetworkResourcesRequestRequestTypeDef",
-    {
-        "GlobalNetworkId": str,
-    },
-)
-_OptionalGetNetworkResourcesRequestRequestTypeDef = TypedDict(
-    "_OptionalGetNetworkResourcesRequestRequestTypeDef",
-    {
-        "CoreNetworkId": str,
-        "RegisteredGatewayArn": str,
-        "AwsRegion": str,
-        "AccountId": str,
-        "ResourceType": str,
-        "ResourceArn": str,
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class GetNetworkResourcesRequestRequestTypeDef(
-    _RequiredGetNetworkResourcesRequestRequestTypeDef,
-    _OptionalGetNetworkResourcesRequestRequestTypeDef,
-):
-    pass
-
-GetNetworkResourcesResponseTypeDef = TypedDict(
-    "GetNetworkResourcesResponseTypeDef",
-    {
-        "NetworkResources": List["NetworkResourceTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetNetworkRoutesRequestRequestTypeDef = TypedDict(
-    "_RequiredGetNetworkRoutesRequestRequestTypeDef",
-    {
-        "GlobalNetworkId": str,
-        "RouteTableIdentifier": "RouteTableIdentifierTypeDef",
-    },
-)
-_OptionalGetNetworkRoutesRequestRequestTypeDef = TypedDict(
-    "_OptionalGetNetworkRoutesRequestRequestTypeDef",
-    {
-        "ExactCidrMatches": List[str],
-        "LongestPrefixMatches": List[str],
-        "SubnetOfMatches": List[str],
-        "SupernetOfMatches": List[str],
-        "PrefixListIds": List[str],
-        "States": List[RouteStateType],
-        "Types": List[RouteTypeType],
-        "DestinationFilters": Dict[str, List[str]],
-    },
-    total=False,
-)
-
-class GetNetworkRoutesRequestRequestTypeDef(
-    _RequiredGetNetworkRoutesRequestRequestTypeDef, _OptionalGetNetworkRoutesRequestRequestTypeDef
-):
-    pass
-
-GetNetworkRoutesResponseTypeDef = TypedDict(
-    "GetNetworkRoutesResponseTypeDef",
-    {
-        "RouteTableArn": str,
-        "CoreNetworkSegmentEdge": "CoreNetworkSegmentEdgeIdentifierTypeDef",
-        "RouteTableType": RouteTableTypeType,
-        "RouteTableTimestamp": datetime,
-        "NetworkRoutes": List["NetworkRouteTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetNetworkTelemetryRequestRequestTypeDef = TypedDict(
-    "_RequiredGetNetworkTelemetryRequestRequestTypeDef",
-    {
-        "GlobalNetworkId": str,
-    },
-)
-_OptionalGetNetworkTelemetryRequestRequestTypeDef = TypedDict(
-    "_OptionalGetNetworkTelemetryRequestRequestTypeDef",
-    {
-        "CoreNetworkId": str,
-        "RegisteredGatewayArn": str,
-        "AwsRegion": str,
-        "AccountId": str,
-        "ResourceType": str,
-        "ResourceArn": str,
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class GetNetworkTelemetryRequestRequestTypeDef(
-    _RequiredGetNetworkTelemetryRequestRequestTypeDef,
-    _OptionalGetNetworkTelemetryRequestRequestTypeDef,
-):
-    pass
-
-GetNetworkTelemetryResponseTypeDef = TypedDict(
-    "GetNetworkTelemetryResponseTypeDef",
-    {
-        "NetworkTelemetry": List["NetworkTelemetryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetResourcePolicyRequestRequestTypeDef = TypedDict(
-    "GetResourcePolicyRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-    },
-)
-
-GetResourcePolicyResponseTypeDef = TypedDict(
-    "GetResourcePolicyResponseTypeDef",
-    {
-        "PolicyDocument": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetRouteAnalysisRequestRequestTypeDef = TypedDict(
-    "GetRouteAnalysisRequestRequestTypeDef",
-    {
-        "GlobalNetworkId": str,
-        "RouteAnalysisId": str,
-    },
-)
-
-GetRouteAnalysisResponseTypeDef = TypedDict(
-    "GetRouteAnalysisResponseTypeDef",
-    {
-        "RouteAnalysis": "RouteAnalysisTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetSiteToSiteVpnAttachmentRequestRequestTypeDef = TypedDict(
-    "GetSiteToSiteVpnAttachmentRequestRequestTypeDef",
-    {
-        "AttachmentId": str,
-    },
-)
-
-GetSiteToSiteVpnAttachmentResponseTypeDef = TypedDict(
-    "GetSiteToSiteVpnAttachmentResponseTypeDef",
-    {
-        "SiteToSiteVpnAttachment": "SiteToSiteVpnAttachmentTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetSitesRequestRequestTypeDef = TypedDict(
-    "_RequiredGetSitesRequestRequestTypeDef",
-    {
-        "GlobalNetworkId": str,
-    },
-)
-_OptionalGetSitesRequestRequestTypeDef = TypedDict(
-    "_OptionalGetSitesRequestRequestTypeDef",
-    {
-        "SiteIds": List[str],
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class GetSitesRequestRequestTypeDef(
-    _RequiredGetSitesRequestRequestTypeDef, _OptionalGetSitesRequestRequestTypeDef
-):
-    pass
-
-GetSitesResponseTypeDef = TypedDict(
-    "GetSitesResponseTypeDef",
-    {
-        "Sites": List["SiteTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetTransitGatewayConnectPeerAssociationsRequestRequestTypeDef = TypedDict(
-    "_RequiredGetTransitGatewayConnectPeerAssociationsRequestRequestTypeDef",
-    {
-        "GlobalNetworkId": str,
-    },
-)
-_OptionalGetTransitGatewayConnectPeerAssociationsRequestRequestTypeDef = TypedDict(
-    "_OptionalGetTransitGatewayConnectPeerAssociationsRequestRequestTypeDef",
-    {
-        "TransitGatewayConnectPeerArns": List[str],
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class GetTransitGatewayConnectPeerAssociationsRequestRequestTypeDef(
-    _RequiredGetTransitGatewayConnectPeerAssociationsRequestRequestTypeDef,
-    _OptionalGetTransitGatewayConnectPeerAssociationsRequestRequestTypeDef,
-):
-    pass
-
-GetTransitGatewayConnectPeerAssociationsResponseTypeDef = TypedDict(
-    "GetTransitGatewayConnectPeerAssociationsResponseTypeDef",
-    {
-        "TransitGatewayConnectPeerAssociations": List[
-            "TransitGatewayConnectPeerAssociationTypeDef"
-        ],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetTransitGatewayPeeringRequestRequestTypeDef = TypedDict(
-    "GetTransitGatewayPeeringRequestRequestTypeDef",
-    {
-        "PeeringId": str,
-    },
-)
-
-GetTransitGatewayPeeringResponseTypeDef = TypedDict(
-    "GetTransitGatewayPeeringResponseTypeDef",
-    {
-        "TransitGatewayPeering": "TransitGatewayPeeringTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetTransitGatewayRegistrationsRequestRequestTypeDef = TypedDict(
-    "_RequiredGetTransitGatewayRegistrationsRequestRequestTypeDef",
-    {
-        "GlobalNetworkId": str,
-    },
-)
-_OptionalGetTransitGatewayRegistrationsRequestRequestTypeDef = TypedDict(
-    "_OptionalGetTransitGatewayRegistrationsRequestRequestTypeDef",
-    {
-        "TransitGatewayArns": List[str],
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class GetTransitGatewayRegistrationsRequestRequestTypeDef(
-    _RequiredGetTransitGatewayRegistrationsRequestRequestTypeDef,
-    _OptionalGetTransitGatewayRegistrationsRequestRequestTypeDef,
-):
-    pass
-
-GetTransitGatewayRegistrationsResponseTypeDef = TypedDict(
-    "GetTransitGatewayRegistrationsResponseTypeDef",
-    {
-        "TransitGatewayRegistrations": List["TransitGatewayRegistrationTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetTransitGatewayRouteTableAttachmentRequestRequestTypeDef = TypedDict(
-    "GetTransitGatewayRouteTableAttachmentRequestRequestTypeDef",
-    {
-        "AttachmentId": str,
-    },
-)
-
-GetTransitGatewayRouteTableAttachmentResponseTypeDef = TypedDict(
-    "GetTransitGatewayRouteTableAttachmentResponseTypeDef",
-    {
-        "TransitGatewayRouteTableAttachment": "TransitGatewayRouteTableAttachmentTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetVpcAttachmentRequestRequestTypeDef = TypedDict(
-    "GetVpcAttachmentRequestRequestTypeDef",
-    {
-        "AttachmentId": str,
-    },
-)
-
-GetVpcAttachmentResponseTypeDef = TypedDict(
-    "GetVpcAttachmentResponseTypeDef",
-    {
-        "VpcAttachment": "VpcAttachmentTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GlobalNetworkTypeDef = TypedDict(
-    "GlobalNetworkTypeDef",
-    {
-        "GlobalNetworkId": str,
-        "GlobalNetworkArn": str,
-        "Description": str,
-        "CreatedAt": datetime,
-        "State": GlobalNetworkStateType,
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-LinkAssociationTypeDef = TypedDict(
-    "LinkAssociationTypeDef",
-    {
-        "GlobalNetworkId": str,
-        "DeviceId": str,
-        "LinkId": str,
-        "LinkAssociationState": LinkAssociationStateType,
-    },
-    total=False,
-)
-
-LinkTypeDef = TypedDict(
-    "LinkTypeDef",
-    {
-        "LinkId": str,
-        "LinkArn": str,
-        "GlobalNetworkId": str,
-        "SiteId": str,
-        "Description": str,
-        "Type": str,
-        "Bandwidth": "BandwidthTypeDef",
-        "Provider": str,
-        "CreatedAt": datetime,
-        "State": LinkStateType,
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-ListAttachmentsRequestRequestTypeDef = TypedDict(
-    "ListAttachmentsRequestRequestTypeDef",
-    {
-        "CoreNetworkId": str,
-        "AttachmentType": AttachmentTypeType,
-        "EdgeLocation": str,
-        "State": AttachmentStateType,
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListAttachmentsResponseTypeDef = TypedDict(
-    "ListAttachmentsResponseTypeDef",
-    {
-        "Attachments": List["AttachmentTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListConnectPeersRequestRequestTypeDef = TypedDict(
-    "ListConnectPeersRequestRequestTypeDef",
-    {
-        "CoreNetworkId": str,
-        "ConnectAttachmentId": str,
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListConnectPeersResponseTypeDef = TypedDict(
-    "ListConnectPeersResponseTypeDef",
-    {
-        "ConnectPeers": List["ConnectPeerSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListCoreNetworkPolicyVersionsRequestRequestTypeDef = TypedDict(
-    "_RequiredListCoreNetworkPolicyVersionsRequestRequestTypeDef",
-    {
-        "CoreNetworkId": str,
-    },
-)
-_OptionalListCoreNetworkPolicyVersionsRequestRequestTypeDef = TypedDict(
-    "_OptionalListCoreNetworkPolicyVersionsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListCoreNetworkPolicyVersionsRequestRequestTypeDef(
-    _RequiredListCoreNetworkPolicyVersionsRequestRequestTypeDef,
-    _OptionalListCoreNetworkPolicyVersionsRequestRequestTypeDef,
-):
-    pass
-
-ListCoreNetworkPolicyVersionsResponseTypeDef = TypedDict(
-    "ListCoreNetworkPolicyVersionsResponseTypeDef",
-    {
-        "CoreNetworkPolicyVersions": List["CoreNetworkPolicyVersionTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListCoreNetworksRequestRequestTypeDef = TypedDict(
-    "ListCoreNetworksRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListCoreNetworksResponseTypeDef = TypedDict(
-    "ListCoreNetworksResponseTypeDef",
-    {
-        "CoreNetworks": List["CoreNetworkSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListOrganizationServiceAccessStatusRequestRequestTypeDef = TypedDict(
-    "ListOrganizationServiceAccessStatusRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListOrganizationServiceAccessStatusResponseTypeDef = TypedDict(
-    "ListOrganizationServiceAccessStatusResponseTypeDef",
-    {
-        "OrganizationStatus": "OrganizationStatusTypeDef",
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListPeeringsRequestRequestTypeDef = TypedDict(
-    "ListPeeringsRequestRequestTypeDef",
-    {
-        "CoreNetworkId": str,
-        "PeeringType": Literal["TRANSIT_GATEWAY"],
-        "EdgeLocation": str,
-        "State": PeeringStateType,
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListPeeringsResponseTypeDef = TypedDict(
-    "ListPeeringsResponseTypeDef",
-    {
-        "Peerings": List["PeeringTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-    },
-)
-
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "TagList": List["TagTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-LocationTypeDef = TypedDict(
-    "LocationTypeDef",
-    {
-        "Address": str,
-        "Latitude": str,
-        "Longitude": str,
-    },
-    total=False,
-)
-
-NetworkFunctionGroupTypeDef = TypedDict(
-    "NetworkFunctionGroupTypeDef",
-    {
-        "Name": str,
-    },
-    total=False,
-)
-
-NetworkResourceCountTypeDef = TypedDict(
-    "NetworkResourceCountTypeDef",
-    {
-        "ResourceType": str,
-        "Count": int,
-    },
-    total=False,
-)
-
-NetworkResourceSummaryTypeDef = TypedDict(
-    "NetworkResourceSummaryTypeDef",
-    {
-        "RegisteredGatewayArn": str,
-        "ResourceArn": str,
-        "ResourceType": str,
-        "Definition": str,
-        "NameTag": str,
-        "IsMiddlebox": bool,
-    },
-    total=False,
-)
-
-NetworkResourceTypeDef = TypedDict(
-    "NetworkResourceTypeDef",
-    {
-        "RegisteredGatewayArn": str,
-        "CoreNetworkId": str,
-        "AwsRegion": str,
-        "AccountId": str,
-        "ResourceType": str,
-        "ResourceId": str,
-        "ResourceArn": str,
-        "Definition": str,
-        "DefinitionTimestamp": datetime,
-        "Tags": List["TagTypeDef"],
-        "Metadata": Dict[str, str],
-    },
-    total=False,
-)
-
-NetworkRouteDestinationTypeDef = TypedDict(
-    "NetworkRouteDestinationTypeDef",
-    {
-        "CoreNetworkAttachmentId": str,
-        "TransitGatewayAttachmentId": str,
-        "SegmentName": str,
-        "NetworkFunctionGroupName": str,
-        "EdgeLocation": str,
-        "ResourceType": str,
-        "ResourceId": str,
-    },
-    total=False,
-)
-
-NetworkRouteTypeDef = TypedDict(
-    "NetworkRouteTypeDef",
-    {
-        "DestinationCidrBlock": str,
-        "Destinations": List["NetworkRouteDestinationTypeDef"],
-        "PrefixListId": str,
-        "State": RouteStateType,
-        "Type": RouteTypeType,
-    },
-    total=False,
-)
-
-NetworkTelemetryTypeDef = TypedDict(
-    "NetworkTelemetryTypeDef",
-    {
-        "RegisteredGatewayArn": str,
-        "CoreNetworkId": str,
-        "AwsRegion": str,
-        "AccountId": str,
-        "ResourceType": str,
-        "ResourceId": str,
-        "ResourceArn": str,
-        "Address": str,
-        "Health": "ConnectionHealthTypeDef",
-    },
-    total=False,
-)
-
-OrganizationStatusTypeDef = TypedDict(
-    "OrganizationStatusTypeDef",
-    {
-        "OrganizationId": str,
-        "OrganizationAwsServiceAccessStatus": str,
-        "SLRDeploymentStatus": str,
-        "AccountStatusList": List["AccountStatusTypeDef"],
-    },
-    total=False,
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
+        "LinkIds": NotRequired[Sequence[str]],
+        "SiteId": NotRequired[str],
+        "Type": NotRequired[str],
+        "Provider": NotRequired[str],
+        "PaginationConfig": NotRequired[PaginatorConfigTypeDef],
+    },
+)
+
+class GetNetworkResourceCountsRequestPaginateTypeDef(TypedDict):
+    GlobalNetworkId: str
+    ResourceType: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class GetNetworkResourceRelationshipsRequestPaginateTypeDef(TypedDict):
+    GlobalNetworkId: str
+    CoreNetworkId: NotRequired[str]
+    RegisteredGatewayArn: NotRequired[str]
+    AwsRegion: NotRequired[str]
+    AccountId: NotRequired[str]
+    ResourceType: NotRequired[str]
+    ResourceArn: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class GetNetworkResourcesRequestPaginateTypeDef(TypedDict):
+    GlobalNetworkId: str
+    CoreNetworkId: NotRequired[str]
+    RegisteredGatewayArn: NotRequired[str]
+    AwsRegion: NotRequired[str]
+    AccountId: NotRequired[str]
+    ResourceType: NotRequired[str]
+    ResourceArn: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class GetNetworkTelemetryRequestPaginateTypeDef(TypedDict):
+    GlobalNetworkId: str
+    CoreNetworkId: NotRequired[str]
+    RegisteredGatewayArn: NotRequired[str]
+    AwsRegion: NotRequired[str]
+    AccountId: NotRequired[str]
+    ResourceType: NotRequired[str]
+    ResourceArn: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class GetSitesRequestPaginateTypeDef(TypedDict):
+    GlobalNetworkId: str
+    SiteIds: NotRequired[Sequence[str]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class GetTransitGatewayConnectPeerAssociationsRequestPaginateTypeDef(TypedDict):
+    GlobalNetworkId: str
+    TransitGatewayConnectPeerArns: NotRequired[Sequence[str]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class GetTransitGatewayRegistrationsRequestPaginateTypeDef(TypedDict):
+    GlobalNetworkId: str
+    TransitGatewayArns: NotRequired[Sequence[str]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListAttachmentsRequestPaginateTypeDef(TypedDict):
+    CoreNetworkId: NotRequired[str]
+    AttachmentType: NotRequired[AttachmentTypeType]
+    EdgeLocation: NotRequired[str]
+    State: NotRequired[AttachmentStateType]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListConnectPeersRequestPaginateTypeDef(TypedDict):
+    CoreNetworkId: NotRequired[str]
+    ConnectAttachmentId: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListCoreNetworkPolicyVersionsRequestPaginateTypeDef(TypedDict):
+    CoreNetworkId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListCoreNetworksRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListPeeringsRequestPaginateTypeDef(TypedDict):
+    CoreNetworkId: NotRequired[str]
+    PeeringType: NotRequired[Literal["TRANSIT_GATEWAY"]]
+    EdgeLocation: NotRequired[str]
+    State: NotRequired[PeeringStateType]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class GetNetworkResourceCountsResponseTypeDef(TypedDict):
+    NetworkResourceCounts: List[NetworkResourceCountTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class GetNetworkResourceRelationshipsResponseTypeDef(TypedDict):
+    Relationships: List[RelationshipTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ViaTypeDef(TypedDict):
+    NetworkFunctionGroups: NotRequired[List[NetworkFunctionGroupTypeDef]]
+    WithEdgeOverrides: NotRequired[List[EdgeOverrideTypeDef]]
 
 PathComponentTypeDef = TypedDict(
     "PathComponentTypeDef",
     {
-        "Sequence": int,
-        "Resource": "NetworkResourceSummaryTypeDef",
-        "DestinationCidrBlock": str,
-    },
-    total=False,
-)
-
-PeeringErrorTypeDef = TypedDict(
-    "PeeringErrorTypeDef",
-    {
-        "Code": PeeringErrorCodeType,
-        "Message": str,
-        "ResourceArn": str,
-        "RequestId": str,
-        "MissingPermissionsContext": "PermissionsErrorContextTypeDef",
-    },
-    total=False,
-)
-
-PeeringTypeDef = TypedDict(
-    "PeeringTypeDef",
-    {
-        "CoreNetworkId": str,
-        "CoreNetworkArn": str,
-        "PeeringId": str,
-        "OwnerAccountId": str,
-        "PeeringType": Literal["TRANSIT_GATEWAY"],
-        "State": PeeringStateType,
-        "EdgeLocation": str,
-        "ResourceArn": str,
-        "Tags": List["TagTypeDef"],
-        "CreatedAt": datetime,
-        "LastModificationErrors": List["PeeringErrorTypeDef"],
-    },
-    total=False,
-)
-
-PermissionsErrorContextTypeDef = TypedDict(
-    "PermissionsErrorContextTypeDef",
-    {
-        "MissingPermission": str,
-    },
-    total=False,
-)
-
-ProposedNetworkFunctionGroupChangeTypeDef = TypedDict(
-    "ProposedNetworkFunctionGroupChangeTypeDef",
-    {
-        "Tags": List["TagTypeDef"],
-        "AttachmentPolicyRuleNumber": int,
-        "NetworkFunctionGroupName": str,
-    },
-    total=False,
-)
-
-ProposedSegmentChangeTypeDef = TypedDict(
-    "ProposedSegmentChangeTypeDef",
-    {
-        "Tags": List["TagTypeDef"],
-        "AttachmentPolicyRuleNumber": int,
-        "SegmentName": str,
-    },
-    total=False,
-)
-
-_RequiredPutCoreNetworkPolicyRequestRequestTypeDef = TypedDict(
-    "_RequiredPutCoreNetworkPolicyRequestRequestTypeDef",
-    {
-        "CoreNetworkId": str,
-        "PolicyDocument": str,
-    },
-)
-_OptionalPutCoreNetworkPolicyRequestRequestTypeDef = TypedDict(
-    "_OptionalPutCoreNetworkPolicyRequestRequestTypeDef",
-    {
-        "Description": str,
-        "LatestVersionId": int,
-        "ClientToken": str,
-    },
-    total=False,
-)
-
-class PutCoreNetworkPolicyRequestRequestTypeDef(
-    _RequiredPutCoreNetworkPolicyRequestRequestTypeDef,
-    _OptionalPutCoreNetworkPolicyRequestRequestTypeDef,
-):
-    pass
-
-PutCoreNetworkPolicyResponseTypeDef = TypedDict(
-    "PutCoreNetworkPolicyResponseTypeDef",
-    {
-        "CoreNetworkPolicy": "CoreNetworkPolicyTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-PutResourcePolicyRequestRequestTypeDef = TypedDict(
-    "PutResourcePolicyRequestRequestTypeDef",
-    {
-        "PolicyDocument": str,
-        "ResourceArn": str,
-    },
-)
-
-RegisterTransitGatewayRequestRequestTypeDef = TypedDict(
-    "RegisterTransitGatewayRequestRequestTypeDef",
-    {
-        "GlobalNetworkId": str,
-        "TransitGatewayArn": str,
-    },
-)
-
-RegisterTransitGatewayResponseTypeDef = TypedDict(
-    "RegisterTransitGatewayResponseTypeDef",
-    {
-        "TransitGatewayRegistration": "TransitGatewayRegistrationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-RejectAttachmentRequestRequestTypeDef = TypedDict(
-    "RejectAttachmentRequestRequestTypeDef",
-    {
-        "AttachmentId": str,
-    },
-)
-
-RejectAttachmentResponseTypeDef = TypedDict(
-    "RejectAttachmentResponseTypeDef",
-    {
-        "Attachment": "AttachmentTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-RelationshipTypeDef = TypedDict(
-    "RelationshipTypeDef",
-    {
-        "From": str,
-        "To": str,
-    },
-    total=False,
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-RestoreCoreNetworkPolicyVersionRequestRequestTypeDef = TypedDict(
-    "RestoreCoreNetworkPolicyVersionRequestRequestTypeDef",
-    {
-        "CoreNetworkId": str,
-        "PolicyVersionId": int,
-    },
-)
-
-RestoreCoreNetworkPolicyVersionResponseTypeDef = TypedDict(
-    "RestoreCoreNetworkPolicyVersionResponseTypeDef",
-    {
-        "CoreNetworkPolicy": "CoreNetworkPolicyTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-RouteAnalysisCompletionTypeDef = TypedDict(
-    "RouteAnalysisCompletionTypeDef",
-    {
-        "ResultCode": RouteAnalysisCompletionResultCodeType,
-        "ReasonCode": RouteAnalysisCompletionReasonCodeType,
-        "ReasonContext": Dict[str, str],
-    },
-    total=False,
-)
-
-RouteAnalysisEndpointOptionsSpecificationTypeDef = TypedDict(
-    "RouteAnalysisEndpointOptionsSpecificationTypeDef",
-    {
-        "TransitGatewayAttachmentArn": str,
-        "IpAddress": str,
-    },
-    total=False,
-)
-
-RouteAnalysisEndpointOptionsTypeDef = TypedDict(
-    "RouteAnalysisEndpointOptionsTypeDef",
-    {
-        "TransitGatewayAttachmentArn": str,
-        "TransitGatewayArn": str,
-        "IpAddress": str,
-    },
-    total=False,
-)
-
-RouteAnalysisPathTypeDef = TypedDict(
-    "RouteAnalysisPathTypeDef",
-    {
-        "CompletionStatus": "RouteAnalysisCompletionTypeDef",
-        "Path": List["PathComponentTypeDef"],
-    },
-    total=False,
-)
-
-RouteAnalysisTypeDef = TypedDict(
-    "RouteAnalysisTypeDef",
-    {
-        "GlobalNetworkId": str,
-        "OwnerAccountId": str,
-        "RouteAnalysisId": str,
-        "StartTimestamp": datetime,
-        "Status": RouteAnalysisStatusType,
-        "Source": "RouteAnalysisEndpointOptionsTypeDef",
-        "Destination": "RouteAnalysisEndpointOptionsTypeDef",
-        "IncludeReturnPath": bool,
-        "UseMiddleboxes": bool,
-        "ForwardPath": "RouteAnalysisPathTypeDef",
-        "ReturnPath": "RouteAnalysisPathTypeDef",
-    },
-    total=False,
-)
-
-RouteTableIdentifierTypeDef = TypedDict(
-    "RouteTableIdentifierTypeDef",
-    {
-        "TransitGatewayRouteTableArn": str,
-        "CoreNetworkSegmentEdge": "CoreNetworkSegmentEdgeIdentifierTypeDef",
-        "CoreNetworkNetworkFunctionGroup": "CoreNetworkNetworkFunctionGroupIdentifierTypeDef",
-    },
-    total=False,
-)
-
-ServiceInsertionActionTypeDef = TypedDict(
-    "ServiceInsertionActionTypeDef",
-    {
-        "Action": SegmentActionServiceInsertionType,
-        "Mode": SendViaModeType,
-        "WhenSentTo": "WhenSentToTypeDef",
-        "Via": "ViaTypeDef",
-    },
-    total=False,
-)
-
-ServiceInsertionSegmentsTypeDef = TypedDict(
-    "ServiceInsertionSegmentsTypeDef",
-    {
-        "SendVia": List[str],
-        "SendTo": List[str],
-    },
-    total=False,
-)
-
-SiteToSiteVpnAttachmentTypeDef = TypedDict(
-    "SiteToSiteVpnAttachmentTypeDef",
-    {
-        "Attachment": "AttachmentTypeDef",
-        "VpnConnectionArn": str,
-    },
-    total=False,
-)
-
-SiteTypeDef = TypedDict(
-    "SiteTypeDef",
-    {
-        "SiteId": str,
-        "SiteArn": str,
-        "GlobalNetworkId": str,
-        "Description": str,
-        "Location": "LocationTypeDef",
-        "CreatedAt": datetime,
-        "State": SiteStateType,
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-StartOrganizationServiceAccessUpdateRequestRequestTypeDef = TypedDict(
-    "StartOrganizationServiceAccessUpdateRequestRequestTypeDef",
-    {
-        "Action": str,
-    },
-)
-
-StartOrganizationServiceAccessUpdateResponseTypeDef = TypedDict(
-    "StartOrganizationServiceAccessUpdateResponseTypeDef",
-    {
-        "OrganizationStatus": "OrganizationStatusTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredStartRouteAnalysisRequestRequestTypeDef = TypedDict(
-    "_RequiredStartRouteAnalysisRequestRequestTypeDef",
-    {
-        "GlobalNetworkId": str,
-        "Source": "RouteAnalysisEndpointOptionsSpecificationTypeDef",
-        "Destination": "RouteAnalysisEndpointOptionsSpecificationTypeDef",
-    },
-)
-_OptionalStartRouteAnalysisRequestRequestTypeDef = TypedDict(
-    "_OptionalStartRouteAnalysisRequestRequestTypeDef",
-    {
-        "IncludeReturnPath": bool,
-        "UseMiddleboxes": bool,
-    },
-    total=False,
-)
-
-class StartRouteAnalysisRequestRequestTypeDef(
-    _RequiredStartRouteAnalysisRequestRequestTypeDef,
-    _OptionalStartRouteAnalysisRequestRequestTypeDef,
-):
-    pass
-
-StartRouteAnalysisResponseTypeDef = TypedDict(
-    "StartRouteAnalysisResponseTypeDef",
-    {
-        "RouteAnalysis": "RouteAnalysisTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-        "Tags": List["TagTypeDef"],
-    },
-)
-
-TagTypeDef = TypedDict(
-    "TagTypeDef",
-    {
-        "Key": str,
-        "Value": str,
-    },
-    total=False,
-)
-
-TransitGatewayConnectPeerAssociationTypeDef = TypedDict(
-    "TransitGatewayConnectPeerAssociationTypeDef",
-    {
-        "TransitGatewayConnectPeerArn": str,
-        "GlobalNetworkId": str,
-        "DeviceId": str,
-        "LinkId": str,
-        "State": TransitGatewayConnectPeerAssociationStateType,
-    },
-    total=False,
-)
-
-TransitGatewayPeeringTypeDef = TypedDict(
-    "TransitGatewayPeeringTypeDef",
-    {
-        "Peering": "PeeringTypeDef",
-        "TransitGatewayArn": str,
-        "TransitGatewayPeeringAttachmentId": str,
-    },
-    total=False,
-)
-
-TransitGatewayRegistrationStateReasonTypeDef = TypedDict(
-    "TransitGatewayRegistrationStateReasonTypeDef",
-    {
-        "Code": TransitGatewayRegistrationStateType,
-        "Message": str,
-    },
-    total=False,
-)
-
-TransitGatewayRegistrationTypeDef = TypedDict(
-    "TransitGatewayRegistrationTypeDef",
-    {
-        "GlobalNetworkId": str,
-        "TransitGatewayArn": str,
-        "State": "TransitGatewayRegistrationStateReasonTypeDef",
-    },
-    total=False,
-)
-
-TransitGatewayRouteTableAttachmentTypeDef = TypedDict(
-    "TransitGatewayRouteTableAttachmentTypeDef",
-    {
-        "Attachment": "AttachmentTypeDef",
-        "PeeringId": str,
-        "TransitGatewayRouteTableArn": str,
-    },
-    total=False,
-)
-
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-        "TagKeys": List[str],
-    },
-)
-
-_RequiredUpdateConnectionRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateConnectionRequestRequestTypeDef",
-    {
-        "GlobalNetworkId": str,
-        "ConnectionId": str,
-    },
-)
-_OptionalUpdateConnectionRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateConnectionRequestRequestTypeDef",
-    {
-        "LinkId": str,
-        "ConnectedLinkId": str,
-        "Description": str,
-    },
-    total=False,
-)
-
-class UpdateConnectionRequestRequestTypeDef(
-    _RequiredUpdateConnectionRequestRequestTypeDef, _OptionalUpdateConnectionRequestRequestTypeDef
-):
-    pass
-
-UpdateConnectionResponseTypeDef = TypedDict(
-    "UpdateConnectionResponseTypeDef",
-    {
-        "Connection": "ConnectionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateCoreNetworkRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateCoreNetworkRequestRequestTypeDef",
-    {
-        "CoreNetworkId": str,
-    },
-)
-_OptionalUpdateCoreNetworkRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateCoreNetworkRequestRequestTypeDef",
-    {
-        "Description": str,
-    },
-    total=False,
-)
-
-class UpdateCoreNetworkRequestRequestTypeDef(
-    _RequiredUpdateCoreNetworkRequestRequestTypeDef, _OptionalUpdateCoreNetworkRequestRequestTypeDef
-):
-    pass
-
-UpdateCoreNetworkResponseTypeDef = TypedDict(
-    "UpdateCoreNetworkResponseTypeDef",
-    {
-        "CoreNetwork": "CoreNetworkTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateDeviceRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateDeviceRequestRequestTypeDef",
-    {
-        "GlobalNetworkId": str,
-        "DeviceId": str,
-    },
-)
-_OptionalUpdateDeviceRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateDeviceRequestRequestTypeDef",
-    {
-        "AWSLocation": "AWSLocationTypeDef",
-        "Description": str,
-        "Type": str,
-        "Vendor": str,
-        "Model": str,
-        "SerialNumber": str,
-        "Location": "LocationTypeDef",
-        "SiteId": str,
-    },
-    total=False,
-)
-
-class UpdateDeviceRequestRequestTypeDef(
-    _RequiredUpdateDeviceRequestRequestTypeDef, _OptionalUpdateDeviceRequestRequestTypeDef
-):
-    pass
-
-UpdateDeviceResponseTypeDef = TypedDict(
-    "UpdateDeviceResponseTypeDef",
-    {
-        "Device": "DeviceTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateGlobalNetworkRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateGlobalNetworkRequestRequestTypeDef",
-    {
-        "GlobalNetworkId": str,
-    },
-)
-_OptionalUpdateGlobalNetworkRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateGlobalNetworkRequestRequestTypeDef",
-    {
-        "Description": str,
-    },
-    total=False,
-)
-
-class UpdateGlobalNetworkRequestRequestTypeDef(
-    _RequiredUpdateGlobalNetworkRequestRequestTypeDef,
-    _OptionalUpdateGlobalNetworkRequestRequestTypeDef,
-):
-    pass
-
-UpdateGlobalNetworkResponseTypeDef = TypedDict(
-    "UpdateGlobalNetworkResponseTypeDef",
-    {
-        "GlobalNetwork": "GlobalNetworkTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateLinkRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateLinkRequestRequestTypeDef",
-    {
-        "GlobalNetworkId": str,
-        "LinkId": str,
-    },
-)
-_OptionalUpdateLinkRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateLinkRequestRequestTypeDef",
-    {
-        "Description": str,
-        "Type": str,
-        "Bandwidth": "BandwidthTypeDef",
-        "Provider": str,
-    },
-    total=False,
-)
-
-class UpdateLinkRequestRequestTypeDef(
-    _RequiredUpdateLinkRequestRequestTypeDef, _OptionalUpdateLinkRequestRequestTypeDef
-):
-    pass
-
-UpdateLinkResponseTypeDef = TypedDict(
-    "UpdateLinkResponseTypeDef",
-    {
-        "Link": "LinkTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UpdateNetworkResourceMetadataRequestRequestTypeDef = TypedDict(
-    "UpdateNetworkResourceMetadataRequestRequestTypeDef",
-    {
-        "GlobalNetworkId": str,
-        "ResourceArn": str,
-        "Metadata": Dict[str, str],
-    },
-)
-
-UpdateNetworkResourceMetadataResponseTypeDef = TypedDict(
-    "UpdateNetworkResourceMetadataResponseTypeDef",
-    {
-        "ResourceArn": str,
-        "Metadata": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateSiteRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateSiteRequestRequestTypeDef",
-    {
-        "GlobalNetworkId": str,
-        "SiteId": str,
-    },
-)
-_OptionalUpdateSiteRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateSiteRequestRequestTypeDef",
-    {
-        "Description": str,
-        "Location": "LocationTypeDef",
-    },
-    total=False,
-)
-
-class UpdateSiteRequestRequestTypeDef(
-    _RequiredUpdateSiteRequestRequestTypeDef, _OptionalUpdateSiteRequestRequestTypeDef
-):
-    pass
-
-UpdateSiteResponseTypeDef = TypedDict(
-    "UpdateSiteResponseTypeDef",
-    {
-        "Site": "SiteTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateVpcAttachmentRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateVpcAttachmentRequestRequestTypeDef",
-    {
-        "AttachmentId": str,
-    },
-)
-_OptionalUpdateVpcAttachmentRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateVpcAttachmentRequestRequestTypeDef",
-    {
-        "AddSubnetArns": List[str],
-        "RemoveSubnetArns": List[str],
-        "Options": "VpcOptionsTypeDef",
-    },
-    total=False,
-)
-
-class UpdateVpcAttachmentRequestRequestTypeDef(
-    _RequiredUpdateVpcAttachmentRequestRequestTypeDef,
-    _OptionalUpdateVpcAttachmentRequestRequestTypeDef,
-):
-    pass
-
-UpdateVpcAttachmentResponseTypeDef = TypedDict(
-    "UpdateVpcAttachmentResponseTypeDef",
-    {
-        "VpcAttachment": "VpcAttachmentTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ViaTypeDef = TypedDict(
-    "ViaTypeDef",
-    {
-        "NetworkFunctionGroups": List["NetworkFunctionGroupTypeDef"],
-        "WithEdgeOverrides": List["EdgeOverrideTypeDef"],
-    },
-    total=False,
-)
-
-VpcAttachmentTypeDef = TypedDict(
-    "VpcAttachmentTypeDef",
-    {
-        "Attachment": "AttachmentTypeDef",
-        "SubnetArns": List[str],
-        "Options": "VpcOptionsTypeDef",
-    },
-    total=False,
-)
-
-VpcOptionsTypeDef = TypedDict(
-    "VpcOptionsTypeDef",
-    {
-        "Ipv6Support": bool,
-        "ApplianceModeSupport": bool,
-    },
-    total=False,
-)
-
-WhenSentToTypeDef = TypedDict(
-    "WhenSentToTypeDef",
-    {
-        "WhenSentToSegmentsList": List[str],
-    },
-    total=False,
-)
+        "Sequence": NotRequired[int],
+        "Resource": NotRequired[NetworkResourceSummaryTypeDef],
+        "DestinationCidrBlock": NotRequired[str],
+    },
+)
+NetworkRouteTypeDef = TypedDict(
+    "NetworkRouteTypeDef",
+    {
+        "DestinationCidrBlock": NotRequired[str],
+        "Destinations": NotRequired[List[NetworkRouteDestinationTypeDef]],
+        "PrefixListId": NotRequired[str],
+        "State": NotRequired[RouteStateType],
+        "Type": NotRequired[RouteTypeType],
+    },
+)
+
+class PeeringErrorTypeDef(TypedDict):
+    Code: NotRequired[PeeringErrorCodeType]
+    Message: NotRequired[str]
+    ResourceArn: NotRequired[str]
+    RequestId: NotRequired[str]
+    MissingPermissionsContext: NotRequired[PermissionsErrorContextTypeDef]
+
+class StartRouteAnalysisRequestTypeDef(TypedDict):
+    GlobalNetworkId: str
+    Source: RouteAnalysisEndpointOptionsSpecificationTypeDef
+    Destination: RouteAnalysisEndpointOptionsSpecificationTypeDef
+    IncludeReturnPath: NotRequired[bool]
+    UseMiddleboxes: NotRequired[bool]
+
+class TransitGatewayRegistrationTypeDef(TypedDict):
+    GlobalNetworkId: NotRequired[str]
+    TransitGatewayArn: NotRequired[str]
+    State: NotRequired[TransitGatewayRegistrationStateReasonTypeDef]
+
+class ListOrganizationServiceAccessStatusResponseTypeDef(TypedDict):
+    OrganizationStatus: OrganizationStatusTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class StartOrganizationServiceAccessUpdateResponseTypeDef(TypedDict):
+    OrganizationStatus: OrganizationStatusTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListConnectPeersResponseTypeDef(TypedDict):
+    ConnectPeers: List[ConnectPeerSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class CreateConnectionResponseTypeDef(TypedDict):
+    Connection: ConnectionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteConnectionResponseTypeDef(TypedDict):
+    Connection: ConnectionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetConnectionsResponseTypeDef(TypedDict):
+    Connections: List[ConnectionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class UpdateConnectionResponseTypeDef(TypedDict):
+    Connection: ConnectionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListCoreNetworksResponseTypeDef(TypedDict):
+    CoreNetworks: List[CoreNetworkSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class CreateGlobalNetworkResponseTypeDef(TypedDict):
+    GlobalNetwork: GlobalNetworkTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteGlobalNetworkResponseTypeDef(TypedDict):
+    GlobalNetwork: GlobalNetworkTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeGlobalNetworksResponseTypeDef(TypedDict):
+    GlobalNetworks: List[GlobalNetworkTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class UpdateGlobalNetworkResponseTypeDef(TypedDict):
+    GlobalNetwork: GlobalNetworkTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetNetworkResourcesResponseTypeDef(TypedDict):
+    NetworkResources: List[NetworkResourceTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class AttachmentTypeDef(TypedDict):
+    CoreNetworkId: NotRequired[str]
+    CoreNetworkArn: NotRequired[str]
+    AttachmentId: NotRequired[str]
+    OwnerAccountId: NotRequired[str]
+    AttachmentType: NotRequired[AttachmentTypeType]
+    State: NotRequired[AttachmentStateType]
+    EdgeLocation: NotRequired[str]
+    EdgeLocations: NotRequired[List[str]]
+    ResourceArn: NotRequired[str]
+    AttachmentPolicyRuleNumber: NotRequired[int]
+    SegmentName: NotRequired[str]
+    NetworkFunctionGroupName: NotRequired[str]
+    Tags: NotRequired[List[TagTypeDef]]
+    ProposedSegmentChange: NotRequired[ProposedSegmentChangeTypeDef]
+    ProposedNetworkFunctionGroupChange: NotRequired[ProposedNetworkFunctionGroupChangeTypeDef]
+    CreatedAt: NotRequired[datetime]
+    UpdatedAt: NotRequired[datetime]
+    LastModificationErrors: NotRequired[List[AttachmentErrorTypeDef]]
+
+class CreateLinkResponseTypeDef(TypedDict):
+    Link: LinkTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteLinkResponseTypeDef(TypedDict):
+    Link: LinkTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetLinksResponseTypeDef(TypedDict):
+    Links: List[LinkTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class UpdateLinkResponseTypeDef(TypedDict):
+    Link: LinkTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ConnectPeerTypeDef(TypedDict):
+    CoreNetworkId: NotRequired[str]
+    ConnectAttachmentId: NotRequired[str]
+    ConnectPeerId: NotRequired[str]
+    EdgeLocation: NotRequired[str]
+    State: NotRequired[ConnectPeerStateType]
+    CreatedAt: NotRequired[datetime]
+    Configuration: NotRequired[ConnectPeerConfigurationTypeDef]
+    Tags: NotRequired[List[TagTypeDef]]
+    SubnetArn: NotRequired[str]
+    LastModificationErrors: NotRequired[List[ConnectPeerErrorTypeDef]]
+
+class GetNetworkTelemetryResponseTypeDef(TypedDict):
+    NetworkTelemetry: List[NetworkTelemetryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class GetCoreNetworkChangeEventsResponseTypeDef(TypedDict):
+    CoreNetworkChangeEvents: List[CoreNetworkChangeEventTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class CoreNetworkTypeDef(TypedDict):
+    GlobalNetworkId: NotRequired[str]
+    CoreNetworkId: NotRequired[str]
+    CoreNetworkArn: NotRequired[str]
+    Description: NotRequired[str]
+    CreatedAt: NotRequired[datetime]
+    State: NotRequired[CoreNetworkStateType]
+    Segments: NotRequired[List[CoreNetworkSegmentTypeDef]]
+    NetworkFunctionGroups: NotRequired[List[CoreNetworkNetworkFunctionGroupTypeDef]]
+    Edges: NotRequired[List[CoreNetworkEdgeTypeDef]]
+    Tags: NotRequired[List[TagTypeDef]]
+
+class DeleteCoreNetworkPolicyVersionResponseTypeDef(TypedDict):
+    CoreNetworkPolicy: CoreNetworkPolicyTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetCoreNetworkPolicyResponseTypeDef(TypedDict):
+    CoreNetworkPolicy: CoreNetworkPolicyTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutCoreNetworkPolicyResponseTypeDef(TypedDict):
+    CoreNetworkPolicy: CoreNetworkPolicyTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class RestoreCoreNetworkPolicyVersionResponseTypeDef(TypedDict):
+    CoreNetworkPolicy: CoreNetworkPolicyTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetNetworkRoutesRequestTypeDef(TypedDict):
+    GlobalNetworkId: str
+    RouteTableIdentifier: RouteTableIdentifierTypeDef
+    ExactCidrMatches: NotRequired[Sequence[str]]
+    LongestPrefixMatches: NotRequired[Sequence[str]]
+    SubnetOfMatches: NotRequired[Sequence[str]]
+    SupernetOfMatches: NotRequired[Sequence[str]]
+    PrefixListIds: NotRequired[Sequence[str]]
+    States: NotRequired[Sequence[RouteStateType]]
+    Types: NotRequired[Sequence[RouteTypeType]]
+    DestinationFilters: NotRequired[Mapping[str, Sequence[str]]]
+
+class CreateDeviceResponseTypeDef(TypedDict):
+    Device: DeviceTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteDeviceResponseTypeDef(TypedDict):
+    Device: DeviceTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetDevicesResponseTypeDef(TypedDict):
+    Devices: List[DeviceTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class UpdateDeviceResponseTypeDef(TypedDict):
+    Device: DeviceTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateSiteResponseTypeDef(TypedDict):
+    Site: SiteTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteSiteResponseTypeDef(TypedDict):
+    Site: SiteTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetSitesResponseTypeDef(TypedDict):
+    Sites: List[SiteTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class UpdateSiteResponseTypeDef(TypedDict):
+    Site: SiteTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ServiceInsertionActionTypeDef(TypedDict):
+    Action: NotRequired[SegmentActionServiceInsertionType]
+    Mode: NotRequired[SendViaModeType]
+    WhenSentTo: NotRequired[WhenSentToTypeDef]
+    Via: NotRequired[ViaTypeDef]
+
+class RouteAnalysisPathTypeDef(TypedDict):
+    CompletionStatus: NotRequired[RouteAnalysisCompletionTypeDef]
+    Path: NotRequired[List[PathComponentTypeDef]]
+
+class GetNetworkRoutesResponseTypeDef(TypedDict):
+    RouteTableArn: str
+    CoreNetworkSegmentEdge: CoreNetworkSegmentEdgeIdentifierTypeDef
+    RouteTableType: RouteTableTypeType
+    RouteTableTimestamp: datetime
+    NetworkRoutes: List[NetworkRouteTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PeeringTypeDef(TypedDict):
+    CoreNetworkId: NotRequired[str]
+    CoreNetworkArn: NotRequired[str]
+    PeeringId: NotRequired[str]
+    OwnerAccountId: NotRequired[str]
+    PeeringType: NotRequired[Literal["TRANSIT_GATEWAY"]]
+    State: NotRequired[PeeringStateType]
+    EdgeLocation: NotRequired[str]
+    ResourceArn: NotRequired[str]
+    Tags: NotRequired[List[TagTypeDef]]
+    CreatedAt: NotRequired[datetime]
+    LastModificationErrors: NotRequired[List[PeeringErrorTypeDef]]
+
+class DeregisterTransitGatewayResponseTypeDef(TypedDict):
+    TransitGatewayRegistration: TransitGatewayRegistrationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetTransitGatewayRegistrationsResponseTypeDef(TypedDict):
+    TransitGatewayRegistrations: List[TransitGatewayRegistrationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class RegisterTransitGatewayResponseTypeDef(TypedDict):
+    TransitGatewayRegistration: TransitGatewayRegistrationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class AcceptAttachmentResponseTypeDef(TypedDict):
+    Attachment: AttachmentTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ConnectAttachmentTypeDef(TypedDict):
+    Attachment: NotRequired[AttachmentTypeDef]
+    TransportAttachmentId: NotRequired[str]
+    Options: NotRequired[ConnectAttachmentOptionsTypeDef]
+
+class DeleteAttachmentResponseTypeDef(TypedDict):
+    Attachment: AttachmentTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DirectConnectGatewayAttachmentTypeDef(TypedDict):
+    Attachment: NotRequired[AttachmentTypeDef]
+    DirectConnectGatewayArn: NotRequired[str]
+
+class ListAttachmentsResponseTypeDef(TypedDict):
+    Attachments: List[AttachmentTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class RejectAttachmentResponseTypeDef(TypedDict):
+    Attachment: AttachmentTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class SiteToSiteVpnAttachmentTypeDef(TypedDict):
+    Attachment: NotRequired[AttachmentTypeDef]
+    VpnConnectionArn: NotRequired[str]
+
+class TransitGatewayRouteTableAttachmentTypeDef(TypedDict):
+    Attachment: NotRequired[AttachmentTypeDef]
+    PeeringId: NotRequired[str]
+    TransitGatewayRouteTableArn: NotRequired[str]
+
+class VpcAttachmentTypeDef(TypedDict):
+    Attachment: NotRequired[AttachmentTypeDef]
+    SubnetArns: NotRequired[List[str]]
+    Options: NotRequired[VpcOptionsTypeDef]
+
+class CreateConnectPeerResponseTypeDef(TypedDict):
+    ConnectPeer: ConnectPeerTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteConnectPeerResponseTypeDef(TypedDict):
+    ConnectPeer: ConnectPeerTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetConnectPeerResponseTypeDef(TypedDict):
+    ConnectPeer: ConnectPeerTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateCoreNetworkResponseTypeDef(TypedDict):
+    CoreNetwork: CoreNetworkTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteCoreNetworkResponseTypeDef(TypedDict):
+    CoreNetwork: CoreNetworkTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetCoreNetworkResponseTypeDef(TypedDict):
+    CoreNetwork: CoreNetworkTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateCoreNetworkResponseTypeDef(TypedDict):
+    CoreNetwork: CoreNetworkTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CoreNetworkChangeValuesTypeDef(TypedDict):
+    SegmentName: NotRequired[str]
+    NetworkFunctionGroupName: NotRequired[str]
+    EdgeLocations: NotRequired[List[str]]
+    Asn: NotRequired[int]
+    Cidr: NotRequired[str]
+    DestinationIdentifier: NotRequired[str]
+    InsideCidrBlocks: NotRequired[List[str]]
+    SharedSegments: NotRequired[List[str]]
+    ServiceInsertionActions: NotRequired[List[ServiceInsertionActionTypeDef]]
+
+class RouteAnalysisTypeDef(TypedDict):
+    GlobalNetworkId: NotRequired[str]
+    OwnerAccountId: NotRequired[str]
+    RouteAnalysisId: NotRequired[str]
+    StartTimestamp: NotRequired[datetime]
+    Status: NotRequired[RouteAnalysisStatusType]
+    Source: NotRequired[RouteAnalysisEndpointOptionsTypeDef]
+    Destination: NotRequired[RouteAnalysisEndpointOptionsTypeDef]
+    IncludeReturnPath: NotRequired[bool]
+    UseMiddleboxes: NotRequired[bool]
+    ForwardPath: NotRequired[RouteAnalysisPathTypeDef]
+    ReturnPath: NotRequired[RouteAnalysisPathTypeDef]
+
+class DeletePeeringResponseTypeDef(TypedDict):
+    Peering: PeeringTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListPeeringsResponseTypeDef(TypedDict):
+    Peerings: List[PeeringTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class TransitGatewayPeeringTypeDef(TypedDict):
+    Peering: NotRequired[PeeringTypeDef]
+    TransitGatewayArn: NotRequired[str]
+    TransitGatewayPeeringAttachmentId: NotRequired[str]
+
+class CreateConnectAttachmentResponseTypeDef(TypedDict):
+    ConnectAttachment: ConnectAttachmentTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetConnectAttachmentResponseTypeDef(TypedDict):
+    ConnectAttachment: ConnectAttachmentTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateDirectConnectGatewayAttachmentResponseTypeDef(TypedDict):
+    DirectConnectGatewayAttachment: DirectConnectGatewayAttachmentTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetDirectConnectGatewayAttachmentResponseTypeDef(TypedDict):
+    DirectConnectGatewayAttachment: DirectConnectGatewayAttachmentTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateDirectConnectGatewayAttachmentResponseTypeDef(TypedDict):
+    DirectConnectGatewayAttachment: DirectConnectGatewayAttachmentTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateSiteToSiteVpnAttachmentResponseTypeDef(TypedDict):
+    SiteToSiteVpnAttachment: SiteToSiteVpnAttachmentTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetSiteToSiteVpnAttachmentResponseTypeDef(TypedDict):
+    SiteToSiteVpnAttachment: SiteToSiteVpnAttachmentTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateTransitGatewayRouteTableAttachmentResponseTypeDef(TypedDict):
+    TransitGatewayRouteTableAttachment: TransitGatewayRouteTableAttachmentTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetTransitGatewayRouteTableAttachmentResponseTypeDef(TypedDict):
+    TransitGatewayRouteTableAttachment: TransitGatewayRouteTableAttachmentTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateVpcAttachmentResponseTypeDef(TypedDict):
+    VpcAttachment: VpcAttachmentTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetVpcAttachmentResponseTypeDef(TypedDict):
+    VpcAttachment: VpcAttachmentTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateVpcAttachmentResponseTypeDef(TypedDict):
+    VpcAttachment: VpcAttachmentTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+CoreNetworkChangeTypeDef = TypedDict(
+    "CoreNetworkChangeTypeDef",
+    {
+        "Type": NotRequired[ChangeTypeType],
+        "Action": NotRequired[ChangeActionType],
+        "Identifier": NotRequired[str],
+        "PreviousValues": NotRequired[CoreNetworkChangeValuesTypeDef],
+        "NewValues": NotRequired[CoreNetworkChangeValuesTypeDef],
+        "IdentifierPath": NotRequired[str],
+    },
+)
+
+class GetRouteAnalysisResponseTypeDef(TypedDict):
+    RouteAnalysis: RouteAnalysisTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartRouteAnalysisResponseTypeDef(TypedDict):
+    RouteAnalysis: RouteAnalysisTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateTransitGatewayPeeringResponseTypeDef(TypedDict):
+    TransitGatewayPeering: TransitGatewayPeeringTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetTransitGatewayPeeringResponseTypeDef(TypedDict):
+    TransitGatewayPeering: TransitGatewayPeeringTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetCoreNetworkChangeSetResponseTypeDef(TypedDict):
+    CoreNetworkChanges: List[CoreNetworkChangeTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]

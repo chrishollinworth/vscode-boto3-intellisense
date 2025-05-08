@@ -1,29 +1,30 @@
 """
-Type annotations for migration-hub-refactor-spaces service client.
+Type annotations for migration-hub-refactor-spaces service Client.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migration_hub_refactor_spaces/client.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_migration_hub_refactor_spaces/client/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
-    from mypy_boto3_migration_hub_refactor_spaces import MigrationHubRefactorSpacesClient
+    from boto3.session import Session
+    from mypy_boto3_migration_hub_refactor_spaces.client import MigrationHubRefactorSpacesClient
 
-    client: MigrationHubRefactorSpacesClient = boto3.client("migration-hub-refactor-spaces")
+    session = Session()
+    client: MigrationHubRefactorSpacesClient = session.client("migration-hub-refactor-spaces")
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from typing import Any, Dict, List, Type, overload
+from typing import Any, overload
 
 from botocore.client import BaseClient, ClientMeta
+from botocore.errorfactory import BaseClientExceptions
+from botocore.exceptions import ClientError as BotocoreClientError
 
-from .literals import (
-    NetworkFabricTypeType,
-    RouteActivationStateType,
-    RouteTypeType,
-    ServiceEndpointTypeType,
-)
 from .paginator import (
     ListApplicationsPaginator,
     ListEnvironmentsPaginator,
@@ -32,48 +33,66 @@ from .paginator import (
     ListServicesPaginator,
 )
 from .type_defs import (
-    ApiGatewayProxyInputTypeDef,
+    CreateApplicationRequestTypeDef,
     CreateApplicationResponseTypeDef,
+    CreateEnvironmentRequestTypeDef,
     CreateEnvironmentResponseTypeDef,
+    CreateRouteRequestTypeDef,
     CreateRouteResponseTypeDef,
+    CreateServiceRequestTypeDef,
     CreateServiceResponseTypeDef,
-    DefaultRouteInputTypeDef,
+    DeleteApplicationRequestTypeDef,
     DeleteApplicationResponseTypeDef,
+    DeleteEnvironmentRequestTypeDef,
     DeleteEnvironmentResponseTypeDef,
+    DeleteResourcePolicyRequestTypeDef,
+    DeleteRouteRequestTypeDef,
     DeleteRouteResponseTypeDef,
+    DeleteServiceRequestTypeDef,
     DeleteServiceResponseTypeDef,
+    GetApplicationRequestTypeDef,
     GetApplicationResponseTypeDef,
+    GetEnvironmentRequestTypeDef,
     GetEnvironmentResponseTypeDef,
+    GetResourcePolicyRequestTypeDef,
     GetResourcePolicyResponseTypeDef,
+    GetRouteRequestTypeDef,
     GetRouteResponseTypeDef,
+    GetServiceRequestTypeDef,
     GetServiceResponseTypeDef,
-    LambdaEndpointInputTypeDef,
+    ListApplicationsRequestTypeDef,
     ListApplicationsResponseTypeDef,
+    ListEnvironmentsRequestTypeDef,
     ListEnvironmentsResponseTypeDef,
+    ListEnvironmentVpcsRequestTypeDef,
     ListEnvironmentVpcsResponseTypeDef,
+    ListRoutesRequestTypeDef,
     ListRoutesResponseTypeDef,
+    ListServicesRequestTypeDef,
     ListServicesResponseTypeDef,
+    ListTagsForResourceRequestTypeDef,
     ListTagsForResourceResponseTypeDef,
+    PutResourcePolicyRequestTypeDef,
+    TagResourceRequestTypeDef,
+    UntagResourceRequestTypeDef,
+    UpdateRouteRequestTypeDef,
     UpdateRouteResponseTypeDef,
-    UriPathRouteInputTypeDef,
-    UrlEndpointInputTypeDef,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import type as Type
+    from collections.abc import Mapping
 else:
-    from typing_extensions import Literal
+    from typing import Dict, Mapping, Type
+if sys.version_info >= (3, 12):
+    from typing import Literal, Unpack
+else:
+    from typing_extensions import Literal, Unpack
 
 __all__ = ("MigrationHubRefactorSpacesClient",)
 
-class BotocoreClientError(BaseException):
-    MSG_TEMPLATE: str
-
-    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
-        self.response: Dict[str, Any]
-        self.operation_name: str
-
-class Exceptions:
+class Exceptions(BaseClientExceptions):
     AccessDeniedException: Type[BotocoreClientError]
     ClientError: Type[BotocoreClientError]
     ConflictException: Type[BotocoreClientError]
@@ -86,8 +105,8 @@ class Exceptions:
 
 class MigrationHubRefactorSpacesClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/migration-hub-refactor-spaces.html#MigrationHubRefactorSpaces.Client)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migration_hub_refactor_spaces/client.html)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/migration-hub-refactor-spaces.html#MigrationHubRefactorSpaces.Client)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_migration_hub_refactor_spaces/client/)
     """
 
     meta: ClientMeta
@@ -96,354 +115,316 @@ class MigrationHubRefactorSpacesClient(BaseClient):
     def exceptions(self) -> Exceptions:
         """
         MigrationHubRefactorSpacesClient exceptions.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/migration-hub-refactor-spaces.html#MigrationHubRefactorSpaces.Client)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_migration_hub_refactor_spaces/client/#exceptions)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        Check if an operation can be paginated.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/migration-hub-refactor-spaces.html#MigrationHubRefactorSpaces.Client.can_paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migration_hub_refactor_spaces/client.html#can_paginate)
-        """
-
-    def close(self) -> None:
-        """
-        Closes underlying endpoint connections.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/migration-hub-refactor-spaces.html#MigrationHubRefactorSpaces.Client.close)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migration_hub_refactor_spaces/client.html#close)
-        """
-
-    def create_application(
-        self,
-        *,
-        EnvironmentIdentifier: str,
-        Name: str,
-        ProxyType: Literal["API_GATEWAY"],
-        VpcId: str,
-        ApiGatewayProxy: "ApiGatewayProxyInputTypeDef" = None,
-        ClientToken: str = None,
-        Tags: Dict[str, str] = None
-    ) -> CreateApplicationResponseTypeDef:
-        """
-        Creates an Amazon Web Services Migration Hub Refactor Spaces application.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/migration-hub-refactor-spaces.html#MigrationHubRefactorSpaces.Client.create_application)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migration_hub_refactor_spaces/client.html#create_application)
-        """
-
-    def create_environment(
-        self,
-        *,
-        Name: str,
-        NetworkFabricType: NetworkFabricTypeType,
-        ClientToken: str = None,
-        Description: str = None,
-        Tags: Dict[str, str] = None
-    ) -> CreateEnvironmentResponseTypeDef:
-        """
-        Creates an Amazon Web Services Migration Hub Refactor Spaces environment.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/migration-hub-refactor-spaces.html#MigrationHubRefactorSpaces.Client.create_environment)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migration_hub_refactor_spaces/client.html#create_environment)
-        """
-
-    def create_route(
-        self,
-        *,
-        ApplicationIdentifier: str,
-        EnvironmentIdentifier: str,
-        RouteType: RouteTypeType,
-        ServiceIdentifier: str,
-        ClientToken: str = None,
-        DefaultRoute: "DefaultRouteInputTypeDef" = None,
-        Tags: Dict[str, str] = None,
-        UriPathRoute: "UriPathRouteInputTypeDef" = None
-    ) -> CreateRouteResponseTypeDef:
-        """
-        Creates an Amazon Web Services Migration Hub Refactor Spaces route.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/migration-hub-refactor-spaces.html#MigrationHubRefactorSpaces.Client.create_route)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migration_hub_refactor_spaces/client.html#create_route)
-        """
-
-    def create_service(
-        self,
-        *,
-        ApplicationIdentifier: str,
-        EndpointType: ServiceEndpointTypeType,
-        EnvironmentIdentifier: str,
-        Name: str,
-        ClientToken: str = None,
-        Description: str = None,
-        LambdaEndpoint: "LambdaEndpointInputTypeDef" = None,
-        Tags: Dict[str, str] = None,
-        UrlEndpoint: "UrlEndpointInputTypeDef" = None,
-        VpcId: str = None
-    ) -> CreateServiceResponseTypeDef:
-        """
-        Creates an Amazon Web Services Migration Hub Refactor Spaces service.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/migration-hub-refactor-spaces.html#MigrationHubRefactorSpaces.Client.create_service)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migration_hub_refactor_spaces/client.html#create_service)
-        """
-
-    def delete_application(
-        self, *, ApplicationIdentifier: str, EnvironmentIdentifier: str
-    ) -> DeleteApplicationResponseTypeDef:
-        """
-        Deletes an Amazon Web Services Migration Hub Refactor Spaces application.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/migration-hub-refactor-spaces.html#MigrationHubRefactorSpaces.Client.delete_application)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migration_hub_refactor_spaces/client.html#delete_application)
-        """
-
-    def delete_environment(self, *, EnvironmentIdentifier: str) -> DeleteEnvironmentResponseTypeDef:
-        """
-        Deletes an Amazon Web Services Migration Hub Refactor Spaces environment.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/migration-hub-refactor-spaces.html#MigrationHubRefactorSpaces.Client.delete_environment)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migration_hub_refactor_spaces/client.html#delete_environment)
-        """
-
-    def delete_resource_policy(self, *, Identifier: str) -> Dict[str, Any]:
-        """
-        Deletes the resource policy set for the environment.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/migration-hub-refactor-spaces.html#MigrationHubRefactorSpaces.Client.delete_resource_policy)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migration_hub_refactor_spaces/client.html#delete_resource_policy)
-        """
-
-    def delete_route(
-        self, *, ApplicationIdentifier: str, EnvironmentIdentifier: str, RouteIdentifier: str
-    ) -> DeleteRouteResponseTypeDef:
-        """
-        Deletes an Amazon Web Services Migration Hub Refactor Spaces route.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/migration-hub-refactor-spaces.html#MigrationHubRefactorSpaces.Client.delete_route)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migration_hub_refactor_spaces/client.html#delete_route)
-        """
-
-    def delete_service(
-        self, *, ApplicationIdentifier: str, EnvironmentIdentifier: str, ServiceIdentifier: str
-    ) -> DeleteServiceResponseTypeDef:
-        """
-        Deletes an Amazon Web Services Migration Hub Refactor Spaces service.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/migration-hub-refactor-spaces.html#MigrationHubRefactorSpaces.Client.delete_service)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migration_hub_refactor_spaces/client.html#delete_service)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/migration-hub-refactor-spaces/client/can_paginate.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_migration_hub_refactor_spaces/client/#can_paginate)
         """
 
     def generate_presigned_url(
         self,
         ClientMethod: str,
-        Params: Dict[str, Any] = None,
+        Params: Mapping[str, Any] = ...,
         ExpiresIn: int = 3600,
-        HttpMethod: str = None,
+        HttpMethod: str = ...,
     ) -> str:
         """
-        Generate a presigned url given a client, its method, and arguments.
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/migration-hub-refactor-spaces/client/generate_presigned_url.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_migration_hub_refactor_spaces/client/#generate_presigned_url)
+        """
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/migration-hub-refactor-spaces.html#MigrationHubRefactorSpaces.Client.generate_presigned_url)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migration_hub_refactor_spaces/client.html#generate_presigned_url)
+    def create_application(
+        self, **kwargs: Unpack[CreateApplicationRequestTypeDef]
+    ) -> CreateApplicationResponseTypeDef:
+        """
+        Creates an Amazon Web Services Migration Hub Refactor Spaces application.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/migration-hub-refactor-spaces/client/create_application.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_migration_hub_refactor_spaces/client/#create_application)
+        """
+
+    def create_environment(
+        self, **kwargs: Unpack[CreateEnvironmentRequestTypeDef]
+    ) -> CreateEnvironmentResponseTypeDef:
+        """
+        Creates an Amazon Web Services Migration Hub Refactor Spaces environment.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/migration-hub-refactor-spaces/client/create_environment.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_migration_hub_refactor_spaces/client/#create_environment)
+        """
+
+    def create_route(
+        self, **kwargs: Unpack[CreateRouteRequestTypeDef]
+    ) -> CreateRouteResponseTypeDef:
+        """
+        Creates an Amazon Web Services Migration Hub Refactor Spaces route.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/migration-hub-refactor-spaces/client/create_route.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_migration_hub_refactor_spaces/client/#create_route)
+        """
+
+    def create_service(
+        self, **kwargs: Unpack[CreateServiceRequestTypeDef]
+    ) -> CreateServiceResponseTypeDef:
+        """
+        Creates an Amazon Web Services Migration Hub Refactor Spaces service.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/migration-hub-refactor-spaces/client/create_service.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_migration_hub_refactor_spaces/client/#create_service)
+        """
+
+    def delete_application(
+        self, **kwargs: Unpack[DeleteApplicationRequestTypeDef]
+    ) -> DeleteApplicationResponseTypeDef:
+        """
+        Deletes an Amazon Web Services Migration Hub Refactor Spaces application.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/migration-hub-refactor-spaces/client/delete_application.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_migration_hub_refactor_spaces/client/#delete_application)
+        """
+
+    def delete_environment(
+        self, **kwargs: Unpack[DeleteEnvironmentRequestTypeDef]
+    ) -> DeleteEnvironmentResponseTypeDef:
+        """
+        Deletes an Amazon Web Services Migration Hub Refactor Spaces environment.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/migration-hub-refactor-spaces/client/delete_environment.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_migration_hub_refactor_spaces/client/#delete_environment)
+        """
+
+    def delete_resource_policy(
+        self, **kwargs: Unpack[DeleteResourcePolicyRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Deletes the resource policy set for the environment.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/migration-hub-refactor-spaces/client/delete_resource_policy.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_migration_hub_refactor_spaces/client/#delete_resource_policy)
+        """
+
+    def delete_route(
+        self, **kwargs: Unpack[DeleteRouteRequestTypeDef]
+    ) -> DeleteRouteResponseTypeDef:
+        """
+        Deletes an Amazon Web Services Migration Hub Refactor Spaces route.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/migration-hub-refactor-spaces/client/delete_route.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_migration_hub_refactor_spaces/client/#delete_route)
+        """
+
+    def delete_service(
+        self, **kwargs: Unpack[DeleteServiceRequestTypeDef]
+    ) -> DeleteServiceResponseTypeDef:
+        """
+        Deletes an Amazon Web Services Migration Hub Refactor Spaces service.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/migration-hub-refactor-spaces/client/delete_service.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_migration_hub_refactor_spaces/client/#delete_service)
         """
 
     def get_application(
-        self, *, ApplicationIdentifier: str, EnvironmentIdentifier: str
+        self, **kwargs: Unpack[GetApplicationRequestTypeDef]
     ) -> GetApplicationResponseTypeDef:
         """
         Gets an Amazon Web Services Migration Hub Refactor Spaces application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/migration-hub-refactor-spaces.html#MigrationHubRefactorSpaces.Client.get_application)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migration_hub_refactor_spaces/client.html#get_application)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/migration-hub-refactor-spaces/client/get_application.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_migration_hub_refactor_spaces/client/#get_application)
         """
 
-    def get_environment(self, *, EnvironmentIdentifier: str) -> GetEnvironmentResponseTypeDef:
+    def get_environment(
+        self, **kwargs: Unpack[GetEnvironmentRequestTypeDef]
+    ) -> GetEnvironmentResponseTypeDef:
         """
         Gets an Amazon Web Services Migration Hub Refactor Spaces environment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/migration-hub-refactor-spaces.html#MigrationHubRefactorSpaces.Client.get_environment)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migration_hub_refactor_spaces/client.html#get_environment)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/migration-hub-refactor-spaces/client/get_environment.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_migration_hub_refactor_spaces/client/#get_environment)
         """
 
-    def get_resource_policy(self, *, Identifier: str) -> GetResourcePolicyResponseTypeDef:
+    def get_resource_policy(
+        self, **kwargs: Unpack[GetResourcePolicyRequestTypeDef]
+    ) -> GetResourcePolicyResponseTypeDef:
         """
         Gets the resource-based permission policy that is set for the given environment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/migration-hub-refactor-spaces.html#MigrationHubRefactorSpaces.Client.get_resource_policy)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migration_hub_refactor_spaces/client.html#get_resource_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/migration-hub-refactor-spaces/client/get_resource_policy.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_migration_hub_refactor_spaces/client/#get_resource_policy)
         """
 
-    def get_route(
-        self, *, ApplicationIdentifier: str, EnvironmentIdentifier: str, RouteIdentifier: str
-    ) -> GetRouteResponseTypeDef:
+    def get_route(self, **kwargs: Unpack[GetRouteRequestTypeDef]) -> GetRouteResponseTypeDef:
         """
         Gets an Amazon Web Services Migration Hub Refactor Spaces route.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/migration-hub-refactor-spaces.html#MigrationHubRefactorSpaces.Client.get_route)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migration_hub_refactor_spaces/client.html#get_route)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/migration-hub-refactor-spaces/client/get_route.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_migration_hub_refactor_spaces/client/#get_route)
         """
 
-    def get_service(
-        self, *, ApplicationIdentifier: str, EnvironmentIdentifier: str, ServiceIdentifier: str
-    ) -> GetServiceResponseTypeDef:
+    def get_service(self, **kwargs: Unpack[GetServiceRequestTypeDef]) -> GetServiceResponseTypeDef:
         """
         Gets an Amazon Web Services Migration Hub Refactor Spaces service.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/migration-hub-refactor-spaces.html#MigrationHubRefactorSpaces.Client.get_service)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migration_hub_refactor_spaces/client.html#get_service)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/migration-hub-refactor-spaces/client/get_service.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_migration_hub_refactor_spaces/client/#get_service)
         """
 
     def list_applications(
-        self, *, EnvironmentIdentifier: str, MaxResults: int = None, NextToken: str = None
+        self, **kwargs: Unpack[ListApplicationsRequestTypeDef]
     ) -> ListApplicationsResponseTypeDef:
         """
         Lists all the Amazon Web Services Migration Hub Refactor Spaces applications
         within an environment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/migration-hub-refactor-spaces.html#MigrationHubRefactorSpaces.Client.list_applications)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migration_hub_refactor_spaces/client.html#list_applications)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/migration-hub-refactor-spaces/client/list_applications.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_migration_hub_refactor_spaces/client/#list_applications)
         """
 
     def list_environment_vpcs(
-        self, *, EnvironmentIdentifier: str, MaxResults: int = None, NextToken: str = None
+        self, **kwargs: Unpack[ListEnvironmentVpcsRequestTypeDef]
     ) -> ListEnvironmentVpcsResponseTypeDef:
         """
         Lists all Amazon Web Services Migration Hub Refactor Spaces service virtual
         private clouds (VPCs) that are part of the environment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/migration-hub-refactor-spaces.html#MigrationHubRefactorSpaces.Client.list_environment_vpcs)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migration_hub_refactor_spaces/client.html#list_environment_vpcs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/migration-hub-refactor-spaces/client/list_environment_vpcs.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_migration_hub_refactor_spaces/client/#list_environment_vpcs)
         """
 
     def list_environments(
-        self, *, MaxResults: int = None, NextToken: str = None
+        self, **kwargs: Unpack[ListEnvironmentsRequestTypeDef]
     ) -> ListEnvironmentsResponseTypeDef:
         """
         Lists Amazon Web Services Migration Hub Refactor Spaces environments owned by a
         caller account or shared with the caller account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/migration-hub-refactor-spaces.html#MigrationHubRefactorSpaces.Client.list_environments)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migration_hub_refactor_spaces/client.html#list_environments)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/migration-hub-refactor-spaces/client/list_environments.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_migration_hub_refactor_spaces/client/#list_environments)
         """
 
-    def list_routes(
-        self,
-        *,
-        ApplicationIdentifier: str,
-        EnvironmentIdentifier: str,
-        MaxResults: int = None,
-        NextToken: str = None
-    ) -> ListRoutesResponseTypeDef:
+    def list_routes(self, **kwargs: Unpack[ListRoutesRequestTypeDef]) -> ListRoutesResponseTypeDef:
         """
-        Lists all the Amazon Web Services Migration Hub Refactor Spaces routes within an
-        application.
+        Lists all the Amazon Web Services Migration Hub Refactor Spaces routes within
+        an application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/migration-hub-refactor-spaces.html#MigrationHubRefactorSpaces.Client.list_routes)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migration_hub_refactor_spaces/client.html#list_routes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/migration-hub-refactor-spaces/client/list_routes.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_migration_hub_refactor_spaces/client/#list_routes)
         """
 
     def list_services(
-        self,
-        *,
-        ApplicationIdentifier: str,
-        EnvironmentIdentifier: str,
-        MaxResults: int = None,
-        NextToken: str = None
+        self, **kwargs: Unpack[ListServicesRequestTypeDef]
     ) -> ListServicesResponseTypeDef:
         """
         Lists all the Amazon Web Services Migration Hub Refactor Spaces services within
         an application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/migration-hub-refactor-spaces.html#MigrationHubRefactorSpaces.Client.list_services)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migration_hub_refactor_spaces/client.html#list_services)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/migration-hub-refactor-spaces/client/list_services.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_migration_hub_refactor_spaces/client/#list_services)
         """
 
-    def list_tags_for_resource(self, *, ResourceArn: str) -> ListTagsForResourceResponseTypeDef:
+    def list_tags_for_resource(
+        self, **kwargs: Unpack[ListTagsForResourceRequestTypeDef]
+    ) -> ListTagsForResourceResponseTypeDef:
         """
         Lists the tags of a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/migration-hub-refactor-spaces.html#MigrationHubRefactorSpaces.Client.list_tags_for_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migration_hub_refactor_spaces/client.html#list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/migration-hub-refactor-spaces/client/list_tags_for_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_migration_hub_refactor_spaces/client/#list_tags_for_resource)
         """
 
-    def put_resource_policy(self, *, Policy: str, ResourceArn: str) -> Dict[str, Any]:
+    def put_resource_policy(
+        self, **kwargs: Unpack[PutResourcePolicyRequestTypeDef]
+    ) -> Dict[str, Any]:
         """
-        Attaches a resource-based permission policy to the Amazon Web Services Migration
-        Hub Refactor Spaces environment.
+        Attaches a resource-based permission policy to the Amazon Web Services
+        Migration Hub Refactor Spaces environment.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/migration-hub-refactor-spaces.html#MigrationHubRefactorSpaces.Client.put_resource_policy)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migration_hub_refactor_spaces/client.html#put_resource_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/migration-hub-refactor-spaces/client/put_resource_policy.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_migration_hub_refactor_spaces/client/#put_resource_policy)
         """
 
-    def tag_resource(self, *, ResourceArn: str, Tags: Dict[str, str]) -> Dict[str, Any]:
+    def tag_resource(self, **kwargs: Unpack[TagResourceRequestTypeDef]) -> Dict[str, Any]:
         """
         Removes the tags of a given resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/migration-hub-refactor-spaces.html#MigrationHubRefactorSpaces.Client.tag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migration_hub_refactor_spaces/client.html#tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/migration-hub-refactor-spaces/client/tag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_migration_hub_refactor_spaces/client/#tag_resource)
         """
 
-    def untag_resource(self, *, ResourceArn: str, TagKeys: List[str]) -> Dict[str, Any]:
+    def untag_resource(self, **kwargs: Unpack[UntagResourceRequestTypeDef]) -> Dict[str, Any]:
         """
         Adds to or modifies the tags of the given resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/migration-hub-refactor-spaces.html#MigrationHubRefactorSpaces.Client.untag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migration_hub_refactor_spaces/client.html#untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/migration-hub-refactor-spaces/client/untag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_migration_hub_refactor_spaces/client/#untag_resource)
         """
 
     def update_route(
-        self,
-        *,
-        ActivationState: RouteActivationStateType,
-        ApplicationIdentifier: str,
-        EnvironmentIdentifier: str,
-        RouteIdentifier: str
+        self, **kwargs: Unpack[UpdateRouteRequestTypeDef]
     ) -> UpdateRouteResponseTypeDef:
         """
         Updates an Amazon Web Services Migration Hub Refactor Spaces route.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/migration-hub-refactor-spaces.html#MigrationHubRefactorSpaces.Client.update_route)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migration_hub_refactor_spaces/client.html#update_route)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/migration-hub-refactor-spaces/client/update_route.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_migration_hub_refactor_spaces/client/#update_route)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_applications"]
     ) -> ListApplicationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/migration-hub-refactor-spaces.html#MigrationHubRefactorSpaces.Paginator.ListApplications)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migration_hub_refactor_spaces/paginators.html#listapplicationspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/migration-hub-refactor-spaces/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_migration_hub_refactor_spaces/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_environment_vpcs"]
     ) -> ListEnvironmentVpcsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/migration-hub-refactor-spaces.html#MigrationHubRefactorSpaces.Paginator.ListEnvironmentVpcs)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migration_hub_refactor_spaces/paginators.html#listenvironmentvpcspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/migration-hub-refactor-spaces/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_migration_hub_refactor_spaces/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_environments"]
     ) -> ListEnvironmentsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/migration-hub-refactor-spaces.html#MigrationHubRefactorSpaces.Paginator.ListEnvironments)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migration_hub_refactor_spaces/paginators.html#listenvironmentspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/migration-hub-refactor-spaces/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_migration_hub_refactor_spaces/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_routes"]) -> ListRoutesPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_routes"]
+    ) -> ListRoutesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/migration-hub-refactor-spaces.html#MigrationHubRefactorSpaces.Paginator.ListRoutes)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migration_hub_refactor_spaces/paginators.html#listroutespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/migration-hub-refactor-spaces/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_migration_hub_refactor_spaces/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_services"]) -> ListServicesPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_services"]
+    ) -> ListServicesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/migration-hub-refactor-spaces.html#MigrationHubRefactorSpaces.Paginator.ListServices)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migration_hub_refactor_spaces/paginators.html#listservicespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/migration-hub-refactor-spaces/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_migration_hub_refactor_spaces/client/#get_paginator)
         """

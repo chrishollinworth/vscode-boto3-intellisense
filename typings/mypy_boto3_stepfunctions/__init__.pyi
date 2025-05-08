@@ -1,10 +1,14 @@
 """
 Main interface for stepfunctions service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_stepfunctions/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_stepfunctions import (
         Client,
         GetExecutionHistoryPaginator,
@@ -15,10 +19,8 @@ Usage::
         SFNClient,
     )
 
-    session = boto3.Session()
-
-    client: SFNClient = boto3.client("stepfunctions")
-    session_client: SFNClient = session.client("stepfunctions")
+    session = Session()
+    client: SFNClient = session.client("stepfunctions")
 
     get_execution_history_paginator: GetExecutionHistoryPaginator = client.get_paginator("get_execution_history")
     list_activities_paginator: ListActivitiesPaginator = client.get_paginator("list_activities")

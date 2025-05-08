@@ -1,20 +1,22 @@
 """
 Main interface for rbin service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_rbin/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_rbin import (
         Client,
         ListRulesPaginator,
         RecycleBinClient,
     )
 
-    session = boto3.Session()
-
-    client: RecycleBinClient = boto3.client("rbin")
-    session_client: RecycleBinClient = session.client("rbin")
+    session = Session()
+    client: RecycleBinClient = session.client("rbin")
 
     list_rules_paginator: ListRulesPaginator = client.get_paginator("list_rules")
     ```

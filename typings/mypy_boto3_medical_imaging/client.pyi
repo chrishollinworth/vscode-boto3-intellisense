@@ -1,24 +1,30 @@
 """
-Type annotations for medical-imaging service client.
+Type annotations for medical-imaging service Client.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medical_imaging/client.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medical_imaging/client/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
-    from mypy_boto3_medical_imaging import HealthImagingClient
+    from boto3.session import Session
+    from mypy_boto3_medical_imaging.client import HealthImagingClient
 
-    client: HealthImagingClient = boto3.client("medical-imaging")
+    session = Session()
+    client: HealthImagingClient = session.client("medical-imaging")
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from typing import Any, Dict, List, Type, overload
+from typing import Any, overload
 
 from botocore.client import BaseClient, ClientMeta
+from botocore.errorfactory import BaseClientExceptions
+from botocore.exceptions import ClientError as BotocoreClientError
 
-from .literals import DatastoreStatusType, JobStatusType
 from .paginator import (
     ListDatastoresPaginator,
     ListDICOMImportJobsPaginator,
@@ -26,43 +32,56 @@ from .paginator import (
     SearchImageSetsPaginator,
 )
 from .type_defs import (
-    CopyImageSetInformationTypeDef,
+    CopyImageSetRequestTypeDef,
     CopyImageSetResponseTypeDef,
+    CreateDatastoreRequestTypeDef,
     CreateDatastoreResponseTypeDef,
+    DeleteDatastoreRequestTypeDef,
     DeleteDatastoreResponseTypeDef,
+    DeleteImageSetRequestTypeDef,
     DeleteImageSetResponseTypeDef,
+    GetDatastoreRequestTypeDef,
     GetDatastoreResponseTypeDef,
+    GetDICOMImportJobRequestTypeDef,
     GetDICOMImportJobResponseTypeDef,
+    GetImageFrameRequestTypeDef,
     GetImageFrameResponseTypeDef,
+    GetImageSetMetadataRequestTypeDef,
     GetImageSetMetadataResponseTypeDef,
+    GetImageSetRequestTypeDef,
     GetImageSetResponseTypeDef,
-    ImageFrameInformationTypeDef,
+    ListDatastoresRequestTypeDef,
     ListDatastoresResponseTypeDef,
+    ListDICOMImportJobsRequestTypeDef,
     ListDICOMImportJobsResponseTypeDef,
+    ListImageSetVersionsRequestTypeDef,
     ListImageSetVersionsResponseTypeDef,
+    ListTagsForResourceRequestTypeDef,
     ListTagsForResourceResponseTypeDef,
-    MetadataUpdatesTypeDef,
-    SearchCriteriaTypeDef,
+    SearchImageSetsRequestTypeDef,
     SearchImageSetsResponseTypeDef,
+    StartDICOMImportJobRequestTypeDef,
     StartDICOMImportJobResponseTypeDef,
+    TagResourceRequestTypeDef,
+    UntagResourceRequestTypeDef,
+    UpdateImageSetMetadataRequestTypeDef,
     UpdateImageSetMetadataResponseTypeDef,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import type as Type
+    from collections.abc import Mapping
 else:
-    from typing_extensions import Literal
+    from typing import Dict, Mapping, Type
+if sys.version_info >= (3, 12):
+    from typing import Literal, Unpack
+else:
+    from typing_extensions import Literal, Unpack
 
 __all__ = ("HealthImagingClient",)
 
-class BotocoreClientError(BaseException):
-    MSG_TEMPLATE: str
-
-    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
-        self.response: Dict[str, Any]
-        self.operation_name: str
-
-class Exceptions:
+class Exceptions(BaseClientExceptions):
     AccessDeniedException: Type[BotocoreClientError]
     ClientError: Type[BotocoreClientError]
     ConflictException: Type[BotocoreClientError]
@@ -74,8 +93,8 @@ class Exceptions:
 
 class HealthImagingClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medical-imaging.html#HealthImaging.Client)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medical_imaging/client.html)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medical-imaging.html#HealthImaging.Client)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medical_imaging/client/)
     """
 
     meta: ClientMeta
@@ -84,278 +103,245 @@ class HealthImagingClient(BaseClient):
     def exceptions(self) -> Exceptions:
         """
         HealthImagingClient exceptions.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medical-imaging.html#HealthImaging.Client)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medical_imaging/client/#exceptions)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        Check if an operation can be paginated.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medical-imaging.html#HealthImaging.Client.can_paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medical_imaging/client.html#can_paginate)
-        """
-
-    def close(self) -> None:
-        """
-        Closes underlying endpoint connections.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medical-imaging.html#HealthImaging.Client.close)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medical_imaging/client.html#close)
-        """
-
-    def copy_image_set(
-        self,
-        *,
-        datastoreId: str,
-        sourceImageSetId: str,
-        copyImageSetInformation: "CopyImageSetInformationTypeDef"
-    ) -> CopyImageSetResponseTypeDef:
-        """
-        Copy an image set.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medical-imaging.html#HealthImaging.Client.copy_image_set)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medical_imaging/client.html#copy_image_set)
-        """
-
-    def create_datastore(
-        self,
-        *,
-        clientToken: str,
-        datastoreName: str = None,
-        tags: Dict[str, str] = None,
-        kmsKeyArn: str = None
-    ) -> CreateDatastoreResponseTypeDef:
-        """
-        Create a data store.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medical-imaging.html#HealthImaging.Client.create_datastore)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medical_imaging/client.html#create_datastore)
-        """
-
-    def delete_datastore(self, *, datastoreId: str) -> DeleteDatastoreResponseTypeDef:
-        """
-        Delete a data store.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medical-imaging.html#HealthImaging.Client.delete_datastore)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medical_imaging/client.html#delete_datastore)
-        """
-
-    def delete_image_set(
-        self, *, datastoreId: str, imageSetId: str
-    ) -> DeleteImageSetResponseTypeDef:
-        """
-        Delete an image set.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medical-imaging.html#HealthImaging.Client.delete_image_set)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medical_imaging/client.html#delete_image_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medical-imaging/client/can_paginate.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medical_imaging/client/#can_paginate)
         """
 
     def generate_presigned_url(
         self,
         ClientMethod: str,
-        Params: Dict[str, Any] = None,
+        Params: Mapping[str, Any] = ...,
         ExpiresIn: int = 3600,
-        HttpMethod: str = None,
+        HttpMethod: str = ...,
     ) -> str:
         """
-        Generate a presigned url given a client, its method, and arguments.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medical-imaging.html#HealthImaging.Client.generate_presigned_url)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medical_imaging/client.html#generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medical-imaging/client/generate_presigned_url.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medical_imaging/client/#generate_presigned_url)
         """
 
-    def get_datastore(self, *, datastoreId: str) -> GetDatastoreResponseTypeDef:
+    def copy_image_set(
+        self, **kwargs: Unpack[CopyImageSetRequestTypeDef]
+    ) -> CopyImageSetResponseTypeDef:
         """
-        Get data store properties.
+        Copy an image set.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medical-imaging.html#HealthImaging.Client.get_datastore)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medical_imaging/client.html#get_datastore)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medical-imaging/client/copy_image_set.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medical_imaging/client/#copy_image_set)
+        """
+
+    def create_datastore(
+        self, **kwargs: Unpack[CreateDatastoreRequestTypeDef]
+    ) -> CreateDatastoreResponseTypeDef:
+        """
+        Create a data store.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medical-imaging/client/create_datastore.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medical_imaging/client/#create_datastore)
+        """
+
+    def delete_datastore(
+        self, **kwargs: Unpack[DeleteDatastoreRequestTypeDef]
+    ) -> DeleteDatastoreResponseTypeDef:
+        """
+        Delete a data store.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medical-imaging/client/delete_datastore.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medical_imaging/client/#delete_datastore)
+        """
+
+    def delete_image_set(
+        self, **kwargs: Unpack[DeleteImageSetRequestTypeDef]
+    ) -> DeleteImageSetResponseTypeDef:
+        """
+        Delete an image set.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medical-imaging/client/delete_image_set.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medical_imaging/client/#delete_image_set)
         """
 
     def get_dicom_import_job(
-        self, *, datastoreId: str, jobId: str
+        self, **kwargs: Unpack[GetDICOMImportJobRequestTypeDef]
     ) -> GetDICOMImportJobResponseTypeDef:
         """
         Get the import job properties to learn more about the job or job progress.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medical-imaging.html#HealthImaging.Client.get_dicom_import_job)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medical_imaging/client.html#get_dicom_import_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medical-imaging/client/get_dicom_import_job.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medical_imaging/client/#get_dicom_import_job)
+        """
+
+    def get_datastore(
+        self, **kwargs: Unpack[GetDatastoreRequestTypeDef]
+    ) -> GetDatastoreResponseTypeDef:
+        """
+        Get data store properties.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medical-imaging/client/get_datastore.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medical_imaging/client/#get_datastore)
         """
 
     def get_image_frame(
-        self,
-        *,
-        datastoreId: str,
-        imageSetId: str,
-        imageFrameInformation: "ImageFrameInformationTypeDef"
+        self, **kwargs: Unpack[GetImageFrameRequestTypeDef]
     ) -> GetImageFrameResponseTypeDef:
         """
         Get an image frame (pixel data) for an image set.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medical-imaging.html#HealthImaging.Client.get_image_frame)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medical_imaging/client.html#get_image_frame)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medical-imaging/client/get_image_frame.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medical_imaging/client/#get_image_frame)
         """
 
     def get_image_set(
-        self, *, datastoreId: str, imageSetId: str, versionId: str = None
+        self, **kwargs: Unpack[GetImageSetRequestTypeDef]
     ) -> GetImageSetResponseTypeDef:
         """
         Get image set properties.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medical-imaging.html#HealthImaging.Client.get_image_set)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medical_imaging/client.html#get_image_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medical-imaging/client/get_image_set.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medical_imaging/client/#get_image_set)
         """
 
     def get_image_set_metadata(
-        self, *, datastoreId: str, imageSetId: str, versionId: str = None
+        self, **kwargs: Unpack[GetImageSetMetadataRequestTypeDef]
     ) -> GetImageSetMetadataResponseTypeDef:
         """
         Get metadata attributes for an image set.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medical-imaging.html#HealthImaging.Client.get_image_set_metadata)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medical_imaging/client.html#get_image_set_metadata)
-        """
-
-    def list_datastores(
-        self,
-        *,
-        datastoreStatus: DatastoreStatusType = None,
-        nextToken: str = None,
-        maxResults: int = None
-    ) -> ListDatastoresResponseTypeDef:
-        """
-        List data stores.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medical-imaging.html#HealthImaging.Client.list_datastores)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medical_imaging/client.html#list_datastores)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medical-imaging/client/get_image_set_metadata.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medical_imaging/client/#get_image_set_metadata)
         """
 
     def list_dicom_import_jobs(
-        self,
-        *,
-        datastoreId: str,
-        jobStatus: JobStatusType = None,
-        nextToken: str = None,
-        maxResults: int = None
+        self, **kwargs: Unpack[ListDICOMImportJobsRequestTypeDef]
     ) -> ListDICOMImportJobsResponseTypeDef:
         """
         List import jobs created for a specific data store.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medical-imaging.html#HealthImaging.Client.list_dicom_import_jobs)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medical_imaging/client.html#list_dicom_import_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medical-imaging/client/list_dicom_import_jobs.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medical_imaging/client/#list_dicom_import_jobs)
+        """
+
+    def list_datastores(
+        self, **kwargs: Unpack[ListDatastoresRequestTypeDef]
+    ) -> ListDatastoresResponseTypeDef:
+        """
+        List data stores.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medical-imaging/client/list_datastores.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medical_imaging/client/#list_datastores)
         """
 
     def list_image_set_versions(
-        self, *, datastoreId: str, imageSetId: str, nextToken: str = None, maxResults: int = None
+        self, **kwargs: Unpack[ListImageSetVersionsRequestTypeDef]
     ) -> ListImageSetVersionsResponseTypeDef:
         """
         List image set versions.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medical-imaging.html#HealthImaging.Client.list_image_set_versions)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medical_imaging/client.html#list_image_set_versions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medical-imaging/client/list_image_set_versions.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medical_imaging/client/#list_image_set_versions)
         """
 
-    def list_tags_for_resource(self, *, resourceArn: str) -> ListTagsForResourceResponseTypeDef:
+    def list_tags_for_resource(
+        self, **kwargs: Unpack[ListTagsForResourceRequestTypeDef]
+    ) -> ListTagsForResourceResponseTypeDef:
         """
         Lists all tags associated with a medical imaging resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medical-imaging.html#HealthImaging.Client.list_tags_for_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medical_imaging/client.html#list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medical-imaging/client/list_tags_for_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medical_imaging/client/#list_tags_for_resource)
         """
 
     def search_image_sets(
-        self,
-        *,
-        datastoreId: str,
-        searchCriteria: "SearchCriteriaTypeDef" = None,
-        maxResults: int = None,
-        nextToken: str = None
+        self, **kwargs: Unpack[SearchImageSetsRequestTypeDef]
     ) -> SearchImageSetsResponseTypeDef:
         """
         Search image sets based on defined input attributes.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medical-imaging.html#HealthImaging.Client.search_image_sets)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medical_imaging/client.html#search_image_sets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medical-imaging/client/search_image_sets.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medical_imaging/client/#search_image_sets)
         """
 
     def start_dicom_import_job(
-        self,
-        *,
-        dataAccessRoleArn: str,
-        clientToken: str,
-        datastoreId: str,
-        inputS3Uri: str,
-        outputS3Uri: str,
-        jobName: str = None,
-        inputOwnerAccountId: str = None
+        self, **kwargs: Unpack[StartDICOMImportJobRequestTypeDef]
     ) -> StartDICOMImportJobResponseTypeDef:
         """
-        Start importing bulk data into an `ACTIVE` data store.
+        Start importing bulk data into an <code>ACTIVE</code> data store.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medical-imaging.html#HealthImaging.Client.start_dicom_import_job)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medical_imaging/client.html#start_dicom_import_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medical-imaging/client/start_dicom_import_job.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medical_imaging/client/#start_dicom_import_job)
         """
 
-    def tag_resource(self, *, resourceArn: str, tags: Dict[str, str]) -> Dict[str, Any]:
+    def tag_resource(self, **kwargs: Unpack[TagResourceRequestTypeDef]) -> Dict[str, Any]:
         """
         Adds a user-specifed key and value tag to a medical imaging resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medical-imaging.html#HealthImaging.Client.tag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medical_imaging/client.html#tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medical-imaging/client/tag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medical_imaging/client/#tag_resource)
         """
 
-    def untag_resource(self, *, resourceArn: str, tagKeys: List[str]) -> Dict[str, Any]:
+    def untag_resource(self, **kwargs: Unpack[UntagResourceRequestTypeDef]) -> Dict[str, Any]:
         """
         Removes tags from a medical imaging resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medical-imaging.html#HealthImaging.Client.untag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medical_imaging/client.html#untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medical-imaging/client/untag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medical_imaging/client/#untag_resource)
         """
 
     def update_image_set_metadata(
-        self,
-        *,
-        datastoreId: str,
-        imageSetId: str,
-        latestVersionId: str,
-        updateImageSetMetadataUpdates: "MetadataUpdatesTypeDef"
+        self, **kwargs: Unpack[UpdateImageSetMetadataRequestTypeDef]
     ) -> UpdateImageSetMetadataResponseTypeDef:
         """
         Update image set metadata attributes.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medical-imaging.html#HealthImaging.Client.update_image_set_metadata)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medical_imaging/client.html#update_image_set_metadata)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medical-imaging/client/update_image_set_metadata.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medical_imaging/client/#update_image_set_metadata)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_dicom_import_jobs"]
     ) -> ListDICOMImportJobsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medical-imaging.html#HealthImaging.Paginator.ListDICOMImportJobs)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medical_imaging/paginators.html#listdicomimportjobspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medical-imaging/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medical_imaging/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_datastores"]) -> ListDatastoresPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_datastores"]
+    ) -> ListDatastoresPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medical-imaging.html#HealthImaging.Paginator.ListDatastores)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medical_imaging/paginators.html#listdatastorespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medical-imaging/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medical_imaging/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_image_set_versions"]
     ) -> ListImageSetVersionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medical-imaging.html#HealthImaging.Paginator.ListImageSetVersions)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medical_imaging/paginators.html#listimagesetversionspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medical-imaging/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medical_imaging/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["search_image_sets"]
     ) -> SearchImageSetsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medical-imaging.html#HealthImaging.Paginator.SearchImageSets)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medical_imaging/paginators.html#searchimagesetspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medical-imaging/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medical_imaging/client/#get_paginator)
         """

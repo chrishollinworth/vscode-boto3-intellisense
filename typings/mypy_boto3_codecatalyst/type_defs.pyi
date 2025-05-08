@@ -1,20 +1,24 @@
 """
 Type annotations for codecatalyst service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codecatalyst/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codecatalyst/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_codecatalyst.type_defs import AccessTokenSummaryTypeDef
 
-    data: AccessTokenSummaryTypeDef = {...}
+    data: AccessTokenSummaryTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List, Union
+from typing import Any, Union
 
 from .literals import (
     ComparisonOperatorType,
@@ -29,31 +33,37 @@ from .literals import (
     WorkflowStatusType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
     "AccessTokenSummaryTypeDef",
-    "CreateAccessTokenRequestRequestTypeDef",
+    "CreateAccessTokenRequestTypeDef",
     "CreateAccessTokenResponseTypeDef",
-    "CreateDevEnvironmentRequestRequestTypeDef",
+    "CreateDevEnvironmentRequestTypeDef",
     "CreateDevEnvironmentResponseTypeDef",
-    "CreateProjectRequestRequestTypeDef",
+    "CreateProjectRequestTypeDef",
     "CreateProjectResponseTypeDef",
-    "CreateSourceRepositoryBranchRequestRequestTypeDef",
+    "CreateSourceRepositoryBranchRequestTypeDef",
     "CreateSourceRepositoryBranchResponseTypeDef",
-    "CreateSourceRepositoryRequestRequestTypeDef",
+    "CreateSourceRepositoryRequestTypeDef",
     "CreateSourceRepositoryResponseTypeDef",
-    "DeleteAccessTokenRequestRequestTypeDef",
-    "DeleteDevEnvironmentRequestRequestTypeDef",
+    "DeleteAccessTokenRequestTypeDef",
+    "DeleteDevEnvironmentRequestTypeDef",
     "DeleteDevEnvironmentResponseTypeDef",
-    "DeleteProjectRequestRequestTypeDef",
+    "DeleteProjectRequestTypeDef",
     "DeleteProjectResponseTypeDef",
-    "DeleteSourceRepositoryRequestRequestTypeDef",
+    "DeleteSourceRepositoryRequestTypeDef",
     "DeleteSourceRepositoryResponseTypeDef",
-    "DeleteSpaceRequestRequestTypeDef",
+    "DeleteSpaceRequestTypeDef",
     "DeleteSpaceResponseTypeDef",
     "DevEnvironmentAccessDetailsTypeDef",
     "DevEnvironmentRepositorySummaryTypeDef",
@@ -65,47 +75,57 @@ __all__ = (
     "EventPayloadTypeDef",
     "ExecuteCommandSessionConfigurationTypeDef",
     "FilterTypeDef",
-    "GetDevEnvironmentRequestRequestTypeDef",
+    "GetDevEnvironmentRequestTypeDef",
     "GetDevEnvironmentResponseTypeDef",
-    "GetProjectRequestRequestTypeDef",
+    "GetProjectRequestTypeDef",
     "GetProjectResponseTypeDef",
-    "GetSourceRepositoryCloneUrlsRequestRequestTypeDef",
+    "GetSourceRepositoryCloneUrlsRequestTypeDef",
     "GetSourceRepositoryCloneUrlsResponseTypeDef",
-    "GetSourceRepositoryRequestRequestTypeDef",
+    "GetSourceRepositoryRequestTypeDef",
     "GetSourceRepositoryResponseTypeDef",
-    "GetSpaceRequestRequestTypeDef",
+    "GetSpaceRequestTypeDef",
     "GetSpaceResponseTypeDef",
-    "GetSubscriptionRequestRequestTypeDef",
+    "GetSubscriptionRequestTypeDef",
     "GetSubscriptionResponseTypeDef",
-    "GetUserDetailsRequestRequestTypeDef",
+    "GetUserDetailsRequestTypeDef",
     "GetUserDetailsResponseTypeDef",
-    "GetWorkflowRequestRequestTypeDef",
+    "GetWorkflowRequestTypeDef",
     "GetWorkflowResponseTypeDef",
-    "GetWorkflowRunRequestRequestTypeDef",
+    "GetWorkflowRunRequestTypeDef",
     "GetWorkflowRunResponseTypeDef",
     "IdeConfigurationTypeDef",
     "IdeTypeDef",
-    "ListAccessTokensRequestRequestTypeDef",
+    "ListAccessTokensRequestPaginateTypeDef",
+    "ListAccessTokensRequestTypeDef",
     "ListAccessTokensResponseTypeDef",
-    "ListDevEnvironmentSessionsRequestRequestTypeDef",
+    "ListDevEnvironmentSessionsRequestPaginateTypeDef",
+    "ListDevEnvironmentSessionsRequestTypeDef",
     "ListDevEnvironmentSessionsResponseTypeDef",
-    "ListDevEnvironmentsRequestRequestTypeDef",
+    "ListDevEnvironmentsRequestPaginateTypeDef",
+    "ListDevEnvironmentsRequestTypeDef",
     "ListDevEnvironmentsResponseTypeDef",
-    "ListEventLogsRequestRequestTypeDef",
+    "ListEventLogsRequestPaginateTypeDef",
+    "ListEventLogsRequestTypeDef",
     "ListEventLogsResponseTypeDef",
-    "ListProjectsRequestRequestTypeDef",
+    "ListProjectsRequestPaginateTypeDef",
+    "ListProjectsRequestTypeDef",
     "ListProjectsResponseTypeDef",
     "ListSourceRepositoriesItemTypeDef",
-    "ListSourceRepositoriesRequestRequestTypeDef",
+    "ListSourceRepositoriesRequestPaginateTypeDef",
+    "ListSourceRepositoriesRequestTypeDef",
     "ListSourceRepositoriesResponseTypeDef",
     "ListSourceRepositoryBranchesItemTypeDef",
-    "ListSourceRepositoryBranchesRequestRequestTypeDef",
+    "ListSourceRepositoryBranchesRequestPaginateTypeDef",
+    "ListSourceRepositoryBranchesRequestTypeDef",
     "ListSourceRepositoryBranchesResponseTypeDef",
-    "ListSpacesRequestRequestTypeDef",
+    "ListSpacesRequestPaginateTypeDef",
+    "ListSpacesRequestTypeDef",
     "ListSpacesResponseTypeDef",
-    "ListWorkflowRunsRequestRequestTypeDef",
+    "ListWorkflowRunsRequestPaginateTypeDef",
+    "ListWorkflowRunsRequestTypeDef",
     "ListWorkflowRunsResponseTypeDef",
-    "ListWorkflowsRequestRequestTypeDef",
+    "ListWorkflowsRequestPaginateTypeDef",
+    "ListWorkflowsRequestTypeDef",
     "ListWorkflowsResponseTypeDef",
     "PaginatorConfigTypeDef",
     "PersistentStorageConfigurationTypeDef",
@@ -116,21 +136,22 @@ __all__ = (
     "RepositoryInputTypeDef",
     "ResponseMetadataTypeDef",
     "SpaceSummaryTypeDef",
-    "StartDevEnvironmentRequestRequestTypeDef",
+    "StartDevEnvironmentRequestTypeDef",
     "StartDevEnvironmentResponseTypeDef",
-    "StartDevEnvironmentSessionRequestRequestTypeDef",
+    "StartDevEnvironmentSessionRequestTypeDef",
     "StartDevEnvironmentSessionResponseTypeDef",
-    "StartWorkflowRunRequestRequestTypeDef",
+    "StartWorkflowRunRequestTypeDef",
     "StartWorkflowRunResponseTypeDef",
-    "StopDevEnvironmentRequestRequestTypeDef",
+    "StopDevEnvironmentRequestTypeDef",
     "StopDevEnvironmentResponseTypeDef",
-    "StopDevEnvironmentSessionRequestRequestTypeDef",
+    "StopDevEnvironmentSessionRequestTypeDef",
     "StopDevEnvironmentSessionResponseTypeDef",
-    "UpdateDevEnvironmentRequestRequestTypeDef",
+    "TimestampTypeDef",
+    "UpdateDevEnvironmentRequestTypeDef",
     "UpdateDevEnvironmentResponseTypeDef",
-    "UpdateProjectRequestRequestTypeDef",
+    "UpdateProjectRequestTypeDef",
     "UpdateProjectResponseTypeDef",
-    "UpdateSpaceRequestRequestTypeDef",
+    "UpdateSpaceRequestTypeDef",
     "UpdateSpaceResponseTypeDef",
     "UserIdentityTypeDef",
     "VerifySessionResponseTypeDef",
@@ -140,202 +161,60 @@ __all__ = (
     "WorkflowSummaryTypeDef",
 )
 
-_RequiredAccessTokenSummaryTypeDef = TypedDict(
-    "_RequiredAccessTokenSummaryTypeDef",
+AccessTokenSummaryTypeDef = TypedDict(
+    "AccessTokenSummaryTypeDef",
     {
         "id": str,
         "name": str,
+        "expiresTime": NotRequired[datetime],
     },
 )
-_OptionalAccessTokenSummaryTypeDef = TypedDict(
-    "_OptionalAccessTokenSummaryTypeDef",
-    {
-        "expiresTime": datetime,
-    },
-    total=False,
-)
+TimestampTypeDef = Union[datetime, str]
 
-class AccessTokenSummaryTypeDef(
-    _RequiredAccessTokenSummaryTypeDef, _OptionalAccessTokenSummaryTypeDef
-):
-    pass
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-_RequiredCreateAccessTokenRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateAccessTokenRequestRequestTypeDef",
-    {
-        "name": str,
-    },
-)
-_OptionalCreateAccessTokenRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateAccessTokenRequestRequestTypeDef",
-    {
-        "expiresTime": Union[datetime, str],
-    },
-    total=False,
-)
+class IdeConfigurationTypeDef(TypedDict):
+    runtime: NotRequired[str]
+    name: NotRequired[str]
 
-class CreateAccessTokenRequestRequestTypeDef(
-    _RequiredCreateAccessTokenRequestRequestTypeDef, _OptionalCreateAccessTokenRequestRequestTypeDef
-):
-    pass
+class PersistentStorageConfigurationTypeDef(TypedDict):
+    sizeInGiB: int
 
-CreateAccessTokenResponseTypeDef = TypedDict(
-    "CreateAccessTokenResponseTypeDef",
-    {
-        "secret": str,
-        "name": str,
-        "expiresTime": datetime,
-        "accessTokenId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class RepositoryInputTypeDef(TypedDict):
+    repositoryName: str
+    branchName: NotRequired[str]
 
-_RequiredCreateDevEnvironmentRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateDevEnvironmentRequestRequestTypeDef",
-    {
-        "spaceName": str,
-        "projectName": str,
-        "instanceType": InstanceTypeType,
-        "persistentStorage": "PersistentStorageConfigurationTypeDef",
-    },
-)
-_OptionalCreateDevEnvironmentRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateDevEnvironmentRequestRequestTypeDef",
-    {
-        "repositories": List["RepositoryInputTypeDef"],
-        "clientToken": str,
-        "alias": str,
-        "ides": List["IdeConfigurationTypeDef"],
-        "inactivityTimeoutMinutes": int,
-        "vpcConnectionName": str,
-    },
-    total=False,
-)
+class CreateProjectRequestTypeDef(TypedDict):
+    spaceName: str
+    displayName: str
+    description: NotRequired[str]
 
-class CreateDevEnvironmentRequestRequestTypeDef(
-    _RequiredCreateDevEnvironmentRequestRequestTypeDef,
-    _OptionalCreateDevEnvironmentRequestRequestTypeDef,
-):
-    pass
+class CreateSourceRepositoryBranchRequestTypeDef(TypedDict):
+    spaceName: str
+    projectName: str
+    sourceRepositoryName: str
+    name: str
+    headCommitId: NotRequired[str]
 
-CreateDevEnvironmentResponseTypeDef = TypedDict(
-    "CreateDevEnvironmentResponseTypeDef",
-    {
-        "spaceName": str,
-        "projectName": str,
-        "id": str,
-        "vpcConnectionName": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CreateSourceRepositoryRequestTypeDef(TypedDict):
+    spaceName: str
+    projectName: str
+    name: str
+    description: NotRequired[str]
 
-_RequiredCreateProjectRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateProjectRequestRequestTypeDef",
-    {
-        "spaceName": str,
-        "displayName": str,
-    },
-)
-_OptionalCreateProjectRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateProjectRequestRequestTypeDef",
-    {
-        "description": str,
-    },
-    total=False,
-)
-
-class CreateProjectRequestRequestTypeDef(
-    _RequiredCreateProjectRequestRequestTypeDef, _OptionalCreateProjectRequestRequestTypeDef
-):
-    pass
-
-CreateProjectResponseTypeDef = TypedDict(
-    "CreateProjectResponseTypeDef",
-    {
-        "spaceName": str,
-        "name": str,
-        "displayName": str,
-        "description": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateSourceRepositoryBranchRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateSourceRepositoryBranchRequestRequestTypeDef",
-    {
-        "spaceName": str,
-        "projectName": str,
-        "sourceRepositoryName": str,
-        "name": str,
-    },
-)
-_OptionalCreateSourceRepositoryBranchRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateSourceRepositoryBranchRequestRequestTypeDef",
-    {
-        "headCommitId": str,
-    },
-    total=False,
-)
-
-class CreateSourceRepositoryBranchRequestRequestTypeDef(
-    _RequiredCreateSourceRepositoryBranchRequestRequestTypeDef,
-    _OptionalCreateSourceRepositoryBranchRequestRequestTypeDef,
-):
-    pass
-
-CreateSourceRepositoryBranchResponseTypeDef = TypedDict(
-    "CreateSourceRepositoryBranchResponseTypeDef",
-    {
-        "ref": str,
-        "name": str,
-        "lastUpdatedTime": datetime,
-        "headCommitId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateSourceRepositoryRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateSourceRepositoryRequestRequestTypeDef",
-    {
-        "spaceName": str,
-        "projectName": str,
-        "name": str,
-    },
-)
-_OptionalCreateSourceRepositoryRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateSourceRepositoryRequestRequestTypeDef",
-    {
-        "description": str,
-    },
-    total=False,
-)
-
-class CreateSourceRepositoryRequestRequestTypeDef(
-    _RequiredCreateSourceRepositoryRequestRequestTypeDef,
-    _OptionalCreateSourceRepositoryRequestRequestTypeDef,
-):
-    pass
-
-CreateSourceRepositoryResponseTypeDef = TypedDict(
-    "CreateSourceRepositoryResponseTypeDef",
-    {
-        "spaceName": str,
-        "projectName": str,
-        "name": str,
-        "description": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteAccessTokenRequestRequestTypeDef = TypedDict(
-    "DeleteAccessTokenRequestRequestTypeDef",
+DeleteAccessTokenRequestTypeDef = TypedDict(
+    "DeleteAccessTokenRequestTypeDef",
     {
         "id": str,
     },
 )
-
-DeleteDevEnvironmentRequestRequestTypeDef = TypedDict(
-    "DeleteDevEnvironmentRequestRequestTypeDef",
+DeleteDevEnvironmentRequestTypeDef = TypedDict(
+    "DeleteDevEnvironmentRequestTypeDef",
     {
         "spaceName": str,
         "projectName": str,
@@ -343,115 +222,29 @@ DeleteDevEnvironmentRequestRequestTypeDef = TypedDict(
     },
 )
 
-DeleteDevEnvironmentResponseTypeDef = TypedDict(
-    "DeleteDevEnvironmentResponseTypeDef",
-    {
-        "spaceName": str,
-        "projectName": str,
-        "id": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DeleteProjectRequestTypeDef(TypedDict):
+    spaceName: str
+    name: str
 
-DeleteProjectRequestRequestTypeDef = TypedDict(
-    "DeleteProjectRequestRequestTypeDef",
-    {
-        "spaceName": str,
-        "name": str,
-    },
-)
+class DeleteSourceRepositoryRequestTypeDef(TypedDict):
+    spaceName: str
+    projectName: str
+    name: str
 
-DeleteProjectResponseTypeDef = TypedDict(
-    "DeleteProjectResponseTypeDef",
-    {
-        "spaceName": str,
-        "name": str,
-        "displayName": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DeleteSpaceRequestTypeDef(TypedDict):
+    name: str
 
-DeleteSourceRepositoryRequestRequestTypeDef = TypedDict(
-    "DeleteSourceRepositoryRequestRequestTypeDef",
-    {
-        "spaceName": str,
-        "projectName": str,
-        "name": str,
-    },
-)
+class DevEnvironmentAccessDetailsTypeDef(TypedDict):
+    streamUrl: str
+    tokenValue: str
 
-DeleteSourceRepositoryResponseTypeDef = TypedDict(
-    "DeleteSourceRepositoryResponseTypeDef",
-    {
-        "spaceName": str,
-        "projectName": str,
-        "name": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DevEnvironmentRepositorySummaryTypeDef(TypedDict):
+    repositoryName: str
+    branchName: NotRequired[str]
 
-DeleteSpaceRequestRequestTypeDef = TypedDict(
-    "DeleteSpaceRequestRequestTypeDef",
-    {
-        "name": str,
-    },
-)
-
-DeleteSpaceResponseTypeDef = TypedDict(
-    "DeleteSpaceResponseTypeDef",
-    {
-        "name": str,
-        "displayName": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DevEnvironmentAccessDetailsTypeDef = TypedDict(
-    "DevEnvironmentAccessDetailsTypeDef",
-    {
-        "streamUrl": str,
-        "tokenValue": str,
-    },
-)
-
-_RequiredDevEnvironmentRepositorySummaryTypeDef = TypedDict(
-    "_RequiredDevEnvironmentRepositorySummaryTypeDef",
-    {
-        "repositoryName": str,
-    },
-)
-_OptionalDevEnvironmentRepositorySummaryTypeDef = TypedDict(
-    "_OptionalDevEnvironmentRepositorySummaryTypeDef",
-    {
-        "branchName": str,
-    },
-    total=False,
-)
-
-class DevEnvironmentRepositorySummaryTypeDef(
-    _RequiredDevEnvironmentRepositorySummaryTypeDef, _OptionalDevEnvironmentRepositorySummaryTypeDef
-):
-    pass
-
-_RequiredDevEnvironmentSessionConfigurationTypeDef = TypedDict(
-    "_RequiredDevEnvironmentSessionConfigurationTypeDef",
-    {
-        "sessionType": DevEnvironmentSessionTypeType,
-    },
-)
-_OptionalDevEnvironmentSessionConfigurationTypeDef = TypedDict(
-    "_OptionalDevEnvironmentSessionConfigurationTypeDef",
-    {
-        "executeCommandSessionConfiguration": "ExecuteCommandSessionConfigurationTypeDef",
-    },
-    total=False,
-)
-
-class DevEnvironmentSessionConfigurationTypeDef(
-    _RequiredDevEnvironmentSessionConfigurationTypeDef,
-    _OptionalDevEnvironmentSessionConfigurationTypeDef,
-):
-    pass
+class ExecuteCommandSessionConfigurationTypeDef(TypedDict):
+    command: str
+    arguments: NotRequired[Sequence[str]]
 
 DevEnvironmentSessionSummaryTypeDef = TypedDict(
     "DevEnvironmentSessionSummaryTypeDef",
@@ -464,125 +257,38 @@ DevEnvironmentSessionSummaryTypeDef = TypedDict(
     },
 )
 
-_RequiredDevEnvironmentSummaryTypeDef = TypedDict(
-    "_RequiredDevEnvironmentSummaryTypeDef",
-    {
-        "id": str,
-        "lastUpdatedTime": datetime,
-        "creatorId": str,
-        "status": DevEnvironmentStatusType,
-        "repositories": List["DevEnvironmentRepositorySummaryTypeDef"],
-        "instanceType": InstanceTypeType,
-        "inactivityTimeoutMinutes": int,
-        "persistentStorage": "PersistentStorageTypeDef",
-    },
-)
-_OptionalDevEnvironmentSummaryTypeDef = TypedDict(
-    "_OptionalDevEnvironmentSummaryTypeDef",
-    {
-        "spaceName": str,
-        "projectName": str,
-        "statusReason": str,
-        "alias": str,
-        "ides": List["IdeTypeDef"],
-        "vpcConnectionName": str,
-    },
-    total=False,
-)
+class IdeTypeDef(TypedDict):
+    runtime: NotRequired[str]
+    name: NotRequired[str]
 
-class DevEnvironmentSummaryTypeDef(
-    _RequiredDevEnvironmentSummaryTypeDef, _OptionalDevEnvironmentSummaryTypeDef
-):
-    pass
+class PersistentStorageTypeDef(TypedDict):
+    sizeInGiB: int
 
-EmailAddressTypeDef = TypedDict(
-    "EmailAddressTypeDef",
-    {
-        "email": str,
-        "verified": bool,
-    },
-    total=False,
-)
+class EmailAddressTypeDef(TypedDict):
+    email: NotRequired[str]
+    verified: NotRequired[bool]
 
-_RequiredEventLogEntryTypeDef = TypedDict(
-    "_RequiredEventLogEntryTypeDef",
-    {
-        "id": str,
-        "eventName": str,
-        "eventType": str,
-        "eventCategory": str,
-        "eventSource": str,
-        "eventTime": datetime,
-        "operationType": OperationTypeType,
-        "userIdentity": "UserIdentityTypeDef",
-    },
-)
-_OptionalEventLogEntryTypeDef = TypedDict(
-    "_OptionalEventLogEntryTypeDef",
-    {
-        "projectInformation": "ProjectInformationTypeDef",
-        "requestId": str,
-        "requestPayload": "EventPayloadTypeDef",
-        "responsePayload": "EventPayloadTypeDef",
-        "errorCode": str,
-        "sourceIpAddress": str,
-        "userAgent": str,
-    },
-    total=False,
-)
+class EventPayloadTypeDef(TypedDict):
+    contentType: NotRequired[str]
+    data: NotRequired[str]
 
-class EventLogEntryTypeDef(_RequiredEventLogEntryTypeDef, _OptionalEventLogEntryTypeDef):
-    pass
+class ProjectInformationTypeDef(TypedDict):
+    name: NotRequired[str]
+    projectId: NotRequired[str]
 
-EventPayloadTypeDef = TypedDict(
-    "EventPayloadTypeDef",
-    {
-        "contentType": str,
-        "data": str,
-    },
-    total=False,
-)
+class UserIdentityTypeDef(TypedDict):
+    userType: UserTypeType
+    principalId: str
+    userName: NotRequired[str]
+    awsAccountId: NotRequired[str]
 
-_RequiredExecuteCommandSessionConfigurationTypeDef = TypedDict(
-    "_RequiredExecuteCommandSessionConfigurationTypeDef",
-    {
-        "command": str,
-    },
-)
-_OptionalExecuteCommandSessionConfigurationTypeDef = TypedDict(
-    "_OptionalExecuteCommandSessionConfigurationTypeDef",
-    {
-        "arguments": List[str],
-    },
-    total=False,
-)
+class FilterTypeDef(TypedDict):
+    key: str
+    values: Sequence[str]
+    comparisonOperator: NotRequired[str]
 
-class ExecuteCommandSessionConfigurationTypeDef(
-    _RequiredExecuteCommandSessionConfigurationTypeDef,
-    _OptionalExecuteCommandSessionConfigurationTypeDef,
-):
-    pass
-
-_RequiredFilterTypeDef = TypedDict(
-    "_RequiredFilterTypeDef",
-    {
-        "key": str,
-        "values": List[str],
-    },
-)
-_OptionalFilterTypeDef = TypedDict(
-    "_OptionalFilterTypeDef",
-    {
-        "comparisonOperator": str,
-    },
-    total=False,
-)
-
-class FilterTypeDef(_RequiredFilterTypeDef, _OptionalFilterTypeDef):
-    pass
-
-GetDevEnvironmentRequestRequestTypeDef = TypedDict(
-    "GetDevEnvironmentRequestRequestTypeDef",
+GetDevEnvironmentRequestTypeDef = TypedDict(
+    "GetDevEnvironmentRequestTypeDef",
     {
         "spaceName": str,
         "projectName": str,
@@ -590,177 +296,295 @@ GetDevEnvironmentRequestRequestTypeDef = TypedDict(
     },
 )
 
-GetDevEnvironmentResponseTypeDef = TypedDict(
-    "GetDevEnvironmentResponseTypeDef",
+class GetProjectRequestTypeDef(TypedDict):
+    spaceName: str
+    name: str
+
+class GetSourceRepositoryCloneUrlsRequestTypeDef(TypedDict):
+    spaceName: str
+    projectName: str
+    sourceRepositoryName: str
+
+class GetSourceRepositoryRequestTypeDef(TypedDict):
+    spaceName: str
+    projectName: str
+    name: str
+
+class GetSpaceRequestTypeDef(TypedDict):
+    name: str
+
+class GetSubscriptionRequestTypeDef(TypedDict):
+    spaceName: str
+
+GetUserDetailsRequestTypeDef = TypedDict(
+    "GetUserDetailsRequestTypeDef",
+    {
+        "id": NotRequired[str],
+        "userName": NotRequired[str],
+    },
+)
+GetWorkflowRequestTypeDef = TypedDict(
+    "GetWorkflowRequestTypeDef",
     {
         "spaceName": str,
-        "projectName": str,
         "id": str,
-        "lastUpdatedTime": datetime,
-        "creatorId": str,
-        "status": DevEnvironmentStatusType,
-        "statusReason": str,
-        "repositories": List["DevEnvironmentRepositorySummaryTypeDef"],
-        "alias": str,
-        "ides": List["IdeTypeDef"],
-        "instanceType": InstanceTypeType,
-        "inactivityTimeoutMinutes": int,
-        "persistentStorage": "PersistentStorageTypeDef",
-        "vpcConnectionName": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetProjectRequestRequestTypeDef = TypedDict(
-    "GetProjectRequestRequestTypeDef",
-    {
-        "spaceName": str,
-        "name": str,
-    },
-)
-
-GetProjectResponseTypeDef = TypedDict(
-    "GetProjectResponseTypeDef",
-    {
-        "spaceName": str,
-        "name": str,
-        "displayName": str,
-        "description": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetSourceRepositoryCloneUrlsRequestRequestTypeDef = TypedDict(
-    "GetSourceRepositoryCloneUrlsRequestRequestTypeDef",
-    {
-        "spaceName": str,
         "projectName": str,
-        "sourceRepositoryName": str,
     },
 )
 
-GetSourceRepositoryCloneUrlsResponseTypeDef = TypedDict(
-    "GetSourceRepositoryCloneUrlsResponseTypeDef",
-    {
-        "https": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class WorkflowDefinitionTypeDef(TypedDict):
+    path: str
 
-GetSourceRepositoryRequestRequestTypeDef = TypedDict(
-    "GetSourceRepositoryRequestRequestTypeDef",
+GetWorkflowRunRequestTypeDef = TypedDict(
+    "GetWorkflowRunRequestTypeDef",
     {
         "spaceName": str,
+        "id": str,
         "projectName": str,
-        "name": str,
     },
 )
 
-GetSourceRepositoryResponseTypeDef = TypedDict(
-    "GetSourceRepositoryResponseTypeDef",
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class ListAccessTokensRequestTypeDef(TypedDict):
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListDevEnvironmentSessionsRequestTypeDef(TypedDict):
+    spaceName: str
+    projectName: str
+    devEnvironmentId: str
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class ProjectListFilterTypeDef(TypedDict):
+    key: FilterKeyType
+    values: Sequence[str]
+    comparisonOperator: NotRequired[ComparisonOperatorType]
+
+class ProjectSummaryTypeDef(TypedDict):
+    name: str
+    displayName: NotRequired[str]
+    description: NotRequired[str]
+
+ListSourceRepositoriesItemTypeDef = TypedDict(
+    "ListSourceRepositoriesItemTypeDef",
     {
-        "spaceName": str,
-        "projectName": str,
+        "id": str,
         "name": str,
-        "description": str,
         "lastUpdatedTime": datetime,
         "createdTime": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "description": NotRequired[str],
     },
 )
 
-GetSpaceRequestRequestTypeDef = TypedDict(
-    "GetSpaceRequestRequestTypeDef",
-    {
-        "name": str,
-    },
-)
+class ListSourceRepositoriesRequestTypeDef(TypedDict):
+    spaceName: str
+    projectName: str
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
 
-GetSpaceResponseTypeDef = TypedDict(
-    "GetSpaceResponseTypeDef",
-    {
-        "name": str,
-        "regionName": str,
-        "displayName": str,
-        "description": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListSourceRepositoryBranchesItemTypeDef(TypedDict):
+    ref: NotRequired[str]
+    name: NotRequired[str]
+    lastUpdatedTime: NotRequired[datetime]
+    headCommitId: NotRequired[str]
 
-GetSubscriptionRequestRequestTypeDef = TypedDict(
-    "GetSubscriptionRequestRequestTypeDef",
-    {
-        "spaceName": str,
-    },
-)
+class ListSourceRepositoryBranchesRequestTypeDef(TypedDict):
+    spaceName: str
+    projectName: str
+    sourceRepositoryName: str
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
 
-GetSubscriptionResponseTypeDef = TypedDict(
-    "GetSubscriptionResponseTypeDef",
-    {
-        "subscriptionType": str,
-        "awsAccountName": str,
-        "pendingSubscriptionType": str,
-        "pendingSubscriptionStartTime": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListSpacesRequestTypeDef(TypedDict):
+    nextToken: NotRequired[str]
 
-GetUserDetailsRequestRequestTypeDef = TypedDict(
-    "GetUserDetailsRequestRequestTypeDef",
+class SpaceSummaryTypeDef(TypedDict):
+    name: str
+    regionName: str
+    displayName: NotRequired[str]
+    description: NotRequired[str]
+
+class ListWorkflowRunsRequestTypeDef(TypedDict):
+    spaceName: str
+    projectName: str
+    workflowId: NotRequired[str]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+    sortBy: NotRequired[Sequence[Mapping[str, Any]]]
+
+WorkflowRunSummaryTypeDef = TypedDict(
+    "WorkflowRunSummaryTypeDef",
     {
         "id": str,
-        "userName": str,
-    },
-    total=False,
-)
-
-GetUserDetailsResponseTypeDef = TypedDict(
-    "GetUserDetailsResponseTypeDef",
-    {
-        "userId": str,
-        "userName": str,
-        "displayName": str,
-        "primaryEmail": "EmailAddressTypeDef",
-        "version": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetWorkflowRequestRequestTypeDef = TypedDict(
-    "GetWorkflowRequestRequestTypeDef",
-    {
-        "spaceName": str,
-        "id": str,
-        "projectName": str,
-    },
-)
-
-GetWorkflowResponseTypeDef = TypedDict(
-    "GetWorkflowResponseTypeDef",
-    {
-        "spaceName": str,
-        "projectName": str,
-        "id": str,
-        "name": str,
-        "sourceRepositoryName": str,
-        "sourceBranchName": str,
-        "definition": "WorkflowDefinitionTypeDef",
-        "createdTime": datetime,
+        "workflowId": str,
+        "workflowName": str,
+        "status": WorkflowRunStatusType,
+        "startTime": datetime,
         "lastUpdatedTime": datetime,
-        "runMode": WorkflowRunModeType,
-        "status": WorkflowStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "statusReasons": NotRequired[List[Dict[str, Any]]],
+        "endTime": NotRequired[datetime],
     },
 )
 
-GetWorkflowRunRequestRequestTypeDef = TypedDict(
-    "GetWorkflowRunRequestRequestTypeDef",
+class ListWorkflowsRequestTypeDef(TypedDict):
+    spaceName: str
+    projectName: str
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+    sortBy: NotRequired[Sequence[Mapping[str, Any]]]
+
+class StartWorkflowRunRequestTypeDef(TypedDict):
+    spaceName: str
+    projectName: str
+    workflowId: str
+    clientToken: NotRequired[str]
+
+StopDevEnvironmentRequestTypeDef = TypedDict(
+    "StopDevEnvironmentRequestTypeDef",
     {
         "spaceName": str,
-        "id": str,
         "projectName": str,
+        "id": str,
     },
 )
+StopDevEnvironmentSessionRequestTypeDef = TypedDict(
+    "StopDevEnvironmentSessionRequestTypeDef",
+    {
+        "spaceName": str,
+        "projectName": str,
+        "id": str,
+        "sessionId": str,
+    },
+)
+
+class UpdateProjectRequestTypeDef(TypedDict):
+    spaceName: str
+    name: str
+    description: NotRequired[str]
+
+class UpdateSpaceRequestTypeDef(TypedDict):
+    name: str
+    description: NotRequired[str]
+
+class WorkflowDefinitionSummaryTypeDef(TypedDict):
+    path: str
+
+class CreateAccessTokenRequestTypeDef(TypedDict):
+    name: str
+    expiresTime: NotRequired[TimestampTypeDef]
+
+class ListEventLogsRequestTypeDef(TypedDict):
+    spaceName: str
+    startTime: TimestampTypeDef
+    endTime: TimestampTypeDef
+    eventName: NotRequired[str]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class CreateAccessTokenResponseTypeDef(TypedDict):
+    secret: str
+    name: str
+    expiresTime: datetime
+    accessTokenId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+CreateDevEnvironmentResponseTypeDef = TypedDict(
+    "CreateDevEnvironmentResponseTypeDef",
+    {
+        "spaceName": str,
+        "projectName": str,
+        "id": str,
+        "vpcConnectionName": str,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+
+class CreateProjectResponseTypeDef(TypedDict):
+    spaceName: str
+    name: str
+    displayName: str
+    description: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateSourceRepositoryBranchResponseTypeDef(TypedDict):
+    ref: str
+    name: str
+    lastUpdatedTime: datetime
+    headCommitId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateSourceRepositoryResponseTypeDef(TypedDict):
+    spaceName: str
+    projectName: str
+    name: str
+    description: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+DeleteDevEnvironmentResponseTypeDef = TypedDict(
+    "DeleteDevEnvironmentResponseTypeDef",
+    {
+        "spaceName": str,
+        "projectName": str,
+        "id": str,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+
+class DeleteProjectResponseTypeDef(TypedDict):
+    spaceName: str
+    name: str
+    displayName: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteSourceRepositoryResponseTypeDef(TypedDict):
+    spaceName: str
+    projectName: str
+    name: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteSpaceResponseTypeDef(TypedDict):
+    name: str
+    displayName: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetProjectResponseTypeDef(TypedDict):
+    spaceName: str
+    name: str
+    displayName: str
+    description: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetSourceRepositoryCloneUrlsResponseTypeDef(TypedDict):
+    https: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetSourceRepositoryResponseTypeDef(TypedDict):
+    spaceName: str
+    projectName: str
+    name: str
+    description: str
+    lastUpdatedTime: datetime
+    createdTime: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetSpaceResponseTypeDef(TypedDict):
+    name: str
+    regionName: str
+    displayName: str
+    description: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetSubscriptionResponseTypeDef(TypedDict):
+    subscriptionType: str
+    awsAccountName: str
+    pendingSubscriptionType: str
+    pendingSubscriptionStartTime: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
 
 GetWorkflowRunResponseTypeDef = TypedDict(
     "GetWorkflowRunResponseTypeDef",
@@ -774,489 +598,14 @@ GetWorkflowRunResponseTypeDef = TypedDict(
         "startTime": datetime,
         "endTime": datetime,
         "lastUpdatedTime": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
 
-IdeConfigurationTypeDef = TypedDict(
-    "IdeConfigurationTypeDef",
-    {
-        "runtime": str,
-        "name": str,
-    },
-    total=False,
-)
-
-IdeTypeDef = TypedDict(
-    "IdeTypeDef",
-    {
-        "runtime": str,
-        "name": str,
-    },
-    total=False,
-)
-
-ListAccessTokensRequestRequestTypeDef = TypedDict(
-    "ListAccessTokensRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-ListAccessTokensResponseTypeDef = TypedDict(
-    "ListAccessTokensResponseTypeDef",
-    {
-        "items": List["AccessTokenSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListDevEnvironmentSessionsRequestRequestTypeDef = TypedDict(
-    "_RequiredListDevEnvironmentSessionsRequestRequestTypeDef",
-    {
-        "spaceName": str,
-        "projectName": str,
-        "devEnvironmentId": str,
-    },
-)
-_OptionalListDevEnvironmentSessionsRequestRequestTypeDef = TypedDict(
-    "_OptionalListDevEnvironmentSessionsRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-class ListDevEnvironmentSessionsRequestRequestTypeDef(
-    _RequiredListDevEnvironmentSessionsRequestRequestTypeDef,
-    _OptionalListDevEnvironmentSessionsRequestRequestTypeDef,
-):
-    pass
-
-ListDevEnvironmentSessionsResponseTypeDef = TypedDict(
-    "ListDevEnvironmentSessionsResponseTypeDef",
-    {
-        "items": List["DevEnvironmentSessionSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListDevEnvironmentsRequestRequestTypeDef = TypedDict(
-    "_RequiredListDevEnvironmentsRequestRequestTypeDef",
-    {
-        "spaceName": str,
-    },
-)
-_OptionalListDevEnvironmentsRequestRequestTypeDef = TypedDict(
-    "_OptionalListDevEnvironmentsRequestRequestTypeDef",
-    {
-        "projectName": str,
-        "filters": List["FilterTypeDef"],
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-class ListDevEnvironmentsRequestRequestTypeDef(
-    _RequiredListDevEnvironmentsRequestRequestTypeDef,
-    _OptionalListDevEnvironmentsRequestRequestTypeDef,
-):
-    pass
-
-ListDevEnvironmentsResponseTypeDef = TypedDict(
-    "ListDevEnvironmentsResponseTypeDef",
-    {
-        "items": List["DevEnvironmentSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListEventLogsRequestRequestTypeDef = TypedDict(
-    "_RequiredListEventLogsRequestRequestTypeDef",
-    {
-        "spaceName": str,
-        "startTime": Union[datetime, str],
-        "endTime": Union[datetime, str],
-    },
-)
-_OptionalListEventLogsRequestRequestTypeDef = TypedDict(
-    "_OptionalListEventLogsRequestRequestTypeDef",
-    {
-        "eventName": str,
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-class ListEventLogsRequestRequestTypeDef(
-    _RequiredListEventLogsRequestRequestTypeDef, _OptionalListEventLogsRequestRequestTypeDef
-):
-    pass
-
-ListEventLogsResponseTypeDef = TypedDict(
-    "ListEventLogsResponseTypeDef",
-    {
-        "nextToken": str,
-        "items": List["EventLogEntryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListProjectsRequestRequestTypeDef = TypedDict(
-    "_RequiredListProjectsRequestRequestTypeDef",
-    {
-        "spaceName": str,
-    },
-)
-_OptionalListProjectsRequestRequestTypeDef = TypedDict(
-    "_OptionalListProjectsRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-        "filters": List["ProjectListFilterTypeDef"],
-    },
-    total=False,
-)
-
-class ListProjectsRequestRequestTypeDef(
-    _RequiredListProjectsRequestRequestTypeDef, _OptionalListProjectsRequestRequestTypeDef
-):
-    pass
-
-ListProjectsResponseTypeDef = TypedDict(
-    "ListProjectsResponseTypeDef",
-    {
-        "nextToken": str,
-        "items": List["ProjectSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListSourceRepositoriesItemTypeDef = TypedDict(
-    "_RequiredListSourceRepositoriesItemTypeDef",
-    {
-        "id": str,
-        "name": str,
-        "lastUpdatedTime": datetime,
-        "createdTime": datetime,
-    },
-)
-_OptionalListSourceRepositoriesItemTypeDef = TypedDict(
-    "_OptionalListSourceRepositoriesItemTypeDef",
-    {
-        "description": str,
-    },
-    total=False,
-)
-
-class ListSourceRepositoriesItemTypeDef(
-    _RequiredListSourceRepositoriesItemTypeDef, _OptionalListSourceRepositoriesItemTypeDef
-):
-    pass
-
-_RequiredListSourceRepositoriesRequestRequestTypeDef = TypedDict(
-    "_RequiredListSourceRepositoriesRequestRequestTypeDef",
-    {
-        "spaceName": str,
-        "projectName": str,
-    },
-)
-_OptionalListSourceRepositoriesRequestRequestTypeDef = TypedDict(
-    "_OptionalListSourceRepositoriesRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-class ListSourceRepositoriesRequestRequestTypeDef(
-    _RequiredListSourceRepositoriesRequestRequestTypeDef,
-    _OptionalListSourceRepositoriesRequestRequestTypeDef,
-):
-    pass
-
-ListSourceRepositoriesResponseTypeDef = TypedDict(
-    "ListSourceRepositoriesResponseTypeDef",
-    {
-        "items": List["ListSourceRepositoriesItemTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListSourceRepositoryBranchesItemTypeDef = TypedDict(
-    "ListSourceRepositoryBranchesItemTypeDef",
-    {
-        "ref": str,
-        "name": str,
-        "lastUpdatedTime": datetime,
-        "headCommitId": str,
-    },
-    total=False,
-)
-
-_RequiredListSourceRepositoryBranchesRequestRequestTypeDef = TypedDict(
-    "_RequiredListSourceRepositoryBranchesRequestRequestTypeDef",
-    {
-        "spaceName": str,
-        "projectName": str,
-        "sourceRepositoryName": str,
-    },
-)
-_OptionalListSourceRepositoryBranchesRequestRequestTypeDef = TypedDict(
-    "_OptionalListSourceRepositoryBranchesRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-class ListSourceRepositoryBranchesRequestRequestTypeDef(
-    _RequiredListSourceRepositoryBranchesRequestRequestTypeDef,
-    _OptionalListSourceRepositoryBranchesRequestRequestTypeDef,
-):
-    pass
-
-ListSourceRepositoryBranchesResponseTypeDef = TypedDict(
-    "ListSourceRepositoryBranchesResponseTypeDef",
-    {
-        "nextToken": str,
-        "items": List["ListSourceRepositoryBranchesItemTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListSpacesRequestRequestTypeDef = TypedDict(
-    "ListSpacesRequestRequestTypeDef",
-    {
-        "nextToken": str,
-    },
-    total=False,
-)
-
-ListSpacesResponseTypeDef = TypedDict(
-    "ListSpacesResponseTypeDef",
-    {
-        "nextToken": str,
-        "items": List["SpaceSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListWorkflowRunsRequestRequestTypeDef = TypedDict(
-    "_RequiredListWorkflowRunsRequestRequestTypeDef",
-    {
-        "spaceName": str,
-        "projectName": str,
-    },
-)
-_OptionalListWorkflowRunsRequestRequestTypeDef = TypedDict(
-    "_OptionalListWorkflowRunsRequestRequestTypeDef",
-    {
-        "workflowId": str,
-        "nextToken": str,
-        "maxResults": int,
-        "sortBy": List[Dict[str, Any]],
-    },
-    total=False,
-)
-
-class ListWorkflowRunsRequestRequestTypeDef(
-    _RequiredListWorkflowRunsRequestRequestTypeDef, _OptionalListWorkflowRunsRequestRequestTypeDef
-):
-    pass
-
-ListWorkflowRunsResponseTypeDef = TypedDict(
-    "ListWorkflowRunsResponseTypeDef",
-    {
-        "nextToken": str,
-        "items": List["WorkflowRunSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListWorkflowsRequestRequestTypeDef = TypedDict(
-    "_RequiredListWorkflowsRequestRequestTypeDef",
-    {
-        "spaceName": str,
-        "projectName": str,
-    },
-)
-_OptionalListWorkflowsRequestRequestTypeDef = TypedDict(
-    "_OptionalListWorkflowsRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-        "sortBy": List[Dict[str, Any]],
-    },
-    total=False,
-)
-
-class ListWorkflowsRequestRequestTypeDef(
-    _RequiredListWorkflowsRequestRequestTypeDef, _OptionalListWorkflowsRequestRequestTypeDef
-):
-    pass
-
-ListWorkflowsResponseTypeDef = TypedDict(
-    "ListWorkflowsResponseTypeDef",
-    {
-        "nextToken": str,
-        "items": List["WorkflowSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-PersistentStorageConfigurationTypeDef = TypedDict(
-    "PersistentStorageConfigurationTypeDef",
-    {
-        "sizeInGiB": int,
-    },
-)
-
-PersistentStorageTypeDef = TypedDict(
-    "PersistentStorageTypeDef",
-    {
-        "sizeInGiB": int,
-    },
-)
-
-ProjectInformationTypeDef = TypedDict(
-    "ProjectInformationTypeDef",
-    {
-        "name": str,
-        "projectId": str,
-    },
-    total=False,
-)
-
-_RequiredProjectListFilterTypeDef = TypedDict(
-    "_RequiredProjectListFilterTypeDef",
-    {
-        "key": FilterKeyType,
-        "values": List[str],
-    },
-)
-_OptionalProjectListFilterTypeDef = TypedDict(
-    "_OptionalProjectListFilterTypeDef",
-    {
-        "comparisonOperator": ComparisonOperatorType,
-    },
-    total=False,
-)
-
-class ProjectListFilterTypeDef(
-    _RequiredProjectListFilterTypeDef, _OptionalProjectListFilterTypeDef
-):
-    pass
-
-_RequiredProjectSummaryTypeDef = TypedDict(
-    "_RequiredProjectSummaryTypeDef",
-    {
-        "name": str,
-    },
-)
-_OptionalProjectSummaryTypeDef = TypedDict(
-    "_OptionalProjectSummaryTypeDef",
-    {
-        "displayName": str,
-        "description": str,
-    },
-    total=False,
-)
-
-class ProjectSummaryTypeDef(_RequiredProjectSummaryTypeDef, _OptionalProjectSummaryTypeDef):
-    pass
-
-_RequiredRepositoryInputTypeDef = TypedDict(
-    "_RequiredRepositoryInputTypeDef",
-    {
-        "repositoryName": str,
-    },
-)
-_OptionalRepositoryInputTypeDef = TypedDict(
-    "_OptionalRepositoryInputTypeDef",
-    {
-        "branchName": str,
-    },
-    total=False,
-)
-
-class RepositoryInputTypeDef(_RequiredRepositoryInputTypeDef, _OptionalRepositoryInputTypeDef):
-    pass
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-_RequiredSpaceSummaryTypeDef = TypedDict(
-    "_RequiredSpaceSummaryTypeDef",
-    {
-        "name": str,
-        "regionName": str,
-    },
-)
-_OptionalSpaceSummaryTypeDef = TypedDict(
-    "_OptionalSpaceSummaryTypeDef",
-    {
-        "displayName": str,
-        "description": str,
-    },
-    total=False,
-)
-
-class SpaceSummaryTypeDef(_RequiredSpaceSummaryTypeDef, _OptionalSpaceSummaryTypeDef):
-    pass
-
-_RequiredStartDevEnvironmentRequestRequestTypeDef = TypedDict(
-    "_RequiredStartDevEnvironmentRequestRequestTypeDef",
-    {
-        "spaceName": str,
-        "projectName": str,
-        "id": str,
-    },
-)
-_OptionalStartDevEnvironmentRequestRequestTypeDef = TypedDict(
-    "_OptionalStartDevEnvironmentRequestRequestTypeDef",
-    {
-        "ides": List["IdeConfigurationTypeDef"],
-        "instanceType": InstanceTypeType,
-        "inactivityTimeoutMinutes": int,
-    },
-    total=False,
-)
-
-class StartDevEnvironmentRequestRequestTypeDef(
-    _RequiredStartDevEnvironmentRequestRequestTypeDef,
-    _OptionalStartDevEnvironmentRequestRequestTypeDef,
-):
-    pass
+class ListAccessTokensResponseTypeDef(TypedDict):
+    items: List[AccessTokenSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
 StartDevEnvironmentResponseTypeDef = TypedDict(
     "StartDevEnvironmentResponseTypeDef",
@@ -1265,53 +614,9 @@ StartDevEnvironmentResponseTypeDef = TypedDict(
         "projectName": str,
         "id": str,
         "status": DevEnvironmentStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
-
-StartDevEnvironmentSessionRequestRequestTypeDef = TypedDict(
-    "StartDevEnvironmentSessionRequestRequestTypeDef",
-    {
-        "spaceName": str,
-        "projectName": str,
-        "id": str,
-        "sessionConfiguration": "DevEnvironmentSessionConfigurationTypeDef",
-    },
-)
-
-StartDevEnvironmentSessionResponseTypeDef = TypedDict(
-    "StartDevEnvironmentSessionResponseTypeDef",
-    {
-        "accessDetails": "DevEnvironmentAccessDetailsTypeDef",
-        "sessionId": str,
-        "spaceName": str,
-        "projectName": str,
-        "id": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredStartWorkflowRunRequestRequestTypeDef = TypedDict(
-    "_RequiredStartWorkflowRunRequestRequestTypeDef",
-    {
-        "spaceName": str,
-        "projectName": str,
-        "workflowId": str,
-    },
-)
-_OptionalStartWorkflowRunRequestRequestTypeDef = TypedDict(
-    "_OptionalStartWorkflowRunRequestRequestTypeDef",
-    {
-        "clientToken": str,
-    },
-    total=False,
-)
-
-class StartWorkflowRunRequestRequestTypeDef(
-    _RequiredStartWorkflowRunRequestRequestTypeDef, _OptionalStartWorkflowRunRequestRequestTypeDef
-):
-    pass
-
 StartWorkflowRunResponseTypeDef = TypedDict(
     "StartWorkflowRunResponseTypeDef",
     {
@@ -1319,19 +624,9 @@ StartWorkflowRunResponseTypeDef = TypedDict(
         "projectName": str,
         "id": str,
         "workflowId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
-
-StopDevEnvironmentRequestRequestTypeDef = TypedDict(
-    "StopDevEnvironmentRequestRequestTypeDef",
-    {
-        "spaceName": str,
-        "projectName": str,
-        "id": str,
-    },
-)
-
 StopDevEnvironmentResponseTypeDef = TypedDict(
     "StopDevEnvironmentResponseTypeDef",
     {
@@ -1339,20 +634,9 @@ StopDevEnvironmentResponseTypeDef = TypedDict(
         "projectName": str,
         "id": str,
         "status": DevEnvironmentStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
-
-StopDevEnvironmentSessionRequestRequestTypeDef = TypedDict(
-    "StopDevEnvironmentSessionRequestRequestTypeDef",
-    {
-        "spaceName": str,
-        "projectName": str,
-        "id": str,
-        "sessionId": str,
-    },
-)
-
 StopDevEnvironmentSessionResponseTypeDef = TypedDict(
     "StopDevEnvironmentSessionResponseTypeDef",
     {
@@ -1360,36 +644,51 @@ StopDevEnvironmentSessionResponseTypeDef = TypedDict(
         "projectName": str,
         "id": str,
         "sessionId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
 
-_RequiredUpdateDevEnvironmentRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateDevEnvironmentRequestRequestTypeDef",
+class UpdateProjectResponseTypeDef(TypedDict):
+    spaceName: str
+    name: str
+    displayName: str
+    description: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateSpaceResponseTypeDef(TypedDict):
+    name: str
+    displayName: str
+    description: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class VerifySessionResponseTypeDef(TypedDict):
+    identity: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+StartDevEnvironmentRequestTypeDef = TypedDict(
+    "StartDevEnvironmentRequestTypeDef",
     {
         "spaceName": str,
         "projectName": str,
         "id": str,
+        "ides": NotRequired[Sequence[IdeConfigurationTypeDef]],
+        "instanceType": NotRequired[InstanceTypeType],
+        "inactivityTimeoutMinutes": NotRequired[int],
     },
 )
-_OptionalUpdateDevEnvironmentRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateDevEnvironmentRequestRequestTypeDef",
+UpdateDevEnvironmentRequestTypeDef = TypedDict(
+    "UpdateDevEnvironmentRequestTypeDef",
     {
-        "alias": str,
-        "ides": List["IdeConfigurationTypeDef"],
-        "instanceType": InstanceTypeType,
-        "inactivityTimeoutMinutes": int,
-        "clientToken": str,
+        "spaceName": str,
+        "projectName": str,
+        "id": str,
+        "alias": NotRequired[str],
+        "ides": NotRequired[Sequence[IdeConfigurationTypeDef]],
+        "instanceType": NotRequired[InstanceTypeType],
+        "inactivityTimeoutMinutes": NotRequired[int],
+        "clientToken": NotRequired[str],
     },
-    total=False,
 )
-
-class UpdateDevEnvironmentRequestRequestTypeDef(
-    _RequiredUpdateDevEnvironmentRequestRequestTypeDef,
-    _OptionalUpdateDevEnvironmentRequestRequestTypeDef,
-):
-    pass
-
 UpdateDevEnvironmentResponseTypeDef = TypedDict(
     "UpdateDevEnvironmentResponseTypeDef",
     {
@@ -1397,139 +696,225 @@ UpdateDevEnvironmentResponseTypeDef = TypedDict(
         "spaceName": str,
         "projectName": str,
         "alias": str,
-        "ides": List["IdeConfigurationTypeDef"],
+        "ides": List[IdeConfigurationTypeDef],
         "instanceType": InstanceTypeType,
         "inactivityTimeoutMinutes": int,
         "clientToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
 
-_RequiredUpdateProjectRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateProjectRequestRequestTypeDef",
+class CreateDevEnvironmentRequestTypeDef(TypedDict):
+    spaceName: str
+    projectName: str
+    instanceType: InstanceTypeType
+    persistentStorage: PersistentStorageConfigurationTypeDef
+    repositories: NotRequired[Sequence[RepositoryInputTypeDef]]
+    clientToken: NotRequired[str]
+    alias: NotRequired[str]
+    ides: NotRequired[Sequence[IdeConfigurationTypeDef]]
+    inactivityTimeoutMinutes: NotRequired[int]
+    vpcConnectionName: NotRequired[str]
+
+StartDevEnvironmentSessionResponseTypeDef = TypedDict(
+    "StartDevEnvironmentSessionResponseTypeDef",
     {
+        "accessDetails": DevEnvironmentAccessDetailsTypeDef,
+        "sessionId": str,
         "spaceName": str,
-        "name": str,
-    },
-)
-_OptionalUpdateProjectRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateProjectRequestRequestTypeDef",
-    {
-        "description": str,
-    },
-    total=False,
-)
-
-class UpdateProjectRequestRequestTypeDef(
-    _RequiredUpdateProjectRequestRequestTypeDef, _OptionalUpdateProjectRequestRequestTypeDef
-):
-    pass
-
-UpdateProjectResponseTypeDef = TypedDict(
-    "UpdateProjectResponseTypeDef",
-    {
-        "spaceName": str,
-        "name": str,
-        "displayName": str,
-        "description": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "projectName": str,
+        "id": str,
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
 
-_RequiredUpdateSpaceRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateSpaceRequestRequestTypeDef",
-    {
-        "name": str,
-    },
-)
-_OptionalUpdateSpaceRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateSpaceRequestRequestTypeDef",
-    {
-        "description": str,
-    },
-    total=False,
-)
+class DevEnvironmentSessionConfigurationTypeDef(TypedDict):
+    sessionType: DevEnvironmentSessionTypeType
+    executeCommandSessionConfiguration: NotRequired[ExecuteCommandSessionConfigurationTypeDef]
 
-class UpdateSpaceRequestRequestTypeDef(
-    _RequiredUpdateSpaceRequestRequestTypeDef, _OptionalUpdateSpaceRequestRequestTypeDef
-):
-    pass
+class ListDevEnvironmentSessionsResponseTypeDef(TypedDict):
+    items: List[DevEnvironmentSessionSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-UpdateSpaceResponseTypeDef = TypedDict(
-    "UpdateSpaceResponseTypeDef",
-    {
-        "name": str,
-        "displayName": str,
-        "description": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUserIdentityTypeDef = TypedDict(
-    "_RequiredUserIdentityTypeDef",
-    {
-        "userType": UserTypeType,
-        "principalId": str,
-    },
-)
-_OptionalUserIdentityTypeDef = TypedDict(
-    "_OptionalUserIdentityTypeDef",
-    {
-        "userName": str,
-        "awsAccountId": str,
-    },
-    total=False,
-)
-
-class UserIdentityTypeDef(_RequiredUserIdentityTypeDef, _OptionalUserIdentityTypeDef):
-    pass
-
-VerifySessionResponseTypeDef = TypedDict(
-    "VerifySessionResponseTypeDef",
-    {
-        "identity": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-WorkflowDefinitionSummaryTypeDef = TypedDict(
-    "WorkflowDefinitionSummaryTypeDef",
-    {
-        "path": str,
-    },
-)
-
-WorkflowDefinitionTypeDef = TypedDict(
-    "WorkflowDefinitionTypeDef",
-    {
-        "path": str,
-    },
-)
-
-_RequiredWorkflowRunSummaryTypeDef = TypedDict(
-    "_RequiredWorkflowRunSummaryTypeDef",
+DevEnvironmentSummaryTypeDef = TypedDict(
+    "DevEnvironmentSummaryTypeDef",
     {
         "id": str,
-        "workflowId": str,
-        "workflowName": str,
-        "status": WorkflowRunStatusType,
-        "startTime": datetime,
         "lastUpdatedTime": datetime,
+        "creatorId": str,
+        "status": DevEnvironmentStatusType,
+        "repositories": List[DevEnvironmentRepositorySummaryTypeDef],
+        "instanceType": InstanceTypeType,
+        "inactivityTimeoutMinutes": int,
+        "persistentStorage": PersistentStorageTypeDef,
+        "spaceName": NotRequired[str],
+        "projectName": NotRequired[str],
+        "statusReason": NotRequired[str],
+        "alias": NotRequired[str],
+        "ides": NotRequired[List[IdeTypeDef]],
+        "vpcConnectionName": NotRequired[str],
     },
 )
-_OptionalWorkflowRunSummaryTypeDef = TypedDict(
-    "_OptionalWorkflowRunSummaryTypeDef",
+GetDevEnvironmentResponseTypeDef = TypedDict(
+    "GetDevEnvironmentResponseTypeDef",
     {
-        "statusReasons": List[Dict[str, Any]],
-        "endTime": datetime,
+        "spaceName": str,
+        "projectName": str,
+        "id": str,
+        "lastUpdatedTime": datetime,
+        "creatorId": str,
+        "status": DevEnvironmentStatusType,
+        "statusReason": str,
+        "repositories": List[DevEnvironmentRepositorySummaryTypeDef],
+        "alias": str,
+        "ides": List[IdeTypeDef],
+        "instanceType": InstanceTypeType,
+        "inactivityTimeoutMinutes": int,
+        "persistentStorage": PersistentStorageTypeDef,
+        "vpcConnectionName": str,
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
-    total=False,
 )
 
-class WorkflowRunSummaryTypeDef(
-    _RequiredWorkflowRunSummaryTypeDef, _OptionalWorkflowRunSummaryTypeDef
-):
-    pass
+class GetUserDetailsResponseTypeDef(TypedDict):
+    userId: str
+    userName: str
+    displayName: str
+    primaryEmail: EmailAddressTypeDef
+    version: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+EventLogEntryTypeDef = TypedDict(
+    "EventLogEntryTypeDef",
+    {
+        "id": str,
+        "eventName": str,
+        "eventType": str,
+        "eventCategory": str,
+        "eventSource": str,
+        "eventTime": datetime,
+        "operationType": OperationTypeType,
+        "userIdentity": UserIdentityTypeDef,
+        "projectInformation": NotRequired[ProjectInformationTypeDef],
+        "requestId": NotRequired[str],
+        "requestPayload": NotRequired[EventPayloadTypeDef],
+        "responsePayload": NotRequired[EventPayloadTypeDef],
+        "errorCode": NotRequired[str],
+        "sourceIpAddress": NotRequired[str],
+        "userAgent": NotRequired[str],
+    },
+)
+
+class ListDevEnvironmentsRequestTypeDef(TypedDict):
+    spaceName: str
+    projectName: NotRequired[str]
+    filters: NotRequired[Sequence[FilterTypeDef]]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+GetWorkflowResponseTypeDef = TypedDict(
+    "GetWorkflowResponseTypeDef",
+    {
+        "spaceName": str,
+        "projectName": str,
+        "id": str,
+        "name": str,
+        "sourceRepositoryName": str,
+        "sourceBranchName": str,
+        "definition": WorkflowDefinitionTypeDef,
+        "createdTime": datetime,
+        "lastUpdatedTime": datetime,
+        "runMode": WorkflowRunModeType,
+        "status": WorkflowStatusType,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+
+class ListAccessTokensRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListDevEnvironmentSessionsRequestPaginateTypeDef(TypedDict):
+    spaceName: str
+    projectName: str
+    devEnvironmentId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListDevEnvironmentsRequestPaginateTypeDef(TypedDict):
+    spaceName: str
+    projectName: NotRequired[str]
+    filters: NotRequired[Sequence[FilterTypeDef]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListEventLogsRequestPaginateTypeDef(TypedDict):
+    spaceName: str
+    startTime: TimestampTypeDef
+    endTime: TimestampTypeDef
+    eventName: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListSourceRepositoriesRequestPaginateTypeDef(TypedDict):
+    spaceName: str
+    projectName: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListSourceRepositoryBranchesRequestPaginateTypeDef(TypedDict):
+    spaceName: str
+    projectName: str
+    sourceRepositoryName: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListSpacesRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListWorkflowRunsRequestPaginateTypeDef(TypedDict):
+    spaceName: str
+    projectName: str
+    workflowId: NotRequired[str]
+    sortBy: NotRequired[Sequence[Mapping[str, Any]]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListWorkflowsRequestPaginateTypeDef(TypedDict):
+    spaceName: str
+    projectName: str
+    sortBy: NotRequired[Sequence[Mapping[str, Any]]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListProjectsRequestPaginateTypeDef(TypedDict):
+    spaceName: str
+    filters: NotRequired[Sequence[ProjectListFilterTypeDef]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListProjectsRequestTypeDef(TypedDict):
+    spaceName: str
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+    filters: NotRequired[Sequence[ProjectListFilterTypeDef]]
+
+class ListProjectsResponseTypeDef(TypedDict):
+    items: List[ProjectSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListSourceRepositoriesResponseTypeDef(TypedDict):
+    items: List[ListSourceRepositoriesItemTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListSourceRepositoryBranchesResponseTypeDef(TypedDict):
+    items: List[ListSourceRepositoryBranchesItemTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListSpacesResponseTypeDef(TypedDict):
+    items: List[SpaceSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListWorkflowRunsResponseTypeDef(TypedDict):
+    items: List[WorkflowRunSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
 WorkflowSummaryTypeDef = TypedDict(
     "WorkflowSummaryTypeDef",
@@ -1538,10 +923,34 @@ WorkflowSummaryTypeDef = TypedDict(
         "name": str,
         "sourceRepositoryName": str,
         "sourceBranchName": str,
-        "definition": "WorkflowDefinitionSummaryTypeDef",
+        "definition": WorkflowDefinitionSummaryTypeDef,
         "createdTime": datetime,
         "lastUpdatedTime": datetime,
         "runMode": WorkflowRunModeType,
         "status": WorkflowStatusType,
     },
 )
+StartDevEnvironmentSessionRequestTypeDef = TypedDict(
+    "StartDevEnvironmentSessionRequestTypeDef",
+    {
+        "spaceName": str,
+        "projectName": str,
+        "id": str,
+        "sessionConfiguration": DevEnvironmentSessionConfigurationTypeDef,
+    },
+)
+
+class ListDevEnvironmentsResponseTypeDef(TypedDict):
+    items: List[DevEnvironmentSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListEventLogsResponseTypeDef(TypedDict):
+    items: List[EventLogEntryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListWorkflowsResponseTypeDef(TypedDict):
+    items: List[WorkflowSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]

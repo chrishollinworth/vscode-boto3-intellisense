@@ -1,51 +1,61 @@
 """
-Type annotations for s3outposts service client.
+Type annotations for s3outposts service Client.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3outposts/client.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_s3outposts/client/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
-    from mypy_boto3_s3outposts import S3OutpostsClient
+    from boto3.session import Session
+    from mypy_boto3_s3outposts.client import S3OutpostsClient
 
-    client: S3OutpostsClient = boto3.client("s3outposts")
+    session = Session()
+    client: S3OutpostsClient = session.client("s3outposts")
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from typing import Any, Dict, Type, overload
+from typing import Any, overload
 
 from botocore.client import BaseClient, ClientMeta
+from botocore.errorfactory import BaseClientExceptions
+from botocore.exceptions import ClientError as BotocoreClientError
 
-from .literals import EndpointAccessTypeType
 from .paginator import (
     ListEndpointsPaginator,
     ListOutpostsWithS3Paginator,
     ListSharedEndpointsPaginator,
 )
 from .type_defs import (
+    CreateEndpointRequestTypeDef,
     CreateEndpointResultTypeDef,
+    DeleteEndpointRequestTypeDef,
+    EmptyResponseMetadataTypeDef,
+    ListEndpointsRequestTypeDef,
     ListEndpointsResultTypeDef,
+    ListOutpostsWithS3RequestTypeDef,
     ListOutpostsWithS3ResultTypeDef,
+    ListSharedEndpointsRequestTypeDef,
     ListSharedEndpointsResultTypeDef,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import type as Type
+    from collections.abc import Mapping
 else:
-    from typing_extensions import Literal
+    from typing import Mapping, Type
+if sys.version_info >= (3, 12):
+    from typing import Literal, Unpack
+else:
+    from typing_extensions import Literal, Unpack
 
 __all__ = ("S3OutpostsClient",)
 
-class BotocoreClientError(BaseException):
-    MSG_TEMPLATE: str
-
-    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
-        self.response: Dict[str, Any]
-        self.operation_name: str
-
-class Exceptions:
+class Exceptions(BaseClientExceptions):
     AccessDeniedException: Type[BotocoreClientError]
     ClientError: Type[BotocoreClientError]
     ConflictException: Type[BotocoreClientError]
@@ -57,8 +67,8 @@ class Exceptions:
 
 class S3OutpostsClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3outposts.html#S3Outposts.Client)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3outposts/client.html)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3outposts.html#S3Outposts.Client)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_s3outposts/client/)
     """
 
     meta: ClientMeta
@@ -67,115 +77,110 @@ class S3OutpostsClient(BaseClient):
     def exceptions(self) -> Exceptions:
         """
         S3OutpostsClient exceptions.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3outposts.html#S3Outposts.Client)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_s3outposts/client/#exceptions)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        Check if an operation can be paginated.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3outposts.html#S3Outposts.Client.can_paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3outposts/client.html#can_paginate)
-        """
-
-    def close(self) -> None:
-        """
-        Closes underlying endpoint connections.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3outposts.html#S3Outposts.Client.close)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3outposts/client.html#close)
-        """
-
-    def create_endpoint(
-        self,
-        *,
-        OutpostId: str,
-        SubnetId: str,
-        SecurityGroupId: str,
-        AccessType: EndpointAccessTypeType = None,
-        CustomerOwnedIpv4Pool: str = None
-    ) -> CreateEndpointResultTypeDef:
-        """
-        Creates an endpoint and associates it with the specified Outpost.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3outposts.html#S3Outposts.Client.create_endpoint)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3outposts/client.html#create_endpoint)
-        """
-
-    def delete_endpoint(self, *, EndpointId: str, OutpostId: str) -> None:
-        """
-        Deletes an endpoint.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3outposts.html#S3Outposts.Client.delete_endpoint)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3outposts/client.html#delete_endpoint)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3outposts/client/can_paginate.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_s3outposts/client/#can_paginate)
         """
 
     def generate_presigned_url(
         self,
         ClientMethod: str,
-        Params: Dict[str, Any] = None,
+        Params: Mapping[str, Any] = ...,
         ExpiresIn: int = 3600,
-        HttpMethod: str = None,
+        HttpMethod: str = ...,
     ) -> str:
         """
-        Generate a presigned url given a client, its method, and arguments.
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3outposts/client/generate_presigned_url.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_s3outposts/client/#generate_presigned_url)
+        """
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3outposts.html#S3Outposts.Client.generate_presigned_url)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3outposts/client.html#generate_presigned_url)
+    def create_endpoint(
+        self, **kwargs: Unpack[CreateEndpointRequestTypeDef]
+    ) -> CreateEndpointResultTypeDef:
+        """
+        Creates an endpoint and associates it with the specified Outpost.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3outposts/client/create_endpoint.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_s3outposts/client/#create_endpoint)
+        """
+
+    def delete_endpoint(
+        self, **kwargs: Unpack[DeleteEndpointRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Deletes an endpoint.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3outposts/client/delete_endpoint.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_s3outposts/client/#delete_endpoint)
         """
 
     def list_endpoints(
-        self, *, NextToken: str = None, MaxResults: int = None
+        self, **kwargs: Unpack[ListEndpointsRequestTypeDef]
     ) -> ListEndpointsResultTypeDef:
         """
         Lists endpoints associated with the specified Outpost.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3outposts.html#S3Outposts.Client.list_endpoints)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3outposts/client.html#list_endpoints)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3outposts/client/list_endpoints.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_s3outposts/client/#list_endpoints)
         """
 
     def list_outposts_with_s3(
-        self, *, NextToken: str = None, MaxResults: int = None
+        self, **kwargs: Unpack[ListOutpostsWithS3RequestTypeDef]
     ) -> ListOutpostsWithS3ResultTypeDef:
         """
         Lists the Outposts with S3 on Outposts capacity for your Amazon Web Services
         account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3outposts.html#S3Outposts.Client.list_outposts_with_s3)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3outposts/client.html#list_outposts_with_s3)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3outposts/client/list_outposts_with_s3.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_s3outposts/client/#list_outposts_with_s3)
         """
 
     def list_shared_endpoints(
-        self, *, OutpostId: str, NextToken: str = None, MaxResults: int = None
+        self, **kwargs: Unpack[ListSharedEndpointsRequestTypeDef]
     ) -> ListSharedEndpointsResultTypeDef:
         """
         Lists all endpoints associated with an Outpost that has been shared by Amazon
         Web Services Resource Access Manager (RAM).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3outposts.html#S3Outposts.Client.list_shared_endpoints)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3outposts/client.html#list_shared_endpoints)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3outposts/client/list_shared_endpoints.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_s3outposts/client/#list_shared_endpoints)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_endpoints"]) -> ListEndpointsPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_endpoints"]
+    ) -> ListEndpointsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3outposts.html#S3Outposts.Paginator.ListEndpoints)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3outposts/paginators.html#listendpointspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3outposts/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_s3outposts/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_outposts_with_s3"]
     ) -> ListOutpostsWithS3Paginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3outposts.html#S3Outposts.Paginator.ListOutpostsWithS3)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3outposts/paginators.html#listoutpostswiths3paginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3outposts/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_s3outposts/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_shared_endpoints"]
     ) -> ListSharedEndpointsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/s3outposts.html#S3Outposts.Paginator.ListSharedEndpoints)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_s3outposts/paginators.html#listsharedendpointspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3outposts/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_s3outposts/client/#get_paginator)
         """

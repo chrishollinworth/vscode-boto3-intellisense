@@ -1,20 +1,23 @@
 """
 Type annotations for codestar-notifications service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codestar_notifications/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codestar_notifications/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_codestar_notifications.type_defs import CreateNotificationRuleRequestRequestTypeDef
+    from mypy_boto3_codestar_notifications.type_defs import TargetTypeDef
 
-    data: CreateNotificationRuleRequestRequestTypeDef = {...}
+    data: TargetTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
 
 from .literals import (
     DetailTypeType,
@@ -25,383 +28,226 @@ from .literals import (
     TargetStatusType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
-    "CreateNotificationRuleRequestRequestTypeDef",
+    "CreateNotificationRuleRequestTypeDef",
     "CreateNotificationRuleResultTypeDef",
-    "DeleteNotificationRuleRequestRequestTypeDef",
+    "DeleteNotificationRuleRequestTypeDef",
     "DeleteNotificationRuleResultTypeDef",
-    "DeleteTargetRequestRequestTypeDef",
-    "DescribeNotificationRuleRequestRequestTypeDef",
+    "DeleteTargetRequestTypeDef",
+    "DescribeNotificationRuleRequestTypeDef",
     "DescribeNotificationRuleResultTypeDef",
     "EventTypeSummaryTypeDef",
     "ListEventTypesFilterTypeDef",
-    "ListEventTypesRequestRequestTypeDef",
+    "ListEventTypesRequestPaginateTypeDef",
+    "ListEventTypesRequestTypeDef",
     "ListEventTypesResultTypeDef",
     "ListNotificationRulesFilterTypeDef",
-    "ListNotificationRulesRequestRequestTypeDef",
+    "ListNotificationRulesRequestPaginateTypeDef",
+    "ListNotificationRulesRequestTypeDef",
     "ListNotificationRulesResultTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResultTypeDef",
     "ListTargetsFilterTypeDef",
-    "ListTargetsRequestRequestTypeDef",
+    "ListTargetsRequestPaginateTypeDef",
+    "ListTargetsRequestTypeDef",
     "ListTargetsResultTypeDef",
     "NotificationRuleSummaryTypeDef",
     "PaginatorConfigTypeDef",
     "ResponseMetadataTypeDef",
-    "SubscribeRequestRequestTypeDef",
+    "SubscribeRequestTypeDef",
     "SubscribeResultTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
     "TagResourceResultTypeDef",
     "TargetSummaryTypeDef",
     "TargetTypeDef",
-    "UnsubscribeRequestRequestTypeDef",
+    "UnsubscribeRequestTypeDef",
     "UnsubscribeResultTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateNotificationRuleRequestRequestTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateNotificationRuleRequestTypeDef",
 )
 
-_RequiredCreateNotificationRuleRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateNotificationRuleRequestRequestTypeDef",
-    {
-        "Name": str,
-        "EventTypeIds": List[str],
-        "Resource": str,
-        "Targets": List["TargetTypeDef"],
-        "DetailType": DetailTypeType,
-    },
-)
-_OptionalCreateNotificationRuleRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateNotificationRuleRequestRequestTypeDef",
-    {
-        "ClientRequestToken": str,
-        "Tags": Dict[str, str],
-        "Status": NotificationRuleStatusType,
-    },
-    total=False,
-)
+class TargetTypeDef(TypedDict):
+    TargetType: NotRequired[str]
+    TargetAddress: NotRequired[str]
 
-class CreateNotificationRuleRequestRequestTypeDef(
-    _RequiredCreateNotificationRuleRequestRequestTypeDef,
-    _OptionalCreateNotificationRuleRequestRequestTypeDef,
-):
-    pass
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-CreateNotificationRuleResultTypeDef = TypedDict(
-    "CreateNotificationRuleResultTypeDef",
-    {
-        "Arn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DeleteNotificationRuleRequestTypeDef(TypedDict):
+    Arn: str
 
-DeleteNotificationRuleRequestRequestTypeDef = TypedDict(
-    "DeleteNotificationRuleRequestRequestTypeDef",
-    {
-        "Arn": str,
-    },
-)
+class DeleteTargetRequestTypeDef(TypedDict):
+    TargetAddress: str
+    ForceUnsubscribeAll: NotRequired[bool]
 
-DeleteNotificationRuleResultTypeDef = TypedDict(
-    "DeleteNotificationRuleResultTypeDef",
-    {
-        "Arn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDeleteTargetRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteTargetRequestRequestTypeDef",
-    {
-        "TargetAddress": str,
-    },
-)
-_OptionalDeleteTargetRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteTargetRequestRequestTypeDef",
-    {
-        "ForceUnsubscribeAll": bool,
-    },
-    total=False,
-)
-
-class DeleteTargetRequestRequestTypeDef(
-    _RequiredDeleteTargetRequestRequestTypeDef, _OptionalDeleteTargetRequestRequestTypeDef
-):
-    pass
-
-DescribeNotificationRuleRequestRequestTypeDef = TypedDict(
-    "DescribeNotificationRuleRequestRequestTypeDef",
-    {
-        "Arn": str,
-    },
-)
-
-DescribeNotificationRuleResultTypeDef = TypedDict(
-    "DescribeNotificationRuleResultTypeDef",
-    {
-        "Arn": str,
-        "Name": str,
-        "EventTypes": List["EventTypeSummaryTypeDef"],
-        "Resource": str,
-        "Targets": List["TargetSummaryTypeDef"],
-        "DetailType": DetailTypeType,
-        "CreatedBy": str,
-        "Status": NotificationRuleStatusType,
-        "CreatedTimestamp": datetime,
-        "LastModifiedTimestamp": datetime,
-        "Tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DescribeNotificationRuleRequestTypeDef(TypedDict):
+    Arn: str
 
 EventTypeSummaryTypeDef = TypedDict(
     "EventTypeSummaryTypeDef",
     {
-        "EventTypeId": str,
-        "ServiceName": str,
-        "EventTypeName": str,
-        "ResourceType": str,
-    },
-    total=False,
-)
-
-ListEventTypesFilterTypeDef = TypedDict(
-    "ListEventTypesFilterTypeDef",
-    {
-        "Name": ListEventTypesFilterNameType,
-        "Value": str,
+        "EventTypeId": NotRequired[str],
+        "ServiceName": NotRequired[str],
+        "EventTypeName": NotRequired[str],
+        "ResourceType": NotRequired[str],
     },
 )
 
-ListEventTypesRequestRequestTypeDef = TypedDict(
-    "ListEventTypesRequestRequestTypeDef",
-    {
-        "Filters": List["ListEventTypesFilterTypeDef"],
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
+class TargetSummaryTypeDef(TypedDict):
+    TargetAddress: NotRequired[str]
+    TargetType: NotRequired[str]
+    TargetStatus: NotRequired[TargetStatusType]
 
-ListEventTypesResultTypeDef = TypedDict(
-    "ListEventTypesResultTypeDef",
-    {
-        "EventTypes": List["EventTypeSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListEventTypesFilterTypeDef(TypedDict):
+    Name: ListEventTypesFilterNameType
+    Value: str
 
-ListNotificationRulesFilterTypeDef = TypedDict(
-    "ListNotificationRulesFilterTypeDef",
-    {
-        "Name": ListNotificationRulesFilterNameType,
-        "Value": str,
-    },
-)
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
 
-ListNotificationRulesRequestRequestTypeDef = TypedDict(
-    "ListNotificationRulesRequestRequestTypeDef",
-    {
-        "Filters": List["ListNotificationRulesFilterTypeDef"],
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
+class ListNotificationRulesFilterTypeDef(TypedDict):
+    Name: ListNotificationRulesFilterNameType
+    Value: str
 
-ListNotificationRulesResultTypeDef = TypedDict(
-    "ListNotificationRulesResultTypeDef",
-    {
-        "NextToken": str,
-        "NotificationRules": List["NotificationRuleSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class NotificationRuleSummaryTypeDef(TypedDict):
+    Id: NotRequired[str]
+    Arn: NotRequired[str]
 
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "Arn": str,
-    },
-)
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    Arn: str
 
-ListTagsForResourceResultTypeDef = TypedDict(
-    "ListTagsForResourceResultTypeDef",
-    {
-        "Tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListTargetsFilterTypeDef(TypedDict):
+    Name: ListTargetsFilterNameType
+    Value: str
 
-ListTargetsFilterTypeDef = TypedDict(
-    "ListTargetsFilterTypeDef",
-    {
-        "Name": ListTargetsFilterNameType,
-        "Value": str,
-    },
-)
+class TagResourceRequestTypeDef(TypedDict):
+    Arn: str
+    Tags: Mapping[str, str]
 
-ListTargetsRequestRequestTypeDef = TypedDict(
-    "ListTargetsRequestRequestTypeDef",
-    {
-        "Filters": List["ListTargetsFilterTypeDef"],
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
+class UnsubscribeRequestTypeDef(TypedDict):
+    Arn: str
+    TargetAddress: str
 
-ListTargetsResultTypeDef = TypedDict(
-    "ListTargetsResultTypeDef",
-    {
-        "Targets": List["TargetSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class UntagResourceRequestTypeDef(TypedDict):
+    Arn: str
+    TagKeys: Sequence[str]
 
-NotificationRuleSummaryTypeDef = TypedDict(
-    "NotificationRuleSummaryTypeDef",
-    {
-        "Id": str,
-        "Arn": str,
-    },
-    total=False,
-)
+class CreateNotificationRuleRequestTypeDef(TypedDict):
+    Name: str
+    EventTypeIds: Sequence[str]
+    Resource: str
+    Targets: Sequence[TargetTypeDef]
+    DetailType: DetailTypeType
+    ClientRequestToken: NotRequired[str]
+    Tags: NotRequired[Mapping[str, str]]
+    Status: NotRequired[NotificationRuleStatusType]
 
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
+class SubscribeRequestTypeDef(TypedDict):
+    Arn: str
+    Target: TargetTypeDef
+    ClientRequestToken: NotRequired[str]
 
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
+class UpdateNotificationRuleRequestTypeDef(TypedDict):
+    Arn: str
+    Name: NotRequired[str]
+    Status: NotRequired[NotificationRuleStatusType]
+    EventTypeIds: NotRequired[Sequence[str]]
+    Targets: NotRequired[Sequence[TargetTypeDef]]
+    DetailType: NotRequired[DetailTypeType]
 
-_RequiredSubscribeRequestRequestTypeDef = TypedDict(
-    "_RequiredSubscribeRequestRequestTypeDef",
-    {
-        "Arn": str,
-        "Target": "TargetTypeDef",
-    },
-)
-_OptionalSubscribeRequestRequestTypeDef = TypedDict(
-    "_OptionalSubscribeRequestRequestTypeDef",
-    {
-        "ClientRequestToken": str,
-    },
-    total=False,
-)
+class CreateNotificationRuleResultTypeDef(TypedDict):
+    Arn: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class SubscribeRequestRequestTypeDef(
-    _RequiredSubscribeRequestRequestTypeDef, _OptionalSubscribeRequestRequestTypeDef
-):
-    pass
+class DeleteNotificationRuleResultTypeDef(TypedDict):
+    Arn: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-SubscribeResultTypeDef = TypedDict(
-    "SubscribeResultTypeDef",
-    {
-        "Arn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListTagsForResourceResultTypeDef(TypedDict):
+    Tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "Arn": str,
-        "Tags": Dict[str, str],
-    },
-)
+class SubscribeResultTypeDef(TypedDict):
+    Arn: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-TagResourceResultTypeDef = TypedDict(
-    "TagResourceResultTypeDef",
-    {
-        "Tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class TagResourceResultTypeDef(TypedDict):
+    Tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-TargetSummaryTypeDef = TypedDict(
-    "TargetSummaryTypeDef",
-    {
-        "TargetAddress": str,
-        "TargetType": str,
-        "TargetStatus": TargetStatusType,
-    },
-    total=False,
-)
+class UnsubscribeResultTypeDef(TypedDict):
+    Arn: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-TargetTypeDef = TypedDict(
-    "TargetTypeDef",
-    {
-        "TargetType": str,
-        "TargetAddress": str,
-    },
-    total=False,
-)
+class ListEventTypesResultTypeDef(TypedDict):
+    EventTypes: List[EventTypeSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-UnsubscribeRequestRequestTypeDef = TypedDict(
-    "UnsubscribeRequestRequestTypeDef",
-    {
-        "Arn": str,
-        "TargetAddress": str,
-    },
-)
+class DescribeNotificationRuleResultTypeDef(TypedDict):
+    Arn: str
+    Name: str
+    EventTypes: List[EventTypeSummaryTypeDef]
+    Resource: str
+    Targets: List[TargetSummaryTypeDef]
+    DetailType: DetailTypeType
+    CreatedBy: str
+    Status: NotificationRuleStatusType
+    CreatedTimestamp: datetime
+    LastModifiedTimestamp: datetime
+    Tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-UnsubscribeResultTypeDef = TypedDict(
-    "UnsubscribeResultTypeDef",
-    {
-        "Arn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListTargetsResultTypeDef(TypedDict):
+    Targets: List[TargetSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "Arn": str,
-        "TagKeys": List[str],
-    },
-)
+class ListEventTypesRequestTypeDef(TypedDict):
+    Filters: NotRequired[Sequence[ListEventTypesFilterTypeDef]]
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
 
-_RequiredUpdateNotificationRuleRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateNotificationRuleRequestRequestTypeDef",
-    {
-        "Arn": str,
-    },
-)
-_OptionalUpdateNotificationRuleRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateNotificationRuleRequestRequestTypeDef",
-    {
-        "Name": str,
-        "Status": NotificationRuleStatusType,
-        "EventTypeIds": List[str],
-        "Targets": List["TargetTypeDef"],
-        "DetailType": DetailTypeType,
-    },
-    total=False,
-)
+class ListEventTypesRequestPaginateTypeDef(TypedDict):
+    Filters: NotRequired[Sequence[ListEventTypesFilterTypeDef]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-class UpdateNotificationRuleRequestRequestTypeDef(
-    _RequiredUpdateNotificationRuleRequestRequestTypeDef,
-    _OptionalUpdateNotificationRuleRequestRequestTypeDef,
-):
-    pass
+class ListNotificationRulesRequestPaginateTypeDef(TypedDict):
+    Filters: NotRequired[Sequence[ListNotificationRulesFilterTypeDef]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListNotificationRulesRequestTypeDef(TypedDict):
+    Filters: NotRequired[Sequence[ListNotificationRulesFilterTypeDef]]
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class ListNotificationRulesResultTypeDef(TypedDict):
+    NotificationRules: List[NotificationRuleSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListTargetsRequestPaginateTypeDef(TypedDict):
+    Filters: NotRequired[Sequence[ListTargetsFilterTypeDef]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListTargetsRequestTypeDef(TypedDict):
+    Filters: NotRequired[Sequence[ListTargetsFilterTypeDef]]
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]

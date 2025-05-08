@@ -1,20 +1,22 @@
 """
 Main interface for managedblockchain service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_managedblockchain/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_managedblockchain import (
         Client,
         ListAccessorsPaginator,
         ManagedBlockchainClient,
     )
 
-    session = boto3.Session()
-
-    client: ManagedBlockchainClient = boto3.client("managedblockchain")
-    session_client: ManagedBlockchainClient = session.client("managedblockchain")
+    session = Session()
+    client: ManagedBlockchainClient = session.client("managedblockchain")
 
     list_accessors_paginator: ListAccessorsPaginator = client.get_paginator("list_accessors")
     ```

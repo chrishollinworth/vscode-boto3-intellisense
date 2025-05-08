@@ -1,21 +1,24 @@
 """
 Type annotations for events service client paginators.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_events/paginators.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_events/paginators/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
 
-    from mypy_boto3_events import EventBridgeClient
+    from mypy_boto3_events.client import EventBridgeClient
     from mypy_boto3_events.paginator import (
         ListRuleNamesByTargetPaginator,
         ListRulesPaginator,
         ListTargetsByRulePaginator,
     )
 
-    client: EventBridgeClient = boto3.client("events")
+    session = Session()
+    client: EventBridgeClient = session.client("events")
 
     list_rule_names_by_target_paginator: ListRuleNamesByTargetPaginator = client.get_paginator("list_rule_names_by_target")
     list_rules_paginator: ListRulesPaginator = client.get_paginator("list_rules")
@@ -23,69 +26,79 @@ Usage::
     ```
 """
 
-from typing import Iterator
+from __future__ import annotations
 
-from botocore.paginate import Paginator as Boto3Paginator
+import sys
+from typing import TYPE_CHECKING
+
+from botocore.paginate import PageIterator, Paginator
 
 from .type_defs import (
+    ListRuleNamesByTargetRequestPaginateTypeDef,
     ListRuleNamesByTargetResponseTypeDef,
+    ListRulesRequestPaginateTypeDef,
     ListRulesResponseTypeDef,
+    ListTargetsByRuleRequestPaginateTypeDef,
     ListTargetsByRuleResponseTypeDef,
-    PaginatorConfigTypeDef,
 )
+
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = ("ListRuleNamesByTargetPaginator", "ListRulesPaginator", "ListTargetsByRulePaginator")
 
-class ListRuleNamesByTargetPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/events.html#EventBridge.Paginator.ListRuleNamesByTarget)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_events/paginators.html#listrulenamesbytargetpaginator)
-    """
+if TYPE_CHECKING:
+    _ListRuleNamesByTargetPaginatorBase = Paginator[ListRuleNamesByTargetResponseTypeDef]
+else:
+    _ListRuleNamesByTargetPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        TargetArn: str,
-        EventBusName: str = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListRuleNamesByTargetResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/events.html#EventBridge.Paginator.ListRuleNamesByTarget.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_events/paginators.html#listrulenamesbytargetpaginator)
-        """
-
-class ListRulesPaginator(Boto3Paginator):
+class ListRuleNamesByTargetPaginator(_ListRuleNamesByTargetPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/events.html#EventBridge.Paginator.ListRules)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_events/paginators.html#listrulespaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/events/paginator/ListRuleNamesByTarget.html#EventBridge.Paginator.ListRuleNamesByTarget)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_events/paginators/#listrulenamesbytargetpaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        NamePrefix: str = None,
-        EventBusName: str = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListRulesResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListRuleNamesByTargetRequestPaginateTypeDef]
+    ) -> PageIterator[ListRuleNamesByTargetResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/events.html#EventBridge.Paginator.ListRules.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_events/paginators.html#listrulespaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/events/paginator/ListRuleNamesByTarget.html#EventBridge.Paginator.ListRuleNamesByTarget.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_events/paginators/#listrulenamesbytargetpaginator)
         """
 
-class ListTargetsByRulePaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/events.html#EventBridge.Paginator.ListTargetsByRule)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_events/paginators.html#listtargetsbyrulepaginator)
-    """
+if TYPE_CHECKING:
+    _ListRulesPaginatorBase = Paginator[ListRulesResponseTypeDef]
+else:
+    _ListRulesPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        Rule: str,
-        EventBusName: str = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListTargetsByRuleResponseTypeDef]:
+class ListRulesPaginator(_ListRulesPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/events/paginator/ListRules.html#EventBridge.Paginator.ListRules)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_events/paginators/#listrulespaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListRulesRequestPaginateTypeDef]
+    ) -> PageIterator[ListRulesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/events.html#EventBridge.Paginator.ListTargetsByRule.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_events/paginators.html#listtargetsbyrulepaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/events/paginator/ListRules.html#EventBridge.Paginator.ListRules.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_events/paginators/#listrulespaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListTargetsByRulePaginatorBase = Paginator[ListTargetsByRuleResponseTypeDef]
+else:
+    _ListTargetsByRulePaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListTargetsByRulePaginator(_ListTargetsByRulePaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/events/paginator/ListTargetsByRule.html#EventBridge.Paginator.ListTargetsByRule)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_events/paginators/#listtargetsbyrulepaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListTargetsByRuleRequestPaginateTypeDef]
+    ) -> PageIterator[ListTargetsByRuleResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/events/paginator/ListTargetsByRule.html#EventBridge.Paginator.ListTargetsByRule.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_events/paginators/#listtargetsbyrulepaginator)
         """

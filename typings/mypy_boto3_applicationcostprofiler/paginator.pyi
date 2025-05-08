@@ -1,42 +1,60 @@
 """
 Type annotations for applicationcostprofiler service client paginators.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_applicationcostprofiler/paginators.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_applicationcostprofiler/paginators/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
 
-    from mypy_boto3_applicationcostprofiler import ApplicationCostProfilerClient
+    from mypy_boto3_applicationcostprofiler.client import ApplicationCostProfilerClient
     from mypy_boto3_applicationcostprofiler.paginator import (
         ListReportDefinitionsPaginator,
     )
 
-    client: ApplicationCostProfilerClient = boto3.client("applicationcostprofiler")
+    session = Session()
+    client: ApplicationCostProfilerClient = session.client("applicationcostprofiler")
 
     list_report_definitions_paginator: ListReportDefinitionsPaginator = client.get_paginator("list_report_definitions")
     ```
 """
 
-from typing import Iterator
+from __future__ import annotations
 
-from botocore.paginate import Paginator as Boto3Paginator
+import sys
+from typing import TYPE_CHECKING
 
-from .type_defs import ListReportDefinitionsResultTypeDef, PaginatorConfigTypeDef
+from botocore.paginate import PageIterator, Paginator
+
+from .type_defs import (
+    ListReportDefinitionsRequestPaginateTypeDef,
+    ListReportDefinitionsResultTypeDef,
+)
+
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = ("ListReportDefinitionsPaginator",)
 
-class ListReportDefinitionsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/applicationcostprofiler.html#ApplicationCostProfiler.Paginator.ListReportDefinitions)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_applicationcostprofiler/paginators.html#listreportdefinitionspaginator)
-    """
+if TYPE_CHECKING:
+    _ListReportDefinitionsPaginatorBase = Paginator[ListReportDefinitionsResultTypeDef]
+else:
+    _ListReportDefinitionsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListReportDefinitionsResultTypeDef]:
+class ListReportDefinitionsPaginator(_ListReportDefinitionsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/applicationcostprofiler/paginator/ListReportDefinitions.html#ApplicationCostProfiler.Paginator.ListReportDefinitions)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_applicationcostprofiler/paginators/#listreportdefinitionspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListReportDefinitionsRequestPaginateTypeDef]
+    ) -> PageIterator[ListReportDefinitionsResultTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/applicationcostprofiler.html#ApplicationCostProfiler.Paginator.ListReportDefinitions.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_applicationcostprofiler/paginators.html#listreportdefinitionspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/applicationcostprofiler/paginator/ListReportDefinitions.html#ApplicationCostProfiler.Paginator.ListReportDefinitions.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_applicationcostprofiler/paginators/#listreportdefinitionspaginator)
         """

@@ -1,19 +1,23 @@
 """
 Type annotations for frauddetector service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_frauddetector.type_defs import ATIMetricDataPointTypeDef
 
-    data: ATIMetricDataPointTypeDef = {...}
+    data: ATIMetricDataPointTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from typing import IO, Any, Dict, List, Union
+from typing import IO, Any, Union
 
 from botocore.response import StreamingBody
 
@@ -34,14 +38,16 @@ from .literals import (
     UnlabeledEventsTreatmentType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
     "ATIMetricDataPointTypeDef",
@@ -52,47 +58,48 @@ __all__ = (
     "AggregatedVariablesImportanceMetricsTypeDef",
     "AllowDenyListTypeDef",
     "BatchCreateVariableErrorTypeDef",
-    "BatchCreateVariableRequestRequestTypeDef",
+    "BatchCreateVariableRequestTypeDef",
     "BatchCreateVariableResultTypeDef",
     "BatchGetVariableErrorTypeDef",
-    "BatchGetVariableRequestRequestTypeDef",
+    "BatchGetVariableRequestTypeDef",
     "BatchGetVariableResultTypeDef",
     "BatchImportTypeDef",
     "BatchPredictionTypeDef",
-    "CancelBatchImportJobRequestRequestTypeDef",
-    "CancelBatchPredictionJobRequestRequestTypeDef",
-    "CreateBatchImportJobRequestRequestTypeDef",
-    "CreateBatchPredictionJobRequestRequestTypeDef",
-    "CreateDetectorVersionRequestRequestTypeDef",
+    "BlobTypeDef",
+    "CancelBatchImportJobRequestTypeDef",
+    "CancelBatchPredictionJobRequestTypeDef",
+    "CreateBatchImportJobRequestTypeDef",
+    "CreateBatchPredictionJobRequestTypeDef",
+    "CreateDetectorVersionRequestTypeDef",
     "CreateDetectorVersionResultTypeDef",
-    "CreateListRequestRequestTypeDef",
-    "CreateModelRequestRequestTypeDef",
-    "CreateModelVersionRequestRequestTypeDef",
+    "CreateListRequestTypeDef",
+    "CreateModelRequestTypeDef",
+    "CreateModelVersionRequestTypeDef",
     "CreateModelVersionResultTypeDef",
-    "CreateRuleRequestRequestTypeDef",
+    "CreateRuleRequestTypeDef",
     "CreateRuleResultTypeDef",
-    "CreateVariableRequestRequestTypeDef",
+    "CreateVariableRequestTypeDef",
     "DataValidationMetricsTypeDef",
-    "DeleteBatchImportJobRequestRequestTypeDef",
-    "DeleteBatchPredictionJobRequestRequestTypeDef",
-    "DeleteDetectorRequestRequestTypeDef",
-    "DeleteDetectorVersionRequestRequestTypeDef",
-    "DeleteEntityTypeRequestRequestTypeDef",
-    "DeleteEventRequestRequestTypeDef",
-    "DeleteEventTypeRequestRequestTypeDef",
-    "DeleteEventsByEventTypeRequestRequestTypeDef",
+    "DeleteBatchImportJobRequestTypeDef",
+    "DeleteBatchPredictionJobRequestTypeDef",
+    "DeleteDetectorRequestTypeDef",
+    "DeleteDetectorVersionRequestTypeDef",
+    "DeleteEntityTypeRequestTypeDef",
+    "DeleteEventRequestTypeDef",
+    "DeleteEventTypeRequestTypeDef",
+    "DeleteEventsByEventTypeRequestTypeDef",
     "DeleteEventsByEventTypeResultTypeDef",
-    "DeleteExternalModelRequestRequestTypeDef",
-    "DeleteLabelRequestRequestTypeDef",
-    "DeleteListRequestRequestTypeDef",
-    "DeleteModelRequestRequestTypeDef",
-    "DeleteModelVersionRequestRequestTypeDef",
-    "DeleteOutcomeRequestRequestTypeDef",
-    "DeleteRuleRequestRequestTypeDef",
-    "DeleteVariableRequestRequestTypeDef",
-    "DescribeDetectorRequestRequestTypeDef",
+    "DeleteExternalModelRequestTypeDef",
+    "DeleteLabelRequestTypeDef",
+    "DeleteListRequestTypeDef",
+    "DeleteModelRequestTypeDef",
+    "DeleteModelVersionRequestTypeDef",
+    "DeleteOutcomeRequestTypeDef",
+    "DeleteRuleRequestTypeDef",
+    "DeleteVariableRequestTypeDef",
+    "DescribeDetectorRequestTypeDef",
     "DescribeDetectorResultTypeDef",
-    "DescribeModelVersionsRequestRequestTypeDef",
+    "DescribeModelVersionsRequestTypeDef",
     "DescribeModelVersionsResultTypeDef",
     "DetectorTypeDef",
     "DetectorVersionSummaryTypeDef",
@@ -113,60 +120,63 @@ __all__ = (
     "FieldValidationMessageTypeDef",
     "FileValidationMessageTypeDef",
     "FilterConditionTypeDef",
-    "GetBatchImportJobsRequestRequestTypeDef",
+    "GetBatchImportJobsRequestTypeDef",
     "GetBatchImportJobsResultTypeDef",
-    "GetBatchPredictionJobsRequestRequestTypeDef",
+    "GetBatchPredictionJobsRequestTypeDef",
     "GetBatchPredictionJobsResultTypeDef",
-    "GetDeleteEventsByEventTypeStatusRequestRequestTypeDef",
+    "GetDeleteEventsByEventTypeStatusRequestTypeDef",
     "GetDeleteEventsByEventTypeStatusResultTypeDef",
-    "GetDetectorVersionRequestRequestTypeDef",
+    "GetDetectorVersionRequestTypeDef",
     "GetDetectorVersionResultTypeDef",
-    "GetDetectorsRequestRequestTypeDef",
+    "GetDetectorsRequestTypeDef",
     "GetDetectorsResultTypeDef",
-    "GetEntityTypesRequestRequestTypeDef",
+    "GetEntityTypesRequestTypeDef",
     "GetEntityTypesResultTypeDef",
-    "GetEventPredictionMetadataRequestRequestTypeDef",
+    "GetEventPredictionMetadataRequestTypeDef",
     "GetEventPredictionMetadataResultTypeDef",
-    "GetEventPredictionRequestRequestTypeDef",
+    "GetEventPredictionRequestTypeDef",
     "GetEventPredictionResultTypeDef",
-    "GetEventRequestRequestTypeDef",
+    "GetEventRequestTypeDef",
     "GetEventResultTypeDef",
-    "GetEventTypesRequestRequestTypeDef",
+    "GetEventTypesRequestTypeDef",
     "GetEventTypesResultTypeDef",
-    "GetExternalModelsRequestRequestTypeDef",
+    "GetExternalModelsRequestTypeDef",
     "GetExternalModelsResultTypeDef",
     "GetKMSEncryptionKeyResultTypeDef",
-    "GetLabelsRequestRequestTypeDef",
+    "GetLabelsRequestTypeDef",
     "GetLabelsResultTypeDef",
-    "GetListElementsRequestRequestTypeDef",
+    "GetListElementsRequestTypeDef",
     "GetListElementsResultTypeDef",
-    "GetListsMetadataRequestRequestTypeDef",
+    "GetListsMetadataRequestTypeDef",
     "GetListsMetadataResultTypeDef",
-    "GetModelVersionRequestRequestTypeDef",
+    "GetModelVersionRequestTypeDef",
     "GetModelVersionResultTypeDef",
-    "GetModelsRequestRequestTypeDef",
+    "GetModelsRequestTypeDef",
     "GetModelsResultTypeDef",
-    "GetOutcomesRequestRequestTypeDef",
+    "GetOutcomesRequestTypeDef",
     "GetOutcomesResultTypeDef",
-    "GetRulesRequestRequestTypeDef",
+    "GetRulesRequestTypeDef",
     "GetRulesResultTypeDef",
-    "GetVariablesRequestRequestTypeDef",
+    "GetVariablesRequestTypeDef",
     "GetVariablesResultTypeDef",
     "IngestedEventStatisticsTypeDef",
     "IngestedEventsDetailTypeDef",
     "IngestedEventsTimeWindowTypeDef",
     "KMSKeyTypeDef",
+    "LabelSchemaOutputTypeDef",
     "LabelSchemaTypeDef",
     "LabelTypeDef",
-    "ListEventPredictionsRequestRequestTypeDef",
+    "ListEventPredictionsRequestTypeDef",
     "ListEventPredictionsResultTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResultTypeDef",
     "LogOddsMetricTypeDef",
     "MetricDataPointTypeDef",
     "ModelEndpointDataBlobTypeDef",
     "ModelInputConfigurationTypeDef",
+    "ModelOutputConfigurationOutputTypeDef",
     "ModelOutputConfigurationTypeDef",
+    "ModelOutputConfigurationUnionTypeDef",
     "ModelScoresTypeDef",
     "ModelTypeDef",
     "ModelVersionDetailTypeDef",
@@ -178,2190 +188,1096 @@ __all__ = (
     "OutcomeTypeDef",
     "PredictionExplanationsTypeDef",
     "PredictionTimeRangeTypeDef",
-    "PutDetectorRequestRequestTypeDef",
-    "PutEntityTypeRequestRequestTypeDef",
-    "PutEventTypeRequestRequestTypeDef",
-    "PutExternalModelRequestRequestTypeDef",
-    "PutKMSEncryptionKeyRequestRequestTypeDef",
-    "PutLabelRequestRequestTypeDef",
-    "PutOutcomeRequestRequestTypeDef",
+    "PutDetectorRequestTypeDef",
+    "PutEntityTypeRequestTypeDef",
+    "PutEventTypeRequestTypeDef",
+    "PutExternalModelRequestTypeDef",
+    "PutKMSEncryptionKeyRequestTypeDef",
+    "PutLabelRequestTypeDef",
+    "PutOutcomeRequestTypeDef",
     "ResponseMetadataTypeDef",
     "RuleDetailTypeDef",
     "RuleResultTypeDef",
     "RuleTypeDef",
-    "SendEventRequestRequestTypeDef",
+    "SendEventRequestTypeDef",
     "TFIMetricDataPointTypeDef",
     "TFIModelPerformanceTypeDef",
     "TFITrainingMetricsValueTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
     "TagTypeDef",
+    "TrainingDataSchemaOutputTypeDef",
     "TrainingDataSchemaTypeDef",
+    "TrainingDataSchemaUnionTypeDef",
     "TrainingMetricsTypeDef",
     "TrainingMetricsV2TypeDef",
     "TrainingResultTypeDef",
     "TrainingResultV2TypeDef",
     "UncertaintyRangeTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateDetectorVersionMetadataRequestRequestTypeDef",
-    "UpdateDetectorVersionRequestRequestTypeDef",
-    "UpdateDetectorVersionStatusRequestRequestTypeDef",
-    "UpdateEventLabelRequestRequestTypeDef",
-    "UpdateListRequestRequestTypeDef",
-    "UpdateModelRequestRequestTypeDef",
-    "UpdateModelVersionRequestRequestTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateDetectorVersionMetadataRequestTypeDef",
+    "UpdateDetectorVersionRequestTypeDef",
+    "UpdateDetectorVersionStatusRequestTypeDef",
+    "UpdateEventLabelRequestTypeDef",
+    "UpdateListRequestTypeDef",
+    "UpdateModelRequestTypeDef",
+    "UpdateModelVersionRequestTypeDef",
     "UpdateModelVersionResultTypeDef",
-    "UpdateModelVersionStatusRequestRequestTypeDef",
-    "UpdateRuleMetadataRequestRequestTypeDef",
-    "UpdateRuleVersionRequestRequestTypeDef",
+    "UpdateModelVersionStatusRequestTypeDef",
+    "UpdateRuleMetadataRequestTypeDef",
+    "UpdateRuleVersionRequestTypeDef",
     "UpdateRuleVersionResultTypeDef",
-    "UpdateVariableRequestRequestTypeDef",
+    "UpdateVariableRequestTypeDef",
     "VariableEntryTypeDef",
     "VariableImpactExplanationTypeDef",
     "VariableImportanceMetricsTypeDef",
     "VariableTypeDef",
 )
 
-ATIMetricDataPointTypeDef = TypedDict(
-    "ATIMetricDataPointTypeDef",
-    {
-        "cr": float,
-        "adr": float,
-        "threshold": float,
-        "atodr": float,
-    },
-    total=False,
-)
+class ATIMetricDataPointTypeDef(TypedDict):
+    cr: NotRequired[float]
+    adr: NotRequired[float]
+    threshold: NotRequired[float]
+    atodr: NotRequired[float]
+
+class ATIModelPerformanceTypeDef(TypedDict):
+    asi: NotRequired[float]
+
+class AggregatedLogOddsMetricTypeDef(TypedDict):
+    variableNames: List[str]
+    aggregatedVariablesImportance: float
+
+class AggregatedVariablesImpactExplanationTypeDef(TypedDict):
+    eventVariableNames: NotRequired[List[str]]
+    relativeImpact: NotRequired[str]
+    logOddsImpact: NotRequired[float]
+
+class AllowDenyListTypeDef(TypedDict):
+    name: str
+    description: NotRequired[str]
+    variableType: NotRequired[str]
+    createdTime: NotRequired[str]
+    updatedTime: NotRequired[str]
+    arn: NotRequired[str]
+
+class BatchCreateVariableErrorTypeDef(TypedDict):
+    name: NotRequired[str]
+    code: NotRequired[int]
+    message: NotRequired[str]
+
+class TagTypeDef(TypedDict):
+    key: str
+    value: str
+
+class VariableEntryTypeDef(TypedDict):
+    name: NotRequired[str]
+    dataType: NotRequired[str]
+    dataSource: NotRequired[str]
+    defaultValue: NotRequired[str]
+    description: NotRequired[str]
+    variableType: NotRequired[str]
+
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
+
+class BatchGetVariableErrorTypeDef(TypedDict):
+    name: NotRequired[str]
+    code: NotRequired[int]
+    message: NotRequired[str]
+
+class BatchGetVariableRequestTypeDef(TypedDict):
+    names: Sequence[str]
+
+class VariableTypeDef(TypedDict):
+    name: NotRequired[str]
+    dataType: NotRequired[DataTypeType]
+    dataSource: NotRequired[DataSourceType]
+    defaultValue: NotRequired[str]
+    description: NotRequired[str]
+    variableType: NotRequired[str]
+    lastUpdatedTime: NotRequired[str]
+    createdTime: NotRequired[str]
+    arn: NotRequired[str]
+
+class BatchImportTypeDef(TypedDict):
+    jobId: NotRequired[str]
+    status: NotRequired[AsyncJobStatusType]
+    failureReason: NotRequired[str]
+    startTime: NotRequired[str]
+    completionTime: NotRequired[str]
+    inputPath: NotRequired[str]
+    outputPath: NotRequired[str]
+    eventTypeName: NotRequired[str]
+    iamRoleArn: NotRequired[str]
+    arn: NotRequired[str]
+    processedRecordsCount: NotRequired[int]
+    failedRecordsCount: NotRequired[int]
+    totalRecordsCount: NotRequired[int]
+
+class BatchPredictionTypeDef(TypedDict):
+    jobId: NotRequired[str]
+    status: NotRequired[AsyncJobStatusType]
+    failureReason: NotRequired[str]
+    startTime: NotRequired[str]
+    completionTime: NotRequired[str]
+    lastHeartbeatTime: NotRequired[str]
+    inputPath: NotRequired[str]
+    outputPath: NotRequired[str]
+    eventTypeName: NotRequired[str]
+    detectorName: NotRequired[str]
+    detectorVersion: NotRequired[str]
+    iamRoleArn: NotRequired[str]
+    arn: NotRequired[str]
+    processedRecordsCount: NotRequired[int]
+    totalRecordsCount: NotRequired[int]
+
+BlobTypeDef = Union[str, bytes, IO[Any], StreamingBody]
 
-ATIModelPerformanceTypeDef = TypedDict(
-    "ATIModelPerformanceTypeDef",
-    {
-        "asi": float,
-    },
-    total=False,
-)
+class CancelBatchImportJobRequestTypeDef(TypedDict):
+    jobId: str
 
-ATITrainingMetricsValueTypeDef = TypedDict(
-    "ATITrainingMetricsValueTypeDef",
-    {
-        "metricDataPoints": List["ATIMetricDataPointTypeDef"],
-        "modelPerformance": "ATIModelPerformanceTypeDef",
-    },
-    total=False,
-)
+class CancelBatchPredictionJobRequestTypeDef(TypedDict):
+    jobId: str
 
-AggregatedLogOddsMetricTypeDef = TypedDict(
-    "AggregatedLogOddsMetricTypeDef",
-    {
-        "variableNames": List[str],
-        "aggregatedVariablesImportance": float,
-    },
-)
+class ModelVersionTypeDef(TypedDict):
+    modelId: str
+    modelType: ModelTypeEnumType
+    modelVersionNumber: str
+    arn: NotRequired[str]
 
-AggregatedVariablesImpactExplanationTypeDef = TypedDict(
-    "AggregatedVariablesImpactExplanationTypeDef",
-    {
-        "eventVariableNames": List[str],
-        "relativeImpact": str,
-        "logOddsImpact": float,
-    },
-    total=False,
-)
+class RuleTypeDef(TypedDict):
+    detectorId: str
+    ruleId: str
+    ruleVersion: str
 
-AggregatedVariablesImportanceMetricsTypeDef = TypedDict(
-    "AggregatedVariablesImportanceMetricsTypeDef",
-    {
-        "logOddsMetrics": List["AggregatedLogOddsMetricTypeDef"],
-    },
-    total=False,
-)
-
-_RequiredAllowDenyListTypeDef = TypedDict(
-    "_RequiredAllowDenyListTypeDef",
-    {
-        "name": str,
-    },
-)
-_OptionalAllowDenyListTypeDef = TypedDict(
-    "_OptionalAllowDenyListTypeDef",
-    {
-        "description": str,
-        "variableType": str,
-        "createdTime": str,
-        "updatedTime": str,
-        "arn": str,
-    },
-    total=False,
-)
-
-class AllowDenyListTypeDef(_RequiredAllowDenyListTypeDef, _OptionalAllowDenyListTypeDef):
-    pass
-
-BatchCreateVariableErrorTypeDef = TypedDict(
-    "BatchCreateVariableErrorTypeDef",
-    {
-        "name": str,
-        "code": int,
-        "message": str,
-    },
-    total=False,
-)
-
-_RequiredBatchCreateVariableRequestRequestTypeDef = TypedDict(
-    "_RequiredBatchCreateVariableRequestRequestTypeDef",
-    {
-        "variableEntries": List["VariableEntryTypeDef"],
-    },
-)
-_OptionalBatchCreateVariableRequestRequestTypeDef = TypedDict(
-    "_OptionalBatchCreateVariableRequestRequestTypeDef",
-    {
-        "tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class BatchCreateVariableRequestRequestTypeDef(
-    _RequiredBatchCreateVariableRequestRequestTypeDef,
-    _OptionalBatchCreateVariableRequestRequestTypeDef,
-):
-    pass
-
-BatchCreateVariableResultTypeDef = TypedDict(
-    "BatchCreateVariableResultTypeDef",
-    {
-        "errors": List["BatchCreateVariableErrorTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-BatchGetVariableErrorTypeDef = TypedDict(
-    "BatchGetVariableErrorTypeDef",
-    {
-        "name": str,
-        "code": int,
-        "message": str,
-    },
-    total=False,
-)
-
-BatchGetVariableRequestRequestTypeDef = TypedDict(
-    "BatchGetVariableRequestRequestTypeDef",
-    {
-        "names": List[str],
-    },
-)
-
-BatchGetVariableResultTypeDef = TypedDict(
-    "BatchGetVariableResultTypeDef",
-    {
-        "variables": List["VariableTypeDef"],
-        "errors": List["BatchGetVariableErrorTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-BatchImportTypeDef = TypedDict(
-    "BatchImportTypeDef",
-    {
-        "jobId": str,
-        "status": AsyncJobStatusType,
-        "failureReason": str,
-        "startTime": str,
-        "completionTime": str,
-        "inputPath": str,
-        "outputPath": str,
-        "eventTypeName": str,
-        "iamRoleArn": str,
-        "arn": str,
-        "processedRecordsCount": int,
-        "failedRecordsCount": int,
-        "totalRecordsCount": int,
-    },
-    total=False,
-)
-
-BatchPredictionTypeDef = TypedDict(
-    "BatchPredictionTypeDef",
-    {
-        "jobId": str,
-        "status": AsyncJobStatusType,
-        "failureReason": str,
-        "startTime": str,
-        "completionTime": str,
-        "lastHeartbeatTime": str,
-        "inputPath": str,
-        "outputPath": str,
-        "eventTypeName": str,
-        "detectorName": str,
-        "detectorVersion": str,
-        "iamRoleArn": str,
-        "arn": str,
-        "processedRecordsCount": int,
-        "totalRecordsCount": int,
-    },
-    total=False,
-)
-
-CancelBatchImportJobRequestRequestTypeDef = TypedDict(
-    "CancelBatchImportJobRequestRequestTypeDef",
-    {
-        "jobId": str,
-    },
-)
-
-CancelBatchPredictionJobRequestRequestTypeDef = TypedDict(
-    "CancelBatchPredictionJobRequestRequestTypeDef",
-    {
-        "jobId": str,
-    },
-)
-
-_RequiredCreateBatchImportJobRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateBatchImportJobRequestRequestTypeDef",
-    {
-        "jobId": str,
-        "inputPath": str,
-        "outputPath": str,
-        "eventTypeName": str,
-        "iamRoleArn": str,
-    },
-)
-_OptionalCreateBatchImportJobRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateBatchImportJobRequestRequestTypeDef",
-    {
-        "tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateBatchImportJobRequestRequestTypeDef(
-    _RequiredCreateBatchImportJobRequestRequestTypeDef,
-    _OptionalCreateBatchImportJobRequestRequestTypeDef,
-):
-    pass
-
-_RequiredCreateBatchPredictionJobRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateBatchPredictionJobRequestRequestTypeDef",
-    {
-        "jobId": str,
-        "inputPath": str,
-        "outputPath": str,
-        "eventTypeName": str,
-        "detectorName": str,
-        "iamRoleArn": str,
-    },
-)
-_OptionalCreateBatchPredictionJobRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateBatchPredictionJobRequestRequestTypeDef",
-    {
-        "detectorVersion": str,
-        "tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateBatchPredictionJobRequestRequestTypeDef(
-    _RequiredCreateBatchPredictionJobRequestRequestTypeDef,
-    _OptionalCreateBatchPredictionJobRequestRequestTypeDef,
-):
-    pass
-
-_RequiredCreateDetectorVersionRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateDetectorVersionRequestRequestTypeDef",
-    {
-        "detectorId": str,
-        "rules": List["RuleTypeDef"],
-    },
-)
-_OptionalCreateDetectorVersionRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateDetectorVersionRequestRequestTypeDef",
-    {
-        "description": str,
-        "externalModelEndpoints": List[str],
-        "modelVersions": List["ModelVersionTypeDef"],
-        "ruleExecutionMode": RuleExecutionModeType,
-        "tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateDetectorVersionRequestRequestTypeDef(
-    _RequiredCreateDetectorVersionRequestRequestTypeDef,
-    _OptionalCreateDetectorVersionRequestRequestTypeDef,
-):
-    pass
-
-CreateDetectorVersionResultTypeDef = TypedDict(
-    "CreateDetectorVersionResultTypeDef",
-    {
-        "detectorId": str,
-        "detectorVersionId": str,
-        "status": DetectorVersionStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateListRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateListRequestRequestTypeDef",
-    {
-        "name": str,
-    },
-)
-_OptionalCreateListRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateListRequestRequestTypeDef",
-    {
-        "elements": List[str],
-        "variableType": str,
-        "description": str,
-        "tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateListRequestRequestTypeDef(
-    _RequiredCreateListRequestRequestTypeDef, _OptionalCreateListRequestRequestTypeDef
-):
-    pass
-
-_RequiredCreateModelRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateModelRequestRequestTypeDef",
-    {
-        "modelId": str,
-        "modelType": ModelTypeEnumType,
-        "eventTypeName": str,
-    },
-)
-_OptionalCreateModelRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateModelRequestRequestTypeDef",
-    {
-        "description": str,
-        "tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateModelRequestRequestTypeDef(
-    _RequiredCreateModelRequestRequestTypeDef, _OptionalCreateModelRequestRequestTypeDef
-):
-    pass
-
-_RequiredCreateModelVersionRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateModelVersionRequestRequestTypeDef",
-    {
-        "modelId": str,
-        "modelType": ModelTypeEnumType,
-        "trainingDataSource": TrainingDataSourceEnumType,
-        "trainingDataSchema": "TrainingDataSchemaTypeDef",
-    },
-)
-_OptionalCreateModelVersionRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateModelVersionRequestRequestTypeDef",
-    {
-        "externalEventsDetail": "ExternalEventsDetailTypeDef",
-        "ingestedEventsDetail": "IngestedEventsDetailTypeDef",
-        "tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateModelVersionRequestRequestTypeDef(
-    _RequiredCreateModelVersionRequestRequestTypeDef,
-    _OptionalCreateModelVersionRequestRequestTypeDef,
-):
-    pass
-
-CreateModelVersionResultTypeDef = TypedDict(
-    "CreateModelVersionResultTypeDef",
-    {
-        "modelId": str,
-        "modelType": ModelTypeEnumType,
-        "modelVersionNumber": str,
-        "status": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateRuleRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateRuleRequestRequestTypeDef",
-    {
-        "ruleId": str,
-        "detectorId": str,
-        "expression": str,
-        "language": Literal["DETECTORPL"],
-        "outcomes": List[str],
-    },
-)
-_OptionalCreateRuleRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateRuleRequestRequestTypeDef",
-    {
-        "description": str,
-        "tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateRuleRequestRequestTypeDef(
-    _RequiredCreateRuleRequestRequestTypeDef, _OptionalCreateRuleRequestRequestTypeDef
-):
-    pass
-
-CreateRuleResultTypeDef = TypedDict(
-    "CreateRuleResultTypeDef",
-    {
-        "rule": "RuleTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateVariableRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateVariableRequestRequestTypeDef",
-    {
-        "name": str,
-        "dataType": DataTypeType,
-        "dataSource": DataSourceType,
-        "defaultValue": str,
-    },
-)
-_OptionalCreateVariableRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateVariableRequestRequestTypeDef",
-    {
-        "description": str,
-        "variableType": str,
-        "tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateVariableRequestRequestTypeDef(
-    _RequiredCreateVariableRequestRequestTypeDef, _OptionalCreateVariableRequestRequestTypeDef
-):
-    pass
-
-DataValidationMetricsTypeDef = TypedDict(
-    "DataValidationMetricsTypeDef",
-    {
-        "fileLevelMessages": List["FileValidationMessageTypeDef"],
-        "fieldLevelMessages": List["FieldValidationMessageTypeDef"],
-    },
-    total=False,
-)
-
-DeleteBatchImportJobRequestRequestTypeDef = TypedDict(
-    "DeleteBatchImportJobRequestRequestTypeDef",
-    {
-        "jobId": str,
-    },
-)
-
-DeleteBatchPredictionJobRequestRequestTypeDef = TypedDict(
-    "DeleteBatchPredictionJobRequestRequestTypeDef",
-    {
-        "jobId": str,
-    },
-)
-
-DeleteDetectorRequestRequestTypeDef = TypedDict(
-    "DeleteDetectorRequestRequestTypeDef",
-    {
-        "detectorId": str,
-    },
-)
-
-DeleteDetectorVersionRequestRequestTypeDef = TypedDict(
-    "DeleteDetectorVersionRequestRequestTypeDef",
-    {
-        "detectorId": str,
-        "detectorVersionId": str,
-    },
-)
-
-DeleteEntityTypeRequestRequestTypeDef = TypedDict(
-    "DeleteEntityTypeRequestRequestTypeDef",
-    {
-        "name": str,
-    },
-)
-
-_RequiredDeleteEventRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteEventRequestRequestTypeDef",
-    {
-        "eventId": str,
-        "eventTypeName": str,
-    },
-)
-_OptionalDeleteEventRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteEventRequestRequestTypeDef",
-    {
-        "deleteAuditHistory": bool,
-    },
-    total=False,
-)
-
-class DeleteEventRequestRequestTypeDef(
-    _RequiredDeleteEventRequestRequestTypeDef, _OptionalDeleteEventRequestRequestTypeDef
-):
-    pass
-
-DeleteEventTypeRequestRequestTypeDef = TypedDict(
-    "DeleteEventTypeRequestRequestTypeDef",
-    {
-        "name": str,
-    },
-)
-
-DeleteEventsByEventTypeRequestRequestTypeDef = TypedDict(
-    "DeleteEventsByEventTypeRequestRequestTypeDef",
-    {
-        "eventTypeName": str,
-    },
-)
-
-DeleteEventsByEventTypeResultTypeDef = TypedDict(
-    "DeleteEventsByEventTypeResultTypeDef",
-    {
-        "eventTypeName": str,
-        "eventsDeletionStatus": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteExternalModelRequestRequestTypeDef = TypedDict(
-    "DeleteExternalModelRequestRequestTypeDef",
-    {
-        "modelEndpoint": str,
-    },
-)
-
-DeleteLabelRequestRequestTypeDef = TypedDict(
-    "DeleteLabelRequestRequestTypeDef",
-    {
-        "name": str,
-    },
-)
-
-DeleteListRequestRequestTypeDef = TypedDict(
-    "DeleteListRequestRequestTypeDef",
-    {
-        "name": str,
-    },
-)
-
-DeleteModelRequestRequestTypeDef = TypedDict(
-    "DeleteModelRequestRequestTypeDef",
-    {
-        "modelId": str,
-        "modelType": ModelTypeEnumType,
-    },
-)
-
-DeleteModelVersionRequestRequestTypeDef = TypedDict(
-    "DeleteModelVersionRequestRequestTypeDef",
-    {
-        "modelId": str,
-        "modelType": ModelTypeEnumType,
-        "modelVersionNumber": str,
-    },
-)
-
-DeleteOutcomeRequestRequestTypeDef = TypedDict(
-    "DeleteOutcomeRequestRequestTypeDef",
-    {
-        "name": str,
-    },
-)
-
-DeleteRuleRequestRequestTypeDef = TypedDict(
-    "DeleteRuleRequestRequestTypeDef",
-    {
-        "rule": "RuleTypeDef",
-    },
-)
-
-DeleteVariableRequestRequestTypeDef = TypedDict(
-    "DeleteVariableRequestRequestTypeDef",
-    {
-        "name": str,
-    },
-)
-
-_RequiredDescribeDetectorRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeDetectorRequestRequestTypeDef",
-    {
-        "detectorId": str,
-    },
-)
-_OptionalDescribeDetectorRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeDetectorRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-class DescribeDetectorRequestRequestTypeDef(
-    _RequiredDescribeDetectorRequestRequestTypeDef, _OptionalDescribeDetectorRequestRequestTypeDef
-):
-    pass
-
-DescribeDetectorResultTypeDef = TypedDict(
-    "DescribeDetectorResultTypeDef",
-    {
-        "detectorId": str,
-        "detectorVersionSummaries": List["DetectorVersionSummaryTypeDef"],
-        "nextToken": str,
-        "arn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeModelVersionsRequestRequestTypeDef = TypedDict(
-    "DescribeModelVersionsRequestRequestTypeDef",
-    {
-        "modelId": str,
-        "modelVersionNumber": str,
-        "modelType": ModelTypeEnumType,
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-DescribeModelVersionsResultTypeDef = TypedDict(
-    "DescribeModelVersionsResultTypeDef",
-    {
-        "modelVersionDetails": List["ModelVersionDetailTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DetectorTypeDef = TypedDict(
-    "DetectorTypeDef",
-    {
-        "detectorId": str,
-        "description": str,
-        "eventTypeName": str,
-        "lastUpdatedTime": str,
-        "createdTime": str,
-        "arn": str,
-    },
-    total=False,
-)
-
-DetectorVersionSummaryTypeDef = TypedDict(
-    "DetectorVersionSummaryTypeDef",
-    {
-        "detectorVersionId": str,
-        "status": DetectorVersionStatusType,
-        "description": str,
-        "lastUpdatedTime": str,
-    },
-    total=False,
-)
-
-EntityTypeDef = TypedDict(
-    "EntityTypeDef",
-    {
-        "entityType": str,
-        "entityId": str,
-    },
-)
-
-EntityTypeTypeDef = TypedDict(
-    "EntityTypeTypeDef",
-    {
-        "name": str,
-        "description": str,
-        "lastUpdatedTime": str,
-        "createdTime": str,
-        "arn": str,
-    },
-    total=False,
-)
-
-EvaluatedExternalModelTypeDef = TypedDict(
-    "EvaluatedExternalModelTypeDef",
-    {
-        "modelEndpoint": str,
-        "useEventVariables": bool,
-        "inputVariables": Dict[str, str],
-        "outputVariables": Dict[str, str],
-    },
-    total=False,
-)
-
-EvaluatedModelVersionTypeDef = TypedDict(
-    "EvaluatedModelVersionTypeDef",
-    {
-        "modelId": str,
-        "modelVersion": str,
-        "modelType": str,
-        "evaluations": List["ModelVersionEvaluationTypeDef"],
-    },
-    total=False,
-)
-
-EvaluatedRuleTypeDef = TypedDict(
-    "EvaluatedRuleTypeDef",
-    {
-        "ruleId": str,
-        "ruleVersion": str,
-        "expression": str,
-        "expressionWithValues": str,
-        "outcomes": List[str],
-        "evaluated": bool,
-        "matched": bool,
-    },
-    total=False,
-)
-
-EventOrchestrationTypeDef = TypedDict(
-    "EventOrchestrationTypeDef",
-    {
-        "eventBridgeEnabled": bool,
-    },
-)
-
-EventPredictionSummaryTypeDef = TypedDict(
-    "EventPredictionSummaryTypeDef",
-    {
-        "eventId": str,
-        "eventTypeName": str,
-        "eventTimestamp": str,
-        "predictionTimestamp": str,
-        "detectorId": str,
-        "detectorVersionId": str,
-    },
-    total=False,
-)
-
-EventTypeDef = TypedDict(
-    "EventTypeDef",
-    {
-        "eventId": str,
-        "eventTypeName": str,
-        "eventTimestamp": str,
-        "eventVariables": Dict[str, str],
-        "currentLabel": str,
-        "labelTimestamp": str,
-        "entities": List["EntityTypeDef"],
-    },
-    total=False,
-)
-
-EventTypeTypeDef = TypedDict(
-    "EventTypeTypeDef",
-    {
-        "name": str,
-        "description": str,
-        "eventVariables": List[str],
-        "labels": List[str],
-        "entityTypes": List[str],
-        "eventIngestion": EventIngestionType,
-        "ingestedEventStatistics": "IngestedEventStatisticsTypeDef",
-        "lastUpdatedTime": str,
-        "createdTime": str,
-        "arn": str,
-        "eventOrchestration": "EventOrchestrationTypeDef",
-    },
-    total=False,
-)
-
-EventVariableSummaryTypeDef = TypedDict(
-    "EventVariableSummaryTypeDef",
-    {
-        "name": str,
-        "value": str,
-        "source": str,
-    },
-    total=False,
-)
-
-ExternalEventsDetailTypeDef = TypedDict(
-    "ExternalEventsDetailTypeDef",
-    {
-        "dataLocation": str,
-        "dataAccessRoleArn": str,
-    },
-)
-
-ExternalModelOutputsTypeDef = TypedDict(
-    "ExternalModelOutputsTypeDef",
-    {
-        "externalModel": "ExternalModelSummaryTypeDef",
-        "outputs": Dict[str, str],
-    },
-    total=False,
-)
-
-ExternalModelSummaryTypeDef = TypedDict(
-    "ExternalModelSummaryTypeDef",
-    {
-        "modelEndpoint": str,
-        "modelSource": Literal["SAGEMAKER"],
-    },
-    total=False,
-)
-
-ExternalModelTypeDef = TypedDict(
-    "ExternalModelTypeDef",
-    {
-        "modelEndpoint": str,
-        "modelSource": Literal["SAGEMAKER"],
-        "invokeModelEndpointRoleArn": str,
-        "inputConfiguration": "ModelInputConfigurationTypeDef",
-        "outputConfiguration": "ModelOutputConfigurationTypeDef",
-        "modelEndpointStatus": ModelEndpointStatusType,
-        "lastUpdatedTime": str,
-        "createdTime": str,
-        "arn": str,
-    },
-    total=False,
-)
+class ExternalEventsDetailTypeDef(TypedDict):
+    dataLocation: str
+    dataAccessRoleArn: str
 
 FieldValidationMessageTypeDef = TypedDict(
     "FieldValidationMessageTypeDef",
     {
-        "fieldName": str,
-        "identifier": str,
-        "title": str,
-        "content": str,
-        "type": str,
+        "fieldName": NotRequired[str],
+        "identifier": NotRequired[str],
+        "title": NotRequired[str],
+        "content": NotRequired[str],
+        "type": NotRequired[str],
     },
-    total=False,
 )
-
 FileValidationMessageTypeDef = TypedDict(
     "FileValidationMessageTypeDef",
     {
-        "title": str,
-        "content": str,
-        "type": str,
-    },
-    total=False,
-)
-
-FilterConditionTypeDef = TypedDict(
-    "FilterConditionTypeDef",
-    {
-        "value": str,
-    },
-    total=False,
-)
-
-GetBatchImportJobsRequestRequestTypeDef = TypedDict(
-    "GetBatchImportJobsRequestRequestTypeDef",
-    {
-        "jobId": str,
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-GetBatchImportJobsResultTypeDef = TypedDict(
-    "GetBatchImportJobsResultTypeDef",
-    {
-        "batchImports": List["BatchImportTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "title": NotRequired[str],
+        "content": NotRequired[str],
+        "type": NotRequired[str],
     },
 )
 
-GetBatchPredictionJobsRequestRequestTypeDef = TypedDict(
-    "GetBatchPredictionJobsRequestRequestTypeDef",
-    {
-        "jobId": str,
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
+class DeleteBatchImportJobRequestTypeDef(TypedDict):
+    jobId: str
 
-GetBatchPredictionJobsResultTypeDef = TypedDict(
-    "GetBatchPredictionJobsResultTypeDef",
-    {
-        "batchPredictions": List["BatchPredictionTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DeleteBatchPredictionJobRequestTypeDef(TypedDict):
+    jobId: str
 
-GetDeleteEventsByEventTypeStatusRequestRequestTypeDef = TypedDict(
-    "GetDeleteEventsByEventTypeStatusRequestRequestTypeDef",
-    {
-        "eventTypeName": str,
-    },
-)
+class DeleteDetectorRequestTypeDef(TypedDict):
+    detectorId: str
 
-GetDeleteEventsByEventTypeStatusResultTypeDef = TypedDict(
-    "GetDeleteEventsByEventTypeStatusResultTypeDef",
-    {
-        "eventTypeName": str,
-        "eventsDeletionStatus": AsyncJobStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DeleteDetectorVersionRequestTypeDef(TypedDict):
+    detectorId: str
+    detectorVersionId: str
 
-GetDetectorVersionRequestRequestTypeDef = TypedDict(
-    "GetDetectorVersionRequestRequestTypeDef",
-    {
-        "detectorId": str,
-        "detectorVersionId": str,
-    },
-)
+class DeleteEntityTypeRequestTypeDef(TypedDict):
+    name: str
 
-GetDetectorVersionResultTypeDef = TypedDict(
-    "GetDetectorVersionResultTypeDef",
-    {
-        "detectorId": str,
-        "detectorVersionId": str,
-        "description": str,
-        "externalModelEndpoints": List[str],
-        "modelVersions": List["ModelVersionTypeDef"],
-        "rules": List["RuleTypeDef"],
-        "status": DetectorVersionStatusType,
-        "lastUpdatedTime": str,
-        "createdTime": str,
-        "ruleExecutionMode": RuleExecutionModeType,
-        "arn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DeleteEventRequestTypeDef(TypedDict):
+    eventId: str
+    eventTypeName: str
+    deleteAuditHistory: NotRequired[bool]
 
-GetDetectorsRequestRequestTypeDef = TypedDict(
-    "GetDetectorsRequestRequestTypeDef",
-    {
-        "detectorId": str,
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
+class DeleteEventTypeRequestTypeDef(TypedDict):
+    name: str
 
-GetDetectorsResultTypeDef = TypedDict(
-    "GetDetectorsResultTypeDef",
-    {
-        "detectors": List["DetectorTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DeleteEventsByEventTypeRequestTypeDef(TypedDict):
+    eventTypeName: str
 
-GetEntityTypesRequestRequestTypeDef = TypedDict(
-    "GetEntityTypesRequestRequestTypeDef",
-    {
-        "name": str,
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
+class DeleteExternalModelRequestTypeDef(TypedDict):
+    modelEndpoint: str
 
-GetEntityTypesResultTypeDef = TypedDict(
-    "GetEntityTypesResultTypeDef",
-    {
-        "entityTypes": List["EntityTypeTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DeleteLabelRequestTypeDef(TypedDict):
+    name: str
 
-GetEventPredictionMetadataRequestRequestTypeDef = TypedDict(
-    "GetEventPredictionMetadataRequestRequestTypeDef",
-    {
-        "eventId": str,
-        "eventTypeName": str,
-        "detectorId": str,
-        "detectorVersionId": str,
-        "predictionTimestamp": str,
-    },
-)
+class DeleteListRequestTypeDef(TypedDict):
+    name: str
 
-GetEventPredictionMetadataResultTypeDef = TypedDict(
-    "GetEventPredictionMetadataResultTypeDef",
-    {
-        "eventId": str,
-        "eventTypeName": str,
-        "entityId": str,
-        "entityType": str,
-        "eventTimestamp": str,
-        "detectorId": str,
-        "detectorVersionId": str,
-        "detectorVersionStatus": str,
-        "eventVariables": List["EventVariableSummaryTypeDef"],
-        "rules": List["EvaluatedRuleTypeDef"],
-        "ruleExecutionMode": RuleExecutionModeType,
-        "outcomes": List[str],
-        "evaluatedModelVersions": List["EvaluatedModelVersionTypeDef"],
-        "evaluatedExternalModels": List["EvaluatedExternalModelTypeDef"],
-        "predictionTimestamp": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DeleteModelRequestTypeDef(TypedDict):
+    modelId: str
+    modelType: ModelTypeEnumType
 
-_RequiredGetEventPredictionRequestRequestTypeDef = TypedDict(
-    "_RequiredGetEventPredictionRequestRequestTypeDef",
-    {
-        "detectorId": str,
-        "eventId": str,
-        "eventTypeName": str,
-        "entities": List["EntityTypeDef"],
-        "eventTimestamp": str,
-        "eventVariables": Dict[str, str],
-    },
-)
-_OptionalGetEventPredictionRequestRequestTypeDef = TypedDict(
-    "_OptionalGetEventPredictionRequestRequestTypeDef",
-    {
-        "detectorVersionId": str,
-        "externalModelEndpointDataBlobs": Dict[str, "ModelEndpointDataBlobTypeDef"],
-    },
-    total=False,
-)
+class DeleteModelVersionRequestTypeDef(TypedDict):
+    modelId: str
+    modelType: ModelTypeEnumType
+    modelVersionNumber: str
 
-class GetEventPredictionRequestRequestTypeDef(
-    _RequiredGetEventPredictionRequestRequestTypeDef,
-    _OptionalGetEventPredictionRequestRequestTypeDef,
-):
-    pass
+class DeleteOutcomeRequestTypeDef(TypedDict):
+    name: str
 
-GetEventPredictionResultTypeDef = TypedDict(
-    "GetEventPredictionResultTypeDef",
-    {
-        "modelScores": List["ModelScoresTypeDef"],
-        "ruleResults": List["RuleResultTypeDef"],
-        "externalModelOutputs": List["ExternalModelOutputsTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DeleteVariableRequestTypeDef(TypedDict):
+    name: str
 
-GetEventRequestRequestTypeDef = TypedDict(
-    "GetEventRequestRequestTypeDef",
-    {
-        "eventId": str,
-        "eventTypeName": str,
-    },
-)
+class DescribeDetectorRequestTypeDef(TypedDict):
+    detectorId: str
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
 
-GetEventResultTypeDef = TypedDict(
-    "GetEventResultTypeDef",
-    {
-        "event": "EventTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DetectorVersionSummaryTypeDef(TypedDict):
+    detectorVersionId: NotRequired[str]
+    status: NotRequired[DetectorVersionStatusType]
+    description: NotRequired[str]
+    lastUpdatedTime: NotRequired[str]
 
-GetEventTypesRequestRequestTypeDef = TypedDict(
-    "GetEventTypesRequestRequestTypeDef",
-    {
-        "name": str,
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
+class DescribeModelVersionsRequestTypeDef(TypedDict):
+    modelId: NotRequired[str]
+    modelVersionNumber: NotRequired[str]
+    modelType: NotRequired[ModelTypeEnumType]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
 
-GetEventTypesResultTypeDef = TypedDict(
-    "GetEventTypesResultTypeDef",
-    {
-        "eventTypes": List["EventTypeTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DetectorTypeDef(TypedDict):
+    detectorId: NotRequired[str]
+    description: NotRequired[str]
+    eventTypeName: NotRequired[str]
+    lastUpdatedTime: NotRequired[str]
+    createdTime: NotRequired[str]
+    arn: NotRequired[str]
 
-GetExternalModelsRequestRequestTypeDef = TypedDict(
-    "GetExternalModelsRequestRequestTypeDef",
-    {
-        "modelEndpoint": str,
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
+class EntityTypeDef(TypedDict):
+    entityType: str
+    entityId: str
 
-GetExternalModelsResultTypeDef = TypedDict(
-    "GetExternalModelsResultTypeDef",
-    {
-        "externalModels": List["ExternalModelTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class EntityTypeTypeDef(TypedDict):
+    name: NotRequired[str]
+    description: NotRequired[str]
+    lastUpdatedTime: NotRequired[str]
+    createdTime: NotRequired[str]
+    arn: NotRequired[str]
 
-GetKMSEncryptionKeyResultTypeDef = TypedDict(
-    "GetKMSEncryptionKeyResultTypeDef",
-    {
-        "kmsKey": "KMSKeyTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class EvaluatedExternalModelTypeDef(TypedDict):
+    modelEndpoint: NotRequired[str]
+    useEventVariables: NotRequired[bool]
+    inputVariables: NotRequired[Dict[str, str]]
+    outputVariables: NotRequired[Dict[str, str]]
 
-GetLabelsRequestRequestTypeDef = TypedDict(
-    "GetLabelsRequestRequestTypeDef",
-    {
-        "name": str,
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
+class EvaluatedRuleTypeDef(TypedDict):
+    ruleId: NotRequired[str]
+    ruleVersion: NotRequired[str]
+    expression: NotRequired[str]
+    expressionWithValues: NotRequired[str]
+    outcomes: NotRequired[List[str]]
+    evaluated: NotRequired[bool]
+    matched: NotRequired[bool]
 
-GetLabelsResultTypeDef = TypedDict(
-    "GetLabelsResultTypeDef",
-    {
-        "labels": List["LabelTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class EventOrchestrationTypeDef(TypedDict):
+    eventBridgeEnabled: bool
 
-_RequiredGetListElementsRequestRequestTypeDef = TypedDict(
-    "_RequiredGetListElementsRequestRequestTypeDef",
-    {
-        "name": str,
-    },
-)
-_OptionalGetListElementsRequestRequestTypeDef = TypedDict(
-    "_OptionalGetListElementsRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
+class EventPredictionSummaryTypeDef(TypedDict):
+    eventId: NotRequired[str]
+    eventTypeName: NotRequired[str]
+    eventTimestamp: NotRequired[str]
+    predictionTimestamp: NotRequired[str]
+    detectorId: NotRequired[str]
+    detectorVersionId: NotRequired[str]
 
-class GetListElementsRequestRequestTypeDef(
-    _RequiredGetListElementsRequestRequestTypeDef, _OptionalGetListElementsRequestRequestTypeDef
-):
-    pass
+class IngestedEventStatisticsTypeDef(TypedDict):
+    numberOfEvents: NotRequired[int]
+    eventDataSizeInBytes: NotRequired[int]
+    leastRecentEvent: NotRequired[str]
+    mostRecentEvent: NotRequired[str]
+    lastUpdatedTime: NotRequired[str]
 
-GetListElementsResultTypeDef = TypedDict(
-    "GetListElementsResultTypeDef",
-    {
-        "elements": List[str],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class EventVariableSummaryTypeDef(TypedDict):
+    name: NotRequired[str]
+    value: NotRequired[str]
+    source: NotRequired[str]
 
-GetListsMetadataRequestRequestTypeDef = TypedDict(
-    "GetListsMetadataRequestRequestTypeDef",
-    {
-        "name": str,
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
+class ExternalModelSummaryTypeDef(TypedDict):
+    modelEndpoint: NotRequired[str]
+    modelSource: NotRequired[Literal["SAGEMAKER"]]
 
-GetListsMetadataResultTypeDef = TypedDict(
-    "GetListsMetadataResultTypeDef",
-    {
-        "lists": List["AllowDenyListTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetModelVersionRequestRequestTypeDef = TypedDict(
-    "GetModelVersionRequestRequestTypeDef",
-    {
-        "modelId": str,
-        "modelType": ModelTypeEnumType,
-        "modelVersionNumber": str,
-    },
-)
-
-GetModelVersionResultTypeDef = TypedDict(
-    "GetModelVersionResultTypeDef",
-    {
-        "modelId": str,
-        "modelType": ModelTypeEnumType,
-        "modelVersionNumber": str,
-        "trainingDataSource": TrainingDataSourceEnumType,
-        "trainingDataSchema": "TrainingDataSchemaTypeDef",
-        "externalEventsDetail": "ExternalEventsDetailTypeDef",
-        "ingestedEventsDetail": "IngestedEventsDetailTypeDef",
-        "status": str,
-        "arn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetModelsRequestRequestTypeDef = TypedDict(
-    "GetModelsRequestRequestTypeDef",
-    {
-        "modelId": str,
-        "modelType": ModelTypeEnumType,
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-GetModelsResultTypeDef = TypedDict(
-    "GetModelsResultTypeDef",
-    {
-        "nextToken": str,
-        "models": List["ModelTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetOutcomesRequestRequestTypeDef = TypedDict(
-    "GetOutcomesRequestRequestTypeDef",
-    {
-        "name": str,
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-GetOutcomesResultTypeDef = TypedDict(
-    "GetOutcomesResultTypeDef",
-    {
-        "outcomes": List["OutcomeTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetRulesRequestRequestTypeDef = TypedDict(
-    "_RequiredGetRulesRequestRequestTypeDef",
-    {
-        "detectorId": str,
-    },
-)
-_OptionalGetRulesRequestRequestTypeDef = TypedDict(
-    "_OptionalGetRulesRequestRequestTypeDef",
-    {
-        "ruleId": str,
-        "ruleVersion": str,
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-class GetRulesRequestRequestTypeDef(
-    _RequiredGetRulesRequestRequestTypeDef, _OptionalGetRulesRequestRequestTypeDef
-):
-    pass
-
-GetRulesResultTypeDef = TypedDict(
-    "GetRulesResultTypeDef",
-    {
-        "ruleDetails": List["RuleDetailTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetVariablesRequestRequestTypeDef = TypedDict(
-    "GetVariablesRequestRequestTypeDef",
-    {
-        "name": str,
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-GetVariablesResultTypeDef = TypedDict(
-    "GetVariablesResultTypeDef",
-    {
-        "variables": List["VariableTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-IngestedEventStatisticsTypeDef = TypedDict(
-    "IngestedEventStatisticsTypeDef",
-    {
-        "numberOfEvents": int,
-        "eventDataSizeInBytes": int,
-        "leastRecentEvent": str,
-        "mostRecentEvent": str,
-        "lastUpdatedTime": str,
-    },
-    total=False,
-)
-
-IngestedEventsDetailTypeDef = TypedDict(
-    "IngestedEventsDetailTypeDef",
-    {
-        "ingestedEventsTimeWindow": "IngestedEventsTimeWindowTypeDef",
-    },
-)
-
-IngestedEventsTimeWindowTypeDef = TypedDict(
-    "IngestedEventsTimeWindowTypeDef",
-    {
-        "startTime": str,
-        "endTime": str,
-    },
-)
-
-KMSKeyTypeDef = TypedDict(
-    "KMSKeyTypeDef",
-    {
-        "kmsEncryptionKeyArn": str,
-    },
-    total=False,
-)
-
-LabelSchemaTypeDef = TypedDict(
-    "LabelSchemaTypeDef",
-    {
-        "labelMapper": Dict[str, List[str]],
-        "unlabeledEventsTreatment": UnlabeledEventsTreatmentType,
-    },
-    total=False,
-)
-
-LabelTypeDef = TypedDict(
-    "LabelTypeDef",
-    {
-        "name": str,
-        "description": str,
-        "lastUpdatedTime": str,
-        "createdTime": str,
-        "arn": str,
-    },
-    total=False,
-)
-
-ListEventPredictionsRequestRequestTypeDef = TypedDict(
-    "ListEventPredictionsRequestRequestTypeDef",
-    {
-        "eventId": "FilterConditionTypeDef",
-        "eventType": "FilterConditionTypeDef",
-        "detectorId": "FilterConditionTypeDef",
-        "detectorVersionId": "FilterConditionTypeDef",
-        "predictionTimeRange": "PredictionTimeRangeTypeDef",
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-ListEventPredictionsResultTypeDef = TypedDict(
-    "ListEventPredictionsResultTypeDef",
-    {
-        "eventPredictionSummaries": List["EventPredictionSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "_RequiredListTagsForResourceRequestRequestTypeDef",
-    {
-        "resourceARN": str,
-    },
-)
-_OptionalListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "_OptionalListTagsForResourceRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-class ListTagsForResourceRequestRequestTypeDef(
-    _RequiredListTagsForResourceRequestRequestTypeDef,
-    _OptionalListTagsForResourceRequestRequestTypeDef,
-):
-    pass
-
-ListTagsForResourceResultTypeDef = TypedDict(
-    "ListTagsForResourceResultTypeDef",
-    {
-        "tags": List["TagTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-LogOddsMetricTypeDef = TypedDict(
-    "LogOddsMetricTypeDef",
-    {
-        "variableName": str,
-        "variableType": str,
-        "variableImportance": float,
-    },
-)
-
-MetricDataPointTypeDef = TypedDict(
-    "MetricDataPointTypeDef",
-    {
-        "fpr": float,
-        "precision": float,
-        "tpr": float,
-        "threshold": float,
-    },
-    total=False,
-)
-
-ModelEndpointDataBlobTypeDef = TypedDict(
-    "ModelEndpointDataBlobTypeDef",
-    {
-        "byteBuffer": Union[bytes, IO[bytes], StreamingBody],
-        "contentType": str,
-    },
-    total=False,
-)
-
-_RequiredModelInputConfigurationTypeDef = TypedDict(
-    "_RequiredModelInputConfigurationTypeDef",
+ModelInputConfigurationTypeDef = TypedDict(
+    "ModelInputConfigurationTypeDef",
     {
         "useEventVariables": bool,
+        "eventTypeName": NotRequired[str],
+        "format": NotRequired[ModelInputDataFormatType],
+        "jsonInputTemplate": NotRequired[str],
+        "csvInputTemplate": NotRequired[str],
     },
 )
-_OptionalModelInputConfigurationTypeDef = TypedDict(
-    "_OptionalModelInputConfigurationTypeDef",
-    {
-        "eventTypeName": str,
-        "format": ModelInputDataFormatType,
-        "jsonInputTemplate": str,
-        "csvInputTemplate": str,
-    },
-    total=False,
-)
-
-class ModelInputConfigurationTypeDef(
-    _RequiredModelInputConfigurationTypeDef, _OptionalModelInputConfigurationTypeDef
-):
-    pass
-
-_RequiredModelOutputConfigurationTypeDef = TypedDict(
-    "_RequiredModelOutputConfigurationTypeDef",
+ModelOutputConfigurationOutputTypeDef = TypedDict(
+    "ModelOutputConfigurationOutputTypeDef",
     {
         "format": ModelOutputDataFormatType,
-    },
-)
-_OptionalModelOutputConfigurationTypeDef = TypedDict(
-    "_OptionalModelOutputConfigurationTypeDef",
-    {
-        "jsonKeyToVariableMap": Dict[str, str],
-        "csvIndexToVariableMap": Dict[str, str],
-    },
-    total=False,
-)
-
-class ModelOutputConfigurationTypeDef(
-    _RequiredModelOutputConfigurationTypeDef, _OptionalModelOutputConfigurationTypeDef
-):
-    pass
-
-ModelScoresTypeDef = TypedDict(
-    "ModelScoresTypeDef",
-    {
-        "modelVersion": "ModelVersionTypeDef",
-        "scores": Dict[str, float],
-    },
-    total=False,
-)
-
-ModelTypeDef = TypedDict(
-    "ModelTypeDef",
-    {
-        "modelId": str,
-        "modelType": ModelTypeEnumType,
-        "description": str,
-        "eventTypeName": str,
-        "createdTime": str,
-        "lastUpdatedTime": str,
-        "arn": str,
-    },
-    total=False,
-)
-
-ModelVersionDetailTypeDef = TypedDict(
-    "ModelVersionDetailTypeDef",
-    {
-        "modelId": str,
-        "modelType": ModelTypeEnumType,
-        "modelVersionNumber": str,
-        "status": str,
-        "trainingDataSource": TrainingDataSourceEnumType,
-        "trainingDataSchema": "TrainingDataSchemaTypeDef",
-        "externalEventsDetail": "ExternalEventsDetailTypeDef",
-        "ingestedEventsDetail": "IngestedEventsDetailTypeDef",
-        "trainingResult": "TrainingResultTypeDef",
-        "lastUpdatedTime": str,
-        "createdTime": str,
-        "arn": str,
-        "trainingResultV2": "TrainingResultV2TypeDef",
-    },
-    total=False,
-)
-
-ModelVersionEvaluationTypeDef = TypedDict(
-    "ModelVersionEvaluationTypeDef",
-    {
-        "outputVariableName": str,
-        "evaluationScore": str,
-        "predictionExplanations": "PredictionExplanationsTypeDef",
-    },
-    total=False,
-)
-
-_RequiredModelVersionTypeDef = TypedDict(
-    "_RequiredModelVersionTypeDef",
-    {
-        "modelId": str,
-        "modelType": ModelTypeEnumType,
-        "modelVersionNumber": str,
-    },
-)
-_OptionalModelVersionTypeDef = TypedDict(
-    "_OptionalModelVersionTypeDef",
-    {
-        "arn": str,
-    },
-    total=False,
-)
-
-class ModelVersionTypeDef(_RequiredModelVersionTypeDef, _OptionalModelVersionTypeDef):
-    pass
-
-OFIMetricDataPointTypeDef = TypedDict(
-    "OFIMetricDataPointTypeDef",
-    {
-        "fpr": float,
-        "precision": float,
-        "tpr": float,
-        "threshold": float,
-    },
-    total=False,
-)
-
-OFIModelPerformanceTypeDef = TypedDict(
-    "OFIModelPerformanceTypeDef",
-    {
-        "auc": float,
-        "uncertaintyRange": "UncertaintyRangeTypeDef",
-    },
-    total=False,
-)
-
-OFITrainingMetricsValueTypeDef = TypedDict(
-    "OFITrainingMetricsValueTypeDef",
-    {
-        "metricDataPoints": List["OFIMetricDataPointTypeDef"],
-        "modelPerformance": "OFIModelPerformanceTypeDef",
-    },
-    total=False,
-)
-
-OutcomeTypeDef = TypedDict(
-    "OutcomeTypeDef",
-    {
-        "name": str,
-        "description": str,
-        "lastUpdatedTime": str,
-        "createdTime": str,
-        "arn": str,
-    },
-    total=False,
-)
-
-PredictionExplanationsTypeDef = TypedDict(
-    "PredictionExplanationsTypeDef",
-    {
-        "variableImpactExplanations": List["VariableImpactExplanationTypeDef"],
-        "aggregatedVariablesImpactExplanations": List[
-            "AggregatedVariablesImpactExplanationTypeDef"
-        ],
-    },
-    total=False,
-)
-
-PredictionTimeRangeTypeDef = TypedDict(
-    "PredictionTimeRangeTypeDef",
-    {
-        "startTime": str,
-        "endTime": str,
-    },
-)
-
-_RequiredPutDetectorRequestRequestTypeDef = TypedDict(
-    "_RequiredPutDetectorRequestRequestTypeDef",
-    {
-        "detectorId": str,
-        "eventTypeName": str,
-    },
-)
-_OptionalPutDetectorRequestRequestTypeDef = TypedDict(
-    "_OptionalPutDetectorRequestRequestTypeDef",
-    {
-        "description": str,
-        "tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class PutDetectorRequestRequestTypeDef(
-    _RequiredPutDetectorRequestRequestTypeDef, _OptionalPutDetectorRequestRequestTypeDef
-):
-    pass
-
-_RequiredPutEntityTypeRequestRequestTypeDef = TypedDict(
-    "_RequiredPutEntityTypeRequestRequestTypeDef",
-    {
-        "name": str,
-    },
-)
-_OptionalPutEntityTypeRequestRequestTypeDef = TypedDict(
-    "_OptionalPutEntityTypeRequestRequestTypeDef",
-    {
-        "description": str,
-        "tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class PutEntityTypeRequestRequestTypeDef(
-    _RequiredPutEntityTypeRequestRequestTypeDef, _OptionalPutEntityTypeRequestRequestTypeDef
-):
-    pass
-
-_RequiredPutEventTypeRequestRequestTypeDef = TypedDict(
-    "_RequiredPutEventTypeRequestRequestTypeDef",
-    {
-        "name": str,
-        "eventVariables": List[str],
-        "entityTypes": List[str],
-    },
-)
-_OptionalPutEventTypeRequestRequestTypeDef = TypedDict(
-    "_OptionalPutEventTypeRequestRequestTypeDef",
-    {
-        "description": str,
-        "labels": List[str],
-        "eventIngestion": EventIngestionType,
-        "tags": List["TagTypeDef"],
-        "eventOrchestration": "EventOrchestrationTypeDef",
-    },
-    total=False,
-)
-
-class PutEventTypeRequestRequestTypeDef(
-    _RequiredPutEventTypeRequestRequestTypeDef, _OptionalPutEventTypeRequestRequestTypeDef
-):
-    pass
-
-_RequiredPutExternalModelRequestRequestTypeDef = TypedDict(
-    "_RequiredPutExternalModelRequestRequestTypeDef",
-    {
-        "modelEndpoint": str,
-        "modelSource": Literal["SAGEMAKER"],
-        "invokeModelEndpointRoleArn": str,
-        "inputConfiguration": "ModelInputConfigurationTypeDef",
-        "outputConfiguration": "ModelOutputConfigurationTypeDef",
-        "modelEndpointStatus": ModelEndpointStatusType,
-    },
-)
-_OptionalPutExternalModelRequestRequestTypeDef = TypedDict(
-    "_OptionalPutExternalModelRequestRequestTypeDef",
-    {
-        "tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class PutExternalModelRequestRequestTypeDef(
-    _RequiredPutExternalModelRequestRequestTypeDef, _OptionalPutExternalModelRequestRequestTypeDef
-):
-    pass
-
-PutKMSEncryptionKeyRequestRequestTypeDef = TypedDict(
-    "PutKMSEncryptionKeyRequestRequestTypeDef",
-    {
-        "kmsEncryptionKeyArn": str,
-    },
-)
-
-_RequiredPutLabelRequestRequestTypeDef = TypedDict(
-    "_RequiredPutLabelRequestRequestTypeDef",
-    {
-        "name": str,
-    },
-)
-_OptionalPutLabelRequestRequestTypeDef = TypedDict(
-    "_OptionalPutLabelRequestRequestTypeDef",
-    {
-        "description": str,
-        "tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class PutLabelRequestRequestTypeDef(
-    _RequiredPutLabelRequestRequestTypeDef, _OptionalPutLabelRequestRequestTypeDef
-):
-    pass
-
-_RequiredPutOutcomeRequestRequestTypeDef = TypedDict(
-    "_RequiredPutOutcomeRequestRequestTypeDef",
-    {
-        "name": str,
-    },
-)
-_OptionalPutOutcomeRequestRequestTypeDef = TypedDict(
-    "_OptionalPutOutcomeRequestRequestTypeDef",
-    {
-        "description": str,
-        "tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class PutOutcomeRequestRequestTypeDef(
-    _RequiredPutOutcomeRequestRequestTypeDef, _OptionalPutOutcomeRequestRequestTypeDef
-):
-    pass
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-RuleDetailTypeDef = TypedDict(
-    "RuleDetailTypeDef",
-    {
-        "ruleId": str,
-        "description": str,
-        "detectorId": str,
-        "ruleVersion": str,
-        "expression": str,
-        "language": Literal["DETECTORPL"],
-        "outcomes": List[str],
-        "lastUpdatedTime": str,
-        "createdTime": str,
-        "arn": str,
-    },
-    total=False,
-)
-
-RuleResultTypeDef = TypedDict(
-    "RuleResultTypeDef",
-    {
-        "ruleId": str,
-        "outcomes": List[str],
-    },
-    total=False,
-)
-
-RuleTypeDef = TypedDict(
-    "RuleTypeDef",
-    {
-        "detectorId": str,
-        "ruleId": str,
-        "ruleVersion": str,
-    },
-)
-
-_RequiredSendEventRequestRequestTypeDef = TypedDict(
-    "_RequiredSendEventRequestRequestTypeDef",
-    {
-        "eventId": str,
-        "eventTypeName": str,
-        "eventTimestamp": str,
-        "eventVariables": Dict[str, str],
-        "entities": List["EntityTypeDef"],
-    },
-)
-_OptionalSendEventRequestRequestTypeDef = TypedDict(
-    "_OptionalSendEventRequestRequestTypeDef",
-    {
-        "assignedLabel": str,
-        "labelTimestamp": str,
-    },
-    total=False,
-)
-
-class SendEventRequestRequestTypeDef(
-    _RequiredSendEventRequestRequestTypeDef, _OptionalSendEventRequestRequestTypeDef
-):
-    pass
-
-TFIMetricDataPointTypeDef = TypedDict(
-    "TFIMetricDataPointTypeDef",
-    {
-        "fpr": float,
-        "precision": float,
-        "tpr": float,
-        "threshold": float,
-    },
-    total=False,
-)
-
-TFIModelPerformanceTypeDef = TypedDict(
-    "TFIModelPerformanceTypeDef",
-    {
-        "auc": float,
-        "uncertaintyRange": "UncertaintyRangeTypeDef",
-    },
-    total=False,
-)
-
-TFITrainingMetricsValueTypeDef = TypedDict(
-    "TFITrainingMetricsValueTypeDef",
-    {
-        "metricDataPoints": List["TFIMetricDataPointTypeDef"],
-        "modelPerformance": "TFIModelPerformanceTypeDef",
-    },
-    total=False,
-)
-
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "resourceARN": str,
-        "tags": List["TagTypeDef"],
-    },
-)
-
-TagTypeDef = TypedDict(
-    "TagTypeDef",
-    {
-        "key": str,
-        "value": str,
-    },
-)
-
-_RequiredTrainingDataSchemaTypeDef = TypedDict(
-    "_RequiredTrainingDataSchemaTypeDef",
-    {
-        "modelVariables": List[str],
-    },
-)
-_OptionalTrainingDataSchemaTypeDef = TypedDict(
-    "_OptionalTrainingDataSchemaTypeDef",
-    {
-        "labelSchema": "LabelSchemaTypeDef",
-    },
-    total=False,
-)
-
-class TrainingDataSchemaTypeDef(
-    _RequiredTrainingDataSchemaTypeDef, _OptionalTrainingDataSchemaTypeDef
-):
-    pass
-
-TrainingMetricsTypeDef = TypedDict(
-    "TrainingMetricsTypeDef",
-    {
-        "auc": float,
-        "metricDataPoints": List["MetricDataPointTypeDef"],
-    },
-    total=False,
-)
-
-TrainingMetricsV2TypeDef = TypedDict(
-    "TrainingMetricsV2TypeDef",
-    {
-        "ofi": "OFITrainingMetricsValueTypeDef",
-        "tfi": "TFITrainingMetricsValueTypeDef",
-        "ati": "ATITrainingMetricsValueTypeDef",
-    },
-    total=False,
-)
-
-TrainingResultTypeDef = TypedDict(
-    "TrainingResultTypeDef",
-    {
-        "dataValidationMetrics": "DataValidationMetricsTypeDef",
-        "trainingMetrics": "TrainingMetricsTypeDef",
-        "variableImportanceMetrics": "VariableImportanceMetricsTypeDef",
-    },
-    total=False,
-)
-
-TrainingResultV2TypeDef = TypedDict(
-    "TrainingResultV2TypeDef",
-    {
-        "dataValidationMetrics": "DataValidationMetricsTypeDef",
-        "trainingMetricsV2": "TrainingMetricsV2TypeDef",
-        "variableImportanceMetrics": "VariableImportanceMetricsTypeDef",
-        "aggregatedVariablesImportanceMetrics": "AggregatedVariablesImportanceMetricsTypeDef",
-    },
-    total=False,
-)
-
-UncertaintyRangeTypeDef = TypedDict(
-    "UncertaintyRangeTypeDef",
-    {
-        "lowerBoundValue": float,
-        "upperBoundValue": float,
-    },
-)
-
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "resourceARN": str,
-        "tagKeys": List[str],
-    },
-)
-
-UpdateDetectorVersionMetadataRequestRequestTypeDef = TypedDict(
-    "UpdateDetectorVersionMetadataRequestRequestTypeDef",
-    {
-        "detectorId": str,
-        "detectorVersionId": str,
-        "description": str,
-    },
-)
-
-_RequiredUpdateDetectorVersionRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateDetectorVersionRequestRequestTypeDef",
-    {
-        "detectorId": str,
-        "detectorVersionId": str,
-        "externalModelEndpoints": List[str],
-        "rules": List["RuleTypeDef"],
-    },
-)
-_OptionalUpdateDetectorVersionRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateDetectorVersionRequestRequestTypeDef",
-    {
-        "description": str,
-        "modelVersions": List["ModelVersionTypeDef"],
-        "ruleExecutionMode": RuleExecutionModeType,
-    },
-    total=False,
-)
-
-class UpdateDetectorVersionRequestRequestTypeDef(
-    _RequiredUpdateDetectorVersionRequestRequestTypeDef,
-    _OptionalUpdateDetectorVersionRequestRequestTypeDef,
-):
-    pass
-
-UpdateDetectorVersionStatusRequestRequestTypeDef = TypedDict(
-    "UpdateDetectorVersionStatusRequestRequestTypeDef",
-    {
-        "detectorId": str,
-        "detectorVersionId": str,
-        "status": DetectorVersionStatusType,
-    },
-)
-
-UpdateEventLabelRequestRequestTypeDef = TypedDict(
-    "UpdateEventLabelRequestRequestTypeDef",
-    {
-        "eventId": str,
-        "eventTypeName": str,
-        "assignedLabel": str,
-        "labelTimestamp": str,
-    },
-)
-
-_RequiredUpdateListRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateListRequestRequestTypeDef",
-    {
-        "name": str,
-    },
-)
-_OptionalUpdateListRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateListRequestRequestTypeDef",
-    {
-        "elements": List[str],
-        "description": str,
-        "updateMode": ListUpdateModeType,
-        "variableType": str,
-    },
-    total=False,
-)
-
-class UpdateListRequestRequestTypeDef(
-    _RequiredUpdateListRequestRequestTypeDef, _OptionalUpdateListRequestRequestTypeDef
-):
-    pass
-
-_RequiredUpdateModelRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateModelRequestRequestTypeDef",
-    {
-        "modelId": str,
-        "modelType": ModelTypeEnumType,
-    },
-)
-_OptionalUpdateModelRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateModelRequestRequestTypeDef",
-    {
-        "description": str,
-    },
-    total=False,
-)
-
-class UpdateModelRequestRequestTypeDef(
-    _RequiredUpdateModelRequestRequestTypeDef, _OptionalUpdateModelRequestRequestTypeDef
-):
-    pass
-
-_RequiredUpdateModelVersionRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateModelVersionRequestRequestTypeDef",
-    {
-        "modelId": str,
-        "modelType": ModelTypeEnumType,
-        "majorVersionNumber": str,
-    },
-)
-_OptionalUpdateModelVersionRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateModelVersionRequestRequestTypeDef",
-    {
-        "externalEventsDetail": "ExternalEventsDetailTypeDef",
-        "ingestedEventsDetail": "IngestedEventsDetailTypeDef",
-        "tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class UpdateModelVersionRequestRequestTypeDef(
-    _RequiredUpdateModelVersionRequestRequestTypeDef,
-    _OptionalUpdateModelVersionRequestRequestTypeDef,
-):
-    pass
-
-UpdateModelVersionResultTypeDef = TypedDict(
-    "UpdateModelVersionResultTypeDef",
-    {
-        "modelId": str,
-        "modelType": ModelTypeEnumType,
-        "modelVersionNumber": str,
-        "status": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UpdateModelVersionStatusRequestRequestTypeDef = TypedDict(
-    "UpdateModelVersionStatusRequestRequestTypeDef",
-    {
-        "modelId": str,
-        "modelType": ModelTypeEnumType,
-        "modelVersionNumber": str,
-        "status": ModelVersionStatusType,
-    },
-)
-
-UpdateRuleMetadataRequestRequestTypeDef = TypedDict(
-    "UpdateRuleMetadataRequestRequestTypeDef",
-    {
-        "rule": "RuleTypeDef",
-        "description": str,
-    },
-)
-
-_RequiredUpdateRuleVersionRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateRuleVersionRequestRequestTypeDef",
-    {
-        "rule": "RuleTypeDef",
-        "expression": str,
-        "language": Literal["DETECTORPL"],
-        "outcomes": List[str],
-    },
-)
-_OptionalUpdateRuleVersionRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateRuleVersionRequestRequestTypeDef",
-    {
-        "description": str,
-        "tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class UpdateRuleVersionRequestRequestTypeDef(
-    _RequiredUpdateRuleVersionRequestRequestTypeDef, _OptionalUpdateRuleVersionRequestRequestTypeDef
-):
-    pass
-
-UpdateRuleVersionResultTypeDef = TypedDict(
-    "UpdateRuleVersionResultTypeDef",
-    {
-        "rule": "RuleTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateVariableRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateVariableRequestRequestTypeDef",
-    {
-        "name": str,
-    },
-)
-_OptionalUpdateVariableRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateVariableRequestRequestTypeDef",
-    {
-        "defaultValue": str,
-        "description": str,
-        "variableType": str,
-    },
-    total=False,
-)
-
-class UpdateVariableRequestRequestTypeDef(
-    _RequiredUpdateVariableRequestRequestTypeDef, _OptionalUpdateVariableRequestRequestTypeDef
-):
-    pass
-
-VariableEntryTypeDef = TypedDict(
-    "VariableEntryTypeDef",
-    {
-        "name": str,
-        "dataType": str,
-        "dataSource": str,
-        "defaultValue": str,
-        "description": str,
-        "variableType": str,
-    },
-    total=False,
-)
-
-VariableImpactExplanationTypeDef = TypedDict(
-    "VariableImpactExplanationTypeDef",
-    {
-        "eventVariableName": str,
-        "relativeImpact": str,
-        "logOddsImpact": float,
-    },
-    total=False,
-)
-
-VariableImportanceMetricsTypeDef = TypedDict(
-    "VariableImportanceMetricsTypeDef",
-    {
-        "logOddsMetrics": List["LogOddsMetricTypeDef"],
-    },
-    total=False,
-)
-
-VariableTypeDef = TypedDict(
-    "VariableTypeDef",
-    {
-        "name": str,
-        "dataType": DataTypeType,
-        "dataSource": DataSourceType,
-        "defaultValue": str,
-        "description": str,
-        "variableType": str,
-        "lastUpdatedTime": str,
-        "createdTime": str,
-        "arn": str,
-    },
-    total=False,
-)
+        "jsonKeyToVariableMap": NotRequired[Dict[str, str]],
+        "csvIndexToVariableMap": NotRequired[Dict[str, str]],
+    },
+)
+
+class FilterConditionTypeDef(TypedDict):
+    value: NotRequired[str]
+
+class GetBatchImportJobsRequestTypeDef(TypedDict):
+    jobId: NotRequired[str]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class GetBatchPredictionJobsRequestTypeDef(TypedDict):
+    jobId: NotRequired[str]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class GetDeleteEventsByEventTypeStatusRequestTypeDef(TypedDict):
+    eventTypeName: str
+
+class GetDetectorVersionRequestTypeDef(TypedDict):
+    detectorId: str
+    detectorVersionId: str
+
+class GetDetectorsRequestTypeDef(TypedDict):
+    detectorId: NotRequired[str]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class GetEntityTypesRequestTypeDef(TypedDict):
+    name: NotRequired[str]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class GetEventPredictionMetadataRequestTypeDef(TypedDict):
+    eventId: str
+    eventTypeName: str
+    detectorId: str
+    detectorVersionId: str
+    predictionTimestamp: str
+
+class RuleResultTypeDef(TypedDict):
+    ruleId: NotRequired[str]
+    outcomes: NotRequired[List[str]]
+
+class GetEventRequestTypeDef(TypedDict):
+    eventId: str
+    eventTypeName: str
+
+class GetEventTypesRequestTypeDef(TypedDict):
+    name: NotRequired[str]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class GetExternalModelsRequestTypeDef(TypedDict):
+    modelEndpoint: NotRequired[str]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class KMSKeyTypeDef(TypedDict):
+    kmsEncryptionKeyArn: NotRequired[str]
+
+class GetLabelsRequestTypeDef(TypedDict):
+    name: NotRequired[str]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class LabelTypeDef(TypedDict):
+    name: NotRequired[str]
+    description: NotRequired[str]
+    lastUpdatedTime: NotRequired[str]
+    createdTime: NotRequired[str]
+    arn: NotRequired[str]
+
+class GetListElementsRequestTypeDef(TypedDict):
+    name: str
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class GetListsMetadataRequestTypeDef(TypedDict):
+    name: NotRequired[str]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class GetModelVersionRequestTypeDef(TypedDict):
+    modelId: str
+    modelType: ModelTypeEnumType
+    modelVersionNumber: str
+
+class GetModelsRequestTypeDef(TypedDict):
+    modelId: NotRequired[str]
+    modelType: NotRequired[ModelTypeEnumType]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class ModelTypeDef(TypedDict):
+    modelId: NotRequired[str]
+    modelType: NotRequired[ModelTypeEnumType]
+    description: NotRequired[str]
+    eventTypeName: NotRequired[str]
+    createdTime: NotRequired[str]
+    lastUpdatedTime: NotRequired[str]
+    arn: NotRequired[str]
+
+class GetOutcomesRequestTypeDef(TypedDict):
+    name: NotRequired[str]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class OutcomeTypeDef(TypedDict):
+    name: NotRequired[str]
+    description: NotRequired[str]
+    lastUpdatedTime: NotRequired[str]
+    createdTime: NotRequired[str]
+    arn: NotRequired[str]
+
+class GetRulesRequestTypeDef(TypedDict):
+    detectorId: str
+    ruleId: NotRequired[str]
+    ruleVersion: NotRequired[str]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class RuleDetailTypeDef(TypedDict):
+    ruleId: NotRequired[str]
+    description: NotRequired[str]
+    detectorId: NotRequired[str]
+    ruleVersion: NotRequired[str]
+    expression: NotRequired[str]
+    language: NotRequired[Literal["DETECTORPL"]]
+    outcomes: NotRequired[List[str]]
+    lastUpdatedTime: NotRequired[str]
+    createdTime: NotRequired[str]
+    arn: NotRequired[str]
+
+class GetVariablesRequestTypeDef(TypedDict):
+    name: NotRequired[str]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class IngestedEventsTimeWindowTypeDef(TypedDict):
+    startTime: str
+    endTime: str
+
+class LabelSchemaOutputTypeDef(TypedDict):
+    labelMapper: NotRequired[Dict[str, List[str]]]
+    unlabeledEventsTreatment: NotRequired[UnlabeledEventsTreatmentType]
+
+class LabelSchemaTypeDef(TypedDict):
+    labelMapper: NotRequired[Mapping[str, Sequence[str]]]
+    unlabeledEventsTreatment: NotRequired[UnlabeledEventsTreatmentType]
+
+class PredictionTimeRangeTypeDef(TypedDict):
+    startTime: str
+    endTime: str
+
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    resourceARN: str
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class LogOddsMetricTypeDef(TypedDict):
+    variableName: str
+    variableType: str
+    variableImportance: float
+
+class MetricDataPointTypeDef(TypedDict):
+    fpr: NotRequired[float]
+    precision: NotRequired[float]
+    tpr: NotRequired[float]
+    threshold: NotRequired[float]
+
+ModelOutputConfigurationTypeDef = TypedDict(
+    "ModelOutputConfigurationTypeDef",
+    {
+        "format": ModelOutputDataFormatType,
+        "jsonKeyToVariableMap": NotRequired[Mapping[str, str]],
+        "csvIndexToVariableMap": NotRequired[Mapping[str, str]],
+    },
+)
+
+class OFIMetricDataPointTypeDef(TypedDict):
+    fpr: NotRequired[float]
+    precision: NotRequired[float]
+    tpr: NotRequired[float]
+    threshold: NotRequired[float]
+
+class UncertaintyRangeTypeDef(TypedDict):
+    lowerBoundValue: float
+    upperBoundValue: float
+
+class VariableImpactExplanationTypeDef(TypedDict):
+    eventVariableName: NotRequired[str]
+    relativeImpact: NotRequired[str]
+    logOddsImpact: NotRequired[float]
+
+class PutKMSEncryptionKeyRequestTypeDef(TypedDict):
+    kmsEncryptionKeyArn: str
+
+class TFIMetricDataPointTypeDef(TypedDict):
+    fpr: NotRequired[float]
+    precision: NotRequired[float]
+    tpr: NotRequired[float]
+    threshold: NotRequired[float]
+
+class UntagResourceRequestTypeDef(TypedDict):
+    resourceARN: str
+    tagKeys: Sequence[str]
+
+class UpdateDetectorVersionMetadataRequestTypeDef(TypedDict):
+    detectorId: str
+    detectorVersionId: str
+    description: str
+
+class UpdateDetectorVersionStatusRequestTypeDef(TypedDict):
+    detectorId: str
+    detectorVersionId: str
+    status: DetectorVersionStatusType
+
+class UpdateEventLabelRequestTypeDef(TypedDict):
+    eventId: str
+    eventTypeName: str
+    assignedLabel: str
+    labelTimestamp: str
+
+class UpdateListRequestTypeDef(TypedDict):
+    name: str
+    elements: NotRequired[Sequence[str]]
+    description: NotRequired[str]
+    updateMode: NotRequired[ListUpdateModeType]
+    variableType: NotRequired[str]
+
+class UpdateModelRequestTypeDef(TypedDict):
+    modelId: str
+    modelType: ModelTypeEnumType
+    description: NotRequired[str]
+
+class UpdateModelVersionStatusRequestTypeDef(TypedDict):
+    modelId: str
+    modelType: ModelTypeEnumType
+    modelVersionNumber: str
+    status: ModelVersionStatusType
+
+class UpdateVariableRequestTypeDef(TypedDict):
+    name: str
+    defaultValue: NotRequired[str]
+    description: NotRequired[str]
+    variableType: NotRequired[str]
+
+class ATITrainingMetricsValueTypeDef(TypedDict):
+    metricDataPoints: NotRequired[List[ATIMetricDataPointTypeDef]]
+    modelPerformance: NotRequired[ATIModelPerformanceTypeDef]
+
+class AggregatedVariablesImportanceMetricsTypeDef(TypedDict):
+    logOddsMetrics: NotRequired[List[AggregatedLogOddsMetricTypeDef]]
+
+class CreateBatchImportJobRequestTypeDef(TypedDict):
+    jobId: str
+    inputPath: str
+    outputPath: str
+    eventTypeName: str
+    iamRoleArn: str
+    tags: NotRequired[Sequence[TagTypeDef]]
+
+class CreateBatchPredictionJobRequestTypeDef(TypedDict):
+    jobId: str
+    inputPath: str
+    outputPath: str
+    eventTypeName: str
+    detectorName: str
+    iamRoleArn: str
+    detectorVersion: NotRequired[str]
+    tags: NotRequired[Sequence[TagTypeDef]]
+
+class CreateListRequestTypeDef(TypedDict):
+    name: str
+    elements: NotRequired[Sequence[str]]
+    variableType: NotRequired[str]
+    description: NotRequired[str]
+    tags: NotRequired[Sequence[TagTypeDef]]
+
+class CreateModelRequestTypeDef(TypedDict):
+    modelId: str
+    modelType: ModelTypeEnumType
+    eventTypeName: str
+    description: NotRequired[str]
+    tags: NotRequired[Sequence[TagTypeDef]]
+
+class CreateRuleRequestTypeDef(TypedDict):
+    ruleId: str
+    detectorId: str
+    expression: str
+    language: Literal["DETECTORPL"]
+    outcomes: Sequence[str]
+    description: NotRequired[str]
+    tags: NotRequired[Sequence[TagTypeDef]]
+
+class CreateVariableRequestTypeDef(TypedDict):
+    name: str
+    dataType: DataTypeType
+    dataSource: DataSourceType
+    defaultValue: str
+    description: NotRequired[str]
+    variableType: NotRequired[str]
+    tags: NotRequired[Sequence[TagTypeDef]]
+
+class PutDetectorRequestTypeDef(TypedDict):
+    detectorId: str
+    eventTypeName: str
+    description: NotRequired[str]
+    tags: NotRequired[Sequence[TagTypeDef]]
+
+class PutEntityTypeRequestTypeDef(TypedDict):
+    name: str
+    description: NotRequired[str]
+    tags: NotRequired[Sequence[TagTypeDef]]
+
+class PutLabelRequestTypeDef(TypedDict):
+    name: str
+    description: NotRequired[str]
+    tags: NotRequired[Sequence[TagTypeDef]]
+
+class PutOutcomeRequestTypeDef(TypedDict):
+    name: str
+    description: NotRequired[str]
+    tags: NotRequired[Sequence[TagTypeDef]]
+
+class TagResourceRequestTypeDef(TypedDict):
+    resourceARN: str
+    tags: Sequence[TagTypeDef]
+
+class BatchCreateVariableRequestTypeDef(TypedDict):
+    variableEntries: Sequence[VariableEntryTypeDef]
+    tags: NotRequired[Sequence[TagTypeDef]]
+
+class BatchCreateVariableResultTypeDef(TypedDict):
+    errors: List[BatchCreateVariableErrorTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateDetectorVersionResultTypeDef(TypedDict):
+    detectorId: str
+    detectorVersionId: str
+    status: DetectorVersionStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateModelVersionResultTypeDef(TypedDict):
+    modelId: str
+    modelType: ModelTypeEnumType
+    modelVersionNumber: str
+    status: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteEventsByEventTypeResultTypeDef(TypedDict):
+    eventTypeName: str
+    eventsDeletionStatus: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetDeleteEventsByEventTypeStatusResultTypeDef(TypedDict):
+    eventTypeName: str
+    eventsDeletionStatus: AsyncJobStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetListElementsResultTypeDef(TypedDict):
+    elements: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class GetListsMetadataResultTypeDef(TypedDict):
+    lists: List[AllowDenyListTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListTagsForResourceResultTypeDef(TypedDict):
+    tags: List[TagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class UpdateModelVersionResultTypeDef(TypedDict):
+    modelId: str
+    modelType: ModelTypeEnumType
+    modelVersionNumber: str
+    status: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class BatchGetVariableResultTypeDef(TypedDict):
+    variables: List[VariableTypeDef]
+    errors: List[BatchGetVariableErrorTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetVariablesResultTypeDef(TypedDict):
+    variables: List[VariableTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class GetBatchImportJobsResultTypeDef(TypedDict):
+    batchImports: List[BatchImportTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class GetBatchPredictionJobsResultTypeDef(TypedDict):
+    batchPredictions: List[BatchPredictionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ModelEndpointDataBlobTypeDef(TypedDict):
+    byteBuffer: NotRequired[BlobTypeDef]
+    contentType: NotRequired[str]
+
+class ModelScoresTypeDef(TypedDict):
+    modelVersion: NotRequired[ModelVersionTypeDef]
+    scores: NotRequired[Dict[str, float]]
+
+class CreateDetectorVersionRequestTypeDef(TypedDict):
+    detectorId: str
+    rules: Sequence[RuleTypeDef]
+    description: NotRequired[str]
+    externalModelEndpoints: NotRequired[Sequence[str]]
+    modelVersions: NotRequired[Sequence[ModelVersionTypeDef]]
+    ruleExecutionMode: NotRequired[RuleExecutionModeType]
+    tags: NotRequired[Sequence[TagTypeDef]]
+
+class CreateRuleResultTypeDef(TypedDict):
+    rule: RuleTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteRuleRequestTypeDef(TypedDict):
+    rule: RuleTypeDef
+
+class GetDetectorVersionResultTypeDef(TypedDict):
+    detectorId: str
+    detectorVersionId: str
+    description: str
+    externalModelEndpoints: List[str]
+    modelVersions: List[ModelVersionTypeDef]
+    rules: List[RuleTypeDef]
+    status: DetectorVersionStatusType
+    lastUpdatedTime: str
+    createdTime: str
+    ruleExecutionMode: RuleExecutionModeType
+    arn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateDetectorVersionRequestTypeDef(TypedDict):
+    detectorId: str
+    detectorVersionId: str
+    externalModelEndpoints: Sequence[str]
+    rules: Sequence[RuleTypeDef]
+    description: NotRequired[str]
+    modelVersions: NotRequired[Sequence[ModelVersionTypeDef]]
+    ruleExecutionMode: NotRequired[RuleExecutionModeType]
+
+class UpdateRuleMetadataRequestTypeDef(TypedDict):
+    rule: RuleTypeDef
+    description: str
+
+class UpdateRuleVersionRequestTypeDef(TypedDict):
+    rule: RuleTypeDef
+    expression: str
+    language: Literal["DETECTORPL"]
+    outcomes: Sequence[str]
+    description: NotRequired[str]
+    tags: NotRequired[Sequence[TagTypeDef]]
+
+class UpdateRuleVersionResultTypeDef(TypedDict):
+    rule: RuleTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DataValidationMetricsTypeDef(TypedDict):
+    fileLevelMessages: NotRequired[List[FileValidationMessageTypeDef]]
+    fieldLevelMessages: NotRequired[List[FieldValidationMessageTypeDef]]
+
+class DescribeDetectorResultTypeDef(TypedDict):
+    detectorId: str
+    detectorVersionSummaries: List[DetectorVersionSummaryTypeDef]
+    arn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class GetDetectorsResultTypeDef(TypedDict):
+    detectors: List[DetectorTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class EventTypeDef(TypedDict):
+    eventId: NotRequired[str]
+    eventTypeName: NotRequired[str]
+    eventTimestamp: NotRequired[str]
+    eventVariables: NotRequired[Dict[str, str]]
+    currentLabel: NotRequired[str]
+    labelTimestamp: NotRequired[str]
+    entities: NotRequired[List[EntityTypeDef]]
+
+class SendEventRequestTypeDef(TypedDict):
+    eventId: str
+    eventTypeName: str
+    eventTimestamp: str
+    eventVariables: Mapping[str, str]
+    entities: Sequence[EntityTypeDef]
+    assignedLabel: NotRequired[str]
+    labelTimestamp: NotRequired[str]
+
+class GetEntityTypesResultTypeDef(TypedDict):
+    entityTypes: List[EntityTypeTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class PutEventTypeRequestTypeDef(TypedDict):
+    name: str
+    eventVariables: Sequence[str]
+    entityTypes: Sequence[str]
+    description: NotRequired[str]
+    labels: NotRequired[Sequence[str]]
+    eventIngestion: NotRequired[EventIngestionType]
+    tags: NotRequired[Sequence[TagTypeDef]]
+    eventOrchestration: NotRequired[EventOrchestrationTypeDef]
+
+class ListEventPredictionsResultTypeDef(TypedDict):
+    eventPredictionSummaries: List[EventPredictionSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class EventTypeTypeDef(TypedDict):
+    name: NotRequired[str]
+    description: NotRequired[str]
+    eventVariables: NotRequired[List[str]]
+    labels: NotRequired[List[str]]
+    entityTypes: NotRequired[List[str]]
+    eventIngestion: NotRequired[EventIngestionType]
+    ingestedEventStatistics: NotRequired[IngestedEventStatisticsTypeDef]
+    lastUpdatedTime: NotRequired[str]
+    createdTime: NotRequired[str]
+    arn: NotRequired[str]
+    eventOrchestration: NotRequired[EventOrchestrationTypeDef]
+
+class ExternalModelOutputsTypeDef(TypedDict):
+    externalModel: NotRequired[ExternalModelSummaryTypeDef]
+    outputs: NotRequired[Dict[str, str]]
+
+class ExternalModelTypeDef(TypedDict):
+    modelEndpoint: NotRequired[str]
+    modelSource: NotRequired[Literal["SAGEMAKER"]]
+    invokeModelEndpointRoleArn: NotRequired[str]
+    inputConfiguration: NotRequired[ModelInputConfigurationTypeDef]
+    outputConfiguration: NotRequired[ModelOutputConfigurationOutputTypeDef]
+    modelEndpointStatus: NotRequired[ModelEndpointStatusType]
+    lastUpdatedTime: NotRequired[str]
+    createdTime: NotRequired[str]
+    arn: NotRequired[str]
+
+class GetKMSEncryptionKeyResultTypeDef(TypedDict):
+    kmsKey: KMSKeyTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetLabelsResultTypeDef(TypedDict):
+    labels: List[LabelTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class GetModelsResultTypeDef(TypedDict):
+    models: List[ModelTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class GetOutcomesResultTypeDef(TypedDict):
+    outcomes: List[OutcomeTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class GetRulesResultTypeDef(TypedDict):
+    ruleDetails: List[RuleDetailTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class IngestedEventsDetailTypeDef(TypedDict):
+    ingestedEventsTimeWindow: IngestedEventsTimeWindowTypeDef
+
+class TrainingDataSchemaOutputTypeDef(TypedDict):
+    modelVariables: List[str]
+    labelSchema: NotRequired[LabelSchemaOutputTypeDef]
+
+class TrainingDataSchemaTypeDef(TypedDict):
+    modelVariables: Sequence[str]
+    labelSchema: NotRequired[LabelSchemaTypeDef]
+
+class ListEventPredictionsRequestTypeDef(TypedDict):
+    eventId: NotRequired[FilterConditionTypeDef]
+    eventType: NotRequired[FilterConditionTypeDef]
+    detectorId: NotRequired[FilterConditionTypeDef]
+    detectorVersionId: NotRequired[FilterConditionTypeDef]
+    predictionTimeRange: NotRequired[PredictionTimeRangeTypeDef]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class VariableImportanceMetricsTypeDef(TypedDict):
+    logOddsMetrics: NotRequired[List[LogOddsMetricTypeDef]]
+
+class TrainingMetricsTypeDef(TypedDict):
+    auc: NotRequired[float]
+    metricDataPoints: NotRequired[List[MetricDataPointTypeDef]]
+
+ModelOutputConfigurationUnionTypeDef = Union[
+    ModelOutputConfigurationTypeDef, ModelOutputConfigurationOutputTypeDef
+]
+
+class OFIModelPerformanceTypeDef(TypedDict):
+    auc: NotRequired[float]
+    uncertaintyRange: NotRequired[UncertaintyRangeTypeDef]
+
+class TFIModelPerformanceTypeDef(TypedDict):
+    auc: NotRequired[float]
+    uncertaintyRange: NotRequired[UncertaintyRangeTypeDef]
+
+class PredictionExplanationsTypeDef(TypedDict):
+    variableImpactExplanations: NotRequired[List[VariableImpactExplanationTypeDef]]
+    aggregatedVariablesImpactExplanations: NotRequired[
+        List[AggregatedVariablesImpactExplanationTypeDef]
+    ]
+
+class GetEventPredictionRequestTypeDef(TypedDict):
+    detectorId: str
+    eventId: str
+    eventTypeName: str
+    entities: Sequence[EntityTypeDef]
+    eventTimestamp: str
+    eventVariables: Mapping[str, str]
+    detectorVersionId: NotRequired[str]
+    externalModelEndpointDataBlobs: NotRequired[Mapping[str, ModelEndpointDataBlobTypeDef]]
+
+class GetEventResultTypeDef(TypedDict):
+    event: EventTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetEventTypesResultTypeDef(TypedDict):
+    eventTypes: List[EventTypeTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class GetEventPredictionResultTypeDef(TypedDict):
+    modelScores: List[ModelScoresTypeDef]
+    ruleResults: List[RuleResultTypeDef]
+    externalModelOutputs: List[ExternalModelOutputsTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetExternalModelsResultTypeDef(TypedDict):
+    externalModels: List[ExternalModelTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class UpdateModelVersionRequestTypeDef(TypedDict):
+    modelId: str
+    modelType: ModelTypeEnumType
+    majorVersionNumber: str
+    externalEventsDetail: NotRequired[ExternalEventsDetailTypeDef]
+    ingestedEventsDetail: NotRequired[IngestedEventsDetailTypeDef]
+    tags: NotRequired[Sequence[TagTypeDef]]
+
+class GetModelVersionResultTypeDef(TypedDict):
+    modelId: str
+    modelType: ModelTypeEnumType
+    modelVersionNumber: str
+    trainingDataSource: TrainingDataSourceEnumType
+    trainingDataSchema: TrainingDataSchemaOutputTypeDef
+    externalEventsDetail: ExternalEventsDetailTypeDef
+    ingestedEventsDetail: IngestedEventsDetailTypeDef
+    status: str
+    arn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+TrainingDataSchemaUnionTypeDef = Union[TrainingDataSchemaTypeDef, TrainingDataSchemaOutputTypeDef]
+
+class TrainingResultTypeDef(TypedDict):
+    dataValidationMetrics: NotRequired[DataValidationMetricsTypeDef]
+    trainingMetrics: NotRequired[TrainingMetricsTypeDef]
+    variableImportanceMetrics: NotRequired[VariableImportanceMetricsTypeDef]
+
+class PutExternalModelRequestTypeDef(TypedDict):
+    modelEndpoint: str
+    modelSource: Literal["SAGEMAKER"]
+    invokeModelEndpointRoleArn: str
+    inputConfiguration: ModelInputConfigurationTypeDef
+    outputConfiguration: ModelOutputConfigurationUnionTypeDef
+    modelEndpointStatus: ModelEndpointStatusType
+    tags: NotRequired[Sequence[TagTypeDef]]
+
+class OFITrainingMetricsValueTypeDef(TypedDict):
+    metricDataPoints: NotRequired[List[OFIMetricDataPointTypeDef]]
+    modelPerformance: NotRequired[OFIModelPerformanceTypeDef]
+
+class TFITrainingMetricsValueTypeDef(TypedDict):
+    metricDataPoints: NotRequired[List[TFIMetricDataPointTypeDef]]
+    modelPerformance: NotRequired[TFIModelPerformanceTypeDef]
+
+class ModelVersionEvaluationTypeDef(TypedDict):
+    outputVariableName: NotRequired[str]
+    evaluationScore: NotRequired[str]
+    predictionExplanations: NotRequired[PredictionExplanationsTypeDef]
+
+class CreateModelVersionRequestTypeDef(TypedDict):
+    modelId: str
+    modelType: ModelTypeEnumType
+    trainingDataSource: TrainingDataSourceEnumType
+    trainingDataSchema: TrainingDataSchemaUnionTypeDef
+    externalEventsDetail: NotRequired[ExternalEventsDetailTypeDef]
+    ingestedEventsDetail: NotRequired[IngestedEventsDetailTypeDef]
+    tags: NotRequired[Sequence[TagTypeDef]]
+
+class TrainingMetricsV2TypeDef(TypedDict):
+    ofi: NotRequired[OFITrainingMetricsValueTypeDef]
+    tfi: NotRequired[TFITrainingMetricsValueTypeDef]
+    ati: NotRequired[ATITrainingMetricsValueTypeDef]
+
+class EvaluatedModelVersionTypeDef(TypedDict):
+    modelId: NotRequired[str]
+    modelVersion: NotRequired[str]
+    modelType: NotRequired[str]
+    evaluations: NotRequired[List[ModelVersionEvaluationTypeDef]]
+
+class TrainingResultV2TypeDef(TypedDict):
+    dataValidationMetrics: NotRequired[DataValidationMetricsTypeDef]
+    trainingMetricsV2: NotRequired[TrainingMetricsV2TypeDef]
+    variableImportanceMetrics: NotRequired[VariableImportanceMetricsTypeDef]
+    aggregatedVariablesImportanceMetrics: NotRequired[AggregatedVariablesImportanceMetricsTypeDef]
+
+class GetEventPredictionMetadataResultTypeDef(TypedDict):
+    eventId: str
+    eventTypeName: str
+    entityId: str
+    entityType: str
+    eventTimestamp: str
+    detectorId: str
+    detectorVersionId: str
+    detectorVersionStatus: str
+    eventVariables: List[EventVariableSummaryTypeDef]
+    rules: List[EvaluatedRuleTypeDef]
+    ruleExecutionMode: RuleExecutionModeType
+    outcomes: List[str]
+    evaluatedModelVersions: List[EvaluatedModelVersionTypeDef]
+    evaluatedExternalModels: List[EvaluatedExternalModelTypeDef]
+    predictionTimestamp: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ModelVersionDetailTypeDef(TypedDict):
+    modelId: NotRequired[str]
+    modelType: NotRequired[ModelTypeEnumType]
+    modelVersionNumber: NotRequired[str]
+    status: NotRequired[str]
+    trainingDataSource: NotRequired[TrainingDataSourceEnumType]
+    trainingDataSchema: NotRequired[TrainingDataSchemaOutputTypeDef]
+    externalEventsDetail: NotRequired[ExternalEventsDetailTypeDef]
+    ingestedEventsDetail: NotRequired[IngestedEventsDetailTypeDef]
+    trainingResult: NotRequired[TrainingResultTypeDef]
+    lastUpdatedTime: NotRequired[str]
+    createdTime: NotRequired[str]
+    arn: NotRequired[str]
+    trainingResultV2: NotRequired[TrainingResultV2TypeDef]
+
+class DescribeModelVersionsResultTypeDef(TypedDict):
+    modelVersionDetails: List[ModelVersionDetailTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]

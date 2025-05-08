@@ -1,51 +1,68 @@
 """
-Type annotations for pca-connector-scep service client.
+Type annotations for pca-connector-scep service Client.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_scep/client.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_scep/client/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
-    from mypy_boto3_pca_connector_scep import PrivateCAConnectorforSCEPClient
+    from boto3.session import Session
+    from mypy_boto3_pca_connector_scep.client import PrivateCAConnectorforSCEPClient
 
-    client: PrivateCAConnectorforSCEPClient = boto3.client("pca-connector-scep")
+    session = Session()
+    client: PrivateCAConnectorforSCEPClient = session.client("pca-connector-scep")
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from typing import Any, Dict, List, Type, overload
+from typing import Any, overload
 
 from botocore.client import BaseClient, ClientMeta
+from botocore.errorfactory import BaseClientExceptions
+from botocore.exceptions import ClientError as BotocoreClientError
 
 from .paginator import ListChallengeMetadataPaginator, ListConnectorsPaginator
 from .type_defs import (
+    CreateChallengeRequestTypeDef,
     CreateChallengeResponseTypeDef,
+    CreateConnectorRequestTypeDef,
     CreateConnectorResponseTypeDef,
+    DeleteChallengeRequestTypeDef,
+    DeleteConnectorRequestTypeDef,
+    EmptyResponseMetadataTypeDef,
+    GetChallengeMetadataRequestTypeDef,
     GetChallengeMetadataResponseTypeDef,
+    GetChallengePasswordRequestTypeDef,
     GetChallengePasswordResponseTypeDef,
+    GetConnectorRequestTypeDef,
     GetConnectorResponseTypeDef,
+    ListChallengeMetadataRequestTypeDef,
     ListChallengeMetadataResponseTypeDef,
+    ListConnectorsRequestTypeDef,
     ListConnectorsResponseTypeDef,
+    ListTagsForResourceRequestTypeDef,
     ListTagsForResourceResponseTypeDef,
-    MobileDeviceManagementTypeDef,
+    TagResourceRequestTypeDef,
+    UntagResourceRequestTypeDef,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import type as Type
+    from collections.abc import Mapping
 else:
-    from typing_extensions import Literal
+    from typing import Mapping, Type
+if sys.version_info >= (3, 12):
+    from typing import Literal, Unpack
+else:
+    from typing_extensions import Literal, Unpack
 
 __all__ = ("PrivateCAConnectorforSCEPClient",)
 
-class BotocoreClientError(BaseException):
-    MSG_TEMPLATE: str
-
-    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
-        self.response: Dict[str, Any]
-        self.operation_name: str
-
-class Exceptions:
+class Exceptions(BaseClientExceptions):
     AccessDeniedException: Type[BotocoreClientError]
     BadRequestException: Type[BotocoreClientError]
     ClientError: Type[BotocoreClientError]
@@ -58,8 +75,8 @@ class Exceptions:
 
 class PrivateCAConnectorforSCEPClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pca-connector-scep.html#PrivateCAConnectorforSCEP.Client)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_scep/client.html)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/pca-connector-scep.html#PrivateCAConnectorforSCEP.Client)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_scep/client/)
     """
 
     meta: ClientMeta
@@ -68,167 +85,172 @@ class PrivateCAConnectorforSCEPClient(BaseClient):
     def exceptions(self) -> Exceptions:
         """
         PrivateCAConnectorforSCEPClient exceptions.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/pca-connector-scep.html#PrivateCAConnectorforSCEP.Client)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_scep/client/#exceptions)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        Check if an operation can be paginated.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pca-connector-scep.html#PrivateCAConnectorforSCEP.Client.can_paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_scep/client.html#can_paginate)
-        """
-
-    def close(self) -> None:
-        """
-        Closes underlying endpoint connections.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pca-connector-scep.html#PrivateCAConnectorforSCEP.Client.close)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_scep/client.html#close)
-        """
-
-    def create_challenge(
-        self, *, ConnectorArn: str, ClientToken: str = None, Tags: Dict[str, str] = None
-    ) -> CreateChallengeResponseTypeDef:
-        """
-        For general-purpose connectors.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pca-connector-scep.html#PrivateCAConnectorforSCEP.Client.create_challenge)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_scep/client.html#create_challenge)
-        """
-
-    def create_connector(
-        self,
-        *,
-        CertificateAuthorityArn: str,
-        MobileDeviceManagement: "MobileDeviceManagementTypeDef" = None,
-        ClientToken: str = None,
-        Tags: Dict[str, str] = None
-    ) -> CreateConnectorResponseTypeDef:
-        """
-        Creates a SCEP connector.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pca-connector-scep.html#PrivateCAConnectorforSCEP.Client.create_connector)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_scep/client.html#create_connector)
-        """
-
-    def delete_challenge(self, *, ChallengeArn: str) -> None:
-        """
-        Deletes the specified `Challenge <https://docs.aws.amazon.com/C4SCEP_API/pca-
-        connector-scep/latest/APIReference/API_Challenge.html>`__.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pca-connector-scep.html#PrivateCAConnectorforSCEP.Client.delete_challenge)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_scep/client.html#delete_challenge)
-        """
-
-    def delete_connector(self, *, ConnectorArn: str) -> None:
-        """
-        Deletes the specified `Connector <https://docs.aws.amazon.com/C4SCEP_API/pca-
-        connector-scep/latest/APIReference/API_Connector.html>`__.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pca-connector-scep.html#PrivateCAConnectorforSCEP.Client.delete_connector)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_scep/client.html#delete_connector)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/pca-connector-scep/client/can_paginate.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_scep/client/#can_paginate)
         """
 
     def generate_presigned_url(
         self,
         ClientMethod: str,
-        Params: Dict[str, Any] = None,
+        Params: Mapping[str, Any] = ...,
         ExpiresIn: int = 3600,
-        HttpMethod: str = None,
+        HttpMethod: str = ...,
     ) -> str:
         """
-        Generate a presigned url given a client, its method, and arguments.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pca-connector-scep.html#PrivateCAConnectorforSCEP.Client.generate_presigned_url)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_scep/client.html#generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/pca-connector-scep/client/generate_presigned_url.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_scep/client/#generate_presigned_url)
         """
 
-    def get_challenge_metadata(self, *, ChallengeArn: str) -> GetChallengeMetadataResponseTypeDef:
+    def create_challenge(
+        self, **kwargs: Unpack[CreateChallengeRequestTypeDef]
+    ) -> CreateChallengeResponseTypeDef:
         """
-        Retrieves the metadata for the specified `Challenge
-        <https://docs.aws.amazon.com/C4SCEP_API/pca-connector-
-        scep/latest/APIReference/API_Challenge.html>`__.
+        For general-purpose connectors.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pca-connector-scep.html#PrivateCAConnectorforSCEP.Client.get_challenge_metadata)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_scep/client.html#get_challenge_metadata)
-        """
-
-    def get_challenge_password(self, *, ChallengeArn: str) -> GetChallengePasswordResponseTypeDef:
-        """
-        Retrieves the challenge password for the specified `Challenge
-        <https://docs.aws.amazon.com/C4SCEP_API/pca-connector-
-        scep/latest/APIReference/API_Challenge.html>`__.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pca-connector-scep.html#PrivateCAConnectorforSCEP.Client.get_challenge_password)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_scep/client.html#get_challenge_password)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/pca-connector-scep/client/create_challenge.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_scep/client/#create_challenge)
         """
 
-    def get_connector(self, *, ConnectorArn: str) -> GetConnectorResponseTypeDef:
+    def create_connector(
+        self, **kwargs: Unpack[CreateConnectorRequestTypeDef]
+    ) -> CreateConnectorResponseTypeDef:
         """
-        Retrieves details about the specified `Connector
-        <https://docs.aws.amazon.com/C4SCEP_API/pca-connector-
-        scep/latest/APIReference/API_Connector.html>`__.
+        Creates a SCEP connector.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pca-connector-scep.html#PrivateCAConnectorforSCEP.Client.get_connector)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_scep/client.html#get_connector)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/pca-connector-scep/client/create_connector.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_scep/client/#create_connector)
+        """
+
+    def delete_challenge(
+        self, **kwargs: Unpack[DeleteChallengeRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Deletes the specified <a
+        href="https://docs.aws.amazon.com/C4SCEP_API/pca-connector-scep/latest/APIReference/API_Challenge.html">Challenge</a>.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/pca-connector-scep/client/delete_challenge.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_scep/client/#delete_challenge)
+        """
+
+    def delete_connector(
+        self, **kwargs: Unpack[DeleteConnectorRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Deletes the specified <a
+        href="https://docs.aws.amazon.com/C4SCEP_API/pca-connector-scep/latest/APIReference/API_Connector.html">Connector</a>.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/pca-connector-scep/client/delete_connector.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_scep/client/#delete_connector)
+        """
+
+    def get_challenge_metadata(
+        self, **kwargs: Unpack[GetChallengeMetadataRequestTypeDef]
+    ) -> GetChallengeMetadataResponseTypeDef:
+        """
+        Retrieves the metadata for the specified <a
+        href="https://docs.aws.amazon.com/C4SCEP_API/pca-connector-scep/latest/APIReference/API_Challenge.html">Challenge</a>.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/pca-connector-scep/client/get_challenge_metadata.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_scep/client/#get_challenge_metadata)
+        """
+
+    def get_challenge_password(
+        self, **kwargs: Unpack[GetChallengePasswordRequestTypeDef]
+    ) -> GetChallengePasswordResponseTypeDef:
+        """
+        Retrieves the challenge password for the specified <a
+        href="https://docs.aws.amazon.com/C4SCEP_API/pca-connector-scep/latest/APIReference/API_Challenge.html">Challenge</a>.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/pca-connector-scep/client/get_challenge_password.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_scep/client/#get_challenge_password)
+        """
+
+    def get_connector(
+        self, **kwargs: Unpack[GetConnectorRequestTypeDef]
+    ) -> GetConnectorResponseTypeDef:
+        """
+        Retrieves details about the specified <a
+        href="https://docs.aws.amazon.com/C4SCEP_API/pca-connector-scep/latest/APIReference/API_Connector.html">Connector</a>.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/pca-connector-scep/client/get_connector.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_scep/client/#get_connector)
         """
 
     def list_challenge_metadata(
-        self, *, ConnectorArn: str, MaxResults: int = None, NextToken: str = None
+        self, **kwargs: Unpack[ListChallengeMetadataRequestTypeDef]
     ) -> ListChallengeMetadataResponseTypeDef:
         """
         Retrieves the challenge metadata for the specified ARN.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pca-connector-scep.html#PrivateCAConnectorforSCEP.Client.list_challenge_metadata)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_scep/client.html#list_challenge_metadata)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/pca-connector-scep/client/list_challenge_metadata.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_scep/client/#list_challenge_metadata)
         """
 
     def list_connectors(
-        self, *, MaxResults: int = None, NextToken: str = None
+        self, **kwargs: Unpack[ListConnectorsRequestTypeDef]
     ) -> ListConnectorsResponseTypeDef:
         """
         Lists the connectors belonging to your Amazon Web Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pca-connector-scep.html#PrivateCAConnectorforSCEP.Client.list_connectors)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_scep/client.html#list_connectors)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/pca-connector-scep/client/list_connectors.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_scep/client/#list_connectors)
         """
 
-    def list_tags_for_resource(self, *, ResourceArn: str) -> ListTagsForResourceResponseTypeDef:
+    def list_tags_for_resource(
+        self, **kwargs: Unpack[ListTagsForResourceRequestTypeDef]
+    ) -> ListTagsForResourceResponseTypeDef:
         """
         Retrieves the tags associated with the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pca-connector-scep.html#PrivateCAConnectorforSCEP.Client.list_tags_for_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_scep/client.html#list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/pca-connector-scep/client/list_tags_for_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_scep/client/#list_tags_for_resource)
         """
 
-    def tag_resource(self, *, ResourceArn: str, Tags: Dict[str, str]) -> None:
+    def tag_resource(
+        self, **kwargs: Unpack[TagResourceRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Adds one or more tags to your resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pca-connector-scep.html#PrivateCAConnectorforSCEP.Client.tag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_scep/client.html#tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/pca-connector-scep/client/tag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_scep/client/#tag_resource)
         """
 
-    def untag_resource(self, *, ResourceArn: str, TagKeys: List[str]) -> None:
+    def untag_resource(
+        self, **kwargs: Unpack[UntagResourceRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Removes one or more tags from your resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pca-connector-scep.html#PrivateCAConnectorforSCEP.Client.untag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_scep/client.html#untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/pca-connector-scep/client/untag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_scep/client/#untag_resource)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_challenge_metadata"]
     ) -> ListChallengeMetadataPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pca-connector-scep.html#PrivateCAConnectorforSCEP.Paginator.ListChallengeMetadata)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_scep/paginators.html#listchallengemetadatapaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/pca-connector-scep/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_scep/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_connectors"]) -> ListConnectorsPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_connectors"]
+    ) -> ListConnectorsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pca-connector-scep.html#PrivateCAConnectorforSCEP.Paginator.ListConnectors)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_scep/paginators.html#listconnectorspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/pca-connector-scep/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_pca_connector_scep/client/#get_paginator)
         """

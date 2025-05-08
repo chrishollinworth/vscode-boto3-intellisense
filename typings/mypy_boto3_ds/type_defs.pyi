@@ -1,26 +1,31 @@
 """
 Type annotations for ds service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ds/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ds/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_ds.type_defs import AcceptSharedDirectoryRequestRequestTypeDef
+    from mypy_boto3_ds.type_defs import AcceptSharedDirectoryRequestTypeDef
 
-    data: AcceptSharedDirectoryRequestRequestTypeDef = {...}
+    data: AcceptSharedDirectoryRequestTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
+from typing import Union
 
 from .literals import (
     CertificateStateType,
     CertificateTypeType,
     ClientAuthenticationStatusType,
     ClientAuthenticationTypeType,
+    DataAccessStatusType,
     DirectoryConfigurationStatusType,
     DirectoryEditionType,
     DirectorySizeType,
@@ -46,1587 +51,661 @@ from .literals import (
     UpdateStatusType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
-    "AcceptSharedDirectoryRequestRequestTypeDef",
+    "AcceptSharedDirectoryRequestTypeDef",
     "AcceptSharedDirectoryResultTypeDef",
-    "AddIpRoutesRequestRequestTypeDef",
-    "AddRegionRequestRequestTypeDef",
-    "AddTagsToResourceRequestRequestTypeDef",
+    "AddIpRoutesRequestTypeDef",
+    "AddRegionRequestTypeDef",
+    "AddTagsToResourceRequestTypeDef",
     "AttributeTypeDef",
-    "CancelSchemaExtensionRequestRequestTypeDef",
+    "CancelSchemaExtensionRequestTypeDef",
     "CertificateInfoTypeDef",
     "CertificateTypeDef",
     "ClientAuthenticationSettingInfoTypeDef",
     "ClientCertAuthSettingsTypeDef",
     "ComputerTypeDef",
     "ConditionalForwarderTypeDef",
-    "ConnectDirectoryRequestRequestTypeDef",
+    "ConnectDirectoryRequestTypeDef",
     "ConnectDirectoryResultTypeDef",
-    "CreateAliasRequestRequestTypeDef",
+    "CreateAliasRequestTypeDef",
     "CreateAliasResultTypeDef",
-    "CreateComputerRequestRequestTypeDef",
+    "CreateComputerRequestTypeDef",
     "CreateComputerResultTypeDef",
-    "CreateConditionalForwarderRequestRequestTypeDef",
-    "CreateDirectoryRequestRequestTypeDef",
+    "CreateConditionalForwarderRequestTypeDef",
+    "CreateDirectoryRequestTypeDef",
     "CreateDirectoryResultTypeDef",
-    "CreateLogSubscriptionRequestRequestTypeDef",
-    "CreateMicrosoftADRequestRequestTypeDef",
+    "CreateLogSubscriptionRequestTypeDef",
+    "CreateMicrosoftADRequestTypeDef",
     "CreateMicrosoftADResultTypeDef",
-    "CreateSnapshotRequestRequestTypeDef",
+    "CreateSnapshotRequestTypeDef",
     "CreateSnapshotResultTypeDef",
-    "CreateTrustRequestRequestTypeDef",
+    "CreateTrustRequestTypeDef",
     "CreateTrustResultTypeDef",
-    "DeleteConditionalForwarderRequestRequestTypeDef",
-    "DeleteDirectoryRequestRequestTypeDef",
+    "DeleteConditionalForwarderRequestTypeDef",
+    "DeleteDirectoryRequestTypeDef",
     "DeleteDirectoryResultTypeDef",
-    "DeleteLogSubscriptionRequestRequestTypeDef",
-    "DeleteSnapshotRequestRequestTypeDef",
+    "DeleteLogSubscriptionRequestTypeDef",
+    "DeleteSnapshotRequestTypeDef",
     "DeleteSnapshotResultTypeDef",
-    "DeleteTrustRequestRequestTypeDef",
+    "DeleteTrustRequestTypeDef",
     "DeleteTrustResultTypeDef",
-    "DeregisterCertificateRequestRequestTypeDef",
-    "DeregisterEventTopicRequestRequestTypeDef",
-    "DescribeCertificateRequestRequestTypeDef",
+    "DeregisterCertificateRequestTypeDef",
+    "DeregisterEventTopicRequestTypeDef",
+    "DescribeCertificateRequestTypeDef",
     "DescribeCertificateResultTypeDef",
-    "DescribeClientAuthenticationSettingsRequestRequestTypeDef",
+    "DescribeClientAuthenticationSettingsRequestPaginateTypeDef",
+    "DescribeClientAuthenticationSettingsRequestTypeDef",
     "DescribeClientAuthenticationSettingsResultTypeDef",
-    "DescribeConditionalForwardersRequestRequestTypeDef",
+    "DescribeConditionalForwardersRequestTypeDef",
     "DescribeConditionalForwardersResultTypeDef",
-    "DescribeDirectoriesRequestRequestTypeDef",
+    "DescribeDirectoriesRequestPaginateTypeDef",
+    "DescribeDirectoriesRequestTypeDef",
     "DescribeDirectoriesResultTypeDef",
-    "DescribeDomainControllersRequestRequestTypeDef",
+    "DescribeDirectoryDataAccessRequestTypeDef",
+    "DescribeDirectoryDataAccessResultTypeDef",
+    "DescribeDomainControllersRequestPaginateTypeDef",
+    "DescribeDomainControllersRequestTypeDef",
     "DescribeDomainControllersResultTypeDef",
-    "DescribeEventTopicsRequestRequestTypeDef",
+    "DescribeEventTopicsRequestTypeDef",
     "DescribeEventTopicsResultTypeDef",
-    "DescribeLDAPSSettingsRequestRequestTypeDef",
+    "DescribeLDAPSSettingsRequestPaginateTypeDef",
+    "DescribeLDAPSSettingsRequestTypeDef",
     "DescribeLDAPSSettingsResultTypeDef",
-    "DescribeRegionsRequestRequestTypeDef",
+    "DescribeRegionsRequestPaginateTypeDef",
+    "DescribeRegionsRequestTypeDef",
     "DescribeRegionsResultTypeDef",
-    "DescribeSettingsRequestRequestTypeDef",
+    "DescribeSettingsRequestTypeDef",
     "DescribeSettingsResultTypeDef",
-    "DescribeSharedDirectoriesRequestRequestTypeDef",
+    "DescribeSharedDirectoriesRequestPaginateTypeDef",
+    "DescribeSharedDirectoriesRequestTypeDef",
     "DescribeSharedDirectoriesResultTypeDef",
-    "DescribeSnapshotsRequestRequestTypeDef",
+    "DescribeSnapshotsRequestPaginateTypeDef",
+    "DescribeSnapshotsRequestTypeDef",
     "DescribeSnapshotsResultTypeDef",
-    "DescribeTrustsRequestRequestTypeDef",
+    "DescribeTrustsRequestPaginateTypeDef",
+    "DescribeTrustsRequestTypeDef",
     "DescribeTrustsResultTypeDef",
-    "DescribeUpdateDirectoryRequestRequestTypeDef",
+    "DescribeUpdateDirectoryRequestPaginateTypeDef",
+    "DescribeUpdateDirectoryRequestTypeDef",
     "DescribeUpdateDirectoryResultTypeDef",
     "DirectoryConnectSettingsDescriptionTypeDef",
     "DirectoryConnectSettingsTypeDef",
     "DirectoryDescriptionTypeDef",
     "DirectoryLimitsTypeDef",
     "DirectoryVpcSettingsDescriptionTypeDef",
+    "DirectoryVpcSettingsOutputTypeDef",
     "DirectoryVpcSettingsTypeDef",
-    "DisableClientAuthenticationRequestRequestTypeDef",
-    "DisableLDAPSRequestRequestTypeDef",
-    "DisableRadiusRequestRequestTypeDef",
-    "DisableSsoRequestRequestTypeDef",
+    "DirectoryVpcSettingsUnionTypeDef",
+    "DisableClientAuthenticationRequestTypeDef",
+    "DisableDirectoryDataAccessRequestTypeDef",
+    "DisableLDAPSRequestTypeDef",
+    "DisableRadiusRequestTypeDef",
+    "DisableSsoRequestTypeDef",
     "DomainControllerTypeDef",
-    "EnableClientAuthenticationRequestRequestTypeDef",
-    "EnableLDAPSRequestRequestTypeDef",
-    "EnableRadiusRequestRequestTypeDef",
-    "EnableSsoRequestRequestTypeDef",
+    "EnableClientAuthenticationRequestTypeDef",
+    "EnableDirectoryDataAccessRequestTypeDef",
+    "EnableLDAPSRequestTypeDef",
+    "EnableRadiusRequestTypeDef",
+    "EnableSsoRequestTypeDef",
     "EventTopicTypeDef",
     "GetDirectoryLimitsResultTypeDef",
-    "GetSnapshotLimitsRequestRequestTypeDef",
+    "GetSnapshotLimitsRequestTypeDef",
     "GetSnapshotLimitsResultTypeDef",
     "IpRouteInfoTypeDef",
     "IpRouteTypeDef",
     "LDAPSSettingInfoTypeDef",
-    "ListCertificatesRequestRequestTypeDef",
+    "ListCertificatesRequestPaginateTypeDef",
+    "ListCertificatesRequestTypeDef",
     "ListCertificatesResultTypeDef",
-    "ListIpRoutesRequestRequestTypeDef",
+    "ListIpRoutesRequestPaginateTypeDef",
+    "ListIpRoutesRequestTypeDef",
     "ListIpRoutesResultTypeDef",
-    "ListLogSubscriptionsRequestRequestTypeDef",
+    "ListLogSubscriptionsRequestPaginateTypeDef",
+    "ListLogSubscriptionsRequestTypeDef",
     "ListLogSubscriptionsResultTypeDef",
-    "ListSchemaExtensionsRequestRequestTypeDef",
+    "ListSchemaExtensionsRequestPaginateTypeDef",
+    "ListSchemaExtensionsRequestTypeDef",
     "ListSchemaExtensionsResultTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestPaginateTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResultTypeDef",
     "LogSubscriptionTypeDef",
     "OSUpdateSettingsTypeDef",
     "OwnerDirectoryDescriptionTypeDef",
     "PaginatorConfigTypeDef",
+    "RadiusSettingsOutputTypeDef",
     "RadiusSettingsTypeDef",
+    "RadiusSettingsUnionTypeDef",
     "RegionDescriptionTypeDef",
     "RegionsInfoTypeDef",
-    "RegisterCertificateRequestRequestTypeDef",
+    "RegisterCertificateRequestTypeDef",
     "RegisterCertificateResultTypeDef",
-    "RegisterEventTopicRequestRequestTypeDef",
-    "RejectSharedDirectoryRequestRequestTypeDef",
+    "RegisterEventTopicRequestTypeDef",
+    "RejectSharedDirectoryRequestTypeDef",
     "RejectSharedDirectoryResultTypeDef",
-    "RemoveIpRoutesRequestRequestTypeDef",
-    "RemoveRegionRequestRequestTypeDef",
-    "RemoveTagsFromResourceRequestRequestTypeDef",
-    "ResetUserPasswordRequestRequestTypeDef",
+    "RemoveIpRoutesRequestTypeDef",
+    "RemoveRegionRequestTypeDef",
+    "RemoveTagsFromResourceRequestTypeDef",
+    "ResetUserPasswordRequestTypeDef",
     "ResponseMetadataTypeDef",
-    "RestoreFromSnapshotRequestRequestTypeDef",
+    "RestoreFromSnapshotRequestTypeDef",
     "SchemaExtensionInfoTypeDef",
     "SettingEntryTypeDef",
     "SettingTypeDef",
-    "ShareDirectoryRequestRequestTypeDef",
+    "ShareDirectoryRequestTypeDef",
     "ShareDirectoryResultTypeDef",
     "ShareTargetTypeDef",
     "SharedDirectoryTypeDef",
     "SnapshotLimitsTypeDef",
     "SnapshotTypeDef",
-    "StartSchemaExtensionRequestRequestTypeDef",
+    "StartSchemaExtensionRequestTypeDef",
     "StartSchemaExtensionResultTypeDef",
     "TagTypeDef",
     "TrustTypeDef",
-    "UnshareDirectoryRequestRequestTypeDef",
+    "UnshareDirectoryRequestTypeDef",
     "UnshareDirectoryResultTypeDef",
     "UnshareTargetTypeDef",
-    "UpdateConditionalForwarderRequestRequestTypeDef",
-    "UpdateDirectorySetupRequestRequestTypeDef",
+    "UpdateConditionalForwarderRequestTypeDef",
+    "UpdateDirectorySetupRequestTypeDef",
     "UpdateInfoEntryTypeDef",
-    "UpdateNumberOfDomainControllersRequestRequestTypeDef",
-    "UpdateRadiusRequestRequestTypeDef",
-    "UpdateSettingsRequestRequestTypeDef",
+    "UpdateNumberOfDomainControllersRequestTypeDef",
+    "UpdateRadiusRequestTypeDef",
+    "UpdateSettingsRequestTypeDef",
     "UpdateSettingsResultTypeDef",
-    "UpdateTrustRequestRequestTypeDef",
+    "UpdateTrustRequestTypeDef",
     "UpdateTrustResultTypeDef",
     "UpdateValueTypeDef",
-    "VerifyTrustRequestRequestTypeDef",
+    "VerifyTrustRequestTypeDef",
     "VerifyTrustResultTypeDef",
 )
 
-AcceptSharedDirectoryRequestRequestTypeDef = TypedDict(
-    "AcceptSharedDirectoryRequestRequestTypeDef",
-    {
-        "SharedDirectoryId": str,
-    },
-)
+class AcceptSharedDirectoryRequestTypeDef(TypedDict):
+    SharedDirectoryId: str
 
-AcceptSharedDirectoryResultTypeDef = TypedDict(
-    "AcceptSharedDirectoryResultTypeDef",
-    {
-        "SharedDirectory": "SharedDirectoryTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-_RequiredAddIpRoutesRequestRequestTypeDef = TypedDict(
-    "_RequiredAddIpRoutesRequestRequestTypeDef",
-    {
-        "DirectoryId": str,
-        "IpRoutes": List["IpRouteTypeDef"],
-    },
-)
-_OptionalAddIpRoutesRequestRequestTypeDef = TypedDict(
-    "_OptionalAddIpRoutesRequestRequestTypeDef",
-    {
-        "UpdateSecurityGroupForDirectoryControllers": bool,
-    },
-    total=False,
-)
+class SharedDirectoryTypeDef(TypedDict):
+    OwnerAccountId: NotRequired[str]
+    OwnerDirectoryId: NotRequired[str]
+    ShareMethod: NotRequired[ShareMethodType]
+    SharedAccountId: NotRequired[str]
+    SharedDirectoryId: NotRequired[str]
+    ShareStatus: NotRequired[ShareStatusType]
+    ShareNotes: NotRequired[str]
+    CreatedDateTime: NotRequired[datetime]
+    LastUpdatedDateTime: NotRequired[datetime]
 
-class AddIpRoutesRequestRequestTypeDef(
-    _RequiredAddIpRoutesRequestRequestTypeDef, _OptionalAddIpRoutesRequestRequestTypeDef
-):
-    pass
+class IpRouteTypeDef(TypedDict):
+    CidrIp: NotRequired[str]
+    Description: NotRequired[str]
 
-AddRegionRequestRequestTypeDef = TypedDict(
-    "AddRegionRequestRequestTypeDef",
-    {
-        "DirectoryId": str,
-        "RegionName": str,
-        "VPCSettings": "DirectoryVpcSettingsTypeDef",
-    },
-)
+class TagTypeDef(TypedDict):
+    Key: str
+    Value: str
 
-AddTagsToResourceRequestRequestTypeDef = TypedDict(
-    "AddTagsToResourceRequestRequestTypeDef",
-    {
-        "ResourceId": str,
-        "Tags": List["TagTypeDef"],
-    },
-)
+class AttributeTypeDef(TypedDict):
+    Name: NotRequired[str]
+    Value: NotRequired[str]
 
-AttributeTypeDef = TypedDict(
-    "AttributeTypeDef",
-    {
-        "Name": str,
-        "Value": str,
-    },
-    total=False,
-)
-
-CancelSchemaExtensionRequestRequestTypeDef = TypedDict(
-    "CancelSchemaExtensionRequestRequestTypeDef",
-    {
-        "DirectoryId": str,
-        "SchemaExtensionId": str,
-    },
-)
+class CancelSchemaExtensionRequestTypeDef(TypedDict):
+    DirectoryId: str
+    SchemaExtensionId: str
 
 CertificateInfoTypeDef = TypedDict(
     "CertificateInfoTypeDef",
     {
-        "CertificateId": str,
-        "CommonName": str,
-        "State": CertificateStateType,
-        "ExpiryDateTime": datetime,
-        "Type": CertificateTypeType,
+        "CertificateId": NotRequired[str],
+        "CommonName": NotRequired[str],
+        "State": NotRequired[CertificateStateType],
+        "ExpiryDateTime": NotRequired[datetime],
+        "Type": NotRequired[CertificateTypeType],
     },
-    total=False,
 )
 
-CertificateTypeDef = TypedDict(
-    "CertificateTypeDef",
-    {
-        "CertificateId": str,
-        "State": CertificateStateType,
-        "StateReason": str,
-        "CommonName": str,
-        "RegisteredDateTime": datetime,
-        "ExpiryDateTime": datetime,
-        "Type": CertificateTypeType,
-        "ClientCertAuthSettings": "ClientCertAuthSettingsTypeDef",
-    },
-    total=False,
-)
+class ClientCertAuthSettingsTypeDef(TypedDict):
+    OCSPUrl: NotRequired[str]
 
 ClientAuthenticationSettingInfoTypeDef = TypedDict(
     "ClientAuthenticationSettingInfoTypeDef",
     {
-        "Type": ClientAuthenticationTypeType,
-        "Status": ClientAuthenticationStatusType,
-        "LastUpdatedDateTime": datetime,
-    },
-    total=False,
-)
-
-ClientCertAuthSettingsTypeDef = TypedDict(
-    "ClientCertAuthSettingsTypeDef",
-    {
-        "OCSPUrl": str,
-    },
-    total=False,
-)
-
-ComputerTypeDef = TypedDict(
-    "ComputerTypeDef",
-    {
-        "ComputerId": str,
-        "ComputerName": str,
-        "ComputerAttributes": List["AttributeTypeDef"],
-    },
-    total=False,
-)
-
-ConditionalForwarderTypeDef = TypedDict(
-    "ConditionalForwarderTypeDef",
-    {
-        "RemoteDomainName": str,
-        "DnsIpAddrs": List[str],
-        "ReplicationScope": Literal["Domain"],
-    },
-    total=False,
-)
-
-_RequiredConnectDirectoryRequestRequestTypeDef = TypedDict(
-    "_RequiredConnectDirectoryRequestRequestTypeDef",
-    {
-        "Name": str,
-        "Password": str,
-        "Size": DirectorySizeType,
-        "ConnectSettings": "DirectoryConnectSettingsTypeDef",
-    },
-)
-_OptionalConnectDirectoryRequestRequestTypeDef = TypedDict(
-    "_OptionalConnectDirectoryRequestRequestTypeDef",
-    {
-        "ShortName": str,
-        "Description": str,
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class ConnectDirectoryRequestRequestTypeDef(
-    _RequiredConnectDirectoryRequestRequestTypeDef, _OptionalConnectDirectoryRequestRequestTypeDef
-):
-    pass
-
-ConnectDirectoryResultTypeDef = TypedDict(
-    "ConnectDirectoryResultTypeDef",
-    {
-        "DirectoryId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "Type": NotRequired[ClientAuthenticationTypeType],
+        "Status": NotRequired[ClientAuthenticationStatusType],
+        "LastUpdatedDateTime": NotRequired[datetime],
     },
 )
 
-CreateAliasRequestRequestTypeDef = TypedDict(
-    "CreateAliasRequestRequestTypeDef",
-    {
-        "DirectoryId": str,
-        "Alias": str,
-    },
-)
+class ConditionalForwarderTypeDef(TypedDict):
+    RemoteDomainName: NotRequired[str]
+    DnsIpAddrs: NotRequired[List[str]]
+    ReplicationScope: NotRequired[Literal["Domain"]]
 
-CreateAliasResultTypeDef = TypedDict(
-    "CreateAliasResultTypeDef",
-    {
-        "DirectoryId": str,
-        "Alias": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DirectoryConnectSettingsTypeDef(TypedDict):
+    VpcId: str
+    SubnetIds: Sequence[str]
+    CustomerDnsIps: Sequence[str]
+    CustomerUserName: str
 
-_RequiredCreateComputerRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateComputerRequestRequestTypeDef",
+class CreateAliasRequestTypeDef(TypedDict):
+    DirectoryId: str
+    Alias: str
+
+class CreateConditionalForwarderRequestTypeDef(TypedDict):
+    DirectoryId: str
+    RemoteDomainName: str
+    DnsIpAddrs: Sequence[str]
+
+class CreateLogSubscriptionRequestTypeDef(TypedDict):
+    DirectoryId: str
+    LogGroupName: str
+
+class CreateSnapshotRequestTypeDef(TypedDict):
+    DirectoryId: str
+    Name: NotRequired[str]
+
+class CreateTrustRequestTypeDef(TypedDict):
+    DirectoryId: str
+    RemoteDomainName: str
+    TrustPassword: str
+    TrustDirection: TrustDirectionType
+    TrustType: NotRequired[TrustTypeType]
+    ConditionalForwarderIpAddrs: NotRequired[Sequence[str]]
+    SelectiveAuth: NotRequired[SelectiveAuthType]
+
+class DeleteConditionalForwarderRequestTypeDef(TypedDict):
+    DirectoryId: str
+    RemoteDomainName: str
+
+class DeleteDirectoryRequestTypeDef(TypedDict):
+    DirectoryId: str
+
+class DeleteLogSubscriptionRequestTypeDef(TypedDict):
+    DirectoryId: str
+
+class DeleteSnapshotRequestTypeDef(TypedDict):
+    SnapshotId: str
+
+class DeleteTrustRequestTypeDef(TypedDict):
+    TrustId: str
+    DeleteAssociatedConditionalForwarder: NotRequired[bool]
+
+class DeregisterCertificateRequestTypeDef(TypedDict):
+    DirectoryId: str
+    CertificateId: str
+
+class DeregisterEventTopicRequestTypeDef(TypedDict):
+    DirectoryId: str
+    TopicName: str
+
+class DescribeCertificateRequestTypeDef(TypedDict):
+    DirectoryId: str
+    CertificateId: str
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+DescribeClientAuthenticationSettingsRequestTypeDef = TypedDict(
+    "DescribeClientAuthenticationSettingsRequestTypeDef",
     {
         "DirectoryId": str,
-        "ComputerName": str,
-        "Password": str,
-    },
-)
-_OptionalCreateComputerRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateComputerRequestRequestTypeDef",
-    {
-        "OrganizationalUnitDistinguishedName": str,
-        "ComputerAttributes": List["AttributeTypeDef"],
-    },
-    total=False,
-)
-
-class CreateComputerRequestRequestTypeDef(
-    _RequiredCreateComputerRequestRequestTypeDef, _OptionalCreateComputerRequestRequestTypeDef
-):
-    pass
-
-CreateComputerResultTypeDef = TypedDict(
-    "CreateComputerResultTypeDef",
-    {
-        "Computer": "ComputerTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "Type": NotRequired[ClientAuthenticationTypeType],
+        "NextToken": NotRequired[str],
+        "Limit": NotRequired[int],
     },
 )
 
-CreateConditionalForwarderRequestRequestTypeDef = TypedDict(
-    "CreateConditionalForwarderRequestRequestTypeDef",
-    {
-        "DirectoryId": str,
-        "RemoteDomainName": str,
-        "DnsIpAddrs": List[str],
-    },
-)
+class DescribeConditionalForwardersRequestTypeDef(TypedDict):
+    DirectoryId: str
+    RemoteDomainNames: NotRequired[Sequence[str]]
 
-_RequiredCreateDirectoryRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateDirectoryRequestRequestTypeDef",
-    {
-        "Name": str,
-        "Password": str,
-        "Size": DirectorySizeType,
-    },
-)
-_OptionalCreateDirectoryRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateDirectoryRequestRequestTypeDef",
-    {
-        "ShortName": str,
-        "Description": str,
-        "VpcSettings": "DirectoryVpcSettingsTypeDef",
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
+class DescribeDirectoriesRequestTypeDef(TypedDict):
+    DirectoryIds: NotRequired[Sequence[str]]
+    NextToken: NotRequired[str]
+    Limit: NotRequired[int]
 
-class CreateDirectoryRequestRequestTypeDef(
-    _RequiredCreateDirectoryRequestRequestTypeDef, _OptionalCreateDirectoryRequestRequestTypeDef
-):
-    pass
+class DescribeDirectoryDataAccessRequestTypeDef(TypedDict):
+    DirectoryId: str
 
-CreateDirectoryResultTypeDef = TypedDict(
-    "CreateDirectoryResultTypeDef",
+class DescribeDomainControllersRequestTypeDef(TypedDict):
+    DirectoryId: str
+    DomainControllerIds: NotRequired[Sequence[str]]
+    NextToken: NotRequired[str]
+    Limit: NotRequired[int]
+
+class DomainControllerTypeDef(TypedDict):
+    DirectoryId: NotRequired[str]
+    DomainControllerId: NotRequired[str]
+    DnsIpAddr: NotRequired[str]
+    VpcId: NotRequired[str]
+    SubnetId: NotRequired[str]
+    AvailabilityZone: NotRequired[str]
+    Status: NotRequired[DomainControllerStatusType]
+    StatusReason: NotRequired[str]
+    LaunchTime: NotRequired[datetime]
+    StatusLastUpdatedDateTime: NotRequired[datetime]
+
+class DescribeEventTopicsRequestTypeDef(TypedDict):
+    DirectoryId: NotRequired[str]
+    TopicNames: NotRequired[Sequence[str]]
+
+class EventTopicTypeDef(TypedDict):
+    DirectoryId: NotRequired[str]
+    TopicName: NotRequired[str]
+    TopicArn: NotRequired[str]
+    CreatedDateTime: NotRequired[datetime]
+    Status: NotRequired[TopicStatusType]
+
+DescribeLDAPSSettingsRequestTypeDef = TypedDict(
+    "DescribeLDAPSSettingsRequestTypeDef",
     {
         "DirectoryId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "Type": NotRequired[Literal["Client"]],
+        "NextToken": NotRequired[str],
+        "Limit": NotRequired[int],
     },
 )
 
-CreateLogSubscriptionRequestRequestTypeDef = TypedDict(
-    "CreateLogSubscriptionRequestRequestTypeDef",
+class LDAPSSettingInfoTypeDef(TypedDict):
+    LDAPSStatus: NotRequired[LDAPSStatusType]
+    LDAPSStatusReason: NotRequired[str]
+    LastUpdatedDateTime: NotRequired[datetime]
+
+DescribeRegionsRequestTypeDef = TypedDict(
+    "DescribeRegionsRequestTypeDef",
     {
         "DirectoryId": str,
-        "LogGroupName": str,
+        "RegionName": NotRequired[str],
+        "NextToken": NotRequired[str],
     },
 )
 
-_RequiredCreateMicrosoftADRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateMicrosoftADRequestRequestTypeDef",
-    {
-        "Name": str,
-        "Password": str,
-        "VpcSettings": "DirectoryVpcSettingsTypeDef",
-    },
-)
-_OptionalCreateMicrosoftADRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateMicrosoftADRequestRequestTypeDef",
-    {
-        "ShortName": str,
-        "Description": str,
-        "Edition": DirectoryEditionType,
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateMicrosoftADRequestRequestTypeDef(
-    _RequiredCreateMicrosoftADRequestRequestTypeDef, _OptionalCreateMicrosoftADRequestRequestTypeDef
-):
-    pass
-
-CreateMicrosoftADResultTypeDef = TypedDict(
-    "CreateMicrosoftADResultTypeDef",
-    {
-        "DirectoryId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateSnapshotRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateSnapshotRequestRequestTypeDef",
-    {
-        "DirectoryId": str,
-    },
-)
-_OptionalCreateSnapshotRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateSnapshotRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-    total=False,
-)
-
-class CreateSnapshotRequestRequestTypeDef(
-    _RequiredCreateSnapshotRequestRequestTypeDef, _OptionalCreateSnapshotRequestRequestTypeDef
-):
-    pass
-
-CreateSnapshotResultTypeDef = TypedDict(
-    "CreateSnapshotResultTypeDef",
-    {
-        "SnapshotId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateTrustRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateTrustRequestRequestTypeDef",
-    {
-        "DirectoryId": str,
-        "RemoteDomainName": str,
-        "TrustPassword": str,
-        "TrustDirection": TrustDirectionType,
-    },
-)
-_OptionalCreateTrustRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateTrustRequestRequestTypeDef",
-    {
-        "TrustType": TrustTypeType,
-        "ConditionalForwarderIpAddrs": List[str],
-        "SelectiveAuth": SelectiveAuthType,
-    },
-    total=False,
-)
-
-class CreateTrustRequestRequestTypeDef(
-    _RequiredCreateTrustRequestRequestTypeDef, _OptionalCreateTrustRequestRequestTypeDef
-):
-    pass
-
-CreateTrustResultTypeDef = TypedDict(
-    "CreateTrustResultTypeDef",
-    {
-        "TrustId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteConditionalForwarderRequestRequestTypeDef = TypedDict(
-    "DeleteConditionalForwarderRequestRequestTypeDef",
-    {
-        "DirectoryId": str,
-        "RemoteDomainName": str,
-    },
-)
-
-DeleteDirectoryRequestRequestTypeDef = TypedDict(
-    "DeleteDirectoryRequestRequestTypeDef",
-    {
-        "DirectoryId": str,
-    },
-)
-
-DeleteDirectoryResultTypeDef = TypedDict(
-    "DeleteDirectoryResultTypeDef",
-    {
-        "DirectoryId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteLogSubscriptionRequestRequestTypeDef = TypedDict(
-    "DeleteLogSubscriptionRequestRequestTypeDef",
-    {
-        "DirectoryId": str,
-    },
-)
-
-DeleteSnapshotRequestRequestTypeDef = TypedDict(
-    "DeleteSnapshotRequestRequestTypeDef",
-    {
-        "SnapshotId": str,
-    },
-)
-
-DeleteSnapshotResultTypeDef = TypedDict(
-    "DeleteSnapshotResultTypeDef",
-    {
-        "SnapshotId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDeleteTrustRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteTrustRequestRequestTypeDef",
-    {
-        "TrustId": str,
-    },
-)
-_OptionalDeleteTrustRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteTrustRequestRequestTypeDef",
-    {
-        "DeleteAssociatedConditionalForwarder": bool,
-    },
-    total=False,
-)
-
-class DeleteTrustRequestRequestTypeDef(
-    _RequiredDeleteTrustRequestRequestTypeDef, _OptionalDeleteTrustRequestRequestTypeDef
-):
-    pass
-
-DeleteTrustResultTypeDef = TypedDict(
-    "DeleteTrustResultTypeDef",
-    {
-        "TrustId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeregisterCertificateRequestRequestTypeDef = TypedDict(
-    "DeregisterCertificateRequestRequestTypeDef",
-    {
-        "DirectoryId": str,
-        "CertificateId": str,
-    },
-)
-
-DeregisterEventTopicRequestRequestTypeDef = TypedDict(
-    "DeregisterEventTopicRequestRequestTypeDef",
-    {
-        "DirectoryId": str,
-        "TopicName": str,
-    },
-)
-
-DescribeCertificateRequestRequestTypeDef = TypedDict(
-    "DescribeCertificateRequestRequestTypeDef",
-    {
-        "DirectoryId": str,
-        "CertificateId": str,
-    },
-)
-
-DescribeCertificateResultTypeDef = TypedDict(
-    "DescribeCertificateResultTypeDef",
-    {
-        "Certificate": "CertificateTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribeClientAuthenticationSettingsRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeClientAuthenticationSettingsRequestRequestTypeDef",
-    {
-        "DirectoryId": str,
-    },
-)
-_OptionalDescribeClientAuthenticationSettingsRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeClientAuthenticationSettingsRequestRequestTypeDef",
-    {
-        "Type": ClientAuthenticationTypeType,
-        "NextToken": str,
-        "Limit": int,
-    },
-    total=False,
-)
-
-class DescribeClientAuthenticationSettingsRequestRequestTypeDef(
-    _RequiredDescribeClientAuthenticationSettingsRequestRequestTypeDef,
-    _OptionalDescribeClientAuthenticationSettingsRequestRequestTypeDef,
-):
-    pass
-
-DescribeClientAuthenticationSettingsResultTypeDef = TypedDict(
-    "DescribeClientAuthenticationSettingsResultTypeDef",
-    {
-        "ClientAuthenticationSettingsInfo": List["ClientAuthenticationSettingInfoTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribeConditionalForwardersRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeConditionalForwardersRequestRequestTypeDef",
-    {
-        "DirectoryId": str,
-    },
-)
-_OptionalDescribeConditionalForwardersRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeConditionalForwardersRequestRequestTypeDef",
-    {
-        "RemoteDomainNames": List[str],
-    },
-    total=False,
-)
-
-class DescribeConditionalForwardersRequestRequestTypeDef(
-    _RequiredDescribeConditionalForwardersRequestRequestTypeDef,
-    _OptionalDescribeConditionalForwardersRequestRequestTypeDef,
-):
-    pass
-
-DescribeConditionalForwardersResultTypeDef = TypedDict(
-    "DescribeConditionalForwardersResultTypeDef",
-    {
-        "ConditionalForwarders": List["ConditionalForwarderTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeDirectoriesRequestRequestTypeDef = TypedDict(
-    "DescribeDirectoriesRequestRequestTypeDef",
-    {
-        "DirectoryIds": List[str],
-        "NextToken": str,
-        "Limit": int,
-    },
-    total=False,
-)
-
-DescribeDirectoriesResultTypeDef = TypedDict(
-    "DescribeDirectoriesResultTypeDef",
-    {
-        "DirectoryDescriptions": List["DirectoryDescriptionTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribeDomainControllersRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeDomainControllersRequestRequestTypeDef",
-    {
-        "DirectoryId": str,
-    },
-)
-_OptionalDescribeDomainControllersRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeDomainControllersRequestRequestTypeDef",
-    {
-        "DomainControllerIds": List[str],
-        "NextToken": str,
-        "Limit": int,
-    },
-    total=False,
-)
-
-class DescribeDomainControllersRequestRequestTypeDef(
-    _RequiredDescribeDomainControllersRequestRequestTypeDef,
-    _OptionalDescribeDomainControllersRequestRequestTypeDef,
-):
-    pass
-
-DescribeDomainControllersResultTypeDef = TypedDict(
-    "DescribeDomainControllersResultTypeDef",
-    {
-        "DomainControllers": List["DomainControllerTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeEventTopicsRequestRequestTypeDef = TypedDict(
-    "DescribeEventTopicsRequestRequestTypeDef",
-    {
-        "DirectoryId": str,
-        "TopicNames": List[str],
-    },
-    total=False,
-)
-
-DescribeEventTopicsResultTypeDef = TypedDict(
-    "DescribeEventTopicsResultTypeDef",
-    {
-        "EventTopics": List["EventTopicTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribeLDAPSSettingsRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeLDAPSSettingsRequestRequestTypeDef",
-    {
-        "DirectoryId": str,
-    },
-)
-_OptionalDescribeLDAPSSettingsRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeLDAPSSettingsRequestRequestTypeDef",
-    {
-        "Type": Literal["Client"],
-        "NextToken": str,
-        "Limit": int,
-    },
-    total=False,
-)
-
-class DescribeLDAPSSettingsRequestRequestTypeDef(
-    _RequiredDescribeLDAPSSettingsRequestRequestTypeDef,
-    _OptionalDescribeLDAPSSettingsRequestRequestTypeDef,
-):
-    pass
-
-DescribeLDAPSSettingsResultTypeDef = TypedDict(
-    "DescribeLDAPSSettingsResultTypeDef",
-    {
-        "LDAPSSettingsInfo": List["LDAPSSettingInfoTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribeRegionsRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeRegionsRequestRequestTypeDef",
-    {
-        "DirectoryId": str,
-    },
-)
-_OptionalDescribeRegionsRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeRegionsRequestRequestTypeDef",
-    {
-        "RegionName": str,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class DescribeRegionsRequestRequestTypeDef(
-    _RequiredDescribeRegionsRequestRequestTypeDef, _OptionalDescribeRegionsRequestRequestTypeDef
-):
-    pass
-
-DescribeRegionsResultTypeDef = TypedDict(
-    "DescribeRegionsResultTypeDef",
-    {
-        "RegionsDescription": List["RegionDescriptionTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribeSettingsRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeSettingsRequestRequestTypeDef",
-    {
-        "DirectoryId": str,
-    },
-)
-_OptionalDescribeSettingsRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeSettingsRequestRequestTypeDef",
-    {
-        "Status": DirectoryConfigurationStatusType,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class DescribeSettingsRequestRequestTypeDef(
-    _RequiredDescribeSettingsRequestRequestTypeDef, _OptionalDescribeSettingsRequestRequestTypeDef
-):
-    pass
-
-DescribeSettingsResultTypeDef = TypedDict(
-    "DescribeSettingsResultTypeDef",
-    {
-        "DirectoryId": str,
-        "SettingEntries": List["SettingEntryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribeSharedDirectoriesRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeSharedDirectoriesRequestRequestTypeDef",
-    {
-        "OwnerDirectoryId": str,
-    },
-)
-_OptionalDescribeSharedDirectoriesRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeSharedDirectoriesRequestRequestTypeDef",
-    {
-        "SharedDirectoryIds": List[str],
-        "NextToken": str,
-        "Limit": int,
-    },
-    total=False,
-)
-
-class DescribeSharedDirectoriesRequestRequestTypeDef(
-    _RequiredDescribeSharedDirectoriesRequestRequestTypeDef,
-    _OptionalDescribeSharedDirectoriesRequestRequestTypeDef,
-):
-    pass
-
-DescribeSharedDirectoriesResultTypeDef = TypedDict(
-    "DescribeSharedDirectoriesResultTypeDef",
-    {
-        "SharedDirectories": List["SharedDirectoryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeSnapshotsRequestRequestTypeDef = TypedDict(
-    "DescribeSnapshotsRequestRequestTypeDef",
-    {
-        "DirectoryId": str,
-        "SnapshotIds": List[str],
-        "NextToken": str,
-        "Limit": int,
-    },
-    total=False,
-)
-
-DescribeSnapshotsResultTypeDef = TypedDict(
-    "DescribeSnapshotsResultTypeDef",
-    {
-        "Snapshots": List["SnapshotTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeTrustsRequestRequestTypeDef = TypedDict(
-    "DescribeTrustsRequestRequestTypeDef",
-    {
-        "DirectoryId": str,
-        "TrustIds": List[str],
-        "NextToken": str,
-        "Limit": int,
-    },
-    total=False,
-)
-
-DescribeTrustsResultTypeDef = TypedDict(
-    "DescribeTrustsResultTypeDef",
-    {
-        "Trusts": List["TrustTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribeUpdateDirectoryRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeUpdateDirectoryRequestRequestTypeDef",
-    {
-        "DirectoryId": str,
-        "UpdateType": Literal["OS"],
-    },
-)
-_OptionalDescribeUpdateDirectoryRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeUpdateDirectoryRequestRequestTypeDef",
-    {
-        "RegionName": str,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class DescribeUpdateDirectoryRequestRequestTypeDef(
-    _RequiredDescribeUpdateDirectoryRequestRequestTypeDef,
-    _OptionalDescribeUpdateDirectoryRequestRequestTypeDef,
-):
-    pass
-
-DescribeUpdateDirectoryResultTypeDef = TypedDict(
-    "DescribeUpdateDirectoryResultTypeDef",
-    {
-        "UpdateActivities": List["UpdateInfoEntryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DirectoryConnectSettingsDescriptionTypeDef = TypedDict(
-    "DirectoryConnectSettingsDescriptionTypeDef",
-    {
-        "VpcId": str,
-        "SubnetIds": List[str],
-        "CustomerUserName": str,
-        "SecurityGroupId": str,
-        "AvailabilityZones": List[str],
-        "ConnectIps": List[str],
-    },
-    total=False,
-)
-
-DirectoryConnectSettingsTypeDef = TypedDict(
-    "DirectoryConnectSettingsTypeDef",
-    {
-        "VpcId": str,
-        "SubnetIds": List[str],
-        "CustomerDnsIps": List[str],
-        "CustomerUserName": str,
-    },
-)
-
-DirectoryDescriptionTypeDef = TypedDict(
-    "DirectoryDescriptionTypeDef",
-    {
-        "DirectoryId": str,
-        "Name": str,
-        "ShortName": str,
-        "Size": DirectorySizeType,
-        "Edition": DirectoryEditionType,
-        "Alias": str,
-        "AccessUrl": str,
-        "Description": str,
-        "DnsIpAddrs": List[str],
-        "Stage": DirectoryStageType,
-        "ShareStatus": ShareStatusType,
-        "ShareMethod": ShareMethodType,
-        "ShareNotes": str,
-        "LaunchTime": datetime,
-        "StageLastUpdatedDateTime": datetime,
-        "Type": DirectoryTypeType,
-        "VpcSettings": "DirectoryVpcSettingsDescriptionTypeDef",
-        "ConnectSettings": "DirectoryConnectSettingsDescriptionTypeDef",
-        "RadiusSettings": "RadiusSettingsTypeDef",
-        "RadiusStatus": RadiusStatusType,
-        "StageReason": str,
-        "SsoEnabled": bool,
-        "DesiredNumberOfDomainControllers": int,
-        "OwnerDirectoryDescription": "OwnerDirectoryDescriptionTypeDef",
-        "RegionsInfo": "RegionsInfoTypeDef",
-        "OsVersion": OSVersionType,
-    },
-    total=False,
-)
-
-DirectoryLimitsTypeDef = TypedDict(
-    "DirectoryLimitsTypeDef",
-    {
-        "CloudOnlyDirectoriesLimit": int,
-        "CloudOnlyDirectoriesCurrentCount": int,
-        "CloudOnlyDirectoriesLimitReached": bool,
-        "CloudOnlyMicrosoftADLimit": int,
-        "CloudOnlyMicrosoftADCurrentCount": int,
-        "CloudOnlyMicrosoftADLimitReached": bool,
-        "ConnectedDirectoriesLimit": int,
-        "ConnectedDirectoriesCurrentCount": int,
-        "ConnectedDirectoriesLimitReached": bool,
-    },
-    total=False,
-)
-
-DirectoryVpcSettingsDescriptionTypeDef = TypedDict(
-    "DirectoryVpcSettingsDescriptionTypeDef",
-    {
-        "VpcId": str,
-        "SubnetIds": List[str],
-        "SecurityGroupId": str,
-        "AvailabilityZones": List[str],
-    },
-    total=False,
-)
-
-DirectoryVpcSettingsTypeDef = TypedDict(
-    "DirectoryVpcSettingsTypeDef",
-    {
-        "VpcId": str,
-        "SubnetIds": List[str],
-    },
-)
-
-DisableClientAuthenticationRequestRequestTypeDef = TypedDict(
-    "DisableClientAuthenticationRequestRequestTypeDef",
-    {
-        "DirectoryId": str,
-        "Type": ClientAuthenticationTypeType,
-    },
-)
-
-DisableLDAPSRequestRequestTypeDef = TypedDict(
-    "DisableLDAPSRequestRequestTypeDef",
-    {
-        "DirectoryId": str,
-        "Type": Literal["Client"],
-    },
-)
-
-DisableRadiusRequestRequestTypeDef = TypedDict(
-    "DisableRadiusRequestRequestTypeDef",
-    {
-        "DirectoryId": str,
-    },
-)
-
-_RequiredDisableSsoRequestRequestTypeDef = TypedDict(
-    "_RequiredDisableSsoRequestRequestTypeDef",
-    {
-        "DirectoryId": str,
-    },
-)
-_OptionalDisableSsoRequestRequestTypeDef = TypedDict(
-    "_OptionalDisableSsoRequestRequestTypeDef",
-    {
-        "UserName": str,
-        "Password": str,
-    },
-    total=False,
-)
-
-class DisableSsoRequestRequestTypeDef(
-    _RequiredDisableSsoRequestRequestTypeDef, _OptionalDisableSsoRequestRequestTypeDef
-):
-    pass
-
-DomainControllerTypeDef = TypedDict(
-    "DomainControllerTypeDef",
-    {
-        "DirectoryId": str,
-        "DomainControllerId": str,
-        "DnsIpAddr": str,
-        "VpcId": str,
-        "SubnetId": str,
-        "AvailabilityZone": str,
-        "Status": DomainControllerStatusType,
-        "StatusReason": str,
-        "LaunchTime": datetime,
-        "StatusLastUpdatedDateTime": datetime,
-    },
-    total=False,
-)
-
-EnableClientAuthenticationRequestRequestTypeDef = TypedDict(
-    "EnableClientAuthenticationRequestRequestTypeDef",
-    {
-        "DirectoryId": str,
-        "Type": ClientAuthenticationTypeType,
-    },
-)
-
-EnableLDAPSRequestRequestTypeDef = TypedDict(
-    "EnableLDAPSRequestRequestTypeDef",
-    {
-        "DirectoryId": str,
-        "Type": Literal["Client"],
-    },
-)
-
-EnableRadiusRequestRequestTypeDef = TypedDict(
-    "EnableRadiusRequestRequestTypeDef",
-    {
-        "DirectoryId": str,
-        "RadiusSettings": "RadiusSettingsTypeDef",
-    },
-)
-
-_RequiredEnableSsoRequestRequestTypeDef = TypedDict(
-    "_RequiredEnableSsoRequestRequestTypeDef",
-    {
-        "DirectoryId": str,
-    },
-)
-_OptionalEnableSsoRequestRequestTypeDef = TypedDict(
-    "_OptionalEnableSsoRequestRequestTypeDef",
-    {
-        "UserName": str,
-        "Password": str,
-    },
-    total=False,
-)
-
-class EnableSsoRequestRequestTypeDef(
-    _RequiredEnableSsoRequestRequestTypeDef, _OptionalEnableSsoRequestRequestTypeDef
-):
-    pass
-
-EventTopicTypeDef = TypedDict(
-    "EventTopicTypeDef",
-    {
-        "DirectoryId": str,
-        "TopicName": str,
-        "TopicArn": str,
-        "CreatedDateTime": datetime,
-        "Status": TopicStatusType,
-    },
-    total=False,
-)
-
-GetDirectoryLimitsResultTypeDef = TypedDict(
-    "GetDirectoryLimitsResultTypeDef",
-    {
-        "DirectoryLimits": "DirectoryLimitsTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetSnapshotLimitsRequestRequestTypeDef = TypedDict(
-    "GetSnapshotLimitsRequestRequestTypeDef",
-    {
-        "DirectoryId": str,
-    },
-)
-
-GetSnapshotLimitsResultTypeDef = TypedDict(
-    "GetSnapshotLimitsResultTypeDef",
-    {
-        "SnapshotLimits": "SnapshotLimitsTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-IpRouteInfoTypeDef = TypedDict(
-    "IpRouteInfoTypeDef",
-    {
-        "DirectoryId": str,
-        "CidrIp": str,
-        "IpRouteStatusMsg": IpRouteStatusMsgType,
-        "AddedDateTime": datetime,
-        "IpRouteStatusReason": str,
-        "Description": str,
-    },
-    total=False,
-)
-
-IpRouteTypeDef = TypedDict(
-    "IpRouteTypeDef",
-    {
-        "CidrIp": str,
-        "Description": str,
-    },
-    total=False,
-)
-
-LDAPSSettingInfoTypeDef = TypedDict(
-    "LDAPSSettingInfoTypeDef",
-    {
-        "LDAPSStatus": LDAPSStatusType,
-        "LDAPSStatusReason": str,
-        "LastUpdatedDateTime": datetime,
-    },
-    total=False,
-)
-
-_RequiredListCertificatesRequestRequestTypeDef = TypedDict(
-    "_RequiredListCertificatesRequestRequestTypeDef",
-    {
-        "DirectoryId": str,
-    },
-)
-_OptionalListCertificatesRequestRequestTypeDef = TypedDict(
-    "_OptionalListCertificatesRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "Limit": int,
-    },
-    total=False,
-)
-
-class ListCertificatesRequestRequestTypeDef(
-    _RequiredListCertificatesRequestRequestTypeDef, _OptionalListCertificatesRequestRequestTypeDef
-):
-    pass
-
-ListCertificatesResultTypeDef = TypedDict(
-    "ListCertificatesResultTypeDef",
-    {
-        "NextToken": str,
-        "CertificatesInfo": List["CertificateInfoTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListIpRoutesRequestRequestTypeDef = TypedDict(
-    "_RequiredListIpRoutesRequestRequestTypeDef",
-    {
-        "DirectoryId": str,
-    },
-)
-_OptionalListIpRoutesRequestRequestTypeDef = TypedDict(
-    "_OptionalListIpRoutesRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "Limit": int,
-    },
-    total=False,
-)
-
-class ListIpRoutesRequestRequestTypeDef(
-    _RequiredListIpRoutesRequestRequestTypeDef, _OptionalListIpRoutesRequestRequestTypeDef
-):
-    pass
-
-ListIpRoutesResultTypeDef = TypedDict(
-    "ListIpRoutesResultTypeDef",
-    {
-        "IpRoutesInfo": List["IpRouteInfoTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListLogSubscriptionsRequestRequestTypeDef = TypedDict(
-    "ListLogSubscriptionsRequestRequestTypeDef",
-    {
-        "DirectoryId": str,
-        "NextToken": str,
-        "Limit": int,
-    },
-    total=False,
-)
-
-ListLogSubscriptionsResultTypeDef = TypedDict(
-    "ListLogSubscriptionsResultTypeDef",
-    {
-        "LogSubscriptions": List["LogSubscriptionTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListSchemaExtensionsRequestRequestTypeDef = TypedDict(
-    "_RequiredListSchemaExtensionsRequestRequestTypeDef",
-    {
-        "DirectoryId": str,
-    },
-)
-_OptionalListSchemaExtensionsRequestRequestTypeDef = TypedDict(
-    "_OptionalListSchemaExtensionsRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "Limit": int,
-    },
-    total=False,
-)
-
-class ListSchemaExtensionsRequestRequestTypeDef(
-    _RequiredListSchemaExtensionsRequestRequestTypeDef,
-    _OptionalListSchemaExtensionsRequestRequestTypeDef,
-):
-    pass
-
-ListSchemaExtensionsResultTypeDef = TypedDict(
-    "ListSchemaExtensionsResultTypeDef",
-    {
-        "SchemaExtensionsInfo": List["SchemaExtensionInfoTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "_RequiredListTagsForResourceRequestRequestTypeDef",
-    {
-        "ResourceId": str,
-    },
-)
-_OptionalListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "_OptionalListTagsForResourceRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "Limit": int,
-    },
-    total=False,
-)
-
-class ListTagsForResourceRequestRequestTypeDef(
-    _RequiredListTagsForResourceRequestRequestTypeDef,
-    _OptionalListTagsForResourceRequestRequestTypeDef,
-):
-    pass
-
-ListTagsForResourceResultTypeDef = TypedDict(
-    "ListTagsForResourceResultTypeDef",
-    {
-        "Tags": List["TagTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-LogSubscriptionTypeDef = TypedDict(
-    "LogSubscriptionTypeDef",
-    {
-        "DirectoryId": str,
-        "LogGroupName": str,
-        "SubscriptionCreatedDateTime": datetime,
-    },
-    total=False,
-)
-
-OSUpdateSettingsTypeDef = TypedDict(
-    "OSUpdateSettingsTypeDef",
-    {
-        "OSVersion": OSVersionType,
-    },
-    total=False,
-)
-
-OwnerDirectoryDescriptionTypeDef = TypedDict(
-    "OwnerDirectoryDescriptionTypeDef",
-    {
-        "DirectoryId": str,
-        "AccountId": str,
-        "DnsIpAddrs": List[str],
-        "VpcSettings": "DirectoryVpcSettingsDescriptionTypeDef",
-        "RadiusSettings": "RadiusSettingsTypeDef",
-        "RadiusStatus": RadiusStatusType,
-    },
-    total=False,
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-RadiusSettingsTypeDef = TypedDict(
-    "RadiusSettingsTypeDef",
-    {
-        "RadiusServers": List[str],
-        "RadiusPort": int,
-        "RadiusTimeout": int,
-        "RadiusRetries": int,
-        "SharedSecret": str,
-        "AuthenticationProtocol": RadiusAuthenticationProtocolType,
-        "DisplayLabel": str,
-        "UseSameUsername": bool,
-    },
-    total=False,
-)
-
-RegionDescriptionTypeDef = TypedDict(
-    "RegionDescriptionTypeDef",
-    {
-        "DirectoryId": str,
-        "RegionName": str,
-        "RegionType": RegionTypeType,
-        "Status": DirectoryStageType,
-        "VpcSettings": "DirectoryVpcSettingsTypeDef",
-        "DesiredNumberOfDomainControllers": int,
-        "LaunchTime": datetime,
-        "StatusLastUpdatedDateTime": datetime,
-        "LastUpdatedDateTime": datetime,
-    },
-    total=False,
-)
-
-RegionsInfoTypeDef = TypedDict(
-    "RegionsInfoTypeDef",
-    {
-        "PrimaryRegion": str,
-        "AdditionalRegions": List[str],
-    },
-    total=False,
-)
-
-_RequiredRegisterCertificateRequestRequestTypeDef = TypedDict(
-    "_RequiredRegisterCertificateRequestRequestTypeDef",
-    {
-        "DirectoryId": str,
-        "CertificateData": str,
-    },
-)
-_OptionalRegisterCertificateRequestRequestTypeDef = TypedDict(
-    "_OptionalRegisterCertificateRequestRequestTypeDef",
-    {
-        "Type": CertificateTypeType,
-        "ClientCertAuthSettings": "ClientCertAuthSettingsTypeDef",
-    },
-    total=False,
-)
-
-class RegisterCertificateRequestRequestTypeDef(
-    _RequiredRegisterCertificateRequestRequestTypeDef,
-    _OptionalRegisterCertificateRequestRequestTypeDef,
-):
-    pass
-
-RegisterCertificateResultTypeDef = TypedDict(
-    "RegisterCertificateResultTypeDef",
-    {
-        "CertificateId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-RegisterEventTopicRequestRequestTypeDef = TypedDict(
-    "RegisterEventTopicRequestRequestTypeDef",
-    {
-        "DirectoryId": str,
-        "TopicName": str,
-    },
-)
-
-RejectSharedDirectoryRequestRequestTypeDef = TypedDict(
-    "RejectSharedDirectoryRequestRequestTypeDef",
-    {
-        "SharedDirectoryId": str,
-    },
-)
-
-RejectSharedDirectoryResultTypeDef = TypedDict(
-    "RejectSharedDirectoryResultTypeDef",
-    {
-        "SharedDirectoryId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-RemoveIpRoutesRequestRequestTypeDef = TypedDict(
-    "RemoveIpRoutesRequestRequestTypeDef",
-    {
-        "DirectoryId": str,
-        "CidrIps": List[str],
-    },
-)
-
-RemoveRegionRequestRequestTypeDef = TypedDict(
-    "RemoveRegionRequestRequestTypeDef",
-    {
-        "DirectoryId": str,
-    },
-)
-
-RemoveTagsFromResourceRequestRequestTypeDef = TypedDict(
-    "RemoveTagsFromResourceRequestRequestTypeDef",
-    {
-        "ResourceId": str,
-        "TagKeys": List[str],
-    },
-)
-
-ResetUserPasswordRequestRequestTypeDef = TypedDict(
-    "ResetUserPasswordRequestRequestTypeDef",
-    {
-        "DirectoryId": str,
-        "UserName": str,
-        "NewPassword": str,
-    },
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-RestoreFromSnapshotRequestRequestTypeDef = TypedDict(
-    "RestoreFromSnapshotRequestRequestTypeDef",
-    {
-        "SnapshotId": str,
-    },
-)
-
-SchemaExtensionInfoTypeDef = TypedDict(
-    "SchemaExtensionInfoTypeDef",
-    {
-        "DirectoryId": str,
-        "SchemaExtensionId": str,
-        "Description": str,
-        "SchemaExtensionStatus": SchemaExtensionStatusType,
-        "SchemaExtensionStatusReason": str,
-        "StartDateTime": datetime,
-        "EndDateTime": datetime,
-    },
-    total=False,
-)
+class DescribeSettingsRequestTypeDef(TypedDict):
+    DirectoryId: str
+    Status: NotRequired[DirectoryConfigurationStatusType]
+    NextToken: NotRequired[str]
 
 SettingEntryTypeDef = TypedDict(
     "SettingEntryTypeDef",
     {
-        "Type": str,
-        "Name": str,
-        "AllowedValues": str,
-        "AppliedValue": str,
-        "RequestedValue": str,
-        "RequestStatus": DirectoryConfigurationStatusType,
-        "RequestDetailedStatus": Dict[str, DirectoryConfigurationStatusType],
-        "RequestStatusMessage": str,
-        "LastUpdatedDateTime": datetime,
-        "LastRequestedDateTime": datetime,
-        "DataType": str,
+        "Type": NotRequired[str],
+        "Name": NotRequired[str],
+        "AllowedValues": NotRequired[str],
+        "AppliedValue": NotRequired[str],
+        "RequestedValue": NotRequired[str],
+        "RequestStatus": NotRequired[DirectoryConfigurationStatusType],
+        "RequestDetailedStatus": NotRequired[Dict[str, DirectoryConfigurationStatusType]],
+        "RequestStatusMessage": NotRequired[str],
+        "LastUpdatedDateTime": NotRequired[datetime],
+        "LastRequestedDateTime": NotRequired[datetime],
+        "DataType": NotRequired[str],
     },
-    total=False,
 )
 
-SettingTypeDef = TypedDict(
-    "SettingTypeDef",
+class DescribeSharedDirectoriesRequestTypeDef(TypedDict):
+    OwnerDirectoryId: str
+    SharedDirectoryIds: NotRequired[Sequence[str]]
+    NextToken: NotRequired[str]
+    Limit: NotRequired[int]
+
+class DescribeSnapshotsRequestTypeDef(TypedDict):
+    DirectoryId: NotRequired[str]
+    SnapshotIds: NotRequired[Sequence[str]]
+    NextToken: NotRequired[str]
+    Limit: NotRequired[int]
+
+SnapshotTypeDef = TypedDict(
+    "SnapshotTypeDef",
     {
-        "Name": str,
-        "Value": str,
+        "DirectoryId": NotRequired[str],
+        "SnapshotId": NotRequired[str],
+        "Type": NotRequired[SnapshotTypeType],
+        "Name": NotRequired[str],
+        "Status": NotRequired[SnapshotStatusType],
+        "StartTime": NotRequired[datetime],
     },
 )
 
-_RequiredShareDirectoryRequestRequestTypeDef = TypedDict(
-    "_RequiredShareDirectoryRequestRequestTypeDef",
+class DescribeTrustsRequestTypeDef(TypedDict):
+    DirectoryId: NotRequired[str]
+    TrustIds: NotRequired[Sequence[str]]
+    NextToken: NotRequired[str]
+    Limit: NotRequired[int]
+
+class TrustTypeDef(TypedDict):
+    DirectoryId: NotRequired[str]
+    TrustId: NotRequired[str]
+    RemoteDomainName: NotRequired[str]
+    TrustType: NotRequired[TrustTypeType]
+    TrustDirection: NotRequired[TrustDirectionType]
+    TrustState: NotRequired[TrustStateType]
+    CreatedDateTime: NotRequired[datetime]
+    LastUpdatedDateTime: NotRequired[datetime]
+    StateLastUpdatedDateTime: NotRequired[datetime]
+    TrustStateReason: NotRequired[str]
+    SelectiveAuth: NotRequired[SelectiveAuthType]
+
+DescribeUpdateDirectoryRequestTypeDef = TypedDict(
+    "DescribeUpdateDirectoryRequestTypeDef",
     {
         "DirectoryId": str,
-        "ShareTarget": "ShareTargetTypeDef",
-        "ShareMethod": ShareMethodType,
+        "UpdateType": Literal["OS"],
+        "RegionName": NotRequired[str],
+        "NextToken": NotRequired[str],
     },
-)
-_OptionalShareDirectoryRequestRequestTypeDef = TypedDict(
-    "_OptionalShareDirectoryRequestRequestTypeDef",
-    {
-        "ShareNotes": str,
-    },
-    total=False,
 )
 
-class ShareDirectoryRequestRequestTypeDef(
-    _RequiredShareDirectoryRequestRequestTypeDef, _OptionalShareDirectoryRequestRequestTypeDef
-):
-    pass
+class DirectoryConnectSettingsDescriptionTypeDef(TypedDict):
+    VpcId: NotRequired[str]
+    SubnetIds: NotRequired[List[str]]
+    CustomerUserName: NotRequired[str]
+    SecurityGroupId: NotRequired[str]
+    AvailabilityZones: NotRequired[List[str]]
+    ConnectIps: NotRequired[List[str]]
 
-ShareDirectoryResultTypeDef = TypedDict(
-    "ShareDirectoryResultTypeDef",
+class DirectoryVpcSettingsDescriptionTypeDef(TypedDict):
+    VpcId: NotRequired[str]
+    SubnetIds: NotRequired[List[str]]
+    SecurityGroupId: NotRequired[str]
+    AvailabilityZones: NotRequired[List[str]]
+
+class RadiusSettingsOutputTypeDef(TypedDict):
+    RadiusServers: NotRequired[List[str]]
+    RadiusPort: NotRequired[int]
+    RadiusTimeout: NotRequired[int]
+    RadiusRetries: NotRequired[int]
+    SharedSecret: NotRequired[str]
+    AuthenticationProtocol: NotRequired[RadiusAuthenticationProtocolType]
+    DisplayLabel: NotRequired[str]
+    UseSameUsername: NotRequired[bool]
+
+class RegionsInfoTypeDef(TypedDict):
+    PrimaryRegion: NotRequired[str]
+    AdditionalRegions: NotRequired[List[str]]
+
+class DirectoryLimitsTypeDef(TypedDict):
+    CloudOnlyDirectoriesLimit: NotRequired[int]
+    CloudOnlyDirectoriesCurrentCount: NotRequired[int]
+    CloudOnlyDirectoriesLimitReached: NotRequired[bool]
+    CloudOnlyMicrosoftADLimit: NotRequired[int]
+    CloudOnlyMicrosoftADCurrentCount: NotRequired[int]
+    CloudOnlyMicrosoftADLimitReached: NotRequired[bool]
+    ConnectedDirectoriesLimit: NotRequired[int]
+    ConnectedDirectoriesCurrentCount: NotRequired[int]
+    ConnectedDirectoriesLimitReached: NotRequired[bool]
+
+class DirectoryVpcSettingsOutputTypeDef(TypedDict):
+    VpcId: str
+    SubnetIds: List[str]
+
+class DirectoryVpcSettingsTypeDef(TypedDict):
+    VpcId: str
+    SubnetIds: Sequence[str]
+
+DisableClientAuthenticationRequestTypeDef = TypedDict(
+    "DisableClientAuthenticationRequestTypeDef",
     {
-        "SharedDirectoryId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "DirectoryId": str,
+        "Type": ClientAuthenticationTypeType,
     },
 )
+
+class DisableDirectoryDataAccessRequestTypeDef(TypedDict):
+    DirectoryId: str
+
+DisableLDAPSRequestTypeDef = TypedDict(
+    "DisableLDAPSRequestTypeDef",
+    {
+        "DirectoryId": str,
+        "Type": Literal["Client"],
+    },
+)
+
+class DisableRadiusRequestTypeDef(TypedDict):
+    DirectoryId: str
+
+class DisableSsoRequestTypeDef(TypedDict):
+    DirectoryId: str
+    UserName: NotRequired[str]
+    Password: NotRequired[str]
+
+EnableClientAuthenticationRequestTypeDef = TypedDict(
+    "EnableClientAuthenticationRequestTypeDef",
+    {
+        "DirectoryId": str,
+        "Type": ClientAuthenticationTypeType,
+    },
+)
+
+class EnableDirectoryDataAccessRequestTypeDef(TypedDict):
+    DirectoryId: str
+
+EnableLDAPSRequestTypeDef = TypedDict(
+    "EnableLDAPSRequestTypeDef",
+    {
+        "DirectoryId": str,
+        "Type": Literal["Client"],
+    },
+)
+
+class EnableSsoRequestTypeDef(TypedDict):
+    DirectoryId: str
+    UserName: NotRequired[str]
+    Password: NotRequired[str]
+
+class GetSnapshotLimitsRequestTypeDef(TypedDict):
+    DirectoryId: str
+
+class SnapshotLimitsTypeDef(TypedDict):
+    ManualSnapshotsLimit: NotRequired[int]
+    ManualSnapshotsCurrentCount: NotRequired[int]
+    ManualSnapshotsLimitReached: NotRequired[bool]
+
+class IpRouteInfoTypeDef(TypedDict):
+    DirectoryId: NotRequired[str]
+    CidrIp: NotRequired[str]
+    IpRouteStatusMsg: NotRequired[IpRouteStatusMsgType]
+    AddedDateTime: NotRequired[datetime]
+    IpRouteStatusReason: NotRequired[str]
+    Description: NotRequired[str]
+
+class ListCertificatesRequestTypeDef(TypedDict):
+    DirectoryId: str
+    NextToken: NotRequired[str]
+    Limit: NotRequired[int]
+
+class ListIpRoutesRequestTypeDef(TypedDict):
+    DirectoryId: str
+    NextToken: NotRequired[str]
+    Limit: NotRequired[int]
+
+class ListLogSubscriptionsRequestTypeDef(TypedDict):
+    DirectoryId: NotRequired[str]
+    NextToken: NotRequired[str]
+    Limit: NotRequired[int]
+
+class LogSubscriptionTypeDef(TypedDict):
+    DirectoryId: NotRequired[str]
+    LogGroupName: NotRequired[str]
+    SubscriptionCreatedDateTime: NotRequired[datetime]
+
+class ListSchemaExtensionsRequestTypeDef(TypedDict):
+    DirectoryId: str
+    NextToken: NotRequired[str]
+    Limit: NotRequired[int]
+
+class SchemaExtensionInfoTypeDef(TypedDict):
+    DirectoryId: NotRequired[str]
+    SchemaExtensionId: NotRequired[str]
+    Description: NotRequired[str]
+    SchemaExtensionStatus: NotRequired[SchemaExtensionStatusType]
+    SchemaExtensionStatusReason: NotRequired[str]
+    StartDateTime: NotRequired[datetime]
+    EndDateTime: NotRequired[datetime]
+
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    ResourceId: str
+    NextToken: NotRequired[str]
+    Limit: NotRequired[int]
+
+class OSUpdateSettingsTypeDef(TypedDict):
+    OSVersion: NotRequired[OSVersionType]
+
+class RadiusSettingsTypeDef(TypedDict):
+    RadiusServers: NotRequired[Sequence[str]]
+    RadiusPort: NotRequired[int]
+    RadiusTimeout: NotRequired[int]
+    RadiusRetries: NotRequired[int]
+    SharedSecret: NotRequired[str]
+    AuthenticationProtocol: NotRequired[RadiusAuthenticationProtocolType]
+    DisplayLabel: NotRequired[str]
+    UseSameUsername: NotRequired[bool]
+
+class RegisterEventTopicRequestTypeDef(TypedDict):
+    DirectoryId: str
+    TopicName: str
+
+class RejectSharedDirectoryRequestTypeDef(TypedDict):
+    SharedDirectoryId: str
+
+class RemoveIpRoutesRequestTypeDef(TypedDict):
+    DirectoryId: str
+    CidrIps: Sequence[str]
+
+class RemoveRegionRequestTypeDef(TypedDict):
+    DirectoryId: str
+
+class RemoveTagsFromResourceRequestTypeDef(TypedDict):
+    ResourceId: str
+    TagKeys: Sequence[str]
+
+class ResetUserPasswordRequestTypeDef(TypedDict):
+    DirectoryId: str
+    UserName: str
+    NewPassword: str
+
+class RestoreFromSnapshotRequestTypeDef(TypedDict):
+    SnapshotId: str
+
+class SettingTypeDef(TypedDict):
+    Name: str
+    Value: str
 
 ShareTargetTypeDef = TypedDict(
     "ShareTargetTypeDef",
@@ -1636,104 +715,11 @@ ShareTargetTypeDef = TypedDict(
     },
 )
 
-SharedDirectoryTypeDef = TypedDict(
-    "SharedDirectoryTypeDef",
-    {
-        "OwnerAccountId": str,
-        "OwnerDirectoryId": str,
-        "ShareMethod": ShareMethodType,
-        "SharedAccountId": str,
-        "SharedDirectoryId": str,
-        "ShareStatus": ShareStatusType,
-        "ShareNotes": str,
-        "CreatedDateTime": datetime,
-        "LastUpdatedDateTime": datetime,
-    },
-    total=False,
-)
-
-SnapshotLimitsTypeDef = TypedDict(
-    "SnapshotLimitsTypeDef",
-    {
-        "ManualSnapshotsLimit": int,
-        "ManualSnapshotsCurrentCount": int,
-        "ManualSnapshotsLimitReached": bool,
-    },
-    total=False,
-)
-
-SnapshotTypeDef = TypedDict(
-    "SnapshotTypeDef",
-    {
-        "DirectoryId": str,
-        "SnapshotId": str,
-        "Type": SnapshotTypeType,
-        "Name": str,
-        "Status": SnapshotStatusType,
-        "StartTime": datetime,
-    },
-    total=False,
-)
-
-StartSchemaExtensionRequestRequestTypeDef = TypedDict(
-    "StartSchemaExtensionRequestRequestTypeDef",
-    {
-        "DirectoryId": str,
-        "CreateSnapshotBeforeSchemaExtension": bool,
-        "LdifContent": str,
-        "Description": str,
-    },
-)
-
-StartSchemaExtensionResultTypeDef = TypedDict(
-    "StartSchemaExtensionResultTypeDef",
-    {
-        "SchemaExtensionId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-TagTypeDef = TypedDict(
-    "TagTypeDef",
-    {
-        "Key": str,
-        "Value": str,
-    },
-)
-
-TrustTypeDef = TypedDict(
-    "TrustTypeDef",
-    {
-        "DirectoryId": str,
-        "TrustId": str,
-        "RemoteDomainName": str,
-        "TrustType": TrustTypeType,
-        "TrustDirection": TrustDirectionType,
-        "TrustState": TrustStateType,
-        "CreatedDateTime": datetime,
-        "LastUpdatedDateTime": datetime,
-        "StateLastUpdatedDateTime": datetime,
-        "TrustStateReason": str,
-        "SelectiveAuth": SelectiveAuthType,
-    },
-    total=False,
-)
-
-UnshareDirectoryRequestRequestTypeDef = TypedDict(
-    "UnshareDirectoryRequestRequestTypeDef",
-    {
-        "DirectoryId": str,
-        "UnshareTarget": "UnshareTargetTypeDef",
-    },
-)
-
-UnshareDirectoryResultTypeDef = TypedDict(
-    "UnshareDirectoryResultTypeDef",
-    {
-        "SharedDirectoryId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class StartSchemaExtensionRequestTypeDef(TypedDict):
+    DirectoryId: str
+    CreateSnapshotBeforeSchemaExtension: bool
+    LdifContent: str
+    Description: str
 
 UnshareTargetTypeDef = TypedDict(
     "UnshareTargetTypeDef",
@@ -1743,131 +729,457 @@ UnshareTargetTypeDef = TypedDict(
     },
 )
 
-UpdateConditionalForwarderRequestRequestTypeDef = TypedDict(
-    "UpdateConditionalForwarderRequestRequestTypeDef",
+class UpdateConditionalForwarderRequestTypeDef(TypedDict):
+    DirectoryId: str
+    RemoteDomainName: str
+    DnsIpAddrs: Sequence[str]
+
+class UpdateNumberOfDomainControllersRequestTypeDef(TypedDict):
+    DirectoryId: str
+    DesiredNumber: int
+
+class UpdateTrustRequestTypeDef(TypedDict):
+    TrustId: str
+    SelectiveAuth: NotRequired[SelectiveAuthType]
+
+class VerifyTrustRequestTypeDef(TypedDict):
+    TrustId: str
+
+class ConnectDirectoryResultTypeDef(TypedDict):
+    DirectoryId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateAliasResultTypeDef(TypedDict):
+    DirectoryId: str
+    Alias: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateDirectoryResultTypeDef(TypedDict):
+    DirectoryId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateMicrosoftADResultTypeDef(TypedDict):
+    DirectoryId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateSnapshotResultTypeDef(TypedDict):
+    SnapshotId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateTrustResultTypeDef(TypedDict):
+    TrustId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteDirectoryResultTypeDef(TypedDict):
+    DirectoryId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteSnapshotResultTypeDef(TypedDict):
+    SnapshotId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteTrustResultTypeDef(TypedDict):
+    TrustId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeDirectoryDataAccessResultTypeDef(TypedDict):
+    DataAccessStatus: DataAccessStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class RegisterCertificateResultTypeDef(TypedDict):
+    CertificateId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class RejectSharedDirectoryResultTypeDef(TypedDict):
+    SharedDirectoryId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ShareDirectoryResultTypeDef(TypedDict):
+    SharedDirectoryId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartSchemaExtensionResultTypeDef(TypedDict):
+    SchemaExtensionId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UnshareDirectoryResultTypeDef(TypedDict):
+    SharedDirectoryId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateSettingsResultTypeDef(TypedDict):
+    DirectoryId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateTrustResultTypeDef(TypedDict):
+    RequestId: str
+    TrustId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class VerifyTrustResultTypeDef(TypedDict):
+    TrustId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class AcceptSharedDirectoryResultTypeDef(TypedDict):
+    SharedDirectory: SharedDirectoryTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeSharedDirectoriesResultTypeDef(TypedDict):
+    SharedDirectories: List[SharedDirectoryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class AddIpRoutesRequestTypeDef(TypedDict):
+    DirectoryId: str
+    IpRoutes: Sequence[IpRouteTypeDef]
+    UpdateSecurityGroupForDirectoryControllers: NotRequired[bool]
+
+class AddTagsToResourceRequestTypeDef(TypedDict):
+    ResourceId: str
+    Tags: Sequence[TagTypeDef]
+
+class ListTagsForResourceResultTypeDef(TypedDict):
+    Tags: List[TagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ComputerTypeDef(TypedDict):
+    ComputerId: NotRequired[str]
+    ComputerName: NotRequired[str]
+    ComputerAttributes: NotRequired[List[AttributeTypeDef]]
+
+class CreateComputerRequestTypeDef(TypedDict):
+    DirectoryId: str
+    ComputerName: str
+    Password: str
+    OrganizationalUnitDistinguishedName: NotRequired[str]
+    ComputerAttributes: NotRequired[Sequence[AttributeTypeDef]]
+
+class ListCertificatesResultTypeDef(TypedDict):
+    CertificatesInfo: List[CertificateInfoTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+CertificateTypeDef = TypedDict(
+    "CertificateTypeDef",
+    {
+        "CertificateId": NotRequired[str],
+        "State": NotRequired[CertificateStateType],
+        "StateReason": NotRequired[str],
+        "CommonName": NotRequired[str],
+        "RegisteredDateTime": NotRequired[datetime],
+        "ExpiryDateTime": NotRequired[datetime],
+        "Type": NotRequired[CertificateTypeType],
+        "ClientCertAuthSettings": NotRequired[ClientCertAuthSettingsTypeDef],
+    },
+)
+RegisterCertificateRequestTypeDef = TypedDict(
+    "RegisterCertificateRequestTypeDef",
     {
         "DirectoryId": str,
-        "RemoteDomainName": str,
-        "DnsIpAddrs": List[str],
+        "CertificateData": str,
+        "Type": NotRequired[CertificateTypeType],
+        "ClientCertAuthSettings": NotRequired[ClientCertAuthSettingsTypeDef],
     },
 )
 
-_RequiredUpdateDirectorySetupRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateDirectorySetupRequestRequestTypeDef",
+class DescribeClientAuthenticationSettingsResultTypeDef(TypedDict):
+    ClientAuthenticationSettingsInfo: List[ClientAuthenticationSettingInfoTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class DescribeConditionalForwardersResultTypeDef(TypedDict):
+    ConditionalForwarders: List[ConditionalForwarderTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ConnectDirectoryRequestTypeDef(TypedDict):
+    Name: str
+    Password: str
+    Size: DirectorySizeType
+    ConnectSettings: DirectoryConnectSettingsTypeDef
+    ShortName: NotRequired[str]
+    Description: NotRequired[str]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+
+DescribeClientAuthenticationSettingsRequestPaginateTypeDef = TypedDict(
+    "DescribeClientAuthenticationSettingsRequestPaginateTypeDef",
+    {
+        "DirectoryId": str,
+        "Type": NotRequired[ClientAuthenticationTypeType],
+        "PaginationConfig": NotRequired[PaginatorConfigTypeDef],
+    },
+)
+
+class DescribeDirectoriesRequestPaginateTypeDef(TypedDict):
+    DirectoryIds: NotRequired[Sequence[str]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeDomainControllersRequestPaginateTypeDef(TypedDict):
+    DirectoryId: str
+    DomainControllerIds: NotRequired[Sequence[str]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+DescribeLDAPSSettingsRequestPaginateTypeDef = TypedDict(
+    "DescribeLDAPSSettingsRequestPaginateTypeDef",
+    {
+        "DirectoryId": str,
+        "Type": NotRequired[Literal["Client"]],
+        "PaginationConfig": NotRequired[PaginatorConfigTypeDef],
+    },
+)
+DescribeRegionsRequestPaginateTypeDef = TypedDict(
+    "DescribeRegionsRequestPaginateTypeDef",
+    {
+        "DirectoryId": str,
+        "RegionName": NotRequired[str],
+        "PaginationConfig": NotRequired[PaginatorConfigTypeDef],
+    },
+)
+
+class DescribeSharedDirectoriesRequestPaginateTypeDef(TypedDict):
+    OwnerDirectoryId: str
+    SharedDirectoryIds: NotRequired[Sequence[str]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeSnapshotsRequestPaginateTypeDef(TypedDict):
+    DirectoryId: NotRequired[str]
+    SnapshotIds: NotRequired[Sequence[str]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeTrustsRequestPaginateTypeDef(TypedDict):
+    DirectoryId: NotRequired[str]
+    TrustIds: NotRequired[Sequence[str]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+DescribeUpdateDirectoryRequestPaginateTypeDef = TypedDict(
+    "DescribeUpdateDirectoryRequestPaginateTypeDef",
     {
         "DirectoryId": str,
         "UpdateType": Literal["OS"],
+        "RegionName": NotRequired[str],
+        "PaginationConfig": NotRequired[PaginatorConfigTypeDef],
     },
 )
-_OptionalUpdateDirectorySetupRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateDirectorySetupRequestRequestTypeDef",
+
+class ListCertificatesRequestPaginateTypeDef(TypedDict):
+    DirectoryId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListIpRoutesRequestPaginateTypeDef(TypedDict):
+    DirectoryId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListLogSubscriptionsRequestPaginateTypeDef(TypedDict):
+    DirectoryId: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListSchemaExtensionsRequestPaginateTypeDef(TypedDict):
+    DirectoryId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListTagsForResourceRequestPaginateTypeDef(TypedDict):
+    ResourceId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeDomainControllersResultTypeDef(TypedDict):
+    DomainControllers: List[DomainControllerTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class DescribeEventTopicsResultTypeDef(TypedDict):
+    EventTopics: List[EventTopicTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeLDAPSSettingsResultTypeDef(TypedDict):
+    LDAPSSettingsInfo: List[LDAPSSettingInfoTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class DescribeSettingsResultTypeDef(TypedDict):
+    DirectoryId: str
+    SettingEntries: List[SettingEntryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class DescribeSnapshotsResultTypeDef(TypedDict):
+    Snapshots: List[SnapshotTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class DescribeTrustsResultTypeDef(TypedDict):
+    Trusts: List[TrustTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class OwnerDirectoryDescriptionTypeDef(TypedDict):
+    DirectoryId: NotRequired[str]
+    AccountId: NotRequired[str]
+    DnsIpAddrs: NotRequired[List[str]]
+    VpcSettings: NotRequired[DirectoryVpcSettingsDescriptionTypeDef]
+    RadiusSettings: NotRequired[RadiusSettingsOutputTypeDef]
+    RadiusStatus: NotRequired[RadiusStatusType]
+
+class GetDirectoryLimitsResultTypeDef(TypedDict):
+    DirectoryLimits: DirectoryLimitsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+RegionDescriptionTypeDef = TypedDict(
+    "RegionDescriptionTypeDef",
     {
-        "OSUpdateSettings": "OSUpdateSettingsTypeDef",
-        "CreateSnapshotBeforeUpdate": bool,
+        "DirectoryId": NotRequired[str],
+        "RegionName": NotRequired[str],
+        "RegionType": NotRequired[RegionTypeType],
+        "Status": NotRequired[DirectoryStageType],
+        "VpcSettings": NotRequired[DirectoryVpcSettingsOutputTypeDef],
+        "DesiredNumberOfDomainControllers": NotRequired[int],
+        "LaunchTime": NotRequired[datetime],
+        "StatusLastUpdatedDateTime": NotRequired[datetime],
+        "LastUpdatedDateTime": NotRequired[datetime],
     },
-    total=False,
 )
+DirectoryVpcSettingsUnionTypeDef = Union[
+    DirectoryVpcSettingsTypeDef, DirectoryVpcSettingsOutputTypeDef
+]
 
-class UpdateDirectorySetupRequestRequestTypeDef(
-    _RequiredUpdateDirectorySetupRequestRequestTypeDef,
-    _OptionalUpdateDirectorySetupRequestRequestTypeDef,
-):
-    pass
+class GetSnapshotLimitsResultTypeDef(TypedDict):
+    SnapshotLimits: SnapshotLimitsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-UpdateInfoEntryTypeDef = TypedDict(
-    "UpdateInfoEntryTypeDef",
+class ListIpRoutesResultTypeDef(TypedDict):
+    IpRoutesInfo: List[IpRouteInfoTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListLogSubscriptionsResultTypeDef(TypedDict):
+    LogSubscriptions: List[LogSubscriptionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListSchemaExtensionsResultTypeDef(TypedDict):
+    SchemaExtensionsInfo: List[SchemaExtensionInfoTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class UpdateDirectorySetupRequestTypeDef(TypedDict):
+    DirectoryId: str
+    UpdateType: Literal["OS"]
+    OSUpdateSettings: NotRequired[OSUpdateSettingsTypeDef]
+    CreateSnapshotBeforeUpdate: NotRequired[bool]
+
+class UpdateValueTypeDef(TypedDict):
+    OSUpdateSettings: NotRequired[OSUpdateSettingsTypeDef]
+
+RadiusSettingsUnionTypeDef = Union[RadiusSettingsTypeDef, RadiusSettingsOutputTypeDef]
+
+class UpdateSettingsRequestTypeDef(TypedDict):
+    DirectoryId: str
+    Settings: Sequence[SettingTypeDef]
+
+class ShareDirectoryRequestTypeDef(TypedDict):
+    DirectoryId: str
+    ShareTarget: ShareTargetTypeDef
+    ShareMethod: ShareMethodType
+    ShareNotes: NotRequired[str]
+
+class UnshareDirectoryRequestTypeDef(TypedDict):
+    DirectoryId: str
+    UnshareTarget: UnshareTargetTypeDef
+
+class CreateComputerResultTypeDef(TypedDict):
+    Computer: ComputerTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeCertificateResultTypeDef(TypedDict):
+    Certificate: CertificateTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+DirectoryDescriptionTypeDef = TypedDict(
+    "DirectoryDescriptionTypeDef",
     {
-        "Region": str,
-        "Status": UpdateStatusType,
-        "StatusReason": str,
-        "InitiatedBy": str,
-        "NewValue": "UpdateValueTypeDef",
-        "PreviousValue": "UpdateValueTypeDef",
-        "StartTime": datetime,
-        "LastUpdatedDateTime": datetime,
+        "DirectoryId": NotRequired[str],
+        "Name": NotRequired[str],
+        "ShortName": NotRequired[str],
+        "Size": NotRequired[DirectorySizeType],
+        "Edition": NotRequired[DirectoryEditionType],
+        "Alias": NotRequired[str],
+        "AccessUrl": NotRequired[str],
+        "Description": NotRequired[str],
+        "DnsIpAddrs": NotRequired[List[str]],
+        "Stage": NotRequired[DirectoryStageType],
+        "ShareStatus": NotRequired[ShareStatusType],
+        "ShareMethod": NotRequired[ShareMethodType],
+        "ShareNotes": NotRequired[str],
+        "LaunchTime": NotRequired[datetime],
+        "StageLastUpdatedDateTime": NotRequired[datetime],
+        "Type": NotRequired[DirectoryTypeType],
+        "VpcSettings": NotRequired[DirectoryVpcSettingsDescriptionTypeDef],
+        "ConnectSettings": NotRequired[DirectoryConnectSettingsDescriptionTypeDef],
+        "RadiusSettings": NotRequired[RadiusSettingsOutputTypeDef],
+        "RadiusStatus": NotRequired[RadiusStatusType],
+        "StageReason": NotRequired[str],
+        "SsoEnabled": NotRequired[bool],
+        "DesiredNumberOfDomainControllers": NotRequired[int],
+        "OwnerDirectoryDescription": NotRequired[OwnerDirectoryDescriptionTypeDef],
+        "RegionsInfo": NotRequired[RegionsInfoTypeDef],
+        "OsVersion": NotRequired[OSVersionType],
     },
-    total=False,
 )
 
-UpdateNumberOfDomainControllersRequestRequestTypeDef = TypedDict(
-    "UpdateNumberOfDomainControllersRequestRequestTypeDef",
+class DescribeRegionsResultTypeDef(TypedDict):
+    RegionsDescription: List[RegionDescriptionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+AddRegionRequestTypeDef = TypedDict(
+    "AddRegionRequestTypeDef",
     {
         "DirectoryId": str,
-        "DesiredNumber": int,
+        "RegionName": str,
+        "VPCSettings": DirectoryVpcSettingsUnionTypeDef,
     },
 )
 
-UpdateRadiusRequestRequestTypeDef = TypedDict(
-    "UpdateRadiusRequestRequestTypeDef",
-    {
-        "DirectoryId": str,
-        "RadiusSettings": "RadiusSettingsTypeDef",
-    },
-)
+class CreateDirectoryRequestTypeDef(TypedDict):
+    Name: str
+    Password: str
+    Size: DirectorySizeType
+    ShortName: NotRequired[str]
+    Description: NotRequired[str]
+    VpcSettings: NotRequired[DirectoryVpcSettingsUnionTypeDef]
+    Tags: NotRequired[Sequence[TagTypeDef]]
 
-UpdateSettingsRequestRequestTypeDef = TypedDict(
-    "UpdateSettingsRequestRequestTypeDef",
-    {
-        "DirectoryId": str,
-        "Settings": List["SettingTypeDef"],
-    },
-)
+class CreateMicrosoftADRequestTypeDef(TypedDict):
+    Name: str
+    Password: str
+    VpcSettings: DirectoryVpcSettingsUnionTypeDef
+    ShortName: NotRequired[str]
+    Description: NotRequired[str]
+    Edition: NotRequired[DirectoryEditionType]
+    Tags: NotRequired[Sequence[TagTypeDef]]
 
-UpdateSettingsResultTypeDef = TypedDict(
-    "UpdateSettingsResultTypeDef",
-    {
-        "DirectoryId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class UpdateInfoEntryTypeDef(TypedDict):
+    Region: NotRequired[str]
+    Status: NotRequired[UpdateStatusType]
+    StatusReason: NotRequired[str]
+    InitiatedBy: NotRequired[str]
+    NewValue: NotRequired[UpdateValueTypeDef]
+    PreviousValue: NotRequired[UpdateValueTypeDef]
+    StartTime: NotRequired[datetime]
+    LastUpdatedDateTime: NotRequired[datetime]
 
-_RequiredUpdateTrustRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateTrustRequestRequestTypeDef",
-    {
-        "TrustId": str,
-    },
-)
-_OptionalUpdateTrustRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateTrustRequestRequestTypeDef",
-    {
-        "SelectiveAuth": SelectiveAuthType,
-    },
-    total=False,
-)
+class EnableRadiusRequestTypeDef(TypedDict):
+    DirectoryId: str
+    RadiusSettings: RadiusSettingsUnionTypeDef
 
-class UpdateTrustRequestRequestTypeDef(
-    _RequiredUpdateTrustRequestRequestTypeDef, _OptionalUpdateTrustRequestRequestTypeDef
-):
-    pass
+class UpdateRadiusRequestTypeDef(TypedDict):
+    DirectoryId: str
+    RadiusSettings: RadiusSettingsUnionTypeDef
 
-UpdateTrustResultTypeDef = TypedDict(
-    "UpdateTrustResultTypeDef",
-    {
-        "RequestId": str,
-        "TrustId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DescribeDirectoriesResultTypeDef(TypedDict):
+    DirectoryDescriptions: List[DirectoryDescriptionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-UpdateValueTypeDef = TypedDict(
-    "UpdateValueTypeDef",
-    {
-        "OSUpdateSettings": "OSUpdateSettingsTypeDef",
-    },
-    total=False,
-)
-
-VerifyTrustRequestRequestTypeDef = TypedDict(
-    "VerifyTrustRequestRequestTypeDef",
-    {
-        "TrustId": str,
-    },
-)
-
-VerifyTrustResultTypeDef = TypedDict(
-    "VerifyTrustResultTypeDef",
-    {
-        "TrustId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DescribeUpdateDirectoryResultTypeDef(TypedDict):
+    UpdateActivities: List[UpdateInfoEntryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]

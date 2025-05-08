@@ -1,22 +1,32 @@
 """
 Type annotations for taxsettings service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_taxsettings/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_taxsettings/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_taxsettings.type_defs import AccountDetailsTypeDef
+    from mypy_boto3_taxsettings.type_defs import TaxInheritanceDetailsTypeDef
 
-    data: AccountDetailsTypeDef = {...}
+    data: TaxInheritanceDetailsTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from typing import Any, Dict, List
+from datetime import datetime
+from typing import IO, Any, Union
+
+from botocore.response import StreamingBody
 
 from .literals import (
     AddressRoleTypeType,
+    EntityExemptionAccountStatusType,
+    HeritageStatusType,
+    IndonesiaTaxRegistrationNumberTypeType,
     IndustriesType,
     IsraelCustomerTypeType,
     IsraelDealerTypeType,
@@ -29,12 +39,19 @@ from .literals import (
     TaxRegistrationStatusType,
     TaxRegistrationTypeType,
     UkraineTrnTypeType,
+    UzbekistanTaxRegistrationNumberTypeType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Sequence
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
+else:
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
     "AccountDetailsTypeDef",
@@ -42,33 +59,58 @@ __all__ = (
     "AdditionalInfoRequestTypeDef",
     "AdditionalInfoResponseTypeDef",
     "AddressTypeDef",
+    "AuthorityTypeDef",
     "BatchDeleteTaxRegistrationErrorTypeDef",
-    "BatchDeleteTaxRegistrationRequestRequestTypeDef",
+    "BatchDeleteTaxRegistrationRequestTypeDef",
     "BatchDeleteTaxRegistrationResponseTypeDef",
+    "BatchGetTaxExemptionsRequestTypeDef",
+    "BatchGetTaxExemptionsResponseTypeDef",
     "BatchPutTaxRegistrationErrorTypeDef",
-    "BatchPutTaxRegistrationRequestRequestTypeDef",
+    "BatchPutTaxRegistrationRequestTypeDef",
     "BatchPutTaxRegistrationResponseTypeDef",
+    "BlobTypeDef",
     "BrazilAdditionalInfoTypeDef",
     "CanadaAdditionalInfoTypeDef",
-    "DeleteTaxRegistrationRequestRequestTypeDef",
+    "DeleteSupplementalTaxRegistrationRequestTypeDef",
+    "DeleteTaxRegistrationRequestTypeDef",
     "DestinationS3LocationTypeDef",
+    "EgyptAdditionalInfoTypeDef",
     "EstoniaAdditionalInfoTypeDef",
+    "ExemptionCertificateTypeDef",
     "GeorgiaAdditionalInfoTypeDef",
-    "GetTaxRegistrationDocumentRequestRequestTypeDef",
+    "GetTaxExemptionTypesResponseTypeDef",
+    "GetTaxInheritanceResponseTypeDef",
+    "GetTaxRegistrationDocumentRequestTypeDef",
     "GetTaxRegistrationDocumentResponseTypeDef",
-    "GetTaxRegistrationRequestRequestTypeDef",
+    "GetTaxRegistrationRequestTypeDef",
     "GetTaxRegistrationResponseTypeDef",
+    "GreeceAdditionalInfoTypeDef",
     "IndiaAdditionalInfoTypeDef",
+    "IndonesiaAdditionalInfoTypeDef",
     "IsraelAdditionalInfoTypeDef",
     "ItalyAdditionalInfoTypeDef",
     "JurisdictionTypeDef",
     "KenyaAdditionalInfoTypeDef",
-    "ListTaxRegistrationsRequestRequestTypeDef",
+    "ListSupplementalTaxRegistrationsRequestPaginateTypeDef",
+    "ListSupplementalTaxRegistrationsRequestTypeDef",
+    "ListSupplementalTaxRegistrationsResponseTypeDef",
+    "ListTaxExemptionsRequestPaginateTypeDef",
+    "ListTaxExemptionsRequestTypeDef",
+    "ListTaxExemptionsResponseTypeDef",
+    "ListTaxRegistrationsRequestPaginateTypeDef",
+    "ListTaxRegistrationsRequestTypeDef",
     "ListTaxRegistrationsResponseTypeDef",
+    "MalaysiaAdditionalInfoOutputTypeDef",
     "MalaysiaAdditionalInfoTypeDef",
+    "MalaysiaAdditionalInfoUnionTypeDef",
     "PaginatorConfigTypeDef",
     "PolandAdditionalInfoTypeDef",
-    "PutTaxRegistrationRequestRequestTypeDef",
+    "PutSupplementalTaxRegistrationRequestTypeDef",
+    "PutSupplementalTaxRegistrationResponseTypeDef",
+    "PutTaxExemptionRequestTypeDef",
+    "PutTaxExemptionResponseTypeDef",
+    "PutTaxInheritanceRequestTypeDef",
+    "PutTaxRegistrationRequestTypeDef",
     "PutTaxRegistrationResponseTypeDef",
     "ResponseMetadataTypeDef",
     "RomaniaAdditionalInfoTypeDef",
@@ -76,567 +118,431 @@ __all__ = (
     "SourceS3LocationTypeDef",
     "SouthKoreaAdditionalInfoTypeDef",
     "SpainAdditionalInfoTypeDef",
+    "SupplementalTaxRegistrationEntryTypeDef",
+    "SupplementalTaxRegistrationTypeDef",
     "TaxDocumentMetadataTypeDef",
+    "TaxExemptionDetailsTypeDef",
+    "TaxExemptionTypeDef",
+    "TaxExemptionTypeTypeDef",
     "TaxInheritanceDetailsTypeDef",
+    "TaxRegistrationDocFileTypeDef",
     "TaxRegistrationDocumentTypeDef",
     "TaxRegistrationEntryTypeDef",
     "TaxRegistrationTypeDef",
     "TaxRegistrationWithJurisdictionTypeDef",
     "TurkeyAdditionalInfoTypeDef",
     "UkraineAdditionalInfoTypeDef",
+    "UzbekistanAdditionalInfoTypeDef",
     "VerificationDetailsTypeDef",
+    "VietnamAdditionalInfoTypeDef",
 )
 
-AccountDetailsTypeDef = TypedDict(
-    "AccountDetailsTypeDef",
-    {
-        "accountId": str,
-        "accountMetaData": "AccountMetaDataTypeDef",
-        "taxInheritanceDetails": "TaxInheritanceDetailsTypeDef",
-        "taxRegistration": "TaxRegistrationWithJurisdictionTypeDef",
-    },
-    total=False,
-)
+class TaxInheritanceDetailsTypeDef(TypedDict):
+    inheritanceObtainedReason: NotRequired[str]
+    parentEntityId: NotRequired[str]
 
-AccountMetaDataTypeDef = TypedDict(
-    "AccountMetaDataTypeDef",
-    {
-        "accountName": str,
-        "address": "AddressTypeDef",
-        "addressRoleMap": Dict[AddressRoleTypeType, "JurisdictionTypeDef"],
-        "addressType": AddressRoleTypeType,
-        "seller": str,
-    },
-    total=False,
-)
+class AddressTypeDef(TypedDict):
+    addressLine1: str
+    city: str
+    countryCode: str
+    postalCode: str
+    addressLine2: NotRequired[str]
+    addressLine3: NotRequired[str]
+    districtOrCounty: NotRequired[str]
+    stateOrRegion: NotRequired[str]
 
-AdditionalInfoRequestTypeDef = TypedDict(
-    "AdditionalInfoRequestTypeDef",
-    {
-        "canadaAdditionalInfo": "CanadaAdditionalInfoTypeDef",
-        "estoniaAdditionalInfo": "EstoniaAdditionalInfoTypeDef",
-        "georgiaAdditionalInfo": "GeorgiaAdditionalInfoTypeDef",
-        "israelAdditionalInfo": "IsraelAdditionalInfoTypeDef",
-        "italyAdditionalInfo": "ItalyAdditionalInfoTypeDef",
-        "kenyaAdditionalInfo": "KenyaAdditionalInfoTypeDef",
-        "malaysiaAdditionalInfo": "MalaysiaAdditionalInfoTypeDef",
-        "polandAdditionalInfo": "PolandAdditionalInfoTypeDef",
-        "romaniaAdditionalInfo": "RomaniaAdditionalInfoTypeDef",
-        "saudiArabiaAdditionalInfo": "SaudiArabiaAdditionalInfoTypeDef",
-        "southKoreaAdditionalInfo": "SouthKoreaAdditionalInfoTypeDef",
-        "spainAdditionalInfo": "SpainAdditionalInfoTypeDef",
-        "turkeyAdditionalInfo": "TurkeyAdditionalInfoTypeDef",
-        "ukraineAdditionalInfo": "UkraineAdditionalInfoTypeDef",
-    },
-    total=False,
-)
+class JurisdictionTypeDef(TypedDict):
+    countryCode: str
+    stateOrRegion: NotRequired[str]
 
-AdditionalInfoResponseTypeDef = TypedDict(
-    "AdditionalInfoResponseTypeDef",
-    {
-        "brazilAdditionalInfo": "BrazilAdditionalInfoTypeDef",
-        "canadaAdditionalInfo": "CanadaAdditionalInfoTypeDef",
-        "estoniaAdditionalInfo": "EstoniaAdditionalInfoTypeDef",
-        "georgiaAdditionalInfo": "GeorgiaAdditionalInfoTypeDef",
-        "indiaAdditionalInfo": "IndiaAdditionalInfoTypeDef",
-        "israelAdditionalInfo": "IsraelAdditionalInfoTypeDef",
-        "italyAdditionalInfo": "ItalyAdditionalInfoTypeDef",
-        "kenyaAdditionalInfo": "KenyaAdditionalInfoTypeDef",
-        "malaysiaAdditionalInfo": "MalaysiaAdditionalInfoTypeDef",
-        "polandAdditionalInfo": "PolandAdditionalInfoTypeDef",
-        "romaniaAdditionalInfo": "RomaniaAdditionalInfoTypeDef",
-        "saudiArabiaAdditionalInfo": "SaudiArabiaAdditionalInfoTypeDef",
-        "southKoreaAdditionalInfo": "SouthKoreaAdditionalInfoTypeDef",
-        "spainAdditionalInfo": "SpainAdditionalInfoTypeDef",
-        "turkeyAdditionalInfo": "TurkeyAdditionalInfoTypeDef",
-        "ukraineAdditionalInfo": "UkraineAdditionalInfoTypeDef",
-    },
-    total=False,
-)
+class CanadaAdditionalInfoTypeDef(TypedDict):
+    canadaQuebecSalesTaxNumber: NotRequired[str]
+    canadaRetailSalesTaxNumber: NotRequired[str]
+    isResellerAccount: NotRequired[bool]
+    provincialSalesTaxId: NotRequired[str]
 
-_RequiredAddressTypeDef = TypedDict(
-    "_RequiredAddressTypeDef",
-    {
-        "addressLine1": str,
-        "city": str,
-        "countryCode": str,
-        "postalCode": str,
-    },
-)
-_OptionalAddressTypeDef = TypedDict(
-    "_OptionalAddressTypeDef",
-    {
-        "addressLine2": str,
-        "addressLine3": str,
-        "districtOrCounty": str,
-        "stateOrRegion": str,
-    },
-    total=False,
-)
+class EgyptAdditionalInfoTypeDef(TypedDict):
+    uniqueIdentificationNumber: NotRequired[str]
+    uniqueIdentificationNumberExpirationDate: NotRequired[str]
 
-class AddressTypeDef(_RequiredAddressTypeDef, _OptionalAddressTypeDef):
-    pass
+class EstoniaAdditionalInfoTypeDef(TypedDict):
+    registryCommercialCode: str
 
-_RequiredBatchDeleteTaxRegistrationErrorTypeDef = TypedDict(
-    "_RequiredBatchDeleteTaxRegistrationErrorTypeDef",
-    {
-        "accountId": str,
-        "message": str,
-    },
-)
-_OptionalBatchDeleteTaxRegistrationErrorTypeDef = TypedDict(
-    "_OptionalBatchDeleteTaxRegistrationErrorTypeDef",
-    {
-        "code": str,
-    },
-    total=False,
-)
+class GeorgiaAdditionalInfoTypeDef(TypedDict):
+    personType: PersonTypeType
 
-class BatchDeleteTaxRegistrationErrorTypeDef(
-    _RequiredBatchDeleteTaxRegistrationErrorTypeDef, _OptionalBatchDeleteTaxRegistrationErrorTypeDef
-):
-    pass
+class GreeceAdditionalInfoTypeDef(TypedDict):
+    contractingAuthorityCode: NotRequired[str]
 
-BatchDeleteTaxRegistrationRequestRequestTypeDef = TypedDict(
-    "BatchDeleteTaxRegistrationRequestRequestTypeDef",
-    {
-        "accountIds": List[str],
-    },
-)
+class IndonesiaAdditionalInfoTypeDef(TypedDict):
+    decisionNumber: NotRequired[str]
+    ppnExceptionDesignationCode: NotRequired[str]
+    taxRegistrationNumberType: NotRequired[IndonesiaTaxRegistrationNumberTypeType]
 
-BatchDeleteTaxRegistrationResponseTypeDef = TypedDict(
-    "BatchDeleteTaxRegistrationResponseTypeDef",
-    {
-        "errors": List["BatchDeleteTaxRegistrationErrorTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class IsraelAdditionalInfoTypeDef(TypedDict):
+    customerType: IsraelCustomerTypeType
+    dealerType: IsraelDealerTypeType
 
-_RequiredBatchPutTaxRegistrationErrorTypeDef = TypedDict(
-    "_RequiredBatchPutTaxRegistrationErrorTypeDef",
-    {
-        "accountId": str,
-        "message": str,
-    },
-)
-_OptionalBatchPutTaxRegistrationErrorTypeDef = TypedDict(
-    "_OptionalBatchPutTaxRegistrationErrorTypeDef",
-    {
-        "code": str,
-    },
-    total=False,
-)
+class ItalyAdditionalInfoTypeDef(TypedDict):
+    cigNumber: NotRequired[str]
+    cupNumber: NotRequired[str]
+    sdiAccountId: NotRequired[str]
+    taxCode: NotRequired[str]
 
-class BatchPutTaxRegistrationErrorTypeDef(
-    _RequiredBatchPutTaxRegistrationErrorTypeDef, _OptionalBatchPutTaxRegistrationErrorTypeDef
-):
-    pass
+class KenyaAdditionalInfoTypeDef(TypedDict):
+    personType: PersonTypeType
 
-BatchPutTaxRegistrationRequestRequestTypeDef = TypedDict(
-    "BatchPutTaxRegistrationRequestRequestTypeDef",
-    {
-        "accountIds": List[str],
-        "taxRegistrationEntry": "TaxRegistrationEntryTypeDef",
-    },
-)
+class PolandAdditionalInfoTypeDef(TypedDict):
+    individualRegistrationNumber: NotRequired[str]
+    isGroupVatEnabled: NotRequired[bool]
 
-BatchPutTaxRegistrationResponseTypeDef = TypedDict(
-    "BatchPutTaxRegistrationResponseTypeDef",
-    {
-        "errors": List["BatchPutTaxRegistrationErrorTypeDef"],
-        "status": TaxRegistrationStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class RomaniaAdditionalInfoTypeDef(TypedDict):
+    taxRegistrationNumberType: TaxRegistrationNumberTypeType
 
-BrazilAdditionalInfoTypeDef = TypedDict(
-    "BrazilAdditionalInfoTypeDef",
-    {
-        "ccmCode": str,
-        "legalNatureCode": str,
-    },
-    total=False,
-)
+class SaudiArabiaAdditionalInfoTypeDef(TypedDict):
+    taxRegistrationNumberType: NotRequired[SaudiArabiaTaxRegistrationNumberTypeType]
 
-CanadaAdditionalInfoTypeDef = TypedDict(
-    "CanadaAdditionalInfoTypeDef",
-    {
-        "canadaQuebecSalesTaxNumber": str,
-        "canadaRetailSalesTaxNumber": str,
-        "isResellerAccount": bool,
-        "provincialSalesTaxId": str,
-    },
-    total=False,
-)
+class SouthKoreaAdditionalInfoTypeDef(TypedDict):
+    businessRepresentativeName: str
+    itemOfBusiness: str
+    lineOfBusiness: str
 
-DeleteTaxRegistrationRequestRequestTypeDef = TypedDict(
-    "DeleteTaxRegistrationRequestRequestTypeDef",
-    {
-        "accountId": str,
-    },
-    total=False,
-)
+class SpainAdditionalInfoTypeDef(TypedDict):
+    registrationType: RegistrationTypeType
 
-_RequiredDestinationS3LocationTypeDef = TypedDict(
-    "_RequiredDestinationS3LocationTypeDef",
-    {
-        "bucket": str,
-    },
-)
-_OptionalDestinationS3LocationTypeDef = TypedDict(
-    "_OptionalDestinationS3LocationTypeDef",
-    {
-        "prefix": str,
-    },
-    total=False,
-)
+class TurkeyAdditionalInfoTypeDef(TypedDict):
+    industries: NotRequired[IndustriesType]
+    kepEmailId: NotRequired[str]
+    secondaryTaxId: NotRequired[str]
+    taxOffice: NotRequired[str]
 
-class DestinationS3LocationTypeDef(
-    _RequiredDestinationS3LocationTypeDef, _OptionalDestinationS3LocationTypeDef
-):
-    pass
+class UkraineAdditionalInfoTypeDef(TypedDict):
+    ukraineTrnType: UkraineTrnTypeType
 
-EstoniaAdditionalInfoTypeDef = TypedDict(
-    "EstoniaAdditionalInfoTypeDef",
-    {
-        "registryCommercialCode": str,
-    },
-)
+class UzbekistanAdditionalInfoTypeDef(TypedDict):
+    taxRegistrationNumberType: NotRequired[UzbekistanTaxRegistrationNumberTypeType]
+    vatRegistrationNumber: NotRequired[str]
 
-GeorgiaAdditionalInfoTypeDef = TypedDict(
-    "GeorgiaAdditionalInfoTypeDef",
-    {
-        "personType": PersonTypeType,
-    },
-)
+class VietnamAdditionalInfoTypeDef(TypedDict):
+    electronicTransactionCodeNumber: NotRequired[str]
+    enterpriseIdentificationNumber: NotRequired[str]
+    paymentVoucherNumber: NotRequired[str]
+    paymentVoucherNumberDate: NotRequired[str]
 
-GetTaxRegistrationDocumentRequestRequestTypeDef = TypedDict(
-    "GetTaxRegistrationDocumentRequestRequestTypeDef",
-    {
-        "destinationS3Location": "DestinationS3LocationTypeDef",
-        "taxDocumentMetadata": "TaxDocumentMetadataTypeDef",
-    },
-)
+class BrazilAdditionalInfoTypeDef(TypedDict):
+    ccmCode: NotRequired[str]
+    legalNatureCode: NotRequired[str]
 
-GetTaxRegistrationDocumentResponseTypeDef = TypedDict(
-    "GetTaxRegistrationDocumentResponseTypeDef",
-    {
-        "destinationFilePath": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class IndiaAdditionalInfoTypeDef(TypedDict):
+    pan: NotRequired[str]
 
-GetTaxRegistrationRequestRequestTypeDef = TypedDict(
-    "GetTaxRegistrationRequestRequestTypeDef",
-    {
-        "accountId": str,
-    },
-    total=False,
-)
+class MalaysiaAdditionalInfoOutputTypeDef(TypedDict):
+    businessRegistrationNumber: NotRequired[str]
+    serviceTaxCodes: NotRequired[List[MalaysiaServiceTaxCodeType]]
+    taxInformationNumber: NotRequired[str]
 
-GetTaxRegistrationResponseTypeDef = TypedDict(
-    "GetTaxRegistrationResponseTypeDef",
-    {
-        "taxRegistration": "TaxRegistrationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class AuthorityTypeDef(TypedDict):
+    country: str
+    state: NotRequired[str]
 
-IndiaAdditionalInfoTypeDef = TypedDict(
-    "IndiaAdditionalInfoTypeDef",
-    {
-        "pan": str,
-    },
-    total=False,
-)
+class BatchDeleteTaxRegistrationErrorTypeDef(TypedDict):
+    accountId: str
+    message: str
+    code: NotRequired[str]
 
-IsraelAdditionalInfoTypeDef = TypedDict(
-    "IsraelAdditionalInfoTypeDef",
-    {
-        "customerType": IsraelCustomerTypeType,
-        "dealerType": IsraelDealerTypeType,
-    },
-)
+class BatchDeleteTaxRegistrationRequestTypeDef(TypedDict):
+    accountIds: Sequence[str]
 
-ItalyAdditionalInfoTypeDef = TypedDict(
-    "ItalyAdditionalInfoTypeDef",
-    {
-        "cigNumber": str,
-        "cupNumber": str,
-        "sdiAccountId": str,
-        "taxCode": str,
-    },
-    total=False,
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-_RequiredJurisdictionTypeDef = TypedDict(
-    "_RequiredJurisdictionTypeDef",
-    {
-        "countryCode": str,
-    },
-)
-_OptionalJurisdictionTypeDef = TypedDict(
-    "_OptionalJurisdictionTypeDef",
-    {
-        "stateOrRegion": str,
-    },
-    total=False,
-)
+class BatchGetTaxExemptionsRequestTypeDef(TypedDict):
+    accountIds: Sequence[str]
 
-class JurisdictionTypeDef(_RequiredJurisdictionTypeDef, _OptionalJurisdictionTypeDef):
-    pass
+class BatchPutTaxRegistrationErrorTypeDef(TypedDict):
+    accountId: str
+    message: str
+    code: NotRequired[str]
 
-KenyaAdditionalInfoTypeDef = TypedDict(
-    "KenyaAdditionalInfoTypeDef",
-    {
-        "personType": PersonTypeType,
-    },
-)
+BlobTypeDef = Union[str, bytes, IO[Any], StreamingBody]
 
-ListTaxRegistrationsRequestRequestTypeDef = TypedDict(
-    "ListTaxRegistrationsRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
+class DeleteSupplementalTaxRegistrationRequestTypeDef(TypedDict):
+    authorityId: str
 
-ListTaxRegistrationsResponseTypeDef = TypedDict(
-    "ListTaxRegistrationsResponseTypeDef",
-    {
-        "accountDetails": List["AccountDetailsTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DeleteTaxRegistrationRequestTypeDef(TypedDict):
+    accountId: NotRequired[str]
 
-MalaysiaAdditionalInfoTypeDef = TypedDict(
-    "MalaysiaAdditionalInfoTypeDef",
-    {
-        "serviceTaxCodes": List[MalaysiaServiceTaxCodeType],
-    },
-)
+class DestinationS3LocationTypeDef(TypedDict):
+    bucket: str
+    prefix: NotRequired[str]
 
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
+class TaxDocumentMetadataTypeDef(TypedDict):
+    taxDocumentAccessToken: str
+    taxDocumentName: str
 
-PolandAdditionalInfoTypeDef = TypedDict(
-    "PolandAdditionalInfoTypeDef",
-    {
-        "individualRegistrationNumber": str,
-        "isGroupVatEnabled": bool,
-    },
-    total=False,
-)
+class GetTaxRegistrationRequestTypeDef(TypedDict):
+    accountId: NotRequired[str]
 
-_RequiredPutTaxRegistrationRequestRequestTypeDef = TypedDict(
-    "_RequiredPutTaxRegistrationRequestRequestTypeDef",
-    {
-        "taxRegistrationEntry": "TaxRegistrationEntryTypeDef",
-    },
-)
-_OptionalPutTaxRegistrationRequestRequestTypeDef = TypedDict(
-    "_OptionalPutTaxRegistrationRequestRequestTypeDef",
-    {
-        "accountId": str,
-    },
-    total=False,
-)
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
 
-class PutTaxRegistrationRequestRequestTypeDef(
-    _RequiredPutTaxRegistrationRequestRequestTypeDef,
-    _OptionalPutTaxRegistrationRequestRequestTypeDef,
-):
-    pass
+class ListSupplementalTaxRegistrationsRequestTypeDef(TypedDict):
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
 
-PutTaxRegistrationResponseTypeDef = TypedDict(
-    "PutTaxRegistrationResponseTypeDef",
-    {
-        "status": TaxRegistrationStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListTaxExemptionsRequestTypeDef(TypedDict):
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
 
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
+class ListTaxRegistrationsRequestTypeDef(TypedDict):
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
 
-RomaniaAdditionalInfoTypeDef = TypedDict(
-    "RomaniaAdditionalInfoTypeDef",
-    {
-        "taxRegistrationNumberType": TaxRegistrationNumberTypeType,
-    },
-)
+class MalaysiaAdditionalInfoTypeDef(TypedDict):
+    businessRegistrationNumber: NotRequired[str]
+    serviceTaxCodes: NotRequired[Sequence[MalaysiaServiceTaxCodeType]]
+    taxInformationNumber: NotRequired[str]
 
-SaudiArabiaAdditionalInfoTypeDef = TypedDict(
-    "SaudiArabiaAdditionalInfoTypeDef",
-    {
-        "taxRegistrationNumberType": SaudiArabiaTaxRegistrationNumberTypeType,
-    },
-    total=False,
-)
+class PutTaxInheritanceRequestTypeDef(TypedDict):
+    heritageStatus: NotRequired[HeritageStatusType]
 
-SourceS3LocationTypeDef = TypedDict(
-    "SourceS3LocationTypeDef",
-    {
-        "bucket": str,
-        "key": str,
-    },
-)
+class SourceS3LocationTypeDef(TypedDict):
+    bucket: str
+    key: str
 
-SouthKoreaAdditionalInfoTypeDef = TypedDict(
-    "SouthKoreaAdditionalInfoTypeDef",
-    {
-        "businessRepresentativeName": str,
-        "itemOfBusiness": str,
-        "lineOfBusiness": str,
-    },
-)
+class SupplementalTaxRegistrationEntryTypeDef(TypedDict):
+    address: AddressTypeDef
+    legalName: str
+    registrationId: str
+    registrationType: Literal["VAT"]
 
-SpainAdditionalInfoTypeDef = TypedDict(
-    "SpainAdditionalInfoTypeDef",
-    {
-        "registrationType": RegistrationTypeType,
-    },
-)
+class SupplementalTaxRegistrationTypeDef(TypedDict):
+    address: AddressTypeDef
+    authorityId: str
+    legalName: str
+    registrationId: str
+    registrationType: Literal["VAT"]
+    status: TaxRegistrationStatusType
 
-TaxDocumentMetadataTypeDef = TypedDict(
-    "TaxDocumentMetadataTypeDef",
-    {
-        "taxDocumentAccessToken": str,
-        "taxDocumentName": str,
-    },
-)
+class AccountMetaDataTypeDef(TypedDict):
+    accountName: NotRequired[str]
+    address: NotRequired[AddressTypeDef]
+    addressRoleMap: NotRequired[Dict[AddressRoleTypeType, JurisdictionTypeDef]]
+    addressType: NotRequired[AddressRoleTypeType]
+    seller: NotRequired[str]
 
-TaxInheritanceDetailsTypeDef = TypedDict(
-    "TaxInheritanceDetailsTypeDef",
-    {
-        "inheritanceObtainedReason": str,
-        "parentEntityId": str,
-    },
-    total=False,
-)
+class AdditionalInfoResponseTypeDef(TypedDict):
+    brazilAdditionalInfo: NotRequired[BrazilAdditionalInfoTypeDef]
+    canadaAdditionalInfo: NotRequired[CanadaAdditionalInfoTypeDef]
+    egyptAdditionalInfo: NotRequired[EgyptAdditionalInfoTypeDef]
+    estoniaAdditionalInfo: NotRequired[EstoniaAdditionalInfoTypeDef]
+    georgiaAdditionalInfo: NotRequired[GeorgiaAdditionalInfoTypeDef]
+    greeceAdditionalInfo: NotRequired[GreeceAdditionalInfoTypeDef]
+    indiaAdditionalInfo: NotRequired[IndiaAdditionalInfoTypeDef]
+    indonesiaAdditionalInfo: NotRequired[IndonesiaAdditionalInfoTypeDef]
+    israelAdditionalInfo: NotRequired[IsraelAdditionalInfoTypeDef]
+    italyAdditionalInfo: NotRequired[ItalyAdditionalInfoTypeDef]
+    kenyaAdditionalInfo: NotRequired[KenyaAdditionalInfoTypeDef]
+    malaysiaAdditionalInfo: NotRequired[MalaysiaAdditionalInfoOutputTypeDef]
+    polandAdditionalInfo: NotRequired[PolandAdditionalInfoTypeDef]
+    romaniaAdditionalInfo: NotRequired[RomaniaAdditionalInfoTypeDef]
+    saudiArabiaAdditionalInfo: NotRequired[SaudiArabiaAdditionalInfoTypeDef]
+    southKoreaAdditionalInfo: NotRequired[SouthKoreaAdditionalInfoTypeDef]
+    spainAdditionalInfo: NotRequired[SpainAdditionalInfoTypeDef]
+    turkeyAdditionalInfo: NotRequired[TurkeyAdditionalInfoTypeDef]
+    ukraineAdditionalInfo: NotRequired[UkraineAdditionalInfoTypeDef]
+    uzbekistanAdditionalInfo: NotRequired[UzbekistanAdditionalInfoTypeDef]
+    vietnamAdditionalInfo: NotRequired[VietnamAdditionalInfoTypeDef]
 
-TaxRegistrationDocumentTypeDef = TypedDict(
-    "TaxRegistrationDocumentTypeDef",
-    {
-        "s3Location": "SourceS3LocationTypeDef",
-    },
-)
+class TaxExemptionTypeTypeDef(TypedDict):
+    applicableJurisdictions: NotRequired[List[AuthorityTypeDef]]
+    description: NotRequired[str]
+    displayName: NotRequired[str]
 
-_RequiredTaxRegistrationEntryTypeDef = TypedDict(
-    "_RequiredTaxRegistrationEntryTypeDef",
-    {
-        "registrationId": str,
-        "registrationType": TaxRegistrationTypeType,
-    },
-)
-_OptionalTaxRegistrationEntryTypeDef = TypedDict(
-    "_OptionalTaxRegistrationEntryTypeDef",
-    {
-        "additionalTaxInformation": "AdditionalInfoRequestTypeDef",
-        "certifiedEmailId": str,
-        "legalAddress": "AddressTypeDef",
-        "legalName": str,
-        "sector": SectorType,
-        "verificationDetails": "VerificationDetailsTypeDef",
-    },
-    total=False,
-)
+class BatchDeleteTaxRegistrationResponseTypeDef(TypedDict):
+    errors: List[BatchDeleteTaxRegistrationErrorTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class TaxRegistrationEntryTypeDef(
-    _RequiredTaxRegistrationEntryTypeDef, _OptionalTaxRegistrationEntryTypeDef
-):
-    pass
+class GetTaxInheritanceResponseTypeDef(TypedDict):
+    heritageStatus: HeritageStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredTaxRegistrationTypeDef = TypedDict(
-    "_RequiredTaxRegistrationTypeDef",
-    {
-        "legalAddress": "AddressTypeDef",
-        "legalName": str,
-        "registrationId": str,
-        "registrationType": TaxRegistrationTypeType,
-        "status": TaxRegistrationStatusType,
-    },
-)
-_OptionalTaxRegistrationTypeDef = TypedDict(
-    "_OptionalTaxRegistrationTypeDef",
-    {
-        "additionalTaxInformation": "AdditionalInfoResponseTypeDef",
-        "certifiedEmailId": str,
-        "sector": SectorType,
-        "taxDocumentMetadatas": List["TaxDocumentMetadataTypeDef"],
-    },
-    total=False,
-)
+class GetTaxRegistrationDocumentResponseTypeDef(TypedDict):
+    destinationFilePath: str
+    presignedS3Url: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class TaxRegistrationTypeDef(_RequiredTaxRegistrationTypeDef, _OptionalTaxRegistrationTypeDef):
-    pass
+class PutSupplementalTaxRegistrationResponseTypeDef(TypedDict):
+    authorityId: str
+    status: TaxRegistrationStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredTaxRegistrationWithJurisdictionTypeDef = TypedDict(
-    "_RequiredTaxRegistrationWithJurisdictionTypeDef",
-    {
-        "jurisdiction": "JurisdictionTypeDef",
-        "legalName": str,
-        "registrationId": str,
-        "registrationType": TaxRegistrationTypeType,
-        "status": TaxRegistrationStatusType,
-    },
-)
-_OptionalTaxRegistrationWithJurisdictionTypeDef = TypedDict(
-    "_OptionalTaxRegistrationWithJurisdictionTypeDef",
-    {
-        "additionalTaxInformation": "AdditionalInfoResponseTypeDef",
-        "certifiedEmailId": str,
-        "sector": SectorType,
-        "taxDocumentMetadatas": List["TaxDocumentMetadataTypeDef"],
-    },
-    total=False,
-)
+class PutTaxExemptionResponseTypeDef(TypedDict):
+    caseId: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class TaxRegistrationWithJurisdictionTypeDef(
-    _RequiredTaxRegistrationWithJurisdictionTypeDef, _OptionalTaxRegistrationWithJurisdictionTypeDef
-):
-    pass
+class PutTaxRegistrationResponseTypeDef(TypedDict):
+    status: TaxRegistrationStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
 
-TurkeyAdditionalInfoTypeDef = TypedDict(
-    "TurkeyAdditionalInfoTypeDef",
-    {
-        "industries": IndustriesType,
-        "kepEmailId": str,
-        "secondaryTaxId": str,
-        "taxOffice": str,
-    },
-    total=False,
-)
+class BatchPutTaxRegistrationResponseTypeDef(TypedDict):
+    errors: List[BatchPutTaxRegistrationErrorTypeDef]
+    status: TaxRegistrationStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
 
-UkraineAdditionalInfoTypeDef = TypedDict(
-    "UkraineAdditionalInfoTypeDef",
-    {
-        "ukraineTrnType": UkraineTrnTypeType,
-    },
-)
+class ExemptionCertificateTypeDef(TypedDict):
+    documentFile: BlobTypeDef
+    documentName: str
 
-VerificationDetailsTypeDef = TypedDict(
-    "VerificationDetailsTypeDef",
-    {
-        "dateOfBirth": str,
-        "taxRegistrationDocuments": List["TaxRegistrationDocumentTypeDef"],
-    },
-    total=False,
-)
+class TaxRegistrationDocFileTypeDef(TypedDict):
+    fileContent: BlobTypeDef
+    fileName: str
+
+class GetTaxRegistrationDocumentRequestTypeDef(TypedDict):
+    taxDocumentMetadata: TaxDocumentMetadataTypeDef
+    destinationS3Location: NotRequired[DestinationS3LocationTypeDef]
+
+class ListSupplementalTaxRegistrationsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListTaxExemptionsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListTaxRegistrationsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+MalaysiaAdditionalInfoUnionTypeDef = Union[
+    MalaysiaAdditionalInfoTypeDef, MalaysiaAdditionalInfoOutputTypeDef
+]
+
+class PutSupplementalTaxRegistrationRequestTypeDef(TypedDict):
+    taxRegistrationEntry: SupplementalTaxRegistrationEntryTypeDef
+
+class ListSupplementalTaxRegistrationsResponseTypeDef(TypedDict):
+    taxRegistrations: List[SupplementalTaxRegistrationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class TaxRegistrationTypeDef(TypedDict):
+    legalAddress: AddressTypeDef
+    legalName: str
+    registrationId: str
+    registrationType: TaxRegistrationTypeType
+    status: TaxRegistrationStatusType
+    additionalTaxInformation: NotRequired[AdditionalInfoResponseTypeDef]
+    certifiedEmailId: NotRequired[str]
+    sector: NotRequired[SectorType]
+    taxDocumentMetadatas: NotRequired[List[TaxDocumentMetadataTypeDef]]
+
+class TaxRegistrationWithJurisdictionTypeDef(TypedDict):
+    jurisdiction: JurisdictionTypeDef
+    legalName: str
+    registrationId: str
+    registrationType: TaxRegistrationTypeType
+    status: TaxRegistrationStatusType
+    additionalTaxInformation: NotRequired[AdditionalInfoResponseTypeDef]
+    certifiedEmailId: NotRequired[str]
+    sector: NotRequired[SectorType]
+    taxDocumentMetadatas: NotRequired[List[TaxDocumentMetadataTypeDef]]
+
+class GetTaxExemptionTypesResponseTypeDef(TypedDict):
+    taxExemptionTypes: List[TaxExemptionTypeTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class TaxExemptionTypeDef(TypedDict):
+    authority: AuthorityTypeDef
+    taxExemptionType: TaxExemptionTypeTypeDef
+    effectiveDate: NotRequired[datetime]
+    expirationDate: NotRequired[datetime]
+    status: NotRequired[EntityExemptionAccountStatusType]
+    systemEffectiveDate: NotRequired[datetime]
+
+class PutTaxExemptionRequestTypeDef(TypedDict):
+    accountIds: Sequence[str]
+    authority: AuthorityTypeDef
+    exemptionCertificate: ExemptionCertificateTypeDef
+    exemptionType: str
+
+class TaxRegistrationDocumentTypeDef(TypedDict):
+    file: NotRequired[TaxRegistrationDocFileTypeDef]
+    s3Location: NotRequired[SourceS3LocationTypeDef]
+
+class AdditionalInfoRequestTypeDef(TypedDict):
+    canadaAdditionalInfo: NotRequired[CanadaAdditionalInfoTypeDef]
+    egyptAdditionalInfo: NotRequired[EgyptAdditionalInfoTypeDef]
+    estoniaAdditionalInfo: NotRequired[EstoniaAdditionalInfoTypeDef]
+    georgiaAdditionalInfo: NotRequired[GeorgiaAdditionalInfoTypeDef]
+    greeceAdditionalInfo: NotRequired[GreeceAdditionalInfoTypeDef]
+    indonesiaAdditionalInfo: NotRequired[IndonesiaAdditionalInfoTypeDef]
+    israelAdditionalInfo: NotRequired[IsraelAdditionalInfoTypeDef]
+    italyAdditionalInfo: NotRequired[ItalyAdditionalInfoTypeDef]
+    kenyaAdditionalInfo: NotRequired[KenyaAdditionalInfoTypeDef]
+    malaysiaAdditionalInfo: NotRequired[MalaysiaAdditionalInfoUnionTypeDef]
+    polandAdditionalInfo: NotRequired[PolandAdditionalInfoTypeDef]
+    romaniaAdditionalInfo: NotRequired[RomaniaAdditionalInfoTypeDef]
+    saudiArabiaAdditionalInfo: NotRequired[SaudiArabiaAdditionalInfoTypeDef]
+    southKoreaAdditionalInfo: NotRequired[SouthKoreaAdditionalInfoTypeDef]
+    spainAdditionalInfo: NotRequired[SpainAdditionalInfoTypeDef]
+    turkeyAdditionalInfo: NotRequired[TurkeyAdditionalInfoTypeDef]
+    ukraineAdditionalInfo: NotRequired[UkraineAdditionalInfoTypeDef]
+    uzbekistanAdditionalInfo: NotRequired[UzbekistanAdditionalInfoTypeDef]
+    vietnamAdditionalInfo: NotRequired[VietnamAdditionalInfoTypeDef]
+
+class GetTaxRegistrationResponseTypeDef(TypedDict):
+    taxRegistration: TaxRegistrationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class AccountDetailsTypeDef(TypedDict):
+    accountId: NotRequired[str]
+    accountMetaData: NotRequired[AccountMetaDataTypeDef]
+    taxInheritanceDetails: NotRequired[TaxInheritanceDetailsTypeDef]
+    taxRegistration: NotRequired[TaxRegistrationWithJurisdictionTypeDef]
+
+class TaxExemptionDetailsTypeDef(TypedDict):
+    heritageObtainedDetails: NotRequired[bool]
+    heritageObtainedParentEntity: NotRequired[str]
+    heritageObtainedReason: NotRequired[str]
+    taxExemptions: NotRequired[List[TaxExemptionTypeDef]]
+
+class VerificationDetailsTypeDef(TypedDict):
+    dateOfBirth: NotRequired[str]
+    taxRegistrationDocuments: NotRequired[Sequence[TaxRegistrationDocumentTypeDef]]
+
+class ListTaxRegistrationsResponseTypeDef(TypedDict):
+    accountDetails: List[AccountDetailsTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class BatchGetTaxExemptionsResponseTypeDef(TypedDict):
+    failedAccounts: List[str]
+    taxExemptionDetailsMap: Dict[str, TaxExemptionDetailsTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListTaxExemptionsResponseTypeDef(TypedDict):
+    taxExemptionDetailsMap: Dict[str, TaxExemptionDetailsTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class TaxRegistrationEntryTypeDef(TypedDict):
+    registrationId: str
+    registrationType: TaxRegistrationTypeType
+    additionalTaxInformation: NotRequired[AdditionalInfoRequestTypeDef]
+    certifiedEmailId: NotRequired[str]
+    legalAddress: NotRequired[AddressTypeDef]
+    legalName: NotRequired[str]
+    sector: NotRequired[SectorType]
+    verificationDetails: NotRequired[VerificationDetailsTypeDef]
+
+class BatchPutTaxRegistrationRequestTypeDef(TypedDict):
+    accountIds: Sequence[str]
+    taxRegistrationEntry: TaxRegistrationEntryTypeDef
+
+class PutTaxRegistrationRequestTypeDef(TypedDict):
+    taxRegistrationEntry: TaxRegistrationEntryTypeDef
+    accountId: NotRequired[str]

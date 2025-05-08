@@ -1,20 +1,24 @@
 """
 Type annotations for mediapackagev2 service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediapackagev2/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediapackagev2/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_mediapackagev2.type_defs import ChannelGroupListConfigurationTypeDef
+    from mypy_boto3_mediapackagev2.type_defs import CancelHarvestJobRequestTypeDef
 
-    data: ChannelGroupListConfigurationTypeDef = {...}
+    data: CancelHarvestJobRequestTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List, Union
+from typing import Union
 
 from .literals import (
     AdMarkerDashType,
@@ -25,6 +29,7 @@ from .literals import (
     DashUtcTimingModeType,
     DrmSystemType,
     EndpointErrorConditionType,
+    HarvestJobStatusType,
     InputTypeType,
     PresetSpeke20AudioType,
     PresetSpeke20VideoType,
@@ -32,1054 +37,855 @@ from .literals import (
     TsEncryptionMethodType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
+    "CancelHarvestJobRequestTypeDef",
     "ChannelGroupListConfigurationTypeDef",
     "ChannelListConfigurationTypeDef",
-    "CreateChannelGroupRequestRequestTypeDef",
+    "CreateChannelGroupRequestTypeDef",
     "CreateChannelGroupResponseTypeDef",
-    "CreateChannelRequestRequestTypeDef",
+    "CreateChannelRequestTypeDef",
     "CreateChannelResponseTypeDef",
     "CreateDashManifestConfigurationTypeDef",
+    "CreateHarvestJobRequestTypeDef",
+    "CreateHarvestJobResponseTypeDef",
     "CreateHlsManifestConfigurationTypeDef",
     "CreateLowLatencyHlsManifestConfigurationTypeDef",
-    "CreateOriginEndpointRequestRequestTypeDef",
+    "CreateOriginEndpointRequestTypeDef",
     "CreateOriginEndpointResponseTypeDef",
     "DashUtcTimingTypeDef",
-    "DeleteChannelGroupRequestRequestTypeDef",
-    "DeleteChannelPolicyRequestRequestTypeDef",
-    "DeleteChannelRequestRequestTypeDef",
-    "DeleteOriginEndpointPolicyRequestRequestTypeDef",
-    "DeleteOriginEndpointRequestRequestTypeDef",
+    "DeleteChannelGroupRequestTypeDef",
+    "DeleteChannelPolicyRequestTypeDef",
+    "DeleteChannelRequestTypeDef",
+    "DeleteOriginEndpointPolicyRequestTypeDef",
+    "DeleteOriginEndpointRequestTypeDef",
+    "DestinationTypeDef",
+    "EmptyResponseMetadataTypeDef",
     "EncryptionContractConfigurationTypeDef",
     "EncryptionMethodTypeDef",
+    "EncryptionOutputTypeDef",
     "EncryptionTypeDef",
+    "FilterConfigurationOutputTypeDef",
     "FilterConfigurationTypeDef",
+    "FilterConfigurationUnionTypeDef",
+    "ForceEndpointErrorConfigurationOutputTypeDef",
     "ForceEndpointErrorConfigurationTypeDef",
-    "GetChannelGroupRequestRequestTypeDef",
+    "ForceEndpointErrorConfigurationUnionTypeDef",
+    "GetChannelGroupRequestTypeDef",
     "GetChannelGroupResponseTypeDef",
-    "GetChannelPolicyRequestRequestTypeDef",
+    "GetChannelPolicyRequestTypeDef",
     "GetChannelPolicyResponseTypeDef",
-    "GetChannelRequestRequestTypeDef",
+    "GetChannelRequestTypeDef",
     "GetChannelResponseTypeDef",
     "GetDashManifestConfigurationTypeDef",
+    "GetHarvestJobRequestTypeDef",
+    "GetHarvestJobRequestWaitTypeDef",
+    "GetHarvestJobResponseTypeDef",
     "GetHlsManifestConfigurationTypeDef",
     "GetLowLatencyHlsManifestConfigurationTypeDef",
-    "GetOriginEndpointPolicyRequestRequestTypeDef",
+    "GetOriginEndpointPolicyRequestTypeDef",
     "GetOriginEndpointPolicyResponseTypeDef",
-    "GetOriginEndpointRequestRequestTypeDef",
+    "GetOriginEndpointRequestTypeDef",
     "GetOriginEndpointResponseTypeDef",
+    "HarvestJobTypeDef",
+    "HarvestedDashManifestTypeDef",
+    "HarvestedHlsManifestTypeDef",
+    "HarvestedLowLatencyHlsManifestTypeDef",
+    "HarvestedManifestsOutputTypeDef",
+    "HarvestedManifestsTypeDef",
+    "HarvestedManifestsUnionTypeDef",
+    "HarvesterScheduleConfigurationOutputTypeDef",
+    "HarvesterScheduleConfigurationTypeDef",
+    "HarvesterScheduleConfigurationUnionTypeDef",
     "IngestEndpointTypeDef",
-    "ListChannelGroupsRequestRequestTypeDef",
+    "InputSwitchConfigurationTypeDef",
+    "ListChannelGroupsRequestPaginateTypeDef",
+    "ListChannelGroupsRequestTypeDef",
     "ListChannelGroupsResponseTypeDef",
-    "ListChannelsRequestRequestTypeDef",
+    "ListChannelsRequestPaginateTypeDef",
+    "ListChannelsRequestTypeDef",
     "ListChannelsResponseTypeDef",
     "ListDashManifestConfigurationTypeDef",
+    "ListHarvestJobsRequestPaginateTypeDef",
+    "ListHarvestJobsRequestTypeDef",
+    "ListHarvestJobsResponseTypeDef",
     "ListHlsManifestConfigurationTypeDef",
     "ListLowLatencyHlsManifestConfigurationTypeDef",
-    "ListOriginEndpointsRequestRequestTypeDef",
+    "ListOriginEndpointsRequestPaginateTypeDef",
+    "ListOriginEndpointsRequestTypeDef",
     "ListOriginEndpointsResponseTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "OriginEndpointListConfigurationTypeDef",
+    "OutputHeaderConfigurationTypeDef",
     "PaginatorConfigTypeDef",
-    "PutChannelPolicyRequestRequestTypeDef",
-    "PutOriginEndpointPolicyRequestRequestTypeDef",
+    "PutChannelPolicyRequestTypeDef",
+    "PutOriginEndpointPolicyRequestTypeDef",
+    "ResetChannelStateRequestTypeDef",
+    "ResetChannelStateResponseTypeDef",
+    "ResetOriginEndpointStateRequestTypeDef",
+    "ResetOriginEndpointStateResponseTypeDef",
     "ResponseMetadataTypeDef",
+    "S3DestinationConfigTypeDef",
     "ScteDashTypeDef",
     "ScteHlsTypeDef",
+    "ScteOutputTypeDef",
     "ScteTypeDef",
+    "SegmentOutputTypeDef",
     "SegmentTypeDef",
+    "SegmentUnionTypeDef",
+    "SpekeKeyProviderOutputTypeDef",
     "SpekeKeyProviderTypeDef",
-    "TagResourceRequestRequestTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateChannelGroupRequestRequestTypeDef",
+    "StartTagTypeDef",
+    "TagResourceRequestTypeDef",
+    "TimestampTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateChannelGroupRequestTypeDef",
     "UpdateChannelGroupResponseTypeDef",
-    "UpdateChannelRequestRequestTypeDef",
+    "UpdateChannelRequestTypeDef",
     "UpdateChannelResponseTypeDef",
-    "UpdateOriginEndpointRequestRequestTypeDef",
+    "UpdateOriginEndpointRequestTypeDef",
     "UpdateOriginEndpointResponseTypeDef",
-)
-
-_RequiredChannelGroupListConfigurationTypeDef = TypedDict(
-    "_RequiredChannelGroupListConfigurationTypeDef",
-    {
-        "ChannelGroupName": str,
-        "Arn": str,
-        "CreatedAt": datetime,
-        "ModifiedAt": datetime,
-    },
-)
-_OptionalChannelGroupListConfigurationTypeDef = TypedDict(
-    "_OptionalChannelGroupListConfigurationTypeDef",
-    {
-        "Description": str,
-    },
-    total=False,
-)
-
-class ChannelGroupListConfigurationTypeDef(
-    _RequiredChannelGroupListConfigurationTypeDef, _OptionalChannelGroupListConfigurationTypeDef
-):
-    pass
-
-_RequiredChannelListConfigurationTypeDef = TypedDict(
-    "_RequiredChannelListConfigurationTypeDef",
-    {
-        "Arn": str,
-        "ChannelName": str,
-        "ChannelGroupName": str,
-        "CreatedAt": datetime,
-        "ModifiedAt": datetime,
-    },
-)
-_OptionalChannelListConfigurationTypeDef = TypedDict(
-    "_OptionalChannelListConfigurationTypeDef",
-    {
-        "Description": str,
-        "InputType": InputTypeType,
-    },
-    total=False,
-)
-
-class ChannelListConfigurationTypeDef(
-    _RequiredChannelListConfigurationTypeDef, _OptionalChannelListConfigurationTypeDef
-):
-    pass
-
-_RequiredCreateChannelGroupRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateChannelGroupRequestRequestTypeDef",
-    {
-        "ChannelGroupName": str,
-    },
-)
-_OptionalCreateChannelGroupRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateChannelGroupRequestRequestTypeDef",
-    {
-        "ClientToken": str,
-        "Description": str,
-        "Tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class CreateChannelGroupRequestRequestTypeDef(
-    _RequiredCreateChannelGroupRequestRequestTypeDef,
-    _OptionalCreateChannelGroupRequestRequestTypeDef,
-):
-    pass
-
-CreateChannelGroupResponseTypeDef = TypedDict(
-    "CreateChannelGroupResponseTypeDef",
-    {
-        "ChannelGroupName": str,
-        "Arn": str,
-        "EgressDomain": str,
-        "CreatedAt": datetime,
-        "ModifiedAt": datetime,
-        "ETag": str,
-        "Description": str,
-        "Tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateChannelRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateChannelRequestRequestTypeDef",
-    {
-        "ChannelGroupName": str,
-        "ChannelName": str,
-    },
-)
-_OptionalCreateChannelRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateChannelRequestRequestTypeDef",
-    {
-        "ClientToken": str,
-        "InputType": InputTypeType,
-        "Description": str,
-        "Tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class CreateChannelRequestRequestTypeDef(
-    _RequiredCreateChannelRequestRequestTypeDef, _OptionalCreateChannelRequestRequestTypeDef
-):
-    pass
-
-CreateChannelResponseTypeDef = TypedDict(
-    "CreateChannelResponseTypeDef",
-    {
-        "Arn": str,
-        "ChannelName": str,
-        "ChannelGroupName": str,
-        "CreatedAt": datetime,
-        "ModifiedAt": datetime,
-        "Description": str,
-        "IngestEndpoints": List["IngestEndpointTypeDef"],
-        "InputType": InputTypeType,
-        "ETag": str,
-        "Tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateDashManifestConfigurationTypeDef = TypedDict(
-    "_RequiredCreateDashManifestConfigurationTypeDef",
-    {
-        "ManifestName": str,
-    },
-)
-_OptionalCreateDashManifestConfigurationTypeDef = TypedDict(
-    "_OptionalCreateDashManifestConfigurationTypeDef",
-    {
-        "ManifestWindowSeconds": int,
-        "FilterConfiguration": "FilterConfigurationTypeDef",
-        "MinUpdatePeriodSeconds": int,
-        "MinBufferTimeSeconds": int,
-        "SuggestedPresentationDelaySeconds": int,
-        "SegmentTemplateFormat": Literal["NUMBER_WITH_TIMELINE"],
-        "PeriodTriggers": List[DashPeriodTriggerType],
-        "ScteDash": "ScteDashTypeDef",
-        "DrmSignaling": DashDrmSignalingType,
-        "UtcTiming": "DashUtcTimingTypeDef",
-    },
-    total=False,
-)
-
-class CreateDashManifestConfigurationTypeDef(
-    _RequiredCreateDashManifestConfigurationTypeDef, _OptionalCreateDashManifestConfigurationTypeDef
-):
-    pass
-
-_RequiredCreateHlsManifestConfigurationTypeDef = TypedDict(
-    "_RequiredCreateHlsManifestConfigurationTypeDef",
-    {
-        "ManifestName": str,
-    },
-)
-_OptionalCreateHlsManifestConfigurationTypeDef = TypedDict(
-    "_OptionalCreateHlsManifestConfigurationTypeDef",
-    {
-        "ChildManifestName": str,
-        "ScteHls": "ScteHlsTypeDef",
-        "ManifestWindowSeconds": int,
-        "ProgramDateTimeIntervalSeconds": int,
-        "FilterConfiguration": "FilterConfigurationTypeDef",
-    },
-    total=False,
-)
-
-class CreateHlsManifestConfigurationTypeDef(
-    _RequiredCreateHlsManifestConfigurationTypeDef, _OptionalCreateHlsManifestConfigurationTypeDef
-):
-    pass
-
-_RequiredCreateLowLatencyHlsManifestConfigurationTypeDef = TypedDict(
-    "_RequiredCreateLowLatencyHlsManifestConfigurationTypeDef",
-    {
-        "ManifestName": str,
-    },
-)
-_OptionalCreateLowLatencyHlsManifestConfigurationTypeDef = TypedDict(
-    "_OptionalCreateLowLatencyHlsManifestConfigurationTypeDef",
-    {
-        "ChildManifestName": str,
-        "ScteHls": "ScteHlsTypeDef",
-        "ManifestWindowSeconds": int,
-        "ProgramDateTimeIntervalSeconds": int,
-        "FilterConfiguration": "FilterConfigurationTypeDef",
-    },
-    total=False,
-)
-
-class CreateLowLatencyHlsManifestConfigurationTypeDef(
-    _RequiredCreateLowLatencyHlsManifestConfigurationTypeDef,
-    _OptionalCreateLowLatencyHlsManifestConfigurationTypeDef,
-):
-    pass
-
-_RequiredCreateOriginEndpointRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateOriginEndpointRequestRequestTypeDef",
-    {
-        "ChannelGroupName": str,
-        "ChannelName": str,
-        "OriginEndpointName": str,
-        "ContainerType": ContainerTypeType,
-    },
-)
-_OptionalCreateOriginEndpointRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateOriginEndpointRequestRequestTypeDef",
-    {
-        "Segment": "SegmentTypeDef",
-        "ClientToken": str,
-        "Description": str,
-        "StartoverWindowSeconds": int,
-        "HlsManifests": List["CreateHlsManifestConfigurationTypeDef"],
-        "LowLatencyHlsManifests": List["CreateLowLatencyHlsManifestConfigurationTypeDef"],
-        "DashManifests": List["CreateDashManifestConfigurationTypeDef"],
-        "ForceEndpointErrorConfiguration": "ForceEndpointErrorConfigurationTypeDef",
-        "Tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class CreateOriginEndpointRequestRequestTypeDef(
-    _RequiredCreateOriginEndpointRequestRequestTypeDef,
-    _OptionalCreateOriginEndpointRequestRequestTypeDef,
-):
-    pass
-
-CreateOriginEndpointResponseTypeDef = TypedDict(
-    "CreateOriginEndpointResponseTypeDef",
-    {
-        "Arn": str,
-        "ChannelGroupName": str,
-        "ChannelName": str,
-        "OriginEndpointName": str,
-        "ContainerType": ContainerTypeType,
-        "Segment": "SegmentTypeDef",
-        "CreatedAt": datetime,
-        "ModifiedAt": datetime,
-        "Description": str,
-        "StartoverWindowSeconds": int,
-        "HlsManifests": List["GetHlsManifestConfigurationTypeDef"],
-        "LowLatencyHlsManifests": List["GetLowLatencyHlsManifestConfigurationTypeDef"],
-        "DashManifests": List["GetDashManifestConfigurationTypeDef"],
-        "ForceEndpointErrorConfiguration": "ForceEndpointErrorConfigurationTypeDef",
-        "ETag": str,
-        "Tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DashUtcTimingTypeDef = TypedDict(
-    "DashUtcTimingTypeDef",
-    {
-        "TimingMode": DashUtcTimingModeType,
-        "TimingSource": str,
-    },
-    total=False,
-)
-
-DeleteChannelGroupRequestRequestTypeDef = TypedDict(
-    "DeleteChannelGroupRequestRequestTypeDef",
-    {
-        "ChannelGroupName": str,
-    },
-)
-
-DeleteChannelPolicyRequestRequestTypeDef = TypedDict(
-    "DeleteChannelPolicyRequestRequestTypeDef",
-    {
-        "ChannelGroupName": str,
-        "ChannelName": str,
-    },
-)
-
-DeleteChannelRequestRequestTypeDef = TypedDict(
-    "DeleteChannelRequestRequestTypeDef",
-    {
-        "ChannelGroupName": str,
-        "ChannelName": str,
-    },
-)
-
-DeleteOriginEndpointPolicyRequestRequestTypeDef = TypedDict(
-    "DeleteOriginEndpointPolicyRequestRequestTypeDef",
-    {
-        "ChannelGroupName": str,
-        "ChannelName": str,
-        "OriginEndpointName": str,
-    },
-)
-
-DeleteOriginEndpointRequestRequestTypeDef = TypedDict(
-    "DeleteOriginEndpointRequestRequestTypeDef",
-    {
-        "ChannelGroupName": str,
-        "ChannelName": str,
-        "OriginEndpointName": str,
-    },
-)
-
-EncryptionContractConfigurationTypeDef = TypedDict(
-    "EncryptionContractConfigurationTypeDef",
-    {
-        "PresetSpeke20Audio": PresetSpeke20AudioType,
-        "PresetSpeke20Video": PresetSpeke20VideoType,
-    },
-)
-
-EncryptionMethodTypeDef = TypedDict(
-    "EncryptionMethodTypeDef",
-    {
-        "TsEncryptionMethod": TsEncryptionMethodType,
-        "CmafEncryptionMethod": CmafEncryptionMethodType,
-    },
-    total=False,
-)
-
-_RequiredEncryptionTypeDef = TypedDict(
-    "_RequiredEncryptionTypeDef",
-    {
-        "EncryptionMethod": "EncryptionMethodTypeDef",
-        "SpekeKeyProvider": "SpekeKeyProviderTypeDef",
-    },
-)
-_OptionalEncryptionTypeDef = TypedDict(
-    "_OptionalEncryptionTypeDef",
-    {
-        "ConstantInitializationVector": str,
-        "KeyRotationIntervalSeconds": int,
-    },
-    total=False,
-)
-
-class EncryptionTypeDef(_RequiredEncryptionTypeDef, _OptionalEncryptionTypeDef):
-    pass
-
-FilterConfigurationTypeDef = TypedDict(
-    "FilterConfigurationTypeDef",
-    {
-        "ManifestFilter": str,
-        "Start": Union[datetime, str],
-        "End": Union[datetime, str],
-        "TimeDelaySeconds": int,
-    },
-    total=False,
-)
-
-ForceEndpointErrorConfigurationTypeDef = TypedDict(
-    "ForceEndpointErrorConfigurationTypeDef",
-    {
-        "EndpointErrorConditions": List[EndpointErrorConditionType],
-    },
-    total=False,
-)
-
-GetChannelGroupRequestRequestTypeDef = TypedDict(
-    "GetChannelGroupRequestRequestTypeDef",
-    {
-        "ChannelGroupName": str,
-    },
-)
-
-GetChannelGroupResponseTypeDef = TypedDict(
-    "GetChannelGroupResponseTypeDef",
-    {
-        "ChannelGroupName": str,
-        "Arn": str,
-        "EgressDomain": str,
-        "CreatedAt": datetime,
-        "ModifiedAt": datetime,
-        "Description": str,
-        "ETag": str,
-        "Tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetChannelPolicyRequestRequestTypeDef = TypedDict(
-    "GetChannelPolicyRequestRequestTypeDef",
-    {
-        "ChannelGroupName": str,
-        "ChannelName": str,
-    },
-)
-
-GetChannelPolicyResponseTypeDef = TypedDict(
-    "GetChannelPolicyResponseTypeDef",
-    {
-        "ChannelGroupName": str,
-        "ChannelName": str,
-        "Policy": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetChannelRequestRequestTypeDef = TypedDict(
-    "GetChannelRequestRequestTypeDef",
-    {
-        "ChannelGroupName": str,
-        "ChannelName": str,
-    },
-)
-
-GetChannelResponseTypeDef = TypedDict(
-    "GetChannelResponseTypeDef",
-    {
-        "Arn": str,
-        "ChannelName": str,
-        "ChannelGroupName": str,
-        "CreatedAt": datetime,
-        "ModifiedAt": datetime,
-        "Description": str,
-        "IngestEndpoints": List["IngestEndpointTypeDef"],
-        "InputType": InputTypeType,
-        "ETag": str,
-        "Tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetDashManifestConfigurationTypeDef = TypedDict(
-    "_RequiredGetDashManifestConfigurationTypeDef",
-    {
-        "ManifestName": str,
-        "Url": str,
-    },
-)
-_OptionalGetDashManifestConfigurationTypeDef = TypedDict(
-    "_OptionalGetDashManifestConfigurationTypeDef",
-    {
-        "ManifestWindowSeconds": int,
-        "FilterConfiguration": "FilterConfigurationTypeDef",
-        "MinUpdatePeriodSeconds": int,
-        "MinBufferTimeSeconds": int,
-        "SuggestedPresentationDelaySeconds": int,
-        "SegmentTemplateFormat": Literal["NUMBER_WITH_TIMELINE"],
-        "PeriodTriggers": List[DashPeriodTriggerType],
-        "ScteDash": "ScteDashTypeDef",
-        "DrmSignaling": DashDrmSignalingType,
-        "UtcTiming": "DashUtcTimingTypeDef",
-    },
-    total=False,
-)
-
-class GetDashManifestConfigurationTypeDef(
-    _RequiredGetDashManifestConfigurationTypeDef, _OptionalGetDashManifestConfigurationTypeDef
-):
-    pass
-
-_RequiredGetHlsManifestConfigurationTypeDef = TypedDict(
-    "_RequiredGetHlsManifestConfigurationTypeDef",
-    {
-        "ManifestName": str,
-        "Url": str,
-    },
-)
-_OptionalGetHlsManifestConfigurationTypeDef = TypedDict(
-    "_OptionalGetHlsManifestConfigurationTypeDef",
-    {
-        "ChildManifestName": str,
-        "ManifestWindowSeconds": int,
-        "ProgramDateTimeIntervalSeconds": int,
-        "ScteHls": "ScteHlsTypeDef",
-        "FilterConfiguration": "FilterConfigurationTypeDef",
-    },
-    total=False,
-)
-
-class GetHlsManifestConfigurationTypeDef(
-    _RequiredGetHlsManifestConfigurationTypeDef, _OptionalGetHlsManifestConfigurationTypeDef
-):
-    pass
-
-_RequiredGetLowLatencyHlsManifestConfigurationTypeDef = TypedDict(
-    "_RequiredGetLowLatencyHlsManifestConfigurationTypeDef",
-    {
-        "ManifestName": str,
-        "Url": str,
-    },
-)
-_OptionalGetLowLatencyHlsManifestConfigurationTypeDef = TypedDict(
-    "_OptionalGetLowLatencyHlsManifestConfigurationTypeDef",
-    {
-        "ChildManifestName": str,
-        "ManifestWindowSeconds": int,
-        "ProgramDateTimeIntervalSeconds": int,
-        "ScteHls": "ScteHlsTypeDef",
-        "FilterConfiguration": "FilterConfigurationTypeDef",
-    },
-    total=False,
-)
-
-class GetLowLatencyHlsManifestConfigurationTypeDef(
-    _RequiredGetLowLatencyHlsManifestConfigurationTypeDef,
-    _OptionalGetLowLatencyHlsManifestConfigurationTypeDef,
-):
-    pass
-
-GetOriginEndpointPolicyRequestRequestTypeDef = TypedDict(
-    "GetOriginEndpointPolicyRequestRequestTypeDef",
-    {
-        "ChannelGroupName": str,
-        "ChannelName": str,
-        "OriginEndpointName": str,
-    },
-)
-
-GetOriginEndpointPolicyResponseTypeDef = TypedDict(
-    "GetOriginEndpointPolicyResponseTypeDef",
-    {
-        "ChannelGroupName": str,
-        "ChannelName": str,
-        "OriginEndpointName": str,
-        "Policy": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetOriginEndpointRequestRequestTypeDef = TypedDict(
-    "GetOriginEndpointRequestRequestTypeDef",
-    {
-        "ChannelGroupName": str,
-        "ChannelName": str,
-        "OriginEndpointName": str,
-    },
-)
-
-GetOriginEndpointResponseTypeDef = TypedDict(
-    "GetOriginEndpointResponseTypeDef",
-    {
-        "Arn": str,
-        "ChannelGroupName": str,
-        "ChannelName": str,
-        "OriginEndpointName": str,
-        "ContainerType": ContainerTypeType,
-        "Segment": "SegmentTypeDef",
-        "CreatedAt": datetime,
-        "ModifiedAt": datetime,
-        "Description": str,
-        "StartoverWindowSeconds": int,
-        "HlsManifests": List["GetHlsManifestConfigurationTypeDef"],
-        "LowLatencyHlsManifests": List["GetLowLatencyHlsManifestConfigurationTypeDef"],
-        "DashManifests": List["GetDashManifestConfigurationTypeDef"],
-        "ForceEndpointErrorConfiguration": "ForceEndpointErrorConfigurationTypeDef",
-        "ETag": str,
-        "Tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-IngestEndpointTypeDef = TypedDict(
-    "IngestEndpointTypeDef",
-    {
-        "Id": str,
-        "Url": str,
-    },
-    total=False,
-)
-
-ListChannelGroupsRequestRequestTypeDef = TypedDict(
-    "ListChannelGroupsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListChannelGroupsResponseTypeDef = TypedDict(
-    "ListChannelGroupsResponseTypeDef",
-    {
-        "Items": List["ChannelGroupListConfigurationTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListChannelsRequestRequestTypeDef = TypedDict(
-    "_RequiredListChannelsRequestRequestTypeDef",
-    {
-        "ChannelGroupName": str,
-    },
-)
-_OptionalListChannelsRequestRequestTypeDef = TypedDict(
-    "_OptionalListChannelsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListChannelsRequestRequestTypeDef(
-    _RequiredListChannelsRequestRequestTypeDef, _OptionalListChannelsRequestRequestTypeDef
-):
-    pass
-
-ListChannelsResponseTypeDef = TypedDict(
-    "ListChannelsResponseTypeDef",
-    {
-        "Items": List["ChannelListConfigurationTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListDashManifestConfigurationTypeDef = TypedDict(
-    "_RequiredListDashManifestConfigurationTypeDef",
-    {
-        "ManifestName": str,
-    },
-)
-_OptionalListDashManifestConfigurationTypeDef = TypedDict(
-    "_OptionalListDashManifestConfigurationTypeDef",
-    {
-        "Url": str,
-    },
-    total=False,
-)
-
-class ListDashManifestConfigurationTypeDef(
-    _RequiredListDashManifestConfigurationTypeDef, _OptionalListDashManifestConfigurationTypeDef
-):
-    pass
-
-_RequiredListHlsManifestConfigurationTypeDef = TypedDict(
-    "_RequiredListHlsManifestConfigurationTypeDef",
-    {
-        "ManifestName": str,
-    },
-)
-_OptionalListHlsManifestConfigurationTypeDef = TypedDict(
-    "_OptionalListHlsManifestConfigurationTypeDef",
-    {
-        "ChildManifestName": str,
-        "Url": str,
-    },
-    total=False,
-)
-
-class ListHlsManifestConfigurationTypeDef(
-    _RequiredListHlsManifestConfigurationTypeDef, _OptionalListHlsManifestConfigurationTypeDef
-):
-    pass
-
-_RequiredListLowLatencyHlsManifestConfigurationTypeDef = TypedDict(
-    "_RequiredListLowLatencyHlsManifestConfigurationTypeDef",
-    {
-        "ManifestName": str,
-    },
-)
-_OptionalListLowLatencyHlsManifestConfigurationTypeDef = TypedDict(
-    "_OptionalListLowLatencyHlsManifestConfigurationTypeDef",
-    {
-        "ChildManifestName": str,
-        "Url": str,
-    },
-    total=False,
-)
-
-class ListLowLatencyHlsManifestConfigurationTypeDef(
-    _RequiredListLowLatencyHlsManifestConfigurationTypeDef,
-    _OptionalListLowLatencyHlsManifestConfigurationTypeDef,
-):
-    pass
-
-_RequiredListOriginEndpointsRequestRequestTypeDef = TypedDict(
-    "_RequiredListOriginEndpointsRequestRequestTypeDef",
-    {
-        "ChannelGroupName": str,
-        "ChannelName": str,
-    },
-)
-_OptionalListOriginEndpointsRequestRequestTypeDef = TypedDict(
-    "_OptionalListOriginEndpointsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListOriginEndpointsRequestRequestTypeDef(
-    _RequiredListOriginEndpointsRequestRequestTypeDef,
-    _OptionalListOriginEndpointsRequestRequestTypeDef,
-):
-    pass
-
-ListOriginEndpointsResponseTypeDef = TypedDict(
-    "ListOriginEndpointsResponseTypeDef",
-    {
-        "Items": List["OriginEndpointListConfigurationTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-    },
-)
-
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "Tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredOriginEndpointListConfigurationTypeDef = TypedDict(
-    "_RequiredOriginEndpointListConfigurationTypeDef",
-    {
-        "Arn": str,
-        "ChannelGroupName": str,
-        "ChannelName": str,
-        "OriginEndpointName": str,
-        "ContainerType": ContainerTypeType,
-    },
-)
-_OptionalOriginEndpointListConfigurationTypeDef = TypedDict(
-    "_OptionalOriginEndpointListConfigurationTypeDef",
-    {
-        "Description": str,
-        "CreatedAt": datetime,
-        "ModifiedAt": datetime,
-        "HlsManifests": List["ListHlsManifestConfigurationTypeDef"],
-        "LowLatencyHlsManifests": List["ListLowLatencyHlsManifestConfigurationTypeDef"],
-        "DashManifests": List["ListDashManifestConfigurationTypeDef"],
-        "ForceEndpointErrorConfiguration": "ForceEndpointErrorConfigurationTypeDef",
-    },
-    total=False,
-)
-
-class OriginEndpointListConfigurationTypeDef(
-    _RequiredOriginEndpointListConfigurationTypeDef, _OptionalOriginEndpointListConfigurationTypeDef
-):
-    pass
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-PutChannelPolicyRequestRequestTypeDef = TypedDict(
-    "PutChannelPolicyRequestRequestTypeDef",
-    {
-        "ChannelGroupName": str,
-        "ChannelName": str,
-        "Policy": str,
-    },
-)
-
-PutOriginEndpointPolicyRequestRequestTypeDef = TypedDict(
-    "PutOriginEndpointPolicyRequestRequestTypeDef",
-    {
-        "ChannelGroupName": str,
-        "ChannelName": str,
-        "OriginEndpointName": str,
-        "Policy": str,
-    },
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-ScteDashTypeDef = TypedDict(
-    "ScteDashTypeDef",
-    {
-        "AdMarkerDash": AdMarkerDashType,
-    },
-    total=False,
-)
-
-ScteHlsTypeDef = TypedDict(
-    "ScteHlsTypeDef",
-    {
-        "AdMarkerHls": Literal["DATERANGE"],
-    },
-    total=False,
-)
-
-ScteTypeDef = TypedDict(
-    "ScteTypeDef",
-    {
-        "ScteFilter": List[ScteFilterType],
-    },
-    total=False,
-)
-
-SegmentTypeDef = TypedDict(
-    "SegmentTypeDef",
-    {
-        "SegmentDurationSeconds": int,
-        "SegmentName": str,
-        "TsUseAudioRenditionGroup": bool,
-        "IncludeIframeOnlyStreams": bool,
-        "TsIncludeDvbSubtitles": bool,
-        "Scte": "ScteTypeDef",
-        "Encryption": "EncryptionTypeDef",
-    },
-    total=False,
-)
-
-SpekeKeyProviderTypeDef = TypedDict(
-    "SpekeKeyProviderTypeDef",
-    {
-        "EncryptionContractConfiguration": "EncryptionContractConfigurationTypeDef",
-        "ResourceId": str,
-        "DrmSystems": List[DrmSystemType],
-        "RoleArn": str,
-        "Url": str,
-    },
-)
-
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-        "Tags": Dict[str, str],
-    },
-)
-
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-        "TagKeys": List[str],
-    },
-)
-
-_RequiredUpdateChannelGroupRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateChannelGroupRequestRequestTypeDef",
-    {
-        "ChannelGroupName": str,
-    },
-)
-_OptionalUpdateChannelGroupRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateChannelGroupRequestRequestTypeDef",
-    {
-        "ETag": str,
-        "Description": str,
-    },
-    total=False,
-)
-
-class UpdateChannelGroupRequestRequestTypeDef(
-    _RequiredUpdateChannelGroupRequestRequestTypeDef,
-    _OptionalUpdateChannelGroupRequestRequestTypeDef,
-):
-    pass
-
-UpdateChannelGroupResponseTypeDef = TypedDict(
-    "UpdateChannelGroupResponseTypeDef",
-    {
-        "ChannelGroupName": str,
-        "Arn": str,
-        "EgressDomain": str,
-        "CreatedAt": datetime,
-        "ModifiedAt": datetime,
-        "Description": str,
-        "ETag": str,
-        "Tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateChannelRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateChannelRequestRequestTypeDef",
-    {
-        "ChannelGroupName": str,
-        "ChannelName": str,
-    },
-)
-_OptionalUpdateChannelRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateChannelRequestRequestTypeDef",
-    {
-        "ETag": str,
-        "Description": str,
-    },
-    total=False,
-)
-
-class UpdateChannelRequestRequestTypeDef(
-    _RequiredUpdateChannelRequestRequestTypeDef, _OptionalUpdateChannelRequestRequestTypeDef
-):
-    pass
-
-UpdateChannelResponseTypeDef = TypedDict(
-    "UpdateChannelResponseTypeDef",
-    {
-        "Arn": str,
-        "ChannelName": str,
-        "ChannelGroupName": str,
-        "CreatedAt": datetime,
-        "ModifiedAt": datetime,
-        "Description": str,
-        "IngestEndpoints": List["IngestEndpointTypeDef"],
-        "InputType": InputTypeType,
-        "ETag": str,
-        "Tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateOriginEndpointRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateOriginEndpointRequestRequestTypeDef",
-    {
-        "ChannelGroupName": str,
-        "ChannelName": str,
-        "OriginEndpointName": str,
-        "ContainerType": ContainerTypeType,
-    },
-)
-_OptionalUpdateOriginEndpointRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateOriginEndpointRequestRequestTypeDef",
-    {
-        "Segment": "SegmentTypeDef",
-        "Description": str,
-        "StartoverWindowSeconds": int,
-        "HlsManifests": List["CreateHlsManifestConfigurationTypeDef"],
-        "LowLatencyHlsManifests": List["CreateLowLatencyHlsManifestConfigurationTypeDef"],
-        "DashManifests": List["CreateDashManifestConfigurationTypeDef"],
-        "ForceEndpointErrorConfiguration": "ForceEndpointErrorConfigurationTypeDef",
-        "ETag": str,
-    },
-    total=False,
-)
-
-class UpdateOriginEndpointRequestRequestTypeDef(
-    _RequiredUpdateOriginEndpointRequestRequestTypeDef,
-    _OptionalUpdateOriginEndpointRequestRequestTypeDef,
-):
-    pass
-
-UpdateOriginEndpointResponseTypeDef = TypedDict(
-    "UpdateOriginEndpointResponseTypeDef",
-    {
-        "Arn": str,
-        "ChannelGroupName": str,
-        "ChannelName": str,
-        "OriginEndpointName": str,
-        "ContainerType": ContainerTypeType,
-        "Segment": "SegmentTypeDef",
-        "CreatedAt": datetime,
-        "ModifiedAt": datetime,
-        "Description": str,
-        "StartoverWindowSeconds": int,
-        "HlsManifests": List["GetHlsManifestConfigurationTypeDef"],
-        "LowLatencyHlsManifests": List["GetLowLatencyHlsManifestConfigurationTypeDef"],
-        "ForceEndpointErrorConfiguration": "ForceEndpointErrorConfigurationTypeDef",
-        "ETag": str,
-        "Tags": Dict[str, str],
-        "DashManifests": List["GetDashManifestConfigurationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+    "WaiterConfigTypeDef",
+)
+
+class CancelHarvestJobRequestTypeDef(TypedDict):
+    ChannelGroupName: str
+    ChannelName: str
+    OriginEndpointName: str
+    HarvestJobName: str
+    ETag: NotRequired[str]
+
+class ChannelGroupListConfigurationTypeDef(TypedDict):
+    ChannelGroupName: str
+    Arn: str
+    CreatedAt: datetime
+    ModifiedAt: datetime
+    Description: NotRequired[str]
+
+class ChannelListConfigurationTypeDef(TypedDict):
+    Arn: str
+    ChannelName: str
+    ChannelGroupName: str
+    CreatedAt: datetime
+    ModifiedAt: datetime
+    Description: NotRequired[str]
+    InputType: NotRequired[InputTypeType]
+
+class CreateChannelGroupRequestTypeDef(TypedDict):
+    ChannelGroupName: str
+    ClientToken: NotRequired[str]
+    Description: NotRequired[str]
+    Tags: NotRequired[Mapping[str, str]]
+
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
+
+class InputSwitchConfigurationTypeDef(TypedDict):
+    MQCSInputSwitching: NotRequired[bool]
+
+class OutputHeaderConfigurationTypeDef(TypedDict):
+    PublishMQCS: NotRequired[bool]
+
+class IngestEndpointTypeDef(TypedDict):
+    Id: NotRequired[str]
+    Url: NotRequired[str]
+
+class DashUtcTimingTypeDef(TypedDict):
+    TimingMode: NotRequired[DashUtcTimingModeType]
+    TimingSource: NotRequired[str]
+
+class ScteDashTypeDef(TypedDict):
+    AdMarkerDash: NotRequired[AdMarkerDashType]
+
+class HarvesterScheduleConfigurationOutputTypeDef(TypedDict):
+    StartTime: datetime
+    EndTime: datetime
+
+class ScteHlsTypeDef(TypedDict):
+    AdMarkerHls: NotRequired[Literal["DATERANGE"]]
+
+class StartTagTypeDef(TypedDict):
+    TimeOffset: float
+    Precise: NotRequired[bool]
+
+class ForceEndpointErrorConfigurationOutputTypeDef(TypedDict):
+    EndpointErrorConditions: NotRequired[List[EndpointErrorConditionType]]
+
+class DeleteChannelGroupRequestTypeDef(TypedDict):
+    ChannelGroupName: str
+
+class DeleteChannelPolicyRequestTypeDef(TypedDict):
+    ChannelGroupName: str
+    ChannelName: str
+
+class DeleteChannelRequestTypeDef(TypedDict):
+    ChannelGroupName: str
+    ChannelName: str
+
+class DeleteOriginEndpointPolicyRequestTypeDef(TypedDict):
+    ChannelGroupName: str
+    ChannelName: str
+    OriginEndpointName: str
+
+class DeleteOriginEndpointRequestTypeDef(TypedDict):
+    ChannelGroupName: str
+    ChannelName: str
+    OriginEndpointName: str
+
+class S3DestinationConfigTypeDef(TypedDict):
+    BucketName: str
+    DestinationPath: str
+
+class EncryptionContractConfigurationTypeDef(TypedDict):
+    PresetSpeke20Audio: PresetSpeke20AudioType
+    PresetSpeke20Video: PresetSpeke20VideoType
+
+class EncryptionMethodTypeDef(TypedDict):
+    TsEncryptionMethod: NotRequired[TsEncryptionMethodType]
+    CmafEncryptionMethod: NotRequired[CmafEncryptionMethodType]
+
+class FilterConfigurationOutputTypeDef(TypedDict):
+    ManifestFilter: NotRequired[str]
+    Start: NotRequired[datetime]
+    End: NotRequired[datetime]
+    TimeDelaySeconds: NotRequired[int]
+    ClipStartTime: NotRequired[datetime]
+
+TimestampTypeDef = Union[datetime, str]
+
+class ForceEndpointErrorConfigurationTypeDef(TypedDict):
+    EndpointErrorConditions: NotRequired[Sequence[EndpointErrorConditionType]]
+
+class GetChannelGroupRequestTypeDef(TypedDict):
+    ChannelGroupName: str
+
+class GetChannelPolicyRequestTypeDef(TypedDict):
+    ChannelGroupName: str
+    ChannelName: str
+
+class GetChannelRequestTypeDef(TypedDict):
+    ChannelGroupName: str
+    ChannelName: str
+
+class GetHarvestJobRequestTypeDef(TypedDict):
+    ChannelGroupName: str
+    ChannelName: str
+    OriginEndpointName: str
+    HarvestJobName: str
+
+class WaiterConfigTypeDef(TypedDict):
+    Delay: NotRequired[int]
+    MaxAttempts: NotRequired[int]
+
+class GetOriginEndpointPolicyRequestTypeDef(TypedDict):
+    ChannelGroupName: str
+    ChannelName: str
+    OriginEndpointName: str
+
+class GetOriginEndpointRequestTypeDef(TypedDict):
+    ChannelGroupName: str
+    ChannelName: str
+    OriginEndpointName: str
+
+class HarvestedDashManifestTypeDef(TypedDict):
+    ManifestName: str
+
+class HarvestedHlsManifestTypeDef(TypedDict):
+    ManifestName: str
+
+class HarvestedLowLatencyHlsManifestTypeDef(TypedDict):
+    ManifestName: str
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class ListChannelGroupsRequestTypeDef(TypedDict):
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListChannelsRequestTypeDef(TypedDict):
+    ChannelGroupName: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListDashManifestConfigurationTypeDef(TypedDict):
+    ManifestName: str
+    Url: NotRequired[str]
+
+class ListHarvestJobsRequestTypeDef(TypedDict):
+    ChannelGroupName: str
+    ChannelName: NotRequired[str]
+    OriginEndpointName: NotRequired[str]
+    Status: NotRequired[HarvestJobStatusType]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListHlsManifestConfigurationTypeDef(TypedDict):
+    ManifestName: str
+    ChildManifestName: NotRequired[str]
+    Url: NotRequired[str]
+
+class ListLowLatencyHlsManifestConfigurationTypeDef(TypedDict):
+    ManifestName: str
+    ChildManifestName: NotRequired[str]
+    Url: NotRequired[str]
+
+class ListOriginEndpointsRequestTypeDef(TypedDict):
+    ChannelGroupName: str
+    ChannelName: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+
+class PutChannelPolicyRequestTypeDef(TypedDict):
+    ChannelGroupName: str
+    ChannelName: str
+    Policy: str
+
+class PutOriginEndpointPolicyRequestTypeDef(TypedDict):
+    ChannelGroupName: str
+    ChannelName: str
+    OriginEndpointName: str
+    Policy: str
+
+class ResetChannelStateRequestTypeDef(TypedDict):
+    ChannelGroupName: str
+    ChannelName: str
+
+class ResetOriginEndpointStateRequestTypeDef(TypedDict):
+    ChannelGroupName: str
+    ChannelName: str
+    OriginEndpointName: str
+
+class ScteOutputTypeDef(TypedDict):
+    ScteFilter: NotRequired[List[ScteFilterType]]
+
+class ScteTypeDef(TypedDict):
+    ScteFilter: NotRequired[Sequence[ScteFilterType]]
+
+class TagResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+    Tags: Mapping[str, str]
+
+class UntagResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+    TagKeys: Sequence[str]
+
+class UpdateChannelGroupRequestTypeDef(TypedDict):
+    ChannelGroupName: str
+    ETag: NotRequired[str]
+    Description: NotRequired[str]
+
+class CreateChannelGroupResponseTypeDef(TypedDict):
+    ChannelGroupName: str
+    Arn: str
+    EgressDomain: str
+    CreatedAt: datetime
+    ModifiedAt: datetime
+    ETag: str
+    Description: str
+    Tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class EmptyResponseMetadataTypeDef(TypedDict):
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetChannelGroupResponseTypeDef(TypedDict):
+    ChannelGroupName: str
+    Arn: str
+    EgressDomain: str
+    CreatedAt: datetime
+    ModifiedAt: datetime
+    Description: str
+    ETag: str
+    Tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetChannelPolicyResponseTypeDef(TypedDict):
+    ChannelGroupName: str
+    ChannelName: str
+    Policy: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetOriginEndpointPolicyResponseTypeDef(TypedDict):
+    ChannelGroupName: str
+    ChannelName: str
+    OriginEndpointName: str
+    Policy: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListChannelGroupsResponseTypeDef(TypedDict):
+    Items: List[ChannelGroupListConfigurationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListChannelsResponseTypeDef(TypedDict):
+    Items: List[ChannelListConfigurationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    Tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ResetChannelStateResponseTypeDef(TypedDict):
+    ChannelGroupName: str
+    ChannelName: str
+    Arn: str
+    ResetAt: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ResetOriginEndpointStateResponseTypeDef(TypedDict):
+    ChannelGroupName: str
+    ChannelName: str
+    OriginEndpointName: str
+    Arn: str
+    ResetAt: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateChannelGroupResponseTypeDef(TypedDict):
+    ChannelGroupName: str
+    Arn: str
+    EgressDomain: str
+    CreatedAt: datetime
+    ModifiedAt: datetime
+    Description: str
+    ETag: str
+    Tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateChannelRequestTypeDef(TypedDict):
+    ChannelGroupName: str
+    ChannelName: str
+    ClientToken: NotRequired[str]
+    InputType: NotRequired[InputTypeType]
+    Description: NotRequired[str]
+    InputSwitchConfiguration: NotRequired[InputSwitchConfigurationTypeDef]
+    OutputHeaderConfiguration: NotRequired[OutputHeaderConfigurationTypeDef]
+    Tags: NotRequired[Mapping[str, str]]
+
+class UpdateChannelRequestTypeDef(TypedDict):
+    ChannelGroupName: str
+    ChannelName: str
+    ETag: NotRequired[str]
+    Description: NotRequired[str]
+    InputSwitchConfiguration: NotRequired[InputSwitchConfigurationTypeDef]
+    OutputHeaderConfiguration: NotRequired[OutputHeaderConfigurationTypeDef]
+
+class CreateChannelResponseTypeDef(TypedDict):
+    Arn: str
+    ChannelName: str
+    ChannelGroupName: str
+    CreatedAt: datetime
+    ModifiedAt: datetime
+    Description: str
+    IngestEndpoints: List[IngestEndpointTypeDef]
+    InputType: InputTypeType
+    ETag: str
+    Tags: Dict[str, str]
+    InputSwitchConfiguration: InputSwitchConfigurationTypeDef
+    OutputHeaderConfiguration: OutputHeaderConfigurationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetChannelResponseTypeDef(TypedDict):
+    Arn: str
+    ChannelName: str
+    ChannelGroupName: str
+    CreatedAt: datetime
+    ModifiedAt: datetime
+    ResetAt: datetime
+    Description: str
+    IngestEndpoints: List[IngestEndpointTypeDef]
+    InputType: InputTypeType
+    ETag: str
+    Tags: Dict[str, str]
+    InputSwitchConfiguration: InputSwitchConfigurationTypeDef
+    OutputHeaderConfiguration: OutputHeaderConfigurationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateChannelResponseTypeDef(TypedDict):
+    Arn: str
+    ChannelName: str
+    ChannelGroupName: str
+    CreatedAt: datetime
+    ModifiedAt: datetime
+    Description: str
+    IngestEndpoints: List[IngestEndpointTypeDef]
+    InputType: InputTypeType
+    ETag: str
+    Tags: Dict[str, str]
+    InputSwitchConfiguration: InputSwitchConfigurationTypeDef
+    OutputHeaderConfiguration: OutputHeaderConfigurationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DestinationTypeDef(TypedDict):
+    S3Destination: S3DestinationConfigTypeDef
+
+class SpekeKeyProviderOutputTypeDef(TypedDict):
+    EncryptionContractConfiguration: EncryptionContractConfigurationTypeDef
+    ResourceId: str
+    DrmSystems: List[DrmSystemType]
+    RoleArn: str
+    Url: str
+
+class SpekeKeyProviderTypeDef(TypedDict):
+    EncryptionContractConfiguration: EncryptionContractConfigurationTypeDef
+    ResourceId: str
+    DrmSystems: Sequence[DrmSystemType]
+    RoleArn: str
+    Url: str
+
+class GetDashManifestConfigurationTypeDef(TypedDict):
+    ManifestName: str
+    Url: str
+    ManifestWindowSeconds: NotRequired[int]
+    FilterConfiguration: NotRequired[FilterConfigurationOutputTypeDef]
+    MinUpdatePeriodSeconds: NotRequired[int]
+    MinBufferTimeSeconds: NotRequired[int]
+    SuggestedPresentationDelaySeconds: NotRequired[int]
+    SegmentTemplateFormat: NotRequired[Literal["NUMBER_WITH_TIMELINE"]]
+    PeriodTriggers: NotRequired[List[DashPeriodTriggerType]]
+    ScteDash: NotRequired[ScteDashTypeDef]
+    DrmSignaling: NotRequired[DashDrmSignalingType]
+    UtcTiming: NotRequired[DashUtcTimingTypeDef]
+
+class GetHlsManifestConfigurationTypeDef(TypedDict):
+    ManifestName: str
+    Url: str
+    ChildManifestName: NotRequired[str]
+    ManifestWindowSeconds: NotRequired[int]
+    ProgramDateTimeIntervalSeconds: NotRequired[int]
+    ScteHls: NotRequired[ScteHlsTypeDef]
+    FilterConfiguration: NotRequired[FilterConfigurationOutputTypeDef]
+    StartTag: NotRequired[StartTagTypeDef]
+    UrlEncodeChildManifest: NotRequired[bool]
+
+class GetLowLatencyHlsManifestConfigurationTypeDef(TypedDict):
+    ManifestName: str
+    Url: str
+    ChildManifestName: NotRequired[str]
+    ManifestWindowSeconds: NotRequired[int]
+    ProgramDateTimeIntervalSeconds: NotRequired[int]
+    ScteHls: NotRequired[ScteHlsTypeDef]
+    FilterConfiguration: NotRequired[FilterConfigurationOutputTypeDef]
+    StartTag: NotRequired[StartTagTypeDef]
+    UrlEncodeChildManifest: NotRequired[bool]
+
+class FilterConfigurationTypeDef(TypedDict):
+    ManifestFilter: NotRequired[str]
+    Start: NotRequired[TimestampTypeDef]
+    End: NotRequired[TimestampTypeDef]
+    TimeDelaySeconds: NotRequired[int]
+    ClipStartTime: NotRequired[TimestampTypeDef]
+
+class HarvesterScheduleConfigurationTypeDef(TypedDict):
+    StartTime: TimestampTypeDef
+    EndTime: TimestampTypeDef
+
+ForceEndpointErrorConfigurationUnionTypeDef = Union[
+    ForceEndpointErrorConfigurationTypeDef, ForceEndpointErrorConfigurationOutputTypeDef
+]
+
+class GetHarvestJobRequestWaitTypeDef(TypedDict):
+    ChannelGroupName: str
+    ChannelName: str
+    OriginEndpointName: str
+    HarvestJobName: str
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class HarvestedManifestsOutputTypeDef(TypedDict):
+    HlsManifests: NotRequired[List[HarvestedHlsManifestTypeDef]]
+    DashManifests: NotRequired[List[HarvestedDashManifestTypeDef]]
+    LowLatencyHlsManifests: NotRequired[List[HarvestedLowLatencyHlsManifestTypeDef]]
+
+class HarvestedManifestsTypeDef(TypedDict):
+    HlsManifests: NotRequired[Sequence[HarvestedHlsManifestTypeDef]]
+    DashManifests: NotRequired[Sequence[HarvestedDashManifestTypeDef]]
+    LowLatencyHlsManifests: NotRequired[Sequence[HarvestedLowLatencyHlsManifestTypeDef]]
+
+class ListChannelGroupsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListChannelsRequestPaginateTypeDef(TypedDict):
+    ChannelGroupName: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListHarvestJobsRequestPaginateTypeDef(TypedDict):
+    ChannelGroupName: str
+    ChannelName: NotRequired[str]
+    OriginEndpointName: NotRequired[str]
+    Status: NotRequired[HarvestJobStatusType]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListOriginEndpointsRequestPaginateTypeDef(TypedDict):
+    ChannelGroupName: str
+    ChannelName: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class OriginEndpointListConfigurationTypeDef(TypedDict):
+    Arn: str
+    ChannelGroupName: str
+    ChannelName: str
+    OriginEndpointName: str
+    ContainerType: ContainerTypeType
+    Description: NotRequired[str]
+    CreatedAt: NotRequired[datetime]
+    ModifiedAt: NotRequired[datetime]
+    HlsManifests: NotRequired[List[ListHlsManifestConfigurationTypeDef]]
+    LowLatencyHlsManifests: NotRequired[List[ListLowLatencyHlsManifestConfigurationTypeDef]]
+    DashManifests: NotRequired[List[ListDashManifestConfigurationTypeDef]]
+    ForceEndpointErrorConfiguration: NotRequired[ForceEndpointErrorConfigurationOutputTypeDef]
+
+class EncryptionOutputTypeDef(TypedDict):
+    EncryptionMethod: EncryptionMethodTypeDef
+    SpekeKeyProvider: SpekeKeyProviderOutputTypeDef
+    ConstantInitializationVector: NotRequired[str]
+    KeyRotationIntervalSeconds: NotRequired[int]
+
+class EncryptionTypeDef(TypedDict):
+    EncryptionMethod: EncryptionMethodTypeDef
+    SpekeKeyProvider: SpekeKeyProviderTypeDef
+    ConstantInitializationVector: NotRequired[str]
+    KeyRotationIntervalSeconds: NotRequired[int]
+
+FilterConfigurationUnionTypeDef = Union[
+    FilterConfigurationTypeDef, FilterConfigurationOutputTypeDef
+]
+HarvesterScheduleConfigurationUnionTypeDef = Union[
+    HarvesterScheduleConfigurationTypeDef, HarvesterScheduleConfigurationOutputTypeDef
+]
+
+class CreateHarvestJobResponseTypeDef(TypedDict):
+    ChannelGroupName: str
+    ChannelName: str
+    OriginEndpointName: str
+    Destination: DestinationTypeDef
+    HarvestJobName: str
+    HarvestedManifests: HarvestedManifestsOutputTypeDef
+    Description: str
+    ScheduleConfiguration: HarvesterScheduleConfigurationOutputTypeDef
+    Arn: str
+    CreatedAt: datetime
+    ModifiedAt: datetime
+    Status: HarvestJobStatusType
+    ErrorMessage: str
+    ETag: str
+    Tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetHarvestJobResponseTypeDef(TypedDict):
+    ChannelGroupName: str
+    ChannelName: str
+    OriginEndpointName: str
+    Destination: DestinationTypeDef
+    HarvestJobName: str
+    HarvestedManifests: HarvestedManifestsOutputTypeDef
+    Description: str
+    ScheduleConfiguration: HarvesterScheduleConfigurationOutputTypeDef
+    Arn: str
+    CreatedAt: datetime
+    ModifiedAt: datetime
+    Status: HarvestJobStatusType
+    ErrorMessage: str
+    ETag: str
+    Tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class HarvestJobTypeDef(TypedDict):
+    ChannelGroupName: str
+    ChannelName: str
+    OriginEndpointName: str
+    Destination: DestinationTypeDef
+    HarvestJobName: str
+    HarvestedManifests: HarvestedManifestsOutputTypeDef
+    ScheduleConfiguration: HarvesterScheduleConfigurationOutputTypeDef
+    Arn: str
+    CreatedAt: datetime
+    ModifiedAt: datetime
+    Status: HarvestJobStatusType
+    Description: NotRequired[str]
+    ErrorMessage: NotRequired[str]
+    ETag: NotRequired[str]
+
+HarvestedManifestsUnionTypeDef = Union[HarvestedManifestsTypeDef, HarvestedManifestsOutputTypeDef]
+
+class ListOriginEndpointsResponseTypeDef(TypedDict):
+    Items: List[OriginEndpointListConfigurationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class SegmentOutputTypeDef(TypedDict):
+    SegmentDurationSeconds: NotRequired[int]
+    SegmentName: NotRequired[str]
+    TsUseAudioRenditionGroup: NotRequired[bool]
+    IncludeIframeOnlyStreams: NotRequired[bool]
+    TsIncludeDvbSubtitles: NotRequired[bool]
+    Scte: NotRequired[ScteOutputTypeDef]
+    Encryption: NotRequired[EncryptionOutputTypeDef]
+
+class SegmentTypeDef(TypedDict):
+    SegmentDurationSeconds: NotRequired[int]
+    SegmentName: NotRequired[str]
+    TsUseAudioRenditionGroup: NotRequired[bool]
+    IncludeIframeOnlyStreams: NotRequired[bool]
+    TsIncludeDvbSubtitles: NotRequired[bool]
+    Scte: NotRequired[ScteTypeDef]
+    Encryption: NotRequired[EncryptionTypeDef]
+
+class CreateDashManifestConfigurationTypeDef(TypedDict):
+    ManifestName: str
+    ManifestWindowSeconds: NotRequired[int]
+    FilterConfiguration: NotRequired[FilterConfigurationUnionTypeDef]
+    MinUpdatePeriodSeconds: NotRequired[int]
+    MinBufferTimeSeconds: NotRequired[int]
+    SuggestedPresentationDelaySeconds: NotRequired[int]
+    SegmentTemplateFormat: NotRequired[Literal["NUMBER_WITH_TIMELINE"]]
+    PeriodTriggers: NotRequired[Sequence[DashPeriodTriggerType]]
+    ScteDash: NotRequired[ScteDashTypeDef]
+    DrmSignaling: NotRequired[DashDrmSignalingType]
+    UtcTiming: NotRequired[DashUtcTimingTypeDef]
+
+class CreateHlsManifestConfigurationTypeDef(TypedDict):
+    ManifestName: str
+    ChildManifestName: NotRequired[str]
+    ScteHls: NotRequired[ScteHlsTypeDef]
+    StartTag: NotRequired[StartTagTypeDef]
+    ManifestWindowSeconds: NotRequired[int]
+    ProgramDateTimeIntervalSeconds: NotRequired[int]
+    FilterConfiguration: NotRequired[FilterConfigurationUnionTypeDef]
+    UrlEncodeChildManifest: NotRequired[bool]
+
+class CreateLowLatencyHlsManifestConfigurationTypeDef(TypedDict):
+    ManifestName: str
+    ChildManifestName: NotRequired[str]
+    ScteHls: NotRequired[ScteHlsTypeDef]
+    StartTag: NotRequired[StartTagTypeDef]
+    ManifestWindowSeconds: NotRequired[int]
+    ProgramDateTimeIntervalSeconds: NotRequired[int]
+    FilterConfiguration: NotRequired[FilterConfigurationUnionTypeDef]
+    UrlEncodeChildManifest: NotRequired[bool]
+
+class ListHarvestJobsResponseTypeDef(TypedDict):
+    Items: List[HarvestJobTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class CreateHarvestJobRequestTypeDef(TypedDict):
+    ChannelGroupName: str
+    ChannelName: str
+    OriginEndpointName: str
+    HarvestedManifests: HarvestedManifestsUnionTypeDef
+    ScheduleConfiguration: HarvesterScheduleConfigurationUnionTypeDef
+    Destination: DestinationTypeDef
+    Description: NotRequired[str]
+    ClientToken: NotRequired[str]
+    HarvestJobName: NotRequired[str]
+    Tags: NotRequired[Mapping[str, str]]
+
+class CreateOriginEndpointResponseTypeDef(TypedDict):
+    Arn: str
+    ChannelGroupName: str
+    ChannelName: str
+    OriginEndpointName: str
+    ContainerType: ContainerTypeType
+    Segment: SegmentOutputTypeDef
+    CreatedAt: datetime
+    ModifiedAt: datetime
+    Description: str
+    StartoverWindowSeconds: int
+    HlsManifests: List[GetHlsManifestConfigurationTypeDef]
+    LowLatencyHlsManifests: List[GetLowLatencyHlsManifestConfigurationTypeDef]
+    DashManifests: List[GetDashManifestConfigurationTypeDef]
+    ForceEndpointErrorConfiguration: ForceEndpointErrorConfigurationOutputTypeDef
+    ETag: str
+    Tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetOriginEndpointResponseTypeDef(TypedDict):
+    Arn: str
+    ChannelGroupName: str
+    ChannelName: str
+    OriginEndpointName: str
+    ContainerType: ContainerTypeType
+    Segment: SegmentOutputTypeDef
+    CreatedAt: datetime
+    ModifiedAt: datetime
+    ResetAt: datetime
+    Description: str
+    StartoverWindowSeconds: int
+    HlsManifests: List[GetHlsManifestConfigurationTypeDef]
+    LowLatencyHlsManifests: List[GetLowLatencyHlsManifestConfigurationTypeDef]
+    DashManifests: List[GetDashManifestConfigurationTypeDef]
+    ForceEndpointErrorConfiguration: ForceEndpointErrorConfigurationOutputTypeDef
+    ETag: str
+    Tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateOriginEndpointResponseTypeDef(TypedDict):
+    Arn: str
+    ChannelGroupName: str
+    ChannelName: str
+    OriginEndpointName: str
+    ContainerType: ContainerTypeType
+    Segment: SegmentOutputTypeDef
+    CreatedAt: datetime
+    ModifiedAt: datetime
+    Description: str
+    StartoverWindowSeconds: int
+    HlsManifests: List[GetHlsManifestConfigurationTypeDef]
+    LowLatencyHlsManifests: List[GetLowLatencyHlsManifestConfigurationTypeDef]
+    ForceEndpointErrorConfiguration: ForceEndpointErrorConfigurationOutputTypeDef
+    ETag: str
+    Tags: Dict[str, str]
+    DashManifests: List[GetDashManifestConfigurationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+SegmentUnionTypeDef = Union[SegmentTypeDef, SegmentOutputTypeDef]
+
+class CreateOriginEndpointRequestTypeDef(TypedDict):
+    ChannelGroupName: str
+    ChannelName: str
+    OriginEndpointName: str
+    ContainerType: ContainerTypeType
+    Segment: NotRequired[SegmentUnionTypeDef]
+    ClientToken: NotRequired[str]
+    Description: NotRequired[str]
+    StartoverWindowSeconds: NotRequired[int]
+    HlsManifests: NotRequired[Sequence[CreateHlsManifestConfigurationTypeDef]]
+    LowLatencyHlsManifests: NotRequired[Sequence[CreateLowLatencyHlsManifestConfigurationTypeDef]]
+    DashManifests: NotRequired[Sequence[CreateDashManifestConfigurationTypeDef]]
+    ForceEndpointErrorConfiguration: NotRequired[ForceEndpointErrorConfigurationUnionTypeDef]
+    Tags: NotRequired[Mapping[str, str]]
+
+class UpdateOriginEndpointRequestTypeDef(TypedDict):
+    ChannelGroupName: str
+    ChannelName: str
+    OriginEndpointName: str
+    ContainerType: ContainerTypeType
+    Segment: NotRequired[SegmentUnionTypeDef]
+    Description: NotRequired[str]
+    StartoverWindowSeconds: NotRequired[int]
+    HlsManifests: NotRequired[Sequence[CreateHlsManifestConfigurationTypeDef]]
+    LowLatencyHlsManifests: NotRequired[Sequence[CreateLowLatencyHlsManifestConfigurationTypeDef]]
+    DashManifests: NotRequired[Sequence[CreateDashManifestConfigurationTypeDef]]
+    ForceEndpointErrorConfiguration: NotRequired[ForceEndpointErrorConfigurationUnionTypeDef]
+    ETag: NotRequired[str]

@@ -1,37 +1,30 @@
 """
-Type annotations for lambda service client.
+Type annotations for lambda service Client.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/client/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
-    from mypy_boto3_lambda import LambdaClient
+    from boto3.session import Session
+    from mypy_boto3_lambda.client import LambdaClient
 
-    client: LambdaClient = boto3.client("lambda")
+    session = Session()
+    client: LambdaClient = session.client("lambda")
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from datetime import datetime
-from typing import IO, Any, Dict, List, Type, Union, overload
+from typing import Any, overload
 
 from botocore.client import BaseClient, ClientMeta
-from botocore.response import StreamingBody
+from botocore.errorfactory import BaseClientExceptions
+from botocore.exceptions import ClientError as BotocoreClientError
 
-from .literals import (
-    ArchitectureType,
-    EventSourcePositionType,
-    FunctionUrlAuthTypeType,
-    InvocationTypeType,
-    InvokeModeType,
-    LogTypeType,
-    PackageTypeType,
-    ResponseStreamingInvocationTypeType,
-    RuntimeType,
-    UpdateRuntimeOnType,
-)
 from .paginator import (
     ListAliasesPaginator,
     ListCodeSigningConfigsPaginator,
@@ -46,70 +39,117 @@ from .paginator import (
     ListVersionsByFunctionPaginator,
 )
 from .type_defs import (
+    AddLayerVersionPermissionRequestTypeDef,
     AddLayerVersionPermissionResponseTypeDef,
+    AddPermissionRequestTypeDef,
     AddPermissionResponseTypeDef,
-    AliasConfigurationResponseMetadataTypeDef,
-    AliasRoutingConfigurationTypeDef,
-    AllowedPublishersTypeDef,
-    AmazonManagedKafkaEventSourceConfigTypeDef,
-    CodeSigningPoliciesTypeDef,
-    ConcurrencyResponseMetadataTypeDef,
-    CorsTypeDef,
+    AliasConfigurationResponseTypeDef,
+    ConcurrencyResponseTypeDef,
+    CreateAliasRequestTypeDef,
+    CreateCodeSigningConfigRequestTypeDef,
     CreateCodeSigningConfigResponseTypeDef,
+    CreateEventSourceMappingRequestTypeDef,
+    CreateFunctionRequestTypeDef,
+    CreateFunctionUrlConfigRequestTypeDef,
     CreateFunctionUrlConfigResponseTypeDef,
-    DeadLetterConfigTypeDef,
-    DestinationConfigTypeDef,
-    DocumentDBEventSourceConfigTypeDef,
-    EnvironmentTypeDef,
-    EphemeralStorageTypeDef,
-    EventSourceMappingConfigurationResponseMetadataTypeDef,
-    FileSystemConfigTypeDef,
-    FilterCriteriaTypeDef,
-    FunctionCodeTypeDef,
-    FunctionConfigurationResponseMetadataTypeDef,
-    FunctionEventInvokeConfigResponseMetadataTypeDef,
+    DeleteAliasRequestTypeDef,
+    DeleteCodeSigningConfigRequestTypeDef,
+    DeleteEventSourceMappingRequestTypeDef,
+    DeleteFunctionCodeSigningConfigRequestTypeDef,
+    DeleteFunctionConcurrencyRequestTypeDef,
+    DeleteFunctionEventInvokeConfigRequestTypeDef,
+    DeleteFunctionRequestTypeDef,
+    DeleteFunctionUrlConfigRequestTypeDef,
+    DeleteLayerVersionRequestTypeDef,
+    DeleteProvisionedConcurrencyConfigRequestTypeDef,
+    EmptyResponseMetadataTypeDef,
+    EventSourceMappingConfigurationResponseTypeDef,
+    FunctionConfigurationResponseTypeDef,
+    FunctionEventInvokeConfigResponseTypeDef,
     GetAccountSettingsResponseTypeDef,
+    GetAliasRequestTypeDef,
+    GetCodeSigningConfigRequestTypeDef,
     GetCodeSigningConfigResponseTypeDef,
+    GetEventSourceMappingRequestTypeDef,
+    GetFunctionCodeSigningConfigRequestTypeDef,
     GetFunctionCodeSigningConfigResponseTypeDef,
+    GetFunctionConcurrencyRequestTypeDef,
     GetFunctionConcurrencyResponseTypeDef,
+    GetFunctionConfigurationRequestTypeDef,
+    GetFunctionEventInvokeConfigRequestTypeDef,
+    GetFunctionRecursionConfigRequestTypeDef,
+    GetFunctionRecursionConfigResponseTypeDef,
+    GetFunctionRequestTypeDef,
     GetFunctionResponseTypeDef,
+    GetFunctionUrlConfigRequestTypeDef,
     GetFunctionUrlConfigResponseTypeDef,
+    GetLayerVersionByArnRequestTypeDef,
+    GetLayerVersionPolicyRequestTypeDef,
     GetLayerVersionPolicyResponseTypeDef,
+    GetLayerVersionRequestTypeDef,
     GetLayerVersionResponseTypeDef,
+    GetPolicyRequestTypeDef,
     GetPolicyResponseTypeDef,
+    GetProvisionedConcurrencyConfigRequestTypeDef,
     GetProvisionedConcurrencyConfigResponseTypeDef,
+    GetRuntimeManagementConfigRequestTypeDef,
     GetRuntimeManagementConfigResponseTypeDef,
-    ImageConfigTypeDef,
+    InvocationRequestTypeDef,
     InvocationResponseTypeDef,
+    InvokeAsyncRequestTypeDef,
     InvokeAsyncResponseTypeDef,
+    InvokeWithResponseStreamRequestTypeDef,
     InvokeWithResponseStreamResponseTypeDef,
-    LayerVersionContentInputTypeDef,
+    ListAliasesRequestTypeDef,
     ListAliasesResponseTypeDef,
+    ListCodeSigningConfigsRequestTypeDef,
     ListCodeSigningConfigsResponseTypeDef,
+    ListEventSourceMappingsRequestTypeDef,
     ListEventSourceMappingsResponseTypeDef,
+    ListFunctionEventInvokeConfigsRequestTypeDef,
     ListFunctionEventInvokeConfigsResponseTypeDef,
+    ListFunctionsByCodeSigningConfigRequestTypeDef,
     ListFunctionsByCodeSigningConfigResponseTypeDef,
+    ListFunctionsRequestTypeDef,
     ListFunctionsResponseTypeDef,
+    ListFunctionUrlConfigsRequestTypeDef,
     ListFunctionUrlConfigsResponseTypeDef,
+    ListLayersRequestTypeDef,
     ListLayersResponseTypeDef,
+    ListLayerVersionsRequestTypeDef,
     ListLayerVersionsResponseTypeDef,
+    ListProvisionedConcurrencyConfigsRequestTypeDef,
     ListProvisionedConcurrencyConfigsResponseTypeDef,
+    ListTagsRequestTypeDef,
     ListTagsResponseTypeDef,
+    ListVersionsByFunctionRequestTypeDef,
     ListVersionsByFunctionResponseTypeDef,
-    LoggingConfigTypeDef,
+    PublishLayerVersionRequestTypeDef,
     PublishLayerVersionResponseTypeDef,
+    PublishVersionRequestTypeDef,
+    PutFunctionCodeSigningConfigRequestTypeDef,
     PutFunctionCodeSigningConfigResponseTypeDef,
+    PutFunctionConcurrencyRequestTypeDef,
+    PutFunctionEventInvokeConfigRequestTypeDef,
+    PutFunctionRecursionConfigRequestTypeDef,
+    PutFunctionRecursionConfigResponseTypeDef,
+    PutProvisionedConcurrencyConfigRequestTypeDef,
     PutProvisionedConcurrencyConfigResponseTypeDef,
+    PutRuntimeManagementConfigRequestTypeDef,
     PutRuntimeManagementConfigResponseTypeDef,
-    ScalingConfigTypeDef,
-    SelfManagedEventSourceTypeDef,
-    SelfManagedKafkaEventSourceConfigTypeDef,
-    SnapStartTypeDef,
-    SourceAccessConfigurationTypeDef,
-    TracingConfigTypeDef,
+    RemoveLayerVersionPermissionRequestTypeDef,
+    RemovePermissionRequestTypeDef,
+    TagResourceRequestTypeDef,
+    UntagResourceRequestTypeDef,
+    UpdateAliasRequestTypeDef,
+    UpdateCodeSigningConfigRequestTypeDef,
     UpdateCodeSigningConfigResponseTypeDef,
+    UpdateEventSourceMappingRequestTypeDef,
+    UpdateFunctionCodeRequestTypeDef,
+    UpdateFunctionConfigurationRequestTypeDef,
+    UpdateFunctionEventInvokeConfigRequestTypeDef,
+    UpdateFunctionUrlConfigRequestTypeDef,
     UpdateFunctionUrlConfigResponseTypeDef,
-    VpcConfigTypeDef,
 )
 from .waiter import (
     FunctionActiveV2Waiter,
@@ -120,21 +160,20 @@ from .waiter import (
     PublishedVersionActiveWaiter,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import type as Type
+    from collections.abc import Mapping
 else:
-    from typing_extensions import Literal
+    from typing import Dict, Mapping, Type
+if sys.version_info >= (3, 12):
+    from typing import Literal, Unpack
+else:
+    from typing_extensions import Literal, Unpack
 
 __all__ = ("LambdaClient",)
 
-class BotocoreClientError(BaseException):
-    MSG_TEMPLATE: str
-
-    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
-        self.response: Dict[str, Any]
-        self.operation_name: str
-
-class Exceptions:
+class Exceptions(BaseClientExceptions):
     ClientError: Type[BotocoreClientError]
     CodeSigningConfigNotFoundException: Type[BotocoreClientError]
     CodeStorageExceededException: Type[BotocoreClientError]
@@ -177,8 +216,8 @@ class Exceptions:
 
 class LambdaClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lambda.html#Lambda.Client)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda.html#Lambda.Client)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/client/)
     """
 
     meta: ClientMeta
@@ -187,1065 +226,942 @@ class LambdaClient(BaseClient):
     def exceptions(self) -> Exceptions:
         """
         LambdaClient exceptions.
-        """
 
-    def add_layer_version_permission(
-        self,
-        *,
-        LayerName: str,
-        VersionNumber: int,
-        StatementId: str,
-        Action: str,
-        Principal: str,
-        OrganizationId: str = None,
-        RevisionId: str = None
-    ) -> AddLayerVersionPermissionResponseTypeDef:
-        """
-        Adds permissions to the resource-based policy of a version of an `Lambda layer
-        <https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html>`__.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lambda.html#Lambda.Client.add_layer_version_permission)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#add_layer_version_permission)
-        """
-
-    def add_permission(
-        self,
-        *,
-        FunctionName: str,
-        StatementId: str,
-        Action: str,
-        Principal: str,
-        SourceArn: str = None,
-        SourceAccount: str = None,
-        EventSourceToken: str = None,
-        Qualifier: str = None,
-        RevisionId: str = None,
-        PrincipalOrgID: str = None,
-        FunctionUrlAuthType: FunctionUrlAuthTypeType = None
-    ) -> AddPermissionResponseTypeDef:
-        """
-        Grants an Amazon Web Service, Amazon Web Services account, or Amazon Web
-        Services organization permission to use a function.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lambda.html#Lambda.Client.add_permission)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#add_permission)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda.html#Lambda.Client)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/client/#exceptions)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        Check if an operation can be paginated.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lambda.html#Lambda.Client.can_paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#can_paginate)
-        """
-
-    def close(self) -> None:
-        """
-        Closes underlying endpoint connections.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lambda.html#Lambda.Client.close)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#close)
-        """
-
-    def create_alias(
-        self,
-        *,
-        FunctionName: str,
-        Name: str,
-        FunctionVersion: str,
-        Description: str = None,
-        RoutingConfig: "AliasRoutingConfigurationTypeDef" = None
-    ) -> AliasConfigurationResponseMetadataTypeDef:
-        """
-        Creates an `alias <https://docs.aws.amazon.com/lambda/latest/dg/configuration-
-        aliases.html>`__ for a Lambda function version.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lambda.html#Lambda.Client.create_alias)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#create_alias)
-        """
-
-    def create_code_signing_config(
-        self,
-        *,
-        AllowedPublishers: "AllowedPublishersTypeDef",
-        Description: str = None,
-        CodeSigningPolicies: "CodeSigningPoliciesTypeDef" = None
-    ) -> CreateCodeSigningConfigResponseTypeDef:
-        """
-        Creates a code signing configuration.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lambda.html#Lambda.Client.create_code_signing_config)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#create_code_signing_config)
-        """
-
-    def create_event_source_mapping(
-        self,
-        *,
-        FunctionName: str,
-        EventSourceArn: str = None,
-        Enabled: bool = None,
-        BatchSize: int = None,
-        FilterCriteria: "FilterCriteriaTypeDef" = None,
-        MaximumBatchingWindowInSeconds: int = None,
-        ParallelizationFactor: int = None,
-        StartingPosition: EventSourcePositionType = None,
-        StartingPositionTimestamp: Union[datetime, str] = None,
-        DestinationConfig: "DestinationConfigTypeDef" = None,
-        MaximumRecordAgeInSeconds: int = None,
-        BisectBatchOnFunctionError: bool = None,
-        MaximumRetryAttempts: int = None,
-        TumblingWindowInSeconds: int = None,
-        Topics: List[str] = None,
-        Queues: List[str] = None,
-        SourceAccessConfigurations: List["SourceAccessConfigurationTypeDef"] = None,
-        SelfManagedEventSource: "SelfManagedEventSourceTypeDef" = None,
-        FunctionResponseTypes: List[Literal["ReportBatchItemFailures"]] = None,
-        AmazonManagedKafkaEventSourceConfig: "AmazonManagedKafkaEventSourceConfigTypeDef" = None,
-        SelfManagedKafkaEventSourceConfig: "SelfManagedKafkaEventSourceConfigTypeDef" = None,
-        ScalingConfig: "ScalingConfigTypeDef" = None,
-        DocumentDBEventSourceConfig: "DocumentDBEventSourceConfigTypeDef" = None
-    ) -> EventSourceMappingConfigurationResponseMetadataTypeDef:
-        """
-        Creates a mapping between an event source and an Lambda function.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lambda.html#Lambda.Client.create_event_source_mapping)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#create_event_source_mapping)
-        """
-
-    def create_function(
-        self,
-        *,
-        FunctionName: str,
-        Role: str,
-        Code: "FunctionCodeTypeDef",
-        Runtime: RuntimeType = None,
-        Handler: str = None,
-        Description: str = None,
-        Timeout: int = None,
-        MemorySize: int = None,
-        Publish: bool = None,
-        VpcConfig: "VpcConfigTypeDef" = None,
-        PackageType: PackageTypeType = None,
-        DeadLetterConfig: "DeadLetterConfigTypeDef" = None,
-        Environment: "EnvironmentTypeDef" = None,
-        KMSKeyArn: str = None,
-        TracingConfig: "TracingConfigTypeDef" = None,
-        Tags: Dict[str, str] = None,
-        Layers: List[str] = None,
-        FileSystemConfigs: List["FileSystemConfigTypeDef"] = None,
-        ImageConfig: "ImageConfigTypeDef" = None,
-        CodeSigningConfigArn: str = None,
-        Architectures: List[ArchitectureType] = None,
-        EphemeralStorage: "EphemeralStorageTypeDef" = None,
-        SnapStart: "SnapStartTypeDef" = None,
-        LoggingConfig: "LoggingConfigTypeDef" = None
-    ) -> FunctionConfigurationResponseMetadataTypeDef:
-        """
-        Creates a Lambda function.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lambda.html#Lambda.Client.create_function)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#create_function)
-        """
-
-    def create_function_url_config(
-        self,
-        *,
-        FunctionName: str,
-        AuthType: FunctionUrlAuthTypeType,
-        Qualifier: str = None,
-        Cors: "CorsTypeDef" = None,
-        InvokeMode: InvokeModeType = None
-    ) -> CreateFunctionUrlConfigResponseTypeDef:
-        """
-        Creates a Lambda function URL with the specified configuration parameters.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lambda.html#Lambda.Client.create_function_url_config)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#create_function_url_config)
-        """
-
-    def delete_alias(self, *, FunctionName: str, Name: str) -> None:
-        """
-        Deletes a Lambda function `alias
-        <https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html>`__.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lambda.html#Lambda.Client.delete_alias)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#delete_alias)
-        """
-
-    def delete_code_signing_config(self, *, CodeSigningConfigArn: str) -> Dict[str, Any]:
-        """
-        Deletes the code signing configuration.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lambda.html#Lambda.Client.delete_code_signing_config)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#delete_code_signing_config)
-        """
-
-    def delete_event_source_mapping(
-        self, *, UUID: str
-    ) -> EventSourceMappingConfigurationResponseMetadataTypeDef:
-        """
-        Deletes an `event source mapping
-        <https://docs.aws.amazon.com/lambda/latest/dg/intro-invocation-modes.html>`__.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lambda.html#Lambda.Client.delete_event_source_mapping)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#delete_event_source_mapping)
-        """
-
-    def delete_function(self, *, FunctionName: str, Qualifier: str = None) -> None:
-        """
-        Deletes a Lambda function.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lambda.html#Lambda.Client.delete_function)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#delete_function)
-        """
-
-    def delete_function_code_signing_config(self, *, FunctionName: str) -> None:
-        """
-        Removes the code signing configuration from the function.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lambda.html#Lambda.Client.delete_function_code_signing_config)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#delete_function_code_signing_config)
-        """
-
-    def delete_function_concurrency(self, *, FunctionName: str) -> None:
-        """
-        Removes a concurrent execution limit from a function.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lambda.html#Lambda.Client.delete_function_concurrency)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#delete_function_concurrency)
-        """
-
-    def delete_function_event_invoke_config(
-        self, *, FunctionName: str, Qualifier: str = None
-    ) -> None:
-        """
-        Deletes the configuration for asynchronous invocation for a function, version,
-        or alias.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lambda.html#Lambda.Client.delete_function_event_invoke_config)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#delete_function_event_invoke_config)
-        """
-
-    def delete_function_url_config(self, *, FunctionName: str, Qualifier: str = None) -> None:
-        """
-        Deletes a Lambda function URL.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lambda.html#Lambda.Client.delete_function_url_config)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#delete_function_url_config)
-        """
-
-    def delete_layer_version(self, *, LayerName: str, VersionNumber: int) -> None:
-        """
-        Deletes a version of an `Lambda layer
-        <https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html>`__.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lambda.html#Lambda.Client.delete_layer_version)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#delete_layer_version)
-        """
-
-    def delete_provisioned_concurrency_config(self, *, FunctionName: str, Qualifier: str) -> None:
-        """
-        Deletes the provisioned concurrency configuration for a function.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lambda.html#Lambda.Client.delete_provisioned_concurrency_config)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#delete_provisioned_concurrency_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/can_paginate.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/client/#can_paginate)
         """
 
     def generate_presigned_url(
         self,
         ClientMethod: str,
-        Params: Dict[str, Any] = None,
+        Params: Mapping[str, Any] = ...,
         ExpiresIn: int = 3600,
-        HttpMethod: str = None,
+        HttpMethod: str = ...,
     ) -> str:
         """
-        Generate a presigned url given a client, its method, and arguments.
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/generate_presigned_url.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/client/#generate_presigned_url)
+        """
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lambda.html#Lambda.Client.generate_presigned_url)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#generate_presigned_url)
+    def add_layer_version_permission(
+        self, **kwargs: Unpack[AddLayerVersionPermissionRequestTypeDef]
+    ) -> AddLayerVersionPermissionResponseTypeDef:
+        """
+        Adds permissions to the resource-based policy of a version of an <a
+        href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda
+        layer</a>.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/add_layer_version_permission.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/client/#add_layer_version_permission)
+        """
+
+    def add_permission(
+        self, **kwargs: Unpack[AddPermissionRequestTypeDef]
+    ) -> AddPermissionResponseTypeDef:
+        """
+        Grants a <a
+        href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#Principal_specifying">principal</a>
+        permission to use a function.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/add_permission.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/client/#add_permission)
+        """
+
+    def create_alias(
+        self, **kwargs: Unpack[CreateAliasRequestTypeDef]
+    ) -> AliasConfigurationResponseTypeDef:
+        """
+        Creates an <a
+        href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html">alias</a>
+        for a Lambda function version.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/create_alias.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/client/#create_alias)
+        """
+
+    def create_code_signing_config(
+        self, **kwargs: Unpack[CreateCodeSigningConfigRequestTypeDef]
+    ) -> CreateCodeSigningConfigResponseTypeDef:
+        """
+        Creates a code signing configuration.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/create_code_signing_config.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/client/#create_code_signing_config)
+        """
+
+    def create_event_source_mapping(
+        self, **kwargs: Unpack[CreateEventSourceMappingRequestTypeDef]
+    ) -> EventSourceMappingConfigurationResponseTypeDef:
+        """
+        Creates a mapping between an event source and an Lambda function.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/create_event_source_mapping.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/client/#create_event_source_mapping)
+        """
+
+    def create_function(
+        self, **kwargs: Unpack[CreateFunctionRequestTypeDef]
+    ) -> FunctionConfigurationResponseTypeDef:
+        """
+        Creates a Lambda function.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/create_function.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/client/#create_function)
+        """
+
+    def create_function_url_config(
+        self, **kwargs: Unpack[CreateFunctionUrlConfigRequestTypeDef]
+    ) -> CreateFunctionUrlConfigResponseTypeDef:
+        """
+        Creates a Lambda function URL with the specified configuration parameters.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/create_function_url_config.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/client/#create_function_url_config)
+        """
+
+    def delete_alias(
+        self, **kwargs: Unpack[DeleteAliasRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Deletes a Lambda function <a
+        href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html">alias</a>.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/delete_alias.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/client/#delete_alias)
+        """
+
+    def delete_code_signing_config(
+        self, **kwargs: Unpack[DeleteCodeSigningConfigRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Deletes the code signing configuration.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/delete_code_signing_config.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/client/#delete_code_signing_config)
+        """
+
+    def delete_event_source_mapping(
+        self, **kwargs: Unpack[DeleteEventSourceMappingRequestTypeDef]
+    ) -> EventSourceMappingConfigurationResponseTypeDef:
+        """
+        Deletes an <a
+        href="https://docs.aws.amazon.com/lambda/latest/dg/intro-invocation-modes.html">event
+        source mapping</a>.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/delete_event_source_mapping.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/client/#delete_event_source_mapping)
+        """
+
+    def delete_function(
+        self, **kwargs: Unpack[DeleteFunctionRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Deletes a Lambda function.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/delete_function.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/client/#delete_function)
+        """
+
+    def delete_function_code_signing_config(
+        self, **kwargs: Unpack[DeleteFunctionCodeSigningConfigRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Removes the code signing configuration from the function.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/delete_function_code_signing_config.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/client/#delete_function_code_signing_config)
+        """
+
+    def delete_function_concurrency(
+        self, **kwargs: Unpack[DeleteFunctionConcurrencyRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Removes a concurrent execution limit from a function.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/delete_function_concurrency.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/client/#delete_function_concurrency)
+        """
+
+    def delete_function_event_invoke_config(
+        self, **kwargs: Unpack[DeleteFunctionEventInvokeConfigRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Deletes the configuration for asynchronous invocation for a function, version,
+        or alias.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/delete_function_event_invoke_config.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/client/#delete_function_event_invoke_config)
+        """
+
+    def delete_function_url_config(
+        self, **kwargs: Unpack[DeleteFunctionUrlConfigRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Deletes a Lambda function URL.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/delete_function_url_config.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/client/#delete_function_url_config)
+        """
+
+    def delete_layer_version(
+        self, **kwargs: Unpack[DeleteLayerVersionRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Deletes a version of an <a
+        href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda
+        layer</a>.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/delete_layer_version.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/client/#delete_layer_version)
+        """
+
+    def delete_provisioned_concurrency_config(
+        self, **kwargs: Unpack[DeleteProvisionedConcurrencyConfigRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Deletes the provisioned concurrency configuration for a function.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/delete_provisioned_concurrency_config.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/client/#delete_provisioned_concurrency_config)
         """
 
     def get_account_settings(self) -> GetAccountSettingsResponseTypeDef:
         """
-        Retrieves details about your account's `limits
-        <https://docs.aws.amazon.com/lambda/latest/dg/limits.html>`__ and usage in an
-        Amazon Web Services Region.
+        Retrieves details about your account's <a
+        href="https://docs.aws.amazon.com/lambda/latest/dg/limits.html">limits</a> and
+        usage in an Amazon Web Services Region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lambda.html#Lambda.Client.get_account_settings)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#get_account_settings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/get_account_settings.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/client/#get_account_settings)
         """
 
     def get_alias(
-        self, *, FunctionName: str, Name: str
-    ) -> AliasConfigurationResponseMetadataTypeDef:
+        self, **kwargs: Unpack[GetAliasRequestTypeDef]
+    ) -> AliasConfigurationResponseTypeDef:
         """
-        Returns details about a Lambda function `alias
-        <https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html>`__.
+        Returns details about a Lambda function <a
+        href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html">alias</a>.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lambda.html#Lambda.Client.get_alias)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#get_alias)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/get_alias.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/client/#get_alias)
         """
 
     def get_code_signing_config(
-        self, *, CodeSigningConfigArn: str
+        self, **kwargs: Unpack[GetCodeSigningConfigRequestTypeDef]
     ) -> GetCodeSigningConfigResponseTypeDef:
         """
         Returns information about the specified code signing configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lambda.html#Lambda.Client.get_code_signing_config)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#get_code_signing_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/get_code_signing_config.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/client/#get_code_signing_config)
         """
 
     def get_event_source_mapping(
-        self, *, UUID: str
-    ) -> EventSourceMappingConfigurationResponseMetadataTypeDef:
+        self, **kwargs: Unpack[GetEventSourceMappingRequestTypeDef]
+    ) -> EventSourceMappingConfigurationResponseTypeDef:
         """
         Returns details about an event source mapping.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lambda.html#Lambda.Client.get_event_source_mapping)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#get_event_source_mapping)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/get_event_source_mapping.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/client/#get_event_source_mapping)
         """
 
     def get_function(
-        self, *, FunctionName: str, Qualifier: str = None
+        self, **kwargs: Unpack[GetFunctionRequestTypeDef]
     ) -> GetFunctionResponseTypeDef:
         """
         Returns information about the function or function version, with a link to
         download the deployment package that's valid for 10 minutes.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lambda.html#Lambda.Client.get_function)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#get_function)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/get_function.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/client/#get_function)
         """
 
     def get_function_code_signing_config(
-        self, *, FunctionName: str
+        self, **kwargs: Unpack[GetFunctionCodeSigningConfigRequestTypeDef]
     ) -> GetFunctionCodeSigningConfigResponseTypeDef:
         """
         Returns the code signing configuration for the specified function.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lambda.html#Lambda.Client.get_function_code_signing_config)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#get_function_code_signing_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/get_function_code_signing_config.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/client/#get_function_code_signing_config)
         """
 
     def get_function_concurrency(
-        self, *, FunctionName: str
+        self, **kwargs: Unpack[GetFunctionConcurrencyRequestTypeDef]
     ) -> GetFunctionConcurrencyResponseTypeDef:
         """
         Returns details about the reserved concurrency configuration for a function.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lambda.html#Lambda.Client.get_function_concurrency)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#get_function_concurrency)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/get_function_concurrency.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/client/#get_function_concurrency)
         """
 
     def get_function_configuration(
-        self, *, FunctionName: str, Qualifier: str = None
-    ) -> FunctionConfigurationResponseMetadataTypeDef:
+        self, **kwargs: Unpack[GetFunctionConfigurationRequestTypeDef]
+    ) -> FunctionConfigurationResponseTypeDef:
         """
         Returns the version-specific settings of a Lambda function or version.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lambda.html#Lambda.Client.get_function_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#get_function_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/get_function_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/client/#get_function_configuration)
         """
 
     def get_function_event_invoke_config(
-        self, *, FunctionName: str, Qualifier: str = None
-    ) -> FunctionEventInvokeConfigResponseMetadataTypeDef:
+        self, **kwargs: Unpack[GetFunctionEventInvokeConfigRequestTypeDef]
+    ) -> FunctionEventInvokeConfigResponseTypeDef:
         """
-        Retrieves the configuration for asynchronous invocation for a function, version,
-        or alias.
+        Retrieves the configuration for asynchronous invocation for a function,
+        version, or alias.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lambda.html#Lambda.Client.get_function_event_invoke_config)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#get_function_event_invoke_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/get_function_event_invoke_config.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/client/#get_function_event_invoke_config)
+        """
+
+    def get_function_recursion_config(
+        self, **kwargs: Unpack[GetFunctionRecursionConfigRequestTypeDef]
+    ) -> GetFunctionRecursionConfigResponseTypeDef:
+        """
+        Returns your function's <a
+        href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-recursion.html">recursive
+        loop detection</a> configuration.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/get_function_recursion_config.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/client/#get_function_recursion_config)
         """
 
     def get_function_url_config(
-        self, *, FunctionName: str, Qualifier: str = None
+        self, **kwargs: Unpack[GetFunctionUrlConfigRequestTypeDef]
     ) -> GetFunctionUrlConfigResponseTypeDef:
         """
         Returns details about a Lambda function URL.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lambda.html#Lambda.Client.get_function_url_config)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#get_function_url_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/get_function_url_config.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/client/#get_function_url_config)
         """
 
     def get_layer_version(
-        self, *, LayerName: str, VersionNumber: int
+        self, **kwargs: Unpack[GetLayerVersionRequestTypeDef]
     ) -> GetLayerVersionResponseTypeDef:
         """
-        Returns information about a version of an `Lambda layer
-        <https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html>`__,
-        with a link to download the layer archive that's valid for 10 minutes.
+        Returns information about a version of an <a
+        href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda
+        layer</a>, with a link to download the layer archive that's valid for 10
+        minutes.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lambda.html#Lambda.Client.get_layer_version)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#get_layer_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/get_layer_version.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/client/#get_layer_version)
         """
 
-    def get_layer_version_by_arn(self, *, Arn: str) -> GetLayerVersionResponseTypeDef:
+    def get_layer_version_by_arn(
+        self, **kwargs: Unpack[GetLayerVersionByArnRequestTypeDef]
+    ) -> GetLayerVersionResponseTypeDef:
         """
-        Returns information about a version of an `Lambda layer
-        <https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html>`__,
-        with a link to download the layer archive that's valid for 10 minutes.
+        Returns information about a version of an <a
+        href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda
+        layer</a>, with a link to download the layer archive that's valid for 10
+        minutes.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lambda.html#Lambda.Client.get_layer_version_by_arn)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#get_layer_version_by_arn)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/get_layer_version_by_arn.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/client/#get_layer_version_by_arn)
         """
 
     def get_layer_version_policy(
-        self, *, LayerName: str, VersionNumber: int
+        self, **kwargs: Unpack[GetLayerVersionPolicyRequestTypeDef]
     ) -> GetLayerVersionPolicyResponseTypeDef:
         """
-        Returns the permission policy for a version of an `Lambda layer
-        <https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html>`__.
+        Returns the permission policy for a version of an <a
+        href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda
+        layer</a>.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lambda.html#Lambda.Client.get_layer_version_policy)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#get_layer_version_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/get_layer_version_policy.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/client/#get_layer_version_policy)
         """
 
-    def get_policy(self, *, FunctionName: str, Qualifier: str = None) -> GetPolicyResponseTypeDef:
+    def get_policy(self, **kwargs: Unpack[GetPolicyRequestTypeDef]) -> GetPolicyResponseTypeDef:
         """
-        Returns the `resource-based IAM policy
-        <https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-
-        based.html>`__ for a function, version, or alias.
+        Returns the <a
+        href="https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html">resource-based
+        IAM policy</a> for a function, version, or alias.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lambda.html#Lambda.Client.get_policy)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#get_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/get_policy.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/client/#get_policy)
         """
 
     def get_provisioned_concurrency_config(
-        self, *, FunctionName: str, Qualifier: str
+        self, **kwargs: Unpack[GetProvisionedConcurrencyConfigRequestTypeDef]
     ) -> GetProvisionedConcurrencyConfigResponseTypeDef:
         """
         Retrieves the provisioned concurrency configuration for a function's alias or
         version.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lambda.html#Lambda.Client.get_provisioned_concurrency_config)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#get_provisioned_concurrency_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/get_provisioned_concurrency_config.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/client/#get_provisioned_concurrency_config)
         """
 
     def get_runtime_management_config(
-        self, *, FunctionName: str, Qualifier: str = None
+        self, **kwargs: Unpack[GetRuntimeManagementConfigRequestTypeDef]
     ) -> GetRuntimeManagementConfigResponseTypeDef:
         """
         Retrieves the runtime management configuration for a function's version.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lambda.html#Lambda.Client.get_runtime_management_config)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#get_runtime_management_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/get_runtime_management_config.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/client/#get_runtime_management_config)
         """
 
-    def invoke(
-        self,
-        *,
-        FunctionName: str,
-        InvocationType: InvocationTypeType = None,
-        LogType: LogTypeType = None,
-        ClientContext: str = None,
-        Payload: Union[bytes, IO[bytes], StreamingBody] = None,
-        Qualifier: str = None
-    ) -> InvocationResponseTypeDef:
+    def invoke(self, **kwargs: Unpack[InvocationRequestTypeDef]) -> InvocationResponseTypeDef:
         """
         Invokes a Lambda function.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lambda.html#Lambda.Client.invoke)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#invoke)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/invoke.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/client/#invoke)
         """
 
     def invoke_async(
-        self, *, FunctionName: str, InvokeArgs: Union[bytes, IO[bytes], StreamingBody]
+        self, **kwargs: Unpack[InvokeAsyncRequestTypeDef]
     ) -> InvokeAsyncResponseTypeDef:
         """
-        .
+        For asynchronous function invocation, use <a>Invoke</a>.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lambda.html#Lambda.Client.invoke_async)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#invoke_async)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/invoke_async.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/client/#invoke_async)
         """
 
     def invoke_with_response_stream(
-        self,
-        *,
-        FunctionName: str,
-        InvocationType: ResponseStreamingInvocationTypeType = None,
-        LogType: LogTypeType = None,
-        ClientContext: str = None,
-        Qualifier: str = None,
-        Payload: Union[bytes, IO[bytes], StreamingBody] = None
+        self, **kwargs: Unpack[InvokeWithResponseStreamRequestTypeDef]
     ) -> InvokeWithResponseStreamResponseTypeDef:
         """
         Configure your Lambda functions to stream response payloads back to clients.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lambda.html#Lambda.Client.invoke_with_response_stream)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#invoke_with_response_stream)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/invoke_with_response_stream.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/client/#invoke_with_response_stream)
         """
 
     def list_aliases(
-        self,
-        *,
-        FunctionName: str,
-        FunctionVersion: str = None,
-        Marker: str = None,
-        MaxItems: int = None
+        self, **kwargs: Unpack[ListAliasesRequestTypeDef]
     ) -> ListAliasesResponseTypeDef:
         """
-        Returns a list of `aliases
-        <https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html>`__ for
-        a Lambda function.
+        Returns a list of <a
+        href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html">aliases</a>
+        for a Lambda function.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lambda.html#Lambda.Client.list_aliases)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#list_aliases)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/list_aliases.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/client/#list_aliases)
         """
 
     def list_code_signing_configs(
-        self, *, Marker: str = None, MaxItems: int = None
+        self, **kwargs: Unpack[ListCodeSigningConfigsRequestTypeDef]
     ) -> ListCodeSigningConfigsResponseTypeDef:
         """
-        Returns a list of `code signing configurations
-        <https://docs.aws.amazon.com/lambda/latest/dg/configuring-codesigning.html>`__.
+        Returns a list of <a
+        href="https://docs.aws.amazon.com/lambda/latest/dg/configuring-codesigning.html">code
+        signing configurations</a>.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lambda.html#Lambda.Client.list_code_signing_configs)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#list_code_signing_configs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/list_code_signing_configs.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/client/#list_code_signing_configs)
         """
 
     def list_event_source_mappings(
-        self,
-        *,
-        EventSourceArn: str = None,
-        FunctionName: str = None,
-        Marker: str = None,
-        MaxItems: int = None
+        self, **kwargs: Unpack[ListEventSourceMappingsRequestTypeDef]
     ) -> ListEventSourceMappingsResponseTypeDef:
         """
         Lists event source mappings.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lambda.html#Lambda.Client.list_event_source_mappings)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#list_event_source_mappings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/list_event_source_mappings.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/client/#list_event_source_mappings)
         """
 
     def list_function_event_invoke_configs(
-        self, *, FunctionName: str, Marker: str = None, MaxItems: int = None
+        self, **kwargs: Unpack[ListFunctionEventInvokeConfigsRequestTypeDef]
     ) -> ListFunctionEventInvokeConfigsResponseTypeDef:
         """
         Retrieves a list of configurations for asynchronous invocation for a function.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lambda.html#Lambda.Client.list_function_event_invoke_configs)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#list_function_event_invoke_configs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/list_function_event_invoke_configs.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/client/#list_function_event_invoke_configs)
         """
 
     def list_function_url_configs(
-        self, *, FunctionName: str, Marker: str = None, MaxItems: int = None
+        self, **kwargs: Unpack[ListFunctionUrlConfigsRequestTypeDef]
     ) -> ListFunctionUrlConfigsResponseTypeDef:
         """
         Returns a list of Lambda function URLs for the specified function.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lambda.html#Lambda.Client.list_function_url_configs)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#list_function_url_configs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/list_function_url_configs.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/client/#list_function_url_configs)
         """
 
     def list_functions(
-        self,
-        *,
-        MasterRegion: str = None,
-        FunctionVersion: Literal["ALL"] = None,
-        Marker: str = None,
-        MaxItems: int = None
+        self, **kwargs: Unpack[ListFunctionsRequestTypeDef]
     ) -> ListFunctionsResponseTypeDef:
         """
         Returns a list of Lambda functions, with the version-specific configuration of
         each.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lambda.html#Lambda.Client.list_functions)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#list_functions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/list_functions.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/client/#list_functions)
         """
 
     def list_functions_by_code_signing_config(
-        self, *, CodeSigningConfigArn: str, Marker: str = None, MaxItems: int = None
+        self, **kwargs: Unpack[ListFunctionsByCodeSigningConfigRequestTypeDef]
     ) -> ListFunctionsByCodeSigningConfigResponseTypeDef:
         """
         List the functions that use the specified code signing configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lambda.html#Lambda.Client.list_functions_by_code_signing_config)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#list_functions_by_code_signing_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/list_functions_by_code_signing_config.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/client/#list_functions_by_code_signing_config)
         """
 
     def list_layer_versions(
-        self,
-        *,
-        LayerName: str,
-        CompatibleRuntime: RuntimeType = None,
-        Marker: str = None,
-        MaxItems: int = None,
-        CompatibleArchitecture: ArchitectureType = None
+        self, **kwargs: Unpack[ListLayerVersionsRequestTypeDef]
     ) -> ListLayerVersionsResponseTypeDef:
         """
-        Lists the versions of an `Lambda layer
-        <https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html>`__.
+        Lists the versions of an <a
+        href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda
+        layer</a>.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lambda.html#Lambda.Client.list_layer_versions)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#list_layer_versions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/list_layer_versions.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/client/#list_layer_versions)
         """
 
-    def list_layers(
-        self,
-        *,
-        CompatibleRuntime: RuntimeType = None,
-        Marker: str = None,
-        MaxItems: int = None,
-        CompatibleArchitecture: ArchitectureType = None
-    ) -> ListLayersResponseTypeDef:
+    def list_layers(self, **kwargs: Unpack[ListLayersRequestTypeDef]) -> ListLayersResponseTypeDef:
         """
-        Lists `Lambda layers <https://docs.aws.amazon.com/lambda/latest/dg/invocation-
-        layers.html>`__ and shows information about the latest version of each.
+        Lists <a
+        href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-layers.html">Lambda
+        layers</a> and shows information about the latest version of each.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lambda.html#Lambda.Client.list_layers)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#list_layers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/list_layers.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/client/#list_layers)
         """
 
     def list_provisioned_concurrency_configs(
-        self, *, FunctionName: str, Marker: str = None, MaxItems: int = None
+        self, **kwargs: Unpack[ListProvisionedConcurrencyConfigsRequestTypeDef]
     ) -> ListProvisionedConcurrencyConfigsResponseTypeDef:
         """
         Retrieves a list of provisioned concurrency configurations for a function.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lambda.html#Lambda.Client.list_provisioned_concurrency_configs)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#list_provisioned_concurrency_configs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/list_provisioned_concurrency_configs.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/client/#list_provisioned_concurrency_configs)
         """
 
-    def list_tags(self, *, Resource: str) -> ListTagsResponseTypeDef:
+    def list_tags(self, **kwargs: Unpack[ListTagsRequestTypeDef]) -> ListTagsResponseTypeDef:
         """
-        Returns a function's `tags
-        <https://docs.aws.amazon.com/lambda/latest/dg/tagging.html>`__.
+        Returns a function, event source mapping, or code signing configuration's <a
+        href="https://docs.aws.amazon.com/lambda/latest/dg/tagging.html">tags</a>.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lambda.html#Lambda.Client.list_tags)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#list_tags)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/list_tags.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/client/#list_tags)
         """
 
     def list_versions_by_function(
-        self, *, FunctionName: str, Marker: str = None, MaxItems: int = None
+        self, **kwargs: Unpack[ListVersionsByFunctionRequestTypeDef]
     ) -> ListVersionsByFunctionResponseTypeDef:
         """
-        Returns a list of `versions
-        <https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html>`__, with
-        the version-specific configuration of each.
+        Returns a list of <a
+        href="https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">versions</a>,
+        with the version-specific configuration of each.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lambda.html#Lambda.Client.list_versions_by_function)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#list_versions_by_function)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/list_versions_by_function.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/client/#list_versions_by_function)
         """
 
     def publish_layer_version(
-        self,
-        *,
-        LayerName: str,
-        Content: "LayerVersionContentInputTypeDef",
-        Description: str = None,
-        CompatibleRuntimes: List[RuntimeType] = None,
-        LicenseInfo: str = None,
-        CompatibleArchitectures: List[ArchitectureType] = None
+        self, **kwargs: Unpack[PublishLayerVersionRequestTypeDef]
     ) -> PublishLayerVersionResponseTypeDef:
         """
-        Creates an `Lambda layer
-        <https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html>`__ from
-        a ZIP archive.
+        Creates an <a
+        href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda
+        layer</a> from a ZIP archive.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lambda.html#Lambda.Client.publish_layer_version)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#publish_layer_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/publish_layer_version.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/client/#publish_layer_version)
         """
 
     def publish_version(
-        self,
-        *,
-        FunctionName: str,
-        CodeSha256: str = None,
-        Description: str = None,
-        RevisionId: str = None
-    ) -> FunctionConfigurationResponseMetadataTypeDef:
+        self, **kwargs: Unpack[PublishVersionRequestTypeDef]
+    ) -> FunctionConfigurationResponseTypeDef:
         """
-        Creates a `version <https://docs.aws.amazon.com/lambda/latest/dg/versioning-
-        aliases.html>`__ from the current code and configuration of a function.
+        Creates a <a
+        href="https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">version</a>
+        from the current code and configuration of a function.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lambda.html#Lambda.Client.publish_version)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#publish_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/publish_version.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/client/#publish_version)
         """
 
     def put_function_code_signing_config(
-        self, *, CodeSigningConfigArn: str, FunctionName: str
+        self, **kwargs: Unpack[PutFunctionCodeSigningConfigRequestTypeDef]
     ) -> PutFunctionCodeSigningConfigResponseTypeDef:
         """
         Update the code signing configuration for the function.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lambda.html#Lambda.Client.put_function_code_signing_config)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#put_function_code_signing_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/put_function_code_signing_config.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/client/#put_function_code_signing_config)
         """
 
     def put_function_concurrency(
-        self, *, FunctionName: str, ReservedConcurrentExecutions: int
-    ) -> ConcurrencyResponseMetadataTypeDef:
+        self, **kwargs: Unpack[PutFunctionConcurrencyRequestTypeDef]
+    ) -> ConcurrencyResponseTypeDef:
         """
         Sets the maximum number of simultaneous executions for a function, and reserves
         capacity for that concurrency level.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lambda.html#Lambda.Client.put_function_concurrency)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#put_function_concurrency)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/put_function_concurrency.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/client/#put_function_concurrency)
         """
 
     def put_function_event_invoke_config(
-        self,
-        *,
-        FunctionName: str,
-        Qualifier: str = None,
-        MaximumRetryAttempts: int = None,
-        MaximumEventAgeInSeconds: int = None,
-        DestinationConfig: "DestinationConfigTypeDef" = None
-    ) -> FunctionEventInvokeConfigResponseMetadataTypeDef:
+        self, **kwargs: Unpack[PutFunctionEventInvokeConfigRequestTypeDef]
+    ) -> FunctionEventInvokeConfigResponseTypeDef:
         """
-        Configures options for `asynchronous invocation
-        <https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html>`__ on a
-        function, version, or alias.
+        Configures options for <a
+        href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html">asynchronous
+        invocation</a> on a function, version, or alias.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lambda.html#Lambda.Client.put_function_event_invoke_config)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#put_function_event_invoke_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/put_function_event_invoke_config.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/client/#put_function_event_invoke_config)
+        """
+
+    def put_function_recursion_config(
+        self, **kwargs: Unpack[PutFunctionRecursionConfigRequestTypeDef]
+    ) -> PutFunctionRecursionConfigResponseTypeDef:
+        """
+        Sets your function's <a
+        href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-recursion.html">recursive
+        loop detection</a> configuration.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/put_function_recursion_config.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/client/#put_function_recursion_config)
         """
 
     def put_provisioned_concurrency_config(
-        self, *, FunctionName: str, Qualifier: str, ProvisionedConcurrentExecutions: int
+        self, **kwargs: Unpack[PutProvisionedConcurrencyConfigRequestTypeDef]
     ) -> PutProvisionedConcurrencyConfigResponseTypeDef:
         """
         Adds a provisioned concurrency configuration to a function's alias or version.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lambda.html#Lambda.Client.put_provisioned_concurrency_config)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#put_provisioned_concurrency_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/put_provisioned_concurrency_config.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/client/#put_provisioned_concurrency_config)
         """
 
     def put_runtime_management_config(
-        self,
-        *,
-        FunctionName: str,
-        UpdateRuntimeOn: UpdateRuntimeOnType,
-        Qualifier: str = None,
-        RuntimeVersionArn: str = None
+        self, **kwargs: Unpack[PutRuntimeManagementConfigRequestTypeDef]
     ) -> PutRuntimeManagementConfigResponseTypeDef:
         """
         Sets the runtime management configuration for a function's version.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lambda.html#Lambda.Client.put_runtime_management_config)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#put_runtime_management_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/put_runtime_management_config.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/client/#put_runtime_management_config)
         """
 
     def remove_layer_version_permission(
-        self, *, LayerName: str, VersionNumber: int, StatementId: str, RevisionId: str = None
-    ) -> None:
+        self, **kwargs: Unpack[RemoveLayerVersionPermissionRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
-        Removes a statement from the permissions policy for a version of an `Lambda
-        layer <https://docs.aws.amazon.com/lambda/latest/dg/configuration-
-        layers.html>`__.
+        Removes a statement from the permissions policy for a version of an <a
+        href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda
+        layer</a>.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lambda.html#Lambda.Client.remove_layer_version_permission)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#remove_layer_version_permission)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/remove_layer_version_permission.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/client/#remove_layer_version_permission)
         """
 
     def remove_permission(
-        self, *, FunctionName: str, StatementId: str, Qualifier: str = None, RevisionId: str = None
-    ) -> None:
+        self, **kwargs: Unpack[RemovePermissionRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
-        Revokes function-use permission from an Amazon Web Service or another Amazon Web
-        Services account.
+        Revokes function-use permission from an Amazon Web Services service or another
+        Amazon Web Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lambda.html#Lambda.Client.remove_permission)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#remove_permission)
-        """
-
-    def tag_resource(self, *, Resource: str, Tags: Dict[str, str]) -> None:
-        """
-        Adds `tags <https://docs.aws.amazon.com/lambda/latest/dg/tagging.html>`__ to a
-        function.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lambda.html#Lambda.Client.tag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/remove_permission.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/client/#remove_permission)
         """
 
-    def untag_resource(self, *, Resource: str, TagKeys: List[str]) -> None:
+    def tag_resource(
+        self, **kwargs: Unpack[TagResourceRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
-        Removes `tags <https://docs.aws.amazon.com/lambda/latest/dg/tagging.html>`__
-        from a function.
+        Adds <a
+        href="https://docs.aws.amazon.com/lambda/latest/dg/tagging.html">tags</a> to a
+        function, event source mapping, or code signing configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lambda.html#Lambda.Client.untag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/tag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/client/#tag_resource)
+        """
+
+    def untag_resource(
+        self, **kwargs: Unpack[UntagResourceRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Removes <a
+        href="https://docs.aws.amazon.com/lambda/latest/dg/tagging.html">tags</a> from
+        a function, event source mapping, or code signing configuration.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/untag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/client/#untag_resource)
         """
 
     def update_alias(
-        self,
-        *,
-        FunctionName: str,
-        Name: str,
-        FunctionVersion: str = None,
-        Description: str = None,
-        RoutingConfig: "AliasRoutingConfigurationTypeDef" = None,
-        RevisionId: str = None
-    ) -> AliasConfigurationResponseMetadataTypeDef:
+        self, **kwargs: Unpack[UpdateAliasRequestTypeDef]
+    ) -> AliasConfigurationResponseTypeDef:
         """
-        Updates the configuration of a Lambda function `alias
-        <https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html>`__.
+        Updates the configuration of a Lambda function <a
+        href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html">alias</a>.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lambda.html#Lambda.Client.update_alias)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#update_alias)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/update_alias.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/client/#update_alias)
         """
 
     def update_code_signing_config(
-        self,
-        *,
-        CodeSigningConfigArn: str,
-        Description: str = None,
-        AllowedPublishers: "AllowedPublishersTypeDef" = None,
-        CodeSigningPolicies: "CodeSigningPoliciesTypeDef" = None
+        self, **kwargs: Unpack[UpdateCodeSigningConfigRequestTypeDef]
     ) -> UpdateCodeSigningConfigResponseTypeDef:
         """
         Update the code signing configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lambda.html#Lambda.Client.update_code_signing_config)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#update_code_signing_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/update_code_signing_config.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/client/#update_code_signing_config)
         """
 
     def update_event_source_mapping(
-        self,
-        *,
-        UUID: str,
-        FunctionName: str = None,
-        Enabled: bool = None,
-        BatchSize: int = None,
-        FilterCriteria: "FilterCriteriaTypeDef" = None,
-        MaximumBatchingWindowInSeconds: int = None,
-        DestinationConfig: "DestinationConfigTypeDef" = None,
-        MaximumRecordAgeInSeconds: int = None,
-        BisectBatchOnFunctionError: bool = None,
-        MaximumRetryAttempts: int = None,
-        ParallelizationFactor: int = None,
-        SourceAccessConfigurations: List["SourceAccessConfigurationTypeDef"] = None,
-        TumblingWindowInSeconds: int = None,
-        FunctionResponseTypes: List[Literal["ReportBatchItemFailures"]] = None,
-        ScalingConfig: "ScalingConfigTypeDef" = None,
-        DocumentDBEventSourceConfig: "DocumentDBEventSourceConfigTypeDef" = None
-    ) -> EventSourceMappingConfigurationResponseMetadataTypeDef:
+        self, **kwargs: Unpack[UpdateEventSourceMappingRequestTypeDef]
+    ) -> EventSourceMappingConfigurationResponseTypeDef:
         """
         Updates an event source mapping.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lambda.html#Lambda.Client.update_event_source_mapping)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#update_event_source_mapping)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/update_event_source_mapping.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/client/#update_event_source_mapping)
         """
 
     def update_function_code(
-        self,
-        *,
-        FunctionName: str,
-        ZipFile: Union[bytes, IO[bytes], StreamingBody] = None,
-        S3Bucket: str = None,
-        S3Key: str = None,
-        S3ObjectVersion: str = None,
-        ImageUri: str = None,
-        Publish: bool = None,
-        DryRun: bool = None,
-        RevisionId: str = None,
-        Architectures: List[ArchitectureType] = None
-    ) -> FunctionConfigurationResponseMetadataTypeDef:
+        self, **kwargs: Unpack[UpdateFunctionCodeRequestTypeDef]
+    ) -> FunctionConfigurationResponseTypeDef:
         """
         Updates a Lambda function's code.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lambda.html#Lambda.Client.update_function_code)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#update_function_code)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/update_function_code.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/client/#update_function_code)
         """
 
     def update_function_configuration(
-        self,
-        *,
-        FunctionName: str,
-        Role: str = None,
-        Handler: str = None,
-        Description: str = None,
-        Timeout: int = None,
-        MemorySize: int = None,
-        VpcConfig: "VpcConfigTypeDef" = None,
-        Environment: "EnvironmentTypeDef" = None,
-        Runtime: RuntimeType = None,
-        DeadLetterConfig: "DeadLetterConfigTypeDef" = None,
-        KMSKeyArn: str = None,
-        TracingConfig: "TracingConfigTypeDef" = None,
-        RevisionId: str = None,
-        Layers: List[str] = None,
-        FileSystemConfigs: List["FileSystemConfigTypeDef"] = None,
-        ImageConfig: "ImageConfigTypeDef" = None,
-        EphemeralStorage: "EphemeralStorageTypeDef" = None,
-        SnapStart: "SnapStartTypeDef" = None,
-        LoggingConfig: "LoggingConfigTypeDef" = None
-    ) -> FunctionConfigurationResponseMetadataTypeDef:
+        self, **kwargs: Unpack[UpdateFunctionConfigurationRequestTypeDef]
+    ) -> FunctionConfigurationResponseTypeDef:
         """
         Modify the version-specific settings of a Lambda function.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lambda.html#Lambda.Client.update_function_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#update_function_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/update_function_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/client/#update_function_configuration)
         """
 
     def update_function_event_invoke_config(
-        self,
-        *,
-        FunctionName: str,
-        Qualifier: str = None,
-        MaximumRetryAttempts: int = None,
-        MaximumEventAgeInSeconds: int = None,
-        DestinationConfig: "DestinationConfigTypeDef" = None
-    ) -> FunctionEventInvokeConfigResponseMetadataTypeDef:
+        self, **kwargs: Unpack[UpdateFunctionEventInvokeConfigRequestTypeDef]
+    ) -> FunctionEventInvokeConfigResponseTypeDef:
         """
         Updates the configuration for asynchronous invocation for a function, version,
         or alias.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lambda.html#Lambda.Client.update_function_event_invoke_config)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#update_function_event_invoke_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/update_function_event_invoke_config.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/client/#update_function_event_invoke_config)
         """
 
     def update_function_url_config(
-        self,
-        *,
-        FunctionName: str,
-        Qualifier: str = None,
-        AuthType: FunctionUrlAuthTypeType = None,
-        Cors: "CorsTypeDef" = None,
-        InvokeMode: InvokeModeType = None
+        self, **kwargs: Unpack[UpdateFunctionUrlConfigRequestTypeDef]
     ) -> UpdateFunctionUrlConfigResponseTypeDef:
         """
         Updates the configuration for a Lambda function URL.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lambda.html#Lambda.Client.update_function_url_config)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/client.html#update_function_url_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/update_function_url_config.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/client/#update_function_url_config)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_aliases"]) -> ListAliasesPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_aliases"]
+    ) -> ListAliasesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lambda.html#Lambda.Paginator.ListAliases)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/paginators.html#listaliasespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_code_signing_configs"]
     ) -> ListCodeSigningConfigsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lambda.html#Lambda.Paginator.ListCodeSigningConfigs)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/paginators.html#listcodesigningconfigspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_event_source_mappings"]
     ) -> ListEventSourceMappingsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lambda.html#Lambda.Paginator.ListEventSourceMappings)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/paginators.html#listeventsourcemappingspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_function_event_invoke_configs"]
     ) -> ListFunctionEventInvokeConfigsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lambda.html#Lambda.Paginator.ListFunctionEventInvokeConfigs)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/paginators.html#listfunctioneventinvokeconfigspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_function_url_configs"]
     ) -> ListFunctionUrlConfigsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lambda.html#Lambda.Paginator.ListFunctionUrlConfigs)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/paginators.html#listfunctionurlconfigspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_functions"]) -> ListFunctionsPaginator:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lambda.html#Lambda.Paginator.ListFunctions)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/paginators.html#listfunctionspaginator)
-        """
-
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_functions_by_code_signing_config"]
     ) -> ListFunctionsByCodeSigningConfigPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lambda.html#Lambda.Paginator.ListFunctionsByCodeSigningConfig)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/paginators.html#listfunctionsbycodesigningconfigpaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_functions"]
+    ) -> ListFunctionsPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_layer_versions"]
     ) -> ListLayerVersionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lambda.html#Lambda.Paginator.ListLayerVersions)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/paginators.html#listlayerversionspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_layers"]) -> ListLayersPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_layers"]
+    ) -> ListLayersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lambda.html#Lambda.Paginator.ListLayers)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/paginators.html#listlayerspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_provisioned_concurrency_configs"]
     ) -> ListProvisionedConcurrencyConfigsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lambda.html#Lambda.Paginator.ListProvisionedConcurrencyConfigs)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/paginators.html#listprovisionedconcurrencyconfigspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_versions_by_function"]
     ) -> ListVersionsByFunctionPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lambda.html#Lambda.Paginator.ListVersionsByFunction)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/paginators.html#listversionsbyfunctionpaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/client/#get_paginator)
         """
 
-    @overload
-    def get_waiter(self, waiter_name: Literal["function_active"]) -> FunctionActiveWaiter:
+    @overload  # type: ignore[override]
+    def get_waiter(  # type: ignore[override]
+        self, waiter_name: Literal["function_active_v2"]
+    ) -> FunctionActiveV2Waiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lambda.html#Lambda.Waiter.FunctionActive)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/waiters.html#functionactivewaiter)
+        Returns an object that can wait for some condition.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/get_waiter.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/client/#get_waiter)
         """
 
-    @overload
-    def get_waiter(self, waiter_name: Literal["function_active_v2"]) -> FunctionActiveV2Waiter:
+    @overload  # type: ignore[override]
+    def get_waiter(  # type: ignore[override]
+        self, waiter_name: Literal["function_active"]
+    ) -> FunctionActiveWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lambda.html#Lambda.Waiter.FunctionActiveV2)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/waiters.html#functionactivev2waiter)
+        Returns an object that can wait for some condition.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/get_waiter.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/client/#get_waiter)
         """
 
-    @overload
-    def get_waiter(self, waiter_name: Literal["function_exists"]) -> FunctionExistsWaiter:
+    @overload  # type: ignore[override]
+    def get_waiter(  # type: ignore[override]
+        self, waiter_name: Literal["function_exists"]
+    ) -> FunctionExistsWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lambda.html#Lambda.Waiter.FunctionExists)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/waiters.html#functionexistswaiter)
+        Returns an object that can wait for some condition.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/get_waiter.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/client/#get_waiter)
         """
 
-    @overload
-    def get_waiter(self, waiter_name: Literal["function_updated"]) -> FunctionUpdatedWaiter:
+    @overload  # type: ignore[override]
+    def get_waiter(  # type: ignore[override]
+        self, waiter_name: Literal["function_updated_v2"]
+    ) -> FunctionUpdatedV2Waiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lambda.html#Lambda.Waiter.FunctionUpdated)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/waiters.html#functionupdatedwaiter)
+        Returns an object that can wait for some condition.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/get_waiter.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/client/#get_waiter)
         """
 
-    @overload
-    def get_waiter(self, waiter_name: Literal["function_updated_v2"]) -> FunctionUpdatedV2Waiter:
+    @overload  # type: ignore[override]
+    def get_waiter(  # type: ignore[override]
+        self, waiter_name: Literal["function_updated"]
+    ) -> FunctionUpdatedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lambda.html#Lambda.Waiter.FunctionUpdatedV2)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/waiters.html#functionupdatedv2waiter)
+        Returns an object that can wait for some condition.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/get_waiter.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/client/#get_waiter)
         """
 
-    @overload
-    def get_waiter(
+    @overload  # type: ignore[override]
+    def get_waiter(  # type: ignore[override]
         self, waiter_name: Literal["published_version_active"]
     ) -> PublishedVersionActiveWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/lambda.html#Lambda.Waiter.PublishedVersionActive)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lambda/waiters.html#publishedversionactivewaiter)
+        Returns an object that can wait for some condition.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/get_waiter.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lambda/client/#get_waiter)
         """

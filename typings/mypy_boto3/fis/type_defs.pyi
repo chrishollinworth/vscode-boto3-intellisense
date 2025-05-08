@@ -1,33 +1,45 @@
 """
 Type annotations for fis service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fis/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fis/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_fis.type_defs import ActionParameterTypeDef
 
-    data: ActionParameterTypeDef = {...}
+    data: ActionParameterTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
 
 from .literals import (
     AccountTargetingType,
     ActionsModeType,
     EmptyTargetResolutionModeType,
     ExperimentActionStatusType,
+    ExperimentReportStatusType,
     ExperimentStatusType,
+    SafetyLeverStatusInputType,
+    SafetyLeverStatusType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
     "ActionParameterTypeDef",
@@ -37,21 +49,32 @@ __all__ = (
     "CreateExperimentTemplateActionInputTypeDef",
     "CreateExperimentTemplateExperimentOptionsInputTypeDef",
     "CreateExperimentTemplateLogConfigurationInputTypeDef",
-    "CreateExperimentTemplateRequestRequestTypeDef",
+    "CreateExperimentTemplateReportConfigurationInputTypeDef",
+    "CreateExperimentTemplateRequestTypeDef",
     "CreateExperimentTemplateResponseTypeDef",
     "CreateExperimentTemplateStopConditionInputTypeDef",
     "CreateExperimentTemplateTargetInputTypeDef",
-    "CreateTargetAccountConfigurationRequestRequestTypeDef",
+    "CreateTargetAccountConfigurationRequestTypeDef",
     "CreateTargetAccountConfigurationResponseTypeDef",
-    "DeleteExperimentTemplateRequestRequestTypeDef",
+    "DeleteExperimentTemplateRequestTypeDef",
     "DeleteExperimentTemplateResponseTypeDef",
-    "DeleteTargetAccountConfigurationRequestRequestTypeDef",
+    "DeleteTargetAccountConfigurationRequestTypeDef",
     "DeleteTargetAccountConfigurationResponseTypeDef",
     "ExperimentActionStateTypeDef",
     "ExperimentActionTypeDef",
     "ExperimentCloudWatchLogsLogConfigurationTypeDef",
+    "ExperimentErrorTypeDef",
     "ExperimentLogConfigurationTypeDef",
     "ExperimentOptionsTypeDef",
+    "ExperimentReportConfigurationCloudWatchDashboardTypeDef",
+    "ExperimentReportConfigurationDataSourcesTypeDef",
+    "ExperimentReportConfigurationOutputsS3ConfigurationTypeDef",
+    "ExperimentReportConfigurationOutputsTypeDef",
+    "ExperimentReportConfigurationTypeDef",
+    "ExperimentReportErrorTypeDef",
+    "ExperimentReportS3ReportTypeDef",
+    "ExperimentReportStateTypeDef",
+    "ExperimentReportTypeDef",
     "ExperimentS3LogConfigurationTypeDef",
     "ExperimentStateTypeDef",
     "ExperimentStopConditionTypeDef",
@@ -65,6 +88,12 @@ __all__ = (
     "ExperimentTemplateCloudWatchLogsLogConfigurationTypeDef",
     "ExperimentTemplateExperimentOptionsTypeDef",
     "ExperimentTemplateLogConfigurationTypeDef",
+    "ExperimentTemplateReportConfigurationCloudWatchDashboardTypeDef",
+    "ExperimentTemplateReportConfigurationDataSourcesInputTypeDef",
+    "ExperimentTemplateReportConfigurationDataSourcesTypeDef",
+    "ExperimentTemplateReportConfigurationOutputsInputTypeDef",
+    "ExperimentTemplateReportConfigurationOutputsTypeDef",
+    "ExperimentTemplateReportConfigurationTypeDef",
     "ExperimentTemplateS3LogConfigurationInputTypeDef",
     "ExperimentTemplateS3LogConfigurationTypeDef",
     "ExperimentTemplateStopConditionTypeDef",
@@ -74,1151 +103,769 @@ __all__ = (
     "ExperimentTemplateTargetTypeDef",
     "ExperimentTemplateTypeDef",
     "ExperimentTypeDef",
-    "GetActionRequestRequestTypeDef",
+    "GetActionRequestTypeDef",
     "GetActionResponseTypeDef",
-    "GetExperimentRequestRequestTypeDef",
+    "GetExperimentRequestTypeDef",
     "GetExperimentResponseTypeDef",
-    "GetExperimentTargetAccountConfigurationRequestRequestTypeDef",
+    "GetExperimentTargetAccountConfigurationRequestTypeDef",
     "GetExperimentTargetAccountConfigurationResponseTypeDef",
-    "GetExperimentTemplateRequestRequestTypeDef",
+    "GetExperimentTemplateRequestTypeDef",
     "GetExperimentTemplateResponseTypeDef",
-    "GetTargetAccountConfigurationRequestRequestTypeDef",
+    "GetSafetyLeverRequestTypeDef",
+    "GetSafetyLeverResponseTypeDef",
+    "GetTargetAccountConfigurationRequestTypeDef",
     "GetTargetAccountConfigurationResponseTypeDef",
-    "GetTargetResourceTypeRequestRequestTypeDef",
+    "GetTargetResourceTypeRequestTypeDef",
     "GetTargetResourceTypeResponseTypeDef",
-    "ListActionsRequestRequestTypeDef",
+    "ListActionsRequestPaginateTypeDef",
+    "ListActionsRequestTypeDef",
     "ListActionsResponseTypeDef",
-    "ListExperimentResolvedTargetsRequestRequestTypeDef",
+    "ListExperimentResolvedTargetsRequestPaginateTypeDef",
+    "ListExperimentResolvedTargetsRequestTypeDef",
     "ListExperimentResolvedTargetsResponseTypeDef",
-    "ListExperimentTargetAccountConfigurationsRequestRequestTypeDef",
+    "ListExperimentTargetAccountConfigurationsRequestTypeDef",
     "ListExperimentTargetAccountConfigurationsResponseTypeDef",
-    "ListExperimentTemplatesRequestRequestTypeDef",
+    "ListExperimentTemplatesRequestPaginateTypeDef",
+    "ListExperimentTemplatesRequestTypeDef",
     "ListExperimentTemplatesResponseTypeDef",
-    "ListExperimentsRequestRequestTypeDef",
+    "ListExperimentsRequestPaginateTypeDef",
+    "ListExperimentsRequestTypeDef",
     "ListExperimentsResponseTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
-    "ListTargetAccountConfigurationsRequestRequestTypeDef",
+    "ListTargetAccountConfigurationsRequestPaginateTypeDef",
+    "ListTargetAccountConfigurationsRequestTypeDef",
     "ListTargetAccountConfigurationsResponseTypeDef",
-    "ListTargetResourceTypesRequestRequestTypeDef",
+    "ListTargetResourceTypesRequestPaginateTypeDef",
+    "ListTargetResourceTypesRequestTypeDef",
     "ListTargetResourceTypesResponseTypeDef",
+    "PaginatorConfigTypeDef",
+    "ReportConfigurationCloudWatchDashboardInputTypeDef",
+    "ReportConfigurationS3OutputInputTypeDef",
+    "ReportConfigurationS3OutputTypeDef",
     "ResolvedTargetTypeDef",
     "ResponseMetadataTypeDef",
+    "SafetyLeverStateTypeDef",
+    "SafetyLeverTypeDef",
     "StartExperimentExperimentOptionsInputTypeDef",
-    "StartExperimentRequestRequestTypeDef",
+    "StartExperimentRequestTypeDef",
     "StartExperimentResponseTypeDef",
-    "StopExperimentRequestRequestTypeDef",
+    "StopExperimentRequestTypeDef",
     "StopExperimentResponseTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
     "TargetAccountConfigurationSummaryTypeDef",
     "TargetAccountConfigurationTypeDef",
     "TargetResourceTypeParameterTypeDef",
     "TargetResourceTypeSummaryTypeDef",
     "TargetResourceTypeTypeDef",
-    "UntagResourceRequestRequestTypeDef",
+    "UntagResourceRequestTypeDef",
     "UpdateExperimentTemplateActionInputItemTypeDef",
     "UpdateExperimentTemplateExperimentOptionsInputTypeDef",
     "UpdateExperimentTemplateLogConfigurationInputTypeDef",
-    "UpdateExperimentTemplateRequestRequestTypeDef",
+    "UpdateExperimentTemplateReportConfigurationInputTypeDef",
+    "UpdateExperimentTemplateRequestTypeDef",
     "UpdateExperimentTemplateResponseTypeDef",
     "UpdateExperimentTemplateStopConditionInputTypeDef",
     "UpdateExperimentTemplateTargetInputTypeDef",
-    "UpdateTargetAccountConfigurationRequestRequestTypeDef",
+    "UpdateSafetyLeverStateInputTypeDef",
+    "UpdateSafetyLeverStateRequestTypeDef",
+    "UpdateSafetyLeverStateResponseTypeDef",
+    "UpdateTargetAccountConfigurationRequestTypeDef",
     "UpdateTargetAccountConfigurationResponseTypeDef",
 )
 
-ActionParameterTypeDef = TypedDict(
-    "ActionParameterTypeDef",
-    {
-        "description": str,
-        "required": bool,
-    },
-    total=False,
-)
+class ActionParameterTypeDef(TypedDict):
+    description: NotRequired[str]
+    required: NotRequired[bool]
 
-ActionSummaryTypeDef = TypedDict(
-    "ActionSummaryTypeDef",
-    {
-        "id": str,
-        "arn": str,
-        "description": str,
-        "targets": Dict[str, "ActionTargetTypeDef"],
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
+class ActionTargetTypeDef(TypedDict):
+    resourceType: NotRequired[str]
 
-ActionTargetTypeDef = TypedDict(
-    "ActionTargetTypeDef",
-    {
-        "resourceType": str,
-    },
-    total=False,
-)
+class CreateExperimentTemplateActionInputTypeDef(TypedDict):
+    actionId: str
+    description: NotRequired[str]
+    parameters: NotRequired[Mapping[str, str]]
+    targets: NotRequired[Mapping[str, str]]
+    startAfter: NotRequired[Sequence[str]]
 
-ActionTypeDef = TypedDict(
-    "ActionTypeDef",
-    {
-        "id": str,
-        "arn": str,
-        "description": str,
-        "parameters": Dict[str, "ActionParameterTypeDef"],
-        "targets": Dict[str, "ActionTargetTypeDef"],
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
+class CreateExperimentTemplateExperimentOptionsInputTypeDef(TypedDict):
+    accountTargeting: NotRequired[AccountTargetingType]
+    emptyTargetResolutionMode: NotRequired[EmptyTargetResolutionModeType]
 
-_RequiredCreateExperimentTemplateActionInputTypeDef = TypedDict(
-    "_RequiredCreateExperimentTemplateActionInputTypeDef",
-    {
-        "actionId": str,
-    },
-)
-_OptionalCreateExperimentTemplateActionInputTypeDef = TypedDict(
-    "_OptionalCreateExperimentTemplateActionInputTypeDef",
-    {
-        "description": str,
-        "parameters": Dict[str, str],
-        "targets": Dict[str, str],
-        "startAfter": List[str],
-    },
-    total=False,
-)
+class ExperimentTemplateCloudWatchLogsLogConfigurationInputTypeDef(TypedDict):
+    logGroupArn: str
 
-class CreateExperimentTemplateActionInputTypeDef(
-    _RequiredCreateExperimentTemplateActionInputTypeDef,
-    _OptionalCreateExperimentTemplateActionInputTypeDef,
-):
-    pass
+class ExperimentTemplateS3LogConfigurationInputTypeDef(TypedDict):
+    bucketName: str
+    prefix: NotRequired[str]
 
-CreateExperimentTemplateExperimentOptionsInputTypeDef = TypedDict(
-    "CreateExperimentTemplateExperimentOptionsInputTypeDef",
-    {
-        "accountTargeting": AccountTargetingType,
-        "emptyTargetResolutionMode": EmptyTargetResolutionModeType,
-    },
-    total=False,
-)
+class CreateExperimentTemplateStopConditionInputTypeDef(TypedDict):
+    source: str
+    value: NotRequired[str]
 
-_RequiredCreateExperimentTemplateLogConfigurationInputTypeDef = TypedDict(
-    "_RequiredCreateExperimentTemplateLogConfigurationInputTypeDef",
-    {
-        "logSchemaVersion": int,
-    },
-)
-_OptionalCreateExperimentTemplateLogConfigurationInputTypeDef = TypedDict(
-    "_OptionalCreateExperimentTemplateLogConfigurationInputTypeDef",
-    {
-        "cloudWatchLogsConfiguration": "ExperimentTemplateCloudWatchLogsLogConfigurationInputTypeDef",
-        "s3Configuration": "ExperimentTemplateS3LogConfigurationInputTypeDef",
-    },
-    total=False,
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-class CreateExperimentTemplateLogConfigurationInputTypeDef(
-    _RequiredCreateExperimentTemplateLogConfigurationInputTypeDef,
-    _OptionalCreateExperimentTemplateLogConfigurationInputTypeDef,
-):
-    pass
+class ExperimentTemplateTargetInputFilterTypeDef(TypedDict):
+    path: str
+    values: Sequence[str]
 
-_RequiredCreateExperimentTemplateRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateExperimentTemplateRequestRequestTypeDef",
-    {
-        "clientToken": str,
-        "description": str,
-        "stopConditions": List["CreateExperimentTemplateStopConditionInputTypeDef"],
-        "actions": Dict[str, "CreateExperimentTemplateActionInputTypeDef"],
-        "roleArn": str,
-    },
-)
-_OptionalCreateExperimentTemplateRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateExperimentTemplateRequestRequestTypeDef",
-    {
-        "targets": Dict[str, "CreateExperimentTemplateTargetInputTypeDef"],
-        "tags": Dict[str, str],
-        "logConfiguration": "CreateExperimentTemplateLogConfigurationInputTypeDef",
-        "experimentOptions": "CreateExperimentTemplateExperimentOptionsInputTypeDef",
-    },
-    total=False,
-)
+class CreateTargetAccountConfigurationRequestTypeDef(TypedDict):
+    experimentTemplateId: str
+    accountId: str
+    roleArn: str
+    clientToken: NotRequired[str]
+    description: NotRequired[str]
 
-class CreateExperimentTemplateRequestRequestTypeDef(
-    _RequiredCreateExperimentTemplateRequestRequestTypeDef,
-    _OptionalCreateExperimentTemplateRequestRequestTypeDef,
-):
-    pass
+class TargetAccountConfigurationTypeDef(TypedDict):
+    roleArn: NotRequired[str]
+    accountId: NotRequired[str]
+    description: NotRequired[str]
 
-CreateExperimentTemplateResponseTypeDef = TypedDict(
-    "CreateExperimentTemplateResponseTypeDef",
-    {
-        "experimentTemplate": "ExperimentTemplateTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateExperimentTemplateStopConditionInputTypeDef = TypedDict(
-    "_RequiredCreateExperimentTemplateStopConditionInputTypeDef",
-    {
-        "source": str,
-    },
-)
-_OptionalCreateExperimentTemplateStopConditionInputTypeDef = TypedDict(
-    "_OptionalCreateExperimentTemplateStopConditionInputTypeDef",
-    {
-        "value": str,
-    },
-    total=False,
-)
-
-class CreateExperimentTemplateStopConditionInputTypeDef(
-    _RequiredCreateExperimentTemplateStopConditionInputTypeDef,
-    _OptionalCreateExperimentTemplateStopConditionInputTypeDef,
-):
-    pass
-
-_RequiredCreateExperimentTemplateTargetInputTypeDef = TypedDict(
-    "_RequiredCreateExperimentTemplateTargetInputTypeDef",
-    {
-        "resourceType": str,
-        "selectionMode": str,
-    },
-)
-_OptionalCreateExperimentTemplateTargetInputTypeDef = TypedDict(
-    "_OptionalCreateExperimentTemplateTargetInputTypeDef",
-    {
-        "resourceArns": List[str],
-        "resourceTags": Dict[str, str],
-        "filters": List["ExperimentTemplateTargetInputFilterTypeDef"],
-        "parameters": Dict[str, str],
-    },
-    total=False,
-)
-
-class CreateExperimentTemplateTargetInputTypeDef(
-    _RequiredCreateExperimentTemplateTargetInputTypeDef,
-    _OptionalCreateExperimentTemplateTargetInputTypeDef,
-):
-    pass
-
-_RequiredCreateTargetAccountConfigurationRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateTargetAccountConfigurationRequestRequestTypeDef",
-    {
-        "experimentTemplateId": str,
-        "accountId": str,
-        "roleArn": str,
-    },
-)
-_OptionalCreateTargetAccountConfigurationRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateTargetAccountConfigurationRequestRequestTypeDef",
-    {
-        "clientToken": str,
-        "description": str,
-    },
-    total=False,
-)
-
-class CreateTargetAccountConfigurationRequestRequestTypeDef(
-    _RequiredCreateTargetAccountConfigurationRequestRequestTypeDef,
-    _OptionalCreateTargetAccountConfigurationRequestRequestTypeDef,
-):
-    pass
-
-CreateTargetAccountConfigurationResponseTypeDef = TypedDict(
-    "CreateTargetAccountConfigurationResponseTypeDef",
-    {
-        "targetAccountConfiguration": "TargetAccountConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteExperimentTemplateRequestRequestTypeDef = TypedDict(
-    "DeleteExperimentTemplateRequestRequestTypeDef",
+DeleteExperimentTemplateRequestTypeDef = TypedDict(
+    "DeleteExperimentTemplateRequestTypeDef",
     {
         "id": str,
     },
 )
 
-DeleteExperimentTemplateResponseTypeDef = TypedDict(
-    "DeleteExperimentTemplateResponseTypeDef",
-    {
-        "experimentTemplate": "ExperimentTemplateTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DeleteTargetAccountConfigurationRequestTypeDef(TypedDict):
+    experimentTemplateId: str
+    accountId: str
 
-DeleteTargetAccountConfigurationRequestRequestTypeDef = TypedDict(
-    "DeleteTargetAccountConfigurationRequestRequestTypeDef",
-    {
-        "experimentTemplateId": str,
-        "accountId": str,
-    },
-)
+class ExperimentActionStateTypeDef(TypedDict):
+    status: NotRequired[ExperimentActionStatusType]
+    reason: NotRequired[str]
 
-DeleteTargetAccountConfigurationResponseTypeDef = TypedDict(
-    "DeleteTargetAccountConfigurationResponseTypeDef",
-    {
-        "targetAccountConfiguration": "TargetAccountConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ExperimentCloudWatchLogsLogConfigurationTypeDef(TypedDict):
+    logGroupArn: NotRequired[str]
 
-ExperimentActionStateTypeDef = TypedDict(
-    "ExperimentActionStateTypeDef",
-    {
-        "status": ExperimentActionStatusType,
-        "reason": str,
-    },
-    total=False,
-)
+class ExperimentErrorTypeDef(TypedDict):
+    accountId: NotRequired[str]
+    code: NotRequired[str]
+    location: NotRequired[str]
 
-ExperimentActionTypeDef = TypedDict(
-    "ExperimentActionTypeDef",
-    {
-        "actionId": str,
-        "description": str,
-        "parameters": Dict[str, str],
-        "targets": Dict[str, str],
-        "startAfter": List[str],
-        "state": "ExperimentActionStateTypeDef",
-        "startTime": datetime,
-        "endTime": datetime,
-    },
-    total=False,
-)
+class ExperimentS3LogConfigurationTypeDef(TypedDict):
+    bucketName: NotRequired[str]
+    prefix: NotRequired[str]
 
-ExperimentCloudWatchLogsLogConfigurationTypeDef = TypedDict(
-    "ExperimentCloudWatchLogsLogConfigurationTypeDef",
-    {
-        "logGroupArn": str,
-    },
-    total=False,
-)
+class ExperimentOptionsTypeDef(TypedDict):
+    accountTargeting: NotRequired[AccountTargetingType]
+    emptyTargetResolutionMode: NotRequired[EmptyTargetResolutionModeType]
+    actionsMode: NotRequired[ActionsModeType]
 
-ExperimentLogConfigurationTypeDef = TypedDict(
-    "ExperimentLogConfigurationTypeDef",
-    {
-        "cloudWatchLogsConfiguration": "ExperimentCloudWatchLogsLogConfigurationTypeDef",
-        "s3Configuration": "ExperimentS3LogConfigurationTypeDef",
-        "logSchemaVersion": int,
-    },
-    total=False,
-)
+class ExperimentReportConfigurationCloudWatchDashboardTypeDef(TypedDict):
+    dashboardIdentifier: NotRequired[str]
 
-ExperimentOptionsTypeDef = TypedDict(
-    "ExperimentOptionsTypeDef",
-    {
-        "accountTargeting": AccountTargetingType,
-        "emptyTargetResolutionMode": EmptyTargetResolutionModeType,
-        "actionsMode": ActionsModeType,
-    },
-    total=False,
-)
+class ExperimentReportConfigurationOutputsS3ConfigurationTypeDef(TypedDict):
+    bucketName: NotRequired[str]
+    prefix: NotRequired[str]
 
-ExperimentS3LogConfigurationTypeDef = TypedDict(
-    "ExperimentS3LogConfigurationTypeDef",
-    {
-        "bucketName": str,
-        "prefix": str,
-    },
-    total=False,
-)
+class ExperimentReportErrorTypeDef(TypedDict):
+    code: NotRequired[str]
 
-ExperimentStateTypeDef = TypedDict(
-    "ExperimentStateTypeDef",
-    {
-        "status": ExperimentStatusType,
-        "reason": str,
-    },
-    total=False,
-)
+class ExperimentReportS3ReportTypeDef(TypedDict):
+    arn: NotRequired[str]
+    reportType: NotRequired[str]
 
-ExperimentStopConditionTypeDef = TypedDict(
-    "ExperimentStopConditionTypeDef",
-    {
-        "source": str,
-        "value": str,
-    },
-    total=False,
-)
+class ExperimentStopConditionTypeDef(TypedDict):
+    source: NotRequired[str]
+    value: NotRequired[str]
 
-ExperimentSummaryTypeDef = TypedDict(
-    "ExperimentSummaryTypeDef",
-    {
-        "id": str,
-        "arn": str,
-        "experimentTemplateId": str,
-        "state": "ExperimentStateTypeDef",
-        "creationTime": datetime,
-        "tags": Dict[str, str],
-        "experimentOptions": "ExperimentOptionsTypeDef",
-    },
-    total=False,
-)
+class ExperimentTargetAccountConfigurationSummaryTypeDef(TypedDict):
+    roleArn: NotRequired[str]
+    accountId: NotRequired[str]
+    description: NotRequired[str]
 
-ExperimentTargetAccountConfigurationSummaryTypeDef = TypedDict(
-    "ExperimentTargetAccountConfigurationSummaryTypeDef",
-    {
-        "roleArn": str,
-        "accountId": str,
-        "description": str,
-    },
-    total=False,
-)
+class ExperimentTargetAccountConfigurationTypeDef(TypedDict):
+    roleArn: NotRequired[str]
+    accountId: NotRequired[str]
+    description: NotRequired[str]
 
-ExperimentTargetAccountConfigurationTypeDef = TypedDict(
-    "ExperimentTargetAccountConfigurationTypeDef",
-    {
-        "roleArn": str,
-        "accountId": str,
-        "description": str,
-    },
-    total=False,
-)
+class ExperimentTargetFilterTypeDef(TypedDict):
+    path: NotRequired[str]
+    values: NotRequired[List[str]]
 
-ExperimentTargetFilterTypeDef = TypedDict(
-    "ExperimentTargetFilterTypeDef",
-    {
-        "path": str,
-        "values": List[str],
-    },
-    total=False,
-)
+class ExperimentTemplateActionTypeDef(TypedDict):
+    actionId: NotRequired[str]
+    description: NotRequired[str]
+    parameters: NotRequired[Dict[str, str]]
+    targets: NotRequired[Dict[str, str]]
+    startAfter: NotRequired[List[str]]
 
-ExperimentTargetTypeDef = TypedDict(
-    "ExperimentTargetTypeDef",
-    {
-        "resourceType": str,
-        "resourceArns": List[str],
-        "resourceTags": Dict[str, str],
-        "filters": List["ExperimentTargetFilterTypeDef"],
-        "selectionMode": str,
-        "parameters": Dict[str, str],
-    },
-    total=False,
-)
+class ExperimentTemplateCloudWatchLogsLogConfigurationTypeDef(TypedDict):
+    logGroupArn: NotRequired[str]
 
-ExperimentTemplateActionTypeDef = TypedDict(
-    "ExperimentTemplateActionTypeDef",
-    {
-        "actionId": str,
-        "description": str,
-        "parameters": Dict[str, str],
-        "targets": Dict[str, str],
-        "startAfter": List[str],
-    },
-    total=False,
-)
+class ExperimentTemplateExperimentOptionsTypeDef(TypedDict):
+    accountTargeting: NotRequired[AccountTargetingType]
+    emptyTargetResolutionMode: NotRequired[EmptyTargetResolutionModeType]
 
-ExperimentTemplateCloudWatchLogsLogConfigurationInputTypeDef = TypedDict(
-    "ExperimentTemplateCloudWatchLogsLogConfigurationInputTypeDef",
-    {
-        "logGroupArn": str,
-    },
-)
+class ExperimentTemplateS3LogConfigurationTypeDef(TypedDict):
+    bucketName: NotRequired[str]
+    prefix: NotRequired[str]
 
-ExperimentTemplateCloudWatchLogsLogConfigurationTypeDef = TypedDict(
-    "ExperimentTemplateCloudWatchLogsLogConfigurationTypeDef",
-    {
-        "logGroupArn": str,
-    },
-    total=False,
-)
+class ExperimentTemplateReportConfigurationCloudWatchDashboardTypeDef(TypedDict):
+    dashboardIdentifier: NotRequired[str]
 
-ExperimentTemplateExperimentOptionsTypeDef = TypedDict(
-    "ExperimentTemplateExperimentOptionsTypeDef",
-    {
-        "accountTargeting": AccountTargetingType,
-        "emptyTargetResolutionMode": EmptyTargetResolutionModeType,
-    },
-    total=False,
-)
+class ReportConfigurationCloudWatchDashboardInputTypeDef(TypedDict):
+    dashboardIdentifier: NotRequired[str]
 
-ExperimentTemplateLogConfigurationTypeDef = TypedDict(
-    "ExperimentTemplateLogConfigurationTypeDef",
-    {
-        "cloudWatchLogsConfiguration": "ExperimentTemplateCloudWatchLogsLogConfigurationTypeDef",
-        "s3Configuration": "ExperimentTemplateS3LogConfigurationTypeDef",
-        "logSchemaVersion": int,
-    },
-    total=False,
-)
+class ReportConfigurationS3OutputInputTypeDef(TypedDict):
+    bucketName: NotRequired[str]
+    prefix: NotRequired[str]
 
-_RequiredExperimentTemplateS3LogConfigurationInputTypeDef = TypedDict(
-    "_RequiredExperimentTemplateS3LogConfigurationInputTypeDef",
-    {
-        "bucketName": str,
-    },
-)
-_OptionalExperimentTemplateS3LogConfigurationInputTypeDef = TypedDict(
-    "_OptionalExperimentTemplateS3LogConfigurationInputTypeDef",
-    {
-        "prefix": str,
-    },
-    total=False,
-)
+class ReportConfigurationS3OutputTypeDef(TypedDict):
+    bucketName: NotRequired[str]
+    prefix: NotRequired[str]
 
-class ExperimentTemplateS3LogConfigurationInputTypeDef(
-    _RequiredExperimentTemplateS3LogConfigurationInputTypeDef,
-    _OptionalExperimentTemplateS3LogConfigurationInputTypeDef,
-):
-    pass
-
-ExperimentTemplateS3LogConfigurationTypeDef = TypedDict(
-    "ExperimentTemplateS3LogConfigurationTypeDef",
-    {
-        "bucketName": str,
-        "prefix": str,
-    },
-    total=False,
-)
-
-ExperimentTemplateStopConditionTypeDef = TypedDict(
-    "ExperimentTemplateStopConditionTypeDef",
-    {
-        "source": str,
-        "value": str,
-    },
-    total=False,
-)
+class ExperimentTemplateStopConditionTypeDef(TypedDict):
+    source: NotRequired[str]
+    value: NotRequired[str]
 
 ExperimentTemplateSummaryTypeDef = TypedDict(
     "ExperimentTemplateSummaryTypeDef",
     {
-        "id": str,
-        "arn": str,
-        "description": str,
-        "creationTime": datetime,
-        "lastUpdateTime": datetime,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-ExperimentTemplateTargetFilterTypeDef = TypedDict(
-    "ExperimentTemplateTargetFilterTypeDef",
-    {
-        "path": str,
-        "values": List[str],
-    },
-    total=False,
-)
-
-ExperimentTemplateTargetInputFilterTypeDef = TypedDict(
-    "ExperimentTemplateTargetInputFilterTypeDef",
-    {
-        "path": str,
-        "values": List[str],
+        "id": NotRequired[str],
+        "arn": NotRequired[str],
+        "description": NotRequired[str],
+        "creationTime": NotRequired[datetime],
+        "lastUpdateTime": NotRequired[datetime],
+        "tags": NotRequired[Dict[str, str]],
     },
 )
 
-ExperimentTemplateTargetTypeDef = TypedDict(
-    "ExperimentTemplateTargetTypeDef",
-    {
-        "resourceType": str,
-        "resourceArns": List[str],
-        "resourceTags": Dict[str, str],
-        "filters": List["ExperimentTemplateTargetFilterTypeDef"],
-        "selectionMode": str,
-        "parameters": Dict[str, str],
-    },
-    total=False,
-)
+class ExperimentTemplateTargetFilterTypeDef(TypedDict):
+    path: NotRequired[str]
+    values: NotRequired[List[str]]
 
-ExperimentTemplateTypeDef = TypedDict(
-    "ExperimentTemplateTypeDef",
+GetActionRequestTypeDef = TypedDict(
+    "GetActionRequestTypeDef",
     {
         "id": str,
-        "arn": str,
-        "description": str,
-        "targets": Dict[str, "ExperimentTemplateTargetTypeDef"],
-        "actions": Dict[str, "ExperimentTemplateActionTypeDef"],
-        "stopConditions": List["ExperimentTemplateStopConditionTypeDef"],
-        "creationTime": datetime,
-        "lastUpdateTime": datetime,
-        "roleArn": str,
-        "tags": Dict[str, str],
-        "logConfiguration": "ExperimentTemplateLogConfigurationTypeDef",
-        "experimentOptions": "ExperimentTemplateExperimentOptionsTypeDef",
-        "targetAccountConfigurationsCount": int,
     },
-    total=False,
 )
+GetExperimentRequestTypeDef = TypedDict(
+    "GetExperimentRequestTypeDef",
+    {
+        "id": str,
+    },
+)
+
+class GetExperimentTargetAccountConfigurationRequestTypeDef(TypedDict):
+    experimentId: str
+    accountId: str
+
+GetExperimentTemplateRequestTypeDef = TypedDict(
+    "GetExperimentTemplateRequestTypeDef",
+    {
+        "id": str,
+    },
+)
+GetSafetyLeverRequestTypeDef = TypedDict(
+    "GetSafetyLeverRequestTypeDef",
+    {
+        "id": str,
+    },
+)
+
+class GetTargetAccountConfigurationRequestTypeDef(TypedDict):
+    experimentTemplateId: str
+    accountId: str
+
+class GetTargetResourceTypeRequestTypeDef(TypedDict):
+    resourceType: str
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class ListActionsRequestTypeDef(TypedDict):
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListExperimentResolvedTargetsRequestTypeDef(TypedDict):
+    experimentId: str
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+    targetName: NotRequired[str]
+
+class ResolvedTargetTypeDef(TypedDict):
+    resourceType: NotRequired[str]
+    targetName: NotRequired[str]
+    targetInformation: NotRequired[Dict[str, str]]
+
+class ListExperimentTargetAccountConfigurationsRequestTypeDef(TypedDict):
+    experimentId: str
+    nextToken: NotRequired[str]
+
+class ListExperimentTemplatesRequestTypeDef(TypedDict):
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListExperimentsRequestTypeDef(TypedDict):
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+    experimentTemplateId: NotRequired[str]
+
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+
+class ListTargetAccountConfigurationsRequestTypeDef(TypedDict):
+    experimentTemplateId: str
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class TargetAccountConfigurationSummaryTypeDef(TypedDict):
+    roleArn: NotRequired[str]
+    accountId: NotRequired[str]
+    description: NotRequired[str]
+
+class ListTargetResourceTypesRequestTypeDef(TypedDict):
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class TargetResourceTypeSummaryTypeDef(TypedDict):
+    resourceType: NotRequired[str]
+    description: NotRequired[str]
+
+class SafetyLeverStateTypeDef(TypedDict):
+    status: NotRequired[SafetyLeverStatusType]
+    reason: NotRequired[str]
+
+class StartExperimentExperimentOptionsInputTypeDef(TypedDict):
+    actionsMode: NotRequired[ActionsModeType]
+
+StopExperimentRequestTypeDef = TypedDict(
+    "StopExperimentRequestTypeDef",
+    {
+        "id": str,
+    },
+)
+
+class TagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tags: Mapping[str, str]
+
+class TargetResourceTypeParameterTypeDef(TypedDict):
+    description: NotRequired[str]
+    required: NotRequired[bool]
+
+class UntagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tagKeys: NotRequired[Sequence[str]]
+
+class UpdateExperimentTemplateActionInputItemTypeDef(TypedDict):
+    actionId: NotRequired[str]
+    description: NotRequired[str]
+    parameters: NotRequired[Mapping[str, str]]
+    targets: NotRequired[Mapping[str, str]]
+    startAfter: NotRequired[Sequence[str]]
+
+class UpdateExperimentTemplateExperimentOptionsInputTypeDef(TypedDict):
+    emptyTargetResolutionMode: NotRequired[EmptyTargetResolutionModeType]
+
+class UpdateExperimentTemplateStopConditionInputTypeDef(TypedDict):
+    source: str
+    value: NotRequired[str]
+
+class UpdateSafetyLeverStateInputTypeDef(TypedDict):
+    status: SafetyLeverStatusInputType
+    reason: str
+
+class UpdateTargetAccountConfigurationRequestTypeDef(TypedDict):
+    experimentTemplateId: str
+    accountId: str
+    roleArn: NotRequired[str]
+    description: NotRequired[str]
+
+ActionSummaryTypeDef = TypedDict(
+    "ActionSummaryTypeDef",
+    {
+        "id": NotRequired[str],
+        "arn": NotRequired[str],
+        "description": NotRequired[str],
+        "targets": NotRequired[Dict[str, ActionTargetTypeDef]],
+        "tags": NotRequired[Dict[str, str]],
+    },
+)
+ActionTypeDef = TypedDict(
+    "ActionTypeDef",
+    {
+        "id": NotRequired[str],
+        "arn": NotRequired[str],
+        "description": NotRequired[str],
+        "parameters": NotRequired[Dict[str, ActionParameterTypeDef]],
+        "targets": NotRequired[Dict[str, ActionTargetTypeDef]],
+        "tags": NotRequired[Dict[str, str]],
+    },
+)
+
+class CreateExperimentTemplateLogConfigurationInputTypeDef(TypedDict):
+    logSchemaVersion: int
+    cloudWatchLogsConfiguration: NotRequired[
+        ExperimentTemplateCloudWatchLogsLogConfigurationInputTypeDef
+    ]
+    s3Configuration: NotRequired[ExperimentTemplateS3LogConfigurationInputTypeDef]
+
+class UpdateExperimentTemplateLogConfigurationInputTypeDef(TypedDict):
+    cloudWatchLogsConfiguration: NotRequired[
+        ExperimentTemplateCloudWatchLogsLogConfigurationInputTypeDef
+    ]
+    s3Configuration: NotRequired[ExperimentTemplateS3LogConfigurationInputTypeDef]
+    logSchemaVersion: NotRequired[int]
+
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateExperimentTemplateTargetInputTypeDef(TypedDict):
+    resourceType: str
+    selectionMode: str
+    resourceArns: NotRequired[Sequence[str]]
+    resourceTags: NotRequired[Mapping[str, str]]
+    filters: NotRequired[Sequence[ExperimentTemplateTargetInputFilterTypeDef]]
+    parameters: NotRequired[Mapping[str, str]]
+
+class UpdateExperimentTemplateTargetInputTypeDef(TypedDict):
+    resourceType: str
+    selectionMode: str
+    resourceArns: NotRequired[Sequence[str]]
+    resourceTags: NotRequired[Mapping[str, str]]
+    filters: NotRequired[Sequence[ExperimentTemplateTargetInputFilterTypeDef]]
+    parameters: NotRequired[Mapping[str, str]]
+
+class CreateTargetAccountConfigurationResponseTypeDef(TypedDict):
+    targetAccountConfiguration: TargetAccountConfigurationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteTargetAccountConfigurationResponseTypeDef(TypedDict):
+    targetAccountConfiguration: TargetAccountConfigurationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetTargetAccountConfigurationResponseTypeDef(TypedDict):
+    targetAccountConfiguration: TargetAccountConfigurationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateTargetAccountConfigurationResponseTypeDef(TypedDict):
+    targetAccountConfiguration: TargetAccountConfigurationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ExperimentActionTypeDef(TypedDict):
+    actionId: NotRequired[str]
+    description: NotRequired[str]
+    parameters: NotRequired[Dict[str, str]]
+    targets: NotRequired[Dict[str, str]]
+    startAfter: NotRequired[List[str]]
+    state: NotRequired[ExperimentActionStateTypeDef]
+    startTime: NotRequired[datetime]
+    endTime: NotRequired[datetime]
+
+class ExperimentStateTypeDef(TypedDict):
+    status: NotRequired[ExperimentStatusType]
+    reason: NotRequired[str]
+    error: NotRequired[ExperimentErrorTypeDef]
+
+class ExperimentLogConfigurationTypeDef(TypedDict):
+    cloudWatchLogsConfiguration: NotRequired[ExperimentCloudWatchLogsLogConfigurationTypeDef]
+    s3Configuration: NotRequired[ExperimentS3LogConfigurationTypeDef]
+    logSchemaVersion: NotRequired[int]
+
+class ExperimentReportConfigurationDataSourcesTypeDef(TypedDict):
+    cloudWatchDashboards: NotRequired[List[ExperimentReportConfigurationCloudWatchDashboardTypeDef]]
+
+class ExperimentReportConfigurationOutputsTypeDef(TypedDict):
+    s3Configuration: NotRequired[ExperimentReportConfigurationOutputsS3ConfigurationTypeDef]
+
+class ExperimentReportStateTypeDef(TypedDict):
+    status: NotRequired[ExperimentReportStatusType]
+    reason: NotRequired[str]
+    error: NotRequired[ExperimentReportErrorTypeDef]
+
+class ListExperimentTargetAccountConfigurationsResponseTypeDef(TypedDict):
+    targetAccountConfigurations: List[ExperimentTargetAccountConfigurationSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class GetExperimentTargetAccountConfigurationResponseTypeDef(TypedDict):
+    targetAccountConfiguration: ExperimentTargetAccountConfigurationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ExperimentTargetTypeDef(TypedDict):
+    resourceType: NotRequired[str]
+    resourceArns: NotRequired[List[str]]
+    resourceTags: NotRequired[Dict[str, str]]
+    filters: NotRequired[List[ExperimentTargetFilterTypeDef]]
+    selectionMode: NotRequired[str]
+    parameters: NotRequired[Dict[str, str]]
+
+class ExperimentTemplateLogConfigurationTypeDef(TypedDict):
+    cloudWatchLogsConfiguration: NotRequired[
+        ExperimentTemplateCloudWatchLogsLogConfigurationTypeDef
+    ]
+    s3Configuration: NotRequired[ExperimentTemplateS3LogConfigurationTypeDef]
+    logSchemaVersion: NotRequired[int]
+
+class ExperimentTemplateReportConfigurationDataSourcesTypeDef(TypedDict):
+    cloudWatchDashboards: NotRequired[
+        List[ExperimentTemplateReportConfigurationCloudWatchDashboardTypeDef]
+    ]
+
+class ExperimentTemplateReportConfigurationDataSourcesInputTypeDef(TypedDict):
+    cloudWatchDashboards: NotRequired[Sequence[ReportConfigurationCloudWatchDashboardInputTypeDef]]
+
+class ExperimentTemplateReportConfigurationOutputsInputTypeDef(TypedDict):
+    s3Configuration: NotRequired[ReportConfigurationS3OutputInputTypeDef]
+
+class ExperimentTemplateReportConfigurationOutputsTypeDef(TypedDict):
+    s3Configuration: NotRequired[ReportConfigurationS3OutputTypeDef]
+
+class ListExperimentTemplatesResponseTypeDef(TypedDict):
+    experimentTemplates: List[ExperimentTemplateSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ExperimentTemplateTargetTypeDef(TypedDict):
+    resourceType: NotRequired[str]
+    resourceArns: NotRequired[List[str]]
+    resourceTags: NotRequired[Dict[str, str]]
+    filters: NotRequired[List[ExperimentTemplateTargetFilterTypeDef]]
+    selectionMode: NotRequired[str]
+    parameters: NotRequired[Dict[str, str]]
+
+class ListActionsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListExperimentResolvedTargetsRequestPaginateTypeDef(TypedDict):
+    experimentId: str
+    targetName: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListExperimentTemplatesRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListExperimentsRequestPaginateTypeDef(TypedDict):
+    experimentTemplateId: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListTargetAccountConfigurationsRequestPaginateTypeDef(TypedDict):
+    experimentTemplateId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListTargetResourceTypesRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListExperimentResolvedTargetsResponseTypeDef(TypedDict):
+    resolvedTargets: List[ResolvedTargetTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListTargetAccountConfigurationsResponseTypeDef(TypedDict):
+    targetAccountConfigurations: List[TargetAccountConfigurationSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListTargetResourceTypesResponseTypeDef(TypedDict):
+    targetResourceTypes: List[TargetResourceTypeSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+SafetyLeverTypeDef = TypedDict(
+    "SafetyLeverTypeDef",
+    {
+        "id": NotRequired[str],
+        "arn": NotRequired[str],
+        "state": NotRequired[SafetyLeverStateTypeDef],
+    },
+)
+
+class StartExperimentRequestTypeDef(TypedDict):
+    clientToken: str
+    experimentTemplateId: str
+    experimentOptions: NotRequired[StartExperimentExperimentOptionsInputTypeDef]
+    tags: NotRequired[Mapping[str, str]]
+
+class TargetResourceTypeTypeDef(TypedDict):
+    resourceType: NotRequired[str]
+    description: NotRequired[str]
+    parameters: NotRequired[Dict[str, TargetResourceTypeParameterTypeDef]]
+
+UpdateSafetyLeverStateRequestTypeDef = TypedDict(
+    "UpdateSafetyLeverStateRequestTypeDef",
+    {
+        "id": str,
+        "state": UpdateSafetyLeverStateInputTypeDef,
+    },
+)
+
+class ListActionsResponseTypeDef(TypedDict):
+    actions: List[ActionSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class GetActionResponseTypeDef(TypedDict):
+    action: ActionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+ExperimentSummaryTypeDef = TypedDict(
+    "ExperimentSummaryTypeDef",
+    {
+        "id": NotRequired[str],
+        "arn": NotRequired[str],
+        "experimentTemplateId": NotRequired[str],
+        "state": NotRequired[ExperimentStateTypeDef],
+        "creationTime": NotRequired[datetime],
+        "tags": NotRequired[Dict[str, str]],
+        "experimentOptions": NotRequired[ExperimentOptionsTypeDef],
+    },
+)
+
+class ExperimentReportConfigurationTypeDef(TypedDict):
+    outputs: NotRequired[ExperimentReportConfigurationOutputsTypeDef]
+    dataSources: NotRequired[ExperimentReportConfigurationDataSourcesTypeDef]
+    preExperimentDuration: NotRequired[str]
+    postExperimentDuration: NotRequired[str]
+
+class ExperimentReportTypeDef(TypedDict):
+    state: NotRequired[ExperimentReportStateTypeDef]
+    s3Reports: NotRequired[List[ExperimentReportS3ReportTypeDef]]
+
+class CreateExperimentTemplateReportConfigurationInputTypeDef(TypedDict):
+    outputs: NotRequired[ExperimentTemplateReportConfigurationOutputsInputTypeDef]
+    dataSources: NotRequired[ExperimentTemplateReportConfigurationDataSourcesInputTypeDef]
+    preExperimentDuration: NotRequired[str]
+    postExperimentDuration: NotRequired[str]
+
+class UpdateExperimentTemplateReportConfigurationInputTypeDef(TypedDict):
+    outputs: NotRequired[ExperimentTemplateReportConfigurationOutputsInputTypeDef]
+    dataSources: NotRequired[ExperimentTemplateReportConfigurationDataSourcesInputTypeDef]
+    preExperimentDuration: NotRequired[str]
+    postExperimentDuration: NotRequired[str]
+
+class ExperimentTemplateReportConfigurationTypeDef(TypedDict):
+    outputs: NotRequired[ExperimentTemplateReportConfigurationOutputsTypeDef]
+    dataSources: NotRequired[ExperimentTemplateReportConfigurationDataSourcesTypeDef]
+    preExperimentDuration: NotRequired[str]
+    postExperimentDuration: NotRequired[str]
+
+class GetSafetyLeverResponseTypeDef(TypedDict):
+    safetyLever: SafetyLeverTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateSafetyLeverStateResponseTypeDef(TypedDict):
+    safetyLever: SafetyLeverTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetTargetResourceTypeResponseTypeDef(TypedDict):
+    targetResourceType: TargetResourceTypeTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListExperimentsResponseTypeDef(TypedDict):
+    experiments: List[ExperimentSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
 ExperimentTypeDef = TypedDict(
     "ExperimentTypeDef",
     {
-        "id": str,
-        "arn": str,
-        "experimentTemplateId": str,
-        "roleArn": str,
-        "state": "ExperimentStateTypeDef",
-        "targets": Dict[str, "ExperimentTargetTypeDef"],
-        "actions": Dict[str, "ExperimentActionTypeDef"],
-        "stopConditions": List["ExperimentStopConditionTypeDef"],
-        "creationTime": datetime,
-        "startTime": datetime,
-        "endTime": datetime,
-        "tags": Dict[str, str],
-        "logConfiguration": "ExperimentLogConfigurationTypeDef",
-        "experimentOptions": "ExperimentOptionsTypeDef",
-        "targetAccountConfigurationsCount": int,
+        "id": NotRequired[str],
+        "arn": NotRequired[str],
+        "experimentTemplateId": NotRequired[str],
+        "roleArn": NotRequired[str],
+        "state": NotRequired[ExperimentStateTypeDef],
+        "targets": NotRequired[Dict[str, ExperimentTargetTypeDef]],
+        "actions": NotRequired[Dict[str, ExperimentActionTypeDef]],
+        "stopConditions": NotRequired[List[ExperimentStopConditionTypeDef]],
+        "creationTime": NotRequired[datetime],
+        "startTime": NotRequired[datetime],
+        "endTime": NotRequired[datetime],
+        "tags": NotRequired[Dict[str, str]],
+        "logConfiguration": NotRequired[ExperimentLogConfigurationTypeDef],
+        "experimentOptions": NotRequired[ExperimentOptionsTypeDef],
+        "targetAccountConfigurationsCount": NotRequired[int],
+        "experimentReportConfiguration": NotRequired[ExperimentReportConfigurationTypeDef],
+        "experimentReport": NotRequired[ExperimentReportTypeDef],
     },
-    total=False,
 )
 
-GetActionRequestRequestTypeDef = TypedDict(
-    "GetActionRequestRequestTypeDef",
+class CreateExperimentTemplateRequestTypeDef(TypedDict):
+    clientToken: str
+    description: str
+    stopConditions: Sequence[CreateExperimentTemplateStopConditionInputTypeDef]
+    actions: Mapping[str, CreateExperimentTemplateActionInputTypeDef]
+    roleArn: str
+    targets: NotRequired[Mapping[str, CreateExperimentTemplateTargetInputTypeDef]]
+    tags: NotRequired[Mapping[str, str]]
+    logConfiguration: NotRequired[CreateExperimentTemplateLogConfigurationInputTypeDef]
+    experimentOptions: NotRequired[CreateExperimentTemplateExperimentOptionsInputTypeDef]
+    experimentReportConfiguration: NotRequired[
+        CreateExperimentTemplateReportConfigurationInputTypeDef
+    ]
+
+UpdateExperimentTemplateRequestTypeDef = TypedDict(
+    "UpdateExperimentTemplateRequestTypeDef",
     {
         "id": str,
+        "description": NotRequired[str],
+        "stopConditions": NotRequired[Sequence[UpdateExperimentTemplateStopConditionInputTypeDef]],
+        "targets": NotRequired[Mapping[str, UpdateExperimentTemplateTargetInputTypeDef]],
+        "actions": NotRequired[Mapping[str, UpdateExperimentTemplateActionInputItemTypeDef]],
+        "roleArn": NotRequired[str],
+        "logConfiguration": NotRequired[UpdateExperimentTemplateLogConfigurationInputTypeDef],
+        "experimentOptions": NotRequired[UpdateExperimentTemplateExperimentOptionsInputTypeDef],
+        "experimentReportConfiguration": NotRequired[
+            UpdateExperimentTemplateReportConfigurationInputTypeDef
+        ],
+    },
+)
+ExperimentTemplateTypeDef = TypedDict(
+    "ExperimentTemplateTypeDef",
+    {
+        "id": NotRequired[str],
+        "arn": NotRequired[str],
+        "description": NotRequired[str],
+        "targets": NotRequired[Dict[str, ExperimentTemplateTargetTypeDef]],
+        "actions": NotRequired[Dict[str, ExperimentTemplateActionTypeDef]],
+        "stopConditions": NotRequired[List[ExperimentTemplateStopConditionTypeDef]],
+        "creationTime": NotRequired[datetime],
+        "lastUpdateTime": NotRequired[datetime],
+        "roleArn": NotRequired[str],
+        "tags": NotRequired[Dict[str, str]],
+        "logConfiguration": NotRequired[ExperimentTemplateLogConfigurationTypeDef],
+        "experimentOptions": NotRequired[ExperimentTemplateExperimentOptionsTypeDef],
+        "targetAccountConfigurationsCount": NotRequired[int],
+        "experimentReportConfiguration": NotRequired[ExperimentTemplateReportConfigurationTypeDef],
     },
 )
 
-GetActionResponseTypeDef = TypedDict(
-    "GetActionResponseTypeDef",
-    {
-        "action": "ActionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetExperimentResponseTypeDef(TypedDict):
+    experiment: ExperimentTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-GetExperimentRequestRequestTypeDef = TypedDict(
-    "GetExperimentRequestRequestTypeDef",
-    {
-        "id": str,
-    },
-)
+class StartExperimentResponseTypeDef(TypedDict):
+    experiment: ExperimentTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-GetExperimentResponseTypeDef = TypedDict(
-    "GetExperimentResponseTypeDef",
-    {
-        "experiment": "ExperimentTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class StopExperimentResponseTypeDef(TypedDict):
+    experiment: ExperimentTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-GetExperimentTargetAccountConfigurationRequestRequestTypeDef = TypedDict(
-    "GetExperimentTargetAccountConfigurationRequestRequestTypeDef",
-    {
-        "experimentId": str,
-        "accountId": str,
-    },
-)
+class CreateExperimentTemplateResponseTypeDef(TypedDict):
+    experimentTemplate: ExperimentTemplateTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-GetExperimentTargetAccountConfigurationResponseTypeDef = TypedDict(
-    "GetExperimentTargetAccountConfigurationResponseTypeDef",
-    {
-        "targetAccountConfiguration": "ExperimentTargetAccountConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DeleteExperimentTemplateResponseTypeDef(TypedDict):
+    experimentTemplate: ExperimentTemplateTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-GetExperimentTemplateRequestRequestTypeDef = TypedDict(
-    "GetExperimentTemplateRequestRequestTypeDef",
-    {
-        "id": str,
-    },
-)
+class GetExperimentTemplateResponseTypeDef(TypedDict):
+    experimentTemplate: ExperimentTemplateTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-GetExperimentTemplateResponseTypeDef = TypedDict(
-    "GetExperimentTemplateResponseTypeDef",
-    {
-        "experimentTemplate": "ExperimentTemplateTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetTargetAccountConfigurationRequestRequestTypeDef = TypedDict(
-    "GetTargetAccountConfigurationRequestRequestTypeDef",
-    {
-        "experimentTemplateId": str,
-        "accountId": str,
-    },
-)
-
-GetTargetAccountConfigurationResponseTypeDef = TypedDict(
-    "GetTargetAccountConfigurationResponseTypeDef",
-    {
-        "targetAccountConfiguration": "TargetAccountConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetTargetResourceTypeRequestRequestTypeDef = TypedDict(
-    "GetTargetResourceTypeRequestRequestTypeDef",
-    {
-        "resourceType": str,
-    },
-)
-
-GetTargetResourceTypeResponseTypeDef = TypedDict(
-    "GetTargetResourceTypeResponseTypeDef",
-    {
-        "targetResourceType": "TargetResourceTypeTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListActionsRequestRequestTypeDef = TypedDict(
-    "ListActionsRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-ListActionsResponseTypeDef = TypedDict(
-    "ListActionsResponseTypeDef",
-    {
-        "actions": List["ActionSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListExperimentResolvedTargetsRequestRequestTypeDef = TypedDict(
-    "_RequiredListExperimentResolvedTargetsRequestRequestTypeDef",
-    {
-        "experimentId": str,
-    },
-)
-_OptionalListExperimentResolvedTargetsRequestRequestTypeDef = TypedDict(
-    "_OptionalListExperimentResolvedTargetsRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-        "targetName": str,
-    },
-    total=False,
-)
-
-class ListExperimentResolvedTargetsRequestRequestTypeDef(
-    _RequiredListExperimentResolvedTargetsRequestRequestTypeDef,
-    _OptionalListExperimentResolvedTargetsRequestRequestTypeDef,
-):
-    pass
-
-ListExperimentResolvedTargetsResponseTypeDef = TypedDict(
-    "ListExperimentResolvedTargetsResponseTypeDef",
-    {
-        "resolvedTargets": List["ResolvedTargetTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListExperimentTargetAccountConfigurationsRequestRequestTypeDef = TypedDict(
-    "_RequiredListExperimentTargetAccountConfigurationsRequestRequestTypeDef",
-    {
-        "experimentId": str,
-    },
-)
-_OptionalListExperimentTargetAccountConfigurationsRequestRequestTypeDef = TypedDict(
-    "_OptionalListExperimentTargetAccountConfigurationsRequestRequestTypeDef",
-    {
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListExperimentTargetAccountConfigurationsRequestRequestTypeDef(
-    _RequiredListExperimentTargetAccountConfigurationsRequestRequestTypeDef,
-    _OptionalListExperimentTargetAccountConfigurationsRequestRequestTypeDef,
-):
-    pass
-
-ListExperimentTargetAccountConfigurationsResponseTypeDef = TypedDict(
-    "ListExperimentTargetAccountConfigurationsResponseTypeDef",
-    {
-        "targetAccountConfigurations": List["ExperimentTargetAccountConfigurationSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListExperimentTemplatesRequestRequestTypeDef = TypedDict(
-    "ListExperimentTemplatesRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-ListExperimentTemplatesResponseTypeDef = TypedDict(
-    "ListExperimentTemplatesResponseTypeDef",
-    {
-        "experimentTemplates": List["ExperimentTemplateSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListExperimentsRequestRequestTypeDef = TypedDict(
-    "ListExperimentsRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-        "experimentTemplateId": str,
-    },
-    total=False,
-)
-
-ListExperimentsResponseTypeDef = TypedDict(
-    "ListExperimentsResponseTypeDef",
-    {
-        "experiments": List["ExperimentSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-    },
-)
-
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListTargetAccountConfigurationsRequestRequestTypeDef = TypedDict(
-    "_RequiredListTargetAccountConfigurationsRequestRequestTypeDef",
-    {
-        "experimentTemplateId": str,
-    },
-)
-_OptionalListTargetAccountConfigurationsRequestRequestTypeDef = TypedDict(
-    "_OptionalListTargetAccountConfigurationsRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListTargetAccountConfigurationsRequestRequestTypeDef(
-    _RequiredListTargetAccountConfigurationsRequestRequestTypeDef,
-    _OptionalListTargetAccountConfigurationsRequestRequestTypeDef,
-):
-    pass
-
-ListTargetAccountConfigurationsResponseTypeDef = TypedDict(
-    "ListTargetAccountConfigurationsResponseTypeDef",
-    {
-        "targetAccountConfigurations": List["TargetAccountConfigurationSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTargetResourceTypesRequestRequestTypeDef = TypedDict(
-    "ListTargetResourceTypesRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-ListTargetResourceTypesResponseTypeDef = TypedDict(
-    "ListTargetResourceTypesResponseTypeDef",
-    {
-        "targetResourceTypes": List["TargetResourceTypeSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ResolvedTargetTypeDef = TypedDict(
-    "ResolvedTargetTypeDef",
-    {
-        "resourceType": str,
-        "targetName": str,
-        "targetInformation": Dict[str, str],
-    },
-    total=False,
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-StartExperimentExperimentOptionsInputTypeDef = TypedDict(
-    "StartExperimentExperimentOptionsInputTypeDef",
-    {
-        "actionsMode": ActionsModeType,
-    },
-    total=False,
-)
-
-_RequiredStartExperimentRequestRequestTypeDef = TypedDict(
-    "_RequiredStartExperimentRequestRequestTypeDef",
-    {
-        "clientToken": str,
-        "experimentTemplateId": str,
-    },
-)
-_OptionalStartExperimentRequestRequestTypeDef = TypedDict(
-    "_OptionalStartExperimentRequestRequestTypeDef",
-    {
-        "experimentOptions": "StartExperimentExperimentOptionsInputTypeDef",
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class StartExperimentRequestRequestTypeDef(
-    _RequiredStartExperimentRequestRequestTypeDef, _OptionalStartExperimentRequestRequestTypeDef
-):
-    pass
-
-StartExperimentResponseTypeDef = TypedDict(
-    "StartExperimentResponseTypeDef",
-    {
-        "experiment": "ExperimentTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-StopExperimentRequestRequestTypeDef = TypedDict(
-    "StopExperimentRequestRequestTypeDef",
-    {
-        "id": str,
-    },
-)
-
-StopExperimentResponseTypeDef = TypedDict(
-    "StopExperimentResponseTypeDef",
-    {
-        "experiment": "ExperimentTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tags": Dict[str, str],
-    },
-)
-
-TargetAccountConfigurationSummaryTypeDef = TypedDict(
-    "TargetAccountConfigurationSummaryTypeDef",
-    {
-        "roleArn": str,
-        "accountId": str,
-        "description": str,
-    },
-    total=False,
-)
-
-TargetAccountConfigurationTypeDef = TypedDict(
-    "TargetAccountConfigurationTypeDef",
-    {
-        "roleArn": str,
-        "accountId": str,
-        "description": str,
-    },
-    total=False,
-)
-
-TargetResourceTypeParameterTypeDef = TypedDict(
-    "TargetResourceTypeParameterTypeDef",
-    {
-        "description": str,
-        "required": bool,
-    },
-    total=False,
-)
-
-TargetResourceTypeSummaryTypeDef = TypedDict(
-    "TargetResourceTypeSummaryTypeDef",
-    {
-        "resourceType": str,
-        "description": str,
-    },
-    total=False,
-)
-
-TargetResourceTypeTypeDef = TypedDict(
-    "TargetResourceTypeTypeDef",
-    {
-        "resourceType": str,
-        "description": str,
-        "parameters": Dict[str, "TargetResourceTypeParameterTypeDef"],
-    },
-    total=False,
-)
-
-_RequiredUntagResourceRequestRequestTypeDef = TypedDict(
-    "_RequiredUntagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-    },
-)
-_OptionalUntagResourceRequestRequestTypeDef = TypedDict(
-    "_OptionalUntagResourceRequestRequestTypeDef",
-    {
-        "tagKeys": List[str],
-    },
-    total=False,
-)
-
-class UntagResourceRequestRequestTypeDef(
-    _RequiredUntagResourceRequestRequestTypeDef, _OptionalUntagResourceRequestRequestTypeDef
-):
-    pass
-
-UpdateExperimentTemplateActionInputItemTypeDef = TypedDict(
-    "UpdateExperimentTemplateActionInputItemTypeDef",
-    {
-        "actionId": str,
-        "description": str,
-        "parameters": Dict[str, str],
-        "targets": Dict[str, str],
-        "startAfter": List[str],
-    },
-    total=False,
-)
-
-UpdateExperimentTemplateExperimentOptionsInputTypeDef = TypedDict(
-    "UpdateExperimentTemplateExperimentOptionsInputTypeDef",
-    {
-        "emptyTargetResolutionMode": EmptyTargetResolutionModeType,
-    },
-    total=False,
-)
-
-UpdateExperimentTemplateLogConfigurationInputTypeDef = TypedDict(
-    "UpdateExperimentTemplateLogConfigurationInputTypeDef",
-    {
-        "cloudWatchLogsConfiguration": "ExperimentTemplateCloudWatchLogsLogConfigurationInputTypeDef",
-        "s3Configuration": "ExperimentTemplateS3LogConfigurationInputTypeDef",
-        "logSchemaVersion": int,
-    },
-    total=False,
-)
-
-_RequiredUpdateExperimentTemplateRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateExperimentTemplateRequestRequestTypeDef",
-    {
-        "id": str,
-    },
-)
-_OptionalUpdateExperimentTemplateRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateExperimentTemplateRequestRequestTypeDef",
-    {
-        "description": str,
-        "stopConditions": List["UpdateExperimentTemplateStopConditionInputTypeDef"],
-        "targets": Dict[str, "UpdateExperimentTemplateTargetInputTypeDef"],
-        "actions": Dict[str, "UpdateExperimentTemplateActionInputItemTypeDef"],
-        "roleArn": str,
-        "logConfiguration": "UpdateExperimentTemplateLogConfigurationInputTypeDef",
-        "experimentOptions": "UpdateExperimentTemplateExperimentOptionsInputTypeDef",
-    },
-    total=False,
-)
-
-class UpdateExperimentTemplateRequestRequestTypeDef(
-    _RequiredUpdateExperimentTemplateRequestRequestTypeDef,
-    _OptionalUpdateExperimentTemplateRequestRequestTypeDef,
-):
-    pass
-
-UpdateExperimentTemplateResponseTypeDef = TypedDict(
-    "UpdateExperimentTemplateResponseTypeDef",
-    {
-        "experimentTemplate": "ExperimentTemplateTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateExperimentTemplateStopConditionInputTypeDef = TypedDict(
-    "_RequiredUpdateExperimentTemplateStopConditionInputTypeDef",
-    {
-        "source": str,
-    },
-)
-_OptionalUpdateExperimentTemplateStopConditionInputTypeDef = TypedDict(
-    "_OptionalUpdateExperimentTemplateStopConditionInputTypeDef",
-    {
-        "value": str,
-    },
-    total=False,
-)
-
-class UpdateExperimentTemplateStopConditionInputTypeDef(
-    _RequiredUpdateExperimentTemplateStopConditionInputTypeDef,
-    _OptionalUpdateExperimentTemplateStopConditionInputTypeDef,
-):
-    pass
-
-_RequiredUpdateExperimentTemplateTargetInputTypeDef = TypedDict(
-    "_RequiredUpdateExperimentTemplateTargetInputTypeDef",
-    {
-        "resourceType": str,
-        "selectionMode": str,
-    },
-)
-_OptionalUpdateExperimentTemplateTargetInputTypeDef = TypedDict(
-    "_OptionalUpdateExperimentTemplateTargetInputTypeDef",
-    {
-        "resourceArns": List[str],
-        "resourceTags": Dict[str, str],
-        "filters": List["ExperimentTemplateTargetInputFilterTypeDef"],
-        "parameters": Dict[str, str],
-    },
-    total=False,
-)
-
-class UpdateExperimentTemplateTargetInputTypeDef(
-    _RequiredUpdateExperimentTemplateTargetInputTypeDef,
-    _OptionalUpdateExperimentTemplateTargetInputTypeDef,
-):
-    pass
-
-_RequiredUpdateTargetAccountConfigurationRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateTargetAccountConfigurationRequestRequestTypeDef",
-    {
-        "experimentTemplateId": str,
-        "accountId": str,
-    },
-)
-_OptionalUpdateTargetAccountConfigurationRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateTargetAccountConfigurationRequestRequestTypeDef",
-    {
-        "roleArn": str,
-        "description": str,
-    },
-    total=False,
-)
-
-class UpdateTargetAccountConfigurationRequestRequestTypeDef(
-    _RequiredUpdateTargetAccountConfigurationRequestRequestTypeDef,
-    _OptionalUpdateTargetAccountConfigurationRequestRequestTypeDef,
-):
-    pass
-
-UpdateTargetAccountConfigurationResponseTypeDef = TypedDict(
-    "UpdateTargetAccountConfigurationResponseTypeDef",
-    {
-        "targetAccountConfiguration": "TargetAccountConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class UpdateExperimentTemplateResponseTypeDef(TypedDict):
+    experimentTemplate: ExperimentTemplateTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef

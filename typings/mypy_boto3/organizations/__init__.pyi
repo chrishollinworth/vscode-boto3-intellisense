@@ -1,10 +1,14 @@
 """
 Main interface for organizations service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_organizations/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_organizations import (
         Client,
         ListAWSServiceAccessForOrganizationPaginator,
@@ -26,14 +30,12 @@ Usage::
         OrganizationsClient,
     )
 
-    session = boto3.Session()
-
-    client: OrganizationsClient = boto3.client("organizations")
-    session_client: OrganizationsClient = session.client("organizations")
+    session = Session()
+    client: OrganizationsClient = session.client("organizations")
 
     list_aws_service_access_for_organization_paginator: ListAWSServiceAccessForOrganizationPaginator = client.get_paginator("list_aws_service_access_for_organization")
-    list_accounts_paginator: ListAccountsPaginator = client.get_paginator("list_accounts")
     list_accounts_for_parent_paginator: ListAccountsForParentPaginator = client.get_paginator("list_accounts_for_parent")
+    list_accounts_paginator: ListAccountsPaginator = client.get_paginator("list_accounts")
     list_children_paginator: ListChildrenPaginator = client.get_paginator("list_children")
     list_create_account_status_paginator: ListCreateAccountStatusPaginator = client.get_paginator("list_create_account_status")
     list_delegated_administrators_paginator: ListDelegatedAdministratorsPaginator = client.get_paginator("list_delegated_administrators")
@@ -42,8 +44,8 @@ Usage::
     list_handshakes_for_organization_paginator: ListHandshakesForOrganizationPaginator = client.get_paginator("list_handshakes_for_organization")
     list_organizational_units_for_parent_paginator: ListOrganizationalUnitsForParentPaginator = client.get_paginator("list_organizational_units_for_parent")
     list_parents_paginator: ListParentsPaginator = client.get_paginator("list_parents")
-    list_policies_paginator: ListPoliciesPaginator = client.get_paginator("list_policies")
     list_policies_for_target_paginator: ListPoliciesForTargetPaginator = client.get_paginator("list_policies_for_target")
+    list_policies_paginator: ListPoliciesPaginator = client.get_paginator("list_policies")
     list_roots_paginator: ListRootsPaginator = client.get_paginator("list_roots")
     list_tags_for_resource_paginator: ListTagsForResourcePaginator = client.get_paginator("list_tags_for_resource")
     list_targets_for_policy_paginator: ListTargetsForPolicyPaginator = client.get_paginator("list_targets_for_policy")

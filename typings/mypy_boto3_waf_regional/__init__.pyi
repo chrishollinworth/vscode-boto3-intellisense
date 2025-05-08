@@ -1,19 +1,21 @@
 """
 Main interface for waf-regional service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_waf_regional/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_waf_regional import (
         Client,
         WAFRegionalClient,
     )
 
-    session = boto3.Session()
-
-    client: WAFRegionalClient = boto3.client("waf-regional")
-    session_client: WAFRegionalClient = session.client("waf-regional")
+    session = Session()
+    client: WAFRegionalClient = session.client("waf-regional")
     ```
 """
 

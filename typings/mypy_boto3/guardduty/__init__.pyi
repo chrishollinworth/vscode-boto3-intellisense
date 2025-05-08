@@ -1,10 +1,14 @@
 """
 Main interface for guardduty service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_guardduty/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_guardduty import (
         Client,
         DescribeMalwareScansPaginator,
@@ -20,10 +24,8 @@ Usage::
         ListThreatIntelSetsPaginator,
     )
 
-    session = boto3.Session()
-
-    client: GuardDutyClient = boto3.client("guardduty")
-    session_client: GuardDutyClient = session.client("guardduty")
+    session = Session()
+    client: GuardDutyClient = session.client("guardduty")
 
     describe_malware_scans_paginator: DescribeMalwareScansPaginator = client.get_paginator("describe_malware_scans")
     list_coverage_paginator: ListCoveragePaginator = client.get_paginator("list_coverage")

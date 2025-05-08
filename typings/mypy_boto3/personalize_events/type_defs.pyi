@@ -1,197 +1,119 @@
 """
 Type annotations for personalize-events service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize_events/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_personalize_events/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_personalize_events.type_defs import ActionInteractionTypeDef
+    from mypy_boto3_personalize_events.type_defs import TimestampTypeDef
 
-    data: ActionInteractionTypeDef = {...}
+    data: TimestampTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import List, Union
+from typing import Union
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from collections.abc import Sequence
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, Sequence
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
     "ActionInteractionTypeDef",
     "ActionTypeDef",
+    "EmptyResponseMetadataTypeDef",
     "EventTypeDef",
     "ItemTypeDef",
     "MetricAttributionTypeDef",
-    "PutActionInteractionsRequestRequestTypeDef",
-    "PutActionsRequestRequestTypeDef",
-    "PutEventsRequestRequestTypeDef",
-    "PutItemsRequestRequestTypeDef",
-    "PutUsersRequestRequestTypeDef",
+    "PutActionInteractionsRequestTypeDef",
+    "PutActionsRequestTypeDef",
+    "PutEventsRequestTypeDef",
+    "PutItemsRequestTypeDef",
+    "PutUsersRequestTypeDef",
+    "ResponseMetadataTypeDef",
+    "TimestampTypeDef",
     "UserTypeDef",
 )
 
-_RequiredActionInteractionTypeDef = TypedDict(
-    "_RequiredActionInteractionTypeDef",
-    {
-        "actionId": str,
-        "sessionId": str,
-        "timestamp": Union[datetime, str],
-        "eventType": str,
-    },
-)
-_OptionalActionInteractionTypeDef = TypedDict(
-    "_OptionalActionInteractionTypeDef",
-    {
-        "userId": str,
-        "eventId": str,
-        "recommendationId": str,
-        "impression": List[str],
-        "properties": str,
-    },
-    total=False,
-)
+TimestampTypeDef = Union[datetime, str]
 
-class ActionInteractionTypeDef(
-    _RequiredActionInteractionTypeDef, _OptionalActionInteractionTypeDef
-):
-    pass
+class ActionTypeDef(TypedDict):
+    actionId: str
+    properties: NotRequired[str]
 
-_RequiredActionTypeDef = TypedDict(
-    "_RequiredActionTypeDef",
-    {
-        "actionId": str,
-    },
-)
-_OptionalActionTypeDef = TypedDict(
-    "_OptionalActionTypeDef",
-    {
-        "properties": str,
-    },
-    total=False,
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-class ActionTypeDef(_RequiredActionTypeDef, _OptionalActionTypeDef):
-    pass
+class MetricAttributionTypeDef(TypedDict):
+    eventAttributionSource: str
 
-_RequiredEventTypeDef = TypedDict(
-    "_RequiredEventTypeDef",
-    {
-        "eventType": str,
-        "sentAt": Union[datetime, str],
-    },
-)
-_OptionalEventTypeDef = TypedDict(
-    "_OptionalEventTypeDef",
-    {
-        "eventId": str,
-        "eventValue": float,
-        "itemId": str,
-        "properties": str,
-        "recommendationId": str,
-        "impression": List[str],
-        "metricAttribution": "MetricAttributionTypeDef",
-    },
-    total=False,
-)
+class ItemTypeDef(TypedDict):
+    itemId: str
+    properties: NotRequired[str]
 
-class EventTypeDef(_RequiredEventTypeDef, _OptionalEventTypeDef):
-    pass
+class UserTypeDef(TypedDict):
+    userId: str
+    properties: NotRequired[str]
 
-_RequiredItemTypeDef = TypedDict(
-    "_RequiredItemTypeDef",
-    {
-        "itemId": str,
-    },
-)
-_OptionalItemTypeDef = TypedDict(
-    "_OptionalItemTypeDef",
-    {
-        "properties": str,
-    },
-    total=False,
-)
+class ActionInteractionTypeDef(TypedDict):
+    actionId: str
+    sessionId: str
+    timestamp: TimestampTypeDef
+    eventType: str
+    userId: NotRequired[str]
+    eventId: NotRequired[str]
+    recommendationId: NotRequired[str]
+    impression: NotRequired[Sequence[str]]
+    properties: NotRequired[str]
 
-class ItemTypeDef(_RequiredItemTypeDef, _OptionalItemTypeDef):
-    pass
+class PutActionsRequestTypeDef(TypedDict):
+    datasetArn: str
+    actions: Sequence[ActionTypeDef]
 
-MetricAttributionTypeDef = TypedDict(
-    "MetricAttributionTypeDef",
-    {
-        "eventAttributionSource": str,
-    },
-)
+class EmptyResponseMetadataTypeDef(TypedDict):
+    ResponseMetadata: ResponseMetadataTypeDef
 
-PutActionInteractionsRequestRequestTypeDef = TypedDict(
-    "PutActionInteractionsRequestRequestTypeDef",
-    {
-        "trackingId": str,
-        "actionInteractions": List["ActionInteractionTypeDef"],
-    },
-)
+class EventTypeDef(TypedDict):
+    eventType: str
+    sentAt: TimestampTypeDef
+    eventId: NotRequired[str]
+    eventValue: NotRequired[float]
+    itemId: NotRequired[str]
+    properties: NotRequired[str]
+    recommendationId: NotRequired[str]
+    impression: NotRequired[Sequence[str]]
+    metricAttribution: NotRequired[MetricAttributionTypeDef]
 
-PutActionsRequestRequestTypeDef = TypedDict(
-    "PutActionsRequestRequestTypeDef",
-    {
-        "datasetArn": str,
-        "actions": List["ActionTypeDef"],
-    },
-)
+class PutItemsRequestTypeDef(TypedDict):
+    datasetArn: str
+    items: Sequence[ItemTypeDef]
 
-_RequiredPutEventsRequestRequestTypeDef = TypedDict(
-    "_RequiredPutEventsRequestRequestTypeDef",
-    {
-        "trackingId": str,
-        "sessionId": str,
-        "eventList": List["EventTypeDef"],
-    },
-)
-_OptionalPutEventsRequestRequestTypeDef = TypedDict(
-    "_OptionalPutEventsRequestRequestTypeDef",
-    {
-        "userId": str,
-    },
-    total=False,
-)
+class PutUsersRequestTypeDef(TypedDict):
+    datasetArn: str
+    users: Sequence[UserTypeDef]
 
-class PutEventsRequestRequestTypeDef(
-    _RequiredPutEventsRequestRequestTypeDef, _OptionalPutEventsRequestRequestTypeDef
-):
-    pass
+class PutActionInteractionsRequestTypeDef(TypedDict):
+    trackingId: str
+    actionInteractions: Sequence[ActionInteractionTypeDef]
 
-PutItemsRequestRequestTypeDef = TypedDict(
-    "PutItemsRequestRequestTypeDef",
-    {
-        "datasetArn": str,
-        "items": List["ItemTypeDef"],
-    },
-)
-
-PutUsersRequestRequestTypeDef = TypedDict(
-    "PutUsersRequestRequestTypeDef",
-    {
-        "datasetArn": str,
-        "users": List["UserTypeDef"],
-    },
-)
-
-_RequiredUserTypeDef = TypedDict(
-    "_RequiredUserTypeDef",
-    {
-        "userId": str,
-    },
-)
-_OptionalUserTypeDef = TypedDict(
-    "_OptionalUserTypeDef",
-    {
-        "properties": str,
-    },
-    total=False,
-)
-
-class UserTypeDef(_RequiredUserTypeDef, _OptionalUserTypeDef):
-    pass
+class PutEventsRequestTypeDef(TypedDict):
+    trackingId: str
+    sessionId: str
+    eventList: Sequence[EventTypeDef]
+    userId: NotRequired[str]

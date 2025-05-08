@@ -1,10 +1,14 @@
 """
 Main interface for ecs service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ecs/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_ecs import (
         Client,
         ECSClient,
@@ -23,10 +27,8 @@ Usage::
         TasksStoppedWaiter,
     )
 
-    session = boto3.Session()
-
-    client: ECSClient = boto3.client("ecs")
-    session_client: ECSClient = session.client("ecs")
+    session = Session()
+    client: ECSClient = session.client("ecs")
 
     services_inactive_waiter: ServicesInactiveWaiter = client.get_waiter("services_inactive")
     services_stable_waiter: ServicesStableWaiter = client.get_waiter("services_stable")
@@ -37,8 +39,8 @@ Usage::
     list_attributes_paginator: ListAttributesPaginator = client.get_paginator("list_attributes")
     list_clusters_paginator: ListClustersPaginator = client.get_paginator("list_clusters")
     list_container_instances_paginator: ListContainerInstancesPaginator = client.get_paginator("list_container_instances")
-    list_services_paginator: ListServicesPaginator = client.get_paginator("list_services")
     list_services_by_namespace_paginator: ListServicesByNamespacePaginator = client.get_paginator("list_services_by_namespace")
+    list_services_paginator: ListServicesPaginator = client.get_paginator("list_services")
     list_task_definition_families_paginator: ListTaskDefinitionFamiliesPaginator = client.get_paginator("list_task_definition_families")
     list_task_definitions_paginator: ListTaskDefinitionsPaginator = client.get_paginator("list_task_definitions")
     list_tasks_paginator: ListTasksPaginator = client.get_paginator("list_tasks")

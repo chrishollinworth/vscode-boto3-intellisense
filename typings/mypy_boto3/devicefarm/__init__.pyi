@@ -1,10 +1,14 @@
 """
 Main interface for devicefarm service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_devicefarm/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_devicefarm import (
         Client,
         DeviceFarmClient,
@@ -30,10 +34,8 @@ Usage::
         ListVPCEConfigurationsPaginator,
     )
 
-    session = boto3.Session()
-
-    client: DeviceFarmClient = boto3.client("devicefarm")
-    session_client: DeviceFarmClient = session.client("devicefarm")
+    session = Session()
+    client: DeviceFarmClient = session.client("devicefarm")
 
     get_offering_status_paginator: GetOfferingStatusPaginator = client.get_paginator("get_offering_status")
     list_artifacts_paginator: ListArtifactsPaginator = client.get_paginator("list_artifacts")

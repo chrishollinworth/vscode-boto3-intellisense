@@ -1,356 +1,233 @@
 """
 Type annotations for rbin service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_rbin/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_rbin/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_rbin.type_defs import CreateRuleRequestRequestTypeDef
+    from mypy_boto3_rbin.type_defs import ResourceTagTypeDef
 
-    data: CreateRuleRequestRequestTypeDef = {...}
+    data: ResourceTagTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
 
 from .literals import LockStateType, ResourceTypeType, RuleStatusType
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
-    "CreateRuleRequestRequestTypeDef",
+    "CreateRuleRequestTypeDef",
     "CreateRuleResponseTypeDef",
-    "DeleteRuleRequestRequestTypeDef",
-    "GetRuleRequestRequestTypeDef",
+    "DeleteRuleRequestTypeDef",
+    "GetRuleRequestTypeDef",
     "GetRuleResponseTypeDef",
-    "ListRulesRequestRequestTypeDef",
+    "ListRulesRequestPaginateTypeDef",
+    "ListRulesRequestTypeDef",
     "ListRulesResponseTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "LockConfigurationTypeDef",
-    "LockRuleRequestRequestTypeDef",
+    "LockRuleRequestTypeDef",
     "LockRuleResponseTypeDef",
     "PaginatorConfigTypeDef",
     "ResourceTagTypeDef",
     "ResponseMetadataTypeDef",
     "RetentionPeriodTypeDef",
     "RuleSummaryTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
     "TagTypeDef",
     "UnlockDelayTypeDef",
-    "UnlockRuleRequestRequestTypeDef",
+    "UnlockRuleRequestTypeDef",
     "UnlockRuleResponseTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateRuleRequestRequestTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateRuleRequestTypeDef",
     "UpdateRuleResponseTypeDef",
 )
 
-_RequiredCreateRuleRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateRuleRequestRequestTypeDef",
-    {
-        "RetentionPeriod": "RetentionPeriodTypeDef",
-        "ResourceType": ResourceTypeType,
-    },
-)
-_OptionalCreateRuleRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateRuleRequestRequestTypeDef",
-    {
-        "Description": str,
-        "Tags": List["TagTypeDef"],
-        "ResourceTags": List["ResourceTagTypeDef"],
-        "LockConfiguration": "LockConfigurationTypeDef",
-    },
-    total=False,
-)
+class ResourceTagTypeDef(TypedDict):
+    ResourceTagKey: str
+    ResourceTagValue: NotRequired[str]
 
-class CreateRuleRequestRequestTypeDef(
-    _RequiredCreateRuleRequestRequestTypeDef, _OptionalCreateRuleRequestRequestTypeDef
-):
-    pass
+class RetentionPeriodTypeDef(TypedDict):
+    RetentionPeriodValue: int
+    RetentionPeriodUnit: Literal["DAYS"]
 
-CreateRuleResponseTypeDef = TypedDict(
-    "CreateRuleResponseTypeDef",
-    {
-        "Identifier": str,
-        "RetentionPeriod": "RetentionPeriodTypeDef",
-        "Description": str,
-        "Tags": List["TagTypeDef"],
-        "ResourceType": ResourceTypeType,
-        "ResourceTags": List["ResourceTagTypeDef"],
-        "Status": RuleStatusType,
-        "LockConfiguration": "LockConfigurationTypeDef",
-        "LockState": LockStateType,
-        "RuleArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class TagTypeDef(TypedDict):
+    Key: str
+    Value: str
 
-DeleteRuleRequestRequestTypeDef = TypedDict(
-    "DeleteRuleRequestRequestTypeDef",
-    {
-        "Identifier": str,
-    },
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-GetRuleRequestRequestTypeDef = TypedDict(
-    "GetRuleRequestRequestTypeDef",
-    {
-        "Identifier": str,
-    },
-)
+class DeleteRuleRequestTypeDef(TypedDict):
+    Identifier: str
 
-GetRuleResponseTypeDef = TypedDict(
-    "GetRuleResponseTypeDef",
-    {
-        "Identifier": str,
-        "Description": str,
-        "ResourceType": ResourceTypeType,
-        "RetentionPeriod": "RetentionPeriodTypeDef",
-        "ResourceTags": List["ResourceTagTypeDef"],
-        "Status": RuleStatusType,
-        "LockConfiguration": "LockConfigurationTypeDef",
-        "LockState": LockStateType,
-        "LockEndTime": datetime,
-        "RuleArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetRuleRequestTypeDef(TypedDict):
+    Identifier: str
 
-_RequiredListRulesRequestRequestTypeDef = TypedDict(
-    "_RequiredListRulesRequestRequestTypeDef",
-    {
-        "ResourceType": ResourceTypeType,
-    },
-)
-_OptionalListRulesRequestRequestTypeDef = TypedDict(
-    "_OptionalListRulesRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-        "ResourceTags": List["ResourceTagTypeDef"],
-        "LockState": LockStateType,
-    },
-    total=False,
-)
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
 
-class ListRulesRequestRequestTypeDef(
-    _RequiredListRulesRequestRequestTypeDef, _OptionalListRulesRequestRequestTypeDef
-):
-    pass
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
 
-ListRulesResponseTypeDef = TypedDict(
-    "ListRulesResponseTypeDef",
-    {
-        "Rules": List["RuleSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class UnlockDelayTypeDef(TypedDict):
+    UnlockDelayValue: int
+    UnlockDelayUnit: Literal["DAYS"]
 
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-    },
-)
+class UnlockRuleRequestTypeDef(TypedDict):
+    Identifier: str
 
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "Tags": List["TagTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class UntagResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+    TagKeys: Sequence[str]
 
-LockConfigurationTypeDef = TypedDict(
-    "LockConfigurationTypeDef",
-    {
-        "UnlockDelay": "UnlockDelayTypeDef",
-    },
-)
+class ListRulesRequestTypeDef(TypedDict):
+    ResourceType: ResourceTypeType
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+    ResourceTags: NotRequired[Sequence[ResourceTagTypeDef]]
+    LockState: NotRequired[LockStateType]
+    ExcludeResourceTags: NotRequired[Sequence[ResourceTagTypeDef]]
 
-LockRuleRequestRequestTypeDef = TypedDict(
-    "LockRuleRequestRequestTypeDef",
-    {
-        "Identifier": str,
-        "LockConfiguration": "LockConfigurationTypeDef",
-    },
-)
+class RuleSummaryTypeDef(TypedDict):
+    Identifier: NotRequired[str]
+    Description: NotRequired[str]
+    RetentionPeriod: NotRequired[RetentionPeriodTypeDef]
+    LockState: NotRequired[LockStateType]
+    RuleArn: NotRequired[str]
 
-LockRuleResponseTypeDef = TypedDict(
-    "LockRuleResponseTypeDef",
-    {
-        "Identifier": str,
-        "Description": str,
-        "ResourceType": ResourceTypeType,
-        "RetentionPeriod": "RetentionPeriodTypeDef",
-        "ResourceTags": List["ResourceTagTypeDef"],
-        "Status": RuleStatusType,
-        "LockConfiguration": "LockConfigurationTypeDef",
-        "LockState": LockStateType,
-        "RuleArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class UpdateRuleRequestTypeDef(TypedDict):
+    Identifier: str
+    RetentionPeriod: NotRequired[RetentionPeriodTypeDef]
+    Description: NotRequired[str]
+    ResourceType: NotRequired[ResourceTypeType]
+    ResourceTags: NotRequired[Sequence[ResourceTagTypeDef]]
+    ExcludeResourceTags: NotRequired[Sequence[ResourceTagTypeDef]]
 
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
+class TagResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+    Tags: Sequence[TagTypeDef]
 
-_RequiredResourceTagTypeDef = TypedDict(
-    "_RequiredResourceTagTypeDef",
-    {
-        "ResourceTagKey": str,
-    },
-)
-_OptionalResourceTagTypeDef = TypedDict(
-    "_OptionalResourceTagTypeDef",
-    {
-        "ResourceTagValue": str,
-    },
-    total=False,
-)
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    Tags: List[TagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class ResourceTagTypeDef(_RequiredResourceTagTypeDef, _OptionalResourceTagTypeDef):
-    pass
+class UpdateRuleResponseTypeDef(TypedDict):
+    Identifier: str
+    RetentionPeriod: RetentionPeriodTypeDef
+    Description: str
+    ResourceType: ResourceTypeType
+    ResourceTags: List[ResourceTagTypeDef]
+    Status: RuleStatusType
+    LockState: LockStateType
+    LockEndTime: datetime
+    RuleArn: str
+    ExcludeResourceTags: List[ResourceTagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
+class ListRulesRequestPaginateTypeDef(TypedDict):
+    ResourceType: ResourceTypeType
+    ResourceTags: NotRequired[Sequence[ResourceTagTypeDef]]
+    LockState: NotRequired[LockStateType]
+    ExcludeResourceTags: NotRequired[Sequence[ResourceTagTypeDef]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-RetentionPeriodTypeDef = TypedDict(
-    "RetentionPeriodTypeDef",
-    {
-        "RetentionPeriodValue": int,
-        "RetentionPeriodUnit": Literal["DAYS"],
-    },
-)
+class LockConfigurationTypeDef(TypedDict):
+    UnlockDelay: UnlockDelayTypeDef
 
-RuleSummaryTypeDef = TypedDict(
-    "RuleSummaryTypeDef",
-    {
-        "Identifier": str,
-        "Description": str,
-        "RetentionPeriod": "RetentionPeriodTypeDef",
-        "LockState": LockStateType,
-        "RuleArn": str,
-    },
-    total=False,
-)
+class ListRulesResponseTypeDef(TypedDict):
+    Rules: List[RuleSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-        "Tags": List["TagTypeDef"],
-    },
-)
+class CreateRuleRequestTypeDef(TypedDict):
+    RetentionPeriod: RetentionPeriodTypeDef
+    ResourceType: ResourceTypeType
+    Description: NotRequired[str]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+    ResourceTags: NotRequired[Sequence[ResourceTagTypeDef]]
+    LockConfiguration: NotRequired[LockConfigurationTypeDef]
+    ExcludeResourceTags: NotRequired[Sequence[ResourceTagTypeDef]]
 
-TagTypeDef = TypedDict(
-    "TagTypeDef",
-    {
-        "Key": str,
-        "Value": str,
-    },
-)
+class CreateRuleResponseTypeDef(TypedDict):
+    Identifier: str
+    RetentionPeriod: RetentionPeriodTypeDef
+    Description: str
+    Tags: List[TagTypeDef]
+    ResourceType: ResourceTypeType
+    ResourceTags: List[ResourceTagTypeDef]
+    Status: RuleStatusType
+    LockConfiguration: LockConfigurationTypeDef
+    LockState: LockStateType
+    RuleArn: str
+    ExcludeResourceTags: List[ResourceTagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-UnlockDelayTypeDef = TypedDict(
-    "UnlockDelayTypeDef",
-    {
-        "UnlockDelayValue": int,
-        "UnlockDelayUnit": Literal["DAYS"],
-    },
-)
+class GetRuleResponseTypeDef(TypedDict):
+    Identifier: str
+    Description: str
+    ResourceType: ResourceTypeType
+    RetentionPeriod: RetentionPeriodTypeDef
+    ResourceTags: List[ResourceTagTypeDef]
+    Status: RuleStatusType
+    LockConfiguration: LockConfigurationTypeDef
+    LockState: LockStateType
+    LockEndTime: datetime
+    RuleArn: str
+    ExcludeResourceTags: List[ResourceTagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-UnlockRuleRequestRequestTypeDef = TypedDict(
-    "UnlockRuleRequestRequestTypeDef",
-    {
-        "Identifier": str,
-    },
-)
+class LockRuleRequestTypeDef(TypedDict):
+    Identifier: str
+    LockConfiguration: LockConfigurationTypeDef
 
-UnlockRuleResponseTypeDef = TypedDict(
-    "UnlockRuleResponseTypeDef",
-    {
-        "Identifier": str,
-        "Description": str,
-        "ResourceType": ResourceTypeType,
-        "RetentionPeriod": "RetentionPeriodTypeDef",
-        "ResourceTags": List["ResourceTagTypeDef"],
-        "Status": RuleStatusType,
-        "LockConfiguration": "LockConfigurationTypeDef",
-        "LockState": LockStateType,
-        "LockEndTime": datetime,
-        "RuleArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class LockRuleResponseTypeDef(TypedDict):
+    Identifier: str
+    Description: str
+    ResourceType: ResourceTypeType
+    RetentionPeriod: RetentionPeriodTypeDef
+    ResourceTags: List[ResourceTagTypeDef]
+    Status: RuleStatusType
+    LockConfiguration: LockConfigurationTypeDef
+    LockState: LockStateType
+    RuleArn: str
+    ExcludeResourceTags: List[ResourceTagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-        "TagKeys": List[str],
-    },
-)
-
-_RequiredUpdateRuleRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateRuleRequestRequestTypeDef",
-    {
-        "Identifier": str,
-    },
-)
-_OptionalUpdateRuleRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateRuleRequestRequestTypeDef",
-    {
-        "RetentionPeriod": "RetentionPeriodTypeDef",
-        "Description": str,
-        "ResourceType": ResourceTypeType,
-        "ResourceTags": List["ResourceTagTypeDef"],
-    },
-    total=False,
-)
-
-class UpdateRuleRequestRequestTypeDef(
-    _RequiredUpdateRuleRequestRequestTypeDef, _OptionalUpdateRuleRequestRequestTypeDef
-):
-    pass
-
-UpdateRuleResponseTypeDef = TypedDict(
-    "UpdateRuleResponseTypeDef",
-    {
-        "Identifier": str,
-        "RetentionPeriod": "RetentionPeriodTypeDef",
-        "Description": str,
-        "ResourceType": ResourceTypeType,
-        "ResourceTags": List["ResourceTagTypeDef"],
-        "Status": RuleStatusType,
-        "LockState": LockStateType,
-        "LockEndTime": datetime,
-        "RuleArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class UnlockRuleResponseTypeDef(TypedDict):
+    Identifier: str
+    Description: str
+    ResourceType: ResourceTypeType
+    RetentionPeriod: RetentionPeriodTypeDef
+    ResourceTags: List[ResourceTagTypeDef]
+    Status: RuleStatusType
+    LockConfiguration: LockConfigurationTypeDef
+    LockState: LockStateType
+    LockEndTime: datetime
+    RuleArn: str
+    ExcludeResourceTags: List[ResourceTagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef

@@ -1,392 +1,246 @@
 """
 Type annotations for mediastore service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_mediastore/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediastore/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_mediastore.type_defs import ContainerTypeDef
 
-    data: ContainerTypeDef = {...}
+    data: ContainerTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
+from typing import Union
 
 from .literals import ContainerLevelMetricsType, ContainerStatusType, MethodNameType
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Sequence
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List, Sequence
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
     "ContainerTypeDef",
+    "CorsRuleOutputTypeDef",
     "CorsRuleTypeDef",
-    "CreateContainerInputRequestTypeDef",
+    "CorsRuleUnionTypeDef",
+    "CreateContainerInputTypeDef",
     "CreateContainerOutputTypeDef",
-    "DeleteContainerInputRequestTypeDef",
-    "DeleteContainerPolicyInputRequestTypeDef",
-    "DeleteCorsPolicyInputRequestTypeDef",
-    "DeleteLifecyclePolicyInputRequestTypeDef",
-    "DeleteMetricPolicyInputRequestTypeDef",
-    "DescribeContainerInputRequestTypeDef",
+    "DeleteContainerInputTypeDef",
+    "DeleteContainerPolicyInputTypeDef",
+    "DeleteCorsPolicyInputTypeDef",
+    "DeleteLifecyclePolicyInputTypeDef",
+    "DeleteMetricPolicyInputTypeDef",
+    "DescribeContainerInputTypeDef",
     "DescribeContainerOutputTypeDef",
-    "GetContainerPolicyInputRequestTypeDef",
+    "GetContainerPolicyInputTypeDef",
     "GetContainerPolicyOutputTypeDef",
-    "GetCorsPolicyInputRequestTypeDef",
+    "GetCorsPolicyInputTypeDef",
     "GetCorsPolicyOutputTypeDef",
-    "GetLifecyclePolicyInputRequestTypeDef",
+    "GetLifecyclePolicyInputTypeDef",
     "GetLifecyclePolicyOutputTypeDef",
-    "GetMetricPolicyInputRequestTypeDef",
+    "GetMetricPolicyInputTypeDef",
     "GetMetricPolicyOutputTypeDef",
-    "ListContainersInputRequestTypeDef",
+    "ListContainersInputPaginateTypeDef",
+    "ListContainersInputTypeDef",
     "ListContainersOutputTypeDef",
-    "ListTagsForResourceInputRequestTypeDef",
+    "ListTagsForResourceInputTypeDef",
     "ListTagsForResourceOutputTypeDef",
+    "MetricPolicyOutputTypeDef",
     "MetricPolicyRuleTypeDef",
     "MetricPolicyTypeDef",
+    "MetricPolicyUnionTypeDef",
     "PaginatorConfigTypeDef",
-    "PutContainerPolicyInputRequestTypeDef",
-    "PutCorsPolicyInputRequestTypeDef",
-    "PutLifecyclePolicyInputRequestTypeDef",
-    "PutMetricPolicyInputRequestTypeDef",
+    "PutContainerPolicyInputTypeDef",
+    "PutCorsPolicyInputTypeDef",
+    "PutLifecyclePolicyInputTypeDef",
+    "PutMetricPolicyInputTypeDef",
     "ResponseMetadataTypeDef",
-    "StartAccessLoggingInputRequestTypeDef",
-    "StopAccessLoggingInputRequestTypeDef",
-    "TagResourceInputRequestTypeDef",
+    "StartAccessLoggingInputTypeDef",
+    "StopAccessLoggingInputTypeDef",
+    "TagResourceInputTypeDef",
     "TagTypeDef",
-    "UntagResourceInputRequestTypeDef",
+    "UntagResourceInputTypeDef",
 )
 
-ContainerTypeDef = TypedDict(
-    "ContainerTypeDef",
-    {
-        "Endpoint": str,
-        "CreationTime": datetime,
-        "ARN": str,
-        "Name": str,
-        "Status": ContainerStatusType,
-        "AccessLoggingEnabled": bool,
-    },
-    total=False,
-)
+class ContainerTypeDef(TypedDict):
+    Endpoint: NotRequired[str]
+    CreationTime: NotRequired[datetime]
+    ARN: NotRequired[str]
+    Name: NotRequired[str]
+    Status: NotRequired[ContainerStatusType]
+    AccessLoggingEnabled: NotRequired[bool]
 
-_RequiredCorsRuleTypeDef = TypedDict(
-    "_RequiredCorsRuleTypeDef",
-    {
-        "AllowedOrigins": List[str],
-        "AllowedHeaders": List[str],
-    },
-)
-_OptionalCorsRuleTypeDef = TypedDict(
-    "_OptionalCorsRuleTypeDef",
-    {
-        "AllowedMethods": List[MethodNameType],
-        "MaxAgeSeconds": int,
-        "ExposeHeaders": List[str],
-    },
-    total=False,
-)
+class CorsRuleOutputTypeDef(TypedDict):
+    AllowedOrigins: List[str]
+    AllowedHeaders: List[str]
+    AllowedMethods: NotRequired[List[MethodNameType]]
+    MaxAgeSeconds: NotRequired[int]
+    ExposeHeaders: NotRequired[List[str]]
 
-class CorsRuleTypeDef(_RequiredCorsRuleTypeDef, _OptionalCorsRuleTypeDef):
-    pass
+class CorsRuleTypeDef(TypedDict):
+    AllowedOrigins: Sequence[str]
+    AllowedHeaders: Sequence[str]
+    AllowedMethods: NotRequired[Sequence[MethodNameType]]
+    MaxAgeSeconds: NotRequired[int]
+    ExposeHeaders: NotRequired[Sequence[str]]
 
-_RequiredCreateContainerInputRequestTypeDef = TypedDict(
-    "_RequiredCreateContainerInputRequestTypeDef",
-    {
-        "ContainerName": str,
-    },
-)
-_OptionalCreateContainerInputRequestTypeDef = TypedDict(
-    "_OptionalCreateContainerInputRequestTypeDef",
-    {
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
+class TagTypeDef(TypedDict):
+    Key: str
+    Value: NotRequired[str]
 
-class CreateContainerInputRequestTypeDef(
-    _RequiredCreateContainerInputRequestTypeDef, _OptionalCreateContainerInputRequestTypeDef
-):
-    pass
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
+
+class DeleteContainerInputTypeDef(TypedDict):
+    ContainerName: str
+
+class DeleteContainerPolicyInputTypeDef(TypedDict):
+    ContainerName: str
+
+class DeleteCorsPolicyInputTypeDef(TypedDict):
+    ContainerName: str
+
+class DeleteLifecyclePolicyInputTypeDef(TypedDict):
+    ContainerName: str
+
+class DeleteMetricPolicyInputTypeDef(TypedDict):
+    ContainerName: str
+
+class DescribeContainerInputTypeDef(TypedDict):
+    ContainerName: NotRequired[str]
+
+class GetContainerPolicyInputTypeDef(TypedDict):
+    ContainerName: str
+
+class GetCorsPolicyInputTypeDef(TypedDict):
+    ContainerName: str
+
+class GetLifecyclePolicyInputTypeDef(TypedDict):
+    ContainerName: str
+
+class GetMetricPolicyInputTypeDef(TypedDict):
+    ContainerName: str
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class ListContainersInputTypeDef(TypedDict):
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class ListTagsForResourceInputTypeDef(TypedDict):
+    Resource: str
+
+class MetricPolicyRuleTypeDef(TypedDict):
+    ObjectGroup: str
+    ObjectGroupName: str
+
+class PutContainerPolicyInputTypeDef(TypedDict):
+    ContainerName: str
+    Policy: str
+
+class PutLifecyclePolicyInputTypeDef(TypedDict):
+    ContainerName: str
+    LifecyclePolicy: str
+
+class StartAccessLoggingInputTypeDef(TypedDict):
+    ContainerName: str
+
+class StopAccessLoggingInputTypeDef(TypedDict):
+    ContainerName: str
+
+class UntagResourceInputTypeDef(TypedDict):
+    Resource: str
+    TagKeys: Sequence[str]
+
+CorsRuleUnionTypeDef = Union[CorsRuleTypeDef, CorsRuleOutputTypeDef]
+
+class CreateContainerInputTypeDef(TypedDict):
+    ContainerName: str
+    Tags: NotRequired[Sequence[TagTypeDef]]
+
+class TagResourceInputTypeDef(TypedDict):
+    Resource: str
+    Tags: Sequence[TagTypeDef]
 
 CreateContainerOutputTypeDef = TypedDict(
     "CreateContainerOutputTypeDef",
     {
-        "Container": "ContainerTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "Container": ContainerTypeDef,
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
-
-DeleteContainerInputRequestTypeDef = TypedDict(
-    "DeleteContainerInputRequestTypeDef",
-    {
-        "ContainerName": str,
-    },
-)
-
-DeleteContainerPolicyInputRequestTypeDef = TypedDict(
-    "DeleteContainerPolicyInputRequestTypeDef",
-    {
-        "ContainerName": str,
-    },
-)
-
-DeleteCorsPolicyInputRequestTypeDef = TypedDict(
-    "DeleteCorsPolicyInputRequestTypeDef",
-    {
-        "ContainerName": str,
-    },
-)
-
-DeleteLifecyclePolicyInputRequestTypeDef = TypedDict(
-    "DeleteLifecyclePolicyInputRequestTypeDef",
-    {
-        "ContainerName": str,
-    },
-)
-
-DeleteMetricPolicyInputRequestTypeDef = TypedDict(
-    "DeleteMetricPolicyInputRequestTypeDef",
-    {
-        "ContainerName": str,
-    },
-)
-
-DescribeContainerInputRequestTypeDef = TypedDict(
-    "DescribeContainerInputRequestTypeDef",
-    {
-        "ContainerName": str,
-    },
-    total=False,
-)
-
 DescribeContainerOutputTypeDef = TypedDict(
     "DescribeContainerOutputTypeDef",
     {
-        "Container": "ContainerTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "Container": ContainerTypeDef,
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
 
-GetContainerPolicyInputRequestTypeDef = TypedDict(
-    "GetContainerPolicyInputRequestTypeDef",
-    {
-        "ContainerName": str,
-    },
-)
+class GetContainerPolicyOutputTypeDef(TypedDict):
+    Policy: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-GetContainerPolicyOutputTypeDef = TypedDict(
-    "GetContainerPolicyOutputTypeDef",
-    {
-        "Policy": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetCorsPolicyOutputTypeDef(TypedDict):
+    CorsPolicy: List[CorsRuleOutputTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-GetCorsPolicyInputRequestTypeDef = TypedDict(
-    "GetCorsPolicyInputRequestTypeDef",
-    {
-        "ContainerName": str,
-    },
-)
+class GetLifecyclePolicyOutputTypeDef(TypedDict):
+    LifecyclePolicy: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-GetCorsPolicyOutputTypeDef = TypedDict(
-    "GetCorsPolicyOutputTypeDef",
-    {
-        "CorsPolicy": List["CorsRuleTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListContainersOutputTypeDef(TypedDict):
+    Containers: List[ContainerTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-GetLifecyclePolicyInputRequestTypeDef = TypedDict(
-    "GetLifecyclePolicyInputRequestTypeDef",
-    {
-        "ContainerName": str,
-    },
-)
+class ListTagsForResourceOutputTypeDef(TypedDict):
+    Tags: List[TagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-GetLifecyclePolicyOutputTypeDef = TypedDict(
-    "GetLifecyclePolicyOutputTypeDef",
-    {
-        "LifecyclePolicy": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListContainersInputPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-GetMetricPolicyInputRequestTypeDef = TypedDict(
-    "GetMetricPolicyInputRequestTypeDef",
-    {
-        "ContainerName": str,
-    },
-)
+class MetricPolicyOutputTypeDef(TypedDict):
+    ContainerLevelMetrics: ContainerLevelMetricsType
+    MetricPolicyRules: NotRequired[List[MetricPolicyRuleTypeDef]]
 
-GetMetricPolicyOutputTypeDef = TypedDict(
-    "GetMetricPolicyOutputTypeDef",
-    {
-        "MetricPolicy": "MetricPolicyTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class MetricPolicyTypeDef(TypedDict):
+    ContainerLevelMetrics: ContainerLevelMetricsType
+    MetricPolicyRules: NotRequired[Sequence[MetricPolicyRuleTypeDef]]
 
-ListContainersInputRequestTypeDef = TypedDict(
-    "ListContainersInputRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
+class PutCorsPolicyInputTypeDef(TypedDict):
+    ContainerName: str
+    CorsPolicy: Sequence[CorsRuleUnionTypeDef]
 
-ListContainersOutputTypeDef = TypedDict(
-    "ListContainersOutputTypeDef",
-    {
-        "Containers": List["ContainerTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetMetricPolicyOutputTypeDef(TypedDict):
+    MetricPolicy: MetricPolicyOutputTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ListTagsForResourceInputRequestTypeDef = TypedDict(
-    "ListTagsForResourceInputRequestTypeDef",
-    {
-        "Resource": str,
-    },
-)
+MetricPolicyUnionTypeDef = Union[MetricPolicyTypeDef, MetricPolicyOutputTypeDef]
 
-ListTagsForResourceOutputTypeDef = TypedDict(
-    "ListTagsForResourceOutputTypeDef",
-    {
-        "Tags": List["TagTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-MetricPolicyRuleTypeDef = TypedDict(
-    "MetricPolicyRuleTypeDef",
-    {
-        "ObjectGroup": str,
-        "ObjectGroupName": str,
-    },
-)
-
-_RequiredMetricPolicyTypeDef = TypedDict(
-    "_RequiredMetricPolicyTypeDef",
-    {
-        "ContainerLevelMetrics": ContainerLevelMetricsType,
-    },
-)
-_OptionalMetricPolicyTypeDef = TypedDict(
-    "_OptionalMetricPolicyTypeDef",
-    {
-        "MetricPolicyRules": List["MetricPolicyRuleTypeDef"],
-    },
-    total=False,
-)
-
-class MetricPolicyTypeDef(_RequiredMetricPolicyTypeDef, _OptionalMetricPolicyTypeDef):
-    pass
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-PutContainerPolicyInputRequestTypeDef = TypedDict(
-    "PutContainerPolicyInputRequestTypeDef",
-    {
-        "ContainerName": str,
-        "Policy": str,
-    },
-)
-
-PutCorsPolicyInputRequestTypeDef = TypedDict(
-    "PutCorsPolicyInputRequestTypeDef",
-    {
-        "ContainerName": str,
-        "CorsPolicy": List["CorsRuleTypeDef"],
-    },
-)
-
-PutLifecyclePolicyInputRequestTypeDef = TypedDict(
-    "PutLifecyclePolicyInputRequestTypeDef",
-    {
-        "ContainerName": str,
-        "LifecyclePolicy": str,
-    },
-)
-
-PutMetricPolicyInputRequestTypeDef = TypedDict(
-    "PutMetricPolicyInputRequestTypeDef",
-    {
-        "ContainerName": str,
-        "MetricPolicy": "MetricPolicyTypeDef",
-    },
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-StartAccessLoggingInputRequestTypeDef = TypedDict(
-    "StartAccessLoggingInputRequestTypeDef",
-    {
-        "ContainerName": str,
-    },
-)
-
-StopAccessLoggingInputRequestTypeDef = TypedDict(
-    "StopAccessLoggingInputRequestTypeDef",
-    {
-        "ContainerName": str,
-    },
-)
-
-TagResourceInputRequestTypeDef = TypedDict(
-    "TagResourceInputRequestTypeDef",
-    {
-        "Resource": str,
-        "Tags": List["TagTypeDef"],
-    },
-)
-
-_RequiredTagTypeDef = TypedDict(
-    "_RequiredTagTypeDef",
-    {
-        "Key": str,
-    },
-)
-_OptionalTagTypeDef = TypedDict(
-    "_OptionalTagTypeDef",
-    {
-        "Value": str,
-    },
-    total=False,
-)
-
-class TagTypeDef(_RequiredTagTypeDef, _OptionalTagTypeDef):
-    pass
-
-UntagResourceInputRequestTypeDef = TypedDict(
-    "UntagResourceInputRequestTypeDef",
-    {
-        "Resource": str,
-        "TagKeys": List[str],
-    },
-)
+class PutMetricPolicyInputTypeDef(TypedDict):
+    ContainerName: str
+    MetricPolicy: MetricPolicyUnionTypeDef

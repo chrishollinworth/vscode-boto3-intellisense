@@ -1,10 +1,14 @@
 """
 Main interface for greengrassv2 service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_greengrassv2/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_greengrassv2 import (
         Client,
         GreengrassV2Client,
@@ -17,10 +21,8 @@ Usage::
         ListInstalledComponentsPaginator,
     )
 
-    session = boto3.Session()
-
-    client: GreengrassV2Client = boto3.client("greengrassv2")
-    session_client: GreengrassV2Client = session.client("greengrassv2")
+    session = Session()
+    client: GreengrassV2Client = session.client("greengrassv2")
 
     list_client_devices_associated_with_core_device_paginator: ListClientDevicesAssociatedWithCoreDevicePaginator = client.get_paginator("list_client_devices_associated_with_core_device")
     list_component_versions_paginator: ListComponentVersionsPaginator = client.get_paginator("list_component_versions")

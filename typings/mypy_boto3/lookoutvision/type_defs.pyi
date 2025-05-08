@@ -1,20 +1,24 @@
 """
 Type annotations for lookoutvision service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_lookoutvision/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lookoutvision/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_lookoutvision.type_defs import AnomalyTypeDef
+    from mypy_boto3_lookoutvision.type_defs import PixelAnomalyTypeDef
 
-    data: AnomalyTypeDef = {...}
+    data: PixelAnomalyTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import IO, Any, Dict, List, Union
+from typing import IO, Any, Union
 
 from botocore.response import StreamingBody
 
@@ -26,61 +30,71 @@ from .literals import (
     TargetPlatformArchType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
     "AnomalyTypeDef",
-    "CreateDatasetRequestRequestTypeDef",
+    "BlobTypeDef",
+    "CreateDatasetRequestTypeDef",
     "CreateDatasetResponseTypeDef",
-    "CreateModelRequestRequestTypeDef",
+    "CreateModelRequestTypeDef",
     "CreateModelResponseTypeDef",
-    "CreateProjectRequestRequestTypeDef",
+    "CreateProjectRequestTypeDef",
     "CreateProjectResponseTypeDef",
     "DatasetDescriptionTypeDef",
     "DatasetGroundTruthManifestTypeDef",
     "DatasetImageStatsTypeDef",
     "DatasetMetadataTypeDef",
     "DatasetSourceTypeDef",
-    "DeleteDatasetRequestRequestTypeDef",
-    "DeleteModelRequestRequestTypeDef",
+    "DeleteDatasetRequestTypeDef",
+    "DeleteModelRequestTypeDef",
     "DeleteModelResponseTypeDef",
-    "DeleteProjectRequestRequestTypeDef",
+    "DeleteProjectRequestTypeDef",
     "DeleteProjectResponseTypeDef",
-    "DescribeDatasetRequestRequestTypeDef",
+    "DescribeDatasetRequestTypeDef",
     "DescribeDatasetResponseTypeDef",
-    "DescribeModelPackagingJobRequestRequestTypeDef",
+    "DescribeModelPackagingJobRequestTypeDef",
     "DescribeModelPackagingJobResponseTypeDef",
-    "DescribeModelRequestRequestTypeDef",
+    "DescribeModelRequestTypeDef",
     "DescribeModelResponseTypeDef",
-    "DescribeProjectRequestRequestTypeDef",
+    "DescribeProjectRequestTypeDef",
     "DescribeProjectResponseTypeDef",
-    "DetectAnomaliesRequestRequestTypeDef",
+    "DetectAnomaliesRequestTypeDef",
     "DetectAnomaliesResponseTypeDef",
     "DetectAnomalyResultTypeDef",
+    "GreengrassConfigurationOutputTypeDef",
     "GreengrassConfigurationTypeDef",
     "GreengrassOutputDetailsTypeDef",
     "ImageSourceTypeDef",
     "InputS3ObjectTypeDef",
-    "ListDatasetEntriesRequestRequestTypeDef",
+    "ListDatasetEntriesRequestPaginateTypeDef",
+    "ListDatasetEntriesRequestTypeDef",
     "ListDatasetEntriesResponseTypeDef",
-    "ListModelPackagingJobsRequestRequestTypeDef",
+    "ListModelPackagingJobsRequestPaginateTypeDef",
+    "ListModelPackagingJobsRequestTypeDef",
     "ListModelPackagingJobsResponseTypeDef",
-    "ListModelsRequestRequestTypeDef",
+    "ListModelsRequestPaginateTypeDef",
+    "ListModelsRequestTypeDef",
     "ListModelsResponseTypeDef",
-    "ListProjectsRequestRequestTypeDef",
+    "ListProjectsRequestPaginateTypeDef",
+    "ListProjectsRequestTypeDef",
     "ListProjectsResponseTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "ModelDescriptionTypeDef",
     "ModelMetadataTypeDef",
+    "ModelPackagingConfigurationOutputTypeDef",
     "ModelPackagingConfigurationTypeDef",
+    "ModelPackagingConfigurationUnionTypeDef",
     "ModelPackagingDescriptionTypeDef",
     "ModelPackagingJobMetadataTypeDef",
     "ModelPackagingOutputDetailsTypeDef",
@@ -93,860 +107,426 @@ __all__ = (
     "ProjectMetadataTypeDef",
     "ResponseMetadataTypeDef",
     "S3LocationTypeDef",
-    "StartModelPackagingJobRequestRequestTypeDef",
+    "StartModelPackagingJobRequestTypeDef",
     "StartModelPackagingJobResponseTypeDef",
-    "StartModelRequestRequestTypeDef",
+    "StartModelRequestTypeDef",
     "StartModelResponseTypeDef",
-    "StopModelRequestRequestTypeDef",
+    "StopModelRequestTypeDef",
     "StopModelResponseTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
     "TagTypeDef",
     "TargetPlatformTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateDatasetEntriesRequestRequestTypeDef",
+    "TimestampTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateDatasetEntriesRequestTypeDef",
     "UpdateDatasetEntriesResponseTypeDef",
 )
 
-AnomalyTypeDef = TypedDict(
-    "AnomalyTypeDef",
-    {
-        "Name": str,
-        "PixelAnomaly": "PixelAnomalyTypeDef",
-    },
-    total=False,
-)
+class PixelAnomalyTypeDef(TypedDict):
+    TotalPercentageArea: NotRequired[float]
+    Color: NotRequired[str]
 
-_RequiredCreateDatasetRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateDatasetRequestRequestTypeDef",
-    {
-        "ProjectName": str,
-        "DatasetType": str,
-    },
-)
-_OptionalCreateDatasetRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateDatasetRequestRequestTypeDef",
-    {
-        "DatasetSource": "DatasetSourceTypeDef",
-        "ClientToken": str,
-    },
-    total=False,
-)
+BlobTypeDef = Union[str, bytes, IO[Any], StreamingBody]
 
-class CreateDatasetRequestRequestTypeDef(
-    _RequiredCreateDatasetRequestRequestTypeDef, _OptionalCreateDatasetRequestRequestTypeDef
-):
-    pass
+class DatasetMetadataTypeDef(TypedDict):
+    DatasetType: NotRequired[str]
+    CreationTimestamp: NotRequired[datetime]
+    Status: NotRequired[DatasetStatusType]
+    StatusMessage: NotRequired[str]
 
-CreateDatasetResponseTypeDef = TypedDict(
-    "CreateDatasetResponseTypeDef",
-    {
-        "DatasetMetadata": "DatasetMetadataTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-_RequiredCreateModelRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateModelRequestRequestTypeDef",
-    {
-        "ProjectName": str,
-        "OutputConfig": "OutputConfigTypeDef",
-    },
-)
-_OptionalCreateModelRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateModelRequestRequestTypeDef",
-    {
-        "Description": str,
-        "ClientToken": str,
-        "KmsKeyId": str,
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
+class TagTypeDef(TypedDict):
+    Key: str
+    Value: str
 
-class CreateModelRequestRequestTypeDef(
-    _RequiredCreateModelRequestRequestTypeDef, _OptionalCreateModelRequestRequestTypeDef
-):
-    pass
+class CreateProjectRequestTypeDef(TypedDict):
+    ProjectName: str
+    ClientToken: NotRequired[str]
 
-CreateModelResponseTypeDef = TypedDict(
-    "CreateModelResponseTypeDef",
-    {
-        "ModelMetadata": "ModelMetadataTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ProjectMetadataTypeDef(TypedDict):
+    ProjectArn: NotRequired[str]
+    ProjectName: NotRequired[str]
+    CreationTimestamp: NotRequired[datetime]
 
-_RequiredCreateProjectRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateProjectRequestRequestTypeDef",
-    {
-        "ProjectName": str,
-    },
-)
-_OptionalCreateProjectRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateProjectRequestRequestTypeDef",
-    {
-        "ClientToken": str,
-    },
-    total=False,
-)
+class DatasetImageStatsTypeDef(TypedDict):
+    Total: NotRequired[int]
+    Labeled: NotRequired[int]
+    Normal: NotRequired[int]
+    Anomaly: NotRequired[int]
 
-class CreateProjectRequestRequestTypeDef(
-    _RequiredCreateProjectRequestRequestTypeDef, _OptionalCreateProjectRequestRequestTypeDef
-):
-    pass
+class InputS3ObjectTypeDef(TypedDict):
+    Bucket: str
+    Key: str
+    VersionId: NotRequired[str]
 
-CreateProjectResponseTypeDef = TypedDict(
-    "CreateProjectResponseTypeDef",
-    {
-        "ProjectMetadata": "ProjectMetadataTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DeleteDatasetRequestTypeDef(TypedDict):
+    ProjectName: str
+    DatasetType: str
+    ClientToken: NotRequired[str]
 
-DatasetDescriptionTypeDef = TypedDict(
-    "DatasetDescriptionTypeDef",
-    {
-        "ProjectName": str,
-        "DatasetType": str,
-        "CreationTimestamp": datetime,
-        "LastUpdatedTimestamp": datetime,
-        "Status": DatasetStatusType,
-        "StatusMessage": str,
-        "ImageStats": "DatasetImageStatsTypeDef",
-    },
-    total=False,
-)
+class DeleteModelRequestTypeDef(TypedDict):
+    ProjectName: str
+    ModelVersion: str
+    ClientToken: NotRequired[str]
 
-DatasetGroundTruthManifestTypeDef = TypedDict(
-    "DatasetGroundTruthManifestTypeDef",
-    {
-        "S3Object": "InputS3ObjectTypeDef",
-    },
-    total=False,
-)
+class DeleteProjectRequestTypeDef(TypedDict):
+    ProjectName: str
+    ClientToken: NotRequired[str]
 
-DatasetImageStatsTypeDef = TypedDict(
-    "DatasetImageStatsTypeDef",
-    {
-        "Total": int,
-        "Labeled": int,
-        "Normal": int,
-        "Anomaly": int,
-    },
-    total=False,
-)
+class DescribeDatasetRequestTypeDef(TypedDict):
+    ProjectName: str
+    DatasetType: str
 
-DatasetMetadataTypeDef = TypedDict(
-    "DatasetMetadataTypeDef",
-    {
-        "DatasetType": str,
-        "CreationTimestamp": datetime,
-        "Status": DatasetStatusType,
-        "StatusMessage": str,
-    },
-    total=False,
-)
+class DescribeModelPackagingJobRequestTypeDef(TypedDict):
+    ProjectName: str
+    JobName: str
 
-DatasetSourceTypeDef = TypedDict(
-    "DatasetSourceTypeDef",
-    {
-        "GroundTruthManifest": "DatasetGroundTruthManifestTypeDef",
-    },
-    total=False,
-)
+class DescribeModelRequestTypeDef(TypedDict):
+    ProjectName: str
+    ModelVersion: str
 
-_RequiredDeleteDatasetRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteDatasetRequestRequestTypeDef",
-    {
-        "ProjectName": str,
-        "DatasetType": str,
-    },
-)
-_OptionalDeleteDatasetRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteDatasetRequestRequestTypeDef",
-    {
-        "ClientToken": str,
-    },
-    total=False,
-)
-
-class DeleteDatasetRequestRequestTypeDef(
-    _RequiredDeleteDatasetRequestRequestTypeDef, _OptionalDeleteDatasetRequestRequestTypeDef
-):
-    pass
-
-_RequiredDeleteModelRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteModelRequestRequestTypeDef",
-    {
-        "ProjectName": str,
-        "ModelVersion": str,
-    },
-)
-_OptionalDeleteModelRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteModelRequestRequestTypeDef",
-    {
-        "ClientToken": str,
-    },
-    total=False,
-)
-
-class DeleteModelRequestRequestTypeDef(
-    _RequiredDeleteModelRequestRequestTypeDef, _OptionalDeleteModelRequestRequestTypeDef
-):
-    pass
-
-DeleteModelResponseTypeDef = TypedDict(
-    "DeleteModelResponseTypeDef",
-    {
-        "ModelArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDeleteProjectRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteProjectRequestRequestTypeDef",
-    {
-        "ProjectName": str,
-    },
-)
-_OptionalDeleteProjectRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteProjectRequestRequestTypeDef",
-    {
-        "ClientToken": str,
-    },
-    total=False,
-)
-
-class DeleteProjectRequestRequestTypeDef(
-    _RequiredDeleteProjectRequestRequestTypeDef, _OptionalDeleteProjectRequestRequestTypeDef
-):
-    pass
-
-DeleteProjectResponseTypeDef = TypedDict(
-    "DeleteProjectResponseTypeDef",
-    {
-        "ProjectArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeDatasetRequestRequestTypeDef = TypedDict(
-    "DescribeDatasetRequestRequestTypeDef",
-    {
-        "ProjectName": str,
-        "DatasetType": str,
-    },
-)
-
-DescribeDatasetResponseTypeDef = TypedDict(
-    "DescribeDatasetResponseTypeDef",
-    {
-        "DatasetDescription": "DatasetDescriptionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeModelPackagingJobRequestRequestTypeDef = TypedDict(
-    "DescribeModelPackagingJobRequestRequestTypeDef",
-    {
-        "ProjectName": str,
-        "JobName": str,
-    },
-)
-
-DescribeModelPackagingJobResponseTypeDef = TypedDict(
-    "DescribeModelPackagingJobResponseTypeDef",
-    {
-        "ModelPackagingDescription": "ModelPackagingDescriptionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeModelRequestRequestTypeDef = TypedDict(
-    "DescribeModelRequestRequestTypeDef",
-    {
-        "ProjectName": str,
-        "ModelVersion": str,
-    },
-)
-
-DescribeModelResponseTypeDef = TypedDict(
-    "DescribeModelResponseTypeDef",
-    {
-        "ModelDescription": "ModelDescriptionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeProjectRequestRequestTypeDef = TypedDict(
-    "DescribeProjectRequestRequestTypeDef",
-    {
-        "ProjectName": str,
-    },
-)
-
-DescribeProjectResponseTypeDef = TypedDict(
-    "DescribeProjectResponseTypeDef",
-    {
-        "ProjectDescription": "ProjectDescriptionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DetectAnomaliesRequestRequestTypeDef = TypedDict(
-    "DetectAnomaliesRequestRequestTypeDef",
-    {
-        "ProjectName": str,
-        "ModelVersion": str,
-        "Body": Union[bytes, IO[bytes], StreamingBody],
-        "ContentType": str,
-    },
-)
-
-DetectAnomaliesResponseTypeDef = TypedDict(
-    "DetectAnomaliesResponseTypeDef",
-    {
-        "DetectAnomalyResult": "DetectAnomalyResultTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DetectAnomalyResultTypeDef = TypedDict(
-    "DetectAnomalyResultTypeDef",
-    {
-        "Source": "ImageSourceTypeDef",
-        "IsAnomalous": bool,
-        "Confidence": float,
-        "Anomalies": List["AnomalyTypeDef"],
-        "AnomalyMask": bytes,
-    },
-    total=False,
-)
-
-_RequiredGreengrassConfigurationTypeDef = TypedDict(
-    "_RequiredGreengrassConfigurationTypeDef",
-    {
-        "S3OutputLocation": "S3LocationTypeDef",
-        "ComponentName": str,
-    },
-)
-_OptionalGreengrassConfigurationTypeDef = TypedDict(
-    "_OptionalGreengrassConfigurationTypeDef",
-    {
-        "CompilerOptions": str,
-        "TargetDevice": Literal["jetson_xavier"],
-        "TargetPlatform": "TargetPlatformTypeDef",
-        "ComponentVersion": str,
-        "ComponentDescription": str,
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class GreengrassConfigurationTypeDef(
-    _RequiredGreengrassConfigurationTypeDef, _OptionalGreengrassConfigurationTypeDef
-):
-    pass
-
-GreengrassOutputDetailsTypeDef = TypedDict(
-    "GreengrassOutputDetailsTypeDef",
-    {
-        "ComponentVersionArn": str,
-        "ComponentName": str,
-        "ComponentVersion": str,
-    },
-    total=False,
-)
+class DescribeProjectRequestTypeDef(TypedDict):
+    ProjectName: str
 
 ImageSourceTypeDef = TypedDict(
     "ImageSourceTypeDef",
     {
-        "Type": str,
-    },
-    total=False,
-)
-
-_RequiredInputS3ObjectTypeDef = TypedDict(
-    "_RequiredInputS3ObjectTypeDef",
-    {
-        "Bucket": str,
-        "Key": str,
-    },
-)
-_OptionalInputS3ObjectTypeDef = TypedDict(
-    "_OptionalInputS3ObjectTypeDef",
-    {
-        "VersionId": str,
-    },
-    total=False,
-)
-
-class InputS3ObjectTypeDef(_RequiredInputS3ObjectTypeDef, _OptionalInputS3ObjectTypeDef):
-    pass
-
-_RequiredListDatasetEntriesRequestRequestTypeDef = TypedDict(
-    "_RequiredListDatasetEntriesRequestRequestTypeDef",
-    {
-        "ProjectName": str,
-        "DatasetType": str,
-    },
-)
-_OptionalListDatasetEntriesRequestRequestTypeDef = TypedDict(
-    "_OptionalListDatasetEntriesRequestRequestTypeDef",
-    {
-        "Labeled": bool,
-        "AnomalyClass": str,
-        "BeforeCreationDate": Union[datetime, str],
-        "AfterCreationDate": Union[datetime, str],
-        "NextToken": str,
-        "MaxResults": int,
-        "SourceRefContains": str,
-    },
-    total=False,
-)
-
-class ListDatasetEntriesRequestRequestTypeDef(
-    _RequiredListDatasetEntriesRequestRequestTypeDef,
-    _OptionalListDatasetEntriesRequestRequestTypeDef,
-):
-    pass
-
-ListDatasetEntriesResponseTypeDef = TypedDict(
-    "ListDatasetEntriesResponseTypeDef",
-    {
-        "DatasetEntries": List[str],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "Type": NotRequired[str],
     },
 )
 
-_RequiredListModelPackagingJobsRequestRequestTypeDef = TypedDict(
-    "_RequiredListModelPackagingJobsRequestRequestTypeDef",
-    {
-        "ProjectName": str,
-    },
-)
-_OptionalListModelPackagingJobsRequestRequestTypeDef = TypedDict(
-    "_OptionalListModelPackagingJobsRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
+class S3LocationTypeDef(TypedDict):
+    Bucket: str
+    Prefix: NotRequired[str]
 
-class ListModelPackagingJobsRequestRequestTypeDef(
-    _RequiredListModelPackagingJobsRequestRequestTypeDef,
-    _OptionalListModelPackagingJobsRequestRequestTypeDef,
-):
-    pass
+class TargetPlatformTypeDef(TypedDict):
+    Os: Literal["LINUX"]
+    Arch: TargetPlatformArchType
+    Accelerator: NotRequired[Literal["NVIDIA"]]
 
-ListModelPackagingJobsResponseTypeDef = TypedDict(
-    "ListModelPackagingJobsResponseTypeDef",
-    {
-        "ModelPackagingJobs": List["ModelPackagingJobMetadataTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GreengrassOutputDetailsTypeDef(TypedDict):
+    ComponentVersionArn: NotRequired[str]
+    ComponentName: NotRequired[str]
+    ComponentVersion: NotRequired[str]
 
-_RequiredListModelsRequestRequestTypeDef = TypedDict(
-    "_RequiredListModelsRequestRequestTypeDef",
-    {
-        "ProjectName": str,
-    },
-)
-_OptionalListModelsRequestRequestTypeDef = TypedDict(
-    "_OptionalListModelsRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
 
-class ListModelsRequestRequestTypeDef(
-    _RequiredListModelsRequestRequestTypeDef, _OptionalListModelsRequestRequestTypeDef
-):
-    pass
+TimestampTypeDef = Union[datetime, str]
 
-ListModelsResponseTypeDef = TypedDict(
-    "ListModelsResponseTypeDef",
-    {
-        "Models": List["ModelMetadataTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListModelPackagingJobsRequestTypeDef(TypedDict):
+    ProjectName: str
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
 
-ListProjectsRequestRequestTypeDef = TypedDict(
-    "ListProjectsRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
+class ModelPackagingJobMetadataTypeDef(TypedDict):
+    JobName: NotRequired[str]
+    ProjectName: NotRequired[str]
+    ModelVersion: NotRequired[str]
+    ModelPackagingJobDescription: NotRequired[str]
+    ModelPackagingMethod: NotRequired[str]
+    Status: NotRequired[ModelPackagingJobStatusType]
+    StatusMessage: NotRequired[str]
+    CreationTimestamp: NotRequired[datetime]
+    LastUpdatedTimestamp: NotRequired[datetime]
 
-ListProjectsResponseTypeDef = TypedDict(
-    "ListProjectsResponseTypeDef",
-    {
-        "Projects": List["ProjectMetadataTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListModelsRequestTypeDef(TypedDict):
+    ProjectName: str
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
 
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-    },
-)
+class ListProjectsRequestTypeDef(TypedDict):
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
 
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "Tags": List["TagTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
 
-ModelDescriptionTypeDef = TypedDict(
-    "ModelDescriptionTypeDef",
-    {
-        "ModelVersion": str,
-        "ModelArn": str,
-        "CreationTimestamp": datetime,
-        "Description": str,
-        "Status": ModelStatusType,
-        "StatusMessage": str,
-        "Performance": "ModelPerformanceTypeDef",
-        "OutputConfig": "OutputConfigTypeDef",
-        "EvaluationManifest": "OutputS3ObjectTypeDef",
-        "EvaluationResult": "OutputS3ObjectTypeDef",
-        "EvaluationEndTimestamp": datetime,
-        "KmsKeyId": str,
-        "MinInferenceUnits": int,
-        "MaxInferenceUnits": int,
-    },
-    total=False,
-)
+class ModelPerformanceTypeDef(TypedDict):
+    F1Score: NotRequired[float]
+    Recall: NotRequired[float]
+    Precision: NotRequired[float]
 
-ModelMetadataTypeDef = TypedDict(
-    "ModelMetadataTypeDef",
-    {
-        "CreationTimestamp": datetime,
-        "ModelVersion": str,
-        "ModelArn": str,
-        "Description": str,
-        "Status": ModelStatusType,
-        "StatusMessage": str,
-        "Performance": "ModelPerformanceTypeDef",
-    },
-    total=False,
-)
+class OutputS3ObjectTypeDef(TypedDict):
+    Bucket: str
+    Key: str
 
-ModelPackagingConfigurationTypeDef = TypedDict(
-    "ModelPackagingConfigurationTypeDef",
-    {
-        "Greengrass": "GreengrassConfigurationTypeDef",
-    },
-)
+class StartModelRequestTypeDef(TypedDict):
+    ProjectName: str
+    ModelVersion: str
+    MinInferenceUnits: int
+    ClientToken: NotRequired[str]
+    MaxInferenceUnits: NotRequired[int]
 
-ModelPackagingDescriptionTypeDef = TypedDict(
-    "ModelPackagingDescriptionTypeDef",
-    {
-        "JobName": str,
-        "ProjectName": str,
-        "ModelVersion": str,
-        "ModelPackagingConfiguration": "ModelPackagingConfigurationTypeDef",
-        "ModelPackagingJobDescription": str,
-        "ModelPackagingMethod": str,
-        "ModelPackagingOutputDetails": "ModelPackagingOutputDetailsTypeDef",
-        "Status": ModelPackagingJobStatusType,
-        "StatusMessage": str,
-        "CreationTimestamp": datetime,
-        "LastUpdatedTimestamp": datetime,
-    },
-    total=False,
-)
+class StopModelRequestTypeDef(TypedDict):
+    ProjectName: str
+    ModelVersion: str
+    ClientToken: NotRequired[str]
 
-ModelPackagingJobMetadataTypeDef = TypedDict(
-    "ModelPackagingJobMetadataTypeDef",
-    {
-        "JobName": str,
-        "ProjectName": str,
-        "ModelVersion": str,
-        "ModelPackagingJobDescription": str,
-        "ModelPackagingMethod": str,
-        "Status": ModelPackagingJobStatusType,
-        "StatusMessage": str,
-        "CreationTimestamp": datetime,
-        "LastUpdatedTimestamp": datetime,
-    },
-    total=False,
-)
+class UntagResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+    TagKeys: Sequence[str]
 
-ModelPackagingOutputDetailsTypeDef = TypedDict(
-    "ModelPackagingOutputDetailsTypeDef",
-    {
-        "Greengrass": "GreengrassOutputDetailsTypeDef",
-    },
-    total=False,
-)
+class AnomalyTypeDef(TypedDict):
+    Name: NotRequired[str]
+    PixelAnomaly: NotRequired[PixelAnomalyTypeDef]
 
-ModelPerformanceTypeDef = TypedDict(
-    "ModelPerformanceTypeDef",
-    {
-        "F1Score": float,
-        "Recall": float,
-        "Precision": float,
-    },
-    total=False,
-)
+class DetectAnomaliesRequestTypeDef(TypedDict):
+    ProjectName: str
+    ModelVersion: str
+    Body: BlobTypeDef
+    ContentType: str
 
-OutputConfigTypeDef = TypedDict(
-    "OutputConfigTypeDef",
-    {
-        "S3Location": "S3LocationTypeDef",
-    },
-)
+class UpdateDatasetEntriesRequestTypeDef(TypedDict):
+    ProjectName: str
+    DatasetType: str
+    Changes: BlobTypeDef
+    ClientToken: NotRequired[str]
 
-OutputS3ObjectTypeDef = TypedDict(
-    "OutputS3ObjectTypeDef",
-    {
-        "Bucket": str,
-        "Key": str,
-    },
-)
+class ProjectDescriptionTypeDef(TypedDict):
+    ProjectArn: NotRequired[str]
+    ProjectName: NotRequired[str]
+    CreationTimestamp: NotRequired[datetime]
+    Datasets: NotRequired[List[DatasetMetadataTypeDef]]
 
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
+class CreateDatasetResponseTypeDef(TypedDict):
+    DatasetMetadata: DatasetMetadataTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-PixelAnomalyTypeDef = TypedDict(
-    "PixelAnomalyTypeDef",
-    {
-        "TotalPercentageArea": float,
-        "Color": str,
-    },
-    total=False,
-)
+class DeleteModelResponseTypeDef(TypedDict):
+    ModelArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ProjectDescriptionTypeDef = TypedDict(
-    "ProjectDescriptionTypeDef",
-    {
-        "ProjectArn": str,
-        "ProjectName": str,
-        "CreationTimestamp": datetime,
-        "Datasets": List["DatasetMetadataTypeDef"],
-    },
-    total=False,
-)
+class DeleteProjectResponseTypeDef(TypedDict):
+    ProjectArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ProjectMetadataTypeDef = TypedDict(
-    "ProjectMetadataTypeDef",
-    {
-        "ProjectArn": str,
-        "ProjectName": str,
-        "CreationTimestamp": datetime,
-    },
-    total=False,
-)
+class ListDatasetEntriesResponseTypeDef(TypedDict):
+    DatasetEntries: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
+class StartModelPackagingJobResponseTypeDef(TypedDict):
+    JobName: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredS3LocationTypeDef = TypedDict(
-    "_RequiredS3LocationTypeDef",
-    {
-        "Bucket": str,
-    },
-)
-_OptionalS3LocationTypeDef = TypedDict(
-    "_OptionalS3LocationTypeDef",
-    {
-        "Prefix": str,
-    },
-    total=False,
-)
+class StartModelResponseTypeDef(TypedDict):
+    Status: ModelHostingStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class S3LocationTypeDef(_RequiredS3LocationTypeDef, _OptionalS3LocationTypeDef):
-    pass
+class StopModelResponseTypeDef(TypedDict):
+    Status: ModelHostingStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredStartModelPackagingJobRequestRequestTypeDef = TypedDict(
-    "_RequiredStartModelPackagingJobRequestRequestTypeDef",
-    {
-        "ProjectName": str,
-        "ModelVersion": str,
-        "Configuration": "ModelPackagingConfigurationTypeDef",
-    },
-)
-_OptionalStartModelPackagingJobRequestRequestTypeDef = TypedDict(
-    "_OptionalStartModelPackagingJobRequestRequestTypeDef",
-    {
-        "JobName": str,
-        "Description": str,
-        "ClientToken": str,
-    },
-    total=False,
-)
+class UpdateDatasetEntriesResponseTypeDef(TypedDict):
+    Status: DatasetStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class StartModelPackagingJobRequestRequestTypeDef(
-    _RequiredStartModelPackagingJobRequestRequestTypeDef,
-    _OptionalStartModelPackagingJobRequestRequestTypeDef,
-):
-    pass
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    Tags: List[TagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-StartModelPackagingJobResponseTypeDef = TypedDict(
-    "StartModelPackagingJobResponseTypeDef",
-    {
-        "JobName": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class TagResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+    Tags: Sequence[TagTypeDef]
 
-_RequiredStartModelRequestRequestTypeDef = TypedDict(
-    "_RequiredStartModelRequestRequestTypeDef",
-    {
-        "ProjectName": str,
-        "ModelVersion": str,
-        "MinInferenceUnits": int,
-    },
-)
-_OptionalStartModelRequestRequestTypeDef = TypedDict(
-    "_OptionalStartModelRequestRequestTypeDef",
-    {
-        "ClientToken": str,
-        "MaxInferenceUnits": int,
-    },
-    total=False,
-)
+class CreateProjectResponseTypeDef(TypedDict):
+    ProjectMetadata: ProjectMetadataTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class StartModelRequestRequestTypeDef(
-    _RequiredStartModelRequestRequestTypeDef, _OptionalStartModelRequestRequestTypeDef
-):
-    pass
+class ListProjectsResponseTypeDef(TypedDict):
+    Projects: List[ProjectMetadataTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-StartModelResponseTypeDef = TypedDict(
-    "StartModelResponseTypeDef",
-    {
-        "Status": ModelHostingStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DatasetDescriptionTypeDef(TypedDict):
+    ProjectName: NotRequired[str]
+    DatasetType: NotRequired[str]
+    CreationTimestamp: NotRequired[datetime]
+    LastUpdatedTimestamp: NotRequired[datetime]
+    Status: NotRequired[DatasetStatusType]
+    StatusMessage: NotRequired[str]
+    ImageStats: NotRequired[DatasetImageStatsTypeDef]
 
-_RequiredStopModelRequestRequestTypeDef = TypedDict(
-    "_RequiredStopModelRequestRequestTypeDef",
-    {
-        "ProjectName": str,
-        "ModelVersion": str,
-    },
-)
-_OptionalStopModelRequestRequestTypeDef = TypedDict(
-    "_OptionalStopModelRequestRequestTypeDef",
-    {
-        "ClientToken": str,
-    },
-    total=False,
-)
+class DatasetGroundTruthManifestTypeDef(TypedDict):
+    S3Object: NotRequired[InputS3ObjectTypeDef]
 
-class StopModelRequestRequestTypeDef(
-    _RequiredStopModelRequestRequestTypeDef, _OptionalStopModelRequestRequestTypeDef
-):
-    pass
+class OutputConfigTypeDef(TypedDict):
+    S3Location: S3LocationTypeDef
 
-StopModelResponseTypeDef = TypedDict(
-    "StopModelResponseTypeDef",
-    {
-        "Status": ModelHostingStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GreengrassConfigurationOutputTypeDef(TypedDict):
+    S3OutputLocation: S3LocationTypeDef
+    ComponentName: str
+    CompilerOptions: NotRequired[str]
+    TargetDevice: NotRequired[Literal["jetson_xavier"]]
+    TargetPlatform: NotRequired[TargetPlatformTypeDef]
+    ComponentVersion: NotRequired[str]
+    ComponentDescription: NotRequired[str]
+    Tags: NotRequired[List[TagTypeDef]]
 
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-        "Tags": List["TagTypeDef"],
-    },
-)
+class GreengrassConfigurationTypeDef(TypedDict):
+    S3OutputLocation: S3LocationTypeDef
+    ComponentName: str
+    CompilerOptions: NotRequired[str]
+    TargetDevice: NotRequired[Literal["jetson_xavier"]]
+    TargetPlatform: NotRequired[TargetPlatformTypeDef]
+    ComponentVersion: NotRequired[str]
+    ComponentDescription: NotRequired[str]
+    Tags: NotRequired[Sequence[TagTypeDef]]
 
-TagTypeDef = TypedDict(
-    "TagTypeDef",
-    {
-        "Key": str,
-        "Value": str,
-    },
-)
+class ModelPackagingOutputDetailsTypeDef(TypedDict):
+    Greengrass: NotRequired[GreengrassOutputDetailsTypeDef]
 
-_RequiredTargetPlatformTypeDef = TypedDict(
-    "_RequiredTargetPlatformTypeDef",
-    {
-        "Os": Literal["LINUX"],
-        "Arch": TargetPlatformArchType,
-    },
-)
-_OptionalTargetPlatformTypeDef = TypedDict(
-    "_OptionalTargetPlatformTypeDef",
-    {
-        "Accelerator": Literal["NVIDIA"],
-    },
-    total=False,
-)
+class ListModelPackagingJobsRequestPaginateTypeDef(TypedDict):
+    ProjectName: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-class TargetPlatformTypeDef(_RequiredTargetPlatformTypeDef, _OptionalTargetPlatformTypeDef):
-    pass
+class ListModelsRequestPaginateTypeDef(TypedDict):
+    ProjectName: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-        "TagKeys": List[str],
-    },
-)
+class ListProjectsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-_RequiredUpdateDatasetEntriesRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateDatasetEntriesRequestRequestTypeDef",
-    {
-        "ProjectName": str,
-        "DatasetType": str,
-        "Changes": Union[bytes, IO[bytes], StreamingBody],
-    },
-)
-_OptionalUpdateDatasetEntriesRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateDatasetEntriesRequestRequestTypeDef",
-    {
-        "ClientToken": str,
-    },
-    total=False,
-)
+class ListDatasetEntriesRequestPaginateTypeDef(TypedDict):
+    ProjectName: str
+    DatasetType: str
+    Labeled: NotRequired[bool]
+    AnomalyClass: NotRequired[str]
+    BeforeCreationDate: NotRequired[TimestampTypeDef]
+    AfterCreationDate: NotRequired[TimestampTypeDef]
+    SourceRefContains: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-class UpdateDatasetEntriesRequestRequestTypeDef(
-    _RequiredUpdateDatasetEntriesRequestRequestTypeDef,
-    _OptionalUpdateDatasetEntriesRequestRequestTypeDef,
-):
-    pass
+class ListDatasetEntriesRequestTypeDef(TypedDict):
+    ProjectName: str
+    DatasetType: str
+    Labeled: NotRequired[bool]
+    AnomalyClass: NotRequired[str]
+    BeforeCreationDate: NotRequired[TimestampTypeDef]
+    AfterCreationDate: NotRequired[TimestampTypeDef]
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+    SourceRefContains: NotRequired[str]
 
-UpdateDatasetEntriesResponseTypeDef = TypedDict(
-    "UpdateDatasetEntriesResponseTypeDef",
-    {
-        "Status": DatasetStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListModelPackagingJobsResponseTypeDef(TypedDict):
+    ModelPackagingJobs: List[ModelPackagingJobMetadataTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ModelMetadataTypeDef(TypedDict):
+    CreationTimestamp: NotRequired[datetime]
+    ModelVersion: NotRequired[str]
+    ModelArn: NotRequired[str]
+    Description: NotRequired[str]
+    Status: NotRequired[ModelStatusType]
+    StatusMessage: NotRequired[str]
+    Performance: NotRequired[ModelPerformanceTypeDef]
+
+class DetectAnomalyResultTypeDef(TypedDict):
+    Source: NotRequired[ImageSourceTypeDef]
+    IsAnomalous: NotRequired[bool]
+    Confidence: NotRequired[float]
+    Anomalies: NotRequired[List[AnomalyTypeDef]]
+    AnomalyMask: NotRequired[bytes]
+
+class DescribeProjectResponseTypeDef(TypedDict):
+    ProjectDescription: ProjectDescriptionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeDatasetResponseTypeDef(TypedDict):
+    DatasetDescription: DatasetDescriptionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DatasetSourceTypeDef(TypedDict):
+    GroundTruthManifest: NotRequired[DatasetGroundTruthManifestTypeDef]
+
+class CreateModelRequestTypeDef(TypedDict):
+    ProjectName: str
+    OutputConfig: OutputConfigTypeDef
+    Description: NotRequired[str]
+    ClientToken: NotRequired[str]
+    KmsKeyId: NotRequired[str]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+
+class ModelDescriptionTypeDef(TypedDict):
+    ModelVersion: NotRequired[str]
+    ModelArn: NotRequired[str]
+    CreationTimestamp: NotRequired[datetime]
+    Description: NotRequired[str]
+    Status: NotRequired[ModelStatusType]
+    StatusMessage: NotRequired[str]
+    Performance: NotRequired[ModelPerformanceTypeDef]
+    OutputConfig: NotRequired[OutputConfigTypeDef]
+    EvaluationManifest: NotRequired[OutputS3ObjectTypeDef]
+    EvaluationResult: NotRequired[OutputS3ObjectTypeDef]
+    EvaluationEndTimestamp: NotRequired[datetime]
+    KmsKeyId: NotRequired[str]
+    MinInferenceUnits: NotRequired[int]
+    MaxInferenceUnits: NotRequired[int]
+
+class ModelPackagingConfigurationOutputTypeDef(TypedDict):
+    Greengrass: GreengrassConfigurationOutputTypeDef
+
+class ModelPackagingConfigurationTypeDef(TypedDict):
+    Greengrass: GreengrassConfigurationTypeDef
+
+class CreateModelResponseTypeDef(TypedDict):
+    ModelMetadata: ModelMetadataTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListModelsResponseTypeDef(TypedDict):
+    Models: List[ModelMetadataTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class DetectAnomaliesResponseTypeDef(TypedDict):
+    DetectAnomalyResult: DetectAnomalyResultTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateDatasetRequestTypeDef(TypedDict):
+    ProjectName: str
+    DatasetType: str
+    DatasetSource: NotRequired[DatasetSourceTypeDef]
+    ClientToken: NotRequired[str]
+
+class DescribeModelResponseTypeDef(TypedDict):
+    ModelDescription: ModelDescriptionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ModelPackagingDescriptionTypeDef(TypedDict):
+    JobName: NotRequired[str]
+    ProjectName: NotRequired[str]
+    ModelVersion: NotRequired[str]
+    ModelPackagingConfiguration: NotRequired[ModelPackagingConfigurationOutputTypeDef]
+    ModelPackagingJobDescription: NotRequired[str]
+    ModelPackagingMethod: NotRequired[str]
+    ModelPackagingOutputDetails: NotRequired[ModelPackagingOutputDetailsTypeDef]
+    Status: NotRequired[ModelPackagingJobStatusType]
+    StatusMessage: NotRequired[str]
+    CreationTimestamp: NotRequired[datetime]
+    LastUpdatedTimestamp: NotRequired[datetime]
+
+ModelPackagingConfigurationUnionTypeDef = Union[
+    ModelPackagingConfigurationTypeDef, ModelPackagingConfigurationOutputTypeDef
+]
+
+class DescribeModelPackagingJobResponseTypeDef(TypedDict):
+    ModelPackagingDescription: ModelPackagingDescriptionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartModelPackagingJobRequestTypeDef(TypedDict):
+    ProjectName: str
+    ModelVersion: str
+    Configuration: ModelPackagingConfigurationUnionTypeDef
+    JobName: NotRequired[str]
+    Description: NotRequired[str]
+    ClientToken: NotRequired[str]

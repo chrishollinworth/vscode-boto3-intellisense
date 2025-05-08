@@ -1,22 +1,27 @@
 """
 Type annotations for efs service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_efs/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_efs/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_efs.type_defs import AccessPointDescriptionResponseMetadataTypeDef
+    from mypy_boto3_efs.type_defs import PosixUserOutputTypeDef
 
-    data: AccessPointDescriptionResponseMetadataTypeDef = {...}
+    data: PosixUserOutputTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
+from typing import Union
 
 from .literals import (
+    DeletionModeType,
     LifeCycleStateType,
     PerformanceModeType,
     ReplicationOverwriteProtectionType,
@@ -29,876 +34,503 @@ from .literals import (
     TransitionToIARulesType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
-    "AccessPointDescriptionResponseMetadataTypeDef",
+    "AccessPointDescriptionResponseTypeDef",
     "AccessPointDescriptionTypeDef",
     "BackupPolicyDescriptionTypeDef",
     "BackupPolicyTypeDef",
-    "CreateAccessPointRequestRequestTypeDef",
-    "CreateFileSystemRequestRequestTypeDef",
-    "CreateMountTargetRequestRequestTypeDef",
-    "CreateReplicationConfigurationRequestRequestTypeDef",
-    "CreateTagsRequestRequestTypeDef",
+    "CreateAccessPointRequestTypeDef",
+    "CreateFileSystemRequestTypeDef",
+    "CreateMountTargetRequestTypeDef",
+    "CreateReplicationConfigurationRequestTypeDef",
+    "CreateTagsRequestTypeDef",
     "CreationInfoTypeDef",
-    "DeleteAccessPointRequestRequestTypeDef",
-    "DeleteFileSystemPolicyRequestRequestTypeDef",
-    "DeleteFileSystemRequestRequestTypeDef",
-    "DeleteMountTargetRequestRequestTypeDef",
-    "DeleteReplicationConfigurationRequestRequestTypeDef",
-    "DeleteTagsRequestRequestTypeDef",
-    "DescribeAccessPointsRequestRequestTypeDef",
+    "DeleteAccessPointRequestTypeDef",
+    "DeleteFileSystemPolicyRequestTypeDef",
+    "DeleteFileSystemRequestTypeDef",
+    "DeleteMountTargetRequestTypeDef",
+    "DeleteReplicationConfigurationRequestTypeDef",
+    "DeleteTagsRequestTypeDef",
+    "DescribeAccessPointsRequestPaginateTypeDef",
+    "DescribeAccessPointsRequestTypeDef",
     "DescribeAccessPointsResponseTypeDef",
-    "DescribeAccountPreferencesRequestRequestTypeDef",
+    "DescribeAccountPreferencesRequestTypeDef",
     "DescribeAccountPreferencesResponseTypeDef",
-    "DescribeBackupPolicyRequestRequestTypeDef",
-    "DescribeFileSystemPolicyRequestRequestTypeDef",
-    "DescribeFileSystemsRequestRequestTypeDef",
+    "DescribeBackupPolicyRequestTypeDef",
+    "DescribeFileSystemPolicyRequestTypeDef",
+    "DescribeFileSystemsRequestPaginateTypeDef",
+    "DescribeFileSystemsRequestTypeDef",
     "DescribeFileSystemsResponseTypeDef",
-    "DescribeLifecycleConfigurationRequestRequestTypeDef",
-    "DescribeMountTargetSecurityGroupsRequestRequestTypeDef",
+    "DescribeLifecycleConfigurationRequestTypeDef",
+    "DescribeMountTargetSecurityGroupsRequestTypeDef",
     "DescribeMountTargetSecurityGroupsResponseTypeDef",
-    "DescribeMountTargetsRequestRequestTypeDef",
+    "DescribeMountTargetsRequestPaginateTypeDef",
+    "DescribeMountTargetsRequestTypeDef",
     "DescribeMountTargetsResponseTypeDef",
-    "DescribeReplicationConfigurationsRequestRequestTypeDef",
+    "DescribeReplicationConfigurationsRequestPaginateTypeDef",
+    "DescribeReplicationConfigurationsRequestTypeDef",
     "DescribeReplicationConfigurationsResponseTypeDef",
-    "DescribeTagsRequestRequestTypeDef",
+    "DescribeTagsRequestPaginateTypeDef",
+    "DescribeTagsRequestTypeDef",
     "DescribeTagsResponseTypeDef",
     "DestinationToCreateTypeDef",
     "DestinationTypeDef",
-    "FileSystemDescriptionResponseMetadataTypeDef",
+    "EmptyResponseMetadataTypeDef",
+    "FileSystemDescriptionResponseTypeDef",
     "FileSystemDescriptionTypeDef",
     "FileSystemPolicyDescriptionTypeDef",
-    "FileSystemProtectionDescriptionResponseMetadataTypeDef",
+    "FileSystemProtectionDescriptionResponseTypeDef",
     "FileSystemProtectionDescriptionTypeDef",
     "FileSystemSizeTypeDef",
     "LifecycleConfigurationDescriptionTypeDef",
     "LifecyclePolicyTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
-    "ModifyMountTargetSecurityGroupsRequestRequestTypeDef",
-    "MountTargetDescriptionResponseMetadataTypeDef",
+    "ModifyMountTargetSecurityGroupsRequestTypeDef",
+    "MountTargetDescriptionResponseTypeDef",
     "MountTargetDescriptionTypeDef",
     "PaginatorConfigTypeDef",
+    "PosixUserOutputTypeDef",
     "PosixUserTypeDef",
-    "PutAccountPreferencesRequestRequestTypeDef",
+    "PosixUserUnionTypeDef",
+    "PutAccountPreferencesRequestTypeDef",
     "PutAccountPreferencesResponseTypeDef",
-    "PutBackupPolicyRequestRequestTypeDef",
-    "PutFileSystemPolicyRequestRequestTypeDef",
-    "PutLifecycleConfigurationRequestRequestTypeDef",
-    "ReplicationConfigurationDescriptionResponseMetadataTypeDef",
+    "PutBackupPolicyRequestTypeDef",
+    "PutFileSystemPolicyRequestTypeDef",
+    "PutLifecycleConfigurationRequestTypeDef",
+    "ReplicationConfigurationDescriptionResponseTypeDef",
     "ReplicationConfigurationDescriptionTypeDef",
     "ResourceIdPreferenceTypeDef",
     "ResponseMetadataTypeDef",
     "RootDirectoryTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
     "TagTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateFileSystemProtectionRequestRequestTypeDef",
-    "UpdateFileSystemRequestRequestTypeDef",
-)
-
-AccessPointDescriptionResponseMetadataTypeDef = TypedDict(
-    "AccessPointDescriptionResponseMetadataTypeDef",
-    {
-        "ClientToken": str,
-        "Name": str,
-        "Tags": List["TagTypeDef"],
-        "AccessPointId": str,
-        "AccessPointArn": str,
-        "FileSystemId": str,
-        "PosixUser": "PosixUserTypeDef",
-        "RootDirectory": "RootDirectoryTypeDef",
-        "OwnerId": str,
-        "LifeCycleState": LifeCycleStateType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-AccessPointDescriptionTypeDef = TypedDict(
-    "AccessPointDescriptionTypeDef",
-    {
-        "ClientToken": str,
-        "Name": str,
-        "Tags": List["TagTypeDef"],
-        "AccessPointId": str,
-        "AccessPointArn": str,
-        "FileSystemId": str,
-        "PosixUser": "PosixUserTypeDef",
-        "RootDirectory": "RootDirectoryTypeDef",
-        "OwnerId": str,
-        "LifeCycleState": LifeCycleStateType,
-    },
-    total=False,
-)
-
-BackupPolicyDescriptionTypeDef = TypedDict(
-    "BackupPolicyDescriptionTypeDef",
-    {
-        "BackupPolicy": "BackupPolicyTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-BackupPolicyTypeDef = TypedDict(
-    "BackupPolicyTypeDef",
-    {
-        "Status": StatusType,
-    },
-)
-
-_RequiredCreateAccessPointRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateAccessPointRequestRequestTypeDef",
-    {
-        "ClientToken": str,
-        "FileSystemId": str,
-    },
-)
-_OptionalCreateAccessPointRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateAccessPointRequestRequestTypeDef",
-    {
-        "Tags": List["TagTypeDef"],
-        "PosixUser": "PosixUserTypeDef",
-        "RootDirectory": "RootDirectoryTypeDef",
-    },
-    total=False,
-)
-
-class CreateAccessPointRequestRequestTypeDef(
-    _RequiredCreateAccessPointRequestRequestTypeDef, _OptionalCreateAccessPointRequestRequestTypeDef
-):
-    pass
-
-_RequiredCreateFileSystemRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateFileSystemRequestRequestTypeDef",
-    {
-        "CreationToken": str,
-    },
-)
-_OptionalCreateFileSystemRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateFileSystemRequestRequestTypeDef",
-    {
-        "PerformanceMode": PerformanceModeType,
-        "Encrypted": bool,
-        "KmsKeyId": str,
-        "ThroughputMode": ThroughputModeType,
-        "ProvisionedThroughputInMibps": float,
-        "AvailabilityZoneName": str,
-        "Backup": bool,
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateFileSystemRequestRequestTypeDef(
-    _RequiredCreateFileSystemRequestRequestTypeDef, _OptionalCreateFileSystemRequestRequestTypeDef
-):
-    pass
-
-_RequiredCreateMountTargetRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateMountTargetRequestRequestTypeDef",
-    {
-        "FileSystemId": str,
-        "SubnetId": str,
-    },
-)
-_OptionalCreateMountTargetRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateMountTargetRequestRequestTypeDef",
-    {
-        "IpAddress": str,
-        "SecurityGroups": List[str],
-    },
-    total=False,
-)
-
-class CreateMountTargetRequestRequestTypeDef(
-    _RequiredCreateMountTargetRequestRequestTypeDef, _OptionalCreateMountTargetRequestRequestTypeDef
-):
-    pass
-
-CreateReplicationConfigurationRequestRequestTypeDef = TypedDict(
-    "CreateReplicationConfigurationRequestRequestTypeDef",
-    {
-        "SourceFileSystemId": str,
-        "Destinations": List["DestinationToCreateTypeDef"],
-    },
-)
-
-CreateTagsRequestRequestTypeDef = TypedDict(
-    "CreateTagsRequestRequestTypeDef",
-    {
-        "FileSystemId": str,
-        "Tags": List["TagTypeDef"],
-    },
-)
-
-CreationInfoTypeDef = TypedDict(
-    "CreationInfoTypeDef",
-    {
-        "OwnerUid": int,
-        "OwnerGid": int,
-        "Permissions": str,
-    },
-)
-
-DeleteAccessPointRequestRequestTypeDef = TypedDict(
-    "DeleteAccessPointRequestRequestTypeDef",
-    {
-        "AccessPointId": str,
-    },
-)
-
-DeleteFileSystemPolicyRequestRequestTypeDef = TypedDict(
-    "DeleteFileSystemPolicyRequestRequestTypeDef",
-    {
-        "FileSystemId": str,
-    },
-)
-
-DeleteFileSystemRequestRequestTypeDef = TypedDict(
-    "DeleteFileSystemRequestRequestTypeDef",
-    {
-        "FileSystemId": str,
-    },
-)
-
-DeleteMountTargetRequestRequestTypeDef = TypedDict(
-    "DeleteMountTargetRequestRequestTypeDef",
-    {
-        "MountTargetId": str,
-    },
-)
-
-DeleteReplicationConfigurationRequestRequestTypeDef = TypedDict(
-    "DeleteReplicationConfigurationRequestRequestTypeDef",
-    {
-        "SourceFileSystemId": str,
-    },
-)
-
-DeleteTagsRequestRequestTypeDef = TypedDict(
-    "DeleteTagsRequestRequestTypeDef",
-    {
-        "FileSystemId": str,
-        "TagKeys": List[str],
-    },
-)
-
-DescribeAccessPointsRequestRequestTypeDef = TypedDict(
-    "DescribeAccessPointsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-        "AccessPointId": str,
-        "FileSystemId": str,
-    },
-    total=False,
-)
-
-DescribeAccessPointsResponseTypeDef = TypedDict(
-    "DescribeAccessPointsResponseTypeDef",
-    {
-        "AccessPoints": List["AccessPointDescriptionTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeAccountPreferencesRequestRequestTypeDef = TypedDict(
-    "DescribeAccountPreferencesRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-DescribeAccountPreferencesResponseTypeDef = TypedDict(
-    "DescribeAccountPreferencesResponseTypeDef",
-    {
-        "ResourceIdPreference": "ResourceIdPreferenceTypeDef",
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeBackupPolicyRequestRequestTypeDef = TypedDict(
-    "DescribeBackupPolicyRequestRequestTypeDef",
-    {
-        "FileSystemId": str,
-    },
-)
-
-DescribeFileSystemPolicyRequestRequestTypeDef = TypedDict(
-    "DescribeFileSystemPolicyRequestRequestTypeDef",
-    {
-        "FileSystemId": str,
-    },
-)
-
-DescribeFileSystemsRequestRequestTypeDef = TypedDict(
-    "DescribeFileSystemsRequestRequestTypeDef",
-    {
-        "MaxItems": int,
-        "Marker": str,
-        "CreationToken": str,
-        "FileSystemId": str,
-    },
-    total=False,
-)
-
-DescribeFileSystemsResponseTypeDef = TypedDict(
-    "DescribeFileSystemsResponseTypeDef",
-    {
-        "Marker": str,
-        "FileSystems": List["FileSystemDescriptionTypeDef"],
-        "NextMarker": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeLifecycleConfigurationRequestRequestTypeDef = TypedDict(
-    "DescribeLifecycleConfigurationRequestRequestTypeDef",
-    {
-        "FileSystemId": str,
-    },
-)
-
-DescribeMountTargetSecurityGroupsRequestRequestTypeDef = TypedDict(
-    "DescribeMountTargetSecurityGroupsRequestRequestTypeDef",
-    {
-        "MountTargetId": str,
-    },
-)
-
-DescribeMountTargetSecurityGroupsResponseTypeDef = TypedDict(
-    "DescribeMountTargetSecurityGroupsResponseTypeDef",
-    {
-        "SecurityGroups": List[str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeMountTargetsRequestRequestTypeDef = TypedDict(
-    "DescribeMountTargetsRequestRequestTypeDef",
-    {
-        "MaxItems": int,
-        "Marker": str,
-        "FileSystemId": str,
-        "MountTargetId": str,
-        "AccessPointId": str,
-    },
-    total=False,
-)
-
-DescribeMountTargetsResponseTypeDef = TypedDict(
-    "DescribeMountTargetsResponseTypeDef",
-    {
-        "Marker": str,
-        "MountTargets": List["MountTargetDescriptionTypeDef"],
-        "NextMarker": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeReplicationConfigurationsRequestRequestTypeDef = TypedDict(
-    "DescribeReplicationConfigurationsRequestRequestTypeDef",
-    {
-        "FileSystemId": str,
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-DescribeReplicationConfigurationsResponseTypeDef = TypedDict(
-    "DescribeReplicationConfigurationsResponseTypeDef",
-    {
-        "Replications": List["ReplicationConfigurationDescriptionTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribeTagsRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeTagsRequestRequestTypeDef",
-    {
-        "FileSystemId": str,
-    },
-)
-_OptionalDescribeTagsRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeTagsRequestRequestTypeDef",
-    {
-        "MaxItems": int,
-        "Marker": str,
-    },
-    total=False,
-)
-
-class DescribeTagsRequestRequestTypeDef(
-    _RequiredDescribeTagsRequestRequestTypeDef, _OptionalDescribeTagsRequestRequestTypeDef
-):
-    pass
-
-DescribeTagsResponseTypeDef = TypedDict(
-    "DescribeTagsResponseTypeDef",
-    {
-        "Marker": str,
-        "Tags": List["TagTypeDef"],
-        "NextMarker": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DestinationToCreateTypeDef = TypedDict(
-    "DestinationToCreateTypeDef",
-    {
-        "Region": str,
-        "AvailabilityZoneName": str,
-        "KmsKeyId": str,
-        "FileSystemId": str,
-    },
-    total=False,
-)
-
-_RequiredDestinationTypeDef = TypedDict(
-    "_RequiredDestinationTypeDef",
-    {
-        "Status": ReplicationStatusType,
-        "FileSystemId": str,
-        "Region": str,
-    },
-)
-_OptionalDestinationTypeDef = TypedDict(
-    "_OptionalDestinationTypeDef",
-    {
-        "LastReplicatedTimestamp": datetime,
-    },
-    total=False,
-)
-
-class DestinationTypeDef(_RequiredDestinationTypeDef, _OptionalDestinationTypeDef):
-    pass
-
-FileSystemDescriptionResponseMetadataTypeDef = TypedDict(
-    "FileSystemDescriptionResponseMetadataTypeDef",
-    {
-        "OwnerId": str,
-        "CreationToken": str,
-        "FileSystemId": str,
-        "FileSystemArn": str,
-        "CreationTime": datetime,
-        "LifeCycleState": LifeCycleStateType,
-        "Name": str,
-        "NumberOfMountTargets": int,
-        "SizeInBytes": "FileSystemSizeTypeDef",
-        "PerformanceMode": PerformanceModeType,
-        "Encrypted": bool,
-        "KmsKeyId": str,
-        "ThroughputMode": ThroughputModeType,
-        "ProvisionedThroughputInMibps": float,
-        "AvailabilityZoneName": str,
-        "AvailabilityZoneId": str,
-        "Tags": List["TagTypeDef"],
-        "FileSystemProtection": "FileSystemProtectionDescriptionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredFileSystemDescriptionTypeDef = TypedDict(
-    "_RequiredFileSystemDescriptionTypeDef",
-    {
-        "OwnerId": str,
-        "CreationToken": str,
-        "FileSystemId": str,
-        "CreationTime": datetime,
-        "LifeCycleState": LifeCycleStateType,
-        "NumberOfMountTargets": int,
-        "SizeInBytes": "FileSystemSizeTypeDef",
-        "PerformanceMode": PerformanceModeType,
-        "Tags": List["TagTypeDef"],
-    },
-)
-_OptionalFileSystemDescriptionTypeDef = TypedDict(
-    "_OptionalFileSystemDescriptionTypeDef",
-    {
-        "FileSystemArn": str,
-        "Name": str,
-        "Encrypted": bool,
-        "KmsKeyId": str,
-        "ThroughputMode": ThroughputModeType,
-        "ProvisionedThroughputInMibps": float,
-        "AvailabilityZoneName": str,
-        "AvailabilityZoneId": str,
-        "FileSystemProtection": "FileSystemProtectionDescriptionTypeDef",
-    },
-    total=False,
-)
-
-class FileSystemDescriptionTypeDef(
-    _RequiredFileSystemDescriptionTypeDef, _OptionalFileSystemDescriptionTypeDef
-):
-    pass
-
-FileSystemPolicyDescriptionTypeDef = TypedDict(
-    "FileSystemPolicyDescriptionTypeDef",
-    {
-        "FileSystemId": str,
-        "Policy": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-FileSystemProtectionDescriptionResponseMetadataTypeDef = TypedDict(
-    "FileSystemProtectionDescriptionResponseMetadataTypeDef",
-    {
-        "ReplicationOverwriteProtection": ReplicationOverwriteProtectionType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-FileSystemProtectionDescriptionTypeDef = TypedDict(
-    "FileSystemProtectionDescriptionTypeDef",
-    {
-        "ReplicationOverwriteProtection": ReplicationOverwriteProtectionType,
-    },
-    total=False,
-)
-
-_RequiredFileSystemSizeTypeDef = TypedDict(
-    "_RequiredFileSystemSizeTypeDef",
-    {
-        "Value": int,
-    },
-)
-_OptionalFileSystemSizeTypeDef = TypedDict(
-    "_OptionalFileSystemSizeTypeDef",
-    {
-        "Timestamp": datetime,
-        "ValueInIA": int,
-        "ValueInStandard": int,
-        "ValueInArchive": int,
-    },
-    total=False,
-)
-
-class FileSystemSizeTypeDef(_RequiredFileSystemSizeTypeDef, _OptionalFileSystemSizeTypeDef):
-    pass
-
-LifecycleConfigurationDescriptionTypeDef = TypedDict(
-    "LifecycleConfigurationDescriptionTypeDef",
-    {
-        "LifecyclePolicies": List["LifecyclePolicyTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-LifecyclePolicyTypeDef = TypedDict(
-    "LifecyclePolicyTypeDef",
-    {
-        "TransitionToIA": TransitionToIARulesType,
-        "TransitionToPrimaryStorageClass": Literal["AFTER_1_ACCESS"],
-        "TransitionToArchive": TransitionToArchiveRulesType,
-    },
-    total=False,
-)
-
-_RequiredListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "_RequiredListTagsForResourceRequestRequestTypeDef",
-    {
-        "ResourceId": str,
-    },
-)
-_OptionalListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "_OptionalListTagsForResourceRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListTagsForResourceRequestRequestTypeDef(
-    _RequiredListTagsForResourceRequestRequestTypeDef,
-    _OptionalListTagsForResourceRequestRequestTypeDef,
-):
-    pass
-
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "Tags": List["TagTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredModifyMountTargetSecurityGroupsRequestRequestTypeDef = TypedDict(
-    "_RequiredModifyMountTargetSecurityGroupsRequestRequestTypeDef",
-    {
-        "MountTargetId": str,
-    },
-)
-_OptionalModifyMountTargetSecurityGroupsRequestRequestTypeDef = TypedDict(
-    "_OptionalModifyMountTargetSecurityGroupsRequestRequestTypeDef",
-    {
-        "SecurityGroups": List[str],
-    },
-    total=False,
-)
-
-class ModifyMountTargetSecurityGroupsRequestRequestTypeDef(
-    _RequiredModifyMountTargetSecurityGroupsRequestRequestTypeDef,
-    _OptionalModifyMountTargetSecurityGroupsRequestRequestTypeDef,
-):
-    pass
-
-MountTargetDescriptionResponseMetadataTypeDef = TypedDict(
-    "MountTargetDescriptionResponseMetadataTypeDef",
-    {
-        "OwnerId": str,
-        "MountTargetId": str,
-        "FileSystemId": str,
-        "SubnetId": str,
-        "LifeCycleState": LifeCycleStateType,
-        "IpAddress": str,
-        "NetworkInterfaceId": str,
-        "AvailabilityZoneId": str,
-        "AvailabilityZoneName": str,
-        "VpcId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredMountTargetDescriptionTypeDef = TypedDict(
-    "_RequiredMountTargetDescriptionTypeDef",
-    {
-        "MountTargetId": str,
-        "FileSystemId": str,
-        "SubnetId": str,
-        "LifeCycleState": LifeCycleStateType,
-    },
-)
-_OptionalMountTargetDescriptionTypeDef = TypedDict(
-    "_OptionalMountTargetDescriptionTypeDef",
-    {
-        "OwnerId": str,
-        "IpAddress": str,
-        "NetworkInterfaceId": str,
-        "AvailabilityZoneId": str,
-        "AvailabilityZoneName": str,
-        "VpcId": str,
-    },
-    total=False,
-)
-
-class MountTargetDescriptionTypeDef(
-    _RequiredMountTargetDescriptionTypeDef, _OptionalMountTargetDescriptionTypeDef
-):
-    pass
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-_RequiredPosixUserTypeDef = TypedDict(
-    "_RequiredPosixUserTypeDef",
-    {
-        "Uid": int,
-        "Gid": int,
-    },
-)
-_OptionalPosixUserTypeDef = TypedDict(
-    "_OptionalPosixUserTypeDef",
-    {
-        "SecondaryGids": List[int],
-    },
-    total=False,
-)
-
-class PosixUserTypeDef(_RequiredPosixUserTypeDef, _OptionalPosixUserTypeDef):
-    pass
-
-PutAccountPreferencesRequestRequestTypeDef = TypedDict(
-    "PutAccountPreferencesRequestRequestTypeDef",
-    {
-        "ResourceIdType": ResourceIdTypeType,
-    },
-)
-
-PutAccountPreferencesResponseTypeDef = TypedDict(
-    "PutAccountPreferencesResponseTypeDef",
-    {
-        "ResourceIdPreference": "ResourceIdPreferenceTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-PutBackupPolicyRequestRequestTypeDef = TypedDict(
-    "PutBackupPolicyRequestRequestTypeDef",
-    {
-        "FileSystemId": str,
-        "BackupPolicy": "BackupPolicyTypeDef",
-    },
-)
-
-_RequiredPutFileSystemPolicyRequestRequestTypeDef = TypedDict(
-    "_RequiredPutFileSystemPolicyRequestRequestTypeDef",
-    {
-        "FileSystemId": str,
-        "Policy": str,
-    },
-)
-_OptionalPutFileSystemPolicyRequestRequestTypeDef = TypedDict(
-    "_OptionalPutFileSystemPolicyRequestRequestTypeDef",
-    {
-        "BypassPolicyLockoutSafetyCheck": bool,
-    },
-    total=False,
-)
-
-class PutFileSystemPolicyRequestRequestTypeDef(
-    _RequiredPutFileSystemPolicyRequestRequestTypeDef,
-    _OptionalPutFileSystemPolicyRequestRequestTypeDef,
-):
-    pass
-
-PutLifecycleConfigurationRequestRequestTypeDef = TypedDict(
-    "PutLifecycleConfigurationRequestRequestTypeDef",
-    {
-        "FileSystemId": str,
-        "LifecyclePolicies": List["LifecyclePolicyTypeDef"],
-    },
-)
-
-ReplicationConfigurationDescriptionResponseMetadataTypeDef = TypedDict(
-    "ReplicationConfigurationDescriptionResponseMetadataTypeDef",
-    {
-        "SourceFileSystemId": str,
-        "SourceFileSystemRegion": str,
-        "SourceFileSystemArn": str,
-        "OriginalSourceFileSystemArn": str,
-        "CreationTime": datetime,
-        "Destinations": List["DestinationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ReplicationConfigurationDescriptionTypeDef = TypedDict(
-    "ReplicationConfigurationDescriptionTypeDef",
-    {
-        "SourceFileSystemId": str,
-        "SourceFileSystemRegion": str,
-        "SourceFileSystemArn": str,
-        "OriginalSourceFileSystemArn": str,
-        "CreationTime": datetime,
-        "Destinations": List["DestinationTypeDef"],
-    },
-)
-
-ResourceIdPreferenceTypeDef = TypedDict(
-    "ResourceIdPreferenceTypeDef",
-    {
-        "ResourceIdType": ResourceIdTypeType,
-        "Resources": List[ResourceType],
-    },
-    total=False,
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-RootDirectoryTypeDef = TypedDict(
-    "RootDirectoryTypeDef",
-    {
-        "Path": str,
-        "CreationInfo": "CreationInfoTypeDef",
-    },
-    total=False,
-)
-
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "ResourceId": str,
-        "Tags": List["TagTypeDef"],
-    },
-)
-
-TagTypeDef = TypedDict(
-    "TagTypeDef",
-    {
-        "Key": str,
-        "Value": str,
-    },
-)
-
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "ResourceId": str,
-        "TagKeys": List[str],
-    },
-)
-
-_RequiredUpdateFileSystemProtectionRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateFileSystemProtectionRequestRequestTypeDef",
-    {
-        "FileSystemId": str,
-    },
-)
-_OptionalUpdateFileSystemProtectionRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateFileSystemProtectionRequestRequestTypeDef",
-    {
-        "ReplicationOverwriteProtection": ReplicationOverwriteProtectionType,
-    },
-    total=False,
-)
-
-class UpdateFileSystemProtectionRequestRequestTypeDef(
-    _RequiredUpdateFileSystemProtectionRequestRequestTypeDef,
-    _OptionalUpdateFileSystemProtectionRequestRequestTypeDef,
-):
-    pass
-
-_RequiredUpdateFileSystemRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateFileSystemRequestRequestTypeDef",
-    {
-        "FileSystemId": str,
-    },
-)
-_OptionalUpdateFileSystemRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateFileSystemRequestRequestTypeDef",
-    {
-        "ThroughputMode": ThroughputModeType,
-        "ProvisionedThroughputInMibps": float,
-    },
-    total=False,
-)
-
-class UpdateFileSystemRequestRequestTypeDef(
-    _RequiredUpdateFileSystemRequestRequestTypeDef, _OptionalUpdateFileSystemRequestRequestTypeDef
-):
-    pass
+    "UntagResourceRequestTypeDef",
+    "UpdateFileSystemProtectionRequestTypeDef",
+    "UpdateFileSystemRequestTypeDef",
+)
+
+class PosixUserOutputTypeDef(TypedDict):
+    Uid: int
+    Gid: int
+    SecondaryGids: NotRequired[List[int]]
+
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
+
+class TagTypeDef(TypedDict):
+    Key: str
+    Value: str
+
+class BackupPolicyTypeDef(TypedDict):
+    Status: StatusType
+
+class CreateMountTargetRequestTypeDef(TypedDict):
+    FileSystemId: str
+    SubnetId: str
+    IpAddress: NotRequired[str]
+    SecurityGroups: NotRequired[Sequence[str]]
+
+class DestinationToCreateTypeDef(TypedDict):
+    Region: NotRequired[str]
+    AvailabilityZoneName: NotRequired[str]
+    KmsKeyId: NotRequired[str]
+    FileSystemId: NotRequired[str]
+    RoleArn: NotRequired[str]
+
+class CreationInfoTypeDef(TypedDict):
+    OwnerUid: int
+    OwnerGid: int
+    Permissions: str
+
+class DeleteAccessPointRequestTypeDef(TypedDict):
+    AccessPointId: str
+
+class DeleteFileSystemPolicyRequestTypeDef(TypedDict):
+    FileSystemId: str
+
+class DeleteFileSystemRequestTypeDef(TypedDict):
+    FileSystemId: str
+
+class DeleteMountTargetRequestTypeDef(TypedDict):
+    MountTargetId: str
+
+class DeleteReplicationConfigurationRequestTypeDef(TypedDict):
+    SourceFileSystemId: str
+    DeletionMode: NotRequired[DeletionModeType]
+
+class DeleteTagsRequestTypeDef(TypedDict):
+    FileSystemId: str
+    TagKeys: Sequence[str]
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class DescribeAccessPointsRequestTypeDef(TypedDict):
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+    AccessPointId: NotRequired[str]
+    FileSystemId: NotRequired[str]
+
+class DescribeAccountPreferencesRequestTypeDef(TypedDict):
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class ResourceIdPreferenceTypeDef(TypedDict):
+    ResourceIdType: NotRequired[ResourceIdTypeType]
+    Resources: NotRequired[List[ResourceType]]
+
+class DescribeBackupPolicyRequestTypeDef(TypedDict):
+    FileSystemId: str
+
+class DescribeFileSystemPolicyRequestTypeDef(TypedDict):
+    FileSystemId: str
+
+class DescribeFileSystemsRequestTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    Marker: NotRequired[str]
+    CreationToken: NotRequired[str]
+    FileSystemId: NotRequired[str]
+
+class DescribeLifecycleConfigurationRequestTypeDef(TypedDict):
+    FileSystemId: str
+
+class DescribeMountTargetSecurityGroupsRequestTypeDef(TypedDict):
+    MountTargetId: str
+
+class DescribeMountTargetsRequestTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    Marker: NotRequired[str]
+    FileSystemId: NotRequired[str]
+    MountTargetId: NotRequired[str]
+    AccessPointId: NotRequired[str]
+
+class MountTargetDescriptionTypeDef(TypedDict):
+    MountTargetId: str
+    FileSystemId: str
+    SubnetId: str
+    LifeCycleState: LifeCycleStateType
+    OwnerId: NotRequired[str]
+    IpAddress: NotRequired[str]
+    NetworkInterfaceId: NotRequired[str]
+    AvailabilityZoneId: NotRequired[str]
+    AvailabilityZoneName: NotRequired[str]
+    VpcId: NotRequired[str]
+
+class DescribeReplicationConfigurationsRequestTypeDef(TypedDict):
+    FileSystemId: NotRequired[str]
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class DescribeTagsRequestTypeDef(TypedDict):
+    FileSystemId: str
+    MaxItems: NotRequired[int]
+    Marker: NotRequired[str]
+
+class DestinationTypeDef(TypedDict):
+    Status: ReplicationStatusType
+    FileSystemId: str
+    Region: str
+    LastReplicatedTimestamp: NotRequired[datetime]
+    OwnerId: NotRequired[str]
+    StatusMessage: NotRequired[str]
+    RoleArn: NotRequired[str]
+
+class FileSystemProtectionDescriptionTypeDef(TypedDict):
+    ReplicationOverwriteProtection: NotRequired[ReplicationOverwriteProtectionType]
+
+class FileSystemSizeTypeDef(TypedDict):
+    Value: int
+    Timestamp: NotRequired[datetime]
+    ValueInIA: NotRequired[int]
+    ValueInStandard: NotRequired[int]
+    ValueInArchive: NotRequired[int]
+
+class LifecyclePolicyTypeDef(TypedDict):
+    TransitionToIA: NotRequired[TransitionToIARulesType]
+    TransitionToPrimaryStorageClass: NotRequired[Literal["AFTER_1_ACCESS"]]
+    TransitionToArchive: NotRequired[TransitionToArchiveRulesType]
+
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    ResourceId: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ModifyMountTargetSecurityGroupsRequestTypeDef(TypedDict):
+    MountTargetId: str
+    SecurityGroups: NotRequired[Sequence[str]]
+
+class PosixUserTypeDef(TypedDict):
+    Uid: int
+    Gid: int
+    SecondaryGids: NotRequired[Sequence[int]]
+
+class PutAccountPreferencesRequestTypeDef(TypedDict):
+    ResourceIdType: ResourceIdTypeType
+
+class PutFileSystemPolicyRequestTypeDef(TypedDict):
+    FileSystemId: str
+    Policy: str
+    BypassPolicyLockoutSafetyCheck: NotRequired[bool]
+
+class UntagResourceRequestTypeDef(TypedDict):
+    ResourceId: str
+    TagKeys: Sequence[str]
+
+class UpdateFileSystemProtectionRequestTypeDef(TypedDict):
+    FileSystemId: str
+    ReplicationOverwriteProtection: NotRequired[ReplicationOverwriteProtectionType]
+
+class UpdateFileSystemRequestTypeDef(TypedDict):
+    FileSystemId: str
+    ThroughputMode: NotRequired[ThroughputModeType]
+    ProvisionedThroughputInMibps: NotRequired[float]
+
+class DescribeMountTargetSecurityGroupsResponseTypeDef(TypedDict):
+    SecurityGroups: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class EmptyResponseMetadataTypeDef(TypedDict):
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class FileSystemPolicyDescriptionTypeDef(TypedDict):
+    FileSystemId: str
+    Policy: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class FileSystemProtectionDescriptionResponseTypeDef(TypedDict):
+    ReplicationOverwriteProtection: ReplicationOverwriteProtectionType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class MountTargetDescriptionResponseTypeDef(TypedDict):
+    OwnerId: str
+    MountTargetId: str
+    FileSystemId: str
+    SubnetId: str
+    LifeCycleState: LifeCycleStateType
+    IpAddress: str
+    NetworkInterfaceId: str
+    AvailabilityZoneId: str
+    AvailabilityZoneName: str
+    VpcId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateFileSystemRequestTypeDef(TypedDict):
+    CreationToken: str
+    PerformanceMode: NotRequired[PerformanceModeType]
+    Encrypted: NotRequired[bool]
+    KmsKeyId: NotRequired[str]
+    ThroughputMode: NotRequired[ThroughputModeType]
+    ProvisionedThroughputInMibps: NotRequired[float]
+    AvailabilityZoneName: NotRequired[str]
+    Backup: NotRequired[bool]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+
+class CreateTagsRequestTypeDef(TypedDict):
+    FileSystemId: str
+    Tags: Sequence[TagTypeDef]
+
+class DescribeTagsResponseTypeDef(TypedDict):
+    Marker: str
+    Tags: List[TagTypeDef]
+    NextMarker: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    Tags: List[TagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class TagResourceRequestTypeDef(TypedDict):
+    ResourceId: str
+    Tags: Sequence[TagTypeDef]
+
+class BackupPolicyDescriptionTypeDef(TypedDict):
+    BackupPolicy: BackupPolicyTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutBackupPolicyRequestTypeDef(TypedDict):
+    FileSystemId: str
+    BackupPolicy: BackupPolicyTypeDef
+
+class CreateReplicationConfigurationRequestTypeDef(TypedDict):
+    SourceFileSystemId: str
+    Destinations: Sequence[DestinationToCreateTypeDef]
+
+class RootDirectoryTypeDef(TypedDict):
+    Path: NotRequired[str]
+    CreationInfo: NotRequired[CreationInfoTypeDef]
+
+class DescribeAccessPointsRequestPaginateTypeDef(TypedDict):
+    AccessPointId: NotRequired[str]
+    FileSystemId: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeFileSystemsRequestPaginateTypeDef(TypedDict):
+    CreationToken: NotRequired[str]
+    FileSystemId: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeMountTargetsRequestPaginateTypeDef(TypedDict):
+    FileSystemId: NotRequired[str]
+    MountTargetId: NotRequired[str]
+    AccessPointId: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeReplicationConfigurationsRequestPaginateTypeDef(TypedDict):
+    FileSystemId: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeTagsRequestPaginateTypeDef(TypedDict):
+    FileSystemId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeAccountPreferencesResponseTypeDef(TypedDict):
+    ResourceIdPreference: ResourceIdPreferenceTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class PutAccountPreferencesResponseTypeDef(TypedDict):
+    ResourceIdPreference: ResourceIdPreferenceTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeMountTargetsResponseTypeDef(TypedDict):
+    Marker: str
+    MountTargets: List[MountTargetDescriptionTypeDef]
+    NextMarker: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ReplicationConfigurationDescriptionResponseTypeDef(TypedDict):
+    SourceFileSystemId: str
+    SourceFileSystemRegion: str
+    SourceFileSystemArn: str
+    OriginalSourceFileSystemArn: str
+    CreationTime: datetime
+    Destinations: List[DestinationTypeDef]
+    SourceFileSystemOwnerId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ReplicationConfigurationDescriptionTypeDef(TypedDict):
+    SourceFileSystemId: str
+    SourceFileSystemRegion: str
+    SourceFileSystemArn: str
+    OriginalSourceFileSystemArn: str
+    CreationTime: datetime
+    Destinations: List[DestinationTypeDef]
+    SourceFileSystemOwnerId: NotRequired[str]
+
+class FileSystemDescriptionResponseTypeDef(TypedDict):
+    OwnerId: str
+    CreationToken: str
+    FileSystemId: str
+    FileSystemArn: str
+    CreationTime: datetime
+    LifeCycleState: LifeCycleStateType
+    Name: str
+    NumberOfMountTargets: int
+    SizeInBytes: FileSystemSizeTypeDef
+    PerformanceMode: PerformanceModeType
+    Encrypted: bool
+    KmsKeyId: str
+    ThroughputMode: ThroughputModeType
+    ProvisionedThroughputInMibps: float
+    AvailabilityZoneName: str
+    AvailabilityZoneId: str
+    Tags: List[TagTypeDef]
+    FileSystemProtection: FileSystemProtectionDescriptionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class FileSystemDescriptionTypeDef(TypedDict):
+    OwnerId: str
+    CreationToken: str
+    FileSystemId: str
+    CreationTime: datetime
+    LifeCycleState: LifeCycleStateType
+    NumberOfMountTargets: int
+    SizeInBytes: FileSystemSizeTypeDef
+    PerformanceMode: PerformanceModeType
+    Tags: List[TagTypeDef]
+    FileSystemArn: NotRequired[str]
+    Name: NotRequired[str]
+    Encrypted: NotRequired[bool]
+    KmsKeyId: NotRequired[str]
+    ThroughputMode: NotRequired[ThroughputModeType]
+    ProvisionedThroughputInMibps: NotRequired[float]
+    AvailabilityZoneName: NotRequired[str]
+    AvailabilityZoneId: NotRequired[str]
+    FileSystemProtection: NotRequired[FileSystemProtectionDescriptionTypeDef]
+
+class LifecycleConfigurationDescriptionTypeDef(TypedDict):
+    LifecyclePolicies: List[LifecyclePolicyTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutLifecycleConfigurationRequestTypeDef(TypedDict):
+    FileSystemId: str
+    LifecyclePolicies: Sequence[LifecyclePolicyTypeDef]
+
+PosixUserUnionTypeDef = Union[PosixUserTypeDef, PosixUserOutputTypeDef]
+
+class AccessPointDescriptionResponseTypeDef(TypedDict):
+    ClientToken: str
+    Name: str
+    Tags: List[TagTypeDef]
+    AccessPointId: str
+    AccessPointArn: str
+    FileSystemId: str
+    PosixUser: PosixUserOutputTypeDef
+    RootDirectory: RootDirectoryTypeDef
+    OwnerId: str
+    LifeCycleState: LifeCycleStateType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class AccessPointDescriptionTypeDef(TypedDict):
+    ClientToken: NotRequired[str]
+    Name: NotRequired[str]
+    Tags: NotRequired[List[TagTypeDef]]
+    AccessPointId: NotRequired[str]
+    AccessPointArn: NotRequired[str]
+    FileSystemId: NotRequired[str]
+    PosixUser: NotRequired[PosixUserOutputTypeDef]
+    RootDirectory: NotRequired[RootDirectoryTypeDef]
+    OwnerId: NotRequired[str]
+    LifeCycleState: NotRequired[LifeCycleStateType]
+
+class DescribeReplicationConfigurationsResponseTypeDef(TypedDict):
+    Replications: List[ReplicationConfigurationDescriptionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class DescribeFileSystemsResponseTypeDef(TypedDict):
+    Marker: str
+    FileSystems: List[FileSystemDescriptionTypeDef]
+    NextMarker: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateAccessPointRequestTypeDef(TypedDict):
+    ClientToken: str
+    FileSystemId: str
+    Tags: NotRequired[Sequence[TagTypeDef]]
+    PosixUser: NotRequired[PosixUserUnionTypeDef]
+    RootDirectory: NotRequired[RootDirectoryTypeDef]
+
+class DescribeAccessPointsResponseTypeDef(TypedDict):
+    AccessPoints: List[AccessPointDescriptionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]

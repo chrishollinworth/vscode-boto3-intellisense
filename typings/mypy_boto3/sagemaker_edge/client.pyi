@@ -1,47 +1,59 @@
 """
-Type annotations for sagemaker-edge service client.
+Type annotations for sagemaker-edge service Client.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker_edge/client.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sagemaker_edge/client/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
-    from mypy_boto3_sagemaker_edge import SagemakerEdgeManagerClient
+    from boto3.session import Session
+    from mypy_boto3_sagemaker_edge.client import SagemakerEdgeManagerClient
 
-    client: SagemakerEdgeManagerClient = boto3.client("sagemaker-edge")
+    session = Session()
+    client: SagemakerEdgeManagerClient = session.client("sagemaker-edge")
     ```
 """
 
-from typing import Any, Dict, List, Type
+from __future__ import annotations
+
+import sys
+from typing import Any
 
 from botocore.client import BaseClient, ClientMeta
+from botocore.errorfactory import BaseClientExceptions
+from botocore.exceptions import ClientError as BotocoreClientError
 
 from .type_defs import (
-    DeploymentResultTypeDef,
-    EdgeMetricTypeDef,
+    EmptyResponseMetadataTypeDef,
+    GetDeploymentsRequestTypeDef,
     GetDeploymentsResultTypeDef,
+    GetDeviceRegistrationRequestTypeDef,
     GetDeviceRegistrationResultTypeDef,
-    ModelTypeDef,
+    SendHeartbeatRequestTypeDef,
 )
+
+if sys.version_info >= (3, 9):
+    from builtins import type as Type
+    from collections.abc import Mapping
+else:
+    from typing import Mapping, Type
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = ("SagemakerEdgeManagerClient",)
 
-class BotocoreClientError(BaseException):
-    MSG_TEMPLATE: str
-
-    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
-        self.response: Dict[str, Any]
-        self.operation_name: str
-
-class Exceptions:
+class Exceptions(BaseClientExceptions):
     ClientError: Type[BotocoreClientError]
     InternalServiceException: Type[BotocoreClientError]
 
 class SagemakerEdgeManagerClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sagemaker-edge.html#SagemakerEdgeManager.Client)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker_edge/client.html)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker-edge.html#SagemakerEdgeManager.Client)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sagemaker_edge/client/)
     """
 
     meta: ClientMeta
@@ -50,71 +62,55 @@ class SagemakerEdgeManagerClient(BaseClient):
     def exceptions(self) -> Exceptions:
         """
         SagemakerEdgeManagerClient exceptions.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker-edge.html#SagemakerEdgeManager.Client)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sagemaker_edge/client/#exceptions)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        Check if an operation can be paginated.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sagemaker-edge.html#SagemakerEdgeManager.Client.can_paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker_edge/client.html#can_paginate)
-        """
-
-    def close(self) -> None:
-        """
-        Closes underlying endpoint connections.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sagemaker-edge.html#SagemakerEdgeManager.Client.close)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker_edge/client.html#close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker-edge/client/can_paginate.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sagemaker_edge/client/#can_paginate)
         """
 
     def generate_presigned_url(
         self,
         ClientMethod: str,
-        Params: Dict[str, Any] = None,
+        Params: Mapping[str, Any] = ...,
         ExpiresIn: int = 3600,
-        HttpMethod: str = None,
+        HttpMethod: str = ...,
     ) -> str:
         """
-        Generate a presigned url given a client, its method, and arguments.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sagemaker-edge.html#SagemakerEdgeManager.Client.generate_presigned_url)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker_edge/client.html#generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker-edge/client/generate_presigned_url.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sagemaker_edge/client/#generate_presigned_url)
         """
 
     def get_deployments(
-        self, *, DeviceName: str, DeviceFleetName: str
+        self, **kwargs: Unpack[GetDeploymentsRequestTypeDef]
     ) -> GetDeploymentsResultTypeDef:
         """
         Use to get the active deployments from a device.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sagemaker-edge.html#SagemakerEdgeManager.Client.get_deployments)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker_edge/client.html#get_deployments)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker-edge/client/get_deployments.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sagemaker_edge/client/#get_deployments)
         """
 
     def get_device_registration(
-        self, *, DeviceName: str, DeviceFleetName: str
+        self, **kwargs: Unpack[GetDeviceRegistrationRequestTypeDef]
     ) -> GetDeviceRegistrationResultTypeDef:
         """
         Use to check if a device is registered with SageMaker Edge Manager.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sagemaker-edge.html#SagemakerEdgeManager.Client.get_device_registration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker_edge/client.html#get_device_registration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker-edge/client/get_device_registration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sagemaker_edge/client/#get_device_registration)
         """
 
     def send_heartbeat(
-        self,
-        *,
-        AgentVersion: str,
-        DeviceName: str,
-        DeviceFleetName: str,
-        AgentMetrics: List["EdgeMetricTypeDef"] = None,
-        Models: List["ModelTypeDef"] = None,
-        DeploymentResult: "DeploymentResultTypeDef" = None
-    ) -> None:
+        self, **kwargs: Unpack[SendHeartbeatRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Use to get the current status of devices registered on SageMaker Edge Manager.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sagemaker-edge.html#SagemakerEdgeManager.Client.send_heartbeat)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker_edge/client.html#send_heartbeat)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker-edge/client/send_heartbeat.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sagemaker_edge/client/#send_heartbeat)
         """

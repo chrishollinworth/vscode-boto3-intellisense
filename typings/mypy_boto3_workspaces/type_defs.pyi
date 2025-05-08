@@ -1,26 +1,34 @@
 """
 Type annotations for workspaces service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workspaces/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_workspaces/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_workspaces.type_defs import AcceptAccountLinkInvitationRequestRequestTypeDef
+    from mypy_boto3_workspaces.type_defs import AcceptAccountLinkInvitationRequestTypeDef
 
-    data: AcceptAccountLinkInvitationRequestRequestTypeDef = {...}
+    data: AcceptAccountLinkInvitationRequestTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import IO, Any, Dict, List, Union
+from typing import IO, Any, Union
 
 from botocore.response import StreamingBody
 
 from .literals import (
     AccessPropertyValueType,
     AccountLinkStatusEnumType,
+    AGAModeForDirectoryEnumType,
+    AGAModeForWorkSpaceEnumType,
+    AGAPreferredProtocolForDirectoryType,
+    AGAPreferredProtocolForWorkSpaceType,
     ApplicationAssociatedResourceTypeType,
     ApplicationSettingsStatusEnumType,
     ApplicationType,
@@ -38,7 +46,9 @@ from .literals import (
     DedicatedTenancyModificationStateEnumType,
     DedicatedTenancySupportResultEnumType,
     DeletableSamlPropertyType,
+    DescribeWorkspaceDirectoriesFilterNameType,
     DescribeWorkspacesPoolsFilterOperatorType,
+    EndpointEncryptionModeType,
     ImageTypeType,
     LogUploadEnumType,
     ModificationResourceEnumType,
@@ -73,17 +83,19 @@ from .literals import (
     WorkspaceTypeType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
-    "AcceptAccountLinkInvitationRequestRequestTypeDef",
+    "AcceptAccountLinkInvitationRequestTypeDef",
     "AcceptAccountLinkInvitationResultTypeDef",
     "AccountLinkTypeDef",
     "AccountModificationTypeDef",
@@ -91,13 +103,14 @@ __all__ = (
     "ApplicationResourceAssociationTypeDef",
     "ApplicationSettingsRequestTypeDef",
     "ApplicationSettingsResponseTypeDef",
-    "AssociateConnectionAliasRequestRequestTypeDef",
+    "AssociateConnectionAliasRequestTypeDef",
     "AssociateConnectionAliasResultTypeDef",
-    "AssociateIpGroupsRequestRequestTypeDef",
-    "AssociateWorkspaceApplicationRequestRequestTypeDef",
+    "AssociateIpGroupsRequestTypeDef",
+    "AssociateWorkspaceApplicationRequestTypeDef",
     "AssociateWorkspaceApplicationResultTypeDef",
     "AssociationStateReasonTypeDef",
-    "AuthorizeIpRulesRequestRequestTypeDef",
+    "AuthorizeIpRulesRequestTypeDef",
+    "BlobTypeDef",
     "BundleResourceAssociationTypeDef",
     "CapacityStatusTypeDef",
     "CapacityTypeDef",
@@ -109,175 +122,194 @@ __all__ = (
     "ConnectionAliasAssociationTypeDef",
     "ConnectionAliasPermissionTypeDef",
     "ConnectionAliasTypeDef",
-    "CopyWorkspaceImageRequestRequestTypeDef",
+    "CopyWorkspaceImageRequestTypeDef",
     "CopyWorkspaceImageResultTypeDef",
-    "CreateAccountLinkInvitationRequestRequestTypeDef",
+    "CreateAccountLinkInvitationRequestTypeDef",
     "CreateAccountLinkInvitationResultTypeDef",
-    "CreateConnectClientAddInRequestRequestTypeDef",
+    "CreateConnectClientAddInRequestTypeDef",
     "CreateConnectClientAddInResultTypeDef",
-    "CreateConnectionAliasRequestRequestTypeDef",
+    "CreateConnectionAliasRequestTypeDef",
     "CreateConnectionAliasResultTypeDef",
-    "CreateIpGroupRequestRequestTypeDef",
+    "CreateIpGroupRequestTypeDef",
     "CreateIpGroupResultTypeDef",
-    "CreateStandbyWorkspacesRequestRequestTypeDef",
+    "CreateStandbyWorkspacesRequestTypeDef",
     "CreateStandbyWorkspacesResultTypeDef",
-    "CreateTagsRequestRequestTypeDef",
-    "CreateUpdatedWorkspaceImageRequestRequestTypeDef",
+    "CreateTagsRequestTypeDef",
+    "CreateUpdatedWorkspaceImageRequestTypeDef",
     "CreateUpdatedWorkspaceImageResultTypeDef",
-    "CreateWorkspaceBundleRequestRequestTypeDef",
+    "CreateWorkspaceBundleRequestTypeDef",
     "CreateWorkspaceBundleResultTypeDef",
-    "CreateWorkspaceImageRequestRequestTypeDef",
+    "CreateWorkspaceImageRequestTypeDef",
     "CreateWorkspaceImageResultTypeDef",
-    "CreateWorkspacesPoolRequestRequestTypeDef",
+    "CreateWorkspacesPoolRequestTypeDef",
     "CreateWorkspacesPoolResultTypeDef",
-    "CreateWorkspacesRequestRequestTypeDef",
+    "CreateWorkspacesRequestTypeDef",
     "CreateWorkspacesResultTypeDef",
     "DataReplicationSettingsTypeDef",
     "DefaultClientBrandingAttributesTypeDef",
     "DefaultImportClientBrandingAttributesTypeDef",
     "DefaultWorkspaceCreationPropertiesTypeDef",
-    "DeleteAccountLinkInvitationRequestRequestTypeDef",
+    "DeleteAccountLinkInvitationRequestTypeDef",
     "DeleteAccountLinkInvitationResultTypeDef",
-    "DeleteClientBrandingRequestRequestTypeDef",
-    "DeleteConnectClientAddInRequestRequestTypeDef",
-    "DeleteConnectionAliasRequestRequestTypeDef",
-    "DeleteIpGroupRequestRequestTypeDef",
-    "DeleteTagsRequestRequestTypeDef",
-    "DeleteWorkspaceBundleRequestRequestTypeDef",
-    "DeleteWorkspaceImageRequestRequestTypeDef",
-    "DeployWorkspaceApplicationsRequestRequestTypeDef",
+    "DeleteClientBrandingRequestTypeDef",
+    "DeleteConnectClientAddInRequestTypeDef",
+    "DeleteConnectionAliasRequestTypeDef",
+    "DeleteIpGroupRequestTypeDef",
+    "DeleteTagsRequestTypeDef",
+    "DeleteWorkspaceBundleRequestTypeDef",
+    "DeleteWorkspaceImageRequestTypeDef",
+    "DeployWorkspaceApplicationsRequestTypeDef",
     "DeployWorkspaceApplicationsResultTypeDef",
-    "DeregisterWorkspaceDirectoryRequestRequestTypeDef",
-    "DescribeAccountModificationsRequestRequestTypeDef",
+    "DeregisterWorkspaceDirectoryRequestTypeDef",
+    "DescribeAccountModificationsRequestPaginateTypeDef",
+    "DescribeAccountModificationsRequestTypeDef",
     "DescribeAccountModificationsResultTypeDef",
     "DescribeAccountResultTypeDef",
-    "DescribeApplicationAssociationsRequestRequestTypeDef",
+    "DescribeApplicationAssociationsRequestTypeDef",
     "DescribeApplicationAssociationsResultTypeDef",
-    "DescribeApplicationsRequestRequestTypeDef",
+    "DescribeApplicationsRequestTypeDef",
     "DescribeApplicationsResultTypeDef",
-    "DescribeBundleAssociationsRequestRequestTypeDef",
+    "DescribeBundleAssociationsRequestTypeDef",
     "DescribeBundleAssociationsResultTypeDef",
-    "DescribeClientBrandingRequestRequestTypeDef",
+    "DescribeClientBrandingRequestTypeDef",
     "DescribeClientBrandingResultTypeDef",
-    "DescribeClientPropertiesRequestRequestTypeDef",
+    "DescribeClientPropertiesRequestTypeDef",
     "DescribeClientPropertiesResultTypeDef",
-    "DescribeConnectClientAddInsRequestRequestTypeDef",
+    "DescribeConnectClientAddInsRequestTypeDef",
     "DescribeConnectClientAddInsResultTypeDef",
-    "DescribeConnectionAliasPermissionsRequestRequestTypeDef",
+    "DescribeConnectionAliasPermissionsRequestTypeDef",
     "DescribeConnectionAliasPermissionsResultTypeDef",
-    "DescribeConnectionAliasesRequestRequestTypeDef",
+    "DescribeConnectionAliasesRequestTypeDef",
     "DescribeConnectionAliasesResultTypeDef",
-    "DescribeImageAssociationsRequestRequestTypeDef",
+    "DescribeImageAssociationsRequestTypeDef",
     "DescribeImageAssociationsResultTypeDef",
-    "DescribeIpGroupsRequestRequestTypeDef",
+    "DescribeIpGroupsRequestPaginateTypeDef",
+    "DescribeIpGroupsRequestTypeDef",
     "DescribeIpGroupsResultTypeDef",
-    "DescribeTagsRequestRequestTypeDef",
+    "DescribeTagsRequestTypeDef",
     "DescribeTagsResultTypeDef",
-    "DescribeWorkspaceAssociationsRequestRequestTypeDef",
+    "DescribeWorkspaceAssociationsRequestTypeDef",
     "DescribeWorkspaceAssociationsResultTypeDef",
-    "DescribeWorkspaceBundlesRequestRequestTypeDef",
+    "DescribeWorkspaceBundlesRequestPaginateTypeDef",
+    "DescribeWorkspaceBundlesRequestTypeDef",
     "DescribeWorkspaceBundlesResultTypeDef",
-    "DescribeWorkspaceDirectoriesRequestRequestTypeDef",
+    "DescribeWorkspaceDirectoriesFilterTypeDef",
+    "DescribeWorkspaceDirectoriesRequestPaginateTypeDef",
+    "DescribeWorkspaceDirectoriesRequestTypeDef",
     "DescribeWorkspaceDirectoriesResultTypeDef",
-    "DescribeWorkspaceImagePermissionsRequestRequestTypeDef",
+    "DescribeWorkspaceImagePermissionsRequestTypeDef",
     "DescribeWorkspaceImagePermissionsResultTypeDef",
-    "DescribeWorkspaceImagesRequestRequestTypeDef",
+    "DescribeWorkspaceImagesRequestPaginateTypeDef",
+    "DescribeWorkspaceImagesRequestTypeDef",
     "DescribeWorkspaceImagesResultTypeDef",
-    "DescribeWorkspaceSnapshotsRequestRequestTypeDef",
+    "DescribeWorkspaceSnapshotsRequestTypeDef",
     "DescribeWorkspaceSnapshotsResultTypeDef",
-    "DescribeWorkspacesConnectionStatusRequestRequestTypeDef",
+    "DescribeWorkspacesConnectionStatusRequestPaginateTypeDef",
+    "DescribeWorkspacesConnectionStatusRequestTypeDef",
     "DescribeWorkspacesConnectionStatusResultTypeDef",
-    "DescribeWorkspacesPoolSessionsRequestRequestTypeDef",
+    "DescribeWorkspacesPoolSessionsRequestTypeDef",
     "DescribeWorkspacesPoolSessionsResultTypeDef",
     "DescribeWorkspacesPoolsFilterTypeDef",
-    "DescribeWorkspacesPoolsRequestRequestTypeDef",
+    "DescribeWorkspacesPoolsRequestTypeDef",
     "DescribeWorkspacesPoolsResultTypeDef",
-    "DescribeWorkspacesRequestRequestTypeDef",
+    "DescribeWorkspacesRequestPaginateTypeDef",
+    "DescribeWorkspacesRequestTypeDef",
     "DescribeWorkspacesResultTypeDef",
-    "DisassociateConnectionAliasRequestRequestTypeDef",
-    "DisassociateIpGroupsRequestRequestTypeDef",
-    "DisassociateWorkspaceApplicationRequestRequestTypeDef",
+    "DisassociateConnectionAliasRequestTypeDef",
+    "DisassociateIpGroupsRequestTypeDef",
+    "DisassociateWorkspaceApplicationRequestTypeDef",
     "DisassociateWorkspaceApplicationResultTypeDef",
     "ErrorDetailsTypeDef",
     "FailedCreateStandbyWorkspacesRequestTypeDef",
     "FailedCreateWorkspaceRequestTypeDef",
     "FailedWorkspaceChangeRequestTypeDef",
-    "GetAccountLinkRequestRequestTypeDef",
+    "GetAccountLinkRequestTypeDef",
     "GetAccountLinkResultTypeDef",
+    "GlobalAcceleratorForDirectoryTypeDef",
+    "GlobalAcceleratorForWorkSpaceTypeDef",
+    "IDCConfigTypeDef",
     "ImagePermissionTypeDef",
     "ImageResourceAssociationTypeDef",
-    "ImportClientBrandingRequestRequestTypeDef",
+    "ImportClientBrandingRequestTypeDef",
     "ImportClientBrandingResultTypeDef",
-    "ImportWorkspaceImageRequestRequestTypeDef",
+    "ImportWorkspaceImageRequestTypeDef",
     "ImportWorkspaceImageResultTypeDef",
     "IosClientBrandingAttributesTypeDef",
     "IosImportClientBrandingAttributesTypeDef",
     "IpRuleItemTypeDef",
-    "ListAccountLinksRequestRequestTypeDef",
+    "ListAccountLinksRequestPaginateTypeDef",
+    "ListAccountLinksRequestTypeDef",
     "ListAccountLinksResultTypeDef",
-    "ListAvailableManagementCidrRangesRequestRequestTypeDef",
+    "ListAvailableManagementCidrRangesRequestPaginateTypeDef",
+    "ListAvailableManagementCidrRangesRequestTypeDef",
     "ListAvailableManagementCidrRangesResultTypeDef",
-    "MigrateWorkspaceRequestRequestTypeDef",
+    "MicrosoftEntraConfigTypeDef",
+    "MigrateWorkspaceRequestTypeDef",
     "MigrateWorkspaceResultTypeDef",
     "ModificationStateTypeDef",
-    "ModifyAccountRequestRequestTypeDef",
-    "ModifyCertificateBasedAuthPropertiesRequestRequestTypeDef",
-    "ModifyClientPropertiesRequestRequestTypeDef",
-    "ModifySamlPropertiesRequestRequestTypeDef",
-    "ModifySelfservicePermissionsRequestRequestTypeDef",
-    "ModifyStreamingPropertiesRequestRequestTypeDef",
-    "ModifyWorkspaceAccessPropertiesRequestRequestTypeDef",
-    "ModifyWorkspaceCreationPropertiesRequestRequestTypeDef",
-    "ModifyWorkspacePropertiesRequestRequestTypeDef",
-    "ModifyWorkspaceStateRequestRequestTypeDef",
+    "ModifyAccountRequestTypeDef",
+    "ModifyCertificateBasedAuthPropertiesRequestTypeDef",
+    "ModifyClientPropertiesRequestTypeDef",
+    "ModifyEndpointEncryptionModeRequestTypeDef",
+    "ModifySamlPropertiesRequestTypeDef",
+    "ModifySelfservicePermissionsRequestTypeDef",
+    "ModifyStreamingPropertiesRequestTypeDef",
+    "ModifyWorkspaceAccessPropertiesRequestTypeDef",
+    "ModifyWorkspaceCreationPropertiesRequestTypeDef",
+    "ModifyWorkspacePropertiesRequestTypeDef",
+    "ModifyWorkspaceStateRequestTypeDef",
     "NetworkAccessConfigurationTypeDef",
     "OperatingSystemTypeDef",
     "PaginatorConfigTypeDef",
     "PendingCreateStandbyWorkspacesRequestTypeDef",
     "RebootRequestTypeDef",
-    "RebootWorkspacesRequestRequestTypeDef",
+    "RebootWorkspacesRequestTypeDef",
     "RebootWorkspacesResultTypeDef",
     "RebuildRequestTypeDef",
-    "RebuildWorkspacesRequestRequestTypeDef",
+    "RebuildWorkspacesRequestTypeDef",
     "RebuildWorkspacesResultTypeDef",
-    "RegisterWorkspaceDirectoryRequestRequestTypeDef",
+    "RegisterWorkspaceDirectoryRequestTypeDef",
     "RegisterWorkspaceDirectoryResultTypeDef",
-    "RejectAccountLinkInvitationRequestRequestTypeDef",
+    "RejectAccountLinkInvitationRequestTypeDef",
     "RejectAccountLinkInvitationResultTypeDef",
     "RelatedWorkspacePropertiesTypeDef",
     "ResponseMetadataTypeDef",
-    "RestoreWorkspaceRequestRequestTypeDef",
-    "RevokeIpRulesRequestRequestTypeDef",
+    "RestoreWorkspaceRequestTypeDef",
+    "RevokeIpRulesRequestTypeDef",
     "RootStorageTypeDef",
     "SamlPropertiesTypeDef",
     "SelfservicePermissionsTypeDef",
     "SnapshotTypeDef",
+    "StandbyWorkspaceOutputTypeDef",
     "StandbyWorkspaceTypeDef",
+    "StandbyWorkspaceUnionTypeDef",
     "StandbyWorkspacesPropertiesTypeDef",
     "StartRequestTypeDef",
-    "StartWorkspacesPoolRequestRequestTypeDef",
-    "StartWorkspacesRequestRequestTypeDef",
+    "StartWorkspacesPoolRequestTypeDef",
+    "StartWorkspacesRequestTypeDef",
     "StartWorkspacesResultTypeDef",
     "StopRequestTypeDef",
-    "StopWorkspacesPoolRequestRequestTypeDef",
-    "StopWorkspacesRequestRequestTypeDef",
+    "StopWorkspacesPoolRequestTypeDef",
+    "StopWorkspacesRequestTypeDef",
     "StopWorkspacesResultTypeDef",
     "StorageConnectorTypeDef",
+    "StreamingPropertiesOutputTypeDef",
     "StreamingPropertiesTypeDef",
+    "StreamingPropertiesUnionTypeDef",
     "TagTypeDef",
     "TerminateRequestTypeDef",
-    "TerminateWorkspacesPoolRequestRequestTypeDef",
-    "TerminateWorkspacesPoolSessionRequestRequestTypeDef",
-    "TerminateWorkspacesRequestRequestTypeDef",
+    "TerminateWorkspacesPoolRequestTypeDef",
+    "TerminateWorkspacesPoolSessionRequestTypeDef",
+    "TerminateWorkspacesRequestTypeDef",
     "TerminateWorkspacesResultTypeDef",
     "TimeoutSettingsTypeDef",
-    "UpdateConnectClientAddInRequestRequestTypeDef",
-    "UpdateConnectionAliasPermissionRequestRequestTypeDef",
+    "UpdateConnectClientAddInRequestTypeDef",
+    "UpdateConnectionAliasPermissionRequestTypeDef",
     "UpdateResultTypeDef",
-    "UpdateRulesOfIpGroupRequestRequestTypeDef",
-    "UpdateWorkspaceBundleRequestRequestTypeDef",
-    "UpdateWorkspaceImagePermissionRequestRequestTypeDef",
-    "UpdateWorkspacesPoolRequestRequestTypeDef",
+    "UpdateRulesOfIpGroupRequestTypeDef",
+    "UpdateWorkspaceBundleRequestTypeDef",
+    "UpdateWorkspaceImagePermissionRequestTypeDef",
+    "UpdateWorkspacesPoolRequestTypeDef",
     "UpdateWorkspacesPoolResultTypeDef",
     "UserSettingTypeDef",
     "UserStorageTypeDef",
@@ -289,8 +321,12 @@ __all__ = (
     "WorkspaceCreationPropertiesTypeDef",
     "WorkspaceDirectoryTypeDef",
     "WorkspaceImageTypeDef",
+    "WorkspacePropertiesOutputTypeDef",
     "WorkspacePropertiesTypeDef",
+    "WorkspacePropertiesUnionTypeDef",
+    "WorkspaceRequestOutputTypeDef",
     "WorkspaceRequestTypeDef",
+    "WorkspaceRequestUnionTypeDef",
     "WorkspaceResourceAssociationTypeDef",
     "WorkspaceTypeDef",
     "WorkspacesIpGroupTypeDef",
@@ -299,2454 +335,1278 @@ __all__ = (
     "WorkspacesPoolTypeDef",
 )
 
-_RequiredAcceptAccountLinkInvitationRequestRequestTypeDef = TypedDict(
-    "_RequiredAcceptAccountLinkInvitationRequestRequestTypeDef",
-    {
-        "LinkId": str,
-    },
-)
-_OptionalAcceptAccountLinkInvitationRequestRequestTypeDef = TypedDict(
-    "_OptionalAcceptAccountLinkInvitationRequestRequestTypeDef",
-    {
-        "ClientToken": str,
-    },
-    total=False,
-)
-
-class AcceptAccountLinkInvitationRequestRequestTypeDef(
-    _RequiredAcceptAccountLinkInvitationRequestRequestTypeDef,
-    _OptionalAcceptAccountLinkInvitationRequestRequestTypeDef,
-):
-    pass
-
-AcceptAccountLinkInvitationResultTypeDef = TypedDict(
-    "AcceptAccountLinkInvitationResultTypeDef",
-    {
-        "AccountLink": "AccountLinkTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-AccountLinkTypeDef = TypedDict(
-    "AccountLinkTypeDef",
-    {
-        "AccountLinkId": str,
-        "AccountLinkStatus": AccountLinkStatusEnumType,
-        "SourceAccountId": str,
-        "TargetAccountId": str,
-    },
-    total=False,
-)
-
-AccountModificationTypeDef = TypedDict(
-    "AccountModificationTypeDef",
-    {
-        "ModificationState": DedicatedTenancyModificationStateEnumType,
-        "DedicatedTenancySupport": DedicatedTenancySupportResultEnumType,
-        "DedicatedTenancyManagementCidrRange": str,
-        "StartTime": datetime,
-        "ErrorCode": str,
-        "ErrorMessage": str,
-    },
-    total=False,
-)
-
-ActiveDirectoryConfigTypeDef = TypedDict(
-    "ActiveDirectoryConfigTypeDef",
-    {
-        "DomainName": str,
-        "ServiceAccountSecretArn": str,
-    },
-)
-
-ApplicationResourceAssociationTypeDef = TypedDict(
-    "ApplicationResourceAssociationTypeDef",
-    {
-        "ApplicationId": str,
-        "AssociatedResourceId": str,
-        "AssociatedResourceType": ApplicationAssociatedResourceTypeType,
-        "Created": datetime,
-        "LastUpdatedTime": datetime,
-        "State": AssociationStateType,
-        "StateReason": "AssociationStateReasonTypeDef",
-    },
-    total=False,
-)
-
-_RequiredApplicationSettingsRequestTypeDef = TypedDict(
-    "_RequiredApplicationSettingsRequestTypeDef",
-    {
-        "Status": ApplicationSettingsStatusEnumType,
-    },
-)
-_OptionalApplicationSettingsRequestTypeDef = TypedDict(
-    "_OptionalApplicationSettingsRequestTypeDef",
-    {
-        "SettingsGroup": str,
-    },
-    total=False,
-)
-
-class ApplicationSettingsRequestTypeDef(
-    _RequiredApplicationSettingsRequestTypeDef, _OptionalApplicationSettingsRequestTypeDef
-):
-    pass
-
-_RequiredApplicationSettingsResponseTypeDef = TypedDict(
-    "_RequiredApplicationSettingsResponseTypeDef",
-    {
-        "Status": ApplicationSettingsStatusEnumType,
-    },
-)
-_OptionalApplicationSettingsResponseTypeDef = TypedDict(
-    "_OptionalApplicationSettingsResponseTypeDef",
-    {
-        "SettingsGroup": str,
-        "S3BucketName": str,
-    },
-    total=False,
-)
-
-class ApplicationSettingsResponseTypeDef(
-    _RequiredApplicationSettingsResponseTypeDef, _OptionalApplicationSettingsResponseTypeDef
-):
-    pass
-
-AssociateConnectionAliasRequestRequestTypeDef = TypedDict(
-    "AssociateConnectionAliasRequestRequestTypeDef",
-    {
-        "AliasId": str,
-        "ResourceId": str,
-    },
-)
-
-AssociateConnectionAliasResultTypeDef = TypedDict(
-    "AssociateConnectionAliasResultTypeDef",
-    {
-        "ConnectionIdentifier": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-AssociateIpGroupsRequestRequestTypeDef = TypedDict(
-    "AssociateIpGroupsRequestRequestTypeDef",
-    {
-        "DirectoryId": str,
-        "GroupIds": List[str],
-    },
-)
-
-AssociateWorkspaceApplicationRequestRequestTypeDef = TypedDict(
-    "AssociateWorkspaceApplicationRequestRequestTypeDef",
-    {
-        "WorkspaceId": str,
-        "ApplicationId": str,
-    },
-)
-
-AssociateWorkspaceApplicationResultTypeDef = TypedDict(
-    "AssociateWorkspaceApplicationResultTypeDef",
-    {
-        "Association": "WorkspaceResourceAssociationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-AssociationStateReasonTypeDef = TypedDict(
-    "AssociationStateReasonTypeDef",
-    {
-        "ErrorCode": AssociationErrorCodeType,
-        "ErrorMessage": str,
-    },
-    total=False,
-)
-
-AuthorizeIpRulesRequestRequestTypeDef = TypedDict(
-    "AuthorizeIpRulesRequestRequestTypeDef",
-    {
-        "GroupId": str,
-        "UserRules": List["IpRuleItemTypeDef"],
-    },
-)
-
-BundleResourceAssociationTypeDef = TypedDict(
-    "BundleResourceAssociationTypeDef",
-    {
-        "AssociatedResourceId": str,
-        "AssociatedResourceType": Literal["APPLICATION"],
-        "BundleId": str,
-        "Created": datetime,
-        "LastUpdatedTime": datetime,
-        "State": AssociationStateType,
-        "StateReason": "AssociationStateReasonTypeDef",
-    },
-    total=False,
-)
-
-CapacityStatusTypeDef = TypedDict(
-    "CapacityStatusTypeDef",
-    {
-        "AvailableUserSessions": int,
-        "DesiredUserSessions": int,
-        "ActualUserSessions": int,
-        "ActiveUserSessions": int,
-    },
-)
-
-CapacityTypeDef = TypedDict(
-    "CapacityTypeDef",
-    {
-        "DesiredUserSessions": int,
-    },
-)
-
-CertificateBasedAuthPropertiesTypeDef = TypedDict(
-    "CertificateBasedAuthPropertiesTypeDef",
-    {
-        "Status": CertificateBasedAuthStatusEnumType,
-        "CertificateAuthorityArn": str,
-    },
-    total=False,
-)
-
-ClientPropertiesResultTypeDef = TypedDict(
-    "ClientPropertiesResultTypeDef",
-    {
-        "ResourceId": str,
-        "ClientProperties": "ClientPropertiesTypeDef",
-    },
-    total=False,
-)
-
-ClientPropertiesTypeDef = TypedDict(
-    "ClientPropertiesTypeDef",
-    {
-        "ReconnectEnabled": ReconnectEnumType,
-        "LogUploadEnabled": LogUploadEnumType,
-    },
-    total=False,
-)
-
-ComputeTypeTypeDef = TypedDict(
-    "ComputeTypeTypeDef",
-    {
-        "Name": ComputeType,
-    },
-    total=False,
-)
-
-ConnectClientAddInTypeDef = TypedDict(
-    "ConnectClientAddInTypeDef",
-    {
-        "AddInId": str,
-        "ResourceId": str,
-        "Name": str,
-        "URL": str,
-    },
-    total=False,
-)
-
-ConnectionAliasAssociationTypeDef = TypedDict(
-    "ConnectionAliasAssociationTypeDef",
-    {
-        "AssociationStatus": AssociationStatusType,
-        "AssociatedAccountId": str,
-        "ResourceId": str,
-        "ConnectionIdentifier": str,
-    },
-    total=False,
-)
-
-ConnectionAliasPermissionTypeDef = TypedDict(
-    "ConnectionAliasPermissionTypeDef",
-    {
-        "SharedAccountId": str,
-        "AllowAssociation": bool,
-    },
-)
-
-ConnectionAliasTypeDef = TypedDict(
-    "ConnectionAliasTypeDef",
-    {
-        "ConnectionString": str,
-        "AliasId": str,
-        "State": ConnectionAliasStateType,
-        "OwnerAccountId": str,
-        "Associations": List["ConnectionAliasAssociationTypeDef"],
-    },
-    total=False,
-)
-
-_RequiredCopyWorkspaceImageRequestRequestTypeDef = TypedDict(
-    "_RequiredCopyWorkspaceImageRequestRequestTypeDef",
-    {
-        "Name": str,
-        "SourceImageId": str,
-        "SourceRegion": str,
-    },
-)
-_OptionalCopyWorkspaceImageRequestRequestTypeDef = TypedDict(
-    "_OptionalCopyWorkspaceImageRequestRequestTypeDef",
-    {
-        "Description": str,
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CopyWorkspaceImageRequestRequestTypeDef(
-    _RequiredCopyWorkspaceImageRequestRequestTypeDef,
-    _OptionalCopyWorkspaceImageRequestRequestTypeDef,
-):
-    pass
-
-CopyWorkspaceImageResultTypeDef = TypedDict(
-    "CopyWorkspaceImageResultTypeDef",
-    {
-        "ImageId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateAccountLinkInvitationRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateAccountLinkInvitationRequestRequestTypeDef",
-    {
-        "TargetAccountId": str,
-    },
-)
-_OptionalCreateAccountLinkInvitationRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateAccountLinkInvitationRequestRequestTypeDef",
-    {
-        "ClientToken": str,
-    },
-    total=False,
-)
-
-class CreateAccountLinkInvitationRequestRequestTypeDef(
-    _RequiredCreateAccountLinkInvitationRequestRequestTypeDef,
-    _OptionalCreateAccountLinkInvitationRequestRequestTypeDef,
-):
-    pass
-
-CreateAccountLinkInvitationResultTypeDef = TypedDict(
-    "CreateAccountLinkInvitationResultTypeDef",
-    {
-        "AccountLink": "AccountLinkTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateConnectClientAddInRequestRequestTypeDef = TypedDict(
-    "CreateConnectClientAddInRequestRequestTypeDef",
-    {
-        "ResourceId": str,
-        "Name": str,
-        "URL": str,
-    },
-)
-
-CreateConnectClientAddInResultTypeDef = TypedDict(
-    "CreateConnectClientAddInResultTypeDef",
-    {
-        "AddInId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateConnectionAliasRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateConnectionAliasRequestRequestTypeDef",
-    {
-        "ConnectionString": str,
-    },
-)
-_OptionalCreateConnectionAliasRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateConnectionAliasRequestRequestTypeDef",
-    {
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateConnectionAliasRequestRequestTypeDef(
-    _RequiredCreateConnectionAliasRequestRequestTypeDef,
-    _OptionalCreateConnectionAliasRequestRequestTypeDef,
-):
-    pass
-
-CreateConnectionAliasResultTypeDef = TypedDict(
-    "CreateConnectionAliasResultTypeDef",
-    {
-        "AliasId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateIpGroupRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateIpGroupRequestRequestTypeDef",
-    {
-        "GroupName": str,
-    },
-)
-_OptionalCreateIpGroupRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateIpGroupRequestRequestTypeDef",
-    {
-        "GroupDesc": str,
-        "UserRules": List["IpRuleItemTypeDef"],
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateIpGroupRequestRequestTypeDef(
-    _RequiredCreateIpGroupRequestRequestTypeDef, _OptionalCreateIpGroupRequestRequestTypeDef
-):
-    pass
-
-CreateIpGroupResultTypeDef = TypedDict(
-    "CreateIpGroupResultTypeDef",
-    {
-        "GroupId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateStandbyWorkspacesRequestRequestTypeDef = TypedDict(
-    "CreateStandbyWorkspacesRequestRequestTypeDef",
-    {
-        "PrimaryRegion": str,
-        "StandbyWorkspaces": List["StandbyWorkspaceTypeDef"],
-    },
-)
-
-CreateStandbyWorkspacesResultTypeDef = TypedDict(
-    "CreateStandbyWorkspacesResultTypeDef",
-    {
-        "FailedStandbyRequests": List["FailedCreateStandbyWorkspacesRequestTypeDef"],
-        "PendingStandbyRequests": List["PendingCreateStandbyWorkspacesRequestTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateTagsRequestRequestTypeDef = TypedDict(
-    "CreateTagsRequestRequestTypeDef",
-    {
-        "ResourceId": str,
-        "Tags": List["TagTypeDef"],
-    },
-)
-
-_RequiredCreateUpdatedWorkspaceImageRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateUpdatedWorkspaceImageRequestRequestTypeDef",
-    {
-        "Name": str,
-        "Description": str,
-        "SourceImageId": str,
-    },
-)
-_OptionalCreateUpdatedWorkspaceImageRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateUpdatedWorkspaceImageRequestRequestTypeDef",
-    {
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateUpdatedWorkspaceImageRequestRequestTypeDef(
-    _RequiredCreateUpdatedWorkspaceImageRequestRequestTypeDef,
-    _OptionalCreateUpdatedWorkspaceImageRequestRequestTypeDef,
-):
-    pass
-
-CreateUpdatedWorkspaceImageResultTypeDef = TypedDict(
-    "CreateUpdatedWorkspaceImageResultTypeDef",
-    {
-        "ImageId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateWorkspaceBundleRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateWorkspaceBundleRequestRequestTypeDef",
-    {
-        "BundleName": str,
-        "BundleDescription": str,
-        "ImageId": str,
-        "ComputeType": "ComputeTypeTypeDef",
-        "UserStorage": "UserStorageTypeDef",
-    },
-)
-_OptionalCreateWorkspaceBundleRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateWorkspaceBundleRequestRequestTypeDef",
-    {
-        "RootStorage": "RootStorageTypeDef",
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateWorkspaceBundleRequestRequestTypeDef(
-    _RequiredCreateWorkspaceBundleRequestRequestTypeDef,
-    _OptionalCreateWorkspaceBundleRequestRequestTypeDef,
-):
-    pass
-
-CreateWorkspaceBundleResultTypeDef = TypedDict(
-    "CreateWorkspaceBundleResultTypeDef",
-    {
-        "WorkspaceBundle": "WorkspaceBundleTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateWorkspaceImageRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateWorkspaceImageRequestRequestTypeDef",
-    {
-        "Name": str,
-        "Description": str,
-        "WorkspaceId": str,
-    },
-)
-_OptionalCreateWorkspaceImageRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateWorkspaceImageRequestRequestTypeDef",
-    {
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateWorkspaceImageRequestRequestTypeDef(
-    _RequiredCreateWorkspaceImageRequestRequestTypeDef,
-    _OptionalCreateWorkspaceImageRequestRequestTypeDef,
-):
-    pass
-
-CreateWorkspaceImageResultTypeDef = TypedDict(
-    "CreateWorkspaceImageResultTypeDef",
-    {
-        "ImageId": str,
-        "Name": str,
-        "Description": str,
-        "OperatingSystem": "OperatingSystemTypeDef",
-        "State": WorkspaceImageStateType,
-        "RequiredTenancy": WorkspaceImageRequiredTenancyType,
-        "Created": datetime,
-        "OwnerAccountId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateWorkspacesPoolRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateWorkspacesPoolRequestRequestTypeDef",
-    {
-        "PoolName": str,
-        "Description": str,
-        "BundleId": str,
-        "DirectoryId": str,
-        "Capacity": "CapacityTypeDef",
-    },
-)
-_OptionalCreateWorkspacesPoolRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateWorkspacesPoolRequestRequestTypeDef",
-    {
-        "Tags": List["TagTypeDef"],
-        "ApplicationSettings": "ApplicationSettingsRequestTypeDef",
-        "TimeoutSettings": "TimeoutSettingsTypeDef",
-    },
-    total=False,
-)
-
-class CreateWorkspacesPoolRequestRequestTypeDef(
-    _RequiredCreateWorkspacesPoolRequestRequestTypeDef,
-    _OptionalCreateWorkspacesPoolRequestRequestTypeDef,
-):
-    pass
-
-CreateWorkspacesPoolResultTypeDef = TypedDict(
-    "CreateWorkspacesPoolResultTypeDef",
-    {
-        "WorkspacesPool": "WorkspacesPoolTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateWorkspacesRequestRequestTypeDef = TypedDict(
-    "CreateWorkspacesRequestRequestTypeDef",
-    {
-        "Workspaces": List["WorkspaceRequestTypeDef"],
-    },
-)
-
-CreateWorkspacesResultTypeDef = TypedDict(
-    "CreateWorkspacesResultTypeDef",
-    {
-        "FailedRequests": List["FailedCreateWorkspaceRequestTypeDef"],
-        "PendingRequests": List["WorkspaceTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DataReplicationSettingsTypeDef = TypedDict(
-    "DataReplicationSettingsTypeDef",
-    {
-        "DataReplication": DataReplicationType,
-        "RecoverySnapshotTime": datetime,
-    },
-    total=False,
-)
-
-DefaultClientBrandingAttributesTypeDef = TypedDict(
-    "DefaultClientBrandingAttributesTypeDef",
-    {
-        "LogoUrl": str,
-        "SupportEmail": str,
-        "SupportLink": str,
-        "ForgotPasswordLink": str,
-        "LoginMessage": Dict[str, str],
-    },
-    total=False,
-)
-
-DefaultImportClientBrandingAttributesTypeDef = TypedDict(
-    "DefaultImportClientBrandingAttributesTypeDef",
-    {
-        "Logo": Union[bytes, IO[bytes], StreamingBody],
-        "SupportEmail": str,
-        "SupportLink": str,
-        "ForgotPasswordLink": str,
-        "LoginMessage": Dict[str, str],
-    },
-    total=False,
-)
-
-DefaultWorkspaceCreationPropertiesTypeDef = TypedDict(
-    "DefaultWorkspaceCreationPropertiesTypeDef",
-    {
-        "EnableWorkDocs": bool,
-        "EnableInternetAccess": bool,
-        "DefaultOu": str,
-        "CustomSecurityGroupId": str,
-        "UserEnabledAsLocalAdministrator": bool,
-        "EnableMaintenanceMode": bool,
-        "InstanceIamRoleArn": str,
-    },
-    total=False,
-)
-
-_RequiredDeleteAccountLinkInvitationRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteAccountLinkInvitationRequestRequestTypeDef",
-    {
-        "LinkId": str,
-    },
-)
-_OptionalDeleteAccountLinkInvitationRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteAccountLinkInvitationRequestRequestTypeDef",
-    {
-        "ClientToken": str,
-    },
-    total=False,
-)
-
-class DeleteAccountLinkInvitationRequestRequestTypeDef(
-    _RequiredDeleteAccountLinkInvitationRequestRequestTypeDef,
-    _OptionalDeleteAccountLinkInvitationRequestRequestTypeDef,
-):
-    pass
-
-DeleteAccountLinkInvitationResultTypeDef = TypedDict(
-    "DeleteAccountLinkInvitationResultTypeDef",
-    {
-        "AccountLink": "AccountLinkTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteClientBrandingRequestRequestTypeDef = TypedDict(
-    "DeleteClientBrandingRequestRequestTypeDef",
-    {
-        "ResourceId": str,
-        "Platforms": List[ClientDeviceTypeType],
-    },
-)
-
-DeleteConnectClientAddInRequestRequestTypeDef = TypedDict(
-    "DeleteConnectClientAddInRequestRequestTypeDef",
-    {
-        "AddInId": str,
-        "ResourceId": str,
-    },
-)
-
-DeleteConnectionAliasRequestRequestTypeDef = TypedDict(
-    "DeleteConnectionAliasRequestRequestTypeDef",
-    {
-        "AliasId": str,
-    },
-)
-
-DeleteIpGroupRequestRequestTypeDef = TypedDict(
-    "DeleteIpGroupRequestRequestTypeDef",
-    {
-        "GroupId": str,
-    },
-)
-
-DeleteTagsRequestRequestTypeDef = TypedDict(
-    "DeleteTagsRequestRequestTypeDef",
-    {
-        "ResourceId": str,
-        "TagKeys": List[str],
-    },
-)
-
-DeleteWorkspaceBundleRequestRequestTypeDef = TypedDict(
-    "DeleteWorkspaceBundleRequestRequestTypeDef",
-    {
-        "BundleId": str,
-    },
-    total=False,
-)
-
-DeleteWorkspaceImageRequestRequestTypeDef = TypedDict(
-    "DeleteWorkspaceImageRequestRequestTypeDef",
-    {
-        "ImageId": str,
-    },
-)
-
-_RequiredDeployWorkspaceApplicationsRequestRequestTypeDef = TypedDict(
-    "_RequiredDeployWorkspaceApplicationsRequestRequestTypeDef",
-    {
-        "WorkspaceId": str,
-    },
-)
-_OptionalDeployWorkspaceApplicationsRequestRequestTypeDef = TypedDict(
-    "_OptionalDeployWorkspaceApplicationsRequestRequestTypeDef",
-    {
-        "Force": bool,
-    },
-    total=False,
-)
-
-class DeployWorkspaceApplicationsRequestRequestTypeDef(
-    _RequiredDeployWorkspaceApplicationsRequestRequestTypeDef,
-    _OptionalDeployWorkspaceApplicationsRequestRequestTypeDef,
-):
-    pass
-
-DeployWorkspaceApplicationsResultTypeDef = TypedDict(
-    "DeployWorkspaceApplicationsResultTypeDef",
-    {
-        "Deployment": "WorkSpaceApplicationDeploymentTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeregisterWorkspaceDirectoryRequestRequestTypeDef = TypedDict(
-    "DeregisterWorkspaceDirectoryRequestRequestTypeDef",
-    {
-        "DirectoryId": str,
-    },
-)
-
-DescribeAccountModificationsRequestRequestTypeDef = TypedDict(
-    "DescribeAccountModificationsRequestRequestTypeDef",
-    {
-        "NextToken": str,
-    },
-    total=False,
-)
-
-DescribeAccountModificationsResultTypeDef = TypedDict(
-    "DescribeAccountModificationsResultTypeDef",
-    {
-        "AccountModifications": List["AccountModificationTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeAccountResultTypeDef = TypedDict(
-    "DescribeAccountResultTypeDef",
-    {
-        "DedicatedTenancySupport": DedicatedTenancySupportResultEnumType,
-        "DedicatedTenancyManagementCidrRange": str,
-        "DedicatedTenancyAccountType": DedicatedTenancyAccountTypeType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribeApplicationAssociationsRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeApplicationAssociationsRequestRequestTypeDef",
-    {
-        "ApplicationId": str,
-        "AssociatedResourceTypes": List[ApplicationAssociatedResourceTypeType],
-    },
-)
-_OptionalDescribeApplicationAssociationsRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeApplicationAssociationsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class DescribeApplicationAssociationsRequestRequestTypeDef(
-    _RequiredDescribeApplicationAssociationsRequestRequestTypeDef,
-    _OptionalDescribeApplicationAssociationsRequestRequestTypeDef,
-):
-    pass
-
-DescribeApplicationAssociationsResultTypeDef = TypedDict(
-    "DescribeApplicationAssociationsResultTypeDef",
-    {
-        "Associations": List["ApplicationResourceAssociationTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeApplicationsRequestRequestTypeDef = TypedDict(
-    "DescribeApplicationsRequestRequestTypeDef",
-    {
-        "ApplicationIds": List[str],
-        "ComputeTypeNames": List[ComputeType],
-        "LicenseType": WorkSpaceApplicationLicenseTypeType,
-        "OperatingSystemNames": List[OperatingSystemNameType],
-        "Owner": str,
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-DescribeApplicationsResultTypeDef = TypedDict(
-    "DescribeApplicationsResultTypeDef",
-    {
-        "Applications": List["WorkSpaceApplicationTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeBundleAssociationsRequestRequestTypeDef = TypedDict(
-    "DescribeBundleAssociationsRequestRequestTypeDef",
-    {
-        "BundleId": str,
-        "AssociatedResourceTypes": List[Literal["APPLICATION"]],
-    },
-)
-
-DescribeBundleAssociationsResultTypeDef = TypedDict(
-    "DescribeBundleAssociationsResultTypeDef",
-    {
-        "Associations": List["BundleResourceAssociationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeClientBrandingRequestRequestTypeDef = TypedDict(
-    "DescribeClientBrandingRequestRequestTypeDef",
-    {
-        "ResourceId": str,
-    },
-)
-
-DescribeClientBrandingResultTypeDef = TypedDict(
-    "DescribeClientBrandingResultTypeDef",
-    {
-        "DeviceTypeWindows": "DefaultClientBrandingAttributesTypeDef",
-        "DeviceTypeOsx": "DefaultClientBrandingAttributesTypeDef",
-        "DeviceTypeAndroid": "DefaultClientBrandingAttributesTypeDef",
-        "DeviceTypeIos": "IosClientBrandingAttributesTypeDef",
-        "DeviceTypeLinux": "DefaultClientBrandingAttributesTypeDef",
-        "DeviceTypeWeb": "DefaultClientBrandingAttributesTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeClientPropertiesRequestRequestTypeDef = TypedDict(
-    "DescribeClientPropertiesRequestRequestTypeDef",
-    {
-        "ResourceIds": List[str],
-    },
-)
-
-DescribeClientPropertiesResultTypeDef = TypedDict(
-    "DescribeClientPropertiesResultTypeDef",
-    {
-        "ClientPropertiesList": List["ClientPropertiesResultTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribeConnectClientAddInsRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeConnectClientAddInsRequestRequestTypeDef",
-    {
-        "ResourceId": str,
-    },
-)
-_OptionalDescribeConnectClientAddInsRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeConnectClientAddInsRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-class DescribeConnectClientAddInsRequestRequestTypeDef(
-    _RequiredDescribeConnectClientAddInsRequestRequestTypeDef,
-    _OptionalDescribeConnectClientAddInsRequestRequestTypeDef,
-):
-    pass
-
-DescribeConnectClientAddInsResultTypeDef = TypedDict(
-    "DescribeConnectClientAddInsResultTypeDef",
-    {
-        "AddIns": List["ConnectClientAddInTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribeConnectionAliasPermissionsRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeConnectionAliasPermissionsRequestRequestTypeDef",
-    {
-        "AliasId": str,
-    },
-)
-_OptionalDescribeConnectionAliasPermissionsRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeConnectionAliasPermissionsRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-class DescribeConnectionAliasPermissionsRequestRequestTypeDef(
-    _RequiredDescribeConnectionAliasPermissionsRequestRequestTypeDef,
-    _OptionalDescribeConnectionAliasPermissionsRequestRequestTypeDef,
-):
-    pass
-
-DescribeConnectionAliasPermissionsResultTypeDef = TypedDict(
-    "DescribeConnectionAliasPermissionsResultTypeDef",
-    {
-        "AliasId": str,
-        "ConnectionAliasPermissions": List["ConnectionAliasPermissionTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeConnectionAliasesRequestRequestTypeDef = TypedDict(
-    "DescribeConnectionAliasesRequestRequestTypeDef",
-    {
-        "AliasIds": List[str],
-        "ResourceId": str,
-        "Limit": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-DescribeConnectionAliasesResultTypeDef = TypedDict(
-    "DescribeConnectionAliasesResultTypeDef",
-    {
-        "ConnectionAliases": List["ConnectionAliasTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeImageAssociationsRequestRequestTypeDef = TypedDict(
-    "DescribeImageAssociationsRequestRequestTypeDef",
-    {
-        "ImageId": str,
-        "AssociatedResourceTypes": List[Literal["APPLICATION"]],
-    },
-)
-
-DescribeImageAssociationsResultTypeDef = TypedDict(
-    "DescribeImageAssociationsResultTypeDef",
-    {
-        "Associations": List["ImageResourceAssociationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeIpGroupsRequestRequestTypeDef = TypedDict(
-    "DescribeIpGroupsRequestRequestTypeDef",
-    {
-        "GroupIds": List[str],
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-DescribeIpGroupsResultTypeDef = TypedDict(
-    "DescribeIpGroupsResultTypeDef",
-    {
-        "Result": List["WorkspacesIpGroupTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeTagsRequestRequestTypeDef = TypedDict(
-    "DescribeTagsRequestRequestTypeDef",
-    {
-        "ResourceId": str,
-    },
-)
-
-DescribeTagsResultTypeDef = TypedDict(
-    "DescribeTagsResultTypeDef",
-    {
-        "TagList": List["TagTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeWorkspaceAssociationsRequestRequestTypeDef = TypedDict(
-    "DescribeWorkspaceAssociationsRequestRequestTypeDef",
-    {
-        "WorkspaceId": str,
-        "AssociatedResourceTypes": List[Literal["APPLICATION"]],
-    },
-)
-
-DescribeWorkspaceAssociationsResultTypeDef = TypedDict(
-    "DescribeWorkspaceAssociationsResultTypeDef",
-    {
-        "Associations": List["WorkspaceResourceAssociationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeWorkspaceBundlesRequestRequestTypeDef = TypedDict(
-    "DescribeWorkspaceBundlesRequestRequestTypeDef",
-    {
-        "BundleIds": List[str],
-        "Owner": str,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-DescribeWorkspaceBundlesResultTypeDef = TypedDict(
-    "DescribeWorkspaceBundlesResultTypeDef",
-    {
-        "Bundles": List["WorkspaceBundleTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeWorkspaceDirectoriesRequestRequestTypeDef = TypedDict(
-    "DescribeWorkspaceDirectoriesRequestRequestTypeDef",
-    {
-        "DirectoryIds": List[str],
-        "WorkspaceDirectoryNames": List[str],
-        "Limit": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-DescribeWorkspaceDirectoriesResultTypeDef = TypedDict(
-    "DescribeWorkspaceDirectoriesResultTypeDef",
-    {
-        "Directories": List["WorkspaceDirectoryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribeWorkspaceImagePermissionsRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeWorkspaceImagePermissionsRequestRequestTypeDef",
-    {
-        "ImageId": str,
-    },
-)
-_OptionalDescribeWorkspaceImagePermissionsRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeWorkspaceImagePermissionsRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-class DescribeWorkspaceImagePermissionsRequestRequestTypeDef(
-    _RequiredDescribeWorkspaceImagePermissionsRequestRequestTypeDef,
-    _OptionalDescribeWorkspaceImagePermissionsRequestRequestTypeDef,
-):
-    pass
-
-DescribeWorkspaceImagePermissionsResultTypeDef = TypedDict(
-    "DescribeWorkspaceImagePermissionsResultTypeDef",
-    {
-        "ImageId": str,
-        "ImagePermissions": List["ImagePermissionTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeWorkspaceImagesRequestRequestTypeDef = TypedDict(
-    "DescribeWorkspaceImagesRequestRequestTypeDef",
-    {
-        "ImageIds": List[str],
-        "ImageType": ImageTypeType,
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-DescribeWorkspaceImagesResultTypeDef = TypedDict(
-    "DescribeWorkspaceImagesResultTypeDef",
-    {
-        "Images": List["WorkspaceImageTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeWorkspaceSnapshotsRequestRequestTypeDef = TypedDict(
-    "DescribeWorkspaceSnapshotsRequestRequestTypeDef",
-    {
-        "WorkspaceId": str,
-    },
-)
-
-DescribeWorkspaceSnapshotsResultTypeDef = TypedDict(
-    "DescribeWorkspaceSnapshotsResultTypeDef",
-    {
-        "RebuildSnapshots": List["SnapshotTypeDef"],
-        "RestoreSnapshots": List["SnapshotTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeWorkspacesConnectionStatusRequestRequestTypeDef = TypedDict(
-    "DescribeWorkspacesConnectionStatusRequestRequestTypeDef",
-    {
-        "WorkspaceIds": List[str],
-        "NextToken": str,
-    },
-    total=False,
-)
-
-DescribeWorkspacesConnectionStatusResultTypeDef = TypedDict(
-    "DescribeWorkspacesConnectionStatusResultTypeDef",
-    {
-        "WorkspacesConnectionStatus": List["WorkspaceConnectionStatusTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribeWorkspacesPoolSessionsRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeWorkspacesPoolSessionsRequestRequestTypeDef",
-    {
-        "PoolId": str,
-    },
-)
-_OptionalDescribeWorkspacesPoolSessionsRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeWorkspacesPoolSessionsRequestRequestTypeDef",
-    {
-        "UserId": str,
-        "Limit": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class DescribeWorkspacesPoolSessionsRequestRequestTypeDef(
-    _RequiredDescribeWorkspacesPoolSessionsRequestRequestTypeDef,
-    _OptionalDescribeWorkspacesPoolSessionsRequestRequestTypeDef,
-):
-    pass
-
-DescribeWorkspacesPoolSessionsResultTypeDef = TypedDict(
-    "DescribeWorkspacesPoolSessionsResultTypeDef",
-    {
-        "Sessions": List["WorkspacesPoolSessionTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeWorkspacesPoolsFilterTypeDef = TypedDict(
-    "DescribeWorkspacesPoolsFilterTypeDef",
-    {
-        "Name": Literal["PoolName"],
-        "Values": List[str],
-        "Operator": DescribeWorkspacesPoolsFilterOperatorType,
-    },
-)
-
-DescribeWorkspacesPoolsRequestRequestTypeDef = TypedDict(
-    "DescribeWorkspacesPoolsRequestRequestTypeDef",
-    {
-        "PoolIds": List[str],
-        "Filters": List["DescribeWorkspacesPoolsFilterTypeDef"],
-        "Limit": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-DescribeWorkspacesPoolsResultTypeDef = TypedDict(
-    "DescribeWorkspacesPoolsResultTypeDef",
-    {
-        "WorkspacesPools": List["WorkspacesPoolTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeWorkspacesRequestRequestTypeDef = TypedDict(
-    "DescribeWorkspacesRequestRequestTypeDef",
-    {
-        "WorkspaceIds": List[str],
-        "DirectoryId": str,
-        "UserName": str,
-        "BundleId": str,
-        "Limit": int,
-        "NextToken": str,
-        "WorkspaceName": str,
-    },
-    total=False,
-)
-
-DescribeWorkspacesResultTypeDef = TypedDict(
-    "DescribeWorkspacesResultTypeDef",
-    {
-        "Workspaces": List["WorkspaceTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DisassociateConnectionAliasRequestRequestTypeDef = TypedDict(
-    "DisassociateConnectionAliasRequestRequestTypeDef",
-    {
-        "AliasId": str,
-    },
-)
-
-DisassociateIpGroupsRequestRequestTypeDef = TypedDict(
-    "DisassociateIpGroupsRequestRequestTypeDef",
-    {
-        "DirectoryId": str,
-        "GroupIds": List[str],
-    },
-)
-
-DisassociateWorkspaceApplicationRequestRequestTypeDef = TypedDict(
-    "DisassociateWorkspaceApplicationRequestRequestTypeDef",
-    {
-        "WorkspaceId": str,
-        "ApplicationId": str,
-    },
-)
-
-DisassociateWorkspaceApplicationResultTypeDef = TypedDict(
-    "DisassociateWorkspaceApplicationResultTypeDef",
-    {
-        "Association": "WorkspaceResourceAssociationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ErrorDetailsTypeDef = TypedDict(
-    "ErrorDetailsTypeDef",
-    {
-        "ErrorCode": WorkspaceImageErrorDetailCodeType,
-        "ErrorMessage": str,
-    },
-    total=False,
-)
-
-FailedCreateStandbyWorkspacesRequestTypeDef = TypedDict(
-    "FailedCreateStandbyWorkspacesRequestTypeDef",
-    {
-        "StandbyWorkspaceRequest": "StandbyWorkspaceTypeDef",
-        "ErrorCode": str,
-        "ErrorMessage": str,
-    },
-    total=False,
-)
-
-FailedCreateWorkspaceRequestTypeDef = TypedDict(
-    "FailedCreateWorkspaceRequestTypeDef",
-    {
-        "WorkspaceRequest": "WorkspaceRequestTypeDef",
-        "ErrorCode": str,
-        "ErrorMessage": str,
-    },
-    total=False,
-)
-
-FailedWorkspaceChangeRequestTypeDef = TypedDict(
-    "FailedWorkspaceChangeRequestTypeDef",
-    {
-        "WorkspaceId": str,
-        "ErrorCode": str,
-        "ErrorMessage": str,
-    },
-    total=False,
-)
-
-GetAccountLinkRequestRequestTypeDef = TypedDict(
-    "GetAccountLinkRequestRequestTypeDef",
-    {
-        "LinkId": str,
-        "LinkedAccountId": str,
-    },
-    total=False,
-)
-
-GetAccountLinkResultTypeDef = TypedDict(
-    "GetAccountLinkResultTypeDef",
-    {
-        "AccountLink": "AccountLinkTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ImagePermissionTypeDef = TypedDict(
-    "ImagePermissionTypeDef",
-    {
-        "SharedAccountId": str,
-    },
-    total=False,
-)
-
-ImageResourceAssociationTypeDef = TypedDict(
-    "ImageResourceAssociationTypeDef",
-    {
-        "AssociatedResourceId": str,
-        "AssociatedResourceType": Literal["APPLICATION"],
-        "Created": datetime,
-        "LastUpdatedTime": datetime,
-        "ImageId": str,
-        "State": AssociationStateType,
-        "StateReason": "AssociationStateReasonTypeDef",
-    },
-    total=False,
-)
-
-_RequiredImportClientBrandingRequestRequestTypeDef = TypedDict(
-    "_RequiredImportClientBrandingRequestRequestTypeDef",
-    {
-        "ResourceId": str,
-    },
-)
-_OptionalImportClientBrandingRequestRequestTypeDef = TypedDict(
-    "_OptionalImportClientBrandingRequestRequestTypeDef",
-    {
-        "DeviceTypeWindows": "DefaultImportClientBrandingAttributesTypeDef",
-        "DeviceTypeOsx": "DefaultImportClientBrandingAttributesTypeDef",
-        "DeviceTypeAndroid": "DefaultImportClientBrandingAttributesTypeDef",
-        "DeviceTypeIos": "IosImportClientBrandingAttributesTypeDef",
-        "DeviceTypeLinux": "DefaultImportClientBrandingAttributesTypeDef",
-        "DeviceTypeWeb": "DefaultImportClientBrandingAttributesTypeDef",
-    },
-    total=False,
-)
-
-class ImportClientBrandingRequestRequestTypeDef(
-    _RequiredImportClientBrandingRequestRequestTypeDef,
-    _OptionalImportClientBrandingRequestRequestTypeDef,
-):
-    pass
-
-ImportClientBrandingResultTypeDef = TypedDict(
-    "ImportClientBrandingResultTypeDef",
-    {
-        "DeviceTypeWindows": "DefaultClientBrandingAttributesTypeDef",
-        "DeviceTypeOsx": "DefaultClientBrandingAttributesTypeDef",
-        "DeviceTypeAndroid": "DefaultClientBrandingAttributesTypeDef",
-        "DeviceTypeIos": "IosClientBrandingAttributesTypeDef",
-        "DeviceTypeLinux": "DefaultClientBrandingAttributesTypeDef",
-        "DeviceTypeWeb": "DefaultClientBrandingAttributesTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredImportWorkspaceImageRequestRequestTypeDef = TypedDict(
-    "_RequiredImportWorkspaceImageRequestRequestTypeDef",
-    {
-        "Ec2ImageId": str,
-        "IngestionProcess": WorkspaceImageIngestionProcessType,
-        "ImageName": str,
-        "ImageDescription": str,
-    },
-)
-_OptionalImportWorkspaceImageRequestRequestTypeDef = TypedDict(
-    "_OptionalImportWorkspaceImageRequestRequestTypeDef",
-    {
-        "Tags": List["TagTypeDef"],
-        "Applications": List[ApplicationType],
-    },
-    total=False,
-)
-
-class ImportWorkspaceImageRequestRequestTypeDef(
-    _RequiredImportWorkspaceImageRequestRequestTypeDef,
-    _OptionalImportWorkspaceImageRequestRequestTypeDef,
-):
-    pass
-
-ImportWorkspaceImageResultTypeDef = TypedDict(
-    "ImportWorkspaceImageResultTypeDef",
-    {
-        "ImageId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-IosClientBrandingAttributesTypeDef = TypedDict(
-    "IosClientBrandingAttributesTypeDef",
-    {
-        "LogoUrl": str,
-        "Logo2xUrl": str,
-        "Logo3xUrl": str,
-        "SupportEmail": str,
-        "SupportLink": str,
-        "ForgotPasswordLink": str,
-        "LoginMessage": Dict[str, str],
-    },
-    total=False,
-)
-
-IosImportClientBrandingAttributesTypeDef = TypedDict(
-    "IosImportClientBrandingAttributesTypeDef",
-    {
-        "Logo": Union[bytes, IO[bytes], StreamingBody],
-        "Logo2x": Union[bytes, IO[bytes], StreamingBody],
-        "Logo3x": Union[bytes, IO[bytes], StreamingBody],
-        "SupportEmail": str,
-        "SupportLink": str,
-        "ForgotPasswordLink": str,
-        "LoginMessage": Dict[str, str],
-    },
-    total=False,
-)
-
-IpRuleItemTypeDef = TypedDict(
-    "IpRuleItemTypeDef",
-    {
-        "ipRule": str,
-        "ruleDesc": str,
-    },
-    total=False,
-)
-
-ListAccountLinksRequestRequestTypeDef = TypedDict(
-    "ListAccountLinksRequestRequestTypeDef",
-    {
-        "LinkStatusFilter": List[AccountLinkStatusEnumType],
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-ListAccountLinksResultTypeDef = TypedDict(
-    "ListAccountLinksResultTypeDef",
-    {
-        "AccountLinks": List["AccountLinkTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListAvailableManagementCidrRangesRequestRequestTypeDef = TypedDict(
-    "_RequiredListAvailableManagementCidrRangesRequestRequestTypeDef",
-    {
-        "ManagementCidrRangeConstraint": str,
-    },
-)
-_OptionalListAvailableManagementCidrRangesRequestRequestTypeDef = TypedDict(
-    "_OptionalListAvailableManagementCidrRangesRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListAvailableManagementCidrRangesRequestRequestTypeDef(
-    _RequiredListAvailableManagementCidrRangesRequestRequestTypeDef,
-    _OptionalListAvailableManagementCidrRangesRequestRequestTypeDef,
-):
-    pass
-
-ListAvailableManagementCidrRangesResultTypeDef = TypedDict(
-    "ListAvailableManagementCidrRangesResultTypeDef",
-    {
-        "ManagementCidrRanges": List[str],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-MigrateWorkspaceRequestRequestTypeDef = TypedDict(
-    "MigrateWorkspaceRequestRequestTypeDef",
-    {
-        "SourceWorkspaceId": str,
-        "BundleId": str,
-    },
-)
-
-MigrateWorkspaceResultTypeDef = TypedDict(
-    "MigrateWorkspaceResultTypeDef",
-    {
-        "SourceWorkspaceId": str,
-        "TargetWorkspaceId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ModificationStateTypeDef = TypedDict(
-    "ModificationStateTypeDef",
-    {
-        "Resource": ModificationResourceEnumType,
-        "State": ModificationStateEnumType,
-    },
-    total=False,
-)
-
-ModifyAccountRequestRequestTypeDef = TypedDict(
-    "ModifyAccountRequestRequestTypeDef",
-    {
-        "DedicatedTenancySupport": Literal["ENABLED"],
-        "DedicatedTenancyManagementCidrRange": str,
-    },
-    total=False,
-)
-
-_RequiredModifyCertificateBasedAuthPropertiesRequestRequestTypeDef = TypedDict(
-    "_RequiredModifyCertificateBasedAuthPropertiesRequestRequestTypeDef",
-    {
-        "ResourceId": str,
-    },
-)
-_OptionalModifyCertificateBasedAuthPropertiesRequestRequestTypeDef = TypedDict(
-    "_OptionalModifyCertificateBasedAuthPropertiesRequestRequestTypeDef",
-    {
-        "CertificateBasedAuthProperties": "CertificateBasedAuthPropertiesTypeDef",
-        "PropertiesToDelete": List[
-            Literal["CERTIFICATE_BASED_AUTH_PROPERTIES_CERTIFICATE_AUTHORITY_ARN"]
-        ],
-    },
-    total=False,
-)
-
-class ModifyCertificateBasedAuthPropertiesRequestRequestTypeDef(
-    _RequiredModifyCertificateBasedAuthPropertiesRequestRequestTypeDef,
-    _OptionalModifyCertificateBasedAuthPropertiesRequestRequestTypeDef,
-):
-    pass
-
-ModifyClientPropertiesRequestRequestTypeDef = TypedDict(
-    "ModifyClientPropertiesRequestRequestTypeDef",
-    {
-        "ResourceId": str,
-        "ClientProperties": "ClientPropertiesTypeDef",
-    },
-)
-
-_RequiredModifySamlPropertiesRequestRequestTypeDef = TypedDict(
-    "_RequiredModifySamlPropertiesRequestRequestTypeDef",
-    {
-        "ResourceId": str,
-    },
-)
-_OptionalModifySamlPropertiesRequestRequestTypeDef = TypedDict(
-    "_OptionalModifySamlPropertiesRequestRequestTypeDef",
-    {
-        "SamlProperties": "SamlPropertiesTypeDef",
-        "PropertiesToDelete": List[DeletableSamlPropertyType],
-    },
-    total=False,
-)
-
-class ModifySamlPropertiesRequestRequestTypeDef(
-    _RequiredModifySamlPropertiesRequestRequestTypeDef,
-    _OptionalModifySamlPropertiesRequestRequestTypeDef,
-):
-    pass
-
-ModifySelfservicePermissionsRequestRequestTypeDef = TypedDict(
-    "ModifySelfservicePermissionsRequestRequestTypeDef",
-    {
-        "ResourceId": str,
-        "SelfservicePermissions": "SelfservicePermissionsTypeDef",
-    },
-)
-
-_RequiredModifyStreamingPropertiesRequestRequestTypeDef = TypedDict(
-    "_RequiredModifyStreamingPropertiesRequestRequestTypeDef",
-    {
-        "ResourceId": str,
-    },
-)
-_OptionalModifyStreamingPropertiesRequestRequestTypeDef = TypedDict(
-    "_OptionalModifyStreamingPropertiesRequestRequestTypeDef",
-    {
-        "StreamingProperties": "StreamingPropertiesTypeDef",
-    },
-    total=False,
-)
-
-class ModifyStreamingPropertiesRequestRequestTypeDef(
-    _RequiredModifyStreamingPropertiesRequestRequestTypeDef,
-    _OptionalModifyStreamingPropertiesRequestRequestTypeDef,
-):
-    pass
-
-ModifyWorkspaceAccessPropertiesRequestRequestTypeDef = TypedDict(
-    "ModifyWorkspaceAccessPropertiesRequestRequestTypeDef",
-    {
-        "ResourceId": str,
-        "WorkspaceAccessProperties": "WorkspaceAccessPropertiesTypeDef",
-    },
-)
-
-ModifyWorkspaceCreationPropertiesRequestRequestTypeDef = TypedDict(
-    "ModifyWorkspaceCreationPropertiesRequestRequestTypeDef",
-    {
-        "ResourceId": str,
-        "WorkspaceCreationProperties": "WorkspaceCreationPropertiesTypeDef",
-    },
-)
-
-_RequiredModifyWorkspacePropertiesRequestRequestTypeDef = TypedDict(
-    "_RequiredModifyWorkspacePropertiesRequestRequestTypeDef",
-    {
-        "WorkspaceId": str,
-    },
-)
-_OptionalModifyWorkspacePropertiesRequestRequestTypeDef = TypedDict(
-    "_OptionalModifyWorkspacePropertiesRequestRequestTypeDef",
-    {
-        "WorkspaceProperties": "WorkspacePropertiesTypeDef",
-        "DataReplication": DataReplicationType,
-    },
-    total=False,
-)
-
-class ModifyWorkspacePropertiesRequestRequestTypeDef(
-    _RequiredModifyWorkspacePropertiesRequestRequestTypeDef,
-    _OptionalModifyWorkspacePropertiesRequestRequestTypeDef,
-):
-    pass
-
-ModifyWorkspaceStateRequestRequestTypeDef = TypedDict(
-    "ModifyWorkspaceStateRequestRequestTypeDef",
-    {
-        "WorkspaceId": str,
-        "WorkspaceState": TargetWorkspaceStateType,
-    },
-)
-
-NetworkAccessConfigurationTypeDef = TypedDict(
-    "NetworkAccessConfigurationTypeDef",
-    {
-        "EniPrivateIpAddress": str,
-        "EniId": str,
-    },
-    total=False,
-)
+class AcceptAccountLinkInvitationRequestTypeDef(TypedDict):
+    LinkId: str
+    ClientToken: NotRequired[str]
+
+class AccountLinkTypeDef(TypedDict):
+    AccountLinkId: NotRequired[str]
+    AccountLinkStatus: NotRequired[AccountLinkStatusEnumType]
+    SourceAccountId: NotRequired[str]
+    TargetAccountId: NotRequired[str]
+
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
+
+class AccountModificationTypeDef(TypedDict):
+    ModificationState: NotRequired[DedicatedTenancyModificationStateEnumType]
+    DedicatedTenancySupport: NotRequired[DedicatedTenancySupportResultEnumType]
+    DedicatedTenancyManagementCidrRange: NotRequired[str]
+    StartTime: NotRequired[datetime]
+    ErrorCode: NotRequired[str]
+    ErrorMessage: NotRequired[str]
+
+class ActiveDirectoryConfigTypeDef(TypedDict):
+    DomainName: str
+    ServiceAccountSecretArn: str
+
+class AssociationStateReasonTypeDef(TypedDict):
+    ErrorCode: NotRequired[AssociationErrorCodeType]
+    ErrorMessage: NotRequired[str]
+
+class ApplicationSettingsRequestTypeDef(TypedDict):
+    Status: ApplicationSettingsStatusEnumType
+    SettingsGroup: NotRequired[str]
+
+class ApplicationSettingsResponseTypeDef(TypedDict):
+    Status: ApplicationSettingsStatusEnumType
+    SettingsGroup: NotRequired[str]
+    S3BucketName: NotRequired[str]
+
+class AssociateConnectionAliasRequestTypeDef(TypedDict):
+    AliasId: str
+    ResourceId: str
+
+class AssociateIpGroupsRequestTypeDef(TypedDict):
+    DirectoryId: str
+    GroupIds: Sequence[str]
+
+class AssociateWorkspaceApplicationRequestTypeDef(TypedDict):
+    WorkspaceId: str
+    ApplicationId: str
+
+class IpRuleItemTypeDef(TypedDict):
+    ipRule: NotRequired[str]
+    ruleDesc: NotRequired[str]
+
+BlobTypeDef = Union[str, bytes, IO[Any], StreamingBody]
+
+class CapacityStatusTypeDef(TypedDict):
+    AvailableUserSessions: int
+    DesiredUserSessions: int
+    ActualUserSessions: int
+    ActiveUserSessions: int
+
+class CapacityTypeDef(TypedDict):
+    DesiredUserSessions: int
+
+class CertificateBasedAuthPropertiesTypeDef(TypedDict):
+    Status: NotRequired[CertificateBasedAuthStatusEnumType]
+    CertificateAuthorityArn: NotRequired[str]
+
+class ClientPropertiesTypeDef(TypedDict):
+    ReconnectEnabled: NotRequired[ReconnectEnumType]
+    LogUploadEnabled: NotRequired[LogUploadEnumType]
+
+class ComputeTypeTypeDef(TypedDict):
+    Name: NotRequired[ComputeType]
+
+class ConnectClientAddInTypeDef(TypedDict):
+    AddInId: NotRequired[str]
+    ResourceId: NotRequired[str]
+    Name: NotRequired[str]
+    URL: NotRequired[str]
+
+class ConnectionAliasAssociationTypeDef(TypedDict):
+    AssociationStatus: NotRequired[AssociationStatusType]
+    AssociatedAccountId: NotRequired[str]
+    ResourceId: NotRequired[str]
+    ConnectionIdentifier: NotRequired[str]
+
+class ConnectionAliasPermissionTypeDef(TypedDict):
+    SharedAccountId: str
+    AllowAssociation: bool
+
+class TagTypeDef(TypedDict):
+    Key: str
+    Value: NotRequired[str]
+
+class CreateAccountLinkInvitationRequestTypeDef(TypedDict):
+    TargetAccountId: str
+    ClientToken: NotRequired[str]
+
+class CreateConnectClientAddInRequestTypeDef(TypedDict):
+    ResourceId: str
+    Name: str
+    URL: str
+
+class PendingCreateStandbyWorkspacesRequestTypeDef(TypedDict):
+    UserName: NotRequired[str]
+    DirectoryId: NotRequired[str]
+    State: NotRequired[WorkspaceStateType]
+    WorkspaceId: NotRequired[str]
+
+class RootStorageTypeDef(TypedDict):
+    Capacity: str
+
+class UserStorageTypeDef(TypedDict):
+    Capacity: str
 
 OperatingSystemTypeDef = TypedDict(
     "OperatingSystemTypeDef",
     {
-        "Type": OperatingSystemTypeType,
-    },
-    total=False,
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-PendingCreateStandbyWorkspacesRequestTypeDef = TypedDict(
-    "PendingCreateStandbyWorkspacesRequestTypeDef",
-    {
-        "UserName": str,
-        "DirectoryId": str,
-        "State": WorkspaceStateType,
-        "WorkspaceId": str,
-    },
-    total=False,
-)
-
-RebootRequestTypeDef = TypedDict(
-    "RebootRequestTypeDef",
-    {
-        "WorkspaceId": str,
+        "Type": NotRequired[OperatingSystemTypeType],
     },
 )
 
-RebootWorkspacesRequestRequestTypeDef = TypedDict(
-    "RebootWorkspacesRequestRequestTypeDef",
-    {
-        "RebootWorkspaceRequests": List["RebootRequestTypeDef"],
-    },
-)
+class TimeoutSettingsTypeDef(TypedDict):
+    DisconnectTimeoutInSeconds: NotRequired[int]
+    IdleDisconnectTimeoutInSeconds: NotRequired[int]
+    MaxUserDurationInSeconds: NotRequired[int]
 
-RebootWorkspacesResultTypeDef = TypedDict(
-    "RebootWorkspacesResultTypeDef",
-    {
-        "FailedRequests": List["FailedWorkspaceChangeRequestTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DataReplicationSettingsTypeDef(TypedDict):
+    DataReplication: NotRequired[DataReplicationType]
+    RecoverySnapshotTime: NotRequired[datetime]
 
-RebuildRequestTypeDef = TypedDict(
-    "RebuildRequestTypeDef",
-    {
-        "WorkspaceId": str,
-    },
-)
+class DefaultClientBrandingAttributesTypeDef(TypedDict):
+    LogoUrl: NotRequired[str]
+    SupportEmail: NotRequired[str]
+    SupportLink: NotRequired[str]
+    ForgotPasswordLink: NotRequired[str]
+    LoginMessage: NotRequired[Dict[str, str]]
 
-RebuildWorkspacesRequestRequestTypeDef = TypedDict(
-    "RebuildWorkspacesRequestRequestTypeDef",
-    {
-        "RebuildWorkspaceRequests": List["RebuildRequestTypeDef"],
-    },
-)
+class DefaultWorkspaceCreationPropertiesTypeDef(TypedDict):
+    EnableWorkDocs: NotRequired[bool]
+    EnableInternetAccess: NotRequired[bool]
+    DefaultOu: NotRequired[str]
+    CustomSecurityGroupId: NotRequired[str]
+    UserEnabledAsLocalAdministrator: NotRequired[bool]
+    EnableMaintenanceMode: NotRequired[bool]
+    InstanceIamRoleArn: NotRequired[str]
 
-RebuildWorkspacesResultTypeDef = TypedDict(
-    "RebuildWorkspacesResultTypeDef",
-    {
-        "FailedRequests": List["FailedWorkspaceChangeRequestTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DeleteAccountLinkInvitationRequestTypeDef(TypedDict):
+    LinkId: str
+    ClientToken: NotRequired[str]
 
-RegisterWorkspaceDirectoryRequestRequestTypeDef = TypedDict(
-    "RegisterWorkspaceDirectoryRequestRequestTypeDef",
-    {
-        "DirectoryId": str,
-        "SubnetIds": List[str],
-        "EnableWorkDocs": bool,
-        "EnableSelfService": bool,
-        "Tenancy": TenancyType,
-        "Tags": List["TagTypeDef"],
-        "WorkspaceDirectoryName": str,
-        "WorkspaceDirectoryDescription": str,
-        "UserIdentityType": UserIdentityTypeType,
-        "WorkspaceType": WorkspaceTypeType,
-        "ActiveDirectoryConfig": "ActiveDirectoryConfigTypeDef",
-    },
-    total=False,
-)
+class DeleteClientBrandingRequestTypeDef(TypedDict):
+    ResourceId: str
+    Platforms: Sequence[ClientDeviceTypeType]
 
-RegisterWorkspaceDirectoryResultTypeDef = TypedDict(
-    "RegisterWorkspaceDirectoryResultTypeDef",
-    {
-        "DirectoryId": str,
-        "State": WorkspaceDirectoryStateType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DeleteConnectClientAddInRequestTypeDef(TypedDict):
+    AddInId: str
+    ResourceId: str
 
-_RequiredRejectAccountLinkInvitationRequestRequestTypeDef = TypedDict(
-    "_RequiredRejectAccountLinkInvitationRequestRequestTypeDef",
-    {
-        "LinkId": str,
-    },
-)
-_OptionalRejectAccountLinkInvitationRequestRequestTypeDef = TypedDict(
-    "_OptionalRejectAccountLinkInvitationRequestRequestTypeDef",
-    {
-        "ClientToken": str,
-    },
-    total=False,
-)
+class DeleteConnectionAliasRequestTypeDef(TypedDict):
+    AliasId: str
 
-class RejectAccountLinkInvitationRequestRequestTypeDef(
-    _RequiredRejectAccountLinkInvitationRequestRequestTypeDef,
-    _OptionalRejectAccountLinkInvitationRequestRequestTypeDef,
-):
-    pass
+class DeleteIpGroupRequestTypeDef(TypedDict):
+    GroupId: str
 
-RejectAccountLinkInvitationResultTypeDef = TypedDict(
-    "RejectAccountLinkInvitationResultTypeDef",
-    {
-        "AccountLink": "AccountLinkTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DeleteTagsRequestTypeDef(TypedDict):
+    ResourceId: str
+    TagKeys: Sequence[str]
+
+class DeleteWorkspaceBundleRequestTypeDef(TypedDict):
+    BundleId: NotRequired[str]
+
+class DeleteWorkspaceImageRequestTypeDef(TypedDict):
+    ImageId: str
+
+class DeployWorkspaceApplicationsRequestTypeDef(TypedDict):
+    WorkspaceId: str
+    Force: NotRequired[bool]
+
+class DeregisterWorkspaceDirectoryRequestTypeDef(TypedDict):
+    DirectoryId: str
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class DescribeAccountModificationsRequestTypeDef(TypedDict):
+    NextToken: NotRequired[str]
+
+class DescribeApplicationAssociationsRequestTypeDef(TypedDict):
+    ApplicationId: str
+    AssociatedResourceTypes: Sequence[ApplicationAssociatedResourceTypeType]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class DescribeApplicationsRequestTypeDef(TypedDict):
+    ApplicationIds: NotRequired[Sequence[str]]
+    ComputeTypeNames: NotRequired[Sequence[ComputeType]]
+    LicenseType: NotRequired[WorkSpaceApplicationLicenseTypeType]
+    OperatingSystemNames: NotRequired[Sequence[OperatingSystemNameType]]
+    Owner: NotRequired[str]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class WorkSpaceApplicationTypeDef(TypedDict):
+    ApplicationId: NotRequired[str]
+    Created: NotRequired[datetime]
+    Description: NotRequired[str]
+    LicenseType: NotRequired[WorkSpaceApplicationLicenseTypeType]
+    Name: NotRequired[str]
+    Owner: NotRequired[str]
+    State: NotRequired[WorkSpaceApplicationStateType]
+    SupportedComputeTypeNames: NotRequired[List[ComputeType]]
+    SupportedOperatingSystemNames: NotRequired[List[OperatingSystemNameType]]
+
+class DescribeBundleAssociationsRequestTypeDef(TypedDict):
+    BundleId: str
+    AssociatedResourceTypes: Sequence[Literal["APPLICATION"]]
+
+class DescribeClientBrandingRequestTypeDef(TypedDict):
+    ResourceId: str
+
+class IosClientBrandingAttributesTypeDef(TypedDict):
+    LogoUrl: NotRequired[str]
+    Logo2xUrl: NotRequired[str]
+    Logo3xUrl: NotRequired[str]
+    SupportEmail: NotRequired[str]
+    SupportLink: NotRequired[str]
+    ForgotPasswordLink: NotRequired[str]
+    LoginMessage: NotRequired[Dict[str, str]]
+
+class DescribeClientPropertiesRequestTypeDef(TypedDict):
+    ResourceIds: Sequence[str]
+
+class DescribeConnectClientAddInsRequestTypeDef(TypedDict):
+    ResourceId: str
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class DescribeConnectionAliasPermissionsRequestTypeDef(TypedDict):
+    AliasId: str
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class DescribeConnectionAliasesRequestTypeDef(TypedDict):
+    AliasIds: NotRequired[Sequence[str]]
+    ResourceId: NotRequired[str]
+    Limit: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class DescribeImageAssociationsRequestTypeDef(TypedDict):
+    ImageId: str
+    AssociatedResourceTypes: Sequence[Literal["APPLICATION"]]
+
+class DescribeIpGroupsRequestTypeDef(TypedDict):
+    GroupIds: NotRequired[Sequence[str]]
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class DescribeTagsRequestTypeDef(TypedDict):
+    ResourceId: str
+
+class DescribeWorkspaceAssociationsRequestTypeDef(TypedDict):
+    WorkspaceId: str
+    AssociatedResourceTypes: Sequence[Literal["APPLICATION"]]
+
+class DescribeWorkspaceBundlesRequestTypeDef(TypedDict):
+    BundleIds: NotRequired[Sequence[str]]
+    Owner: NotRequired[str]
+    NextToken: NotRequired[str]
+
+class DescribeWorkspaceDirectoriesFilterTypeDef(TypedDict):
+    Name: DescribeWorkspaceDirectoriesFilterNameType
+    Values: Sequence[str]
+
+class DescribeWorkspaceImagePermissionsRequestTypeDef(TypedDict):
+    ImageId: str
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class ImagePermissionTypeDef(TypedDict):
+    SharedAccountId: NotRequired[str]
+
+class DescribeWorkspaceImagesRequestTypeDef(TypedDict):
+    ImageIds: NotRequired[Sequence[str]]
+    ImageType: NotRequired[ImageTypeType]
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class DescribeWorkspaceSnapshotsRequestTypeDef(TypedDict):
+    WorkspaceId: str
+
+class SnapshotTypeDef(TypedDict):
+    SnapshotTime: NotRequired[datetime]
+
+class DescribeWorkspacesConnectionStatusRequestTypeDef(TypedDict):
+    WorkspaceIds: NotRequired[Sequence[str]]
+    NextToken: NotRequired[str]
+
+class WorkspaceConnectionStatusTypeDef(TypedDict):
+    WorkspaceId: NotRequired[str]
+    ConnectionState: NotRequired[ConnectionStateType]
+    ConnectionStateCheckTimestamp: NotRequired[datetime]
+    LastKnownUserConnectionTimestamp: NotRequired[datetime]
+
+class DescribeWorkspacesPoolSessionsRequestTypeDef(TypedDict):
+    PoolId: str
+    UserId: NotRequired[str]
+    Limit: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class DescribeWorkspacesPoolsFilterTypeDef(TypedDict):
+    Name: Literal["PoolName"]
+    Values: Sequence[str]
+    Operator: DescribeWorkspacesPoolsFilterOperatorType
+
+class DescribeWorkspacesRequestTypeDef(TypedDict):
+    WorkspaceIds: NotRequired[Sequence[str]]
+    DirectoryId: NotRequired[str]
+    UserName: NotRequired[str]
+    BundleId: NotRequired[str]
+    Limit: NotRequired[int]
+    NextToken: NotRequired[str]
+    WorkspaceName: NotRequired[str]
+
+class DisassociateConnectionAliasRequestTypeDef(TypedDict):
+    AliasId: str
+
+class DisassociateIpGroupsRequestTypeDef(TypedDict):
+    DirectoryId: str
+    GroupIds: Sequence[str]
+
+class DisassociateWorkspaceApplicationRequestTypeDef(TypedDict):
+    WorkspaceId: str
+    ApplicationId: str
+
+class ErrorDetailsTypeDef(TypedDict):
+    ErrorCode: NotRequired[WorkspaceImageErrorDetailCodeType]
+    ErrorMessage: NotRequired[str]
+
+class FailedWorkspaceChangeRequestTypeDef(TypedDict):
+    WorkspaceId: NotRequired[str]
+    ErrorCode: NotRequired[str]
+    ErrorMessage: NotRequired[str]
+
+class GetAccountLinkRequestTypeDef(TypedDict):
+    LinkId: NotRequired[str]
+    LinkedAccountId: NotRequired[str]
+
+class GlobalAcceleratorForDirectoryTypeDef(TypedDict):
+    Mode: AGAModeForDirectoryEnumType
+    PreferredProtocol: NotRequired[AGAPreferredProtocolForDirectoryType]
+
+class GlobalAcceleratorForWorkSpaceTypeDef(TypedDict):
+    Mode: AGAModeForWorkSpaceEnumType
+    PreferredProtocol: NotRequired[AGAPreferredProtocolForWorkSpaceType]
+
+class IDCConfigTypeDef(TypedDict):
+    InstanceArn: NotRequired[str]
+    ApplicationArn: NotRequired[str]
+
+class ListAccountLinksRequestTypeDef(TypedDict):
+    LinkStatusFilter: NotRequired[Sequence[AccountLinkStatusEnumType]]
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class ListAvailableManagementCidrRangesRequestTypeDef(TypedDict):
+    ManagementCidrRangeConstraint: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class MicrosoftEntraConfigTypeDef(TypedDict):
+    TenantId: NotRequired[str]
+    ApplicationConfigSecretArn: NotRequired[str]
+
+class MigrateWorkspaceRequestTypeDef(TypedDict):
+    SourceWorkspaceId: str
+    BundleId: str
+
+class ModificationStateTypeDef(TypedDict):
+    Resource: NotRequired[ModificationResourceEnumType]
+    State: NotRequired[ModificationStateEnumType]
+
+class ModifyAccountRequestTypeDef(TypedDict):
+    DedicatedTenancySupport: NotRequired[Literal["ENABLED"]]
+    DedicatedTenancyManagementCidrRange: NotRequired[str]
+
+class ModifyEndpointEncryptionModeRequestTypeDef(TypedDict):
+    DirectoryId: str
+    EndpointEncryptionMode: EndpointEncryptionModeType
+
+class SamlPropertiesTypeDef(TypedDict):
+    Status: NotRequired[SamlStatusEnumType]
+    UserAccessUrl: NotRequired[str]
+    RelayStateParameterName: NotRequired[str]
+
+class SelfservicePermissionsTypeDef(TypedDict):
+    RestartWorkspace: NotRequired[ReconnectEnumType]
+    IncreaseVolumeSize: NotRequired[ReconnectEnumType]
+    ChangeComputeType: NotRequired[ReconnectEnumType]
+    SwitchRunningMode: NotRequired[ReconnectEnumType]
+    RebuildWorkspace: NotRequired[ReconnectEnumType]
+
+class WorkspaceAccessPropertiesTypeDef(TypedDict):
+    DeviceTypeWindows: NotRequired[AccessPropertyValueType]
+    DeviceTypeOsx: NotRequired[AccessPropertyValueType]
+    DeviceTypeWeb: NotRequired[AccessPropertyValueType]
+    DeviceTypeIos: NotRequired[AccessPropertyValueType]
+    DeviceTypeAndroid: NotRequired[AccessPropertyValueType]
+    DeviceTypeChromeOs: NotRequired[AccessPropertyValueType]
+    DeviceTypeZeroClient: NotRequired[AccessPropertyValueType]
+    DeviceTypeLinux: NotRequired[AccessPropertyValueType]
+    DeviceTypeWorkSpacesThinClient: NotRequired[AccessPropertyValueType]
+
+class WorkspaceCreationPropertiesTypeDef(TypedDict):
+    EnableWorkDocs: NotRequired[bool]
+    EnableInternetAccess: NotRequired[bool]
+    DefaultOu: NotRequired[str]
+    CustomSecurityGroupId: NotRequired[str]
+    UserEnabledAsLocalAdministrator: NotRequired[bool]
+    EnableMaintenanceMode: NotRequired[bool]
+    InstanceIamRoleArn: NotRequired[str]
+
+class ModifyWorkspaceStateRequestTypeDef(TypedDict):
+    WorkspaceId: str
+    WorkspaceState: TargetWorkspaceStateType
+
+class NetworkAccessConfigurationTypeDef(TypedDict):
+    EniPrivateIpAddress: NotRequired[str]
+    EniId: NotRequired[str]
+
+class RebootRequestTypeDef(TypedDict):
+    WorkspaceId: str
+
+class RebuildRequestTypeDef(TypedDict):
+    WorkspaceId: str
+
+class RejectAccountLinkInvitationRequestTypeDef(TypedDict):
+    LinkId: str
+    ClientToken: NotRequired[str]
 
 RelatedWorkspacePropertiesTypeDef = TypedDict(
     "RelatedWorkspacePropertiesTypeDef",
     {
-        "WorkspaceId": str,
-        "Region": str,
-        "State": WorkspaceStateType,
-        "Type": StandbyWorkspaceRelationshipTypeType,
-    },
-    total=False,
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
+        "WorkspaceId": NotRequired[str],
+        "Region": NotRequired[str],
+        "State": NotRequired[WorkspaceStateType],
+        "Type": NotRequired[StandbyWorkspaceRelationshipTypeType],
     },
 )
 
-RestoreWorkspaceRequestRequestTypeDef = TypedDict(
-    "RestoreWorkspaceRequestRequestTypeDef",
-    {
-        "WorkspaceId": str,
-    },
-)
+class RestoreWorkspaceRequestTypeDef(TypedDict):
+    WorkspaceId: str
 
-RevokeIpRulesRequestRequestTypeDef = TypedDict(
-    "RevokeIpRulesRequestRequestTypeDef",
-    {
-        "GroupId": str,
-        "UserRules": List[str],
-    },
-)
+class RevokeIpRulesRequestTypeDef(TypedDict):
+    GroupId: str
+    UserRules: Sequence[str]
 
-RootStorageTypeDef = TypedDict(
-    "RootStorageTypeDef",
-    {
-        "Capacity": str,
-    },
-    total=False,
-)
+class StandbyWorkspacesPropertiesTypeDef(TypedDict):
+    StandbyWorkspaceId: NotRequired[str]
+    DataReplication: NotRequired[DataReplicationType]
+    RecoverySnapshotTime: NotRequired[datetime]
 
-SamlPropertiesTypeDef = TypedDict(
-    "SamlPropertiesTypeDef",
-    {
-        "Status": SamlStatusEnumType,
-        "UserAccessUrl": str,
-        "RelayStateParameterName": str,
-    },
-    total=False,
-)
+class StartRequestTypeDef(TypedDict):
+    WorkspaceId: NotRequired[str]
 
-SelfservicePermissionsTypeDef = TypedDict(
-    "SelfservicePermissionsTypeDef",
-    {
-        "RestartWorkspace": ReconnectEnumType,
-        "IncreaseVolumeSize": ReconnectEnumType,
-        "ChangeComputeType": ReconnectEnumType,
-        "SwitchRunningMode": ReconnectEnumType,
-        "RebuildWorkspace": ReconnectEnumType,
-    },
-    total=False,
-)
+class StartWorkspacesPoolRequestTypeDef(TypedDict):
+    PoolId: str
 
-SnapshotTypeDef = TypedDict(
-    "SnapshotTypeDef",
-    {
-        "SnapshotTime": datetime,
-    },
-    total=False,
-)
+class StopRequestTypeDef(TypedDict):
+    WorkspaceId: NotRequired[str]
 
-_RequiredStandbyWorkspaceTypeDef = TypedDict(
-    "_RequiredStandbyWorkspaceTypeDef",
-    {
-        "PrimaryWorkspaceId": str,
-        "DirectoryId": str,
-    },
-)
-_OptionalStandbyWorkspaceTypeDef = TypedDict(
-    "_OptionalStandbyWorkspaceTypeDef",
-    {
-        "VolumeEncryptionKey": str,
-        "Tags": List["TagTypeDef"],
-        "DataReplication": DataReplicationType,
-    },
-    total=False,
-)
+class StopWorkspacesPoolRequestTypeDef(TypedDict):
+    PoolId: str
 
-class StandbyWorkspaceTypeDef(_RequiredStandbyWorkspaceTypeDef, _OptionalStandbyWorkspaceTypeDef):
-    pass
+class StorageConnectorTypeDef(TypedDict):
+    ConnectorType: Literal["HOME_FOLDER"]
+    Status: StorageConnectorStatusEnumType
 
-StandbyWorkspacesPropertiesTypeDef = TypedDict(
-    "StandbyWorkspacesPropertiesTypeDef",
-    {
-        "StandbyWorkspaceId": str,
-        "DataReplication": DataReplicationType,
-        "RecoverySnapshotTime": datetime,
-    },
-    total=False,
-)
+class UserSettingTypeDef(TypedDict):
+    Action: UserSettingActionEnumType
+    Permission: UserSettingPermissionEnumType
+    MaximumLength: NotRequired[int]
 
-StartRequestTypeDef = TypedDict(
-    "StartRequestTypeDef",
-    {
-        "WorkspaceId": str,
-    },
-    total=False,
-)
+class TerminateRequestTypeDef(TypedDict):
+    WorkspaceId: str
 
-StartWorkspacesPoolRequestRequestTypeDef = TypedDict(
-    "StartWorkspacesPoolRequestRequestTypeDef",
-    {
-        "PoolId": str,
-    },
-)
+class TerminateWorkspacesPoolRequestTypeDef(TypedDict):
+    PoolId: str
 
-StartWorkspacesRequestRequestTypeDef = TypedDict(
-    "StartWorkspacesRequestRequestTypeDef",
-    {
-        "StartWorkspaceRequests": List["StartRequestTypeDef"],
-    },
-)
+class TerminateWorkspacesPoolSessionRequestTypeDef(TypedDict):
+    SessionId: str
 
-StartWorkspacesResultTypeDef = TypedDict(
-    "StartWorkspacesResultTypeDef",
-    {
-        "FailedRequests": List["FailedWorkspaceChangeRequestTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class UpdateConnectClientAddInRequestTypeDef(TypedDict):
+    AddInId: str
+    ResourceId: str
+    Name: NotRequired[str]
+    URL: NotRequired[str]
 
-StopRequestTypeDef = TypedDict(
-    "StopRequestTypeDef",
-    {
-        "WorkspaceId": str,
-    },
-    total=False,
-)
+class UpdateResultTypeDef(TypedDict):
+    UpdateAvailable: NotRequired[bool]
+    Description: NotRequired[str]
 
-StopWorkspacesPoolRequestRequestTypeDef = TypedDict(
-    "StopWorkspacesPoolRequestRequestTypeDef",
-    {
-        "PoolId": str,
-    },
-)
+class UpdateWorkspaceBundleRequestTypeDef(TypedDict):
+    BundleId: NotRequired[str]
+    ImageId: NotRequired[str]
 
-StopWorkspacesRequestRequestTypeDef = TypedDict(
-    "StopWorkspacesRequestRequestTypeDef",
-    {
-        "StopWorkspaceRequests": List["StopRequestTypeDef"],
-    },
-)
+class UpdateWorkspaceImagePermissionRequestTypeDef(TypedDict):
+    ImageId: str
+    AllowCopyImage: bool
+    SharedAccountId: str
 
-StopWorkspacesResultTypeDef = TypedDict(
-    "StopWorkspacesResultTypeDef",
-    {
-        "FailedRequests": List["FailedWorkspaceChangeRequestTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class WorkspacesPoolErrorTypeDef(TypedDict):
+    ErrorCode: NotRequired[WorkspacesPoolErrorCodeType]
+    ErrorMessage: NotRequired[str]
 
-StorageConnectorTypeDef = TypedDict(
-    "StorageConnectorTypeDef",
-    {
-        "ConnectorType": Literal["HOME_FOLDER"],
-        "Status": StorageConnectorStatusEnumType,
-    },
-)
+class AcceptAccountLinkInvitationResultTypeDef(TypedDict):
+    AccountLink: AccountLinkTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-StreamingPropertiesTypeDef = TypedDict(
-    "StreamingPropertiesTypeDef",
-    {
-        "StreamingExperiencePreferredProtocol": StreamingExperiencePreferredProtocolEnumType,
-        "UserSettings": List["UserSettingTypeDef"],
-        "StorageConnectors": List["StorageConnectorTypeDef"],
-    },
-    total=False,
-)
+class AssociateConnectionAliasResultTypeDef(TypedDict):
+    ConnectionIdentifier: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredTagTypeDef = TypedDict(
-    "_RequiredTagTypeDef",
-    {
-        "Key": str,
-    },
-)
-_OptionalTagTypeDef = TypedDict(
-    "_OptionalTagTypeDef",
-    {
-        "Value": str,
-    },
-    total=False,
-)
+class CopyWorkspaceImageResultTypeDef(TypedDict):
+    ImageId: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class TagTypeDef(_RequiredTagTypeDef, _OptionalTagTypeDef):
-    pass
+class CreateAccountLinkInvitationResultTypeDef(TypedDict):
+    AccountLink: AccountLinkTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-TerminateRequestTypeDef = TypedDict(
-    "TerminateRequestTypeDef",
-    {
-        "WorkspaceId": str,
-    },
-)
+class CreateConnectClientAddInResultTypeDef(TypedDict):
+    AddInId: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-TerminateWorkspacesPoolRequestRequestTypeDef = TypedDict(
-    "TerminateWorkspacesPoolRequestRequestTypeDef",
-    {
-        "PoolId": str,
-    },
-)
+class CreateConnectionAliasResultTypeDef(TypedDict):
+    AliasId: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-TerminateWorkspacesPoolSessionRequestRequestTypeDef = TypedDict(
-    "TerminateWorkspacesPoolSessionRequestRequestTypeDef",
-    {
-        "SessionId": str,
-    },
-)
+class CreateIpGroupResultTypeDef(TypedDict):
+    GroupId: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-TerminateWorkspacesRequestRequestTypeDef = TypedDict(
-    "TerminateWorkspacesRequestRequestTypeDef",
-    {
-        "TerminateWorkspaceRequests": List["TerminateRequestTypeDef"],
-    },
-)
+class CreateUpdatedWorkspaceImageResultTypeDef(TypedDict):
+    ImageId: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-TerminateWorkspacesResultTypeDef = TypedDict(
-    "TerminateWorkspacesResultTypeDef",
-    {
-        "FailedRequests": List["FailedWorkspaceChangeRequestTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DeleteAccountLinkInvitationResultTypeDef(TypedDict):
+    AccountLink: AccountLinkTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-TimeoutSettingsTypeDef = TypedDict(
-    "TimeoutSettingsTypeDef",
-    {
-        "DisconnectTimeoutInSeconds": int,
-        "IdleDisconnectTimeoutInSeconds": int,
-        "MaxUserDurationInSeconds": int,
-    },
-    total=False,
-)
+class DescribeAccountResultTypeDef(TypedDict):
+    DedicatedTenancySupport: DedicatedTenancySupportResultEnumType
+    DedicatedTenancyManagementCidrRange: str
+    DedicatedTenancyAccountType: DedicatedTenancyAccountTypeType
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredUpdateConnectClientAddInRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateConnectClientAddInRequestRequestTypeDef",
-    {
-        "AddInId": str,
-        "ResourceId": str,
-    },
-)
-_OptionalUpdateConnectClientAddInRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateConnectClientAddInRequestRequestTypeDef",
-    {
-        "Name": str,
-        "URL": str,
-    },
-    total=False,
-)
+class GetAccountLinkResultTypeDef(TypedDict):
+    AccountLink: AccountLinkTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateConnectClientAddInRequestRequestTypeDef(
-    _RequiredUpdateConnectClientAddInRequestRequestTypeDef,
-    _OptionalUpdateConnectClientAddInRequestRequestTypeDef,
-):
-    pass
+class ImportWorkspaceImageResultTypeDef(TypedDict):
+    ImageId: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-UpdateConnectionAliasPermissionRequestRequestTypeDef = TypedDict(
-    "UpdateConnectionAliasPermissionRequestRequestTypeDef",
-    {
-        "AliasId": str,
-        "ConnectionAliasPermission": "ConnectionAliasPermissionTypeDef",
-    },
-)
+class ListAccountLinksResultTypeDef(TypedDict):
+    AccountLinks: List[AccountLinkTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-UpdateResultTypeDef = TypedDict(
-    "UpdateResultTypeDef",
-    {
-        "UpdateAvailable": bool,
-        "Description": str,
-    },
-    total=False,
-)
+class ListAvailableManagementCidrRangesResultTypeDef(TypedDict):
+    ManagementCidrRanges: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-UpdateRulesOfIpGroupRequestRequestTypeDef = TypedDict(
-    "UpdateRulesOfIpGroupRequestRequestTypeDef",
-    {
-        "GroupId": str,
-        "UserRules": List["IpRuleItemTypeDef"],
-    },
-)
+class MigrateWorkspaceResultTypeDef(TypedDict):
+    SourceWorkspaceId: str
+    TargetWorkspaceId: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-UpdateWorkspaceBundleRequestRequestTypeDef = TypedDict(
-    "UpdateWorkspaceBundleRequestRequestTypeDef",
+class RegisterWorkspaceDirectoryResultTypeDef(TypedDict):
+    DirectoryId: str
+    State: WorkspaceDirectoryStateType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class RejectAccountLinkInvitationResultTypeDef(TypedDict):
+    AccountLink: AccountLinkTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeAccountModificationsResultTypeDef(TypedDict):
+    AccountModifications: List[AccountModificationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ApplicationResourceAssociationTypeDef(TypedDict):
+    ApplicationId: NotRequired[str]
+    AssociatedResourceId: NotRequired[str]
+    AssociatedResourceType: NotRequired[ApplicationAssociatedResourceTypeType]
+    Created: NotRequired[datetime]
+    LastUpdatedTime: NotRequired[datetime]
+    State: NotRequired[AssociationStateType]
+    StateReason: NotRequired[AssociationStateReasonTypeDef]
+
+class BundleResourceAssociationTypeDef(TypedDict):
+    AssociatedResourceId: NotRequired[str]
+    AssociatedResourceType: NotRequired[Literal["APPLICATION"]]
+    BundleId: NotRequired[str]
+    Created: NotRequired[datetime]
+    LastUpdatedTime: NotRequired[datetime]
+    State: NotRequired[AssociationStateType]
+    StateReason: NotRequired[AssociationStateReasonTypeDef]
+
+class ImageResourceAssociationTypeDef(TypedDict):
+    AssociatedResourceId: NotRequired[str]
+    AssociatedResourceType: NotRequired[Literal["APPLICATION"]]
+    Created: NotRequired[datetime]
+    LastUpdatedTime: NotRequired[datetime]
+    ImageId: NotRequired[str]
+    State: NotRequired[AssociationStateType]
+    StateReason: NotRequired[AssociationStateReasonTypeDef]
+
+class WorkspaceResourceAssociationTypeDef(TypedDict):
+    AssociatedResourceId: NotRequired[str]
+    AssociatedResourceType: NotRequired[Literal["APPLICATION"]]
+    Created: NotRequired[datetime]
+    LastUpdatedTime: NotRequired[datetime]
+    State: NotRequired[AssociationStateType]
+    StateReason: NotRequired[AssociationStateReasonTypeDef]
+    WorkspaceId: NotRequired[str]
+
+class AuthorizeIpRulesRequestTypeDef(TypedDict):
+    GroupId: str
+    UserRules: Sequence[IpRuleItemTypeDef]
+
+class UpdateRulesOfIpGroupRequestTypeDef(TypedDict):
+    GroupId: str
+    UserRules: Sequence[IpRuleItemTypeDef]
+
+class WorkspacesIpGroupTypeDef(TypedDict):
+    groupId: NotRequired[str]
+    groupName: NotRequired[str]
+    groupDesc: NotRequired[str]
+    userRules: NotRequired[List[IpRuleItemTypeDef]]
+
+class DefaultImportClientBrandingAttributesTypeDef(TypedDict):
+    Logo: NotRequired[BlobTypeDef]
+    SupportEmail: NotRequired[str]
+    SupportLink: NotRequired[str]
+    ForgotPasswordLink: NotRequired[str]
+    LoginMessage: NotRequired[Mapping[str, str]]
+
+class IosImportClientBrandingAttributesTypeDef(TypedDict):
+    Logo: NotRequired[BlobTypeDef]
+    Logo2x: NotRequired[BlobTypeDef]
+    Logo3x: NotRequired[BlobTypeDef]
+    SupportEmail: NotRequired[str]
+    SupportLink: NotRequired[str]
+    ForgotPasswordLink: NotRequired[str]
+    LoginMessage: NotRequired[Mapping[str, str]]
+
+class ModifyCertificateBasedAuthPropertiesRequestTypeDef(TypedDict):
+    ResourceId: str
+    CertificateBasedAuthProperties: NotRequired[CertificateBasedAuthPropertiesTypeDef]
+    PropertiesToDelete: NotRequired[
+        Sequence[Literal["CERTIFICATE_BASED_AUTH_PROPERTIES_CERTIFICATE_AUTHORITY_ARN"]]
+    ]
+
+class ClientPropertiesResultTypeDef(TypedDict):
+    ResourceId: NotRequired[str]
+    ClientProperties: NotRequired[ClientPropertiesTypeDef]
+
+class ModifyClientPropertiesRequestTypeDef(TypedDict):
+    ResourceId: str
+    ClientProperties: ClientPropertiesTypeDef
+
+class DescribeConnectClientAddInsResultTypeDef(TypedDict):
+    AddIns: List[ConnectClientAddInTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ConnectionAliasTypeDef(TypedDict):
+    ConnectionString: NotRequired[str]
+    AliasId: NotRequired[str]
+    State: NotRequired[ConnectionAliasStateType]
+    OwnerAccountId: NotRequired[str]
+    Associations: NotRequired[List[ConnectionAliasAssociationTypeDef]]
+
+class DescribeConnectionAliasPermissionsResultTypeDef(TypedDict):
+    AliasId: str
+    ConnectionAliasPermissions: List[ConnectionAliasPermissionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class UpdateConnectionAliasPermissionRequestTypeDef(TypedDict):
+    AliasId: str
+    ConnectionAliasPermission: ConnectionAliasPermissionTypeDef
+
+class CopyWorkspaceImageRequestTypeDef(TypedDict):
+    Name: str
+    SourceImageId: str
+    SourceRegion: str
+    Description: NotRequired[str]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+
+class CreateConnectionAliasRequestTypeDef(TypedDict):
+    ConnectionString: str
+    Tags: NotRequired[Sequence[TagTypeDef]]
+
+class CreateIpGroupRequestTypeDef(TypedDict):
+    GroupName: str
+    GroupDesc: NotRequired[str]
+    UserRules: NotRequired[Sequence[IpRuleItemTypeDef]]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+
+class CreateTagsRequestTypeDef(TypedDict):
+    ResourceId: str
+    Tags: Sequence[TagTypeDef]
+
+class CreateUpdatedWorkspaceImageRequestTypeDef(TypedDict):
+    Name: str
+    Description: str
+    SourceImageId: str
+    Tags: NotRequired[Sequence[TagTypeDef]]
+
+class CreateWorkspaceImageRequestTypeDef(TypedDict):
+    Name: str
+    Description: str
+    WorkspaceId: str
+    Tags: NotRequired[Sequence[TagTypeDef]]
+
+class DescribeTagsResultTypeDef(TypedDict):
+    TagList: List[TagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ImportWorkspaceImageRequestTypeDef(TypedDict):
+    Ec2ImageId: str
+    IngestionProcess: WorkspaceImageIngestionProcessType
+    ImageName: str
+    ImageDescription: str
+    Tags: NotRequired[Sequence[TagTypeDef]]
+    Applications: NotRequired[Sequence[ApplicationType]]
+
+class StandbyWorkspaceOutputTypeDef(TypedDict):
+    PrimaryWorkspaceId: str
+    DirectoryId: str
+    VolumeEncryptionKey: NotRequired[str]
+    Tags: NotRequired[List[TagTypeDef]]
+    DataReplication: NotRequired[DataReplicationType]
+
+class StandbyWorkspaceTypeDef(TypedDict):
+    PrimaryWorkspaceId: str
+    DirectoryId: str
+    VolumeEncryptionKey: NotRequired[str]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+    DataReplication: NotRequired[DataReplicationType]
+
+CreateWorkspaceBundleRequestTypeDef = TypedDict(
+    "CreateWorkspaceBundleRequestTypeDef",
     {
-        "BundleId": str,
+        "BundleName": str,
+        "BundleDescription": str,
         "ImageId": str,
-    },
-    total=False,
-)
-
-UpdateWorkspaceImagePermissionRequestRequestTypeDef = TypedDict(
-    "UpdateWorkspaceImagePermissionRequestRequestTypeDef",
-    {
-        "ImageId": str,
-        "AllowCopyImage": bool,
-        "SharedAccountId": str,
+        "ComputeType": ComputeTypeTypeDef,
+        "UserStorage": UserStorageTypeDef,
+        "RootStorage": NotRequired[RootStorageTypeDef],
+        "Tags": NotRequired[Sequence[TagTypeDef]],
     },
 )
-
-_RequiredUpdateWorkspacesPoolRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateWorkspacesPoolRequestRequestTypeDef",
-    {
-        "PoolId": str,
-    },
-)
-_OptionalUpdateWorkspacesPoolRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateWorkspacesPoolRequestRequestTypeDef",
-    {
-        "Description": str,
-        "BundleId": str,
-        "DirectoryId": str,
-        "Capacity": "CapacityTypeDef",
-        "ApplicationSettings": "ApplicationSettingsRequestTypeDef",
-        "TimeoutSettings": "TimeoutSettingsTypeDef",
-    },
-    total=False,
-)
-
-class UpdateWorkspacesPoolRequestRequestTypeDef(
-    _RequiredUpdateWorkspacesPoolRequestRequestTypeDef,
-    _OptionalUpdateWorkspacesPoolRequestRequestTypeDef,
-):
-    pass
-
-UpdateWorkspacesPoolResultTypeDef = TypedDict(
-    "UpdateWorkspacesPoolResultTypeDef",
-    {
-        "WorkspacesPool": "WorkspacesPoolTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUserSettingTypeDef = TypedDict(
-    "_RequiredUserSettingTypeDef",
-    {
-        "Action": UserSettingActionEnumType,
-        "Permission": UserSettingPermissionEnumType,
-    },
-)
-_OptionalUserSettingTypeDef = TypedDict(
-    "_OptionalUserSettingTypeDef",
-    {
-        "MaximumLength": int,
-    },
-    total=False,
-)
-
-class UserSettingTypeDef(_RequiredUserSettingTypeDef, _OptionalUserSettingTypeDef):
-    pass
-
-UserStorageTypeDef = TypedDict(
-    "UserStorageTypeDef",
-    {
-        "Capacity": str,
-    },
-    total=False,
-)
-
-WorkSpaceApplicationDeploymentTypeDef = TypedDict(
-    "WorkSpaceApplicationDeploymentTypeDef",
-    {
-        "Associations": List["WorkspaceResourceAssociationTypeDef"],
-    },
-    total=False,
-)
-
-WorkSpaceApplicationTypeDef = TypedDict(
-    "WorkSpaceApplicationTypeDef",
-    {
-        "ApplicationId": str,
-        "Created": datetime,
-        "Description": str,
-        "LicenseType": WorkSpaceApplicationLicenseTypeType,
-        "Name": str,
-        "Owner": str,
-        "State": WorkSpaceApplicationStateType,
-        "SupportedComputeTypeNames": List[ComputeType],
-        "SupportedOperatingSystemNames": List[OperatingSystemNameType],
-    },
-    total=False,
-)
-
-WorkspaceAccessPropertiesTypeDef = TypedDict(
-    "WorkspaceAccessPropertiesTypeDef",
-    {
-        "DeviceTypeWindows": AccessPropertyValueType,
-        "DeviceTypeOsx": AccessPropertyValueType,
-        "DeviceTypeWeb": AccessPropertyValueType,
-        "DeviceTypeIos": AccessPropertyValueType,
-        "DeviceTypeAndroid": AccessPropertyValueType,
-        "DeviceTypeChromeOs": AccessPropertyValueType,
-        "DeviceTypeZeroClient": AccessPropertyValueType,
-        "DeviceTypeLinux": AccessPropertyValueType,
-    },
-    total=False,
-)
-
 WorkspaceBundleTypeDef = TypedDict(
     "WorkspaceBundleTypeDef",
     {
-        "BundleId": str,
-        "Name": str,
-        "Owner": str,
-        "Description": str,
-        "ImageId": str,
-        "RootStorage": "RootStorageTypeDef",
-        "UserStorage": "UserStorageTypeDef",
-        "ComputeType": "ComputeTypeTypeDef",
-        "LastUpdatedTime": datetime,
-        "CreationTime": datetime,
-        "State": WorkspaceBundleStateType,
-        "BundleType": BundleTypeType,
+        "BundleId": NotRequired[str],
+        "Name": NotRequired[str],
+        "Owner": NotRequired[str],
+        "Description": NotRequired[str],
+        "ImageId": NotRequired[str],
+        "RootStorage": NotRequired[RootStorageTypeDef],
+        "UserStorage": NotRequired[UserStorageTypeDef],
+        "ComputeType": NotRequired[ComputeTypeTypeDef],
+        "LastUpdatedTime": NotRequired[datetime],
+        "CreationTime": NotRequired[datetime],
+        "State": NotRequired[WorkspaceBundleStateType],
+        "BundleType": NotRequired[BundleTypeType],
     },
-    total=False,
 )
 
-WorkspaceConnectionStatusTypeDef = TypedDict(
-    "WorkspaceConnectionStatusTypeDef",
-    {
-        "WorkspaceId": str,
-        "ConnectionState": ConnectionStateType,
-        "ConnectionStateCheckTimestamp": datetime,
-        "LastKnownUserConnectionTimestamp": datetime,
-    },
-    total=False,
-)
+class CreateWorkspaceImageResultTypeDef(TypedDict):
+    ImageId: str
+    Name: str
+    Description: str
+    OperatingSystem: OperatingSystemTypeDef
+    State: WorkspaceImageStateType
+    RequiredTenancy: WorkspaceImageRequiredTenancyType
+    Created: datetime
+    OwnerAccountId: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-WorkspaceCreationPropertiesTypeDef = TypedDict(
-    "WorkspaceCreationPropertiesTypeDef",
-    {
-        "EnableWorkDocs": bool,
-        "EnableInternetAccess": bool,
-        "DefaultOu": str,
-        "CustomSecurityGroupId": str,
-        "UserEnabledAsLocalAdministrator": bool,
-        "EnableMaintenanceMode": bool,
-        "InstanceIamRoleArn": str,
-    },
-    total=False,
-)
+class CreateWorkspacesPoolRequestTypeDef(TypedDict):
+    PoolName: str
+    Description: str
+    BundleId: str
+    DirectoryId: str
+    Capacity: CapacityTypeDef
+    Tags: NotRequired[Sequence[TagTypeDef]]
+    ApplicationSettings: NotRequired[ApplicationSettingsRequestTypeDef]
+    TimeoutSettings: NotRequired[TimeoutSettingsTypeDef]
 
-WorkspaceDirectoryTypeDef = TypedDict(
-    "WorkspaceDirectoryTypeDef",
-    {
-        "DirectoryId": str,
-        "Alias": str,
-        "DirectoryName": str,
-        "RegistrationCode": str,
-        "SubnetIds": List[str],
-        "DnsIpAddresses": List[str],
-        "CustomerUserName": str,
-        "IamRoleId": str,
-        "DirectoryType": WorkspaceDirectoryTypeType,
-        "WorkspaceSecurityGroupId": str,
-        "State": WorkspaceDirectoryStateType,
-        "WorkspaceCreationProperties": "DefaultWorkspaceCreationPropertiesTypeDef",
-        "ipGroupIds": List[str],
-        "WorkspaceAccessProperties": "WorkspaceAccessPropertiesTypeDef",
-        "Tenancy": TenancyType,
-        "SelfservicePermissions": "SelfservicePermissionsTypeDef",
-        "SamlProperties": "SamlPropertiesTypeDef",
-        "CertificateBasedAuthProperties": "CertificateBasedAuthPropertiesTypeDef",
-        "WorkspaceDirectoryName": str,
-        "WorkspaceDirectoryDescription": str,
-        "UserIdentityType": UserIdentityTypeType,
-        "WorkspaceType": WorkspaceTypeType,
-        "ActiveDirectoryConfig": "ActiveDirectoryConfigTypeDef",
-        "StreamingProperties": "StreamingPropertiesTypeDef",
-        "ErrorMessage": str,
-    },
-    total=False,
-)
+class UpdateWorkspacesPoolRequestTypeDef(TypedDict):
+    PoolId: str
+    Description: NotRequired[str]
+    BundleId: NotRequired[str]
+    DirectoryId: NotRequired[str]
+    Capacity: NotRequired[CapacityTypeDef]
+    ApplicationSettings: NotRequired[ApplicationSettingsRequestTypeDef]
+    TimeoutSettings: NotRequired[TimeoutSettingsTypeDef]
 
-WorkspaceImageTypeDef = TypedDict(
-    "WorkspaceImageTypeDef",
-    {
-        "ImageId": str,
-        "Name": str,
-        "Description": str,
-        "OperatingSystem": "OperatingSystemTypeDef",
-        "State": WorkspaceImageStateType,
-        "RequiredTenancy": WorkspaceImageRequiredTenancyType,
-        "ErrorCode": str,
-        "ErrorMessage": str,
-        "Created": datetime,
-        "OwnerAccountId": str,
-        "Updates": "UpdateResultTypeDef",
-        "ErrorDetails": List["ErrorDetailsTypeDef"],
-    },
-    total=False,
-)
+class DescribeAccountModificationsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-WorkspacePropertiesTypeDef = TypedDict(
-    "WorkspacePropertiesTypeDef",
-    {
-        "RunningMode": RunningModeType,
-        "RunningModeAutoStopTimeoutInMinutes": int,
-        "RootVolumeSizeGib": int,
-        "UserVolumeSizeGib": int,
-        "ComputeTypeName": ComputeType,
-        "Protocols": List[ProtocolType],
-        "OperatingSystemName": OperatingSystemNameType,
-    },
-    total=False,
-)
+class DescribeIpGroupsRequestPaginateTypeDef(TypedDict):
+    GroupIds: NotRequired[Sequence[str]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-_RequiredWorkspaceRequestTypeDef = TypedDict(
-    "_RequiredWorkspaceRequestTypeDef",
-    {
-        "DirectoryId": str,
-        "UserName": str,
-        "BundleId": str,
-    },
-)
-_OptionalWorkspaceRequestTypeDef = TypedDict(
-    "_OptionalWorkspaceRequestTypeDef",
-    {
-        "VolumeEncryptionKey": str,
-        "UserVolumeEncryptionEnabled": bool,
-        "RootVolumeEncryptionEnabled": bool,
-        "WorkspaceProperties": "WorkspacePropertiesTypeDef",
-        "Tags": List["TagTypeDef"],
-        "WorkspaceName": str,
-    },
-    total=False,
-)
+class DescribeWorkspaceBundlesRequestPaginateTypeDef(TypedDict):
+    BundleIds: NotRequired[Sequence[str]]
+    Owner: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-class WorkspaceRequestTypeDef(_RequiredWorkspaceRequestTypeDef, _OptionalWorkspaceRequestTypeDef):
-    pass
+class DescribeWorkspaceImagesRequestPaginateTypeDef(TypedDict):
+    ImageIds: NotRequired[Sequence[str]]
+    ImageType: NotRequired[ImageTypeType]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-WorkspaceResourceAssociationTypeDef = TypedDict(
-    "WorkspaceResourceAssociationTypeDef",
-    {
-        "AssociatedResourceId": str,
-        "AssociatedResourceType": Literal["APPLICATION"],
-        "Created": datetime,
-        "LastUpdatedTime": datetime,
-        "State": AssociationStateType,
-        "StateReason": "AssociationStateReasonTypeDef",
-        "WorkspaceId": str,
-    },
-    total=False,
-)
+class DescribeWorkspacesConnectionStatusRequestPaginateTypeDef(TypedDict):
+    WorkspaceIds: NotRequired[Sequence[str]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-WorkspaceTypeDef = TypedDict(
-    "WorkspaceTypeDef",
-    {
-        "WorkspaceId": str,
-        "DirectoryId": str,
-        "UserName": str,
-        "IpAddress": str,
-        "State": WorkspaceStateType,
-        "BundleId": str,
-        "SubnetId": str,
-        "ErrorMessage": str,
-        "ErrorCode": str,
-        "ComputerName": str,
-        "VolumeEncryptionKey": str,
-        "UserVolumeEncryptionEnabled": bool,
-        "RootVolumeEncryptionEnabled": bool,
-        "WorkspaceName": str,
-        "WorkspaceProperties": "WorkspacePropertiesTypeDef",
-        "ModificationStates": List["ModificationStateTypeDef"],
-        "RelatedWorkspaces": List["RelatedWorkspacePropertiesTypeDef"],
-        "DataReplicationSettings": "DataReplicationSettingsTypeDef",
-        "StandbyWorkspacesProperties": List["StandbyWorkspacesPropertiesTypeDef"],
-    },
-    total=False,
-)
+class DescribeWorkspacesRequestPaginateTypeDef(TypedDict):
+    WorkspaceIds: NotRequired[Sequence[str]]
+    DirectoryId: NotRequired[str]
+    UserName: NotRequired[str]
+    BundleId: NotRequired[str]
+    WorkspaceName: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-WorkspacesIpGroupTypeDef = TypedDict(
-    "WorkspacesIpGroupTypeDef",
-    {
-        "groupId": str,
-        "groupName": str,
-        "groupDesc": str,
-        "userRules": List["IpRuleItemTypeDef"],
-    },
-    total=False,
-)
+class ListAccountLinksRequestPaginateTypeDef(TypedDict):
+    LinkStatusFilter: NotRequired[Sequence[AccountLinkStatusEnumType]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-WorkspacesPoolErrorTypeDef = TypedDict(
-    "WorkspacesPoolErrorTypeDef",
-    {
-        "ErrorCode": WorkspacesPoolErrorCodeType,
-        "ErrorMessage": str,
-    },
-    total=False,
-)
+class ListAvailableManagementCidrRangesRequestPaginateTypeDef(TypedDict):
+    ManagementCidrRangeConstraint: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-_RequiredWorkspacesPoolSessionTypeDef = TypedDict(
-    "_RequiredWorkspacesPoolSessionTypeDef",
-    {
-        "SessionId": str,
-        "PoolId": str,
-        "UserId": str,
-    },
-)
-_OptionalWorkspacesPoolSessionTypeDef = TypedDict(
-    "_OptionalWorkspacesPoolSessionTypeDef",
-    {
-        "AuthenticationType": Literal["SAML"],
-        "ConnectionState": SessionConnectionStateType,
-        "InstanceId": str,
-        "ExpirationTime": datetime,
-        "NetworkAccessConfiguration": "NetworkAccessConfigurationTypeDef",
-        "StartTime": datetime,
-    },
-    total=False,
-)
+class DescribeApplicationsResultTypeDef(TypedDict):
+    Applications: List[WorkSpaceApplicationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-class WorkspacesPoolSessionTypeDef(
-    _RequiredWorkspacesPoolSessionTypeDef, _OptionalWorkspacesPoolSessionTypeDef
-):
-    pass
+class DescribeClientBrandingResultTypeDef(TypedDict):
+    DeviceTypeWindows: DefaultClientBrandingAttributesTypeDef
+    DeviceTypeOsx: DefaultClientBrandingAttributesTypeDef
+    DeviceTypeAndroid: DefaultClientBrandingAttributesTypeDef
+    DeviceTypeIos: IosClientBrandingAttributesTypeDef
+    DeviceTypeLinux: DefaultClientBrandingAttributesTypeDef
+    DeviceTypeWeb: DefaultClientBrandingAttributesTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredWorkspacesPoolTypeDef = TypedDict(
-    "_RequiredWorkspacesPoolTypeDef",
-    {
-        "PoolId": str,
-        "PoolArn": str,
-        "CapacityStatus": "CapacityStatusTypeDef",
-        "PoolName": str,
-        "State": WorkspacesPoolStateType,
-        "CreatedAt": datetime,
-        "BundleId": str,
-        "DirectoryId": str,
-    },
-)
-_OptionalWorkspacesPoolTypeDef = TypedDict(
-    "_OptionalWorkspacesPoolTypeDef",
-    {
-        "Description": str,
-        "Errors": List["WorkspacesPoolErrorTypeDef"],
-        "ApplicationSettings": "ApplicationSettingsResponseTypeDef",
-        "TimeoutSettings": "TimeoutSettingsTypeDef",
-    },
-    total=False,
-)
+class ImportClientBrandingResultTypeDef(TypedDict):
+    DeviceTypeWindows: DefaultClientBrandingAttributesTypeDef
+    DeviceTypeOsx: DefaultClientBrandingAttributesTypeDef
+    DeviceTypeAndroid: DefaultClientBrandingAttributesTypeDef
+    DeviceTypeIos: IosClientBrandingAttributesTypeDef
+    DeviceTypeLinux: DefaultClientBrandingAttributesTypeDef
+    DeviceTypeWeb: DefaultClientBrandingAttributesTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class WorkspacesPoolTypeDef(_RequiredWorkspacesPoolTypeDef, _OptionalWorkspacesPoolTypeDef):
-    pass
+class DescribeWorkspaceDirectoriesRequestPaginateTypeDef(TypedDict):
+    DirectoryIds: NotRequired[Sequence[str]]
+    WorkspaceDirectoryNames: NotRequired[Sequence[str]]
+    Limit: NotRequired[int]
+    Filters: NotRequired[Sequence[DescribeWorkspaceDirectoriesFilterTypeDef]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeWorkspaceDirectoriesRequestTypeDef(TypedDict):
+    DirectoryIds: NotRequired[Sequence[str]]
+    WorkspaceDirectoryNames: NotRequired[Sequence[str]]
+    Limit: NotRequired[int]
+    NextToken: NotRequired[str]
+    Filters: NotRequired[Sequence[DescribeWorkspaceDirectoriesFilterTypeDef]]
+
+class DescribeWorkspaceImagePermissionsResultTypeDef(TypedDict):
+    ImageId: str
+    ImagePermissions: List[ImagePermissionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class DescribeWorkspaceSnapshotsResultTypeDef(TypedDict):
+    RebuildSnapshots: List[SnapshotTypeDef]
+    RestoreSnapshots: List[SnapshotTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeWorkspacesConnectionStatusResultTypeDef(TypedDict):
+    WorkspacesConnectionStatus: List[WorkspaceConnectionStatusTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class DescribeWorkspacesPoolsRequestTypeDef(TypedDict):
+    PoolIds: NotRequired[Sequence[str]]
+    Filters: NotRequired[Sequence[DescribeWorkspacesPoolsFilterTypeDef]]
+    Limit: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class RebootWorkspacesResultTypeDef(TypedDict):
+    FailedRequests: List[FailedWorkspaceChangeRequestTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class RebuildWorkspacesResultTypeDef(TypedDict):
+    FailedRequests: List[FailedWorkspaceChangeRequestTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartWorkspacesResultTypeDef(TypedDict):
+    FailedRequests: List[FailedWorkspaceChangeRequestTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StopWorkspacesResultTypeDef(TypedDict):
+    FailedRequests: List[FailedWorkspaceChangeRequestTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class TerminateWorkspacesResultTypeDef(TypedDict):
+    FailedRequests: List[FailedWorkspaceChangeRequestTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class WorkspacePropertiesOutputTypeDef(TypedDict):
+    RunningMode: NotRequired[RunningModeType]
+    RunningModeAutoStopTimeoutInMinutes: NotRequired[int]
+    RootVolumeSizeGib: NotRequired[int]
+    UserVolumeSizeGib: NotRequired[int]
+    ComputeTypeName: NotRequired[ComputeType]
+    Protocols: NotRequired[List[ProtocolType]]
+    OperatingSystemName: NotRequired[OperatingSystemNameType]
+    GlobalAccelerator: NotRequired[GlobalAcceleratorForWorkSpaceTypeDef]
+
+class WorkspacePropertiesTypeDef(TypedDict):
+    RunningMode: NotRequired[RunningModeType]
+    RunningModeAutoStopTimeoutInMinutes: NotRequired[int]
+    RootVolumeSizeGib: NotRequired[int]
+    UserVolumeSizeGib: NotRequired[int]
+    ComputeTypeName: NotRequired[ComputeType]
+    Protocols: NotRequired[Sequence[ProtocolType]]
+    OperatingSystemName: NotRequired[OperatingSystemNameType]
+    GlobalAccelerator: NotRequired[GlobalAcceleratorForWorkSpaceTypeDef]
+
+class RegisterWorkspaceDirectoryRequestTypeDef(TypedDict):
+    DirectoryId: NotRequired[str]
+    SubnetIds: NotRequired[Sequence[str]]
+    EnableWorkDocs: NotRequired[bool]
+    EnableSelfService: NotRequired[bool]
+    Tenancy: NotRequired[TenancyType]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+    WorkspaceDirectoryName: NotRequired[str]
+    WorkspaceDirectoryDescription: NotRequired[str]
+    UserIdentityType: NotRequired[UserIdentityTypeType]
+    IdcInstanceArn: NotRequired[str]
+    MicrosoftEntraConfig: NotRequired[MicrosoftEntraConfigTypeDef]
+    WorkspaceType: NotRequired[WorkspaceTypeType]
+    ActiveDirectoryConfig: NotRequired[ActiveDirectoryConfigTypeDef]
+
+class ModifySamlPropertiesRequestTypeDef(TypedDict):
+    ResourceId: str
+    SamlProperties: NotRequired[SamlPropertiesTypeDef]
+    PropertiesToDelete: NotRequired[Sequence[DeletableSamlPropertyType]]
+
+class ModifySelfservicePermissionsRequestTypeDef(TypedDict):
+    ResourceId: str
+    SelfservicePermissions: SelfservicePermissionsTypeDef
+
+class ModifyWorkspaceAccessPropertiesRequestTypeDef(TypedDict):
+    ResourceId: str
+    WorkspaceAccessProperties: WorkspaceAccessPropertiesTypeDef
+
+class ModifyWorkspaceCreationPropertiesRequestTypeDef(TypedDict):
+    ResourceId: str
+    WorkspaceCreationProperties: WorkspaceCreationPropertiesTypeDef
+
+class WorkspacesPoolSessionTypeDef(TypedDict):
+    SessionId: str
+    PoolId: str
+    UserId: str
+    AuthenticationType: NotRequired[Literal["SAML"]]
+    ConnectionState: NotRequired[SessionConnectionStateType]
+    InstanceId: NotRequired[str]
+    ExpirationTime: NotRequired[datetime]
+    NetworkAccessConfiguration: NotRequired[NetworkAccessConfigurationTypeDef]
+    StartTime: NotRequired[datetime]
+
+class RebootWorkspacesRequestTypeDef(TypedDict):
+    RebootWorkspaceRequests: Sequence[RebootRequestTypeDef]
+
+class RebuildWorkspacesRequestTypeDef(TypedDict):
+    RebuildWorkspaceRequests: Sequence[RebuildRequestTypeDef]
+
+class StartWorkspacesRequestTypeDef(TypedDict):
+    StartWorkspaceRequests: Sequence[StartRequestTypeDef]
+
+class StopWorkspacesRequestTypeDef(TypedDict):
+    StopWorkspaceRequests: Sequence[StopRequestTypeDef]
+
+class StreamingPropertiesOutputTypeDef(TypedDict):
+    StreamingExperiencePreferredProtocol: NotRequired[StreamingExperiencePreferredProtocolEnumType]
+    UserSettings: NotRequired[List[UserSettingTypeDef]]
+    StorageConnectors: NotRequired[List[StorageConnectorTypeDef]]
+    GlobalAccelerator: NotRequired[GlobalAcceleratorForDirectoryTypeDef]
+
+class StreamingPropertiesTypeDef(TypedDict):
+    StreamingExperiencePreferredProtocol: NotRequired[StreamingExperiencePreferredProtocolEnumType]
+    UserSettings: NotRequired[Sequence[UserSettingTypeDef]]
+    StorageConnectors: NotRequired[Sequence[StorageConnectorTypeDef]]
+    GlobalAccelerator: NotRequired[GlobalAcceleratorForDirectoryTypeDef]
+
+class TerminateWorkspacesRequestTypeDef(TypedDict):
+    TerminateWorkspaceRequests: Sequence[TerminateRequestTypeDef]
+
+class WorkspaceImageTypeDef(TypedDict):
+    ImageId: NotRequired[str]
+    Name: NotRequired[str]
+    Description: NotRequired[str]
+    OperatingSystem: NotRequired[OperatingSystemTypeDef]
+    State: NotRequired[WorkspaceImageStateType]
+    RequiredTenancy: NotRequired[WorkspaceImageRequiredTenancyType]
+    ErrorCode: NotRequired[str]
+    ErrorMessage: NotRequired[str]
+    Created: NotRequired[datetime]
+    OwnerAccountId: NotRequired[str]
+    Updates: NotRequired[UpdateResultTypeDef]
+    ErrorDetails: NotRequired[List[ErrorDetailsTypeDef]]
+
+class WorkspacesPoolTypeDef(TypedDict):
+    PoolId: str
+    PoolArn: str
+    CapacityStatus: CapacityStatusTypeDef
+    PoolName: str
+    State: WorkspacesPoolStateType
+    CreatedAt: datetime
+    BundleId: str
+    DirectoryId: str
+    Description: NotRequired[str]
+    Errors: NotRequired[List[WorkspacesPoolErrorTypeDef]]
+    ApplicationSettings: NotRequired[ApplicationSettingsResponseTypeDef]
+    TimeoutSettings: NotRequired[TimeoutSettingsTypeDef]
+
+class DescribeApplicationAssociationsResultTypeDef(TypedDict):
+    Associations: List[ApplicationResourceAssociationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class DescribeBundleAssociationsResultTypeDef(TypedDict):
+    Associations: List[BundleResourceAssociationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeImageAssociationsResultTypeDef(TypedDict):
+    Associations: List[ImageResourceAssociationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class AssociateWorkspaceApplicationResultTypeDef(TypedDict):
+    Association: WorkspaceResourceAssociationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeWorkspaceAssociationsResultTypeDef(TypedDict):
+    Associations: List[WorkspaceResourceAssociationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DisassociateWorkspaceApplicationResultTypeDef(TypedDict):
+    Association: WorkspaceResourceAssociationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class WorkSpaceApplicationDeploymentTypeDef(TypedDict):
+    Associations: NotRequired[List[WorkspaceResourceAssociationTypeDef]]
+
+class DescribeIpGroupsResultTypeDef(TypedDict):
+    Result: List[WorkspacesIpGroupTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ImportClientBrandingRequestTypeDef(TypedDict):
+    ResourceId: str
+    DeviceTypeWindows: NotRequired[DefaultImportClientBrandingAttributesTypeDef]
+    DeviceTypeOsx: NotRequired[DefaultImportClientBrandingAttributesTypeDef]
+    DeviceTypeAndroid: NotRequired[DefaultImportClientBrandingAttributesTypeDef]
+    DeviceTypeIos: NotRequired[IosImportClientBrandingAttributesTypeDef]
+    DeviceTypeLinux: NotRequired[DefaultImportClientBrandingAttributesTypeDef]
+    DeviceTypeWeb: NotRequired[DefaultImportClientBrandingAttributesTypeDef]
+
+class DescribeClientPropertiesResultTypeDef(TypedDict):
+    ClientPropertiesList: List[ClientPropertiesResultTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeConnectionAliasesResultTypeDef(TypedDict):
+    ConnectionAliases: List[ConnectionAliasTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class FailedCreateStandbyWorkspacesRequestTypeDef(TypedDict):
+    StandbyWorkspaceRequest: NotRequired[StandbyWorkspaceOutputTypeDef]
+    ErrorCode: NotRequired[str]
+    ErrorMessage: NotRequired[str]
+
+StandbyWorkspaceUnionTypeDef = Union[StandbyWorkspaceTypeDef, StandbyWorkspaceOutputTypeDef]
+
+class CreateWorkspaceBundleResultTypeDef(TypedDict):
+    WorkspaceBundle: WorkspaceBundleTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeWorkspaceBundlesResultTypeDef(TypedDict):
+    Bundles: List[WorkspaceBundleTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class WorkspaceRequestOutputTypeDef(TypedDict):
+    DirectoryId: str
+    UserName: str
+    BundleId: str
+    VolumeEncryptionKey: NotRequired[str]
+    UserVolumeEncryptionEnabled: NotRequired[bool]
+    RootVolumeEncryptionEnabled: NotRequired[bool]
+    WorkspaceProperties: NotRequired[WorkspacePropertiesOutputTypeDef]
+    Tags: NotRequired[List[TagTypeDef]]
+    WorkspaceName: NotRequired[str]
+
+class WorkspaceTypeDef(TypedDict):
+    WorkspaceId: NotRequired[str]
+    DirectoryId: NotRequired[str]
+    UserName: NotRequired[str]
+    IpAddress: NotRequired[str]
+    State: NotRequired[WorkspaceStateType]
+    BundleId: NotRequired[str]
+    SubnetId: NotRequired[str]
+    ErrorMessage: NotRequired[str]
+    ErrorCode: NotRequired[str]
+    ComputerName: NotRequired[str]
+    VolumeEncryptionKey: NotRequired[str]
+    UserVolumeEncryptionEnabled: NotRequired[bool]
+    RootVolumeEncryptionEnabled: NotRequired[bool]
+    WorkspaceName: NotRequired[str]
+    WorkspaceProperties: NotRequired[WorkspacePropertiesOutputTypeDef]
+    ModificationStates: NotRequired[List[ModificationStateTypeDef]]
+    RelatedWorkspaces: NotRequired[List[RelatedWorkspacePropertiesTypeDef]]
+    DataReplicationSettings: NotRequired[DataReplicationSettingsTypeDef]
+    StandbyWorkspacesProperties: NotRequired[List[StandbyWorkspacesPropertiesTypeDef]]
+
+WorkspacePropertiesUnionTypeDef = Union[
+    WorkspacePropertiesTypeDef, WorkspacePropertiesOutputTypeDef
+]
+
+class DescribeWorkspacesPoolSessionsResultTypeDef(TypedDict):
+    Sessions: List[WorkspacesPoolSessionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class WorkspaceDirectoryTypeDef(TypedDict):
+    DirectoryId: NotRequired[str]
+    Alias: NotRequired[str]
+    DirectoryName: NotRequired[str]
+    RegistrationCode: NotRequired[str]
+    SubnetIds: NotRequired[List[str]]
+    DnsIpAddresses: NotRequired[List[str]]
+    CustomerUserName: NotRequired[str]
+    IamRoleId: NotRequired[str]
+    DirectoryType: NotRequired[WorkspaceDirectoryTypeType]
+    WorkspaceSecurityGroupId: NotRequired[str]
+    State: NotRequired[WorkspaceDirectoryStateType]
+    WorkspaceCreationProperties: NotRequired[DefaultWorkspaceCreationPropertiesTypeDef]
+    ipGroupIds: NotRequired[List[str]]
+    WorkspaceAccessProperties: NotRequired[WorkspaceAccessPropertiesTypeDef]
+    Tenancy: NotRequired[TenancyType]
+    SelfservicePermissions: NotRequired[SelfservicePermissionsTypeDef]
+    SamlProperties: NotRequired[SamlPropertiesTypeDef]
+    CertificateBasedAuthProperties: NotRequired[CertificateBasedAuthPropertiesTypeDef]
+    EndpointEncryptionMode: NotRequired[EndpointEncryptionModeType]
+    MicrosoftEntraConfig: NotRequired[MicrosoftEntraConfigTypeDef]
+    WorkspaceDirectoryName: NotRequired[str]
+    WorkspaceDirectoryDescription: NotRequired[str]
+    UserIdentityType: NotRequired[UserIdentityTypeType]
+    WorkspaceType: NotRequired[WorkspaceTypeType]
+    IDCConfig: NotRequired[IDCConfigTypeDef]
+    ActiveDirectoryConfig: NotRequired[ActiveDirectoryConfigTypeDef]
+    StreamingProperties: NotRequired[StreamingPropertiesOutputTypeDef]
+    ErrorMessage: NotRequired[str]
+
+StreamingPropertiesUnionTypeDef = Union[
+    StreamingPropertiesTypeDef, StreamingPropertiesOutputTypeDef
+]
+
+class DescribeWorkspaceImagesResultTypeDef(TypedDict):
+    Images: List[WorkspaceImageTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class CreateWorkspacesPoolResultTypeDef(TypedDict):
+    WorkspacesPool: WorkspacesPoolTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeWorkspacesPoolsResultTypeDef(TypedDict):
+    WorkspacesPools: List[WorkspacesPoolTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class UpdateWorkspacesPoolResultTypeDef(TypedDict):
+    WorkspacesPool: WorkspacesPoolTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeployWorkspaceApplicationsResultTypeDef(TypedDict):
+    Deployment: WorkSpaceApplicationDeploymentTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateStandbyWorkspacesResultTypeDef(TypedDict):
+    FailedStandbyRequests: List[FailedCreateStandbyWorkspacesRequestTypeDef]
+    PendingStandbyRequests: List[PendingCreateStandbyWorkspacesRequestTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateStandbyWorkspacesRequestTypeDef(TypedDict):
+    PrimaryRegion: str
+    StandbyWorkspaces: Sequence[StandbyWorkspaceUnionTypeDef]
+
+class FailedCreateWorkspaceRequestTypeDef(TypedDict):
+    WorkspaceRequest: NotRequired[WorkspaceRequestOutputTypeDef]
+    ErrorCode: NotRequired[str]
+    ErrorMessage: NotRequired[str]
+
+class DescribeWorkspacesResultTypeDef(TypedDict):
+    Workspaces: List[WorkspaceTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ModifyWorkspacePropertiesRequestTypeDef(TypedDict):
+    WorkspaceId: str
+    WorkspaceProperties: NotRequired[WorkspacePropertiesUnionTypeDef]
+    DataReplication: NotRequired[DataReplicationType]
+
+class WorkspaceRequestTypeDef(TypedDict):
+    DirectoryId: str
+    UserName: str
+    BundleId: str
+    VolumeEncryptionKey: NotRequired[str]
+    UserVolumeEncryptionEnabled: NotRequired[bool]
+    RootVolumeEncryptionEnabled: NotRequired[bool]
+    WorkspaceProperties: NotRequired[WorkspacePropertiesUnionTypeDef]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+    WorkspaceName: NotRequired[str]
+
+class DescribeWorkspaceDirectoriesResultTypeDef(TypedDict):
+    Directories: List[WorkspaceDirectoryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ModifyStreamingPropertiesRequestTypeDef(TypedDict):
+    ResourceId: str
+    StreamingProperties: NotRequired[StreamingPropertiesUnionTypeDef]
+
+class CreateWorkspacesResultTypeDef(TypedDict):
+    FailedRequests: List[FailedCreateWorkspaceRequestTypeDef]
+    PendingRequests: List[WorkspaceTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+WorkspaceRequestUnionTypeDef = Union[WorkspaceRequestTypeDef, WorkspaceRequestOutputTypeDef]
+
+class CreateWorkspacesRequestTypeDef(TypedDict):
+    Workspaces: Sequence[WorkspaceRequestUnionTypeDef]

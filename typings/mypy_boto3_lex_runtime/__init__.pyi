@@ -1,19 +1,21 @@
 """
 Main interface for lex-runtime service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lex_runtime/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_lex_runtime import (
         Client,
         LexRuntimeServiceClient,
     )
 
-    session = boto3.Session()
-
-    client: LexRuntimeServiceClient = boto3.client("lex-runtime")
-    session_client: LexRuntimeServiceClient = session.client("lex-runtime")
+    session = Session()
+    client: LexRuntimeServiceClient = session.client("lex-runtime")
     ```
 """
 

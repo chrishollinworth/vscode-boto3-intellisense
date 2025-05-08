@@ -1,20 +1,22 @@
 """
 Main interface for codeguruprofiler service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codeguruprofiler/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_codeguruprofiler import (
         Client,
         CodeGuruProfilerClient,
         ListProfileTimesPaginator,
     )
 
-    session = boto3.Session()
-
-    client: CodeGuruProfilerClient = boto3.client("codeguruprofiler")
-    session_client: CodeGuruProfilerClient = session.client("codeguruprofiler")
+    session = Session()
+    client: CodeGuruProfilerClient = session.client("codeguruprofiler")
 
     list_profile_times_paginator: ListProfileTimesPaginator = client.get_paginator("list_profile_times")
     ```

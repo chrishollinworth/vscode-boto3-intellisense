@@ -1,10 +1,14 @@
 """
 Main interface for lookoutvision service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lookoutvision/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_lookoutvision import (
         Client,
         ListDatasetEntriesPaginator,
@@ -14,10 +18,8 @@ Usage::
         LookoutforVisionClient,
     )
 
-    session = boto3.Session()
-
-    client: LookoutforVisionClient = boto3.client("lookoutvision")
-    session_client: LookoutforVisionClient = session.client("lookoutvision")
+    session = Session()
+    client: LookoutforVisionClient = session.client("lookoutvision")
 
     list_dataset_entries_paginator: ListDatasetEntriesPaginator = client.get_paginator("list_dataset_entries")
     list_model_packaging_jobs_paginator: ListModelPackagingJobsPaginator = client.get_paginator("list_model_packaging_jobs")

@@ -1,70 +1,87 @@
 """
-Type annotations for kafkaconnect service client.
+Type annotations for kafkaconnect service Client.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kafkaconnect/client.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kafkaconnect/client/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
-    from mypy_boto3_kafkaconnect import KafkaConnectClient
+    from boto3.session import Session
+    from mypy_boto3_kafkaconnect.client import KafkaConnectClient
 
-    client: KafkaConnectClient = boto3.client("kafkaconnect")
+    session = Session()
+    client: KafkaConnectClient = session.client("kafkaconnect")
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from typing import Any, Dict, List, Type, overload
+from typing import Any, overload
 
 from botocore.client import BaseClient, ClientMeta
+from botocore.errorfactory import BaseClientExceptions
+from botocore.exceptions import ClientError as BotocoreClientError
 
-from .literals import CustomPluginContentTypeType
 from .paginator import (
+    ListConnectorOperationsPaginator,
     ListConnectorsPaginator,
     ListCustomPluginsPaginator,
     ListWorkerConfigurationsPaginator,
 )
 from .type_defs import (
-    CapacityTypeDef,
-    CapacityUpdateTypeDef,
+    CreateConnectorRequestTypeDef,
     CreateConnectorResponseTypeDef,
+    CreateCustomPluginRequestTypeDef,
     CreateCustomPluginResponseTypeDef,
+    CreateWorkerConfigurationRequestTypeDef,
     CreateWorkerConfigurationResponseTypeDef,
-    CustomPluginLocationTypeDef,
+    DeleteConnectorRequestTypeDef,
     DeleteConnectorResponseTypeDef,
+    DeleteCustomPluginRequestTypeDef,
     DeleteCustomPluginResponseTypeDef,
+    DeleteWorkerConfigurationRequestTypeDef,
     DeleteWorkerConfigurationResponseTypeDef,
+    DescribeConnectorOperationRequestTypeDef,
+    DescribeConnectorOperationResponseTypeDef,
+    DescribeConnectorRequestTypeDef,
     DescribeConnectorResponseTypeDef,
+    DescribeCustomPluginRequestTypeDef,
     DescribeCustomPluginResponseTypeDef,
+    DescribeWorkerConfigurationRequestTypeDef,
     DescribeWorkerConfigurationResponseTypeDef,
-    KafkaClusterClientAuthenticationTypeDef,
-    KafkaClusterEncryptionInTransitTypeDef,
-    KafkaClusterTypeDef,
+    ListConnectorOperationsRequestTypeDef,
+    ListConnectorOperationsResponseTypeDef,
+    ListConnectorsRequestTypeDef,
     ListConnectorsResponseTypeDef,
+    ListCustomPluginsRequestTypeDef,
     ListCustomPluginsResponseTypeDef,
+    ListTagsForResourceRequestTypeDef,
     ListTagsForResourceResponseTypeDef,
+    ListWorkerConfigurationsRequestTypeDef,
     ListWorkerConfigurationsResponseTypeDef,
-    LogDeliveryTypeDef,
-    PluginTypeDef,
+    TagResourceRequestTypeDef,
+    UntagResourceRequestTypeDef,
+    UpdateConnectorRequestTypeDef,
     UpdateConnectorResponseTypeDef,
-    WorkerConfigurationTypeDef,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import type as Type
+    from collections.abc import Mapping
 else:
-    from typing_extensions import Literal
+    from typing import Dict, Mapping, Type
+if sys.version_info >= (3, 12):
+    from typing import Literal, Unpack
+else:
+    from typing_extensions import Literal, Unpack
 
 __all__ = ("KafkaConnectClient",)
 
-class BotocoreClientError(BaseException):
-    MSG_TEMPLATE: str
-
-    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
-        self.response: Dict[str, Any]
-        self.operation_name: str
-
-class Exceptions:
+class Exceptions(BaseClientExceptions):
     BadRequestException: Type[BotocoreClientError]
     ClientError: Type[BotocoreClientError]
     ConflictException: Type[BotocoreClientError]
@@ -77,8 +94,8 @@ class Exceptions:
 
 class KafkaConnectClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kafkaconnect.html#KafkaConnect.Client)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kafkaconnect/client.html)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kafkaconnect.html#KafkaConnect.Client)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kafkaconnect/client/)
     """
 
     meta: ClientMeta
@@ -87,234 +104,245 @@ class KafkaConnectClient(BaseClient):
     def exceptions(self) -> Exceptions:
         """
         KafkaConnectClient exceptions.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kafkaconnect.html#KafkaConnect.Client)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kafkaconnect/client/#exceptions)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        Check if an operation can be paginated.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kafkaconnect.html#KafkaConnect.Client.can_paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kafkaconnect/client.html#can_paginate)
-        """
-
-    def close(self) -> None:
-        """
-        Closes underlying endpoint connections.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kafkaconnect.html#KafkaConnect.Client.close)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kafkaconnect/client.html#close)
-        """
-
-    def create_connector(
-        self,
-        *,
-        capacity: "CapacityTypeDef",
-        connectorConfiguration: Dict[str, str],
-        connectorName: str,
-        kafkaCluster: "KafkaClusterTypeDef",
-        kafkaClusterClientAuthentication: "KafkaClusterClientAuthenticationTypeDef",
-        kafkaClusterEncryptionInTransit: "KafkaClusterEncryptionInTransitTypeDef",
-        kafkaConnectVersion: str,
-        plugins: List["PluginTypeDef"],
-        serviceExecutionRoleArn: str,
-        connectorDescription: str = None,
-        logDelivery: "LogDeliveryTypeDef" = None,
-        tags: Dict[str, str] = None,
-        workerConfiguration: "WorkerConfigurationTypeDef" = None
-    ) -> CreateConnectorResponseTypeDef:
-        """
-        Creates a connector using the specified properties.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kafkaconnect.html#KafkaConnect.Client.create_connector)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kafkaconnect/client.html#create_connector)
-        """
-
-    def create_custom_plugin(
-        self,
-        *,
-        contentType: CustomPluginContentTypeType,
-        location: "CustomPluginLocationTypeDef",
-        name: str,
-        description: str = None,
-        tags: Dict[str, str] = None
-    ) -> CreateCustomPluginResponseTypeDef:
-        """
-        Creates a custom plugin using the specified properties.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kafkaconnect.html#KafkaConnect.Client.create_custom_plugin)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kafkaconnect/client.html#create_custom_plugin)
-        """
-
-    def create_worker_configuration(
-        self,
-        *,
-        name: str,
-        propertiesFileContent: str,
-        description: str = None,
-        tags: Dict[str, str] = None
-    ) -> CreateWorkerConfigurationResponseTypeDef:
-        """
-        Creates a worker configuration using the specified properties.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kafkaconnect.html#KafkaConnect.Client.create_worker_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kafkaconnect/client.html#create_worker_configuration)
-        """
-
-    def delete_connector(
-        self, *, connectorArn: str, currentVersion: str = None
-    ) -> DeleteConnectorResponseTypeDef:
-        """
-        Deletes the specified connector.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kafkaconnect.html#KafkaConnect.Client.delete_connector)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kafkaconnect/client.html#delete_connector)
-        """
-
-    def delete_custom_plugin(self, *, customPluginArn: str) -> DeleteCustomPluginResponseTypeDef:
-        """
-        Deletes a custom plugin.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kafkaconnect.html#KafkaConnect.Client.delete_custom_plugin)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kafkaconnect/client.html#delete_custom_plugin)
-        """
-
-    def delete_worker_configuration(
-        self, *, workerConfigurationArn: str
-    ) -> DeleteWorkerConfigurationResponseTypeDef:
-        """
-        Deletes the specified worker configuration.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kafkaconnect.html#KafkaConnect.Client.delete_worker_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kafkaconnect/client.html#delete_worker_configuration)
-        """
-
-    def describe_connector(self, *, connectorArn: str) -> DescribeConnectorResponseTypeDef:
-        """
-        Returns summary information about the connector.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kafkaconnect.html#KafkaConnect.Client.describe_connector)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kafkaconnect/client.html#describe_connector)
-        """
-
-    def describe_custom_plugin(
-        self, *, customPluginArn: str
-    ) -> DescribeCustomPluginResponseTypeDef:
-        """
-        A summary description of the custom plugin.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kafkaconnect.html#KafkaConnect.Client.describe_custom_plugin)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kafkaconnect/client.html#describe_custom_plugin)
-        """
-
-    def describe_worker_configuration(
-        self, *, workerConfigurationArn: str
-    ) -> DescribeWorkerConfigurationResponseTypeDef:
-        """
-        Returns information about a worker configuration.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kafkaconnect.html#KafkaConnect.Client.describe_worker_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kafkaconnect/client.html#describe_worker_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kafkaconnect/client/can_paginate.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kafkaconnect/client/#can_paginate)
         """
 
     def generate_presigned_url(
         self,
         ClientMethod: str,
-        Params: Dict[str, Any] = None,
+        Params: Mapping[str, Any] = ...,
         ExpiresIn: int = 3600,
-        HttpMethod: str = None,
+        HttpMethod: str = ...,
     ) -> str:
         """
-        Generate a presigned url given a client, its method, and arguments.
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kafkaconnect/client/generate_presigned_url.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kafkaconnect/client/#generate_presigned_url)
+        """
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kafkaconnect.html#KafkaConnect.Client.generate_presigned_url)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kafkaconnect/client.html#generate_presigned_url)
+    def create_connector(
+        self, **kwargs: Unpack[CreateConnectorRequestTypeDef]
+    ) -> CreateConnectorResponseTypeDef:
+        """
+        Creates a connector using the specified properties.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kafkaconnect/client/create_connector.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kafkaconnect/client/#create_connector)
+        """
+
+    def create_custom_plugin(
+        self, **kwargs: Unpack[CreateCustomPluginRequestTypeDef]
+    ) -> CreateCustomPluginResponseTypeDef:
+        """
+        Creates a custom plugin using the specified properties.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kafkaconnect/client/create_custom_plugin.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kafkaconnect/client/#create_custom_plugin)
+        """
+
+    def create_worker_configuration(
+        self, **kwargs: Unpack[CreateWorkerConfigurationRequestTypeDef]
+    ) -> CreateWorkerConfigurationResponseTypeDef:
+        """
+        Creates a worker configuration using the specified properties.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kafkaconnect/client/create_worker_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kafkaconnect/client/#create_worker_configuration)
+        """
+
+    def delete_connector(
+        self, **kwargs: Unpack[DeleteConnectorRequestTypeDef]
+    ) -> DeleteConnectorResponseTypeDef:
+        """
+        Deletes the specified connector.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kafkaconnect/client/delete_connector.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kafkaconnect/client/#delete_connector)
+        """
+
+    def delete_custom_plugin(
+        self, **kwargs: Unpack[DeleteCustomPluginRequestTypeDef]
+    ) -> DeleteCustomPluginResponseTypeDef:
+        """
+        Deletes a custom plugin.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kafkaconnect/client/delete_custom_plugin.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kafkaconnect/client/#delete_custom_plugin)
+        """
+
+    def delete_worker_configuration(
+        self, **kwargs: Unpack[DeleteWorkerConfigurationRequestTypeDef]
+    ) -> DeleteWorkerConfigurationResponseTypeDef:
+        """
+        Deletes the specified worker configuration.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kafkaconnect/client/delete_worker_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kafkaconnect/client/#delete_worker_configuration)
+        """
+
+    def describe_connector(
+        self, **kwargs: Unpack[DescribeConnectorRequestTypeDef]
+    ) -> DescribeConnectorResponseTypeDef:
+        """
+        Returns summary information about the connector.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kafkaconnect/client/describe_connector.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kafkaconnect/client/#describe_connector)
+        """
+
+    def describe_connector_operation(
+        self, **kwargs: Unpack[DescribeConnectorOperationRequestTypeDef]
+    ) -> DescribeConnectorOperationResponseTypeDef:
+        """
+        Returns information about the specified connector's operations.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kafkaconnect/client/describe_connector_operation.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kafkaconnect/client/#describe_connector_operation)
+        """
+
+    def describe_custom_plugin(
+        self, **kwargs: Unpack[DescribeCustomPluginRequestTypeDef]
+    ) -> DescribeCustomPluginResponseTypeDef:
+        """
+        A summary description of the custom plugin.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kafkaconnect/client/describe_custom_plugin.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kafkaconnect/client/#describe_custom_plugin)
+        """
+
+    def describe_worker_configuration(
+        self, **kwargs: Unpack[DescribeWorkerConfigurationRequestTypeDef]
+    ) -> DescribeWorkerConfigurationResponseTypeDef:
+        """
+        Returns information about a worker configuration.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kafkaconnect/client/describe_worker_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kafkaconnect/client/#describe_worker_configuration)
+        """
+
+    def list_connector_operations(
+        self, **kwargs: Unpack[ListConnectorOperationsRequestTypeDef]
+    ) -> ListConnectorOperationsResponseTypeDef:
+        """
+        Lists information about a connector's operation(s).
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kafkaconnect/client/list_connector_operations.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kafkaconnect/client/#list_connector_operations)
         """
 
     def list_connectors(
-        self, *, connectorNamePrefix: str = None, maxResults: int = None, nextToken: str = None
+        self, **kwargs: Unpack[ListConnectorsRequestTypeDef]
     ) -> ListConnectorsResponseTypeDef:
         """
         Returns a list of all the connectors in this account and Region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kafkaconnect.html#KafkaConnect.Client.list_connectors)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kafkaconnect/client.html#list_connectors)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kafkaconnect/client/list_connectors.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kafkaconnect/client/#list_connectors)
         """
 
     def list_custom_plugins(
-        self, *, maxResults: int = None, namePrefix: str = None, nextToken: str = None
+        self, **kwargs: Unpack[ListCustomPluginsRequestTypeDef]
     ) -> ListCustomPluginsResponseTypeDef:
         """
         Returns a list of all of the custom plugins in this account and Region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kafkaconnect.html#KafkaConnect.Client.list_custom_plugins)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kafkaconnect/client.html#list_custom_plugins)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kafkaconnect/client/list_custom_plugins.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kafkaconnect/client/#list_custom_plugins)
         """
 
-    def list_tags_for_resource(self, *, resourceArn: str) -> ListTagsForResourceResponseTypeDef:
+    def list_tags_for_resource(
+        self, **kwargs: Unpack[ListTagsForResourceRequestTypeDef]
+    ) -> ListTagsForResourceResponseTypeDef:
         """
         Lists all the tags attached to the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kafkaconnect.html#KafkaConnect.Client.list_tags_for_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kafkaconnect/client.html#list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kafkaconnect/client/list_tags_for_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kafkaconnect/client/#list_tags_for_resource)
         """
 
     def list_worker_configurations(
-        self, *, maxResults: int = None, namePrefix: str = None, nextToken: str = None
+        self, **kwargs: Unpack[ListWorkerConfigurationsRequestTypeDef]
     ) -> ListWorkerConfigurationsResponseTypeDef:
         """
         Returns a list of all of the worker configurations in this account and Region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kafkaconnect.html#KafkaConnect.Client.list_worker_configurations)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kafkaconnect/client.html#list_worker_configurations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kafkaconnect/client/list_worker_configurations.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kafkaconnect/client/#list_worker_configurations)
         """
 
-    def tag_resource(self, *, resourceArn: str, tags: Dict[str, str]) -> Dict[str, Any]:
+    def tag_resource(self, **kwargs: Unpack[TagResourceRequestTypeDef]) -> Dict[str, Any]:
         """
         Attaches tags to the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kafkaconnect.html#KafkaConnect.Client.tag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kafkaconnect/client.html#tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kafkaconnect/client/tag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kafkaconnect/client/#tag_resource)
         """
 
-    def untag_resource(self, *, resourceArn: str, tagKeys: List[str]) -> Dict[str, Any]:
+    def untag_resource(self, **kwargs: Unpack[UntagResourceRequestTypeDef]) -> Dict[str, Any]:
         """
         Removes tags from the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kafkaconnect.html#KafkaConnect.Client.untag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kafkaconnect/client.html#untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kafkaconnect/client/untag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kafkaconnect/client/#untag_resource)
         """
 
     def update_connector(
-        self, *, capacity: "CapacityUpdateTypeDef", connectorArn: str, currentVersion: str
+        self, **kwargs: Unpack[UpdateConnectorRequestTypeDef]
     ) -> UpdateConnectorResponseTypeDef:
         """
         Updates the specified connector.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kafkaconnect.html#KafkaConnect.Client.update_connector)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kafkaconnect/client.html#update_connector)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kafkaconnect/client/update_connector.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kafkaconnect/client/#update_connector)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_connectors"]) -> ListConnectorsPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_connector_operations"]
+    ) -> ListConnectorOperationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kafkaconnect.html#KafkaConnect.Paginator.ListConnectors)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kafkaconnect/paginators.html#listconnectorspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kafkaconnect/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kafkaconnect/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_connectors"]
+    ) -> ListConnectorsPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kafkaconnect/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kafkaconnect/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_custom_plugins"]
     ) -> ListCustomPluginsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kafkaconnect.html#KafkaConnect.Paginator.ListCustomPlugins)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kafkaconnect/paginators.html#listcustompluginspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kafkaconnect/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kafkaconnect/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_worker_configurations"]
     ) -> ListWorkerConfigurationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/kafkaconnect.html#KafkaConnect.Paginator.ListWorkerConfigurations)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kafkaconnect/paginators.html#listworkerconfigurationspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kafkaconnect/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kafkaconnect/client/#get_paginator)
         """

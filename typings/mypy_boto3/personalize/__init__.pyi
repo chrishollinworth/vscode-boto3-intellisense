@@ -1,10 +1,14 @@
 """
 Main interface for personalize service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_personalize/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_personalize import (
         Client,
         ListBatchInferenceJobsPaginator,
@@ -26,10 +30,8 @@ Usage::
         PersonalizeClient,
     )
 
-    session = boto3.Session()
-
-    client: PersonalizeClient = boto3.client("personalize")
-    session_client: PersonalizeClient = session.client("personalize")
+    session = Session()
+    client: PersonalizeClient = session.client("personalize")
 
     list_batch_inference_jobs_paginator: ListBatchInferenceJobsPaginator = client.get_paginator("list_batch_inference_jobs")
     list_batch_segment_jobs_paginator: ListBatchSegmentJobsPaginator = client.get_paginator("list_batch_segment_jobs")

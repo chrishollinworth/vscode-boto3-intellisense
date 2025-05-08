@@ -1,20 +1,24 @@
 """
 Type annotations for vpc-lattice service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_vpc_lattice/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_vpc_lattice/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_vpc_lattice.type_defs import AccessLogSubscriptionSummaryTypeDef
 
-    data: AccessLogSubscriptionSummaryTypeDef = {...}
+    data: AccessLogSubscriptionSummaryTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
+from typing import Union
 
 from .literals import (
     AuthPolicyStateType,
@@ -23,6 +27,13 @@ from .literals import (
     IpAddressTypeType,
     LambdaEventStructureVersionType,
     ListenerProtocolType,
+    ResourceConfigurationIpAddressTypeType,
+    ResourceConfigurationStatusType,
+    ResourceConfigurationTypeType,
+    ResourceGatewayIpAddressTypeType,
+    ResourceGatewayStatusType,
+    ServiceNetworkLogTypeType,
+    ServiceNetworkResourceAssociationStatusType,
     ServiceNetworkServiceAssociationStatusType,
     ServiceNetworkVpcAssociationStatusType,
     ServiceStatusType,
@@ -33,135 +44,206 @@ from .literals import (
     TargetStatusType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
+else:
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
     "AccessLogSubscriptionSummaryTypeDef",
-    "BatchUpdateRuleRequestRequestTypeDef",
+    "ArnResourceTypeDef",
+    "BatchUpdateRuleRequestTypeDef",
     "BatchUpdateRuleResponseTypeDef",
-    "CreateAccessLogSubscriptionRequestRequestTypeDef",
+    "CreateAccessLogSubscriptionRequestTypeDef",
     "CreateAccessLogSubscriptionResponseTypeDef",
-    "CreateListenerRequestRequestTypeDef",
+    "CreateListenerRequestTypeDef",
     "CreateListenerResponseTypeDef",
-    "CreateRuleRequestRequestTypeDef",
+    "CreateResourceConfigurationRequestTypeDef",
+    "CreateResourceConfigurationResponseTypeDef",
+    "CreateResourceGatewayRequestTypeDef",
+    "CreateResourceGatewayResponseTypeDef",
+    "CreateRuleRequestTypeDef",
     "CreateRuleResponseTypeDef",
-    "CreateServiceNetworkRequestRequestTypeDef",
+    "CreateServiceNetworkRequestTypeDef",
+    "CreateServiceNetworkResourceAssociationRequestTypeDef",
+    "CreateServiceNetworkResourceAssociationResponseTypeDef",
     "CreateServiceNetworkResponseTypeDef",
-    "CreateServiceNetworkServiceAssociationRequestRequestTypeDef",
+    "CreateServiceNetworkServiceAssociationRequestTypeDef",
     "CreateServiceNetworkServiceAssociationResponseTypeDef",
-    "CreateServiceNetworkVpcAssociationRequestRequestTypeDef",
+    "CreateServiceNetworkVpcAssociationRequestTypeDef",
     "CreateServiceNetworkVpcAssociationResponseTypeDef",
-    "CreateServiceRequestRequestTypeDef",
+    "CreateServiceRequestTypeDef",
     "CreateServiceResponseTypeDef",
-    "CreateTargetGroupRequestRequestTypeDef",
+    "CreateTargetGroupRequestTypeDef",
     "CreateTargetGroupResponseTypeDef",
-    "DeleteAccessLogSubscriptionRequestRequestTypeDef",
-    "DeleteAuthPolicyRequestRequestTypeDef",
-    "DeleteListenerRequestRequestTypeDef",
-    "DeleteResourcePolicyRequestRequestTypeDef",
-    "DeleteRuleRequestRequestTypeDef",
-    "DeleteServiceNetworkRequestRequestTypeDef",
-    "DeleteServiceNetworkServiceAssociationRequestRequestTypeDef",
+    "DeleteAccessLogSubscriptionRequestTypeDef",
+    "DeleteAuthPolicyRequestTypeDef",
+    "DeleteListenerRequestTypeDef",
+    "DeleteResourceConfigurationRequestTypeDef",
+    "DeleteResourceEndpointAssociationRequestTypeDef",
+    "DeleteResourceEndpointAssociationResponseTypeDef",
+    "DeleteResourceGatewayRequestTypeDef",
+    "DeleteResourceGatewayResponseTypeDef",
+    "DeleteResourcePolicyRequestTypeDef",
+    "DeleteRuleRequestTypeDef",
+    "DeleteServiceNetworkRequestTypeDef",
+    "DeleteServiceNetworkResourceAssociationRequestTypeDef",
+    "DeleteServiceNetworkResourceAssociationResponseTypeDef",
+    "DeleteServiceNetworkServiceAssociationRequestTypeDef",
     "DeleteServiceNetworkServiceAssociationResponseTypeDef",
-    "DeleteServiceNetworkVpcAssociationRequestRequestTypeDef",
+    "DeleteServiceNetworkVpcAssociationRequestTypeDef",
     "DeleteServiceNetworkVpcAssociationResponseTypeDef",
-    "DeleteServiceRequestRequestTypeDef",
+    "DeleteServiceRequestTypeDef",
     "DeleteServiceResponseTypeDef",
-    "DeleteTargetGroupRequestRequestTypeDef",
+    "DeleteTargetGroupRequestTypeDef",
     "DeleteTargetGroupResponseTypeDef",
-    "DeregisterTargetsRequestRequestTypeDef",
+    "DeregisterTargetsRequestTypeDef",
     "DeregisterTargetsResponseTypeDef",
     "DnsEntryTypeDef",
+    "DnsResourceTypeDef",
     "FixedResponseActionTypeDef",
+    "ForwardActionOutputTypeDef",
     "ForwardActionTypeDef",
-    "GetAccessLogSubscriptionRequestRequestTypeDef",
+    "ForwardActionUnionTypeDef",
+    "GetAccessLogSubscriptionRequestTypeDef",
     "GetAccessLogSubscriptionResponseTypeDef",
-    "GetAuthPolicyRequestRequestTypeDef",
+    "GetAuthPolicyRequestTypeDef",
     "GetAuthPolicyResponseTypeDef",
-    "GetListenerRequestRequestTypeDef",
+    "GetListenerRequestTypeDef",
     "GetListenerResponseTypeDef",
-    "GetResourcePolicyRequestRequestTypeDef",
+    "GetResourceConfigurationRequestTypeDef",
+    "GetResourceConfigurationResponseTypeDef",
+    "GetResourceGatewayRequestTypeDef",
+    "GetResourceGatewayResponseTypeDef",
+    "GetResourcePolicyRequestTypeDef",
     "GetResourcePolicyResponseTypeDef",
-    "GetRuleRequestRequestTypeDef",
+    "GetRuleRequestTypeDef",
     "GetRuleResponseTypeDef",
-    "GetServiceNetworkRequestRequestTypeDef",
+    "GetServiceNetworkRequestTypeDef",
+    "GetServiceNetworkResourceAssociationRequestTypeDef",
+    "GetServiceNetworkResourceAssociationResponseTypeDef",
     "GetServiceNetworkResponseTypeDef",
-    "GetServiceNetworkServiceAssociationRequestRequestTypeDef",
+    "GetServiceNetworkServiceAssociationRequestTypeDef",
     "GetServiceNetworkServiceAssociationResponseTypeDef",
-    "GetServiceNetworkVpcAssociationRequestRequestTypeDef",
+    "GetServiceNetworkVpcAssociationRequestTypeDef",
     "GetServiceNetworkVpcAssociationResponseTypeDef",
-    "GetServiceRequestRequestTypeDef",
+    "GetServiceRequestTypeDef",
     "GetServiceResponseTypeDef",
-    "GetTargetGroupRequestRequestTypeDef",
+    "GetTargetGroupRequestTypeDef",
     "GetTargetGroupResponseTypeDef",
     "HeaderMatchTypeDef",
     "HeaderMatchTypeTypeDef",
     "HealthCheckConfigTypeDef",
+    "HttpMatchOutputTypeDef",
     "HttpMatchTypeDef",
-    "ListAccessLogSubscriptionsRequestRequestTypeDef",
+    "HttpMatchUnionTypeDef",
+    "IpResourceTypeDef",
+    "ListAccessLogSubscriptionsRequestPaginateTypeDef",
+    "ListAccessLogSubscriptionsRequestTypeDef",
     "ListAccessLogSubscriptionsResponseTypeDef",
-    "ListListenersRequestRequestTypeDef",
+    "ListListenersRequestPaginateTypeDef",
+    "ListListenersRequestTypeDef",
     "ListListenersResponseTypeDef",
-    "ListRulesRequestRequestTypeDef",
+    "ListResourceConfigurationsRequestPaginateTypeDef",
+    "ListResourceConfigurationsRequestTypeDef",
+    "ListResourceConfigurationsResponseTypeDef",
+    "ListResourceEndpointAssociationsRequestPaginateTypeDef",
+    "ListResourceEndpointAssociationsRequestTypeDef",
+    "ListResourceEndpointAssociationsResponseTypeDef",
+    "ListResourceGatewaysRequestPaginateTypeDef",
+    "ListResourceGatewaysRequestTypeDef",
+    "ListResourceGatewaysResponseTypeDef",
+    "ListRulesRequestPaginateTypeDef",
+    "ListRulesRequestTypeDef",
     "ListRulesResponseTypeDef",
-    "ListServiceNetworkServiceAssociationsRequestRequestTypeDef",
+    "ListServiceNetworkResourceAssociationsRequestPaginateTypeDef",
+    "ListServiceNetworkResourceAssociationsRequestTypeDef",
+    "ListServiceNetworkResourceAssociationsResponseTypeDef",
+    "ListServiceNetworkServiceAssociationsRequestPaginateTypeDef",
+    "ListServiceNetworkServiceAssociationsRequestTypeDef",
     "ListServiceNetworkServiceAssociationsResponseTypeDef",
-    "ListServiceNetworkVpcAssociationsRequestRequestTypeDef",
+    "ListServiceNetworkVpcAssociationsRequestPaginateTypeDef",
+    "ListServiceNetworkVpcAssociationsRequestTypeDef",
     "ListServiceNetworkVpcAssociationsResponseTypeDef",
-    "ListServiceNetworksRequestRequestTypeDef",
+    "ListServiceNetworkVpcEndpointAssociationsRequestPaginateTypeDef",
+    "ListServiceNetworkVpcEndpointAssociationsRequestTypeDef",
+    "ListServiceNetworkVpcEndpointAssociationsResponseTypeDef",
+    "ListServiceNetworksRequestPaginateTypeDef",
+    "ListServiceNetworksRequestTypeDef",
     "ListServiceNetworksResponseTypeDef",
-    "ListServicesRequestRequestTypeDef",
+    "ListServicesRequestPaginateTypeDef",
+    "ListServicesRequestTypeDef",
     "ListServicesResponseTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
-    "ListTargetGroupsRequestRequestTypeDef",
+    "ListTargetGroupsRequestPaginateTypeDef",
+    "ListTargetGroupsRequestTypeDef",
     "ListTargetGroupsResponseTypeDef",
-    "ListTargetsRequestRequestTypeDef",
+    "ListTargetsRequestPaginateTypeDef",
+    "ListTargetsRequestTypeDef",
     "ListTargetsResponseTypeDef",
     "ListenerSummaryTypeDef",
     "MatcherTypeDef",
     "PaginatorConfigTypeDef",
     "PathMatchTypeDef",
     "PathMatchTypeTypeDef",
-    "PutAuthPolicyRequestRequestTypeDef",
+    "PutAuthPolicyRequestTypeDef",
     "PutAuthPolicyResponseTypeDef",
-    "PutResourcePolicyRequestRequestTypeDef",
-    "RegisterTargetsRequestRequestTypeDef",
+    "PutResourcePolicyRequestTypeDef",
+    "RegisterTargetsRequestTypeDef",
     "RegisterTargetsResponseTypeDef",
+    "ResourceConfigurationDefinitionTypeDef",
+    "ResourceConfigurationSummaryTypeDef",
+    "ResourceEndpointAssociationSummaryTypeDef",
+    "ResourceGatewaySummaryTypeDef",
     "ResponseMetadataTypeDef",
+    "RuleActionOutputTypeDef",
     "RuleActionTypeDef",
+    "RuleActionUnionTypeDef",
+    "RuleMatchOutputTypeDef",
     "RuleMatchTypeDef",
+    "RuleMatchUnionTypeDef",
     "RuleSummaryTypeDef",
     "RuleUpdateFailureTypeDef",
     "RuleUpdateSuccessTypeDef",
     "RuleUpdateTypeDef",
+    "ServiceNetworkEndpointAssociationTypeDef",
+    "ServiceNetworkResourceAssociationSummaryTypeDef",
     "ServiceNetworkServiceAssociationSummaryTypeDef",
     "ServiceNetworkSummaryTypeDef",
     "ServiceNetworkVpcAssociationSummaryTypeDef",
     "ServiceSummaryTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "SharingConfigTypeDef",
+    "TagResourceRequestTypeDef",
     "TargetFailureTypeDef",
     "TargetGroupConfigTypeDef",
     "TargetGroupSummaryTypeDef",
     "TargetSummaryTypeDef",
     "TargetTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateAccessLogSubscriptionRequestRequestTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateAccessLogSubscriptionRequestTypeDef",
     "UpdateAccessLogSubscriptionResponseTypeDef",
-    "UpdateListenerRequestRequestTypeDef",
+    "UpdateListenerRequestTypeDef",
     "UpdateListenerResponseTypeDef",
-    "UpdateRuleRequestRequestTypeDef",
+    "UpdateResourceConfigurationRequestTypeDef",
+    "UpdateResourceConfigurationResponseTypeDef",
+    "UpdateResourceGatewayRequestTypeDef",
+    "UpdateResourceGatewayResponseTypeDef",
+    "UpdateRuleRequestTypeDef",
     "UpdateRuleResponseTypeDef",
-    "UpdateServiceNetworkRequestRequestTypeDef",
+    "UpdateServiceNetworkRequestTypeDef",
     "UpdateServiceNetworkResponseTypeDef",
-    "UpdateServiceNetworkVpcAssociationRequestRequestTypeDef",
+    "UpdateServiceNetworkVpcAssociationRequestTypeDef",
     "UpdateServiceNetworkVpcAssociationResponseTypeDef",
-    "UpdateServiceRequestRequestTypeDef",
+    "UpdateServiceRequestTypeDef",
     "UpdateServiceResponseTypeDef",
-    "UpdateTargetGroupRequestRequestTypeDef",
+    "UpdateTargetGroupRequestTypeDef",
     "UpdateTargetGroupResponseTypeDef",
     "WeightedTargetGroupTypeDef",
 )
@@ -176,48 +258,464 @@ AccessLogSubscriptionSummaryTypeDef = TypedDict(
         "lastUpdatedAt": datetime,
         "resourceArn": str,
         "resourceId": str,
+        "serviceNetworkLogType": NotRequired[ServiceNetworkLogTypeType],
     },
 )
 
-BatchUpdateRuleRequestRequestTypeDef = TypedDict(
-    "BatchUpdateRuleRequestRequestTypeDef",
+class ArnResourceTypeDef(TypedDict):
+    arn: NotRequired[str]
+
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
+
+class RuleUpdateFailureTypeDef(TypedDict):
+    failureCode: NotRequired[str]
+    failureMessage: NotRequired[str]
+    ruleIdentifier: NotRequired[str]
+
+class CreateAccessLogSubscriptionRequestTypeDef(TypedDict):
+    destinationArn: str
+    resourceIdentifier: str
+    clientToken: NotRequired[str]
+    serviceNetworkLogType: NotRequired[ServiceNetworkLogTypeType]
+    tags: NotRequired[Mapping[str, str]]
+
+class CreateResourceGatewayRequestTypeDef(TypedDict):
+    name: str
+    subnetIds: Sequence[str]
+    vpcIdentifier: str
+    clientToken: NotRequired[str]
+    ipAddressType: NotRequired[ResourceGatewayIpAddressTypeType]
+    securityGroupIds: NotRequired[Sequence[str]]
+    tags: NotRequired[Mapping[str, str]]
+
+class SharingConfigTypeDef(TypedDict):
+    enabled: NotRequired[bool]
+
+class CreateServiceNetworkResourceAssociationRequestTypeDef(TypedDict):
+    resourceConfigurationIdentifier: str
+    serviceNetworkIdentifier: str
+    clientToken: NotRequired[str]
+    tags: NotRequired[Mapping[str, str]]
+
+class CreateServiceNetworkServiceAssociationRequestTypeDef(TypedDict):
+    serviceIdentifier: str
+    serviceNetworkIdentifier: str
+    clientToken: NotRequired[str]
+    tags: NotRequired[Mapping[str, str]]
+
+class DnsEntryTypeDef(TypedDict):
+    domainName: NotRequired[str]
+    hostedZoneId: NotRequired[str]
+
+class CreateServiceNetworkVpcAssociationRequestTypeDef(TypedDict):
+    serviceNetworkIdentifier: str
+    vpcIdentifier: str
+    clientToken: NotRequired[str]
+    securityGroupIds: NotRequired[Sequence[str]]
+    tags: NotRequired[Mapping[str, str]]
+
+class CreateServiceRequestTypeDef(TypedDict):
+    name: str
+    authType: NotRequired[AuthTypeType]
+    certificateArn: NotRequired[str]
+    clientToken: NotRequired[str]
+    customDomainName: NotRequired[str]
+    tags: NotRequired[Mapping[str, str]]
+
+class DeleteAccessLogSubscriptionRequestTypeDef(TypedDict):
+    accessLogSubscriptionIdentifier: str
+
+class DeleteAuthPolicyRequestTypeDef(TypedDict):
+    resourceIdentifier: str
+
+class DeleteListenerRequestTypeDef(TypedDict):
+    listenerIdentifier: str
+    serviceIdentifier: str
+
+class DeleteResourceConfigurationRequestTypeDef(TypedDict):
+    resourceConfigurationIdentifier: str
+
+class DeleteResourceEndpointAssociationRequestTypeDef(TypedDict):
+    resourceEndpointAssociationIdentifier: str
+
+class DeleteResourceGatewayRequestTypeDef(TypedDict):
+    resourceGatewayIdentifier: str
+
+class DeleteResourcePolicyRequestTypeDef(TypedDict):
+    resourceArn: str
+
+class DeleteRuleRequestTypeDef(TypedDict):
+    listenerIdentifier: str
+    ruleIdentifier: str
+    serviceIdentifier: str
+
+class DeleteServiceNetworkRequestTypeDef(TypedDict):
+    serviceNetworkIdentifier: str
+
+class DeleteServiceNetworkResourceAssociationRequestTypeDef(TypedDict):
+    serviceNetworkResourceAssociationIdentifier: str
+
+class DeleteServiceNetworkServiceAssociationRequestTypeDef(TypedDict):
+    serviceNetworkServiceAssociationIdentifier: str
+
+class DeleteServiceNetworkVpcAssociationRequestTypeDef(TypedDict):
+    serviceNetworkVpcAssociationIdentifier: str
+
+class DeleteServiceRequestTypeDef(TypedDict):
+    serviceIdentifier: str
+
+class DeleteTargetGroupRequestTypeDef(TypedDict):
+    targetGroupIdentifier: str
+
+TargetTypeDef = TypedDict(
+    "TargetTypeDef",
     {
-        "listenerIdentifier": str,
-        "rules": List["RuleUpdateTypeDef"],
-        "serviceIdentifier": str,
+        "id": str,
+        "port": NotRequired[int],
+    },
+)
+TargetFailureTypeDef = TypedDict(
+    "TargetFailureTypeDef",
+    {
+        "failureCode": NotRequired[str],
+        "failureMessage": NotRequired[str],
+        "id": NotRequired[str],
+        "port": NotRequired[int],
     },
 )
 
-BatchUpdateRuleResponseTypeDef = TypedDict(
-    "BatchUpdateRuleResponseTypeDef",
+class DnsResourceTypeDef(TypedDict):
+    domainName: NotRequired[str]
+    ipAddressType: NotRequired[ResourceConfigurationIpAddressTypeType]
+
+class FixedResponseActionTypeDef(TypedDict):
+    statusCode: int
+
+class WeightedTargetGroupTypeDef(TypedDict):
+    targetGroupIdentifier: str
+    weight: NotRequired[int]
+
+class GetAccessLogSubscriptionRequestTypeDef(TypedDict):
+    accessLogSubscriptionIdentifier: str
+
+class GetAuthPolicyRequestTypeDef(TypedDict):
+    resourceIdentifier: str
+
+class GetListenerRequestTypeDef(TypedDict):
+    listenerIdentifier: str
+    serviceIdentifier: str
+
+class GetResourceConfigurationRequestTypeDef(TypedDict):
+    resourceConfigurationIdentifier: str
+
+class GetResourceGatewayRequestTypeDef(TypedDict):
+    resourceGatewayIdentifier: str
+
+class GetResourcePolicyRequestTypeDef(TypedDict):
+    resourceArn: str
+
+class GetRuleRequestTypeDef(TypedDict):
+    listenerIdentifier: str
+    ruleIdentifier: str
+    serviceIdentifier: str
+
+class GetServiceNetworkRequestTypeDef(TypedDict):
+    serviceNetworkIdentifier: str
+
+class GetServiceNetworkResourceAssociationRequestTypeDef(TypedDict):
+    serviceNetworkResourceAssociationIdentifier: str
+
+class GetServiceNetworkServiceAssociationRequestTypeDef(TypedDict):
+    serviceNetworkServiceAssociationIdentifier: str
+
+class GetServiceNetworkVpcAssociationRequestTypeDef(TypedDict):
+    serviceNetworkVpcAssociationIdentifier: str
+
+class GetServiceRequestTypeDef(TypedDict):
+    serviceIdentifier: str
+
+class GetTargetGroupRequestTypeDef(TypedDict):
+    targetGroupIdentifier: str
+
+class HeaderMatchTypeTypeDef(TypedDict):
+    contains: NotRequired[str]
+    exact: NotRequired[str]
+    prefix: NotRequired[str]
+
+class MatcherTypeDef(TypedDict):
+    httpCode: NotRequired[str]
+
+class IpResourceTypeDef(TypedDict):
+    ipAddress: NotRequired[str]
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class ListAccessLogSubscriptionsRequestTypeDef(TypedDict):
+    resourceIdentifier: str
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListListenersRequestTypeDef(TypedDict):
+    serviceIdentifier: str
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+ListenerSummaryTypeDef = TypedDict(
+    "ListenerSummaryTypeDef",
     {
-        "successful": List["RuleUpdateSuccessTypeDef"],
-        "unsuccessful": List["RuleUpdateFailureTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "arn": NotRequired[str],
+        "createdAt": NotRequired[datetime],
+        "id": NotRequired[str],
+        "lastUpdatedAt": NotRequired[datetime],
+        "name": NotRequired[str],
+        "port": NotRequired[int],
+        "protocol": NotRequired[ListenerProtocolType],
     },
 )
 
-_RequiredCreateAccessLogSubscriptionRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateAccessLogSubscriptionRequestRequestTypeDef",
+class ListResourceConfigurationsRequestTypeDef(TypedDict):
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+    resourceConfigurationGroupIdentifier: NotRequired[str]
+    resourceGatewayIdentifier: NotRequired[str]
+
+ResourceConfigurationSummaryTypeDef = TypedDict(
+    "ResourceConfigurationSummaryTypeDef",
     {
-        "destinationArn": str,
-        "resourceIdentifier": str,
+        "amazonManaged": NotRequired[bool],
+        "arn": NotRequired[str],
+        "createdAt": NotRequired[datetime],
+        "id": NotRequired[str],
+        "lastUpdatedAt": NotRequired[datetime],
+        "name": NotRequired[str],
+        "resourceConfigurationGroupId": NotRequired[str],
+        "resourceGatewayId": NotRequired[str],
+        "status": NotRequired[ResourceConfigurationStatusType],
+        "type": NotRequired[ResourceConfigurationTypeType],
     },
-)
-_OptionalCreateAccessLogSubscriptionRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateAccessLogSubscriptionRequestRequestTypeDef",
-    {
-        "clientToken": str,
-        "tags": Dict[str, str],
-    },
-    total=False,
 )
 
-class CreateAccessLogSubscriptionRequestRequestTypeDef(
-    _RequiredCreateAccessLogSubscriptionRequestRequestTypeDef,
-    _OptionalCreateAccessLogSubscriptionRequestRequestTypeDef,
-):
-    pass
+class ListResourceEndpointAssociationsRequestTypeDef(TypedDict):
+    resourceConfigurationIdentifier: str
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+    resourceEndpointAssociationIdentifier: NotRequired[str]
+    vpcEndpointId: NotRequired[str]
+    vpcEndpointOwner: NotRequired[str]
+
+ResourceEndpointAssociationSummaryTypeDef = TypedDict(
+    "ResourceEndpointAssociationSummaryTypeDef",
+    {
+        "arn": NotRequired[str],
+        "createdAt": NotRequired[datetime],
+        "createdBy": NotRequired[str],
+        "id": NotRequired[str],
+        "resourceConfigurationArn": NotRequired[str],
+        "resourceConfigurationId": NotRequired[str],
+        "resourceConfigurationName": NotRequired[str],
+        "vpcEndpointId": NotRequired[str],
+        "vpcEndpointOwner": NotRequired[str],
+    },
+)
+
+class ListResourceGatewaysRequestTypeDef(TypedDict):
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+ResourceGatewaySummaryTypeDef = TypedDict(
+    "ResourceGatewaySummaryTypeDef",
+    {
+        "arn": NotRequired[str],
+        "createdAt": NotRequired[datetime],
+        "id": NotRequired[str],
+        "ipAddressType": NotRequired[ResourceGatewayIpAddressTypeType],
+        "lastUpdatedAt": NotRequired[datetime],
+        "name": NotRequired[str],
+        "securityGroupIds": NotRequired[List[str]],
+        "status": NotRequired[ResourceGatewayStatusType],
+        "subnetIds": NotRequired[List[str]],
+        "vpcIdentifier": NotRequired[str],
+    },
+)
+
+class ListRulesRequestTypeDef(TypedDict):
+    listenerIdentifier: str
+    serviceIdentifier: str
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+RuleSummaryTypeDef = TypedDict(
+    "RuleSummaryTypeDef",
+    {
+        "arn": NotRequired[str],
+        "createdAt": NotRequired[datetime],
+        "id": NotRequired[str],
+        "isDefault": NotRequired[bool],
+        "lastUpdatedAt": NotRequired[datetime],
+        "name": NotRequired[str],
+        "priority": NotRequired[int],
+    },
+)
+
+class ListServiceNetworkResourceAssociationsRequestTypeDef(TypedDict):
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+    resourceConfigurationIdentifier: NotRequired[str]
+    serviceNetworkIdentifier: NotRequired[str]
+
+class ListServiceNetworkServiceAssociationsRequestTypeDef(TypedDict):
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+    serviceIdentifier: NotRequired[str]
+    serviceNetworkIdentifier: NotRequired[str]
+
+class ListServiceNetworkVpcAssociationsRequestTypeDef(TypedDict):
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+    serviceNetworkIdentifier: NotRequired[str]
+    vpcIdentifier: NotRequired[str]
+
+ServiceNetworkVpcAssociationSummaryTypeDef = TypedDict(
+    "ServiceNetworkVpcAssociationSummaryTypeDef",
+    {
+        "arn": NotRequired[str],
+        "createdAt": NotRequired[datetime],
+        "createdBy": NotRequired[str],
+        "id": NotRequired[str],
+        "lastUpdatedAt": NotRequired[datetime],
+        "serviceNetworkArn": NotRequired[str],
+        "serviceNetworkId": NotRequired[str],
+        "serviceNetworkName": NotRequired[str],
+        "status": NotRequired[ServiceNetworkVpcAssociationStatusType],
+        "vpcId": NotRequired[str],
+    },
+)
+
+class ListServiceNetworkVpcEndpointAssociationsRequestTypeDef(TypedDict):
+    serviceNetworkIdentifier: str
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+ServiceNetworkEndpointAssociationTypeDef = TypedDict(
+    "ServiceNetworkEndpointAssociationTypeDef",
+    {
+        "createdAt": NotRequired[datetime],
+        "id": NotRequired[str],
+        "serviceNetworkArn": NotRequired[str],
+        "state": NotRequired[str],
+        "vpcEndpointId": NotRequired[str],
+        "vpcEndpointOwnerId": NotRequired[str],
+        "vpcId": NotRequired[str],
+    },
+)
+
+class ListServiceNetworksRequestTypeDef(TypedDict):
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+ServiceNetworkSummaryTypeDef = TypedDict(
+    "ServiceNetworkSummaryTypeDef",
+    {
+        "arn": NotRequired[str],
+        "createdAt": NotRequired[datetime],
+        "id": NotRequired[str],
+        "lastUpdatedAt": NotRequired[datetime],
+        "name": NotRequired[str],
+        "numberOfAssociatedResourceConfigurations": NotRequired[int],
+        "numberOfAssociatedServices": NotRequired[int],
+        "numberOfAssociatedVPCs": NotRequired[int],
+    },
+)
+
+class ListServicesRequestTypeDef(TypedDict):
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+
+class ListTargetGroupsRequestTypeDef(TypedDict):
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+    targetGroupType: NotRequired[TargetGroupTypeType]
+    vpcIdentifier: NotRequired[str]
+
+TargetGroupSummaryTypeDef = TypedDict(
+    "TargetGroupSummaryTypeDef",
+    {
+        "arn": NotRequired[str],
+        "createdAt": NotRequired[datetime],
+        "id": NotRequired[str],
+        "ipAddressType": NotRequired[IpAddressTypeType],
+        "lambdaEventStructureVersion": NotRequired[LambdaEventStructureVersionType],
+        "lastUpdatedAt": NotRequired[datetime],
+        "name": NotRequired[str],
+        "port": NotRequired[int],
+        "protocol": NotRequired[TargetGroupProtocolType],
+        "serviceArns": NotRequired[List[str]],
+        "status": NotRequired[TargetGroupStatusType],
+        "type": NotRequired[TargetGroupTypeType],
+        "vpcIdentifier": NotRequired[str],
+    },
+)
+TargetSummaryTypeDef = TypedDict(
+    "TargetSummaryTypeDef",
+    {
+        "id": NotRequired[str],
+        "port": NotRequired[int],
+        "reasonCode": NotRequired[str],
+        "status": NotRequired[TargetStatusType],
+    },
+)
+
+class PathMatchTypeTypeDef(TypedDict):
+    exact: NotRequired[str]
+    prefix: NotRequired[str]
+
+class PutAuthPolicyRequestTypeDef(TypedDict):
+    policy: str
+    resourceIdentifier: str
+
+class PutResourcePolicyRequestTypeDef(TypedDict):
+    policy: str
+    resourceArn: str
+
+class TagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tags: Mapping[str, str]
+
+class UntagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tagKeys: Sequence[str]
+
+class UpdateAccessLogSubscriptionRequestTypeDef(TypedDict):
+    accessLogSubscriptionIdentifier: str
+    destinationArn: str
+
+class UpdateResourceGatewayRequestTypeDef(TypedDict):
+    resourceGatewayIdentifier: str
+    securityGroupIds: NotRequired[Sequence[str]]
+
+class UpdateServiceNetworkRequestTypeDef(TypedDict):
+    authType: AuthTypeType
+    serviceNetworkIdentifier: str
+
+class UpdateServiceNetworkVpcAssociationRequestTypeDef(TypedDict):
+    securityGroupIds: Sequence[str]
+    serviceNetworkVpcAssociationIdentifier: str
+
+class UpdateServiceRequestTypeDef(TypedDict):
+    serviceIdentifier: str
+    authType: NotRequired[AuthTypeType]
+    certificateArn: NotRequired[str]
 
 CreateAccessLogSubscriptionResponseTypeDef = TypedDict(
     "CreateAccessLogSubscriptionResponseTypeDef",
@@ -227,178 +725,34 @@ CreateAccessLogSubscriptionResponseTypeDef = TypedDict(
         "id": str,
         "resourceArn": str,
         "resourceId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "serviceNetworkLogType": ServiceNetworkLogTypeType,
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
-
-_RequiredCreateListenerRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateListenerRequestRequestTypeDef",
-    {
-        "defaultAction": "RuleActionTypeDef",
-        "name": str,
-        "protocol": ListenerProtocolType,
-        "serviceIdentifier": str,
-    },
-)
-_OptionalCreateListenerRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateListenerRequestRequestTypeDef",
-    {
-        "clientToken": str,
-        "port": int,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class CreateListenerRequestRequestTypeDef(
-    _RequiredCreateListenerRequestRequestTypeDef, _OptionalCreateListenerRequestRequestTypeDef
-):
-    pass
-
-CreateListenerResponseTypeDef = TypedDict(
-    "CreateListenerResponseTypeDef",
+CreateResourceGatewayResponseTypeDef = TypedDict(
+    "CreateResourceGatewayResponseTypeDef",
     {
         "arn": str,
-        "defaultAction": "RuleActionTypeDef",
         "id": str,
+        "ipAddressType": ResourceGatewayIpAddressTypeType,
         "name": str,
-        "port": int,
-        "protocol": ListenerProtocolType,
-        "serviceArn": str,
-        "serviceId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "securityGroupIds": List[str],
+        "status": ResourceGatewayStatusType,
+        "subnetIds": List[str],
+        "vpcIdentifier": str,
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
-
-_RequiredCreateRuleRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateRuleRequestRequestTypeDef",
-    {
-        "action": "RuleActionTypeDef",
-        "listenerIdentifier": str,
-        "match": "RuleMatchTypeDef",
-        "name": str,
-        "priority": int,
-        "serviceIdentifier": str,
-    },
-)
-_OptionalCreateRuleRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateRuleRequestRequestTypeDef",
-    {
-        "clientToken": str,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class CreateRuleRequestRequestTypeDef(
-    _RequiredCreateRuleRequestRequestTypeDef, _OptionalCreateRuleRequestRequestTypeDef
-):
-    pass
-
-CreateRuleResponseTypeDef = TypedDict(
-    "CreateRuleResponseTypeDef",
-    {
-        "action": "RuleActionTypeDef",
-        "arn": str,
-        "id": str,
-        "match": "RuleMatchTypeDef",
-        "name": str,
-        "priority": int,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateServiceNetworkRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateServiceNetworkRequestRequestTypeDef",
-    {
-        "name": str,
-    },
-)
-_OptionalCreateServiceNetworkRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateServiceNetworkRequestRequestTypeDef",
-    {
-        "authType": AuthTypeType,
-        "clientToken": str,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class CreateServiceNetworkRequestRequestTypeDef(
-    _RequiredCreateServiceNetworkRequestRequestTypeDef,
-    _OptionalCreateServiceNetworkRequestRequestTypeDef,
-):
-    pass
-
-CreateServiceNetworkResponseTypeDef = TypedDict(
-    "CreateServiceNetworkResponseTypeDef",
-    {
-        "arn": str,
-        "authType": AuthTypeType,
-        "id": str,
-        "name": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateServiceNetworkServiceAssociationRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateServiceNetworkServiceAssociationRequestRequestTypeDef",
-    {
-        "serviceIdentifier": str,
-        "serviceNetworkIdentifier": str,
-    },
-)
-_OptionalCreateServiceNetworkServiceAssociationRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateServiceNetworkServiceAssociationRequestRequestTypeDef",
-    {
-        "clientToken": str,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class CreateServiceNetworkServiceAssociationRequestRequestTypeDef(
-    _RequiredCreateServiceNetworkServiceAssociationRequestRequestTypeDef,
-    _OptionalCreateServiceNetworkServiceAssociationRequestRequestTypeDef,
-):
-    pass
-
-CreateServiceNetworkServiceAssociationResponseTypeDef = TypedDict(
-    "CreateServiceNetworkServiceAssociationResponseTypeDef",
+CreateServiceNetworkResourceAssociationResponseTypeDef = TypedDict(
+    "CreateServiceNetworkResourceAssociationResponseTypeDef",
     {
         "arn": str,
         "createdBy": str,
-        "customDomainName": str,
-        "dnsEntry": "DnsEntryTypeDef",
         "id": str,
-        "status": ServiceNetworkServiceAssociationStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "status": ServiceNetworkResourceAssociationStatusType,
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
-
-_RequiredCreateServiceNetworkVpcAssociationRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateServiceNetworkVpcAssociationRequestRequestTypeDef",
-    {
-        "serviceNetworkIdentifier": str,
-        "vpcIdentifier": str,
-    },
-)
-_OptionalCreateServiceNetworkVpcAssociationRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateServiceNetworkVpcAssociationRequestRequestTypeDef",
-    {
-        "clientToken": str,
-        "securityGroupIds": List[str],
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class CreateServiceNetworkVpcAssociationRequestRequestTypeDef(
-    _RequiredCreateServiceNetworkVpcAssociationRequestRequestTypeDef,
-    _OptionalCreateServiceNetworkVpcAssociationRequestRequestTypeDef,
-):
-    pass
-
 CreateServiceNetworkVpcAssociationResponseTypeDef = TypedDict(
     "CreateServiceNetworkVpcAssociationResponseTypeDef",
     {
@@ -407,169 +761,57 @@ CreateServiceNetworkVpcAssociationResponseTypeDef = TypedDict(
         "id": str,
         "securityGroupIds": List[str],
         "status": ServiceNetworkVpcAssociationStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
-
-_RequiredCreateServiceRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateServiceRequestRequestTypeDef",
-    {
-        "name": str,
-    },
-)
-_OptionalCreateServiceRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateServiceRequestRequestTypeDef",
-    {
-        "authType": AuthTypeType,
-        "certificateArn": str,
-        "clientToken": str,
-        "customDomainName": str,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class CreateServiceRequestRequestTypeDef(
-    _RequiredCreateServiceRequestRequestTypeDef, _OptionalCreateServiceRequestRequestTypeDef
-):
-    pass
-
-CreateServiceResponseTypeDef = TypedDict(
-    "CreateServiceResponseTypeDef",
+DeleteResourceEndpointAssociationResponseTypeDef = TypedDict(
+    "DeleteResourceEndpointAssociationResponseTypeDef",
     {
         "arn": str,
-        "authType": AuthTypeType,
-        "certificateArn": str,
-        "customDomainName": str,
-        "dnsEntry": "DnsEntryTypeDef",
         "id": str,
-        "name": str,
-        "status": ServiceStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "resourceConfigurationArn": str,
+        "resourceConfigurationId": str,
+        "vpcEndpointId": str,
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
-
-_RequiredCreateTargetGroupRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateTargetGroupRequestRequestTypeDef",
-    {
-        "name": str,
-        "type": TargetGroupTypeType,
-    },
-)
-_OptionalCreateTargetGroupRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateTargetGroupRequestRequestTypeDef",
-    {
-        "clientToken": str,
-        "config": "TargetGroupConfigTypeDef",
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class CreateTargetGroupRequestRequestTypeDef(
-    _RequiredCreateTargetGroupRequestRequestTypeDef, _OptionalCreateTargetGroupRequestRequestTypeDef
-):
-    pass
-
-CreateTargetGroupResponseTypeDef = TypedDict(
-    "CreateTargetGroupResponseTypeDef",
+DeleteResourceGatewayResponseTypeDef = TypedDict(
+    "DeleteResourceGatewayResponseTypeDef",
     {
         "arn": str,
-        "config": "TargetGroupConfigTypeDef",
         "id": str,
         "name": str,
-        "status": TargetGroupStatusType,
-        "type": TargetGroupTypeType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "status": ResourceGatewayStatusType,
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
-
-DeleteAccessLogSubscriptionRequestRequestTypeDef = TypedDict(
-    "DeleteAccessLogSubscriptionRequestRequestTypeDef",
+DeleteServiceNetworkResourceAssociationResponseTypeDef = TypedDict(
+    "DeleteServiceNetworkResourceAssociationResponseTypeDef",
     {
-        "accessLogSubscriptionIdentifier": str,
+        "arn": str,
+        "id": str,
+        "status": ServiceNetworkResourceAssociationStatusType,
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
-
-DeleteAuthPolicyRequestRequestTypeDef = TypedDict(
-    "DeleteAuthPolicyRequestRequestTypeDef",
-    {
-        "resourceIdentifier": str,
-    },
-)
-
-DeleteListenerRequestRequestTypeDef = TypedDict(
-    "DeleteListenerRequestRequestTypeDef",
-    {
-        "listenerIdentifier": str,
-        "serviceIdentifier": str,
-    },
-)
-
-DeleteResourcePolicyRequestRequestTypeDef = TypedDict(
-    "DeleteResourcePolicyRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-    },
-)
-
-DeleteRuleRequestRequestTypeDef = TypedDict(
-    "DeleteRuleRequestRequestTypeDef",
-    {
-        "listenerIdentifier": str,
-        "ruleIdentifier": str,
-        "serviceIdentifier": str,
-    },
-)
-
-DeleteServiceNetworkRequestRequestTypeDef = TypedDict(
-    "DeleteServiceNetworkRequestRequestTypeDef",
-    {
-        "serviceNetworkIdentifier": str,
-    },
-)
-
-DeleteServiceNetworkServiceAssociationRequestRequestTypeDef = TypedDict(
-    "DeleteServiceNetworkServiceAssociationRequestRequestTypeDef",
-    {
-        "serviceNetworkServiceAssociationIdentifier": str,
-    },
-)
-
 DeleteServiceNetworkServiceAssociationResponseTypeDef = TypedDict(
     "DeleteServiceNetworkServiceAssociationResponseTypeDef",
     {
         "arn": str,
         "id": str,
         "status": ServiceNetworkServiceAssociationStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
-
-DeleteServiceNetworkVpcAssociationRequestRequestTypeDef = TypedDict(
-    "DeleteServiceNetworkVpcAssociationRequestRequestTypeDef",
-    {
-        "serviceNetworkVpcAssociationIdentifier": str,
-    },
-)
-
 DeleteServiceNetworkVpcAssociationResponseTypeDef = TypedDict(
     "DeleteServiceNetworkVpcAssociationResponseTypeDef",
     {
         "arn": str,
         "id": str,
         "status": ServiceNetworkVpcAssociationStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
-
-DeleteServiceRequestRequestTypeDef = TypedDict(
-    "DeleteServiceRequestRequestTypeDef",
-    {
-        "serviceIdentifier": str,
-    },
-)
-
 DeleteServiceResponseTypeDef = TypedDict(
     "DeleteServiceResponseTypeDef",
     {
@@ -577,74 +819,18 @@ DeleteServiceResponseTypeDef = TypedDict(
         "id": str,
         "name": str,
         "status": ServiceStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
-
-DeleteTargetGroupRequestRequestTypeDef = TypedDict(
-    "DeleteTargetGroupRequestRequestTypeDef",
-    {
-        "targetGroupIdentifier": str,
-    },
-)
-
 DeleteTargetGroupResponseTypeDef = TypedDict(
     "DeleteTargetGroupResponseTypeDef",
     {
         "arn": str,
         "id": str,
         "status": TargetGroupStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
-
-DeregisterTargetsRequestRequestTypeDef = TypedDict(
-    "DeregisterTargetsRequestRequestTypeDef",
-    {
-        "targetGroupIdentifier": str,
-        "targets": List["TargetTypeDef"],
-    },
-)
-
-DeregisterTargetsResponseTypeDef = TypedDict(
-    "DeregisterTargetsResponseTypeDef",
-    {
-        "successful": List["TargetTypeDef"],
-        "unsuccessful": List["TargetFailureTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DnsEntryTypeDef = TypedDict(
-    "DnsEntryTypeDef",
-    {
-        "domainName": str,
-        "hostedZoneId": str,
-    },
-    total=False,
-)
-
-FixedResponseActionTypeDef = TypedDict(
-    "FixedResponseActionTypeDef",
-    {
-        "statusCode": int,
-    },
-)
-
-ForwardActionTypeDef = TypedDict(
-    "ForwardActionTypeDef",
-    {
-        "targetGroups": List["WeightedTargetGroupTypeDef"],
-    },
-)
-
-GetAccessLogSubscriptionRequestRequestTypeDef = TypedDict(
-    "GetAccessLogSubscriptionRequestRequestTypeDef",
-    {
-        "accessLogSubscriptionIdentifier": str,
-    },
-)
-
 GetAccessLogSubscriptionResponseTypeDef = TypedDict(
     "GetAccessLogSubscriptionResponseTypeDef",
     {
@@ -655,150 +841,38 @@ GetAccessLogSubscriptionResponseTypeDef = TypedDict(
         "lastUpdatedAt": datetime,
         "resourceArn": str,
         "resourceId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "serviceNetworkLogType": ServiceNetworkLogTypeType,
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
 
-GetAuthPolicyRequestRequestTypeDef = TypedDict(
-    "GetAuthPolicyRequestRequestTypeDef",
-    {
-        "resourceIdentifier": str,
-    },
-)
+class GetAuthPolicyResponseTypeDef(TypedDict):
+    createdAt: datetime
+    lastUpdatedAt: datetime
+    policy: str
+    state: AuthPolicyStateType
+    ResponseMetadata: ResponseMetadataTypeDef
 
-GetAuthPolicyResponseTypeDef = TypedDict(
-    "GetAuthPolicyResponseTypeDef",
-    {
-        "createdAt": datetime,
-        "lastUpdatedAt": datetime,
-        "policy": str,
-        "state": AuthPolicyStateType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetListenerRequestRequestTypeDef = TypedDict(
-    "GetListenerRequestRequestTypeDef",
-    {
-        "listenerIdentifier": str,
-        "serviceIdentifier": str,
-    },
-)
-
-GetListenerResponseTypeDef = TypedDict(
-    "GetListenerResponseTypeDef",
+GetResourceGatewayResponseTypeDef = TypedDict(
+    "GetResourceGatewayResponseTypeDef",
     {
         "arn": str,
         "createdAt": datetime,
-        "defaultAction": "RuleActionTypeDef",
         "id": str,
+        "ipAddressType": ResourceGatewayIpAddressTypeType,
         "lastUpdatedAt": datetime,
         "name": str,
-        "port": int,
-        "protocol": ListenerProtocolType,
-        "serviceArn": str,
-        "serviceId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "securityGroupIds": List[str],
+        "status": ResourceGatewayStatusType,
+        "subnetIds": List[str],
+        "vpcId": str,
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
 
-GetResourcePolicyRequestRequestTypeDef = TypedDict(
-    "GetResourcePolicyRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-    },
-)
-
-GetResourcePolicyResponseTypeDef = TypedDict(
-    "GetResourcePolicyResponseTypeDef",
-    {
-        "policy": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetRuleRequestRequestTypeDef = TypedDict(
-    "GetRuleRequestRequestTypeDef",
-    {
-        "listenerIdentifier": str,
-        "ruleIdentifier": str,
-        "serviceIdentifier": str,
-    },
-)
-
-GetRuleResponseTypeDef = TypedDict(
-    "GetRuleResponseTypeDef",
-    {
-        "action": "RuleActionTypeDef",
-        "arn": str,
-        "createdAt": datetime,
-        "id": str,
-        "isDefault": bool,
-        "lastUpdatedAt": datetime,
-        "match": "RuleMatchTypeDef",
-        "name": str,
-        "priority": int,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetServiceNetworkRequestRequestTypeDef = TypedDict(
-    "GetServiceNetworkRequestRequestTypeDef",
-    {
-        "serviceNetworkIdentifier": str,
-    },
-)
-
-GetServiceNetworkResponseTypeDef = TypedDict(
-    "GetServiceNetworkResponseTypeDef",
-    {
-        "arn": str,
-        "authType": AuthTypeType,
-        "createdAt": datetime,
-        "id": str,
-        "lastUpdatedAt": datetime,
-        "name": str,
-        "numberOfAssociatedServices": int,
-        "numberOfAssociatedVPCs": int,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetServiceNetworkServiceAssociationRequestRequestTypeDef = TypedDict(
-    "GetServiceNetworkServiceAssociationRequestRequestTypeDef",
-    {
-        "serviceNetworkServiceAssociationIdentifier": str,
-    },
-)
-
-GetServiceNetworkServiceAssociationResponseTypeDef = TypedDict(
-    "GetServiceNetworkServiceAssociationResponseTypeDef",
-    {
-        "arn": str,
-        "createdAt": datetime,
-        "createdBy": str,
-        "customDomainName": str,
-        "dnsEntry": "DnsEntryTypeDef",
-        "failureCode": str,
-        "failureMessage": str,
-        "id": str,
-        "serviceArn": str,
-        "serviceId": str,
-        "serviceName": str,
-        "serviceNetworkArn": str,
-        "serviceNetworkId": str,
-        "serviceNetworkName": str,
-        "status": ServiceNetworkServiceAssociationStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetServiceNetworkVpcAssociationRequestRequestTypeDef = TypedDict(
-    "GetServiceNetworkVpcAssociationRequestRequestTypeDef",
-    {
-        "serviceNetworkVpcAssociationIdentifier": str,
-    },
-)
+class GetResourcePolicyResponseTypeDef(TypedDict):
+    policy: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
 GetServiceNetworkVpcAssociationResponseTypeDef = TypedDict(
     "GetServiceNetworkVpcAssociationResponseTypeDef",
@@ -816,693 +890,23 @@ GetServiceNetworkVpcAssociationResponseTypeDef = TypedDict(
         "serviceNetworkName": str,
         "status": ServiceNetworkVpcAssociationStatusType,
         "vpcId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
 
-GetServiceRequestRequestTypeDef = TypedDict(
-    "GetServiceRequestRequestTypeDef",
-    {
-        "serviceIdentifier": str,
-    },
-)
-
-GetServiceResponseTypeDef = TypedDict(
-    "GetServiceResponseTypeDef",
-    {
-        "arn": str,
-        "authType": AuthTypeType,
-        "certificateArn": str,
-        "createdAt": datetime,
-        "customDomainName": str,
-        "dnsEntry": "DnsEntryTypeDef",
-        "failureCode": str,
-        "failureMessage": str,
-        "id": str,
-        "lastUpdatedAt": datetime,
-        "name": str,
-        "status": ServiceStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetTargetGroupRequestRequestTypeDef = TypedDict(
-    "GetTargetGroupRequestRequestTypeDef",
-    {
-        "targetGroupIdentifier": str,
-    },
-)
-
-GetTargetGroupResponseTypeDef = TypedDict(
-    "GetTargetGroupResponseTypeDef",
-    {
-        "arn": str,
-        "config": "TargetGroupConfigTypeDef",
-        "createdAt": datetime,
-        "failureCode": str,
-        "failureMessage": str,
-        "id": str,
-        "lastUpdatedAt": datetime,
-        "name": str,
-        "serviceArns": List[str],
-        "status": TargetGroupStatusType,
-        "type": TargetGroupTypeType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredHeaderMatchTypeDef = TypedDict(
-    "_RequiredHeaderMatchTypeDef",
-    {
-        "match": "HeaderMatchTypeTypeDef",
-        "name": str,
-    },
-)
-_OptionalHeaderMatchTypeDef = TypedDict(
-    "_OptionalHeaderMatchTypeDef",
-    {
-        "caseSensitive": bool,
-    },
-    total=False,
-)
-
-class HeaderMatchTypeDef(_RequiredHeaderMatchTypeDef, _OptionalHeaderMatchTypeDef):
-    pass
-
-HeaderMatchTypeTypeDef = TypedDict(
-    "HeaderMatchTypeTypeDef",
-    {
-        "contains": str,
-        "exact": str,
-        "prefix": str,
-    },
-    total=False,
-)
-
-HealthCheckConfigTypeDef = TypedDict(
-    "HealthCheckConfigTypeDef",
-    {
-        "enabled": bool,
-        "healthCheckIntervalSeconds": int,
-        "healthCheckTimeoutSeconds": int,
-        "healthyThresholdCount": int,
-        "matcher": "MatcherTypeDef",
-        "path": str,
-        "port": int,
-        "protocol": TargetGroupProtocolType,
-        "protocolVersion": HealthCheckProtocolVersionType,
-        "unhealthyThresholdCount": int,
-    },
-    total=False,
-)
-
-HttpMatchTypeDef = TypedDict(
-    "HttpMatchTypeDef",
-    {
-        "headerMatches": List["HeaderMatchTypeDef"],
-        "method": str,
-        "pathMatch": "PathMatchTypeDef",
-    },
-    total=False,
-)
-
-_RequiredListAccessLogSubscriptionsRequestRequestTypeDef = TypedDict(
-    "_RequiredListAccessLogSubscriptionsRequestRequestTypeDef",
-    {
-        "resourceIdentifier": str,
-    },
-)
-_OptionalListAccessLogSubscriptionsRequestRequestTypeDef = TypedDict(
-    "_OptionalListAccessLogSubscriptionsRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListAccessLogSubscriptionsRequestRequestTypeDef(
-    _RequiredListAccessLogSubscriptionsRequestRequestTypeDef,
-    _OptionalListAccessLogSubscriptionsRequestRequestTypeDef,
-):
-    pass
-
-ListAccessLogSubscriptionsResponseTypeDef = TypedDict(
-    "ListAccessLogSubscriptionsResponseTypeDef",
-    {
-        "items": List["AccessLogSubscriptionSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListListenersRequestRequestTypeDef = TypedDict(
-    "_RequiredListListenersRequestRequestTypeDef",
-    {
-        "serviceIdentifier": str,
-    },
-)
-_OptionalListListenersRequestRequestTypeDef = TypedDict(
-    "_OptionalListListenersRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListListenersRequestRequestTypeDef(
-    _RequiredListListenersRequestRequestTypeDef, _OptionalListListenersRequestRequestTypeDef
-):
-    pass
-
-ListListenersResponseTypeDef = TypedDict(
-    "ListListenersResponseTypeDef",
-    {
-        "items": List["ListenerSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListRulesRequestRequestTypeDef = TypedDict(
-    "_RequiredListRulesRequestRequestTypeDef",
-    {
-        "listenerIdentifier": str,
-        "serviceIdentifier": str,
-    },
-)
-_OptionalListRulesRequestRequestTypeDef = TypedDict(
-    "_OptionalListRulesRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListRulesRequestRequestTypeDef(
-    _RequiredListRulesRequestRequestTypeDef, _OptionalListRulesRequestRequestTypeDef
-):
-    pass
-
-ListRulesResponseTypeDef = TypedDict(
-    "ListRulesResponseTypeDef",
-    {
-        "items": List["RuleSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListServiceNetworkServiceAssociationsRequestRequestTypeDef = TypedDict(
-    "ListServiceNetworkServiceAssociationsRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-        "serviceIdentifier": str,
-        "serviceNetworkIdentifier": str,
-    },
-    total=False,
-)
-
-ListServiceNetworkServiceAssociationsResponseTypeDef = TypedDict(
-    "ListServiceNetworkServiceAssociationsResponseTypeDef",
-    {
-        "items": List["ServiceNetworkServiceAssociationSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListServiceNetworkVpcAssociationsRequestRequestTypeDef = TypedDict(
-    "ListServiceNetworkVpcAssociationsRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-        "serviceNetworkIdentifier": str,
-        "vpcIdentifier": str,
-    },
-    total=False,
-)
-
-ListServiceNetworkVpcAssociationsResponseTypeDef = TypedDict(
-    "ListServiceNetworkVpcAssociationsResponseTypeDef",
-    {
-        "items": List["ServiceNetworkVpcAssociationSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListServiceNetworksRequestRequestTypeDef = TypedDict(
-    "ListServiceNetworksRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-ListServiceNetworksResponseTypeDef = TypedDict(
-    "ListServiceNetworksResponseTypeDef",
-    {
-        "items": List["ServiceNetworkSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListServicesRequestRequestTypeDef = TypedDict(
-    "ListServicesRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-ListServicesResponseTypeDef = TypedDict(
-    "ListServicesResponseTypeDef",
-    {
-        "items": List["ServiceSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-    },
-)
-
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTargetGroupsRequestRequestTypeDef = TypedDict(
-    "ListTargetGroupsRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-        "targetGroupType": TargetGroupTypeType,
-        "vpcIdentifier": str,
-    },
-    total=False,
-)
-
-ListTargetGroupsResponseTypeDef = TypedDict(
-    "ListTargetGroupsResponseTypeDef",
-    {
-        "items": List["TargetGroupSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListTargetsRequestRequestTypeDef = TypedDict(
-    "_RequiredListTargetsRequestRequestTypeDef",
-    {
-        "targetGroupIdentifier": str,
-    },
-)
-_OptionalListTargetsRequestRequestTypeDef = TypedDict(
-    "_OptionalListTargetsRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-        "targets": List["TargetTypeDef"],
-    },
-    total=False,
-)
-
-class ListTargetsRequestRequestTypeDef(
-    _RequiredListTargetsRequestRequestTypeDef, _OptionalListTargetsRequestRequestTypeDef
-):
-    pass
-
-ListTargetsResponseTypeDef = TypedDict(
-    "ListTargetsResponseTypeDef",
-    {
-        "items": List["TargetSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListenerSummaryTypeDef = TypedDict(
-    "ListenerSummaryTypeDef",
-    {
-        "arn": str,
-        "createdAt": datetime,
-        "id": str,
-        "lastUpdatedAt": datetime,
-        "name": str,
-        "port": int,
-        "protocol": ListenerProtocolType,
-    },
-    total=False,
-)
-
-MatcherTypeDef = TypedDict(
-    "MatcherTypeDef",
-    {
-        "httpCode": str,
-    },
-    total=False,
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-_RequiredPathMatchTypeDef = TypedDict(
-    "_RequiredPathMatchTypeDef",
-    {
-        "match": "PathMatchTypeTypeDef",
-    },
-)
-_OptionalPathMatchTypeDef = TypedDict(
-    "_OptionalPathMatchTypeDef",
-    {
-        "caseSensitive": bool,
-    },
-    total=False,
-)
-
-class PathMatchTypeDef(_RequiredPathMatchTypeDef, _OptionalPathMatchTypeDef):
-    pass
-
-PathMatchTypeTypeDef = TypedDict(
-    "PathMatchTypeTypeDef",
-    {
-        "exact": str,
-        "prefix": str,
-    },
-    total=False,
-)
-
-PutAuthPolicyRequestRequestTypeDef = TypedDict(
-    "PutAuthPolicyRequestRequestTypeDef",
-    {
-        "policy": str,
-        "resourceIdentifier": str,
-    },
-)
-
-PutAuthPolicyResponseTypeDef = TypedDict(
-    "PutAuthPolicyResponseTypeDef",
-    {
-        "policy": str,
-        "state": AuthPolicyStateType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-PutResourcePolicyRequestRequestTypeDef = TypedDict(
-    "PutResourcePolicyRequestRequestTypeDef",
-    {
-        "policy": str,
-        "resourceArn": str,
-    },
-)
-
-RegisterTargetsRequestRequestTypeDef = TypedDict(
-    "RegisterTargetsRequestRequestTypeDef",
-    {
-        "targetGroupIdentifier": str,
-        "targets": List["TargetTypeDef"],
-    },
-)
-
-RegisterTargetsResponseTypeDef = TypedDict(
-    "RegisterTargetsResponseTypeDef",
-    {
-        "successful": List["TargetTypeDef"],
-        "unsuccessful": List["TargetFailureTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-RuleActionTypeDef = TypedDict(
-    "RuleActionTypeDef",
-    {
-        "fixedResponse": "FixedResponseActionTypeDef",
-        "forward": "ForwardActionTypeDef",
-    },
-    total=False,
-)
-
-RuleMatchTypeDef = TypedDict(
-    "RuleMatchTypeDef",
-    {
-        "httpMatch": "HttpMatchTypeDef",
-    },
-    total=False,
-)
-
-RuleSummaryTypeDef = TypedDict(
-    "RuleSummaryTypeDef",
-    {
-        "arn": str,
-        "createdAt": datetime,
-        "id": str,
-        "isDefault": bool,
-        "lastUpdatedAt": datetime,
-        "name": str,
-        "priority": int,
-    },
-    total=False,
-)
-
-RuleUpdateFailureTypeDef = TypedDict(
-    "RuleUpdateFailureTypeDef",
-    {
-        "failureCode": str,
-        "failureMessage": str,
-        "ruleIdentifier": str,
-    },
-    total=False,
-)
-
-RuleUpdateSuccessTypeDef = TypedDict(
-    "RuleUpdateSuccessTypeDef",
-    {
-        "action": "RuleActionTypeDef",
-        "arn": str,
-        "id": str,
-        "isDefault": bool,
-        "match": "RuleMatchTypeDef",
-        "name": str,
-        "priority": int,
-    },
-    total=False,
-)
-
-_RequiredRuleUpdateTypeDef = TypedDict(
-    "_RequiredRuleUpdateTypeDef",
-    {
-        "ruleIdentifier": str,
-    },
-)
-_OptionalRuleUpdateTypeDef = TypedDict(
-    "_OptionalRuleUpdateTypeDef",
-    {
-        "action": "RuleActionTypeDef",
-        "match": "RuleMatchTypeDef",
-        "priority": int,
-    },
-    total=False,
-)
-
-class RuleUpdateTypeDef(_RequiredRuleUpdateTypeDef, _OptionalRuleUpdateTypeDef):
-    pass
-
-ServiceNetworkServiceAssociationSummaryTypeDef = TypedDict(
-    "ServiceNetworkServiceAssociationSummaryTypeDef",
-    {
-        "arn": str,
-        "createdAt": datetime,
-        "createdBy": str,
-        "customDomainName": str,
-        "dnsEntry": "DnsEntryTypeDef",
-        "id": str,
-        "serviceArn": str,
-        "serviceId": str,
-        "serviceName": str,
-        "serviceNetworkArn": str,
-        "serviceNetworkId": str,
-        "serviceNetworkName": str,
-        "status": ServiceNetworkServiceAssociationStatusType,
-    },
-    total=False,
-)
-
-ServiceNetworkSummaryTypeDef = TypedDict(
-    "ServiceNetworkSummaryTypeDef",
-    {
-        "arn": str,
-        "createdAt": datetime,
-        "id": str,
-        "lastUpdatedAt": datetime,
-        "name": str,
-        "numberOfAssociatedServices": int,
-        "numberOfAssociatedVPCs": int,
-    },
-    total=False,
-)
-
-ServiceNetworkVpcAssociationSummaryTypeDef = TypedDict(
-    "ServiceNetworkVpcAssociationSummaryTypeDef",
-    {
-        "arn": str,
-        "createdAt": datetime,
-        "createdBy": str,
-        "id": str,
-        "lastUpdatedAt": datetime,
-        "serviceNetworkArn": str,
-        "serviceNetworkId": str,
-        "serviceNetworkName": str,
-        "status": ServiceNetworkVpcAssociationStatusType,
-        "vpcId": str,
-    },
-    total=False,
-)
-
-ServiceSummaryTypeDef = TypedDict(
-    "ServiceSummaryTypeDef",
-    {
-        "arn": str,
-        "createdAt": datetime,
-        "customDomainName": str,
-        "dnsEntry": "DnsEntryTypeDef",
-        "id": str,
-        "lastUpdatedAt": datetime,
-        "name": str,
-        "status": ServiceStatusType,
-    },
-    total=False,
-)
-
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tags": Dict[str, str],
-    },
-)
-
-TargetFailureTypeDef = TypedDict(
-    "TargetFailureTypeDef",
-    {
-        "failureCode": str,
-        "failureMessage": str,
-        "id": str,
-        "port": int,
-    },
-    total=False,
-)
-
-TargetGroupConfigTypeDef = TypedDict(
-    "TargetGroupConfigTypeDef",
-    {
-        "healthCheck": "HealthCheckConfigTypeDef",
-        "ipAddressType": IpAddressTypeType,
-        "lambdaEventStructureVersion": LambdaEventStructureVersionType,
-        "port": int,
-        "protocol": TargetGroupProtocolType,
-        "protocolVersion": TargetGroupProtocolVersionType,
-        "vpcIdentifier": str,
-    },
-    total=False,
-)
-
-TargetGroupSummaryTypeDef = TypedDict(
-    "TargetGroupSummaryTypeDef",
-    {
-        "arn": str,
-        "createdAt": datetime,
-        "id": str,
-        "ipAddressType": IpAddressTypeType,
-        "lambdaEventStructureVersion": LambdaEventStructureVersionType,
-        "lastUpdatedAt": datetime,
-        "name": str,
-        "port": int,
-        "protocol": TargetGroupProtocolType,
-        "serviceArns": List[str],
-        "status": TargetGroupStatusType,
-        "type": TargetGroupTypeType,
-        "vpcIdentifier": str,
-    },
-    total=False,
-)
-
-TargetSummaryTypeDef = TypedDict(
-    "TargetSummaryTypeDef",
-    {
-        "id": str,
-        "port": int,
-        "reasonCode": str,
-        "status": TargetStatusType,
-    },
-    total=False,
-)
-
-_RequiredTargetTypeDef = TypedDict(
-    "_RequiredTargetTypeDef",
-    {
-        "id": str,
-    },
-)
-_OptionalTargetTypeDef = TypedDict(
-    "_OptionalTargetTypeDef",
-    {
-        "port": int,
-    },
-    total=False,
-)
+class ListAccessLogSubscriptionsResponseTypeDef(TypedDict):
+    items: List[AccessLogSubscriptionSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-class TargetTypeDef(_RequiredTargetTypeDef, _OptionalTargetTypeDef):
-    pass
-
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tagKeys": List[str],
-    },
-)
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-UpdateAccessLogSubscriptionRequestRequestTypeDef = TypedDict(
-    "UpdateAccessLogSubscriptionRequestRequestTypeDef",
-    {
-        "accessLogSubscriptionIdentifier": str,
-        "destinationArn": str,
-    },
-)
+class PutAuthPolicyResponseTypeDef(TypedDict):
+    policy: str
+    state: AuthPolicyStateType
+    ResponseMetadata: ResponseMetadataTypeDef
 
 UpdateAccessLogSubscriptionResponseTypeDef = TypedDict(
     "UpdateAccessLogSubscriptionResponseTypeDef",
@@ -1512,79 +916,23 @@ UpdateAccessLogSubscriptionResponseTypeDef = TypedDict(
         "id": str,
         "resourceArn": str,
         "resourceId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
-
-UpdateListenerRequestRequestTypeDef = TypedDict(
-    "UpdateListenerRequestRequestTypeDef",
-    {
-        "defaultAction": "RuleActionTypeDef",
-        "listenerIdentifier": str,
-        "serviceIdentifier": str,
-    },
-)
-
-UpdateListenerResponseTypeDef = TypedDict(
-    "UpdateListenerResponseTypeDef",
+UpdateResourceGatewayResponseTypeDef = TypedDict(
+    "UpdateResourceGatewayResponseTypeDef",
     {
         "arn": str,
-        "defaultAction": "RuleActionTypeDef",
         "id": str,
+        "ipAddressType": IpAddressTypeType,
         "name": str,
-        "port": int,
-        "protocol": ListenerProtocolType,
-        "serviceArn": str,
-        "serviceId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "securityGroupIds": List[str],
+        "status": ResourceGatewayStatusType,
+        "subnetIds": List[str],
+        "vpcId": str,
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
-
-_RequiredUpdateRuleRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateRuleRequestRequestTypeDef",
-    {
-        "listenerIdentifier": str,
-        "ruleIdentifier": str,
-        "serviceIdentifier": str,
-    },
-)
-_OptionalUpdateRuleRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateRuleRequestRequestTypeDef",
-    {
-        "action": "RuleActionTypeDef",
-        "match": "RuleMatchTypeDef",
-        "priority": int,
-    },
-    total=False,
-)
-
-class UpdateRuleRequestRequestTypeDef(
-    _RequiredUpdateRuleRequestRequestTypeDef, _OptionalUpdateRuleRequestRequestTypeDef
-):
-    pass
-
-UpdateRuleResponseTypeDef = TypedDict(
-    "UpdateRuleResponseTypeDef",
-    {
-        "action": "RuleActionTypeDef",
-        "arn": str,
-        "id": str,
-        "isDefault": bool,
-        "match": "RuleMatchTypeDef",
-        "name": str,
-        "priority": int,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UpdateServiceNetworkRequestRequestTypeDef = TypedDict(
-    "UpdateServiceNetworkRequestRequestTypeDef",
-    {
-        "authType": AuthTypeType,
-        "serviceNetworkIdentifier": str,
-    },
-)
-
 UpdateServiceNetworkResponseTypeDef = TypedDict(
     "UpdateServiceNetworkResponseTypeDef",
     {
@@ -1592,18 +940,9 @@ UpdateServiceNetworkResponseTypeDef = TypedDict(
         "authType": AuthTypeType,
         "id": str,
         "name": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
-
-UpdateServiceNetworkVpcAssociationRequestRequestTypeDef = TypedDict(
-    "UpdateServiceNetworkVpcAssociationRequestRequestTypeDef",
-    {
-        "securityGroupIds": List[str],
-        "serviceNetworkVpcAssociationIdentifier": str,
-    },
-)
-
 UpdateServiceNetworkVpcAssociationResponseTypeDef = TypedDict(
     "UpdateServiceNetworkVpcAssociationResponseTypeDef",
     {
@@ -1612,30 +951,9 @@ UpdateServiceNetworkVpcAssociationResponseTypeDef = TypedDict(
         "id": str,
         "securityGroupIds": List[str],
         "status": ServiceNetworkVpcAssociationStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
-
-_RequiredUpdateServiceRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateServiceRequestRequestTypeDef",
-    {
-        "serviceIdentifier": str,
-    },
-)
-_OptionalUpdateServiceRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateServiceRequestRequestTypeDef",
-    {
-        "authType": AuthTypeType,
-        "certificateArn": str,
-    },
-    total=False,
-)
-
-class UpdateServiceRequestRequestTypeDef(
-    _RequiredUpdateServiceRequestRequestTypeDef, _OptionalUpdateServiceRequestRequestTypeDef
-):
-    pass
-
 UpdateServiceResponseTypeDef = TypedDict(
     "UpdateServiceResponseTypeDef",
     {
@@ -1645,46 +963,685 @@ UpdateServiceResponseTypeDef = TypedDict(
         "customDomainName": str,
         "id": str,
         "name": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
 
-UpdateTargetGroupRequestRequestTypeDef = TypedDict(
-    "UpdateTargetGroupRequestRequestTypeDef",
-    {
-        "healthCheck": "HealthCheckConfigTypeDef",
-        "targetGroupIdentifier": str,
-    },
-)
+class CreateServiceNetworkRequestTypeDef(TypedDict):
+    name: str
+    authType: NotRequired[AuthTypeType]
+    clientToken: NotRequired[str]
+    sharingConfig: NotRequired[SharingConfigTypeDef]
+    tags: NotRequired[Mapping[str, str]]
 
-UpdateTargetGroupResponseTypeDef = TypedDict(
-    "UpdateTargetGroupResponseTypeDef",
+CreateServiceNetworkResponseTypeDef = TypedDict(
+    "CreateServiceNetworkResponseTypeDef",
     {
         "arn": str,
-        "config": "TargetGroupConfigTypeDef",
+        "authType": AuthTypeType,
+        "id": str,
+        "name": str,
+        "sharingConfig": SharingConfigTypeDef,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+GetServiceNetworkResponseTypeDef = TypedDict(
+    "GetServiceNetworkResponseTypeDef",
+    {
+        "arn": str,
+        "authType": AuthTypeType,
+        "createdAt": datetime,
+        "id": str,
+        "lastUpdatedAt": datetime,
+        "name": str,
+        "numberOfAssociatedServices": int,
+        "numberOfAssociatedVPCs": int,
+        "sharingConfig": SharingConfigTypeDef,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+CreateServiceNetworkServiceAssociationResponseTypeDef = TypedDict(
+    "CreateServiceNetworkServiceAssociationResponseTypeDef",
+    {
+        "arn": str,
+        "createdBy": str,
+        "customDomainName": str,
+        "dnsEntry": DnsEntryTypeDef,
+        "id": str,
+        "status": ServiceNetworkServiceAssociationStatusType,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+CreateServiceResponseTypeDef = TypedDict(
+    "CreateServiceResponseTypeDef",
+    {
+        "arn": str,
+        "authType": AuthTypeType,
+        "certificateArn": str,
+        "customDomainName": str,
+        "dnsEntry": DnsEntryTypeDef,
+        "id": str,
+        "name": str,
+        "status": ServiceStatusType,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+GetServiceNetworkResourceAssociationResponseTypeDef = TypedDict(
+    "GetServiceNetworkResourceAssociationResponseTypeDef",
+    {
+        "arn": str,
+        "createdAt": datetime,
+        "createdBy": str,
+        "dnsEntry": DnsEntryTypeDef,
+        "failureCode": str,
+        "failureReason": str,
+        "id": str,
+        "isManagedAssociation": bool,
+        "lastUpdatedAt": datetime,
+        "privateDnsEntry": DnsEntryTypeDef,
+        "resourceConfigurationArn": str,
+        "resourceConfigurationId": str,
+        "resourceConfigurationName": str,
+        "serviceNetworkArn": str,
+        "serviceNetworkId": str,
+        "serviceNetworkName": str,
+        "status": ServiceNetworkResourceAssociationStatusType,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+GetServiceNetworkServiceAssociationResponseTypeDef = TypedDict(
+    "GetServiceNetworkServiceAssociationResponseTypeDef",
+    {
+        "arn": str,
+        "createdAt": datetime,
+        "createdBy": str,
+        "customDomainName": str,
+        "dnsEntry": DnsEntryTypeDef,
+        "failureCode": str,
+        "failureMessage": str,
+        "id": str,
+        "serviceArn": str,
+        "serviceId": str,
+        "serviceName": str,
+        "serviceNetworkArn": str,
+        "serviceNetworkId": str,
+        "serviceNetworkName": str,
+        "status": ServiceNetworkServiceAssociationStatusType,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+GetServiceResponseTypeDef = TypedDict(
+    "GetServiceResponseTypeDef",
+    {
+        "arn": str,
+        "authType": AuthTypeType,
+        "certificateArn": str,
+        "createdAt": datetime,
+        "customDomainName": str,
+        "dnsEntry": DnsEntryTypeDef,
+        "failureCode": str,
+        "failureMessage": str,
+        "id": str,
+        "lastUpdatedAt": datetime,
+        "name": str,
+        "status": ServiceStatusType,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+ServiceNetworkResourceAssociationSummaryTypeDef = TypedDict(
+    "ServiceNetworkResourceAssociationSummaryTypeDef",
+    {
+        "arn": NotRequired[str],
+        "createdAt": NotRequired[datetime],
+        "createdBy": NotRequired[str],
+        "dnsEntry": NotRequired[DnsEntryTypeDef],
+        "failureCode": NotRequired[str],
+        "id": NotRequired[str],
+        "isManagedAssociation": NotRequired[bool],
+        "privateDnsEntry": NotRequired[DnsEntryTypeDef],
+        "resourceConfigurationArn": NotRequired[str],
+        "resourceConfigurationId": NotRequired[str],
+        "resourceConfigurationName": NotRequired[str],
+        "serviceNetworkArn": NotRequired[str],
+        "serviceNetworkId": NotRequired[str],
+        "serviceNetworkName": NotRequired[str],
+        "status": NotRequired[ServiceNetworkResourceAssociationStatusType],
+    },
+)
+ServiceNetworkServiceAssociationSummaryTypeDef = TypedDict(
+    "ServiceNetworkServiceAssociationSummaryTypeDef",
+    {
+        "arn": NotRequired[str],
+        "createdAt": NotRequired[datetime],
+        "createdBy": NotRequired[str],
+        "customDomainName": NotRequired[str],
+        "dnsEntry": NotRequired[DnsEntryTypeDef],
+        "id": NotRequired[str],
+        "serviceArn": NotRequired[str],
+        "serviceId": NotRequired[str],
+        "serviceName": NotRequired[str],
+        "serviceNetworkArn": NotRequired[str],
+        "serviceNetworkId": NotRequired[str],
+        "serviceNetworkName": NotRequired[str],
+        "status": NotRequired[ServiceNetworkServiceAssociationStatusType],
+    },
+)
+ServiceSummaryTypeDef = TypedDict(
+    "ServiceSummaryTypeDef",
+    {
+        "arn": NotRequired[str],
+        "createdAt": NotRequired[datetime],
+        "customDomainName": NotRequired[str],
+        "dnsEntry": NotRequired[DnsEntryTypeDef],
+        "id": NotRequired[str],
+        "lastUpdatedAt": NotRequired[datetime],
+        "name": NotRequired[str],
+        "status": NotRequired[ServiceStatusType],
+    },
+)
+
+class DeregisterTargetsRequestTypeDef(TypedDict):
+    targetGroupIdentifier: str
+    targets: Sequence[TargetTypeDef]
+
+class ListTargetsRequestTypeDef(TypedDict):
+    targetGroupIdentifier: str
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+    targets: NotRequired[Sequence[TargetTypeDef]]
+
+class RegisterTargetsRequestTypeDef(TypedDict):
+    targetGroupIdentifier: str
+    targets: Sequence[TargetTypeDef]
+
+class DeregisterTargetsResponseTypeDef(TypedDict):
+    successful: List[TargetTypeDef]
+    unsuccessful: List[TargetFailureTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class RegisterTargetsResponseTypeDef(TypedDict):
+    successful: List[TargetTypeDef]
+    unsuccessful: List[TargetFailureTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ForwardActionOutputTypeDef(TypedDict):
+    targetGroups: List[WeightedTargetGroupTypeDef]
+
+class ForwardActionTypeDef(TypedDict):
+    targetGroups: Sequence[WeightedTargetGroupTypeDef]
+
+class HeaderMatchTypeDef(TypedDict):
+    match: HeaderMatchTypeTypeDef
+    name: str
+    caseSensitive: NotRequired[bool]
+
+class HealthCheckConfigTypeDef(TypedDict):
+    enabled: NotRequired[bool]
+    healthCheckIntervalSeconds: NotRequired[int]
+    healthCheckTimeoutSeconds: NotRequired[int]
+    healthyThresholdCount: NotRequired[int]
+    matcher: NotRequired[MatcherTypeDef]
+    path: NotRequired[str]
+    port: NotRequired[int]
+    protocol: NotRequired[TargetGroupProtocolType]
+    protocolVersion: NotRequired[HealthCheckProtocolVersionType]
+    unhealthyThresholdCount: NotRequired[int]
+
+class ResourceConfigurationDefinitionTypeDef(TypedDict):
+    arnResource: NotRequired[ArnResourceTypeDef]
+    dnsResource: NotRequired[DnsResourceTypeDef]
+    ipResource: NotRequired[IpResourceTypeDef]
+
+class ListAccessLogSubscriptionsRequestPaginateTypeDef(TypedDict):
+    resourceIdentifier: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListListenersRequestPaginateTypeDef(TypedDict):
+    serviceIdentifier: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListResourceConfigurationsRequestPaginateTypeDef(TypedDict):
+    resourceConfigurationGroupIdentifier: NotRequired[str]
+    resourceGatewayIdentifier: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListResourceEndpointAssociationsRequestPaginateTypeDef(TypedDict):
+    resourceConfigurationIdentifier: str
+    resourceEndpointAssociationIdentifier: NotRequired[str]
+    vpcEndpointId: NotRequired[str]
+    vpcEndpointOwner: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListResourceGatewaysRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListRulesRequestPaginateTypeDef(TypedDict):
+    listenerIdentifier: str
+    serviceIdentifier: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListServiceNetworkResourceAssociationsRequestPaginateTypeDef(TypedDict):
+    resourceConfigurationIdentifier: NotRequired[str]
+    serviceNetworkIdentifier: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListServiceNetworkServiceAssociationsRequestPaginateTypeDef(TypedDict):
+    serviceIdentifier: NotRequired[str]
+    serviceNetworkIdentifier: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListServiceNetworkVpcAssociationsRequestPaginateTypeDef(TypedDict):
+    serviceNetworkIdentifier: NotRequired[str]
+    vpcIdentifier: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListServiceNetworkVpcEndpointAssociationsRequestPaginateTypeDef(TypedDict):
+    serviceNetworkIdentifier: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListServiceNetworksRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListServicesRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListTargetGroupsRequestPaginateTypeDef(TypedDict):
+    targetGroupType: NotRequired[TargetGroupTypeType]
+    vpcIdentifier: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListTargetsRequestPaginateTypeDef(TypedDict):
+    targetGroupIdentifier: str
+    targets: NotRequired[Sequence[TargetTypeDef]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListListenersResponseTypeDef(TypedDict):
+    items: List[ListenerSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListResourceConfigurationsResponseTypeDef(TypedDict):
+    items: List[ResourceConfigurationSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListResourceEndpointAssociationsResponseTypeDef(TypedDict):
+    items: List[ResourceEndpointAssociationSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListResourceGatewaysResponseTypeDef(TypedDict):
+    items: List[ResourceGatewaySummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListRulesResponseTypeDef(TypedDict):
+    items: List[RuleSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListServiceNetworkVpcAssociationsResponseTypeDef(TypedDict):
+    items: List[ServiceNetworkVpcAssociationSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListServiceNetworkVpcEndpointAssociationsResponseTypeDef(TypedDict):
+    items: List[ServiceNetworkEndpointAssociationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListServiceNetworksResponseTypeDef(TypedDict):
+    items: List[ServiceNetworkSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListTargetGroupsResponseTypeDef(TypedDict):
+    items: List[TargetGroupSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListTargetsResponseTypeDef(TypedDict):
+    items: List[TargetSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class PathMatchTypeDef(TypedDict):
+    match: PathMatchTypeTypeDef
+    caseSensitive: NotRequired[bool]
+
+class ListServiceNetworkResourceAssociationsResponseTypeDef(TypedDict):
+    items: List[ServiceNetworkResourceAssociationSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListServiceNetworkServiceAssociationsResponseTypeDef(TypedDict):
+    items: List[ServiceNetworkServiceAssociationSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListServicesResponseTypeDef(TypedDict):
+    items: List[ServiceSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class RuleActionOutputTypeDef(TypedDict):
+    fixedResponse: NotRequired[FixedResponseActionTypeDef]
+    forward: NotRequired[ForwardActionOutputTypeDef]
+
+ForwardActionUnionTypeDef = Union[ForwardActionTypeDef, ForwardActionOutputTypeDef]
+
+class TargetGroupConfigTypeDef(TypedDict):
+    healthCheck: NotRequired[HealthCheckConfigTypeDef]
+    ipAddressType: NotRequired[IpAddressTypeType]
+    lambdaEventStructureVersion: NotRequired[LambdaEventStructureVersionType]
+    port: NotRequired[int]
+    protocol: NotRequired[TargetGroupProtocolType]
+    protocolVersion: NotRequired[TargetGroupProtocolVersionType]
+    vpcIdentifier: NotRequired[str]
+
+class UpdateTargetGroupRequestTypeDef(TypedDict):
+    healthCheck: HealthCheckConfigTypeDef
+    targetGroupIdentifier: str
+
+CreateResourceConfigurationRequestTypeDef = TypedDict(
+    "CreateResourceConfigurationRequestTypeDef",
+    {
+        "name": str,
+        "type": ResourceConfigurationTypeType,
+        "allowAssociationToShareableServiceNetwork": NotRequired[bool],
+        "clientToken": NotRequired[str],
+        "portRanges": NotRequired[Sequence[str]],
+        "protocol": NotRequired[Literal["TCP"]],
+        "resourceConfigurationDefinition": NotRequired[ResourceConfigurationDefinitionTypeDef],
+        "resourceConfigurationGroupIdentifier": NotRequired[str],
+        "resourceGatewayIdentifier": NotRequired[str],
+        "tags": NotRequired[Mapping[str, str]],
+    },
+)
+CreateResourceConfigurationResponseTypeDef = TypedDict(
+    "CreateResourceConfigurationResponseTypeDef",
+    {
+        "allowAssociationToShareableServiceNetwork": bool,
+        "arn": str,
+        "createdAt": datetime,
+        "failureReason": str,
+        "id": str,
+        "name": str,
+        "portRanges": List[str],
+        "protocol": Literal["TCP"],
+        "resourceConfigurationDefinition": ResourceConfigurationDefinitionTypeDef,
+        "resourceConfigurationGroupId": str,
+        "resourceGatewayId": str,
+        "status": ResourceConfigurationStatusType,
+        "type": ResourceConfigurationTypeType,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+GetResourceConfigurationResponseTypeDef = TypedDict(
+    "GetResourceConfigurationResponseTypeDef",
+    {
+        "allowAssociationToShareableServiceNetwork": bool,
+        "amazonManaged": bool,
+        "arn": str,
+        "createdAt": datetime,
+        "customDomainName": str,
+        "failureReason": str,
+        "id": str,
+        "lastUpdatedAt": datetime,
+        "name": str,
+        "portRanges": List[str],
+        "protocol": Literal["TCP"],
+        "resourceConfigurationDefinition": ResourceConfigurationDefinitionTypeDef,
+        "resourceConfigurationGroupId": str,
+        "resourceGatewayId": str,
+        "status": ResourceConfigurationStatusType,
+        "type": ResourceConfigurationTypeType,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+
+class UpdateResourceConfigurationRequestTypeDef(TypedDict):
+    resourceConfigurationIdentifier: str
+    allowAssociationToShareableServiceNetwork: NotRequired[bool]
+    portRanges: NotRequired[Sequence[str]]
+    resourceConfigurationDefinition: NotRequired[ResourceConfigurationDefinitionTypeDef]
+
+UpdateResourceConfigurationResponseTypeDef = TypedDict(
+    "UpdateResourceConfigurationResponseTypeDef",
+    {
+        "allowAssociationToShareableServiceNetwork": bool,
+        "arn": str,
+        "id": str,
+        "name": str,
+        "portRanges": List[str],
+        "protocol": Literal["TCP"],
+        "resourceConfigurationDefinition": ResourceConfigurationDefinitionTypeDef,
+        "resourceConfigurationGroupId": str,
+        "resourceGatewayId": str,
+        "status": ResourceConfigurationStatusType,
+        "type": ResourceConfigurationTypeType,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+
+class HttpMatchOutputTypeDef(TypedDict):
+    headerMatches: NotRequired[List[HeaderMatchTypeDef]]
+    method: NotRequired[str]
+    pathMatch: NotRequired[PathMatchTypeDef]
+
+class HttpMatchTypeDef(TypedDict):
+    headerMatches: NotRequired[Sequence[HeaderMatchTypeDef]]
+    method: NotRequired[str]
+    pathMatch: NotRequired[PathMatchTypeDef]
+
+CreateListenerResponseTypeDef = TypedDict(
+    "CreateListenerResponseTypeDef",
+    {
+        "arn": str,
+        "defaultAction": RuleActionOutputTypeDef,
+        "id": str,
+        "name": str,
+        "port": int,
+        "protocol": ListenerProtocolType,
+        "serviceArn": str,
+        "serviceId": str,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+GetListenerResponseTypeDef = TypedDict(
+    "GetListenerResponseTypeDef",
+    {
+        "arn": str,
+        "createdAt": datetime,
+        "defaultAction": RuleActionOutputTypeDef,
+        "id": str,
+        "lastUpdatedAt": datetime,
+        "name": str,
+        "port": int,
+        "protocol": ListenerProtocolType,
+        "serviceArn": str,
+        "serviceId": str,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+UpdateListenerResponseTypeDef = TypedDict(
+    "UpdateListenerResponseTypeDef",
+    {
+        "arn": str,
+        "defaultAction": RuleActionOutputTypeDef,
+        "id": str,
+        "name": str,
+        "port": int,
+        "protocol": ListenerProtocolType,
+        "serviceArn": str,
+        "serviceId": str,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+
+class RuleActionTypeDef(TypedDict):
+    fixedResponse: NotRequired[FixedResponseActionTypeDef]
+    forward: NotRequired[ForwardActionUnionTypeDef]
+
+CreateTargetGroupRequestTypeDef = TypedDict(
+    "CreateTargetGroupRequestTypeDef",
+    {
+        "name": str,
+        "type": TargetGroupTypeType,
+        "clientToken": NotRequired[str],
+        "config": NotRequired[TargetGroupConfigTypeDef],
+        "tags": NotRequired[Mapping[str, str]],
+    },
+)
+CreateTargetGroupResponseTypeDef = TypedDict(
+    "CreateTargetGroupResponseTypeDef",
+    {
+        "arn": str,
+        "config": TargetGroupConfigTypeDef,
         "id": str,
         "name": str,
         "status": TargetGroupStatusType,
         "type": TargetGroupTypeType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+GetTargetGroupResponseTypeDef = TypedDict(
+    "GetTargetGroupResponseTypeDef",
+    {
+        "arn": str,
+        "config": TargetGroupConfigTypeDef,
+        "createdAt": datetime,
+        "failureCode": str,
+        "failureMessage": str,
+        "id": str,
+        "lastUpdatedAt": datetime,
+        "name": str,
+        "serviceArns": List[str],
+        "status": TargetGroupStatusType,
+        "type": TargetGroupTypeType,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+UpdateTargetGroupResponseTypeDef = TypedDict(
+    "UpdateTargetGroupResponseTypeDef",
+    {
+        "arn": str,
+        "config": TargetGroupConfigTypeDef,
+        "id": str,
+        "name": str,
+        "status": TargetGroupStatusType,
+        "type": TargetGroupTypeType,
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
 
-_RequiredWeightedTargetGroupTypeDef = TypedDict(
-    "_RequiredWeightedTargetGroupTypeDef",
+class RuleMatchOutputTypeDef(TypedDict):
+    httpMatch: NotRequired[HttpMatchOutputTypeDef]
+
+HttpMatchUnionTypeDef = Union[HttpMatchTypeDef, HttpMatchOutputTypeDef]
+RuleActionUnionTypeDef = Union[RuleActionTypeDef, RuleActionOutputTypeDef]
+CreateRuleResponseTypeDef = TypedDict(
+    "CreateRuleResponseTypeDef",
     {
-        "targetGroupIdentifier": str,
+        "action": RuleActionOutputTypeDef,
+        "arn": str,
+        "id": str,
+        "match": RuleMatchOutputTypeDef,
+        "name": str,
+        "priority": int,
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
-_OptionalWeightedTargetGroupTypeDef = TypedDict(
-    "_OptionalWeightedTargetGroupTypeDef",
+GetRuleResponseTypeDef = TypedDict(
+    "GetRuleResponseTypeDef",
     {
-        "weight": int,
+        "action": RuleActionOutputTypeDef,
+        "arn": str,
+        "createdAt": datetime,
+        "id": str,
+        "isDefault": bool,
+        "lastUpdatedAt": datetime,
+        "match": RuleMatchOutputTypeDef,
+        "name": str,
+        "priority": int,
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
-    total=False,
+)
+RuleUpdateSuccessTypeDef = TypedDict(
+    "RuleUpdateSuccessTypeDef",
+    {
+        "action": NotRequired[RuleActionOutputTypeDef],
+        "arn": NotRequired[str],
+        "id": NotRequired[str],
+        "isDefault": NotRequired[bool],
+        "match": NotRequired[RuleMatchOutputTypeDef],
+        "name": NotRequired[str],
+        "priority": NotRequired[int],
+    },
+)
+UpdateRuleResponseTypeDef = TypedDict(
+    "UpdateRuleResponseTypeDef",
+    {
+        "action": RuleActionOutputTypeDef,
+        "arn": str,
+        "id": str,
+        "isDefault": bool,
+        "match": RuleMatchOutputTypeDef,
+        "name": str,
+        "priority": int,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
 )
 
-class WeightedTargetGroupTypeDef(
-    _RequiredWeightedTargetGroupTypeDef, _OptionalWeightedTargetGroupTypeDef
-):
-    pass
+class RuleMatchTypeDef(TypedDict):
+    httpMatch: NotRequired[HttpMatchUnionTypeDef]
+
+class CreateListenerRequestTypeDef(TypedDict):
+    defaultAction: RuleActionUnionTypeDef
+    name: str
+    protocol: ListenerProtocolType
+    serviceIdentifier: str
+    clientToken: NotRequired[str]
+    port: NotRequired[int]
+    tags: NotRequired[Mapping[str, str]]
+
+class UpdateListenerRequestTypeDef(TypedDict):
+    defaultAction: RuleActionUnionTypeDef
+    listenerIdentifier: str
+    serviceIdentifier: str
+
+class BatchUpdateRuleResponseTypeDef(TypedDict):
+    successful: List[RuleUpdateSuccessTypeDef]
+    unsuccessful: List[RuleUpdateFailureTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+RuleMatchUnionTypeDef = Union[RuleMatchTypeDef, RuleMatchOutputTypeDef]
+
+class CreateRuleRequestTypeDef(TypedDict):
+    action: RuleActionUnionTypeDef
+    listenerIdentifier: str
+    match: RuleMatchUnionTypeDef
+    name: str
+    priority: int
+    serviceIdentifier: str
+    clientToken: NotRequired[str]
+    tags: NotRequired[Mapping[str, str]]
+
+class RuleUpdateTypeDef(TypedDict):
+    ruleIdentifier: str
+    action: NotRequired[RuleActionUnionTypeDef]
+    match: NotRequired[RuleMatchUnionTypeDef]
+    priority: NotRequired[int]
+
+class UpdateRuleRequestTypeDef(TypedDict):
+    listenerIdentifier: str
+    ruleIdentifier: str
+    serviceIdentifier: str
+    action: NotRequired[RuleActionUnionTypeDef]
+    match: NotRequired[RuleMatchUnionTypeDef]
+    priority: NotRequired[int]
+
+class BatchUpdateRuleRequestTypeDef(TypedDict):
+    listenerIdentifier: str
+    rules: Sequence[RuleUpdateTypeDef]
+    serviceIdentifier: str

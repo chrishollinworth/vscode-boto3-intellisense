@@ -1,20 +1,24 @@
 """
 Type annotations for codeguruprofiler service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codeguruprofiler/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codeguruprofiler/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_codeguruprofiler.type_defs import AddNotificationChannelsRequestRequestTypeDef
+    from mypy_boto3_codeguruprofiler.type_defs import ResponseMetadataTypeDef
 
-    data: AddNotificationChannelsRequestRequestTypeDef = {...}
+    data: ResponseMetadataTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import IO, Any, Dict, List, Union
+from typing import IO, Any, Union
 
 from botocore.response import StreamingBody
 
@@ -27,553 +31,114 @@ from .literals import (
     OrderByType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
-    "AddNotificationChannelsRequestRequestTypeDef",
+    "AddNotificationChannelsRequestTypeDef",
     "AddNotificationChannelsResponseTypeDef",
     "AgentConfigurationTypeDef",
     "AgentOrchestrationConfigTypeDef",
     "AggregatedProfileTimeTypeDef",
     "AnomalyInstanceTypeDef",
     "AnomalyTypeDef",
-    "BatchGetFrameMetricDataRequestRequestTypeDef",
+    "BatchGetFrameMetricDataRequestTypeDef",
     "BatchGetFrameMetricDataResponseTypeDef",
+    "BlobTypeDef",
+    "ChannelOutputTypeDef",
     "ChannelTypeDef",
-    "ConfigureAgentRequestRequestTypeDef",
+    "ChannelUnionTypeDef",
+    "ConfigureAgentRequestTypeDef",
     "ConfigureAgentResponseTypeDef",
-    "CreateProfilingGroupRequestRequestTypeDef",
+    "CreateProfilingGroupRequestTypeDef",
     "CreateProfilingGroupResponseTypeDef",
-    "DeleteProfilingGroupRequestRequestTypeDef",
-    "DescribeProfilingGroupRequestRequestTypeDef",
+    "DeleteProfilingGroupRequestTypeDef",
+    "DescribeProfilingGroupRequestTypeDef",
     "DescribeProfilingGroupResponseTypeDef",
     "FindingsReportSummaryTypeDef",
     "FrameMetricDatumTypeDef",
+    "FrameMetricOutputTypeDef",
     "FrameMetricTypeDef",
-    "GetFindingsReportAccountSummaryRequestRequestTypeDef",
+    "FrameMetricUnionTypeDef",
+    "GetFindingsReportAccountSummaryRequestTypeDef",
     "GetFindingsReportAccountSummaryResponseTypeDef",
-    "GetNotificationConfigurationRequestRequestTypeDef",
+    "GetNotificationConfigurationRequestTypeDef",
     "GetNotificationConfigurationResponseTypeDef",
-    "GetPolicyRequestRequestTypeDef",
+    "GetPolicyRequestTypeDef",
     "GetPolicyResponseTypeDef",
-    "GetProfileRequestRequestTypeDef",
+    "GetProfileRequestTypeDef",
     "GetProfileResponseTypeDef",
-    "GetRecommendationsRequestRequestTypeDef",
+    "GetRecommendationsRequestTypeDef",
     "GetRecommendationsResponseTypeDef",
-    "ListFindingsReportsRequestRequestTypeDef",
+    "ListFindingsReportsRequestTypeDef",
     "ListFindingsReportsResponseTypeDef",
-    "ListProfileTimesRequestRequestTypeDef",
+    "ListProfileTimesRequestPaginateTypeDef",
+    "ListProfileTimesRequestTypeDef",
     "ListProfileTimesResponseTypeDef",
-    "ListProfilingGroupsRequestRequestTypeDef",
+    "ListProfilingGroupsRequestTypeDef",
     "ListProfilingGroupsResponseTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "MatchTypeDef",
     "MetricTypeDef",
     "NotificationConfigurationTypeDef",
     "PaginatorConfigTypeDef",
     "PatternTypeDef",
-    "PostAgentProfileRequestRequestTypeDef",
+    "PostAgentProfileRequestTypeDef",
     "ProfileTimeTypeDef",
     "ProfilingGroupDescriptionTypeDef",
     "ProfilingStatusTypeDef",
-    "PutPermissionRequestRequestTypeDef",
+    "PutPermissionRequestTypeDef",
     "PutPermissionResponseTypeDef",
     "RecommendationTypeDef",
-    "RemoveNotificationChannelRequestRequestTypeDef",
+    "RemoveNotificationChannelRequestTypeDef",
     "RemoveNotificationChannelResponseTypeDef",
-    "RemovePermissionRequestRequestTypeDef",
+    "RemovePermissionRequestTypeDef",
     "RemovePermissionResponseTypeDef",
     "ResponseMetadataTypeDef",
-    "SubmitFeedbackRequestRequestTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "SubmitFeedbackRequestTypeDef",
+    "TagResourceRequestTypeDef",
     "TimestampStructureTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateProfilingGroupRequestRequestTypeDef",
+    "TimestampTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateProfilingGroupRequestTypeDef",
     "UpdateProfilingGroupResponseTypeDef",
     "UserFeedbackTypeDef",
 )
 
-AddNotificationChannelsRequestRequestTypeDef = TypedDict(
-    "AddNotificationChannelsRequestRequestTypeDef",
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
+
+class AgentConfigurationTypeDef(TypedDict):
+    periodInSeconds: int
+    shouldProfile: bool
+    agentParameters: NotRequired[Dict[AgentParameterFieldType, str]]
+
+class AgentOrchestrationConfigTypeDef(TypedDict):
+    profilingEnabled: bool
+
+class AggregatedProfileTimeTypeDef(TypedDict):
+    period: NotRequired[AggregationPeriodType]
+    start: NotRequired[datetime]
+
+UserFeedbackTypeDef = TypedDict(
+    "UserFeedbackTypeDef",
     {
-        "channels": List["ChannelTypeDef"],
-        "profilingGroupName": str,
+        "type": FeedbackTypeType,
     },
 )
-
-AddNotificationChannelsResponseTypeDef = TypedDict(
-    "AddNotificationChannelsResponseTypeDef",
-    {
-        "notificationConfiguration": "NotificationConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredAgentConfigurationTypeDef = TypedDict(
-    "_RequiredAgentConfigurationTypeDef",
-    {
-        "periodInSeconds": int,
-        "shouldProfile": bool,
-    },
-)
-_OptionalAgentConfigurationTypeDef = TypedDict(
-    "_OptionalAgentConfigurationTypeDef",
-    {
-        "agentParameters": Dict[AgentParameterFieldType, str],
-    },
-    total=False,
-)
-
-class AgentConfigurationTypeDef(
-    _RequiredAgentConfigurationTypeDef, _OptionalAgentConfigurationTypeDef
-):
-    pass
-
-AgentOrchestrationConfigTypeDef = TypedDict(
-    "AgentOrchestrationConfigTypeDef",
-    {
-        "profilingEnabled": bool,
-    },
-)
-
-AggregatedProfileTimeTypeDef = TypedDict(
-    "AggregatedProfileTimeTypeDef",
-    {
-        "period": AggregationPeriodType,
-        "start": datetime,
-    },
-    total=False,
-)
-
-_RequiredAnomalyInstanceTypeDef = TypedDict(
-    "_RequiredAnomalyInstanceTypeDef",
-    {
-        "id": str,
-        "startTime": datetime,
-    },
-)
-_OptionalAnomalyInstanceTypeDef = TypedDict(
-    "_OptionalAnomalyInstanceTypeDef",
-    {
-        "endTime": datetime,
-        "userFeedback": "UserFeedbackTypeDef",
-    },
-    total=False,
-)
-
-class AnomalyInstanceTypeDef(_RequiredAnomalyInstanceTypeDef, _OptionalAnomalyInstanceTypeDef):
-    pass
-
-AnomalyTypeDef = TypedDict(
-    "AnomalyTypeDef",
-    {
-        "instances": List["AnomalyInstanceTypeDef"],
-        "metric": "MetricTypeDef",
-        "reason": str,
-    },
-)
-
-_RequiredBatchGetFrameMetricDataRequestRequestTypeDef = TypedDict(
-    "_RequiredBatchGetFrameMetricDataRequestRequestTypeDef",
-    {
-        "profilingGroupName": str,
-    },
-)
-_OptionalBatchGetFrameMetricDataRequestRequestTypeDef = TypedDict(
-    "_OptionalBatchGetFrameMetricDataRequestRequestTypeDef",
-    {
-        "endTime": Union[datetime, str],
-        "frameMetrics": List["FrameMetricTypeDef"],
-        "period": str,
-        "startTime": Union[datetime, str],
-        "targetResolution": AggregationPeriodType,
-    },
-    total=False,
-)
-
-class BatchGetFrameMetricDataRequestRequestTypeDef(
-    _RequiredBatchGetFrameMetricDataRequestRequestTypeDef,
-    _OptionalBatchGetFrameMetricDataRequestRequestTypeDef,
-):
-    pass
-
-BatchGetFrameMetricDataResponseTypeDef = TypedDict(
-    "BatchGetFrameMetricDataResponseTypeDef",
-    {
-        "endTime": datetime,
-        "endTimes": List["TimestampStructureTypeDef"],
-        "frameMetricData": List["FrameMetricDatumTypeDef"],
-        "resolution": AggregationPeriodType,
-        "startTime": datetime,
-        "unprocessedEndTimes": Dict[str, List["TimestampStructureTypeDef"]],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredChannelTypeDef = TypedDict(
-    "_RequiredChannelTypeDef",
-    {
-        "eventPublishers": List[Literal["AnomalyDetection"]],
-        "uri": str,
-    },
-)
-_OptionalChannelTypeDef = TypedDict(
-    "_OptionalChannelTypeDef",
-    {
-        "id": str,
-    },
-    total=False,
-)
-
-class ChannelTypeDef(_RequiredChannelTypeDef, _OptionalChannelTypeDef):
-    pass
-
-_RequiredConfigureAgentRequestRequestTypeDef = TypedDict(
-    "_RequiredConfigureAgentRequestRequestTypeDef",
-    {
-        "profilingGroupName": str,
-    },
-)
-_OptionalConfigureAgentRequestRequestTypeDef = TypedDict(
-    "_OptionalConfigureAgentRequestRequestTypeDef",
-    {
-        "fleetInstanceId": str,
-        "metadata": Dict[MetadataFieldType, str],
-    },
-    total=False,
-)
-
-class ConfigureAgentRequestRequestTypeDef(
-    _RequiredConfigureAgentRequestRequestTypeDef, _OptionalConfigureAgentRequestRequestTypeDef
-):
-    pass
-
-ConfigureAgentResponseTypeDef = TypedDict(
-    "ConfigureAgentResponseTypeDef",
-    {
-        "configuration": "AgentConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateProfilingGroupRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateProfilingGroupRequestRequestTypeDef",
-    {
-        "clientToken": str,
-        "profilingGroupName": str,
-    },
-)
-_OptionalCreateProfilingGroupRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateProfilingGroupRequestRequestTypeDef",
-    {
-        "agentOrchestrationConfig": "AgentOrchestrationConfigTypeDef",
-        "computePlatform": ComputePlatformType,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class CreateProfilingGroupRequestRequestTypeDef(
-    _RequiredCreateProfilingGroupRequestRequestTypeDef,
-    _OptionalCreateProfilingGroupRequestRequestTypeDef,
-):
-    pass
-
-CreateProfilingGroupResponseTypeDef = TypedDict(
-    "CreateProfilingGroupResponseTypeDef",
-    {
-        "profilingGroup": "ProfilingGroupDescriptionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteProfilingGroupRequestRequestTypeDef = TypedDict(
-    "DeleteProfilingGroupRequestRequestTypeDef",
-    {
-        "profilingGroupName": str,
-    },
-)
-
-DescribeProfilingGroupRequestRequestTypeDef = TypedDict(
-    "DescribeProfilingGroupRequestRequestTypeDef",
-    {
-        "profilingGroupName": str,
-    },
-)
-
-DescribeProfilingGroupResponseTypeDef = TypedDict(
-    "DescribeProfilingGroupResponseTypeDef",
-    {
-        "profilingGroup": "ProfilingGroupDescriptionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-FindingsReportSummaryTypeDef = TypedDict(
-    "FindingsReportSummaryTypeDef",
-    {
-        "id": str,
-        "profileEndTime": datetime,
-        "profileStartTime": datetime,
-        "profilingGroupName": str,
-        "totalNumberOfFindings": int,
-    },
-    total=False,
-)
-
-FrameMetricDatumTypeDef = TypedDict(
-    "FrameMetricDatumTypeDef",
-    {
-        "frameMetric": "FrameMetricTypeDef",
-        "values": List[float],
-    },
-)
-
-FrameMetricTypeDef = TypedDict(
-    "FrameMetricTypeDef",
-    {
-        "frameName": str,
-        "threadStates": List[str],
-        "type": Literal["AggregatedRelativeTotalTime"],
-    },
-)
-
-GetFindingsReportAccountSummaryRequestRequestTypeDef = TypedDict(
-    "GetFindingsReportAccountSummaryRequestRequestTypeDef",
-    {
-        "dailyReportsOnly": bool,
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-GetFindingsReportAccountSummaryResponseTypeDef = TypedDict(
-    "GetFindingsReportAccountSummaryResponseTypeDef",
-    {
-        "nextToken": str,
-        "reportSummaries": List["FindingsReportSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetNotificationConfigurationRequestRequestTypeDef = TypedDict(
-    "GetNotificationConfigurationRequestRequestTypeDef",
-    {
-        "profilingGroupName": str,
-    },
-)
-
-GetNotificationConfigurationResponseTypeDef = TypedDict(
-    "GetNotificationConfigurationResponseTypeDef",
-    {
-        "notificationConfiguration": "NotificationConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetPolicyRequestRequestTypeDef = TypedDict(
-    "GetPolicyRequestRequestTypeDef",
-    {
-        "profilingGroupName": str,
-    },
-)
-
-GetPolicyResponseTypeDef = TypedDict(
-    "GetPolicyResponseTypeDef",
-    {
-        "policy": str,
-        "revisionId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetProfileRequestRequestTypeDef = TypedDict(
-    "_RequiredGetProfileRequestRequestTypeDef",
-    {
-        "profilingGroupName": str,
-    },
-)
-_OptionalGetProfileRequestRequestTypeDef = TypedDict(
-    "_OptionalGetProfileRequestRequestTypeDef",
-    {
-        "accept": str,
-        "endTime": Union[datetime, str],
-        "maxDepth": int,
-        "period": str,
-        "startTime": Union[datetime, str],
-    },
-    total=False,
-)
-
-class GetProfileRequestRequestTypeDef(
-    _RequiredGetProfileRequestRequestTypeDef, _OptionalGetProfileRequestRequestTypeDef
-):
-    pass
-
-GetProfileResponseTypeDef = TypedDict(
-    "GetProfileResponseTypeDef",
-    {
-        "contentEncoding": str,
-        "contentType": str,
-        "profile": bytes,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetRecommendationsRequestRequestTypeDef = TypedDict(
-    "_RequiredGetRecommendationsRequestRequestTypeDef",
-    {
-        "endTime": Union[datetime, str],
-        "profilingGroupName": str,
-        "startTime": Union[datetime, str],
-    },
-)
-_OptionalGetRecommendationsRequestRequestTypeDef = TypedDict(
-    "_OptionalGetRecommendationsRequestRequestTypeDef",
-    {
-        "locale": str,
-    },
-    total=False,
-)
-
-class GetRecommendationsRequestRequestTypeDef(
-    _RequiredGetRecommendationsRequestRequestTypeDef,
-    _OptionalGetRecommendationsRequestRequestTypeDef,
-):
-    pass
-
-GetRecommendationsResponseTypeDef = TypedDict(
-    "GetRecommendationsResponseTypeDef",
-    {
-        "anomalies": List["AnomalyTypeDef"],
-        "profileEndTime": datetime,
-        "profileStartTime": datetime,
-        "profilingGroupName": str,
-        "recommendations": List["RecommendationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListFindingsReportsRequestRequestTypeDef = TypedDict(
-    "_RequiredListFindingsReportsRequestRequestTypeDef",
-    {
-        "endTime": Union[datetime, str],
-        "profilingGroupName": str,
-        "startTime": Union[datetime, str],
-    },
-)
-_OptionalListFindingsReportsRequestRequestTypeDef = TypedDict(
-    "_OptionalListFindingsReportsRequestRequestTypeDef",
-    {
-        "dailyReportsOnly": bool,
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListFindingsReportsRequestRequestTypeDef(
-    _RequiredListFindingsReportsRequestRequestTypeDef,
-    _OptionalListFindingsReportsRequestRequestTypeDef,
-):
-    pass
-
-ListFindingsReportsResponseTypeDef = TypedDict(
-    "ListFindingsReportsResponseTypeDef",
-    {
-        "findingsReportSummaries": List["FindingsReportSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListProfileTimesRequestRequestTypeDef = TypedDict(
-    "_RequiredListProfileTimesRequestRequestTypeDef",
-    {
-        "endTime": Union[datetime, str],
-        "period": AggregationPeriodType,
-        "profilingGroupName": str,
-        "startTime": Union[datetime, str],
-    },
-)
-_OptionalListProfileTimesRequestRequestTypeDef = TypedDict(
-    "_OptionalListProfileTimesRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-        "orderBy": OrderByType,
-    },
-    total=False,
-)
-
-class ListProfileTimesRequestRequestTypeDef(
-    _RequiredListProfileTimesRequestRequestTypeDef, _OptionalListProfileTimesRequestRequestTypeDef
-):
-    pass
-
-ListProfileTimesResponseTypeDef = TypedDict(
-    "ListProfileTimesResponseTypeDef",
-    {
-        "nextToken": str,
-        "profileTimes": List["ProfileTimeTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListProfilingGroupsRequestRequestTypeDef = TypedDict(
-    "ListProfilingGroupsRequestRequestTypeDef",
-    {
-        "includeDescription": bool,
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-ListProfilingGroupsResponseTypeDef = TypedDict(
-    "ListProfilingGroupsResponseTypeDef",
-    {
-        "nextToken": str,
-        "profilingGroupNames": List[str],
-        "profilingGroups": List["ProfilingGroupDescriptionTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-    },
-)
-
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-MatchTypeDef = TypedDict(
-    "MatchTypeDef",
-    {
-        "frameAddress": str,
-        "targetFramesIndex": int,
-        "thresholdBreachValue": float,
-    },
-    total=False,
-)
-
 MetricTypeDef = TypedDict(
     "MetricTypeDef",
     {
@@ -582,243 +147,349 @@ MetricTypeDef = TypedDict(
         "type": Literal["AggregatedRelativeTotalTime"],
     },
 )
+TimestampTypeDef = Union[datetime, str]
 
-NotificationConfigurationTypeDef = TypedDict(
-    "NotificationConfigurationTypeDef",
+class TimestampStructureTypeDef(TypedDict):
+    value: datetime
+
+BlobTypeDef = Union[str, bytes, IO[Any], StreamingBody]
+ChannelOutputTypeDef = TypedDict(
+    "ChannelOutputTypeDef",
     {
-        "channels": List["ChannelTypeDef"],
+        "eventPublishers": List[Literal["AnomalyDetection"]],
+        "uri": str,
+        "id": NotRequired[str],
     },
-    total=False,
+)
+ChannelTypeDef = TypedDict(
+    "ChannelTypeDef",
+    {
+        "eventPublishers": Sequence[Literal["AnomalyDetection"]],
+        "uri": str,
+        "id": NotRequired[str],
+    },
 )
 
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
+class ConfigureAgentRequestTypeDef(TypedDict):
+    profilingGroupName: str
+    fleetInstanceId: NotRequired[str]
+    metadata: NotRequired[Mapping[MetadataFieldType, str]]
+
+class DeleteProfilingGroupRequestTypeDef(TypedDict):
+    profilingGroupName: str
+
+class DescribeProfilingGroupRequestTypeDef(TypedDict):
+    profilingGroupName: str
+
+FindingsReportSummaryTypeDef = TypedDict(
+    "FindingsReportSummaryTypeDef",
     {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
+        "id": NotRequired[str],
+        "profileEndTime": NotRequired[datetime],
+        "profileStartTime": NotRequired[datetime],
+        "profilingGroupName": NotRequired[str],
+        "totalNumberOfFindings": NotRequired[int],
     },
-    total=False,
 )
+FrameMetricOutputTypeDef = TypedDict(
+    "FrameMetricOutputTypeDef",
+    {
+        "frameName": str,
+        "threadStates": List[str],
+        "type": Literal["AggregatedRelativeTotalTime"],
+    },
+)
+FrameMetricTypeDef = TypedDict(
+    "FrameMetricTypeDef",
+    {
+        "frameName": str,
+        "threadStates": Sequence[str],
+        "type": Literal["AggregatedRelativeTotalTime"],
+    },
+)
+
+class GetFindingsReportAccountSummaryRequestTypeDef(TypedDict):
+    dailyReportsOnly: NotRequired[bool]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class GetNotificationConfigurationRequestTypeDef(TypedDict):
+    profilingGroupName: str
+
+class GetPolicyRequestTypeDef(TypedDict):
+    profilingGroupName: str
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class ProfileTimeTypeDef(TypedDict):
+    start: NotRequired[datetime]
+
+class ListProfilingGroupsRequestTypeDef(TypedDict):
+    includeDescription: NotRequired[bool]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+
+class MatchTypeDef(TypedDict):
+    frameAddress: NotRequired[str]
+    targetFramesIndex: NotRequired[int]
+    thresholdBreachValue: NotRequired[float]
 
 PatternTypeDef = TypedDict(
     "PatternTypeDef",
     {
-        "countersToAggregate": List[str],
-        "description": str,
-        "id": str,
-        "name": str,
-        "resolutionSteps": str,
-        "targetFrames": List[List[str]],
-        "thresholdPercent": float,
-    },
-    total=False,
-)
-
-_RequiredPostAgentProfileRequestRequestTypeDef = TypedDict(
-    "_RequiredPostAgentProfileRequestRequestTypeDef",
-    {
-        "agentProfile": Union[bytes, IO[bytes], StreamingBody],
-        "contentType": str,
-        "profilingGroupName": str,
-    },
-)
-_OptionalPostAgentProfileRequestRequestTypeDef = TypedDict(
-    "_OptionalPostAgentProfileRequestRequestTypeDef",
-    {
-        "profileToken": str,
-    },
-    total=False,
-)
-
-class PostAgentProfileRequestRequestTypeDef(
-    _RequiredPostAgentProfileRequestRequestTypeDef, _OptionalPostAgentProfileRequestRequestTypeDef
-):
-    pass
-
-ProfileTimeTypeDef = TypedDict(
-    "ProfileTimeTypeDef",
-    {
-        "start": datetime,
-    },
-    total=False,
-)
-
-ProfilingGroupDescriptionTypeDef = TypedDict(
-    "ProfilingGroupDescriptionTypeDef",
-    {
-        "agentOrchestrationConfig": "AgentOrchestrationConfigTypeDef",
-        "arn": str,
-        "computePlatform": ComputePlatformType,
-        "createdAt": datetime,
-        "name": str,
-        "profilingStatus": "ProfilingStatusTypeDef",
-        "tags": Dict[str, str],
-        "updatedAt": datetime,
-    },
-    total=False,
-)
-
-ProfilingStatusTypeDef = TypedDict(
-    "ProfilingStatusTypeDef",
-    {
-        "latestAgentOrchestratedAt": datetime,
-        "latestAgentProfileReportedAt": datetime,
-        "latestAggregatedProfile": "AggregatedProfileTimeTypeDef",
-    },
-    total=False,
-)
-
-_RequiredPutPermissionRequestRequestTypeDef = TypedDict(
-    "_RequiredPutPermissionRequestRequestTypeDef",
-    {
-        "actionGroup": Literal["agentPermissions"],
-        "principals": List[str],
-        "profilingGroupName": str,
-    },
-)
-_OptionalPutPermissionRequestRequestTypeDef = TypedDict(
-    "_OptionalPutPermissionRequestRequestTypeDef",
-    {
-        "revisionId": str,
-    },
-    total=False,
-)
-
-class PutPermissionRequestRequestTypeDef(
-    _RequiredPutPermissionRequestRequestTypeDef, _OptionalPutPermissionRequestRequestTypeDef
-):
-    pass
-
-PutPermissionResponseTypeDef = TypedDict(
-    "PutPermissionResponseTypeDef",
-    {
-        "policy": str,
-        "revisionId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "countersToAggregate": NotRequired[List[str]],
+        "description": NotRequired[str],
+        "id": NotRequired[str],
+        "name": NotRequired[str],
+        "resolutionSteps": NotRequired[str],
+        "targetFrames": NotRequired[List[List[str]]],
+        "thresholdPercent": NotRequired[float],
     },
 )
 
-RecommendationTypeDef = TypedDict(
-    "RecommendationTypeDef",
-    {
-        "allMatchesCount": int,
-        "allMatchesSum": float,
-        "endTime": datetime,
-        "pattern": "PatternTypeDef",
-        "startTime": datetime,
-        "topMatches": List["MatchTypeDef"],
-    },
-)
+class PutPermissionRequestTypeDef(TypedDict):
+    actionGroup: Literal["agentPermissions"]
+    principals: Sequence[str]
+    profilingGroupName: str
+    revisionId: NotRequired[str]
 
-RemoveNotificationChannelRequestRequestTypeDef = TypedDict(
-    "RemoveNotificationChannelRequestRequestTypeDef",
-    {
-        "channelId": str,
-        "profilingGroupName": str,
-    },
-)
+class RemoveNotificationChannelRequestTypeDef(TypedDict):
+    channelId: str
+    profilingGroupName: str
 
-RemoveNotificationChannelResponseTypeDef = TypedDict(
-    "RemoveNotificationChannelResponseTypeDef",
-    {
-        "notificationConfiguration": "NotificationConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class RemovePermissionRequestTypeDef(TypedDict):
+    actionGroup: Literal["agentPermissions"]
+    profilingGroupName: str
+    revisionId: str
 
-RemovePermissionRequestRequestTypeDef = TypedDict(
-    "RemovePermissionRequestRequestTypeDef",
-    {
-        "actionGroup": Literal["agentPermissions"],
-        "profilingGroupName": str,
-        "revisionId": str,
-    },
-)
-
-RemovePermissionResponseTypeDef = TypedDict(
-    "RemovePermissionResponseTypeDef",
-    {
-        "policy": str,
-        "revisionId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-_RequiredSubmitFeedbackRequestRequestTypeDef = TypedDict(
-    "_RequiredSubmitFeedbackRequestRequestTypeDef",
+SubmitFeedbackRequestTypeDef = TypedDict(
+    "SubmitFeedbackRequestTypeDef",
     {
         "anomalyInstanceId": str,
         "profilingGroupName": str,
         "type": FeedbackTypeType,
-    },
-)
-_OptionalSubmitFeedbackRequestRequestTypeDef = TypedDict(
-    "_OptionalSubmitFeedbackRequestRequestTypeDef",
-    {
-        "comment": str,
-    },
-    total=False,
-)
-
-class SubmitFeedbackRequestRequestTypeDef(
-    _RequiredSubmitFeedbackRequestRequestTypeDef, _OptionalSubmitFeedbackRequestRequestTypeDef
-):
-    pass
-
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tags": Dict[str, str],
+        "comment": NotRequired[str],
     },
 )
 
-TimestampStructureTypeDef = TypedDict(
-    "TimestampStructureTypeDef",
+class TagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tags: Mapping[str, str]
+
+class UntagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tagKeys: Sequence[str]
+
+class GetPolicyResponseTypeDef(TypedDict):
+    policy: str
+    revisionId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetProfileResponseTypeDef(TypedDict):
+    contentEncoding: str
+    contentType: str
+    profile: StreamingBody
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutPermissionResponseTypeDef(TypedDict):
+    policy: str
+    revisionId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class RemovePermissionResponseTypeDef(TypedDict):
+    policy: str
+    revisionId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ConfigureAgentResponseTypeDef(TypedDict):
+    configuration: AgentConfigurationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateProfilingGroupRequestTypeDef(TypedDict):
+    clientToken: str
+    profilingGroupName: str
+    agentOrchestrationConfig: NotRequired[AgentOrchestrationConfigTypeDef]
+    computePlatform: NotRequired[ComputePlatformType]
+    tags: NotRequired[Mapping[str, str]]
+
+class UpdateProfilingGroupRequestTypeDef(TypedDict):
+    agentOrchestrationConfig: AgentOrchestrationConfigTypeDef
+    profilingGroupName: str
+
+class ProfilingStatusTypeDef(TypedDict):
+    latestAgentOrchestratedAt: NotRequired[datetime]
+    latestAgentProfileReportedAt: NotRequired[datetime]
+    latestAggregatedProfile: NotRequired[AggregatedProfileTimeTypeDef]
+
+AnomalyInstanceTypeDef = TypedDict(
+    "AnomalyInstanceTypeDef",
     {
-        "value": datetime,
+        "id": str,
+        "startTime": datetime,
+        "endTime": NotRequired[datetime],
+        "userFeedback": NotRequired[UserFeedbackTypeDef],
     },
 )
 
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tagKeys": List[str],
-    },
-)
+class GetProfileRequestTypeDef(TypedDict):
+    profilingGroupName: str
+    accept: NotRequired[str]
+    endTime: NotRequired[TimestampTypeDef]
+    maxDepth: NotRequired[int]
+    period: NotRequired[str]
+    startTime: NotRequired[TimestampTypeDef]
 
-UpdateProfilingGroupRequestRequestTypeDef = TypedDict(
-    "UpdateProfilingGroupRequestRequestTypeDef",
-    {
-        "agentOrchestrationConfig": "AgentOrchestrationConfigTypeDef",
-        "profilingGroupName": str,
-    },
-)
+class GetRecommendationsRequestTypeDef(TypedDict):
+    endTime: TimestampTypeDef
+    profilingGroupName: str
+    startTime: TimestampTypeDef
+    locale: NotRequired[str]
 
-UpdateProfilingGroupResponseTypeDef = TypedDict(
-    "UpdateProfilingGroupResponseTypeDef",
-    {
-        "profilingGroup": "ProfilingGroupDescriptionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListFindingsReportsRequestTypeDef(TypedDict):
+    endTime: TimestampTypeDef
+    profilingGroupName: str
+    startTime: TimestampTypeDef
+    dailyReportsOnly: NotRequired[bool]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
 
-UserFeedbackTypeDef = TypedDict(
-    "UserFeedbackTypeDef",
-    {
-        "type": FeedbackTypeType,
-    },
-)
+class ListProfileTimesRequestTypeDef(TypedDict):
+    endTime: TimestampTypeDef
+    period: AggregationPeriodType
+    profilingGroupName: str
+    startTime: TimestampTypeDef
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+    orderBy: NotRequired[OrderByType]
+
+class PostAgentProfileRequestTypeDef(TypedDict):
+    agentProfile: BlobTypeDef
+    contentType: str
+    profilingGroupName: str
+    profileToken: NotRequired[str]
+
+class NotificationConfigurationTypeDef(TypedDict):
+    channels: NotRequired[List[ChannelOutputTypeDef]]
+
+ChannelUnionTypeDef = Union[ChannelTypeDef, ChannelOutputTypeDef]
+
+class GetFindingsReportAccountSummaryResponseTypeDef(TypedDict):
+    reportSummaries: List[FindingsReportSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListFindingsReportsResponseTypeDef(TypedDict):
+    findingsReportSummaries: List[FindingsReportSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class FrameMetricDatumTypeDef(TypedDict):
+    frameMetric: FrameMetricOutputTypeDef
+    values: List[float]
+
+FrameMetricUnionTypeDef = Union[FrameMetricTypeDef, FrameMetricOutputTypeDef]
+
+class ListProfileTimesRequestPaginateTypeDef(TypedDict):
+    endTime: TimestampTypeDef
+    period: AggregationPeriodType
+    profilingGroupName: str
+    startTime: TimestampTypeDef
+    orderBy: NotRequired[OrderByType]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListProfileTimesResponseTypeDef(TypedDict):
+    profileTimes: List[ProfileTimeTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class RecommendationTypeDef(TypedDict):
+    allMatchesCount: int
+    allMatchesSum: float
+    endTime: datetime
+    pattern: PatternTypeDef
+    startTime: datetime
+    topMatches: List[MatchTypeDef]
+
+class ProfilingGroupDescriptionTypeDef(TypedDict):
+    agentOrchestrationConfig: NotRequired[AgentOrchestrationConfigTypeDef]
+    arn: NotRequired[str]
+    computePlatform: NotRequired[ComputePlatformType]
+    createdAt: NotRequired[datetime]
+    name: NotRequired[str]
+    profilingStatus: NotRequired[ProfilingStatusTypeDef]
+    tags: NotRequired[Dict[str, str]]
+    updatedAt: NotRequired[datetime]
+
+class AnomalyTypeDef(TypedDict):
+    instances: List[AnomalyInstanceTypeDef]
+    metric: MetricTypeDef
+    reason: str
+
+class AddNotificationChannelsResponseTypeDef(TypedDict):
+    notificationConfiguration: NotificationConfigurationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetNotificationConfigurationResponseTypeDef(TypedDict):
+    notificationConfiguration: NotificationConfigurationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class RemoveNotificationChannelResponseTypeDef(TypedDict):
+    notificationConfiguration: NotificationConfigurationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class AddNotificationChannelsRequestTypeDef(TypedDict):
+    channels: Sequence[ChannelUnionTypeDef]
+    profilingGroupName: str
+
+class BatchGetFrameMetricDataResponseTypeDef(TypedDict):
+    endTime: datetime
+    endTimes: List[TimestampStructureTypeDef]
+    frameMetricData: List[FrameMetricDatumTypeDef]
+    resolution: AggregationPeriodType
+    startTime: datetime
+    unprocessedEndTimes: Dict[str, List[TimestampStructureTypeDef]]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class BatchGetFrameMetricDataRequestTypeDef(TypedDict):
+    profilingGroupName: str
+    endTime: NotRequired[TimestampTypeDef]
+    frameMetrics: NotRequired[Sequence[FrameMetricUnionTypeDef]]
+    period: NotRequired[str]
+    startTime: NotRequired[TimestampTypeDef]
+    targetResolution: NotRequired[AggregationPeriodType]
+
+class CreateProfilingGroupResponseTypeDef(TypedDict):
+    profilingGroup: ProfilingGroupDescriptionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeProfilingGroupResponseTypeDef(TypedDict):
+    profilingGroup: ProfilingGroupDescriptionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListProfilingGroupsResponseTypeDef(TypedDict):
+    profilingGroupNames: List[str]
+    profilingGroups: List[ProfilingGroupDescriptionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class UpdateProfilingGroupResponseTypeDef(TypedDict):
+    profilingGroup: ProfilingGroupDescriptionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetRecommendationsResponseTypeDef(TypedDict):
+    anomalies: List[AnomalyTypeDef]
+    profileEndTime: datetime
+    profileStartTime: datetime
+    profilingGroupName: str
+    recommendations: List[RecommendationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef

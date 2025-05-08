@@ -1,871 +1,443 @@
 """
 Type annotations for sqs service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sqs/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sqs/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_sqs.type_defs import AddPermissionRequestQueueTypeDef
+    from mypy_boto3_sqs.type_defs import AddPermissionRequestQueueAddPermissionTypeDef
 
-    data: AddPermissionRequestQueueTypeDef = {...}
+    data: AddPermissionRequestQueueAddPermissionTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from typing import IO, Any, Dict, List, Union
+from typing import IO, Any, Union
 
 from botocore.response import StreamingBody
 
-from .literals import MessageSystemAttributeNameType, QueueAttributeNameType
+from .literals import (
+    MessageSystemAttributeNameType,
+    QueueAttributeFilterType,
+    QueueAttributeNameType,
+)
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
-    "AddPermissionRequestQueueTypeDef",
-    "AddPermissionRequestRequestTypeDef",
+    "AddPermissionRequestQueueAddPermissionTypeDef",
+    "AddPermissionRequestTypeDef",
     "BatchResultErrorEntryTypeDef",
-    "CancelMessageMoveTaskRequestRequestTypeDef",
+    "BlobTypeDef",
+    "CancelMessageMoveTaskRequestTypeDef",
     "CancelMessageMoveTaskResultTypeDef",
     "ChangeMessageVisibilityBatchRequestEntryTypeDef",
-    "ChangeMessageVisibilityBatchRequestQueueTypeDef",
-    "ChangeMessageVisibilityBatchRequestRequestTypeDef",
+    "ChangeMessageVisibilityBatchRequestQueueChangeMessageVisibilityBatchTypeDef",
+    "ChangeMessageVisibilityBatchRequestTypeDef",
     "ChangeMessageVisibilityBatchResultEntryTypeDef",
     "ChangeMessageVisibilityBatchResultTypeDef",
-    "ChangeMessageVisibilityRequestMessageTypeDef",
-    "ChangeMessageVisibilityRequestRequestTypeDef",
-    "CreateQueueRequestRequestTypeDef",
-    "CreateQueueRequestServiceResourceTypeDef",
+    "ChangeMessageVisibilityRequestMessageChangeVisibilityTypeDef",
+    "ChangeMessageVisibilityRequestTypeDef",
+    "CreateQueueRequestServiceResourceCreateQueueTypeDef",
+    "CreateQueueRequestTypeDef",
     "CreateQueueResultTypeDef",
     "DeleteMessageBatchRequestEntryTypeDef",
-    "DeleteMessageBatchRequestQueueTypeDef",
-    "DeleteMessageBatchRequestRequestTypeDef",
+    "DeleteMessageBatchRequestQueueDeleteMessagesTypeDef",
+    "DeleteMessageBatchRequestTypeDef",
     "DeleteMessageBatchResultEntryTypeDef",
     "DeleteMessageBatchResultTypeDef",
-    "DeleteMessageRequestRequestTypeDef",
-    "DeleteQueueRequestRequestTypeDef",
-    "GetQueueAttributesRequestRequestTypeDef",
+    "DeleteMessageRequestTypeDef",
+    "DeleteQueueRequestTypeDef",
+    "EmptyResponseMetadataTypeDef",
+    "GetQueueAttributesRequestTypeDef",
     "GetQueueAttributesResultTypeDef",
-    "GetQueueUrlRequestRequestTypeDef",
-    "GetQueueUrlRequestServiceResourceTypeDef",
+    "GetQueueUrlRequestServiceResourceGetQueueByNameTypeDef",
+    "GetQueueUrlRequestTypeDef",
     "GetQueueUrlResultTypeDef",
-    "ListDeadLetterSourceQueuesRequestRequestTypeDef",
+    "ListDeadLetterSourceQueuesRequestPaginateTypeDef",
+    "ListDeadLetterSourceQueuesRequestTypeDef",
     "ListDeadLetterSourceQueuesResultTypeDef",
-    "ListMessageMoveTasksRequestRequestTypeDef",
+    "ListMessageMoveTasksRequestTypeDef",
     "ListMessageMoveTasksResultEntryTypeDef",
     "ListMessageMoveTasksResultTypeDef",
-    "ListQueueTagsRequestRequestTypeDef",
+    "ListQueueTagsRequestTypeDef",
     "ListQueueTagsResultTypeDef",
-    "ListQueuesRequestRequestTypeDef",
+    "ListQueuesRequestPaginateTypeDef",
+    "ListQueuesRequestTypeDef",
     "ListQueuesResultTypeDef",
+    "MessageAttributeValueOutputTypeDef",
     "MessageAttributeValueTypeDef",
+    "MessageAttributeValueUnionTypeDef",
     "MessageSystemAttributeValueTypeDef",
     "MessageTypeDef",
     "PaginatorConfigTypeDef",
-    "PurgeQueueRequestRequestTypeDef",
-    "QueueMessageRequestTypeDef",
-    "ReceiveMessageRequestQueueTypeDef",
-    "ReceiveMessageRequestRequestTypeDef",
+    "PurgeQueueRequestTypeDef",
+    "ReceiveMessageRequestQueueReceiveMessagesTypeDef",
+    "ReceiveMessageRequestTypeDef",
     "ReceiveMessageResultTypeDef",
-    "RemovePermissionRequestQueueTypeDef",
-    "RemovePermissionRequestRequestTypeDef",
+    "RemovePermissionRequestQueueRemovePermissionTypeDef",
+    "RemovePermissionRequestTypeDef",
     "ResponseMetadataTypeDef",
     "SendMessageBatchRequestEntryTypeDef",
-    "SendMessageBatchRequestQueueTypeDef",
-    "SendMessageBatchRequestRequestTypeDef",
+    "SendMessageBatchRequestQueueSendMessagesTypeDef",
+    "SendMessageBatchRequestTypeDef",
     "SendMessageBatchResultEntryTypeDef",
     "SendMessageBatchResultTypeDef",
-    "SendMessageRequestQueueTypeDef",
-    "SendMessageRequestRequestTypeDef",
+    "SendMessageRequestQueueSendMessageTypeDef",
+    "SendMessageRequestTypeDef",
     "SendMessageResultTypeDef",
-    "ServiceResourceMessageRequestTypeDef",
-    "ServiceResourceQueueRequestTypeDef",
-    "SetQueueAttributesRequestQueueTypeDef",
-    "SetQueueAttributesRequestRequestTypeDef",
-    "StartMessageMoveTaskRequestRequestTypeDef",
+    "SetQueueAttributesRequestQueueSetAttributesTypeDef",
+    "SetQueueAttributesRequestTypeDef",
+    "StartMessageMoveTaskRequestTypeDef",
     "StartMessageMoveTaskResultTypeDef",
-    "TagQueueRequestRequestTypeDef",
-    "UntagQueueRequestRequestTypeDef",
-)
-
-AddPermissionRequestQueueTypeDef = TypedDict(
-    "AddPermissionRequestQueueTypeDef",
-    {
-        "Label": str,
-        "AWSAccountIds": List[str],
-        "Actions": List[str],
-    },
-)
-
-AddPermissionRequestRequestTypeDef = TypedDict(
-    "AddPermissionRequestRequestTypeDef",
-    {
-        "QueueUrl": str,
-        "Label": str,
-        "AWSAccountIds": List[str],
-        "Actions": List[str],
-    },
-)
-
-_RequiredBatchResultErrorEntryTypeDef = TypedDict(
-    "_RequiredBatchResultErrorEntryTypeDef",
-    {
-        "Id": str,
-        "SenderFault": bool,
-        "Code": str,
-    },
-)
-_OptionalBatchResultErrorEntryTypeDef = TypedDict(
-    "_OptionalBatchResultErrorEntryTypeDef",
-    {
-        "Message": str,
-    },
-    total=False,
-)
-
-class BatchResultErrorEntryTypeDef(
-    _RequiredBatchResultErrorEntryTypeDef, _OptionalBatchResultErrorEntryTypeDef
-):
-    pass
-
-CancelMessageMoveTaskRequestRequestTypeDef = TypedDict(
-    "CancelMessageMoveTaskRequestRequestTypeDef",
-    {
-        "TaskHandle": str,
-    },
-)
-
-CancelMessageMoveTaskResultTypeDef = TypedDict(
-    "CancelMessageMoveTaskResultTypeDef",
-    {
-        "ApproximateNumberOfMessagesMoved": int,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredChangeMessageVisibilityBatchRequestEntryTypeDef = TypedDict(
-    "_RequiredChangeMessageVisibilityBatchRequestEntryTypeDef",
-    {
-        "Id": str,
-        "ReceiptHandle": str,
-    },
-)
-_OptionalChangeMessageVisibilityBatchRequestEntryTypeDef = TypedDict(
-    "_OptionalChangeMessageVisibilityBatchRequestEntryTypeDef",
-    {
-        "VisibilityTimeout": int,
-    },
-    total=False,
-)
-
-class ChangeMessageVisibilityBatchRequestEntryTypeDef(
-    _RequiredChangeMessageVisibilityBatchRequestEntryTypeDef,
-    _OptionalChangeMessageVisibilityBatchRequestEntryTypeDef,
-):
-    pass
-
-ChangeMessageVisibilityBatchRequestQueueTypeDef = TypedDict(
-    "ChangeMessageVisibilityBatchRequestQueueTypeDef",
-    {
-        "Entries": List["ChangeMessageVisibilityBatchRequestEntryTypeDef"],
-    },
-)
-
-ChangeMessageVisibilityBatchRequestRequestTypeDef = TypedDict(
-    "ChangeMessageVisibilityBatchRequestRequestTypeDef",
-    {
-        "QueueUrl": str,
-        "Entries": List["ChangeMessageVisibilityBatchRequestEntryTypeDef"],
-    },
-)
-
-ChangeMessageVisibilityBatchResultEntryTypeDef = TypedDict(
-    "ChangeMessageVisibilityBatchResultEntryTypeDef",
-    {
-        "Id": str,
-    },
-)
-
-ChangeMessageVisibilityBatchResultTypeDef = TypedDict(
-    "ChangeMessageVisibilityBatchResultTypeDef",
-    {
-        "Successful": List["ChangeMessageVisibilityBatchResultEntryTypeDef"],
-        "Failed": List["BatchResultErrorEntryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ChangeMessageVisibilityRequestMessageTypeDef = TypedDict(
-    "ChangeMessageVisibilityRequestMessageTypeDef",
-    {
-        "VisibilityTimeout": int,
-    },
-)
-
-ChangeMessageVisibilityRequestRequestTypeDef = TypedDict(
-    "ChangeMessageVisibilityRequestRequestTypeDef",
-    {
-        "QueueUrl": str,
-        "ReceiptHandle": str,
-        "VisibilityTimeout": int,
-    },
-)
-
-_RequiredCreateQueueRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateQueueRequestRequestTypeDef",
-    {
-        "QueueName": str,
-    },
-)
-_OptionalCreateQueueRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateQueueRequestRequestTypeDef",
-    {
-        "Attributes": Dict[QueueAttributeNameType, str],
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class CreateQueueRequestRequestTypeDef(
-    _RequiredCreateQueueRequestRequestTypeDef, _OptionalCreateQueueRequestRequestTypeDef
-):
-    pass
-
-_RequiredCreateQueueRequestServiceResourceTypeDef = TypedDict(
-    "_RequiredCreateQueueRequestServiceResourceTypeDef",
-    {
-        "QueueName": str,
-    },
-)
-_OptionalCreateQueueRequestServiceResourceTypeDef = TypedDict(
-    "_OptionalCreateQueueRequestServiceResourceTypeDef",
-    {
-        "Attributes": Dict[QueueAttributeNameType, str],
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class CreateQueueRequestServiceResourceTypeDef(
-    _RequiredCreateQueueRequestServiceResourceTypeDef,
-    _OptionalCreateQueueRequestServiceResourceTypeDef,
-):
-    pass
-
-CreateQueueResultTypeDef = TypedDict(
-    "CreateQueueResultTypeDef",
-    {
-        "QueueUrl": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteMessageBatchRequestEntryTypeDef = TypedDict(
-    "DeleteMessageBatchRequestEntryTypeDef",
-    {
-        "Id": str,
-        "ReceiptHandle": str,
-    },
-)
-
-DeleteMessageBatchRequestQueueTypeDef = TypedDict(
-    "DeleteMessageBatchRequestQueueTypeDef",
-    {
-        "Entries": List["DeleteMessageBatchRequestEntryTypeDef"],
-    },
-)
-
-DeleteMessageBatchRequestRequestTypeDef = TypedDict(
-    "DeleteMessageBatchRequestRequestTypeDef",
-    {
-        "QueueUrl": str,
-        "Entries": List["DeleteMessageBatchRequestEntryTypeDef"],
-    },
-)
-
-DeleteMessageBatchResultEntryTypeDef = TypedDict(
-    "DeleteMessageBatchResultEntryTypeDef",
-    {
-        "Id": str,
-    },
-)
-
-DeleteMessageBatchResultTypeDef = TypedDict(
-    "DeleteMessageBatchResultTypeDef",
-    {
-        "Successful": List["DeleteMessageBatchResultEntryTypeDef"],
-        "Failed": List["BatchResultErrorEntryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteMessageRequestRequestTypeDef = TypedDict(
-    "DeleteMessageRequestRequestTypeDef",
-    {
-        "QueueUrl": str,
-        "ReceiptHandle": str,
-    },
-)
-
-DeleteQueueRequestRequestTypeDef = TypedDict(
-    "DeleteQueueRequestRequestTypeDef",
-    {
-        "QueueUrl": str,
-    },
-)
-
-_RequiredGetQueueAttributesRequestRequestTypeDef = TypedDict(
-    "_RequiredGetQueueAttributesRequestRequestTypeDef",
-    {
-        "QueueUrl": str,
-    },
-)
-_OptionalGetQueueAttributesRequestRequestTypeDef = TypedDict(
-    "_OptionalGetQueueAttributesRequestRequestTypeDef",
-    {
-        "AttributeNames": List[QueueAttributeNameType],
-    },
-    total=False,
-)
-
-class GetQueueAttributesRequestRequestTypeDef(
-    _RequiredGetQueueAttributesRequestRequestTypeDef,
-    _OptionalGetQueueAttributesRequestRequestTypeDef,
-):
-    pass
-
-GetQueueAttributesResultTypeDef = TypedDict(
-    "GetQueueAttributesResultTypeDef",
-    {
-        "Attributes": Dict[QueueAttributeNameType, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetQueueUrlRequestRequestTypeDef = TypedDict(
-    "_RequiredGetQueueUrlRequestRequestTypeDef",
-    {
-        "QueueName": str,
-    },
-)
-_OptionalGetQueueUrlRequestRequestTypeDef = TypedDict(
-    "_OptionalGetQueueUrlRequestRequestTypeDef",
-    {
-        "QueueOwnerAWSAccountId": str,
-    },
-    total=False,
-)
-
-class GetQueueUrlRequestRequestTypeDef(
-    _RequiredGetQueueUrlRequestRequestTypeDef, _OptionalGetQueueUrlRequestRequestTypeDef
-):
-    pass
-
-_RequiredGetQueueUrlRequestServiceResourceTypeDef = TypedDict(
-    "_RequiredGetQueueUrlRequestServiceResourceTypeDef",
-    {
-        "QueueName": str,
-    },
-)
-_OptionalGetQueueUrlRequestServiceResourceTypeDef = TypedDict(
-    "_OptionalGetQueueUrlRequestServiceResourceTypeDef",
-    {
-        "QueueOwnerAWSAccountId": str,
-    },
-    total=False,
-)
-
-class GetQueueUrlRequestServiceResourceTypeDef(
-    _RequiredGetQueueUrlRequestServiceResourceTypeDef,
-    _OptionalGetQueueUrlRequestServiceResourceTypeDef,
-):
-    pass
-
-GetQueueUrlResultTypeDef = TypedDict(
-    "GetQueueUrlResultTypeDef",
-    {
-        "QueueUrl": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListDeadLetterSourceQueuesRequestRequestTypeDef = TypedDict(
-    "_RequiredListDeadLetterSourceQueuesRequestRequestTypeDef",
-    {
-        "QueueUrl": str,
-    },
-)
-_OptionalListDeadLetterSourceQueuesRequestRequestTypeDef = TypedDict(
-    "_OptionalListDeadLetterSourceQueuesRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-class ListDeadLetterSourceQueuesRequestRequestTypeDef(
-    _RequiredListDeadLetterSourceQueuesRequestRequestTypeDef,
-    _OptionalListDeadLetterSourceQueuesRequestRequestTypeDef,
-):
-    pass
-
-ListDeadLetterSourceQueuesResultTypeDef = TypedDict(
-    "ListDeadLetterSourceQueuesResultTypeDef",
-    {
-        "queueUrls": List[str],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListMessageMoveTasksRequestRequestTypeDef = TypedDict(
-    "_RequiredListMessageMoveTasksRequestRequestTypeDef",
-    {
-        "SourceArn": str,
-    },
-)
-_OptionalListMessageMoveTasksRequestRequestTypeDef = TypedDict(
-    "_OptionalListMessageMoveTasksRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-class ListMessageMoveTasksRequestRequestTypeDef(
-    _RequiredListMessageMoveTasksRequestRequestTypeDef,
-    _OptionalListMessageMoveTasksRequestRequestTypeDef,
-):
-    pass
-
-ListMessageMoveTasksResultEntryTypeDef = TypedDict(
-    "ListMessageMoveTasksResultEntryTypeDef",
-    {
-        "TaskHandle": str,
-        "Status": str,
-        "SourceArn": str,
-        "DestinationArn": str,
-        "MaxNumberOfMessagesPerSecond": int,
-        "ApproximateNumberOfMessagesMoved": int,
-        "ApproximateNumberOfMessagesToMove": int,
-        "FailureReason": str,
-        "StartedTimestamp": int,
-    },
-    total=False,
-)
-
-ListMessageMoveTasksResultTypeDef = TypedDict(
-    "ListMessageMoveTasksResultTypeDef",
-    {
-        "Results": List["ListMessageMoveTasksResultEntryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListQueueTagsRequestRequestTypeDef = TypedDict(
-    "ListQueueTagsRequestRequestTypeDef",
-    {
-        "QueueUrl": str,
-    },
-)
-
-ListQueueTagsResultTypeDef = TypedDict(
-    "ListQueueTagsResultTypeDef",
-    {
-        "Tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListQueuesRequestRequestTypeDef = TypedDict(
-    "ListQueuesRequestRequestTypeDef",
-    {
-        "QueueNamePrefix": str,
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-ListQueuesResultTypeDef = TypedDict(
-    "ListQueuesResultTypeDef",
-    {
-        "QueueUrls": List[str],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredMessageAttributeValueTypeDef = TypedDict(
-    "_RequiredMessageAttributeValueTypeDef",
-    {
-        "DataType": str,
-    },
-)
-_OptionalMessageAttributeValueTypeDef = TypedDict(
-    "_OptionalMessageAttributeValueTypeDef",
-    {
-        "StringValue": str,
-        "BinaryValue": bytes,
-        "StringListValues": List[str],
-        "BinaryListValues": List[bytes],
-    },
-    total=False,
-)
-
-class MessageAttributeValueTypeDef(
-    _RequiredMessageAttributeValueTypeDef, _OptionalMessageAttributeValueTypeDef
-):
-    pass
-
-_RequiredMessageSystemAttributeValueTypeDef = TypedDict(
-    "_RequiredMessageSystemAttributeValueTypeDef",
-    {
-        "DataType": str,
-    },
-)
-_OptionalMessageSystemAttributeValueTypeDef = TypedDict(
-    "_OptionalMessageSystemAttributeValueTypeDef",
-    {
-        "StringValue": str,
-        "BinaryValue": Union[bytes, IO[bytes], StreamingBody],
-        "StringListValues": List[str],
-        "BinaryListValues": List[Union[bytes, IO[bytes], StreamingBody]],
-    },
-    total=False,
-)
-
-class MessageSystemAttributeValueTypeDef(
-    _RequiredMessageSystemAttributeValueTypeDef, _OptionalMessageSystemAttributeValueTypeDef
-):
-    pass
-
-MessageTypeDef = TypedDict(
-    "MessageTypeDef",
-    {
-        "MessageId": str,
-        "ReceiptHandle": str,
-        "MD5OfBody": str,
-        "Body": str,
-        "Attributes": Dict[MessageSystemAttributeNameType, str],
-        "MD5OfMessageAttributes": str,
-        "MessageAttributes": Dict[str, "MessageAttributeValueTypeDef"],
-    },
-    total=False,
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-PurgeQueueRequestRequestTypeDef = TypedDict(
-    "PurgeQueueRequestRequestTypeDef",
-    {
-        "QueueUrl": str,
-    },
-)
-
-QueueMessageRequestTypeDef = TypedDict(
-    "QueueMessageRequestTypeDef",
-    {
-        "receipt_handle": str,
-    },
-)
-
-ReceiveMessageRequestQueueTypeDef = TypedDict(
-    "ReceiveMessageRequestQueueTypeDef",
-    {
-        "AttributeNames": List[QueueAttributeNameType],
-        "MessageSystemAttributeNames": List[MessageSystemAttributeNameType],
-        "MessageAttributeNames": List[str],
-        "MaxNumberOfMessages": int,
-        "VisibilityTimeout": int,
-        "WaitTimeSeconds": int,
-        "ReceiveRequestAttemptId": str,
-    },
-    total=False,
-)
-
-_RequiredReceiveMessageRequestRequestTypeDef = TypedDict(
-    "_RequiredReceiveMessageRequestRequestTypeDef",
-    {
-        "QueueUrl": str,
-    },
-)
-_OptionalReceiveMessageRequestRequestTypeDef = TypedDict(
-    "_OptionalReceiveMessageRequestRequestTypeDef",
-    {
-        "AttributeNames": List[QueueAttributeNameType],
-        "MessageSystemAttributeNames": List[MessageSystemAttributeNameType],
-        "MessageAttributeNames": List[str],
-        "MaxNumberOfMessages": int,
-        "VisibilityTimeout": int,
-        "WaitTimeSeconds": int,
-        "ReceiveRequestAttemptId": str,
-    },
-    total=False,
-)
-
-class ReceiveMessageRequestRequestTypeDef(
-    _RequiredReceiveMessageRequestRequestTypeDef, _OptionalReceiveMessageRequestRequestTypeDef
-):
-    pass
-
-ReceiveMessageResultTypeDef = TypedDict(
-    "ReceiveMessageResultTypeDef",
-    {
-        "Messages": List["MessageTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-RemovePermissionRequestQueueTypeDef = TypedDict(
-    "RemovePermissionRequestQueueTypeDef",
-    {
-        "Label": str,
-    },
-)
-
-RemovePermissionRequestRequestTypeDef = TypedDict(
-    "RemovePermissionRequestRequestTypeDef",
-    {
-        "QueueUrl": str,
-        "Label": str,
-    },
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-_RequiredSendMessageBatchRequestEntryTypeDef = TypedDict(
-    "_RequiredSendMessageBatchRequestEntryTypeDef",
-    {
-        "Id": str,
-        "MessageBody": str,
-    },
-)
-_OptionalSendMessageBatchRequestEntryTypeDef = TypedDict(
-    "_OptionalSendMessageBatchRequestEntryTypeDef",
-    {
-        "DelaySeconds": int,
-        "MessageAttributes": Dict[str, "MessageAttributeValueTypeDef"],
-        "MessageSystemAttributes": Dict[
-            Literal["AWSTraceHeader"], "MessageSystemAttributeValueTypeDef"
-        ],
-        "MessageDeduplicationId": str,
-        "MessageGroupId": str,
-    },
-    total=False,
-)
-
-class SendMessageBatchRequestEntryTypeDef(
-    _RequiredSendMessageBatchRequestEntryTypeDef, _OptionalSendMessageBatchRequestEntryTypeDef
-):
-    pass
-
-SendMessageBatchRequestQueueTypeDef = TypedDict(
-    "SendMessageBatchRequestQueueTypeDef",
-    {
-        "Entries": List["SendMessageBatchRequestEntryTypeDef"],
-    },
-)
-
-SendMessageBatchRequestRequestTypeDef = TypedDict(
-    "SendMessageBatchRequestRequestTypeDef",
-    {
-        "QueueUrl": str,
-        "Entries": List["SendMessageBatchRequestEntryTypeDef"],
-    },
-)
-
-_RequiredSendMessageBatchResultEntryTypeDef = TypedDict(
-    "_RequiredSendMessageBatchResultEntryTypeDef",
-    {
-        "Id": str,
-        "MessageId": str,
-        "MD5OfMessageBody": str,
-    },
-)
-_OptionalSendMessageBatchResultEntryTypeDef = TypedDict(
-    "_OptionalSendMessageBatchResultEntryTypeDef",
-    {
-        "MD5OfMessageAttributes": str,
-        "MD5OfMessageSystemAttributes": str,
-        "SequenceNumber": str,
-    },
-    total=False,
-)
-
-class SendMessageBatchResultEntryTypeDef(
-    _RequiredSendMessageBatchResultEntryTypeDef, _OptionalSendMessageBatchResultEntryTypeDef
-):
-    pass
-
-SendMessageBatchResultTypeDef = TypedDict(
-    "SendMessageBatchResultTypeDef",
-    {
-        "Successful": List["SendMessageBatchResultEntryTypeDef"],
-        "Failed": List["BatchResultErrorEntryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredSendMessageRequestQueueTypeDef = TypedDict(
-    "_RequiredSendMessageRequestQueueTypeDef",
-    {
-        "MessageBody": str,
-    },
-)
-_OptionalSendMessageRequestQueueTypeDef = TypedDict(
-    "_OptionalSendMessageRequestQueueTypeDef",
-    {
-        "DelaySeconds": int,
-        "MessageAttributes": Dict[str, "MessageAttributeValueTypeDef"],
-        "MessageSystemAttributes": Dict[
-            Literal["AWSTraceHeader"], "MessageSystemAttributeValueTypeDef"
-        ],
-        "MessageDeduplicationId": str,
-        "MessageGroupId": str,
-    },
-    total=False,
-)
-
-class SendMessageRequestQueueTypeDef(
-    _RequiredSendMessageRequestQueueTypeDef, _OptionalSendMessageRequestQueueTypeDef
-):
-    pass
-
-_RequiredSendMessageRequestRequestTypeDef = TypedDict(
-    "_RequiredSendMessageRequestRequestTypeDef",
-    {
-        "QueueUrl": str,
-        "MessageBody": str,
-    },
-)
-_OptionalSendMessageRequestRequestTypeDef = TypedDict(
-    "_OptionalSendMessageRequestRequestTypeDef",
-    {
-        "DelaySeconds": int,
-        "MessageAttributes": Dict[str, "MessageAttributeValueTypeDef"],
-        "MessageSystemAttributes": Dict[
-            Literal["AWSTraceHeader"], "MessageSystemAttributeValueTypeDef"
-        ],
-        "MessageDeduplicationId": str,
-        "MessageGroupId": str,
-    },
-    total=False,
-)
-
-class SendMessageRequestRequestTypeDef(
-    _RequiredSendMessageRequestRequestTypeDef, _OptionalSendMessageRequestRequestTypeDef
-):
-    pass
-
-SendMessageResultTypeDef = TypedDict(
-    "SendMessageResultTypeDef",
-    {
-        "MD5OfMessageBody": str,
-        "MD5OfMessageAttributes": str,
-        "MD5OfMessageSystemAttributes": str,
-        "MessageId": str,
-        "SequenceNumber": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ServiceResourceMessageRequestTypeDef = TypedDict(
-    "ServiceResourceMessageRequestTypeDef",
-    {
-        "queue_url": str,
-        "receipt_handle": str,
-    },
-)
-
-ServiceResourceQueueRequestTypeDef = TypedDict(
-    "ServiceResourceQueueRequestTypeDef",
-    {
-        "url": str,
-    },
-)
-
-SetQueueAttributesRequestQueueTypeDef = TypedDict(
-    "SetQueueAttributesRequestQueueTypeDef",
-    {
-        "Attributes": Dict[QueueAttributeNameType, str],
-    },
-)
-
-SetQueueAttributesRequestRequestTypeDef = TypedDict(
-    "SetQueueAttributesRequestRequestTypeDef",
-    {
-        "QueueUrl": str,
-        "Attributes": Dict[QueueAttributeNameType, str],
-    },
-)
-
-_RequiredStartMessageMoveTaskRequestRequestTypeDef = TypedDict(
-    "_RequiredStartMessageMoveTaskRequestRequestTypeDef",
-    {
-        "SourceArn": str,
-    },
-)
-_OptionalStartMessageMoveTaskRequestRequestTypeDef = TypedDict(
-    "_OptionalStartMessageMoveTaskRequestRequestTypeDef",
-    {
-        "DestinationArn": str,
-        "MaxNumberOfMessagesPerSecond": int,
-    },
-    total=False,
-)
-
-class StartMessageMoveTaskRequestRequestTypeDef(
-    _RequiredStartMessageMoveTaskRequestRequestTypeDef,
-    _OptionalStartMessageMoveTaskRequestRequestTypeDef,
-):
-    pass
-
-StartMessageMoveTaskResultTypeDef = TypedDict(
-    "StartMessageMoveTaskResultTypeDef",
-    {
-        "TaskHandle": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-TagQueueRequestRequestTypeDef = TypedDict(
-    "TagQueueRequestRequestTypeDef",
-    {
-        "QueueUrl": str,
-        "Tags": Dict[str, str],
-    },
-)
-
-UntagQueueRequestRequestTypeDef = TypedDict(
-    "UntagQueueRequestRequestTypeDef",
-    {
-        "QueueUrl": str,
-        "TagKeys": List[str],
-    },
-)
+    "TagQueueRequestTypeDef",
+    "UntagQueueRequestTypeDef",
+)
+
+class AddPermissionRequestQueueAddPermissionTypeDef(TypedDict):
+    Label: str
+    AWSAccountIds: Sequence[str]
+    Actions: Sequence[str]
+
+class AddPermissionRequestTypeDef(TypedDict):
+    QueueUrl: str
+    Label: str
+    AWSAccountIds: Sequence[str]
+    Actions: Sequence[str]
+
+class BatchResultErrorEntryTypeDef(TypedDict):
+    Id: str
+    SenderFault: bool
+    Code: str
+    Message: NotRequired[str]
+
+BlobTypeDef = Union[str, bytes, IO[Any], StreamingBody]
+
+class CancelMessageMoveTaskRequestTypeDef(TypedDict):
+    TaskHandle: str
+
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
+
+class ChangeMessageVisibilityBatchRequestEntryTypeDef(TypedDict):
+    Id: str
+    ReceiptHandle: str
+    VisibilityTimeout: NotRequired[int]
+
+class ChangeMessageVisibilityBatchResultEntryTypeDef(TypedDict):
+    Id: str
+
+class ChangeMessageVisibilityRequestMessageChangeVisibilityTypeDef(TypedDict):
+    VisibilityTimeout: int
+
+class ChangeMessageVisibilityRequestTypeDef(TypedDict):
+    QueueUrl: str
+    ReceiptHandle: str
+    VisibilityTimeout: int
+
+class CreateQueueRequestServiceResourceCreateQueueTypeDef(TypedDict):
+    QueueName: str
+    Attributes: NotRequired[Mapping[QueueAttributeNameType, str]]
+    tags: NotRequired[Mapping[str, str]]
+
+class CreateQueueRequestTypeDef(TypedDict):
+    QueueName: str
+    Attributes: NotRequired[Mapping[QueueAttributeNameType, str]]
+    tags: NotRequired[Mapping[str, str]]
+
+class DeleteMessageBatchRequestEntryTypeDef(TypedDict):
+    Id: str
+    ReceiptHandle: str
+
+class DeleteMessageBatchResultEntryTypeDef(TypedDict):
+    Id: str
+
+class DeleteMessageRequestTypeDef(TypedDict):
+    QueueUrl: str
+    ReceiptHandle: str
+
+class DeleteQueueRequestTypeDef(TypedDict):
+    QueueUrl: str
+
+class GetQueueAttributesRequestTypeDef(TypedDict):
+    QueueUrl: str
+    AttributeNames: NotRequired[Sequence[QueueAttributeFilterType]]
+
+class GetQueueUrlRequestServiceResourceGetQueueByNameTypeDef(TypedDict):
+    QueueName: str
+    QueueOwnerAWSAccountId: NotRequired[str]
+
+class GetQueueUrlRequestTypeDef(TypedDict):
+    QueueName: str
+    QueueOwnerAWSAccountId: NotRequired[str]
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class ListDeadLetterSourceQueuesRequestTypeDef(TypedDict):
+    QueueUrl: str
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class ListMessageMoveTasksRequestTypeDef(TypedDict):
+    SourceArn: str
+    MaxResults: NotRequired[int]
+
+class ListMessageMoveTasksResultEntryTypeDef(TypedDict):
+    TaskHandle: NotRequired[str]
+    Status: NotRequired[str]
+    SourceArn: NotRequired[str]
+    DestinationArn: NotRequired[str]
+    MaxNumberOfMessagesPerSecond: NotRequired[int]
+    ApproximateNumberOfMessagesMoved: NotRequired[int]
+    ApproximateNumberOfMessagesToMove: NotRequired[int]
+    FailureReason: NotRequired[str]
+    StartedTimestamp: NotRequired[int]
+
+class ListQueueTagsRequestTypeDef(TypedDict):
+    QueueUrl: str
+
+class ListQueuesRequestTypeDef(TypedDict):
+    QueueNamePrefix: NotRequired[str]
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class MessageAttributeValueOutputTypeDef(TypedDict):
+    DataType: str
+    StringValue: NotRequired[str]
+    BinaryValue: NotRequired[bytes]
+    StringListValues: NotRequired[List[str]]
+    BinaryListValues: NotRequired[List[bytes]]
+
+class PurgeQueueRequestTypeDef(TypedDict):
+    QueueUrl: str
+
+class ReceiveMessageRequestQueueReceiveMessagesTypeDef(TypedDict):
+    AttributeNames: NotRequired[Sequence[QueueAttributeFilterType]]
+    MessageSystemAttributeNames: NotRequired[Sequence[MessageSystemAttributeNameType]]
+    MessageAttributeNames: NotRequired[Sequence[str]]
+    MaxNumberOfMessages: NotRequired[int]
+    VisibilityTimeout: NotRequired[int]
+    WaitTimeSeconds: NotRequired[int]
+    ReceiveRequestAttemptId: NotRequired[str]
+
+class ReceiveMessageRequestTypeDef(TypedDict):
+    QueueUrl: str
+    AttributeNames: NotRequired[Sequence[QueueAttributeFilterType]]
+    MessageSystemAttributeNames: NotRequired[Sequence[MessageSystemAttributeNameType]]
+    MessageAttributeNames: NotRequired[Sequence[str]]
+    MaxNumberOfMessages: NotRequired[int]
+    VisibilityTimeout: NotRequired[int]
+    WaitTimeSeconds: NotRequired[int]
+    ReceiveRequestAttemptId: NotRequired[str]
+
+class RemovePermissionRequestQueueRemovePermissionTypeDef(TypedDict):
+    Label: str
+
+class RemovePermissionRequestTypeDef(TypedDict):
+    QueueUrl: str
+    Label: str
+
+class SendMessageBatchResultEntryTypeDef(TypedDict):
+    Id: str
+    MessageId: str
+    MD5OfMessageBody: str
+    MD5OfMessageAttributes: NotRequired[str]
+    MD5OfMessageSystemAttributes: NotRequired[str]
+    SequenceNumber: NotRequired[str]
+
+class SetQueueAttributesRequestQueueSetAttributesTypeDef(TypedDict):
+    Attributes: Mapping[QueueAttributeNameType, str]
+
+class SetQueueAttributesRequestTypeDef(TypedDict):
+    QueueUrl: str
+    Attributes: Mapping[QueueAttributeNameType, str]
+
+class StartMessageMoveTaskRequestTypeDef(TypedDict):
+    SourceArn: str
+    DestinationArn: NotRequired[str]
+    MaxNumberOfMessagesPerSecond: NotRequired[int]
+
+class TagQueueRequestTypeDef(TypedDict):
+    QueueUrl: str
+    Tags: Mapping[str, str]
+
+class UntagQueueRequestTypeDef(TypedDict):
+    QueueUrl: str
+    TagKeys: Sequence[str]
+
+class MessageAttributeValueTypeDef(TypedDict):
+    DataType: str
+    StringValue: NotRequired[str]
+    BinaryValue: NotRequired[BlobTypeDef]
+    StringListValues: NotRequired[Sequence[str]]
+    BinaryListValues: NotRequired[Sequence[BlobTypeDef]]
+
+class MessageSystemAttributeValueTypeDef(TypedDict):
+    DataType: str
+    StringValue: NotRequired[str]
+    BinaryValue: NotRequired[BlobTypeDef]
+    StringListValues: NotRequired[Sequence[str]]
+    BinaryListValues: NotRequired[Sequence[BlobTypeDef]]
+
+class CancelMessageMoveTaskResultTypeDef(TypedDict):
+    ApproximateNumberOfMessagesMoved: int
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateQueueResultTypeDef(TypedDict):
+    QueueUrl: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class EmptyResponseMetadataTypeDef(TypedDict):
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetQueueAttributesResultTypeDef(TypedDict):
+    Attributes: Dict[QueueAttributeNameType, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetQueueUrlResultTypeDef(TypedDict):
+    QueueUrl: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListDeadLetterSourceQueuesResultTypeDef(TypedDict):
+    queueUrls: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListQueueTagsResultTypeDef(TypedDict):
+    Tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListQueuesResultTypeDef(TypedDict):
+    QueueUrls: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class SendMessageResultTypeDef(TypedDict):
+    MD5OfMessageBody: str
+    MD5OfMessageAttributes: str
+    MD5OfMessageSystemAttributes: str
+    MessageId: str
+    SequenceNumber: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartMessageMoveTaskResultTypeDef(TypedDict):
+    TaskHandle: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ChangeMessageVisibilityBatchRequestQueueChangeMessageVisibilityBatchTypeDef(TypedDict):
+    Entries: Sequence[ChangeMessageVisibilityBatchRequestEntryTypeDef]
+
+class ChangeMessageVisibilityBatchRequestTypeDef(TypedDict):
+    QueueUrl: str
+    Entries: Sequence[ChangeMessageVisibilityBatchRequestEntryTypeDef]
+
+class ChangeMessageVisibilityBatchResultTypeDef(TypedDict):
+    Successful: List[ChangeMessageVisibilityBatchResultEntryTypeDef]
+    Failed: List[BatchResultErrorEntryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteMessageBatchRequestQueueDeleteMessagesTypeDef(TypedDict):
+    Entries: Sequence[DeleteMessageBatchRequestEntryTypeDef]
+
+class DeleteMessageBatchRequestTypeDef(TypedDict):
+    QueueUrl: str
+    Entries: Sequence[DeleteMessageBatchRequestEntryTypeDef]
+
+class DeleteMessageBatchResultTypeDef(TypedDict):
+    Successful: List[DeleteMessageBatchResultEntryTypeDef]
+    Failed: List[BatchResultErrorEntryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListDeadLetterSourceQueuesRequestPaginateTypeDef(TypedDict):
+    QueueUrl: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListQueuesRequestPaginateTypeDef(TypedDict):
+    QueueNamePrefix: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListMessageMoveTasksResultTypeDef(TypedDict):
+    Results: List[ListMessageMoveTasksResultEntryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class MessageTypeDef(TypedDict):
+    MessageId: NotRequired[str]
+    ReceiptHandle: NotRequired[str]
+    MD5OfBody: NotRequired[str]
+    Body: NotRequired[str]
+    Attributes: NotRequired[Dict[MessageSystemAttributeNameType, str]]
+    MD5OfMessageAttributes: NotRequired[str]
+    MessageAttributes: NotRequired[Dict[str, MessageAttributeValueOutputTypeDef]]
+
+class SendMessageBatchResultTypeDef(TypedDict):
+    Successful: List[SendMessageBatchResultEntryTypeDef]
+    Failed: List[BatchResultErrorEntryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+MessageAttributeValueUnionTypeDef = Union[
+    MessageAttributeValueTypeDef, MessageAttributeValueOutputTypeDef
+]
+
+class ReceiveMessageResultTypeDef(TypedDict):
+    Messages: List[MessageTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class SendMessageBatchRequestEntryTypeDef(TypedDict):
+    Id: str
+    MessageBody: str
+    DelaySeconds: NotRequired[int]
+    MessageAttributes: NotRequired[Mapping[str, MessageAttributeValueUnionTypeDef]]
+    MessageSystemAttributes: NotRequired[
+        Mapping[Literal["AWSTraceHeader"], MessageSystemAttributeValueTypeDef]
+    ]
+    MessageDeduplicationId: NotRequired[str]
+    MessageGroupId: NotRequired[str]
+
+class SendMessageRequestQueueSendMessageTypeDef(TypedDict):
+    MessageBody: str
+    DelaySeconds: NotRequired[int]
+    MessageAttributes: NotRequired[Mapping[str, MessageAttributeValueUnionTypeDef]]
+    MessageSystemAttributes: NotRequired[
+        Mapping[Literal["AWSTraceHeader"], MessageSystemAttributeValueTypeDef]
+    ]
+    MessageDeduplicationId: NotRequired[str]
+    MessageGroupId: NotRequired[str]
+
+class SendMessageRequestTypeDef(TypedDict):
+    QueueUrl: str
+    MessageBody: str
+    DelaySeconds: NotRequired[int]
+    MessageAttributes: NotRequired[Mapping[str, MessageAttributeValueUnionTypeDef]]
+    MessageSystemAttributes: NotRequired[
+        Mapping[Literal["AWSTraceHeader"], MessageSystemAttributeValueTypeDef]
+    ]
+    MessageDeduplicationId: NotRequired[str]
+    MessageGroupId: NotRequired[str]
+
+class SendMessageBatchRequestQueueSendMessagesTypeDef(TypedDict):
+    Entries: Sequence[SendMessageBatchRequestEntryTypeDef]
+
+class SendMessageBatchRequestTypeDef(TypedDict):
+    QueueUrl: str
+    Entries: Sequence[SendMessageBatchRequestEntryTypeDef]

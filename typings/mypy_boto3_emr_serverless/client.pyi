@@ -1,68 +1,75 @@
 """
-Type annotations for emr-serverless service client.
+Type annotations for emr-serverless service Client.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_serverless/client.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_emr_serverless/client/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
-    from mypy_boto3_emr_serverless import EMRServerlessClient
+    from boto3.session import Session
+    from mypy_boto3_emr_serverless.client import EMRServerlessClient
 
-    client: EMRServerlessClient = boto3.client("emr-serverless")
+    session = Session()
+    client: EMRServerlessClient = session.client("emr-serverless")
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from datetime import datetime
-from typing import Any, Dict, List, Type, Union, overload
+from typing import Any, overload
 
 from botocore.client import BaseClient, ClientMeta
+from botocore.errorfactory import BaseClientExceptions
+from botocore.exceptions import ClientError as BotocoreClientError
 
-from .literals import ApplicationStateType, ArchitectureType, JobRunModeType, JobRunStateType
 from .paginator import ListApplicationsPaginator, ListJobRunAttemptsPaginator, ListJobRunsPaginator
 from .type_defs import (
-    AutoStartConfigTypeDef,
-    AutoStopConfigTypeDef,
+    CancelJobRunRequestTypeDef,
     CancelJobRunResponseTypeDef,
-    ConfigurationOverridesTypeDef,
-    ConfigurationTypeDef,
+    CreateApplicationRequestTypeDef,
     CreateApplicationResponseTypeDef,
+    DeleteApplicationRequestTypeDef,
+    GetApplicationRequestTypeDef,
     GetApplicationResponseTypeDef,
+    GetDashboardForJobRunRequestTypeDef,
     GetDashboardForJobRunResponseTypeDef,
+    GetJobRunRequestTypeDef,
     GetJobRunResponseTypeDef,
-    ImageConfigurationInputTypeDef,
-    InitialCapacityConfigTypeDef,
-    InteractiveConfigurationTypeDef,
-    JobDriverTypeDef,
+    ListApplicationsRequestTypeDef,
     ListApplicationsResponseTypeDef,
+    ListJobRunAttemptsRequestTypeDef,
     ListJobRunAttemptsResponseTypeDef,
+    ListJobRunsRequestTypeDef,
     ListJobRunsResponseTypeDef,
+    ListTagsForResourceRequestTypeDef,
     ListTagsForResourceResponseTypeDef,
-    MaximumAllowedResourcesTypeDef,
-    MonitoringConfigurationTypeDef,
-    NetworkConfigurationTypeDef,
-    RetryPolicyTypeDef,
+    StartApplicationRequestTypeDef,
+    StartJobRunRequestTypeDef,
     StartJobRunResponseTypeDef,
+    StopApplicationRequestTypeDef,
+    TagResourceRequestTypeDef,
+    UntagResourceRequestTypeDef,
+    UpdateApplicationRequestTypeDef,
     UpdateApplicationResponseTypeDef,
-    WorkerTypeSpecificationInputTypeDef,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import type as Type
+    from collections.abc import Mapping
 else:
-    from typing_extensions import Literal
+    from typing import Dict, Mapping, Type
+if sys.version_info >= (3, 12):
+    from typing import Literal, Unpack
+else:
+    from typing_extensions import Literal, Unpack
 
 __all__ = ("EMRServerlessClient",)
 
-class BotocoreClientError(BaseException):
-    MSG_TEMPLATE: str
-
-    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
-        self.response: Dict[str, Any]
-        self.operation_name: str
-
-class Exceptions:
+class Exceptions(BaseClientExceptions):
     ClientError: Type[BotocoreClientError]
     ConflictException: Type[BotocoreClientError]
     InternalServerException: Type[BotocoreClientError]
@@ -72,8 +79,8 @@ class Exceptions:
 
 class EMRServerlessClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr-serverless.html#EMRServerless.Client)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_serverless/client.html)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/emr-serverless.html#EMRServerless.Client)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_emr_serverless/client/)
     """
 
     meta: ClientMeta
@@ -82,259 +89,209 @@ class EMRServerlessClient(BaseClient):
     def exceptions(self) -> Exceptions:
         """
         EMRServerlessClient exceptions.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/emr-serverless.html#EMRServerless.Client)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_emr_serverless/client/#exceptions)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        Check if an operation can be paginated.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr-serverless.html#EMRServerless.Client.can_paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_serverless/client.html#can_paginate)
-        """
-
-    def cancel_job_run(self, *, applicationId: str, jobRunId: str) -> CancelJobRunResponseTypeDef:
-        """
-        Cancels a job run.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr-serverless.html#EMRServerless.Client.cancel_job_run)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_serverless/client.html#cancel_job_run)
-        """
-
-    def close(self) -> None:
-        """
-        Closes underlying endpoint connections.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr-serverless.html#EMRServerless.Client.close)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_serverless/client.html#close)
-        """
-
-    def create_application(
-        self,
-        *,
-        releaseLabel: str,
-        type: str,
-        clientToken: str,
-        name: str = None,
-        initialCapacity: Dict[str, "InitialCapacityConfigTypeDef"] = None,
-        maximumCapacity: "MaximumAllowedResourcesTypeDef" = None,
-        tags: Dict[str, str] = None,
-        autoStartConfiguration: "AutoStartConfigTypeDef" = None,
-        autoStopConfiguration: "AutoStopConfigTypeDef" = None,
-        networkConfiguration: "NetworkConfigurationTypeDef" = None,
-        architecture: ArchitectureType = None,
-        imageConfiguration: "ImageConfigurationInputTypeDef" = None,
-        workerTypeSpecifications: Dict[str, "WorkerTypeSpecificationInputTypeDef"] = None,
-        runtimeConfiguration: List["ConfigurationTypeDef"] = None,
-        monitoringConfiguration: "MonitoringConfigurationTypeDef" = None,
-        interactiveConfiguration: "InteractiveConfigurationTypeDef" = None
-    ) -> CreateApplicationResponseTypeDef:
-        """
-        Creates an application.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr-serverless.html#EMRServerless.Client.create_application)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_serverless/client.html#create_application)
-        """
-
-    def delete_application(self, *, applicationId: str) -> Dict[str, Any]:
-        """
-        Deletes an application.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr-serverless.html#EMRServerless.Client.delete_application)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_serverless/client.html#delete_application)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/emr-serverless/client/can_paginate.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_emr_serverless/client/#can_paginate)
         """
 
     def generate_presigned_url(
         self,
         ClientMethod: str,
-        Params: Dict[str, Any] = None,
+        Params: Mapping[str, Any] = ...,
         ExpiresIn: int = 3600,
-        HttpMethod: str = None,
+        HttpMethod: str = ...,
     ) -> str:
         """
-        Generate a presigned url given a client, its method, and arguments.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr-serverless.html#EMRServerless.Client.generate_presigned_url)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_serverless/client.html#generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/emr-serverless/client/generate_presigned_url.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_emr_serverless/client/#generate_presigned_url)
         """
 
-    def get_application(self, *, applicationId: str) -> GetApplicationResponseTypeDef:
+    def cancel_job_run(
+        self, **kwargs: Unpack[CancelJobRunRequestTypeDef]
+    ) -> CancelJobRunResponseTypeDef:
+        """
+        Cancels a job run.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/emr-serverless/client/cancel_job_run.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_emr_serverless/client/#cancel_job_run)
+        """
+
+    def create_application(
+        self, **kwargs: Unpack[CreateApplicationRequestTypeDef]
+    ) -> CreateApplicationResponseTypeDef:
+        """
+        Creates an application.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/emr-serverless/client/create_application.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_emr_serverless/client/#create_application)
+        """
+
+    def delete_application(
+        self, **kwargs: Unpack[DeleteApplicationRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Deletes an application.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/emr-serverless/client/delete_application.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_emr_serverless/client/#delete_application)
+        """
+
+    def get_application(
+        self, **kwargs: Unpack[GetApplicationRequestTypeDef]
+    ) -> GetApplicationResponseTypeDef:
         """
         Displays detailed information about a specified application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr-serverless.html#EMRServerless.Client.get_application)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_serverless/client.html#get_application)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/emr-serverless/client/get_application.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_emr_serverless/client/#get_application)
         """
 
     def get_dashboard_for_job_run(
-        self, *, applicationId: str, jobRunId: str, attempt: int = None
+        self, **kwargs: Unpack[GetDashboardForJobRunRequestTypeDef]
     ) -> GetDashboardForJobRunResponseTypeDef:
         """
         Creates and returns a URL that you can use to access the application UIs for a
         job run.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr-serverless.html#EMRServerless.Client.get_dashboard_for_job_run)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_serverless/client.html#get_dashboard_for_job_run)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/emr-serverless/client/get_dashboard_for_job_run.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_emr_serverless/client/#get_dashboard_for_job_run)
         """
 
-    def get_job_run(
-        self, *, applicationId: str, jobRunId: str, attempt: int = None
-    ) -> GetJobRunResponseTypeDef:
+    def get_job_run(self, **kwargs: Unpack[GetJobRunRequestTypeDef]) -> GetJobRunResponseTypeDef:
         """
         Displays detailed information about a job run.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr-serverless.html#EMRServerless.Client.get_job_run)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_serverless/client.html#get_job_run)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/emr-serverless/client/get_job_run.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_emr_serverless/client/#get_job_run)
         """
 
     def list_applications(
-        self,
-        *,
-        nextToken: str = None,
-        maxResults: int = None,
-        states: List[ApplicationStateType] = None
+        self, **kwargs: Unpack[ListApplicationsRequestTypeDef]
     ) -> ListApplicationsResponseTypeDef:
         """
         Lists applications based on a set of parameters.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr-serverless.html#EMRServerless.Client.list_applications)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_serverless/client.html#list_applications)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/emr-serverless/client/list_applications.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_emr_serverless/client/#list_applications)
         """
 
     def list_job_run_attempts(
-        self, *, applicationId: str, jobRunId: str, nextToken: str = None, maxResults: int = None
+        self, **kwargs: Unpack[ListJobRunAttemptsRequestTypeDef]
     ) -> ListJobRunAttemptsResponseTypeDef:
         """
         Lists all attempt of a job run.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr-serverless.html#EMRServerless.Client.list_job_run_attempts)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_serverless/client.html#list_job_run_attempts)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/emr-serverless/client/list_job_run_attempts.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_emr_serverless/client/#list_job_run_attempts)
         """
 
     def list_job_runs(
-        self,
-        *,
-        applicationId: str,
-        nextToken: str = None,
-        maxResults: int = None,
-        createdAtAfter: Union[datetime, str] = None,
-        createdAtBefore: Union[datetime, str] = None,
-        states: List[JobRunStateType] = None,
-        mode: JobRunModeType = None
+        self, **kwargs: Unpack[ListJobRunsRequestTypeDef]
     ) -> ListJobRunsResponseTypeDef:
         """
         Lists job runs based on a set of parameters.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr-serverless.html#EMRServerless.Client.list_job_runs)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_serverless/client.html#list_job_runs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/emr-serverless/client/list_job_runs.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_emr_serverless/client/#list_job_runs)
         """
 
-    def list_tags_for_resource(self, *, resourceArn: str) -> ListTagsForResourceResponseTypeDef:
+    def list_tags_for_resource(
+        self, **kwargs: Unpack[ListTagsForResourceRequestTypeDef]
+    ) -> ListTagsForResourceResponseTypeDef:
         """
         Lists the tags assigned to the resources.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr-serverless.html#EMRServerless.Client.list_tags_for_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_serverless/client.html#list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/emr-serverless/client/list_tags_for_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_emr_serverless/client/#list_tags_for_resource)
         """
 
-    def start_application(self, *, applicationId: str) -> Dict[str, Any]:
+    def start_application(self, **kwargs: Unpack[StartApplicationRequestTypeDef]) -> Dict[str, Any]:
         """
         Starts a specified application and initializes initial capacity if configured.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr-serverless.html#EMRServerless.Client.start_application)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_serverless/client.html#start_application)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/emr-serverless/client/start_application.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_emr_serverless/client/#start_application)
         """
 
     def start_job_run(
-        self,
-        *,
-        applicationId: str,
-        clientToken: str,
-        executionRoleArn: str,
-        jobDriver: "JobDriverTypeDef" = None,
-        configurationOverrides: "ConfigurationOverridesTypeDef" = None,
-        tags: Dict[str, str] = None,
-        executionTimeoutMinutes: int = None,
-        name: str = None,
-        mode: JobRunModeType = None,
-        retryPolicy: "RetryPolicyTypeDef" = None
+        self, **kwargs: Unpack[StartJobRunRequestTypeDef]
     ) -> StartJobRunResponseTypeDef:
         """
         Starts a job run.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr-serverless.html#EMRServerless.Client.start_job_run)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_serverless/client.html#start_job_run)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/emr-serverless/client/start_job_run.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_emr_serverless/client/#start_job_run)
         """
 
-    def stop_application(self, *, applicationId: str) -> Dict[str, Any]:
+    def stop_application(self, **kwargs: Unpack[StopApplicationRequestTypeDef]) -> Dict[str, Any]:
         """
         Stops a specified application and releases initial capacity if configured.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr-serverless.html#EMRServerless.Client.stop_application)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_serverless/client.html#stop_application)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/emr-serverless/client/stop_application.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_emr_serverless/client/#stop_application)
         """
 
-    def tag_resource(self, *, resourceArn: str, tags: Dict[str, str]) -> Dict[str, Any]:
+    def tag_resource(self, **kwargs: Unpack[TagResourceRequestTypeDef]) -> Dict[str, Any]:
         """
         Assigns tags to resources.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr-serverless.html#EMRServerless.Client.tag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_serverless/client.html#tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/emr-serverless/client/tag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_emr_serverless/client/#tag_resource)
         """
 
-    def untag_resource(self, *, resourceArn: str, tagKeys: List[str]) -> Dict[str, Any]:
+    def untag_resource(self, **kwargs: Unpack[UntagResourceRequestTypeDef]) -> Dict[str, Any]:
         """
         Removes tags from resources.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr-serverless.html#EMRServerless.Client.untag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_serverless/client.html#untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/emr-serverless/client/untag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_emr_serverless/client/#untag_resource)
         """
 
     def update_application(
-        self,
-        *,
-        applicationId: str,
-        clientToken: str,
-        initialCapacity: Dict[str, "InitialCapacityConfigTypeDef"] = None,
-        maximumCapacity: "MaximumAllowedResourcesTypeDef" = None,
-        autoStartConfiguration: "AutoStartConfigTypeDef" = None,
-        autoStopConfiguration: "AutoStopConfigTypeDef" = None,
-        networkConfiguration: "NetworkConfigurationTypeDef" = None,
-        architecture: ArchitectureType = None,
-        imageConfiguration: "ImageConfigurationInputTypeDef" = None,
-        workerTypeSpecifications: Dict[str, "WorkerTypeSpecificationInputTypeDef"] = None,
-        interactiveConfiguration: "InteractiveConfigurationTypeDef" = None,
-        releaseLabel: str = None,
-        runtimeConfiguration: List["ConfigurationTypeDef"] = None,
-        monitoringConfiguration: "MonitoringConfigurationTypeDef" = None
+        self, **kwargs: Unpack[UpdateApplicationRequestTypeDef]
     ) -> UpdateApplicationResponseTypeDef:
         """
         Updates a specified application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr-serverless.html#EMRServerless.Client.update_application)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_serverless/client.html#update_application)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/emr-serverless/client/update_application.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_emr_serverless/client/#update_application)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_applications"]
     ) -> ListApplicationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr-serverless.html#EMRServerless.Paginator.ListApplications)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_serverless/paginators.html#listapplicationspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/emr-serverless/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_emr_serverless/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_job_run_attempts"]
     ) -> ListJobRunAttemptsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr-serverless.html#EMRServerless.Paginator.ListJobRunAttempts)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_serverless/paginators.html#listjobrunattemptspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/emr-serverless/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_emr_serverless/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_job_runs"]) -> ListJobRunsPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_job_runs"]
+    ) -> ListJobRunsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/emr-serverless.html#EMRServerless.Paginator.ListJobRuns)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_serverless/paginators.html#listjobrunspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/emr-serverless/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_emr_serverless/client/#get_paginator)
         """

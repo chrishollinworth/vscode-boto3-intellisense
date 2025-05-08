@@ -1,20 +1,24 @@
 """
 Type annotations for eks service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_eks.type_defs import AccessConfigResponseTypeDef
 
-    data: AccessConfigResponseTypeDef = {...}
+    data: AccessConfigResponseTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
+from typing import Union
 
 from .literals import (
     AccessScopeTypeType,
@@ -25,6 +29,8 @@ from .literals import (
     CapacityTypesType,
     ClusterIssueCodeType,
     ClusterStatusType,
+    ClusterVersionStatusType,
+    ConfigStatusType,
     ConnectorConfigProviderType,
     EksAnywhereSubscriptionStatusType,
     ErrorCodeType,
@@ -35,28 +41,35 @@ from .literals import (
     LogTypeType,
     NodegroupIssueCodeType,
     NodegroupStatusType,
+    NodegroupUpdateStrategiesType,
     ResolveConflictsType,
+    SupportTypeType,
     TaintEffectType,
     UpdateParamTypeType,
     UpdateStatusType,
     UpdateTypeType,
-    configStatusType,
+    VersionStatusType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
     "AccessConfigResponseTypeDef",
     "AccessEntryTypeDef",
     "AccessPolicyTypeDef",
+    "AccessScopeOutputTypeDef",
     "AccessScopeTypeDef",
+    "AccessScopeUnionTypeDef",
+    "AddonCompatibilityDetailTypeDef",
     "AddonHealthTypeDef",
     "AddonInfoTypeDef",
     "AddonIssueTypeDef",
@@ -64,89 +77,110 @@ __all__ = (
     "AddonPodIdentityConfigurationTypeDef",
     "AddonTypeDef",
     "AddonVersionInfoTypeDef",
-    "AssociateAccessPolicyRequestRequestTypeDef",
+    "AssociateAccessPolicyRequestTypeDef",
     "AssociateAccessPolicyResponseTypeDef",
-    "AssociateEncryptionConfigRequestRequestTypeDef",
+    "AssociateEncryptionConfigRequestTypeDef",
     "AssociateEncryptionConfigResponseTypeDef",
-    "AssociateIdentityProviderConfigRequestRequestTypeDef",
+    "AssociateIdentityProviderConfigRequestTypeDef",
     "AssociateIdentityProviderConfigResponseTypeDef",
     "AssociatedAccessPolicyTypeDef",
     "AutoScalingGroupTypeDef",
+    "BlockStorageTypeDef",
     "CertificateTypeDef",
     "ClientStatTypeDef",
     "ClusterHealthTypeDef",
     "ClusterIssueTypeDef",
     "ClusterTypeDef",
+    "ClusterVersionInformationTypeDef",
     "CompatibilityTypeDef",
+    "ComputeConfigRequestTypeDef",
+    "ComputeConfigResponseTypeDef",
     "ConnectorConfigRequestTypeDef",
     "ConnectorConfigResponseTypeDef",
     "ControlPlanePlacementRequestTypeDef",
     "ControlPlanePlacementResponseTypeDef",
     "CreateAccessConfigRequestTypeDef",
-    "CreateAccessEntryRequestRequestTypeDef",
+    "CreateAccessEntryRequestTypeDef",
     "CreateAccessEntryResponseTypeDef",
-    "CreateAddonRequestRequestTypeDef",
+    "CreateAddonRequestTypeDef",
     "CreateAddonResponseTypeDef",
-    "CreateClusterRequestRequestTypeDef",
+    "CreateClusterRequestTypeDef",
     "CreateClusterResponseTypeDef",
-    "CreateEksAnywhereSubscriptionRequestRequestTypeDef",
+    "CreateEksAnywhereSubscriptionRequestTypeDef",
     "CreateEksAnywhereSubscriptionResponseTypeDef",
-    "CreateFargateProfileRequestRequestTypeDef",
+    "CreateFargateProfileRequestTypeDef",
     "CreateFargateProfileResponseTypeDef",
-    "CreateNodegroupRequestRequestTypeDef",
+    "CreateNodegroupRequestTypeDef",
     "CreateNodegroupResponseTypeDef",
-    "CreatePodIdentityAssociationRequestRequestTypeDef",
+    "CreatePodIdentityAssociationRequestTypeDef",
     "CreatePodIdentityAssociationResponseTypeDef",
-    "DeleteAccessEntryRequestRequestTypeDef",
-    "DeleteAddonRequestRequestTypeDef",
+    "DeleteAccessEntryRequestTypeDef",
+    "DeleteAddonRequestTypeDef",
     "DeleteAddonResponseTypeDef",
-    "DeleteClusterRequestRequestTypeDef",
+    "DeleteClusterRequestTypeDef",
     "DeleteClusterResponseTypeDef",
-    "DeleteEksAnywhereSubscriptionRequestRequestTypeDef",
+    "DeleteEksAnywhereSubscriptionRequestTypeDef",
     "DeleteEksAnywhereSubscriptionResponseTypeDef",
-    "DeleteFargateProfileRequestRequestTypeDef",
+    "DeleteFargateProfileRequestTypeDef",
     "DeleteFargateProfileResponseTypeDef",
-    "DeleteNodegroupRequestRequestTypeDef",
+    "DeleteNodegroupRequestTypeDef",
     "DeleteNodegroupResponseTypeDef",
-    "DeletePodIdentityAssociationRequestRequestTypeDef",
+    "DeletePodIdentityAssociationRequestTypeDef",
     "DeletePodIdentityAssociationResponseTypeDef",
     "DeprecationDetailTypeDef",
-    "DeregisterClusterRequestRequestTypeDef",
+    "DeregisterClusterRequestTypeDef",
     "DeregisterClusterResponseTypeDef",
-    "DescribeAccessEntryRequestRequestTypeDef",
+    "DescribeAccessEntryRequestTypeDef",
     "DescribeAccessEntryResponseTypeDef",
-    "DescribeAddonConfigurationRequestRequestTypeDef",
+    "DescribeAddonConfigurationRequestTypeDef",
     "DescribeAddonConfigurationResponseTypeDef",
-    "DescribeAddonRequestRequestTypeDef",
+    "DescribeAddonRequestTypeDef",
+    "DescribeAddonRequestWaitExtraTypeDef",
+    "DescribeAddonRequestWaitTypeDef",
     "DescribeAddonResponseTypeDef",
-    "DescribeAddonVersionsRequestRequestTypeDef",
+    "DescribeAddonVersionsRequestPaginateTypeDef",
+    "DescribeAddonVersionsRequestTypeDef",
     "DescribeAddonVersionsResponseTypeDef",
-    "DescribeClusterRequestRequestTypeDef",
+    "DescribeClusterRequestTypeDef",
+    "DescribeClusterRequestWaitExtraTypeDef",
+    "DescribeClusterRequestWaitTypeDef",
     "DescribeClusterResponseTypeDef",
-    "DescribeEksAnywhereSubscriptionRequestRequestTypeDef",
+    "DescribeClusterVersionsRequestPaginateTypeDef",
+    "DescribeClusterVersionsRequestTypeDef",
+    "DescribeClusterVersionsResponseTypeDef",
+    "DescribeEksAnywhereSubscriptionRequestTypeDef",
     "DescribeEksAnywhereSubscriptionResponseTypeDef",
-    "DescribeFargateProfileRequestRequestTypeDef",
+    "DescribeFargateProfileRequestTypeDef",
+    "DescribeFargateProfileRequestWaitExtraTypeDef",
+    "DescribeFargateProfileRequestWaitTypeDef",
     "DescribeFargateProfileResponseTypeDef",
-    "DescribeIdentityProviderConfigRequestRequestTypeDef",
+    "DescribeIdentityProviderConfigRequestTypeDef",
     "DescribeIdentityProviderConfigResponseTypeDef",
-    "DescribeInsightRequestRequestTypeDef",
+    "DescribeInsightRequestTypeDef",
     "DescribeInsightResponseTypeDef",
-    "DescribeNodegroupRequestRequestTypeDef",
+    "DescribeNodegroupRequestTypeDef",
+    "DescribeNodegroupRequestWaitExtraTypeDef",
+    "DescribeNodegroupRequestWaitTypeDef",
     "DescribeNodegroupResponseTypeDef",
-    "DescribePodIdentityAssociationRequestRequestTypeDef",
+    "DescribePodIdentityAssociationRequestTypeDef",
     "DescribePodIdentityAssociationResponseTypeDef",
-    "DescribeUpdateRequestRequestTypeDef",
+    "DescribeUpdateRequestTypeDef",
     "DescribeUpdateResponseTypeDef",
-    "DisassociateAccessPolicyRequestRequestTypeDef",
-    "DisassociateIdentityProviderConfigRequestRequestTypeDef",
+    "DisassociateAccessPolicyRequestTypeDef",
+    "DisassociateIdentityProviderConfigRequestTypeDef",
     "DisassociateIdentityProviderConfigResponseTypeDef",
     "EksAnywhereSubscriptionTermTypeDef",
     "EksAnywhereSubscriptionTypeDef",
+    "ElasticLoadBalancingTypeDef",
+    "EncryptionConfigOutputTypeDef",
     "EncryptionConfigTypeDef",
+    "EncryptionConfigUnionTypeDef",
     "ErrorDetailTypeDef",
     "FargateProfileHealthTypeDef",
     "FargateProfileIssueTypeDef",
+    "FargateProfileSelectorOutputTypeDef",
     "FargateProfileSelectorTypeDef",
+    "FargateProfileSelectorUnionTypeDef",
     "FargateProfileTypeDef",
     "IdentityProviderConfigResponseTypeDef",
     "IdentityProviderConfigTypeDef",
@@ -161,35 +195,52 @@ __all__ = (
     "KubernetesNetworkConfigRequestTypeDef",
     "KubernetesNetworkConfigResponseTypeDef",
     "LaunchTemplateSpecificationTypeDef",
-    "ListAccessEntriesRequestRequestTypeDef",
+    "LicenseTypeDef",
+    "ListAccessEntriesRequestPaginateTypeDef",
+    "ListAccessEntriesRequestTypeDef",
     "ListAccessEntriesResponseTypeDef",
-    "ListAccessPoliciesRequestRequestTypeDef",
+    "ListAccessPoliciesRequestPaginateTypeDef",
+    "ListAccessPoliciesRequestTypeDef",
     "ListAccessPoliciesResponseTypeDef",
-    "ListAddonsRequestRequestTypeDef",
+    "ListAddonsRequestPaginateTypeDef",
+    "ListAddonsRequestTypeDef",
     "ListAddonsResponseTypeDef",
-    "ListAssociatedAccessPoliciesRequestRequestTypeDef",
+    "ListAssociatedAccessPoliciesRequestPaginateTypeDef",
+    "ListAssociatedAccessPoliciesRequestTypeDef",
     "ListAssociatedAccessPoliciesResponseTypeDef",
-    "ListClustersRequestRequestTypeDef",
+    "ListClustersRequestPaginateTypeDef",
+    "ListClustersRequestTypeDef",
     "ListClustersResponseTypeDef",
-    "ListEksAnywhereSubscriptionsRequestRequestTypeDef",
+    "ListEksAnywhereSubscriptionsRequestPaginateTypeDef",
+    "ListEksAnywhereSubscriptionsRequestTypeDef",
     "ListEksAnywhereSubscriptionsResponseTypeDef",
-    "ListFargateProfilesRequestRequestTypeDef",
+    "ListFargateProfilesRequestPaginateTypeDef",
+    "ListFargateProfilesRequestTypeDef",
     "ListFargateProfilesResponseTypeDef",
-    "ListIdentityProviderConfigsRequestRequestTypeDef",
+    "ListIdentityProviderConfigsRequestPaginateTypeDef",
+    "ListIdentityProviderConfigsRequestTypeDef",
     "ListIdentityProviderConfigsResponseTypeDef",
-    "ListInsightsRequestRequestTypeDef",
+    "ListInsightsRequestPaginateTypeDef",
+    "ListInsightsRequestTypeDef",
     "ListInsightsResponseTypeDef",
-    "ListNodegroupsRequestRequestTypeDef",
+    "ListNodegroupsRequestPaginateTypeDef",
+    "ListNodegroupsRequestTypeDef",
     "ListNodegroupsResponseTypeDef",
-    "ListPodIdentityAssociationsRequestRequestTypeDef",
+    "ListPodIdentityAssociationsRequestPaginateTypeDef",
+    "ListPodIdentityAssociationsRequestTypeDef",
     "ListPodIdentityAssociationsResponseTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
-    "ListUpdatesRequestRequestTypeDef",
+    "ListUpdatesRequestPaginateTypeDef",
+    "ListUpdatesRequestTypeDef",
     "ListUpdatesResponseTypeDef",
+    "LogSetupOutputTypeDef",
     "LogSetupTypeDef",
+    "LoggingOutputTypeDef",
     "LoggingTypeDef",
+    "LoggingUnionTypeDef",
     "MarketplaceInformationTypeDef",
+    "NodeRepairConfigTypeDef",
     "NodegroupHealthTypeDef",
     "NodegroupResourcesTypeDef",
     "NodegroupScalingConfigTypeDef",
@@ -204,1116 +255,381 @@ __all__ = (
     "PodIdentityAssociationSummaryTypeDef",
     "PodIdentityAssociationTypeDef",
     "ProviderTypeDef",
-    "RegisterClusterRequestRequestTypeDef",
+    "RegisterClusterRequestTypeDef",
     "RegisterClusterResponseTypeDef",
+    "RemoteAccessConfigOutputTypeDef",
     "RemoteAccessConfigTypeDef",
+    "RemoteAccessConfigUnionTypeDef",
+    "RemoteNetworkConfigRequestTypeDef",
+    "RemoteNetworkConfigResponseTypeDef",
+    "RemoteNodeNetworkOutputTypeDef",
+    "RemoteNodeNetworkTypeDef",
+    "RemoteNodeNetworkUnionTypeDef",
+    "RemotePodNetworkOutputTypeDef",
+    "RemotePodNetworkTypeDef",
+    "RemotePodNetworkUnionTypeDef",
     "ResponseMetadataTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "StorageConfigRequestTypeDef",
+    "StorageConfigResponseTypeDef",
+    "TagResourceRequestTypeDef",
     "TaintTypeDef",
-    "UntagResourceRequestRequestTypeDef",
+    "UntagResourceRequestTypeDef",
     "UpdateAccessConfigRequestTypeDef",
-    "UpdateAccessEntryRequestRequestTypeDef",
+    "UpdateAccessEntryRequestTypeDef",
     "UpdateAccessEntryResponseTypeDef",
-    "UpdateAddonRequestRequestTypeDef",
+    "UpdateAddonRequestTypeDef",
     "UpdateAddonResponseTypeDef",
-    "UpdateClusterConfigRequestRequestTypeDef",
+    "UpdateClusterConfigRequestTypeDef",
     "UpdateClusterConfigResponseTypeDef",
-    "UpdateClusterVersionRequestRequestTypeDef",
+    "UpdateClusterVersionRequestTypeDef",
     "UpdateClusterVersionResponseTypeDef",
-    "UpdateEksAnywhereSubscriptionRequestRequestTypeDef",
+    "UpdateEksAnywhereSubscriptionRequestTypeDef",
     "UpdateEksAnywhereSubscriptionResponseTypeDef",
     "UpdateLabelsPayloadTypeDef",
-    "UpdateNodegroupConfigRequestRequestTypeDef",
+    "UpdateNodegroupConfigRequestTypeDef",
     "UpdateNodegroupConfigResponseTypeDef",
-    "UpdateNodegroupVersionRequestRequestTypeDef",
+    "UpdateNodegroupVersionRequestTypeDef",
     "UpdateNodegroupVersionResponseTypeDef",
     "UpdateParamTypeDef",
-    "UpdatePodIdentityAssociationRequestRequestTypeDef",
+    "UpdatePodIdentityAssociationRequestTypeDef",
     "UpdatePodIdentityAssociationResponseTypeDef",
     "UpdateTaintsPayloadTypeDef",
     "UpdateTypeDef",
+    "UpgradePolicyRequestTypeDef",
+    "UpgradePolicyResponseTypeDef",
     "VpcConfigRequestTypeDef",
     "VpcConfigResponseTypeDef",
     "WaiterConfigTypeDef",
+    "ZonalShiftConfigRequestTypeDef",
+    "ZonalShiftConfigResponseTypeDef",
 )
 
-AccessConfigResponseTypeDef = TypedDict(
-    "AccessConfigResponseTypeDef",
-    {
-        "bootstrapClusterCreatorAdminPermissions": bool,
-        "authenticationMode": AuthenticationModeType,
-    },
-    total=False,
-)
+class AccessConfigResponseTypeDef(TypedDict):
+    bootstrapClusterCreatorAdminPermissions: NotRequired[bool]
+    authenticationMode: NotRequired[AuthenticationModeType]
 
 AccessEntryTypeDef = TypedDict(
     "AccessEntryTypeDef",
     {
-        "clusterName": str,
-        "principalArn": str,
-        "kubernetesGroups": List[str],
-        "accessEntryArn": str,
-        "createdAt": datetime,
-        "modifiedAt": datetime,
-        "tags": Dict[str, str],
-        "username": str,
-        "type": str,
+        "clusterName": NotRequired[str],
+        "principalArn": NotRequired[str],
+        "kubernetesGroups": NotRequired[List[str]],
+        "accessEntryArn": NotRequired[str],
+        "createdAt": NotRequired[datetime],
+        "modifiedAt": NotRequired[datetime],
+        "tags": NotRequired[Dict[str, str]],
+        "username": NotRequired[str],
+        "type": NotRequired[str],
     },
-    total=False,
 )
 
-AccessPolicyTypeDef = TypedDict(
-    "AccessPolicyTypeDef",
+class AccessPolicyTypeDef(TypedDict):
+    name: NotRequired[str]
+    arn: NotRequired[str]
+
+AccessScopeOutputTypeDef = TypedDict(
+    "AccessScopeOutputTypeDef",
     {
-        "name": str,
-        "arn": str,
+        "type": NotRequired[AccessScopeTypeType],
+        "namespaces": NotRequired[List[str]],
     },
-    total=False,
 )
-
 AccessScopeTypeDef = TypedDict(
     "AccessScopeTypeDef",
     {
-        "type": AccessScopeTypeType,
-        "namespaces": List[str],
-    },
-    total=False,
-)
-
-AddonHealthTypeDef = TypedDict(
-    "AddonHealthTypeDef",
-    {
-        "issues": List["AddonIssueTypeDef"],
-    },
-    total=False,
-)
-
-AddonInfoTypeDef = TypedDict(
-    "AddonInfoTypeDef",
-    {
-        "addonName": str,
-        "type": str,
-        "addonVersions": List["AddonVersionInfoTypeDef"],
-        "publisher": str,
-        "owner": str,
-        "marketplaceInformation": "MarketplaceInformationTypeDef",
-    },
-    total=False,
-)
-
-AddonIssueTypeDef = TypedDict(
-    "AddonIssueTypeDef",
-    {
-        "code": AddonIssueCodeType,
-        "message": str,
-        "resourceIds": List[str],
-    },
-    total=False,
-)
-
-AddonPodIdentityAssociationsTypeDef = TypedDict(
-    "AddonPodIdentityAssociationsTypeDef",
-    {
-        "serviceAccount": str,
-        "roleArn": str,
+        "type": NotRequired[AccessScopeTypeType],
+        "namespaces": NotRequired[Sequence[str]],
     },
 )
 
-AddonPodIdentityConfigurationTypeDef = TypedDict(
-    "AddonPodIdentityConfigurationTypeDef",
-    {
-        "serviceAccount": str,
-        "recommendedManagedPolicies": List[str],
-    },
-    total=False,
-)
+class AddonCompatibilityDetailTypeDef(TypedDict):
+    name: NotRequired[str]
+    compatibleVersions: NotRequired[List[str]]
 
-AddonTypeDef = TypedDict(
-    "AddonTypeDef",
-    {
-        "addonName": str,
-        "clusterName": str,
-        "status": AddonStatusType,
-        "addonVersion": str,
-        "health": "AddonHealthTypeDef",
-        "addonArn": str,
-        "createdAt": datetime,
-        "modifiedAt": datetime,
-        "serviceAccountRoleArn": str,
-        "tags": Dict[str, str],
-        "publisher": str,
-        "owner": str,
-        "marketplaceInformation": "MarketplaceInformationTypeDef",
-        "configurationValues": str,
-        "podIdentityAssociations": List[str],
-    },
-    total=False,
-)
+class AddonIssueTypeDef(TypedDict):
+    code: NotRequired[AddonIssueCodeType]
+    message: NotRequired[str]
+    resourceIds: NotRequired[List[str]]
 
-AddonVersionInfoTypeDef = TypedDict(
-    "AddonVersionInfoTypeDef",
-    {
-        "addonVersion": str,
-        "architecture": List[str],
-        "compatibilities": List["CompatibilityTypeDef"],
-        "requiresConfiguration": bool,
-        "requiresIamPermissions": bool,
-    },
-    total=False,
-)
+class MarketplaceInformationTypeDef(TypedDict):
+    productId: NotRequired[str]
+    productUrl: NotRequired[str]
 
-AssociateAccessPolicyRequestRequestTypeDef = TypedDict(
-    "AssociateAccessPolicyRequestRequestTypeDef",
-    {
-        "clusterName": str,
-        "principalArn": str,
-        "policyArn": str,
-        "accessScope": "AccessScopeTypeDef",
-    },
-)
+class AddonPodIdentityAssociationsTypeDef(TypedDict):
+    serviceAccount: str
+    roleArn: str
 
-AssociateAccessPolicyResponseTypeDef = TypedDict(
-    "AssociateAccessPolicyResponseTypeDef",
-    {
-        "clusterName": str,
-        "principalArn": str,
-        "associatedAccessPolicy": "AssociatedAccessPolicyTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class AddonPodIdentityConfigurationTypeDef(TypedDict):
+    serviceAccount: NotRequired[str]
+    recommendedManagedPolicies: NotRequired[List[str]]
 
-_RequiredAssociateEncryptionConfigRequestRequestTypeDef = TypedDict(
-    "_RequiredAssociateEncryptionConfigRequestRequestTypeDef",
-    {
-        "clusterName": str,
-        "encryptionConfig": List["EncryptionConfigTypeDef"],
-    },
-)
-_OptionalAssociateEncryptionConfigRequestRequestTypeDef = TypedDict(
-    "_OptionalAssociateEncryptionConfigRequestRequestTypeDef",
-    {
-        "clientRequestToken": str,
-    },
-    total=False,
-)
+class CompatibilityTypeDef(TypedDict):
+    clusterVersion: NotRequired[str]
+    platformVersions: NotRequired[List[str]]
+    defaultVersion: NotRequired[bool]
 
-class AssociateEncryptionConfigRequestRequestTypeDef(
-    _RequiredAssociateEncryptionConfigRequestRequestTypeDef,
-    _OptionalAssociateEncryptionConfigRequestRequestTypeDef,
-):
-    pass
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-AssociateEncryptionConfigResponseTypeDef = TypedDict(
-    "AssociateEncryptionConfigResponseTypeDef",
-    {
-        "update": "UpdateTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class OidcIdentityProviderConfigRequestTypeDef(TypedDict):
+    identityProviderConfigName: str
+    issuerUrl: str
+    clientId: str
+    usernameClaim: NotRequired[str]
+    usernamePrefix: NotRequired[str]
+    groupsClaim: NotRequired[str]
+    groupsPrefix: NotRequired[str]
+    requiredClaims: NotRequired[Mapping[str, str]]
 
-_RequiredAssociateIdentityProviderConfigRequestRequestTypeDef = TypedDict(
-    "_RequiredAssociateIdentityProviderConfigRequestRequestTypeDef",
-    {
-        "clusterName": str,
-        "oidc": "OidcIdentityProviderConfigRequestTypeDef",
-    },
-)
-_OptionalAssociateIdentityProviderConfigRequestRequestTypeDef = TypedDict(
-    "_OptionalAssociateIdentityProviderConfigRequestRequestTypeDef",
-    {
-        "tags": Dict[str, str],
-        "clientRequestToken": str,
-    },
-    total=False,
-)
+class AutoScalingGroupTypeDef(TypedDict):
+    name: NotRequired[str]
 
-class AssociateIdentityProviderConfigRequestRequestTypeDef(
-    _RequiredAssociateIdentityProviderConfigRequestRequestTypeDef,
-    _OptionalAssociateIdentityProviderConfigRequestRequestTypeDef,
-):
-    pass
+class BlockStorageTypeDef(TypedDict):
+    enabled: NotRequired[bool]
 
-AssociateIdentityProviderConfigResponseTypeDef = TypedDict(
-    "AssociateIdentityProviderConfigResponseTypeDef",
-    {
-        "update": "UpdateTypeDef",
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CertificateTypeDef(TypedDict):
+    data: NotRequired[str]
 
-AssociatedAccessPolicyTypeDef = TypedDict(
-    "AssociatedAccessPolicyTypeDef",
-    {
-        "policyArn": str,
-        "accessScope": "AccessScopeTypeDef",
-        "associatedAt": datetime,
-        "modifiedAt": datetime,
-    },
-    total=False,
-)
+class ClientStatTypeDef(TypedDict):
+    userAgent: NotRequired[str]
+    numberOfRequestsLast30Days: NotRequired[int]
+    lastRequestTime: NotRequired[datetime]
 
-AutoScalingGroupTypeDef = TypedDict(
-    "AutoScalingGroupTypeDef",
-    {
-        "name": str,
-    },
-    total=False,
-)
+class ClusterIssueTypeDef(TypedDict):
+    code: NotRequired[ClusterIssueCodeType]
+    message: NotRequired[str]
+    resourceIds: NotRequired[List[str]]
 
-CertificateTypeDef = TypedDict(
-    "CertificateTypeDef",
-    {
-        "data": str,
-    },
-    total=False,
-)
+class ComputeConfigResponseTypeDef(TypedDict):
+    enabled: NotRequired[bool]
+    nodePools: NotRequired[List[str]]
+    nodeRoleArn: NotRequired[str]
 
-ClientStatTypeDef = TypedDict(
-    "ClientStatTypeDef",
-    {
-        "userAgent": str,
-        "numberOfRequestsLast30Days": int,
-        "lastRequestTime": datetime,
-    },
-    total=False,
-)
+class ConnectorConfigResponseTypeDef(TypedDict):
+    activationId: NotRequired[str]
+    activationCode: NotRequired[str]
+    activationExpiry: NotRequired[datetime]
+    provider: NotRequired[str]
+    roleArn: NotRequired[str]
 
-ClusterHealthTypeDef = TypedDict(
-    "ClusterHealthTypeDef",
-    {
-        "issues": List["ClusterIssueTypeDef"],
-    },
-    total=False,
-)
+class UpgradePolicyResponseTypeDef(TypedDict):
+    supportType: NotRequired[SupportTypeType]
 
-ClusterIssueTypeDef = TypedDict(
-    "ClusterIssueTypeDef",
-    {
-        "code": ClusterIssueCodeType,
-        "message": str,
-        "resourceIds": List[str],
-    },
-    total=False,
-)
+class VpcConfigResponseTypeDef(TypedDict):
+    subnetIds: NotRequired[List[str]]
+    securityGroupIds: NotRequired[List[str]]
+    clusterSecurityGroupId: NotRequired[str]
+    vpcId: NotRequired[str]
+    endpointPublicAccess: NotRequired[bool]
+    endpointPrivateAccess: NotRequired[bool]
+    publicAccessCidrs: NotRequired[List[str]]
 
-ClusterTypeDef = TypedDict(
-    "ClusterTypeDef",
-    {
-        "name": str,
-        "arn": str,
-        "createdAt": datetime,
-        "version": str,
-        "endpoint": str,
-        "roleArn": str,
-        "resourcesVpcConfig": "VpcConfigResponseTypeDef",
-        "kubernetesNetworkConfig": "KubernetesNetworkConfigResponseTypeDef",
-        "logging": "LoggingTypeDef",
-        "identity": "IdentityTypeDef",
-        "status": ClusterStatusType,
-        "certificateAuthority": "CertificateTypeDef",
-        "clientRequestToken": str,
-        "platformVersion": str,
-        "tags": Dict[str, str],
-        "encryptionConfig": List["EncryptionConfigTypeDef"],
-        "connectorConfig": "ConnectorConfigResponseTypeDef",
-        "id": str,
-        "health": "ClusterHealthTypeDef",
-        "outpostConfig": "OutpostConfigResponseTypeDef",
-        "accessConfig": "AccessConfigResponseTypeDef",
-    },
-    total=False,
-)
+class ZonalShiftConfigResponseTypeDef(TypedDict):
+    enabled: NotRequired[bool]
 
-CompatibilityTypeDef = TypedDict(
-    "CompatibilityTypeDef",
-    {
-        "clusterVersion": str,
-        "platformVersions": List[str],
-        "defaultVersion": bool,
-    },
-    total=False,
-)
+class ClusterVersionInformationTypeDef(TypedDict):
+    clusterVersion: NotRequired[str]
+    clusterType: NotRequired[str]
+    defaultPlatformVersion: NotRequired[str]
+    defaultVersion: NotRequired[bool]
+    releaseDate: NotRequired[datetime]
+    endOfStandardSupportDate: NotRequired[datetime]
+    endOfExtendedSupportDate: NotRequired[datetime]
+    status: NotRequired[ClusterVersionStatusType]
+    versionStatus: NotRequired[VersionStatusType]
+    kubernetesPatchVersion: NotRequired[str]
 
-ConnectorConfigRequestTypeDef = TypedDict(
-    "ConnectorConfigRequestTypeDef",
-    {
-        "roleArn": str,
-        "provider": ConnectorConfigProviderType,
-    },
-)
+class ComputeConfigRequestTypeDef(TypedDict):
+    enabled: NotRequired[bool]
+    nodePools: NotRequired[Sequence[str]]
+    nodeRoleArn: NotRequired[str]
 
-ConnectorConfigResponseTypeDef = TypedDict(
-    "ConnectorConfigResponseTypeDef",
-    {
-        "activationId": str,
-        "activationCode": str,
-        "activationExpiry": datetime,
-        "provider": str,
-        "roleArn": str,
-    },
-    total=False,
-)
+class ConnectorConfigRequestTypeDef(TypedDict):
+    roleArn: str
+    provider: ConnectorConfigProviderType
 
-ControlPlanePlacementRequestTypeDef = TypedDict(
-    "ControlPlanePlacementRequestTypeDef",
-    {
-        "groupName": str,
-    },
-    total=False,
-)
+class ControlPlanePlacementRequestTypeDef(TypedDict):
+    groupName: NotRequired[str]
 
-ControlPlanePlacementResponseTypeDef = TypedDict(
-    "ControlPlanePlacementResponseTypeDef",
-    {
-        "groupName": str,
-    },
-    total=False,
-)
+class ControlPlanePlacementResponseTypeDef(TypedDict):
+    groupName: NotRequired[str]
 
-CreateAccessConfigRequestTypeDef = TypedDict(
-    "CreateAccessConfigRequestTypeDef",
-    {
-        "bootstrapClusterCreatorAdminPermissions": bool,
-        "authenticationMode": AuthenticationModeType,
-    },
-    total=False,
-)
+class CreateAccessConfigRequestTypeDef(TypedDict):
+    bootstrapClusterCreatorAdminPermissions: NotRequired[bool]
+    authenticationMode: NotRequired[AuthenticationModeType]
 
-_RequiredCreateAccessEntryRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateAccessEntryRequestRequestTypeDef",
+CreateAccessEntryRequestTypeDef = TypedDict(
+    "CreateAccessEntryRequestTypeDef",
     {
         "clusterName": str,
         "principalArn": str,
+        "kubernetesGroups": NotRequired[Sequence[str]],
+        "tags": NotRequired[Mapping[str, str]],
+        "clientRequestToken": NotRequired[str],
+        "username": NotRequired[str],
+        "type": NotRequired[str],
     },
 )
-_OptionalCreateAccessEntryRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateAccessEntryRequestRequestTypeDef",
+
+class UpgradePolicyRequestTypeDef(TypedDict):
+    supportType: NotRequired[SupportTypeType]
+
+class VpcConfigRequestTypeDef(TypedDict):
+    subnetIds: NotRequired[Sequence[str]]
+    securityGroupIds: NotRequired[Sequence[str]]
+    endpointPublicAccess: NotRequired[bool]
+    endpointPrivateAccess: NotRequired[bool]
+    publicAccessCidrs: NotRequired[Sequence[str]]
+
+class ZonalShiftConfigRequestTypeDef(TypedDict):
+    enabled: NotRequired[bool]
+
+class EksAnywhereSubscriptionTermTypeDef(TypedDict):
+    duration: NotRequired[int]
+    unit: NotRequired[Literal["MONTHS"]]
+
+LaunchTemplateSpecificationTypeDef = TypedDict(
+    "LaunchTemplateSpecificationTypeDef",
     {
-        "kubernetesGroups": List[str],
-        "tags": Dict[str, str],
-        "clientRequestToken": str,
-        "username": str,
-        "type": str,
-    },
-    total=False,
-)
-
-class CreateAccessEntryRequestRequestTypeDef(
-    _RequiredCreateAccessEntryRequestRequestTypeDef, _OptionalCreateAccessEntryRequestRequestTypeDef
-):
-    pass
-
-CreateAccessEntryResponseTypeDef = TypedDict(
-    "CreateAccessEntryResponseTypeDef",
-    {
-        "accessEntry": "AccessEntryTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "name": NotRequired[str],
+        "version": NotRequired[str],
+        "id": NotRequired[str],
     },
 )
 
-_RequiredCreateAddonRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateAddonRequestRequestTypeDef",
-    {
-        "clusterName": str,
-        "addonName": str,
-    },
-)
-_OptionalCreateAddonRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateAddonRequestRequestTypeDef",
-    {
-        "addonVersion": str,
-        "serviceAccountRoleArn": str,
-        "resolveConflicts": ResolveConflictsType,
-        "clientRequestToken": str,
-        "tags": Dict[str, str],
-        "configurationValues": str,
-        "podIdentityAssociations": List["AddonPodIdentityAssociationsTypeDef"],
-    },
-    total=False,
-)
+class NodeRepairConfigTypeDef(TypedDict):
+    enabled: NotRequired[bool]
 
-class CreateAddonRequestRequestTypeDef(
-    _RequiredCreateAddonRequestRequestTypeDef, _OptionalCreateAddonRequestRequestTypeDef
-):
-    pass
+class NodegroupScalingConfigTypeDef(TypedDict):
+    minSize: NotRequired[int]
+    maxSize: NotRequired[int]
+    desiredSize: NotRequired[int]
 
-CreateAddonResponseTypeDef = TypedDict(
-    "CreateAddonResponseTypeDef",
-    {
-        "addon": "AddonTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class NodegroupUpdateConfigTypeDef(TypedDict):
+    maxUnavailable: NotRequired[int]
+    maxUnavailablePercentage: NotRequired[int]
+    updateStrategy: NotRequired[NodegroupUpdateStrategiesType]
 
-_RequiredCreateClusterRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateClusterRequestRequestTypeDef",
-    {
-        "name": str,
-        "roleArn": str,
-        "resourcesVpcConfig": "VpcConfigRequestTypeDef",
-    },
-)
-_OptionalCreateClusterRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateClusterRequestRequestTypeDef",
-    {
-        "version": str,
-        "kubernetesNetworkConfig": "KubernetesNetworkConfigRequestTypeDef",
-        "logging": "LoggingTypeDef",
-        "clientRequestToken": str,
-        "tags": Dict[str, str],
-        "encryptionConfig": List["EncryptionConfigTypeDef"],
-        "outpostConfig": "OutpostConfigRequestTypeDef",
-        "accessConfig": "CreateAccessConfigRequestTypeDef",
-        "bootstrapSelfManagedAddons": bool,
-    },
-    total=False,
-)
+class TaintTypeDef(TypedDict):
+    key: NotRequired[str]
+    value: NotRequired[str]
+    effect: NotRequired[TaintEffectType]
 
-class CreateClusterRequestRequestTypeDef(
-    _RequiredCreateClusterRequestRequestTypeDef, _OptionalCreateClusterRequestRequestTypeDef
-):
-    pass
+class CreatePodIdentityAssociationRequestTypeDef(TypedDict):
+    clusterName: str
+    namespace: str
+    serviceAccount: str
+    roleArn: str
+    clientRequestToken: NotRequired[str]
+    tags: NotRequired[Mapping[str, str]]
 
-CreateClusterResponseTypeDef = TypedDict(
-    "CreateClusterResponseTypeDef",
-    {
-        "cluster": "ClusterTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class PodIdentityAssociationTypeDef(TypedDict):
+    clusterName: NotRequired[str]
+    namespace: NotRequired[str]
+    serviceAccount: NotRequired[str]
+    roleArn: NotRequired[str]
+    associationArn: NotRequired[str]
+    associationId: NotRequired[str]
+    tags: NotRequired[Dict[str, str]]
+    createdAt: NotRequired[datetime]
+    modifiedAt: NotRequired[datetime]
+    ownerArn: NotRequired[str]
 
-_RequiredCreateEksAnywhereSubscriptionRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateEksAnywhereSubscriptionRequestRequestTypeDef",
-    {
-        "name": str,
-        "term": "EksAnywhereSubscriptionTermTypeDef",
-    },
-)
-_OptionalCreateEksAnywhereSubscriptionRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateEksAnywhereSubscriptionRequestRequestTypeDef",
-    {
-        "licenseQuantity": int,
-        "licenseType": Literal["Cluster"],
-        "autoRenew": bool,
-        "clientRequestToken": str,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
+class DeleteAccessEntryRequestTypeDef(TypedDict):
+    clusterName: str
+    principalArn: str
 
-class CreateEksAnywhereSubscriptionRequestRequestTypeDef(
-    _RequiredCreateEksAnywhereSubscriptionRequestRequestTypeDef,
-    _OptionalCreateEksAnywhereSubscriptionRequestRequestTypeDef,
-):
-    pass
+class DeleteAddonRequestTypeDef(TypedDict):
+    clusterName: str
+    addonName: str
+    preserve: NotRequired[bool]
 
-CreateEksAnywhereSubscriptionResponseTypeDef = TypedDict(
-    "CreateEksAnywhereSubscriptionResponseTypeDef",
-    {
-        "subscription": "EksAnywhereSubscriptionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DeleteClusterRequestTypeDef(TypedDict):
+    name: str
 
-_RequiredCreateFargateProfileRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateFargateProfileRequestRequestTypeDef",
-    {
-        "fargateProfileName": str,
-        "clusterName": str,
-        "podExecutionRoleArn": str,
-    },
-)
-_OptionalCreateFargateProfileRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateFargateProfileRequestRequestTypeDef",
-    {
-        "subnets": List[str],
-        "selectors": List["FargateProfileSelectorTypeDef"],
-        "clientRequestToken": str,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class CreateFargateProfileRequestRequestTypeDef(
-    _RequiredCreateFargateProfileRequestRequestTypeDef,
-    _OptionalCreateFargateProfileRequestRequestTypeDef,
-):
-    pass
-
-CreateFargateProfileResponseTypeDef = TypedDict(
-    "CreateFargateProfileResponseTypeDef",
-    {
-        "fargateProfile": "FargateProfileTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateNodegroupRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateNodegroupRequestRequestTypeDef",
-    {
-        "clusterName": str,
-        "nodegroupName": str,
-        "subnets": List[str],
-        "nodeRole": str,
-    },
-)
-_OptionalCreateNodegroupRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateNodegroupRequestRequestTypeDef",
-    {
-        "scalingConfig": "NodegroupScalingConfigTypeDef",
-        "diskSize": int,
-        "instanceTypes": List[str],
-        "amiType": AMITypesType,
-        "remoteAccess": "RemoteAccessConfigTypeDef",
-        "labels": Dict[str, str],
-        "taints": List["TaintTypeDef"],
-        "tags": Dict[str, str],
-        "clientRequestToken": str,
-        "launchTemplate": "LaunchTemplateSpecificationTypeDef",
-        "updateConfig": "NodegroupUpdateConfigTypeDef",
-        "capacityType": CapacityTypesType,
-        "version": str,
-        "releaseVersion": str,
-    },
-    total=False,
-)
-
-class CreateNodegroupRequestRequestTypeDef(
-    _RequiredCreateNodegroupRequestRequestTypeDef, _OptionalCreateNodegroupRequestRequestTypeDef
-):
-    pass
-
-CreateNodegroupResponseTypeDef = TypedDict(
-    "CreateNodegroupResponseTypeDef",
-    {
-        "nodegroup": "NodegroupTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreatePodIdentityAssociationRequestRequestTypeDef = TypedDict(
-    "_RequiredCreatePodIdentityAssociationRequestRequestTypeDef",
-    {
-        "clusterName": str,
-        "namespace": str,
-        "serviceAccount": str,
-        "roleArn": str,
-    },
-)
-_OptionalCreatePodIdentityAssociationRequestRequestTypeDef = TypedDict(
-    "_OptionalCreatePodIdentityAssociationRequestRequestTypeDef",
-    {
-        "clientRequestToken": str,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class CreatePodIdentityAssociationRequestRequestTypeDef(
-    _RequiredCreatePodIdentityAssociationRequestRequestTypeDef,
-    _OptionalCreatePodIdentityAssociationRequestRequestTypeDef,
-):
-    pass
-
-CreatePodIdentityAssociationResponseTypeDef = TypedDict(
-    "CreatePodIdentityAssociationResponseTypeDef",
-    {
-        "association": "PodIdentityAssociationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteAccessEntryRequestRequestTypeDef = TypedDict(
-    "DeleteAccessEntryRequestRequestTypeDef",
-    {
-        "clusterName": str,
-        "principalArn": str,
-    },
-)
-
-_RequiredDeleteAddonRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteAddonRequestRequestTypeDef",
-    {
-        "clusterName": str,
-        "addonName": str,
-    },
-)
-_OptionalDeleteAddonRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteAddonRequestRequestTypeDef",
-    {
-        "preserve": bool,
-    },
-    total=False,
-)
-
-class DeleteAddonRequestRequestTypeDef(
-    _RequiredDeleteAddonRequestRequestTypeDef, _OptionalDeleteAddonRequestRequestTypeDef
-):
-    pass
-
-DeleteAddonResponseTypeDef = TypedDict(
-    "DeleteAddonResponseTypeDef",
-    {
-        "addon": "AddonTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteClusterRequestRequestTypeDef = TypedDict(
-    "DeleteClusterRequestRequestTypeDef",
-    {
-        "name": str,
-    },
-)
-
-DeleteClusterResponseTypeDef = TypedDict(
-    "DeleteClusterResponseTypeDef",
-    {
-        "cluster": "ClusterTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteEksAnywhereSubscriptionRequestRequestTypeDef = TypedDict(
-    "DeleteEksAnywhereSubscriptionRequestRequestTypeDef",
+DeleteEksAnywhereSubscriptionRequestTypeDef = TypedDict(
+    "DeleteEksAnywhereSubscriptionRequestTypeDef",
     {
         "id": str,
     },
 )
 
-DeleteEksAnywhereSubscriptionResponseTypeDef = TypedDict(
-    "DeleteEksAnywhereSubscriptionResponseTypeDef",
+class DeleteFargateProfileRequestTypeDef(TypedDict):
+    clusterName: str
+    fargateProfileName: str
+
+class DeleteNodegroupRequestTypeDef(TypedDict):
+    clusterName: str
+    nodegroupName: str
+
+class DeletePodIdentityAssociationRequestTypeDef(TypedDict):
+    clusterName: str
+    associationId: str
+
+class DeregisterClusterRequestTypeDef(TypedDict):
+    name: str
+
+class DescribeAccessEntryRequestTypeDef(TypedDict):
+    clusterName: str
+    principalArn: str
+
+class DescribeAddonConfigurationRequestTypeDef(TypedDict):
+    addonName: str
+    addonVersion: str
+
+class DescribeAddonRequestTypeDef(TypedDict):
+    clusterName: str
+    addonName: str
+
+class WaiterConfigTypeDef(TypedDict):
+    Delay: NotRequired[int]
+    MaxAttempts: NotRequired[int]
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+DescribeAddonVersionsRequestTypeDef = TypedDict(
+    "DescribeAddonVersionsRequestTypeDef",
     {
-        "subscription": "EksAnywhereSubscriptionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "kubernetesVersion": NotRequired[str],
+        "maxResults": NotRequired[int],
+        "nextToken": NotRequired[str],
+        "addonName": NotRequired[str],
+        "types": NotRequired[Sequence[str]],
+        "publishers": NotRequired[Sequence[str]],
+        "owners": NotRequired[Sequence[str]],
     },
 )
 
-DeleteFargateProfileRequestRequestTypeDef = TypedDict(
-    "DeleteFargateProfileRequestRequestTypeDef",
-    {
-        "clusterName": str,
-        "fargateProfileName": str,
-    },
-)
+class DescribeClusterRequestTypeDef(TypedDict):
+    name: str
 
-DeleteFargateProfileResponseTypeDef = TypedDict(
-    "DeleteFargateProfileResponseTypeDef",
-    {
-        "fargateProfile": "FargateProfileTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DescribeClusterVersionsRequestTypeDef(TypedDict):
+    clusterType: NotRequired[str]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+    defaultOnly: NotRequired[bool]
+    includeAll: NotRequired[bool]
+    clusterVersions: NotRequired[Sequence[str]]
+    status: NotRequired[ClusterVersionStatusType]
+    versionStatus: NotRequired[VersionStatusType]
 
-DeleteNodegroupRequestRequestTypeDef = TypedDict(
-    "DeleteNodegroupRequestRequestTypeDef",
-    {
-        "clusterName": str,
-        "nodegroupName": str,
-    },
-)
-
-DeleteNodegroupResponseTypeDef = TypedDict(
-    "DeleteNodegroupResponseTypeDef",
-    {
-        "nodegroup": "NodegroupTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeletePodIdentityAssociationRequestRequestTypeDef = TypedDict(
-    "DeletePodIdentityAssociationRequestRequestTypeDef",
-    {
-        "clusterName": str,
-        "associationId": str,
-    },
-)
-
-DeletePodIdentityAssociationResponseTypeDef = TypedDict(
-    "DeletePodIdentityAssociationResponseTypeDef",
-    {
-        "association": "PodIdentityAssociationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeprecationDetailTypeDef = TypedDict(
-    "DeprecationDetailTypeDef",
-    {
-        "usage": str,
-        "replacedWith": str,
-        "stopServingVersion": str,
-        "startServingReplacementVersion": str,
-        "clientStats": List["ClientStatTypeDef"],
-    },
-    total=False,
-)
-
-DeregisterClusterRequestRequestTypeDef = TypedDict(
-    "DeregisterClusterRequestRequestTypeDef",
-    {
-        "name": str,
-    },
-)
-
-DeregisterClusterResponseTypeDef = TypedDict(
-    "DeregisterClusterResponseTypeDef",
-    {
-        "cluster": "ClusterTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeAccessEntryRequestRequestTypeDef = TypedDict(
-    "DescribeAccessEntryRequestRequestTypeDef",
-    {
-        "clusterName": str,
-        "principalArn": str,
-    },
-)
-
-DescribeAccessEntryResponseTypeDef = TypedDict(
-    "DescribeAccessEntryResponseTypeDef",
-    {
-        "accessEntry": "AccessEntryTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeAddonConfigurationRequestRequestTypeDef = TypedDict(
-    "DescribeAddonConfigurationRequestRequestTypeDef",
-    {
-        "addonName": str,
-        "addonVersion": str,
-    },
-)
-
-DescribeAddonConfigurationResponseTypeDef = TypedDict(
-    "DescribeAddonConfigurationResponseTypeDef",
-    {
-        "addonName": str,
-        "addonVersion": str,
-        "configurationSchema": str,
-        "podIdentityConfiguration": List["AddonPodIdentityConfigurationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeAddonRequestRequestTypeDef = TypedDict(
-    "DescribeAddonRequestRequestTypeDef",
-    {
-        "clusterName": str,
-        "addonName": str,
-    },
-)
-
-DescribeAddonResponseTypeDef = TypedDict(
-    "DescribeAddonResponseTypeDef",
-    {
-        "addon": "AddonTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeAddonVersionsRequestRequestTypeDef = TypedDict(
-    "DescribeAddonVersionsRequestRequestTypeDef",
-    {
-        "kubernetesVersion": str,
-        "maxResults": int,
-        "nextToken": str,
-        "addonName": str,
-        "types": List[str],
-        "publishers": List[str],
-        "owners": List[str],
-    },
-    total=False,
-)
-
-DescribeAddonVersionsResponseTypeDef = TypedDict(
-    "DescribeAddonVersionsResponseTypeDef",
-    {
-        "addons": List["AddonInfoTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeClusterRequestRequestTypeDef = TypedDict(
-    "DescribeClusterRequestRequestTypeDef",
-    {
-        "name": str,
-    },
-)
-
-DescribeClusterResponseTypeDef = TypedDict(
-    "DescribeClusterResponseTypeDef",
-    {
-        "cluster": "ClusterTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeEksAnywhereSubscriptionRequestRequestTypeDef = TypedDict(
-    "DescribeEksAnywhereSubscriptionRequestRequestTypeDef",
+DescribeEksAnywhereSubscriptionRequestTypeDef = TypedDict(
+    "DescribeEksAnywhereSubscriptionRequestTypeDef",
     {
         "id": str,
     },
 )
 
-DescribeEksAnywhereSubscriptionResponseTypeDef = TypedDict(
-    "DescribeEksAnywhereSubscriptionResponseTypeDef",
-    {
-        "subscription": "EksAnywhereSubscriptionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeFargateProfileRequestRequestTypeDef = TypedDict(
-    "DescribeFargateProfileRequestRequestTypeDef",
-    {
-        "clusterName": str,
-        "fargateProfileName": str,
-    },
-)
-
-DescribeFargateProfileResponseTypeDef = TypedDict(
-    "DescribeFargateProfileResponseTypeDef",
-    {
-        "fargateProfile": "FargateProfileTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeIdentityProviderConfigRequestRequestTypeDef = TypedDict(
-    "DescribeIdentityProviderConfigRequestRequestTypeDef",
-    {
-        "clusterName": str,
-        "identityProviderConfig": "IdentityProviderConfigTypeDef",
-    },
-)
-
-DescribeIdentityProviderConfigResponseTypeDef = TypedDict(
-    "DescribeIdentityProviderConfigResponseTypeDef",
-    {
-        "identityProviderConfig": "IdentityProviderConfigResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeInsightRequestRequestTypeDef = TypedDict(
-    "DescribeInsightRequestRequestTypeDef",
-    {
-        "clusterName": str,
-        "id": str,
-    },
-)
-
-DescribeInsightResponseTypeDef = TypedDict(
-    "DescribeInsightResponseTypeDef",
-    {
-        "insight": "InsightTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeNodegroupRequestRequestTypeDef = TypedDict(
-    "DescribeNodegroupRequestRequestTypeDef",
-    {
-        "clusterName": str,
-        "nodegroupName": str,
-    },
-)
-
-DescribeNodegroupResponseTypeDef = TypedDict(
-    "DescribeNodegroupResponseTypeDef",
-    {
-        "nodegroup": "NodegroupTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribePodIdentityAssociationRequestRequestTypeDef = TypedDict(
-    "DescribePodIdentityAssociationRequestRequestTypeDef",
-    {
-        "clusterName": str,
-        "associationId": str,
-    },
-)
-
-DescribePodIdentityAssociationResponseTypeDef = TypedDict(
-    "DescribePodIdentityAssociationResponseTypeDef",
-    {
-        "association": "PodIdentityAssociationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribeUpdateRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeUpdateRequestRequestTypeDef",
-    {
-        "name": str,
-        "updateId": str,
-    },
-)
-_OptionalDescribeUpdateRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeUpdateRequestRequestTypeDef",
-    {
-        "nodegroupName": str,
-        "addonName": str,
-    },
-    total=False,
-)
-
-class DescribeUpdateRequestRequestTypeDef(
-    _RequiredDescribeUpdateRequestRequestTypeDef, _OptionalDescribeUpdateRequestRequestTypeDef
-):
-    pass
-
-DescribeUpdateResponseTypeDef = TypedDict(
-    "DescribeUpdateResponseTypeDef",
-    {
-        "update": "UpdateTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DisassociateAccessPolicyRequestRequestTypeDef = TypedDict(
-    "DisassociateAccessPolicyRequestRequestTypeDef",
-    {
-        "clusterName": str,
-        "principalArn": str,
-        "policyArn": str,
-    },
-)
-
-_RequiredDisassociateIdentityProviderConfigRequestRequestTypeDef = TypedDict(
-    "_RequiredDisassociateIdentityProviderConfigRequestRequestTypeDef",
-    {
-        "clusterName": str,
-        "identityProviderConfig": "IdentityProviderConfigTypeDef",
-    },
-)
-_OptionalDisassociateIdentityProviderConfigRequestRequestTypeDef = TypedDict(
-    "_OptionalDisassociateIdentityProviderConfigRequestRequestTypeDef",
-    {
-        "clientRequestToken": str,
-    },
-    total=False,
-)
-
-class DisassociateIdentityProviderConfigRequestRequestTypeDef(
-    _RequiredDisassociateIdentityProviderConfigRequestRequestTypeDef,
-    _OptionalDisassociateIdentityProviderConfigRequestRequestTypeDef,
-):
-    pass
-
-DisassociateIdentityProviderConfigResponseTypeDef = TypedDict(
-    "DisassociateIdentityProviderConfigResponseTypeDef",
-    {
-        "update": "UpdateTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-EksAnywhereSubscriptionTermTypeDef = TypedDict(
-    "EksAnywhereSubscriptionTermTypeDef",
-    {
-        "duration": int,
-        "unit": Literal["MONTHS"],
-    },
-    total=False,
-)
-
-EksAnywhereSubscriptionTypeDef = TypedDict(
-    "EksAnywhereSubscriptionTypeDef",
-    {
-        "id": str,
-        "arn": str,
-        "createdAt": datetime,
-        "effectiveDate": datetime,
-        "expirationDate": datetime,
-        "licenseQuantity": int,
-        "licenseType": Literal["Cluster"],
-        "term": "EksAnywhereSubscriptionTermTypeDef",
-        "status": str,
-        "autoRenew": bool,
-        "licenseArns": List[str],
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-EncryptionConfigTypeDef = TypedDict(
-    "EncryptionConfigTypeDef",
-    {
-        "resources": List[str],
-        "provider": "ProviderTypeDef",
-    },
-    total=False,
-)
-
-ErrorDetailTypeDef = TypedDict(
-    "ErrorDetailTypeDef",
-    {
-        "errorCode": ErrorCodeType,
-        "errorMessage": str,
-        "resourceIds": List[str],
-    },
-    total=False,
-)
-
-FargateProfileHealthTypeDef = TypedDict(
-    "FargateProfileHealthTypeDef",
-    {
-        "issues": List["FargateProfileIssueTypeDef"],
-    },
-    total=False,
-)
-
-FargateProfileIssueTypeDef = TypedDict(
-    "FargateProfileIssueTypeDef",
-    {
-        "code": FargateProfileIssueCodeType,
-        "message": str,
-        "resourceIds": List[str],
-    },
-    total=False,
-)
-
-FargateProfileSelectorTypeDef = TypedDict(
-    "FargateProfileSelectorTypeDef",
-    {
-        "namespace": str,
-        "labels": Dict[str, str],
-    },
-    total=False,
-)
-
-FargateProfileTypeDef = TypedDict(
-    "FargateProfileTypeDef",
-    {
-        "fargateProfileName": str,
-        "fargateProfileArn": str,
-        "clusterName": str,
-        "createdAt": datetime,
-        "podExecutionRoleArn": str,
-        "subnets": List[str],
-        "selectors": List["FargateProfileSelectorTypeDef"],
-        "status": FargateProfileStatusType,
-        "tags": Dict[str, str],
-        "health": "FargateProfileHealthTypeDef",
-    },
-    total=False,
-)
-
-IdentityProviderConfigResponseTypeDef = TypedDict(
-    "IdentityProviderConfigResponseTypeDef",
-    {
-        "oidc": "OidcIdentityProviderConfigTypeDef",
-    },
-    total=False,
-)
+class DescribeFargateProfileRequestTypeDef(TypedDict):
+    clusterName: str
+    fargateProfileName: str
 
 IdentityProviderConfigTypeDef = TypedDict(
     "IdentityProviderConfigTypeDef",
@@ -1322,1105 +638,1032 @@ IdentityProviderConfigTypeDef = TypedDict(
         "name": str,
     },
 )
-
-IdentityTypeDef = TypedDict(
-    "IdentityTypeDef",
+DescribeInsightRequestTypeDef = TypedDict(
+    "DescribeInsightRequestTypeDef",
     {
-        "oidc": "OIDCTypeDef",
-    },
-    total=False,
-)
-
-InsightCategorySpecificSummaryTypeDef = TypedDict(
-    "InsightCategorySpecificSummaryTypeDef",
-    {
-        "deprecationDetails": List["DeprecationDetailTypeDef"],
-    },
-    total=False,
-)
-
-InsightResourceDetailTypeDef = TypedDict(
-    "InsightResourceDetailTypeDef",
-    {
-        "insightStatus": "InsightStatusTypeDef",
-        "kubernetesResourceUri": str,
-        "arn": str,
-    },
-    total=False,
-)
-
-InsightStatusTypeDef = TypedDict(
-    "InsightStatusTypeDef",
-    {
-        "status": InsightStatusValueType,
-        "reason": str,
-    },
-    total=False,
-)
-
-InsightSummaryTypeDef = TypedDict(
-    "InsightSummaryTypeDef",
-    {
-        "id": str,
-        "name": str,
-        "category": Literal["UPGRADE_READINESS"],
-        "kubernetesVersion": str,
-        "lastRefreshTime": datetime,
-        "lastTransitionTime": datetime,
-        "description": str,
-        "insightStatus": "InsightStatusTypeDef",
-    },
-    total=False,
-)
-
-InsightTypeDef = TypedDict(
-    "InsightTypeDef",
-    {
-        "id": str,
-        "name": str,
-        "category": Literal["UPGRADE_READINESS"],
-        "kubernetesVersion": str,
-        "lastRefreshTime": datetime,
-        "lastTransitionTime": datetime,
-        "description": str,
-        "insightStatus": "InsightStatusTypeDef",
-        "recommendation": str,
-        "additionalInfo": Dict[str, str],
-        "resources": List["InsightResourceDetailTypeDef"],
-        "categorySpecificSummary": "InsightCategorySpecificSummaryTypeDef",
-    },
-    total=False,
-)
-
-InsightsFilterTypeDef = TypedDict(
-    "InsightsFilterTypeDef",
-    {
-        "categories": List[Literal["UPGRADE_READINESS"]],
-        "kubernetesVersions": List[str],
-        "statuses": List[InsightStatusValueType],
-    },
-    total=False,
-)
-
-IssueTypeDef = TypedDict(
-    "IssueTypeDef",
-    {
-        "code": NodegroupIssueCodeType,
-        "message": str,
-        "resourceIds": List[str],
-    },
-    total=False,
-)
-
-KubernetesNetworkConfigRequestTypeDef = TypedDict(
-    "KubernetesNetworkConfigRequestTypeDef",
-    {
-        "serviceIpv4Cidr": str,
-        "ipFamily": IpFamilyType,
-    },
-    total=False,
-)
-
-KubernetesNetworkConfigResponseTypeDef = TypedDict(
-    "KubernetesNetworkConfigResponseTypeDef",
-    {
-        "serviceIpv4Cidr": str,
-        "serviceIpv6Cidr": str,
-        "ipFamily": IpFamilyType,
-    },
-    total=False,
-)
-
-LaunchTemplateSpecificationTypeDef = TypedDict(
-    "LaunchTemplateSpecificationTypeDef",
-    {
-        "name": str,
-        "version": str,
+        "clusterName": str,
         "id": str,
     },
-    total=False,
 )
 
-_RequiredListAccessEntriesRequestRequestTypeDef = TypedDict(
-    "_RequiredListAccessEntriesRequestRequestTypeDef",
-    {
-        "clusterName": str,
-    },
-)
-_OptionalListAccessEntriesRequestRequestTypeDef = TypedDict(
-    "_OptionalListAccessEntriesRequestRequestTypeDef",
-    {
-        "associatedPolicyArn": str,
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
+class DescribeNodegroupRequestTypeDef(TypedDict):
+    clusterName: str
+    nodegroupName: str
 
-class ListAccessEntriesRequestRequestTypeDef(
-    _RequiredListAccessEntriesRequestRequestTypeDef, _OptionalListAccessEntriesRequestRequestTypeDef
-):
-    pass
+class DescribePodIdentityAssociationRequestTypeDef(TypedDict):
+    clusterName: str
+    associationId: str
 
-ListAccessEntriesResponseTypeDef = TypedDict(
-    "ListAccessEntriesResponseTypeDef",
+class DescribeUpdateRequestTypeDef(TypedDict):
+    name: str
+    updateId: str
+    nodegroupName: NotRequired[str]
+    addonName: NotRequired[str]
+
+class DisassociateAccessPolicyRequestTypeDef(TypedDict):
+    clusterName: str
+    principalArn: str
+    policyArn: str
+
+LicenseTypeDef = TypedDict(
+    "LicenseTypeDef",
     {
-        "accessEntries": List[str],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "id": NotRequired[str],
+        "token": NotRequired[str],
     },
 )
 
-ListAccessPoliciesRequestRequestTypeDef = TypedDict(
-    "ListAccessPoliciesRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
+class ElasticLoadBalancingTypeDef(TypedDict):
+    enabled: NotRequired[bool]
 
-ListAccessPoliciesResponseTypeDef = TypedDict(
-    "ListAccessPoliciesResponseTypeDef",
-    {
-        "accessPolicies": List["AccessPolicyTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ProviderTypeDef(TypedDict):
+    keyArn: NotRequired[str]
 
-_RequiredListAddonsRequestRequestTypeDef = TypedDict(
-    "_RequiredListAddonsRequestRequestTypeDef",
-    {
-        "clusterName": str,
-    },
-)
-_OptionalListAddonsRequestRequestTypeDef = TypedDict(
-    "_OptionalListAddonsRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
+class ErrorDetailTypeDef(TypedDict):
+    errorCode: NotRequired[ErrorCodeType]
+    errorMessage: NotRequired[str]
+    resourceIds: NotRequired[List[str]]
 
-class ListAddonsRequestRequestTypeDef(
-    _RequiredListAddonsRequestRequestTypeDef, _OptionalListAddonsRequestRequestTypeDef
-):
-    pass
+class FargateProfileIssueTypeDef(TypedDict):
+    code: NotRequired[FargateProfileIssueCodeType]
+    message: NotRequired[str]
+    resourceIds: NotRequired[List[str]]
 
-ListAddonsResponseTypeDef = TypedDict(
-    "ListAddonsResponseTypeDef",
-    {
-        "addons": List[str],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class FargateProfileSelectorOutputTypeDef(TypedDict):
+    namespace: NotRequired[str]
+    labels: NotRequired[Dict[str, str]]
 
-_RequiredListAssociatedAccessPoliciesRequestRequestTypeDef = TypedDict(
-    "_RequiredListAssociatedAccessPoliciesRequestRequestTypeDef",
-    {
-        "clusterName": str,
-        "principalArn": str,
-    },
-)
-_OptionalListAssociatedAccessPoliciesRequestRequestTypeDef = TypedDict(
-    "_OptionalListAssociatedAccessPoliciesRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
+class FargateProfileSelectorTypeDef(TypedDict):
+    namespace: NotRequired[str]
+    labels: NotRequired[Mapping[str, str]]
 
-class ListAssociatedAccessPoliciesRequestRequestTypeDef(
-    _RequiredListAssociatedAccessPoliciesRequestRequestTypeDef,
-    _OptionalListAssociatedAccessPoliciesRequestRequestTypeDef,
-):
-    pass
+class OidcIdentityProviderConfigTypeDef(TypedDict):
+    identityProviderConfigName: NotRequired[str]
+    identityProviderConfigArn: NotRequired[str]
+    clusterName: NotRequired[str]
+    issuerUrl: NotRequired[str]
+    clientId: NotRequired[str]
+    usernameClaim: NotRequired[str]
+    usernamePrefix: NotRequired[str]
+    groupsClaim: NotRequired[str]
+    groupsPrefix: NotRequired[str]
+    requiredClaims: NotRequired[Dict[str, str]]
+    tags: NotRequired[Dict[str, str]]
+    status: NotRequired[ConfigStatusType]
 
-ListAssociatedAccessPoliciesResponseTypeDef = TypedDict(
-    "ListAssociatedAccessPoliciesResponseTypeDef",
-    {
-        "clusterName": str,
-        "principalArn": str,
-        "nextToken": str,
-        "associatedAccessPolicies": List["AssociatedAccessPolicyTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class OIDCTypeDef(TypedDict):
+    issuer: NotRequired[str]
 
-ListClustersRequestRequestTypeDef = TypedDict(
-    "ListClustersRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-        "include": List[str],
-    },
-    total=False,
-)
+class InsightStatusTypeDef(TypedDict):
+    status: NotRequired[InsightStatusValueType]
+    reason: NotRequired[str]
 
-ListClustersResponseTypeDef = TypedDict(
-    "ListClustersResponseTypeDef",
-    {
-        "clusters": List[str],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class InsightsFilterTypeDef(TypedDict):
+    categories: NotRequired[Sequence[Literal["UPGRADE_READINESS"]]]
+    kubernetesVersions: NotRequired[Sequence[str]]
+    statuses: NotRequired[Sequence[InsightStatusValueType]]
 
-ListEksAnywhereSubscriptionsRequestRequestTypeDef = TypedDict(
-    "ListEksAnywhereSubscriptionsRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-        "includeStatus": List[EksAnywhereSubscriptionStatusType],
-    },
-    total=False,
-)
+class IssueTypeDef(TypedDict):
+    code: NotRequired[NodegroupIssueCodeType]
+    message: NotRequired[str]
+    resourceIds: NotRequired[List[str]]
 
-ListEksAnywhereSubscriptionsResponseTypeDef = TypedDict(
-    "ListEksAnywhereSubscriptionsResponseTypeDef",
-    {
-        "subscriptions": List["EksAnywhereSubscriptionTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListAccessEntriesRequestTypeDef(TypedDict):
+    clusterName: str
+    associatedPolicyArn: NotRequired[str]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
 
-_RequiredListFargateProfilesRequestRequestTypeDef = TypedDict(
-    "_RequiredListFargateProfilesRequestRequestTypeDef",
-    {
-        "clusterName": str,
-    },
-)
-_OptionalListFargateProfilesRequestRequestTypeDef = TypedDict(
-    "_OptionalListFargateProfilesRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
+class ListAccessPoliciesRequestTypeDef(TypedDict):
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
 
-class ListFargateProfilesRequestRequestTypeDef(
-    _RequiredListFargateProfilesRequestRequestTypeDef,
-    _OptionalListFargateProfilesRequestRequestTypeDef,
-):
-    pass
+class ListAddonsRequestTypeDef(TypedDict):
+    clusterName: str
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
 
-ListFargateProfilesResponseTypeDef = TypedDict(
-    "ListFargateProfilesResponseTypeDef",
+class ListAssociatedAccessPoliciesRequestTypeDef(TypedDict):
+    clusterName: str
+    principalArn: str
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListClustersRequestTypeDef(TypedDict):
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+    include: NotRequired[Sequence[str]]
+
+class ListEksAnywhereSubscriptionsRequestTypeDef(TypedDict):
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+    includeStatus: NotRequired[Sequence[EksAnywhereSubscriptionStatusType]]
+
+class ListFargateProfilesRequestTypeDef(TypedDict):
+    clusterName: str
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListIdentityProviderConfigsRequestTypeDef(TypedDict):
+    clusterName: str
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListNodegroupsRequestTypeDef(TypedDict):
+    clusterName: str
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListPodIdentityAssociationsRequestTypeDef(TypedDict):
+    clusterName: str
+    namespace: NotRequired[str]
+    serviceAccount: NotRequired[str]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class PodIdentityAssociationSummaryTypeDef(TypedDict):
+    clusterName: NotRequired[str]
+    namespace: NotRequired[str]
+    serviceAccount: NotRequired[str]
+    associationArn: NotRequired[str]
+    associationId: NotRequired[str]
+    ownerArn: NotRequired[str]
+
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+
+class ListUpdatesRequestTypeDef(TypedDict):
+    name: str
+    nodegroupName: NotRequired[str]
+    addonName: NotRequired[str]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+LogSetupOutputTypeDef = TypedDict(
+    "LogSetupOutputTypeDef",
     {
-        "fargateProfileNames": List[str],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "types": NotRequired[List[LogTypeType]],
+        "enabled": NotRequired[bool],
     },
 )
-
-_RequiredListIdentityProviderConfigsRequestRequestTypeDef = TypedDict(
-    "_RequiredListIdentityProviderConfigsRequestRequestTypeDef",
-    {
-        "clusterName": str,
-    },
-)
-_OptionalListIdentityProviderConfigsRequestRequestTypeDef = TypedDict(
-    "_OptionalListIdentityProviderConfigsRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListIdentityProviderConfigsRequestRequestTypeDef(
-    _RequiredListIdentityProviderConfigsRequestRequestTypeDef,
-    _OptionalListIdentityProviderConfigsRequestRequestTypeDef,
-):
-    pass
-
-ListIdentityProviderConfigsResponseTypeDef = TypedDict(
-    "ListIdentityProviderConfigsResponseTypeDef",
-    {
-        "identityProviderConfigs": List["IdentityProviderConfigTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListInsightsRequestRequestTypeDef = TypedDict(
-    "_RequiredListInsightsRequestRequestTypeDef",
-    {
-        "clusterName": str,
-    },
-)
-_OptionalListInsightsRequestRequestTypeDef = TypedDict(
-    "_OptionalListInsightsRequestRequestTypeDef",
-    {
-        "filter": "InsightsFilterTypeDef",
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListInsightsRequestRequestTypeDef(
-    _RequiredListInsightsRequestRequestTypeDef, _OptionalListInsightsRequestRequestTypeDef
-):
-    pass
-
-ListInsightsResponseTypeDef = TypedDict(
-    "ListInsightsResponseTypeDef",
-    {
-        "insights": List["InsightSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListNodegroupsRequestRequestTypeDef = TypedDict(
-    "_RequiredListNodegroupsRequestRequestTypeDef",
-    {
-        "clusterName": str,
-    },
-)
-_OptionalListNodegroupsRequestRequestTypeDef = TypedDict(
-    "_OptionalListNodegroupsRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListNodegroupsRequestRequestTypeDef(
-    _RequiredListNodegroupsRequestRequestTypeDef, _OptionalListNodegroupsRequestRequestTypeDef
-):
-    pass
-
-ListNodegroupsResponseTypeDef = TypedDict(
-    "ListNodegroupsResponseTypeDef",
-    {
-        "nodegroups": List[str],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListPodIdentityAssociationsRequestRequestTypeDef = TypedDict(
-    "_RequiredListPodIdentityAssociationsRequestRequestTypeDef",
-    {
-        "clusterName": str,
-    },
-)
-_OptionalListPodIdentityAssociationsRequestRequestTypeDef = TypedDict(
-    "_OptionalListPodIdentityAssociationsRequestRequestTypeDef",
-    {
-        "namespace": str,
-        "serviceAccount": str,
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListPodIdentityAssociationsRequestRequestTypeDef(
-    _RequiredListPodIdentityAssociationsRequestRequestTypeDef,
-    _OptionalListPodIdentityAssociationsRequestRequestTypeDef,
-):
-    pass
-
-ListPodIdentityAssociationsResponseTypeDef = TypedDict(
-    "ListPodIdentityAssociationsResponseTypeDef",
-    {
-        "associations": List["PodIdentityAssociationSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-    },
-)
-
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListUpdatesRequestRequestTypeDef = TypedDict(
-    "_RequiredListUpdatesRequestRequestTypeDef",
-    {
-        "name": str,
-    },
-)
-_OptionalListUpdatesRequestRequestTypeDef = TypedDict(
-    "_OptionalListUpdatesRequestRequestTypeDef",
-    {
-        "nodegroupName": str,
-        "addonName": str,
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-class ListUpdatesRequestRequestTypeDef(
-    _RequiredListUpdatesRequestRequestTypeDef, _OptionalListUpdatesRequestRequestTypeDef
-):
-    pass
-
-ListUpdatesResponseTypeDef = TypedDict(
-    "ListUpdatesResponseTypeDef",
-    {
-        "updateIds": List[str],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
 LogSetupTypeDef = TypedDict(
     "LogSetupTypeDef",
     {
-        "types": List[LogTypeType],
-        "enabled": bool,
-    },
-    total=False,
-)
-
-LoggingTypeDef = TypedDict(
-    "LoggingTypeDef",
-    {
-        "clusterLogging": List["LogSetupTypeDef"],
-    },
-    total=False,
-)
-
-MarketplaceInformationTypeDef = TypedDict(
-    "MarketplaceInformationTypeDef",
-    {
-        "productId": str,
-        "productUrl": str,
-    },
-    total=False,
-)
-
-NodegroupHealthTypeDef = TypedDict(
-    "NodegroupHealthTypeDef",
-    {
-        "issues": List["IssueTypeDef"],
-    },
-    total=False,
-)
-
-NodegroupResourcesTypeDef = TypedDict(
-    "NodegroupResourcesTypeDef",
-    {
-        "autoScalingGroups": List["AutoScalingGroupTypeDef"],
-        "remoteAccessSecurityGroup": str,
-    },
-    total=False,
-)
-
-NodegroupScalingConfigTypeDef = TypedDict(
-    "NodegroupScalingConfigTypeDef",
-    {
-        "minSize": int,
-        "maxSize": int,
-        "desiredSize": int,
-    },
-    total=False,
-)
-
-NodegroupTypeDef = TypedDict(
-    "NodegroupTypeDef",
-    {
-        "nodegroupName": str,
-        "nodegroupArn": str,
-        "clusterName": str,
-        "version": str,
-        "releaseVersion": str,
-        "createdAt": datetime,
-        "modifiedAt": datetime,
-        "status": NodegroupStatusType,
-        "capacityType": CapacityTypesType,
-        "scalingConfig": "NodegroupScalingConfigTypeDef",
-        "instanceTypes": List[str],
-        "subnets": List[str],
-        "remoteAccess": "RemoteAccessConfigTypeDef",
-        "amiType": AMITypesType,
-        "nodeRole": str,
-        "labels": Dict[str, str],
-        "taints": List["TaintTypeDef"],
-        "resources": "NodegroupResourcesTypeDef",
-        "diskSize": int,
-        "health": "NodegroupHealthTypeDef",
-        "updateConfig": "NodegroupUpdateConfigTypeDef",
-        "launchTemplate": "LaunchTemplateSpecificationTypeDef",
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-NodegroupUpdateConfigTypeDef = TypedDict(
-    "NodegroupUpdateConfigTypeDef",
-    {
-        "maxUnavailable": int,
-        "maxUnavailablePercentage": int,
-    },
-    total=False,
-)
-
-OIDCTypeDef = TypedDict(
-    "OIDCTypeDef",
-    {
-        "issuer": str,
-    },
-    total=False,
-)
-
-_RequiredOidcIdentityProviderConfigRequestTypeDef = TypedDict(
-    "_RequiredOidcIdentityProviderConfigRequestTypeDef",
-    {
-        "identityProviderConfigName": str,
-        "issuerUrl": str,
-        "clientId": str,
-    },
-)
-_OptionalOidcIdentityProviderConfigRequestTypeDef = TypedDict(
-    "_OptionalOidcIdentityProviderConfigRequestTypeDef",
-    {
-        "usernameClaim": str,
-        "usernamePrefix": str,
-        "groupsClaim": str,
-        "groupsPrefix": str,
-        "requiredClaims": Dict[str, str],
-    },
-    total=False,
-)
-
-class OidcIdentityProviderConfigRequestTypeDef(
-    _RequiredOidcIdentityProviderConfigRequestTypeDef,
-    _OptionalOidcIdentityProviderConfigRequestTypeDef,
-):
-    pass
-
-OidcIdentityProviderConfigTypeDef = TypedDict(
-    "OidcIdentityProviderConfigTypeDef",
-    {
-        "identityProviderConfigName": str,
-        "identityProviderConfigArn": str,
-        "clusterName": str,
-        "issuerUrl": str,
-        "clientId": str,
-        "usernameClaim": str,
-        "usernamePrefix": str,
-        "groupsClaim": str,
-        "groupsPrefix": str,
-        "requiredClaims": Dict[str, str],
-        "tags": Dict[str, str],
-        "status": configStatusType,
-    },
-    total=False,
-)
-
-_RequiredOutpostConfigRequestTypeDef = TypedDict(
-    "_RequiredOutpostConfigRequestTypeDef",
-    {
-        "outpostArns": List[str],
-        "controlPlaneInstanceType": str,
-    },
-)
-_OptionalOutpostConfigRequestTypeDef = TypedDict(
-    "_OptionalOutpostConfigRequestTypeDef",
-    {
-        "controlPlanePlacement": "ControlPlanePlacementRequestTypeDef",
-    },
-    total=False,
-)
-
-class OutpostConfigRequestTypeDef(
-    _RequiredOutpostConfigRequestTypeDef, _OptionalOutpostConfigRequestTypeDef
-):
-    pass
-
-_RequiredOutpostConfigResponseTypeDef = TypedDict(
-    "_RequiredOutpostConfigResponseTypeDef",
-    {
-        "outpostArns": List[str],
-        "controlPlaneInstanceType": str,
-    },
-)
-_OptionalOutpostConfigResponseTypeDef = TypedDict(
-    "_OptionalOutpostConfigResponseTypeDef",
-    {
-        "controlPlanePlacement": "ControlPlanePlacementResponseTypeDef",
-    },
-    total=False,
-)
-
-class OutpostConfigResponseTypeDef(
-    _RequiredOutpostConfigResponseTypeDef, _OptionalOutpostConfigResponseTypeDef
-):
-    pass
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-PodIdentityAssociationSummaryTypeDef = TypedDict(
-    "PodIdentityAssociationSummaryTypeDef",
-    {
-        "clusterName": str,
-        "namespace": str,
-        "serviceAccount": str,
-        "associationArn": str,
-        "associationId": str,
-        "ownerArn": str,
-    },
-    total=False,
-)
-
-PodIdentityAssociationTypeDef = TypedDict(
-    "PodIdentityAssociationTypeDef",
-    {
-        "clusterName": str,
-        "namespace": str,
-        "serviceAccount": str,
-        "roleArn": str,
-        "associationArn": str,
-        "associationId": str,
-        "tags": Dict[str, str],
-        "createdAt": datetime,
-        "modifiedAt": datetime,
-        "ownerArn": str,
-    },
-    total=False,
-)
-
-ProviderTypeDef = TypedDict(
-    "ProviderTypeDef",
-    {
-        "keyArn": str,
-    },
-    total=False,
-)
-
-_RequiredRegisterClusterRequestRequestTypeDef = TypedDict(
-    "_RequiredRegisterClusterRequestRequestTypeDef",
-    {
-        "name": str,
-        "connectorConfig": "ConnectorConfigRequestTypeDef",
-    },
-)
-_OptionalRegisterClusterRequestRequestTypeDef = TypedDict(
-    "_OptionalRegisterClusterRequestRequestTypeDef",
-    {
-        "clientRequestToken": str,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class RegisterClusterRequestRequestTypeDef(
-    _RequiredRegisterClusterRequestRequestTypeDef, _OptionalRegisterClusterRequestRequestTypeDef
-):
-    pass
-
-RegisterClusterResponseTypeDef = TypedDict(
-    "RegisterClusterResponseTypeDef",
-    {
-        "cluster": "ClusterTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "types": NotRequired[Sequence[LogTypeType]],
+        "enabled": NotRequired[bool],
     },
 )
 
-RemoteAccessConfigTypeDef = TypedDict(
-    "RemoteAccessConfigTypeDef",
-    {
-        "ec2SshKey": str,
-        "sourceSecurityGroups": List[str],
-    },
-    total=False,
-)
+class RemoteAccessConfigOutputTypeDef(TypedDict):
+    ec2SshKey: NotRequired[str]
+    sourceSecurityGroups: NotRequired[List[str]]
 
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
+class RemoteAccessConfigTypeDef(TypedDict):
+    ec2SshKey: NotRequired[str]
+    sourceSecurityGroups: NotRequired[Sequence[str]]
 
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tags": Dict[str, str],
-    },
-)
+class RemoteNodeNetworkOutputTypeDef(TypedDict):
+    cidrs: NotRequired[List[str]]
 
-TaintTypeDef = TypedDict(
-    "TaintTypeDef",
-    {
-        "key": str,
-        "value": str,
-        "effect": TaintEffectType,
-    },
-    total=False,
-)
+class RemotePodNetworkOutputTypeDef(TypedDict):
+    cidrs: NotRequired[List[str]]
 
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tagKeys": List[str],
-    },
-)
+class RemoteNodeNetworkTypeDef(TypedDict):
+    cidrs: NotRequired[Sequence[str]]
 
-UpdateAccessConfigRequestTypeDef = TypedDict(
-    "UpdateAccessConfigRequestTypeDef",
-    {
-        "authenticationMode": AuthenticationModeType,
-    },
-    total=False,
-)
+class RemotePodNetworkTypeDef(TypedDict):
+    cidrs: NotRequired[Sequence[str]]
 
-_RequiredUpdateAccessEntryRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateAccessEntryRequestRequestTypeDef",
-    {
-        "clusterName": str,
-        "principalArn": str,
-    },
-)
-_OptionalUpdateAccessEntryRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateAccessEntryRequestRequestTypeDef",
-    {
-        "kubernetesGroups": List[str],
-        "clientRequestToken": str,
-        "username": str,
-    },
-    total=False,
-)
+class TagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tags: Mapping[str, str]
 
-class UpdateAccessEntryRequestRequestTypeDef(
-    _RequiredUpdateAccessEntryRequestRequestTypeDef, _OptionalUpdateAccessEntryRequestRequestTypeDef
-):
-    pass
+class UntagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tagKeys: Sequence[str]
 
-UpdateAccessEntryResponseTypeDef = TypedDict(
-    "UpdateAccessEntryResponseTypeDef",
-    {
-        "accessEntry": "AccessEntryTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class UpdateAccessConfigRequestTypeDef(TypedDict):
+    authenticationMode: NotRequired[AuthenticationModeType]
 
-_RequiredUpdateAddonRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateAddonRequestRequestTypeDef",
-    {
-        "clusterName": str,
-        "addonName": str,
-    },
-)
-_OptionalUpdateAddonRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateAddonRequestRequestTypeDef",
-    {
-        "addonVersion": str,
-        "serviceAccountRoleArn": str,
-        "resolveConflicts": ResolveConflictsType,
-        "clientRequestToken": str,
-        "configurationValues": str,
-        "podIdentityAssociations": List["AddonPodIdentityAssociationsTypeDef"],
-    },
-    total=False,
-)
+class UpdateAccessEntryRequestTypeDef(TypedDict):
+    clusterName: str
+    principalArn: str
+    kubernetesGroups: NotRequired[Sequence[str]]
+    clientRequestToken: NotRequired[str]
+    username: NotRequired[str]
 
-class UpdateAddonRequestRequestTypeDef(
-    _RequiredUpdateAddonRequestRequestTypeDef, _OptionalUpdateAddonRequestRequestTypeDef
-):
-    pass
+class UpdateClusterVersionRequestTypeDef(TypedDict):
+    name: str
+    version: str
+    clientRequestToken: NotRequired[str]
+    force: NotRequired[bool]
 
-UpdateAddonResponseTypeDef = TypedDict(
-    "UpdateAddonResponseTypeDef",
-    {
-        "update": "UpdateTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateClusterConfigRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateClusterConfigRequestRequestTypeDef",
-    {
-        "name": str,
-    },
-)
-_OptionalUpdateClusterConfigRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateClusterConfigRequestRequestTypeDef",
-    {
-        "resourcesVpcConfig": "VpcConfigRequestTypeDef",
-        "logging": "LoggingTypeDef",
-        "clientRequestToken": str,
-        "accessConfig": "UpdateAccessConfigRequestTypeDef",
-    },
-    total=False,
-)
-
-class UpdateClusterConfigRequestRequestTypeDef(
-    _RequiredUpdateClusterConfigRequestRequestTypeDef,
-    _OptionalUpdateClusterConfigRequestRequestTypeDef,
-):
-    pass
-
-UpdateClusterConfigResponseTypeDef = TypedDict(
-    "UpdateClusterConfigResponseTypeDef",
-    {
-        "update": "UpdateTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateClusterVersionRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateClusterVersionRequestRequestTypeDef",
-    {
-        "name": str,
-        "version": str,
-    },
-)
-_OptionalUpdateClusterVersionRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateClusterVersionRequestRequestTypeDef",
-    {
-        "clientRequestToken": str,
-    },
-    total=False,
-)
-
-class UpdateClusterVersionRequestRequestTypeDef(
-    _RequiredUpdateClusterVersionRequestRequestTypeDef,
-    _OptionalUpdateClusterVersionRequestRequestTypeDef,
-):
-    pass
-
-UpdateClusterVersionResponseTypeDef = TypedDict(
-    "UpdateClusterVersionResponseTypeDef",
-    {
-        "update": "UpdateTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateEksAnywhereSubscriptionRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateEksAnywhereSubscriptionRequestRequestTypeDef",
+UpdateEksAnywhereSubscriptionRequestTypeDef = TypedDict(
+    "UpdateEksAnywhereSubscriptionRequestTypeDef",
     {
         "id": str,
         "autoRenew": bool,
-    },
-)
-_OptionalUpdateEksAnywhereSubscriptionRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateEksAnywhereSubscriptionRequestRequestTypeDef",
-    {
-        "clientRequestToken": str,
-    },
-    total=False,
-)
-
-class UpdateEksAnywhereSubscriptionRequestRequestTypeDef(
-    _RequiredUpdateEksAnywhereSubscriptionRequestRequestTypeDef,
-    _OptionalUpdateEksAnywhereSubscriptionRequestRequestTypeDef,
-):
-    pass
-
-UpdateEksAnywhereSubscriptionResponseTypeDef = TypedDict(
-    "UpdateEksAnywhereSubscriptionResponseTypeDef",
-    {
-        "subscription": "EksAnywhereSubscriptionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "clientRequestToken": NotRequired[str],
     },
 )
 
-UpdateLabelsPayloadTypeDef = TypedDict(
-    "UpdateLabelsPayloadTypeDef",
-    {
-        "addOrUpdateLabels": Dict[str, str],
-        "removeLabels": List[str],
-    },
-    total=False,
-)
-
-_RequiredUpdateNodegroupConfigRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateNodegroupConfigRequestRequestTypeDef",
-    {
-        "clusterName": str,
-        "nodegroupName": str,
-    },
-)
-_OptionalUpdateNodegroupConfigRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateNodegroupConfigRequestRequestTypeDef",
-    {
-        "labels": "UpdateLabelsPayloadTypeDef",
-        "taints": "UpdateTaintsPayloadTypeDef",
-        "scalingConfig": "NodegroupScalingConfigTypeDef",
-        "updateConfig": "NodegroupUpdateConfigTypeDef",
-        "clientRequestToken": str,
-    },
-    total=False,
-)
-
-class UpdateNodegroupConfigRequestRequestTypeDef(
-    _RequiredUpdateNodegroupConfigRequestRequestTypeDef,
-    _OptionalUpdateNodegroupConfigRequestRequestTypeDef,
-):
-    pass
-
-UpdateNodegroupConfigResponseTypeDef = TypedDict(
-    "UpdateNodegroupConfigResponseTypeDef",
-    {
-        "update": "UpdateTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateNodegroupVersionRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateNodegroupVersionRequestRequestTypeDef",
-    {
-        "clusterName": str,
-        "nodegroupName": str,
-    },
-)
-_OptionalUpdateNodegroupVersionRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateNodegroupVersionRequestRequestTypeDef",
-    {
-        "version": str,
-        "releaseVersion": str,
-        "launchTemplate": "LaunchTemplateSpecificationTypeDef",
-        "force": bool,
-        "clientRequestToken": str,
-    },
-    total=False,
-)
-
-class UpdateNodegroupVersionRequestRequestTypeDef(
-    _RequiredUpdateNodegroupVersionRequestRequestTypeDef,
-    _OptionalUpdateNodegroupVersionRequestRequestTypeDef,
-):
-    pass
-
-UpdateNodegroupVersionResponseTypeDef = TypedDict(
-    "UpdateNodegroupVersionResponseTypeDef",
-    {
-        "update": "UpdateTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class UpdateLabelsPayloadTypeDef(TypedDict):
+    addOrUpdateLabels: NotRequired[Mapping[str, str]]
+    removeLabels: NotRequired[Sequence[str]]
 
 UpdateParamTypeDef = TypedDict(
     "UpdateParamTypeDef",
     {
-        "type": UpdateParamTypeType,
-        "value": str,
+        "type": NotRequired[UpdateParamTypeType],
+        "value": NotRequired[str],
     },
-    total=False,
 )
 
-_RequiredUpdatePodIdentityAssociationRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdatePodIdentityAssociationRequestRequestTypeDef",
+class UpdatePodIdentityAssociationRequestTypeDef(TypedDict):
+    clusterName: str
+    associationId: str
+    roleArn: NotRequired[str]
+    clientRequestToken: NotRequired[str]
+
+class AssociatedAccessPolicyTypeDef(TypedDict):
+    policyArn: NotRequired[str]
+    accessScope: NotRequired[AccessScopeOutputTypeDef]
+    associatedAt: NotRequired[datetime]
+    modifiedAt: NotRequired[datetime]
+
+AccessScopeUnionTypeDef = Union[AccessScopeTypeDef, AccessScopeOutputTypeDef]
+
+class AddonHealthTypeDef(TypedDict):
+    issues: NotRequired[List[AddonIssueTypeDef]]
+
+class CreateAddonRequestTypeDef(TypedDict):
+    clusterName: str
+    addonName: str
+    addonVersion: NotRequired[str]
+    serviceAccountRoleArn: NotRequired[str]
+    resolveConflicts: NotRequired[ResolveConflictsType]
+    clientRequestToken: NotRequired[str]
+    tags: NotRequired[Mapping[str, str]]
+    configurationValues: NotRequired[str]
+    podIdentityAssociations: NotRequired[Sequence[AddonPodIdentityAssociationsTypeDef]]
+
+class UpdateAddonRequestTypeDef(TypedDict):
+    clusterName: str
+    addonName: str
+    addonVersion: NotRequired[str]
+    serviceAccountRoleArn: NotRequired[str]
+    resolveConflicts: NotRequired[ResolveConflictsType]
+    clientRequestToken: NotRequired[str]
+    configurationValues: NotRequired[str]
+    podIdentityAssociations: NotRequired[Sequence[AddonPodIdentityAssociationsTypeDef]]
+
+class AddonVersionInfoTypeDef(TypedDict):
+    addonVersion: NotRequired[str]
+    architecture: NotRequired[List[str]]
+    computeTypes: NotRequired[List[str]]
+    compatibilities: NotRequired[List[CompatibilityTypeDef]]
+    requiresConfiguration: NotRequired[bool]
+    requiresIamPermissions: NotRequired[bool]
+
+class CreateAccessEntryResponseTypeDef(TypedDict):
+    accessEntry: AccessEntryTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeAccessEntryResponseTypeDef(TypedDict):
+    accessEntry: AccessEntryTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeAddonConfigurationResponseTypeDef(TypedDict):
+    addonName: str
+    addonVersion: str
+    configurationSchema: str
+    podIdentityConfiguration: List[AddonPodIdentityConfigurationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListAccessEntriesResponseTypeDef(TypedDict):
+    accessEntries: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListAccessPoliciesResponseTypeDef(TypedDict):
+    accessPolicies: List[AccessPolicyTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListAddonsResponseTypeDef(TypedDict):
+    addons: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListClustersResponseTypeDef(TypedDict):
+    clusters: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListFargateProfilesResponseTypeDef(TypedDict):
+    fargateProfileNames: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListNodegroupsResponseTypeDef(TypedDict):
+    nodegroups: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListUpdatesResponseTypeDef(TypedDict):
+    updateIds: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class UpdateAccessEntryResponseTypeDef(TypedDict):
+    accessEntry: AccessEntryTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class AssociateIdentityProviderConfigRequestTypeDef(TypedDict):
+    clusterName: str
+    oidc: OidcIdentityProviderConfigRequestTypeDef
+    tags: NotRequired[Mapping[str, str]]
+    clientRequestToken: NotRequired[str]
+
+class NodegroupResourcesTypeDef(TypedDict):
+    autoScalingGroups: NotRequired[List[AutoScalingGroupTypeDef]]
+    remoteAccessSecurityGroup: NotRequired[str]
+
+class StorageConfigRequestTypeDef(TypedDict):
+    blockStorage: NotRequired[BlockStorageTypeDef]
+
+class StorageConfigResponseTypeDef(TypedDict):
+    blockStorage: NotRequired[BlockStorageTypeDef]
+
+class DeprecationDetailTypeDef(TypedDict):
+    usage: NotRequired[str]
+    replacedWith: NotRequired[str]
+    stopServingVersion: NotRequired[str]
+    startServingReplacementVersion: NotRequired[str]
+    clientStats: NotRequired[List[ClientStatTypeDef]]
+
+class ClusterHealthTypeDef(TypedDict):
+    issues: NotRequired[List[ClusterIssueTypeDef]]
+
+class DescribeClusterVersionsResponseTypeDef(TypedDict):
+    clusterVersions: List[ClusterVersionInformationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class RegisterClusterRequestTypeDef(TypedDict):
+    name: str
+    connectorConfig: ConnectorConfigRequestTypeDef
+    clientRequestToken: NotRequired[str]
+    tags: NotRequired[Mapping[str, str]]
+
+class OutpostConfigRequestTypeDef(TypedDict):
+    outpostArns: Sequence[str]
+    controlPlaneInstanceType: str
+    controlPlanePlacement: NotRequired[ControlPlanePlacementRequestTypeDef]
+
+class OutpostConfigResponseTypeDef(TypedDict):
+    outpostArns: List[str]
+    controlPlaneInstanceType: str
+    controlPlanePlacement: NotRequired[ControlPlanePlacementResponseTypeDef]
+
+class CreateEksAnywhereSubscriptionRequestTypeDef(TypedDict):
+    name: str
+    term: EksAnywhereSubscriptionTermTypeDef
+    licenseQuantity: NotRequired[int]
+    licenseType: NotRequired[Literal["Cluster"]]
+    autoRenew: NotRequired[bool]
+    clientRequestToken: NotRequired[str]
+    tags: NotRequired[Mapping[str, str]]
+
+class UpdateNodegroupVersionRequestTypeDef(TypedDict):
+    clusterName: str
+    nodegroupName: str
+    version: NotRequired[str]
+    releaseVersion: NotRequired[str]
+    launchTemplate: NotRequired[LaunchTemplateSpecificationTypeDef]
+    force: NotRequired[bool]
+    clientRequestToken: NotRequired[str]
+
+class UpdateTaintsPayloadTypeDef(TypedDict):
+    addOrUpdateTaints: NotRequired[Sequence[TaintTypeDef]]
+    removeTaints: NotRequired[Sequence[TaintTypeDef]]
+
+class CreatePodIdentityAssociationResponseTypeDef(TypedDict):
+    association: PodIdentityAssociationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeletePodIdentityAssociationResponseTypeDef(TypedDict):
+    association: PodIdentityAssociationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribePodIdentityAssociationResponseTypeDef(TypedDict):
+    association: PodIdentityAssociationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdatePodIdentityAssociationResponseTypeDef(TypedDict):
+    association: PodIdentityAssociationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeAddonRequestWaitExtraTypeDef(TypedDict):
+    clusterName: str
+    addonName: str
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class DescribeAddonRequestWaitTypeDef(TypedDict):
+    clusterName: str
+    addonName: str
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class DescribeClusterRequestWaitExtraTypeDef(TypedDict):
+    name: str
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class DescribeClusterRequestWaitTypeDef(TypedDict):
+    name: str
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class DescribeFargateProfileRequestWaitExtraTypeDef(TypedDict):
+    clusterName: str
+    fargateProfileName: str
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class DescribeFargateProfileRequestWaitTypeDef(TypedDict):
+    clusterName: str
+    fargateProfileName: str
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class DescribeNodegroupRequestWaitExtraTypeDef(TypedDict):
+    clusterName: str
+    nodegroupName: str
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class DescribeNodegroupRequestWaitTypeDef(TypedDict):
+    clusterName: str
+    nodegroupName: str
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+DescribeAddonVersionsRequestPaginateTypeDef = TypedDict(
+    "DescribeAddonVersionsRequestPaginateTypeDef",
+    {
+        "kubernetesVersion": NotRequired[str],
+        "addonName": NotRequired[str],
+        "types": NotRequired[Sequence[str]],
+        "publishers": NotRequired[Sequence[str]],
+        "owners": NotRequired[Sequence[str]],
+        "PaginationConfig": NotRequired[PaginatorConfigTypeDef],
+    },
+)
+
+class DescribeClusterVersionsRequestPaginateTypeDef(TypedDict):
+    clusterType: NotRequired[str]
+    defaultOnly: NotRequired[bool]
+    includeAll: NotRequired[bool]
+    clusterVersions: NotRequired[Sequence[str]]
+    status: NotRequired[ClusterVersionStatusType]
+    versionStatus: NotRequired[VersionStatusType]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListAccessEntriesRequestPaginateTypeDef(TypedDict):
+    clusterName: str
+    associatedPolicyArn: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListAccessPoliciesRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListAddonsRequestPaginateTypeDef(TypedDict):
+    clusterName: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListAssociatedAccessPoliciesRequestPaginateTypeDef(TypedDict):
+    clusterName: str
+    principalArn: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListClustersRequestPaginateTypeDef(TypedDict):
+    include: NotRequired[Sequence[str]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListEksAnywhereSubscriptionsRequestPaginateTypeDef(TypedDict):
+    includeStatus: NotRequired[Sequence[EksAnywhereSubscriptionStatusType]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListFargateProfilesRequestPaginateTypeDef(TypedDict):
+    clusterName: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListIdentityProviderConfigsRequestPaginateTypeDef(TypedDict):
+    clusterName: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListNodegroupsRequestPaginateTypeDef(TypedDict):
+    clusterName: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListPodIdentityAssociationsRequestPaginateTypeDef(TypedDict):
+    clusterName: str
+    namespace: NotRequired[str]
+    serviceAccount: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListUpdatesRequestPaginateTypeDef(TypedDict):
+    name: str
+    nodegroupName: NotRequired[str]
+    addonName: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeIdentityProviderConfigRequestTypeDef(TypedDict):
+    clusterName: str
+    identityProviderConfig: IdentityProviderConfigTypeDef
+
+class DisassociateIdentityProviderConfigRequestTypeDef(TypedDict):
+    clusterName: str
+    identityProviderConfig: IdentityProviderConfigTypeDef
+    clientRequestToken: NotRequired[str]
+
+class ListIdentityProviderConfigsResponseTypeDef(TypedDict):
+    identityProviderConfigs: List[IdentityProviderConfigTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+EksAnywhereSubscriptionTypeDef = TypedDict(
+    "EksAnywhereSubscriptionTypeDef",
+    {
+        "id": NotRequired[str],
+        "arn": NotRequired[str],
+        "createdAt": NotRequired[datetime],
+        "effectiveDate": NotRequired[datetime],
+        "expirationDate": NotRequired[datetime],
+        "licenseQuantity": NotRequired[int],
+        "licenseType": NotRequired[Literal["Cluster"]],
+        "term": NotRequired[EksAnywhereSubscriptionTermTypeDef],
+        "status": NotRequired[str],
+        "autoRenew": NotRequired[bool],
+        "licenseArns": NotRequired[List[str]],
+        "licenses": NotRequired[List[LicenseTypeDef]],
+        "tags": NotRequired[Dict[str, str]],
+    },
+)
+
+class KubernetesNetworkConfigRequestTypeDef(TypedDict):
+    serviceIpv4Cidr: NotRequired[str]
+    ipFamily: NotRequired[IpFamilyType]
+    elasticLoadBalancing: NotRequired[ElasticLoadBalancingTypeDef]
+
+class KubernetesNetworkConfigResponseTypeDef(TypedDict):
+    serviceIpv4Cidr: NotRequired[str]
+    serviceIpv6Cidr: NotRequired[str]
+    ipFamily: NotRequired[IpFamilyType]
+    elasticLoadBalancing: NotRequired[ElasticLoadBalancingTypeDef]
+
+class EncryptionConfigOutputTypeDef(TypedDict):
+    resources: NotRequired[List[str]]
+    provider: NotRequired[ProviderTypeDef]
+
+class EncryptionConfigTypeDef(TypedDict):
+    resources: NotRequired[Sequence[str]]
+    provider: NotRequired[ProviderTypeDef]
+
+class FargateProfileHealthTypeDef(TypedDict):
+    issues: NotRequired[List[FargateProfileIssueTypeDef]]
+
+FargateProfileSelectorUnionTypeDef = Union[
+    FargateProfileSelectorTypeDef, FargateProfileSelectorOutputTypeDef
+]
+
+class IdentityProviderConfigResponseTypeDef(TypedDict):
+    oidc: NotRequired[OidcIdentityProviderConfigTypeDef]
+
+class IdentityTypeDef(TypedDict):
+    oidc: NotRequired[OIDCTypeDef]
+
+class InsightResourceDetailTypeDef(TypedDict):
+    insightStatus: NotRequired[InsightStatusTypeDef]
+    kubernetesResourceUri: NotRequired[str]
+    arn: NotRequired[str]
+
+InsightSummaryTypeDef = TypedDict(
+    "InsightSummaryTypeDef",
+    {
+        "id": NotRequired[str],
+        "name": NotRequired[str],
+        "category": NotRequired[Literal["UPGRADE_READINESS"]],
+        "kubernetesVersion": NotRequired[str],
+        "lastRefreshTime": NotRequired[datetime],
+        "lastTransitionTime": NotRequired[datetime],
+        "description": NotRequired[str],
+        "insightStatus": NotRequired[InsightStatusTypeDef],
+    },
+)
+ListInsightsRequestPaginateTypeDef = TypedDict(
+    "ListInsightsRequestPaginateTypeDef",
     {
         "clusterName": str,
-        "associationId": str,
+        "filter": NotRequired[InsightsFilterTypeDef],
+        "PaginationConfig": NotRequired[PaginatorConfigTypeDef],
     },
 )
-_OptionalUpdatePodIdentityAssociationRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdatePodIdentityAssociationRequestRequestTypeDef",
+ListInsightsRequestTypeDef = TypedDict(
+    "ListInsightsRequestTypeDef",
     {
-        "roleArn": str,
-        "clientRequestToken": str,
-    },
-    total=False,
-)
-
-class UpdatePodIdentityAssociationRequestRequestTypeDef(
-    _RequiredUpdatePodIdentityAssociationRequestRequestTypeDef,
-    _OptionalUpdatePodIdentityAssociationRequestRequestTypeDef,
-):
-    pass
-
-UpdatePodIdentityAssociationResponseTypeDef = TypedDict(
-    "UpdatePodIdentityAssociationResponseTypeDef",
-    {
-        "association": "PodIdentityAssociationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "clusterName": str,
+        "filter": NotRequired[InsightsFilterTypeDef],
+        "maxResults": NotRequired[int],
+        "nextToken": NotRequired[str],
     },
 )
 
-UpdateTaintsPayloadTypeDef = TypedDict(
-    "UpdateTaintsPayloadTypeDef",
-    {
-        "addOrUpdateTaints": List["TaintTypeDef"],
-        "removeTaints": List["TaintTypeDef"],
-    },
-    total=False,
-)
+class NodegroupHealthTypeDef(TypedDict):
+    issues: NotRequired[List[IssueTypeDef]]
 
+class ListPodIdentityAssociationsResponseTypeDef(TypedDict):
+    associations: List[PodIdentityAssociationSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class LoggingOutputTypeDef(TypedDict):
+    clusterLogging: NotRequired[List[LogSetupOutputTypeDef]]
+
+class LoggingTypeDef(TypedDict):
+    clusterLogging: NotRequired[Sequence[LogSetupTypeDef]]
+
+RemoteAccessConfigUnionTypeDef = Union[RemoteAccessConfigTypeDef, RemoteAccessConfigOutputTypeDef]
+
+class RemoteNetworkConfigResponseTypeDef(TypedDict):
+    remoteNodeNetworks: NotRequired[List[RemoteNodeNetworkOutputTypeDef]]
+    remotePodNetworks: NotRequired[List[RemotePodNetworkOutputTypeDef]]
+
+RemoteNodeNetworkUnionTypeDef = Union[RemoteNodeNetworkTypeDef, RemoteNodeNetworkOutputTypeDef]
+RemotePodNetworkUnionTypeDef = Union[RemotePodNetworkTypeDef, RemotePodNetworkOutputTypeDef]
 UpdateTypeDef = TypedDict(
     "UpdateTypeDef",
     {
-        "id": str,
-        "status": UpdateStatusType,
-        "type": UpdateTypeType,
-        "params": List["UpdateParamTypeDef"],
-        "createdAt": datetime,
-        "errors": List["ErrorDetailTypeDef"],
+        "id": NotRequired[str],
+        "status": NotRequired[UpdateStatusType],
+        "type": NotRequired[UpdateTypeType],
+        "params": NotRequired[List[UpdateParamTypeDef]],
+        "createdAt": NotRequired[datetime],
+        "errors": NotRequired[List[ErrorDetailTypeDef]],
     },
-    total=False,
 )
 
-VpcConfigRequestTypeDef = TypedDict(
-    "VpcConfigRequestTypeDef",
+class AssociateAccessPolicyResponseTypeDef(TypedDict):
+    clusterName: str
+    principalArn: str
+    associatedAccessPolicy: AssociatedAccessPolicyTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListAssociatedAccessPoliciesResponseTypeDef(TypedDict):
+    clusterName: str
+    principalArn: str
+    associatedAccessPolicies: List[AssociatedAccessPolicyTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class AssociateAccessPolicyRequestTypeDef(TypedDict):
+    clusterName: str
+    principalArn: str
+    policyArn: str
+    accessScope: AccessScopeUnionTypeDef
+
+class AddonTypeDef(TypedDict):
+    addonName: NotRequired[str]
+    clusterName: NotRequired[str]
+    status: NotRequired[AddonStatusType]
+    addonVersion: NotRequired[str]
+    health: NotRequired[AddonHealthTypeDef]
+    addonArn: NotRequired[str]
+    createdAt: NotRequired[datetime]
+    modifiedAt: NotRequired[datetime]
+    serviceAccountRoleArn: NotRequired[str]
+    tags: NotRequired[Dict[str, str]]
+    publisher: NotRequired[str]
+    owner: NotRequired[str]
+    marketplaceInformation: NotRequired[MarketplaceInformationTypeDef]
+    configurationValues: NotRequired[str]
+    podIdentityAssociations: NotRequired[List[str]]
+
+AddonInfoTypeDef = TypedDict(
+    "AddonInfoTypeDef",
     {
-        "subnetIds": List[str],
-        "securityGroupIds": List[str],
-        "endpointPublicAccess": bool,
-        "endpointPrivateAccess": bool,
-        "publicAccessCidrs": List[str],
+        "addonName": NotRequired[str],
+        "type": NotRequired[str],
+        "addonVersions": NotRequired[List[AddonVersionInfoTypeDef]],
+        "publisher": NotRequired[str],
+        "owner": NotRequired[str],
+        "marketplaceInformation": NotRequired[MarketplaceInformationTypeDef],
     },
-    total=False,
 )
 
-VpcConfigResponseTypeDef = TypedDict(
-    "VpcConfigResponseTypeDef",
+class InsightCategorySpecificSummaryTypeDef(TypedDict):
+    deprecationDetails: NotRequired[List[DeprecationDetailTypeDef]]
+    addonCompatibilityDetails: NotRequired[List[AddonCompatibilityDetailTypeDef]]
+
+class UpdateNodegroupConfigRequestTypeDef(TypedDict):
+    clusterName: str
+    nodegroupName: str
+    labels: NotRequired[UpdateLabelsPayloadTypeDef]
+    taints: NotRequired[UpdateTaintsPayloadTypeDef]
+    scalingConfig: NotRequired[NodegroupScalingConfigTypeDef]
+    updateConfig: NotRequired[NodegroupUpdateConfigTypeDef]
+    nodeRepairConfig: NotRequired[NodeRepairConfigTypeDef]
+    clientRequestToken: NotRequired[str]
+
+class CreateEksAnywhereSubscriptionResponseTypeDef(TypedDict):
+    subscription: EksAnywhereSubscriptionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteEksAnywhereSubscriptionResponseTypeDef(TypedDict):
+    subscription: EksAnywhereSubscriptionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeEksAnywhereSubscriptionResponseTypeDef(TypedDict):
+    subscription: EksAnywhereSubscriptionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListEksAnywhereSubscriptionsResponseTypeDef(TypedDict):
+    subscriptions: List[EksAnywhereSubscriptionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class UpdateEksAnywhereSubscriptionResponseTypeDef(TypedDict):
+    subscription: EksAnywhereSubscriptionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+EncryptionConfigUnionTypeDef = Union[EncryptionConfigTypeDef, EncryptionConfigOutputTypeDef]
+
+class FargateProfileTypeDef(TypedDict):
+    fargateProfileName: NotRequired[str]
+    fargateProfileArn: NotRequired[str]
+    clusterName: NotRequired[str]
+    createdAt: NotRequired[datetime]
+    podExecutionRoleArn: NotRequired[str]
+    subnets: NotRequired[List[str]]
+    selectors: NotRequired[List[FargateProfileSelectorOutputTypeDef]]
+    status: NotRequired[FargateProfileStatusType]
+    tags: NotRequired[Dict[str, str]]
+    health: NotRequired[FargateProfileHealthTypeDef]
+
+class CreateFargateProfileRequestTypeDef(TypedDict):
+    fargateProfileName: str
+    clusterName: str
+    podExecutionRoleArn: str
+    subnets: NotRequired[Sequence[str]]
+    selectors: NotRequired[Sequence[FargateProfileSelectorUnionTypeDef]]
+    clientRequestToken: NotRequired[str]
+    tags: NotRequired[Mapping[str, str]]
+
+class DescribeIdentityProviderConfigResponseTypeDef(TypedDict):
+    identityProviderConfig: IdentityProviderConfigResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListInsightsResponseTypeDef(TypedDict):
+    insights: List[InsightSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class NodegroupTypeDef(TypedDict):
+    nodegroupName: NotRequired[str]
+    nodegroupArn: NotRequired[str]
+    clusterName: NotRequired[str]
+    version: NotRequired[str]
+    releaseVersion: NotRequired[str]
+    createdAt: NotRequired[datetime]
+    modifiedAt: NotRequired[datetime]
+    status: NotRequired[NodegroupStatusType]
+    capacityType: NotRequired[CapacityTypesType]
+    scalingConfig: NotRequired[NodegroupScalingConfigTypeDef]
+    instanceTypes: NotRequired[List[str]]
+    subnets: NotRequired[List[str]]
+    remoteAccess: NotRequired[RemoteAccessConfigOutputTypeDef]
+    amiType: NotRequired[AMITypesType]
+    nodeRole: NotRequired[str]
+    labels: NotRequired[Dict[str, str]]
+    taints: NotRequired[List[TaintTypeDef]]
+    resources: NotRequired[NodegroupResourcesTypeDef]
+    diskSize: NotRequired[int]
+    health: NotRequired[NodegroupHealthTypeDef]
+    updateConfig: NotRequired[NodegroupUpdateConfigTypeDef]
+    nodeRepairConfig: NotRequired[NodeRepairConfigTypeDef]
+    launchTemplate: NotRequired[LaunchTemplateSpecificationTypeDef]
+    tags: NotRequired[Dict[str, str]]
+
+LoggingUnionTypeDef = Union[LoggingTypeDef, LoggingOutputTypeDef]
+
+class CreateNodegroupRequestTypeDef(TypedDict):
+    clusterName: str
+    nodegroupName: str
+    subnets: Sequence[str]
+    nodeRole: str
+    scalingConfig: NotRequired[NodegroupScalingConfigTypeDef]
+    diskSize: NotRequired[int]
+    instanceTypes: NotRequired[Sequence[str]]
+    amiType: NotRequired[AMITypesType]
+    remoteAccess: NotRequired[RemoteAccessConfigUnionTypeDef]
+    labels: NotRequired[Mapping[str, str]]
+    taints: NotRequired[Sequence[TaintTypeDef]]
+    tags: NotRequired[Mapping[str, str]]
+    clientRequestToken: NotRequired[str]
+    launchTemplate: NotRequired[LaunchTemplateSpecificationTypeDef]
+    updateConfig: NotRequired[NodegroupUpdateConfigTypeDef]
+    nodeRepairConfig: NotRequired[NodeRepairConfigTypeDef]
+    capacityType: NotRequired[CapacityTypesType]
+    version: NotRequired[str]
+    releaseVersion: NotRequired[str]
+
+ClusterTypeDef = TypedDict(
+    "ClusterTypeDef",
     {
-        "subnetIds": List[str],
-        "securityGroupIds": List[str],
-        "clusterSecurityGroupId": str,
-        "vpcId": str,
-        "endpointPublicAccess": bool,
-        "endpointPrivateAccess": bool,
-        "publicAccessCidrs": List[str],
+        "name": NotRequired[str],
+        "arn": NotRequired[str],
+        "createdAt": NotRequired[datetime],
+        "version": NotRequired[str],
+        "endpoint": NotRequired[str],
+        "roleArn": NotRequired[str],
+        "resourcesVpcConfig": NotRequired[VpcConfigResponseTypeDef],
+        "kubernetesNetworkConfig": NotRequired[KubernetesNetworkConfigResponseTypeDef],
+        "logging": NotRequired[LoggingOutputTypeDef],
+        "identity": NotRequired[IdentityTypeDef],
+        "status": NotRequired[ClusterStatusType],
+        "certificateAuthority": NotRequired[CertificateTypeDef],
+        "clientRequestToken": NotRequired[str],
+        "platformVersion": NotRequired[str],
+        "tags": NotRequired[Dict[str, str]],
+        "encryptionConfig": NotRequired[List[EncryptionConfigOutputTypeDef]],
+        "connectorConfig": NotRequired[ConnectorConfigResponseTypeDef],
+        "id": NotRequired[str],
+        "health": NotRequired[ClusterHealthTypeDef],
+        "outpostConfig": NotRequired[OutpostConfigResponseTypeDef],
+        "accessConfig": NotRequired[AccessConfigResponseTypeDef],
+        "upgradePolicy": NotRequired[UpgradePolicyResponseTypeDef],
+        "zonalShiftConfig": NotRequired[ZonalShiftConfigResponseTypeDef],
+        "remoteNetworkConfig": NotRequired[RemoteNetworkConfigResponseTypeDef],
+        "computeConfig": NotRequired[ComputeConfigResponseTypeDef],
+        "storageConfig": NotRequired[StorageConfigResponseTypeDef],
     },
-    total=False,
 )
 
-WaiterConfigTypeDef = TypedDict(
-    "WaiterConfigTypeDef",
+class RemoteNetworkConfigRequestTypeDef(TypedDict):
+    remoteNodeNetworks: NotRequired[Sequence[RemoteNodeNetworkUnionTypeDef]]
+    remotePodNetworks: NotRequired[Sequence[RemotePodNetworkUnionTypeDef]]
+
+class AssociateEncryptionConfigResponseTypeDef(TypedDict):
+    update: UpdateTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class AssociateIdentityProviderConfigResponseTypeDef(TypedDict):
+    update: UpdateTypeDef
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeUpdateResponseTypeDef(TypedDict):
+    update: UpdateTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DisassociateIdentityProviderConfigResponseTypeDef(TypedDict):
+    update: UpdateTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateAddonResponseTypeDef(TypedDict):
+    update: UpdateTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateClusterConfigResponseTypeDef(TypedDict):
+    update: UpdateTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateClusterVersionResponseTypeDef(TypedDict):
+    update: UpdateTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateNodegroupConfigResponseTypeDef(TypedDict):
+    update: UpdateTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateNodegroupVersionResponseTypeDef(TypedDict):
+    update: UpdateTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateAddonResponseTypeDef(TypedDict):
+    addon: AddonTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteAddonResponseTypeDef(TypedDict):
+    addon: AddonTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeAddonResponseTypeDef(TypedDict):
+    addon: AddonTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeAddonVersionsResponseTypeDef(TypedDict):
+    addons: List[AddonInfoTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+InsightTypeDef = TypedDict(
+    "InsightTypeDef",
     {
-        "Delay": int,
-        "MaxAttempts": int,
+        "id": NotRequired[str],
+        "name": NotRequired[str],
+        "category": NotRequired[Literal["UPGRADE_READINESS"]],
+        "kubernetesVersion": NotRequired[str],
+        "lastRefreshTime": NotRequired[datetime],
+        "lastTransitionTime": NotRequired[datetime],
+        "description": NotRequired[str],
+        "insightStatus": NotRequired[InsightStatusTypeDef],
+        "recommendation": NotRequired[str],
+        "additionalInfo": NotRequired[Dict[str, str]],
+        "resources": NotRequired[List[InsightResourceDetailTypeDef]],
+        "categorySpecificSummary": NotRequired[InsightCategorySpecificSummaryTypeDef],
     },
-    total=False,
 )
+
+class AssociateEncryptionConfigRequestTypeDef(TypedDict):
+    clusterName: str
+    encryptionConfig: Sequence[EncryptionConfigUnionTypeDef]
+    clientRequestToken: NotRequired[str]
+
+class CreateFargateProfileResponseTypeDef(TypedDict):
+    fargateProfile: FargateProfileTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteFargateProfileResponseTypeDef(TypedDict):
+    fargateProfile: FargateProfileTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeFargateProfileResponseTypeDef(TypedDict):
+    fargateProfile: FargateProfileTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateNodegroupResponseTypeDef(TypedDict):
+    nodegroup: NodegroupTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteNodegroupResponseTypeDef(TypedDict):
+    nodegroup: NodegroupTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeNodegroupResponseTypeDef(TypedDict):
+    nodegroup: NodegroupTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateClusterResponseTypeDef(TypedDict):
+    cluster: ClusterTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteClusterResponseTypeDef(TypedDict):
+    cluster: ClusterTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeregisterClusterResponseTypeDef(TypedDict):
+    cluster: ClusterTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeClusterResponseTypeDef(TypedDict):
+    cluster: ClusterTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class RegisterClusterResponseTypeDef(TypedDict):
+    cluster: ClusterTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateClusterRequestTypeDef(TypedDict):
+    name: str
+    roleArn: str
+    resourcesVpcConfig: VpcConfigRequestTypeDef
+    version: NotRequired[str]
+    kubernetesNetworkConfig: NotRequired[KubernetesNetworkConfigRequestTypeDef]
+    logging: NotRequired[LoggingUnionTypeDef]
+    clientRequestToken: NotRequired[str]
+    tags: NotRequired[Mapping[str, str]]
+    encryptionConfig: NotRequired[Sequence[EncryptionConfigUnionTypeDef]]
+    outpostConfig: NotRequired[OutpostConfigRequestTypeDef]
+    accessConfig: NotRequired[CreateAccessConfigRequestTypeDef]
+    bootstrapSelfManagedAddons: NotRequired[bool]
+    upgradePolicy: NotRequired[UpgradePolicyRequestTypeDef]
+    zonalShiftConfig: NotRequired[ZonalShiftConfigRequestTypeDef]
+    remoteNetworkConfig: NotRequired[RemoteNetworkConfigRequestTypeDef]
+    computeConfig: NotRequired[ComputeConfigRequestTypeDef]
+    storageConfig: NotRequired[StorageConfigRequestTypeDef]
+
+class UpdateClusterConfigRequestTypeDef(TypedDict):
+    name: str
+    resourcesVpcConfig: NotRequired[VpcConfigRequestTypeDef]
+    logging: NotRequired[LoggingUnionTypeDef]
+    clientRequestToken: NotRequired[str]
+    accessConfig: NotRequired[UpdateAccessConfigRequestTypeDef]
+    upgradePolicy: NotRequired[UpgradePolicyRequestTypeDef]
+    zonalShiftConfig: NotRequired[ZonalShiftConfigRequestTypeDef]
+    computeConfig: NotRequired[ComputeConfigRequestTypeDef]
+    kubernetesNetworkConfig: NotRequired[KubernetesNetworkConfigRequestTypeDef]
+    storageConfig: NotRequired[StorageConfigRequestTypeDef]
+    remoteNetworkConfig: NotRequired[RemoteNetworkConfigRequestTypeDef]
+
+class DescribeInsightResponseTypeDef(TypedDict):
+    insight: InsightTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef

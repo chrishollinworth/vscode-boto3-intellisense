@@ -1,14 +1,16 @@
 """
 Type annotations for finspace-data service client paginators.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/paginators.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/paginators/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
 
-    from mypy_boto3_finspace_data import FinSpaceDataClient
+    from mypy_boto3_finspace_data.client import FinSpaceDataClient
     from mypy_boto3_finspace_data.paginator import (
         ListChangesetsPaginator,
         ListDataViewsPaginator,
@@ -17,7 +19,8 @@ Usage::
         ListUsersPaginator,
     )
 
-    client: FinSpaceDataClient = boto3.client("finspace-data")
+    session = Session()
+    client: FinSpaceDataClient = session.client("finspace-data")
 
     list_changesets_paginator: ListChangesetsPaginator = client.get_paginator("list_changesets")
     list_data_views_paginator: ListDataViewsPaginator = client.get_paginator("list_data_views")
@@ -27,18 +30,30 @@ Usage::
     ```
 """
 
-from typing import Iterator
+from __future__ import annotations
 
-from botocore.paginate import Paginator as Boto3Paginator
+import sys
+from typing import TYPE_CHECKING
+
+from botocore.paginate import PageIterator, Paginator
 
 from .type_defs import (
+    ListChangesetsRequestPaginateTypeDef,
     ListChangesetsResponseTypeDef,
+    ListDatasetsRequestPaginateTypeDef,
     ListDatasetsResponseTypeDef,
+    ListDataViewsRequestPaginateTypeDef,
     ListDataViewsResponseTypeDef,
+    ListPermissionGroupsRequestPaginateTypeDef,
     ListPermissionGroupsResponseTypeDef,
+    ListUsersRequestPaginateTypeDef,
     ListUsersResponseTypeDef,
-    PaginatorConfigTypeDef,
 )
+
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = (
     "ListChangesetsPaginator",
@@ -48,72 +63,92 @@ __all__ = (
     "ListUsersPaginator",
 )
 
-class ListChangesetsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace-data.html#FinSpaceData.Paginator.ListChangesets)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/paginators.html#listchangesetspaginator)
-    """
+if TYPE_CHECKING:
+    _ListChangesetsPaginatorBase = Paginator[ListChangesetsResponseTypeDef]
+else:
+    _ListChangesetsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, datasetId: str, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListChangesetsResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace-data.html#FinSpaceData.Paginator.ListChangesets.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/paginators.html#listchangesetspaginator)
-        """
-
-class ListDataViewsPaginator(Boto3Paginator):
+class ListChangesetsPaginator(_ListChangesetsPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace-data.html#FinSpaceData.Paginator.ListDataViews)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/paginators.html#listdataviewspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/finspace-data/paginator/ListChangesets.html#FinSpaceData.Paginator.ListChangesets)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/paginators/#listchangesetspaginator)
     """
-
-    def paginate(
-        self, *, datasetId: str, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListDataViewsResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListChangesetsRequestPaginateTypeDef]
+    ) -> PageIterator[ListChangesetsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace-data.html#FinSpaceData.Paginator.ListDataViews.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/paginators.html#listdataviewspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/finspace-data/paginator/ListChangesets.html#FinSpaceData.Paginator.ListChangesets.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/paginators/#listchangesetspaginator)
         """
 
-class ListDatasetsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace-data.html#FinSpaceData.Paginator.ListDatasets)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/paginators.html#listdatasetspaginator)
-    """
+if TYPE_CHECKING:
+    _ListDataViewsPaginatorBase = Paginator[ListDataViewsResponseTypeDef]
+else:
+    _ListDataViewsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListDatasetsResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace-data.html#FinSpaceData.Paginator.ListDatasets.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/paginators.html#listdatasetspaginator)
-        """
-
-class ListPermissionGroupsPaginator(Boto3Paginator):
+class ListDataViewsPaginator(_ListDataViewsPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace-data.html#FinSpaceData.Paginator.ListPermissionGroups)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/paginators.html#listpermissiongroupspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/finspace-data/paginator/ListDataViews.html#FinSpaceData.Paginator.ListDataViews)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/paginators/#listdataviewspaginator)
     """
-
-    def paginate(
-        self, *, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListPermissionGroupsResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListDataViewsRequestPaginateTypeDef]
+    ) -> PageIterator[ListDataViewsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace-data.html#FinSpaceData.Paginator.ListPermissionGroups.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/paginators.html#listpermissiongroupspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/finspace-data/paginator/ListDataViews.html#FinSpaceData.Paginator.ListDataViews.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/paginators/#listdataviewspaginator)
         """
 
-class ListUsersPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace-data.html#FinSpaceData.Paginator.ListUsers)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/paginators.html#listuserspaginator)
-    """
+if TYPE_CHECKING:
+    _ListDatasetsPaginatorBase = Paginator[ListDatasetsResponseTypeDef]
+else:
+    _ListDatasetsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListUsersResponseTypeDef]:
+class ListDatasetsPaginator(_ListDatasetsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/finspace-data/paginator/ListDatasets.html#FinSpaceData.Paginator.ListDatasets)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/paginators/#listdatasetspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListDatasetsRequestPaginateTypeDef]
+    ) -> PageIterator[ListDatasetsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace-data.html#FinSpaceData.Paginator.ListUsers.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/paginators.html#listuserspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/finspace-data/paginator/ListDatasets.html#FinSpaceData.Paginator.ListDatasets.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/paginators/#listdatasetspaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListPermissionGroupsPaginatorBase = Paginator[ListPermissionGroupsResponseTypeDef]
+else:
+    _ListPermissionGroupsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListPermissionGroupsPaginator(_ListPermissionGroupsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/finspace-data/paginator/ListPermissionGroups.html#FinSpaceData.Paginator.ListPermissionGroups)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/paginators/#listpermissiongroupspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListPermissionGroupsRequestPaginateTypeDef]
+    ) -> PageIterator[ListPermissionGroupsResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/finspace-data/paginator/ListPermissionGroups.html#FinSpaceData.Paginator.ListPermissionGroups.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/paginators/#listpermissiongroupspaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListUsersPaginatorBase = Paginator[ListUsersResponseTypeDef]
+else:
+    _ListUsersPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListUsersPaginator(_ListUsersPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/finspace-data/paginator/ListUsers.html#FinSpaceData.Paginator.ListUsers)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/paginators/#listuserspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListUsersRequestPaginateTypeDef]
+    ) -> PageIterator[ListUsersResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/finspace-data/paginator/ListUsers.html#FinSpaceData.Paginator.ListUsers.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/paginators/#listuserspaginator)
         """

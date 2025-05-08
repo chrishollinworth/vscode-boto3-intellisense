@@ -1,31 +1,33 @@
 """
-Type annotations for eks service client.
+Type annotations for eks service Client.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks/client/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
-    from mypy_boto3_eks import EKSClient
+    from boto3.session import Session
+    from mypy_boto3_eks.client import EKSClient
 
-    client: EKSClient = boto3.client("eks")
+    session = Session()
+    client: EKSClient = session.client("eks")
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from typing import Any, Dict, List, Type, overload
+from typing import Any, overload
 
 from botocore.client import BaseClient, ClientMeta
+from botocore.errorfactory import BaseClientExceptions
+from botocore.exceptions import ClientError as BotocoreClientError
 
-from .literals import (
-    AMITypesType,
-    CapacityTypesType,
-    EksAnywhereSubscriptionStatusType,
-    ResolveConflictsType,
-)
 from .paginator import (
     DescribeAddonVersionsPaginator,
+    DescribeClusterVersionsPaginator,
     ListAccessEntriesPaginator,
     ListAccessPoliciesPaginator,
     ListAddonsPaginator,
@@ -40,80 +42,116 @@ from .paginator import (
     ListUpdatesPaginator,
 )
 from .type_defs import (
-    AccessScopeTypeDef,
-    AddonPodIdentityAssociationsTypeDef,
+    AssociateAccessPolicyRequestTypeDef,
     AssociateAccessPolicyResponseTypeDef,
+    AssociateEncryptionConfigRequestTypeDef,
     AssociateEncryptionConfigResponseTypeDef,
+    AssociateIdentityProviderConfigRequestTypeDef,
     AssociateIdentityProviderConfigResponseTypeDef,
-    ConnectorConfigRequestTypeDef,
-    CreateAccessConfigRequestTypeDef,
+    CreateAccessEntryRequestTypeDef,
     CreateAccessEntryResponseTypeDef,
+    CreateAddonRequestTypeDef,
     CreateAddonResponseTypeDef,
+    CreateClusterRequestTypeDef,
     CreateClusterResponseTypeDef,
+    CreateEksAnywhereSubscriptionRequestTypeDef,
     CreateEksAnywhereSubscriptionResponseTypeDef,
+    CreateFargateProfileRequestTypeDef,
     CreateFargateProfileResponseTypeDef,
+    CreateNodegroupRequestTypeDef,
     CreateNodegroupResponseTypeDef,
+    CreatePodIdentityAssociationRequestTypeDef,
     CreatePodIdentityAssociationResponseTypeDef,
+    DeleteAccessEntryRequestTypeDef,
+    DeleteAddonRequestTypeDef,
     DeleteAddonResponseTypeDef,
+    DeleteClusterRequestTypeDef,
     DeleteClusterResponseTypeDef,
+    DeleteEksAnywhereSubscriptionRequestTypeDef,
     DeleteEksAnywhereSubscriptionResponseTypeDef,
+    DeleteFargateProfileRequestTypeDef,
     DeleteFargateProfileResponseTypeDef,
+    DeleteNodegroupRequestTypeDef,
     DeleteNodegroupResponseTypeDef,
+    DeletePodIdentityAssociationRequestTypeDef,
     DeletePodIdentityAssociationResponseTypeDef,
+    DeregisterClusterRequestTypeDef,
     DeregisterClusterResponseTypeDef,
+    DescribeAccessEntryRequestTypeDef,
     DescribeAccessEntryResponseTypeDef,
+    DescribeAddonConfigurationRequestTypeDef,
     DescribeAddonConfigurationResponseTypeDef,
+    DescribeAddonRequestTypeDef,
     DescribeAddonResponseTypeDef,
+    DescribeAddonVersionsRequestTypeDef,
     DescribeAddonVersionsResponseTypeDef,
+    DescribeClusterRequestTypeDef,
     DescribeClusterResponseTypeDef,
+    DescribeClusterVersionsRequestTypeDef,
+    DescribeClusterVersionsResponseTypeDef,
+    DescribeEksAnywhereSubscriptionRequestTypeDef,
     DescribeEksAnywhereSubscriptionResponseTypeDef,
+    DescribeFargateProfileRequestTypeDef,
     DescribeFargateProfileResponseTypeDef,
+    DescribeIdentityProviderConfigRequestTypeDef,
     DescribeIdentityProviderConfigResponseTypeDef,
+    DescribeInsightRequestTypeDef,
     DescribeInsightResponseTypeDef,
+    DescribeNodegroupRequestTypeDef,
     DescribeNodegroupResponseTypeDef,
+    DescribePodIdentityAssociationRequestTypeDef,
     DescribePodIdentityAssociationResponseTypeDef,
+    DescribeUpdateRequestTypeDef,
     DescribeUpdateResponseTypeDef,
+    DisassociateAccessPolicyRequestTypeDef,
+    DisassociateIdentityProviderConfigRequestTypeDef,
     DisassociateIdentityProviderConfigResponseTypeDef,
-    EksAnywhereSubscriptionTermTypeDef,
-    EncryptionConfigTypeDef,
-    FargateProfileSelectorTypeDef,
-    IdentityProviderConfigTypeDef,
-    InsightsFilterTypeDef,
-    KubernetesNetworkConfigRequestTypeDef,
-    LaunchTemplateSpecificationTypeDef,
+    ListAccessEntriesRequestTypeDef,
     ListAccessEntriesResponseTypeDef,
+    ListAccessPoliciesRequestTypeDef,
     ListAccessPoliciesResponseTypeDef,
+    ListAddonsRequestTypeDef,
     ListAddonsResponseTypeDef,
+    ListAssociatedAccessPoliciesRequestTypeDef,
     ListAssociatedAccessPoliciesResponseTypeDef,
+    ListClustersRequestTypeDef,
     ListClustersResponseTypeDef,
+    ListEksAnywhereSubscriptionsRequestTypeDef,
     ListEksAnywhereSubscriptionsResponseTypeDef,
+    ListFargateProfilesRequestTypeDef,
     ListFargateProfilesResponseTypeDef,
+    ListIdentityProviderConfigsRequestTypeDef,
     ListIdentityProviderConfigsResponseTypeDef,
+    ListInsightsRequestTypeDef,
     ListInsightsResponseTypeDef,
+    ListNodegroupsRequestTypeDef,
     ListNodegroupsResponseTypeDef,
+    ListPodIdentityAssociationsRequestTypeDef,
     ListPodIdentityAssociationsResponseTypeDef,
+    ListTagsForResourceRequestTypeDef,
     ListTagsForResourceResponseTypeDef,
+    ListUpdatesRequestTypeDef,
     ListUpdatesResponseTypeDef,
-    LoggingTypeDef,
-    NodegroupScalingConfigTypeDef,
-    NodegroupUpdateConfigTypeDef,
-    OidcIdentityProviderConfigRequestTypeDef,
-    OutpostConfigRequestTypeDef,
+    RegisterClusterRequestTypeDef,
     RegisterClusterResponseTypeDef,
-    RemoteAccessConfigTypeDef,
-    TaintTypeDef,
-    UpdateAccessConfigRequestTypeDef,
+    TagResourceRequestTypeDef,
+    UntagResourceRequestTypeDef,
+    UpdateAccessEntryRequestTypeDef,
     UpdateAccessEntryResponseTypeDef,
+    UpdateAddonRequestTypeDef,
     UpdateAddonResponseTypeDef,
+    UpdateClusterConfigRequestTypeDef,
     UpdateClusterConfigResponseTypeDef,
+    UpdateClusterVersionRequestTypeDef,
     UpdateClusterVersionResponseTypeDef,
+    UpdateEksAnywhereSubscriptionRequestTypeDef,
     UpdateEksAnywhereSubscriptionResponseTypeDef,
-    UpdateLabelsPayloadTypeDef,
+    UpdateNodegroupConfigRequestTypeDef,
     UpdateNodegroupConfigResponseTypeDef,
+    UpdateNodegroupVersionRequestTypeDef,
     UpdateNodegroupVersionResponseTypeDef,
+    UpdatePodIdentityAssociationRequestTypeDef,
     UpdatePodIdentityAssociationResponseTypeDef,
-    UpdateTaintsPayloadTypeDef,
-    VpcConfigRequestTypeDef,
 )
 from .waiter import (
     AddonActiveWaiter,
@@ -126,27 +164,27 @@ from .waiter import (
     NodegroupDeletedWaiter,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import type as Type
+    from collections.abc import Mapping
 else:
-    from typing_extensions import Literal
+    from typing import Dict, Mapping, Type
+if sys.version_info >= (3, 12):
+    from typing import Literal, Unpack
+else:
+    from typing_extensions import Literal, Unpack
 
 __all__ = ("EKSClient",)
 
-class BotocoreClientError(BaseException):
-    MSG_TEMPLATE: str
-
-    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
-        self.response: Dict[str, Any]
-        self.operation_name: str
-
-class Exceptions:
+class Exceptions(BaseClientExceptions):
     AccessDeniedException: Type[BotocoreClientError]
     BadRequestException: Type[BotocoreClientError]
     ClientError: Type[BotocoreClientError]
     ClientException: Type[BotocoreClientError]
     InvalidParameterException: Type[BotocoreClientError]
     InvalidRequestException: Type[BotocoreClientError]
+    InvalidStateException: Type[BotocoreClientError]
     NotFoundException: Type[BotocoreClientError]
     ResourceInUseException: Type[BotocoreClientError]
     ResourceLimitExceededException: Type[BotocoreClientError]
@@ -154,12 +192,13 @@ class Exceptions:
     ResourcePropagationDelayException: Type[BotocoreClientError]
     ServerException: Type[BotocoreClientError]
     ServiceUnavailableException: Type[BotocoreClientError]
+    ThrottlingException: Type[BotocoreClientError]
     UnsupportedAvailabilityZoneException: Type[BotocoreClientError]
 
 class EKSClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks.html#EKS.Client)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks/client/)
     """
 
     meta: ClientMeta
@@ -168,922 +207,838 @@ class EKSClient(BaseClient):
     def exceptions(self) -> Exceptions:
         """
         EKSClient exceptions.
-        """
 
-    def associate_access_policy(
-        self,
-        *,
-        clusterName: str,
-        principalArn: str,
-        policyArn: str,
-        accessScope: "AccessScopeTypeDef"
-    ) -> AssociateAccessPolicyResponseTypeDef:
-        """
-        Associates an access policy and its scope to an access entry.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.associate_access_policy)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#associate_access_policy)
-        """
-
-    def associate_encryption_config(
-        self,
-        *,
-        clusterName: str,
-        encryptionConfig: List["EncryptionConfigTypeDef"],
-        clientRequestToken: str = None
-    ) -> AssociateEncryptionConfigResponseTypeDef:
-        """
-        Associates an encryption configuration to an existing cluster.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.associate_encryption_config)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#associate_encryption_config)
-        """
-
-    def associate_identity_provider_config(
-        self,
-        *,
-        clusterName: str,
-        oidc: "OidcIdentityProviderConfigRequestTypeDef",
-        tags: Dict[str, str] = None,
-        clientRequestToken: str = None
-    ) -> AssociateIdentityProviderConfigResponseTypeDef:
-        """
-        Associates an identity provider configuration to a cluster.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.associate_identity_provider_config)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#associate_identity_provider_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks.html#EKS.Client)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks/client/#exceptions)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        Check if an operation can be paginated.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.can_paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#can_paginate)
-        """
-
-    def close(self) -> None:
-        """
-        Closes underlying endpoint connections.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.close)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#close)
-        """
-
-    def create_access_entry(
-        self,
-        *,
-        clusterName: str,
-        principalArn: str,
-        kubernetesGroups: List[str] = None,
-        tags: Dict[str, str] = None,
-        clientRequestToken: str = None,
-        username: str = None,
-        type: str = None
-    ) -> CreateAccessEntryResponseTypeDef:
-        """
-        Creates an access entry.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.create_access_entry)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#create_access_entry)
-        """
-
-    def create_addon(
-        self,
-        *,
-        clusterName: str,
-        addonName: str,
-        addonVersion: str = None,
-        serviceAccountRoleArn: str = None,
-        resolveConflicts: ResolveConflictsType = None,
-        clientRequestToken: str = None,
-        tags: Dict[str, str] = None,
-        configurationValues: str = None,
-        podIdentityAssociations: List["AddonPodIdentityAssociationsTypeDef"] = None
-    ) -> CreateAddonResponseTypeDef:
-        """
-        Creates an Amazon EKS add-on.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.create_addon)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#create_addon)
-        """
-
-    def create_cluster(
-        self,
-        *,
-        name: str,
-        roleArn: str,
-        resourcesVpcConfig: "VpcConfigRequestTypeDef",
-        version: str = None,
-        kubernetesNetworkConfig: "KubernetesNetworkConfigRequestTypeDef" = None,
-        logging: "LoggingTypeDef" = None,
-        clientRequestToken: str = None,
-        tags: Dict[str, str] = None,
-        encryptionConfig: List["EncryptionConfigTypeDef"] = None,
-        outpostConfig: "OutpostConfigRequestTypeDef" = None,
-        accessConfig: "CreateAccessConfigRequestTypeDef" = None,
-        bootstrapSelfManagedAddons: bool = None
-    ) -> CreateClusterResponseTypeDef:
-        """
-        Creates an Amazon EKS control plane.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.create_cluster)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#create_cluster)
-        """
-
-    def create_eks_anywhere_subscription(
-        self,
-        *,
-        name: str,
-        term: "EksAnywhereSubscriptionTermTypeDef",
-        licenseQuantity: int = None,
-        licenseType: Literal["Cluster"] = None,
-        autoRenew: bool = None,
-        clientRequestToken: str = None,
-        tags: Dict[str, str] = None
-    ) -> CreateEksAnywhereSubscriptionResponseTypeDef:
-        """
-        Creates an EKS Anywhere subscription.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.create_eks_anywhere_subscription)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#create_eks_anywhere_subscription)
-        """
-
-    def create_fargate_profile(
-        self,
-        *,
-        fargateProfileName: str,
-        clusterName: str,
-        podExecutionRoleArn: str,
-        subnets: List[str] = None,
-        selectors: List["FargateProfileSelectorTypeDef"] = None,
-        clientRequestToken: str = None,
-        tags: Dict[str, str] = None
-    ) -> CreateFargateProfileResponseTypeDef:
-        """
-        Creates an Fargate profile for your Amazon EKS cluster.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.create_fargate_profile)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#create_fargate_profile)
-        """
-
-    def create_nodegroup(
-        self,
-        *,
-        clusterName: str,
-        nodegroupName: str,
-        subnets: List[str],
-        nodeRole: str,
-        scalingConfig: "NodegroupScalingConfigTypeDef" = None,
-        diskSize: int = None,
-        instanceTypes: List[str] = None,
-        amiType: AMITypesType = None,
-        remoteAccess: "RemoteAccessConfigTypeDef" = None,
-        labels: Dict[str, str] = None,
-        taints: List["TaintTypeDef"] = None,
-        tags: Dict[str, str] = None,
-        clientRequestToken: str = None,
-        launchTemplate: "LaunchTemplateSpecificationTypeDef" = None,
-        updateConfig: "NodegroupUpdateConfigTypeDef" = None,
-        capacityType: CapacityTypesType = None,
-        version: str = None,
-        releaseVersion: str = None
-    ) -> CreateNodegroupResponseTypeDef:
-        """
-        Creates a managed node group for an Amazon EKS cluster.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.create_nodegroup)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#create_nodegroup)
-        """
-
-    def create_pod_identity_association(
-        self,
-        *,
-        clusterName: str,
-        namespace: str,
-        serviceAccount: str,
-        roleArn: str,
-        clientRequestToken: str = None,
-        tags: Dict[str, str] = None
-    ) -> CreatePodIdentityAssociationResponseTypeDef:
-        """
-        Creates an EKS Pod Identity association between a service account in an Amazon
-        EKS cluster and an IAM role with *EKS Pod Identity*.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.create_pod_identity_association)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#create_pod_identity_association)
-        """
-
-    def delete_access_entry(self, *, clusterName: str, principalArn: str) -> Dict[str, Any]:
-        """
-        Deletes an access entry.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.delete_access_entry)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#delete_access_entry)
-        """
-
-    def delete_addon(
-        self, *, clusterName: str, addonName: str, preserve: bool = None
-    ) -> DeleteAddonResponseTypeDef:
-        """
-        Deletes an Amazon EKS add-on.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.delete_addon)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#delete_addon)
-        """
-
-    def delete_cluster(self, *, name: str) -> DeleteClusterResponseTypeDef:
-        """
-        Deletes an Amazon EKS cluster control plane.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.delete_cluster)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#delete_cluster)
-        """
-
-    def delete_eks_anywhere_subscription(
-        self, *, id: str
-    ) -> DeleteEksAnywhereSubscriptionResponseTypeDef:
-        """
-        Deletes an expired or inactive subscription.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.delete_eks_anywhere_subscription)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#delete_eks_anywhere_subscription)
-        """
-
-    def delete_fargate_profile(
-        self, *, clusterName: str, fargateProfileName: str
-    ) -> DeleteFargateProfileResponseTypeDef:
-        """
-        Deletes an Fargate profile.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.delete_fargate_profile)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#delete_fargate_profile)
-        """
-
-    def delete_nodegroup(
-        self, *, clusterName: str, nodegroupName: str
-    ) -> DeleteNodegroupResponseTypeDef:
-        """
-        Deletes a managed node group.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.delete_nodegroup)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#delete_nodegroup)
-        """
-
-    def delete_pod_identity_association(
-        self, *, clusterName: str, associationId: str
-    ) -> DeletePodIdentityAssociationResponseTypeDef:
-        """
-        Deletes a EKS Pod Identity association.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.delete_pod_identity_association)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#delete_pod_identity_association)
-        """
-
-    def deregister_cluster(self, *, name: str) -> DeregisterClusterResponseTypeDef:
-        """
-        Deregisters a connected cluster to remove it from the Amazon EKS control plane.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.deregister_cluster)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#deregister_cluster)
-        """
-
-    def describe_access_entry(
-        self, *, clusterName: str, principalArn: str
-    ) -> DescribeAccessEntryResponseTypeDef:
-        """
-        Describes an access entry.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.describe_access_entry)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#describe_access_entry)
-        """
-
-    def describe_addon(self, *, clusterName: str, addonName: str) -> DescribeAddonResponseTypeDef:
-        """
-        Describes an Amazon EKS add-on.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.describe_addon)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#describe_addon)
-        """
-
-    def describe_addon_configuration(
-        self, *, addonName: str, addonVersion: str
-    ) -> DescribeAddonConfigurationResponseTypeDef:
-        """
-        Returns configuration options.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.describe_addon_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#describe_addon_configuration)
-        """
-
-    def describe_addon_versions(
-        self,
-        *,
-        kubernetesVersion: str = None,
-        maxResults: int = None,
-        nextToken: str = None,
-        addonName: str = None,
-        types: List[str] = None,
-        publishers: List[str] = None,
-        owners: List[str] = None
-    ) -> DescribeAddonVersionsResponseTypeDef:
-        """
-        Describes the versions for an add-on.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.describe_addon_versions)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#describe_addon_versions)
-        """
-
-    def describe_cluster(self, *, name: str) -> DescribeClusterResponseTypeDef:
-        """
-        Describes an Amazon EKS cluster.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.describe_cluster)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#describe_cluster)
-        """
-
-    def describe_eks_anywhere_subscription(
-        self, *, id: str
-    ) -> DescribeEksAnywhereSubscriptionResponseTypeDef:
-        """
-        Returns descriptive information about a subscription.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.describe_eks_anywhere_subscription)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#describe_eks_anywhere_subscription)
-        """
-
-    def describe_fargate_profile(
-        self, *, clusterName: str, fargateProfileName: str
-    ) -> DescribeFargateProfileResponseTypeDef:
-        """
-        Describes an Fargate profile.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.describe_fargate_profile)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#describe_fargate_profile)
-        """
-
-    def describe_identity_provider_config(
-        self, *, clusterName: str, identityProviderConfig: "IdentityProviderConfigTypeDef"
-    ) -> DescribeIdentityProviderConfigResponseTypeDef:
-        """
-        Describes an identity provider configuration.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.describe_identity_provider_config)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#describe_identity_provider_config)
-        """
-
-    def describe_insight(self, *, clusterName: str, id: str) -> DescribeInsightResponseTypeDef:
-        """
-        Returns details about an insight that you specify using its ID.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.describe_insight)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#describe_insight)
-        """
-
-    def describe_nodegroup(
-        self, *, clusterName: str, nodegroupName: str
-    ) -> DescribeNodegroupResponseTypeDef:
-        """
-        Describes a managed node group.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.describe_nodegroup)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#describe_nodegroup)
-        """
-
-    def describe_pod_identity_association(
-        self, *, clusterName: str, associationId: str
-    ) -> DescribePodIdentityAssociationResponseTypeDef:
-        """
-        Returns descriptive information about an EKS Pod Identity association.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.describe_pod_identity_association)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#describe_pod_identity_association)
-        """
-
-    def describe_update(
-        self, *, name: str, updateId: str, nodegroupName: str = None, addonName: str = None
-    ) -> DescribeUpdateResponseTypeDef:
-        """
-        Describes an update to an Amazon EKS resource.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.describe_update)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#describe_update)
-        """
-
-    def disassociate_access_policy(
-        self, *, clusterName: str, principalArn: str, policyArn: str
-    ) -> Dict[str, Any]:
-        """
-        Disassociates an access policy from an access entry.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.disassociate_access_policy)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#disassociate_access_policy)
-        """
-
-    def disassociate_identity_provider_config(
-        self,
-        *,
-        clusterName: str,
-        identityProviderConfig: "IdentityProviderConfigTypeDef",
-        clientRequestToken: str = None
-    ) -> DisassociateIdentityProviderConfigResponseTypeDef:
-        """
-        Disassociates an identity provider configuration from a cluster.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.disassociate_identity_provider_config)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#disassociate_identity_provider_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks/client/can_paginate.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks/client/#can_paginate)
         """
 
     def generate_presigned_url(
         self,
         ClientMethod: str,
-        Params: Dict[str, Any] = None,
+        Params: Mapping[str, Any] = ...,
         ExpiresIn: int = 3600,
-        HttpMethod: str = None,
+        HttpMethod: str = ...,
     ) -> str:
         """
-        Generate a presigned url given a client, its method, and arguments.
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks/client/generate_presigned_url.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks/client/#generate_presigned_url)
+        """
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.generate_presigned_url)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#generate_presigned_url)
+    def associate_access_policy(
+        self, **kwargs: Unpack[AssociateAccessPolicyRequestTypeDef]
+    ) -> AssociateAccessPolicyResponseTypeDef:
+        """
+        Associates an access policy and its scope to an access entry.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks/client/associate_access_policy.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks/client/#associate_access_policy)
+        """
+
+    def associate_encryption_config(
+        self, **kwargs: Unpack[AssociateEncryptionConfigRequestTypeDef]
+    ) -> AssociateEncryptionConfigResponseTypeDef:
+        """
+        Associates an encryption configuration to an existing cluster.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks/client/associate_encryption_config.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks/client/#associate_encryption_config)
+        """
+
+    def associate_identity_provider_config(
+        self, **kwargs: Unpack[AssociateIdentityProviderConfigRequestTypeDef]
+    ) -> AssociateIdentityProviderConfigResponseTypeDef:
+        """
+        Associates an identity provider configuration to a cluster.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks/client/associate_identity_provider_config.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks/client/#associate_identity_provider_config)
+        """
+
+    def create_access_entry(
+        self, **kwargs: Unpack[CreateAccessEntryRequestTypeDef]
+    ) -> CreateAccessEntryResponseTypeDef:
+        """
+        Creates an access entry.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks/client/create_access_entry.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks/client/#create_access_entry)
+        """
+
+    def create_addon(
+        self, **kwargs: Unpack[CreateAddonRequestTypeDef]
+    ) -> CreateAddonResponseTypeDef:
+        """
+        Creates an Amazon EKS add-on.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks/client/create_addon.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks/client/#create_addon)
+        """
+
+    def create_cluster(
+        self, **kwargs: Unpack[CreateClusterRequestTypeDef]
+    ) -> CreateClusterResponseTypeDef:
+        """
+        Creates an Amazon EKS control plane.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks/client/create_cluster.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks/client/#create_cluster)
+        """
+
+    def create_eks_anywhere_subscription(
+        self, **kwargs: Unpack[CreateEksAnywhereSubscriptionRequestTypeDef]
+    ) -> CreateEksAnywhereSubscriptionResponseTypeDef:
+        """
+        Creates an EKS Anywhere subscription.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks/client/create_eks_anywhere_subscription.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks/client/#create_eks_anywhere_subscription)
+        """
+
+    def create_fargate_profile(
+        self, **kwargs: Unpack[CreateFargateProfileRequestTypeDef]
+    ) -> CreateFargateProfileResponseTypeDef:
+        """
+        Creates an Fargate profile for your Amazon EKS cluster.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks/client/create_fargate_profile.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks/client/#create_fargate_profile)
+        """
+
+    def create_nodegroup(
+        self, **kwargs: Unpack[CreateNodegroupRequestTypeDef]
+    ) -> CreateNodegroupResponseTypeDef:
+        """
+        Creates a managed node group for an Amazon EKS cluster.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks/client/create_nodegroup.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks/client/#create_nodegroup)
+        """
+
+    def create_pod_identity_association(
+        self, **kwargs: Unpack[CreatePodIdentityAssociationRequestTypeDef]
+    ) -> CreatePodIdentityAssociationResponseTypeDef:
+        """
+        Creates an EKS Pod Identity association between a service account in an Amazon
+        EKS cluster and an IAM role with <i>EKS Pod Identity</i>.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks/client/create_pod_identity_association.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks/client/#create_pod_identity_association)
+        """
+
+    def delete_access_entry(
+        self, **kwargs: Unpack[DeleteAccessEntryRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Deletes an access entry.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks/client/delete_access_entry.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks/client/#delete_access_entry)
+        """
+
+    def delete_addon(
+        self, **kwargs: Unpack[DeleteAddonRequestTypeDef]
+    ) -> DeleteAddonResponseTypeDef:
+        """
+        Deletes an Amazon EKS add-on.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks/client/delete_addon.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks/client/#delete_addon)
+        """
+
+    def delete_cluster(
+        self, **kwargs: Unpack[DeleteClusterRequestTypeDef]
+    ) -> DeleteClusterResponseTypeDef:
+        """
+        Deletes an Amazon EKS cluster control plane.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks/client/delete_cluster.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks/client/#delete_cluster)
+        """
+
+    def delete_eks_anywhere_subscription(
+        self, **kwargs: Unpack[DeleteEksAnywhereSubscriptionRequestTypeDef]
+    ) -> DeleteEksAnywhereSubscriptionResponseTypeDef:
+        """
+        Deletes an expired or inactive subscription.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks/client/delete_eks_anywhere_subscription.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks/client/#delete_eks_anywhere_subscription)
+        """
+
+    def delete_fargate_profile(
+        self, **kwargs: Unpack[DeleteFargateProfileRequestTypeDef]
+    ) -> DeleteFargateProfileResponseTypeDef:
+        """
+        Deletes an Fargate profile.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks/client/delete_fargate_profile.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks/client/#delete_fargate_profile)
+        """
+
+    def delete_nodegroup(
+        self, **kwargs: Unpack[DeleteNodegroupRequestTypeDef]
+    ) -> DeleteNodegroupResponseTypeDef:
+        """
+        Deletes a managed node group.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks/client/delete_nodegroup.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks/client/#delete_nodegroup)
+        """
+
+    def delete_pod_identity_association(
+        self, **kwargs: Unpack[DeletePodIdentityAssociationRequestTypeDef]
+    ) -> DeletePodIdentityAssociationResponseTypeDef:
+        """
+        Deletes a EKS Pod Identity association.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks/client/delete_pod_identity_association.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks/client/#delete_pod_identity_association)
+        """
+
+    def deregister_cluster(
+        self, **kwargs: Unpack[DeregisterClusterRequestTypeDef]
+    ) -> DeregisterClusterResponseTypeDef:
+        """
+        Deregisters a connected cluster to remove it from the Amazon EKS control plane.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks/client/deregister_cluster.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks/client/#deregister_cluster)
+        """
+
+    def describe_access_entry(
+        self, **kwargs: Unpack[DescribeAccessEntryRequestTypeDef]
+    ) -> DescribeAccessEntryResponseTypeDef:
+        """
+        Describes an access entry.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks/client/describe_access_entry.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks/client/#describe_access_entry)
+        """
+
+    def describe_addon(
+        self, **kwargs: Unpack[DescribeAddonRequestTypeDef]
+    ) -> DescribeAddonResponseTypeDef:
+        """
+        Describes an Amazon EKS add-on.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks/client/describe_addon.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks/client/#describe_addon)
+        """
+
+    def describe_addon_configuration(
+        self, **kwargs: Unpack[DescribeAddonConfigurationRequestTypeDef]
+    ) -> DescribeAddonConfigurationResponseTypeDef:
+        """
+        Returns configuration options.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks/client/describe_addon_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks/client/#describe_addon_configuration)
+        """
+
+    def describe_addon_versions(
+        self, **kwargs: Unpack[DescribeAddonVersionsRequestTypeDef]
+    ) -> DescribeAddonVersionsResponseTypeDef:
+        """
+        Describes the versions for an add-on.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks/client/describe_addon_versions.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks/client/#describe_addon_versions)
+        """
+
+    def describe_cluster(
+        self, **kwargs: Unpack[DescribeClusterRequestTypeDef]
+    ) -> DescribeClusterResponseTypeDef:
+        """
+        Describes an Amazon EKS cluster.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks/client/describe_cluster.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks/client/#describe_cluster)
+        """
+
+    def describe_cluster_versions(
+        self, **kwargs: Unpack[DescribeClusterVersionsRequestTypeDef]
+    ) -> DescribeClusterVersionsResponseTypeDef:
+        """
+        Lists available Kubernetes versions for Amazon EKS clusters.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks/client/describe_cluster_versions.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks/client/#describe_cluster_versions)
+        """
+
+    def describe_eks_anywhere_subscription(
+        self, **kwargs: Unpack[DescribeEksAnywhereSubscriptionRequestTypeDef]
+    ) -> DescribeEksAnywhereSubscriptionResponseTypeDef:
+        """
+        Returns descriptive information about a subscription.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks/client/describe_eks_anywhere_subscription.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks/client/#describe_eks_anywhere_subscription)
+        """
+
+    def describe_fargate_profile(
+        self, **kwargs: Unpack[DescribeFargateProfileRequestTypeDef]
+    ) -> DescribeFargateProfileResponseTypeDef:
+        """
+        Describes an Fargate profile.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks/client/describe_fargate_profile.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks/client/#describe_fargate_profile)
+        """
+
+    def describe_identity_provider_config(
+        self, **kwargs: Unpack[DescribeIdentityProviderConfigRequestTypeDef]
+    ) -> DescribeIdentityProviderConfigResponseTypeDef:
+        """
+        Describes an identity provider configuration.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks/client/describe_identity_provider_config.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks/client/#describe_identity_provider_config)
+        """
+
+    def describe_insight(
+        self, **kwargs: Unpack[DescribeInsightRequestTypeDef]
+    ) -> DescribeInsightResponseTypeDef:
+        """
+        Returns details about an insight that you specify using its ID.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks/client/describe_insight.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks/client/#describe_insight)
+        """
+
+    def describe_nodegroup(
+        self, **kwargs: Unpack[DescribeNodegroupRequestTypeDef]
+    ) -> DescribeNodegroupResponseTypeDef:
+        """
+        Describes a managed node group.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks/client/describe_nodegroup.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks/client/#describe_nodegroup)
+        """
+
+    def describe_pod_identity_association(
+        self, **kwargs: Unpack[DescribePodIdentityAssociationRequestTypeDef]
+    ) -> DescribePodIdentityAssociationResponseTypeDef:
+        """
+        Returns descriptive information about an EKS Pod Identity association.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks/client/describe_pod_identity_association.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks/client/#describe_pod_identity_association)
+        """
+
+    def describe_update(
+        self, **kwargs: Unpack[DescribeUpdateRequestTypeDef]
+    ) -> DescribeUpdateResponseTypeDef:
+        """
+        Describes an update to an Amazon EKS resource.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks/client/describe_update.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks/client/#describe_update)
+        """
+
+    def disassociate_access_policy(
+        self, **kwargs: Unpack[DisassociateAccessPolicyRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Disassociates an access policy from an access entry.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks/client/disassociate_access_policy.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks/client/#disassociate_access_policy)
+        """
+
+    def disassociate_identity_provider_config(
+        self, **kwargs: Unpack[DisassociateIdentityProviderConfigRequestTypeDef]
+    ) -> DisassociateIdentityProviderConfigResponseTypeDef:
+        """
+        Disassociates an identity provider configuration from a cluster.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks/client/disassociate_identity_provider_config.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks/client/#disassociate_identity_provider_config)
         """
 
     def list_access_entries(
-        self,
-        *,
-        clusterName: str,
-        associatedPolicyArn: str = None,
-        maxResults: int = None,
-        nextToken: str = None
+        self, **kwargs: Unpack[ListAccessEntriesRequestTypeDef]
     ) -> ListAccessEntriesResponseTypeDef:
         """
         Lists the access entries for your cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.list_access_entries)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#list_access_entries)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks/client/list_access_entries.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks/client/#list_access_entries)
         """
 
     def list_access_policies(
-        self, *, maxResults: int = None, nextToken: str = None
+        self, **kwargs: Unpack[ListAccessPoliciesRequestTypeDef]
     ) -> ListAccessPoliciesResponseTypeDef:
         """
         Lists the available access policies.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.list_access_policies)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#list_access_policies)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks/client/list_access_policies.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks/client/#list_access_policies)
         """
 
-    def list_addons(
-        self, *, clusterName: str, maxResults: int = None, nextToken: str = None
-    ) -> ListAddonsResponseTypeDef:
+    def list_addons(self, **kwargs: Unpack[ListAddonsRequestTypeDef]) -> ListAddonsResponseTypeDef:
         """
         Lists the installed add-ons.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.list_addons)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#list_addons)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks/client/list_addons.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks/client/#list_addons)
         """
 
     def list_associated_access_policies(
-        self, *, clusterName: str, principalArn: str, maxResults: int = None, nextToken: str = None
+        self, **kwargs: Unpack[ListAssociatedAccessPoliciesRequestTypeDef]
     ) -> ListAssociatedAccessPoliciesResponseTypeDef:
         """
         Lists the access policies associated with an access entry.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.list_associated_access_policies)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#list_associated_access_policies)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks/client/list_associated_access_policies.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks/client/#list_associated_access_policies)
         """
 
     def list_clusters(
-        self, *, maxResults: int = None, nextToken: str = None, include: List[str] = None
+        self, **kwargs: Unpack[ListClustersRequestTypeDef]
     ) -> ListClustersResponseTypeDef:
         """
         Lists the Amazon EKS clusters in your Amazon Web Services account in the
         specified Amazon Web Services Region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.list_clusters)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#list_clusters)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks/client/list_clusters.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks/client/#list_clusters)
         """
 
     def list_eks_anywhere_subscriptions(
-        self,
-        *,
-        maxResults: int = None,
-        nextToken: str = None,
-        includeStatus: List[EksAnywhereSubscriptionStatusType] = None
+        self, **kwargs: Unpack[ListEksAnywhereSubscriptionsRequestTypeDef]
     ) -> ListEksAnywhereSubscriptionsResponseTypeDef:
         """
         Displays the full description of the subscription.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.list_eks_anywhere_subscriptions)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#list_eks_anywhere_subscriptions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks/client/list_eks_anywhere_subscriptions.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks/client/#list_eks_anywhere_subscriptions)
         """
 
     def list_fargate_profiles(
-        self, *, clusterName: str, maxResults: int = None, nextToken: str = None
+        self, **kwargs: Unpack[ListFargateProfilesRequestTypeDef]
     ) -> ListFargateProfilesResponseTypeDef:
         """
         Lists the Fargate profiles associated with the specified cluster in your Amazon
         Web Services account in the specified Amazon Web Services Region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.list_fargate_profiles)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#list_fargate_profiles)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks/client/list_fargate_profiles.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks/client/#list_fargate_profiles)
         """
 
     def list_identity_provider_configs(
-        self, *, clusterName: str, maxResults: int = None, nextToken: str = None
+        self, **kwargs: Unpack[ListIdentityProviderConfigsRequestTypeDef]
     ) -> ListIdentityProviderConfigsResponseTypeDef:
         """
         Lists the identity provider configurations for your cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.list_identity_provider_configs)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#list_identity_provider_configs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks/client/list_identity_provider_configs.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks/client/#list_identity_provider_configs)
         """
 
     def list_insights(
-        self,
-        *,
-        clusterName: str,
-        filter: "InsightsFilterTypeDef" = None,
-        maxResults: int = None,
-        nextToken: str = None
+        self, **kwargs: Unpack[ListInsightsRequestTypeDef]
     ) -> ListInsightsResponseTypeDef:
         """
         Returns a list of all insights checked for against the specified cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.list_insights)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#list_insights)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks/client/list_insights.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks/client/#list_insights)
         """
 
     def list_nodegroups(
-        self, *, clusterName: str, maxResults: int = None, nextToken: str = None
+        self, **kwargs: Unpack[ListNodegroupsRequestTypeDef]
     ) -> ListNodegroupsResponseTypeDef:
         """
         Lists the managed node groups associated with the specified cluster in your
         Amazon Web Services account in the specified Amazon Web Services Region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.list_nodegroups)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#list_nodegroups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks/client/list_nodegroups.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks/client/#list_nodegroups)
         """
 
     def list_pod_identity_associations(
-        self,
-        *,
-        clusterName: str,
-        namespace: str = None,
-        serviceAccount: str = None,
-        maxResults: int = None,
-        nextToken: str = None
+        self, **kwargs: Unpack[ListPodIdentityAssociationsRequestTypeDef]
     ) -> ListPodIdentityAssociationsResponseTypeDef:
         """
         List the EKS Pod Identity associations in a cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.list_pod_identity_associations)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#list_pod_identity_associations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks/client/list_pod_identity_associations.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks/client/#list_pod_identity_associations)
         """
 
-    def list_tags_for_resource(self, *, resourceArn: str) -> ListTagsForResourceResponseTypeDef:
+    def list_tags_for_resource(
+        self, **kwargs: Unpack[ListTagsForResourceRequestTypeDef]
+    ) -> ListTagsForResourceResponseTypeDef:
         """
         List the tags for an Amazon EKS resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.list_tags_for_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks/client/list_tags_for_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks/client/#list_tags_for_resource)
         """
 
     def list_updates(
-        self,
-        *,
-        name: str,
-        nodegroupName: str = None,
-        addonName: str = None,
-        nextToken: str = None,
-        maxResults: int = None
+        self, **kwargs: Unpack[ListUpdatesRequestTypeDef]
     ) -> ListUpdatesResponseTypeDef:
         """
         Lists the updates associated with an Amazon EKS resource in your Amazon Web
         Services account, in the specified Amazon Web Services Region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.list_updates)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#list_updates)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks/client/list_updates.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks/client/#list_updates)
         """
 
     def register_cluster(
-        self,
-        *,
-        name: str,
-        connectorConfig: "ConnectorConfigRequestTypeDef",
-        clientRequestToken: str = None,
-        tags: Dict[str, str] = None
+        self, **kwargs: Unpack[RegisterClusterRequestTypeDef]
     ) -> RegisterClusterResponseTypeDef:
         """
         Connects a Kubernetes cluster to the Amazon EKS control plane.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.register_cluster)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#register_cluster)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks/client/register_cluster.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks/client/#register_cluster)
         """
 
-    def tag_resource(self, *, resourceArn: str, tags: Dict[str, str]) -> Dict[str, Any]:
+    def tag_resource(self, **kwargs: Unpack[TagResourceRequestTypeDef]) -> Dict[str, Any]:
         """
         Associates the specified tags to an Amazon EKS resource with the specified
-        `resourceArn`.
+        <code>resourceArn</code>.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.tag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks/client/tag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks/client/#tag_resource)
         """
 
-    def untag_resource(self, *, resourceArn: str, tagKeys: List[str]) -> Dict[str, Any]:
+    def untag_resource(self, **kwargs: Unpack[UntagResourceRequestTypeDef]) -> Dict[str, Any]:
         """
         Deletes specified tags from an Amazon EKS resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.untag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks/client/untag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks/client/#untag_resource)
         """
 
     def update_access_entry(
-        self,
-        *,
-        clusterName: str,
-        principalArn: str,
-        kubernetesGroups: List[str] = None,
-        clientRequestToken: str = None,
-        username: str = None
+        self, **kwargs: Unpack[UpdateAccessEntryRequestTypeDef]
     ) -> UpdateAccessEntryResponseTypeDef:
         """
         Updates an access entry.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.update_access_entry)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#update_access_entry)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks/client/update_access_entry.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks/client/#update_access_entry)
         """
 
     def update_addon(
-        self,
-        *,
-        clusterName: str,
-        addonName: str,
-        addonVersion: str = None,
-        serviceAccountRoleArn: str = None,
-        resolveConflicts: ResolveConflictsType = None,
-        clientRequestToken: str = None,
-        configurationValues: str = None,
-        podIdentityAssociations: List["AddonPodIdentityAssociationsTypeDef"] = None
+        self, **kwargs: Unpack[UpdateAddonRequestTypeDef]
     ) -> UpdateAddonResponseTypeDef:
         """
         Updates an Amazon EKS add-on.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.update_addon)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#update_addon)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks/client/update_addon.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks/client/#update_addon)
         """
 
     def update_cluster_config(
-        self,
-        *,
-        name: str,
-        resourcesVpcConfig: "VpcConfigRequestTypeDef" = None,
-        logging: "LoggingTypeDef" = None,
-        clientRequestToken: str = None,
-        accessConfig: "UpdateAccessConfigRequestTypeDef" = None
+        self, **kwargs: Unpack[UpdateClusterConfigRequestTypeDef]
     ) -> UpdateClusterConfigResponseTypeDef:
         """
         Updates an Amazon EKS cluster configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.update_cluster_config)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#update_cluster_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks/client/update_cluster_config.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks/client/#update_cluster_config)
         """
 
     def update_cluster_version(
-        self, *, name: str, version: str, clientRequestToken: str = None
+        self, **kwargs: Unpack[UpdateClusterVersionRequestTypeDef]
     ) -> UpdateClusterVersionResponseTypeDef:
         """
         Updates an Amazon EKS cluster to the specified Kubernetes version.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.update_cluster_version)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#update_cluster_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks/client/update_cluster_version.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks/client/#update_cluster_version)
         """
 
     def update_eks_anywhere_subscription(
-        self, *, id: str, autoRenew: bool, clientRequestToken: str = None
+        self, **kwargs: Unpack[UpdateEksAnywhereSubscriptionRequestTypeDef]
     ) -> UpdateEksAnywhereSubscriptionResponseTypeDef:
         """
         Update an EKS Anywhere Subscription.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.update_eks_anywhere_subscription)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#update_eks_anywhere_subscription)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks/client/update_eks_anywhere_subscription.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks/client/#update_eks_anywhere_subscription)
         """
 
     def update_nodegroup_config(
-        self,
-        *,
-        clusterName: str,
-        nodegroupName: str,
-        labels: "UpdateLabelsPayloadTypeDef" = None,
-        taints: "UpdateTaintsPayloadTypeDef" = None,
-        scalingConfig: "NodegroupScalingConfigTypeDef" = None,
-        updateConfig: "NodegroupUpdateConfigTypeDef" = None,
-        clientRequestToken: str = None
+        self, **kwargs: Unpack[UpdateNodegroupConfigRequestTypeDef]
     ) -> UpdateNodegroupConfigResponseTypeDef:
         """
         Updates an Amazon EKS managed node group configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.update_nodegroup_config)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#update_nodegroup_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks/client/update_nodegroup_config.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks/client/#update_nodegroup_config)
         """
 
     def update_nodegroup_version(
-        self,
-        *,
-        clusterName: str,
-        nodegroupName: str,
-        version: str = None,
-        releaseVersion: str = None,
-        launchTemplate: "LaunchTemplateSpecificationTypeDef" = None,
-        force: bool = None,
-        clientRequestToken: str = None
+        self, **kwargs: Unpack[UpdateNodegroupVersionRequestTypeDef]
     ) -> UpdateNodegroupVersionResponseTypeDef:
         """
         Updates the Kubernetes version or AMI version of an Amazon EKS managed node
         group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.update_nodegroup_version)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#update_nodegroup_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks/client/update_nodegroup_version.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks/client/#update_nodegroup_version)
         """
 
     def update_pod_identity_association(
-        self,
-        *,
-        clusterName: str,
-        associationId: str,
-        roleArn: str = None,
-        clientRequestToken: str = None
+        self, **kwargs: Unpack[UpdatePodIdentityAssociationRequestTypeDef]
     ) -> UpdatePodIdentityAssociationResponseTypeDef:
         """
         Updates a EKS Pod Identity association.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Client.update_pod_identity_association)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/client.html#update_pod_identity_association)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks/client/update_pod_identity_association.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks/client/#update_pod_identity_association)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["describe_addon_versions"]
     ) -> DescribeAddonVersionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Paginator.DescribeAddonVersions)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/paginators.html#describeaddonversionspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["describe_cluster_versions"]
+    ) -> DescribeClusterVersionsPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_access_entries"]
     ) -> ListAccessEntriesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Paginator.ListAccessEntries)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/paginators.html#listaccessentriespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_access_policies"]
     ) -> ListAccessPoliciesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Paginator.ListAccessPolicies)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/paginators.html#listaccesspoliciespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_addons"]) -> ListAddonsPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_addons"]
+    ) -> ListAddonsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Paginator.ListAddons)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/paginators.html#listaddonspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_associated_access_policies"]
     ) -> ListAssociatedAccessPoliciesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Paginator.ListAssociatedAccessPolicies)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/paginators.html#listassociatedaccesspoliciespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_clusters"]) -> ListClustersPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_clusters"]
+    ) -> ListClustersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Paginator.ListClusters)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/paginators.html#listclusterspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_eks_anywhere_subscriptions"]
     ) -> ListEksAnywhereSubscriptionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Paginator.ListEksAnywhereSubscriptions)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/paginators.html#listeksanywheresubscriptionspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_fargate_profiles"]
     ) -> ListFargateProfilesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Paginator.ListFargateProfiles)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/paginators.html#listfargateprofilespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_identity_provider_configs"]
     ) -> ListIdentityProviderConfigsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Paginator.ListIdentityProviderConfigs)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/paginators.html#listidentityproviderconfigspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_insights"]) -> ListInsightsPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_insights"]
+    ) -> ListInsightsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Paginator.ListInsights)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/paginators.html#listinsightspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_nodegroups"]) -> ListNodegroupsPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_nodegroups"]
+    ) -> ListNodegroupsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Paginator.ListNodegroups)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/paginators.html#listnodegroupspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_pod_identity_associations"]
     ) -> ListPodIdentityAssociationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Paginator.ListPodIdentityAssociations)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/paginators.html#listpodidentityassociationspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_updates"]) -> ListUpdatesPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_updates"]
+    ) -> ListUpdatesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Paginator.ListUpdates)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/paginators.html#listupdatespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks/client/#get_paginator)
         """
 
-    @overload
-    def get_waiter(self, waiter_name: Literal["addon_active"]) -> AddonActiveWaiter:
+    @overload  # type: ignore[override]
+    def get_waiter(  # type: ignore[override]
+        self, waiter_name: Literal["addon_active"]
+    ) -> AddonActiveWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Waiter.AddonActive)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/waiters.html#addonactivewaiter)
+        Returns an object that can wait for some condition.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks/client/get_waiter.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks/client/#get_waiter)
         """
 
-    @overload
-    def get_waiter(self, waiter_name: Literal["addon_deleted"]) -> AddonDeletedWaiter:
+    @overload  # type: ignore[override]
+    def get_waiter(  # type: ignore[override]
+        self, waiter_name: Literal["addon_deleted"]
+    ) -> AddonDeletedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Waiter.AddonDeleted)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/waiters.html#addondeletedwaiter)
+        Returns an object that can wait for some condition.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks/client/get_waiter.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks/client/#get_waiter)
         """
 
-    @overload
-    def get_waiter(self, waiter_name: Literal["cluster_active"]) -> ClusterActiveWaiter:
+    @overload  # type: ignore[override]
+    def get_waiter(  # type: ignore[override]
+        self, waiter_name: Literal["cluster_active"]
+    ) -> ClusterActiveWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Waiter.ClusterActive)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/waiters.html#clusteractivewaiter)
+        Returns an object that can wait for some condition.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks/client/get_waiter.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks/client/#get_waiter)
         """
 
-    @overload
-    def get_waiter(self, waiter_name: Literal["cluster_deleted"]) -> ClusterDeletedWaiter:
+    @overload  # type: ignore[override]
+    def get_waiter(  # type: ignore[override]
+        self, waiter_name: Literal["cluster_deleted"]
+    ) -> ClusterDeletedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Waiter.ClusterDeleted)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/waiters.html#clusterdeletedwaiter)
+        Returns an object that can wait for some condition.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks/client/get_waiter.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks/client/#get_waiter)
         """
 
-    @overload
-    def get_waiter(
+    @overload  # type: ignore[override]
+    def get_waiter(  # type: ignore[override]
         self, waiter_name: Literal["fargate_profile_active"]
     ) -> FargateProfileActiveWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Waiter.FargateProfileActive)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/waiters.html#fargateprofileactivewaiter)
+        Returns an object that can wait for some condition.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks/client/get_waiter.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks/client/#get_waiter)
         """
 
-    @overload
-    def get_waiter(
+    @overload  # type: ignore[override]
+    def get_waiter(  # type: ignore[override]
         self, waiter_name: Literal["fargate_profile_deleted"]
     ) -> FargateProfileDeletedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Waiter.FargateProfileDeleted)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/waiters.html#fargateprofiledeletedwaiter)
+        Returns an object that can wait for some condition.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks/client/get_waiter.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks/client/#get_waiter)
         """
 
-    @overload
-    def get_waiter(self, waiter_name: Literal["nodegroup_active"]) -> NodegroupActiveWaiter:
+    @overload  # type: ignore[override]
+    def get_waiter(  # type: ignore[override]
+        self, waiter_name: Literal["nodegroup_active"]
+    ) -> NodegroupActiveWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Waiter.NodegroupActive)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/waiters.html#nodegroupactivewaiter)
+        Returns an object that can wait for some condition.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks/client/get_waiter.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks/client/#get_waiter)
         """
 
-    @overload
-    def get_waiter(self, waiter_name: Literal["nodegroup_deleted"]) -> NodegroupDeletedWaiter:
+    @overload  # type: ignore[override]
+    def get_waiter(  # type: ignore[override]
+        self, waiter_name: Literal["nodegroup_deleted"]
+    ) -> NodegroupDeletedWaiter:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/eks.html#EKS.Waiter.NodegroupDeleted)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_eks/waiters.html#nodegroupdeletedwaiter)
+        Returns an object that can wait for some condition.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks/client/get_waiter.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_eks/client/#get_waiter)
         """

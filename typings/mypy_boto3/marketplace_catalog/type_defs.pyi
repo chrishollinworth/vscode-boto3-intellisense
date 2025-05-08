@@ -1,19 +1,23 @@
 """
 Type annotations for marketplace-catalog service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_marketplace_catalog/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_marketplace_catalog/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_marketplace_catalog.type_defs import AmiProductEntityIdFilterTypeDef
 
-    data: AmiProductEntityIdFilterTypeDef = {...}
+    data: AmiProductEntityIdFilterTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from typing import Any, Dict, List
+from typing import Any
 
 from .literals import (
     AmiProductSortByType,
@@ -36,10 +40,16 @@ from .literals import (
     SortOrderType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
     "AmiProductEntityIdFilterTypeDef",
@@ -50,10 +60,10 @@ __all__ = (
     "AmiProductSummaryTypeDef",
     "AmiProductTitleFilterTypeDef",
     "AmiProductVisibilityFilterTypeDef",
-    "BatchDescribeEntitiesRequestRequestTypeDef",
+    "BatchDescribeEntitiesRequestTypeDef",
     "BatchDescribeEntitiesResponseTypeDef",
     "BatchDescribeErrorDetailTypeDef",
-    "CancelChangeSetRequestRequestTypeDef",
+    "CancelChangeSetRequestTypeDef",
     "CancelChangeSetResponseTypeDef",
     "ChangeSetSummaryListItemTypeDef",
     "ChangeSummaryTypeDef",
@@ -74,10 +84,10 @@ __all__ = (
     "DataProductSummaryTypeDef",
     "DataProductTitleFilterTypeDef",
     "DataProductVisibilityFilterTypeDef",
-    "DeleteResourcePolicyRequestRequestTypeDef",
-    "DescribeChangeSetRequestRequestTypeDef",
+    "DeleteResourcePolicyRequestTypeDef",
+    "DescribeChangeSetRequestTypeDef",
     "DescribeChangeSetResponseTypeDef",
-    "DescribeEntityRequestRequestTypeDef",
+    "DescribeEntityRequestTypeDef",
     "DescribeEntityResponseTypeDef",
     "EntityDetailTypeDef",
     "EntityRequestTypeDef",
@@ -87,13 +97,15 @@ __all__ = (
     "EntityTypeSortTypeDef",
     "ErrorDetailTypeDef",
     "FilterTypeDef",
-    "GetResourcePolicyRequestRequestTypeDef",
+    "GetResourcePolicyRequestTypeDef",
     "GetResourcePolicyResponseTypeDef",
-    "ListChangeSetsRequestRequestTypeDef",
+    "ListChangeSetsRequestPaginateTypeDef",
+    "ListChangeSetsRequestTypeDef",
     "ListChangeSetsResponseTypeDef",
-    "ListEntitiesRequestRequestTypeDef",
+    "ListEntitiesRequestPaginateTypeDef",
+    "ListEntitiesRequestTypeDef",
     "ListEntitiesResponseTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "OfferAvailabilityEndDateFilterDateRangeTypeDef",
     "OfferAvailabilityEndDateFilterTypeDef",
@@ -112,7 +124,7 @@ __all__ = (
     "OfferSummaryTypeDef",
     "OfferTargetingFilterTypeDef",
     "PaginatorConfigTypeDef",
-    "PutResourcePolicyRequestRequestTypeDef",
+    "PutResourcePolicyRequestTypeDef",
     "ResaleAuthorizationAvailabilityEndDateFilterDateRangeTypeDef",
     "ResaleAuthorizationAvailabilityEndDateFilterTypeDef",
     "ResaleAuthorizationCreatedDateFilterDateRangeTypeDef",
@@ -142,1064 +154,535 @@ __all__ = (
     "SaaSProductTitleFilterTypeDef",
     "SaaSProductVisibilityFilterTypeDef",
     "SortTypeDef",
-    "StartChangeSetRequestRequestTypeDef",
+    "StartChangeSetRequestTypeDef",
     "StartChangeSetResponseTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
     "TagTypeDef",
-    "UntagResourceRequestRequestTypeDef",
+    "UntagResourceRequestTypeDef",
 )
 
-AmiProductEntityIdFilterTypeDef = TypedDict(
-    "AmiProductEntityIdFilterTypeDef",
-    {
-        "ValueList": List[str],
-    },
-    total=False,
-)
+class AmiProductEntityIdFilterTypeDef(TypedDict):
+    ValueList: NotRequired[Sequence[str]]
 
-AmiProductFiltersTypeDef = TypedDict(
-    "AmiProductFiltersTypeDef",
-    {
-        "EntityId": "AmiProductEntityIdFilterTypeDef",
-        "LastModifiedDate": "AmiProductLastModifiedDateFilterTypeDef",
-        "ProductTitle": "AmiProductTitleFilterTypeDef",
-        "Visibility": "AmiProductVisibilityFilterTypeDef",
-    },
-    total=False,
-)
+class AmiProductTitleFilterTypeDef(TypedDict):
+    ValueList: NotRequired[Sequence[str]]
+    WildCardValue: NotRequired[str]
 
-AmiProductLastModifiedDateFilterDateRangeTypeDef = TypedDict(
-    "AmiProductLastModifiedDateFilterDateRangeTypeDef",
-    {
-        "AfterValue": str,
-        "BeforeValue": str,
-    },
-    total=False,
-)
+class AmiProductVisibilityFilterTypeDef(TypedDict):
+    ValueList: NotRequired[Sequence[AmiProductVisibilityStringType]]
 
-AmiProductLastModifiedDateFilterTypeDef = TypedDict(
-    "AmiProductLastModifiedDateFilterTypeDef",
-    {
-        "DateRange": "AmiProductLastModifiedDateFilterDateRangeTypeDef",
-    },
-    total=False,
-)
+class AmiProductLastModifiedDateFilterDateRangeTypeDef(TypedDict):
+    AfterValue: NotRequired[str]
+    BeforeValue: NotRequired[str]
 
-AmiProductSortTypeDef = TypedDict(
-    "AmiProductSortTypeDef",
-    {
-        "SortBy": AmiProductSortByType,
-        "SortOrder": SortOrderType,
-    },
-    total=False,
-)
+class AmiProductSortTypeDef(TypedDict):
+    SortBy: NotRequired[AmiProductSortByType]
+    SortOrder: NotRequired[SortOrderType]
 
-AmiProductSummaryTypeDef = TypedDict(
-    "AmiProductSummaryTypeDef",
-    {
-        "ProductTitle": str,
-        "Visibility": AmiProductVisibilityStringType,
-    },
-    total=False,
-)
+class AmiProductSummaryTypeDef(TypedDict):
+    ProductTitle: NotRequired[str]
+    Visibility: NotRequired[AmiProductVisibilityStringType]
 
-AmiProductTitleFilterTypeDef = TypedDict(
-    "AmiProductTitleFilterTypeDef",
-    {
-        "ValueList": List[str],
-        "WildCardValue": str,
-    },
-    total=False,
-)
+class EntityRequestTypeDef(TypedDict):
+    Catalog: str
+    EntityId: str
 
-AmiProductVisibilityFilterTypeDef = TypedDict(
-    "AmiProductVisibilityFilterTypeDef",
-    {
-        "ValueList": List[AmiProductVisibilityStringType],
-    },
-    total=False,
-)
+class BatchDescribeErrorDetailTypeDef(TypedDict):
+    ErrorCode: NotRequired[str]
+    ErrorMessage: NotRequired[str]
 
-BatchDescribeEntitiesRequestRequestTypeDef = TypedDict(
-    "BatchDescribeEntitiesRequestRequestTypeDef",
-    {
-        "EntityRequestList": List["EntityRequestTypeDef"],
-    },
-)
+class EntityDetailTypeDef(TypedDict):
+    EntityType: NotRequired[str]
+    EntityArn: NotRequired[str]
+    EntityIdentifier: NotRequired[str]
+    LastModifiedDate: NotRequired[str]
+    DetailsDocument: NotRequired[Dict[str, Any]]
 
-BatchDescribeEntitiesResponseTypeDef = TypedDict(
-    "BatchDescribeEntitiesResponseTypeDef",
-    {
-        "EntityDetails": Dict[str, "EntityDetailTypeDef"],
-        "Errors": Dict[str, "BatchDescribeErrorDetailTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-BatchDescribeErrorDetailTypeDef = TypedDict(
-    "BatchDescribeErrorDetailTypeDef",
-    {
-        "ErrorCode": str,
-        "ErrorMessage": str,
-    },
-    total=False,
-)
+class CancelChangeSetRequestTypeDef(TypedDict):
+    Catalog: str
+    ChangeSetId: str
 
-CancelChangeSetRequestRequestTypeDef = TypedDict(
-    "CancelChangeSetRequestRequestTypeDef",
-    {
-        "Catalog": str,
-        "ChangeSetId": str,
-    },
-)
+class ChangeSetSummaryListItemTypeDef(TypedDict):
+    ChangeSetId: NotRequired[str]
+    ChangeSetArn: NotRequired[str]
+    ChangeSetName: NotRequired[str]
+    StartTime: NotRequired[str]
+    EndTime: NotRequired[str]
+    Status: NotRequired[ChangeStatusType]
+    EntityIdList: NotRequired[List[str]]
+    FailureCode: NotRequired[FailureCodeType]
 
-CancelChangeSetResponseTypeDef = TypedDict(
-    "CancelChangeSetResponseTypeDef",
-    {
-        "ChangeSetId": str,
-        "ChangeSetArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ChangeSetSummaryListItemTypeDef = TypedDict(
-    "ChangeSetSummaryListItemTypeDef",
-    {
-        "ChangeSetId": str,
-        "ChangeSetArn": str,
-        "ChangeSetName": str,
-        "StartTime": str,
-        "EndTime": str,
-        "Status": ChangeStatusType,
-        "EntityIdList": List[str],
-        "FailureCode": FailureCodeType,
-    },
-    total=False,
-)
-
-ChangeSummaryTypeDef = TypedDict(
-    "ChangeSummaryTypeDef",
-    {
-        "ChangeType": str,
-        "Entity": "EntityTypeDef",
-        "Details": str,
-        "DetailsDocument": Dict[str, Any],
-        "ErrorDetailList": List["ErrorDetailTypeDef"],
-        "ChangeName": str,
-    },
-    total=False,
-)
-
-_RequiredChangeTypeDef = TypedDict(
-    "_RequiredChangeTypeDef",
-    {
-        "ChangeType": str,
-        "Entity": "EntityTypeDef",
-    },
-)
-_OptionalChangeTypeDef = TypedDict(
-    "_OptionalChangeTypeDef",
-    {
-        "EntityTags": List["TagTypeDef"],
-        "Details": str,
-        "DetailsDocument": Dict[str, Any],
-        "ChangeName": str,
-    },
-    total=False,
-)
-
-class ChangeTypeDef(_RequiredChangeTypeDef, _OptionalChangeTypeDef):
-    pass
-
-ContainerProductEntityIdFilterTypeDef = TypedDict(
-    "ContainerProductEntityIdFilterTypeDef",
-    {
-        "ValueList": List[str],
-    },
-    total=False,
-)
-
-ContainerProductFiltersTypeDef = TypedDict(
-    "ContainerProductFiltersTypeDef",
-    {
-        "EntityId": "ContainerProductEntityIdFilterTypeDef",
-        "LastModifiedDate": "ContainerProductLastModifiedDateFilterTypeDef",
-        "ProductTitle": "ContainerProductTitleFilterTypeDef",
-        "Visibility": "ContainerProductVisibilityFilterTypeDef",
-    },
-    total=False,
-)
-
-ContainerProductLastModifiedDateFilterDateRangeTypeDef = TypedDict(
-    "ContainerProductLastModifiedDateFilterDateRangeTypeDef",
-    {
-        "AfterValue": str,
-        "BeforeValue": str,
-    },
-    total=False,
-)
-
-ContainerProductLastModifiedDateFilterTypeDef = TypedDict(
-    "ContainerProductLastModifiedDateFilterTypeDef",
-    {
-        "DateRange": "ContainerProductLastModifiedDateFilterDateRangeTypeDef",
-    },
-    total=False,
-)
-
-ContainerProductSortTypeDef = TypedDict(
-    "ContainerProductSortTypeDef",
-    {
-        "SortBy": ContainerProductSortByType,
-        "SortOrder": SortOrderType,
-    },
-    total=False,
-)
-
-ContainerProductSummaryTypeDef = TypedDict(
-    "ContainerProductSummaryTypeDef",
-    {
-        "ProductTitle": str,
-        "Visibility": ContainerProductVisibilityStringType,
-    },
-    total=False,
-)
-
-ContainerProductTitleFilterTypeDef = TypedDict(
-    "ContainerProductTitleFilterTypeDef",
-    {
-        "ValueList": List[str],
-        "WildCardValue": str,
-    },
-    total=False,
-)
-
-ContainerProductVisibilityFilterTypeDef = TypedDict(
-    "ContainerProductVisibilityFilterTypeDef",
-    {
-        "ValueList": List[ContainerProductVisibilityStringType],
-    },
-    total=False,
-)
-
-DataProductEntityIdFilterTypeDef = TypedDict(
-    "DataProductEntityIdFilterTypeDef",
-    {
-        "ValueList": List[str],
-    },
-    total=False,
-)
-
-DataProductFiltersTypeDef = TypedDict(
-    "DataProductFiltersTypeDef",
-    {
-        "EntityId": "DataProductEntityIdFilterTypeDef",
-        "ProductTitle": "DataProductTitleFilterTypeDef",
-        "Visibility": "DataProductVisibilityFilterTypeDef",
-        "LastModifiedDate": "DataProductLastModifiedDateFilterTypeDef",
-    },
-    total=False,
-)
-
-DataProductLastModifiedDateFilterDateRangeTypeDef = TypedDict(
-    "DataProductLastModifiedDateFilterDateRangeTypeDef",
-    {
-        "AfterValue": str,
-        "BeforeValue": str,
-    },
-    total=False,
-)
-
-DataProductLastModifiedDateFilterTypeDef = TypedDict(
-    "DataProductLastModifiedDateFilterTypeDef",
-    {
-        "DateRange": "DataProductLastModifiedDateFilterDateRangeTypeDef",
-    },
-    total=False,
-)
-
-DataProductSortTypeDef = TypedDict(
-    "DataProductSortTypeDef",
-    {
-        "SortBy": DataProductSortByType,
-        "SortOrder": SortOrderType,
-    },
-    total=False,
-)
-
-DataProductSummaryTypeDef = TypedDict(
-    "DataProductSummaryTypeDef",
-    {
-        "ProductTitle": str,
-        "Visibility": DataProductVisibilityStringType,
-    },
-    total=False,
-)
-
-DataProductTitleFilterTypeDef = TypedDict(
-    "DataProductTitleFilterTypeDef",
-    {
-        "ValueList": List[str],
-        "WildCardValue": str,
-    },
-    total=False,
-)
-
-DataProductVisibilityFilterTypeDef = TypedDict(
-    "DataProductVisibilityFilterTypeDef",
-    {
-        "ValueList": List[DataProductVisibilityStringType],
-    },
-    total=False,
-)
-
-DeleteResourcePolicyRequestRequestTypeDef = TypedDict(
-    "DeleteResourcePolicyRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-    },
-)
-
-DescribeChangeSetRequestRequestTypeDef = TypedDict(
-    "DescribeChangeSetRequestRequestTypeDef",
-    {
-        "Catalog": str,
-        "ChangeSetId": str,
-    },
-)
-
-DescribeChangeSetResponseTypeDef = TypedDict(
-    "DescribeChangeSetResponseTypeDef",
-    {
-        "ChangeSetId": str,
-        "ChangeSetArn": str,
-        "ChangeSetName": str,
-        "Intent": IntentType,
-        "StartTime": str,
-        "EndTime": str,
-        "Status": ChangeStatusType,
-        "FailureCode": FailureCodeType,
-        "FailureDescription": str,
-        "ChangeSet": List["ChangeSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeEntityRequestRequestTypeDef = TypedDict(
-    "DescribeEntityRequestRequestTypeDef",
-    {
-        "Catalog": str,
-        "EntityId": str,
-    },
-)
-
-DescribeEntityResponseTypeDef = TypedDict(
-    "DescribeEntityResponseTypeDef",
-    {
-        "EntityType": str,
-        "EntityIdentifier": str,
-        "EntityArn": str,
-        "LastModifiedDate": str,
-        "Details": str,
-        "DetailsDocument": Dict[str, Any],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-EntityDetailTypeDef = TypedDict(
-    "EntityDetailTypeDef",
-    {
-        "EntityType": str,
-        "EntityArn": str,
-        "EntityIdentifier": str,
-        "LastModifiedDate": str,
-        "DetailsDocument": Dict[str, Any],
-    },
-    total=False,
-)
-
-EntityRequestTypeDef = TypedDict(
-    "EntityRequestTypeDef",
-    {
-        "Catalog": str,
-        "EntityId": str,
-    },
-)
-
-EntitySummaryTypeDef = TypedDict(
-    "EntitySummaryTypeDef",
-    {
-        "Name": str,
-        "EntityType": str,
-        "EntityId": str,
-        "EntityArn": str,
-        "LastModifiedDate": str,
-        "Visibility": str,
-        "AmiProductSummary": "AmiProductSummaryTypeDef",
-        "ContainerProductSummary": "ContainerProductSummaryTypeDef",
-        "DataProductSummary": "DataProductSummaryTypeDef",
-        "SaaSProductSummary": "SaaSProductSummaryTypeDef",
-        "OfferSummary": "OfferSummaryTypeDef",
-        "ResaleAuthorizationSummary": "ResaleAuthorizationSummaryTypeDef",
-    },
-    total=False,
-)
-
-_RequiredEntityTypeDef = TypedDict(
-    "_RequiredEntityTypeDef",
+EntityTypeDef = TypedDict(
+    "EntityTypeDef",
     {
         "Type": str,
-    },
-)
-_OptionalEntityTypeDef = TypedDict(
-    "_OptionalEntityTypeDef",
-    {
-        "Identifier": str,
-    },
-    total=False,
-)
-
-class EntityTypeDef(_RequiredEntityTypeDef, _OptionalEntityTypeDef):
-    pass
-
-EntityTypeFiltersTypeDef = TypedDict(
-    "EntityTypeFiltersTypeDef",
-    {
-        "DataProductFilters": "DataProductFiltersTypeDef",
-        "SaaSProductFilters": "SaaSProductFiltersTypeDef",
-        "AmiProductFilters": "AmiProductFiltersTypeDef",
-        "OfferFilters": "OfferFiltersTypeDef",
-        "ContainerProductFilters": "ContainerProductFiltersTypeDef",
-        "ResaleAuthorizationFilters": "ResaleAuthorizationFiltersTypeDef",
-    },
-    total=False,
-)
-
-EntityTypeSortTypeDef = TypedDict(
-    "EntityTypeSortTypeDef",
-    {
-        "DataProductSort": "DataProductSortTypeDef",
-        "SaaSProductSort": "SaaSProductSortTypeDef",
-        "AmiProductSort": "AmiProductSortTypeDef",
-        "OfferSort": "OfferSortTypeDef",
-        "ContainerProductSort": "ContainerProductSortTypeDef",
-        "ResaleAuthorizationSort": "ResaleAuthorizationSortTypeDef",
-    },
-    total=False,
-)
-
-ErrorDetailTypeDef = TypedDict(
-    "ErrorDetailTypeDef",
-    {
-        "ErrorCode": str,
-        "ErrorMessage": str,
-    },
-    total=False,
-)
-
-FilterTypeDef = TypedDict(
-    "FilterTypeDef",
-    {
-        "Name": str,
-        "ValueList": List[str],
-    },
-    total=False,
-)
-
-GetResourcePolicyRequestRequestTypeDef = TypedDict(
-    "GetResourcePolicyRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-    },
-)
-
-GetResourcePolicyResponseTypeDef = TypedDict(
-    "GetResourcePolicyResponseTypeDef",
-    {
-        "Policy": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListChangeSetsRequestRequestTypeDef = TypedDict(
-    "_RequiredListChangeSetsRequestRequestTypeDef",
-    {
-        "Catalog": str,
-    },
-)
-_OptionalListChangeSetsRequestRequestTypeDef = TypedDict(
-    "_OptionalListChangeSetsRequestRequestTypeDef",
-    {
-        "FilterList": List["FilterTypeDef"],
-        "Sort": "SortTypeDef",
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListChangeSetsRequestRequestTypeDef(
-    _RequiredListChangeSetsRequestRequestTypeDef, _OptionalListChangeSetsRequestRequestTypeDef
-):
-    pass
-
-ListChangeSetsResponseTypeDef = TypedDict(
-    "ListChangeSetsResponseTypeDef",
-    {
-        "ChangeSetSummaryList": List["ChangeSetSummaryListItemTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListEntitiesRequestRequestTypeDef = TypedDict(
-    "_RequiredListEntitiesRequestRequestTypeDef",
-    {
-        "Catalog": str,
-        "EntityType": str,
-    },
-)
-_OptionalListEntitiesRequestRequestTypeDef = TypedDict(
-    "_OptionalListEntitiesRequestRequestTypeDef",
-    {
-        "FilterList": List["FilterTypeDef"],
-        "Sort": "SortTypeDef",
-        "NextToken": str,
-        "MaxResults": int,
-        "OwnershipType": OwnershipTypeType,
-        "EntityTypeFilters": "EntityTypeFiltersTypeDef",
-        "EntityTypeSort": "EntityTypeSortTypeDef",
-    },
-    total=False,
-)
-
-class ListEntitiesRequestRequestTypeDef(
-    _RequiredListEntitiesRequestRequestTypeDef, _OptionalListEntitiesRequestRequestTypeDef
-):
-    pass
-
-ListEntitiesResponseTypeDef = TypedDict(
-    "ListEntitiesResponseTypeDef",
-    {
-        "EntitySummaryList": List["EntitySummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-    },
-)
-
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "ResourceArn": str,
-        "Tags": List["TagTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-OfferAvailabilityEndDateFilterDateRangeTypeDef = TypedDict(
-    "OfferAvailabilityEndDateFilterDateRangeTypeDef",
-    {
-        "AfterValue": str,
-        "BeforeValue": str,
-    },
-    total=False,
-)
-
-OfferAvailabilityEndDateFilterTypeDef = TypedDict(
-    "OfferAvailabilityEndDateFilterTypeDef",
-    {
-        "DateRange": "OfferAvailabilityEndDateFilterDateRangeTypeDef",
-    },
-    total=False,
-)
-
-OfferBuyerAccountsFilterTypeDef = TypedDict(
-    "OfferBuyerAccountsFilterTypeDef",
-    {
-        "WildCardValue": str,
-    },
-    total=False,
-)
-
-OfferEntityIdFilterTypeDef = TypedDict(
-    "OfferEntityIdFilterTypeDef",
-    {
-        "ValueList": List[str],
-    },
-    total=False,
-)
-
-OfferFiltersTypeDef = TypedDict(
-    "OfferFiltersTypeDef",
-    {
-        "EntityId": "OfferEntityIdFilterTypeDef",
-        "Name": "OfferNameFilterTypeDef",
-        "ProductId": "OfferProductIdFilterTypeDef",
-        "ResaleAuthorizationId": "OfferResaleAuthorizationIdFilterTypeDef",
-        "ReleaseDate": "OfferReleaseDateFilterTypeDef",
-        "AvailabilityEndDate": "OfferAvailabilityEndDateFilterTypeDef",
-        "BuyerAccounts": "OfferBuyerAccountsFilterTypeDef",
-        "State": "OfferStateFilterTypeDef",
-        "Targeting": "OfferTargetingFilterTypeDef",
-        "LastModifiedDate": "OfferLastModifiedDateFilterTypeDef",
-    },
-    total=False,
-)
-
-OfferLastModifiedDateFilterDateRangeTypeDef = TypedDict(
-    "OfferLastModifiedDateFilterDateRangeTypeDef",
-    {
-        "AfterValue": str,
-        "BeforeValue": str,
-    },
-    total=False,
-)
-
-OfferLastModifiedDateFilterTypeDef = TypedDict(
-    "OfferLastModifiedDateFilterTypeDef",
-    {
-        "DateRange": "OfferLastModifiedDateFilterDateRangeTypeDef",
-    },
-    total=False,
-)
-
-OfferNameFilterTypeDef = TypedDict(
-    "OfferNameFilterTypeDef",
-    {
-        "ValueList": List[str],
-        "WildCardValue": str,
-    },
-    total=False,
-)
-
-OfferProductIdFilterTypeDef = TypedDict(
-    "OfferProductIdFilterTypeDef",
-    {
-        "ValueList": List[str],
-    },
-    total=False,
-)
-
-OfferReleaseDateFilterDateRangeTypeDef = TypedDict(
-    "OfferReleaseDateFilterDateRangeTypeDef",
-    {
-        "AfterValue": str,
-        "BeforeValue": str,
-    },
-    total=False,
-)
-
-OfferReleaseDateFilterTypeDef = TypedDict(
-    "OfferReleaseDateFilterTypeDef",
-    {
-        "DateRange": "OfferReleaseDateFilterDateRangeTypeDef",
-    },
-    total=False,
-)
-
-OfferResaleAuthorizationIdFilterTypeDef = TypedDict(
-    "OfferResaleAuthorizationIdFilterTypeDef",
-    {
-        "ValueList": List[str],
-    },
-    total=False,
-)
-
-OfferSortTypeDef = TypedDict(
-    "OfferSortTypeDef",
-    {
-        "SortBy": OfferSortByType,
-        "SortOrder": SortOrderType,
-    },
-    total=False,
-)
+        "Identifier": NotRequired[str],
+    },
+)
+
+class ErrorDetailTypeDef(TypedDict):
+    ErrorCode: NotRequired[str]
+    ErrorMessage: NotRequired[str]
+
+class TagTypeDef(TypedDict):
+    Key: str
+    Value: str
+
+class ContainerProductEntityIdFilterTypeDef(TypedDict):
+    ValueList: NotRequired[Sequence[str]]
+
+class ContainerProductTitleFilterTypeDef(TypedDict):
+    ValueList: NotRequired[Sequence[str]]
+    WildCardValue: NotRequired[str]
+
+class ContainerProductVisibilityFilterTypeDef(TypedDict):
+    ValueList: NotRequired[Sequence[ContainerProductVisibilityStringType]]
+
+class ContainerProductLastModifiedDateFilterDateRangeTypeDef(TypedDict):
+    AfterValue: NotRequired[str]
+    BeforeValue: NotRequired[str]
+
+class ContainerProductSortTypeDef(TypedDict):
+    SortBy: NotRequired[ContainerProductSortByType]
+    SortOrder: NotRequired[SortOrderType]
+
+class ContainerProductSummaryTypeDef(TypedDict):
+    ProductTitle: NotRequired[str]
+    Visibility: NotRequired[ContainerProductVisibilityStringType]
+
+class DataProductEntityIdFilterTypeDef(TypedDict):
+    ValueList: NotRequired[Sequence[str]]
 
-OfferStateFilterTypeDef = TypedDict(
-    "OfferStateFilterTypeDef",
-    {
-        "ValueList": List[OfferStateStringType],
-    },
-    total=False,
-)
-
-OfferSummaryTypeDef = TypedDict(
-    "OfferSummaryTypeDef",
-    {
-        "Name": str,
-        "ProductId": str,
-        "ResaleAuthorizationId": str,
-        "ReleaseDate": str,
-        "AvailabilityEndDate": str,
-        "BuyerAccounts": List[str],
-        "State": OfferStateStringType,
-        "Targeting": List[OfferTargetingStringType],
-    },
-    total=False,
-)
-
-OfferTargetingFilterTypeDef = TypedDict(
-    "OfferTargetingFilterTypeDef",
-    {
-        "ValueList": List[OfferTargetingStringType],
-    },
-    total=False,
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
+class DataProductTitleFilterTypeDef(TypedDict):
+    ValueList: NotRequired[Sequence[str]]
+    WildCardValue: NotRequired[str]
 
-PutResourcePolicyRequestRequestTypeDef = TypedDict(
-    "PutResourcePolicyRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-        "Policy": str,
-    },
-)
+class DataProductVisibilityFilterTypeDef(TypedDict):
+    ValueList: NotRequired[Sequence[DataProductVisibilityStringType]]
 
-ResaleAuthorizationAvailabilityEndDateFilterDateRangeTypeDef = TypedDict(
-    "ResaleAuthorizationAvailabilityEndDateFilterDateRangeTypeDef",
-    {
-        "AfterValue": str,
-        "BeforeValue": str,
-    },
-    total=False,
-)
+class DataProductLastModifiedDateFilterDateRangeTypeDef(TypedDict):
+    AfterValue: NotRequired[str]
+    BeforeValue: NotRequired[str]
 
-ResaleAuthorizationAvailabilityEndDateFilterTypeDef = TypedDict(
-    "ResaleAuthorizationAvailabilityEndDateFilterTypeDef",
-    {
-        "DateRange": "ResaleAuthorizationAvailabilityEndDateFilterDateRangeTypeDef",
-        "ValueList": List[str],
-    },
-    total=False,
-)
+class DataProductSortTypeDef(TypedDict):
+    SortBy: NotRequired[DataProductSortByType]
+    SortOrder: NotRequired[SortOrderType]
 
-ResaleAuthorizationCreatedDateFilterDateRangeTypeDef = TypedDict(
-    "ResaleAuthorizationCreatedDateFilterDateRangeTypeDef",
-    {
-        "AfterValue": str,
-        "BeforeValue": str,
-    },
-    total=False,
-)
+class DataProductSummaryTypeDef(TypedDict):
+    ProductTitle: NotRequired[str]
+    Visibility: NotRequired[DataProductVisibilityStringType]
 
-ResaleAuthorizationCreatedDateFilterTypeDef = TypedDict(
-    "ResaleAuthorizationCreatedDateFilterTypeDef",
-    {
-        "DateRange": "ResaleAuthorizationCreatedDateFilterDateRangeTypeDef",
-        "ValueList": List[str],
-    },
-    total=False,
-)
+class DeleteResourcePolicyRequestTypeDef(TypedDict):
+    ResourceArn: str
 
-ResaleAuthorizationEntityIdFilterTypeDef = TypedDict(
-    "ResaleAuthorizationEntityIdFilterTypeDef",
-    {
-        "ValueList": List[str],
-    },
-    total=False,
-)
+class DescribeChangeSetRequestTypeDef(TypedDict):
+    Catalog: str
+    ChangeSetId: str
 
-ResaleAuthorizationFiltersTypeDef = TypedDict(
-    "ResaleAuthorizationFiltersTypeDef",
-    {
-        "EntityId": "ResaleAuthorizationEntityIdFilterTypeDef",
-        "Name": "ResaleAuthorizationNameFilterTypeDef",
-        "ProductId": "ResaleAuthorizationProductIdFilterTypeDef",
-        "CreatedDate": "ResaleAuthorizationCreatedDateFilterTypeDef",
-        "AvailabilityEndDate": "ResaleAuthorizationAvailabilityEndDateFilterTypeDef",
-        "ManufacturerAccountId": "ResaleAuthorizationManufacturerAccountIdFilterTypeDef",
-        "ProductName": "ResaleAuthorizationProductNameFilterTypeDef",
-        "ManufacturerLegalName": "ResaleAuthorizationManufacturerLegalNameFilterTypeDef",
-        "ResellerAccountID": "ResaleAuthorizationResellerAccountIDFilterTypeDef",
-        "ResellerLegalName": "ResaleAuthorizationResellerLegalNameFilterTypeDef",
-        "Status": "ResaleAuthorizationStatusFilterTypeDef",
-        "OfferExtendedStatus": "ResaleAuthorizationOfferExtendedStatusFilterTypeDef",
-        "LastModifiedDate": "ResaleAuthorizationLastModifiedDateFilterTypeDef",
-    },
-    total=False,
-)
+class DescribeEntityRequestTypeDef(TypedDict):
+    Catalog: str
+    EntityId: str
 
-ResaleAuthorizationLastModifiedDateFilterDateRangeTypeDef = TypedDict(
-    "ResaleAuthorizationLastModifiedDateFilterDateRangeTypeDef",
-    {
-        "AfterValue": str,
-        "BeforeValue": str,
-    },
-    total=False,
-)
+class OfferSummaryTypeDef(TypedDict):
+    Name: NotRequired[str]
+    ProductId: NotRequired[str]
+    ResaleAuthorizationId: NotRequired[str]
+    ReleaseDate: NotRequired[str]
+    AvailabilityEndDate: NotRequired[str]
+    BuyerAccounts: NotRequired[List[str]]
+    State: NotRequired[OfferStateStringType]
+    Targeting: NotRequired[List[OfferTargetingStringType]]
 
-ResaleAuthorizationLastModifiedDateFilterTypeDef = TypedDict(
-    "ResaleAuthorizationLastModifiedDateFilterTypeDef",
-    {
-        "DateRange": "ResaleAuthorizationLastModifiedDateFilterDateRangeTypeDef",
-    },
-    total=False,
-)
+class ResaleAuthorizationSummaryTypeDef(TypedDict):
+    Name: NotRequired[str]
+    ProductId: NotRequired[str]
+    ProductName: NotRequired[str]
+    ManufacturerAccountId: NotRequired[str]
+    ManufacturerLegalName: NotRequired[str]
+    ResellerAccountID: NotRequired[str]
+    ResellerLegalName: NotRequired[str]
+    Status: NotRequired[ResaleAuthorizationStatusStringType]
+    OfferExtendedStatus: NotRequired[str]
+    CreatedDate: NotRequired[str]
+    AvailabilityEndDate: NotRequired[str]
 
-ResaleAuthorizationManufacturerAccountIdFilterTypeDef = TypedDict(
-    "ResaleAuthorizationManufacturerAccountIdFilterTypeDef",
-    {
-        "ValueList": List[str],
-        "WildCardValue": str,
-    },
-    total=False,
-)
+class SaaSProductSummaryTypeDef(TypedDict):
+    ProductTitle: NotRequired[str]
+    Visibility: NotRequired[SaaSProductVisibilityStringType]
 
-ResaleAuthorizationManufacturerLegalNameFilterTypeDef = TypedDict(
-    "ResaleAuthorizationManufacturerLegalNameFilterTypeDef",
-    {
-        "ValueList": List[str],
-        "WildCardValue": str,
-    },
-    total=False,
-)
+class OfferSortTypeDef(TypedDict):
+    SortBy: NotRequired[OfferSortByType]
+    SortOrder: NotRequired[SortOrderType]
 
-ResaleAuthorizationNameFilterTypeDef = TypedDict(
-    "ResaleAuthorizationNameFilterTypeDef",
-    {
-        "ValueList": List[str],
-        "WildCardValue": str,
-    },
-    total=False,
-)
+class ResaleAuthorizationSortTypeDef(TypedDict):
+    SortBy: NotRequired[ResaleAuthorizationSortByType]
+    SortOrder: NotRequired[SortOrderType]
 
-ResaleAuthorizationOfferExtendedStatusFilterTypeDef = TypedDict(
-    "ResaleAuthorizationOfferExtendedStatusFilterTypeDef",
-    {
-        "ValueList": List[str],
-    },
-    total=False,
-)
+class SaaSProductSortTypeDef(TypedDict):
+    SortBy: NotRequired[SaaSProductSortByType]
+    SortOrder: NotRequired[SortOrderType]
 
-ResaleAuthorizationProductIdFilterTypeDef = TypedDict(
-    "ResaleAuthorizationProductIdFilterTypeDef",
-    {
-        "ValueList": List[str],
-        "WildCardValue": str,
-    },
-    total=False,
-)
+class FilterTypeDef(TypedDict):
+    Name: NotRequired[str]
+    ValueList: NotRequired[Sequence[str]]
 
-ResaleAuthorizationProductNameFilterTypeDef = TypedDict(
-    "ResaleAuthorizationProductNameFilterTypeDef",
-    {
-        "ValueList": List[str],
-        "WildCardValue": str,
-    },
-    total=False,
-)
+class GetResourcePolicyRequestTypeDef(TypedDict):
+    ResourceArn: str
 
-ResaleAuthorizationResellerAccountIDFilterTypeDef = TypedDict(
-    "ResaleAuthorizationResellerAccountIDFilterTypeDef",
-    {
-        "ValueList": List[str],
-        "WildCardValue": str,
-    },
-    total=False,
-)
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
 
-ResaleAuthorizationResellerLegalNameFilterTypeDef = TypedDict(
-    "ResaleAuthorizationResellerLegalNameFilterTypeDef",
-    {
-        "ValueList": List[str],
-        "WildCardValue": str,
-    },
-    total=False,
-)
+class SortTypeDef(TypedDict):
+    SortBy: NotRequired[str]
+    SortOrder: NotRequired[SortOrderType]
 
-ResaleAuthorizationSortTypeDef = TypedDict(
-    "ResaleAuthorizationSortTypeDef",
-    {
-        "SortBy": ResaleAuthorizationSortByType,
-        "SortOrder": SortOrderType,
-    },
-    total=False,
-)
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
 
-ResaleAuthorizationStatusFilterTypeDef = TypedDict(
-    "ResaleAuthorizationStatusFilterTypeDef",
-    {
-        "ValueList": List[ResaleAuthorizationStatusStringType],
-    },
-    total=False,
-)
+class OfferAvailabilityEndDateFilterDateRangeTypeDef(TypedDict):
+    AfterValue: NotRequired[str]
+    BeforeValue: NotRequired[str]
 
-ResaleAuthorizationSummaryTypeDef = TypedDict(
-    "ResaleAuthorizationSummaryTypeDef",
-    {
-        "Name": str,
-        "ProductId": str,
-        "ProductName": str,
-        "ManufacturerAccountId": str,
-        "ManufacturerLegalName": str,
-        "ResellerAccountID": str,
-        "ResellerLegalName": str,
-        "Status": ResaleAuthorizationStatusStringType,
-        "OfferExtendedStatus": str,
-        "CreatedDate": str,
-        "AvailabilityEndDate": str,
-    },
-    total=False,
-)
+class OfferBuyerAccountsFilterTypeDef(TypedDict):
+    WildCardValue: NotRequired[str]
 
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
+class OfferEntityIdFilterTypeDef(TypedDict):
+    ValueList: NotRequired[Sequence[str]]
 
-SaaSProductEntityIdFilterTypeDef = TypedDict(
-    "SaaSProductEntityIdFilterTypeDef",
-    {
-        "ValueList": List[str],
-    },
-    total=False,
-)
+class OfferNameFilterTypeDef(TypedDict):
+    ValueList: NotRequired[Sequence[str]]
+    WildCardValue: NotRequired[str]
 
-SaaSProductFiltersTypeDef = TypedDict(
-    "SaaSProductFiltersTypeDef",
-    {
-        "EntityId": "SaaSProductEntityIdFilterTypeDef",
-        "ProductTitle": "SaaSProductTitleFilterTypeDef",
-        "Visibility": "SaaSProductVisibilityFilterTypeDef",
-        "LastModifiedDate": "SaaSProductLastModifiedDateFilterTypeDef",
-    },
-    total=False,
-)
+class OfferProductIdFilterTypeDef(TypedDict):
+    ValueList: NotRequired[Sequence[str]]
 
-SaaSProductLastModifiedDateFilterDateRangeTypeDef = TypedDict(
-    "SaaSProductLastModifiedDateFilterDateRangeTypeDef",
-    {
-        "AfterValue": str,
-        "BeforeValue": str,
-    },
-    total=False,
-)
+class OfferResaleAuthorizationIdFilterTypeDef(TypedDict):
+    ValueList: NotRequired[Sequence[str]]
 
-SaaSProductLastModifiedDateFilterTypeDef = TypedDict(
-    "SaaSProductLastModifiedDateFilterTypeDef",
-    {
-        "DateRange": "SaaSProductLastModifiedDateFilterDateRangeTypeDef",
-    },
-    total=False,
-)
+class OfferStateFilterTypeDef(TypedDict):
+    ValueList: NotRequired[Sequence[OfferStateStringType]]
 
-SaaSProductSortTypeDef = TypedDict(
-    "SaaSProductSortTypeDef",
-    {
-        "SortBy": SaaSProductSortByType,
-        "SortOrder": SortOrderType,
-    },
-    total=False,
-)
+class OfferTargetingFilterTypeDef(TypedDict):
+    ValueList: NotRequired[Sequence[OfferTargetingStringType]]
 
-SaaSProductSummaryTypeDef = TypedDict(
-    "SaaSProductSummaryTypeDef",
-    {
-        "ProductTitle": str,
-        "Visibility": SaaSProductVisibilityStringType,
-    },
-    total=False,
-)
+class OfferLastModifiedDateFilterDateRangeTypeDef(TypedDict):
+    AfterValue: NotRequired[str]
+    BeforeValue: NotRequired[str]
 
-SaaSProductTitleFilterTypeDef = TypedDict(
-    "SaaSProductTitleFilterTypeDef",
-    {
-        "ValueList": List[str],
-        "WildCardValue": str,
-    },
-    total=False,
-)
+class OfferReleaseDateFilterDateRangeTypeDef(TypedDict):
+    AfterValue: NotRequired[str]
+    BeforeValue: NotRequired[str]
 
-SaaSProductVisibilityFilterTypeDef = TypedDict(
-    "SaaSProductVisibilityFilterTypeDef",
-    {
-        "ValueList": List[SaaSProductVisibilityStringType],
-    },
-    total=False,
-)
+class PutResourcePolicyRequestTypeDef(TypedDict):
+    ResourceArn: str
+    Policy: str
 
-SortTypeDef = TypedDict(
-    "SortTypeDef",
-    {
-        "SortBy": str,
-        "SortOrder": SortOrderType,
-    },
-    total=False,
-)
+class ResaleAuthorizationAvailabilityEndDateFilterDateRangeTypeDef(TypedDict):
+    AfterValue: NotRequired[str]
+    BeforeValue: NotRequired[str]
 
-_RequiredStartChangeSetRequestRequestTypeDef = TypedDict(
-    "_RequiredStartChangeSetRequestRequestTypeDef",
-    {
-        "Catalog": str,
-        "ChangeSet": List["ChangeTypeDef"],
-    },
-)
-_OptionalStartChangeSetRequestRequestTypeDef = TypedDict(
-    "_OptionalStartChangeSetRequestRequestTypeDef",
-    {
-        "ChangeSetName": str,
-        "ClientRequestToken": str,
-        "ChangeSetTags": List["TagTypeDef"],
-        "Intent": IntentType,
-    },
-    total=False,
-)
+class ResaleAuthorizationCreatedDateFilterDateRangeTypeDef(TypedDict):
+    AfterValue: NotRequired[str]
+    BeforeValue: NotRequired[str]
 
-class StartChangeSetRequestRequestTypeDef(
-    _RequiredStartChangeSetRequestRequestTypeDef, _OptionalStartChangeSetRequestRequestTypeDef
-):
-    pass
-
-StartChangeSetResponseTypeDef = TypedDict(
-    "StartChangeSetResponseTypeDef",
-    {
-        "ChangeSetId": str,
-        "ChangeSetArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ResaleAuthorizationEntityIdFilterTypeDef(TypedDict):
+    ValueList: NotRequired[Sequence[str]]
 
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-        "Tags": List["TagTypeDef"],
-    },
-)
+class ResaleAuthorizationManufacturerAccountIdFilterTypeDef(TypedDict):
+    ValueList: NotRequired[Sequence[str]]
+    WildCardValue: NotRequired[str]
 
-TagTypeDef = TypedDict(
-    "TagTypeDef",
-    {
-        "Key": str,
-        "Value": str,
-    },
-)
+class ResaleAuthorizationManufacturerLegalNameFilterTypeDef(TypedDict):
+    ValueList: NotRequired[Sequence[str]]
+    WildCardValue: NotRequired[str]
+
+class ResaleAuthorizationNameFilterTypeDef(TypedDict):
+    ValueList: NotRequired[Sequence[str]]
+    WildCardValue: NotRequired[str]
+
+class ResaleAuthorizationOfferExtendedStatusFilterTypeDef(TypedDict):
+    ValueList: NotRequired[Sequence[str]]
+
+class ResaleAuthorizationProductIdFilterTypeDef(TypedDict):
+    ValueList: NotRequired[Sequence[str]]
+    WildCardValue: NotRequired[str]
+
+class ResaleAuthorizationProductNameFilterTypeDef(TypedDict):
+    ValueList: NotRequired[Sequence[str]]
+    WildCardValue: NotRequired[str]
+
+class ResaleAuthorizationResellerAccountIDFilterTypeDef(TypedDict):
+    ValueList: NotRequired[Sequence[str]]
+    WildCardValue: NotRequired[str]
 
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-        "TagKeys": List[str],
-    },
-)
+class ResaleAuthorizationResellerLegalNameFilterTypeDef(TypedDict):
+    ValueList: NotRequired[Sequence[str]]
+    WildCardValue: NotRequired[str]
+
+class ResaleAuthorizationStatusFilterTypeDef(TypedDict):
+    ValueList: NotRequired[Sequence[ResaleAuthorizationStatusStringType]]
+
+class ResaleAuthorizationLastModifiedDateFilterDateRangeTypeDef(TypedDict):
+    AfterValue: NotRequired[str]
+    BeforeValue: NotRequired[str]
+
+class SaaSProductEntityIdFilterTypeDef(TypedDict):
+    ValueList: NotRequired[Sequence[str]]
+
+class SaaSProductTitleFilterTypeDef(TypedDict):
+    ValueList: NotRequired[Sequence[str]]
+    WildCardValue: NotRequired[str]
+
+class SaaSProductVisibilityFilterTypeDef(TypedDict):
+    ValueList: NotRequired[Sequence[SaaSProductVisibilityStringType]]
+
+class SaaSProductLastModifiedDateFilterDateRangeTypeDef(TypedDict):
+    AfterValue: NotRequired[str]
+    BeforeValue: NotRequired[str]
+
+class UntagResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+    TagKeys: Sequence[str]
+
+class AmiProductLastModifiedDateFilterTypeDef(TypedDict):
+    DateRange: NotRequired[AmiProductLastModifiedDateFilterDateRangeTypeDef]
+
+class BatchDescribeEntitiesRequestTypeDef(TypedDict):
+    EntityRequestList: Sequence[EntityRequestTypeDef]
+
+class BatchDescribeEntitiesResponseTypeDef(TypedDict):
+    EntityDetails: Dict[str, EntityDetailTypeDef]
+    Errors: Dict[str, BatchDescribeErrorDetailTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CancelChangeSetResponseTypeDef(TypedDict):
+    ChangeSetId: str
+    ChangeSetArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeEntityResponseTypeDef(TypedDict):
+    EntityType: str
+    EntityIdentifier: str
+    EntityArn: str
+    LastModifiedDate: str
+    Details: str
+    DetailsDocument: Dict[str, Any]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetResourcePolicyResponseTypeDef(TypedDict):
+    Policy: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartChangeSetResponseTypeDef(TypedDict):
+    ChangeSetId: str
+    ChangeSetArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListChangeSetsResponseTypeDef(TypedDict):
+    ChangeSetSummaryList: List[ChangeSetSummaryListItemTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ChangeSummaryTypeDef(TypedDict):
+    ChangeType: NotRequired[str]
+    Entity: NotRequired[EntityTypeDef]
+    Details: NotRequired[str]
+    DetailsDocument: NotRequired[Dict[str, Any]]
+    ErrorDetailList: NotRequired[List[ErrorDetailTypeDef]]
+    ChangeName: NotRequired[str]
+
+class ChangeTypeDef(TypedDict):
+    ChangeType: str
+    Entity: EntityTypeDef
+    EntityTags: NotRequired[Sequence[TagTypeDef]]
+    Details: NotRequired[str]
+    DetailsDocument: NotRequired[Mapping[str, Any]]
+    ChangeName: NotRequired[str]
+
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    ResourceArn: str
+    Tags: List[TagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class TagResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+    Tags: Sequence[TagTypeDef]
+
+class ContainerProductLastModifiedDateFilterTypeDef(TypedDict):
+    DateRange: NotRequired[ContainerProductLastModifiedDateFilterDateRangeTypeDef]
+
+class DataProductLastModifiedDateFilterTypeDef(TypedDict):
+    DateRange: NotRequired[DataProductLastModifiedDateFilterDateRangeTypeDef]
+
+class EntitySummaryTypeDef(TypedDict):
+    Name: NotRequired[str]
+    EntityType: NotRequired[str]
+    EntityId: NotRequired[str]
+    EntityArn: NotRequired[str]
+    LastModifiedDate: NotRequired[str]
+    Visibility: NotRequired[str]
+    AmiProductSummary: NotRequired[AmiProductSummaryTypeDef]
+    ContainerProductSummary: NotRequired[ContainerProductSummaryTypeDef]
+    DataProductSummary: NotRequired[DataProductSummaryTypeDef]
+    SaaSProductSummary: NotRequired[SaaSProductSummaryTypeDef]
+    OfferSummary: NotRequired[OfferSummaryTypeDef]
+    ResaleAuthorizationSummary: NotRequired[ResaleAuthorizationSummaryTypeDef]
+
+class EntityTypeSortTypeDef(TypedDict):
+    DataProductSort: NotRequired[DataProductSortTypeDef]
+    SaaSProductSort: NotRequired[SaaSProductSortTypeDef]
+    AmiProductSort: NotRequired[AmiProductSortTypeDef]
+    OfferSort: NotRequired[OfferSortTypeDef]
+    ContainerProductSort: NotRequired[ContainerProductSortTypeDef]
+    ResaleAuthorizationSort: NotRequired[ResaleAuthorizationSortTypeDef]
+
+class ListChangeSetsRequestPaginateTypeDef(TypedDict):
+    Catalog: str
+    FilterList: NotRequired[Sequence[FilterTypeDef]]
+    Sort: NotRequired[SortTypeDef]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListChangeSetsRequestTypeDef(TypedDict):
+    Catalog: str
+    FilterList: NotRequired[Sequence[FilterTypeDef]]
+    Sort: NotRequired[SortTypeDef]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class OfferAvailabilityEndDateFilterTypeDef(TypedDict):
+    DateRange: NotRequired[OfferAvailabilityEndDateFilterDateRangeTypeDef]
+
+class OfferLastModifiedDateFilterTypeDef(TypedDict):
+    DateRange: NotRequired[OfferLastModifiedDateFilterDateRangeTypeDef]
+
+class OfferReleaseDateFilterTypeDef(TypedDict):
+    DateRange: NotRequired[OfferReleaseDateFilterDateRangeTypeDef]
+
+class ResaleAuthorizationAvailabilityEndDateFilterTypeDef(TypedDict):
+    DateRange: NotRequired[ResaleAuthorizationAvailabilityEndDateFilterDateRangeTypeDef]
+    ValueList: NotRequired[Sequence[str]]
+
+class ResaleAuthorizationCreatedDateFilterTypeDef(TypedDict):
+    DateRange: NotRequired[ResaleAuthorizationCreatedDateFilterDateRangeTypeDef]
+    ValueList: NotRequired[Sequence[str]]
+
+class ResaleAuthorizationLastModifiedDateFilterTypeDef(TypedDict):
+    DateRange: NotRequired[ResaleAuthorizationLastModifiedDateFilterDateRangeTypeDef]
+
+class SaaSProductLastModifiedDateFilterTypeDef(TypedDict):
+    DateRange: NotRequired[SaaSProductLastModifiedDateFilterDateRangeTypeDef]
+
+class AmiProductFiltersTypeDef(TypedDict):
+    EntityId: NotRequired[AmiProductEntityIdFilterTypeDef]
+    LastModifiedDate: NotRequired[AmiProductLastModifiedDateFilterTypeDef]
+    ProductTitle: NotRequired[AmiProductTitleFilterTypeDef]
+    Visibility: NotRequired[AmiProductVisibilityFilterTypeDef]
+
+class DescribeChangeSetResponseTypeDef(TypedDict):
+    ChangeSetId: str
+    ChangeSetArn: str
+    ChangeSetName: str
+    Intent: IntentType
+    StartTime: str
+    EndTime: str
+    Status: ChangeStatusType
+    FailureCode: FailureCodeType
+    FailureDescription: str
+    ChangeSet: List[ChangeSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartChangeSetRequestTypeDef(TypedDict):
+    Catalog: str
+    ChangeSet: Sequence[ChangeTypeDef]
+    ChangeSetName: NotRequired[str]
+    ClientRequestToken: NotRequired[str]
+    ChangeSetTags: NotRequired[Sequence[TagTypeDef]]
+    Intent: NotRequired[IntentType]
+
+class ContainerProductFiltersTypeDef(TypedDict):
+    EntityId: NotRequired[ContainerProductEntityIdFilterTypeDef]
+    LastModifiedDate: NotRequired[ContainerProductLastModifiedDateFilterTypeDef]
+    ProductTitle: NotRequired[ContainerProductTitleFilterTypeDef]
+    Visibility: NotRequired[ContainerProductVisibilityFilterTypeDef]
+
+class DataProductFiltersTypeDef(TypedDict):
+    EntityId: NotRequired[DataProductEntityIdFilterTypeDef]
+    ProductTitle: NotRequired[DataProductTitleFilterTypeDef]
+    Visibility: NotRequired[DataProductVisibilityFilterTypeDef]
+    LastModifiedDate: NotRequired[DataProductLastModifiedDateFilterTypeDef]
+
+class ListEntitiesResponseTypeDef(TypedDict):
+    EntitySummaryList: List[EntitySummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class OfferFiltersTypeDef(TypedDict):
+    EntityId: NotRequired[OfferEntityIdFilterTypeDef]
+    Name: NotRequired[OfferNameFilterTypeDef]
+    ProductId: NotRequired[OfferProductIdFilterTypeDef]
+    ResaleAuthorizationId: NotRequired[OfferResaleAuthorizationIdFilterTypeDef]
+    ReleaseDate: NotRequired[OfferReleaseDateFilterTypeDef]
+    AvailabilityEndDate: NotRequired[OfferAvailabilityEndDateFilterTypeDef]
+    BuyerAccounts: NotRequired[OfferBuyerAccountsFilterTypeDef]
+    State: NotRequired[OfferStateFilterTypeDef]
+    Targeting: NotRequired[OfferTargetingFilterTypeDef]
+    LastModifiedDate: NotRequired[OfferLastModifiedDateFilterTypeDef]
+
+class ResaleAuthorizationFiltersTypeDef(TypedDict):
+    EntityId: NotRequired[ResaleAuthorizationEntityIdFilterTypeDef]
+    Name: NotRequired[ResaleAuthorizationNameFilterTypeDef]
+    ProductId: NotRequired[ResaleAuthorizationProductIdFilterTypeDef]
+    CreatedDate: NotRequired[ResaleAuthorizationCreatedDateFilterTypeDef]
+    AvailabilityEndDate: NotRequired[ResaleAuthorizationAvailabilityEndDateFilterTypeDef]
+    ManufacturerAccountId: NotRequired[ResaleAuthorizationManufacturerAccountIdFilterTypeDef]
+    ProductName: NotRequired[ResaleAuthorizationProductNameFilterTypeDef]
+    ManufacturerLegalName: NotRequired[ResaleAuthorizationManufacturerLegalNameFilterTypeDef]
+    ResellerAccountID: NotRequired[ResaleAuthorizationResellerAccountIDFilterTypeDef]
+    ResellerLegalName: NotRequired[ResaleAuthorizationResellerLegalNameFilterTypeDef]
+    Status: NotRequired[ResaleAuthorizationStatusFilterTypeDef]
+    OfferExtendedStatus: NotRequired[ResaleAuthorizationOfferExtendedStatusFilterTypeDef]
+    LastModifiedDate: NotRequired[ResaleAuthorizationLastModifiedDateFilterTypeDef]
+
+class SaaSProductFiltersTypeDef(TypedDict):
+    EntityId: NotRequired[SaaSProductEntityIdFilterTypeDef]
+    ProductTitle: NotRequired[SaaSProductTitleFilterTypeDef]
+    Visibility: NotRequired[SaaSProductVisibilityFilterTypeDef]
+    LastModifiedDate: NotRequired[SaaSProductLastModifiedDateFilterTypeDef]
+
+class EntityTypeFiltersTypeDef(TypedDict):
+    DataProductFilters: NotRequired[DataProductFiltersTypeDef]
+    SaaSProductFilters: NotRequired[SaaSProductFiltersTypeDef]
+    AmiProductFilters: NotRequired[AmiProductFiltersTypeDef]
+    OfferFilters: NotRequired[OfferFiltersTypeDef]
+    ContainerProductFilters: NotRequired[ContainerProductFiltersTypeDef]
+    ResaleAuthorizationFilters: NotRequired[ResaleAuthorizationFiltersTypeDef]
+
+class ListEntitiesRequestPaginateTypeDef(TypedDict):
+    Catalog: str
+    EntityType: str
+    FilterList: NotRequired[Sequence[FilterTypeDef]]
+    Sort: NotRequired[SortTypeDef]
+    OwnershipType: NotRequired[OwnershipTypeType]
+    EntityTypeFilters: NotRequired[EntityTypeFiltersTypeDef]
+    EntityTypeSort: NotRequired[EntityTypeSortTypeDef]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListEntitiesRequestTypeDef(TypedDict):
+    Catalog: str
+    EntityType: str
+    FilterList: NotRequired[Sequence[FilterTypeDef]]
+    Sort: NotRequired[SortTypeDef]
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+    OwnershipType: NotRequired[OwnershipTypeType]
+    EntityTypeFilters: NotRequired[EntityTypeFiltersTypeDef]
+    EntityTypeSort: NotRequired[EntityTypeSortTypeDef]

@@ -1,20 +1,24 @@
 """
 Type annotations for devicefarm service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devicefarm/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_devicefarm/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_devicefarm.type_defs import AccountSettingsTypeDef
+    from mypy_boto3_devicefarm.type_defs import TrialMinutesTypeDef
 
-    data: AccountSettingsTypeDef = {...}
+    data: TrialMinutesTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List, Union
+from typing import Union
 
 from .literals import (
     ArtifactCategoryType,
@@ -44,145 +48,172 @@ from .literals import (
     UploadTypeType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
     "AccountSettingsTypeDef",
     "ArtifactTypeDef",
     "CPUTypeDef",
     "CountersTypeDef",
-    "CreateDevicePoolRequestRequestTypeDef",
+    "CreateDevicePoolRequestTypeDef",
     "CreateDevicePoolResultTypeDef",
-    "CreateInstanceProfileRequestRequestTypeDef",
+    "CreateInstanceProfileRequestTypeDef",
     "CreateInstanceProfileResultTypeDef",
-    "CreateNetworkProfileRequestRequestTypeDef",
+    "CreateNetworkProfileRequestTypeDef",
     "CreateNetworkProfileResultTypeDef",
-    "CreateProjectRequestRequestTypeDef",
+    "CreateProjectRequestTypeDef",
     "CreateProjectResultTypeDef",
     "CreateRemoteAccessSessionConfigurationTypeDef",
-    "CreateRemoteAccessSessionRequestRequestTypeDef",
+    "CreateRemoteAccessSessionRequestTypeDef",
     "CreateRemoteAccessSessionResultTypeDef",
-    "CreateTestGridProjectRequestRequestTypeDef",
+    "CreateTestGridProjectRequestTypeDef",
     "CreateTestGridProjectResultTypeDef",
-    "CreateTestGridUrlRequestRequestTypeDef",
+    "CreateTestGridUrlRequestTypeDef",
     "CreateTestGridUrlResultTypeDef",
-    "CreateUploadRequestRequestTypeDef",
+    "CreateUploadRequestTypeDef",
     "CreateUploadResultTypeDef",
-    "CreateVPCEConfigurationRequestRequestTypeDef",
+    "CreateVPCEConfigurationRequestTypeDef",
     "CreateVPCEConfigurationResultTypeDef",
+    "CustomerArtifactPathsOutputTypeDef",
     "CustomerArtifactPathsTypeDef",
-    "DeleteDevicePoolRequestRequestTypeDef",
-    "DeleteInstanceProfileRequestRequestTypeDef",
-    "DeleteNetworkProfileRequestRequestTypeDef",
-    "DeleteProjectRequestRequestTypeDef",
-    "DeleteRemoteAccessSessionRequestRequestTypeDef",
-    "DeleteRunRequestRequestTypeDef",
-    "DeleteTestGridProjectRequestRequestTypeDef",
-    "DeleteUploadRequestRequestTypeDef",
-    "DeleteVPCEConfigurationRequestRequestTypeDef",
+    "CustomerArtifactPathsUnionTypeDef",
+    "DeleteDevicePoolRequestTypeDef",
+    "DeleteInstanceProfileRequestTypeDef",
+    "DeleteNetworkProfileRequestTypeDef",
+    "DeleteProjectRequestTypeDef",
+    "DeleteRemoteAccessSessionRequestTypeDef",
+    "DeleteRunRequestTypeDef",
+    "DeleteTestGridProjectRequestTypeDef",
+    "DeleteUploadRequestTypeDef",
+    "DeleteVPCEConfigurationRequestTypeDef",
+    "DeviceFilterOutputTypeDef",
     "DeviceFilterTypeDef",
+    "DeviceFilterUnionTypeDef",
     "DeviceInstanceTypeDef",
     "DeviceMinutesTypeDef",
     "DevicePoolCompatibilityResultTypeDef",
     "DevicePoolTypeDef",
+    "DeviceProxyTypeDef",
     "DeviceSelectionConfigurationTypeDef",
     "DeviceSelectionResultTypeDef",
     "DeviceTypeDef",
     "ExecutionConfigurationTypeDef",
     "GetAccountSettingsResultTypeDef",
-    "GetDeviceInstanceRequestRequestTypeDef",
+    "GetDeviceInstanceRequestTypeDef",
     "GetDeviceInstanceResultTypeDef",
-    "GetDevicePoolCompatibilityRequestRequestTypeDef",
+    "GetDevicePoolCompatibilityRequestTypeDef",
     "GetDevicePoolCompatibilityResultTypeDef",
-    "GetDevicePoolRequestRequestTypeDef",
+    "GetDevicePoolRequestTypeDef",
     "GetDevicePoolResultTypeDef",
-    "GetDeviceRequestRequestTypeDef",
+    "GetDeviceRequestTypeDef",
     "GetDeviceResultTypeDef",
-    "GetInstanceProfileRequestRequestTypeDef",
+    "GetInstanceProfileRequestTypeDef",
     "GetInstanceProfileResultTypeDef",
-    "GetJobRequestRequestTypeDef",
+    "GetJobRequestTypeDef",
     "GetJobResultTypeDef",
-    "GetNetworkProfileRequestRequestTypeDef",
+    "GetNetworkProfileRequestTypeDef",
     "GetNetworkProfileResultTypeDef",
-    "GetOfferingStatusRequestRequestTypeDef",
+    "GetOfferingStatusRequestPaginateTypeDef",
+    "GetOfferingStatusRequestTypeDef",
     "GetOfferingStatusResultTypeDef",
-    "GetProjectRequestRequestTypeDef",
+    "GetProjectRequestTypeDef",
     "GetProjectResultTypeDef",
-    "GetRemoteAccessSessionRequestRequestTypeDef",
+    "GetRemoteAccessSessionRequestTypeDef",
     "GetRemoteAccessSessionResultTypeDef",
-    "GetRunRequestRequestTypeDef",
+    "GetRunRequestTypeDef",
     "GetRunResultTypeDef",
-    "GetSuiteRequestRequestTypeDef",
+    "GetSuiteRequestTypeDef",
     "GetSuiteResultTypeDef",
-    "GetTestGridProjectRequestRequestTypeDef",
+    "GetTestGridProjectRequestTypeDef",
     "GetTestGridProjectResultTypeDef",
-    "GetTestGridSessionRequestRequestTypeDef",
+    "GetTestGridSessionRequestTypeDef",
     "GetTestGridSessionResultTypeDef",
-    "GetTestRequestRequestTypeDef",
+    "GetTestRequestTypeDef",
     "GetTestResultTypeDef",
-    "GetUploadRequestRequestTypeDef",
+    "GetUploadRequestTypeDef",
     "GetUploadResultTypeDef",
-    "GetVPCEConfigurationRequestRequestTypeDef",
+    "GetVPCEConfigurationRequestTypeDef",
     "GetVPCEConfigurationResultTypeDef",
     "IncompatibilityMessageTypeDef",
-    "InstallToRemoteAccessSessionRequestRequestTypeDef",
+    "InstallToRemoteAccessSessionRequestTypeDef",
     "InstallToRemoteAccessSessionResultTypeDef",
     "InstanceProfileTypeDef",
     "JobTypeDef",
-    "ListArtifactsRequestRequestTypeDef",
+    "ListArtifactsRequestPaginateTypeDef",
+    "ListArtifactsRequestTypeDef",
     "ListArtifactsResultTypeDef",
-    "ListDeviceInstancesRequestRequestTypeDef",
+    "ListDeviceInstancesRequestPaginateTypeDef",
+    "ListDeviceInstancesRequestTypeDef",
     "ListDeviceInstancesResultTypeDef",
-    "ListDevicePoolsRequestRequestTypeDef",
+    "ListDevicePoolsRequestPaginateTypeDef",
+    "ListDevicePoolsRequestTypeDef",
     "ListDevicePoolsResultTypeDef",
-    "ListDevicesRequestRequestTypeDef",
+    "ListDevicesRequestPaginateTypeDef",
+    "ListDevicesRequestTypeDef",
     "ListDevicesResultTypeDef",
-    "ListInstanceProfilesRequestRequestTypeDef",
+    "ListInstanceProfilesRequestPaginateTypeDef",
+    "ListInstanceProfilesRequestTypeDef",
     "ListInstanceProfilesResultTypeDef",
-    "ListJobsRequestRequestTypeDef",
+    "ListJobsRequestPaginateTypeDef",
+    "ListJobsRequestTypeDef",
     "ListJobsResultTypeDef",
-    "ListNetworkProfilesRequestRequestTypeDef",
+    "ListNetworkProfilesRequestPaginateTypeDef",
+    "ListNetworkProfilesRequestTypeDef",
     "ListNetworkProfilesResultTypeDef",
-    "ListOfferingPromotionsRequestRequestTypeDef",
+    "ListOfferingPromotionsRequestPaginateTypeDef",
+    "ListOfferingPromotionsRequestTypeDef",
     "ListOfferingPromotionsResultTypeDef",
-    "ListOfferingTransactionsRequestRequestTypeDef",
+    "ListOfferingTransactionsRequestPaginateTypeDef",
+    "ListOfferingTransactionsRequestTypeDef",
     "ListOfferingTransactionsResultTypeDef",
-    "ListOfferingsRequestRequestTypeDef",
+    "ListOfferingsRequestPaginateTypeDef",
+    "ListOfferingsRequestTypeDef",
     "ListOfferingsResultTypeDef",
-    "ListProjectsRequestRequestTypeDef",
+    "ListProjectsRequestPaginateTypeDef",
+    "ListProjectsRequestTypeDef",
     "ListProjectsResultTypeDef",
-    "ListRemoteAccessSessionsRequestRequestTypeDef",
+    "ListRemoteAccessSessionsRequestPaginateTypeDef",
+    "ListRemoteAccessSessionsRequestTypeDef",
     "ListRemoteAccessSessionsResultTypeDef",
-    "ListRunsRequestRequestTypeDef",
+    "ListRunsRequestPaginateTypeDef",
+    "ListRunsRequestTypeDef",
     "ListRunsResultTypeDef",
-    "ListSamplesRequestRequestTypeDef",
+    "ListSamplesRequestPaginateTypeDef",
+    "ListSamplesRequestTypeDef",
     "ListSamplesResultTypeDef",
-    "ListSuitesRequestRequestTypeDef",
+    "ListSuitesRequestPaginateTypeDef",
+    "ListSuitesRequestTypeDef",
     "ListSuitesResultTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
-    "ListTestGridProjectsRequestRequestTypeDef",
+    "ListTestGridProjectsRequestTypeDef",
     "ListTestGridProjectsResultTypeDef",
-    "ListTestGridSessionActionsRequestRequestTypeDef",
+    "ListTestGridSessionActionsRequestTypeDef",
     "ListTestGridSessionActionsResultTypeDef",
-    "ListTestGridSessionArtifactsRequestRequestTypeDef",
+    "ListTestGridSessionArtifactsRequestTypeDef",
     "ListTestGridSessionArtifactsResultTypeDef",
-    "ListTestGridSessionsRequestRequestTypeDef",
+    "ListTestGridSessionsRequestTypeDef",
     "ListTestGridSessionsResultTypeDef",
-    "ListTestsRequestRequestTypeDef",
+    "ListTestsRequestPaginateTypeDef",
+    "ListTestsRequestTypeDef",
     "ListTestsResultTypeDef",
-    "ListUniqueProblemsRequestRequestTypeDef",
+    "ListUniqueProblemsRequestPaginateTypeDef",
+    "ListUniqueProblemsRequestTypeDef",
     "ListUniqueProblemsResultTypeDef",
-    "ListUploadsRequestRequestTypeDef",
+    "ListUploadsRequestPaginateTypeDef",
+    "ListUploadsRequestTypeDef",
     "ListUploadsResultTypeDef",
-    "ListVPCEConfigurationsRequestRequestTypeDef",
+    "ListVPCEConfigurationsRequestPaginateTypeDef",
+    "ListVPCEConfigurationsRequestTypeDef",
     "ListVPCEConfigurationsResultTypeDef",
     "LocationTypeDef",
     "MonetaryAmountTypeDef",
@@ -195,12 +226,12 @@ __all__ = (
     "ProblemDetailTypeDef",
     "ProblemTypeDef",
     "ProjectTypeDef",
-    "PurchaseOfferingRequestRequestTypeDef",
+    "PurchaseOfferingRequestTypeDef",
     "PurchaseOfferingResultTypeDef",
     "RadiosTypeDef",
     "RecurringChargeTypeDef",
     "RemoteAccessSessionTypeDef",
-    "RenewOfferingRequestRequestTypeDef",
+    "RenewOfferingRequestTypeDef",
     "RenewOfferingResultTypeDef",
     "ResolutionTypeDef",
     "ResponseMetadataTypeDef",
@@ -208,2324 +239,1340 @@ __all__ = (
     "RunTypeDef",
     "SampleTypeDef",
     "ScheduleRunConfigurationTypeDef",
-    "ScheduleRunRequestRequestTypeDef",
+    "ScheduleRunRequestTypeDef",
     "ScheduleRunResultTypeDef",
     "ScheduleRunTestTypeDef",
-    "StopJobRequestRequestTypeDef",
+    "StopJobRequestTypeDef",
     "StopJobResultTypeDef",
-    "StopRemoteAccessSessionRequestRequestTypeDef",
+    "StopRemoteAccessSessionRequestTypeDef",
     "StopRemoteAccessSessionResultTypeDef",
-    "StopRunRequestRequestTypeDef",
+    "StopRunRequestTypeDef",
     "StopRunResultTypeDef",
     "SuiteTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
     "TagTypeDef",
     "TestGridProjectTypeDef",
     "TestGridSessionActionTypeDef",
     "TestGridSessionArtifactTypeDef",
     "TestGridSessionTypeDef",
+    "TestGridVpcConfigOutputTypeDef",
     "TestGridVpcConfigTypeDef",
+    "TestGridVpcConfigUnionTypeDef",
     "TestTypeDef",
+    "TimestampTypeDef",
     "TrialMinutesTypeDef",
     "UniqueProblemTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateDeviceInstanceRequestRequestTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateDeviceInstanceRequestTypeDef",
     "UpdateDeviceInstanceResultTypeDef",
-    "UpdateDevicePoolRequestRequestTypeDef",
+    "UpdateDevicePoolRequestTypeDef",
     "UpdateDevicePoolResultTypeDef",
-    "UpdateInstanceProfileRequestRequestTypeDef",
+    "UpdateInstanceProfileRequestTypeDef",
     "UpdateInstanceProfileResultTypeDef",
-    "UpdateNetworkProfileRequestRequestTypeDef",
+    "UpdateNetworkProfileRequestTypeDef",
     "UpdateNetworkProfileResultTypeDef",
-    "UpdateProjectRequestRequestTypeDef",
+    "UpdateProjectRequestTypeDef",
     "UpdateProjectResultTypeDef",
-    "UpdateTestGridProjectRequestRequestTypeDef",
+    "UpdateTestGridProjectRequestTypeDef",
     "UpdateTestGridProjectResultTypeDef",
-    "UpdateUploadRequestRequestTypeDef",
+    "UpdateUploadRequestTypeDef",
     "UpdateUploadResultTypeDef",
-    "UpdateVPCEConfigurationRequestRequestTypeDef",
+    "UpdateVPCEConfigurationRequestTypeDef",
     "UpdateVPCEConfigurationResultTypeDef",
     "UploadTypeDef",
     "VPCEConfigurationTypeDef",
+    "VpcConfigOutputTypeDef",
     "VpcConfigTypeDef",
+    "VpcConfigUnionTypeDef",
 )
 
-AccountSettingsTypeDef = TypedDict(
-    "AccountSettingsTypeDef",
-    {
-        "awsAccountNumber": str,
-        "unmeteredDevices": Dict[DevicePlatformType, int],
-        "unmeteredRemoteAccessDevices": Dict[DevicePlatformType, int],
-        "maxJobTimeoutMinutes": int,
-        "trialMinutes": "TrialMinutesTypeDef",
-        "maxSlots": Dict[str, int],
-        "defaultJobTimeoutMinutes": int,
-        "skipAppResign": bool,
-    },
-    total=False,
-)
+class TrialMinutesTypeDef(TypedDict):
+    total: NotRequired[float]
+    remaining: NotRequired[float]
 
 ArtifactTypeDef = TypedDict(
     "ArtifactTypeDef",
     {
-        "arn": str,
-        "name": str,
-        "type": ArtifactTypeType,
-        "extension": str,
-        "url": str,
+        "arn": NotRequired[str],
+        "name": NotRequired[str],
+        "type": NotRequired[ArtifactTypeType],
+        "extension": NotRequired[str],
+        "url": NotRequired[str],
     },
-    total=False,
 )
 
-CPUTypeDef = TypedDict(
-    "CPUTypeDef",
+class CPUTypeDef(TypedDict):
+    frequency: NotRequired[str]
+    architecture: NotRequired[str]
+    clock: NotRequired[float]
+
+class CountersTypeDef(TypedDict):
+    total: NotRequired[int]
+    passed: NotRequired[int]
+    failed: NotRequired[int]
+    warned: NotRequired[int]
+    errored: NotRequired[int]
+    stopped: NotRequired[int]
+    skipped: NotRequired[int]
+
+RuleTypeDef = TypedDict(
+    "RuleTypeDef",
     {
-        "frequency": str,
-        "architecture": str,
-        "clock": float,
-    },
-    total=False,
-)
-
-CountersTypeDef = TypedDict(
-    "CountersTypeDef",
-    {
-        "total": int,
-        "passed": int,
-        "failed": int,
-        "warned": int,
-        "errored": int,
-        "stopped": int,
-        "skipped": int,
-    },
-    total=False,
-)
-
-_RequiredCreateDevicePoolRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateDevicePoolRequestRequestTypeDef",
-    {
-        "projectArn": str,
-        "name": str,
-        "rules": List["RuleTypeDef"],
-    },
-)
-_OptionalCreateDevicePoolRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateDevicePoolRequestRequestTypeDef",
-    {
-        "description": str,
-        "maxDevices": int,
-    },
-    total=False,
-)
-
-class CreateDevicePoolRequestRequestTypeDef(
-    _RequiredCreateDevicePoolRequestRequestTypeDef, _OptionalCreateDevicePoolRequestRequestTypeDef
-):
-    pass
-
-CreateDevicePoolResultTypeDef = TypedDict(
-    "CreateDevicePoolResultTypeDef",
-    {
-        "devicePool": "DevicePoolTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "attribute": NotRequired[DeviceAttributeType],
+        "operator": NotRequired[RuleOperatorType],
+        "value": NotRequired[str],
     },
 )
 
-_RequiredCreateInstanceProfileRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateInstanceProfileRequestRequestTypeDef",
-    {
-        "name": str,
-    },
-)
-_OptionalCreateInstanceProfileRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateInstanceProfileRequestRequestTypeDef",
-    {
-        "description": str,
-        "packageCleanup": bool,
-        "excludeAppPackagesFromCleanup": List[str],
-        "rebootAfterUse": bool,
-    },
-    total=False,
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-class CreateInstanceProfileRequestRequestTypeDef(
-    _RequiredCreateInstanceProfileRequestRequestTypeDef,
-    _OptionalCreateInstanceProfileRequestRequestTypeDef,
-):
-    pass
+class CreateInstanceProfileRequestTypeDef(TypedDict):
+    name: str
+    description: NotRequired[str]
+    packageCleanup: NotRequired[bool]
+    excludeAppPackagesFromCleanup: NotRequired[Sequence[str]]
+    rebootAfterUse: NotRequired[bool]
 
-CreateInstanceProfileResultTypeDef = TypedDict(
-    "CreateInstanceProfileResultTypeDef",
-    {
-        "instanceProfile": "InstanceProfileTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class InstanceProfileTypeDef(TypedDict):
+    arn: NotRequired[str]
+    packageCleanup: NotRequired[bool]
+    excludeAppPackagesFromCleanup: NotRequired[List[str]]
+    rebootAfterUse: NotRequired[bool]
+    name: NotRequired[str]
+    description: NotRequired[str]
 
-_RequiredCreateNetworkProfileRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateNetworkProfileRequestRequestTypeDef",
+CreateNetworkProfileRequestTypeDef = TypedDict(
+    "CreateNetworkProfileRequestTypeDef",
     {
         "projectArn": str,
         "name": str,
+        "description": NotRequired[str],
+        "type": NotRequired[NetworkProfileTypeType],
+        "uplinkBandwidthBits": NotRequired[int],
+        "downlinkBandwidthBits": NotRequired[int],
+        "uplinkDelayMs": NotRequired[int],
+        "downlinkDelayMs": NotRequired[int],
+        "uplinkJitterMs": NotRequired[int],
+        "downlinkJitterMs": NotRequired[int],
+        "uplinkLossPercent": NotRequired[int],
+        "downlinkLossPercent": NotRequired[int],
     },
 )
-_OptionalCreateNetworkProfileRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateNetworkProfileRequestRequestTypeDef",
+NetworkProfileTypeDef = TypedDict(
+    "NetworkProfileTypeDef",
     {
-        "description": str,
-        "type": NetworkProfileTypeType,
-        "uplinkBandwidthBits": int,
-        "downlinkBandwidthBits": int,
-        "uplinkDelayMs": int,
-        "downlinkDelayMs": int,
-        "uplinkJitterMs": int,
-        "downlinkJitterMs": int,
-        "uplinkLossPercent": int,
-        "downlinkLossPercent": int,
-    },
-    total=False,
-)
-
-class CreateNetworkProfileRequestRequestTypeDef(
-    _RequiredCreateNetworkProfileRequestRequestTypeDef,
-    _OptionalCreateNetworkProfileRequestRequestTypeDef,
-):
-    pass
-
-CreateNetworkProfileResultTypeDef = TypedDict(
-    "CreateNetworkProfileResultTypeDef",
-    {
-        "networkProfile": "NetworkProfileTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "arn": NotRequired[str],
+        "name": NotRequired[str],
+        "description": NotRequired[str],
+        "type": NotRequired[NetworkProfileTypeType],
+        "uplinkBandwidthBits": NotRequired[int],
+        "downlinkBandwidthBits": NotRequired[int],
+        "uplinkDelayMs": NotRequired[int],
+        "downlinkDelayMs": NotRequired[int],
+        "uplinkJitterMs": NotRequired[int],
+        "downlinkJitterMs": NotRequired[int],
+        "uplinkLossPercent": NotRequired[int],
+        "downlinkLossPercent": NotRequired[int],
     },
 )
 
-_RequiredCreateProjectRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateProjectRequestRequestTypeDef",
-    {
-        "name": str,
-    },
-)
-_OptionalCreateProjectRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateProjectRequestRequestTypeDef",
-    {
-        "defaultJobTimeoutMinutes": int,
-        "vpcConfig": "VpcConfigTypeDef",
-    },
-    total=False,
-)
+class DeviceProxyTypeDef(TypedDict):
+    host: str
+    port: int
 
-class CreateProjectRequestRequestTypeDef(
-    _RequiredCreateProjectRequestRequestTypeDef, _OptionalCreateProjectRequestRequestTypeDef
-):
-    pass
+class CreateTestGridUrlRequestTypeDef(TypedDict):
+    projectArn: str
+    expiresInSeconds: int
 
-CreateProjectResultTypeDef = TypedDict(
-    "CreateProjectResultTypeDef",
-    {
-        "project": "ProjectTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateRemoteAccessSessionConfigurationTypeDef = TypedDict(
-    "CreateRemoteAccessSessionConfigurationTypeDef",
-    {
-        "billingMethod": BillingMethodType,
-        "vpceConfigurationArns": List[str],
-    },
-    total=False,
-)
-
-_RequiredCreateRemoteAccessSessionRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateRemoteAccessSessionRequestRequestTypeDef",
-    {
-        "projectArn": str,
-        "deviceArn": str,
-    },
-)
-_OptionalCreateRemoteAccessSessionRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateRemoteAccessSessionRequestRequestTypeDef",
-    {
-        "instanceArn": str,
-        "sshPublicKey": str,
-        "remoteDebugEnabled": bool,
-        "remoteRecordEnabled": bool,
-        "remoteRecordAppArn": str,
-        "name": str,
-        "clientId": str,
-        "configuration": "CreateRemoteAccessSessionConfigurationTypeDef",
-        "interactionMode": InteractionModeType,
-        "skipAppResign": bool,
-    },
-    total=False,
-)
-
-class CreateRemoteAccessSessionRequestRequestTypeDef(
-    _RequiredCreateRemoteAccessSessionRequestRequestTypeDef,
-    _OptionalCreateRemoteAccessSessionRequestRequestTypeDef,
-):
-    pass
-
-CreateRemoteAccessSessionResultTypeDef = TypedDict(
-    "CreateRemoteAccessSessionResultTypeDef",
-    {
-        "remoteAccessSession": "RemoteAccessSessionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateTestGridProjectRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateTestGridProjectRequestRequestTypeDef",
-    {
-        "name": str,
-    },
-)
-_OptionalCreateTestGridProjectRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateTestGridProjectRequestRequestTypeDef",
-    {
-        "description": str,
-        "vpcConfig": "TestGridVpcConfigTypeDef",
-    },
-    total=False,
-)
-
-class CreateTestGridProjectRequestRequestTypeDef(
-    _RequiredCreateTestGridProjectRequestRequestTypeDef,
-    _OptionalCreateTestGridProjectRequestRequestTypeDef,
-):
-    pass
-
-CreateTestGridProjectResultTypeDef = TypedDict(
-    "CreateTestGridProjectResultTypeDef",
-    {
-        "testGridProject": "TestGridProjectTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateTestGridUrlRequestRequestTypeDef = TypedDict(
-    "CreateTestGridUrlRequestRequestTypeDef",
-    {
-        "projectArn": str,
-        "expiresInSeconds": int,
-    },
-)
-
-CreateTestGridUrlResultTypeDef = TypedDict(
-    "CreateTestGridUrlResultTypeDef",
-    {
-        "url": str,
-        "expires": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateUploadRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateUploadRequestRequestTypeDef",
+CreateUploadRequestTypeDef = TypedDict(
+    "CreateUploadRequestTypeDef",
     {
         "projectArn": str,
         "name": str,
         "type": UploadTypeType,
+        "contentType": NotRequired[str],
     },
 )
-_OptionalCreateUploadRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateUploadRequestRequestTypeDef",
+UploadTypeDef = TypedDict(
+    "UploadTypeDef",
     {
-        "contentType": str,
-    },
-    total=False,
-)
-
-class CreateUploadRequestRequestTypeDef(
-    _RequiredCreateUploadRequestRequestTypeDef, _OptionalCreateUploadRequestRequestTypeDef
-):
-    pass
-
-CreateUploadResultTypeDef = TypedDict(
-    "CreateUploadResultTypeDef",
-    {
-        "upload": "UploadTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "arn": NotRequired[str],
+        "name": NotRequired[str],
+        "created": NotRequired[datetime],
+        "type": NotRequired[UploadTypeType],
+        "status": NotRequired[UploadStatusType],
+        "url": NotRequired[str],
+        "metadata": NotRequired[str],
+        "contentType": NotRequired[str],
+        "message": NotRequired[str],
+        "category": NotRequired[UploadCategoryType],
     },
 )
 
-_RequiredCreateVPCEConfigurationRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateVPCEConfigurationRequestRequestTypeDef",
-    {
-        "vpceConfigurationName": str,
-        "vpceServiceName": str,
-        "serviceDnsName": str,
-    },
-)
-_OptionalCreateVPCEConfigurationRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateVPCEConfigurationRequestRequestTypeDef",
-    {
-        "vpceConfigurationDescription": str,
-    },
-    total=False,
-)
+class CreateVPCEConfigurationRequestTypeDef(TypedDict):
+    vpceConfigurationName: str
+    vpceServiceName: str
+    serviceDnsName: str
+    vpceConfigurationDescription: NotRequired[str]
 
-class CreateVPCEConfigurationRequestRequestTypeDef(
-    _RequiredCreateVPCEConfigurationRequestRequestTypeDef,
-    _OptionalCreateVPCEConfigurationRequestRequestTypeDef,
-):
-    pass
+class VPCEConfigurationTypeDef(TypedDict):
+    arn: NotRequired[str]
+    vpceConfigurationName: NotRequired[str]
+    vpceServiceName: NotRequired[str]
+    serviceDnsName: NotRequired[str]
+    vpceConfigurationDescription: NotRequired[str]
 
-CreateVPCEConfigurationResultTypeDef = TypedDict(
-    "CreateVPCEConfigurationResultTypeDef",
-    {
-        "vpceConfiguration": "VPCEConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CustomerArtifactPathsOutputTypeDef(TypedDict):
+    iosPaths: NotRequired[List[str]]
+    androidPaths: NotRequired[List[str]]
+    deviceHostPaths: NotRequired[List[str]]
 
-CustomerArtifactPathsTypeDef = TypedDict(
-    "CustomerArtifactPathsTypeDef",
-    {
-        "iosPaths": List[str],
-        "androidPaths": List[str],
-        "deviceHostPaths": List[str],
-    },
-    total=False,
-)
+class CustomerArtifactPathsTypeDef(TypedDict):
+    iosPaths: NotRequired[Sequence[str]]
+    androidPaths: NotRequired[Sequence[str]]
+    deviceHostPaths: NotRequired[Sequence[str]]
 
-DeleteDevicePoolRequestRequestTypeDef = TypedDict(
-    "DeleteDevicePoolRequestRequestTypeDef",
-    {
-        "arn": str,
-    },
-)
+class DeleteDevicePoolRequestTypeDef(TypedDict):
+    arn: str
 
-DeleteInstanceProfileRequestRequestTypeDef = TypedDict(
-    "DeleteInstanceProfileRequestRequestTypeDef",
-    {
-        "arn": str,
-    },
-)
+class DeleteInstanceProfileRequestTypeDef(TypedDict):
+    arn: str
 
-DeleteNetworkProfileRequestRequestTypeDef = TypedDict(
-    "DeleteNetworkProfileRequestRequestTypeDef",
-    {
-        "arn": str,
-    },
-)
+class DeleteNetworkProfileRequestTypeDef(TypedDict):
+    arn: str
 
-DeleteProjectRequestRequestTypeDef = TypedDict(
-    "DeleteProjectRequestRequestTypeDef",
-    {
-        "arn": str,
-    },
-)
+class DeleteProjectRequestTypeDef(TypedDict):
+    arn: str
 
-DeleteRemoteAccessSessionRequestRequestTypeDef = TypedDict(
-    "DeleteRemoteAccessSessionRequestRequestTypeDef",
-    {
-        "arn": str,
-    },
-)
+class DeleteRemoteAccessSessionRequestTypeDef(TypedDict):
+    arn: str
 
-DeleteRunRequestRequestTypeDef = TypedDict(
-    "DeleteRunRequestRequestTypeDef",
-    {
-        "arn": str,
-    },
-)
+class DeleteRunRequestTypeDef(TypedDict):
+    arn: str
 
-DeleteTestGridProjectRequestRequestTypeDef = TypedDict(
-    "DeleteTestGridProjectRequestRequestTypeDef",
-    {
-        "projectArn": str,
-    },
-)
+class DeleteTestGridProjectRequestTypeDef(TypedDict):
+    projectArn: str
 
-DeleteUploadRequestRequestTypeDef = TypedDict(
-    "DeleteUploadRequestRequestTypeDef",
-    {
-        "arn": str,
-    },
-)
+class DeleteUploadRequestTypeDef(TypedDict):
+    arn: str
 
-DeleteVPCEConfigurationRequestRequestTypeDef = TypedDict(
-    "DeleteVPCEConfigurationRequestRequestTypeDef",
-    {
-        "arn": str,
-    },
-)
+class DeleteVPCEConfigurationRequestTypeDef(TypedDict):
+    arn: str
 
-DeviceFilterTypeDef = TypedDict(
-    "DeviceFilterTypeDef",
+DeviceFilterOutputTypeDef = TypedDict(
+    "DeviceFilterOutputTypeDef",
     {
         "attribute": DeviceFilterAttributeType,
         "operator": RuleOperatorType,
         "values": List[str],
     },
 )
-
-DeviceInstanceTypeDef = TypedDict(
-    "DeviceInstanceTypeDef",
+DeviceFilterTypeDef = TypedDict(
+    "DeviceFilterTypeDef",
     {
-        "arn": str,
-        "deviceArn": str,
-        "labels": List[str],
-        "status": InstanceStatusType,
-        "udid": str,
-        "instanceProfile": "InstanceProfileTypeDef",
-    },
-    total=False,
-)
-
-DeviceMinutesTypeDef = TypedDict(
-    "DeviceMinutesTypeDef",
-    {
-        "total": float,
-        "metered": float,
-        "unmetered": float,
-    },
-    total=False,
-)
-
-DevicePoolCompatibilityResultTypeDef = TypedDict(
-    "DevicePoolCompatibilityResultTypeDef",
-    {
-        "device": "DeviceTypeDef",
-        "compatible": bool,
-        "incompatibilityMessages": List["IncompatibilityMessageTypeDef"],
-    },
-    total=False,
-)
-
-DevicePoolTypeDef = TypedDict(
-    "DevicePoolTypeDef",
-    {
-        "arn": str,
-        "name": str,
-        "description": str,
-        "type": DevicePoolTypeType,
-        "rules": List["RuleTypeDef"],
-        "maxDevices": int,
-    },
-    total=False,
-)
-
-DeviceSelectionConfigurationTypeDef = TypedDict(
-    "DeviceSelectionConfigurationTypeDef",
-    {
-        "filters": List["DeviceFilterTypeDef"],
-        "maxDevices": int,
+        "attribute": DeviceFilterAttributeType,
+        "operator": RuleOperatorType,
+        "values": Sequence[str],
     },
 )
 
-DeviceSelectionResultTypeDef = TypedDict(
-    "DeviceSelectionResultTypeDef",
-    {
-        "filters": List["DeviceFilterTypeDef"],
-        "matchedDevicesCount": int,
-        "maxDevices": int,
-    },
-    total=False,
-)
-
-DeviceTypeDef = TypedDict(
-    "DeviceTypeDef",
-    {
-        "arn": str,
-        "name": str,
-        "manufacturer": str,
-        "model": str,
-        "modelId": str,
-        "formFactor": DeviceFormFactorType,
-        "platform": DevicePlatformType,
-        "os": str,
-        "cpu": "CPUTypeDef",
-        "resolution": "ResolutionTypeDef",
-        "heapSize": int,
-        "memory": int,
-        "image": str,
-        "carrier": str,
-        "radio": str,
-        "remoteAccessEnabled": bool,
-        "remoteDebugEnabled": bool,
-        "fleetType": str,
-        "fleetName": str,
-        "instances": List["DeviceInstanceTypeDef"],
-        "availability": DeviceAvailabilityType,
-    },
-    total=False,
-)
-
-ExecutionConfigurationTypeDef = TypedDict(
-    "ExecutionConfigurationTypeDef",
-    {
-        "jobTimeoutMinutes": int,
-        "accountsCleanup": bool,
-        "appPackagesCleanup": bool,
-        "videoCapture": bool,
-        "skipAppResign": bool,
-    },
-    total=False,
-)
-
-GetAccountSettingsResultTypeDef = TypedDict(
-    "GetAccountSettingsResultTypeDef",
-    {
-        "accountSettings": "AccountSettingsTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetDeviceInstanceRequestRequestTypeDef = TypedDict(
-    "GetDeviceInstanceRequestRequestTypeDef",
-    {
-        "arn": str,
-    },
-)
-
-GetDeviceInstanceResultTypeDef = TypedDict(
-    "GetDeviceInstanceResultTypeDef",
-    {
-        "deviceInstance": "DeviceInstanceTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetDevicePoolCompatibilityRequestRequestTypeDef = TypedDict(
-    "_RequiredGetDevicePoolCompatibilityRequestRequestTypeDef",
-    {
-        "devicePoolArn": str,
-    },
-)
-_OptionalGetDevicePoolCompatibilityRequestRequestTypeDef = TypedDict(
-    "_OptionalGetDevicePoolCompatibilityRequestRequestTypeDef",
-    {
-        "appArn": str,
-        "testType": TestTypeType,
-        "test": "ScheduleRunTestTypeDef",
-        "configuration": "ScheduleRunConfigurationTypeDef",
-    },
-    total=False,
-)
-
-class GetDevicePoolCompatibilityRequestRequestTypeDef(
-    _RequiredGetDevicePoolCompatibilityRequestRequestTypeDef,
-    _OptionalGetDevicePoolCompatibilityRequestRequestTypeDef,
-):
-    pass
-
-GetDevicePoolCompatibilityResultTypeDef = TypedDict(
-    "GetDevicePoolCompatibilityResultTypeDef",
-    {
-        "compatibleDevices": List["DevicePoolCompatibilityResultTypeDef"],
-        "incompatibleDevices": List["DevicePoolCompatibilityResultTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetDevicePoolRequestRequestTypeDef = TypedDict(
-    "GetDevicePoolRequestRequestTypeDef",
-    {
-        "arn": str,
-    },
-)
-
-GetDevicePoolResultTypeDef = TypedDict(
-    "GetDevicePoolResultTypeDef",
-    {
-        "devicePool": "DevicePoolTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetDeviceRequestRequestTypeDef = TypedDict(
-    "GetDeviceRequestRequestTypeDef",
-    {
-        "arn": str,
-    },
-)
-
-GetDeviceResultTypeDef = TypedDict(
-    "GetDeviceResultTypeDef",
-    {
-        "device": "DeviceTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetInstanceProfileRequestRequestTypeDef = TypedDict(
-    "GetInstanceProfileRequestRequestTypeDef",
-    {
-        "arn": str,
-    },
-)
-
-GetInstanceProfileResultTypeDef = TypedDict(
-    "GetInstanceProfileResultTypeDef",
-    {
-        "instanceProfile": "InstanceProfileTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetJobRequestRequestTypeDef = TypedDict(
-    "GetJobRequestRequestTypeDef",
-    {
-        "arn": str,
-    },
-)
-
-GetJobResultTypeDef = TypedDict(
-    "GetJobResultTypeDef",
-    {
-        "job": "JobTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetNetworkProfileRequestRequestTypeDef = TypedDict(
-    "GetNetworkProfileRequestRequestTypeDef",
-    {
-        "arn": str,
-    },
-)
-
-GetNetworkProfileResultTypeDef = TypedDict(
-    "GetNetworkProfileResultTypeDef",
-    {
-        "networkProfile": "NetworkProfileTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetOfferingStatusRequestRequestTypeDef = TypedDict(
-    "GetOfferingStatusRequestRequestTypeDef",
-    {
-        "nextToken": str,
-    },
-    total=False,
-)
-
-GetOfferingStatusResultTypeDef = TypedDict(
-    "GetOfferingStatusResultTypeDef",
-    {
-        "current": Dict[str, "OfferingStatusTypeDef"],
-        "nextPeriod": Dict[str, "OfferingStatusTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetProjectRequestRequestTypeDef = TypedDict(
-    "GetProjectRequestRequestTypeDef",
-    {
-        "arn": str,
-    },
-)
-
-GetProjectResultTypeDef = TypedDict(
-    "GetProjectResultTypeDef",
-    {
-        "project": "ProjectTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetRemoteAccessSessionRequestRequestTypeDef = TypedDict(
-    "GetRemoteAccessSessionRequestRequestTypeDef",
-    {
-        "arn": str,
-    },
-)
-
-GetRemoteAccessSessionResultTypeDef = TypedDict(
-    "GetRemoteAccessSessionResultTypeDef",
-    {
-        "remoteAccessSession": "RemoteAccessSessionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetRunRequestRequestTypeDef = TypedDict(
-    "GetRunRequestRequestTypeDef",
-    {
-        "arn": str,
-    },
-)
-
-GetRunResultTypeDef = TypedDict(
-    "GetRunResultTypeDef",
-    {
-        "run": "RunTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetSuiteRequestRequestTypeDef = TypedDict(
-    "GetSuiteRequestRequestTypeDef",
-    {
-        "arn": str,
-    },
-)
-
-GetSuiteResultTypeDef = TypedDict(
-    "GetSuiteResultTypeDef",
-    {
-        "suite": "SuiteTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetTestGridProjectRequestRequestTypeDef = TypedDict(
-    "GetTestGridProjectRequestRequestTypeDef",
-    {
-        "projectArn": str,
-    },
-)
-
-GetTestGridProjectResultTypeDef = TypedDict(
-    "GetTestGridProjectResultTypeDef",
-    {
-        "testGridProject": "TestGridProjectTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetTestGridSessionRequestRequestTypeDef = TypedDict(
-    "GetTestGridSessionRequestRequestTypeDef",
-    {
-        "projectArn": str,
-        "sessionId": str,
-        "sessionArn": str,
-    },
-    total=False,
-)
-
-GetTestGridSessionResultTypeDef = TypedDict(
-    "GetTestGridSessionResultTypeDef",
-    {
-        "testGridSession": "TestGridSessionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetTestRequestRequestTypeDef = TypedDict(
-    "GetTestRequestRequestTypeDef",
-    {
-        "arn": str,
-    },
-)
-
-GetTestResultTypeDef = TypedDict(
-    "GetTestResultTypeDef",
-    {
-        "test": "TestTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetUploadRequestRequestTypeDef = TypedDict(
-    "GetUploadRequestRequestTypeDef",
-    {
-        "arn": str,
-    },
-)
-
-GetUploadResultTypeDef = TypedDict(
-    "GetUploadResultTypeDef",
-    {
-        "upload": "UploadTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetVPCEConfigurationRequestRequestTypeDef = TypedDict(
-    "GetVPCEConfigurationRequestRequestTypeDef",
-    {
-        "arn": str,
-    },
-)
-
-GetVPCEConfigurationResultTypeDef = TypedDict(
-    "GetVPCEConfigurationResultTypeDef",
-    {
-        "vpceConfiguration": "VPCEConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DeviceMinutesTypeDef(TypedDict):
+    total: NotRequired[float]
+    metered: NotRequired[float]
+    unmetered: NotRequired[float]
 
 IncompatibilityMessageTypeDef = TypedDict(
     "IncompatibilityMessageTypeDef",
     {
-        "message": str,
-        "type": DeviceAttributeType,
-    },
-    total=False,
-)
-
-InstallToRemoteAccessSessionRequestRequestTypeDef = TypedDict(
-    "InstallToRemoteAccessSessionRequestRequestTypeDef",
-    {
-        "remoteAccessSessionArn": str,
-        "appArn": str,
+        "message": NotRequired[str],
+        "type": NotRequired[DeviceAttributeType],
     },
 )
 
-InstallToRemoteAccessSessionResultTypeDef = TypedDict(
-    "InstallToRemoteAccessSessionResultTypeDef",
-    {
-        "appUpload": "UploadTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ResolutionTypeDef(TypedDict):
+    width: NotRequired[int]
+    height: NotRequired[int]
 
-InstanceProfileTypeDef = TypedDict(
-    "InstanceProfileTypeDef",
-    {
-        "arn": str,
-        "packageCleanup": bool,
-        "excludeAppPackagesFromCleanup": List[str],
-        "rebootAfterUse": bool,
-        "name": str,
-        "description": str,
-    },
-    total=False,
-)
+class ExecutionConfigurationTypeDef(TypedDict):
+    jobTimeoutMinutes: NotRequired[int]
+    accountsCleanup: NotRequired[bool]
+    appPackagesCleanup: NotRequired[bool]
+    videoCapture: NotRequired[bool]
+    skipAppResign: NotRequired[bool]
 
-JobTypeDef = TypedDict(
-    "JobTypeDef",
+class GetDeviceInstanceRequestTypeDef(TypedDict):
+    arn: str
+
+ScheduleRunTestTypeDef = TypedDict(
+    "ScheduleRunTestTypeDef",
     {
-        "arn": str,
-        "name": str,
         "type": TestTypeType,
-        "created": datetime,
-        "status": ExecutionStatusType,
-        "result": ExecutionResultType,
-        "started": datetime,
-        "stopped": datetime,
-        "counters": "CountersTypeDef",
-        "message": str,
-        "device": "DeviceTypeDef",
-        "instanceArn": str,
-        "deviceMinutes": "DeviceMinutesTypeDef",
-        "videoEndpoint": str,
-        "videoCapture": bool,
+        "testPackageArn": NotRequired[str],
+        "testSpecArn": NotRequired[str],
+        "filter": NotRequired[str],
+        "parameters": NotRequired[Mapping[str, str]],
     },
-    total=False,
 )
 
-_RequiredListArtifactsRequestRequestTypeDef = TypedDict(
-    "_RequiredListArtifactsRequestRequestTypeDef",
+class GetDevicePoolRequestTypeDef(TypedDict):
+    arn: str
+
+class GetDeviceRequestTypeDef(TypedDict):
+    arn: str
+
+class GetInstanceProfileRequestTypeDef(TypedDict):
+    arn: str
+
+class GetJobRequestTypeDef(TypedDict):
+    arn: str
+
+class GetNetworkProfileRequestTypeDef(TypedDict):
+    arn: str
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class GetOfferingStatusRequestTypeDef(TypedDict):
+    nextToken: NotRequired[str]
+
+class GetProjectRequestTypeDef(TypedDict):
+    arn: str
+
+class GetRemoteAccessSessionRequestTypeDef(TypedDict):
+    arn: str
+
+class GetRunRequestTypeDef(TypedDict):
+    arn: str
+
+class GetSuiteRequestTypeDef(TypedDict):
+    arn: str
+
+class GetTestGridProjectRequestTypeDef(TypedDict):
+    projectArn: str
+
+class GetTestGridSessionRequestTypeDef(TypedDict):
+    projectArn: NotRequired[str]
+    sessionId: NotRequired[str]
+    sessionArn: NotRequired[str]
+
+class TestGridSessionTypeDef(TypedDict):
+    arn: NotRequired[str]
+    status: NotRequired[TestGridSessionStatusType]
+    created: NotRequired[datetime]
+    ended: NotRequired[datetime]
+    billingMinutes: NotRequired[float]
+    seleniumProperties: NotRequired[str]
+
+class GetTestRequestTypeDef(TypedDict):
+    arn: str
+
+class GetUploadRequestTypeDef(TypedDict):
+    arn: str
+
+class GetVPCEConfigurationRequestTypeDef(TypedDict):
+    arn: str
+
+class InstallToRemoteAccessSessionRequestTypeDef(TypedDict):
+    remoteAccessSessionArn: str
+    appArn: str
+
+ListArtifactsRequestTypeDef = TypedDict(
+    "ListArtifactsRequestTypeDef",
     {
         "arn": str,
         "type": ArtifactCategoryType,
-    },
-)
-_OptionalListArtifactsRequestRequestTypeDef = TypedDict(
-    "_OptionalListArtifactsRequestRequestTypeDef",
-    {
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListArtifactsRequestRequestTypeDef(
-    _RequiredListArtifactsRequestRequestTypeDef, _OptionalListArtifactsRequestRequestTypeDef
-):
-    pass
-
-ListArtifactsResultTypeDef = TypedDict(
-    "ListArtifactsResultTypeDef",
-    {
-        "artifacts": List["ArtifactTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "nextToken": NotRequired[str],
     },
 )
 
-ListDeviceInstancesRequestRequestTypeDef = TypedDict(
-    "ListDeviceInstancesRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
+class ListDeviceInstancesRequestTypeDef(TypedDict):
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
 
-ListDeviceInstancesResultTypeDef = TypedDict(
-    "ListDeviceInstancesResultTypeDef",
-    {
-        "deviceInstances": List["DeviceInstanceTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListDevicePoolsRequestRequestTypeDef = TypedDict(
-    "_RequiredListDevicePoolsRequestRequestTypeDef",
+ListDevicePoolsRequestTypeDef = TypedDict(
+    "ListDevicePoolsRequestTypeDef",
     {
         "arn": str,
-    },
-)
-_OptionalListDevicePoolsRequestRequestTypeDef = TypedDict(
-    "_OptionalListDevicePoolsRequestRequestTypeDef",
-    {
-        "type": DevicePoolTypeType,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListDevicePoolsRequestRequestTypeDef(
-    _RequiredListDevicePoolsRequestRequestTypeDef, _OptionalListDevicePoolsRequestRequestTypeDef
-):
-    pass
-
-ListDevicePoolsResultTypeDef = TypedDict(
-    "ListDevicePoolsResultTypeDef",
-    {
-        "devicePools": List["DevicePoolTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "type": NotRequired[DevicePoolTypeType],
+        "nextToken": NotRequired[str],
     },
 )
 
-ListDevicesRequestRequestTypeDef = TypedDict(
-    "ListDevicesRequestRequestTypeDef",
+class ListInstanceProfilesRequestTypeDef(TypedDict):
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListJobsRequestTypeDef(TypedDict):
+    arn: str
+    nextToken: NotRequired[str]
+
+ListNetworkProfilesRequestTypeDef = TypedDict(
+    "ListNetworkProfilesRequestTypeDef",
     {
         "arn": str,
-        "nextToken": str,
-        "filters": List["DeviceFilterTypeDef"],
-    },
-    total=False,
-)
-
-ListDevicesResultTypeDef = TypedDict(
-    "ListDevicesResultTypeDef",
-    {
-        "devices": List["DeviceTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "type": NotRequired[NetworkProfileTypeType],
+        "nextToken": NotRequired[str],
     },
 )
 
-ListInstanceProfilesRequestRequestTypeDef = TypedDict(
-    "ListInstanceProfilesRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-ListInstanceProfilesResultTypeDef = TypedDict(
-    "ListInstanceProfilesResultTypeDef",
-    {
-        "instanceProfiles": List["InstanceProfileTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListJobsRequestRequestTypeDef = TypedDict(
-    "_RequiredListJobsRequestRequestTypeDef",
-    {
-        "arn": str,
-    },
-)
-_OptionalListJobsRequestRequestTypeDef = TypedDict(
-    "_OptionalListJobsRequestRequestTypeDef",
-    {
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListJobsRequestRequestTypeDef(
-    _RequiredListJobsRequestRequestTypeDef, _OptionalListJobsRequestRequestTypeDef
-):
-    pass
-
-ListJobsResultTypeDef = TypedDict(
-    "ListJobsResultTypeDef",
-    {
-        "jobs": List["JobTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListNetworkProfilesRequestRequestTypeDef = TypedDict(
-    "_RequiredListNetworkProfilesRequestRequestTypeDef",
-    {
-        "arn": str,
-    },
-)
-_OptionalListNetworkProfilesRequestRequestTypeDef = TypedDict(
-    "_OptionalListNetworkProfilesRequestRequestTypeDef",
-    {
-        "type": NetworkProfileTypeType,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListNetworkProfilesRequestRequestTypeDef(
-    _RequiredListNetworkProfilesRequestRequestTypeDef,
-    _OptionalListNetworkProfilesRequestRequestTypeDef,
-):
-    pass
-
-ListNetworkProfilesResultTypeDef = TypedDict(
-    "ListNetworkProfilesResultTypeDef",
-    {
-        "networkProfiles": List["NetworkProfileTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListOfferingPromotionsRequestRequestTypeDef = TypedDict(
-    "ListOfferingPromotionsRequestRequestTypeDef",
-    {
-        "nextToken": str,
-    },
-    total=False,
-)
-
-ListOfferingPromotionsResultTypeDef = TypedDict(
-    "ListOfferingPromotionsResultTypeDef",
-    {
-        "offeringPromotions": List["OfferingPromotionTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListOfferingTransactionsRequestRequestTypeDef = TypedDict(
-    "ListOfferingTransactionsRequestRequestTypeDef",
-    {
-        "nextToken": str,
-    },
-    total=False,
-)
-
-ListOfferingTransactionsResultTypeDef = TypedDict(
-    "ListOfferingTransactionsResultTypeDef",
-    {
-        "offeringTransactions": List["OfferingTransactionTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListOfferingsRequestRequestTypeDef = TypedDict(
-    "ListOfferingsRequestRequestTypeDef",
-    {
-        "nextToken": str,
-    },
-    total=False,
-)
-
-ListOfferingsResultTypeDef = TypedDict(
-    "ListOfferingsResultTypeDef",
-    {
-        "offerings": List["OfferingTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListProjectsRequestRequestTypeDef = TypedDict(
-    "ListProjectsRequestRequestTypeDef",
-    {
-        "arn": str,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-ListProjectsResultTypeDef = TypedDict(
-    "ListProjectsResultTypeDef",
-    {
-        "projects": List["ProjectTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListRemoteAccessSessionsRequestRequestTypeDef = TypedDict(
-    "_RequiredListRemoteAccessSessionsRequestRequestTypeDef",
-    {
-        "arn": str,
-    },
-)
-_OptionalListRemoteAccessSessionsRequestRequestTypeDef = TypedDict(
-    "_OptionalListRemoteAccessSessionsRequestRequestTypeDef",
-    {
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListRemoteAccessSessionsRequestRequestTypeDef(
-    _RequiredListRemoteAccessSessionsRequestRequestTypeDef,
-    _OptionalListRemoteAccessSessionsRequestRequestTypeDef,
-):
-    pass
-
-ListRemoteAccessSessionsResultTypeDef = TypedDict(
-    "ListRemoteAccessSessionsResultTypeDef",
-    {
-        "remoteAccessSessions": List["RemoteAccessSessionTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListRunsRequestRequestTypeDef = TypedDict(
-    "_RequiredListRunsRequestRequestTypeDef",
-    {
-        "arn": str,
-    },
-)
-_OptionalListRunsRequestRequestTypeDef = TypedDict(
-    "_OptionalListRunsRequestRequestTypeDef",
-    {
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListRunsRequestRequestTypeDef(
-    _RequiredListRunsRequestRequestTypeDef, _OptionalListRunsRequestRequestTypeDef
-):
-    pass
-
-ListRunsResultTypeDef = TypedDict(
-    "ListRunsResultTypeDef",
-    {
-        "runs": List["RunTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListSamplesRequestRequestTypeDef = TypedDict(
-    "_RequiredListSamplesRequestRequestTypeDef",
-    {
-        "arn": str,
-    },
-)
-_OptionalListSamplesRequestRequestTypeDef = TypedDict(
-    "_OptionalListSamplesRequestRequestTypeDef",
-    {
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListSamplesRequestRequestTypeDef(
-    _RequiredListSamplesRequestRequestTypeDef, _OptionalListSamplesRequestRequestTypeDef
-):
-    pass
-
-ListSamplesResultTypeDef = TypedDict(
-    "ListSamplesResultTypeDef",
-    {
-        "samples": List["SampleTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListSuitesRequestRequestTypeDef = TypedDict(
-    "_RequiredListSuitesRequestRequestTypeDef",
-    {
-        "arn": str,
-    },
-)
-_OptionalListSuitesRequestRequestTypeDef = TypedDict(
-    "_OptionalListSuitesRequestRequestTypeDef",
-    {
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListSuitesRequestRequestTypeDef(
-    _RequiredListSuitesRequestRequestTypeDef, _OptionalListSuitesRequestRequestTypeDef
-):
-    pass
-
-ListSuitesResultTypeDef = TypedDict(
-    "ListSuitesResultTypeDef",
-    {
-        "suites": List["SuiteTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "ResourceARN": str,
-    },
-)
-
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "Tags": List["TagTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTestGridProjectsRequestRequestTypeDef = TypedDict(
-    "ListTestGridProjectsRequestRequestTypeDef",
-    {
-        "maxResult": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-ListTestGridProjectsResultTypeDef = TypedDict(
-    "ListTestGridProjectsResultTypeDef",
-    {
-        "testGridProjects": List["TestGridProjectTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListTestGridSessionActionsRequestRequestTypeDef = TypedDict(
-    "_RequiredListTestGridSessionActionsRequestRequestTypeDef",
-    {
-        "sessionArn": str,
-    },
-)
-_OptionalListTestGridSessionActionsRequestRequestTypeDef = TypedDict(
-    "_OptionalListTestGridSessionActionsRequestRequestTypeDef",
-    {
-        "maxResult": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListTestGridSessionActionsRequestRequestTypeDef(
-    _RequiredListTestGridSessionActionsRequestRequestTypeDef,
-    _OptionalListTestGridSessionActionsRequestRequestTypeDef,
-):
-    pass
-
-ListTestGridSessionActionsResultTypeDef = TypedDict(
-    "ListTestGridSessionActionsResultTypeDef",
-    {
-        "actions": List["TestGridSessionActionTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListTestGridSessionArtifactsRequestRequestTypeDef = TypedDict(
-    "_RequiredListTestGridSessionArtifactsRequestRequestTypeDef",
-    {
-        "sessionArn": str,
-    },
-)
-_OptionalListTestGridSessionArtifactsRequestRequestTypeDef = TypedDict(
-    "_OptionalListTestGridSessionArtifactsRequestRequestTypeDef",
-    {
-        "type": TestGridSessionArtifactCategoryType,
-        "maxResult": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListTestGridSessionArtifactsRequestRequestTypeDef(
-    _RequiredListTestGridSessionArtifactsRequestRequestTypeDef,
-    _OptionalListTestGridSessionArtifactsRequestRequestTypeDef,
-):
-    pass
-
-ListTestGridSessionArtifactsResultTypeDef = TypedDict(
-    "ListTestGridSessionArtifactsResultTypeDef",
-    {
-        "artifacts": List["TestGridSessionArtifactTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListTestGridSessionsRequestRequestTypeDef = TypedDict(
-    "_RequiredListTestGridSessionsRequestRequestTypeDef",
-    {
-        "projectArn": str,
-    },
-)
-_OptionalListTestGridSessionsRequestRequestTypeDef = TypedDict(
-    "_OptionalListTestGridSessionsRequestRequestTypeDef",
-    {
-        "status": TestGridSessionStatusType,
-        "creationTimeAfter": Union[datetime, str],
-        "creationTimeBefore": Union[datetime, str],
-        "endTimeAfter": Union[datetime, str],
-        "endTimeBefore": Union[datetime, str],
-        "maxResult": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListTestGridSessionsRequestRequestTypeDef(
-    _RequiredListTestGridSessionsRequestRequestTypeDef,
-    _OptionalListTestGridSessionsRequestRequestTypeDef,
-):
-    pass
-
-ListTestGridSessionsResultTypeDef = TypedDict(
-    "ListTestGridSessionsResultTypeDef",
-    {
-        "testGridSessions": List["TestGridSessionTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListTestsRequestRequestTypeDef = TypedDict(
-    "_RequiredListTestsRequestRequestTypeDef",
-    {
-        "arn": str,
-    },
-)
-_OptionalListTestsRequestRequestTypeDef = TypedDict(
-    "_OptionalListTestsRequestRequestTypeDef",
-    {
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListTestsRequestRequestTypeDef(
-    _RequiredListTestsRequestRequestTypeDef, _OptionalListTestsRequestRequestTypeDef
-):
-    pass
-
-ListTestsResultTypeDef = TypedDict(
-    "ListTestsResultTypeDef",
-    {
-        "tests": List["TestTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListUniqueProblemsRequestRequestTypeDef = TypedDict(
-    "_RequiredListUniqueProblemsRequestRequestTypeDef",
-    {
-        "arn": str,
-    },
-)
-_OptionalListUniqueProblemsRequestRequestTypeDef = TypedDict(
-    "_OptionalListUniqueProblemsRequestRequestTypeDef",
-    {
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListUniqueProblemsRequestRequestTypeDef(
-    _RequiredListUniqueProblemsRequestRequestTypeDef,
-    _OptionalListUniqueProblemsRequestRequestTypeDef,
-):
-    pass
-
-ListUniqueProblemsResultTypeDef = TypedDict(
-    "ListUniqueProblemsResultTypeDef",
-    {
-        "uniqueProblems": Dict[ExecutionResultType, List["UniqueProblemTypeDef"]],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListUploadsRequestRequestTypeDef = TypedDict(
-    "_RequiredListUploadsRequestRequestTypeDef",
-    {
-        "arn": str,
-    },
-)
-_OptionalListUploadsRequestRequestTypeDef = TypedDict(
-    "_OptionalListUploadsRequestRequestTypeDef",
-    {
-        "type": UploadTypeType,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListUploadsRequestRequestTypeDef(
-    _RequiredListUploadsRequestRequestTypeDef, _OptionalListUploadsRequestRequestTypeDef
-):
-    pass
-
-ListUploadsResultTypeDef = TypedDict(
-    "ListUploadsResultTypeDef",
-    {
-        "uploads": List["UploadTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListVPCEConfigurationsRequestRequestTypeDef = TypedDict(
-    "ListVPCEConfigurationsRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-ListVPCEConfigurationsResultTypeDef = TypedDict(
-    "ListVPCEConfigurationsResultTypeDef",
-    {
-        "vpceConfigurations": List["VPCEConfigurationTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-LocationTypeDef = TypedDict(
-    "LocationTypeDef",
-    {
-        "latitude": float,
-        "longitude": float,
-    },
-)
-
-MonetaryAmountTypeDef = TypedDict(
-    "MonetaryAmountTypeDef",
-    {
-        "amount": float,
-        "currencyCode": Literal["USD"],
-    },
-    total=False,
-)
-
-NetworkProfileTypeDef = TypedDict(
-    "NetworkProfileTypeDef",
-    {
-        "arn": str,
-        "name": str,
-        "description": str,
-        "type": NetworkProfileTypeType,
-        "uplinkBandwidthBits": int,
-        "downlinkBandwidthBits": int,
-        "uplinkDelayMs": int,
-        "downlinkDelayMs": int,
-        "uplinkJitterMs": int,
-        "downlinkJitterMs": int,
-        "uplinkLossPercent": int,
-        "downlinkLossPercent": int,
-    },
-    total=False,
-)
+class ListOfferingPromotionsRequestTypeDef(TypedDict):
+    nextToken: NotRequired[str]
 
 OfferingPromotionTypeDef = TypedDict(
     "OfferingPromotionTypeDef",
     {
-        "id": str,
-        "description": str,
-    },
-    total=False,
-)
-
-OfferingStatusTypeDef = TypedDict(
-    "OfferingStatusTypeDef",
-    {
-        "type": OfferingTransactionTypeType,
-        "offering": "OfferingTypeDef",
-        "quantity": int,
-        "effectiveOn": datetime,
-    },
-    total=False,
-)
-
-OfferingTransactionTypeDef = TypedDict(
-    "OfferingTransactionTypeDef",
-    {
-        "offeringStatus": "OfferingStatusTypeDef",
-        "transactionId": str,
-        "offeringPromotionId": str,
-        "createdOn": datetime,
-        "cost": "MonetaryAmountTypeDef",
-    },
-    total=False,
-)
-
-OfferingTypeDef = TypedDict(
-    "OfferingTypeDef",
-    {
-        "id": str,
-        "description": str,
-        "type": Literal["RECURRING"],
-        "platform": DevicePlatformType,
-        "recurringCharges": List["RecurringChargeTypeDef"],
-    },
-    total=False,
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-ProblemDetailTypeDef = TypedDict(
-    "ProblemDetailTypeDef",
-    {
-        "arn": str,
-        "name": str,
-    },
-    total=False,
-)
-
-ProblemTypeDef = TypedDict(
-    "ProblemTypeDef",
-    {
-        "run": "ProblemDetailTypeDef",
-        "job": "ProblemDetailTypeDef",
-        "suite": "ProblemDetailTypeDef",
-        "test": "ProblemDetailTypeDef",
-        "device": "DeviceTypeDef",
-        "result": ExecutionResultType,
-        "message": str,
-    },
-    total=False,
-)
-
-ProjectTypeDef = TypedDict(
-    "ProjectTypeDef",
-    {
-        "arn": str,
-        "name": str,
-        "defaultJobTimeoutMinutes": int,
-        "created": datetime,
-        "vpcConfig": "VpcConfigTypeDef",
-    },
-    total=False,
-)
-
-_RequiredPurchaseOfferingRequestRequestTypeDef = TypedDict(
-    "_RequiredPurchaseOfferingRequestRequestTypeDef",
-    {
-        "offeringId": str,
-        "quantity": int,
-    },
-)
-_OptionalPurchaseOfferingRequestRequestTypeDef = TypedDict(
-    "_OptionalPurchaseOfferingRequestRequestTypeDef",
-    {
-        "offeringPromotionId": str,
-    },
-    total=False,
-)
-
-class PurchaseOfferingRequestRequestTypeDef(
-    _RequiredPurchaseOfferingRequestRequestTypeDef, _OptionalPurchaseOfferingRequestRequestTypeDef
-):
-    pass
-
-PurchaseOfferingResultTypeDef = TypedDict(
-    "PurchaseOfferingResultTypeDef",
-    {
-        "offeringTransaction": "OfferingTransactionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "id": NotRequired[str],
+        "description": NotRequired[str],
     },
 )
 
-RadiosTypeDef = TypedDict(
-    "RadiosTypeDef",
-    {
-        "wifi": bool,
-        "bluetooth": bool,
-        "nfc": bool,
-        "gps": bool,
-    },
-    total=False,
-)
+class ListOfferingTransactionsRequestTypeDef(TypedDict):
+    nextToken: NotRequired[str]
 
-RecurringChargeTypeDef = TypedDict(
-    "RecurringChargeTypeDef",
-    {
-        "cost": "MonetaryAmountTypeDef",
-        "frequency": Literal["MONTHLY"],
-    },
-    total=False,
-)
+class ListOfferingsRequestTypeDef(TypedDict):
+    nextToken: NotRequired[str]
 
-RemoteAccessSessionTypeDef = TypedDict(
-    "RemoteAccessSessionTypeDef",
-    {
-        "arn": str,
-        "name": str,
-        "created": datetime,
-        "status": ExecutionStatusType,
-        "result": ExecutionResultType,
-        "message": str,
-        "started": datetime,
-        "stopped": datetime,
-        "device": "DeviceTypeDef",
-        "instanceArn": str,
-        "remoteDebugEnabled": bool,
-        "remoteRecordEnabled": bool,
-        "remoteRecordAppArn": str,
-        "hostAddress": str,
-        "clientId": str,
-        "billingMethod": BillingMethodType,
-        "deviceMinutes": "DeviceMinutesTypeDef",
-        "endpoint": str,
-        "deviceUdid": str,
-        "interactionMode": InteractionModeType,
-        "skipAppResign": bool,
-        "vpcConfig": "VpcConfigTypeDef",
-    },
-    total=False,
-)
+class ListProjectsRequestTypeDef(TypedDict):
+    arn: NotRequired[str]
+    nextToken: NotRequired[str]
 
-RenewOfferingRequestRequestTypeDef = TypedDict(
-    "RenewOfferingRequestRequestTypeDef",
-    {
-        "offeringId": str,
-        "quantity": int,
-    },
-)
+class ListRemoteAccessSessionsRequestTypeDef(TypedDict):
+    arn: str
+    nextToken: NotRequired[str]
 
-RenewOfferingResultTypeDef = TypedDict(
-    "RenewOfferingResultTypeDef",
-    {
-        "offeringTransaction": "OfferingTransactionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListRunsRequestTypeDef(TypedDict):
+    arn: str
+    nextToken: NotRequired[str]
 
-ResolutionTypeDef = TypedDict(
-    "ResolutionTypeDef",
-    {
-        "width": int,
-        "height": int,
-    },
-    total=False,
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-RuleTypeDef = TypedDict(
-    "RuleTypeDef",
-    {
-        "attribute": DeviceAttributeType,
-        "operator": RuleOperatorType,
-        "value": str,
-    },
-    total=False,
-)
-
-RunTypeDef = TypedDict(
-    "RunTypeDef",
-    {
-        "arn": str,
-        "name": str,
-        "type": TestTypeType,
-        "platform": DevicePlatformType,
-        "created": datetime,
-        "status": ExecutionStatusType,
-        "result": ExecutionResultType,
-        "started": datetime,
-        "stopped": datetime,
-        "counters": "CountersTypeDef",
-        "message": str,
-        "totalJobs": int,
-        "completedJobs": int,
-        "billingMethod": BillingMethodType,
-        "deviceMinutes": "DeviceMinutesTypeDef",
-        "networkProfile": "NetworkProfileTypeDef",
-        "parsingResultUrl": str,
-        "resultCode": ExecutionResultCodeType,
-        "seed": int,
-        "appUpload": str,
-        "eventCount": int,
-        "jobTimeoutMinutes": int,
-        "devicePoolArn": str,
-        "locale": str,
-        "radios": "RadiosTypeDef",
-        "location": "LocationTypeDef",
-        "customerArtifactPaths": "CustomerArtifactPathsTypeDef",
-        "webUrl": str,
-        "skipAppResign": bool,
-        "testSpecArn": str,
-        "deviceSelectionResult": "DeviceSelectionResultTypeDef",
-        "vpcConfig": "VpcConfigTypeDef",
-    },
-    total=False,
-)
+class ListSamplesRequestTypeDef(TypedDict):
+    arn: str
+    nextToken: NotRequired[str]
 
 SampleTypeDef = TypedDict(
     "SampleTypeDef",
     {
-        "arn": str,
-        "type": SampleTypeType,
-        "url": str,
+        "arn": NotRequired[str],
+        "type": NotRequired[SampleTypeType],
+        "url": NotRequired[str],
     },
-    total=False,
 )
 
-ScheduleRunConfigurationTypeDef = TypedDict(
-    "ScheduleRunConfigurationTypeDef",
+class ListSuitesRequestTypeDef(TypedDict):
+    arn: str
+    nextToken: NotRequired[str]
+
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    ResourceARN: str
+
+class TagTypeDef(TypedDict):
+    Key: str
+    Value: str
+
+class ListTestGridProjectsRequestTypeDef(TypedDict):
+    maxResult: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListTestGridSessionActionsRequestTypeDef(TypedDict):
+    sessionArn: str
+    maxResult: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class TestGridSessionActionTypeDef(TypedDict):
+    action: NotRequired[str]
+    started: NotRequired[datetime]
+    duration: NotRequired[int]
+    statusCode: NotRequired[str]
+    requestMethod: NotRequired[str]
+
+ListTestGridSessionArtifactsRequestTypeDef = TypedDict(
+    "ListTestGridSessionArtifactsRequestTypeDef",
     {
-        "extraDataPackageArn": str,
-        "networkProfileArn": str,
-        "locale": str,
-        "location": "LocationTypeDef",
-        "vpceConfigurationArns": List[str],
-        "customerArtifactPaths": "CustomerArtifactPathsTypeDef",
-        "radios": "RadiosTypeDef",
-        "auxiliaryApps": List[str],
-        "billingMethod": BillingMethodType,
-    },
-    total=False,
-)
-
-_RequiredScheduleRunRequestRequestTypeDef = TypedDict(
-    "_RequiredScheduleRunRequestRequestTypeDef",
-    {
-        "projectArn": str,
-        "test": "ScheduleRunTestTypeDef",
+        "sessionArn": str,
+        "type": NotRequired[TestGridSessionArtifactCategoryType],
+        "maxResult": NotRequired[int],
+        "nextToken": NotRequired[str],
     },
 )
-_OptionalScheduleRunRequestRequestTypeDef = TypedDict(
-    "_OptionalScheduleRunRequestRequestTypeDef",
-    {
-        "appArn": str,
-        "devicePoolArn": str,
-        "deviceSelectionConfiguration": "DeviceSelectionConfigurationTypeDef",
-        "name": str,
-        "configuration": "ScheduleRunConfigurationTypeDef",
-        "executionConfiguration": "ExecutionConfigurationTypeDef",
-    },
-    total=False,
-)
-
-class ScheduleRunRequestRequestTypeDef(
-    _RequiredScheduleRunRequestRequestTypeDef, _OptionalScheduleRunRequestRequestTypeDef
-):
-    pass
-
-ScheduleRunResultTypeDef = TypedDict(
-    "ScheduleRunResultTypeDef",
-    {
-        "run": "RunTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredScheduleRunTestTypeDef = TypedDict(
-    "_RequiredScheduleRunTestTypeDef",
-    {
-        "type": TestTypeType,
-    },
-)
-_OptionalScheduleRunTestTypeDef = TypedDict(
-    "_OptionalScheduleRunTestTypeDef",
-    {
-        "testPackageArn": str,
-        "testSpecArn": str,
-        "filter": str,
-        "parameters": Dict[str, str],
-    },
-    total=False,
-)
-
-class ScheduleRunTestTypeDef(_RequiredScheduleRunTestTypeDef, _OptionalScheduleRunTestTypeDef):
-    pass
-
-StopJobRequestRequestTypeDef = TypedDict(
-    "StopJobRequestRequestTypeDef",
-    {
-        "arn": str,
-    },
-)
-
-StopJobResultTypeDef = TypedDict(
-    "StopJobResultTypeDef",
-    {
-        "job": "JobTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-StopRemoteAccessSessionRequestRequestTypeDef = TypedDict(
-    "StopRemoteAccessSessionRequestRequestTypeDef",
-    {
-        "arn": str,
-    },
-)
-
-StopRemoteAccessSessionResultTypeDef = TypedDict(
-    "StopRemoteAccessSessionResultTypeDef",
-    {
-        "remoteAccessSession": "RemoteAccessSessionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-StopRunRequestRequestTypeDef = TypedDict(
-    "StopRunRequestRequestTypeDef",
-    {
-        "arn": str,
-    },
-)
-
-StopRunResultTypeDef = TypedDict(
-    "StopRunResultTypeDef",
-    {
-        "run": "RunTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-SuiteTypeDef = TypedDict(
-    "SuiteTypeDef",
-    {
-        "arn": str,
-        "name": str,
-        "type": TestTypeType,
-        "created": datetime,
-        "status": ExecutionStatusType,
-        "result": ExecutionResultType,
-        "started": datetime,
-        "stopped": datetime,
-        "counters": "CountersTypeDef",
-        "message": str,
-        "deviceMinutes": "DeviceMinutesTypeDef",
-    },
-    total=False,
-)
-
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "ResourceARN": str,
-        "Tags": List["TagTypeDef"],
-    },
-)
-
-TagTypeDef = TypedDict(
-    "TagTypeDef",
-    {
-        "Key": str,
-        "Value": str,
-    },
-)
-
-TestGridProjectTypeDef = TypedDict(
-    "TestGridProjectTypeDef",
-    {
-        "arn": str,
-        "name": str,
-        "description": str,
-        "vpcConfig": "TestGridVpcConfigTypeDef",
-        "created": datetime,
-    },
-    total=False,
-)
-
-TestGridSessionActionTypeDef = TypedDict(
-    "TestGridSessionActionTypeDef",
-    {
-        "action": str,
-        "started": datetime,
-        "duration": int,
-        "statusCode": str,
-        "requestMethod": str,
-    },
-    total=False,
-)
-
 TestGridSessionArtifactTypeDef = TypedDict(
     "TestGridSessionArtifactTypeDef",
     {
-        "filename": str,
-        "type": TestGridSessionArtifactTypeType,
-        "url": str,
+        "filename": NotRequired[str],
+        "type": NotRequired[TestGridSessionArtifactTypeType],
+        "url": NotRequired[str],
     },
-    total=False,
 )
+TimestampTypeDef = Union[datetime, str]
 
-TestGridSessionTypeDef = TypedDict(
-    "TestGridSessionTypeDef",
+class ListTestsRequestTypeDef(TypedDict):
+    arn: str
+    nextToken: NotRequired[str]
+
+class ListUniqueProblemsRequestTypeDef(TypedDict):
+    arn: str
+    nextToken: NotRequired[str]
+
+ListUploadsRequestTypeDef = TypedDict(
+    "ListUploadsRequestTypeDef",
     {
         "arn": str,
-        "status": TestGridSessionStatusType,
-        "created": datetime,
-        "ended": datetime,
-        "billingMinutes": float,
-        "seleniumProperties": str,
+        "type": NotRequired[UploadTypeType],
+        "nextToken": NotRequired[str],
     },
-    total=False,
 )
 
-TestGridVpcConfigTypeDef = TypedDict(
-    "TestGridVpcConfigTypeDef",
+class ListVPCEConfigurationsRequestTypeDef(TypedDict):
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class LocationTypeDef(TypedDict):
+    latitude: float
+    longitude: float
+
+class MonetaryAmountTypeDef(TypedDict):
+    amount: NotRequired[float]
+    currencyCode: NotRequired[Literal["USD"]]
+
+class ProblemDetailTypeDef(TypedDict):
+    arn: NotRequired[str]
+    name: NotRequired[str]
+
+class VpcConfigOutputTypeDef(TypedDict):
+    securityGroupIds: List[str]
+    subnetIds: List[str]
+    vpcId: str
+
+class PurchaseOfferingRequestTypeDef(TypedDict):
+    offeringId: str
+    quantity: int
+    offeringPromotionId: NotRequired[str]
+
+class RadiosTypeDef(TypedDict):
+    wifi: NotRequired[bool]
+    bluetooth: NotRequired[bool]
+    nfc: NotRequired[bool]
+    gps: NotRequired[bool]
+
+class RenewOfferingRequestTypeDef(TypedDict):
+    offeringId: str
+    quantity: int
+
+class StopJobRequestTypeDef(TypedDict):
+    arn: str
+
+class StopRemoteAccessSessionRequestTypeDef(TypedDict):
+    arn: str
+
+class StopRunRequestTypeDef(TypedDict):
+    arn: str
+
+class TestGridVpcConfigOutputTypeDef(TypedDict):
+    securityGroupIds: List[str]
+    subnetIds: List[str]
+    vpcId: str
+
+class TestGridVpcConfigTypeDef(TypedDict):
+    securityGroupIds: Sequence[str]
+    subnetIds: Sequence[str]
+    vpcId: str
+
+class UntagResourceRequestTypeDef(TypedDict):
+    ResourceARN: str
+    TagKeys: Sequence[str]
+
+class UpdateDeviceInstanceRequestTypeDef(TypedDict):
+    arn: str
+    profileArn: NotRequired[str]
+    labels: NotRequired[Sequence[str]]
+
+class UpdateInstanceProfileRequestTypeDef(TypedDict):
+    arn: str
+    name: NotRequired[str]
+    description: NotRequired[str]
+    packageCleanup: NotRequired[bool]
+    excludeAppPackagesFromCleanup: NotRequired[Sequence[str]]
+    rebootAfterUse: NotRequired[bool]
+
+UpdateNetworkProfileRequestTypeDef = TypedDict(
+    "UpdateNetworkProfileRequestTypeDef",
     {
-        "securityGroupIds": List[str],
-        "subnetIds": List[str],
-        "vpcId": str,
+        "arn": str,
+        "name": NotRequired[str],
+        "description": NotRequired[str],
+        "type": NotRequired[NetworkProfileTypeType],
+        "uplinkBandwidthBits": NotRequired[int],
+        "downlinkBandwidthBits": NotRequired[int],
+        "uplinkDelayMs": NotRequired[int],
+        "downlinkDelayMs": NotRequired[int],
+        "uplinkJitterMs": NotRequired[int],
+        "downlinkJitterMs": NotRequired[int],
+        "uplinkLossPercent": NotRequired[int],
+        "downlinkLossPercent": NotRequired[int],
     },
 )
 
+class UpdateUploadRequestTypeDef(TypedDict):
+    arn: str
+    name: NotRequired[str]
+    contentType: NotRequired[str]
+    editContent: NotRequired[bool]
+
+class UpdateVPCEConfigurationRequestTypeDef(TypedDict):
+    arn: str
+    vpceConfigurationName: NotRequired[str]
+    vpceServiceName: NotRequired[str]
+    serviceDnsName: NotRequired[str]
+    vpceConfigurationDescription: NotRequired[str]
+
+class VpcConfigTypeDef(TypedDict):
+    securityGroupIds: Sequence[str]
+    subnetIds: Sequence[str]
+    vpcId: str
+
+class AccountSettingsTypeDef(TypedDict):
+    awsAccountNumber: NotRequired[str]
+    unmeteredDevices: NotRequired[Dict[DevicePlatformType, int]]
+    unmeteredRemoteAccessDevices: NotRequired[Dict[DevicePlatformType, int]]
+    maxJobTimeoutMinutes: NotRequired[int]
+    trialMinutes: NotRequired[TrialMinutesTypeDef]
+    maxSlots: NotRequired[Dict[str, int]]
+    defaultJobTimeoutMinutes: NotRequired[int]
+    skipAppResign: NotRequired[bool]
+
+class CreateDevicePoolRequestTypeDef(TypedDict):
+    projectArn: str
+    name: str
+    rules: Sequence[RuleTypeDef]
+    description: NotRequired[str]
+    maxDevices: NotRequired[int]
+
+DevicePoolTypeDef = TypedDict(
+    "DevicePoolTypeDef",
+    {
+        "arn": NotRequired[str],
+        "name": NotRequired[str],
+        "description": NotRequired[str],
+        "type": NotRequired[DevicePoolTypeType],
+        "rules": NotRequired[List[RuleTypeDef]],
+        "maxDevices": NotRequired[int],
+    },
+)
+
+class UpdateDevicePoolRequestTypeDef(TypedDict):
+    arn: str
+    name: NotRequired[str]
+    description: NotRequired[str]
+    rules: NotRequired[Sequence[RuleTypeDef]]
+    maxDevices: NotRequired[int]
+    clearMaxDevices: NotRequired[bool]
+
+class CreateTestGridUrlResultTypeDef(TypedDict):
+    url: str
+    expires: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListArtifactsResultTypeDef(TypedDict):
+    artifacts: List[ArtifactTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class CreateInstanceProfileResultTypeDef(TypedDict):
+    instanceProfile: InstanceProfileTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeviceInstanceTypeDef(TypedDict):
+    arn: NotRequired[str]
+    deviceArn: NotRequired[str]
+    labels: NotRequired[List[str]]
+    status: NotRequired[InstanceStatusType]
+    udid: NotRequired[str]
+    instanceProfile: NotRequired[InstanceProfileTypeDef]
+
+class GetInstanceProfileResultTypeDef(TypedDict):
+    instanceProfile: InstanceProfileTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListInstanceProfilesResultTypeDef(TypedDict):
+    instanceProfiles: List[InstanceProfileTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class UpdateInstanceProfileResultTypeDef(TypedDict):
+    instanceProfile: InstanceProfileTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateNetworkProfileResultTypeDef(TypedDict):
+    networkProfile: NetworkProfileTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetNetworkProfileResultTypeDef(TypedDict):
+    networkProfile: NetworkProfileTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListNetworkProfilesResultTypeDef(TypedDict):
+    networkProfiles: List[NetworkProfileTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class UpdateNetworkProfileResultTypeDef(TypedDict):
+    networkProfile: NetworkProfileTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateRemoteAccessSessionConfigurationTypeDef(TypedDict):
+    billingMethod: NotRequired[BillingMethodType]
+    vpceConfigurationArns: NotRequired[Sequence[str]]
+    deviceProxy: NotRequired[DeviceProxyTypeDef]
+
+class CreateUploadResultTypeDef(TypedDict):
+    upload: UploadTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetUploadResultTypeDef(TypedDict):
+    upload: UploadTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class InstallToRemoteAccessSessionResultTypeDef(TypedDict):
+    appUpload: UploadTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListUploadsResultTypeDef(TypedDict):
+    uploads: List[UploadTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class UpdateUploadResultTypeDef(TypedDict):
+    upload: UploadTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateVPCEConfigurationResultTypeDef(TypedDict):
+    vpceConfiguration: VPCEConfigurationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetVPCEConfigurationResultTypeDef(TypedDict):
+    vpceConfiguration: VPCEConfigurationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListVPCEConfigurationsResultTypeDef(TypedDict):
+    vpceConfigurations: List[VPCEConfigurationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class UpdateVPCEConfigurationResultTypeDef(TypedDict):
+    vpceConfiguration: VPCEConfigurationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+CustomerArtifactPathsUnionTypeDef = Union[
+    CustomerArtifactPathsTypeDef, CustomerArtifactPathsOutputTypeDef
+]
+
+class DeviceSelectionResultTypeDef(TypedDict):
+    filters: NotRequired[List[DeviceFilterOutputTypeDef]]
+    matchedDevicesCount: NotRequired[int]
+    maxDevices: NotRequired[int]
+
+DeviceFilterUnionTypeDef = Union[DeviceFilterTypeDef, DeviceFilterOutputTypeDef]
+SuiteTypeDef = TypedDict(
+    "SuiteTypeDef",
+    {
+        "arn": NotRequired[str],
+        "name": NotRequired[str],
+        "type": NotRequired[TestTypeType],
+        "created": NotRequired[datetime],
+        "status": NotRequired[ExecutionStatusType],
+        "result": NotRequired[ExecutionResultType],
+        "started": NotRequired[datetime],
+        "stopped": NotRequired[datetime],
+        "counters": NotRequired[CountersTypeDef],
+        "message": NotRequired[str],
+        "deviceMinutes": NotRequired[DeviceMinutesTypeDef],
+    },
+)
 TestTypeDef = TypedDict(
     "TestTypeDef",
     {
-        "arn": str,
-        "name": str,
-        "type": TestTypeType,
-        "created": datetime,
-        "status": ExecutionStatusType,
-        "result": ExecutionResultType,
-        "started": datetime,
-        "stopped": datetime,
-        "counters": "CountersTypeDef",
-        "message": str,
-        "deviceMinutes": "DeviceMinutesTypeDef",
-    },
-    total=False,
-)
-
-TrialMinutesTypeDef = TypedDict(
-    "TrialMinutesTypeDef",
-    {
-        "total": float,
-        "remaining": float,
-    },
-    total=False,
-)
-
-UniqueProblemTypeDef = TypedDict(
-    "UniqueProblemTypeDef",
-    {
-        "message": str,
-        "problems": List["ProblemTypeDef"],
-    },
-    total=False,
-)
-
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "ResourceARN": str,
-        "TagKeys": List[str],
+        "arn": NotRequired[str],
+        "name": NotRequired[str],
+        "type": NotRequired[TestTypeType],
+        "created": NotRequired[datetime],
+        "status": NotRequired[ExecutionStatusType],
+        "result": NotRequired[ExecutionResultType],
+        "started": NotRequired[datetime],
+        "stopped": NotRequired[datetime],
+        "counters": NotRequired[CountersTypeDef],
+        "message": NotRequired[str],
+        "deviceMinutes": NotRequired[DeviceMinutesTypeDef],
     },
 )
 
-_RequiredUpdateDeviceInstanceRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateDeviceInstanceRequestRequestTypeDef",
+class GetOfferingStatusRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+ListArtifactsRequestPaginateTypeDef = TypedDict(
+    "ListArtifactsRequestPaginateTypeDef",
     {
         "arn": str,
-    },
-)
-_OptionalUpdateDeviceInstanceRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateDeviceInstanceRequestRequestTypeDef",
-    {
-        "profileArn": str,
-        "labels": List[str],
-    },
-    total=False,
-)
-
-class UpdateDeviceInstanceRequestRequestTypeDef(
-    _RequiredUpdateDeviceInstanceRequestRequestTypeDef,
-    _OptionalUpdateDeviceInstanceRequestRequestTypeDef,
-):
-    pass
-
-UpdateDeviceInstanceResultTypeDef = TypedDict(
-    "UpdateDeviceInstanceResultTypeDef",
-    {
-        "deviceInstance": "DeviceInstanceTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "type": ArtifactCategoryType,
+        "PaginationConfig": NotRequired[PaginatorConfigTypeDef],
     },
 )
 
-_RequiredUpdateDevicePoolRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateDevicePoolRequestRequestTypeDef",
+class ListDeviceInstancesRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+ListDevicePoolsRequestPaginateTypeDef = TypedDict(
+    "ListDevicePoolsRequestPaginateTypeDef",
     {
         "arn": str,
-    },
-)
-_OptionalUpdateDevicePoolRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateDevicePoolRequestRequestTypeDef",
-    {
-        "name": str,
-        "description": str,
-        "rules": List["RuleTypeDef"],
-        "maxDevices": int,
-        "clearMaxDevices": bool,
-    },
-    total=False,
-)
-
-class UpdateDevicePoolRequestRequestTypeDef(
-    _RequiredUpdateDevicePoolRequestRequestTypeDef, _OptionalUpdateDevicePoolRequestRequestTypeDef
-):
-    pass
-
-UpdateDevicePoolResultTypeDef = TypedDict(
-    "UpdateDevicePoolResultTypeDef",
-    {
-        "devicePool": "DevicePoolTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "type": NotRequired[DevicePoolTypeType],
+        "PaginationConfig": NotRequired[PaginatorConfigTypeDef],
     },
 )
 
-_RequiredUpdateInstanceProfileRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateInstanceProfileRequestRequestTypeDef",
+class ListInstanceProfilesRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListJobsRequestPaginateTypeDef(TypedDict):
+    arn: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+ListNetworkProfilesRequestPaginateTypeDef = TypedDict(
+    "ListNetworkProfilesRequestPaginateTypeDef",
     {
         "arn": str,
-    },
-)
-_OptionalUpdateInstanceProfileRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateInstanceProfileRequestRequestTypeDef",
-    {
-        "name": str,
-        "description": str,
-        "packageCleanup": bool,
-        "excludeAppPackagesFromCleanup": List[str],
-        "rebootAfterUse": bool,
-    },
-    total=False,
-)
-
-class UpdateInstanceProfileRequestRequestTypeDef(
-    _RequiredUpdateInstanceProfileRequestRequestTypeDef,
-    _OptionalUpdateInstanceProfileRequestRequestTypeDef,
-):
-    pass
-
-UpdateInstanceProfileResultTypeDef = TypedDict(
-    "UpdateInstanceProfileResultTypeDef",
-    {
-        "instanceProfile": "InstanceProfileTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "type": NotRequired[NetworkProfileTypeType],
+        "PaginationConfig": NotRequired[PaginatorConfigTypeDef],
     },
 )
 
-_RequiredUpdateNetworkProfileRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateNetworkProfileRequestRequestTypeDef",
-    {
-        "arn": str,
-    },
-)
-_OptionalUpdateNetworkProfileRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateNetworkProfileRequestRequestTypeDef",
-    {
-        "name": str,
-        "description": str,
-        "type": NetworkProfileTypeType,
-        "uplinkBandwidthBits": int,
-        "downlinkBandwidthBits": int,
-        "uplinkDelayMs": int,
-        "downlinkDelayMs": int,
-        "uplinkJitterMs": int,
-        "downlinkJitterMs": int,
-        "uplinkLossPercent": int,
-        "downlinkLossPercent": int,
-    },
-    total=False,
-)
+class ListOfferingPromotionsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-class UpdateNetworkProfileRequestRequestTypeDef(
-    _RequiredUpdateNetworkProfileRequestRequestTypeDef,
-    _OptionalUpdateNetworkProfileRequestRequestTypeDef,
-):
-    pass
+class ListOfferingTransactionsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-UpdateNetworkProfileResultTypeDef = TypedDict(
-    "UpdateNetworkProfileResultTypeDef",
-    {
-        "networkProfile": "NetworkProfileTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListOfferingsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-_RequiredUpdateProjectRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateProjectRequestRequestTypeDef",
+class ListProjectsRequestPaginateTypeDef(TypedDict):
+    arn: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListRemoteAccessSessionsRequestPaginateTypeDef(TypedDict):
+    arn: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListRunsRequestPaginateTypeDef(TypedDict):
+    arn: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListSamplesRequestPaginateTypeDef(TypedDict):
+    arn: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListSuitesRequestPaginateTypeDef(TypedDict):
+    arn: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListTestsRequestPaginateTypeDef(TypedDict):
+    arn: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListUniqueProblemsRequestPaginateTypeDef(TypedDict):
+    arn: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+ListUploadsRequestPaginateTypeDef = TypedDict(
+    "ListUploadsRequestPaginateTypeDef",
     {
         "arn": str,
-    },
-)
-_OptionalUpdateProjectRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateProjectRequestRequestTypeDef",
-    {
-        "name": str,
-        "defaultJobTimeoutMinutes": int,
-        "vpcConfig": "VpcConfigTypeDef",
-    },
-    total=False,
-)
-
-class UpdateProjectRequestRequestTypeDef(
-    _RequiredUpdateProjectRequestRequestTypeDef, _OptionalUpdateProjectRequestRequestTypeDef
-):
-    pass
-
-UpdateProjectResultTypeDef = TypedDict(
-    "UpdateProjectResultTypeDef",
-    {
-        "project": "ProjectTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "type": NotRequired[UploadTypeType],
+        "PaginationConfig": NotRequired[PaginatorConfigTypeDef],
     },
 )
 
-_RequiredUpdateTestGridProjectRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateTestGridProjectRequestRequestTypeDef",
+class ListVPCEConfigurationsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class GetTestGridSessionResultTypeDef(TypedDict):
+    testGridSession: TestGridSessionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListTestGridSessionsResultTypeDef(TypedDict):
+    testGridSessions: List[TestGridSessionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListOfferingPromotionsResultTypeDef(TypedDict):
+    offeringPromotions: List[OfferingPromotionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListSamplesResultTypeDef(TypedDict):
+    samples: List[SampleTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    Tags: List[TagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class TagResourceRequestTypeDef(TypedDict):
+    ResourceARN: str
+    Tags: Sequence[TagTypeDef]
+
+class ListTestGridSessionActionsResultTypeDef(TypedDict):
+    actions: List[TestGridSessionActionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListTestGridSessionArtifactsResultTypeDef(TypedDict):
+    artifacts: List[TestGridSessionArtifactTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListTestGridSessionsRequestTypeDef(TypedDict):
+    projectArn: str
+    status: NotRequired[TestGridSessionStatusType]
+    creationTimeAfter: NotRequired[TimestampTypeDef]
+    creationTimeBefore: NotRequired[TimestampTypeDef]
+    endTimeAfter: NotRequired[TimestampTypeDef]
+    endTimeBefore: NotRequired[TimestampTypeDef]
+    maxResult: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class RecurringChargeTypeDef(TypedDict):
+    cost: NotRequired[MonetaryAmountTypeDef]
+    frequency: NotRequired[Literal["MONTHLY"]]
+
+class ProjectTypeDef(TypedDict):
+    arn: NotRequired[str]
+    name: NotRequired[str]
+    defaultJobTimeoutMinutes: NotRequired[int]
+    created: NotRequired[datetime]
+    vpcConfig: NotRequired[VpcConfigOutputTypeDef]
+
+class TestGridProjectTypeDef(TypedDict):
+    arn: NotRequired[str]
+    name: NotRequired[str]
+    description: NotRequired[str]
+    vpcConfig: NotRequired[TestGridVpcConfigOutputTypeDef]
+    created: NotRequired[datetime]
+
+TestGridVpcConfigUnionTypeDef = Union[TestGridVpcConfigTypeDef, TestGridVpcConfigOutputTypeDef]
+VpcConfigUnionTypeDef = Union[VpcConfigTypeDef, VpcConfigOutputTypeDef]
+
+class GetAccountSettingsResultTypeDef(TypedDict):
+    accountSettings: AccountSettingsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateDevicePoolResultTypeDef(TypedDict):
+    devicePool: DevicePoolTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetDevicePoolResultTypeDef(TypedDict):
+    devicePool: DevicePoolTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListDevicePoolsResultTypeDef(TypedDict):
+    devicePools: List[DevicePoolTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class UpdateDevicePoolResultTypeDef(TypedDict):
+    devicePool: DevicePoolTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeviceTypeDef(TypedDict):
+    arn: NotRequired[str]
+    name: NotRequired[str]
+    manufacturer: NotRequired[str]
+    model: NotRequired[str]
+    modelId: NotRequired[str]
+    formFactor: NotRequired[DeviceFormFactorType]
+    platform: NotRequired[DevicePlatformType]
+    os: NotRequired[str]
+    cpu: NotRequired[CPUTypeDef]
+    resolution: NotRequired[ResolutionTypeDef]
+    heapSize: NotRequired[int]
+    memory: NotRequired[int]
+    image: NotRequired[str]
+    carrier: NotRequired[str]
+    radio: NotRequired[str]
+    remoteAccessEnabled: NotRequired[bool]
+    remoteDebugEnabled: NotRequired[bool]
+    fleetType: NotRequired[str]
+    fleetName: NotRequired[str]
+    instances: NotRequired[List[DeviceInstanceTypeDef]]
+    availability: NotRequired[DeviceAvailabilityType]
+
+class GetDeviceInstanceResultTypeDef(TypedDict):
+    deviceInstance: DeviceInstanceTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListDeviceInstancesResultTypeDef(TypedDict):
+    deviceInstances: List[DeviceInstanceTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class UpdateDeviceInstanceResultTypeDef(TypedDict):
+    deviceInstance: DeviceInstanceTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateRemoteAccessSessionRequestTypeDef(TypedDict):
+    projectArn: str
+    deviceArn: str
+    instanceArn: NotRequired[str]
+    sshPublicKey: NotRequired[str]
+    remoteDebugEnabled: NotRequired[bool]
+    remoteRecordEnabled: NotRequired[bool]
+    remoteRecordAppArn: NotRequired[str]
+    name: NotRequired[str]
+    clientId: NotRequired[str]
+    configuration: NotRequired[CreateRemoteAccessSessionConfigurationTypeDef]
+    interactionMode: NotRequired[InteractionModeType]
+    skipAppResign: NotRequired[bool]
+
+class ScheduleRunConfigurationTypeDef(TypedDict):
+    extraDataPackageArn: NotRequired[str]
+    networkProfileArn: NotRequired[str]
+    locale: NotRequired[str]
+    location: NotRequired[LocationTypeDef]
+    vpceConfigurationArns: NotRequired[Sequence[str]]
+    deviceProxy: NotRequired[DeviceProxyTypeDef]
+    customerArtifactPaths: NotRequired[CustomerArtifactPathsUnionTypeDef]
+    radios: NotRequired[RadiosTypeDef]
+    auxiliaryApps: NotRequired[Sequence[str]]
+    billingMethod: NotRequired[BillingMethodType]
+
+RunTypeDef = TypedDict(
+    "RunTypeDef",
     {
-        "projectArn": str,
+        "arn": NotRequired[str],
+        "name": NotRequired[str],
+        "type": NotRequired[TestTypeType],
+        "platform": NotRequired[DevicePlatformType],
+        "created": NotRequired[datetime],
+        "status": NotRequired[ExecutionStatusType],
+        "result": NotRequired[ExecutionResultType],
+        "started": NotRequired[datetime],
+        "stopped": NotRequired[datetime],
+        "counters": NotRequired[CountersTypeDef],
+        "message": NotRequired[str],
+        "totalJobs": NotRequired[int],
+        "completedJobs": NotRequired[int],
+        "billingMethod": NotRequired[BillingMethodType],
+        "deviceMinutes": NotRequired[DeviceMinutesTypeDef],
+        "networkProfile": NotRequired[NetworkProfileTypeDef],
+        "deviceProxy": NotRequired[DeviceProxyTypeDef],
+        "parsingResultUrl": NotRequired[str],
+        "resultCode": NotRequired[ExecutionResultCodeType],
+        "seed": NotRequired[int],
+        "appUpload": NotRequired[str],
+        "eventCount": NotRequired[int],
+        "jobTimeoutMinutes": NotRequired[int],
+        "devicePoolArn": NotRequired[str],
+        "locale": NotRequired[str],
+        "radios": NotRequired[RadiosTypeDef],
+        "location": NotRequired[LocationTypeDef],
+        "customerArtifactPaths": NotRequired[CustomerArtifactPathsOutputTypeDef],
+        "webUrl": NotRequired[str],
+        "skipAppResign": NotRequired[bool],
+        "testSpecArn": NotRequired[str],
+        "deviceSelectionResult": NotRequired[DeviceSelectionResultTypeDef],
+        "vpcConfig": NotRequired[VpcConfigOutputTypeDef],
     },
-)
-_OptionalUpdateTestGridProjectRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateTestGridProjectRequestRequestTypeDef",
-    {
-        "name": str,
-        "description": str,
-        "vpcConfig": "TestGridVpcConfigTypeDef",
-    },
-    total=False,
 )
 
-class UpdateTestGridProjectRequestRequestTypeDef(
-    _RequiredUpdateTestGridProjectRequestRequestTypeDef,
-    _OptionalUpdateTestGridProjectRequestRequestTypeDef,
-):
-    pass
+class DeviceSelectionConfigurationTypeDef(TypedDict):
+    filters: Sequence[DeviceFilterUnionTypeDef]
+    maxDevices: int
 
-UpdateTestGridProjectResultTypeDef = TypedDict(
-    "UpdateTestGridProjectResultTypeDef",
+class ListDevicesRequestPaginateTypeDef(TypedDict):
+    arn: NotRequired[str]
+    filters: NotRequired[Sequence[DeviceFilterUnionTypeDef]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListDevicesRequestTypeDef(TypedDict):
+    arn: NotRequired[str]
+    nextToken: NotRequired[str]
+    filters: NotRequired[Sequence[DeviceFilterUnionTypeDef]]
+
+class GetSuiteResultTypeDef(TypedDict):
+    suite: SuiteTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListSuitesResultTypeDef(TypedDict):
+    suites: List[SuiteTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class GetTestResultTypeDef(TypedDict):
+    test: TestTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListTestsResultTypeDef(TypedDict):
+    tests: List[TestTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+OfferingTypeDef = TypedDict(
+    "OfferingTypeDef",
     {
-        "testGridProject": "TestGridProjectTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "id": NotRequired[str],
+        "description": NotRequired[str],
+        "type": NotRequired[Literal["RECURRING"]],
+        "platform": NotRequired[DevicePlatformType],
+        "recurringCharges": NotRequired[List[RecurringChargeTypeDef]],
     },
 )
 
-_RequiredUpdateUploadRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateUploadRequestRequestTypeDef",
+class CreateProjectResultTypeDef(TypedDict):
+    project: ProjectTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetProjectResultTypeDef(TypedDict):
+    project: ProjectTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListProjectsResultTypeDef(TypedDict):
+    projects: List[ProjectTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class UpdateProjectResultTypeDef(TypedDict):
+    project: ProjectTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateTestGridProjectResultTypeDef(TypedDict):
+    testGridProject: TestGridProjectTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetTestGridProjectResultTypeDef(TypedDict):
+    testGridProject: TestGridProjectTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListTestGridProjectsResultTypeDef(TypedDict):
+    testGridProjects: List[TestGridProjectTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class UpdateTestGridProjectResultTypeDef(TypedDict):
+    testGridProject: TestGridProjectTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateTestGridProjectRequestTypeDef(TypedDict):
+    name: str
+    description: NotRequired[str]
+    vpcConfig: NotRequired[TestGridVpcConfigUnionTypeDef]
+
+class UpdateTestGridProjectRequestTypeDef(TypedDict):
+    projectArn: str
+    name: NotRequired[str]
+    description: NotRequired[str]
+    vpcConfig: NotRequired[TestGridVpcConfigUnionTypeDef]
+
+class CreateProjectRequestTypeDef(TypedDict):
+    name: str
+    defaultJobTimeoutMinutes: NotRequired[int]
+    vpcConfig: NotRequired[VpcConfigUnionTypeDef]
+
+class UpdateProjectRequestTypeDef(TypedDict):
+    arn: str
+    name: NotRequired[str]
+    defaultJobTimeoutMinutes: NotRequired[int]
+    vpcConfig: NotRequired[VpcConfigUnionTypeDef]
+
+class DevicePoolCompatibilityResultTypeDef(TypedDict):
+    device: NotRequired[DeviceTypeDef]
+    compatible: NotRequired[bool]
+    incompatibilityMessages: NotRequired[List[IncompatibilityMessageTypeDef]]
+
+class GetDeviceResultTypeDef(TypedDict):
+    device: DeviceTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+JobTypeDef = TypedDict(
+    "JobTypeDef",
     {
-        "arn": str,
+        "arn": NotRequired[str],
+        "name": NotRequired[str],
+        "type": NotRequired[TestTypeType],
+        "created": NotRequired[datetime],
+        "status": NotRequired[ExecutionStatusType],
+        "result": NotRequired[ExecutionResultType],
+        "started": NotRequired[datetime],
+        "stopped": NotRequired[datetime],
+        "counters": NotRequired[CountersTypeDef],
+        "message": NotRequired[str],
+        "device": NotRequired[DeviceTypeDef],
+        "instanceArn": NotRequired[str],
+        "deviceMinutes": NotRequired[DeviceMinutesTypeDef],
+        "videoEndpoint": NotRequired[str],
+        "videoCapture": NotRequired[bool],
     },
-)
-_OptionalUpdateUploadRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateUploadRequestRequestTypeDef",
-    {
-        "name": str,
-        "contentType": str,
-        "editContent": bool,
-    },
-    total=False,
 )
 
-class UpdateUploadRequestRequestTypeDef(
-    _RequiredUpdateUploadRequestRequestTypeDef, _OptionalUpdateUploadRequestRequestTypeDef
-):
-    pass
+class ListDevicesResultTypeDef(TypedDict):
+    devices: List[DeviceTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-UpdateUploadResultTypeDef = TypedDict(
-    "UpdateUploadResultTypeDef",
+class ProblemTypeDef(TypedDict):
+    run: NotRequired[ProblemDetailTypeDef]
+    job: NotRequired[ProblemDetailTypeDef]
+    suite: NotRequired[ProblemDetailTypeDef]
+    test: NotRequired[ProblemDetailTypeDef]
+    device: NotRequired[DeviceTypeDef]
+    result: NotRequired[ExecutionResultType]
+    message: NotRequired[str]
+
+class RemoteAccessSessionTypeDef(TypedDict):
+    arn: NotRequired[str]
+    name: NotRequired[str]
+    created: NotRequired[datetime]
+    status: NotRequired[ExecutionStatusType]
+    result: NotRequired[ExecutionResultType]
+    message: NotRequired[str]
+    started: NotRequired[datetime]
+    stopped: NotRequired[datetime]
+    device: NotRequired[DeviceTypeDef]
+    instanceArn: NotRequired[str]
+    remoteDebugEnabled: NotRequired[bool]
+    remoteRecordEnabled: NotRequired[bool]
+    remoteRecordAppArn: NotRequired[str]
+    hostAddress: NotRequired[str]
+    clientId: NotRequired[str]
+    billingMethod: NotRequired[BillingMethodType]
+    deviceMinutes: NotRequired[DeviceMinutesTypeDef]
+    endpoint: NotRequired[str]
+    deviceUdid: NotRequired[str]
+    interactionMode: NotRequired[InteractionModeType]
+    skipAppResign: NotRequired[bool]
+    vpcConfig: NotRequired[VpcConfigOutputTypeDef]
+    deviceProxy: NotRequired[DeviceProxyTypeDef]
+
+class GetDevicePoolCompatibilityRequestTypeDef(TypedDict):
+    devicePoolArn: str
+    appArn: NotRequired[str]
+    testType: NotRequired[TestTypeType]
+    test: NotRequired[ScheduleRunTestTypeDef]
+    configuration: NotRequired[ScheduleRunConfigurationTypeDef]
+    projectArn: NotRequired[str]
+
+class GetRunResultTypeDef(TypedDict):
+    run: RunTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListRunsResultTypeDef(TypedDict):
+    runs: List[RunTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ScheduleRunResultTypeDef(TypedDict):
+    run: RunTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StopRunResultTypeDef(TypedDict):
+    run: RunTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ScheduleRunRequestTypeDef(TypedDict):
+    projectArn: str
+    test: ScheduleRunTestTypeDef
+    appArn: NotRequired[str]
+    devicePoolArn: NotRequired[str]
+    deviceSelectionConfiguration: NotRequired[DeviceSelectionConfigurationTypeDef]
+    name: NotRequired[str]
+    configuration: NotRequired[ScheduleRunConfigurationTypeDef]
+    executionConfiguration: NotRequired[ExecutionConfigurationTypeDef]
+
+class ListOfferingsResultTypeDef(TypedDict):
+    offerings: List[OfferingTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+OfferingStatusTypeDef = TypedDict(
+    "OfferingStatusTypeDef",
     {
-        "upload": "UploadTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "type": NotRequired[OfferingTransactionTypeType],
+        "offering": NotRequired[OfferingTypeDef],
+        "quantity": NotRequired[int],
+        "effectiveOn": NotRequired[datetime],
     },
 )
 
-_RequiredUpdateVPCEConfigurationRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateVPCEConfigurationRequestRequestTypeDef",
-    {
-        "arn": str,
-    },
-)
-_OptionalUpdateVPCEConfigurationRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateVPCEConfigurationRequestRequestTypeDef",
-    {
-        "vpceConfigurationName": str,
-        "vpceServiceName": str,
-        "serviceDnsName": str,
-        "vpceConfigurationDescription": str,
-    },
-    total=False,
-)
+class GetDevicePoolCompatibilityResultTypeDef(TypedDict):
+    compatibleDevices: List[DevicePoolCompatibilityResultTypeDef]
+    incompatibleDevices: List[DevicePoolCompatibilityResultTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateVPCEConfigurationRequestRequestTypeDef(
-    _RequiredUpdateVPCEConfigurationRequestRequestTypeDef,
-    _OptionalUpdateVPCEConfigurationRequestRequestTypeDef,
-):
-    pass
+class GetJobResultTypeDef(TypedDict):
+    job: JobTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-UpdateVPCEConfigurationResultTypeDef = TypedDict(
-    "UpdateVPCEConfigurationResultTypeDef",
-    {
-        "vpceConfiguration": "VPCEConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListJobsResultTypeDef(TypedDict):
+    jobs: List[JobTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-UploadTypeDef = TypedDict(
-    "UploadTypeDef",
-    {
-        "arn": str,
-        "name": str,
-        "created": datetime,
-        "type": UploadTypeType,
-        "status": UploadStatusType,
-        "url": str,
-        "metadata": str,
-        "contentType": str,
-        "message": str,
-        "category": UploadCategoryType,
-    },
-    total=False,
-)
+class StopJobResultTypeDef(TypedDict):
+    job: JobTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-VPCEConfigurationTypeDef = TypedDict(
-    "VPCEConfigurationTypeDef",
-    {
-        "arn": str,
-        "vpceConfigurationName": str,
-        "vpceServiceName": str,
-        "serviceDnsName": str,
-        "vpceConfigurationDescription": str,
-    },
-    total=False,
-)
+class UniqueProblemTypeDef(TypedDict):
+    message: NotRequired[str]
+    problems: NotRequired[List[ProblemTypeDef]]
 
-VpcConfigTypeDef = TypedDict(
-    "VpcConfigTypeDef",
-    {
-        "securityGroupIds": List[str],
-        "subnetIds": List[str],
-        "vpcId": str,
-    },
-)
+class CreateRemoteAccessSessionResultTypeDef(TypedDict):
+    remoteAccessSession: RemoteAccessSessionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetRemoteAccessSessionResultTypeDef(TypedDict):
+    remoteAccessSession: RemoteAccessSessionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListRemoteAccessSessionsResultTypeDef(TypedDict):
+    remoteAccessSessions: List[RemoteAccessSessionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class StopRemoteAccessSessionResultTypeDef(TypedDict):
+    remoteAccessSession: RemoteAccessSessionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetOfferingStatusResultTypeDef(TypedDict):
+    current: Dict[str, OfferingStatusTypeDef]
+    nextPeriod: Dict[str, OfferingStatusTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class OfferingTransactionTypeDef(TypedDict):
+    offeringStatus: NotRequired[OfferingStatusTypeDef]
+    transactionId: NotRequired[str]
+    offeringPromotionId: NotRequired[str]
+    createdOn: NotRequired[datetime]
+    cost: NotRequired[MonetaryAmountTypeDef]
+
+class ListUniqueProblemsResultTypeDef(TypedDict):
+    uniqueProblems: Dict[ExecutionResultType, List[UniqueProblemTypeDef]]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListOfferingTransactionsResultTypeDef(TypedDict):
+    offeringTransactions: List[OfferingTransactionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class PurchaseOfferingResultTypeDef(TypedDict):
+    offeringTransaction: OfferingTransactionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class RenewOfferingResultTypeDef(TypedDict):
+    offeringTransaction: OfferingTransactionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef

@@ -1,10 +1,14 @@
 """
 Main interface for serverlessrepo service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_serverlessrepo/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_serverlessrepo import (
         Client,
         ListApplicationDependenciesPaginator,
@@ -13,10 +17,8 @@ Usage::
         ServerlessApplicationRepositoryClient,
     )
 
-    session = boto3.Session()
-
-    client: ServerlessApplicationRepositoryClient = boto3.client("serverlessrepo")
-    session_client: ServerlessApplicationRepositoryClient = session.client("serverlessrepo")
+    session = Session()
+    client: ServerlessApplicationRepositoryClient = session.client("serverlessrepo")
 
     list_application_dependencies_paginator: ListApplicationDependenciesPaginator = client.get_paginator("list_application_dependencies")
     list_application_versions_paginator: ListApplicationVersionsPaginator = client.get_paginator("list_application_versions")

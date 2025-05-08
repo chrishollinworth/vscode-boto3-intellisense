@@ -1,20 +1,24 @@
 """
 Type annotations for tnb service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_tnb/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_tnb/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_tnb.type_defs import CancelSolNetworkOperationInputRequestTypeDef
+    from mypy_boto3_tnb.type_defs import BlobTypeDef
 
-    data: CancelSolNetworkOperationInputRequestTypeDef = {...}
+    data: BlobTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import IO, Any, Dict, List, Union
+from typing import IO, Any, Union
 
 from botocore.response import StreamingBody
 
@@ -28,130 +32,340 @@ from .literals import (
     OnboardingStateType,
     OperationalStateType,
     TaskStatusType,
+    UpdateSolNetworkTypeType,
     UsageStateType,
     VnfInstantiationStateType,
     VnfOperationalStateType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
-    "CancelSolNetworkOperationInputRequestTypeDef",
-    "CreateSolFunctionPackageInputRequestTypeDef",
+    "BlobTypeDef",
+    "CancelSolNetworkOperationInputTypeDef",
+    "CreateSolFunctionPackageInputTypeDef",
     "CreateSolFunctionPackageOutputTypeDef",
-    "CreateSolNetworkInstanceInputRequestTypeDef",
+    "CreateSolNetworkInstanceInputTypeDef",
     "CreateSolNetworkInstanceOutputTypeDef",
-    "CreateSolNetworkPackageInputRequestTypeDef",
+    "CreateSolNetworkPackageInputTypeDef",
     "CreateSolNetworkPackageOutputTypeDef",
-    "DeleteSolFunctionPackageInputRequestTypeDef",
-    "DeleteSolNetworkInstanceInputRequestTypeDef",
-    "DeleteSolNetworkPackageInputRequestTypeDef",
+    "DeleteSolFunctionPackageInputTypeDef",
+    "DeleteSolNetworkInstanceInputTypeDef",
+    "DeleteSolNetworkPackageInputTypeDef",
+    "EmptyResponseMetadataTypeDef",
     "ErrorInfoTypeDef",
     "FunctionArtifactMetaTypeDef",
-    "GetSolFunctionInstanceInputRequestTypeDef",
+    "GetSolFunctionInstanceInputTypeDef",
     "GetSolFunctionInstanceMetadataTypeDef",
     "GetSolFunctionInstanceOutputTypeDef",
-    "GetSolFunctionPackageContentInputRequestTypeDef",
+    "GetSolFunctionPackageContentInputTypeDef",
     "GetSolFunctionPackageContentOutputTypeDef",
-    "GetSolFunctionPackageDescriptorInputRequestTypeDef",
+    "GetSolFunctionPackageDescriptorInputTypeDef",
     "GetSolFunctionPackageDescriptorOutputTypeDef",
-    "GetSolFunctionPackageInputRequestTypeDef",
+    "GetSolFunctionPackageInputTypeDef",
     "GetSolFunctionPackageMetadataTypeDef",
     "GetSolFunctionPackageOutputTypeDef",
     "GetSolInstantiatedVnfInfoTypeDef",
-    "GetSolNetworkInstanceInputRequestTypeDef",
+    "GetSolNetworkInstanceInputTypeDef",
     "GetSolNetworkInstanceMetadataTypeDef",
     "GetSolNetworkInstanceOutputTypeDef",
-    "GetSolNetworkOperationInputRequestTypeDef",
+    "GetSolNetworkOperationInputTypeDef",
     "GetSolNetworkOperationMetadataTypeDef",
     "GetSolNetworkOperationOutputTypeDef",
     "GetSolNetworkOperationTaskDetailsTypeDef",
-    "GetSolNetworkPackageContentInputRequestTypeDef",
+    "GetSolNetworkPackageContentInputTypeDef",
     "GetSolNetworkPackageContentOutputTypeDef",
-    "GetSolNetworkPackageDescriptorInputRequestTypeDef",
+    "GetSolNetworkPackageDescriptorInputTypeDef",
     "GetSolNetworkPackageDescriptorOutputTypeDef",
-    "GetSolNetworkPackageInputRequestTypeDef",
+    "GetSolNetworkPackageInputTypeDef",
     "GetSolNetworkPackageMetadataTypeDef",
     "GetSolNetworkPackageOutputTypeDef",
     "GetSolVnfInfoTypeDef",
     "GetSolVnfcResourceInfoMetadataTypeDef",
     "GetSolVnfcResourceInfoTypeDef",
-    "InstantiateSolNetworkInstanceInputRequestTypeDef",
+    "InstantiateMetadataTypeDef",
+    "InstantiateSolNetworkInstanceInputTypeDef",
     "InstantiateSolNetworkInstanceOutputTypeDef",
     "LcmOperationInfoTypeDef",
     "ListSolFunctionInstanceInfoTypeDef",
     "ListSolFunctionInstanceMetadataTypeDef",
-    "ListSolFunctionInstancesInputRequestTypeDef",
+    "ListSolFunctionInstancesInputPaginateTypeDef",
+    "ListSolFunctionInstancesInputTypeDef",
     "ListSolFunctionInstancesOutputTypeDef",
     "ListSolFunctionPackageInfoTypeDef",
     "ListSolFunctionPackageMetadataTypeDef",
-    "ListSolFunctionPackagesInputRequestTypeDef",
+    "ListSolFunctionPackagesInputPaginateTypeDef",
+    "ListSolFunctionPackagesInputTypeDef",
     "ListSolFunctionPackagesOutputTypeDef",
     "ListSolNetworkInstanceInfoTypeDef",
     "ListSolNetworkInstanceMetadataTypeDef",
-    "ListSolNetworkInstancesInputRequestTypeDef",
+    "ListSolNetworkInstancesInputPaginateTypeDef",
+    "ListSolNetworkInstancesInputTypeDef",
     "ListSolNetworkInstancesOutputTypeDef",
     "ListSolNetworkOperationsInfoTypeDef",
-    "ListSolNetworkOperationsInputRequestTypeDef",
+    "ListSolNetworkOperationsInputPaginateTypeDef",
+    "ListSolNetworkOperationsInputTypeDef",
     "ListSolNetworkOperationsMetadataTypeDef",
     "ListSolNetworkOperationsOutputTypeDef",
     "ListSolNetworkPackageInfoTypeDef",
     "ListSolNetworkPackageMetadataTypeDef",
-    "ListSolNetworkPackagesInputRequestTypeDef",
+    "ListSolNetworkPackagesInputPaginateTypeDef",
+    "ListSolNetworkPackagesInputTypeDef",
     "ListSolNetworkPackagesOutputTypeDef",
-    "ListTagsForResourceInputRequestTypeDef",
+    "ListTagsForResourceInputTypeDef",
     "ListTagsForResourceOutputTypeDef",
+    "ModifyVnfInfoMetadataTypeDef",
     "NetworkArtifactMetaTypeDef",
     "PaginatorConfigTypeDef",
     "ProblemDetailsTypeDef",
-    "PutSolFunctionPackageContentInputRequestTypeDef",
+    "PutSolFunctionPackageContentInputTypeDef",
     "PutSolFunctionPackageContentMetadataTypeDef",
     "PutSolFunctionPackageContentOutputTypeDef",
-    "PutSolNetworkPackageContentInputRequestTypeDef",
+    "PutSolNetworkPackageContentInputTypeDef",
     "PutSolNetworkPackageContentMetadataTypeDef",
     "PutSolNetworkPackageContentOutputTypeDef",
     "ResponseMetadataTypeDef",
-    "TagResourceInputRequestTypeDef",
-    "TerminateSolNetworkInstanceInputRequestTypeDef",
+    "TagResourceInputTypeDef",
+    "TerminateSolNetworkInstanceInputTypeDef",
     "TerminateSolNetworkInstanceOutputTypeDef",
     "ToscaOverrideTypeDef",
-    "UntagResourceInputRequestTypeDef",
-    "UpdateSolFunctionPackageInputRequestTypeDef",
+    "UntagResourceInputTypeDef",
+    "UpdateNsMetadataTypeDef",
+    "UpdateSolFunctionPackageInputTypeDef",
     "UpdateSolFunctionPackageOutputTypeDef",
-    "UpdateSolNetworkInstanceInputRequestTypeDef",
+    "UpdateSolNetworkInstanceInputTypeDef",
     "UpdateSolNetworkInstanceOutputTypeDef",
     "UpdateSolNetworkModifyTypeDef",
-    "UpdateSolNetworkPackageInputRequestTypeDef",
+    "UpdateSolNetworkPackageInputTypeDef",
     "UpdateSolNetworkPackageOutputTypeDef",
-    "ValidateSolFunctionPackageContentInputRequestTypeDef",
+    "UpdateSolNetworkServiceDataTypeDef",
+    "ValidateSolFunctionPackageContentInputTypeDef",
     "ValidateSolFunctionPackageContentMetadataTypeDef",
     "ValidateSolFunctionPackageContentOutputTypeDef",
-    "ValidateSolNetworkPackageContentInputRequestTypeDef",
+    "ValidateSolNetworkPackageContentInputTypeDef",
     "ValidateSolNetworkPackageContentMetadataTypeDef",
     "ValidateSolNetworkPackageContentOutputTypeDef",
 )
 
-CancelSolNetworkOperationInputRequestTypeDef = TypedDict(
-    "CancelSolNetworkOperationInputRequestTypeDef",
-    {
-        "nsLcmOpOccId": str,
-    },
-)
+BlobTypeDef = Union[str, bytes, IO[Any], StreamingBody]
 
-CreateSolFunctionPackageInputRequestTypeDef = TypedDict(
-    "CreateSolFunctionPackageInputRequestTypeDef",
-    {
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
+class CancelSolNetworkOperationInputTypeDef(TypedDict):
+    nsLcmOpOccId: str
+
+class CreateSolFunctionPackageInputTypeDef(TypedDict):
+    tags: NotRequired[Mapping[str, str]]
+
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
+
+class CreateSolNetworkInstanceInputTypeDef(TypedDict):
+    nsName: str
+    nsdInfoId: str
+    nsDescription: NotRequired[str]
+    tags: NotRequired[Mapping[str, str]]
+
+class CreateSolNetworkPackageInputTypeDef(TypedDict):
+    tags: NotRequired[Mapping[str, str]]
+
+class DeleteSolFunctionPackageInputTypeDef(TypedDict):
+    vnfPkgId: str
+
+class DeleteSolNetworkInstanceInputTypeDef(TypedDict):
+    nsInstanceId: str
+
+class DeleteSolNetworkPackageInputTypeDef(TypedDict):
+    nsdInfoId: str
+
+class ErrorInfoTypeDef(TypedDict):
+    cause: NotRequired[str]
+    details: NotRequired[str]
+
+class ToscaOverrideTypeDef(TypedDict):
+    defaultValue: NotRequired[str]
+    name: NotRequired[str]
+
+class GetSolFunctionInstanceInputTypeDef(TypedDict):
+    vnfInstanceId: str
+
+class GetSolFunctionInstanceMetadataTypeDef(TypedDict):
+    createdAt: datetime
+    lastModified: datetime
+
+class GetSolFunctionPackageContentInputTypeDef(TypedDict):
+    accept: Literal["application/zip"]
+    vnfPkgId: str
+
+class GetSolFunctionPackageDescriptorInputTypeDef(TypedDict):
+    accept: Literal["text/plain"]
+    vnfPkgId: str
+
+class GetSolFunctionPackageInputTypeDef(TypedDict):
+    vnfPkgId: str
+
+class GetSolInstantiatedVnfInfoTypeDef(TypedDict):
+    vnfState: NotRequired[VnfOperationalStateType]
+
+class GetSolNetworkInstanceInputTypeDef(TypedDict):
+    nsInstanceId: str
+
+class GetSolNetworkInstanceMetadataTypeDef(TypedDict):
+    createdAt: datetime
+    lastModified: datetime
+
+class LcmOperationInfoTypeDef(TypedDict):
+    nsLcmOpOccId: str
+
+class GetSolNetworkOperationInputTypeDef(TypedDict):
+    nsLcmOpOccId: str
+
+class InstantiateMetadataTypeDef(TypedDict):
+    nsdInfoId: str
+    additionalParamsForNs: NotRequired[Dict[str, Any]]
+
+class ModifyVnfInfoMetadataTypeDef(TypedDict):
+    vnfConfigurableProperties: Dict[str, Any]
+    vnfInstanceId: str
+
+class UpdateNsMetadataTypeDef(TypedDict):
+    nsdInfoId: str
+    additionalParamsForNs: NotRequired[Dict[str, Any]]
+
+class ProblemDetailsTypeDef(TypedDict):
+    detail: str
+    title: NotRequired[str]
+
+class GetSolNetworkPackageContentInputTypeDef(TypedDict):
+    accept: Literal["application/zip"]
+    nsdInfoId: str
+
+class GetSolNetworkPackageDescriptorInputTypeDef(TypedDict):
+    nsdInfoId: str
+
+class GetSolNetworkPackageInputTypeDef(TypedDict):
+    nsdInfoId: str
+
+class GetSolVnfcResourceInfoMetadataTypeDef(TypedDict):
+    cluster: NotRequired[str]
+    helmChart: NotRequired[str]
+    nodeGroup: NotRequired[str]
+
+class InstantiateSolNetworkInstanceInputTypeDef(TypedDict):
+    nsInstanceId: str
+    additionalParamsForNs: NotRequired[Mapping[str, Any]]
+    dryRun: NotRequired[bool]
+    tags: NotRequired[Mapping[str, str]]
+
+class ListSolFunctionInstanceMetadataTypeDef(TypedDict):
+    createdAt: datetime
+    lastModified: datetime
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class ListSolFunctionInstancesInputTypeDef(TypedDict):
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListSolFunctionPackageMetadataTypeDef(TypedDict):
+    createdAt: datetime
+    lastModified: datetime
+
+class ListSolFunctionPackagesInputTypeDef(TypedDict):
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListSolNetworkInstanceMetadataTypeDef(TypedDict):
+    createdAt: datetime
+    lastModified: datetime
+
+class ListSolNetworkInstancesInputTypeDef(TypedDict):
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListSolNetworkOperationsMetadataTypeDef(TypedDict):
+    createdAt: datetime
+    lastModified: datetime
+    nsdInfoId: NotRequired[str]
+    vnfInstanceId: NotRequired[str]
+
+class ListSolNetworkOperationsInputTypeDef(TypedDict):
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+    nsInstanceId: NotRequired[str]
+
+class ListSolNetworkPackageMetadataTypeDef(TypedDict):
+    createdAt: datetime
+    lastModified: datetime
+
+class ListSolNetworkPackagesInputTypeDef(TypedDict):
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListTagsForResourceInputTypeDef(TypedDict):
+    resourceArn: str
+
+class TagResourceInputTypeDef(TypedDict):
+    resourceArn: str
+    tags: Mapping[str, str]
+
+class TerminateSolNetworkInstanceInputTypeDef(TypedDict):
+    nsInstanceId: str
+    tags: NotRequired[Mapping[str, str]]
+
+class UntagResourceInputTypeDef(TypedDict):
+    resourceArn: str
+    tagKeys: Sequence[str]
+
+class UpdateSolFunctionPackageInputTypeDef(TypedDict):
+    operationalState: OperationalStateType
+    vnfPkgId: str
+
+class UpdateSolNetworkModifyTypeDef(TypedDict):
+    vnfConfigurableProperties: Mapping[str, Any]
+    vnfInstanceId: str
+
+class UpdateSolNetworkServiceDataTypeDef(TypedDict):
+    nsdInfoId: str
+    additionalParamsForNs: NotRequired[Mapping[str, Any]]
+
+class UpdateSolNetworkPackageInputTypeDef(TypedDict):
+    nsdInfoId: str
+    nsdOperationalState: NsdOperationalStateType
+
+class PutSolFunctionPackageContentInputTypeDef(TypedDict):
+    file: BlobTypeDef
+    vnfPkgId: str
+    contentType: NotRequired[Literal["application/zip"]]
+
+class PutSolNetworkPackageContentInputTypeDef(TypedDict):
+    file: BlobTypeDef
+    nsdInfoId: str
+    contentType: NotRequired[Literal["application/zip"]]
+
+class ValidateSolFunctionPackageContentInputTypeDef(TypedDict):
+    file: BlobTypeDef
+    vnfPkgId: str
+    contentType: NotRequired[Literal["application/zip"]]
+
+class ValidateSolNetworkPackageContentInputTypeDef(TypedDict):
+    file: BlobTypeDef
+    nsdInfoId: str
+    contentType: NotRequired[Literal["application/zip"]]
 
 CreateSolFunctionPackageOutputTypeDef = TypedDict(
     "CreateSolFunctionPackageOutputTypeDef",
@@ -162,32 +376,9 @@ CreateSolFunctionPackageOutputTypeDef = TypedDict(
         "operationalState": OperationalStateType,
         "tags": Dict[str, str],
         "usageState": UsageStateType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
-
-_RequiredCreateSolNetworkInstanceInputRequestTypeDef = TypedDict(
-    "_RequiredCreateSolNetworkInstanceInputRequestTypeDef",
-    {
-        "nsName": str,
-        "nsdInfoId": str,
-    },
-)
-_OptionalCreateSolNetworkInstanceInputRequestTypeDef = TypedDict(
-    "_OptionalCreateSolNetworkInstanceInputRequestTypeDef",
-    {
-        "nsDescription": str,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class CreateSolNetworkInstanceInputRequestTypeDef(
-    _RequiredCreateSolNetworkInstanceInputRequestTypeDef,
-    _OptionalCreateSolNetworkInstanceInputRequestTypeDef,
-):
-    pass
-
 CreateSolNetworkInstanceOutputTypeDef = TypedDict(
     "CreateSolNetworkInstanceOutputTypeDef",
     {
@@ -196,18 +387,9 @@ CreateSolNetworkInstanceOutputTypeDef = TypedDict(
         "nsInstanceName": str,
         "nsdInfoId": str,
         "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
-
-CreateSolNetworkPackageInputRequestTypeDef = TypedDict(
-    "CreateSolNetworkPackageInputRequestTypeDef",
-    {
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
 CreateSolNetworkPackageOutputTypeDef = TypedDict(
     "CreateSolNetworkPackageOutputTypeDef",
     {
@@ -217,498 +399,152 @@ CreateSolNetworkPackageOutputTypeDef = TypedDict(
         "nsdOperationalState": NsdOperationalStateType,
         "nsdUsageState": NsdUsageStateType,
         "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
 
-DeleteSolFunctionPackageInputRequestTypeDef = TypedDict(
-    "DeleteSolFunctionPackageInputRequestTypeDef",
-    {
-        "vnfPkgId": str,
-    },
-)
+class EmptyResponseMetadataTypeDef(TypedDict):
+    ResponseMetadata: ResponseMetadataTypeDef
 
-DeleteSolNetworkInstanceInputRequestTypeDef = TypedDict(
-    "DeleteSolNetworkInstanceInputRequestTypeDef",
-    {
-        "nsInstanceId": str,
-    },
-)
+class GetSolFunctionPackageContentOutputTypeDef(TypedDict):
+    contentType: Literal["application/zip"]
+    packageContent: StreamingBody
+    ResponseMetadata: ResponseMetadataTypeDef
 
-DeleteSolNetworkPackageInputRequestTypeDef = TypedDict(
-    "DeleteSolNetworkPackageInputRequestTypeDef",
-    {
-        "nsdInfoId": str,
-    },
-)
+class GetSolFunctionPackageDescriptorOutputTypeDef(TypedDict):
+    contentType: Literal["text/plain"]
+    vnfd: StreamingBody
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ErrorInfoTypeDef = TypedDict(
-    "ErrorInfoTypeDef",
-    {
-        "cause": str,
-        "details": str,
-    },
-    total=False,
-)
+class GetSolNetworkPackageContentOutputTypeDef(TypedDict):
+    contentType: Literal["application/zip"]
+    nsdContent: StreamingBody
+    ResponseMetadata: ResponseMetadataTypeDef
 
-FunctionArtifactMetaTypeDef = TypedDict(
-    "FunctionArtifactMetaTypeDef",
-    {
-        "overrides": List["ToscaOverrideTypeDef"],
-    },
-    total=False,
-)
+class GetSolNetworkPackageDescriptorOutputTypeDef(TypedDict):
+    contentType: Literal["text/plain"]
+    nsd: StreamingBody
+    ResponseMetadata: ResponseMetadataTypeDef
 
-GetSolFunctionInstanceInputRequestTypeDef = TypedDict(
-    "GetSolFunctionInstanceInputRequestTypeDef",
-    {
-        "vnfInstanceId": str,
-    },
-)
+class InstantiateSolNetworkInstanceOutputTypeDef(TypedDict):
+    nsLcmOpOccId: str
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-GetSolFunctionInstanceMetadataTypeDef = TypedDict(
-    "GetSolFunctionInstanceMetadataTypeDef",
-    {
-        "createdAt": datetime,
-        "lastModified": datetime,
-    },
-)
+class ListTagsForResourceOutputTypeDef(TypedDict):
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-GetSolFunctionInstanceOutputTypeDef = TypedDict(
-    "GetSolFunctionInstanceOutputTypeDef",
-    {
-        "arn": str,
-        "id": str,
-        "instantiatedVnfInfo": "GetSolVnfInfoTypeDef",
-        "instantiationState": VnfInstantiationStateType,
-        "metadata": "GetSolFunctionInstanceMetadataTypeDef",
-        "nsInstanceId": str,
-        "tags": Dict[str, str],
-        "vnfPkgId": str,
-        "vnfProductName": str,
-        "vnfProvider": str,
-        "vnfdId": str,
-        "vnfdVersion": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class TerminateSolNetworkInstanceOutputTypeDef(TypedDict):
+    nsLcmOpOccId: str
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-GetSolFunctionPackageContentInputRequestTypeDef = TypedDict(
-    "GetSolFunctionPackageContentInputRequestTypeDef",
-    {
-        "accept": Literal["application/zip"],
-        "vnfPkgId": str,
-    },
-)
+class UpdateSolFunctionPackageOutputTypeDef(TypedDict):
+    operationalState: OperationalStateType
+    ResponseMetadata: ResponseMetadataTypeDef
 
-GetSolFunctionPackageContentOutputTypeDef = TypedDict(
-    "GetSolFunctionPackageContentOutputTypeDef",
-    {
-        "contentType": Literal["application/zip"],
-        "packageContent": bytes,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class UpdateSolNetworkInstanceOutputTypeDef(TypedDict):
+    nsLcmOpOccId: str
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-GetSolFunctionPackageDescriptorInputRequestTypeDef = TypedDict(
-    "GetSolFunctionPackageDescriptorInputRequestTypeDef",
-    {
-        "accept": Literal["text/plain"],
-        "vnfPkgId": str,
-    },
-)
+class UpdateSolNetworkPackageOutputTypeDef(TypedDict):
+    nsdOperationalState: NsdOperationalStateType
+    ResponseMetadata: ResponseMetadataTypeDef
 
-GetSolFunctionPackageDescriptorOutputTypeDef = TypedDict(
-    "GetSolFunctionPackageDescriptorOutputTypeDef",
-    {
-        "contentType": Literal["text/plain"],
-        "vnfd": bytes,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetSolNetworkOperationTaskDetailsTypeDef(TypedDict):
+    taskContext: NotRequired[Dict[str, str]]
+    taskEndTime: NotRequired[datetime]
+    taskErrorDetails: NotRequired[ErrorInfoTypeDef]
+    taskName: NotRequired[str]
+    taskStartTime: NotRequired[datetime]
+    taskStatus: NotRequired[TaskStatusType]
 
-GetSolFunctionPackageInputRequestTypeDef = TypedDict(
-    "GetSolFunctionPackageInputRequestTypeDef",
-    {
-        "vnfPkgId": str,
-    },
-)
+class FunctionArtifactMetaTypeDef(TypedDict):
+    overrides: NotRequired[List[ToscaOverrideTypeDef]]
 
-_RequiredGetSolFunctionPackageMetadataTypeDef = TypedDict(
-    "_RequiredGetSolFunctionPackageMetadataTypeDef",
-    {
-        "createdAt": datetime,
-        "lastModified": datetime,
-    },
-)
-_OptionalGetSolFunctionPackageMetadataTypeDef = TypedDict(
-    "_OptionalGetSolFunctionPackageMetadataTypeDef",
-    {
-        "vnfd": "FunctionArtifactMetaTypeDef",
-    },
-    total=False,
-)
-
-class GetSolFunctionPackageMetadataTypeDef(
-    _RequiredGetSolFunctionPackageMetadataTypeDef, _OptionalGetSolFunctionPackageMetadataTypeDef
-):
-    pass
-
-GetSolFunctionPackageOutputTypeDef = TypedDict(
-    "GetSolFunctionPackageOutputTypeDef",
-    {
-        "arn": str,
-        "id": str,
-        "metadata": "GetSolFunctionPackageMetadataTypeDef",
-        "onboardingState": OnboardingStateType,
-        "operationalState": OperationalStateType,
-        "tags": Dict[str, str],
-        "usageState": UsageStateType,
-        "vnfProductName": str,
-        "vnfProvider": str,
-        "vnfdId": str,
-        "vnfdVersion": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetSolInstantiatedVnfInfoTypeDef = TypedDict(
-    "GetSolInstantiatedVnfInfoTypeDef",
-    {
-        "vnfState": VnfOperationalStateType,
-    },
-    total=False,
-)
-
-GetSolNetworkInstanceInputRequestTypeDef = TypedDict(
-    "GetSolNetworkInstanceInputRequestTypeDef",
-    {
-        "nsInstanceId": str,
-    },
-)
-
-GetSolNetworkInstanceMetadataTypeDef = TypedDict(
-    "GetSolNetworkInstanceMetadataTypeDef",
-    {
-        "createdAt": datetime,
-        "lastModified": datetime,
-    },
-)
+class NetworkArtifactMetaTypeDef(TypedDict):
+    overrides: NotRequired[List[ToscaOverrideTypeDef]]
 
 GetSolNetworkInstanceOutputTypeDef = TypedDict(
     "GetSolNetworkInstanceOutputTypeDef",
     {
         "arn": str,
         "id": str,
-        "lcmOpInfo": "LcmOperationInfoTypeDef",
-        "metadata": "GetSolNetworkInstanceMetadataTypeDef",
+        "lcmOpInfo": LcmOperationInfoTypeDef,
+        "metadata": GetSolNetworkInstanceMetadataTypeDef,
         "nsInstanceDescription": str,
         "nsInstanceName": str,
         "nsState": NsStateType,
         "nsdId": str,
         "nsdInfoId": str,
         "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
 
-GetSolNetworkOperationInputRequestTypeDef = TypedDict(
-    "GetSolNetworkOperationInputRequestTypeDef",
-    {
-        "nsLcmOpOccId": str,
-    },
-)
+class GetSolNetworkOperationMetadataTypeDef(TypedDict):
+    createdAt: datetime
+    lastModified: datetime
+    instantiateMetadata: NotRequired[InstantiateMetadataTypeDef]
+    modifyVnfInfoMetadata: NotRequired[ModifyVnfInfoMetadataTypeDef]
+    updateNsMetadata: NotRequired[UpdateNsMetadataTypeDef]
 
-GetSolNetworkOperationMetadataTypeDef = TypedDict(
-    "GetSolNetworkOperationMetadataTypeDef",
-    {
-        "createdAt": datetime,
-        "lastModified": datetime,
-    },
-)
+class GetSolVnfcResourceInfoTypeDef(TypedDict):
+    metadata: NotRequired[GetSolVnfcResourceInfoMetadataTypeDef]
 
-GetSolNetworkOperationOutputTypeDef = TypedDict(
-    "GetSolNetworkOperationOutputTypeDef",
-    {
-        "arn": str,
-        "error": "ProblemDetailsTypeDef",
-        "id": str,
-        "lcmOperationType": LcmOperationTypeType,
-        "metadata": "GetSolNetworkOperationMetadataTypeDef",
-        "nsInstanceId": str,
-        "operationState": NsLcmOperationStateType,
-        "tags": Dict[str, str],
-        "tasks": List["GetSolNetworkOperationTaskDetailsTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetSolNetworkOperationTaskDetailsTypeDef = TypedDict(
-    "GetSolNetworkOperationTaskDetailsTypeDef",
-    {
-        "taskContext": Dict[str, str],
-        "taskEndTime": datetime,
-        "taskErrorDetails": "ErrorInfoTypeDef",
-        "taskName": str,
-        "taskStartTime": datetime,
-        "taskStatus": TaskStatusType,
-    },
-    total=False,
-)
-
-GetSolNetworkPackageContentInputRequestTypeDef = TypedDict(
-    "GetSolNetworkPackageContentInputRequestTypeDef",
-    {
-        "accept": Literal["application/zip"],
-        "nsdInfoId": str,
-    },
-)
-
-GetSolNetworkPackageContentOutputTypeDef = TypedDict(
-    "GetSolNetworkPackageContentOutputTypeDef",
-    {
-        "contentType": Literal["application/zip"],
-        "nsdContent": bytes,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetSolNetworkPackageDescriptorInputRequestTypeDef = TypedDict(
-    "GetSolNetworkPackageDescriptorInputRequestTypeDef",
-    {
-        "nsdInfoId": str,
-    },
-)
-
-GetSolNetworkPackageDescriptorOutputTypeDef = TypedDict(
-    "GetSolNetworkPackageDescriptorOutputTypeDef",
-    {
-        "contentType": Literal["text/plain"],
-        "nsd": bytes,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetSolNetworkPackageInputRequestTypeDef = TypedDict(
-    "GetSolNetworkPackageInputRequestTypeDef",
-    {
-        "nsdInfoId": str,
-    },
-)
-
-_RequiredGetSolNetworkPackageMetadataTypeDef = TypedDict(
-    "_RequiredGetSolNetworkPackageMetadataTypeDef",
-    {
-        "createdAt": datetime,
-        "lastModified": datetime,
-    },
-)
-_OptionalGetSolNetworkPackageMetadataTypeDef = TypedDict(
-    "_OptionalGetSolNetworkPackageMetadataTypeDef",
-    {
-        "nsd": "NetworkArtifactMetaTypeDef",
-    },
-    total=False,
-)
-
-class GetSolNetworkPackageMetadataTypeDef(
-    _RequiredGetSolNetworkPackageMetadataTypeDef, _OptionalGetSolNetworkPackageMetadataTypeDef
-):
-    pass
-
-GetSolNetworkPackageOutputTypeDef = TypedDict(
-    "GetSolNetworkPackageOutputTypeDef",
-    {
-        "arn": str,
-        "id": str,
-        "metadata": "GetSolNetworkPackageMetadataTypeDef",
-        "nsdId": str,
-        "nsdName": str,
-        "nsdOnboardingState": NsdOnboardingStateType,
-        "nsdOperationalState": NsdOperationalStateType,
-        "nsdUsageState": NsdUsageStateType,
-        "nsdVersion": str,
-        "tags": Dict[str, str],
-        "vnfPkgIds": List[str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetSolVnfInfoTypeDef = TypedDict(
-    "GetSolVnfInfoTypeDef",
-    {
-        "vnfState": VnfOperationalStateType,
-        "vnfcResourceInfo": List["GetSolVnfcResourceInfoTypeDef"],
-    },
-    total=False,
-)
-
-GetSolVnfcResourceInfoMetadataTypeDef = TypedDict(
-    "GetSolVnfcResourceInfoMetadataTypeDef",
-    {
-        "cluster": str,
-        "helmChart": str,
-        "nodeGroup": str,
-    },
-    total=False,
-)
-
-GetSolVnfcResourceInfoTypeDef = TypedDict(
-    "GetSolVnfcResourceInfoTypeDef",
-    {
-        "metadata": "GetSolVnfcResourceInfoMetadataTypeDef",
-    },
-    total=False,
-)
-
-_RequiredInstantiateSolNetworkInstanceInputRequestTypeDef = TypedDict(
-    "_RequiredInstantiateSolNetworkInstanceInputRequestTypeDef",
-    {
-        "nsInstanceId": str,
-    },
-)
-_OptionalInstantiateSolNetworkInstanceInputRequestTypeDef = TypedDict(
-    "_OptionalInstantiateSolNetworkInstanceInputRequestTypeDef",
-    {
-        "additionalParamsForNs": Dict[str, Any],
-        "dryRun": bool,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class InstantiateSolNetworkInstanceInputRequestTypeDef(
-    _RequiredInstantiateSolNetworkInstanceInputRequestTypeDef,
-    _OptionalInstantiateSolNetworkInstanceInputRequestTypeDef,
-):
-    pass
-
-InstantiateSolNetworkInstanceOutputTypeDef = TypedDict(
-    "InstantiateSolNetworkInstanceOutputTypeDef",
-    {
-        "nsLcmOpOccId": str,
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-LcmOperationInfoTypeDef = TypedDict(
-    "LcmOperationInfoTypeDef",
-    {
-        "nsLcmOpOccId": str,
-    },
-)
-
-_RequiredListSolFunctionInstanceInfoTypeDef = TypedDict(
-    "_RequiredListSolFunctionInstanceInfoTypeDef",
+ListSolFunctionInstanceInfoTypeDef = TypedDict(
+    "ListSolFunctionInstanceInfoTypeDef",
     {
         "arn": str,
         "id": str,
         "instantiationState": VnfInstantiationStateType,
-        "metadata": "ListSolFunctionInstanceMetadataTypeDef",
+        "metadata": ListSolFunctionInstanceMetadataTypeDef,
         "nsInstanceId": str,
         "vnfPkgId": str,
-    },
-)
-_OptionalListSolFunctionInstanceInfoTypeDef = TypedDict(
-    "_OptionalListSolFunctionInstanceInfoTypeDef",
-    {
-        "instantiatedVnfInfo": "GetSolInstantiatedVnfInfoTypeDef",
-        "vnfPkgName": str,
-    },
-    total=False,
-)
-
-class ListSolFunctionInstanceInfoTypeDef(
-    _RequiredListSolFunctionInstanceInfoTypeDef, _OptionalListSolFunctionInstanceInfoTypeDef
-):
-    pass
-
-ListSolFunctionInstanceMetadataTypeDef = TypedDict(
-    "ListSolFunctionInstanceMetadataTypeDef",
-    {
-        "createdAt": datetime,
-        "lastModified": datetime,
+        "instantiatedVnfInfo": NotRequired[GetSolInstantiatedVnfInfoTypeDef],
+        "vnfPkgName": NotRequired[str],
     },
 )
 
-ListSolFunctionInstancesInputRequestTypeDef = TypedDict(
-    "ListSolFunctionInstancesInputRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
+class ListSolFunctionInstancesInputPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-ListSolFunctionInstancesOutputTypeDef = TypedDict(
-    "ListSolFunctionInstancesOutputTypeDef",
-    {
-        "functionInstances": List["ListSolFunctionInstanceInfoTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListSolFunctionPackagesInputPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-_RequiredListSolFunctionPackageInfoTypeDef = TypedDict(
-    "_RequiredListSolFunctionPackageInfoTypeDef",
+class ListSolNetworkInstancesInputPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListSolNetworkOperationsInputPaginateTypeDef(TypedDict):
+    nsInstanceId: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListSolNetworkPackagesInputPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+ListSolFunctionPackageInfoTypeDef = TypedDict(
+    "ListSolFunctionPackageInfoTypeDef",
     {
         "arn": str,
         "id": str,
         "onboardingState": OnboardingStateType,
         "operationalState": OperationalStateType,
         "usageState": UsageStateType,
+        "metadata": NotRequired[ListSolFunctionPackageMetadataTypeDef],
+        "vnfProductName": NotRequired[str],
+        "vnfProvider": NotRequired[str],
+        "vnfdId": NotRequired[str],
+        "vnfdVersion": NotRequired[str],
     },
 )
-_OptionalListSolFunctionPackageInfoTypeDef = TypedDict(
-    "_OptionalListSolFunctionPackageInfoTypeDef",
-    {
-        "metadata": "ListSolFunctionPackageMetadataTypeDef",
-        "vnfProductName": str,
-        "vnfProvider": str,
-        "vnfdId": str,
-        "vnfdVersion": str,
-    },
-    total=False,
-)
-
-class ListSolFunctionPackageInfoTypeDef(
-    _RequiredListSolFunctionPackageInfoTypeDef, _OptionalListSolFunctionPackageInfoTypeDef
-):
-    pass
-
-ListSolFunctionPackageMetadataTypeDef = TypedDict(
-    "ListSolFunctionPackageMetadataTypeDef",
-    {
-        "createdAt": datetime,
-        "lastModified": datetime,
-    },
-)
-
-ListSolFunctionPackagesInputRequestTypeDef = TypedDict(
-    "ListSolFunctionPackagesInputRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-ListSolFunctionPackagesOutputTypeDef = TypedDict(
-    "ListSolFunctionPackagesOutputTypeDef",
-    {
-        "functionPackages": List["ListSolFunctionPackageInfoTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
 ListSolNetworkInstanceInfoTypeDef = TypedDict(
     "ListSolNetworkInstanceInfoTypeDef",
     {
         "arn": str,
         "id": str,
-        "metadata": "ListSolNetworkInstanceMetadataTypeDef",
+        "metadata": ListSolNetworkInstanceMetadataTypeDef,
         "nsInstanceDescription": str,
         "nsInstanceName": str,
         "nsState": NsStateType,
@@ -716,490 +552,211 @@ ListSolNetworkInstanceInfoTypeDef = TypedDict(
         "nsdInfoId": str,
     },
 )
-
-ListSolNetworkInstanceMetadataTypeDef = TypedDict(
-    "ListSolNetworkInstanceMetadataTypeDef",
-    {
-        "createdAt": datetime,
-        "lastModified": datetime,
-    },
-)
-
-ListSolNetworkInstancesInputRequestTypeDef = TypedDict(
-    "ListSolNetworkInstancesInputRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-ListSolNetworkInstancesOutputTypeDef = TypedDict(
-    "ListSolNetworkInstancesOutputTypeDef",
-    {
-        "networkInstances": List["ListSolNetworkInstanceInfoTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListSolNetworkOperationsInfoTypeDef = TypedDict(
-    "_RequiredListSolNetworkOperationsInfoTypeDef",
+ListSolNetworkOperationsInfoTypeDef = TypedDict(
+    "ListSolNetworkOperationsInfoTypeDef",
     {
         "arn": str,
         "id": str,
         "lcmOperationType": LcmOperationTypeType,
         "nsInstanceId": str,
         "operationState": NsLcmOperationStateType,
+        "error": NotRequired[ProblemDetailsTypeDef],
+        "metadata": NotRequired[ListSolNetworkOperationsMetadataTypeDef],
+        "updateType": NotRequired[UpdateSolNetworkTypeType],
     },
 )
-_OptionalListSolNetworkOperationsInfoTypeDef = TypedDict(
-    "_OptionalListSolNetworkOperationsInfoTypeDef",
-    {
-        "error": "ProblemDetailsTypeDef",
-        "metadata": "ListSolNetworkOperationsMetadataTypeDef",
-    },
-    total=False,
-)
-
-class ListSolNetworkOperationsInfoTypeDef(
-    _RequiredListSolNetworkOperationsInfoTypeDef, _OptionalListSolNetworkOperationsInfoTypeDef
-):
-    pass
-
-ListSolNetworkOperationsInputRequestTypeDef = TypedDict(
-    "ListSolNetworkOperationsInputRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-ListSolNetworkOperationsMetadataTypeDef = TypedDict(
-    "ListSolNetworkOperationsMetadataTypeDef",
-    {
-        "createdAt": datetime,
-        "lastModified": datetime,
-    },
-)
-
-ListSolNetworkOperationsOutputTypeDef = TypedDict(
-    "ListSolNetworkOperationsOutputTypeDef",
-    {
-        "networkOperations": List["ListSolNetworkOperationsInfoTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListSolNetworkPackageInfoTypeDef = TypedDict(
-    "_RequiredListSolNetworkPackageInfoTypeDef",
+ListSolNetworkPackageInfoTypeDef = TypedDict(
+    "ListSolNetworkPackageInfoTypeDef",
     {
         "arn": str,
         "id": str,
-        "metadata": "ListSolNetworkPackageMetadataTypeDef",
+        "metadata": ListSolNetworkPackageMetadataTypeDef,
         "nsdOnboardingState": NsdOnboardingStateType,
         "nsdOperationalState": NsdOperationalStateType,
         "nsdUsageState": NsdUsageStateType,
-    },
-)
-_OptionalListSolNetworkPackageInfoTypeDef = TypedDict(
-    "_OptionalListSolNetworkPackageInfoTypeDef",
-    {
-        "nsdDesigner": str,
-        "nsdId": str,
-        "nsdInvariantId": str,
-        "nsdName": str,
-        "nsdVersion": str,
-        "vnfPkgIds": List[str],
-    },
-    total=False,
-)
-
-class ListSolNetworkPackageInfoTypeDef(
-    _RequiredListSolNetworkPackageInfoTypeDef, _OptionalListSolNetworkPackageInfoTypeDef
-):
-    pass
-
-ListSolNetworkPackageMetadataTypeDef = TypedDict(
-    "ListSolNetworkPackageMetadataTypeDef",
-    {
-        "createdAt": datetime,
-        "lastModified": datetime,
+        "nsdDesigner": NotRequired[str],
+        "nsdId": NotRequired[str],
+        "nsdInvariantId": NotRequired[str],
+        "nsdName": NotRequired[str],
+        "nsdVersion": NotRequired[str],
+        "vnfPkgIds": NotRequired[List[str]],
     },
 )
 
-ListSolNetworkPackagesInputRequestTypeDef = TypedDict(
-    "ListSolNetworkPackagesInputRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
+class UpdateSolNetworkInstanceInputTypeDef(TypedDict):
+    nsInstanceId: str
+    updateType: UpdateSolNetworkTypeType
+    modifyVnfInfoData: NotRequired[UpdateSolNetworkModifyTypeDef]
+    tags: NotRequired[Mapping[str, str]]
+    updateNs: NotRequired[UpdateSolNetworkServiceDataTypeDef]
 
-ListSolNetworkPackagesOutputTypeDef = TypedDict(
-    "ListSolNetworkPackagesOutputTypeDef",
-    {
-        "networkPackages": List["ListSolNetworkPackageInfoTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetSolFunctionPackageMetadataTypeDef(TypedDict):
+    createdAt: datetime
+    lastModified: datetime
+    vnfd: NotRequired[FunctionArtifactMetaTypeDef]
 
-ListTagsForResourceInputRequestTypeDef = TypedDict(
-    "ListTagsForResourceInputRequestTypeDef",
-    {
-        "resourceArn": str,
-    },
-)
+class PutSolFunctionPackageContentMetadataTypeDef(TypedDict):
+    vnfd: NotRequired[FunctionArtifactMetaTypeDef]
 
-ListTagsForResourceOutputTypeDef = TypedDict(
-    "ListTagsForResourceOutputTypeDef",
-    {
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ValidateSolFunctionPackageContentMetadataTypeDef(TypedDict):
+    vnfd: NotRequired[FunctionArtifactMetaTypeDef]
 
-NetworkArtifactMetaTypeDef = TypedDict(
-    "NetworkArtifactMetaTypeDef",
-    {
-        "overrides": List["ToscaOverrideTypeDef"],
-    },
-    total=False,
-)
+class GetSolNetworkPackageMetadataTypeDef(TypedDict):
+    createdAt: datetime
+    lastModified: datetime
+    nsd: NotRequired[NetworkArtifactMetaTypeDef]
 
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
+class PutSolNetworkPackageContentMetadataTypeDef(TypedDict):
+    nsd: NotRequired[NetworkArtifactMetaTypeDef]
 
-_RequiredProblemDetailsTypeDef = TypedDict(
-    "_RequiredProblemDetailsTypeDef",
-    {
-        "detail": str,
-    },
-)
-_OptionalProblemDetailsTypeDef = TypedDict(
-    "_OptionalProblemDetailsTypeDef",
-    {
-        "title": str,
-    },
-    total=False,
-)
+class ValidateSolNetworkPackageContentMetadataTypeDef(TypedDict):
+    nsd: NotRequired[NetworkArtifactMetaTypeDef]
 
-class ProblemDetailsTypeDef(_RequiredProblemDetailsTypeDef, _OptionalProblemDetailsTypeDef):
-    pass
-
-_RequiredPutSolFunctionPackageContentInputRequestTypeDef = TypedDict(
-    "_RequiredPutSolFunctionPackageContentInputRequestTypeDef",
+GetSolNetworkOperationOutputTypeDef = TypedDict(
+    "GetSolNetworkOperationOutputTypeDef",
     {
-        "file": Union[bytes, IO[bytes], StreamingBody],
-        "vnfPkgId": str,
-    },
-)
-_OptionalPutSolFunctionPackageContentInputRequestTypeDef = TypedDict(
-    "_OptionalPutSolFunctionPackageContentInputRequestTypeDef",
-    {
-        "contentType": Literal["application/zip"],
-    },
-    total=False,
-)
-
-class PutSolFunctionPackageContentInputRequestTypeDef(
-    _RequiredPutSolFunctionPackageContentInputRequestTypeDef,
-    _OptionalPutSolFunctionPackageContentInputRequestTypeDef,
-):
-    pass
-
-PutSolFunctionPackageContentMetadataTypeDef = TypedDict(
-    "PutSolFunctionPackageContentMetadataTypeDef",
-    {
-        "vnfd": "FunctionArtifactMetaTypeDef",
-    },
-    total=False,
-)
-
-PutSolFunctionPackageContentOutputTypeDef = TypedDict(
-    "PutSolFunctionPackageContentOutputTypeDef",
-    {
+        "arn": str,
+        "error": ProblemDetailsTypeDef,
         "id": str,
-        "metadata": "PutSolFunctionPackageContentMetadataTypeDef",
+        "lcmOperationType": LcmOperationTypeType,
+        "metadata": GetSolNetworkOperationMetadataTypeDef,
+        "nsInstanceId": str,
+        "operationState": NsLcmOperationStateType,
+        "tags": Dict[str, str],
+        "tasks": List[GetSolNetworkOperationTaskDetailsTypeDef],
+        "updateType": UpdateSolNetworkTypeType,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+
+class GetSolVnfInfoTypeDef(TypedDict):
+    vnfState: NotRequired[VnfOperationalStateType]
+    vnfcResourceInfo: NotRequired[List[GetSolVnfcResourceInfoTypeDef]]
+
+class ListSolFunctionInstancesOutputTypeDef(TypedDict):
+    functionInstances: List[ListSolFunctionInstanceInfoTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListSolFunctionPackagesOutputTypeDef(TypedDict):
+    functionPackages: List[ListSolFunctionPackageInfoTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListSolNetworkInstancesOutputTypeDef(TypedDict):
+    networkInstances: List[ListSolNetworkInstanceInfoTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListSolNetworkOperationsOutputTypeDef(TypedDict):
+    networkOperations: List[ListSolNetworkOperationsInfoTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListSolNetworkPackagesOutputTypeDef(TypedDict):
+    networkPackages: List[ListSolNetworkPackageInfoTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+GetSolFunctionPackageOutputTypeDef = TypedDict(
+    "GetSolFunctionPackageOutputTypeDef",
+    {
+        "arn": str,
+        "id": str,
+        "metadata": GetSolFunctionPackageMetadataTypeDef,
+        "onboardingState": OnboardingStateType,
+        "operationalState": OperationalStateType,
+        "tags": Dict[str, str],
+        "usageState": UsageStateType,
         "vnfProductName": str,
         "vnfProvider": str,
         "vnfdId": str,
         "vnfdVersion": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
-
-_RequiredPutSolNetworkPackageContentInputRequestTypeDef = TypedDict(
-    "_RequiredPutSolNetworkPackageContentInputRequestTypeDef",
+PutSolFunctionPackageContentOutputTypeDef = TypedDict(
+    "PutSolFunctionPackageContentOutputTypeDef",
     {
-        "file": Union[bytes, IO[bytes], StreamingBody],
-        "nsdInfoId": str,
+        "id": str,
+        "metadata": PutSolFunctionPackageContentMetadataTypeDef,
+        "vnfProductName": str,
+        "vnfProvider": str,
+        "vnfdId": str,
+        "vnfdVersion": str,
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
-_OptionalPutSolNetworkPackageContentInputRequestTypeDef = TypedDict(
-    "_OptionalPutSolNetworkPackageContentInputRequestTypeDef",
+ValidateSolFunctionPackageContentOutputTypeDef = TypedDict(
+    "ValidateSolFunctionPackageContentOutputTypeDef",
     {
-        "contentType": Literal["application/zip"],
+        "id": str,
+        "metadata": ValidateSolFunctionPackageContentMetadataTypeDef,
+        "vnfProductName": str,
+        "vnfProvider": str,
+        "vnfdId": str,
+        "vnfdVersion": str,
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
-    total=False,
 )
-
-class PutSolNetworkPackageContentInputRequestTypeDef(
-    _RequiredPutSolNetworkPackageContentInputRequestTypeDef,
-    _OptionalPutSolNetworkPackageContentInputRequestTypeDef,
-):
-    pass
-
-PutSolNetworkPackageContentMetadataTypeDef = TypedDict(
-    "PutSolNetworkPackageContentMetadataTypeDef",
+GetSolNetworkPackageOutputTypeDef = TypedDict(
+    "GetSolNetworkPackageOutputTypeDef",
     {
-        "nsd": "NetworkArtifactMetaTypeDef",
+        "arn": str,
+        "id": str,
+        "metadata": GetSolNetworkPackageMetadataTypeDef,
+        "nsdId": str,
+        "nsdName": str,
+        "nsdOnboardingState": NsdOnboardingStateType,
+        "nsdOperationalState": NsdOperationalStateType,
+        "nsdUsageState": NsdUsageStateType,
+        "nsdVersion": str,
+        "tags": Dict[str, str],
+        "vnfPkgIds": List[str],
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
-    total=False,
 )
-
 PutSolNetworkPackageContentOutputTypeDef = TypedDict(
     "PutSolNetworkPackageContentOutputTypeDef",
     {
         "arn": str,
         "id": str,
-        "metadata": "PutSolNetworkPackageContentMetadataTypeDef",
+        "metadata": PutSolNetworkPackageContentMetadataTypeDef,
         "nsdId": str,
         "nsdName": str,
         "nsdVersion": str,
         "vnfPkgIds": List[str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-TagResourceInputRequestTypeDef = TypedDict(
-    "TagResourceInputRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tags": Dict[str, str],
-    },
-)
-
-_RequiredTerminateSolNetworkInstanceInputRequestTypeDef = TypedDict(
-    "_RequiredTerminateSolNetworkInstanceInputRequestTypeDef",
-    {
-        "nsInstanceId": str,
-    },
-)
-_OptionalTerminateSolNetworkInstanceInputRequestTypeDef = TypedDict(
-    "_OptionalTerminateSolNetworkInstanceInputRequestTypeDef",
-    {
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class TerminateSolNetworkInstanceInputRequestTypeDef(
-    _RequiredTerminateSolNetworkInstanceInputRequestTypeDef,
-    _OptionalTerminateSolNetworkInstanceInputRequestTypeDef,
-):
-    pass
-
-TerminateSolNetworkInstanceOutputTypeDef = TypedDict(
-    "TerminateSolNetworkInstanceOutputTypeDef",
-    {
-        "nsLcmOpOccId": str,
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ToscaOverrideTypeDef = TypedDict(
-    "ToscaOverrideTypeDef",
-    {
-        "defaultValue": str,
-        "name": str,
-    },
-    total=False,
-)
-
-UntagResourceInputRequestTypeDef = TypedDict(
-    "UntagResourceInputRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tagKeys": List[str],
-    },
-)
-
-UpdateSolFunctionPackageInputRequestTypeDef = TypedDict(
-    "UpdateSolFunctionPackageInputRequestTypeDef",
-    {
-        "operationalState": OperationalStateType,
-        "vnfPkgId": str,
-    },
-)
-
-UpdateSolFunctionPackageOutputTypeDef = TypedDict(
-    "UpdateSolFunctionPackageOutputTypeDef",
-    {
-        "operationalState": OperationalStateType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateSolNetworkInstanceInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateSolNetworkInstanceInputRequestTypeDef",
-    {
-        "nsInstanceId": str,
-        "updateType": Literal["MODIFY_VNF_INFORMATION"],
-    },
-)
-_OptionalUpdateSolNetworkInstanceInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateSolNetworkInstanceInputRequestTypeDef",
-    {
-        "modifyVnfInfoData": "UpdateSolNetworkModifyTypeDef",
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class UpdateSolNetworkInstanceInputRequestTypeDef(
-    _RequiredUpdateSolNetworkInstanceInputRequestTypeDef,
-    _OptionalUpdateSolNetworkInstanceInputRequestTypeDef,
-):
-    pass
-
-UpdateSolNetworkInstanceOutputTypeDef = TypedDict(
-    "UpdateSolNetworkInstanceOutputTypeDef",
-    {
-        "nsLcmOpOccId": str,
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UpdateSolNetworkModifyTypeDef = TypedDict(
-    "UpdateSolNetworkModifyTypeDef",
-    {
-        "vnfConfigurableProperties": Dict[str, Any],
-        "vnfInstanceId": str,
-    },
-)
-
-UpdateSolNetworkPackageInputRequestTypeDef = TypedDict(
-    "UpdateSolNetworkPackageInputRequestTypeDef",
-    {
-        "nsdInfoId": str,
-        "nsdOperationalState": NsdOperationalStateType,
-    },
-)
-
-UpdateSolNetworkPackageOutputTypeDef = TypedDict(
-    "UpdateSolNetworkPackageOutputTypeDef",
-    {
-        "nsdOperationalState": NsdOperationalStateType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredValidateSolFunctionPackageContentInputRequestTypeDef = TypedDict(
-    "_RequiredValidateSolFunctionPackageContentInputRequestTypeDef",
-    {
-        "file": Union[bytes, IO[bytes], StreamingBody],
-        "vnfPkgId": str,
-    },
-)
-_OptionalValidateSolFunctionPackageContentInputRequestTypeDef = TypedDict(
-    "_OptionalValidateSolFunctionPackageContentInputRequestTypeDef",
-    {
-        "contentType": Literal["application/zip"],
-    },
-    total=False,
-)
-
-class ValidateSolFunctionPackageContentInputRequestTypeDef(
-    _RequiredValidateSolFunctionPackageContentInputRequestTypeDef,
-    _OptionalValidateSolFunctionPackageContentInputRequestTypeDef,
-):
-    pass
-
-ValidateSolFunctionPackageContentMetadataTypeDef = TypedDict(
-    "ValidateSolFunctionPackageContentMetadataTypeDef",
-    {
-        "vnfd": "FunctionArtifactMetaTypeDef",
-    },
-    total=False,
-)
-
-ValidateSolFunctionPackageContentOutputTypeDef = TypedDict(
-    "ValidateSolFunctionPackageContentOutputTypeDef",
-    {
-        "id": str,
-        "metadata": "ValidateSolFunctionPackageContentMetadataTypeDef",
-        "vnfProductName": str,
-        "vnfProvider": str,
-        "vnfdId": str,
-        "vnfdVersion": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredValidateSolNetworkPackageContentInputRequestTypeDef = TypedDict(
-    "_RequiredValidateSolNetworkPackageContentInputRequestTypeDef",
-    {
-        "file": Union[bytes, IO[bytes], StreamingBody],
-        "nsdInfoId": str,
-    },
-)
-_OptionalValidateSolNetworkPackageContentInputRequestTypeDef = TypedDict(
-    "_OptionalValidateSolNetworkPackageContentInputRequestTypeDef",
-    {
-        "contentType": Literal["application/zip"],
-    },
-    total=False,
-)
-
-class ValidateSolNetworkPackageContentInputRequestTypeDef(
-    _RequiredValidateSolNetworkPackageContentInputRequestTypeDef,
-    _OptionalValidateSolNetworkPackageContentInputRequestTypeDef,
-):
-    pass
-
-ValidateSolNetworkPackageContentMetadataTypeDef = TypedDict(
-    "ValidateSolNetworkPackageContentMetadataTypeDef",
-    {
-        "nsd": "NetworkArtifactMetaTypeDef",
-    },
-    total=False,
-)
-
 ValidateSolNetworkPackageContentOutputTypeDef = TypedDict(
     "ValidateSolNetworkPackageContentOutputTypeDef",
     {
         "arn": str,
         "id": str,
-        "metadata": "ValidateSolNetworkPackageContentMetadataTypeDef",
+        "metadata": ValidateSolNetworkPackageContentMetadataTypeDef,
         "nsdId": str,
         "nsdName": str,
         "nsdVersion": str,
         "vnfPkgIds": List[str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+GetSolFunctionInstanceOutputTypeDef = TypedDict(
+    "GetSolFunctionInstanceOutputTypeDef",
+    {
+        "arn": str,
+        "id": str,
+        "instantiatedVnfInfo": GetSolVnfInfoTypeDef,
+        "instantiationState": VnfInstantiationStateType,
+        "metadata": GetSolFunctionInstanceMetadataTypeDef,
+        "nsInstanceId": str,
+        "tags": Dict[str, str],
+        "vnfPkgId": str,
+        "vnfProductName": str,
+        "vnfProvider": str,
+        "vnfdId": str,
+        "vnfdVersion": str,
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )

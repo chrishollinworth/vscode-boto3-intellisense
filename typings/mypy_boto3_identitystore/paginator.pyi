@@ -1,115 +1,133 @@
 """
 Type annotations for identitystore service client paginators.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_identitystore/paginators.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_identitystore/paginators/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
 
-    from mypy_boto3_identitystore import IdentityStoreClient
+    from mypy_boto3_identitystore.client import IdentityStoreClient
     from mypy_boto3_identitystore.paginator import (
-        ListGroupMembershipsPaginator,
         ListGroupMembershipsForMemberPaginator,
+        ListGroupMembershipsPaginator,
         ListGroupsPaginator,
         ListUsersPaginator,
     )
 
-    client: IdentityStoreClient = boto3.client("identitystore")
+    session = Session()
+    client: IdentityStoreClient = session.client("identitystore")
 
-    list_group_memberships_paginator: ListGroupMembershipsPaginator = client.get_paginator("list_group_memberships")
     list_group_memberships_for_member_paginator: ListGroupMembershipsForMemberPaginator = client.get_paginator("list_group_memberships_for_member")
+    list_group_memberships_paginator: ListGroupMembershipsPaginator = client.get_paginator("list_group_memberships")
     list_groups_paginator: ListGroupsPaginator = client.get_paginator("list_groups")
     list_users_paginator: ListUsersPaginator = client.get_paginator("list_users")
     ```
 """
 
-from typing import Iterator, List
+from __future__ import annotations
 
-from botocore.paginate import Paginator as Boto3Paginator
+import sys
+from typing import TYPE_CHECKING
+
+from botocore.paginate import PageIterator, Paginator
 
 from .type_defs import (
-    FilterTypeDef,
+    ListGroupMembershipsForMemberRequestPaginateTypeDef,
     ListGroupMembershipsForMemberResponseTypeDef,
+    ListGroupMembershipsRequestPaginateTypeDef,
     ListGroupMembershipsResponseTypeDef,
+    ListGroupsRequestPaginateTypeDef,
     ListGroupsResponseTypeDef,
+    ListUsersRequestPaginateTypeDef,
     ListUsersResponseTypeDef,
-    MemberIdTypeDef,
-    PaginatorConfigTypeDef,
 )
 
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
+
 __all__ = (
-    "ListGroupMembershipsPaginator",
     "ListGroupMembershipsForMemberPaginator",
+    "ListGroupMembershipsPaginator",
     "ListGroupsPaginator",
     "ListUsersPaginator",
 )
 
-class ListGroupMembershipsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/identitystore.html#IdentityStore.Paginator.ListGroupMemberships)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_identitystore/paginators.html#listgroupmembershipspaginator)
-    """
+if TYPE_CHECKING:
+    _ListGroupMembershipsForMemberPaginatorBase = Paginator[
+        ListGroupMembershipsForMemberResponseTypeDef
+    ]
+else:
+    _ListGroupMembershipsForMemberPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, IdentityStoreId: str, GroupId: str, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListGroupMembershipsResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/identitystore.html#IdentityStore.Paginator.ListGroupMemberships.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_identitystore/paginators.html#listgroupmembershipspaginator)
-        """
-
-class ListGroupMembershipsForMemberPaginator(Boto3Paginator):
+class ListGroupMembershipsForMemberPaginator(_ListGroupMembershipsForMemberPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/identitystore.html#IdentityStore.Paginator.ListGroupMembershipsForMember)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_identitystore/paginators.html#listgroupmembershipsformemberpaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/identitystore/paginator/ListGroupMembershipsForMember.html#IdentityStore.Paginator.ListGroupMembershipsForMember)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_identitystore/paginators/#listgroupmembershipsformemberpaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        IdentityStoreId: str,
-        MemberId: "MemberIdTypeDef",
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListGroupMembershipsForMemberResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListGroupMembershipsForMemberRequestPaginateTypeDef]
+    ) -> PageIterator[ListGroupMembershipsForMemberResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/identitystore.html#IdentityStore.Paginator.ListGroupMembershipsForMember.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_identitystore/paginators.html#listgroupmembershipsformemberpaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/identitystore/paginator/ListGroupMembershipsForMember.html#IdentityStore.Paginator.ListGroupMembershipsForMember.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_identitystore/paginators/#listgroupmembershipsformemberpaginator)
         """
 
-class ListGroupsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/identitystore.html#IdentityStore.Paginator.ListGroups)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_identitystore/paginators.html#listgroupspaginator)
-    """
+if TYPE_CHECKING:
+    _ListGroupMembershipsPaginatorBase = Paginator[ListGroupMembershipsResponseTypeDef]
+else:
+    _ListGroupMembershipsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        IdentityStoreId: str,
-        Filters: List["FilterTypeDef"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListGroupsResponseTypeDef]:
+class ListGroupMembershipsPaginator(_ListGroupMembershipsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/identitystore/paginator/ListGroupMemberships.html#IdentityStore.Paginator.ListGroupMemberships)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_identitystore/paginators/#listgroupmembershipspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListGroupMembershipsRequestPaginateTypeDef]
+    ) -> PageIterator[ListGroupMembershipsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/identitystore.html#IdentityStore.Paginator.ListGroups.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_identitystore/paginators.html#listgroupspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/identitystore/paginator/ListGroupMemberships.html#IdentityStore.Paginator.ListGroupMemberships.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_identitystore/paginators/#listgroupmembershipspaginator)
         """
 
-class ListUsersPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/identitystore.html#IdentityStore.Paginator.ListUsers)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_identitystore/paginators.html#listuserspaginator)
-    """
+if TYPE_CHECKING:
+    _ListGroupsPaginatorBase = Paginator[ListGroupsResponseTypeDef]
+else:
+    _ListGroupsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        IdentityStoreId: str,
-        Filters: List["FilterTypeDef"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListUsersResponseTypeDef]:
+class ListGroupsPaginator(_ListGroupsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/identitystore/paginator/ListGroups.html#IdentityStore.Paginator.ListGroups)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_identitystore/paginators/#listgroupspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListGroupsRequestPaginateTypeDef]
+    ) -> PageIterator[ListGroupsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/identitystore.html#IdentityStore.Paginator.ListUsers.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_identitystore/paginators.html#listuserspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/identitystore/paginator/ListGroups.html#IdentityStore.Paginator.ListGroups.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_identitystore/paginators/#listgroupspaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListUsersPaginatorBase = Paginator[ListUsersResponseTypeDef]
+else:
+    _ListUsersPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListUsersPaginator(_ListUsersPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/identitystore/paginator/ListUsers.html#IdentityStore.Paginator.ListUsers)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_identitystore/paginators/#listuserspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListUsersRequestPaginateTypeDef]
+    ) -> PageIterator[ListUsersResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/identitystore/paginator/ListUsers.html#IdentityStore.Paginator.ListUsers.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_identitystore/paginators/#listuserspaginator)
         """

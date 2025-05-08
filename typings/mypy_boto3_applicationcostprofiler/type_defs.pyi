@@ -1,69 +1,103 @@
 """
 Type annotations for applicationcostprofiler service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_applicationcostprofiler/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_applicationcostprofiler/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_applicationcostprofiler.type_defs import DeleteReportDefinitionRequestRequestTypeDef
+    from mypy_boto3_applicationcostprofiler.type_defs import DeleteReportDefinitionRequestTypeDef
 
-    data: DeleteReportDefinitionRequestRequestTypeDef = {...}
+    data: DeleteReportDefinitionRequestTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
 
 from .literals import FormatType, ReportFrequencyType, S3BucketRegionType
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
-    "DeleteReportDefinitionRequestRequestTypeDef",
+    "DeleteReportDefinitionRequestTypeDef",
     "DeleteReportDefinitionResultTypeDef",
-    "GetReportDefinitionRequestRequestTypeDef",
+    "GetReportDefinitionRequestTypeDef",
     "GetReportDefinitionResultTypeDef",
-    "ImportApplicationUsageRequestRequestTypeDef",
+    "ImportApplicationUsageRequestTypeDef",
     "ImportApplicationUsageResultTypeDef",
-    "ListReportDefinitionsRequestRequestTypeDef",
+    "ListReportDefinitionsRequestPaginateTypeDef",
+    "ListReportDefinitionsRequestTypeDef",
     "ListReportDefinitionsResultTypeDef",
     "PaginatorConfigTypeDef",
-    "PutReportDefinitionRequestRequestTypeDef",
+    "PutReportDefinitionRequestTypeDef",
     "PutReportDefinitionResultTypeDef",
     "ReportDefinitionTypeDef",
     "ResponseMetadataTypeDef",
     "S3LocationTypeDef",
     "SourceS3LocationTypeDef",
-    "UpdateReportDefinitionRequestRequestTypeDef",
+    "UpdateReportDefinitionRequestTypeDef",
     "UpdateReportDefinitionResultTypeDef",
 )
 
-DeleteReportDefinitionRequestRequestTypeDef = TypedDict(
-    "DeleteReportDefinitionRequestRequestTypeDef",
-    {
-        "reportId": str,
-    },
-)
+class DeleteReportDefinitionRequestTypeDef(TypedDict):
+    reportId: str
 
-DeleteReportDefinitionResultTypeDef = TypedDict(
-    "DeleteReportDefinitionResultTypeDef",
-    {
-        "reportId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-GetReportDefinitionRequestRequestTypeDef = TypedDict(
-    "GetReportDefinitionRequestRequestTypeDef",
-    {
-        "reportId": str,
-    },
-)
+class GetReportDefinitionRequestTypeDef(TypedDict):
+    reportId: str
+
+class S3LocationTypeDef(TypedDict):
+    bucket: str
+    prefix: str
+
+class SourceS3LocationTypeDef(TypedDict):
+    bucket: str
+    key: str
+    region: NotRequired[S3BucketRegionType]
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class ListReportDefinitionsRequestTypeDef(TypedDict):
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class DeleteReportDefinitionResultTypeDef(TypedDict):
+    reportId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ImportApplicationUsageResultTypeDef(TypedDict):
+    importId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutReportDefinitionResultTypeDef(TypedDict):
+    reportId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateReportDefinitionResultTypeDef(TypedDict):
+    reportId: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
 GetReportDefinitionResultTypeDef = TypedDict(
     "GetReportDefinitionResultTypeDef",
@@ -72,141 +106,52 @@ GetReportDefinitionResultTypeDef = TypedDict(
         "reportDescription": str,
         "reportFrequency": ReportFrequencyType,
         "format": FormatType,
-        "destinationS3Location": "S3LocationTypeDef",
+        "destinationS3Location": S3LocationTypeDef,
         "createdAt": datetime,
         "lastUpdated": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
-
-ImportApplicationUsageRequestRequestTypeDef = TypedDict(
-    "ImportApplicationUsageRequestRequestTypeDef",
-    {
-        "sourceS3Location": "SourceS3LocationTypeDef",
-    },
-)
-
-ImportApplicationUsageResultTypeDef = TypedDict(
-    "ImportApplicationUsageResultTypeDef",
-    {
-        "importId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListReportDefinitionsRequestRequestTypeDef = TypedDict(
-    "ListReportDefinitionsRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-ListReportDefinitionsResultTypeDef = TypedDict(
-    "ListReportDefinitionsResultTypeDef",
-    {
-        "reportDefinitions": List["ReportDefinitionTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-PutReportDefinitionRequestRequestTypeDef = TypedDict(
-    "PutReportDefinitionRequestRequestTypeDef",
+PutReportDefinitionRequestTypeDef = TypedDict(
+    "PutReportDefinitionRequestTypeDef",
     {
         "reportId": str,
         "reportDescription": str,
         "reportFrequency": ReportFrequencyType,
         "format": FormatType,
-        "destinationS3Location": "S3LocationTypeDef",
+        "destinationS3Location": S3LocationTypeDef,
     },
 )
-
-PutReportDefinitionResultTypeDef = TypedDict(
-    "PutReportDefinitionResultTypeDef",
-    {
-        "reportId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
 ReportDefinitionTypeDef = TypedDict(
     "ReportDefinitionTypeDef",
     {
-        "reportId": str,
-        "reportDescription": str,
-        "reportFrequency": ReportFrequencyType,
-        "format": FormatType,
-        "destinationS3Location": "S3LocationTypeDef",
-        "createdAt": datetime,
-        "lastUpdatedAt": datetime,
-    },
-    total=False,
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
+        "reportId": NotRequired[str],
+        "reportDescription": NotRequired[str],
+        "reportFrequency": NotRequired[ReportFrequencyType],
+        "format": NotRequired[FormatType],
+        "destinationS3Location": NotRequired[S3LocationTypeDef],
+        "createdAt": NotRequired[datetime],
+        "lastUpdatedAt": NotRequired[datetime],
     },
 )
-
-S3LocationTypeDef = TypedDict(
-    "S3LocationTypeDef",
-    {
-        "bucket": str,
-        "prefix": str,
-    },
-)
-
-_RequiredSourceS3LocationTypeDef = TypedDict(
-    "_RequiredSourceS3LocationTypeDef",
-    {
-        "bucket": str,
-        "key": str,
-    },
-)
-_OptionalSourceS3LocationTypeDef = TypedDict(
-    "_OptionalSourceS3LocationTypeDef",
-    {
-        "region": S3BucketRegionType,
-    },
-    total=False,
-)
-
-class SourceS3LocationTypeDef(_RequiredSourceS3LocationTypeDef, _OptionalSourceS3LocationTypeDef):
-    pass
-
-UpdateReportDefinitionRequestRequestTypeDef = TypedDict(
-    "UpdateReportDefinitionRequestRequestTypeDef",
+UpdateReportDefinitionRequestTypeDef = TypedDict(
+    "UpdateReportDefinitionRequestTypeDef",
     {
         "reportId": str,
         "reportDescription": str,
         "reportFrequency": ReportFrequencyType,
         "format": FormatType,
-        "destinationS3Location": "S3LocationTypeDef",
+        "destinationS3Location": S3LocationTypeDef,
     },
 )
 
-UpdateReportDefinitionResultTypeDef = TypedDict(
-    "UpdateReportDefinitionResultTypeDef",
-    {
-        "reportId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ImportApplicationUsageRequestTypeDef(TypedDict):
+    sourceS3Location: SourceS3LocationTypeDef
+
+class ListReportDefinitionsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListReportDefinitionsResultTypeDef(TypedDict):
+    reportDefinitions: List[ReportDefinitionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]

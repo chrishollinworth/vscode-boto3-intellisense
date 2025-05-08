@@ -1,20 +1,22 @@
 """
 Main interface for iotfleethub service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotfleethub/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_iotfleethub import (
         Client,
         IoTFleetHubClient,
         ListApplicationsPaginator,
     )
 
-    session = boto3.Session()
-
-    client: IoTFleetHubClient = boto3.client("iotfleethub")
-    session_client: IoTFleetHubClient = session.client("iotfleethub")
+    session = Session()
+    client: IoTFleetHubClient = session.client("iotfleethub")
 
     list_applications_paginator: ListApplicationsPaginator = client.get_paginator("list_applications")
     ```

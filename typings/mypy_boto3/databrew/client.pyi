@@ -1,24 +1,30 @@
 """
-Type annotations for databrew service client.
+Type annotations for databrew service Client.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_databrew/client.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_databrew/client/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
-    from mypy_boto3_databrew import GlueDataBrewClient
+    from boto3.session import Session
+    from mypy_boto3_databrew.client import GlueDataBrewClient
 
-    client: GlueDataBrewClient = boto3.client("databrew")
+    session = Session()
+    client: GlueDataBrewClient = session.client("databrew")
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from typing import Any, Dict, List, Type, overload
+from typing import Any, overload
 
 from botocore.client import BaseClient, ClientMeta
+from botocore.errorfactory import BaseClientExceptions
+from botocore.exceptions import ClientError as BotocoreClientError
 
-from .literals import EncryptionModeType, InputFormatType, LogSubscriptionType
 from .paginator import (
     ListDatasetsPaginator,
     ListJobRunsPaginator,
@@ -30,80 +36,108 @@ from .paginator import (
     ListSchedulesPaginator,
 )
 from .type_defs import (
+    BatchDeleteRecipeVersionRequestTypeDef,
     BatchDeleteRecipeVersionResponseTypeDef,
+    CreateDatasetRequestTypeDef,
     CreateDatasetResponseTypeDef,
+    CreateProfileJobRequestTypeDef,
     CreateProfileJobResponseTypeDef,
+    CreateProjectRequestTypeDef,
     CreateProjectResponseTypeDef,
+    CreateRecipeJobRequestTypeDef,
     CreateRecipeJobResponseTypeDef,
+    CreateRecipeRequestTypeDef,
     CreateRecipeResponseTypeDef,
+    CreateRulesetRequestTypeDef,
     CreateRulesetResponseTypeDef,
+    CreateScheduleRequestTypeDef,
     CreateScheduleResponseTypeDef,
-    DatabaseOutputTypeDef,
-    DataCatalogOutputTypeDef,
+    DeleteDatasetRequestTypeDef,
     DeleteDatasetResponseTypeDef,
+    DeleteJobRequestTypeDef,
     DeleteJobResponseTypeDef,
+    DeleteProjectRequestTypeDef,
     DeleteProjectResponseTypeDef,
+    DeleteRecipeVersionRequestTypeDef,
     DeleteRecipeVersionResponseTypeDef,
+    DeleteRulesetRequestTypeDef,
     DeleteRulesetResponseTypeDef,
+    DeleteScheduleRequestTypeDef,
     DeleteScheduleResponseTypeDef,
+    DescribeDatasetRequestTypeDef,
     DescribeDatasetResponseTypeDef,
+    DescribeJobRequestTypeDef,
     DescribeJobResponseTypeDef,
+    DescribeJobRunRequestTypeDef,
     DescribeJobRunResponseTypeDef,
+    DescribeProjectRequestTypeDef,
     DescribeProjectResponseTypeDef,
+    DescribeRecipeRequestTypeDef,
     DescribeRecipeResponseTypeDef,
+    DescribeRulesetRequestTypeDef,
     DescribeRulesetResponseTypeDef,
+    DescribeScheduleRequestTypeDef,
     DescribeScheduleResponseTypeDef,
-    FormatOptionsTypeDef,
-    InputTypeDef,
-    JobSampleTypeDef,
+    ListDatasetsRequestTypeDef,
     ListDatasetsResponseTypeDef,
+    ListJobRunsRequestTypeDef,
     ListJobRunsResponseTypeDef,
+    ListJobsRequestTypeDef,
     ListJobsResponseTypeDef,
+    ListProjectsRequestTypeDef,
     ListProjectsResponseTypeDef,
+    ListRecipesRequestTypeDef,
     ListRecipesResponseTypeDef,
+    ListRecipeVersionsRequestTypeDef,
     ListRecipeVersionsResponseTypeDef,
+    ListRulesetsRequestTypeDef,
     ListRulesetsResponseTypeDef,
+    ListSchedulesRequestTypeDef,
     ListSchedulesResponseTypeDef,
+    ListTagsForResourceRequestTypeDef,
     ListTagsForResourceResponseTypeDef,
-    OutputTypeDef,
-    PathOptionsTypeDef,
-    ProfileConfigurationTypeDef,
+    PublishRecipeRequestTypeDef,
     PublishRecipeResponseTypeDef,
-    RecipeReferenceTypeDef,
-    RecipeStepTypeDef,
-    RuleTypeDef,
-    S3LocationTypeDef,
-    SampleTypeDef,
+    SendProjectSessionActionRequestTypeDef,
     SendProjectSessionActionResponseTypeDef,
+    StartJobRunRequestTypeDef,
     StartJobRunResponseTypeDef,
+    StartProjectSessionRequestTypeDef,
     StartProjectSessionResponseTypeDef,
+    StopJobRunRequestTypeDef,
     StopJobRunResponseTypeDef,
+    TagResourceRequestTypeDef,
+    UntagResourceRequestTypeDef,
+    UpdateDatasetRequestTypeDef,
     UpdateDatasetResponseTypeDef,
+    UpdateProfileJobRequestTypeDef,
     UpdateProfileJobResponseTypeDef,
+    UpdateProjectRequestTypeDef,
     UpdateProjectResponseTypeDef,
+    UpdateRecipeJobRequestTypeDef,
     UpdateRecipeJobResponseTypeDef,
+    UpdateRecipeRequestTypeDef,
     UpdateRecipeResponseTypeDef,
+    UpdateRulesetRequestTypeDef,
     UpdateRulesetResponseTypeDef,
+    UpdateScheduleRequestTypeDef,
     UpdateScheduleResponseTypeDef,
-    ValidationConfigurationTypeDef,
-    ViewFrameTypeDef,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import type as Type
+    from collections.abc import Mapping
 else:
-    from typing_extensions import Literal
+    from typing import Dict, Mapping, Type
+if sys.version_info >= (3, 12):
+    from typing import Literal, Unpack
+else:
+    from typing_extensions import Literal, Unpack
 
 __all__ = ("GlueDataBrewClient",)
 
-class BotocoreClientError(BaseException):
-    MSG_TEMPLATE: str
-
-    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
-        self.response: Dict[str, Any]
-        self.operation_name: str
-
-class Exceptions:
+class Exceptions(BaseClientExceptions):
     AccessDeniedException: Type[BotocoreClientError]
     ClientError: Type[BotocoreClientError]
     ConflictException: Type[BotocoreClientError]
@@ -114,8 +148,8 @@ class Exceptions:
 
 class GlueDataBrewClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/databrew.html#GlueDataBrew.Client)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_databrew/client.html)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/databrew.html#GlueDataBrew.Client)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_databrew/client/)
     """
 
     meta: ClientMeta
@@ -124,611 +158,552 @@ class GlueDataBrewClient(BaseClient):
     def exceptions(self) -> Exceptions:
         """
         GlueDataBrewClient exceptions.
-        """
 
-    def batch_delete_recipe_version(
-        self, *, Name: str, RecipeVersions: List[str]
-    ) -> BatchDeleteRecipeVersionResponseTypeDef:
-        """
-        Deletes one or more versions of a recipe at a time.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/databrew.html#GlueDataBrew.Client.batch_delete_recipe_version)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_databrew/client.html#batch_delete_recipe_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/databrew.html#GlueDataBrew.Client)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_databrew/client/#exceptions)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        Check if an operation can be paginated.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/databrew.html#GlueDataBrew.Client.can_paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_databrew/client.html#can_paginate)
-        """
-
-    def close(self) -> None:
-        """
-        Closes underlying endpoint connections.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/databrew.html#GlueDataBrew.Client.close)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_databrew/client.html#close)
-        """
-
-    def create_dataset(
-        self,
-        *,
-        Name: str,
-        Input: "InputTypeDef",
-        Format: InputFormatType = None,
-        FormatOptions: "FormatOptionsTypeDef" = None,
-        PathOptions: "PathOptionsTypeDef" = None,
-        Tags: Dict[str, str] = None
-    ) -> CreateDatasetResponseTypeDef:
-        """
-        Creates a new DataBrew dataset.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/databrew.html#GlueDataBrew.Client.create_dataset)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_databrew/client.html#create_dataset)
-        """
-
-    def create_profile_job(
-        self,
-        *,
-        DatasetName: str,
-        Name: str,
-        OutputLocation: "S3LocationTypeDef",
-        RoleArn: str,
-        EncryptionKeyArn: str = None,
-        EncryptionMode: EncryptionModeType = None,
-        LogSubscription: LogSubscriptionType = None,
-        MaxCapacity: int = None,
-        MaxRetries: int = None,
-        Configuration: "ProfileConfigurationTypeDef" = None,
-        ValidationConfigurations: List["ValidationConfigurationTypeDef"] = None,
-        Tags: Dict[str, str] = None,
-        Timeout: int = None,
-        JobSample: "JobSampleTypeDef" = None
-    ) -> CreateProfileJobResponseTypeDef:
-        """
-        Creates a new job to analyze a dataset and create its data profile.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/databrew.html#GlueDataBrew.Client.create_profile_job)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_databrew/client.html#create_profile_job)
-        """
-
-    def create_project(
-        self,
-        *,
-        DatasetName: str,
-        Name: str,
-        RecipeName: str,
-        RoleArn: str,
-        Sample: "SampleTypeDef" = None,
-        Tags: Dict[str, str] = None
-    ) -> CreateProjectResponseTypeDef:
-        """
-        Creates a new DataBrew project.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/databrew.html#GlueDataBrew.Client.create_project)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_databrew/client.html#create_project)
-        """
-
-    def create_recipe(
-        self,
-        *,
-        Name: str,
-        Steps: List["RecipeStepTypeDef"],
-        Description: str = None,
-        Tags: Dict[str, str] = None
-    ) -> CreateRecipeResponseTypeDef:
-        """
-        Creates a new DataBrew recipe.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/databrew.html#GlueDataBrew.Client.create_recipe)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_databrew/client.html#create_recipe)
-        """
-
-    def create_recipe_job(
-        self,
-        *,
-        Name: str,
-        RoleArn: str,
-        DatasetName: str = None,
-        EncryptionKeyArn: str = None,
-        EncryptionMode: EncryptionModeType = None,
-        LogSubscription: LogSubscriptionType = None,
-        MaxCapacity: int = None,
-        MaxRetries: int = None,
-        Outputs: List["OutputTypeDef"] = None,
-        DataCatalogOutputs: List["DataCatalogOutputTypeDef"] = None,
-        DatabaseOutputs: List["DatabaseOutputTypeDef"] = None,
-        ProjectName: str = None,
-        RecipeReference: "RecipeReferenceTypeDef" = None,
-        Tags: Dict[str, str] = None,
-        Timeout: int = None
-    ) -> CreateRecipeJobResponseTypeDef:
-        """
-        Creates a new job to transform input data, using steps defined in an existing
-        Glue DataBrew recipe See also: `AWS API Documentation
-        <https://docs.aws.amazon.com/goto/WebAPI/databrew-2017-07-25/CreateRecipeJob>`_
-        **Request Syntax** response = client.create_recipe_job( DatasetName=...
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/databrew.html#GlueDataBrew.Client.create_recipe_job)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_databrew/client.html#create_recipe_job)
-        """
-
-    def create_ruleset(
-        self,
-        *,
-        Name: str,
-        TargetArn: str,
-        Rules: List["RuleTypeDef"],
-        Description: str = None,
-        Tags: Dict[str, str] = None
-    ) -> CreateRulesetResponseTypeDef:
-        """
-        Creates a new ruleset that can be used in a profile job to validate the data
-        quality of a dataset.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/databrew.html#GlueDataBrew.Client.create_ruleset)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_databrew/client.html#create_ruleset)
-        """
-
-    def create_schedule(
-        self,
-        *,
-        CronExpression: str,
-        Name: str,
-        JobNames: List[str] = None,
-        Tags: Dict[str, str] = None
-    ) -> CreateScheduleResponseTypeDef:
-        """
-        Creates a new schedule for one or more DataBrew jobs.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/databrew.html#GlueDataBrew.Client.create_schedule)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_databrew/client.html#create_schedule)
-        """
-
-    def delete_dataset(self, *, Name: str) -> DeleteDatasetResponseTypeDef:
-        """
-        Deletes a dataset from DataBrew.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/databrew.html#GlueDataBrew.Client.delete_dataset)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_databrew/client.html#delete_dataset)
-        """
-
-    def delete_job(self, *, Name: str) -> DeleteJobResponseTypeDef:
-        """
-        Deletes the specified DataBrew job.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/databrew.html#GlueDataBrew.Client.delete_job)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_databrew/client.html#delete_job)
-        """
-
-    def delete_project(self, *, Name: str) -> DeleteProjectResponseTypeDef:
-        """
-        Deletes an existing DataBrew project.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/databrew.html#GlueDataBrew.Client.delete_project)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_databrew/client.html#delete_project)
-        """
-
-    def delete_recipe_version(
-        self, *, Name: str, RecipeVersion: str
-    ) -> DeleteRecipeVersionResponseTypeDef:
-        """
-        Deletes a single version of a DataBrew recipe.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/databrew.html#GlueDataBrew.Client.delete_recipe_version)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_databrew/client.html#delete_recipe_version)
-        """
-
-    def delete_ruleset(self, *, Name: str) -> DeleteRulesetResponseTypeDef:
-        """
-        Deletes a ruleset.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/databrew.html#GlueDataBrew.Client.delete_ruleset)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_databrew/client.html#delete_ruleset)
-        """
-
-    def delete_schedule(self, *, Name: str) -> DeleteScheduleResponseTypeDef:
-        """
-        Deletes the specified DataBrew schedule.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/databrew.html#GlueDataBrew.Client.delete_schedule)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_databrew/client.html#delete_schedule)
-        """
-
-    def describe_dataset(self, *, Name: str) -> DescribeDatasetResponseTypeDef:
-        """
-        Returns the definition of a specific DataBrew dataset.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/databrew.html#GlueDataBrew.Client.describe_dataset)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_databrew/client.html#describe_dataset)
-        """
-
-    def describe_job(self, *, Name: str) -> DescribeJobResponseTypeDef:
-        """
-        Returns the definition of a specific DataBrew job.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/databrew.html#GlueDataBrew.Client.describe_job)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_databrew/client.html#describe_job)
-        """
-
-    def describe_job_run(self, *, Name: str, RunId: str) -> DescribeJobRunResponseTypeDef:
-        """
-        Represents one run of a DataBrew job.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/databrew.html#GlueDataBrew.Client.describe_job_run)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_databrew/client.html#describe_job_run)
-        """
-
-    def describe_project(self, *, Name: str) -> DescribeProjectResponseTypeDef:
-        """
-        Returns the definition of a specific DataBrew project.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/databrew.html#GlueDataBrew.Client.describe_project)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_databrew/client.html#describe_project)
-        """
-
-    def describe_recipe(
-        self, *, Name: str, RecipeVersion: str = None
-    ) -> DescribeRecipeResponseTypeDef:
-        """
-        Returns the definition of a specific DataBrew recipe corresponding to a
-        particular version.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/databrew.html#GlueDataBrew.Client.describe_recipe)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_databrew/client.html#describe_recipe)
-        """
-
-    def describe_ruleset(self, *, Name: str) -> DescribeRulesetResponseTypeDef:
-        """
-        Retrieves detailed information about the ruleset.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/databrew.html#GlueDataBrew.Client.describe_ruleset)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_databrew/client.html#describe_ruleset)
-        """
-
-    def describe_schedule(self, *, Name: str) -> DescribeScheduleResponseTypeDef:
-        """
-        Returns the definition of a specific DataBrew schedule.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/databrew.html#GlueDataBrew.Client.describe_schedule)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_databrew/client.html#describe_schedule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/databrew/client/can_paginate.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_databrew/client/#can_paginate)
         """
 
     def generate_presigned_url(
         self,
         ClientMethod: str,
-        Params: Dict[str, Any] = None,
+        Params: Mapping[str, Any] = ...,
         ExpiresIn: int = 3600,
-        HttpMethod: str = None,
+        HttpMethod: str = ...,
     ) -> str:
         """
-        Generate a presigned url given a client, its method, and arguments.
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/databrew/client/generate_presigned_url.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_databrew/client/#generate_presigned_url)
+        """
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/databrew.html#GlueDataBrew.Client.generate_presigned_url)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_databrew/client.html#generate_presigned_url)
+    def batch_delete_recipe_version(
+        self, **kwargs: Unpack[BatchDeleteRecipeVersionRequestTypeDef]
+    ) -> BatchDeleteRecipeVersionResponseTypeDef:
+        """
+        Deletes one or more versions of a recipe at a time.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/databrew/client/batch_delete_recipe_version.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_databrew/client/#batch_delete_recipe_version)
+        """
+
+    def create_dataset(
+        self, **kwargs: Unpack[CreateDatasetRequestTypeDef]
+    ) -> CreateDatasetResponseTypeDef:
+        """
+        Creates a new DataBrew dataset.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/databrew/client/create_dataset.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_databrew/client/#create_dataset)
+        """
+
+    def create_profile_job(
+        self, **kwargs: Unpack[CreateProfileJobRequestTypeDef]
+    ) -> CreateProfileJobResponseTypeDef:
+        """
+        Creates a new job to analyze a dataset and create its data profile.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/databrew/client/create_profile_job.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_databrew/client/#create_profile_job)
+        """
+
+    def create_project(
+        self, **kwargs: Unpack[CreateProjectRequestTypeDef]
+    ) -> CreateProjectResponseTypeDef:
+        """
+        Creates a new DataBrew project.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/databrew/client/create_project.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_databrew/client/#create_project)
+        """
+
+    def create_recipe(
+        self, **kwargs: Unpack[CreateRecipeRequestTypeDef]
+    ) -> CreateRecipeResponseTypeDef:
+        """
+        Creates a new DataBrew recipe.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/databrew/client/create_recipe.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_databrew/client/#create_recipe)
+        """
+
+    def create_recipe_job(
+        self, **kwargs: Unpack[CreateRecipeJobRequestTypeDef]
+    ) -> CreateRecipeJobResponseTypeDef:
+        """
+        Creates a new job to transform input data, using steps defined in an existing
+        Glue DataBrew recipe.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/databrew/client/create_recipe_job.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_databrew/client/#create_recipe_job)
+        """
+
+    def create_ruleset(
+        self, **kwargs: Unpack[CreateRulesetRequestTypeDef]
+    ) -> CreateRulesetResponseTypeDef:
+        """
+        Creates a new ruleset that can be used in a profile job to validate the data
+        quality of a dataset.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/databrew/client/create_ruleset.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_databrew/client/#create_ruleset)
+        """
+
+    def create_schedule(
+        self, **kwargs: Unpack[CreateScheduleRequestTypeDef]
+    ) -> CreateScheduleResponseTypeDef:
+        """
+        Creates a new schedule for one or more DataBrew jobs.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/databrew/client/create_schedule.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_databrew/client/#create_schedule)
+        """
+
+    def delete_dataset(
+        self, **kwargs: Unpack[DeleteDatasetRequestTypeDef]
+    ) -> DeleteDatasetResponseTypeDef:
+        """
+        Deletes a dataset from DataBrew.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/databrew/client/delete_dataset.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_databrew/client/#delete_dataset)
+        """
+
+    def delete_job(self, **kwargs: Unpack[DeleteJobRequestTypeDef]) -> DeleteJobResponseTypeDef:
+        """
+        Deletes the specified DataBrew job.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/databrew/client/delete_job.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_databrew/client/#delete_job)
+        """
+
+    def delete_project(
+        self, **kwargs: Unpack[DeleteProjectRequestTypeDef]
+    ) -> DeleteProjectResponseTypeDef:
+        """
+        Deletes an existing DataBrew project.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/databrew/client/delete_project.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_databrew/client/#delete_project)
+        """
+
+    def delete_recipe_version(
+        self, **kwargs: Unpack[DeleteRecipeVersionRequestTypeDef]
+    ) -> DeleteRecipeVersionResponseTypeDef:
+        """
+        Deletes a single version of a DataBrew recipe.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/databrew/client/delete_recipe_version.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_databrew/client/#delete_recipe_version)
+        """
+
+    def delete_ruleset(
+        self, **kwargs: Unpack[DeleteRulesetRequestTypeDef]
+    ) -> DeleteRulesetResponseTypeDef:
+        """
+        Deletes a ruleset.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/databrew/client/delete_ruleset.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_databrew/client/#delete_ruleset)
+        """
+
+    def delete_schedule(
+        self, **kwargs: Unpack[DeleteScheduleRequestTypeDef]
+    ) -> DeleteScheduleResponseTypeDef:
+        """
+        Deletes the specified DataBrew schedule.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/databrew/client/delete_schedule.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_databrew/client/#delete_schedule)
+        """
+
+    def describe_dataset(
+        self, **kwargs: Unpack[DescribeDatasetRequestTypeDef]
+    ) -> DescribeDatasetResponseTypeDef:
+        """
+        Returns the definition of a specific DataBrew dataset.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/databrew/client/describe_dataset.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_databrew/client/#describe_dataset)
+        """
+
+    def describe_job(
+        self, **kwargs: Unpack[DescribeJobRequestTypeDef]
+    ) -> DescribeJobResponseTypeDef:
+        """
+        Returns the definition of a specific DataBrew job.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/databrew/client/describe_job.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_databrew/client/#describe_job)
+        """
+
+    def describe_job_run(
+        self, **kwargs: Unpack[DescribeJobRunRequestTypeDef]
+    ) -> DescribeJobRunResponseTypeDef:
+        """
+        Represents one run of a DataBrew job.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/databrew/client/describe_job_run.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_databrew/client/#describe_job_run)
+        """
+
+    def describe_project(
+        self, **kwargs: Unpack[DescribeProjectRequestTypeDef]
+    ) -> DescribeProjectResponseTypeDef:
+        """
+        Returns the definition of a specific DataBrew project.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/databrew/client/describe_project.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_databrew/client/#describe_project)
+        """
+
+    def describe_recipe(
+        self, **kwargs: Unpack[DescribeRecipeRequestTypeDef]
+    ) -> DescribeRecipeResponseTypeDef:
+        """
+        Returns the definition of a specific DataBrew recipe corresponding to a
+        particular version.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/databrew/client/describe_recipe.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_databrew/client/#describe_recipe)
+        """
+
+    def describe_ruleset(
+        self, **kwargs: Unpack[DescribeRulesetRequestTypeDef]
+    ) -> DescribeRulesetResponseTypeDef:
+        """
+        Retrieves detailed information about the ruleset.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/databrew/client/describe_ruleset.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_databrew/client/#describe_ruleset)
+        """
+
+    def describe_schedule(
+        self, **kwargs: Unpack[DescribeScheduleRequestTypeDef]
+    ) -> DescribeScheduleResponseTypeDef:
+        """
+        Returns the definition of a specific DataBrew schedule.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/databrew/client/describe_schedule.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_databrew/client/#describe_schedule)
         """
 
     def list_datasets(
-        self, *, MaxResults: int = None, NextToken: str = None
+        self, **kwargs: Unpack[ListDatasetsRequestTypeDef]
     ) -> ListDatasetsResponseTypeDef:
         """
         Lists all of the DataBrew datasets.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/databrew.html#GlueDataBrew.Client.list_datasets)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_databrew/client.html#list_datasets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/databrew/client/list_datasets.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_databrew/client/#list_datasets)
         """
 
     def list_job_runs(
-        self, *, Name: str, MaxResults: int = None, NextToken: str = None
+        self, **kwargs: Unpack[ListJobRunsRequestTypeDef]
     ) -> ListJobRunsResponseTypeDef:
         """
         Lists all of the previous runs of a particular DataBrew job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/databrew.html#GlueDataBrew.Client.list_job_runs)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_databrew/client.html#list_job_runs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/databrew/client/list_job_runs.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_databrew/client/#list_job_runs)
         """
 
-    def list_jobs(
-        self,
-        *,
-        DatasetName: str = None,
-        MaxResults: int = None,
-        NextToken: str = None,
-        ProjectName: str = None
-    ) -> ListJobsResponseTypeDef:
+    def list_jobs(self, **kwargs: Unpack[ListJobsRequestTypeDef]) -> ListJobsResponseTypeDef:
         """
         Lists all of the DataBrew jobs that are defined.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/databrew.html#GlueDataBrew.Client.list_jobs)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_databrew/client.html#list_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/databrew/client/list_jobs.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_databrew/client/#list_jobs)
         """
 
     def list_projects(
-        self, *, NextToken: str = None, MaxResults: int = None
+        self, **kwargs: Unpack[ListProjectsRequestTypeDef]
     ) -> ListProjectsResponseTypeDef:
         """
         Lists all of the DataBrew projects that are defined.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/databrew.html#GlueDataBrew.Client.list_projects)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_databrew/client.html#list_projects)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/databrew/client/list_projects.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_databrew/client/#list_projects)
         """
 
     def list_recipe_versions(
-        self, *, Name: str, MaxResults: int = None, NextToken: str = None
+        self, **kwargs: Unpack[ListRecipeVersionsRequestTypeDef]
     ) -> ListRecipeVersionsResponseTypeDef:
         """
-        Lists the versions of a particular DataBrew recipe, except for `LATEST_WORKING`.
+        Lists the versions of a particular DataBrew recipe, except for
+        <code>LATEST_WORKING</code>.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/databrew.html#GlueDataBrew.Client.list_recipe_versions)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_databrew/client.html#list_recipe_versions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/databrew/client/list_recipe_versions.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_databrew/client/#list_recipe_versions)
         """
 
     def list_recipes(
-        self, *, MaxResults: int = None, NextToken: str = None, RecipeVersion: str = None
+        self, **kwargs: Unpack[ListRecipesRequestTypeDef]
     ) -> ListRecipesResponseTypeDef:
         """
         Lists all of the DataBrew recipes that are defined.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/databrew.html#GlueDataBrew.Client.list_recipes)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_databrew/client.html#list_recipes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/databrew/client/list_recipes.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_databrew/client/#list_recipes)
         """
 
     def list_rulesets(
-        self, *, TargetArn: str = None, MaxResults: int = None, NextToken: str = None
+        self, **kwargs: Unpack[ListRulesetsRequestTypeDef]
     ) -> ListRulesetsResponseTypeDef:
         """
-        List all rulesets available in the current account or rulesets associated with a
-        specific resource (dataset).
+        List all rulesets available in the current account or rulesets associated with
+        a specific resource (dataset).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/databrew.html#GlueDataBrew.Client.list_rulesets)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_databrew/client.html#list_rulesets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/databrew/client/list_rulesets.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_databrew/client/#list_rulesets)
         """
 
     def list_schedules(
-        self, *, JobName: str = None, MaxResults: int = None, NextToken: str = None
+        self, **kwargs: Unpack[ListSchedulesRequestTypeDef]
     ) -> ListSchedulesResponseTypeDef:
         """
         Lists the DataBrew schedules that are defined.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/databrew.html#GlueDataBrew.Client.list_schedules)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_databrew/client.html#list_schedules)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/databrew/client/list_schedules.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_databrew/client/#list_schedules)
         """
 
-    def list_tags_for_resource(self, *, ResourceArn: str) -> ListTagsForResourceResponseTypeDef:
+    def list_tags_for_resource(
+        self, **kwargs: Unpack[ListTagsForResourceRequestTypeDef]
+    ) -> ListTagsForResourceResponseTypeDef:
         """
         Lists all the tags for a DataBrew resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/databrew.html#GlueDataBrew.Client.list_tags_for_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_databrew/client.html#list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/databrew/client/list_tags_for_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_databrew/client/#list_tags_for_resource)
         """
 
-    def publish_recipe(self, *, Name: str, Description: str = None) -> PublishRecipeResponseTypeDef:
+    def publish_recipe(
+        self, **kwargs: Unpack[PublishRecipeRequestTypeDef]
+    ) -> PublishRecipeResponseTypeDef:
         """
         Publishes a new version of a DataBrew recipe.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/databrew.html#GlueDataBrew.Client.publish_recipe)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_databrew/client.html#publish_recipe)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/databrew/client/publish_recipe.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_databrew/client/#publish_recipe)
         """
 
     def send_project_session_action(
-        self,
-        *,
-        Name: str,
-        Preview: bool = None,
-        RecipeStep: "RecipeStepTypeDef" = None,
-        StepIndex: int = None,
-        ClientSessionId: str = None,
-        ViewFrame: "ViewFrameTypeDef" = None
+        self, **kwargs: Unpack[SendProjectSessionActionRequestTypeDef]
     ) -> SendProjectSessionActionResponseTypeDef:
         """
         Performs a recipe step within an interactive DataBrew session that's currently
         open.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/databrew.html#GlueDataBrew.Client.send_project_session_action)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_databrew/client.html#send_project_session_action)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/databrew/client/send_project_session_action.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_databrew/client/#send_project_session_action)
         """
 
-    def start_job_run(self, *, Name: str) -> StartJobRunResponseTypeDef:
+    def start_job_run(
+        self, **kwargs: Unpack[StartJobRunRequestTypeDef]
+    ) -> StartJobRunResponseTypeDef:
         """
         Runs a DataBrew job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/databrew.html#GlueDataBrew.Client.start_job_run)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_databrew/client.html#start_job_run)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/databrew/client/start_job_run.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_databrew/client/#start_job_run)
         """
 
     def start_project_session(
-        self, *, Name: str, AssumeControl: bool = None
+        self, **kwargs: Unpack[StartProjectSessionRequestTypeDef]
     ) -> StartProjectSessionResponseTypeDef:
         """
         Creates an interactive session, enabling you to manipulate data in a DataBrew
         project.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/databrew.html#GlueDataBrew.Client.start_project_session)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_databrew/client.html#start_project_session)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/databrew/client/start_project_session.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_databrew/client/#start_project_session)
         """
 
-    def stop_job_run(self, *, Name: str, RunId: str) -> StopJobRunResponseTypeDef:
+    def stop_job_run(self, **kwargs: Unpack[StopJobRunRequestTypeDef]) -> StopJobRunResponseTypeDef:
         """
         Stops a particular run of a job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/databrew.html#GlueDataBrew.Client.stop_job_run)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_databrew/client.html#stop_job_run)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/databrew/client/stop_job_run.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_databrew/client/#stop_job_run)
         """
 
-    def tag_resource(self, *, ResourceArn: str, Tags: Dict[str, str]) -> Dict[str, Any]:
+    def tag_resource(self, **kwargs: Unpack[TagResourceRequestTypeDef]) -> Dict[str, Any]:
         """
         Adds metadata tags to a DataBrew resource, such as a dataset, project, recipe,
         job, or schedule.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/databrew.html#GlueDataBrew.Client.tag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_databrew/client.html#tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/databrew/client/tag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_databrew/client/#tag_resource)
         """
 
-    def untag_resource(self, *, ResourceArn: str, TagKeys: List[str]) -> Dict[str, Any]:
+    def untag_resource(self, **kwargs: Unpack[UntagResourceRequestTypeDef]) -> Dict[str, Any]:
         """
         Removes metadata tags from a DataBrew resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/databrew.html#GlueDataBrew.Client.untag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_databrew/client.html#untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/databrew/client/untag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_databrew/client/#untag_resource)
         """
 
     def update_dataset(
-        self,
-        *,
-        Name: str,
-        Input: "InputTypeDef",
-        Format: InputFormatType = None,
-        FormatOptions: "FormatOptionsTypeDef" = None,
-        PathOptions: "PathOptionsTypeDef" = None
+        self, **kwargs: Unpack[UpdateDatasetRequestTypeDef]
     ) -> UpdateDatasetResponseTypeDef:
         """
         Modifies the definition of an existing DataBrew dataset.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/databrew.html#GlueDataBrew.Client.update_dataset)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_databrew/client.html#update_dataset)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/databrew/client/update_dataset.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_databrew/client/#update_dataset)
         """
 
     def update_profile_job(
-        self,
-        *,
-        Name: str,
-        OutputLocation: "S3LocationTypeDef",
-        RoleArn: str,
-        Configuration: "ProfileConfigurationTypeDef" = None,
-        EncryptionKeyArn: str = None,
-        EncryptionMode: EncryptionModeType = None,
-        LogSubscription: LogSubscriptionType = None,
-        MaxCapacity: int = None,
-        MaxRetries: int = None,
-        ValidationConfigurations: List["ValidationConfigurationTypeDef"] = None,
-        Timeout: int = None,
-        JobSample: "JobSampleTypeDef" = None
+        self, **kwargs: Unpack[UpdateProfileJobRequestTypeDef]
     ) -> UpdateProfileJobResponseTypeDef:
         """
         Modifies the definition of an existing profile job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/databrew.html#GlueDataBrew.Client.update_profile_job)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_databrew/client.html#update_profile_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/databrew/client/update_profile_job.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_databrew/client/#update_profile_job)
         """
 
     def update_project(
-        self, *, RoleArn: str, Name: str, Sample: "SampleTypeDef" = None
+        self, **kwargs: Unpack[UpdateProjectRequestTypeDef]
     ) -> UpdateProjectResponseTypeDef:
         """
         Modifies the definition of an existing DataBrew project.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/databrew.html#GlueDataBrew.Client.update_project)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_databrew/client.html#update_project)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/databrew/client/update_project.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_databrew/client/#update_project)
         """
 
     def update_recipe(
-        self, *, Name: str, Description: str = None, Steps: List["RecipeStepTypeDef"] = None
+        self, **kwargs: Unpack[UpdateRecipeRequestTypeDef]
     ) -> UpdateRecipeResponseTypeDef:
         """
-        Modifies the definition of the `LATEST_WORKING` version of a DataBrew recipe.
+        Modifies the definition of the <code>LATEST_WORKING</code> version of a
+        DataBrew recipe.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/databrew.html#GlueDataBrew.Client.update_recipe)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_databrew/client.html#update_recipe)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/databrew/client/update_recipe.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_databrew/client/#update_recipe)
         """
 
     def update_recipe_job(
-        self,
-        *,
-        Name: str,
-        RoleArn: str,
-        EncryptionKeyArn: str = None,
-        EncryptionMode: EncryptionModeType = None,
-        LogSubscription: LogSubscriptionType = None,
-        MaxCapacity: int = None,
-        MaxRetries: int = None,
-        Outputs: List["OutputTypeDef"] = None,
-        DataCatalogOutputs: List["DataCatalogOutputTypeDef"] = None,
-        DatabaseOutputs: List["DatabaseOutputTypeDef"] = None,
-        Timeout: int = None
+        self, **kwargs: Unpack[UpdateRecipeJobRequestTypeDef]
     ) -> UpdateRecipeJobResponseTypeDef:
         """
         Modifies the definition of an existing DataBrew recipe job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/databrew.html#GlueDataBrew.Client.update_recipe_job)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_databrew/client.html#update_recipe_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/databrew/client/update_recipe_job.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_databrew/client/#update_recipe_job)
         """
 
     def update_ruleset(
-        self, *, Name: str, Rules: List["RuleTypeDef"], Description: str = None
+        self, **kwargs: Unpack[UpdateRulesetRequestTypeDef]
     ) -> UpdateRulesetResponseTypeDef:
         """
         Updates specified ruleset.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/databrew.html#GlueDataBrew.Client.update_ruleset)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_databrew/client.html#update_ruleset)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/databrew/client/update_ruleset.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_databrew/client/#update_ruleset)
         """
 
     def update_schedule(
-        self, *, CronExpression: str, Name: str, JobNames: List[str] = None
+        self, **kwargs: Unpack[UpdateScheduleRequestTypeDef]
     ) -> UpdateScheduleResponseTypeDef:
         """
         Modifies the definition of an existing DataBrew schedule.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/databrew.html#GlueDataBrew.Client.update_schedule)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_databrew/client.html#update_schedule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/databrew/client/update_schedule.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_databrew/client/#update_schedule)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_datasets"]) -> ListDatasetsPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_datasets"]
+    ) -> ListDatasetsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/databrew.html#GlueDataBrew.Paginator.ListDatasets)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_databrew/paginators.html#listdatasetspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/databrew/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_databrew/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_job_runs"]) -> ListJobRunsPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_job_runs"]
+    ) -> ListJobRunsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/databrew.html#GlueDataBrew.Paginator.ListJobRuns)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_databrew/paginators.html#listjobrunspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/databrew/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_databrew/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_jobs"]) -> ListJobsPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_jobs"]
+    ) -> ListJobsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/databrew.html#GlueDataBrew.Paginator.ListJobs)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_databrew/paginators.html#listjobspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/databrew/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_databrew/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_projects"]) -> ListProjectsPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_projects"]
+    ) -> ListProjectsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/databrew.html#GlueDataBrew.Paginator.ListProjects)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_databrew/paginators.html#listprojectspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/databrew/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_databrew/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_recipe_versions"]
     ) -> ListRecipeVersionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/databrew.html#GlueDataBrew.Paginator.ListRecipeVersions)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_databrew/paginators.html#listrecipeversionspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/databrew/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_databrew/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_recipes"]) -> ListRecipesPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_recipes"]
+    ) -> ListRecipesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/databrew.html#GlueDataBrew.Paginator.ListRecipes)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_databrew/paginators.html#listrecipespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/databrew/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_databrew/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_rulesets"]) -> ListRulesetsPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_rulesets"]
+    ) -> ListRulesetsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/databrew.html#GlueDataBrew.Paginator.ListRulesets)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_databrew/paginators.html#listrulesetspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/databrew/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_databrew/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_schedules"]) -> ListSchedulesPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_schedules"]
+    ) -> ListSchedulesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/databrew.html#GlueDataBrew.Paginator.ListSchedules)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_databrew/paginators.html#listschedulespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/databrew/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_databrew/client/#get_paginator)
         """

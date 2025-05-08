@@ -1,99 +1,151 @@
 """
-Type annotations for frauddetector service client.
+Type annotations for frauddetector service Client.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
-    from mypy_boto3_frauddetector import FraudDetectorClient
+    from boto3.session import Session
+    from mypy_boto3_frauddetector.client import FraudDetectorClient
 
-    client: FraudDetectorClient = boto3.client("frauddetector")
+    session = Session()
+    client: FraudDetectorClient = session.client("frauddetector")
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from typing import Any, Dict, List, Type
+from typing import Any
 
 from botocore.client import BaseClient, ClientMeta
+from botocore.errorfactory import BaseClientExceptions
+from botocore.exceptions import ClientError as BotocoreClientError
 
-from .literals import (
-    DataSourceType,
-    DataTypeType,
-    DetectorVersionStatusType,
-    EventIngestionType,
-    ListUpdateModeType,
-    ModelEndpointStatusType,
-    ModelTypeEnumType,
-    ModelVersionStatusType,
-    RuleExecutionModeType,
-    TrainingDataSourceEnumType,
-)
 from .type_defs import (
+    BatchCreateVariableRequestTypeDef,
     BatchCreateVariableResultTypeDef,
+    BatchGetVariableRequestTypeDef,
     BatchGetVariableResultTypeDef,
+    CancelBatchImportJobRequestTypeDef,
+    CancelBatchPredictionJobRequestTypeDef,
+    CreateBatchImportJobRequestTypeDef,
+    CreateBatchPredictionJobRequestTypeDef,
+    CreateDetectorVersionRequestTypeDef,
     CreateDetectorVersionResultTypeDef,
+    CreateListRequestTypeDef,
+    CreateModelRequestTypeDef,
+    CreateModelVersionRequestTypeDef,
     CreateModelVersionResultTypeDef,
+    CreateRuleRequestTypeDef,
     CreateRuleResultTypeDef,
+    CreateVariableRequestTypeDef,
+    DeleteBatchImportJobRequestTypeDef,
+    DeleteBatchPredictionJobRequestTypeDef,
+    DeleteDetectorRequestTypeDef,
+    DeleteDetectorVersionRequestTypeDef,
+    DeleteEntityTypeRequestTypeDef,
+    DeleteEventRequestTypeDef,
+    DeleteEventsByEventTypeRequestTypeDef,
     DeleteEventsByEventTypeResultTypeDef,
+    DeleteEventTypeRequestTypeDef,
+    DeleteExternalModelRequestTypeDef,
+    DeleteLabelRequestTypeDef,
+    DeleteListRequestTypeDef,
+    DeleteModelRequestTypeDef,
+    DeleteModelVersionRequestTypeDef,
+    DeleteOutcomeRequestTypeDef,
+    DeleteRuleRequestTypeDef,
+    DeleteVariableRequestTypeDef,
+    DescribeDetectorRequestTypeDef,
     DescribeDetectorResultTypeDef,
+    DescribeModelVersionsRequestTypeDef,
     DescribeModelVersionsResultTypeDef,
-    EntityTypeDef,
-    EventOrchestrationTypeDef,
-    ExternalEventsDetailTypeDef,
-    FilterConditionTypeDef,
+    GetBatchImportJobsRequestTypeDef,
     GetBatchImportJobsResultTypeDef,
+    GetBatchPredictionJobsRequestTypeDef,
     GetBatchPredictionJobsResultTypeDef,
+    GetDeleteEventsByEventTypeStatusRequestTypeDef,
     GetDeleteEventsByEventTypeStatusResultTypeDef,
+    GetDetectorsRequestTypeDef,
     GetDetectorsResultTypeDef,
+    GetDetectorVersionRequestTypeDef,
     GetDetectorVersionResultTypeDef,
+    GetEntityTypesRequestTypeDef,
     GetEntityTypesResultTypeDef,
+    GetEventPredictionMetadataRequestTypeDef,
     GetEventPredictionMetadataResultTypeDef,
+    GetEventPredictionRequestTypeDef,
     GetEventPredictionResultTypeDef,
+    GetEventRequestTypeDef,
     GetEventResultTypeDef,
+    GetEventTypesRequestTypeDef,
     GetEventTypesResultTypeDef,
+    GetExternalModelsRequestTypeDef,
     GetExternalModelsResultTypeDef,
     GetKMSEncryptionKeyResultTypeDef,
+    GetLabelsRequestTypeDef,
     GetLabelsResultTypeDef,
+    GetListElementsRequestTypeDef,
     GetListElementsResultTypeDef,
+    GetListsMetadataRequestTypeDef,
     GetListsMetadataResultTypeDef,
+    GetModelsRequestTypeDef,
     GetModelsResultTypeDef,
+    GetModelVersionRequestTypeDef,
     GetModelVersionResultTypeDef,
+    GetOutcomesRequestTypeDef,
     GetOutcomesResultTypeDef,
+    GetRulesRequestTypeDef,
     GetRulesResultTypeDef,
+    GetVariablesRequestTypeDef,
     GetVariablesResultTypeDef,
-    IngestedEventsDetailTypeDef,
+    ListEventPredictionsRequestTypeDef,
     ListEventPredictionsResultTypeDef,
+    ListTagsForResourceRequestTypeDef,
     ListTagsForResourceResultTypeDef,
-    ModelEndpointDataBlobTypeDef,
-    ModelInputConfigurationTypeDef,
-    ModelOutputConfigurationTypeDef,
-    ModelVersionTypeDef,
-    PredictionTimeRangeTypeDef,
-    RuleTypeDef,
-    TagTypeDef,
-    TrainingDataSchemaTypeDef,
+    PutDetectorRequestTypeDef,
+    PutEntityTypeRequestTypeDef,
+    PutEventTypeRequestTypeDef,
+    PutExternalModelRequestTypeDef,
+    PutKMSEncryptionKeyRequestTypeDef,
+    PutLabelRequestTypeDef,
+    PutOutcomeRequestTypeDef,
+    SendEventRequestTypeDef,
+    TagResourceRequestTypeDef,
+    UntagResourceRequestTypeDef,
+    UpdateDetectorVersionMetadataRequestTypeDef,
+    UpdateDetectorVersionRequestTypeDef,
+    UpdateDetectorVersionStatusRequestTypeDef,
+    UpdateEventLabelRequestTypeDef,
+    UpdateListRequestTypeDef,
+    UpdateModelRequestTypeDef,
+    UpdateModelVersionRequestTypeDef,
     UpdateModelVersionResultTypeDef,
+    UpdateModelVersionStatusRequestTypeDef,
+    UpdateRuleMetadataRequestTypeDef,
+    UpdateRuleVersionRequestTypeDef,
     UpdateRuleVersionResultTypeDef,
-    VariableEntryTypeDef,
+    UpdateVariableRequestTypeDef,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import type as Type
+    from collections.abc import Mapping
 else:
-    from typing_extensions import Literal
+    from typing import Dict, Mapping, Type
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = ("FraudDetectorClient",)
 
-class BotocoreClientError(BaseException):
-    MSG_TEMPLATE: str
-
-    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
-        self.response: Dict[str, Any]
-        self.operation_name: str
-
-class Exceptions:
+class Exceptions(BaseClientExceptions):
     AccessDeniedException: Type[BotocoreClientError]
     ClientError: Type[BotocoreClientError]
     ConflictException: Type[BotocoreClientError]
@@ -105,8 +157,8 @@ class Exceptions:
 
 class FraudDetectorClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/frauddetector.html#FraudDetector.Client)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client.html)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/frauddetector.html#FraudDetector.Client)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client/)
     """
 
     meta: ClientMeta
@@ -115,497 +167,414 @@ class FraudDetectorClient(BaseClient):
     def exceptions(self) -> Exceptions:
         """
         FraudDetectorClient exceptions.
-        """
 
-    def batch_create_variable(
-        self, *, variableEntries: List["VariableEntryTypeDef"], tags: List["TagTypeDef"] = None
-    ) -> BatchCreateVariableResultTypeDef:
-        """
-        Creates a batch of variables.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/frauddetector.html#FraudDetector.Client.batch_create_variable)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client.html#batch_create_variable)
-        """
-
-    def batch_get_variable(self, *, names: List[str]) -> BatchGetVariableResultTypeDef:
-        """
-        Gets a batch of variables.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/frauddetector.html#FraudDetector.Client.batch_get_variable)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client.html#batch_get_variable)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/frauddetector.html#FraudDetector.Client)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client/#exceptions)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        Check if an operation can be paginated.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/frauddetector.html#FraudDetector.Client.can_paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client.html#can_paginate)
-        """
-
-    def cancel_batch_import_job(self, *, jobId: str) -> Dict[str, Any]:
-        """
-        Cancels an in-progress batch import job.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/frauddetector.html#FraudDetector.Client.cancel_batch_import_job)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client.html#cancel_batch_import_job)
-        """
-
-    def cancel_batch_prediction_job(self, *, jobId: str) -> Dict[str, Any]:
-        """
-        Cancels the specified batch prediction job.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/frauddetector.html#FraudDetector.Client.cancel_batch_prediction_job)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client.html#cancel_batch_prediction_job)
-        """
-
-    def close(self) -> None:
-        """
-        Closes underlying endpoint connections.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/frauddetector.html#FraudDetector.Client.close)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client.html#close)
-        """
-
-    def create_batch_import_job(
-        self,
-        *,
-        jobId: str,
-        inputPath: str,
-        outputPath: str,
-        eventTypeName: str,
-        iamRoleArn: str,
-        tags: List["TagTypeDef"] = None
-    ) -> Dict[str, Any]:
-        """
-        Creates a batch import job.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/frauddetector.html#FraudDetector.Client.create_batch_import_job)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client.html#create_batch_import_job)
-        """
-
-    def create_batch_prediction_job(
-        self,
-        *,
-        jobId: str,
-        inputPath: str,
-        outputPath: str,
-        eventTypeName: str,
-        detectorName: str,
-        iamRoleArn: str,
-        detectorVersion: str = None,
-        tags: List["TagTypeDef"] = None
-    ) -> Dict[str, Any]:
-        """
-        Creates a batch prediction job.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/frauddetector.html#FraudDetector.Client.create_batch_prediction_job)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client.html#create_batch_prediction_job)
-        """
-
-    def create_detector_version(
-        self,
-        *,
-        detectorId: str,
-        rules: List["RuleTypeDef"],
-        description: str = None,
-        externalModelEndpoints: List[str] = None,
-        modelVersions: List["ModelVersionTypeDef"] = None,
-        ruleExecutionMode: RuleExecutionModeType = None,
-        tags: List["TagTypeDef"] = None
-    ) -> CreateDetectorVersionResultTypeDef:
-        """
-        Creates a detector version.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/frauddetector.html#FraudDetector.Client.create_detector_version)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client.html#create_detector_version)
-        """
-
-    def create_list(
-        self,
-        *,
-        name: str,
-        elements: List[str] = None,
-        variableType: str = None,
-        description: str = None,
-        tags: List["TagTypeDef"] = None
-    ) -> Dict[str, Any]:
-        """
-        Creates a list.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/frauddetector.html#FraudDetector.Client.create_list)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client.html#create_list)
-        """
-
-    def create_model(
-        self,
-        *,
-        modelId: str,
-        modelType: ModelTypeEnumType,
-        eventTypeName: str,
-        description: str = None,
-        tags: List["TagTypeDef"] = None
-    ) -> Dict[str, Any]:
-        """
-        Creates a model using the specified model type.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/frauddetector.html#FraudDetector.Client.create_model)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client.html#create_model)
-        """
-
-    def create_model_version(
-        self,
-        *,
-        modelId: str,
-        modelType: ModelTypeEnumType,
-        trainingDataSource: TrainingDataSourceEnumType,
-        trainingDataSchema: "TrainingDataSchemaTypeDef",
-        externalEventsDetail: "ExternalEventsDetailTypeDef" = None,
-        ingestedEventsDetail: "IngestedEventsDetailTypeDef" = None,
-        tags: List["TagTypeDef"] = None
-    ) -> CreateModelVersionResultTypeDef:
-        """
-        Creates a version of the model using the specified model type and model id.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/frauddetector.html#FraudDetector.Client.create_model_version)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client.html#create_model_version)
-        """
-
-    def create_rule(
-        self,
-        *,
-        ruleId: str,
-        detectorId: str,
-        expression: str,
-        language: Literal["DETECTORPL"],
-        outcomes: List[str],
-        description: str = None,
-        tags: List["TagTypeDef"] = None
-    ) -> CreateRuleResultTypeDef:
-        """
-        Creates a rule for use with the specified detector.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/frauddetector.html#FraudDetector.Client.create_rule)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client.html#create_rule)
-        """
-
-    def create_variable(
-        self,
-        *,
-        name: str,
-        dataType: DataTypeType,
-        dataSource: DataSourceType,
-        defaultValue: str,
-        description: str = None,
-        variableType: str = None,
-        tags: List["TagTypeDef"] = None
-    ) -> Dict[str, Any]:
-        """
-        Creates a variable.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/frauddetector.html#FraudDetector.Client.create_variable)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client.html#create_variable)
-        """
-
-    def delete_batch_import_job(self, *, jobId: str) -> Dict[str, Any]:
-        """
-        Deletes the specified batch import job ID record.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/frauddetector.html#FraudDetector.Client.delete_batch_import_job)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client.html#delete_batch_import_job)
-        """
-
-    def delete_batch_prediction_job(self, *, jobId: str) -> Dict[str, Any]:
-        """
-        Deletes a batch prediction job.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/frauddetector.html#FraudDetector.Client.delete_batch_prediction_job)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client.html#delete_batch_prediction_job)
-        """
-
-    def delete_detector(self, *, detectorId: str) -> Dict[str, Any]:
-        """
-        Deletes the detector.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/frauddetector.html#FraudDetector.Client.delete_detector)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client.html#delete_detector)
-        """
-
-    def delete_detector_version(self, *, detectorId: str, detectorVersionId: str) -> Dict[str, Any]:
-        """
-        Deletes the detector version.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/frauddetector.html#FraudDetector.Client.delete_detector_version)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client.html#delete_detector_version)
-        """
-
-    def delete_entity_type(self, *, name: str) -> Dict[str, Any]:
-        """
-        Deletes an entity type.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/frauddetector.html#FraudDetector.Client.delete_entity_type)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client.html#delete_entity_type)
-        """
-
-    def delete_event(
-        self, *, eventId: str, eventTypeName: str, deleteAuditHistory: bool = None
-    ) -> Dict[str, Any]:
-        """
-        Deletes the specified event.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/frauddetector.html#FraudDetector.Client.delete_event)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client.html#delete_event)
-        """
-
-    def delete_event_type(self, *, name: str) -> Dict[str, Any]:
-        """
-        Deletes an event type.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/frauddetector.html#FraudDetector.Client.delete_event_type)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client.html#delete_event_type)
-        """
-
-    def delete_events_by_event_type(
-        self, *, eventTypeName: str
-    ) -> DeleteEventsByEventTypeResultTypeDef:
-        """
-        Deletes all events of a particular event type.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/frauddetector.html#FraudDetector.Client.delete_events_by_event_type)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client.html#delete_events_by_event_type)
-        """
-
-    def delete_external_model(self, *, modelEndpoint: str) -> Dict[str, Any]:
-        """
-        Removes a SageMaker model from Amazon Fraud Detector.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/frauddetector.html#FraudDetector.Client.delete_external_model)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client.html#delete_external_model)
-        """
-
-    def delete_label(self, *, name: str) -> Dict[str, Any]:
-        """
-        Deletes a label.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/frauddetector.html#FraudDetector.Client.delete_label)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client.html#delete_label)
-        """
-
-    def delete_list(self, *, name: str) -> Dict[str, Any]:
-        """
-        Deletes the list, provided it is not used in a rule.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/frauddetector.html#FraudDetector.Client.delete_list)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client.html#delete_list)
-        """
-
-    def delete_model(self, *, modelId: str, modelType: ModelTypeEnumType) -> Dict[str, Any]:
-        """
-        Deletes a model.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/frauddetector.html#FraudDetector.Client.delete_model)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client.html#delete_model)
-        """
-
-    def delete_model_version(
-        self, *, modelId: str, modelType: ModelTypeEnumType, modelVersionNumber: str
-    ) -> Dict[str, Any]:
-        """
-        Deletes a model version.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/frauddetector.html#FraudDetector.Client.delete_model_version)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client.html#delete_model_version)
-        """
-
-    def delete_outcome(self, *, name: str) -> Dict[str, Any]:
-        """
-        Deletes an outcome.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/frauddetector.html#FraudDetector.Client.delete_outcome)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client.html#delete_outcome)
-        """
-
-    def delete_rule(self, *, rule: "RuleTypeDef") -> Dict[str, Any]:
-        """
-        Deletes the rule.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/frauddetector.html#FraudDetector.Client.delete_rule)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client.html#delete_rule)
-        """
-
-    def delete_variable(self, *, name: str) -> Dict[str, Any]:
-        """
-        Deletes a variable.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/frauddetector.html#FraudDetector.Client.delete_variable)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client.html#delete_variable)
-        """
-
-    def describe_detector(
-        self, *, detectorId: str, nextToken: str = None, maxResults: int = None
-    ) -> DescribeDetectorResultTypeDef:
-        """
-        Gets all versions for a specified detector.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/frauddetector.html#FraudDetector.Client.describe_detector)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client.html#describe_detector)
-        """
-
-    def describe_model_versions(
-        self,
-        *,
-        modelId: str = None,
-        modelVersionNumber: str = None,
-        modelType: ModelTypeEnumType = None,
-        nextToken: str = None,
-        maxResults: int = None
-    ) -> DescribeModelVersionsResultTypeDef:
-        """
-        Gets all of the model versions for the specified model type or for the specified
-        model type and model ID.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/frauddetector.html#FraudDetector.Client.describe_model_versions)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client.html#describe_model_versions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/frauddetector/client/can_paginate.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client/#can_paginate)
         """
 
     def generate_presigned_url(
         self,
         ClientMethod: str,
-        Params: Dict[str, Any] = None,
+        Params: Mapping[str, Any] = ...,
         ExpiresIn: int = 3600,
-        HttpMethod: str = None,
+        HttpMethod: str = ...,
     ) -> str:
         """
-        Generate a presigned url given a client, its method, and arguments.
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/frauddetector/client/generate_presigned_url.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client/#generate_presigned_url)
+        """
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/frauddetector.html#FraudDetector.Client.generate_presigned_url)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client.html#generate_presigned_url)
+    def batch_create_variable(
+        self, **kwargs: Unpack[BatchCreateVariableRequestTypeDef]
+    ) -> BatchCreateVariableResultTypeDef:
+        """
+        Creates a batch of variables.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/frauddetector/client/batch_create_variable.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client/#batch_create_variable)
+        """
+
+    def batch_get_variable(
+        self, **kwargs: Unpack[BatchGetVariableRequestTypeDef]
+    ) -> BatchGetVariableResultTypeDef:
+        """
+        Gets a batch of variables.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/frauddetector/client/batch_get_variable.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client/#batch_get_variable)
+        """
+
+    def cancel_batch_import_job(
+        self, **kwargs: Unpack[CancelBatchImportJobRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Cancels an in-progress batch import job.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/frauddetector/client/cancel_batch_import_job.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client/#cancel_batch_import_job)
+        """
+
+    def cancel_batch_prediction_job(
+        self, **kwargs: Unpack[CancelBatchPredictionJobRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Cancels the specified batch prediction job.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/frauddetector/client/cancel_batch_prediction_job.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client/#cancel_batch_prediction_job)
+        """
+
+    def create_batch_import_job(
+        self, **kwargs: Unpack[CreateBatchImportJobRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Creates a batch import job.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/frauddetector/client/create_batch_import_job.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client/#create_batch_import_job)
+        """
+
+    def create_batch_prediction_job(
+        self, **kwargs: Unpack[CreateBatchPredictionJobRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Creates a batch prediction job.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/frauddetector/client/create_batch_prediction_job.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client/#create_batch_prediction_job)
+        """
+
+    def create_detector_version(
+        self, **kwargs: Unpack[CreateDetectorVersionRequestTypeDef]
+    ) -> CreateDetectorVersionResultTypeDef:
+        """
+        Creates a detector version.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/frauddetector/client/create_detector_version.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client/#create_detector_version)
+        """
+
+    def create_list(self, **kwargs: Unpack[CreateListRequestTypeDef]) -> Dict[str, Any]:
+        """
+        Creates a list.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/frauddetector/client/create_list.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client/#create_list)
+        """
+
+    def create_model(self, **kwargs: Unpack[CreateModelRequestTypeDef]) -> Dict[str, Any]:
+        """
+        Creates a model using the specified model type.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/frauddetector/client/create_model.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client/#create_model)
+        """
+
+    def create_model_version(
+        self, **kwargs: Unpack[CreateModelVersionRequestTypeDef]
+    ) -> CreateModelVersionResultTypeDef:
+        """
+        Creates a version of the model using the specified model type and model id.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/frauddetector/client/create_model_version.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client/#create_model_version)
+        """
+
+    def create_rule(self, **kwargs: Unpack[CreateRuleRequestTypeDef]) -> CreateRuleResultTypeDef:
+        """
+        Creates a rule for use with the specified detector.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/frauddetector/client/create_rule.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client/#create_rule)
+        """
+
+    def create_variable(self, **kwargs: Unpack[CreateVariableRequestTypeDef]) -> Dict[str, Any]:
+        """
+        Creates a variable.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/frauddetector/client/create_variable.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client/#create_variable)
+        """
+
+    def delete_batch_import_job(
+        self, **kwargs: Unpack[DeleteBatchImportJobRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Deletes the specified batch import job ID record.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/frauddetector/client/delete_batch_import_job.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client/#delete_batch_import_job)
+        """
+
+    def delete_batch_prediction_job(
+        self, **kwargs: Unpack[DeleteBatchPredictionJobRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Deletes a batch prediction job.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/frauddetector/client/delete_batch_prediction_job.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client/#delete_batch_prediction_job)
+        """
+
+    def delete_detector(self, **kwargs: Unpack[DeleteDetectorRequestTypeDef]) -> Dict[str, Any]:
+        """
+        Deletes the detector.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/frauddetector/client/delete_detector.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client/#delete_detector)
+        """
+
+    def delete_detector_version(
+        self, **kwargs: Unpack[DeleteDetectorVersionRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Deletes the detector version.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/frauddetector/client/delete_detector_version.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client/#delete_detector_version)
+        """
+
+    def delete_entity_type(
+        self, **kwargs: Unpack[DeleteEntityTypeRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Deletes an entity type.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/frauddetector/client/delete_entity_type.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client/#delete_entity_type)
+        """
+
+    def delete_event(self, **kwargs: Unpack[DeleteEventRequestTypeDef]) -> Dict[str, Any]:
+        """
+        Deletes the specified event.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/frauddetector/client/delete_event.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client/#delete_event)
+        """
+
+    def delete_event_type(self, **kwargs: Unpack[DeleteEventTypeRequestTypeDef]) -> Dict[str, Any]:
+        """
+        Deletes an event type.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/frauddetector/client/delete_event_type.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client/#delete_event_type)
+        """
+
+    def delete_events_by_event_type(
+        self, **kwargs: Unpack[DeleteEventsByEventTypeRequestTypeDef]
+    ) -> DeleteEventsByEventTypeResultTypeDef:
+        """
+        Deletes all events of a particular event type.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/frauddetector/client/delete_events_by_event_type.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client/#delete_events_by_event_type)
+        """
+
+    def delete_external_model(
+        self, **kwargs: Unpack[DeleteExternalModelRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Removes a SageMaker model from Amazon Fraud Detector.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/frauddetector/client/delete_external_model.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client/#delete_external_model)
+        """
+
+    def delete_label(self, **kwargs: Unpack[DeleteLabelRequestTypeDef]) -> Dict[str, Any]:
+        """
+        Deletes a label.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/frauddetector/client/delete_label.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client/#delete_label)
+        """
+
+    def delete_list(self, **kwargs: Unpack[DeleteListRequestTypeDef]) -> Dict[str, Any]:
+        """
+        Deletes the list, provided it is not used in a rule.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/frauddetector/client/delete_list.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client/#delete_list)
+        """
+
+    def delete_model(self, **kwargs: Unpack[DeleteModelRequestTypeDef]) -> Dict[str, Any]:
+        """
+        Deletes a model.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/frauddetector/client/delete_model.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client/#delete_model)
+        """
+
+    def delete_model_version(
+        self, **kwargs: Unpack[DeleteModelVersionRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Deletes a model version.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/frauddetector/client/delete_model_version.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client/#delete_model_version)
+        """
+
+    def delete_outcome(self, **kwargs: Unpack[DeleteOutcomeRequestTypeDef]) -> Dict[str, Any]:
+        """
+        Deletes an outcome.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/frauddetector/client/delete_outcome.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client/#delete_outcome)
+        """
+
+    def delete_rule(self, **kwargs: Unpack[DeleteRuleRequestTypeDef]) -> Dict[str, Any]:
+        """
+        Deletes the rule.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/frauddetector/client/delete_rule.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client/#delete_rule)
+        """
+
+    def delete_variable(self, **kwargs: Unpack[DeleteVariableRequestTypeDef]) -> Dict[str, Any]:
+        """
+        Deletes a variable.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/frauddetector/client/delete_variable.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client/#delete_variable)
+        """
+
+    def describe_detector(
+        self, **kwargs: Unpack[DescribeDetectorRequestTypeDef]
+    ) -> DescribeDetectorResultTypeDef:
+        """
+        Gets all versions for a specified detector.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/frauddetector/client/describe_detector.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client/#describe_detector)
+        """
+
+    def describe_model_versions(
+        self, **kwargs: Unpack[DescribeModelVersionsRequestTypeDef]
+    ) -> DescribeModelVersionsResultTypeDef:
+        """
+        Gets all of the model versions for the specified model type or for the
+        specified model type and model ID.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/frauddetector/client/describe_model_versions.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client/#describe_model_versions)
         """
 
     def get_batch_import_jobs(
-        self, *, jobId: str = None, maxResults: int = None, nextToken: str = None
+        self, **kwargs: Unpack[GetBatchImportJobsRequestTypeDef]
     ) -> GetBatchImportJobsResultTypeDef:
         """
         Gets all batch import jobs or a specific job of the specified ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/frauddetector.html#FraudDetector.Client.get_batch_import_jobs)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client.html#get_batch_import_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/frauddetector/client/get_batch_import_jobs.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client/#get_batch_import_jobs)
         """
 
     def get_batch_prediction_jobs(
-        self, *, jobId: str = None, maxResults: int = None, nextToken: str = None
+        self, **kwargs: Unpack[GetBatchPredictionJobsRequestTypeDef]
     ) -> GetBatchPredictionJobsResultTypeDef:
         """
         Gets all batch prediction jobs or a specific job if you specify a job ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/frauddetector.html#FraudDetector.Client.get_batch_prediction_jobs)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client.html#get_batch_prediction_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/frauddetector/client/get_batch_prediction_jobs.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client/#get_batch_prediction_jobs)
         """
 
     def get_delete_events_by_event_type_status(
-        self, *, eventTypeName: str
+        self, **kwargs: Unpack[GetDeleteEventsByEventTypeStatusRequestTypeDef]
     ) -> GetDeleteEventsByEventTypeStatusResultTypeDef:
         """
-        Retrieves the status of a `DeleteEventsByEventType` action.
+        Retrieves the status of a <code>DeleteEventsByEventType</code> action.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/frauddetector.html#FraudDetector.Client.get_delete_events_by_event_type_status)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client.html#get_delete_events_by_event_type_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/frauddetector/client/get_delete_events_by_event_type_status.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client/#get_delete_events_by_event_type_status)
         """
 
     def get_detector_version(
-        self, *, detectorId: str, detectorVersionId: str
+        self, **kwargs: Unpack[GetDetectorVersionRequestTypeDef]
     ) -> GetDetectorVersionResultTypeDef:
         """
         Gets a particular detector version.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/frauddetector.html#FraudDetector.Client.get_detector_version)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client.html#get_detector_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/frauddetector/client/get_detector_version.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client/#get_detector_version)
         """
 
     def get_detectors(
-        self, *, detectorId: str = None, nextToken: str = None, maxResults: int = None
+        self, **kwargs: Unpack[GetDetectorsRequestTypeDef]
     ) -> GetDetectorsResultTypeDef:
         """
-        Gets all detectors or a single detector if a `detectorId` is specified.
+        Gets all detectors or a single detector if a <code>detectorId</code> is
+        specified.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/frauddetector.html#FraudDetector.Client.get_detectors)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client.html#get_detectors)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/frauddetector/client/get_detectors.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client/#get_detectors)
         """
 
     def get_entity_types(
-        self, *, name: str = None, nextToken: str = None, maxResults: int = None
+        self, **kwargs: Unpack[GetEntityTypesRequestTypeDef]
     ) -> GetEntityTypesResultTypeDef:
         """
         Gets all entity types or a specific entity type if a name is specified.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/frauddetector.html#FraudDetector.Client.get_entity_types)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client.html#get_entity_types)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/frauddetector/client/get_entity_types.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client/#get_entity_types)
         """
 
-    def get_event(self, *, eventId: str, eventTypeName: str) -> GetEventResultTypeDef:
+    def get_event(self, **kwargs: Unpack[GetEventRequestTypeDef]) -> GetEventResultTypeDef:
         """
         Retrieves details of events stored with Amazon Fraud Detector.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/frauddetector.html#FraudDetector.Client.get_event)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client.html#get_event)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/frauddetector/client/get_event.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client/#get_event)
         """
 
     def get_event_prediction(
-        self,
-        *,
-        detectorId: str,
-        eventId: str,
-        eventTypeName: str,
-        entities: List["EntityTypeDef"],
-        eventTimestamp: str,
-        eventVariables: Dict[str, str],
-        detectorVersionId: str = None,
-        externalModelEndpointDataBlobs: Dict[str, "ModelEndpointDataBlobTypeDef"] = None
+        self, **kwargs: Unpack[GetEventPredictionRequestTypeDef]
     ) -> GetEventPredictionResultTypeDef:
         """
         Evaluates an event against a detector version.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/frauddetector.html#FraudDetector.Client.get_event_prediction)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client.html#get_event_prediction)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/frauddetector/client/get_event_prediction.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client/#get_event_prediction)
         """
 
     def get_event_prediction_metadata(
-        self,
-        *,
-        eventId: str,
-        eventTypeName: str,
-        detectorId: str,
-        detectorVersionId: str,
-        predictionTimestamp: str
+        self, **kwargs: Unpack[GetEventPredictionMetadataRequestTypeDef]
     ) -> GetEventPredictionMetadataResultTypeDef:
         """
         Gets details of the past fraud predictions for the specified event ID, event
         type, detector ID, and detector version ID that was generated in the specified
         time period.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/frauddetector.html#FraudDetector.Client.get_event_prediction_metadata)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client.html#get_event_prediction_metadata)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/frauddetector/client/get_event_prediction_metadata.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client/#get_event_prediction_metadata)
         """
 
     def get_event_types(
-        self, *, name: str = None, nextToken: str = None, maxResults: int = None
+        self, **kwargs: Unpack[GetEventTypesRequestTypeDef]
     ) -> GetEventTypesResultTypeDef:
         """
         Gets all event types or a specific event type if name is provided.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/frauddetector.html#FraudDetector.Client.get_event_types)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client.html#get_event_types)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/frauddetector/client/get_event_types.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client/#get_event_types)
         """
 
     def get_external_models(
-        self, *, modelEndpoint: str = None, nextToken: str = None, maxResults: int = None
+        self, **kwargs: Unpack[GetExternalModelsRequestTypeDef]
     ) -> GetExternalModelsResultTypeDef:
         """
-        Gets the details for one or more Amazon SageMaker models that have been imported
-        into the service.
+        Gets the details for one or more Amazon SageMaker models that have been
+        imported into the service.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/frauddetector.html#FraudDetector.Client.get_external_models)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client.html#get_external_models)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/frauddetector/client/get_external_models.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client/#get_external_models)
         """
 
     def get_kms_encryption_key(self) -> GetKMSEncryptionKeyResultTypeDef:
@@ -613,398 +582,289 @@ class FraudDetectorClient(BaseClient):
         Gets the encryption key if a KMS key has been specified to be used to encrypt
         content in Amazon Fraud Detector.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/frauddetector.html#FraudDetector.Client.get_kms_encryption_key)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client.html#get_kms_encryption_key)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/frauddetector/client/get_kms_encryption_key.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client/#get_kms_encryption_key)
         """
 
-    def get_labels(
-        self, *, name: str = None, nextToken: str = None, maxResults: int = None
-    ) -> GetLabelsResultTypeDef:
+    def get_labels(self, **kwargs: Unpack[GetLabelsRequestTypeDef]) -> GetLabelsResultTypeDef:
         """
         Gets all labels or a specific label if name is provided.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/frauddetector.html#FraudDetector.Client.get_labels)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client.html#get_labels)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/frauddetector/client/get_labels.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client/#get_labels)
         """
 
     def get_list_elements(
-        self, *, name: str, nextToken: str = None, maxResults: int = None
+        self, **kwargs: Unpack[GetListElementsRequestTypeDef]
     ) -> GetListElementsResultTypeDef:
         """
         Gets all the elements in the specified list.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/frauddetector.html#FraudDetector.Client.get_list_elements)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client.html#get_list_elements)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/frauddetector/client/get_list_elements.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client/#get_list_elements)
         """
 
     def get_lists_metadata(
-        self, *, name: str = None, nextToken: str = None, maxResults: int = None
+        self, **kwargs: Unpack[GetListsMetadataRequestTypeDef]
     ) -> GetListsMetadataResultTypeDef:
         """
         Gets the metadata of either all the lists under the account or the specified
         list.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/frauddetector.html#FraudDetector.Client.get_lists_metadata)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client.html#get_lists_metadata)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/frauddetector/client/get_lists_metadata.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client/#get_lists_metadata)
         """
 
     def get_model_version(
-        self, *, modelId: str, modelType: ModelTypeEnumType, modelVersionNumber: str
+        self, **kwargs: Unpack[GetModelVersionRequestTypeDef]
     ) -> GetModelVersionResultTypeDef:
         """
         Gets the details of the specified model version.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/frauddetector.html#FraudDetector.Client.get_model_version)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client.html#get_model_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/frauddetector/client/get_model_version.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client/#get_model_version)
         """
 
-    def get_models(
-        self,
-        *,
-        modelId: str = None,
-        modelType: ModelTypeEnumType = None,
-        nextToken: str = None,
-        maxResults: int = None
-    ) -> GetModelsResultTypeDef:
+    def get_models(self, **kwargs: Unpack[GetModelsRequestTypeDef]) -> GetModelsResultTypeDef:
         """
         Gets one or more models.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/frauddetector.html#FraudDetector.Client.get_models)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client.html#get_models)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/frauddetector/client/get_models.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client/#get_models)
         """
 
-    def get_outcomes(
-        self, *, name: str = None, nextToken: str = None, maxResults: int = None
-    ) -> GetOutcomesResultTypeDef:
+    def get_outcomes(self, **kwargs: Unpack[GetOutcomesRequestTypeDef]) -> GetOutcomesResultTypeDef:
         """
         Gets one or more outcomes.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/frauddetector.html#FraudDetector.Client.get_outcomes)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client.html#get_outcomes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/frauddetector/client/get_outcomes.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client/#get_outcomes)
         """
 
-    def get_rules(
-        self,
-        *,
-        detectorId: str,
-        ruleId: str = None,
-        ruleVersion: str = None,
-        nextToken: str = None,
-        maxResults: int = None
-    ) -> GetRulesResultTypeDef:
+    def get_rules(self, **kwargs: Unpack[GetRulesRequestTypeDef]) -> GetRulesResultTypeDef:
         """
-        Get all rules for a detector (paginated) if `ruleId` and `ruleVersion` are not
-        specified.
+        Get all rules for a detector (paginated) if <code>ruleId</code> and
+        <code>ruleVersion</code> are not specified.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/frauddetector.html#FraudDetector.Client.get_rules)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client.html#get_rules)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/frauddetector/client/get_rules.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client/#get_rules)
         """
 
     def get_variables(
-        self, *, name: str = None, nextToken: str = None, maxResults: int = None
+        self, **kwargs: Unpack[GetVariablesRequestTypeDef]
     ) -> GetVariablesResultTypeDef:
         """
         Gets all of the variables or the specific variable.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/frauddetector.html#FraudDetector.Client.get_variables)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client.html#get_variables)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/frauddetector/client/get_variables.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client/#get_variables)
         """
 
     def list_event_predictions(
-        self,
-        *,
-        eventId: "FilterConditionTypeDef" = None,
-        eventType: "FilterConditionTypeDef" = None,
-        detectorId: "FilterConditionTypeDef" = None,
-        detectorVersionId: "FilterConditionTypeDef" = None,
-        predictionTimeRange: "PredictionTimeRangeTypeDef" = None,
-        nextToken: str = None,
-        maxResults: int = None
+        self, **kwargs: Unpack[ListEventPredictionsRequestTypeDef]
     ) -> ListEventPredictionsResultTypeDef:
         """
         Gets a list of past predictions.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/frauddetector.html#FraudDetector.Client.list_event_predictions)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client.html#list_event_predictions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/frauddetector/client/list_event_predictions.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client/#list_event_predictions)
         """
 
     def list_tags_for_resource(
-        self, *, resourceARN: str, nextToken: str = None, maxResults: int = None
+        self, **kwargs: Unpack[ListTagsForResourceRequestTypeDef]
     ) -> ListTagsForResourceResultTypeDef:
         """
         Lists all tags associated with the resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/frauddetector.html#FraudDetector.Client.list_tags_for_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client.html#list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/frauddetector/client/list_tags_for_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client/#list_tags_for_resource)
         """
 
-    def put_detector(
-        self,
-        *,
-        detectorId: str,
-        eventTypeName: str,
-        description: str = None,
-        tags: List["TagTypeDef"] = None
-    ) -> Dict[str, Any]:
+    def put_detector(self, **kwargs: Unpack[PutDetectorRequestTypeDef]) -> Dict[str, Any]:
         """
         Creates or updates a detector.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/frauddetector.html#FraudDetector.Client.put_detector)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client.html#put_detector)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/frauddetector/client/put_detector.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client/#put_detector)
         """
 
-    def put_entity_type(
-        self, *, name: str, description: str = None, tags: List["TagTypeDef"] = None
-    ) -> Dict[str, Any]:
+    def put_entity_type(self, **kwargs: Unpack[PutEntityTypeRequestTypeDef]) -> Dict[str, Any]:
         """
         Creates or updates an entity type.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/frauddetector.html#FraudDetector.Client.put_entity_type)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client.html#put_entity_type)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/frauddetector/client/put_entity_type.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client/#put_entity_type)
         """
 
-    def put_event_type(
-        self,
-        *,
-        name: str,
-        eventVariables: List[str],
-        entityTypes: List[str],
-        description: str = None,
-        labels: List[str] = None,
-        eventIngestion: EventIngestionType = None,
-        tags: List["TagTypeDef"] = None,
-        eventOrchestration: "EventOrchestrationTypeDef" = None
-    ) -> Dict[str, Any]:
+    def put_event_type(self, **kwargs: Unpack[PutEventTypeRequestTypeDef]) -> Dict[str, Any]:
         """
         Creates or updates an event type.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/frauddetector.html#FraudDetector.Client.put_event_type)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client.html#put_event_type)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/frauddetector/client/put_event_type.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client/#put_event_type)
         """
 
     def put_external_model(
-        self,
-        *,
-        modelEndpoint: str,
-        modelSource: Literal["SAGEMAKER"],
-        invokeModelEndpointRoleArn: str,
-        inputConfiguration: "ModelInputConfigurationTypeDef",
-        outputConfiguration: "ModelOutputConfigurationTypeDef",
-        modelEndpointStatus: ModelEndpointStatusType,
-        tags: List["TagTypeDef"] = None
+        self, **kwargs: Unpack[PutExternalModelRequestTypeDef]
     ) -> Dict[str, Any]:
         """
         Creates or updates an Amazon SageMaker model endpoint.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/frauddetector.html#FraudDetector.Client.put_external_model)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client.html#put_external_model)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/frauddetector/client/put_external_model.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client/#put_external_model)
         """
 
-    def put_kms_encryption_key(self, *, kmsEncryptionKeyArn: str) -> Dict[str, Any]:
+    def put_kms_encryption_key(
+        self, **kwargs: Unpack[PutKMSEncryptionKeyRequestTypeDef]
+    ) -> Dict[str, Any]:
         """
         Specifies the KMS key to be used to encrypt content in Amazon Fraud Detector.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/frauddetector.html#FraudDetector.Client.put_kms_encryption_key)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client.html#put_kms_encryption_key)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/frauddetector/client/put_kms_encryption_key.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client/#put_kms_encryption_key)
         """
 
-    def put_label(
-        self, *, name: str, description: str = None, tags: List["TagTypeDef"] = None
-    ) -> Dict[str, Any]:
+    def put_label(self, **kwargs: Unpack[PutLabelRequestTypeDef]) -> Dict[str, Any]:
         """
         Creates or updates label.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/frauddetector.html#FraudDetector.Client.put_label)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client.html#put_label)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/frauddetector/client/put_label.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client/#put_label)
         """
 
-    def put_outcome(
-        self, *, name: str, description: str = None, tags: List["TagTypeDef"] = None
-    ) -> Dict[str, Any]:
+    def put_outcome(self, **kwargs: Unpack[PutOutcomeRequestTypeDef]) -> Dict[str, Any]:
         """
         Creates or updates an outcome.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/frauddetector.html#FraudDetector.Client.put_outcome)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client.html#put_outcome)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/frauddetector/client/put_outcome.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client/#put_outcome)
         """
 
-    def send_event(
-        self,
-        *,
-        eventId: str,
-        eventTypeName: str,
-        eventTimestamp: str,
-        eventVariables: Dict[str, str],
-        entities: List["EntityTypeDef"],
-        assignedLabel: str = None,
-        labelTimestamp: str = None
-    ) -> Dict[str, Any]:
+    def send_event(self, **kwargs: Unpack[SendEventRequestTypeDef]) -> Dict[str, Any]:
         """
         Stores events in Amazon Fraud Detector without generating fraud predictions for
         those events.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/frauddetector.html#FraudDetector.Client.send_event)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client.html#send_event)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/frauddetector/client/send_event.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client/#send_event)
         """
 
-    def tag_resource(self, *, resourceARN: str, tags: List["TagTypeDef"]) -> Dict[str, Any]:
+    def tag_resource(self, **kwargs: Unpack[TagResourceRequestTypeDef]) -> Dict[str, Any]:
         """
         Assigns tags to a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/frauddetector.html#FraudDetector.Client.tag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client.html#tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/frauddetector/client/tag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client/#tag_resource)
         """
 
-    def untag_resource(self, *, resourceARN: str, tagKeys: List[str]) -> Dict[str, Any]:
+    def untag_resource(self, **kwargs: Unpack[UntagResourceRequestTypeDef]) -> Dict[str, Any]:
         """
         Removes tags from a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/frauddetector.html#FraudDetector.Client.untag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client.html#untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/frauddetector/client/untag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client/#untag_resource)
         """
 
     def update_detector_version(
-        self,
-        *,
-        detectorId: str,
-        detectorVersionId: str,
-        externalModelEndpoints: List[str],
-        rules: List["RuleTypeDef"],
-        description: str = None,
-        modelVersions: List["ModelVersionTypeDef"] = None,
-        ruleExecutionMode: RuleExecutionModeType = None
+        self, **kwargs: Unpack[UpdateDetectorVersionRequestTypeDef]
     ) -> Dict[str, Any]:
         """
         Updates a detector version.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/frauddetector.html#FraudDetector.Client.update_detector_version)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client.html#update_detector_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/frauddetector/client/update_detector_version.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client/#update_detector_version)
         """
 
     def update_detector_version_metadata(
-        self, *, detectorId: str, detectorVersionId: str, description: str
+        self, **kwargs: Unpack[UpdateDetectorVersionMetadataRequestTypeDef]
     ) -> Dict[str, Any]:
         """
         Updates the detector version's description.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/frauddetector.html#FraudDetector.Client.update_detector_version_metadata)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client.html#update_detector_version_metadata)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/frauddetector/client/update_detector_version_metadata.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client/#update_detector_version_metadata)
         """
 
     def update_detector_version_status(
-        self, *, detectorId: str, detectorVersionId: str, status: DetectorVersionStatusType
+        self, **kwargs: Unpack[UpdateDetectorVersionStatusRequestTypeDef]
     ) -> Dict[str, Any]:
         """
-        Updates the detector version’s status.
+        Updates the detector version's status.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/frauddetector.html#FraudDetector.Client.update_detector_version_status)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client.html#update_detector_version_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/frauddetector/client/update_detector_version_status.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client/#update_detector_version_status)
         """
 
     def update_event_label(
-        self, *, eventId: str, eventTypeName: str, assignedLabel: str, labelTimestamp: str
+        self, **kwargs: Unpack[UpdateEventLabelRequestTypeDef]
     ) -> Dict[str, Any]:
         """
         Updates the specified event with a new label.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/frauddetector.html#FraudDetector.Client.update_event_label)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client.html#update_event_label)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/frauddetector/client/update_event_label.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client/#update_event_label)
         """
 
-    def update_list(
-        self,
-        *,
-        name: str,
-        elements: List[str] = None,
-        description: str = None,
-        updateMode: ListUpdateModeType = None,
-        variableType: str = None
-    ) -> Dict[str, Any]:
+    def update_list(self, **kwargs: Unpack[UpdateListRequestTypeDef]) -> Dict[str, Any]:
         """
         Updates a list.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/frauddetector.html#FraudDetector.Client.update_list)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client.html#update_list)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/frauddetector/client/update_list.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client/#update_list)
         """
 
-    def update_model(
-        self, *, modelId: str, modelType: ModelTypeEnumType, description: str = None
-    ) -> Dict[str, Any]:
+    def update_model(self, **kwargs: Unpack[UpdateModelRequestTypeDef]) -> Dict[str, Any]:
         """
         Updates model description.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/frauddetector.html#FraudDetector.Client.update_model)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client.html#update_model)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/frauddetector/client/update_model.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client/#update_model)
         """
 
     def update_model_version(
-        self,
-        *,
-        modelId: str,
-        modelType: ModelTypeEnumType,
-        majorVersionNumber: str,
-        externalEventsDetail: "ExternalEventsDetailTypeDef" = None,
-        ingestedEventsDetail: "IngestedEventsDetailTypeDef" = None,
-        tags: List["TagTypeDef"] = None
+        self, **kwargs: Unpack[UpdateModelVersionRequestTypeDef]
     ) -> UpdateModelVersionResultTypeDef:
         """
         Updates a model version.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/frauddetector.html#FraudDetector.Client.update_model_version)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client.html#update_model_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/frauddetector/client/update_model_version.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client/#update_model_version)
         """
 
     def update_model_version_status(
-        self,
-        *,
-        modelId: str,
-        modelType: ModelTypeEnumType,
-        modelVersionNumber: str,
-        status: ModelVersionStatusType
+        self, **kwargs: Unpack[UpdateModelVersionStatusRequestTypeDef]
     ) -> Dict[str, Any]:
         """
         Updates the status of a model version.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/frauddetector.html#FraudDetector.Client.update_model_version_status)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client.html#update_model_version_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/frauddetector/client/update_model_version_status.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client/#update_model_version_status)
         """
 
-    def update_rule_metadata(self, *, rule: "RuleTypeDef", description: str) -> Dict[str, Any]:
+    def update_rule_metadata(
+        self, **kwargs: Unpack[UpdateRuleMetadataRequestTypeDef]
+    ) -> Dict[str, Any]:
         """
         Updates a rule's metadata.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/frauddetector.html#FraudDetector.Client.update_rule_metadata)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client.html#update_rule_metadata)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/frauddetector/client/update_rule_metadata.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client/#update_rule_metadata)
         """
 
     def update_rule_version(
-        self,
-        *,
-        rule: "RuleTypeDef",
-        expression: str,
-        language: Literal["DETECTORPL"],
-        outcomes: List[str],
-        description: str = None,
-        tags: List["TagTypeDef"] = None
+        self, **kwargs: Unpack[UpdateRuleVersionRequestTypeDef]
     ) -> UpdateRuleVersionResultTypeDef:
         """
         Updates a rule version resulting in a new rule version.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/frauddetector.html#FraudDetector.Client.update_rule_version)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client.html#update_rule_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/frauddetector/client/update_rule_version.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client/#update_rule_version)
         """
 
-    def update_variable(
-        self,
-        *,
-        name: str,
-        defaultValue: str = None,
-        description: str = None,
-        variableType: str = None
-    ) -> Dict[str, Any]:
+    def update_variable(self, **kwargs: Unpack[UpdateVariableRequestTypeDef]) -> Dict[str, Any]:
         """
         Updates a variable.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/frauddetector.html#FraudDetector.Client.update_variable)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client.html#update_variable)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/frauddetector/client/update_variable.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_frauddetector/client/#update_variable)
         """

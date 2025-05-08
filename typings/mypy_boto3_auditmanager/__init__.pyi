@@ -1,19 +1,21 @@
 """
 Main interface for auditmanager service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_auditmanager/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_auditmanager import (
         AuditManagerClient,
         Client,
     )
 
-    session = boto3.Session()
-
-    client: AuditManagerClient = boto3.client("auditmanager")
-    session_client: AuditManagerClient = session.client("auditmanager")
+    session = Session()
+    client: AuditManagerClient = session.client("auditmanager")
     ```
 """
 

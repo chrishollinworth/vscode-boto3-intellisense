@@ -1,10 +1,14 @@
 """
 Main interface for redshift service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_redshift import (
         Client,
         ClusterAvailableWaiter,
@@ -31,6 +35,7 @@ Usage::
         DescribeHsmClientCertificatesPaginator,
         DescribeHsmConfigurationsPaginator,
         DescribeInboundIntegrationsPaginator,
+        DescribeIntegrationsPaginator,
         DescribeNodeConfigurationOptionsPaginator,
         DescribeOrderableClusterOptionsPaginator,
         DescribeRedshiftIdcApplicationsPaginator,
@@ -50,10 +55,8 @@ Usage::
         SnapshotAvailableWaiter,
     )
 
-    session = boto3.Session()
-
-    client: RedshiftClient = boto3.client("redshift")
-    session_client: RedshiftClient = session.client("redshift")
+    session = Session()
+    client: RedshiftClient = session.client("redshift")
 
     cluster_available_waiter: ClusterAvailableWaiter = client.get_waiter("cluster_available")
     cluster_deleted_waiter: ClusterDeletedWaiter = client.get_waiter("cluster_deleted")
@@ -70,9 +73,9 @@ Usage::
     describe_cluster_versions_paginator: DescribeClusterVersionsPaginator = client.get_paginator("describe_cluster_versions")
     describe_clusters_paginator: DescribeClustersPaginator = client.get_paginator("describe_clusters")
     describe_custom_domain_associations_paginator: DescribeCustomDomainAssociationsPaginator = client.get_paginator("describe_custom_domain_associations")
-    describe_data_shares_paginator: DescribeDataSharesPaginator = client.get_paginator("describe_data_shares")
     describe_data_shares_for_consumer_paginator: DescribeDataSharesForConsumerPaginator = client.get_paginator("describe_data_shares_for_consumer")
     describe_data_shares_for_producer_paginator: DescribeDataSharesForProducerPaginator = client.get_paginator("describe_data_shares_for_producer")
+    describe_data_shares_paginator: DescribeDataSharesPaginator = client.get_paginator("describe_data_shares")
     describe_default_cluster_parameters_paginator: DescribeDefaultClusterParametersPaginator = client.get_paginator("describe_default_cluster_parameters")
     describe_endpoint_access_paginator: DescribeEndpointAccessPaginator = client.get_paginator("describe_endpoint_access")
     describe_endpoint_authorization_paginator: DescribeEndpointAuthorizationPaginator = client.get_paginator("describe_endpoint_authorization")
@@ -81,6 +84,7 @@ Usage::
     describe_hsm_client_certificates_paginator: DescribeHsmClientCertificatesPaginator = client.get_paginator("describe_hsm_client_certificates")
     describe_hsm_configurations_paginator: DescribeHsmConfigurationsPaginator = client.get_paginator("describe_hsm_configurations")
     describe_inbound_integrations_paginator: DescribeInboundIntegrationsPaginator = client.get_paginator("describe_inbound_integrations")
+    describe_integrations_paginator: DescribeIntegrationsPaginator = client.get_paginator("describe_integrations")
     describe_node_configuration_options_paginator: DescribeNodeConfigurationOptionsPaginator = client.get_paginator("describe_node_configuration_options")
     describe_orderable_cluster_options_paginator: DescribeOrderableClusterOptionsPaginator = client.get_paginator("describe_orderable_cluster_options")
     describe_redshift_idc_applications_paginator: DescribeRedshiftIdcApplicationsPaginator = client.get_paginator("describe_redshift_idc_applications")
@@ -122,6 +126,7 @@ from .paginator import (
     DescribeHsmClientCertificatesPaginator,
     DescribeHsmConfigurationsPaginator,
     DescribeInboundIntegrationsPaginator,
+    DescribeIntegrationsPaginator,
     DescribeNodeConfigurationOptionsPaginator,
     DescribeOrderableClusterOptionsPaginator,
     DescribeRedshiftIdcApplicationsPaginator,
@@ -173,6 +178,7 @@ __all__ = (
     "DescribeHsmClientCertificatesPaginator",
     "DescribeHsmConfigurationsPaginator",
     "DescribeInboundIntegrationsPaginator",
+    "DescribeIntegrationsPaginator",
     "DescribeNodeConfigurationOptionsPaginator",
     "DescribeOrderableClusterOptionsPaginator",
     "DescribeRedshiftIdcApplicationsPaginator",

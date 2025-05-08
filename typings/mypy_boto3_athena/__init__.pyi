@@ -1,10 +1,14 @@
 """
 Main interface for athena service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_athena/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_athena import (
         AthenaClient,
         Client,
@@ -17,10 +21,8 @@ Usage::
         ListTagsForResourcePaginator,
     )
 
-    session = boto3.Session()
-
-    client: AthenaClient = boto3.client("athena")
-    session_client: AthenaClient = session.client("athena")
+    session = Session()
+    client: AthenaClient = session.client("athena")
 
     get_query_results_paginator: GetQueryResultsPaginator = client.get_paginator("get_query_results")
     list_data_catalogs_paginator: ListDataCatalogsPaginator = client.get_paginator("list_data_catalogs")

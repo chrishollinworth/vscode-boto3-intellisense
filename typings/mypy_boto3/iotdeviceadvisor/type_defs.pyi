@@ -1,20 +1,24 @@
 """
 Type annotations for iotdeviceadvisor service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotdeviceadvisor/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotdeviceadvisor/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_iotdeviceadvisor.type_defs import CreateSuiteDefinitionRequestRequestTypeDef
+    from mypy_boto3_iotdeviceadvisor.type_defs import ResponseMetadataTypeDef
 
-    data: CreateSuiteDefinitionRequestRequestTypeDef = {...}
+    data: ResponseMetadataTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
+from typing import Union
 
 from .literals import (
     AuthenticationMethodType,
@@ -25,451 +29,281 @@ from .literals import (
     TestCaseScenarioTypeType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
-    "CreateSuiteDefinitionRequestRequestTypeDef",
+    "CreateSuiteDefinitionRequestTypeDef",
     "CreateSuiteDefinitionResponseTypeDef",
-    "DeleteSuiteDefinitionRequestRequestTypeDef",
+    "DeleteSuiteDefinitionRequestTypeDef",
     "DeviceUnderTestTypeDef",
-    "GetEndpointRequestRequestTypeDef",
+    "GetEndpointRequestTypeDef",
     "GetEndpointResponseTypeDef",
-    "GetSuiteDefinitionRequestRequestTypeDef",
+    "GetSuiteDefinitionRequestTypeDef",
     "GetSuiteDefinitionResponseTypeDef",
-    "GetSuiteRunReportRequestRequestTypeDef",
+    "GetSuiteRunReportRequestTypeDef",
     "GetSuiteRunReportResponseTypeDef",
-    "GetSuiteRunRequestRequestTypeDef",
+    "GetSuiteRunRequestTypeDef",
     "GetSuiteRunResponseTypeDef",
     "GroupResultTypeDef",
-    "ListSuiteDefinitionsRequestRequestTypeDef",
+    "ListSuiteDefinitionsRequestTypeDef",
     "ListSuiteDefinitionsResponseTypeDef",
-    "ListSuiteRunsRequestRequestTypeDef",
+    "ListSuiteRunsRequestTypeDef",
     "ListSuiteRunsResponseTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "ResponseMetadataTypeDef",
-    "StartSuiteRunRequestRequestTypeDef",
+    "StartSuiteRunRequestTypeDef",
     "StartSuiteRunResponseTypeDef",
-    "StopSuiteRunRequestRequestTypeDef",
+    "StopSuiteRunRequestTypeDef",
+    "SuiteDefinitionConfigurationOutputTypeDef",
     "SuiteDefinitionConfigurationTypeDef",
+    "SuiteDefinitionConfigurationUnionTypeDef",
     "SuiteDefinitionInformationTypeDef",
+    "SuiteRunConfigurationOutputTypeDef",
     "SuiteRunConfigurationTypeDef",
+    "SuiteRunConfigurationUnionTypeDef",
     "SuiteRunInformationTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
     "TestCaseRunTypeDef",
     "TestCaseScenarioTypeDef",
     "TestResultTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateSuiteDefinitionRequestRequestTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateSuiteDefinitionRequestTypeDef",
     "UpdateSuiteDefinitionResponseTypeDef",
 )
 
-_RequiredCreateSuiteDefinitionRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateSuiteDefinitionRequestRequestTypeDef",
-    {
-        "suiteDefinitionConfiguration": "SuiteDefinitionConfigurationTypeDef",
-    },
-)
-_OptionalCreateSuiteDefinitionRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateSuiteDefinitionRequestRequestTypeDef",
-    {
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-class CreateSuiteDefinitionRequestRequestTypeDef(
-    _RequiredCreateSuiteDefinitionRequestRequestTypeDef,
-    _OptionalCreateSuiteDefinitionRequestRequestTypeDef,
-):
-    pass
+class DeleteSuiteDefinitionRequestTypeDef(TypedDict):
+    suiteDefinitionId: str
 
-CreateSuiteDefinitionResponseTypeDef = TypedDict(
-    "CreateSuiteDefinitionResponseTypeDef",
-    {
-        "suiteDefinitionId": str,
-        "suiteDefinitionArn": str,
-        "suiteDefinitionName": str,
-        "createdAt": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DeviceUnderTestTypeDef(TypedDict):
+    thingArn: NotRequired[str]
+    certificateArn: NotRequired[str]
+    deviceRoleArn: NotRequired[str]
 
-DeleteSuiteDefinitionRequestRequestTypeDef = TypedDict(
-    "DeleteSuiteDefinitionRequestRequestTypeDef",
-    {
-        "suiteDefinitionId": str,
-    },
-)
+class GetEndpointRequestTypeDef(TypedDict):
+    thingArn: NotRequired[str]
+    certificateArn: NotRequired[str]
+    deviceRoleArn: NotRequired[str]
+    authenticationMethod: NotRequired[AuthenticationMethodType]
 
-DeviceUnderTestTypeDef = TypedDict(
-    "DeviceUnderTestTypeDef",
-    {
-        "thingArn": str,
-        "certificateArn": str,
-        "deviceRoleArn": str,
-    },
-    total=False,
-)
+class GetSuiteDefinitionRequestTypeDef(TypedDict):
+    suiteDefinitionId: str
+    suiteDefinitionVersion: NotRequired[str]
 
-GetEndpointRequestRequestTypeDef = TypedDict(
-    "GetEndpointRequestRequestTypeDef",
-    {
-        "thingArn": str,
-        "certificateArn": str,
-        "deviceRoleArn": str,
-        "authenticationMethod": AuthenticationMethodType,
-    },
-    total=False,
-)
+class GetSuiteRunReportRequestTypeDef(TypedDict):
+    suiteDefinitionId: str
+    suiteRunId: str
 
-GetEndpointResponseTypeDef = TypedDict(
-    "GetEndpointResponseTypeDef",
-    {
-        "endpoint": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetSuiteRunRequestTypeDef(TypedDict):
+    suiteDefinitionId: str
+    suiteRunId: str
 
-_RequiredGetSuiteDefinitionRequestRequestTypeDef = TypedDict(
-    "_RequiredGetSuiteDefinitionRequestRequestTypeDef",
-    {
-        "suiteDefinitionId": str,
-    },
-)
-_OptionalGetSuiteDefinitionRequestRequestTypeDef = TypedDict(
-    "_OptionalGetSuiteDefinitionRequestRequestTypeDef",
-    {
-        "suiteDefinitionVersion": str,
-    },
-    total=False,
-)
+class ListSuiteDefinitionsRequestTypeDef(TypedDict):
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
 
-class GetSuiteDefinitionRequestRequestTypeDef(
-    _RequiredGetSuiteDefinitionRequestRequestTypeDef,
-    _OptionalGetSuiteDefinitionRequestRequestTypeDef,
-):
-    pass
+class ListSuiteRunsRequestTypeDef(TypedDict):
+    suiteDefinitionId: NotRequired[str]
+    suiteDefinitionVersion: NotRequired[str]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
 
-GetSuiteDefinitionResponseTypeDef = TypedDict(
-    "GetSuiteDefinitionResponseTypeDef",
-    {
-        "suiteDefinitionId": str,
-        "suiteDefinitionArn": str,
-        "suiteDefinitionVersion": str,
-        "latestVersion": str,
-        "suiteDefinitionConfiguration": "SuiteDefinitionConfigurationTypeDef",
-        "createdAt": datetime,
-        "lastModifiedAt": datetime,
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class SuiteRunInformationTypeDef(TypedDict):
+    suiteDefinitionId: NotRequired[str]
+    suiteDefinitionVersion: NotRequired[str]
+    suiteDefinitionName: NotRequired[str]
+    suiteRunId: NotRequired[str]
+    createdAt: NotRequired[datetime]
+    startedAt: NotRequired[datetime]
+    endAt: NotRequired[datetime]
+    status: NotRequired[SuiteRunStatusType]
+    passed: NotRequired[int]
+    failed: NotRequired[int]
 
-GetSuiteRunReportRequestRequestTypeDef = TypedDict(
-    "GetSuiteRunReportRequestRequestTypeDef",
-    {
-        "suiteDefinitionId": str,
-        "suiteRunId": str,
-    },
-)
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    resourceArn: str
 
-GetSuiteRunReportResponseTypeDef = TypedDict(
-    "GetSuiteRunReportResponseTypeDef",
-    {
-        "qualificationReportDownloadUrl": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class StopSuiteRunRequestTypeDef(TypedDict):
+    suiteDefinitionId: str
+    suiteRunId: str
 
-GetSuiteRunRequestRequestTypeDef = TypedDict(
-    "GetSuiteRunRequestRequestTypeDef",
-    {
-        "suiteDefinitionId": str,
-        "suiteRunId": str,
-    },
-)
+class TagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tags: Mapping[str, str]
 
-GetSuiteRunResponseTypeDef = TypedDict(
-    "GetSuiteRunResponseTypeDef",
-    {
-        "suiteDefinitionId": str,
-        "suiteDefinitionVersion": str,
-        "suiteRunId": str,
-        "suiteRunArn": str,
-        "suiteRunConfiguration": "SuiteRunConfigurationTypeDef",
-        "testResult": "TestResultTypeDef",
-        "startTime": datetime,
-        "endTime": datetime,
-        "status": SuiteRunStatusType,
-        "errorReason": str,
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class TestCaseScenarioTypeDef(TypedDict):
+    testCaseScenarioId: NotRequired[str]
+    testCaseScenarioType: NotRequired[TestCaseScenarioTypeType]
+    status: NotRequired[TestCaseScenarioStatusType]
+    failure: NotRequired[str]
+    systemMessage: NotRequired[str]
 
-GroupResultTypeDef = TypedDict(
-    "GroupResultTypeDef",
-    {
-        "groupId": str,
-        "groupName": str,
-        "tests": List["TestCaseRunTypeDef"],
-    },
-    total=False,
-)
+class UntagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tagKeys: Sequence[str]
 
-ListSuiteDefinitionsRequestRequestTypeDef = TypedDict(
-    "ListSuiteDefinitionsRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
+class CreateSuiteDefinitionResponseTypeDef(TypedDict):
+    suiteDefinitionId: str
+    suiteDefinitionArn: str
+    suiteDefinitionName: str
+    createdAt: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ListSuiteDefinitionsResponseTypeDef = TypedDict(
-    "ListSuiteDefinitionsResponseTypeDef",
-    {
-        "suiteDefinitionInformationList": List["SuiteDefinitionInformationTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetEndpointResponseTypeDef(TypedDict):
+    endpoint: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ListSuiteRunsRequestRequestTypeDef = TypedDict(
-    "ListSuiteRunsRequestRequestTypeDef",
-    {
-        "suiteDefinitionId": str,
-        "suiteDefinitionVersion": str,
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
+class GetSuiteRunReportResponseTypeDef(TypedDict):
+    qualificationReportDownloadUrl: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ListSuiteRunsResponseTypeDef = TypedDict(
-    "ListSuiteRunsResponseTypeDef",
-    {
-        "suiteRunsList": List["SuiteRunInformationTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-    },
-)
+class StartSuiteRunResponseTypeDef(TypedDict):
+    suiteRunId: str
+    suiteRunArn: str
+    createdAt: datetime
+    endpoint: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class UpdateSuiteDefinitionResponseTypeDef(TypedDict):
+    suiteDefinitionId: str
+    suiteDefinitionArn: str
+    suiteDefinitionName: str
+    suiteDefinitionVersion: str
+    createdAt: datetime
+    lastUpdatedAt: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
+class SuiteDefinitionConfigurationOutputTypeDef(TypedDict):
+    suiteDefinitionName: str
+    rootGroup: str
+    devicePermissionRoleArn: str
+    devices: NotRequired[List[DeviceUnderTestTypeDef]]
+    intendedForQualification: NotRequired[bool]
+    isLongDurationTest: NotRequired[bool]
+    protocol: NotRequired[ProtocolType]
 
-_RequiredStartSuiteRunRequestRequestTypeDef = TypedDict(
-    "_RequiredStartSuiteRunRequestRequestTypeDef",
-    {
-        "suiteDefinitionId": str,
-        "suiteRunConfiguration": "SuiteRunConfigurationTypeDef",
-    },
-)
-_OptionalStartSuiteRunRequestRequestTypeDef = TypedDict(
-    "_OptionalStartSuiteRunRequestRequestTypeDef",
-    {
-        "suiteDefinitionVersion": str,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
+class SuiteDefinitionConfigurationTypeDef(TypedDict):
+    suiteDefinitionName: str
+    rootGroup: str
+    devicePermissionRoleArn: str
+    devices: NotRequired[Sequence[DeviceUnderTestTypeDef]]
+    intendedForQualification: NotRequired[bool]
+    isLongDurationTest: NotRequired[bool]
+    protocol: NotRequired[ProtocolType]
 
-class StartSuiteRunRequestRequestTypeDef(
-    _RequiredStartSuiteRunRequestRequestTypeDef, _OptionalStartSuiteRunRequestRequestTypeDef
-):
-    pass
+class SuiteDefinitionInformationTypeDef(TypedDict):
+    suiteDefinitionId: NotRequired[str]
+    suiteDefinitionName: NotRequired[str]
+    defaultDevices: NotRequired[List[DeviceUnderTestTypeDef]]
+    intendedForQualification: NotRequired[bool]
+    isLongDurationTest: NotRequired[bool]
+    protocol: NotRequired[ProtocolType]
+    createdAt: NotRequired[datetime]
 
-StartSuiteRunResponseTypeDef = TypedDict(
-    "StartSuiteRunResponseTypeDef",
-    {
-        "suiteRunId": str,
-        "suiteRunArn": str,
-        "createdAt": datetime,
-        "endpoint": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class SuiteRunConfigurationOutputTypeDef(TypedDict):
+    primaryDevice: DeviceUnderTestTypeDef
+    selectedTestList: NotRequired[List[str]]
+    parallelRun: NotRequired[bool]
 
-StopSuiteRunRequestRequestTypeDef = TypedDict(
-    "StopSuiteRunRequestRequestTypeDef",
-    {
-        "suiteDefinitionId": str,
-        "suiteRunId": str,
-    },
-)
+class SuiteRunConfigurationTypeDef(TypedDict):
+    primaryDevice: DeviceUnderTestTypeDef
+    selectedTestList: NotRequired[Sequence[str]]
+    parallelRun: NotRequired[bool]
 
-_RequiredSuiteDefinitionConfigurationTypeDef = TypedDict(
-    "_RequiredSuiteDefinitionConfigurationTypeDef",
-    {
-        "suiteDefinitionName": str,
-        "rootGroup": str,
-        "devicePermissionRoleArn": str,
-    },
-)
-_OptionalSuiteDefinitionConfigurationTypeDef = TypedDict(
-    "_OptionalSuiteDefinitionConfigurationTypeDef",
-    {
-        "devices": List["DeviceUnderTestTypeDef"],
-        "intendedForQualification": bool,
-        "isLongDurationTest": bool,
-        "protocol": ProtocolType,
-    },
-    total=False,
-)
+class ListSuiteRunsResponseTypeDef(TypedDict):
+    suiteRunsList: List[SuiteRunInformationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-class SuiteDefinitionConfigurationTypeDef(
-    _RequiredSuiteDefinitionConfigurationTypeDef, _OptionalSuiteDefinitionConfigurationTypeDef
-):
-    pass
+class TestCaseRunTypeDef(TypedDict):
+    testCaseRunId: NotRequired[str]
+    testCaseDefinitionId: NotRequired[str]
+    testCaseDefinitionName: NotRequired[str]
+    status: NotRequired[StatusType]
+    startTime: NotRequired[datetime]
+    endTime: NotRequired[datetime]
+    logUrl: NotRequired[str]
+    warnings: NotRequired[str]
+    failure: NotRequired[str]
+    testScenarios: NotRequired[List[TestCaseScenarioTypeDef]]
 
-SuiteDefinitionInformationTypeDef = TypedDict(
-    "SuiteDefinitionInformationTypeDef",
-    {
-        "suiteDefinitionId": str,
-        "suiteDefinitionName": str,
-        "defaultDevices": List["DeviceUnderTestTypeDef"],
-        "intendedForQualification": bool,
-        "isLongDurationTest": bool,
-        "protocol": ProtocolType,
-        "createdAt": datetime,
-    },
-    total=False,
-)
+class GetSuiteDefinitionResponseTypeDef(TypedDict):
+    suiteDefinitionId: str
+    suiteDefinitionArn: str
+    suiteDefinitionVersion: str
+    latestVersion: str
+    suiteDefinitionConfiguration: SuiteDefinitionConfigurationOutputTypeDef
+    createdAt: datetime
+    lastModifiedAt: datetime
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredSuiteRunConfigurationTypeDef = TypedDict(
-    "_RequiredSuiteRunConfigurationTypeDef",
-    {
-        "primaryDevice": "DeviceUnderTestTypeDef",
-    },
-)
-_OptionalSuiteRunConfigurationTypeDef = TypedDict(
-    "_OptionalSuiteRunConfigurationTypeDef",
-    {
-        "selectedTestList": List[str],
-        "parallelRun": bool,
-    },
-    total=False,
-)
+SuiteDefinitionConfigurationUnionTypeDef = Union[
+    SuiteDefinitionConfigurationTypeDef, SuiteDefinitionConfigurationOutputTypeDef
+]
 
-class SuiteRunConfigurationTypeDef(
-    _RequiredSuiteRunConfigurationTypeDef, _OptionalSuiteRunConfigurationTypeDef
-):
-    pass
+class ListSuiteDefinitionsResponseTypeDef(TypedDict):
+    suiteDefinitionInformationList: List[SuiteDefinitionInformationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-SuiteRunInformationTypeDef = TypedDict(
-    "SuiteRunInformationTypeDef",
-    {
-        "suiteDefinitionId": str,
-        "suiteDefinitionVersion": str,
-        "suiteDefinitionName": str,
-        "suiteRunId": str,
-        "createdAt": datetime,
-        "startedAt": datetime,
-        "endAt": datetime,
-        "status": SuiteRunStatusType,
-        "passed": int,
-        "failed": int,
-    },
-    total=False,
-)
+SuiteRunConfigurationUnionTypeDef = Union[
+    SuiteRunConfigurationTypeDef, SuiteRunConfigurationOutputTypeDef
+]
 
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tags": Dict[str, str],
-    },
-)
+class GroupResultTypeDef(TypedDict):
+    groupId: NotRequired[str]
+    groupName: NotRequired[str]
+    tests: NotRequired[List[TestCaseRunTypeDef]]
 
-TestCaseRunTypeDef = TypedDict(
-    "TestCaseRunTypeDef",
-    {
-        "testCaseRunId": str,
-        "testCaseDefinitionId": str,
-        "testCaseDefinitionName": str,
-        "status": StatusType,
-        "startTime": datetime,
-        "endTime": datetime,
-        "logUrl": str,
-        "warnings": str,
-        "failure": str,
-        "testScenarios": List["TestCaseScenarioTypeDef"],
-    },
-    total=False,
-)
+class CreateSuiteDefinitionRequestTypeDef(TypedDict):
+    suiteDefinitionConfiguration: SuiteDefinitionConfigurationUnionTypeDef
+    tags: NotRequired[Mapping[str, str]]
+    clientToken: NotRequired[str]
 
-TestCaseScenarioTypeDef = TypedDict(
-    "TestCaseScenarioTypeDef",
-    {
-        "testCaseScenarioId": str,
-        "testCaseScenarioType": TestCaseScenarioTypeType,
-        "status": TestCaseScenarioStatusType,
-        "failure": str,
-        "systemMessage": str,
-    },
-    total=False,
-)
+class UpdateSuiteDefinitionRequestTypeDef(TypedDict):
+    suiteDefinitionId: str
+    suiteDefinitionConfiguration: SuiteDefinitionConfigurationUnionTypeDef
 
-TestResultTypeDef = TypedDict(
-    "TestResultTypeDef",
-    {
-        "groups": List["GroupResultTypeDef"],
-    },
-    total=False,
-)
+class StartSuiteRunRequestTypeDef(TypedDict):
+    suiteDefinitionId: str
+    suiteRunConfiguration: SuiteRunConfigurationUnionTypeDef
+    suiteDefinitionVersion: NotRequired[str]
+    tags: NotRequired[Mapping[str, str]]
 
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tagKeys": List[str],
-    },
-)
+class TestResultTypeDef(TypedDict):
+    groups: NotRequired[List[GroupResultTypeDef]]
 
-UpdateSuiteDefinitionRequestRequestTypeDef = TypedDict(
-    "UpdateSuiteDefinitionRequestRequestTypeDef",
-    {
-        "suiteDefinitionId": str,
-        "suiteDefinitionConfiguration": "SuiteDefinitionConfigurationTypeDef",
-    },
-)
-
-UpdateSuiteDefinitionResponseTypeDef = TypedDict(
-    "UpdateSuiteDefinitionResponseTypeDef",
-    {
-        "suiteDefinitionId": str,
-        "suiteDefinitionArn": str,
-        "suiteDefinitionName": str,
-        "suiteDefinitionVersion": str,
-        "createdAt": datetime,
-        "lastUpdatedAt": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetSuiteRunResponseTypeDef(TypedDict):
+    suiteDefinitionId: str
+    suiteDefinitionVersion: str
+    suiteRunId: str
+    suiteRunArn: str
+    suiteRunConfiguration: SuiteRunConfigurationOutputTypeDef
+    testResult: TestResultTypeDef
+    startTime: datetime
+    endTime: datetime
+    status: SuiteRunStatusType
+    errorReason: str
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef

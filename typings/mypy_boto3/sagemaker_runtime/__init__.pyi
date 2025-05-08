@@ -1,19 +1,21 @@
 """
 Main interface for sagemaker-runtime service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sagemaker_runtime/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_sagemaker_runtime import (
         Client,
         SageMakerRuntimeClient,
     )
 
-    session = boto3.Session()
-
-    client: SageMakerRuntimeClient = boto3.client("sagemaker-runtime")
-    session_client: SageMakerRuntimeClient = session.client("sagemaker-runtime")
+    session = Session()
+    client: SageMakerRuntimeClient = session.client("sagemaker-runtime")
     ```
 """
 

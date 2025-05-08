@@ -1,14 +1,16 @@
 """
 Type annotations for voice-id service client paginators.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_voice_id/paginators.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_voice_id/paginators/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
 
-    from mypy_boto3_voice_id import VoiceIDClient
+    from mypy_boto3_voice_id.client import VoiceIDClient
     from mypy_boto3_voice_id.paginator import (
         ListDomainsPaginator,
         ListFraudsterRegistrationJobsPaginator,
@@ -18,7 +20,8 @@ Usage::
         ListWatchlistsPaginator,
     )
 
-    client: VoiceIDClient = boto3.client("voice-id")
+    session = Session()
+    client: VoiceIDClient = session.client("voice-id")
 
     list_domains_paginator: ListDomainsPaginator = client.get_paginator("list_domains")
     list_fraudster_registration_jobs_paginator: ListFraudsterRegistrationJobsPaginator = client.get_paginator("list_fraudster_registration_jobs")
@@ -29,20 +32,32 @@ Usage::
     ```
 """
 
-from typing import Iterator
+from __future__ import annotations
 
-from botocore.paginate import Paginator as Boto3Paginator
+import sys
+from typing import TYPE_CHECKING
 
-from .literals import FraudsterRegistrationJobStatusType, SpeakerEnrollmentJobStatusType
+from botocore.paginate import PageIterator, Paginator
+
 from .type_defs import (
+    ListDomainsRequestPaginateTypeDef,
     ListDomainsResponseTypeDef,
+    ListFraudsterRegistrationJobsRequestPaginateTypeDef,
     ListFraudsterRegistrationJobsResponseTypeDef,
+    ListFraudstersRequestPaginateTypeDef,
     ListFraudstersResponseTypeDef,
+    ListSpeakerEnrollmentJobsRequestPaginateTypeDef,
     ListSpeakerEnrollmentJobsResponseTypeDef,
+    ListSpeakersRequestPaginateTypeDef,
     ListSpeakersResponseTypeDef,
+    ListWatchlistsRequestPaginateTypeDef,
     ListWatchlistsResponseTypeDef,
-    PaginatorConfigTypeDef,
 )
+
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = (
     "ListDomainsPaginator",
@@ -53,98 +68,112 @@ __all__ = (
     "ListWatchlistsPaginator",
 )
 
-class ListDomainsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/voice-id.html#VoiceID.Paginator.ListDomains)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_voice_id/paginators.html#listdomainspaginator)
-    """
+if TYPE_CHECKING:
+    _ListDomainsPaginatorBase = Paginator[ListDomainsResponseTypeDef]
+else:
+    _ListDomainsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListDomainsResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/voice-id.html#VoiceID.Paginator.ListDomains.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_voice_id/paginators.html#listdomainspaginator)
-        """
-
-class ListFraudsterRegistrationJobsPaginator(Boto3Paginator):
+class ListDomainsPaginator(_ListDomainsPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/voice-id.html#VoiceID.Paginator.ListFraudsterRegistrationJobs)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_voice_id/paginators.html#listfraudsterregistrationjobspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/voice-id/paginator/ListDomains.html#VoiceID.Paginator.ListDomains)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_voice_id/paginators/#listdomainspaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        DomainId: str,
-        JobStatus: FraudsterRegistrationJobStatusType = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListFraudsterRegistrationJobsResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListDomainsRequestPaginateTypeDef]
+    ) -> PageIterator[ListDomainsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/voice-id.html#VoiceID.Paginator.ListFraudsterRegistrationJobs.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_voice_id/paginators.html#listfraudsterregistrationjobspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/voice-id/paginator/ListDomains.html#VoiceID.Paginator.ListDomains.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_voice_id/paginators/#listdomainspaginator)
         """
 
-class ListFraudstersPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/voice-id.html#VoiceID.Paginator.ListFraudsters)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_voice_id/paginators.html#listfraudsterspaginator)
-    """
+if TYPE_CHECKING:
+    _ListFraudsterRegistrationJobsPaginatorBase = Paginator[
+        ListFraudsterRegistrationJobsResponseTypeDef
+    ]
+else:
+    _ListFraudsterRegistrationJobsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        DomainId: str,
-        WatchlistId: str = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListFraudstersResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/voice-id.html#VoiceID.Paginator.ListFraudsters.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_voice_id/paginators.html#listfraudsterspaginator)
-        """
-
-class ListSpeakerEnrollmentJobsPaginator(Boto3Paginator):
+class ListFraudsterRegistrationJobsPaginator(_ListFraudsterRegistrationJobsPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/voice-id.html#VoiceID.Paginator.ListSpeakerEnrollmentJobs)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_voice_id/paginators.html#listspeakerenrollmentjobspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/voice-id/paginator/ListFraudsterRegistrationJobs.html#VoiceID.Paginator.ListFraudsterRegistrationJobs)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_voice_id/paginators/#listfraudsterregistrationjobspaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        DomainId: str,
-        JobStatus: SpeakerEnrollmentJobStatusType = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListSpeakerEnrollmentJobsResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListFraudsterRegistrationJobsRequestPaginateTypeDef]
+    ) -> PageIterator[ListFraudsterRegistrationJobsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/voice-id.html#VoiceID.Paginator.ListSpeakerEnrollmentJobs.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_voice_id/paginators.html#listspeakerenrollmentjobspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/voice-id/paginator/ListFraudsterRegistrationJobs.html#VoiceID.Paginator.ListFraudsterRegistrationJobs.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_voice_id/paginators/#listfraudsterregistrationjobspaginator)
         """
 
-class ListSpeakersPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/voice-id.html#VoiceID.Paginator.ListSpeakers)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_voice_id/paginators.html#listspeakerspaginator)
-    """
+if TYPE_CHECKING:
+    _ListFraudstersPaginatorBase = Paginator[ListFraudstersResponseTypeDef]
+else:
+    _ListFraudstersPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, DomainId: str, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListSpeakersResponseTypeDef]:
+class ListFraudstersPaginator(_ListFraudstersPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/voice-id/paginator/ListFraudsters.html#VoiceID.Paginator.ListFraudsters)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_voice_id/paginators/#listfraudsterspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListFraudstersRequestPaginateTypeDef]
+    ) -> PageIterator[ListFraudstersResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/voice-id.html#VoiceID.Paginator.ListSpeakers.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_voice_id/paginators.html#listspeakerspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/voice-id/paginator/ListFraudsters.html#VoiceID.Paginator.ListFraudsters.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_voice_id/paginators/#listfraudsterspaginator)
         """
 
-class ListWatchlistsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/voice-id.html#VoiceID.Paginator.ListWatchlists)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_voice_id/paginators.html#listwatchlistspaginator)
-    """
+if TYPE_CHECKING:
+    _ListSpeakerEnrollmentJobsPaginatorBase = Paginator[ListSpeakerEnrollmentJobsResponseTypeDef]
+else:
+    _ListSpeakerEnrollmentJobsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, DomainId: str, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListWatchlistsResponseTypeDef]:
+class ListSpeakerEnrollmentJobsPaginator(_ListSpeakerEnrollmentJobsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/voice-id/paginator/ListSpeakerEnrollmentJobs.html#VoiceID.Paginator.ListSpeakerEnrollmentJobs)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_voice_id/paginators/#listspeakerenrollmentjobspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListSpeakerEnrollmentJobsRequestPaginateTypeDef]
+    ) -> PageIterator[ListSpeakerEnrollmentJobsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/voice-id.html#VoiceID.Paginator.ListWatchlists.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_voice_id/paginators.html#listwatchlistspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/voice-id/paginator/ListSpeakerEnrollmentJobs.html#VoiceID.Paginator.ListSpeakerEnrollmentJobs.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_voice_id/paginators/#listspeakerenrollmentjobspaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListSpeakersPaginatorBase = Paginator[ListSpeakersResponseTypeDef]
+else:
+    _ListSpeakersPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListSpeakersPaginator(_ListSpeakersPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/voice-id/paginator/ListSpeakers.html#VoiceID.Paginator.ListSpeakers)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_voice_id/paginators/#listspeakerspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListSpeakersRequestPaginateTypeDef]
+    ) -> PageIterator[ListSpeakersResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/voice-id/paginator/ListSpeakers.html#VoiceID.Paginator.ListSpeakers.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_voice_id/paginators/#listspeakerspaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListWatchlistsPaginatorBase = Paginator[ListWatchlistsResponseTypeDef]
+else:
+    _ListWatchlistsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListWatchlistsPaginator(_ListWatchlistsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/voice-id/paginator/ListWatchlists.html#VoiceID.Paginator.ListWatchlists)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_voice_id/paginators/#listwatchlistspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListWatchlistsRequestPaginateTypeDef]
+    ) -> PageIterator[ListWatchlistsResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/voice-id/paginator/ListWatchlists.html#VoiceID.Paginator.ListWatchlists.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_voice_id/paginators/#listwatchlistspaginator)
         """

@@ -1,20 +1,24 @@
 """
 Type annotations for detective service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_detective/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_detective/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_detective.type_defs import AcceptInvitationRequestRequestTypeDef
+    from mypy_boto3_detective.type_defs import AcceptInvitationRequestTypeDef
 
-    data: AcceptInvitationRequestRequestTypeDef = {...}
+    data: AcceptInvitationRequestTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List, Union
+from typing import Union
 
 from .literals import (
     DatasourcePackageIngestStateType,
@@ -31,824 +35,460 @@ from .literals import (
     StatusType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
-    "AcceptInvitationRequestRequestTypeDef",
+    "AcceptInvitationRequestTypeDef",
     "AccountTypeDef",
     "AdministratorTypeDef",
-    "BatchGetGraphMemberDatasourcesRequestRequestTypeDef",
+    "BatchGetGraphMemberDatasourcesRequestTypeDef",
     "BatchGetGraphMemberDatasourcesResponseTypeDef",
-    "BatchGetMembershipDatasourcesRequestRequestTypeDef",
+    "BatchGetMembershipDatasourcesRequestTypeDef",
     "BatchGetMembershipDatasourcesResponseTypeDef",
-    "CreateGraphRequestRequestTypeDef",
+    "CreateGraphRequestTypeDef",
     "CreateGraphResponseTypeDef",
-    "CreateMembersRequestRequestTypeDef",
+    "CreateMembersRequestTypeDef",
     "CreateMembersResponseTypeDef",
     "DatasourcePackageIngestDetailTypeDef",
     "DatasourcePackageUsageInfoTypeDef",
     "DateFilterTypeDef",
-    "DeleteGraphRequestRequestTypeDef",
-    "DeleteMembersRequestRequestTypeDef",
+    "DeleteGraphRequestTypeDef",
+    "DeleteMembersRequestTypeDef",
     "DeleteMembersResponseTypeDef",
-    "DescribeOrganizationConfigurationRequestRequestTypeDef",
+    "DescribeOrganizationConfigurationRequestTypeDef",
     "DescribeOrganizationConfigurationResponseTypeDef",
-    "DisassociateMembershipRequestRequestTypeDef",
-    "EnableOrganizationAdminAccountRequestRequestTypeDef",
+    "DisassociateMembershipRequestTypeDef",
+    "EmptyResponseMetadataTypeDef",
+    "EnableOrganizationAdminAccountRequestTypeDef",
     "FilterCriteriaTypeDef",
     "FlaggedIpAddressDetailTypeDef",
-    "GetInvestigationRequestRequestTypeDef",
+    "GetInvestigationRequestTypeDef",
     "GetInvestigationResponseTypeDef",
-    "GetMembersRequestRequestTypeDef",
+    "GetMembersRequestTypeDef",
     "GetMembersResponseTypeDef",
     "GraphTypeDef",
     "ImpossibleTravelDetailTypeDef",
     "IndicatorDetailTypeDef",
     "IndicatorTypeDef",
     "InvestigationDetailTypeDef",
-    "ListDatasourcePackagesRequestRequestTypeDef",
+    "ListDatasourcePackagesRequestTypeDef",
     "ListDatasourcePackagesResponseTypeDef",
-    "ListGraphsRequestRequestTypeDef",
+    "ListGraphsRequestTypeDef",
     "ListGraphsResponseTypeDef",
-    "ListIndicatorsRequestRequestTypeDef",
+    "ListIndicatorsRequestTypeDef",
     "ListIndicatorsResponseTypeDef",
-    "ListInvestigationsRequestRequestTypeDef",
+    "ListInvestigationsRequestTypeDef",
     "ListInvestigationsResponseTypeDef",
-    "ListInvitationsRequestRequestTypeDef",
+    "ListInvitationsRequestTypeDef",
     "ListInvitationsResponseTypeDef",
-    "ListMembersRequestRequestTypeDef",
+    "ListMembersRequestTypeDef",
     "ListMembersResponseTypeDef",
-    "ListOrganizationAdminAccountsRequestRequestTypeDef",
+    "ListOrganizationAdminAccountsRequestTypeDef",
     "ListOrganizationAdminAccountsResponseTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "MemberDetailTypeDef",
     "MembershipDatasourcesTypeDef",
     "NewAsoDetailTypeDef",
     "NewGeolocationDetailTypeDef",
     "NewUserAgentDetailTypeDef",
-    "RejectInvitationRequestRequestTypeDef",
+    "RejectInvitationRequestTypeDef",
     "RelatedFindingDetailTypeDef",
     "RelatedFindingGroupDetailTypeDef",
     "ResponseMetadataTypeDef",
     "SortCriteriaTypeDef",
-    "StartInvestigationRequestRequestTypeDef",
+    "StartInvestigationRequestTypeDef",
     "StartInvestigationResponseTypeDef",
-    "StartMonitoringMemberRequestRequestTypeDef",
+    "StartMonitoringMemberRequestTypeDef",
     "StringFilterTypeDef",
     "TTPsObservedDetailTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
     "TimestampForCollectionTypeDef",
+    "TimestampTypeDef",
     "UnprocessedAccountTypeDef",
     "UnprocessedGraphTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateDatasourcePackagesRequestRequestTypeDef",
-    "UpdateInvestigationStateRequestRequestTypeDef",
-    "UpdateOrganizationConfigurationRequestRequestTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateDatasourcePackagesRequestTypeDef",
+    "UpdateInvestigationStateRequestTypeDef",
+    "UpdateOrganizationConfigurationRequestTypeDef",
 )
 
-AcceptInvitationRequestRequestTypeDef = TypedDict(
-    "AcceptInvitationRequestRequestTypeDef",
-    {
-        "GraphArn": str,
-    },
-)
+class AcceptInvitationRequestTypeDef(TypedDict):
+    GraphArn: str
 
-AccountTypeDef = TypedDict(
-    "AccountTypeDef",
-    {
-        "AccountId": str,
-        "EmailAddress": str,
-    },
-)
+class AccountTypeDef(TypedDict):
+    AccountId: str
+    EmailAddress: str
 
-AdministratorTypeDef = TypedDict(
-    "AdministratorTypeDef",
-    {
-        "AccountId": str,
-        "GraphArn": str,
-        "DelegationTime": datetime,
-    },
-    total=False,
-)
+class AdministratorTypeDef(TypedDict):
+    AccountId: NotRequired[str]
+    GraphArn: NotRequired[str]
+    DelegationTime: NotRequired[datetime]
 
-BatchGetGraphMemberDatasourcesRequestRequestTypeDef = TypedDict(
-    "BatchGetGraphMemberDatasourcesRequestRequestTypeDef",
-    {
-        "GraphArn": str,
-        "AccountIds": List[str],
-    },
-)
+class BatchGetGraphMemberDatasourcesRequestTypeDef(TypedDict):
+    GraphArn: str
+    AccountIds: Sequence[str]
 
-BatchGetGraphMemberDatasourcesResponseTypeDef = TypedDict(
-    "BatchGetGraphMemberDatasourcesResponseTypeDef",
-    {
-        "MemberDatasources": List["MembershipDatasourcesTypeDef"],
-        "UnprocessedAccounts": List["UnprocessedAccountTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-BatchGetMembershipDatasourcesRequestRequestTypeDef = TypedDict(
-    "BatchGetMembershipDatasourcesRequestRequestTypeDef",
-    {
-        "GraphArns": List[str],
-    },
-)
+class UnprocessedAccountTypeDef(TypedDict):
+    AccountId: NotRequired[str]
+    Reason: NotRequired[str]
 
-BatchGetMembershipDatasourcesResponseTypeDef = TypedDict(
-    "BatchGetMembershipDatasourcesResponseTypeDef",
-    {
-        "MembershipDatasources": List["MembershipDatasourcesTypeDef"],
-        "UnprocessedGraphs": List["UnprocessedGraphTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class BatchGetMembershipDatasourcesRequestTypeDef(TypedDict):
+    GraphArns: Sequence[str]
 
-CreateGraphRequestRequestTypeDef = TypedDict(
-    "CreateGraphRequestRequestTypeDef",
-    {
-        "Tags": Dict[str, str],
-    },
-    total=False,
-)
+class UnprocessedGraphTypeDef(TypedDict):
+    GraphArn: NotRequired[str]
+    Reason: NotRequired[str]
 
-CreateGraphResponseTypeDef = TypedDict(
-    "CreateGraphResponseTypeDef",
-    {
-        "GraphArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CreateGraphRequestTypeDef(TypedDict):
+    Tags: NotRequired[Mapping[str, str]]
 
-_RequiredCreateMembersRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateMembersRequestRequestTypeDef",
-    {
-        "GraphArn": str,
-        "Accounts": List["AccountTypeDef"],
-    },
-)
-_OptionalCreateMembersRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateMembersRequestRequestTypeDef",
-    {
-        "Message": str,
-        "DisableEmailNotification": bool,
-    },
-    total=False,
-)
+class TimestampForCollectionTypeDef(TypedDict):
+    Timestamp: NotRequired[datetime]
 
-class CreateMembersRequestRequestTypeDef(
-    _RequiredCreateMembersRequestRequestTypeDef, _OptionalCreateMembersRequestRequestTypeDef
-):
-    pass
+class DatasourcePackageUsageInfoTypeDef(TypedDict):
+    VolumeUsageInBytes: NotRequired[int]
+    VolumeUsageUpdateTime: NotRequired[datetime]
 
-CreateMembersResponseTypeDef = TypedDict(
-    "CreateMembersResponseTypeDef",
-    {
-        "Members": List["MemberDetailTypeDef"],
-        "UnprocessedAccounts": List["UnprocessedAccountTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+TimestampTypeDef = Union[datetime, str]
 
-DatasourcePackageIngestDetailTypeDef = TypedDict(
-    "DatasourcePackageIngestDetailTypeDef",
-    {
-        "DatasourcePackageIngestState": DatasourcePackageIngestStateType,
-        "LastIngestStateChange": Dict[
-            DatasourcePackageIngestStateType, "TimestampForCollectionTypeDef"
-        ],
-    },
-    total=False,
-)
+class DeleteGraphRequestTypeDef(TypedDict):
+    GraphArn: str
 
-DatasourcePackageUsageInfoTypeDef = TypedDict(
-    "DatasourcePackageUsageInfoTypeDef",
-    {
-        "VolumeUsageInBytes": int,
-        "VolumeUsageUpdateTime": datetime,
-    },
-    total=False,
-)
+class DeleteMembersRequestTypeDef(TypedDict):
+    GraphArn: str
+    AccountIds: Sequence[str]
 
-DateFilterTypeDef = TypedDict(
-    "DateFilterTypeDef",
-    {
-        "StartInclusive": Union[datetime, str],
-        "EndInclusive": Union[datetime, str],
-    },
-)
+class DescribeOrganizationConfigurationRequestTypeDef(TypedDict):
+    GraphArn: str
 
-DeleteGraphRequestRequestTypeDef = TypedDict(
-    "DeleteGraphRequestRequestTypeDef",
-    {
-        "GraphArn": str,
-    },
-)
+class DisassociateMembershipRequestTypeDef(TypedDict):
+    GraphArn: str
 
-DeleteMembersRequestRequestTypeDef = TypedDict(
-    "DeleteMembersRequestRequestTypeDef",
-    {
-        "GraphArn": str,
-        "AccountIds": List[str],
-    },
-)
+class EnableOrganizationAdminAccountRequestTypeDef(TypedDict):
+    AccountId: str
 
-DeleteMembersResponseTypeDef = TypedDict(
-    "DeleteMembersResponseTypeDef",
-    {
-        "AccountIds": List[str],
-        "UnprocessedAccounts": List["UnprocessedAccountTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class StringFilterTypeDef(TypedDict):
+    Value: str
 
-DescribeOrganizationConfigurationRequestRequestTypeDef = TypedDict(
-    "DescribeOrganizationConfigurationRequestRequestTypeDef",
-    {
-        "GraphArn": str,
-    },
-)
+class FlaggedIpAddressDetailTypeDef(TypedDict):
+    IpAddress: NotRequired[str]
+    Reason: NotRequired[Literal["AWS_THREAT_INTELLIGENCE"]]
 
-DescribeOrganizationConfigurationResponseTypeDef = TypedDict(
-    "DescribeOrganizationConfigurationResponseTypeDef",
-    {
-        "AutoEnable": bool,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetInvestigationRequestTypeDef(TypedDict):
+    GraphArn: str
+    InvestigationId: str
 
-DisassociateMembershipRequestRequestTypeDef = TypedDict(
-    "DisassociateMembershipRequestRequestTypeDef",
-    {
-        "GraphArn": str,
-    },
-)
+class GetMembersRequestTypeDef(TypedDict):
+    GraphArn: str
+    AccountIds: Sequence[str]
 
-EnableOrganizationAdminAccountRequestRequestTypeDef = TypedDict(
-    "EnableOrganizationAdminAccountRequestRequestTypeDef",
-    {
-        "AccountId": str,
-    },
-)
+class GraphTypeDef(TypedDict):
+    Arn: NotRequired[str]
+    CreatedTime: NotRequired[datetime]
 
-FilterCriteriaTypeDef = TypedDict(
-    "FilterCriteriaTypeDef",
-    {
-        "Severity": "StringFilterTypeDef",
-        "Status": "StringFilterTypeDef",
-        "State": "StringFilterTypeDef",
-        "EntityArn": "StringFilterTypeDef",
-        "CreatedTime": "DateFilterTypeDef",
-    },
-    total=False,
-)
+class ImpossibleTravelDetailTypeDef(TypedDict):
+    StartingIpAddress: NotRequired[str]
+    EndingIpAddress: NotRequired[str]
+    StartingLocation: NotRequired[str]
+    EndingLocation: NotRequired[str]
+    HourlyTimeDelta: NotRequired[int]
 
-FlaggedIpAddressDetailTypeDef = TypedDict(
-    "FlaggedIpAddressDetailTypeDef",
-    {
-        "IpAddress": str,
-        "Reason": Literal["AWS_THREAT_INTELLIGENCE"],
-    },
-    total=False,
-)
+class NewAsoDetailTypeDef(TypedDict):
+    Aso: NotRequired[str]
+    IsNewForEntireAccount: NotRequired[bool]
 
-GetInvestigationRequestRequestTypeDef = TypedDict(
-    "GetInvestigationRequestRequestTypeDef",
-    {
-        "GraphArn": str,
-        "InvestigationId": str,
-    },
-)
+class NewGeolocationDetailTypeDef(TypedDict):
+    Location: NotRequired[str]
+    IpAddress: NotRequired[str]
+    IsNewForEntireAccount: NotRequired[bool]
 
-GetInvestigationResponseTypeDef = TypedDict(
-    "GetInvestigationResponseTypeDef",
-    {
-        "GraphArn": str,
-        "InvestigationId": str,
-        "EntityArn": str,
-        "EntityType": EntityTypeType,
-        "CreatedTime": datetime,
-        "ScopeStartTime": datetime,
-        "ScopeEndTime": datetime,
-        "Status": StatusType,
-        "Severity": SeverityType,
-        "State": StateType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetMembersRequestRequestTypeDef = TypedDict(
-    "GetMembersRequestRequestTypeDef",
-    {
-        "GraphArn": str,
-        "AccountIds": List[str],
-    },
-)
-
-GetMembersResponseTypeDef = TypedDict(
-    "GetMembersResponseTypeDef",
-    {
-        "MemberDetails": List["MemberDetailTypeDef"],
-        "UnprocessedAccounts": List["UnprocessedAccountTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GraphTypeDef = TypedDict(
-    "GraphTypeDef",
-    {
-        "Arn": str,
-        "CreatedTime": datetime,
-    },
-    total=False,
-)
-
-ImpossibleTravelDetailTypeDef = TypedDict(
-    "ImpossibleTravelDetailTypeDef",
-    {
-        "StartingIpAddress": str,
-        "EndingIpAddress": str,
-        "StartingLocation": str,
-        "EndingLocation": str,
-        "HourlyTimeDelta": int,
-    },
-    total=False,
-)
-
-IndicatorDetailTypeDef = TypedDict(
-    "IndicatorDetailTypeDef",
-    {
-        "TTPsObservedDetail": "TTPsObservedDetailTypeDef",
-        "ImpossibleTravelDetail": "ImpossibleTravelDetailTypeDef",
-        "FlaggedIpAddressDetail": "FlaggedIpAddressDetailTypeDef",
-        "NewGeolocationDetail": "NewGeolocationDetailTypeDef",
-        "NewAsoDetail": "NewAsoDetailTypeDef",
-        "NewUserAgentDetail": "NewUserAgentDetailTypeDef",
-        "RelatedFindingDetail": "RelatedFindingDetailTypeDef",
-        "RelatedFindingGroupDetail": "RelatedFindingGroupDetailTypeDef",
-    },
-    total=False,
-)
-
-IndicatorTypeDef = TypedDict(
-    "IndicatorTypeDef",
-    {
-        "IndicatorType": IndicatorTypeType,
-        "IndicatorDetail": "IndicatorDetailTypeDef",
-    },
-    total=False,
-)
-
-InvestigationDetailTypeDef = TypedDict(
-    "InvestigationDetailTypeDef",
-    {
-        "InvestigationId": str,
-        "Severity": SeverityType,
-        "Status": StatusType,
-        "State": StateType,
-        "CreatedTime": datetime,
-        "EntityArn": str,
-        "EntityType": EntityTypeType,
-    },
-    total=False,
-)
-
-_RequiredListDatasourcePackagesRequestRequestTypeDef = TypedDict(
-    "_RequiredListDatasourcePackagesRequestRequestTypeDef",
-    {
-        "GraphArn": str,
-    },
-)
-_OptionalListDatasourcePackagesRequestRequestTypeDef = TypedDict(
-    "_OptionalListDatasourcePackagesRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-class ListDatasourcePackagesRequestRequestTypeDef(
-    _RequiredListDatasourcePackagesRequestRequestTypeDef,
-    _OptionalListDatasourcePackagesRequestRequestTypeDef,
-):
-    pass
-
-ListDatasourcePackagesResponseTypeDef = TypedDict(
-    "ListDatasourcePackagesResponseTypeDef",
-    {
-        "DatasourcePackages": Dict[DatasourcePackageType, "DatasourcePackageIngestDetailTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListGraphsRequestRequestTypeDef = TypedDict(
-    "ListGraphsRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-ListGraphsResponseTypeDef = TypedDict(
-    "ListGraphsResponseTypeDef",
-    {
-        "GraphList": List["GraphTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListIndicatorsRequestRequestTypeDef = TypedDict(
-    "_RequiredListIndicatorsRequestRequestTypeDef",
-    {
-        "GraphArn": str,
-        "InvestigationId": str,
-    },
-)
-_OptionalListIndicatorsRequestRequestTypeDef = TypedDict(
-    "_OptionalListIndicatorsRequestRequestTypeDef",
-    {
-        "IndicatorType": IndicatorTypeType,
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-class ListIndicatorsRequestRequestTypeDef(
-    _RequiredListIndicatorsRequestRequestTypeDef, _OptionalListIndicatorsRequestRequestTypeDef
-):
-    pass
-
-ListIndicatorsResponseTypeDef = TypedDict(
-    "ListIndicatorsResponseTypeDef",
-    {
-        "GraphArn": str,
-        "InvestigationId": str,
-        "NextToken": str,
-        "Indicators": List["IndicatorTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListInvestigationsRequestRequestTypeDef = TypedDict(
-    "_RequiredListInvestigationsRequestRequestTypeDef",
-    {
-        "GraphArn": str,
-    },
-)
-_OptionalListInvestigationsRequestRequestTypeDef = TypedDict(
-    "_OptionalListInvestigationsRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-        "FilterCriteria": "FilterCriteriaTypeDef",
-        "SortCriteria": "SortCriteriaTypeDef",
-    },
-    total=False,
-)
-
-class ListInvestigationsRequestRequestTypeDef(
-    _RequiredListInvestigationsRequestRequestTypeDef,
-    _OptionalListInvestigationsRequestRequestTypeDef,
-):
-    pass
-
-ListInvestigationsResponseTypeDef = TypedDict(
-    "ListInvestigationsResponseTypeDef",
-    {
-        "InvestigationDetails": List["InvestigationDetailTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListInvitationsRequestRequestTypeDef = TypedDict(
-    "ListInvitationsRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-ListInvitationsResponseTypeDef = TypedDict(
-    "ListInvitationsResponseTypeDef",
-    {
-        "Invitations": List["MemberDetailTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListMembersRequestRequestTypeDef = TypedDict(
-    "_RequiredListMembersRequestRequestTypeDef",
-    {
-        "GraphArn": str,
-    },
-)
-_OptionalListMembersRequestRequestTypeDef = TypedDict(
-    "_OptionalListMembersRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-class ListMembersRequestRequestTypeDef(
-    _RequiredListMembersRequestRequestTypeDef, _OptionalListMembersRequestRequestTypeDef
-):
-    pass
-
-ListMembersResponseTypeDef = TypedDict(
-    "ListMembersResponseTypeDef",
-    {
-        "MemberDetails": List["MemberDetailTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListOrganizationAdminAccountsRequestRequestTypeDef = TypedDict(
-    "ListOrganizationAdminAccountsRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-ListOrganizationAdminAccountsResponseTypeDef = TypedDict(
-    "ListOrganizationAdminAccountsResponseTypeDef",
-    {
-        "Administrators": List["AdministratorTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-    },
-)
-
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "Tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-MemberDetailTypeDef = TypedDict(
-    "MemberDetailTypeDef",
-    {
-        "AccountId": str,
-        "EmailAddress": str,
-        "GraphArn": str,
-        "MasterId": str,
-        "AdministratorId": str,
-        "Status": MemberStatusType,
-        "DisabledReason": MemberDisabledReasonType,
-        "InvitedTime": datetime,
-        "UpdatedTime": datetime,
-        "VolumeUsageInBytes": int,
-        "VolumeUsageUpdatedTime": datetime,
-        "PercentOfGraphUtilization": float,
-        "PercentOfGraphUtilizationUpdatedTime": datetime,
-        "InvitationType": InvitationTypeType,
-        "VolumeUsageByDatasourcePackage": Dict[
-            DatasourcePackageType, "DatasourcePackageUsageInfoTypeDef"
-        ],
-        "DatasourcePackageIngestStates": Dict[
-            DatasourcePackageType, DatasourcePackageIngestStateType
-        ],
-    },
-    total=False,
-)
-
-MembershipDatasourcesTypeDef = TypedDict(
-    "MembershipDatasourcesTypeDef",
-    {
-        "AccountId": str,
-        "GraphArn": str,
-        "DatasourcePackageIngestHistory": Dict[
-            DatasourcePackageType,
-            Dict[DatasourcePackageIngestStateType, "TimestampForCollectionTypeDef"],
-        ],
-    },
-    total=False,
-)
-
-NewAsoDetailTypeDef = TypedDict(
-    "NewAsoDetailTypeDef",
-    {
-        "Aso": str,
-        "IsNewForEntireAccount": bool,
-    },
-    total=False,
-)
-
-NewGeolocationDetailTypeDef = TypedDict(
-    "NewGeolocationDetailTypeDef",
-    {
-        "Location": str,
-        "IpAddress": str,
-        "IsNewForEntireAccount": bool,
-    },
-    total=False,
-)
-
-NewUserAgentDetailTypeDef = TypedDict(
-    "NewUserAgentDetailTypeDef",
-    {
-        "UserAgent": str,
-        "IsNewForEntireAccount": bool,
-    },
-    total=False,
-)
-
-RejectInvitationRequestRequestTypeDef = TypedDict(
-    "RejectInvitationRequestRequestTypeDef",
-    {
-        "GraphArn": str,
-    },
-)
+class NewUserAgentDetailTypeDef(TypedDict):
+    UserAgent: NotRequired[str]
+    IsNewForEntireAccount: NotRequired[bool]
 
 RelatedFindingDetailTypeDef = TypedDict(
     "RelatedFindingDetailTypeDef",
     {
-        "Arn": str,
-        "Type": str,
-        "IpAddress": str,
-    },
-    total=False,
-)
-
-RelatedFindingGroupDetailTypeDef = TypedDict(
-    "RelatedFindingGroupDetailTypeDef",
-    {
-        "Id": str,
-    },
-    total=False,
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
+        "Arn": NotRequired[str],
+        "Type": NotRequired[str],
+        "IpAddress": NotRequired[str],
     },
 )
 
-SortCriteriaTypeDef = TypedDict(
-    "SortCriteriaTypeDef",
-    {
-        "Field": FieldType,
-        "SortOrder": SortOrderType,
-    },
-    total=False,
-)
+class RelatedFindingGroupDetailTypeDef(TypedDict):
+    Id: NotRequired[str]
 
-StartInvestigationRequestRequestTypeDef = TypedDict(
-    "StartInvestigationRequestRequestTypeDef",
-    {
-        "GraphArn": str,
-        "EntityArn": str,
-        "ScopeStartTime": Union[datetime, str],
-        "ScopeEndTime": Union[datetime, str],
-    },
-)
+class TTPsObservedDetailTypeDef(TypedDict):
+    Tactic: NotRequired[str]
+    Technique: NotRequired[str]
+    Procedure: NotRequired[str]
+    IpAddress: NotRequired[str]
+    APIName: NotRequired[str]
+    APISuccessCount: NotRequired[int]
+    APIFailureCount: NotRequired[int]
 
-StartInvestigationResponseTypeDef = TypedDict(
-    "StartInvestigationResponseTypeDef",
-    {
-        "InvestigationId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class InvestigationDetailTypeDef(TypedDict):
+    InvestigationId: NotRequired[str]
+    Severity: NotRequired[SeverityType]
+    Status: NotRequired[StatusType]
+    State: NotRequired[StateType]
+    CreatedTime: NotRequired[datetime]
+    EntityArn: NotRequired[str]
+    EntityType: NotRequired[EntityTypeType]
 
-StartMonitoringMemberRequestRequestTypeDef = TypedDict(
-    "StartMonitoringMemberRequestRequestTypeDef",
-    {
-        "GraphArn": str,
-        "AccountId": str,
-    },
-)
+class ListDatasourcePackagesRequestTypeDef(TypedDict):
+    GraphArn: str
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
 
-StringFilterTypeDef = TypedDict(
-    "StringFilterTypeDef",
-    {
-        "Value": str,
-    },
-)
+class ListGraphsRequestTypeDef(TypedDict):
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
 
-TTPsObservedDetailTypeDef = TypedDict(
-    "TTPsObservedDetailTypeDef",
-    {
-        "Tactic": str,
-        "Technique": str,
-        "Procedure": str,
-        "IpAddress": str,
-        "APIName": str,
-        "APISuccessCount": int,
-        "APIFailureCount": int,
-    },
-    total=False,
-)
+class ListIndicatorsRequestTypeDef(TypedDict):
+    GraphArn: str
+    InvestigationId: str
+    IndicatorType: NotRequired[IndicatorTypeType]
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
 
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-        "Tags": Dict[str, str],
-    },
-)
+class SortCriteriaTypeDef(TypedDict):
+    Field: NotRequired[FieldType]
+    SortOrder: NotRequired[SortOrderType]
 
-TimestampForCollectionTypeDef = TypedDict(
-    "TimestampForCollectionTypeDef",
-    {
-        "Timestamp": datetime,
-    },
-    total=False,
-)
+class ListInvitationsRequestTypeDef(TypedDict):
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
 
-UnprocessedAccountTypeDef = TypedDict(
-    "UnprocessedAccountTypeDef",
-    {
-        "AccountId": str,
-        "Reason": str,
-    },
-    total=False,
-)
+class ListMembersRequestTypeDef(TypedDict):
+    GraphArn: str
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
 
-UnprocessedGraphTypeDef = TypedDict(
-    "UnprocessedGraphTypeDef",
-    {
-        "GraphArn": str,
-        "Reason": str,
-    },
-    total=False,
-)
+class ListOrganizationAdminAccountsRequestTypeDef(TypedDict):
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
 
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-        "TagKeys": List[str],
-    },
-)
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
 
-UpdateDatasourcePackagesRequestRequestTypeDef = TypedDict(
-    "UpdateDatasourcePackagesRequestRequestTypeDef",
-    {
-        "GraphArn": str,
-        "DatasourcePackages": List[DatasourcePackageType],
-    },
-)
+class RejectInvitationRequestTypeDef(TypedDict):
+    GraphArn: str
 
-UpdateInvestigationStateRequestRequestTypeDef = TypedDict(
-    "UpdateInvestigationStateRequestRequestTypeDef",
-    {
-        "GraphArn": str,
-        "InvestigationId": str,
-        "State": StateType,
-    },
-)
+class StartMonitoringMemberRequestTypeDef(TypedDict):
+    GraphArn: str
+    AccountId: str
 
-_RequiredUpdateOrganizationConfigurationRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateOrganizationConfigurationRequestRequestTypeDef",
-    {
-        "GraphArn": str,
-    },
-)
-_OptionalUpdateOrganizationConfigurationRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateOrganizationConfigurationRequestRequestTypeDef",
-    {
-        "AutoEnable": bool,
-    },
-    total=False,
-)
+class TagResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+    Tags: Mapping[str, str]
 
-class UpdateOrganizationConfigurationRequestRequestTypeDef(
-    _RequiredUpdateOrganizationConfigurationRequestRequestTypeDef,
-    _OptionalUpdateOrganizationConfigurationRequestRequestTypeDef,
-):
-    pass
+class UntagResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+    TagKeys: Sequence[str]
+
+class UpdateDatasourcePackagesRequestTypeDef(TypedDict):
+    GraphArn: str
+    DatasourcePackages: Sequence[DatasourcePackageType]
+
+class UpdateInvestigationStateRequestTypeDef(TypedDict):
+    GraphArn: str
+    InvestigationId: str
+    State: StateType
+
+class UpdateOrganizationConfigurationRequestTypeDef(TypedDict):
+    GraphArn: str
+    AutoEnable: NotRequired[bool]
+
+class CreateMembersRequestTypeDef(TypedDict):
+    GraphArn: str
+    Accounts: Sequence[AccountTypeDef]
+    Message: NotRequired[str]
+    DisableEmailNotification: NotRequired[bool]
+
+class CreateGraphResponseTypeDef(TypedDict):
+    GraphArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeOrganizationConfigurationResponseTypeDef(TypedDict):
+    AutoEnable: bool
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class EmptyResponseMetadataTypeDef(TypedDict):
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetInvestigationResponseTypeDef(TypedDict):
+    GraphArn: str
+    InvestigationId: str
+    EntityArn: str
+    EntityType: EntityTypeType
+    CreatedTime: datetime
+    ScopeStartTime: datetime
+    ScopeEndTime: datetime
+    Status: StatusType
+    Severity: SeverityType
+    State: StateType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListOrganizationAdminAccountsResponseTypeDef(TypedDict):
+    Administrators: List[AdministratorTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    Tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartInvestigationResponseTypeDef(TypedDict):
+    InvestigationId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteMembersResponseTypeDef(TypedDict):
+    AccountIds: List[str]
+    UnprocessedAccounts: List[UnprocessedAccountTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DatasourcePackageIngestDetailTypeDef(TypedDict):
+    DatasourcePackageIngestState: NotRequired[DatasourcePackageIngestStateType]
+    LastIngestStateChange: NotRequired[
+        Dict[DatasourcePackageIngestStateType, TimestampForCollectionTypeDef]
+    ]
+
+class MembershipDatasourcesTypeDef(TypedDict):
+    AccountId: NotRequired[str]
+    GraphArn: NotRequired[str]
+    DatasourcePackageIngestHistory: NotRequired[
+        Dict[
+            DatasourcePackageType,
+            Dict[DatasourcePackageIngestStateType, TimestampForCollectionTypeDef],
+        ]
+    ]
+
+class MemberDetailTypeDef(TypedDict):
+    AccountId: NotRequired[str]
+    EmailAddress: NotRequired[str]
+    GraphArn: NotRequired[str]
+    MasterId: NotRequired[str]
+    AdministratorId: NotRequired[str]
+    Status: NotRequired[MemberStatusType]
+    DisabledReason: NotRequired[MemberDisabledReasonType]
+    InvitedTime: NotRequired[datetime]
+    UpdatedTime: NotRequired[datetime]
+    VolumeUsageInBytes: NotRequired[int]
+    VolumeUsageUpdatedTime: NotRequired[datetime]
+    PercentOfGraphUtilization: NotRequired[float]
+    PercentOfGraphUtilizationUpdatedTime: NotRequired[datetime]
+    InvitationType: NotRequired[InvitationTypeType]
+    VolumeUsageByDatasourcePackage: NotRequired[
+        Dict[DatasourcePackageType, DatasourcePackageUsageInfoTypeDef]
+    ]
+    DatasourcePackageIngestStates: NotRequired[
+        Dict[DatasourcePackageType, DatasourcePackageIngestStateType]
+    ]
+
+class DateFilterTypeDef(TypedDict):
+    StartInclusive: TimestampTypeDef
+    EndInclusive: TimestampTypeDef
+
+class StartInvestigationRequestTypeDef(TypedDict):
+    GraphArn: str
+    EntityArn: str
+    ScopeStartTime: TimestampTypeDef
+    ScopeEndTime: TimestampTypeDef
+
+class ListGraphsResponseTypeDef(TypedDict):
+    GraphList: List[GraphTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class IndicatorDetailTypeDef(TypedDict):
+    TTPsObservedDetail: NotRequired[TTPsObservedDetailTypeDef]
+    ImpossibleTravelDetail: NotRequired[ImpossibleTravelDetailTypeDef]
+    FlaggedIpAddressDetail: NotRequired[FlaggedIpAddressDetailTypeDef]
+    NewGeolocationDetail: NotRequired[NewGeolocationDetailTypeDef]
+    NewAsoDetail: NotRequired[NewAsoDetailTypeDef]
+    NewUserAgentDetail: NotRequired[NewUserAgentDetailTypeDef]
+    RelatedFindingDetail: NotRequired[RelatedFindingDetailTypeDef]
+    RelatedFindingGroupDetail: NotRequired[RelatedFindingGroupDetailTypeDef]
+
+class ListInvestigationsResponseTypeDef(TypedDict):
+    InvestigationDetails: List[InvestigationDetailTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListDatasourcePackagesResponseTypeDef(TypedDict):
+    DatasourcePackages: Dict[DatasourcePackageType, DatasourcePackageIngestDetailTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class BatchGetGraphMemberDatasourcesResponseTypeDef(TypedDict):
+    MemberDatasources: List[MembershipDatasourcesTypeDef]
+    UnprocessedAccounts: List[UnprocessedAccountTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class BatchGetMembershipDatasourcesResponseTypeDef(TypedDict):
+    MembershipDatasources: List[MembershipDatasourcesTypeDef]
+    UnprocessedGraphs: List[UnprocessedGraphTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateMembersResponseTypeDef(TypedDict):
+    Members: List[MemberDetailTypeDef]
+    UnprocessedAccounts: List[UnprocessedAccountTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetMembersResponseTypeDef(TypedDict):
+    MemberDetails: List[MemberDetailTypeDef]
+    UnprocessedAccounts: List[UnprocessedAccountTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListInvitationsResponseTypeDef(TypedDict):
+    Invitations: List[MemberDetailTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListMembersResponseTypeDef(TypedDict):
+    MemberDetails: List[MemberDetailTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class FilterCriteriaTypeDef(TypedDict):
+    Severity: NotRequired[StringFilterTypeDef]
+    Status: NotRequired[StringFilterTypeDef]
+    State: NotRequired[StringFilterTypeDef]
+    EntityArn: NotRequired[StringFilterTypeDef]
+    CreatedTime: NotRequired[DateFilterTypeDef]
+
+class IndicatorTypeDef(TypedDict):
+    IndicatorType: NotRequired[IndicatorTypeType]
+    IndicatorDetail: NotRequired[IndicatorDetailTypeDef]
+
+class ListInvestigationsRequestTypeDef(TypedDict):
+    GraphArn: str
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+    FilterCriteria: NotRequired[FilterCriteriaTypeDef]
+    SortCriteria: NotRequired[SortCriteriaTypeDef]
+
+class ListIndicatorsResponseTypeDef(TypedDict):
+    GraphArn: str
+    InvestigationId: str
+    Indicators: List[IndicatorTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]

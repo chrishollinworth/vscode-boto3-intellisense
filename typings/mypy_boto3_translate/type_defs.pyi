@@ -1,20 +1,24 @@
 """
 Type annotations for translate service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_translate/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_translate/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_translate.type_defs import AppliedTerminologyTypeDef
+    from mypy_boto3_translate.type_defs import TermTypeDef
 
-    data: AppliedTerminologyTypeDef = {...}
+    data: TermTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import IO, Any, Dict, List, Union
+from typing import IO, Any, Union
 
 from botocore.response import StreamingBody
 
@@ -28,44 +32,49 @@ from .literals import (
     TerminologyDataFormatType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
     "AppliedTerminologyTypeDef",
-    "CreateParallelDataRequestRequestTypeDef",
+    "BlobTypeDef",
+    "CreateParallelDataRequestTypeDef",
     "CreateParallelDataResponseTypeDef",
-    "DeleteParallelDataRequestRequestTypeDef",
+    "DeleteParallelDataRequestTypeDef",
     "DeleteParallelDataResponseTypeDef",
-    "DeleteTerminologyRequestRequestTypeDef",
-    "DescribeTextTranslationJobRequestRequestTypeDef",
+    "DeleteTerminologyRequestTypeDef",
+    "DescribeTextTranslationJobRequestTypeDef",
     "DescribeTextTranslationJobResponseTypeDef",
     "DocumentTypeDef",
+    "EmptyResponseMetadataTypeDef",
     "EncryptionKeyTypeDef",
-    "GetParallelDataRequestRequestTypeDef",
+    "GetParallelDataRequestTypeDef",
     "GetParallelDataResponseTypeDef",
-    "GetTerminologyRequestRequestTypeDef",
+    "GetTerminologyRequestTypeDef",
     "GetTerminologyResponseTypeDef",
-    "ImportTerminologyRequestRequestTypeDef",
+    "ImportTerminologyRequestTypeDef",
     "ImportTerminologyResponseTypeDef",
     "InputDataConfigTypeDef",
     "JobDetailsTypeDef",
     "LanguageTypeDef",
-    "ListLanguagesRequestRequestTypeDef",
+    "ListLanguagesRequestTypeDef",
     "ListLanguagesResponseTypeDef",
-    "ListParallelDataRequestRequestTypeDef",
+    "ListParallelDataRequestTypeDef",
     "ListParallelDataResponseTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
-    "ListTerminologiesRequestRequestTypeDef",
+    "ListTerminologiesRequestPaginateTypeDef",
+    "ListTerminologiesRequestTypeDef",
     "ListTerminologiesResponseTypeDef",
-    "ListTextTranslationJobsRequestRequestTypeDef",
+    "ListTextTranslationJobsRequestTypeDef",
     "ListTextTranslationJobsResponseTypeDef",
     "OutputDataConfigTypeDef",
     "PaginatorConfigTypeDef",
@@ -73,11 +82,11 @@ __all__ = (
     "ParallelDataDataLocationTypeDef",
     "ParallelDataPropertiesTypeDef",
     "ResponseMetadataTypeDef",
-    "StartTextTranslationJobRequestRequestTypeDef",
+    "StartTextTranslationJobRequestTypeDef",
     "StartTextTranslationJobResponseTypeDef",
-    "StopTextTranslationJobRequestRequestTypeDef",
+    "StopTextTranslationJobRequestTypeDef",
     "StopTextTranslationJobResponseTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
     "TagTypeDef",
     "TermTypeDef",
     "TerminologyDataLocationTypeDef",
@@ -85,105 +94,23 @@ __all__ = (
     "TerminologyPropertiesTypeDef",
     "TextTranslationJobFilterTypeDef",
     "TextTranslationJobPropertiesTypeDef",
-    "TranslateDocumentRequestRequestTypeDef",
+    "TimestampTypeDef",
+    "TranslateDocumentRequestTypeDef",
     "TranslateDocumentResponseTypeDef",
-    "TranslateTextRequestRequestTypeDef",
+    "TranslateTextRequestTypeDef",
     "TranslateTextResponseTypeDef",
     "TranslatedDocumentTypeDef",
     "TranslationSettingsTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateParallelDataRequestRequestTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateParallelDataRequestTypeDef",
     "UpdateParallelDataResponseTypeDef",
 )
 
-AppliedTerminologyTypeDef = TypedDict(
-    "AppliedTerminologyTypeDef",
-    {
-        "Name": str,
-        "Terms": List["TermTypeDef"],
-    },
-    total=False,
-)
+class TermTypeDef(TypedDict):
+    SourceText: NotRequired[str]
+    TargetText: NotRequired[str]
 
-_RequiredCreateParallelDataRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateParallelDataRequestRequestTypeDef",
-    {
-        "Name": str,
-        "ParallelDataConfig": "ParallelDataConfigTypeDef",
-        "ClientToken": str,
-    },
-)
-_OptionalCreateParallelDataRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateParallelDataRequestRequestTypeDef",
-    {
-        "Description": str,
-        "EncryptionKey": "EncryptionKeyTypeDef",
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateParallelDataRequestRequestTypeDef(
-    _RequiredCreateParallelDataRequestRequestTypeDef,
-    _OptionalCreateParallelDataRequestRequestTypeDef,
-):
-    pass
-
-CreateParallelDataResponseTypeDef = TypedDict(
-    "CreateParallelDataResponseTypeDef",
-    {
-        "Name": str,
-        "Status": ParallelDataStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteParallelDataRequestRequestTypeDef = TypedDict(
-    "DeleteParallelDataRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
-
-DeleteParallelDataResponseTypeDef = TypedDict(
-    "DeleteParallelDataResponseTypeDef",
-    {
-        "Name": str,
-        "Status": ParallelDataStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteTerminologyRequestRequestTypeDef = TypedDict(
-    "DeleteTerminologyRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
-
-DescribeTextTranslationJobRequestRequestTypeDef = TypedDict(
-    "DescribeTextTranslationJobRequestRequestTypeDef",
-    {
-        "JobId": str,
-    },
-)
-
-DescribeTextTranslationJobResponseTypeDef = TypedDict(
-    "DescribeTextTranslationJobResponseTypeDef",
-    {
-        "TextTranslationJobProperties": "TextTranslationJobPropertiesTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DocumentTypeDef = TypedDict(
-    "DocumentTypeDef",
-    {
-        "Content": Union[bytes, IO[bytes], StreamingBody],
-        "ContentType": str,
-    },
-)
-
+BlobTypeDef = Union[str, bytes, IO[Any], StreamingBody]
 EncryptionKeyTypeDef = TypedDict(
     "EncryptionKeyTypeDef",
     {
@@ -192,560 +119,324 @@ EncryptionKeyTypeDef = TypedDict(
     },
 )
 
-GetParallelDataRequestRequestTypeDef = TypedDict(
-    "GetParallelDataRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
+class ParallelDataConfigTypeDef(TypedDict):
+    S3Uri: NotRequired[str]
+    Format: NotRequired[ParallelDataFormatType]
 
-GetParallelDataResponseTypeDef = TypedDict(
-    "GetParallelDataResponseTypeDef",
-    {
-        "ParallelDataProperties": "ParallelDataPropertiesTypeDef",
-        "DataLocation": "ParallelDataDataLocationTypeDef",
-        "AuxiliaryDataLocation": "ParallelDataDataLocationTypeDef",
-        "LatestUpdateAttemptAuxiliaryDataLocation": "ParallelDataDataLocationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class TagTypeDef(TypedDict):
+    Key: str
+    Value: str
 
-_RequiredGetTerminologyRequestRequestTypeDef = TypedDict(
-    "_RequiredGetTerminologyRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
-_OptionalGetTerminologyRequestRequestTypeDef = TypedDict(
-    "_OptionalGetTerminologyRequestRequestTypeDef",
-    {
-        "TerminologyDataFormat": TerminologyDataFormatType,
-    },
-    total=False,
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-class GetTerminologyRequestRequestTypeDef(
-    _RequiredGetTerminologyRequestRequestTypeDef, _OptionalGetTerminologyRequestRequestTypeDef
-):
-    pass
+class DeleteParallelDataRequestTypeDef(TypedDict):
+    Name: str
 
-GetTerminologyResponseTypeDef = TypedDict(
-    "GetTerminologyResponseTypeDef",
-    {
-        "TerminologyProperties": "TerminologyPropertiesTypeDef",
-        "TerminologyDataLocation": "TerminologyDataLocationTypeDef",
-        "AuxiliaryDataLocation": "TerminologyDataLocationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DeleteTerminologyRequestTypeDef(TypedDict):
+    Name: str
 
-_RequiredImportTerminologyRequestRequestTypeDef = TypedDict(
-    "_RequiredImportTerminologyRequestRequestTypeDef",
-    {
-        "Name": str,
-        "MergeStrategy": Literal["OVERWRITE"],
-        "TerminologyData": "TerminologyDataTypeDef",
-    },
-)
-_OptionalImportTerminologyRequestRequestTypeDef = TypedDict(
-    "_OptionalImportTerminologyRequestRequestTypeDef",
-    {
-        "Description": str,
-        "EncryptionKey": "EncryptionKeyTypeDef",
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
+class DescribeTextTranslationJobRequestTypeDef(TypedDict):
+    JobId: str
 
-class ImportTerminologyRequestRequestTypeDef(
-    _RequiredImportTerminologyRequestRequestTypeDef, _OptionalImportTerminologyRequestRequestTypeDef
-):
-    pass
+class GetParallelDataRequestTypeDef(TypedDict):
+    Name: str
 
-ImportTerminologyResponseTypeDef = TypedDict(
-    "ImportTerminologyResponseTypeDef",
-    {
-        "TerminologyProperties": "TerminologyPropertiesTypeDef",
-        "AuxiliaryDataLocation": "TerminologyDataLocationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ParallelDataDataLocationTypeDef(TypedDict):
+    RepositoryType: str
+    Location: str
 
-InputDataConfigTypeDef = TypedDict(
-    "InputDataConfigTypeDef",
-    {
-        "S3Uri": str,
-        "ContentType": str,
-    },
-)
+class GetTerminologyRequestTypeDef(TypedDict):
+    Name: str
+    TerminologyDataFormat: NotRequired[TerminologyDataFormatType]
 
-JobDetailsTypeDef = TypedDict(
-    "JobDetailsTypeDef",
-    {
-        "TranslatedDocumentsCount": int,
-        "DocumentsWithErrorsCount": int,
-        "InputDocumentsCount": int,
-    },
-    total=False,
-)
+class TerminologyDataLocationTypeDef(TypedDict):
+    RepositoryType: str
+    Location: str
 
-LanguageTypeDef = TypedDict(
-    "LanguageTypeDef",
-    {
-        "LanguageName": str,
-        "LanguageCode": str,
-    },
-)
+class InputDataConfigTypeDef(TypedDict):
+    S3Uri: str
+    ContentType: str
 
-ListLanguagesRequestRequestTypeDef = TypedDict(
-    "ListLanguagesRequestRequestTypeDef",
-    {
-        "DisplayLanguageCode": DisplayLanguageCodeType,
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
+class JobDetailsTypeDef(TypedDict):
+    TranslatedDocumentsCount: NotRequired[int]
+    DocumentsWithErrorsCount: NotRequired[int]
+    InputDocumentsCount: NotRequired[int]
 
-ListLanguagesResponseTypeDef = TypedDict(
-    "ListLanguagesResponseTypeDef",
-    {
-        "Languages": List["LanguageTypeDef"],
-        "DisplayLanguageCode": DisplayLanguageCodeType,
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class LanguageTypeDef(TypedDict):
+    LanguageName: str
+    LanguageCode: str
 
-ListParallelDataRequestRequestTypeDef = TypedDict(
-    "ListParallelDataRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
+class ListLanguagesRequestTypeDef(TypedDict):
+    DisplayLanguageCode: NotRequired[DisplayLanguageCodeType]
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
 
-ListParallelDataResponseTypeDef = TypedDict(
-    "ListParallelDataResponseTypeDef",
-    {
-        "ParallelDataPropertiesList": List["ParallelDataPropertiesTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListParallelDataRequestTypeDef(TypedDict):
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
 
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-    },
-)
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
 
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "Tags": List["TagTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
 
-ListTerminologiesRequestRequestTypeDef = TypedDict(
-    "ListTerminologiesRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
+class ListTerminologiesRequestTypeDef(TypedDict):
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
 
-ListTerminologiesResponseTypeDef = TypedDict(
-    "ListTerminologiesResponseTypeDef",
-    {
-        "TerminologyPropertiesList": List["TerminologyPropertiesTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class TranslationSettingsTypeDef(TypedDict):
+    Formality: NotRequired[FormalityType]
+    Profanity: NotRequired[Literal["MASK"]]
+    Brevity: NotRequired[Literal["ON"]]
 
-ListTextTranslationJobsRequestRequestTypeDef = TypedDict(
-    "ListTextTranslationJobsRequestRequestTypeDef",
-    {
-        "Filter": "TextTranslationJobFilterTypeDef",
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
+class StopTextTranslationJobRequestTypeDef(TypedDict):
+    JobId: str
 
-ListTextTranslationJobsResponseTypeDef = TypedDict(
-    "ListTextTranslationJobsResponseTypeDef",
-    {
-        "TextTranslationJobPropertiesList": List["TextTranslationJobPropertiesTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+TimestampTypeDef = Union[datetime, str]
 
-_RequiredOutputDataConfigTypeDef = TypedDict(
-    "_RequiredOutputDataConfigTypeDef",
-    {
-        "S3Uri": str,
-    },
-)
-_OptionalOutputDataConfigTypeDef = TypedDict(
-    "_OptionalOutputDataConfigTypeDef",
-    {
-        "EncryptionKey": "EncryptionKeyTypeDef",
-    },
-    total=False,
-)
+class TranslatedDocumentTypeDef(TypedDict):
+    Content: bytes
 
-class OutputDataConfigTypeDef(_RequiredOutputDataConfigTypeDef, _OptionalOutputDataConfigTypeDef):
-    pass
+class UntagResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+    TagKeys: Sequence[str]
 
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
+class AppliedTerminologyTypeDef(TypedDict):
+    Name: NotRequired[str]
+    Terms: NotRequired[List[TermTypeDef]]
 
-ParallelDataConfigTypeDef = TypedDict(
-    "ParallelDataConfigTypeDef",
-    {
-        "S3Uri": str,
-        "Format": ParallelDataFormatType,
-    },
-    total=False,
-)
+class DocumentTypeDef(TypedDict):
+    Content: BlobTypeDef
+    ContentType: str
 
-ParallelDataDataLocationTypeDef = TypedDict(
-    "ParallelDataDataLocationTypeDef",
-    {
-        "RepositoryType": str,
-        "Location": str,
-    },
-)
+class TerminologyDataTypeDef(TypedDict):
+    File: BlobTypeDef
+    Format: TerminologyDataFormatType
+    Directionality: NotRequired[DirectionalityType]
 
-ParallelDataPropertiesTypeDef = TypedDict(
-    "ParallelDataPropertiesTypeDef",
-    {
-        "Name": str,
-        "Arn": str,
-        "Description": str,
-        "Status": ParallelDataStatusType,
-        "SourceLanguageCode": str,
-        "TargetLanguageCodes": List[str],
-        "ParallelDataConfig": "ParallelDataConfigTypeDef",
-        "Message": str,
-        "ImportedDataSize": int,
-        "ImportedRecordCount": int,
-        "FailedRecordCount": int,
-        "SkippedRecordCount": int,
-        "EncryptionKey": "EncryptionKeyTypeDef",
-        "CreatedAt": datetime,
-        "LastUpdatedAt": datetime,
-        "LatestUpdateAttemptStatus": ParallelDataStatusType,
-        "LatestUpdateAttemptAt": datetime,
-    },
-    total=False,
-)
+class OutputDataConfigTypeDef(TypedDict):
+    S3Uri: str
+    EncryptionKey: NotRequired[EncryptionKeyTypeDef]
 
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
+class TerminologyPropertiesTypeDef(TypedDict):
+    Name: NotRequired[str]
+    Description: NotRequired[str]
+    Arn: NotRequired[str]
+    SourceLanguageCode: NotRequired[str]
+    TargetLanguageCodes: NotRequired[List[str]]
+    EncryptionKey: NotRequired[EncryptionKeyTypeDef]
+    SizeBytes: NotRequired[int]
+    TermCount: NotRequired[int]
+    CreatedAt: NotRequired[datetime]
+    LastUpdatedAt: NotRequired[datetime]
+    Directionality: NotRequired[DirectionalityType]
+    Message: NotRequired[str]
+    SkippedTermCount: NotRequired[int]
+    Format: NotRequired[TerminologyDataFormatType]
 
-_RequiredStartTextTranslationJobRequestRequestTypeDef = TypedDict(
-    "_RequiredStartTextTranslationJobRequestRequestTypeDef",
-    {
-        "InputDataConfig": "InputDataConfigTypeDef",
-        "OutputDataConfig": "OutputDataConfigTypeDef",
-        "DataAccessRoleArn": str,
-        "SourceLanguageCode": str,
-        "TargetLanguageCodes": List[str],
-        "ClientToken": str,
-    },
-)
-_OptionalStartTextTranslationJobRequestRequestTypeDef = TypedDict(
-    "_OptionalStartTextTranslationJobRequestRequestTypeDef",
-    {
-        "JobName": str,
-        "TerminologyNames": List[str],
-        "ParallelDataNames": List[str],
-        "Settings": "TranslationSettingsTypeDef",
-    },
-    total=False,
-)
+class ParallelDataPropertiesTypeDef(TypedDict):
+    Name: NotRequired[str]
+    Arn: NotRequired[str]
+    Description: NotRequired[str]
+    Status: NotRequired[ParallelDataStatusType]
+    SourceLanguageCode: NotRequired[str]
+    TargetLanguageCodes: NotRequired[List[str]]
+    ParallelDataConfig: NotRequired[ParallelDataConfigTypeDef]
+    Message: NotRequired[str]
+    ImportedDataSize: NotRequired[int]
+    ImportedRecordCount: NotRequired[int]
+    FailedRecordCount: NotRequired[int]
+    SkippedRecordCount: NotRequired[int]
+    EncryptionKey: NotRequired[EncryptionKeyTypeDef]
+    CreatedAt: NotRequired[datetime]
+    LastUpdatedAt: NotRequired[datetime]
+    LatestUpdateAttemptStatus: NotRequired[ParallelDataStatusType]
+    LatestUpdateAttemptAt: NotRequired[datetime]
 
-class StartTextTranslationJobRequestRequestTypeDef(
-    _RequiredStartTextTranslationJobRequestRequestTypeDef,
-    _OptionalStartTextTranslationJobRequestRequestTypeDef,
-):
-    pass
+class UpdateParallelDataRequestTypeDef(TypedDict):
+    Name: str
+    ParallelDataConfig: ParallelDataConfigTypeDef
+    ClientToken: str
+    Description: NotRequired[str]
 
-StartTextTranslationJobResponseTypeDef = TypedDict(
-    "StartTextTranslationJobResponseTypeDef",
-    {
-        "JobId": str,
-        "JobStatus": JobStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CreateParallelDataRequestTypeDef(TypedDict):
+    Name: str
+    ParallelDataConfig: ParallelDataConfigTypeDef
+    ClientToken: str
+    Description: NotRequired[str]
+    EncryptionKey: NotRequired[EncryptionKeyTypeDef]
+    Tags: NotRequired[Sequence[TagTypeDef]]
 
-StopTextTranslationJobRequestRequestTypeDef = TypedDict(
-    "StopTextTranslationJobRequestRequestTypeDef",
-    {
-        "JobId": str,
-    },
-)
+class TagResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+    Tags: Sequence[TagTypeDef]
 
-StopTextTranslationJobResponseTypeDef = TypedDict(
-    "StopTextTranslationJobResponseTypeDef",
-    {
-        "JobId": str,
-        "JobStatus": JobStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CreateParallelDataResponseTypeDef(TypedDict):
+    Name: str
+    Status: ParallelDataStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
 
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-        "Tags": List["TagTypeDef"],
-    },
-)
+class DeleteParallelDataResponseTypeDef(TypedDict):
+    Name: str
+    Status: ParallelDataStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
 
-TagTypeDef = TypedDict(
-    "TagTypeDef",
-    {
-        "Key": str,
-        "Value": str,
-    },
-)
+class EmptyResponseMetadataTypeDef(TypedDict):
+    ResponseMetadata: ResponseMetadataTypeDef
 
-TermTypeDef = TypedDict(
-    "TermTypeDef",
-    {
-        "SourceText": str,
-        "TargetText": str,
-    },
-    total=False,
-)
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    Tags: List[TagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-TerminologyDataLocationTypeDef = TypedDict(
-    "TerminologyDataLocationTypeDef",
-    {
-        "RepositoryType": str,
-        "Location": str,
-    },
-)
+class StartTextTranslationJobResponseTypeDef(TypedDict):
+    JobId: str
+    JobStatus: JobStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredTerminologyDataTypeDef = TypedDict(
-    "_RequiredTerminologyDataTypeDef",
-    {
-        "File": Union[bytes, IO[bytes], StreamingBody],
-        "Format": TerminologyDataFormatType,
-    },
-)
-_OptionalTerminologyDataTypeDef = TypedDict(
-    "_OptionalTerminologyDataTypeDef",
-    {
-        "Directionality": DirectionalityType,
-    },
-    total=False,
-)
+class StopTextTranslationJobResponseTypeDef(TypedDict):
+    JobId: str
+    JobStatus: JobStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class TerminologyDataTypeDef(_RequiredTerminologyDataTypeDef, _OptionalTerminologyDataTypeDef):
-    pass
+class UpdateParallelDataResponseTypeDef(TypedDict):
+    Name: str
+    Status: ParallelDataStatusType
+    LatestUpdateAttemptStatus: ParallelDataStatusType
+    LatestUpdateAttemptAt: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
 
-TerminologyPropertiesTypeDef = TypedDict(
-    "TerminologyPropertiesTypeDef",
-    {
-        "Name": str,
-        "Description": str,
-        "Arn": str,
-        "SourceLanguageCode": str,
-        "TargetLanguageCodes": List[str],
-        "EncryptionKey": "EncryptionKeyTypeDef",
-        "SizeBytes": int,
-        "TermCount": int,
-        "CreatedAt": datetime,
-        "LastUpdatedAt": datetime,
-        "Directionality": DirectionalityType,
-        "Message": str,
-        "SkippedTermCount": int,
-        "Format": TerminologyDataFormatType,
-    },
-    total=False,
-)
+class ListLanguagesResponseTypeDef(TypedDict):
+    Languages: List[LanguageTypeDef]
+    DisplayLanguageCode: DisplayLanguageCodeType
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-TextTranslationJobFilterTypeDef = TypedDict(
-    "TextTranslationJobFilterTypeDef",
-    {
-        "JobName": str,
-        "JobStatus": JobStatusType,
-        "SubmittedBeforeTime": Union[datetime, str],
-        "SubmittedAfterTime": Union[datetime, str],
-    },
-    total=False,
-)
+class ListTerminologiesRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-TextTranslationJobPropertiesTypeDef = TypedDict(
-    "TextTranslationJobPropertiesTypeDef",
-    {
-        "JobId": str,
-        "JobName": str,
-        "JobStatus": JobStatusType,
-        "JobDetails": "JobDetailsTypeDef",
-        "SourceLanguageCode": str,
-        "TargetLanguageCodes": List[str],
-        "TerminologyNames": List[str],
-        "ParallelDataNames": List[str],
-        "Message": str,
-        "SubmittedTime": datetime,
-        "EndTime": datetime,
-        "InputDataConfig": "InputDataConfigTypeDef",
-        "OutputDataConfig": "OutputDataConfigTypeDef",
-        "DataAccessRoleArn": str,
-        "Settings": "TranslationSettingsTypeDef",
-    },
-    total=False,
-)
-
-_RequiredTranslateDocumentRequestRequestTypeDef = TypedDict(
-    "_RequiredTranslateDocumentRequestRequestTypeDef",
-    {
-        "Document": "DocumentTypeDef",
-        "SourceLanguageCode": str,
-        "TargetLanguageCode": str,
-    },
-)
-_OptionalTranslateDocumentRequestRequestTypeDef = TypedDict(
-    "_OptionalTranslateDocumentRequestRequestTypeDef",
-    {
-        "TerminologyNames": List[str],
-        "Settings": "TranslationSettingsTypeDef",
-    },
-    total=False,
-)
-
-class TranslateDocumentRequestRequestTypeDef(
-    _RequiredTranslateDocumentRequestRequestTypeDef, _OptionalTranslateDocumentRequestRequestTypeDef
-):
-    pass
-
-TranslateDocumentResponseTypeDef = TypedDict(
-    "TranslateDocumentResponseTypeDef",
-    {
-        "TranslatedDocument": "TranslatedDocumentTypeDef",
-        "SourceLanguageCode": str,
-        "TargetLanguageCode": str,
-        "AppliedTerminologies": List["AppliedTerminologyTypeDef"],
-        "AppliedSettings": "TranslationSettingsTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredTranslateTextRequestRequestTypeDef = TypedDict(
-    "_RequiredTranslateTextRequestRequestTypeDef",
+TranslateTextRequestTypeDef = TypedDict(
+    "TranslateTextRequestTypeDef",
     {
         "Text": str,
         "SourceLanguageCode": str,
         "TargetLanguageCode": str,
-    },
-)
-_OptionalTranslateTextRequestRequestTypeDef = TypedDict(
-    "_OptionalTranslateTextRequestRequestTypeDef",
-    {
-        "TerminologyNames": List[str],
-        "Settings": "TranslationSettingsTypeDef",
-    },
-    total=False,
-)
-
-class TranslateTextRequestRequestTypeDef(
-    _RequiredTranslateTextRequestRequestTypeDef, _OptionalTranslateTextRequestRequestTypeDef
-):
-    pass
-
-TranslateTextResponseTypeDef = TypedDict(
-    "TranslateTextResponseTypeDef",
-    {
-        "TranslatedText": str,
-        "SourceLanguageCode": str,
-        "TargetLanguageCode": str,
-        "AppliedTerminologies": List["AppliedTerminologyTypeDef"],
-        "AppliedSettings": "TranslationSettingsTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "TerminologyNames": NotRequired[Sequence[str]],
+        "Settings": NotRequired[TranslationSettingsTypeDef],
     },
 )
 
-TranslatedDocumentTypeDef = TypedDict(
-    "TranslatedDocumentTypeDef",
-    {
-        "Content": bytes,
-    },
-)
+class TextTranslationJobFilterTypeDef(TypedDict):
+    JobName: NotRequired[str]
+    JobStatus: NotRequired[JobStatusType]
+    SubmittedBeforeTime: NotRequired[TimestampTypeDef]
+    SubmittedAfterTime: NotRequired[TimestampTypeDef]
 
-TranslationSettingsTypeDef = TypedDict(
-    "TranslationSettingsTypeDef",
-    {
-        "Formality": FormalityType,
-        "Profanity": Literal["MASK"],
-        "Brevity": Literal["ON"],
-    },
-    total=False,
-)
+class TranslateDocumentResponseTypeDef(TypedDict):
+    TranslatedDocument: TranslatedDocumentTypeDef
+    SourceLanguageCode: str
+    TargetLanguageCode: str
+    AppliedTerminologies: List[AppliedTerminologyTypeDef]
+    AppliedSettings: TranslationSettingsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-        "TagKeys": List[str],
-    },
-)
+class TranslateTextResponseTypeDef(TypedDict):
+    TranslatedText: str
+    SourceLanguageCode: str
+    TargetLanguageCode: str
+    AppliedTerminologies: List[AppliedTerminologyTypeDef]
+    AppliedSettings: TranslationSettingsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredUpdateParallelDataRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateParallelDataRequestRequestTypeDef",
-    {
-        "Name": str,
-        "ParallelDataConfig": "ParallelDataConfigTypeDef",
-        "ClientToken": str,
-    },
-)
-_OptionalUpdateParallelDataRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateParallelDataRequestRequestTypeDef",
-    {
-        "Description": str,
-    },
-    total=False,
-)
+class TranslateDocumentRequestTypeDef(TypedDict):
+    Document: DocumentTypeDef
+    SourceLanguageCode: str
+    TargetLanguageCode: str
+    TerminologyNames: NotRequired[Sequence[str]]
+    Settings: NotRequired[TranslationSettingsTypeDef]
 
-class UpdateParallelDataRequestRequestTypeDef(
-    _RequiredUpdateParallelDataRequestRequestTypeDef,
-    _OptionalUpdateParallelDataRequestRequestTypeDef,
-):
-    pass
+class ImportTerminologyRequestTypeDef(TypedDict):
+    Name: str
+    MergeStrategy: Literal["OVERWRITE"]
+    TerminologyData: TerminologyDataTypeDef
+    Description: NotRequired[str]
+    EncryptionKey: NotRequired[EncryptionKeyTypeDef]
+    Tags: NotRequired[Sequence[TagTypeDef]]
 
-UpdateParallelDataResponseTypeDef = TypedDict(
-    "UpdateParallelDataResponseTypeDef",
-    {
-        "Name": str,
-        "Status": ParallelDataStatusType,
-        "LatestUpdateAttemptStatus": ParallelDataStatusType,
-        "LatestUpdateAttemptAt": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class StartTextTranslationJobRequestTypeDef(TypedDict):
+    InputDataConfig: InputDataConfigTypeDef
+    OutputDataConfig: OutputDataConfigTypeDef
+    DataAccessRoleArn: str
+    SourceLanguageCode: str
+    TargetLanguageCodes: Sequence[str]
+    ClientToken: str
+    JobName: NotRequired[str]
+    TerminologyNames: NotRequired[Sequence[str]]
+    ParallelDataNames: NotRequired[Sequence[str]]
+    Settings: NotRequired[TranslationSettingsTypeDef]
+
+class TextTranslationJobPropertiesTypeDef(TypedDict):
+    JobId: NotRequired[str]
+    JobName: NotRequired[str]
+    JobStatus: NotRequired[JobStatusType]
+    JobDetails: NotRequired[JobDetailsTypeDef]
+    SourceLanguageCode: NotRequired[str]
+    TargetLanguageCodes: NotRequired[List[str]]
+    TerminologyNames: NotRequired[List[str]]
+    ParallelDataNames: NotRequired[List[str]]
+    Message: NotRequired[str]
+    SubmittedTime: NotRequired[datetime]
+    EndTime: NotRequired[datetime]
+    InputDataConfig: NotRequired[InputDataConfigTypeDef]
+    OutputDataConfig: NotRequired[OutputDataConfigTypeDef]
+    DataAccessRoleArn: NotRequired[str]
+    Settings: NotRequired[TranslationSettingsTypeDef]
+
+class GetTerminologyResponseTypeDef(TypedDict):
+    TerminologyProperties: TerminologyPropertiesTypeDef
+    TerminologyDataLocation: TerminologyDataLocationTypeDef
+    AuxiliaryDataLocation: TerminologyDataLocationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ImportTerminologyResponseTypeDef(TypedDict):
+    TerminologyProperties: TerminologyPropertiesTypeDef
+    AuxiliaryDataLocation: TerminologyDataLocationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListTerminologiesResponseTypeDef(TypedDict):
+    TerminologyPropertiesList: List[TerminologyPropertiesTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class GetParallelDataResponseTypeDef(TypedDict):
+    ParallelDataProperties: ParallelDataPropertiesTypeDef
+    DataLocation: ParallelDataDataLocationTypeDef
+    AuxiliaryDataLocation: ParallelDataDataLocationTypeDef
+    LatestUpdateAttemptAuxiliaryDataLocation: ParallelDataDataLocationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListParallelDataResponseTypeDef(TypedDict):
+    ParallelDataPropertiesList: List[ParallelDataPropertiesTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListTextTranslationJobsRequestTypeDef(TypedDict):
+    Filter: NotRequired[TextTranslationJobFilterTypeDef]
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class DescribeTextTranslationJobResponseTypeDef(TypedDict):
+    TextTranslationJobProperties: TextTranslationJobPropertiesTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListTextTranslationJobsResponseTypeDef(TypedDict):
+    TextTranslationJobPropertiesList: List[TextTranslationJobPropertiesTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]

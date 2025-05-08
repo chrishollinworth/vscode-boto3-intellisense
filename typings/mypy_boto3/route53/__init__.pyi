@@ -1,10 +1,14 @@
 """
 Main interface for route53 service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_route53 import (
         Client,
         ListCidrBlocksPaginator,
@@ -19,10 +23,8 @@ Usage::
         Route53Client,
     )
 
-    session = boto3.Session()
-
-    client: Route53Client = boto3.client("route53")
-    session_client: Route53Client = session.client("route53")
+    session = Session()
+    client: Route53Client = session.client("route53")
 
     resource_record_sets_changed_waiter: ResourceRecordSetsChangedWaiter = client.get_waiter("resource_record_sets_changed")
 

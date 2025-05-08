@@ -1,19 +1,21 @@
 """
 Main interface for chime-sdk-meetings service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_meetings/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_chime_sdk_meetings import (
         ChimeSDKMeetingsClient,
         Client,
     )
 
-    session = boto3.Session()
-
-    client: ChimeSDKMeetingsClient = boto3.client("chime-sdk-meetings")
-    session_client: ChimeSDKMeetingsClient = session.client("chime-sdk-meetings")
+    session = Session()
+    client: ChimeSDKMeetingsClient = session.client("chime-sdk-meetings")
     ```
 """
 

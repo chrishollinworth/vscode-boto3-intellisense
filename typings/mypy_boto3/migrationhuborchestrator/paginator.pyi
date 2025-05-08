@@ -1,14 +1,16 @@
 """
 Type annotations for migrationhuborchestrator service client paginators.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migrationhuborchestrator/paginators.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_migrationhuborchestrator/paginators/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
 
-    from mypy_boto3_migrationhuborchestrator import MigrationHubOrchestratorClient
+    from mypy_boto3_migrationhuborchestrator.client import MigrationHubOrchestratorClient
     from mypy_boto3_migrationhuborchestrator.paginator import (
         ListPluginsPaginator,
         ListTemplateStepGroupsPaginator,
@@ -19,7 +21,8 @@ Usage::
         ListWorkflowsPaginator,
     )
 
-    client: MigrationHubOrchestratorClient = boto3.client("migrationhuborchestrator")
+    session = Session()
+    client: MigrationHubOrchestratorClient = session.client("migrationhuborchestrator")
 
     list_plugins_paginator: ListPluginsPaginator = client.get_paginator("list_plugins")
     list_template_step_groups_paginator: ListTemplateStepGroupsPaginator = client.get_paginator("list_template_step_groups")
@@ -31,21 +34,34 @@ Usage::
     ```
 """
 
-from typing import Iterator
+from __future__ import annotations
 
-from botocore.paginate import Paginator as Boto3Paginator
+import sys
+from typing import TYPE_CHECKING
 
-from .literals import MigrationWorkflowStatusEnumType
+from botocore.paginate import PageIterator, Paginator
+
 from .type_defs import (
+    ListMigrationWorkflowsRequestPaginateTypeDef,
     ListMigrationWorkflowsResponseTypeDef,
+    ListMigrationWorkflowTemplatesRequestPaginateTypeDef,
     ListMigrationWorkflowTemplatesResponseTypeDef,
+    ListPluginsRequestPaginateTypeDef,
     ListPluginsResponseTypeDef,
+    ListTemplateStepGroupsRequestPaginateTypeDef,
     ListTemplateStepGroupsResponseTypeDef,
+    ListTemplateStepsRequestPaginateTypeDef,
     ListTemplateStepsResponseTypeDef,
+    ListWorkflowStepGroupsRequestPaginateTypeDef,
     ListWorkflowStepGroupsResponseTypeDef,
+    ListWorkflowStepsRequestPaginateTypeDef,
     ListWorkflowStepsResponseTypeDef,
-    PaginatorConfigTypeDef,
 )
+
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = (
     "ListPluginsPaginator",
@@ -57,106 +73,128 @@ __all__ = (
     "ListWorkflowsPaginator",
 )
 
-class ListPluginsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/migrationhuborchestrator.html#MigrationHubOrchestrator.Paginator.ListPlugins)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migrationhuborchestrator/paginators.html#listpluginspaginator)
-    """
+if TYPE_CHECKING:
+    _ListPluginsPaginatorBase = Paginator[ListPluginsResponseTypeDef]
+else:
+    _ListPluginsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListPluginsResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/migrationhuborchestrator.html#MigrationHubOrchestrator.Paginator.ListPlugins.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migrationhuborchestrator/paginators.html#listpluginspaginator)
-        """
-
-class ListTemplateStepGroupsPaginator(Boto3Paginator):
+class ListPluginsPaginator(_ListPluginsPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/migrationhuborchestrator.html#MigrationHubOrchestrator.Paginator.ListTemplateStepGroups)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migrationhuborchestrator/paginators.html#listtemplatestepgroupspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/migrationhuborchestrator/paginator/ListPlugins.html#MigrationHubOrchestrator.Paginator.ListPlugins)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_migrationhuborchestrator/paginators/#listpluginspaginator)
     """
-
-    def paginate(
-        self, *, templateId: str, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListTemplateStepGroupsResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListPluginsRequestPaginateTypeDef]
+    ) -> PageIterator[ListPluginsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/migrationhuborchestrator.html#MigrationHubOrchestrator.Paginator.ListTemplateStepGroups.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migrationhuborchestrator/paginators.html#listtemplatestepgroupspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/migrationhuborchestrator/paginator/ListPlugins.html#MigrationHubOrchestrator.Paginator.ListPlugins.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_migrationhuborchestrator/paginators/#listpluginspaginator)
         """
 
-class ListTemplateStepsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/migrationhuborchestrator.html#MigrationHubOrchestrator.Paginator.ListTemplateSteps)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migrationhuborchestrator/paginators.html#listtemplatestepspaginator)
-    """
+if TYPE_CHECKING:
+    _ListTemplateStepGroupsPaginatorBase = Paginator[ListTemplateStepGroupsResponseTypeDef]
+else:
+    _ListTemplateStepGroupsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, templateId: str, stepGroupId: str, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListTemplateStepsResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/migrationhuborchestrator.html#MigrationHubOrchestrator.Paginator.ListTemplateSteps.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migrationhuborchestrator/paginators.html#listtemplatestepspaginator)
-        """
-
-class ListTemplatesPaginator(Boto3Paginator):
+class ListTemplateStepGroupsPaginator(_ListTemplateStepGroupsPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/migrationhuborchestrator.html#MigrationHubOrchestrator.Paginator.ListTemplates)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migrationhuborchestrator/paginators.html#listtemplatespaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/migrationhuborchestrator/paginator/ListTemplateStepGroups.html#MigrationHubOrchestrator.Paginator.ListTemplateStepGroups)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_migrationhuborchestrator/paginators/#listtemplatestepgroupspaginator)
     """
-
-    def paginate(
-        self, *, name: str = None, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListMigrationWorkflowTemplatesResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListTemplateStepGroupsRequestPaginateTypeDef]
+    ) -> PageIterator[ListTemplateStepGroupsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/migrationhuborchestrator.html#MigrationHubOrchestrator.Paginator.ListTemplates.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migrationhuborchestrator/paginators.html#listtemplatespaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/migrationhuborchestrator/paginator/ListTemplateStepGroups.html#MigrationHubOrchestrator.Paginator.ListTemplateStepGroups.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_migrationhuborchestrator/paginators/#listtemplatestepgroupspaginator)
         """
 
-class ListWorkflowStepGroupsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/migrationhuborchestrator.html#MigrationHubOrchestrator.Paginator.ListWorkflowStepGroups)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migrationhuborchestrator/paginators.html#listworkflowstepgroupspaginator)
-    """
+if TYPE_CHECKING:
+    _ListTemplateStepsPaginatorBase = Paginator[ListTemplateStepsResponseTypeDef]
+else:
+    _ListTemplateStepsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, workflowId: str, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListWorkflowStepGroupsResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/migrationhuborchestrator.html#MigrationHubOrchestrator.Paginator.ListWorkflowStepGroups.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migrationhuborchestrator/paginators.html#listworkflowstepgroupspaginator)
-        """
-
-class ListWorkflowStepsPaginator(Boto3Paginator):
+class ListTemplateStepsPaginator(_ListTemplateStepsPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/migrationhuborchestrator.html#MigrationHubOrchestrator.Paginator.ListWorkflowSteps)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migrationhuborchestrator/paginators.html#listworkflowstepspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/migrationhuborchestrator/paginator/ListTemplateSteps.html#MigrationHubOrchestrator.Paginator.ListTemplateSteps)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_migrationhuborchestrator/paginators/#listtemplatestepspaginator)
     """
-
-    def paginate(
-        self, *, workflowId: str, stepGroupId: str, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListWorkflowStepsResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListTemplateStepsRequestPaginateTypeDef]
+    ) -> PageIterator[ListTemplateStepsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/migrationhuborchestrator.html#MigrationHubOrchestrator.Paginator.ListWorkflowSteps.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migrationhuborchestrator/paginators.html#listworkflowstepspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/migrationhuborchestrator/paginator/ListTemplateSteps.html#MigrationHubOrchestrator.Paginator.ListTemplateSteps.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_migrationhuborchestrator/paginators/#listtemplatestepspaginator)
         """
 
-class ListWorkflowsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/migrationhuborchestrator.html#MigrationHubOrchestrator.Paginator.ListWorkflows)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migrationhuborchestrator/paginators.html#listworkflowspaginator)
-    """
+if TYPE_CHECKING:
+    _ListTemplatesPaginatorBase = Paginator[ListMigrationWorkflowTemplatesResponseTypeDef]
+else:
+    _ListTemplatesPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        templateId: str = None,
-        adsApplicationConfigurationName: str = None,
-        status: MigrationWorkflowStatusEnumType = None,
-        name: str = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListMigrationWorkflowsResponseTypeDef]:
+class ListTemplatesPaginator(_ListTemplatesPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/migrationhuborchestrator/paginator/ListTemplates.html#MigrationHubOrchestrator.Paginator.ListTemplates)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_migrationhuborchestrator/paginators/#listtemplatespaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListMigrationWorkflowTemplatesRequestPaginateTypeDef]
+    ) -> PageIterator[ListMigrationWorkflowTemplatesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/migrationhuborchestrator.html#MigrationHubOrchestrator.Paginator.ListWorkflows.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_migrationhuborchestrator/paginators.html#listworkflowspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/migrationhuborchestrator/paginator/ListTemplates.html#MigrationHubOrchestrator.Paginator.ListTemplates.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_migrationhuborchestrator/paginators/#listtemplatespaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListWorkflowStepGroupsPaginatorBase = Paginator[ListWorkflowStepGroupsResponseTypeDef]
+else:
+    _ListWorkflowStepGroupsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListWorkflowStepGroupsPaginator(_ListWorkflowStepGroupsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/migrationhuborchestrator/paginator/ListWorkflowStepGroups.html#MigrationHubOrchestrator.Paginator.ListWorkflowStepGroups)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_migrationhuborchestrator/paginators/#listworkflowstepgroupspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListWorkflowStepGroupsRequestPaginateTypeDef]
+    ) -> PageIterator[ListWorkflowStepGroupsResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/migrationhuborchestrator/paginator/ListWorkflowStepGroups.html#MigrationHubOrchestrator.Paginator.ListWorkflowStepGroups.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_migrationhuborchestrator/paginators/#listworkflowstepgroupspaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListWorkflowStepsPaginatorBase = Paginator[ListWorkflowStepsResponseTypeDef]
+else:
+    _ListWorkflowStepsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListWorkflowStepsPaginator(_ListWorkflowStepsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/migrationhuborchestrator/paginator/ListWorkflowSteps.html#MigrationHubOrchestrator.Paginator.ListWorkflowSteps)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_migrationhuborchestrator/paginators/#listworkflowstepspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListWorkflowStepsRequestPaginateTypeDef]
+    ) -> PageIterator[ListWorkflowStepsResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/migrationhuborchestrator/paginator/ListWorkflowSteps.html#MigrationHubOrchestrator.Paginator.ListWorkflowSteps.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_migrationhuborchestrator/paginators/#listworkflowstepspaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListWorkflowsPaginatorBase = Paginator[ListMigrationWorkflowsResponseTypeDef]
+else:
+    _ListWorkflowsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListWorkflowsPaginator(_ListWorkflowsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/migrationhuborchestrator/paginator/ListWorkflows.html#MigrationHubOrchestrator.Paginator.ListWorkflows)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_migrationhuborchestrator/paginators/#listworkflowspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListMigrationWorkflowsRequestPaginateTypeDef]
+    ) -> PageIterator[ListMigrationWorkflowsResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/migrationhuborchestrator/paginator/ListWorkflows.html#MigrationHubOrchestrator.Paginator.ListWorkflows.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_migrationhuborchestrator/paginators/#listworkflowspaginator)
         """

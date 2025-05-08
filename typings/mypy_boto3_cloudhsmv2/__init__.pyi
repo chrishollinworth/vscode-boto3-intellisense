@@ -1,10 +1,14 @@
 """
 Main interface for cloudhsmv2 service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudhsmv2/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_cloudhsmv2 import (
         Client,
         CloudHSMV2Client,
@@ -13,10 +17,8 @@ Usage::
         ListTagsPaginator,
     )
 
-    session = boto3.Session()
-
-    client: CloudHSMV2Client = boto3.client("cloudhsmv2")
-    session_client: CloudHSMV2Client = session.client("cloudhsmv2")
+    session = Session()
+    client: CloudHSMV2Client = session.client("cloudhsmv2")
 
     describe_backups_paginator: DescribeBackupsPaginator = client.get_paginator("describe_backups")
     describe_clusters_paginator: DescribeClustersPaginator = client.get_paginator("describe_clusters")

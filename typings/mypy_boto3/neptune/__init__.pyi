@@ -1,10 +1,14 @@
 """
 Main interface for neptune service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_neptune/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_neptune import (
         Client,
         DBInstanceAvailableWaiter,
@@ -28,10 +32,8 @@ Usage::
         NeptuneClient,
     )
 
-    session = boto3.Session()
-
-    client: NeptuneClient = boto3.client("neptune")
-    session_client: NeptuneClient = session.client("neptune")
+    session = Session()
+    client: NeptuneClient = session.client("neptune")
 
     db_instance_available_waiter: DBInstanceAvailableWaiter = client.get_waiter("db_instance_available")
     db_instance_deleted_waiter: DBInstanceDeletedWaiter = client.get_waiter("db_instance_deleted")

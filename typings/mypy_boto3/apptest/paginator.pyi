@@ -1,14 +1,16 @@
 """
 Type annotations for apptest service client paginators.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apptest/paginators.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_apptest/paginators/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
 
-    from mypy_boto3_apptest import MainframeModernizationApplicationTestingClient
+    from mypy_boto3_apptest.client import MainframeModernizationApplicationTestingClient
     from mypy_boto3_apptest.paginator import (
         ListTestCasesPaginator,
         ListTestConfigurationsPaginator,
@@ -18,7 +20,8 @@ Usage::
         ListTestSuitesPaginator,
     )
 
-    client: MainframeModernizationApplicationTestingClient = boto3.client("apptest")
+    session = Session()
+    client: MainframeModernizationApplicationTestingClient = session.client("apptest")
 
     list_test_cases_paginator: ListTestCasesPaginator = client.get_paginator("list_test_cases")
     list_test_configurations_paginator: ListTestConfigurationsPaginator = client.get_paginator("list_test_configurations")
@@ -29,19 +32,32 @@ Usage::
     ```
 """
 
-from typing import Iterator, List
+from __future__ import annotations
 
-from botocore.paginate import Paginator as Boto3Paginator
+import sys
+from typing import TYPE_CHECKING
+
+from botocore.paginate import PageIterator, Paginator
 
 from .type_defs import (
+    ListTestCasesRequestPaginateTypeDef,
     ListTestCasesResponseTypeDef,
+    ListTestConfigurationsRequestPaginateTypeDef,
     ListTestConfigurationsResponseTypeDef,
+    ListTestRunsRequestPaginateTypeDef,
     ListTestRunsResponseTypeDef,
+    ListTestRunStepsRequestPaginateTypeDef,
     ListTestRunStepsResponseTypeDef,
+    ListTestRunTestCasesRequestPaginateTypeDef,
     ListTestRunTestCasesResponseTypeDef,
+    ListTestSuitesRequestPaginateTypeDef,
     ListTestSuitesResponseTypeDef,
-    PaginatorConfigTypeDef,
 )
+
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = (
     "ListTestCasesPaginator",
@@ -52,98 +68,110 @@ __all__ = (
     "ListTestSuitesPaginator",
 )
 
-class ListTestCasesPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apptest.html#MainframeModernizationApplicationTesting.Paginator.ListTestCases)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apptest/paginators.html#listtestcasespaginator)
-    """
+if TYPE_CHECKING:
+    _ListTestCasesPaginatorBase = Paginator[ListTestCasesResponseTypeDef]
+else:
+    _ListTestCasesPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, testCaseIds: List[str] = None, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListTestCasesResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apptest.html#MainframeModernizationApplicationTesting.Paginator.ListTestCases.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apptest/paginators.html#listtestcasespaginator)
-        """
-
-class ListTestConfigurationsPaginator(Boto3Paginator):
+class ListTestCasesPaginator(_ListTestCasesPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apptest.html#MainframeModernizationApplicationTesting.Paginator.ListTestConfigurations)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apptest/paginators.html#listtestconfigurationspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apptest/paginator/ListTestCases.html#MainframeModernizationApplicationTesting.Paginator.ListTestCases)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_apptest/paginators/#listtestcasespaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        testConfigurationIds: List[str] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListTestConfigurationsResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListTestCasesRequestPaginateTypeDef]
+    ) -> PageIterator[ListTestCasesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apptest.html#MainframeModernizationApplicationTesting.Paginator.ListTestConfigurations.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apptest/paginators.html#listtestconfigurationspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apptest/paginator/ListTestCases.html#MainframeModernizationApplicationTesting.Paginator.ListTestCases.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_apptest/paginators/#listtestcasespaginator)
         """
 
-class ListTestRunStepsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apptest.html#MainframeModernizationApplicationTesting.Paginator.ListTestRunSteps)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apptest/paginators.html#listtestrunstepspaginator)
-    """
+if TYPE_CHECKING:
+    _ListTestConfigurationsPaginatorBase = Paginator[ListTestConfigurationsResponseTypeDef]
+else:
+    _ListTestConfigurationsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        testRunId: str,
-        testCaseId: str = None,
-        testSuiteId: str = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListTestRunStepsResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apptest.html#MainframeModernizationApplicationTesting.Paginator.ListTestRunSteps.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apptest/paginators.html#listtestrunstepspaginator)
-        """
-
-class ListTestRunTestCasesPaginator(Boto3Paginator):
+class ListTestConfigurationsPaginator(_ListTestConfigurationsPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apptest.html#MainframeModernizationApplicationTesting.Paginator.ListTestRunTestCases)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apptest/paginators.html#listtestruntestcasespaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apptest/paginator/ListTestConfigurations.html#MainframeModernizationApplicationTesting.Paginator.ListTestConfigurations)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_apptest/paginators/#listtestconfigurationspaginator)
     """
-
-    def paginate(
-        self, *, testRunId: str, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListTestRunTestCasesResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListTestConfigurationsRequestPaginateTypeDef]
+    ) -> PageIterator[ListTestConfigurationsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apptest.html#MainframeModernizationApplicationTesting.Paginator.ListTestRunTestCases.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apptest/paginators.html#listtestruntestcasespaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apptest/paginator/ListTestConfigurations.html#MainframeModernizationApplicationTesting.Paginator.ListTestConfigurations.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_apptest/paginators/#listtestconfigurationspaginator)
         """
 
-class ListTestRunsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apptest.html#MainframeModernizationApplicationTesting.Paginator.ListTestRuns)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apptest/paginators.html#listtestrunspaginator)
-    """
+if TYPE_CHECKING:
+    _ListTestRunStepsPaginatorBase = Paginator[ListTestRunStepsResponseTypeDef]
+else:
+    _ListTestRunStepsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        testSuiteId: str = None,
-        testRunIds: List[str] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListTestRunsResponseTypeDef]:
+class ListTestRunStepsPaginator(_ListTestRunStepsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apptest/paginator/ListTestRunSteps.html#MainframeModernizationApplicationTesting.Paginator.ListTestRunSteps)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_apptest/paginators/#listtestrunstepspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListTestRunStepsRequestPaginateTypeDef]
+    ) -> PageIterator[ListTestRunStepsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apptest.html#MainframeModernizationApplicationTesting.Paginator.ListTestRuns.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apptest/paginators.html#listtestrunspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apptest/paginator/ListTestRunSteps.html#MainframeModernizationApplicationTesting.Paginator.ListTestRunSteps.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_apptest/paginators/#listtestrunstepspaginator)
         """
 
-class ListTestSuitesPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apptest.html#MainframeModernizationApplicationTesting.Paginator.ListTestSuites)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apptest/paginators.html#listtestsuitespaginator)
-    """
+if TYPE_CHECKING:
+    _ListTestRunTestCasesPaginatorBase = Paginator[ListTestRunTestCasesResponseTypeDef]
+else:
+    _ListTestRunTestCasesPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, testSuiteIds: List[str] = None, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListTestSuitesResponseTypeDef]:
+class ListTestRunTestCasesPaginator(_ListTestRunTestCasesPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apptest/paginator/ListTestRunTestCases.html#MainframeModernizationApplicationTesting.Paginator.ListTestRunTestCases)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_apptest/paginators/#listtestruntestcasespaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListTestRunTestCasesRequestPaginateTypeDef]
+    ) -> PageIterator[ListTestRunTestCasesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/apptest.html#MainframeModernizationApplicationTesting.Paginator.ListTestSuites.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_apptest/paginators.html#listtestsuitespaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apptest/paginator/ListTestRunTestCases.html#MainframeModernizationApplicationTesting.Paginator.ListTestRunTestCases.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_apptest/paginators/#listtestruntestcasespaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListTestRunsPaginatorBase = Paginator[ListTestRunsResponseTypeDef]
+else:
+    _ListTestRunsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListTestRunsPaginator(_ListTestRunsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apptest/paginator/ListTestRuns.html#MainframeModernizationApplicationTesting.Paginator.ListTestRuns)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_apptest/paginators/#listtestrunspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListTestRunsRequestPaginateTypeDef]
+    ) -> PageIterator[ListTestRunsResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apptest/paginator/ListTestRuns.html#MainframeModernizationApplicationTesting.Paginator.ListTestRuns.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_apptest/paginators/#listtestrunspaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListTestSuitesPaginatorBase = Paginator[ListTestSuitesResponseTypeDef]
+else:
+    _ListTestSuitesPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListTestSuitesPaginator(_ListTestSuitesPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apptest/paginator/ListTestSuites.html#MainframeModernizationApplicationTesting.Paginator.ListTestSuites)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_apptest/paginators/#listtestsuitespaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListTestSuitesRequestPaginateTypeDef]
+    ) -> PageIterator[ListTestSuitesResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apptest/paginator/ListTestSuites.html#MainframeModernizationApplicationTesting.Paginator.ListTestSuites.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_apptest/paginators/#listtestsuitespaginator)
         """

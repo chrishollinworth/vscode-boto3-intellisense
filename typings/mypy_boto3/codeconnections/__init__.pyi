@@ -1,19 +1,21 @@
 """
 Main interface for codeconnections service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codeconnections/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_codeconnections import (
         Client,
         CodeConnectionsClient,
     )
 
-    session = boto3.Session()
-
-    client: CodeConnectionsClient = boto3.client("codeconnections")
-    session_client: CodeConnectionsClient = session.client("codeconnections")
+    session = Session()
+    client: CodeConnectionsClient = session.client("codeconnections")
     ```
 """
 

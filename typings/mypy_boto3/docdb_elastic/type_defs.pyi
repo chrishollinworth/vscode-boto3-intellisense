@@ -1,500 +1,343 @@
 """
 Type annotations for docdb-elastic service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_docdb_elastic/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_docdb_elastic/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_docdb_elastic.type_defs import ClusterInListTypeDef
+    from mypy_boto3_docdb_elastic.type_defs import ApplyPendingMaintenanceActionInputTypeDef
 
-    data: ClusterInListTypeDef = {...}
+    data: ApplyPendingMaintenanceActionInputTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from typing import Any, Dict, List
 
-from .literals import AuthType, SnapshotTypeType, StatusType
+from .literals import AuthType, OptInTypeType, SnapshotTypeType, StatusType
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
+    "ApplyPendingMaintenanceActionInputTypeDef",
+    "ApplyPendingMaintenanceActionOutputTypeDef",
     "ClusterInListTypeDef",
     "ClusterSnapshotInListTypeDef",
     "ClusterSnapshotTypeDef",
     "ClusterTypeDef",
-    "CopyClusterSnapshotInputRequestTypeDef",
+    "CopyClusterSnapshotInputTypeDef",
     "CopyClusterSnapshotOutputTypeDef",
-    "CreateClusterInputRequestTypeDef",
+    "CreateClusterInputTypeDef",
     "CreateClusterOutputTypeDef",
-    "CreateClusterSnapshotInputRequestTypeDef",
+    "CreateClusterSnapshotInputTypeDef",
     "CreateClusterSnapshotOutputTypeDef",
-    "DeleteClusterInputRequestTypeDef",
+    "DeleteClusterInputTypeDef",
     "DeleteClusterOutputTypeDef",
-    "DeleteClusterSnapshotInputRequestTypeDef",
+    "DeleteClusterSnapshotInputTypeDef",
     "DeleteClusterSnapshotOutputTypeDef",
-    "GetClusterInputRequestTypeDef",
+    "GetClusterInputTypeDef",
     "GetClusterOutputTypeDef",
-    "GetClusterSnapshotInputRequestTypeDef",
+    "GetClusterSnapshotInputTypeDef",
     "GetClusterSnapshotOutputTypeDef",
-    "ListClusterSnapshotsInputRequestTypeDef",
+    "GetPendingMaintenanceActionInputTypeDef",
+    "GetPendingMaintenanceActionOutputTypeDef",
+    "ListClusterSnapshotsInputPaginateTypeDef",
+    "ListClusterSnapshotsInputTypeDef",
     "ListClusterSnapshotsOutputTypeDef",
-    "ListClustersInputRequestTypeDef",
+    "ListClustersInputPaginateTypeDef",
+    "ListClustersInputTypeDef",
     "ListClustersOutputTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListPendingMaintenanceActionsInputPaginateTypeDef",
+    "ListPendingMaintenanceActionsInputTypeDef",
+    "ListPendingMaintenanceActionsOutputTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "PaginatorConfigTypeDef",
+    "PendingMaintenanceActionDetailsTypeDef",
+    "ResourcePendingMaintenanceActionTypeDef",
     "ResponseMetadataTypeDef",
-    "RestoreClusterFromSnapshotInputRequestTypeDef",
+    "RestoreClusterFromSnapshotInputTypeDef",
     "RestoreClusterFromSnapshotOutputTypeDef",
     "ShardTypeDef",
-    "StartClusterInputRequestTypeDef",
+    "StartClusterInputTypeDef",
     "StartClusterOutputTypeDef",
-    "StopClusterInputRequestTypeDef",
+    "StopClusterInputTypeDef",
     "StopClusterOutputTypeDef",
-    "TagResourceRequestRequestTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateClusterInputRequestTypeDef",
+    "TagResourceRequestTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateClusterInputTypeDef",
     "UpdateClusterOutputTypeDef",
 )
 
-ClusterInListTypeDef = TypedDict(
-    "ClusterInListTypeDef",
-    {
-        "clusterArn": str,
-        "clusterName": str,
-        "status": StatusType,
-    },
-)
+class ApplyPendingMaintenanceActionInputTypeDef(TypedDict):
+    applyAction: str
+    optInType: OptInTypeType
+    resourceArn: str
+    applyOn: NotRequired[str]
 
-ClusterSnapshotInListTypeDef = TypedDict(
-    "ClusterSnapshotInListTypeDef",
-    {
-        "clusterArn": str,
-        "snapshotArn": str,
-        "snapshotCreationTime": str,
-        "snapshotName": str,
-        "status": StatusType,
-    },
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-_RequiredClusterSnapshotTypeDef = TypedDict(
-    "_RequiredClusterSnapshotTypeDef",
-    {
-        "adminUserName": str,
-        "clusterArn": str,
-        "clusterCreationTime": str,
-        "kmsKeyId": str,
-        "snapshotArn": str,
-        "snapshotCreationTime": str,
-        "snapshotName": str,
-        "status": StatusType,
-        "subnetIds": List[str],
-        "vpcSecurityGroupIds": List[str],
-    },
-)
-_OptionalClusterSnapshotTypeDef = TypedDict(
-    "_OptionalClusterSnapshotTypeDef",
-    {
-        "snapshotType": SnapshotTypeType,
-    },
-    total=False,
-)
+class ClusterInListTypeDef(TypedDict):
+    clusterArn: str
+    clusterName: str
+    status: StatusType
 
-class ClusterSnapshotTypeDef(_RequiredClusterSnapshotTypeDef, _OptionalClusterSnapshotTypeDef):
-    pass
+class ClusterSnapshotInListTypeDef(TypedDict):
+    clusterArn: str
+    snapshotArn: str
+    snapshotCreationTime: str
+    snapshotName: str
+    status: StatusType
 
-_RequiredClusterTypeDef = TypedDict(
-    "_RequiredClusterTypeDef",
-    {
-        "adminUserName": str,
-        "authType": AuthType,
-        "clusterArn": str,
-        "clusterEndpoint": str,
-        "clusterName": str,
-        "createTime": str,
-        "kmsKeyId": str,
-        "preferredMaintenanceWindow": str,
-        "shardCapacity": int,
-        "shardCount": int,
-        "status": StatusType,
-        "subnetIds": List[str],
-        "vpcSecurityGroupIds": List[str],
-    },
-)
-_OptionalClusterTypeDef = TypedDict(
-    "_OptionalClusterTypeDef",
-    {
-        "backupRetentionPeriod": int,
-        "preferredBackupWindow": str,
-        "shardInstanceCount": int,
-        "shards": List["ShardTypeDef"],
-    },
-    total=False,
-)
+class ClusterSnapshotTypeDef(TypedDict):
+    adminUserName: str
+    clusterArn: str
+    clusterCreationTime: str
+    kmsKeyId: str
+    snapshotArn: str
+    snapshotCreationTime: str
+    snapshotName: str
+    status: StatusType
+    subnetIds: List[str]
+    vpcSecurityGroupIds: List[str]
+    snapshotType: NotRequired[SnapshotTypeType]
 
-class ClusterTypeDef(_RequiredClusterTypeDef, _OptionalClusterTypeDef):
-    pass
+class ShardTypeDef(TypedDict):
+    createTime: str
+    shardId: str
+    status: StatusType
 
-_RequiredCopyClusterSnapshotInputRequestTypeDef = TypedDict(
-    "_RequiredCopyClusterSnapshotInputRequestTypeDef",
-    {
-        "snapshotArn": str,
-        "targetSnapshotName": str,
-    },
-)
-_OptionalCopyClusterSnapshotInputRequestTypeDef = TypedDict(
-    "_OptionalCopyClusterSnapshotInputRequestTypeDef",
-    {
-        "copyTags": bool,
-        "kmsKeyId": str,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
+class CopyClusterSnapshotInputTypeDef(TypedDict):
+    snapshotArn: str
+    targetSnapshotName: str
+    copyTags: NotRequired[bool]
+    kmsKeyId: NotRequired[str]
+    tags: NotRequired[Mapping[str, str]]
 
-class CopyClusterSnapshotInputRequestTypeDef(
-    _RequiredCopyClusterSnapshotInputRequestTypeDef, _OptionalCopyClusterSnapshotInputRequestTypeDef
-):
-    pass
+class CreateClusterInputTypeDef(TypedDict):
+    adminUserName: str
+    adminUserPassword: str
+    authType: AuthType
+    clusterName: str
+    shardCapacity: int
+    shardCount: int
+    backupRetentionPeriod: NotRequired[int]
+    clientToken: NotRequired[str]
+    kmsKeyId: NotRequired[str]
+    preferredBackupWindow: NotRequired[str]
+    preferredMaintenanceWindow: NotRequired[str]
+    shardInstanceCount: NotRequired[int]
+    subnetIds: NotRequired[Sequence[str]]
+    tags: NotRequired[Mapping[str, str]]
+    vpcSecurityGroupIds: NotRequired[Sequence[str]]
 
-CopyClusterSnapshotOutputTypeDef = TypedDict(
-    "CopyClusterSnapshotOutputTypeDef",
-    {
-        "snapshot": "ClusterSnapshotTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CreateClusterSnapshotInputTypeDef(TypedDict):
+    clusterArn: str
+    snapshotName: str
+    tags: NotRequired[Mapping[str, str]]
 
-_RequiredCreateClusterInputRequestTypeDef = TypedDict(
-    "_RequiredCreateClusterInputRequestTypeDef",
-    {
-        "adminUserName": str,
-        "adminUserPassword": str,
-        "authType": AuthType,
-        "clusterName": str,
-        "shardCapacity": int,
-        "shardCount": int,
-    },
-)
-_OptionalCreateClusterInputRequestTypeDef = TypedDict(
-    "_OptionalCreateClusterInputRequestTypeDef",
-    {
-        "backupRetentionPeriod": int,
-        "clientToken": str,
-        "kmsKeyId": str,
-        "preferredBackupWindow": str,
-        "preferredMaintenanceWindow": str,
-        "shardInstanceCount": int,
-        "subnetIds": List[str],
-        "tags": Dict[str, str],
-        "vpcSecurityGroupIds": List[str],
-    },
-    total=False,
-)
+class DeleteClusterInputTypeDef(TypedDict):
+    clusterArn: str
 
-class CreateClusterInputRequestTypeDef(
-    _RequiredCreateClusterInputRequestTypeDef, _OptionalCreateClusterInputRequestTypeDef
-):
-    pass
+class DeleteClusterSnapshotInputTypeDef(TypedDict):
+    snapshotArn: str
 
-CreateClusterOutputTypeDef = TypedDict(
-    "CreateClusterOutputTypeDef",
-    {
-        "cluster": "ClusterTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetClusterInputTypeDef(TypedDict):
+    clusterArn: str
 
-_RequiredCreateClusterSnapshotInputRequestTypeDef = TypedDict(
-    "_RequiredCreateClusterSnapshotInputRequestTypeDef",
-    {
-        "clusterArn": str,
-        "snapshotName": str,
-    },
-)
-_OptionalCreateClusterSnapshotInputRequestTypeDef = TypedDict(
-    "_OptionalCreateClusterSnapshotInputRequestTypeDef",
-    {
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
+class GetClusterSnapshotInputTypeDef(TypedDict):
+    snapshotArn: str
 
-class CreateClusterSnapshotInputRequestTypeDef(
-    _RequiredCreateClusterSnapshotInputRequestTypeDef,
-    _OptionalCreateClusterSnapshotInputRequestTypeDef,
-):
-    pass
+class GetPendingMaintenanceActionInputTypeDef(TypedDict):
+    resourceArn: str
 
-CreateClusterSnapshotOutputTypeDef = TypedDict(
-    "CreateClusterSnapshotOutputTypeDef",
-    {
-        "snapshot": "ClusterSnapshotTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
 
-DeleteClusterInputRequestTypeDef = TypedDict(
-    "DeleteClusterInputRequestTypeDef",
-    {
-        "clusterArn": str,
-    },
-)
+class ListClusterSnapshotsInputTypeDef(TypedDict):
+    clusterArn: NotRequired[str]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+    snapshotType: NotRequired[str]
 
-DeleteClusterOutputTypeDef = TypedDict(
-    "DeleteClusterOutputTypeDef",
-    {
-        "cluster": "ClusterTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListClustersInputTypeDef(TypedDict):
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
 
-DeleteClusterSnapshotInputRequestTypeDef = TypedDict(
-    "DeleteClusterSnapshotInputRequestTypeDef",
-    {
-        "snapshotArn": str,
-    },
-)
+class ListPendingMaintenanceActionsInputTypeDef(TypedDict):
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
 
-DeleteClusterSnapshotOutputTypeDef = TypedDict(
-    "DeleteClusterSnapshotOutputTypeDef",
-    {
-        "snapshot": "ClusterSnapshotTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    resourceArn: str
 
-GetClusterInputRequestTypeDef = TypedDict(
-    "GetClusterInputRequestTypeDef",
-    {
-        "clusterArn": str,
-    },
-)
+class PendingMaintenanceActionDetailsTypeDef(TypedDict):
+    action: str
+    autoAppliedAfterDate: NotRequired[str]
+    currentApplyDate: NotRequired[str]
+    description: NotRequired[str]
+    forcedApplyDate: NotRequired[str]
+    optInStatus: NotRequired[str]
 
-GetClusterOutputTypeDef = TypedDict(
-    "GetClusterOutputTypeDef",
-    {
-        "cluster": "ClusterTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class RestoreClusterFromSnapshotInputTypeDef(TypedDict):
+    clusterName: str
+    snapshotArn: str
+    kmsKeyId: NotRequired[str]
+    shardCapacity: NotRequired[int]
+    shardInstanceCount: NotRequired[int]
+    subnetIds: NotRequired[Sequence[str]]
+    tags: NotRequired[Mapping[str, str]]
+    vpcSecurityGroupIds: NotRequired[Sequence[str]]
 
-GetClusterSnapshotInputRequestTypeDef = TypedDict(
-    "GetClusterSnapshotInputRequestTypeDef",
-    {
-        "snapshotArn": str,
-    },
-)
+class StartClusterInputTypeDef(TypedDict):
+    clusterArn: str
 
-GetClusterSnapshotOutputTypeDef = TypedDict(
-    "GetClusterSnapshotOutputTypeDef",
-    {
-        "snapshot": "ClusterSnapshotTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class StopClusterInputTypeDef(TypedDict):
+    clusterArn: str
 
-ListClusterSnapshotsInputRequestTypeDef = TypedDict(
-    "ListClusterSnapshotsInputRequestTypeDef",
-    {
-        "clusterArn": str,
-        "maxResults": int,
-        "nextToken": str,
-        "snapshotType": str,
-    },
-    total=False,
-)
+class TagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tags: Mapping[str, str]
 
-ListClusterSnapshotsOutputTypeDef = TypedDict(
-    "ListClusterSnapshotsOutputTypeDef",
-    {
-        "nextToken": str,
-        "snapshots": List["ClusterSnapshotInListTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class UntagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tagKeys: Sequence[str]
 
-ListClustersInputRequestTypeDef = TypedDict(
-    "ListClustersInputRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
+class UpdateClusterInputTypeDef(TypedDict):
+    clusterArn: str
+    adminUserPassword: NotRequired[str]
+    authType: NotRequired[AuthType]
+    backupRetentionPeriod: NotRequired[int]
+    clientToken: NotRequired[str]
+    preferredBackupWindow: NotRequired[str]
+    preferredMaintenanceWindow: NotRequired[str]
+    shardCapacity: NotRequired[int]
+    shardCount: NotRequired[int]
+    shardInstanceCount: NotRequired[int]
+    subnetIds: NotRequired[Sequence[str]]
+    vpcSecurityGroupIds: NotRequired[Sequence[str]]
 
-ListClustersOutputTypeDef = TypedDict(
-    "ListClustersOutputTypeDef",
-    {
-        "clusters": List["ClusterInListTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-    },
-)
+class ListClustersOutputTypeDef(TypedDict):
+    clusters: List[ClusterInListTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListClusterSnapshotsOutputTypeDef(TypedDict):
+    snapshots: List[ClusterSnapshotInListTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
+class CopyClusterSnapshotOutputTypeDef(TypedDict):
+    snapshot: ClusterSnapshotTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
+class CreateClusterSnapshotOutputTypeDef(TypedDict):
+    snapshot: ClusterSnapshotTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredRestoreClusterFromSnapshotInputRequestTypeDef = TypedDict(
-    "_RequiredRestoreClusterFromSnapshotInputRequestTypeDef",
-    {
-        "clusterName": str,
-        "snapshotArn": str,
-    },
-)
-_OptionalRestoreClusterFromSnapshotInputRequestTypeDef = TypedDict(
-    "_OptionalRestoreClusterFromSnapshotInputRequestTypeDef",
-    {
-        "kmsKeyId": str,
-        "shardCapacity": int,
-        "shardInstanceCount": int,
-        "subnetIds": List[str],
-        "tags": Dict[str, str],
-        "vpcSecurityGroupIds": List[str],
-    },
-    total=False,
-)
+class DeleteClusterSnapshotOutputTypeDef(TypedDict):
+    snapshot: ClusterSnapshotTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class RestoreClusterFromSnapshotInputRequestTypeDef(
-    _RequiredRestoreClusterFromSnapshotInputRequestTypeDef,
-    _OptionalRestoreClusterFromSnapshotInputRequestTypeDef,
-):
-    pass
+class GetClusterSnapshotOutputTypeDef(TypedDict):
+    snapshot: ClusterSnapshotTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-RestoreClusterFromSnapshotOutputTypeDef = TypedDict(
-    "RestoreClusterFromSnapshotOutputTypeDef",
-    {
-        "cluster": "ClusterTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ClusterTypeDef(TypedDict):
+    adminUserName: str
+    authType: AuthType
+    clusterArn: str
+    clusterEndpoint: str
+    clusterName: str
+    createTime: str
+    kmsKeyId: str
+    preferredMaintenanceWindow: str
+    shardCapacity: int
+    shardCount: int
+    status: StatusType
+    subnetIds: List[str]
+    vpcSecurityGroupIds: List[str]
+    backupRetentionPeriod: NotRequired[int]
+    preferredBackupWindow: NotRequired[str]
+    shardInstanceCount: NotRequired[int]
+    shards: NotRequired[List[ShardTypeDef]]
 
-ShardTypeDef = TypedDict(
-    "ShardTypeDef",
-    {
-        "createTime": str,
-        "shardId": str,
-        "status": StatusType,
-    },
-)
+class ListClusterSnapshotsInputPaginateTypeDef(TypedDict):
+    clusterArn: NotRequired[str]
+    snapshotType: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-StartClusterInputRequestTypeDef = TypedDict(
-    "StartClusterInputRequestTypeDef",
-    {
-        "clusterArn": str,
-    },
-)
+class ListClustersInputPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-StartClusterOutputTypeDef = TypedDict(
-    "StartClusterOutputTypeDef",
-    {
-        "cluster": "ClusterTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListPendingMaintenanceActionsInputPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-StopClusterInputRequestTypeDef = TypedDict(
-    "StopClusterInputRequestTypeDef",
-    {
-        "clusterArn": str,
-    },
-)
+class ResourcePendingMaintenanceActionTypeDef(TypedDict):
+    pendingMaintenanceActionDetails: NotRequired[List[PendingMaintenanceActionDetailsTypeDef]]
+    resourceArn: NotRequired[str]
 
-StopClusterOutputTypeDef = TypedDict(
-    "StopClusterOutputTypeDef",
-    {
-        "cluster": "ClusterTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CreateClusterOutputTypeDef(TypedDict):
+    cluster: ClusterTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tags": Dict[str, str],
-    },
-)
+class DeleteClusterOutputTypeDef(TypedDict):
+    cluster: ClusterTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tagKeys": List[str],
-    },
-)
+class GetClusterOutputTypeDef(TypedDict):
+    cluster: ClusterTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredUpdateClusterInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateClusterInputRequestTypeDef",
-    {
-        "clusterArn": str,
-    },
-)
-_OptionalUpdateClusterInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateClusterInputRequestTypeDef",
-    {
-        "adminUserPassword": str,
-        "authType": AuthType,
-        "backupRetentionPeriod": int,
-        "clientToken": str,
-        "preferredBackupWindow": str,
-        "preferredMaintenanceWindow": str,
-        "shardCapacity": int,
-        "shardCount": int,
-        "shardInstanceCount": int,
-        "subnetIds": List[str],
-        "vpcSecurityGroupIds": List[str],
-    },
-    total=False,
-)
+class RestoreClusterFromSnapshotOutputTypeDef(TypedDict):
+    cluster: ClusterTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateClusterInputRequestTypeDef(
-    _RequiredUpdateClusterInputRequestTypeDef, _OptionalUpdateClusterInputRequestTypeDef
-):
-    pass
+class StartClusterOutputTypeDef(TypedDict):
+    cluster: ClusterTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-UpdateClusterOutputTypeDef = TypedDict(
-    "UpdateClusterOutputTypeDef",
-    {
-        "cluster": "ClusterTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class StopClusterOutputTypeDef(TypedDict):
+    cluster: ClusterTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateClusterOutputTypeDef(TypedDict):
+    cluster: ClusterTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ApplyPendingMaintenanceActionOutputTypeDef(TypedDict):
+    resourcePendingMaintenanceAction: ResourcePendingMaintenanceActionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetPendingMaintenanceActionOutputTypeDef(TypedDict):
+    resourcePendingMaintenanceAction: ResourcePendingMaintenanceActionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListPendingMaintenanceActionsOutputTypeDef(TypedDict):
+    resourcePendingMaintenanceActions: List[ResourcePendingMaintenanceActionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]

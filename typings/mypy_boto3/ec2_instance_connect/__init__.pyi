@@ -1,19 +1,21 @@
 """
 Main interface for ec2-instance-connect service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ec2_instance_connect/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_ec2_instance_connect import (
         Client,
         EC2InstanceConnectClient,
     )
 
-    session = boto3.Session()
-
-    client: EC2InstanceConnectClient = boto3.client("ec2-instance-connect")
-    session_client: EC2InstanceConnectClient = session.client("ec2-instance-connect")
+    session = Session()
+    client: EC2InstanceConnectClient = session.client("ec2-instance-connect")
     ```
 """
 

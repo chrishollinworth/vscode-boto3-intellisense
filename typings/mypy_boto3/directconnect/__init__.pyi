@@ -1,10 +1,14 @@
 """
 Main interface for directconnect service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_directconnect/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_directconnect import (
         Client,
         DescribeDirectConnectGatewayAssociationsPaginator,
@@ -13,10 +17,8 @@ Usage::
         DirectConnectClient,
     )
 
-    session = boto3.Session()
-
-    client: DirectConnectClient = boto3.client("directconnect")
-    session_client: DirectConnectClient = session.client("directconnect")
+    session = Session()
+    client: DirectConnectClient = session.client("directconnect")
 
     describe_direct_connect_gateway_associations_paginator: DescribeDirectConnectGatewayAssociationsPaginator = client.get_paginator("describe_direct_connect_gateway_associations")
     describe_direct_connect_gateway_attachments_paginator: DescribeDirectConnectGatewayAttachmentsPaginator = client.get_paginator("describe_direct_connect_gateway_attachments")

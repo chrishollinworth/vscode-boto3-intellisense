@@ -1,14 +1,16 @@
 """
 Type annotations for dynamodb service client paginators.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dynamodb/paginators.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dynamodb/paginators/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
 
-    from mypy_boto3_dynamodb import DynamoDBClient
+    from mypy_boto3_dynamodb.client import DynamoDBClient
     from mypy_boto3_dynamodb.paginator import (
         ListBackupsPaginator,
         ListTablesPaginator,
@@ -17,7 +19,8 @@ Usage::
         ScanPaginator,
     )
 
-    client: DynamoDBClient = boto3.client("dynamodb")
+    session = Session()
+    client: DynamoDBClient = session.client("dynamodb")
 
     list_backups_paginator: ListBackupsPaginator = client.get_paginator("list_backups")
     list_tables_paginator: ListTablesPaginator = client.get_paginator("list_tables")
@@ -27,27 +30,30 @@ Usage::
     ```
 """
 
-from datetime import datetime
-from decimal import Decimal
-from typing import Any, Dict, Iterator, List, Set, Union
+from __future__ import annotations
 
-from botocore.paginate import Paginator as Boto3Paginator
+import sys
+from typing import TYPE_CHECKING
 
-from .literals import (
-    BackupTypeFilterType,
-    ConditionalOperatorType,
-    ReturnConsumedCapacityType,
-    SelectType,
-)
+from botocore.paginate import PageIterator, Paginator
+
 from .type_defs import (
-    ConditionTypeDef,
+    ListBackupsInputPaginateTypeDef,
     ListBackupsOutputTypeDef,
+    ListTablesInputPaginateTypeDef,
     ListTablesOutputTypeDef,
+    ListTagsOfResourceInputPaginateTypeDef,
     ListTagsOfResourceOutputTypeDef,
-    PaginatorConfigTypeDef,
+    QueryInputPaginateTypeDef,
     QueryOutputTypeDef,
+    ScanInputPaginateTypeDef,
     ScanOutputTypeDef,
 )
+
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = (
     "ListBackupsPaginator",
@@ -57,147 +63,92 @@ __all__ = (
     "ScanPaginator",
 )
 
-class ListBackupsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dynamodb.html#DynamoDB.Paginator.ListBackups)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dynamodb/paginators.html#listbackupspaginator)
-    """
+if TYPE_CHECKING:
+    _ListBackupsPaginatorBase = Paginator[ListBackupsOutputTypeDef]
+else:
+    _ListBackupsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        TableName: str = None,
-        TimeRangeLowerBound: Union[datetime, str] = None,
-        TimeRangeUpperBound: Union[datetime, str] = None,
-        BackupType: BackupTypeFilterType = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListBackupsOutputTypeDef]:
+class ListBackupsPaginator(_ListBackupsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dynamodb/paginator/ListBackups.html#DynamoDB.Paginator.ListBackups)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dynamodb/paginators/#listbackupspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListBackupsInputPaginateTypeDef]
+    ) -> PageIterator[ListBackupsOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dynamodb.html#DynamoDB.Paginator.ListBackups.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dynamodb/paginators.html#listbackupspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dynamodb/paginator/ListBackups.html#DynamoDB.Paginator.ListBackups.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dynamodb/paginators/#listbackupspaginator)
         """
 
-class ListTablesPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dynamodb.html#DynamoDB.Paginator.ListTables)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dynamodb/paginators.html#listtablespaginator)
-    """
+if TYPE_CHECKING:
+    _ListTablesPaginatorBase = Paginator[ListTablesOutputTypeDef]
+else:
+    _ListTablesPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListTablesOutputTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dynamodb.html#DynamoDB.Paginator.ListTables.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dynamodb/paginators.html#listtablespaginator)
-        """
-
-class ListTagsOfResourcePaginator(Boto3Paginator):
+class ListTablesPaginator(_ListTablesPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dynamodb.html#DynamoDB.Paginator.ListTagsOfResource)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dynamodb/paginators.html#listtagsofresourcepaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dynamodb/paginator/ListTables.html#DynamoDB.Paginator.ListTables)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dynamodb/paginators/#listtablespaginator)
     """
-
-    def paginate(
-        self, *, ResourceArn: str, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListTagsOfResourceOutputTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListTablesInputPaginateTypeDef]
+    ) -> PageIterator[ListTablesOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dynamodb.html#DynamoDB.Paginator.ListTagsOfResource.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dynamodb/paginators.html#listtagsofresourcepaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dynamodb/paginator/ListTables.html#DynamoDB.Paginator.ListTables.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dynamodb/paginators/#listtablespaginator)
         """
 
-class QueryPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dynamodb.html#DynamoDB.Paginator.Query)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dynamodb/paginators.html#querypaginator)
-    """
+if TYPE_CHECKING:
+    _ListTagsOfResourcePaginatorBase = Paginator[ListTagsOfResourceOutputTypeDef]
+else:
+    _ListTagsOfResourcePaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        TableName: str,
-        IndexName: str = None,
-        Select: SelectType = None,
-        AttributesToGet: List[str] = None,
-        ConsistentRead: bool = None,
-        KeyConditions: Dict[str, "ConditionTypeDef"] = None,
-        QueryFilter: Dict[str, "ConditionTypeDef"] = None,
-        ConditionalOperator: ConditionalOperatorType = None,
-        ScanIndexForward: bool = None,
-        ReturnConsumedCapacity: ReturnConsumedCapacityType = None,
-        ProjectionExpression: str = None,
-        FilterExpression: str = None,
-        KeyConditionExpression: str = None,
-        ExpressionAttributeNames: Dict[str, str] = None,
-        ExpressionAttributeValues: Dict[
-            str,
-            Union[
-                bytes,
-                bytearray,
-                str,
-                int,
-                Decimal,
-                bool,
-                Set[int],
-                Set[Decimal],
-                Set[str],
-                Set[bytes],
-                Set[bytearray],
-                List[Any],
-                Dict[str, Any],
-                None,
-            ],
-        ] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[QueryOutputTypeDef]:
+class ListTagsOfResourcePaginator(_ListTagsOfResourcePaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dynamodb/paginator/ListTagsOfResource.html#DynamoDB.Paginator.ListTagsOfResource)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dynamodb/paginators/#listtagsofresourcepaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListTagsOfResourceInputPaginateTypeDef]
+    ) -> PageIterator[ListTagsOfResourceOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dynamodb.html#DynamoDB.Paginator.Query.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dynamodb/paginators.html#querypaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dynamodb/paginator/ListTagsOfResource.html#DynamoDB.Paginator.ListTagsOfResource.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dynamodb/paginators/#listtagsofresourcepaginator)
         """
 
-class ScanPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dynamodb.html#DynamoDB.Paginator.Scan)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dynamodb/paginators.html#scanpaginator)
-    """
+if TYPE_CHECKING:
+    _QueryPaginatorBase = Paginator[QueryOutputTypeDef]
+else:
+    _QueryPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        TableName: str,
-        IndexName: str = None,
-        AttributesToGet: List[str] = None,
-        Select: SelectType = None,
-        ScanFilter: Dict[str, "ConditionTypeDef"] = None,
-        ConditionalOperator: ConditionalOperatorType = None,
-        ReturnConsumedCapacity: ReturnConsumedCapacityType = None,
-        TotalSegments: int = None,
-        Segment: int = None,
-        ProjectionExpression: str = None,
-        FilterExpression: str = None,
-        ExpressionAttributeNames: Dict[str, str] = None,
-        ExpressionAttributeValues: Dict[
-            str,
-            Union[
-                bytes,
-                bytearray,
-                str,
-                int,
-                Decimal,
-                bool,
-                Set[int],
-                Set[Decimal],
-                Set[str],
-                Set[bytes],
-                Set[bytearray],
-                List[Any],
-                Dict[str, Any],
-                None,
-            ],
-        ] = None,
-        ConsistentRead: bool = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ScanOutputTypeDef]:
+class QueryPaginator(_QueryPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dynamodb/paginator/Query.html#DynamoDB.Paginator.Query)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dynamodb/paginators/#querypaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[QueryInputPaginateTypeDef]
+    ) -> PageIterator[QueryOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dynamodb.html#DynamoDB.Paginator.Scan.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dynamodb/paginators.html#scanpaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dynamodb/paginator/Query.html#DynamoDB.Paginator.Query.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dynamodb/paginators/#querypaginator)
+        """
+
+if TYPE_CHECKING:
+    _ScanPaginatorBase = Paginator[ScanOutputTypeDef]
+else:
+    _ScanPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ScanPaginator(_ScanPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dynamodb/paginator/Scan.html#DynamoDB.Paginator.Scan)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dynamodb/paginators/#scanpaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ScanInputPaginateTypeDef]
+    ) -> PageIterator[ScanOutputTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dynamodb/paginator/Scan.html#DynamoDB.Paginator.Scan.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dynamodb/paginators/#scanpaginator)
         """

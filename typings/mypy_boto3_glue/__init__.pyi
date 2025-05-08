@@ -1,12 +1,17 @@
 """
 Main interface for glue service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_glue/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_glue import (
         Client,
+        DescribeEntityPaginator,
         GetClassifiersPaginator,
         GetConnectionsPaginator,
         GetCrawlerMetricsPaginator,
@@ -26,20 +31,22 @@ Usage::
         GetWorkflowRunsPaginator,
         GlueClient,
         ListBlueprintsPaginator,
+        ListConnectionTypesPaginator,
+        ListEntitiesPaginator,
         ListJobsPaginator,
         ListRegistriesPaginator,
         ListSchemaVersionsPaginator,
         ListSchemasPaginator,
+        ListTableOptimizerRunsPaginator,
         ListTriggersPaginator,
         ListUsageProfilesPaginator,
         ListWorkflowsPaginator,
     )
 
-    session = boto3.Session()
+    session = Session()
+    client: GlueClient = session.client("glue")
 
-    client: GlueClient = boto3.client("glue")
-    session_client: GlueClient = session.client("glue")
-
+    describe_entity_paginator: DescribeEntityPaginator = client.get_paginator("describe_entity")
     get_classifiers_paginator: GetClassifiersPaginator = client.get_paginator("get_classifiers")
     get_connections_paginator: GetConnectionsPaginator = client.get_paginator("get_connections")
     get_crawler_metrics_paginator: GetCrawlerMetricsPaginator = client.get_paginator("get_crawler_metrics")
@@ -58,10 +65,13 @@ Usage::
     get_user_defined_functions_paginator: GetUserDefinedFunctionsPaginator = client.get_paginator("get_user_defined_functions")
     get_workflow_runs_paginator: GetWorkflowRunsPaginator = client.get_paginator("get_workflow_runs")
     list_blueprints_paginator: ListBlueprintsPaginator = client.get_paginator("list_blueprints")
+    list_connection_types_paginator: ListConnectionTypesPaginator = client.get_paginator("list_connection_types")
+    list_entities_paginator: ListEntitiesPaginator = client.get_paginator("list_entities")
     list_jobs_paginator: ListJobsPaginator = client.get_paginator("list_jobs")
     list_registries_paginator: ListRegistriesPaginator = client.get_paginator("list_registries")
     list_schema_versions_paginator: ListSchemaVersionsPaginator = client.get_paginator("list_schema_versions")
     list_schemas_paginator: ListSchemasPaginator = client.get_paginator("list_schemas")
+    list_table_optimizer_runs_paginator: ListTableOptimizerRunsPaginator = client.get_paginator("list_table_optimizer_runs")
     list_triggers_paginator: ListTriggersPaginator = client.get_paginator("list_triggers")
     list_usage_profiles_paginator: ListUsageProfilesPaginator = client.get_paginator("list_usage_profiles")
     list_workflows_paginator: ListWorkflowsPaginator = client.get_paginator("list_workflows")
@@ -70,6 +80,7 @@ Usage::
 
 from .client import GlueClient
 from .paginator import (
+    DescribeEntityPaginator,
     GetClassifiersPaginator,
     GetConnectionsPaginator,
     GetCrawlerMetricsPaginator,
@@ -88,10 +99,13 @@ from .paginator import (
     GetUserDefinedFunctionsPaginator,
     GetWorkflowRunsPaginator,
     ListBlueprintsPaginator,
+    ListConnectionTypesPaginator,
+    ListEntitiesPaginator,
     ListJobsPaginator,
     ListRegistriesPaginator,
     ListSchemasPaginator,
     ListSchemaVersionsPaginator,
+    ListTableOptimizerRunsPaginator,
     ListTriggersPaginator,
     ListUsageProfilesPaginator,
     ListWorkflowsPaginator,
@@ -101,6 +115,7 @@ Client = GlueClient
 
 __all__ = (
     "Client",
+    "DescribeEntityPaginator",
     "GetClassifiersPaginator",
     "GetConnectionsPaginator",
     "GetCrawlerMetricsPaginator",
@@ -120,10 +135,13 @@ __all__ = (
     "GetWorkflowRunsPaginator",
     "GlueClient",
     "ListBlueprintsPaginator",
+    "ListConnectionTypesPaginator",
+    "ListEntitiesPaginator",
     "ListJobsPaginator",
     "ListRegistriesPaginator",
     "ListSchemaVersionsPaginator",
     "ListSchemasPaginator",
+    "ListTableOptimizerRunsPaginator",
     "ListTriggersPaginator",
     "ListUsageProfilesPaginator",
     "ListWorkflowsPaginator",

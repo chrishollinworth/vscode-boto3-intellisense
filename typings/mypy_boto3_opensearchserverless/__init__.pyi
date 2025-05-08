@@ -1,19 +1,21 @@
 """
 Main interface for opensearchserverless service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_opensearchserverless/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_opensearchserverless import (
         Client,
         OpenSearchServiceServerlessClient,
     )
 
-    session = boto3.Session()
-
-    client: OpenSearchServiceServerlessClient = boto3.client("opensearchserverless")
-    session_client: OpenSearchServiceServerlessClient = session.client("opensearchserverless")
+    session = Session()
+    client: OpenSearchServiceServerlessClient = session.client("opensearchserverless")
     ```
 """
 

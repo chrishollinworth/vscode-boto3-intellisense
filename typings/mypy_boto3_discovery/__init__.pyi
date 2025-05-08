@@ -1,10 +1,14 @@
 """
 Main interface for discovery service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_discovery/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_discovery import (
         ApplicationDiscoveryServiceClient,
         Client,
@@ -17,10 +21,8 @@ Usage::
         ListConfigurationsPaginator,
     )
 
-    session = boto3.Session()
-
-    client: ApplicationDiscoveryServiceClient = boto3.client("discovery")
-    session_client: ApplicationDiscoveryServiceClient = session.client("discovery")
+    session = Session()
+    client: ApplicationDiscoveryServiceClient = session.client("discovery")
 
     describe_agents_paginator: DescribeAgentsPaginator = client.get_paginator("describe_agents")
     describe_continuous_exports_paginator: DescribeContinuousExportsPaginator = client.get_paginator("describe_continuous_exports")

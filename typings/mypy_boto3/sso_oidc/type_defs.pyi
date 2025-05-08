@@ -1,184 +1,128 @@
 """
 Type annotations for sso-oidc service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso_oidc/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sso_oidc/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_sso_oidc.type_defs import CreateTokenRequestRequestTypeDef
+    from mypy_boto3_sso_oidc.type_defs import AwsAdditionalDetailsTypeDef
 
-    data: CreateTokenRequestRequestTypeDef = {...}
+    data: AwsAdditionalDetailsTypeDef = ...
     ```
 """
 
-import sys
-from typing import Any, Dict, List
+from __future__ import annotations
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+import sys
+
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Sequence
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List, Sequence
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
-    "CreateTokenRequestRequestTypeDef",
+    "AwsAdditionalDetailsTypeDef",
+    "CreateTokenRequestTypeDef",
     "CreateTokenResponseTypeDef",
-    "CreateTokenWithIAMRequestRequestTypeDef",
+    "CreateTokenWithIAMRequestTypeDef",
     "CreateTokenWithIAMResponseTypeDef",
-    "RegisterClientRequestRequestTypeDef",
+    "RegisterClientRequestTypeDef",
     "RegisterClientResponseTypeDef",
     "ResponseMetadataTypeDef",
-    "StartDeviceAuthorizationRequestRequestTypeDef",
+    "StartDeviceAuthorizationRequestTypeDef",
     "StartDeviceAuthorizationResponseTypeDef",
 )
 
-_RequiredCreateTokenRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateTokenRequestRequestTypeDef",
-    {
-        "clientId": str,
-        "clientSecret": str,
-        "grantType": str,
-    },
-)
-_OptionalCreateTokenRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateTokenRequestRequestTypeDef",
-    {
-        "deviceCode": str,
-        "code": str,
-        "refreshToken": str,
-        "scope": List[str],
-        "redirectUri": str,
-        "codeVerifier": str,
-    },
-    total=False,
-)
+class AwsAdditionalDetailsTypeDef(TypedDict):
+    identityContext: NotRequired[str]
 
-class CreateTokenRequestRequestTypeDef(
-    _RequiredCreateTokenRequestRequestTypeDef, _OptionalCreateTokenRequestRequestTypeDef
-):
-    pass
+class CreateTokenRequestTypeDef(TypedDict):
+    clientId: str
+    clientSecret: str
+    grantType: str
+    deviceCode: NotRequired[str]
+    code: NotRequired[str]
+    refreshToken: NotRequired[str]
+    scope: NotRequired[Sequence[str]]
+    redirectUri: NotRequired[str]
+    codeVerifier: NotRequired[str]
 
-CreateTokenResponseTypeDef = TypedDict(
-    "CreateTokenResponseTypeDef",
-    {
-        "accessToken": str,
-        "tokenType": str,
-        "expiresIn": int,
-        "refreshToken": str,
-        "idToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-_RequiredCreateTokenWithIAMRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateTokenWithIAMRequestRequestTypeDef",
-    {
-        "clientId": str,
-        "grantType": str,
-    },
-)
-_OptionalCreateTokenWithIAMRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateTokenWithIAMRequestRequestTypeDef",
-    {
-        "code": str,
-        "refreshToken": str,
-        "assertion": str,
-        "scope": List[str],
-        "redirectUri": str,
-        "subjectToken": str,
-        "subjectTokenType": str,
-        "requestedTokenType": str,
-        "codeVerifier": str,
-    },
-    total=False,
-)
+class CreateTokenWithIAMRequestTypeDef(TypedDict):
+    clientId: str
+    grantType: str
+    code: NotRequired[str]
+    refreshToken: NotRequired[str]
+    assertion: NotRequired[str]
+    scope: NotRequired[Sequence[str]]
+    redirectUri: NotRequired[str]
+    subjectToken: NotRequired[str]
+    subjectTokenType: NotRequired[str]
+    requestedTokenType: NotRequired[str]
+    codeVerifier: NotRequired[str]
 
-class CreateTokenWithIAMRequestRequestTypeDef(
-    _RequiredCreateTokenWithIAMRequestRequestTypeDef,
-    _OptionalCreateTokenWithIAMRequestRequestTypeDef,
-):
-    pass
+class RegisterClientRequestTypeDef(TypedDict):
+    clientName: str
+    clientType: str
+    scopes: NotRequired[Sequence[str]]
+    redirectUris: NotRequired[Sequence[str]]
+    grantTypes: NotRequired[Sequence[str]]
+    issuerUrl: NotRequired[str]
+    entitledApplicationArn: NotRequired[str]
 
-CreateTokenWithIAMResponseTypeDef = TypedDict(
-    "CreateTokenWithIAMResponseTypeDef",
-    {
-        "accessToken": str,
-        "tokenType": str,
-        "expiresIn": int,
-        "refreshToken": str,
-        "idToken": str,
-        "issuedTokenType": str,
-        "scope": List[str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class StartDeviceAuthorizationRequestTypeDef(TypedDict):
+    clientId: str
+    clientSecret: str
+    startUrl: str
 
-_RequiredRegisterClientRequestRequestTypeDef = TypedDict(
-    "_RequiredRegisterClientRequestRequestTypeDef",
-    {
-        "clientName": str,
-        "clientType": str,
-    },
-)
-_OptionalRegisterClientRequestRequestTypeDef = TypedDict(
-    "_OptionalRegisterClientRequestRequestTypeDef",
-    {
-        "scopes": List[str],
-        "redirectUris": List[str],
-        "grantTypes": List[str],
-        "issuerUrl": str,
-        "entitledApplicationArn": str,
-    },
-    total=False,
-)
+class CreateTokenResponseTypeDef(TypedDict):
+    accessToken: str
+    tokenType: str
+    expiresIn: int
+    refreshToken: str
+    idToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class RegisterClientRequestRequestTypeDef(
-    _RequiredRegisterClientRequestRequestTypeDef, _OptionalRegisterClientRequestRequestTypeDef
-):
-    pass
+class CreateTokenWithIAMResponseTypeDef(TypedDict):
+    accessToken: str
+    tokenType: str
+    expiresIn: int
+    refreshToken: str
+    idToken: str
+    issuedTokenType: str
+    scope: List[str]
+    awsAdditionalDetails: AwsAdditionalDetailsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-RegisterClientResponseTypeDef = TypedDict(
-    "RegisterClientResponseTypeDef",
-    {
-        "clientId": str,
-        "clientSecret": str,
-        "clientIdIssuedAt": int,
-        "clientSecretExpiresAt": int,
-        "authorizationEndpoint": str,
-        "tokenEndpoint": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class RegisterClientResponseTypeDef(TypedDict):
+    clientId: str
+    clientSecret: str
+    clientIdIssuedAt: int
+    clientSecretExpiresAt: int
+    authorizationEndpoint: str
+    tokenEndpoint: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-StartDeviceAuthorizationRequestRequestTypeDef = TypedDict(
-    "StartDeviceAuthorizationRequestRequestTypeDef",
-    {
-        "clientId": str,
-        "clientSecret": str,
-        "startUrl": str,
-    },
-)
-
-StartDeviceAuthorizationResponseTypeDef = TypedDict(
-    "StartDeviceAuthorizationResponseTypeDef",
-    {
-        "deviceCode": str,
-        "userCode": str,
-        "verificationUri": str,
-        "verificationUriComplete": str,
-        "expiresIn": int,
-        "interval": int,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class StartDeviceAuthorizationResponseTypeDef(TypedDict):
+    deviceCode: str
+    userCode: str
+    verificationUri: str
+    verificationUriComplete: str
+    expiresIn: int
+    interval: int
+    ResponseMetadata: ResponseMetadataTypeDef

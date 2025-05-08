@@ -1,20 +1,24 @@
 """
 Type annotations for iotevents service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotevents/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotevents/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_iotevents.type_defs import AcknowledgeFlowTypeDef
 
-    data: AcknowledgeFlowTypeDef = {...}
+    data: AcknowledgeFlowTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
+from typing import Union
 
 from .literals import (
     AlarmModelVersionStatusType,
@@ -28,20 +32,30 @@ from .literals import (
     PayloadTypeType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Sequence
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List, Sequence
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
     "AcknowledgeFlowTypeDef",
     "ActionTypeDef",
     "AlarmActionTypeDef",
     "AlarmCapabilitiesTypeDef",
+    "AlarmEventActionsOutputTypeDef",
     "AlarmEventActionsTypeDef",
+    "AlarmEventActionsUnionTypeDef",
     "AlarmModelSummaryTypeDef",
     "AlarmModelVersionSummaryTypeDef",
+    "AlarmNotificationOutputTypeDef",
     "AlarmNotificationTypeDef",
+    "AlarmNotificationUnionTypeDef",
     "AlarmRuleTypeDef",
     "AnalysisResultLocationTypeDef",
     "AnalysisResultTypeDef",
@@ -50,42 +64,50 @@ __all__ = (
     "AssetPropertyVariantTypeDef",
     "AttributeTypeDef",
     "ClearTimerActionTypeDef",
-    "CreateAlarmModelRequestRequestTypeDef",
+    "CreateAlarmModelRequestTypeDef",
     "CreateAlarmModelResponseTypeDef",
-    "CreateDetectorModelRequestRequestTypeDef",
+    "CreateDetectorModelRequestTypeDef",
     "CreateDetectorModelResponseTypeDef",
-    "CreateInputRequestRequestTypeDef",
+    "CreateInputRequestTypeDef",
     "CreateInputResponseTypeDef",
-    "DeleteAlarmModelRequestRequestTypeDef",
-    "DeleteDetectorModelRequestRequestTypeDef",
-    "DeleteInputRequestRequestTypeDef",
-    "DescribeAlarmModelRequestRequestTypeDef",
+    "DeleteAlarmModelRequestTypeDef",
+    "DeleteDetectorModelRequestTypeDef",
+    "DeleteInputRequestTypeDef",
+    "DescribeAlarmModelRequestTypeDef",
     "DescribeAlarmModelResponseTypeDef",
-    "DescribeDetectorModelAnalysisRequestRequestTypeDef",
+    "DescribeDetectorModelAnalysisRequestTypeDef",
     "DescribeDetectorModelAnalysisResponseTypeDef",
-    "DescribeDetectorModelRequestRequestTypeDef",
+    "DescribeDetectorModelRequestTypeDef",
     "DescribeDetectorModelResponseTypeDef",
-    "DescribeInputRequestRequestTypeDef",
+    "DescribeInputRequestTypeDef",
     "DescribeInputResponseTypeDef",
     "DescribeLoggingOptionsResponseTypeDef",
     "DetectorDebugOptionTypeDef",
     "DetectorModelConfigurationTypeDef",
+    "DetectorModelDefinitionOutputTypeDef",
     "DetectorModelDefinitionTypeDef",
+    "DetectorModelDefinitionUnionTypeDef",
     "DetectorModelSummaryTypeDef",
     "DetectorModelTypeDef",
     "DetectorModelVersionSummaryTypeDef",
     "DynamoDBActionTypeDef",
     "DynamoDBv2ActionTypeDef",
+    "EmailConfigurationOutputTypeDef",
     "EmailConfigurationTypeDef",
     "EmailContentTypeDef",
+    "EmailRecipientsOutputTypeDef",
     "EmailRecipientsTypeDef",
+    "EmptyResponseMetadataTypeDef",
+    "EventOutputTypeDef",
     "EventTypeDef",
     "FirehoseActionTypeDef",
-    "GetDetectorModelAnalysisResultsRequestRequestTypeDef",
+    "GetDetectorModelAnalysisResultsRequestTypeDef",
     "GetDetectorModelAnalysisResultsResponseTypeDef",
     "InitializationConfigurationTypeDef",
     "InputConfigurationTypeDef",
+    "InputDefinitionOutputTypeDef",
     "InputDefinitionTypeDef",
+    "InputDefinitionUnionTypeDef",
     "InputIdentifierTypeDef",
     "InputSummaryTypeDef",
     "InputTypeDef",
@@ -96,32 +118,39 @@ __all__ = (
     "IotSiteWiseInputIdentifierTypeDef",
     "IotTopicPublishActionTypeDef",
     "LambdaActionTypeDef",
-    "ListAlarmModelVersionsRequestRequestTypeDef",
+    "ListAlarmModelVersionsRequestTypeDef",
     "ListAlarmModelVersionsResponseTypeDef",
-    "ListAlarmModelsRequestRequestTypeDef",
+    "ListAlarmModelsRequestTypeDef",
     "ListAlarmModelsResponseTypeDef",
-    "ListDetectorModelVersionsRequestRequestTypeDef",
+    "ListDetectorModelVersionsRequestTypeDef",
     "ListDetectorModelVersionsResponseTypeDef",
-    "ListDetectorModelsRequestRequestTypeDef",
+    "ListDetectorModelsRequestTypeDef",
     "ListDetectorModelsResponseTypeDef",
-    "ListInputRoutingsRequestRequestTypeDef",
+    "ListInputRoutingsRequestTypeDef",
     "ListInputRoutingsResponseTypeDef",
-    "ListInputsRequestRequestTypeDef",
+    "ListInputsRequestTypeDef",
     "ListInputsResponseTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
+    "LoggingOptionsOutputTypeDef",
     "LoggingOptionsTypeDef",
+    "LoggingOptionsUnionTypeDef",
+    "NotificationActionOutputTypeDef",
     "NotificationActionTypeDef",
     "NotificationTargetActionsTypeDef",
+    "OnEnterLifecycleOutputTypeDef",
     "OnEnterLifecycleTypeDef",
+    "OnExitLifecycleOutputTypeDef",
     "OnExitLifecycleTypeDef",
+    "OnInputLifecycleOutputTypeDef",
     "OnInputLifecycleTypeDef",
     "PayloadTypeDef",
-    "PutLoggingOptionsRequestRequestTypeDef",
+    "PutLoggingOptionsRequestTypeDef",
     "RecipientDetailTypeDef",
     "ResetTimerActionTypeDef",
     "ResponseMetadataTypeDef",
     "RoutedResourceTypeDef",
+    "SMSConfigurationOutputTypeDef",
     "SMSConfigurationTypeDef",
     "SNSTopicPublishActionTypeDef",
     "SSOIdentityTypeDef",
@@ -129,1033 +158,152 @@ __all__ = (
     "SetVariableActionTypeDef",
     "SimpleRuleTypeDef",
     "SqsActionTypeDef",
-    "StartDetectorModelAnalysisRequestRequestTypeDef",
+    "StartDetectorModelAnalysisRequestTypeDef",
     "StartDetectorModelAnalysisResponseTypeDef",
+    "StateOutputTypeDef",
     "StateTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
     "TagTypeDef",
+    "TransitionEventOutputTypeDef",
     "TransitionEventTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateAlarmModelRequestRequestTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateAlarmModelRequestTypeDef",
     "UpdateAlarmModelResponseTypeDef",
-    "UpdateDetectorModelRequestRequestTypeDef",
+    "UpdateDetectorModelRequestTypeDef",
     "UpdateDetectorModelResponseTypeDef",
-    "UpdateInputRequestRequestTypeDef",
+    "UpdateInputRequestTypeDef",
     "UpdateInputResponseTypeDef",
 )
 
-AcknowledgeFlowTypeDef = TypedDict(
-    "AcknowledgeFlowTypeDef",
-    {
-        "enabled": bool,
-    },
-)
-
-ActionTypeDef = TypedDict(
-    "ActionTypeDef",
-    {
-        "setVariable": "SetVariableActionTypeDef",
-        "sns": "SNSTopicPublishActionTypeDef",
-        "iotTopicPublish": "IotTopicPublishActionTypeDef",
-        "setTimer": "SetTimerActionTypeDef",
-        "clearTimer": "ClearTimerActionTypeDef",
-        "resetTimer": "ResetTimerActionTypeDef",
-        "lambda": "LambdaActionTypeDef",
-        "iotEvents": "IotEventsActionTypeDef",
-        "sqs": "SqsActionTypeDef",
-        "firehose": "FirehoseActionTypeDef",
-        "dynamoDB": "DynamoDBActionTypeDef",
-        "dynamoDBv2": "DynamoDBv2ActionTypeDef",
-        "iotSiteWise": "IotSiteWiseActionTypeDef",
-    },
-    total=False,
-)
-
-AlarmActionTypeDef = TypedDict(
-    "AlarmActionTypeDef",
-    {
-        "sns": "SNSTopicPublishActionTypeDef",
-        "iotTopicPublish": "IotTopicPublishActionTypeDef",
-        "lambda": "LambdaActionTypeDef",
-        "iotEvents": "IotEventsActionTypeDef",
-        "sqs": "SqsActionTypeDef",
-        "firehose": "FirehoseActionTypeDef",
-        "dynamoDB": "DynamoDBActionTypeDef",
-        "dynamoDBv2": "DynamoDBv2ActionTypeDef",
-        "iotSiteWise": "IotSiteWiseActionTypeDef",
-    },
-    total=False,
-)
-
-AlarmCapabilitiesTypeDef = TypedDict(
-    "AlarmCapabilitiesTypeDef",
-    {
-        "initializationConfiguration": "InitializationConfigurationTypeDef",
-        "acknowledgeFlow": "AcknowledgeFlowTypeDef",
-    },
-    total=False,
-)
-
-AlarmEventActionsTypeDef = TypedDict(
-    "AlarmEventActionsTypeDef",
-    {
-        "alarmActions": List["AlarmActionTypeDef"],
-    },
-    total=False,
-)
-
-AlarmModelSummaryTypeDef = TypedDict(
-    "AlarmModelSummaryTypeDef",
-    {
-        "creationTime": datetime,
-        "alarmModelDescription": str,
-        "alarmModelName": str,
-    },
-    total=False,
-)
-
-AlarmModelVersionSummaryTypeDef = TypedDict(
-    "AlarmModelVersionSummaryTypeDef",
-    {
-        "alarmModelName": str,
-        "alarmModelArn": str,
-        "alarmModelVersion": str,
-        "roleArn": str,
-        "creationTime": datetime,
-        "lastUpdateTime": datetime,
-        "status": AlarmModelVersionStatusType,
-        "statusMessage": str,
-    },
-    total=False,
-)
-
-AlarmNotificationTypeDef = TypedDict(
-    "AlarmNotificationTypeDef",
-    {
-        "notificationActions": List["NotificationActionTypeDef"],
-    },
-    total=False,
-)
-
-AlarmRuleTypeDef = TypedDict(
-    "AlarmRuleTypeDef",
-    {
-        "simpleRule": "SimpleRuleTypeDef",
-    },
-    total=False,
-)
-
-AnalysisResultLocationTypeDef = TypedDict(
-    "AnalysisResultLocationTypeDef",
-    {
-        "path": str,
-    },
-    total=False,
-)
-
-AnalysisResultTypeDef = TypedDict(
-    "AnalysisResultTypeDef",
-    {
-        "type": str,
-        "level": AnalysisResultLevelType,
-        "message": str,
-        "locations": List["AnalysisResultLocationTypeDef"],
-    },
-    total=False,
-)
-
-_RequiredAssetPropertyTimestampTypeDef = TypedDict(
-    "_RequiredAssetPropertyTimestampTypeDef",
-    {
-        "timeInSeconds": str,
-    },
-)
-_OptionalAssetPropertyTimestampTypeDef = TypedDict(
-    "_OptionalAssetPropertyTimestampTypeDef",
-    {
-        "offsetInNanos": str,
-    },
-    total=False,
-)
-
-class AssetPropertyTimestampTypeDef(
-    _RequiredAssetPropertyTimestampTypeDef, _OptionalAssetPropertyTimestampTypeDef
-):
-    pass
-
-AssetPropertyValueTypeDef = TypedDict(
-    "AssetPropertyValueTypeDef",
-    {
-        "value": "AssetPropertyVariantTypeDef",
-        "timestamp": "AssetPropertyTimestampTypeDef",
-        "quality": str,
-    },
-    total=False,
-)
-
-AssetPropertyVariantTypeDef = TypedDict(
-    "AssetPropertyVariantTypeDef",
-    {
-        "stringValue": str,
-        "integerValue": str,
-        "doubleValue": str,
-        "booleanValue": str,
-    },
-    total=False,
-)
-
-AttributeTypeDef = TypedDict(
-    "AttributeTypeDef",
-    {
-        "jsonPath": str,
-    },
-)
-
-ClearTimerActionTypeDef = TypedDict(
-    "ClearTimerActionTypeDef",
-    {
-        "timerName": str,
-    },
-)
-
-_RequiredCreateAlarmModelRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateAlarmModelRequestRequestTypeDef",
-    {
-        "alarmModelName": str,
-        "roleArn": str,
-        "alarmRule": "AlarmRuleTypeDef",
-    },
-)
-_OptionalCreateAlarmModelRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateAlarmModelRequestRequestTypeDef",
-    {
-        "alarmModelDescription": str,
-        "tags": List["TagTypeDef"],
-        "key": str,
-        "severity": int,
-        "alarmNotification": "AlarmNotificationTypeDef",
-        "alarmEventActions": "AlarmEventActionsTypeDef",
-        "alarmCapabilities": "AlarmCapabilitiesTypeDef",
-    },
-    total=False,
-)
-
-class CreateAlarmModelRequestRequestTypeDef(
-    _RequiredCreateAlarmModelRequestRequestTypeDef, _OptionalCreateAlarmModelRequestRequestTypeDef
-):
-    pass
-
-CreateAlarmModelResponseTypeDef = TypedDict(
-    "CreateAlarmModelResponseTypeDef",
-    {
-        "creationTime": datetime,
-        "alarmModelArn": str,
-        "alarmModelVersion": str,
-        "lastUpdateTime": datetime,
-        "status": AlarmModelVersionStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateDetectorModelRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateDetectorModelRequestRequestTypeDef",
-    {
-        "detectorModelName": str,
-        "detectorModelDefinition": "DetectorModelDefinitionTypeDef",
-        "roleArn": str,
-    },
-)
-_OptionalCreateDetectorModelRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateDetectorModelRequestRequestTypeDef",
-    {
-        "detectorModelDescription": str,
-        "key": str,
-        "tags": List["TagTypeDef"],
-        "evaluationMethod": EvaluationMethodType,
-    },
-    total=False,
-)
-
-class CreateDetectorModelRequestRequestTypeDef(
-    _RequiredCreateDetectorModelRequestRequestTypeDef,
-    _OptionalCreateDetectorModelRequestRequestTypeDef,
-):
-    pass
-
-CreateDetectorModelResponseTypeDef = TypedDict(
-    "CreateDetectorModelResponseTypeDef",
-    {
-        "detectorModelConfiguration": "DetectorModelConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateInputRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateInputRequestRequestTypeDef",
-    {
-        "inputName": str,
-        "inputDefinition": "InputDefinitionTypeDef",
-    },
-)
-_OptionalCreateInputRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateInputRequestRequestTypeDef",
-    {
-        "inputDescription": str,
-        "tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateInputRequestRequestTypeDef(
-    _RequiredCreateInputRequestRequestTypeDef, _OptionalCreateInputRequestRequestTypeDef
-):
-    pass
-
-CreateInputResponseTypeDef = TypedDict(
-    "CreateInputResponseTypeDef",
-    {
-        "inputConfiguration": "InputConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteAlarmModelRequestRequestTypeDef = TypedDict(
-    "DeleteAlarmModelRequestRequestTypeDef",
-    {
-        "alarmModelName": str,
-    },
-)
-
-DeleteDetectorModelRequestRequestTypeDef = TypedDict(
-    "DeleteDetectorModelRequestRequestTypeDef",
-    {
-        "detectorModelName": str,
-    },
-)
-
-DeleteInputRequestRequestTypeDef = TypedDict(
-    "DeleteInputRequestRequestTypeDef",
-    {
-        "inputName": str,
-    },
-)
-
-_RequiredDescribeAlarmModelRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeAlarmModelRequestRequestTypeDef",
-    {
-        "alarmModelName": str,
-    },
-)
-_OptionalDescribeAlarmModelRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeAlarmModelRequestRequestTypeDef",
-    {
-        "alarmModelVersion": str,
-    },
-    total=False,
-)
-
-class DescribeAlarmModelRequestRequestTypeDef(
-    _RequiredDescribeAlarmModelRequestRequestTypeDef,
-    _OptionalDescribeAlarmModelRequestRequestTypeDef,
-):
-    pass
-
-DescribeAlarmModelResponseTypeDef = TypedDict(
-    "DescribeAlarmModelResponseTypeDef",
-    {
-        "creationTime": datetime,
-        "alarmModelArn": str,
-        "alarmModelVersion": str,
-        "lastUpdateTime": datetime,
-        "status": AlarmModelVersionStatusType,
-        "statusMessage": str,
-        "alarmModelName": str,
-        "alarmModelDescription": str,
-        "roleArn": str,
-        "key": str,
-        "severity": int,
-        "alarmRule": "AlarmRuleTypeDef",
-        "alarmNotification": "AlarmNotificationTypeDef",
-        "alarmEventActions": "AlarmEventActionsTypeDef",
-        "alarmCapabilities": "AlarmCapabilitiesTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeDetectorModelAnalysisRequestRequestTypeDef = TypedDict(
-    "DescribeDetectorModelAnalysisRequestRequestTypeDef",
-    {
-        "analysisId": str,
-    },
-)
-
-DescribeDetectorModelAnalysisResponseTypeDef = TypedDict(
-    "DescribeDetectorModelAnalysisResponseTypeDef",
-    {
-        "status": AnalysisStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribeDetectorModelRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeDetectorModelRequestRequestTypeDef",
-    {
-        "detectorModelName": str,
-    },
-)
-_OptionalDescribeDetectorModelRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeDetectorModelRequestRequestTypeDef",
-    {
-        "detectorModelVersion": str,
-    },
-    total=False,
-)
-
-class DescribeDetectorModelRequestRequestTypeDef(
-    _RequiredDescribeDetectorModelRequestRequestTypeDef,
-    _OptionalDescribeDetectorModelRequestRequestTypeDef,
-):
-    pass
-
-DescribeDetectorModelResponseTypeDef = TypedDict(
-    "DescribeDetectorModelResponseTypeDef",
-    {
-        "detectorModel": "DetectorModelTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeInputRequestRequestTypeDef = TypedDict(
-    "DescribeInputRequestRequestTypeDef",
-    {
-        "inputName": str,
-    },
-)
-
-DescribeInputResponseTypeDef = TypedDict(
-    "DescribeInputResponseTypeDef",
-    {
-        "input": "InputTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeLoggingOptionsResponseTypeDef = TypedDict(
-    "DescribeLoggingOptionsResponseTypeDef",
-    {
-        "loggingOptions": "LoggingOptionsTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDetectorDebugOptionTypeDef = TypedDict(
-    "_RequiredDetectorDebugOptionTypeDef",
-    {
-        "detectorModelName": str,
-    },
-)
-_OptionalDetectorDebugOptionTypeDef = TypedDict(
-    "_OptionalDetectorDebugOptionTypeDef",
-    {
-        "keyValue": str,
-    },
-    total=False,
-)
-
-class DetectorDebugOptionTypeDef(
-    _RequiredDetectorDebugOptionTypeDef, _OptionalDetectorDebugOptionTypeDef
-):
-    pass
-
-DetectorModelConfigurationTypeDef = TypedDict(
-    "DetectorModelConfigurationTypeDef",
-    {
-        "detectorModelName": str,
-        "detectorModelVersion": str,
-        "detectorModelDescription": str,
-        "detectorModelArn": str,
-        "roleArn": str,
-        "creationTime": datetime,
-        "lastUpdateTime": datetime,
-        "status": DetectorModelVersionStatusType,
-        "key": str,
-        "evaluationMethod": EvaluationMethodType,
-    },
-    total=False,
-)
-
-DetectorModelDefinitionTypeDef = TypedDict(
-    "DetectorModelDefinitionTypeDef",
-    {
-        "states": List["StateTypeDef"],
-        "initialStateName": str,
-    },
-)
-
-DetectorModelSummaryTypeDef = TypedDict(
-    "DetectorModelSummaryTypeDef",
-    {
-        "detectorModelName": str,
-        "detectorModelDescription": str,
-        "creationTime": datetime,
-    },
-    total=False,
-)
-
-DetectorModelTypeDef = TypedDict(
-    "DetectorModelTypeDef",
-    {
-        "detectorModelDefinition": "DetectorModelDefinitionTypeDef",
-        "detectorModelConfiguration": "DetectorModelConfigurationTypeDef",
-    },
-    total=False,
-)
-
-DetectorModelVersionSummaryTypeDef = TypedDict(
-    "DetectorModelVersionSummaryTypeDef",
-    {
-        "detectorModelName": str,
-        "detectorModelVersion": str,
-        "detectorModelArn": str,
-        "roleArn": str,
-        "creationTime": datetime,
-        "lastUpdateTime": datetime,
-        "status": DetectorModelVersionStatusType,
-        "evaluationMethod": EvaluationMethodType,
-    },
-    total=False,
-)
-
-_RequiredDynamoDBActionTypeDef = TypedDict(
-    "_RequiredDynamoDBActionTypeDef",
-    {
-        "hashKeyField": str,
-        "hashKeyValue": str,
-        "tableName": str,
-    },
-)
-_OptionalDynamoDBActionTypeDef = TypedDict(
-    "_OptionalDynamoDBActionTypeDef",
-    {
-        "hashKeyType": str,
-        "rangeKeyType": str,
-        "rangeKeyField": str,
-        "rangeKeyValue": str,
-        "operation": str,
-        "payloadField": str,
-        "payload": "PayloadTypeDef",
-    },
-    total=False,
-)
-
-class DynamoDBActionTypeDef(_RequiredDynamoDBActionTypeDef, _OptionalDynamoDBActionTypeDef):
-    pass
-
-_RequiredDynamoDBv2ActionTypeDef = TypedDict(
-    "_RequiredDynamoDBv2ActionTypeDef",
-    {
-        "tableName": str,
-    },
-)
-_OptionalDynamoDBv2ActionTypeDef = TypedDict(
-    "_OptionalDynamoDBv2ActionTypeDef",
-    {
-        "payload": "PayloadTypeDef",
-    },
-    total=False,
-)
-
-class DynamoDBv2ActionTypeDef(_RequiredDynamoDBv2ActionTypeDef, _OptionalDynamoDBv2ActionTypeDef):
-    pass
-
-_RequiredEmailConfigurationTypeDef = TypedDict(
-    "_RequiredEmailConfigurationTypeDef",
-    {
-        "from": str,
-        "recipients": "EmailRecipientsTypeDef",
-    },
-)
-_OptionalEmailConfigurationTypeDef = TypedDict(
-    "_OptionalEmailConfigurationTypeDef",
-    {
-        "content": "EmailContentTypeDef",
-    },
-    total=False,
-)
-
-class EmailConfigurationTypeDef(
-    _RequiredEmailConfigurationTypeDef, _OptionalEmailConfigurationTypeDef
-):
-    pass
-
-EmailContentTypeDef = TypedDict(
-    "EmailContentTypeDef",
-    {
-        "subject": str,
-        "additionalMessage": str,
-    },
-    total=False,
-)
-
-EmailRecipientsTypeDef = TypedDict(
-    "EmailRecipientsTypeDef",
-    {
-        "to": List["RecipientDetailTypeDef"],
-    },
-    total=False,
-)
-
-_RequiredEventTypeDef = TypedDict(
-    "_RequiredEventTypeDef",
-    {
-        "eventName": str,
-    },
-)
-_OptionalEventTypeDef = TypedDict(
-    "_OptionalEventTypeDef",
-    {
-        "condition": str,
-        "actions": List["ActionTypeDef"],
-    },
-    total=False,
-)
-
-class EventTypeDef(_RequiredEventTypeDef, _OptionalEventTypeDef):
-    pass
-
-_RequiredFirehoseActionTypeDef = TypedDict(
-    "_RequiredFirehoseActionTypeDef",
-    {
-        "deliveryStreamName": str,
-    },
-)
-_OptionalFirehoseActionTypeDef = TypedDict(
-    "_OptionalFirehoseActionTypeDef",
-    {
-        "separator": str,
-        "payload": "PayloadTypeDef",
-    },
-    total=False,
-)
-
-class FirehoseActionTypeDef(_RequiredFirehoseActionTypeDef, _OptionalFirehoseActionTypeDef):
-    pass
-
-_RequiredGetDetectorModelAnalysisResultsRequestRequestTypeDef = TypedDict(
-    "_RequiredGetDetectorModelAnalysisResultsRequestRequestTypeDef",
-    {
-        "analysisId": str,
-    },
-)
-_OptionalGetDetectorModelAnalysisResultsRequestRequestTypeDef = TypedDict(
-    "_OptionalGetDetectorModelAnalysisResultsRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-class GetDetectorModelAnalysisResultsRequestRequestTypeDef(
-    _RequiredGetDetectorModelAnalysisResultsRequestRequestTypeDef,
-    _OptionalGetDetectorModelAnalysisResultsRequestRequestTypeDef,
-):
-    pass
-
-GetDetectorModelAnalysisResultsResponseTypeDef = TypedDict(
-    "GetDetectorModelAnalysisResultsResponseTypeDef",
-    {
-        "analysisResults": List["AnalysisResultTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-InitializationConfigurationTypeDef = TypedDict(
-    "InitializationConfigurationTypeDef",
-    {
-        "disabledOnInitialization": bool,
-    },
-)
-
-_RequiredInputConfigurationTypeDef = TypedDict(
-    "_RequiredInputConfigurationTypeDef",
-    {
-        "inputName": str,
-        "inputArn": str,
-        "creationTime": datetime,
-        "lastUpdateTime": datetime,
-        "status": InputStatusType,
-    },
-)
-_OptionalInputConfigurationTypeDef = TypedDict(
-    "_OptionalInputConfigurationTypeDef",
-    {
-        "inputDescription": str,
-    },
-    total=False,
-)
-
-class InputConfigurationTypeDef(
-    _RequiredInputConfigurationTypeDef, _OptionalInputConfigurationTypeDef
-):
-    pass
-
-InputDefinitionTypeDef = TypedDict(
-    "InputDefinitionTypeDef",
-    {
-        "attributes": List["AttributeTypeDef"],
-    },
-)
-
-InputIdentifierTypeDef = TypedDict(
-    "InputIdentifierTypeDef",
-    {
-        "iotEventsInputIdentifier": "IotEventsInputIdentifierTypeDef",
-        "iotSiteWiseInputIdentifier": "IotSiteWiseInputIdentifierTypeDef",
-    },
-    total=False,
-)
-
-InputSummaryTypeDef = TypedDict(
-    "InputSummaryTypeDef",
-    {
-        "inputName": str,
-        "inputDescription": str,
-        "inputArn": str,
-        "creationTime": datetime,
-        "lastUpdateTime": datetime,
-        "status": InputStatusType,
-    },
-    total=False,
-)
-
-InputTypeDef = TypedDict(
-    "InputTypeDef",
-    {
-        "inputConfiguration": "InputConfigurationTypeDef",
-        "inputDefinition": "InputDefinitionTypeDef",
-    },
-    total=False,
-)
-
-_RequiredIotEventsActionTypeDef = TypedDict(
-    "_RequiredIotEventsActionTypeDef",
-    {
-        "inputName": str,
-    },
-)
-_OptionalIotEventsActionTypeDef = TypedDict(
-    "_OptionalIotEventsActionTypeDef",
-    {
-        "payload": "PayloadTypeDef",
-    },
-    total=False,
-)
-
-class IotEventsActionTypeDef(_RequiredIotEventsActionTypeDef, _OptionalIotEventsActionTypeDef):
-    pass
-
-IotEventsInputIdentifierTypeDef = TypedDict(
-    "IotEventsInputIdentifierTypeDef",
-    {
-        "inputName": str,
-    },
-)
-
-IotSiteWiseActionTypeDef = TypedDict(
-    "IotSiteWiseActionTypeDef",
-    {
-        "entryId": str,
-        "assetId": str,
-        "propertyId": str,
-        "propertyAlias": str,
-        "propertyValue": "AssetPropertyValueTypeDef",
-    },
-    total=False,
-)
-
-IotSiteWiseAssetModelPropertyIdentifierTypeDef = TypedDict(
-    "IotSiteWiseAssetModelPropertyIdentifierTypeDef",
-    {
-        "assetModelId": str,
-        "propertyId": str,
-    },
-)
-
-IotSiteWiseInputIdentifierTypeDef = TypedDict(
-    "IotSiteWiseInputIdentifierTypeDef",
-    {
-        "iotSiteWiseAssetModelPropertyIdentifier": "IotSiteWiseAssetModelPropertyIdentifierTypeDef",
-    },
-    total=False,
-)
-
-_RequiredIotTopicPublishActionTypeDef = TypedDict(
-    "_RequiredIotTopicPublishActionTypeDef",
-    {
-        "mqttTopic": str,
-    },
-)
-_OptionalIotTopicPublishActionTypeDef = TypedDict(
-    "_OptionalIotTopicPublishActionTypeDef",
-    {
-        "payload": "PayloadTypeDef",
-    },
-    total=False,
-)
-
-class IotTopicPublishActionTypeDef(
-    _RequiredIotTopicPublishActionTypeDef, _OptionalIotTopicPublishActionTypeDef
-):
-    pass
-
-_RequiredLambdaActionTypeDef = TypedDict(
-    "_RequiredLambdaActionTypeDef",
-    {
-        "functionArn": str,
-    },
-)
-_OptionalLambdaActionTypeDef = TypedDict(
-    "_OptionalLambdaActionTypeDef",
-    {
-        "payload": "PayloadTypeDef",
-    },
-    total=False,
-)
-
-class LambdaActionTypeDef(_RequiredLambdaActionTypeDef, _OptionalLambdaActionTypeDef):
-    pass
-
-_RequiredListAlarmModelVersionsRequestRequestTypeDef = TypedDict(
-    "_RequiredListAlarmModelVersionsRequestRequestTypeDef",
-    {
-        "alarmModelName": str,
-    },
-)
-_OptionalListAlarmModelVersionsRequestRequestTypeDef = TypedDict(
-    "_OptionalListAlarmModelVersionsRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-class ListAlarmModelVersionsRequestRequestTypeDef(
-    _RequiredListAlarmModelVersionsRequestRequestTypeDef,
-    _OptionalListAlarmModelVersionsRequestRequestTypeDef,
-):
-    pass
-
-ListAlarmModelVersionsResponseTypeDef = TypedDict(
-    "ListAlarmModelVersionsResponseTypeDef",
-    {
-        "alarmModelVersionSummaries": List["AlarmModelVersionSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListAlarmModelsRequestRequestTypeDef = TypedDict(
-    "ListAlarmModelsRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-ListAlarmModelsResponseTypeDef = TypedDict(
-    "ListAlarmModelsResponseTypeDef",
-    {
-        "alarmModelSummaries": List["AlarmModelSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListDetectorModelVersionsRequestRequestTypeDef = TypedDict(
-    "_RequiredListDetectorModelVersionsRequestRequestTypeDef",
-    {
-        "detectorModelName": str,
-    },
-)
-_OptionalListDetectorModelVersionsRequestRequestTypeDef = TypedDict(
-    "_OptionalListDetectorModelVersionsRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-class ListDetectorModelVersionsRequestRequestTypeDef(
-    _RequiredListDetectorModelVersionsRequestRequestTypeDef,
-    _OptionalListDetectorModelVersionsRequestRequestTypeDef,
-):
-    pass
-
-ListDetectorModelVersionsResponseTypeDef = TypedDict(
-    "ListDetectorModelVersionsResponseTypeDef",
-    {
-        "detectorModelVersionSummaries": List["DetectorModelVersionSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListDetectorModelsRequestRequestTypeDef = TypedDict(
-    "ListDetectorModelsRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-ListDetectorModelsResponseTypeDef = TypedDict(
-    "ListDetectorModelsResponseTypeDef",
-    {
-        "detectorModelSummaries": List["DetectorModelSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListInputRoutingsRequestRequestTypeDef = TypedDict(
-    "_RequiredListInputRoutingsRequestRequestTypeDef",
-    {
-        "inputIdentifier": "InputIdentifierTypeDef",
-    },
-)
-_OptionalListInputRoutingsRequestRequestTypeDef = TypedDict(
-    "_OptionalListInputRoutingsRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListInputRoutingsRequestRequestTypeDef(
-    _RequiredListInputRoutingsRequestRequestTypeDef, _OptionalListInputRoutingsRequestRequestTypeDef
-):
-    pass
-
-ListInputRoutingsResponseTypeDef = TypedDict(
-    "ListInputRoutingsResponseTypeDef",
-    {
-        "routedResources": List["RoutedResourceTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListInputsRequestRequestTypeDef = TypedDict(
-    "ListInputsRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-ListInputsResponseTypeDef = TypedDict(
-    "ListInputsResponseTypeDef",
-    {
-        "inputSummaries": List["InputSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-    },
-)
-
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "tags": List["TagTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredLoggingOptionsTypeDef = TypedDict(
-    "_RequiredLoggingOptionsTypeDef",
-    {
-        "roleArn": str,
-        "level": LoggingLevelType,
-        "enabled": bool,
-    },
-)
-_OptionalLoggingOptionsTypeDef = TypedDict(
-    "_OptionalLoggingOptionsTypeDef",
-    {
-        "detectorDebugOptions": List["DetectorDebugOptionTypeDef"],
-    },
-    total=False,
-)
-
-class LoggingOptionsTypeDef(_RequiredLoggingOptionsTypeDef, _OptionalLoggingOptionsTypeDef):
-    pass
-
-_RequiredNotificationActionTypeDef = TypedDict(
-    "_RequiredNotificationActionTypeDef",
-    {
-        "action": "NotificationTargetActionsTypeDef",
-    },
-)
-_OptionalNotificationActionTypeDef = TypedDict(
-    "_OptionalNotificationActionTypeDef",
-    {
-        "smsConfigurations": List["SMSConfigurationTypeDef"],
-        "emailConfigurations": List["EmailConfigurationTypeDef"],
-    },
-    total=False,
-)
-
-class NotificationActionTypeDef(
-    _RequiredNotificationActionTypeDef, _OptionalNotificationActionTypeDef
-):
-    pass
-
-NotificationTargetActionsTypeDef = TypedDict(
-    "NotificationTargetActionsTypeDef",
-    {
-        "lambdaAction": "LambdaActionTypeDef",
-    },
-    total=False,
-)
-
-OnEnterLifecycleTypeDef = TypedDict(
-    "OnEnterLifecycleTypeDef",
-    {
-        "events": List["EventTypeDef"],
-    },
-    total=False,
-)
-
-OnExitLifecycleTypeDef = TypedDict(
-    "OnExitLifecycleTypeDef",
-    {
-        "events": List["EventTypeDef"],
-    },
-    total=False,
-)
-
-OnInputLifecycleTypeDef = TypedDict(
-    "OnInputLifecycleTypeDef",
-    {
-        "events": List["EventTypeDef"],
-        "transitionEvents": List["TransitionEventTypeDef"],
-    },
-    total=False,
-)
+class AcknowledgeFlowTypeDef(TypedDict):
+    enabled: bool
+
+class ClearTimerActionTypeDef(TypedDict):
+    timerName: str
+
+class ResetTimerActionTypeDef(TypedDict):
+    timerName: str
+
+class SetTimerActionTypeDef(TypedDict):
+    timerName: str
+    seconds: NotRequired[int]
+    durationExpression: NotRequired[str]
+
+class SetVariableActionTypeDef(TypedDict):
+    variableName: str
+    value: str
+
+class InitializationConfigurationTypeDef(TypedDict):
+    disabledOnInitialization: bool
+
+class AlarmModelSummaryTypeDef(TypedDict):
+    creationTime: NotRequired[datetime]
+    alarmModelDescription: NotRequired[str]
+    alarmModelName: NotRequired[str]
+
+class AlarmModelVersionSummaryTypeDef(TypedDict):
+    alarmModelName: NotRequired[str]
+    alarmModelArn: NotRequired[str]
+    alarmModelVersion: NotRequired[str]
+    roleArn: NotRequired[str]
+    creationTime: NotRequired[datetime]
+    lastUpdateTime: NotRequired[datetime]
+    status: NotRequired[AlarmModelVersionStatusType]
+    statusMessage: NotRequired[str]
+
+class SimpleRuleTypeDef(TypedDict):
+    inputProperty: str
+    comparisonOperator: ComparisonOperatorType
+    threshold: str
+
+class AnalysisResultLocationTypeDef(TypedDict):
+    path: NotRequired[str]
+
+class AssetPropertyTimestampTypeDef(TypedDict):
+    timeInSeconds: str
+    offsetInNanos: NotRequired[str]
+
+class AssetPropertyVariantTypeDef(TypedDict):
+    stringValue: NotRequired[str]
+    integerValue: NotRequired[str]
+    doubleValue: NotRequired[str]
+    booleanValue: NotRequired[str]
+
+class AttributeTypeDef(TypedDict):
+    jsonPath: str
+
+class TagTypeDef(TypedDict):
+    key: str
+    value: str
+
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
+
+class DetectorModelConfigurationTypeDef(TypedDict):
+    detectorModelName: NotRequired[str]
+    detectorModelVersion: NotRequired[str]
+    detectorModelDescription: NotRequired[str]
+    detectorModelArn: NotRequired[str]
+    roleArn: NotRequired[str]
+    creationTime: NotRequired[datetime]
+    lastUpdateTime: NotRequired[datetime]
+    status: NotRequired[DetectorModelVersionStatusType]
+    key: NotRequired[str]
+    evaluationMethod: NotRequired[EvaluationMethodType]
+
+class InputConfigurationTypeDef(TypedDict):
+    inputName: str
+    inputArn: str
+    creationTime: datetime
+    lastUpdateTime: datetime
+    status: InputStatusType
+    inputDescription: NotRequired[str]
+
+class DeleteAlarmModelRequestTypeDef(TypedDict):
+    alarmModelName: str
+
+class DeleteDetectorModelRequestTypeDef(TypedDict):
+    detectorModelName: str
+
+class DeleteInputRequestTypeDef(TypedDict):
+    inputName: str
+
+class DescribeAlarmModelRequestTypeDef(TypedDict):
+    alarmModelName: str
+    alarmModelVersion: NotRequired[str]
+
+class DescribeDetectorModelAnalysisRequestTypeDef(TypedDict):
+    analysisId: str
+
+class DescribeDetectorModelRequestTypeDef(TypedDict):
+    detectorModelName: str
+    detectorModelVersion: NotRequired[str]
+
+class DescribeInputRequestTypeDef(TypedDict):
+    inputName: str
+
+class DetectorDebugOptionTypeDef(TypedDict):
+    detectorModelName: str
+    keyValue: NotRequired[str]
+
+class DetectorModelSummaryTypeDef(TypedDict):
+    detectorModelName: NotRequired[str]
+    detectorModelDescription: NotRequired[str]
+    creationTime: NotRequired[datetime]
+
+class DetectorModelVersionSummaryTypeDef(TypedDict):
+    detectorModelName: NotRequired[str]
+    detectorModelVersion: NotRequired[str]
+    detectorModelArn: NotRequired[str]
+    roleArn: NotRequired[str]
+    creationTime: NotRequired[datetime]
+    lastUpdateTime: NotRequired[datetime]
+    status: NotRequired[DetectorModelVersionStatusType]
+    evaluationMethod: NotRequired[EvaluationMethodType]
 
 PayloadTypeDef = TypedDict(
     "PayloadTypeDef",
@@ -1165,324 +313,516 @@ PayloadTypeDef = TypedDict(
     },
 )
 
-PutLoggingOptionsRequestRequestTypeDef = TypedDict(
-    "PutLoggingOptionsRequestRequestTypeDef",
+class EmailContentTypeDef(TypedDict):
+    subject: NotRequired[str]
+    additionalMessage: NotRequired[str]
+
+class GetDetectorModelAnalysisResultsRequestTypeDef(TypedDict):
+    analysisId: str
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class IotEventsInputIdentifierTypeDef(TypedDict):
+    inputName: str
+
+class InputSummaryTypeDef(TypedDict):
+    inputName: NotRequired[str]
+    inputDescription: NotRequired[str]
+    inputArn: NotRequired[str]
+    creationTime: NotRequired[datetime]
+    lastUpdateTime: NotRequired[datetime]
+    status: NotRequired[InputStatusType]
+
+class IotSiteWiseAssetModelPropertyIdentifierTypeDef(TypedDict):
+    assetModelId: str
+    propertyId: str
+
+class ListAlarmModelVersionsRequestTypeDef(TypedDict):
+    alarmModelName: str
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class ListAlarmModelsRequestTypeDef(TypedDict):
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class ListDetectorModelVersionsRequestTypeDef(TypedDict):
+    detectorModelName: str
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class ListDetectorModelsRequestTypeDef(TypedDict):
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class RoutedResourceTypeDef(TypedDict):
+    name: NotRequired[str]
+    arn: NotRequired[str]
+
+class ListInputsRequestTypeDef(TypedDict):
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+
+class SSOIdentityTypeDef(TypedDict):
+    identityStoreId: str
+    userId: NotRequired[str]
+
+class UntagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tagKeys: Sequence[str]
+
+class AlarmCapabilitiesTypeDef(TypedDict):
+    initializationConfiguration: NotRequired[InitializationConfigurationTypeDef]
+    acknowledgeFlow: NotRequired[AcknowledgeFlowTypeDef]
+
+class AlarmRuleTypeDef(TypedDict):
+    simpleRule: NotRequired[SimpleRuleTypeDef]
+
+AnalysisResultTypeDef = TypedDict(
+    "AnalysisResultTypeDef",
     {
-        "loggingOptions": "LoggingOptionsTypeDef",
+        "type": NotRequired[str],
+        "level": NotRequired[AnalysisResultLevelType],
+        "message": NotRequired[str],
+        "locations": NotRequired[List[AnalysisResultLocationTypeDef]],
     },
 )
 
-RecipientDetailTypeDef = TypedDict(
-    "RecipientDetailTypeDef",
-    {
-        "ssoIdentity": "SSOIdentityTypeDef",
-    },
-    total=False,
-)
+class AssetPropertyValueTypeDef(TypedDict):
+    value: NotRequired[AssetPropertyVariantTypeDef]
+    timestamp: NotRequired[AssetPropertyTimestampTypeDef]
+    quality: NotRequired[str]
 
-ResetTimerActionTypeDef = TypedDict(
-    "ResetTimerActionTypeDef",
-    {
-        "timerName": str,
-    },
-)
+class InputDefinitionOutputTypeDef(TypedDict):
+    attributes: List[AttributeTypeDef]
 
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
+class InputDefinitionTypeDef(TypedDict):
+    attributes: Sequence[AttributeTypeDef]
 
-RoutedResourceTypeDef = TypedDict(
-    "RoutedResourceTypeDef",
-    {
-        "name": str,
-        "arn": str,
-    },
-    total=False,
-)
+class TagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tags: Sequence[TagTypeDef]
 
-_RequiredSMSConfigurationTypeDef = TypedDict(
-    "_RequiredSMSConfigurationTypeDef",
-    {
-        "recipients": List["RecipientDetailTypeDef"],
-    },
-)
-_OptionalSMSConfigurationTypeDef = TypedDict(
-    "_OptionalSMSConfigurationTypeDef",
-    {
-        "senderId": str,
-        "additionalMessage": str,
-    },
-    total=False,
-)
+class CreateAlarmModelResponseTypeDef(TypedDict):
+    creationTime: datetime
+    alarmModelArn: str
+    alarmModelVersion: str
+    lastUpdateTime: datetime
+    status: AlarmModelVersionStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class SMSConfigurationTypeDef(_RequiredSMSConfigurationTypeDef, _OptionalSMSConfigurationTypeDef):
-    pass
+class DescribeDetectorModelAnalysisResponseTypeDef(TypedDict):
+    status: AnalysisStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredSNSTopicPublishActionTypeDef = TypedDict(
-    "_RequiredSNSTopicPublishActionTypeDef",
-    {
-        "targetArn": str,
-    },
-)
-_OptionalSNSTopicPublishActionTypeDef = TypedDict(
-    "_OptionalSNSTopicPublishActionTypeDef",
-    {
-        "payload": "PayloadTypeDef",
-    },
-    total=False,
-)
+class EmptyResponseMetadataTypeDef(TypedDict):
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class SNSTopicPublishActionTypeDef(
-    _RequiredSNSTopicPublishActionTypeDef, _OptionalSNSTopicPublishActionTypeDef
-):
-    pass
+class ListAlarmModelVersionsResponseTypeDef(TypedDict):
+    alarmModelVersionSummaries: List[AlarmModelVersionSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-_RequiredSSOIdentityTypeDef = TypedDict(
-    "_RequiredSSOIdentityTypeDef",
-    {
-        "identityStoreId": str,
-    },
-)
-_OptionalSSOIdentityTypeDef = TypedDict(
-    "_OptionalSSOIdentityTypeDef",
-    {
-        "userId": str,
-    },
-    total=False,
-)
+class ListAlarmModelsResponseTypeDef(TypedDict):
+    alarmModelSummaries: List[AlarmModelSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-class SSOIdentityTypeDef(_RequiredSSOIdentityTypeDef, _OptionalSSOIdentityTypeDef):
-    pass
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    tags: List[TagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredSetTimerActionTypeDef = TypedDict(
-    "_RequiredSetTimerActionTypeDef",
-    {
-        "timerName": str,
-    },
-)
-_OptionalSetTimerActionTypeDef = TypedDict(
-    "_OptionalSetTimerActionTypeDef",
-    {
-        "seconds": int,
-        "durationExpression": str,
-    },
-    total=False,
-)
+class StartDetectorModelAnalysisResponseTypeDef(TypedDict):
+    analysisId: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class SetTimerActionTypeDef(_RequiredSetTimerActionTypeDef, _OptionalSetTimerActionTypeDef):
-    pass
+class UpdateAlarmModelResponseTypeDef(TypedDict):
+    creationTime: datetime
+    alarmModelArn: str
+    alarmModelVersion: str
+    lastUpdateTime: datetime
+    status: AlarmModelVersionStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
 
-SetVariableActionTypeDef = TypedDict(
-    "SetVariableActionTypeDef",
-    {
-        "variableName": str,
-        "value": str,
-    },
-)
+class CreateDetectorModelResponseTypeDef(TypedDict):
+    detectorModelConfiguration: DetectorModelConfigurationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-SimpleRuleTypeDef = TypedDict(
-    "SimpleRuleTypeDef",
-    {
-        "inputProperty": str,
-        "comparisonOperator": ComparisonOperatorType,
-        "threshold": str,
-    },
-)
+class UpdateDetectorModelResponseTypeDef(TypedDict):
+    detectorModelConfiguration: DetectorModelConfigurationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredSqsActionTypeDef = TypedDict(
-    "_RequiredSqsActionTypeDef",
-    {
-        "queueUrl": str,
-    },
-)
-_OptionalSqsActionTypeDef = TypedDict(
-    "_OptionalSqsActionTypeDef",
-    {
-        "useBase64": bool,
-        "payload": "PayloadTypeDef",
-    },
-    total=False,
-)
+class CreateInputResponseTypeDef(TypedDict):
+    inputConfiguration: InputConfigurationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class SqsActionTypeDef(_RequiredSqsActionTypeDef, _OptionalSqsActionTypeDef):
-    pass
+class UpdateInputResponseTypeDef(TypedDict):
+    inputConfiguration: InputConfigurationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-StartDetectorModelAnalysisRequestRequestTypeDef = TypedDict(
-    "StartDetectorModelAnalysisRequestRequestTypeDef",
-    {
-        "detectorModelDefinition": "DetectorModelDefinitionTypeDef",
-    },
-)
+class LoggingOptionsOutputTypeDef(TypedDict):
+    roleArn: str
+    level: LoggingLevelType
+    enabled: bool
+    detectorDebugOptions: NotRequired[List[DetectorDebugOptionTypeDef]]
 
-StartDetectorModelAnalysisResponseTypeDef = TypedDict(
-    "StartDetectorModelAnalysisResponseTypeDef",
-    {
-        "analysisId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class LoggingOptionsTypeDef(TypedDict):
+    roleArn: str
+    level: LoggingLevelType
+    enabled: bool
+    detectorDebugOptions: NotRequired[Sequence[DetectorDebugOptionTypeDef]]
 
-_RequiredStateTypeDef = TypedDict(
-    "_RequiredStateTypeDef",
-    {
-        "stateName": str,
-    },
-)
-_OptionalStateTypeDef = TypedDict(
-    "_OptionalStateTypeDef",
-    {
-        "onInput": "OnInputLifecycleTypeDef",
-        "onEnter": "OnEnterLifecycleTypeDef",
-        "onExit": "OnExitLifecycleTypeDef",
-    },
-    total=False,
-)
+class ListDetectorModelsResponseTypeDef(TypedDict):
+    detectorModelSummaries: List[DetectorModelSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-class StateTypeDef(_RequiredStateTypeDef, _OptionalStateTypeDef):
-    pass
+class ListDetectorModelVersionsResponseTypeDef(TypedDict):
+    detectorModelVersionSummaries: List[DetectorModelVersionSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tags": List["TagTypeDef"],
-    },
-)
+class DynamoDBActionTypeDef(TypedDict):
+    hashKeyField: str
+    hashKeyValue: str
+    tableName: str
+    hashKeyType: NotRequired[str]
+    rangeKeyType: NotRequired[str]
+    rangeKeyField: NotRequired[str]
+    rangeKeyValue: NotRequired[str]
+    operation: NotRequired[str]
+    payloadField: NotRequired[str]
+    payload: NotRequired[PayloadTypeDef]
 
-TagTypeDef = TypedDict(
-    "TagTypeDef",
-    {
-        "key": str,
-        "value": str,
-    },
-)
+class DynamoDBv2ActionTypeDef(TypedDict):
+    tableName: str
+    payload: NotRequired[PayloadTypeDef]
 
-_RequiredTransitionEventTypeDef = TypedDict(
-    "_RequiredTransitionEventTypeDef",
-    {
-        "eventName": str,
-        "condition": str,
-        "nextState": str,
-    },
-)
-_OptionalTransitionEventTypeDef = TypedDict(
-    "_OptionalTransitionEventTypeDef",
-    {
-        "actions": List["ActionTypeDef"],
-    },
-    total=False,
-)
+class FirehoseActionTypeDef(TypedDict):
+    deliveryStreamName: str
+    separator: NotRequired[str]
+    payload: NotRequired[PayloadTypeDef]
 
-class TransitionEventTypeDef(_RequiredTransitionEventTypeDef, _OptionalTransitionEventTypeDef):
-    pass
+class IotEventsActionTypeDef(TypedDict):
+    inputName: str
+    payload: NotRequired[PayloadTypeDef]
 
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tagKeys": List[str],
-    },
-)
+class IotTopicPublishActionTypeDef(TypedDict):
+    mqttTopic: str
+    payload: NotRequired[PayloadTypeDef]
 
-_RequiredUpdateAlarmModelRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateAlarmModelRequestRequestTypeDef",
+class LambdaActionTypeDef(TypedDict):
+    functionArn: str
+    payload: NotRequired[PayloadTypeDef]
+
+class SNSTopicPublishActionTypeDef(TypedDict):
+    targetArn: str
+    payload: NotRequired[PayloadTypeDef]
+
+class SqsActionTypeDef(TypedDict):
+    queueUrl: str
+    useBase64: NotRequired[bool]
+    payload: NotRequired[PayloadTypeDef]
+
+class ListInputsResponseTypeDef(TypedDict):
+    inputSummaries: List[InputSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class IotSiteWiseInputIdentifierTypeDef(TypedDict):
+    iotSiteWiseAssetModelPropertyIdentifier: NotRequired[
+        IotSiteWiseAssetModelPropertyIdentifierTypeDef
+    ]
+
+class ListInputRoutingsResponseTypeDef(TypedDict):
+    routedResources: List[RoutedResourceTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class RecipientDetailTypeDef(TypedDict):
+    ssoIdentity: NotRequired[SSOIdentityTypeDef]
+
+class GetDetectorModelAnalysisResultsResponseTypeDef(TypedDict):
+    analysisResults: List[AnalysisResultTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class IotSiteWiseActionTypeDef(TypedDict):
+    entryId: NotRequired[str]
+    assetId: NotRequired[str]
+    propertyId: NotRequired[str]
+    propertyAlias: NotRequired[str]
+    propertyValue: NotRequired[AssetPropertyValueTypeDef]
+
+class InputTypeDef(TypedDict):
+    inputConfiguration: NotRequired[InputConfigurationTypeDef]
+    inputDefinition: NotRequired[InputDefinitionOutputTypeDef]
+
+InputDefinitionUnionTypeDef = Union[InputDefinitionTypeDef, InputDefinitionOutputTypeDef]
+
+class DescribeLoggingOptionsResponseTypeDef(TypedDict):
+    loggingOptions: LoggingOptionsOutputTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+LoggingOptionsUnionTypeDef = Union[LoggingOptionsTypeDef, LoggingOptionsOutputTypeDef]
+
+class NotificationTargetActionsTypeDef(TypedDict):
+    lambdaAction: NotRequired[LambdaActionTypeDef]
+
+class InputIdentifierTypeDef(TypedDict):
+    iotEventsInputIdentifier: NotRequired[IotEventsInputIdentifierTypeDef]
+    iotSiteWiseInputIdentifier: NotRequired[IotSiteWiseInputIdentifierTypeDef]
+
+class EmailRecipientsOutputTypeDef(TypedDict):
+    to: NotRequired[List[RecipientDetailTypeDef]]
+
+class EmailRecipientsTypeDef(TypedDict):
+    to: NotRequired[Sequence[RecipientDetailTypeDef]]
+
+class SMSConfigurationOutputTypeDef(TypedDict):
+    recipients: List[RecipientDetailTypeDef]
+    senderId: NotRequired[str]
+    additionalMessage: NotRequired[str]
+
+class SMSConfigurationTypeDef(TypedDict):
+    recipients: Sequence[RecipientDetailTypeDef]
+    senderId: NotRequired[str]
+    additionalMessage: NotRequired[str]
+
+ActionTypeDef = TypedDict(
+    "ActionTypeDef",
     {
-        "alarmModelName": str,
-        "roleArn": str,
-        "alarmRule": "AlarmRuleTypeDef",
+        "setVariable": NotRequired[SetVariableActionTypeDef],
+        "sns": NotRequired[SNSTopicPublishActionTypeDef],
+        "iotTopicPublish": NotRequired[IotTopicPublishActionTypeDef],
+        "setTimer": NotRequired[SetTimerActionTypeDef],
+        "clearTimer": NotRequired[ClearTimerActionTypeDef],
+        "resetTimer": NotRequired[ResetTimerActionTypeDef],
+        "lambda": NotRequired[LambdaActionTypeDef],
+        "iotEvents": NotRequired[IotEventsActionTypeDef],
+        "sqs": NotRequired[SqsActionTypeDef],
+        "firehose": NotRequired[FirehoseActionTypeDef],
+        "dynamoDB": NotRequired[DynamoDBActionTypeDef],
+        "dynamoDBv2": NotRequired[DynamoDBv2ActionTypeDef],
+        "iotSiteWise": NotRequired[IotSiteWiseActionTypeDef],
     },
 )
-_OptionalUpdateAlarmModelRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateAlarmModelRequestRequestTypeDef",
+AlarmActionTypeDef = TypedDict(
+    "AlarmActionTypeDef",
     {
-        "alarmModelDescription": str,
-        "severity": int,
-        "alarmNotification": "AlarmNotificationTypeDef",
-        "alarmEventActions": "AlarmEventActionsTypeDef",
-        "alarmCapabilities": "AlarmCapabilitiesTypeDef",
+        "sns": NotRequired[SNSTopicPublishActionTypeDef],
+        "iotTopicPublish": NotRequired[IotTopicPublishActionTypeDef],
+        "lambda": NotRequired[LambdaActionTypeDef],
+        "iotEvents": NotRequired[IotEventsActionTypeDef],
+        "sqs": NotRequired[SqsActionTypeDef],
+        "firehose": NotRequired[FirehoseActionTypeDef],
+        "dynamoDB": NotRequired[DynamoDBActionTypeDef],
+        "dynamoDBv2": NotRequired[DynamoDBv2ActionTypeDef],
+        "iotSiteWise": NotRequired[IotSiteWiseActionTypeDef],
     },
-    total=False,
 )
-
-class UpdateAlarmModelRequestRequestTypeDef(
-    _RequiredUpdateAlarmModelRequestRequestTypeDef, _OptionalUpdateAlarmModelRequestRequestTypeDef
-):
-    pass
-
-UpdateAlarmModelResponseTypeDef = TypedDict(
-    "UpdateAlarmModelResponseTypeDef",
+DescribeInputResponseTypeDef = TypedDict(
+    "DescribeInputResponseTypeDef",
     {
-        "creationTime": datetime,
-        "alarmModelArn": str,
-        "alarmModelVersion": str,
-        "lastUpdateTime": datetime,
-        "status": AlarmModelVersionStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "input": InputTypeDef,
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
 
-_RequiredUpdateDetectorModelRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateDetectorModelRequestRequestTypeDef",
+class CreateInputRequestTypeDef(TypedDict):
+    inputName: str
+    inputDefinition: InputDefinitionUnionTypeDef
+    inputDescription: NotRequired[str]
+    tags: NotRequired[Sequence[TagTypeDef]]
+
+class UpdateInputRequestTypeDef(TypedDict):
+    inputName: str
+    inputDefinition: InputDefinitionUnionTypeDef
+    inputDescription: NotRequired[str]
+
+class PutLoggingOptionsRequestTypeDef(TypedDict):
+    loggingOptions: LoggingOptionsUnionTypeDef
+
+class ListInputRoutingsRequestTypeDef(TypedDict):
+    inputIdentifier: InputIdentifierTypeDef
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+EmailConfigurationOutputTypeDef = TypedDict(
+    "EmailConfigurationOutputTypeDef",
     {
-        "detectorModelName": str,
-        "detectorModelDefinition": "DetectorModelDefinitionTypeDef",
-        "roleArn": str,
+        "from": str,
+        "recipients": EmailRecipientsOutputTypeDef,
+        "content": NotRequired[EmailContentTypeDef],
     },
 )
-_OptionalUpdateDetectorModelRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateDetectorModelRequestRequestTypeDef",
+EmailConfigurationTypeDef = TypedDict(
+    "EmailConfigurationTypeDef",
     {
-        "detectorModelDescription": str,
-        "evaluationMethod": EvaluationMethodType,
+        "from": str,
+        "recipients": EmailRecipientsTypeDef,
+        "content": NotRequired[EmailContentTypeDef],
     },
-    total=False,
 )
 
-class UpdateDetectorModelRequestRequestTypeDef(
-    _RequiredUpdateDetectorModelRequestRequestTypeDef,
-    _OptionalUpdateDetectorModelRequestRequestTypeDef,
-):
-    pass
+class EventOutputTypeDef(TypedDict):
+    eventName: str
+    condition: NotRequired[str]
+    actions: NotRequired[List[ActionTypeDef]]
 
-UpdateDetectorModelResponseTypeDef = TypedDict(
-    "UpdateDetectorModelResponseTypeDef",
-    {
-        "detectorModelConfiguration": "DetectorModelConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class EventTypeDef(TypedDict):
+    eventName: str
+    condition: NotRequired[str]
+    actions: NotRequired[Sequence[ActionTypeDef]]
 
-_RequiredUpdateInputRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateInputRequestRequestTypeDef",
-    {
-        "inputName": str,
-        "inputDefinition": "InputDefinitionTypeDef",
-    },
-)
-_OptionalUpdateInputRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateInputRequestRequestTypeDef",
-    {
-        "inputDescription": str,
-    },
-    total=False,
-)
+class TransitionEventOutputTypeDef(TypedDict):
+    eventName: str
+    condition: str
+    nextState: str
+    actions: NotRequired[List[ActionTypeDef]]
 
-class UpdateInputRequestRequestTypeDef(
-    _RequiredUpdateInputRequestRequestTypeDef, _OptionalUpdateInputRequestRequestTypeDef
-):
-    pass
+class TransitionEventTypeDef(TypedDict):
+    eventName: str
+    condition: str
+    nextState: str
+    actions: NotRequired[Sequence[ActionTypeDef]]
 
-UpdateInputResponseTypeDef = TypedDict(
-    "UpdateInputResponseTypeDef",
-    {
-        "inputConfiguration": "InputConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class AlarmEventActionsOutputTypeDef(TypedDict):
+    alarmActions: NotRequired[List[AlarmActionTypeDef]]
+
+class AlarmEventActionsTypeDef(TypedDict):
+    alarmActions: NotRequired[Sequence[AlarmActionTypeDef]]
+
+class NotificationActionOutputTypeDef(TypedDict):
+    action: NotificationTargetActionsTypeDef
+    smsConfigurations: NotRequired[List[SMSConfigurationOutputTypeDef]]
+    emailConfigurations: NotRequired[List[EmailConfigurationOutputTypeDef]]
+
+class NotificationActionTypeDef(TypedDict):
+    action: NotificationTargetActionsTypeDef
+    smsConfigurations: NotRequired[Sequence[SMSConfigurationTypeDef]]
+    emailConfigurations: NotRequired[Sequence[EmailConfigurationTypeDef]]
+
+class OnEnterLifecycleOutputTypeDef(TypedDict):
+    events: NotRequired[List[EventOutputTypeDef]]
+
+class OnExitLifecycleOutputTypeDef(TypedDict):
+    events: NotRequired[List[EventOutputTypeDef]]
+
+class OnEnterLifecycleTypeDef(TypedDict):
+    events: NotRequired[Sequence[EventTypeDef]]
+
+class OnExitLifecycleTypeDef(TypedDict):
+    events: NotRequired[Sequence[EventTypeDef]]
+
+class OnInputLifecycleOutputTypeDef(TypedDict):
+    events: NotRequired[List[EventOutputTypeDef]]
+    transitionEvents: NotRequired[List[TransitionEventOutputTypeDef]]
+
+class OnInputLifecycleTypeDef(TypedDict):
+    events: NotRequired[Sequence[EventTypeDef]]
+    transitionEvents: NotRequired[Sequence[TransitionEventTypeDef]]
+
+AlarmEventActionsUnionTypeDef = Union[AlarmEventActionsTypeDef, AlarmEventActionsOutputTypeDef]
+
+class AlarmNotificationOutputTypeDef(TypedDict):
+    notificationActions: NotRequired[List[NotificationActionOutputTypeDef]]
+
+class AlarmNotificationTypeDef(TypedDict):
+    notificationActions: NotRequired[Sequence[NotificationActionTypeDef]]
+
+class StateOutputTypeDef(TypedDict):
+    stateName: str
+    onInput: NotRequired[OnInputLifecycleOutputTypeDef]
+    onEnter: NotRequired[OnEnterLifecycleOutputTypeDef]
+    onExit: NotRequired[OnExitLifecycleOutputTypeDef]
+
+class StateTypeDef(TypedDict):
+    stateName: str
+    onInput: NotRequired[OnInputLifecycleTypeDef]
+    onEnter: NotRequired[OnEnterLifecycleTypeDef]
+    onExit: NotRequired[OnExitLifecycleTypeDef]
+
+class DescribeAlarmModelResponseTypeDef(TypedDict):
+    creationTime: datetime
+    alarmModelArn: str
+    alarmModelVersion: str
+    lastUpdateTime: datetime
+    status: AlarmModelVersionStatusType
+    statusMessage: str
+    alarmModelName: str
+    alarmModelDescription: str
+    roleArn: str
+    key: str
+    severity: int
+    alarmRule: AlarmRuleTypeDef
+    alarmNotification: AlarmNotificationOutputTypeDef
+    alarmEventActions: AlarmEventActionsOutputTypeDef
+    alarmCapabilities: AlarmCapabilitiesTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+AlarmNotificationUnionTypeDef = Union[AlarmNotificationTypeDef, AlarmNotificationOutputTypeDef]
+
+class DetectorModelDefinitionOutputTypeDef(TypedDict):
+    states: List[StateOutputTypeDef]
+    initialStateName: str
+
+class DetectorModelDefinitionTypeDef(TypedDict):
+    states: Sequence[StateTypeDef]
+    initialStateName: str
+
+class CreateAlarmModelRequestTypeDef(TypedDict):
+    alarmModelName: str
+    roleArn: str
+    alarmRule: AlarmRuleTypeDef
+    alarmModelDescription: NotRequired[str]
+    tags: NotRequired[Sequence[TagTypeDef]]
+    key: NotRequired[str]
+    severity: NotRequired[int]
+    alarmNotification: NotRequired[AlarmNotificationUnionTypeDef]
+    alarmEventActions: NotRequired[AlarmEventActionsUnionTypeDef]
+    alarmCapabilities: NotRequired[AlarmCapabilitiesTypeDef]
+
+class UpdateAlarmModelRequestTypeDef(TypedDict):
+    alarmModelName: str
+    roleArn: str
+    alarmRule: AlarmRuleTypeDef
+    alarmModelDescription: NotRequired[str]
+    severity: NotRequired[int]
+    alarmNotification: NotRequired[AlarmNotificationUnionTypeDef]
+    alarmEventActions: NotRequired[AlarmEventActionsUnionTypeDef]
+    alarmCapabilities: NotRequired[AlarmCapabilitiesTypeDef]
+
+class DetectorModelTypeDef(TypedDict):
+    detectorModelDefinition: NotRequired[DetectorModelDefinitionOutputTypeDef]
+    detectorModelConfiguration: NotRequired[DetectorModelConfigurationTypeDef]
+
+DetectorModelDefinitionUnionTypeDef = Union[
+    DetectorModelDefinitionTypeDef, DetectorModelDefinitionOutputTypeDef
+]
+
+class DescribeDetectorModelResponseTypeDef(TypedDict):
+    detectorModel: DetectorModelTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateDetectorModelRequestTypeDef(TypedDict):
+    detectorModelName: str
+    detectorModelDefinition: DetectorModelDefinitionUnionTypeDef
+    roleArn: str
+    detectorModelDescription: NotRequired[str]
+    key: NotRequired[str]
+    tags: NotRequired[Sequence[TagTypeDef]]
+    evaluationMethod: NotRequired[EvaluationMethodType]
+
+class StartDetectorModelAnalysisRequestTypeDef(TypedDict):
+    detectorModelDefinition: DetectorModelDefinitionUnionTypeDef
+
+class UpdateDetectorModelRequestTypeDef(TypedDict):
+    detectorModelName: str
+    detectorModelDefinition: DetectorModelDefinitionUnionTypeDef
+    roleArn: str
+    detectorModelDescription: NotRequired[str]
+    evaluationMethod: NotRequired[EvaluationMethodType]

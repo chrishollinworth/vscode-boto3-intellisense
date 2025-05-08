@@ -1,40 +1,52 @@
 """
-Type annotations for personalize-events service client.
+Type annotations for personalize-events service Client.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize_events/client.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_personalize_events/client/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
-    from mypy_boto3_personalize_events import PersonalizeEventsClient
+    from boto3.session import Session
+    from mypy_boto3_personalize_events.client import PersonalizeEventsClient
 
-    client: PersonalizeEventsClient = boto3.client("personalize-events")
+    session = Session()
+    client: PersonalizeEventsClient = session.client("personalize-events")
     ```
 """
 
-from typing import Any, Dict, List, Type
+from __future__ import annotations
+
+import sys
+from typing import Any
 
 from botocore.client import BaseClient, ClientMeta
+from botocore.errorfactory import BaseClientExceptions
+from botocore.exceptions import ClientError as BotocoreClientError
 
 from .type_defs import (
-    ActionInteractionTypeDef,
-    ActionTypeDef,
-    EventTypeDef,
-    ItemTypeDef,
-    UserTypeDef,
+    EmptyResponseMetadataTypeDef,
+    PutActionInteractionsRequestTypeDef,
+    PutActionsRequestTypeDef,
+    PutEventsRequestTypeDef,
+    PutItemsRequestTypeDef,
+    PutUsersRequestTypeDef,
 )
+
+if sys.version_info >= (3, 9):
+    from builtins import type as Type
+    from collections.abc import Mapping
+else:
+    from typing import Mapping, Type
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = ("PersonalizeEventsClient",)
 
-class BotocoreClientError(BaseException):
-    MSG_TEMPLATE: str
-
-    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
-        self.response: Dict[str, Any]
-        self.operation_name: str
-
-class Exceptions:
+class Exceptions(BaseClientExceptions):
     ClientError: Type[BotocoreClientError]
     InvalidInputException: Type[BotocoreClientError]
     ResourceInUseException: Type[BotocoreClientError]
@@ -42,8 +54,8 @@ class Exceptions:
 
 class PersonalizeEventsClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize-events.html#PersonalizeEvents.Client)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize_events/client.html)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/personalize-events.html#PersonalizeEvents.Client)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_personalize_events/client/)
     """
 
     meta: ClientMeta
@@ -52,83 +64,69 @@ class PersonalizeEventsClient(BaseClient):
     def exceptions(self) -> Exceptions:
         """
         PersonalizeEventsClient exceptions.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/personalize-events.html#PersonalizeEvents.Client)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_personalize_events/client/#exceptions)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        Check if an operation can be paginated.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize-events.html#PersonalizeEvents.Client.can_paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize_events/client.html#can_paginate)
-        """
-
-    def close(self) -> None:
-        """
-        Closes underlying endpoint connections.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize-events.html#PersonalizeEvents.Client.close)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize_events/client.html#close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/personalize-events/client/can_paginate.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_personalize_events/client/#can_paginate)
         """
 
     def generate_presigned_url(
         self,
         ClientMethod: str,
-        Params: Dict[str, Any] = None,
+        Params: Mapping[str, Any] = ...,
         ExpiresIn: int = 3600,
-        HttpMethod: str = None,
+        HttpMethod: str = ...,
     ) -> str:
         """
-        Generate a presigned url given a client, its method, and arguments.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize-events.html#PersonalizeEvents.Client.generate_presigned_url)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize_events/client.html#generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/personalize-events/client/generate_presigned_url.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_personalize_events/client/#generate_presigned_url)
         """
 
     def put_action_interactions(
-        self, *, trackingId: str, actionInteractions: List["ActionInteractionTypeDef"]
-    ) -> None:
+        self, **kwargs: Unpack[PutActionInteractionsRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Records action interaction event data.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize-events.html#PersonalizeEvents.Client.put_action_interactions)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize_events/client.html#put_action_interactions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/personalize-events/client/put_action_interactions.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_personalize_events/client/#put_action_interactions)
         """
 
-    def put_actions(self, *, datasetArn: str, actions: List["ActionTypeDef"]) -> None:
+    def put_actions(
+        self, **kwargs: Unpack[PutActionsRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Adds one or more actions to an Actions dataset.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize-events.html#PersonalizeEvents.Client.put_actions)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize_events/client.html#put_actions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/personalize-events/client/put_actions.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_personalize_events/client/#put_actions)
         """
 
-    def put_events(
-        self,
-        *,
-        trackingId: str,
-        sessionId: str,
-        eventList: List["EventTypeDef"],
-        userId: str = None
-    ) -> None:
+    def put_events(self, **kwargs: Unpack[PutEventsRequestTypeDef]) -> EmptyResponseMetadataTypeDef:
         """
         Records item interaction event data.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize-events.html#PersonalizeEvents.Client.put_events)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize_events/client.html#put_events)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/personalize-events/client/put_events.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_personalize_events/client/#put_events)
         """
 
-    def put_items(self, *, datasetArn: str, items: List["ItemTypeDef"]) -> None:
+    def put_items(self, **kwargs: Unpack[PutItemsRequestTypeDef]) -> EmptyResponseMetadataTypeDef:
         """
         Adds one or more items to an Items dataset.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize-events.html#PersonalizeEvents.Client.put_items)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize_events/client.html#put_items)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/personalize-events/client/put_items.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_personalize_events/client/#put_items)
         """
 
-    def put_users(self, *, datasetArn: str, users: List["UserTypeDef"]) -> None:
+    def put_users(self, **kwargs: Unpack[PutUsersRequestTypeDef]) -> EmptyResponseMetadataTypeDef:
         """
         Adds one or more users to a Users dataset.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/personalize-events.html#PersonalizeEvents.Client.put_users)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize_events/client.html#put_users)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/personalize-events/client/put_users.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_personalize_events/client/#put_users)
         """

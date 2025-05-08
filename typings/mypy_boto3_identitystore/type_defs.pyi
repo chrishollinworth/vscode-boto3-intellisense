@@ -1,65 +1,79 @@
 """
 Type annotations for identitystore service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_identitystore/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_identitystore/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_identitystore.type_defs import AddressTypeDef
 
-    data: AddressTypeDef = {...}
+    data: AddressTypeDef = ...
     ```
 """
 
-import sys
-from typing import Any, Dict, List
+from __future__ import annotations
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+import sys
+from typing import Any
+
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
     "AddressTypeDef",
     "AlternateIdentifierTypeDef",
     "AttributeOperationTypeDef",
-    "CreateGroupMembershipRequestRequestTypeDef",
+    "CreateGroupMembershipRequestTypeDef",
     "CreateGroupMembershipResponseTypeDef",
-    "CreateGroupRequestRequestTypeDef",
+    "CreateGroupRequestTypeDef",
     "CreateGroupResponseTypeDef",
-    "CreateUserRequestRequestTypeDef",
+    "CreateUserRequestTypeDef",
     "CreateUserResponseTypeDef",
-    "DeleteGroupMembershipRequestRequestTypeDef",
-    "DeleteGroupRequestRequestTypeDef",
-    "DeleteUserRequestRequestTypeDef",
-    "DescribeGroupMembershipRequestRequestTypeDef",
+    "DeleteGroupMembershipRequestTypeDef",
+    "DeleteGroupRequestTypeDef",
+    "DeleteUserRequestTypeDef",
+    "DescribeGroupMembershipRequestTypeDef",
     "DescribeGroupMembershipResponseTypeDef",
-    "DescribeGroupRequestRequestTypeDef",
+    "DescribeGroupRequestTypeDef",
     "DescribeGroupResponseTypeDef",
-    "DescribeUserRequestRequestTypeDef",
+    "DescribeUserRequestTypeDef",
     "DescribeUserResponseTypeDef",
     "EmailTypeDef",
     "ExternalIdTypeDef",
     "FilterTypeDef",
-    "GetGroupIdRequestRequestTypeDef",
+    "GetGroupIdRequestTypeDef",
     "GetGroupIdResponseTypeDef",
-    "GetGroupMembershipIdRequestRequestTypeDef",
+    "GetGroupMembershipIdRequestTypeDef",
     "GetGroupMembershipIdResponseTypeDef",
-    "GetUserIdRequestRequestTypeDef",
+    "GetUserIdRequestTypeDef",
     "GetUserIdResponseTypeDef",
     "GroupMembershipExistenceResultTypeDef",
     "GroupMembershipTypeDef",
     "GroupTypeDef",
-    "IsMemberInGroupsRequestRequestTypeDef",
+    "IsMemberInGroupsRequestTypeDef",
     "IsMemberInGroupsResponseTypeDef",
-    "ListGroupMembershipsForMemberRequestRequestTypeDef",
+    "ListGroupMembershipsForMemberRequestPaginateTypeDef",
+    "ListGroupMembershipsForMemberRequestTypeDef",
     "ListGroupMembershipsForMemberResponseTypeDef",
-    "ListGroupMembershipsRequestRequestTypeDef",
+    "ListGroupMembershipsRequestPaginateTypeDef",
+    "ListGroupMembershipsRequestTypeDef",
     "ListGroupMembershipsResponseTypeDef",
-    "ListGroupsRequestRequestTypeDef",
+    "ListGroupsRequestPaginateTypeDef",
+    "ListGroupsRequestTypeDef",
     "ListGroupsResponseTypeDef",
-    "ListUsersRequestRequestTypeDef",
+    "ListUsersRequestPaginateTypeDef",
+    "ListUsersRequestTypeDef",
     "ListUsersResponseTypeDef",
     "MemberIdTypeDef",
     "NameTypeDef",
@@ -67,606 +81,328 @@ __all__ = (
     "PhoneNumberTypeDef",
     "ResponseMetadataTypeDef",
     "UniqueAttributeTypeDef",
-    "UpdateGroupRequestRequestTypeDef",
-    "UpdateUserRequestRequestTypeDef",
+    "UpdateGroupRequestTypeDef",
+    "UpdateUserRequestTypeDef",
     "UserTypeDef",
 )
 
 AddressTypeDef = TypedDict(
     "AddressTypeDef",
     {
-        "StreetAddress": str,
-        "Locality": str,
-        "Region": str,
-        "PostalCode": str,
-        "Country": str,
-        "Formatted": str,
-        "Type": str,
-        "Primary": bool,
-    },
-    total=False,
-)
-
-AlternateIdentifierTypeDef = TypedDict(
-    "AlternateIdentifierTypeDef",
-    {
-        "ExternalId": "ExternalIdTypeDef",
-        "UniqueAttribute": "UniqueAttributeTypeDef",
-    },
-    total=False,
-)
-
-_RequiredAttributeOperationTypeDef = TypedDict(
-    "_RequiredAttributeOperationTypeDef",
-    {
-        "AttributePath": str,
-    },
-)
-_OptionalAttributeOperationTypeDef = TypedDict(
-    "_OptionalAttributeOperationTypeDef",
-    {
-        "AttributeValue": Dict[str, Any],
-    },
-    total=False,
-)
-
-class AttributeOperationTypeDef(
-    _RequiredAttributeOperationTypeDef, _OptionalAttributeOperationTypeDef
-):
-    pass
-
-CreateGroupMembershipRequestRequestTypeDef = TypedDict(
-    "CreateGroupMembershipRequestRequestTypeDef",
-    {
-        "IdentityStoreId": str,
-        "GroupId": str,
-        "MemberId": "MemberIdTypeDef",
+        "StreetAddress": NotRequired[str],
+        "Locality": NotRequired[str],
+        "Region": NotRequired[str],
+        "PostalCode": NotRequired[str],
+        "Country": NotRequired[str],
+        "Formatted": NotRequired[str],
+        "Type": NotRequired[str],
+        "Primary": NotRequired[bool],
     },
 )
 
-CreateGroupMembershipResponseTypeDef = TypedDict(
-    "CreateGroupMembershipResponseTypeDef",
-    {
-        "MembershipId": str,
-        "IdentityStoreId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ExternalIdTypeDef(TypedDict):
+    Issuer: str
+    Id: str
 
-_RequiredCreateGroupRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateGroupRequestRequestTypeDef",
-    {
-        "IdentityStoreId": str,
-    },
-)
-_OptionalCreateGroupRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateGroupRequestRequestTypeDef",
-    {
-        "DisplayName": str,
-        "Description": str,
-    },
-    total=False,
-)
+class UniqueAttributeTypeDef(TypedDict):
+    AttributePath: str
+    AttributeValue: Mapping[str, Any]
 
-class CreateGroupRequestRequestTypeDef(
-    _RequiredCreateGroupRequestRequestTypeDef, _OptionalCreateGroupRequestRequestTypeDef
-):
-    pass
+class AttributeOperationTypeDef(TypedDict):
+    AttributePath: str
+    AttributeValue: NotRequired[Mapping[str, Any]]
 
-CreateGroupResponseTypeDef = TypedDict(
-    "CreateGroupResponseTypeDef",
-    {
-        "GroupId": str,
-        "IdentityStoreId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class MemberIdTypeDef(TypedDict):
+    UserId: NotRequired[str]
 
-_RequiredCreateUserRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateUserRequestRequestTypeDef",
-    {
-        "IdentityStoreId": str,
-    },
-)
-_OptionalCreateUserRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateUserRequestRequestTypeDef",
-    {
-        "UserName": str,
-        "Name": "NameTypeDef",
-        "DisplayName": str,
-        "NickName": str,
-        "ProfileUrl": str,
-        "Emails": List["EmailTypeDef"],
-        "Addresses": List["AddressTypeDef"],
-        "PhoneNumbers": List["PhoneNumberTypeDef"],
-        "UserType": str,
-        "Title": str,
-        "PreferredLanguage": str,
-        "Locale": str,
-        "Timezone": str,
-    },
-    total=False,
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-class CreateUserRequestRequestTypeDef(
-    _RequiredCreateUserRequestRequestTypeDef, _OptionalCreateUserRequestRequestTypeDef
-):
-    pass
-
-CreateUserResponseTypeDef = TypedDict(
-    "CreateUserResponseTypeDef",
-    {
-        "UserId": str,
-        "IdentityStoreId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteGroupMembershipRequestRequestTypeDef = TypedDict(
-    "DeleteGroupMembershipRequestRequestTypeDef",
-    {
-        "IdentityStoreId": str,
-        "MembershipId": str,
-    },
-)
-
-DeleteGroupRequestRequestTypeDef = TypedDict(
-    "DeleteGroupRequestRequestTypeDef",
-    {
-        "IdentityStoreId": str,
-        "GroupId": str,
-    },
-)
-
-DeleteUserRequestRequestTypeDef = TypedDict(
-    "DeleteUserRequestRequestTypeDef",
-    {
-        "IdentityStoreId": str,
-        "UserId": str,
-    },
-)
-
-DescribeGroupMembershipRequestRequestTypeDef = TypedDict(
-    "DescribeGroupMembershipRequestRequestTypeDef",
-    {
-        "IdentityStoreId": str,
-        "MembershipId": str,
-    },
-)
-
-DescribeGroupMembershipResponseTypeDef = TypedDict(
-    "DescribeGroupMembershipResponseTypeDef",
-    {
-        "IdentityStoreId": str,
-        "MembershipId": str,
-        "GroupId": str,
-        "MemberId": "MemberIdTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeGroupRequestRequestTypeDef = TypedDict(
-    "DescribeGroupRequestRequestTypeDef",
-    {
-        "IdentityStoreId": str,
-        "GroupId": str,
-    },
-)
-
-DescribeGroupResponseTypeDef = TypedDict(
-    "DescribeGroupResponseTypeDef",
-    {
-        "GroupId": str,
-        "DisplayName": str,
-        "ExternalIds": List["ExternalIdTypeDef"],
-        "Description": str,
-        "IdentityStoreId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeUserRequestRequestTypeDef = TypedDict(
-    "DescribeUserRequestRequestTypeDef",
-    {
-        "IdentityStoreId": str,
-        "UserId": str,
-    },
-)
-
-DescribeUserResponseTypeDef = TypedDict(
-    "DescribeUserResponseTypeDef",
-    {
-        "UserName": str,
-        "UserId": str,
-        "ExternalIds": List["ExternalIdTypeDef"],
-        "Name": "NameTypeDef",
-        "DisplayName": str,
-        "NickName": str,
-        "ProfileUrl": str,
-        "Emails": List["EmailTypeDef"],
-        "Addresses": List["AddressTypeDef"],
-        "PhoneNumbers": List["PhoneNumberTypeDef"],
-        "UserType": str,
-        "Title": str,
-        "PreferredLanguage": str,
-        "Locale": str,
-        "Timezone": str,
-        "IdentityStoreId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CreateGroupRequestTypeDef(TypedDict):
+    IdentityStoreId: str
+    DisplayName: NotRequired[str]
+    Description: NotRequired[str]
 
 EmailTypeDef = TypedDict(
     "EmailTypeDef",
     {
-        "Value": str,
-        "Type": str,
-        "Primary": bool,
-    },
-    total=False,
-)
-
-ExternalIdTypeDef = TypedDict(
-    "ExternalIdTypeDef",
-    {
-        "Issuer": str,
-        "Id": str,
+        "Value": NotRequired[str],
+        "Type": NotRequired[str],
+        "Primary": NotRequired[bool],
     },
 )
 
-FilterTypeDef = TypedDict(
-    "FilterTypeDef",
-    {
-        "AttributePath": str,
-        "AttributeValue": str,
-    },
-)
-
-GetGroupIdRequestRequestTypeDef = TypedDict(
-    "GetGroupIdRequestRequestTypeDef",
-    {
-        "IdentityStoreId": str,
-        "AlternateIdentifier": "AlternateIdentifierTypeDef",
-    },
-)
-
-GetGroupIdResponseTypeDef = TypedDict(
-    "GetGroupIdResponseTypeDef",
-    {
-        "GroupId": str,
-        "IdentityStoreId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetGroupMembershipIdRequestRequestTypeDef = TypedDict(
-    "GetGroupMembershipIdRequestRequestTypeDef",
-    {
-        "IdentityStoreId": str,
-        "GroupId": str,
-        "MemberId": "MemberIdTypeDef",
-    },
-)
-
-GetGroupMembershipIdResponseTypeDef = TypedDict(
-    "GetGroupMembershipIdResponseTypeDef",
-    {
-        "MembershipId": str,
-        "IdentityStoreId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetUserIdRequestRequestTypeDef = TypedDict(
-    "GetUserIdRequestRequestTypeDef",
-    {
-        "IdentityStoreId": str,
-        "AlternateIdentifier": "AlternateIdentifierTypeDef",
-    },
-)
-
-GetUserIdResponseTypeDef = TypedDict(
-    "GetUserIdResponseTypeDef",
-    {
-        "UserId": str,
-        "IdentityStoreId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GroupMembershipExistenceResultTypeDef = TypedDict(
-    "GroupMembershipExistenceResultTypeDef",
-    {
-        "GroupId": str,
-        "MemberId": "MemberIdTypeDef",
-        "MembershipExists": bool,
-    },
-    total=False,
-)
-
-_RequiredGroupMembershipTypeDef = TypedDict(
-    "_RequiredGroupMembershipTypeDef",
-    {
-        "IdentityStoreId": str,
-    },
-)
-_OptionalGroupMembershipTypeDef = TypedDict(
-    "_OptionalGroupMembershipTypeDef",
-    {
-        "MembershipId": str,
-        "GroupId": str,
-        "MemberId": "MemberIdTypeDef",
-    },
-    total=False,
-)
-
-class GroupMembershipTypeDef(_RequiredGroupMembershipTypeDef, _OptionalGroupMembershipTypeDef):
-    pass
-
-_RequiredGroupTypeDef = TypedDict(
-    "_RequiredGroupTypeDef",
-    {
-        "GroupId": str,
-        "IdentityStoreId": str,
-    },
-)
-_OptionalGroupTypeDef = TypedDict(
-    "_OptionalGroupTypeDef",
-    {
-        "DisplayName": str,
-        "ExternalIds": List["ExternalIdTypeDef"],
-        "Description": str,
-    },
-    total=False,
-)
-
-class GroupTypeDef(_RequiredGroupTypeDef, _OptionalGroupTypeDef):
-    pass
-
-IsMemberInGroupsRequestRequestTypeDef = TypedDict(
-    "IsMemberInGroupsRequestRequestTypeDef",
-    {
-        "IdentityStoreId": str,
-        "MemberId": "MemberIdTypeDef",
-        "GroupIds": List[str],
-    },
-)
-
-IsMemberInGroupsResponseTypeDef = TypedDict(
-    "IsMemberInGroupsResponseTypeDef",
-    {
-        "Results": List["GroupMembershipExistenceResultTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListGroupMembershipsForMemberRequestRequestTypeDef = TypedDict(
-    "_RequiredListGroupMembershipsForMemberRequestRequestTypeDef",
-    {
-        "IdentityStoreId": str,
-        "MemberId": "MemberIdTypeDef",
-    },
-)
-_OptionalListGroupMembershipsForMemberRequestRequestTypeDef = TypedDict(
-    "_OptionalListGroupMembershipsForMemberRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListGroupMembershipsForMemberRequestRequestTypeDef(
-    _RequiredListGroupMembershipsForMemberRequestRequestTypeDef,
-    _OptionalListGroupMembershipsForMemberRequestRequestTypeDef,
-):
-    pass
-
-ListGroupMembershipsForMemberResponseTypeDef = TypedDict(
-    "ListGroupMembershipsForMemberResponseTypeDef",
-    {
-        "GroupMemberships": List["GroupMembershipTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListGroupMembershipsRequestRequestTypeDef = TypedDict(
-    "_RequiredListGroupMembershipsRequestRequestTypeDef",
-    {
-        "IdentityStoreId": str,
-        "GroupId": str,
-    },
-)
-_OptionalListGroupMembershipsRequestRequestTypeDef = TypedDict(
-    "_OptionalListGroupMembershipsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListGroupMembershipsRequestRequestTypeDef(
-    _RequiredListGroupMembershipsRequestRequestTypeDef,
-    _OptionalListGroupMembershipsRequestRequestTypeDef,
-):
-    pass
-
-ListGroupMembershipsResponseTypeDef = TypedDict(
-    "ListGroupMembershipsResponseTypeDef",
-    {
-        "GroupMemberships": List["GroupMembershipTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListGroupsRequestRequestTypeDef = TypedDict(
-    "_RequiredListGroupsRequestRequestTypeDef",
-    {
-        "IdentityStoreId": str,
-    },
-)
-_OptionalListGroupsRequestRequestTypeDef = TypedDict(
-    "_OptionalListGroupsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-        "Filters": List["FilterTypeDef"],
-    },
-    total=False,
-)
-
-class ListGroupsRequestRequestTypeDef(
-    _RequiredListGroupsRequestRequestTypeDef, _OptionalListGroupsRequestRequestTypeDef
-):
-    pass
-
-ListGroupsResponseTypeDef = TypedDict(
-    "ListGroupsResponseTypeDef",
-    {
-        "Groups": List["GroupTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListUsersRequestRequestTypeDef = TypedDict(
-    "_RequiredListUsersRequestRequestTypeDef",
-    {
-        "IdentityStoreId": str,
-    },
-)
-_OptionalListUsersRequestRequestTypeDef = TypedDict(
-    "_OptionalListUsersRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-        "Filters": List["FilterTypeDef"],
-    },
-    total=False,
-)
-
-class ListUsersRequestRequestTypeDef(
-    _RequiredListUsersRequestRequestTypeDef, _OptionalListUsersRequestRequestTypeDef
-):
-    pass
-
-ListUsersResponseTypeDef = TypedDict(
-    "ListUsersResponseTypeDef",
-    {
-        "Users": List["UserTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-MemberIdTypeDef = TypedDict(
-    "MemberIdTypeDef",
-    {
-        "UserId": str,
-    },
-    total=False,
-)
-
-NameTypeDef = TypedDict(
-    "NameTypeDef",
-    {
-        "Formatted": str,
-        "FamilyName": str,
-        "GivenName": str,
-        "MiddleName": str,
-        "HonorificPrefix": str,
-        "HonorificSuffix": str,
-    },
-    total=False,
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
+class NameTypeDef(TypedDict):
+    Formatted: NotRequired[str]
+    FamilyName: NotRequired[str]
+    GivenName: NotRequired[str]
+    MiddleName: NotRequired[str]
+    HonorificPrefix: NotRequired[str]
+    HonorificSuffix: NotRequired[str]
 
 PhoneNumberTypeDef = TypedDict(
     "PhoneNumberTypeDef",
     {
-        "Value": str,
-        "Type": str,
-        "Primary": bool,
-    },
-    total=False,
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
+        "Value": NotRequired[str],
+        "Type": NotRequired[str],
+        "Primary": NotRequired[bool],
     },
 )
 
-UniqueAttributeTypeDef = TypedDict(
-    "UniqueAttributeTypeDef",
-    {
-        "AttributePath": str,
-        "AttributeValue": Dict[str, Any],
-    },
-)
+class DeleteGroupMembershipRequestTypeDef(TypedDict):
+    IdentityStoreId: str
+    MembershipId: str
 
-UpdateGroupRequestRequestTypeDef = TypedDict(
-    "UpdateGroupRequestRequestTypeDef",
-    {
-        "IdentityStoreId": str,
-        "GroupId": str,
-        "Operations": List["AttributeOperationTypeDef"],
-    },
-)
+class DeleteGroupRequestTypeDef(TypedDict):
+    IdentityStoreId: str
+    GroupId: str
 
-UpdateUserRequestRequestTypeDef = TypedDict(
-    "UpdateUserRequestRequestTypeDef",
-    {
-        "IdentityStoreId": str,
-        "UserId": str,
-        "Operations": List["AttributeOperationTypeDef"],
-    },
-)
+class DeleteUserRequestTypeDef(TypedDict):
+    IdentityStoreId: str
+    UserId: str
 
-_RequiredUserTypeDef = TypedDict(
-    "_RequiredUserTypeDef",
-    {
-        "UserId": str,
-        "IdentityStoreId": str,
-    },
-)
-_OptionalUserTypeDef = TypedDict(
-    "_OptionalUserTypeDef",
-    {
-        "UserName": str,
-        "ExternalIds": List["ExternalIdTypeDef"],
-        "Name": "NameTypeDef",
-        "DisplayName": str,
-        "NickName": str,
-        "ProfileUrl": str,
-        "Emails": List["EmailTypeDef"],
-        "Addresses": List["AddressTypeDef"],
-        "PhoneNumbers": List["PhoneNumberTypeDef"],
-        "UserType": str,
-        "Title": str,
-        "PreferredLanguage": str,
-        "Locale": str,
-        "Timezone": str,
-    },
-    total=False,
-)
+class DescribeGroupMembershipRequestTypeDef(TypedDict):
+    IdentityStoreId: str
+    MembershipId: str
 
-class UserTypeDef(_RequiredUserTypeDef, _OptionalUserTypeDef):
-    pass
+class DescribeGroupRequestTypeDef(TypedDict):
+    IdentityStoreId: str
+    GroupId: str
+
+class DescribeUserRequestTypeDef(TypedDict):
+    IdentityStoreId: str
+    UserId: str
+
+class FilterTypeDef(TypedDict):
+    AttributePath: str
+    AttributeValue: str
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class ListGroupMembershipsRequestTypeDef(TypedDict):
+    IdentityStoreId: str
+    GroupId: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class GroupTypeDef(TypedDict):
+    GroupId: str
+    IdentityStoreId: str
+    DisplayName: NotRequired[str]
+    ExternalIds: NotRequired[List[ExternalIdTypeDef]]
+    Description: NotRequired[str]
+
+class AlternateIdentifierTypeDef(TypedDict):
+    ExternalId: NotRequired[ExternalIdTypeDef]
+    UniqueAttribute: NotRequired[UniqueAttributeTypeDef]
+
+class UpdateGroupRequestTypeDef(TypedDict):
+    IdentityStoreId: str
+    GroupId: str
+    Operations: Sequence[AttributeOperationTypeDef]
+
+class UpdateUserRequestTypeDef(TypedDict):
+    IdentityStoreId: str
+    UserId: str
+    Operations: Sequence[AttributeOperationTypeDef]
+
+class CreateGroupMembershipRequestTypeDef(TypedDict):
+    IdentityStoreId: str
+    GroupId: str
+    MemberId: MemberIdTypeDef
+
+class GetGroupMembershipIdRequestTypeDef(TypedDict):
+    IdentityStoreId: str
+    GroupId: str
+    MemberId: MemberIdTypeDef
+
+class GroupMembershipExistenceResultTypeDef(TypedDict):
+    GroupId: NotRequired[str]
+    MemberId: NotRequired[MemberIdTypeDef]
+    MembershipExists: NotRequired[bool]
+
+class GroupMembershipTypeDef(TypedDict):
+    IdentityStoreId: str
+    MembershipId: NotRequired[str]
+    GroupId: NotRequired[str]
+    MemberId: NotRequired[MemberIdTypeDef]
+
+class IsMemberInGroupsRequestTypeDef(TypedDict):
+    IdentityStoreId: str
+    MemberId: MemberIdTypeDef
+    GroupIds: Sequence[str]
+
+class ListGroupMembershipsForMemberRequestTypeDef(TypedDict):
+    IdentityStoreId: str
+    MemberId: MemberIdTypeDef
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class CreateGroupMembershipResponseTypeDef(TypedDict):
+    MembershipId: str
+    IdentityStoreId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateGroupResponseTypeDef(TypedDict):
+    GroupId: str
+    IdentityStoreId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateUserResponseTypeDef(TypedDict):
+    UserId: str
+    IdentityStoreId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeGroupMembershipResponseTypeDef(TypedDict):
+    IdentityStoreId: str
+    MembershipId: str
+    GroupId: str
+    MemberId: MemberIdTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeGroupResponseTypeDef(TypedDict):
+    GroupId: str
+    DisplayName: str
+    ExternalIds: List[ExternalIdTypeDef]
+    Description: str
+    IdentityStoreId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetGroupIdResponseTypeDef(TypedDict):
+    GroupId: str
+    IdentityStoreId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetGroupMembershipIdResponseTypeDef(TypedDict):
+    MembershipId: str
+    IdentityStoreId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetUserIdResponseTypeDef(TypedDict):
+    UserId: str
+    IdentityStoreId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateUserRequestTypeDef(TypedDict):
+    IdentityStoreId: str
+    UserName: NotRequired[str]
+    Name: NotRequired[NameTypeDef]
+    DisplayName: NotRequired[str]
+    NickName: NotRequired[str]
+    ProfileUrl: NotRequired[str]
+    Emails: NotRequired[Sequence[EmailTypeDef]]
+    Addresses: NotRequired[Sequence[AddressTypeDef]]
+    PhoneNumbers: NotRequired[Sequence[PhoneNumberTypeDef]]
+    UserType: NotRequired[str]
+    Title: NotRequired[str]
+    PreferredLanguage: NotRequired[str]
+    Locale: NotRequired[str]
+    Timezone: NotRequired[str]
+
+class DescribeUserResponseTypeDef(TypedDict):
+    UserName: str
+    UserId: str
+    ExternalIds: List[ExternalIdTypeDef]
+    Name: NameTypeDef
+    DisplayName: str
+    NickName: str
+    ProfileUrl: str
+    Emails: List[EmailTypeDef]
+    Addresses: List[AddressTypeDef]
+    PhoneNumbers: List[PhoneNumberTypeDef]
+    UserType: str
+    Title: str
+    PreferredLanguage: str
+    Locale: str
+    Timezone: str
+    IdentityStoreId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UserTypeDef(TypedDict):
+    UserId: str
+    IdentityStoreId: str
+    UserName: NotRequired[str]
+    ExternalIds: NotRequired[List[ExternalIdTypeDef]]
+    Name: NotRequired[NameTypeDef]
+    DisplayName: NotRequired[str]
+    NickName: NotRequired[str]
+    ProfileUrl: NotRequired[str]
+    Emails: NotRequired[List[EmailTypeDef]]
+    Addresses: NotRequired[List[AddressTypeDef]]
+    PhoneNumbers: NotRequired[List[PhoneNumberTypeDef]]
+    UserType: NotRequired[str]
+    Title: NotRequired[str]
+    PreferredLanguage: NotRequired[str]
+    Locale: NotRequired[str]
+    Timezone: NotRequired[str]
+
+class ListGroupsRequestTypeDef(TypedDict):
+    IdentityStoreId: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+    Filters: NotRequired[Sequence[FilterTypeDef]]
+
+class ListUsersRequestTypeDef(TypedDict):
+    IdentityStoreId: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+    Filters: NotRequired[Sequence[FilterTypeDef]]
+
+class ListGroupMembershipsForMemberRequestPaginateTypeDef(TypedDict):
+    IdentityStoreId: str
+    MemberId: MemberIdTypeDef
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListGroupMembershipsRequestPaginateTypeDef(TypedDict):
+    IdentityStoreId: str
+    GroupId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListGroupsRequestPaginateTypeDef(TypedDict):
+    IdentityStoreId: str
+    Filters: NotRequired[Sequence[FilterTypeDef]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListUsersRequestPaginateTypeDef(TypedDict):
+    IdentityStoreId: str
+    Filters: NotRequired[Sequence[FilterTypeDef]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListGroupsResponseTypeDef(TypedDict):
+    Groups: List[GroupTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class GetGroupIdRequestTypeDef(TypedDict):
+    IdentityStoreId: str
+    AlternateIdentifier: AlternateIdentifierTypeDef
+
+class GetUserIdRequestTypeDef(TypedDict):
+    IdentityStoreId: str
+    AlternateIdentifier: AlternateIdentifierTypeDef
+
+class IsMemberInGroupsResponseTypeDef(TypedDict):
+    Results: List[GroupMembershipExistenceResultTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListGroupMembershipsForMemberResponseTypeDef(TypedDict):
+    GroupMemberships: List[GroupMembershipTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListGroupMembershipsResponseTypeDef(TypedDict):
+    GroupMemberships: List[GroupMembershipTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListUsersResponseTypeDef(TypedDict):
+    Users: List[UserTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]

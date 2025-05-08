@@ -1,39 +1,56 @@
 """
-Type annotations for pinpoint-sms-voice service client.
+Type annotations for pinpoint-sms-voice service Client.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice/client.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice/client/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
-    from mypy_boto3_pinpoint_sms_voice import PinpointSMSVoiceClient
+    from boto3.session import Session
+    from mypy_boto3_pinpoint_sms_voice.client import PinpointSMSVoiceClient
 
-    client: PinpointSMSVoiceClient = boto3.client("pinpoint-sms-voice")
+    session = Session()
+    client: PinpointSMSVoiceClient = session.client("pinpoint-sms-voice")
     ```
 """
 
-from typing import Any, Dict, Type
+from __future__ import annotations
+
+import sys
+from typing import Any
 
 from botocore.client import BaseClient, ClientMeta
+from botocore.errorfactory import BaseClientExceptions
+from botocore.exceptions import ClientError as BotocoreClientError
 
 from .type_defs import (
-    EventDestinationDefinitionTypeDef,
+    CreateConfigurationSetEventDestinationRequestTypeDef,
+    CreateConfigurationSetRequestTypeDef,
+    DeleteConfigurationSetEventDestinationRequestTypeDef,
+    DeleteConfigurationSetRequestTypeDef,
+    GetConfigurationSetEventDestinationsRequestTypeDef,
     GetConfigurationSetEventDestinationsResponseTypeDef,
+    SendVoiceMessageRequestTypeDef,
     SendVoiceMessageResponseTypeDef,
-    VoiceMessageContentTypeDef,
+    UpdateConfigurationSetEventDestinationRequestTypeDef,
 )
+
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import type as Type
+    from collections.abc import Mapping
+else:
+    from typing import Dict, Mapping, Type
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = ("PinpointSMSVoiceClient",)
 
-class BotocoreClientError(BaseException):
-    MSG_TEMPLATE: str
-
-    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
-        self.response: Dict[str, Any]
-        self.operation_name: str
-
-class Exceptions:
+class Exceptions(BaseClientExceptions):
     AlreadyExistsException: Type[BotocoreClientError]
     BadRequestException: Type[BotocoreClientError]
     ClientError: Type[BotocoreClientError]
@@ -44,8 +61,8 @@ class Exceptions:
 
 class PinpointSMSVoiceClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice.html#PinpointSMSVoice.Client)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice/client.html)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/pinpoint-sms-voice.html#PinpointSMSVoice.Client)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice/client/)
     """
 
     meta: ClientMeta
@@ -54,116 +71,97 @@ class PinpointSMSVoiceClient(BaseClient):
     def exceptions(self) -> Exceptions:
         """
         PinpointSMSVoiceClient exceptions.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/pinpoint-sms-voice.html#PinpointSMSVoice.Client)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice/client/#exceptions)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        Check if an operation can be paginated.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice.html#PinpointSMSVoice.Client.can_paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice/client.html#can_paginate)
-        """
-
-    def close(self) -> None:
-        """
-        Closes underlying endpoint connections.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice.html#PinpointSMSVoice.Client.close)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice/client.html#close)
-        """
-
-    def create_configuration_set(self, *, ConfigurationSetName: str = None) -> Dict[str, Any]:
-        """
-        Create a new configuration set.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice.html#PinpointSMSVoice.Client.create_configuration_set)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice/client.html#create_configuration_set)
-        """
-
-    def create_configuration_set_event_destination(
-        self,
-        *,
-        ConfigurationSetName: str,
-        EventDestination: "EventDestinationDefinitionTypeDef" = None,
-        EventDestinationName: str = None
-    ) -> Dict[str, Any]:
-        """
-        Create a new event destination in a configuration set.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice.html#PinpointSMSVoice.Client.create_configuration_set_event_destination)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice/client.html#create_configuration_set_event_destination)
-        """
-
-    def delete_configuration_set(self, *, ConfigurationSetName: str) -> Dict[str, Any]:
-        """
-        Deletes an existing configuration set.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice.html#PinpointSMSVoice.Client.delete_configuration_set)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice/client.html#delete_configuration_set)
-        """
-
-    def delete_configuration_set_event_destination(
-        self, *, ConfigurationSetName: str, EventDestinationName: str
-    ) -> Dict[str, Any]:
-        """
-        Deletes an event destination in a configuration set.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice.html#PinpointSMSVoice.Client.delete_configuration_set_event_destination)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice/client.html#delete_configuration_set_event_destination)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/pinpoint-sms-voice/client/can_paginate.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice/client/#can_paginate)
         """
 
     def generate_presigned_url(
         self,
         ClientMethod: str,
-        Params: Dict[str, Any] = None,
+        Params: Mapping[str, Any] = ...,
         ExpiresIn: int = 3600,
-        HttpMethod: str = None,
+        HttpMethod: str = ...,
     ) -> str:
         """
-        Generate a presigned url given a client, its method, and arguments.
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/pinpoint-sms-voice/client/generate_presigned_url.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice/client/#generate_presigned_url)
+        """
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice.html#PinpointSMSVoice.Client.generate_presigned_url)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice/client.html#generate_presigned_url)
+    def create_configuration_set(
+        self, **kwargs: Unpack[CreateConfigurationSetRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Create a new configuration set.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/pinpoint-sms-voice/client/create_configuration_set.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice/client/#create_configuration_set)
+        """
+
+    def create_configuration_set_event_destination(
+        self, **kwargs: Unpack[CreateConfigurationSetEventDestinationRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Create a new event destination in a configuration set.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/pinpoint-sms-voice/client/create_configuration_set_event_destination.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice/client/#create_configuration_set_event_destination)
+        """
+
+    def delete_configuration_set(
+        self, **kwargs: Unpack[DeleteConfigurationSetRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Deletes an existing configuration set.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/pinpoint-sms-voice/client/delete_configuration_set.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice/client/#delete_configuration_set)
+        """
+
+    def delete_configuration_set_event_destination(
+        self, **kwargs: Unpack[DeleteConfigurationSetEventDestinationRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Deletes an event destination in a configuration set.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/pinpoint-sms-voice/client/delete_configuration_set_event_destination.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice/client/#delete_configuration_set_event_destination)
         """
 
     def get_configuration_set_event_destinations(
-        self, *, ConfigurationSetName: str
+        self, **kwargs: Unpack[GetConfigurationSetEventDestinationsRequestTypeDef]
     ) -> GetConfigurationSetEventDestinationsResponseTypeDef:
         """
         Obtain information about an event destination, including the types of events it
         reports, the Amazon Resource Name (ARN) of the destination, and the name of the
         event destination.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice.html#PinpointSMSVoice.Client.get_configuration_set_event_destinations)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice/client.html#get_configuration_set_event_destinations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/pinpoint-sms-voice/client/get_configuration_set_event_destinations.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice/client/#get_configuration_set_event_destinations)
         """
 
     def send_voice_message(
-        self,
-        *,
-        CallerId: str = None,
-        ConfigurationSetName: str = None,
-        Content: "VoiceMessageContentTypeDef" = None,
-        DestinationPhoneNumber: str = None,
-        OriginationPhoneNumber: str = None
+        self, **kwargs: Unpack[SendVoiceMessageRequestTypeDef]
     ) -> SendVoiceMessageResponseTypeDef:
         """
         Create a new voice message and send it to a recipient's phone number.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice.html#PinpointSMSVoice.Client.send_voice_message)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice/client.html#send_voice_message)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/pinpoint-sms-voice/client/send_voice_message.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice/client/#send_voice_message)
         """
 
     def update_configuration_set_event_destination(
-        self,
-        *,
-        ConfigurationSetName: str,
-        EventDestinationName: str,
-        EventDestination: "EventDestinationDefinitionTypeDef" = None
+        self, **kwargs: Unpack[UpdateConfigurationSetEventDestinationRequestTypeDef]
     ) -> Dict[str, Any]:
         """
         Update an event destination in a configuration set.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/pinpoint-sms-voice.html#PinpointSMSVoice.Client.update_configuration_set_event_destination)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice/client.html#update_configuration_set_event_destination)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/pinpoint-sms-voice/client/update_configuration_set_event_destination.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_pinpoint_sms_voice/client/#update_configuration_set_event_destination)
         """

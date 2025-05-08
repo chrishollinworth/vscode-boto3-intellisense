@@ -1,14 +1,16 @@
 """
 Type annotations for tnb service client paginators.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_tnb/paginators.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_tnb/paginators/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
 
-    from mypy_boto3_tnb import TelcoNetworkBuilderClient
+    from mypy_boto3_tnb.client import TelcoNetworkBuilderClient
     from mypy_boto3_tnb.paginator import (
         ListSolFunctionInstancesPaginator,
         ListSolFunctionPackagesPaginator,
@@ -17,7 +19,8 @@ Usage::
         ListSolNetworkPackagesPaginator,
     )
 
-    client: TelcoNetworkBuilderClient = boto3.client("tnb")
+    session = Session()
+    client: TelcoNetworkBuilderClient = session.client("tnb")
 
     list_sol_function_instances_paginator: ListSolFunctionInstancesPaginator = client.get_paginator("list_sol_function_instances")
     list_sol_function_packages_paginator: ListSolFunctionPackagesPaginator = client.get_paginator("list_sol_function_packages")
@@ -27,18 +30,30 @@ Usage::
     ```
 """
 
-from typing import Iterator
+from __future__ import annotations
 
-from botocore.paginate import Paginator as Boto3Paginator
+import sys
+from typing import TYPE_CHECKING
+
+from botocore.paginate import PageIterator, Paginator
 
 from .type_defs import (
+    ListSolFunctionInstancesInputPaginateTypeDef,
     ListSolFunctionInstancesOutputTypeDef,
+    ListSolFunctionPackagesInputPaginateTypeDef,
     ListSolFunctionPackagesOutputTypeDef,
+    ListSolNetworkInstancesInputPaginateTypeDef,
     ListSolNetworkInstancesOutputTypeDef,
+    ListSolNetworkOperationsInputPaginateTypeDef,
     ListSolNetworkOperationsOutputTypeDef,
+    ListSolNetworkPackagesInputPaginateTypeDef,
     ListSolNetworkPackagesOutputTypeDef,
-    PaginatorConfigTypeDef,
 )
+
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = (
     "ListSolFunctionInstancesPaginator",
@@ -48,72 +63,92 @@ __all__ = (
     "ListSolNetworkPackagesPaginator",
 )
 
-class ListSolFunctionInstancesPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/tnb.html#TelcoNetworkBuilder.Paginator.ListSolFunctionInstances)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_tnb/paginators.html#listsolfunctioninstancespaginator)
-    """
+if TYPE_CHECKING:
+    _ListSolFunctionInstancesPaginatorBase = Paginator[ListSolFunctionInstancesOutputTypeDef]
+else:
+    _ListSolFunctionInstancesPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListSolFunctionInstancesOutputTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/tnb.html#TelcoNetworkBuilder.Paginator.ListSolFunctionInstances.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_tnb/paginators.html#listsolfunctioninstancespaginator)
-        """
-
-class ListSolFunctionPackagesPaginator(Boto3Paginator):
+class ListSolFunctionInstancesPaginator(_ListSolFunctionInstancesPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/tnb.html#TelcoNetworkBuilder.Paginator.ListSolFunctionPackages)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_tnb/paginators.html#listsolfunctionpackagespaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/tnb/paginator/ListSolFunctionInstances.html#TelcoNetworkBuilder.Paginator.ListSolFunctionInstances)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_tnb/paginators/#listsolfunctioninstancespaginator)
     """
-
-    def paginate(
-        self, *, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListSolFunctionPackagesOutputTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListSolFunctionInstancesInputPaginateTypeDef]
+    ) -> PageIterator[ListSolFunctionInstancesOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/tnb.html#TelcoNetworkBuilder.Paginator.ListSolFunctionPackages.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_tnb/paginators.html#listsolfunctionpackagespaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/tnb/paginator/ListSolFunctionInstances.html#TelcoNetworkBuilder.Paginator.ListSolFunctionInstances.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_tnb/paginators/#listsolfunctioninstancespaginator)
         """
 
-class ListSolNetworkInstancesPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/tnb.html#TelcoNetworkBuilder.Paginator.ListSolNetworkInstances)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_tnb/paginators.html#listsolnetworkinstancespaginator)
-    """
+if TYPE_CHECKING:
+    _ListSolFunctionPackagesPaginatorBase = Paginator[ListSolFunctionPackagesOutputTypeDef]
+else:
+    _ListSolFunctionPackagesPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListSolNetworkInstancesOutputTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/tnb.html#TelcoNetworkBuilder.Paginator.ListSolNetworkInstances.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_tnb/paginators.html#listsolnetworkinstancespaginator)
-        """
-
-class ListSolNetworkOperationsPaginator(Boto3Paginator):
+class ListSolFunctionPackagesPaginator(_ListSolFunctionPackagesPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/tnb.html#TelcoNetworkBuilder.Paginator.ListSolNetworkOperations)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_tnb/paginators.html#listsolnetworkoperationspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/tnb/paginator/ListSolFunctionPackages.html#TelcoNetworkBuilder.Paginator.ListSolFunctionPackages)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_tnb/paginators/#listsolfunctionpackagespaginator)
     """
-
-    def paginate(
-        self, *, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListSolNetworkOperationsOutputTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListSolFunctionPackagesInputPaginateTypeDef]
+    ) -> PageIterator[ListSolFunctionPackagesOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/tnb.html#TelcoNetworkBuilder.Paginator.ListSolNetworkOperations.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_tnb/paginators.html#listsolnetworkoperationspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/tnb/paginator/ListSolFunctionPackages.html#TelcoNetworkBuilder.Paginator.ListSolFunctionPackages.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_tnb/paginators/#listsolfunctionpackagespaginator)
         """
 
-class ListSolNetworkPackagesPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/tnb.html#TelcoNetworkBuilder.Paginator.ListSolNetworkPackages)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_tnb/paginators.html#listsolnetworkpackagespaginator)
-    """
+if TYPE_CHECKING:
+    _ListSolNetworkInstancesPaginatorBase = Paginator[ListSolNetworkInstancesOutputTypeDef]
+else:
+    _ListSolNetworkInstancesPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListSolNetworkPackagesOutputTypeDef]:
+class ListSolNetworkInstancesPaginator(_ListSolNetworkInstancesPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/tnb/paginator/ListSolNetworkInstances.html#TelcoNetworkBuilder.Paginator.ListSolNetworkInstances)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_tnb/paginators/#listsolnetworkinstancespaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListSolNetworkInstancesInputPaginateTypeDef]
+    ) -> PageIterator[ListSolNetworkInstancesOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/tnb.html#TelcoNetworkBuilder.Paginator.ListSolNetworkPackages.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_tnb/paginators.html#listsolnetworkpackagespaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/tnb/paginator/ListSolNetworkInstances.html#TelcoNetworkBuilder.Paginator.ListSolNetworkInstances.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_tnb/paginators/#listsolnetworkinstancespaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListSolNetworkOperationsPaginatorBase = Paginator[ListSolNetworkOperationsOutputTypeDef]
+else:
+    _ListSolNetworkOperationsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListSolNetworkOperationsPaginator(_ListSolNetworkOperationsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/tnb/paginator/ListSolNetworkOperations.html#TelcoNetworkBuilder.Paginator.ListSolNetworkOperations)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_tnb/paginators/#listsolnetworkoperationspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListSolNetworkOperationsInputPaginateTypeDef]
+    ) -> PageIterator[ListSolNetworkOperationsOutputTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/tnb/paginator/ListSolNetworkOperations.html#TelcoNetworkBuilder.Paginator.ListSolNetworkOperations.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_tnb/paginators/#listsolnetworkoperationspaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListSolNetworkPackagesPaginatorBase = Paginator[ListSolNetworkPackagesOutputTypeDef]
+else:
+    _ListSolNetworkPackagesPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListSolNetworkPackagesPaginator(_ListSolNetworkPackagesPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/tnb/paginator/ListSolNetworkPackages.html#TelcoNetworkBuilder.Paginator.ListSolNetworkPackages)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_tnb/paginators/#listsolnetworkpackagespaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListSolNetworkPackagesInputPaginateTypeDef]
+    ) -> PageIterator[ListSolNetworkPackagesOutputTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/tnb/paginator/ListSolNetworkPackages.html#TelcoNetworkBuilder.Paginator.ListSolNetworkPackages.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_tnb/paginators/#listsolnetworkpackagespaginator)
         """

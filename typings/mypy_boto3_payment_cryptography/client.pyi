@@ -1,70 +1,85 @@
 """
-Type annotations for payment-cryptography service client.
+Type annotations for payment-cryptography service Client.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography/client.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography/client/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
-    from mypy_boto3_payment_cryptography import PaymentCryptographyControlPlaneClient
+    from boto3.session import Session
+    from mypy_boto3_payment_cryptography.client import PaymentCryptographyControlPlaneClient
 
-    client: PaymentCryptographyControlPlaneClient = boto3.client("payment-cryptography")
+    session = Session()
+    client: PaymentCryptographyControlPlaneClient = session.client("payment-cryptography")
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from typing import Any, Dict, List, Type, overload
+from typing import Any, overload
 
 from botocore.client import BaseClient, ClientMeta
+from botocore.errorfactory import BaseClientExceptions
+from botocore.exceptions import ClientError as BotocoreClientError
 
-from .literals import (
-    KeyAlgorithmType,
-    KeyCheckValueAlgorithmType,
-    KeyMaterialTypeType,
-    KeyStateType,
-)
 from .paginator import ListAliasesPaginator, ListKeysPaginator, ListTagsForResourcePaginator
 from .type_defs import (
+    CreateAliasInputTypeDef,
     CreateAliasOutputTypeDef,
+    CreateKeyInputTypeDef,
     CreateKeyOutputTypeDef,
+    DeleteAliasInputTypeDef,
+    DeleteKeyInputTypeDef,
     DeleteKeyOutputTypeDef,
-    ExportAttributesTypeDef,
-    ExportKeyMaterialTypeDef,
+    ExportKeyInputTypeDef,
     ExportKeyOutputTypeDef,
+    GetAliasInputTypeDef,
     GetAliasOutputTypeDef,
+    GetKeyInputTypeDef,
     GetKeyOutputTypeDef,
+    GetParametersForExportInputTypeDef,
     GetParametersForExportOutputTypeDef,
+    GetParametersForImportInputTypeDef,
     GetParametersForImportOutputTypeDef,
+    GetPublicKeyCertificateInputTypeDef,
     GetPublicKeyCertificateOutputTypeDef,
-    ImportKeyMaterialTypeDef,
+    ImportKeyInputTypeDef,
     ImportKeyOutputTypeDef,
-    KeyAttributesTypeDef,
+    ListAliasesInputTypeDef,
     ListAliasesOutputTypeDef,
+    ListKeysInputTypeDef,
     ListKeysOutputTypeDef,
+    ListTagsForResourceInputTypeDef,
     ListTagsForResourceOutputTypeDef,
+    RestoreKeyInputTypeDef,
     RestoreKeyOutputTypeDef,
+    StartKeyUsageInputTypeDef,
     StartKeyUsageOutputTypeDef,
+    StopKeyUsageInputTypeDef,
     StopKeyUsageOutputTypeDef,
-    TagTypeDef,
+    TagResourceInputTypeDef,
+    UntagResourceInputTypeDef,
+    UpdateAliasInputTypeDef,
     UpdateAliasOutputTypeDef,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import type as Type
+    from collections.abc import Mapping
 else:
-    from typing_extensions import Literal
+    from typing import Dict, Mapping, Type
+if sys.version_info >= (3, 12):
+    from typing import Literal, Unpack
+else:
+    from typing_extensions import Literal, Unpack
 
 __all__ = ("PaymentCryptographyControlPlaneClient",)
 
-class BotocoreClientError(BaseException):
-    MSG_TEMPLATE: str
-
-    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
-        self.response: Dict[str, Any]
-        self.operation_name: str
-
-class Exceptions:
+class Exceptions(BaseClientExceptions):
     AccessDeniedException: Type[BotocoreClientError]
     ClientError: Type[BotocoreClientError]
     ConflictException: Type[BotocoreClientError]
@@ -77,8 +92,8 @@ class Exceptions:
 
 class PaymentCryptographyControlPlaneClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/payment-cryptography.html#PaymentCryptographyControlPlane.Client)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography/client.html)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/payment-cryptography.html#PaymentCryptographyControlPlane.Client)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography/client/)
     """
 
     meta: ClientMeta
@@ -87,269 +102,245 @@ class PaymentCryptographyControlPlaneClient(BaseClient):
     def exceptions(self) -> Exceptions:
         """
         PaymentCryptographyControlPlaneClient exceptions.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/payment-cryptography.html#PaymentCryptographyControlPlane.Client)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography/client/#exceptions)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        Check if an operation can be paginated.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/payment-cryptography.html#PaymentCryptographyControlPlane.Client.can_paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography/client.html#can_paginate)
-        """
-
-    def close(self) -> None:
-        """
-        Closes underlying endpoint connections.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/payment-cryptography.html#PaymentCryptographyControlPlane.Client.close)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography/client.html#close)
-        """
-
-    def create_alias(self, *, AliasName: str, KeyArn: str = None) -> CreateAliasOutputTypeDef:
-        """
-        Creates an *alias*, or a friendly name, for an Amazon Web Services Payment
-        Cryptography key.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/payment-cryptography.html#PaymentCryptographyControlPlane.Client.create_alias)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography/client.html#create_alias)
-        """
-
-    def create_key(
-        self,
-        *,
-        KeyAttributes: "KeyAttributesTypeDef",
-        Exportable: bool,
-        KeyCheckValueAlgorithm: KeyCheckValueAlgorithmType = None,
-        Enabled: bool = None,
-        Tags: List["TagTypeDef"] = None
-    ) -> CreateKeyOutputTypeDef:
-        """
-        Creates an Amazon Web Services Payment Cryptography key, a logical
-        representation of a cryptographic key, that is unique in your account and Amazon
-        Web Services Region.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/payment-cryptography.html#PaymentCryptographyControlPlane.Client.create_key)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography/client.html#create_key)
-        """
-
-    def delete_alias(self, *, AliasName: str) -> Dict[str, Any]:
-        """
-        Deletes the alias, but doesn't affect the underlying key.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/payment-cryptography.html#PaymentCryptographyControlPlane.Client.delete_alias)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography/client.html#delete_alias)
-        """
-
-    def delete_key(
-        self, *, KeyIdentifier: str, DeleteKeyInDays: int = None
-    ) -> DeleteKeyOutputTypeDef:
-        """
-        Deletes the key material and metadata associated with Amazon Web Services
-        Payment Cryptography key.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/payment-cryptography.html#PaymentCryptographyControlPlane.Client.delete_key)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography/client.html#delete_key)
-        """
-
-    def export_key(
-        self,
-        *,
-        KeyMaterial: "ExportKeyMaterialTypeDef",
-        ExportKeyIdentifier: str,
-        ExportAttributes: "ExportAttributesTypeDef" = None
-    ) -> ExportKeyOutputTypeDef:
-        """
-        Exports a key from Amazon Web Services Payment Cryptography.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/payment-cryptography.html#PaymentCryptographyControlPlane.Client.export_key)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography/client.html#export_key)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/payment-cryptography/client/can_paginate.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography/client/#can_paginate)
         """
 
     def generate_presigned_url(
         self,
         ClientMethod: str,
-        Params: Dict[str, Any] = None,
+        Params: Mapping[str, Any] = ...,
         ExpiresIn: int = 3600,
-        HttpMethod: str = None,
+        HttpMethod: str = ...,
     ) -> str:
         """
-        Generate a presigned url given a client, its method, and arguments.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/payment-cryptography.html#PaymentCryptographyControlPlane.Client.generate_presigned_url)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography/client.html#generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/payment-cryptography/client/generate_presigned_url.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography/client/#generate_presigned_url)
         """
 
-    def get_alias(self, *, AliasName: str) -> GetAliasOutputTypeDef:
+    def create_alias(self, **kwargs: Unpack[CreateAliasInputTypeDef]) -> CreateAliasOutputTypeDef:
+        """
+        Creates an <i>alias</i>, or a friendly name, for an Amazon Web Services Payment
+        Cryptography key.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/payment-cryptography/client/create_alias.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography/client/#create_alias)
+        """
+
+    def create_key(self, **kwargs: Unpack[CreateKeyInputTypeDef]) -> CreateKeyOutputTypeDef:
+        """
+        Creates an Amazon Web Services Payment Cryptography key, a logical
+        representation of a cryptographic key, that is unique in your account and
+        Amazon Web Services Region.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/payment-cryptography/client/create_key.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography/client/#create_key)
+        """
+
+    def delete_alias(self, **kwargs: Unpack[DeleteAliasInputTypeDef]) -> Dict[str, Any]:
+        """
+        Deletes the alias, but doesn't affect the underlying key.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/payment-cryptography/client/delete_alias.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography/client/#delete_alias)
+        """
+
+    def delete_key(self, **kwargs: Unpack[DeleteKeyInputTypeDef]) -> DeleteKeyOutputTypeDef:
+        """
+        Deletes the key material and metadata associated with Amazon Web Services
+        Payment Cryptography key.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/payment-cryptography/client/delete_key.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography/client/#delete_key)
+        """
+
+    def export_key(self, **kwargs: Unpack[ExportKeyInputTypeDef]) -> ExportKeyOutputTypeDef:
+        """
+        Exports a key from Amazon Web Services Payment Cryptography.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/payment-cryptography/client/export_key.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography/client/#export_key)
+        """
+
+    def get_alias(self, **kwargs: Unpack[GetAliasInputTypeDef]) -> GetAliasOutputTypeDef:
         """
         Gets the Amazon Web Services Payment Cryptography key associated with the alias.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/payment-cryptography.html#PaymentCryptographyControlPlane.Client.get_alias)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography/client.html#get_alias)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/payment-cryptography/client/get_alias.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography/client/#get_alias)
         """
 
-    def get_key(self, *, KeyIdentifier: str) -> GetKeyOutputTypeDef:
+    def get_key(self, **kwargs: Unpack[GetKeyInputTypeDef]) -> GetKeyOutputTypeDef:
         """
         Gets the key material for an Amazon Web Services Payment Cryptography key,
         including the immutable and mutable data specified when the key was created.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/payment-cryptography.html#PaymentCryptographyControlPlane.Client.get_key)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography/client.html#get_key)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/payment-cryptography/client/get_key.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography/client/#get_key)
         """
 
     def get_parameters_for_export(
-        self, *, KeyMaterialType: KeyMaterialTypeType, SigningKeyAlgorithm: KeyAlgorithmType
+        self, **kwargs: Unpack[GetParametersForExportInputTypeDef]
     ) -> GetParametersForExportOutputTypeDef:
         """
         Gets the export token and the signing key certificate to initiate a TR-34 key
         export from Amazon Web Services Payment Cryptography.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/payment-cryptography.html#PaymentCryptographyControlPlane.Client.get_parameters_for_export)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography/client.html#get_parameters_for_export)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/payment-cryptography/client/get_parameters_for_export.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography/client/#get_parameters_for_export)
         """
 
     def get_parameters_for_import(
-        self, *, KeyMaterialType: KeyMaterialTypeType, WrappingKeyAlgorithm: KeyAlgorithmType
+        self, **kwargs: Unpack[GetParametersForImportInputTypeDef]
     ) -> GetParametersForImportOutputTypeDef:
         """
         Gets the import token and the wrapping key certificate in PEM format (base64
         encoded) to initiate a TR-34 WrappedKeyBlock or a RSA WrappedKeyCryptogram
         import into Amazon Web Services Payment Cryptography.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/payment-cryptography.html#PaymentCryptographyControlPlane.Client.get_parameters_for_import)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography/client.html#get_parameters_for_import)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/payment-cryptography/client/get_parameters_for_import.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography/client/#get_parameters_for_import)
         """
 
     def get_public_key_certificate(
-        self, *, KeyIdentifier: str
+        self, **kwargs: Unpack[GetPublicKeyCertificateInputTypeDef]
     ) -> GetPublicKeyCertificateOutputTypeDef:
         """
         Gets the public key certificate of the asymmetric key pair that exists within
         Amazon Web Services Payment Cryptography.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/payment-cryptography.html#PaymentCryptographyControlPlane.Client.get_public_key_certificate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography/client.html#get_public_key_certificate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/payment-cryptography/client/get_public_key_certificate.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography/client/#get_public_key_certificate)
         """
 
-    def import_key(
-        self,
-        *,
-        KeyMaterial: "ImportKeyMaterialTypeDef",
-        KeyCheckValueAlgorithm: KeyCheckValueAlgorithmType = None,
-        Enabled: bool = None,
-        Tags: List["TagTypeDef"] = None
-    ) -> ImportKeyOutputTypeDef:
+    def import_key(self, **kwargs: Unpack[ImportKeyInputTypeDef]) -> ImportKeyOutputTypeDef:
         """
         Imports symmetric keys and public key certificates in PEM format (base64
         encoded) into Amazon Web Services Payment Cryptography.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/payment-cryptography.html#PaymentCryptographyControlPlane.Client.import_key)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography/client.html#import_key)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/payment-cryptography/client/import_key.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography/client/#import_key)
         """
 
-    def list_aliases(
-        self, *, NextToken: str = None, MaxResults: int = None
-    ) -> ListAliasesOutputTypeDef:
+    def list_aliases(self, **kwargs: Unpack[ListAliasesInputTypeDef]) -> ListAliasesOutputTypeDef:
         """
         Lists the aliases for all keys in the caller's Amazon Web Services account and
         Amazon Web Services Region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/payment-cryptography.html#PaymentCryptographyControlPlane.Client.list_aliases)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography/client.html#list_aliases)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/payment-cryptography/client/list_aliases.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography/client/#list_aliases)
         """
 
-    def list_keys(
-        self, *, KeyState: KeyStateType = None, NextToken: str = None, MaxResults: int = None
-    ) -> ListKeysOutputTypeDef:
+    def list_keys(self, **kwargs: Unpack[ListKeysInputTypeDef]) -> ListKeysOutputTypeDef:
         """
         Lists the keys in the caller's Amazon Web Services account and Amazon Web
         Services Region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/payment-cryptography.html#PaymentCryptographyControlPlane.Client.list_keys)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography/client.html#list_keys)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/payment-cryptography/client/list_keys.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography/client/#list_keys)
         """
 
     def list_tags_for_resource(
-        self, *, ResourceArn: str, NextToken: str = None, MaxResults: int = None
+        self, **kwargs: Unpack[ListTagsForResourceInputTypeDef]
     ) -> ListTagsForResourceOutputTypeDef:
         """
         Lists the tags for an Amazon Web Services resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/payment-cryptography.html#PaymentCryptographyControlPlane.Client.list_tags_for_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography/client.html#list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/payment-cryptography/client/list_tags_for_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography/client/#list_tags_for_resource)
         """
 
-    def restore_key(self, *, KeyIdentifier: str) -> RestoreKeyOutputTypeDef:
+    def restore_key(self, **kwargs: Unpack[RestoreKeyInputTypeDef]) -> RestoreKeyOutputTypeDef:
         """
         Cancels a scheduled key deletion during the waiting period.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/payment-cryptography.html#PaymentCryptographyControlPlane.Client.restore_key)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography/client.html#restore_key)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/payment-cryptography/client/restore_key.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography/client/#restore_key)
         """
 
-    def start_key_usage(self, *, KeyIdentifier: str) -> StartKeyUsageOutputTypeDef:
+    def start_key_usage(
+        self, **kwargs: Unpack[StartKeyUsageInputTypeDef]
+    ) -> StartKeyUsageOutputTypeDef:
         """
         Enables an Amazon Web Services Payment Cryptography key, which makes it active
-        for cryptographic operations within Amazon Web Services Payment Cryptography
-        **Cross-account use:** This operation can't be used across different Amazon Web
-        Services accounts.
+        for cryptographic operations within Amazon Web Services Payment Cryptography.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/payment-cryptography.html#PaymentCryptographyControlPlane.Client.start_key_usage)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography/client.html#start_key_usage)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/payment-cryptography/client/start_key_usage.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography/client/#start_key_usage)
         """
 
-    def stop_key_usage(self, *, KeyIdentifier: str) -> StopKeyUsageOutputTypeDef:
+    def stop_key_usage(
+        self, **kwargs: Unpack[StopKeyUsageInputTypeDef]
+    ) -> StopKeyUsageOutputTypeDef:
         """
         Disables an Amazon Web Services Payment Cryptography key, which makes it
         inactive within Amazon Web Services Payment Cryptography.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/payment-cryptography.html#PaymentCryptographyControlPlane.Client.stop_key_usage)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography/client.html#stop_key_usage)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/payment-cryptography/client/stop_key_usage.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography/client/#stop_key_usage)
         """
 
-    def tag_resource(self, *, ResourceArn: str, Tags: List["TagTypeDef"]) -> Dict[str, Any]:
+    def tag_resource(self, **kwargs: Unpack[TagResourceInputTypeDef]) -> Dict[str, Any]:
         """
         Adds or edits tags on an Amazon Web Services Payment Cryptography key.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/payment-cryptography.html#PaymentCryptographyControlPlane.Client.tag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography/client.html#tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/payment-cryptography/client/tag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography/client/#tag_resource)
         """
 
-    def untag_resource(self, *, ResourceArn: str, TagKeys: List[str]) -> Dict[str, Any]:
+    def untag_resource(self, **kwargs: Unpack[UntagResourceInputTypeDef]) -> Dict[str, Any]:
         """
         Deletes a tag from an Amazon Web Services Payment Cryptography key.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/payment-cryptography.html#PaymentCryptographyControlPlane.Client.untag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography/client.html#untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/payment-cryptography/client/untag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography/client/#untag_resource)
         """
 
-    def update_alias(self, *, AliasName: str, KeyArn: str = None) -> UpdateAliasOutputTypeDef:
+    def update_alias(self, **kwargs: Unpack[UpdateAliasInputTypeDef]) -> UpdateAliasOutputTypeDef:
         """
         Associates an existing Amazon Web Services Payment Cryptography alias with a
         different key.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/payment-cryptography.html#PaymentCryptographyControlPlane.Client.update_alias)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography/client.html#update_alias)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/payment-cryptography/client/update_alias.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography/client/#update_alias)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_aliases"]) -> ListAliasesPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_aliases"]
+    ) -> ListAliasesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/payment-cryptography.html#PaymentCryptographyControlPlane.Paginator.ListAliases)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography/paginators.html#listaliasespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/payment-cryptography/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_keys"]) -> ListKeysPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_keys"]
+    ) -> ListKeysPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/payment-cryptography.html#PaymentCryptographyControlPlane.Paginator.ListKeys)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography/paginators.html#listkeyspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/payment-cryptography/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_tags_for_resource"]
     ) -> ListTagsForResourcePaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/payment-cryptography.html#PaymentCryptographyControlPlane.Paginator.ListTagsForResource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography/paginators.html#listtagsforresourcepaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/payment-cryptography/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography/client/#get_paginator)
         """

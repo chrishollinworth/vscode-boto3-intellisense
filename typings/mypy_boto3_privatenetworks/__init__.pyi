@@ -1,10 +1,14 @@
 """
 Main interface for privatenetworks service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_privatenetworks/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_privatenetworks import (
         Client,
         ListDeviceIdentifiersPaginator,
@@ -15,10 +19,8 @@ Usage::
         Private5GClient,
     )
 
-    session = boto3.Session()
-
-    client: Private5GClient = boto3.client("privatenetworks")
-    session_client: Private5GClient = session.client("privatenetworks")
+    session = Session()
+    client: Private5GClient = session.client("privatenetworks")
 
     list_device_identifiers_paginator: ListDeviceIdentifiersPaginator = client.get_paginator("list_device_identifiers")
     list_network_resources_paginator: ListNetworkResourcesPaginator = client.get_paginator("list_network_resources")

@@ -1,20 +1,24 @@
 """
 Type annotations for clouddirectory service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_clouddirectory/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_clouddirectory.type_defs import AddFacetToObjectRequestRequestTypeDef
+    from mypy_boto3_clouddirectory.type_defs import ObjectReferenceTypeDef
 
-    data: AddFacetToObjectRequestRequestTypeDef = {...}
+    data: ObjectReferenceTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import IO, Any, Dict, List, Union
+from typing import IO, Any, Union
 
 from botocore.response import StreamingBody
 
@@ -31,25 +35,35 @@ from .literals import (
     UpdateActionTypeType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
-    "AddFacetToObjectRequestRequestTypeDef",
-    "ApplySchemaRequestRequestTypeDef",
+    "AddFacetToObjectRequestTypeDef",
+    "ApplySchemaRequestTypeDef",
     "ApplySchemaResponseTypeDef",
-    "AttachObjectRequestRequestTypeDef",
+    "AttachObjectRequestTypeDef",
     "AttachObjectResponseTypeDef",
-    "AttachPolicyRequestRequestTypeDef",
-    "AttachToIndexRequestRequestTypeDef",
+    "AttachPolicyRequestTypeDef",
+    "AttachToIndexRequestTypeDef",
     "AttachToIndexResponseTypeDef",
-    "AttachTypedLinkRequestRequestTypeDef",
+    "AttachTypedLinkRequestTypeDef",
     "AttachTypedLinkResponseTypeDef",
+    "AttributeKeyAndValueOutputTypeDef",
     "AttributeKeyAndValueTypeDef",
+    "AttributeKeyAndValueUnionTypeDef",
     "AttributeKeyTypeDef",
+    "AttributeNameAndValueOutputTypeDef",
     "AttributeNameAndValueTypeDef",
+    "AttributeNameAndValueUnionTypeDef",
     "BatchAddFacetToObjectTypeDef",
     "BatchAttachObjectResponseTypeDef",
     "BatchAttachObjectTypeDef",
@@ -100,7 +114,7 @@ __all__ = (
     "BatchReadExceptionTypeDef",
     "BatchReadOperationResponseTypeDef",
     "BatchReadOperationTypeDef",
-    "BatchReadRequestRequestTypeDef",
+    "BatchReadRequestTypeDef",
     "BatchReadResponseTypeDef",
     "BatchReadSuccessfulResponseTypeDef",
     "BatchRemoveFacetFromObjectTypeDef",
@@ -109,101 +123,126 @@ __all__ = (
     "BatchUpdateObjectAttributesTypeDef",
     "BatchWriteOperationResponseTypeDef",
     "BatchWriteOperationTypeDef",
-    "BatchWriteRequestRequestTypeDef",
+    "BatchWriteRequestTypeDef",
     "BatchWriteResponseTypeDef",
-    "CreateDirectoryRequestRequestTypeDef",
+    "BlobTypeDef",
+    "CreateDirectoryRequestTypeDef",
     "CreateDirectoryResponseTypeDef",
-    "CreateFacetRequestRequestTypeDef",
-    "CreateIndexRequestRequestTypeDef",
+    "CreateFacetRequestTypeDef",
+    "CreateIndexRequestTypeDef",
     "CreateIndexResponseTypeDef",
-    "CreateObjectRequestRequestTypeDef",
+    "CreateObjectRequestTypeDef",
     "CreateObjectResponseTypeDef",
-    "CreateSchemaRequestRequestTypeDef",
+    "CreateSchemaRequestTypeDef",
     "CreateSchemaResponseTypeDef",
-    "CreateTypedLinkFacetRequestRequestTypeDef",
-    "DeleteDirectoryRequestRequestTypeDef",
+    "CreateTypedLinkFacetRequestTypeDef",
+    "DeleteDirectoryRequestTypeDef",
     "DeleteDirectoryResponseTypeDef",
-    "DeleteFacetRequestRequestTypeDef",
-    "DeleteObjectRequestRequestTypeDef",
-    "DeleteSchemaRequestRequestTypeDef",
+    "DeleteFacetRequestTypeDef",
+    "DeleteObjectRequestTypeDef",
+    "DeleteSchemaRequestTypeDef",
     "DeleteSchemaResponseTypeDef",
-    "DeleteTypedLinkFacetRequestRequestTypeDef",
-    "DetachFromIndexRequestRequestTypeDef",
+    "DeleteTypedLinkFacetRequestTypeDef",
+    "DetachFromIndexRequestTypeDef",
     "DetachFromIndexResponseTypeDef",
-    "DetachObjectRequestRequestTypeDef",
+    "DetachObjectRequestTypeDef",
     "DetachObjectResponseTypeDef",
-    "DetachPolicyRequestRequestTypeDef",
-    "DetachTypedLinkRequestRequestTypeDef",
+    "DetachPolicyRequestTypeDef",
+    "DetachTypedLinkRequestTypeDef",
     "DirectoryTypeDef",
-    "DisableDirectoryRequestRequestTypeDef",
+    "DisableDirectoryRequestTypeDef",
     "DisableDirectoryResponseTypeDef",
-    "EnableDirectoryRequestRequestTypeDef",
+    "EmptyResponseMetadataTypeDef",
+    "EnableDirectoryRequestTypeDef",
     "EnableDirectoryResponseTypeDef",
+    "FacetAttributeDefinitionOutputTypeDef",
     "FacetAttributeDefinitionTypeDef",
+    "FacetAttributeDefinitionUnionTypeDef",
+    "FacetAttributeOutputTypeDef",
     "FacetAttributeReferenceTypeDef",
     "FacetAttributeTypeDef",
+    "FacetAttributeUnionTypeDef",
     "FacetAttributeUpdateTypeDef",
     "FacetTypeDef",
-    "GetAppliedSchemaVersionRequestRequestTypeDef",
+    "GetAppliedSchemaVersionRequestTypeDef",
     "GetAppliedSchemaVersionResponseTypeDef",
-    "GetDirectoryRequestRequestTypeDef",
+    "GetDirectoryRequestTypeDef",
     "GetDirectoryResponseTypeDef",
-    "GetFacetRequestRequestTypeDef",
+    "GetFacetRequestTypeDef",
     "GetFacetResponseTypeDef",
-    "GetLinkAttributesRequestRequestTypeDef",
+    "GetLinkAttributesRequestTypeDef",
     "GetLinkAttributesResponseTypeDef",
-    "GetObjectAttributesRequestRequestTypeDef",
+    "GetObjectAttributesRequestTypeDef",
     "GetObjectAttributesResponseTypeDef",
-    "GetObjectInformationRequestRequestTypeDef",
+    "GetObjectInformationRequestTypeDef",
     "GetObjectInformationResponseTypeDef",
-    "GetSchemaAsJsonRequestRequestTypeDef",
+    "GetSchemaAsJsonRequestTypeDef",
     "GetSchemaAsJsonResponseTypeDef",
-    "GetTypedLinkFacetInformationRequestRequestTypeDef",
+    "GetTypedLinkFacetInformationRequestTypeDef",
     "GetTypedLinkFacetInformationResponseTypeDef",
     "IndexAttachmentTypeDef",
     "LinkAttributeActionTypeDef",
     "LinkAttributeUpdateTypeDef",
-    "ListAppliedSchemaArnsRequestRequestTypeDef",
+    "ListAppliedSchemaArnsRequestPaginateTypeDef",
+    "ListAppliedSchemaArnsRequestTypeDef",
     "ListAppliedSchemaArnsResponseTypeDef",
-    "ListAttachedIndicesRequestRequestTypeDef",
+    "ListAttachedIndicesRequestPaginateTypeDef",
+    "ListAttachedIndicesRequestTypeDef",
     "ListAttachedIndicesResponseTypeDef",
-    "ListDevelopmentSchemaArnsRequestRequestTypeDef",
+    "ListDevelopmentSchemaArnsRequestPaginateTypeDef",
+    "ListDevelopmentSchemaArnsRequestTypeDef",
     "ListDevelopmentSchemaArnsResponseTypeDef",
-    "ListDirectoriesRequestRequestTypeDef",
+    "ListDirectoriesRequestPaginateTypeDef",
+    "ListDirectoriesRequestTypeDef",
     "ListDirectoriesResponseTypeDef",
-    "ListFacetAttributesRequestRequestTypeDef",
+    "ListFacetAttributesRequestPaginateTypeDef",
+    "ListFacetAttributesRequestTypeDef",
     "ListFacetAttributesResponseTypeDef",
-    "ListFacetNamesRequestRequestTypeDef",
+    "ListFacetNamesRequestPaginateTypeDef",
+    "ListFacetNamesRequestTypeDef",
     "ListFacetNamesResponseTypeDef",
-    "ListIncomingTypedLinksRequestRequestTypeDef",
+    "ListIncomingTypedLinksRequestPaginateTypeDef",
+    "ListIncomingTypedLinksRequestTypeDef",
     "ListIncomingTypedLinksResponseTypeDef",
-    "ListIndexRequestRequestTypeDef",
+    "ListIndexRequestPaginateTypeDef",
+    "ListIndexRequestTypeDef",
     "ListIndexResponseTypeDef",
-    "ListManagedSchemaArnsRequestRequestTypeDef",
+    "ListManagedSchemaArnsRequestPaginateTypeDef",
+    "ListManagedSchemaArnsRequestTypeDef",
     "ListManagedSchemaArnsResponseTypeDef",
-    "ListObjectAttributesRequestRequestTypeDef",
+    "ListObjectAttributesRequestPaginateTypeDef",
+    "ListObjectAttributesRequestTypeDef",
     "ListObjectAttributesResponseTypeDef",
-    "ListObjectChildrenRequestRequestTypeDef",
+    "ListObjectChildrenRequestTypeDef",
     "ListObjectChildrenResponseTypeDef",
-    "ListObjectParentPathsRequestRequestTypeDef",
+    "ListObjectParentPathsRequestPaginateTypeDef",
+    "ListObjectParentPathsRequestTypeDef",
     "ListObjectParentPathsResponseTypeDef",
-    "ListObjectParentsRequestRequestTypeDef",
+    "ListObjectParentsRequestTypeDef",
     "ListObjectParentsResponseTypeDef",
-    "ListObjectPoliciesRequestRequestTypeDef",
+    "ListObjectPoliciesRequestPaginateTypeDef",
+    "ListObjectPoliciesRequestTypeDef",
     "ListObjectPoliciesResponseTypeDef",
-    "ListOutgoingTypedLinksRequestRequestTypeDef",
+    "ListOutgoingTypedLinksRequestPaginateTypeDef",
+    "ListOutgoingTypedLinksRequestTypeDef",
     "ListOutgoingTypedLinksResponseTypeDef",
-    "ListPolicyAttachmentsRequestRequestTypeDef",
+    "ListPolicyAttachmentsRequestPaginateTypeDef",
+    "ListPolicyAttachmentsRequestTypeDef",
     "ListPolicyAttachmentsResponseTypeDef",
-    "ListPublishedSchemaArnsRequestRequestTypeDef",
+    "ListPublishedSchemaArnsRequestPaginateTypeDef",
+    "ListPublishedSchemaArnsRequestTypeDef",
     "ListPublishedSchemaArnsResponseTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestPaginateTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
-    "ListTypedLinkFacetAttributesRequestRequestTypeDef",
+    "ListTypedLinkFacetAttributesRequestPaginateTypeDef",
+    "ListTypedLinkFacetAttributesRequestTypeDef",
     "ListTypedLinkFacetAttributesResponseTypeDef",
-    "ListTypedLinkFacetNamesRequestRequestTypeDef",
+    "ListTypedLinkFacetNamesRequestPaginateTypeDef",
+    "ListTypedLinkFacetNamesRequestTypeDef",
     "ListTypedLinkFacetNamesResponseTypeDef",
-    "LookupPolicyRequestRequestTypeDef",
+    "LookupPolicyRequestPaginateTypeDef",
+    "LookupPolicyRequestTypeDef",
     "LookupPolicyResponseTypeDef",
     "ObjectAttributeActionTypeDef",
     "ObjectAttributeRangeTypeDef",
@@ -214,2481 +253,1274 @@ __all__ = (
     "PathToObjectIdentifiersTypeDef",
     "PolicyAttachmentTypeDef",
     "PolicyToPathTypeDef",
-    "PublishSchemaRequestRequestTypeDef",
+    "PublishSchemaRequestTypeDef",
     "PublishSchemaResponseTypeDef",
-    "PutSchemaFromJsonRequestRequestTypeDef",
+    "PutSchemaFromJsonRequestTypeDef",
     "PutSchemaFromJsonResponseTypeDef",
-    "RemoveFacetFromObjectRequestRequestTypeDef",
+    "RemoveFacetFromObjectRequestTypeDef",
     "ResponseMetadataTypeDef",
+    "RuleOutputTypeDef",
     "RuleTypeDef",
+    "RuleUnionTypeDef",
     "SchemaFacetTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
     "TagTypeDef",
+    "TimestampTypeDef",
+    "TypedAttributeValueOutputTypeDef",
     "TypedAttributeValueRangeTypeDef",
     "TypedAttributeValueTypeDef",
+    "TypedAttributeValueUnionTypeDef",
+    "TypedLinkAttributeDefinitionOutputTypeDef",
     "TypedLinkAttributeDefinitionTypeDef",
+    "TypedLinkAttributeDefinitionUnionTypeDef",
     "TypedLinkAttributeRangeTypeDef",
     "TypedLinkFacetAttributeUpdateTypeDef",
     "TypedLinkFacetTypeDef",
     "TypedLinkSchemaAndFacetNameTypeDef",
+    "TypedLinkSpecifierOutputTypeDef",
     "TypedLinkSpecifierTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateFacetRequestRequestTypeDef",
-    "UpdateLinkAttributesRequestRequestTypeDef",
-    "UpdateObjectAttributesRequestRequestTypeDef",
+    "TypedLinkSpecifierUnionTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateFacetRequestTypeDef",
+    "UpdateLinkAttributesRequestTypeDef",
+    "UpdateObjectAttributesRequestTypeDef",
     "UpdateObjectAttributesResponseTypeDef",
-    "UpdateSchemaRequestRequestTypeDef",
+    "UpdateSchemaRequestTypeDef",
     "UpdateSchemaResponseTypeDef",
-    "UpdateTypedLinkFacetRequestRequestTypeDef",
-    "UpgradeAppliedSchemaRequestRequestTypeDef",
+    "UpdateTypedLinkFacetRequestTypeDef",
+    "UpgradeAppliedSchemaRequestTypeDef",
     "UpgradeAppliedSchemaResponseTypeDef",
-    "UpgradePublishedSchemaRequestRequestTypeDef",
+    "UpgradePublishedSchemaRequestTypeDef",
     "UpgradePublishedSchemaResponseTypeDef",
 )
 
-_RequiredAddFacetToObjectRequestRequestTypeDef = TypedDict(
-    "_RequiredAddFacetToObjectRequestRequestTypeDef",
-    {
-        "DirectoryArn": str,
-        "SchemaFacet": "SchemaFacetTypeDef",
-        "ObjectReference": "ObjectReferenceTypeDef",
-    },
-)
-_OptionalAddFacetToObjectRequestRequestTypeDef = TypedDict(
-    "_OptionalAddFacetToObjectRequestRequestTypeDef",
-    {
-        "ObjectAttributeList": List["AttributeKeyAndValueTypeDef"],
-    },
-    total=False,
-)
-
-class AddFacetToObjectRequestRequestTypeDef(
-    _RequiredAddFacetToObjectRequestRequestTypeDef, _OptionalAddFacetToObjectRequestRequestTypeDef
-):
-    pass
-
-ApplySchemaRequestRequestTypeDef = TypedDict(
-    "ApplySchemaRequestRequestTypeDef",
-    {
-        "PublishedSchemaArn": str,
-        "DirectoryArn": str,
-    },
-)
-
-ApplySchemaResponseTypeDef = TypedDict(
-    "ApplySchemaResponseTypeDef",
-    {
-        "AppliedSchemaArn": str,
-        "DirectoryArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-AttachObjectRequestRequestTypeDef = TypedDict(
-    "AttachObjectRequestRequestTypeDef",
-    {
-        "DirectoryArn": str,
-        "ParentReference": "ObjectReferenceTypeDef",
-        "ChildReference": "ObjectReferenceTypeDef",
-        "LinkName": str,
-    },
-)
-
-AttachObjectResponseTypeDef = TypedDict(
-    "AttachObjectResponseTypeDef",
-    {
-        "AttachedObjectIdentifier": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-AttachPolicyRequestRequestTypeDef = TypedDict(
-    "AttachPolicyRequestRequestTypeDef",
-    {
-        "DirectoryArn": str,
-        "PolicyReference": "ObjectReferenceTypeDef",
-        "ObjectReference": "ObjectReferenceTypeDef",
-    },
-)
-
-AttachToIndexRequestRequestTypeDef = TypedDict(
-    "AttachToIndexRequestRequestTypeDef",
-    {
-        "DirectoryArn": str,
-        "IndexReference": "ObjectReferenceTypeDef",
-        "TargetReference": "ObjectReferenceTypeDef",
-    },
-)
-
-AttachToIndexResponseTypeDef = TypedDict(
-    "AttachToIndexResponseTypeDef",
-    {
-        "AttachedObjectIdentifier": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-AttachTypedLinkRequestRequestTypeDef = TypedDict(
-    "AttachTypedLinkRequestRequestTypeDef",
-    {
-        "DirectoryArn": str,
-        "SourceObjectReference": "ObjectReferenceTypeDef",
-        "TargetObjectReference": "ObjectReferenceTypeDef",
-        "TypedLinkFacet": "TypedLinkSchemaAndFacetNameTypeDef",
-        "Attributes": List["AttributeNameAndValueTypeDef"],
-    },
-)
-
-AttachTypedLinkResponseTypeDef = TypedDict(
-    "AttachTypedLinkResponseTypeDef",
-    {
-        "TypedLinkSpecifier": "TypedLinkSpecifierTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-AttributeKeyAndValueTypeDef = TypedDict(
-    "AttributeKeyAndValueTypeDef",
-    {
-        "Key": "AttributeKeyTypeDef",
-        "Value": "TypedAttributeValueTypeDef",
-    },
-)
-
-AttributeKeyTypeDef = TypedDict(
-    "AttributeKeyTypeDef",
-    {
-        "SchemaArn": str,
-        "FacetName": str,
-        "Name": str,
-    },
-)
-
-AttributeNameAndValueTypeDef = TypedDict(
-    "AttributeNameAndValueTypeDef",
-    {
-        "AttributeName": str,
-        "Value": "TypedAttributeValueTypeDef",
-    },
-)
-
-BatchAddFacetToObjectTypeDef = TypedDict(
-    "BatchAddFacetToObjectTypeDef",
-    {
-        "SchemaFacet": "SchemaFacetTypeDef",
-        "ObjectAttributeList": List["AttributeKeyAndValueTypeDef"],
-        "ObjectReference": "ObjectReferenceTypeDef",
-    },
-)
-
-BatchAttachObjectResponseTypeDef = TypedDict(
-    "BatchAttachObjectResponseTypeDef",
-    {
-        "attachedObjectIdentifier": str,
-    },
-    total=False,
-)
-
-BatchAttachObjectTypeDef = TypedDict(
-    "BatchAttachObjectTypeDef",
-    {
-        "ParentReference": "ObjectReferenceTypeDef",
-        "ChildReference": "ObjectReferenceTypeDef",
-        "LinkName": str,
-    },
-)
-
-BatchAttachPolicyTypeDef = TypedDict(
-    "BatchAttachPolicyTypeDef",
-    {
-        "PolicyReference": "ObjectReferenceTypeDef",
-        "ObjectReference": "ObjectReferenceTypeDef",
-    },
-)
-
-BatchAttachToIndexResponseTypeDef = TypedDict(
-    "BatchAttachToIndexResponseTypeDef",
-    {
-        "AttachedObjectIdentifier": str,
-    },
-    total=False,
-)
-
-BatchAttachToIndexTypeDef = TypedDict(
-    "BatchAttachToIndexTypeDef",
-    {
-        "IndexReference": "ObjectReferenceTypeDef",
-        "TargetReference": "ObjectReferenceTypeDef",
-    },
-)
-
-BatchAttachTypedLinkResponseTypeDef = TypedDict(
-    "BatchAttachTypedLinkResponseTypeDef",
-    {
-        "TypedLinkSpecifier": "TypedLinkSpecifierTypeDef",
-    },
-    total=False,
-)
-
-BatchAttachTypedLinkTypeDef = TypedDict(
-    "BatchAttachTypedLinkTypeDef",
-    {
-        "SourceObjectReference": "ObjectReferenceTypeDef",
-        "TargetObjectReference": "ObjectReferenceTypeDef",
-        "TypedLinkFacet": "TypedLinkSchemaAndFacetNameTypeDef",
-        "Attributes": List["AttributeNameAndValueTypeDef"],
-    },
-)
-
-BatchCreateIndexResponseTypeDef = TypedDict(
-    "BatchCreateIndexResponseTypeDef",
-    {
-        "ObjectIdentifier": str,
-    },
-    total=False,
-)
-
-_RequiredBatchCreateIndexTypeDef = TypedDict(
-    "_RequiredBatchCreateIndexTypeDef",
-    {
-        "OrderedIndexedAttributeList": List["AttributeKeyTypeDef"],
-        "IsUnique": bool,
-    },
-)
-_OptionalBatchCreateIndexTypeDef = TypedDict(
-    "_OptionalBatchCreateIndexTypeDef",
-    {
-        "ParentReference": "ObjectReferenceTypeDef",
-        "LinkName": str,
-        "BatchReferenceName": str,
-    },
-    total=False,
-)
-
-class BatchCreateIndexTypeDef(_RequiredBatchCreateIndexTypeDef, _OptionalBatchCreateIndexTypeDef):
-    pass
-
-BatchCreateObjectResponseTypeDef = TypedDict(
-    "BatchCreateObjectResponseTypeDef",
-    {
-        "ObjectIdentifier": str,
-    },
-    total=False,
-)
-
-_RequiredBatchCreateObjectTypeDef = TypedDict(
-    "_RequiredBatchCreateObjectTypeDef",
-    {
-        "SchemaFacet": List["SchemaFacetTypeDef"],
-        "ObjectAttributeList": List["AttributeKeyAndValueTypeDef"],
-    },
-)
-_OptionalBatchCreateObjectTypeDef = TypedDict(
-    "_OptionalBatchCreateObjectTypeDef",
-    {
-        "ParentReference": "ObjectReferenceTypeDef",
-        "LinkName": str,
-        "BatchReferenceName": str,
-    },
-    total=False,
-)
-
-class BatchCreateObjectTypeDef(
-    _RequiredBatchCreateObjectTypeDef, _OptionalBatchCreateObjectTypeDef
-):
-    pass
-
-BatchDeleteObjectTypeDef = TypedDict(
-    "BatchDeleteObjectTypeDef",
-    {
-        "ObjectReference": "ObjectReferenceTypeDef",
-    },
-)
-
-BatchDetachFromIndexResponseTypeDef = TypedDict(
-    "BatchDetachFromIndexResponseTypeDef",
-    {
-        "DetachedObjectIdentifier": str,
-    },
-    total=False,
-)
-
-BatchDetachFromIndexTypeDef = TypedDict(
-    "BatchDetachFromIndexTypeDef",
-    {
-        "IndexReference": "ObjectReferenceTypeDef",
-        "TargetReference": "ObjectReferenceTypeDef",
-    },
-)
-
-BatchDetachObjectResponseTypeDef = TypedDict(
-    "BatchDetachObjectResponseTypeDef",
-    {
-        "detachedObjectIdentifier": str,
-    },
-    total=False,
-)
-
-_RequiredBatchDetachObjectTypeDef = TypedDict(
-    "_RequiredBatchDetachObjectTypeDef",
-    {
-        "ParentReference": "ObjectReferenceTypeDef",
-        "LinkName": str,
-    },
-)
-_OptionalBatchDetachObjectTypeDef = TypedDict(
-    "_OptionalBatchDetachObjectTypeDef",
-    {
-        "BatchReferenceName": str,
-    },
-    total=False,
-)
-
-class BatchDetachObjectTypeDef(
-    _RequiredBatchDetachObjectTypeDef, _OptionalBatchDetachObjectTypeDef
-):
-    pass
-
-BatchDetachPolicyTypeDef = TypedDict(
-    "BatchDetachPolicyTypeDef",
-    {
-        "PolicyReference": "ObjectReferenceTypeDef",
-        "ObjectReference": "ObjectReferenceTypeDef",
-    },
-)
-
-BatchDetachTypedLinkTypeDef = TypedDict(
-    "BatchDetachTypedLinkTypeDef",
-    {
-        "TypedLinkSpecifier": "TypedLinkSpecifierTypeDef",
-    },
-)
-
-BatchGetLinkAttributesResponseTypeDef = TypedDict(
-    "BatchGetLinkAttributesResponseTypeDef",
-    {
-        "Attributes": List["AttributeKeyAndValueTypeDef"],
-    },
-    total=False,
-)
-
-BatchGetLinkAttributesTypeDef = TypedDict(
-    "BatchGetLinkAttributesTypeDef",
-    {
-        "TypedLinkSpecifier": "TypedLinkSpecifierTypeDef",
-        "AttributeNames": List[str],
-    },
-)
-
-BatchGetObjectAttributesResponseTypeDef = TypedDict(
-    "BatchGetObjectAttributesResponseTypeDef",
-    {
-        "Attributes": List["AttributeKeyAndValueTypeDef"],
-    },
-    total=False,
-)
-
-BatchGetObjectAttributesTypeDef = TypedDict(
-    "BatchGetObjectAttributesTypeDef",
-    {
-        "ObjectReference": "ObjectReferenceTypeDef",
-        "SchemaFacet": "SchemaFacetTypeDef",
-        "AttributeNames": List[str],
-    },
-)
-
-BatchGetObjectInformationResponseTypeDef = TypedDict(
-    "BatchGetObjectInformationResponseTypeDef",
-    {
-        "SchemaFacets": List["SchemaFacetTypeDef"],
-        "ObjectIdentifier": str,
-    },
-    total=False,
-)
-
-BatchGetObjectInformationTypeDef = TypedDict(
-    "BatchGetObjectInformationTypeDef",
-    {
-        "ObjectReference": "ObjectReferenceTypeDef",
-    },
-)
-
-BatchListAttachedIndicesResponseTypeDef = TypedDict(
-    "BatchListAttachedIndicesResponseTypeDef",
-    {
-        "IndexAttachments": List["IndexAttachmentTypeDef"],
-        "NextToken": str,
-    },
-    total=False,
-)
-
-_RequiredBatchListAttachedIndicesTypeDef = TypedDict(
-    "_RequiredBatchListAttachedIndicesTypeDef",
-    {
-        "TargetReference": "ObjectReferenceTypeDef",
-    },
-)
-_OptionalBatchListAttachedIndicesTypeDef = TypedDict(
-    "_OptionalBatchListAttachedIndicesTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-class BatchListAttachedIndicesTypeDef(
-    _RequiredBatchListAttachedIndicesTypeDef, _OptionalBatchListAttachedIndicesTypeDef
-):
-    pass
-
-BatchListIncomingTypedLinksResponseTypeDef = TypedDict(
-    "BatchListIncomingTypedLinksResponseTypeDef",
-    {
-        "LinkSpecifiers": List["TypedLinkSpecifierTypeDef"],
-        "NextToken": str,
-    },
-    total=False,
-)
-
-_RequiredBatchListIncomingTypedLinksTypeDef = TypedDict(
-    "_RequiredBatchListIncomingTypedLinksTypeDef",
-    {
-        "ObjectReference": "ObjectReferenceTypeDef",
-    },
-)
-_OptionalBatchListIncomingTypedLinksTypeDef = TypedDict(
-    "_OptionalBatchListIncomingTypedLinksTypeDef",
-    {
-        "FilterAttributeRanges": List["TypedLinkAttributeRangeTypeDef"],
-        "FilterTypedLink": "TypedLinkSchemaAndFacetNameTypeDef",
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-class BatchListIncomingTypedLinksTypeDef(
-    _RequiredBatchListIncomingTypedLinksTypeDef, _OptionalBatchListIncomingTypedLinksTypeDef
-):
-    pass
-
-BatchListIndexResponseTypeDef = TypedDict(
-    "BatchListIndexResponseTypeDef",
-    {
-        "IndexAttachments": List["IndexAttachmentTypeDef"],
-        "NextToken": str,
-    },
-    total=False,
-)
-
-_RequiredBatchListIndexTypeDef = TypedDict(
-    "_RequiredBatchListIndexTypeDef",
-    {
-        "IndexReference": "ObjectReferenceTypeDef",
-    },
-)
-_OptionalBatchListIndexTypeDef = TypedDict(
-    "_OptionalBatchListIndexTypeDef",
-    {
-        "RangesOnIndexedValues": List["ObjectAttributeRangeTypeDef"],
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class BatchListIndexTypeDef(_RequiredBatchListIndexTypeDef, _OptionalBatchListIndexTypeDef):
-    pass
-
-BatchListObjectAttributesResponseTypeDef = TypedDict(
-    "BatchListObjectAttributesResponseTypeDef",
-    {
-        "Attributes": List["AttributeKeyAndValueTypeDef"],
-        "NextToken": str,
-    },
-    total=False,
-)
-
-_RequiredBatchListObjectAttributesTypeDef = TypedDict(
-    "_RequiredBatchListObjectAttributesTypeDef",
-    {
-        "ObjectReference": "ObjectReferenceTypeDef",
-    },
-)
-_OptionalBatchListObjectAttributesTypeDef = TypedDict(
-    "_OptionalBatchListObjectAttributesTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-        "FacetFilter": "SchemaFacetTypeDef",
-    },
-    total=False,
-)
-
-class BatchListObjectAttributesTypeDef(
-    _RequiredBatchListObjectAttributesTypeDef, _OptionalBatchListObjectAttributesTypeDef
-):
-    pass
-
-BatchListObjectChildrenResponseTypeDef = TypedDict(
-    "BatchListObjectChildrenResponseTypeDef",
-    {
-        "Children": Dict[str, str],
-        "NextToken": str,
-    },
-    total=False,
-)
-
-_RequiredBatchListObjectChildrenTypeDef = TypedDict(
-    "_RequiredBatchListObjectChildrenTypeDef",
-    {
-        "ObjectReference": "ObjectReferenceTypeDef",
-    },
-)
-_OptionalBatchListObjectChildrenTypeDef = TypedDict(
-    "_OptionalBatchListObjectChildrenTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-class BatchListObjectChildrenTypeDef(
-    _RequiredBatchListObjectChildrenTypeDef, _OptionalBatchListObjectChildrenTypeDef
-):
-    pass
-
-BatchListObjectParentPathsResponseTypeDef = TypedDict(
-    "BatchListObjectParentPathsResponseTypeDef",
-    {
-        "PathToObjectIdentifiersList": List["PathToObjectIdentifiersTypeDef"],
-        "NextToken": str,
-    },
-    total=False,
-)
-
-_RequiredBatchListObjectParentPathsTypeDef = TypedDict(
-    "_RequiredBatchListObjectParentPathsTypeDef",
-    {
-        "ObjectReference": "ObjectReferenceTypeDef",
-    },
-)
-_OptionalBatchListObjectParentPathsTypeDef = TypedDict(
-    "_OptionalBatchListObjectParentPathsTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-class BatchListObjectParentPathsTypeDef(
-    _RequiredBatchListObjectParentPathsTypeDef, _OptionalBatchListObjectParentPathsTypeDef
-):
-    pass
-
-BatchListObjectParentsResponseTypeDef = TypedDict(
-    "BatchListObjectParentsResponseTypeDef",
-    {
-        "ParentLinks": List["ObjectIdentifierAndLinkNameTupleTypeDef"],
-        "NextToken": str,
-    },
-    total=False,
-)
-
-_RequiredBatchListObjectParentsTypeDef = TypedDict(
-    "_RequiredBatchListObjectParentsTypeDef",
-    {
-        "ObjectReference": "ObjectReferenceTypeDef",
-    },
-)
-_OptionalBatchListObjectParentsTypeDef = TypedDict(
-    "_OptionalBatchListObjectParentsTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-class BatchListObjectParentsTypeDef(
-    _RequiredBatchListObjectParentsTypeDef, _OptionalBatchListObjectParentsTypeDef
-):
-    pass
-
-BatchListObjectPoliciesResponseTypeDef = TypedDict(
-    "BatchListObjectPoliciesResponseTypeDef",
-    {
-        "AttachedPolicyIds": List[str],
-        "NextToken": str,
-    },
-    total=False,
-)
-
-_RequiredBatchListObjectPoliciesTypeDef = TypedDict(
-    "_RequiredBatchListObjectPoliciesTypeDef",
-    {
-        "ObjectReference": "ObjectReferenceTypeDef",
-    },
-)
-_OptionalBatchListObjectPoliciesTypeDef = TypedDict(
-    "_OptionalBatchListObjectPoliciesTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-class BatchListObjectPoliciesTypeDef(
-    _RequiredBatchListObjectPoliciesTypeDef, _OptionalBatchListObjectPoliciesTypeDef
-):
-    pass
-
-BatchListOutgoingTypedLinksResponseTypeDef = TypedDict(
-    "BatchListOutgoingTypedLinksResponseTypeDef",
-    {
-        "TypedLinkSpecifiers": List["TypedLinkSpecifierTypeDef"],
-        "NextToken": str,
-    },
-    total=False,
-)
-
-_RequiredBatchListOutgoingTypedLinksTypeDef = TypedDict(
-    "_RequiredBatchListOutgoingTypedLinksTypeDef",
-    {
-        "ObjectReference": "ObjectReferenceTypeDef",
-    },
-)
-_OptionalBatchListOutgoingTypedLinksTypeDef = TypedDict(
-    "_OptionalBatchListOutgoingTypedLinksTypeDef",
-    {
-        "FilterAttributeRanges": List["TypedLinkAttributeRangeTypeDef"],
-        "FilterTypedLink": "TypedLinkSchemaAndFacetNameTypeDef",
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-class BatchListOutgoingTypedLinksTypeDef(
-    _RequiredBatchListOutgoingTypedLinksTypeDef, _OptionalBatchListOutgoingTypedLinksTypeDef
-):
-    pass
-
-BatchListPolicyAttachmentsResponseTypeDef = TypedDict(
-    "BatchListPolicyAttachmentsResponseTypeDef",
-    {
-        "ObjectIdentifiers": List[str],
-        "NextToken": str,
-    },
-    total=False,
-)
-
-_RequiredBatchListPolicyAttachmentsTypeDef = TypedDict(
-    "_RequiredBatchListPolicyAttachmentsTypeDef",
-    {
-        "PolicyReference": "ObjectReferenceTypeDef",
-    },
-)
-_OptionalBatchListPolicyAttachmentsTypeDef = TypedDict(
-    "_OptionalBatchListPolicyAttachmentsTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-class BatchListPolicyAttachmentsTypeDef(
-    _RequiredBatchListPolicyAttachmentsTypeDef, _OptionalBatchListPolicyAttachmentsTypeDef
-):
-    pass
-
-BatchLookupPolicyResponseTypeDef = TypedDict(
-    "BatchLookupPolicyResponseTypeDef",
-    {
-        "PolicyToPathList": List["PolicyToPathTypeDef"],
-        "NextToken": str,
-    },
-    total=False,
-)
-
-_RequiredBatchLookupPolicyTypeDef = TypedDict(
-    "_RequiredBatchLookupPolicyTypeDef",
-    {
-        "ObjectReference": "ObjectReferenceTypeDef",
-    },
-)
-_OptionalBatchLookupPolicyTypeDef = TypedDict(
-    "_OptionalBatchLookupPolicyTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-class BatchLookupPolicyTypeDef(
-    _RequiredBatchLookupPolicyTypeDef, _OptionalBatchLookupPolicyTypeDef
-):
-    pass
+class ObjectReferenceTypeDef(TypedDict):
+    Selector: NotRequired[str]
+
+class SchemaFacetTypeDef(TypedDict):
+    SchemaArn: NotRequired[str]
+    FacetName: NotRequired[str]
+
+class ApplySchemaRequestTypeDef(TypedDict):
+    PublishedSchemaArn: str
+    DirectoryArn: str
+
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
+
+class TypedLinkSchemaAndFacetNameTypeDef(TypedDict):
+    SchemaArn: str
+    TypedLinkName: str
+
+class AttributeKeyTypeDef(TypedDict):
+    SchemaArn: str
+    FacetName: str
+    Name: str
+
+class TypedAttributeValueOutputTypeDef(TypedDict):
+    StringValue: NotRequired[str]
+    BinaryValue: NotRequired[bytes]
+    BooleanValue: NotRequired[bool]
+    NumberValue: NotRequired[str]
+    DatetimeValue: NotRequired[datetime]
+
+class BatchAttachObjectResponseTypeDef(TypedDict):
+    attachedObjectIdentifier: NotRequired[str]
+
+class BatchAttachToIndexResponseTypeDef(TypedDict):
+    AttachedObjectIdentifier: NotRequired[str]
+
+class BatchCreateIndexResponseTypeDef(TypedDict):
+    ObjectIdentifier: NotRequired[str]
+
+class BatchCreateObjectResponseTypeDef(TypedDict):
+    ObjectIdentifier: NotRequired[str]
+
+class BatchDetachFromIndexResponseTypeDef(TypedDict):
+    DetachedObjectIdentifier: NotRequired[str]
+
+class BatchDetachObjectResponseTypeDef(TypedDict):
+    detachedObjectIdentifier: NotRequired[str]
+
+class BatchListObjectChildrenResponseTypeDef(TypedDict):
+    Children: NotRequired[Dict[str, str]]
+    NextToken: NotRequired[str]
+
+class PathToObjectIdentifiersTypeDef(TypedDict):
+    Path: NotRequired[str]
+    ObjectIdentifiers: NotRequired[List[str]]
+
+class ObjectIdentifierAndLinkNameTupleTypeDef(TypedDict):
+    ObjectIdentifier: NotRequired[str]
+    LinkName: NotRequired[str]
+
+class BatchListObjectPoliciesResponseTypeDef(TypedDict):
+    AttachedPolicyIds: NotRequired[List[str]]
+    NextToken: NotRequired[str]
+
+class BatchListPolicyAttachmentsResponseTypeDef(TypedDict):
+    ObjectIdentifiers: NotRequired[List[str]]
+    NextToken: NotRequired[str]
 
 BatchReadExceptionTypeDef = TypedDict(
     "BatchReadExceptionTypeDef",
     {
-        "Type": BatchReadExceptionTypeType,
-        "Message": str,
+        "Type": NotRequired[BatchReadExceptionTypeType],
+        "Message": NotRequired[str],
     },
-    total=False,
 )
 
-BatchReadOperationResponseTypeDef = TypedDict(
-    "BatchReadOperationResponseTypeDef",
-    {
-        "SuccessfulResponse": "BatchReadSuccessfulResponseTypeDef",
-        "ExceptionResponse": "BatchReadExceptionTypeDef",
-    },
-    total=False,
-)
-
-BatchReadOperationTypeDef = TypedDict(
-    "BatchReadOperationTypeDef",
-    {
-        "ListObjectAttributes": "BatchListObjectAttributesTypeDef",
-        "ListObjectChildren": "BatchListObjectChildrenTypeDef",
-        "ListAttachedIndices": "BatchListAttachedIndicesTypeDef",
-        "ListObjectParentPaths": "BatchListObjectParentPathsTypeDef",
-        "GetObjectInformation": "BatchGetObjectInformationTypeDef",
-        "GetObjectAttributes": "BatchGetObjectAttributesTypeDef",
-        "ListObjectParents": "BatchListObjectParentsTypeDef",
-        "ListObjectPolicies": "BatchListObjectPoliciesTypeDef",
-        "ListPolicyAttachments": "BatchListPolicyAttachmentsTypeDef",
-        "LookupPolicy": "BatchLookupPolicyTypeDef",
-        "ListIndex": "BatchListIndexTypeDef",
-        "ListOutgoingTypedLinks": "BatchListOutgoingTypedLinksTypeDef",
-        "ListIncomingTypedLinks": "BatchListIncomingTypedLinksTypeDef",
-        "GetLinkAttributes": "BatchGetLinkAttributesTypeDef",
-    },
-    total=False,
-)
-
-_RequiredBatchReadRequestRequestTypeDef = TypedDict(
-    "_RequiredBatchReadRequestRequestTypeDef",
-    {
-        "DirectoryArn": str,
-        "Operations": List["BatchReadOperationTypeDef"],
-    },
-)
-_OptionalBatchReadRequestRequestTypeDef = TypedDict(
-    "_OptionalBatchReadRequestRequestTypeDef",
-    {
-        "ConsistencyLevel": ConsistencyLevelType,
-    },
-    total=False,
-)
-
-class BatchReadRequestRequestTypeDef(
-    _RequiredBatchReadRequestRequestTypeDef, _OptionalBatchReadRequestRequestTypeDef
-):
-    pass
-
-BatchReadResponseTypeDef = TypedDict(
-    "BatchReadResponseTypeDef",
-    {
-        "Responses": List["BatchReadOperationResponseTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-BatchReadSuccessfulResponseTypeDef = TypedDict(
-    "BatchReadSuccessfulResponseTypeDef",
-    {
-        "ListObjectAttributes": "BatchListObjectAttributesResponseTypeDef",
-        "ListObjectChildren": "BatchListObjectChildrenResponseTypeDef",
-        "GetObjectInformation": "BatchGetObjectInformationResponseTypeDef",
-        "GetObjectAttributes": "BatchGetObjectAttributesResponseTypeDef",
-        "ListAttachedIndices": "BatchListAttachedIndicesResponseTypeDef",
-        "ListObjectParentPaths": "BatchListObjectParentPathsResponseTypeDef",
-        "ListObjectPolicies": "BatchListObjectPoliciesResponseTypeDef",
-        "ListPolicyAttachments": "BatchListPolicyAttachmentsResponseTypeDef",
-        "LookupPolicy": "BatchLookupPolicyResponseTypeDef",
-        "ListIndex": "BatchListIndexResponseTypeDef",
-        "ListOutgoingTypedLinks": "BatchListOutgoingTypedLinksResponseTypeDef",
-        "ListIncomingTypedLinks": "BatchListIncomingTypedLinksResponseTypeDef",
-        "GetLinkAttributes": "BatchGetLinkAttributesResponseTypeDef",
-        "ListObjectParents": "BatchListObjectParentsResponseTypeDef",
-    },
-    total=False,
-)
-
-BatchRemoveFacetFromObjectTypeDef = TypedDict(
-    "BatchRemoveFacetFromObjectTypeDef",
-    {
-        "SchemaFacet": "SchemaFacetTypeDef",
-        "ObjectReference": "ObjectReferenceTypeDef",
-    },
-)
-
-BatchUpdateLinkAttributesTypeDef = TypedDict(
-    "BatchUpdateLinkAttributesTypeDef",
-    {
-        "TypedLinkSpecifier": "TypedLinkSpecifierTypeDef",
-        "AttributeUpdates": List["LinkAttributeUpdateTypeDef"],
-    },
-)
-
-BatchUpdateObjectAttributesResponseTypeDef = TypedDict(
-    "BatchUpdateObjectAttributesResponseTypeDef",
-    {
-        "ObjectIdentifier": str,
-    },
-    total=False,
-)
-
-BatchUpdateObjectAttributesTypeDef = TypedDict(
-    "BatchUpdateObjectAttributesTypeDef",
-    {
-        "ObjectReference": "ObjectReferenceTypeDef",
-        "AttributeUpdates": List["ObjectAttributeUpdateTypeDef"],
-    },
-)
-
-BatchWriteOperationResponseTypeDef = TypedDict(
-    "BatchWriteOperationResponseTypeDef",
-    {
-        "CreateObject": "BatchCreateObjectResponseTypeDef",
-        "AttachObject": "BatchAttachObjectResponseTypeDef",
-        "DetachObject": "BatchDetachObjectResponseTypeDef",
-        "UpdateObjectAttributes": "BatchUpdateObjectAttributesResponseTypeDef",
-        "DeleteObject": Dict[str, Any],
-        "AddFacetToObject": Dict[str, Any],
-        "RemoveFacetFromObject": Dict[str, Any],
-        "AttachPolicy": Dict[str, Any],
-        "DetachPolicy": Dict[str, Any],
-        "CreateIndex": "BatchCreateIndexResponseTypeDef",
-        "AttachToIndex": "BatchAttachToIndexResponseTypeDef",
-        "DetachFromIndex": "BatchDetachFromIndexResponseTypeDef",
-        "AttachTypedLink": "BatchAttachTypedLinkResponseTypeDef",
-        "DetachTypedLink": Dict[str, Any],
-        "UpdateLinkAttributes": Dict[str, Any],
-    },
-    total=False,
-)
-
-BatchWriteOperationTypeDef = TypedDict(
-    "BatchWriteOperationTypeDef",
-    {
-        "CreateObject": "BatchCreateObjectTypeDef",
-        "AttachObject": "BatchAttachObjectTypeDef",
-        "DetachObject": "BatchDetachObjectTypeDef",
-        "UpdateObjectAttributes": "BatchUpdateObjectAttributesTypeDef",
-        "DeleteObject": "BatchDeleteObjectTypeDef",
-        "AddFacetToObject": "BatchAddFacetToObjectTypeDef",
-        "RemoveFacetFromObject": "BatchRemoveFacetFromObjectTypeDef",
-        "AttachPolicy": "BatchAttachPolicyTypeDef",
-        "DetachPolicy": "BatchDetachPolicyTypeDef",
-        "CreateIndex": "BatchCreateIndexTypeDef",
-        "AttachToIndex": "BatchAttachToIndexTypeDef",
-        "DetachFromIndex": "BatchDetachFromIndexTypeDef",
-        "AttachTypedLink": "BatchAttachTypedLinkTypeDef",
-        "DetachTypedLink": "BatchDetachTypedLinkTypeDef",
-        "UpdateLinkAttributes": "BatchUpdateLinkAttributesTypeDef",
-    },
-    total=False,
-)
-
-BatchWriteRequestRequestTypeDef = TypedDict(
-    "BatchWriteRequestRequestTypeDef",
-    {
-        "DirectoryArn": str,
-        "Operations": List["BatchWriteOperationTypeDef"],
-    },
-)
-
-BatchWriteResponseTypeDef = TypedDict(
-    "BatchWriteResponseTypeDef",
-    {
-        "Responses": List["BatchWriteOperationResponseTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateDirectoryRequestRequestTypeDef = TypedDict(
-    "CreateDirectoryRequestRequestTypeDef",
-    {
-        "Name": str,
-        "SchemaArn": str,
-    },
-)
-
-CreateDirectoryResponseTypeDef = TypedDict(
-    "CreateDirectoryResponseTypeDef",
-    {
-        "DirectoryArn": str,
-        "Name": str,
-        "ObjectIdentifier": str,
-        "AppliedSchemaArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateFacetRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateFacetRequestRequestTypeDef",
-    {
-        "SchemaArn": str,
-        "Name": str,
-    },
-)
-_OptionalCreateFacetRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateFacetRequestRequestTypeDef",
-    {
-        "Attributes": List["FacetAttributeTypeDef"],
-        "ObjectType": ObjectTypeType,
-        "FacetStyle": FacetStyleType,
-    },
-    total=False,
-)
-
-class CreateFacetRequestRequestTypeDef(
-    _RequiredCreateFacetRequestRequestTypeDef, _OptionalCreateFacetRequestRequestTypeDef
-):
-    pass
-
-_RequiredCreateIndexRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateIndexRequestRequestTypeDef",
-    {
-        "DirectoryArn": str,
-        "OrderedIndexedAttributeList": List["AttributeKeyTypeDef"],
-        "IsUnique": bool,
-    },
-)
-_OptionalCreateIndexRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateIndexRequestRequestTypeDef",
-    {
-        "ParentReference": "ObjectReferenceTypeDef",
-        "LinkName": str,
-    },
-    total=False,
-)
-
-class CreateIndexRequestRequestTypeDef(
-    _RequiredCreateIndexRequestRequestTypeDef, _OptionalCreateIndexRequestRequestTypeDef
-):
-    pass
-
-CreateIndexResponseTypeDef = TypedDict(
-    "CreateIndexResponseTypeDef",
-    {
-        "ObjectIdentifier": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateObjectRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateObjectRequestRequestTypeDef",
-    {
-        "DirectoryArn": str,
-        "SchemaFacets": List["SchemaFacetTypeDef"],
-    },
-)
-_OptionalCreateObjectRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateObjectRequestRequestTypeDef",
-    {
-        "ObjectAttributeList": List["AttributeKeyAndValueTypeDef"],
-        "ParentReference": "ObjectReferenceTypeDef",
-        "LinkName": str,
-    },
-    total=False,
-)
-
-class CreateObjectRequestRequestTypeDef(
-    _RequiredCreateObjectRequestRequestTypeDef, _OptionalCreateObjectRequestRequestTypeDef
-):
-    pass
-
-CreateObjectResponseTypeDef = TypedDict(
-    "CreateObjectResponseTypeDef",
-    {
-        "ObjectIdentifier": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateSchemaRequestRequestTypeDef = TypedDict(
-    "CreateSchemaRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
-
-CreateSchemaResponseTypeDef = TypedDict(
-    "CreateSchemaResponseTypeDef",
-    {
-        "SchemaArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateTypedLinkFacetRequestRequestTypeDef = TypedDict(
-    "CreateTypedLinkFacetRequestRequestTypeDef",
-    {
-        "SchemaArn": str,
-        "Facet": "TypedLinkFacetTypeDef",
-    },
-)
-
-DeleteDirectoryRequestRequestTypeDef = TypedDict(
-    "DeleteDirectoryRequestRequestTypeDef",
-    {
-        "DirectoryArn": str,
-    },
-)
-
-DeleteDirectoryResponseTypeDef = TypedDict(
-    "DeleteDirectoryResponseTypeDef",
-    {
-        "DirectoryArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteFacetRequestRequestTypeDef = TypedDict(
-    "DeleteFacetRequestRequestTypeDef",
-    {
-        "SchemaArn": str,
-        "Name": str,
-    },
-)
-
-DeleteObjectRequestRequestTypeDef = TypedDict(
-    "DeleteObjectRequestRequestTypeDef",
-    {
-        "DirectoryArn": str,
-        "ObjectReference": "ObjectReferenceTypeDef",
-    },
-)
-
-DeleteSchemaRequestRequestTypeDef = TypedDict(
-    "DeleteSchemaRequestRequestTypeDef",
-    {
-        "SchemaArn": str,
-    },
-)
-
-DeleteSchemaResponseTypeDef = TypedDict(
-    "DeleteSchemaResponseTypeDef",
-    {
-        "SchemaArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteTypedLinkFacetRequestRequestTypeDef = TypedDict(
-    "DeleteTypedLinkFacetRequestRequestTypeDef",
-    {
-        "SchemaArn": str,
-        "Name": str,
-    },
-)
-
-DetachFromIndexRequestRequestTypeDef = TypedDict(
-    "DetachFromIndexRequestRequestTypeDef",
-    {
-        "DirectoryArn": str,
-        "IndexReference": "ObjectReferenceTypeDef",
-        "TargetReference": "ObjectReferenceTypeDef",
-    },
-)
-
-DetachFromIndexResponseTypeDef = TypedDict(
-    "DetachFromIndexResponseTypeDef",
-    {
-        "DetachedObjectIdentifier": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DetachObjectRequestRequestTypeDef = TypedDict(
-    "DetachObjectRequestRequestTypeDef",
-    {
-        "DirectoryArn": str,
-        "ParentReference": "ObjectReferenceTypeDef",
-        "LinkName": str,
-    },
-)
-
-DetachObjectResponseTypeDef = TypedDict(
-    "DetachObjectResponseTypeDef",
-    {
-        "DetachedObjectIdentifier": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DetachPolicyRequestRequestTypeDef = TypedDict(
-    "DetachPolicyRequestRequestTypeDef",
-    {
-        "DirectoryArn": str,
-        "PolicyReference": "ObjectReferenceTypeDef",
-        "ObjectReference": "ObjectReferenceTypeDef",
-    },
-)
-
-DetachTypedLinkRequestRequestTypeDef = TypedDict(
-    "DetachTypedLinkRequestRequestTypeDef",
-    {
-        "DirectoryArn": str,
-        "TypedLinkSpecifier": "TypedLinkSpecifierTypeDef",
-    },
-)
-
-DirectoryTypeDef = TypedDict(
-    "DirectoryTypeDef",
-    {
-        "Name": str,
-        "DirectoryArn": str,
-        "State": DirectoryStateType,
-        "CreationDateTime": datetime,
-    },
-    total=False,
-)
-
-DisableDirectoryRequestRequestTypeDef = TypedDict(
-    "DisableDirectoryRequestRequestTypeDef",
-    {
-        "DirectoryArn": str,
-    },
-)
-
-DisableDirectoryResponseTypeDef = TypedDict(
-    "DisableDirectoryResponseTypeDef",
-    {
-        "DirectoryArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-EnableDirectoryRequestRequestTypeDef = TypedDict(
-    "EnableDirectoryRequestRequestTypeDef",
-    {
-        "DirectoryArn": str,
-    },
-)
-
-EnableDirectoryResponseTypeDef = TypedDict(
-    "EnableDirectoryResponseTypeDef",
-    {
-        "DirectoryArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredFacetAttributeDefinitionTypeDef = TypedDict(
-    "_RequiredFacetAttributeDefinitionTypeDef",
-    {
-        "Type": FacetAttributeTypeType,
-    },
-)
-_OptionalFacetAttributeDefinitionTypeDef = TypedDict(
-    "_OptionalFacetAttributeDefinitionTypeDef",
-    {
-        "DefaultValue": "TypedAttributeValueTypeDef",
-        "IsImmutable": bool,
-        "Rules": Dict[str, "RuleTypeDef"],
-    },
-    total=False,
-)
-
-class FacetAttributeDefinitionTypeDef(
-    _RequiredFacetAttributeDefinitionTypeDef, _OptionalFacetAttributeDefinitionTypeDef
-):
-    pass
-
-FacetAttributeReferenceTypeDef = TypedDict(
-    "FacetAttributeReferenceTypeDef",
-    {
-        "TargetFacetName": str,
-        "TargetAttributeName": str,
-    },
-)
-
-_RequiredFacetAttributeTypeDef = TypedDict(
-    "_RequiredFacetAttributeTypeDef",
-    {
-        "Name": str,
-    },
-)
-_OptionalFacetAttributeTypeDef = TypedDict(
-    "_OptionalFacetAttributeTypeDef",
-    {
-        "AttributeDefinition": "FacetAttributeDefinitionTypeDef",
-        "AttributeReference": "FacetAttributeReferenceTypeDef",
-        "RequiredBehavior": RequiredAttributeBehaviorType,
-    },
-    total=False,
-)
-
-class FacetAttributeTypeDef(_RequiredFacetAttributeTypeDef, _OptionalFacetAttributeTypeDef):
-    pass
-
-FacetAttributeUpdateTypeDef = TypedDict(
-    "FacetAttributeUpdateTypeDef",
-    {
-        "Attribute": "FacetAttributeTypeDef",
-        "Action": UpdateActionTypeType,
-    },
-    total=False,
-)
-
-FacetTypeDef = TypedDict(
-    "FacetTypeDef",
-    {
-        "Name": str,
-        "ObjectType": ObjectTypeType,
-        "FacetStyle": FacetStyleType,
-    },
-    total=False,
-)
-
-GetAppliedSchemaVersionRequestRequestTypeDef = TypedDict(
-    "GetAppliedSchemaVersionRequestRequestTypeDef",
-    {
-        "SchemaArn": str,
-    },
-)
-
-GetAppliedSchemaVersionResponseTypeDef = TypedDict(
-    "GetAppliedSchemaVersionResponseTypeDef",
-    {
-        "AppliedSchemaArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetDirectoryRequestRequestTypeDef = TypedDict(
-    "GetDirectoryRequestRequestTypeDef",
-    {
-        "DirectoryArn": str,
-    },
-)
-
-GetDirectoryResponseTypeDef = TypedDict(
-    "GetDirectoryResponseTypeDef",
-    {
-        "Directory": "DirectoryTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetFacetRequestRequestTypeDef = TypedDict(
-    "GetFacetRequestRequestTypeDef",
-    {
-        "SchemaArn": str,
-        "Name": str,
-    },
-)
-
-GetFacetResponseTypeDef = TypedDict(
-    "GetFacetResponseTypeDef",
-    {
-        "Facet": "FacetTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetLinkAttributesRequestRequestTypeDef = TypedDict(
-    "_RequiredGetLinkAttributesRequestRequestTypeDef",
-    {
-        "DirectoryArn": str,
-        "TypedLinkSpecifier": "TypedLinkSpecifierTypeDef",
-        "AttributeNames": List[str],
-    },
-)
-_OptionalGetLinkAttributesRequestRequestTypeDef = TypedDict(
-    "_OptionalGetLinkAttributesRequestRequestTypeDef",
-    {
-        "ConsistencyLevel": ConsistencyLevelType,
-    },
-    total=False,
-)
-
-class GetLinkAttributesRequestRequestTypeDef(
-    _RequiredGetLinkAttributesRequestRequestTypeDef, _OptionalGetLinkAttributesRequestRequestTypeDef
-):
-    pass
-
-GetLinkAttributesResponseTypeDef = TypedDict(
-    "GetLinkAttributesResponseTypeDef",
-    {
-        "Attributes": List["AttributeKeyAndValueTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetObjectAttributesRequestRequestTypeDef = TypedDict(
-    "_RequiredGetObjectAttributesRequestRequestTypeDef",
-    {
-        "DirectoryArn": str,
-        "ObjectReference": "ObjectReferenceTypeDef",
-        "SchemaFacet": "SchemaFacetTypeDef",
-        "AttributeNames": List[str],
-    },
-)
-_OptionalGetObjectAttributesRequestRequestTypeDef = TypedDict(
-    "_OptionalGetObjectAttributesRequestRequestTypeDef",
-    {
-        "ConsistencyLevel": ConsistencyLevelType,
-    },
-    total=False,
-)
-
-class GetObjectAttributesRequestRequestTypeDef(
-    _RequiredGetObjectAttributesRequestRequestTypeDef,
-    _OptionalGetObjectAttributesRequestRequestTypeDef,
-):
-    pass
-
-GetObjectAttributesResponseTypeDef = TypedDict(
-    "GetObjectAttributesResponseTypeDef",
-    {
-        "Attributes": List["AttributeKeyAndValueTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetObjectInformationRequestRequestTypeDef = TypedDict(
-    "_RequiredGetObjectInformationRequestRequestTypeDef",
-    {
-        "DirectoryArn": str,
-        "ObjectReference": "ObjectReferenceTypeDef",
-    },
-)
-_OptionalGetObjectInformationRequestRequestTypeDef = TypedDict(
-    "_OptionalGetObjectInformationRequestRequestTypeDef",
-    {
-        "ConsistencyLevel": ConsistencyLevelType,
-    },
-    total=False,
-)
-
-class GetObjectInformationRequestRequestTypeDef(
-    _RequiredGetObjectInformationRequestRequestTypeDef,
-    _OptionalGetObjectInformationRequestRequestTypeDef,
-):
-    pass
-
-GetObjectInformationResponseTypeDef = TypedDict(
-    "GetObjectInformationResponseTypeDef",
-    {
-        "SchemaFacets": List["SchemaFacetTypeDef"],
-        "ObjectIdentifier": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetSchemaAsJsonRequestRequestTypeDef = TypedDict(
-    "GetSchemaAsJsonRequestRequestTypeDef",
-    {
-        "SchemaArn": str,
-    },
-)
-
-GetSchemaAsJsonResponseTypeDef = TypedDict(
-    "GetSchemaAsJsonResponseTypeDef",
-    {
-        "Name": str,
-        "Document": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetTypedLinkFacetInformationRequestRequestTypeDef = TypedDict(
-    "GetTypedLinkFacetInformationRequestRequestTypeDef",
-    {
-        "SchemaArn": str,
-        "Name": str,
-    },
-)
-
-GetTypedLinkFacetInformationResponseTypeDef = TypedDict(
-    "GetTypedLinkFacetInformationResponseTypeDef",
-    {
-        "IdentityAttributeOrder": List[str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-IndexAttachmentTypeDef = TypedDict(
-    "IndexAttachmentTypeDef",
-    {
-        "IndexedAttributes": List["AttributeKeyAndValueTypeDef"],
-        "ObjectIdentifier": str,
-    },
-    total=False,
-)
-
-LinkAttributeActionTypeDef = TypedDict(
-    "LinkAttributeActionTypeDef",
-    {
-        "AttributeActionType": UpdateActionTypeType,
-        "AttributeUpdateValue": "TypedAttributeValueTypeDef",
-    },
-    total=False,
-)
-
-LinkAttributeUpdateTypeDef = TypedDict(
-    "LinkAttributeUpdateTypeDef",
-    {
-        "AttributeKey": "AttributeKeyTypeDef",
-        "AttributeAction": "LinkAttributeActionTypeDef",
-    },
-    total=False,
-)
-
-_RequiredListAppliedSchemaArnsRequestRequestTypeDef = TypedDict(
-    "_RequiredListAppliedSchemaArnsRequestRequestTypeDef",
-    {
-        "DirectoryArn": str,
-    },
-)
-_OptionalListAppliedSchemaArnsRequestRequestTypeDef = TypedDict(
-    "_OptionalListAppliedSchemaArnsRequestRequestTypeDef",
-    {
-        "SchemaArn": str,
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-class ListAppliedSchemaArnsRequestRequestTypeDef(
-    _RequiredListAppliedSchemaArnsRequestRequestTypeDef,
-    _OptionalListAppliedSchemaArnsRequestRequestTypeDef,
-):
-    pass
-
-ListAppliedSchemaArnsResponseTypeDef = TypedDict(
-    "ListAppliedSchemaArnsResponseTypeDef",
-    {
-        "SchemaArns": List[str],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListAttachedIndicesRequestRequestTypeDef = TypedDict(
-    "_RequiredListAttachedIndicesRequestRequestTypeDef",
-    {
-        "DirectoryArn": str,
-        "TargetReference": "ObjectReferenceTypeDef",
-    },
-)
-_OptionalListAttachedIndicesRequestRequestTypeDef = TypedDict(
-    "_OptionalListAttachedIndicesRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-        "ConsistencyLevel": ConsistencyLevelType,
-    },
-    total=False,
-)
-
-class ListAttachedIndicesRequestRequestTypeDef(
-    _RequiredListAttachedIndicesRequestRequestTypeDef,
-    _OptionalListAttachedIndicesRequestRequestTypeDef,
-):
-    pass
-
-ListAttachedIndicesResponseTypeDef = TypedDict(
-    "ListAttachedIndicesResponseTypeDef",
-    {
-        "IndexAttachments": List["IndexAttachmentTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListDevelopmentSchemaArnsRequestRequestTypeDef = TypedDict(
-    "ListDevelopmentSchemaArnsRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-ListDevelopmentSchemaArnsResponseTypeDef = TypedDict(
-    "ListDevelopmentSchemaArnsResponseTypeDef",
-    {
-        "SchemaArns": List[str],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListDirectoriesRequestRequestTypeDef = TypedDict(
-    "ListDirectoriesRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-        "state": DirectoryStateType,
-    },
-    total=False,
-)
-
-ListDirectoriesResponseTypeDef = TypedDict(
-    "ListDirectoriesResponseTypeDef",
-    {
-        "Directories": List["DirectoryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListFacetAttributesRequestRequestTypeDef = TypedDict(
-    "_RequiredListFacetAttributesRequestRequestTypeDef",
-    {
-        "SchemaArn": str,
-        "Name": str,
-    },
-)
-_OptionalListFacetAttributesRequestRequestTypeDef = TypedDict(
-    "_OptionalListFacetAttributesRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-class ListFacetAttributesRequestRequestTypeDef(
-    _RequiredListFacetAttributesRequestRequestTypeDef,
-    _OptionalListFacetAttributesRequestRequestTypeDef,
-):
-    pass
-
-ListFacetAttributesResponseTypeDef = TypedDict(
-    "ListFacetAttributesResponseTypeDef",
-    {
-        "Attributes": List["FacetAttributeTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListFacetNamesRequestRequestTypeDef = TypedDict(
-    "_RequiredListFacetNamesRequestRequestTypeDef",
-    {
-        "SchemaArn": str,
-    },
-)
-_OptionalListFacetNamesRequestRequestTypeDef = TypedDict(
-    "_OptionalListFacetNamesRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-class ListFacetNamesRequestRequestTypeDef(
-    _RequiredListFacetNamesRequestRequestTypeDef, _OptionalListFacetNamesRequestRequestTypeDef
-):
-    pass
-
-ListFacetNamesResponseTypeDef = TypedDict(
-    "ListFacetNamesResponseTypeDef",
-    {
-        "FacetNames": List[str],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListIncomingTypedLinksRequestRequestTypeDef = TypedDict(
-    "_RequiredListIncomingTypedLinksRequestRequestTypeDef",
-    {
-        "DirectoryArn": str,
-        "ObjectReference": "ObjectReferenceTypeDef",
-    },
-)
-_OptionalListIncomingTypedLinksRequestRequestTypeDef = TypedDict(
-    "_OptionalListIncomingTypedLinksRequestRequestTypeDef",
-    {
-        "FilterAttributeRanges": List["TypedLinkAttributeRangeTypeDef"],
-        "FilterTypedLink": "TypedLinkSchemaAndFacetNameTypeDef",
-        "NextToken": str,
-        "MaxResults": int,
-        "ConsistencyLevel": ConsistencyLevelType,
-    },
-    total=False,
-)
-
-class ListIncomingTypedLinksRequestRequestTypeDef(
-    _RequiredListIncomingTypedLinksRequestRequestTypeDef,
-    _OptionalListIncomingTypedLinksRequestRequestTypeDef,
-):
-    pass
-
-ListIncomingTypedLinksResponseTypeDef = TypedDict(
-    "ListIncomingTypedLinksResponseTypeDef",
-    {
-        "LinkSpecifiers": List["TypedLinkSpecifierTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListIndexRequestRequestTypeDef = TypedDict(
-    "_RequiredListIndexRequestRequestTypeDef",
-    {
-        "DirectoryArn": str,
-        "IndexReference": "ObjectReferenceTypeDef",
-    },
-)
-_OptionalListIndexRequestRequestTypeDef = TypedDict(
-    "_OptionalListIndexRequestRequestTypeDef",
-    {
-        "RangesOnIndexedValues": List["ObjectAttributeRangeTypeDef"],
-        "MaxResults": int,
-        "NextToken": str,
-        "ConsistencyLevel": ConsistencyLevelType,
-    },
-    total=False,
-)
-
-class ListIndexRequestRequestTypeDef(
-    _RequiredListIndexRequestRequestTypeDef, _OptionalListIndexRequestRequestTypeDef
-):
-    pass
-
-ListIndexResponseTypeDef = TypedDict(
-    "ListIndexResponseTypeDef",
-    {
-        "IndexAttachments": List["IndexAttachmentTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListManagedSchemaArnsRequestRequestTypeDef = TypedDict(
-    "ListManagedSchemaArnsRequestRequestTypeDef",
-    {
-        "SchemaArn": str,
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-ListManagedSchemaArnsResponseTypeDef = TypedDict(
-    "ListManagedSchemaArnsResponseTypeDef",
-    {
-        "SchemaArns": List[str],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListObjectAttributesRequestRequestTypeDef = TypedDict(
-    "_RequiredListObjectAttributesRequestRequestTypeDef",
-    {
-        "DirectoryArn": str,
-        "ObjectReference": "ObjectReferenceTypeDef",
-    },
-)
-_OptionalListObjectAttributesRequestRequestTypeDef = TypedDict(
-    "_OptionalListObjectAttributesRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-        "ConsistencyLevel": ConsistencyLevelType,
-        "FacetFilter": "SchemaFacetTypeDef",
-    },
-    total=False,
-)
-
-class ListObjectAttributesRequestRequestTypeDef(
-    _RequiredListObjectAttributesRequestRequestTypeDef,
-    _OptionalListObjectAttributesRequestRequestTypeDef,
-):
-    pass
-
-ListObjectAttributesResponseTypeDef = TypedDict(
-    "ListObjectAttributesResponseTypeDef",
-    {
-        "Attributes": List["AttributeKeyAndValueTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListObjectChildrenRequestRequestTypeDef = TypedDict(
-    "_RequiredListObjectChildrenRequestRequestTypeDef",
-    {
-        "DirectoryArn": str,
-        "ObjectReference": "ObjectReferenceTypeDef",
-    },
-)
-_OptionalListObjectChildrenRequestRequestTypeDef = TypedDict(
-    "_OptionalListObjectChildrenRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-        "ConsistencyLevel": ConsistencyLevelType,
-    },
-    total=False,
-)
-
-class ListObjectChildrenRequestRequestTypeDef(
-    _RequiredListObjectChildrenRequestRequestTypeDef,
-    _OptionalListObjectChildrenRequestRequestTypeDef,
-):
-    pass
-
-ListObjectChildrenResponseTypeDef = TypedDict(
-    "ListObjectChildrenResponseTypeDef",
-    {
-        "Children": Dict[str, str],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListObjectParentPathsRequestRequestTypeDef = TypedDict(
-    "_RequiredListObjectParentPathsRequestRequestTypeDef",
-    {
-        "DirectoryArn": str,
-        "ObjectReference": "ObjectReferenceTypeDef",
-    },
-)
-_OptionalListObjectParentPathsRequestRequestTypeDef = TypedDict(
-    "_OptionalListObjectParentPathsRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-class ListObjectParentPathsRequestRequestTypeDef(
-    _RequiredListObjectParentPathsRequestRequestTypeDef,
-    _OptionalListObjectParentPathsRequestRequestTypeDef,
-):
-    pass
-
-ListObjectParentPathsResponseTypeDef = TypedDict(
-    "ListObjectParentPathsResponseTypeDef",
-    {
-        "PathToObjectIdentifiersList": List["PathToObjectIdentifiersTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListObjectParentsRequestRequestTypeDef = TypedDict(
-    "_RequiredListObjectParentsRequestRequestTypeDef",
-    {
-        "DirectoryArn": str,
-        "ObjectReference": "ObjectReferenceTypeDef",
-    },
-)
-_OptionalListObjectParentsRequestRequestTypeDef = TypedDict(
-    "_OptionalListObjectParentsRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-        "ConsistencyLevel": ConsistencyLevelType,
-        "IncludeAllLinksToEachParent": bool,
-    },
-    total=False,
-)
+class BatchUpdateObjectAttributesResponseTypeDef(TypedDict):
+    ObjectIdentifier: NotRequired[str]
 
-class ListObjectParentsRequestRequestTypeDef(
-    _RequiredListObjectParentsRequestRequestTypeDef, _OptionalListObjectParentsRequestRequestTypeDef
-):
-    pass
+BlobTypeDef = Union[str, bytes, IO[Any], StreamingBody]
 
-ListObjectParentsResponseTypeDef = TypedDict(
-    "ListObjectParentsResponseTypeDef",
-    {
-        "Parents": Dict[str, str],
-        "NextToken": str,
-        "ParentLinks": List["ObjectIdentifierAndLinkNameTupleTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListObjectPoliciesRequestRequestTypeDef = TypedDict(
-    "_RequiredListObjectPoliciesRequestRequestTypeDef",
-    {
-        "DirectoryArn": str,
-        "ObjectReference": "ObjectReferenceTypeDef",
-    },
-)
-_OptionalListObjectPoliciesRequestRequestTypeDef = TypedDict(
-    "_OptionalListObjectPoliciesRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-        "ConsistencyLevel": ConsistencyLevelType,
-    },
-    total=False,
-)
-
-class ListObjectPoliciesRequestRequestTypeDef(
-    _RequiredListObjectPoliciesRequestRequestTypeDef,
-    _OptionalListObjectPoliciesRequestRequestTypeDef,
-):
-    pass
-
-ListObjectPoliciesResponseTypeDef = TypedDict(
-    "ListObjectPoliciesResponseTypeDef",
-    {
-        "AttachedPolicyIds": List[str],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListOutgoingTypedLinksRequestRequestTypeDef = TypedDict(
-    "_RequiredListOutgoingTypedLinksRequestRequestTypeDef",
-    {
-        "DirectoryArn": str,
-        "ObjectReference": "ObjectReferenceTypeDef",
-    },
-)
-_OptionalListOutgoingTypedLinksRequestRequestTypeDef = TypedDict(
-    "_OptionalListOutgoingTypedLinksRequestRequestTypeDef",
-    {
-        "FilterAttributeRanges": List["TypedLinkAttributeRangeTypeDef"],
-        "FilterTypedLink": "TypedLinkSchemaAndFacetNameTypeDef",
-        "NextToken": str,
-        "MaxResults": int,
-        "ConsistencyLevel": ConsistencyLevelType,
-    },
-    total=False,
-)
-
-class ListOutgoingTypedLinksRequestRequestTypeDef(
-    _RequiredListOutgoingTypedLinksRequestRequestTypeDef,
-    _OptionalListOutgoingTypedLinksRequestRequestTypeDef,
-):
-    pass
-
-ListOutgoingTypedLinksResponseTypeDef = TypedDict(
-    "ListOutgoingTypedLinksResponseTypeDef",
-    {
-        "TypedLinkSpecifiers": List["TypedLinkSpecifierTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListPolicyAttachmentsRequestRequestTypeDef = TypedDict(
-    "_RequiredListPolicyAttachmentsRequestRequestTypeDef",
-    {
-        "DirectoryArn": str,
-        "PolicyReference": "ObjectReferenceTypeDef",
-    },
-)
-_OptionalListPolicyAttachmentsRequestRequestTypeDef = TypedDict(
-    "_OptionalListPolicyAttachmentsRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-        "ConsistencyLevel": ConsistencyLevelType,
-    },
-    total=False,
-)
-
-class ListPolicyAttachmentsRequestRequestTypeDef(
-    _RequiredListPolicyAttachmentsRequestRequestTypeDef,
-    _OptionalListPolicyAttachmentsRequestRequestTypeDef,
-):
-    pass
-
-ListPolicyAttachmentsResponseTypeDef = TypedDict(
-    "ListPolicyAttachmentsResponseTypeDef",
-    {
-        "ObjectIdentifiers": List[str],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListPublishedSchemaArnsRequestRequestTypeDef = TypedDict(
-    "ListPublishedSchemaArnsRequestRequestTypeDef",
-    {
-        "SchemaArn": str,
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-ListPublishedSchemaArnsResponseTypeDef = TypedDict(
-    "ListPublishedSchemaArnsResponseTypeDef",
-    {
-        "SchemaArns": List[str],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "_RequiredListTagsForResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-    },
-)
-_OptionalListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "_OptionalListTagsForResourceRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-class ListTagsForResourceRequestRequestTypeDef(
-    _RequiredListTagsForResourceRequestRequestTypeDef,
-    _OptionalListTagsForResourceRequestRequestTypeDef,
-):
-    pass
-
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "Tags": List["TagTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListTypedLinkFacetAttributesRequestRequestTypeDef = TypedDict(
-    "_RequiredListTypedLinkFacetAttributesRequestRequestTypeDef",
-    {
-        "SchemaArn": str,
-        "Name": str,
-    },
-)
-_OptionalListTypedLinkFacetAttributesRequestRequestTypeDef = TypedDict(
-    "_OptionalListTypedLinkFacetAttributesRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-class ListTypedLinkFacetAttributesRequestRequestTypeDef(
-    _RequiredListTypedLinkFacetAttributesRequestRequestTypeDef,
-    _OptionalListTypedLinkFacetAttributesRequestRequestTypeDef,
-):
-    pass
-
-ListTypedLinkFacetAttributesResponseTypeDef = TypedDict(
-    "ListTypedLinkFacetAttributesResponseTypeDef",
-    {
-        "Attributes": List["TypedLinkAttributeDefinitionTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CreateDirectoryRequestTypeDef(TypedDict):
+    Name: str
+    SchemaArn: str
 
-_RequiredListTypedLinkFacetNamesRequestRequestTypeDef = TypedDict(
-    "_RequiredListTypedLinkFacetNamesRequestRequestTypeDef",
-    {
-        "SchemaArn": str,
-    },
-)
-_OptionalListTypedLinkFacetNamesRequestRequestTypeDef = TypedDict(
-    "_OptionalListTypedLinkFacetNamesRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
+class CreateSchemaRequestTypeDef(TypedDict):
+    Name: str
 
-class ListTypedLinkFacetNamesRequestRequestTypeDef(
-    _RequiredListTypedLinkFacetNamesRequestRequestTypeDef,
-    _OptionalListTypedLinkFacetNamesRequestRequestTypeDef,
-):
-    pass
-
-ListTypedLinkFacetNamesResponseTypeDef = TypedDict(
-    "ListTypedLinkFacetNamesResponseTypeDef",
-    {
-        "FacetNames": List[str],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DeleteDirectoryRequestTypeDef(TypedDict):
+    DirectoryArn: str
 
-_RequiredLookupPolicyRequestRequestTypeDef = TypedDict(
-    "_RequiredLookupPolicyRequestRequestTypeDef",
-    {
-        "DirectoryArn": str,
-        "ObjectReference": "ObjectReferenceTypeDef",
-    },
-)
-_OptionalLookupPolicyRequestRequestTypeDef = TypedDict(
-    "_OptionalLookupPolicyRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
+class DeleteFacetRequestTypeDef(TypedDict):
+    SchemaArn: str
+    Name: str
 
-class LookupPolicyRequestRequestTypeDef(
-    _RequiredLookupPolicyRequestRequestTypeDef, _OptionalLookupPolicyRequestRequestTypeDef
-):
-    pass
+class DeleteSchemaRequestTypeDef(TypedDict):
+    SchemaArn: str
 
-LookupPolicyResponseTypeDef = TypedDict(
-    "LookupPolicyResponseTypeDef",
-    {
-        "PolicyToPathList": List["PolicyToPathTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DeleteTypedLinkFacetRequestTypeDef(TypedDict):
+    SchemaArn: str
+    Name: str
 
-ObjectAttributeActionTypeDef = TypedDict(
-    "ObjectAttributeActionTypeDef",
-    {
-        "ObjectAttributeActionType": UpdateActionTypeType,
-        "ObjectAttributeUpdateValue": "TypedAttributeValueTypeDef",
-    },
-    total=False,
-)
+class DirectoryTypeDef(TypedDict):
+    Name: NotRequired[str]
+    DirectoryArn: NotRequired[str]
+    State: NotRequired[DirectoryStateType]
+    CreationDateTime: NotRequired[datetime]
 
-ObjectAttributeRangeTypeDef = TypedDict(
-    "ObjectAttributeRangeTypeDef",
-    {
-        "AttributeKey": "AttributeKeyTypeDef",
-        "Range": "TypedAttributeValueRangeTypeDef",
-    },
-    total=False,
-)
+class DisableDirectoryRequestTypeDef(TypedDict):
+    DirectoryArn: str
 
-ObjectAttributeUpdateTypeDef = TypedDict(
-    "ObjectAttributeUpdateTypeDef",
-    {
-        "ObjectAttributeKey": "AttributeKeyTypeDef",
-        "ObjectAttributeAction": "ObjectAttributeActionTypeDef",
-    },
-    total=False,
-)
+class EnableDirectoryRequestTypeDef(TypedDict):
+    DirectoryArn: str
 
-ObjectIdentifierAndLinkNameTupleTypeDef = TypedDict(
-    "ObjectIdentifierAndLinkNameTupleTypeDef",
+RuleOutputTypeDef = TypedDict(
+    "RuleOutputTypeDef",
     {
-        "ObjectIdentifier": str,
-        "LinkName": str,
+        "Type": NotRequired[RuleTypeType],
+        "Parameters": NotRequired[Dict[str, str]],
     },
-    total=False,
 )
 
-ObjectReferenceTypeDef = TypedDict(
-    "ObjectReferenceTypeDef",
-    {
-        "Selector": str,
-    },
-    total=False,
-)
+class FacetAttributeReferenceTypeDef(TypedDict):
+    TargetFacetName: str
+    TargetAttributeName: str
 
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
+class FacetTypeDef(TypedDict):
+    Name: NotRequired[str]
+    ObjectType: NotRequired[ObjectTypeType]
+    FacetStyle: NotRequired[FacetStyleType]
 
-PathToObjectIdentifiersTypeDef = TypedDict(
-    "PathToObjectIdentifiersTypeDef",
-    {
-        "Path": str,
-        "ObjectIdentifiers": List[str],
-    },
-    total=False,
-)
+class GetAppliedSchemaVersionRequestTypeDef(TypedDict):
+    SchemaArn: str
 
-PolicyAttachmentTypeDef = TypedDict(
-    "PolicyAttachmentTypeDef",
-    {
-        "PolicyId": str,
-        "ObjectIdentifier": str,
-        "PolicyType": str,
-    },
-    total=False,
-)
+class GetDirectoryRequestTypeDef(TypedDict):
+    DirectoryArn: str
 
-PolicyToPathTypeDef = TypedDict(
-    "PolicyToPathTypeDef",
-    {
-        "Path": str,
-        "Policies": List["PolicyAttachmentTypeDef"],
-    },
-    total=False,
-)
+class GetFacetRequestTypeDef(TypedDict):
+    SchemaArn: str
+    Name: str
 
-_RequiredPublishSchemaRequestRequestTypeDef = TypedDict(
-    "_RequiredPublishSchemaRequestRequestTypeDef",
-    {
-        "DevelopmentSchemaArn": str,
-        "Version": str,
-    },
-)
-_OptionalPublishSchemaRequestRequestTypeDef = TypedDict(
-    "_OptionalPublishSchemaRequestRequestTypeDef",
-    {
-        "MinorVersion": str,
-        "Name": str,
-    },
-    total=False,
-)
+class GetSchemaAsJsonRequestTypeDef(TypedDict):
+    SchemaArn: str
 
-class PublishSchemaRequestRequestTypeDef(
-    _RequiredPublishSchemaRequestRequestTypeDef, _OptionalPublishSchemaRequestRequestTypeDef
-):
-    pass
+class GetTypedLinkFacetInformationRequestTypeDef(TypedDict):
+    SchemaArn: str
+    Name: str
 
-PublishSchemaResponseTypeDef = TypedDict(
-    "PublishSchemaResponseTypeDef",
-    {
-        "PublishedSchemaArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
 
-PutSchemaFromJsonRequestRequestTypeDef = TypedDict(
-    "PutSchemaFromJsonRequestRequestTypeDef",
-    {
-        "SchemaArn": str,
-        "Document": str,
-    },
-)
+class ListAppliedSchemaArnsRequestTypeDef(TypedDict):
+    DirectoryArn: str
+    SchemaArn: NotRequired[str]
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
 
-PutSchemaFromJsonResponseTypeDef = TypedDict(
-    "PutSchemaFromJsonResponseTypeDef",
-    {
-        "Arn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListDevelopmentSchemaArnsRequestTypeDef(TypedDict):
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
 
-RemoveFacetFromObjectRequestRequestTypeDef = TypedDict(
-    "RemoveFacetFromObjectRequestRequestTypeDef",
-    {
-        "DirectoryArn": str,
-        "SchemaFacet": "SchemaFacetTypeDef",
-        "ObjectReference": "ObjectReferenceTypeDef",
-    },
-)
+class ListDirectoriesRequestTypeDef(TypedDict):
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+    state: NotRequired[DirectoryStateType]
 
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
+class ListFacetAttributesRequestTypeDef(TypedDict):
+    SchemaArn: str
+    Name: str
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class ListFacetNamesRequestTypeDef(TypedDict):
+    SchemaArn: str
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class ListManagedSchemaArnsRequestTypeDef(TypedDict):
+    SchemaArn: NotRequired[str]
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class ListPublishedSchemaArnsRequestTypeDef(TypedDict):
+    SchemaArn: NotRequired[str]
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class TagTypeDef(TypedDict):
+    Key: NotRequired[str]
+    Value: NotRequired[str]
+
+class ListTypedLinkFacetAttributesRequestTypeDef(TypedDict):
+    SchemaArn: str
+    Name: str
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class ListTypedLinkFacetNamesRequestTypeDef(TypedDict):
+    SchemaArn: str
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class PolicyAttachmentTypeDef(TypedDict):
+    PolicyId: NotRequired[str]
+    ObjectIdentifier: NotRequired[str]
+    PolicyType: NotRequired[str]
+
+class PublishSchemaRequestTypeDef(TypedDict):
+    DevelopmentSchemaArn: str
+    Version: str
+    MinorVersion: NotRequired[str]
+    Name: NotRequired[str]
+
+class PutSchemaFromJsonRequestTypeDef(TypedDict):
+    SchemaArn: str
+    Document: str
 
 RuleTypeDef = TypedDict(
     "RuleTypeDef",
     {
-        "Type": RuleTypeType,
-        "Parameters": Dict[str, str],
+        "Type": NotRequired[RuleTypeType],
+        "Parameters": NotRequired[Mapping[str, str]],
     },
-    total=False,
 )
+TimestampTypeDef = Union[datetime, str]
 
-SchemaFacetTypeDef = TypedDict(
-    "SchemaFacetTypeDef",
+class UntagResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+    TagKeys: Sequence[str]
+
+class UpdateSchemaRequestTypeDef(TypedDict):
+    SchemaArn: str
+    Name: str
+
+class UpgradeAppliedSchemaRequestTypeDef(TypedDict):
+    PublishedSchemaArn: str
+    DirectoryArn: str
+    DryRun: NotRequired[bool]
+
+class UpgradePublishedSchemaRequestTypeDef(TypedDict):
+    DevelopmentSchemaArn: str
+    PublishedSchemaArn: str
+    MinorVersion: str
+    DryRun: NotRequired[bool]
+
+class AttachObjectRequestTypeDef(TypedDict):
+    DirectoryArn: str
+    ParentReference: ObjectReferenceTypeDef
+    ChildReference: ObjectReferenceTypeDef
+    LinkName: str
+
+class AttachPolicyRequestTypeDef(TypedDict):
+    DirectoryArn: str
+    PolicyReference: ObjectReferenceTypeDef
+    ObjectReference: ObjectReferenceTypeDef
+
+class AttachToIndexRequestTypeDef(TypedDict):
+    DirectoryArn: str
+    IndexReference: ObjectReferenceTypeDef
+    TargetReference: ObjectReferenceTypeDef
+
+class BatchAttachObjectTypeDef(TypedDict):
+    ParentReference: ObjectReferenceTypeDef
+    ChildReference: ObjectReferenceTypeDef
+    LinkName: str
+
+class BatchAttachPolicyTypeDef(TypedDict):
+    PolicyReference: ObjectReferenceTypeDef
+    ObjectReference: ObjectReferenceTypeDef
+
+class BatchAttachToIndexTypeDef(TypedDict):
+    IndexReference: ObjectReferenceTypeDef
+    TargetReference: ObjectReferenceTypeDef
+
+class BatchDeleteObjectTypeDef(TypedDict):
+    ObjectReference: ObjectReferenceTypeDef
+
+class BatchDetachFromIndexTypeDef(TypedDict):
+    IndexReference: ObjectReferenceTypeDef
+    TargetReference: ObjectReferenceTypeDef
+
+class BatchDetachObjectTypeDef(TypedDict):
+    ParentReference: ObjectReferenceTypeDef
+    LinkName: str
+    BatchReferenceName: NotRequired[str]
+
+class BatchDetachPolicyTypeDef(TypedDict):
+    PolicyReference: ObjectReferenceTypeDef
+    ObjectReference: ObjectReferenceTypeDef
+
+class BatchGetObjectInformationTypeDef(TypedDict):
+    ObjectReference: ObjectReferenceTypeDef
+
+class BatchListAttachedIndicesTypeDef(TypedDict):
+    TargetReference: ObjectReferenceTypeDef
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class BatchListObjectChildrenTypeDef(TypedDict):
+    ObjectReference: ObjectReferenceTypeDef
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class BatchListObjectParentPathsTypeDef(TypedDict):
+    ObjectReference: ObjectReferenceTypeDef
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class BatchListObjectParentsTypeDef(TypedDict):
+    ObjectReference: ObjectReferenceTypeDef
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class BatchListObjectPoliciesTypeDef(TypedDict):
+    ObjectReference: ObjectReferenceTypeDef
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class BatchListPolicyAttachmentsTypeDef(TypedDict):
+    PolicyReference: ObjectReferenceTypeDef
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class BatchLookupPolicyTypeDef(TypedDict):
+    ObjectReference: ObjectReferenceTypeDef
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class DeleteObjectRequestTypeDef(TypedDict):
+    DirectoryArn: str
+    ObjectReference: ObjectReferenceTypeDef
+
+class DetachFromIndexRequestTypeDef(TypedDict):
+    DirectoryArn: str
+    IndexReference: ObjectReferenceTypeDef
+    TargetReference: ObjectReferenceTypeDef
+
+class DetachObjectRequestTypeDef(TypedDict):
+    DirectoryArn: str
+    ParentReference: ObjectReferenceTypeDef
+    LinkName: str
+
+class DetachPolicyRequestTypeDef(TypedDict):
+    DirectoryArn: str
+    PolicyReference: ObjectReferenceTypeDef
+    ObjectReference: ObjectReferenceTypeDef
+
+class GetObjectInformationRequestTypeDef(TypedDict):
+    DirectoryArn: str
+    ObjectReference: ObjectReferenceTypeDef
+    ConsistencyLevel: NotRequired[ConsistencyLevelType]
+
+class ListAttachedIndicesRequestTypeDef(TypedDict):
+    DirectoryArn: str
+    TargetReference: ObjectReferenceTypeDef
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+    ConsistencyLevel: NotRequired[ConsistencyLevelType]
+
+class ListObjectChildrenRequestTypeDef(TypedDict):
+    DirectoryArn: str
+    ObjectReference: ObjectReferenceTypeDef
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+    ConsistencyLevel: NotRequired[ConsistencyLevelType]
+
+class ListObjectParentPathsRequestTypeDef(TypedDict):
+    DirectoryArn: str
+    ObjectReference: ObjectReferenceTypeDef
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class ListObjectParentsRequestTypeDef(TypedDict):
+    DirectoryArn: str
+    ObjectReference: ObjectReferenceTypeDef
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+    ConsistencyLevel: NotRequired[ConsistencyLevelType]
+    IncludeAllLinksToEachParent: NotRequired[bool]
+
+class ListObjectPoliciesRequestTypeDef(TypedDict):
+    DirectoryArn: str
+    ObjectReference: ObjectReferenceTypeDef
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+    ConsistencyLevel: NotRequired[ConsistencyLevelType]
+
+class ListPolicyAttachmentsRequestTypeDef(TypedDict):
+    DirectoryArn: str
+    PolicyReference: ObjectReferenceTypeDef
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+    ConsistencyLevel: NotRequired[ConsistencyLevelType]
+
+class LookupPolicyRequestTypeDef(TypedDict):
+    DirectoryArn: str
+    ObjectReference: ObjectReferenceTypeDef
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class BatchGetObjectAttributesTypeDef(TypedDict):
+    ObjectReference: ObjectReferenceTypeDef
+    SchemaFacet: SchemaFacetTypeDef
+    AttributeNames: Sequence[str]
+
+class BatchGetObjectInformationResponseTypeDef(TypedDict):
+    SchemaFacets: NotRequired[List[SchemaFacetTypeDef]]
+    ObjectIdentifier: NotRequired[str]
+
+class BatchListObjectAttributesTypeDef(TypedDict):
+    ObjectReference: ObjectReferenceTypeDef
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+    FacetFilter: NotRequired[SchemaFacetTypeDef]
+
+class BatchRemoveFacetFromObjectTypeDef(TypedDict):
+    SchemaFacet: SchemaFacetTypeDef
+    ObjectReference: ObjectReferenceTypeDef
+
+class GetObjectAttributesRequestTypeDef(TypedDict):
+    DirectoryArn: str
+    ObjectReference: ObjectReferenceTypeDef
+    SchemaFacet: SchemaFacetTypeDef
+    AttributeNames: Sequence[str]
+    ConsistencyLevel: NotRequired[ConsistencyLevelType]
+
+class ListObjectAttributesRequestTypeDef(TypedDict):
+    DirectoryArn: str
+    ObjectReference: ObjectReferenceTypeDef
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+    ConsistencyLevel: NotRequired[ConsistencyLevelType]
+    FacetFilter: NotRequired[SchemaFacetTypeDef]
+
+class RemoveFacetFromObjectRequestTypeDef(TypedDict):
+    DirectoryArn: str
+    SchemaFacet: SchemaFacetTypeDef
+    ObjectReference: ObjectReferenceTypeDef
+
+class ApplySchemaResponseTypeDef(TypedDict):
+    AppliedSchemaArn: str
+    DirectoryArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class AttachObjectResponseTypeDef(TypedDict):
+    AttachedObjectIdentifier: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class AttachToIndexResponseTypeDef(TypedDict):
+    AttachedObjectIdentifier: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateDirectoryResponseTypeDef(TypedDict):
+    DirectoryArn: str
+    Name: str
+    ObjectIdentifier: str
+    AppliedSchemaArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateIndexResponseTypeDef(TypedDict):
+    ObjectIdentifier: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateObjectResponseTypeDef(TypedDict):
+    ObjectIdentifier: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateSchemaResponseTypeDef(TypedDict):
+    SchemaArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteDirectoryResponseTypeDef(TypedDict):
+    DirectoryArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteSchemaResponseTypeDef(TypedDict):
+    SchemaArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DetachFromIndexResponseTypeDef(TypedDict):
+    DetachedObjectIdentifier: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DetachObjectResponseTypeDef(TypedDict):
+    DetachedObjectIdentifier: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DisableDirectoryResponseTypeDef(TypedDict):
+    DirectoryArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class EmptyResponseMetadataTypeDef(TypedDict):
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class EnableDirectoryResponseTypeDef(TypedDict):
+    DirectoryArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetAppliedSchemaVersionResponseTypeDef(TypedDict):
+    AppliedSchemaArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetObjectInformationResponseTypeDef(TypedDict):
+    SchemaFacets: List[SchemaFacetTypeDef]
+    ObjectIdentifier: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetSchemaAsJsonResponseTypeDef(TypedDict):
+    Name: str
+    Document: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetTypedLinkFacetInformationResponseTypeDef(TypedDict):
+    IdentityAttributeOrder: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListAppliedSchemaArnsResponseTypeDef(TypedDict):
+    SchemaArns: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListDevelopmentSchemaArnsResponseTypeDef(TypedDict):
+    SchemaArns: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListFacetNamesResponseTypeDef(TypedDict):
+    FacetNames: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListManagedSchemaArnsResponseTypeDef(TypedDict):
+    SchemaArns: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListObjectChildrenResponseTypeDef(TypedDict):
+    Children: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListObjectPoliciesResponseTypeDef(TypedDict):
+    AttachedPolicyIds: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListPolicyAttachmentsResponseTypeDef(TypedDict):
+    ObjectIdentifiers: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListPublishedSchemaArnsResponseTypeDef(TypedDict):
+    SchemaArns: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListTypedLinkFacetNamesResponseTypeDef(TypedDict):
+    FacetNames: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class PublishSchemaResponseTypeDef(TypedDict):
+    PublishedSchemaArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutSchemaFromJsonResponseTypeDef(TypedDict):
+    Arn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateObjectAttributesResponseTypeDef(TypedDict):
+    ObjectIdentifier: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateSchemaResponseTypeDef(TypedDict):
+    SchemaArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpgradeAppliedSchemaResponseTypeDef(TypedDict):
+    UpgradedSchemaArn: str
+    DirectoryArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpgradePublishedSchemaResponseTypeDef(TypedDict):
+    UpgradedSchemaArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class BatchCreateIndexTypeDef(TypedDict):
+    OrderedIndexedAttributeList: Sequence[AttributeKeyTypeDef]
+    IsUnique: bool
+    ParentReference: NotRequired[ObjectReferenceTypeDef]
+    LinkName: NotRequired[str]
+    BatchReferenceName: NotRequired[str]
+
+class CreateIndexRequestTypeDef(TypedDict):
+    DirectoryArn: str
+    OrderedIndexedAttributeList: Sequence[AttributeKeyTypeDef]
+    IsUnique: bool
+    ParentReference: NotRequired[ObjectReferenceTypeDef]
+    LinkName: NotRequired[str]
+
+class AttributeKeyAndValueOutputTypeDef(TypedDict):
+    Key: AttributeKeyTypeDef
+    Value: TypedAttributeValueOutputTypeDef
+
+class AttributeNameAndValueOutputTypeDef(TypedDict):
+    AttributeName: str
+    Value: TypedAttributeValueOutputTypeDef
+
+class BatchListObjectParentPathsResponseTypeDef(TypedDict):
+    PathToObjectIdentifiersList: NotRequired[List[PathToObjectIdentifiersTypeDef]]
+    NextToken: NotRequired[str]
+
+class ListObjectParentPathsResponseTypeDef(TypedDict):
+    PathToObjectIdentifiersList: List[PathToObjectIdentifiersTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class BatchListObjectParentsResponseTypeDef(TypedDict):
+    ParentLinks: NotRequired[List[ObjectIdentifierAndLinkNameTupleTypeDef]]
+    NextToken: NotRequired[str]
+
+class ListObjectParentsResponseTypeDef(TypedDict):
+    Parents: Dict[str, str]
+    ParentLinks: List[ObjectIdentifierAndLinkNameTupleTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class GetDirectoryResponseTypeDef(TypedDict):
+    Directory: DirectoryTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListDirectoriesResponseTypeDef(TypedDict):
+    Directories: List[DirectoryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+FacetAttributeDefinitionOutputTypeDef = TypedDict(
+    "FacetAttributeDefinitionOutputTypeDef",
     {
-        "SchemaArn": str,
-        "FacetName": str,
-    },
-    total=False,
-)
-
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-        "Tags": List["TagTypeDef"],
+        "Type": FacetAttributeTypeType,
+        "DefaultValue": NotRequired[TypedAttributeValueOutputTypeDef],
+        "IsImmutable": NotRequired[bool],
+        "Rules": NotRequired[Dict[str, RuleOutputTypeDef]],
     },
 )
-
-TagTypeDef = TypedDict(
-    "TagTypeDef",
-    {
-        "Key": str,
-        "Value": str,
-    },
-    total=False,
-)
-
-_RequiredTypedAttributeValueRangeTypeDef = TypedDict(
-    "_RequiredTypedAttributeValueRangeTypeDef",
-    {
-        "StartMode": RangeModeType,
-        "EndMode": RangeModeType,
-    },
-)
-_OptionalTypedAttributeValueRangeTypeDef = TypedDict(
-    "_OptionalTypedAttributeValueRangeTypeDef",
-    {
-        "StartValue": "TypedAttributeValueTypeDef",
-        "EndValue": "TypedAttributeValueTypeDef",
-    },
-    total=False,
-)
-
-class TypedAttributeValueRangeTypeDef(
-    _RequiredTypedAttributeValueRangeTypeDef, _OptionalTypedAttributeValueRangeTypeDef
-):
-    pass
-
-TypedAttributeValueTypeDef = TypedDict(
-    "TypedAttributeValueTypeDef",
-    {
-        "StringValue": str,
-        "BinaryValue": Union[bytes, IO[bytes], StreamingBody],
-        "BooleanValue": bool,
-        "NumberValue": str,
-        "DatetimeValue": Union[datetime, str],
-    },
-    total=False,
-)
-
-_RequiredTypedLinkAttributeDefinitionTypeDef = TypedDict(
-    "_RequiredTypedLinkAttributeDefinitionTypeDef",
+TypedLinkAttributeDefinitionOutputTypeDef = TypedDict(
+    "TypedLinkAttributeDefinitionOutputTypeDef",
     {
         "Name": str,
         "Type": FacetAttributeTypeType,
         "RequiredBehavior": RequiredAttributeBehaviorType,
+        "DefaultValue": NotRequired[TypedAttributeValueOutputTypeDef],
+        "IsImmutable": NotRequired[bool],
+        "Rules": NotRequired[Dict[str, RuleOutputTypeDef]],
     },
 )
-_OptionalTypedLinkAttributeDefinitionTypeDef = TypedDict(
-    "_OptionalTypedLinkAttributeDefinitionTypeDef",
+
+class GetFacetResponseTypeDef(TypedDict):
+    Facet: FacetTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListAppliedSchemaArnsRequestPaginateTypeDef(TypedDict):
+    DirectoryArn: str
+    SchemaArn: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListAttachedIndicesRequestPaginateTypeDef(TypedDict):
+    DirectoryArn: str
+    TargetReference: ObjectReferenceTypeDef
+    ConsistencyLevel: NotRequired[ConsistencyLevelType]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListDevelopmentSchemaArnsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListDirectoriesRequestPaginateTypeDef(TypedDict):
+    state: NotRequired[DirectoryStateType]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListFacetAttributesRequestPaginateTypeDef(TypedDict):
+    SchemaArn: str
+    Name: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListFacetNamesRequestPaginateTypeDef(TypedDict):
+    SchemaArn: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListManagedSchemaArnsRequestPaginateTypeDef(TypedDict):
+    SchemaArn: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListObjectAttributesRequestPaginateTypeDef(TypedDict):
+    DirectoryArn: str
+    ObjectReference: ObjectReferenceTypeDef
+    ConsistencyLevel: NotRequired[ConsistencyLevelType]
+    FacetFilter: NotRequired[SchemaFacetTypeDef]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListObjectParentPathsRequestPaginateTypeDef(TypedDict):
+    DirectoryArn: str
+    ObjectReference: ObjectReferenceTypeDef
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListObjectPoliciesRequestPaginateTypeDef(TypedDict):
+    DirectoryArn: str
+    ObjectReference: ObjectReferenceTypeDef
+    ConsistencyLevel: NotRequired[ConsistencyLevelType]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListPolicyAttachmentsRequestPaginateTypeDef(TypedDict):
+    DirectoryArn: str
+    PolicyReference: ObjectReferenceTypeDef
+    ConsistencyLevel: NotRequired[ConsistencyLevelType]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListPublishedSchemaArnsRequestPaginateTypeDef(TypedDict):
+    SchemaArn: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListTagsForResourceRequestPaginateTypeDef(TypedDict):
+    ResourceArn: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListTypedLinkFacetAttributesRequestPaginateTypeDef(TypedDict):
+    SchemaArn: str
+    Name: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListTypedLinkFacetNamesRequestPaginateTypeDef(TypedDict):
+    SchemaArn: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class LookupPolicyRequestPaginateTypeDef(TypedDict):
+    DirectoryArn: str
+    ObjectReference: ObjectReferenceTypeDef
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    Tags: List[TagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class TagResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+    Tags: Sequence[TagTypeDef]
+
+class PolicyToPathTypeDef(TypedDict):
+    Path: NotRequired[str]
+    Policies: NotRequired[List[PolicyAttachmentTypeDef]]
+
+RuleUnionTypeDef = Union[RuleTypeDef, RuleOutputTypeDef]
+
+class TypedAttributeValueTypeDef(TypedDict):
+    StringValue: NotRequired[str]
+    BinaryValue: NotRequired[BlobTypeDef]
+    BooleanValue: NotRequired[bool]
+    NumberValue: NotRequired[str]
+    DatetimeValue: NotRequired[TimestampTypeDef]
+
+class BatchGetLinkAttributesResponseTypeDef(TypedDict):
+    Attributes: NotRequired[List[AttributeKeyAndValueOutputTypeDef]]
+
+class BatchGetObjectAttributesResponseTypeDef(TypedDict):
+    Attributes: NotRequired[List[AttributeKeyAndValueOutputTypeDef]]
+
+class BatchListObjectAttributesResponseTypeDef(TypedDict):
+    Attributes: NotRequired[List[AttributeKeyAndValueOutputTypeDef]]
+    NextToken: NotRequired[str]
+
+class GetLinkAttributesResponseTypeDef(TypedDict):
+    Attributes: List[AttributeKeyAndValueOutputTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetObjectAttributesResponseTypeDef(TypedDict):
+    Attributes: List[AttributeKeyAndValueOutputTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class IndexAttachmentTypeDef(TypedDict):
+    IndexedAttributes: NotRequired[List[AttributeKeyAndValueOutputTypeDef]]
+    ObjectIdentifier: NotRequired[str]
+
+class ListObjectAttributesResponseTypeDef(TypedDict):
+    Attributes: List[AttributeKeyAndValueOutputTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class TypedLinkSpecifierOutputTypeDef(TypedDict):
+    TypedLinkFacet: TypedLinkSchemaAndFacetNameTypeDef
+    SourceObjectReference: ObjectReferenceTypeDef
+    TargetObjectReference: ObjectReferenceTypeDef
+    IdentityAttributeValues: List[AttributeNameAndValueOutputTypeDef]
+
+class FacetAttributeOutputTypeDef(TypedDict):
+    Name: str
+    AttributeDefinition: NotRequired[FacetAttributeDefinitionOutputTypeDef]
+    AttributeReference: NotRequired[FacetAttributeReferenceTypeDef]
+    RequiredBehavior: NotRequired[RequiredAttributeBehaviorType]
+
+class ListTypedLinkFacetAttributesResponseTypeDef(TypedDict):
+    Attributes: List[TypedLinkAttributeDefinitionOutputTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class BatchLookupPolicyResponseTypeDef(TypedDict):
+    PolicyToPathList: NotRequired[List[PolicyToPathTypeDef]]
+    NextToken: NotRequired[str]
+
+class LookupPolicyResponseTypeDef(TypedDict):
+    PolicyToPathList: List[PolicyToPathTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+TypedAttributeValueUnionTypeDef = Union[
+    TypedAttributeValueTypeDef, TypedAttributeValueOutputTypeDef
+]
+
+class BatchListAttachedIndicesResponseTypeDef(TypedDict):
+    IndexAttachments: NotRequired[List[IndexAttachmentTypeDef]]
+    NextToken: NotRequired[str]
+
+class BatchListIndexResponseTypeDef(TypedDict):
+    IndexAttachments: NotRequired[List[IndexAttachmentTypeDef]]
+    NextToken: NotRequired[str]
+
+class ListAttachedIndicesResponseTypeDef(TypedDict):
+    IndexAttachments: List[IndexAttachmentTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListIndexResponseTypeDef(TypedDict):
+    IndexAttachments: List[IndexAttachmentTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class AttachTypedLinkResponseTypeDef(TypedDict):
+    TypedLinkSpecifier: TypedLinkSpecifierOutputTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class BatchAttachTypedLinkResponseTypeDef(TypedDict):
+    TypedLinkSpecifier: NotRequired[TypedLinkSpecifierOutputTypeDef]
+
+class BatchListIncomingTypedLinksResponseTypeDef(TypedDict):
+    LinkSpecifiers: NotRequired[List[TypedLinkSpecifierOutputTypeDef]]
+    NextToken: NotRequired[str]
+
+class BatchListOutgoingTypedLinksResponseTypeDef(TypedDict):
+    TypedLinkSpecifiers: NotRequired[List[TypedLinkSpecifierOutputTypeDef]]
+    NextToken: NotRequired[str]
+
+class ListIncomingTypedLinksResponseTypeDef(TypedDict):
+    LinkSpecifiers: List[TypedLinkSpecifierOutputTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListOutgoingTypedLinksResponseTypeDef(TypedDict):
+    TypedLinkSpecifiers: List[TypedLinkSpecifierOutputTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListFacetAttributesResponseTypeDef(TypedDict):
+    Attributes: List[FacetAttributeOutputTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class AttributeKeyAndValueTypeDef(TypedDict):
+    Key: AttributeKeyTypeDef
+    Value: TypedAttributeValueUnionTypeDef
+
+class AttributeNameAndValueTypeDef(TypedDict):
+    AttributeName: str
+    Value: TypedAttributeValueUnionTypeDef
+
+FacetAttributeDefinitionTypeDef = TypedDict(
+    "FacetAttributeDefinitionTypeDef",
     {
-        "DefaultValue": "TypedAttributeValueTypeDef",
-        "IsImmutable": bool,
-        "Rules": Dict[str, "RuleTypeDef"],
-    },
-    total=False,
-)
-
-class TypedLinkAttributeDefinitionTypeDef(
-    _RequiredTypedLinkAttributeDefinitionTypeDef, _OptionalTypedLinkAttributeDefinitionTypeDef
-):
-    pass
-
-_RequiredTypedLinkAttributeRangeTypeDef = TypedDict(
-    "_RequiredTypedLinkAttributeRangeTypeDef",
-    {
-        "Range": "TypedAttributeValueRangeTypeDef",
-    },
-)
-_OptionalTypedLinkAttributeRangeTypeDef = TypedDict(
-    "_OptionalTypedLinkAttributeRangeTypeDef",
-    {
-        "AttributeName": str,
-    },
-    total=False,
-)
-
-class TypedLinkAttributeRangeTypeDef(
-    _RequiredTypedLinkAttributeRangeTypeDef, _OptionalTypedLinkAttributeRangeTypeDef
-):
-    pass
-
-TypedLinkFacetAttributeUpdateTypeDef = TypedDict(
-    "TypedLinkFacetAttributeUpdateTypeDef",
-    {
-        "Attribute": "TypedLinkAttributeDefinitionTypeDef",
-        "Action": UpdateActionTypeType,
+        "Type": FacetAttributeTypeType,
+        "DefaultValue": NotRequired[TypedAttributeValueUnionTypeDef],
+        "IsImmutable": NotRequired[bool],
+        "Rules": NotRequired[Mapping[str, RuleUnionTypeDef]],
     },
 )
 
-TypedLinkFacetTypeDef = TypedDict(
-    "TypedLinkFacetTypeDef",
+class LinkAttributeActionTypeDef(TypedDict):
+    AttributeActionType: NotRequired[UpdateActionTypeType]
+    AttributeUpdateValue: NotRequired[TypedAttributeValueUnionTypeDef]
+
+class ObjectAttributeActionTypeDef(TypedDict):
+    ObjectAttributeActionType: NotRequired[UpdateActionTypeType]
+    ObjectAttributeUpdateValue: NotRequired[TypedAttributeValueUnionTypeDef]
+
+class TypedAttributeValueRangeTypeDef(TypedDict):
+    StartMode: RangeModeType
+    EndMode: RangeModeType
+    StartValue: NotRequired[TypedAttributeValueUnionTypeDef]
+    EndValue: NotRequired[TypedAttributeValueUnionTypeDef]
+
+TypedLinkAttributeDefinitionTypeDef = TypedDict(
+    "TypedLinkAttributeDefinitionTypeDef",
     {
         "Name": str,
-        "Attributes": List["TypedLinkAttributeDefinitionTypeDef"],
-        "IdentityAttributeOrder": List[str],
+        "Type": FacetAttributeTypeType,
+        "RequiredBehavior": RequiredAttributeBehaviorType,
+        "DefaultValue": NotRequired[TypedAttributeValueUnionTypeDef],
+        "IsImmutable": NotRequired[bool],
+        "Rules": NotRequired[Mapping[str, RuleUnionTypeDef]],
     },
 )
 
-TypedLinkSchemaAndFacetNameTypeDef = TypedDict(
-    "TypedLinkSchemaAndFacetNameTypeDef",
-    {
-        "SchemaArn": str,
-        "TypedLinkName": str,
-    },
-)
+class BatchWriteOperationResponseTypeDef(TypedDict):
+    CreateObject: NotRequired[BatchCreateObjectResponseTypeDef]
+    AttachObject: NotRequired[BatchAttachObjectResponseTypeDef]
+    DetachObject: NotRequired[BatchDetachObjectResponseTypeDef]
+    UpdateObjectAttributes: NotRequired[BatchUpdateObjectAttributesResponseTypeDef]
+    DeleteObject: NotRequired[Dict[str, Any]]
+    AddFacetToObject: NotRequired[Dict[str, Any]]
+    RemoveFacetFromObject: NotRequired[Dict[str, Any]]
+    AttachPolicy: NotRequired[Dict[str, Any]]
+    DetachPolicy: NotRequired[Dict[str, Any]]
+    CreateIndex: NotRequired[BatchCreateIndexResponseTypeDef]
+    AttachToIndex: NotRequired[BatchAttachToIndexResponseTypeDef]
+    DetachFromIndex: NotRequired[BatchDetachFromIndexResponseTypeDef]
+    AttachTypedLink: NotRequired[BatchAttachTypedLinkResponseTypeDef]
+    DetachTypedLink: NotRequired[Dict[str, Any]]
+    UpdateLinkAttributes: NotRequired[Dict[str, Any]]
 
-TypedLinkSpecifierTypeDef = TypedDict(
-    "TypedLinkSpecifierTypeDef",
-    {
-        "TypedLinkFacet": "TypedLinkSchemaAndFacetNameTypeDef",
-        "SourceObjectReference": "ObjectReferenceTypeDef",
-        "TargetObjectReference": "ObjectReferenceTypeDef",
-        "IdentityAttributeValues": List["AttributeNameAndValueTypeDef"],
-    },
-)
+class BatchReadSuccessfulResponseTypeDef(TypedDict):
+    ListObjectAttributes: NotRequired[BatchListObjectAttributesResponseTypeDef]
+    ListObjectChildren: NotRequired[BatchListObjectChildrenResponseTypeDef]
+    GetObjectInformation: NotRequired[BatchGetObjectInformationResponseTypeDef]
+    GetObjectAttributes: NotRequired[BatchGetObjectAttributesResponseTypeDef]
+    ListAttachedIndices: NotRequired[BatchListAttachedIndicesResponseTypeDef]
+    ListObjectParentPaths: NotRequired[BatchListObjectParentPathsResponseTypeDef]
+    ListObjectPolicies: NotRequired[BatchListObjectPoliciesResponseTypeDef]
+    ListPolicyAttachments: NotRequired[BatchListPolicyAttachmentsResponseTypeDef]
+    LookupPolicy: NotRequired[BatchLookupPolicyResponseTypeDef]
+    ListIndex: NotRequired[BatchListIndexResponseTypeDef]
+    ListOutgoingTypedLinks: NotRequired[BatchListOutgoingTypedLinksResponseTypeDef]
+    ListIncomingTypedLinks: NotRequired[BatchListIncomingTypedLinksResponseTypeDef]
+    GetLinkAttributes: NotRequired[BatchGetLinkAttributesResponseTypeDef]
+    ListObjectParents: NotRequired[BatchListObjectParentsResponseTypeDef]
 
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-        "TagKeys": List[str],
-    },
-)
+AttributeKeyAndValueUnionTypeDef = Union[
+    AttributeKeyAndValueTypeDef, AttributeKeyAndValueOutputTypeDef
+]
 
-_RequiredUpdateFacetRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateFacetRequestRequestTypeDef",
-    {
-        "SchemaArn": str,
-        "Name": str,
-    },
-)
-_OptionalUpdateFacetRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateFacetRequestRequestTypeDef",
-    {
-        "AttributeUpdates": List["FacetAttributeUpdateTypeDef"],
-        "ObjectType": ObjectTypeType,
-    },
-    total=False,
-)
+class BatchCreateObjectTypeDef(TypedDict):
+    SchemaFacet: Sequence[SchemaFacetTypeDef]
+    ObjectAttributeList: Sequence[AttributeKeyAndValueTypeDef]
+    ParentReference: NotRequired[ObjectReferenceTypeDef]
+    LinkName: NotRequired[str]
+    BatchReferenceName: NotRequired[str]
 
-class UpdateFacetRequestRequestTypeDef(
-    _RequiredUpdateFacetRequestRequestTypeDef, _OptionalUpdateFacetRequestRequestTypeDef
-):
-    pass
+AttributeNameAndValueUnionTypeDef = Union[
+    AttributeNameAndValueTypeDef, AttributeNameAndValueOutputTypeDef
+]
+FacetAttributeDefinitionUnionTypeDef = Union[
+    FacetAttributeDefinitionTypeDef, FacetAttributeDefinitionOutputTypeDef
+]
 
-UpdateLinkAttributesRequestRequestTypeDef = TypedDict(
-    "UpdateLinkAttributesRequestRequestTypeDef",
-    {
-        "DirectoryArn": str,
-        "TypedLinkSpecifier": "TypedLinkSpecifierTypeDef",
-        "AttributeUpdates": List["LinkAttributeUpdateTypeDef"],
-    },
-)
+class LinkAttributeUpdateTypeDef(TypedDict):
+    AttributeKey: NotRequired[AttributeKeyTypeDef]
+    AttributeAction: NotRequired[LinkAttributeActionTypeDef]
 
-UpdateObjectAttributesRequestRequestTypeDef = TypedDict(
-    "UpdateObjectAttributesRequestRequestTypeDef",
-    {
-        "DirectoryArn": str,
-        "ObjectReference": "ObjectReferenceTypeDef",
-        "AttributeUpdates": List["ObjectAttributeUpdateTypeDef"],
-    },
-)
+class ObjectAttributeUpdateTypeDef(TypedDict):
+    ObjectAttributeKey: NotRequired[AttributeKeyTypeDef]
+    ObjectAttributeAction: NotRequired[ObjectAttributeActionTypeDef]
 
-UpdateObjectAttributesResponseTypeDef = TypedDict(
-    "UpdateObjectAttributesResponseTypeDef",
-    {
-        "ObjectIdentifier": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ObjectAttributeRangeTypeDef(TypedDict):
+    AttributeKey: NotRequired[AttributeKeyTypeDef]
+    Range: NotRequired[TypedAttributeValueRangeTypeDef]
 
-UpdateSchemaRequestRequestTypeDef = TypedDict(
-    "UpdateSchemaRequestRequestTypeDef",
-    {
-        "SchemaArn": str,
-        "Name": str,
-    },
-)
+class TypedLinkAttributeRangeTypeDef(TypedDict):
+    Range: TypedAttributeValueRangeTypeDef
+    AttributeName: NotRequired[str]
 
-UpdateSchemaResponseTypeDef = TypedDict(
-    "UpdateSchemaResponseTypeDef",
-    {
-        "SchemaArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+TypedLinkAttributeDefinitionUnionTypeDef = Union[
+    TypedLinkAttributeDefinitionTypeDef, TypedLinkAttributeDefinitionOutputTypeDef
+]
 
-UpdateTypedLinkFacetRequestRequestTypeDef = TypedDict(
-    "UpdateTypedLinkFacetRequestRequestTypeDef",
-    {
-        "SchemaArn": str,
-        "Name": str,
-        "AttributeUpdates": List["TypedLinkFacetAttributeUpdateTypeDef"],
-        "IdentityAttributeOrder": List[str],
-    },
-)
+class BatchWriteResponseTypeDef(TypedDict):
+    Responses: List[BatchWriteOperationResponseTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredUpgradeAppliedSchemaRequestRequestTypeDef = TypedDict(
-    "_RequiredUpgradeAppliedSchemaRequestRequestTypeDef",
-    {
-        "PublishedSchemaArn": str,
-        "DirectoryArn": str,
-    },
-)
-_OptionalUpgradeAppliedSchemaRequestRequestTypeDef = TypedDict(
-    "_OptionalUpgradeAppliedSchemaRequestRequestTypeDef",
-    {
-        "DryRun": bool,
-    },
-    total=False,
-)
+class BatchReadOperationResponseTypeDef(TypedDict):
+    SuccessfulResponse: NotRequired[BatchReadSuccessfulResponseTypeDef]
+    ExceptionResponse: NotRequired[BatchReadExceptionTypeDef]
 
-class UpgradeAppliedSchemaRequestRequestTypeDef(
-    _RequiredUpgradeAppliedSchemaRequestRequestTypeDef,
-    _OptionalUpgradeAppliedSchemaRequestRequestTypeDef,
-):
-    pass
+class AddFacetToObjectRequestTypeDef(TypedDict):
+    DirectoryArn: str
+    SchemaFacet: SchemaFacetTypeDef
+    ObjectReference: ObjectReferenceTypeDef
+    ObjectAttributeList: NotRequired[Sequence[AttributeKeyAndValueUnionTypeDef]]
 
-UpgradeAppliedSchemaResponseTypeDef = TypedDict(
-    "UpgradeAppliedSchemaResponseTypeDef",
-    {
-        "UpgradedSchemaArn": str,
-        "DirectoryArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class BatchAddFacetToObjectTypeDef(TypedDict):
+    SchemaFacet: SchemaFacetTypeDef
+    ObjectAttributeList: Sequence[AttributeKeyAndValueUnionTypeDef]
+    ObjectReference: ObjectReferenceTypeDef
 
-_RequiredUpgradePublishedSchemaRequestRequestTypeDef = TypedDict(
-    "_RequiredUpgradePublishedSchemaRequestRequestTypeDef",
-    {
-        "DevelopmentSchemaArn": str,
-        "PublishedSchemaArn": str,
-        "MinorVersion": str,
-    },
-)
-_OptionalUpgradePublishedSchemaRequestRequestTypeDef = TypedDict(
-    "_OptionalUpgradePublishedSchemaRequestRequestTypeDef",
-    {
-        "DryRun": bool,
-    },
-    total=False,
-)
+class CreateObjectRequestTypeDef(TypedDict):
+    DirectoryArn: str
+    SchemaFacets: Sequence[SchemaFacetTypeDef]
+    ObjectAttributeList: NotRequired[Sequence[AttributeKeyAndValueUnionTypeDef]]
+    ParentReference: NotRequired[ObjectReferenceTypeDef]
+    LinkName: NotRequired[str]
 
-class UpgradePublishedSchemaRequestRequestTypeDef(
-    _RequiredUpgradePublishedSchemaRequestRequestTypeDef,
-    _OptionalUpgradePublishedSchemaRequestRequestTypeDef,
-):
-    pass
+class AttachTypedLinkRequestTypeDef(TypedDict):
+    DirectoryArn: str
+    SourceObjectReference: ObjectReferenceTypeDef
+    TargetObjectReference: ObjectReferenceTypeDef
+    TypedLinkFacet: TypedLinkSchemaAndFacetNameTypeDef
+    Attributes: Sequence[AttributeNameAndValueUnionTypeDef]
 
-UpgradePublishedSchemaResponseTypeDef = TypedDict(
-    "UpgradePublishedSchemaResponseTypeDef",
-    {
-        "UpgradedSchemaArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class BatchAttachTypedLinkTypeDef(TypedDict):
+    SourceObjectReference: ObjectReferenceTypeDef
+    TargetObjectReference: ObjectReferenceTypeDef
+    TypedLinkFacet: TypedLinkSchemaAndFacetNameTypeDef
+    Attributes: Sequence[AttributeNameAndValueUnionTypeDef]
+
+class TypedLinkSpecifierTypeDef(TypedDict):
+    TypedLinkFacet: TypedLinkSchemaAndFacetNameTypeDef
+    SourceObjectReference: ObjectReferenceTypeDef
+    TargetObjectReference: ObjectReferenceTypeDef
+    IdentityAttributeValues: Sequence[AttributeNameAndValueUnionTypeDef]
+
+class FacetAttributeTypeDef(TypedDict):
+    Name: str
+    AttributeDefinition: NotRequired[FacetAttributeDefinitionUnionTypeDef]
+    AttributeReference: NotRequired[FacetAttributeReferenceTypeDef]
+    RequiredBehavior: NotRequired[RequiredAttributeBehaviorType]
+
+class BatchUpdateObjectAttributesTypeDef(TypedDict):
+    ObjectReference: ObjectReferenceTypeDef
+    AttributeUpdates: Sequence[ObjectAttributeUpdateTypeDef]
+
+class UpdateObjectAttributesRequestTypeDef(TypedDict):
+    DirectoryArn: str
+    ObjectReference: ObjectReferenceTypeDef
+    AttributeUpdates: Sequence[ObjectAttributeUpdateTypeDef]
+
+class BatchListIndexTypeDef(TypedDict):
+    IndexReference: ObjectReferenceTypeDef
+    RangesOnIndexedValues: NotRequired[Sequence[ObjectAttributeRangeTypeDef]]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListIndexRequestPaginateTypeDef(TypedDict):
+    DirectoryArn: str
+    IndexReference: ObjectReferenceTypeDef
+    RangesOnIndexedValues: NotRequired[Sequence[ObjectAttributeRangeTypeDef]]
+    ConsistencyLevel: NotRequired[ConsistencyLevelType]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListIndexRequestTypeDef(TypedDict):
+    DirectoryArn: str
+    IndexReference: ObjectReferenceTypeDef
+    RangesOnIndexedValues: NotRequired[Sequence[ObjectAttributeRangeTypeDef]]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+    ConsistencyLevel: NotRequired[ConsistencyLevelType]
+
+class BatchListIncomingTypedLinksTypeDef(TypedDict):
+    ObjectReference: ObjectReferenceTypeDef
+    FilterAttributeRanges: NotRequired[Sequence[TypedLinkAttributeRangeTypeDef]]
+    FilterTypedLink: NotRequired[TypedLinkSchemaAndFacetNameTypeDef]
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class BatchListOutgoingTypedLinksTypeDef(TypedDict):
+    ObjectReference: ObjectReferenceTypeDef
+    FilterAttributeRanges: NotRequired[Sequence[TypedLinkAttributeRangeTypeDef]]
+    FilterTypedLink: NotRequired[TypedLinkSchemaAndFacetNameTypeDef]
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class ListIncomingTypedLinksRequestPaginateTypeDef(TypedDict):
+    DirectoryArn: str
+    ObjectReference: ObjectReferenceTypeDef
+    FilterAttributeRanges: NotRequired[Sequence[TypedLinkAttributeRangeTypeDef]]
+    FilterTypedLink: NotRequired[TypedLinkSchemaAndFacetNameTypeDef]
+    ConsistencyLevel: NotRequired[ConsistencyLevelType]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListIncomingTypedLinksRequestTypeDef(TypedDict):
+    DirectoryArn: str
+    ObjectReference: ObjectReferenceTypeDef
+    FilterAttributeRanges: NotRequired[Sequence[TypedLinkAttributeRangeTypeDef]]
+    FilterTypedLink: NotRequired[TypedLinkSchemaAndFacetNameTypeDef]
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+    ConsistencyLevel: NotRequired[ConsistencyLevelType]
+
+class ListOutgoingTypedLinksRequestPaginateTypeDef(TypedDict):
+    DirectoryArn: str
+    ObjectReference: ObjectReferenceTypeDef
+    FilterAttributeRanges: NotRequired[Sequence[TypedLinkAttributeRangeTypeDef]]
+    FilterTypedLink: NotRequired[TypedLinkSchemaAndFacetNameTypeDef]
+    ConsistencyLevel: NotRequired[ConsistencyLevelType]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListOutgoingTypedLinksRequestTypeDef(TypedDict):
+    DirectoryArn: str
+    ObjectReference: ObjectReferenceTypeDef
+    FilterAttributeRanges: NotRequired[Sequence[TypedLinkAttributeRangeTypeDef]]
+    FilterTypedLink: NotRequired[TypedLinkSchemaAndFacetNameTypeDef]
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+    ConsistencyLevel: NotRequired[ConsistencyLevelType]
+
+class TypedLinkFacetAttributeUpdateTypeDef(TypedDict):
+    Attribute: TypedLinkAttributeDefinitionUnionTypeDef
+    Action: UpdateActionTypeType
+
+class TypedLinkFacetTypeDef(TypedDict):
+    Name: str
+    Attributes: Sequence[TypedLinkAttributeDefinitionUnionTypeDef]
+    IdentityAttributeOrder: Sequence[str]
+
+class BatchReadResponseTypeDef(TypedDict):
+    Responses: List[BatchReadOperationResponseTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+TypedLinkSpecifierUnionTypeDef = Union[TypedLinkSpecifierTypeDef, TypedLinkSpecifierOutputTypeDef]
+FacetAttributeUnionTypeDef = Union[FacetAttributeTypeDef, FacetAttributeOutputTypeDef]
+
+class UpdateTypedLinkFacetRequestTypeDef(TypedDict):
+    SchemaArn: str
+    Name: str
+    AttributeUpdates: Sequence[TypedLinkFacetAttributeUpdateTypeDef]
+    IdentityAttributeOrder: Sequence[str]
+
+class CreateTypedLinkFacetRequestTypeDef(TypedDict):
+    SchemaArn: str
+    Facet: TypedLinkFacetTypeDef
+
+class BatchDetachTypedLinkTypeDef(TypedDict):
+    TypedLinkSpecifier: TypedLinkSpecifierUnionTypeDef
+
+class BatchGetLinkAttributesTypeDef(TypedDict):
+    TypedLinkSpecifier: TypedLinkSpecifierUnionTypeDef
+    AttributeNames: Sequence[str]
+
+class BatchUpdateLinkAttributesTypeDef(TypedDict):
+    TypedLinkSpecifier: TypedLinkSpecifierUnionTypeDef
+    AttributeUpdates: Sequence[LinkAttributeUpdateTypeDef]
+
+class DetachTypedLinkRequestTypeDef(TypedDict):
+    DirectoryArn: str
+    TypedLinkSpecifier: TypedLinkSpecifierUnionTypeDef
+
+class GetLinkAttributesRequestTypeDef(TypedDict):
+    DirectoryArn: str
+    TypedLinkSpecifier: TypedLinkSpecifierUnionTypeDef
+    AttributeNames: Sequence[str]
+    ConsistencyLevel: NotRequired[ConsistencyLevelType]
+
+class UpdateLinkAttributesRequestTypeDef(TypedDict):
+    DirectoryArn: str
+    TypedLinkSpecifier: TypedLinkSpecifierUnionTypeDef
+    AttributeUpdates: Sequence[LinkAttributeUpdateTypeDef]
+
+class CreateFacetRequestTypeDef(TypedDict):
+    SchemaArn: str
+    Name: str
+    Attributes: NotRequired[Sequence[FacetAttributeUnionTypeDef]]
+    ObjectType: NotRequired[ObjectTypeType]
+    FacetStyle: NotRequired[FacetStyleType]
+
+class FacetAttributeUpdateTypeDef(TypedDict):
+    Attribute: NotRequired[FacetAttributeUnionTypeDef]
+    Action: NotRequired[UpdateActionTypeType]
+
+class BatchReadOperationTypeDef(TypedDict):
+    ListObjectAttributes: NotRequired[BatchListObjectAttributesTypeDef]
+    ListObjectChildren: NotRequired[BatchListObjectChildrenTypeDef]
+    ListAttachedIndices: NotRequired[BatchListAttachedIndicesTypeDef]
+    ListObjectParentPaths: NotRequired[BatchListObjectParentPathsTypeDef]
+    GetObjectInformation: NotRequired[BatchGetObjectInformationTypeDef]
+    GetObjectAttributes: NotRequired[BatchGetObjectAttributesTypeDef]
+    ListObjectParents: NotRequired[BatchListObjectParentsTypeDef]
+    ListObjectPolicies: NotRequired[BatchListObjectPoliciesTypeDef]
+    ListPolicyAttachments: NotRequired[BatchListPolicyAttachmentsTypeDef]
+    LookupPolicy: NotRequired[BatchLookupPolicyTypeDef]
+    ListIndex: NotRequired[BatchListIndexTypeDef]
+    ListOutgoingTypedLinks: NotRequired[BatchListOutgoingTypedLinksTypeDef]
+    ListIncomingTypedLinks: NotRequired[BatchListIncomingTypedLinksTypeDef]
+    GetLinkAttributes: NotRequired[BatchGetLinkAttributesTypeDef]
+
+class BatchWriteOperationTypeDef(TypedDict):
+    CreateObject: NotRequired[BatchCreateObjectTypeDef]
+    AttachObject: NotRequired[BatchAttachObjectTypeDef]
+    DetachObject: NotRequired[BatchDetachObjectTypeDef]
+    UpdateObjectAttributes: NotRequired[BatchUpdateObjectAttributesTypeDef]
+    DeleteObject: NotRequired[BatchDeleteObjectTypeDef]
+    AddFacetToObject: NotRequired[BatchAddFacetToObjectTypeDef]
+    RemoveFacetFromObject: NotRequired[BatchRemoveFacetFromObjectTypeDef]
+    AttachPolicy: NotRequired[BatchAttachPolicyTypeDef]
+    DetachPolicy: NotRequired[BatchDetachPolicyTypeDef]
+    CreateIndex: NotRequired[BatchCreateIndexTypeDef]
+    AttachToIndex: NotRequired[BatchAttachToIndexTypeDef]
+    DetachFromIndex: NotRequired[BatchDetachFromIndexTypeDef]
+    AttachTypedLink: NotRequired[BatchAttachTypedLinkTypeDef]
+    DetachTypedLink: NotRequired[BatchDetachTypedLinkTypeDef]
+    UpdateLinkAttributes: NotRequired[BatchUpdateLinkAttributesTypeDef]
+
+class UpdateFacetRequestTypeDef(TypedDict):
+    SchemaArn: str
+    Name: str
+    AttributeUpdates: NotRequired[Sequence[FacetAttributeUpdateTypeDef]]
+    ObjectType: NotRequired[ObjectTypeType]
+
+class BatchReadRequestTypeDef(TypedDict):
+    DirectoryArn: str
+    Operations: Sequence[BatchReadOperationTypeDef]
+    ConsistencyLevel: NotRequired[ConsistencyLevelType]
+
+class BatchWriteRequestTypeDef(TypedDict):
+    DirectoryArn: str
+    Operations: Sequence[BatchWriteOperationTypeDef]

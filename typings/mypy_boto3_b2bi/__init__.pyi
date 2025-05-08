@@ -1,10 +1,14 @@
 """
 Main interface for b2bi service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_b2bi/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_b2bi import (
         B2BIClient,
         Client,
@@ -14,10 +18,8 @@ Usage::
         ListTransformersPaginator,
     )
 
-    session = boto3.Session()
-
-    client: B2BIClient = boto3.client("b2bi")
-    session_client: B2BIClient = session.client("b2bi")
+    session = Session()
+    client: B2BIClient = session.client("b2bi")
 
     list_capabilities_paginator: ListCapabilitiesPaginator = client.get_paginator("list_capabilities")
     list_partnerships_paginator: ListPartnershipsPaginator = client.get_paginator("list_partnerships")

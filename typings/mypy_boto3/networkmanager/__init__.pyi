@@ -1,10 +1,14 @@
 """
 Main interface for networkmanager service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_networkmanager/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_networkmanager import (
         Client,
         DescribeGlobalNetworksPaginator,
@@ -31,10 +35,8 @@ Usage::
         NetworkManagerClient,
     )
 
-    session = boto3.Session()
-
-    client: NetworkManagerClient = boto3.client("networkmanager")
-    session_client: NetworkManagerClient = session.client("networkmanager")
+    session = Session()
+    client: NetworkManagerClient = session.client("networkmanager")
 
     describe_global_networks_paginator: DescribeGlobalNetworksPaginator = client.get_paginator("describe_global_networks")
     get_connect_peer_associations_paginator: GetConnectPeerAssociationsPaginator = client.get_paginator("get_connect_peer_associations")

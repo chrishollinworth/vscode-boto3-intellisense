@@ -1,25 +1,30 @@
 """
-Type annotations for iotthingsgraph service client.
+Type annotations for iotthingsgraph service Client.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/client.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/client/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
-    from mypy_boto3_iotthingsgraph import IoTThingsGraphClient
+    from boto3.session import Session
+    from mypy_boto3_iotthingsgraph.client import IoTThingsGraphClient
 
-    client: IoTThingsGraphClient = boto3.client("iotthingsgraph")
+    session = Session()
+    client: IoTThingsGraphClient = session.client("iotthingsgraph")
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from datetime import datetime
-from typing import Any, Dict, List, Type, Union, overload
+from typing import Any, overload
 
 from botocore.client import BaseClient, ClientMeta
+from botocore.errorfactory import BaseClientExceptions
+from botocore.exceptions import ClientError as BotocoreClientError
 
-from .literals import DeploymentTargetType, EntityTypeType
 from .paginator import (
     GetFlowTemplateRevisionsPaginator,
     GetSystemTemplateRevisionsPaginator,
@@ -33,56 +38,81 @@ from .paginator import (
     SearchThingsPaginator,
 )
 from .type_defs import (
+    AssociateEntityToThingRequestTypeDef,
+    CreateFlowTemplateRequestTypeDef,
     CreateFlowTemplateResponseTypeDef,
+    CreateSystemInstanceRequestTypeDef,
     CreateSystemInstanceResponseTypeDef,
+    CreateSystemTemplateRequestTypeDef,
     CreateSystemTemplateResponseTypeDef,
-    DefinitionDocumentTypeDef,
+    DeleteFlowTemplateRequestTypeDef,
     DeleteNamespaceResponseTypeDef,
+    DeleteSystemInstanceRequestTypeDef,
+    DeleteSystemTemplateRequestTypeDef,
+    DeploySystemInstanceRequestTypeDef,
     DeploySystemInstanceResponseTypeDef,
+    DeprecateFlowTemplateRequestTypeDef,
+    DeprecateSystemTemplateRequestTypeDef,
+    DescribeNamespaceRequestTypeDef,
     DescribeNamespaceResponseTypeDef,
-    EntityFilterTypeDef,
-    FlowTemplateFilterTypeDef,
+    DissociateEntityFromThingRequestTypeDef,
+    GetEntitiesRequestTypeDef,
     GetEntitiesResponseTypeDef,
+    GetFlowTemplateRequestTypeDef,
     GetFlowTemplateResponseTypeDef,
+    GetFlowTemplateRevisionsRequestTypeDef,
     GetFlowTemplateRevisionsResponseTypeDef,
     GetNamespaceDeletionStatusResponseTypeDef,
+    GetSystemInstanceRequestTypeDef,
     GetSystemInstanceResponseTypeDef,
+    GetSystemTemplateRequestTypeDef,
     GetSystemTemplateResponseTypeDef,
+    GetSystemTemplateRevisionsRequestTypeDef,
     GetSystemTemplateRevisionsResponseTypeDef,
+    GetUploadStatusRequestTypeDef,
     GetUploadStatusResponseTypeDef,
+    ListFlowExecutionMessagesRequestTypeDef,
     ListFlowExecutionMessagesResponseTypeDef,
+    ListTagsForResourceRequestTypeDef,
     ListTagsForResourceResponseTypeDef,
-    MetricsConfigurationTypeDef,
+    SearchEntitiesRequestTypeDef,
     SearchEntitiesResponseTypeDef,
+    SearchFlowExecutionsRequestTypeDef,
     SearchFlowExecutionsResponseTypeDef,
+    SearchFlowTemplatesRequestTypeDef,
     SearchFlowTemplatesResponseTypeDef,
+    SearchSystemInstancesRequestTypeDef,
     SearchSystemInstancesResponseTypeDef,
+    SearchSystemTemplatesRequestTypeDef,
     SearchSystemTemplatesResponseTypeDef,
+    SearchThingsRequestTypeDef,
     SearchThingsResponseTypeDef,
-    SystemInstanceFilterTypeDef,
-    SystemTemplateFilterTypeDef,
-    TagTypeDef,
+    TagResourceRequestTypeDef,
+    UndeploySystemInstanceRequestTypeDef,
     UndeploySystemInstanceResponseTypeDef,
+    UntagResourceRequestTypeDef,
+    UpdateFlowTemplateRequestTypeDef,
     UpdateFlowTemplateResponseTypeDef,
+    UpdateSystemTemplateRequestTypeDef,
     UpdateSystemTemplateResponseTypeDef,
+    UploadEntityDefinitionsRequestTypeDef,
     UploadEntityDefinitionsResponseTypeDef,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import type as Type
+    from collections.abc import Mapping
 else:
-    from typing_extensions import Literal
+    from typing import Dict, Mapping, Type
+if sys.version_info >= (3, 12):
+    from typing import Literal, Unpack
+else:
+    from typing_extensions import Literal, Unpack
 
 __all__ = ("IoTThingsGraphClient",)
 
-class BotocoreClientError(BaseException):
-    MSG_TEMPLATE: str
-
-    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
-        self.response: Dict[str, Any]
-        self.operation_name: str
-
-class Exceptions:
+class Exceptions(BaseClientExceptions):
     ClientError: Type[BotocoreClientError]
     InternalFailureException: Type[BotocoreClientError]
     InvalidRequestException: Type[BotocoreClientError]
@@ -94,8 +124,8 @@ class Exceptions:
 
 class IoTThingsGraphClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotthingsgraph.html#IoTThingsGraph.Client)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/client.html)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotthingsgraph.html#IoTThingsGraph.Client)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/client/)
     """
 
     meta: ClientMeta
@@ -104,496 +134,480 @@ class IoTThingsGraphClient(BaseClient):
     def exceptions(self) -> Exceptions:
         """
         IoTThingsGraphClient exceptions.
-        """
 
-    def associate_entity_to_thing(
-        self, *, thingName: str, entityId: str, namespaceVersion: int = None
-    ) -> Dict[str, Any]:
-        """
-        Associates a device with a concrete thing that is in the user's registry.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.associate_entity_to_thing)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/client.html#associate_entity_to_thing)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotthingsgraph.html#IoTThingsGraph.Client)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/client/#exceptions)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        Check if an operation can be paginated.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.can_paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/client.html#can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotthingsgraph/client/can_paginate.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/client/#can_paginate)
         """
 
-    def close(self) -> None:
+    def generate_presigned_url(
+        self,
+        ClientMethod: str,
+        Params: Mapping[str, Any] = ...,
+        ExpiresIn: int = 3600,
+        HttpMethod: str = ...,
+    ) -> str:
         """
-        Closes underlying endpoint connections.
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotthingsgraph/client/generate_presigned_url.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/client/#generate_presigned_url)
+        """
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.close)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/client.html#close)
+    def associate_entity_to_thing(
+        self, **kwargs: Unpack[AssociateEntityToThingRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Associates a device with a concrete thing that is in the user's registry.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotthingsgraph/client/associate_entity_to_thing.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/client/#associate_entity_to_thing)
         """
 
     def create_flow_template(
-        self, *, definition: "DefinitionDocumentTypeDef", compatibleNamespaceVersion: int = None
+        self, **kwargs: Unpack[CreateFlowTemplateRequestTypeDef]
     ) -> CreateFlowTemplateResponseTypeDef:
         """
         Creates a workflow template.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.create_flow_template)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/client.html#create_flow_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotthingsgraph/client/create_flow_template.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/client/#create_flow_template)
         """
 
     def create_system_instance(
-        self,
-        *,
-        definition: "DefinitionDocumentTypeDef",
-        target: DeploymentTargetType,
-        tags: List["TagTypeDef"] = None,
-        greengrassGroupName: str = None,
-        s3BucketName: str = None,
-        metricsConfiguration: "MetricsConfigurationTypeDef" = None,
-        flowActionsRoleArn: str = None
+        self, **kwargs: Unpack[CreateSystemInstanceRequestTypeDef]
     ) -> CreateSystemInstanceResponseTypeDef:
         """
         Creates a system instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.create_system_instance)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/client.html#create_system_instance)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotthingsgraph/client/create_system_instance.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/client/#create_system_instance)
         """
 
     def create_system_template(
-        self, *, definition: "DefinitionDocumentTypeDef", compatibleNamespaceVersion: int = None
+        self, **kwargs: Unpack[CreateSystemTemplateRequestTypeDef]
     ) -> CreateSystemTemplateResponseTypeDef:
         """
         Creates a system.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.create_system_template)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/client.html#create_system_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotthingsgraph/client/create_system_template.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/client/#create_system_template)
         """
 
-    def delete_flow_template(self, *, id: str) -> Dict[str, Any]:
+    def delete_flow_template(
+        self, **kwargs: Unpack[DeleteFlowTemplateRequestTypeDef]
+    ) -> Dict[str, Any]:
         """
         Deletes a workflow.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.delete_flow_template)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/client.html#delete_flow_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotthingsgraph/client/delete_flow_template.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/client/#delete_flow_template)
         """
 
     def delete_namespace(self) -> DeleteNamespaceResponseTypeDef:
         """
         Deletes the specified namespace.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.delete_namespace)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/client.html#delete_namespace)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotthingsgraph/client/delete_namespace.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/client/#delete_namespace)
         """
 
-    def delete_system_instance(self, *, id: str = None) -> Dict[str, Any]:
+    def delete_system_instance(
+        self, **kwargs: Unpack[DeleteSystemInstanceRequestTypeDef]
+    ) -> Dict[str, Any]:
         """
         Deletes a system instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.delete_system_instance)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/client.html#delete_system_instance)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotthingsgraph/client/delete_system_instance.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/client/#delete_system_instance)
         """
 
-    def delete_system_template(self, *, id: str) -> Dict[str, Any]:
+    def delete_system_template(
+        self, **kwargs: Unpack[DeleteSystemTemplateRequestTypeDef]
+    ) -> Dict[str, Any]:
         """
         Deletes a system.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.delete_system_template)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/client.html#delete_system_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotthingsgraph/client/delete_system_template.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/client/#delete_system_template)
         """
 
-    def deploy_system_instance(self, *, id: str = None) -> DeploySystemInstanceResponseTypeDef:
+    def deploy_system_instance(
+        self, **kwargs: Unpack[DeploySystemInstanceRequestTypeDef]
+    ) -> DeploySystemInstanceResponseTypeDef:
         """
-        **Greengrass and Cloud Deployments** Deploys the system instance to the target
-        specified in `CreateSystemInstance`.
+        <b>Greengrass and Cloud Deployments</b>.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.deploy_system_instance)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/client.html#deploy_system_instance)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotthingsgraph/client/deploy_system_instance.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/client/#deploy_system_instance)
         """
 
-    def deprecate_flow_template(self, *, id: str) -> Dict[str, Any]:
+    def deprecate_flow_template(
+        self, **kwargs: Unpack[DeprecateFlowTemplateRequestTypeDef]
+    ) -> Dict[str, Any]:
         """
         Deprecates the specified workflow.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.deprecate_flow_template)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/client.html#deprecate_flow_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotthingsgraph/client/deprecate_flow_template.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/client/#deprecate_flow_template)
         """
 
-    def deprecate_system_template(self, *, id: str) -> Dict[str, Any]:
+    def deprecate_system_template(
+        self, **kwargs: Unpack[DeprecateSystemTemplateRequestTypeDef]
+    ) -> Dict[str, Any]:
         """
         Deprecates the specified system.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.deprecate_system_template)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/client.html#deprecate_system_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotthingsgraph/client/deprecate_system_template.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/client/#deprecate_system_template)
         """
 
-    def describe_namespace(self, *, namespaceName: str = None) -> DescribeNamespaceResponseTypeDef:
+    def describe_namespace(
+        self, **kwargs: Unpack[DescribeNamespaceRequestTypeDef]
+    ) -> DescribeNamespaceResponseTypeDef:
         """
         Gets the latest version of the user's namespace and the public version that it
         is tracking.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.describe_namespace)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/client.html#describe_namespace)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotthingsgraph/client/describe_namespace.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/client/#describe_namespace)
         """
 
     def dissociate_entity_from_thing(
-        self, *, thingName: str, entityType: EntityTypeType
+        self, **kwargs: Unpack[DissociateEntityFromThingRequestTypeDef]
     ) -> Dict[str, Any]:
         """
         Dissociates a device entity from a concrete thing.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.dissociate_entity_from_thing)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/client.html#dissociate_entity_from_thing)
-        """
-
-    def generate_presigned_url(
-        self,
-        ClientMethod: str,
-        Params: Dict[str, Any] = None,
-        ExpiresIn: int = 3600,
-        HttpMethod: str = None,
-    ) -> str:
-        """
-        Generate a presigned url given a client, its method, and arguments.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.generate_presigned_url)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/client.html#generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotthingsgraph/client/dissociate_entity_from_thing.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/client/#dissociate_entity_from_thing)
         """
 
     def get_entities(
-        self, *, ids: List[str], namespaceVersion: int = None
+        self, **kwargs: Unpack[GetEntitiesRequestTypeDef]
     ) -> GetEntitiesResponseTypeDef:
         """
         Gets definitions of the specified entities.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.get_entities)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/client.html#get_entities)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotthingsgraph/client/get_entities.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/client/#get_entities)
         """
 
     def get_flow_template(
-        self, *, id: str, revisionNumber: int = None
+        self, **kwargs: Unpack[GetFlowTemplateRequestTypeDef]
     ) -> GetFlowTemplateResponseTypeDef:
         """
-        Gets the latest version of the `DefinitionDocument` and `FlowTemplateSummary`
-        for the specified workflow.
+        Gets the latest version of the <code>DefinitionDocument</code> and
+        <code>FlowTemplateSummary</code> for the specified workflow.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.get_flow_template)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/client.html#get_flow_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotthingsgraph/client/get_flow_template.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/client/#get_flow_template)
         """
 
     def get_flow_template_revisions(
-        self, *, id: str, nextToken: str = None, maxResults: int = None
+        self, **kwargs: Unpack[GetFlowTemplateRevisionsRequestTypeDef]
     ) -> GetFlowTemplateRevisionsResponseTypeDef:
         """
         Gets revisions of the specified workflow.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.get_flow_template_revisions)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/client.html#get_flow_template_revisions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotthingsgraph/client/get_flow_template_revisions.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/client/#get_flow_template_revisions)
         """
 
     def get_namespace_deletion_status(self) -> GetNamespaceDeletionStatusResponseTypeDef:
         """
         Gets the status of a namespace deletion task.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.get_namespace_deletion_status)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/client.html#get_namespace_deletion_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotthingsgraph/client/get_namespace_deletion_status.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/client/#get_namespace_deletion_status)
         """
 
-    def get_system_instance(self, *, id: str) -> GetSystemInstanceResponseTypeDef:
+    def get_system_instance(
+        self, **kwargs: Unpack[GetSystemInstanceRequestTypeDef]
+    ) -> GetSystemInstanceResponseTypeDef:
         """
         Gets a system instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.get_system_instance)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/client.html#get_system_instance)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotthingsgraph/client/get_system_instance.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/client/#get_system_instance)
         """
 
     def get_system_template(
-        self, *, id: str, revisionNumber: int = None
+        self, **kwargs: Unpack[GetSystemTemplateRequestTypeDef]
     ) -> GetSystemTemplateResponseTypeDef:
         """
         Gets a system.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.get_system_template)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/client.html#get_system_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotthingsgraph/client/get_system_template.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/client/#get_system_template)
         """
 
     def get_system_template_revisions(
-        self, *, id: str, nextToken: str = None, maxResults: int = None
+        self, **kwargs: Unpack[GetSystemTemplateRevisionsRequestTypeDef]
     ) -> GetSystemTemplateRevisionsResponseTypeDef:
         """
         Gets revisions made to the specified system template.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.get_system_template_revisions)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/client.html#get_system_template_revisions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotthingsgraph/client/get_system_template_revisions.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/client/#get_system_template_revisions)
         """
 
-    def get_upload_status(self, *, uploadId: str) -> GetUploadStatusResponseTypeDef:
+    def get_upload_status(
+        self, **kwargs: Unpack[GetUploadStatusRequestTypeDef]
+    ) -> GetUploadStatusResponseTypeDef:
         """
         Gets the status of the specified upload.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.get_upload_status)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/client.html#get_upload_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotthingsgraph/client/get_upload_status.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/client/#get_upload_status)
         """
 
     def list_flow_execution_messages(
-        self, *, flowExecutionId: str, nextToken: str = None, maxResults: int = None
+        self, **kwargs: Unpack[ListFlowExecutionMessagesRequestTypeDef]
     ) -> ListFlowExecutionMessagesResponseTypeDef:
         """
         Returns a list of objects that contain information about events in a flow
         execution.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.list_flow_execution_messages)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/client.html#list_flow_execution_messages)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotthingsgraph/client/list_flow_execution_messages.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/client/#list_flow_execution_messages)
         """
 
     def list_tags_for_resource(
-        self, *, resourceArn: str, maxResults: int = None, nextToken: str = None
+        self, **kwargs: Unpack[ListTagsForResourceRequestTypeDef]
     ) -> ListTagsForResourceResponseTypeDef:
         """
         Lists all tags on an AWS IoT Things Graph resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.list_tags_for_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/client.html#list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotthingsgraph/client/list_tags_for_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/client/#list_tags_for_resource)
         """
 
     def search_entities(
-        self,
-        *,
-        entityTypes: List[EntityTypeType],
-        filters: List["EntityFilterTypeDef"] = None,
-        nextToken: str = None,
-        maxResults: int = None,
-        namespaceVersion: int = None
+        self, **kwargs: Unpack[SearchEntitiesRequestTypeDef]
     ) -> SearchEntitiesResponseTypeDef:
         """
         Searches for entities of the specified type.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.search_entities)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/client.html#search_entities)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotthingsgraph/client/search_entities.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/client/#search_entities)
         """
 
     def search_flow_executions(
-        self,
-        *,
-        systemInstanceId: str,
-        flowExecutionId: str = None,
-        startTime: Union[datetime, str] = None,
-        endTime: Union[datetime, str] = None,
-        nextToken: str = None,
-        maxResults: int = None
+        self, **kwargs: Unpack[SearchFlowExecutionsRequestTypeDef]
     ) -> SearchFlowExecutionsResponseTypeDef:
         """
         Searches for AWS IoT Things Graph workflow execution instances.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.search_flow_executions)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/client.html#search_flow_executions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotthingsgraph/client/search_flow_executions.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/client/#search_flow_executions)
         """
 
     def search_flow_templates(
-        self,
-        *,
-        filters: List["FlowTemplateFilterTypeDef"] = None,
-        nextToken: str = None,
-        maxResults: int = None
+        self, **kwargs: Unpack[SearchFlowTemplatesRequestTypeDef]
     ) -> SearchFlowTemplatesResponseTypeDef:
         """
         Searches for summary information about workflows.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.search_flow_templates)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/client.html#search_flow_templates)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotthingsgraph/client/search_flow_templates.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/client/#search_flow_templates)
         """
 
     def search_system_instances(
-        self,
-        *,
-        filters: List["SystemInstanceFilterTypeDef"] = None,
-        nextToken: str = None,
-        maxResults: int = None
+        self, **kwargs: Unpack[SearchSystemInstancesRequestTypeDef]
     ) -> SearchSystemInstancesResponseTypeDef:
         """
         Searches for system instances in the user's account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.search_system_instances)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/client.html#search_system_instances)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotthingsgraph/client/search_system_instances.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/client/#search_system_instances)
         """
 
     def search_system_templates(
-        self,
-        *,
-        filters: List["SystemTemplateFilterTypeDef"] = None,
-        nextToken: str = None,
-        maxResults: int = None
+        self, **kwargs: Unpack[SearchSystemTemplatesRequestTypeDef]
     ) -> SearchSystemTemplatesResponseTypeDef:
         """
         Searches for summary information about systems in the user's account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.search_system_templates)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/client.html#search_system_templates)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotthingsgraph/client/search_system_templates.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/client/#search_system_templates)
         """
 
     def search_things(
-        self,
-        *,
-        entityId: str,
-        nextToken: str = None,
-        maxResults: int = None,
-        namespaceVersion: int = None
+        self, **kwargs: Unpack[SearchThingsRequestTypeDef]
     ) -> SearchThingsResponseTypeDef:
         """
         Searches for things associated with the specified entity.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.search_things)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/client.html#search_things)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotthingsgraph/client/search_things.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/client/#search_things)
         """
 
-    def tag_resource(self, *, resourceArn: str, tags: List["TagTypeDef"]) -> Dict[str, Any]:
+    def tag_resource(self, **kwargs: Unpack[TagResourceRequestTypeDef]) -> Dict[str, Any]:
         """
         Creates a tag for the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.tag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/client.html#tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotthingsgraph/client/tag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/client/#tag_resource)
         """
 
-    def undeploy_system_instance(self, *, id: str = None) -> UndeploySystemInstanceResponseTypeDef:
+    def undeploy_system_instance(
+        self, **kwargs: Unpack[UndeploySystemInstanceRequestTypeDef]
+    ) -> UndeploySystemInstanceResponseTypeDef:
         """
         Removes a system instance from its target (Cloud or Greengrass).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.undeploy_system_instance)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/client.html#undeploy_system_instance)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotthingsgraph/client/undeploy_system_instance.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/client/#undeploy_system_instance)
         """
 
-    def untag_resource(self, *, resourceArn: str, tagKeys: List[str]) -> Dict[str, Any]:
+    def untag_resource(self, **kwargs: Unpack[UntagResourceRequestTypeDef]) -> Dict[str, Any]:
         """
         Removes a tag from the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.untag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/client.html#untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotthingsgraph/client/untag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/client/#untag_resource)
         """
 
     def update_flow_template(
-        self,
-        *,
-        id: str,
-        definition: "DefinitionDocumentTypeDef",
-        compatibleNamespaceVersion: int = None
+        self, **kwargs: Unpack[UpdateFlowTemplateRequestTypeDef]
     ) -> UpdateFlowTemplateResponseTypeDef:
         """
         Updates the specified workflow.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.update_flow_template)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/client.html#update_flow_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotthingsgraph/client/update_flow_template.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/client/#update_flow_template)
         """
 
     def update_system_template(
-        self,
-        *,
-        id: str,
-        definition: "DefinitionDocumentTypeDef",
-        compatibleNamespaceVersion: int = None
+        self, **kwargs: Unpack[UpdateSystemTemplateRequestTypeDef]
     ) -> UpdateSystemTemplateResponseTypeDef:
         """
         Updates the specified system.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.update_system_template)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/client.html#update_system_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotthingsgraph/client/update_system_template.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/client/#update_system_template)
         """
 
     def upload_entity_definitions(
-        self,
-        *,
-        document: "DefinitionDocumentTypeDef" = None,
-        syncWithPublicNamespace: bool = None,
-        deprecateExistingEntities: bool = None
+        self, **kwargs: Unpack[UploadEntityDefinitionsRequestTypeDef]
     ) -> UploadEntityDefinitionsResponseTypeDef:
         """
         Asynchronously uploads one or more entity definitions to the user's namespace.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.upload_entity_definitions)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/client.html#upload_entity_definitions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotthingsgraph/client/upload_entity_definitions.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/client/#upload_entity_definitions)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["get_flow_template_revisions"]
     ) -> GetFlowTemplateRevisionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotthingsgraph.html#IoTThingsGraph.Paginator.GetFlowTemplateRevisions)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/paginators.html#getflowtemplaterevisionspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotthingsgraph/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["get_system_template_revisions"]
     ) -> GetSystemTemplateRevisionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotthingsgraph.html#IoTThingsGraph.Paginator.GetSystemTemplateRevisions)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/paginators.html#getsystemtemplaterevisionspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotthingsgraph/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_flow_execution_messages"]
     ) -> ListFlowExecutionMessagesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotthingsgraph.html#IoTThingsGraph.Paginator.ListFlowExecutionMessages)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/paginators.html#listflowexecutionmessagespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotthingsgraph/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_tags_for_resource"]
     ) -> ListTagsForResourcePaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotthingsgraph.html#IoTThingsGraph.Paginator.ListTagsForResource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/paginators.html#listtagsforresourcepaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotthingsgraph/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["search_entities"]) -> SearchEntitiesPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["search_entities"]
+    ) -> SearchEntitiesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotthingsgraph.html#IoTThingsGraph.Paginator.SearchEntities)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/paginators.html#searchentitiespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotthingsgraph/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["search_flow_executions"]
     ) -> SearchFlowExecutionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotthingsgraph.html#IoTThingsGraph.Paginator.SearchFlowExecutions)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/paginators.html#searchflowexecutionspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotthingsgraph/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["search_flow_templates"]
     ) -> SearchFlowTemplatesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotthingsgraph.html#IoTThingsGraph.Paginator.SearchFlowTemplates)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/paginators.html#searchflowtemplatespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotthingsgraph/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["search_system_instances"]
     ) -> SearchSystemInstancesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotthingsgraph.html#IoTThingsGraph.Paginator.SearchSystemInstances)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/paginators.html#searchsysteminstancespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotthingsgraph/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["search_system_templates"]
     ) -> SearchSystemTemplatesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotthingsgraph.html#IoTThingsGraph.Paginator.SearchSystemTemplates)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/paginators.html#searchsystemtemplatespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotthingsgraph/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["search_things"]) -> SearchThingsPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["search_things"]
+    ) -> SearchThingsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotthingsgraph.html#IoTThingsGraph.Paginator.SearchThings)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/paginators.html#searchthingspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotthingsgraph/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/client/#get_paginator)
         """

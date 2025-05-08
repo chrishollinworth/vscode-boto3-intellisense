@@ -1,10 +1,14 @@
 """
 Main interface for efs service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_efs/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_efs import (
         Client,
         DescribeAccessPointsPaginator,
@@ -15,10 +19,8 @@ Usage::
         EFSClient,
     )
 
-    session = boto3.Session()
-
-    client: EFSClient = boto3.client("efs")
-    session_client: EFSClient = session.client("efs")
+    session = Session()
+    client: EFSClient = session.client("efs")
 
     describe_access_points_paginator: DescribeAccessPointsPaginator = client.get_paginator("describe_access_points")
     describe_file_systems_paginator: DescribeFileSystemsPaginator = client.get_paginator("describe_file_systems")

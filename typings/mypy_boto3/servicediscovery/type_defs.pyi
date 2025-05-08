@@ -1,20 +1,24 @@
 """
 Type annotations for servicediscovery service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicediscovery/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_servicediscovery/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_servicediscovery.type_defs import CreateHttpNamespaceRequestRequestTypeDef
+    from mypy_boto3_servicediscovery.type_defs import TagTypeDef
 
-    data: CreateHttpNamespaceRequestRequestTypeDef = {...}
+    data: TagTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
+from typing import Union
 
 from .literals import (
     CustomHealthStatusType,
@@ -33,46 +37,54 @@ from .literals import (
     ServiceTypeType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
-    "CreateHttpNamespaceRequestRequestTypeDef",
+    "CreateHttpNamespaceRequestTypeDef",
     "CreateHttpNamespaceResponseTypeDef",
-    "CreatePrivateDnsNamespaceRequestRequestTypeDef",
+    "CreatePrivateDnsNamespaceRequestTypeDef",
     "CreatePrivateDnsNamespaceResponseTypeDef",
-    "CreatePublicDnsNamespaceRequestRequestTypeDef",
+    "CreatePublicDnsNamespaceRequestTypeDef",
     "CreatePublicDnsNamespaceResponseTypeDef",
-    "CreateServiceRequestRequestTypeDef",
+    "CreateServiceRequestTypeDef",
     "CreateServiceResponseTypeDef",
-    "DeleteNamespaceRequestRequestTypeDef",
+    "DeleteNamespaceRequestTypeDef",
     "DeleteNamespaceResponseTypeDef",
-    "DeleteServiceRequestRequestTypeDef",
-    "DeregisterInstanceRequestRequestTypeDef",
+    "DeleteServiceAttributesRequestTypeDef",
+    "DeleteServiceRequestTypeDef",
+    "DeregisterInstanceRequestTypeDef",
     "DeregisterInstanceResponseTypeDef",
-    "DiscoverInstancesRequestRequestTypeDef",
+    "DiscoverInstancesRequestTypeDef",
     "DiscoverInstancesResponseTypeDef",
-    "DiscoverInstancesRevisionRequestRequestTypeDef",
+    "DiscoverInstancesRevisionRequestTypeDef",
     "DiscoverInstancesRevisionResponseTypeDef",
     "DnsConfigChangeTypeDef",
+    "DnsConfigOutputTypeDef",
     "DnsConfigTypeDef",
+    "DnsConfigUnionTypeDef",
     "DnsPropertiesTypeDef",
     "DnsRecordTypeDef",
-    "GetInstanceRequestRequestTypeDef",
+    "EmptyResponseMetadataTypeDef",
+    "GetInstanceRequestTypeDef",
     "GetInstanceResponseTypeDef",
-    "GetInstancesHealthStatusRequestRequestTypeDef",
+    "GetInstancesHealthStatusRequestTypeDef",
     "GetInstancesHealthStatusResponseTypeDef",
-    "GetNamespaceRequestRequestTypeDef",
+    "GetNamespaceRequestTypeDef",
     "GetNamespaceResponseTypeDef",
-    "GetOperationRequestRequestTypeDef",
+    "GetOperationRequestTypeDef",
     "GetOperationResponseTypeDef",
-    "GetServiceRequestRequestTypeDef",
+    "GetServiceAttributesRequestTypeDef",
+    "GetServiceAttributesResponseTypeDef",
+    "GetServiceRequestTypeDef",
     "GetServiceResponseTypeDef",
     "HealthCheckConfigTypeDef",
     "HealthCheckCustomConfigTypeDef",
@@ -81,15 +93,19 @@ __all__ = (
     "HttpPropertiesTypeDef",
     "InstanceSummaryTypeDef",
     "InstanceTypeDef",
-    "ListInstancesRequestRequestTypeDef",
+    "ListInstancesRequestPaginateTypeDef",
+    "ListInstancesRequestTypeDef",
     "ListInstancesResponseTypeDef",
-    "ListNamespacesRequestRequestTypeDef",
+    "ListNamespacesRequestPaginateTypeDef",
+    "ListNamespacesRequestTypeDef",
     "ListNamespacesResponseTypeDef",
-    "ListOperationsRequestRequestTypeDef",
+    "ListOperationsRequestPaginateTypeDef",
+    "ListOperationsRequestTypeDef",
     "ListOperationsResponseTypeDef",
-    "ListServicesRequestRequestTypeDef",
+    "ListServicesRequestPaginateTypeDef",
+    "ListServicesRequestTypeDef",
     "ListServicesResponseTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "NamespaceFilterTypeDef",
     "NamespacePropertiesTypeDef",
@@ -109,276 +125,96 @@ __all__ = (
     "PublicDnsNamespacePropertiesTypeDef",
     "PublicDnsPropertiesMutableChangeTypeDef",
     "PublicDnsPropertiesMutableTypeDef",
-    "RegisterInstanceRequestRequestTypeDef",
+    "RegisterInstanceRequestTypeDef",
     "RegisterInstanceResponseTypeDef",
     "ResponseMetadataTypeDef",
     "SOAChangeTypeDef",
     "SOATypeDef",
+    "ServiceAttributesTypeDef",
     "ServiceChangeTypeDef",
     "ServiceFilterTypeDef",
     "ServiceSummaryTypeDef",
     "ServiceTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
     "TagTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateHttpNamespaceRequestRequestTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateHttpNamespaceRequestTypeDef",
     "UpdateHttpNamespaceResponseTypeDef",
-    "UpdateInstanceCustomHealthStatusRequestRequestTypeDef",
-    "UpdatePrivateDnsNamespaceRequestRequestTypeDef",
+    "UpdateInstanceCustomHealthStatusRequestTypeDef",
+    "UpdatePrivateDnsNamespaceRequestTypeDef",
     "UpdatePrivateDnsNamespaceResponseTypeDef",
-    "UpdatePublicDnsNamespaceRequestRequestTypeDef",
+    "UpdatePublicDnsNamespaceRequestTypeDef",
     "UpdatePublicDnsNamespaceResponseTypeDef",
-    "UpdateServiceRequestRequestTypeDef",
+    "UpdateServiceAttributesRequestTypeDef",
+    "UpdateServiceRequestTypeDef",
     "UpdateServiceResponseTypeDef",
 )
 
-_RequiredCreateHttpNamespaceRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateHttpNamespaceRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
-_OptionalCreateHttpNamespaceRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateHttpNamespaceRequestRequestTypeDef",
-    {
-        "CreatorRequestId": str,
-        "Description": str,
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
+class TagTypeDef(TypedDict):
+    Key: str
+    Value: str
 
-class CreateHttpNamespaceRequestRequestTypeDef(
-    _RequiredCreateHttpNamespaceRequestRequestTypeDef,
-    _OptionalCreateHttpNamespaceRequestRequestTypeDef,
-):
-    pass
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-CreateHttpNamespaceResponseTypeDef = TypedDict(
-    "CreateHttpNamespaceResponseTypeDef",
+HealthCheckConfigTypeDef = TypedDict(
+    "HealthCheckConfigTypeDef",
     {
-        "OperationId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "Type": HealthCheckTypeType,
+        "ResourcePath": NotRequired[str],
+        "FailureThreshold": NotRequired[int],
     },
 )
 
-_RequiredCreatePrivateDnsNamespaceRequestRequestTypeDef = TypedDict(
-    "_RequiredCreatePrivateDnsNamespaceRequestRequestTypeDef",
+class HealthCheckCustomConfigTypeDef(TypedDict):
+    FailureThreshold: NotRequired[int]
+
+class DeleteNamespaceRequestTypeDef(TypedDict):
+    Id: str
+
+class DeleteServiceAttributesRequestTypeDef(TypedDict):
+    ServiceId: str
+    Attributes: Sequence[str]
+
+class DeleteServiceRequestTypeDef(TypedDict):
+    Id: str
+
+class DeregisterInstanceRequestTypeDef(TypedDict):
+    ServiceId: str
+    InstanceId: str
+
+DiscoverInstancesRequestTypeDef = TypedDict(
+    "DiscoverInstancesRequestTypeDef",
     {
-        "Name": str,
-        "Vpc": str,
+        "NamespaceName": str,
+        "ServiceName": str,
+        "MaxResults": NotRequired[int],
+        "QueryParameters": NotRequired[Mapping[str, str]],
+        "OptionalParameters": NotRequired[Mapping[str, str]],
+        "HealthStatus": NotRequired[HealthStatusFilterType],
     },
 )
-_OptionalCreatePrivateDnsNamespaceRequestRequestTypeDef = TypedDict(
-    "_OptionalCreatePrivateDnsNamespaceRequestRequestTypeDef",
+HttpInstanceSummaryTypeDef = TypedDict(
+    "HttpInstanceSummaryTypeDef",
     {
-        "CreatorRequestId": str,
-        "Description": str,
-        "Tags": List["TagTypeDef"],
-        "Properties": "PrivateDnsNamespacePropertiesTypeDef",
-    },
-    total=False,
-)
-
-class CreatePrivateDnsNamespaceRequestRequestTypeDef(
-    _RequiredCreatePrivateDnsNamespaceRequestRequestTypeDef,
-    _OptionalCreatePrivateDnsNamespaceRequestRequestTypeDef,
-):
-    pass
-
-CreatePrivateDnsNamespaceResponseTypeDef = TypedDict(
-    "CreatePrivateDnsNamespaceResponseTypeDef",
-    {
-        "OperationId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "InstanceId": NotRequired[str],
+        "NamespaceName": NotRequired[str],
+        "ServiceName": NotRequired[str],
+        "HealthStatus": NotRequired[HealthStatusType],
+        "Attributes": NotRequired[Dict[str, str]],
     },
 )
-
-_RequiredCreatePublicDnsNamespaceRequestRequestTypeDef = TypedDict(
-    "_RequiredCreatePublicDnsNamespaceRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
-_OptionalCreatePublicDnsNamespaceRequestRequestTypeDef = TypedDict(
-    "_OptionalCreatePublicDnsNamespaceRequestRequestTypeDef",
-    {
-        "CreatorRequestId": str,
-        "Description": str,
-        "Tags": List["TagTypeDef"],
-        "Properties": "PublicDnsNamespacePropertiesTypeDef",
-    },
-    total=False,
-)
-
-class CreatePublicDnsNamespaceRequestRequestTypeDef(
-    _RequiredCreatePublicDnsNamespaceRequestRequestTypeDef,
-    _OptionalCreatePublicDnsNamespaceRequestRequestTypeDef,
-):
-    pass
-
-CreatePublicDnsNamespaceResponseTypeDef = TypedDict(
-    "CreatePublicDnsNamespaceResponseTypeDef",
-    {
-        "OperationId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateServiceRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateServiceRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
-_OptionalCreateServiceRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateServiceRequestRequestTypeDef",
-    {
-        "NamespaceId": str,
-        "CreatorRequestId": str,
-        "Description": str,
-        "DnsConfig": "DnsConfigTypeDef",
-        "HealthCheckConfig": "HealthCheckConfigTypeDef",
-        "HealthCheckCustomConfig": "HealthCheckCustomConfigTypeDef",
-        "Tags": List["TagTypeDef"],
-        "Type": Literal["HTTP"],
-    },
-    total=False,
-)
-
-class CreateServiceRequestRequestTypeDef(
-    _RequiredCreateServiceRequestRequestTypeDef, _OptionalCreateServiceRequestRequestTypeDef
-):
-    pass
-
-CreateServiceResponseTypeDef = TypedDict(
-    "CreateServiceResponseTypeDef",
-    {
-        "Service": "ServiceTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteNamespaceRequestRequestTypeDef = TypedDict(
-    "DeleteNamespaceRequestRequestTypeDef",
-    {
-        "Id": str,
-    },
-)
-
-DeleteNamespaceResponseTypeDef = TypedDict(
-    "DeleteNamespaceResponseTypeDef",
-    {
-        "OperationId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteServiceRequestRequestTypeDef = TypedDict(
-    "DeleteServiceRequestRequestTypeDef",
-    {
-        "Id": str,
-    },
-)
-
-DeregisterInstanceRequestRequestTypeDef = TypedDict(
-    "DeregisterInstanceRequestRequestTypeDef",
-    {
-        "ServiceId": str,
-        "InstanceId": str,
-    },
-)
-
-DeregisterInstanceResponseTypeDef = TypedDict(
-    "DeregisterInstanceResponseTypeDef",
-    {
-        "OperationId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDiscoverInstancesRequestRequestTypeDef = TypedDict(
-    "_RequiredDiscoverInstancesRequestRequestTypeDef",
+DiscoverInstancesRevisionRequestTypeDef = TypedDict(
+    "DiscoverInstancesRevisionRequestTypeDef",
     {
         "NamespaceName": str,
         "ServiceName": str,
     },
 )
-_OptionalDiscoverInstancesRequestRequestTypeDef = TypedDict(
-    "_OptionalDiscoverInstancesRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "QueryParameters": Dict[str, str],
-        "OptionalParameters": Dict[str, str],
-        "HealthStatus": HealthStatusFilterType,
-    },
-    total=False,
-)
-
-class DiscoverInstancesRequestRequestTypeDef(
-    _RequiredDiscoverInstancesRequestRequestTypeDef, _OptionalDiscoverInstancesRequestRequestTypeDef
-):
-    pass
-
-DiscoverInstancesResponseTypeDef = TypedDict(
-    "DiscoverInstancesResponseTypeDef",
-    {
-        "Instances": List["HttpInstanceSummaryTypeDef"],
-        "InstancesRevision": int,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DiscoverInstancesRevisionRequestRequestTypeDef = TypedDict(
-    "DiscoverInstancesRevisionRequestRequestTypeDef",
-    {
-        "NamespaceName": str,
-        "ServiceName": str,
-    },
-)
-
-DiscoverInstancesRevisionResponseTypeDef = TypedDict(
-    "DiscoverInstancesRevisionResponseTypeDef",
-    {
-        "InstancesRevision": int,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DnsConfigChangeTypeDef = TypedDict(
-    "DnsConfigChangeTypeDef",
-    {
-        "DnsRecords": List["DnsRecordTypeDef"],
-    },
-)
-
-_RequiredDnsConfigTypeDef = TypedDict(
-    "_RequiredDnsConfigTypeDef",
-    {
-        "DnsRecords": List["DnsRecordTypeDef"],
-    },
-)
-_OptionalDnsConfigTypeDef = TypedDict(
-    "_OptionalDnsConfigTypeDef",
-    {
-        "NamespaceId": str,
-        "RoutingPolicy": RoutingPolicyType,
-    },
-    total=False,
-)
-
-class DnsConfigTypeDef(_RequiredDnsConfigTypeDef, _OptionalDnsConfigTypeDef):
-    pass
-
-DnsPropertiesTypeDef = TypedDict(
-    "DnsPropertiesTypeDef",
-    {
-        "HostedZoneId": str,
-        "SOA": "SOATypeDef",
-    },
-    total=False,
-)
-
 DnsRecordTypeDef = TypedDict(
     "DnsRecordTypeDef",
     {
@@ -387,715 +223,428 @@ DnsRecordTypeDef = TypedDict(
     },
 )
 
-GetInstanceRequestRequestTypeDef = TypedDict(
-    "GetInstanceRequestRequestTypeDef",
-    {
-        "ServiceId": str,
-        "InstanceId": str,
-    },
-)
+class SOATypeDef(TypedDict):
+    TTL: int
 
-GetInstanceResponseTypeDef = TypedDict(
-    "GetInstanceResponseTypeDef",
-    {
-        "Instance": "InstanceTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetInstanceRequestTypeDef(TypedDict):
+    ServiceId: str
+    InstanceId: str
 
-_RequiredGetInstancesHealthStatusRequestRequestTypeDef = TypedDict(
-    "_RequiredGetInstancesHealthStatusRequestRequestTypeDef",
-    {
-        "ServiceId": str,
-    },
-)
-_OptionalGetInstancesHealthStatusRequestRequestTypeDef = TypedDict(
-    "_OptionalGetInstancesHealthStatusRequestRequestTypeDef",
-    {
-        "Instances": List[str],
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
+class InstanceTypeDef(TypedDict):
+    Id: str
+    CreatorRequestId: NotRequired[str]
+    Attributes: NotRequired[Dict[str, str]]
 
-class GetInstancesHealthStatusRequestRequestTypeDef(
-    _RequiredGetInstancesHealthStatusRequestRequestTypeDef,
-    _OptionalGetInstancesHealthStatusRequestRequestTypeDef,
-):
-    pass
+class GetInstancesHealthStatusRequestTypeDef(TypedDict):
+    ServiceId: str
+    Instances: NotRequired[Sequence[str]]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
 
-GetInstancesHealthStatusResponseTypeDef = TypedDict(
-    "GetInstancesHealthStatusResponseTypeDef",
-    {
-        "Status": Dict[str, HealthStatusType],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetNamespaceRequestTypeDef(TypedDict):
+    Id: str
 
-GetNamespaceRequestRequestTypeDef = TypedDict(
-    "GetNamespaceRequestRequestTypeDef",
-    {
-        "Id": str,
-    },
-)
-
-GetNamespaceResponseTypeDef = TypedDict(
-    "GetNamespaceResponseTypeDef",
-    {
-        "Namespace": "NamespaceTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetOperationRequestRequestTypeDef = TypedDict(
-    "GetOperationRequestRequestTypeDef",
-    {
-        "OperationId": str,
-    },
-)
-
-GetOperationResponseTypeDef = TypedDict(
-    "GetOperationResponseTypeDef",
-    {
-        "Operation": "OperationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetServiceRequestRequestTypeDef = TypedDict(
-    "GetServiceRequestRequestTypeDef",
-    {
-        "Id": str,
-    },
-)
-
-GetServiceResponseTypeDef = TypedDict(
-    "GetServiceResponseTypeDef",
-    {
-        "Service": "ServiceTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredHealthCheckConfigTypeDef = TypedDict(
-    "_RequiredHealthCheckConfigTypeDef",
-    {
-        "Type": HealthCheckTypeType,
-    },
-)
-_OptionalHealthCheckConfigTypeDef = TypedDict(
-    "_OptionalHealthCheckConfigTypeDef",
-    {
-        "ResourcePath": str,
-        "FailureThreshold": int,
-    },
-    total=False,
-)
-
-class HealthCheckConfigTypeDef(
-    _RequiredHealthCheckConfigTypeDef, _OptionalHealthCheckConfigTypeDef
-):
-    pass
-
-HealthCheckCustomConfigTypeDef = TypedDict(
-    "HealthCheckCustomConfigTypeDef",
-    {
-        "FailureThreshold": int,
-    },
-    total=False,
-)
-
-HttpInstanceSummaryTypeDef = TypedDict(
-    "HttpInstanceSummaryTypeDef",
-    {
-        "InstanceId": str,
-        "NamespaceName": str,
-        "ServiceName": str,
-        "HealthStatus": HealthStatusType,
-        "Attributes": Dict[str, str],
-    },
-    total=False,
-)
-
-HttpNamespaceChangeTypeDef = TypedDict(
-    "HttpNamespaceChangeTypeDef",
-    {
-        "Description": str,
-    },
-)
-
-HttpPropertiesTypeDef = TypedDict(
-    "HttpPropertiesTypeDef",
-    {
-        "HttpName": str,
-    },
-    total=False,
-)
-
-InstanceSummaryTypeDef = TypedDict(
-    "InstanceSummaryTypeDef",
-    {
-        "Id": str,
-        "Attributes": Dict[str, str],
-    },
-    total=False,
-)
-
-_RequiredInstanceTypeDef = TypedDict(
-    "_RequiredInstanceTypeDef",
-    {
-        "Id": str,
-    },
-)
-_OptionalInstanceTypeDef = TypedDict(
-    "_OptionalInstanceTypeDef",
-    {
-        "CreatorRequestId": str,
-        "Attributes": Dict[str, str],
-    },
-    total=False,
-)
-
-class InstanceTypeDef(_RequiredInstanceTypeDef, _OptionalInstanceTypeDef):
-    pass
-
-_RequiredListInstancesRequestRequestTypeDef = TypedDict(
-    "_RequiredListInstancesRequestRequestTypeDef",
-    {
-        "ServiceId": str,
-    },
-)
-_OptionalListInstancesRequestRequestTypeDef = TypedDict(
-    "_OptionalListInstancesRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-class ListInstancesRequestRequestTypeDef(
-    _RequiredListInstancesRequestRequestTypeDef, _OptionalListInstancesRequestRequestTypeDef
-):
-    pass
-
-ListInstancesResponseTypeDef = TypedDict(
-    "ListInstancesResponseTypeDef",
-    {
-        "Instances": List["InstanceSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListNamespacesRequestRequestTypeDef = TypedDict(
-    "ListNamespacesRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-        "Filters": List["NamespaceFilterTypeDef"],
-    },
-    total=False,
-)
-
-ListNamespacesResponseTypeDef = TypedDict(
-    "ListNamespacesResponseTypeDef",
-    {
-        "Namespaces": List["NamespaceSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListOperationsRequestRequestTypeDef = TypedDict(
-    "ListOperationsRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-        "Filters": List["OperationFilterTypeDef"],
-    },
-    total=False,
-)
-
-ListOperationsResponseTypeDef = TypedDict(
-    "ListOperationsResponseTypeDef",
-    {
-        "Operations": List["OperationSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListServicesRequestRequestTypeDef = TypedDict(
-    "ListServicesRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-        "Filters": List["ServiceFilterTypeDef"],
-    },
-    total=False,
-)
-
-ListServicesResponseTypeDef = TypedDict(
-    "ListServicesResponseTypeDef",
-    {
-        "Services": List["ServiceSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "ResourceARN": str,
-    },
-)
-
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "Tags": List["TagTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredNamespaceFilterTypeDef = TypedDict(
-    "_RequiredNamespaceFilterTypeDef",
-    {
-        "Name": NamespaceFilterNameType,
-        "Values": List[str],
-    },
-)
-_OptionalNamespaceFilterTypeDef = TypedDict(
-    "_OptionalNamespaceFilterTypeDef",
-    {
-        "Condition": FilterConditionType,
-    },
-    total=False,
-)
-
-class NamespaceFilterTypeDef(_RequiredNamespaceFilterTypeDef, _OptionalNamespaceFilterTypeDef):
-    pass
-
-NamespacePropertiesTypeDef = TypedDict(
-    "NamespacePropertiesTypeDef",
-    {
-        "DnsProperties": "DnsPropertiesTypeDef",
-        "HttpProperties": "HttpPropertiesTypeDef",
-    },
-    total=False,
-)
-
-NamespaceSummaryTypeDef = TypedDict(
-    "NamespaceSummaryTypeDef",
-    {
-        "Id": str,
-        "Arn": str,
-        "Name": str,
-        "Type": NamespaceTypeType,
-        "Description": str,
-        "ServiceCount": int,
-        "Properties": "NamespacePropertiesTypeDef",
-        "CreateDate": datetime,
-    },
-    total=False,
-)
-
-NamespaceTypeDef = TypedDict(
-    "NamespaceTypeDef",
-    {
-        "Id": str,
-        "Arn": str,
-        "Name": str,
-        "Type": NamespaceTypeType,
-        "Description": str,
-        "ServiceCount": int,
-        "Properties": "NamespacePropertiesTypeDef",
-        "CreateDate": datetime,
-        "CreatorRequestId": str,
-    },
-    total=False,
-)
-
-_RequiredOperationFilterTypeDef = TypedDict(
-    "_RequiredOperationFilterTypeDef",
-    {
-        "Name": OperationFilterNameType,
-        "Values": List[str],
-    },
-)
-_OptionalOperationFilterTypeDef = TypedDict(
-    "_OptionalOperationFilterTypeDef",
-    {
-        "Condition": FilterConditionType,
-    },
-    total=False,
-)
-
-class OperationFilterTypeDef(_RequiredOperationFilterTypeDef, _OptionalOperationFilterTypeDef):
-    pass
-
-OperationSummaryTypeDef = TypedDict(
-    "OperationSummaryTypeDef",
-    {
-        "Id": str,
-        "Status": OperationStatusType,
-    },
-    total=False,
-)
+class GetOperationRequestTypeDef(TypedDict):
+    OperationId: str
 
 OperationTypeDef = TypedDict(
     "OperationTypeDef",
     {
-        "Id": str,
-        "Type": OperationTypeType,
-        "Status": OperationStatusType,
-        "ErrorMessage": str,
-        "ErrorCode": str,
-        "CreateDate": datetime,
-        "UpdateDate": datetime,
-        "Targets": Dict[OperationTargetTypeType, str],
-    },
-    total=False,
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-PrivateDnsNamespaceChangeTypeDef = TypedDict(
-    "PrivateDnsNamespaceChangeTypeDef",
-    {
-        "Description": str,
-        "Properties": "PrivateDnsNamespacePropertiesChangeTypeDef",
-    },
-    total=False,
-)
-
-PrivateDnsNamespacePropertiesChangeTypeDef = TypedDict(
-    "PrivateDnsNamespacePropertiesChangeTypeDef",
-    {
-        "DnsProperties": "PrivateDnsPropertiesMutableChangeTypeDef",
+        "Id": NotRequired[str],
+        "Type": NotRequired[OperationTypeType],
+        "Status": NotRequired[OperationStatusType],
+        "ErrorMessage": NotRequired[str],
+        "ErrorCode": NotRequired[str],
+        "CreateDate": NotRequired[datetime],
+        "UpdateDate": NotRequired[datetime],
+        "Targets": NotRequired[Dict[OperationTargetTypeType, str]],
     },
 )
 
-PrivateDnsNamespacePropertiesTypeDef = TypedDict(
-    "PrivateDnsNamespacePropertiesTypeDef",
-    {
-        "DnsProperties": "PrivateDnsPropertiesMutableTypeDef",
-    },
-)
+class GetServiceAttributesRequestTypeDef(TypedDict):
+    ServiceId: str
 
-PrivateDnsPropertiesMutableChangeTypeDef = TypedDict(
-    "PrivateDnsPropertiesMutableChangeTypeDef",
-    {
-        "SOA": "SOAChangeTypeDef",
-    },
-)
+class ServiceAttributesTypeDef(TypedDict):
+    ServiceArn: NotRequired[str]
+    Attributes: NotRequired[Dict[str, str]]
 
-PrivateDnsPropertiesMutableTypeDef = TypedDict(
-    "PrivateDnsPropertiesMutableTypeDef",
-    {
-        "SOA": "SOATypeDef",
-    },
-)
+class GetServiceRequestTypeDef(TypedDict):
+    Id: str
 
-PublicDnsNamespaceChangeTypeDef = TypedDict(
-    "PublicDnsNamespaceChangeTypeDef",
-    {
-        "Description": str,
-        "Properties": "PublicDnsNamespacePropertiesChangeTypeDef",
-    },
-    total=False,
-)
+class HttpNamespaceChangeTypeDef(TypedDict):
+    Description: str
 
-PublicDnsNamespacePropertiesChangeTypeDef = TypedDict(
-    "PublicDnsNamespacePropertiesChangeTypeDef",
-    {
-        "DnsProperties": "PublicDnsPropertiesMutableChangeTypeDef",
-    },
-)
+class HttpPropertiesTypeDef(TypedDict):
+    HttpName: NotRequired[str]
 
-PublicDnsNamespacePropertiesTypeDef = TypedDict(
-    "PublicDnsNamespacePropertiesTypeDef",
-    {
-        "DnsProperties": "PublicDnsPropertiesMutableTypeDef",
-    },
-)
+class InstanceSummaryTypeDef(TypedDict):
+    Id: NotRequired[str]
+    Attributes: NotRequired[Dict[str, str]]
 
-PublicDnsPropertiesMutableChangeTypeDef = TypedDict(
-    "PublicDnsPropertiesMutableChangeTypeDef",
-    {
-        "SOA": "SOAChangeTypeDef",
-    },
-)
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
 
-PublicDnsPropertiesMutableTypeDef = TypedDict(
-    "PublicDnsPropertiesMutableTypeDef",
-    {
-        "SOA": "SOATypeDef",
-    },
-)
+class ListInstancesRequestTypeDef(TypedDict):
+    ServiceId: str
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
 
-_RequiredRegisterInstanceRequestRequestTypeDef = TypedDict(
-    "_RequiredRegisterInstanceRequestRequestTypeDef",
-    {
-        "ServiceId": str,
-        "InstanceId": str,
-        "Attributes": Dict[str, str],
-    },
-)
-_OptionalRegisterInstanceRequestRequestTypeDef = TypedDict(
-    "_OptionalRegisterInstanceRequestRequestTypeDef",
-    {
-        "CreatorRequestId": str,
-    },
-    total=False,
-)
+class NamespaceFilterTypeDef(TypedDict):
+    Name: NamespaceFilterNameType
+    Values: Sequence[str]
+    Condition: NotRequired[FilterConditionType]
 
-class RegisterInstanceRequestRequestTypeDef(
-    _RequiredRegisterInstanceRequestRequestTypeDef, _OptionalRegisterInstanceRequestRequestTypeDef
-):
-    pass
+class OperationFilterTypeDef(TypedDict):
+    Name: OperationFilterNameType
+    Values: Sequence[str]
+    Condition: NotRequired[FilterConditionType]
 
-RegisterInstanceResponseTypeDef = TypedDict(
-    "RegisterInstanceResponseTypeDef",
-    {
-        "OperationId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class OperationSummaryTypeDef(TypedDict):
+    Id: NotRequired[str]
+    Status: NotRequired[OperationStatusType]
 
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
+class ServiceFilterTypeDef(TypedDict):
+    Name: Literal["NAMESPACE_ID"]
+    Values: Sequence[str]
+    Condition: NotRequired[FilterConditionType]
 
-SOAChangeTypeDef = TypedDict(
-    "SOAChangeTypeDef",
-    {
-        "TTL": int,
-    },
-)
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    ResourceARN: str
 
-SOATypeDef = TypedDict(
-    "SOATypeDef",
-    {
-        "TTL": int,
-    },
-)
+class SOAChangeTypeDef(TypedDict):
+    TTL: int
 
-ServiceChangeTypeDef = TypedDict(
-    "ServiceChangeTypeDef",
-    {
-        "Description": str,
-        "DnsConfig": "DnsConfigChangeTypeDef",
-        "HealthCheckConfig": "HealthCheckConfigTypeDef",
-    },
-    total=False,
-)
+class RegisterInstanceRequestTypeDef(TypedDict):
+    ServiceId: str
+    InstanceId: str
+    Attributes: Mapping[str, str]
+    CreatorRequestId: NotRequired[str]
 
-_RequiredServiceFilterTypeDef = TypedDict(
-    "_RequiredServiceFilterTypeDef",
-    {
-        "Name": Literal["NAMESPACE_ID"],
-        "Values": List[str],
-    },
-)
-_OptionalServiceFilterTypeDef = TypedDict(
-    "_OptionalServiceFilterTypeDef",
-    {
-        "Condition": FilterConditionType,
-    },
-    total=False,
-)
+class UntagResourceRequestTypeDef(TypedDict):
+    ResourceARN: str
+    TagKeys: Sequence[str]
 
-class ServiceFilterTypeDef(_RequiredServiceFilterTypeDef, _OptionalServiceFilterTypeDef):
-    pass
+class UpdateInstanceCustomHealthStatusRequestTypeDef(TypedDict):
+    ServiceId: str
+    InstanceId: str
+    Status: CustomHealthStatusType
+
+class UpdateServiceAttributesRequestTypeDef(TypedDict):
+    ServiceId: str
+    Attributes: Mapping[str, str]
+
+class CreateHttpNamespaceRequestTypeDef(TypedDict):
+    Name: str
+    CreatorRequestId: NotRequired[str]
+    Description: NotRequired[str]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+
+class TagResourceRequestTypeDef(TypedDict):
+    ResourceARN: str
+    Tags: Sequence[TagTypeDef]
+
+class CreateHttpNamespaceResponseTypeDef(TypedDict):
+    OperationId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreatePrivateDnsNamespaceResponseTypeDef(TypedDict):
+    OperationId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreatePublicDnsNamespaceResponseTypeDef(TypedDict):
+    OperationId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteNamespaceResponseTypeDef(TypedDict):
+    OperationId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeregisterInstanceResponseTypeDef(TypedDict):
+    OperationId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DiscoverInstancesRevisionResponseTypeDef(TypedDict):
+    InstancesRevision: int
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class EmptyResponseMetadataTypeDef(TypedDict):
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetInstancesHealthStatusResponseTypeDef(TypedDict):
+    Status: Dict[str, HealthStatusType]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    Tags: List[TagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class RegisterInstanceResponseTypeDef(TypedDict):
+    OperationId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateHttpNamespaceResponseTypeDef(TypedDict):
+    OperationId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdatePrivateDnsNamespaceResponseTypeDef(TypedDict):
+    OperationId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdatePublicDnsNamespaceResponseTypeDef(TypedDict):
+    OperationId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateServiceResponseTypeDef(TypedDict):
+    OperationId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DiscoverInstancesResponseTypeDef(TypedDict):
+    Instances: List[HttpInstanceSummaryTypeDef]
+    InstancesRevision: int
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DnsConfigChangeTypeDef(TypedDict):
+    DnsRecords: Sequence[DnsRecordTypeDef]
+
+class DnsConfigOutputTypeDef(TypedDict):
+    DnsRecords: List[DnsRecordTypeDef]
+    NamespaceId: NotRequired[str]
+    RoutingPolicy: NotRequired[RoutingPolicyType]
+
+class DnsConfigTypeDef(TypedDict):
+    DnsRecords: Sequence[DnsRecordTypeDef]
+    NamespaceId: NotRequired[str]
+    RoutingPolicy: NotRequired[RoutingPolicyType]
+
+class DnsPropertiesTypeDef(TypedDict):
+    HostedZoneId: NotRequired[str]
+    SOA: NotRequired[SOATypeDef]
+
+class PrivateDnsPropertiesMutableTypeDef(TypedDict):
+    SOA: SOATypeDef
+
+class PublicDnsPropertiesMutableTypeDef(TypedDict):
+    SOA: SOATypeDef
+
+class GetInstanceResponseTypeDef(TypedDict):
+    Instance: InstanceTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetOperationResponseTypeDef(TypedDict):
+    Operation: OperationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetServiceAttributesResponseTypeDef(TypedDict):
+    ServiceAttributes: ServiceAttributesTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateHttpNamespaceRequestTypeDef(TypedDict):
+    Id: str
+    Namespace: HttpNamespaceChangeTypeDef
+    UpdaterRequestId: NotRequired[str]
+
+class ListInstancesResponseTypeDef(TypedDict):
+    Instances: List[InstanceSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListInstancesRequestPaginateTypeDef(TypedDict):
+    ServiceId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListNamespacesRequestPaginateTypeDef(TypedDict):
+    Filters: NotRequired[Sequence[NamespaceFilterTypeDef]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListNamespacesRequestTypeDef(TypedDict):
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+    Filters: NotRequired[Sequence[NamespaceFilterTypeDef]]
+
+class ListOperationsRequestPaginateTypeDef(TypedDict):
+    Filters: NotRequired[Sequence[OperationFilterTypeDef]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListOperationsRequestTypeDef(TypedDict):
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+    Filters: NotRequired[Sequence[OperationFilterTypeDef]]
+
+class ListOperationsResponseTypeDef(TypedDict):
+    Operations: List[OperationSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListServicesRequestPaginateTypeDef(TypedDict):
+    Filters: NotRequired[Sequence[ServiceFilterTypeDef]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListServicesRequestTypeDef(TypedDict):
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+    Filters: NotRequired[Sequence[ServiceFilterTypeDef]]
+
+class PrivateDnsPropertiesMutableChangeTypeDef(TypedDict):
+    SOA: SOAChangeTypeDef
+
+class PublicDnsPropertiesMutableChangeTypeDef(TypedDict):
+    SOA: SOAChangeTypeDef
+
+class ServiceChangeTypeDef(TypedDict):
+    Description: NotRequired[str]
+    DnsConfig: NotRequired[DnsConfigChangeTypeDef]
+    HealthCheckConfig: NotRequired[HealthCheckConfigTypeDef]
 
 ServiceSummaryTypeDef = TypedDict(
     "ServiceSummaryTypeDef",
     {
-        "Id": str,
-        "Arn": str,
-        "Name": str,
-        "Type": ServiceTypeType,
-        "Description": str,
-        "InstanceCount": int,
-        "DnsConfig": "DnsConfigTypeDef",
-        "HealthCheckConfig": "HealthCheckConfigTypeDef",
-        "HealthCheckCustomConfig": "HealthCheckCustomConfigTypeDef",
-        "CreateDate": datetime,
+        "Id": NotRequired[str],
+        "Arn": NotRequired[str],
+        "Name": NotRequired[str],
+        "Type": NotRequired[ServiceTypeType],
+        "Description": NotRequired[str],
+        "InstanceCount": NotRequired[int],
+        "DnsConfig": NotRequired[DnsConfigOutputTypeDef],
+        "HealthCheckConfig": NotRequired[HealthCheckConfigTypeDef],
+        "HealthCheckCustomConfig": NotRequired[HealthCheckCustomConfigTypeDef],
+        "CreateDate": NotRequired[datetime],
     },
-    total=False,
 )
-
 ServiceTypeDef = TypedDict(
     "ServiceTypeDef",
     {
-        "Id": str,
-        "Arn": str,
+        "Id": NotRequired[str],
+        "Arn": NotRequired[str],
+        "Name": NotRequired[str],
+        "NamespaceId": NotRequired[str],
+        "Description": NotRequired[str],
+        "InstanceCount": NotRequired[int],
+        "DnsConfig": NotRequired[DnsConfigOutputTypeDef],
+        "Type": NotRequired[ServiceTypeType],
+        "HealthCheckConfig": NotRequired[HealthCheckConfigTypeDef],
+        "HealthCheckCustomConfig": NotRequired[HealthCheckCustomConfigTypeDef],
+        "CreateDate": NotRequired[datetime],
+        "CreatorRequestId": NotRequired[str],
+    },
+)
+DnsConfigUnionTypeDef = Union[DnsConfigTypeDef, DnsConfigOutputTypeDef]
+
+class NamespacePropertiesTypeDef(TypedDict):
+    DnsProperties: NotRequired[DnsPropertiesTypeDef]
+    HttpProperties: NotRequired[HttpPropertiesTypeDef]
+
+class PrivateDnsNamespacePropertiesTypeDef(TypedDict):
+    DnsProperties: PrivateDnsPropertiesMutableTypeDef
+
+class PublicDnsNamespacePropertiesTypeDef(TypedDict):
+    DnsProperties: PublicDnsPropertiesMutableTypeDef
+
+class PrivateDnsNamespacePropertiesChangeTypeDef(TypedDict):
+    DnsProperties: PrivateDnsPropertiesMutableChangeTypeDef
+
+class PublicDnsNamespacePropertiesChangeTypeDef(TypedDict):
+    DnsProperties: PublicDnsPropertiesMutableChangeTypeDef
+
+class UpdateServiceRequestTypeDef(TypedDict):
+    Id: str
+    Service: ServiceChangeTypeDef
+
+class ListServicesResponseTypeDef(TypedDict):
+    Services: List[ServiceSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class CreateServiceResponseTypeDef(TypedDict):
+    Service: ServiceTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetServiceResponseTypeDef(TypedDict):
+    Service: ServiceTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+CreateServiceRequestTypeDef = TypedDict(
+    "CreateServiceRequestTypeDef",
+    {
         "Name": str,
-        "NamespaceId": str,
-        "Description": str,
-        "InstanceCount": int,
-        "DnsConfig": "DnsConfigTypeDef",
-        "Type": ServiceTypeType,
-        "HealthCheckConfig": "HealthCheckConfigTypeDef",
-        "HealthCheckCustomConfig": "HealthCheckCustomConfigTypeDef",
-        "CreateDate": datetime,
-        "CreatorRequestId": str,
-    },
-    total=False,
-)
-
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "ResourceARN": str,
-        "Tags": List["TagTypeDef"],
+        "NamespaceId": NotRequired[str],
+        "CreatorRequestId": NotRequired[str],
+        "Description": NotRequired[str],
+        "DnsConfig": NotRequired[DnsConfigUnionTypeDef],
+        "HealthCheckConfig": NotRequired[HealthCheckConfigTypeDef],
+        "HealthCheckCustomConfig": NotRequired[HealthCheckCustomConfigTypeDef],
+        "Tags": NotRequired[Sequence[TagTypeDef]],
+        "Type": NotRequired[Literal["HTTP"]],
     },
 )
-
-TagTypeDef = TypedDict(
-    "TagTypeDef",
+NamespaceSummaryTypeDef = TypedDict(
+    "NamespaceSummaryTypeDef",
     {
-        "Key": str,
-        "Value": str,
+        "Id": NotRequired[str],
+        "Arn": NotRequired[str],
+        "Name": NotRequired[str],
+        "Type": NotRequired[NamespaceTypeType],
+        "Description": NotRequired[str],
+        "ServiceCount": NotRequired[int],
+        "Properties": NotRequired[NamespacePropertiesTypeDef],
+        "CreateDate": NotRequired[datetime],
     },
 )
-
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
+NamespaceTypeDef = TypedDict(
+    "NamespaceTypeDef",
     {
-        "ResourceARN": str,
-        "TagKeys": List[str],
-    },
-)
-
-_RequiredUpdateHttpNamespaceRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateHttpNamespaceRequestRequestTypeDef",
-    {
-        "Id": str,
-        "Namespace": "HttpNamespaceChangeTypeDef",
-    },
-)
-_OptionalUpdateHttpNamespaceRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateHttpNamespaceRequestRequestTypeDef",
-    {
-        "UpdaterRequestId": str,
-    },
-    total=False,
-)
-
-class UpdateHttpNamespaceRequestRequestTypeDef(
-    _RequiredUpdateHttpNamespaceRequestRequestTypeDef,
-    _OptionalUpdateHttpNamespaceRequestRequestTypeDef,
-):
-    pass
-
-UpdateHttpNamespaceResponseTypeDef = TypedDict(
-    "UpdateHttpNamespaceResponseTypeDef",
-    {
-        "OperationId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "Id": NotRequired[str],
+        "Arn": NotRequired[str],
+        "Name": NotRequired[str],
+        "Type": NotRequired[NamespaceTypeType],
+        "Description": NotRequired[str],
+        "ServiceCount": NotRequired[int],
+        "Properties": NotRequired[NamespacePropertiesTypeDef],
+        "CreateDate": NotRequired[datetime],
+        "CreatorRequestId": NotRequired[str],
     },
 )
 
-UpdateInstanceCustomHealthStatusRequestRequestTypeDef = TypedDict(
-    "UpdateInstanceCustomHealthStatusRequestRequestTypeDef",
-    {
-        "ServiceId": str,
-        "InstanceId": str,
-        "Status": CustomHealthStatusType,
-    },
-)
+class CreatePrivateDnsNamespaceRequestTypeDef(TypedDict):
+    Name: str
+    Vpc: str
+    CreatorRequestId: NotRequired[str]
+    Description: NotRequired[str]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+    Properties: NotRequired[PrivateDnsNamespacePropertiesTypeDef]
 
-_RequiredUpdatePrivateDnsNamespaceRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdatePrivateDnsNamespaceRequestRequestTypeDef",
-    {
-        "Id": str,
-        "Namespace": "PrivateDnsNamespaceChangeTypeDef",
-    },
-)
-_OptionalUpdatePrivateDnsNamespaceRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdatePrivateDnsNamespaceRequestRequestTypeDef",
-    {
-        "UpdaterRequestId": str,
-    },
-    total=False,
-)
+class CreatePublicDnsNamespaceRequestTypeDef(TypedDict):
+    Name: str
+    CreatorRequestId: NotRequired[str]
+    Description: NotRequired[str]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+    Properties: NotRequired[PublicDnsNamespacePropertiesTypeDef]
 
-class UpdatePrivateDnsNamespaceRequestRequestTypeDef(
-    _RequiredUpdatePrivateDnsNamespaceRequestRequestTypeDef,
-    _OptionalUpdatePrivateDnsNamespaceRequestRequestTypeDef,
-):
-    pass
+class PrivateDnsNamespaceChangeTypeDef(TypedDict):
+    Description: NotRequired[str]
+    Properties: NotRequired[PrivateDnsNamespacePropertiesChangeTypeDef]
 
-UpdatePrivateDnsNamespaceResponseTypeDef = TypedDict(
-    "UpdatePrivateDnsNamespaceResponseTypeDef",
-    {
-        "OperationId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class PublicDnsNamespaceChangeTypeDef(TypedDict):
+    Description: NotRequired[str]
+    Properties: NotRequired[PublicDnsNamespacePropertiesChangeTypeDef]
 
-_RequiredUpdatePublicDnsNamespaceRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdatePublicDnsNamespaceRequestRequestTypeDef",
-    {
-        "Id": str,
-        "Namespace": "PublicDnsNamespaceChangeTypeDef",
-    },
-)
-_OptionalUpdatePublicDnsNamespaceRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdatePublicDnsNamespaceRequestRequestTypeDef",
-    {
-        "UpdaterRequestId": str,
-    },
-    total=False,
-)
+class ListNamespacesResponseTypeDef(TypedDict):
+    Namespaces: List[NamespaceSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-class UpdatePublicDnsNamespaceRequestRequestTypeDef(
-    _RequiredUpdatePublicDnsNamespaceRequestRequestTypeDef,
-    _OptionalUpdatePublicDnsNamespaceRequestRequestTypeDef,
-):
-    pass
+class GetNamespaceResponseTypeDef(TypedDict):
+    Namespace: NamespaceTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-UpdatePublicDnsNamespaceResponseTypeDef = TypedDict(
-    "UpdatePublicDnsNamespaceResponseTypeDef",
-    {
-        "OperationId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class UpdatePrivateDnsNamespaceRequestTypeDef(TypedDict):
+    Id: str
+    Namespace: PrivateDnsNamespaceChangeTypeDef
+    UpdaterRequestId: NotRequired[str]
 
-UpdateServiceRequestRequestTypeDef = TypedDict(
-    "UpdateServiceRequestRequestTypeDef",
-    {
-        "Id": str,
-        "Service": "ServiceChangeTypeDef",
-    },
-)
-
-UpdateServiceResponseTypeDef = TypedDict(
-    "UpdateServiceResponseTypeDef",
-    {
-        "OperationId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class UpdatePublicDnsNamespaceRequestTypeDef(TypedDict):
+    Id: str
+    Namespace: PublicDnsNamespaceChangeTypeDef
+    UpdaterRequestId: NotRequired[str]

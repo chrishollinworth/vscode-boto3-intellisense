@@ -1,59 +1,83 @@
 """
 Type annotations for resource-explorer-2 service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resource_explorer_2/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_resource_explorer_2/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_resource_explorer_2.type_defs import AssociateDefaultViewInputRequestTypeDef
+    from mypy_boto3_resource_explorer_2.type_defs import AssociateDefaultViewInputTypeDef
 
-    data: AssociateDefaultViewInputRequestTypeDef = {...}
+    data: AssociateDefaultViewInputTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
+from typing import Any
 
 from .literals import AWSServiceAccessStatusType, IndexStateType, IndexTypeType
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
-    "AssociateDefaultViewInputRequestTypeDef",
+    "AssociateDefaultViewInputTypeDef",
     "AssociateDefaultViewOutputTypeDef",
     "BatchGetViewErrorTypeDef",
-    "BatchGetViewInputRequestTypeDef",
+    "BatchGetViewInputTypeDef",
     "BatchGetViewOutputTypeDef",
-    "CreateIndexInputRequestTypeDef",
+    "CreateIndexInputTypeDef",
     "CreateIndexOutputTypeDef",
-    "CreateViewInputRequestTypeDef",
+    "CreateViewInputTypeDef",
     "CreateViewOutputTypeDef",
-    "DeleteIndexInputRequestTypeDef",
+    "DeleteIndexInputTypeDef",
     "DeleteIndexOutputTypeDef",
-    "DeleteViewInputRequestTypeDef",
+    "DeleteViewInputTypeDef",
     "DeleteViewOutputTypeDef",
+    "EmptyResponseMetadataTypeDef",
     "GetAccountLevelServiceConfigurationOutputTypeDef",
     "GetDefaultViewOutputTypeDef",
     "GetIndexOutputTypeDef",
-    "GetViewInputRequestTypeDef",
+    "GetManagedViewInputTypeDef",
+    "GetManagedViewOutputTypeDef",
+    "GetViewInputTypeDef",
     "GetViewOutputTypeDef",
     "IncludedPropertyTypeDef",
     "IndexTypeDef",
-    "ListIndexesForMembersInputRequestTypeDef",
+    "ListIndexesForMembersInputPaginateTypeDef",
+    "ListIndexesForMembersInputTypeDef",
     "ListIndexesForMembersOutputTypeDef",
-    "ListIndexesInputRequestTypeDef",
+    "ListIndexesInputPaginateTypeDef",
+    "ListIndexesInputTypeDef",
     "ListIndexesOutputTypeDef",
-    "ListSupportedResourceTypesInputRequestTypeDef",
+    "ListManagedViewsInputPaginateTypeDef",
+    "ListManagedViewsInputTypeDef",
+    "ListManagedViewsOutputTypeDef",
+    "ListResourcesInputPaginateTypeDef",
+    "ListResourcesInputTypeDef",
+    "ListResourcesOutputTypeDef",
+    "ListSupportedResourceTypesInputPaginateTypeDef",
+    "ListSupportedResourceTypesInputTypeDef",
     "ListSupportedResourceTypesOutputTypeDef",
-    "ListTagsForResourceInputRequestTypeDef",
+    "ListTagsForResourceInputTypeDef",
     "ListTagsForResourceOutputTypeDef",
-    "ListViewsInputRequestTypeDef",
+    "ListViewsInputPaginateTypeDef",
+    "ListViewsInputTypeDef",
     "ListViewsOutputTypeDef",
+    "ManagedViewTypeDef",
     "MemberIndexTypeDef",
     "OrgConfigurationTypeDef",
     "PaginatorConfigTypeDef",
@@ -62,155 +86,177 @@ __all__ = (
     "ResourceTypeDef",
     "ResponseMetadataTypeDef",
     "SearchFilterTypeDef",
-    "SearchInputRequestTypeDef",
+    "SearchInputPaginateTypeDef",
+    "SearchInputTypeDef",
     "SearchOutputTypeDef",
     "SupportedResourceTypeTypeDef",
-    "TagResourceInputRequestTypeDef",
-    "UntagResourceInputRequestTypeDef",
-    "UpdateIndexTypeInputRequestTypeDef",
+    "TagResourceInputTypeDef",
+    "UntagResourceInputTypeDef",
+    "UpdateIndexTypeInputTypeDef",
     "UpdateIndexTypeOutputTypeDef",
-    "UpdateViewInputRequestTypeDef",
+    "UpdateViewInputTypeDef",
     "UpdateViewOutputTypeDef",
     "ViewTypeDef",
 )
 
-AssociateDefaultViewInputRequestTypeDef = TypedDict(
-    "AssociateDefaultViewInputRequestTypeDef",
+class AssociateDefaultViewInputTypeDef(TypedDict):
+    ViewArn: str
+
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
+
+class BatchGetViewErrorTypeDef(TypedDict):
+    ErrorMessage: str
+    ViewArn: str
+
+class BatchGetViewInputTypeDef(TypedDict):
+    ViewArns: NotRequired[Sequence[str]]
+
+class CreateIndexInputTypeDef(TypedDict):
+    ClientToken: NotRequired[str]
+    Tags: NotRequired[Mapping[str, str]]
+
+class IncludedPropertyTypeDef(TypedDict):
+    Name: str
+
+class SearchFilterTypeDef(TypedDict):
+    FilterString: str
+
+class DeleteIndexInputTypeDef(TypedDict):
+    Arn: str
+
+class DeleteViewInputTypeDef(TypedDict):
+    ViewArn: str
+
+class OrgConfigurationTypeDef(TypedDict):
+    AWSServiceAccessStatus: AWSServiceAccessStatusType
+    ServiceLinkedRole: NotRequired[str]
+
+class GetManagedViewInputTypeDef(TypedDict):
+    ManagedViewArn: str
+
+class GetViewInputTypeDef(TypedDict):
+    ViewArn: str
+
+IndexTypeDef = TypedDict(
+    "IndexTypeDef",
     {
-        "ViewArn": str,
+        "Arn": NotRequired[str],
+        "Region": NotRequired[str],
+        "Type": NotRequired[IndexTypeType],
     },
 )
 
-AssociateDefaultViewOutputTypeDef = TypedDict(
-    "AssociateDefaultViewOutputTypeDef",
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class ListIndexesForMembersInputTypeDef(TypedDict):
+    AccountIdList: Sequence[str]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+MemberIndexTypeDef = TypedDict(
+    "MemberIndexTypeDef",
     {
-        "ViewArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "AccountId": NotRequired[str],
+        "Arn": NotRequired[str],
+        "Region": NotRequired[str],
+        "Type": NotRequired[IndexTypeType],
+    },
+)
+ListIndexesInputTypeDef = TypedDict(
+    "ListIndexesInputTypeDef",
+    {
+        "MaxResults": NotRequired[int],
+        "NextToken": NotRequired[str],
+        "Regions": NotRequired[Sequence[str]],
+        "Type": NotRequired[IndexTypeType],
     },
 )
 
-BatchGetViewErrorTypeDef = TypedDict(
-    "BatchGetViewErrorTypeDef",
-    {
-        "ErrorMessage": str,
-        "ViewArn": str,
-    },
-)
+class ListManagedViewsInputTypeDef(TypedDict):
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+    ServicePrincipal: NotRequired[str]
 
-BatchGetViewInputRequestTypeDef = TypedDict(
-    "BatchGetViewInputRequestTypeDef",
-    {
-        "ViewArns": List[str],
-    },
-    total=False,
-)
+class ListSupportedResourceTypesInputTypeDef(TypedDict):
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
 
-BatchGetViewOutputTypeDef = TypedDict(
-    "BatchGetViewOutputTypeDef",
-    {
-        "Errors": List["BatchGetViewErrorTypeDef"],
-        "Views": List["ViewTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class SupportedResourceTypeTypeDef(TypedDict):
+    ResourceType: NotRequired[str]
+    Service: NotRequired[str]
 
-CreateIndexInputRequestTypeDef = TypedDict(
-    "CreateIndexInputRequestTypeDef",
-    {
-        "ClientToken": str,
-        "Tags": Dict[str, str],
-    },
-    total=False,
-)
+class ListTagsForResourceInputTypeDef(TypedDict):
+    resourceArn: str
 
-CreateIndexOutputTypeDef = TypedDict(
-    "CreateIndexOutputTypeDef",
+class ListViewsInputTypeDef(TypedDict):
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ResourceCountTypeDef(TypedDict):
+    Complete: NotRequired[bool]
+    TotalResources: NotRequired[int]
+
+class ResourcePropertyTypeDef(TypedDict):
+    Data: NotRequired[Dict[str, Any]]
+    LastReportedAt: NotRequired[datetime]
+    Name: NotRequired[str]
+
+class SearchInputTypeDef(TypedDict):
+    QueryString: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+    ViewArn: NotRequired[str]
+
+class TagResourceInputTypeDef(TypedDict):
+    resourceArn: str
+    Tags: NotRequired[Mapping[str, str]]
+
+class UntagResourceInputTypeDef(TypedDict):
+    resourceArn: str
+    tagKeys: Sequence[str]
+
+UpdateIndexTypeInputTypeDef = TypedDict(
+    "UpdateIndexTypeInputTypeDef",
     {
         "Arn": str,
-        "CreatedAt": datetime,
-        "State": IndexStateType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "Type": IndexTypeType,
     },
 )
 
-_RequiredCreateViewInputRequestTypeDef = TypedDict(
-    "_RequiredCreateViewInputRequestTypeDef",
-    {
-        "ViewName": str,
-    },
-)
-_OptionalCreateViewInputRequestTypeDef = TypedDict(
-    "_OptionalCreateViewInputRequestTypeDef",
-    {
-        "ClientToken": str,
-        "Filters": "SearchFilterTypeDef",
-        "IncludedProperties": List["IncludedPropertyTypeDef"],
-        "Scope": str,
-        "Tags": Dict[str, str],
-    },
-    total=False,
-)
+class AssociateDefaultViewOutputTypeDef(TypedDict):
+    ViewArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class CreateViewInputRequestTypeDef(
-    _RequiredCreateViewInputRequestTypeDef, _OptionalCreateViewInputRequestTypeDef
-):
-    pass
+class CreateIndexOutputTypeDef(TypedDict):
+    Arn: str
+    CreatedAt: datetime
+    State: IndexStateType
+    ResponseMetadata: ResponseMetadataTypeDef
 
-CreateViewOutputTypeDef = TypedDict(
-    "CreateViewOutputTypeDef",
-    {
-        "View": "ViewTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DeleteIndexOutputTypeDef(TypedDict):
+    Arn: str
+    LastUpdatedAt: datetime
+    State: IndexStateType
+    ResponseMetadata: ResponseMetadataTypeDef
 
-DeleteIndexInputRequestTypeDef = TypedDict(
-    "DeleteIndexInputRequestTypeDef",
-    {
-        "Arn": str,
-    },
-)
+class DeleteViewOutputTypeDef(TypedDict):
+    ViewArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-DeleteIndexOutputTypeDef = TypedDict(
-    "DeleteIndexOutputTypeDef",
-    {
-        "Arn": str,
-        "LastUpdatedAt": datetime,
-        "State": IndexStateType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class EmptyResponseMetadataTypeDef(TypedDict):
+    ResponseMetadata: ResponseMetadataTypeDef
 
-DeleteViewInputRequestTypeDef = TypedDict(
-    "DeleteViewInputRequestTypeDef",
-    {
-        "ViewArn": str,
-    },
-)
-
-DeleteViewOutputTypeDef = TypedDict(
-    "DeleteViewOutputTypeDef",
-    {
-        "ViewArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetAccountLevelServiceConfigurationOutputTypeDef = TypedDict(
-    "GetAccountLevelServiceConfigurationOutputTypeDef",
-    {
-        "OrgConfiguration": "OrgConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetDefaultViewOutputTypeDef = TypedDict(
-    "GetDefaultViewOutputTypeDef",
-    {
-        "ViewArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetDefaultViewOutputTypeDef(TypedDict):
+    ViewArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
 GetIndexOutputTypeDef = TypedDict(
     "GetIndexOutputTypeDef",
@@ -223,308 +269,23 @@ GetIndexOutputTypeDef = TypedDict(
         "State": IndexStateType,
         "Tags": Dict[str, str],
         "Type": IndexTypeType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
 
-GetViewInputRequestTypeDef = TypedDict(
-    "GetViewInputRequestTypeDef",
-    {
-        "ViewArn": str,
-    },
-)
+class ListManagedViewsOutputTypeDef(TypedDict):
+    ManagedViews: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-GetViewOutputTypeDef = TypedDict(
-    "GetViewOutputTypeDef",
-    {
-        "Tags": Dict[str, str],
-        "View": "ViewTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListTagsForResourceOutputTypeDef(TypedDict):
+    Tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-IncludedPropertyTypeDef = TypedDict(
-    "IncludedPropertyTypeDef",
-    {
-        "Name": str,
-    },
-)
-
-IndexTypeDef = TypedDict(
-    "IndexTypeDef",
-    {
-        "Arn": str,
-        "Region": str,
-        "Type": IndexTypeType,
-    },
-    total=False,
-)
-
-_RequiredListIndexesForMembersInputRequestTypeDef = TypedDict(
-    "_RequiredListIndexesForMembersInputRequestTypeDef",
-    {
-        "AccountIdList": List[str],
-    },
-)
-_OptionalListIndexesForMembersInputRequestTypeDef = TypedDict(
-    "_OptionalListIndexesForMembersInputRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListIndexesForMembersInputRequestTypeDef(
-    _RequiredListIndexesForMembersInputRequestTypeDef,
-    _OptionalListIndexesForMembersInputRequestTypeDef,
-):
-    pass
-
-ListIndexesForMembersOutputTypeDef = TypedDict(
-    "ListIndexesForMembersOutputTypeDef",
-    {
-        "Indexes": List["MemberIndexTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListIndexesInputRequestTypeDef = TypedDict(
-    "ListIndexesInputRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-        "Regions": List[str],
-        "Type": IndexTypeType,
-    },
-    total=False,
-)
-
-ListIndexesOutputTypeDef = TypedDict(
-    "ListIndexesOutputTypeDef",
-    {
-        "Indexes": List["IndexTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListSupportedResourceTypesInputRequestTypeDef = TypedDict(
-    "ListSupportedResourceTypesInputRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListSupportedResourceTypesOutputTypeDef = TypedDict(
-    "ListSupportedResourceTypesOutputTypeDef",
-    {
-        "NextToken": str,
-        "ResourceTypes": List["SupportedResourceTypeTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTagsForResourceInputRequestTypeDef = TypedDict(
-    "ListTagsForResourceInputRequestTypeDef",
-    {
-        "resourceArn": str,
-    },
-)
-
-ListTagsForResourceOutputTypeDef = TypedDict(
-    "ListTagsForResourceOutputTypeDef",
-    {
-        "Tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListViewsInputRequestTypeDef = TypedDict(
-    "ListViewsInputRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListViewsOutputTypeDef = TypedDict(
-    "ListViewsOutputTypeDef",
-    {
-        "NextToken": str,
-        "Views": List[str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-MemberIndexTypeDef = TypedDict(
-    "MemberIndexTypeDef",
-    {
-        "AccountId": str,
-        "Arn": str,
-        "Region": str,
-        "Type": IndexTypeType,
-    },
-    total=False,
-)
-
-_RequiredOrgConfigurationTypeDef = TypedDict(
-    "_RequiredOrgConfigurationTypeDef",
-    {
-        "AWSServiceAccessStatus": AWSServiceAccessStatusType,
-    },
-)
-_OptionalOrgConfigurationTypeDef = TypedDict(
-    "_OptionalOrgConfigurationTypeDef",
-    {
-        "ServiceLinkedRole": str,
-    },
-    total=False,
-)
-
-class OrgConfigurationTypeDef(_RequiredOrgConfigurationTypeDef, _OptionalOrgConfigurationTypeDef):
-    pass
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-ResourceCountTypeDef = TypedDict(
-    "ResourceCountTypeDef",
-    {
-        "Complete": bool,
-        "TotalResources": int,
-    },
-    total=False,
-)
-
-ResourcePropertyTypeDef = TypedDict(
-    "ResourcePropertyTypeDef",
-    {
-        "Data": Dict[str, Any],
-        "LastReportedAt": datetime,
-        "Name": str,
-    },
-    total=False,
-)
-
-ResourceTypeDef = TypedDict(
-    "ResourceTypeDef",
-    {
-        "Arn": str,
-        "LastReportedAt": datetime,
-        "OwningAccountId": str,
-        "Properties": List["ResourcePropertyTypeDef"],
-        "Region": str,
-        "ResourceType": str,
-        "Service": str,
-    },
-    total=False,
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-SearchFilterTypeDef = TypedDict(
-    "SearchFilterTypeDef",
-    {
-        "FilterString": str,
-    },
-)
-
-_RequiredSearchInputRequestTypeDef = TypedDict(
-    "_RequiredSearchInputRequestTypeDef",
-    {
-        "QueryString": str,
-    },
-)
-_OptionalSearchInputRequestTypeDef = TypedDict(
-    "_OptionalSearchInputRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-        "ViewArn": str,
-    },
-    total=False,
-)
-
-class SearchInputRequestTypeDef(
-    _RequiredSearchInputRequestTypeDef, _OptionalSearchInputRequestTypeDef
-):
-    pass
-
-SearchOutputTypeDef = TypedDict(
-    "SearchOutputTypeDef",
-    {
-        "Count": "ResourceCountTypeDef",
-        "NextToken": str,
-        "Resources": List["ResourceTypeDef"],
-        "ViewArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-SupportedResourceTypeTypeDef = TypedDict(
-    "SupportedResourceTypeTypeDef",
-    {
-        "ResourceType": str,
-        "Service": str,
-    },
-    total=False,
-)
-
-_RequiredTagResourceInputRequestTypeDef = TypedDict(
-    "_RequiredTagResourceInputRequestTypeDef",
-    {
-        "resourceArn": str,
-    },
-)
-_OptionalTagResourceInputRequestTypeDef = TypedDict(
-    "_OptionalTagResourceInputRequestTypeDef",
-    {
-        "Tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class TagResourceInputRequestTypeDef(
-    _RequiredTagResourceInputRequestTypeDef, _OptionalTagResourceInputRequestTypeDef
-):
-    pass
-
-UntagResourceInputRequestTypeDef = TypedDict(
-    "UntagResourceInputRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tagKeys": List[str],
-    },
-)
-
-UpdateIndexTypeInputRequestTypeDef = TypedDict(
-    "UpdateIndexTypeInputRequestTypeDef",
-    {
-        "Arn": str,
-        "Type": IndexTypeType,
-    },
-)
+class ListViewsOutputTypeDef(TypedDict):
+    Views: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
 UpdateIndexTypeOutputTypeDef = TypedDict(
     "UpdateIndexTypeOutputTypeDef",
@@ -533,47 +294,141 @@ UpdateIndexTypeOutputTypeDef = TypedDict(
         "LastUpdatedAt": datetime,
         "State": IndexStateType,
         "Type": IndexTypeType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
 
-_RequiredUpdateViewInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateViewInputRequestTypeDef",
+class CreateViewInputTypeDef(TypedDict):
+    ViewName: str
+    ClientToken: NotRequired[str]
+    Filters: NotRequired[SearchFilterTypeDef]
+    IncludedProperties: NotRequired[Sequence[IncludedPropertyTypeDef]]
+    Scope: NotRequired[str]
+    Tags: NotRequired[Mapping[str, str]]
+
+class ListResourcesInputTypeDef(TypedDict):
+    Filters: NotRequired[SearchFilterTypeDef]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+    ViewArn: NotRequired[str]
+
+class ManagedViewTypeDef(TypedDict):
+    Filters: NotRequired[SearchFilterTypeDef]
+    IncludedProperties: NotRequired[List[IncludedPropertyTypeDef]]
+    LastUpdatedAt: NotRequired[datetime]
+    ManagedViewArn: NotRequired[str]
+    ManagedViewName: NotRequired[str]
+    Owner: NotRequired[str]
+    ResourcePolicy: NotRequired[str]
+    Scope: NotRequired[str]
+    TrustedService: NotRequired[str]
+    Version: NotRequired[str]
+
+class UpdateViewInputTypeDef(TypedDict):
+    ViewArn: str
+    Filters: NotRequired[SearchFilterTypeDef]
+    IncludedProperties: NotRequired[Sequence[IncludedPropertyTypeDef]]
+
+class ViewTypeDef(TypedDict):
+    Filters: NotRequired[SearchFilterTypeDef]
+    IncludedProperties: NotRequired[List[IncludedPropertyTypeDef]]
+    LastUpdatedAt: NotRequired[datetime]
+    Owner: NotRequired[str]
+    Scope: NotRequired[str]
+    ViewArn: NotRequired[str]
+
+class GetAccountLevelServiceConfigurationOutputTypeDef(TypedDict):
+    OrgConfiguration: OrgConfigurationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListIndexesOutputTypeDef(TypedDict):
+    Indexes: List[IndexTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListIndexesForMembersInputPaginateTypeDef(TypedDict):
+    AccountIdList: Sequence[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+ListIndexesInputPaginateTypeDef = TypedDict(
+    "ListIndexesInputPaginateTypeDef",
     {
-        "ViewArn": str,
+        "Regions": NotRequired[Sequence[str]],
+        "Type": NotRequired[IndexTypeType],
+        "PaginationConfig": NotRequired[PaginatorConfigTypeDef],
     },
-)
-_OptionalUpdateViewInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateViewInputRequestTypeDef",
-    {
-        "Filters": "SearchFilterTypeDef",
-        "IncludedProperties": List["IncludedPropertyTypeDef"],
-    },
-    total=False,
 )
 
-class UpdateViewInputRequestTypeDef(
-    _RequiredUpdateViewInputRequestTypeDef, _OptionalUpdateViewInputRequestTypeDef
-):
-    pass
+class ListManagedViewsInputPaginateTypeDef(TypedDict):
+    ServicePrincipal: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-UpdateViewOutputTypeDef = TypedDict(
-    "UpdateViewOutputTypeDef",
-    {
-        "View": "ViewTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListResourcesInputPaginateTypeDef(TypedDict):
+    Filters: NotRequired[SearchFilterTypeDef]
+    ViewArn: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-ViewTypeDef = TypedDict(
-    "ViewTypeDef",
-    {
-        "Filters": "SearchFilterTypeDef",
-        "IncludedProperties": List["IncludedPropertyTypeDef"],
-        "LastUpdatedAt": datetime,
-        "Owner": str,
-        "Scope": str,
-        "ViewArn": str,
-    },
-    total=False,
-)
+class ListSupportedResourceTypesInputPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListViewsInputPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class SearchInputPaginateTypeDef(TypedDict):
+    QueryString: str
+    ViewArn: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListIndexesForMembersOutputTypeDef(TypedDict):
+    Indexes: List[MemberIndexTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListSupportedResourceTypesOutputTypeDef(TypedDict):
+    ResourceTypes: List[SupportedResourceTypeTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ResourceTypeDef(TypedDict):
+    Arn: NotRequired[str]
+    LastReportedAt: NotRequired[datetime]
+    OwningAccountId: NotRequired[str]
+    Properties: NotRequired[List[ResourcePropertyTypeDef]]
+    Region: NotRequired[str]
+    ResourceType: NotRequired[str]
+    Service: NotRequired[str]
+
+class GetManagedViewOutputTypeDef(TypedDict):
+    ManagedView: ManagedViewTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class BatchGetViewOutputTypeDef(TypedDict):
+    Errors: List[BatchGetViewErrorTypeDef]
+    Views: List[ViewTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateViewOutputTypeDef(TypedDict):
+    View: ViewTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetViewOutputTypeDef(TypedDict):
+    Tags: Dict[str, str]
+    View: ViewTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateViewOutputTypeDef(TypedDict):
+    View: ViewTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListResourcesOutputTypeDef(TypedDict):
+    Resources: List[ResourceTypeDef]
+    ViewArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class SearchOutputTypeDef(TypedDict):
+    Count: ResourceCountTypeDef
+    Resources: List[ResourceTypeDef]
+    ViewArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]

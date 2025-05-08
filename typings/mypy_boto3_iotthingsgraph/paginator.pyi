@@ -1,14 +1,16 @@
 """
 Type annotations for iotthingsgraph service client paginators.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/paginators.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/paginators/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
 
-    from mypy_boto3_iotthingsgraph import IoTThingsGraphClient
+    from mypy_boto3_iotthingsgraph.client import IoTThingsGraphClient
     from mypy_boto3_iotthingsgraph.paginator import (
         GetFlowTemplateRevisionsPaginator,
         GetSystemTemplateRevisionsPaginator,
@@ -22,7 +24,8 @@ Usage::
         SearchThingsPaginator,
     )
 
-    client: IoTThingsGraphClient = boto3.client("iotthingsgraph")
+    session = Session()
+    client: IoTThingsGraphClient = session.client("iotthingsgraph")
 
     get_flow_template_revisions_paginator: GetFlowTemplateRevisionsPaginator = client.get_paginator("get_flow_template_revisions")
     get_system_template_revisions_paginator: GetSystemTemplateRevisionsPaginator = client.get_paginator("get_system_template_revisions")
@@ -37,29 +40,40 @@ Usage::
     ```
 """
 
-from datetime import datetime
-from typing import Iterator, List, Union
+from __future__ import annotations
 
-from botocore.paginate import Paginator as Boto3Paginator
+import sys
+from typing import TYPE_CHECKING
 
-from .literals import EntityTypeType
+from botocore.paginate import PageIterator, Paginator
+
 from .type_defs import (
-    EntityFilterTypeDef,
-    FlowTemplateFilterTypeDef,
+    GetFlowTemplateRevisionsRequestPaginateTypeDef,
     GetFlowTemplateRevisionsResponseTypeDef,
+    GetSystemTemplateRevisionsRequestPaginateTypeDef,
     GetSystemTemplateRevisionsResponseTypeDef,
+    ListFlowExecutionMessagesRequestPaginateTypeDef,
     ListFlowExecutionMessagesResponseTypeDef,
+    ListTagsForResourceRequestPaginateTypeDef,
     ListTagsForResourceResponseTypeDef,
-    PaginatorConfigTypeDef,
+    SearchEntitiesRequestPaginateTypeDef,
     SearchEntitiesResponseTypeDef,
+    SearchFlowExecutionsRequestPaginateTypeDef,
     SearchFlowExecutionsResponseTypeDef,
+    SearchFlowTemplatesRequestPaginateTypeDef,
     SearchFlowTemplatesResponseTypeDef,
+    SearchSystemInstancesRequestPaginateTypeDef,
     SearchSystemInstancesResponseTypeDef,
+    SearchSystemTemplatesRequestPaginateTypeDef,
     SearchSystemTemplatesResponseTypeDef,
+    SearchThingsRequestPaginateTypeDef,
     SearchThingsResponseTypeDef,
-    SystemInstanceFilterTypeDef,
-    SystemTemplateFilterTypeDef,
 )
+
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = (
     "GetFlowTemplateRevisionsPaginator",
@@ -74,166 +88,182 @@ __all__ = (
     "SearchThingsPaginator",
 )
 
-class GetFlowTemplateRevisionsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotthingsgraph.html#IoTThingsGraph.Paginator.GetFlowTemplateRevisions)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/paginators.html#getflowtemplaterevisionspaginator)
-    """
+if TYPE_CHECKING:
+    _GetFlowTemplateRevisionsPaginatorBase = Paginator[GetFlowTemplateRevisionsResponseTypeDef]
+else:
+    _GetFlowTemplateRevisionsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, id: str, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[GetFlowTemplateRevisionsResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotthingsgraph.html#IoTThingsGraph.Paginator.GetFlowTemplateRevisions.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/paginators.html#getflowtemplaterevisionspaginator)
-        """
-
-class GetSystemTemplateRevisionsPaginator(Boto3Paginator):
+class GetFlowTemplateRevisionsPaginator(_GetFlowTemplateRevisionsPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotthingsgraph.html#IoTThingsGraph.Paginator.GetSystemTemplateRevisions)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/paginators.html#getsystemtemplaterevisionspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotthingsgraph/paginator/GetFlowTemplateRevisions.html#IoTThingsGraph.Paginator.GetFlowTemplateRevisions)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/paginators/#getflowtemplaterevisionspaginator)
     """
-
-    def paginate(
-        self, *, id: str, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[GetSystemTemplateRevisionsResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[GetFlowTemplateRevisionsRequestPaginateTypeDef]
+    ) -> PageIterator[GetFlowTemplateRevisionsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotthingsgraph.html#IoTThingsGraph.Paginator.GetSystemTemplateRevisions.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/paginators.html#getsystemtemplaterevisionspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotthingsgraph/paginator/GetFlowTemplateRevisions.html#IoTThingsGraph.Paginator.GetFlowTemplateRevisions.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/paginators/#getflowtemplaterevisionspaginator)
         """
 
-class ListFlowExecutionMessagesPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotthingsgraph.html#IoTThingsGraph.Paginator.ListFlowExecutionMessages)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/paginators.html#listflowexecutionmessagespaginator)
-    """
+if TYPE_CHECKING:
+    _GetSystemTemplateRevisionsPaginatorBase = Paginator[GetSystemTemplateRevisionsResponseTypeDef]
+else:
+    _GetSystemTemplateRevisionsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, flowExecutionId: str, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListFlowExecutionMessagesResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotthingsgraph.html#IoTThingsGraph.Paginator.ListFlowExecutionMessages.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/paginators.html#listflowexecutionmessagespaginator)
-        """
-
-class ListTagsForResourcePaginator(Boto3Paginator):
+class GetSystemTemplateRevisionsPaginator(_GetSystemTemplateRevisionsPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotthingsgraph.html#IoTThingsGraph.Paginator.ListTagsForResource)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/paginators.html#listtagsforresourcepaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotthingsgraph/paginator/GetSystemTemplateRevisions.html#IoTThingsGraph.Paginator.GetSystemTemplateRevisions)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/paginators/#getsystemtemplaterevisionspaginator)
     """
-
-    def paginate(
-        self, *, resourceArn: str, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListTagsForResourceResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[GetSystemTemplateRevisionsRequestPaginateTypeDef]
+    ) -> PageIterator[GetSystemTemplateRevisionsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotthingsgraph.html#IoTThingsGraph.Paginator.ListTagsForResource.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/paginators.html#listtagsforresourcepaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotthingsgraph/paginator/GetSystemTemplateRevisions.html#IoTThingsGraph.Paginator.GetSystemTemplateRevisions.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/paginators/#getsystemtemplaterevisionspaginator)
         """
 
-class SearchEntitiesPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotthingsgraph.html#IoTThingsGraph.Paginator.SearchEntities)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/paginators.html#searchentitiespaginator)
-    """
+if TYPE_CHECKING:
+    _ListFlowExecutionMessagesPaginatorBase = Paginator[ListFlowExecutionMessagesResponseTypeDef]
+else:
+    _ListFlowExecutionMessagesPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        entityTypes: List[EntityTypeType],
-        filters: List["EntityFilterTypeDef"] = None,
-        namespaceVersion: int = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[SearchEntitiesResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotthingsgraph.html#IoTThingsGraph.Paginator.SearchEntities.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/paginators.html#searchentitiespaginator)
-        """
-
-class SearchFlowExecutionsPaginator(Boto3Paginator):
+class ListFlowExecutionMessagesPaginator(_ListFlowExecutionMessagesPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotthingsgraph.html#IoTThingsGraph.Paginator.SearchFlowExecutions)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/paginators.html#searchflowexecutionspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotthingsgraph/paginator/ListFlowExecutionMessages.html#IoTThingsGraph.Paginator.ListFlowExecutionMessages)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/paginators/#listflowexecutionmessagespaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        systemInstanceId: str,
-        flowExecutionId: str = None,
-        startTime: Union[datetime, str] = None,
-        endTime: Union[datetime, str] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[SearchFlowExecutionsResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListFlowExecutionMessagesRequestPaginateTypeDef]
+    ) -> PageIterator[ListFlowExecutionMessagesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotthingsgraph.html#IoTThingsGraph.Paginator.SearchFlowExecutions.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/paginators.html#searchflowexecutionspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotthingsgraph/paginator/ListFlowExecutionMessages.html#IoTThingsGraph.Paginator.ListFlowExecutionMessages.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/paginators/#listflowexecutionmessagespaginator)
         """
 
-class SearchFlowTemplatesPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotthingsgraph.html#IoTThingsGraph.Paginator.SearchFlowTemplates)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/paginators.html#searchflowtemplatespaginator)
-    """
+if TYPE_CHECKING:
+    _ListTagsForResourcePaginatorBase = Paginator[ListTagsForResourceResponseTypeDef]
+else:
+    _ListTagsForResourcePaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        filters: List["FlowTemplateFilterTypeDef"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[SearchFlowTemplatesResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotthingsgraph.html#IoTThingsGraph.Paginator.SearchFlowTemplates.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/paginators.html#searchflowtemplatespaginator)
-        """
-
-class SearchSystemInstancesPaginator(Boto3Paginator):
+class ListTagsForResourcePaginator(_ListTagsForResourcePaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotthingsgraph.html#IoTThingsGraph.Paginator.SearchSystemInstances)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/paginators.html#searchsysteminstancespaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotthingsgraph/paginator/ListTagsForResource.html#IoTThingsGraph.Paginator.ListTagsForResource)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/paginators/#listtagsforresourcepaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        filters: List["SystemInstanceFilterTypeDef"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[SearchSystemInstancesResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListTagsForResourceRequestPaginateTypeDef]
+    ) -> PageIterator[ListTagsForResourceResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotthingsgraph.html#IoTThingsGraph.Paginator.SearchSystemInstances.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/paginators.html#searchsysteminstancespaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotthingsgraph/paginator/ListTagsForResource.html#IoTThingsGraph.Paginator.ListTagsForResource.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/paginators/#listtagsforresourcepaginator)
         """
 
-class SearchSystemTemplatesPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotthingsgraph.html#IoTThingsGraph.Paginator.SearchSystemTemplates)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/paginators.html#searchsystemtemplatespaginator)
-    """
+if TYPE_CHECKING:
+    _SearchEntitiesPaginatorBase = Paginator[SearchEntitiesResponseTypeDef]
+else:
+    _SearchEntitiesPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        filters: List["SystemTemplateFilterTypeDef"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[SearchSystemTemplatesResponseTypeDef]:
+class SearchEntitiesPaginator(_SearchEntitiesPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotthingsgraph/paginator/SearchEntities.html#IoTThingsGraph.Paginator.SearchEntities)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/paginators/#searchentitiespaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[SearchEntitiesRequestPaginateTypeDef]
+    ) -> PageIterator[SearchEntitiesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotthingsgraph.html#IoTThingsGraph.Paginator.SearchSystemTemplates.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/paginators.html#searchsystemtemplatespaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotthingsgraph/paginator/SearchEntities.html#IoTThingsGraph.Paginator.SearchEntities.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/paginators/#searchentitiespaginator)
         """
 
-class SearchThingsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotthingsgraph.html#IoTThingsGraph.Paginator.SearchThings)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/paginators.html#searchthingspaginator)
-    """
+if TYPE_CHECKING:
+    _SearchFlowExecutionsPaginatorBase = Paginator[SearchFlowExecutionsResponseTypeDef]
+else:
+    _SearchFlowExecutionsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        entityId: str,
-        namespaceVersion: int = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[SearchThingsResponseTypeDef]:
+class SearchFlowExecutionsPaginator(_SearchFlowExecutionsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotthingsgraph/paginator/SearchFlowExecutions.html#IoTThingsGraph.Paginator.SearchFlowExecutions)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/paginators/#searchflowexecutionspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[SearchFlowExecutionsRequestPaginateTypeDef]
+    ) -> PageIterator[SearchFlowExecutionsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotthingsgraph.html#IoTThingsGraph.Paginator.SearchThings.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/paginators.html#searchthingspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotthingsgraph/paginator/SearchFlowExecutions.html#IoTThingsGraph.Paginator.SearchFlowExecutions.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/paginators/#searchflowexecutionspaginator)
+        """
+
+if TYPE_CHECKING:
+    _SearchFlowTemplatesPaginatorBase = Paginator[SearchFlowTemplatesResponseTypeDef]
+else:
+    _SearchFlowTemplatesPaginatorBase = Paginator  # type: ignore[assignment]
+
+class SearchFlowTemplatesPaginator(_SearchFlowTemplatesPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotthingsgraph/paginator/SearchFlowTemplates.html#IoTThingsGraph.Paginator.SearchFlowTemplates)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/paginators/#searchflowtemplatespaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[SearchFlowTemplatesRequestPaginateTypeDef]
+    ) -> PageIterator[SearchFlowTemplatesResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotthingsgraph/paginator/SearchFlowTemplates.html#IoTThingsGraph.Paginator.SearchFlowTemplates.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/paginators/#searchflowtemplatespaginator)
+        """
+
+if TYPE_CHECKING:
+    _SearchSystemInstancesPaginatorBase = Paginator[SearchSystemInstancesResponseTypeDef]
+else:
+    _SearchSystemInstancesPaginatorBase = Paginator  # type: ignore[assignment]
+
+class SearchSystemInstancesPaginator(_SearchSystemInstancesPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotthingsgraph/paginator/SearchSystemInstances.html#IoTThingsGraph.Paginator.SearchSystemInstances)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/paginators/#searchsysteminstancespaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[SearchSystemInstancesRequestPaginateTypeDef]
+    ) -> PageIterator[SearchSystemInstancesResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotthingsgraph/paginator/SearchSystemInstances.html#IoTThingsGraph.Paginator.SearchSystemInstances.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/paginators/#searchsysteminstancespaginator)
+        """
+
+if TYPE_CHECKING:
+    _SearchSystemTemplatesPaginatorBase = Paginator[SearchSystemTemplatesResponseTypeDef]
+else:
+    _SearchSystemTemplatesPaginatorBase = Paginator  # type: ignore[assignment]
+
+class SearchSystemTemplatesPaginator(_SearchSystemTemplatesPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotthingsgraph/paginator/SearchSystemTemplates.html#IoTThingsGraph.Paginator.SearchSystemTemplates)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/paginators/#searchsystemtemplatespaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[SearchSystemTemplatesRequestPaginateTypeDef]
+    ) -> PageIterator[SearchSystemTemplatesResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotthingsgraph/paginator/SearchSystemTemplates.html#IoTThingsGraph.Paginator.SearchSystemTemplates.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/paginators/#searchsystemtemplatespaginator)
+        """
+
+if TYPE_CHECKING:
+    _SearchThingsPaginatorBase = Paginator[SearchThingsResponseTypeDef]
+else:
+    _SearchThingsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class SearchThingsPaginator(_SearchThingsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotthingsgraph/paginator/SearchThings.html#IoTThingsGraph.Paginator.SearchThings)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/paginators/#searchthingspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[SearchThingsRequestPaginateTypeDef]
+    ) -> PageIterator[SearchThingsResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotthingsgraph/paginator/SearchThings.html#IoTThingsGraph.Paginator.SearchThings.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/paginators/#searchthingspaginator)
         """

@@ -1,14 +1,16 @@
 """
 Type annotations for location service client paginators.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_location/paginators.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_location/paginators/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
 
-    from mypy_boto3_location import LocationServiceClient
+    from mypy_boto3_location.client import LocationServiceClient
     from mypy_boto3_location.paginator import (
         ForecastGeofenceEventsPaginator,
         GetDevicePositionHistoryPaginator,
@@ -23,7 +25,8 @@ Usage::
         ListTrackersPaginator,
     )
 
-    client: LocationServiceClient = boto3.client("location")
+    session = Session()
+    client: LocationServiceClient = session.client("location")
 
     forecast_geofence_events_paginator: ForecastGeofenceEventsPaginator = client.get_paginator("forecast_geofence_events")
     get_device_position_history_paginator: GetDevicePositionHistoryPaginator = client.get_paginator("get_device_position_history")
@@ -39,29 +42,42 @@ Usage::
     ```
 """
 
-from datetime import datetime
-from typing import Iterator, Union
+from __future__ import annotations
 
-from botocore.paginate import Paginator as Boto3Paginator
+import sys
+from typing import TYPE_CHECKING
 
-from .literals import DistanceUnitType, SpeedUnitType
+from botocore.paginate import PageIterator, Paginator
+
 from .type_defs import (
-    ApiKeyFilterTypeDef,
-    ForecastGeofenceEventsDeviceStateTypeDef,
+    ForecastGeofenceEventsRequestPaginateTypeDef,
     ForecastGeofenceEventsResponseTypeDef,
+    GetDevicePositionHistoryRequestPaginateTypeDef,
     GetDevicePositionHistoryResponseTypeDef,
+    ListDevicePositionsRequestPaginateTypeDef,
     ListDevicePositionsResponseTypeDef,
+    ListGeofenceCollectionsRequestPaginateTypeDef,
     ListGeofenceCollectionsResponseTypeDef,
+    ListGeofencesRequestPaginateTypeDef,
     ListGeofencesResponseTypeDef,
+    ListKeysRequestPaginateTypeDef,
     ListKeysResponseTypeDef,
+    ListMapsRequestPaginateTypeDef,
     ListMapsResponseTypeDef,
+    ListPlaceIndexesRequestPaginateTypeDef,
     ListPlaceIndexesResponseTypeDef,
+    ListRouteCalculatorsRequestPaginateTypeDef,
     ListRouteCalculatorsResponseTypeDef,
+    ListTrackerConsumersRequestPaginateTypeDef,
     ListTrackerConsumersResponseTypeDef,
+    ListTrackersRequestPaginateTypeDef,
     ListTrackersResponseTypeDef,
-    PaginatorConfigTypeDef,
-    TrackingFilterGeometryTypeDef,
 )
+
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = (
     "ForecastGeofenceEventsPaginator",
@@ -77,176 +93,200 @@ __all__ = (
     "ListTrackersPaginator",
 )
 
-class ForecastGeofenceEventsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/location.html#LocationService.Paginator.ForecastGeofenceEvents)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_location/paginators.html#forecastgeofenceeventspaginator)
-    """
+if TYPE_CHECKING:
+    _ForecastGeofenceEventsPaginatorBase = Paginator[ForecastGeofenceEventsResponseTypeDef]
+else:
+    _ForecastGeofenceEventsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        CollectionName: str,
-        DeviceState: "ForecastGeofenceEventsDeviceStateTypeDef",
-        TimeHorizonMinutes: float = None,
-        DistanceUnit: DistanceUnitType = None,
-        SpeedUnit: SpeedUnitType = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ForecastGeofenceEventsResponseTypeDef]:
+class ForecastGeofenceEventsPaginator(_ForecastGeofenceEventsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/location/paginator/ForecastGeofenceEvents.html#LocationService.Paginator.ForecastGeofenceEvents)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_location/paginators/#forecastgeofenceeventspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ForecastGeofenceEventsRequestPaginateTypeDef]
+    ) -> PageIterator[ForecastGeofenceEventsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/location.html#LocationService.Paginator.ForecastGeofenceEvents.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_location/paginators.html#forecastgeofenceeventspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/location/paginator/ForecastGeofenceEvents.html#LocationService.Paginator.ForecastGeofenceEvents.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_location/paginators/#forecastgeofenceeventspaginator)
         """
 
-class GetDevicePositionHistoryPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/location.html#LocationService.Paginator.GetDevicePositionHistory)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_location/paginators.html#getdevicepositionhistorypaginator)
-    """
+if TYPE_CHECKING:
+    _GetDevicePositionHistoryPaginatorBase = Paginator[GetDevicePositionHistoryResponseTypeDef]
+else:
+    _GetDevicePositionHistoryPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        TrackerName: str,
-        DeviceId: str,
-        StartTimeInclusive: Union[datetime, str] = None,
-        EndTimeExclusive: Union[datetime, str] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[GetDevicePositionHistoryResponseTypeDef]:
+class GetDevicePositionHistoryPaginator(_GetDevicePositionHistoryPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/location/paginator/GetDevicePositionHistory.html#LocationService.Paginator.GetDevicePositionHistory)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_location/paginators/#getdevicepositionhistorypaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[GetDevicePositionHistoryRequestPaginateTypeDef]
+    ) -> PageIterator[GetDevicePositionHistoryResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/location.html#LocationService.Paginator.GetDevicePositionHistory.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_location/paginators.html#getdevicepositionhistorypaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/location/paginator/GetDevicePositionHistory.html#LocationService.Paginator.GetDevicePositionHistory.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_location/paginators/#getdevicepositionhistorypaginator)
         """
 
-class ListDevicePositionsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/location.html#LocationService.Paginator.ListDevicePositions)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_location/paginators.html#listdevicepositionspaginator)
-    """
+if TYPE_CHECKING:
+    _ListDevicePositionsPaginatorBase = Paginator[ListDevicePositionsResponseTypeDef]
+else:
+    _ListDevicePositionsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        TrackerName: str,
-        FilterGeometry: "TrackingFilterGeometryTypeDef" = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListDevicePositionsResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/location.html#LocationService.Paginator.ListDevicePositions.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_location/paginators.html#listdevicepositionspaginator)
-        """
-
-class ListGeofenceCollectionsPaginator(Boto3Paginator):
+class ListDevicePositionsPaginator(_ListDevicePositionsPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/location.html#LocationService.Paginator.ListGeofenceCollections)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_location/paginators.html#listgeofencecollectionspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/location/paginator/ListDevicePositions.html#LocationService.Paginator.ListDevicePositions)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_location/paginators/#listdevicepositionspaginator)
     """
-
-    def paginate(
-        self, *, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListGeofenceCollectionsResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListDevicePositionsRequestPaginateTypeDef]
+    ) -> PageIterator[ListDevicePositionsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/location.html#LocationService.Paginator.ListGeofenceCollections.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_location/paginators.html#listgeofencecollectionspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/location/paginator/ListDevicePositions.html#LocationService.Paginator.ListDevicePositions.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_location/paginators/#listdevicepositionspaginator)
         """
 
-class ListGeofencesPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/location.html#LocationService.Paginator.ListGeofences)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_location/paginators.html#listgeofencespaginator)
-    """
+if TYPE_CHECKING:
+    _ListGeofenceCollectionsPaginatorBase = Paginator[ListGeofenceCollectionsResponseTypeDef]
+else:
+    _ListGeofenceCollectionsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, CollectionName: str, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListGeofencesResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/location.html#LocationService.Paginator.ListGeofences.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_location/paginators.html#listgeofencespaginator)
-        """
-
-class ListKeysPaginator(Boto3Paginator):
+class ListGeofenceCollectionsPaginator(_ListGeofenceCollectionsPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/location.html#LocationService.Paginator.ListKeys)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_location/paginators.html#listkeyspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/location/paginator/ListGeofenceCollections.html#LocationService.Paginator.ListGeofenceCollections)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_location/paginators/#listgeofencecollectionspaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        Filter: "ApiKeyFilterTypeDef" = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListKeysResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListGeofenceCollectionsRequestPaginateTypeDef]
+    ) -> PageIterator[ListGeofenceCollectionsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/location.html#LocationService.Paginator.ListKeys.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_location/paginators.html#listkeyspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/location/paginator/ListGeofenceCollections.html#LocationService.Paginator.ListGeofenceCollections.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_location/paginators/#listgeofencecollectionspaginator)
         """
 
-class ListMapsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/location.html#LocationService.Paginator.ListMaps)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_location/paginators.html#listmapspaginator)
-    """
+if TYPE_CHECKING:
+    _ListGeofencesPaginatorBase = Paginator[ListGeofencesResponseTypeDef]
+else:
+    _ListGeofencesPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListMapsResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/location.html#LocationService.Paginator.ListMaps.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_location/paginators.html#listmapspaginator)
-        """
-
-class ListPlaceIndexesPaginator(Boto3Paginator):
+class ListGeofencesPaginator(_ListGeofencesPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/location.html#LocationService.Paginator.ListPlaceIndexes)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_location/paginators.html#listplaceindexespaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/location/paginator/ListGeofences.html#LocationService.Paginator.ListGeofences)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_location/paginators/#listgeofencespaginator)
     """
-
-    def paginate(
-        self, *, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListPlaceIndexesResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListGeofencesRequestPaginateTypeDef]
+    ) -> PageIterator[ListGeofencesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/location.html#LocationService.Paginator.ListPlaceIndexes.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_location/paginators.html#listplaceindexespaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/location/paginator/ListGeofences.html#LocationService.Paginator.ListGeofences.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_location/paginators/#listgeofencespaginator)
         """
 
-class ListRouteCalculatorsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/location.html#LocationService.Paginator.ListRouteCalculators)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_location/paginators.html#listroutecalculatorspaginator)
-    """
+if TYPE_CHECKING:
+    _ListKeysPaginatorBase = Paginator[ListKeysResponseTypeDef]
+else:
+    _ListKeysPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListRouteCalculatorsResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/location.html#LocationService.Paginator.ListRouteCalculators.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_location/paginators.html#listroutecalculatorspaginator)
-        """
-
-class ListTrackerConsumersPaginator(Boto3Paginator):
+class ListKeysPaginator(_ListKeysPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/location.html#LocationService.Paginator.ListTrackerConsumers)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_location/paginators.html#listtrackerconsumerspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/location/paginator/ListKeys.html#LocationService.Paginator.ListKeys)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_location/paginators/#listkeyspaginator)
     """
-
-    def paginate(
-        self, *, TrackerName: str, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListTrackerConsumersResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListKeysRequestPaginateTypeDef]
+    ) -> PageIterator[ListKeysResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/location.html#LocationService.Paginator.ListTrackerConsumers.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_location/paginators.html#listtrackerconsumerspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/location/paginator/ListKeys.html#LocationService.Paginator.ListKeys.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_location/paginators/#listkeyspaginator)
         """
 
-class ListTrackersPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/location.html#LocationService.Paginator.ListTrackers)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_location/paginators.html#listtrackerspaginator)
-    """
+if TYPE_CHECKING:
+    _ListMapsPaginatorBase = Paginator[ListMapsResponseTypeDef]
+else:
+    _ListMapsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListTrackersResponseTypeDef]:
+class ListMapsPaginator(_ListMapsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/location/paginator/ListMaps.html#LocationService.Paginator.ListMaps)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_location/paginators/#listmapspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListMapsRequestPaginateTypeDef]
+    ) -> PageIterator[ListMapsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/location.html#LocationService.Paginator.ListTrackers.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_location/paginators.html#listtrackerspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/location/paginator/ListMaps.html#LocationService.Paginator.ListMaps.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_location/paginators/#listmapspaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListPlaceIndexesPaginatorBase = Paginator[ListPlaceIndexesResponseTypeDef]
+else:
+    _ListPlaceIndexesPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListPlaceIndexesPaginator(_ListPlaceIndexesPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/location/paginator/ListPlaceIndexes.html#LocationService.Paginator.ListPlaceIndexes)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_location/paginators/#listplaceindexespaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListPlaceIndexesRequestPaginateTypeDef]
+    ) -> PageIterator[ListPlaceIndexesResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/location/paginator/ListPlaceIndexes.html#LocationService.Paginator.ListPlaceIndexes.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_location/paginators/#listplaceindexespaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListRouteCalculatorsPaginatorBase = Paginator[ListRouteCalculatorsResponseTypeDef]
+else:
+    _ListRouteCalculatorsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListRouteCalculatorsPaginator(_ListRouteCalculatorsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/location/paginator/ListRouteCalculators.html#LocationService.Paginator.ListRouteCalculators)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_location/paginators/#listroutecalculatorspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListRouteCalculatorsRequestPaginateTypeDef]
+    ) -> PageIterator[ListRouteCalculatorsResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/location/paginator/ListRouteCalculators.html#LocationService.Paginator.ListRouteCalculators.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_location/paginators/#listroutecalculatorspaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListTrackerConsumersPaginatorBase = Paginator[ListTrackerConsumersResponseTypeDef]
+else:
+    _ListTrackerConsumersPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListTrackerConsumersPaginator(_ListTrackerConsumersPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/location/paginator/ListTrackerConsumers.html#LocationService.Paginator.ListTrackerConsumers)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_location/paginators/#listtrackerconsumerspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListTrackerConsumersRequestPaginateTypeDef]
+    ) -> PageIterator[ListTrackerConsumersResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/location/paginator/ListTrackerConsumers.html#LocationService.Paginator.ListTrackerConsumers.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_location/paginators/#listtrackerconsumerspaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListTrackersPaginatorBase = Paginator[ListTrackersResponseTypeDef]
+else:
+    _ListTrackersPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListTrackersPaginator(_ListTrackersPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/location/paginator/ListTrackers.html#LocationService.Paginator.ListTrackers)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_location/paginators/#listtrackerspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListTrackersRequestPaginateTypeDef]
+    ) -> PageIterator[ListTrackersResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/location/paginator/ListTrackers.html#LocationService.Paginator.ListTrackers.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_location/paginators/#listtrackerspaginator)
         """

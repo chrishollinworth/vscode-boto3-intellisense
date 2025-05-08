@@ -1,10 +1,14 @@
 """
 Main interface for cloudcontrol service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudcontrol/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_cloudcontrol import (
         Client,
         CloudControlApiClient,
@@ -13,10 +17,8 @@ Usage::
         ResourceRequestSuccessWaiter,
     )
 
-    session = boto3.Session()
-
-    client: CloudControlApiClient = boto3.client("cloudcontrol")
-    session_client: CloudControlApiClient = session.client("cloudcontrol")
+    session = Session()
+    client: CloudControlApiClient = session.client("cloudcontrol")
 
     resource_request_success_waiter: ResourceRequestSuccessWaiter = client.get_waiter("resource_request_success")
 

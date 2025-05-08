@@ -1,20 +1,24 @@
 """
 Type annotations for devops-guru service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_devops_guru.type_defs import AccountHealthTypeDef
+    from mypy_boto3_devops_guru.type_defs import AccountInsightHealthTypeDef
 
-    data: AccountHealthTypeDef = {...}
+    data: AccountInsightHealthTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List, Union
+from typing import Union
 
 from .literals import (
     AnomalySeverityType,
@@ -44,15 +48,21 @@ from .literals import (
     UpdateResourceCollectionActionType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Sequence
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List, Sequence
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
     "AccountHealthTypeDef",
     "AccountInsightHealthTypeDef",
-    "AddNotificationChannelRequestRequestTypeDef",
+    "AddNotificationChannelRequestTypeDef",
     "AddNotificationChannelResponseTypeDef",
     "AmazonCodeGuruProfilerIntegrationTypeDef",
     "AnomalousLogGroupTypeDef",
@@ -62,32 +72,39 @@ __all__ = (
     "AnomalySourceMetadataTypeDef",
     "AnomalyTimeRangeTypeDef",
     "CloudFormationCollectionFilterTypeDef",
+    "CloudFormationCollectionOutputTypeDef",
     "CloudFormationCollectionTypeDef",
+    "CloudFormationCollectionUnionTypeDef",
+    "CloudFormationCostEstimationResourceCollectionFilterOutputTypeDef",
     "CloudFormationCostEstimationResourceCollectionFilterTypeDef",
     "CloudFormationHealthTypeDef",
     "CloudWatchMetricsDataSummaryTypeDef",
     "CloudWatchMetricsDetailTypeDef",
     "CloudWatchMetricsDimensionTypeDef",
+    "CostEstimationResourceCollectionFilterOutputTypeDef",
     "CostEstimationResourceCollectionFilterTypeDef",
+    "CostEstimationResourceCollectionFilterUnionTypeDef",
     "CostEstimationTimeRangeTypeDef",
-    "DeleteInsightRequestRequestTypeDef",
+    "DeleteInsightRequestTypeDef",
     "DescribeAccountHealthResponseTypeDef",
-    "DescribeAccountOverviewRequestRequestTypeDef",
+    "DescribeAccountOverviewRequestTypeDef",
     "DescribeAccountOverviewResponseTypeDef",
-    "DescribeAnomalyRequestRequestTypeDef",
+    "DescribeAnomalyRequestTypeDef",
     "DescribeAnomalyResponseTypeDef",
     "DescribeEventSourcesConfigResponseTypeDef",
-    "DescribeFeedbackRequestRequestTypeDef",
+    "DescribeFeedbackRequestTypeDef",
     "DescribeFeedbackResponseTypeDef",
-    "DescribeInsightRequestRequestTypeDef",
+    "DescribeInsightRequestTypeDef",
     "DescribeInsightResponseTypeDef",
-    "DescribeOrganizationHealthRequestRequestTypeDef",
+    "DescribeOrganizationHealthRequestTypeDef",
     "DescribeOrganizationHealthResponseTypeDef",
-    "DescribeOrganizationOverviewRequestRequestTypeDef",
+    "DescribeOrganizationOverviewRequestTypeDef",
     "DescribeOrganizationOverviewResponseTypeDef",
-    "DescribeOrganizationResourceCollectionHealthRequestRequestTypeDef",
+    "DescribeOrganizationResourceCollectionHealthRequestPaginateTypeDef",
+    "DescribeOrganizationResourceCollectionHealthRequestTypeDef",
     "DescribeOrganizationResourceCollectionHealthResponseTypeDef",
-    "DescribeResourceCollectionHealthRequestRequestTypeDef",
+    "DescribeResourceCollectionHealthRequestPaginateTypeDef",
+    "DescribeResourceCollectionHealthRequestTypeDef",
     "DescribeResourceCollectionHealthResponseTypeDef",
     "DescribeServiceIntegrationResponseTypeDef",
     "EndTimeRangeTypeDef",
@@ -95,9 +112,11 @@ __all__ = (
     "EventSourcesConfigTypeDef",
     "EventTimeRangeTypeDef",
     "EventTypeDef",
-    "GetCostEstimationRequestRequestTypeDef",
+    "GetCostEstimationRequestPaginateTypeDef",
+    "GetCostEstimationRequestTypeDef",
     "GetCostEstimationResponseTypeDef",
-    "GetResourceCollectionRequestRequestTypeDef",
+    "GetResourceCollectionRequestPaginateTypeDef",
+    "GetResourceCollectionRequestTypeDef",
     "GetResourceCollectionResponseTypeDef",
     "InsightFeedbackTypeDef",
     "InsightHealthTypeDef",
@@ -105,35 +124,46 @@ __all__ = (
     "KMSServerSideEncryptionIntegrationConfigTypeDef",
     "KMSServerSideEncryptionIntegrationTypeDef",
     "ListAnomaliesForInsightFiltersTypeDef",
-    "ListAnomaliesForInsightRequestRequestTypeDef",
+    "ListAnomaliesForInsightRequestPaginateTypeDef",
+    "ListAnomaliesForInsightRequestTypeDef",
     "ListAnomaliesForInsightResponseTypeDef",
-    "ListAnomalousLogGroupsRequestRequestTypeDef",
+    "ListAnomalousLogGroupsRequestPaginateTypeDef",
+    "ListAnomalousLogGroupsRequestTypeDef",
     "ListAnomalousLogGroupsResponseTypeDef",
     "ListEventsFiltersTypeDef",
-    "ListEventsRequestRequestTypeDef",
+    "ListEventsRequestPaginateTypeDef",
+    "ListEventsRequestTypeDef",
     "ListEventsResponseTypeDef",
     "ListInsightsAnyStatusFilterTypeDef",
     "ListInsightsClosedStatusFilterTypeDef",
     "ListInsightsOngoingStatusFilterTypeDef",
-    "ListInsightsRequestRequestTypeDef",
+    "ListInsightsRequestPaginateTypeDef",
+    "ListInsightsRequestTypeDef",
     "ListInsightsResponseTypeDef",
     "ListInsightsStatusFilterTypeDef",
     "ListMonitoredResourcesFiltersTypeDef",
-    "ListMonitoredResourcesRequestRequestTypeDef",
+    "ListMonitoredResourcesRequestPaginateTypeDef",
+    "ListMonitoredResourcesRequestTypeDef",
     "ListMonitoredResourcesResponseTypeDef",
-    "ListNotificationChannelsRequestRequestTypeDef",
+    "ListNotificationChannelsRequestPaginateTypeDef",
+    "ListNotificationChannelsRequestTypeDef",
     "ListNotificationChannelsResponseTypeDef",
-    "ListOrganizationInsightsRequestRequestTypeDef",
+    "ListOrganizationInsightsRequestPaginateTypeDef",
+    "ListOrganizationInsightsRequestTypeDef",
     "ListOrganizationInsightsResponseTypeDef",
-    "ListRecommendationsRequestRequestTypeDef",
+    "ListRecommendationsRequestPaginateTypeDef",
+    "ListRecommendationsRequestTypeDef",
     "ListRecommendationsResponseTypeDef",
     "LogAnomalyClassTypeDef",
     "LogAnomalyShowcaseTypeDef",
     "LogsAnomalyDetectionIntegrationConfigTypeDef",
     "LogsAnomalyDetectionIntegrationTypeDef",
     "MonitoredResourceIdentifierTypeDef",
+    "NotificationChannelConfigOutputTypeDef",
     "NotificationChannelConfigTypeDef",
+    "NotificationChannelConfigUnionTypeDef",
     "NotificationChannelTypeDef",
+    "NotificationFilterConfigOutputTypeDef",
     "NotificationFilterConfigTypeDef",
     "OpsCenterIntegrationConfigTypeDef",
     "OpsCenterIntegrationTypeDef",
@@ -152,7 +182,7 @@ __all__ = (
     "ProactiveInsightSummaryTypeDef",
     "ProactiveInsightTypeDef",
     "ProactiveOrganizationInsightSummaryTypeDef",
-    "PutFeedbackRequestRequestTypeDef",
+    "PutFeedbackRequestTypeDef",
     "ReactiveAnomalySummaryTypeDef",
     "ReactiveAnomalyTypeDef",
     "ReactiveInsightSummaryTypeDef",
@@ -165,780 +195,215 @@ __all__ = (
     "RecommendationRelatedEventResourceTypeDef",
     "RecommendationRelatedEventTypeDef",
     "RecommendationTypeDef",
-    "RemoveNotificationChannelRequestRequestTypeDef",
+    "RemoveNotificationChannelRequestTypeDef",
     "ResourceCollectionFilterTypeDef",
+    "ResourceCollectionOutputTypeDef",
     "ResourceCollectionTypeDef",
+    "ResourceCollectionUnionTypeDef",
     "ResponseMetadataTypeDef",
     "SearchInsightsFiltersTypeDef",
-    "SearchInsightsRequestRequestTypeDef",
+    "SearchInsightsRequestPaginateTypeDef",
+    "SearchInsightsRequestTypeDef",
     "SearchInsightsResponseTypeDef",
     "SearchOrganizationInsightsFiltersTypeDef",
-    "SearchOrganizationInsightsRequestRequestTypeDef",
+    "SearchOrganizationInsightsRequestPaginateTypeDef",
+    "SearchOrganizationInsightsRequestTypeDef",
     "SearchOrganizationInsightsResponseTypeDef",
+    "ServiceCollectionOutputTypeDef",
     "ServiceCollectionTypeDef",
+    "ServiceCollectionUnionTypeDef",
     "ServiceHealthTypeDef",
     "ServiceInsightHealthTypeDef",
     "ServiceIntegrationConfigTypeDef",
     "ServiceResourceCostTypeDef",
     "SnsChannelConfigTypeDef",
-    "StartCostEstimationRequestRequestTypeDef",
+    "StartCostEstimationRequestTypeDef",
     "StartTimeRangeTypeDef",
     "TagCollectionFilterTypeDef",
+    "TagCollectionOutputTypeDef",
     "TagCollectionTypeDef",
+    "TagCollectionUnionTypeDef",
+    "TagCostEstimationResourceCollectionFilterOutputTypeDef",
     "TagCostEstimationResourceCollectionFilterTypeDef",
     "TagHealthTypeDef",
     "TimestampMetricValuePairTypeDef",
+    "TimestampTypeDef",
     "UpdateCloudFormationCollectionFilterTypeDef",
-    "UpdateEventSourcesConfigRequestRequestTypeDef",
+    "UpdateEventSourcesConfigRequestTypeDef",
     "UpdateResourceCollectionFilterTypeDef",
-    "UpdateResourceCollectionRequestRequestTypeDef",
+    "UpdateResourceCollectionRequestTypeDef",
     "UpdateServiceIntegrationConfigTypeDef",
-    "UpdateServiceIntegrationRequestRequestTypeDef",
+    "UpdateServiceIntegrationRequestTypeDef",
     "UpdateTagCollectionFilterTypeDef",
 )
 
-AccountHealthTypeDef = TypedDict(
-    "AccountHealthTypeDef",
-    {
-        "AccountId": str,
-        "Insight": "AccountInsightHealthTypeDef",
-    },
-    total=False,
-)
+class AccountInsightHealthTypeDef(TypedDict):
+    OpenProactiveInsights: NotRequired[int]
+    OpenReactiveInsights: NotRequired[int]
 
-AccountInsightHealthTypeDef = TypedDict(
-    "AccountInsightHealthTypeDef",
-    {
-        "OpenProactiveInsights": int,
-        "OpenReactiveInsights": int,
-    },
-    total=False,
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-AddNotificationChannelRequestRequestTypeDef = TypedDict(
-    "AddNotificationChannelRequestRequestTypeDef",
-    {
-        "Config": "NotificationChannelConfigTypeDef",
-    },
-)
+class AmazonCodeGuruProfilerIntegrationTypeDef(TypedDict):
+    Status: NotRequired[EventSourceOptInStatusType]
 
-AddNotificationChannelResponseTypeDef = TypedDict(
-    "AddNotificationChannelResponseTypeDef",
-    {
-        "Id": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-AmazonCodeGuruProfilerIntegrationTypeDef = TypedDict(
-    "AmazonCodeGuruProfilerIntegrationTypeDef",
-    {
-        "Status": EventSourceOptInStatusType,
-    },
-    total=False,
-)
-
-AnomalousLogGroupTypeDef = TypedDict(
-    "AnomalousLogGroupTypeDef",
-    {
-        "LogGroupName": str,
-        "ImpactStartTime": datetime,
-        "ImpactEndTime": datetime,
-        "NumberOfLogLinesScanned": int,
-        "LogAnomalyShowcases": List["LogAnomalyShowcaseTypeDef"],
-    },
-    total=False,
-)
-
-_RequiredAnomalyReportedTimeRangeTypeDef = TypedDict(
-    "_RequiredAnomalyReportedTimeRangeTypeDef",
-    {
-        "OpenTime": datetime,
-    },
-)
-_OptionalAnomalyReportedTimeRangeTypeDef = TypedDict(
-    "_OptionalAnomalyReportedTimeRangeTypeDef",
-    {
-        "CloseTime": datetime,
-    },
-    total=False,
-)
-
-class AnomalyReportedTimeRangeTypeDef(
-    _RequiredAnomalyReportedTimeRangeTypeDef, _OptionalAnomalyReportedTimeRangeTypeDef
-):
-    pass
+class AnomalyReportedTimeRangeTypeDef(TypedDict):
+    OpenTime: datetime
+    CloseTime: NotRequired[datetime]
 
 AnomalyResourceTypeDef = TypedDict(
     "AnomalyResourceTypeDef",
     {
-        "Name": str,
-        "Type": str,
-    },
-    total=False,
-)
-
-AnomalySourceDetailsTypeDef = TypedDict(
-    "AnomalySourceDetailsTypeDef",
-    {
-        "CloudWatchMetrics": List["CloudWatchMetricsDetailTypeDef"],
-        "PerformanceInsightsMetrics": List["PerformanceInsightsMetricsDetailTypeDef"],
-    },
-    total=False,
-)
-
-AnomalySourceMetadataTypeDef = TypedDict(
-    "AnomalySourceMetadataTypeDef",
-    {
-        "Source": str,
-        "SourceResourceName": str,
-        "SourceResourceType": str,
-    },
-    total=False,
-)
-
-_RequiredAnomalyTimeRangeTypeDef = TypedDict(
-    "_RequiredAnomalyTimeRangeTypeDef",
-    {
-        "StartTime": datetime,
-    },
-)
-_OptionalAnomalyTimeRangeTypeDef = TypedDict(
-    "_OptionalAnomalyTimeRangeTypeDef",
-    {
-        "EndTime": datetime,
-    },
-    total=False,
-)
-
-class AnomalyTimeRangeTypeDef(_RequiredAnomalyTimeRangeTypeDef, _OptionalAnomalyTimeRangeTypeDef):
-    pass
-
-CloudFormationCollectionFilterTypeDef = TypedDict(
-    "CloudFormationCollectionFilterTypeDef",
-    {
-        "StackNames": List[str],
-    },
-    total=False,
-)
-
-CloudFormationCollectionTypeDef = TypedDict(
-    "CloudFormationCollectionTypeDef",
-    {
-        "StackNames": List[str],
-    },
-    total=False,
-)
-
-CloudFormationCostEstimationResourceCollectionFilterTypeDef = TypedDict(
-    "CloudFormationCostEstimationResourceCollectionFilterTypeDef",
-    {
-        "StackNames": List[str],
-    },
-    total=False,
-)
-
-CloudFormationHealthTypeDef = TypedDict(
-    "CloudFormationHealthTypeDef",
-    {
-        "StackName": str,
-        "Insight": "InsightHealthTypeDef",
-        "AnalyzedResourceCount": int,
-    },
-    total=False,
-)
-
-CloudWatchMetricsDataSummaryTypeDef = TypedDict(
-    "CloudWatchMetricsDataSummaryTypeDef",
-    {
-        "TimestampMetricValuePairList": List["TimestampMetricValuePairTypeDef"],
-        "StatusCode": CloudWatchMetricDataStatusCodeType,
-    },
-    total=False,
-)
-
-CloudWatchMetricsDetailTypeDef = TypedDict(
-    "CloudWatchMetricsDetailTypeDef",
-    {
-        "MetricName": str,
-        "Namespace": str,
-        "Dimensions": List["CloudWatchMetricsDimensionTypeDef"],
-        "Stat": CloudWatchMetricsStatType,
-        "Unit": str,
-        "Period": int,
-        "MetricDataSummary": "CloudWatchMetricsDataSummaryTypeDef",
-    },
-    total=False,
-)
-
-CloudWatchMetricsDimensionTypeDef = TypedDict(
-    "CloudWatchMetricsDimensionTypeDef",
-    {
-        "Name": str,
-        "Value": str,
-    },
-    total=False,
-)
-
-CostEstimationResourceCollectionFilterTypeDef = TypedDict(
-    "CostEstimationResourceCollectionFilterTypeDef",
-    {
-        "CloudFormation": "CloudFormationCostEstimationResourceCollectionFilterTypeDef",
-        "Tags": List["TagCostEstimationResourceCollectionFilterTypeDef"],
-    },
-    total=False,
-)
-
-CostEstimationTimeRangeTypeDef = TypedDict(
-    "CostEstimationTimeRangeTypeDef",
-    {
-        "StartTime": datetime,
-        "EndTime": datetime,
-    },
-    total=False,
-)
-
-DeleteInsightRequestRequestTypeDef = TypedDict(
-    "DeleteInsightRequestRequestTypeDef",
-    {
-        "Id": str,
+        "Name": NotRequired[str],
+        "Type": NotRequired[str],
     },
 )
 
-DescribeAccountHealthResponseTypeDef = TypedDict(
-    "DescribeAccountHealthResponseTypeDef",
-    {
-        "OpenReactiveInsights": int,
-        "OpenProactiveInsights": int,
-        "MetricsAnalyzed": int,
-        "ResourceHours": int,
-        "AnalyzedResourceCount": int,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class AnomalySourceMetadataTypeDef(TypedDict):
+    Source: NotRequired[str]
+    SourceResourceName: NotRequired[str]
+    SourceResourceType: NotRequired[str]
 
-_RequiredDescribeAccountOverviewRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeAccountOverviewRequestRequestTypeDef",
-    {
-        "FromTime": Union[datetime, str],
-    },
-)
-_OptionalDescribeAccountOverviewRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeAccountOverviewRequestRequestTypeDef",
-    {
-        "ToTime": Union[datetime, str],
-    },
-    total=False,
-)
+class AnomalyTimeRangeTypeDef(TypedDict):
+    StartTime: datetime
+    EndTime: NotRequired[datetime]
 
-class DescribeAccountOverviewRequestRequestTypeDef(
-    _RequiredDescribeAccountOverviewRequestRequestTypeDef,
-    _OptionalDescribeAccountOverviewRequestRequestTypeDef,
-):
-    pass
+class CloudFormationCollectionFilterTypeDef(TypedDict):
+    StackNames: NotRequired[List[str]]
 
-DescribeAccountOverviewResponseTypeDef = TypedDict(
-    "DescribeAccountOverviewResponseTypeDef",
-    {
-        "ReactiveInsights": int,
-        "ProactiveInsights": int,
-        "MeanTimeToRecoverInMilliseconds": int,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CloudFormationCollectionOutputTypeDef(TypedDict):
+    StackNames: NotRequired[List[str]]
 
-_RequiredDescribeAnomalyRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeAnomalyRequestRequestTypeDef",
-    {
-        "Id": str,
-    },
-)
-_OptionalDescribeAnomalyRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeAnomalyRequestRequestTypeDef",
-    {
-        "AccountId": str,
-    },
-    total=False,
-)
+class CloudFormationCollectionTypeDef(TypedDict):
+    StackNames: NotRequired[Sequence[str]]
 
-class DescribeAnomalyRequestRequestTypeDef(
-    _RequiredDescribeAnomalyRequestRequestTypeDef, _OptionalDescribeAnomalyRequestRequestTypeDef
-):
-    pass
+class CloudFormationCostEstimationResourceCollectionFilterOutputTypeDef(TypedDict):
+    StackNames: NotRequired[List[str]]
 
-DescribeAnomalyResponseTypeDef = TypedDict(
-    "DescribeAnomalyResponseTypeDef",
-    {
-        "ProactiveAnomaly": "ProactiveAnomalyTypeDef",
-        "ReactiveAnomaly": "ReactiveAnomalyTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CloudFormationCostEstimationResourceCollectionFilterTypeDef(TypedDict):
+    StackNames: NotRequired[Sequence[str]]
 
-DescribeEventSourcesConfigResponseTypeDef = TypedDict(
-    "DescribeEventSourcesConfigResponseTypeDef",
-    {
-        "EventSources": "EventSourcesConfigTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class InsightHealthTypeDef(TypedDict):
+    OpenProactiveInsights: NotRequired[int]
+    OpenReactiveInsights: NotRequired[int]
+    MeanTimeToRecoverInMilliseconds: NotRequired[int]
 
-DescribeFeedbackRequestRequestTypeDef = TypedDict(
-    "DescribeFeedbackRequestRequestTypeDef",
-    {
-        "InsightId": str,
-    },
-    total=False,
-)
+class TimestampMetricValuePairTypeDef(TypedDict):
+    Timestamp: NotRequired[datetime]
+    MetricValue: NotRequired[float]
 
-DescribeFeedbackResponseTypeDef = TypedDict(
-    "DescribeFeedbackResponseTypeDef",
-    {
-        "InsightFeedback": "InsightFeedbackTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CloudWatchMetricsDimensionTypeDef(TypedDict):
+    Name: NotRequired[str]
+    Value: NotRequired[str]
 
-_RequiredDescribeInsightRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeInsightRequestRequestTypeDef",
-    {
-        "Id": str,
-    },
-)
-_OptionalDescribeInsightRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeInsightRequestRequestTypeDef",
-    {
-        "AccountId": str,
-    },
-    total=False,
-)
+class TagCostEstimationResourceCollectionFilterOutputTypeDef(TypedDict):
+    AppBoundaryKey: str
+    TagValues: List[str]
 
-class DescribeInsightRequestRequestTypeDef(
-    _RequiredDescribeInsightRequestRequestTypeDef, _OptionalDescribeInsightRequestRequestTypeDef
-):
-    pass
+class TagCostEstimationResourceCollectionFilterTypeDef(TypedDict):
+    AppBoundaryKey: str
+    TagValues: Sequence[str]
 
-DescribeInsightResponseTypeDef = TypedDict(
-    "DescribeInsightResponseTypeDef",
-    {
-        "ProactiveInsight": "ProactiveInsightTypeDef",
-        "ReactiveInsight": "ReactiveInsightTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CostEstimationTimeRangeTypeDef(TypedDict):
+    StartTime: NotRequired[datetime]
+    EndTime: NotRequired[datetime]
 
-DescribeOrganizationHealthRequestRequestTypeDef = TypedDict(
-    "DescribeOrganizationHealthRequestRequestTypeDef",
-    {
-        "AccountIds": List[str],
-        "OrganizationalUnitIds": List[str],
-    },
-    total=False,
-)
+class DeleteInsightRequestTypeDef(TypedDict):
+    Id: str
 
-DescribeOrganizationHealthResponseTypeDef = TypedDict(
-    "DescribeOrganizationHealthResponseTypeDef",
-    {
-        "OpenReactiveInsights": int,
-        "OpenProactiveInsights": int,
-        "MetricsAnalyzed": int,
-        "ResourceHours": int,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+TimestampTypeDef = Union[datetime, str]
 
-_RequiredDescribeOrganizationOverviewRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeOrganizationOverviewRequestRequestTypeDef",
-    {
-        "FromTime": Union[datetime, str],
-    },
-)
-_OptionalDescribeOrganizationOverviewRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeOrganizationOverviewRequestRequestTypeDef",
-    {
-        "ToTime": Union[datetime, str],
-        "AccountIds": List[str],
-        "OrganizationalUnitIds": List[str],
-    },
-    total=False,
-)
+class DescribeAnomalyRequestTypeDef(TypedDict):
+    Id: str
+    AccountId: NotRequired[str]
 
-class DescribeOrganizationOverviewRequestRequestTypeDef(
-    _RequiredDescribeOrganizationOverviewRequestRequestTypeDef,
-    _OptionalDescribeOrganizationOverviewRequestRequestTypeDef,
-):
-    pass
+class DescribeFeedbackRequestTypeDef(TypedDict):
+    InsightId: NotRequired[str]
 
-DescribeOrganizationOverviewResponseTypeDef = TypedDict(
-    "DescribeOrganizationOverviewResponseTypeDef",
-    {
-        "ReactiveInsights": int,
-        "ProactiveInsights": int,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class InsightFeedbackTypeDef(TypedDict):
+    Id: NotRequired[str]
+    Feedback: NotRequired[InsightFeedbackOptionType]
 
-_RequiredDescribeOrganizationResourceCollectionHealthRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeOrganizationResourceCollectionHealthRequestRequestTypeDef",
-    {
-        "OrganizationResourceCollectionType": OrganizationResourceCollectionTypeType,
-    },
-)
-_OptionalDescribeOrganizationResourceCollectionHealthRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeOrganizationResourceCollectionHealthRequestRequestTypeDef",
-    {
-        "AccountIds": List[str],
-        "OrganizationalUnitIds": List[str],
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
+class DescribeInsightRequestTypeDef(TypedDict):
+    Id: str
+    AccountId: NotRequired[str]
 
-class DescribeOrganizationResourceCollectionHealthRequestRequestTypeDef(
-    _RequiredDescribeOrganizationResourceCollectionHealthRequestRequestTypeDef,
-    _OptionalDescribeOrganizationResourceCollectionHealthRequestRequestTypeDef,
-):
-    pass
+class DescribeOrganizationHealthRequestTypeDef(TypedDict):
+    AccountIds: NotRequired[Sequence[str]]
+    OrganizationalUnitIds: NotRequired[Sequence[str]]
 
-DescribeOrganizationResourceCollectionHealthResponseTypeDef = TypedDict(
-    "DescribeOrganizationResourceCollectionHealthResponseTypeDef",
-    {
-        "CloudFormation": List["CloudFormationHealthTypeDef"],
-        "Service": List["ServiceHealthTypeDef"],
-        "Account": List["AccountHealthTypeDef"],
-        "NextToken": str,
-        "Tags": List["TagHealthTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
 
-_RequiredDescribeResourceCollectionHealthRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeResourceCollectionHealthRequestRequestTypeDef",
-    {
-        "ResourceCollectionType": ResourceCollectionTypeType,
-    },
-)
-_OptionalDescribeResourceCollectionHealthRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeResourceCollectionHealthRequestRequestTypeDef",
-    {
-        "NextToken": str,
-    },
-    total=False,
-)
+class DescribeOrganizationResourceCollectionHealthRequestTypeDef(TypedDict):
+    OrganizationResourceCollectionType: OrganizationResourceCollectionTypeType
+    AccountIds: NotRequired[Sequence[str]]
+    OrganizationalUnitIds: NotRequired[Sequence[str]]
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
 
-class DescribeResourceCollectionHealthRequestRequestTypeDef(
-    _RequiredDescribeResourceCollectionHealthRequestRequestTypeDef,
-    _OptionalDescribeResourceCollectionHealthRequestRequestTypeDef,
-):
-    pass
-
-DescribeResourceCollectionHealthResponseTypeDef = TypedDict(
-    "DescribeResourceCollectionHealthResponseTypeDef",
-    {
-        "CloudFormation": List["CloudFormationHealthTypeDef"],
-        "Service": List["ServiceHealthTypeDef"],
-        "NextToken": str,
-        "Tags": List["TagHealthTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeServiceIntegrationResponseTypeDef = TypedDict(
-    "DescribeServiceIntegrationResponseTypeDef",
-    {
-        "ServiceIntegration": "ServiceIntegrationConfigTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-EndTimeRangeTypeDef = TypedDict(
-    "EndTimeRangeTypeDef",
-    {
-        "FromTime": Union[datetime, str],
-        "ToTime": Union[datetime, str],
-    },
-    total=False,
-)
+class DescribeResourceCollectionHealthRequestTypeDef(TypedDict):
+    ResourceCollectionType: ResourceCollectionTypeType
+    NextToken: NotRequired[str]
 
 EventResourceTypeDef = TypedDict(
     "EventResourceTypeDef",
     {
-        "Type": str,
-        "Name": str,
-        "Arn": str,
-    },
-    total=False,
-)
-
-EventSourcesConfigTypeDef = TypedDict(
-    "EventSourcesConfigTypeDef",
-    {
-        "AmazonCodeGuruProfiler": "AmazonCodeGuruProfilerIntegrationTypeDef",
-    },
-    total=False,
-)
-
-EventTimeRangeTypeDef = TypedDict(
-    "EventTimeRangeTypeDef",
-    {
-        "FromTime": Union[datetime, str],
-        "ToTime": Union[datetime, str],
+        "Type": NotRequired[str],
+        "Name": NotRequired[str],
+        "Arn": NotRequired[str],
     },
 )
 
-EventTypeDef = TypedDict(
-    "EventTypeDef",
-    {
-        "ResourceCollection": "ResourceCollectionTypeDef",
-        "Id": str,
-        "Time": datetime,
-        "EventSource": str,
-        "Name": str,
-        "DataSource": EventDataSourceType,
-        "EventClass": EventClassType,
-        "Resources": List["EventResourceTypeDef"],
-    },
-    total=False,
-)
+class GetCostEstimationRequestTypeDef(TypedDict):
+    NextToken: NotRequired[str]
 
-GetCostEstimationRequestRequestTypeDef = TypedDict(
-    "GetCostEstimationRequestRequestTypeDef",
+ServiceResourceCostTypeDef = TypedDict(
+    "ServiceResourceCostTypeDef",
     {
-        "NextToken": str,
-    },
-    total=False,
-)
-
-GetCostEstimationResponseTypeDef = TypedDict(
-    "GetCostEstimationResponseTypeDef",
-    {
-        "ResourceCollection": "CostEstimationResourceCollectionFilterTypeDef",
-        "Status": CostEstimationStatusType,
-        "Costs": List["ServiceResourceCostTypeDef"],
-        "TimeRange": "CostEstimationTimeRangeTypeDef",
-        "TotalCost": float,
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "Type": NotRequired[str],
+        "State": NotRequired[CostEstimationServiceResourceStateType],
+        "Count": NotRequired[int],
+        "UnitCost": NotRequired[float],
+        "Cost": NotRequired[float],
     },
 )
 
-_RequiredGetResourceCollectionRequestRequestTypeDef = TypedDict(
-    "_RequiredGetResourceCollectionRequestRequestTypeDef",
-    {
-        "ResourceCollectionType": ResourceCollectionTypeType,
-    },
-)
-_OptionalGetResourceCollectionRequestRequestTypeDef = TypedDict(
-    "_OptionalGetResourceCollectionRequestRequestTypeDef",
-    {
-        "NextToken": str,
-    },
-    total=False,
-)
+class GetResourceCollectionRequestTypeDef(TypedDict):
+    ResourceCollectionType: ResourceCollectionTypeType
+    NextToken: NotRequired[str]
 
-class GetResourceCollectionRequestRequestTypeDef(
-    _RequiredGetResourceCollectionRequestRequestTypeDef,
-    _OptionalGetResourceCollectionRequestRequestTypeDef,
-):
-    pass
-
-GetResourceCollectionResponseTypeDef = TypedDict(
-    "GetResourceCollectionResponseTypeDef",
-    {
-        "ResourceCollection": "ResourceCollectionFilterTypeDef",
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-InsightFeedbackTypeDef = TypedDict(
-    "InsightFeedbackTypeDef",
-    {
-        "Id": str,
-        "Feedback": InsightFeedbackOptionType,
-    },
-    total=False,
-)
-
-InsightHealthTypeDef = TypedDict(
-    "InsightHealthTypeDef",
-    {
-        "OpenProactiveInsights": int,
-        "OpenReactiveInsights": int,
-        "MeanTimeToRecoverInMilliseconds": int,
-    },
-    total=False,
-)
-
-_RequiredInsightTimeRangeTypeDef = TypedDict(
-    "_RequiredInsightTimeRangeTypeDef",
-    {
-        "StartTime": datetime,
-    },
-)
-_OptionalInsightTimeRangeTypeDef = TypedDict(
-    "_OptionalInsightTimeRangeTypeDef",
-    {
-        "EndTime": datetime,
-    },
-    total=False,
-)
-
-class InsightTimeRangeTypeDef(_RequiredInsightTimeRangeTypeDef, _OptionalInsightTimeRangeTypeDef):
-    pass
+class InsightTimeRangeTypeDef(TypedDict):
+    StartTime: datetime
+    EndTime: NotRequired[datetime]
 
 KMSServerSideEncryptionIntegrationConfigTypeDef = TypedDict(
     "KMSServerSideEncryptionIntegrationConfigTypeDef",
     {
-        "KMSKeyId": str,
-        "OptInStatus": OptInStatusType,
-        "Type": ServerSideEncryptionTypeType,
+        "KMSKeyId": NotRequired[str],
+        "OptInStatus": NotRequired[OptInStatusType],
+        "Type": NotRequired[ServerSideEncryptionTypeType],
     },
-    total=False,
 )
-
 KMSServerSideEncryptionIntegrationTypeDef = TypedDict(
     "KMSServerSideEncryptionIntegrationTypeDef",
     {
-        "KMSKeyId": str,
-        "OptInStatus": OptInStatusType,
-        "Type": ServerSideEncryptionTypeType,
-    },
-    total=False,
-)
-
-ListAnomaliesForInsightFiltersTypeDef = TypedDict(
-    "ListAnomaliesForInsightFiltersTypeDef",
-    {
-        "ServiceCollection": "ServiceCollectionTypeDef",
-    },
-    total=False,
-)
-
-_RequiredListAnomaliesForInsightRequestRequestTypeDef = TypedDict(
-    "_RequiredListAnomaliesForInsightRequestRequestTypeDef",
-    {
-        "InsightId": str,
-    },
-)
-_OptionalListAnomaliesForInsightRequestRequestTypeDef = TypedDict(
-    "_OptionalListAnomaliesForInsightRequestRequestTypeDef",
-    {
-        "StartTimeRange": "StartTimeRangeTypeDef",
-        "MaxResults": int,
-        "NextToken": str,
-        "AccountId": str,
-        "Filters": "ListAnomaliesForInsightFiltersTypeDef",
-    },
-    total=False,
-)
-
-class ListAnomaliesForInsightRequestRequestTypeDef(
-    _RequiredListAnomaliesForInsightRequestRequestTypeDef,
-    _OptionalListAnomaliesForInsightRequestRequestTypeDef,
-):
-    pass
-
-ListAnomaliesForInsightResponseTypeDef = TypedDict(
-    "ListAnomaliesForInsightResponseTypeDef",
-    {
-        "ProactiveAnomalies": List["ProactiveAnomalySummaryTypeDef"],
-        "ReactiveAnomalies": List["ReactiveAnomalySummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "KMSKeyId": NotRequired[str],
+        "OptInStatus": NotRequired[OptInStatusType],
+        "Type": NotRequired[ServerSideEncryptionTypeType],
     },
 )
 
-_RequiredListAnomalousLogGroupsRequestRequestTypeDef = TypedDict(
-    "_RequiredListAnomalousLogGroupsRequestRequestTypeDef",
-    {
-        "InsightId": str,
-    },
-)
-_OptionalListAnomalousLogGroupsRequestRequestTypeDef = TypedDict(
-    "_OptionalListAnomalousLogGroupsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListAnomalousLogGroupsRequestRequestTypeDef(
-    _RequiredListAnomalousLogGroupsRequestRequestTypeDef,
-    _OptionalListAnomalousLogGroupsRequestRequestTypeDef,
-):
-    pass
-
-ListAnomalousLogGroupsResponseTypeDef = TypedDict(
-    "ListAnomalousLogGroupsResponseTypeDef",
-    {
-        "InsightId": str,
-        "AnomalousLogGroups": List["AnomalousLogGroupTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListEventsFiltersTypeDef = TypedDict(
-    "ListEventsFiltersTypeDef",
-    {
-        "InsightId": str,
-        "EventTimeRange": "EventTimeRangeTypeDef",
-        "EventClass": EventClassType,
-        "EventSource": str,
-        "DataSource": EventDataSourceType,
-        "ResourceCollection": "ResourceCollectionTypeDef",
-    },
-    total=False,
-)
-
-_RequiredListEventsRequestRequestTypeDef = TypedDict(
-    "_RequiredListEventsRequestRequestTypeDef",
-    {
-        "Filters": "ListEventsFiltersTypeDef",
-    },
-)
-_OptionalListEventsRequestRequestTypeDef = TypedDict(
-    "_OptionalListEventsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-        "AccountId": str,
-    },
-    total=False,
-)
-
-class ListEventsRequestRequestTypeDef(
-    _RequiredListEventsRequestRequestTypeDef, _OptionalListEventsRequestRequestTypeDef
-):
-    pass
-
-ListEventsResponseTypeDef = TypedDict(
-    "ListEventsResponseTypeDef",
-    {
-        "Events": List["EventTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListInsightsAnyStatusFilterTypeDef = TypedDict(
-    "ListInsightsAnyStatusFilterTypeDef",
-    {
-        "Type": InsightTypeType,
-        "StartTimeRange": "StartTimeRangeTypeDef",
-    },
-)
-
-ListInsightsClosedStatusFilterTypeDef = TypedDict(
-    "ListInsightsClosedStatusFilterTypeDef",
-    {
-        "Type": InsightTypeType,
-        "EndTimeRange": "EndTimeRangeTypeDef",
-    },
-)
+class ListAnomalousLogGroupsRequestTypeDef(TypedDict):
+    InsightId: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
 
 ListInsightsOngoingStatusFilterTypeDef = TypedDict(
     "ListInsightsOngoingStatusFilterTypeDef",
@@ -947,923 +412,790 @@ ListInsightsOngoingStatusFilterTypeDef = TypedDict(
     },
 )
 
-_RequiredListInsightsRequestRequestTypeDef = TypedDict(
-    "_RequiredListInsightsRequestRequestTypeDef",
-    {
-        "StatusFilter": "ListInsightsStatusFilterTypeDef",
-    },
-)
-_OptionalListInsightsRequestRequestTypeDef = TypedDict(
-    "_OptionalListInsightsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
+class ListMonitoredResourcesFiltersTypeDef(TypedDict):
+    ResourcePermission: ResourcePermissionType
+    ResourceTypeFilters: Sequence[ResourceTypeFilterType]
 
-class ListInsightsRequestRequestTypeDef(
-    _RequiredListInsightsRequestRequestTypeDef, _OptionalListInsightsRequestRequestTypeDef
-):
-    pass
+class ListNotificationChannelsRequestTypeDef(TypedDict):
+    NextToken: NotRequired[str]
 
-ListInsightsResponseTypeDef = TypedDict(
-    "ListInsightsResponseTypeDef",
-    {
-        "ProactiveInsights": List["ProactiveInsightSummaryTypeDef"],
-        "ReactiveInsights": List["ReactiveInsightSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListRecommendationsRequestTypeDef(TypedDict):
+    InsightId: str
+    NextToken: NotRequired[str]
+    Locale: NotRequired[LocaleType]
+    AccountId: NotRequired[str]
 
-ListInsightsStatusFilterTypeDef = TypedDict(
-    "ListInsightsStatusFilterTypeDef",
-    {
-        "Ongoing": "ListInsightsOngoingStatusFilterTypeDef",
-        "Closed": "ListInsightsClosedStatusFilterTypeDef",
-        "Any": "ListInsightsAnyStatusFilterTypeDef",
-    },
-    total=False,
-)
+class LogAnomalyClassTypeDef(TypedDict):
+    LogStreamName: NotRequired[str]
+    LogAnomalyType: NotRequired[LogAnomalyTypeType]
+    LogAnomalyToken: NotRequired[str]
+    LogEventId: NotRequired[str]
+    Explanation: NotRequired[str]
+    NumberOfLogLinesOccurrences: NotRequired[int]
+    LogEventTimestamp: NotRequired[datetime]
 
-ListMonitoredResourcesFiltersTypeDef = TypedDict(
-    "ListMonitoredResourcesFiltersTypeDef",
-    {
-        "ResourcePermission": ResourcePermissionType,
-        "ResourceTypeFilters": List[ResourceTypeFilterType],
-    },
-)
+class LogsAnomalyDetectionIntegrationConfigTypeDef(TypedDict):
+    OptInStatus: NotRequired[OptInStatusType]
 
-ListMonitoredResourcesRequestRequestTypeDef = TypedDict(
-    "ListMonitoredResourcesRequestRequestTypeDef",
-    {
-        "Filters": "ListMonitoredResourcesFiltersTypeDef",
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
+class LogsAnomalyDetectionIntegrationTypeDef(TypedDict):
+    OptInStatus: NotRequired[OptInStatusType]
 
-ListMonitoredResourcesResponseTypeDef = TypedDict(
-    "ListMonitoredResourcesResponseTypeDef",
-    {
-        "MonitoredResourceIdentifiers": List["MonitoredResourceIdentifierTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class NotificationFilterConfigOutputTypeDef(TypedDict):
+    Severities: NotRequired[List[InsightSeverityType]]
+    MessageTypes: NotRequired[List[NotificationMessageTypeType]]
 
-ListNotificationChannelsRequestRequestTypeDef = TypedDict(
-    "ListNotificationChannelsRequestRequestTypeDef",
-    {
-        "NextToken": str,
-    },
-    total=False,
-)
+class SnsChannelConfigTypeDef(TypedDict):
+    TopicArn: NotRequired[str]
 
-ListNotificationChannelsResponseTypeDef = TypedDict(
-    "ListNotificationChannelsResponseTypeDef",
-    {
-        "Channels": List["NotificationChannelTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class NotificationFilterConfigTypeDef(TypedDict):
+    Severities: NotRequired[Sequence[InsightSeverityType]]
+    MessageTypes: NotRequired[Sequence[NotificationMessageTypeType]]
 
-_RequiredListOrganizationInsightsRequestRequestTypeDef = TypedDict(
-    "_RequiredListOrganizationInsightsRequestRequestTypeDef",
-    {
-        "StatusFilter": "ListInsightsStatusFilterTypeDef",
-    },
-)
-_OptionalListOrganizationInsightsRequestRequestTypeDef = TypedDict(
-    "_OptionalListOrganizationInsightsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "AccountIds": List[str],
-        "OrganizationalUnitIds": List[str],
-        "NextToken": str,
-    },
-    total=False,
-)
+class OpsCenterIntegrationConfigTypeDef(TypedDict):
+    OptInStatus: NotRequired[OptInStatusType]
 
-class ListOrganizationInsightsRequestRequestTypeDef(
-    _RequiredListOrganizationInsightsRequestRequestTypeDef,
-    _OptionalListOrganizationInsightsRequestRequestTypeDef,
-):
-    pass
+class OpsCenterIntegrationTypeDef(TypedDict):
+    OptInStatus: NotRequired[OptInStatusType]
 
-ListOrganizationInsightsResponseTypeDef = TypedDict(
-    "ListOrganizationInsightsResponseTypeDef",
-    {
-        "ProactiveInsights": List["ProactiveOrganizationInsightSummaryTypeDef"],
-        "ReactiveInsights": List["ReactiveOrganizationInsightSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListRecommendationsRequestRequestTypeDef = TypedDict(
-    "_RequiredListRecommendationsRequestRequestTypeDef",
-    {
-        "InsightId": str,
-    },
-)
-_OptionalListRecommendationsRequestRequestTypeDef = TypedDict(
-    "_OptionalListRecommendationsRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "Locale": LocaleType,
-        "AccountId": str,
-    },
-    total=False,
-)
-
-class ListRecommendationsRequestRequestTypeDef(
-    _RequiredListRecommendationsRequestRequestTypeDef,
-    _OptionalListRecommendationsRequestRequestTypeDef,
-):
-    pass
-
-ListRecommendationsResponseTypeDef = TypedDict(
-    "ListRecommendationsResponseTypeDef",
-    {
-        "Recommendations": List["RecommendationTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-LogAnomalyClassTypeDef = TypedDict(
-    "LogAnomalyClassTypeDef",
-    {
-        "LogStreamName": str,
-        "LogAnomalyType": LogAnomalyTypeType,
-        "LogAnomalyToken": str,
-        "LogEventId": str,
-        "Explanation": str,
-        "NumberOfLogLinesOccurrences": int,
-        "LogEventTimestamp": datetime,
-    },
-    total=False,
-)
-
-LogAnomalyShowcaseTypeDef = TypedDict(
-    "LogAnomalyShowcaseTypeDef",
-    {
-        "LogAnomalyClasses": List["LogAnomalyClassTypeDef"],
-    },
-    total=False,
-)
-
-LogsAnomalyDetectionIntegrationConfigTypeDef = TypedDict(
-    "LogsAnomalyDetectionIntegrationConfigTypeDef",
-    {
-        "OptInStatus": OptInStatusType,
-    },
-    total=False,
-)
-
-LogsAnomalyDetectionIntegrationTypeDef = TypedDict(
-    "LogsAnomalyDetectionIntegrationTypeDef",
-    {
-        "OptInStatus": OptInStatusType,
-    },
-    total=False,
-)
-
-MonitoredResourceIdentifierTypeDef = TypedDict(
-    "MonitoredResourceIdentifierTypeDef",
-    {
-        "MonitoredResourceName": str,
-        "Type": str,
-        "ResourcePermission": ResourcePermissionType,
-        "LastUpdated": datetime,
-        "ResourceCollection": "ResourceCollectionTypeDef",
-    },
-    total=False,
-)
-
-_RequiredNotificationChannelConfigTypeDef = TypedDict(
-    "_RequiredNotificationChannelConfigTypeDef",
-    {
-        "Sns": "SnsChannelConfigTypeDef",
-    },
-)
-_OptionalNotificationChannelConfigTypeDef = TypedDict(
-    "_OptionalNotificationChannelConfigTypeDef",
-    {
-        "Filters": "NotificationFilterConfigTypeDef",
-    },
-    total=False,
-)
-
-class NotificationChannelConfigTypeDef(
-    _RequiredNotificationChannelConfigTypeDef, _OptionalNotificationChannelConfigTypeDef
-):
-    pass
-
-NotificationChannelTypeDef = TypedDict(
-    "NotificationChannelTypeDef",
-    {
-        "Id": str,
-        "Config": "NotificationChannelConfigTypeDef",
-    },
-    total=False,
-)
-
-NotificationFilterConfigTypeDef = TypedDict(
-    "NotificationFilterConfigTypeDef",
-    {
-        "Severities": List[InsightSeverityType],
-        "MessageTypes": List[NotificationMessageTypeType],
-    },
-    total=False,
-)
-
-OpsCenterIntegrationConfigTypeDef = TypedDict(
-    "OpsCenterIntegrationConfigTypeDef",
-    {
-        "OptInStatus": OptInStatusType,
-    },
-    total=False,
-)
-
-OpsCenterIntegrationTypeDef = TypedDict(
-    "OpsCenterIntegrationTypeDef",
-    {
-        "OptInStatus": OptInStatusType,
-    },
-    total=False,
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-PerformanceInsightsMetricDimensionGroupTypeDef = TypedDict(
-    "PerformanceInsightsMetricDimensionGroupTypeDef",
-    {
-        "Group": str,
-        "Dimensions": List[str],
-        "Limit": int,
-    },
-    total=False,
-)
-
-PerformanceInsightsMetricQueryTypeDef = TypedDict(
-    "PerformanceInsightsMetricQueryTypeDef",
-    {
-        "Metric": str,
-        "GroupBy": "PerformanceInsightsMetricDimensionGroupTypeDef",
-        "Filter": Dict[str, str],
-    },
-    total=False,
-)
-
-PerformanceInsightsMetricsDetailTypeDef = TypedDict(
-    "PerformanceInsightsMetricsDetailTypeDef",
-    {
-        "MetricDisplayName": str,
-        "Unit": str,
-        "MetricQuery": "PerformanceInsightsMetricQueryTypeDef",
-        "ReferenceData": List["PerformanceInsightsReferenceDataTypeDef"],
-        "StatsAtAnomaly": List["PerformanceInsightsStatTypeDef"],
-        "StatsAtBaseline": List["PerformanceInsightsStatTypeDef"],
-    },
-    total=False,
-)
-
-PerformanceInsightsReferenceComparisonValuesTypeDef = TypedDict(
-    "PerformanceInsightsReferenceComparisonValuesTypeDef",
-    {
-        "ReferenceScalar": "PerformanceInsightsReferenceScalarTypeDef",
-        "ReferenceMetric": "PerformanceInsightsReferenceMetricTypeDef",
-    },
-    total=False,
-)
-
-PerformanceInsightsReferenceDataTypeDef = TypedDict(
-    "PerformanceInsightsReferenceDataTypeDef",
-    {
-        "Name": str,
-        "ComparisonValues": "PerformanceInsightsReferenceComparisonValuesTypeDef",
-    },
-    total=False,
-)
-
-PerformanceInsightsReferenceMetricTypeDef = TypedDict(
-    "PerformanceInsightsReferenceMetricTypeDef",
-    {
-        "MetricQuery": "PerformanceInsightsMetricQueryTypeDef",
-    },
-    total=False,
-)
-
-PerformanceInsightsReferenceScalarTypeDef = TypedDict(
-    "PerformanceInsightsReferenceScalarTypeDef",
-    {
-        "Value": float,
-    },
-    total=False,
-)
+class PerformanceInsightsMetricDimensionGroupTypeDef(TypedDict):
+    Group: NotRequired[str]
+    Dimensions: NotRequired[List[str]]
+    Limit: NotRequired[int]
 
 PerformanceInsightsStatTypeDef = TypedDict(
     "PerformanceInsightsStatTypeDef",
     {
-        "Type": str,
-        "Value": float,
+        "Type": NotRequired[str],
+        "Value": NotRequired[float],
     },
-    total=False,
 )
 
-_RequiredPredictionTimeRangeTypeDef = TypedDict(
-    "_RequiredPredictionTimeRangeTypeDef",
-    {
-        "StartTime": datetime,
-    },
-)
-_OptionalPredictionTimeRangeTypeDef = TypedDict(
-    "_OptionalPredictionTimeRangeTypeDef",
-    {
-        "EndTime": datetime,
-    },
-    total=False,
-)
+class PerformanceInsightsReferenceScalarTypeDef(TypedDict):
+    Value: NotRequired[float]
 
-class PredictionTimeRangeTypeDef(
-    _RequiredPredictionTimeRangeTypeDef, _OptionalPredictionTimeRangeTypeDef
-):
-    pass
+class PredictionTimeRangeTypeDef(TypedDict):
+    StartTime: datetime
+    EndTime: NotRequired[datetime]
 
-ProactiveAnomalySummaryTypeDef = TypedDict(
-    "ProactiveAnomalySummaryTypeDef",
-    {
-        "Id": str,
-        "Severity": AnomalySeverityType,
-        "Status": AnomalyStatusType,
-        "UpdateTime": datetime,
-        "AnomalyTimeRange": "AnomalyTimeRangeTypeDef",
-        "AnomalyReportedTimeRange": "AnomalyReportedTimeRangeTypeDef",
-        "PredictionTimeRange": "PredictionTimeRangeTypeDef",
-        "SourceDetails": "AnomalySourceDetailsTypeDef",
-        "AssociatedInsightId": str,
-        "ResourceCollection": "ResourceCollectionTypeDef",
-        "Limit": float,
-        "SourceMetadata": "AnomalySourceMetadataTypeDef",
-        "AnomalyResources": List["AnomalyResourceTypeDef"],
-        "Description": str,
-    },
-    total=False,
-)
-
-ProactiveAnomalyTypeDef = TypedDict(
-    "ProactiveAnomalyTypeDef",
-    {
-        "Id": str,
-        "Severity": AnomalySeverityType,
-        "Status": AnomalyStatusType,
-        "UpdateTime": datetime,
-        "AnomalyTimeRange": "AnomalyTimeRangeTypeDef",
-        "AnomalyReportedTimeRange": "AnomalyReportedTimeRangeTypeDef",
-        "PredictionTimeRange": "PredictionTimeRangeTypeDef",
-        "SourceDetails": "AnomalySourceDetailsTypeDef",
-        "AssociatedInsightId": str,
-        "ResourceCollection": "ResourceCollectionTypeDef",
-        "Limit": float,
-        "SourceMetadata": "AnomalySourceMetadataTypeDef",
-        "AnomalyResources": List["AnomalyResourceTypeDef"],
-        "Description": str,
-    },
-    total=False,
-)
-
-ProactiveInsightSummaryTypeDef = TypedDict(
-    "ProactiveInsightSummaryTypeDef",
-    {
-        "Id": str,
-        "Name": str,
-        "Severity": InsightSeverityType,
-        "Status": InsightStatusType,
-        "InsightTimeRange": "InsightTimeRangeTypeDef",
-        "PredictionTimeRange": "PredictionTimeRangeTypeDef",
-        "ResourceCollection": "ResourceCollectionTypeDef",
-        "ServiceCollection": "ServiceCollectionTypeDef",
-        "AssociatedResourceArns": List[str],
-    },
-    total=False,
-)
-
-ProactiveInsightTypeDef = TypedDict(
-    "ProactiveInsightTypeDef",
-    {
-        "Id": str,
-        "Name": str,
-        "Severity": InsightSeverityType,
-        "Status": InsightStatusType,
-        "InsightTimeRange": "InsightTimeRangeTypeDef",
-        "PredictionTimeRange": "PredictionTimeRangeTypeDef",
-        "ResourceCollection": "ResourceCollectionTypeDef",
-        "SsmOpsItemId": str,
-        "Description": str,
-    },
-    total=False,
-)
-
-ProactiveOrganizationInsightSummaryTypeDef = TypedDict(
-    "ProactiveOrganizationInsightSummaryTypeDef",
-    {
-        "Id": str,
-        "AccountId": str,
-        "OrganizationalUnitId": str,
-        "Name": str,
-        "Severity": InsightSeverityType,
-        "Status": InsightStatusType,
-        "InsightTimeRange": "InsightTimeRangeTypeDef",
-        "PredictionTimeRange": "PredictionTimeRangeTypeDef",
-        "ResourceCollection": "ResourceCollectionTypeDef",
-        "ServiceCollection": "ServiceCollectionTypeDef",
-    },
-    total=False,
-)
-
-PutFeedbackRequestRequestTypeDef = TypedDict(
-    "PutFeedbackRequestRequestTypeDef",
-    {
-        "InsightFeedback": "InsightFeedbackTypeDef",
-    },
-    total=False,
-)
-
-ReactiveAnomalySummaryTypeDef = TypedDict(
-    "ReactiveAnomalySummaryTypeDef",
-    {
-        "Id": str,
-        "Severity": AnomalySeverityType,
-        "Status": AnomalyStatusType,
-        "AnomalyTimeRange": "AnomalyTimeRangeTypeDef",
-        "AnomalyReportedTimeRange": "AnomalyReportedTimeRangeTypeDef",
-        "SourceDetails": "AnomalySourceDetailsTypeDef",
-        "AssociatedInsightId": str,
-        "ResourceCollection": "ResourceCollectionTypeDef",
-        "Type": AnomalyTypeType,
-        "Name": str,
-        "Description": str,
-        "CausalAnomalyId": str,
-        "AnomalyResources": List["AnomalyResourceTypeDef"],
-    },
-    total=False,
-)
-
-ReactiveAnomalyTypeDef = TypedDict(
-    "ReactiveAnomalyTypeDef",
-    {
-        "Id": str,
-        "Severity": AnomalySeverityType,
-        "Status": AnomalyStatusType,
-        "AnomalyTimeRange": "AnomalyTimeRangeTypeDef",
-        "AnomalyReportedTimeRange": "AnomalyReportedTimeRangeTypeDef",
-        "SourceDetails": "AnomalySourceDetailsTypeDef",
-        "AssociatedInsightId": str,
-        "ResourceCollection": "ResourceCollectionTypeDef",
-        "Type": AnomalyTypeType,
-        "Name": str,
-        "Description": str,
-        "CausalAnomalyId": str,
-        "AnomalyResources": List["AnomalyResourceTypeDef"],
-    },
-    total=False,
-)
-
-ReactiveInsightSummaryTypeDef = TypedDict(
-    "ReactiveInsightSummaryTypeDef",
-    {
-        "Id": str,
-        "Name": str,
-        "Severity": InsightSeverityType,
-        "Status": InsightStatusType,
-        "InsightTimeRange": "InsightTimeRangeTypeDef",
-        "ResourceCollection": "ResourceCollectionTypeDef",
-        "ServiceCollection": "ServiceCollectionTypeDef",
-        "AssociatedResourceArns": List[str],
-    },
-    total=False,
-)
-
-ReactiveInsightTypeDef = TypedDict(
-    "ReactiveInsightTypeDef",
-    {
-        "Id": str,
-        "Name": str,
-        "Severity": InsightSeverityType,
-        "Status": InsightStatusType,
-        "InsightTimeRange": "InsightTimeRangeTypeDef",
-        "ResourceCollection": "ResourceCollectionTypeDef",
-        "SsmOpsItemId": str,
-        "Description": str,
-    },
-    total=False,
-)
-
-ReactiveOrganizationInsightSummaryTypeDef = TypedDict(
-    "ReactiveOrganizationInsightSummaryTypeDef",
-    {
-        "Id": str,
-        "AccountId": str,
-        "OrganizationalUnitId": str,
-        "Name": str,
-        "Severity": InsightSeverityType,
-        "Status": InsightStatusType,
-        "InsightTimeRange": "InsightTimeRangeTypeDef",
-        "ResourceCollection": "ResourceCollectionTypeDef",
-        "ServiceCollection": "ServiceCollectionTypeDef",
-    },
-    total=False,
-)
+class ServiceCollectionOutputTypeDef(TypedDict):
+    ServiceNames: NotRequired[List[ServiceNameType]]
 
 RecommendationRelatedAnomalyResourceTypeDef = TypedDict(
     "RecommendationRelatedAnomalyResourceTypeDef",
     {
-        "Name": str,
-        "Type": str,
+        "Name": NotRequired[str],
+        "Type": NotRequired[str],
     },
-    total=False,
 )
 
-RecommendationRelatedAnomalySourceDetailTypeDef = TypedDict(
-    "RecommendationRelatedAnomalySourceDetailTypeDef",
-    {
-        "CloudWatchMetrics": List["RecommendationRelatedCloudWatchMetricsSourceDetailTypeDef"],
-    },
-    total=False,
-)
-
-RecommendationRelatedAnomalyTypeDef = TypedDict(
-    "RecommendationRelatedAnomalyTypeDef",
-    {
-        "Resources": List["RecommendationRelatedAnomalyResourceTypeDef"],
-        "SourceDetails": List["RecommendationRelatedAnomalySourceDetailTypeDef"],
-        "AnomalyId": str,
-    },
-    total=False,
-)
-
-RecommendationRelatedCloudWatchMetricsSourceDetailTypeDef = TypedDict(
-    "RecommendationRelatedCloudWatchMetricsSourceDetailTypeDef",
-    {
-        "MetricName": str,
-        "Namespace": str,
-    },
-    total=False,
-)
+class RecommendationRelatedCloudWatchMetricsSourceDetailTypeDef(TypedDict):
+    MetricName: NotRequired[str]
+    Namespace: NotRequired[str]
 
 RecommendationRelatedEventResourceTypeDef = TypedDict(
     "RecommendationRelatedEventResourceTypeDef",
     {
-        "Name": str,
-        "Type": str,
-    },
-    total=False,
-)
-
-RecommendationRelatedEventTypeDef = TypedDict(
-    "RecommendationRelatedEventTypeDef",
-    {
-        "Name": str,
-        "Resources": List["RecommendationRelatedEventResourceTypeDef"],
-    },
-    total=False,
-)
-
-RecommendationTypeDef = TypedDict(
-    "RecommendationTypeDef",
-    {
-        "Description": str,
-        "Link": str,
-        "Name": str,
-        "Reason": str,
-        "RelatedEvents": List["RecommendationRelatedEventTypeDef"],
-        "RelatedAnomalies": List["RecommendationRelatedAnomalyTypeDef"],
-        "Category": str,
-    },
-    total=False,
-)
-
-RemoveNotificationChannelRequestRequestTypeDef = TypedDict(
-    "RemoveNotificationChannelRequestRequestTypeDef",
-    {
-        "Id": str,
+        "Name": NotRequired[str],
+        "Type": NotRequired[str],
     },
 )
 
-ResourceCollectionFilterTypeDef = TypedDict(
-    "ResourceCollectionFilterTypeDef",
-    {
-        "CloudFormation": "CloudFormationCollectionFilterTypeDef",
-        "Tags": List["TagCollectionFilterTypeDef"],
-    },
-    total=False,
-)
+class RemoveNotificationChannelRequestTypeDef(TypedDict):
+    Id: str
 
-ResourceCollectionTypeDef = TypedDict(
-    "ResourceCollectionTypeDef",
-    {
-        "CloudFormation": "CloudFormationCollectionTypeDef",
-        "Tags": List["TagCollectionTypeDef"],
-    },
-    total=False,
-)
+class TagCollectionFilterTypeDef(TypedDict):
+    AppBoundaryKey: str
+    TagValues: List[str]
 
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
+class TagCollectionOutputTypeDef(TypedDict):
+    AppBoundaryKey: str
+    TagValues: List[str]
 
-SearchInsightsFiltersTypeDef = TypedDict(
-    "SearchInsightsFiltersTypeDef",
-    {
-        "Severities": List[InsightSeverityType],
-        "Statuses": List[InsightStatusType],
-        "ResourceCollection": "ResourceCollectionTypeDef",
-        "ServiceCollection": "ServiceCollectionTypeDef",
-    },
-    total=False,
-)
+class ServiceCollectionTypeDef(TypedDict):
+    ServiceNames: NotRequired[Sequence[ServiceNameType]]
 
-_RequiredSearchInsightsRequestRequestTypeDef = TypedDict(
-    "_RequiredSearchInsightsRequestRequestTypeDef",
-    {
-        "StartTimeRange": "StartTimeRangeTypeDef",
-        "Type": InsightTypeType,
-    },
-)
-_OptionalSearchInsightsRequestRequestTypeDef = TypedDict(
-    "_OptionalSearchInsightsRequestRequestTypeDef",
-    {
-        "Filters": "SearchInsightsFiltersTypeDef",
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
+class ServiceInsightHealthTypeDef(TypedDict):
+    OpenProactiveInsights: NotRequired[int]
+    OpenReactiveInsights: NotRequired[int]
 
-class SearchInsightsRequestRequestTypeDef(
-    _RequiredSearchInsightsRequestRequestTypeDef, _OptionalSearchInsightsRequestRequestTypeDef
-):
-    pass
+class TagCollectionTypeDef(TypedDict):
+    AppBoundaryKey: str
+    TagValues: Sequence[str]
 
-SearchInsightsResponseTypeDef = TypedDict(
-    "SearchInsightsResponseTypeDef",
-    {
-        "ProactiveInsights": List["ProactiveInsightSummaryTypeDef"],
-        "ReactiveInsights": List["ReactiveInsightSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class UpdateCloudFormationCollectionFilterTypeDef(TypedDict):
+    StackNames: NotRequired[Sequence[str]]
 
-SearchOrganizationInsightsFiltersTypeDef = TypedDict(
-    "SearchOrganizationInsightsFiltersTypeDef",
-    {
-        "Severities": List[InsightSeverityType],
-        "Statuses": List[InsightStatusType],
-        "ResourceCollection": "ResourceCollectionTypeDef",
-        "ServiceCollection": "ServiceCollectionTypeDef",
-    },
-    total=False,
-)
+class UpdateTagCollectionFilterTypeDef(TypedDict):
+    AppBoundaryKey: str
+    TagValues: Sequence[str]
 
-_RequiredSearchOrganizationInsightsRequestRequestTypeDef = TypedDict(
-    "_RequiredSearchOrganizationInsightsRequestRequestTypeDef",
-    {
-        "AccountIds": List[str],
-        "StartTimeRange": "StartTimeRangeTypeDef",
-        "Type": InsightTypeType,
-    },
-)
-_OptionalSearchOrganizationInsightsRequestRequestTypeDef = TypedDict(
-    "_OptionalSearchOrganizationInsightsRequestRequestTypeDef",
-    {
-        "Filters": "SearchOrganizationInsightsFiltersTypeDef",
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
+class AccountHealthTypeDef(TypedDict):
+    AccountId: NotRequired[str]
+    Insight: NotRequired[AccountInsightHealthTypeDef]
 
-class SearchOrganizationInsightsRequestRequestTypeDef(
-    _RequiredSearchOrganizationInsightsRequestRequestTypeDef,
-    _OptionalSearchOrganizationInsightsRequestRequestTypeDef,
-):
-    pass
+class AddNotificationChannelResponseTypeDef(TypedDict):
+    Id: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-SearchOrganizationInsightsResponseTypeDef = TypedDict(
-    "SearchOrganizationInsightsResponseTypeDef",
-    {
-        "ProactiveInsights": List["ProactiveInsightSummaryTypeDef"],
-        "ReactiveInsights": List["ReactiveInsightSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DescribeAccountHealthResponseTypeDef(TypedDict):
+    OpenReactiveInsights: int
+    OpenProactiveInsights: int
+    MetricsAnalyzed: int
+    ResourceHours: int
+    AnalyzedResourceCount: int
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ServiceCollectionTypeDef = TypedDict(
-    "ServiceCollectionTypeDef",
-    {
-        "ServiceNames": List[ServiceNameType],
-    },
-    total=False,
-)
+class DescribeAccountOverviewResponseTypeDef(TypedDict):
+    ReactiveInsights: int
+    ProactiveInsights: int
+    MeanTimeToRecoverInMilliseconds: int
+    ResponseMetadata: ResponseMetadataTypeDef
 
+class DescribeOrganizationHealthResponseTypeDef(TypedDict):
+    OpenReactiveInsights: int
+    OpenProactiveInsights: int
+    MetricsAnalyzed: int
+    ResourceHours: int
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeOrganizationOverviewResponseTypeDef(TypedDict):
+    ReactiveInsights: int
+    ProactiveInsights: int
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class EventSourcesConfigTypeDef(TypedDict):
+    AmazonCodeGuruProfiler: NotRequired[AmazonCodeGuruProfilerIntegrationTypeDef]
+
+CloudFormationCollectionUnionTypeDef = Union[
+    CloudFormationCollectionTypeDef, CloudFormationCollectionOutputTypeDef
+]
+
+class CloudFormationHealthTypeDef(TypedDict):
+    StackName: NotRequired[str]
+    Insight: NotRequired[InsightHealthTypeDef]
+    AnalyzedResourceCount: NotRequired[int]
+
+class TagHealthTypeDef(TypedDict):
+    AppBoundaryKey: NotRequired[str]
+    TagValue: NotRequired[str]
+    Insight: NotRequired[InsightHealthTypeDef]
+    AnalyzedResourceCount: NotRequired[int]
+
+class CloudWatchMetricsDataSummaryTypeDef(TypedDict):
+    TimestampMetricValuePairList: NotRequired[List[TimestampMetricValuePairTypeDef]]
+    StatusCode: NotRequired[CloudWatchMetricDataStatusCodeType]
+
+class CostEstimationResourceCollectionFilterOutputTypeDef(TypedDict):
+    CloudFormation: NotRequired[CloudFormationCostEstimationResourceCollectionFilterOutputTypeDef]
+    Tags: NotRequired[List[TagCostEstimationResourceCollectionFilterOutputTypeDef]]
+
+class CostEstimationResourceCollectionFilterTypeDef(TypedDict):
+    CloudFormation: NotRequired[CloudFormationCostEstimationResourceCollectionFilterTypeDef]
+    Tags: NotRequired[Sequence[TagCostEstimationResourceCollectionFilterTypeDef]]
+
+class DescribeAccountOverviewRequestTypeDef(TypedDict):
+    FromTime: TimestampTypeDef
+    ToTime: NotRequired[TimestampTypeDef]
+
+class DescribeOrganizationOverviewRequestTypeDef(TypedDict):
+    FromTime: TimestampTypeDef
+    ToTime: NotRequired[TimestampTypeDef]
+    AccountIds: NotRequired[Sequence[str]]
+    OrganizationalUnitIds: NotRequired[Sequence[str]]
+
+class EndTimeRangeTypeDef(TypedDict):
+    FromTime: NotRequired[TimestampTypeDef]
+    ToTime: NotRequired[TimestampTypeDef]
+
+class EventTimeRangeTypeDef(TypedDict):
+    FromTime: TimestampTypeDef
+    ToTime: TimestampTypeDef
+
+class StartTimeRangeTypeDef(TypedDict):
+    FromTime: NotRequired[TimestampTypeDef]
+    ToTime: NotRequired[TimestampTypeDef]
+
+class DescribeFeedbackResponseTypeDef(TypedDict):
+    InsightFeedback: InsightFeedbackTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutFeedbackRequestTypeDef(TypedDict):
+    InsightFeedback: NotRequired[InsightFeedbackTypeDef]
+
+class DescribeOrganizationResourceCollectionHealthRequestPaginateTypeDef(TypedDict):
+    OrganizationResourceCollectionType: OrganizationResourceCollectionTypeType
+    AccountIds: NotRequired[Sequence[str]]
+    OrganizationalUnitIds: NotRequired[Sequence[str]]
+    MaxResults: NotRequired[int]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeResourceCollectionHealthRequestPaginateTypeDef(TypedDict):
+    ResourceCollectionType: ResourceCollectionTypeType
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class GetCostEstimationRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class GetResourceCollectionRequestPaginateTypeDef(TypedDict):
+    ResourceCollectionType: ResourceCollectionTypeType
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListAnomalousLogGroupsRequestPaginateTypeDef(TypedDict):
+    InsightId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListNotificationChannelsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListRecommendationsRequestPaginateTypeDef(TypedDict):
+    InsightId: str
+    Locale: NotRequired[LocaleType]
+    AccountId: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListMonitoredResourcesRequestPaginateTypeDef(TypedDict):
+    Filters: NotRequired[ListMonitoredResourcesFiltersTypeDef]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListMonitoredResourcesRequestTypeDef(TypedDict):
+    Filters: NotRequired[ListMonitoredResourcesFiltersTypeDef]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class LogAnomalyShowcaseTypeDef(TypedDict):
+    LogAnomalyClasses: NotRequired[List[LogAnomalyClassTypeDef]]
+
+class NotificationChannelConfigOutputTypeDef(TypedDict):
+    Sns: SnsChannelConfigTypeDef
+    Filters: NotRequired[NotificationFilterConfigOutputTypeDef]
+
+class NotificationChannelConfigTypeDef(TypedDict):
+    Sns: SnsChannelConfigTypeDef
+    Filters: NotRequired[NotificationFilterConfigTypeDef]
+
+class UpdateServiceIntegrationConfigTypeDef(TypedDict):
+    OpsCenter: NotRequired[OpsCenterIntegrationConfigTypeDef]
+    LogsAnomalyDetection: NotRequired[LogsAnomalyDetectionIntegrationConfigTypeDef]
+    KMSServerSideEncryption: NotRequired[KMSServerSideEncryptionIntegrationConfigTypeDef]
+
+class ServiceIntegrationConfigTypeDef(TypedDict):
+    OpsCenter: NotRequired[OpsCenterIntegrationTypeDef]
+    LogsAnomalyDetection: NotRequired[LogsAnomalyDetectionIntegrationTypeDef]
+    KMSServerSideEncryption: NotRequired[KMSServerSideEncryptionIntegrationTypeDef]
+
+class PerformanceInsightsMetricQueryTypeDef(TypedDict):
+    Metric: NotRequired[str]
+    GroupBy: NotRequired[PerformanceInsightsMetricDimensionGroupTypeDef]
+    Filter: NotRequired[Dict[str, str]]
+
+class RecommendationRelatedAnomalySourceDetailTypeDef(TypedDict):
+    CloudWatchMetrics: NotRequired[List[RecommendationRelatedCloudWatchMetricsSourceDetailTypeDef]]
+
+class RecommendationRelatedEventTypeDef(TypedDict):
+    Name: NotRequired[str]
+    Resources: NotRequired[List[RecommendationRelatedEventResourceTypeDef]]
+
+class ResourceCollectionFilterTypeDef(TypedDict):
+    CloudFormation: NotRequired[CloudFormationCollectionFilterTypeDef]
+    Tags: NotRequired[List[TagCollectionFilterTypeDef]]
+
+class ResourceCollectionOutputTypeDef(TypedDict):
+    CloudFormation: NotRequired[CloudFormationCollectionOutputTypeDef]
+    Tags: NotRequired[List[TagCollectionOutputTypeDef]]
+
+ServiceCollectionUnionTypeDef = Union[ServiceCollectionTypeDef, ServiceCollectionOutputTypeDef]
 ServiceHealthTypeDef = TypedDict(
     "ServiceHealthTypeDef",
     {
-        "ServiceName": ServiceNameType,
-        "Insight": "ServiceInsightHealthTypeDef",
-        "AnalyzedResourceCount": int,
-    },
-    total=False,
-)
-
-ServiceInsightHealthTypeDef = TypedDict(
-    "ServiceInsightHealthTypeDef",
-    {
-        "OpenProactiveInsights": int,
-        "OpenReactiveInsights": int,
-    },
-    total=False,
-)
-
-ServiceIntegrationConfigTypeDef = TypedDict(
-    "ServiceIntegrationConfigTypeDef",
-    {
-        "OpsCenter": "OpsCenterIntegrationTypeDef",
-        "LogsAnomalyDetection": "LogsAnomalyDetectionIntegrationTypeDef",
-        "KMSServerSideEncryption": "KMSServerSideEncryptionIntegrationTypeDef",
-    },
-    total=False,
-)
-
-ServiceResourceCostTypeDef = TypedDict(
-    "ServiceResourceCostTypeDef",
-    {
-        "Type": str,
-        "State": CostEstimationServiceResourceStateType,
-        "Count": int,
-        "UnitCost": float,
-        "Cost": float,
-    },
-    total=False,
-)
-
-SnsChannelConfigTypeDef = TypedDict(
-    "SnsChannelConfigTypeDef",
-    {
-        "TopicArn": str,
-    },
-    total=False,
-)
-
-_RequiredStartCostEstimationRequestRequestTypeDef = TypedDict(
-    "_RequiredStartCostEstimationRequestRequestTypeDef",
-    {
-        "ResourceCollection": "CostEstimationResourceCollectionFilterTypeDef",
+        "ServiceName": NotRequired[ServiceNameType],
+        "Insight": NotRequired[ServiceInsightHealthTypeDef],
+        "AnalyzedResourceCount": NotRequired[int],
     },
 )
-_OptionalStartCostEstimationRequestRequestTypeDef = TypedDict(
-    "_OptionalStartCostEstimationRequestRequestTypeDef",
+TagCollectionUnionTypeDef = Union[TagCollectionTypeDef, TagCollectionOutputTypeDef]
+
+class UpdateResourceCollectionFilterTypeDef(TypedDict):
+    CloudFormation: NotRequired[UpdateCloudFormationCollectionFilterTypeDef]
+    Tags: NotRequired[Sequence[UpdateTagCollectionFilterTypeDef]]
+
+class DescribeEventSourcesConfigResponseTypeDef(TypedDict):
+    EventSources: EventSourcesConfigTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateEventSourcesConfigRequestTypeDef(TypedDict):
+    EventSources: NotRequired[EventSourcesConfigTypeDef]
+
+class CloudWatchMetricsDetailTypeDef(TypedDict):
+    MetricName: NotRequired[str]
+    Namespace: NotRequired[str]
+    Dimensions: NotRequired[List[CloudWatchMetricsDimensionTypeDef]]
+    Stat: NotRequired[CloudWatchMetricsStatType]
+    Unit: NotRequired[str]
+    Period: NotRequired[int]
+    MetricDataSummary: NotRequired[CloudWatchMetricsDataSummaryTypeDef]
+
+class GetCostEstimationResponseTypeDef(TypedDict):
+    ResourceCollection: CostEstimationResourceCollectionFilterOutputTypeDef
+    Status: CostEstimationStatusType
+    Costs: List[ServiceResourceCostTypeDef]
+    TimeRange: CostEstimationTimeRangeTypeDef
+    TotalCost: float
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+CostEstimationResourceCollectionFilterUnionTypeDef = Union[
+    CostEstimationResourceCollectionFilterTypeDef,
+    CostEstimationResourceCollectionFilterOutputTypeDef,
+]
+ListInsightsClosedStatusFilterTypeDef = TypedDict(
+    "ListInsightsClosedStatusFilterTypeDef",
     {
-        "ClientToken": str,
+        "Type": InsightTypeType,
+        "EndTimeRange": EndTimeRangeTypeDef,
     },
-    total=False,
 )
-
-class StartCostEstimationRequestRequestTypeDef(
-    _RequiredStartCostEstimationRequestRequestTypeDef,
-    _OptionalStartCostEstimationRequestRequestTypeDef,
-):
-    pass
-
-StartTimeRangeTypeDef = TypedDict(
-    "StartTimeRangeTypeDef",
+ListInsightsAnyStatusFilterTypeDef = TypedDict(
+    "ListInsightsAnyStatusFilterTypeDef",
     {
-        "FromTime": Union[datetime, str],
-        "ToTime": Union[datetime, str],
-    },
-    total=False,
-)
-
-TagCollectionFilterTypeDef = TypedDict(
-    "TagCollectionFilterTypeDef",
-    {
-        "AppBoundaryKey": str,
-        "TagValues": List[str],
+        "Type": InsightTypeType,
+        "StartTimeRange": StartTimeRangeTypeDef,
     },
 )
 
-TagCollectionTypeDef = TypedDict(
-    "TagCollectionTypeDef",
+class AnomalousLogGroupTypeDef(TypedDict):
+    LogGroupName: NotRequired[str]
+    ImpactStartTime: NotRequired[datetime]
+    ImpactEndTime: NotRequired[datetime]
+    NumberOfLogLinesScanned: NotRequired[int]
+    LogAnomalyShowcases: NotRequired[List[LogAnomalyShowcaseTypeDef]]
+
+class NotificationChannelTypeDef(TypedDict):
+    Id: NotRequired[str]
+    Config: NotRequired[NotificationChannelConfigOutputTypeDef]
+
+NotificationChannelConfigUnionTypeDef = Union[
+    NotificationChannelConfigTypeDef, NotificationChannelConfigOutputTypeDef
+]
+
+class UpdateServiceIntegrationRequestTypeDef(TypedDict):
+    ServiceIntegration: UpdateServiceIntegrationConfigTypeDef
+
+class DescribeServiceIntegrationResponseTypeDef(TypedDict):
+    ServiceIntegration: ServiceIntegrationConfigTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PerformanceInsightsReferenceMetricTypeDef(TypedDict):
+    MetricQuery: NotRequired[PerformanceInsightsMetricQueryTypeDef]
+
+class RecommendationRelatedAnomalyTypeDef(TypedDict):
+    Resources: NotRequired[List[RecommendationRelatedAnomalyResourceTypeDef]]
+    SourceDetails: NotRequired[List[RecommendationRelatedAnomalySourceDetailTypeDef]]
+    AnomalyId: NotRequired[str]
+
+class GetResourceCollectionResponseTypeDef(TypedDict):
+    ResourceCollection: ResourceCollectionFilterTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class EventTypeDef(TypedDict):
+    ResourceCollection: NotRequired[ResourceCollectionOutputTypeDef]
+    Id: NotRequired[str]
+    Time: NotRequired[datetime]
+    EventSource: NotRequired[str]
+    Name: NotRequired[str]
+    DataSource: NotRequired[EventDataSourceType]
+    EventClass: NotRequired[EventClassType]
+    Resources: NotRequired[List[EventResourceTypeDef]]
+
+MonitoredResourceIdentifierTypeDef = TypedDict(
+    "MonitoredResourceIdentifierTypeDef",
     {
-        "AppBoundaryKey": str,
-        "TagValues": List[str],
+        "MonitoredResourceName": NotRequired[str],
+        "Type": NotRequired[str],
+        "ResourcePermission": NotRequired[ResourcePermissionType],
+        "LastUpdated": NotRequired[datetime],
+        "ResourceCollection": NotRequired[ResourceCollectionOutputTypeDef],
     },
 )
 
-TagCostEstimationResourceCollectionFilterTypeDef = TypedDict(
-    "TagCostEstimationResourceCollectionFilterTypeDef",
+class ProactiveInsightSummaryTypeDef(TypedDict):
+    Id: NotRequired[str]
+    Name: NotRequired[str]
+    Severity: NotRequired[InsightSeverityType]
+    Status: NotRequired[InsightStatusType]
+    InsightTimeRange: NotRequired[InsightTimeRangeTypeDef]
+    PredictionTimeRange: NotRequired[PredictionTimeRangeTypeDef]
+    ResourceCollection: NotRequired[ResourceCollectionOutputTypeDef]
+    ServiceCollection: NotRequired[ServiceCollectionOutputTypeDef]
+    AssociatedResourceArns: NotRequired[List[str]]
+
+class ProactiveInsightTypeDef(TypedDict):
+    Id: NotRequired[str]
+    Name: NotRequired[str]
+    Severity: NotRequired[InsightSeverityType]
+    Status: NotRequired[InsightStatusType]
+    InsightTimeRange: NotRequired[InsightTimeRangeTypeDef]
+    PredictionTimeRange: NotRequired[PredictionTimeRangeTypeDef]
+    ResourceCollection: NotRequired[ResourceCollectionOutputTypeDef]
+    SsmOpsItemId: NotRequired[str]
+    Description: NotRequired[str]
+
+class ProactiveOrganizationInsightSummaryTypeDef(TypedDict):
+    Id: NotRequired[str]
+    AccountId: NotRequired[str]
+    OrganizationalUnitId: NotRequired[str]
+    Name: NotRequired[str]
+    Severity: NotRequired[InsightSeverityType]
+    Status: NotRequired[InsightStatusType]
+    InsightTimeRange: NotRequired[InsightTimeRangeTypeDef]
+    PredictionTimeRange: NotRequired[PredictionTimeRangeTypeDef]
+    ResourceCollection: NotRequired[ResourceCollectionOutputTypeDef]
+    ServiceCollection: NotRequired[ServiceCollectionOutputTypeDef]
+
+class ReactiveInsightSummaryTypeDef(TypedDict):
+    Id: NotRequired[str]
+    Name: NotRequired[str]
+    Severity: NotRequired[InsightSeverityType]
+    Status: NotRequired[InsightStatusType]
+    InsightTimeRange: NotRequired[InsightTimeRangeTypeDef]
+    ResourceCollection: NotRequired[ResourceCollectionOutputTypeDef]
+    ServiceCollection: NotRequired[ServiceCollectionOutputTypeDef]
+    AssociatedResourceArns: NotRequired[List[str]]
+
+class ReactiveInsightTypeDef(TypedDict):
+    Id: NotRequired[str]
+    Name: NotRequired[str]
+    Severity: NotRequired[InsightSeverityType]
+    Status: NotRequired[InsightStatusType]
+    InsightTimeRange: NotRequired[InsightTimeRangeTypeDef]
+    ResourceCollection: NotRequired[ResourceCollectionOutputTypeDef]
+    SsmOpsItemId: NotRequired[str]
+    Description: NotRequired[str]
+
+class ReactiveOrganizationInsightSummaryTypeDef(TypedDict):
+    Id: NotRequired[str]
+    AccountId: NotRequired[str]
+    OrganizationalUnitId: NotRequired[str]
+    Name: NotRequired[str]
+    Severity: NotRequired[InsightSeverityType]
+    Status: NotRequired[InsightStatusType]
+    InsightTimeRange: NotRequired[InsightTimeRangeTypeDef]
+    ResourceCollection: NotRequired[ResourceCollectionOutputTypeDef]
+    ServiceCollection: NotRequired[ServiceCollectionOutputTypeDef]
+
+class ListAnomaliesForInsightFiltersTypeDef(TypedDict):
+    ServiceCollection: NotRequired[ServiceCollectionUnionTypeDef]
+
+class DescribeOrganizationResourceCollectionHealthResponseTypeDef(TypedDict):
+    CloudFormation: List[CloudFormationHealthTypeDef]
+    Service: List[ServiceHealthTypeDef]
+    Account: List[AccountHealthTypeDef]
+    Tags: List[TagHealthTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class DescribeResourceCollectionHealthResponseTypeDef(TypedDict):
+    CloudFormation: List[CloudFormationHealthTypeDef]
+    Service: List[ServiceHealthTypeDef]
+    Tags: List[TagHealthTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ResourceCollectionTypeDef(TypedDict):
+    CloudFormation: NotRequired[CloudFormationCollectionUnionTypeDef]
+    Tags: NotRequired[Sequence[TagCollectionUnionTypeDef]]
+
+class UpdateResourceCollectionRequestTypeDef(TypedDict):
+    Action: UpdateResourceCollectionActionType
+    ResourceCollection: UpdateResourceCollectionFilterTypeDef
+
+class StartCostEstimationRequestTypeDef(TypedDict):
+    ResourceCollection: CostEstimationResourceCollectionFilterUnionTypeDef
+    ClientToken: NotRequired[str]
+
+ListInsightsStatusFilterTypeDef = TypedDict(
+    "ListInsightsStatusFilterTypeDef",
     {
-        "AppBoundaryKey": str,
-        "TagValues": List[str],
+        "Ongoing": NotRequired[ListInsightsOngoingStatusFilterTypeDef],
+        "Closed": NotRequired[ListInsightsClosedStatusFilterTypeDef],
+        "Any": NotRequired[ListInsightsAnyStatusFilterTypeDef],
     },
 )
 
-TagHealthTypeDef = TypedDict(
-    "TagHealthTypeDef",
+class ListAnomalousLogGroupsResponseTypeDef(TypedDict):
+    InsightId: str
+    AnomalousLogGroups: List[AnomalousLogGroupTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListNotificationChannelsResponseTypeDef(TypedDict):
+    Channels: List[NotificationChannelTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class AddNotificationChannelRequestTypeDef(TypedDict):
+    Config: NotificationChannelConfigUnionTypeDef
+
+class PerformanceInsightsReferenceComparisonValuesTypeDef(TypedDict):
+    ReferenceScalar: NotRequired[PerformanceInsightsReferenceScalarTypeDef]
+    ReferenceMetric: NotRequired[PerformanceInsightsReferenceMetricTypeDef]
+
+class RecommendationTypeDef(TypedDict):
+    Description: NotRequired[str]
+    Link: NotRequired[str]
+    Name: NotRequired[str]
+    Reason: NotRequired[str]
+    RelatedEvents: NotRequired[List[RecommendationRelatedEventTypeDef]]
+    RelatedAnomalies: NotRequired[List[RecommendationRelatedAnomalyTypeDef]]
+    Category: NotRequired[str]
+
+class ListEventsResponseTypeDef(TypedDict):
+    Events: List[EventTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListMonitoredResourcesResponseTypeDef(TypedDict):
+    MonitoredResourceIdentifiers: List[MonitoredResourceIdentifierTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListInsightsResponseTypeDef(TypedDict):
+    ProactiveInsights: List[ProactiveInsightSummaryTypeDef]
+    ReactiveInsights: List[ReactiveInsightSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class SearchInsightsResponseTypeDef(TypedDict):
+    ProactiveInsights: List[ProactiveInsightSummaryTypeDef]
+    ReactiveInsights: List[ReactiveInsightSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class SearchOrganizationInsightsResponseTypeDef(TypedDict):
+    ProactiveInsights: List[ProactiveInsightSummaryTypeDef]
+    ReactiveInsights: List[ReactiveInsightSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class DescribeInsightResponseTypeDef(TypedDict):
+    ProactiveInsight: ProactiveInsightTypeDef
+    ReactiveInsight: ReactiveInsightTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListOrganizationInsightsResponseTypeDef(TypedDict):
+    ProactiveInsights: List[ProactiveOrganizationInsightSummaryTypeDef]
+    ReactiveInsights: List[ReactiveOrganizationInsightSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListAnomaliesForInsightRequestPaginateTypeDef(TypedDict):
+    InsightId: str
+    StartTimeRange: NotRequired[StartTimeRangeTypeDef]
+    AccountId: NotRequired[str]
+    Filters: NotRequired[ListAnomaliesForInsightFiltersTypeDef]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListAnomaliesForInsightRequestTypeDef(TypedDict):
+    InsightId: str
+    StartTimeRange: NotRequired[StartTimeRangeTypeDef]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+    AccountId: NotRequired[str]
+    Filters: NotRequired[ListAnomaliesForInsightFiltersTypeDef]
+
+ResourceCollectionUnionTypeDef = Union[ResourceCollectionTypeDef, ResourceCollectionOutputTypeDef]
+
+class ListInsightsRequestPaginateTypeDef(TypedDict):
+    StatusFilter: ListInsightsStatusFilterTypeDef
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListInsightsRequestTypeDef(TypedDict):
+    StatusFilter: ListInsightsStatusFilterTypeDef
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListOrganizationInsightsRequestPaginateTypeDef(TypedDict):
+    StatusFilter: ListInsightsStatusFilterTypeDef
+    AccountIds: NotRequired[Sequence[str]]
+    OrganizationalUnitIds: NotRequired[Sequence[str]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListOrganizationInsightsRequestTypeDef(TypedDict):
+    StatusFilter: ListInsightsStatusFilterTypeDef
+    MaxResults: NotRequired[int]
+    AccountIds: NotRequired[Sequence[str]]
+    OrganizationalUnitIds: NotRequired[Sequence[str]]
+    NextToken: NotRequired[str]
+
+class PerformanceInsightsReferenceDataTypeDef(TypedDict):
+    Name: NotRequired[str]
+    ComparisonValues: NotRequired[PerformanceInsightsReferenceComparisonValuesTypeDef]
+
+class ListRecommendationsResponseTypeDef(TypedDict):
+    Recommendations: List[RecommendationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListEventsFiltersTypeDef(TypedDict):
+    InsightId: NotRequired[str]
+    EventTimeRange: NotRequired[EventTimeRangeTypeDef]
+    EventClass: NotRequired[EventClassType]
+    EventSource: NotRequired[str]
+    DataSource: NotRequired[EventDataSourceType]
+    ResourceCollection: NotRequired[ResourceCollectionUnionTypeDef]
+
+class SearchInsightsFiltersTypeDef(TypedDict):
+    Severities: NotRequired[Sequence[InsightSeverityType]]
+    Statuses: NotRequired[Sequence[InsightStatusType]]
+    ResourceCollection: NotRequired[ResourceCollectionUnionTypeDef]
+    ServiceCollection: NotRequired[ServiceCollectionUnionTypeDef]
+
+class SearchOrganizationInsightsFiltersTypeDef(TypedDict):
+    Severities: NotRequired[Sequence[InsightSeverityType]]
+    Statuses: NotRequired[Sequence[InsightStatusType]]
+    ResourceCollection: NotRequired[ResourceCollectionUnionTypeDef]
+    ServiceCollection: NotRequired[ServiceCollectionUnionTypeDef]
+
+class PerformanceInsightsMetricsDetailTypeDef(TypedDict):
+    MetricDisplayName: NotRequired[str]
+    Unit: NotRequired[str]
+    MetricQuery: NotRequired[PerformanceInsightsMetricQueryTypeDef]
+    ReferenceData: NotRequired[List[PerformanceInsightsReferenceDataTypeDef]]
+    StatsAtAnomaly: NotRequired[List[PerformanceInsightsStatTypeDef]]
+    StatsAtBaseline: NotRequired[List[PerformanceInsightsStatTypeDef]]
+
+class ListEventsRequestPaginateTypeDef(TypedDict):
+    Filters: ListEventsFiltersTypeDef
+    AccountId: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListEventsRequestTypeDef(TypedDict):
+    Filters: ListEventsFiltersTypeDef
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+    AccountId: NotRequired[str]
+
+SearchInsightsRequestPaginateTypeDef = TypedDict(
+    "SearchInsightsRequestPaginateTypeDef",
     {
-        "AppBoundaryKey": str,
-        "TagValue": str,
-        "Insight": "InsightHealthTypeDef",
-        "AnalyzedResourceCount": int,
+        "StartTimeRange": StartTimeRangeTypeDef,
+        "Type": InsightTypeType,
+        "Filters": NotRequired[SearchInsightsFiltersTypeDef],
+        "PaginationConfig": NotRequired[PaginatorConfigTypeDef],
     },
-    total=False,
+)
+SearchInsightsRequestTypeDef = TypedDict(
+    "SearchInsightsRequestTypeDef",
+    {
+        "StartTimeRange": StartTimeRangeTypeDef,
+        "Type": InsightTypeType,
+        "Filters": NotRequired[SearchInsightsFiltersTypeDef],
+        "MaxResults": NotRequired[int],
+        "NextToken": NotRequired[str],
+    },
+)
+SearchOrganizationInsightsRequestPaginateTypeDef = TypedDict(
+    "SearchOrganizationInsightsRequestPaginateTypeDef",
+    {
+        "AccountIds": Sequence[str],
+        "StartTimeRange": StartTimeRangeTypeDef,
+        "Type": InsightTypeType,
+        "Filters": NotRequired[SearchOrganizationInsightsFiltersTypeDef],
+        "PaginationConfig": NotRequired[PaginatorConfigTypeDef],
+    },
+)
+SearchOrganizationInsightsRequestTypeDef = TypedDict(
+    "SearchOrganizationInsightsRequestTypeDef",
+    {
+        "AccountIds": Sequence[str],
+        "StartTimeRange": StartTimeRangeTypeDef,
+        "Type": InsightTypeType,
+        "Filters": NotRequired[SearchOrganizationInsightsFiltersTypeDef],
+        "MaxResults": NotRequired[int],
+        "NextToken": NotRequired[str],
+    },
 )
 
-TimestampMetricValuePairTypeDef = TypedDict(
-    "TimestampMetricValuePairTypeDef",
+class AnomalySourceDetailsTypeDef(TypedDict):
+    CloudWatchMetrics: NotRequired[List[CloudWatchMetricsDetailTypeDef]]
+    PerformanceInsightsMetrics: NotRequired[List[PerformanceInsightsMetricsDetailTypeDef]]
+
+class ProactiveAnomalySummaryTypeDef(TypedDict):
+    Id: NotRequired[str]
+    Severity: NotRequired[AnomalySeverityType]
+    Status: NotRequired[AnomalyStatusType]
+    UpdateTime: NotRequired[datetime]
+    AnomalyTimeRange: NotRequired[AnomalyTimeRangeTypeDef]
+    AnomalyReportedTimeRange: NotRequired[AnomalyReportedTimeRangeTypeDef]
+    PredictionTimeRange: NotRequired[PredictionTimeRangeTypeDef]
+    SourceDetails: NotRequired[AnomalySourceDetailsTypeDef]
+    AssociatedInsightId: NotRequired[str]
+    ResourceCollection: NotRequired[ResourceCollectionOutputTypeDef]
+    Limit: NotRequired[float]
+    SourceMetadata: NotRequired[AnomalySourceMetadataTypeDef]
+    AnomalyResources: NotRequired[List[AnomalyResourceTypeDef]]
+    Description: NotRequired[str]
+
+class ProactiveAnomalyTypeDef(TypedDict):
+    Id: NotRequired[str]
+    Severity: NotRequired[AnomalySeverityType]
+    Status: NotRequired[AnomalyStatusType]
+    UpdateTime: NotRequired[datetime]
+    AnomalyTimeRange: NotRequired[AnomalyTimeRangeTypeDef]
+    AnomalyReportedTimeRange: NotRequired[AnomalyReportedTimeRangeTypeDef]
+    PredictionTimeRange: NotRequired[PredictionTimeRangeTypeDef]
+    SourceDetails: NotRequired[AnomalySourceDetailsTypeDef]
+    AssociatedInsightId: NotRequired[str]
+    ResourceCollection: NotRequired[ResourceCollectionOutputTypeDef]
+    Limit: NotRequired[float]
+    SourceMetadata: NotRequired[AnomalySourceMetadataTypeDef]
+    AnomalyResources: NotRequired[List[AnomalyResourceTypeDef]]
+    Description: NotRequired[str]
+
+ReactiveAnomalySummaryTypeDef = TypedDict(
+    "ReactiveAnomalySummaryTypeDef",
     {
-        "Timestamp": datetime,
-        "MetricValue": float,
+        "Id": NotRequired[str],
+        "Severity": NotRequired[AnomalySeverityType],
+        "Status": NotRequired[AnomalyStatusType],
+        "AnomalyTimeRange": NotRequired[AnomalyTimeRangeTypeDef],
+        "AnomalyReportedTimeRange": NotRequired[AnomalyReportedTimeRangeTypeDef],
+        "SourceDetails": NotRequired[AnomalySourceDetailsTypeDef],
+        "AssociatedInsightId": NotRequired[str],
+        "ResourceCollection": NotRequired[ResourceCollectionOutputTypeDef],
+        "Type": NotRequired[AnomalyTypeType],
+        "Name": NotRequired[str],
+        "Description": NotRequired[str],
+        "CausalAnomalyId": NotRequired[str],
+        "AnomalyResources": NotRequired[List[AnomalyResourceTypeDef]],
     },
-    total=False,
+)
+ReactiveAnomalyTypeDef = TypedDict(
+    "ReactiveAnomalyTypeDef",
+    {
+        "Id": NotRequired[str],
+        "Severity": NotRequired[AnomalySeverityType],
+        "Status": NotRequired[AnomalyStatusType],
+        "AnomalyTimeRange": NotRequired[AnomalyTimeRangeTypeDef],
+        "AnomalyReportedTimeRange": NotRequired[AnomalyReportedTimeRangeTypeDef],
+        "SourceDetails": NotRequired[AnomalySourceDetailsTypeDef],
+        "AssociatedInsightId": NotRequired[str],
+        "ResourceCollection": NotRequired[ResourceCollectionOutputTypeDef],
+        "Type": NotRequired[AnomalyTypeType],
+        "Name": NotRequired[str],
+        "Description": NotRequired[str],
+        "CausalAnomalyId": NotRequired[str],
+        "AnomalyResources": NotRequired[List[AnomalyResourceTypeDef]],
+    },
 )
 
-UpdateCloudFormationCollectionFilterTypeDef = TypedDict(
-    "UpdateCloudFormationCollectionFilterTypeDef",
-    {
-        "StackNames": List[str],
-    },
-    total=False,
-)
+class ListAnomaliesForInsightResponseTypeDef(TypedDict):
+    ProactiveAnomalies: List[ProactiveAnomalySummaryTypeDef]
+    ReactiveAnomalies: List[ReactiveAnomalySummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-UpdateEventSourcesConfigRequestRequestTypeDef = TypedDict(
-    "UpdateEventSourcesConfigRequestRequestTypeDef",
-    {
-        "EventSources": "EventSourcesConfigTypeDef",
-    },
-    total=False,
-)
-
-UpdateResourceCollectionFilterTypeDef = TypedDict(
-    "UpdateResourceCollectionFilterTypeDef",
-    {
-        "CloudFormation": "UpdateCloudFormationCollectionFilterTypeDef",
-        "Tags": List["UpdateTagCollectionFilterTypeDef"],
-    },
-    total=False,
-)
-
-UpdateResourceCollectionRequestRequestTypeDef = TypedDict(
-    "UpdateResourceCollectionRequestRequestTypeDef",
-    {
-        "Action": UpdateResourceCollectionActionType,
-        "ResourceCollection": "UpdateResourceCollectionFilterTypeDef",
-    },
-)
-
-UpdateServiceIntegrationConfigTypeDef = TypedDict(
-    "UpdateServiceIntegrationConfigTypeDef",
-    {
-        "OpsCenter": "OpsCenterIntegrationConfigTypeDef",
-        "LogsAnomalyDetection": "LogsAnomalyDetectionIntegrationConfigTypeDef",
-        "KMSServerSideEncryption": "KMSServerSideEncryptionIntegrationConfigTypeDef",
-    },
-    total=False,
-)
-
-UpdateServiceIntegrationRequestRequestTypeDef = TypedDict(
-    "UpdateServiceIntegrationRequestRequestTypeDef",
-    {
-        "ServiceIntegration": "UpdateServiceIntegrationConfigTypeDef",
-    },
-)
-
-UpdateTagCollectionFilterTypeDef = TypedDict(
-    "UpdateTagCollectionFilterTypeDef",
-    {
-        "AppBoundaryKey": str,
-        "TagValues": List[str],
-    },
-)
+class DescribeAnomalyResponseTypeDef(TypedDict):
+    ProactiveAnomaly: ProactiveAnomalyTypeDef
+    ReactiveAnomaly: ReactiveAnomalyTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef

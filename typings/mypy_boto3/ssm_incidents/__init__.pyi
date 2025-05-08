@@ -1,10 +1,14 @@
 """
 Main interface for ssm-incidents service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_ssm_incidents import (
         Client,
         GetResourcePoliciesPaginator,
@@ -19,10 +23,8 @@ Usage::
         WaitForReplicationSetDeletedWaiter,
     )
 
-    session = boto3.Session()
-
-    client: SSMIncidentsClient = boto3.client("ssm-incidents")
-    session_client: SSMIncidentsClient = session.client("ssm-incidents")
+    session = Session()
+    client: SSMIncidentsClient = session.client("ssm-incidents")
 
     wait_for_replication_set_active_waiter: WaitForReplicationSetActiveWaiter = client.get_waiter("wait_for_replication_set_active")
     wait_for_replication_set_deleted_waiter: WaitForReplicationSetDeletedWaiter = client.get_waiter("wait_for_replication_set_deleted")

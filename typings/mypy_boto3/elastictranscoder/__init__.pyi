@@ -1,10 +1,14 @@
 """
 Main interface for elastictranscoder service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_elastictranscoder/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_elastictranscoder import (
         Client,
         ElasticTranscoderClient,
@@ -15,10 +19,8 @@ Usage::
         ListPresetsPaginator,
     )
 
-    session = boto3.Session()
-
-    client: ElasticTranscoderClient = boto3.client("elastictranscoder")
-    session_client: ElasticTranscoderClient = session.client("elastictranscoder")
+    session = Session()
+    client: ElasticTranscoderClient = session.client("elastictranscoder")
 
     job_complete_waiter: JobCompleteWaiter = client.get_waiter("job_complete")
 

@@ -1,142 +1,215 @@
 """
-Type annotations for chime-sdk-voice service client.
+Type annotations for chime-sdk-voice service Client.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
-    from mypy_boto3_chime_sdk_voice import ChimeSDKVoiceClient
+    from boto3.session import Session
+    from mypy_boto3_chime_sdk_voice.client import ChimeSDKVoiceClient
 
-    client: ChimeSDKVoiceClient = boto3.client("chime-sdk-voice")
+    session = Session()
+    client: ChimeSDKVoiceClient = session.client("chime-sdk-voice")
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from typing import Any, Dict, List, Type, overload
+from typing import Any, overload
 
 from botocore.client import BaseClient, ClientMeta
+from botocore.errorfactory import BaseClientExceptions
+from botocore.exceptions import ClientError as BotocoreClientError
 
-from .literals import (
-    CallLegTypeType,
-    CapabilityType,
-    GeoMatchLevelType,
-    NumberSelectionBehaviorType,
-    PhoneNumberAssociationNameType,
-    PhoneNumberProductTypeType,
-    PhoneNumberTypeType,
-    ProxySessionStatusType,
-    SipRuleTriggerTypeType,
-    VoiceConnectorAwsRegionType,
-)
 from .paginator import ListSipMediaApplicationsPaginator, ListSipRulesPaginator
 from .type_defs import (
+    AssociatePhoneNumbersWithVoiceConnectorGroupRequestTypeDef,
     AssociatePhoneNumbersWithVoiceConnectorGroupResponseTypeDef,
+    AssociatePhoneNumbersWithVoiceConnectorRequestTypeDef,
     AssociatePhoneNumbersWithVoiceConnectorResponseTypeDef,
+    BatchDeletePhoneNumberRequestTypeDef,
     BatchDeletePhoneNumberResponseTypeDef,
+    BatchUpdatePhoneNumberRequestTypeDef,
     BatchUpdatePhoneNumberResponseTypeDef,
+    CreatePhoneNumberOrderRequestTypeDef,
     CreatePhoneNumberOrderResponseTypeDef,
+    CreateProxySessionRequestTypeDef,
     CreateProxySessionResponseTypeDef,
+    CreateSipMediaApplicationCallRequestTypeDef,
     CreateSipMediaApplicationCallResponseTypeDef,
+    CreateSipMediaApplicationRequestTypeDef,
     CreateSipMediaApplicationResponseTypeDef,
+    CreateSipRuleRequestTypeDef,
     CreateSipRuleResponseTypeDef,
+    CreateVoiceConnectorGroupRequestTypeDef,
     CreateVoiceConnectorGroupResponseTypeDef,
+    CreateVoiceConnectorRequestTypeDef,
     CreateVoiceConnectorResponseTypeDef,
+    CreateVoiceProfileDomainRequestTypeDef,
     CreateVoiceProfileDomainResponseTypeDef,
+    CreateVoiceProfileRequestTypeDef,
     CreateVoiceProfileResponseTypeDef,
-    CredentialTypeDef,
+    DeletePhoneNumberRequestTypeDef,
+    DeleteProxySessionRequestTypeDef,
+    DeleteSipMediaApplicationRequestTypeDef,
+    DeleteSipRuleRequestTypeDef,
+    DeleteVoiceConnectorEmergencyCallingConfigurationRequestTypeDef,
+    DeleteVoiceConnectorExternalSystemsConfigurationRequestTypeDef,
+    DeleteVoiceConnectorGroupRequestTypeDef,
+    DeleteVoiceConnectorOriginationRequestTypeDef,
+    DeleteVoiceConnectorProxyRequestTypeDef,
+    DeleteVoiceConnectorRequestTypeDef,
+    DeleteVoiceConnectorStreamingConfigurationRequestTypeDef,
+    DeleteVoiceConnectorTerminationCredentialsRequestTypeDef,
+    DeleteVoiceConnectorTerminationRequestTypeDef,
+    DeleteVoiceProfileDomainRequestTypeDef,
+    DeleteVoiceProfileRequestTypeDef,
+    DisassociatePhoneNumbersFromVoiceConnectorGroupRequestTypeDef,
     DisassociatePhoneNumbersFromVoiceConnectorGroupResponseTypeDef,
+    DisassociatePhoneNumbersFromVoiceConnectorRequestTypeDef,
     DisassociatePhoneNumbersFromVoiceConnectorResponseTypeDef,
-    EmergencyCallingConfigurationTypeDef,
-    GeoMatchParamsTypeDef,
+    EmptyResponseMetadataTypeDef,
     GetGlobalSettingsResponseTypeDef,
+    GetPhoneNumberOrderRequestTypeDef,
     GetPhoneNumberOrderResponseTypeDef,
+    GetPhoneNumberRequestTypeDef,
     GetPhoneNumberResponseTypeDef,
     GetPhoneNumberSettingsResponseTypeDef,
+    GetProxySessionRequestTypeDef,
     GetProxySessionResponseTypeDef,
+    GetSipMediaApplicationAlexaSkillConfigurationRequestTypeDef,
     GetSipMediaApplicationAlexaSkillConfigurationResponseTypeDef,
+    GetSipMediaApplicationLoggingConfigurationRequestTypeDef,
     GetSipMediaApplicationLoggingConfigurationResponseTypeDef,
+    GetSipMediaApplicationRequestTypeDef,
     GetSipMediaApplicationResponseTypeDef,
+    GetSipRuleRequestTypeDef,
     GetSipRuleResponseTypeDef,
+    GetSpeakerSearchTaskRequestTypeDef,
     GetSpeakerSearchTaskResponseTypeDef,
+    GetVoiceConnectorEmergencyCallingConfigurationRequestTypeDef,
     GetVoiceConnectorEmergencyCallingConfigurationResponseTypeDef,
+    GetVoiceConnectorExternalSystemsConfigurationRequestTypeDef,
+    GetVoiceConnectorExternalSystemsConfigurationResponseTypeDef,
+    GetVoiceConnectorGroupRequestTypeDef,
     GetVoiceConnectorGroupResponseTypeDef,
+    GetVoiceConnectorLoggingConfigurationRequestTypeDef,
     GetVoiceConnectorLoggingConfigurationResponseTypeDef,
+    GetVoiceConnectorOriginationRequestTypeDef,
     GetVoiceConnectorOriginationResponseTypeDef,
+    GetVoiceConnectorProxyRequestTypeDef,
     GetVoiceConnectorProxyResponseTypeDef,
+    GetVoiceConnectorRequestTypeDef,
     GetVoiceConnectorResponseTypeDef,
+    GetVoiceConnectorStreamingConfigurationRequestTypeDef,
     GetVoiceConnectorStreamingConfigurationResponseTypeDef,
+    GetVoiceConnectorTerminationHealthRequestTypeDef,
     GetVoiceConnectorTerminationHealthResponseTypeDef,
+    GetVoiceConnectorTerminationRequestTypeDef,
     GetVoiceConnectorTerminationResponseTypeDef,
+    GetVoiceProfileDomainRequestTypeDef,
     GetVoiceProfileDomainResponseTypeDef,
+    GetVoiceProfileRequestTypeDef,
     GetVoiceProfileResponseTypeDef,
+    GetVoiceToneAnalysisTaskRequestTypeDef,
     GetVoiceToneAnalysisTaskResponseTypeDef,
     ListAvailableVoiceConnectorRegionsResponseTypeDef,
+    ListPhoneNumberOrdersRequestTypeDef,
     ListPhoneNumberOrdersResponseTypeDef,
+    ListPhoneNumbersRequestTypeDef,
     ListPhoneNumbersResponseTypeDef,
+    ListProxySessionsRequestTypeDef,
     ListProxySessionsResponseTypeDef,
+    ListSipMediaApplicationsRequestTypeDef,
     ListSipMediaApplicationsResponseTypeDef,
+    ListSipRulesRequestTypeDef,
     ListSipRulesResponseTypeDef,
+    ListSupportedPhoneNumberCountriesRequestTypeDef,
     ListSupportedPhoneNumberCountriesResponseTypeDef,
+    ListTagsForResourceRequestTypeDef,
     ListTagsForResourceResponseTypeDef,
+    ListVoiceConnectorGroupsRequestTypeDef,
     ListVoiceConnectorGroupsResponseTypeDef,
+    ListVoiceConnectorsRequestTypeDef,
     ListVoiceConnectorsResponseTypeDef,
+    ListVoiceConnectorTerminationCredentialsRequestTypeDef,
     ListVoiceConnectorTerminationCredentialsResponseTypeDef,
+    ListVoiceProfileDomainsRequestTypeDef,
     ListVoiceProfileDomainsResponseTypeDef,
+    ListVoiceProfilesRequestTypeDef,
     ListVoiceProfilesResponseTypeDef,
-    LoggingConfigurationTypeDef,
-    OriginationTypeDef,
+    PutSipMediaApplicationAlexaSkillConfigurationRequestTypeDef,
     PutSipMediaApplicationAlexaSkillConfigurationResponseTypeDef,
+    PutSipMediaApplicationLoggingConfigurationRequestTypeDef,
     PutSipMediaApplicationLoggingConfigurationResponseTypeDef,
+    PutVoiceConnectorEmergencyCallingConfigurationRequestTypeDef,
     PutVoiceConnectorEmergencyCallingConfigurationResponseTypeDef,
+    PutVoiceConnectorExternalSystemsConfigurationRequestTypeDef,
+    PutVoiceConnectorExternalSystemsConfigurationResponseTypeDef,
+    PutVoiceConnectorLoggingConfigurationRequestTypeDef,
     PutVoiceConnectorLoggingConfigurationResponseTypeDef,
+    PutVoiceConnectorOriginationRequestTypeDef,
     PutVoiceConnectorOriginationResponseTypeDef,
+    PutVoiceConnectorProxyRequestTypeDef,
     PutVoiceConnectorProxyResponseTypeDef,
+    PutVoiceConnectorStreamingConfigurationRequestTypeDef,
     PutVoiceConnectorStreamingConfigurationResponseTypeDef,
+    PutVoiceConnectorTerminationCredentialsRequestTypeDef,
+    PutVoiceConnectorTerminationRequestTypeDef,
     PutVoiceConnectorTerminationResponseTypeDef,
+    RestorePhoneNumberRequestTypeDef,
     RestorePhoneNumberResponseTypeDef,
+    SearchAvailablePhoneNumbersRequestTypeDef,
     SearchAvailablePhoneNumbersResponseTypeDef,
-    ServerSideEncryptionConfigurationTypeDef,
-    SipMediaApplicationAlexaSkillConfigurationTypeDef,
-    SipMediaApplicationEndpointTypeDef,
-    SipMediaApplicationLoggingConfigurationTypeDef,
-    SipRuleTargetApplicationTypeDef,
+    StartSpeakerSearchTaskRequestTypeDef,
     StartSpeakerSearchTaskResponseTypeDef,
+    StartVoiceToneAnalysisTaskRequestTypeDef,
     StartVoiceToneAnalysisTaskResponseTypeDef,
-    StreamingConfigurationTypeDef,
-    TagTypeDef,
-    TerminationTypeDef,
-    UpdatePhoneNumberRequestItemTypeDef,
+    StopSpeakerSearchTaskRequestTypeDef,
+    StopVoiceToneAnalysisTaskRequestTypeDef,
+    TagResourceRequestTypeDef,
+    UntagResourceRequestTypeDef,
+    UpdateGlobalSettingsRequestTypeDef,
+    UpdatePhoneNumberRequestTypeDef,
     UpdatePhoneNumberResponseTypeDef,
+    UpdatePhoneNumberSettingsRequestTypeDef,
+    UpdateProxySessionRequestTypeDef,
     UpdateProxySessionResponseTypeDef,
+    UpdateSipMediaApplicationCallRequestTypeDef,
     UpdateSipMediaApplicationCallResponseTypeDef,
+    UpdateSipMediaApplicationRequestTypeDef,
     UpdateSipMediaApplicationResponseTypeDef,
+    UpdateSipRuleRequestTypeDef,
     UpdateSipRuleResponseTypeDef,
+    UpdateVoiceConnectorGroupRequestTypeDef,
     UpdateVoiceConnectorGroupResponseTypeDef,
+    UpdateVoiceConnectorRequestTypeDef,
     UpdateVoiceConnectorResponseTypeDef,
+    UpdateVoiceProfileDomainRequestTypeDef,
     UpdateVoiceProfileDomainResponseTypeDef,
+    UpdateVoiceProfileRequestTypeDef,
     UpdateVoiceProfileResponseTypeDef,
+    ValidateE911AddressRequestTypeDef,
     ValidateE911AddressResponseTypeDef,
-    VoiceConnectorItemTypeDef,
-    VoiceConnectorSettingsTypeDef,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import type as Type
+    from collections.abc import Mapping
 else:
-    from typing_extensions import Literal
+    from typing import Mapping, Type
+if sys.version_info >= (3, 12):
+    from typing import Literal, Unpack
+else:
+    from typing_extensions import Literal, Unpack
 
 __all__ = ("ChimeSDKVoiceClient",)
 
-class BotocoreClientError(BaseException):
-    MSG_TEMPLATE: str
-
-    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
-        self.response: Dict[str, Any]
-        self.operation_name: str
-
-class Exceptions:
+class Exceptions(BaseClientExceptions):
     AccessDeniedException: Type[BotocoreClientError]
     BadRequestException: Type[BotocoreClientError]
     ClientError: Type[BotocoreClientError]
@@ -153,8 +226,8 @@ class Exceptions:
 
 class ChimeSDKVoiceClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Client)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client.html)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Client)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/)
     """
 
     meta: ClientMeta
@@ -163,363 +236,343 @@ class ChimeSDKVoiceClient(BaseClient):
     def exceptions(self) -> Exceptions:
         """
         ChimeSDKVoiceClient exceptions.
-        """
 
-    def associate_phone_numbers_with_voice_connector(
-        self, *, VoiceConnectorId: str, E164PhoneNumbers: List[str], ForceAssociate: bool = None
-    ) -> AssociatePhoneNumbersWithVoiceConnectorResponseTypeDef:
-        """
-        Associates phone numbers with the specified Amazon Chime SDK Voice Connector.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Client.associate_phone_numbers_with_voice_connector)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client.html#associate_phone_numbers_with_voice_connector)
-        """
-
-    def associate_phone_numbers_with_voice_connector_group(
-        self,
-        *,
-        VoiceConnectorGroupId: str,
-        E164PhoneNumbers: List[str],
-        ForceAssociate: bool = None
-    ) -> AssociatePhoneNumbersWithVoiceConnectorGroupResponseTypeDef:
-        """
-        Associates phone numbers with the specified Amazon Chime SDK Voice Connector
-        group.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Client.associate_phone_numbers_with_voice_connector_group)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client.html#associate_phone_numbers_with_voice_connector_group)
-        """
-
-    def batch_delete_phone_number(
-        self, *, PhoneNumberIds: List[str]
-    ) -> BatchDeletePhoneNumberResponseTypeDef:
-        """
-        Moves phone numbers into the **Deletion queue**.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Client.batch_delete_phone_number)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client.html#batch_delete_phone_number)
-        """
-
-    def batch_update_phone_number(
-        self, *, UpdatePhoneNumberRequestItems: List["UpdatePhoneNumberRequestItemTypeDef"]
-    ) -> BatchUpdatePhoneNumberResponseTypeDef:
-        """
-        Updates phone number product types, calling names, or phone number names.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Client.batch_update_phone_number)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client.html#batch_update_phone_number)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Client)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/#exceptions)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        Check if an operation can be paginated.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Client.can_paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client.html#can_paginate)
-        """
-
-    def close(self) -> None:
-        """
-        Closes underlying endpoint connections.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Client.close)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client.html#close)
-        """
-
-    def create_phone_number_order(
-        self,
-        *,
-        ProductType: PhoneNumberProductTypeType,
-        E164PhoneNumbers: List[str],
-        Name: str = None
-    ) -> CreatePhoneNumberOrderResponseTypeDef:
-        """
-        Creates an order for phone numbers to be provisioned.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Client.create_phone_number_order)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client.html#create_phone_number_order)
-        """
-
-    def create_proxy_session(
-        self,
-        *,
-        VoiceConnectorId: str,
-        ParticipantPhoneNumbers: List[str],
-        Capabilities: List[CapabilityType],
-        Name: str = None,
-        ExpiryMinutes: int = None,
-        NumberSelectionBehavior: NumberSelectionBehaviorType = None,
-        GeoMatchLevel: GeoMatchLevelType = None,
-        GeoMatchParams: "GeoMatchParamsTypeDef" = None
-    ) -> CreateProxySessionResponseTypeDef:
-        """
-        Creates a proxy session for the specified Amazon Chime SDK Voice Connector for
-        the specified participant phone numbers.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Client.create_proxy_session)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client.html#create_proxy_session)
-        """
-
-    def create_sip_media_application(
-        self,
-        *,
-        AwsRegion: str,
-        Name: str,
-        Endpoints: List["SipMediaApplicationEndpointTypeDef"],
-        Tags: List["TagTypeDef"] = None
-    ) -> CreateSipMediaApplicationResponseTypeDef:
-        """
-        Creates a SIP media application.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Client.create_sip_media_application)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client.html#create_sip_media_application)
-        """
-
-    def create_sip_media_application_call(
-        self,
-        *,
-        FromPhoneNumber: str,
-        ToPhoneNumber: str,
-        SipMediaApplicationId: str,
-        SipHeaders: Dict[str, str] = None,
-        ArgumentsMap: Dict[str, str] = None
-    ) -> CreateSipMediaApplicationCallResponseTypeDef:
-        """
-        Creates an outbound call to a phone number from the phone number specified in
-        the request, and it invokes the endpoint of the specified
-        `sipMediaApplicationId`.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Client.create_sip_media_application_call)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client.html#create_sip_media_application_call)
-        """
-
-    def create_sip_rule(
-        self,
-        *,
-        Name: str,
-        TriggerType: SipRuleTriggerTypeType,
-        TriggerValue: str,
-        Disabled: bool = None,
-        TargetApplications: List["SipRuleTargetApplicationTypeDef"] = None
-    ) -> CreateSipRuleResponseTypeDef:
-        """
-        Creates a SIP rule, which can be used to run a SIP media application as a target
-        for a specific trigger type.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Client.create_sip_rule)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client.html#create_sip_rule)
-        """
-
-    def create_voice_connector(
-        self,
-        *,
-        Name: str,
-        RequireEncryption: bool,
-        AwsRegion: VoiceConnectorAwsRegionType = None,
-        Tags: List["TagTypeDef"] = None
-    ) -> CreateVoiceConnectorResponseTypeDef:
-        """
-        Creates an Amazon Chime SDK Voice Connector.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Client.create_voice_connector)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client.html#create_voice_connector)
-        """
-
-    def create_voice_connector_group(
-        self, *, Name: str, VoiceConnectorItems: List["VoiceConnectorItemTypeDef"] = None
-    ) -> CreateVoiceConnectorGroupResponseTypeDef:
-        """
-        Creates an Amazon Chime SDK Voice Connector group under the administrator's AWS
-        account.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Client.create_voice_connector_group)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client.html#create_voice_connector_group)
-        """
-
-    def create_voice_profile(
-        self, *, SpeakerSearchTaskId: str
-    ) -> CreateVoiceProfileResponseTypeDef:
-        """
-        Creates a voice profile, which consists of an enrolled user and their latest
-        voice print.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Client.create_voice_profile)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client.html#create_voice_profile)
-        """
-
-    def create_voice_profile_domain(
-        self,
-        *,
-        Name: str,
-        ServerSideEncryptionConfiguration: "ServerSideEncryptionConfigurationTypeDef",
-        Description: str = None,
-        ClientRequestToken: str = None,
-        Tags: List["TagTypeDef"] = None
-    ) -> CreateVoiceProfileDomainResponseTypeDef:
-        """
-        Creates a voice profile domain, a collection of voice profiles, their voice
-        prints, and encrypted enrollment audio.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Client.create_voice_profile_domain)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client.html#create_voice_profile_domain)
-        """
-
-    def delete_phone_number(self, *, PhoneNumberId: str) -> None:
-        """
-        Moves the specified phone number into the **Deletion queue**.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Client.delete_phone_number)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client.html#delete_phone_number)
-        """
-
-    def delete_proxy_session(self, *, VoiceConnectorId: str, ProxySessionId: str) -> None:
-        """
-        Deletes the specified proxy session from the specified Amazon Chime SDK Voice
-        Connector.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Client.delete_proxy_session)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client.html#delete_proxy_session)
-        """
-
-    def delete_sip_media_application(self, *, SipMediaApplicationId: str) -> None:
-        """
-        Deletes a SIP media application.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Client.delete_sip_media_application)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client.html#delete_sip_media_application)
-        """
-
-    def delete_sip_rule(self, *, SipRuleId: str) -> None:
-        """
-        Deletes a SIP rule.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Client.delete_sip_rule)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client.html#delete_sip_rule)
-        """
-
-    def delete_voice_connector(self, *, VoiceConnectorId: str) -> None:
-        """
-        Deletes an Amazon Chime SDK Voice Connector.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Client.delete_voice_connector)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client.html#delete_voice_connector)
-        """
-
-    def delete_voice_connector_emergency_calling_configuration(
-        self, *, VoiceConnectorId: str
-    ) -> None:
-        """
-        Deletes the emergency calling details from the specified Amazon Chime SDK Voice
-        Connector.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Client.delete_voice_connector_emergency_calling_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client.html#delete_voice_connector_emergency_calling_configuration)
-        """
-
-    def delete_voice_connector_group(self, *, VoiceConnectorGroupId: str) -> None:
-        """
-        Deletes an Amazon Chime SDK Voice Connector group.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Client.delete_voice_connector_group)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client.html#delete_voice_connector_group)
-        """
-
-    def delete_voice_connector_origination(self, *, VoiceConnectorId: str) -> None:
-        """
-        Deletes the origination settings for the specified Amazon Chime SDK Voice
-        Connector.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Client.delete_voice_connector_origination)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client.html#delete_voice_connector_origination)
-        """
-
-    def delete_voice_connector_proxy(self, *, VoiceConnectorId: str) -> None:
-        """
-        Deletes the proxy configuration from the specified Amazon Chime SDK Voice
-        Connector.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Client.delete_voice_connector_proxy)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client.html#delete_voice_connector_proxy)
-        """
-
-    def delete_voice_connector_streaming_configuration(self, *, VoiceConnectorId: str) -> None:
-        """
-        Deletes a Voice Connector's streaming configuration.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Client.delete_voice_connector_streaming_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client.html#delete_voice_connector_streaming_configuration)
-        """
-
-    def delete_voice_connector_termination(self, *, VoiceConnectorId: str) -> None:
-        """
-        Deletes the termination settings for the specified Amazon Chime SDK Voice
-        Connector.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Client.delete_voice_connector_termination)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client.html#delete_voice_connector_termination)
-        """
-
-    def delete_voice_connector_termination_credentials(
-        self, *, VoiceConnectorId: str, Usernames: List[str]
-    ) -> None:
-        """
-        Deletes the specified SIP credentials used by your equipment to authenticate
-        during call termination.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Client.delete_voice_connector_termination_credentials)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client.html#delete_voice_connector_termination_credentials)
-        """
-
-    def delete_voice_profile(self, *, VoiceProfileId: str) -> None:
-        """
-        Deletes a voice profile, including its voice print and enrollment data.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Client.delete_voice_profile)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client.html#delete_voice_profile)
-        """
-
-    def delete_voice_profile_domain(self, *, VoiceProfileDomainId: str) -> None:
-        """
-        Deletes all voice profiles in the domain.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Client.delete_voice_profile_domain)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client.html#delete_voice_profile_domain)
-        """
-
-    def disassociate_phone_numbers_from_voice_connector(
-        self, *, VoiceConnectorId: str, E164PhoneNumbers: List[str]
-    ) -> DisassociatePhoneNumbersFromVoiceConnectorResponseTypeDef:
-        """
-        Disassociates the specified phone numbers from the specified Amazon Chime SDK
-        Voice Connector.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Client.disassociate_phone_numbers_from_voice_connector)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client.html#disassociate_phone_numbers_from_voice_connector)
-        """
-
-    def disassociate_phone_numbers_from_voice_connector_group(
-        self, *, VoiceConnectorGroupId: str, E164PhoneNumbers: List[str]
-    ) -> DisassociatePhoneNumbersFromVoiceConnectorGroupResponseTypeDef:
-        """
-        Disassociates the specified phone numbers from the specified Amazon Chime SDK
-        Voice Connector group.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Client.disassociate_phone_numbers_from_voice_connector_group)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client.html#disassociate_phone_numbers_from_voice_connector_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/client/can_paginate.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/#can_paginate)
         """
 
     def generate_presigned_url(
         self,
         ClientMethod: str,
-        Params: Dict[str, Any] = None,
+        Params: Mapping[str, Any] = ...,
         ExpiresIn: int = 3600,
-        HttpMethod: str = None,
+        HttpMethod: str = ...,
     ) -> str:
         """
-        Generate a presigned url given a client, its method, and arguments.
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/client/generate_presigned_url.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/#generate_presigned_url)
+        """
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Client.generate_presigned_url)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client.html#generate_presigned_url)
+    def associate_phone_numbers_with_voice_connector(
+        self, **kwargs: Unpack[AssociatePhoneNumbersWithVoiceConnectorRequestTypeDef]
+    ) -> AssociatePhoneNumbersWithVoiceConnectorResponseTypeDef:
+        """
+        Associates phone numbers with the specified Amazon Chime SDK Voice Connector.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/client/associate_phone_numbers_with_voice_connector.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/#associate_phone_numbers_with_voice_connector)
+        """
+
+    def associate_phone_numbers_with_voice_connector_group(
+        self, **kwargs: Unpack[AssociatePhoneNumbersWithVoiceConnectorGroupRequestTypeDef]
+    ) -> AssociatePhoneNumbersWithVoiceConnectorGroupResponseTypeDef:
+        """
+        Associates phone numbers with the specified Amazon Chime SDK Voice Connector
+        group.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/client/associate_phone_numbers_with_voice_connector_group.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/#associate_phone_numbers_with_voice_connector_group)
+        """
+
+    def batch_delete_phone_number(
+        self, **kwargs: Unpack[BatchDeletePhoneNumberRequestTypeDef]
+    ) -> BatchDeletePhoneNumberResponseTypeDef:
+        """
+        Moves phone numbers into the <b>Deletion queue</b>.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/client/batch_delete_phone_number.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/#batch_delete_phone_number)
+        """
+
+    def batch_update_phone_number(
+        self, **kwargs: Unpack[BatchUpdatePhoneNumberRequestTypeDef]
+    ) -> BatchUpdatePhoneNumberResponseTypeDef:
+        """
+        Updates phone number product types, calling names, or phone number names.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/client/batch_update_phone_number.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/#batch_update_phone_number)
+        """
+
+    def create_phone_number_order(
+        self, **kwargs: Unpack[CreatePhoneNumberOrderRequestTypeDef]
+    ) -> CreatePhoneNumberOrderResponseTypeDef:
+        """
+        Creates an order for phone numbers to be provisioned.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/client/create_phone_number_order.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/#create_phone_number_order)
+        """
+
+    def create_proxy_session(
+        self, **kwargs: Unpack[CreateProxySessionRequestTypeDef]
+    ) -> CreateProxySessionResponseTypeDef:
+        """
+        Creates a proxy session for the specified Amazon Chime SDK Voice Connector for
+        the specified participant phone numbers.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/client/create_proxy_session.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/#create_proxy_session)
+        """
+
+    def create_sip_media_application(
+        self, **kwargs: Unpack[CreateSipMediaApplicationRequestTypeDef]
+    ) -> CreateSipMediaApplicationResponseTypeDef:
+        """
+        Creates a SIP media application.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/client/create_sip_media_application.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/#create_sip_media_application)
+        """
+
+    def create_sip_media_application_call(
+        self, **kwargs: Unpack[CreateSipMediaApplicationCallRequestTypeDef]
+    ) -> CreateSipMediaApplicationCallResponseTypeDef:
+        """
+        Creates an outbound call to a phone number from the phone number specified in
+        the request, and it invokes the endpoint of the specified
+        <code>sipMediaApplicationId</code>.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/client/create_sip_media_application_call.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/#create_sip_media_application_call)
+        """
+
+    def create_sip_rule(
+        self, **kwargs: Unpack[CreateSipRuleRequestTypeDef]
+    ) -> CreateSipRuleResponseTypeDef:
+        """
+        Creates a SIP rule, which can be used to run a SIP media application as a
+        target for a specific trigger type.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/client/create_sip_rule.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/#create_sip_rule)
+        """
+
+    def create_voice_connector(
+        self, **kwargs: Unpack[CreateVoiceConnectorRequestTypeDef]
+    ) -> CreateVoiceConnectorResponseTypeDef:
+        """
+        Creates an Amazon Chime SDK Voice Connector.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/client/create_voice_connector.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/#create_voice_connector)
+        """
+
+    def create_voice_connector_group(
+        self, **kwargs: Unpack[CreateVoiceConnectorGroupRequestTypeDef]
+    ) -> CreateVoiceConnectorGroupResponseTypeDef:
+        """
+        Creates an Amazon Chime SDK Voice Connector group under the administrator's AWS
+        account.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/client/create_voice_connector_group.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/#create_voice_connector_group)
+        """
+
+    def create_voice_profile(
+        self, **kwargs: Unpack[CreateVoiceProfileRequestTypeDef]
+    ) -> CreateVoiceProfileResponseTypeDef:
+        """
+        Creates a voice profile, which consists of an enrolled user and their latest
+        voice print.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/client/create_voice_profile.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/#create_voice_profile)
+        """
+
+    def create_voice_profile_domain(
+        self, **kwargs: Unpack[CreateVoiceProfileDomainRequestTypeDef]
+    ) -> CreateVoiceProfileDomainResponseTypeDef:
+        """
+        Creates a voice profile domain, a collection of voice profiles, their voice
+        prints, and encrypted enrollment audio.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/client/create_voice_profile_domain.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/#create_voice_profile_domain)
+        """
+
+    def delete_phone_number(
+        self, **kwargs: Unpack[DeletePhoneNumberRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Moves the specified phone number into the <b>Deletion queue</b>.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/client/delete_phone_number.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/#delete_phone_number)
+        """
+
+    def delete_proxy_session(
+        self, **kwargs: Unpack[DeleteProxySessionRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Deletes the specified proxy session from the specified Amazon Chime SDK Voice
+        Connector.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/client/delete_proxy_session.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/#delete_proxy_session)
+        """
+
+    def delete_sip_media_application(
+        self, **kwargs: Unpack[DeleteSipMediaApplicationRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Deletes a SIP media application.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/client/delete_sip_media_application.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/#delete_sip_media_application)
+        """
+
+    def delete_sip_rule(
+        self, **kwargs: Unpack[DeleteSipRuleRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Deletes a SIP rule.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/client/delete_sip_rule.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/#delete_sip_rule)
+        """
+
+    def delete_voice_connector(
+        self, **kwargs: Unpack[DeleteVoiceConnectorRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Deletes an Amazon Chime SDK Voice Connector.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/client/delete_voice_connector.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/#delete_voice_connector)
+        """
+
+    def delete_voice_connector_emergency_calling_configuration(
+        self, **kwargs: Unpack[DeleteVoiceConnectorEmergencyCallingConfigurationRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Deletes the emergency calling details from the specified Amazon Chime SDK Voice
+        Connector.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/client/delete_voice_connector_emergency_calling_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/#delete_voice_connector_emergency_calling_configuration)
+        """
+
+    def delete_voice_connector_external_systems_configuration(
+        self, **kwargs: Unpack[DeleteVoiceConnectorExternalSystemsConfigurationRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Deletes the external systems configuration for a Voice Connector.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/client/delete_voice_connector_external_systems_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/#delete_voice_connector_external_systems_configuration)
+        """
+
+    def delete_voice_connector_group(
+        self, **kwargs: Unpack[DeleteVoiceConnectorGroupRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Deletes an Amazon Chime SDK Voice Connector group.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/client/delete_voice_connector_group.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/#delete_voice_connector_group)
+        """
+
+    def delete_voice_connector_origination(
+        self, **kwargs: Unpack[DeleteVoiceConnectorOriginationRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Deletes the origination settings for the specified Amazon Chime SDK Voice
+        Connector.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/client/delete_voice_connector_origination.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/#delete_voice_connector_origination)
+        """
+
+    def delete_voice_connector_proxy(
+        self, **kwargs: Unpack[DeleteVoiceConnectorProxyRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Deletes the proxy configuration from the specified Amazon Chime SDK Voice
+        Connector.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/client/delete_voice_connector_proxy.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/#delete_voice_connector_proxy)
+        """
+
+    def delete_voice_connector_streaming_configuration(
+        self, **kwargs: Unpack[DeleteVoiceConnectorStreamingConfigurationRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Deletes a Voice Connector's streaming configuration.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/client/delete_voice_connector_streaming_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/#delete_voice_connector_streaming_configuration)
+        """
+
+    def delete_voice_connector_termination(
+        self, **kwargs: Unpack[DeleteVoiceConnectorTerminationRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Deletes the termination settings for the specified Amazon Chime SDK Voice
+        Connector.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/client/delete_voice_connector_termination.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/#delete_voice_connector_termination)
+        """
+
+    def delete_voice_connector_termination_credentials(
+        self, **kwargs: Unpack[DeleteVoiceConnectorTerminationCredentialsRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Deletes the specified SIP credentials used by your equipment to authenticate
+        during call termination.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/client/delete_voice_connector_termination_credentials.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/#delete_voice_connector_termination_credentials)
+        """
+
+    def delete_voice_profile(
+        self, **kwargs: Unpack[DeleteVoiceProfileRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Deletes a voice profile, including its voice print and enrollment data.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/client/delete_voice_profile.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/#delete_voice_profile)
+        """
+
+    def delete_voice_profile_domain(
+        self, **kwargs: Unpack[DeleteVoiceProfileDomainRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Deletes all voice profiles in the domain.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/client/delete_voice_profile_domain.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/#delete_voice_profile_domain)
+        """
+
+    def disassociate_phone_numbers_from_voice_connector(
+        self, **kwargs: Unpack[DisassociatePhoneNumbersFromVoiceConnectorRequestTypeDef]
+    ) -> DisassociatePhoneNumbersFromVoiceConnectorResponseTypeDef:
+        """
+        Disassociates the specified phone numbers from the specified Amazon Chime SDK
+        Voice Connector.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/client/disassociate_phone_numbers_from_voice_connector.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/#disassociate_phone_numbers_from_voice_connector)
+        """
+
+    def disassociate_phone_numbers_from_voice_connector_group(
+        self, **kwargs: Unpack[DisassociatePhoneNumbersFromVoiceConnectorGroupRequestTypeDef]
+    ) -> DisassociatePhoneNumbersFromVoiceConnectorGroupResponseTypeDef:
+        """
+        Disassociates the specified phone numbers from the specified Amazon Chime SDK
+        Voice Connector group.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/client/disassociate_phone_numbers_from_voice_connector_group.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/#disassociate_phone_numbers_from_voice_connector_group)
         """
 
     def get_global_settings(self) -> GetGlobalSettingsResponseTypeDef:
@@ -527,221 +580,238 @@ class ChimeSDKVoiceClient(BaseClient):
         Retrieves the global settings for the Amazon Chime SDK Voice Connectors in an
         AWS account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Client.get_global_settings)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client.html#get_global_settings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/client/get_global_settings.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/#get_global_settings)
         """
 
-    def get_phone_number(self, *, PhoneNumberId: str) -> GetPhoneNumberResponseTypeDef:
+    def get_phone_number(
+        self, **kwargs: Unpack[GetPhoneNumberRequestTypeDef]
+    ) -> GetPhoneNumberResponseTypeDef:
         """
         Retrieves details for the specified phone number ID, such as associations,
         capabilities, and product type.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Client.get_phone_number)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client.html#get_phone_number)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/client/get_phone_number.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/#get_phone_number)
         """
 
     def get_phone_number_order(
-        self, *, PhoneNumberOrderId: str
+        self, **kwargs: Unpack[GetPhoneNumberOrderRequestTypeDef]
     ) -> GetPhoneNumberOrderResponseTypeDef:
         """
         Retrieves details for the specified phone number order, such as the order
         creation timestamp, phone numbers in E.164 format, product type, and order
         status.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Client.get_phone_number_order)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client.html#get_phone_number_order)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/client/get_phone_number_order.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/#get_phone_number_order)
         """
 
     def get_phone_number_settings(self) -> GetPhoneNumberSettingsResponseTypeDef:
         """
-        Retrieves the phone number settings for the administrator's AWS account, such as
-        the default outbound calling name.
+        Retrieves the phone number settings for the administrator's AWS account, such
+        as the default outbound calling name.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Client.get_phone_number_settings)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client.html#get_phone_number_settings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/client/get_phone_number_settings.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/#get_phone_number_settings)
         """
 
     def get_proxy_session(
-        self, *, VoiceConnectorId: str, ProxySessionId: str
+        self, **kwargs: Unpack[GetProxySessionRequestTypeDef]
     ) -> GetProxySessionResponseTypeDef:
         """
-        Retrieves the specified proxy session details for the specified Amazon Chime SDK
-        Voice Connector.
+        Retrieves the specified proxy session details for the specified Amazon Chime
+        SDK Voice Connector.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Client.get_proxy_session)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client.html#get_proxy_session)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/client/get_proxy_session.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/#get_proxy_session)
         """
 
     def get_sip_media_application(
-        self, *, SipMediaApplicationId: str
+        self, **kwargs: Unpack[GetSipMediaApplicationRequestTypeDef]
     ) -> GetSipMediaApplicationResponseTypeDef:
         """
         Retrieves the information for a SIP media application, including name, AWS
         Region, and endpoints.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Client.get_sip_media_application)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client.html#get_sip_media_application)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/client/get_sip_media_application.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/#get_sip_media_application)
         """
 
     def get_sip_media_application_alexa_skill_configuration(
-        self, *, SipMediaApplicationId: str
+        self, **kwargs: Unpack[GetSipMediaApplicationAlexaSkillConfigurationRequestTypeDef]
     ) -> GetSipMediaApplicationAlexaSkillConfigurationResponseTypeDef:
         """
         Gets the Alexa Skill configuration for the SIP media application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Client.get_sip_media_application_alexa_skill_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client.html#get_sip_media_application_alexa_skill_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/client/get_sip_media_application_alexa_skill_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/#get_sip_media_application_alexa_skill_configuration)
         """
 
     def get_sip_media_application_logging_configuration(
-        self, *, SipMediaApplicationId: str
+        self, **kwargs: Unpack[GetSipMediaApplicationLoggingConfigurationRequestTypeDef]
     ) -> GetSipMediaApplicationLoggingConfigurationResponseTypeDef:
         """
         Retrieves the logging configuration for the specified SIP media application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Client.get_sip_media_application_logging_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client.html#get_sip_media_application_logging_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/client/get_sip_media_application_logging_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/#get_sip_media_application_logging_configuration)
         """
 
-    def get_sip_rule(self, *, SipRuleId: str) -> GetSipRuleResponseTypeDef:
+    def get_sip_rule(self, **kwargs: Unpack[GetSipRuleRequestTypeDef]) -> GetSipRuleResponseTypeDef:
         """
         Retrieves the details of a SIP rule, such as the rule ID, name, triggers, and
         target endpoints.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Client.get_sip_rule)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client.html#get_sip_rule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/client/get_sip_rule.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/#get_sip_rule)
         """
 
     def get_speaker_search_task(
-        self, *, VoiceConnectorId: str, SpeakerSearchTaskId: str
+        self, **kwargs: Unpack[GetSpeakerSearchTaskRequestTypeDef]
     ) -> GetSpeakerSearchTaskResponseTypeDef:
         """
         Retrieves the details of the specified speaker search task.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Client.get_speaker_search_task)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client.html#get_speaker_search_task)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/client/get_speaker_search_task.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/#get_speaker_search_task)
         """
 
-    def get_voice_connector(self, *, VoiceConnectorId: str) -> GetVoiceConnectorResponseTypeDef:
+    def get_voice_connector(
+        self, **kwargs: Unpack[GetVoiceConnectorRequestTypeDef]
+    ) -> GetVoiceConnectorResponseTypeDef:
         """
         Retrieves details for the specified Amazon Chime SDK Voice Connector, such as
         timestamps,name, outbound host, and encryption requirements.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Client.get_voice_connector)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client.html#get_voice_connector)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/client/get_voice_connector.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/#get_voice_connector)
         """
 
     def get_voice_connector_emergency_calling_configuration(
-        self, *, VoiceConnectorId: str
+        self, **kwargs: Unpack[GetVoiceConnectorEmergencyCallingConfigurationRequestTypeDef]
     ) -> GetVoiceConnectorEmergencyCallingConfigurationResponseTypeDef:
         """
         Retrieves the emergency calling configuration details for the specified Voice
         Connector.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Client.get_voice_connector_emergency_calling_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client.html#get_voice_connector_emergency_calling_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/client/get_voice_connector_emergency_calling_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/#get_voice_connector_emergency_calling_configuration)
+        """
+
+    def get_voice_connector_external_systems_configuration(
+        self, **kwargs: Unpack[GetVoiceConnectorExternalSystemsConfigurationRequestTypeDef]
+    ) -> GetVoiceConnectorExternalSystemsConfigurationResponseTypeDef:
+        """
+        Gets information about an external systems configuration for a Voice Connector.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/client/get_voice_connector_external_systems_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/#get_voice_connector_external_systems_configuration)
         """
 
     def get_voice_connector_group(
-        self, *, VoiceConnectorGroupId: str
+        self, **kwargs: Unpack[GetVoiceConnectorGroupRequestTypeDef]
     ) -> GetVoiceConnectorGroupResponseTypeDef:
         """
-        Retrieves details for the specified Amazon Chime SDK Voice Connector group, such
-        as timestamps,name, and associated `VoiceConnectorItems`.
+        Retrieves details for the specified Amazon Chime SDK Voice Connector group,
+        such as timestamps,name, and associated <code>VoiceConnectorItems</code>.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Client.get_voice_connector_group)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client.html#get_voice_connector_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/client/get_voice_connector_group.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/#get_voice_connector_group)
         """
 
     def get_voice_connector_logging_configuration(
-        self, *, VoiceConnectorId: str
+        self, **kwargs: Unpack[GetVoiceConnectorLoggingConfigurationRequestTypeDef]
     ) -> GetVoiceConnectorLoggingConfigurationResponseTypeDef:
         """
         Retrieves the logging configuration settings for the specified Voice Connector.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Client.get_voice_connector_logging_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client.html#get_voice_connector_logging_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/client/get_voice_connector_logging_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/#get_voice_connector_logging_configuration)
         """
 
     def get_voice_connector_origination(
-        self, *, VoiceConnectorId: str
+        self, **kwargs: Unpack[GetVoiceConnectorOriginationRequestTypeDef]
     ) -> GetVoiceConnectorOriginationResponseTypeDef:
         """
         Retrieves the origination settings for the specified Voice Connector.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Client.get_voice_connector_origination)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client.html#get_voice_connector_origination)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/client/get_voice_connector_origination.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/#get_voice_connector_origination)
         """
 
     def get_voice_connector_proxy(
-        self, *, VoiceConnectorId: str
+        self, **kwargs: Unpack[GetVoiceConnectorProxyRequestTypeDef]
     ) -> GetVoiceConnectorProxyResponseTypeDef:
         """
         Retrieves the proxy configuration details for the specified Amazon Chime SDK
         Voice Connector.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Client.get_voice_connector_proxy)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client.html#get_voice_connector_proxy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/client/get_voice_connector_proxy.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/#get_voice_connector_proxy)
         """
 
     def get_voice_connector_streaming_configuration(
-        self, *, VoiceConnectorId: str
+        self, **kwargs: Unpack[GetVoiceConnectorStreamingConfigurationRequestTypeDef]
     ) -> GetVoiceConnectorStreamingConfigurationResponseTypeDef:
         """
-        Retrieves the streaming configuration details for the specified Amazon Chime SDK
-        Voice Connector.
+        Retrieves the streaming configuration details for the specified Amazon Chime
+        SDK Voice Connector.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Client.get_voice_connector_streaming_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client.html#get_voice_connector_streaming_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/client/get_voice_connector_streaming_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/#get_voice_connector_streaming_configuration)
         """
 
     def get_voice_connector_termination(
-        self, *, VoiceConnectorId: str
+        self, **kwargs: Unpack[GetVoiceConnectorTerminationRequestTypeDef]
     ) -> GetVoiceConnectorTerminationResponseTypeDef:
         """
         Retrieves the termination setting details for the specified Voice Connector.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Client.get_voice_connector_termination)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client.html#get_voice_connector_termination)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/client/get_voice_connector_termination.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/#get_voice_connector_termination)
         """
 
     def get_voice_connector_termination_health(
-        self, *, VoiceConnectorId: str
+        self, **kwargs: Unpack[GetVoiceConnectorTerminationHealthRequestTypeDef]
     ) -> GetVoiceConnectorTerminationHealthResponseTypeDef:
         """
-        Retrieves information about the last time a `SIP OPTIONS` ping was received from
-        your SIP infrastructure for the specified Amazon Chime SDK Voice Connector.
+        Retrieves information about the last time a <code>SIP OPTIONS</code> ping was
+        received from your SIP infrastructure for the specified Amazon Chime SDK Voice
+        Connector.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Client.get_voice_connector_termination_health)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client.html#get_voice_connector_termination_health)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/client/get_voice_connector_termination_health.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/#get_voice_connector_termination_health)
         """
 
-    def get_voice_profile(self, *, VoiceProfileId: str) -> GetVoiceProfileResponseTypeDef:
+    def get_voice_profile(
+        self, **kwargs: Unpack[GetVoiceProfileRequestTypeDef]
+    ) -> GetVoiceProfileResponseTypeDef:
         """
         Retrieves the details of the specified voice profile.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Client.get_voice_profile)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client.html#get_voice_profile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/client/get_voice_profile.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/#get_voice_profile)
         """
 
     def get_voice_profile_domain(
-        self, *, VoiceProfileDomainId: str
+        self, **kwargs: Unpack[GetVoiceProfileDomainRequestTypeDef]
     ) -> GetVoiceProfileDomainResponseTypeDef:
         """
         Retrieves the details of the specified voice profile domain.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Client.get_voice_profile_domain)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client.html#get_voice_profile_domain)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/client/get_voice_profile_domain.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/#get_voice_profile_domain)
         """
 
     def get_voice_tone_analysis_task(
-        self, *, VoiceConnectorId: str, VoiceToneAnalysisTaskId: str, IsCaller: bool
+        self, **kwargs: Unpack[GetVoiceToneAnalysisTaskRequestTypeDef]
     ) -> GetVoiceToneAnalysisTaskResponseTypeDef:
         """
         Retrieves the details of a voice tone analysis task.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Client.get_voice_tone_analysis_task)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client.html#get_voice_tone_analysis_task)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/client/get_voice_tone_analysis_task.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/#get_voice_tone_analysis_task)
         """
 
     def list_available_voice_connector_regions(
@@ -751,508 +821,458 @@ class ChimeSDKVoiceClient(BaseClient):
         Lists the available AWS Regions in which you can create an Amazon Chime SDK
         Voice Connector.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Client.list_available_voice_connector_regions)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client.html#list_available_voice_connector_regions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/client/list_available_voice_connector_regions.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/#list_available_voice_connector_regions)
         """
 
     def list_phone_number_orders(
-        self, *, NextToken: str = None, MaxResults: int = None
+        self, **kwargs: Unpack[ListPhoneNumberOrdersRequestTypeDef]
     ) -> ListPhoneNumberOrdersResponseTypeDef:
         """
         Lists the phone numbers for an administrator's Amazon Chime SDK account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Client.list_phone_number_orders)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client.html#list_phone_number_orders)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/client/list_phone_number_orders.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/#list_phone_number_orders)
         """
 
     def list_phone_numbers(
-        self,
-        *,
-        Status: str = None,
-        ProductType: PhoneNumberProductTypeType = None,
-        FilterName: PhoneNumberAssociationNameType = None,
-        FilterValue: str = None,
-        MaxResults: int = None,
-        NextToken: str = None
+        self, **kwargs: Unpack[ListPhoneNumbersRequestTypeDef]
     ) -> ListPhoneNumbersResponseTypeDef:
         """
-        Lists the phone numbers for the specified Amazon Chime SDK account, Amazon Chime
-        SDK user, Amazon Chime SDK Voice Connector, or Amazon Chime SDK Voice Connector
-        group.
+        Lists the phone numbers for the specified Amazon Chime SDK account, Amazon
+        Chime SDK user, Amazon Chime SDK Voice Connector, or Amazon Chime SDK Voice
+        Connector group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Client.list_phone_numbers)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client.html#list_phone_numbers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/client/list_phone_numbers.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/#list_phone_numbers)
         """
 
     def list_proxy_sessions(
-        self,
-        *,
-        VoiceConnectorId: str,
-        Status: ProxySessionStatusType = None,
-        NextToken: str = None,
-        MaxResults: int = None
+        self, **kwargs: Unpack[ListProxySessionsRequestTypeDef]
     ) -> ListProxySessionsResponseTypeDef:
         """
         Lists the proxy sessions for the specified Amazon Chime SDK Voice Connector.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Client.list_proxy_sessions)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client.html#list_proxy_sessions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/client/list_proxy_sessions.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/#list_proxy_sessions)
         """
 
     def list_sip_media_applications(
-        self, *, MaxResults: int = None, NextToken: str = None
+        self, **kwargs: Unpack[ListSipMediaApplicationsRequestTypeDef]
     ) -> ListSipMediaApplicationsResponseTypeDef:
         """
         Lists the SIP media applications under the administrator's AWS account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Client.list_sip_media_applications)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client.html#list_sip_media_applications)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/client/list_sip_media_applications.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/#list_sip_media_applications)
         """
 
     def list_sip_rules(
-        self, *, SipMediaApplicationId: str = None, MaxResults: int = None, NextToken: str = None
+        self, **kwargs: Unpack[ListSipRulesRequestTypeDef]
     ) -> ListSipRulesResponseTypeDef:
         """
         Lists the SIP rules under the administrator's AWS account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Client.list_sip_rules)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client.html#list_sip_rules)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/client/list_sip_rules.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/#list_sip_rules)
         """
 
     def list_supported_phone_number_countries(
-        self, *, ProductType: PhoneNumberProductTypeType
+        self, **kwargs: Unpack[ListSupportedPhoneNumberCountriesRequestTypeDef]
     ) -> ListSupportedPhoneNumberCountriesResponseTypeDef:
         """
         Lists the countries that you can order phone numbers from.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Client.list_supported_phone_number_countries)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client.html#list_supported_phone_number_countries)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/client/list_supported_phone_number_countries.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/#list_supported_phone_number_countries)
         """
 
-    def list_tags_for_resource(self, *, ResourceARN: str) -> ListTagsForResourceResponseTypeDef:
+    def list_tags_for_resource(
+        self, **kwargs: Unpack[ListTagsForResourceRequestTypeDef]
+    ) -> ListTagsForResourceResponseTypeDef:
         """
         Returns a list of the tags in a given resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Client.list_tags_for_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client.html#list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/client/list_tags_for_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/#list_tags_for_resource)
         """
 
     def list_voice_connector_groups(
-        self, *, NextToken: str = None, MaxResults: int = None
+        self, **kwargs: Unpack[ListVoiceConnectorGroupsRequestTypeDef]
     ) -> ListVoiceConnectorGroupsResponseTypeDef:
         """
         Lists the Amazon Chime SDK Voice Connector groups in the administrator's AWS
         account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Client.list_voice_connector_groups)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client.html#list_voice_connector_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/client/list_voice_connector_groups.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/#list_voice_connector_groups)
         """
 
     def list_voice_connector_termination_credentials(
-        self, *, VoiceConnectorId: str
+        self, **kwargs: Unpack[ListVoiceConnectorTerminationCredentialsRequestTypeDef]
     ) -> ListVoiceConnectorTerminationCredentialsResponseTypeDef:
         """
         Lists the SIP credentials for the specified Amazon Chime SDK Voice Connector.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Client.list_voice_connector_termination_credentials)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client.html#list_voice_connector_termination_credentials)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/client/list_voice_connector_termination_credentials.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/#list_voice_connector_termination_credentials)
         """
 
     def list_voice_connectors(
-        self, *, NextToken: str = None, MaxResults: int = None
+        self, **kwargs: Unpack[ListVoiceConnectorsRequestTypeDef]
     ) -> ListVoiceConnectorsResponseTypeDef:
         """
         Lists the Amazon Chime SDK Voice Connectors in the administrators AWS account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Client.list_voice_connectors)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client.html#list_voice_connectors)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/client/list_voice_connectors.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/#list_voice_connectors)
         """
 
     def list_voice_profile_domains(
-        self, *, NextToken: str = None, MaxResults: int = None
+        self, **kwargs: Unpack[ListVoiceProfileDomainsRequestTypeDef]
     ) -> ListVoiceProfileDomainsResponseTypeDef:
         """
         Lists the specified voice profile domains in the administrator's AWS account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Client.list_voice_profile_domains)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client.html#list_voice_profile_domains)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/client/list_voice_profile_domains.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/#list_voice_profile_domains)
         """
 
     def list_voice_profiles(
-        self, *, VoiceProfileDomainId: str, NextToken: str = None, MaxResults: int = None
+        self, **kwargs: Unpack[ListVoiceProfilesRequestTypeDef]
     ) -> ListVoiceProfilesResponseTypeDef:
         """
         Lists the voice profiles in a voice profile domain.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Client.list_voice_profiles)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client.html#list_voice_profiles)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/client/list_voice_profiles.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/#list_voice_profiles)
         """
 
     def put_sip_media_application_alexa_skill_configuration(
-        self,
-        *,
-        SipMediaApplicationId: str,
-        SipMediaApplicationAlexaSkillConfiguration: "SipMediaApplicationAlexaSkillConfigurationTypeDef" = None
+        self, **kwargs: Unpack[PutSipMediaApplicationAlexaSkillConfigurationRequestTypeDef]
     ) -> PutSipMediaApplicationAlexaSkillConfigurationResponseTypeDef:
         """
         Updates the Alexa Skill configuration for the SIP media application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Client.put_sip_media_application_alexa_skill_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client.html#put_sip_media_application_alexa_skill_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/client/put_sip_media_application_alexa_skill_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/#put_sip_media_application_alexa_skill_configuration)
         """
 
     def put_sip_media_application_logging_configuration(
-        self,
-        *,
-        SipMediaApplicationId: str,
-        SipMediaApplicationLoggingConfiguration: "SipMediaApplicationLoggingConfigurationTypeDef" = None
+        self, **kwargs: Unpack[PutSipMediaApplicationLoggingConfigurationRequestTypeDef]
     ) -> PutSipMediaApplicationLoggingConfigurationResponseTypeDef:
         """
         Updates the logging configuration for the specified SIP media application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Client.put_sip_media_application_logging_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client.html#put_sip_media_application_logging_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/client/put_sip_media_application_logging_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/#put_sip_media_application_logging_configuration)
         """
 
     def put_voice_connector_emergency_calling_configuration(
-        self,
-        *,
-        VoiceConnectorId: str,
-        EmergencyCallingConfiguration: "EmergencyCallingConfigurationTypeDef"
+        self, **kwargs: Unpack[PutVoiceConnectorEmergencyCallingConfigurationRequestTypeDef]
     ) -> PutVoiceConnectorEmergencyCallingConfigurationResponseTypeDef:
         """
         Updates a Voice Connector's emergency calling configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Client.put_voice_connector_emergency_calling_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client.html#put_voice_connector_emergency_calling_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/client/put_voice_connector_emergency_calling_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/#put_voice_connector_emergency_calling_configuration)
+        """
+
+    def put_voice_connector_external_systems_configuration(
+        self, **kwargs: Unpack[PutVoiceConnectorExternalSystemsConfigurationRequestTypeDef]
+    ) -> PutVoiceConnectorExternalSystemsConfigurationResponseTypeDef:
+        """
+        Adds an external systems configuration to a Voice Connector.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/client/put_voice_connector_external_systems_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/#put_voice_connector_external_systems_configuration)
         """
 
     def put_voice_connector_logging_configuration(
-        self, *, VoiceConnectorId: str, LoggingConfiguration: "LoggingConfigurationTypeDef"
+        self, **kwargs: Unpack[PutVoiceConnectorLoggingConfigurationRequestTypeDef]
     ) -> PutVoiceConnectorLoggingConfigurationResponseTypeDef:
         """
         Updates a Voice Connector's logging configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Client.put_voice_connector_logging_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client.html#put_voice_connector_logging_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/client/put_voice_connector_logging_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/#put_voice_connector_logging_configuration)
         """
 
     def put_voice_connector_origination(
-        self, *, VoiceConnectorId: str, Origination: "OriginationTypeDef"
+        self, **kwargs: Unpack[PutVoiceConnectorOriginationRequestTypeDef]
     ) -> PutVoiceConnectorOriginationResponseTypeDef:
         """
         Updates a Voice Connector's origination settings.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Client.put_voice_connector_origination)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client.html#put_voice_connector_origination)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/client/put_voice_connector_origination.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/#put_voice_connector_origination)
         """
 
     def put_voice_connector_proxy(
-        self,
-        *,
-        VoiceConnectorId: str,
-        DefaultSessionExpiryMinutes: int,
-        PhoneNumberPoolCountries: List[str],
-        FallBackPhoneNumber: str = None,
-        Disabled: bool = None
+        self, **kwargs: Unpack[PutVoiceConnectorProxyRequestTypeDef]
     ) -> PutVoiceConnectorProxyResponseTypeDef:
         """
         Puts the specified proxy configuration to the specified Amazon Chime SDK Voice
         Connector.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Client.put_voice_connector_proxy)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client.html#put_voice_connector_proxy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/client/put_voice_connector_proxy.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/#put_voice_connector_proxy)
         """
 
     def put_voice_connector_streaming_configuration(
-        self, *, VoiceConnectorId: str, StreamingConfiguration: "StreamingConfigurationTypeDef"
+        self, **kwargs: Unpack[PutVoiceConnectorStreamingConfigurationRequestTypeDef]
     ) -> PutVoiceConnectorStreamingConfigurationResponseTypeDef:
         """
         Updates a Voice Connector's streaming configuration settings.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Client.put_voice_connector_streaming_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client.html#put_voice_connector_streaming_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/client/put_voice_connector_streaming_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/#put_voice_connector_streaming_configuration)
         """
 
     def put_voice_connector_termination(
-        self, *, VoiceConnectorId: str, Termination: "TerminationTypeDef"
+        self, **kwargs: Unpack[PutVoiceConnectorTerminationRequestTypeDef]
     ) -> PutVoiceConnectorTerminationResponseTypeDef:
         """
         Updates a Voice Connector's termination settings.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Client.put_voice_connector_termination)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client.html#put_voice_connector_termination)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/client/put_voice_connector_termination.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/#put_voice_connector_termination)
         """
 
     def put_voice_connector_termination_credentials(
-        self, *, VoiceConnectorId: str, Credentials: List["CredentialTypeDef"] = None
-    ) -> None:
+        self, **kwargs: Unpack[PutVoiceConnectorTerminationCredentialsRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Updates a Voice Connector's termination credentials.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Client.put_voice_connector_termination_credentials)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client.html#put_voice_connector_termination_credentials)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/client/put_voice_connector_termination_credentials.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/#put_voice_connector_termination_credentials)
         """
 
-    def restore_phone_number(self, *, PhoneNumberId: str) -> RestorePhoneNumberResponseTypeDef:
+    def restore_phone_number(
+        self, **kwargs: Unpack[RestorePhoneNumberRequestTypeDef]
+    ) -> RestorePhoneNumberResponseTypeDef:
         """
         Restores a deleted phone number.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Client.restore_phone_number)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client.html#restore_phone_number)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/client/restore_phone_number.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/#restore_phone_number)
         """
 
     def search_available_phone_numbers(
-        self,
-        *,
-        AreaCode: str = None,
-        City: str = None,
-        Country: str = None,
-        State: str = None,
-        TollFreePrefix: str = None,
-        PhoneNumberType: PhoneNumberTypeType = None,
-        MaxResults: int = None,
-        NextToken: str = None
+        self, **kwargs: Unpack[SearchAvailablePhoneNumbersRequestTypeDef]
     ) -> SearchAvailablePhoneNumbersResponseTypeDef:
         """
         Searches the provisioned phone numbers in an organization.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Client.search_available_phone_numbers)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client.html#search_available_phone_numbers)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/client/search_available_phone_numbers.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/#search_available_phone_numbers)
         """
 
     def start_speaker_search_task(
-        self,
-        *,
-        VoiceConnectorId: str,
-        TransactionId: str,
-        VoiceProfileDomainId: str,
-        ClientRequestToken: str = None,
-        CallLeg: CallLegTypeType = None
+        self, **kwargs: Unpack[StartSpeakerSearchTaskRequestTypeDef]
     ) -> StartSpeakerSearchTaskResponseTypeDef:
         """
         Starts a speaker search task.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Client.start_speaker_search_task)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client.html#start_speaker_search_task)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/client/start_speaker_search_task.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/#start_speaker_search_task)
         """
 
     def start_voice_tone_analysis_task(
-        self,
-        *,
-        VoiceConnectorId: str,
-        TransactionId: str,
-        LanguageCode: Literal["en-US"],
-        ClientRequestToken: str = None
+        self, **kwargs: Unpack[StartVoiceToneAnalysisTaskRequestTypeDef]
     ) -> StartVoiceToneAnalysisTaskResponseTypeDef:
         """
         Starts a voice tone analysis task.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Client.start_voice_tone_analysis_task)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client.html#start_voice_tone_analysis_task)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/client/start_voice_tone_analysis_task.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/#start_voice_tone_analysis_task)
         """
 
-    def stop_speaker_search_task(self, *, VoiceConnectorId: str, SpeakerSearchTaskId: str) -> None:
+    def stop_speaker_search_task(
+        self, **kwargs: Unpack[StopSpeakerSearchTaskRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Stops a speaker search task.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Client.stop_speaker_search_task)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client.html#stop_speaker_search_task)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/client/stop_speaker_search_task.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/#stop_speaker_search_task)
         """
 
     def stop_voice_tone_analysis_task(
-        self, *, VoiceConnectorId: str, VoiceToneAnalysisTaskId: str
-    ) -> None:
+        self, **kwargs: Unpack[StopVoiceToneAnalysisTaskRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Stops a voice tone analysis task.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Client.stop_voice_tone_analysis_task)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client.html#stop_voice_tone_analysis_task)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/client/stop_voice_tone_analysis_task.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/#stop_voice_tone_analysis_task)
         """
 
-    def tag_resource(self, *, ResourceARN: str, Tags: List["TagTypeDef"]) -> None:
+    def tag_resource(
+        self, **kwargs: Unpack[TagResourceRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Adds a tag to the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Client.tag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client.html#tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/client/tag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/#tag_resource)
         """
 
-    def untag_resource(self, *, ResourceARN: str, TagKeys: List[str]) -> None:
+    def untag_resource(
+        self, **kwargs: Unpack[UntagResourceRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Removes tags from a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Client.untag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client.html#untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/client/untag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/#untag_resource)
         """
 
     def update_global_settings(
-        self, *, VoiceConnector: "VoiceConnectorSettingsTypeDef" = None
-    ) -> None:
+        self, **kwargs: Unpack[UpdateGlobalSettingsRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Updates global settings for the Amazon Chime SDK Voice Connectors in an AWS
         account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Client.update_global_settings)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client.html#update_global_settings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/client/update_global_settings.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/#update_global_settings)
         """
 
     def update_phone_number(
-        self,
-        *,
-        PhoneNumberId: str,
-        ProductType: PhoneNumberProductTypeType = None,
-        CallingName: str = None,
-        Name: str = None
+        self, **kwargs: Unpack[UpdatePhoneNumberRequestTypeDef]
     ) -> UpdatePhoneNumberResponseTypeDef:
         """
         Updates phone number details, such as product type, calling name, or phone
         number name for the specified phone number ID.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Client.update_phone_number)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client.html#update_phone_number)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/client/update_phone_number.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/#update_phone_number)
         """
 
-    def update_phone_number_settings(self, *, CallingName: str) -> None:
+    def update_phone_number_settings(
+        self, **kwargs: Unpack[UpdatePhoneNumberSettingsRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Updates the phone number settings for the administrator's AWS account, such as
         the default outbound calling name.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Client.update_phone_number_settings)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client.html#update_phone_number_settings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/client/update_phone_number_settings.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/#update_phone_number_settings)
         """
 
     def update_proxy_session(
-        self,
-        *,
-        VoiceConnectorId: str,
-        ProxySessionId: str,
-        Capabilities: List[CapabilityType],
-        ExpiryMinutes: int = None
+        self, **kwargs: Unpack[UpdateProxySessionRequestTypeDef]
     ) -> UpdateProxySessionResponseTypeDef:
         """
         Updates the specified proxy session details, such as voice or SMS capabilities.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Client.update_proxy_session)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client.html#update_proxy_session)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/client/update_proxy_session.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/#update_proxy_session)
         """
 
     def update_sip_media_application(
-        self,
-        *,
-        SipMediaApplicationId: str,
-        Name: str = None,
-        Endpoints: List["SipMediaApplicationEndpointTypeDef"] = None
+        self, **kwargs: Unpack[UpdateSipMediaApplicationRequestTypeDef]
     ) -> UpdateSipMediaApplicationResponseTypeDef:
         """
         Updates the details of the specified SIP media application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Client.update_sip_media_application)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client.html#update_sip_media_application)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/client/update_sip_media_application.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/#update_sip_media_application)
         """
 
     def update_sip_media_application_call(
-        self, *, SipMediaApplicationId: str, TransactionId: str, Arguments: Dict[str, str]
+        self, **kwargs: Unpack[UpdateSipMediaApplicationCallRequestTypeDef]
     ) -> UpdateSipMediaApplicationCallResponseTypeDef:
         """
         Invokes the AWS Lambda function associated with the SIP media application and
         transaction ID in an update request.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Client.update_sip_media_application_call)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client.html#update_sip_media_application_call)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/client/update_sip_media_application_call.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/#update_sip_media_application_call)
         """
 
     def update_sip_rule(
-        self,
-        *,
-        SipRuleId: str,
-        Name: str,
-        Disabled: bool = None,
-        TargetApplications: List["SipRuleTargetApplicationTypeDef"] = None
+        self, **kwargs: Unpack[UpdateSipRuleRequestTypeDef]
     ) -> UpdateSipRuleResponseTypeDef:
         """
         Updates the details of the specified SIP rule.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Client.update_sip_rule)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client.html#update_sip_rule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/client/update_sip_rule.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/#update_sip_rule)
         """
 
     def update_voice_connector(
-        self, *, VoiceConnectorId: str, Name: str, RequireEncryption: bool
+        self, **kwargs: Unpack[UpdateVoiceConnectorRequestTypeDef]
     ) -> UpdateVoiceConnectorResponseTypeDef:
         """
         Updates the details for the specified Amazon Chime SDK Voice Connector.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Client.update_voice_connector)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client.html#update_voice_connector)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/client/update_voice_connector.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/#update_voice_connector)
         """
 
     def update_voice_connector_group(
-        self,
-        *,
-        VoiceConnectorGroupId: str,
-        Name: str,
-        VoiceConnectorItems: List["VoiceConnectorItemTypeDef"]
+        self, **kwargs: Unpack[UpdateVoiceConnectorGroupRequestTypeDef]
     ) -> UpdateVoiceConnectorGroupResponseTypeDef:
         """
         Updates the settings for the specified Amazon Chime SDK Voice Connector group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Client.update_voice_connector_group)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client.html#update_voice_connector_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/client/update_voice_connector_group.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/#update_voice_connector_group)
         """
 
     def update_voice_profile(
-        self, *, VoiceProfileId: str, SpeakerSearchTaskId: str
+        self, **kwargs: Unpack[UpdateVoiceProfileRequestTypeDef]
     ) -> UpdateVoiceProfileResponseTypeDef:
         """
-        Updates the specified voice profile’s voice print and refreshes its expiration
+        Updates the specified voice profile's voice print and refreshes its expiration
         timestamp.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Client.update_voice_profile)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client.html#update_voice_profile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/client/update_voice_profile.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/#update_voice_profile)
         """
 
     def update_voice_profile_domain(
-        self, *, VoiceProfileDomainId: str, Name: str = None, Description: str = None
+        self, **kwargs: Unpack[UpdateVoiceProfileDomainRequestTypeDef]
     ) -> UpdateVoiceProfileDomainResponseTypeDef:
         """
         Updates the settings for the specified voice profile domain.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Client.update_voice_profile_domain)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client.html#update_voice_profile_domain)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/client/update_voice_profile_domain.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/#update_voice_profile_domain)
         """
 
     def validate_e911_address(
-        self,
-        *,
-        AwsAccountId: str,
-        StreetNumber: str,
-        StreetInfo: str,
-        City: str,
-        State: str,
-        Country: str,
-        PostalCode: str
+        self, **kwargs: Unpack[ValidateE911AddressRequestTypeDef]
     ) -> ValidateE911AddressResponseTypeDef:
         """
         Validates an address to be used for 911 calls made with Amazon Chime SDK Voice
         Connectors.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Client.validate_e911_address)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client.html#validate_e911_address)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/client/validate_e911_address.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/#validate_e911_address)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_sip_media_applications"]
     ) -> ListSipMediaApplicationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Paginator.ListSipMediaApplications)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/paginators.html#listsipmediaapplicationspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_sip_rules"]) -> ListSipRulesPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_sip_rules"]
+    ) -> ListSipRulesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/chime-sdk-voice.html#ChimeSDKVoice.Paginator.ListSipRules)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/paginators.html#listsiprulespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime-sdk-voice/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_chime_sdk_voice/client/#get_paginator)
         """

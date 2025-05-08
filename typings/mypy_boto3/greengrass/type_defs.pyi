@@ -1,19 +1,23 @@
 """
 Type annotations for greengrass service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_greengrass/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_greengrass/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_greengrass.type_defs import AssociateRoleToGroupRequestRequestTypeDef
+    from mypy_boto3_greengrass.type_defs import AssociateRoleToGroupRequestTypeDef
 
-    data: AssociateRoleToGroupRequestRequestTypeDef = {...}
+    data: AssociateRoleToGroupRequestTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from typing import Any, Dict, List
+from typing import Union
 
 from .literals import (
     BulkDeploymentStatusType,
@@ -32,2765 +36,1582 @@ from .literals import (
     UpdateTargetsOperatingSystemType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
-    "AssociateRoleToGroupRequestRequestTypeDef",
+    "AssociateRoleToGroupRequestTypeDef",
     "AssociateRoleToGroupResponseTypeDef",
-    "AssociateServiceRoleToAccountRequestRequestTypeDef",
+    "AssociateServiceRoleToAccountRequestTypeDef",
     "AssociateServiceRoleToAccountResponseTypeDef",
     "BulkDeploymentMetricsTypeDef",
     "BulkDeploymentResultTypeDef",
     "BulkDeploymentTypeDef",
     "ConnectivityInfoTypeDef",
+    "ConnectorDefinitionVersionOutputTypeDef",
     "ConnectorDefinitionVersionTypeDef",
+    "ConnectorDefinitionVersionUnionTypeDef",
+    "ConnectorOutputTypeDef",
     "ConnectorTypeDef",
+    "ConnectorUnionTypeDef",
+    "CoreDefinitionVersionOutputTypeDef",
     "CoreDefinitionVersionTypeDef",
+    "CoreDefinitionVersionUnionTypeDef",
     "CoreTypeDef",
-    "CreateConnectorDefinitionRequestRequestTypeDef",
+    "CreateConnectorDefinitionRequestTypeDef",
     "CreateConnectorDefinitionResponseTypeDef",
-    "CreateConnectorDefinitionVersionRequestRequestTypeDef",
+    "CreateConnectorDefinitionVersionRequestTypeDef",
     "CreateConnectorDefinitionVersionResponseTypeDef",
-    "CreateCoreDefinitionRequestRequestTypeDef",
+    "CreateCoreDefinitionRequestTypeDef",
     "CreateCoreDefinitionResponseTypeDef",
-    "CreateCoreDefinitionVersionRequestRequestTypeDef",
+    "CreateCoreDefinitionVersionRequestTypeDef",
     "CreateCoreDefinitionVersionResponseTypeDef",
-    "CreateDeploymentRequestRequestTypeDef",
+    "CreateDeploymentRequestTypeDef",
     "CreateDeploymentResponseTypeDef",
-    "CreateDeviceDefinitionRequestRequestTypeDef",
+    "CreateDeviceDefinitionRequestTypeDef",
     "CreateDeviceDefinitionResponseTypeDef",
-    "CreateDeviceDefinitionVersionRequestRequestTypeDef",
+    "CreateDeviceDefinitionVersionRequestTypeDef",
     "CreateDeviceDefinitionVersionResponseTypeDef",
-    "CreateFunctionDefinitionRequestRequestTypeDef",
+    "CreateFunctionDefinitionRequestTypeDef",
     "CreateFunctionDefinitionResponseTypeDef",
-    "CreateFunctionDefinitionVersionRequestRequestTypeDef",
+    "CreateFunctionDefinitionVersionRequestTypeDef",
     "CreateFunctionDefinitionVersionResponseTypeDef",
-    "CreateGroupCertificateAuthorityRequestRequestTypeDef",
+    "CreateGroupCertificateAuthorityRequestTypeDef",
     "CreateGroupCertificateAuthorityResponseTypeDef",
-    "CreateGroupRequestRequestTypeDef",
+    "CreateGroupRequestTypeDef",
     "CreateGroupResponseTypeDef",
-    "CreateGroupVersionRequestRequestTypeDef",
+    "CreateGroupVersionRequestTypeDef",
     "CreateGroupVersionResponseTypeDef",
-    "CreateLoggerDefinitionRequestRequestTypeDef",
+    "CreateLoggerDefinitionRequestTypeDef",
     "CreateLoggerDefinitionResponseTypeDef",
-    "CreateLoggerDefinitionVersionRequestRequestTypeDef",
+    "CreateLoggerDefinitionVersionRequestTypeDef",
     "CreateLoggerDefinitionVersionResponseTypeDef",
-    "CreateResourceDefinitionRequestRequestTypeDef",
+    "CreateResourceDefinitionRequestTypeDef",
     "CreateResourceDefinitionResponseTypeDef",
-    "CreateResourceDefinitionVersionRequestRequestTypeDef",
+    "CreateResourceDefinitionVersionRequestTypeDef",
     "CreateResourceDefinitionVersionResponseTypeDef",
-    "CreateSoftwareUpdateJobRequestRequestTypeDef",
+    "CreateSoftwareUpdateJobRequestTypeDef",
     "CreateSoftwareUpdateJobResponseTypeDef",
-    "CreateSubscriptionDefinitionRequestRequestTypeDef",
+    "CreateSubscriptionDefinitionRequestTypeDef",
     "CreateSubscriptionDefinitionResponseTypeDef",
-    "CreateSubscriptionDefinitionVersionRequestRequestTypeDef",
+    "CreateSubscriptionDefinitionVersionRequestTypeDef",
     "CreateSubscriptionDefinitionVersionResponseTypeDef",
     "DefinitionInformationTypeDef",
-    "DeleteConnectorDefinitionRequestRequestTypeDef",
-    "DeleteCoreDefinitionRequestRequestTypeDef",
-    "DeleteDeviceDefinitionRequestRequestTypeDef",
-    "DeleteFunctionDefinitionRequestRequestTypeDef",
-    "DeleteGroupRequestRequestTypeDef",
-    "DeleteLoggerDefinitionRequestRequestTypeDef",
-    "DeleteResourceDefinitionRequestRequestTypeDef",
-    "DeleteSubscriptionDefinitionRequestRequestTypeDef",
+    "DeleteConnectorDefinitionRequestTypeDef",
+    "DeleteCoreDefinitionRequestTypeDef",
+    "DeleteDeviceDefinitionRequestTypeDef",
+    "DeleteFunctionDefinitionRequestTypeDef",
+    "DeleteGroupRequestTypeDef",
+    "DeleteLoggerDefinitionRequestTypeDef",
+    "DeleteResourceDefinitionRequestTypeDef",
+    "DeleteSubscriptionDefinitionRequestTypeDef",
     "DeploymentTypeDef",
+    "DeviceDefinitionVersionOutputTypeDef",
     "DeviceDefinitionVersionTypeDef",
+    "DeviceDefinitionVersionUnionTypeDef",
     "DeviceTypeDef",
-    "DisassociateRoleFromGroupRequestRequestTypeDef",
+    "DisassociateRoleFromGroupRequestTypeDef",
     "DisassociateRoleFromGroupResponseTypeDef",
     "DisassociateServiceRoleFromAccountResponseTypeDef",
+    "EmptyResponseMetadataTypeDef",
     "ErrorDetailTypeDef",
+    "FunctionConfigurationEnvironmentOutputTypeDef",
     "FunctionConfigurationEnvironmentTypeDef",
+    "FunctionConfigurationEnvironmentUnionTypeDef",
+    "FunctionConfigurationOutputTypeDef",
     "FunctionConfigurationTypeDef",
+    "FunctionConfigurationUnionTypeDef",
     "FunctionDefaultConfigTypeDef",
     "FunctionDefaultExecutionConfigTypeDef",
+    "FunctionDefinitionVersionOutputTypeDef",
     "FunctionDefinitionVersionTypeDef",
+    "FunctionDefinitionVersionUnionTypeDef",
     "FunctionExecutionConfigTypeDef",
+    "FunctionOutputTypeDef",
     "FunctionRunAsConfigTypeDef",
     "FunctionTypeDef",
-    "GetAssociatedRoleRequestRequestTypeDef",
+    "FunctionUnionTypeDef",
+    "GetAssociatedRoleRequestTypeDef",
     "GetAssociatedRoleResponseTypeDef",
-    "GetBulkDeploymentStatusRequestRequestTypeDef",
+    "GetBulkDeploymentStatusRequestTypeDef",
     "GetBulkDeploymentStatusResponseTypeDef",
-    "GetConnectivityInfoRequestRequestTypeDef",
+    "GetConnectivityInfoRequestTypeDef",
     "GetConnectivityInfoResponseTypeDef",
-    "GetConnectorDefinitionRequestRequestTypeDef",
+    "GetConnectorDefinitionRequestTypeDef",
     "GetConnectorDefinitionResponseTypeDef",
-    "GetConnectorDefinitionVersionRequestRequestTypeDef",
+    "GetConnectorDefinitionVersionRequestTypeDef",
     "GetConnectorDefinitionVersionResponseTypeDef",
-    "GetCoreDefinitionRequestRequestTypeDef",
+    "GetCoreDefinitionRequestTypeDef",
     "GetCoreDefinitionResponseTypeDef",
-    "GetCoreDefinitionVersionRequestRequestTypeDef",
+    "GetCoreDefinitionVersionRequestTypeDef",
     "GetCoreDefinitionVersionResponseTypeDef",
-    "GetDeploymentStatusRequestRequestTypeDef",
+    "GetDeploymentStatusRequestTypeDef",
     "GetDeploymentStatusResponseTypeDef",
-    "GetDeviceDefinitionRequestRequestTypeDef",
+    "GetDeviceDefinitionRequestTypeDef",
     "GetDeviceDefinitionResponseTypeDef",
-    "GetDeviceDefinitionVersionRequestRequestTypeDef",
+    "GetDeviceDefinitionVersionRequestTypeDef",
     "GetDeviceDefinitionVersionResponseTypeDef",
-    "GetFunctionDefinitionRequestRequestTypeDef",
+    "GetFunctionDefinitionRequestTypeDef",
     "GetFunctionDefinitionResponseTypeDef",
-    "GetFunctionDefinitionVersionRequestRequestTypeDef",
+    "GetFunctionDefinitionVersionRequestTypeDef",
     "GetFunctionDefinitionVersionResponseTypeDef",
-    "GetGroupCertificateAuthorityRequestRequestTypeDef",
+    "GetGroupCertificateAuthorityRequestTypeDef",
     "GetGroupCertificateAuthorityResponseTypeDef",
-    "GetGroupCertificateConfigurationRequestRequestTypeDef",
+    "GetGroupCertificateConfigurationRequestTypeDef",
     "GetGroupCertificateConfigurationResponseTypeDef",
-    "GetGroupRequestRequestTypeDef",
+    "GetGroupRequestTypeDef",
     "GetGroupResponseTypeDef",
-    "GetGroupVersionRequestRequestTypeDef",
+    "GetGroupVersionRequestTypeDef",
     "GetGroupVersionResponseTypeDef",
-    "GetLoggerDefinitionRequestRequestTypeDef",
+    "GetLoggerDefinitionRequestTypeDef",
     "GetLoggerDefinitionResponseTypeDef",
-    "GetLoggerDefinitionVersionRequestRequestTypeDef",
+    "GetLoggerDefinitionVersionRequestTypeDef",
     "GetLoggerDefinitionVersionResponseTypeDef",
-    "GetResourceDefinitionRequestRequestTypeDef",
+    "GetResourceDefinitionRequestTypeDef",
     "GetResourceDefinitionResponseTypeDef",
-    "GetResourceDefinitionVersionRequestRequestTypeDef",
+    "GetResourceDefinitionVersionRequestTypeDef",
     "GetResourceDefinitionVersionResponseTypeDef",
     "GetServiceRoleForAccountResponseTypeDef",
-    "GetSubscriptionDefinitionRequestRequestTypeDef",
+    "GetSubscriptionDefinitionRequestTypeDef",
     "GetSubscriptionDefinitionResponseTypeDef",
-    "GetSubscriptionDefinitionVersionRequestRequestTypeDef",
+    "GetSubscriptionDefinitionVersionRequestTypeDef",
     "GetSubscriptionDefinitionVersionResponseTypeDef",
-    "GetThingRuntimeConfigurationRequestRequestTypeDef",
+    "GetThingRuntimeConfigurationRequestTypeDef",
     "GetThingRuntimeConfigurationResponseTypeDef",
     "GroupCertificateAuthorityPropertiesTypeDef",
     "GroupInformationTypeDef",
     "GroupOwnerSettingTypeDef",
     "GroupVersionTypeDef",
-    "ListBulkDeploymentDetailedReportsRequestRequestTypeDef",
+    "ListBulkDeploymentDetailedReportsRequestPaginateTypeDef",
+    "ListBulkDeploymentDetailedReportsRequestTypeDef",
     "ListBulkDeploymentDetailedReportsResponseTypeDef",
-    "ListBulkDeploymentsRequestRequestTypeDef",
+    "ListBulkDeploymentsRequestPaginateTypeDef",
+    "ListBulkDeploymentsRequestTypeDef",
     "ListBulkDeploymentsResponseTypeDef",
-    "ListConnectorDefinitionVersionsRequestRequestTypeDef",
+    "ListConnectorDefinitionVersionsRequestPaginateTypeDef",
+    "ListConnectorDefinitionVersionsRequestTypeDef",
     "ListConnectorDefinitionVersionsResponseTypeDef",
-    "ListConnectorDefinitionsRequestRequestTypeDef",
+    "ListConnectorDefinitionsRequestPaginateTypeDef",
+    "ListConnectorDefinitionsRequestTypeDef",
     "ListConnectorDefinitionsResponseTypeDef",
-    "ListCoreDefinitionVersionsRequestRequestTypeDef",
+    "ListCoreDefinitionVersionsRequestPaginateTypeDef",
+    "ListCoreDefinitionVersionsRequestTypeDef",
     "ListCoreDefinitionVersionsResponseTypeDef",
-    "ListCoreDefinitionsRequestRequestTypeDef",
+    "ListCoreDefinitionsRequestPaginateTypeDef",
+    "ListCoreDefinitionsRequestTypeDef",
     "ListCoreDefinitionsResponseTypeDef",
-    "ListDeploymentsRequestRequestTypeDef",
+    "ListDeploymentsRequestPaginateTypeDef",
+    "ListDeploymentsRequestTypeDef",
     "ListDeploymentsResponseTypeDef",
-    "ListDeviceDefinitionVersionsRequestRequestTypeDef",
+    "ListDeviceDefinitionVersionsRequestPaginateTypeDef",
+    "ListDeviceDefinitionVersionsRequestTypeDef",
     "ListDeviceDefinitionVersionsResponseTypeDef",
-    "ListDeviceDefinitionsRequestRequestTypeDef",
+    "ListDeviceDefinitionsRequestPaginateTypeDef",
+    "ListDeviceDefinitionsRequestTypeDef",
     "ListDeviceDefinitionsResponseTypeDef",
-    "ListFunctionDefinitionVersionsRequestRequestTypeDef",
+    "ListFunctionDefinitionVersionsRequestPaginateTypeDef",
+    "ListFunctionDefinitionVersionsRequestTypeDef",
     "ListFunctionDefinitionVersionsResponseTypeDef",
-    "ListFunctionDefinitionsRequestRequestTypeDef",
+    "ListFunctionDefinitionsRequestPaginateTypeDef",
+    "ListFunctionDefinitionsRequestTypeDef",
     "ListFunctionDefinitionsResponseTypeDef",
-    "ListGroupCertificateAuthoritiesRequestRequestTypeDef",
+    "ListGroupCertificateAuthoritiesRequestTypeDef",
     "ListGroupCertificateAuthoritiesResponseTypeDef",
-    "ListGroupVersionsRequestRequestTypeDef",
+    "ListGroupVersionsRequestPaginateTypeDef",
+    "ListGroupVersionsRequestTypeDef",
     "ListGroupVersionsResponseTypeDef",
-    "ListGroupsRequestRequestTypeDef",
+    "ListGroupsRequestPaginateTypeDef",
+    "ListGroupsRequestTypeDef",
     "ListGroupsResponseTypeDef",
-    "ListLoggerDefinitionVersionsRequestRequestTypeDef",
+    "ListLoggerDefinitionVersionsRequestPaginateTypeDef",
+    "ListLoggerDefinitionVersionsRequestTypeDef",
     "ListLoggerDefinitionVersionsResponseTypeDef",
-    "ListLoggerDefinitionsRequestRequestTypeDef",
+    "ListLoggerDefinitionsRequestPaginateTypeDef",
+    "ListLoggerDefinitionsRequestTypeDef",
     "ListLoggerDefinitionsResponseTypeDef",
-    "ListResourceDefinitionVersionsRequestRequestTypeDef",
+    "ListResourceDefinitionVersionsRequestPaginateTypeDef",
+    "ListResourceDefinitionVersionsRequestTypeDef",
     "ListResourceDefinitionVersionsResponseTypeDef",
-    "ListResourceDefinitionsRequestRequestTypeDef",
+    "ListResourceDefinitionsRequestPaginateTypeDef",
+    "ListResourceDefinitionsRequestTypeDef",
     "ListResourceDefinitionsResponseTypeDef",
-    "ListSubscriptionDefinitionVersionsRequestRequestTypeDef",
+    "ListSubscriptionDefinitionVersionsRequestPaginateTypeDef",
+    "ListSubscriptionDefinitionVersionsRequestTypeDef",
     "ListSubscriptionDefinitionVersionsResponseTypeDef",
-    "ListSubscriptionDefinitionsRequestRequestTypeDef",
+    "ListSubscriptionDefinitionsRequestPaginateTypeDef",
+    "ListSubscriptionDefinitionsRequestTypeDef",
     "ListSubscriptionDefinitionsResponseTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "LocalDeviceResourceDataTypeDef",
     "LocalVolumeResourceDataTypeDef",
+    "LoggerDefinitionVersionOutputTypeDef",
     "LoggerDefinitionVersionTypeDef",
+    "LoggerDefinitionVersionUnionTypeDef",
     "LoggerTypeDef",
     "PaginatorConfigTypeDef",
-    "ResetDeploymentsRequestRequestTypeDef",
+    "ResetDeploymentsRequestTypeDef",
     "ResetDeploymentsResponseTypeDef",
     "ResourceAccessPolicyTypeDef",
+    "ResourceDataContainerOutputTypeDef",
     "ResourceDataContainerTypeDef",
+    "ResourceDataContainerUnionTypeDef",
+    "ResourceDefinitionVersionOutputTypeDef",
     "ResourceDefinitionVersionTypeDef",
+    "ResourceDefinitionVersionUnionTypeDef",
     "ResourceDownloadOwnerSettingTypeDef",
+    "ResourceOutputTypeDef",
     "ResourceTypeDef",
+    "ResourceUnionTypeDef",
     "ResponseMetadataTypeDef",
     "RuntimeConfigurationTypeDef",
     "S3MachineLearningModelResourceDataTypeDef",
     "SageMakerMachineLearningModelResourceDataTypeDef",
+    "SecretsManagerSecretResourceDataOutputTypeDef",
     "SecretsManagerSecretResourceDataTypeDef",
-    "StartBulkDeploymentRequestRequestTypeDef",
+    "SecretsManagerSecretResourceDataUnionTypeDef",
+    "StartBulkDeploymentRequestTypeDef",
     "StartBulkDeploymentResponseTypeDef",
-    "StopBulkDeploymentRequestRequestTypeDef",
+    "StopBulkDeploymentRequestTypeDef",
+    "SubscriptionDefinitionVersionOutputTypeDef",
     "SubscriptionDefinitionVersionTypeDef",
+    "SubscriptionDefinitionVersionUnionTypeDef",
     "SubscriptionTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
     "TelemetryConfigurationTypeDef",
     "TelemetryConfigurationUpdateTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateConnectivityInfoRequestRequestTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateConnectivityInfoRequestTypeDef",
     "UpdateConnectivityInfoResponseTypeDef",
-    "UpdateConnectorDefinitionRequestRequestTypeDef",
-    "UpdateCoreDefinitionRequestRequestTypeDef",
-    "UpdateDeviceDefinitionRequestRequestTypeDef",
-    "UpdateFunctionDefinitionRequestRequestTypeDef",
-    "UpdateGroupCertificateConfigurationRequestRequestTypeDef",
+    "UpdateConnectorDefinitionRequestTypeDef",
+    "UpdateCoreDefinitionRequestTypeDef",
+    "UpdateDeviceDefinitionRequestTypeDef",
+    "UpdateFunctionDefinitionRequestTypeDef",
+    "UpdateGroupCertificateConfigurationRequestTypeDef",
     "UpdateGroupCertificateConfigurationResponseTypeDef",
-    "UpdateGroupRequestRequestTypeDef",
-    "UpdateLoggerDefinitionRequestRequestTypeDef",
-    "UpdateResourceDefinitionRequestRequestTypeDef",
-    "UpdateSubscriptionDefinitionRequestRequestTypeDef",
-    "UpdateThingRuntimeConfigurationRequestRequestTypeDef",
+    "UpdateGroupRequestTypeDef",
+    "UpdateLoggerDefinitionRequestTypeDef",
+    "UpdateResourceDefinitionRequestTypeDef",
+    "UpdateSubscriptionDefinitionRequestTypeDef",
+    "UpdateThingRuntimeConfigurationRequestTypeDef",
     "VersionInformationTypeDef",
 )
 
-AssociateRoleToGroupRequestRequestTypeDef = TypedDict(
-    "AssociateRoleToGroupRequestRequestTypeDef",
-    {
-        "GroupId": str,
-        "RoleArn": str,
-    },
-)
-
-AssociateRoleToGroupResponseTypeDef = TypedDict(
-    "AssociateRoleToGroupResponseTypeDef",
-    {
-        "AssociatedAt": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-AssociateServiceRoleToAccountRequestRequestTypeDef = TypedDict(
-    "AssociateServiceRoleToAccountRequestRequestTypeDef",
-    {
-        "RoleArn": str,
-    },
-)
-
-AssociateServiceRoleToAccountResponseTypeDef = TypedDict(
-    "AssociateServiceRoleToAccountResponseTypeDef",
-    {
-        "AssociatedAt": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-BulkDeploymentMetricsTypeDef = TypedDict(
-    "BulkDeploymentMetricsTypeDef",
-    {
-        "InvalidInputRecords": int,
-        "RecordsProcessed": int,
-        "RetryAttempts": int,
-    },
-    total=False,
-)
-
-BulkDeploymentResultTypeDef = TypedDict(
-    "BulkDeploymentResultTypeDef",
-    {
-        "CreatedAt": str,
-        "DeploymentArn": str,
-        "DeploymentId": str,
-        "DeploymentStatus": str,
-        "DeploymentType": DeploymentTypeType,
-        "ErrorDetails": List["ErrorDetailTypeDef"],
-        "ErrorMessage": str,
-        "GroupArn": str,
-    },
-    total=False,
-)
-
-BulkDeploymentTypeDef = TypedDict(
-    "BulkDeploymentTypeDef",
-    {
-        "BulkDeploymentArn": str,
-        "BulkDeploymentId": str,
-        "CreatedAt": str,
-    },
-    total=False,
-)
-
-ConnectivityInfoTypeDef = TypedDict(
-    "ConnectivityInfoTypeDef",
-    {
-        "HostAddress": str,
-        "Id": str,
-        "Metadata": str,
-        "PortNumber": int,
-    },
-    total=False,
-)
-
-ConnectorDefinitionVersionTypeDef = TypedDict(
-    "ConnectorDefinitionVersionTypeDef",
-    {
-        "Connectors": List["ConnectorTypeDef"],
-    },
-    total=False,
-)
-
-_RequiredConnectorTypeDef = TypedDict(
-    "_RequiredConnectorTypeDef",
-    {
-        "ConnectorArn": str,
-        "Id": str,
-    },
-)
-_OptionalConnectorTypeDef = TypedDict(
-    "_OptionalConnectorTypeDef",
-    {
-        "Parameters": Dict[str, str],
-    },
-    total=False,
-)
-
-class ConnectorTypeDef(_RequiredConnectorTypeDef, _OptionalConnectorTypeDef):
-    pass
-
-CoreDefinitionVersionTypeDef = TypedDict(
-    "CoreDefinitionVersionTypeDef",
-    {
-        "Cores": List["CoreTypeDef"],
-    },
-    total=False,
-)
-
-_RequiredCoreTypeDef = TypedDict(
-    "_RequiredCoreTypeDef",
-    {
-        "CertificateArn": str,
-        "Id": str,
-        "ThingArn": str,
-    },
-)
-_OptionalCoreTypeDef = TypedDict(
-    "_OptionalCoreTypeDef",
-    {
-        "SyncShadow": bool,
-    },
-    total=False,
-)
-
-class CoreTypeDef(_RequiredCoreTypeDef, _OptionalCoreTypeDef):
-    pass
-
-CreateConnectorDefinitionRequestRequestTypeDef = TypedDict(
-    "CreateConnectorDefinitionRequestRequestTypeDef",
-    {
-        "AmznClientToken": str,
-        "InitialVersion": "ConnectorDefinitionVersionTypeDef",
-        "Name": str,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-CreateConnectorDefinitionResponseTypeDef = TypedDict(
-    "CreateConnectorDefinitionResponseTypeDef",
-    {
-        "Arn": str,
-        "CreationTimestamp": str,
-        "Id": str,
-        "LastUpdatedTimestamp": str,
-        "LatestVersion": str,
-        "LatestVersionArn": str,
-        "Name": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateConnectorDefinitionVersionRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateConnectorDefinitionVersionRequestRequestTypeDef",
-    {
-        "ConnectorDefinitionId": str,
-    },
-)
-_OptionalCreateConnectorDefinitionVersionRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateConnectorDefinitionVersionRequestRequestTypeDef",
-    {
-        "AmznClientToken": str,
-        "Connectors": List["ConnectorTypeDef"],
-    },
-    total=False,
-)
-
-class CreateConnectorDefinitionVersionRequestRequestTypeDef(
-    _RequiredCreateConnectorDefinitionVersionRequestRequestTypeDef,
-    _OptionalCreateConnectorDefinitionVersionRequestRequestTypeDef,
-):
-    pass
-
-CreateConnectorDefinitionVersionResponseTypeDef = TypedDict(
-    "CreateConnectorDefinitionVersionResponseTypeDef",
-    {
-        "Arn": str,
-        "CreationTimestamp": str,
-        "Id": str,
-        "Version": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateCoreDefinitionRequestRequestTypeDef = TypedDict(
-    "CreateCoreDefinitionRequestRequestTypeDef",
-    {
-        "AmznClientToken": str,
-        "InitialVersion": "CoreDefinitionVersionTypeDef",
-        "Name": str,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-CreateCoreDefinitionResponseTypeDef = TypedDict(
-    "CreateCoreDefinitionResponseTypeDef",
-    {
-        "Arn": str,
-        "CreationTimestamp": str,
-        "Id": str,
-        "LastUpdatedTimestamp": str,
-        "LatestVersion": str,
-        "LatestVersionArn": str,
-        "Name": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateCoreDefinitionVersionRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateCoreDefinitionVersionRequestRequestTypeDef",
-    {
-        "CoreDefinitionId": str,
-    },
-)
-_OptionalCreateCoreDefinitionVersionRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateCoreDefinitionVersionRequestRequestTypeDef",
-    {
-        "AmznClientToken": str,
-        "Cores": List["CoreTypeDef"],
-    },
-    total=False,
-)
-
-class CreateCoreDefinitionVersionRequestRequestTypeDef(
-    _RequiredCreateCoreDefinitionVersionRequestRequestTypeDef,
-    _OptionalCreateCoreDefinitionVersionRequestRequestTypeDef,
-):
-    pass
-
-CreateCoreDefinitionVersionResponseTypeDef = TypedDict(
-    "CreateCoreDefinitionVersionResponseTypeDef",
-    {
-        "Arn": str,
-        "CreationTimestamp": str,
-        "Id": str,
-        "Version": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateDeploymentRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateDeploymentRequestRequestTypeDef",
-    {
-        "DeploymentType": DeploymentTypeType,
-        "GroupId": str,
-    },
-)
-_OptionalCreateDeploymentRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateDeploymentRequestRequestTypeDef",
-    {
-        "AmznClientToken": str,
-        "DeploymentId": str,
-        "GroupVersionId": str,
-    },
-    total=False,
-)
-
-class CreateDeploymentRequestRequestTypeDef(
-    _RequiredCreateDeploymentRequestRequestTypeDef, _OptionalCreateDeploymentRequestRequestTypeDef
-):
-    pass
-
-CreateDeploymentResponseTypeDef = TypedDict(
-    "CreateDeploymentResponseTypeDef",
-    {
-        "DeploymentArn": str,
-        "DeploymentId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateDeviceDefinitionRequestRequestTypeDef = TypedDict(
-    "CreateDeviceDefinitionRequestRequestTypeDef",
-    {
-        "AmznClientToken": str,
-        "InitialVersion": "DeviceDefinitionVersionTypeDef",
-        "Name": str,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-CreateDeviceDefinitionResponseTypeDef = TypedDict(
-    "CreateDeviceDefinitionResponseTypeDef",
-    {
-        "Arn": str,
-        "CreationTimestamp": str,
-        "Id": str,
-        "LastUpdatedTimestamp": str,
-        "LatestVersion": str,
-        "LatestVersionArn": str,
-        "Name": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateDeviceDefinitionVersionRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateDeviceDefinitionVersionRequestRequestTypeDef",
-    {
-        "DeviceDefinitionId": str,
-    },
-)
-_OptionalCreateDeviceDefinitionVersionRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateDeviceDefinitionVersionRequestRequestTypeDef",
-    {
-        "AmznClientToken": str,
-        "Devices": List["DeviceTypeDef"],
-    },
-    total=False,
-)
-
-class CreateDeviceDefinitionVersionRequestRequestTypeDef(
-    _RequiredCreateDeviceDefinitionVersionRequestRequestTypeDef,
-    _OptionalCreateDeviceDefinitionVersionRequestRequestTypeDef,
-):
-    pass
-
-CreateDeviceDefinitionVersionResponseTypeDef = TypedDict(
-    "CreateDeviceDefinitionVersionResponseTypeDef",
-    {
-        "Arn": str,
-        "CreationTimestamp": str,
-        "Id": str,
-        "Version": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateFunctionDefinitionRequestRequestTypeDef = TypedDict(
-    "CreateFunctionDefinitionRequestRequestTypeDef",
-    {
-        "AmznClientToken": str,
-        "InitialVersion": "FunctionDefinitionVersionTypeDef",
-        "Name": str,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-CreateFunctionDefinitionResponseTypeDef = TypedDict(
-    "CreateFunctionDefinitionResponseTypeDef",
-    {
-        "Arn": str,
-        "CreationTimestamp": str,
-        "Id": str,
-        "LastUpdatedTimestamp": str,
-        "LatestVersion": str,
-        "LatestVersionArn": str,
-        "Name": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateFunctionDefinitionVersionRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateFunctionDefinitionVersionRequestRequestTypeDef",
-    {
-        "FunctionDefinitionId": str,
-    },
-)
-_OptionalCreateFunctionDefinitionVersionRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateFunctionDefinitionVersionRequestRequestTypeDef",
-    {
-        "AmznClientToken": str,
-        "DefaultConfig": "FunctionDefaultConfigTypeDef",
-        "Functions": List["FunctionTypeDef"],
-    },
-    total=False,
-)
-
-class CreateFunctionDefinitionVersionRequestRequestTypeDef(
-    _RequiredCreateFunctionDefinitionVersionRequestRequestTypeDef,
-    _OptionalCreateFunctionDefinitionVersionRequestRequestTypeDef,
-):
-    pass
-
-CreateFunctionDefinitionVersionResponseTypeDef = TypedDict(
-    "CreateFunctionDefinitionVersionResponseTypeDef",
-    {
-        "Arn": str,
-        "CreationTimestamp": str,
-        "Id": str,
-        "Version": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateGroupCertificateAuthorityRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateGroupCertificateAuthorityRequestRequestTypeDef",
-    {
-        "GroupId": str,
-    },
-)
-_OptionalCreateGroupCertificateAuthorityRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateGroupCertificateAuthorityRequestRequestTypeDef",
-    {
-        "AmznClientToken": str,
-    },
-    total=False,
-)
-
-class CreateGroupCertificateAuthorityRequestRequestTypeDef(
-    _RequiredCreateGroupCertificateAuthorityRequestRequestTypeDef,
-    _OptionalCreateGroupCertificateAuthorityRequestRequestTypeDef,
-):
-    pass
-
-CreateGroupCertificateAuthorityResponseTypeDef = TypedDict(
-    "CreateGroupCertificateAuthorityResponseTypeDef",
-    {
-        "GroupCertificateAuthorityArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateGroupRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateGroupRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
-_OptionalCreateGroupRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateGroupRequestRequestTypeDef",
-    {
-        "AmznClientToken": str,
-        "InitialVersion": "GroupVersionTypeDef",
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class CreateGroupRequestRequestTypeDef(
-    _RequiredCreateGroupRequestRequestTypeDef, _OptionalCreateGroupRequestRequestTypeDef
-):
-    pass
-
-CreateGroupResponseTypeDef = TypedDict(
-    "CreateGroupResponseTypeDef",
-    {
-        "Arn": str,
-        "CreationTimestamp": str,
-        "Id": str,
-        "LastUpdatedTimestamp": str,
-        "LatestVersion": str,
-        "LatestVersionArn": str,
-        "Name": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateGroupVersionRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateGroupVersionRequestRequestTypeDef",
-    {
-        "GroupId": str,
-    },
-)
-_OptionalCreateGroupVersionRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateGroupVersionRequestRequestTypeDef",
-    {
-        "AmznClientToken": str,
-        "ConnectorDefinitionVersionArn": str,
-        "CoreDefinitionVersionArn": str,
-        "DeviceDefinitionVersionArn": str,
-        "FunctionDefinitionVersionArn": str,
-        "LoggerDefinitionVersionArn": str,
-        "ResourceDefinitionVersionArn": str,
-        "SubscriptionDefinitionVersionArn": str,
-    },
-    total=False,
-)
-
-class CreateGroupVersionRequestRequestTypeDef(
-    _RequiredCreateGroupVersionRequestRequestTypeDef,
-    _OptionalCreateGroupVersionRequestRequestTypeDef,
-):
-    pass
-
-CreateGroupVersionResponseTypeDef = TypedDict(
-    "CreateGroupVersionResponseTypeDef",
-    {
-        "Arn": str,
-        "CreationTimestamp": str,
-        "Id": str,
-        "Version": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateLoggerDefinitionRequestRequestTypeDef = TypedDict(
-    "CreateLoggerDefinitionRequestRequestTypeDef",
-    {
-        "AmznClientToken": str,
-        "InitialVersion": "LoggerDefinitionVersionTypeDef",
-        "Name": str,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-CreateLoggerDefinitionResponseTypeDef = TypedDict(
-    "CreateLoggerDefinitionResponseTypeDef",
-    {
-        "Arn": str,
-        "CreationTimestamp": str,
-        "Id": str,
-        "LastUpdatedTimestamp": str,
-        "LatestVersion": str,
-        "LatestVersionArn": str,
-        "Name": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateLoggerDefinitionVersionRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateLoggerDefinitionVersionRequestRequestTypeDef",
-    {
-        "LoggerDefinitionId": str,
-    },
-)
-_OptionalCreateLoggerDefinitionVersionRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateLoggerDefinitionVersionRequestRequestTypeDef",
-    {
-        "AmznClientToken": str,
-        "Loggers": List["LoggerTypeDef"],
-    },
-    total=False,
-)
-
-class CreateLoggerDefinitionVersionRequestRequestTypeDef(
-    _RequiredCreateLoggerDefinitionVersionRequestRequestTypeDef,
-    _OptionalCreateLoggerDefinitionVersionRequestRequestTypeDef,
-):
-    pass
-
-CreateLoggerDefinitionVersionResponseTypeDef = TypedDict(
-    "CreateLoggerDefinitionVersionResponseTypeDef",
-    {
-        "Arn": str,
-        "CreationTimestamp": str,
-        "Id": str,
-        "Version": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateResourceDefinitionRequestRequestTypeDef = TypedDict(
-    "CreateResourceDefinitionRequestRequestTypeDef",
-    {
-        "AmznClientToken": str,
-        "InitialVersion": "ResourceDefinitionVersionTypeDef",
-        "Name": str,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-CreateResourceDefinitionResponseTypeDef = TypedDict(
-    "CreateResourceDefinitionResponseTypeDef",
-    {
-        "Arn": str,
-        "CreationTimestamp": str,
-        "Id": str,
-        "LastUpdatedTimestamp": str,
-        "LatestVersion": str,
-        "LatestVersionArn": str,
-        "Name": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateResourceDefinitionVersionRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateResourceDefinitionVersionRequestRequestTypeDef",
-    {
-        "ResourceDefinitionId": str,
-    },
-)
-_OptionalCreateResourceDefinitionVersionRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateResourceDefinitionVersionRequestRequestTypeDef",
-    {
-        "AmznClientToken": str,
-        "Resources": List["ResourceTypeDef"],
-    },
-    total=False,
-)
-
-class CreateResourceDefinitionVersionRequestRequestTypeDef(
-    _RequiredCreateResourceDefinitionVersionRequestRequestTypeDef,
-    _OptionalCreateResourceDefinitionVersionRequestRequestTypeDef,
-):
-    pass
-
-CreateResourceDefinitionVersionResponseTypeDef = TypedDict(
-    "CreateResourceDefinitionVersionResponseTypeDef",
-    {
-        "Arn": str,
-        "CreationTimestamp": str,
-        "Id": str,
-        "Version": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateSoftwareUpdateJobRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateSoftwareUpdateJobRequestRequestTypeDef",
-    {
-        "S3UrlSignerRole": str,
-        "SoftwareToUpdate": SoftwareToUpdateType,
-        "UpdateTargets": List[str],
-        "UpdateTargetsArchitecture": UpdateTargetsArchitectureType,
-        "UpdateTargetsOperatingSystem": UpdateTargetsOperatingSystemType,
-    },
-)
-_OptionalCreateSoftwareUpdateJobRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateSoftwareUpdateJobRequestRequestTypeDef",
-    {
-        "AmznClientToken": str,
-        "UpdateAgentLogLevel": UpdateAgentLogLevelType,
-    },
-    total=False,
-)
-
-class CreateSoftwareUpdateJobRequestRequestTypeDef(
-    _RequiredCreateSoftwareUpdateJobRequestRequestTypeDef,
-    _OptionalCreateSoftwareUpdateJobRequestRequestTypeDef,
-):
-    pass
-
-CreateSoftwareUpdateJobResponseTypeDef = TypedDict(
-    "CreateSoftwareUpdateJobResponseTypeDef",
-    {
-        "IotJobArn": str,
-        "IotJobId": str,
-        "PlatformSoftwareVersion": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateSubscriptionDefinitionRequestRequestTypeDef = TypedDict(
-    "CreateSubscriptionDefinitionRequestRequestTypeDef",
-    {
-        "AmznClientToken": str,
-        "InitialVersion": "SubscriptionDefinitionVersionTypeDef",
-        "Name": str,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-CreateSubscriptionDefinitionResponseTypeDef = TypedDict(
-    "CreateSubscriptionDefinitionResponseTypeDef",
-    {
-        "Arn": str,
-        "CreationTimestamp": str,
-        "Id": str,
-        "LastUpdatedTimestamp": str,
-        "LatestVersion": str,
-        "LatestVersionArn": str,
-        "Name": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateSubscriptionDefinitionVersionRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateSubscriptionDefinitionVersionRequestRequestTypeDef",
-    {
-        "SubscriptionDefinitionId": str,
-    },
-)
-_OptionalCreateSubscriptionDefinitionVersionRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateSubscriptionDefinitionVersionRequestRequestTypeDef",
-    {
-        "AmznClientToken": str,
-        "Subscriptions": List["SubscriptionTypeDef"],
-    },
-    total=False,
-)
-
-class CreateSubscriptionDefinitionVersionRequestRequestTypeDef(
-    _RequiredCreateSubscriptionDefinitionVersionRequestRequestTypeDef,
-    _OptionalCreateSubscriptionDefinitionVersionRequestRequestTypeDef,
-):
-    pass
-
-CreateSubscriptionDefinitionVersionResponseTypeDef = TypedDict(
-    "CreateSubscriptionDefinitionVersionResponseTypeDef",
-    {
-        "Arn": str,
-        "CreationTimestamp": str,
-        "Id": str,
-        "Version": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DefinitionInformationTypeDef = TypedDict(
-    "DefinitionInformationTypeDef",
-    {
-        "Arn": str,
-        "CreationTimestamp": str,
-        "Id": str,
-        "LastUpdatedTimestamp": str,
-        "LatestVersion": str,
-        "LatestVersionArn": str,
-        "Name": str,
-        "Tags": Dict[str, str],
-    },
-    total=False,
-)
-
-DeleteConnectorDefinitionRequestRequestTypeDef = TypedDict(
-    "DeleteConnectorDefinitionRequestRequestTypeDef",
-    {
-        "ConnectorDefinitionId": str,
-    },
-)
-
-DeleteCoreDefinitionRequestRequestTypeDef = TypedDict(
-    "DeleteCoreDefinitionRequestRequestTypeDef",
-    {
-        "CoreDefinitionId": str,
-    },
-)
-
-DeleteDeviceDefinitionRequestRequestTypeDef = TypedDict(
-    "DeleteDeviceDefinitionRequestRequestTypeDef",
-    {
-        "DeviceDefinitionId": str,
-    },
-)
-
-DeleteFunctionDefinitionRequestRequestTypeDef = TypedDict(
-    "DeleteFunctionDefinitionRequestRequestTypeDef",
-    {
-        "FunctionDefinitionId": str,
-    },
-)
-
-DeleteGroupRequestRequestTypeDef = TypedDict(
-    "DeleteGroupRequestRequestTypeDef",
-    {
-        "GroupId": str,
-    },
-)
-
-DeleteLoggerDefinitionRequestRequestTypeDef = TypedDict(
-    "DeleteLoggerDefinitionRequestRequestTypeDef",
-    {
-        "LoggerDefinitionId": str,
-    },
-)
-
-DeleteResourceDefinitionRequestRequestTypeDef = TypedDict(
-    "DeleteResourceDefinitionRequestRequestTypeDef",
-    {
-        "ResourceDefinitionId": str,
-    },
-)
-
-DeleteSubscriptionDefinitionRequestRequestTypeDef = TypedDict(
-    "DeleteSubscriptionDefinitionRequestRequestTypeDef",
-    {
-        "SubscriptionDefinitionId": str,
-    },
-)
-
-DeploymentTypeDef = TypedDict(
-    "DeploymentTypeDef",
-    {
-        "CreatedAt": str,
-        "DeploymentArn": str,
-        "DeploymentId": str,
-        "DeploymentType": DeploymentTypeType,
-        "GroupArn": str,
-    },
-    total=False,
-)
-
-DeviceDefinitionVersionTypeDef = TypedDict(
-    "DeviceDefinitionVersionTypeDef",
-    {
-        "Devices": List["DeviceTypeDef"],
-    },
-    total=False,
-)
-
-_RequiredDeviceTypeDef = TypedDict(
-    "_RequiredDeviceTypeDef",
-    {
-        "CertificateArn": str,
-        "Id": str,
-        "ThingArn": str,
-    },
-)
-_OptionalDeviceTypeDef = TypedDict(
-    "_OptionalDeviceTypeDef",
-    {
-        "SyncShadow": bool,
-    },
-    total=False,
-)
-
-class DeviceTypeDef(_RequiredDeviceTypeDef, _OptionalDeviceTypeDef):
-    pass
-
-DisassociateRoleFromGroupRequestRequestTypeDef = TypedDict(
-    "DisassociateRoleFromGroupRequestRequestTypeDef",
-    {
-        "GroupId": str,
-    },
-)
-
-DisassociateRoleFromGroupResponseTypeDef = TypedDict(
-    "DisassociateRoleFromGroupResponseTypeDef",
-    {
-        "DisassociatedAt": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DisassociateServiceRoleFromAccountResponseTypeDef = TypedDict(
-    "DisassociateServiceRoleFromAccountResponseTypeDef",
-    {
-        "DisassociatedAt": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ErrorDetailTypeDef = TypedDict(
-    "ErrorDetailTypeDef",
-    {
-        "DetailedErrorCode": str,
-        "DetailedErrorMessage": str,
-    },
-    total=False,
-)
-
-FunctionConfigurationEnvironmentTypeDef = TypedDict(
-    "FunctionConfigurationEnvironmentTypeDef",
-    {
-        "AccessSysfs": bool,
-        "Execution": "FunctionExecutionConfigTypeDef",
-        "ResourceAccessPolicies": List["ResourceAccessPolicyTypeDef"],
-        "Variables": Dict[str, str],
-    },
-    total=False,
-)
-
-FunctionConfigurationTypeDef = TypedDict(
-    "FunctionConfigurationTypeDef",
-    {
-        "EncodingType": EncodingTypeType,
-        "Environment": "FunctionConfigurationEnvironmentTypeDef",
-        "ExecArgs": str,
-        "Executable": str,
-        "MemorySize": int,
-        "Pinned": bool,
-        "Timeout": int,
-        "FunctionRuntimeOverride": str,
-    },
-    total=False,
-)
-
-FunctionDefaultConfigTypeDef = TypedDict(
-    "FunctionDefaultConfigTypeDef",
-    {
-        "Execution": "FunctionDefaultExecutionConfigTypeDef",
-    },
-    total=False,
-)
-
-FunctionDefaultExecutionConfigTypeDef = TypedDict(
-    "FunctionDefaultExecutionConfigTypeDef",
-    {
-        "IsolationMode": FunctionIsolationModeType,
-        "RunAs": "FunctionRunAsConfigTypeDef",
-    },
-    total=False,
-)
-
-FunctionDefinitionVersionTypeDef = TypedDict(
-    "FunctionDefinitionVersionTypeDef",
-    {
-        "DefaultConfig": "FunctionDefaultConfigTypeDef",
-        "Functions": List["FunctionTypeDef"],
-    },
-    total=False,
-)
-
-FunctionExecutionConfigTypeDef = TypedDict(
-    "FunctionExecutionConfigTypeDef",
-    {
-        "IsolationMode": FunctionIsolationModeType,
-        "RunAs": "FunctionRunAsConfigTypeDef",
-    },
-    total=False,
-)
-
-FunctionRunAsConfigTypeDef = TypedDict(
-    "FunctionRunAsConfigTypeDef",
-    {
-        "Gid": int,
-        "Uid": int,
-    },
-    total=False,
-)
-
-_RequiredFunctionTypeDef = TypedDict(
-    "_RequiredFunctionTypeDef",
-    {
-        "Id": str,
-    },
-)
-_OptionalFunctionTypeDef = TypedDict(
-    "_OptionalFunctionTypeDef",
-    {
-        "FunctionArn": str,
-        "FunctionConfiguration": "FunctionConfigurationTypeDef",
-    },
-    total=False,
-)
-
-class FunctionTypeDef(_RequiredFunctionTypeDef, _OptionalFunctionTypeDef):
-    pass
-
-GetAssociatedRoleRequestRequestTypeDef = TypedDict(
-    "GetAssociatedRoleRequestRequestTypeDef",
-    {
-        "GroupId": str,
-    },
-)
-
-GetAssociatedRoleResponseTypeDef = TypedDict(
-    "GetAssociatedRoleResponseTypeDef",
-    {
-        "AssociatedAt": str,
-        "RoleArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetBulkDeploymentStatusRequestRequestTypeDef = TypedDict(
-    "GetBulkDeploymentStatusRequestRequestTypeDef",
-    {
-        "BulkDeploymentId": str,
-    },
-)
-
-GetBulkDeploymentStatusResponseTypeDef = TypedDict(
-    "GetBulkDeploymentStatusResponseTypeDef",
-    {
-        "BulkDeploymentMetrics": "BulkDeploymentMetricsTypeDef",
-        "BulkDeploymentStatus": BulkDeploymentStatusType,
-        "CreatedAt": str,
-        "ErrorDetails": List["ErrorDetailTypeDef"],
-        "ErrorMessage": str,
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetConnectivityInfoRequestRequestTypeDef = TypedDict(
-    "GetConnectivityInfoRequestRequestTypeDef",
-    {
-        "ThingName": str,
-    },
-)
-
-GetConnectivityInfoResponseTypeDef = TypedDict(
-    "GetConnectivityInfoResponseTypeDef",
-    {
-        "ConnectivityInfo": List["ConnectivityInfoTypeDef"],
-        "Message": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetConnectorDefinitionRequestRequestTypeDef = TypedDict(
-    "GetConnectorDefinitionRequestRequestTypeDef",
-    {
-        "ConnectorDefinitionId": str,
-    },
-)
-
-GetConnectorDefinitionResponseTypeDef = TypedDict(
-    "GetConnectorDefinitionResponseTypeDef",
-    {
-        "Arn": str,
-        "CreationTimestamp": str,
-        "Id": str,
-        "LastUpdatedTimestamp": str,
-        "LatestVersion": str,
-        "LatestVersionArn": str,
-        "Name": str,
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetConnectorDefinitionVersionRequestRequestTypeDef = TypedDict(
-    "_RequiredGetConnectorDefinitionVersionRequestRequestTypeDef",
-    {
-        "ConnectorDefinitionId": str,
-        "ConnectorDefinitionVersionId": str,
-    },
-)
-_OptionalGetConnectorDefinitionVersionRequestRequestTypeDef = TypedDict(
-    "_OptionalGetConnectorDefinitionVersionRequestRequestTypeDef",
-    {
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class GetConnectorDefinitionVersionRequestRequestTypeDef(
-    _RequiredGetConnectorDefinitionVersionRequestRequestTypeDef,
-    _OptionalGetConnectorDefinitionVersionRequestRequestTypeDef,
-):
-    pass
-
-GetConnectorDefinitionVersionResponseTypeDef = TypedDict(
-    "GetConnectorDefinitionVersionResponseTypeDef",
-    {
-        "Arn": str,
-        "CreationTimestamp": str,
-        "Definition": "ConnectorDefinitionVersionTypeDef",
-        "Id": str,
-        "NextToken": str,
-        "Version": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetCoreDefinitionRequestRequestTypeDef = TypedDict(
-    "GetCoreDefinitionRequestRequestTypeDef",
-    {
-        "CoreDefinitionId": str,
-    },
-)
-
-GetCoreDefinitionResponseTypeDef = TypedDict(
-    "GetCoreDefinitionResponseTypeDef",
-    {
-        "Arn": str,
-        "CreationTimestamp": str,
-        "Id": str,
-        "LastUpdatedTimestamp": str,
-        "LatestVersion": str,
-        "LatestVersionArn": str,
-        "Name": str,
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetCoreDefinitionVersionRequestRequestTypeDef = TypedDict(
-    "GetCoreDefinitionVersionRequestRequestTypeDef",
-    {
-        "CoreDefinitionId": str,
-        "CoreDefinitionVersionId": str,
-    },
-)
-
-GetCoreDefinitionVersionResponseTypeDef = TypedDict(
-    "GetCoreDefinitionVersionResponseTypeDef",
-    {
-        "Arn": str,
-        "CreationTimestamp": str,
-        "Definition": "CoreDefinitionVersionTypeDef",
-        "Id": str,
-        "NextToken": str,
-        "Version": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetDeploymentStatusRequestRequestTypeDef = TypedDict(
-    "GetDeploymentStatusRequestRequestTypeDef",
-    {
-        "DeploymentId": str,
-        "GroupId": str,
-    },
-)
-
-GetDeploymentStatusResponseTypeDef = TypedDict(
-    "GetDeploymentStatusResponseTypeDef",
-    {
-        "DeploymentStatus": str,
-        "DeploymentType": DeploymentTypeType,
-        "ErrorDetails": List["ErrorDetailTypeDef"],
-        "ErrorMessage": str,
-        "UpdatedAt": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetDeviceDefinitionRequestRequestTypeDef = TypedDict(
-    "GetDeviceDefinitionRequestRequestTypeDef",
-    {
-        "DeviceDefinitionId": str,
-    },
-)
-
-GetDeviceDefinitionResponseTypeDef = TypedDict(
-    "GetDeviceDefinitionResponseTypeDef",
-    {
-        "Arn": str,
-        "CreationTimestamp": str,
-        "Id": str,
-        "LastUpdatedTimestamp": str,
-        "LatestVersion": str,
-        "LatestVersionArn": str,
-        "Name": str,
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetDeviceDefinitionVersionRequestRequestTypeDef = TypedDict(
-    "_RequiredGetDeviceDefinitionVersionRequestRequestTypeDef",
-    {
-        "DeviceDefinitionId": str,
-        "DeviceDefinitionVersionId": str,
-    },
-)
-_OptionalGetDeviceDefinitionVersionRequestRequestTypeDef = TypedDict(
-    "_OptionalGetDeviceDefinitionVersionRequestRequestTypeDef",
-    {
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class GetDeviceDefinitionVersionRequestRequestTypeDef(
-    _RequiredGetDeviceDefinitionVersionRequestRequestTypeDef,
-    _OptionalGetDeviceDefinitionVersionRequestRequestTypeDef,
-):
-    pass
-
-GetDeviceDefinitionVersionResponseTypeDef = TypedDict(
-    "GetDeviceDefinitionVersionResponseTypeDef",
-    {
-        "Arn": str,
-        "CreationTimestamp": str,
-        "Definition": "DeviceDefinitionVersionTypeDef",
-        "Id": str,
-        "NextToken": str,
-        "Version": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetFunctionDefinitionRequestRequestTypeDef = TypedDict(
-    "GetFunctionDefinitionRequestRequestTypeDef",
-    {
-        "FunctionDefinitionId": str,
-    },
-)
-
-GetFunctionDefinitionResponseTypeDef = TypedDict(
-    "GetFunctionDefinitionResponseTypeDef",
-    {
-        "Arn": str,
-        "CreationTimestamp": str,
-        "Id": str,
-        "LastUpdatedTimestamp": str,
-        "LatestVersion": str,
-        "LatestVersionArn": str,
-        "Name": str,
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetFunctionDefinitionVersionRequestRequestTypeDef = TypedDict(
-    "_RequiredGetFunctionDefinitionVersionRequestRequestTypeDef",
-    {
-        "FunctionDefinitionId": str,
-        "FunctionDefinitionVersionId": str,
-    },
-)
-_OptionalGetFunctionDefinitionVersionRequestRequestTypeDef = TypedDict(
-    "_OptionalGetFunctionDefinitionVersionRequestRequestTypeDef",
-    {
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class GetFunctionDefinitionVersionRequestRequestTypeDef(
-    _RequiredGetFunctionDefinitionVersionRequestRequestTypeDef,
-    _OptionalGetFunctionDefinitionVersionRequestRequestTypeDef,
-):
-    pass
-
-GetFunctionDefinitionVersionResponseTypeDef = TypedDict(
-    "GetFunctionDefinitionVersionResponseTypeDef",
-    {
-        "Arn": str,
-        "CreationTimestamp": str,
-        "Definition": "FunctionDefinitionVersionTypeDef",
-        "Id": str,
-        "NextToken": str,
-        "Version": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetGroupCertificateAuthorityRequestRequestTypeDef = TypedDict(
-    "GetGroupCertificateAuthorityRequestRequestTypeDef",
-    {
-        "CertificateAuthorityId": str,
-        "GroupId": str,
-    },
-)
-
-GetGroupCertificateAuthorityResponseTypeDef = TypedDict(
-    "GetGroupCertificateAuthorityResponseTypeDef",
-    {
-        "GroupCertificateAuthorityArn": str,
-        "GroupCertificateAuthorityId": str,
-        "PemEncodedCertificate": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetGroupCertificateConfigurationRequestRequestTypeDef = TypedDict(
-    "GetGroupCertificateConfigurationRequestRequestTypeDef",
-    {
-        "GroupId": str,
-    },
-)
-
-GetGroupCertificateConfigurationResponseTypeDef = TypedDict(
-    "GetGroupCertificateConfigurationResponseTypeDef",
-    {
-        "CertificateAuthorityExpiryInMilliseconds": str,
-        "CertificateExpiryInMilliseconds": str,
-        "GroupId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetGroupRequestRequestTypeDef = TypedDict(
-    "GetGroupRequestRequestTypeDef",
-    {
-        "GroupId": str,
-    },
-)
-
-GetGroupResponseTypeDef = TypedDict(
-    "GetGroupResponseTypeDef",
-    {
-        "Arn": str,
-        "CreationTimestamp": str,
-        "Id": str,
-        "LastUpdatedTimestamp": str,
-        "LatestVersion": str,
-        "LatestVersionArn": str,
-        "Name": str,
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetGroupVersionRequestRequestTypeDef = TypedDict(
-    "GetGroupVersionRequestRequestTypeDef",
-    {
-        "GroupId": str,
-        "GroupVersionId": str,
-    },
-)
-
-GetGroupVersionResponseTypeDef = TypedDict(
-    "GetGroupVersionResponseTypeDef",
-    {
-        "Arn": str,
-        "CreationTimestamp": str,
-        "Definition": "GroupVersionTypeDef",
-        "Id": str,
-        "Version": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetLoggerDefinitionRequestRequestTypeDef = TypedDict(
-    "GetLoggerDefinitionRequestRequestTypeDef",
-    {
-        "LoggerDefinitionId": str,
-    },
-)
-
-GetLoggerDefinitionResponseTypeDef = TypedDict(
-    "GetLoggerDefinitionResponseTypeDef",
-    {
-        "Arn": str,
-        "CreationTimestamp": str,
-        "Id": str,
-        "LastUpdatedTimestamp": str,
-        "LatestVersion": str,
-        "LatestVersionArn": str,
-        "Name": str,
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetLoggerDefinitionVersionRequestRequestTypeDef = TypedDict(
-    "_RequiredGetLoggerDefinitionVersionRequestRequestTypeDef",
-    {
-        "LoggerDefinitionId": str,
-        "LoggerDefinitionVersionId": str,
-    },
-)
-_OptionalGetLoggerDefinitionVersionRequestRequestTypeDef = TypedDict(
-    "_OptionalGetLoggerDefinitionVersionRequestRequestTypeDef",
-    {
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class GetLoggerDefinitionVersionRequestRequestTypeDef(
-    _RequiredGetLoggerDefinitionVersionRequestRequestTypeDef,
-    _OptionalGetLoggerDefinitionVersionRequestRequestTypeDef,
-):
-    pass
-
-GetLoggerDefinitionVersionResponseTypeDef = TypedDict(
-    "GetLoggerDefinitionVersionResponseTypeDef",
-    {
-        "Arn": str,
-        "CreationTimestamp": str,
-        "Definition": "LoggerDefinitionVersionTypeDef",
-        "Id": str,
-        "Version": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetResourceDefinitionRequestRequestTypeDef = TypedDict(
-    "GetResourceDefinitionRequestRequestTypeDef",
-    {
-        "ResourceDefinitionId": str,
-    },
-)
-
-GetResourceDefinitionResponseTypeDef = TypedDict(
-    "GetResourceDefinitionResponseTypeDef",
-    {
-        "Arn": str,
-        "CreationTimestamp": str,
-        "Id": str,
-        "LastUpdatedTimestamp": str,
-        "LatestVersion": str,
-        "LatestVersionArn": str,
-        "Name": str,
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetResourceDefinitionVersionRequestRequestTypeDef = TypedDict(
-    "GetResourceDefinitionVersionRequestRequestTypeDef",
-    {
-        "ResourceDefinitionId": str,
-        "ResourceDefinitionVersionId": str,
-    },
-)
-
-GetResourceDefinitionVersionResponseTypeDef = TypedDict(
-    "GetResourceDefinitionVersionResponseTypeDef",
-    {
-        "Arn": str,
-        "CreationTimestamp": str,
-        "Definition": "ResourceDefinitionVersionTypeDef",
-        "Id": str,
-        "Version": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetServiceRoleForAccountResponseTypeDef = TypedDict(
-    "GetServiceRoleForAccountResponseTypeDef",
-    {
-        "AssociatedAt": str,
-        "RoleArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetSubscriptionDefinitionRequestRequestTypeDef = TypedDict(
-    "GetSubscriptionDefinitionRequestRequestTypeDef",
-    {
-        "SubscriptionDefinitionId": str,
-    },
-)
-
-GetSubscriptionDefinitionResponseTypeDef = TypedDict(
-    "GetSubscriptionDefinitionResponseTypeDef",
-    {
-        "Arn": str,
-        "CreationTimestamp": str,
-        "Id": str,
-        "LastUpdatedTimestamp": str,
-        "LatestVersion": str,
-        "LatestVersionArn": str,
-        "Name": str,
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetSubscriptionDefinitionVersionRequestRequestTypeDef = TypedDict(
-    "_RequiredGetSubscriptionDefinitionVersionRequestRequestTypeDef",
-    {
-        "SubscriptionDefinitionId": str,
-        "SubscriptionDefinitionVersionId": str,
-    },
-)
-_OptionalGetSubscriptionDefinitionVersionRequestRequestTypeDef = TypedDict(
-    "_OptionalGetSubscriptionDefinitionVersionRequestRequestTypeDef",
-    {
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class GetSubscriptionDefinitionVersionRequestRequestTypeDef(
-    _RequiredGetSubscriptionDefinitionVersionRequestRequestTypeDef,
-    _OptionalGetSubscriptionDefinitionVersionRequestRequestTypeDef,
-):
-    pass
-
-GetSubscriptionDefinitionVersionResponseTypeDef = TypedDict(
-    "GetSubscriptionDefinitionVersionResponseTypeDef",
-    {
-        "Arn": str,
-        "CreationTimestamp": str,
-        "Definition": "SubscriptionDefinitionVersionTypeDef",
-        "Id": str,
-        "NextToken": str,
-        "Version": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetThingRuntimeConfigurationRequestRequestTypeDef = TypedDict(
-    "GetThingRuntimeConfigurationRequestRequestTypeDef",
-    {
-        "ThingName": str,
-    },
-)
-
-GetThingRuntimeConfigurationResponseTypeDef = TypedDict(
-    "GetThingRuntimeConfigurationResponseTypeDef",
-    {
-        "RuntimeConfiguration": "RuntimeConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GroupCertificateAuthorityPropertiesTypeDef = TypedDict(
-    "GroupCertificateAuthorityPropertiesTypeDef",
-    {
-        "GroupCertificateAuthorityArn": str,
-        "GroupCertificateAuthorityId": str,
-    },
-    total=False,
-)
-
-GroupInformationTypeDef = TypedDict(
-    "GroupInformationTypeDef",
-    {
-        "Arn": str,
-        "CreationTimestamp": str,
-        "Id": str,
-        "LastUpdatedTimestamp": str,
-        "LatestVersion": str,
-        "LatestVersionArn": str,
-        "Name": str,
-    },
-    total=False,
-)
-
-GroupOwnerSettingTypeDef = TypedDict(
-    "GroupOwnerSettingTypeDef",
-    {
-        "AutoAddGroupOwner": bool,
-        "GroupOwner": str,
-    },
-    total=False,
-)
-
-GroupVersionTypeDef = TypedDict(
-    "GroupVersionTypeDef",
-    {
-        "ConnectorDefinitionVersionArn": str,
-        "CoreDefinitionVersionArn": str,
-        "DeviceDefinitionVersionArn": str,
-        "FunctionDefinitionVersionArn": str,
-        "LoggerDefinitionVersionArn": str,
-        "ResourceDefinitionVersionArn": str,
-        "SubscriptionDefinitionVersionArn": str,
-    },
-    total=False,
-)
-
-_RequiredListBulkDeploymentDetailedReportsRequestRequestTypeDef = TypedDict(
-    "_RequiredListBulkDeploymentDetailedReportsRequestRequestTypeDef",
-    {
-        "BulkDeploymentId": str,
-    },
-)
-_OptionalListBulkDeploymentDetailedReportsRequestRequestTypeDef = TypedDict(
-    "_OptionalListBulkDeploymentDetailedReportsRequestRequestTypeDef",
-    {
-        "MaxResults": str,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListBulkDeploymentDetailedReportsRequestRequestTypeDef(
-    _RequiredListBulkDeploymentDetailedReportsRequestRequestTypeDef,
-    _OptionalListBulkDeploymentDetailedReportsRequestRequestTypeDef,
-):
-    pass
-
-ListBulkDeploymentDetailedReportsResponseTypeDef = TypedDict(
-    "ListBulkDeploymentDetailedReportsResponseTypeDef",
-    {
-        "Deployments": List["BulkDeploymentResultTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListBulkDeploymentsRequestRequestTypeDef = TypedDict(
-    "ListBulkDeploymentsRequestRequestTypeDef",
-    {
-        "MaxResults": str,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListBulkDeploymentsResponseTypeDef = TypedDict(
-    "ListBulkDeploymentsResponseTypeDef",
-    {
-        "BulkDeployments": List["BulkDeploymentTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListConnectorDefinitionVersionsRequestRequestTypeDef = TypedDict(
-    "_RequiredListConnectorDefinitionVersionsRequestRequestTypeDef",
-    {
-        "ConnectorDefinitionId": str,
-    },
-)
-_OptionalListConnectorDefinitionVersionsRequestRequestTypeDef = TypedDict(
-    "_OptionalListConnectorDefinitionVersionsRequestRequestTypeDef",
-    {
-        "MaxResults": str,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListConnectorDefinitionVersionsRequestRequestTypeDef(
-    _RequiredListConnectorDefinitionVersionsRequestRequestTypeDef,
-    _OptionalListConnectorDefinitionVersionsRequestRequestTypeDef,
-):
-    pass
-
-ListConnectorDefinitionVersionsResponseTypeDef = TypedDict(
-    "ListConnectorDefinitionVersionsResponseTypeDef",
-    {
-        "NextToken": str,
-        "Versions": List["VersionInformationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListConnectorDefinitionsRequestRequestTypeDef = TypedDict(
-    "ListConnectorDefinitionsRequestRequestTypeDef",
-    {
-        "MaxResults": str,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListConnectorDefinitionsResponseTypeDef = TypedDict(
-    "ListConnectorDefinitionsResponseTypeDef",
-    {
-        "Definitions": List["DefinitionInformationTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListCoreDefinitionVersionsRequestRequestTypeDef = TypedDict(
-    "_RequiredListCoreDefinitionVersionsRequestRequestTypeDef",
-    {
-        "CoreDefinitionId": str,
-    },
-)
-_OptionalListCoreDefinitionVersionsRequestRequestTypeDef = TypedDict(
-    "_OptionalListCoreDefinitionVersionsRequestRequestTypeDef",
-    {
-        "MaxResults": str,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListCoreDefinitionVersionsRequestRequestTypeDef(
-    _RequiredListCoreDefinitionVersionsRequestRequestTypeDef,
-    _OptionalListCoreDefinitionVersionsRequestRequestTypeDef,
-):
-    pass
-
-ListCoreDefinitionVersionsResponseTypeDef = TypedDict(
-    "ListCoreDefinitionVersionsResponseTypeDef",
-    {
-        "NextToken": str,
-        "Versions": List["VersionInformationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListCoreDefinitionsRequestRequestTypeDef = TypedDict(
-    "ListCoreDefinitionsRequestRequestTypeDef",
-    {
-        "MaxResults": str,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListCoreDefinitionsResponseTypeDef = TypedDict(
-    "ListCoreDefinitionsResponseTypeDef",
-    {
-        "Definitions": List["DefinitionInformationTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListDeploymentsRequestRequestTypeDef = TypedDict(
-    "_RequiredListDeploymentsRequestRequestTypeDef",
-    {
-        "GroupId": str,
-    },
-)
-_OptionalListDeploymentsRequestRequestTypeDef = TypedDict(
-    "_OptionalListDeploymentsRequestRequestTypeDef",
-    {
-        "MaxResults": str,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListDeploymentsRequestRequestTypeDef(
-    _RequiredListDeploymentsRequestRequestTypeDef, _OptionalListDeploymentsRequestRequestTypeDef
-):
-    pass
-
-ListDeploymentsResponseTypeDef = TypedDict(
-    "ListDeploymentsResponseTypeDef",
-    {
-        "Deployments": List["DeploymentTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListDeviceDefinitionVersionsRequestRequestTypeDef = TypedDict(
-    "_RequiredListDeviceDefinitionVersionsRequestRequestTypeDef",
-    {
-        "DeviceDefinitionId": str,
-    },
-)
-_OptionalListDeviceDefinitionVersionsRequestRequestTypeDef = TypedDict(
-    "_OptionalListDeviceDefinitionVersionsRequestRequestTypeDef",
-    {
-        "MaxResults": str,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListDeviceDefinitionVersionsRequestRequestTypeDef(
-    _RequiredListDeviceDefinitionVersionsRequestRequestTypeDef,
-    _OptionalListDeviceDefinitionVersionsRequestRequestTypeDef,
-):
-    pass
-
-ListDeviceDefinitionVersionsResponseTypeDef = TypedDict(
-    "ListDeviceDefinitionVersionsResponseTypeDef",
-    {
-        "NextToken": str,
-        "Versions": List["VersionInformationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListDeviceDefinitionsRequestRequestTypeDef = TypedDict(
-    "ListDeviceDefinitionsRequestRequestTypeDef",
-    {
-        "MaxResults": str,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListDeviceDefinitionsResponseTypeDef = TypedDict(
-    "ListDeviceDefinitionsResponseTypeDef",
-    {
-        "Definitions": List["DefinitionInformationTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListFunctionDefinitionVersionsRequestRequestTypeDef = TypedDict(
-    "_RequiredListFunctionDefinitionVersionsRequestRequestTypeDef",
-    {
-        "FunctionDefinitionId": str,
-    },
-)
-_OptionalListFunctionDefinitionVersionsRequestRequestTypeDef = TypedDict(
-    "_OptionalListFunctionDefinitionVersionsRequestRequestTypeDef",
-    {
-        "MaxResults": str,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListFunctionDefinitionVersionsRequestRequestTypeDef(
-    _RequiredListFunctionDefinitionVersionsRequestRequestTypeDef,
-    _OptionalListFunctionDefinitionVersionsRequestRequestTypeDef,
-):
-    pass
-
-ListFunctionDefinitionVersionsResponseTypeDef = TypedDict(
-    "ListFunctionDefinitionVersionsResponseTypeDef",
-    {
-        "NextToken": str,
-        "Versions": List["VersionInformationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListFunctionDefinitionsRequestRequestTypeDef = TypedDict(
-    "ListFunctionDefinitionsRequestRequestTypeDef",
-    {
-        "MaxResults": str,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListFunctionDefinitionsResponseTypeDef = TypedDict(
-    "ListFunctionDefinitionsResponseTypeDef",
-    {
-        "Definitions": List["DefinitionInformationTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListGroupCertificateAuthoritiesRequestRequestTypeDef = TypedDict(
-    "ListGroupCertificateAuthoritiesRequestRequestTypeDef",
-    {
-        "GroupId": str,
-    },
-)
-
-ListGroupCertificateAuthoritiesResponseTypeDef = TypedDict(
-    "ListGroupCertificateAuthoritiesResponseTypeDef",
-    {
-        "GroupCertificateAuthorities": List["GroupCertificateAuthorityPropertiesTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListGroupVersionsRequestRequestTypeDef = TypedDict(
-    "_RequiredListGroupVersionsRequestRequestTypeDef",
-    {
-        "GroupId": str,
-    },
-)
-_OptionalListGroupVersionsRequestRequestTypeDef = TypedDict(
-    "_OptionalListGroupVersionsRequestRequestTypeDef",
-    {
-        "MaxResults": str,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListGroupVersionsRequestRequestTypeDef(
-    _RequiredListGroupVersionsRequestRequestTypeDef, _OptionalListGroupVersionsRequestRequestTypeDef
-):
-    pass
-
-ListGroupVersionsResponseTypeDef = TypedDict(
-    "ListGroupVersionsResponseTypeDef",
-    {
-        "NextToken": str,
-        "Versions": List["VersionInformationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListGroupsRequestRequestTypeDef = TypedDict(
-    "ListGroupsRequestRequestTypeDef",
-    {
-        "MaxResults": str,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListGroupsResponseTypeDef = TypedDict(
-    "ListGroupsResponseTypeDef",
-    {
-        "Groups": List["GroupInformationTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListLoggerDefinitionVersionsRequestRequestTypeDef = TypedDict(
-    "_RequiredListLoggerDefinitionVersionsRequestRequestTypeDef",
-    {
-        "LoggerDefinitionId": str,
-    },
-)
-_OptionalListLoggerDefinitionVersionsRequestRequestTypeDef = TypedDict(
-    "_OptionalListLoggerDefinitionVersionsRequestRequestTypeDef",
-    {
-        "MaxResults": str,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListLoggerDefinitionVersionsRequestRequestTypeDef(
-    _RequiredListLoggerDefinitionVersionsRequestRequestTypeDef,
-    _OptionalListLoggerDefinitionVersionsRequestRequestTypeDef,
-):
-    pass
-
-ListLoggerDefinitionVersionsResponseTypeDef = TypedDict(
-    "ListLoggerDefinitionVersionsResponseTypeDef",
-    {
-        "NextToken": str,
-        "Versions": List["VersionInformationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListLoggerDefinitionsRequestRequestTypeDef = TypedDict(
-    "ListLoggerDefinitionsRequestRequestTypeDef",
-    {
-        "MaxResults": str,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListLoggerDefinitionsResponseTypeDef = TypedDict(
-    "ListLoggerDefinitionsResponseTypeDef",
-    {
-        "Definitions": List["DefinitionInformationTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListResourceDefinitionVersionsRequestRequestTypeDef = TypedDict(
-    "_RequiredListResourceDefinitionVersionsRequestRequestTypeDef",
-    {
-        "ResourceDefinitionId": str,
-    },
-)
-_OptionalListResourceDefinitionVersionsRequestRequestTypeDef = TypedDict(
-    "_OptionalListResourceDefinitionVersionsRequestRequestTypeDef",
-    {
-        "MaxResults": str,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListResourceDefinitionVersionsRequestRequestTypeDef(
-    _RequiredListResourceDefinitionVersionsRequestRequestTypeDef,
-    _OptionalListResourceDefinitionVersionsRequestRequestTypeDef,
-):
-    pass
-
-ListResourceDefinitionVersionsResponseTypeDef = TypedDict(
-    "ListResourceDefinitionVersionsResponseTypeDef",
-    {
-        "NextToken": str,
-        "Versions": List["VersionInformationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListResourceDefinitionsRequestRequestTypeDef = TypedDict(
-    "ListResourceDefinitionsRequestRequestTypeDef",
-    {
-        "MaxResults": str,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListResourceDefinitionsResponseTypeDef = TypedDict(
-    "ListResourceDefinitionsResponseTypeDef",
-    {
-        "Definitions": List["DefinitionInformationTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListSubscriptionDefinitionVersionsRequestRequestTypeDef = TypedDict(
-    "_RequiredListSubscriptionDefinitionVersionsRequestRequestTypeDef",
-    {
-        "SubscriptionDefinitionId": str,
-    },
-)
-_OptionalListSubscriptionDefinitionVersionsRequestRequestTypeDef = TypedDict(
-    "_OptionalListSubscriptionDefinitionVersionsRequestRequestTypeDef",
-    {
-        "MaxResults": str,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListSubscriptionDefinitionVersionsRequestRequestTypeDef(
-    _RequiredListSubscriptionDefinitionVersionsRequestRequestTypeDef,
-    _OptionalListSubscriptionDefinitionVersionsRequestRequestTypeDef,
-):
-    pass
-
-ListSubscriptionDefinitionVersionsResponseTypeDef = TypedDict(
-    "ListSubscriptionDefinitionVersionsResponseTypeDef",
-    {
-        "NextToken": str,
-        "Versions": List["VersionInformationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListSubscriptionDefinitionsRequestRequestTypeDef = TypedDict(
-    "ListSubscriptionDefinitionsRequestRequestTypeDef",
-    {
-        "MaxResults": str,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListSubscriptionDefinitionsResponseTypeDef = TypedDict(
-    "ListSubscriptionDefinitionsResponseTypeDef",
-    {
-        "Definitions": List["DefinitionInformationTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-    },
-)
-
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-LocalDeviceResourceDataTypeDef = TypedDict(
-    "LocalDeviceResourceDataTypeDef",
-    {
-        "GroupOwnerSetting": "GroupOwnerSettingTypeDef",
-        "SourcePath": str,
-    },
-    total=False,
-)
-
-LocalVolumeResourceDataTypeDef = TypedDict(
-    "LocalVolumeResourceDataTypeDef",
-    {
-        "DestinationPath": str,
-        "GroupOwnerSetting": "GroupOwnerSettingTypeDef",
-        "SourcePath": str,
-    },
-    total=False,
-)
-
-LoggerDefinitionVersionTypeDef = TypedDict(
-    "LoggerDefinitionVersionTypeDef",
-    {
-        "Loggers": List["LoggerTypeDef"],
-    },
-    total=False,
-)
-
-_RequiredLoggerTypeDef = TypedDict(
-    "_RequiredLoggerTypeDef",
+class AssociateRoleToGroupRequestTypeDef(TypedDict):
+    GroupId: str
+    RoleArn: str
+
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
+
+class AssociateServiceRoleToAccountRequestTypeDef(TypedDict):
+    RoleArn: str
+
+class BulkDeploymentMetricsTypeDef(TypedDict):
+    InvalidInputRecords: NotRequired[int]
+    RecordsProcessed: NotRequired[int]
+    RetryAttempts: NotRequired[int]
+
+class ErrorDetailTypeDef(TypedDict):
+    DetailedErrorCode: NotRequired[str]
+    DetailedErrorMessage: NotRequired[str]
+
+class BulkDeploymentTypeDef(TypedDict):
+    BulkDeploymentArn: NotRequired[str]
+    BulkDeploymentId: NotRequired[str]
+    CreatedAt: NotRequired[str]
+
+class ConnectivityInfoTypeDef(TypedDict):
+    HostAddress: NotRequired[str]
+    Id: NotRequired[str]
+    Metadata: NotRequired[str]
+    PortNumber: NotRequired[int]
+
+class ConnectorOutputTypeDef(TypedDict):
+    ConnectorArn: str
+    Id: str
+    Parameters: NotRequired[Dict[str, str]]
+
+class ConnectorTypeDef(TypedDict):
+    ConnectorArn: str
+    Id: str
+    Parameters: NotRequired[Mapping[str, str]]
+
+class CoreTypeDef(TypedDict):
+    CertificateArn: str
+    Id: str
+    ThingArn: str
+    SyncShadow: NotRequired[bool]
+
+class CreateDeploymentRequestTypeDef(TypedDict):
+    DeploymentType: DeploymentTypeType
+    GroupId: str
+    AmznClientToken: NotRequired[str]
+    DeploymentId: NotRequired[str]
+    GroupVersionId: NotRequired[str]
+
+class DeviceTypeDef(TypedDict):
+    CertificateArn: str
+    Id: str
+    ThingArn: str
+    SyncShadow: NotRequired[bool]
+
+class CreateGroupCertificateAuthorityRequestTypeDef(TypedDict):
+    GroupId: str
+    AmznClientToken: NotRequired[str]
+
+class GroupVersionTypeDef(TypedDict):
+    ConnectorDefinitionVersionArn: NotRequired[str]
+    CoreDefinitionVersionArn: NotRequired[str]
+    DeviceDefinitionVersionArn: NotRequired[str]
+    FunctionDefinitionVersionArn: NotRequired[str]
+    LoggerDefinitionVersionArn: NotRequired[str]
+    ResourceDefinitionVersionArn: NotRequired[str]
+    SubscriptionDefinitionVersionArn: NotRequired[str]
+
+class CreateGroupVersionRequestTypeDef(TypedDict):
+    GroupId: str
+    AmznClientToken: NotRequired[str]
+    ConnectorDefinitionVersionArn: NotRequired[str]
+    CoreDefinitionVersionArn: NotRequired[str]
+    DeviceDefinitionVersionArn: NotRequired[str]
+    FunctionDefinitionVersionArn: NotRequired[str]
+    LoggerDefinitionVersionArn: NotRequired[str]
+    ResourceDefinitionVersionArn: NotRequired[str]
+    SubscriptionDefinitionVersionArn: NotRequired[str]
+
+LoggerTypeDef = TypedDict(
+    "LoggerTypeDef",
     {
         "Component": LoggerComponentType,
         "Id": str,
         "Level": LoggerLevelType,
         "Type": LoggerTypeType,
-    },
-)
-_OptionalLoggerTypeDef = TypedDict(
-    "_OptionalLoggerTypeDef",
-    {
-        "Space": int,
-    },
-    total=False,
-)
-
-class LoggerTypeDef(_RequiredLoggerTypeDef, _OptionalLoggerTypeDef):
-    pass
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-_RequiredResetDeploymentsRequestRequestTypeDef = TypedDict(
-    "_RequiredResetDeploymentsRequestRequestTypeDef",
-    {
-        "GroupId": str,
-    },
-)
-_OptionalResetDeploymentsRequestRequestTypeDef = TypedDict(
-    "_OptionalResetDeploymentsRequestRequestTypeDef",
-    {
-        "AmznClientToken": str,
-        "Force": bool,
-    },
-    total=False,
-)
-
-class ResetDeploymentsRequestRequestTypeDef(
-    _RequiredResetDeploymentsRequestRequestTypeDef, _OptionalResetDeploymentsRequestRequestTypeDef
-):
-    pass
-
-ResetDeploymentsResponseTypeDef = TypedDict(
-    "ResetDeploymentsResponseTypeDef",
-    {
-        "DeploymentArn": str,
-        "DeploymentId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "Space": NotRequired[int],
     },
 )
 
-_RequiredResourceAccessPolicyTypeDef = TypedDict(
-    "_RequiredResourceAccessPolicyTypeDef",
-    {
-        "ResourceId": str,
-    },
-)
-_OptionalResourceAccessPolicyTypeDef = TypedDict(
-    "_OptionalResourceAccessPolicyTypeDef",
-    {
-        "Permission": PermissionType,
-    },
-    total=False,
-)
+class CreateSoftwareUpdateJobRequestTypeDef(TypedDict):
+    S3UrlSignerRole: str
+    SoftwareToUpdate: SoftwareToUpdateType
+    UpdateTargets: Sequence[str]
+    UpdateTargetsArchitecture: UpdateTargetsArchitectureType
+    UpdateTargetsOperatingSystem: UpdateTargetsOperatingSystemType
+    AmznClientToken: NotRequired[str]
+    UpdateAgentLogLevel: NotRequired[UpdateAgentLogLevelType]
 
-class ResourceAccessPolicyTypeDef(
-    _RequiredResourceAccessPolicyTypeDef, _OptionalResourceAccessPolicyTypeDef
-):
-    pass
+class SubscriptionTypeDef(TypedDict):
+    Id: str
+    Source: str
+    Subject: str
+    Target: str
 
-ResourceDataContainerTypeDef = TypedDict(
-    "ResourceDataContainerTypeDef",
-    {
-        "LocalDeviceResourceData": "LocalDeviceResourceDataTypeDef",
-        "LocalVolumeResourceData": "LocalVolumeResourceDataTypeDef",
-        "S3MachineLearningModelResourceData": "S3MachineLearningModelResourceDataTypeDef",
-        "SageMakerMachineLearningModelResourceData": "SageMakerMachineLearningModelResourceDataTypeDef",
-        "SecretsManagerSecretResourceData": "SecretsManagerSecretResourceDataTypeDef",
-    },
-    total=False,
-)
+class DefinitionInformationTypeDef(TypedDict):
+    Arn: NotRequired[str]
+    CreationTimestamp: NotRequired[str]
+    Id: NotRequired[str]
+    LastUpdatedTimestamp: NotRequired[str]
+    LatestVersion: NotRequired[str]
+    LatestVersionArn: NotRequired[str]
+    Name: NotRequired[str]
+    Tags: NotRequired[Dict[str, str]]
 
-ResourceDefinitionVersionTypeDef = TypedDict(
-    "ResourceDefinitionVersionTypeDef",
-    {
-        "Resources": List["ResourceTypeDef"],
-    },
-    total=False,
-)
+class DeleteConnectorDefinitionRequestTypeDef(TypedDict):
+    ConnectorDefinitionId: str
 
-ResourceDownloadOwnerSettingTypeDef = TypedDict(
-    "ResourceDownloadOwnerSettingTypeDef",
-    {
-        "GroupOwner": str,
-        "GroupPermission": PermissionType,
-    },
-)
+class DeleteCoreDefinitionRequestTypeDef(TypedDict):
+    CoreDefinitionId: str
 
-ResourceTypeDef = TypedDict(
-    "ResourceTypeDef",
-    {
-        "Id": str,
-        "Name": str,
-        "ResourceDataContainer": "ResourceDataContainerTypeDef",
-    },
-)
+class DeleteDeviceDefinitionRequestTypeDef(TypedDict):
+    DeviceDefinitionId: str
 
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
+class DeleteFunctionDefinitionRequestTypeDef(TypedDict):
+    FunctionDefinitionId: str
 
-RuntimeConfigurationTypeDef = TypedDict(
-    "RuntimeConfigurationTypeDef",
-    {
-        "TelemetryConfiguration": "TelemetryConfigurationTypeDef",
-    },
-    total=False,
-)
+class DeleteGroupRequestTypeDef(TypedDict):
+    GroupId: str
 
-S3MachineLearningModelResourceDataTypeDef = TypedDict(
-    "S3MachineLearningModelResourceDataTypeDef",
-    {
-        "DestinationPath": str,
-        "OwnerSetting": "ResourceDownloadOwnerSettingTypeDef",
-        "S3Uri": str,
-    },
-    total=False,
-)
+class DeleteLoggerDefinitionRequestTypeDef(TypedDict):
+    LoggerDefinitionId: str
 
-SageMakerMachineLearningModelResourceDataTypeDef = TypedDict(
-    "SageMakerMachineLearningModelResourceDataTypeDef",
-    {
-        "DestinationPath": str,
-        "OwnerSetting": "ResourceDownloadOwnerSettingTypeDef",
-        "SageMakerJobArn": str,
-    },
-    total=False,
-)
+class DeleteResourceDefinitionRequestTypeDef(TypedDict):
+    ResourceDefinitionId: str
 
-SecretsManagerSecretResourceDataTypeDef = TypedDict(
-    "SecretsManagerSecretResourceDataTypeDef",
-    {
-        "ARN": str,
-        "AdditionalStagingLabelsToDownload": List[str],
-    },
-    total=False,
-)
+class DeleteSubscriptionDefinitionRequestTypeDef(TypedDict):
+    SubscriptionDefinitionId: str
 
-_RequiredStartBulkDeploymentRequestRequestTypeDef = TypedDict(
-    "_RequiredStartBulkDeploymentRequestRequestTypeDef",
-    {
-        "ExecutionRoleArn": str,
-        "InputFileUri": str,
-    },
-)
-_OptionalStartBulkDeploymentRequestRequestTypeDef = TypedDict(
-    "_OptionalStartBulkDeploymentRequestRequestTypeDef",
-    {
-        "AmznClientToken": str,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
+class DeploymentTypeDef(TypedDict):
+    CreatedAt: NotRequired[str]
+    DeploymentArn: NotRequired[str]
+    DeploymentId: NotRequired[str]
+    DeploymentType: NotRequired[DeploymentTypeType]
+    GroupArn: NotRequired[str]
 
-class StartBulkDeploymentRequestRequestTypeDef(
-    _RequiredStartBulkDeploymentRequestRequestTypeDef,
-    _OptionalStartBulkDeploymentRequestRequestTypeDef,
-):
-    pass
+class DisassociateRoleFromGroupRequestTypeDef(TypedDict):
+    GroupId: str
 
-StartBulkDeploymentResponseTypeDef = TypedDict(
-    "StartBulkDeploymentResponseTypeDef",
-    {
-        "BulkDeploymentArn": str,
-        "BulkDeploymentId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ResourceAccessPolicyTypeDef(TypedDict):
+    ResourceId: str
+    Permission: NotRequired[PermissionType]
 
-StopBulkDeploymentRequestRequestTypeDef = TypedDict(
-    "StopBulkDeploymentRequestRequestTypeDef",
-    {
-        "BulkDeploymentId": str,
-    },
-)
+class FunctionRunAsConfigTypeDef(TypedDict):
+    Gid: NotRequired[int]
+    Uid: NotRequired[int]
 
-SubscriptionDefinitionVersionTypeDef = TypedDict(
-    "SubscriptionDefinitionVersionTypeDef",
-    {
-        "Subscriptions": List["SubscriptionTypeDef"],
-    },
-    total=False,
-)
+class GetAssociatedRoleRequestTypeDef(TypedDict):
+    GroupId: str
 
-SubscriptionTypeDef = TypedDict(
-    "SubscriptionTypeDef",
-    {
-        "Id": str,
-        "Source": str,
-        "Subject": str,
-        "Target": str,
-    },
-)
+class GetBulkDeploymentStatusRequestTypeDef(TypedDict):
+    BulkDeploymentId: str
 
-_RequiredTagResourceRequestRequestTypeDef = TypedDict(
-    "_RequiredTagResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-    },
-)
-_OptionalTagResourceRequestRequestTypeDef = TypedDict(
-    "_OptionalTagResourceRequestRequestTypeDef",
-    {
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
+class GetConnectivityInfoRequestTypeDef(TypedDict):
+    ThingName: str
 
-class TagResourceRequestRequestTypeDef(
-    _RequiredTagResourceRequestRequestTypeDef, _OptionalTagResourceRequestRequestTypeDef
-):
-    pass
+class GetConnectorDefinitionRequestTypeDef(TypedDict):
+    ConnectorDefinitionId: str
 
-_RequiredTelemetryConfigurationTypeDef = TypedDict(
-    "_RequiredTelemetryConfigurationTypeDef",
-    {
-        "Telemetry": TelemetryType,
-    },
-)
-_OptionalTelemetryConfigurationTypeDef = TypedDict(
-    "_OptionalTelemetryConfigurationTypeDef",
-    {
-        "ConfigurationSyncStatus": ConfigurationSyncStatusType,
-    },
-    total=False,
-)
+class GetConnectorDefinitionVersionRequestTypeDef(TypedDict):
+    ConnectorDefinitionId: str
+    ConnectorDefinitionVersionId: str
+    NextToken: NotRequired[str]
 
-class TelemetryConfigurationTypeDef(
-    _RequiredTelemetryConfigurationTypeDef, _OptionalTelemetryConfigurationTypeDef
-):
-    pass
+class GetCoreDefinitionRequestTypeDef(TypedDict):
+    CoreDefinitionId: str
 
-TelemetryConfigurationUpdateTypeDef = TypedDict(
-    "TelemetryConfigurationUpdateTypeDef",
-    {
-        "Telemetry": TelemetryType,
-    },
-)
+class GetCoreDefinitionVersionRequestTypeDef(TypedDict):
+    CoreDefinitionId: str
+    CoreDefinitionVersionId: str
 
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-        "TagKeys": List[str],
-    },
-)
+class GetDeploymentStatusRequestTypeDef(TypedDict):
+    DeploymentId: str
+    GroupId: str
 
-_RequiredUpdateConnectivityInfoRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateConnectivityInfoRequestRequestTypeDef",
-    {
-        "ThingName": str,
-    },
-)
-_OptionalUpdateConnectivityInfoRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateConnectivityInfoRequestRequestTypeDef",
-    {
-        "ConnectivityInfo": List["ConnectivityInfoTypeDef"],
-    },
-    total=False,
-)
+class GetDeviceDefinitionRequestTypeDef(TypedDict):
+    DeviceDefinitionId: str
 
-class UpdateConnectivityInfoRequestRequestTypeDef(
-    _RequiredUpdateConnectivityInfoRequestRequestTypeDef,
-    _OptionalUpdateConnectivityInfoRequestRequestTypeDef,
-):
-    pass
+class GetDeviceDefinitionVersionRequestTypeDef(TypedDict):
+    DeviceDefinitionId: str
+    DeviceDefinitionVersionId: str
+    NextToken: NotRequired[str]
 
-UpdateConnectivityInfoResponseTypeDef = TypedDict(
-    "UpdateConnectivityInfoResponseTypeDef",
-    {
-        "Message": str,
-        "Version": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetFunctionDefinitionRequestTypeDef(TypedDict):
+    FunctionDefinitionId: str
 
-_RequiredUpdateConnectorDefinitionRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateConnectorDefinitionRequestRequestTypeDef",
-    {
-        "ConnectorDefinitionId": str,
-    },
-)
-_OptionalUpdateConnectorDefinitionRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateConnectorDefinitionRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-    total=False,
-)
+class GetFunctionDefinitionVersionRequestTypeDef(TypedDict):
+    FunctionDefinitionId: str
+    FunctionDefinitionVersionId: str
+    NextToken: NotRequired[str]
 
-class UpdateConnectorDefinitionRequestRequestTypeDef(
-    _RequiredUpdateConnectorDefinitionRequestRequestTypeDef,
-    _OptionalUpdateConnectorDefinitionRequestRequestTypeDef,
-):
-    pass
+class GetGroupCertificateAuthorityRequestTypeDef(TypedDict):
+    CertificateAuthorityId: str
+    GroupId: str
 
-_RequiredUpdateCoreDefinitionRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateCoreDefinitionRequestRequestTypeDef",
-    {
-        "CoreDefinitionId": str,
-    },
-)
-_OptionalUpdateCoreDefinitionRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateCoreDefinitionRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-    total=False,
-)
+class GetGroupCertificateConfigurationRequestTypeDef(TypedDict):
+    GroupId: str
 
-class UpdateCoreDefinitionRequestRequestTypeDef(
-    _RequiredUpdateCoreDefinitionRequestRequestTypeDef,
-    _OptionalUpdateCoreDefinitionRequestRequestTypeDef,
-):
-    pass
+class GetGroupRequestTypeDef(TypedDict):
+    GroupId: str
 
-_RequiredUpdateDeviceDefinitionRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateDeviceDefinitionRequestRequestTypeDef",
-    {
-        "DeviceDefinitionId": str,
-    },
-)
-_OptionalUpdateDeviceDefinitionRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateDeviceDefinitionRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-    total=False,
-)
+class GetGroupVersionRequestTypeDef(TypedDict):
+    GroupId: str
+    GroupVersionId: str
 
-class UpdateDeviceDefinitionRequestRequestTypeDef(
-    _RequiredUpdateDeviceDefinitionRequestRequestTypeDef,
-    _OptionalUpdateDeviceDefinitionRequestRequestTypeDef,
-):
-    pass
+class GetLoggerDefinitionRequestTypeDef(TypedDict):
+    LoggerDefinitionId: str
 
-_RequiredUpdateFunctionDefinitionRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateFunctionDefinitionRequestRequestTypeDef",
-    {
-        "FunctionDefinitionId": str,
-    },
-)
-_OptionalUpdateFunctionDefinitionRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateFunctionDefinitionRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-    total=False,
-)
+class GetLoggerDefinitionVersionRequestTypeDef(TypedDict):
+    LoggerDefinitionId: str
+    LoggerDefinitionVersionId: str
+    NextToken: NotRequired[str]
 
-class UpdateFunctionDefinitionRequestRequestTypeDef(
-    _RequiredUpdateFunctionDefinitionRequestRequestTypeDef,
-    _OptionalUpdateFunctionDefinitionRequestRequestTypeDef,
-):
-    pass
+class GetResourceDefinitionRequestTypeDef(TypedDict):
+    ResourceDefinitionId: str
 
-_RequiredUpdateGroupCertificateConfigurationRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateGroupCertificateConfigurationRequestRequestTypeDef",
-    {
-        "GroupId": str,
-    },
-)
-_OptionalUpdateGroupCertificateConfigurationRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateGroupCertificateConfigurationRequestRequestTypeDef",
-    {
-        "CertificateExpiryInMilliseconds": str,
-    },
-    total=False,
-)
+class GetResourceDefinitionVersionRequestTypeDef(TypedDict):
+    ResourceDefinitionId: str
+    ResourceDefinitionVersionId: str
 
-class UpdateGroupCertificateConfigurationRequestRequestTypeDef(
-    _RequiredUpdateGroupCertificateConfigurationRequestRequestTypeDef,
-    _OptionalUpdateGroupCertificateConfigurationRequestRequestTypeDef,
-):
-    pass
+class GetSubscriptionDefinitionRequestTypeDef(TypedDict):
+    SubscriptionDefinitionId: str
 
-UpdateGroupCertificateConfigurationResponseTypeDef = TypedDict(
-    "UpdateGroupCertificateConfigurationResponseTypeDef",
-    {
-        "CertificateAuthorityExpiryInMilliseconds": str,
-        "CertificateExpiryInMilliseconds": str,
-        "GroupId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetSubscriptionDefinitionVersionRequestTypeDef(TypedDict):
+    SubscriptionDefinitionId: str
+    SubscriptionDefinitionVersionId: str
+    NextToken: NotRequired[str]
 
-_RequiredUpdateGroupRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateGroupRequestRequestTypeDef",
-    {
-        "GroupId": str,
-    },
-)
-_OptionalUpdateGroupRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateGroupRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-    total=False,
-)
+class GetThingRuntimeConfigurationRequestTypeDef(TypedDict):
+    ThingName: str
 
-class UpdateGroupRequestRequestTypeDef(
-    _RequiredUpdateGroupRequestRequestTypeDef, _OptionalUpdateGroupRequestRequestTypeDef
-):
-    pass
+class GroupCertificateAuthorityPropertiesTypeDef(TypedDict):
+    GroupCertificateAuthorityArn: NotRequired[str]
+    GroupCertificateAuthorityId: NotRequired[str]
 
-_RequiredUpdateLoggerDefinitionRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateLoggerDefinitionRequestRequestTypeDef",
-    {
-        "LoggerDefinitionId": str,
-    },
-)
-_OptionalUpdateLoggerDefinitionRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateLoggerDefinitionRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-    total=False,
-)
+class GroupInformationTypeDef(TypedDict):
+    Arn: NotRequired[str]
+    CreationTimestamp: NotRequired[str]
+    Id: NotRequired[str]
+    LastUpdatedTimestamp: NotRequired[str]
+    LatestVersion: NotRequired[str]
+    LatestVersionArn: NotRequired[str]
+    Name: NotRequired[str]
 
-class UpdateLoggerDefinitionRequestRequestTypeDef(
-    _RequiredUpdateLoggerDefinitionRequestRequestTypeDef,
-    _OptionalUpdateLoggerDefinitionRequestRequestTypeDef,
-):
-    pass
+class GroupOwnerSettingTypeDef(TypedDict):
+    AutoAddGroupOwner: NotRequired[bool]
+    GroupOwner: NotRequired[str]
 
-_RequiredUpdateResourceDefinitionRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateResourceDefinitionRequestRequestTypeDef",
-    {
-        "ResourceDefinitionId": str,
-    },
-)
-_OptionalUpdateResourceDefinitionRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateResourceDefinitionRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-    total=False,
-)
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
 
-class UpdateResourceDefinitionRequestRequestTypeDef(
-    _RequiredUpdateResourceDefinitionRequestRequestTypeDef,
-    _OptionalUpdateResourceDefinitionRequestRequestTypeDef,
-):
-    pass
+class ListBulkDeploymentDetailedReportsRequestTypeDef(TypedDict):
+    BulkDeploymentId: str
+    MaxResults: NotRequired[str]
+    NextToken: NotRequired[str]
 
-_RequiredUpdateSubscriptionDefinitionRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateSubscriptionDefinitionRequestRequestTypeDef",
-    {
-        "SubscriptionDefinitionId": str,
-    },
-)
-_OptionalUpdateSubscriptionDefinitionRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateSubscriptionDefinitionRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-    total=False,
-)
+class ListBulkDeploymentsRequestTypeDef(TypedDict):
+    MaxResults: NotRequired[str]
+    NextToken: NotRequired[str]
 
-class UpdateSubscriptionDefinitionRequestRequestTypeDef(
-    _RequiredUpdateSubscriptionDefinitionRequestRequestTypeDef,
-    _OptionalUpdateSubscriptionDefinitionRequestRequestTypeDef,
-):
-    pass
+class ListConnectorDefinitionVersionsRequestTypeDef(TypedDict):
+    ConnectorDefinitionId: str
+    MaxResults: NotRequired[str]
+    NextToken: NotRequired[str]
 
-_RequiredUpdateThingRuntimeConfigurationRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateThingRuntimeConfigurationRequestRequestTypeDef",
-    {
-        "ThingName": str,
-    },
-)
-_OptionalUpdateThingRuntimeConfigurationRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateThingRuntimeConfigurationRequestRequestTypeDef",
-    {
-        "TelemetryConfiguration": "TelemetryConfigurationUpdateTypeDef",
-    },
-    total=False,
-)
+class VersionInformationTypeDef(TypedDict):
+    Arn: NotRequired[str]
+    CreationTimestamp: NotRequired[str]
+    Id: NotRequired[str]
+    Version: NotRequired[str]
 
-class UpdateThingRuntimeConfigurationRequestRequestTypeDef(
-    _RequiredUpdateThingRuntimeConfigurationRequestRequestTypeDef,
-    _OptionalUpdateThingRuntimeConfigurationRequestRequestTypeDef,
-):
-    pass
+class ListConnectorDefinitionsRequestTypeDef(TypedDict):
+    MaxResults: NotRequired[str]
+    NextToken: NotRequired[str]
 
-VersionInformationTypeDef = TypedDict(
-    "VersionInformationTypeDef",
-    {
-        "Arn": str,
-        "CreationTimestamp": str,
-        "Id": str,
-        "Version": str,
-    },
-    total=False,
-)
+class ListCoreDefinitionVersionsRequestTypeDef(TypedDict):
+    CoreDefinitionId: str
+    MaxResults: NotRequired[str]
+    NextToken: NotRequired[str]
+
+class ListCoreDefinitionsRequestTypeDef(TypedDict):
+    MaxResults: NotRequired[str]
+    NextToken: NotRequired[str]
+
+class ListDeploymentsRequestTypeDef(TypedDict):
+    GroupId: str
+    MaxResults: NotRequired[str]
+    NextToken: NotRequired[str]
+
+class ListDeviceDefinitionVersionsRequestTypeDef(TypedDict):
+    DeviceDefinitionId: str
+    MaxResults: NotRequired[str]
+    NextToken: NotRequired[str]
+
+class ListDeviceDefinitionsRequestTypeDef(TypedDict):
+    MaxResults: NotRequired[str]
+    NextToken: NotRequired[str]
+
+class ListFunctionDefinitionVersionsRequestTypeDef(TypedDict):
+    FunctionDefinitionId: str
+    MaxResults: NotRequired[str]
+    NextToken: NotRequired[str]
+
+class ListFunctionDefinitionsRequestTypeDef(TypedDict):
+    MaxResults: NotRequired[str]
+    NextToken: NotRequired[str]
+
+class ListGroupCertificateAuthoritiesRequestTypeDef(TypedDict):
+    GroupId: str
+
+class ListGroupVersionsRequestTypeDef(TypedDict):
+    GroupId: str
+    MaxResults: NotRequired[str]
+    NextToken: NotRequired[str]
+
+class ListGroupsRequestTypeDef(TypedDict):
+    MaxResults: NotRequired[str]
+    NextToken: NotRequired[str]
+
+class ListLoggerDefinitionVersionsRequestTypeDef(TypedDict):
+    LoggerDefinitionId: str
+    MaxResults: NotRequired[str]
+    NextToken: NotRequired[str]
+
+class ListLoggerDefinitionsRequestTypeDef(TypedDict):
+    MaxResults: NotRequired[str]
+    NextToken: NotRequired[str]
+
+class ListResourceDefinitionVersionsRequestTypeDef(TypedDict):
+    ResourceDefinitionId: str
+    MaxResults: NotRequired[str]
+    NextToken: NotRequired[str]
+
+class ListResourceDefinitionsRequestTypeDef(TypedDict):
+    MaxResults: NotRequired[str]
+    NextToken: NotRequired[str]
+
+class ListSubscriptionDefinitionVersionsRequestTypeDef(TypedDict):
+    SubscriptionDefinitionId: str
+    MaxResults: NotRequired[str]
+    NextToken: NotRequired[str]
+
+class ListSubscriptionDefinitionsRequestTypeDef(TypedDict):
+    MaxResults: NotRequired[str]
+    NextToken: NotRequired[str]
+
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+
+class ResetDeploymentsRequestTypeDef(TypedDict):
+    GroupId: str
+    AmznClientToken: NotRequired[str]
+    Force: NotRequired[bool]
+
+class SecretsManagerSecretResourceDataOutputTypeDef(TypedDict):
+    ARN: NotRequired[str]
+    AdditionalStagingLabelsToDownload: NotRequired[List[str]]
+
+class ResourceDownloadOwnerSettingTypeDef(TypedDict):
+    GroupOwner: str
+    GroupPermission: PermissionType
+
+class TelemetryConfigurationTypeDef(TypedDict):
+    Telemetry: TelemetryType
+    ConfigurationSyncStatus: NotRequired[ConfigurationSyncStatusType]
+
+class SecretsManagerSecretResourceDataTypeDef(TypedDict):
+    ARN: NotRequired[str]
+    AdditionalStagingLabelsToDownload: NotRequired[Sequence[str]]
+
+class StartBulkDeploymentRequestTypeDef(TypedDict):
+    ExecutionRoleArn: str
+    InputFileUri: str
+    AmznClientToken: NotRequired[str]
+    tags: NotRequired[Mapping[str, str]]
+
+class StopBulkDeploymentRequestTypeDef(TypedDict):
+    BulkDeploymentId: str
+
+class TagResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+    tags: NotRequired[Mapping[str, str]]
+
+class TelemetryConfigurationUpdateTypeDef(TypedDict):
+    Telemetry: TelemetryType
+
+class UntagResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+    TagKeys: Sequence[str]
+
+class UpdateConnectorDefinitionRequestTypeDef(TypedDict):
+    ConnectorDefinitionId: str
+    Name: NotRequired[str]
+
+class UpdateCoreDefinitionRequestTypeDef(TypedDict):
+    CoreDefinitionId: str
+    Name: NotRequired[str]
+
+class UpdateDeviceDefinitionRequestTypeDef(TypedDict):
+    DeviceDefinitionId: str
+    Name: NotRequired[str]
+
+class UpdateFunctionDefinitionRequestTypeDef(TypedDict):
+    FunctionDefinitionId: str
+    Name: NotRequired[str]
+
+class UpdateGroupCertificateConfigurationRequestTypeDef(TypedDict):
+    GroupId: str
+    CertificateExpiryInMilliseconds: NotRequired[str]
+
+class UpdateGroupRequestTypeDef(TypedDict):
+    GroupId: str
+    Name: NotRequired[str]
+
+class UpdateLoggerDefinitionRequestTypeDef(TypedDict):
+    LoggerDefinitionId: str
+    Name: NotRequired[str]
+
+class UpdateResourceDefinitionRequestTypeDef(TypedDict):
+    ResourceDefinitionId: str
+    Name: NotRequired[str]
+
+class UpdateSubscriptionDefinitionRequestTypeDef(TypedDict):
+    SubscriptionDefinitionId: str
+    Name: NotRequired[str]
+
+class AssociateRoleToGroupResponseTypeDef(TypedDict):
+    AssociatedAt: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class AssociateServiceRoleToAccountResponseTypeDef(TypedDict):
+    AssociatedAt: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateConnectorDefinitionResponseTypeDef(TypedDict):
+    Arn: str
+    CreationTimestamp: str
+    Id: str
+    LastUpdatedTimestamp: str
+    LatestVersion: str
+    LatestVersionArn: str
+    Name: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateConnectorDefinitionVersionResponseTypeDef(TypedDict):
+    Arn: str
+    CreationTimestamp: str
+    Id: str
+    Version: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateCoreDefinitionResponseTypeDef(TypedDict):
+    Arn: str
+    CreationTimestamp: str
+    Id: str
+    LastUpdatedTimestamp: str
+    LatestVersion: str
+    LatestVersionArn: str
+    Name: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateCoreDefinitionVersionResponseTypeDef(TypedDict):
+    Arn: str
+    CreationTimestamp: str
+    Id: str
+    Version: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateDeploymentResponseTypeDef(TypedDict):
+    DeploymentArn: str
+    DeploymentId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateDeviceDefinitionResponseTypeDef(TypedDict):
+    Arn: str
+    CreationTimestamp: str
+    Id: str
+    LastUpdatedTimestamp: str
+    LatestVersion: str
+    LatestVersionArn: str
+    Name: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateDeviceDefinitionVersionResponseTypeDef(TypedDict):
+    Arn: str
+    CreationTimestamp: str
+    Id: str
+    Version: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateFunctionDefinitionResponseTypeDef(TypedDict):
+    Arn: str
+    CreationTimestamp: str
+    Id: str
+    LastUpdatedTimestamp: str
+    LatestVersion: str
+    LatestVersionArn: str
+    Name: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateFunctionDefinitionVersionResponseTypeDef(TypedDict):
+    Arn: str
+    CreationTimestamp: str
+    Id: str
+    Version: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateGroupCertificateAuthorityResponseTypeDef(TypedDict):
+    GroupCertificateAuthorityArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateGroupResponseTypeDef(TypedDict):
+    Arn: str
+    CreationTimestamp: str
+    Id: str
+    LastUpdatedTimestamp: str
+    LatestVersion: str
+    LatestVersionArn: str
+    Name: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateGroupVersionResponseTypeDef(TypedDict):
+    Arn: str
+    CreationTimestamp: str
+    Id: str
+    Version: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateLoggerDefinitionResponseTypeDef(TypedDict):
+    Arn: str
+    CreationTimestamp: str
+    Id: str
+    LastUpdatedTimestamp: str
+    LatestVersion: str
+    LatestVersionArn: str
+    Name: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateLoggerDefinitionVersionResponseTypeDef(TypedDict):
+    Arn: str
+    CreationTimestamp: str
+    Id: str
+    Version: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateResourceDefinitionResponseTypeDef(TypedDict):
+    Arn: str
+    CreationTimestamp: str
+    Id: str
+    LastUpdatedTimestamp: str
+    LatestVersion: str
+    LatestVersionArn: str
+    Name: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateResourceDefinitionVersionResponseTypeDef(TypedDict):
+    Arn: str
+    CreationTimestamp: str
+    Id: str
+    Version: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateSoftwareUpdateJobResponseTypeDef(TypedDict):
+    IotJobArn: str
+    IotJobId: str
+    PlatformSoftwareVersion: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateSubscriptionDefinitionResponseTypeDef(TypedDict):
+    Arn: str
+    CreationTimestamp: str
+    Id: str
+    LastUpdatedTimestamp: str
+    LatestVersion: str
+    LatestVersionArn: str
+    Name: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateSubscriptionDefinitionVersionResponseTypeDef(TypedDict):
+    Arn: str
+    CreationTimestamp: str
+    Id: str
+    Version: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DisassociateRoleFromGroupResponseTypeDef(TypedDict):
+    DisassociatedAt: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DisassociateServiceRoleFromAccountResponseTypeDef(TypedDict):
+    DisassociatedAt: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class EmptyResponseMetadataTypeDef(TypedDict):
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetAssociatedRoleResponseTypeDef(TypedDict):
+    AssociatedAt: str
+    RoleArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetConnectorDefinitionResponseTypeDef(TypedDict):
+    Arn: str
+    CreationTimestamp: str
+    Id: str
+    LastUpdatedTimestamp: str
+    LatestVersion: str
+    LatestVersionArn: str
+    Name: str
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetCoreDefinitionResponseTypeDef(TypedDict):
+    Arn: str
+    CreationTimestamp: str
+    Id: str
+    LastUpdatedTimestamp: str
+    LatestVersion: str
+    LatestVersionArn: str
+    Name: str
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetDeviceDefinitionResponseTypeDef(TypedDict):
+    Arn: str
+    CreationTimestamp: str
+    Id: str
+    LastUpdatedTimestamp: str
+    LatestVersion: str
+    LatestVersionArn: str
+    Name: str
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetFunctionDefinitionResponseTypeDef(TypedDict):
+    Arn: str
+    CreationTimestamp: str
+    Id: str
+    LastUpdatedTimestamp: str
+    LatestVersion: str
+    LatestVersionArn: str
+    Name: str
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetGroupCertificateAuthorityResponseTypeDef(TypedDict):
+    GroupCertificateAuthorityArn: str
+    GroupCertificateAuthorityId: str
+    PemEncodedCertificate: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetGroupCertificateConfigurationResponseTypeDef(TypedDict):
+    CertificateAuthorityExpiryInMilliseconds: str
+    CertificateExpiryInMilliseconds: str
+    GroupId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetGroupResponseTypeDef(TypedDict):
+    Arn: str
+    CreationTimestamp: str
+    Id: str
+    LastUpdatedTimestamp: str
+    LatestVersion: str
+    LatestVersionArn: str
+    Name: str
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetLoggerDefinitionResponseTypeDef(TypedDict):
+    Arn: str
+    CreationTimestamp: str
+    Id: str
+    LastUpdatedTimestamp: str
+    LatestVersion: str
+    LatestVersionArn: str
+    Name: str
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetResourceDefinitionResponseTypeDef(TypedDict):
+    Arn: str
+    CreationTimestamp: str
+    Id: str
+    LastUpdatedTimestamp: str
+    LatestVersion: str
+    LatestVersionArn: str
+    Name: str
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetServiceRoleForAccountResponseTypeDef(TypedDict):
+    AssociatedAt: str
+    RoleArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetSubscriptionDefinitionResponseTypeDef(TypedDict):
+    Arn: str
+    CreationTimestamp: str
+    Id: str
+    LastUpdatedTimestamp: str
+    LatestVersion: str
+    LatestVersionArn: str
+    Name: str
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ResetDeploymentsResponseTypeDef(TypedDict):
+    DeploymentArn: str
+    DeploymentId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartBulkDeploymentResponseTypeDef(TypedDict):
+    BulkDeploymentArn: str
+    BulkDeploymentId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateConnectivityInfoResponseTypeDef(TypedDict):
+    Message: str
+    Version: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateGroupCertificateConfigurationResponseTypeDef(TypedDict):
+    CertificateAuthorityExpiryInMilliseconds: str
+    CertificateExpiryInMilliseconds: str
+    GroupId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class BulkDeploymentResultTypeDef(TypedDict):
+    CreatedAt: NotRequired[str]
+    DeploymentArn: NotRequired[str]
+    DeploymentId: NotRequired[str]
+    DeploymentStatus: NotRequired[str]
+    DeploymentType: NotRequired[DeploymentTypeType]
+    ErrorDetails: NotRequired[List[ErrorDetailTypeDef]]
+    ErrorMessage: NotRequired[str]
+    GroupArn: NotRequired[str]
+
+class GetBulkDeploymentStatusResponseTypeDef(TypedDict):
+    BulkDeploymentMetrics: BulkDeploymentMetricsTypeDef
+    BulkDeploymentStatus: BulkDeploymentStatusType
+    CreatedAt: str
+    ErrorDetails: List[ErrorDetailTypeDef]
+    ErrorMessage: str
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetDeploymentStatusResponseTypeDef(TypedDict):
+    DeploymentStatus: str
+    DeploymentType: DeploymentTypeType
+    ErrorDetails: List[ErrorDetailTypeDef]
+    ErrorMessage: str
+    UpdatedAt: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListBulkDeploymentsResponseTypeDef(TypedDict):
+    BulkDeployments: List[BulkDeploymentTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class GetConnectivityInfoResponseTypeDef(TypedDict):
+    ConnectivityInfo: List[ConnectivityInfoTypeDef]
+    Message: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateConnectivityInfoRequestTypeDef(TypedDict):
+    ThingName: str
+    ConnectivityInfo: NotRequired[Sequence[ConnectivityInfoTypeDef]]
+
+class ConnectorDefinitionVersionOutputTypeDef(TypedDict):
+    Connectors: NotRequired[List[ConnectorOutputTypeDef]]
+
+class ConnectorDefinitionVersionTypeDef(TypedDict):
+    Connectors: NotRequired[Sequence[ConnectorTypeDef]]
+
+ConnectorUnionTypeDef = Union[ConnectorTypeDef, ConnectorOutputTypeDef]
+
+class CoreDefinitionVersionOutputTypeDef(TypedDict):
+    Cores: NotRequired[List[CoreTypeDef]]
+
+class CoreDefinitionVersionTypeDef(TypedDict):
+    Cores: NotRequired[Sequence[CoreTypeDef]]
+
+class CreateCoreDefinitionVersionRequestTypeDef(TypedDict):
+    CoreDefinitionId: str
+    AmznClientToken: NotRequired[str]
+    Cores: NotRequired[Sequence[CoreTypeDef]]
+
+class CreateDeviceDefinitionVersionRequestTypeDef(TypedDict):
+    DeviceDefinitionId: str
+    AmznClientToken: NotRequired[str]
+    Devices: NotRequired[Sequence[DeviceTypeDef]]
+
+class DeviceDefinitionVersionOutputTypeDef(TypedDict):
+    Devices: NotRequired[List[DeviceTypeDef]]
+
+class DeviceDefinitionVersionTypeDef(TypedDict):
+    Devices: NotRequired[Sequence[DeviceTypeDef]]
+
+class CreateGroupRequestTypeDef(TypedDict):
+    Name: str
+    AmznClientToken: NotRequired[str]
+    InitialVersion: NotRequired[GroupVersionTypeDef]
+    tags: NotRequired[Mapping[str, str]]
+
+class GetGroupVersionResponseTypeDef(TypedDict):
+    Arn: str
+    CreationTimestamp: str
+    Definition: GroupVersionTypeDef
+    Id: str
+    Version: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateLoggerDefinitionVersionRequestTypeDef(TypedDict):
+    LoggerDefinitionId: str
+    AmznClientToken: NotRequired[str]
+    Loggers: NotRequired[Sequence[LoggerTypeDef]]
+
+class LoggerDefinitionVersionOutputTypeDef(TypedDict):
+    Loggers: NotRequired[List[LoggerTypeDef]]
+
+class LoggerDefinitionVersionTypeDef(TypedDict):
+    Loggers: NotRequired[Sequence[LoggerTypeDef]]
+
+class CreateSubscriptionDefinitionVersionRequestTypeDef(TypedDict):
+    SubscriptionDefinitionId: str
+    AmznClientToken: NotRequired[str]
+    Subscriptions: NotRequired[Sequence[SubscriptionTypeDef]]
+
+class SubscriptionDefinitionVersionOutputTypeDef(TypedDict):
+    Subscriptions: NotRequired[List[SubscriptionTypeDef]]
+
+class SubscriptionDefinitionVersionTypeDef(TypedDict):
+    Subscriptions: NotRequired[Sequence[SubscriptionTypeDef]]
+
+class ListConnectorDefinitionsResponseTypeDef(TypedDict):
+    Definitions: List[DefinitionInformationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListCoreDefinitionsResponseTypeDef(TypedDict):
+    Definitions: List[DefinitionInformationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListDeviceDefinitionsResponseTypeDef(TypedDict):
+    Definitions: List[DefinitionInformationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListFunctionDefinitionsResponseTypeDef(TypedDict):
+    Definitions: List[DefinitionInformationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListLoggerDefinitionsResponseTypeDef(TypedDict):
+    Definitions: List[DefinitionInformationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListResourceDefinitionsResponseTypeDef(TypedDict):
+    Definitions: List[DefinitionInformationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListSubscriptionDefinitionsResponseTypeDef(TypedDict):
+    Definitions: List[DefinitionInformationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListDeploymentsResponseTypeDef(TypedDict):
+    Deployments: List[DeploymentTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class FunctionDefaultExecutionConfigTypeDef(TypedDict):
+    IsolationMode: NotRequired[FunctionIsolationModeType]
+    RunAs: NotRequired[FunctionRunAsConfigTypeDef]
+
+class FunctionExecutionConfigTypeDef(TypedDict):
+    IsolationMode: NotRequired[FunctionIsolationModeType]
+    RunAs: NotRequired[FunctionRunAsConfigTypeDef]
+
+class ListGroupCertificateAuthoritiesResponseTypeDef(TypedDict):
+    GroupCertificateAuthorities: List[GroupCertificateAuthorityPropertiesTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListGroupsResponseTypeDef(TypedDict):
+    Groups: List[GroupInformationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class LocalDeviceResourceDataTypeDef(TypedDict):
+    GroupOwnerSetting: NotRequired[GroupOwnerSettingTypeDef]
+    SourcePath: NotRequired[str]
+
+class LocalVolumeResourceDataTypeDef(TypedDict):
+    DestinationPath: NotRequired[str]
+    GroupOwnerSetting: NotRequired[GroupOwnerSettingTypeDef]
+    SourcePath: NotRequired[str]
+
+class ListBulkDeploymentDetailedReportsRequestPaginateTypeDef(TypedDict):
+    BulkDeploymentId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListBulkDeploymentsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListConnectorDefinitionVersionsRequestPaginateTypeDef(TypedDict):
+    ConnectorDefinitionId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListConnectorDefinitionsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListCoreDefinitionVersionsRequestPaginateTypeDef(TypedDict):
+    CoreDefinitionId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListCoreDefinitionsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListDeploymentsRequestPaginateTypeDef(TypedDict):
+    GroupId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListDeviceDefinitionVersionsRequestPaginateTypeDef(TypedDict):
+    DeviceDefinitionId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListDeviceDefinitionsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListFunctionDefinitionVersionsRequestPaginateTypeDef(TypedDict):
+    FunctionDefinitionId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListFunctionDefinitionsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListGroupVersionsRequestPaginateTypeDef(TypedDict):
+    GroupId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListGroupsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListLoggerDefinitionVersionsRequestPaginateTypeDef(TypedDict):
+    LoggerDefinitionId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListLoggerDefinitionsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListResourceDefinitionVersionsRequestPaginateTypeDef(TypedDict):
+    ResourceDefinitionId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListResourceDefinitionsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListSubscriptionDefinitionVersionsRequestPaginateTypeDef(TypedDict):
+    SubscriptionDefinitionId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListSubscriptionDefinitionsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListConnectorDefinitionVersionsResponseTypeDef(TypedDict):
+    Versions: List[VersionInformationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListCoreDefinitionVersionsResponseTypeDef(TypedDict):
+    Versions: List[VersionInformationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListDeviceDefinitionVersionsResponseTypeDef(TypedDict):
+    Versions: List[VersionInformationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListFunctionDefinitionVersionsResponseTypeDef(TypedDict):
+    Versions: List[VersionInformationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListGroupVersionsResponseTypeDef(TypedDict):
+    Versions: List[VersionInformationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListLoggerDefinitionVersionsResponseTypeDef(TypedDict):
+    Versions: List[VersionInformationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListResourceDefinitionVersionsResponseTypeDef(TypedDict):
+    Versions: List[VersionInformationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListSubscriptionDefinitionVersionsResponseTypeDef(TypedDict):
+    Versions: List[VersionInformationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class S3MachineLearningModelResourceDataTypeDef(TypedDict):
+    DestinationPath: NotRequired[str]
+    OwnerSetting: NotRequired[ResourceDownloadOwnerSettingTypeDef]
+    S3Uri: NotRequired[str]
+
+class SageMakerMachineLearningModelResourceDataTypeDef(TypedDict):
+    DestinationPath: NotRequired[str]
+    OwnerSetting: NotRequired[ResourceDownloadOwnerSettingTypeDef]
+    SageMakerJobArn: NotRequired[str]
+
+class RuntimeConfigurationTypeDef(TypedDict):
+    TelemetryConfiguration: NotRequired[TelemetryConfigurationTypeDef]
+
+SecretsManagerSecretResourceDataUnionTypeDef = Union[
+    SecretsManagerSecretResourceDataTypeDef, SecretsManagerSecretResourceDataOutputTypeDef
+]
+
+class UpdateThingRuntimeConfigurationRequestTypeDef(TypedDict):
+    ThingName: str
+    TelemetryConfiguration: NotRequired[TelemetryConfigurationUpdateTypeDef]
+
+class ListBulkDeploymentDetailedReportsResponseTypeDef(TypedDict):
+    Deployments: List[BulkDeploymentResultTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class GetConnectorDefinitionVersionResponseTypeDef(TypedDict):
+    Arn: str
+    CreationTimestamp: str
+    Definition: ConnectorDefinitionVersionOutputTypeDef
+    Id: str
+    Version: str
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+ConnectorDefinitionVersionUnionTypeDef = Union[
+    ConnectorDefinitionVersionTypeDef, ConnectorDefinitionVersionOutputTypeDef
+]
+
+class CreateConnectorDefinitionVersionRequestTypeDef(TypedDict):
+    ConnectorDefinitionId: str
+    AmznClientToken: NotRequired[str]
+    Connectors: NotRequired[Sequence[ConnectorUnionTypeDef]]
+
+class GetCoreDefinitionVersionResponseTypeDef(TypedDict):
+    Arn: str
+    CreationTimestamp: str
+    Definition: CoreDefinitionVersionOutputTypeDef
+    Id: str
+    Version: str
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+CoreDefinitionVersionUnionTypeDef = Union[
+    CoreDefinitionVersionTypeDef, CoreDefinitionVersionOutputTypeDef
+]
+
+class GetDeviceDefinitionVersionResponseTypeDef(TypedDict):
+    Arn: str
+    CreationTimestamp: str
+    Definition: DeviceDefinitionVersionOutputTypeDef
+    Id: str
+    Version: str
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+DeviceDefinitionVersionUnionTypeDef = Union[
+    DeviceDefinitionVersionTypeDef, DeviceDefinitionVersionOutputTypeDef
+]
+
+class GetLoggerDefinitionVersionResponseTypeDef(TypedDict):
+    Arn: str
+    CreationTimestamp: str
+    Definition: LoggerDefinitionVersionOutputTypeDef
+    Id: str
+    Version: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+LoggerDefinitionVersionUnionTypeDef = Union[
+    LoggerDefinitionVersionTypeDef, LoggerDefinitionVersionOutputTypeDef
+]
+
+class GetSubscriptionDefinitionVersionResponseTypeDef(TypedDict):
+    Arn: str
+    CreationTimestamp: str
+    Definition: SubscriptionDefinitionVersionOutputTypeDef
+    Id: str
+    Version: str
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+SubscriptionDefinitionVersionUnionTypeDef = Union[
+    SubscriptionDefinitionVersionTypeDef, SubscriptionDefinitionVersionOutputTypeDef
+]
+
+class FunctionDefaultConfigTypeDef(TypedDict):
+    Execution: NotRequired[FunctionDefaultExecutionConfigTypeDef]
+
+class FunctionConfigurationEnvironmentOutputTypeDef(TypedDict):
+    AccessSysfs: NotRequired[bool]
+    Execution: NotRequired[FunctionExecutionConfigTypeDef]
+    ResourceAccessPolicies: NotRequired[List[ResourceAccessPolicyTypeDef]]
+    Variables: NotRequired[Dict[str, str]]
+
+class FunctionConfigurationEnvironmentTypeDef(TypedDict):
+    AccessSysfs: NotRequired[bool]
+    Execution: NotRequired[FunctionExecutionConfigTypeDef]
+    ResourceAccessPolicies: NotRequired[Sequence[ResourceAccessPolicyTypeDef]]
+    Variables: NotRequired[Mapping[str, str]]
+
+class ResourceDataContainerOutputTypeDef(TypedDict):
+    LocalDeviceResourceData: NotRequired[LocalDeviceResourceDataTypeDef]
+    LocalVolumeResourceData: NotRequired[LocalVolumeResourceDataTypeDef]
+    S3MachineLearningModelResourceData: NotRequired[S3MachineLearningModelResourceDataTypeDef]
+    SageMakerMachineLearningModelResourceData: NotRequired[
+        SageMakerMachineLearningModelResourceDataTypeDef
+    ]
+    SecretsManagerSecretResourceData: NotRequired[SecretsManagerSecretResourceDataOutputTypeDef]
+
+class GetThingRuntimeConfigurationResponseTypeDef(TypedDict):
+    RuntimeConfiguration: RuntimeConfigurationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ResourceDataContainerTypeDef(TypedDict):
+    LocalDeviceResourceData: NotRequired[LocalDeviceResourceDataTypeDef]
+    LocalVolumeResourceData: NotRequired[LocalVolumeResourceDataTypeDef]
+    S3MachineLearningModelResourceData: NotRequired[S3MachineLearningModelResourceDataTypeDef]
+    SageMakerMachineLearningModelResourceData: NotRequired[
+        SageMakerMachineLearningModelResourceDataTypeDef
+    ]
+    SecretsManagerSecretResourceData: NotRequired[SecretsManagerSecretResourceDataUnionTypeDef]
+
+class CreateConnectorDefinitionRequestTypeDef(TypedDict):
+    AmznClientToken: NotRequired[str]
+    InitialVersion: NotRequired[ConnectorDefinitionVersionUnionTypeDef]
+    Name: NotRequired[str]
+    tags: NotRequired[Mapping[str, str]]
+
+class CreateCoreDefinitionRequestTypeDef(TypedDict):
+    AmznClientToken: NotRequired[str]
+    InitialVersion: NotRequired[CoreDefinitionVersionUnionTypeDef]
+    Name: NotRequired[str]
+    tags: NotRequired[Mapping[str, str]]
+
+class CreateDeviceDefinitionRequestTypeDef(TypedDict):
+    AmznClientToken: NotRequired[str]
+    InitialVersion: NotRequired[DeviceDefinitionVersionUnionTypeDef]
+    Name: NotRequired[str]
+    tags: NotRequired[Mapping[str, str]]
+
+class CreateLoggerDefinitionRequestTypeDef(TypedDict):
+    AmznClientToken: NotRequired[str]
+    InitialVersion: NotRequired[LoggerDefinitionVersionUnionTypeDef]
+    Name: NotRequired[str]
+    tags: NotRequired[Mapping[str, str]]
+
+class CreateSubscriptionDefinitionRequestTypeDef(TypedDict):
+    AmznClientToken: NotRequired[str]
+    InitialVersion: NotRequired[SubscriptionDefinitionVersionUnionTypeDef]
+    Name: NotRequired[str]
+    tags: NotRequired[Mapping[str, str]]
+
+class FunctionConfigurationOutputTypeDef(TypedDict):
+    EncodingType: NotRequired[EncodingTypeType]
+    Environment: NotRequired[FunctionConfigurationEnvironmentOutputTypeDef]
+    ExecArgs: NotRequired[str]
+    Executable: NotRequired[str]
+    MemorySize: NotRequired[int]
+    Pinned: NotRequired[bool]
+    Timeout: NotRequired[int]
+    FunctionRuntimeOverride: NotRequired[str]
+
+FunctionConfigurationEnvironmentUnionTypeDef = Union[
+    FunctionConfigurationEnvironmentTypeDef, FunctionConfigurationEnvironmentOutputTypeDef
+]
+
+class ResourceOutputTypeDef(TypedDict):
+    Id: str
+    Name: str
+    ResourceDataContainer: ResourceDataContainerOutputTypeDef
+
+ResourceDataContainerUnionTypeDef = Union[
+    ResourceDataContainerTypeDef, ResourceDataContainerOutputTypeDef
+]
+
+class FunctionOutputTypeDef(TypedDict):
+    Id: str
+    FunctionArn: NotRequired[str]
+    FunctionConfiguration: NotRequired[FunctionConfigurationOutputTypeDef]
+
+class FunctionConfigurationTypeDef(TypedDict):
+    EncodingType: NotRequired[EncodingTypeType]
+    Environment: NotRequired[FunctionConfigurationEnvironmentUnionTypeDef]
+    ExecArgs: NotRequired[str]
+    Executable: NotRequired[str]
+    MemorySize: NotRequired[int]
+    Pinned: NotRequired[bool]
+    Timeout: NotRequired[int]
+    FunctionRuntimeOverride: NotRequired[str]
+
+class ResourceDefinitionVersionOutputTypeDef(TypedDict):
+    Resources: NotRequired[List[ResourceOutputTypeDef]]
+
+class ResourceTypeDef(TypedDict):
+    Id: str
+    Name: str
+    ResourceDataContainer: ResourceDataContainerUnionTypeDef
+
+class FunctionDefinitionVersionOutputTypeDef(TypedDict):
+    DefaultConfig: NotRequired[FunctionDefaultConfigTypeDef]
+    Functions: NotRequired[List[FunctionOutputTypeDef]]
+
+FunctionConfigurationUnionTypeDef = Union[
+    FunctionConfigurationTypeDef, FunctionConfigurationOutputTypeDef
+]
+
+class GetResourceDefinitionVersionResponseTypeDef(TypedDict):
+    Arn: str
+    CreationTimestamp: str
+    Definition: ResourceDefinitionVersionOutputTypeDef
+    Id: str
+    Version: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ResourceDefinitionVersionTypeDef(TypedDict):
+    Resources: NotRequired[Sequence[ResourceTypeDef]]
+
+ResourceUnionTypeDef = Union[ResourceTypeDef, ResourceOutputTypeDef]
+
+class GetFunctionDefinitionVersionResponseTypeDef(TypedDict):
+    Arn: str
+    CreationTimestamp: str
+    Definition: FunctionDefinitionVersionOutputTypeDef
+    Id: str
+    Version: str
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class FunctionTypeDef(TypedDict):
+    Id: str
+    FunctionArn: NotRequired[str]
+    FunctionConfiguration: NotRequired[FunctionConfigurationUnionTypeDef]
+
+ResourceDefinitionVersionUnionTypeDef = Union[
+    ResourceDefinitionVersionTypeDef, ResourceDefinitionVersionOutputTypeDef
+]
+
+class CreateResourceDefinitionVersionRequestTypeDef(TypedDict):
+    ResourceDefinitionId: str
+    AmznClientToken: NotRequired[str]
+    Resources: NotRequired[Sequence[ResourceUnionTypeDef]]
+
+class FunctionDefinitionVersionTypeDef(TypedDict):
+    DefaultConfig: NotRequired[FunctionDefaultConfigTypeDef]
+    Functions: NotRequired[Sequence[FunctionTypeDef]]
+
+FunctionUnionTypeDef = Union[FunctionTypeDef, FunctionOutputTypeDef]
+
+class CreateResourceDefinitionRequestTypeDef(TypedDict):
+    AmznClientToken: NotRequired[str]
+    InitialVersion: NotRequired[ResourceDefinitionVersionUnionTypeDef]
+    Name: NotRequired[str]
+    tags: NotRequired[Mapping[str, str]]
+
+FunctionDefinitionVersionUnionTypeDef = Union[
+    FunctionDefinitionVersionTypeDef, FunctionDefinitionVersionOutputTypeDef
+]
+
+class CreateFunctionDefinitionVersionRequestTypeDef(TypedDict):
+    FunctionDefinitionId: str
+    AmznClientToken: NotRequired[str]
+    DefaultConfig: NotRequired[FunctionDefaultConfigTypeDef]
+    Functions: NotRequired[Sequence[FunctionUnionTypeDef]]
+
+class CreateFunctionDefinitionRequestTypeDef(TypedDict):
+    AmznClientToken: NotRequired[str]
+    InitialVersion: NotRequired[FunctionDefinitionVersionUnionTypeDef]
+    Name: NotRequired[str]
+    tags: NotRequired[Mapping[str, str]]

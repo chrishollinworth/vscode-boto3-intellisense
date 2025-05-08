@@ -1,328 +1,178 @@
 """
 Type annotations for sdb service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sdb/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sdb/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_sdb.type_defs import AttributeTypeDef
 
-    data: AttributeTypeDef = {...}
+    data: AttributeTypeDef = ...
     ```
 """
 
-import sys
-from typing import Any, Dict, List
+from __future__ import annotations
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+import sys
+
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Sequence
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List, Sequence
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
     "AttributeTypeDef",
-    "BatchDeleteAttributesRequestRequestTypeDef",
-    "BatchPutAttributesRequestRequestTypeDef",
-    "CreateDomainRequestRequestTypeDef",
+    "BatchDeleteAttributesRequestTypeDef",
+    "BatchPutAttributesRequestTypeDef",
+    "CreateDomainRequestTypeDef",
     "DeletableItemTypeDef",
-    "DeleteAttributesRequestRequestTypeDef",
-    "DeleteDomainRequestRequestTypeDef",
-    "DomainMetadataRequestRequestTypeDef",
+    "DeleteAttributesRequestTypeDef",
+    "DeleteDomainRequestTypeDef",
+    "DomainMetadataRequestTypeDef",
     "DomainMetadataResultTypeDef",
-    "GetAttributesRequestRequestTypeDef",
+    "EmptyResponseMetadataTypeDef",
+    "GetAttributesRequestTypeDef",
     "GetAttributesResultTypeDef",
     "ItemTypeDef",
-    "ListDomainsRequestRequestTypeDef",
+    "ListDomainsRequestPaginateTypeDef",
+    "ListDomainsRequestTypeDef",
     "ListDomainsResultTypeDef",
     "PaginatorConfigTypeDef",
-    "PutAttributesRequestRequestTypeDef",
+    "PutAttributesRequestTypeDef",
     "ReplaceableAttributeTypeDef",
     "ReplaceableItemTypeDef",
     "ResponseMetadataTypeDef",
-    "SelectRequestRequestTypeDef",
+    "SelectRequestPaginateTypeDef",
+    "SelectRequestTypeDef",
     "SelectResultTypeDef",
     "UpdateConditionTypeDef",
 )
 
-_RequiredAttributeTypeDef = TypedDict(
-    "_RequiredAttributeTypeDef",
-    {
-        "Name": str,
-        "Value": str,
-    },
-)
-_OptionalAttributeTypeDef = TypedDict(
-    "_OptionalAttributeTypeDef",
-    {
-        "AlternateNameEncoding": str,
-        "AlternateValueEncoding": str,
-    },
-    total=False,
-)
+class AttributeTypeDef(TypedDict):
+    Name: str
+    Value: str
+    AlternateNameEncoding: NotRequired[str]
+    AlternateValueEncoding: NotRequired[str]
 
-class AttributeTypeDef(_RequiredAttributeTypeDef, _OptionalAttributeTypeDef):
-    pass
+class CreateDomainRequestTypeDef(TypedDict):
+    DomainName: str
 
-BatchDeleteAttributesRequestRequestTypeDef = TypedDict(
-    "BatchDeleteAttributesRequestRequestTypeDef",
-    {
-        "DomainName": str,
-        "Items": List["DeletableItemTypeDef"],
-    },
-)
+class UpdateConditionTypeDef(TypedDict):
+    Name: NotRequired[str]
+    Value: NotRequired[str]
+    Exists: NotRequired[bool]
 
-BatchPutAttributesRequestRequestTypeDef = TypedDict(
-    "BatchPutAttributesRequestRequestTypeDef",
-    {
-        "DomainName": str,
-        "Items": List["ReplaceableItemTypeDef"],
-    },
-)
+class DeleteDomainRequestTypeDef(TypedDict):
+    DomainName: str
 
-CreateDomainRequestRequestTypeDef = TypedDict(
-    "CreateDomainRequestRequestTypeDef",
-    {
-        "DomainName": str,
-    },
-)
+class DomainMetadataRequestTypeDef(TypedDict):
+    DomainName: str
 
-_RequiredDeletableItemTypeDef = TypedDict(
-    "_RequiredDeletableItemTypeDef",
-    {
-        "Name": str,
-    },
-)
-_OptionalDeletableItemTypeDef = TypedDict(
-    "_OptionalDeletableItemTypeDef",
-    {
-        "Attributes": List["AttributeTypeDef"],
-    },
-    total=False,
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-class DeletableItemTypeDef(_RequiredDeletableItemTypeDef, _OptionalDeletableItemTypeDef):
-    pass
+class GetAttributesRequestTypeDef(TypedDict):
+    DomainName: str
+    ItemName: str
+    AttributeNames: NotRequired[Sequence[str]]
+    ConsistentRead: NotRequired[bool]
 
-_RequiredDeleteAttributesRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteAttributesRequestRequestTypeDef",
-    {
-        "DomainName": str,
-        "ItemName": str,
-    },
-)
-_OptionalDeleteAttributesRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteAttributesRequestRequestTypeDef",
-    {
-        "Attributes": List["AttributeTypeDef"],
-        "Expected": "UpdateConditionTypeDef",
-    },
-    total=False,
-)
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
 
-class DeleteAttributesRequestRequestTypeDef(
-    _RequiredDeleteAttributesRequestRequestTypeDef, _OptionalDeleteAttributesRequestRequestTypeDef
-):
-    pass
+class ListDomainsRequestTypeDef(TypedDict):
+    MaxNumberOfDomains: NotRequired[int]
+    NextToken: NotRequired[str]
 
-DeleteDomainRequestRequestTypeDef = TypedDict(
-    "DeleteDomainRequestRequestTypeDef",
-    {
-        "DomainName": str,
-    },
-)
+class ReplaceableAttributeTypeDef(TypedDict):
+    Name: str
+    Value: str
+    Replace: NotRequired[bool]
 
-DomainMetadataRequestRequestTypeDef = TypedDict(
-    "DomainMetadataRequestRequestTypeDef",
-    {
-        "DomainName": str,
-    },
-)
+class SelectRequestTypeDef(TypedDict):
+    SelectExpression: str
+    NextToken: NotRequired[str]
+    ConsistentRead: NotRequired[bool]
 
-DomainMetadataResultTypeDef = TypedDict(
-    "DomainMetadataResultTypeDef",
-    {
-        "ItemCount": int,
-        "ItemNamesSizeBytes": int,
-        "AttributeNameCount": int,
-        "AttributeNamesSizeBytes": int,
-        "AttributeValueCount": int,
-        "AttributeValuesSizeBytes": int,
-        "Timestamp": int,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DeletableItemTypeDef(TypedDict):
+    Name: str
+    Attributes: NotRequired[Sequence[AttributeTypeDef]]
 
-_RequiredGetAttributesRequestRequestTypeDef = TypedDict(
-    "_RequiredGetAttributesRequestRequestTypeDef",
-    {
-        "DomainName": str,
-        "ItemName": str,
-    },
-)
-_OptionalGetAttributesRequestRequestTypeDef = TypedDict(
-    "_OptionalGetAttributesRequestRequestTypeDef",
-    {
-        "AttributeNames": List[str],
-        "ConsistentRead": bool,
-    },
-    total=False,
-)
+class ItemTypeDef(TypedDict):
+    Name: str
+    Attributes: List[AttributeTypeDef]
+    AlternateNameEncoding: NotRequired[str]
 
-class GetAttributesRequestRequestTypeDef(
-    _RequiredGetAttributesRequestRequestTypeDef, _OptionalGetAttributesRequestRequestTypeDef
-):
-    pass
+class DeleteAttributesRequestTypeDef(TypedDict):
+    DomainName: str
+    ItemName: str
+    Attributes: NotRequired[Sequence[AttributeTypeDef]]
+    Expected: NotRequired[UpdateConditionTypeDef]
 
-GetAttributesResultTypeDef = TypedDict(
-    "GetAttributesResultTypeDef",
-    {
-        "Attributes": List["AttributeTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DomainMetadataResultTypeDef(TypedDict):
+    ItemCount: int
+    ItemNamesSizeBytes: int
+    AttributeNameCount: int
+    AttributeNamesSizeBytes: int
+    AttributeValueCount: int
+    AttributeValuesSizeBytes: int
+    Timestamp: int
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredItemTypeDef = TypedDict(
-    "_RequiredItemTypeDef",
-    {
-        "Name": str,
-        "Attributes": List["AttributeTypeDef"],
-    },
-)
-_OptionalItemTypeDef = TypedDict(
-    "_OptionalItemTypeDef",
-    {
-        "AlternateNameEncoding": str,
-    },
-    total=False,
-)
+class EmptyResponseMetadataTypeDef(TypedDict):
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class ItemTypeDef(_RequiredItemTypeDef, _OptionalItemTypeDef):
-    pass
+class GetAttributesResultTypeDef(TypedDict):
+    Attributes: List[AttributeTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ListDomainsRequestRequestTypeDef = TypedDict(
-    "ListDomainsRequestRequestTypeDef",
-    {
-        "MaxNumberOfDomains": int,
-        "NextToken": str,
-    },
-    total=False,
-)
+class ListDomainsResultTypeDef(TypedDict):
+    DomainNames: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-ListDomainsResultTypeDef = TypedDict(
-    "ListDomainsResultTypeDef",
-    {
-        "DomainNames": List[str],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListDomainsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
+class SelectRequestPaginateTypeDef(TypedDict):
+    SelectExpression: str
+    ConsistentRead: NotRequired[bool]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-_RequiredPutAttributesRequestRequestTypeDef = TypedDict(
-    "_RequiredPutAttributesRequestRequestTypeDef",
-    {
-        "DomainName": str,
-        "ItemName": str,
-        "Attributes": List["ReplaceableAttributeTypeDef"],
-    },
-)
-_OptionalPutAttributesRequestRequestTypeDef = TypedDict(
-    "_OptionalPutAttributesRequestRequestTypeDef",
-    {
-        "Expected": "UpdateConditionTypeDef",
-    },
-    total=False,
-)
+class PutAttributesRequestTypeDef(TypedDict):
+    DomainName: str
+    ItemName: str
+    Attributes: Sequence[ReplaceableAttributeTypeDef]
+    Expected: NotRequired[UpdateConditionTypeDef]
 
-class PutAttributesRequestRequestTypeDef(
-    _RequiredPutAttributesRequestRequestTypeDef, _OptionalPutAttributesRequestRequestTypeDef
-):
-    pass
+class ReplaceableItemTypeDef(TypedDict):
+    Name: str
+    Attributes: Sequence[ReplaceableAttributeTypeDef]
 
-_RequiredReplaceableAttributeTypeDef = TypedDict(
-    "_RequiredReplaceableAttributeTypeDef",
-    {
-        "Name": str,
-        "Value": str,
-    },
-)
-_OptionalReplaceableAttributeTypeDef = TypedDict(
-    "_OptionalReplaceableAttributeTypeDef",
-    {
-        "Replace": bool,
-    },
-    total=False,
-)
+class BatchDeleteAttributesRequestTypeDef(TypedDict):
+    DomainName: str
+    Items: Sequence[DeletableItemTypeDef]
 
-class ReplaceableAttributeTypeDef(
-    _RequiredReplaceableAttributeTypeDef, _OptionalReplaceableAttributeTypeDef
-):
-    pass
+class SelectResultTypeDef(TypedDict):
+    Items: List[ItemTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-ReplaceableItemTypeDef = TypedDict(
-    "ReplaceableItemTypeDef",
-    {
-        "Name": str,
-        "Attributes": List["ReplaceableAttributeTypeDef"],
-    },
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-_RequiredSelectRequestRequestTypeDef = TypedDict(
-    "_RequiredSelectRequestRequestTypeDef",
-    {
-        "SelectExpression": str,
-    },
-)
-_OptionalSelectRequestRequestTypeDef = TypedDict(
-    "_OptionalSelectRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "ConsistentRead": bool,
-    },
-    total=False,
-)
-
-class SelectRequestRequestTypeDef(
-    _RequiredSelectRequestRequestTypeDef, _OptionalSelectRequestRequestTypeDef
-):
-    pass
-
-SelectResultTypeDef = TypedDict(
-    "SelectResultTypeDef",
-    {
-        "Items": List["ItemTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UpdateConditionTypeDef = TypedDict(
-    "UpdateConditionTypeDef",
-    {
-        "Name": str,
-        "Value": str,
-        "Exists": bool,
-    },
-    total=False,
-)
+class BatchPutAttributesRequestTypeDef(TypedDict):
+    DomainName: str
+    Items: Sequence[ReplaceableItemTypeDef]

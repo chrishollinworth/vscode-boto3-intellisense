@@ -1,10 +1,14 @@
 """
 Main interface for grafana service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_grafana/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_grafana import (
         Client,
         ListPermissionsPaginator,
@@ -15,10 +19,8 @@ Usage::
         ManagedGrafanaClient,
     )
 
-    session = boto3.Session()
-
-    client: ManagedGrafanaClient = boto3.client("grafana")
-    session_client: ManagedGrafanaClient = session.client("grafana")
+    session = Session()
+    client: ManagedGrafanaClient = session.client("grafana")
 
     list_permissions_paginator: ListPermissionsPaginator = client.get_paginator("list_permissions")
     list_versions_paginator: ListVersionsPaginator = client.get_paginator("list_versions")

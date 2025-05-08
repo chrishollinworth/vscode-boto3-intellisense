@@ -1,24 +1,30 @@
 """
-Type annotations for servicecatalog-appregistry service client.
+Type annotations for servicecatalog-appregistry service Client.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog_appregistry/client.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog_appregistry/client/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
-    from mypy_boto3_servicecatalog_appregistry import AppRegistryClient
+    from boto3.session import Session
+    from mypy_boto3_servicecatalog_appregistry.client import AppRegistryClient
 
-    client: AppRegistryClient = boto3.client("servicecatalog-appregistry")
+    session = Session()
+    client: AppRegistryClient = session.client("servicecatalog-appregistry")
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from typing import Any, Dict, List, Type, overload
+from typing import Any, overload
 
 from botocore.client import BaseClient, ClientMeta
+from botocore.errorfactory import BaseClientExceptions
+from botocore.exceptions import ClientError as BotocoreClientError
 
-from .literals import AssociationOptionType, ResourceItemStatusType, ResourceTypeType
 from .paginator import (
     ListApplicationsPaginator,
     ListAssociatedAttributeGroupsPaginator,
@@ -27,45 +33,67 @@ from .paginator import (
     ListAttributeGroupsPaginator,
 )
 from .type_defs import (
-    AppRegistryConfigurationTypeDef,
+    AssociateAttributeGroupRequestTypeDef,
     AssociateAttributeGroupResponseTypeDef,
+    AssociateResourceRequestTypeDef,
     AssociateResourceResponseTypeDef,
+    CreateApplicationRequestTypeDef,
     CreateApplicationResponseTypeDef,
+    CreateAttributeGroupRequestTypeDef,
     CreateAttributeGroupResponseTypeDef,
+    DeleteApplicationRequestTypeDef,
     DeleteApplicationResponseTypeDef,
+    DeleteAttributeGroupRequestTypeDef,
     DeleteAttributeGroupResponseTypeDef,
+    DisassociateAttributeGroupRequestTypeDef,
     DisassociateAttributeGroupResponseTypeDef,
+    DisassociateResourceRequestTypeDef,
     DisassociateResourceResponseTypeDef,
+    EmptyResponseMetadataTypeDef,
+    GetApplicationRequestTypeDef,
     GetApplicationResponseTypeDef,
+    GetAssociatedResourceRequestTypeDef,
     GetAssociatedResourceResponseTypeDef,
+    GetAttributeGroupRequestTypeDef,
     GetAttributeGroupResponseTypeDef,
     GetConfigurationResponseTypeDef,
+    ListApplicationsRequestTypeDef,
     ListApplicationsResponseTypeDef,
+    ListAssociatedAttributeGroupsRequestTypeDef,
     ListAssociatedAttributeGroupsResponseTypeDef,
+    ListAssociatedResourcesRequestTypeDef,
     ListAssociatedResourcesResponseTypeDef,
+    ListAttributeGroupsForApplicationRequestTypeDef,
     ListAttributeGroupsForApplicationResponseTypeDef,
+    ListAttributeGroupsRequestTypeDef,
     ListAttributeGroupsResponseTypeDef,
+    ListTagsForResourceRequestTypeDef,
     ListTagsForResourceResponseTypeDef,
+    PutConfigurationRequestTypeDef,
+    SyncResourceRequestTypeDef,
     SyncResourceResponseTypeDef,
+    TagResourceRequestTypeDef,
+    UntagResourceRequestTypeDef,
+    UpdateApplicationRequestTypeDef,
     UpdateApplicationResponseTypeDef,
+    UpdateAttributeGroupRequestTypeDef,
     UpdateAttributeGroupResponseTypeDef,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import type as Type
+    from collections.abc import Mapping
 else:
-    from typing_extensions import Literal
+    from typing import Dict, Mapping, Type
+if sys.version_info >= (3, 12):
+    from typing import Literal, Unpack
+else:
+    from typing_extensions import Literal, Unpack
 
 __all__ = ("AppRegistryClient",)
 
-class BotocoreClientError(BaseException):
-    MSG_TEMPLATE: str
-
-    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
-        self.response: Dict[str, Any]
-        self.operation_name: str
-
-class Exceptions:
+class Exceptions(BaseClientExceptions):
     ClientError: Type[BotocoreClientError]
     ConflictException: Type[BotocoreClientError]
     InternalServerException: Type[BotocoreClientError]
@@ -76,8 +104,8 @@ class Exceptions:
 
 class AppRegistryClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/servicecatalog-appregistry.html#AppRegistry.Client)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog_appregistry/client.html)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/servicecatalog-appregistry.html#AppRegistry.Client)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog_appregistry/client/)
     """
 
     meta: ClientMeta
@@ -86,330 +114,320 @@ class AppRegistryClient(BaseClient):
     def exceptions(self) -> Exceptions:
         """
         AppRegistryClient exceptions.
-        """
 
-    def associate_attribute_group(
-        self, *, application: str, attributeGroup: str
-    ) -> AssociateAttributeGroupResponseTypeDef:
-        """
-        Associates an attribute group with an application to augment the application's
-        metadata with the group's attributes.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/servicecatalog-appregistry.html#AppRegistry.Client.associate_attribute_group)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog_appregistry/client.html#associate_attribute_group)
-        """
-
-    def associate_resource(
-        self,
-        *,
-        application: str,
-        resourceType: ResourceTypeType,
-        resource: str,
-        options: List[AssociationOptionType] = None
-    ) -> AssociateResourceResponseTypeDef:
-        """
-        Associates a resource with an application.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/servicecatalog-appregistry.html#AppRegistry.Client.associate_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog_appregistry/client.html#associate_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/servicecatalog-appregistry.html#AppRegistry.Client)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog_appregistry/client/#exceptions)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        Check if an operation can be paginated.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/servicecatalog-appregistry.html#AppRegistry.Client.can_paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog_appregistry/client.html#can_paginate)
-        """
-
-    def close(self) -> None:
-        """
-        Closes underlying endpoint connections.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/servicecatalog-appregistry.html#AppRegistry.Client.close)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog_appregistry/client.html#close)
-        """
-
-    def create_application(
-        self, *, name: str, clientToken: str, description: str = None, tags: Dict[str, str] = None
-    ) -> CreateApplicationResponseTypeDef:
-        """
-        Creates a new application that is the top-level node in a hierarchy of related
-        cloud resource abstractions.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/servicecatalog-appregistry.html#AppRegistry.Client.create_application)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog_appregistry/client.html#create_application)
-        """
-
-    def create_attribute_group(
-        self,
-        *,
-        name: str,
-        attributes: str,
-        clientToken: str,
-        description: str = None,
-        tags: Dict[str, str] = None
-    ) -> CreateAttributeGroupResponseTypeDef:
-        """
-        Creates a new attribute group as a container for user-defined attributes.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/servicecatalog-appregistry.html#AppRegistry.Client.create_attribute_group)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog_appregistry/client.html#create_attribute_group)
-        """
-
-    def delete_application(self, *, application: str) -> DeleteApplicationResponseTypeDef:
-        """
-        Deletes an application that is specified either by its application ID, name, or
-        ARN.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/servicecatalog-appregistry.html#AppRegistry.Client.delete_application)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog_appregistry/client.html#delete_application)
-        """
-
-    def delete_attribute_group(self, *, attributeGroup: str) -> DeleteAttributeGroupResponseTypeDef:
-        """
-        Deletes an attribute group, specified either by its attribute group ID, name, or
-        ARN.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/servicecatalog-appregistry.html#AppRegistry.Client.delete_attribute_group)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog_appregistry/client.html#delete_attribute_group)
-        """
-
-    def disassociate_attribute_group(
-        self, *, application: str, attributeGroup: str
-    ) -> DisassociateAttributeGroupResponseTypeDef:
-        """
-        Disassociates an attribute group from an application to remove the extra
-        attributes contained in the attribute group from the application's metadata.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/servicecatalog-appregistry.html#AppRegistry.Client.disassociate_attribute_group)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog_appregistry/client.html#disassociate_attribute_group)
-        """
-
-    def disassociate_resource(
-        self, *, application: str, resourceType: ResourceTypeType, resource: str
-    ) -> DisassociateResourceResponseTypeDef:
-        """
-        Disassociates a resource from application.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/servicecatalog-appregistry.html#AppRegistry.Client.disassociate_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog_appregistry/client.html#disassociate_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/servicecatalog-appregistry/client/can_paginate.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog_appregistry/client/#can_paginate)
         """
 
     def generate_presigned_url(
         self,
         ClientMethod: str,
-        Params: Dict[str, Any] = None,
+        Params: Mapping[str, Any] = ...,
         ExpiresIn: int = 3600,
-        HttpMethod: str = None,
+        HttpMethod: str = ...,
     ) -> str:
         """
-        Generate a presigned url given a client, its method, and arguments.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/servicecatalog-appregistry.html#AppRegistry.Client.generate_presigned_url)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog_appregistry/client.html#generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/servicecatalog-appregistry/client/generate_presigned_url.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog_appregistry/client/#generate_presigned_url)
         """
 
-    def get_application(self, *, application: str) -> GetApplicationResponseTypeDef:
+    def associate_attribute_group(
+        self, **kwargs: Unpack[AssociateAttributeGroupRequestTypeDef]
+    ) -> AssociateAttributeGroupResponseTypeDef:
+        """
+        Associates an attribute group with an application to augment the application's
+        metadata with the group's attributes.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/servicecatalog-appregistry/client/associate_attribute_group.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog_appregistry/client/#associate_attribute_group)
+        """
+
+    def associate_resource(
+        self, **kwargs: Unpack[AssociateResourceRequestTypeDef]
+    ) -> AssociateResourceResponseTypeDef:
+        """
+        Associates a resource with an application.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/servicecatalog-appregistry/client/associate_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog_appregistry/client/#associate_resource)
+        """
+
+    def create_application(
+        self, **kwargs: Unpack[CreateApplicationRequestTypeDef]
+    ) -> CreateApplicationResponseTypeDef:
+        """
+        Creates a new application that is the top-level node in a hierarchy of related
+        cloud resource abstractions.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/servicecatalog-appregistry/client/create_application.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog_appregistry/client/#create_application)
+        """
+
+    def create_attribute_group(
+        self, **kwargs: Unpack[CreateAttributeGroupRequestTypeDef]
+    ) -> CreateAttributeGroupResponseTypeDef:
+        """
+        Creates a new attribute group as a container for user-defined attributes.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/servicecatalog-appregistry/client/create_attribute_group.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog_appregistry/client/#create_attribute_group)
+        """
+
+    def delete_application(
+        self, **kwargs: Unpack[DeleteApplicationRequestTypeDef]
+    ) -> DeleteApplicationResponseTypeDef:
+        """
+        Deletes an application that is specified either by its application ID, name, or
+        ARN.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/servicecatalog-appregistry/client/delete_application.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog_appregistry/client/#delete_application)
+        """
+
+    def delete_attribute_group(
+        self, **kwargs: Unpack[DeleteAttributeGroupRequestTypeDef]
+    ) -> DeleteAttributeGroupResponseTypeDef:
+        """
+        Deletes an attribute group, specified either by its attribute group ID, name,
+        or ARN.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/servicecatalog-appregistry/client/delete_attribute_group.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog_appregistry/client/#delete_attribute_group)
+        """
+
+    def disassociate_attribute_group(
+        self, **kwargs: Unpack[DisassociateAttributeGroupRequestTypeDef]
+    ) -> DisassociateAttributeGroupResponseTypeDef:
+        """
+        Disassociates an attribute group from an application to remove the extra
+        attributes contained in the attribute group from the application's metadata.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/servicecatalog-appregistry/client/disassociate_attribute_group.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog_appregistry/client/#disassociate_attribute_group)
+        """
+
+    def disassociate_resource(
+        self, **kwargs: Unpack[DisassociateResourceRequestTypeDef]
+    ) -> DisassociateResourceResponseTypeDef:
+        """
+        Disassociates a resource from application.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/servicecatalog-appregistry/client/disassociate_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog_appregistry/client/#disassociate_resource)
+        """
+
+    def get_application(
+        self, **kwargs: Unpack[GetApplicationRequestTypeDef]
+    ) -> GetApplicationResponseTypeDef:
         """
         Retrieves metadata information about one of your applications.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/servicecatalog-appregistry.html#AppRegistry.Client.get_application)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog_appregistry/client.html#get_application)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/servicecatalog-appregistry/client/get_application.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog_appregistry/client/#get_application)
         """
 
     def get_associated_resource(
-        self,
-        *,
-        application: str,
-        resourceType: ResourceTypeType,
-        resource: str,
-        nextToken: str = None,
-        resourceTagStatus: List[ResourceItemStatusType] = None,
-        maxResults: int = None
+        self, **kwargs: Unpack[GetAssociatedResourceRequestTypeDef]
     ) -> GetAssociatedResourceResponseTypeDef:
         """
         Gets the resource associated with the application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/servicecatalog-appregistry.html#AppRegistry.Client.get_associated_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog_appregistry/client.html#get_associated_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/servicecatalog-appregistry/client/get_associated_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog_appregistry/client/#get_associated_resource)
         """
 
-    def get_attribute_group(self, *, attributeGroup: str) -> GetAttributeGroupResponseTypeDef:
+    def get_attribute_group(
+        self, **kwargs: Unpack[GetAttributeGroupRequestTypeDef]
+    ) -> GetAttributeGroupResponseTypeDef:
         """
         Retrieves an attribute group by its ARN, ID, or name.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/servicecatalog-appregistry.html#AppRegistry.Client.get_attribute_group)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog_appregistry/client.html#get_attribute_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/servicecatalog-appregistry/client/get_attribute_group.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog_appregistry/client/#get_attribute_group)
         """
 
     def get_configuration(self) -> GetConfigurationResponseTypeDef:
         """
-        Retrieves a `TagKey` configuration from an account.
+        Retrieves a <code>TagKey</code> configuration from an account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/servicecatalog-appregistry.html#AppRegistry.Client.get_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog_appregistry/client.html#get_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/servicecatalog-appregistry/client/get_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog_appregistry/client/#get_configuration)
         """
 
     def list_applications(
-        self, *, nextToken: str = None, maxResults: int = None
+        self, **kwargs: Unpack[ListApplicationsRequestTypeDef]
     ) -> ListApplicationsResponseTypeDef:
         """
         Retrieves a list of all of your applications.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/servicecatalog-appregistry.html#AppRegistry.Client.list_applications)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog_appregistry/client.html#list_applications)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/servicecatalog-appregistry/client/list_applications.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog_appregistry/client/#list_applications)
         """
 
     def list_associated_attribute_groups(
-        self, *, application: str, nextToken: str = None, maxResults: int = None
+        self, **kwargs: Unpack[ListAssociatedAttributeGroupsRequestTypeDef]
     ) -> ListAssociatedAttributeGroupsResponseTypeDef:
         """
         Lists all attribute groups that are associated with specified application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/servicecatalog-appregistry.html#AppRegistry.Client.list_associated_attribute_groups)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog_appregistry/client.html#list_associated_attribute_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/servicecatalog-appregistry/client/list_associated_attribute_groups.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog_appregistry/client/#list_associated_attribute_groups)
         """
 
     def list_associated_resources(
-        self, *, application: str, nextToken: str = None, maxResults: int = None
+        self, **kwargs: Unpack[ListAssociatedResourcesRequestTypeDef]
     ) -> ListAssociatedResourcesResponseTypeDef:
         """
         Lists all of the resources that are associated with the specified application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/servicecatalog-appregistry.html#AppRegistry.Client.list_associated_resources)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog_appregistry/client.html#list_associated_resources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/servicecatalog-appregistry/client/list_associated_resources.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog_appregistry/client/#list_associated_resources)
         """
 
     def list_attribute_groups(
-        self, *, nextToken: str = None, maxResults: int = None
+        self, **kwargs: Unpack[ListAttributeGroupsRequestTypeDef]
     ) -> ListAttributeGroupsResponseTypeDef:
         """
         Lists all attribute groups which you have access to.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/servicecatalog-appregistry.html#AppRegistry.Client.list_attribute_groups)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog_appregistry/client.html#list_attribute_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/servicecatalog-appregistry/client/list_attribute_groups.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog_appregistry/client/#list_attribute_groups)
         """
 
     def list_attribute_groups_for_application(
-        self, *, application: str, nextToken: str = None, maxResults: int = None
+        self, **kwargs: Unpack[ListAttributeGroupsForApplicationRequestTypeDef]
     ) -> ListAttributeGroupsForApplicationResponseTypeDef:
         """
         Lists the details of all attribute groups associated with a specific
         application.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/servicecatalog-appregistry.html#AppRegistry.Client.list_attribute_groups_for_application)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog_appregistry/client.html#list_attribute_groups_for_application)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/servicecatalog-appregistry/client/list_attribute_groups_for_application.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog_appregistry/client/#list_attribute_groups_for_application)
         """
 
-    def list_tags_for_resource(self, *, resourceArn: str) -> ListTagsForResourceResponseTypeDef:
+    def list_tags_for_resource(
+        self, **kwargs: Unpack[ListTagsForResourceRequestTypeDef]
+    ) -> ListTagsForResourceResponseTypeDef:
         """
         Lists all of the tags on the resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/servicecatalog-appregistry.html#AppRegistry.Client.list_tags_for_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog_appregistry/client.html#list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/servicecatalog-appregistry/client/list_tags_for_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog_appregistry/client/#list_tags_for_resource)
         """
 
-    def put_configuration(self, *, configuration: "AppRegistryConfigurationTypeDef") -> None:
+    def put_configuration(
+        self, **kwargs: Unpack[PutConfigurationRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
-        Associates a `TagKey` configuration to an account.
+        Associates a <code>TagKey</code> configuration to an account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/servicecatalog-appregistry.html#AppRegistry.Client.put_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog_appregistry/client.html#put_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/servicecatalog-appregistry/client/put_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog_appregistry/client/#put_configuration)
         """
 
     def sync_resource(
-        self, *, resourceType: ResourceTypeType, resource: str
+        self, **kwargs: Unpack[SyncResourceRequestTypeDef]
     ) -> SyncResourceResponseTypeDef:
         """
         Syncs the resource with current AppRegistry records.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/servicecatalog-appregistry.html#AppRegistry.Client.sync_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog_appregistry/client.html#sync_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/servicecatalog-appregistry/client/sync_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog_appregistry/client/#sync_resource)
         """
 
-    def tag_resource(self, *, resourceArn: str, tags: Dict[str, str]) -> Dict[str, Any]:
+    def tag_resource(self, **kwargs: Unpack[TagResourceRequestTypeDef]) -> Dict[str, Any]:
         """
         Assigns one or more tags (key-value pairs) to the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/servicecatalog-appregistry.html#AppRegistry.Client.tag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog_appregistry/client.html#tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/servicecatalog-appregistry/client/tag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog_appregistry/client/#tag_resource)
         """
 
-    def untag_resource(self, *, resourceArn: str, tagKeys: List[str]) -> Dict[str, Any]:
+    def untag_resource(self, **kwargs: Unpack[UntagResourceRequestTypeDef]) -> Dict[str, Any]:
         """
         Removes tags from a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/servicecatalog-appregistry.html#AppRegistry.Client.untag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog_appregistry/client.html#untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/servicecatalog-appregistry/client/untag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog_appregistry/client/#untag_resource)
         """
 
     def update_application(
-        self, *, application: str, name: str = None, description: str = None
+        self, **kwargs: Unpack[UpdateApplicationRequestTypeDef]
     ) -> UpdateApplicationResponseTypeDef:
         """
         Updates an existing application with new attributes.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/servicecatalog-appregistry.html#AppRegistry.Client.update_application)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog_appregistry/client.html#update_application)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/servicecatalog-appregistry/client/update_application.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog_appregistry/client/#update_application)
         """
 
     def update_attribute_group(
-        self,
-        *,
-        attributeGroup: str,
-        name: str = None,
-        description: str = None,
-        attributes: str = None
+        self, **kwargs: Unpack[UpdateAttributeGroupRequestTypeDef]
     ) -> UpdateAttributeGroupResponseTypeDef:
         """
         Updates an existing attribute group with new details.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/servicecatalog-appregistry.html#AppRegistry.Client.update_attribute_group)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog_appregistry/client.html#update_attribute_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/servicecatalog-appregistry/client/update_attribute_group.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog_appregistry/client/#update_attribute_group)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_applications"]
     ) -> ListApplicationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/servicecatalog-appregistry.html#AppRegistry.Paginator.ListApplications)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog_appregistry/paginators.html#listapplicationspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/servicecatalog-appregistry/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog_appregistry/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_associated_attribute_groups"]
     ) -> ListAssociatedAttributeGroupsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/servicecatalog-appregistry.html#AppRegistry.Paginator.ListAssociatedAttributeGroups)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog_appregistry/paginators.html#listassociatedattributegroupspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/servicecatalog-appregistry/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog_appregistry/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_associated_resources"]
     ) -> ListAssociatedResourcesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/servicecatalog-appregistry.html#AppRegistry.Paginator.ListAssociatedResources)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog_appregistry/paginators.html#listassociatedresourcespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/servicecatalog-appregistry/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog_appregistry/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
-        self, operation_name: Literal["list_attribute_groups"]
-    ) -> ListAttributeGroupsPaginator:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/servicecatalog-appregistry.html#AppRegistry.Paginator.ListAttributeGroups)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog_appregistry/paginators.html#listattributegroupspaginator)
-        """
-
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_attribute_groups_for_application"]
     ) -> ListAttributeGroupsForApplicationPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/servicecatalog-appregistry.html#AppRegistry.Paginator.ListAttributeGroupsForApplication)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog_appregistry/paginators.html#listattributegroupsforapplicationpaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/servicecatalog-appregistry/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog_appregistry/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_attribute_groups"]
+    ) -> ListAttributeGroupsPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/servicecatalog-appregistry/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_servicecatalog_appregistry/client/#get_paginator)
         """

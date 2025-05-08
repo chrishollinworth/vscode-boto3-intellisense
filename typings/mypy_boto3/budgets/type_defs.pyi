@@ -1,20 +1,24 @@
 """
 Type annotations for budgets service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_budgets/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_budgets/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_budgets.type_defs import ActionHistoryDetailsTypeDef
+    from mypy_boto3_budgets.type_defs import ActionThresholdTypeDef
 
-    data: ActionHistoryDetailsTypeDef = {...}
+    data: ActionThresholdTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List, Union
+from typing import Any, Union
 
 from .literals import (
     ActionStatusType,
@@ -24,8 +28,11 @@ from .literals import (
     AutoAdjustTypeType,
     BudgetTypeType,
     ComparisonOperatorType,
+    DimensionType,
     EventTypeType,
     ExecutionTypeType,
+    MatchOptionType,
+    MetricType,
     NotificationStateType,
     NotificationTypeType,
     SubscriptionTypeType,
@@ -33,904 +40,657 @@ from .literals import (
     TimeUnitType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
     "ActionHistoryDetailsTypeDef",
     "ActionHistoryTypeDef",
     "ActionThresholdTypeDef",
     "ActionTypeDef",
+    "AutoAdjustDataOutputTypeDef",
     "AutoAdjustDataTypeDef",
     "BudgetNotificationsForAccountTypeDef",
+    "BudgetOutputTypeDef",
+    "BudgetPaginatorTypeDef",
     "BudgetPerformanceHistoryTypeDef",
     "BudgetTypeDef",
+    "BudgetUnionTypeDef",
     "BudgetedAndActualAmountsTypeDef",
     "CalculatedSpendTypeDef",
+    "CostCategoryValuesOutputTypeDef",
+    "CostCategoryValuesTypeDef",
     "CostTypesTypeDef",
-    "CreateBudgetActionRequestRequestTypeDef",
+    "CreateBudgetActionRequestTypeDef",
     "CreateBudgetActionResponseTypeDef",
-    "CreateBudgetRequestRequestTypeDef",
-    "CreateNotificationRequestRequestTypeDef",
-    "CreateSubscriberRequestRequestTypeDef",
+    "CreateBudgetRequestTypeDef",
+    "CreateNotificationRequestTypeDef",
+    "CreateSubscriberRequestTypeDef",
+    "DefinitionOutputTypeDef",
     "DefinitionTypeDef",
-    "DeleteBudgetActionRequestRequestTypeDef",
+    "DefinitionUnionTypeDef",
+    "DeleteBudgetActionRequestTypeDef",
     "DeleteBudgetActionResponseTypeDef",
-    "DeleteBudgetRequestRequestTypeDef",
-    "DeleteNotificationRequestRequestTypeDef",
-    "DeleteSubscriberRequestRequestTypeDef",
-    "DescribeBudgetActionHistoriesRequestRequestTypeDef",
+    "DeleteBudgetRequestTypeDef",
+    "DeleteNotificationRequestTypeDef",
+    "DeleteSubscriberRequestTypeDef",
+    "DescribeBudgetActionHistoriesRequestPaginateTypeDef",
+    "DescribeBudgetActionHistoriesRequestTypeDef",
     "DescribeBudgetActionHistoriesResponseTypeDef",
-    "DescribeBudgetActionRequestRequestTypeDef",
+    "DescribeBudgetActionRequestTypeDef",
     "DescribeBudgetActionResponseTypeDef",
-    "DescribeBudgetActionsForAccountRequestRequestTypeDef",
+    "DescribeBudgetActionsForAccountRequestPaginateTypeDef",
+    "DescribeBudgetActionsForAccountRequestTypeDef",
     "DescribeBudgetActionsForAccountResponseTypeDef",
-    "DescribeBudgetActionsForBudgetRequestRequestTypeDef",
+    "DescribeBudgetActionsForBudgetRequestPaginateTypeDef",
+    "DescribeBudgetActionsForBudgetRequestTypeDef",
     "DescribeBudgetActionsForBudgetResponseTypeDef",
-    "DescribeBudgetNotificationsForAccountRequestRequestTypeDef",
+    "DescribeBudgetNotificationsForAccountRequestPaginateTypeDef",
+    "DescribeBudgetNotificationsForAccountRequestTypeDef",
     "DescribeBudgetNotificationsForAccountResponseTypeDef",
-    "DescribeBudgetPerformanceHistoryRequestRequestTypeDef",
+    "DescribeBudgetPerformanceHistoryRequestPaginateTypeDef",
+    "DescribeBudgetPerformanceHistoryRequestTypeDef",
     "DescribeBudgetPerformanceHistoryResponseTypeDef",
-    "DescribeBudgetRequestRequestTypeDef",
+    "DescribeBudgetRequestTypeDef",
     "DescribeBudgetResponseTypeDef",
-    "DescribeBudgetsRequestRequestTypeDef",
+    "DescribeBudgetsRequestPaginateTypeDef",
+    "DescribeBudgetsRequestTypeDef",
+    "DescribeBudgetsResponsePaginatorTypeDef",
     "DescribeBudgetsResponseTypeDef",
-    "DescribeNotificationsForBudgetRequestRequestTypeDef",
+    "DescribeNotificationsForBudgetRequestPaginateTypeDef",
+    "DescribeNotificationsForBudgetRequestTypeDef",
     "DescribeNotificationsForBudgetResponseTypeDef",
-    "DescribeSubscribersForNotificationRequestRequestTypeDef",
+    "DescribeSubscribersForNotificationRequestPaginateTypeDef",
+    "DescribeSubscribersForNotificationRequestTypeDef",
     "DescribeSubscribersForNotificationResponseTypeDef",
-    "ExecuteBudgetActionRequestRequestTypeDef",
+    "ExecuteBudgetActionRequestTypeDef",
     "ExecuteBudgetActionResponseTypeDef",
+    "ExpressionDimensionValuesOutputTypeDef",
+    "ExpressionDimensionValuesTypeDef",
+    "ExpressionOutputTypeDef",
+    "ExpressionPaginatorTypeDef",
+    "ExpressionTypeDef",
     "HistoricalOptionsTypeDef",
+    "IamActionDefinitionOutputTypeDef",
     "IamActionDefinitionTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "NotificationTypeDef",
     "NotificationWithSubscribersTypeDef",
     "PaginatorConfigTypeDef",
     "ResourceTagTypeDef",
     "ResponseMetadataTypeDef",
+    "ScpActionDefinitionOutputTypeDef",
     "ScpActionDefinitionTypeDef",
     "SpendTypeDef",
+    "SsmActionDefinitionOutputTypeDef",
     "SsmActionDefinitionTypeDef",
     "SubscriberTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
+    "TagValuesOutputTypeDef",
+    "TagValuesTypeDef",
+    "TimePeriodOutputTypeDef",
     "TimePeriodTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateBudgetActionRequestRequestTypeDef",
+    "TimePeriodUnionTypeDef",
+    "TimestampTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateBudgetActionRequestTypeDef",
     "UpdateBudgetActionResponseTypeDef",
-    "UpdateBudgetRequestRequestTypeDef",
-    "UpdateNotificationRequestRequestTypeDef",
-    "UpdateSubscriberRequestRequestTypeDef",
-)
-
-ActionHistoryDetailsTypeDef = TypedDict(
-    "ActionHistoryDetailsTypeDef",
-    {
-        "Message": str,
-        "Action": "ActionTypeDef",
-    },
-)
-
-ActionHistoryTypeDef = TypedDict(
-    "ActionHistoryTypeDef",
-    {
-        "Timestamp": datetime,
-        "Status": ActionStatusType,
-        "EventType": EventTypeType,
-        "ActionHistoryDetails": "ActionHistoryDetailsTypeDef",
-    },
-)
-
-ActionThresholdTypeDef = TypedDict(
-    "ActionThresholdTypeDef",
-    {
-        "ActionThresholdValue": float,
-        "ActionThresholdType": ThresholdTypeType,
-    },
-)
-
-ActionTypeDef = TypedDict(
-    "ActionTypeDef",
-    {
-        "ActionId": str,
-        "BudgetName": str,
-        "NotificationType": NotificationTypeType,
-        "ActionType": ActionTypeType,
-        "ActionThreshold": "ActionThresholdTypeDef",
-        "Definition": "DefinitionTypeDef",
-        "ExecutionRoleArn": str,
-        "ApprovalModel": ApprovalModelType,
-        "Status": ActionStatusType,
-        "Subscribers": List["SubscriberTypeDef"],
-    },
-)
-
-_RequiredAutoAdjustDataTypeDef = TypedDict(
-    "_RequiredAutoAdjustDataTypeDef",
-    {
-        "AutoAdjustType": AutoAdjustTypeType,
-    },
-)
-_OptionalAutoAdjustDataTypeDef = TypedDict(
-    "_OptionalAutoAdjustDataTypeDef",
-    {
-        "HistoricalOptions": "HistoricalOptionsTypeDef",
-        "LastAutoAdjustTime": Union[datetime, str],
-    },
-    total=False,
-)
-
-class AutoAdjustDataTypeDef(_RequiredAutoAdjustDataTypeDef, _OptionalAutoAdjustDataTypeDef):
-    pass
-
-BudgetNotificationsForAccountTypeDef = TypedDict(
-    "BudgetNotificationsForAccountTypeDef",
-    {
-        "Notifications": List["NotificationTypeDef"],
-        "BudgetName": str,
-    },
-    total=False,
-)
-
-BudgetPerformanceHistoryTypeDef = TypedDict(
-    "BudgetPerformanceHistoryTypeDef",
-    {
-        "BudgetName": str,
-        "BudgetType": BudgetTypeType,
-        "CostFilters": Dict[str, List[str]],
-        "CostTypes": "CostTypesTypeDef",
-        "TimeUnit": TimeUnitType,
-        "BudgetedAndActualAmountsList": List["BudgetedAndActualAmountsTypeDef"],
-    },
-    total=False,
-)
-
-_RequiredBudgetTypeDef = TypedDict(
-    "_RequiredBudgetTypeDef",
-    {
-        "BudgetName": str,
-        "TimeUnit": TimeUnitType,
-        "BudgetType": BudgetTypeType,
-    },
-)
-_OptionalBudgetTypeDef = TypedDict(
-    "_OptionalBudgetTypeDef",
-    {
-        "BudgetLimit": "SpendTypeDef",
-        "PlannedBudgetLimits": Dict[str, "SpendTypeDef"],
-        "CostFilters": Dict[str, List[str]],
-        "CostTypes": "CostTypesTypeDef",
-        "TimePeriod": "TimePeriodTypeDef",
-        "CalculatedSpend": "CalculatedSpendTypeDef",
-        "LastUpdatedTime": Union[datetime, str],
-        "AutoAdjustData": "AutoAdjustDataTypeDef",
-    },
-    total=False,
-)
-
-class BudgetTypeDef(_RequiredBudgetTypeDef, _OptionalBudgetTypeDef):
-    pass
-
-BudgetedAndActualAmountsTypeDef = TypedDict(
-    "BudgetedAndActualAmountsTypeDef",
-    {
-        "BudgetedAmount": "SpendTypeDef",
-        "ActualAmount": "SpendTypeDef",
-        "TimePeriod": "TimePeriodTypeDef",
-    },
-    total=False,
-)
-
-_RequiredCalculatedSpendTypeDef = TypedDict(
-    "_RequiredCalculatedSpendTypeDef",
-    {
-        "ActualSpend": "SpendTypeDef",
-    },
-)
-_OptionalCalculatedSpendTypeDef = TypedDict(
-    "_OptionalCalculatedSpendTypeDef",
-    {
-        "ForecastedSpend": "SpendTypeDef",
-    },
-    total=False,
-)
-
-class CalculatedSpendTypeDef(_RequiredCalculatedSpendTypeDef, _OptionalCalculatedSpendTypeDef):
-    pass
-
-CostTypesTypeDef = TypedDict(
-    "CostTypesTypeDef",
-    {
-        "IncludeTax": bool,
-        "IncludeSubscription": bool,
-        "UseBlended": bool,
-        "IncludeRefund": bool,
-        "IncludeCredit": bool,
-        "IncludeUpfront": bool,
-        "IncludeRecurring": bool,
-        "IncludeOtherSubscription": bool,
-        "IncludeSupport": bool,
-        "IncludeDiscount": bool,
-        "UseAmortized": bool,
-    },
-    total=False,
-)
-
-_RequiredCreateBudgetActionRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateBudgetActionRequestRequestTypeDef",
-    {
-        "AccountId": str,
-        "BudgetName": str,
-        "NotificationType": NotificationTypeType,
-        "ActionType": ActionTypeType,
-        "ActionThreshold": "ActionThresholdTypeDef",
-        "Definition": "DefinitionTypeDef",
-        "ExecutionRoleArn": str,
-        "ApprovalModel": ApprovalModelType,
-        "Subscribers": List["SubscriberTypeDef"],
-    },
-)
-_OptionalCreateBudgetActionRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateBudgetActionRequestRequestTypeDef",
-    {
-        "ResourceTags": List["ResourceTagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateBudgetActionRequestRequestTypeDef(
-    _RequiredCreateBudgetActionRequestRequestTypeDef,
-    _OptionalCreateBudgetActionRequestRequestTypeDef,
-):
-    pass
-
-CreateBudgetActionResponseTypeDef = TypedDict(
-    "CreateBudgetActionResponseTypeDef",
-    {
-        "AccountId": str,
-        "BudgetName": str,
-        "ActionId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateBudgetRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateBudgetRequestRequestTypeDef",
-    {
-        "AccountId": str,
-        "Budget": "BudgetTypeDef",
-    },
-)
-_OptionalCreateBudgetRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateBudgetRequestRequestTypeDef",
-    {
-        "NotificationsWithSubscribers": List["NotificationWithSubscribersTypeDef"],
-        "ResourceTags": List["ResourceTagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateBudgetRequestRequestTypeDef(
-    _RequiredCreateBudgetRequestRequestTypeDef, _OptionalCreateBudgetRequestRequestTypeDef
-):
-    pass
-
-CreateNotificationRequestRequestTypeDef = TypedDict(
-    "CreateNotificationRequestRequestTypeDef",
-    {
-        "AccountId": str,
-        "BudgetName": str,
-        "Notification": "NotificationTypeDef",
-        "Subscribers": List["SubscriberTypeDef"],
-    },
-)
-
-CreateSubscriberRequestRequestTypeDef = TypedDict(
-    "CreateSubscriberRequestRequestTypeDef",
-    {
-        "AccountId": str,
-        "BudgetName": str,
-        "Notification": "NotificationTypeDef",
-        "Subscriber": "SubscriberTypeDef",
-    },
-)
-
-DefinitionTypeDef = TypedDict(
-    "DefinitionTypeDef",
-    {
-        "IamActionDefinition": "IamActionDefinitionTypeDef",
-        "ScpActionDefinition": "ScpActionDefinitionTypeDef",
-        "SsmActionDefinition": "SsmActionDefinitionTypeDef",
-    },
-    total=False,
-)
-
-DeleteBudgetActionRequestRequestTypeDef = TypedDict(
-    "DeleteBudgetActionRequestRequestTypeDef",
-    {
-        "AccountId": str,
-        "BudgetName": str,
-        "ActionId": str,
-    },
-)
-
-DeleteBudgetActionResponseTypeDef = TypedDict(
-    "DeleteBudgetActionResponseTypeDef",
-    {
-        "AccountId": str,
-        "BudgetName": str,
-        "Action": "ActionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteBudgetRequestRequestTypeDef = TypedDict(
-    "DeleteBudgetRequestRequestTypeDef",
-    {
-        "AccountId": str,
-        "BudgetName": str,
-    },
-)
-
-DeleteNotificationRequestRequestTypeDef = TypedDict(
-    "DeleteNotificationRequestRequestTypeDef",
-    {
-        "AccountId": str,
-        "BudgetName": str,
-        "Notification": "NotificationTypeDef",
-    },
-)
-
-DeleteSubscriberRequestRequestTypeDef = TypedDict(
-    "DeleteSubscriberRequestRequestTypeDef",
-    {
-        "AccountId": str,
-        "BudgetName": str,
-        "Notification": "NotificationTypeDef",
-        "Subscriber": "SubscriberTypeDef",
-    },
-)
-
-_RequiredDescribeBudgetActionHistoriesRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeBudgetActionHistoriesRequestRequestTypeDef",
-    {
-        "AccountId": str,
-        "BudgetName": str,
-        "ActionId": str,
-    },
-)
-_OptionalDescribeBudgetActionHistoriesRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeBudgetActionHistoriesRequestRequestTypeDef",
-    {
-        "TimePeriod": "TimePeriodTypeDef",
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class DescribeBudgetActionHistoriesRequestRequestTypeDef(
-    _RequiredDescribeBudgetActionHistoriesRequestRequestTypeDef,
-    _OptionalDescribeBudgetActionHistoriesRequestRequestTypeDef,
-):
-    pass
-
-DescribeBudgetActionHistoriesResponseTypeDef = TypedDict(
-    "DescribeBudgetActionHistoriesResponseTypeDef",
-    {
-        "ActionHistories": List["ActionHistoryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeBudgetActionRequestRequestTypeDef = TypedDict(
-    "DescribeBudgetActionRequestRequestTypeDef",
-    {
-        "AccountId": str,
-        "BudgetName": str,
-        "ActionId": str,
-    },
-)
-
-DescribeBudgetActionResponseTypeDef = TypedDict(
-    "DescribeBudgetActionResponseTypeDef",
-    {
-        "AccountId": str,
-        "BudgetName": str,
-        "Action": "ActionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribeBudgetActionsForAccountRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeBudgetActionsForAccountRequestRequestTypeDef",
-    {
-        "AccountId": str,
-    },
-)
-_OptionalDescribeBudgetActionsForAccountRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeBudgetActionsForAccountRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class DescribeBudgetActionsForAccountRequestRequestTypeDef(
-    _RequiredDescribeBudgetActionsForAccountRequestRequestTypeDef,
-    _OptionalDescribeBudgetActionsForAccountRequestRequestTypeDef,
-):
-    pass
-
-DescribeBudgetActionsForAccountResponseTypeDef = TypedDict(
-    "DescribeBudgetActionsForAccountResponseTypeDef",
-    {
-        "Actions": List["ActionTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribeBudgetActionsForBudgetRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeBudgetActionsForBudgetRequestRequestTypeDef",
-    {
-        "AccountId": str,
-        "BudgetName": str,
-    },
-)
-_OptionalDescribeBudgetActionsForBudgetRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeBudgetActionsForBudgetRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class DescribeBudgetActionsForBudgetRequestRequestTypeDef(
-    _RequiredDescribeBudgetActionsForBudgetRequestRequestTypeDef,
-    _OptionalDescribeBudgetActionsForBudgetRequestRequestTypeDef,
-):
-    pass
-
-DescribeBudgetActionsForBudgetResponseTypeDef = TypedDict(
-    "DescribeBudgetActionsForBudgetResponseTypeDef",
-    {
-        "Actions": List["ActionTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribeBudgetNotificationsForAccountRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeBudgetNotificationsForAccountRequestRequestTypeDef",
-    {
-        "AccountId": str,
-    },
-)
-_OptionalDescribeBudgetNotificationsForAccountRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeBudgetNotificationsForAccountRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class DescribeBudgetNotificationsForAccountRequestRequestTypeDef(
-    _RequiredDescribeBudgetNotificationsForAccountRequestRequestTypeDef,
-    _OptionalDescribeBudgetNotificationsForAccountRequestRequestTypeDef,
-):
-    pass
-
-DescribeBudgetNotificationsForAccountResponseTypeDef = TypedDict(
-    "DescribeBudgetNotificationsForAccountResponseTypeDef",
-    {
-        "BudgetNotificationsForAccount": List["BudgetNotificationsForAccountTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribeBudgetPerformanceHistoryRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeBudgetPerformanceHistoryRequestRequestTypeDef",
-    {
-        "AccountId": str,
-        "BudgetName": str,
-    },
-)
-_OptionalDescribeBudgetPerformanceHistoryRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeBudgetPerformanceHistoryRequestRequestTypeDef",
-    {
-        "TimePeriod": "TimePeriodTypeDef",
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class DescribeBudgetPerformanceHistoryRequestRequestTypeDef(
-    _RequiredDescribeBudgetPerformanceHistoryRequestRequestTypeDef,
-    _OptionalDescribeBudgetPerformanceHistoryRequestRequestTypeDef,
-):
-    pass
-
-DescribeBudgetPerformanceHistoryResponseTypeDef = TypedDict(
-    "DescribeBudgetPerformanceHistoryResponseTypeDef",
-    {
-        "BudgetPerformanceHistory": "BudgetPerformanceHistoryTypeDef",
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeBudgetRequestRequestTypeDef = TypedDict(
-    "DescribeBudgetRequestRequestTypeDef",
-    {
-        "AccountId": str,
-        "BudgetName": str,
-    },
-)
-
-DescribeBudgetResponseTypeDef = TypedDict(
-    "DescribeBudgetResponseTypeDef",
-    {
-        "Budget": "BudgetTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribeBudgetsRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeBudgetsRequestRequestTypeDef",
-    {
-        "AccountId": str,
-    },
-)
-_OptionalDescribeBudgetsRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeBudgetsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class DescribeBudgetsRequestRequestTypeDef(
-    _RequiredDescribeBudgetsRequestRequestTypeDef, _OptionalDescribeBudgetsRequestRequestTypeDef
-):
-    pass
-
-DescribeBudgetsResponseTypeDef = TypedDict(
-    "DescribeBudgetsResponseTypeDef",
-    {
-        "Budgets": List["BudgetTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribeNotificationsForBudgetRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeNotificationsForBudgetRequestRequestTypeDef",
-    {
-        "AccountId": str,
-        "BudgetName": str,
-    },
-)
-_OptionalDescribeNotificationsForBudgetRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeNotificationsForBudgetRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class DescribeNotificationsForBudgetRequestRequestTypeDef(
-    _RequiredDescribeNotificationsForBudgetRequestRequestTypeDef,
-    _OptionalDescribeNotificationsForBudgetRequestRequestTypeDef,
-):
-    pass
-
-DescribeNotificationsForBudgetResponseTypeDef = TypedDict(
-    "DescribeNotificationsForBudgetResponseTypeDef",
-    {
-        "Notifications": List["NotificationTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribeSubscribersForNotificationRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeSubscribersForNotificationRequestRequestTypeDef",
-    {
-        "AccountId": str,
-        "BudgetName": str,
-        "Notification": "NotificationTypeDef",
-    },
-)
-_OptionalDescribeSubscribersForNotificationRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeSubscribersForNotificationRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class DescribeSubscribersForNotificationRequestRequestTypeDef(
-    _RequiredDescribeSubscribersForNotificationRequestRequestTypeDef,
-    _OptionalDescribeSubscribersForNotificationRequestRequestTypeDef,
-):
-    pass
-
-DescribeSubscribersForNotificationResponseTypeDef = TypedDict(
-    "DescribeSubscribersForNotificationResponseTypeDef",
-    {
-        "Subscribers": List["SubscriberTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ExecuteBudgetActionRequestRequestTypeDef = TypedDict(
-    "ExecuteBudgetActionRequestRequestTypeDef",
-    {
-        "AccountId": str,
-        "BudgetName": str,
-        "ActionId": str,
-        "ExecutionType": ExecutionTypeType,
-    },
-)
-
-ExecuteBudgetActionResponseTypeDef = TypedDict(
-    "ExecuteBudgetActionResponseTypeDef",
-    {
-        "AccountId": str,
-        "BudgetName": str,
-        "ActionId": str,
-        "ExecutionType": ExecutionTypeType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredHistoricalOptionsTypeDef = TypedDict(
-    "_RequiredHistoricalOptionsTypeDef",
-    {
-        "BudgetAdjustmentPeriod": int,
-    },
-)
-_OptionalHistoricalOptionsTypeDef = TypedDict(
-    "_OptionalHistoricalOptionsTypeDef",
-    {
-        "LookBackAvailablePeriods": int,
-    },
-    total=False,
-)
-
-class HistoricalOptionsTypeDef(
-    _RequiredHistoricalOptionsTypeDef, _OptionalHistoricalOptionsTypeDef
-):
-    pass
-
-_RequiredIamActionDefinitionTypeDef = TypedDict(
-    "_RequiredIamActionDefinitionTypeDef",
-    {
-        "PolicyArn": str,
-    },
-)
-_OptionalIamActionDefinitionTypeDef = TypedDict(
-    "_OptionalIamActionDefinitionTypeDef",
-    {
-        "Roles": List[str],
-        "Groups": List[str],
-        "Users": List[str],
-    },
-    total=False,
-)
-
-class IamActionDefinitionTypeDef(
-    _RequiredIamActionDefinitionTypeDef, _OptionalIamActionDefinitionTypeDef
-):
-    pass
-
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "ResourceARN": str,
-    },
-)
-
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "ResourceTags": List["ResourceTagTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredNotificationTypeDef = TypedDict(
-    "_RequiredNotificationTypeDef",
-    {
-        "NotificationType": NotificationTypeType,
-        "ComparisonOperator": ComparisonOperatorType,
-        "Threshold": float,
-    },
-)
-_OptionalNotificationTypeDef = TypedDict(
-    "_OptionalNotificationTypeDef",
-    {
-        "ThresholdType": ThresholdTypeType,
-        "NotificationState": NotificationStateType,
-    },
-    total=False,
-)
-
-class NotificationTypeDef(_RequiredNotificationTypeDef, _OptionalNotificationTypeDef):
-    pass
-
-NotificationWithSubscribersTypeDef = TypedDict(
-    "NotificationWithSubscribersTypeDef",
-    {
-        "Notification": "NotificationTypeDef",
-        "Subscribers": List["SubscriberTypeDef"],
-    },
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-ResourceTagTypeDef = TypedDict(
-    "ResourceTagTypeDef",
-    {
-        "Key": str,
-        "Value": str,
-    },
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-ScpActionDefinitionTypeDef = TypedDict(
-    "ScpActionDefinitionTypeDef",
-    {
-        "PolicyId": str,
-        "TargetIds": List[str],
-    },
-)
-
-SpendTypeDef = TypedDict(
-    "SpendTypeDef",
-    {
-        "Amount": str,
-        "Unit": str,
-    },
-)
-
-SsmActionDefinitionTypeDef = TypedDict(
-    "SsmActionDefinitionTypeDef",
-    {
-        "ActionSubType": ActionSubTypeType,
-        "Region": str,
-        "InstanceIds": List[str],
-    },
-)
-
-SubscriberTypeDef = TypedDict(
-    "SubscriberTypeDef",
-    {
-        "SubscriptionType": SubscriptionTypeType,
-        "Address": str,
-    },
-)
-
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "ResourceARN": str,
-        "ResourceTags": List["ResourceTagTypeDef"],
-    },
-)
-
-TimePeriodTypeDef = TypedDict(
-    "TimePeriodTypeDef",
-    {
-        "Start": Union[datetime, str],
-        "End": Union[datetime, str],
-    },
-    total=False,
-)
-
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "ResourceARN": str,
-        "ResourceTagKeys": List[str],
-    },
-)
-
-_RequiredUpdateBudgetActionRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateBudgetActionRequestRequestTypeDef",
-    {
-        "AccountId": str,
-        "BudgetName": str,
-        "ActionId": str,
-    },
-)
-_OptionalUpdateBudgetActionRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateBudgetActionRequestRequestTypeDef",
-    {
-        "NotificationType": NotificationTypeType,
-        "ActionThreshold": "ActionThresholdTypeDef",
-        "Definition": "DefinitionTypeDef",
-        "ExecutionRoleArn": str,
-        "ApprovalModel": ApprovalModelType,
-        "Subscribers": List["SubscriberTypeDef"],
-    },
-    total=False,
-)
-
-class UpdateBudgetActionRequestRequestTypeDef(
-    _RequiredUpdateBudgetActionRequestRequestTypeDef,
-    _OptionalUpdateBudgetActionRequestRequestTypeDef,
-):
-    pass
-
-UpdateBudgetActionResponseTypeDef = TypedDict(
-    "UpdateBudgetActionResponseTypeDef",
-    {
-        "AccountId": str,
-        "BudgetName": str,
-        "OldAction": "ActionTypeDef",
-        "NewAction": "ActionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UpdateBudgetRequestRequestTypeDef = TypedDict(
-    "UpdateBudgetRequestRequestTypeDef",
-    {
-        "AccountId": str,
-        "NewBudget": "BudgetTypeDef",
-    },
-)
-
-UpdateNotificationRequestRequestTypeDef = TypedDict(
-    "UpdateNotificationRequestRequestTypeDef",
-    {
-        "AccountId": str,
-        "BudgetName": str,
-        "OldNotification": "NotificationTypeDef",
-        "NewNotification": "NotificationTypeDef",
-    },
-)
-
-UpdateSubscriberRequestRequestTypeDef = TypedDict(
-    "UpdateSubscriberRequestRequestTypeDef",
-    {
-        "AccountId": str,
-        "BudgetName": str,
-        "Notification": "NotificationTypeDef",
-        "OldSubscriber": "SubscriberTypeDef",
-        "NewSubscriber": "SubscriberTypeDef",
-    },
-)
+    "UpdateBudgetRequestTypeDef",
+    "UpdateNotificationRequestTypeDef",
+    "UpdateSubscriberRequestTypeDef",
+)
+
+class ActionThresholdTypeDef(TypedDict):
+    ActionThresholdValue: float
+    ActionThresholdType: ThresholdTypeType
+
+class SubscriberTypeDef(TypedDict):
+    SubscriptionType: SubscriptionTypeType
+    Address: str
+
+class HistoricalOptionsTypeDef(TypedDict):
+    BudgetAdjustmentPeriod: int
+    LookBackAvailablePeriods: NotRequired[int]
+
+TimestampTypeDef = Union[datetime, str]
+
+class NotificationTypeDef(TypedDict):
+    NotificationType: NotificationTypeType
+    ComparisonOperator: ComparisonOperatorType
+    Threshold: float
+    ThresholdType: NotRequired[ThresholdTypeType]
+    NotificationState: NotRequired[NotificationStateType]
+
+class CostTypesTypeDef(TypedDict):
+    IncludeTax: NotRequired[bool]
+    IncludeSubscription: NotRequired[bool]
+    UseBlended: NotRequired[bool]
+    IncludeRefund: NotRequired[bool]
+    IncludeCredit: NotRequired[bool]
+    IncludeUpfront: NotRequired[bool]
+    IncludeRecurring: NotRequired[bool]
+    IncludeOtherSubscription: NotRequired[bool]
+    IncludeSupport: NotRequired[bool]
+    IncludeDiscount: NotRequired[bool]
+    UseAmortized: NotRequired[bool]
+
+class SpendTypeDef(TypedDict):
+    Amount: str
+    Unit: str
+
+class TimePeriodOutputTypeDef(TypedDict):
+    Start: NotRequired[datetime]
+    End: NotRequired[datetime]
+
+class CostCategoryValuesOutputTypeDef(TypedDict):
+    Key: NotRequired[str]
+    Values: NotRequired[List[str]]
+    MatchOptions: NotRequired[List[MatchOptionType]]
+
+class CostCategoryValuesTypeDef(TypedDict):
+    Key: NotRequired[str]
+    Values: NotRequired[Sequence[str]]
+    MatchOptions: NotRequired[Sequence[MatchOptionType]]
+
+class ResourceTagTypeDef(TypedDict):
+    Key: str
+    Value: str
+
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
+
+class IamActionDefinitionOutputTypeDef(TypedDict):
+    PolicyArn: str
+    Roles: NotRequired[List[str]]
+    Groups: NotRequired[List[str]]
+    Users: NotRequired[List[str]]
+
+class ScpActionDefinitionOutputTypeDef(TypedDict):
+    PolicyId: str
+    TargetIds: List[str]
+
+class SsmActionDefinitionOutputTypeDef(TypedDict):
+    ActionSubType: ActionSubTypeType
+    Region: str
+    InstanceIds: List[str]
+
+class IamActionDefinitionTypeDef(TypedDict):
+    PolicyArn: str
+    Roles: NotRequired[Sequence[str]]
+    Groups: NotRequired[Sequence[str]]
+    Users: NotRequired[Sequence[str]]
+
+class ScpActionDefinitionTypeDef(TypedDict):
+    PolicyId: str
+    TargetIds: Sequence[str]
+
+class SsmActionDefinitionTypeDef(TypedDict):
+    ActionSubType: ActionSubTypeType
+    Region: str
+    InstanceIds: Sequence[str]
+
+class DeleteBudgetActionRequestTypeDef(TypedDict):
+    AccountId: str
+    BudgetName: str
+    ActionId: str
+
+class DeleteBudgetRequestTypeDef(TypedDict):
+    AccountId: str
+    BudgetName: str
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class DescribeBudgetActionRequestTypeDef(TypedDict):
+    AccountId: str
+    BudgetName: str
+    ActionId: str
+
+class DescribeBudgetActionsForAccountRequestTypeDef(TypedDict):
+    AccountId: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class DescribeBudgetActionsForBudgetRequestTypeDef(TypedDict):
+    AccountId: str
+    BudgetName: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class DescribeBudgetNotificationsForAccountRequestTypeDef(TypedDict):
+    AccountId: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class DescribeBudgetRequestTypeDef(TypedDict):
+    AccountId: str
+    BudgetName: str
+    ShowFilterExpression: NotRequired[bool]
+
+class DescribeBudgetsRequestTypeDef(TypedDict):
+    AccountId: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+    ShowFilterExpression: NotRequired[bool]
+
+class DescribeNotificationsForBudgetRequestTypeDef(TypedDict):
+    AccountId: str
+    BudgetName: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ExecuteBudgetActionRequestTypeDef(TypedDict):
+    AccountId: str
+    BudgetName: str
+    ActionId: str
+    ExecutionType: ExecutionTypeType
+
+class ExpressionDimensionValuesOutputTypeDef(TypedDict):
+    Key: DimensionType
+    Values: List[str]
+    MatchOptions: NotRequired[List[MatchOptionType]]
+
+class ExpressionDimensionValuesTypeDef(TypedDict):
+    Key: DimensionType
+    Values: Sequence[str]
+    MatchOptions: NotRequired[Sequence[MatchOptionType]]
+
+class TagValuesOutputTypeDef(TypedDict):
+    Key: NotRequired[str]
+    Values: NotRequired[List[str]]
+    MatchOptions: NotRequired[List[MatchOptionType]]
+
+class TagValuesTypeDef(TypedDict):
+    Key: NotRequired[str]
+    Values: NotRequired[Sequence[str]]
+    MatchOptions: NotRequired[Sequence[MatchOptionType]]
+
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    ResourceARN: str
+
+class UntagResourceRequestTypeDef(TypedDict):
+    ResourceARN: str
+    ResourceTagKeys: Sequence[str]
+
+class AutoAdjustDataOutputTypeDef(TypedDict):
+    AutoAdjustType: AutoAdjustTypeType
+    HistoricalOptions: NotRequired[HistoricalOptionsTypeDef]
+    LastAutoAdjustTime: NotRequired[datetime]
+
+class AutoAdjustDataTypeDef(TypedDict):
+    AutoAdjustType: AutoAdjustTypeType
+    HistoricalOptions: NotRequired[HistoricalOptionsTypeDef]
+    LastAutoAdjustTime: NotRequired[TimestampTypeDef]
+
+class TimePeriodTypeDef(TypedDict):
+    Start: NotRequired[TimestampTypeDef]
+    End: NotRequired[TimestampTypeDef]
+
+class BudgetNotificationsForAccountTypeDef(TypedDict):
+    Notifications: NotRequired[List[NotificationTypeDef]]
+    BudgetName: NotRequired[str]
+
+class CreateNotificationRequestTypeDef(TypedDict):
+    AccountId: str
+    BudgetName: str
+    Notification: NotificationTypeDef
+    Subscribers: Sequence[SubscriberTypeDef]
+
+class CreateSubscriberRequestTypeDef(TypedDict):
+    AccountId: str
+    BudgetName: str
+    Notification: NotificationTypeDef
+    Subscriber: SubscriberTypeDef
+
+class DeleteNotificationRequestTypeDef(TypedDict):
+    AccountId: str
+    BudgetName: str
+    Notification: NotificationTypeDef
+
+class DeleteSubscriberRequestTypeDef(TypedDict):
+    AccountId: str
+    BudgetName: str
+    Notification: NotificationTypeDef
+    Subscriber: SubscriberTypeDef
+
+class DescribeSubscribersForNotificationRequestTypeDef(TypedDict):
+    AccountId: str
+    BudgetName: str
+    Notification: NotificationTypeDef
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class NotificationWithSubscribersTypeDef(TypedDict):
+    Notification: NotificationTypeDef
+    Subscribers: Sequence[SubscriberTypeDef]
+
+class UpdateNotificationRequestTypeDef(TypedDict):
+    AccountId: str
+    BudgetName: str
+    OldNotification: NotificationTypeDef
+    NewNotification: NotificationTypeDef
+
+class UpdateSubscriberRequestTypeDef(TypedDict):
+    AccountId: str
+    BudgetName: str
+    Notification: NotificationTypeDef
+    OldSubscriber: SubscriberTypeDef
+    NewSubscriber: SubscriberTypeDef
+
+class CalculatedSpendTypeDef(TypedDict):
+    ActualSpend: SpendTypeDef
+    ForecastedSpend: NotRequired[SpendTypeDef]
+
+class BudgetedAndActualAmountsTypeDef(TypedDict):
+    BudgetedAmount: NotRequired[SpendTypeDef]
+    ActualAmount: NotRequired[SpendTypeDef]
+    TimePeriod: NotRequired[TimePeriodOutputTypeDef]
+
+class TagResourceRequestTypeDef(TypedDict):
+    ResourceARN: str
+    ResourceTags: Sequence[ResourceTagTypeDef]
+
+class CreateBudgetActionResponseTypeDef(TypedDict):
+    AccountId: str
+    BudgetName: str
+    ActionId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeNotificationsForBudgetResponseTypeDef(TypedDict):
+    Notifications: List[NotificationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class DescribeSubscribersForNotificationResponseTypeDef(TypedDict):
+    Subscribers: List[SubscriberTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ExecuteBudgetActionResponseTypeDef(TypedDict):
+    AccountId: str
+    BudgetName: str
+    ActionId: str
+    ExecutionType: ExecutionTypeType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    ResourceTags: List[ResourceTagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DefinitionOutputTypeDef(TypedDict):
+    IamActionDefinition: NotRequired[IamActionDefinitionOutputTypeDef]
+    ScpActionDefinition: NotRequired[ScpActionDefinitionOutputTypeDef]
+    SsmActionDefinition: NotRequired[SsmActionDefinitionOutputTypeDef]
+
+class DefinitionTypeDef(TypedDict):
+    IamActionDefinition: NotRequired[IamActionDefinitionTypeDef]
+    ScpActionDefinition: NotRequired[ScpActionDefinitionTypeDef]
+    SsmActionDefinition: NotRequired[SsmActionDefinitionTypeDef]
+
+class DescribeBudgetActionsForAccountRequestPaginateTypeDef(TypedDict):
+    AccountId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeBudgetActionsForBudgetRequestPaginateTypeDef(TypedDict):
+    AccountId: str
+    BudgetName: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeBudgetNotificationsForAccountRequestPaginateTypeDef(TypedDict):
+    AccountId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeBudgetsRequestPaginateTypeDef(TypedDict):
+    AccountId: str
+    ShowFilterExpression: NotRequired[bool]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeNotificationsForBudgetRequestPaginateTypeDef(TypedDict):
+    AccountId: str
+    BudgetName: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeSubscribersForNotificationRequestPaginateTypeDef(TypedDict):
+    AccountId: str
+    BudgetName: str
+    Notification: NotificationTypeDef
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ExpressionOutputTypeDef(TypedDict):
+    Or: NotRequired[List[Dict[str, Any]]]
+    And: NotRequired[List[Dict[str, Any]]]
+    Not: NotRequired[Dict[str, Any]]
+    Dimensions: NotRequired[ExpressionDimensionValuesOutputTypeDef]
+    Tags: NotRequired[TagValuesOutputTypeDef]
+    CostCategories: NotRequired[CostCategoryValuesOutputTypeDef]
+
+class ExpressionPaginatorTypeDef(TypedDict):
+    Or: NotRequired[List[Dict[str, Any]]]
+    And: NotRequired[List[Dict[str, Any]]]
+    Not: NotRequired[Dict[str, Any]]
+    Dimensions: NotRequired[ExpressionDimensionValuesOutputTypeDef]
+    Tags: NotRequired[TagValuesOutputTypeDef]
+    CostCategories: NotRequired[CostCategoryValuesOutputTypeDef]
+
+class ExpressionTypeDef(TypedDict):
+    Or: NotRequired[Sequence[Mapping[str, Any]]]
+    And: NotRequired[Sequence[Mapping[str, Any]]]
+    Not: NotRequired[Mapping[str, Any]]
+    Dimensions: NotRequired[ExpressionDimensionValuesTypeDef]
+    Tags: NotRequired[TagValuesTypeDef]
+    CostCategories: NotRequired[CostCategoryValuesTypeDef]
+
+TimePeriodUnionTypeDef = Union[TimePeriodTypeDef, TimePeriodOutputTypeDef]
+
+class DescribeBudgetNotificationsForAccountResponseTypeDef(TypedDict):
+    BudgetNotificationsForAccount: List[BudgetNotificationsForAccountTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class BudgetPerformanceHistoryTypeDef(TypedDict):
+    BudgetName: NotRequired[str]
+    BudgetType: NotRequired[BudgetTypeType]
+    CostFilters: NotRequired[Dict[str, List[str]]]
+    CostTypes: NotRequired[CostTypesTypeDef]
+    TimeUnit: NotRequired[TimeUnitType]
+    BudgetedAndActualAmountsList: NotRequired[List[BudgetedAndActualAmountsTypeDef]]
+
+class ActionTypeDef(TypedDict):
+    ActionId: str
+    BudgetName: str
+    NotificationType: NotificationTypeType
+    ActionType: ActionTypeType
+    ActionThreshold: ActionThresholdTypeDef
+    Definition: DefinitionOutputTypeDef
+    ExecutionRoleArn: str
+    ApprovalModel: ApprovalModelType
+    Status: ActionStatusType
+    Subscribers: List[SubscriberTypeDef]
+
+DefinitionUnionTypeDef = Union[DefinitionTypeDef, DefinitionOutputTypeDef]
+
+class BudgetOutputTypeDef(TypedDict):
+    BudgetName: str
+    TimeUnit: TimeUnitType
+    BudgetType: BudgetTypeType
+    BudgetLimit: NotRequired[SpendTypeDef]
+    PlannedBudgetLimits: NotRequired[Dict[str, SpendTypeDef]]
+    CostFilters: NotRequired[Dict[str, List[str]]]
+    CostTypes: NotRequired[CostTypesTypeDef]
+    TimePeriod: NotRequired[TimePeriodOutputTypeDef]
+    CalculatedSpend: NotRequired[CalculatedSpendTypeDef]
+    LastUpdatedTime: NotRequired[datetime]
+    AutoAdjustData: NotRequired[AutoAdjustDataOutputTypeDef]
+    FilterExpression: NotRequired[ExpressionOutputTypeDef]
+    Metrics: NotRequired[List[MetricType]]
+
+class BudgetPaginatorTypeDef(TypedDict):
+    BudgetName: str
+    TimeUnit: TimeUnitType
+    BudgetType: BudgetTypeType
+    BudgetLimit: NotRequired[SpendTypeDef]
+    PlannedBudgetLimits: NotRequired[Dict[str, SpendTypeDef]]
+    CostFilters: NotRequired[Dict[str, List[str]]]
+    CostTypes: NotRequired[CostTypesTypeDef]
+    TimePeriod: NotRequired[TimePeriodOutputTypeDef]
+    CalculatedSpend: NotRequired[CalculatedSpendTypeDef]
+    LastUpdatedTime: NotRequired[datetime]
+    AutoAdjustData: NotRequired[AutoAdjustDataOutputTypeDef]
+    FilterExpression: NotRequired[ExpressionPaginatorTypeDef]
+    Metrics: NotRequired[List[MetricType]]
+
+class BudgetTypeDef(TypedDict):
+    BudgetName: str
+    TimeUnit: TimeUnitType
+    BudgetType: BudgetTypeType
+    BudgetLimit: NotRequired[SpendTypeDef]
+    PlannedBudgetLimits: NotRequired[Mapping[str, SpendTypeDef]]
+    CostFilters: NotRequired[Mapping[str, Sequence[str]]]
+    CostTypes: NotRequired[CostTypesTypeDef]
+    TimePeriod: NotRequired[TimePeriodTypeDef]
+    CalculatedSpend: NotRequired[CalculatedSpendTypeDef]
+    LastUpdatedTime: NotRequired[TimestampTypeDef]
+    AutoAdjustData: NotRequired[AutoAdjustDataTypeDef]
+    FilterExpression: NotRequired[ExpressionTypeDef]
+    Metrics: NotRequired[Sequence[MetricType]]
+
+class DescribeBudgetActionHistoriesRequestPaginateTypeDef(TypedDict):
+    AccountId: str
+    BudgetName: str
+    ActionId: str
+    TimePeriod: NotRequired[TimePeriodUnionTypeDef]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeBudgetActionHistoriesRequestTypeDef(TypedDict):
+    AccountId: str
+    BudgetName: str
+    ActionId: str
+    TimePeriod: NotRequired[TimePeriodUnionTypeDef]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class DescribeBudgetPerformanceHistoryRequestPaginateTypeDef(TypedDict):
+    AccountId: str
+    BudgetName: str
+    TimePeriod: NotRequired[TimePeriodUnionTypeDef]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeBudgetPerformanceHistoryRequestTypeDef(TypedDict):
+    AccountId: str
+    BudgetName: str
+    TimePeriod: NotRequired[TimePeriodUnionTypeDef]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class DescribeBudgetPerformanceHistoryResponseTypeDef(TypedDict):
+    BudgetPerformanceHistory: BudgetPerformanceHistoryTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ActionHistoryDetailsTypeDef(TypedDict):
+    Message: str
+    Action: ActionTypeDef
+
+class DeleteBudgetActionResponseTypeDef(TypedDict):
+    AccountId: str
+    BudgetName: str
+    Action: ActionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeBudgetActionResponseTypeDef(TypedDict):
+    AccountId: str
+    BudgetName: str
+    Action: ActionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeBudgetActionsForAccountResponseTypeDef(TypedDict):
+    Actions: List[ActionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class DescribeBudgetActionsForBudgetResponseTypeDef(TypedDict):
+    Actions: List[ActionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class UpdateBudgetActionResponseTypeDef(TypedDict):
+    AccountId: str
+    BudgetName: str
+    OldAction: ActionTypeDef
+    NewAction: ActionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateBudgetActionRequestTypeDef(TypedDict):
+    AccountId: str
+    BudgetName: str
+    NotificationType: NotificationTypeType
+    ActionType: ActionTypeType
+    ActionThreshold: ActionThresholdTypeDef
+    Definition: DefinitionUnionTypeDef
+    ExecutionRoleArn: str
+    ApprovalModel: ApprovalModelType
+    Subscribers: Sequence[SubscriberTypeDef]
+    ResourceTags: NotRequired[Sequence[ResourceTagTypeDef]]
+
+class UpdateBudgetActionRequestTypeDef(TypedDict):
+    AccountId: str
+    BudgetName: str
+    ActionId: str
+    NotificationType: NotRequired[NotificationTypeType]
+    ActionThreshold: NotRequired[ActionThresholdTypeDef]
+    Definition: NotRequired[DefinitionUnionTypeDef]
+    ExecutionRoleArn: NotRequired[str]
+    ApprovalModel: NotRequired[ApprovalModelType]
+    Subscribers: NotRequired[Sequence[SubscriberTypeDef]]
+
+class DescribeBudgetResponseTypeDef(TypedDict):
+    Budget: BudgetOutputTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeBudgetsResponseTypeDef(TypedDict):
+    Budgets: List[BudgetOutputTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class DescribeBudgetsResponsePaginatorTypeDef(TypedDict):
+    Budgets: List[BudgetPaginatorTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+BudgetUnionTypeDef = Union[BudgetTypeDef, BudgetOutputTypeDef]
+
+class ActionHistoryTypeDef(TypedDict):
+    Timestamp: datetime
+    Status: ActionStatusType
+    EventType: EventTypeType
+    ActionHistoryDetails: ActionHistoryDetailsTypeDef
+
+class CreateBudgetRequestTypeDef(TypedDict):
+    AccountId: str
+    Budget: BudgetUnionTypeDef
+    NotificationsWithSubscribers: NotRequired[Sequence[NotificationWithSubscribersTypeDef]]
+    ResourceTags: NotRequired[Sequence[ResourceTagTypeDef]]
+
+class UpdateBudgetRequestTypeDef(TypedDict):
+    AccountId: str
+    NewBudget: BudgetUnionTypeDef
+
+class DescribeBudgetActionHistoriesResponseTypeDef(TypedDict):
+    ActionHistories: List[ActionHistoryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]

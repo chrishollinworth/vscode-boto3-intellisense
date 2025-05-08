@@ -1,31 +1,40 @@
 """
 Type annotations for personalize-runtime service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_personalize_runtime/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_personalize_runtime/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_personalize_runtime.type_defs import GetActionRecommendationsRequestRequestTypeDef
+    from mypy_boto3_personalize_runtime.type_defs import GetActionRecommendationsRequestTypeDef
 
-    data: GetActionRecommendationsRequestRequestTypeDef = {...}
+    data: GetActionRecommendationsRequestTypeDef = ...
     ```
 """
 
-import sys
-from typing import Any, Dict, List
+from __future__ import annotations
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+import sys
+
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
-    "GetActionRecommendationsRequestRequestTypeDef",
+    "GetActionRecommendationsRequestTypeDef",
     "GetActionRecommendationsResponseTypeDef",
-    "GetPersonalizedRankingRequestRequestTypeDef",
+    "GetPersonalizedRankingRequestTypeDef",
     "GetPersonalizedRankingResponseTypeDef",
-    "GetRecommendationsRequestRequestTypeDef",
+    "GetRecommendationsRequestTypeDef",
     "GetRecommendationsResponseTypeDef",
     "PredictedActionTypeDef",
     "PredictedItemTypeDef",
@@ -33,126 +42,69 @@ __all__ = (
     "ResponseMetadataTypeDef",
 )
 
-GetActionRecommendationsRequestRequestTypeDef = TypedDict(
-    "GetActionRecommendationsRequestRequestTypeDef",
-    {
-        "campaignArn": str,
-        "userId": str,
-        "numResults": int,
-        "filterArn": str,
-        "filterValues": Dict[str, str],
-    },
-    total=False,
-)
+class GetActionRecommendationsRequestTypeDef(TypedDict):
+    campaignArn: NotRequired[str]
+    userId: NotRequired[str]
+    numResults: NotRequired[int]
+    filterArn: NotRequired[str]
+    filterValues: NotRequired[Mapping[str, str]]
 
-GetActionRecommendationsResponseTypeDef = TypedDict(
-    "GetActionRecommendationsResponseTypeDef",
-    {
-        "actionList": List["PredictedActionTypeDef"],
-        "recommendationId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class PredictedActionTypeDef(TypedDict):
+    actionId: NotRequired[str]
+    score: NotRequired[float]
 
-_RequiredGetPersonalizedRankingRequestRequestTypeDef = TypedDict(
-    "_RequiredGetPersonalizedRankingRequestRequestTypeDef",
-    {
-        "campaignArn": str,
-        "inputList": List[str],
-        "userId": str,
-    },
-)
-_OptionalGetPersonalizedRankingRequestRequestTypeDef = TypedDict(
-    "_OptionalGetPersonalizedRankingRequestRequestTypeDef",
-    {
-        "context": Dict[str, str],
-        "filterArn": str,
-        "filterValues": Dict[str, str],
-        "metadataColumns": Dict[str, List[str]],
-    },
-    total=False,
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-class GetPersonalizedRankingRequestRequestTypeDef(
-    _RequiredGetPersonalizedRankingRequestRequestTypeDef,
-    _OptionalGetPersonalizedRankingRequestRequestTypeDef,
-):
-    pass
+class GetPersonalizedRankingRequestTypeDef(TypedDict):
+    campaignArn: str
+    inputList: Sequence[str]
+    userId: str
+    context: NotRequired[Mapping[str, str]]
+    filterArn: NotRequired[str]
+    filterValues: NotRequired[Mapping[str, str]]
+    metadataColumns: NotRequired[Mapping[str, Sequence[str]]]
 
-GetPersonalizedRankingResponseTypeDef = TypedDict(
-    "GetPersonalizedRankingResponseTypeDef",
-    {
-        "personalizedRanking": List["PredictedItemTypeDef"],
-        "recommendationId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class PredictedItemTypeDef(TypedDict):
+    itemId: NotRequired[str]
+    score: NotRequired[float]
+    promotionName: NotRequired[str]
+    metadata: NotRequired[Dict[str, str]]
+    reason: NotRequired[List[str]]
 
-GetRecommendationsRequestRequestTypeDef = TypedDict(
-    "GetRecommendationsRequestRequestTypeDef",
-    {
-        "campaignArn": str,
-        "itemId": str,
-        "userId": str,
-        "numResults": int,
-        "context": Dict[str, str],
-        "filterArn": str,
-        "filterValues": Dict[str, str],
-        "recommenderArn": str,
-        "promotions": List["PromotionTypeDef"],
-        "metadataColumns": Dict[str, List[str]],
-    },
-    total=False,
-)
+class PromotionTypeDef(TypedDict):
+    name: NotRequired[str]
+    percentPromotedItems: NotRequired[int]
+    filterArn: NotRequired[str]
+    filterValues: NotRequired[Mapping[str, str]]
 
-GetRecommendationsResponseTypeDef = TypedDict(
-    "GetRecommendationsResponseTypeDef",
-    {
-        "itemList": List["PredictedItemTypeDef"],
-        "recommendationId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetActionRecommendationsResponseTypeDef(TypedDict):
+    actionList: List[PredictedActionTypeDef]
+    recommendationId: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-PredictedActionTypeDef = TypedDict(
-    "PredictedActionTypeDef",
-    {
-        "actionId": str,
-        "score": float,
-    },
-    total=False,
-)
+class GetPersonalizedRankingResponseTypeDef(TypedDict):
+    personalizedRanking: List[PredictedItemTypeDef]
+    recommendationId: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-PredictedItemTypeDef = TypedDict(
-    "PredictedItemTypeDef",
-    {
-        "itemId": str,
-        "score": float,
-        "promotionName": str,
-        "metadata": Dict[str, str],
-        "reason": List[str],
-    },
-    total=False,
-)
+class GetRecommendationsResponseTypeDef(TypedDict):
+    itemList: List[PredictedItemTypeDef]
+    recommendationId: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-PromotionTypeDef = TypedDict(
-    "PromotionTypeDef",
-    {
-        "name": str,
-        "percentPromotedItems": int,
-        "filterArn": str,
-        "filterValues": Dict[str, str],
-    },
-    total=False,
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
+class GetRecommendationsRequestTypeDef(TypedDict):
+    campaignArn: NotRequired[str]
+    itemId: NotRequired[str]
+    userId: NotRequired[str]
+    numResults: NotRequired[int]
+    context: NotRequired[Mapping[str, str]]
+    filterArn: NotRequired[str]
+    filterValues: NotRequired[Mapping[str, str]]
+    recommenderArn: NotRequired[str]
+    promotions: NotRequired[Sequence[PromotionTypeDef]]
+    metadataColumns: NotRequired[Mapping[str, Sequence[str]]]

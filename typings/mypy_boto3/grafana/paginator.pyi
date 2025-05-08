@@ -1,14 +1,16 @@
 """
 Type annotations for grafana service client paginators.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/paginators.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_grafana/paginators/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
 
-    from mypy_boto3_grafana import ManagedGrafanaClient
+    from mypy_boto3_grafana.client import ManagedGrafanaClient
     from mypy_boto3_grafana.paginator import (
         ListPermissionsPaginator,
         ListVersionsPaginator,
@@ -17,7 +19,8 @@ Usage::
         ListWorkspacesPaginator,
     )
 
-    client: ManagedGrafanaClient = boto3.client("grafana")
+    session = Session()
+    client: ManagedGrafanaClient = session.client("grafana")
 
     list_permissions_paginator: ListPermissionsPaginator = client.get_paginator("list_permissions")
     list_versions_paginator: ListVersionsPaginator = client.get_paginator("list_versions")
@@ -27,19 +30,30 @@ Usage::
     ```
 """
 
-from typing import Iterator
+from __future__ import annotations
 
-from botocore.paginate import Paginator as Boto3Paginator
+import sys
+from typing import TYPE_CHECKING
 
-from .literals import UserTypeType
+from botocore.paginate import PageIterator, Paginator
+
 from .type_defs import (
+    ListPermissionsRequestPaginateTypeDef,
     ListPermissionsResponseTypeDef,
+    ListVersionsRequestPaginateTypeDef,
     ListVersionsResponseTypeDef,
+    ListWorkspaceServiceAccountsRequestPaginateTypeDef,
     ListWorkspaceServiceAccountsResponseTypeDef,
+    ListWorkspaceServiceAccountTokensRequestPaginateTypeDef,
     ListWorkspaceServiceAccountTokensResponseTypeDef,
+    ListWorkspacesRequestPaginateTypeDef,
     ListWorkspacesResponseTypeDef,
-    PaginatorConfigTypeDef,
 )
+
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = (
     "ListPermissionsPaginator",
@@ -49,82 +63,96 @@ __all__ = (
     "ListWorkspacesPaginator",
 )
 
-class ListPermissionsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/grafana.html#ManagedGrafana.Paginator.ListPermissions)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/paginators.html#listpermissionspaginator)
-    """
+if TYPE_CHECKING:
+    _ListPermissionsPaginatorBase = Paginator[ListPermissionsResponseTypeDef]
+else:
+    _ListPermissionsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        workspaceId: str,
-        groupId: str = None,
-        userId: str = None,
-        userType: UserTypeType = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListPermissionsResponseTypeDef]:
+class ListPermissionsPaginator(_ListPermissionsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/grafana/paginator/ListPermissions.html#ManagedGrafana.Paginator.ListPermissions)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_grafana/paginators/#listpermissionspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListPermissionsRequestPaginateTypeDef]
+    ) -> PageIterator[ListPermissionsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/grafana.html#ManagedGrafana.Paginator.ListPermissions.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/paginators.html#listpermissionspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/grafana/paginator/ListPermissions.html#ManagedGrafana.Paginator.ListPermissions.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_grafana/paginators/#listpermissionspaginator)
         """
 
-class ListVersionsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/grafana.html#ManagedGrafana.Paginator.ListVersions)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/paginators.html#listversionspaginator)
-    """
+if TYPE_CHECKING:
+    _ListVersionsPaginatorBase = Paginator[ListVersionsResponseTypeDef]
+else:
+    _ListVersionsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, workspaceId: str = None, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListVersionsResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/grafana.html#ManagedGrafana.Paginator.ListVersions.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/paginators.html#listversionspaginator)
-        """
-
-class ListWorkspaceServiceAccountTokensPaginator(Boto3Paginator):
+class ListVersionsPaginator(_ListVersionsPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/grafana.html#ManagedGrafana.Paginator.ListWorkspaceServiceAccountTokens)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/paginators.html#listworkspaceserviceaccounttokenspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/grafana/paginator/ListVersions.html#ManagedGrafana.Paginator.ListVersions)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_grafana/paginators/#listversionspaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        serviceAccountId: str,
-        workspaceId: str,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListWorkspaceServiceAccountTokensResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListVersionsRequestPaginateTypeDef]
+    ) -> PageIterator[ListVersionsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/grafana.html#ManagedGrafana.Paginator.ListWorkspaceServiceAccountTokens.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/paginators.html#listworkspaceserviceaccounttokenspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/grafana/paginator/ListVersions.html#ManagedGrafana.Paginator.ListVersions.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_grafana/paginators/#listversionspaginator)
         """
 
-class ListWorkspaceServiceAccountsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/grafana.html#ManagedGrafana.Paginator.ListWorkspaceServiceAccounts)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/paginators.html#listworkspaceserviceaccountspaginator)
-    """
+if TYPE_CHECKING:
+    _ListWorkspaceServiceAccountTokensPaginatorBase = Paginator[
+        ListWorkspaceServiceAccountTokensResponseTypeDef
+    ]
+else:
+    _ListWorkspaceServiceAccountTokensPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, workspaceId: str, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListWorkspaceServiceAccountsResponseTypeDef]:
+class ListWorkspaceServiceAccountTokensPaginator(_ListWorkspaceServiceAccountTokensPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/grafana/paginator/ListWorkspaceServiceAccountTokens.html#ManagedGrafana.Paginator.ListWorkspaceServiceAccountTokens)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_grafana/paginators/#listworkspaceserviceaccounttokenspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListWorkspaceServiceAccountTokensRequestPaginateTypeDef]
+    ) -> PageIterator[ListWorkspaceServiceAccountTokensResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/grafana.html#ManagedGrafana.Paginator.ListWorkspaceServiceAccounts.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/paginators.html#listworkspaceserviceaccountspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/grafana/paginator/ListWorkspaceServiceAccountTokens.html#ManagedGrafana.Paginator.ListWorkspaceServiceAccountTokens.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_grafana/paginators/#listworkspaceserviceaccounttokenspaginator)
         """
 
-class ListWorkspacesPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/grafana.html#ManagedGrafana.Paginator.ListWorkspaces)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/paginators.html#listworkspacespaginator)
-    """
+if TYPE_CHECKING:
+    _ListWorkspaceServiceAccountsPaginatorBase = Paginator[
+        ListWorkspaceServiceAccountsResponseTypeDef
+    ]
+else:
+    _ListWorkspaceServiceAccountsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListWorkspacesResponseTypeDef]:
+class ListWorkspaceServiceAccountsPaginator(_ListWorkspaceServiceAccountsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/grafana/paginator/ListWorkspaceServiceAccounts.html#ManagedGrafana.Paginator.ListWorkspaceServiceAccounts)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_grafana/paginators/#listworkspaceserviceaccountspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListWorkspaceServiceAccountsRequestPaginateTypeDef]
+    ) -> PageIterator[ListWorkspaceServiceAccountsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/grafana.html#ManagedGrafana.Paginator.ListWorkspaces.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_grafana/paginators.html#listworkspacespaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/grafana/paginator/ListWorkspaceServiceAccounts.html#ManagedGrafana.Paginator.ListWorkspaceServiceAccounts.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_grafana/paginators/#listworkspaceserviceaccountspaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListWorkspacesPaginatorBase = Paginator[ListWorkspacesResponseTypeDef]
+else:
+    _ListWorkspacesPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListWorkspacesPaginator(_ListWorkspacesPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/grafana/paginator/ListWorkspaces.html#ManagedGrafana.Paginator.ListWorkspaces)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_grafana/paginators/#listworkspacespaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListWorkspacesRequestPaginateTypeDef]
+    ) -> PageIterator[ListWorkspacesResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/grafana/paginator/ListWorkspaces.html#ManagedGrafana.Paginator.ListWorkspaces.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_grafana/paginators/#listworkspacespaginator)
         """

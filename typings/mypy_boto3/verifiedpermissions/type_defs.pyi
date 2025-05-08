@@ -1,41 +1,66 @@
 """
 Type annotations for verifiedpermissions service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_verifiedpermissions/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_verifiedpermissions/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_verifiedpermissions.type_defs import ActionIdentifierTypeDef
 
-    data: ActionIdentifierTypeDef = {...}
+    data: ActionIdentifierTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
+from typing import Any, Union
 
-from .literals import DecisionType, PolicyEffectType, PolicyTypeType, ValidationModeType
+from .literals import (
+    BatchGetPolicyErrorCodeType,
+    CedarVersionType,
+    DecisionType,
+    DeletionProtectionType,
+    PolicyEffectType,
+    PolicyTypeType,
+    ValidationModeType,
+)
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
     "ActionIdentifierTypeDef",
+    "AttributeValueOutputTypeDef",
     "AttributeValueTypeDef",
+    "AttributeValueUnionTypeDef",
+    "BatchGetPolicyErrorItemTypeDef",
+    "BatchGetPolicyInputItemTypeDef",
+    "BatchGetPolicyInputTypeDef",
+    "BatchGetPolicyOutputItemTypeDef",
+    "BatchGetPolicyOutputTypeDef",
+    "BatchIsAuthorizedInputItemOutputTypeDef",
     "BatchIsAuthorizedInputItemTypeDef",
-    "BatchIsAuthorizedInputRequestTypeDef",
+    "BatchIsAuthorizedInputItemUnionTypeDef",
+    "BatchIsAuthorizedInputTypeDef",
     "BatchIsAuthorizedOutputItemTypeDef",
     "BatchIsAuthorizedOutputTypeDef",
+    "BatchIsAuthorizedWithTokenInputItemOutputTypeDef",
     "BatchIsAuthorizedWithTokenInputItemTypeDef",
-    "BatchIsAuthorizedWithTokenInputRequestTypeDef",
+    "BatchIsAuthorizedWithTokenInputItemUnionTypeDef",
+    "BatchIsAuthorizedWithTokenInputTypeDef",
     "BatchIsAuthorizedWithTokenOutputItemTypeDef",
     "BatchIsAuthorizedWithTokenOutputTypeDef",
     "CognitoGroupConfigurationDetailTypeDef",
@@ -47,51 +72,59 @@ __all__ = (
     "ConfigurationDetailTypeDef",
     "ConfigurationItemTypeDef",
     "ConfigurationTypeDef",
+    "ContextDefinitionOutputTypeDef",
     "ContextDefinitionTypeDef",
-    "CreateIdentitySourceInputRequestTypeDef",
+    "ContextDefinitionUnionTypeDef",
+    "CreateIdentitySourceInputTypeDef",
     "CreateIdentitySourceOutputTypeDef",
-    "CreatePolicyInputRequestTypeDef",
+    "CreatePolicyInputTypeDef",
     "CreatePolicyOutputTypeDef",
-    "CreatePolicyStoreInputRequestTypeDef",
+    "CreatePolicyStoreInputTypeDef",
     "CreatePolicyStoreOutputTypeDef",
-    "CreatePolicyTemplateInputRequestTypeDef",
+    "CreatePolicyTemplateInputTypeDef",
     "CreatePolicyTemplateOutputTypeDef",
-    "DeleteIdentitySourceInputRequestTypeDef",
-    "DeletePolicyInputRequestTypeDef",
-    "DeletePolicyStoreInputRequestTypeDef",
-    "DeletePolicyTemplateInputRequestTypeDef",
+    "DeleteIdentitySourceInputTypeDef",
+    "DeletePolicyInputTypeDef",
+    "DeletePolicyStoreInputTypeDef",
+    "DeletePolicyTemplateInputTypeDef",
     "DeterminingPolicyItemTypeDef",
     "EntitiesDefinitionTypeDef",
     "EntityIdentifierTypeDef",
     "EntityItemTypeDef",
     "EntityReferenceTypeDef",
     "EvaluationErrorItemTypeDef",
-    "GetIdentitySourceInputRequestTypeDef",
+    "GetIdentitySourceInputTypeDef",
     "GetIdentitySourceOutputTypeDef",
-    "GetPolicyInputRequestTypeDef",
+    "GetPolicyInputTypeDef",
     "GetPolicyOutputTypeDef",
-    "GetPolicyStoreInputRequestTypeDef",
+    "GetPolicyStoreInputTypeDef",
     "GetPolicyStoreOutputTypeDef",
-    "GetPolicyTemplateInputRequestTypeDef",
+    "GetPolicyTemplateInputTypeDef",
     "GetPolicyTemplateOutputTypeDef",
-    "GetSchemaInputRequestTypeDef",
+    "GetSchemaInputTypeDef",
     "GetSchemaOutputTypeDef",
     "IdentitySourceDetailsTypeDef",
     "IdentitySourceFilterTypeDef",
     "IdentitySourceItemDetailsTypeDef",
     "IdentitySourceItemTypeDef",
-    "IsAuthorizedInputRequestTypeDef",
+    "IsAuthorizedInputTypeDef",
     "IsAuthorizedOutputTypeDef",
-    "IsAuthorizedWithTokenInputRequestTypeDef",
+    "IsAuthorizedWithTokenInputTypeDef",
     "IsAuthorizedWithTokenOutputTypeDef",
-    "ListIdentitySourcesInputRequestTypeDef",
+    "ListIdentitySourcesInputPaginateTypeDef",
+    "ListIdentitySourcesInputTypeDef",
     "ListIdentitySourcesOutputTypeDef",
-    "ListPoliciesInputRequestTypeDef",
+    "ListPoliciesInputPaginateTypeDef",
+    "ListPoliciesInputTypeDef",
     "ListPoliciesOutputTypeDef",
-    "ListPolicyStoresInputRequestTypeDef",
+    "ListPolicyStoresInputPaginateTypeDef",
+    "ListPolicyStoresInputTypeDef",
     "ListPolicyStoresOutputTypeDef",
-    "ListPolicyTemplatesInputRequestTypeDef",
+    "ListPolicyTemplatesInputPaginateTypeDef",
+    "ListPolicyTemplatesInputTypeDef",
     "ListPolicyTemplatesOutputTypeDef",
+    "ListTagsForResourceInputTypeDef",
+    "ListTagsForResourceOutputTypeDef",
     "OpenIdConnectAccessTokenConfigurationDetailTypeDef",
     "OpenIdConnectAccessTokenConfigurationItemTypeDef",
     "OpenIdConnectAccessTokenConfigurationTypeDef",
@@ -115,20 +148,22 @@ __all__ = (
     "PolicyItemTypeDef",
     "PolicyStoreItemTypeDef",
     "PolicyTemplateItemTypeDef",
-    "PutSchemaInputRequestTypeDef",
+    "PutSchemaInputTypeDef",
     "PutSchemaOutputTypeDef",
     "ResponseMetadataTypeDef",
     "SchemaDefinitionTypeDef",
     "StaticPolicyDefinitionDetailTypeDef",
     "StaticPolicyDefinitionItemTypeDef",
     "StaticPolicyDefinitionTypeDef",
+    "TagResourceInputTypeDef",
     "TemplateLinkedPolicyDefinitionDetailTypeDef",
     "TemplateLinkedPolicyDefinitionItemTypeDef",
     "TemplateLinkedPolicyDefinitionTypeDef",
+    "UntagResourceInputTypeDef",
     "UpdateCognitoGroupConfigurationTypeDef",
     "UpdateCognitoUserPoolConfigurationTypeDef",
     "UpdateConfigurationTypeDef",
-    "UpdateIdentitySourceInputRequestTypeDef",
+    "UpdateIdentitySourceInputTypeDef",
     "UpdateIdentitySourceOutputTypeDef",
     "UpdateOpenIdConnectAccessTokenConfigurationTypeDef",
     "UpdateOpenIdConnectConfigurationTypeDef",
@@ -136,1494 +171,743 @@ __all__ = (
     "UpdateOpenIdConnectIdentityTokenConfigurationTypeDef",
     "UpdateOpenIdConnectTokenSelectionTypeDef",
     "UpdatePolicyDefinitionTypeDef",
-    "UpdatePolicyInputRequestTypeDef",
+    "UpdatePolicyInputTypeDef",
     "UpdatePolicyOutputTypeDef",
-    "UpdatePolicyStoreInputRequestTypeDef",
+    "UpdatePolicyStoreInputTypeDef",
     "UpdatePolicyStoreOutputTypeDef",
-    "UpdatePolicyTemplateInputRequestTypeDef",
+    "UpdatePolicyTemplateInputTypeDef",
     "UpdatePolicyTemplateOutputTypeDef",
     "UpdateStaticPolicyDefinitionTypeDef",
     "ValidationSettingsTypeDef",
 )
 
-ActionIdentifierTypeDef = TypedDict(
-    "ActionIdentifierTypeDef",
+class ActionIdentifierTypeDef(TypedDict):
+    actionType: str
+    actionId: str
+
+class EntityIdentifierTypeDef(TypedDict):
+    entityType: str
+    entityId: str
+
+class BatchGetPolicyErrorItemTypeDef(TypedDict):
+    code: BatchGetPolicyErrorCodeType
+    policyStoreId: str
+    policyId: str
+    message: str
+
+class BatchGetPolicyInputItemTypeDef(TypedDict):
+    policyStoreId: str
+    policyId: str
+
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
+
+class DeterminingPolicyItemTypeDef(TypedDict):
+    policyId: str
+
+class EvaluationErrorItemTypeDef(TypedDict):
+    errorDescription: str
+
+class CognitoGroupConfigurationDetailTypeDef(TypedDict):
+    groupEntityType: NotRequired[str]
+
+class CognitoGroupConfigurationItemTypeDef(TypedDict):
+    groupEntityType: NotRequired[str]
+
+class CognitoGroupConfigurationTypeDef(TypedDict):
+    groupEntityType: str
+
+class ValidationSettingsTypeDef(TypedDict):
+    mode: ValidationModeType
+
+class CreatePolicyTemplateInputTypeDef(TypedDict):
+    policyStoreId: str
+    statement: str
+    clientToken: NotRequired[str]
+    description: NotRequired[str]
+
+class DeleteIdentitySourceInputTypeDef(TypedDict):
+    policyStoreId: str
+    identitySourceId: str
+
+class DeletePolicyInputTypeDef(TypedDict):
+    policyStoreId: str
+    policyId: str
+
+class DeletePolicyStoreInputTypeDef(TypedDict):
+    policyStoreId: str
+
+class DeletePolicyTemplateInputTypeDef(TypedDict):
+    policyStoreId: str
+    policyTemplateId: str
+
+class GetIdentitySourceInputTypeDef(TypedDict):
+    policyStoreId: str
+    identitySourceId: str
+
+class IdentitySourceDetailsTypeDef(TypedDict):
+    clientIds: NotRequired[List[str]]
+    userPoolArn: NotRequired[str]
+    discoveryUrl: NotRequired[str]
+    openIdIssuer: NotRequired[Literal["COGNITO"]]
+
+class GetPolicyInputTypeDef(TypedDict):
+    policyStoreId: str
+    policyId: str
+
+class GetPolicyStoreInputTypeDef(TypedDict):
+    policyStoreId: str
+    tags: NotRequired[bool]
+
+class GetPolicyTemplateInputTypeDef(TypedDict):
+    policyStoreId: str
+    policyTemplateId: str
+
+class GetSchemaInputTypeDef(TypedDict):
+    policyStoreId: str
+
+class IdentitySourceFilterTypeDef(TypedDict):
+    principalEntityType: NotRequired[str]
+
+class IdentitySourceItemDetailsTypeDef(TypedDict):
+    clientIds: NotRequired[List[str]]
+    userPoolArn: NotRequired[str]
+    discoveryUrl: NotRequired[str]
+    openIdIssuer: NotRequired[Literal["COGNITO"]]
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class ListPolicyStoresInputTypeDef(TypedDict):
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class PolicyStoreItemTypeDef(TypedDict):
+    policyStoreId: str
+    arn: str
+    createdDate: datetime
+    lastUpdatedDate: NotRequired[datetime]
+    description: NotRequired[str]
+
+class ListPolicyTemplatesInputTypeDef(TypedDict):
+    policyStoreId: str
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class PolicyTemplateItemTypeDef(TypedDict):
+    policyStoreId: str
+    policyTemplateId: str
+    createdDate: datetime
+    lastUpdatedDate: datetime
+    description: NotRequired[str]
+
+class ListTagsForResourceInputTypeDef(TypedDict):
+    resourceArn: str
+
+class OpenIdConnectAccessTokenConfigurationDetailTypeDef(TypedDict):
+    principalIdClaim: NotRequired[str]
+    audiences: NotRequired[List[str]]
+
+class OpenIdConnectAccessTokenConfigurationItemTypeDef(TypedDict):
+    principalIdClaim: NotRequired[str]
+    audiences: NotRequired[List[str]]
+
+class OpenIdConnectAccessTokenConfigurationTypeDef(TypedDict):
+    principalIdClaim: NotRequired[str]
+    audiences: NotRequired[Sequence[str]]
+
+class OpenIdConnectGroupConfigurationDetailTypeDef(TypedDict):
+    groupClaim: str
+    groupEntityType: str
+
+class OpenIdConnectGroupConfigurationItemTypeDef(TypedDict):
+    groupClaim: str
+    groupEntityType: str
+
+class OpenIdConnectGroupConfigurationTypeDef(TypedDict):
+    groupClaim: str
+    groupEntityType: str
+
+class OpenIdConnectIdentityTokenConfigurationDetailTypeDef(TypedDict):
+    principalIdClaim: NotRequired[str]
+    clientIds: NotRequired[List[str]]
+
+class OpenIdConnectIdentityTokenConfigurationItemTypeDef(TypedDict):
+    principalIdClaim: NotRequired[str]
+    clientIds: NotRequired[List[str]]
+
+class OpenIdConnectIdentityTokenConfigurationTypeDef(TypedDict):
+    principalIdClaim: NotRequired[str]
+    clientIds: NotRequired[Sequence[str]]
+
+class StaticPolicyDefinitionDetailTypeDef(TypedDict):
+    statement: str
+    description: NotRequired[str]
+
+class StaticPolicyDefinitionItemTypeDef(TypedDict):
+    description: NotRequired[str]
+
+class StaticPolicyDefinitionTypeDef(TypedDict):
+    statement: str
+    description: NotRequired[str]
+
+class SchemaDefinitionTypeDef(TypedDict):
+    cedarJson: NotRequired[str]
+
+class TagResourceInputTypeDef(TypedDict):
+    resourceArn: str
+    tags: Mapping[str, str]
+
+class UntagResourceInputTypeDef(TypedDict):
+    resourceArn: str
+    tagKeys: Sequence[str]
+
+class UpdateCognitoGroupConfigurationTypeDef(TypedDict):
+    groupEntityType: str
+
+class UpdateOpenIdConnectAccessTokenConfigurationTypeDef(TypedDict):
+    principalIdClaim: NotRequired[str]
+    audiences: NotRequired[Sequence[str]]
+
+class UpdateOpenIdConnectGroupConfigurationTypeDef(TypedDict):
+    groupClaim: str
+    groupEntityType: str
+
+class UpdateOpenIdConnectIdentityTokenConfigurationTypeDef(TypedDict):
+    principalIdClaim: NotRequired[str]
+    clientIds: NotRequired[Sequence[str]]
+
+class UpdateStaticPolicyDefinitionTypeDef(TypedDict):
+    statement: str
+    description: NotRequired[str]
+
+class UpdatePolicyTemplateInputTypeDef(TypedDict):
+    policyStoreId: str
+    policyTemplateId: str
+    statement: str
+    description: NotRequired[str]
+
+AttributeValueOutputTypeDef = TypedDict(
+    "AttributeValueOutputTypeDef",
     {
-        "actionType": str,
-        "actionId": str,
+        "boolean": NotRequired[bool],
+        "entityIdentifier": NotRequired[EntityIdentifierTypeDef],
+        "long": NotRequired[int],
+        "string": NotRequired[str],
+        "set": NotRequired[List[Dict[str, Any]]],
+        "record": NotRequired[Dict[str, Dict[str, Any]]],
+        "ipaddr": NotRequired[str],
+        "decimal": NotRequired[str],
     },
 )
-
 AttributeValueTypeDef = TypedDict(
     "AttributeValueTypeDef",
     {
-        "boolean": bool,
-        "entityIdentifier": "EntityIdentifierTypeDef",
-        "long": int,
-        "string": str,
-        "set": List[Dict[str, Any]],
-        "record": Dict[str, Dict[str, Any]],
-    },
-    total=False,
-)
-
-BatchIsAuthorizedInputItemTypeDef = TypedDict(
-    "BatchIsAuthorizedInputItemTypeDef",
-    {
-        "principal": "EntityIdentifierTypeDef",
-        "action": "ActionIdentifierTypeDef",
-        "resource": "EntityIdentifierTypeDef",
-        "context": "ContextDefinitionTypeDef",
-    },
-    total=False,
-)
-
-_RequiredBatchIsAuthorizedInputRequestTypeDef = TypedDict(
-    "_RequiredBatchIsAuthorizedInputRequestTypeDef",
-    {
-        "policyStoreId": str,
-        "requests": List["BatchIsAuthorizedInputItemTypeDef"],
-    },
-)
-_OptionalBatchIsAuthorizedInputRequestTypeDef = TypedDict(
-    "_OptionalBatchIsAuthorizedInputRequestTypeDef",
-    {
-        "entities": "EntitiesDefinitionTypeDef",
-    },
-    total=False,
-)
-
-class BatchIsAuthorizedInputRequestTypeDef(
-    _RequiredBatchIsAuthorizedInputRequestTypeDef, _OptionalBatchIsAuthorizedInputRequestTypeDef
-):
-    pass
-
-BatchIsAuthorizedOutputItemTypeDef = TypedDict(
-    "BatchIsAuthorizedOutputItemTypeDef",
-    {
-        "request": "BatchIsAuthorizedInputItemTypeDef",
-        "decision": DecisionType,
-        "determiningPolicies": List["DeterminingPolicyItemTypeDef"],
-        "errors": List["EvaluationErrorItemTypeDef"],
+        "boolean": NotRequired[bool],
+        "entityIdentifier": NotRequired[EntityIdentifierTypeDef],
+        "long": NotRequired[int],
+        "string": NotRequired[str],
+        "set": NotRequired[Sequence[Mapping[str, Any]]],
+        "record": NotRequired[Mapping[str, Mapping[str, Any]]],
+        "ipaddr": NotRequired[str],
+        "decimal": NotRequired[str],
     },
 )
 
-BatchIsAuthorizedOutputTypeDef = TypedDict(
-    "BatchIsAuthorizedOutputTypeDef",
-    {
-        "results": List["BatchIsAuthorizedOutputItemTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class EntityReferenceTypeDef(TypedDict):
+    unspecified: NotRequired[bool]
+    identifier: NotRequired[EntityIdentifierTypeDef]
 
-BatchIsAuthorizedWithTokenInputItemTypeDef = TypedDict(
-    "BatchIsAuthorizedWithTokenInputItemTypeDef",
-    {
-        "action": "ActionIdentifierTypeDef",
-        "resource": "EntityIdentifierTypeDef",
-        "context": "ContextDefinitionTypeDef",
-    },
-    total=False,
-)
+class TemplateLinkedPolicyDefinitionDetailTypeDef(TypedDict):
+    policyTemplateId: str
+    principal: NotRequired[EntityIdentifierTypeDef]
+    resource: NotRequired[EntityIdentifierTypeDef]
 
-_RequiredBatchIsAuthorizedWithTokenInputRequestTypeDef = TypedDict(
-    "_RequiredBatchIsAuthorizedWithTokenInputRequestTypeDef",
-    {
-        "policyStoreId": str,
-        "requests": List["BatchIsAuthorizedWithTokenInputItemTypeDef"],
-    },
-)
-_OptionalBatchIsAuthorizedWithTokenInputRequestTypeDef = TypedDict(
-    "_OptionalBatchIsAuthorizedWithTokenInputRequestTypeDef",
-    {
-        "identityToken": str,
-        "accessToken": str,
-        "entities": "EntitiesDefinitionTypeDef",
-    },
-    total=False,
-)
+class TemplateLinkedPolicyDefinitionItemTypeDef(TypedDict):
+    policyTemplateId: str
+    principal: NotRequired[EntityIdentifierTypeDef]
+    resource: NotRequired[EntityIdentifierTypeDef]
 
-class BatchIsAuthorizedWithTokenInputRequestTypeDef(
-    _RequiredBatchIsAuthorizedWithTokenInputRequestTypeDef,
-    _OptionalBatchIsAuthorizedWithTokenInputRequestTypeDef,
-):
-    pass
+class TemplateLinkedPolicyDefinitionTypeDef(TypedDict):
+    policyTemplateId: str
+    principal: NotRequired[EntityIdentifierTypeDef]
+    resource: NotRequired[EntityIdentifierTypeDef]
 
-BatchIsAuthorizedWithTokenOutputItemTypeDef = TypedDict(
-    "BatchIsAuthorizedWithTokenOutputItemTypeDef",
-    {
-        "request": "BatchIsAuthorizedWithTokenInputItemTypeDef",
-        "decision": DecisionType,
-        "determiningPolicies": List["DeterminingPolicyItemTypeDef"],
-        "errors": List["EvaluationErrorItemTypeDef"],
-    },
-)
+class BatchGetPolicyInputTypeDef(TypedDict):
+    requests: Sequence[BatchGetPolicyInputItemTypeDef]
 
-BatchIsAuthorizedWithTokenOutputTypeDef = TypedDict(
-    "BatchIsAuthorizedWithTokenOutputTypeDef",
-    {
-        "principal": "EntityIdentifierTypeDef",
-        "results": List["BatchIsAuthorizedWithTokenOutputItemTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CreateIdentitySourceOutputTypeDef(TypedDict):
+    createdDate: datetime
+    identitySourceId: str
+    lastUpdatedDate: datetime
+    policyStoreId: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-CognitoGroupConfigurationDetailTypeDef = TypedDict(
-    "CognitoGroupConfigurationDetailTypeDef",
-    {
-        "groupEntityType": str,
-    },
-    total=False,
-)
+class CreatePolicyOutputTypeDef(TypedDict):
+    policyStoreId: str
+    policyId: str
+    policyType: PolicyTypeType
+    principal: EntityIdentifierTypeDef
+    resource: EntityIdentifierTypeDef
+    actions: List[ActionIdentifierTypeDef]
+    createdDate: datetime
+    lastUpdatedDate: datetime
+    effect: PolicyEffectType
+    ResponseMetadata: ResponseMetadataTypeDef
 
-CognitoGroupConfigurationItemTypeDef = TypedDict(
-    "CognitoGroupConfigurationItemTypeDef",
-    {
-        "groupEntityType": str,
-    },
-    total=False,
-)
+class CreatePolicyStoreOutputTypeDef(TypedDict):
+    policyStoreId: str
+    arn: str
+    createdDate: datetime
+    lastUpdatedDate: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
 
-CognitoGroupConfigurationTypeDef = TypedDict(
-    "CognitoGroupConfigurationTypeDef",
-    {
-        "groupEntityType": str,
-    },
-)
+class CreatePolicyTemplateOutputTypeDef(TypedDict):
+    policyStoreId: str
+    policyTemplateId: str
+    createdDate: datetime
+    lastUpdatedDate: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredCognitoUserPoolConfigurationDetailTypeDef = TypedDict(
-    "_RequiredCognitoUserPoolConfigurationDetailTypeDef",
-    {
-        "userPoolArn": str,
-        "clientIds": List[str],
-        "issuer": str,
-    },
-)
-_OptionalCognitoUserPoolConfigurationDetailTypeDef = TypedDict(
-    "_OptionalCognitoUserPoolConfigurationDetailTypeDef",
-    {
-        "groupConfiguration": "CognitoGroupConfigurationDetailTypeDef",
-    },
-    total=False,
-)
+class GetPolicyTemplateOutputTypeDef(TypedDict):
+    policyStoreId: str
+    policyTemplateId: str
+    description: str
+    statement: str
+    createdDate: datetime
+    lastUpdatedDate: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class CognitoUserPoolConfigurationDetailTypeDef(
-    _RequiredCognitoUserPoolConfigurationDetailTypeDef,
-    _OptionalCognitoUserPoolConfigurationDetailTypeDef,
-):
-    pass
+class GetSchemaOutputTypeDef(TypedDict):
+    policyStoreId: str
+    schema: str
+    createdDate: datetime
+    lastUpdatedDate: datetime
+    namespaces: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredCognitoUserPoolConfigurationItemTypeDef = TypedDict(
-    "_RequiredCognitoUserPoolConfigurationItemTypeDef",
-    {
-        "userPoolArn": str,
-        "clientIds": List[str],
-        "issuer": str,
-    },
-)
-_OptionalCognitoUserPoolConfigurationItemTypeDef = TypedDict(
-    "_OptionalCognitoUserPoolConfigurationItemTypeDef",
-    {
-        "groupConfiguration": "CognitoGroupConfigurationItemTypeDef",
-    },
-    total=False,
-)
+class ListTagsForResourceOutputTypeDef(TypedDict):
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class CognitoUserPoolConfigurationItemTypeDef(
-    _RequiredCognitoUserPoolConfigurationItemTypeDef,
-    _OptionalCognitoUserPoolConfigurationItemTypeDef,
-):
-    pass
+class PutSchemaOutputTypeDef(TypedDict):
+    policyStoreId: str
+    namespaces: List[str]
+    createdDate: datetime
+    lastUpdatedDate: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredCognitoUserPoolConfigurationTypeDef = TypedDict(
-    "_RequiredCognitoUserPoolConfigurationTypeDef",
-    {
-        "userPoolArn": str,
-    },
-)
-_OptionalCognitoUserPoolConfigurationTypeDef = TypedDict(
-    "_OptionalCognitoUserPoolConfigurationTypeDef",
-    {
-        "clientIds": List[str],
-        "groupConfiguration": "CognitoGroupConfigurationTypeDef",
-    },
-    total=False,
-)
+class UpdateIdentitySourceOutputTypeDef(TypedDict):
+    createdDate: datetime
+    identitySourceId: str
+    lastUpdatedDate: datetime
+    policyStoreId: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class CognitoUserPoolConfigurationTypeDef(
-    _RequiredCognitoUserPoolConfigurationTypeDef, _OptionalCognitoUserPoolConfigurationTypeDef
-):
-    pass
+class UpdatePolicyOutputTypeDef(TypedDict):
+    policyStoreId: str
+    policyId: str
+    policyType: PolicyTypeType
+    principal: EntityIdentifierTypeDef
+    resource: EntityIdentifierTypeDef
+    actions: List[ActionIdentifierTypeDef]
+    createdDate: datetime
+    lastUpdatedDate: datetime
+    effect: PolicyEffectType
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ConfigurationDetailTypeDef = TypedDict(
-    "ConfigurationDetailTypeDef",
-    {
-        "cognitoUserPoolConfiguration": "CognitoUserPoolConfigurationDetailTypeDef",
-        "openIdConnectConfiguration": "OpenIdConnectConfigurationDetailTypeDef",
-    },
-    total=False,
-)
+class UpdatePolicyStoreOutputTypeDef(TypedDict):
+    policyStoreId: str
+    arn: str
+    createdDate: datetime
+    lastUpdatedDate: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ConfigurationItemTypeDef = TypedDict(
-    "ConfigurationItemTypeDef",
-    {
-        "cognitoUserPoolConfiguration": "CognitoUserPoolConfigurationItemTypeDef",
-        "openIdConnectConfiguration": "OpenIdConnectConfigurationItemTypeDef",
-    },
-    total=False,
-)
+class UpdatePolicyTemplateOutputTypeDef(TypedDict):
+    policyStoreId: str
+    policyTemplateId: str
+    createdDate: datetime
+    lastUpdatedDate: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ConfigurationTypeDef = TypedDict(
-    "ConfigurationTypeDef",
-    {
-        "cognitoUserPoolConfiguration": "CognitoUserPoolConfigurationTypeDef",
-        "openIdConnectConfiguration": "OpenIdConnectConfigurationTypeDef",
-    },
-    total=False,
-)
+class IsAuthorizedOutputTypeDef(TypedDict):
+    decision: DecisionType
+    determiningPolicies: List[DeterminingPolicyItemTypeDef]
+    errors: List[EvaluationErrorItemTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ContextDefinitionTypeDef = TypedDict(
-    "ContextDefinitionTypeDef",
-    {
-        "contextMap": Dict[str, "AttributeValueTypeDef"],
-    },
-    total=False,
-)
+class IsAuthorizedWithTokenOutputTypeDef(TypedDict):
+    decision: DecisionType
+    determiningPolicies: List[DeterminingPolicyItemTypeDef]
+    errors: List[EvaluationErrorItemTypeDef]
+    principal: EntityIdentifierTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredCreateIdentitySourceInputRequestTypeDef = TypedDict(
-    "_RequiredCreateIdentitySourceInputRequestTypeDef",
-    {
-        "policyStoreId": str,
-        "configuration": "ConfigurationTypeDef",
-    },
-)
-_OptionalCreateIdentitySourceInputRequestTypeDef = TypedDict(
-    "_OptionalCreateIdentitySourceInputRequestTypeDef",
-    {
-        "clientToken": str,
-        "principalEntityType": str,
-    },
-    total=False,
-)
+class CognitoUserPoolConfigurationDetailTypeDef(TypedDict):
+    userPoolArn: str
+    clientIds: List[str]
+    issuer: str
+    groupConfiguration: NotRequired[CognitoGroupConfigurationDetailTypeDef]
 
-class CreateIdentitySourceInputRequestTypeDef(
-    _RequiredCreateIdentitySourceInputRequestTypeDef,
-    _OptionalCreateIdentitySourceInputRequestTypeDef,
-):
-    pass
+class CognitoUserPoolConfigurationItemTypeDef(TypedDict):
+    userPoolArn: str
+    clientIds: List[str]
+    issuer: str
+    groupConfiguration: NotRequired[CognitoGroupConfigurationItemTypeDef]
 
-CreateIdentitySourceOutputTypeDef = TypedDict(
-    "CreateIdentitySourceOutputTypeDef",
-    {
-        "createdDate": datetime,
-        "identitySourceId": str,
-        "lastUpdatedDate": datetime,
-        "policyStoreId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CognitoUserPoolConfigurationTypeDef(TypedDict):
+    userPoolArn: str
+    clientIds: NotRequired[Sequence[str]]
+    groupConfiguration: NotRequired[CognitoGroupConfigurationTypeDef]
 
-_RequiredCreatePolicyInputRequestTypeDef = TypedDict(
-    "_RequiredCreatePolicyInputRequestTypeDef",
-    {
-        "policyStoreId": str,
-        "definition": "PolicyDefinitionTypeDef",
-    },
-)
-_OptionalCreatePolicyInputRequestTypeDef = TypedDict(
-    "_OptionalCreatePolicyInputRequestTypeDef",
-    {
-        "clientToken": str,
-    },
-    total=False,
-)
+class CreatePolicyStoreInputTypeDef(TypedDict):
+    validationSettings: ValidationSettingsTypeDef
+    clientToken: NotRequired[str]
+    description: NotRequired[str]
+    deletionProtection: NotRequired[DeletionProtectionType]
+    tags: NotRequired[Mapping[str, str]]
 
-class CreatePolicyInputRequestTypeDef(
-    _RequiredCreatePolicyInputRequestTypeDef, _OptionalCreatePolicyInputRequestTypeDef
-):
-    pass
+class GetPolicyStoreOutputTypeDef(TypedDict):
+    policyStoreId: str
+    arn: str
+    validationSettings: ValidationSettingsTypeDef
+    createdDate: datetime
+    lastUpdatedDate: datetime
+    description: str
+    deletionProtection: DeletionProtectionType
+    cedarVersion: CedarVersionType
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-CreatePolicyOutputTypeDef = TypedDict(
-    "CreatePolicyOutputTypeDef",
-    {
-        "policyStoreId": str,
-        "policyId": str,
-        "policyType": PolicyTypeType,
-        "principal": "EntityIdentifierTypeDef",
-        "resource": "EntityIdentifierTypeDef",
-        "actions": List["ActionIdentifierTypeDef"],
-        "createdDate": datetime,
-        "lastUpdatedDate": datetime,
-        "effect": PolicyEffectType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class UpdatePolicyStoreInputTypeDef(TypedDict):
+    policyStoreId: str
+    validationSettings: ValidationSettingsTypeDef
+    deletionProtection: NotRequired[DeletionProtectionType]
+    description: NotRequired[str]
 
-_RequiredCreatePolicyStoreInputRequestTypeDef = TypedDict(
-    "_RequiredCreatePolicyStoreInputRequestTypeDef",
-    {
-        "validationSettings": "ValidationSettingsTypeDef",
-    },
-)
-_OptionalCreatePolicyStoreInputRequestTypeDef = TypedDict(
-    "_OptionalCreatePolicyStoreInputRequestTypeDef",
-    {
-        "clientToken": str,
-        "description": str,
-    },
-    total=False,
-)
+class ListIdentitySourcesInputTypeDef(TypedDict):
+    policyStoreId: str
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+    filters: NotRequired[Sequence[IdentitySourceFilterTypeDef]]
 
-class CreatePolicyStoreInputRequestTypeDef(
-    _RequiredCreatePolicyStoreInputRequestTypeDef, _OptionalCreatePolicyStoreInputRequestTypeDef
-):
-    pass
+class ListIdentitySourcesInputPaginateTypeDef(TypedDict):
+    policyStoreId: str
+    filters: NotRequired[Sequence[IdentitySourceFilterTypeDef]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-CreatePolicyStoreOutputTypeDef = TypedDict(
-    "CreatePolicyStoreOutputTypeDef",
+class ListPolicyStoresInputPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListPolicyTemplatesInputPaginateTypeDef(TypedDict):
+    policyStoreId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListPolicyStoresOutputTypeDef(TypedDict):
+    policyStores: List[PolicyStoreItemTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListPolicyTemplatesOutputTypeDef(TypedDict):
+    policyTemplates: List[PolicyTemplateItemTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class OpenIdConnectTokenSelectionDetailTypeDef(TypedDict):
+    accessTokenOnly: NotRequired[OpenIdConnectAccessTokenConfigurationDetailTypeDef]
+    identityTokenOnly: NotRequired[OpenIdConnectIdentityTokenConfigurationDetailTypeDef]
+
+class OpenIdConnectTokenSelectionItemTypeDef(TypedDict):
+    accessTokenOnly: NotRequired[OpenIdConnectAccessTokenConfigurationItemTypeDef]
+    identityTokenOnly: NotRequired[OpenIdConnectIdentityTokenConfigurationItemTypeDef]
+
+class OpenIdConnectTokenSelectionTypeDef(TypedDict):
+    accessTokenOnly: NotRequired[OpenIdConnectAccessTokenConfigurationTypeDef]
+    identityTokenOnly: NotRequired[OpenIdConnectIdentityTokenConfigurationTypeDef]
+
+class PutSchemaInputTypeDef(TypedDict):
+    policyStoreId: str
+    definition: SchemaDefinitionTypeDef
+
+class UpdateCognitoUserPoolConfigurationTypeDef(TypedDict):
+    userPoolArn: str
+    clientIds: NotRequired[Sequence[str]]
+    groupConfiguration: NotRequired[UpdateCognitoGroupConfigurationTypeDef]
+
+class UpdateOpenIdConnectTokenSelectionTypeDef(TypedDict):
+    accessTokenOnly: NotRequired[UpdateOpenIdConnectAccessTokenConfigurationTypeDef]
+    identityTokenOnly: NotRequired[UpdateOpenIdConnectIdentityTokenConfigurationTypeDef]
+
+class UpdatePolicyDefinitionTypeDef(TypedDict):
+    static: NotRequired[UpdateStaticPolicyDefinitionTypeDef]
+
+class ContextDefinitionOutputTypeDef(TypedDict):
+    contextMap: NotRequired[Dict[str, AttributeValueOutputTypeDef]]
+    cedarJson: NotRequired[str]
+
+AttributeValueUnionTypeDef = Union[AttributeValueTypeDef, AttributeValueOutputTypeDef]
+
+class PolicyFilterTypeDef(TypedDict):
+    principal: NotRequired[EntityReferenceTypeDef]
+    resource: NotRequired[EntityReferenceTypeDef]
+    policyType: NotRequired[PolicyTypeType]
+    policyTemplateId: NotRequired[str]
+
+class PolicyDefinitionDetailTypeDef(TypedDict):
+    static: NotRequired[StaticPolicyDefinitionDetailTypeDef]
+    templateLinked: NotRequired[TemplateLinkedPolicyDefinitionDetailTypeDef]
+
+class PolicyDefinitionItemTypeDef(TypedDict):
+    static: NotRequired[StaticPolicyDefinitionItemTypeDef]
+    templateLinked: NotRequired[TemplateLinkedPolicyDefinitionItemTypeDef]
+
+class PolicyDefinitionTypeDef(TypedDict):
+    static: NotRequired[StaticPolicyDefinitionTypeDef]
+    templateLinked: NotRequired[TemplateLinkedPolicyDefinitionTypeDef]
+
+class OpenIdConnectConfigurationDetailTypeDef(TypedDict):
+    issuer: str
+    tokenSelection: OpenIdConnectTokenSelectionDetailTypeDef
+    entityIdPrefix: NotRequired[str]
+    groupConfiguration: NotRequired[OpenIdConnectGroupConfigurationDetailTypeDef]
+
+class OpenIdConnectConfigurationItemTypeDef(TypedDict):
+    issuer: str
+    tokenSelection: OpenIdConnectTokenSelectionItemTypeDef
+    entityIdPrefix: NotRequired[str]
+    groupConfiguration: NotRequired[OpenIdConnectGroupConfigurationItemTypeDef]
+
+class OpenIdConnectConfigurationTypeDef(TypedDict):
+    issuer: str
+    tokenSelection: OpenIdConnectTokenSelectionTypeDef
+    entityIdPrefix: NotRequired[str]
+    groupConfiguration: NotRequired[OpenIdConnectGroupConfigurationTypeDef]
+
+class UpdateOpenIdConnectConfigurationTypeDef(TypedDict):
+    issuer: str
+    tokenSelection: UpdateOpenIdConnectTokenSelectionTypeDef
+    entityIdPrefix: NotRequired[str]
+    groupConfiguration: NotRequired[UpdateOpenIdConnectGroupConfigurationTypeDef]
+
+class UpdatePolicyInputTypeDef(TypedDict):
+    policyStoreId: str
+    policyId: str
+    definition: UpdatePolicyDefinitionTypeDef
+
+class BatchIsAuthorizedInputItemOutputTypeDef(TypedDict):
+    principal: NotRequired[EntityIdentifierTypeDef]
+    action: NotRequired[ActionIdentifierTypeDef]
+    resource: NotRequired[EntityIdentifierTypeDef]
+    context: NotRequired[ContextDefinitionOutputTypeDef]
+
+class BatchIsAuthorizedWithTokenInputItemOutputTypeDef(TypedDict):
+    action: NotRequired[ActionIdentifierTypeDef]
+    resource: NotRequired[EntityIdentifierTypeDef]
+    context: NotRequired[ContextDefinitionOutputTypeDef]
+
+class ContextDefinitionTypeDef(TypedDict):
+    contextMap: NotRequired[Mapping[str, AttributeValueUnionTypeDef]]
+    cedarJson: NotRequired[str]
+
+class EntityItemTypeDef(TypedDict):
+    identifier: EntityIdentifierTypeDef
+    attributes: NotRequired[Mapping[str, AttributeValueUnionTypeDef]]
+    parents: NotRequired[Sequence[EntityIdentifierTypeDef]]
+
+ListPoliciesInputPaginateTypeDef = TypedDict(
+    "ListPoliciesInputPaginateTypeDef",
     {
         "policyStoreId": str,
-        "arn": str,
-        "createdDate": datetime,
-        "lastUpdatedDate": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "filter": NotRequired[PolicyFilterTypeDef],
+        "PaginationConfig": NotRequired[PaginatorConfigTypeDef],
     },
 )
-
-_RequiredCreatePolicyTemplateInputRequestTypeDef = TypedDict(
-    "_RequiredCreatePolicyTemplateInputRequestTypeDef",
+ListPoliciesInputTypeDef = TypedDict(
+    "ListPoliciesInputTypeDef",
     {
         "policyStoreId": str,
-        "statement": str,
-    },
-)
-_OptionalCreatePolicyTemplateInputRequestTypeDef = TypedDict(
-    "_OptionalCreatePolicyTemplateInputRequestTypeDef",
-    {
-        "clientToken": str,
-        "description": str,
-    },
-    total=False,
-)
-
-class CreatePolicyTemplateInputRequestTypeDef(
-    _RequiredCreatePolicyTemplateInputRequestTypeDef,
-    _OptionalCreatePolicyTemplateInputRequestTypeDef,
-):
-    pass
-
-CreatePolicyTemplateOutputTypeDef = TypedDict(
-    "CreatePolicyTemplateOutputTypeDef",
-    {
-        "policyStoreId": str,
-        "policyTemplateId": str,
-        "createdDate": datetime,
-        "lastUpdatedDate": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteIdentitySourceInputRequestTypeDef = TypedDict(
-    "DeleteIdentitySourceInputRequestTypeDef",
-    {
-        "policyStoreId": str,
-        "identitySourceId": str,
-    },
-)
-
-DeletePolicyInputRequestTypeDef = TypedDict(
-    "DeletePolicyInputRequestTypeDef",
-    {
-        "policyStoreId": str,
-        "policyId": str,
-    },
-)
-
-DeletePolicyStoreInputRequestTypeDef = TypedDict(
-    "DeletePolicyStoreInputRequestTypeDef",
-    {
-        "policyStoreId": str,
-    },
-)
-
-DeletePolicyTemplateInputRequestTypeDef = TypedDict(
-    "DeletePolicyTemplateInputRequestTypeDef",
-    {
-        "policyStoreId": str,
-        "policyTemplateId": str,
-    },
-)
-
-DeterminingPolicyItemTypeDef = TypedDict(
-    "DeterminingPolicyItemTypeDef",
-    {
-        "policyId": str,
-    },
-)
-
-EntitiesDefinitionTypeDef = TypedDict(
-    "EntitiesDefinitionTypeDef",
-    {
-        "entityList": List["EntityItemTypeDef"],
-    },
-    total=False,
-)
-
-EntityIdentifierTypeDef = TypedDict(
-    "EntityIdentifierTypeDef",
-    {
-        "entityType": str,
-        "entityId": str,
-    },
-)
-
-_RequiredEntityItemTypeDef = TypedDict(
-    "_RequiredEntityItemTypeDef",
-    {
-        "identifier": "EntityIdentifierTypeDef",
-    },
-)
-_OptionalEntityItemTypeDef = TypedDict(
-    "_OptionalEntityItemTypeDef",
-    {
-        "attributes": Dict[str, "AttributeValueTypeDef"],
-        "parents": List["EntityIdentifierTypeDef"],
-    },
-    total=False,
-)
-
-class EntityItemTypeDef(_RequiredEntityItemTypeDef, _OptionalEntityItemTypeDef):
-    pass
-
-EntityReferenceTypeDef = TypedDict(
-    "EntityReferenceTypeDef",
-    {
-        "unspecified": bool,
-        "identifier": "EntityIdentifierTypeDef",
-    },
-    total=False,
-)
-
-EvaluationErrorItemTypeDef = TypedDict(
-    "EvaluationErrorItemTypeDef",
-    {
-        "errorDescription": str,
-    },
-)
-
-GetIdentitySourceInputRequestTypeDef = TypedDict(
-    "GetIdentitySourceInputRequestTypeDef",
-    {
-        "policyStoreId": str,
-        "identitySourceId": str,
-    },
-)
-
-GetIdentitySourceOutputTypeDef = TypedDict(
-    "GetIdentitySourceOutputTypeDef",
-    {
-        "createdDate": datetime,
-        "details": "IdentitySourceDetailsTypeDef",
-        "identitySourceId": str,
-        "lastUpdatedDate": datetime,
-        "policyStoreId": str,
-        "principalEntityType": str,
-        "configuration": "ConfigurationDetailTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetPolicyInputRequestTypeDef = TypedDict(
-    "GetPolicyInputRequestTypeDef",
-    {
-        "policyStoreId": str,
-        "policyId": str,
-    },
-)
-
-GetPolicyOutputTypeDef = TypedDict(
-    "GetPolicyOutputTypeDef",
-    {
-        "policyStoreId": str,
-        "policyId": str,
-        "policyType": PolicyTypeType,
-        "principal": "EntityIdentifierTypeDef",
-        "resource": "EntityIdentifierTypeDef",
-        "actions": List["ActionIdentifierTypeDef"],
-        "definition": "PolicyDefinitionDetailTypeDef",
-        "createdDate": datetime,
-        "lastUpdatedDate": datetime,
-        "effect": PolicyEffectType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetPolicyStoreInputRequestTypeDef = TypedDict(
-    "GetPolicyStoreInputRequestTypeDef",
-    {
-        "policyStoreId": str,
-    },
-)
-
-GetPolicyStoreOutputTypeDef = TypedDict(
-    "GetPolicyStoreOutputTypeDef",
-    {
-        "policyStoreId": str,
-        "arn": str,
-        "validationSettings": "ValidationSettingsTypeDef",
-        "createdDate": datetime,
-        "lastUpdatedDate": datetime,
-        "description": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetPolicyTemplateInputRequestTypeDef = TypedDict(
-    "GetPolicyTemplateInputRequestTypeDef",
-    {
-        "policyStoreId": str,
-        "policyTemplateId": str,
-    },
-)
-
-GetPolicyTemplateOutputTypeDef = TypedDict(
-    "GetPolicyTemplateOutputTypeDef",
-    {
-        "policyStoreId": str,
-        "policyTemplateId": str,
-        "description": str,
-        "statement": str,
-        "createdDate": datetime,
-        "lastUpdatedDate": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetSchemaInputRequestTypeDef = TypedDict(
-    "GetSchemaInputRequestTypeDef",
-    {
-        "policyStoreId": str,
-    },
-)
-
-GetSchemaOutputTypeDef = TypedDict(
-    "GetSchemaOutputTypeDef",
-    {
-        "policyStoreId": str,
-        "schema": str,
-        "createdDate": datetime,
-        "lastUpdatedDate": datetime,
-        "namespaces": List[str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-IdentitySourceDetailsTypeDef = TypedDict(
-    "IdentitySourceDetailsTypeDef",
-    {
-        "clientIds": List[str],
-        "userPoolArn": str,
-        "discoveryUrl": str,
-        "openIdIssuer": Literal["COGNITO"],
-    },
-    total=False,
-)
-
-IdentitySourceFilterTypeDef = TypedDict(
-    "IdentitySourceFilterTypeDef",
-    {
-        "principalEntityType": str,
-    },
-    total=False,
-)
-
-IdentitySourceItemDetailsTypeDef = TypedDict(
-    "IdentitySourceItemDetailsTypeDef",
-    {
-        "clientIds": List[str],
-        "userPoolArn": str,
-        "discoveryUrl": str,
-        "openIdIssuer": Literal["COGNITO"],
-    },
-    total=False,
-)
-
-_RequiredIdentitySourceItemTypeDef = TypedDict(
-    "_RequiredIdentitySourceItemTypeDef",
-    {
-        "createdDate": datetime,
-        "identitySourceId": str,
-        "lastUpdatedDate": datetime,
-        "policyStoreId": str,
-        "principalEntityType": str,
-    },
-)
-_OptionalIdentitySourceItemTypeDef = TypedDict(
-    "_OptionalIdentitySourceItemTypeDef",
-    {
-        "details": "IdentitySourceItemDetailsTypeDef",
-        "configuration": "ConfigurationItemTypeDef",
-    },
-    total=False,
-)
-
-class IdentitySourceItemTypeDef(
-    _RequiredIdentitySourceItemTypeDef, _OptionalIdentitySourceItemTypeDef
-):
-    pass
-
-_RequiredIsAuthorizedInputRequestTypeDef = TypedDict(
-    "_RequiredIsAuthorizedInputRequestTypeDef",
-    {
-        "policyStoreId": str,
-    },
-)
-_OptionalIsAuthorizedInputRequestTypeDef = TypedDict(
-    "_OptionalIsAuthorizedInputRequestTypeDef",
-    {
-        "principal": "EntityIdentifierTypeDef",
-        "action": "ActionIdentifierTypeDef",
-        "resource": "EntityIdentifierTypeDef",
-        "context": "ContextDefinitionTypeDef",
-        "entities": "EntitiesDefinitionTypeDef",
-    },
-    total=False,
-)
-
-class IsAuthorizedInputRequestTypeDef(
-    _RequiredIsAuthorizedInputRequestTypeDef, _OptionalIsAuthorizedInputRequestTypeDef
-):
-    pass
-
-IsAuthorizedOutputTypeDef = TypedDict(
-    "IsAuthorizedOutputTypeDef",
-    {
-        "decision": DecisionType,
-        "determiningPolicies": List["DeterminingPolicyItemTypeDef"],
-        "errors": List["EvaluationErrorItemTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredIsAuthorizedWithTokenInputRequestTypeDef = TypedDict(
-    "_RequiredIsAuthorizedWithTokenInputRequestTypeDef",
-    {
-        "policyStoreId": str,
-    },
-)
-_OptionalIsAuthorizedWithTokenInputRequestTypeDef = TypedDict(
-    "_OptionalIsAuthorizedWithTokenInputRequestTypeDef",
-    {
-        "identityToken": str,
-        "accessToken": str,
-        "action": "ActionIdentifierTypeDef",
-        "resource": "EntityIdentifierTypeDef",
-        "context": "ContextDefinitionTypeDef",
-        "entities": "EntitiesDefinitionTypeDef",
-    },
-    total=False,
-)
-
-class IsAuthorizedWithTokenInputRequestTypeDef(
-    _RequiredIsAuthorizedWithTokenInputRequestTypeDef,
-    _OptionalIsAuthorizedWithTokenInputRequestTypeDef,
-):
-    pass
-
-IsAuthorizedWithTokenOutputTypeDef = TypedDict(
-    "IsAuthorizedWithTokenOutputTypeDef",
-    {
-        "decision": DecisionType,
-        "determiningPolicies": List["DeterminingPolicyItemTypeDef"],
-        "errors": List["EvaluationErrorItemTypeDef"],
-        "principal": "EntityIdentifierTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListIdentitySourcesInputRequestTypeDef = TypedDict(
-    "_RequiredListIdentitySourcesInputRequestTypeDef",
-    {
-        "policyStoreId": str,
-    },
-)
-_OptionalListIdentitySourcesInputRequestTypeDef = TypedDict(
-    "_OptionalListIdentitySourcesInputRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-        "filters": List["IdentitySourceFilterTypeDef"],
-    },
-    total=False,
-)
-
-class ListIdentitySourcesInputRequestTypeDef(
-    _RequiredListIdentitySourcesInputRequestTypeDef, _OptionalListIdentitySourcesInputRequestTypeDef
-):
-    pass
-
-ListIdentitySourcesOutputTypeDef = TypedDict(
-    "ListIdentitySourcesOutputTypeDef",
-    {
-        "nextToken": str,
-        "identitySources": List["IdentitySourceItemTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListPoliciesInputRequestTypeDef = TypedDict(
-    "_RequiredListPoliciesInputRequestTypeDef",
-    {
-        "policyStoreId": str,
-    },
-)
-_OptionalListPoliciesInputRequestTypeDef = TypedDict(
-    "_OptionalListPoliciesInputRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-        "filter": "PolicyFilterTypeDef",
-    },
-    total=False,
-)
-
-class ListPoliciesInputRequestTypeDef(
-    _RequiredListPoliciesInputRequestTypeDef, _OptionalListPoliciesInputRequestTypeDef
-):
-    pass
-
-ListPoliciesOutputTypeDef = TypedDict(
-    "ListPoliciesOutputTypeDef",
-    {
-        "nextToken": str,
-        "policies": List["PolicyItemTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListPolicyStoresInputRequestTypeDef = TypedDict(
-    "ListPolicyStoresInputRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-ListPolicyStoresOutputTypeDef = TypedDict(
-    "ListPolicyStoresOutputTypeDef",
-    {
-        "nextToken": str,
-        "policyStores": List["PolicyStoreItemTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListPolicyTemplatesInputRequestTypeDef = TypedDict(
-    "_RequiredListPolicyTemplatesInputRequestTypeDef",
-    {
-        "policyStoreId": str,
-    },
-)
-_OptionalListPolicyTemplatesInputRequestTypeDef = TypedDict(
-    "_OptionalListPolicyTemplatesInputRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-class ListPolicyTemplatesInputRequestTypeDef(
-    _RequiredListPolicyTemplatesInputRequestTypeDef, _OptionalListPolicyTemplatesInputRequestTypeDef
-):
-    pass
-
-ListPolicyTemplatesOutputTypeDef = TypedDict(
-    "ListPolicyTemplatesOutputTypeDef",
-    {
-        "nextToken": str,
-        "policyTemplates": List["PolicyTemplateItemTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-OpenIdConnectAccessTokenConfigurationDetailTypeDef = TypedDict(
-    "OpenIdConnectAccessTokenConfigurationDetailTypeDef",
-    {
-        "principalIdClaim": str,
-        "audiences": List[str],
-    },
-    total=False,
-)
-
-OpenIdConnectAccessTokenConfigurationItemTypeDef = TypedDict(
-    "OpenIdConnectAccessTokenConfigurationItemTypeDef",
-    {
-        "principalIdClaim": str,
-        "audiences": List[str],
-    },
-    total=False,
-)
-
-OpenIdConnectAccessTokenConfigurationTypeDef = TypedDict(
-    "OpenIdConnectAccessTokenConfigurationTypeDef",
-    {
-        "principalIdClaim": str,
-        "audiences": List[str],
-    },
-    total=False,
-)
-
-_RequiredOpenIdConnectConfigurationDetailTypeDef = TypedDict(
-    "_RequiredOpenIdConnectConfigurationDetailTypeDef",
-    {
-        "issuer": str,
-        "tokenSelection": "OpenIdConnectTokenSelectionDetailTypeDef",
-    },
-)
-_OptionalOpenIdConnectConfigurationDetailTypeDef = TypedDict(
-    "_OptionalOpenIdConnectConfigurationDetailTypeDef",
-    {
-        "entityIdPrefix": str,
-        "groupConfiguration": "OpenIdConnectGroupConfigurationDetailTypeDef",
-    },
-    total=False,
-)
-
-class OpenIdConnectConfigurationDetailTypeDef(
-    _RequiredOpenIdConnectConfigurationDetailTypeDef,
-    _OptionalOpenIdConnectConfigurationDetailTypeDef,
-):
-    pass
-
-_RequiredOpenIdConnectConfigurationItemTypeDef = TypedDict(
-    "_RequiredOpenIdConnectConfigurationItemTypeDef",
-    {
-        "issuer": str,
-        "tokenSelection": "OpenIdConnectTokenSelectionItemTypeDef",
-    },
-)
-_OptionalOpenIdConnectConfigurationItemTypeDef = TypedDict(
-    "_OptionalOpenIdConnectConfigurationItemTypeDef",
-    {
-        "entityIdPrefix": str,
-        "groupConfiguration": "OpenIdConnectGroupConfigurationItemTypeDef",
-    },
-    total=False,
-)
-
-class OpenIdConnectConfigurationItemTypeDef(
-    _RequiredOpenIdConnectConfigurationItemTypeDef, _OptionalOpenIdConnectConfigurationItemTypeDef
-):
-    pass
-
-_RequiredOpenIdConnectConfigurationTypeDef = TypedDict(
-    "_RequiredOpenIdConnectConfigurationTypeDef",
-    {
-        "issuer": str,
-        "tokenSelection": "OpenIdConnectTokenSelectionTypeDef",
-    },
-)
-_OptionalOpenIdConnectConfigurationTypeDef = TypedDict(
-    "_OptionalOpenIdConnectConfigurationTypeDef",
-    {
-        "entityIdPrefix": str,
-        "groupConfiguration": "OpenIdConnectGroupConfigurationTypeDef",
-    },
-    total=False,
-)
-
-class OpenIdConnectConfigurationTypeDef(
-    _RequiredOpenIdConnectConfigurationTypeDef, _OptionalOpenIdConnectConfigurationTypeDef
-):
-    pass
-
-OpenIdConnectGroupConfigurationDetailTypeDef = TypedDict(
-    "OpenIdConnectGroupConfigurationDetailTypeDef",
-    {
-        "groupClaim": str,
-        "groupEntityType": str,
-    },
-)
-
-OpenIdConnectGroupConfigurationItemTypeDef = TypedDict(
-    "OpenIdConnectGroupConfigurationItemTypeDef",
-    {
-        "groupClaim": str,
-        "groupEntityType": str,
-    },
-)
-
-OpenIdConnectGroupConfigurationTypeDef = TypedDict(
-    "OpenIdConnectGroupConfigurationTypeDef",
-    {
-        "groupClaim": str,
-        "groupEntityType": str,
-    },
-)
-
-OpenIdConnectIdentityTokenConfigurationDetailTypeDef = TypedDict(
-    "OpenIdConnectIdentityTokenConfigurationDetailTypeDef",
-    {
-        "principalIdClaim": str,
-        "clientIds": List[str],
-    },
-    total=False,
-)
-
-OpenIdConnectIdentityTokenConfigurationItemTypeDef = TypedDict(
-    "OpenIdConnectIdentityTokenConfigurationItemTypeDef",
-    {
-        "principalIdClaim": str,
-        "clientIds": List[str],
-    },
-    total=False,
-)
-
-OpenIdConnectIdentityTokenConfigurationTypeDef = TypedDict(
-    "OpenIdConnectIdentityTokenConfigurationTypeDef",
-    {
-        "principalIdClaim": str,
-        "clientIds": List[str],
-    },
-    total=False,
-)
-
-OpenIdConnectTokenSelectionDetailTypeDef = TypedDict(
-    "OpenIdConnectTokenSelectionDetailTypeDef",
-    {
-        "accessTokenOnly": "OpenIdConnectAccessTokenConfigurationDetailTypeDef",
-        "identityTokenOnly": "OpenIdConnectIdentityTokenConfigurationDetailTypeDef",
-    },
-    total=False,
-)
-
-OpenIdConnectTokenSelectionItemTypeDef = TypedDict(
-    "OpenIdConnectTokenSelectionItemTypeDef",
-    {
-        "accessTokenOnly": "OpenIdConnectAccessTokenConfigurationItemTypeDef",
-        "identityTokenOnly": "OpenIdConnectIdentityTokenConfigurationItemTypeDef",
-    },
-    total=False,
-)
-
-OpenIdConnectTokenSelectionTypeDef = TypedDict(
-    "OpenIdConnectTokenSelectionTypeDef",
-    {
-        "accessTokenOnly": "OpenIdConnectAccessTokenConfigurationTypeDef",
-        "identityTokenOnly": "OpenIdConnectIdentityTokenConfigurationTypeDef",
-    },
-    total=False,
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-PolicyDefinitionDetailTypeDef = TypedDict(
-    "PolicyDefinitionDetailTypeDef",
-    {
-        "static": "StaticPolicyDefinitionDetailTypeDef",
-        "templateLinked": "TemplateLinkedPolicyDefinitionDetailTypeDef",
-    },
-    total=False,
-)
-
-PolicyDefinitionItemTypeDef = TypedDict(
-    "PolicyDefinitionItemTypeDef",
-    {
-        "static": "StaticPolicyDefinitionItemTypeDef",
-        "templateLinked": "TemplateLinkedPolicyDefinitionItemTypeDef",
-    },
-    total=False,
-)
-
-PolicyDefinitionTypeDef = TypedDict(
-    "PolicyDefinitionTypeDef",
-    {
-        "static": "StaticPolicyDefinitionTypeDef",
-        "templateLinked": "TemplateLinkedPolicyDefinitionTypeDef",
-    },
-    total=False,
-)
-
-PolicyFilterTypeDef = TypedDict(
-    "PolicyFilterTypeDef",
-    {
-        "principal": "EntityReferenceTypeDef",
-        "resource": "EntityReferenceTypeDef",
-        "policyType": PolicyTypeType,
-        "policyTemplateId": str,
-    },
-    total=False,
-)
-
-_RequiredPolicyItemTypeDef = TypedDict(
-    "_RequiredPolicyItemTypeDef",
-    {
-        "policyStoreId": str,
-        "policyId": str,
-        "policyType": PolicyTypeType,
-        "definition": "PolicyDefinitionItemTypeDef",
-        "createdDate": datetime,
-        "lastUpdatedDate": datetime,
-    },
-)
-_OptionalPolicyItemTypeDef = TypedDict(
-    "_OptionalPolicyItemTypeDef",
-    {
-        "principal": "EntityIdentifierTypeDef",
-        "resource": "EntityIdentifierTypeDef",
-        "actions": List["ActionIdentifierTypeDef"],
-        "effect": PolicyEffectType,
-    },
-    total=False,
-)
-
-class PolicyItemTypeDef(_RequiredPolicyItemTypeDef, _OptionalPolicyItemTypeDef):
-    pass
-
-_RequiredPolicyStoreItemTypeDef = TypedDict(
-    "_RequiredPolicyStoreItemTypeDef",
-    {
-        "policyStoreId": str,
-        "arn": str,
-        "createdDate": datetime,
-    },
-)
-_OptionalPolicyStoreItemTypeDef = TypedDict(
-    "_OptionalPolicyStoreItemTypeDef",
-    {
-        "lastUpdatedDate": datetime,
-        "description": str,
-    },
-    total=False,
-)
-
-class PolicyStoreItemTypeDef(_RequiredPolicyStoreItemTypeDef, _OptionalPolicyStoreItemTypeDef):
-    pass
-
-_RequiredPolicyTemplateItemTypeDef = TypedDict(
-    "_RequiredPolicyTemplateItemTypeDef",
-    {
-        "policyStoreId": str,
-        "policyTemplateId": str,
-        "createdDate": datetime,
-        "lastUpdatedDate": datetime,
-    },
-)
-_OptionalPolicyTemplateItemTypeDef = TypedDict(
-    "_OptionalPolicyTemplateItemTypeDef",
-    {
-        "description": str,
-    },
-    total=False,
-)
-
-class PolicyTemplateItemTypeDef(
-    _RequiredPolicyTemplateItemTypeDef, _OptionalPolicyTemplateItemTypeDef
-):
-    pass
-
-PutSchemaInputRequestTypeDef = TypedDict(
-    "PutSchemaInputRequestTypeDef",
-    {
-        "policyStoreId": str,
-        "definition": "SchemaDefinitionTypeDef",
-    },
-)
-
-PutSchemaOutputTypeDef = TypedDict(
-    "PutSchemaOutputTypeDef",
-    {
-        "policyStoreId": str,
-        "namespaces": List[str],
-        "createdDate": datetime,
-        "lastUpdatedDate": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-SchemaDefinitionTypeDef = TypedDict(
-    "SchemaDefinitionTypeDef",
-    {
-        "cedarJson": str,
-    },
-    total=False,
-)
-
-_RequiredStaticPolicyDefinitionDetailTypeDef = TypedDict(
-    "_RequiredStaticPolicyDefinitionDetailTypeDef",
-    {
-        "statement": str,
-    },
-)
-_OptionalStaticPolicyDefinitionDetailTypeDef = TypedDict(
-    "_OptionalStaticPolicyDefinitionDetailTypeDef",
-    {
-        "description": str,
-    },
-    total=False,
-)
-
-class StaticPolicyDefinitionDetailTypeDef(
-    _RequiredStaticPolicyDefinitionDetailTypeDef, _OptionalStaticPolicyDefinitionDetailTypeDef
-):
-    pass
-
-StaticPolicyDefinitionItemTypeDef = TypedDict(
-    "StaticPolicyDefinitionItemTypeDef",
-    {
-        "description": str,
-    },
-    total=False,
-)
-
-_RequiredStaticPolicyDefinitionTypeDef = TypedDict(
-    "_RequiredStaticPolicyDefinitionTypeDef",
-    {
-        "statement": str,
-    },
-)
-_OptionalStaticPolicyDefinitionTypeDef = TypedDict(
-    "_OptionalStaticPolicyDefinitionTypeDef",
-    {
-        "description": str,
-    },
-    total=False,
-)
-
-class StaticPolicyDefinitionTypeDef(
-    _RequiredStaticPolicyDefinitionTypeDef, _OptionalStaticPolicyDefinitionTypeDef
-):
-    pass
-
-_RequiredTemplateLinkedPolicyDefinitionDetailTypeDef = TypedDict(
-    "_RequiredTemplateLinkedPolicyDefinitionDetailTypeDef",
-    {
-        "policyTemplateId": str,
-    },
-)
-_OptionalTemplateLinkedPolicyDefinitionDetailTypeDef = TypedDict(
-    "_OptionalTemplateLinkedPolicyDefinitionDetailTypeDef",
-    {
-        "principal": "EntityIdentifierTypeDef",
-        "resource": "EntityIdentifierTypeDef",
-    },
-    total=False,
-)
-
-class TemplateLinkedPolicyDefinitionDetailTypeDef(
-    _RequiredTemplateLinkedPolicyDefinitionDetailTypeDef,
-    _OptionalTemplateLinkedPolicyDefinitionDetailTypeDef,
-):
-    pass
-
-_RequiredTemplateLinkedPolicyDefinitionItemTypeDef = TypedDict(
-    "_RequiredTemplateLinkedPolicyDefinitionItemTypeDef",
-    {
-        "policyTemplateId": str,
-    },
-)
-_OptionalTemplateLinkedPolicyDefinitionItemTypeDef = TypedDict(
-    "_OptionalTemplateLinkedPolicyDefinitionItemTypeDef",
-    {
-        "principal": "EntityIdentifierTypeDef",
-        "resource": "EntityIdentifierTypeDef",
-    },
-    total=False,
-)
-
-class TemplateLinkedPolicyDefinitionItemTypeDef(
-    _RequiredTemplateLinkedPolicyDefinitionItemTypeDef,
-    _OptionalTemplateLinkedPolicyDefinitionItemTypeDef,
-):
-    pass
-
-_RequiredTemplateLinkedPolicyDefinitionTypeDef = TypedDict(
-    "_RequiredTemplateLinkedPolicyDefinitionTypeDef",
-    {
-        "policyTemplateId": str,
-    },
-)
-_OptionalTemplateLinkedPolicyDefinitionTypeDef = TypedDict(
-    "_OptionalTemplateLinkedPolicyDefinitionTypeDef",
-    {
-        "principal": "EntityIdentifierTypeDef",
-        "resource": "EntityIdentifierTypeDef",
-    },
-    total=False,
-)
-
-class TemplateLinkedPolicyDefinitionTypeDef(
-    _RequiredTemplateLinkedPolicyDefinitionTypeDef, _OptionalTemplateLinkedPolicyDefinitionTypeDef
-):
-    pass
-
-UpdateCognitoGroupConfigurationTypeDef = TypedDict(
-    "UpdateCognitoGroupConfigurationTypeDef",
-    {
-        "groupEntityType": str,
-    },
-)
-
-_RequiredUpdateCognitoUserPoolConfigurationTypeDef = TypedDict(
-    "_RequiredUpdateCognitoUserPoolConfigurationTypeDef",
-    {
-        "userPoolArn": str,
-    },
-)
-_OptionalUpdateCognitoUserPoolConfigurationTypeDef = TypedDict(
-    "_OptionalUpdateCognitoUserPoolConfigurationTypeDef",
-    {
-        "clientIds": List[str],
-        "groupConfiguration": "UpdateCognitoGroupConfigurationTypeDef",
-    },
-    total=False,
-)
-
-class UpdateCognitoUserPoolConfigurationTypeDef(
-    _RequiredUpdateCognitoUserPoolConfigurationTypeDef,
-    _OptionalUpdateCognitoUserPoolConfigurationTypeDef,
-):
-    pass
-
-UpdateConfigurationTypeDef = TypedDict(
-    "UpdateConfigurationTypeDef",
-    {
-        "cognitoUserPoolConfiguration": "UpdateCognitoUserPoolConfigurationTypeDef",
-        "openIdConnectConfiguration": "UpdateOpenIdConnectConfigurationTypeDef",
-    },
-    total=False,
-)
-
-_RequiredUpdateIdentitySourceInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateIdentitySourceInputRequestTypeDef",
-    {
-        "policyStoreId": str,
-        "identitySourceId": str,
-        "updateConfiguration": "UpdateConfigurationTypeDef",
-    },
-)
-_OptionalUpdateIdentitySourceInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateIdentitySourceInputRequestTypeDef",
-    {
-        "principalEntityType": str,
-    },
-    total=False,
-)
-
-class UpdateIdentitySourceInputRequestTypeDef(
-    _RequiredUpdateIdentitySourceInputRequestTypeDef,
-    _OptionalUpdateIdentitySourceInputRequestTypeDef,
-):
-    pass
-
-UpdateIdentitySourceOutputTypeDef = TypedDict(
-    "UpdateIdentitySourceOutputTypeDef",
-    {
-        "createdDate": datetime,
-        "identitySourceId": str,
-        "lastUpdatedDate": datetime,
-        "policyStoreId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UpdateOpenIdConnectAccessTokenConfigurationTypeDef = TypedDict(
-    "UpdateOpenIdConnectAccessTokenConfigurationTypeDef",
-    {
-        "principalIdClaim": str,
-        "audiences": List[str],
-    },
-    total=False,
-)
-
-_RequiredUpdateOpenIdConnectConfigurationTypeDef = TypedDict(
-    "_RequiredUpdateOpenIdConnectConfigurationTypeDef",
-    {
-        "issuer": str,
-        "tokenSelection": "UpdateOpenIdConnectTokenSelectionTypeDef",
-    },
-)
-_OptionalUpdateOpenIdConnectConfigurationTypeDef = TypedDict(
-    "_OptionalUpdateOpenIdConnectConfigurationTypeDef",
-    {
-        "entityIdPrefix": str,
-        "groupConfiguration": "UpdateOpenIdConnectGroupConfigurationTypeDef",
-    },
-    total=False,
-)
-
-class UpdateOpenIdConnectConfigurationTypeDef(
-    _RequiredUpdateOpenIdConnectConfigurationTypeDef,
-    _OptionalUpdateOpenIdConnectConfigurationTypeDef,
-):
-    pass
-
-UpdateOpenIdConnectGroupConfigurationTypeDef = TypedDict(
-    "UpdateOpenIdConnectGroupConfigurationTypeDef",
-    {
-        "groupClaim": str,
-        "groupEntityType": str,
-    },
-)
-
-UpdateOpenIdConnectIdentityTokenConfigurationTypeDef = TypedDict(
-    "UpdateOpenIdConnectIdentityTokenConfigurationTypeDef",
-    {
-        "principalIdClaim": str,
-        "clientIds": List[str],
-    },
-    total=False,
-)
-
-UpdateOpenIdConnectTokenSelectionTypeDef = TypedDict(
-    "UpdateOpenIdConnectTokenSelectionTypeDef",
-    {
-        "accessTokenOnly": "UpdateOpenIdConnectAccessTokenConfigurationTypeDef",
-        "identityTokenOnly": "UpdateOpenIdConnectIdentityTokenConfigurationTypeDef",
-    },
-    total=False,
-)
-
-UpdatePolicyDefinitionTypeDef = TypedDict(
-    "UpdatePolicyDefinitionTypeDef",
-    {
-        "static": "UpdateStaticPolicyDefinitionTypeDef",
-    },
-    total=False,
-)
-
-UpdatePolicyInputRequestTypeDef = TypedDict(
-    "UpdatePolicyInputRequestTypeDef",
-    {
-        "policyStoreId": str,
-        "policyId": str,
-        "definition": "UpdatePolicyDefinitionTypeDef",
-    },
-)
-
-UpdatePolicyOutputTypeDef = TypedDict(
-    "UpdatePolicyOutputTypeDef",
-    {
-        "policyStoreId": str,
-        "policyId": str,
-        "policyType": PolicyTypeType,
-        "principal": "EntityIdentifierTypeDef",
-        "resource": "EntityIdentifierTypeDef",
-        "actions": List["ActionIdentifierTypeDef"],
-        "createdDate": datetime,
-        "lastUpdatedDate": datetime,
-        "effect": PolicyEffectType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdatePolicyStoreInputRequestTypeDef = TypedDict(
-    "_RequiredUpdatePolicyStoreInputRequestTypeDef",
-    {
-        "policyStoreId": str,
-        "validationSettings": "ValidationSettingsTypeDef",
-    },
-)
-_OptionalUpdatePolicyStoreInputRequestTypeDef = TypedDict(
-    "_OptionalUpdatePolicyStoreInputRequestTypeDef",
-    {
-        "description": str,
-    },
-    total=False,
-)
-
-class UpdatePolicyStoreInputRequestTypeDef(
-    _RequiredUpdatePolicyStoreInputRequestTypeDef, _OptionalUpdatePolicyStoreInputRequestTypeDef
-):
-    pass
-
-UpdatePolicyStoreOutputTypeDef = TypedDict(
-    "UpdatePolicyStoreOutputTypeDef",
-    {
-        "policyStoreId": str,
-        "arn": str,
-        "createdDate": datetime,
-        "lastUpdatedDate": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdatePolicyTemplateInputRequestTypeDef = TypedDict(
-    "_RequiredUpdatePolicyTemplateInputRequestTypeDef",
-    {
-        "policyStoreId": str,
-        "policyTemplateId": str,
-        "statement": str,
-    },
-)
-_OptionalUpdatePolicyTemplateInputRequestTypeDef = TypedDict(
-    "_OptionalUpdatePolicyTemplateInputRequestTypeDef",
-    {
-        "description": str,
-    },
-    total=False,
-)
-
-class UpdatePolicyTemplateInputRequestTypeDef(
-    _RequiredUpdatePolicyTemplateInputRequestTypeDef,
-    _OptionalUpdatePolicyTemplateInputRequestTypeDef,
-):
-    pass
-
-UpdatePolicyTemplateOutputTypeDef = TypedDict(
-    "UpdatePolicyTemplateOutputTypeDef",
-    {
-        "policyStoreId": str,
-        "policyTemplateId": str,
-        "createdDate": datetime,
-        "lastUpdatedDate": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateStaticPolicyDefinitionTypeDef = TypedDict(
-    "_RequiredUpdateStaticPolicyDefinitionTypeDef",
-    {
-        "statement": str,
-    },
-)
-_OptionalUpdateStaticPolicyDefinitionTypeDef = TypedDict(
-    "_OptionalUpdateStaticPolicyDefinitionTypeDef",
-    {
-        "description": str,
-    },
-    total=False,
-)
-
-class UpdateStaticPolicyDefinitionTypeDef(
-    _RequiredUpdateStaticPolicyDefinitionTypeDef, _OptionalUpdateStaticPolicyDefinitionTypeDef
-):
-    pass
-
-ValidationSettingsTypeDef = TypedDict(
-    "ValidationSettingsTypeDef",
-    {
-        "mode": ValidationModeType,
-    },
-)
+        "nextToken": NotRequired[str],
+        "maxResults": NotRequired[int],
+        "filter": NotRequired[PolicyFilterTypeDef],
+    },
+)
+
+class BatchGetPolicyOutputItemTypeDef(TypedDict):
+    policyStoreId: str
+    policyId: str
+    policyType: PolicyTypeType
+    definition: PolicyDefinitionDetailTypeDef
+    createdDate: datetime
+    lastUpdatedDate: datetime
+
+class GetPolicyOutputTypeDef(TypedDict):
+    policyStoreId: str
+    policyId: str
+    policyType: PolicyTypeType
+    principal: EntityIdentifierTypeDef
+    resource: EntityIdentifierTypeDef
+    actions: List[ActionIdentifierTypeDef]
+    definition: PolicyDefinitionDetailTypeDef
+    createdDate: datetime
+    lastUpdatedDate: datetime
+    effect: PolicyEffectType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PolicyItemTypeDef(TypedDict):
+    policyStoreId: str
+    policyId: str
+    policyType: PolicyTypeType
+    definition: PolicyDefinitionItemTypeDef
+    createdDate: datetime
+    lastUpdatedDate: datetime
+    principal: NotRequired[EntityIdentifierTypeDef]
+    resource: NotRequired[EntityIdentifierTypeDef]
+    actions: NotRequired[List[ActionIdentifierTypeDef]]
+    effect: NotRequired[PolicyEffectType]
+
+class CreatePolicyInputTypeDef(TypedDict):
+    policyStoreId: str
+    definition: PolicyDefinitionTypeDef
+    clientToken: NotRequired[str]
+
+class ConfigurationDetailTypeDef(TypedDict):
+    cognitoUserPoolConfiguration: NotRequired[CognitoUserPoolConfigurationDetailTypeDef]
+    openIdConnectConfiguration: NotRequired[OpenIdConnectConfigurationDetailTypeDef]
+
+class ConfigurationItemTypeDef(TypedDict):
+    cognitoUserPoolConfiguration: NotRequired[CognitoUserPoolConfigurationItemTypeDef]
+    openIdConnectConfiguration: NotRequired[OpenIdConnectConfigurationItemTypeDef]
+
+class ConfigurationTypeDef(TypedDict):
+    cognitoUserPoolConfiguration: NotRequired[CognitoUserPoolConfigurationTypeDef]
+    openIdConnectConfiguration: NotRequired[OpenIdConnectConfigurationTypeDef]
+
+class UpdateConfigurationTypeDef(TypedDict):
+    cognitoUserPoolConfiguration: NotRequired[UpdateCognitoUserPoolConfigurationTypeDef]
+    openIdConnectConfiguration: NotRequired[UpdateOpenIdConnectConfigurationTypeDef]
+
+class BatchIsAuthorizedOutputItemTypeDef(TypedDict):
+    request: BatchIsAuthorizedInputItemOutputTypeDef
+    decision: DecisionType
+    determiningPolicies: List[DeterminingPolicyItemTypeDef]
+    errors: List[EvaluationErrorItemTypeDef]
+
+class BatchIsAuthorizedWithTokenOutputItemTypeDef(TypedDict):
+    request: BatchIsAuthorizedWithTokenInputItemOutputTypeDef
+    decision: DecisionType
+    determiningPolicies: List[DeterminingPolicyItemTypeDef]
+    errors: List[EvaluationErrorItemTypeDef]
+
+ContextDefinitionUnionTypeDef = Union[ContextDefinitionTypeDef, ContextDefinitionOutputTypeDef]
+
+class EntitiesDefinitionTypeDef(TypedDict):
+    entityList: NotRequired[Sequence[EntityItemTypeDef]]
+    cedarJson: NotRequired[str]
+
+class BatchGetPolicyOutputTypeDef(TypedDict):
+    results: List[BatchGetPolicyOutputItemTypeDef]
+    errors: List[BatchGetPolicyErrorItemTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListPoliciesOutputTypeDef(TypedDict):
+    policies: List[PolicyItemTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class GetIdentitySourceOutputTypeDef(TypedDict):
+    createdDate: datetime
+    details: IdentitySourceDetailsTypeDef
+    identitySourceId: str
+    lastUpdatedDate: datetime
+    policyStoreId: str
+    principalEntityType: str
+    configuration: ConfigurationDetailTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class IdentitySourceItemTypeDef(TypedDict):
+    createdDate: datetime
+    identitySourceId: str
+    lastUpdatedDate: datetime
+    policyStoreId: str
+    principalEntityType: str
+    details: NotRequired[IdentitySourceItemDetailsTypeDef]
+    configuration: NotRequired[ConfigurationItemTypeDef]
+
+class CreateIdentitySourceInputTypeDef(TypedDict):
+    policyStoreId: str
+    configuration: ConfigurationTypeDef
+    clientToken: NotRequired[str]
+    principalEntityType: NotRequired[str]
+
+class UpdateIdentitySourceInputTypeDef(TypedDict):
+    policyStoreId: str
+    identitySourceId: str
+    updateConfiguration: UpdateConfigurationTypeDef
+    principalEntityType: NotRequired[str]
+
+class BatchIsAuthorizedOutputTypeDef(TypedDict):
+    results: List[BatchIsAuthorizedOutputItemTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class BatchIsAuthorizedWithTokenOutputTypeDef(TypedDict):
+    principal: EntityIdentifierTypeDef
+    results: List[BatchIsAuthorizedWithTokenOutputItemTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class BatchIsAuthorizedInputItemTypeDef(TypedDict):
+    principal: NotRequired[EntityIdentifierTypeDef]
+    action: NotRequired[ActionIdentifierTypeDef]
+    resource: NotRequired[EntityIdentifierTypeDef]
+    context: NotRequired[ContextDefinitionUnionTypeDef]
+
+class BatchIsAuthorizedWithTokenInputItemTypeDef(TypedDict):
+    action: NotRequired[ActionIdentifierTypeDef]
+    resource: NotRequired[EntityIdentifierTypeDef]
+    context: NotRequired[ContextDefinitionUnionTypeDef]
+
+class IsAuthorizedInputTypeDef(TypedDict):
+    policyStoreId: str
+    principal: NotRequired[EntityIdentifierTypeDef]
+    action: NotRequired[ActionIdentifierTypeDef]
+    resource: NotRequired[EntityIdentifierTypeDef]
+    context: NotRequired[ContextDefinitionUnionTypeDef]
+    entities: NotRequired[EntitiesDefinitionTypeDef]
+
+class IsAuthorizedWithTokenInputTypeDef(TypedDict):
+    policyStoreId: str
+    identityToken: NotRequired[str]
+    accessToken: NotRequired[str]
+    action: NotRequired[ActionIdentifierTypeDef]
+    resource: NotRequired[EntityIdentifierTypeDef]
+    context: NotRequired[ContextDefinitionUnionTypeDef]
+    entities: NotRequired[EntitiesDefinitionTypeDef]
+
+class ListIdentitySourcesOutputTypeDef(TypedDict):
+    identitySources: List[IdentitySourceItemTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+BatchIsAuthorizedInputItemUnionTypeDef = Union[
+    BatchIsAuthorizedInputItemTypeDef, BatchIsAuthorizedInputItemOutputTypeDef
+]
+BatchIsAuthorizedWithTokenInputItemUnionTypeDef = Union[
+    BatchIsAuthorizedWithTokenInputItemTypeDef, BatchIsAuthorizedWithTokenInputItemOutputTypeDef
+]
+
+class BatchIsAuthorizedInputTypeDef(TypedDict):
+    policyStoreId: str
+    requests: Sequence[BatchIsAuthorizedInputItemUnionTypeDef]
+    entities: NotRequired[EntitiesDefinitionTypeDef]
+
+class BatchIsAuthorizedWithTokenInputTypeDef(TypedDict):
+    policyStoreId: str
+    requests: Sequence[BatchIsAuthorizedWithTokenInputItemUnionTypeDef]
+    identityToken: NotRequired[str]
+    accessToken: NotRequired[str]
+    entities: NotRequired[EntitiesDefinitionTypeDef]

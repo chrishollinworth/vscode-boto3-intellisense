@@ -1,19 +1,21 @@
 """
 Main interface for lookoutmetrics service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lookoutmetrics/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_lookoutmetrics import (
         Client,
         LookoutMetricsClient,
     )
 
-    session = boto3.Session()
-
-    client: LookoutMetricsClient = boto3.client("lookoutmetrics")
-    session_client: LookoutMetricsClient = session.client("lookoutmetrics")
+    session = Session()
+    client: LookoutMetricsClient = session.client("lookoutmetrics")
     ```
 """
 

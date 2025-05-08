@@ -1,121 +1,192 @@
 """
-Type annotations for redshift-serverless service client.
+Type annotations for redshift-serverless service Client.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
-    from mypy_boto3_redshift_serverless import RedshiftServerlessClient
+    from boto3.session import Session
+    from mypy_boto3_redshift_serverless.client import RedshiftServerlessClient
 
-    client: RedshiftServerlessClient = boto3.client("redshift-serverless")
+    session = Session()
+    client: RedshiftServerlessClient = session.client("redshift-serverless")
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from datetime import datetime
-from typing import Any, Dict, List, Type, Union, overload
+from typing import Any, overload
 
 from botocore.client import BaseClient, ClientMeta
+from botocore.errorfactory import BaseClientExceptions
+from botocore.exceptions import ClientError as BotocoreClientError
 
-from .literals import (
-    LogExportType,
-    UsageLimitBreachActionType,
-    UsageLimitPeriodType,
-    UsageLimitUsageTypeType,
-)
 from .paginator import (
     ListCustomDomainAssociationsPaginator,
     ListEndpointAccessPaginator,
+    ListManagedWorkgroupsPaginator,
     ListNamespacesPaginator,
     ListRecoveryPointsPaginator,
+    ListReservationOfferingsPaginator,
+    ListReservationsPaginator,
     ListScheduledActionsPaginator,
     ListSnapshotCopyConfigurationsPaginator,
     ListSnapshotsPaginator,
     ListTableRestoreStatusPaginator,
+    ListTracksPaginator,
     ListUsageLimitsPaginator,
     ListWorkgroupsPaginator,
 )
 from .type_defs import (
-    ConfigParameterTypeDef,
+    ConvertRecoveryPointToSnapshotRequestTypeDef,
     ConvertRecoveryPointToSnapshotResponseTypeDef,
+    CreateCustomDomainAssociationRequestTypeDef,
     CreateCustomDomainAssociationResponseTypeDef,
+    CreateEndpointAccessRequestTypeDef,
     CreateEndpointAccessResponseTypeDef,
+    CreateNamespaceRequestTypeDef,
     CreateNamespaceResponseTypeDef,
+    CreateReservationRequestTypeDef,
+    CreateReservationResponseTypeDef,
+    CreateScheduledActionRequestTypeDef,
     CreateScheduledActionResponseTypeDef,
+    CreateSnapshotCopyConfigurationRequestTypeDef,
     CreateSnapshotCopyConfigurationResponseTypeDef,
+    CreateSnapshotRequestTypeDef,
     CreateSnapshotResponseTypeDef,
+    CreateUsageLimitRequestTypeDef,
     CreateUsageLimitResponseTypeDef,
+    CreateWorkgroupRequestTypeDef,
     CreateWorkgroupResponseTypeDef,
+    DeleteCustomDomainAssociationRequestTypeDef,
+    DeleteEndpointAccessRequestTypeDef,
     DeleteEndpointAccessResponseTypeDef,
+    DeleteNamespaceRequestTypeDef,
     DeleteNamespaceResponseTypeDef,
+    DeleteResourcePolicyRequestTypeDef,
+    DeleteScheduledActionRequestTypeDef,
     DeleteScheduledActionResponseTypeDef,
+    DeleteSnapshotCopyConfigurationRequestTypeDef,
     DeleteSnapshotCopyConfigurationResponseTypeDef,
+    DeleteSnapshotRequestTypeDef,
     DeleteSnapshotResponseTypeDef,
+    DeleteUsageLimitRequestTypeDef,
     DeleteUsageLimitResponseTypeDef,
+    DeleteWorkgroupRequestTypeDef,
     DeleteWorkgroupResponseTypeDef,
+    GetCredentialsRequestTypeDef,
     GetCredentialsResponseTypeDef,
+    GetCustomDomainAssociationRequestTypeDef,
     GetCustomDomainAssociationResponseTypeDef,
+    GetEndpointAccessRequestTypeDef,
     GetEndpointAccessResponseTypeDef,
+    GetNamespaceRequestTypeDef,
     GetNamespaceResponseTypeDef,
+    GetRecoveryPointRequestTypeDef,
     GetRecoveryPointResponseTypeDef,
+    GetReservationOfferingRequestTypeDef,
+    GetReservationOfferingResponseTypeDef,
+    GetReservationRequestTypeDef,
+    GetReservationResponseTypeDef,
+    GetResourcePolicyRequestTypeDef,
     GetResourcePolicyResponseTypeDef,
+    GetScheduledActionRequestTypeDef,
     GetScheduledActionResponseTypeDef,
+    GetSnapshotRequestTypeDef,
     GetSnapshotResponseTypeDef,
+    GetTableRestoreStatusRequestTypeDef,
     GetTableRestoreStatusResponseTypeDef,
+    GetTrackRequestTypeDef,
+    GetTrackResponseTypeDef,
+    GetUsageLimitRequestTypeDef,
     GetUsageLimitResponseTypeDef,
+    GetWorkgroupRequestTypeDef,
     GetWorkgroupResponseTypeDef,
+    ListCustomDomainAssociationsRequestTypeDef,
     ListCustomDomainAssociationsResponseTypeDef,
+    ListEndpointAccessRequestTypeDef,
     ListEndpointAccessResponseTypeDef,
+    ListManagedWorkgroupsRequestTypeDef,
+    ListManagedWorkgroupsResponseTypeDef,
+    ListNamespacesRequestTypeDef,
     ListNamespacesResponseTypeDef,
+    ListRecoveryPointsRequestTypeDef,
     ListRecoveryPointsResponseTypeDef,
+    ListReservationOfferingsRequestTypeDef,
+    ListReservationOfferingsResponseTypeDef,
+    ListReservationsRequestTypeDef,
+    ListReservationsResponseTypeDef,
+    ListScheduledActionsRequestTypeDef,
     ListScheduledActionsResponseTypeDef,
+    ListSnapshotCopyConfigurationsRequestTypeDef,
     ListSnapshotCopyConfigurationsResponseTypeDef,
+    ListSnapshotsRequestTypeDef,
     ListSnapshotsResponseTypeDef,
+    ListTableRestoreStatusRequestTypeDef,
     ListTableRestoreStatusResponseTypeDef,
+    ListTagsForResourceRequestTypeDef,
     ListTagsForResourceResponseTypeDef,
+    ListTracksRequestTypeDef,
+    ListTracksResponseTypeDef,
+    ListUsageLimitsRequestTypeDef,
     ListUsageLimitsResponseTypeDef,
+    ListWorkgroupsRequestTypeDef,
     ListWorkgroupsResponseTypeDef,
+    PutResourcePolicyRequestTypeDef,
     PutResourcePolicyResponseTypeDef,
+    RestoreFromRecoveryPointRequestTypeDef,
     RestoreFromRecoveryPointResponseTypeDef,
+    RestoreFromSnapshotRequestTypeDef,
     RestoreFromSnapshotResponseTypeDef,
+    RestoreTableFromRecoveryPointRequestTypeDef,
     RestoreTableFromRecoveryPointResponseTypeDef,
+    RestoreTableFromSnapshotRequestTypeDef,
     RestoreTableFromSnapshotResponseTypeDef,
-    ScheduleTypeDef,
-    TagTypeDef,
-    TargetActionTypeDef,
+    TagResourceRequestTypeDef,
+    UntagResourceRequestTypeDef,
+    UpdateCustomDomainAssociationRequestTypeDef,
     UpdateCustomDomainAssociationResponseTypeDef,
+    UpdateEndpointAccessRequestTypeDef,
     UpdateEndpointAccessResponseTypeDef,
+    UpdateNamespaceRequestTypeDef,
     UpdateNamespaceResponseTypeDef,
+    UpdateScheduledActionRequestTypeDef,
     UpdateScheduledActionResponseTypeDef,
+    UpdateSnapshotCopyConfigurationRequestTypeDef,
     UpdateSnapshotCopyConfigurationResponseTypeDef,
+    UpdateSnapshotRequestTypeDef,
     UpdateSnapshotResponseTypeDef,
+    UpdateUsageLimitRequestTypeDef,
     UpdateUsageLimitResponseTypeDef,
+    UpdateWorkgroupRequestTypeDef,
     UpdateWorkgroupResponseTypeDef,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import type as Type
+    from collections.abc import Mapping
 else:
-    from typing_extensions import Literal
+    from typing import Dict, Mapping, Type
+if sys.version_info >= (3, 12):
+    from typing import Literal, Unpack
+else:
+    from typing_extensions import Literal, Unpack
 
 __all__ = ("RedshiftServerlessClient",)
 
-class BotocoreClientError(BaseException):
-    MSG_TEMPLATE: str
-
-    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
-        self.response: Dict[str, Any]
-        self.operation_name: str
-
-class Exceptions:
+class Exceptions(BaseClientExceptions):
     AccessDeniedException: Type[BotocoreClientError]
     ClientError: Type[BotocoreClientError]
     ConflictException: Type[BotocoreClientError]
     InsufficientCapacityException: Type[BotocoreClientError]
     InternalServerException: Type[BotocoreClientError]
     InvalidPaginationException: Type[BotocoreClientError]
+    Ipv6CidrBlockNotFoundException: Type[BotocoreClientError]
     ResourceNotFoundException: Type[BotocoreClientError]
     ServiceQuotaExceededException: Type[BotocoreClientError]
     ThrottlingException: Type[BotocoreClientError]
@@ -124,8 +195,8 @@ class Exceptions:
 
 class RedshiftServerlessClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift-serverless.html#RedshiftServerless.Client)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-serverless.html#RedshiftServerless.Client)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client/)
     """
 
     meta: ClientMeta
@@ -134,818 +205,809 @@ class RedshiftServerlessClient(BaseClient):
     def exceptions(self) -> Exceptions:
         """
         RedshiftServerlessClient exceptions.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-serverless.html#RedshiftServerless.Client)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client/#exceptions)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        Check if an operation can be paginated.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift-serverless.html#RedshiftServerless.Client.can_paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#can_paginate)
-        """
-
-    def close(self) -> None:
-        """
-        Closes underlying endpoint connections.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift-serverless.html#RedshiftServerless.Client.close)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#close)
-        """
-
-    def convert_recovery_point_to_snapshot(
-        self,
-        *,
-        recoveryPointId: str,
-        snapshotName: str,
-        retentionPeriod: int = None,
-        tags: List["TagTypeDef"] = None
-    ) -> ConvertRecoveryPointToSnapshotResponseTypeDef:
-        """
-        Converts a recovery point to a snapshot.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift-serverless.html#RedshiftServerless.Client.convert_recovery_point_to_snapshot)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#convert_recovery_point_to_snapshot)
-        """
-
-    def create_custom_domain_association(
-        self, *, customDomainCertificateArn: str, customDomainName: str, workgroupName: str
-    ) -> CreateCustomDomainAssociationResponseTypeDef:
-        """
-        Creates a custom domain association for Amazon Redshift Serverless.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift-serverless.html#RedshiftServerless.Client.create_custom_domain_association)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#create_custom_domain_association)
-        """
-
-    def create_endpoint_access(
-        self,
-        *,
-        endpointName: str,
-        subnetIds: List[str],
-        workgroupName: str,
-        ownerAccount: str = None,
-        vpcSecurityGroupIds: List[str] = None
-    ) -> CreateEndpointAccessResponseTypeDef:
-        """
-        Creates an Amazon Redshift Serverless managed VPC endpoint.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift-serverless.html#RedshiftServerless.Client.create_endpoint_access)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#create_endpoint_access)
-        """
-
-    def create_namespace(
-        self,
-        *,
-        namespaceName: str,
-        adminPasswordSecretKmsKeyId: str = None,
-        adminUserPassword: str = None,
-        adminUsername: str = None,
-        dbName: str = None,
-        defaultIamRoleArn: str = None,
-        iamRoles: List[str] = None,
-        kmsKeyId: str = None,
-        logExports: List[LogExportType] = None,
-        manageAdminPassword: bool = None,
-        redshiftIdcApplicationArn: str = None,
-        tags: List["TagTypeDef"] = None
-    ) -> CreateNamespaceResponseTypeDef:
-        """
-        Creates a namespace in Amazon Redshift Serverless.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift-serverless.html#RedshiftServerless.Client.create_namespace)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#create_namespace)
-        """
-
-    def create_scheduled_action(
-        self,
-        *,
-        namespaceName: str,
-        roleArn: str,
-        schedule: "ScheduleTypeDef",
-        scheduledActionName: str,
-        targetAction: "TargetActionTypeDef",
-        enabled: bool = None,
-        endTime: Union[datetime, str] = None,
-        scheduledActionDescription: str = None,
-        startTime: Union[datetime, str] = None
-    ) -> CreateScheduledActionResponseTypeDef:
-        """
-        Creates a scheduled action.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift-serverless.html#RedshiftServerless.Client.create_scheduled_action)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#create_scheduled_action)
-        """
-
-    def create_snapshot(
-        self,
-        *,
-        namespaceName: str,
-        snapshotName: str,
-        retentionPeriod: int = None,
-        tags: List["TagTypeDef"] = None
-    ) -> CreateSnapshotResponseTypeDef:
-        """
-        Creates a snapshot of all databases in a namespace.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift-serverless.html#RedshiftServerless.Client.create_snapshot)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#create_snapshot)
-        """
-
-    def create_snapshot_copy_configuration(
-        self,
-        *,
-        destinationRegion: str,
-        namespaceName: str,
-        destinationKmsKeyId: str = None,
-        snapshotRetentionPeriod: int = None
-    ) -> CreateSnapshotCopyConfigurationResponseTypeDef:
-        """
-        Creates a snapshot copy configuration that lets you copy snapshots to another
-        Amazon Web Services Region.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift-serverless.html#RedshiftServerless.Client.create_snapshot_copy_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#create_snapshot_copy_configuration)
-        """
-
-    def create_usage_limit(
-        self,
-        *,
-        amount: int,
-        resourceArn: str,
-        usageType: UsageLimitUsageTypeType,
-        breachAction: UsageLimitBreachActionType = None,
-        period: UsageLimitPeriodType = None
-    ) -> CreateUsageLimitResponseTypeDef:
-        """
-        Creates a usage limit for a specified Amazon Redshift Serverless usage type.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift-serverless.html#RedshiftServerless.Client.create_usage_limit)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#create_usage_limit)
-        """
-
-    def create_workgroup(
-        self,
-        *,
-        namespaceName: str,
-        workgroupName: str,
-        baseCapacity: int = None,
-        configParameters: List["ConfigParameterTypeDef"] = None,
-        enhancedVpcRouting: bool = None,
-        maxCapacity: int = None,
-        port: int = None,
-        publiclyAccessible: bool = None,
-        securityGroupIds: List[str] = None,
-        subnetIds: List[str] = None,
-        tags: List["TagTypeDef"] = None
-    ) -> CreateWorkgroupResponseTypeDef:
-        """
-        Creates an workgroup in Amazon Redshift Serverless.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift-serverless.html#RedshiftServerless.Client.create_workgroup)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#create_workgroup)
-        """
-
-    def delete_custom_domain_association(
-        self, *, customDomainName: str, workgroupName: str
-    ) -> Dict[str, Any]:
-        """
-        Deletes a custom domain association for Amazon Redshift Serverless.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift-serverless.html#RedshiftServerless.Client.delete_custom_domain_association)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#delete_custom_domain_association)
-        """
-
-    def delete_endpoint_access(self, *, endpointName: str) -> DeleteEndpointAccessResponseTypeDef:
-        """
-        Deletes an Amazon Redshift Serverless managed VPC endpoint.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift-serverless.html#RedshiftServerless.Client.delete_endpoint_access)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#delete_endpoint_access)
-        """
-
-    def delete_namespace(
-        self,
-        *,
-        namespaceName: str,
-        finalSnapshotName: str = None,
-        finalSnapshotRetentionPeriod: int = None
-    ) -> DeleteNamespaceResponseTypeDef:
-        """
-        Deletes a namespace from Amazon Redshift Serverless.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift-serverless.html#RedshiftServerless.Client.delete_namespace)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#delete_namespace)
-        """
-
-    def delete_resource_policy(self, *, resourceArn: str) -> Dict[str, Any]:
-        """
-        Deletes the specified resource policy.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift-serverless.html#RedshiftServerless.Client.delete_resource_policy)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#delete_resource_policy)
-        """
-
-    def delete_scheduled_action(
-        self, *, scheduledActionName: str
-    ) -> DeleteScheduledActionResponseTypeDef:
-        """
-        Deletes a scheduled action.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift-serverless.html#RedshiftServerless.Client.delete_scheduled_action)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#delete_scheduled_action)
-        """
-
-    def delete_snapshot(self, *, snapshotName: str) -> DeleteSnapshotResponseTypeDef:
-        """
-        Deletes a snapshot from Amazon Redshift Serverless.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift-serverless.html#RedshiftServerless.Client.delete_snapshot)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#delete_snapshot)
-        """
-
-    def delete_snapshot_copy_configuration(
-        self, *, snapshotCopyConfigurationId: str
-    ) -> DeleteSnapshotCopyConfigurationResponseTypeDef:
-        """
-        Deletes a snapshot copy configuration See also: `AWS API Documentation
-        <https://docs.aws.amazon.com/goto/WebAPI/redshift-
-        serverless-2021-04-21/DeleteSnapshotCopyConfiguration>`_ **Request Syntax**
-        response = client.delete_snapshot_copy_configuration(
-        snapshotCopyConfigurationId='...
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift-serverless.html#RedshiftServerless.Client.delete_snapshot_copy_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#delete_snapshot_copy_configuration)
-        """
-
-    def delete_usage_limit(self, *, usageLimitId: str) -> DeleteUsageLimitResponseTypeDef:
-        """
-        Deletes a usage limit from Amazon Redshift Serverless.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift-serverless.html#RedshiftServerless.Client.delete_usage_limit)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#delete_usage_limit)
-        """
-
-    def delete_workgroup(self, *, workgroupName: str) -> DeleteWorkgroupResponseTypeDef:
-        """
-        Deletes a workgroup.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift-serverless.html#RedshiftServerless.Client.delete_workgroup)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#delete_workgroup)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-serverless/client/can_paginate.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client/#can_paginate)
         """
 
     def generate_presigned_url(
         self,
         ClientMethod: str,
-        Params: Dict[str, Any] = None,
+        Params: Mapping[str, Any] = ...,
         ExpiresIn: int = 3600,
-        HttpMethod: str = None,
+        HttpMethod: str = ...,
     ) -> str:
         """
-        Generate a presigned url given a client, its method, and arguments.
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-serverless/client/generate_presigned_url.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client/#generate_presigned_url)
+        """
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift-serverless.html#RedshiftServerless.Client.generate_presigned_url)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#generate_presigned_url)
+    def convert_recovery_point_to_snapshot(
+        self, **kwargs: Unpack[ConvertRecoveryPointToSnapshotRequestTypeDef]
+    ) -> ConvertRecoveryPointToSnapshotResponseTypeDef:
+        """
+        Converts a recovery point to a snapshot.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-serverless/client/convert_recovery_point_to_snapshot.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client/#convert_recovery_point_to_snapshot)
+        """
+
+    def create_custom_domain_association(
+        self, **kwargs: Unpack[CreateCustomDomainAssociationRequestTypeDef]
+    ) -> CreateCustomDomainAssociationResponseTypeDef:
+        """
+        Creates a custom domain association for Amazon Redshift Serverless.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-serverless/client/create_custom_domain_association.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client/#create_custom_domain_association)
+        """
+
+    def create_endpoint_access(
+        self, **kwargs: Unpack[CreateEndpointAccessRequestTypeDef]
+    ) -> CreateEndpointAccessResponseTypeDef:
+        """
+        Creates an Amazon Redshift Serverless managed VPC endpoint.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-serverless/client/create_endpoint_access.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client/#create_endpoint_access)
+        """
+
+    def create_namespace(
+        self, **kwargs: Unpack[CreateNamespaceRequestTypeDef]
+    ) -> CreateNamespaceResponseTypeDef:
+        """
+        Creates a namespace in Amazon Redshift Serverless.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-serverless/client/create_namespace.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client/#create_namespace)
+        """
+
+    def create_reservation(
+        self, **kwargs: Unpack[CreateReservationRequestTypeDef]
+    ) -> CreateReservationResponseTypeDef:
+        """
+        Creates an Amazon Redshift Serverless reservation, which gives you the option
+        to commit to a specified number of Redshift Processing Units (RPUs) for a year
+        at a discount from Serverless on-demand (OD) rates.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-serverless/client/create_reservation.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client/#create_reservation)
+        """
+
+    def create_scheduled_action(
+        self, **kwargs: Unpack[CreateScheduledActionRequestTypeDef]
+    ) -> CreateScheduledActionResponseTypeDef:
+        """
+        Creates a scheduled action.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-serverless/client/create_scheduled_action.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client/#create_scheduled_action)
+        """
+
+    def create_snapshot(
+        self, **kwargs: Unpack[CreateSnapshotRequestTypeDef]
+    ) -> CreateSnapshotResponseTypeDef:
+        """
+        Creates a snapshot of all databases in a namespace.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-serverless/client/create_snapshot.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client/#create_snapshot)
+        """
+
+    def create_snapshot_copy_configuration(
+        self, **kwargs: Unpack[CreateSnapshotCopyConfigurationRequestTypeDef]
+    ) -> CreateSnapshotCopyConfigurationResponseTypeDef:
+        """
+        Creates a snapshot copy configuration that lets you copy snapshots to another
+        Amazon Web Services Region.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-serverless/client/create_snapshot_copy_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client/#create_snapshot_copy_configuration)
+        """
+
+    def create_usage_limit(
+        self, **kwargs: Unpack[CreateUsageLimitRequestTypeDef]
+    ) -> CreateUsageLimitResponseTypeDef:
+        """
+        Creates a usage limit for a specified Amazon Redshift Serverless usage type.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-serverless/client/create_usage_limit.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client/#create_usage_limit)
+        """
+
+    def create_workgroup(
+        self, **kwargs: Unpack[CreateWorkgroupRequestTypeDef]
+    ) -> CreateWorkgroupResponseTypeDef:
+        """
+        Creates an workgroup in Amazon Redshift Serverless.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-serverless/client/create_workgroup.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client/#create_workgroup)
+        """
+
+    def delete_custom_domain_association(
+        self, **kwargs: Unpack[DeleteCustomDomainAssociationRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Deletes a custom domain association for Amazon Redshift Serverless.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-serverless/client/delete_custom_domain_association.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client/#delete_custom_domain_association)
+        """
+
+    def delete_endpoint_access(
+        self, **kwargs: Unpack[DeleteEndpointAccessRequestTypeDef]
+    ) -> DeleteEndpointAccessResponseTypeDef:
+        """
+        Deletes an Amazon Redshift Serverless managed VPC endpoint.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-serverless/client/delete_endpoint_access.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client/#delete_endpoint_access)
+        """
+
+    def delete_namespace(
+        self, **kwargs: Unpack[DeleteNamespaceRequestTypeDef]
+    ) -> DeleteNamespaceResponseTypeDef:
+        """
+        Deletes a namespace from Amazon Redshift Serverless.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-serverless/client/delete_namespace.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client/#delete_namespace)
+        """
+
+    def delete_resource_policy(
+        self, **kwargs: Unpack[DeleteResourcePolicyRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Deletes the specified resource policy.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-serverless/client/delete_resource_policy.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client/#delete_resource_policy)
+        """
+
+    def delete_scheduled_action(
+        self, **kwargs: Unpack[DeleteScheduledActionRequestTypeDef]
+    ) -> DeleteScheduledActionResponseTypeDef:
+        """
+        Deletes a scheduled action.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-serverless/client/delete_scheduled_action.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client/#delete_scheduled_action)
+        """
+
+    def delete_snapshot(
+        self, **kwargs: Unpack[DeleteSnapshotRequestTypeDef]
+    ) -> DeleteSnapshotResponseTypeDef:
+        """
+        Deletes a snapshot from Amazon Redshift Serverless.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-serverless/client/delete_snapshot.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client/#delete_snapshot)
+        """
+
+    def delete_snapshot_copy_configuration(
+        self, **kwargs: Unpack[DeleteSnapshotCopyConfigurationRequestTypeDef]
+    ) -> DeleteSnapshotCopyConfigurationResponseTypeDef:
+        """
+        Deletes a snapshot copy configuration.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-serverless/client/delete_snapshot_copy_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client/#delete_snapshot_copy_configuration)
+        """
+
+    def delete_usage_limit(
+        self, **kwargs: Unpack[DeleteUsageLimitRequestTypeDef]
+    ) -> DeleteUsageLimitResponseTypeDef:
+        """
+        Deletes a usage limit from Amazon Redshift Serverless.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-serverless/client/delete_usage_limit.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client/#delete_usage_limit)
+        """
+
+    def delete_workgroup(
+        self, **kwargs: Unpack[DeleteWorkgroupRequestTypeDef]
+    ) -> DeleteWorkgroupResponseTypeDef:
+        """
+        Deletes a workgroup.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-serverless/client/delete_workgroup.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client/#delete_workgroup)
         """
 
     def get_credentials(
-        self,
-        *,
-        customDomainName: str = None,
-        dbName: str = None,
-        durationSeconds: int = None,
-        workgroupName: str = None
+        self, **kwargs: Unpack[GetCredentialsRequestTypeDef]
     ) -> GetCredentialsResponseTypeDef:
         """
-        Returns a database user name and temporary password with temporary authorization
-        to log in to Amazon Redshift Serverless.
+        Returns a database user name and temporary password with temporary
+        authorization to log in to Amazon Redshift Serverless.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift-serverless.html#RedshiftServerless.Client.get_credentials)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#get_credentials)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-serverless/client/get_credentials.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client/#get_credentials)
         """
 
     def get_custom_domain_association(
-        self, *, customDomainName: str, workgroupName: str
+        self, **kwargs: Unpack[GetCustomDomainAssociationRequestTypeDef]
     ) -> GetCustomDomainAssociationResponseTypeDef:
         """
         Gets information about a specific custom domain association.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift-serverless.html#RedshiftServerless.Client.get_custom_domain_association)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#get_custom_domain_association)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-serverless/client/get_custom_domain_association.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client/#get_custom_domain_association)
         """
 
-    def get_endpoint_access(self, *, endpointName: str) -> GetEndpointAccessResponseTypeDef:
+    def get_endpoint_access(
+        self, **kwargs: Unpack[GetEndpointAccessRequestTypeDef]
+    ) -> GetEndpointAccessResponseTypeDef:
         """
         Returns information, such as the name, about a VPC endpoint.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift-serverless.html#RedshiftServerless.Client.get_endpoint_access)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#get_endpoint_access)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-serverless/client/get_endpoint_access.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client/#get_endpoint_access)
         """
 
-    def get_namespace(self, *, namespaceName: str) -> GetNamespaceResponseTypeDef:
+    def get_namespace(
+        self, **kwargs: Unpack[GetNamespaceRequestTypeDef]
+    ) -> GetNamespaceResponseTypeDef:
         """
         Returns information about a namespace in Amazon Redshift Serverless.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift-serverless.html#RedshiftServerless.Client.get_namespace)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#get_namespace)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-serverless/client/get_namespace.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client/#get_namespace)
         """
 
-    def get_recovery_point(self, *, recoveryPointId: str) -> GetRecoveryPointResponseTypeDef:
+    def get_recovery_point(
+        self, **kwargs: Unpack[GetRecoveryPointRequestTypeDef]
+    ) -> GetRecoveryPointResponseTypeDef:
         """
         Returns information about a recovery point.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift-serverless.html#RedshiftServerless.Client.get_recovery_point)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#get_recovery_point)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-serverless/client/get_recovery_point.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client/#get_recovery_point)
         """
 
-    def get_resource_policy(self, *, resourceArn: str) -> GetResourcePolicyResponseTypeDef:
+    def get_reservation(
+        self, **kwargs: Unpack[GetReservationRequestTypeDef]
+    ) -> GetReservationResponseTypeDef:
+        """
+        Gets an Amazon Redshift Serverless reservation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-serverless/client/get_reservation.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client/#get_reservation)
+        """
+
+    def get_reservation_offering(
+        self, **kwargs: Unpack[GetReservationOfferingRequestTypeDef]
+    ) -> GetReservationOfferingResponseTypeDef:
+        """
+        Returns the reservation offering.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-serverless/client/get_reservation_offering.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client/#get_reservation_offering)
+        """
+
+    def get_resource_policy(
+        self, **kwargs: Unpack[GetResourcePolicyRequestTypeDef]
+    ) -> GetResourcePolicyResponseTypeDef:
         """
         Returns a resource policy.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift-serverless.html#RedshiftServerless.Client.get_resource_policy)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#get_resource_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-serverless/client/get_resource_policy.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client/#get_resource_policy)
         """
 
     def get_scheduled_action(
-        self, *, scheduledActionName: str
+        self, **kwargs: Unpack[GetScheduledActionRequestTypeDef]
     ) -> GetScheduledActionResponseTypeDef:
         """
         Returns information about a scheduled action.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift-serverless.html#RedshiftServerless.Client.get_scheduled_action)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#get_scheduled_action)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-serverless/client/get_scheduled_action.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client/#get_scheduled_action)
         """
 
     def get_snapshot(
-        self, *, ownerAccount: str = None, snapshotArn: str = None, snapshotName: str = None
+        self, **kwargs: Unpack[GetSnapshotRequestTypeDef]
     ) -> GetSnapshotResponseTypeDef:
         """
         Returns information about a specific snapshot.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift-serverless.html#RedshiftServerless.Client.get_snapshot)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#get_snapshot)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-serverless/client/get_snapshot.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client/#get_snapshot)
         """
 
     def get_table_restore_status(
-        self, *, tableRestoreRequestId: str
+        self, **kwargs: Unpack[GetTableRestoreStatusRequestTypeDef]
     ) -> GetTableRestoreStatusResponseTypeDef:
         """
-        Returns information about a `TableRestoreStatus` object.
+        Returns information about a <code>TableRestoreStatus</code> object.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift-serverless.html#RedshiftServerless.Client.get_table_restore_status)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#get_table_restore_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-serverless/client/get_table_restore_status.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client/#get_table_restore_status)
         """
 
-    def get_usage_limit(self, *, usageLimitId: str) -> GetUsageLimitResponseTypeDef:
+    def get_track(self, **kwargs: Unpack[GetTrackRequestTypeDef]) -> GetTrackResponseTypeDef:
+        """
+        Get the Redshift Serverless version for a specified track.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-serverless/client/get_track.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client/#get_track)
+        """
+
+    def get_usage_limit(
+        self, **kwargs: Unpack[GetUsageLimitRequestTypeDef]
+    ) -> GetUsageLimitResponseTypeDef:
         """
         Returns information about a usage limit.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift-serverless.html#RedshiftServerless.Client.get_usage_limit)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#get_usage_limit)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-serverless/client/get_usage_limit.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client/#get_usage_limit)
         """
 
-    def get_workgroup(self, *, workgroupName: str) -> GetWorkgroupResponseTypeDef:
+    def get_workgroup(
+        self, **kwargs: Unpack[GetWorkgroupRequestTypeDef]
+    ) -> GetWorkgroupResponseTypeDef:
         """
         Returns information about a specific workgroup.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift-serverless.html#RedshiftServerless.Client.get_workgroup)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#get_workgroup)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-serverless/client/get_workgroup.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client/#get_workgroup)
         """
 
     def list_custom_domain_associations(
-        self,
-        *,
-        customDomainCertificateArn: str = None,
-        customDomainName: str = None,
-        maxResults: int = None,
-        nextToken: str = None
+        self, **kwargs: Unpack[ListCustomDomainAssociationsRequestTypeDef]
     ) -> ListCustomDomainAssociationsResponseTypeDef:
         """
         Lists custom domain associations for Amazon Redshift Serverless.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift-serverless.html#RedshiftServerless.Client.list_custom_domain_associations)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#list_custom_domain_associations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-serverless/client/list_custom_domain_associations.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client/#list_custom_domain_associations)
         """
 
     def list_endpoint_access(
-        self,
-        *,
-        maxResults: int = None,
-        nextToken: str = None,
-        ownerAccount: str = None,
-        vpcId: str = None,
-        workgroupName: str = None
+        self, **kwargs: Unpack[ListEndpointAccessRequestTypeDef]
     ) -> ListEndpointAccessResponseTypeDef:
         """
-        Returns an array of `EndpointAccess` objects and relevant information.
+        Returns an array of <code>EndpointAccess</code> objects and relevant
+        information.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift-serverless.html#RedshiftServerless.Client.list_endpoint_access)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#list_endpoint_access)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-serverless/client/list_endpoint_access.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client/#list_endpoint_access)
+        """
+
+    def list_managed_workgroups(
+        self, **kwargs: Unpack[ListManagedWorkgroupsRequestTypeDef]
+    ) -> ListManagedWorkgroupsResponseTypeDef:
+        """
+        Returns information about a list of specified managed workgroups in your
+        account.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-serverless/client/list_managed_workgroups.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client/#list_managed_workgroups)
         """
 
     def list_namespaces(
-        self, *, maxResults: int = None, nextToken: str = None
+        self, **kwargs: Unpack[ListNamespacesRequestTypeDef]
     ) -> ListNamespacesResponseTypeDef:
         """
         Returns information about a list of specified namespaces.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift-serverless.html#RedshiftServerless.Client.list_namespaces)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#list_namespaces)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-serverless/client/list_namespaces.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client/#list_namespaces)
         """
 
     def list_recovery_points(
-        self,
-        *,
-        endTime: Union[datetime, str] = None,
-        maxResults: int = None,
-        namespaceArn: str = None,
-        namespaceName: str = None,
-        nextToken: str = None,
-        startTime: Union[datetime, str] = None
+        self, **kwargs: Unpack[ListRecoveryPointsRequestTypeDef]
     ) -> ListRecoveryPointsResponseTypeDef:
         """
         Returns an array of recovery points.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift-serverless.html#RedshiftServerless.Client.list_recovery_points)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#list_recovery_points)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-serverless/client/list_recovery_points.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client/#list_recovery_points)
+        """
+
+    def list_reservation_offerings(
+        self, **kwargs: Unpack[ListReservationOfferingsRequestTypeDef]
+    ) -> ListReservationOfferingsResponseTypeDef:
+        """
+        Returns the current reservation offerings in your account.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-serverless/client/list_reservation_offerings.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client/#list_reservation_offerings)
+        """
+
+    def list_reservations(
+        self, **kwargs: Unpack[ListReservationsRequestTypeDef]
+    ) -> ListReservationsResponseTypeDef:
+        """
+        Returns a list of Reservation objects.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-serverless/client/list_reservations.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client/#list_reservations)
         """
 
     def list_scheduled_actions(
-        self, *, maxResults: int = None, namespaceName: str = None, nextToken: str = None
+        self, **kwargs: Unpack[ListScheduledActionsRequestTypeDef]
     ) -> ListScheduledActionsResponseTypeDef:
         """
         Returns a list of scheduled actions.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift-serverless.html#RedshiftServerless.Client.list_scheduled_actions)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#list_scheduled_actions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-serverless/client/list_scheduled_actions.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client/#list_scheduled_actions)
         """
 
     def list_snapshot_copy_configurations(
-        self, *, maxResults: int = None, namespaceName: str = None, nextToken: str = None
+        self, **kwargs: Unpack[ListSnapshotCopyConfigurationsRequestTypeDef]
     ) -> ListSnapshotCopyConfigurationsResponseTypeDef:
         """
         Returns a list of snapshot copy configurations.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift-serverless.html#RedshiftServerless.Client.list_snapshot_copy_configurations)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#list_snapshot_copy_configurations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-serverless/client/list_snapshot_copy_configurations.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client/#list_snapshot_copy_configurations)
         """
 
     def list_snapshots(
-        self,
-        *,
-        endTime: Union[datetime, str] = None,
-        maxResults: int = None,
-        namespaceArn: str = None,
-        namespaceName: str = None,
-        nextToken: str = None,
-        ownerAccount: str = None,
-        startTime: Union[datetime, str] = None
+        self, **kwargs: Unpack[ListSnapshotsRequestTypeDef]
     ) -> ListSnapshotsResponseTypeDef:
         """
         Returns a list of snapshots.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift-serverless.html#RedshiftServerless.Client.list_snapshots)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#list_snapshots)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-serverless/client/list_snapshots.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client/#list_snapshots)
         """
 
     def list_table_restore_status(
-        self,
-        *,
-        maxResults: int = None,
-        namespaceName: str = None,
-        nextToken: str = None,
-        workgroupName: str = None
+        self, **kwargs: Unpack[ListTableRestoreStatusRequestTypeDef]
     ) -> ListTableRestoreStatusResponseTypeDef:
         """
-        Returns information about an array of `TableRestoreStatus` objects.
+        Returns information about an array of <code>TableRestoreStatus</code> objects.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift-serverless.html#RedshiftServerless.Client.list_table_restore_status)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#list_table_restore_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-serverless/client/list_table_restore_status.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client/#list_table_restore_status)
         """
 
-    def list_tags_for_resource(self, *, resourceArn: str) -> ListTagsForResourceResponseTypeDef:
+    def list_tags_for_resource(
+        self, **kwargs: Unpack[ListTagsForResourceRequestTypeDef]
+    ) -> ListTagsForResourceResponseTypeDef:
         """
         Lists the tags assigned to a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift-serverless.html#RedshiftServerless.Client.list_tags_for_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-serverless/client/list_tags_for_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client/#list_tags_for_resource)
+        """
+
+    def list_tracks(self, **kwargs: Unpack[ListTracksRequestTypeDef]) -> ListTracksResponseTypeDef:
+        """
+        List the Amazon Redshift Serverless versions.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-serverless/client/list_tracks.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client/#list_tracks)
         """
 
     def list_usage_limits(
-        self,
-        *,
-        maxResults: int = None,
-        nextToken: str = None,
-        resourceArn: str = None,
-        usageType: UsageLimitUsageTypeType = None
+        self, **kwargs: Unpack[ListUsageLimitsRequestTypeDef]
     ) -> ListUsageLimitsResponseTypeDef:
         """
         Lists all usage limits within Amazon Redshift Serverless.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift-serverless.html#RedshiftServerless.Client.list_usage_limits)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#list_usage_limits)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-serverless/client/list_usage_limits.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client/#list_usage_limits)
         """
 
     def list_workgroups(
-        self, *, maxResults: int = None, nextToken: str = None, ownerAccount: str = None
+        self, **kwargs: Unpack[ListWorkgroupsRequestTypeDef]
     ) -> ListWorkgroupsResponseTypeDef:
         """
         Returns information about a list of specified workgroups.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift-serverless.html#RedshiftServerless.Client.list_workgroups)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#list_workgroups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-serverless/client/list_workgroups.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client/#list_workgroups)
         """
 
     def put_resource_policy(
-        self, *, policy: str, resourceArn: str
+        self, **kwargs: Unpack[PutResourcePolicyRequestTypeDef]
     ) -> PutResourcePolicyResponseTypeDef:
         """
         Creates or updates a resource policy.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift-serverless.html#RedshiftServerless.Client.put_resource_policy)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#put_resource_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-serverless/client/put_resource_policy.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client/#put_resource_policy)
         """
 
     def restore_from_recovery_point(
-        self, *, namespaceName: str, recoveryPointId: str, workgroupName: str
+        self, **kwargs: Unpack[RestoreFromRecoveryPointRequestTypeDef]
     ) -> RestoreFromRecoveryPointResponseTypeDef:
         """
         Restore the data from a recovery point.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift-serverless.html#RedshiftServerless.Client.restore_from_recovery_point)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#restore_from_recovery_point)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-serverless/client/restore_from_recovery_point.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client/#restore_from_recovery_point)
         """
 
     def restore_from_snapshot(
-        self,
-        *,
-        namespaceName: str,
-        workgroupName: str,
-        adminPasswordSecretKmsKeyId: str = None,
-        manageAdminPassword: bool = None,
-        ownerAccount: str = None,
-        snapshotArn: str = None,
-        snapshotName: str = None
+        self, **kwargs: Unpack[RestoreFromSnapshotRequestTypeDef]
     ) -> RestoreFromSnapshotResponseTypeDef:
         """
         Restores a namespace from a snapshot.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift-serverless.html#RedshiftServerless.Client.restore_from_snapshot)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#restore_from_snapshot)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-serverless/client/restore_from_snapshot.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client/#restore_from_snapshot)
         """
 
     def restore_table_from_recovery_point(
-        self,
-        *,
-        namespaceName: str,
-        newTableName: str,
-        recoveryPointId: str,
-        sourceDatabaseName: str,
-        sourceTableName: str,
-        workgroupName: str,
-        activateCaseSensitiveIdentifier: bool = None,
-        sourceSchemaName: str = None,
-        targetDatabaseName: str = None,
-        targetSchemaName: str = None
+        self, **kwargs: Unpack[RestoreTableFromRecoveryPointRequestTypeDef]
     ) -> RestoreTableFromRecoveryPointResponseTypeDef:
         """
         Restores a table from a recovery point to your Amazon Redshift Serverless
         instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift-serverless.html#RedshiftServerless.Client.restore_table_from_recovery_point)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#restore_table_from_recovery_point)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-serverless/client/restore_table_from_recovery_point.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client/#restore_table_from_recovery_point)
         """
 
     def restore_table_from_snapshot(
-        self,
-        *,
-        namespaceName: str,
-        newTableName: str,
-        snapshotName: str,
-        sourceDatabaseName: str,
-        sourceTableName: str,
-        workgroupName: str,
-        activateCaseSensitiveIdentifier: bool = None,
-        sourceSchemaName: str = None,
-        targetDatabaseName: str = None,
-        targetSchemaName: str = None
+        self, **kwargs: Unpack[RestoreTableFromSnapshotRequestTypeDef]
     ) -> RestoreTableFromSnapshotResponseTypeDef:
         """
         Restores a table from a snapshot to your Amazon Redshift Serverless instance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift-serverless.html#RedshiftServerless.Client.restore_table_from_snapshot)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#restore_table_from_snapshot)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-serverless/client/restore_table_from_snapshot.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client/#restore_table_from_snapshot)
         """
 
-    def tag_resource(self, *, resourceArn: str, tags: List["TagTypeDef"]) -> Dict[str, Any]:
+    def tag_resource(self, **kwargs: Unpack[TagResourceRequestTypeDef]) -> Dict[str, Any]:
         """
         Assigns one or more tags to a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift-serverless.html#RedshiftServerless.Client.tag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-serverless/client/tag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client/#tag_resource)
         """
 
-    def untag_resource(self, *, resourceArn: str, tagKeys: List[str]) -> Dict[str, Any]:
+    def untag_resource(self, **kwargs: Unpack[UntagResourceRequestTypeDef]) -> Dict[str, Any]:
         """
         Removes a tag or set of tags from a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift-serverless.html#RedshiftServerless.Client.untag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-serverless/client/untag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client/#untag_resource)
         """
 
     def update_custom_domain_association(
-        self, *, customDomainCertificateArn: str, customDomainName: str, workgroupName: str
+        self, **kwargs: Unpack[UpdateCustomDomainAssociationRequestTypeDef]
     ) -> UpdateCustomDomainAssociationResponseTypeDef:
         """
         Updates an Amazon Redshift Serverless certificate associated with a custom
         domain.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift-serverless.html#RedshiftServerless.Client.update_custom_domain_association)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#update_custom_domain_association)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-serverless/client/update_custom_domain_association.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client/#update_custom_domain_association)
         """
 
     def update_endpoint_access(
-        self, *, endpointName: str, vpcSecurityGroupIds: List[str] = None
+        self, **kwargs: Unpack[UpdateEndpointAccessRequestTypeDef]
     ) -> UpdateEndpointAccessResponseTypeDef:
         """
         Updates an Amazon Redshift Serverless managed endpoint.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift-serverless.html#RedshiftServerless.Client.update_endpoint_access)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#update_endpoint_access)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-serverless/client/update_endpoint_access.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client/#update_endpoint_access)
         """
 
     def update_namespace(
-        self,
-        *,
-        namespaceName: str,
-        adminPasswordSecretKmsKeyId: str = None,
-        adminUserPassword: str = None,
-        adminUsername: str = None,
-        defaultIamRoleArn: str = None,
-        iamRoles: List[str] = None,
-        kmsKeyId: str = None,
-        logExports: List[LogExportType] = None,
-        manageAdminPassword: bool = None
+        self, **kwargs: Unpack[UpdateNamespaceRequestTypeDef]
     ) -> UpdateNamespaceResponseTypeDef:
         """
         Updates a namespace with the specified settings.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift-serverless.html#RedshiftServerless.Client.update_namespace)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#update_namespace)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-serverless/client/update_namespace.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client/#update_namespace)
         """
 
     def update_scheduled_action(
-        self,
-        *,
-        scheduledActionName: str,
-        enabled: bool = None,
-        endTime: Union[datetime, str] = None,
-        roleArn: str = None,
-        schedule: "ScheduleTypeDef" = None,
-        scheduledActionDescription: str = None,
-        startTime: Union[datetime, str] = None,
-        targetAction: "TargetActionTypeDef" = None
+        self, **kwargs: Unpack[UpdateScheduledActionRequestTypeDef]
     ) -> UpdateScheduledActionResponseTypeDef:
         """
         Updates a scheduled action.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift-serverless.html#RedshiftServerless.Client.update_scheduled_action)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#update_scheduled_action)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-serverless/client/update_scheduled_action.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client/#update_scheduled_action)
         """
 
     def update_snapshot(
-        self, *, snapshotName: str, retentionPeriod: int = None
+        self, **kwargs: Unpack[UpdateSnapshotRequestTypeDef]
     ) -> UpdateSnapshotResponseTypeDef:
         """
         Updates a snapshot.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift-serverless.html#RedshiftServerless.Client.update_snapshot)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#update_snapshot)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-serverless/client/update_snapshot.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client/#update_snapshot)
         """
 
     def update_snapshot_copy_configuration(
-        self, *, snapshotCopyConfigurationId: str, snapshotRetentionPeriod: int = None
+        self, **kwargs: Unpack[UpdateSnapshotCopyConfigurationRequestTypeDef]
     ) -> UpdateSnapshotCopyConfigurationResponseTypeDef:
         """
         Updates a snapshot copy configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift-serverless.html#RedshiftServerless.Client.update_snapshot_copy_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#update_snapshot_copy_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-serverless/client/update_snapshot_copy_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client/#update_snapshot_copy_configuration)
         """
 
     def update_usage_limit(
-        self,
-        *,
-        usageLimitId: str,
-        amount: int = None,
-        breachAction: UsageLimitBreachActionType = None
+        self, **kwargs: Unpack[UpdateUsageLimitRequestTypeDef]
     ) -> UpdateUsageLimitResponseTypeDef:
         """
         Update a usage limit in Amazon Redshift Serverless.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift-serverless.html#RedshiftServerless.Client.update_usage_limit)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#update_usage_limit)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-serverless/client/update_usage_limit.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client/#update_usage_limit)
         """
 
     def update_workgroup(
-        self,
-        *,
-        workgroupName: str,
-        baseCapacity: int = None,
-        configParameters: List["ConfigParameterTypeDef"] = None,
-        enhancedVpcRouting: bool = None,
-        maxCapacity: int = None,
-        port: int = None,
-        publiclyAccessible: bool = None,
-        securityGroupIds: List[str] = None,
-        subnetIds: List[str] = None
+        self, **kwargs: Unpack[UpdateWorkgroupRequestTypeDef]
     ) -> UpdateWorkgroupResponseTypeDef:
         """
         Updates a workgroup with the specified configuration settings.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift-serverless.html#RedshiftServerless.Client.update_workgroup)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client.html#update_workgroup)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-serverless/client/update_workgroup.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client/#update_workgroup)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_custom_domain_associations"]
     ) -> ListCustomDomainAssociationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift-serverless.html#RedshiftServerless.Paginator.ListCustomDomainAssociations)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/paginators.html#listcustomdomainassociationspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-serverless/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_endpoint_access"]
     ) -> ListEndpointAccessPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift-serverless.html#RedshiftServerless.Paginator.ListEndpointAccess)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/paginators.html#listendpointaccesspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-serverless/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_namespaces"]) -> ListNamespacesPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_managed_workgroups"]
+    ) -> ListManagedWorkgroupsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift-serverless.html#RedshiftServerless.Paginator.ListNamespaces)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/paginators.html#listnamespacespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-serverless/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_namespaces"]
+    ) -> ListNamespacesPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-serverless/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_recovery_points"]
     ) -> ListRecoveryPointsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift-serverless.html#RedshiftServerless.Paginator.ListRecoveryPoints)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/paginators.html#listrecoverypointspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-serverless/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_reservation_offerings"]
+    ) -> ListReservationOfferingsPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-serverless/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_reservations"]
+    ) -> ListReservationsPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-serverless/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_scheduled_actions"]
     ) -> ListScheduledActionsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift-serverless.html#RedshiftServerless.Paginator.ListScheduledActions)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/paginators.html#listscheduledactionspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-serverless/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_snapshot_copy_configurations"]
     ) -> ListSnapshotCopyConfigurationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift-serverless.html#RedshiftServerless.Paginator.ListSnapshotCopyConfigurations)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/paginators.html#listsnapshotcopyconfigurationspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-serverless/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_snapshots"]) -> ListSnapshotsPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_snapshots"]
+    ) -> ListSnapshotsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift-serverless.html#RedshiftServerless.Paginator.ListSnapshots)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/paginators.html#listsnapshotspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-serverless/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_table_restore_status"]
     ) -> ListTableRestoreStatusPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift-serverless.html#RedshiftServerless.Paginator.ListTableRestoreStatus)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/paginators.html#listtablerestorestatuspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-serverless/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_tracks"]
+    ) -> ListTracksPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-serverless/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_usage_limits"]
     ) -> ListUsageLimitsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift-serverless.html#RedshiftServerless.Paginator.ListUsageLimits)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/paginators.html#listusagelimitspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-serverless/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_workgroups"]) -> ListWorkgroupsPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_workgroups"]
+    ) -> ListWorkgroupsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift-serverless.html#RedshiftServerless.Paginator.ListWorkgroups)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/paginators.html#listworkgroupspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-serverless/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/client/#get_paginator)
         """

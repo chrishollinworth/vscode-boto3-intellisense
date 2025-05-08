@@ -1,10 +1,14 @@
 """
 Main interface for route53profiles service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53profiles/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_route53profiles import (
         Client,
         ListProfileAssociationsPaginator,
@@ -13,10 +17,8 @@ Usage::
         Route53ProfilesClient,
     )
 
-    session = boto3.Session()
-
-    client: Route53ProfilesClient = boto3.client("route53profiles")
-    session_client: Route53ProfilesClient = session.client("route53profiles")
+    session = Session()
+    client: Route53ProfilesClient = session.client("route53profiles")
 
     list_profile_associations_paginator: ListProfileAssociationsPaginator = client.get_paginator("list_profile_associations")
     list_profile_resource_associations_paginator: ListProfileResourceAssociationsPaginator = client.get_paginator("list_profile_resource_associations")

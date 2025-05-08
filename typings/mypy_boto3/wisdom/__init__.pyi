@@ -1,10 +1,14 @@
 """
 Main interface for wisdom service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_wisdom/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_wisdom import (
         Client,
         ConnectWisdomServiceClient,
@@ -20,10 +24,8 @@ Usage::
         SearchSessionsPaginator,
     )
 
-    session = boto3.Session()
-
-    client: ConnectWisdomServiceClient = boto3.client("wisdom")
-    session_client: ConnectWisdomServiceClient = session.client("wisdom")
+    session = Session()
+    client: ConnectWisdomServiceClient = session.client("wisdom")
 
     list_assistant_associations_paginator: ListAssistantAssociationsPaginator = client.get_paginator("list_assistant_associations")
     list_assistants_paginator: ListAssistantsPaginator = client.get_paginator("list_assistants")

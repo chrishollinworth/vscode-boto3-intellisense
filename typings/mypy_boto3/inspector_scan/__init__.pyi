@@ -1,24 +1,26 @@
 """
 Main interface for inspector-scan service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_inspector_scan/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_inspector_scan import (
         Client,
-        inspectorscanClient,
+        InspectorscanClient,
     )
 
-    session = boto3.Session()
-
-    client: inspectorscanClient = boto3.client("inspector-scan")
-    session_client: inspectorscanClient = session.client("inspector-scan")
+    session = Session()
+    client: InspectorscanClient = session.client("inspector-scan")
     ```
 """
 
-from .client import inspectorscanClient
+from .client import InspectorscanClient
 
-Client = inspectorscanClient
+Client = InspectorscanClient
 
-__all__ = ("Client", "inspectorscanClient")
+__all__ = ("Client", "InspectorscanClient")

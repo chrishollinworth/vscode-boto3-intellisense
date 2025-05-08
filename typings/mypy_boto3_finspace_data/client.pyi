@@ -1,31 +1,30 @@
 """
-Type annotations for finspace-data service client.
+Type annotations for finspace-data service Client.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/client.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/client/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
-    from mypy_boto3_finspace_data import FinSpaceDataClient
+    from boto3.session import Session
+    from mypy_boto3_finspace_data.client import FinSpaceDataClient
 
-    client: FinSpaceDataClient = boto3.client("finspace-data")
+    session = Session()
+    client: FinSpaceDataClient = session.client("finspace-data")
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from typing import Any, Dict, List, Type, overload
+from typing import Any, overload
 
 from botocore.client import BaseClient, ClientMeta
+from botocore.errorfactory import BaseClientExceptions
+from botocore.exceptions import ClientError as BotocoreClientError
 
-from .literals import (
-    ApiAccessType,
-    ApplicationPermissionType,
-    ChangeTypeType,
-    DatasetKindType,
-    UserTypeType,
-    locationTypeType,
-)
 from .paginator import (
     ListChangesetsPaginator,
     ListDatasetsPaginator,
@@ -34,58 +33,83 @@ from .paginator import (
     ListUsersPaginator,
 )
 from .type_defs import (
+    AssociateUserToPermissionGroupRequestTypeDef,
     AssociateUserToPermissionGroupResponseTypeDef,
+    CreateChangesetRequestTypeDef,
     CreateChangesetResponseTypeDef,
+    CreateDatasetRequestTypeDef,
     CreateDatasetResponseTypeDef,
+    CreateDataViewRequestTypeDef,
     CreateDataViewResponseTypeDef,
+    CreatePermissionGroupRequestTypeDef,
     CreatePermissionGroupResponseTypeDef,
+    CreateUserRequestTypeDef,
     CreateUserResponseTypeDef,
-    DatasetOwnerInfoTypeDef,
-    DataViewDestinationTypeParamsTypeDef,
+    DeleteDatasetRequestTypeDef,
     DeleteDatasetResponseTypeDef,
+    DeletePermissionGroupRequestTypeDef,
     DeletePermissionGroupResponseTypeDef,
+    DisableUserRequestTypeDef,
     DisableUserResponseTypeDef,
+    DisassociateUserFromPermissionGroupRequestTypeDef,
     DisassociateUserFromPermissionGroupResponseTypeDef,
+    EnableUserRequestTypeDef,
     EnableUserResponseTypeDef,
+    GetChangesetRequestTypeDef,
     GetChangesetResponseTypeDef,
+    GetDatasetRequestTypeDef,
     GetDatasetResponseTypeDef,
+    GetDataViewRequestTypeDef,
     GetDataViewResponseTypeDef,
+    GetExternalDataViewAccessDetailsRequestTypeDef,
     GetExternalDataViewAccessDetailsResponseTypeDef,
+    GetPermissionGroupRequestTypeDef,
     GetPermissionGroupResponseTypeDef,
+    GetProgrammaticAccessCredentialsRequestTypeDef,
     GetProgrammaticAccessCredentialsResponseTypeDef,
+    GetUserRequestTypeDef,
     GetUserResponseTypeDef,
+    GetWorkingLocationRequestTypeDef,
     GetWorkingLocationResponseTypeDef,
+    ListChangesetsRequestTypeDef,
     ListChangesetsResponseTypeDef,
+    ListDatasetsRequestTypeDef,
     ListDatasetsResponseTypeDef,
+    ListDataViewsRequestTypeDef,
     ListDataViewsResponseTypeDef,
+    ListPermissionGroupsByUserRequestTypeDef,
     ListPermissionGroupsByUserResponseTypeDef,
+    ListPermissionGroupsRequestTypeDef,
     ListPermissionGroupsResponseTypeDef,
+    ListUsersByPermissionGroupRequestTypeDef,
     ListUsersByPermissionGroupResponseTypeDef,
+    ListUsersRequestTypeDef,
     ListUsersResponseTypeDef,
-    PermissionGroupParamsTypeDef,
+    ResetUserPasswordRequestTypeDef,
     ResetUserPasswordResponseTypeDef,
-    SchemaUnionTypeDef,
+    UpdateChangesetRequestTypeDef,
     UpdateChangesetResponseTypeDef,
+    UpdateDatasetRequestTypeDef,
     UpdateDatasetResponseTypeDef,
+    UpdatePermissionGroupRequestTypeDef,
     UpdatePermissionGroupResponseTypeDef,
+    UpdateUserRequestTypeDef,
     UpdateUserResponseTypeDef,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import type as Type
+    from collections.abc import Mapping
 else:
-    from typing_extensions import Literal
+    from typing import Mapping, Type
+if sys.version_info >= (3, 12):
+    from typing import Literal, Unpack
+else:
+    from typing_extensions import Literal, Unpack
 
 __all__ = ("FinSpaceDataClient",)
 
-class BotocoreClientError(BaseException):
-    MSG_TEMPLATE: str
-
-    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
-        self.response: Dict[str, Any]
-        self.operation_name: str
-
-class Exceptions:
+class Exceptions(BaseClientExceptions):
     AccessDeniedException: Type[BotocoreClientError]
     ClientError: Type[BotocoreClientError]
     ConflictException: Type[BotocoreClientError]
@@ -97,8 +121,8 @@ class Exceptions:
 
 class FinSpaceDataClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace-data.html#FinSpaceData.Client)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/client.html)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/finspace-data.html#FinSpaceData.Client)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/client/)
     """
 
     meta: ClientMeta
@@ -107,432 +131,381 @@ class FinSpaceDataClient(BaseClient):
     def exceptions(self) -> Exceptions:
         """
         FinSpaceDataClient exceptions.
-        """
 
-    def associate_user_to_permission_group(
-        self, *, permissionGroupId: str, userId: str, clientToken: str = None
-    ) -> AssociateUserToPermissionGroupResponseTypeDef:
-        """
-        Adds a user to a permission group to grant permissions for actions a user can
-        perform in FinSpace.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace-data.html#FinSpaceData.Client.associate_user_to_permission_group)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/client.html#associate_user_to_permission_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/finspace-data.html#FinSpaceData.Client)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/client/#exceptions)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        Check if an operation can be paginated.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace-data.html#FinSpaceData.Client.can_paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/client.html#can_paginate)
-        """
-
-    def close(self) -> None:
-        """
-        Closes underlying endpoint connections.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace-data.html#FinSpaceData.Client.close)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/client.html#close)
-        """
-
-    def create_changeset(
-        self,
-        *,
-        datasetId: str,
-        changeType: ChangeTypeType,
-        sourceParams: Dict[str, str],
-        formatParams: Dict[str, str],
-        clientToken: str = None
-    ) -> CreateChangesetResponseTypeDef:
-        """
-        Creates a new Changeset in a FinSpace Dataset.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace-data.html#FinSpaceData.Client.create_changeset)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/client.html#create_changeset)
-        """
-
-    def create_data_view(
-        self,
-        *,
-        datasetId: str,
-        destinationTypeParams: "DataViewDestinationTypeParamsTypeDef",
-        clientToken: str = None,
-        autoUpdate: bool = None,
-        sortColumns: List[str] = None,
-        partitionColumns: List[str] = None,
-        asOfTimestamp: int = None
-    ) -> CreateDataViewResponseTypeDef:
-        """
-        Creates a Dataview for a Dataset.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace-data.html#FinSpaceData.Client.create_data_view)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/client.html#create_data_view)
-        """
-
-    def create_dataset(
-        self,
-        *,
-        datasetTitle: str,
-        kind: DatasetKindType,
-        permissionGroupParams: "PermissionGroupParamsTypeDef",
-        clientToken: str = None,
-        datasetDescription: str = None,
-        ownerInfo: "DatasetOwnerInfoTypeDef" = None,
-        alias: str = None,
-        schemaDefinition: "SchemaUnionTypeDef" = None
-    ) -> CreateDatasetResponseTypeDef:
-        """
-        Creates a new FinSpace Dataset.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace-data.html#FinSpaceData.Client.create_dataset)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/client.html#create_dataset)
-        """
-
-    def create_permission_group(
-        self,
-        *,
-        name: str,
-        applicationPermissions: List[ApplicationPermissionType],
-        description: str = None,
-        clientToken: str = None
-    ) -> CreatePermissionGroupResponseTypeDef:
-        """
-        Creates a group of permissions for various actions that a user can perform in
-        FinSpace.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace-data.html#FinSpaceData.Client.create_permission_group)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/client.html#create_permission_group)
-        """
-
-    def create_user(
-        self,
-        *,
-        emailAddress: str,
-        type: UserTypeType,
-        firstName: str = None,
-        lastName: str = None,
-        apiAccess: ApiAccessType = None,
-        apiAccessPrincipalArn: str = None,
-        clientToken: str = None
-    ) -> CreateUserResponseTypeDef:
-        """
-        Creates a new user in FinSpace.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace-data.html#FinSpaceData.Client.create_user)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/client.html#create_user)
-        """
-
-    def delete_dataset(
-        self, *, datasetId: str, clientToken: str = None
-    ) -> DeleteDatasetResponseTypeDef:
-        """
-        Deletes a FinSpace Dataset.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace-data.html#FinSpaceData.Client.delete_dataset)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/client.html#delete_dataset)
-        """
-
-    def delete_permission_group(
-        self, *, permissionGroupId: str, clientToken: str = None
-    ) -> DeletePermissionGroupResponseTypeDef:
-        """
-        Deletes a permission group.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace-data.html#FinSpaceData.Client.delete_permission_group)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/client.html#delete_permission_group)
-        """
-
-    def disable_user(self, *, userId: str, clientToken: str = None) -> DisableUserResponseTypeDef:
-        """
-        Denies access to the FinSpace web application and API for the specified user.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace-data.html#FinSpaceData.Client.disable_user)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/client.html#disable_user)
-        """
-
-    def disassociate_user_from_permission_group(
-        self, *, permissionGroupId: str, userId: str, clientToken: str = None
-    ) -> DisassociateUserFromPermissionGroupResponseTypeDef:
-        """
-        Removes a user from a permission group.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace-data.html#FinSpaceData.Client.disassociate_user_from_permission_group)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/client.html#disassociate_user_from_permission_group)
-        """
-
-    def enable_user(self, *, userId: str, clientToken: str = None) -> EnableUserResponseTypeDef:
-        """
-        Allows the specified user to access the FinSpace web application and API.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace-data.html#FinSpaceData.Client.enable_user)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/client.html#enable_user)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/finspace-data/client/can_paginate.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/client/#can_paginate)
         """
 
     def generate_presigned_url(
         self,
         ClientMethod: str,
-        Params: Dict[str, Any] = None,
+        Params: Mapping[str, Any] = ...,
         ExpiresIn: int = 3600,
-        HttpMethod: str = None,
+        HttpMethod: str = ...,
     ) -> str:
         """
-        Generate a presigned url given a client, its method, and arguments.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace-data.html#FinSpaceData.Client.generate_presigned_url)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/client.html#generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/finspace-data/client/generate_presigned_url.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/client/#generate_presigned_url)
         """
 
-    def get_changeset(self, *, datasetId: str, changesetId: str) -> GetChangesetResponseTypeDef:
+    def associate_user_to_permission_group(
+        self, **kwargs: Unpack[AssociateUserToPermissionGroupRequestTypeDef]
+    ) -> AssociateUserToPermissionGroupResponseTypeDef:
+        """
+        Adds a user to a permission group to grant permissions for actions a user can
+        perform in FinSpace.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/finspace-data/client/associate_user_to_permission_group.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/client/#associate_user_to_permission_group)
+        """
+
+    def create_changeset(
+        self, **kwargs: Unpack[CreateChangesetRequestTypeDef]
+    ) -> CreateChangesetResponseTypeDef:
+        """
+        Creates a new Changeset in a FinSpace Dataset.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/finspace-data/client/create_changeset.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/client/#create_changeset)
+        """
+
+    def create_data_view(
+        self, **kwargs: Unpack[CreateDataViewRequestTypeDef]
+    ) -> CreateDataViewResponseTypeDef:
+        """
+        Creates a Dataview for a Dataset.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/finspace-data/client/create_data_view.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/client/#create_data_view)
+        """
+
+    def create_dataset(
+        self, **kwargs: Unpack[CreateDatasetRequestTypeDef]
+    ) -> CreateDatasetResponseTypeDef:
+        """
+        Creates a new FinSpace Dataset.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/finspace-data/client/create_dataset.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/client/#create_dataset)
+        """
+
+    def create_permission_group(
+        self, **kwargs: Unpack[CreatePermissionGroupRequestTypeDef]
+    ) -> CreatePermissionGroupResponseTypeDef:
+        """
+        Creates a group of permissions for various actions that a user can perform in
+        FinSpace.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/finspace-data/client/create_permission_group.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/client/#create_permission_group)
+        """
+
+    def create_user(self, **kwargs: Unpack[CreateUserRequestTypeDef]) -> CreateUserResponseTypeDef:
+        """
+        Creates a new user in FinSpace.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/finspace-data/client/create_user.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/client/#create_user)
+        """
+
+    def delete_dataset(
+        self, **kwargs: Unpack[DeleteDatasetRequestTypeDef]
+    ) -> DeleteDatasetResponseTypeDef:
+        """
+        Deletes a FinSpace Dataset.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/finspace-data/client/delete_dataset.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/client/#delete_dataset)
+        """
+
+    def delete_permission_group(
+        self, **kwargs: Unpack[DeletePermissionGroupRequestTypeDef]
+    ) -> DeletePermissionGroupResponseTypeDef:
+        """
+        Deletes a permission group.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/finspace-data/client/delete_permission_group.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/client/#delete_permission_group)
+        """
+
+    def disable_user(
+        self, **kwargs: Unpack[DisableUserRequestTypeDef]
+    ) -> DisableUserResponseTypeDef:
+        """
+        Denies access to the FinSpace web application and API for the specified user.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/finspace-data/client/disable_user.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/client/#disable_user)
+        """
+
+    def disassociate_user_from_permission_group(
+        self, **kwargs: Unpack[DisassociateUserFromPermissionGroupRequestTypeDef]
+    ) -> DisassociateUserFromPermissionGroupResponseTypeDef:
+        """
+        Removes a user from a permission group.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/finspace-data/client/disassociate_user_from_permission_group.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/client/#disassociate_user_from_permission_group)
+        """
+
+    def enable_user(self, **kwargs: Unpack[EnableUserRequestTypeDef]) -> EnableUserResponseTypeDef:
+        """
+        Allows the specified user to access the FinSpace web application and API.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/finspace-data/client/enable_user.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/client/#enable_user)
+        """
+
+    def get_changeset(
+        self, **kwargs: Unpack[GetChangesetRequestTypeDef]
+    ) -> GetChangesetResponseTypeDef:
         """
         Get information about a Changeset.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace-data.html#FinSpaceData.Client.get_changeset)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/client.html#get_changeset)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/finspace-data/client/get_changeset.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/client/#get_changeset)
         """
 
-    def get_data_view(self, *, dataViewId: str, datasetId: str) -> GetDataViewResponseTypeDef:
+    def get_data_view(
+        self, **kwargs: Unpack[GetDataViewRequestTypeDef]
+    ) -> GetDataViewResponseTypeDef:
         """
         Gets information about a Dataview.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace-data.html#FinSpaceData.Client.get_data_view)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/client.html#get_data_view)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/finspace-data/client/get_data_view.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/client/#get_data_view)
         """
 
-    def get_dataset(self, *, datasetId: str) -> GetDatasetResponseTypeDef:
+    def get_dataset(self, **kwargs: Unpack[GetDatasetRequestTypeDef]) -> GetDatasetResponseTypeDef:
         """
         Returns information about a Dataset.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace-data.html#FinSpaceData.Client.get_dataset)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/client.html#get_dataset)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/finspace-data/client/get_dataset.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/client/#get_dataset)
         """
 
     def get_external_data_view_access_details(
-        self, *, dataViewId: str, datasetId: str
+        self, **kwargs: Unpack[GetExternalDataViewAccessDetailsRequestTypeDef]
     ) -> GetExternalDataViewAccessDetailsResponseTypeDef:
         """
         Returns the credentials to access the external Dataview from an S3 location.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace-data.html#FinSpaceData.Client.get_external_data_view_access_details)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/client.html#get_external_data_view_access_details)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/finspace-data/client/get_external_data_view_access_details.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/client/#get_external_data_view_access_details)
         """
 
-    def get_permission_group(self, *, permissionGroupId: str) -> GetPermissionGroupResponseTypeDef:
+    def get_permission_group(
+        self, **kwargs: Unpack[GetPermissionGroupRequestTypeDef]
+    ) -> GetPermissionGroupResponseTypeDef:
         """
         Retrieves the details of a specific permission group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace-data.html#FinSpaceData.Client.get_permission_group)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/client.html#get_permission_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/finspace-data/client/get_permission_group.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/client/#get_permission_group)
         """
 
     def get_programmatic_access_credentials(
-        self, *, environmentId: str, durationInMinutes: int = None
+        self, **kwargs: Unpack[GetProgrammaticAccessCredentialsRequestTypeDef]
     ) -> GetProgrammaticAccessCredentialsResponseTypeDef:
         """
         Request programmatic credentials to use with FinSpace SDK.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace-data.html#FinSpaceData.Client.get_programmatic_access_credentials)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/client.html#get_programmatic_access_credentials)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/finspace-data/client/get_programmatic_access_credentials.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/client/#get_programmatic_access_credentials)
         """
 
-    def get_user(self, *, userId: str) -> GetUserResponseTypeDef:
+    def get_user(self, **kwargs: Unpack[GetUserRequestTypeDef]) -> GetUserResponseTypeDef:
         """
         Retrieves details for a specific user.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace-data.html#FinSpaceData.Client.get_user)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/client.html#get_user)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/finspace-data/client/get_user.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/client/#get_user)
         """
 
     def get_working_location(
-        self, *, locationType: locationTypeType = None
+        self, **kwargs: Unpack[GetWorkingLocationRequestTypeDef]
     ) -> GetWorkingLocationResponseTypeDef:
         """
         A temporary Amazon S3 location, where you can copy your files from a source
         location to stage or use as a scratch space in FinSpace notebook.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace-data.html#FinSpaceData.Client.get_working_location)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/client.html#get_working_location)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/finspace-data/client/get_working_location.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/client/#get_working_location)
         """
 
     def list_changesets(
-        self, *, datasetId: str, maxResults: int = None, nextToken: str = None
+        self, **kwargs: Unpack[ListChangesetsRequestTypeDef]
     ) -> ListChangesetsResponseTypeDef:
         """
         Lists the FinSpace Changesets for a Dataset.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace-data.html#FinSpaceData.Client.list_changesets)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/client.html#list_changesets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/finspace-data/client/list_changesets.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/client/#list_changesets)
         """
 
     def list_data_views(
-        self, *, datasetId: str, nextToken: str = None, maxResults: int = None
+        self, **kwargs: Unpack[ListDataViewsRequestTypeDef]
     ) -> ListDataViewsResponseTypeDef:
         """
         Lists all available Dataviews for a Dataset.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace-data.html#FinSpaceData.Client.list_data_views)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/client.html#list_data_views)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/finspace-data/client/list_data_views.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/client/#list_data_views)
         """
 
     def list_datasets(
-        self, *, nextToken: str = None, maxResults: int = None
+        self, **kwargs: Unpack[ListDatasetsRequestTypeDef]
     ) -> ListDatasetsResponseTypeDef:
         """
         Lists all of the active Datasets that a user has access to.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace-data.html#FinSpaceData.Client.list_datasets)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/client.html#list_datasets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/finspace-data/client/list_datasets.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/client/#list_datasets)
         """
 
     def list_permission_groups(
-        self, *, maxResults: int, nextToken: str = None
+        self, **kwargs: Unpack[ListPermissionGroupsRequestTypeDef]
     ) -> ListPermissionGroupsResponseTypeDef:
         """
         Lists all available permission groups in FinSpace.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace-data.html#FinSpaceData.Client.list_permission_groups)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/client.html#list_permission_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/finspace-data/client/list_permission_groups.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/client/#list_permission_groups)
         """
 
     def list_permission_groups_by_user(
-        self, *, userId: str, maxResults: int, nextToken: str = None
+        self, **kwargs: Unpack[ListPermissionGroupsByUserRequestTypeDef]
     ) -> ListPermissionGroupsByUserResponseTypeDef:
         """
         Lists all the permission groups that are associated with a specific user.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace-data.html#FinSpaceData.Client.list_permission_groups_by_user)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/client.html#list_permission_groups_by_user)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/finspace-data/client/list_permission_groups_by_user.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/client/#list_permission_groups_by_user)
         """
 
-    def list_users(self, *, maxResults: int, nextToken: str = None) -> ListUsersResponseTypeDef:
+    def list_users(self, **kwargs: Unpack[ListUsersRequestTypeDef]) -> ListUsersResponseTypeDef:
         """
         Lists all available users in FinSpace.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace-data.html#FinSpaceData.Client.list_users)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/client.html#list_users)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/finspace-data/client/list_users.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/client/#list_users)
         """
 
     def list_users_by_permission_group(
-        self, *, permissionGroupId: str, maxResults: int, nextToken: str = None
+        self, **kwargs: Unpack[ListUsersByPermissionGroupRequestTypeDef]
     ) -> ListUsersByPermissionGroupResponseTypeDef:
         """
         Lists details of all the users in a specific permission group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace-data.html#FinSpaceData.Client.list_users_by_permission_group)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/client.html#list_users_by_permission_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/finspace-data/client/list_users_by_permission_group.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/client/#list_users_by_permission_group)
         """
 
     def reset_user_password(
-        self, *, userId: str, clientToken: str = None
+        self, **kwargs: Unpack[ResetUserPasswordRequestTypeDef]
     ) -> ResetUserPasswordResponseTypeDef:
         """
         Resets the password for a specified user ID and generates a temporary one.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace-data.html#FinSpaceData.Client.reset_user_password)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/client.html#reset_user_password)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/finspace-data/client/reset_user_password.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/client/#reset_user_password)
         """
 
     def update_changeset(
-        self,
-        *,
-        datasetId: str,
-        changesetId: str,
-        sourceParams: Dict[str, str],
-        formatParams: Dict[str, str],
-        clientToken: str = None
+        self, **kwargs: Unpack[UpdateChangesetRequestTypeDef]
     ) -> UpdateChangesetResponseTypeDef:
         """
         Updates a FinSpace Changeset.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace-data.html#FinSpaceData.Client.update_changeset)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/client.html#update_changeset)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/finspace-data/client/update_changeset.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/client/#update_changeset)
         """
 
     def update_dataset(
-        self,
-        *,
-        datasetId: str,
-        datasetTitle: str,
-        kind: DatasetKindType,
-        clientToken: str = None,
-        datasetDescription: str = None,
-        alias: str = None,
-        schemaDefinition: "SchemaUnionTypeDef" = None
+        self, **kwargs: Unpack[UpdateDatasetRequestTypeDef]
     ) -> UpdateDatasetResponseTypeDef:
         """
         Updates a FinSpace Dataset.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace-data.html#FinSpaceData.Client.update_dataset)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/client.html#update_dataset)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/finspace-data/client/update_dataset.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/client/#update_dataset)
         """
 
     def update_permission_group(
-        self,
-        *,
-        permissionGroupId: str,
-        name: str = None,
-        description: str = None,
-        applicationPermissions: List[ApplicationPermissionType] = None,
-        clientToken: str = None
+        self, **kwargs: Unpack[UpdatePermissionGroupRequestTypeDef]
     ) -> UpdatePermissionGroupResponseTypeDef:
         """
         Modifies the details of a permission group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace-data.html#FinSpaceData.Client.update_permission_group)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/client.html#update_permission_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/finspace-data/client/update_permission_group.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/client/#update_permission_group)
         """
 
-    def update_user(
-        self,
-        *,
-        userId: str,
-        type: UserTypeType = None,
-        firstName: str = None,
-        lastName: str = None,
-        apiAccess: ApiAccessType = None,
-        apiAccessPrincipalArn: str = None,
-        clientToken: str = None
-    ) -> UpdateUserResponseTypeDef:
+    def update_user(self, **kwargs: Unpack[UpdateUserRequestTypeDef]) -> UpdateUserResponseTypeDef:
         """
         Modifies the details of the specified user.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace-data.html#FinSpaceData.Client.update_user)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/client.html#update_user)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/finspace-data/client/update_user.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/client/#update_user)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_changesets"]) -> ListChangesetsPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_changesets"]
+    ) -> ListChangesetsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace-data.html#FinSpaceData.Paginator.ListChangesets)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/paginators.html#listchangesetspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/finspace-data/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_data_views"]) -> ListDataViewsPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_data_views"]
+    ) -> ListDataViewsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace-data.html#FinSpaceData.Paginator.ListDataViews)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/paginators.html#listdataviewspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/finspace-data/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_datasets"]) -> ListDatasetsPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_datasets"]
+    ) -> ListDatasetsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace-data.html#FinSpaceData.Paginator.ListDatasets)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/paginators.html#listdatasetspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/finspace-data/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_permission_groups"]
     ) -> ListPermissionGroupsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace-data.html#FinSpaceData.Paginator.ListPermissionGroups)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/paginators.html#listpermissiongroupspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/finspace-data/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_users"]) -> ListUsersPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_users"]
+    ) -> ListUsersPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/finspace-data.html#FinSpaceData.Paginator.ListUsers)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/paginators.html#listuserspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/finspace-data/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_finspace_data/client/#get_paginator)
         """

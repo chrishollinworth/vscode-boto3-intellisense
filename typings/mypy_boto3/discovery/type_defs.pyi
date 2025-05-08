@@ -1,20 +1,24 @@
 """
 Type annotations for discovery service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_discovery/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_discovery/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_discovery.type_defs import AgentConfigurationStatusTypeDef
 
-    data: AgentConfigurationStatusTypeDef = {...}
+    data: AgentConfigurationStatusTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List, Union
+from typing import Union
 
 from .literals import (
     AgentStatusType,
@@ -24,66 +28,75 @@ from .literals import (
     ContinuousExportStatusType,
     DeleteAgentErrorCodeType,
     ExportStatusType,
+    FileClassificationType,
     ImportStatusType,
     ImportTaskFilterNameType,
     OfferingClassType,
+    OrderStringType,
     PurchasingOptionType,
     TenancyType,
     TermLengthType,
-    orderStringType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
     "AgentConfigurationStatusTypeDef",
     "AgentInfoTypeDef",
     "AgentNetworkInfoTypeDef",
-    "AssociateConfigurationItemsToApplicationRequestRequestTypeDef",
+    "AssociateConfigurationItemsToApplicationRequestTypeDef",
     "BatchDeleteAgentErrorTypeDef",
-    "BatchDeleteAgentsRequestRequestTypeDef",
+    "BatchDeleteAgentsRequestTypeDef",
     "BatchDeleteAgentsResponseTypeDef",
     "BatchDeleteConfigurationTaskTypeDef",
     "BatchDeleteImportDataErrorTypeDef",
-    "BatchDeleteImportDataRequestRequestTypeDef",
+    "BatchDeleteImportDataRequestTypeDef",
     "BatchDeleteImportDataResponseTypeDef",
     "ConfigurationTagTypeDef",
     "ContinuousExportDescriptionTypeDef",
-    "CreateApplicationRequestRequestTypeDef",
+    "CreateApplicationRequestTypeDef",
     "CreateApplicationResponseTypeDef",
-    "CreateTagsRequestRequestTypeDef",
+    "CreateTagsRequestTypeDef",
     "CustomerAgentInfoTypeDef",
     "CustomerAgentlessCollectorInfoTypeDef",
     "CustomerConnectorInfoTypeDef",
     "CustomerMeCollectorInfoTypeDef",
     "DeleteAgentTypeDef",
-    "DeleteApplicationsRequestRequestTypeDef",
-    "DeleteTagsRequestRequestTypeDef",
+    "DeleteApplicationsRequestTypeDef",
+    "DeleteTagsRequestTypeDef",
     "DeletionWarningTypeDef",
-    "DescribeAgentsRequestRequestTypeDef",
+    "DescribeAgentsRequestPaginateTypeDef",
+    "DescribeAgentsRequestTypeDef",
     "DescribeAgentsResponseTypeDef",
-    "DescribeBatchDeleteConfigurationTaskRequestRequestTypeDef",
+    "DescribeBatchDeleteConfigurationTaskRequestTypeDef",
     "DescribeBatchDeleteConfigurationTaskResponseTypeDef",
-    "DescribeConfigurationsRequestRequestTypeDef",
+    "DescribeConfigurationsRequestTypeDef",
     "DescribeConfigurationsResponseTypeDef",
-    "DescribeContinuousExportsRequestRequestTypeDef",
+    "DescribeContinuousExportsRequestPaginateTypeDef",
+    "DescribeContinuousExportsRequestTypeDef",
     "DescribeContinuousExportsResponseTypeDef",
-    "DescribeExportConfigurationsRequestRequestTypeDef",
+    "DescribeExportConfigurationsRequestPaginateTypeDef",
+    "DescribeExportConfigurationsRequestTypeDef",
     "DescribeExportConfigurationsResponseTypeDef",
-    "DescribeExportTasksRequestRequestTypeDef",
+    "DescribeExportTasksRequestPaginateTypeDef",
+    "DescribeExportTasksRequestTypeDef",
     "DescribeExportTasksResponseTypeDef",
-    "DescribeImportTasksRequestRequestTypeDef",
+    "DescribeImportTasksRequestPaginateTypeDef",
+    "DescribeImportTasksRequestTypeDef",
     "DescribeImportTasksResponseTypeDef",
-    "DescribeTagsRequestRequestTypeDef",
+    "DescribeTagsRequestPaginateTypeDef",
+    "DescribeTagsRequestTypeDef",
     "DescribeTagsResponseTypeDef",
-    "DisassociateConfigurationItemsFromApplicationRequestRequestTypeDef",
+    "DisassociateConfigurationItemsFromApplicationRequestTypeDef",
     "Ec2RecommendationsExportPreferencesTypeDef",
     "ExportConfigurationsResponseTypeDef",
     "ExportFilterTypeDef",
@@ -94,899 +107,490 @@ __all__ = (
     "GetDiscoverySummaryResponseTypeDef",
     "ImportTaskFilterTypeDef",
     "ImportTaskTypeDef",
-    "ListConfigurationsRequestRequestTypeDef",
+    "ListConfigurationsRequestPaginateTypeDef",
+    "ListConfigurationsRequestTypeDef",
     "ListConfigurationsResponseTypeDef",
-    "ListServerNeighborsRequestRequestTypeDef",
+    "ListServerNeighborsRequestTypeDef",
     "ListServerNeighborsResponseTypeDef",
     "NeighborConnectionDetailTypeDef",
     "OrderByElementTypeDef",
     "PaginatorConfigTypeDef",
     "ReservedInstanceOptionsTypeDef",
     "ResponseMetadataTypeDef",
-    "StartBatchDeleteConfigurationTaskRequestRequestTypeDef",
+    "StartBatchDeleteConfigurationTaskRequestTypeDef",
     "StartBatchDeleteConfigurationTaskResponseTypeDef",
     "StartContinuousExportResponseTypeDef",
-    "StartDataCollectionByAgentIdsRequestRequestTypeDef",
+    "StartDataCollectionByAgentIdsRequestTypeDef",
     "StartDataCollectionByAgentIdsResponseTypeDef",
-    "StartExportTaskRequestRequestTypeDef",
+    "StartExportTaskRequestTypeDef",
     "StartExportTaskResponseTypeDef",
-    "StartImportTaskRequestRequestTypeDef",
+    "StartImportTaskRequestTypeDef",
     "StartImportTaskResponseTypeDef",
-    "StopContinuousExportRequestRequestTypeDef",
+    "StopContinuousExportRequestTypeDef",
     "StopContinuousExportResponseTypeDef",
-    "StopDataCollectionByAgentIdsRequestRequestTypeDef",
+    "StopDataCollectionByAgentIdsRequestTypeDef",
     "StopDataCollectionByAgentIdsResponseTypeDef",
     "TagFilterTypeDef",
     "TagTypeDef",
-    "UpdateApplicationRequestRequestTypeDef",
+    "TimestampTypeDef",
+    "UpdateApplicationRequestTypeDef",
     "UsageMetricBasisTypeDef",
 )
 
-AgentConfigurationStatusTypeDef = TypedDict(
-    "AgentConfigurationStatusTypeDef",
-    {
-        "agentId": str,
-        "operationSucceeded": bool,
-        "description": str,
-    },
-    total=False,
-)
-
-AgentInfoTypeDef = TypedDict(
-    "AgentInfoTypeDef",
-    {
-        "agentId": str,
-        "hostName": str,
-        "agentNetworkInfoList": List["AgentNetworkInfoTypeDef"],
-        "connectorId": str,
-        "version": str,
-        "health": AgentStatusType,
-        "lastHealthPingTime": str,
-        "collectionStatus": str,
-        "agentType": str,
-        "registeredTime": str,
-    },
-    total=False,
-)
-
-AgentNetworkInfoTypeDef = TypedDict(
-    "AgentNetworkInfoTypeDef",
-    {
-        "ipAddress": str,
-        "macAddress": str,
-    },
-    total=False,
-)
-
-AssociateConfigurationItemsToApplicationRequestRequestTypeDef = TypedDict(
-    "AssociateConfigurationItemsToApplicationRequestRequestTypeDef",
-    {
-        "applicationConfigurationId": str,
-        "configurationIds": List[str],
-    },
-)
-
-BatchDeleteAgentErrorTypeDef = TypedDict(
-    "BatchDeleteAgentErrorTypeDef",
-    {
-        "agentId": str,
-        "errorMessage": str,
-        "errorCode": DeleteAgentErrorCodeType,
-    },
-)
-
-BatchDeleteAgentsRequestRequestTypeDef = TypedDict(
-    "BatchDeleteAgentsRequestRequestTypeDef",
-    {
-        "deleteAgents": List["DeleteAgentTypeDef"],
-    },
-)
-
-BatchDeleteAgentsResponseTypeDef = TypedDict(
-    "BatchDeleteAgentsResponseTypeDef",
-    {
-        "errors": List["BatchDeleteAgentErrorTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-BatchDeleteConfigurationTaskTypeDef = TypedDict(
-    "BatchDeleteConfigurationTaskTypeDef",
-    {
-        "taskId": str,
-        "status": BatchDeleteConfigurationTaskStatusType,
-        "startTime": datetime,
-        "endTime": datetime,
-        "configurationType": Literal["SERVER"],
-        "requestedConfigurations": List[str],
-        "deletedConfigurations": List[str],
-        "failedConfigurations": List["FailedConfigurationTypeDef"],
-        "deletionWarnings": List["DeletionWarningTypeDef"],
-    },
-    total=False,
-)
-
-BatchDeleteImportDataErrorTypeDef = TypedDict(
-    "BatchDeleteImportDataErrorTypeDef",
-    {
-        "importTaskId": str,
-        "errorCode": BatchDeleteImportDataErrorCodeType,
-        "errorDescription": str,
-    },
-    total=False,
-)
-
-_RequiredBatchDeleteImportDataRequestRequestTypeDef = TypedDict(
-    "_RequiredBatchDeleteImportDataRequestRequestTypeDef",
-    {
-        "importTaskIds": List[str],
-    },
-)
-_OptionalBatchDeleteImportDataRequestRequestTypeDef = TypedDict(
-    "_OptionalBatchDeleteImportDataRequestRequestTypeDef",
-    {
-        "deleteHistory": bool,
-    },
-    total=False,
-)
-
-class BatchDeleteImportDataRequestRequestTypeDef(
-    _RequiredBatchDeleteImportDataRequestRequestTypeDef,
-    _OptionalBatchDeleteImportDataRequestRequestTypeDef,
-):
-    pass
-
-BatchDeleteImportDataResponseTypeDef = TypedDict(
-    "BatchDeleteImportDataResponseTypeDef",
-    {
-        "errors": List["BatchDeleteImportDataErrorTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ConfigurationTagTypeDef = TypedDict(
-    "ConfigurationTagTypeDef",
-    {
-        "configurationType": ConfigurationItemTypeType,
-        "configurationId": str,
-        "key": str,
-        "value": str,
-        "timeOfCreation": datetime,
-    },
-    total=False,
-)
-
-ContinuousExportDescriptionTypeDef = TypedDict(
-    "ContinuousExportDescriptionTypeDef",
-    {
-        "exportId": str,
-        "status": ContinuousExportStatusType,
-        "statusDetail": str,
-        "s3Bucket": str,
-        "startTime": datetime,
-        "stopTime": datetime,
-        "dataSource": Literal["AGENT"],
-        "schemaStorageConfig": Dict[str, str],
-    },
-    total=False,
-)
-
-_RequiredCreateApplicationRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateApplicationRequestRequestTypeDef",
-    {
-        "name": str,
-    },
-)
-_OptionalCreateApplicationRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateApplicationRequestRequestTypeDef",
-    {
-        "description": str,
-    },
-    total=False,
-)
-
-class CreateApplicationRequestRequestTypeDef(
-    _RequiredCreateApplicationRequestRequestTypeDef, _OptionalCreateApplicationRequestRequestTypeDef
-):
-    pass
-
-CreateApplicationResponseTypeDef = TypedDict(
-    "CreateApplicationResponseTypeDef",
-    {
-        "configurationId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateTagsRequestRequestTypeDef = TypedDict(
-    "CreateTagsRequestRequestTypeDef",
-    {
-        "configurationIds": List[str],
-        "tags": List["TagTypeDef"],
-    },
-)
-
-CustomerAgentInfoTypeDef = TypedDict(
-    "CustomerAgentInfoTypeDef",
-    {
-        "activeAgents": int,
-        "healthyAgents": int,
-        "blackListedAgents": int,
-        "shutdownAgents": int,
-        "unhealthyAgents": int,
-        "totalAgents": int,
-        "unknownAgents": int,
-    },
-)
-
-CustomerAgentlessCollectorInfoTypeDef = TypedDict(
-    "CustomerAgentlessCollectorInfoTypeDef",
-    {
-        "activeAgentlessCollectors": int,
-        "healthyAgentlessCollectors": int,
-        "denyListedAgentlessCollectors": int,
-        "shutdownAgentlessCollectors": int,
-        "unhealthyAgentlessCollectors": int,
-        "totalAgentlessCollectors": int,
-        "unknownAgentlessCollectors": int,
-    },
-)
-
-CustomerConnectorInfoTypeDef = TypedDict(
-    "CustomerConnectorInfoTypeDef",
-    {
-        "activeConnectors": int,
-        "healthyConnectors": int,
-        "blackListedConnectors": int,
-        "shutdownConnectors": int,
-        "unhealthyConnectors": int,
-        "totalConnectors": int,
-        "unknownConnectors": int,
-    },
-)
-
-CustomerMeCollectorInfoTypeDef = TypedDict(
-    "CustomerMeCollectorInfoTypeDef",
-    {
-        "activeMeCollectors": int,
-        "healthyMeCollectors": int,
-        "denyListedMeCollectors": int,
-        "shutdownMeCollectors": int,
-        "unhealthyMeCollectors": int,
-        "totalMeCollectors": int,
-        "unknownMeCollectors": int,
-    },
-)
-
-_RequiredDeleteAgentTypeDef = TypedDict(
-    "_RequiredDeleteAgentTypeDef",
-    {
-        "agentId": str,
-    },
-)
-_OptionalDeleteAgentTypeDef = TypedDict(
-    "_OptionalDeleteAgentTypeDef",
-    {
-        "force": bool,
-    },
-    total=False,
-)
-
-class DeleteAgentTypeDef(_RequiredDeleteAgentTypeDef, _OptionalDeleteAgentTypeDef):
-    pass
-
-DeleteApplicationsRequestRequestTypeDef = TypedDict(
-    "DeleteApplicationsRequestRequestTypeDef",
-    {
-        "configurationIds": List[str],
-    },
-)
-
-_RequiredDeleteTagsRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteTagsRequestRequestTypeDef",
-    {
-        "configurationIds": List[str],
-    },
-)
-_OptionalDeleteTagsRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteTagsRequestRequestTypeDef",
-    {
-        "tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class DeleteTagsRequestRequestTypeDef(
-    _RequiredDeleteTagsRequestRequestTypeDef, _OptionalDeleteTagsRequestRequestTypeDef
-):
-    pass
-
-DeletionWarningTypeDef = TypedDict(
-    "DeletionWarningTypeDef",
-    {
-        "configurationId": str,
-        "warningCode": int,
-        "warningText": str,
-    },
-    total=False,
-)
-
-DescribeAgentsRequestRequestTypeDef = TypedDict(
-    "DescribeAgentsRequestRequestTypeDef",
-    {
-        "agentIds": List[str],
-        "filters": List["FilterTypeDef"],
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-DescribeAgentsResponseTypeDef = TypedDict(
-    "DescribeAgentsResponseTypeDef",
-    {
-        "agentsInfo": List["AgentInfoTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeBatchDeleteConfigurationTaskRequestRequestTypeDef = TypedDict(
-    "DescribeBatchDeleteConfigurationTaskRequestRequestTypeDef",
-    {
-        "taskId": str,
-    },
-)
-
-DescribeBatchDeleteConfigurationTaskResponseTypeDef = TypedDict(
-    "DescribeBatchDeleteConfigurationTaskResponseTypeDef",
-    {
-        "task": "BatchDeleteConfigurationTaskTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeConfigurationsRequestRequestTypeDef = TypedDict(
-    "DescribeConfigurationsRequestRequestTypeDef",
-    {
-        "configurationIds": List[str],
-    },
-)
-
-DescribeConfigurationsResponseTypeDef = TypedDict(
-    "DescribeConfigurationsResponseTypeDef",
-    {
-        "configurations": List[Dict[str, str]],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeContinuousExportsRequestRequestTypeDef = TypedDict(
-    "DescribeContinuousExportsRequestRequestTypeDef",
-    {
-        "exportIds": List[str],
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-DescribeContinuousExportsResponseTypeDef = TypedDict(
-    "DescribeContinuousExportsResponseTypeDef",
-    {
-        "descriptions": List["ContinuousExportDescriptionTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeExportConfigurationsRequestRequestTypeDef = TypedDict(
-    "DescribeExportConfigurationsRequestRequestTypeDef",
-    {
-        "exportIds": List[str],
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-DescribeExportConfigurationsResponseTypeDef = TypedDict(
-    "DescribeExportConfigurationsResponseTypeDef",
-    {
-        "exportsInfo": List["ExportInfoTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeExportTasksRequestRequestTypeDef = TypedDict(
-    "DescribeExportTasksRequestRequestTypeDef",
-    {
-        "exportIds": List[str],
-        "filters": List["ExportFilterTypeDef"],
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-DescribeExportTasksResponseTypeDef = TypedDict(
-    "DescribeExportTasksResponseTypeDef",
-    {
-        "exportsInfo": List["ExportInfoTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeImportTasksRequestRequestTypeDef = TypedDict(
-    "DescribeImportTasksRequestRequestTypeDef",
-    {
-        "filters": List["ImportTaskFilterTypeDef"],
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-DescribeImportTasksResponseTypeDef = TypedDict(
-    "DescribeImportTasksResponseTypeDef",
-    {
-        "nextToken": str,
-        "tasks": List["ImportTaskTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeTagsRequestRequestTypeDef = TypedDict(
-    "DescribeTagsRequestRequestTypeDef",
-    {
-        "filters": List["TagFilterTypeDef"],
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-DescribeTagsResponseTypeDef = TypedDict(
-    "DescribeTagsResponseTypeDef",
-    {
-        "tags": List["ConfigurationTagTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DisassociateConfigurationItemsFromApplicationRequestRequestTypeDef = TypedDict(
-    "DisassociateConfigurationItemsFromApplicationRequestRequestTypeDef",
-    {
-        "applicationConfigurationId": str,
-        "configurationIds": List[str],
-    },
-)
-
-Ec2RecommendationsExportPreferencesTypeDef = TypedDict(
-    "Ec2RecommendationsExportPreferencesTypeDef",
-    {
-        "enabled": bool,
-        "cpuPerformanceMetricBasis": "UsageMetricBasisTypeDef",
-        "ramPerformanceMetricBasis": "UsageMetricBasisTypeDef",
-        "tenancy": TenancyType,
-        "excludedInstanceTypes": List[str],
-        "preferredRegion": str,
-        "reservedInstanceOptions": "ReservedInstanceOptionsTypeDef",
-    },
-    total=False,
-)
-
-ExportConfigurationsResponseTypeDef = TypedDict(
-    "ExportConfigurationsResponseTypeDef",
-    {
-        "exportId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ExportFilterTypeDef = TypedDict(
-    "ExportFilterTypeDef",
-    {
-        "name": str,
-        "values": List[str],
-        "condition": str,
-    },
-)
-
-_RequiredExportInfoTypeDef = TypedDict(
-    "_RequiredExportInfoTypeDef",
-    {
-        "exportId": str,
-        "exportStatus": ExportStatusType,
-        "statusMessage": str,
-        "exportRequestTime": datetime,
-    },
-)
-_OptionalExportInfoTypeDef = TypedDict(
-    "_OptionalExportInfoTypeDef",
-    {
-        "configurationsDownloadUrl": str,
-        "isTruncated": bool,
-        "requestedStartTime": datetime,
-        "requestedEndTime": datetime,
-    },
-    total=False,
-)
-
-class ExportInfoTypeDef(_RequiredExportInfoTypeDef, _OptionalExportInfoTypeDef):
-    pass
-
-ExportPreferencesTypeDef = TypedDict(
-    "ExportPreferencesTypeDef",
-    {
-        "ec2RecommendationsPreferences": "Ec2RecommendationsExportPreferencesTypeDef",
-    },
-    total=False,
-)
-
-FailedConfigurationTypeDef = TypedDict(
-    "FailedConfigurationTypeDef",
-    {
-        "configurationId": str,
-        "errorStatusCode": int,
-        "errorMessage": str,
-    },
-    total=False,
-)
-
-FilterTypeDef = TypedDict(
-    "FilterTypeDef",
-    {
-        "name": str,
-        "values": List[str],
-        "condition": str,
-    },
-)
-
-GetDiscoverySummaryResponseTypeDef = TypedDict(
-    "GetDiscoverySummaryResponseTypeDef",
-    {
-        "servers": int,
-        "applications": int,
-        "serversMappedToApplications": int,
-        "serversMappedtoTags": int,
-        "agentSummary": "CustomerAgentInfoTypeDef",
-        "connectorSummary": "CustomerConnectorInfoTypeDef",
-        "meCollectorSummary": "CustomerMeCollectorInfoTypeDef",
-        "agentlessCollectorSummary": "CustomerAgentlessCollectorInfoTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ImportTaskFilterTypeDef = TypedDict(
-    "ImportTaskFilterTypeDef",
-    {
-        "name": ImportTaskFilterNameType,
-        "values": List[str],
-    },
-    total=False,
-)
-
-ImportTaskTypeDef = TypedDict(
-    "ImportTaskTypeDef",
-    {
-        "importTaskId": str,
-        "clientRequestToken": str,
-        "name": str,
-        "importUrl": str,
-        "status": ImportStatusType,
-        "importRequestTime": datetime,
-        "importCompletionTime": datetime,
-        "importDeletedTime": datetime,
-        "serverImportSuccess": int,
-        "serverImportFailure": int,
-        "applicationImportSuccess": int,
-        "applicationImportFailure": int,
-        "errorsAndFailedEntriesZip": str,
-    },
-    total=False,
-)
-
-_RequiredListConfigurationsRequestRequestTypeDef = TypedDict(
-    "_RequiredListConfigurationsRequestRequestTypeDef",
-    {
-        "configurationType": ConfigurationItemTypeType,
-    },
-)
-_OptionalListConfigurationsRequestRequestTypeDef = TypedDict(
-    "_OptionalListConfigurationsRequestRequestTypeDef",
-    {
-        "filters": List["FilterTypeDef"],
-        "maxResults": int,
-        "nextToken": str,
-        "orderBy": List["OrderByElementTypeDef"],
-    },
-    total=False,
-)
-
-class ListConfigurationsRequestRequestTypeDef(
-    _RequiredListConfigurationsRequestRequestTypeDef,
-    _OptionalListConfigurationsRequestRequestTypeDef,
-):
-    pass
-
-ListConfigurationsResponseTypeDef = TypedDict(
-    "ListConfigurationsResponseTypeDef",
-    {
-        "configurations": List[Dict[str, str]],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListServerNeighborsRequestRequestTypeDef = TypedDict(
-    "_RequiredListServerNeighborsRequestRequestTypeDef",
-    {
-        "configurationId": str,
-    },
-)
-_OptionalListServerNeighborsRequestRequestTypeDef = TypedDict(
-    "_OptionalListServerNeighborsRequestRequestTypeDef",
-    {
-        "portInformationNeeded": bool,
-        "neighborConfigurationIds": List[str],
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListServerNeighborsRequestRequestTypeDef(
-    _RequiredListServerNeighborsRequestRequestTypeDef,
-    _OptionalListServerNeighborsRequestRequestTypeDef,
-):
-    pass
-
-ListServerNeighborsResponseTypeDef = TypedDict(
-    "ListServerNeighborsResponseTypeDef",
-    {
-        "neighbors": List["NeighborConnectionDetailTypeDef"],
-        "nextToken": str,
-        "knownDependencyCount": int,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredNeighborConnectionDetailTypeDef = TypedDict(
-    "_RequiredNeighborConnectionDetailTypeDef",
-    {
-        "sourceServerId": str,
-        "destinationServerId": str,
-        "connectionsCount": int,
-    },
-)
-_OptionalNeighborConnectionDetailTypeDef = TypedDict(
-    "_OptionalNeighborConnectionDetailTypeDef",
-    {
-        "destinationPort": int,
-        "transportProtocol": str,
-    },
-    total=False,
-)
-
-class NeighborConnectionDetailTypeDef(
-    _RequiredNeighborConnectionDetailTypeDef, _OptionalNeighborConnectionDetailTypeDef
-):
-    pass
-
-_RequiredOrderByElementTypeDef = TypedDict(
-    "_RequiredOrderByElementTypeDef",
-    {
-        "fieldName": str,
-    },
-)
-_OptionalOrderByElementTypeDef = TypedDict(
-    "_OptionalOrderByElementTypeDef",
-    {
-        "sortOrder": orderStringType,
-    },
-    total=False,
-)
-
-class OrderByElementTypeDef(_RequiredOrderByElementTypeDef, _OptionalOrderByElementTypeDef):
-    pass
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-ReservedInstanceOptionsTypeDef = TypedDict(
-    "ReservedInstanceOptionsTypeDef",
-    {
-        "purchasingOption": PurchasingOptionType,
-        "offeringClass": OfferingClassType,
-        "termLength": TermLengthType,
-    },
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-StartBatchDeleteConfigurationTaskRequestRequestTypeDef = TypedDict(
-    "StartBatchDeleteConfigurationTaskRequestRequestTypeDef",
-    {
-        "configurationType": Literal["SERVER"],
-        "configurationIds": List[str],
-    },
-)
-
-StartBatchDeleteConfigurationTaskResponseTypeDef = TypedDict(
-    "StartBatchDeleteConfigurationTaskResponseTypeDef",
-    {
-        "taskId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-StartContinuousExportResponseTypeDef = TypedDict(
-    "StartContinuousExportResponseTypeDef",
-    {
-        "exportId": str,
-        "s3Bucket": str,
-        "startTime": datetime,
-        "dataSource": Literal["AGENT"],
-        "schemaStorageConfig": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-StartDataCollectionByAgentIdsRequestRequestTypeDef = TypedDict(
-    "StartDataCollectionByAgentIdsRequestRequestTypeDef",
-    {
-        "agentIds": List[str],
-    },
-)
-
-StartDataCollectionByAgentIdsResponseTypeDef = TypedDict(
-    "StartDataCollectionByAgentIdsResponseTypeDef",
-    {
-        "agentsConfigurationStatus": List["AgentConfigurationStatusTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-StartExportTaskRequestRequestTypeDef = TypedDict(
-    "StartExportTaskRequestRequestTypeDef",
-    {
-        "exportDataFormat": List[Literal["CSV"]],
-        "filters": List["ExportFilterTypeDef"],
-        "startTime": Union[datetime, str],
-        "endTime": Union[datetime, str],
-        "preferences": "ExportPreferencesTypeDef",
-    },
-    total=False,
-)
-
-StartExportTaskResponseTypeDef = TypedDict(
-    "StartExportTaskResponseTypeDef",
-    {
-        "exportId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredStartImportTaskRequestRequestTypeDef = TypedDict(
-    "_RequiredStartImportTaskRequestRequestTypeDef",
-    {
-        "name": str,
-        "importUrl": str,
-    },
-)
-_OptionalStartImportTaskRequestRequestTypeDef = TypedDict(
-    "_OptionalStartImportTaskRequestRequestTypeDef",
-    {
-        "clientRequestToken": str,
-    },
-    total=False,
-)
-
-class StartImportTaskRequestRequestTypeDef(
-    _RequiredStartImportTaskRequestRequestTypeDef, _OptionalStartImportTaskRequestRequestTypeDef
-):
-    pass
-
-StartImportTaskResponseTypeDef = TypedDict(
-    "StartImportTaskResponseTypeDef",
-    {
-        "task": "ImportTaskTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-StopContinuousExportRequestRequestTypeDef = TypedDict(
-    "StopContinuousExportRequestRequestTypeDef",
-    {
-        "exportId": str,
-    },
-)
-
-StopContinuousExportResponseTypeDef = TypedDict(
-    "StopContinuousExportResponseTypeDef",
-    {
-        "startTime": datetime,
-        "stopTime": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-StopDataCollectionByAgentIdsRequestRequestTypeDef = TypedDict(
-    "StopDataCollectionByAgentIdsRequestRequestTypeDef",
-    {
-        "agentIds": List[str],
-    },
-)
-
-StopDataCollectionByAgentIdsResponseTypeDef = TypedDict(
-    "StopDataCollectionByAgentIdsResponseTypeDef",
-    {
-        "agentsConfigurationStatus": List["AgentConfigurationStatusTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-TagFilterTypeDef = TypedDict(
-    "TagFilterTypeDef",
-    {
-        "name": str,
-        "values": List[str],
-    },
-)
-
-TagTypeDef = TypedDict(
-    "TagTypeDef",
-    {
-        "key": str,
-        "value": str,
-    },
-)
-
-_RequiredUpdateApplicationRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateApplicationRequestRequestTypeDef",
-    {
-        "configurationId": str,
-    },
-)
-_OptionalUpdateApplicationRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateApplicationRequestRequestTypeDef",
-    {
-        "name": str,
-        "description": str,
-    },
-    total=False,
-)
-
-class UpdateApplicationRequestRequestTypeDef(
-    _RequiredUpdateApplicationRequestRequestTypeDef, _OptionalUpdateApplicationRequestRequestTypeDef
-):
-    pass
-
-UsageMetricBasisTypeDef = TypedDict(
-    "UsageMetricBasisTypeDef",
-    {
-        "name": str,
-        "percentageAdjust": float,
-    },
-    total=False,
-)
+class AgentConfigurationStatusTypeDef(TypedDict):
+    agentId: NotRequired[str]
+    operationSucceeded: NotRequired[bool]
+    description: NotRequired[str]
+
+class AgentNetworkInfoTypeDef(TypedDict):
+    ipAddress: NotRequired[str]
+    macAddress: NotRequired[str]
+
+class AssociateConfigurationItemsToApplicationRequestTypeDef(TypedDict):
+    applicationConfigurationId: str
+    configurationIds: Sequence[str]
+
+class BatchDeleteAgentErrorTypeDef(TypedDict):
+    agentId: str
+    errorMessage: str
+    errorCode: DeleteAgentErrorCodeType
+
+class DeleteAgentTypeDef(TypedDict):
+    agentId: str
+    force: NotRequired[bool]
+
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
+
+class DeletionWarningTypeDef(TypedDict):
+    configurationId: NotRequired[str]
+    warningCode: NotRequired[int]
+    warningText: NotRequired[str]
+
+class FailedConfigurationTypeDef(TypedDict):
+    configurationId: NotRequired[str]
+    errorStatusCode: NotRequired[int]
+    errorMessage: NotRequired[str]
+
+class BatchDeleteImportDataErrorTypeDef(TypedDict):
+    importTaskId: NotRequired[str]
+    errorCode: NotRequired[BatchDeleteImportDataErrorCodeType]
+    errorDescription: NotRequired[str]
+
+class BatchDeleteImportDataRequestTypeDef(TypedDict):
+    importTaskIds: Sequence[str]
+    deleteHistory: NotRequired[bool]
+
+class ConfigurationTagTypeDef(TypedDict):
+    configurationType: NotRequired[ConfigurationItemTypeType]
+    configurationId: NotRequired[str]
+    key: NotRequired[str]
+    value: NotRequired[str]
+    timeOfCreation: NotRequired[datetime]
+
+class ContinuousExportDescriptionTypeDef(TypedDict):
+    exportId: NotRequired[str]
+    status: NotRequired[ContinuousExportStatusType]
+    statusDetail: NotRequired[str]
+    s3Bucket: NotRequired[str]
+    startTime: NotRequired[datetime]
+    stopTime: NotRequired[datetime]
+    dataSource: NotRequired[Literal["AGENT"]]
+    schemaStorageConfig: NotRequired[Dict[str, str]]
+
+class CreateApplicationRequestTypeDef(TypedDict):
+    name: str
+    description: NotRequired[str]
+    wave: NotRequired[str]
+
+class TagTypeDef(TypedDict):
+    key: str
+    value: str
+
+class CustomerAgentInfoTypeDef(TypedDict):
+    activeAgents: int
+    healthyAgents: int
+    blackListedAgents: int
+    shutdownAgents: int
+    unhealthyAgents: int
+    totalAgents: int
+    unknownAgents: int
+
+class CustomerAgentlessCollectorInfoTypeDef(TypedDict):
+    activeAgentlessCollectors: int
+    healthyAgentlessCollectors: int
+    denyListedAgentlessCollectors: int
+    shutdownAgentlessCollectors: int
+    unhealthyAgentlessCollectors: int
+    totalAgentlessCollectors: int
+    unknownAgentlessCollectors: int
+
+class CustomerConnectorInfoTypeDef(TypedDict):
+    activeConnectors: int
+    healthyConnectors: int
+    blackListedConnectors: int
+    shutdownConnectors: int
+    unhealthyConnectors: int
+    totalConnectors: int
+    unknownConnectors: int
+
+class CustomerMeCollectorInfoTypeDef(TypedDict):
+    activeMeCollectors: int
+    healthyMeCollectors: int
+    denyListedMeCollectors: int
+    shutdownMeCollectors: int
+    unhealthyMeCollectors: int
+    totalMeCollectors: int
+    unknownMeCollectors: int
+
+class DeleteApplicationsRequestTypeDef(TypedDict):
+    configurationIds: Sequence[str]
+
+class FilterTypeDef(TypedDict):
+    name: str
+    values: Sequence[str]
+    condition: str
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class DescribeBatchDeleteConfigurationTaskRequestTypeDef(TypedDict):
+    taskId: str
+
+class DescribeConfigurationsRequestTypeDef(TypedDict):
+    configurationIds: Sequence[str]
+
+class DescribeContinuousExportsRequestTypeDef(TypedDict):
+    exportIds: NotRequired[Sequence[str]]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class DescribeExportConfigurationsRequestTypeDef(TypedDict):
+    exportIds: NotRequired[Sequence[str]]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ExportInfoTypeDef(TypedDict):
+    exportId: str
+    exportStatus: ExportStatusType
+    statusMessage: str
+    exportRequestTime: datetime
+    configurationsDownloadUrl: NotRequired[str]
+    isTruncated: NotRequired[bool]
+    requestedStartTime: NotRequired[datetime]
+    requestedEndTime: NotRequired[datetime]
+
+class ExportFilterTypeDef(TypedDict):
+    name: str
+    values: Sequence[str]
+    condition: str
+
+class ImportTaskFilterTypeDef(TypedDict):
+    name: NotRequired[ImportTaskFilterNameType]
+    values: NotRequired[Sequence[str]]
+
+class ImportTaskTypeDef(TypedDict):
+    importTaskId: NotRequired[str]
+    clientRequestToken: NotRequired[str]
+    name: NotRequired[str]
+    importUrl: NotRequired[str]
+    status: NotRequired[ImportStatusType]
+    importRequestTime: NotRequired[datetime]
+    importCompletionTime: NotRequired[datetime]
+    importDeletedTime: NotRequired[datetime]
+    fileClassification: NotRequired[FileClassificationType]
+    serverImportSuccess: NotRequired[int]
+    serverImportFailure: NotRequired[int]
+    applicationImportSuccess: NotRequired[int]
+    applicationImportFailure: NotRequired[int]
+    errorsAndFailedEntriesZip: NotRequired[str]
+
+class TagFilterTypeDef(TypedDict):
+    name: str
+    values: Sequence[str]
+
+class DisassociateConfigurationItemsFromApplicationRequestTypeDef(TypedDict):
+    applicationConfigurationId: str
+    configurationIds: Sequence[str]
+
+class ReservedInstanceOptionsTypeDef(TypedDict):
+    purchasingOption: PurchasingOptionType
+    offeringClass: OfferingClassType
+    termLength: TermLengthType
+
+class UsageMetricBasisTypeDef(TypedDict):
+    name: NotRequired[str]
+    percentageAdjust: NotRequired[float]
+
+class OrderByElementTypeDef(TypedDict):
+    fieldName: str
+    sortOrder: NotRequired[OrderStringType]
+
+class ListServerNeighborsRequestTypeDef(TypedDict):
+    configurationId: str
+    portInformationNeeded: NotRequired[bool]
+    neighborConfigurationIds: NotRequired[Sequence[str]]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class NeighborConnectionDetailTypeDef(TypedDict):
+    sourceServerId: str
+    destinationServerId: str
+    connectionsCount: int
+    destinationPort: NotRequired[int]
+    transportProtocol: NotRequired[str]
+
+class StartBatchDeleteConfigurationTaskRequestTypeDef(TypedDict):
+    configurationType: Literal["SERVER"]
+    configurationIds: Sequence[str]
+
+class StartDataCollectionByAgentIdsRequestTypeDef(TypedDict):
+    agentIds: Sequence[str]
+
+TimestampTypeDef = Union[datetime, str]
+
+class StartImportTaskRequestTypeDef(TypedDict):
+    name: str
+    importUrl: str
+    clientRequestToken: NotRequired[str]
+
+class StopContinuousExportRequestTypeDef(TypedDict):
+    exportId: str
+
+class StopDataCollectionByAgentIdsRequestTypeDef(TypedDict):
+    agentIds: Sequence[str]
+
+class UpdateApplicationRequestTypeDef(TypedDict):
+    configurationId: str
+    name: NotRequired[str]
+    description: NotRequired[str]
+    wave: NotRequired[str]
+
+class AgentInfoTypeDef(TypedDict):
+    agentId: NotRequired[str]
+    hostName: NotRequired[str]
+    agentNetworkInfoList: NotRequired[List[AgentNetworkInfoTypeDef]]
+    connectorId: NotRequired[str]
+    version: NotRequired[str]
+    health: NotRequired[AgentStatusType]
+    lastHealthPingTime: NotRequired[str]
+    collectionStatus: NotRequired[str]
+    agentType: NotRequired[str]
+    registeredTime: NotRequired[str]
+
+class BatchDeleteAgentsRequestTypeDef(TypedDict):
+    deleteAgents: Sequence[DeleteAgentTypeDef]
+
+class BatchDeleteAgentsResponseTypeDef(TypedDict):
+    errors: List[BatchDeleteAgentErrorTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateApplicationResponseTypeDef(TypedDict):
+    configurationId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeConfigurationsResponseTypeDef(TypedDict):
+    configurations: List[Dict[str, str]]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ExportConfigurationsResponseTypeDef(TypedDict):
+    exportId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListConfigurationsResponseTypeDef(TypedDict):
+    configurations: List[Dict[str, str]]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class StartBatchDeleteConfigurationTaskResponseTypeDef(TypedDict):
+    taskId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartContinuousExportResponseTypeDef(TypedDict):
+    exportId: str
+    s3Bucket: str
+    startTime: datetime
+    dataSource: Literal["AGENT"]
+    schemaStorageConfig: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartDataCollectionByAgentIdsResponseTypeDef(TypedDict):
+    agentsConfigurationStatus: List[AgentConfigurationStatusTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartExportTaskResponseTypeDef(TypedDict):
+    exportId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StopContinuousExportResponseTypeDef(TypedDict):
+    startTime: datetime
+    stopTime: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StopDataCollectionByAgentIdsResponseTypeDef(TypedDict):
+    agentsConfigurationStatus: List[AgentConfigurationStatusTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class BatchDeleteConfigurationTaskTypeDef(TypedDict):
+    taskId: NotRequired[str]
+    status: NotRequired[BatchDeleteConfigurationTaskStatusType]
+    startTime: NotRequired[datetime]
+    endTime: NotRequired[datetime]
+    configurationType: NotRequired[Literal["SERVER"]]
+    requestedConfigurations: NotRequired[List[str]]
+    deletedConfigurations: NotRequired[List[str]]
+    failedConfigurations: NotRequired[List[FailedConfigurationTypeDef]]
+    deletionWarnings: NotRequired[List[DeletionWarningTypeDef]]
+
+class BatchDeleteImportDataResponseTypeDef(TypedDict):
+    errors: List[BatchDeleteImportDataErrorTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeTagsResponseTypeDef(TypedDict):
+    tags: List[ConfigurationTagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class DescribeContinuousExportsResponseTypeDef(TypedDict):
+    descriptions: List[ContinuousExportDescriptionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class CreateTagsRequestTypeDef(TypedDict):
+    configurationIds: Sequence[str]
+    tags: Sequence[TagTypeDef]
+
+class DeleteTagsRequestTypeDef(TypedDict):
+    configurationIds: Sequence[str]
+    tags: NotRequired[Sequence[TagTypeDef]]
+
+class GetDiscoverySummaryResponseTypeDef(TypedDict):
+    servers: int
+    applications: int
+    serversMappedToApplications: int
+    serversMappedtoTags: int
+    agentSummary: CustomerAgentInfoTypeDef
+    connectorSummary: CustomerConnectorInfoTypeDef
+    meCollectorSummary: CustomerMeCollectorInfoTypeDef
+    agentlessCollectorSummary: CustomerAgentlessCollectorInfoTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeAgentsRequestTypeDef(TypedDict):
+    agentIds: NotRequired[Sequence[str]]
+    filters: NotRequired[Sequence[FilterTypeDef]]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class DescribeAgentsRequestPaginateTypeDef(TypedDict):
+    agentIds: NotRequired[Sequence[str]]
+    filters: NotRequired[Sequence[FilterTypeDef]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeContinuousExportsRequestPaginateTypeDef(TypedDict):
+    exportIds: NotRequired[Sequence[str]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeExportConfigurationsRequestPaginateTypeDef(TypedDict):
+    exportIds: NotRequired[Sequence[str]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeExportConfigurationsResponseTypeDef(TypedDict):
+    exportsInfo: List[ExportInfoTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class DescribeExportTasksResponseTypeDef(TypedDict):
+    exportsInfo: List[ExportInfoTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class DescribeExportTasksRequestPaginateTypeDef(TypedDict):
+    exportIds: NotRequired[Sequence[str]]
+    filters: NotRequired[Sequence[ExportFilterTypeDef]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeExportTasksRequestTypeDef(TypedDict):
+    exportIds: NotRequired[Sequence[str]]
+    filters: NotRequired[Sequence[ExportFilterTypeDef]]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class DescribeImportTasksRequestPaginateTypeDef(TypedDict):
+    filters: NotRequired[Sequence[ImportTaskFilterTypeDef]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeImportTasksRequestTypeDef(TypedDict):
+    filters: NotRequired[Sequence[ImportTaskFilterTypeDef]]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class DescribeImportTasksResponseTypeDef(TypedDict):
+    tasks: List[ImportTaskTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class StartImportTaskResponseTypeDef(TypedDict):
+    task: ImportTaskTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeTagsRequestPaginateTypeDef(TypedDict):
+    filters: NotRequired[Sequence[TagFilterTypeDef]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeTagsRequestTypeDef(TypedDict):
+    filters: NotRequired[Sequence[TagFilterTypeDef]]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class Ec2RecommendationsExportPreferencesTypeDef(TypedDict):
+    enabled: NotRequired[bool]
+    cpuPerformanceMetricBasis: NotRequired[UsageMetricBasisTypeDef]
+    ramPerformanceMetricBasis: NotRequired[UsageMetricBasisTypeDef]
+    tenancy: NotRequired[TenancyType]
+    excludedInstanceTypes: NotRequired[Sequence[str]]
+    preferredRegion: NotRequired[str]
+    reservedInstanceOptions: NotRequired[ReservedInstanceOptionsTypeDef]
+
+class ListConfigurationsRequestPaginateTypeDef(TypedDict):
+    configurationType: ConfigurationItemTypeType
+    filters: NotRequired[Sequence[FilterTypeDef]]
+    orderBy: NotRequired[Sequence[OrderByElementTypeDef]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListConfigurationsRequestTypeDef(TypedDict):
+    configurationType: ConfigurationItemTypeType
+    filters: NotRequired[Sequence[FilterTypeDef]]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+    orderBy: NotRequired[Sequence[OrderByElementTypeDef]]
+
+class ListServerNeighborsResponseTypeDef(TypedDict):
+    neighbors: List[NeighborConnectionDetailTypeDef]
+    knownDependencyCount: int
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class DescribeAgentsResponseTypeDef(TypedDict):
+    agentsInfo: List[AgentInfoTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class DescribeBatchDeleteConfigurationTaskResponseTypeDef(TypedDict):
+    task: BatchDeleteConfigurationTaskTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ExportPreferencesTypeDef(TypedDict):
+    ec2RecommendationsPreferences: NotRequired[Ec2RecommendationsExportPreferencesTypeDef]
+
+class StartExportTaskRequestTypeDef(TypedDict):
+    exportDataFormat: NotRequired[Sequence[Literal["CSV"]]]
+    filters: NotRequired[Sequence[ExportFilterTypeDef]]
+    startTime: NotRequired[TimestampTypeDef]
+    endTime: NotRequired[TimestampTypeDef]
+    preferences: NotRequired[ExportPreferencesTypeDef]

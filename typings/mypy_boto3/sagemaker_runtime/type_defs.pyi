@@ -1,34 +1,44 @@
 """
 Type annotations for sagemaker-runtime service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker_runtime/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sagemaker_runtime/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_sagemaker_runtime.type_defs import InternalStreamFailureTypeDef
+    from mypy_boto3_sagemaker_runtime.type_defs import BlobTypeDef
 
-    data: InternalStreamFailureTypeDef = {...}
+    data: BlobTypeDef = ...
     ```
 """
 
-import sys
-from typing import IO, Any, Dict, Union
+from __future__ import annotations
 
+import sys
+from typing import IO, Any, Union
+
+from botocore.eventstream import EventStream
 from botocore.response import StreamingBody
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
+    "BlobTypeDef",
     "InternalStreamFailureTypeDef",
-    "InvokeEndpointAsyncInputRequestTypeDef",
+    "InvokeEndpointAsyncInputTypeDef",
     "InvokeEndpointAsyncOutputTypeDef",
-    "InvokeEndpointInputRequestTypeDef",
+    "InvokeEndpointInputTypeDef",
     "InvokeEndpointOutputTypeDef",
-    "InvokeEndpointWithResponseStreamInputRequestTypeDef",
+    "InvokeEndpointWithResponseStreamInputTypeDef",
     "InvokeEndpointWithResponseStreamOutputTypeDef",
     "ModelStreamErrorTypeDef",
     "PayloadPartTypeDef",
@@ -36,160 +46,84 @@ __all__ = (
     "ResponseStreamTypeDef",
 )
 
-InternalStreamFailureTypeDef = TypedDict(
-    "InternalStreamFailureTypeDef",
-    {
-        "Message": str,
-    },
-    total=False,
-)
+BlobTypeDef = Union[str, bytes, IO[Any], StreamingBody]
 
-_RequiredInvokeEndpointAsyncInputRequestTypeDef = TypedDict(
-    "_RequiredInvokeEndpointAsyncInputRequestTypeDef",
-    {
-        "EndpointName": str,
-        "InputLocation": str,
-    },
-)
-_OptionalInvokeEndpointAsyncInputRequestTypeDef = TypedDict(
-    "_OptionalInvokeEndpointAsyncInputRequestTypeDef",
-    {
-        "ContentType": str,
-        "Accept": str,
-        "CustomAttributes": str,
-        "InferenceId": str,
-        "RequestTTLSeconds": int,
-        "InvocationTimeoutSeconds": int,
-    },
-    total=False,
-)
+class InternalStreamFailureTypeDef(TypedDict):
+    Message: NotRequired[str]
 
-class InvokeEndpointAsyncInputRequestTypeDef(
-    _RequiredInvokeEndpointAsyncInputRequestTypeDef, _OptionalInvokeEndpointAsyncInputRequestTypeDef
-):
-    pass
+class InvokeEndpointAsyncInputTypeDef(TypedDict):
+    EndpointName: str
+    InputLocation: str
+    ContentType: NotRequired[str]
+    Accept: NotRequired[str]
+    CustomAttributes: NotRequired[str]
+    InferenceId: NotRequired[str]
+    RequestTTLSeconds: NotRequired[int]
+    InvocationTimeoutSeconds: NotRequired[int]
 
-InvokeEndpointAsyncOutputTypeDef = TypedDict(
-    "InvokeEndpointAsyncOutputTypeDef",
-    {
-        "InferenceId": str,
-        "OutputLocation": str,
-        "FailureLocation": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-_RequiredInvokeEndpointInputRequestTypeDef = TypedDict(
-    "_RequiredInvokeEndpointInputRequestTypeDef",
-    {
-        "EndpointName": str,
-        "Body": Union[bytes, IO[bytes], StreamingBody],
-    },
-)
-_OptionalInvokeEndpointInputRequestTypeDef = TypedDict(
-    "_OptionalInvokeEndpointInputRequestTypeDef",
-    {
-        "ContentType": str,
-        "Accept": str,
-        "CustomAttributes": str,
-        "TargetModel": str,
-        "TargetVariant": str,
-        "TargetContainerHostname": str,
-        "InferenceId": str,
-        "EnableExplanations": str,
-        "InferenceComponentName": str,
-    },
-    total=False,
-)
+class ModelStreamErrorTypeDef(TypedDict):
+    Message: NotRequired[str]
+    ErrorCode: NotRequired[str]
 
-class InvokeEndpointInputRequestTypeDef(
-    _RequiredInvokeEndpointInputRequestTypeDef, _OptionalInvokeEndpointInputRequestTypeDef
-):
-    pass
+class PayloadPartTypeDef(TypedDict):
+    Bytes: NotRequired[bytes]
 
-InvokeEndpointOutputTypeDef = TypedDict(
-    "InvokeEndpointOutputTypeDef",
-    {
-        "Body": bytes,
-        "ContentType": str,
-        "InvokedProductionVariant": str,
-        "CustomAttributes": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class InvokeEndpointInputTypeDef(TypedDict):
+    EndpointName: str
+    Body: BlobTypeDef
+    ContentType: NotRequired[str]
+    Accept: NotRequired[str]
+    CustomAttributes: NotRequired[str]
+    TargetModel: NotRequired[str]
+    TargetVariant: NotRequired[str]
+    TargetContainerHostname: NotRequired[str]
+    InferenceId: NotRequired[str]
+    EnableExplanations: NotRequired[str]
+    InferenceComponentName: NotRequired[str]
+    SessionId: NotRequired[str]
 
-_RequiredInvokeEndpointWithResponseStreamInputRequestTypeDef = TypedDict(
-    "_RequiredInvokeEndpointWithResponseStreamInputRequestTypeDef",
-    {
-        "EndpointName": str,
-        "Body": Union[bytes, IO[bytes], StreamingBody],
-    },
-)
-_OptionalInvokeEndpointWithResponseStreamInputRequestTypeDef = TypedDict(
-    "_OptionalInvokeEndpointWithResponseStreamInputRequestTypeDef",
-    {
-        "ContentType": str,
-        "Accept": str,
-        "CustomAttributes": str,
-        "TargetVariant": str,
-        "TargetContainerHostname": str,
-        "InferenceId": str,
-        "InferenceComponentName": str,
-    },
-    total=False,
-)
+class InvokeEndpointWithResponseStreamInputTypeDef(TypedDict):
+    EndpointName: str
+    Body: BlobTypeDef
+    ContentType: NotRequired[str]
+    Accept: NotRequired[str]
+    CustomAttributes: NotRequired[str]
+    TargetVariant: NotRequired[str]
+    TargetContainerHostname: NotRequired[str]
+    InferenceId: NotRequired[str]
+    InferenceComponentName: NotRequired[str]
+    SessionId: NotRequired[str]
 
-class InvokeEndpointWithResponseStreamInputRequestTypeDef(
-    _RequiredInvokeEndpointWithResponseStreamInputRequestTypeDef,
-    _OptionalInvokeEndpointWithResponseStreamInputRequestTypeDef,
-):
-    pass
+class InvokeEndpointAsyncOutputTypeDef(TypedDict):
+    InferenceId: str
+    OutputLocation: str
+    FailureLocation: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-InvokeEndpointWithResponseStreamOutputTypeDef = TypedDict(
-    "InvokeEndpointWithResponseStreamOutputTypeDef",
-    {
-        "Body": "ResponseStreamTypeDef",
-        "ContentType": str,
-        "InvokedProductionVariant": str,
-        "CustomAttributes": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class InvokeEndpointOutputTypeDef(TypedDict):
+    Body: StreamingBody
+    ContentType: str
+    InvokedProductionVariant: str
+    CustomAttributes: str
+    NewSessionId: str
+    ClosedSessionId: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ModelStreamErrorTypeDef = TypedDict(
-    "ModelStreamErrorTypeDef",
-    {
-        "Message": str,
-        "ErrorCode": str,
-    },
-    total=False,
-)
+class ResponseStreamTypeDef(TypedDict):
+    PayloadPart: NotRequired[PayloadPartTypeDef]
+    ModelStreamError: NotRequired[ModelStreamErrorTypeDef]
+    InternalStreamFailure: NotRequired[InternalStreamFailureTypeDef]
 
-PayloadPartTypeDef = TypedDict(
-    "PayloadPartTypeDef",
-    {
-        "Bytes": bytes,
-    },
-    total=False,
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-ResponseStreamTypeDef = TypedDict(
-    "ResponseStreamTypeDef",
-    {
-        "PayloadPart": "PayloadPartTypeDef",
-        "ModelStreamError": "ModelStreamErrorTypeDef",
-        "InternalStreamFailure": "InternalStreamFailureTypeDef",
-    },
-    total=False,
-)
+class InvokeEndpointWithResponseStreamOutputTypeDef(TypedDict):
+    Body: EventStream[ResponseStreamTypeDef]
+    ContentType: str
+    InvokedProductionVariant: str
+    CustomAttributes: str
+    ResponseMetadata: ResponseMetadataTypeDef

@@ -1,10 +1,14 @@
 """
 Main interface for trustedadvisor service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_trustedadvisor/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_trustedadvisor import (
         Client,
         ListChecksPaginator,
@@ -16,10 +20,8 @@ Usage::
         TrustedAdvisorPublicAPIClient,
     )
 
-    session = boto3.Session()
-
-    client: TrustedAdvisorPublicAPIClient = boto3.client("trustedadvisor")
-    session_client: TrustedAdvisorPublicAPIClient = session.client("trustedadvisor")
+    session = Session()
+    client: TrustedAdvisorPublicAPIClient = session.client("trustedadvisor")
 
     list_checks_paginator: ListChecksPaginator = client.get_paginator("list_checks")
     list_organization_recommendation_accounts_paginator: ListOrganizationRecommendationAccountsPaginator = client.get_paginator("list_organization_recommendation_accounts")

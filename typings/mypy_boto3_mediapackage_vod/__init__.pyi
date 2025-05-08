@@ -1,10 +1,14 @@
 """
 Main interface for mediapackage-vod service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_mediapackage_vod/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_mediapackage_vod import (
         Client,
         ListAssetsPaginator,
@@ -13,10 +17,8 @@ Usage::
         MediaPackageVodClient,
     )
 
-    session = boto3.Session()
-
-    client: MediaPackageVodClient = boto3.client("mediapackage-vod")
-    session_client: MediaPackageVodClient = session.client("mediapackage-vod")
+    session = Session()
+    client: MediaPackageVodClient = session.client("mediapackage-vod")
 
     list_assets_paginator: ListAssetsPaginator = client.get_paginator("list_assets")
     list_packaging_configurations_paginator: ListPackagingConfigurationsPaginator = client.get_paginator("list_packaging_configurations")

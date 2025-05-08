@@ -1,20 +1,24 @@
 """
 Type annotations for events service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_events/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_events/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_events.type_defs import ActivateEventSourceRequestRequestTypeDef
+    from mypy_boto3_events.type_defs import ActivateEventSourceRequestTypeDef
 
-    data: ActivateEventSourceRequestRequestTypeDef = {...}
+    data: ActivateEventSourceRequestTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List, Union
+from typing import Union
 
 from .literals import (
     ApiDestinationHttpMethodType,
@@ -34,25 +38,29 @@ from .literals import (
     RuleStateType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
-    "ActivateEventSourceRequestRequestTypeDef",
+    "ActivateEventSourceRequestTypeDef",
     "ApiDestinationTypeDef",
     "AppSyncParametersTypeDef",
     "ArchiveTypeDef",
+    "AwsVpcConfigurationOutputTypeDef",
     "AwsVpcConfigurationTypeDef",
+    "AwsVpcConfigurationUnionTypeDef",
     "BatchArrayPropertiesTypeDef",
     "BatchParametersTypeDef",
     "BatchRetryStrategyTypeDef",
-    "CancelReplayRequestRequestTypeDef",
+    "CancelReplayRequestTypeDef",
     "CancelReplayResponseTypeDef",
     "CapacityProviderStrategyItemTypeDef",
     "ConditionTypeDef",
@@ -61,96 +69,114 @@ __all__ = (
     "ConnectionBasicAuthResponseParametersTypeDef",
     "ConnectionBodyParameterTypeDef",
     "ConnectionHeaderParameterTypeDef",
+    "ConnectionHttpParametersOutputTypeDef",
     "ConnectionHttpParametersTypeDef",
+    "ConnectionHttpParametersUnionTypeDef",
     "ConnectionOAuthClientResponseParametersTypeDef",
     "ConnectionOAuthResponseParametersTypeDef",
     "ConnectionQueryStringParameterTypeDef",
     "ConnectionTypeDef",
-    "CreateApiDestinationRequestRequestTypeDef",
+    "ConnectivityResourceConfigurationArnTypeDef",
+    "ConnectivityResourceParametersTypeDef",
+    "CreateApiDestinationRequestTypeDef",
     "CreateApiDestinationResponseTypeDef",
-    "CreateArchiveRequestRequestTypeDef",
+    "CreateArchiveRequestTypeDef",
     "CreateArchiveResponseTypeDef",
     "CreateConnectionApiKeyAuthRequestParametersTypeDef",
     "CreateConnectionAuthRequestParametersTypeDef",
     "CreateConnectionBasicAuthRequestParametersTypeDef",
     "CreateConnectionOAuthClientRequestParametersTypeDef",
     "CreateConnectionOAuthRequestParametersTypeDef",
-    "CreateConnectionRequestRequestTypeDef",
+    "CreateConnectionRequestTypeDef",
     "CreateConnectionResponseTypeDef",
-    "CreateEndpointRequestRequestTypeDef",
+    "CreateEndpointRequestTypeDef",
     "CreateEndpointResponseTypeDef",
-    "CreateEventBusRequestRequestTypeDef",
+    "CreateEventBusRequestTypeDef",
     "CreateEventBusResponseTypeDef",
-    "CreatePartnerEventSourceRequestRequestTypeDef",
+    "CreatePartnerEventSourceRequestTypeDef",
     "CreatePartnerEventSourceResponseTypeDef",
-    "DeactivateEventSourceRequestRequestTypeDef",
+    "DeactivateEventSourceRequestTypeDef",
     "DeadLetterConfigTypeDef",
-    "DeauthorizeConnectionRequestRequestTypeDef",
+    "DeauthorizeConnectionRequestTypeDef",
     "DeauthorizeConnectionResponseTypeDef",
-    "DeleteApiDestinationRequestRequestTypeDef",
-    "DeleteArchiveRequestRequestTypeDef",
-    "DeleteConnectionRequestRequestTypeDef",
+    "DeleteApiDestinationRequestTypeDef",
+    "DeleteArchiveRequestTypeDef",
+    "DeleteConnectionRequestTypeDef",
     "DeleteConnectionResponseTypeDef",
-    "DeleteEndpointRequestRequestTypeDef",
-    "DeleteEventBusRequestRequestTypeDef",
-    "DeletePartnerEventSourceRequestRequestTypeDef",
-    "DeleteRuleRequestRequestTypeDef",
-    "DescribeApiDestinationRequestRequestTypeDef",
+    "DeleteEndpointRequestTypeDef",
+    "DeleteEventBusRequestTypeDef",
+    "DeletePartnerEventSourceRequestTypeDef",
+    "DeleteRuleRequestTypeDef",
+    "DescribeApiDestinationRequestTypeDef",
     "DescribeApiDestinationResponseTypeDef",
-    "DescribeArchiveRequestRequestTypeDef",
+    "DescribeArchiveRequestTypeDef",
     "DescribeArchiveResponseTypeDef",
-    "DescribeConnectionRequestRequestTypeDef",
+    "DescribeConnectionConnectivityParametersTypeDef",
+    "DescribeConnectionRequestTypeDef",
+    "DescribeConnectionResourceParametersTypeDef",
     "DescribeConnectionResponseTypeDef",
-    "DescribeEndpointRequestRequestTypeDef",
+    "DescribeEndpointRequestTypeDef",
     "DescribeEndpointResponseTypeDef",
-    "DescribeEventBusRequestRequestTypeDef",
+    "DescribeEventBusRequestTypeDef",
     "DescribeEventBusResponseTypeDef",
-    "DescribeEventSourceRequestRequestTypeDef",
+    "DescribeEventSourceRequestTypeDef",
     "DescribeEventSourceResponseTypeDef",
-    "DescribePartnerEventSourceRequestRequestTypeDef",
+    "DescribePartnerEventSourceRequestTypeDef",
     "DescribePartnerEventSourceResponseTypeDef",
-    "DescribeReplayRequestRequestTypeDef",
+    "DescribeReplayRequestTypeDef",
     "DescribeReplayResponseTypeDef",
-    "DescribeRuleRequestRequestTypeDef",
+    "DescribeRuleRequestTypeDef",
     "DescribeRuleResponseTypeDef",
-    "DisableRuleRequestRequestTypeDef",
+    "DisableRuleRequestTypeDef",
+    "EcsParametersOutputTypeDef",
     "EcsParametersTypeDef",
-    "EnableRuleRequestRequestTypeDef",
+    "EcsParametersUnionTypeDef",
+    "EmptyResponseMetadataTypeDef",
+    "EnableRuleRequestTypeDef",
     "EndpointEventBusTypeDef",
     "EndpointTypeDef",
     "EventBusTypeDef",
     "EventSourceTypeDef",
     "FailoverConfigTypeDef",
+    "HttpParametersOutputTypeDef",
     "HttpParametersTypeDef",
+    "HttpParametersUnionTypeDef",
+    "InputTransformerOutputTypeDef",
     "InputTransformerTypeDef",
+    "InputTransformerUnionTypeDef",
     "KinesisParametersTypeDef",
-    "ListApiDestinationsRequestRequestTypeDef",
+    "ListApiDestinationsRequestTypeDef",
     "ListApiDestinationsResponseTypeDef",
-    "ListArchivesRequestRequestTypeDef",
+    "ListArchivesRequestTypeDef",
     "ListArchivesResponseTypeDef",
-    "ListConnectionsRequestRequestTypeDef",
+    "ListConnectionsRequestTypeDef",
     "ListConnectionsResponseTypeDef",
-    "ListEndpointsRequestRequestTypeDef",
+    "ListEndpointsRequestTypeDef",
     "ListEndpointsResponseTypeDef",
-    "ListEventBusesRequestRequestTypeDef",
+    "ListEventBusesRequestTypeDef",
     "ListEventBusesResponseTypeDef",
-    "ListEventSourcesRequestRequestTypeDef",
+    "ListEventSourcesRequestTypeDef",
     "ListEventSourcesResponseTypeDef",
-    "ListPartnerEventSourceAccountsRequestRequestTypeDef",
+    "ListPartnerEventSourceAccountsRequestTypeDef",
     "ListPartnerEventSourceAccountsResponseTypeDef",
-    "ListPartnerEventSourcesRequestRequestTypeDef",
+    "ListPartnerEventSourcesRequestTypeDef",
     "ListPartnerEventSourcesResponseTypeDef",
-    "ListReplaysRequestRequestTypeDef",
+    "ListReplaysRequestTypeDef",
     "ListReplaysResponseTypeDef",
-    "ListRuleNamesByTargetRequestRequestTypeDef",
+    "ListRuleNamesByTargetRequestPaginateTypeDef",
+    "ListRuleNamesByTargetRequestTypeDef",
     "ListRuleNamesByTargetResponseTypeDef",
-    "ListRulesRequestRequestTypeDef",
+    "ListRulesRequestPaginateTypeDef",
+    "ListRulesRequestTypeDef",
     "ListRulesResponseTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
-    "ListTargetsByRuleRequestRequestTypeDef",
+    "ListTargetsByRuleRequestPaginateTypeDef",
+    "ListTargetsByRuleRequestTypeDef",
     "ListTargetsByRuleResponseTypeDef",
+    "NetworkConfigurationOutputTypeDef",
     "NetworkConfigurationTypeDef",
+    "NetworkConfigurationUnionTypeDef",
     "PaginatorConfigTypeDef",
     "PartnerEventSourceAccountTypeDef",
     "PartnerEventSourceTypeDef",
@@ -158,199 +184,132 @@ __all__ = (
     "PlacementStrategyTypeDef",
     "PrimaryTypeDef",
     "PutEventsRequestEntryTypeDef",
-    "PutEventsRequestRequestTypeDef",
+    "PutEventsRequestTypeDef",
     "PutEventsResponseTypeDef",
     "PutEventsResultEntryTypeDef",
     "PutPartnerEventsRequestEntryTypeDef",
-    "PutPartnerEventsRequestRequestTypeDef",
+    "PutPartnerEventsRequestTypeDef",
     "PutPartnerEventsResponseTypeDef",
     "PutPartnerEventsResultEntryTypeDef",
-    "PutPermissionRequestRequestTypeDef",
-    "PutRuleRequestRequestTypeDef",
+    "PutPermissionRequestTypeDef",
+    "PutRuleRequestTypeDef",
     "PutRuleResponseTypeDef",
-    "PutTargetsRequestRequestTypeDef",
+    "PutTargetsRequestTypeDef",
     "PutTargetsResponseTypeDef",
     "PutTargetsResultEntryTypeDef",
+    "RedshiftDataParametersOutputTypeDef",
     "RedshiftDataParametersTypeDef",
-    "RemovePermissionRequestRequestTypeDef",
-    "RemoveTargetsRequestRequestTypeDef",
+    "RedshiftDataParametersUnionTypeDef",
+    "RemovePermissionRequestTypeDef",
+    "RemoveTargetsRequestTypeDef",
     "RemoveTargetsResponseTypeDef",
     "RemoveTargetsResultEntryTypeDef",
+    "ReplayDestinationOutputTypeDef",
     "ReplayDestinationTypeDef",
+    "ReplayDestinationUnionTypeDef",
     "ReplayTypeDef",
     "ReplicationConfigTypeDef",
     "ResponseMetadataTypeDef",
     "RetryPolicyTypeDef",
     "RoutingConfigTypeDef",
     "RuleTypeDef",
+    "RunCommandParametersOutputTypeDef",
     "RunCommandParametersTypeDef",
+    "RunCommandParametersUnionTypeDef",
+    "RunCommandTargetOutputTypeDef",
     "RunCommandTargetTypeDef",
+    "RunCommandTargetUnionTypeDef",
     "SageMakerPipelineParameterTypeDef",
+    "SageMakerPipelineParametersOutputTypeDef",
     "SageMakerPipelineParametersTypeDef",
+    "SageMakerPipelineParametersUnionTypeDef",
     "SecondaryTypeDef",
     "SqsParametersTypeDef",
-    "StartReplayRequestRequestTypeDef",
+    "StartReplayRequestTypeDef",
     "StartReplayResponseTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
     "TagTypeDef",
+    "TargetOutputTypeDef",
     "TargetTypeDef",
-    "TestEventPatternRequestRequestTypeDef",
+    "TargetUnionTypeDef",
+    "TestEventPatternRequestTypeDef",
     "TestEventPatternResponseTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateApiDestinationRequestRequestTypeDef",
+    "TimestampTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateApiDestinationRequestTypeDef",
     "UpdateApiDestinationResponseTypeDef",
-    "UpdateArchiveRequestRequestTypeDef",
+    "UpdateArchiveRequestTypeDef",
     "UpdateArchiveResponseTypeDef",
     "UpdateConnectionApiKeyAuthRequestParametersTypeDef",
     "UpdateConnectionAuthRequestParametersTypeDef",
     "UpdateConnectionBasicAuthRequestParametersTypeDef",
     "UpdateConnectionOAuthClientRequestParametersTypeDef",
     "UpdateConnectionOAuthRequestParametersTypeDef",
-    "UpdateConnectionRequestRequestTypeDef",
+    "UpdateConnectionRequestTypeDef",
     "UpdateConnectionResponseTypeDef",
-    "UpdateEndpointRequestRequestTypeDef",
+    "UpdateEndpointRequestTypeDef",
     "UpdateEndpointResponseTypeDef",
-    "UpdateEventBusRequestRequestTypeDef",
+    "UpdateEventBusRequestTypeDef",
     "UpdateEventBusResponseTypeDef",
 )
 
-ActivateEventSourceRequestRequestTypeDef = TypedDict(
-    "ActivateEventSourceRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
+class ActivateEventSourceRequestTypeDef(TypedDict):
+    Name: str
 
-ApiDestinationTypeDef = TypedDict(
-    "ApiDestinationTypeDef",
-    {
-        "ApiDestinationArn": str,
-        "Name": str,
-        "ApiDestinationState": ApiDestinationStateType,
-        "ConnectionArn": str,
-        "InvocationEndpoint": str,
-        "HttpMethod": ApiDestinationHttpMethodType,
-        "InvocationRateLimitPerSecond": int,
-        "CreationTime": datetime,
-        "LastModifiedTime": datetime,
-    },
-    total=False,
-)
+class ApiDestinationTypeDef(TypedDict):
+    ApiDestinationArn: NotRequired[str]
+    Name: NotRequired[str]
+    ApiDestinationState: NotRequired[ApiDestinationStateType]
+    ConnectionArn: NotRequired[str]
+    InvocationEndpoint: NotRequired[str]
+    HttpMethod: NotRequired[ApiDestinationHttpMethodType]
+    InvocationRateLimitPerSecond: NotRequired[int]
+    CreationTime: NotRequired[datetime]
+    LastModifiedTime: NotRequired[datetime]
 
-AppSyncParametersTypeDef = TypedDict(
-    "AppSyncParametersTypeDef",
-    {
-        "GraphQLOperation": str,
-    },
-    total=False,
-)
+class AppSyncParametersTypeDef(TypedDict):
+    GraphQLOperation: NotRequired[str]
 
-ArchiveTypeDef = TypedDict(
-    "ArchiveTypeDef",
-    {
-        "ArchiveName": str,
-        "EventSourceArn": str,
-        "State": ArchiveStateType,
-        "StateReason": str,
-        "RetentionDays": int,
-        "SizeBytes": int,
-        "EventCount": int,
-        "CreationTime": datetime,
-    },
-    total=False,
-)
+class ArchiveTypeDef(TypedDict):
+    ArchiveName: NotRequired[str]
+    EventSourceArn: NotRequired[str]
+    State: NotRequired[ArchiveStateType]
+    StateReason: NotRequired[str]
+    RetentionDays: NotRequired[int]
+    SizeBytes: NotRequired[int]
+    EventCount: NotRequired[int]
+    CreationTime: NotRequired[datetime]
 
-_RequiredAwsVpcConfigurationTypeDef = TypedDict(
-    "_RequiredAwsVpcConfigurationTypeDef",
-    {
-        "Subnets": List[str],
-    },
-)
-_OptionalAwsVpcConfigurationTypeDef = TypedDict(
-    "_OptionalAwsVpcConfigurationTypeDef",
-    {
-        "SecurityGroups": List[str],
-        "AssignPublicIp": AssignPublicIpType,
-    },
-    total=False,
-)
+class AwsVpcConfigurationOutputTypeDef(TypedDict):
+    Subnets: List[str]
+    SecurityGroups: NotRequired[List[str]]
+    AssignPublicIp: NotRequired[AssignPublicIpType]
 
-class AwsVpcConfigurationTypeDef(
-    _RequiredAwsVpcConfigurationTypeDef, _OptionalAwsVpcConfigurationTypeDef
-):
-    pass
+class AwsVpcConfigurationTypeDef(TypedDict):
+    Subnets: Sequence[str]
+    SecurityGroups: NotRequired[Sequence[str]]
+    AssignPublicIp: NotRequired[AssignPublicIpType]
 
-BatchArrayPropertiesTypeDef = TypedDict(
-    "BatchArrayPropertiesTypeDef",
-    {
-        "Size": int,
-    },
-    total=False,
-)
+class BatchArrayPropertiesTypeDef(TypedDict):
+    Size: NotRequired[int]
 
-_RequiredBatchParametersTypeDef = TypedDict(
-    "_RequiredBatchParametersTypeDef",
-    {
-        "JobDefinition": str,
-        "JobName": str,
-    },
-)
-_OptionalBatchParametersTypeDef = TypedDict(
-    "_OptionalBatchParametersTypeDef",
-    {
-        "ArrayProperties": "BatchArrayPropertiesTypeDef",
-        "RetryStrategy": "BatchRetryStrategyTypeDef",
-    },
-    total=False,
-)
+class BatchRetryStrategyTypeDef(TypedDict):
+    Attempts: NotRequired[int]
 
-class BatchParametersTypeDef(_RequiredBatchParametersTypeDef, _OptionalBatchParametersTypeDef):
-    pass
+class CancelReplayRequestTypeDef(TypedDict):
+    ReplayName: str
 
-BatchRetryStrategyTypeDef = TypedDict(
-    "BatchRetryStrategyTypeDef",
-    {
-        "Attempts": int,
-    },
-    total=False,
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-CancelReplayRequestRequestTypeDef = TypedDict(
-    "CancelReplayRequestRequestTypeDef",
-    {
-        "ReplayName": str,
-    },
-)
-
-CancelReplayResponseTypeDef = TypedDict(
-    "CancelReplayResponseTypeDef",
-    {
-        "ReplayArn": str,
-        "State": ReplayStateType,
-        "StateReason": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCapacityProviderStrategyItemTypeDef = TypedDict(
-    "_RequiredCapacityProviderStrategyItemTypeDef",
-    {
-        "capacityProvider": str,
-    },
-)
-_OptionalCapacityProviderStrategyItemTypeDef = TypedDict(
-    "_OptionalCapacityProviderStrategyItemTypeDef",
-    {
-        "weight": int,
-        "base": int,
-    },
-    total=False,
-)
-
-class CapacityProviderStrategyItemTypeDef(
-    _RequiredCapacityProviderStrategyItemTypeDef, _OptionalCapacityProviderStrategyItemTypeDef
-):
-    pass
+class CapacityProviderStrategyItemTypeDef(TypedDict):
+    capacityProvider: str
+    weight: NotRequired[int]
+    base: NotRequired[int]
 
 ConditionTypeDef = TypedDict(
     "ConditionTypeDef",
@@ -361,1909 +320,1082 @@ ConditionTypeDef = TypedDict(
     },
 )
 
-ConnectionApiKeyAuthResponseParametersTypeDef = TypedDict(
-    "ConnectionApiKeyAuthResponseParametersTypeDef",
-    {
-        "ApiKeyName": str,
-    },
-    total=False,
-)
-
-ConnectionAuthResponseParametersTypeDef = TypedDict(
-    "ConnectionAuthResponseParametersTypeDef",
-    {
-        "BasicAuthParameters": "ConnectionBasicAuthResponseParametersTypeDef",
-        "OAuthParameters": "ConnectionOAuthResponseParametersTypeDef",
-        "ApiKeyAuthParameters": "ConnectionApiKeyAuthResponseParametersTypeDef",
-        "InvocationHttpParameters": "ConnectionHttpParametersTypeDef",
-    },
-    total=False,
-)
-
-ConnectionBasicAuthResponseParametersTypeDef = TypedDict(
-    "ConnectionBasicAuthResponseParametersTypeDef",
-    {
-        "Username": str,
-    },
-    total=False,
-)
-
-ConnectionBodyParameterTypeDef = TypedDict(
-    "ConnectionBodyParameterTypeDef",
-    {
-        "Key": str,
-        "Value": str,
-        "IsValueSecret": bool,
-    },
-    total=False,
-)
-
-ConnectionHeaderParameterTypeDef = TypedDict(
-    "ConnectionHeaderParameterTypeDef",
-    {
-        "Key": str,
-        "Value": str,
-        "IsValueSecret": bool,
-    },
-    total=False,
-)
-
-ConnectionHttpParametersTypeDef = TypedDict(
-    "ConnectionHttpParametersTypeDef",
-    {
-        "HeaderParameters": List["ConnectionHeaderParameterTypeDef"],
-        "QueryStringParameters": List["ConnectionQueryStringParameterTypeDef"],
-        "BodyParameters": List["ConnectionBodyParameterTypeDef"],
-    },
-    total=False,
-)
-
-ConnectionOAuthClientResponseParametersTypeDef = TypedDict(
-    "ConnectionOAuthClientResponseParametersTypeDef",
-    {
-        "ClientID": str,
-    },
-    total=False,
-)
-
-ConnectionOAuthResponseParametersTypeDef = TypedDict(
-    "ConnectionOAuthResponseParametersTypeDef",
-    {
-        "ClientParameters": "ConnectionOAuthClientResponseParametersTypeDef",
-        "AuthorizationEndpoint": str,
-        "HttpMethod": ConnectionOAuthHttpMethodType,
-        "OAuthHttpParameters": "ConnectionHttpParametersTypeDef",
-    },
-    total=False,
-)
-
-ConnectionQueryStringParameterTypeDef = TypedDict(
-    "ConnectionQueryStringParameterTypeDef",
-    {
-        "Key": str,
-        "Value": str,
-        "IsValueSecret": bool,
-    },
-    total=False,
-)
-
-ConnectionTypeDef = TypedDict(
-    "ConnectionTypeDef",
-    {
-        "ConnectionArn": str,
-        "Name": str,
-        "ConnectionState": ConnectionStateType,
-        "StateReason": str,
-        "AuthorizationType": ConnectionAuthorizationTypeType,
-        "CreationTime": datetime,
-        "LastModifiedTime": datetime,
-        "LastAuthorizedTime": datetime,
-    },
-    total=False,
-)
-
-_RequiredCreateApiDestinationRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateApiDestinationRequestRequestTypeDef",
-    {
-        "Name": str,
-        "ConnectionArn": str,
-        "InvocationEndpoint": str,
-        "HttpMethod": ApiDestinationHttpMethodType,
-    },
-)
-_OptionalCreateApiDestinationRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateApiDestinationRequestRequestTypeDef",
-    {
-        "Description": str,
-        "InvocationRateLimitPerSecond": int,
-    },
-    total=False,
-)
-
-class CreateApiDestinationRequestRequestTypeDef(
-    _RequiredCreateApiDestinationRequestRequestTypeDef,
-    _OptionalCreateApiDestinationRequestRequestTypeDef,
-):
-    pass
-
-CreateApiDestinationResponseTypeDef = TypedDict(
-    "CreateApiDestinationResponseTypeDef",
-    {
-        "ApiDestinationArn": str,
-        "ApiDestinationState": ApiDestinationStateType,
-        "CreationTime": datetime,
-        "LastModifiedTime": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateArchiveRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateArchiveRequestRequestTypeDef",
-    {
-        "ArchiveName": str,
-        "EventSourceArn": str,
-    },
-)
-_OptionalCreateArchiveRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateArchiveRequestRequestTypeDef",
-    {
-        "Description": str,
-        "EventPattern": str,
-        "RetentionDays": int,
-    },
-    total=False,
-)
-
-class CreateArchiveRequestRequestTypeDef(
-    _RequiredCreateArchiveRequestRequestTypeDef, _OptionalCreateArchiveRequestRequestTypeDef
-):
-    pass
-
-CreateArchiveResponseTypeDef = TypedDict(
-    "CreateArchiveResponseTypeDef",
-    {
-        "ArchiveArn": str,
-        "State": ArchiveStateType,
-        "StateReason": str,
-        "CreationTime": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateConnectionApiKeyAuthRequestParametersTypeDef = TypedDict(
-    "CreateConnectionApiKeyAuthRequestParametersTypeDef",
-    {
-        "ApiKeyName": str,
-        "ApiKeyValue": str,
-    },
-)
-
-CreateConnectionAuthRequestParametersTypeDef = TypedDict(
-    "CreateConnectionAuthRequestParametersTypeDef",
-    {
-        "BasicAuthParameters": "CreateConnectionBasicAuthRequestParametersTypeDef",
-        "OAuthParameters": "CreateConnectionOAuthRequestParametersTypeDef",
-        "ApiKeyAuthParameters": "CreateConnectionApiKeyAuthRequestParametersTypeDef",
-        "InvocationHttpParameters": "ConnectionHttpParametersTypeDef",
-    },
-    total=False,
-)
-
-CreateConnectionBasicAuthRequestParametersTypeDef = TypedDict(
-    "CreateConnectionBasicAuthRequestParametersTypeDef",
-    {
-        "Username": str,
-        "Password": str,
-    },
-)
-
-CreateConnectionOAuthClientRequestParametersTypeDef = TypedDict(
-    "CreateConnectionOAuthClientRequestParametersTypeDef",
-    {
-        "ClientID": str,
-        "ClientSecret": str,
-    },
-)
-
-_RequiredCreateConnectionOAuthRequestParametersTypeDef = TypedDict(
-    "_RequiredCreateConnectionOAuthRequestParametersTypeDef",
-    {
-        "ClientParameters": "CreateConnectionOAuthClientRequestParametersTypeDef",
-        "AuthorizationEndpoint": str,
-        "HttpMethod": ConnectionOAuthHttpMethodType,
-    },
-)
-_OptionalCreateConnectionOAuthRequestParametersTypeDef = TypedDict(
-    "_OptionalCreateConnectionOAuthRequestParametersTypeDef",
-    {
-        "OAuthHttpParameters": "ConnectionHttpParametersTypeDef",
-    },
-    total=False,
-)
-
-class CreateConnectionOAuthRequestParametersTypeDef(
-    _RequiredCreateConnectionOAuthRequestParametersTypeDef,
-    _OptionalCreateConnectionOAuthRequestParametersTypeDef,
-):
-    pass
-
-_RequiredCreateConnectionRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateConnectionRequestRequestTypeDef",
-    {
-        "Name": str,
-        "AuthorizationType": ConnectionAuthorizationTypeType,
-        "AuthParameters": "CreateConnectionAuthRequestParametersTypeDef",
-    },
-)
-_OptionalCreateConnectionRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateConnectionRequestRequestTypeDef",
-    {
-        "Description": str,
-    },
-    total=False,
-)
-
-class CreateConnectionRequestRequestTypeDef(
-    _RequiredCreateConnectionRequestRequestTypeDef, _OptionalCreateConnectionRequestRequestTypeDef
-):
-    pass
-
-CreateConnectionResponseTypeDef = TypedDict(
-    "CreateConnectionResponseTypeDef",
-    {
-        "ConnectionArn": str,
-        "ConnectionState": ConnectionStateType,
-        "CreationTime": datetime,
-        "LastModifiedTime": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateEndpointRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateEndpointRequestRequestTypeDef",
-    {
-        "Name": str,
-        "RoutingConfig": "RoutingConfigTypeDef",
-        "EventBuses": List["EndpointEventBusTypeDef"],
-    },
-)
-_OptionalCreateEndpointRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateEndpointRequestRequestTypeDef",
-    {
-        "Description": str,
-        "ReplicationConfig": "ReplicationConfigTypeDef",
-        "RoleArn": str,
-    },
-    total=False,
-)
-
-class CreateEndpointRequestRequestTypeDef(
-    _RequiredCreateEndpointRequestRequestTypeDef, _OptionalCreateEndpointRequestRequestTypeDef
-):
-    pass
-
-CreateEndpointResponseTypeDef = TypedDict(
-    "CreateEndpointResponseTypeDef",
-    {
-        "Name": str,
-        "Arn": str,
-        "RoutingConfig": "RoutingConfigTypeDef",
-        "ReplicationConfig": "ReplicationConfigTypeDef",
-        "EventBuses": List["EndpointEventBusTypeDef"],
-        "RoleArn": str,
-        "State": EndpointStateType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateEventBusRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateEventBusRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
-_OptionalCreateEventBusRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateEventBusRequestRequestTypeDef",
-    {
-        "EventSourceName": str,
-        "Description": str,
-        "KmsKeyIdentifier": str,
-        "DeadLetterConfig": "DeadLetterConfigTypeDef",
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateEventBusRequestRequestTypeDef(
-    _RequiredCreateEventBusRequestRequestTypeDef, _OptionalCreateEventBusRequestRequestTypeDef
-):
-    pass
-
-CreateEventBusResponseTypeDef = TypedDict(
-    "CreateEventBusResponseTypeDef",
-    {
-        "EventBusArn": str,
-        "Description": str,
-        "KmsKeyIdentifier": str,
-        "DeadLetterConfig": "DeadLetterConfigTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreatePartnerEventSourceRequestRequestTypeDef = TypedDict(
-    "CreatePartnerEventSourceRequestRequestTypeDef",
-    {
-        "Name": str,
-        "Account": str,
-    },
-)
-
-CreatePartnerEventSourceResponseTypeDef = TypedDict(
-    "CreatePartnerEventSourceResponseTypeDef",
-    {
-        "EventSourceArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeactivateEventSourceRequestRequestTypeDef = TypedDict(
-    "DeactivateEventSourceRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
-
-DeadLetterConfigTypeDef = TypedDict(
-    "DeadLetterConfigTypeDef",
-    {
-        "Arn": str,
-    },
-    total=False,
-)
-
-DeauthorizeConnectionRequestRequestTypeDef = TypedDict(
-    "DeauthorizeConnectionRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
-
-DeauthorizeConnectionResponseTypeDef = TypedDict(
-    "DeauthorizeConnectionResponseTypeDef",
-    {
-        "ConnectionArn": str,
-        "ConnectionState": ConnectionStateType,
-        "CreationTime": datetime,
-        "LastModifiedTime": datetime,
-        "LastAuthorizedTime": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteApiDestinationRequestRequestTypeDef = TypedDict(
-    "DeleteApiDestinationRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
-
-DeleteArchiveRequestRequestTypeDef = TypedDict(
-    "DeleteArchiveRequestRequestTypeDef",
-    {
-        "ArchiveName": str,
-    },
-)
-
-DeleteConnectionRequestRequestTypeDef = TypedDict(
-    "DeleteConnectionRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
-
-DeleteConnectionResponseTypeDef = TypedDict(
-    "DeleteConnectionResponseTypeDef",
-    {
-        "ConnectionArn": str,
-        "ConnectionState": ConnectionStateType,
-        "CreationTime": datetime,
-        "LastModifiedTime": datetime,
-        "LastAuthorizedTime": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteEndpointRequestRequestTypeDef = TypedDict(
-    "DeleteEndpointRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
-
-DeleteEventBusRequestRequestTypeDef = TypedDict(
-    "DeleteEventBusRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
-
-DeletePartnerEventSourceRequestRequestTypeDef = TypedDict(
-    "DeletePartnerEventSourceRequestRequestTypeDef",
-    {
-        "Name": str,
-        "Account": str,
-    },
-)
-
-_RequiredDeleteRuleRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteRuleRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
-_OptionalDeleteRuleRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteRuleRequestRequestTypeDef",
-    {
-        "EventBusName": str,
-        "Force": bool,
-    },
-    total=False,
-)
-
-class DeleteRuleRequestRequestTypeDef(
-    _RequiredDeleteRuleRequestRequestTypeDef, _OptionalDeleteRuleRequestRequestTypeDef
-):
-    pass
-
-DescribeApiDestinationRequestRequestTypeDef = TypedDict(
-    "DescribeApiDestinationRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
-
-DescribeApiDestinationResponseTypeDef = TypedDict(
-    "DescribeApiDestinationResponseTypeDef",
-    {
-        "ApiDestinationArn": str,
-        "Name": str,
-        "Description": str,
-        "ApiDestinationState": ApiDestinationStateType,
-        "ConnectionArn": str,
-        "InvocationEndpoint": str,
-        "HttpMethod": ApiDestinationHttpMethodType,
-        "InvocationRateLimitPerSecond": int,
-        "CreationTime": datetime,
-        "LastModifiedTime": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeArchiveRequestRequestTypeDef = TypedDict(
-    "DescribeArchiveRequestRequestTypeDef",
-    {
-        "ArchiveName": str,
-    },
-)
-
-DescribeArchiveResponseTypeDef = TypedDict(
-    "DescribeArchiveResponseTypeDef",
-    {
-        "ArchiveArn": str,
-        "ArchiveName": str,
-        "EventSourceArn": str,
-        "Description": str,
-        "EventPattern": str,
-        "State": ArchiveStateType,
-        "StateReason": str,
-        "RetentionDays": int,
-        "SizeBytes": int,
-        "EventCount": int,
-        "CreationTime": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeConnectionRequestRequestTypeDef = TypedDict(
-    "DescribeConnectionRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
-
-DescribeConnectionResponseTypeDef = TypedDict(
-    "DescribeConnectionResponseTypeDef",
-    {
-        "ConnectionArn": str,
-        "Name": str,
-        "Description": str,
-        "ConnectionState": ConnectionStateType,
-        "StateReason": str,
-        "AuthorizationType": ConnectionAuthorizationTypeType,
-        "SecretArn": str,
-        "AuthParameters": "ConnectionAuthResponseParametersTypeDef",
-        "CreationTime": datetime,
-        "LastModifiedTime": datetime,
-        "LastAuthorizedTime": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribeEndpointRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeEndpointRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
-_OptionalDescribeEndpointRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeEndpointRequestRequestTypeDef",
-    {
-        "HomeRegion": str,
-    },
-    total=False,
-)
-
-class DescribeEndpointRequestRequestTypeDef(
-    _RequiredDescribeEndpointRequestRequestTypeDef, _OptionalDescribeEndpointRequestRequestTypeDef
-):
-    pass
-
-DescribeEndpointResponseTypeDef = TypedDict(
-    "DescribeEndpointResponseTypeDef",
-    {
-        "Name": str,
-        "Description": str,
-        "Arn": str,
-        "RoutingConfig": "RoutingConfigTypeDef",
-        "ReplicationConfig": "ReplicationConfigTypeDef",
-        "EventBuses": List["EndpointEventBusTypeDef"],
-        "RoleArn": str,
-        "EndpointId": str,
-        "EndpointUrl": str,
-        "State": EndpointStateType,
-        "StateReason": str,
-        "CreationTime": datetime,
-        "LastModifiedTime": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeEventBusRequestRequestTypeDef = TypedDict(
-    "DescribeEventBusRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-    total=False,
-)
-
-DescribeEventBusResponseTypeDef = TypedDict(
-    "DescribeEventBusResponseTypeDef",
-    {
-        "Name": str,
-        "Arn": str,
-        "Description": str,
-        "KmsKeyIdentifier": str,
-        "DeadLetterConfig": "DeadLetterConfigTypeDef",
-        "Policy": str,
-        "CreationTime": datetime,
-        "LastModifiedTime": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeEventSourceRequestRequestTypeDef = TypedDict(
-    "DescribeEventSourceRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
-
-DescribeEventSourceResponseTypeDef = TypedDict(
-    "DescribeEventSourceResponseTypeDef",
-    {
-        "Arn": str,
-        "CreatedBy": str,
-        "CreationTime": datetime,
-        "ExpirationTime": datetime,
-        "Name": str,
-        "State": EventSourceStateType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribePartnerEventSourceRequestRequestTypeDef = TypedDict(
-    "DescribePartnerEventSourceRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
-
-DescribePartnerEventSourceResponseTypeDef = TypedDict(
-    "DescribePartnerEventSourceResponseTypeDef",
-    {
-        "Arn": str,
-        "Name": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeReplayRequestRequestTypeDef = TypedDict(
-    "DescribeReplayRequestRequestTypeDef",
-    {
-        "ReplayName": str,
-    },
-)
-
-DescribeReplayResponseTypeDef = TypedDict(
-    "DescribeReplayResponseTypeDef",
-    {
-        "ReplayName": str,
-        "ReplayArn": str,
-        "Description": str,
-        "State": ReplayStateType,
-        "StateReason": str,
-        "EventSourceArn": str,
-        "Destination": "ReplayDestinationTypeDef",
-        "EventStartTime": datetime,
-        "EventEndTime": datetime,
-        "EventLastReplayedTime": datetime,
-        "ReplayStartTime": datetime,
-        "ReplayEndTime": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribeRuleRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeRuleRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
-_OptionalDescribeRuleRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeRuleRequestRequestTypeDef",
-    {
-        "EventBusName": str,
-    },
-    total=False,
-)
-
-class DescribeRuleRequestRequestTypeDef(
-    _RequiredDescribeRuleRequestRequestTypeDef, _OptionalDescribeRuleRequestRequestTypeDef
-):
-    pass
-
-DescribeRuleResponseTypeDef = TypedDict(
-    "DescribeRuleResponseTypeDef",
-    {
-        "Name": str,
-        "Arn": str,
-        "EventPattern": str,
-        "ScheduleExpression": str,
-        "State": RuleStateType,
-        "Description": str,
-        "RoleArn": str,
-        "ManagedBy": str,
-        "EventBusName": str,
-        "CreatedBy": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDisableRuleRequestRequestTypeDef = TypedDict(
-    "_RequiredDisableRuleRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
-_OptionalDisableRuleRequestRequestTypeDef = TypedDict(
-    "_OptionalDisableRuleRequestRequestTypeDef",
-    {
-        "EventBusName": str,
-    },
-    total=False,
-)
-
-class DisableRuleRequestRequestTypeDef(
-    _RequiredDisableRuleRequestRequestTypeDef, _OptionalDisableRuleRequestRequestTypeDef
-):
-    pass
-
-_RequiredEcsParametersTypeDef = TypedDict(
-    "_RequiredEcsParametersTypeDef",
-    {
-        "TaskDefinitionArn": str,
-    },
-)
-_OptionalEcsParametersTypeDef = TypedDict(
-    "_OptionalEcsParametersTypeDef",
-    {
-        "TaskCount": int,
-        "LaunchType": LaunchTypeType,
-        "NetworkConfiguration": "NetworkConfigurationTypeDef",
-        "PlatformVersion": str,
-        "Group": str,
-        "CapacityProviderStrategy": List["CapacityProviderStrategyItemTypeDef"],
-        "EnableECSManagedTags": bool,
-        "EnableExecuteCommand": bool,
-        "PlacementConstraints": List["PlacementConstraintTypeDef"],
-        "PlacementStrategy": List["PlacementStrategyTypeDef"],
-        "PropagateTags": Literal["TASK_DEFINITION"],
-        "ReferenceId": str,
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class EcsParametersTypeDef(_RequiredEcsParametersTypeDef, _OptionalEcsParametersTypeDef):
-    pass
-
-_RequiredEnableRuleRequestRequestTypeDef = TypedDict(
-    "_RequiredEnableRuleRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
-_OptionalEnableRuleRequestRequestTypeDef = TypedDict(
-    "_OptionalEnableRuleRequestRequestTypeDef",
-    {
-        "EventBusName": str,
-    },
-    total=False,
-)
-
-class EnableRuleRequestRequestTypeDef(
-    _RequiredEnableRuleRequestRequestTypeDef, _OptionalEnableRuleRequestRequestTypeDef
-):
-    pass
-
-EndpointEventBusTypeDef = TypedDict(
-    "EndpointEventBusTypeDef",
-    {
-        "EventBusArn": str,
-    },
-)
-
-EndpointTypeDef = TypedDict(
-    "EndpointTypeDef",
-    {
-        "Name": str,
-        "Description": str,
-        "Arn": str,
-        "RoutingConfig": "RoutingConfigTypeDef",
-        "ReplicationConfig": "ReplicationConfigTypeDef",
-        "EventBuses": List["EndpointEventBusTypeDef"],
-        "RoleArn": str,
-        "EndpointId": str,
-        "EndpointUrl": str,
-        "State": EndpointStateType,
-        "StateReason": str,
-        "CreationTime": datetime,
-        "LastModifiedTime": datetime,
-    },
-    total=False,
-)
-
-EventBusTypeDef = TypedDict(
-    "EventBusTypeDef",
-    {
-        "Name": str,
-        "Arn": str,
-        "Description": str,
-        "Policy": str,
-        "CreationTime": datetime,
-        "LastModifiedTime": datetime,
-    },
-    total=False,
-)
-
-EventSourceTypeDef = TypedDict(
-    "EventSourceTypeDef",
-    {
-        "Arn": str,
-        "CreatedBy": str,
-        "CreationTime": datetime,
-        "ExpirationTime": datetime,
-        "Name": str,
-        "State": EventSourceStateType,
-    },
-    total=False,
-)
-
-FailoverConfigTypeDef = TypedDict(
-    "FailoverConfigTypeDef",
-    {
-        "Primary": "PrimaryTypeDef",
-        "Secondary": "SecondaryTypeDef",
-    },
-)
-
-HttpParametersTypeDef = TypedDict(
-    "HttpParametersTypeDef",
-    {
-        "PathParameterValues": List[str],
-        "HeaderParameters": Dict[str, str],
-        "QueryStringParameters": Dict[str, str],
-    },
-    total=False,
-)
-
-_RequiredInputTransformerTypeDef = TypedDict(
-    "_RequiredInputTransformerTypeDef",
-    {
-        "InputTemplate": str,
-    },
-)
-_OptionalInputTransformerTypeDef = TypedDict(
-    "_OptionalInputTransformerTypeDef",
-    {
-        "InputPathsMap": Dict[str, str],
-    },
-    total=False,
-)
-
-class InputTransformerTypeDef(_RequiredInputTransformerTypeDef, _OptionalInputTransformerTypeDef):
-    pass
-
-KinesisParametersTypeDef = TypedDict(
-    "KinesisParametersTypeDef",
-    {
-        "PartitionKeyPath": str,
-    },
-)
-
-ListApiDestinationsRequestRequestTypeDef = TypedDict(
-    "ListApiDestinationsRequestRequestTypeDef",
-    {
-        "NamePrefix": str,
-        "ConnectionArn": str,
-        "NextToken": str,
-        "Limit": int,
-    },
-    total=False,
-)
-
-ListApiDestinationsResponseTypeDef = TypedDict(
-    "ListApiDestinationsResponseTypeDef",
-    {
-        "ApiDestinations": List["ApiDestinationTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListArchivesRequestRequestTypeDef = TypedDict(
-    "ListArchivesRequestRequestTypeDef",
-    {
-        "NamePrefix": str,
-        "EventSourceArn": str,
-        "State": ArchiveStateType,
-        "NextToken": str,
-        "Limit": int,
-    },
-    total=False,
-)
-
-ListArchivesResponseTypeDef = TypedDict(
-    "ListArchivesResponseTypeDef",
-    {
-        "Archives": List["ArchiveTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListConnectionsRequestRequestTypeDef = TypedDict(
-    "ListConnectionsRequestRequestTypeDef",
-    {
-        "NamePrefix": str,
-        "ConnectionState": ConnectionStateType,
-        "NextToken": str,
-        "Limit": int,
-    },
-    total=False,
-)
-
-ListConnectionsResponseTypeDef = TypedDict(
-    "ListConnectionsResponseTypeDef",
-    {
-        "Connections": List["ConnectionTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListEndpointsRequestRequestTypeDef = TypedDict(
-    "ListEndpointsRequestRequestTypeDef",
-    {
-        "NamePrefix": str,
-        "HomeRegion": str,
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-ListEndpointsResponseTypeDef = TypedDict(
-    "ListEndpointsResponseTypeDef",
-    {
-        "Endpoints": List["EndpointTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListEventBusesRequestRequestTypeDef = TypedDict(
-    "ListEventBusesRequestRequestTypeDef",
-    {
-        "NamePrefix": str,
-        "NextToken": str,
-        "Limit": int,
-    },
-    total=False,
-)
-
-ListEventBusesResponseTypeDef = TypedDict(
-    "ListEventBusesResponseTypeDef",
-    {
-        "EventBuses": List["EventBusTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListEventSourcesRequestRequestTypeDef = TypedDict(
-    "ListEventSourcesRequestRequestTypeDef",
-    {
-        "NamePrefix": str,
-        "NextToken": str,
-        "Limit": int,
-    },
-    total=False,
-)
-
-ListEventSourcesResponseTypeDef = TypedDict(
-    "ListEventSourcesResponseTypeDef",
-    {
-        "EventSources": List["EventSourceTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListPartnerEventSourceAccountsRequestRequestTypeDef = TypedDict(
-    "_RequiredListPartnerEventSourceAccountsRequestRequestTypeDef",
-    {
-        "EventSourceName": str,
-    },
-)
-_OptionalListPartnerEventSourceAccountsRequestRequestTypeDef = TypedDict(
-    "_OptionalListPartnerEventSourceAccountsRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "Limit": int,
-    },
-    total=False,
-)
-
-class ListPartnerEventSourceAccountsRequestRequestTypeDef(
-    _RequiredListPartnerEventSourceAccountsRequestRequestTypeDef,
-    _OptionalListPartnerEventSourceAccountsRequestRequestTypeDef,
-):
-    pass
-
-ListPartnerEventSourceAccountsResponseTypeDef = TypedDict(
-    "ListPartnerEventSourceAccountsResponseTypeDef",
-    {
-        "PartnerEventSourceAccounts": List["PartnerEventSourceAccountTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListPartnerEventSourcesRequestRequestTypeDef = TypedDict(
-    "_RequiredListPartnerEventSourcesRequestRequestTypeDef",
-    {
-        "NamePrefix": str,
-    },
-)
-_OptionalListPartnerEventSourcesRequestRequestTypeDef = TypedDict(
-    "_OptionalListPartnerEventSourcesRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "Limit": int,
-    },
-    total=False,
-)
-
-class ListPartnerEventSourcesRequestRequestTypeDef(
-    _RequiredListPartnerEventSourcesRequestRequestTypeDef,
-    _OptionalListPartnerEventSourcesRequestRequestTypeDef,
-):
-    pass
-
-ListPartnerEventSourcesResponseTypeDef = TypedDict(
-    "ListPartnerEventSourcesResponseTypeDef",
-    {
-        "PartnerEventSources": List["PartnerEventSourceTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListReplaysRequestRequestTypeDef = TypedDict(
-    "ListReplaysRequestRequestTypeDef",
-    {
-        "NamePrefix": str,
-        "State": ReplayStateType,
-        "EventSourceArn": str,
-        "NextToken": str,
-        "Limit": int,
-    },
-    total=False,
-)
-
-ListReplaysResponseTypeDef = TypedDict(
-    "ListReplaysResponseTypeDef",
-    {
-        "Replays": List["ReplayTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListRuleNamesByTargetRequestRequestTypeDef = TypedDict(
-    "_RequiredListRuleNamesByTargetRequestRequestTypeDef",
-    {
-        "TargetArn": str,
-    },
-)
-_OptionalListRuleNamesByTargetRequestRequestTypeDef = TypedDict(
-    "_OptionalListRuleNamesByTargetRequestRequestTypeDef",
-    {
-        "EventBusName": str,
-        "NextToken": str,
-        "Limit": int,
-    },
-    total=False,
-)
-
-class ListRuleNamesByTargetRequestRequestTypeDef(
-    _RequiredListRuleNamesByTargetRequestRequestTypeDef,
-    _OptionalListRuleNamesByTargetRequestRequestTypeDef,
-):
-    pass
-
-ListRuleNamesByTargetResponseTypeDef = TypedDict(
-    "ListRuleNamesByTargetResponseTypeDef",
-    {
-        "RuleNames": List[str],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListRulesRequestRequestTypeDef = TypedDict(
-    "ListRulesRequestRequestTypeDef",
-    {
-        "NamePrefix": str,
-        "EventBusName": str,
-        "NextToken": str,
-        "Limit": int,
-    },
-    total=False,
-)
-
-ListRulesResponseTypeDef = TypedDict(
-    "ListRulesResponseTypeDef",
-    {
-        "Rules": List["RuleTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "ResourceARN": str,
-    },
-)
-
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "Tags": List["TagTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListTargetsByRuleRequestRequestTypeDef = TypedDict(
-    "_RequiredListTargetsByRuleRequestRequestTypeDef",
-    {
-        "Rule": str,
-    },
-)
-_OptionalListTargetsByRuleRequestRequestTypeDef = TypedDict(
-    "_OptionalListTargetsByRuleRequestRequestTypeDef",
-    {
-        "EventBusName": str,
-        "NextToken": str,
-        "Limit": int,
-    },
-    total=False,
-)
-
-class ListTargetsByRuleRequestRequestTypeDef(
-    _RequiredListTargetsByRuleRequestRequestTypeDef, _OptionalListTargetsByRuleRequestRequestTypeDef
-):
-    pass
-
-ListTargetsByRuleResponseTypeDef = TypedDict(
-    "ListTargetsByRuleResponseTypeDef",
-    {
-        "Targets": List["TargetTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-NetworkConfigurationTypeDef = TypedDict(
-    "NetworkConfigurationTypeDef",
-    {
-        "awsvpcConfiguration": "AwsVpcConfigurationTypeDef",
-    },
-    total=False,
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-PartnerEventSourceAccountTypeDef = TypedDict(
-    "PartnerEventSourceAccountTypeDef",
-    {
-        "Account": str,
-        "CreationTime": datetime,
-        "ExpirationTime": datetime,
-        "State": EventSourceStateType,
-    },
-    total=False,
-)
-
-PartnerEventSourceTypeDef = TypedDict(
-    "PartnerEventSourceTypeDef",
-    {
-        "Arn": str,
-        "Name": str,
-    },
-    total=False,
-)
+class ConnectionApiKeyAuthResponseParametersTypeDef(TypedDict):
+    ApiKeyName: NotRequired[str]
+
+class ConnectionBasicAuthResponseParametersTypeDef(TypedDict):
+    Username: NotRequired[str]
+
+class ConnectionBodyParameterTypeDef(TypedDict):
+    Key: NotRequired[str]
+    Value: NotRequired[str]
+    IsValueSecret: NotRequired[bool]
+
+class ConnectionHeaderParameterTypeDef(TypedDict):
+    Key: NotRequired[str]
+    Value: NotRequired[str]
+    IsValueSecret: NotRequired[bool]
+
+class ConnectionQueryStringParameterTypeDef(TypedDict):
+    Key: NotRequired[str]
+    Value: NotRequired[str]
+    IsValueSecret: NotRequired[bool]
+
+class ConnectionOAuthClientResponseParametersTypeDef(TypedDict):
+    ClientID: NotRequired[str]
+
+class ConnectionTypeDef(TypedDict):
+    ConnectionArn: NotRequired[str]
+    Name: NotRequired[str]
+    ConnectionState: NotRequired[ConnectionStateType]
+    StateReason: NotRequired[str]
+    AuthorizationType: NotRequired[ConnectionAuthorizationTypeType]
+    CreationTime: NotRequired[datetime]
+    LastModifiedTime: NotRequired[datetime]
+    LastAuthorizedTime: NotRequired[datetime]
+
+class ConnectivityResourceConfigurationArnTypeDef(TypedDict):
+    ResourceConfigurationArn: str
+
+class CreateApiDestinationRequestTypeDef(TypedDict):
+    Name: str
+    ConnectionArn: str
+    InvocationEndpoint: str
+    HttpMethod: ApiDestinationHttpMethodType
+    Description: NotRequired[str]
+    InvocationRateLimitPerSecond: NotRequired[int]
+
+class CreateArchiveRequestTypeDef(TypedDict):
+    ArchiveName: str
+    EventSourceArn: str
+    Description: NotRequired[str]
+    EventPattern: NotRequired[str]
+    RetentionDays: NotRequired[int]
+    KmsKeyIdentifier: NotRequired[str]
+
+class CreateConnectionApiKeyAuthRequestParametersTypeDef(TypedDict):
+    ApiKeyName: str
+    ApiKeyValue: str
+
+class CreateConnectionBasicAuthRequestParametersTypeDef(TypedDict):
+    Username: str
+    Password: str
+
+class CreateConnectionOAuthClientRequestParametersTypeDef(TypedDict):
+    ClientID: str
+    ClientSecret: str
+
+class EndpointEventBusTypeDef(TypedDict):
+    EventBusArn: str
+
+class ReplicationConfigTypeDef(TypedDict):
+    State: NotRequired[ReplicationStateType]
+
+class DeadLetterConfigTypeDef(TypedDict):
+    Arn: NotRequired[str]
+
+class TagTypeDef(TypedDict):
+    Key: str
+    Value: str
+
+class CreatePartnerEventSourceRequestTypeDef(TypedDict):
+    Name: str
+    Account: str
+
+class DeactivateEventSourceRequestTypeDef(TypedDict):
+    Name: str
+
+class DeauthorizeConnectionRequestTypeDef(TypedDict):
+    Name: str
+
+class DeleteApiDestinationRequestTypeDef(TypedDict):
+    Name: str
+
+class DeleteArchiveRequestTypeDef(TypedDict):
+    ArchiveName: str
+
+class DeleteConnectionRequestTypeDef(TypedDict):
+    Name: str
+
+class DeleteEndpointRequestTypeDef(TypedDict):
+    Name: str
+
+class DeleteEventBusRequestTypeDef(TypedDict):
+    Name: str
+
+class DeletePartnerEventSourceRequestTypeDef(TypedDict):
+    Name: str
+    Account: str
+
+class DeleteRuleRequestTypeDef(TypedDict):
+    Name: str
+    EventBusName: NotRequired[str]
+    Force: NotRequired[bool]
+
+class DescribeApiDestinationRequestTypeDef(TypedDict):
+    Name: str
+
+class DescribeArchiveRequestTypeDef(TypedDict):
+    ArchiveName: str
+
+class DescribeConnectionResourceParametersTypeDef(TypedDict):
+    ResourceConfigurationArn: str
+    ResourceAssociationArn: str
+
+class DescribeConnectionRequestTypeDef(TypedDict):
+    Name: str
+
+class DescribeEndpointRequestTypeDef(TypedDict):
+    Name: str
+    HomeRegion: NotRequired[str]
+
+class DescribeEventBusRequestTypeDef(TypedDict):
+    Name: NotRequired[str]
+
+class DescribeEventSourceRequestTypeDef(TypedDict):
+    Name: str
+
+class DescribePartnerEventSourceRequestTypeDef(TypedDict):
+    Name: str
+
+class DescribeReplayRequestTypeDef(TypedDict):
+    ReplayName: str
+
+class ReplayDestinationOutputTypeDef(TypedDict):
+    Arn: str
+    FilterArns: NotRequired[List[str]]
+
+class DescribeRuleRequestTypeDef(TypedDict):
+    Name: str
+    EventBusName: NotRequired[str]
+
+class DisableRuleRequestTypeDef(TypedDict):
+    Name: str
+    EventBusName: NotRequired[str]
 
 PlacementConstraintTypeDef = TypedDict(
     "PlacementConstraintTypeDef",
     {
-        "type": PlacementConstraintTypeType,
-        "expression": str,
+        "type": NotRequired[PlacementConstraintTypeType],
+        "expression": NotRequired[str],
     },
-    total=False,
 )
-
 PlacementStrategyTypeDef = TypedDict(
     "PlacementStrategyTypeDef",
     {
-        "type": PlacementStrategyTypeType,
-        "field": str,
-    },
-    total=False,
-)
-
-PrimaryTypeDef = TypedDict(
-    "PrimaryTypeDef",
-    {
-        "HealthCheck": str,
-    },
-)
-
-PutEventsRequestEntryTypeDef = TypedDict(
-    "PutEventsRequestEntryTypeDef",
-    {
-        "Time": Union[datetime, str],
-        "Source": str,
-        "Resources": List[str],
-        "DetailType": str,
-        "Detail": str,
-        "EventBusName": str,
-        "TraceHeader": str,
-    },
-    total=False,
-)
-
-_RequiredPutEventsRequestRequestTypeDef = TypedDict(
-    "_RequiredPutEventsRequestRequestTypeDef",
-    {
-        "Entries": List["PutEventsRequestEntryTypeDef"],
-    },
-)
-_OptionalPutEventsRequestRequestTypeDef = TypedDict(
-    "_OptionalPutEventsRequestRequestTypeDef",
-    {
-        "EndpointId": str,
-    },
-    total=False,
-)
-
-class PutEventsRequestRequestTypeDef(
-    _RequiredPutEventsRequestRequestTypeDef, _OptionalPutEventsRequestRequestTypeDef
-):
-    pass
-
-PutEventsResponseTypeDef = TypedDict(
-    "PutEventsResponseTypeDef",
-    {
-        "FailedEntryCount": int,
-        "Entries": List["PutEventsResultEntryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-PutEventsResultEntryTypeDef = TypedDict(
-    "PutEventsResultEntryTypeDef",
-    {
-        "EventId": str,
-        "ErrorCode": str,
-        "ErrorMessage": str,
-    },
-    total=False,
-)
-
-PutPartnerEventsRequestEntryTypeDef = TypedDict(
-    "PutPartnerEventsRequestEntryTypeDef",
-    {
-        "Time": Union[datetime, str],
-        "Source": str,
-        "Resources": List[str],
-        "DetailType": str,
-        "Detail": str,
-    },
-    total=False,
-)
-
-PutPartnerEventsRequestRequestTypeDef = TypedDict(
-    "PutPartnerEventsRequestRequestTypeDef",
-    {
-        "Entries": List["PutPartnerEventsRequestEntryTypeDef"],
-    },
-)
-
-PutPartnerEventsResponseTypeDef = TypedDict(
-    "PutPartnerEventsResponseTypeDef",
-    {
-        "FailedEntryCount": int,
-        "Entries": List["PutPartnerEventsResultEntryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-PutPartnerEventsResultEntryTypeDef = TypedDict(
-    "PutPartnerEventsResultEntryTypeDef",
-    {
-        "EventId": str,
-        "ErrorCode": str,
-        "ErrorMessage": str,
-    },
-    total=False,
-)
-
-PutPermissionRequestRequestTypeDef = TypedDict(
-    "PutPermissionRequestRequestTypeDef",
-    {
-        "EventBusName": str,
-        "Action": str,
-        "Principal": str,
-        "StatementId": str,
-        "Condition": "ConditionTypeDef",
-        "Policy": str,
-    },
-    total=False,
-)
-
-_RequiredPutRuleRequestRequestTypeDef = TypedDict(
-    "_RequiredPutRuleRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
-_OptionalPutRuleRequestRequestTypeDef = TypedDict(
-    "_OptionalPutRuleRequestRequestTypeDef",
-    {
-        "ScheduleExpression": str,
-        "EventPattern": str,
-        "State": RuleStateType,
-        "Description": str,
-        "RoleArn": str,
-        "Tags": List["TagTypeDef"],
-        "EventBusName": str,
-    },
-    total=False,
-)
-
-class PutRuleRequestRequestTypeDef(
-    _RequiredPutRuleRequestRequestTypeDef, _OptionalPutRuleRequestRequestTypeDef
-):
-    pass
-
-PutRuleResponseTypeDef = TypedDict(
-    "PutRuleResponseTypeDef",
-    {
-        "RuleArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredPutTargetsRequestRequestTypeDef = TypedDict(
-    "_RequiredPutTargetsRequestRequestTypeDef",
-    {
-        "Rule": str,
-        "Targets": List["TargetTypeDef"],
-    },
-)
-_OptionalPutTargetsRequestRequestTypeDef = TypedDict(
-    "_OptionalPutTargetsRequestRequestTypeDef",
-    {
-        "EventBusName": str,
-    },
-    total=False,
-)
-
-class PutTargetsRequestRequestTypeDef(
-    _RequiredPutTargetsRequestRequestTypeDef, _OptionalPutTargetsRequestRequestTypeDef
-):
-    pass
-
-PutTargetsResponseTypeDef = TypedDict(
-    "PutTargetsResponseTypeDef",
-    {
-        "FailedEntryCount": int,
-        "FailedEntries": List["PutTargetsResultEntryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-PutTargetsResultEntryTypeDef = TypedDict(
-    "PutTargetsResultEntryTypeDef",
-    {
-        "TargetId": str,
-        "ErrorCode": str,
-        "ErrorMessage": str,
-    },
-    total=False,
-)
-
-_RequiredRedshiftDataParametersTypeDef = TypedDict(
-    "_RequiredRedshiftDataParametersTypeDef",
-    {
-        "Database": str,
-    },
-)
-_OptionalRedshiftDataParametersTypeDef = TypedDict(
-    "_OptionalRedshiftDataParametersTypeDef",
-    {
-        "SecretManagerArn": str,
-        "DbUser": str,
-        "Sql": str,
-        "StatementName": str,
-        "WithEvent": bool,
-        "Sqls": List[str],
-    },
-    total=False,
-)
-
-class RedshiftDataParametersTypeDef(
-    _RequiredRedshiftDataParametersTypeDef, _OptionalRedshiftDataParametersTypeDef
-):
-    pass
-
-RemovePermissionRequestRequestTypeDef = TypedDict(
-    "RemovePermissionRequestRequestTypeDef",
-    {
-        "StatementId": str,
-        "RemoveAllPermissions": bool,
-        "EventBusName": str,
-    },
-    total=False,
-)
-
-_RequiredRemoveTargetsRequestRequestTypeDef = TypedDict(
-    "_RequiredRemoveTargetsRequestRequestTypeDef",
-    {
-        "Rule": str,
-        "Ids": List[str],
-    },
-)
-_OptionalRemoveTargetsRequestRequestTypeDef = TypedDict(
-    "_OptionalRemoveTargetsRequestRequestTypeDef",
-    {
-        "EventBusName": str,
-        "Force": bool,
-    },
-    total=False,
-)
-
-class RemoveTargetsRequestRequestTypeDef(
-    _RequiredRemoveTargetsRequestRequestTypeDef, _OptionalRemoveTargetsRequestRequestTypeDef
-):
-    pass
-
-RemoveTargetsResponseTypeDef = TypedDict(
-    "RemoveTargetsResponseTypeDef",
-    {
-        "FailedEntryCount": int,
-        "FailedEntries": List["RemoveTargetsResultEntryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-RemoveTargetsResultEntryTypeDef = TypedDict(
-    "RemoveTargetsResultEntryTypeDef",
-    {
-        "TargetId": str,
-        "ErrorCode": str,
-        "ErrorMessage": str,
-    },
-    total=False,
-)
-
-_RequiredReplayDestinationTypeDef = TypedDict(
-    "_RequiredReplayDestinationTypeDef",
-    {
-        "Arn": str,
-    },
-)
-_OptionalReplayDestinationTypeDef = TypedDict(
-    "_OptionalReplayDestinationTypeDef",
-    {
-        "FilterArns": List[str],
-    },
-    total=False,
-)
-
-class ReplayDestinationTypeDef(
-    _RequiredReplayDestinationTypeDef, _OptionalReplayDestinationTypeDef
-):
-    pass
-
-ReplayTypeDef = TypedDict(
-    "ReplayTypeDef",
-    {
-        "ReplayName": str,
-        "EventSourceArn": str,
-        "State": ReplayStateType,
-        "StateReason": str,
-        "EventStartTime": datetime,
-        "EventEndTime": datetime,
-        "EventLastReplayedTime": datetime,
-        "ReplayStartTime": datetime,
-        "ReplayEndTime": datetime,
-    },
-    total=False,
-)
-
-ReplicationConfigTypeDef = TypedDict(
-    "ReplicationConfigTypeDef",
-    {
-        "State": ReplicationStateType,
-    },
-    total=False,
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-RetryPolicyTypeDef = TypedDict(
-    "RetryPolicyTypeDef",
-    {
-        "MaximumRetryAttempts": int,
-        "MaximumEventAgeInSeconds": int,
-    },
-    total=False,
-)
-
-RoutingConfigTypeDef = TypedDict(
-    "RoutingConfigTypeDef",
-    {
-        "FailoverConfig": "FailoverConfigTypeDef",
-    },
-)
-
-RuleTypeDef = TypedDict(
-    "RuleTypeDef",
-    {
-        "Name": str,
-        "Arn": str,
-        "EventPattern": str,
-        "State": RuleStateType,
-        "Description": str,
-        "ScheduleExpression": str,
-        "RoleArn": str,
-        "ManagedBy": str,
-        "EventBusName": str,
-    },
-    total=False,
-)
-
-RunCommandParametersTypeDef = TypedDict(
-    "RunCommandParametersTypeDef",
-    {
-        "RunCommandTargets": List["RunCommandTargetTypeDef"],
-    },
-)
-
-RunCommandTargetTypeDef = TypedDict(
-    "RunCommandTargetTypeDef",
-    {
-        "Key": str,
-        "Values": List[str],
-    },
-)
-
-SageMakerPipelineParameterTypeDef = TypedDict(
-    "SageMakerPipelineParameterTypeDef",
-    {
-        "Name": str,
-        "Value": str,
-    },
-)
-
-SageMakerPipelineParametersTypeDef = TypedDict(
-    "SageMakerPipelineParametersTypeDef",
-    {
-        "PipelineParameterList": List["SageMakerPipelineParameterTypeDef"],
-    },
-    total=False,
-)
-
-SecondaryTypeDef = TypedDict(
-    "SecondaryTypeDef",
-    {
-        "Route": str,
-    },
-)
-
-SqsParametersTypeDef = TypedDict(
-    "SqsParametersTypeDef",
-    {
-        "MessageGroupId": str,
-    },
-    total=False,
-)
-
-_RequiredStartReplayRequestRequestTypeDef = TypedDict(
-    "_RequiredStartReplayRequestRequestTypeDef",
-    {
-        "ReplayName": str,
-        "EventSourceArn": str,
-        "EventStartTime": Union[datetime, str],
-        "EventEndTime": Union[datetime, str],
-        "Destination": "ReplayDestinationTypeDef",
-    },
-)
-_OptionalStartReplayRequestRequestTypeDef = TypedDict(
-    "_OptionalStartReplayRequestRequestTypeDef",
-    {
-        "Description": str,
-    },
-    total=False,
-)
-
-class StartReplayRequestRequestTypeDef(
-    _RequiredStartReplayRequestRequestTypeDef, _OptionalStartReplayRequestRequestTypeDef
-):
-    pass
-
-StartReplayResponseTypeDef = TypedDict(
-    "StartReplayResponseTypeDef",
-    {
-        "ReplayArn": str,
-        "State": ReplayStateType,
-        "StateReason": str,
-        "ReplayStartTime": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "ResourceARN": str,
-        "Tags": List["TagTypeDef"],
-    },
-)
-
-TagTypeDef = TypedDict(
-    "TagTypeDef",
-    {
-        "Key": str,
-        "Value": str,
-    },
-)
-
-_RequiredTargetTypeDef = TypedDict(
-    "_RequiredTargetTypeDef",
-    {
-        "Id": str,
-        "Arn": str,
-    },
-)
-_OptionalTargetTypeDef = TypedDict(
-    "_OptionalTargetTypeDef",
-    {
-        "RoleArn": str,
-        "Input": str,
-        "InputPath": str,
-        "InputTransformer": "InputTransformerTypeDef",
-        "KinesisParameters": "KinesisParametersTypeDef",
-        "RunCommandParameters": "RunCommandParametersTypeDef",
-        "EcsParameters": "EcsParametersTypeDef",
-        "BatchParameters": "BatchParametersTypeDef",
-        "SqsParameters": "SqsParametersTypeDef",
-        "HttpParameters": "HttpParametersTypeDef",
-        "RedshiftDataParameters": "RedshiftDataParametersTypeDef",
-        "SageMakerPipelineParameters": "SageMakerPipelineParametersTypeDef",
-        "DeadLetterConfig": "DeadLetterConfigTypeDef",
-        "RetryPolicy": "RetryPolicyTypeDef",
-        "AppSyncParameters": "AppSyncParametersTypeDef",
-    },
-    total=False,
-)
-
-class TargetTypeDef(_RequiredTargetTypeDef, _OptionalTargetTypeDef):
-    pass
-
-TestEventPatternRequestRequestTypeDef = TypedDict(
-    "TestEventPatternRequestRequestTypeDef",
-    {
-        "EventPattern": str,
-        "Event": str,
-    },
-)
-
-TestEventPatternResponseTypeDef = TypedDict(
-    "TestEventPatternResponseTypeDef",
-    {
-        "Result": bool,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "ResourceARN": str,
-        "TagKeys": List[str],
-    },
-)
-
-_RequiredUpdateApiDestinationRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateApiDestinationRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
-_OptionalUpdateApiDestinationRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateApiDestinationRequestRequestTypeDef",
-    {
-        "Description": str,
-        "ConnectionArn": str,
-        "InvocationEndpoint": str,
-        "HttpMethod": ApiDestinationHttpMethodType,
-        "InvocationRateLimitPerSecond": int,
-    },
-    total=False,
-)
-
-class UpdateApiDestinationRequestRequestTypeDef(
-    _RequiredUpdateApiDestinationRequestRequestTypeDef,
-    _OptionalUpdateApiDestinationRequestRequestTypeDef,
-):
-    pass
-
-UpdateApiDestinationResponseTypeDef = TypedDict(
-    "UpdateApiDestinationResponseTypeDef",
-    {
-        "ApiDestinationArn": str,
-        "ApiDestinationState": ApiDestinationStateType,
-        "CreationTime": datetime,
-        "LastModifiedTime": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateArchiveRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateArchiveRequestRequestTypeDef",
-    {
-        "ArchiveName": str,
-    },
-)
-_OptionalUpdateArchiveRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateArchiveRequestRequestTypeDef",
-    {
-        "Description": str,
-        "EventPattern": str,
-        "RetentionDays": int,
-    },
-    total=False,
-)
-
-class UpdateArchiveRequestRequestTypeDef(
-    _RequiredUpdateArchiveRequestRequestTypeDef, _OptionalUpdateArchiveRequestRequestTypeDef
-):
-    pass
-
-UpdateArchiveResponseTypeDef = TypedDict(
-    "UpdateArchiveResponseTypeDef",
-    {
-        "ArchiveArn": str,
-        "State": ArchiveStateType,
-        "StateReason": str,
-        "CreationTime": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UpdateConnectionApiKeyAuthRequestParametersTypeDef = TypedDict(
-    "UpdateConnectionApiKeyAuthRequestParametersTypeDef",
-    {
-        "ApiKeyName": str,
-        "ApiKeyValue": str,
-    },
-    total=False,
-)
-
-UpdateConnectionAuthRequestParametersTypeDef = TypedDict(
-    "UpdateConnectionAuthRequestParametersTypeDef",
-    {
-        "BasicAuthParameters": "UpdateConnectionBasicAuthRequestParametersTypeDef",
-        "OAuthParameters": "UpdateConnectionOAuthRequestParametersTypeDef",
-        "ApiKeyAuthParameters": "UpdateConnectionApiKeyAuthRequestParametersTypeDef",
-        "InvocationHttpParameters": "ConnectionHttpParametersTypeDef",
-    },
-    total=False,
-)
-
-UpdateConnectionBasicAuthRequestParametersTypeDef = TypedDict(
-    "UpdateConnectionBasicAuthRequestParametersTypeDef",
-    {
-        "Username": str,
-        "Password": str,
-    },
-    total=False,
-)
-
-UpdateConnectionOAuthClientRequestParametersTypeDef = TypedDict(
-    "UpdateConnectionOAuthClientRequestParametersTypeDef",
-    {
-        "ClientID": str,
-        "ClientSecret": str,
-    },
-    total=False,
-)
-
-UpdateConnectionOAuthRequestParametersTypeDef = TypedDict(
-    "UpdateConnectionOAuthRequestParametersTypeDef",
-    {
-        "ClientParameters": "UpdateConnectionOAuthClientRequestParametersTypeDef",
-        "AuthorizationEndpoint": str,
-        "HttpMethod": ConnectionOAuthHttpMethodType,
-        "OAuthHttpParameters": "ConnectionHttpParametersTypeDef",
-    },
-    total=False,
-)
-
-_RequiredUpdateConnectionRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateConnectionRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
-_OptionalUpdateConnectionRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateConnectionRequestRequestTypeDef",
-    {
-        "Description": str,
-        "AuthorizationType": ConnectionAuthorizationTypeType,
-        "AuthParameters": "UpdateConnectionAuthRequestParametersTypeDef",
-    },
-    total=False,
-)
-
-class UpdateConnectionRequestRequestTypeDef(
-    _RequiredUpdateConnectionRequestRequestTypeDef, _OptionalUpdateConnectionRequestRequestTypeDef
-):
-    pass
-
-UpdateConnectionResponseTypeDef = TypedDict(
-    "UpdateConnectionResponseTypeDef",
-    {
-        "ConnectionArn": str,
-        "ConnectionState": ConnectionStateType,
-        "CreationTime": datetime,
-        "LastModifiedTime": datetime,
-        "LastAuthorizedTime": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateEndpointRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateEndpointRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
-_OptionalUpdateEndpointRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateEndpointRequestRequestTypeDef",
-    {
-        "Description": str,
-        "RoutingConfig": "RoutingConfigTypeDef",
-        "ReplicationConfig": "ReplicationConfigTypeDef",
-        "EventBuses": List["EndpointEventBusTypeDef"],
-        "RoleArn": str,
-    },
-    total=False,
-)
-
-class UpdateEndpointRequestRequestTypeDef(
-    _RequiredUpdateEndpointRequestRequestTypeDef, _OptionalUpdateEndpointRequestRequestTypeDef
-):
-    pass
-
-UpdateEndpointResponseTypeDef = TypedDict(
-    "UpdateEndpointResponseTypeDef",
-    {
-        "Name": str,
-        "Arn": str,
-        "RoutingConfig": "RoutingConfigTypeDef",
-        "ReplicationConfig": "ReplicationConfigTypeDef",
-        "EventBuses": List["EndpointEventBusTypeDef"],
-        "RoleArn": str,
-        "EndpointId": str,
-        "EndpointUrl": str,
-        "State": EndpointStateType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UpdateEventBusRequestRequestTypeDef = TypedDict(
-    "UpdateEventBusRequestRequestTypeDef",
-    {
-        "Name": str,
-        "KmsKeyIdentifier": str,
-        "Description": str,
-        "DeadLetterConfig": "DeadLetterConfigTypeDef",
-    },
-    total=False,
-)
-
-UpdateEventBusResponseTypeDef = TypedDict(
-    "UpdateEventBusResponseTypeDef",
-    {
-        "Arn": str,
-        "Name": str,
-        "KmsKeyIdentifier": str,
-        "Description": str,
-        "DeadLetterConfig": "DeadLetterConfigTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+        "type": NotRequired[PlacementStrategyTypeType],
+        "field": NotRequired[str],
+    },
+)
+
+class EnableRuleRequestTypeDef(TypedDict):
+    Name: str
+    EventBusName: NotRequired[str]
+
+class EventBusTypeDef(TypedDict):
+    Name: NotRequired[str]
+    Arn: NotRequired[str]
+    Description: NotRequired[str]
+    Policy: NotRequired[str]
+    CreationTime: NotRequired[datetime]
+    LastModifiedTime: NotRequired[datetime]
+
+class EventSourceTypeDef(TypedDict):
+    Arn: NotRequired[str]
+    CreatedBy: NotRequired[str]
+    CreationTime: NotRequired[datetime]
+    ExpirationTime: NotRequired[datetime]
+    Name: NotRequired[str]
+    State: NotRequired[EventSourceStateType]
+
+class PrimaryTypeDef(TypedDict):
+    HealthCheck: str
+
+class SecondaryTypeDef(TypedDict):
+    Route: str
+
+class HttpParametersOutputTypeDef(TypedDict):
+    PathParameterValues: NotRequired[List[str]]
+    HeaderParameters: NotRequired[Dict[str, str]]
+    QueryStringParameters: NotRequired[Dict[str, str]]
+
+class HttpParametersTypeDef(TypedDict):
+    PathParameterValues: NotRequired[Sequence[str]]
+    HeaderParameters: NotRequired[Mapping[str, str]]
+    QueryStringParameters: NotRequired[Mapping[str, str]]
+
+class InputTransformerOutputTypeDef(TypedDict):
+    InputTemplate: str
+    InputPathsMap: NotRequired[Dict[str, str]]
+
+class InputTransformerTypeDef(TypedDict):
+    InputTemplate: str
+    InputPathsMap: NotRequired[Mapping[str, str]]
+
+class KinesisParametersTypeDef(TypedDict):
+    PartitionKeyPath: str
+
+class ListApiDestinationsRequestTypeDef(TypedDict):
+    NamePrefix: NotRequired[str]
+    ConnectionArn: NotRequired[str]
+    NextToken: NotRequired[str]
+    Limit: NotRequired[int]
+
+class ListArchivesRequestTypeDef(TypedDict):
+    NamePrefix: NotRequired[str]
+    EventSourceArn: NotRequired[str]
+    State: NotRequired[ArchiveStateType]
+    NextToken: NotRequired[str]
+    Limit: NotRequired[int]
+
+class ListConnectionsRequestTypeDef(TypedDict):
+    NamePrefix: NotRequired[str]
+    ConnectionState: NotRequired[ConnectionStateType]
+    NextToken: NotRequired[str]
+    Limit: NotRequired[int]
+
+class ListEndpointsRequestTypeDef(TypedDict):
+    NamePrefix: NotRequired[str]
+    HomeRegion: NotRequired[str]
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class ListEventBusesRequestTypeDef(TypedDict):
+    NamePrefix: NotRequired[str]
+    NextToken: NotRequired[str]
+    Limit: NotRequired[int]
+
+class ListEventSourcesRequestTypeDef(TypedDict):
+    NamePrefix: NotRequired[str]
+    NextToken: NotRequired[str]
+    Limit: NotRequired[int]
+
+class ListPartnerEventSourceAccountsRequestTypeDef(TypedDict):
+    EventSourceName: str
+    NextToken: NotRequired[str]
+    Limit: NotRequired[int]
+
+class PartnerEventSourceAccountTypeDef(TypedDict):
+    Account: NotRequired[str]
+    CreationTime: NotRequired[datetime]
+    ExpirationTime: NotRequired[datetime]
+    State: NotRequired[EventSourceStateType]
+
+class ListPartnerEventSourcesRequestTypeDef(TypedDict):
+    NamePrefix: str
+    NextToken: NotRequired[str]
+    Limit: NotRequired[int]
+
+class PartnerEventSourceTypeDef(TypedDict):
+    Arn: NotRequired[str]
+    Name: NotRequired[str]
+
+class ListReplaysRequestTypeDef(TypedDict):
+    NamePrefix: NotRequired[str]
+    State: NotRequired[ReplayStateType]
+    EventSourceArn: NotRequired[str]
+    NextToken: NotRequired[str]
+    Limit: NotRequired[int]
+
+class ReplayTypeDef(TypedDict):
+    ReplayName: NotRequired[str]
+    EventSourceArn: NotRequired[str]
+    State: NotRequired[ReplayStateType]
+    StateReason: NotRequired[str]
+    EventStartTime: NotRequired[datetime]
+    EventEndTime: NotRequired[datetime]
+    EventLastReplayedTime: NotRequired[datetime]
+    ReplayStartTime: NotRequired[datetime]
+    ReplayEndTime: NotRequired[datetime]
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class ListRuleNamesByTargetRequestTypeDef(TypedDict):
+    TargetArn: str
+    EventBusName: NotRequired[str]
+    NextToken: NotRequired[str]
+    Limit: NotRequired[int]
+
+class ListRulesRequestTypeDef(TypedDict):
+    NamePrefix: NotRequired[str]
+    EventBusName: NotRequired[str]
+    NextToken: NotRequired[str]
+    Limit: NotRequired[int]
+
+class RuleTypeDef(TypedDict):
+    Name: NotRequired[str]
+    Arn: NotRequired[str]
+    EventPattern: NotRequired[str]
+    State: NotRequired[RuleStateType]
+    Description: NotRequired[str]
+    ScheduleExpression: NotRequired[str]
+    RoleArn: NotRequired[str]
+    ManagedBy: NotRequired[str]
+    EventBusName: NotRequired[str]
+
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    ResourceARN: str
+
+class ListTargetsByRuleRequestTypeDef(TypedDict):
+    Rule: str
+    EventBusName: NotRequired[str]
+    NextToken: NotRequired[str]
+    Limit: NotRequired[int]
+
+TimestampTypeDef = Union[datetime, str]
+
+class PutEventsResultEntryTypeDef(TypedDict):
+    EventId: NotRequired[str]
+    ErrorCode: NotRequired[str]
+    ErrorMessage: NotRequired[str]
+
+class PutPartnerEventsResultEntryTypeDef(TypedDict):
+    EventId: NotRequired[str]
+    ErrorCode: NotRequired[str]
+    ErrorMessage: NotRequired[str]
+
+class PutTargetsResultEntryTypeDef(TypedDict):
+    TargetId: NotRequired[str]
+    ErrorCode: NotRequired[str]
+    ErrorMessage: NotRequired[str]
+
+class RedshiftDataParametersOutputTypeDef(TypedDict):
+    Database: str
+    SecretManagerArn: NotRequired[str]
+    DbUser: NotRequired[str]
+    Sql: NotRequired[str]
+    StatementName: NotRequired[str]
+    WithEvent: NotRequired[bool]
+    Sqls: NotRequired[List[str]]
+
+class RedshiftDataParametersTypeDef(TypedDict):
+    Database: str
+    SecretManagerArn: NotRequired[str]
+    DbUser: NotRequired[str]
+    Sql: NotRequired[str]
+    StatementName: NotRequired[str]
+    WithEvent: NotRequired[bool]
+    Sqls: NotRequired[Sequence[str]]
+
+class RemovePermissionRequestTypeDef(TypedDict):
+    StatementId: NotRequired[str]
+    RemoveAllPermissions: NotRequired[bool]
+    EventBusName: NotRequired[str]
+
+class RemoveTargetsRequestTypeDef(TypedDict):
+    Rule: str
+    Ids: Sequence[str]
+    EventBusName: NotRequired[str]
+    Force: NotRequired[bool]
+
+class RemoveTargetsResultEntryTypeDef(TypedDict):
+    TargetId: NotRequired[str]
+    ErrorCode: NotRequired[str]
+    ErrorMessage: NotRequired[str]
+
+class ReplayDestinationTypeDef(TypedDict):
+    Arn: str
+    FilterArns: NotRequired[Sequence[str]]
+
+class RetryPolicyTypeDef(TypedDict):
+    MaximumRetryAttempts: NotRequired[int]
+    MaximumEventAgeInSeconds: NotRequired[int]
+
+class RunCommandTargetOutputTypeDef(TypedDict):
+    Key: str
+    Values: List[str]
+
+class RunCommandTargetTypeDef(TypedDict):
+    Key: str
+    Values: Sequence[str]
+
+class SageMakerPipelineParameterTypeDef(TypedDict):
+    Name: str
+    Value: str
+
+class SqsParametersTypeDef(TypedDict):
+    MessageGroupId: NotRequired[str]
+
+class TestEventPatternRequestTypeDef(TypedDict):
+    EventPattern: str
+    Event: str
+
+class UntagResourceRequestTypeDef(TypedDict):
+    ResourceARN: str
+    TagKeys: Sequence[str]
+
+class UpdateApiDestinationRequestTypeDef(TypedDict):
+    Name: str
+    Description: NotRequired[str]
+    ConnectionArn: NotRequired[str]
+    InvocationEndpoint: NotRequired[str]
+    HttpMethod: NotRequired[ApiDestinationHttpMethodType]
+    InvocationRateLimitPerSecond: NotRequired[int]
+
+class UpdateArchiveRequestTypeDef(TypedDict):
+    ArchiveName: str
+    Description: NotRequired[str]
+    EventPattern: NotRequired[str]
+    RetentionDays: NotRequired[int]
+    KmsKeyIdentifier: NotRequired[str]
+
+class UpdateConnectionApiKeyAuthRequestParametersTypeDef(TypedDict):
+    ApiKeyName: NotRequired[str]
+    ApiKeyValue: NotRequired[str]
+
+class UpdateConnectionBasicAuthRequestParametersTypeDef(TypedDict):
+    Username: NotRequired[str]
+    Password: NotRequired[str]
+
+class UpdateConnectionOAuthClientRequestParametersTypeDef(TypedDict):
+    ClientID: NotRequired[str]
+    ClientSecret: NotRequired[str]
+
+class NetworkConfigurationOutputTypeDef(TypedDict):
+    awsvpcConfiguration: NotRequired[AwsVpcConfigurationOutputTypeDef]
+
+AwsVpcConfigurationUnionTypeDef = Union[
+    AwsVpcConfigurationTypeDef, AwsVpcConfigurationOutputTypeDef
+]
+
+class BatchParametersTypeDef(TypedDict):
+    JobDefinition: str
+    JobName: str
+    ArrayProperties: NotRequired[BatchArrayPropertiesTypeDef]
+    RetryStrategy: NotRequired[BatchRetryStrategyTypeDef]
+
+class CancelReplayResponseTypeDef(TypedDict):
+    ReplayArn: str
+    State: ReplayStateType
+    StateReason: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateApiDestinationResponseTypeDef(TypedDict):
+    ApiDestinationArn: str
+    ApiDestinationState: ApiDestinationStateType
+    CreationTime: datetime
+    LastModifiedTime: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateArchiveResponseTypeDef(TypedDict):
+    ArchiveArn: str
+    State: ArchiveStateType
+    StateReason: str
+    CreationTime: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateConnectionResponseTypeDef(TypedDict):
+    ConnectionArn: str
+    ConnectionState: ConnectionStateType
+    CreationTime: datetime
+    LastModifiedTime: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreatePartnerEventSourceResponseTypeDef(TypedDict):
+    EventSourceArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeauthorizeConnectionResponseTypeDef(TypedDict):
+    ConnectionArn: str
+    ConnectionState: ConnectionStateType
+    CreationTime: datetime
+    LastModifiedTime: datetime
+    LastAuthorizedTime: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteConnectionResponseTypeDef(TypedDict):
+    ConnectionArn: str
+    ConnectionState: ConnectionStateType
+    CreationTime: datetime
+    LastModifiedTime: datetime
+    LastAuthorizedTime: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeApiDestinationResponseTypeDef(TypedDict):
+    ApiDestinationArn: str
+    Name: str
+    Description: str
+    ApiDestinationState: ApiDestinationStateType
+    ConnectionArn: str
+    InvocationEndpoint: str
+    HttpMethod: ApiDestinationHttpMethodType
+    InvocationRateLimitPerSecond: int
+    CreationTime: datetime
+    LastModifiedTime: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeArchiveResponseTypeDef(TypedDict):
+    ArchiveArn: str
+    ArchiveName: str
+    EventSourceArn: str
+    Description: str
+    EventPattern: str
+    State: ArchiveStateType
+    StateReason: str
+    KmsKeyIdentifier: str
+    RetentionDays: int
+    SizeBytes: int
+    EventCount: int
+    CreationTime: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeEventSourceResponseTypeDef(TypedDict):
+    Arn: str
+    CreatedBy: str
+    CreationTime: datetime
+    ExpirationTime: datetime
+    Name: str
+    State: EventSourceStateType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribePartnerEventSourceResponseTypeDef(TypedDict):
+    Arn: str
+    Name: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeRuleResponseTypeDef(TypedDict):
+    Name: str
+    Arn: str
+    EventPattern: str
+    ScheduleExpression: str
+    State: RuleStateType
+    Description: str
+    RoleArn: str
+    ManagedBy: str
+    EventBusName: str
+    CreatedBy: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class EmptyResponseMetadataTypeDef(TypedDict):
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListApiDestinationsResponseTypeDef(TypedDict):
+    ApiDestinations: List[ApiDestinationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListArchivesResponseTypeDef(TypedDict):
+    Archives: List[ArchiveTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListRuleNamesByTargetResponseTypeDef(TypedDict):
+    RuleNames: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class PutRuleResponseTypeDef(TypedDict):
+    RuleArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartReplayResponseTypeDef(TypedDict):
+    ReplayArn: str
+    State: ReplayStateType
+    StateReason: str
+    ReplayStartTime: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class TestEventPatternResponseTypeDef(TypedDict):
+    Result: bool
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateApiDestinationResponseTypeDef(TypedDict):
+    ApiDestinationArn: str
+    ApiDestinationState: ApiDestinationStateType
+    CreationTime: datetime
+    LastModifiedTime: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateArchiveResponseTypeDef(TypedDict):
+    ArchiveArn: str
+    State: ArchiveStateType
+    StateReason: str
+    CreationTime: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateConnectionResponseTypeDef(TypedDict):
+    ConnectionArn: str
+    ConnectionState: ConnectionStateType
+    CreationTime: datetime
+    LastModifiedTime: datetime
+    LastAuthorizedTime: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutPermissionRequestTypeDef(TypedDict):
+    EventBusName: NotRequired[str]
+    Action: NotRequired[str]
+    Principal: NotRequired[str]
+    StatementId: NotRequired[str]
+    Condition: NotRequired[ConditionTypeDef]
+    Policy: NotRequired[str]
+
+class ConnectionHttpParametersOutputTypeDef(TypedDict):
+    HeaderParameters: NotRequired[List[ConnectionHeaderParameterTypeDef]]
+    QueryStringParameters: NotRequired[List[ConnectionQueryStringParameterTypeDef]]
+    BodyParameters: NotRequired[List[ConnectionBodyParameterTypeDef]]
+
+class ConnectionHttpParametersTypeDef(TypedDict):
+    HeaderParameters: NotRequired[Sequence[ConnectionHeaderParameterTypeDef]]
+    QueryStringParameters: NotRequired[Sequence[ConnectionQueryStringParameterTypeDef]]
+    BodyParameters: NotRequired[Sequence[ConnectionBodyParameterTypeDef]]
+
+class ListConnectionsResponseTypeDef(TypedDict):
+    Connections: List[ConnectionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ConnectivityResourceParametersTypeDef(TypedDict):
+    ResourceParameters: ConnectivityResourceConfigurationArnTypeDef
+
+class CreateEventBusResponseTypeDef(TypedDict):
+    EventBusArn: str
+    Description: str
+    KmsKeyIdentifier: str
+    DeadLetterConfig: DeadLetterConfigTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeEventBusResponseTypeDef(TypedDict):
+    Name: str
+    Arn: str
+    Description: str
+    KmsKeyIdentifier: str
+    DeadLetterConfig: DeadLetterConfigTypeDef
+    Policy: str
+    CreationTime: datetime
+    LastModifiedTime: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateEventBusRequestTypeDef(TypedDict):
+    Name: NotRequired[str]
+    KmsKeyIdentifier: NotRequired[str]
+    Description: NotRequired[str]
+    DeadLetterConfig: NotRequired[DeadLetterConfigTypeDef]
+
+class UpdateEventBusResponseTypeDef(TypedDict):
+    Arn: str
+    Name: str
+    KmsKeyIdentifier: str
+    Description: str
+    DeadLetterConfig: DeadLetterConfigTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateEventBusRequestTypeDef(TypedDict):
+    Name: str
+    EventSourceName: NotRequired[str]
+    Description: NotRequired[str]
+    KmsKeyIdentifier: NotRequired[str]
+    DeadLetterConfig: NotRequired[DeadLetterConfigTypeDef]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    Tags: List[TagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutRuleRequestTypeDef(TypedDict):
+    Name: str
+    ScheduleExpression: NotRequired[str]
+    EventPattern: NotRequired[str]
+    State: NotRequired[RuleStateType]
+    Description: NotRequired[str]
+    RoleArn: NotRequired[str]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+    EventBusName: NotRequired[str]
+
+class TagResourceRequestTypeDef(TypedDict):
+    ResourceARN: str
+    Tags: Sequence[TagTypeDef]
+
+class DescribeConnectionConnectivityParametersTypeDef(TypedDict):
+    ResourceParameters: DescribeConnectionResourceParametersTypeDef
+
+class DescribeReplayResponseTypeDef(TypedDict):
+    ReplayName: str
+    ReplayArn: str
+    Description: str
+    State: ReplayStateType
+    StateReason: str
+    EventSourceArn: str
+    Destination: ReplayDestinationOutputTypeDef
+    EventStartTime: datetime
+    EventEndTime: datetime
+    EventLastReplayedTime: datetime
+    ReplayStartTime: datetime
+    ReplayEndTime: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListEventBusesResponseTypeDef(TypedDict):
+    EventBuses: List[EventBusTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListEventSourcesResponseTypeDef(TypedDict):
+    EventSources: List[EventSourceTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class FailoverConfigTypeDef(TypedDict):
+    Primary: PrimaryTypeDef
+    Secondary: SecondaryTypeDef
+
+HttpParametersUnionTypeDef = Union[HttpParametersTypeDef, HttpParametersOutputTypeDef]
+InputTransformerUnionTypeDef = Union[InputTransformerTypeDef, InputTransformerOutputTypeDef]
+
+class ListPartnerEventSourceAccountsResponseTypeDef(TypedDict):
+    PartnerEventSourceAccounts: List[PartnerEventSourceAccountTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListPartnerEventSourcesResponseTypeDef(TypedDict):
+    PartnerEventSources: List[PartnerEventSourceTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListReplaysResponseTypeDef(TypedDict):
+    Replays: List[ReplayTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListRuleNamesByTargetRequestPaginateTypeDef(TypedDict):
+    TargetArn: str
+    EventBusName: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListRulesRequestPaginateTypeDef(TypedDict):
+    NamePrefix: NotRequired[str]
+    EventBusName: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListTargetsByRuleRequestPaginateTypeDef(TypedDict):
+    Rule: str
+    EventBusName: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListRulesResponseTypeDef(TypedDict):
+    Rules: List[RuleTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class PutEventsRequestEntryTypeDef(TypedDict):
+    Time: NotRequired[TimestampTypeDef]
+    Source: NotRequired[str]
+    Resources: NotRequired[Sequence[str]]
+    DetailType: NotRequired[str]
+    Detail: NotRequired[str]
+    EventBusName: NotRequired[str]
+    TraceHeader: NotRequired[str]
+
+class PutPartnerEventsRequestEntryTypeDef(TypedDict):
+    Time: NotRequired[TimestampTypeDef]
+    Source: NotRequired[str]
+    Resources: NotRequired[Sequence[str]]
+    DetailType: NotRequired[str]
+    Detail: NotRequired[str]
+
+class PutEventsResponseTypeDef(TypedDict):
+    FailedEntryCount: int
+    Entries: List[PutEventsResultEntryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutPartnerEventsResponseTypeDef(TypedDict):
+    FailedEntryCount: int
+    Entries: List[PutPartnerEventsResultEntryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutTargetsResponseTypeDef(TypedDict):
+    FailedEntryCount: int
+    FailedEntries: List[PutTargetsResultEntryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+RedshiftDataParametersUnionTypeDef = Union[
+    RedshiftDataParametersTypeDef, RedshiftDataParametersOutputTypeDef
+]
+
+class RemoveTargetsResponseTypeDef(TypedDict):
+    FailedEntryCount: int
+    FailedEntries: List[RemoveTargetsResultEntryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+ReplayDestinationUnionTypeDef = Union[ReplayDestinationTypeDef, ReplayDestinationOutputTypeDef]
+
+class RunCommandParametersOutputTypeDef(TypedDict):
+    RunCommandTargets: List[RunCommandTargetOutputTypeDef]
+
+RunCommandTargetUnionTypeDef = Union[RunCommandTargetTypeDef, RunCommandTargetOutputTypeDef]
+
+class SageMakerPipelineParametersOutputTypeDef(TypedDict):
+    PipelineParameterList: NotRequired[List[SageMakerPipelineParameterTypeDef]]
+
+class SageMakerPipelineParametersTypeDef(TypedDict):
+    PipelineParameterList: NotRequired[Sequence[SageMakerPipelineParameterTypeDef]]
+
+class EcsParametersOutputTypeDef(TypedDict):
+    TaskDefinitionArn: str
+    TaskCount: NotRequired[int]
+    LaunchType: NotRequired[LaunchTypeType]
+    NetworkConfiguration: NotRequired[NetworkConfigurationOutputTypeDef]
+    PlatformVersion: NotRequired[str]
+    Group: NotRequired[str]
+    CapacityProviderStrategy: NotRequired[List[CapacityProviderStrategyItemTypeDef]]
+    EnableECSManagedTags: NotRequired[bool]
+    EnableExecuteCommand: NotRequired[bool]
+    PlacementConstraints: NotRequired[List[PlacementConstraintTypeDef]]
+    PlacementStrategy: NotRequired[List[PlacementStrategyTypeDef]]
+    PropagateTags: NotRequired[Literal["TASK_DEFINITION"]]
+    ReferenceId: NotRequired[str]
+    Tags: NotRequired[List[TagTypeDef]]
+
+class NetworkConfigurationTypeDef(TypedDict):
+    awsvpcConfiguration: NotRequired[AwsVpcConfigurationUnionTypeDef]
+
+class ConnectionOAuthResponseParametersTypeDef(TypedDict):
+    ClientParameters: NotRequired[ConnectionOAuthClientResponseParametersTypeDef]
+    AuthorizationEndpoint: NotRequired[str]
+    HttpMethod: NotRequired[ConnectionOAuthHttpMethodType]
+    OAuthHttpParameters: NotRequired[ConnectionHttpParametersOutputTypeDef]
+
+ConnectionHttpParametersUnionTypeDef = Union[
+    ConnectionHttpParametersTypeDef, ConnectionHttpParametersOutputTypeDef
+]
+
+class RoutingConfigTypeDef(TypedDict):
+    FailoverConfig: FailoverConfigTypeDef
+
+class PutEventsRequestTypeDef(TypedDict):
+    Entries: Sequence[PutEventsRequestEntryTypeDef]
+    EndpointId: NotRequired[str]
+
+class PutPartnerEventsRequestTypeDef(TypedDict):
+    Entries: Sequence[PutPartnerEventsRequestEntryTypeDef]
+
+class StartReplayRequestTypeDef(TypedDict):
+    ReplayName: str
+    EventSourceArn: str
+    EventStartTime: TimestampTypeDef
+    EventEndTime: TimestampTypeDef
+    Destination: ReplayDestinationUnionTypeDef
+    Description: NotRequired[str]
+
+class RunCommandParametersTypeDef(TypedDict):
+    RunCommandTargets: Sequence[RunCommandTargetUnionTypeDef]
+
+SageMakerPipelineParametersUnionTypeDef = Union[
+    SageMakerPipelineParametersTypeDef, SageMakerPipelineParametersOutputTypeDef
+]
+
+class TargetOutputTypeDef(TypedDict):
+    Id: str
+    Arn: str
+    RoleArn: NotRequired[str]
+    Input: NotRequired[str]
+    InputPath: NotRequired[str]
+    InputTransformer: NotRequired[InputTransformerOutputTypeDef]
+    KinesisParameters: NotRequired[KinesisParametersTypeDef]
+    RunCommandParameters: NotRequired[RunCommandParametersOutputTypeDef]
+    EcsParameters: NotRequired[EcsParametersOutputTypeDef]
+    BatchParameters: NotRequired[BatchParametersTypeDef]
+    SqsParameters: NotRequired[SqsParametersTypeDef]
+    HttpParameters: NotRequired[HttpParametersOutputTypeDef]
+    RedshiftDataParameters: NotRequired[RedshiftDataParametersOutputTypeDef]
+    SageMakerPipelineParameters: NotRequired[SageMakerPipelineParametersOutputTypeDef]
+    DeadLetterConfig: NotRequired[DeadLetterConfigTypeDef]
+    RetryPolicy: NotRequired[RetryPolicyTypeDef]
+    AppSyncParameters: NotRequired[AppSyncParametersTypeDef]
+
+NetworkConfigurationUnionTypeDef = Union[
+    NetworkConfigurationTypeDef, NetworkConfigurationOutputTypeDef
+]
+
+class ConnectionAuthResponseParametersTypeDef(TypedDict):
+    BasicAuthParameters: NotRequired[ConnectionBasicAuthResponseParametersTypeDef]
+    OAuthParameters: NotRequired[ConnectionOAuthResponseParametersTypeDef]
+    ApiKeyAuthParameters: NotRequired[ConnectionApiKeyAuthResponseParametersTypeDef]
+    InvocationHttpParameters: NotRequired[ConnectionHttpParametersOutputTypeDef]
+    ConnectivityParameters: NotRequired[DescribeConnectionConnectivityParametersTypeDef]
+
+class CreateConnectionOAuthRequestParametersTypeDef(TypedDict):
+    ClientParameters: CreateConnectionOAuthClientRequestParametersTypeDef
+    AuthorizationEndpoint: str
+    HttpMethod: ConnectionOAuthHttpMethodType
+    OAuthHttpParameters: NotRequired[ConnectionHttpParametersUnionTypeDef]
+
+class UpdateConnectionOAuthRequestParametersTypeDef(TypedDict):
+    ClientParameters: NotRequired[UpdateConnectionOAuthClientRequestParametersTypeDef]
+    AuthorizationEndpoint: NotRequired[str]
+    HttpMethod: NotRequired[ConnectionOAuthHttpMethodType]
+    OAuthHttpParameters: NotRequired[ConnectionHttpParametersUnionTypeDef]
+
+class CreateEndpointRequestTypeDef(TypedDict):
+    Name: str
+    RoutingConfig: RoutingConfigTypeDef
+    EventBuses: Sequence[EndpointEventBusTypeDef]
+    Description: NotRequired[str]
+    ReplicationConfig: NotRequired[ReplicationConfigTypeDef]
+    RoleArn: NotRequired[str]
+
+class CreateEndpointResponseTypeDef(TypedDict):
+    Name: str
+    Arn: str
+    RoutingConfig: RoutingConfigTypeDef
+    ReplicationConfig: ReplicationConfigTypeDef
+    EventBuses: List[EndpointEventBusTypeDef]
+    RoleArn: str
+    State: EndpointStateType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeEndpointResponseTypeDef(TypedDict):
+    Name: str
+    Description: str
+    Arn: str
+    RoutingConfig: RoutingConfigTypeDef
+    ReplicationConfig: ReplicationConfigTypeDef
+    EventBuses: List[EndpointEventBusTypeDef]
+    RoleArn: str
+    EndpointId: str
+    EndpointUrl: str
+    State: EndpointStateType
+    StateReason: str
+    CreationTime: datetime
+    LastModifiedTime: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class EndpointTypeDef(TypedDict):
+    Name: NotRequired[str]
+    Description: NotRequired[str]
+    Arn: NotRequired[str]
+    RoutingConfig: NotRequired[RoutingConfigTypeDef]
+    ReplicationConfig: NotRequired[ReplicationConfigTypeDef]
+    EventBuses: NotRequired[List[EndpointEventBusTypeDef]]
+    RoleArn: NotRequired[str]
+    EndpointId: NotRequired[str]
+    EndpointUrl: NotRequired[str]
+    State: NotRequired[EndpointStateType]
+    StateReason: NotRequired[str]
+    CreationTime: NotRequired[datetime]
+    LastModifiedTime: NotRequired[datetime]
+
+class UpdateEndpointRequestTypeDef(TypedDict):
+    Name: str
+    Description: NotRequired[str]
+    RoutingConfig: NotRequired[RoutingConfigTypeDef]
+    ReplicationConfig: NotRequired[ReplicationConfigTypeDef]
+    EventBuses: NotRequired[Sequence[EndpointEventBusTypeDef]]
+    RoleArn: NotRequired[str]
+
+class UpdateEndpointResponseTypeDef(TypedDict):
+    Name: str
+    Arn: str
+    RoutingConfig: RoutingConfigTypeDef
+    ReplicationConfig: ReplicationConfigTypeDef
+    EventBuses: List[EndpointEventBusTypeDef]
+    RoleArn: str
+    EndpointId: str
+    EndpointUrl: str
+    State: EndpointStateType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+RunCommandParametersUnionTypeDef = Union[
+    RunCommandParametersTypeDef, RunCommandParametersOutputTypeDef
+]
+
+class ListTargetsByRuleResponseTypeDef(TypedDict):
+    Targets: List[TargetOutputTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class EcsParametersTypeDef(TypedDict):
+    TaskDefinitionArn: str
+    TaskCount: NotRequired[int]
+    LaunchType: NotRequired[LaunchTypeType]
+    NetworkConfiguration: NotRequired[NetworkConfigurationUnionTypeDef]
+    PlatformVersion: NotRequired[str]
+    Group: NotRequired[str]
+    CapacityProviderStrategy: NotRequired[Sequence[CapacityProviderStrategyItemTypeDef]]
+    EnableECSManagedTags: NotRequired[bool]
+    EnableExecuteCommand: NotRequired[bool]
+    PlacementConstraints: NotRequired[Sequence[PlacementConstraintTypeDef]]
+    PlacementStrategy: NotRequired[Sequence[PlacementStrategyTypeDef]]
+    PropagateTags: NotRequired[Literal["TASK_DEFINITION"]]
+    ReferenceId: NotRequired[str]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+
+class DescribeConnectionResponseTypeDef(TypedDict):
+    ConnectionArn: str
+    Name: str
+    Description: str
+    InvocationConnectivityParameters: DescribeConnectionConnectivityParametersTypeDef
+    ConnectionState: ConnectionStateType
+    StateReason: str
+    AuthorizationType: ConnectionAuthorizationTypeType
+    SecretArn: str
+    KmsKeyIdentifier: str
+    AuthParameters: ConnectionAuthResponseParametersTypeDef
+    CreationTime: datetime
+    LastModifiedTime: datetime
+    LastAuthorizedTime: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateConnectionAuthRequestParametersTypeDef(TypedDict):
+    BasicAuthParameters: NotRequired[CreateConnectionBasicAuthRequestParametersTypeDef]
+    OAuthParameters: NotRequired[CreateConnectionOAuthRequestParametersTypeDef]
+    ApiKeyAuthParameters: NotRequired[CreateConnectionApiKeyAuthRequestParametersTypeDef]
+    InvocationHttpParameters: NotRequired[ConnectionHttpParametersUnionTypeDef]
+    ConnectivityParameters: NotRequired[ConnectivityResourceParametersTypeDef]
+
+class UpdateConnectionAuthRequestParametersTypeDef(TypedDict):
+    BasicAuthParameters: NotRequired[UpdateConnectionBasicAuthRequestParametersTypeDef]
+    OAuthParameters: NotRequired[UpdateConnectionOAuthRequestParametersTypeDef]
+    ApiKeyAuthParameters: NotRequired[UpdateConnectionApiKeyAuthRequestParametersTypeDef]
+    InvocationHttpParameters: NotRequired[ConnectionHttpParametersUnionTypeDef]
+    ConnectivityParameters: NotRequired[ConnectivityResourceParametersTypeDef]
+
+class ListEndpointsResponseTypeDef(TypedDict):
+    Endpoints: List[EndpointTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+EcsParametersUnionTypeDef = Union[EcsParametersTypeDef, EcsParametersOutputTypeDef]
+
+class CreateConnectionRequestTypeDef(TypedDict):
+    Name: str
+    AuthorizationType: ConnectionAuthorizationTypeType
+    AuthParameters: CreateConnectionAuthRequestParametersTypeDef
+    Description: NotRequired[str]
+    InvocationConnectivityParameters: NotRequired[ConnectivityResourceParametersTypeDef]
+    KmsKeyIdentifier: NotRequired[str]
+
+class UpdateConnectionRequestTypeDef(TypedDict):
+    Name: str
+    Description: NotRequired[str]
+    AuthorizationType: NotRequired[ConnectionAuthorizationTypeType]
+    AuthParameters: NotRequired[UpdateConnectionAuthRequestParametersTypeDef]
+    InvocationConnectivityParameters: NotRequired[ConnectivityResourceParametersTypeDef]
+    KmsKeyIdentifier: NotRequired[str]
+
+class TargetTypeDef(TypedDict):
+    Id: str
+    Arn: str
+    RoleArn: NotRequired[str]
+    Input: NotRequired[str]
+    InputPath: NotRequired[str]
+    InputTransformer: NotRequired[InputTransformerUnionTypeDef]
+    KinesisParameters: NotRequired[KinesisParametersTypeDef]
+    RunCommandParameters: NotRequired[RunCommandParametersUnionTypeDef]
+    EcsParameters: NotRequired[EcsParametersUnionTypeDef]
+    BatchParameters: NotRequired[BatchParametersTypeDef]
+    SqsParameters: NotRequired[SqsParametersTypeDef]
+    HttpParameters: NotRequired[HttpParametersUnionTypeDef]
+    RedshiftDataParameters: NotRequired[RedshiftDataParametersUnionTypeDef]
+    SageMakerPipelineParameters: NotRequired[SageMakerPipelineParametersUnionTypeDef]
+    DeadLetterConfig: NotRequired[DeadLetterConfigTypeDef]
+    RetryPolicy: NotRequired[RetryPolicyTypeDef]
+    AppSyncParameters: NotRequired[AppSyncParametersTypeDef]
+
+TargetUnionTypeDef = Union[TargetTypeDef, TargetOutputTypeDef]
+
+class PutTargetsRequestTypeDef(TypedDict):
+    Rule: str
+    Targets: Sequence[TargetUnionTypeDef]
+    EventBusName: NotRequired[str]

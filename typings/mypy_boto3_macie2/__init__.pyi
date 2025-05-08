@@ -1,10 +1,14 @@
 """
 Main interface for macie2 service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_macie2/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_macie2 import (
         Client,
         DescribeBucketsPaginator,
@@ -28,10 +32,8 @@ Usage::
         SearchResourcesPaginator,
     )
 
-    session = boto3.Session()
-
-    client: Macie2Client = boto3.client("macie2")
-    session_client: Macie2Client = session.client("macie2")
+    session = Session()
+    client: Macie2Client = session.client("macie2")
 
     finding_revealed_waiter: FindingRevealedWaiter = client.get_waiter("finding_revealed")
 
@@ -42,8 +44,8 @@ Usage::
     list_classification_jobs_paginator: ListClassificationJobsPaginator = client.get_paginator("list_classification_jobs")
     list_classification_scopes_paginator: ListClassificationScopesPaginator = client.get_paginator("list_classification_scopes")
     list_custom_data_identifiers_paginator: ListCustomDataIdentifiersPaginator = client.get_paginator("list_custom_data_identifiers")
-    list_findings_paginator: ListFindingsPaginator = client.get_paginator("list_findings")
     list_findings_filters_paginator: ListFindingsFiltersPaginator = client.get_paginator("list_findings_filters")
+    list_findings_paginator: ListFindingsPaginator = client.get_paginator("list_findings")
     list_invitations_paginator: ListInvitationsPaginator = client.get_paginator("list_invitations")
     list_managed_data_identifiers_paginator: ListManagedDataIdentifiersPaginator = client.get_paginator("list_managed_data_identifiers")
     list_members_paginator: ListMembersPaginator = client.get_paginator("list_members")

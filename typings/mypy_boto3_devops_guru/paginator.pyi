@@ -1,14 +1,16 @@
 """
 Type annotations for devops-guru service client paginators.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/paginators.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/paginators/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
 
-    from mypy_boto3_devops_guru import DevOpsGuruClient
+    from mypy_boto3_devops_guru.client import DevOpsGuruClient
     from mypy_boto3_devops_guru.paginator import (
         DescribeOrganizationResourceCollectionHealthPaginator,
         DescribeResourceCollectionHealthPaginator,
@@ -26,7 +28,8 @@ Usage::
         SearchOrganizationInsightsPaginator,
     )
 
-    client: DevOpsGuruClient = boto3.client("devops-guru")
+    session = Session()
+    client: DevOpsGuruClient = session.client("devops-guru")
 
     describe_organization_resource_collection_health_paginator: DescribeOrganizationResourceCollectionHealthPaginator = client.get_paginator("describe_organization_resource_collection_health")
     describe_resource_collection_health_paginator: DescribeResourceCollectionHealthPaginator = client.get_paginator("describe_resource_collection_health")
@@ -45,40 +48,48 @@ Usage::
     ```
 """
 
-from typing import Iterator, List
+from __future__ import annotations
 
-from botocore.paginate import Paginator as Boto3Paginator
+import sys
+from typing import TYPE_CHECKING
 
-from .literals import (
-    InsightTypeType,
-    LocaleType,
-    OrganizationResourceCollectionTypeType,
-    ResourceCollectionTypeType,
-)
+from botocore.paginate import PageIterator, Paginator
+
 from .type_defs import (
+    DescribeOrganizationResourceCollectionHealthRequestPaginateTypeDef,
     DescribeOrganizationResourceCollectionHealthResponseTypeDef,
+    DescribeResourceCollectionHealthRequestPaginateTypeDef,
     DescribeResourceCollectionHealthResponseTypeDef,
+    GetCostEstimationRequestPaginateTypeDef,
     GetCostEstimationResponseTypeDef,
+    GetResourceCollectionRequestPaginateTypeDef,
     GetResourceCollectionResponseTypeDef,
-    ListAnomaliesForInsightFiltersTypeDef,
+    ListAnomaliesForInsightRequestPaginateTypeDef,
     ListAnomaliesForInsightResponseTypeDef,
+    ListAnomalousLogGroupsRequestPaginateTypeDef,
     ListAnomalousLogGroupsResponseTypeDef,
-    ListEventsFiltersTypeDef,
+    ListEventsRequestPaginateTypeDef,
     ListEventsResponseTypeDef,
+    ListInsightsRequestPaginateTypeDef,
     ListInsightsResponseTypeDef,
-    ListInsightsStatusFilterTypeDef,
-    ListMonitoredResourcesFiltersTypeDef,
+    ListMonitoredResourcesRequestPaginateTypeDef,
     ListMonitoredResourcesResponseTypeDef,
+    ListNotificationChannelsRequestPaginateTypeDef,
     ListNotificationChannelsResponseTypeDef,
+    ListOrganizationInsightsRequestPaginateTypeDef,
     ListOrganizationInsightsResponseTypeDef,
+    ListRecommendationsRequestPaginateTypeDef,
     ListRecommendationsResponseTypeDef,
-    PaginatorConfigTypeDef,
-    SearchInsightsFiltersTypeDef,
+    SearchInsightsRequestPaginateTypeDef,
     SearchInsightsResponseTypeDef,
-    SearchOrganizationInsightsFiltersTypeDef,
+    SearchOrganizationInsightsRequestPaginateTypeDef,
     SearchOrganizationInsightsResponseTypeDef,
-    StartTimeRangeTypeDef,
 )
+
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = (
     "DescribeOrganizationResourceCollectionHealthPaginator",
@@ -97,247 +108,260 @@ __all__ = (
     "SearchOrganizationInsightsPaginator",
 )
 
-class DescribeOrganizationResourceCollectionHealthPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/devops-guru.html#DevOpsGuru.Paginator.DescribeOrganizationResourceCollectionHealth)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/paginators.html#describeorganizationresourcecollectionhealthpaginator)
-    """
+if TYPE_CHECKING:
+    _DescribeOrganizationResourceCollectionHealthPaginatorBase = Paginator[
+        DescribeOrganizationResourceCollectionHealthResponseTypeDef
+    ]
+else:
+    _DescribeOrganizationResourceCollectionHealthPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        OrganizationResourceCollectionType: OrganizationResourceCollectionTypeType,
-        AccountIds: List[str] = None,
-        OrganizationalUnitIds: List[str] = None,
-        MaxResults: int = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[DescribeOrganizationResourceCollectionHealthResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/devops-guru.html#DevOpsGuru.Paginator.DescribeOrganizationResourceCollectionHealth.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/paginators.html#describeorganizationresourcecollectionhealthpaginator)
-        """
-
-class DescribeResourceCollectionHealthPaginator(Boto3Paginator):
+class DescribeOrganizationResourceCollectionHealthPaginator(
+    _DescribeOrganizationResourceCollectionHealthPaginatorBase
+):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/devops-guru.html#DevOpsGuru.Paginator.DescribeResourceCollectionHealth)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/paginators.html#describeresourcecollectionhealthpaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/devops-guru/paginator/DescribeOrganizationResourceCollectionHealth.html#DevOpsGuru.Paginator.DescribeOrganizationResourceCollectionHealth)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/paginators/#describeorganizationresourcecollectionhealthpaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        ResourceCollectionType: ResourceCollectionTypeType,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[DescribeResourceCollectionHealthResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeOrganizationResourceCollectionHealthRequestPaginateTypeDef]
+    ) -> PageIterator[DescribeOrganizationResourceCollectionHealthResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/devops-guru.html#DevOpsGuru.Paginator.DescribeResourceCollectionHealth.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/paginators.html#describeresourcecollectionhealthpaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/devops-guru/paginator/DescribeOrganizationResourceCollectionHealth.html#DevOpsGuru.Paginator.DescribeOrganizationResourceCollectionHealth.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/paginators/#describeorganizationresourcecollectionhealthpaginator)
         """
 
-class GetCostEstimationPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/devops-guru.html#DevOpsGuru.Paginator.GetCostEstimation)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/paginators.html#getcostestimationpaginator)
-    """
+if TYPE_CHECKING:
+    _DescribeResourceCollectionHealthPaginatorBase = Paginator[
+        DescribeResourceCollectionHealthResponseTypeDef
+    ]
+else:
+    _DescribeResourceCollectionHealthPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[GetCostEstimationResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/devops-guru.html#DevOpsGuru.Paginator.GetCostEstimation.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/paginators.html#getcostestimationpaginator)
-        """
-
-class GetResourceCollectionPaginator(Boto3Paginator):
+class DescribeResourceCollectionHealthPaginator(_DescribeResourceCollectionHealthPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/devops-guru.html#DevOpsGuru.Paginator.GetResourceCollection)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/paginators.html#getresourcecollectionpaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/devops-guru/paginator/DescribeResourceCollectionHealth.html#DevOpsGuru.Paginator.DescribeResourceCollectionHealth)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/paginators/#describeresourcecollectionhealthpaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        ResourceCollectionType: ResourceCollectionTypeType,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[GetResourceCollectionResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeResourceCollectionHealthRequestPaginateTypeDef]
+    ) -> PageIterator[DescribeResourceCollectionHealthResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/devops-guru.html#DevOpsGuru.Paginator.GetResourceCollection.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/paginators.html#getresourcecollectionpaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/devops-guru/paginator/DescribeResourceCollectionHealth.html#DevOpsGuru.Paginator.DescribeResourceCollectionHealth.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/paginators/#describeresourcecollectionhealthpaginator)
         """
 
-class ListAnomaliesForInsightPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/devops-guru.html#DevOpsGuru.Paginator.ListAnomaliesForInsight)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/paginators.html#listanomaliesforinsightpaginator)
-    """
+if TYPE_CHECKING:
+    _GetCostEstimationPaginatorBase = Paginator[GetCostEstimationResponseTypeDef]
+else:
+    _GetCostEstimationPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        InsightId: str,
-        StartTimeRange: "StartTimeRangeTypeDef" = None,
-        AccountId: str = None,
-        Filters: "ListAnomaliesForInsightFiltersTypeDef" = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListAnomaliesForInsightResponseTypeDef]:
+class GetCostEstimationPaginator(_GetCostEstimationPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/devops-guru/paginator/GetCostEstimation.html#DevOpsGuru.Paginator.GetCostEstimation)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/paginators/#getcostestimationpaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[GetCostEstimationRequestPaginateTypeDef]
+    ) -> PageIterator[GetCostEstimationResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/devops-guru.html#DevOpsGuru.Paginator.ListAnomaliesForInsight.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/paginators.html#listanomaliesforinsightpaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/devops-guru/paginator/GetCostEstimation.html#DevOpsGuru.Paginator.GetCostEstimation.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/paginators/#getcostestimationpaginator)
         """
 
-class ListAnomalousLogGroupsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/devops-guru.html#DevOpsGuru.Paginator.ListAnomalousLogGroups)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/paginators.html#listanomalousloggroupspaginator)
-    """
+if TYPE_CHECKING:
+    _GetResourceCollectionPaginatorBase = Paginator[GetResourceCollectionResponseTypeDef]
+else:
+    _GetResourceCollectionPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, InsightId: str, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListAnomalousLogGroupsResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/devops-guru.html#DevOpsGuru.Paginator.ListAnomalousLogGroups.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/paginators.html#listanomalousloggroupspaginator)
-        """
-
-class ListEventsPaginator(Boto3Paginator):
+class GetResourceCollectionPaginator(_GetResourceCollectionPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/devops-guru.html#DevOpsGuru.Paginator.ListEvents)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/paginators.html#listeventspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/devops-guru/paginator/GetResourceCollection.html#DevOpsGuru.Paginator.GetResourceCollection)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/paginators/#getresourcecollectionpaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        Filters: "ListEventsFiltersTypeDef",
-        AccountId: str = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListEventsResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[GetResourceCollectionRequestPaginateTypeDef]
+    ) -> PageIterator[GetResourceCollectionResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/devops-guru.html#DevOpsGuru.Paginator.ListEvents.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/paginators.html#listeventspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/devops-guru/paginator/GetResourceCollection.html#DevOpsGuru.Paginator.GetResourceCollection.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/paginators/#getresourcecollectionpaginator)
         """
 
-class ListInsightsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/devops-guru.html#DevOpsGuru.Paginator.ListInsights)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/paginators.html#listinsightspaginator)
-    """
+if TYPE_CHECKING:
+    _ListAnomaliesForInsightPaginatorBase = Paginator[ListAnomaliesForInsightResponseTypeDef]
+else:
+    _ListAnomaliesForInsightPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        StatusFilter: "ListInsightsStatusFilterTypeDef",
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListInsightsResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/devops-guru.html#DevOpsGuru.Paginator.ListInsights.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/paginators.html#listinsightspaginator)
-        """
-
-class ListMonitoredResourcesPaginator(Boto3Paginator):
+class ListAnomaliesForInsightPaginator(_ListAnomaliesForInsightPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/devops-guru.html#DevOpsGuru.Paginator.ListMonitoredResources)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/paginators.html#listmonitoredresourcespaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/devops-guru/paginator/ListAnomaliesForInsight.html#DevOpsGuru.Paginator.ListAnomaliesForInsight)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/paginators/#listanomaliesforinsightpaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        Filters: "ListMonitoredResourcesFiltersTypeDef" = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListMonitoredResourcesResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListAnomaliesForInsightRequestPaginateTypeDef]
+    ) -> PageIterator[ListAnomaliesForInsightResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/devops-guru.html#DevOpsGuru.Paginator.ListMonitoredResources.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/paginators.html#listmonitoredresourcespaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/devops-guru/paginator/ListAnomaliesForInsight.html#DevOpsGuru.Paginator.ListAnomaliesForInsight.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/paginators/#listanomaliesforinsightpaginator)
         """
 
-class ListNotificationChannelsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/devops-guru.html#DevOpsGuru.Paginator.ListNotificationChannels)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/paginators.html#listnotificationchannelspaginator)
-    """
+if TYPE_CHECKING:
+    _ListAnomalousLogGroupsPaginatorBase = Paginator[ListAnomalousLogGroupsResponseTypeDef]
+else:
+    _ListAnomalousLogGroupsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListNotificationChannelsResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/devops-guru.html#DevOpsGuru.Paginator.ListNotificationChannels.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/paginators.html#listnotificationchannelspaginator)
-        """
-
-class ListOrganizationInsightsPaginator(Boto3Paginator):
+class ListAnomalousLogGroupsPaginator(_ListAnomalousLogGroupsPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/devops-guru.html#DevOpsGuru.Paginator.ListOrganizationInsights)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/paginators.html#listorganizationinsightspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/devops-guru/paginator/ListAnomalousLogGroups.html#DevOpsGuru.Paginator.ListAnomalousLogGroups)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/paginators/#listanomalousloggroupspaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        StatusFilter: "ListInsightsStatusFilterTypeDef",
-        AccountIds: List[str] = None,
-        OrganizationalUnitIds: List[str] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListOrganizationInsightsResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListAnomalousLogGroupsRequestPaginateTypeDef]
+    ) -> PageIterator[ListAnomalousLogGroupsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/devops-guru.html#DevOpsGuru.Paginator.ListOrganizationInsights.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/paginators.html#listorganizationinsightspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/devops-guru/paginator/ListAnomalousLogGroups.html#DevOpsGuru.Paginator.ListAnomalousLogGroups.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/paginators/#listanomalousloggroupspaginator)
         """
 
-class ListRecommendationsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/devops-guru.html#DevOpsGuru.Paginator.ListRecommendations)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/paginators.html#listrecommendationspaginator)
-    """
+if TYPE_CHECKING:
+    _ListEventsPaginatorBase = Paginator[ListEventsResponseTypeDef]
+else:
+    _ListEventsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        InsightId: str,
-        Locale: LocaleType = None,
-        AccountId: str = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListRecommendationsResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/devops-guru.html#DevOpsGuru.Paginator.ListRecommendations.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/paginators.html#listrecommendationspaginator)
-        """
-
-class SearchInsightsPaginator(Boto3Paginator):
+class ListEventsPaginator(_ListEventsPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/devops-guru.html#DevOpsGuru.Paginator.SearchInsights)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/paginators.html#searchinsightspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/devops-guru/paginator/ListEvents.html#DevOpsGuru.Paginator.ListEvents)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/paginators/#listeventspaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        StartTimeRange: "StartTimeRangeTypeDef",
-        Type: InsightTypeType,
-        Filters: "SearchInsightsFiltersTypeDef" = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[SearchInsightsResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListEventsRequestPaginateTypeDef]
+    ) -> PageIterator[ListEventsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/devops-guru.html#DevOpsGuru.Paginator.SearchInsights.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/paginators.html#searchinsightspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/devops-guru/paginator/ListEvents.html#DevOpsGuru.Paginator.ListEvents.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/paginators/#listeventspaginator)
         """
 
-class SearchOrganizationInsightsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/devops-guru.html#DevOpsGuru.Paginator.SearchOrganizationInsights)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/paginators.html#searchorganizationinsightspaginator)
-    """
+if TYPE_CHECKING:
+    _ListInsightsPaginatorBase = Paginator[ListInsightsResponseTypeDef]
+else:
+    _ListInsightsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        AccountIds: List[str],
-        StartTimeRange: "StartTimeRangeTypeDef",
-        Type: InsightTypeType,
-        Filters: "SearchOrganizationInsightsFiltersTypeDef" = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[SearchOrganizationInsightsResponseTypeDef]:
+class ListInsightsPaginator(_ListInsightsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/devops-guru/paginator/ListInsights.html#DevOpsGuru.Paginator.ListInsights)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/paginators/#listinsightspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListInsightsRequestPaginateTypeDef]
+    ) -> PageIterator[ListInsightsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/devops-guru.html#DevOpsGuru.Paginator.SearchOrganizationInsights.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/paginators.html#searchorganizationinsightspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/devops-guru/paginator/ListInsights.html#DevOpsGuru.Paginator.ListInsights.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/paginators/#listinsightspaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListMonitoredResourcesPaginatorBase = Paginator[ListMonitoredResourcesResponseTypeDef]
+else:
+    _ListMonitoredResourcesPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListMonitoredResourcesPaginator(_ListMonitoredResourcesPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/devops-guru/paginator/ListMonitoredResources.html#DevOpsGuru.Paginator.ListMonitoredResources)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/paginators/#listmonitoredresourcespaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListMonitoredResourcesRequestPaginateTypeDef]
+    ) -> PageIterator[ListMonitoredResourcesResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/devops-guru/paginator/ListMonitoredResources.html#DevOpsGuru.Paginator.ListMonitoredResources.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/paginators/#listmonitoredresourcespaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListNotificationChannelsPaginatorBase = Paginator[ListNotificationChannelsResponseTypeDef]
+else:
+    _ListNotificationChannelsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListNotificationChannelsPaginator(_ListNotificationChannelsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/devops-guru/paginator/ListNotificationChannels.html#DevOpsGuru.Paginator.ListNotificationChannels)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/paginators/#listnotificationchannelspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListNotificationChannelsRequestPaginateTypeDef]
+    ) -> PageIterator[ListNotificationChannelsResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/devops-guru/paginator/ListNotificationChannels.html#DevOpsGuru.Paginator.ListNotificationChannels.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/paginators/#listnotificationchannelspaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListOrganizationInsightsPaginatorBase = Paginator[ListOrganizationInsightsResponseTypeDef]
+else:
+    _ListOrganizationInsightsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListOrganizationInsightsPaginator(_ListOrganizationInsightsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/devops-guru/paginator/ListOrganizationInsights.html#DevOpsGuru.Paginator.ListOrganizationInsights)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/paginators/#listorganizationinsightspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListOrganizationInsightsRequestPaginateTypeDef]
+    ) -> PageIterator[ListOrganizationInsightsResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/devops-guru/paginator/ListOrganizationInsights.html#DevOpsGuru.Paginator.ListOrganizationInsights.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/paginators/#listorganizationinsightspaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListRecommendationsPaginatorBase = Paginator[ListRecommendationsResponseTypeDef]
+else:
+    _ListRecommendationsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListRecommendationsPaginator(_ListRecommendationsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/devops-guru/paginator/ListRecommendations.html#DevOpsGuru.Paginator.ListRecommendations)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/paginators/#listrecommendationspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListRecommendationsRequestPaginateTypeDef]
+    ) -> PageIterator[ListRecommendationsResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/devops-guru/paginator/ListRecommendations.html#DevOpsGuru.Paginator.ListRecommendations.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/paginators/#listrecommendationspaginator)
+        """
+
+if TYPE_CHECKING:
+    _SearchInsightsPaginatorBase = Paginator[SearchInsightsResponseTypeDef]
+else:
+    _SearchInsightsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class SearchInsightsPaginator(_SearchInsightsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/devops-guru/paginator/SearchInsights.html#DevOpsGuru.Paginator.SearchInsights)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/paginators/#searchinsightspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[SearchInsightsRequestPaginateTypeDef]
+    ) -> PageIterator[SearchInsightsResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/devops-guru/paginator/SearchInsights.html#DevOpsGuru.Paginator.SearchInsights.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/paginators/#searchinsightspaginator)
+        """
+
+if TYPE_CHECKING:
+    _SearchOrganizationInsightsPaginatorBase = Paginator[SearchOrganizationInsightsResponseTypeDef]
+else:
+    _SearchOrganizationInsightsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class SearchOrganizationInsightsPaginator(_SearchOrganizationInsightsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/devops-guru/paginator/SearchOrganizationInsights.html#DevOpsGuru.Paginator.SearchOrganizationInsights)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/paginators/#searchorganizationinsightspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[SearchOrganizationInsightsRequestPaginateTypeDef]
+    ) -> PageIterator[SearchOrganizationInsightsResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/devops-guru/paginator/SearchOrganizationInsights.html#DevOpsGuru.Paginator.SearchOrganizationInsights.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_devops_guru/paginators/#searchorganizationinsightspaginator)
         """

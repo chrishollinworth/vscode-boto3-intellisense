@@ -1,21 +1,24 @@
 """
 Type annotations for arc-zonal-shift service client paginators.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_arc_zonal_shift/paginators.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_arc_zonal_shift/paginators/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
 
-    from mypy_boto3_arc_zonal_shift import ARCZonalShiftClient
+    from mypy_boto3_arc_zonal_shift.client import ARCZonalShiftClient
     from mypy_boto3_arc_zonal_shift.paginator import (
         ListAutoshiftsPaginator,
         ListManagedResourcesPaginator,
         ListZonalShiftsPaginator,
     )
 
-    client: ARCZonalShiftClient = boto3.client("arc-zonal-shift")
+    session = Session()
+    client: ARCZonalShiftClient = session.client("arc-zonal-shift")
 
     list_autoshifts_paginator: ListAutoshiftsPaginator = client.get_paginator("list_autoshifts")
     list_managed_resources_paginator: ListManagedResourcesPaginator = client.get_paginator("list_managed_resources")
@@ -23,65 +26,79 @@ Usage::
     ```
 """
 
-from typing import Iterator
+from __future__ import annotations
 
-from botocore.paginate import Paginator as Boto3Paginator
+import sys
+from typing import TYPE_CHECKING
 
-from .literals import AutoshiftExecutionStatusType, ZonalShiftStatusType
+from botocore.paginate import PageIterator, Paginator
+
 from .type_defs import (
+    ListAutoshiftsRequestPaginateTypeDef,
     ListAutoshiftsResponseTypeDef,
+    ListManagedResourcesRequestPaginateTypeDef,
     ListManagedResourcesResponseTypeDef,
+    ListZonalShiftsRequestPaginateTypeDef,
     ListZonalShiftsResponseTypeDef,
-    PaginatorConfigTypeDef,
 )
+
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = ("ListAutoshiftsPaginator", "ListManagedResourcesPaginator", "ListZonalShiftsPaginator")
 
-class ListAutoshiftsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/arc-zonal-shift.html#ARCZonalShift.Paginator.ListAutoshifts)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_arc_zonal_shift/paginators.html#listautoshiftspaginator)
-    """
+if TYPE_CHECKING:
+    _ListAutoshiftsPaginatorBase = Paginator[ListAutoshiftsResponseTypeDef]
+else:
+    _ListAutoshiftsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        status: AutoshiftExecutionStatusType = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListAutoshiftsResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/arc-zonal-shift.html#ARCZonalShift.Paginator.ListAutoshifts.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_arc_zonal_shift/paginators.html#listautoshiftspaginator)
-        """
-
-class ListManagedResourcesPaginator(Boto3Paginator):
+class ListAutoshiftsPaginator(_ListAutoshiftsPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/arc-zonal-shift.html#ARCZonalShift.Paginator.ListManagedResources)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_arc_zonal_shift/paginators.html#listmanagedresourcespaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/arc-zonal-shift/paginator/ListAutoshifts.html#ARCZonalShift.Paginator.ListAutoshifts)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_arc_zonal_shift/paginators/#listautoshiftspaginator)
     """
-
-    def paginate(
-        self, *, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListManagedResourcesResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListAutoshiftsRequestPaginateTypeDef]
+    ) -> PageIterator[ListAutoshiftsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/arc-zonal-shift.html#ARCZonalShift.Paginator.ListManagedResources.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_arc_zonal_shift/paginators.html#listmanagedresourcespaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/arc-zonal-shift/paginator/ListAutoshifts.html#ARCZonalShift.Paginator.ListAutoshifts.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_arc_zonal_shift/paginators/#listautoshiftspaginator)
         """
 
-class ListZonalShiftsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/arc-zonal-shift.html#ARCZonalShift.Paginator.ListZonalShifts)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_arc_zonal_shift/paginators.html#listzonalshiftspaginator)
-    """
+if TYPE_CHECKING:
+    _ListManagedResourcesPaginatorBase = Paginator[ListManagedResourcesResponseTypeDef]
+else:
+    _ListManagedResourcesPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        resourceIdentifier: str = None,
-        status: ZonalShiftStatusType = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListZonalShiftsResponseTypeDef]:
+class ListManagedResourcesPaginator(_ListManagedResourcesPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/arc-zonal-shift/paginator/ListManagedResources.html#ARCZonalShift.Paginator.ListManagedResources)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_arc_zonal_shift/paginators/#listmanagedresourcespaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListManagedResourcesRequestPaginateTypeDef]
+    ) -> PageIterator[ListManagedResourcesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/arc-zonal-shift.html#ARCZonalShift.Paginator.ListZonalShifts.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_arc_zonal_shift/paginators.html#listzonalshiftspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/arc-zonal-shift/paginator/ListManagedResources.html#ARCZonalShift.Paginator.ListManagedResources.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_arc_zonal_shift/paginators/#listmanagedresourcespaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListZonalShiftsPaginatorBase = Paginator[ListZonalShiftsResponseTypeDef]
+else:
+    _ListZonalShiftsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListZonalShiftsPaginator(_ListZonalShiftsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/arc-zonal-shift/paginator/ListZonalShifts.html#ARCZonalShift.Paginator.ListZonalShifts)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_arc_zonal_shift/paginators/#listzonalshiftspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListZonalShiftsRequestPaginateTypeDef]
+    ) -> PageIterator[ListZonalShiftsResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/arc-zonal-shift/paginator/ListZonalShifts.html#ARCZonalShift.Paginator.ListZonalShifts.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_arc_zonal_shift/paginators/#listzonalshiftspaginator)
         """

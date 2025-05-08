@@ -1,10 +1,14 @@
 """
 Main interface for acm service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_acm/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_acm import (
         ACMClient,
         CertificateValidatedWaiter,
@@ -12,10 +16,8 @@ Usage::
         ListCertificatesPaginator,
     )
 
-    session = boto3.Session()
-
-    client: ACMClient = boto3.client("acm")
-    session_client: ACMClient = session.client("acm")
+    session = Session()
+    client: ACMClient = session.client("acm")
 
     certificate_validated_waiter: CertificateValidatedWaiter = client.get_waiter("certificate_validated")
 

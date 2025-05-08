@@ -1,10 +1,14 @@
 """
 Main interface for securitylake service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_securitylake/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_securitylake import (
         Client,
         GetDataLakeSourcesPaginator,
@@ -14,10 +18,8 @@ Usage::
         SecurityLakeClient,
     )
 
-    session = boto3.Session()
-
-    client: SecurityLakeClient = boto3.client("securitylake")
-    session_client: SecurityLakeClient = session.client("securitylake")
+    session = Session()
+    client: SecurityLakeClient = session.client("securitylake")
 
     get_data_lake_sources_paginator: GetDataLakeSourcesPaginator = client.get_paginator("get_data_lake_sources")
     list_data_lake_exceptions_paginator: ListDataLakeExceptionsPaginator = client.get_paginator("list_data_lake_exceptions")

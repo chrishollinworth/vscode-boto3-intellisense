@@ -1,74 +1,92 @@
 """
-Type annotations for redshift-data service client.
+Type annotations for redshift-data service Client.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_data/client.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_data/client/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
-    from mypy_boto3_redshift_data import RedshiftDataAPIServiceClient
+    from boto3.session import Session
+    from mypy_boto3_redshift_data.client import RedshiftDataAPIServiceClient
 
-    client: RedshiftDataAPIServiceClient = boto3.client("redshift-data")
+    session = Session()
+    client: RedshiftDataAPIServiceClient = session.client("redshift-data")
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from typing import Any, Dict, List, Type, overload
+from typing import Any, overload
 
 from botocore.client import BaseClient, ClientMeta
+from botocore.errorfactory import BaseClientExceptions
+from botocore.exceptions import ClientError as BotocoreClientError
 
-from .literals import StatusStringType
 from .paginator import (
     DescribeTablePaginator,
     GetStatementResultPaginator,
+    GetStatementResultV2Paginator,
     ListDatabasesPaginator,
     ListSchemasPaginator,
     ListStatementsPaginator,
     ListTablesPaginator,
 )
 from .type_defs import (
+    BatchExecuteStatementInputTypeDef,
     BatchExecuteStatementOutputTypeDef,
+    CancelStatementRequestTypeDef,
     CancelStatementResponseTypeDef,
+    DescribeStatementRequestTypeDef,
     DescribeStatementResponseTypeDef,
+    DescribeTableRequestTypeDef,
     DescribeTableResponseTypeDef,
+    ExecuteStatementInputTypeDef,
     ExecuteStatementOutputTypeDef,
+    GetStatementResultRequestTypeDef,
     GetStatementResultResponseTypeDef,
+    GetStatementResultV2RequestTypeDef,
+    GetStatementResultV2ResponseTypeDef,
+    ListDatabasesRequestTypeDef,
     ListDatabasesResponseTypeDef,
+    ListSchemasRequestTypeDef,
     ListSchemasResponseTypeDef,
+    ListStatementsRequestTypeDef,
     ListStatementsResponseTypeDef,
+    ListTablesRequestTypeDef,
     ListTablesResponseTypeDef,
-    SqlParameterTypeDef,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import type as Type
+    from collections.abc import Mapping
 else:
-    from typing_extensions import Literal
+    from typing import Mapping, Type
+if sys.version_info >= (3, 12):
+    from typing import Literal, Unpack
+else:
+    from typing_extensions import Literal, Unpack
 
 __all__ = ("RedshiftDataAPIServiceClient",)
 
-class BotocoreClientError(BaseException):
-    MSG_TEMPLATE: str
-
-    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
-        self.response: Dict[str, Any]
-        self.operation_name: str
-
-class Exceptions:
+class Exceptions(BaseClientExceptions):
+    ActiveSessionsExceededException: Type[BotocoreClientError]
     ActiveStatementsExceededException: Type[BotocoreClientError]
     BatchExecuteStatementException: Type[BotocoreClientError]
     ClientError: Type[BotocoreClientError]
     DatabaseConnectionException: Type[BotocoreClientError]
     ExecuteStatementException: Type[BotocoreClientError]
     InternalServerException: Type[BotocoreClientError]
+    QueryTimeoutException: Type[BotocoreClientError]
     ResourceNotFoundException: Type[BotocoreClientError]
     ValidationException: Type[BotocoreClientError]
 
 class RedshiftDataAPIServiceClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift-data.html#RedshiftDataAPIService.Client)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_data/client.html)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-data.html#RedshiftDataAPIService.Client)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_data/client/)
     """
 
     meta: ClientMeta
@@ -77,244 +95,213 @@ class RedshiftDataAPIServiceClient(BaseClient):
     def exceptions(self) -> Exceptions:
         """
         RedshiftDataAPIServiceClient exceptions.
-        """
 
-    def batch_execute_statement(
-        self,
-        *,
-        Database: str,
-        Sqls: List[str],
-        ClientToken: str = None,
-        ClusterIdentifier: str = None,
-        DbUser: str = None,
-        SecretArn: str = None,
-        StatementName: str = None,
-        WithEvent: bool = None,
-        WorkgroupName: str = None
-    ) -> BatchExecuteStatementOutputTypeDef:
-        """
-        Runs one or more SQL statements, which can be data manipulation language (DML)
-        or data definition language (DDL).
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift-data.html#RedshiftDataAPIService.Client.batch_execute_statement)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_data/client.html#batch_execute_statement)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-data.html#RedshiftDataAPIService.Client)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_data/client/#exceptions)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        Check if an operation can be paginated.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift-data.html#RedshiftDataAPIService.Client.can_paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_data/client.html#can_paginate)
-        """
-
-    def cancel_statement(self, *, Id: str) -> CancelStatementResponseTypeDef:
-        """
-        Cancels a running query.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift-data.html#RedshiftDataAPIService.Client.cancel_statement)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_data/client.html#cancel_statement)
-        """
-
-    def close(self) -> None:
-        """
-        Closes underlying endpoint connections.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift-data.html#RedshiftDataAPIService.Client.close)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_data/client.html#close)
-        """
-
-    def describe_statement(self, *, Id: str) -> DescribeStatementResponseTypeDef:
-        """
-        Describes the details about a specific instance when a query was run by the
-        Amazon Redshift Data API.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift-data.html#RedshiftDataAPIService.Client.describe_statement)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_data/client.html#describe_statement)
-        """
-
-    def describe_table(
-        self,
-        *,
-        Database: str,
-        ClusterIdentifier: str = None,
-        ConnectedDatabase: str = None,
-        DbUser: str = None,
-        MaxResults: int = None,
-        NextToken: str = None,
-        Schema: str = None,
-        SecretArn: str = None,
-        Table: str = None,
-        WorkgroupName: str = None
-    ) -> DescribeTableResponseTypeDef:
-        """
-        Describes the detailed information about a table from metadata in the cluster.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift-data.html#RedshiftDataAPIService.Client.describe_table)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_data/client.html#describe_table)
-        """
-
-    def execute_statement(
-        self,
-        *,
-        Database: str,
-        Sql: str,
-        ClientToken: str = None,
-        ClusterIdentifier: str = None,
-        DbUser: str = None,
-        Parameters: List["SqlParameterTypeDef"] = None,
-        SecretArn: str = None,
-        StatementName: str = None,
-        WithEvent: bool = None,
-        WorkgroupName: str = None
-    ) -> ExecuteStatementOutputTypeDef:
-        """
-        Runs an SQL statement, which can be data manipulation language (DML) or data
-        definition language (DDL).
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift-data.html#RedshiftDataAPIService.Client.execute_statement)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_data/client.html#execute_statement)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-data/client/can_paginate.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_data/client/#can_paginate)
         """
 
     def generate_presigned_url(
         self,
         ClientMethod: str,
-        Params: Dict[str, Any] = None,
+        Params: Mapping[str, Any] = ...,
         ExpiresIn: int = 3600,
-        HttpMethod: str = None,
+        HttpMethod: str = ...,
     ) -> str:
         """
-        Generate a presigned url given a client, its method, and arguments.
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-data/client/generate_presigned_url.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_data/client/#generate_presigned_url)
+        """
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift-data.html#RedshiftDataAPIService.Client.generate_presigned_url)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_data/client.html#generate_presigned_url)
+    def batch_execute_statement(
+        self, **kwargs: Unpack[BatchExecuteStatementInputTypeDef]
+    ) -> BatchExecuteStatementOutputTypeDef:
+        """
+        Runs one or more SQL statements, which can be data manipulation language (DML)
+        or data definition language (DDL).
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-data/client/batch_execute_statement.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_data/client/#batch_execute_statement)
+        """
+
+    def cancel_statement(
+        self, **kwargs: Unpack[CancelStatementRequestTypeDef]
+    ) -> CancelStatementResponseTypeDef:
+        """
+        Cancels a running query.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-data/client/cancel_statement.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_data/client/#cancel_statement)
+        """
+
+    def describe_statement(
+        self, **kwargs: Unpack[DescribeStatementRequestTypeDef]
+    ) -> DescribeStatementResponseTypeDef:
+        """
+        Describes the details about a specific instance when a query was run by the
+        Amazon Redshift Data API.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-data/client/describe_statement.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_data/client/#describe_statement)
+        """
+
+    def describe_table(
+        self, **kwargs: Unpack[DescribeTableRequestTypeDef]
+    ) -> DescribeTableResponseTypeDef:
+        """
+        Describes the detailed information about a table from metadata in the cluster.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-data/client/describe_table.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_data/client/#describe_table)
+        """
+
+    def execute_statement(
+        self, **kwargs: Unpack[ExecuteStatementInputTypeDef]
+    ) -> ExecuteStatementOutputTypeDef:
+        """
+        Runs an SQL statement, which can be data manipulation language (DML) or data
+        definition language (DDL).
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-data/client/execute_statement.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_data/client/#execute_statement)
         """
 
     def get_statement_result(
-        self, *, Id: str, NextToken: str = None
+        self, **kwargs: Unpack[GetStatementResultRequestTypeDef]
     ) -> GetStatementResultResponseTypeDef:
         """
-        Fetches the temporarily cached result of an SQL statement.
+        Fetches the temporarily cached result of an SQL statement in JSON format.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift-data.html#RedshiftDataAPIService.Client.get_statement_result)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_data/client.html#get_statement_result)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-data/client/get_statement_result.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_data/client/#get_statement_result)
+        """
+
+    def get_statement_result_v2(
+        self, **kwargs: Unpack[GetStatementResultV2RequestTypeDef]
+    ) -> GetStatementResultV2ResponseTypeDef:
+        """
+        Fetches the temporarily cached result of an SQL statement in CSV format.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-data/client/get_statement_result_v2.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_data/client/#get_statement_result_v2)
         """
 
     def list_databases(
-        self,
-        *,
-        Database: str,
-        ClusterIdentifier: str = None,
-        DbUser: str = None,
-        MaxResults: int = None,
-        NextToken: str = None,
-        SecretArn: str = None,
-        WorkgroupName: str = None
+        self, **kwargs: Unpack[ListDatabasesRequestTypeDef]
     ) -> ListDatabasesResponseTypeDef:
         """
         List the databases in a cluster.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift-data.html#RedshiftDataAPIService.Client.list_databases)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_data/client.html#list_databases)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-data/client/list_databases.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_data/client/#list_databases)
         """
 
     def list_schemas(
-        self,
-        *,
-        Database: str,
-        ClusterIdentifier: str = None,
-        ConnectedDatabase: str = None,
-        DbUser: str = None,
-        MaxResults: int = None,
-        NextToken: str = None,
-        SchemaPattern: str = None,
-        SecretArn: str = None,
-        WorkgroupName: str = None
+        self, **kwargs: Unpack[ListSchemasRequestTypeDef]
     ) -> ListSchemasResponseTypeDef:
         """
         Lists the schemas in a database.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift-data.html#RedshiftDataAPIService.Client.list_schemas)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_data/client.html#list_schemas)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-data/client/list_schemas.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_data/client/#list_schemas)
         """
 
     def list_statements(
-        self,
-        *,
-        MaxResults: int = None,
-        NextToken: str = None,
-        RoleLevel: bool = None,
-        StatementName: str = None,
-        Status: StatusStringType = None
+        self, **kwargs: Unpack[ListStatementsRequestTypeDef]
     ) -> ListStatementsResponseTypeDef:
         """
         List of SQL statements.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift-data.html#RedshiftDataAPIService.Client.list_statements)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_data/client.html#list_statements)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-data/client/list_statements.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_data/client/#list_statements)
         """
 
-    def list_tables(
-        self,
-        *,
-        Database: str,
-        ClusterIdentifier: str = None,
-        ConnectedDatabase: str = None,
-        DbUser: str = None,
-        MaxResults: int = None,
-        NextToken: str = None,
-        SchemaPattern: str = None,
-        SecretArn: str = None,
-        TablePattern: str = None,
-        WorkgroupName: str = None
-    ) -> ListTablesResponseTypeDef:
+    def list_tables(self, **kwargs: Unpack[ListTablesRequestTypeDef]) -> ListTablesResponseTypeDef:
         """
         List the tables in a database.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift-data.html#RedshiftDataAPIService.Client.list_tables)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_data/client.html#list_tables)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-data/client/list_tables.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_data/client/#list_tables)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["describe_table"]) -> DescribeTablePaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["describe_table"]
+    ) -> DescribeTablePaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift-data.html#RedshiftDataAPIService.Paginator.DescribeTable)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_data/paginators.html#describetablepaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-data/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_data/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["get_statement_result"]
     ) -> GetStatementResultPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift-data.html#RedshiftDataAPIService.Paginator.GetStatementResult)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_data/paginators.html#getstatementresultpaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-data/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_data/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_databases"]) -> ListDatabasesPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["get_statement_result_v2"]
+    ) -> GetStatementResultV2Paginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift-data.html#RedshiftDataAPIService.Paginator.ListDatabases)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_data/paginators.html#listdatabasespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-data/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_data/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_schemas"]) -> ListSchemasPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_databases"]
+    ) -> ListDatabasesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift-data.html#RedshiftDataAPIService.Paginator.ListSchemas)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_data/paginators.html#listschemaspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-data/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_data/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_statements"]) -> ListStatementsPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_schemas"]
+    ) -> ListSchemasPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift-data.html#RedshiftDataAPIService.Paginator.ListStatements)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_data/paginators.html#liststatementspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-data/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_data/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_tables"]) -> ListTablesPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_statements"]
+    ) -> ListStatementsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/redshift-data.html#RedshiftDataAPIService.Paginator.ListTables)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_data/paginators.html#listtablespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-data/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_data/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_tables"]
+    ) -> ListTablesPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-data/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_data/client/#get_paginator)
         """

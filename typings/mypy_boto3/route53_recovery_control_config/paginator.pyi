@@ -1,14 +1,16 @@
 """
 Type annotations for route53-recovery-control-config service client paginators.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/paginators.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/paginators/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
 
-    from mypy_boto3_route53_recovery_control_config import Route53RecoveryControlConfigClient
+    from mypy_boto3_route53_recovery_control_config.client import Route53RecoveryControlConfigClient
     from mypy_boto3_route53_recovery_control_config.paginator import (
         ListAssociatedRoute53HealthChecksPaginator,
         ListClustersPaginator,
@@ -17,7 +19,8 @@ Usage::
         ListSafetyRulesPaginator,
     )
 
-    client: Route53RecoveryControlConfigClient = boto3.client("route53-recovery-control-config")
+    session = Session()
+    client: Route53RecoveryControlConfigClient = session.client("route53-recovery-control-config")
 
     list_associated_route53_health_checks_paginator: ListAssociatedRoute53HealthChecksPaginator = client.get_paginator("list_associated_route53_health_checks")
     list_clusters_paginator: ListClustersPaginator = client.get_paginator("list_clusters")
@@ -27,18 +30,30 @@ Usage::
     ```
 """
 
-from typing import Iterator
+from __future__ import annotations
 
-from botocore.paginate import Paginator as Boto3Paginator
+import sys
+from typing import TYPE_CHECKING
+
+from botocore.paginate import PageIterator, Paginator
 
 from .type_defs import (
+    ListAssociatedRoute53HealthChecksRequestPaginateTypeDef,
     ListAssociatedRoute53HealthChecksResponseTypeDef,
+    ListClustersRequestPaginateTypeDef,
     ListClustersResponseTypeDef,
+    ListControlPanelsRequestPaginateTypeDef,
     ListControlPanelsResponseTypeDef,
+    ListRoutingControlsRequestPaginateTypeDef,
     ListRoutingControlsResponseTypeDef,
+    ListSafetyRulesRequestPaginateTypeDef,
     ListSafetyRulesResponseTypeDef,
-    PaginatorConfigTypeDef,
 )
+
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = (
     "ListAssociatedRoute53HealthChecksPaginator",
@@ -48,72 +63,94 @@ __all__ = (
     "ListSafetyRulesPaginator",
 )
 
-class ListAssociatedRoute53HealthChecksPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53-recovery-control-config.html#Route53RecoveryControlConfig.Paginator.ListAssociatedRoute53HealthChecks)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/paginators.html#listassociatedroute53healthcheckspaginator)
-    """
+if TYPE_CHECKING:
+    _ListAssociatedRoute53HealthChecksPaginatorBase = Paginator[
+        ListAssociatedRoute53HealthChecksResponseTypeDef
+    ]
+else:
+    _ListAssociatedRoute53HealthChecksPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, RoutingControlArn: str, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListAssociatedRoute53HealthChecksResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53-recovery-control-config.html#Route53RecoveryControlConfig.Paginator.ListAssociatedRoute53HealthChecks.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/paginators.html#listassociatedroute53healthcheckspaginator)
-        """
-
-class ListClustersPaginator(Boto3Paginator):
+class ListAssociatedRoute53HealthChecksPaginator(_ListAssociatedRoute53HealthChecksPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53-recovery-control-config.html#Route53RecoveryControlConfig.Paginator.ListClusters)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/paginators.html#listclusterspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53-recovery-control-config/paginator/ListAssociatedRoute53HealthChecks.html#Route53RecoveryControlConfig.Paginator.ListAssociatedRoute53HealthChecks)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/paginators/#listassociatedroute53healthcheckspaginator)
     """
-
-    def paginate(
-        self, *, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListClustersResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListAssociatedRoute53HealthChecksRequestPaginateTypeDef]
+    ) -> PageIterator[ListAssociatedRoute53HealthChecksResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53-recovery-control-config.html#Route53RecoveryControlConfig.Paginator.ListClusters.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/paginators.html#listclusterspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53-recovery-control-config/paginator/ListAssociatedRoute53HealthChecks.html#Route53RecoveryControlConfig.Paginator.ListAssociatedRoute53HealthChecks.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/paginators/#listassociatedroute53healthcheckspaginator)
         """
 
-class ListControlPanelsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53-recovery-control-config.html#Route53RecoveryControlConfig.Paginator.ListControlPanels)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/paginators.html#listcontrolpanelspaginator)
-    """
+if TYPE_CHECKING:
+    _ListClustersPaginatorBase = Paginator[ListClustersResponseTypeDef]
+else:
+    _ListClustersPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, ClusterArn: str = None, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListControlPanelsResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53-recovery-control-config.html#Route53RecoveryControlConfig.Paginator.ListControlPanels.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/paginators.html#listcontrolpanelspaginator)
-        """
-
-class ListRoutingControlsPaginator(Boto3Paginator):
+class ListClustersPaginator(_ListClustersPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53-recovery-control-config.html#Route53RecoveryControlConfig.Paginator.ListRoutingControls)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/paginators.html#listroutingcontrolspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53-recovery-control-config/paginator/ListClusters.html#Route53RecoveryControlConfig.Paginator.ListClusters)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/paginators/#listclusterspaginator)
     """
-
-    def paginate(
-        self, *, ControlPanelArn: str, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListRoutingControlsResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListClustersRequestPaginateTypeDef]
+    ) -> PageIterator[ListClustersResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53-recovery-control-config.html#Route53RecoveryControlConfig.Paginator.ListRoutingControls.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/paginators.html#listroutingcontrolspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53-recovery-control-config/paginator/ListClusters.html#Route53RecoveryControlConfig.Paginator.ListClusters.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/paginators/#listclusterspaginator)
         """
 
-class ListSafetyRulesPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53-recovery-control-config.html#Route53RecoveryControlConfig.Paginator.ListSafetyRules)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/paginators.html#listsafetyrulespaginator)
-    """
+if TYPE_CHECKING:
+    _ListControlPanelsPaginatorBase = Paginator[ListControlPanelsResponseTypeDef]
+else:
+    _ListControlPanelsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, ControlPanelArn: str, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListSafetyRulesResponseTypeDef]:
+class ListControlPanelsPaginator(_ListControlPanelsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53-recovery-control-config/paginator/ListControlPanels.html#Route53RecoveryControlConfig.Paginator.ListControlPanels)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/paginators/#listcontrolpanelspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListControlPanelsRequestPaginateTypeDef]
+    ) -> PageIterator[ListControlPanelsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/route53-recovery-control-config.html#Route53RecoveryControlConfig.Paginator.ListSafetyRules.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/paginators.html#listsafetyrulespaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53-recovery-control-config/paginator/ListControlPanels.html#Route53RecoveryControlConfig.Paginator.ListControlPanels.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/paginators/#listcontrolpanelspaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListRoutingControlsPaginatorBase = Paginator[ListRoutingControlsResponseTypeDef]
+else:
+    _ListRoutingControlsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListRoutingControlsPaginator(_ListRoutingControlsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53-recovery-control-config/paginator/ListRoutingControls.html#Route53RecoveryControlConfig.Paginator.ListRoutingControls)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/paginators/#listroutingcontrolspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListRoutingControlsRequestPaginateTypeDef]
+    ) -> PageIterator[ListRoutingControlsResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53-recovery-control-config/paginator/ListRoutingControls.html#Route53RecoveryControlConfig.Paginator.ListRoutingControls.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/paginators/#listroutingcontrolspaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListSafetyRulesPaginatorBase = Paginator[ListSafetyRulesResponseTypeDef]
+else:
+    _ListSafetyRulesPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListSafetyRulesPaginator(_ListSafetyRulesPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53-recovery-control-config/paginator/ListSafetyRules.html#Route53RecoveryControlConfig.Paginator.ListSafetyRules)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/paginators/#listsafetyrulespaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListSafetyRulesRequestPaginateTypeDef]
+    ) -> PageIterator[ListSafetyRulesResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53-recovery-control-config/paginator/ListSafetyRules.html#Route53RecoveryControlConfig.Paginator.ListSafetyRules.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_control_config/paginators/#listsafetyrulespaginator)
         """

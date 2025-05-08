@@ -1,14 +1,16 @@
 """
 Type annotations for fms service client paginators.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fms/paginators.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fms/paginators/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
 
-    from mypy_boto3_fms import FMSClient
+    from mypy_boto3_fms.client import FMSClient
     from mypy_boto3_fms.paginator import (
         ListAdminAccountsForOrganizationPaginator,
         ListAdminsManagingAccountPaginator,
@@ -20,7 +22,8 @@ Usage::
         ListThirdPartyFirewallFirewallPoliciesPaginator,
     )
 
-    client: FMSClient = boto3.client("fms")
+    session = Session()
+    client: FMSClient = session.client("fms")
 
     list_admin_accounts_for_organization_paginator: ListAdminAccountsForOrganizationPaginator = client.get_paginator("list_admin_accounts_for_organization")
     list_admins_managing_account_paginator: ListAdminsManagingAccountPaginator = client.get_paginator("list_admins_managing_account")
@@ -33,22 +36,36 @@ Usage::
     ```
 """
 
-from typing import Iterator
+from __future__ import annotations
 
-from botocore.paginate import Paginator as Boto3Paginator
+import sys
+from typing import TYPE_CHECKING
 
-from .literals import ThirdPartyFirewallType
+from botocore.paginate import PageIterator, Paginator
+
 from .type_defs import (
+    ListAdminAccountsForOrganizationRequestPaginateTypeDef,
     ListAdminAccountsForOrganizationResponseTypeDef,
+    ListAdminsManagingAccountRequestPaginateTypeDef,
     ListAdminsManagingAccountResponseTypeDef,
+    ListAppsListsRequestPaginateTypeDef,
     ListAppsListsResponseTypeDef,
+    ListComplianceStatusRequestPaginateTypeDef,
     ListComplianceStatusResponseTypeDef,
+    ListMemberAccountsRequestPaginateTypeDef,
     ListMemberAccountsResponseTypeDef,
+    ListPoliciesRequestPaginateTypeDef,
     ListPoliciesResponseTypeDef,
+    ListProtocolsListsRequestPaginateTypeDef,
     ListProtocolsListsResponseTypeDef,
+    ListThirdPartyFirewallFirewallPoliciesRequestPaginateTypeDef,
     ListThirdPartyFirewallFirewallPoliciesResponseTypeDef,
-    PaginatorConfigTypeDef,
 )
+
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = (
     "ListAdminAccountsForOrganizationPaginator",
@@ -61,117 +78,152 @@ __all__ = (
     "ListThirdPartyFirewallFirewallPoliciesPaginator",
 )
 
-class ListAdminAccountsForOrganizationPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fms.html#FMS.Paginator.ListAdminAccountsForOrganization)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fms/paginators.html#listadminaccountsfororganizationpaginator)
-    """
+if TYPE_CHECKING:
+    _ListAdminAccountsForOrganizationPaginatorBase = Paginator[
+        ListAdminAccountsForOrganizationResponseTypeDef
+    ]
+else:
+    _ListAdminAccountsForOrganizationPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListAdminAccountsForOrganizationResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fms.html#FMS.Paginator.ListAdminAccountsForOrganization.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fms/paginators.html#listadminaccountsfororganizationpaginator)
-        """
-
-class ListAdminsManagingAccountPaginator(Boto3Paginator):
+class ListAdminAccountsForOrganizationPaginator(_ListAdminAccountsForOrganizationPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fms.html#FMS.Paginator.ListAdminsManagingAccount)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fms/paginators.html#listadminsmanagingaccountpaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fms/paginator/ListAdminAccountsForOrganization.html#FMS.Paginator.ListAdminAccountsForOrganization)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fms/paginators/#listadminaccountsfororganizationpaginator)
     """
-
-    def paginate(
-        self, *, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListAdminsManagingAccountResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListAdminAccountsForOrganizationRequestPaginateTypeDef]
+    ) -> PageIterator[ListAdminAccountsForOrganizationResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fms.html#FMS.Paginator.ListAdminsManagingAccount.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fms/paginators.html#listadminsmanagingaccountpaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fms/paginator/ListAdminAccountsForOrganization.html#FMS.Paginator.ListAdminAccountsForOrganization.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fms/paginators/#listadminaccountsfororganizationpaginator)
         """
 
-class ListAppsListsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fms.html#FMS.Paginator.ListAppsLists)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fms/paginators.html#listappslistspaginator)
-    """
+if TYPE_CHECKING:
+    _ListAdminsManagingAccountPaginatorBase = Paginator[ListAdminsManagingAccountResponseTypeDef]
+else:
+    _ListAdminsManagingAccountPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, DefaultLists: bool = None, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListAppsListsResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fms.html#FMS.Paginator.ListAppsLists.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fms/paginators.html#listappslistspaginator)
-        """
-
-class ListComplianceStatusPaginator(Boto3Paginator):
+class ListAdminsManagingAccountPaginator(_ListAdminsManagingAccountPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fms.html#FMS.Paginator.ListComplianceStatus)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fms/paginators.html#listcompliancestatuspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fms/paginator/ListAdminsManagingAccount.html#FMS.Paginator.ListAdminsManagingAccount)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fms/paginators/#listadminsmanagingaccountpaginator)
     """
-
-    def paginate(
-        self, *, PolicyId: str, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListComplianceStatusResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListAdminsManagingAccountRequestPaginateTypeDef]
+    ) -> PageIterator[ListAdminsManagingAccountResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fms.html#FMS.Paginator.ListComplianceStatus.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fms/paginators.html#listcompliancestatuspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fms/paginator/ListAdminsManagingAccount.html#FMS.Paginator.ListAdminsManagingAccount.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fms/paginators/#listadminsmanagingaccountpaginator)
         """
 
-class ListMemberAccountsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fms.html#FMS.Paginator.ListMemberAccounts)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fms/paginators.html#listmemberaccountspaginator)
-    """
+if TYPE_CHECKING:
+    _ListAppsListsPaginatorBase = Paginator[ListAppsListsResponseTypeDef]
+else:
+    _ListAppsListsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListMemberAccountsResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fms.html#FMS.Paginator.ListMemberAccounts.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fms/paginators.html#listmemberaccountspaginator)
-        """
-
-class ListPoliciesPaginator(Boto3Paginator):
+class ListAppsListsPaginator(_ListAppsListsPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fms.html#FMS.Paginator.ListPolicies)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fms/paginators.html#listpoliciespaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fms/paginator/ListAppsLists.html#FMS.Paginator.ListAppsLists)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fms/paginators/#listappslistspaginator)
     """
-
-    def paginate(
-        self, *, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListPoliciesResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListAppsListsRequestPaginateTypeDef]
+    ) -> PageIterator[ListAppsListsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fms.html#FMS.Paginator.ListPolicies.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fms/paginators.html#listpoliciespaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fms/paginator/ListAppsLists.html#FMS.Paginator.ListAppsLists.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fms/paginators/#listappslistspaginator)
         """
 
-class ListProtocolsListsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fms.html#FMS.Paginator.ListProtocolsLists)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fms/paginators.html#listprotocolslistspaginator)
-    """
+if TYPE_CHECKING:
+    _ListComplianceStatusPaginatorBase = Paginator[ListComplianceStatusResponseTypeDef]
+else:
+    _ListComplianceStatusPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, DefaultLists: bool = None, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListProtocolsListsResponseTypeDef]:
+class ListComplianceStatusPaginator(_ListComplianceStatusPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fms/paginator/ListComplianceStatus.html#FMS.Paginator.ListComplianceStatus)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fms/paginators/#listcompliancestatuspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListComplianceStatusRequestPaginateTypeDef]
+    ) -> PageIterator[ListComplianceStatusResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fms.html#FMS.Paginator.ListProtocolsLists.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fms/paginators.html#listprotocolslistspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fms/paginator/ListComplianceStatus.html#FMS.Paginator.ListComplianceStatus.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fms/paginators/#listcompliancestatuspaginator)
         """
 
-class ListThirdPartyFirewallFirewallPoliciesPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fms.html#FMS.Paginator.ListThirdPartyFirewallFirewallPolicies)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fms/paginators.html#listthirdpartyfirewallfirewallpoliciespaginator)
-    """
+if TYPE_CHECKING:
+    _ListMemberAccountsPaginatorBase = Paginator[ListMemberAccountsResponseTypeDef]
+else:
+    _ListMemberAccountsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        ThirdPartyFirewall: ThirdPartyFirewallType,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListThirdPartyFirewallFirewallPoliciesResponseTypeDef]:
+class ListMemberAccountsPaginator(_ListMemberAccountsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fms/paginator/ListMemberAccounts.html#FMS.Paginator.ListMemberAccounts)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fms/paginators/#listmemberaccountspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListMemberAccountsRequestPaginateTypeDef]
+    ) -> PageIterator[ListMemberAccountsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fms.html#FMS.Paginator.ListThirdPartyFirewallFirewallPolicies.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fms/paginators.html#listthirdpartyfirewallfirewallpoliciespaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fms/paginator/ListMemberAccounts.html#FMS.Paginator.ListMemberAccounts.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fms/paginators/#listmemberaccountspaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListPoliciesPaginatorBase = Paginator[ListPoliciesResponseTypeDef]
+else:
+    _ListPoliciesPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListPoliciesPaginator(_ListPoliciesPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fms/paginator/ListPolicies.html#FMS.Paginator.ListPolicies)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fms/paginators/#listpoliciespaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListPoliciesRequestPaginateTypeDef]
+    ) -> PageIterator[ListPoliciesResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fms/paginator/ListPolicies.html#FMS.Paginator.ListPolicies.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fms/paginators/#listpoliciespaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListProtocolsListsPaginatorBase = Paginator[ListProtocolsListsResponseTypeDef]
+else:
+    _ListProtocolsListsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListProtocolsListsPaginator(_ListProtocolsListsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fms/paginator/ListProtocolsLists.html#FMS.Paginator.ListProtocolsLists)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fms/paginators/#listprotocolslistspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListProtocolsListsRequestPaginateTypeDef]
+    ) -> PageIterator[ListProtocolsListsResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fms/paginator/ListProtocolsLists.html#FMS.Paginator.ListProtocolsLists.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fms/paginators/#listprotocolslistspaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListThirdPartyFirewallFirewallPoliciesPaginatorBase = Paginator[
+        ListThirdPartyFirewallFirewallPoliciesResponseTypeDef
+    ]
+else:
+    _ListThirdPartyFirewallFirewallPoliciesPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListThirdPartyFirewallFirewallPoliciesPaginator(
+    _ListThirdPartyFirewallFirewallPoliciesPaginatorBase
+):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fms/paginator/ListThirdPartyFirewallFirewallPolicies.html#FMS.Paginator.ListThirdPartyFirewallFirewallPolicies)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fms/paginators/#listthirdpartyfirewallfirewallpoliciespaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListThirdPartyFirewallFirewallPoliciesRequestPaginateTypeDef]
+    ) -> PageIterator[ListThirdPartyFirewallFirewallPoliciesResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fms/paginator/ListThirdPartyFirewallFirewallPolicies.html#FMS.Paginator.ListThirdPartyFirewallFirewallPolicies.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fms/paginators/#listthirdpartyfirewallfirewallpoliciespaginator)
         """

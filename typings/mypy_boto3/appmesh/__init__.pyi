@@ -1,10 +1,14 @@
 """
 Main interface for appmesh service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appmesh/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_appmesh import (
         AppMeshClient,
         Client,
@@ -18,10 +22,8 @@ Usage::
         ListVirtualServicesPaginator,
     )
 
-    session = boto3.Session()
-
-    client: AppMeshClient = boto3.client("appmesh")
-    session_client: AppMeshClient = session.client("appmesh")
+    session = Session()
+    client: AppMeshClient = session.client("appmesh")
 
     list_gateway_routes_paginator: ListGatewayRoutesPaginator = client.get_paginator("list_gateway_routes")
     list_meshes_paginator: ListMeshesPaginator = client.get_paginator("list_meshes")

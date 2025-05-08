@@ -1,59 +1,72 @@
 """
-Type annotations for timestream-query service client.
+Type annotations for timestream-query service Client.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_timestream_query/client.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_timestream_query/client/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
-    from mypy_boto3_timestream_query import TimestreamQueryClient
+    from boto3.session import Session
+    from mypy_boto3_timestream_query.client import TimestreamQueryClient
 
-    client: TimestreamQueryClient = boto3.client("timestream-query")
+    session = Session()
+    client: TimestreamQueryClient = session.client("timestream-query")
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from datetime import datetime
-from typing import Any, Dict, List, Type, Union, overload
+from typing import Any, overload
 
 from botocore.client import BaseClient, ClientMeta
+from botocore.errorfactory import BaseClientExceptions
+from botocore.exceptions import ClientError as BotocoreClientError
 
-from .literals import QueryPricingModelType, ScheduledQueryStateType
 from .paginator import ListScheduledQueriesPaginator, ListTagsForResourcePaginator, QueryPaginator
 from .type_defs import (
+    CancelQueryRequestTypeDef,
     CancelQueryResponseTypeDef,
+    CreateScheduledQueryRequestTypeDef,
     CreateScheduledQueryResponseTypeDef,
+    DeleteScheduledQueryRequestTypeDef,
     DescribeAccountSettingsResponseTypeDef,
     DescribeEndpointsResponseTypeDef,
+    DescribeScheduledQueryRequestTypeDef,
     DescribeScheduledQueryResponseTypeDef,
-    ErrorReportConfigurationTypeDef,
+    EmptyResponseMetadataTypeDef,
+    ExecuteScheduledQueryRequestTypeDef,
+    ListScheduledQueriesRequestTypeDef,
     ListScheduledQueriesResponseTypeDef,
+    ListTagsForResourceRequestTypeDef,
     ListTagsForResourceResponseTypeDef,
-    NotificationConfigurationTypeDef,
+    PrepareQueryRequestTypeDef,
     PrepareQueryResponseTypeDef,
+    QueryRequestTypeDef,
     QueryResponseTypeDef,
-    ScheduleConfigurationTypeDef,
-    TagTypeDef,
-    TargetConfigurationTypeDef,
+    TagResourceRequestTypeDef,
+    UntagResourceRequestTypeDef,
+    UpdateAccountSettingsRequestTypeDef,
     UpdateAccountSettingsResponseTypeDef,
+    UpdateScheduledQueryRequestTypeDef,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import type as Type
+    from collections.abc import Mapping
 else:
-    from typing_extensions import Literal
+    from typing import Dict, Mapping, Type
+if sys.version_info >= (3, 12):
+    from typing import Literal, Unpack
+else:
+    from typing_extensions import Literal, Unpack
 
 __all__ = ("TimestreamQueryClient",)
 
-class BotocoreClientError(BaseException):
-    MSG_TEMPLATE: str
-
-    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
-        self.response: Dict[str, Any]
-        self.operation_name: str
-
-class Exceptions:
+class Exceptions(BaseClientExceptions):
     AccessDeniedException: Type[BotocoreClientError]
     ClientError: Type[BotocoreClientError]
     ConflictException: Type[BotocoreClientError]
@@ -67,8 +80,8 @@ class Exceptions:
 
 class TimestreamQueryClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/timestream-query.html#TimestreamQuery.Client)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_timestream_query/client.html)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/timestream-query.html#TimestreamQuery.Client)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_timestream_query/client/)
     """
 
     meta: ClientMeta
@@ -77,69 +90,67 @@ class TimestreamQueryClient(BaseClient):
     def exceptions(self) -> Exceptions:
         """
         TimestreamQueryClient exceptions.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/timestream-query.html#TimestreamQuery.Client)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_timestream_query/client/#exceptions)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        Check if an operation can be paginated.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/timestream-query.html#TimestreamQuery.Client.can_paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_timestream_query/client.html#can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/timestream-query/client/can_paginate.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_timestream_query/client/#can_paginate)
         """
 
-    def cancel_query(self, *, QueryId: str) -> CancelQueryResponseTypeDef:
+    def generate_presigned_url(
+        self,
+        ClientMethod: str,
+        Params: Mapping[str, Any] = ...,
+        ExpiresIn: int = 3600,
+        HttpMethod: str = ...,
+    ) -> str:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/timestream-query/client/generate_presigned_url.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_timestream_query/client/#generate_presigned_url)
+        """
+
+    def cancel_query(
+        self, **kwargs: Unpack[CancelQueryRequestTypeDef]
+    ) -> CancelQueryResponseTypeDef:
         """
         Cancels a query that has been issued.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/timestream-query.html#TimestreamQuery.Client.cancel_query)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_timestream_query/client.html#cancel_query)
-        """
-
-    def close(self) -> None:
-        """
-        Closes underlying endpoint connections.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/timestream-query.html#TimestreamQuery.Client.close)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_timestream_query/client.html#close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/timestream-query/client/cancel_query.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_timestream_query/client/#cancel_query)
         """
 
     def create_scheduled_query(
-        self,
-        *,
-        Name: str,
-        QueryString: str,
-        ScheduleConfiguration: "ScheduleConfigurationTypeDef",
-        NotificationConfiguration: "NotificationConfigurationTypeDef",
-        ScheduledQueryExecutionRoleArn: str,
-        ErrorReportConfiguration: "ErrorReportConfigurationTypeDef",
-        TargetConfiguration: "TargetConfigurationTypeDef" = None,
-        ClientToken: str = None,
-        Tags: List["TagTypeDef"] = None,
-        KmsKeyId: str = None
+        self, **kwargs: Unpack[CreateScheduledQueryRequestTypeDef]
     ) -> CreateScheduledQueryResponseTypeDef:
         """
         Create a scheduled query that will be run on your behalf at the configured
         schedule.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/timestream-query.html#TimestreamQuery.Client.create_scheduled_query)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_timestream_query/client.html#create_scheduled_query)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/timestream-query/client/create_scheduled_query.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_timestream_query/client/#create_scheduled_query)
         """
 
-    def delete_scheduled_query(self, *, ScheduledQueryArn: str) -> None:
+    def delete_scheduled_query(
+        self, **kwargs: Unpack[DeleteScheduledQueryRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Deletes a given scheduled query.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/timestream-query.html#TimestreamQuery.Client.delete_scheduled_query)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_timestream_query/client.html#delete_scheduled_query)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/timestream-query/client/delete_scheduled_query.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_timestream_query/client/#delete_scheduled_query)
         """
 
     def describe_account_settings(self) -> DescribeAccountSettingsResponseTypeDef:
         """
-        Describes the settings for your account that include the query pricing model and
-        the configured maximum TCUs the service can use for your query workload.
+        Describes the settings for your account that include the query pricing model
+        and the configured maximum TCUs the service can use for your query workload.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/timestream-query.html#TimestreamQuery.Client.describe_account_settings)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_timestream_query/client.html#describe_account_settings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/timestream-query/client/describe_account_settings.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_timestream_query/client/#describe_account_settings)
         """
 
     def describe_endpoints(self) -> DescribeEndpointsResponseTypeDef:
@@ -147,153 +158,136 @@ class TimestreamQueryClient(BaseClient):
         DescribeEndpoints returns a list of available endpoints to make Timestream API
         calls against.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/timestream-query.html#TimestreamQuery.Client.describe_endpoints)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_timestream_query/client.html#describe_endpoints)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/timestream-query/client/describe_endpoints.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_timestream_query/client/#describe_endpoints)
         """
 
     def describe_scheduled_query(
-        self, *, ScheduledQueryArn: str
+        self, **kwargs: Unpack[DescribeScheduledQueryRequestTypeDef]
     ) -> DescribeScheduledQueryResponseTypeDef:
         """
         Provides detailed information about a scheduled query.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/timestream-query.html#TimestreamQuery.Client.describe_scheduled_query)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_timestream_query/client.html#describe_scheduled_query)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/timestream-query/client/describe_scheduled_query.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_timestream_query/client/#describe_scheduled_query)
         """
 
     def execute_scheduled_query(
-        self,
-        *,
-        ScheduledQueryArn: str,
-        InvocationTime: Union[datetime, str],
-        ClientToken: str = None
-    ) -> None:
+        self, **kwargs: Unpack[ExecuteScheduledQueryRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         You can use this API to run a scheduled query manually.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/timestream-query.html#TimestreamQuery.Client.execute_scheduled_query)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_timestream_query/client.html#execute_scheduled_query)
-        """
-
-    def generate_presigned_url(
-        self,
-        ClientMethod: str,
-        Params: Dict[str, Any] = None,
-        ExpiresIn: int = 3600,
-        HttpMethod: str = None,
-    ) -> str:
-        """
-        Generate a presigned url given a client, its method, and arguments.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/timestream-query.html#TimestreamQuery.Client.generate_presigned_url)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_timestream_query/client.html#generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/timestream-query/client/execute_scheduled_query.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_timestream_query/client/#execute_scheduled_query)
         """
 
     def list_scheduled_queries(
-        self, *, MaxResults: int = None, NextToken: str = None
+        self, **kwargs: Unpack[ListScheduledQueriesRequestTypeDef]
     ) -> ListScheduledQueriesResponseTypeDef:
         """
         Gets a list of all scheduled queries in the caller's Amazon account and Region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/timestream-query.html#TimestreamQuery.Client.list_scheduled_queries)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_timestream_query/client.html#list_scheduled_queries)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/timestream-query/client/list_scheduled_queries.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_timestream_query/client/#list_scheduled_queries)
         """
 
     def list_tags_for_resource(
-        self, *, ResourceARN: str, MaxResults: int = None, NextToken: str = None
+        self, **kwargs: Unpack[ListTagsForResourceRequestTypeDef]
     ) -> ListTagsForResourceResponseTypeDef:
         """
         List all tags on a Timestream query resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/timestream-query.html#TimestreamQuery.Client.list_tags_for_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_timestream_query/client.html#list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/timestream-query/client/list_tags_for_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_timestream_query/client/#list_tags_for_resource)
         """
 
     def prepare_query(
-        self, *, QueryString: str, ValidateOnly: bool = None
+        self, **kwargs: Unpack[PrepareQueryRequestTypeDef]
     ) -> PrepareQueryResponseTypeDef:
         """
         A synchronous operation that allows you to submit a query with parameters to be
         stored by Timestream for later running.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/timestream-query.html#TimestreamQuery.Client.prepare_query)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_timestream_query/client.html#prepare_query)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/timestream-query/client/prepare_query.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_timestream_query/client/#prepare_query)
         """
 
-    def query(
-        self,
-        *,
-        QueryString: str,
-        ClientToken: str = None,
-        NextToken: str = None,
-        MaxRows: int = None
-    ) -> QueryResponseTypeDef:
+    def query(self, **kwargs: Unpack[QueryRequestTypeDef]) -> QueryResponseTypeDef:
         """
-        `Query` is a synchronous operation that enables you to run a query against your
-        Amazon Timestream data.
+        <code>Query</code> is a synchronous operation that enables you to run a query
+        against your Amazon Timestream data.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/timestream-query.html#TimestreamQuery.Client.query)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_timestream_query/client.html#query)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/timestream-query/client/query.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_timestream_query/client/#query)
         """
 
-    def tag_resource(self, *, ResourceARN: str, Tags: List["TagTypeDef"]) -> Dict[str, Any]:
+    def tag_resource(self, **kwargs: Unpack[TagResourceRequestTypeDef]) -> Dict[str, Any]:
         """
         Associate a set of tags with a Timestream resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/timestream-query.html#TimestreamQuery.Client.tag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_timestream_query/client.html#tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/timestream-query/client/tag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_timestream_query/client/#tag_resource)
         """
 
-    def untag_resource(self, *, ResourceARN: str, TagKeys: List[str]) -> Dict[str, Any]:
+    def untag_resource(self, **kwargs: Unpack[UntagResourceRequestTypeDef]) -> Dict[str, Any]:
         """
         Removes the association of tags from a Timestream query resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/timestream-query.html#TimestreamQuery.Client.untag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_timestream_query/client.html#untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/timestream-query/client/untag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_timestream_query/client/#untag_resource)
         """
 
     def update_account_settings(
-        self, *, MaxQueryTCU: int = None, QueryPricingModel: QueryPricingModelType = None
+        self, **kwargs: Unpack[UpdateAccountSettingsRequestTypeDef]
     ) -> UpdateAccountSettingsResponseTypeDef:
         """
         Transitions your account to use TCUs for query pricing and modifies the maximum
         query compute units that you've configured.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/timestream-query.html#TimestreamQuery.Client.update_account_settings)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_timestream_query/client.html#update_account_settings)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/timestream-query/client/update_account_settings.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_timestream_query/client/#update_account_settings)
         """
 
     def update_scheduled_query(
-        self, *, ScheduledQueryArn: str, State: ScheduledQueryStateType
-    ) -> None:
+        self, **kwargs: Unpack[UpdateScheduledQueryRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Update a scheduled query.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/timestream-query.html#TimestreamQuery.Client.update_scheduled_query)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_timestream_query/client.html#update_scheduled_query)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/timestream-query/client/update_scheduled_query.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_timestream_query/client/#update_scheduled_query)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_scheduled_queries"]
     ) -> ListScheduledQueriesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/timestream-query.html#TimestreamQuery.Paginator.ListScheduledQueries)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_timestream_query/paginators.html#listscheduledqueriespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/timestream-query/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_timestream_query/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_tags_for_resource"]
     ) -> ListTagsForResourcePaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/timestream-query.html#TimestreamQuery.Paginator.ListTagsForResource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_timestream_query/paginators.html#listtagsforresourcepaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/timestream-query/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_timestream_query/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["query"]) -> QueryPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["query"]
+    ) -> QueryPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/timestream-query.html#TimestreamQuery.Paginator.Query)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_timestream_query/paginators.html#querypaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/timestream-query/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_timestream_query/client/#get_paginator)
         """

@@ -1,10 +1,14 @@
 """
 Main interface for emr-serverless service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_emr_serverless/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_emr_serverless import (
         Client,
         EMRServerlessClient,
@@ -13,10 +17,8 @@ Usage::
         ListJobRunsPaginator,
     )
 
-    session = boto3.Session()
-
-    client: EMRServerlessClient = boto3.client("emr-serverless")
-    session_client: EMRServerlessClient = session.client("emr-serverless")
+    session = Session()
+    client: EMRServerlessClient = session.client("emr-serverless")
 
     list_applications_paginator: ListApplicationsPaginator = client.get_paginator("list_applications")
     list_job_run_attempts_paginator: ListJobRunAttemptsPaginator = client.get_paginator("list_job_run_attempts")

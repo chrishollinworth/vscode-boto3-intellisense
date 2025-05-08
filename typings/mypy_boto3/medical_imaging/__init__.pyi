@@ -1,10 +1,14 @@
 """
 Main interface for medical-imaging service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medical_imaging/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_medical_imaging import (
         Client,
         HealthImagingClient,
@@ -14,10 +18,8 @@ Usage::
         SearchImageSetsPaginator,
     )
 
-    session = boto3.Session()
-
-    client: HealthImagingClient = boto3.client("medical-imaging")
-    session_client: HealthImagingClient = session.client("medical-imaging")
+    session = Session()
+    client: HealthImagingClient = session.client("medical-imaging")
 
     list_dicom_import_jobs_paginator: ListDICOMImportJobsPaginator = client.get_paginator("list_dicom_import_jobs")
     list_datastores_paginator: ListDatastoresPaginator = client.get_paginator("list_datastores")

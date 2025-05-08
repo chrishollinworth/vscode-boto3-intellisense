@@ -1,19 +1,21 @@
 """
 Main interface for lookoutequipment service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lookoutequipment/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_lookoutequipment import (
         Client,
         LookoutEquipmentClient,
     )
 
-    session = boto3.Session()
-
-    client: LookoutEquipmentClient = boto3.client("lookoutequipment")
-    session_client: LookoutEquipmentClient = session.client("lookoutequipment")
+    session = Session()
+    client: LookoutEquipmentClient = session.client("lookoutequipment")
     ```
 """
 

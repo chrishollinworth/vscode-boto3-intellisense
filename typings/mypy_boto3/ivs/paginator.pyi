@@ -1,14 +1,16 @@
 """
 Type annotations for ivs service client paginators.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivs/paginators.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ivs/paginators/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
 
-    from mypy_boto3_ivs import IVSClient
+    from mypy_boto3_ivs.client import IVSClient
     from mypy_boto3_ivs.paginator import (
         ListChannelsPaginator,
         ListPlaybackKeyPairsPaginator,
@@ -17,7 +19,8 @@ Usage::
         ListStreamsPaginator,
     )
 
-    client: IVSClient = boto3.client("ivs")
+    session = Session()
+    client: IVSClient = session.client("ivs")
 
     list_channels_paginator: ListChannelsPaginator = client.get_paginator("list_channels")
     list_playback_key_pairs_paginator: ListPlaybackKeyPairsPaginator = client.get_paginator("list_playback_key_pairs")
@@ -27,19 +30,30 @@ Usage::
     ```
 """
 
-from typing import Iterator
+from __future__ import annotations
 
-from botocore.paginate import Paginator as Boto3Paginator
+import sys
+from typing import TYPE_CHECKING
+
+from botocore.paginate import PageIterator, Paginator
 
 from .type_defs import (
+    ListChannelsRequestPaginateTypeDef,
     ListChannelsResponseTypeDef,
+    ListPlaybackKeyPairsRequestPaginateTypeDef,
     ListPlaybackKeyPairsResponseTypeDef,
+    ListRecordingConfigurationsRequestPaginateTypeDef,
     ListRecordingConfigurationsResponseTypeDef,
+    ListStreamKeysRequestPaginateTypeDef,
     ListStreamKeysResponseTypeDef,
+    ListStreamsRequestPaginateTypeDef,
     ListStreamsResponseTypeDef,
-    PaginatorConfigTypeDef,
-    StreamFiltersTypeDef,
 )
+
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = (
     "ListChannelsPaginator",
@@ -49,80 +63,94 @@ __all__ = (
     "ListStreamsPaginator",
 )
 
-class ListChannelsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivs.html#IVS.Paginator.ListChannels)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivs/paginators.html#listchannelspaginator)
-    """
+if TYPE_CHECKING:
+    _ListChannelsPaginatorBase = Paginator[ListChannelsResponseTypeDef]
+else:
+    _ListChannelsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        filterByName: str = None,
-        filterByPlaybackRestrictionPolicyArn: str = None,
-        filterByRecordingConfigurationArn: str = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListChannelsResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivs.html#IVS.Paginator.ListChannels.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivs/paginators.html#listchannelspaginator)
-        """
-
-class ListPlaybackKeyPairsPaginator(Boto3Paginator):
+class ListChannelsPaginator(_ListChannelsPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivs.html#IVS.Paginator.ListPlaybackKeyPairs)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivs/paginators.html#listplaybackkeypairspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ivs/paginator/ListChannels.html#IVS.Paginator.ListChannels)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ivs/paginators/#listchannelspaginator)
     """
-
-    def paginate(
-        self, *, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListPlaybackKeyPairsResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListChannelsRequestPaginateTypeDef]
+    ) -> PageIterator[ListChannelsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivs.html#IVS.Paginator.ListPlaybackKeyPairs.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivs/paginators.html#listplaybackkeypairspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ivs/paginator/ListChannels.html#IVS.Paginator.ListChannels.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ivs/paginators/#listchannelspaginator)
         """
 
-class ListRecordingConfigurationsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivs.html#IVS.Paginator.ListRecordingConfigurations)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivs/paginators.html#listrecordingconfigurationspaginator)
-    """
+if TYPE_CHECKING:
+    _ListPlaybackKeyPairsPaginatorBase = Paginator[ListPlaybackKeyPairsResponseTypeDef]
+else:
+    _ListPlaybackKeyPairsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListRecordingConfigurationsResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivs.html#IVS.Paginator.ListRecordingConfigurations.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivs/paginators.html#listrecordingconfigurationspaginator)
-        """
-
-class ListStreamKeysPaginator(Boto3Paginator):
+class ListPlaybackKeyPairsPaginator(_ListPlaybackKeyPairsPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivs.html#IVS.Paginator.ListStreamKeys)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivs/paginators.html#liststreamkeyspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ivs/paginator/ListPlaybackKeyPairs.html#IVS.Paginator.ListPlaybackKeyPairs)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ivs/paginators/#listplaybackkeypairspaginator)
     """
-
-    def paginate(
-        self, *, channelArn: str, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListStreamKeysResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListPlaybackKeyPairsRequestPaginateTypeDef]
+    ) -> PageIterator[ListPlaybackKeyPairsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivs.html#IVS.Paginator.ListStreamKeys.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivs/paginators.html#liststreamkeyspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ivs/paginator/ListPlaybackKeyPairs.html#IVS.Paginator.ListPlaybackKeyPairs.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ivs/paginators/#listplaybackkeypairspaginator)
         """
 
-class ListStreamsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivs.html#IVS.Paginator.ListStreams)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivs/paginators.html#liststreamspaginator)
-    """
+if TYPE_CHECKING:
+    _ListRecordingConfigurationsPaginatorBase = Paginator[
+        ListRecordingConfigurationsResponseTypeDef
+    ]
+else:
+    _ListRecordingConfigurationsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        filterBy: "StreamFiltersTypeDef" = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListStreamsResponseTypeDef]:
+class ListRecordingConfigurationsPaginator(_ListRecordingConfigurationsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ivs/paginator/ListRecordingConfigurations.html#IVS.Paginator.ListRecordingConfigurations)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ivs/paginators/#listrecordingconfigurationspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListRecordingConfigurationsRequestPaginateTypeDef]
+    ) -> PageIterator[ListRecordingConfigurationsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivs.html#IVS.Paginator.ListStreams.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivs/paginators.html#liststreamspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ivs/paginator/ListRecordingConfigurations.html#IVS.Paginator.ListRecordingConfigurations.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ivs/paginators/#listrecordingconfigurationspaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListStreamKeysPaginatorBase = Paginator[ListStreamKeysResponseTypeDef]
+else:
+    _ListStreamKeysPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListStreamKeysPaginator(_ListStreamKeysPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ivs/paginator/ListStreamKeys.html#IVS.Paginator.ListStreamKeys)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ivs/paginators/#liststreamkeyspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListStreamKeysRequestPaginateTypeDef]
+    ) -> PageIterator[ListStreamKeysResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ivs/paginator/ListStreamKeys.html#IVS.Paginator.ListStreamKeys.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ivs/paginators/#liststreamkeyspaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListStreamsPaginatorBase = Paginator[ListStreamsResponseTypeDef]
+else:
+    _ListStreamsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListStreamsPaginator(_ListStreamsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ivs/paginator/ListStreams.html#IVS.Paginator.ListStreams)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ivs/paginators/#liststreamspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListStreamsRequestPaginateTypeDef]
+    ) -> PageIterator[ListStreamsResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ivs/paginator/ListStreams.html#IVS.Paginator.ListStreams.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ivs/paginators/#liststreamspaginator)
         """

@@ -1,205 +1,221 @@
 """
 Type annotations for controlcatalog service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_controlcatalog/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_controlcatalog/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_controlcatalog.type_defs import AssociatedDomainSummaryTypeDef
 
-    data: AssociatedDomainSummaryTypeDef = {...}
+    data: AssociatedDomainSummaryTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+from .literals import ControlBehaviorType, ControlScopeType, ControlSeverityType
+
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Sequence
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List, Sequence
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
     "AssociatedDomainSummaryTypeDef",
     "AssociatedObjectiveSummaryTypeDef",
     "CommonControlFilterTypeDef",
     "CommonControlSummaryTypeDef",
+    "ControlParameterTypeDef",
+    "ControlSummaryTypeDef",
     "DomainResourceFilterTypeDef",
     "DomainSummaryTypeDef",
-    "ListCommonControlsRequestRequestTypeDef",
+    "GetControlRequestTypeDef",
+    "GetControlResponseTypeDef",
+    "ImplementationDetailsTypeDef",
+    "ImplementationSummaryTypeDef",
+    "ListCommonControlsRequestPaginateTypeDef",
+    "ListCommonControlsRequestTypeDef",
     "ListCommonControlsResponseTypeDef",
-    "ListDomainsRequestRequestTypeDef",
+    "ListControlsRequestPaginateTypeDef",
+    "ListControlsRequestTypeDef",
+    "ListControlsResponseTypeDef",
+    "ListDomainsRequestPaginateTypeDef",
+    "ListDomainsRequestTypeDef",
     "ListDomainsResponseTypeDef",
-    "ListObjectivesRequestRequestTypeDef",
+    "ListObjectivesRequestPaginateTypeDef",
+    "ListObjectivesRequestTypeDef",
     "ListObjectivesResponseTypeDef",
     "ObjectiveFilterTypeDef",
     "ObjectiveResourceFilterTypeDef",
     "ObjectiveSummaryTypeDef",
     "PaginatorConfigTypeDef",
+    "RegionConfigurationTypeDef",
     "ResponseMetadataTypeDef",
 )
 
-AssociatedDomainSummaryTypeDef = TypedDict(
-    "AssociatedDomainSummaryTypeDef",
-    {
-        "Arn": str,
-        "Name": str,
-    },
-    total=False,
-)
+class AssociatedDomainSummaryTypeDef(TypedDict):
+    Arn: NotRequired[str]
+    Name: NotRequired[str]
 
-AssociatedObjectiveSummaryTypeDef = TypedDict(
-    "AssociatedObjectiveSummaryTypeDef",
-    {
-        "Arn": str,
-        "Name": str,
-    },
-    total=False,
-)
+class AssociatedObjectiveSummaryTypeDef(TypedDict):
+    Arn: NotRequired[str]
+    Name: NotRequired[str]
 
-CommonControlFilterTypeDef = TypedDict(
-    "CommonControlFilterTypeDef",
-    {
-        "Objectives": List["ObjectiveResourceFilterTypeDef"],
-    },
-    total=False,
-)
+class ObjectiveResourceFilterTypeDef(TypedDict):
+    Arn: NotRequired[str]
 
-CommonControlSummaryTypeDef = TypedDict(
-    "CommonControlSummaryTypeDef",
+class ControlParameterTypeDef(TypedDict):
+    Name: str
+
+ImplementationSummaryTypeDef = TypedDict(
+    "ImplementationSummaryTypeDef",
     {
-        "Arn": str,
-        "CreateTime": datetime,
-        "Description": str,
-        "Domain": "AssociatedDomainSummaryTypeDef",
-        "LastUpdateTime": datetime,
-        "Name": str,
-        "Objective": "AssociatedObjectiveSummaryTypeDef",
+        "Type": str,
+        "Identifier": NotRequired[str],
     },
 )
 
-DomainResourceFilterTypeDef = TypedDict(
-    "DomainResourceFilterTypeDef",
-    {
-        "Arn": str,
-    },
-    total=False,
-)
+class DomainResourceFilterTypeDef(TypedDict):
+    Arn: NotRequired[str]
 
-DomainSummaryTypeDef = TypedDict(
-    "DomainSummaryTypeDef",
-    {
-        "Arn": str,
-        "CreateTime": datetime,
-        "Description": str,
-        "LastUpdateTime": datetime,
-        "Name": str,
-    },
-)
+class DomainSummaryTypeDef(TypedDict):
+    Arn: str
+    Name: str
+    Description: str
+    CreateTime: datetime
+    LastUpdateTime: datetime
 
-ListCommonControlsRequestRequestTypeDef = TypedDict(
-    "ListCommonControlsRequestRequestTypeDef",
-    {
-        "CommonControlFilter": "CommonControlFilterTypeDef",
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
+class GetControlRequestTypeDef(TypedDict):
+    ControlArn: str
 
-ListCommonControlsResponseTypeDef = TypedDict(
-    "ListCommonControlsResponseTypeDef",
+ImplementationDetailsTypeDef = TypedDict(
+    "ImplementationDetailsTypeDef",
     {
-        "CommonControls": List["CommonControlSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "Type": str,
+        "Identifier": NotRequired[str],
     },
 )
 
-ListDomainsRequestRequestTypeDef = TypedDict(
-    "ListDomainsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
+class RegionConfigurationTypeDef(TypedDict):
+    Scope: ControlScopeType
+    DeployableRegions: NotRequired[List[str]]
 
-ListDomainsResponseTypeDef = TypedDict(
-    "ListDomainsResponseTypeDef",
-    {
-        "Domains": List["DomainSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-ListObjectivesRequestRequestTypeDef = TypedDict(
-    "ListObjectivesRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-        "ObjectiveFilter": "ObjectiveFilterTypeDef",
-    },
-    total=False,
-)
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
 
-ListObjectivesResponseTypeDef = TypedDict(
-    "ListObjectivesResponseTypeDef",
-    {
-        "NextToken": str,
-        "Objectives": List["ObjectiveSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListControlsRequestTypeDef(TypedDict):
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
 
-ObjectiveFilterTypeDef = TypedDict(
-    "ObjectiveFilterTypeDef",
-    {
-        "Domains": List["DomainResourceFilterTypeDef"],
-    },
-    total=False,
-)
+class ListDomainsRequestTypeDef(TypedDict):
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
 
-ObjectiveResourceFilterTypeDef = TypedDict(
-    "ObjectiveResourceFilterTypeDef",
-    {
-        "Arn": str,
-    },
-    total=False,
-)
+class ObjectiveSummaryTypeDef(TypedDict):
+    Arn: str
+    Name: str
+    Description: str
+    Domain: AssociatedDomainSummaryTypeDef
+    CreateTime: datetime
+    LastUpdateTime: datetime
 
-ObjectiveSummaryTypeDef = TypedDict(
-    "ObjectiveSummaryTypeDef",
-    {
-        "Arn": str,
-        "CreateTime": datetime,
-        "Description": str,
-        "Domain": "AssociatedDomainSummaryTypeDef",
-        "LastUpdateTime": datetime,
-        "Name": str,
-    },
-)
+class CommonControlSummaryTypeDef(TypedDict):
+    Arn: str
+    Name: str
+    Description: str
+    Domain: AssociatedDomainSummaryTypeDef
+    Objective: AssociatedObjectiveSummaryTypeDef
+    CreateTime: datetime
+    LastUpdateTime: datetime
 
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
+class CommonControlFilterTypeDef(TypedDict):
+    Objectives: NotRequired[Sequence[ObjectiveResourceFilterTypeDef]]
 
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
+class ControlSummaryTypeDef(TypedDict):
+    Arn: str
+    Name: str
+    Description: str
+    Behavior: NotRequired[ControlBehaviorType]
+    Severity: NotRequired[ControlSeverityType]
+    Implementation: NotRequired[ImplementationSummaryTypeDef]
+    CreateTime: NotRequired[datetime]
+
+class ObjectiveFilterTypeDef(TypedDict):
+    Domains: NotRequired[Sequence[DomainResourceFilterTypeDef]]
+
+class GetControlResponseTypeDef(TypedDict):
+    Arn: str
+    Name: str
+    Description: str
+    Behavior: ControlBehaviorType
+    Severity: ControlSeverityType
+    RegionConfiguration: RegionConfigurationTypeDef
+    Implementation: ImplementationDetailsTypeDef
+    Parameters: List[ControlParameterTypeDef]
+    CreateTime: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListDomainsResponseTypeDef(TypedDict):
+    Domains: List[DomainSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListControlsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListDomainsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListObjectivesResponseTypeDef(TypedDict):
+    Objectives: List[ObjectiveSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListCommonControlsResponseTypeDef(TypedDict):
+    CommonControls: List[CommonControlSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListCommonControlsRequestPaginateTypeDef(TypedDict):
+    CommonControlFilter: NotRequired[CommonControlFilterTypeDef]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListCommonControlsRequestTypeDef(TypedDict):
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+    CommonControlFilter: NotRequired[CommonControlFilterTypeDef]
+
+class ListControlsResponseTypeDef(TypedDict):
+    Controls: List[ControlSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListObjectivesRequestPaginateTypeDef(TypedDict):
+    ObjectiveFilter: NotRequired[ObjectiveFilterTypeDef]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListObjectivesRequestTypeDef(TypedDict):
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+    ObjectiveFilter: NotRequired[ObjectiveFilterTypeDef]

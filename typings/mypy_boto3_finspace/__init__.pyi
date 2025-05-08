@@ -1,28 +1,30 @@
 """
 Main interface for finspace service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_finspace/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_finspace import (
         Client,
+        FinspaceClient,
         ListKxEnvironmentsPaginator,
-        finspaceClient,
     )
 
-    session = boto3.Session()
-
-    client: finspaceClient = boto3.client("finspace")
-    session_client: finspaceClient = session.client("finspace")
+    session = Session()
+    client: FinspaceClient = session.client("finspace")
 
     list_kx_environments_paginator: ListKxEnvironmentsPaginator = client.get_paginator("list_kx_environments")
     ```
 """
 
-from .client import finspaceClient
+from .client import FinspaceClient
 from .paginator import ListKxEnvironmentsPaginator
 
-Client = finspaceClient
+Client = FinspaceClient
 
-__all__ = ("Client", "ListKxEnvironmentsPaginator", "finspaceClient")
+__all__ = ("Client", "FinspaceClient", "ListKxEnvironmentsPaginator")

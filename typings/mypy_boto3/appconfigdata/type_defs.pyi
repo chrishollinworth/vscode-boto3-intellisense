@@ -1,89 +1,66 @@
 """
 Type annotations for appconfigdata service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_appconfigdata/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appconfigdata/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_appconfigdata.type_defs import GetLatestConfigurationRequestRequestTypeDef
+    from mypy_boto3_appconfigdata.type_defs import GetLatestConfigurationRequestTypeDef
 
-    data: GetLatestConfigurationRequestRequestTypeDef = {...}
+    data: GetLatestConfigurationRequestTypeDef = ...
     ```
 """
 
-import sys
-from typing import Any, Dict
+from __future__ import annotations
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+import sys
+
+from botocore.response import StreamingBody
+
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
-    "GetLatestConfigurationRequestRequestTypeDef",
+    "GetLatestConfigurationRequestTypeDef",
     "GetLatestConfigurationResponseTypeDef",
     "ResponseMetadataTypeDef",
-    "StartConfigurationSessionRequestRequestTypeDef",
+    "StartConfigurationSessionRequestTypeDef",
     "StartConfigurationSessionResponseTypeDef",
 )
 
-GetLatestConfigurationRequestRequestTypeDef = TypedDict(
-    "GetLatestConfigurationRequestRequestTypeDef",
-    {
-        "ConfigurationToken": str,
-    },
-)
+class GetLatestConfigurationRequestTypeDef(TypedDict):
+    ConfigurationToken: str
 
-GetLatestConfigurationResponseTypeDef = TypedDict(
-    "GetLatestConfigurationResponseTypeDef",
-    {
-        "NextPollConfigurationToken": str,
-        "NextPollIntervalInSeconds": int,
-        "ContentType": str,
-        "Configuration": bytes,
-        "VersionLabel": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
+class StartConfigurationSessionRequestTypeDef(TypedDict):
+    ApplicationIdentifier: str
+    EnvironmentIdentifier: str
+    ConfigurationProfileIdentifier: str
+    RequiredMinimumPollIntervalInSeconds: NotRequired[int]
 
-_RequiredStartConfigurationSessionRequestRequestTypeDef = TypedDict(
-    "_RequiredStartConfigurationSessionRequestRequestTypeDef",
-    {
-        "ApplicationIdentifier": str,
-        "EnvironmentIdentifier": str,
-        "ConfigurationProfileIdentifier": str,
-    },
-)
-_OptionalStartConfigurationSessionRequestRequestTypeDef = TypedDict(
-    "_OptionalStartConfigurationSessionRequestRequestTypeDef",
-    {
-        "RequiredMinimumPollIntervalInSeconds": int,
-    },
-    total=False,
-)
+class GetLatestConfigurationResponseTypeDef(TypedDict):
+    NextPollConfigurationToken: str
+    NextPollIntervalInSeconds: int
+    ContentType: str
+    Configuration: StreamingBody
+    VersionLabel: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class StartConfigurationSessionRequestRequestTypeDef(
-    _RequiredStartConfigurationSessionRequestRequestTypeDef,
-    _OptionalStartConfigurationSessionRequestRequestTypeDef,
-):
-    pass
-
-StartConfigurationSessionResponseTypeDef = TypedDict(
-    "StartConfigurationSessionResponseTypeDef",
-    {
-        "InitialConfigurationToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class StartConfigurationSessionResponseTypeDef(TypedDict):
+    InitialConfigurationToken: str
+    ResponseMetadata: ResponseMetadataTypeDef

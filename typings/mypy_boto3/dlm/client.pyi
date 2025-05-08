@@ -1,49 +1,59 @@
 """
-Type annotations for dlm service client.
+Type annotations for dlm service Client.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dlm/client.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dlm/client/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
-    from mypy_boto3_dlm import DLMClient
+    from boto3.session import Session
+    from mypy_boto3_dlm.client import DLMClient
 
-    client: DLMClient = boto3.client("dlm")
+    session = Session()
+    client: DLMClient = session.client("dlm")
     ```
 """
 
-from typing import Any, Dict, List, Type
+from __future__ import annotations
+
+import sys
+from typing import Any
 
 from botocore.client import BaseClient, ClientMeta
+from botocore.errorfactory import BaseClientExceptions
+from botocore.exceptions import ClientError as BotocoreClientError
 
-from .literals import (
-    DefaultPoliciesTypeValuesType,
-    DefaultPolicyTypeValuesType,
-    GettablePolicyStateValuesType,
-    ResourceTypeValuesType,
-    SettablePolicyStateValuesType,
-)
 from .type_defs import (
+    CreateLifecyclePolicyRequestTypeDef,
     CreateLifecyclePolicyResponseTypeDef,
-    CrossRegionCopyTargetTypeDef,
-    ExclusionsTypeDef,
+    DeleteLifecyclePolicyRequestTypeDef,
+    GetLifecyclePoliciesRequestTypeDef,
     GetLifecyclePoliciesResponseTypeDef,
+    GetLifecyclePolicyRequestTypeDef,
     GetLifecyclePolicyResponseTypeDef,
+    ListTagsForResourceRequestTypeDef,
     ListTagsForResourceResponseTypeDef,
-    PolicyDetailsTypeDef,
+    TagResourceRequestTypeDef,
+    UntagResourceRequestTypeDef,
+    UpdateLifecyclePolicyRequestTypeDef,
 )
+
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import type as Type
+    from collections.abc import Mapping
+else:
+    from typing import Dict, Mapping, Type
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = ("DLMClient",)
 
-class BotocoreClientError(BaseException):
-    MSG_TEMPLATE: str
-
-    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
-        self.response: Dict[str, Any]
-        self.operation_name: str
-
-class Exceptions:
+class Exceptions(BaseClientExceptions):
     ClientError: Type[BotocoreClientError]
     InternalServerException: Type[BotocoreClientError]
     InvalidRequestException: Type[BotocoreClientError]
@@ -52,8 +62,8 @@ class Exceptions:
 
 class DLMClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dlm.html#DLM.Client)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dlm/client.html)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dlm.html#DLM.Client)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dlm/client/)
     """
 
     meta: ClientMeta
@@ -62,137 +72,102 @@ class DLMClient(BaseClient):
     def exceptions(self) -> Exceptions:
         """
         DLMClient exceptions.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dlm.html#DLM.Client)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dlm/client/#exceptions)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        Check if an operation can be paginated.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dlm.html#DLM.Client.can_paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dlm/client.html#can_paginate)
-        """
-
-    def close(self) -> None:
-        """
-        Closes underlying endpoint connections.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dlm.html#DLM.Client.close)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dlm/client.html#close)
-        """
-
-    def create_lifecycle_policy(
-        self,
-        *,
-        ExecutionRoleArn: str,
-        Description: str,
-        State: SettablePolicyStateValuesType,
-        PolicyDetails: "PolicyDetailsTypeDef" = None,
-        Tags: Dict[str, str] = None,
-        DefaultPolicy: DefaultPolicyTypeValuesType = None,
-        CreateInterval: int = None,
-        RetainInterval: int = None,
-        CopyTags: bool = None,
-        ExtendDeletion: bool = None,
-        CrossRegionCopyTargets: List["CrossRegionCopyTargetTypeDef"] = None,
-        Exclusions: "ExclusionsTypeDef" = None
-    ) -> CreateLifecyclePolicyResponseTypeDef:
-        """
-        Creates an Amazon Data Lifecycle Manager lifecycle policy.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dlm.html#DLM.Client.create_lifecycle_policy)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dlm/client.html#create_lifecycle_policy)
-        """
-
-    def delete_lifecycle_policy(self, *, PolicyId: str) -> Dict[str, Any]:
-        """
-        Deletes the specified lifecycle policy and halts the automated operations that
-        the policy specified.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dlm.html#DLM.Client.delete_lifecycle_policy)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dlm/client.html#delete_lifecycle_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dlm/client/can_paginate.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dlm/client/#can_paginate)
         """
 
     def generate_presigned_url(
         self,
         ClientMethod: str,
-        Params: Dict[str, Any] = None,
+        Params: Mapping[str, Any] = ...,
         ExpiresIn: int = 3600,
-        HttpMethod: str = None,
+        HttpMethod: str = ...,
     ) -> str:
         """
-        Generate a presigned url given a client, its method, and arguments.
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dlm/client/generate_presigned_url.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dlm/client/#generate_presigned_url)
+        """
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dlm.html#DLM.Client.generate_presigned_url)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dlm/client.html#generate_presigned_url)
+    def create_lifecycle_policy(
+        self, **kwargs: Unpack[CreateLifecyclePolicyRequestTypeDef]
+    ) -> CreateLifecyclePolicyResponseTypeDef:
+        """
+        Creates an Amazon Data Lifecycle Manager lifecycle policy.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dlm/client/create_lifecycle_policy.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dlm/client/#create_lifecycle_policy)
+        """
+
+    def delete_lifecycle_policy(
+        self, **kwargs: Unpack[DeleteLifecyclePolicyRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Deletes the specified lifecycle policy and halts the automated operations that
+        the policy specified.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dlm/client/delete_lifecycle_policy.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dlm/client/#delete_lifecycle_policy)
         """
 
     def get_lifecycle_policies(
-        self,
-        *,
-        PolicyIds: List[str] = None,
-        State: GettablePolicyStateValuesType = None,
-        ResourceTypes: List[ResourceTypeValuesType] = None,
-        TargetTags: List[str] = None,
-        TagsToAdd: List[str] = None,
-        DefaultPolicyType: DefaultPoliciesTypeValuesType = None
+        self, **kwargs: Unpack[GetLifecyclePoliciesRequestTypeDef]
     ) -> GetLifecyclePoliciesResponseTypeDef:
         """
         Gets summary information about all or the specified data lifecycle policies.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dlm.html#DLM.Client.get_lifecycle_policies)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dlm/client.html#get_lifecycle_policies)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dlm/client/get_lifecycle_policies.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dlm/client/#get_lifecycle_policies)
         """
 
-    def get_lifecycle_policy(self, *, PolicyId: str) -> GetLifecyclePolicyResponseTypeDef:
+    def get_lifecycle_policy(
+        self, **kwargs: Unpack[GetLifecyclePolicyRequestTypeDef]
+    ) -> GetLifecyclePolicyResponseTypeDef:
         """
         Gets detailed information about the specified lifecycle policy.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dlm.html#DLM.Client.get_lifecycle_policy)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dlm/client.html#get_lifecycle_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dlm/client/get_lifecycle_policy.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dlm/client/#get_lifecycle_policy)
         """
 
-    def list_tags_for_resource(self, *, ResourceArn: str) -> ListTagsForResourceResponseTypeDef:
+    def list_tags_for_resource(
+        self, **kwargs: Unpack[ListTagsForResourceRequestTypeDef]
+    ) -> ListTagsForResourceResponseTypeDef:
         """
         Lists the tags for the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dlm.html#DLM.Client.list_tags_for_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dlm/client.html#list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dlm/client/list_tags_for_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dlm/client/#list_tags_for_resource)
         """
 
-    def tag_resource(self, *, ResourceArn: str, Tags: Dict[str, str]) -> Dict[str, Any]:
+    def tag_resource(self, **kwargs: Unpack[TagResourceRequestTypeDef]) -> Dict[str, Any]:
         """
         Adds the specified tags to the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dlm.html#DLM.Client.tag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dlm/client.html#tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dlm/client/tag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dlm/client/#tag_resource)
         """
 
-    def untag_resource(self, *, ResourceArn: str, TagKeys: List[str]) -> Dict[str, Any]:
+    def untag_resource(self, **kwargs: Unpack[UntagResourceRequestTypeDef]) -> Dict[str, Any]:
         """
         Removes the specified tags from the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dlm.html#DLM.Client.untag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dlm/client.html#untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dlm/client/untag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dlm/client/#untag_resource)
         """
 
     def update_lifecycle_policy(
-        self,
-        *,
-        PolicyId: str,
-        ExecutionRoleArn: str = None,
-        State: SettablePolicyStateValuesType = None,
-        Description: str = None,
-        PolicyDetails: "PolicyDetailsTypeDef" = None,
-        CreateInterval: int = None,
-        RetainInterval: int = None,
-        CopyTags: bool = None,
-        ExtendDeletion: bool = None,
-        CrossRegionCopyTargets: List["CrossRegionCopyTargetTypeDef"] = None,
-        Exclusions: "ExclusionsTypeDef" = None
+        self, **kwargs: Unpack[UpdateLifecyclePolicyRequestTypeDef]
     ) -> Dict[str, Any]:
         """
         Updates the specified lifecycle policy.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/dlm.html#DLM.Client.update_lifecycle_policy)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dlm/client.html#update_lifecycle_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dlm/client/update_lifecycle_policy.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dlm/client/#update_lifecycle_policy)
         """

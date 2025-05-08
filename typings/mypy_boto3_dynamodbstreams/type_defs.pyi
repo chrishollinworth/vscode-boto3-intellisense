@@ -1,20 +1,24 @@
 """
 Type annotations for dynamodbstreams service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dynamodbstreams/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dynamodbstreams/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_dynamodbstreams.type_defs import AttributeValueTypeDef
 
-    data: AttributeValueTypeDef = {...}
+    data: AttributeValueTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
+from typing import Any
 
 from .literals import (
     KeyTypeType,
@@ -24,22 +28,27 @@ from .literals import (
     StreamViewTypeType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
     "AttributeValueTypeDef",
-    "DescribeStreamInputRequestTypeDef",
+    "DescribeStreamInputTypeDef",
     "DescribeStreamOutputTypeDef",
-    "GetRecordsInputRequestTypeDef",
+    "GetRecordsInputTypeDef",
     "GetRecordsOutputTypeDef",
-    "GetShardIteratorInputRequestTypeDef",
+    "GetShardIteratorInputTypeDef",
     "GetShardIteratorOutputTypeDef",
     "IdentityTypeDef",
     "KeySchemaElementTypeDef",
-    "ListStreamsInputRequestTypeDef",
+    "ListStreamsInputTypeDef",
     "ListStreamsOutputTypeDef",
     "RecordTypeDef",
     "ResponseMetadataTypeDef",
@@ -50,224 +59,114 @@ __all__ = (
     "StreamTypeDef",
 )
 
-AttributeValueTypeDef = TypedDict(
-    "AttributeValueTypeDef",
-    {
-        "S": str,
-        "N": str,
-        "B": bytes,
-        "SS": List[str],
-        "NS": List[str],
-        "BS": List[bytes],
-        "M": Dict[str, Dict[str, Any]],
-        "L": List[Dict[str, Any]],
-        "NULL": bool,
-        "BOOL": bool,
-    },
-    total=False,
-)
+class AttributeValueTypeDef(TypedDict):
+    S: NotRequired[str]
+    N: NotRequired[str]
+    B: NotRequired[bytes]
+    SS: NotRequired[List[str]]
+    NS: NotRequired[List[str]]
+    BS: NotRequired[List[bytes]]
+    M: NotRequired[Dict[str, Dict[str, Any]]]
+    L: NotRequired[List[Dict[str, Any]]]
+    NULL: NotRequired[bool]
+    BOOL: NotRequired[bool]
 
-_RequiredDescribeStreamInputRequestTypeDef = TypedDict(
-    "_RequiredDescribeStreamInputRequestTypeDef",
-    {
-        "StreamArn": str,
-    },
-)
-_OptionalDescribeStreamInputRequestTypeDef = TypedDict(
-    "_OptionalDescribeStreamInputRequestTypeDef",
-    {
-        "Limit": int,
-        "ExclusiveStartShardId": str,
-    },
-    total=False,
-)
+class DescribeStreamInputTypeDef(TypedDict):
+    StreamArn: str
+    Limit: NotRequired[int]
+    ExclusiveStartShardId: NotRequired[str]
 
-class DescribeStreamInputRequestTypeDef(
-    _RequiredDescribeStreamInputRequestTypeDef, _OptionalDescribeStreamInputRequestTypeDef
-):
-    pass
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-DescribeStreamOutputTypeDef = TypedDict(
-    "DescribeStreamOutputTypeDef",
-    {
-        "StreamDescription": "StreamDescriptionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetRecordsInputTypeDef(TypedDict):
+    ShardIterator: str
+    Limit: NotRequired[int]
 
-_RequiredGetRecordsInputRequestTypeDef = TypedDict(
-    "_RequiredGetRecordsInputRequestTypeDef",
-    {
-        "ShardIterator": str,
-    },
-)
-_OptionalGetRecordsInputRequestTypeDef = TypedDict(
-    "_OptionalGetRecordsInputRequestTypeDef",
-    {
-        "Limit": int,
-    },
-    total=False,
-)
-
-class GetRecordsInputRequestTypeDef(
-    _RequiredGetRecordsInputRequestTypeDef, _OptionalGetRecordsInputRequestTypeDef
-):
-    pass
-
-GetRecordsOutputTypeDef = TypedDict(
-    "GetRecordsOutputTypeDef",
-    {
-        "Records": List["RecordTypeDef"],
-        "NextShardIterator": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetShardIteratorInputRequestTypeDef = TypedDict(
-    "_RequiredGetShardIteratorInputRequestTypeDef",
-    {
-        "StreamArn": str,
-        "ShardId": str,
-        "ShardIteratorType": ShardIteratorTypeType,
-    },
-)
-_OptionalGetShardIteratorInputRequestTypeDef = TypedDict(
-    "_OptionalGetShardIteratorInputRequestTypeDef",
-    {
-        "SequenceNumber": str,
-    },
-    total=False,
-)
-
-class GetShardIteratorInputRequestTypeDef(
-    _RequiredGetShardIteratorInputRequestTypeDef, _OptionalGetShardIteratorInputRequestTypeDef
-):
-    pass
-
-GetShardIteratorOutputTypeDef = TypedDict(
-    "GetShardIteratorOutputTypeDef",
-    {
-        "ShardIterator": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetShardIteratorInputTypeDef(TypedDict):
+    StreamArn: str
+    ShardId: str
+    ShardIteratorType: ShardIteratorTypeType
+    SequenceNumber: NotRequired[str]
 
 IdentityTypeDef = TypedDict(
     "IdentityTypeDef",
     {
-        "PrincipalId": str,
-        "Type": str,
-    },
-    total=False,
-)
-
-KeySchemaElementTypeDef = TypedDict(
-    "KeySchemaElementTypeDef",
-    {
-        "AttributeName": str,
-        "KeyType": KeyTypeType,
+        "PrincipalId": NotRequired[str],
+        "Type": NotRequired[str],
     },
 )
 
-ListStreamsInputRequestTypeDef = TypedDict(
-    "ListStreamsInputRequestTypeDef",
-    {
-        "TableName": str,
-        "Limit": int,
-        "ExclusiveStartStreamArn": str,
-    },
-    total=False,
-)
+class KeySchemaElementTypeDef(TypedDict):
+    AttributeName: str
+    KeyType: KeyTypeType
 
-ListStreamsOutputTypeDef = TypedDict(
-    "ListStreamsOutputTypeDef",
-    {
-        "Streams": List["StreamTypeDef"],
-        "LastEvaluatedStreamArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListStreamsInputTypeDef(TypedDict):
+    TableName: NotRequired[str]
+    Limit: NotRequired[int]
+    ExclusiveStartStreamArn: NotRequired[str]
 
-RecordTypeDef = TypedDict(
-    "RecordTypeDef",
-    {
-        "eventID": str,
-        "eventName": OperationTypeType,
-        "eventVersion": str,
-        "eventSource": str,
-        "awsRegion": str,
-        "dynamodb": "StreamRecordTypeDef",
-        "userIdentity": "IdentityTypeDef",
-    },
-    total=False,
-)
+class StreamTypeDef(TypedDict):
+    StreamArn: NotRequired[str]
+    TableName: NotRequired[str]
+    StreamLabel: NotRequired[str]
 
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
+class SequenceNumberRangeTypeDef(TypedDict):
+    StartingSequenceNumber: NotRequired[str]
+    EndingSequenceNumber: NotRequired[str]
 
-SequenceNumberRangeTypeDef = TypedDict(
-    "SequenceNumberRangeTypeDef",
-    {
-        "StartingSequenceNumber": str,
-        "EndingSequenceNumber": str,
-    },
-    total=False,
-)
+class StreamRecordTypeDef(TypedDict):
+    ApproximateCreationDateTime: NotRequired[datetime]
+    Keys: NotRequired[Dict[str, AttributeValueTypeDef]]
+    NewImage: NotRequired[Dict[str, AttributeValueTypeDef]]
+    OldImage: NotRequired[Dict[str, AttributeValueTypeDef]]
+    SequenceNumber: NotRequired[str]
+    SizeBytes: NotRequired[int]
+    StreamViewType: NotRequired[StreamViewTypeType]
 
-ShardTypeDef = TypedDict(
-    "ShardTypeDef",
-    {
-        "ShardId": str,
-        "SequenceNumberRange": "SequenceNumberRangeTypeDef",
-        "ParentShardId": str,
-    },
-    total=False,
-)
+class GetShardIteratorOutputTypeDef(TypedDict):
+    ShardIterator: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-StreamDescriptionTypeDef = TypedDict(
-    "StreamDescriptionTypeDef",
-    {
-        "StreamArn": str,
-        "StreamLabel": str,
-        "StreamStatus": StreamStatusType,
-        "StreamViewType": StreamViewTypeType,
-        "CreationRequestDateTime": datetime,
-        "TableName": str,
-        "KeySchema": List["KeySchemaElementTypeDef"],
-        "Shards": List["ShardTypeDef"],
-        "LastEvaluatedShardId": str,
-    },
-    total=False,
-)
+class ListStreamsOutputTypeDef(TypedDict):
+    Streams: List[StreamTypeDef]
+    LastEvaluatedStreamArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-StreamRecordTypeDef = TypedDict(
-    "StreamRecordTypeDef",
-    {
-        "ApproximateCreationDateTime": datetime,
-        "Keys": Dict[str, "AttributeValueTypeDef"],
-        "NewImage": Dict[str, "AttributeValueTypeDef"],
-        "OldImage": Dict[str, "AttributeValueTypeDef"],
-        "SequenceNumber": str,
-        "SizeBytes": int,
-        "StreamViewType": StreamViewTypeType,
-    },
-    total=False,
-)
+class ShardTypeDef(TypedDict):
+    ShardId: NotRequired[str]
+    SequenceNumberRange: NotRequired[SequenceNumberRangeTypeDef]
+    ParentShardId: NotRequired[str]
 
-StreamTypeDef = TypedDict(
-    "StreamTypeDef",
-    {
-        "StreamArn": str,
-        "TableName": str,
-        "StreamLabel": str,
-    },
-    total=False,
-)
+class RecordTypeDef(TypedDict):
+    eventID: NotRequired[str]
+    eventName: NotRequired[OperationTypeType]
+    eventVersion: NotRequired[str]
+    eventSource: NotRequired[str]
+    awsRegion: NotRequired[str]
+    dynamodb: NotRequired[StreamRecordTypeDef]
+    userIdentity: NotRequired[IdentityTypeDef]
+
+class StreamDescriptionTypeDef(TypedDict):
+    StreamArn: NotRequired[str]
+    StreamLabel: NotRequired[str]
+    StreamStatus: NotRequired[StreamStatusType]
+    StreamViewType: NotRequired[StreamViewTypeType]
+    CreationRequestDateTime: NotRequired[datetime]
+    TableName: NotRequired[str]
+    KeySchema: NotRequired[List[KeySchemaElementTypeDef]]
+    Shards: NotRequired[List[ShardTypeDef]]
+    LastEvaluatedShardId: NotRequired[str]
+
+class GetRecordsOutputTypeDef(TypedDict):
+    Records: List[RecordTypeDef]
+    NextShardIterator: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeStreamOutputTypeDef(TypedDict):
+    StreamDescription: StreamDescriptionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef

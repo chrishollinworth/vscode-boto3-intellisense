@@ -1,19 +1,21 @@
 """
 Main interface for transcribe service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_transcribe/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_transcribe import (
         Client,
         TranscribeServiceClient,
     )
 
-    session = boto3.Session()
-
-    client: TranscribeServiceClient = boto3.client("transcribe")
-    session_client: TranscribeServiceClient = session.client("transcribe")
+    session = Session()
+    client: TranscribeServiceClient = session.client("transcribe")
     ```
 """
 

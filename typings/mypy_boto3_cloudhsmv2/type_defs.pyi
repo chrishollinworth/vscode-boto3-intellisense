@@ -1,558 +1,340 @@
 """
 Type annotations for cloudhsmv2 service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudhsmv2/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudhsmv2/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_cloudhsmv2.type_defs import BackupRetentionPolicyTypeDef
 
-    data: BackupRetentionPolicyTypeDef = {...}
+    data: BackupRetentionPolicyTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
 
-from .literals import BackupStateType, ClusterModeType, ClusterStateType, HsmStateType
+from .literals import (
+    BackupStateType,
+    ClusterModeType,
+    ClusterStateType,
+    HsmStateType,
+    NetworkTypeType,
+)
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
     "BackupRetentionPolicyTypeDef",
     "BackupTypeDef",
     "CertificatesTypeDef",
     "ClusterTypeDef",
-    "CopyBackupToRegionRequestRequestTypeDef",
+    "CopyBackupToRegionRequestTypeDef",
     "CopyBackupToRegionResponseTypeDef",
-    "CreateClusterRequestRequestTypeDef",
+    "CreateClusterRequestTypeDef",
     "CreateClusterResponseTypeDef",
-    "CreateHsmRequestRequestTypeDef",
+    "CreateHsmRequestTypeDef",
     "CreateHsmResponseTypeDef",
-    "DeleteBackupRequestRequestTypeDef",
+    "DeleteBackupRequestTypeDef",
     "DeleteBackupResponseTypeDef",
-    "DeleteClusterRequestRequestTypeDef",
+    "DeleteClusterRequestTypeDef",
     "DeleteClusterResponseTypeDef",
-    "DeleteHsmRequestRequestTypeDef",
+    "DeleteHsmRequestTypeDef",
     "DeleteHsmResponseTypeDef",
-    "DeleteResourcePolicyRequestRequestTypeDef",
+    "DeleteResourcePolicyRequestTypeDef",
     "DeleteResourcePolicyResponseTypeDef",
-    "DescribeBackupsRequestRequestTypeDef",
+    "DescribeBackupsRequestPaginateTypeDef",
+    "DescribeBackupsRequestTypeDef",
     "DescribeBackupsResponseTypeDef",
-    "DescribeClustersRequestRequestTypeDef",
+    "DescribeClustersRequestPaginateTypeDef",
+    "DescribeClustersRequestTypeDef",
     "DescribeClustersResponseTypeDef",
     "DestinationBackupTypeDef",
-    "GetResourcePolicyRequestRequestTypeDef",
+    "GetResourcePolicyRequestTypeDef",
     "GetResourcePolicyResponseTypeDef",
     "HsmTypeDef",
-    "InitializeClusterRequestRequestTypeDef",
+    "InitializeClusterRequestTypeDef",
     "InitializeClusterResponseTypeDef",
-    "ListTagsRequestRequestTypeDef",
+    "ListTagsRequestPaginateTypeDef",
+    "ListTagsRequestTypeDef",
     "ListTagsResponseTypeDef",
-    "ModifyBackupAttributesRequestRequestTypeDef",
+    "ModifyBackupAttributesRequestTypeDef",
     "ModifyBackupAttributesResponseTypeDef",
-    "ModifyClusterRequestRequestTypeDef",
+    "ModifyClusterRequestTypeDef",
     "ModifyClusterResponseTypeDef",
     "PaginatorConfigTypeDef",
-    "PutResourcePolicyRequestRequestTypeDef",
+    "PutResourcePolicyRequestTypeDef",
     "PutResourcePolicyResponseTypeDef",
     "ResponseMetadataTypeDef",
-    "RestoreBackupRequestRequestTypeDef",
+    "RestoreBackupRequestTypeDef",
     "RestoreBackupResponseTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
     "TagTypeDef",
-    "UntagResourceRequestRequestTypeDef",
+    "UntagResourceRequestTypeDef",
 )
 
 BackupRetentionPolicyTypeDef = TypedDict(
     "BackupRetentionPolicyTypeDef",
     {
-        "Type": Literal["DAYS"],
-        "Value": str,
-    },
-    total=False,
-)
-
-_RequiredBackupTypeDef = TypedDict(
-    "_RequiredBackupTypeDef",
-    {
-        "BackupId": str,
-    },
-)
-_OptionalBackupTypeDef = TypedDict(
-    "_OptionalBackupTypeDef",
-    {
-        "BackupArn": str,
-        "BackupState": BackupStateType,
-        "ClusterId": str,
-        "CreateTimestamp": datetime,
-        "CopyTimestamp": datetime,
-        "NeverExpires": bool,
-        "SourceRegion": str,
-        "SourceBackup": str,
-        "SourceCluster": str,
-        "DeleteTimestamp": datetime,
-        "TagList": List["TagTypeDef"],
-        "HsmType": str,
-        "Mode": ClusterModeType,
-    },
-    total=False,
-)
-
-class BackupTypeDef(_RequiredBackupTypeDef, _OptionalBackupTypeDef):
-    pass
-
-CertificatesTypeDef = TypedDict(
-    "CertificatesTypeDef",
-    {
-        "ClusterCsr": str,
-        "HsmCertificate": str,
-        "AwsHardwareCertificate": str,
-        "ManufacturerHardwareCertificate": str,
-        "ClusterCertificate": str,
-    },
-    total=False,
-)
-
-ClusterTypeDef = TypedDict(
-    "ClusterTypeDef",
-    {
-        "BackupPolicy": Literal["DEFAULT"],
-        "BackupRetentionPolicy": "BackupRetentionPolicyTypeDef",
-        "ClusterId": str,
-        "CreateTimestamp": datetime,
-        "Hsms": List["HsmTypeDef"],
-        "HsmType": str,
-        "PreCoPassword": str,
-        "SecurityGroup": str,
-        "SourceBackupId": str,
-        "State": ClusterStateType,
-        "StateMessage": str,
-        "SubnetMapping": Dict[str, str],
-        "VpcId": str,
-        "Certificates": "CertificatesTypeDef",
-        "TagList": List["TagTypeDef"],
-        "Mode": ClusterModeType,
-    },
-    total=False,
-)
-
-_RequiredCopyBackupToRegionRequestRequestTypeDef = TypedDict(
-    "_RequiredCopyBackupToRegionRequestRequestTypeDef",
-    {
-        "DestinationRegion": str,
-        "BackupId": str,
-    },
-)
-_OptionalCopyBackupToRegionRequestRequestTypeDef = TypedDict(
-    "_OptionalCopyBackupToRegionRequestRequestTypeDef",
-    {
-        "TagList": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CopyBackupToRegionRequestRequestTypeDef(
-    _RequiredCopyBackupToRegionRequestRequestTypeDef,
-    _OptionalCopyBackupToRegionRequestRequestTypeDef,
-):
-    pass
-
-CopyBackupToRegionResponseTypeDef = TypedDict(
-    "CopyBackupToRegionResponseTypeDef",
-    {
-        "DestinationBackup": "DestinationBackupTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "Type": NotRequired[Literal["DAYS"]],
+        "Value": NotRequired[str],
     },
 )
 
-_RequiredCreateClusterRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateClusterRequestRequestTypeDef",
-    {
-        "HsmType": str,
-        "SubnetIds": List[str],
-    },
-)
-_OptionalCreateClusterRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateClusterRequestRequestTypeDef",
-    {
-        "BackupRetentionPolicy": "BackupRetentionPolicyTypeDef",
-        "SourceBackupId": str,
-        "TagList": List["TagTypeDef"],
-        "Mode": ClusterModeType,
-    },
-    total=False,
-)
+class TagTypeDef(TypedDict):
+    Key: str
+    Value: str
 
-class CreateClusterRequestRequestTypeDef(
-    _RequiredCreateClusterRequestRequestTypeDef, _OptionalCreateClusterRequestRequestTypeDef
-):
-    pass
+class CertificatesTypeDef(TypedDict):
+    ClusterCsr: NotRequired[str]
+    HsmCertificate: NotRequired[str]
+    AwsHardwareCertificate: NotRequired[str]
+    ManufacturerHardwareCertificate: NotRequired[str]
+    ClusterCertificate: NotRequired[str]
 
-CreateClusterResponseTypeDef = TypedDict(
-    "CreateClusterResponseTypeDef",
-    {
-        "Cluster": "ClusterTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class HsmTypeDef(TypedDict):
+    HsmId: str
+    AvailabilityZone: NotRequired[str]
+    ClusterId: NotRequired[str]
+    SubnetId: NotRequired[str]
+    EniId: NotRequired[str]
+    EniIp: NotRequired[str]
+    EniIpV6: NotRequired[str]
+    HsmType: NotRequired[str]
+    State: NotRequired[HsmStateType]
+    StateMessage: NotRequired[str]
 
-_RequiredCreateHsmRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateHsmRequestRequestTypeDef",
-    {
-        "ClusterId": str,
-        "AvailabilityZone": str,
-    },
-)
-_OptionalCreateHsmRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateHsmRequestRequestTypeDef",
-    {
-        "IpAddress": str,
-    },
-    total=False,
-)
+class DestinationBackupTypeDef(TypedDict):
+    CreateTimestamp: NotRequired[datetime]
+    SourceRegion: NotRequired[str]
+    SourceBackup: NotRequired[str]
+    SourceCluster: NotRequired[str]
 
-class CreateHsmRequestRequestTypeDef(
-    _RequiredCreateHsmRequestRequestTypeDef, _OptionalCreateHsmRequestRequestTypeDef
-):
-    pass
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-CreateHsmResponseTypeDef = TypedDict(
-    "CreateHsmResponseTypeDef",
-    {
-        "Hsm": "HsmTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CreateHsmRequestTypeDef(TypedDict):
+    ClusterId: str
+    AvailabilityZone: str
+    IpAddress: NotRequired[str]
 
-DeleteBackupRequestRequestTypeDef = TypedDict(
-    "DeleteBackupRequestRequestTypeDef",
-    {
-        "BackupId": str,
-    },
-)
+class DeleteBackupRequestTypeDef(TypedDict):
+    BackupId: str
 
-DeleteBackupResponseTypeDef = TypedDict(
-    "DeleteBackupResponseTypeDef",
-    {
-        "Backup": "BackupTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DeleteClusterRequestTypeDef(TypedDict):
+    ClusterId: str
 
-DeleteClusterRequestRequestTypeDef = TypedDict(
-    "DeleteClusterRequestRequestTypeDef",
-    {
-        "ClusterId": str,
-    },
-)
+class DeleteHsmRequestTypeDef(TypedDict):
+    ClusterId: str
+    HsmId: NotRequired[str]
+    EniId: NotRequired[str]
+    EniIp: NotRequired[str]
 
-DeleteClusterResponseTypeDef = TypedDict(
-    "DeleteClusterResponseTypeDef",
-    {
-        "Cluster": "ClusterTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DeleteResourcePolicyRequestTypeDef(TypedDict):
+    ResourceArn: NotRequired[str]
 
-_RequiredDeleteHsmRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteHsmRequestRequestTypeDef",
-    {
-        "ClusterId": str,
-    },
-)
-_OptionalDeleteHsmRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteHsmRequestRequestTypeDef",
-    {
-        "HsmId": str,
-        "EniId": str,
-        "EniIp": str,
-    },
-    total=False,
-)
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
 
-class DeleteHsmRequestRequestTypeDef(
-    _RequiredDeleteHsmRequestRequestTypeDef, _OptionalDeleteHsmRequestRequestTypeDef
-):
-    pass
+class DescribeBackupsRequestTypeDef(TypedDict):
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+    Filters: NotRequired[Mapping[str, Sequence[str]]]
+    Shared: NotRequired[bool]
+    SortAscending: NotRequired[bool]
 
-DeleteHsmResponseTypeDef = TypedDict(
-    "DeleteHsmResponseTypeDef",
-    {
-        "HsmId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DescribeClustersRequestTypeDef(TypedDict):
+    Filters: NotRequired[Mapping[str, Sequence[str]]]
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
 
-DeleteResourcePolicyRequestRequestTypeDef = TypedDict(
-    "DeleteResourcePolicyRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-    },
-    total=False,
-)
+class GetResourcePolicyRequestTypeDef(TypedDict):
+    ResourceArn: NotRequired[str]
 
-DeleteResourcePolicyResponseTypeDef = TypedDict(
-    "DeleteResourcePolicyResponseTypeDef",
-    {
-        "ResourceArn": str,
-        "Policy": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class InitializeClusterRequestTypeDef(TypedDict):
+    ClusterId: str
+    SignedCert: str
+    TrustAnchor: str
 
-DescribeBackupsRequestRequestTypeDef = TypedDict(
-    "DescribeBackupsRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-        "Filters": Dict[str, List[str]],
-        "Shared": bool,
-        "SortAscending": bool,
-    },
-    total=False,
-)
+class ListTagsRequestTypeDef(TypedDict):
+    ResourceId: str
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
 
-DescribeBackupsResponseTypeDef = TypedDict(
-    "DescribeBackupsResponseTypeDef",
-    {
-        "Backups": List["BackupTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ModifyBackupAttributesRequestTypeDef(TypedDict):
+    BackupId: str
+    NeverExpires: bool
 
-DescribeClustersRequestRequestTypeDef = TypedDict(
-    "DescribeClustersRequestRequestTypeDef",
-    {
-        "Filters": Dict[str, List[str]],
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
+class PutResourcePolicyRequestTypeDef(TypedDict):
+    ResourceArn: NotRequired[str]
+    Policy: NotRequired[str]
 
-DescribeClustersResponseTypeDef = TypedDict(
-    "DescribeClustersResponseTypeDef",
-    {
-        "Clusters": List["ClusterTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class RestoreBackupRequestTypeDef(TypedDict):
+    BackupId: str
 
-DestinationBackupTypeDef = TypedDict(
-    "DestinationBackupTypeDef",
-    {
-        "CreateTimestamp": datetime,
-        "SourceRegion": str,
-        "SourceBackup": str,
-        "SourceCluster": str,
-    },
-    total=False,
-)
+class UntagResourceRequestTypeDef(TypedDict):
+    ResourceId: str
+    TagKeyList: Sequence[str]
 
-GetResourcePolicyRequestRequestTypeDef = TypedDict(
-    "GetResourcePolicyRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-    },
-    total=False,
-)
+class ModifyClusterRequestTypeDef(TypedDict):
+    ClusterId: str
+    HsmType: NotRequired[str]
+    BackupRetentionPolicy: NotRequired[BackupRetentionPolicyTypeDef]
 
-GetResourcePolicyResponseTypeDef = TypedDict(
-    "GetResourcePolicyResponseTypeDef",
-    {
-        "Policy": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class BackupTypeDef(TypedDict):
+    BackupId: str
+    BackupArn: NotRequired[str]
+    BackupState: NotRequired[BackupStateType]
+    ClusterId: NotRequired[str]
+    CreateTimestamp: NotRequired[datetime]
+    CopyTimestamp: NotRequired[datetime]
+    NeverExpires: NotRequired[bool]
+    SourceRegion: NotRequired[str]
+    SourceBackup: NotRequired[str]
+    SourceCluster: NotRequired[str]
+    DeleteTimestamp: NotRequired[datetime]
+    TagList: NotRequired[List[TagTypeDef]]
+    HsmType: NotRequired[str]
+    Mode: NotRequired[ClusterModeType]
 
-_RequiredHsmTypeDef = TypedDict(
-    "_RequiredHsmTypeDef",
-    {
-        "HsmId": str,
-    },
-)
-_OptionalHsmTypeDef = TypedDict(
-    "_OptionalHsmTypeDef",
-    {
-        "AvailabilityZone": str,
-        "ClusterId": str,
-        "SubnetId": str,
-        "EniId": str,
-        "EniIp": str,
-        "State": HsmStateType,
-        "StateMessage": str,
-    },
-    total=False,
-)
+class CopyBackupToRegionRequestTypeDef(TypedDict):
+    DestinationRegion: str
+    BackupId: str
+    TagList: NotRequired[Sequence[TagTypeDef]]
 
-class HsmTypeDef(_RequiredHsmTypeDef, _OptionalHsmTypeDef):
-    pass
+class CreateClusterRequestTypeDef(TypedDict):
+    HsmType: str
+    SubnetIds: Sequence[str]
+    BackupRetentionPolicy: NotRequired[BackupRetentionPolicyTypeDef]
+    SourceBackupId: NotRequired[str]
+    NetworkType: NotRequired[NetworkTypeType]
+    TagList: NotRequired[Sequence[TagTypeDef]]
+    Mode: NotRequired[ClusterModeType]
 
-InitializeClusterRequestRequestTypeDef = TypedDict(
-    "InitializeClusterRequestRequestTypeDef",
-    {
-        "ClusterId": str,
-        "SignedCert": str,
-        "TrustAnchor": str,
-    },
-)
+class TagResourceRequestTypeDef(TypedDict):
+    ResourceId: str
+    TagList: Sequence[TagTypeDef]
 
-InitializeClusterResponseTypeDef = TypedDict(
-    "InitializeClusterResponseTypeDef",
-    {
-        "State": ClusterStateType,
-        "StateMessage": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ClusterTypeDef(TypedDict):
+    BackupPolicy: NotRequired[Literal["DEFAULT"]]
+    BackupRetentionPolicy: NotRequired[BackupRetentionPolicyTypeDef]
+    ClusterId: NotRequired[str]
+    CreateTimestamp: NotRequired[datetime]
+    Hsms: NotRequired[List[HsmTypeDef]]
+    HsmType: NotRequired[str]
+    HsmTypeRollbackExpiration: NotRequired[datetime]
+    PreCoPassword: NotRequired[str]
+    SecurityGroup: NotRequired[str]
+    SourceBackupId: NotRequired[str]
+    State: NotRequired[ClusterStateType]
+    StateMessage: NotRequired[str]
+    SubnetMapping: NotRequired[Dict[str, str]]
+    VpcId: NotRequired[str]
+    NetworkType: NotRequired[NetworkTypeType]
+    Certificates: NotRequired[CertificatesTypeDef]
+    TagList: NotRequired[List[TagTypeDef]]
+    Mode: NotRequired[ClusterModeType]
 
-_RequiredListTagsRequestRequestTypeDef = TypedDict(
-    "_RequiredListTagsRequestRequestTypeDef",
-    {
-        "ResourceId": str,
-    },
-)
-_OptionalListTagsRequestRequestTypeDef = TypedDict(
-    "_OptionalListTagsRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
+class CopyBackupToRegionResponseTypeDef(TypedDict):
+    DestinationBackup: DestinationBackupTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class ListTagsRequestRequestTypeDef(
-    _RequiredListTagsRequestRequestTypeDef, _OptionalListTagsRequestRequestTypeDef
-):
-    pass
+class CreateHsmResponseTypeDef(TypedDict):
+    Hsm: HsmTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ListTagsResponseTypeDef = TypedDict(
-    "ListTagsResponseTypeDef",
-    {
-        "TagList": List["TagTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DeleteHsmResponseTypeDef(TypedDict):
+    HsmId: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ModifyBackupAttributesRequestRequestTypeDef = TypedDict(
-    "ModifyBackupAttributesRequestRequestTypeDef",
-    {
-        "BackupId": str,
-        "NeverExpires": bool,
-    },
-)
+class DeleteResourcePolicyResponseTypeDef(TypedDict):
+    ResourceArn: str
+    Policy: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ModifyBackupAttributesResponseTypeDef = TypedDict(
-    "ModifyBackupAttributesResponseTypeDef",
-    {
-        "Backup": "BackupTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetResourcePolicyResponseTypeDef(TypedDict):
+    Policy: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ModifyClusterRequestRequestTypeDef = TypedDict(
-    "ModifyClusterRequestRequestTypeDef",
-    {
-        "BackupRetentionPolicy": "BackupRetentionPolicyTypeDef",
-        "ClusterId": str,
-    },
-)
+class InitializeClusterResponseTypeDef(TypedDict):
+    State: ClusterStateType
+    StateMessage: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ModifyClusterResponseTypeDef = TypedDict(
-    "ModifyClusterResponseTypeDef",
-    {
-        "Cluster": "ClusterTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListTagsResponseTypeDef(TypedDict):
+    TagList: List[TagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
+class PutResourcePolicyResponseTypeDef(TypedDict):
+    ResourceArn: str
+    Policy: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-PutResourcePolicyRequestRequestTypeDef = TypedDict(
-    "PutResourcePolicyRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-        "Policy": str,
-    },
-    total=False,
-)
+class DescribeBackupsRequestPaginateTypeDef(TypedDict):
+    Filters: NotRequired[Mapping[str, Sequence[str]]]
+    Shared: NotRequired[bool]
+    SortAscending: NotRequired[bool]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-PutResourcePolicyResponseTypeDef = TypedDict(
-    "PutResourcePolicyResponseTypeDef",
-    {
-        "ResourceArn": str,
-        "Policy": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DescribeClustersRequestPaginateTypeDef(TypedDict):
+    Filters: NotRequired[Mapping[str, Sequence[str]]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
+class ListTagsRequestPaginateTypeDef(TypedDict):
+    ResourceId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-RestoreBackupRequestRequestTypeDef = TypedDict(
-    "RestoreBackupRequestRequestTypeDef",
-    {
-        "BackupId": str,
-    },
-)
+class DeleteBackupResponseTypeDef(TypedDict):
+    Backup: BackupTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-RestoreBackupResponseTypeDef = TypedDict(
-    "RestoreBackupResponseTypeDef",
-    {
-        "Backup": "BackupTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DescribeBackupsResponseTypeDef(TypedDict):
+    Backups: List[BackupTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "ResourceId": str,
-        "TagList": List["TagTypeDef"],
-    },
-)
+class ModifyBackupAttributesResponseTypeDef(TypedDict):
+    Backup: BackupTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-TagTypeDef = TypedDict(
-    "TagTypeDef",
-    {
-        "Key": str,
-        "Value": str,
-    },
-)
+class RestoreBackupResponseTypeDef(TypedDict):
+    Backup: BackupTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "ResourceId": str,
-        "TagKeyList": List[str],
-    },
-)
+class CreateClusterResponseTypeDef(TypedDict):
+    Cluster: ClusterTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteClusterResponseTypeDef(TypedDict):
+    Cluster: ClusterTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeClustersResponseTypeDef(TypedDict):
+    Clusters: List[ClusterTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ModifyClusterResponseTypeDef(TypedDict):
+    Cluster: ClusterTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef

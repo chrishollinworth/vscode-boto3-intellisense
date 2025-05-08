@@ -1,10 +1,14 @@
 """
 Main interface for rekognition service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_rekognition/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_rekognition import (
         Client,
         DescribeProjectVersionsPaginator,
@@ -21,10 +25,8 @@ Usage::
         RekognitionClient,
     )
 
-    session = boto3.Session()
-
-    client: RekognitionClient = boto3.client("rekognition")
-    session_client: RekognitionClient = session.client("rekognition")
+    session = Session()
+    client: RekognitionClient = session.client("rekognition")
 
     project_version_running_waiter: ProjectVersionRunningWaiter = client.get_waiter("project_version_running")
     project_version_training_completed_waiter: ProjectVersionTrainingCompletedWaiter = client.get_waiter("project_version_training_completed")

@@ -1,27 +1,34 @@
 """
 Type annotations for elbv2 service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elbv2/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_elbv2/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_elbv2.type_defs import ActionTypeDef
+    from mypy_boto3_elbv2.type_defs import AuthenticateCognitoActionConfigOutputTypeDef
 
-    data: ActionTypeDef = {...}
+    data: AuthenticateCognitoActionConfigOutputTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
+from typing import Union
 
 from .literals import (
     ActionTypeEnumType,
+    AdvertiseTrustStoreCaNamesEnumType,
     AnomalyResultEnumType,
     AuthenticateCognitoActionConditionalBehaviorEnumType,
     AuthenticateOidcActionConditionalBehaviorEnumType,
+    CapacityReservationStateEnumType,
     DescribeTargetHealthInputIncludeEnumType,
+    EnablePrefixForIpv6SourceNatEnumType,
     EnforceSecurityGroupInboundRulesOnPrivateLinkTrafficEnumType,
     IpAddressTypeType,
     LoadBalancerSchemeEnumType,
@@ -30,132 +37,189 @@ from .literals import (
     MitigationInEffectEnumType,
     ProtocolEnumType,
     RedirectActionStatusCodeEnumType,
+    TargetAdministrativeOverrideReasonEnumType,
+    TargetAdministrativeOverrideStateEnumType,
     TargetGroupIpAddressTypeEnumType,
     TargetHealthReasonEnumType,
     TargetHealthStateEnumType,
     TargetTypeEnumType,
+    TrustStoreAssociationStatusEnumType,
     TrustStoreStatusType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
+    "ActionOutputTypeDef",
     "ActionTypeDef",
-    "AddListenerCertificatesInputRequestTypeDef",
+    "ActionUnionTypeDef",
+    "AddListenerCertificatesInputTypeDef",
     "AddListenerCertificatesOutputTypeDef",
-    "AddTagsInputRequestTypeDef",
-    "AddTrustStoreRevocationsInputRequestTypeDef",
+    "AddTagsInputTypeDef",
+    "AddTrustStoreRevocationsInputTypeDef",
     "AddTrustStoreRevocationsOutputTypeDef",
+    "AdministrativeOverrideTypeDef",
     "AnomalyDetectionTypeDef",
+    "AuthenticateCognitoActionConfigOutputTypeDef",
     "AuthenticateCognitoActionConfigTypeDef",
+    "AuthenticateCognitoActionConfigUnionTypeDef",
+    "AuthenticateOidcActionConfigOutputTypeDef",
     "AuthenticateOidcActionConfigTypeDef",
+    "AuthenticateOidcActionConfigUnionTypeDef",
     "AvailabilityZoneTypeDef",
+    "CapacityReservationStatusTypeDef",
     "CertificateTypeDef",
     "CipherTypeDef",
-    "CreateListenerInputRequestTypeDef",
+    "CreateListenerInputTypeDef",
     "CreateListenerOutputTypeDef",
-    "CreateLoadBalancerInputRequestTypeDef",
+    "CreateLoadBalancerInputTypeDef",
     "CreateLoadBalancerOutputTypeDef",
-    "CreateRuleInputRequestTypeDef",
+    "CreateRuleInputTypeDef",
     "CreateRuleOutputTypeDef",
-    "CreateTargetGroupInputRequestTypeDef",
+    "CreateTargetGroupInputTypeDef",
     "CreateTargetGroupOutputTypeDef",
-    "CreateTrustStoreInputRequestTypeDef",
+    "CreateTrustStoreInputTypeDef",
     "CreateTrustStoreOutputTypeDef",
-    "DeleteListenerInputRequestTypeDef",
-    "DeleteLoadBalancerInputRequestTypeDef",
-    "DeleteRuleInputRequestTypeDef",
-    "DeleteTargetGroupInputRequestTypeDef",
-    "DeleteTrustStoreInputRequestTypeDef",
-    "DeregisterTargetsInputRequestTypeDef",
-    "DescribeAccountLimitsInputRequestTypeDef",
+    "DeleteListenerInputTypeDef",
+    "DeleteLoadBalancerInputTypeDef",
+    "DeleteRuleInputTypeDef",
+    "DeleteSharedTrustStoreAssociationInputTypeDef",
+    "DeleteTargetGroupInputTypeDef",
+    "DeleteTrustStoreInputTypeDef",
+    "DeregisterTargetsInputTypeDef",
+    "DescribeAccountLimitsInputPaginateTypeDef",
+    "DescribeAccountLimitsInputTypeDef",
     "DescribeAccountLimitsOutputTypeDef",
-    "DescribeListenerCertificatesInputRequestTypeDef",
+    "DescribeCapacityReservationInputTypeDef",
+    "DescribeCapacityReservationOutputTypeDef",
+    "DescribeListenerAttributesInputTypeDef",
+    "DescribeListenerAttributesOutputTypeDef",
+    "DescribeListenerCertificatesInputPaginateTypeDef",
+    "DescribeListenerCertificatesInputTypeDef",
     "DescribeListenerCertificatesOutputTypeDef",
-    "DescribeListenersInputRequestTypeDef",
+    "DescribeListenersInputPaginateTypeDef",
+    "DescribeListenersInputTypeDef",
     "DescribeListenersOutputTypeDef",
-    "DescribeLoadBalancerAttributesInputRequestTypeDef",
+    "DescribeLoadBalancerAttributesInputTypeDef",
     "DescribeLoadBalancerAttributesOutputTypeDef",
-    "DescribeLoadBalancersInputRequestTypeDef",
+    "DescribeLoadBalancersInputPaginateTypeDef",
+    "DescribeLoadBalancersInputTypeDef",
+    "DescribeLoadBalancersInputWaitExtraExtraTypeDef",
+    "DescribeLoadBalancersInputWaitExtraTypeDef",
+    "DescribeLoadBalancersInputWaitTypeDef",
     "DescribeLoadBalancersOutputTypeDef",
-    "DescribeRulesInputRequestTypeDef",
+    "DescribeRulesInputPaginateTypeDef",
+    "DescribeRulesInputTypeDef",
     "DescribeRulesOutputTypeDef",
-    "DescribeSSLPoliciesInputRequestTypeDef",
+    "DescribeSSLPoliciesInputPaginateTypeDef",
+    "DescribeSSLPoliciesInputTypeDef",
     "DescribeSSLPoliciesOutputTypeDef",
-    "DescribeTagsInputRequestTypeDef",
+    "DescribeTagsInputTypeDef",
     "DescribeTagsOutputTypeDef",
-    "DescribeTargetGroupAttributesInputRequestTypeDef",
+    "DescribeTargetGroupAttributesInputTypeDef",
     "DescribeTargetGroupAttributesOutputTypeDef",
-    "DescribeTargetGroupsInputRequestTypeDef",
+    "DescribeTargetGroupsInputPaginateTypeDef",
+    "DescribeTargetGroupsInputTypeDef",
     "DescribeTargetGroupsOutputTypeDef",
-    "DescribeTargetHealthInputRequestTypeDef",
+    "DescribeTargetHealthInputTypeDef",
+    "DescribeTargetHealthInputWaitExtraTypeDef",
+    "DescribeTargetHealthInputWaitTypeDef",
     "DescribeTargetHealthOutputTypeDef",
-    "DescribeTrustStoreAssociationsInputRequestTypeDef",
+    "DescribeTrustStoreAssociationsInputTypeDef",
     "DescribeTrustStoreAssociationsOutputTypeDef",
     "DescribeTrustStoreRevocationTypeDef",
-    "DescribeTrustStoreRevocationsInputRequestTypeDef",
+    "DescribeTrustStoreRevocationsInputTypeDef",
     "DescribeTrustStoreRevocationsOutputTypeDef",
-    "DescribeTrustStoresInputRequestTypeDef",
+    "DescribeTrustStoresInputTypeDef",
     "DescribeTrustStoresOutputTypeDef",
     "FixedResponseActionConfigTypeDef",
+    "ForwardActionConfigOutputTypeDef",
     "ForwardActionConfigTypeDef",
-    "GetTrustStoreCaCertificatesBundleInputRequestTypeDef",
+    "ForwardActionConfigUnionTypeDef",
+    "GetResourcePolicyInputTypeDef",
+    "GetResourcePolicyOutputTypeDef",
+    "GetTrustStoreCaCertificatesBundleInputTypeDef",
     "GetTrustStoreCaCertificatesBundleOutputTypeDef",
-    "GetTrustStoreRevocationContentInputRequestTypeDef",
+    "GetTrustStoreRevocationContentInputTypeDef",
     "GetTrustStoreRevocationContentOutputTypeDef",
+    "HostHeaderConditionConfigOutputTypeDef",
     "HostHeaderConditionConfigTypeDef",
+    "HostHeaderConditionConfigUnionTypeDef",
+    "HttpHeaderConditionConfigOutputTypeDef",
     "HttpHeaderConditionConfigTypeDef",
+    "HttpHeaderConditionConfigUnionTypeDef",
+    "HttpRequestMethodConditionConfigOutputTypeDef",
     "HttpRequestMethodConditionConfigTypeDef",
+    "HttpRequestMethodConditionConfigUnionTypeDef",
+    "IpamPoolsTypeDef",
     "LimitTypeDef",
+    "ListenerAttributeTypeDef",
     "ListenerTypeDef",
     "LoadBalancerAddressTypeDef",
     "LoadBalancerAttributeTypeDef",
     "LoadBalancerStateTypeDef",
     "LoadBalancerTypeDef",
     "MatcherTypeDef",
-    "ModifyListenerInputRequestTypeDef",
+    "MinimumLoadBalancerCapacityTypeDef",
+    "ModifyCapacityReservationInputTypeDef",
+    "ModifyCapacityReservationOutputTypeDef",
+    "ModifyIpPoolsInputTypeDef",
+    "ModifyIpPoolsOutputTypeDef",
+    "ModifyListenerAttributesInputTypeDef",
+    "ModifyListenerAttributesOutputTypeDef",
+    "ModifyListenerInputTypeDef",
     "ModifyListenerOutputTypeDef",
-    "ModifyLoadBalancerAttributesInputRequestTypeDef",
+    "ModifyLoadBalancerAttributesInputTypeDef",
     "ModifyLoadBalancerAttributesOutputTypeDef",
-    "ModifyRuleInputRequestTypeDef",
+    "ModifyRuleInputTypeDef",
     "ModifyRuleOutputTypeDef",
-    "ModifyTargetGroupAttributesInputRequestTypeDef",
+    "ModifyTargetGroupAttributesInputTypeDef",
     "ModifyTargetGroupAttributesOutputTypeDef",
-    "ModifyTargetGroupInputRequestTypeDef",
+    "ModifyTargetGroupInputTypeDef",
     "ModifyTargetGroupOutputTypeDef",
-    "ModifyTrustStoreInputRequestTypeDef",
+    "ModifyTrustStoreInputTypeDef",
     "ModifyTrustStoreOutputTypeDef",
     "MutualAuthenticationAttributesTypeDef",
     "PaginatorConfigTypeDef",
+    "PathPatternConditionConfigOutputTypeDef",
     "PathPatternConditionConfigTypeDef",
+    "PathPatternConditionConfigUnionTypeDef",
+    "QueryStringConditionConfigOutputTypeDef",
     "QueryStringConditionConfigTypeDef",
+    "QueryStringConditionConfigUnionTypeDef",
     "QueryStringKeyValuePairTypeDef",
     "RedirectActionConfigTypeDef",
-    "RegisterTargetsInputRequestTypeDef",
-    "RemoveListenerCertificatesInputRequestTypeDef",
-    "RemoveTagsInputRequestTypeDef",
-    "RemoveTrustStoreRevocationsInputRequestTypeDef",
+    "RegisterTargetsInputTypeDef",
+    "RemoveListenerCertificatesInputTypeDef",
+    "RemoveTagsInputTypeDef",
+    "RemoveTrustStoreRevocationsInputTypeDef",
     "ResponseMetadataTypeDef",
     "RevocationContentTypeDef",
+    "RuleConditionOutputTypeDef",
     "RuleConditionTypeDef",
+    "RuleConditionUnionTypeDef",
     "RulePriorityPairTypeDef",
     "RuleTypeDef",
-    "SetIpAddressTypeInputRequestTypeDef",
+    "SetIpAddressTypeInputTypeDef",
     "SetIpAddressTypeOutputTypeDef",
-    "SetRulePrioritiesInputRequestTypeDef",
+    "SetRulePrioritiesInputTypeDef",
     "SetRulePrioritiesOutputTypeDef",
-    "SetSecurityGroupsInputRequestTypeDef",
+    "SetSecurityGroupsInputTypeDef",
     "SetSecurityGroupsOutputTypeDef",
-    "SetSubnetsInputRequestTypeDef",
+    "SetSubnetsInputTypeDef",
     "SetSubnetsOutputTypeDef",
+    "SourceIpConditionConfigOutputTypeDef",
     "SourceIpConditionConfigTypeDef",
+    "SourceIpConditionConfigUnionTypeDef",
     "SslPolicyTypeDef",
     "SubnetMappingTypeDef",
     "TagDescriptionTypeDef",
@@ -171,1462 +235,968 @@ __all__ = (
     "TrustStoreRevocationTypeDef",
     "TrustStoreTypeDef",
     "WaiterConfigTypeDef",
-)
-
-_RequiredActionTypeDef = TypedDict(
-    "_RequiredActionTypeDef",
-    {
-        "Type": ActionTypeEnumType,
-    },
-)
-_OptionalActionTypeDef = TypedDict(
-    "_OptionalActionTypeDef",
-    {
-        "TargetGroupArn": str,
-        "AuthenticateOidcConfig": "AuthenticateOidcActionConfigTypeDef",
-        "AuthenticateCognitoConfig": "AuthenticateCognitoActionConfigTypeDef",
-        "Order": int,
-        "RedirectConfig": "RedirectActionConfigTypeDef",
-        "FixedResponseConfig": "FixedResponseActionConfigTypeDef",
-        "ForwardConfig": "ForwardActionConfigTypeDef",
-    },
-    total=False,
-)
-
-class ActionTypeDef(_RequiredActionTypeDef, _OptionalActionTypeDef):
-    pass
-
-AddListenerCertificatesInputRequestTypeDef = TypedDict(
-    "AddListenerCertificatesInputRequestTypeDef",
-    {
-        "ListenerArn": str,
-        "Certificates": List["CertificateTypeDef"],
-    },
-)
-
-AddListenerCertificatesOutputTypeDef = TypedDict(
-    "AddListenerCertificatesOutputTypeDef",
-    {
-        "Certificates": List["CertificateTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-AddTagsInputRequestTypeDef = TypedDict(
-    "AddTagsInputRequestTypeDef",
-    {
-        "ResourceArns": List[str],
-        "Tags": List["TagTypeDef"],
-    },
-)
-
-_RequiredAddTrustStoreRevocationsInputRequestTypeDef = TypedDict(
-    "_RequiredAddTrustStoreRevocationsInputRequestTypeDef",
-    {
-        "TrustStoreArn": str,
-    },
-)
-_OptionalAddTrustStoreRevocationsInputRequestTypeDef = TypedDict(
-    "_OptionalAddTrustStoreRevocationsInputRequestTypeDef",
-    {
-        "RevocationContents": List["RevocationContentTypeDef"],
-    },
-    total=False,
-)
-
-class AddTrustStoreRevocationsInputRequestTypeDef(
-    _RequiredAddTrustStoreRevocationsInputRequestTypeDef,
-    _OptionalAddTrustStoreRevocationsInputRequestTypeDef,
-):
-    pass
-
-AddTrustStoreRevocationsOutputTypeDef = TypedDict(
-    "AddTrustStoreRevocationsOutputTypeDef",
-    {
-        "TrustStoreRevocations": List["TrustStoreRevocationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-AnomalyDetectionTypeDef = TypedDict(
-    "AnomalyDetectionTypeDef",
-    {
-        "Result": AnomalyResultEnumType,
-        "MitigationInEffect": MitigationInEffectEnumType,
-    },
-    total=False,
-)
-
-_RequiredAuthenticateCognitoActionConfigTypeDef = TypedDict(
-    "_RequiredAuthenticateCognitoActionConfigTypeDef",
-    {
-        "UserPoolArn": str,
-        "UserPoolClientId": str,
-        "UserPoolDomain": str,
-    },
-)
-_OptionalAuthenticateCognitoActionConfigTypeDef = TypedDict(
-    "_OptionalAuthenticateCognitoActionConfigTypeDef",
-    {
-        "SessionCookieName": str,
-        "Scope": str,
-        "SessionTimeout": int,
-        "AuthenticationRequestExtraParams": Dict[str, str],
-        "OnUnauthenticatedRequest": AuthenticateCognitoActionConditionalBehaviorEnumType,
-    },
-    total=False,
-)
-
-class AuthenticateCognitoActionConfigTypeDef(
-    _RequiredAuthenticateCognitoActionConfigTypeDef, _OptionalAuthenticateCognitoActionConfigTypeDef
-):
-    pass
-
-_RequiredAuthenticateOidcActionConfigTypeDef = TypedDict(
-    "_RequiredAuthenticateOidcActionConfigTypeDef",
-    {
-        "Issuer": str,
-        "AuthorizationEndpoint": str,
-        "TokenEndpoint": str,
-        "UserInfoEndpoint": str,
-        "ClientId": str,
-    },
-)
-_OptionalAuthenticateOidcActionConfigTypeDef = TypedDict(
-    "_OptionalAuthenticateOidcActionConfigTypeDef",
-    {
-        "ClientSecret": str,
-        "SessionCookieName": str,
-        "Scope": str,
-        "SessionTimeout": int,
-        "AuthenticationRequestExtraParams": Dict[str, str],
-        "OnUnauthenticatedRequest": AuthenticateOidcActionConditionalBehaviorEnumType,
-        "UseExistingClientSecret": bool,
-    },
-    total=False,
-)
-
-class AuthenticateOidcActionConfigTypeDef(
-    _RequiredAuthenticateOidcActionConfigTypeDef, _OptionalAuthenticateOidcActionConfigTypeDef
-):
-    pass
-
-AvailabilityZoneTypeDef = TypedDict(
-    "AvailabilityZoneTypeDef",
-    {
-        "ZoneName": str,
-        "SubnetId": str,
-        "OutpostId": str,
-        "LoadBalancerAddresses": List["LoadBalancerAddressTypeDef"],
-    },
-    total=False,
-)
-
-CertificateTypeDef = TypedDict(
-    "CertificateTypeDef",
-    {
-        "CertificateArn": str,
-        "IsDefault": bool,
-    },
-    total=False,
-)
-
-CipherTypeDef = TypedDict(
-    "CipherTypeDef",
-    {
-        "Name": str,
-        "Priority": int,
-    },
-    total=False,
-)
-
-_RequiredCreateListenerInputRequestTypeDef = TypedDict(
-    "_RequiredCreateListenerInputRequestTypeDef",
-    {
-        "LoadBalancerArn": str,
-        "DefaultActions": List["ActionTypeDef"],
-    },
-)
-_OptionalCreateListenerInputRequestTypeDef = TypedDict(
-    "_OptionalCreateListenerInputRequestTypeDef",
-    {
-        "Protocol": ProtocolEnumType,
-        "Port": int,
-        "SslPolicy": str,
-        "Certificates": List["CertificateTypeDef"],
-        "AlpnPolicy": List[str],
-        "Tags": List["TagTypeDef"],
-        "MutualAuthentication": "MutualAuthenticationAttributesTypeDef",
-    },
-    total=False,
-)
-
-class CreateListenerInputRequestTypeDef(
-    _RequiredCreateListenerInputRequestTypeDef, _OptionalCreateListenerInputRequestTypeDef
-):
-    pass
-
-CreateListenerOutputTypeDef = TypedDict(
-    "CreateListenerOutputTypeDef",
-    {
-        "Listeners": List["ListenerTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateLoadBalancerInputRequestTypeDef = TypedDict(
-    "_RequiredCreateLoadBalancerInputRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
-_OptionalCreateLoadBalancerInputRequestTypeDef = TypedDict(
-    "_OptionalCreateLoadBalancerInputRequestTypeDef",
-    {
-        "Subnets": List[str],
-        "SubnetMappings": List["SubnetMappingTypeDef"],
-        "SecurityGroups": List[str],
-        "Scheme": LoadBalancerSchemeEnumType,
-        "Tags": List["TagTypeDef"],
-        "Type": LoadBalancerTypeEnumType,
-        "IpAddressType": IpAddressTypeType,
-        "CustomerOwnedIpv4Pool": str,
-    },
-    total=False,
-)
-
-class CreateLoadBalancerInputRequestTypeDef(
-    _RequiredCreateLoadBalancerInputRequestTypeDef, _OptionalCreateLoadBalancerInputRequestTypeDef
-):
-    pass
-
-CreateLoadBalancerOutputTypeDef = TypedDict(
-    "CreateLoadBalancerOutputTypeDef",
-    {
-        "LoadBalancers": List["LoadBalancerTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateRuleInputRequestTypeDef = TypedDict(
-    "_RequiredCreateRuleInputRequestTypeDef",
-    {
-        "ListenerArn": str,
-        "Conditions": List["RuleConditionTypeDef"],
-        "Priority": int,
-        "Actions": List["ActionTypeDef"],
-    },
-)
-_OptionalCreateRuleInputRequestTypeDef = TypedDict(
-    "_OptionalCreateRuleInputRequestTypeDef",
-    {
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateRuleInputRequestTypeDef(
-    _RequiredCreateRuleInputRequestTypeDef, _OptionalCreateRuleInputRequestTypeDef
-):
-    pass
-
-CreateRuleOutputTypeDef = TypedDict(
-    "CreateRuleOutputTypeDef",
-    {
-        "Rules": List["RuleTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateTargetGroupInputRequestTypeDef = TypedDict(
-    "_RequiredCreateTargetGroupInputRequestTypeDef",
-    {
-        "Name": str,
-    },
-)
-_OptionalCreateTargetGroupInputRequestTypeDef = TypedDict(
-    "_OptionalCreateTargetGroupInputRequestTypeDef",
-    {
-        "Protocol": ProtocolEnumType,
-        "ProtocolVersion": str,
-        "Port": int,
-        "VpcId": str,
-        "HealthCheckProtocol": ProtocolEnumType,
-        "HealthCheckPort": str,
-        "HealthCheckEnabled": bool,
-        "HealthCheckPath": str,
-        "HealthCheckIntervalSeconds": int,
-        "HealthCheckTimeoutSeconds": int,
-        "HealthyThresholdCount": int,
-        "UnhealthyThresholdCount": int,
-        "Matcher": "MatcherTypeDef",
-        "TargetType": TargetTypeEnumType,
-        "Tags": List["TagTypeDef"],
-        "IpAddressType": TargetGroupIpAddressTypeEnumType,
-    },
-    total=False,
-)
-
-class CreateTargetGroupInputRequestTypeDef(
-    _RequiredCreateTargetGroupInputRequestTypeDef, _OptionalCreateTargetGroupInputRequestTypeDef
-):
-    pass
-
-CreateTargetGroupOutputTypeDef = TypedDict(
-    "CreateTargetGroupOutputTypeDef",
-    {
-        "TargetGroups": List["TargetGroupTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateTrustStoreInputRequestTypeDef = TypedDict(
-    "_RequiredCreateTrustStoreInputRequestTypeDef",
-    {
-        "Name": str,
-        "CaCertificatesBundleS3Bucket": str,
-        "CaCertificatesBundleS3Key": str,
-    },
-)
-_OptionalCreateTrustStoreInputRequestTypeDef = TypedDict(
-    "_OptionalCreateTrustStoreInputRequestTypeDef",
-    {
-        "CaCertificatesBundleS3ObjectVersion": str,
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateTrustStoreInputRequestTypeDef(
-    _RequiredCreateTrustStoreInputRequestTypeDef, _OptionalCreateTrustStoreInputRequestTypeDef
-):
-    pass
-
-CreateTrustStoreOutputTypeDef = TypedDict(
-    "CreateTrustStoreOutputTypeDef",
-    {
-        "TrustStores": List["TrustStoreTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteListenerInputRequestTypeDef = TypedDict(
-    "DeleteListenerInputRequestTypeDef",
-    {
-        "ListenerArn": str,
-    },
-)
-
-DeleteLoadBalancerInputRequestTypeDef = TypedDict(
-    "DeleteLoadBalancerInputRequestTypeDef",
-    {
-        "LoadBalancerArn": str,
-    },
-)
-
-DeleteRuleInputRequestTypeDef = TypedDict(
-    "DeleteRuleInputRequestTypeDef",
-    {
-        "RuleArn": str,
-    },
-)
-
-DeleteTargetGroupInputRequestTypeDef = TypedDict(
-    "DeleteTargetGroupInputRequestTypeDef",
-    {
-        "TargetGroupArn": str,
-    },
-)
-
-DeleteTrustStoreInputRequestTypeDef = TypedDict(
-    "DeleteTrustStoreInputRequestTypeDef",
-    {
-        "TrustStoreArn": str,
-    },
-)
-
-DeregisterTargetsInputRequestTypeDef = TypedDict(
-    "DeregisterTargetsInputRequestTypeDef",
-    {
-        "TargetGroupArn": str,
-        "Targets": List["TargetDescriptionTypeDef"],
-    },
-)
-
-DescribeAccountLimitsInputRequestTypeDef = TypedDict(
-    "DescribeAccountLimitsInputRequestTypeDef",
-    {
-        "Marker": str,
-        "PageSize": int,
-    },
-    total=False,
-)
-
-DescribeAccountLimitsOutputTypeDef = TypedDict(
-    "DescribeAccountLimitsOutputTypeDef",
-    {
-        "Limits": List["LimitTypeDef"],
-        "NextMarker": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribeListenerCertificatesInputRequestTypeDef = TypedDict(
-    "_RequiredDescribeListenerCertificatesInputRequestTypeDef",
-    {
-        "ListenerArn": str,
-    },
-)
-_OptionalDescribeListenerCertificatesInputRequestTypeDef = TypedDict(
-    "_OptionalDescribeListenerCertificatesInputRequestTypeDef",
-    {
-        "Marker": str,
-        "PageSize": int,
-    },
-    total=False,
-)
-
-class DescribeListenerCertificatesInputRequestTypeDef(
-    _RequiredDescribeListenerCertificatesInputRequestTypeDef,
-    _OptionalDescribeListenerCertificatesInputRequestTypeDef,
-):
-    pass
-
-DescribeListenerCertificatesOutputTypeDef = TypedDict(
-    "DescribeListenerCertificatesOutputTypeDef",
-    {
-        "Certificates": List["CertificateTypeDef"],
-        "NextMarker": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeListenersInputRequestTypeDef = TypedDict(
-    "DescribeListenersInputRequestTypeDef",
-    {
-        "LoadBalancerArn": str,
-        "ListenerArns": List[str],
-        "Marker": str,
-        "PageSize": int,
-    },
-    total=False,
-)
-
-DescribeListenersOutputTypeDef = TypedDict(
-    "DescribeListenersOutputTypeDef",
-    {
-        "Listeners": List["ListenerTypeDef"],
-        "NextMarker": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeLoadBalancerAttributesInputRequestTypeDef = TypedDict(
-    "DescribeLoadBalancerAttributesInputRequestTypeDef",
-    {
-        "LoadBalancerArn": str,
-    },
-)
-
-DescribeLoadBalancerAttributesOutputTypeDef = TypedDict(
-    "DescribeLoadBalancerAttributesOutputTypeDef",
-    {
-        "Attributes": List["LoadBalancerAttributeTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeLoadBalancersInputRequestTypeDef = TypedDict(
-    "DescribeLoadBalancersInputRequestTypeDef",
-    {
-        "LoadBalancerArns": List[str],
-        "Names": List[str],
-        "Marker": str,
-        "PageSize": int,
-    },
-    total=False,
-)
-
-DescribeLoadBalancersOutputTypeDef = TypedDict(
-    "DescribeLoadBalancersOutputTypeDef",
-    {
-        "LoadBalancers": List["LoadBalancerTypeDef"],
-        "NextMarker": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeRulesInputRequestTypeDef = TypedDict(
-    "DescribeRulesInputRequestTypeDef",
-    {
-        "ListenerArn": str,
-        "RuleArns": List[str],
-        "Marker": str,
-        "PageSize": int,
-    },
-    total=False,
-)
-
-DescribeRulesOutputTypeDef = TypedDict(
-    "DescribeRulesOutputTypeDef",
-    {
-        "Rules": List["RuleTypeDef"],
-        "NextMarker": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeSSLPoliciesInputRequestTypeDef = TypedDict(
-    "DescribeSSLPoliciesInputRequestTypeDef",
-    {
-        "Names": List[str],
-        "Marker": str,
-        "PageSize": int,
-        "LoadBalancerType": LoadBalancerTypeEnumType,
-    },
-    total=False,
-)
-
-DescribeSSLPoliciesOutputTypeDef = TypedDict(
-    "DescribeSSLPoliciesOutputTypeDef",
-    {
-        "SslPolicies": List["SslPolicyTypeDef"],
-        "NextMarker": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeTagsInputRequestTypeDef = TypedDict(
-    "DescribeTagsInputRequestTypeDef",
-    {
-        "ResourceArns": List[str],
-    },
-)
-
-DescribeTagsOutputTypeDef = TypedDict(
-    "DescribeTagsOutputTypeDef",
-    {
-        "TagDescriptions": List["TagDescriptionTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeTargetGroupAttributesInputRequestTypeDef = TypedDict(
-    "DescribeTargetGroupAttributesInputRequestTypeDef",
-    {
-        "TargetGroupArn": str,
-    },
-)
-
-DescribeTargetGroupAttributesOutputTypeDef = TypedDict(
-    "DescribeTargetGroupAttributesOutputTypeDef",
-    {
-        "Attributes": List["TargetGroupAttributeTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeTargetGroupsInputRequestTypeDef = TypedDict(
-    "DescribeTargetGroupsInputRequestTypeDef",
-    {
-        "LoadBalancerArn": str,
-        "TargetGroupArns": List[str],
-        "Names": List[str],
-        "Marker": str,
-        "PageSize": int,
-    },
-    total=False,
-)
-
-DescribeTargetGroupsOutputTypeDef = TypedDict(
-    "DescribeTargetGroupsOutputTypeDef",
-    {
-        "TargetGroups": List["TargetGroupTypeDef"],
-        "NextMarker": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribeTargetHealthInputRequestTypeDef = TypedDict(
-    "_RequiredDescribeTargetHealthInputRequestTypeDef",
-    {
-        "TargetGroupArn": str,
-    },
-)
-_OptionalDescribeTargetHealthInputRequestTypeDef = TypedDict(
-    "_OptionalDescribeTargetHealthInputRequestTypeDef",
-    {
-        "Targets": List["TargetDescriptionTypeDef"],
-        "Include": List[DescribeTargetHealthInputIncludeEnumType],
-    },
-    total=False,
-)
-
-class DescribeTargetHealthInputRequestTypeDef(
-    _RequiredDescribeTargetHealthInputRequestTypeDef,
-    _OptionalDescribeTargetHealthInputRequestTypeDef,
-):
-    pass
-
-DescribeTargetHealthOutputTypeDef = TypedDict(
-    "DescribeTargetHealthOutputTypeDef",
-    {
-        "TargetHealthDescriptions": List["TargetHealthDescriptionTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribeTrustStoreAssociationsInputRequestTypeDef = TypedDict(
-    "_RequiredDescribeTrustStoreAssociationsInputRequestTypeDef",
-    {
-        "TrustStoreArn": str,
-    },
-)
-_OptionalDescribeTrustStoreAssociationsInputRequestTypeDef = TypedDict(
-    "_OptionalDescribeTrustStoreAssociationsInputRequestTypeDef",
-    {
-        "Marker": str,
-        "PageSize": int,
-    },
-    total=False,
-)
-
-class DescribeTrustStoreAssociationsInputRequestTypeDef(
-    _RequiredDescribeTrustStoreAssociationsInputRequestTypeDef,
-    _OptionalDescribeTrustStoreAssociationsInputRequestTypeDef,
-):
-    pass
-
-DescribeTrustStoreAssociationsOutputTypeDef = TypedDict(
-    "DescribeTrustStoreAssociationsOutputTypeDef",
-    {
-        "TrustStoreAssociations": List["TrustStoreAssociationTypeDef"],
-        "NextMarker": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeTrustStoreRevocationTypeDef = TypedDict(
-    "DescribeTrustStoreRevocationTypeDef",
-    {
-        "TrustStoreArn": str,
-        "RevocationId": int,
-        "RevocationType": Literal["CRL"],
-        "NumberOfRevokedEntries": int,
-    },
-    total=False,
-)
-
-_RequiredDescribeTrustStoreRevocationsInputRequestTypeDef = TypedDict(
-    "_RequiredDescribeTrustStoreRevocationsInputRequestTypeDef",
-    {
-        "TrustStoreArn": str,
-    },
-)
-_OptionalDescribeTrustStoreRevocationsInputRequestTypeDef = TypedDict(
-    "_OptionalDescribeTrustStoreRevocationsInputRequestTypeDef",
-    {
-        "RevocationIds": List[int],
-        "Marker": str,
-        "PageSize": int,
-    },
-    total=False,
-)
-
-class DescribeTrustStoreRevocationsInputRequestTypeDef(
-    _RequiredDescribeTrustStoreRevocationsInputRequestTypeDef,
-    _OptionalDescribeTrustStoreRevocationsInputRequestTypeDef,
-):
-    pass
-
-DescribeTrustStoreRevocationsOutputTypeDef = TypedDict(
-    "DescribeTrustStoreRevocationsOutputTypeDef",
-    {
-        "TrustStoreRevocations": List["DescribeTrustStoreRevocationTypeDef"],
-        "NextMarker": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeTrustStoresInputRequestTypeDef = TypedDict(
-    "DescribeTrustStoresInputRequestTypeDef",
-    {
-        "TrustStoreArns": List[str],
-        "Names": List[str],
-        "Marker": str,
-        "PageSize": int,
-    },
-    total=False,
-)
-
-DescribeTrustStoresOutputTypeDef = TypedDict(
-    "DescribeTrustStoresOutputTypeDef",
-    {
-        "TrustStores": List["TrustStoreTypeDef"],
-        "NextMarker": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredFixedResponseActionConfigTypeDef = TypedDict(
-    "_RequiredFixedResponseActionConfigTypeDef",
-    {
-        "StatusCode": str,
-    },
-)
-_OptionalFixedResponseActionConfigTypeDef = TypedDict(
-    "_OptionalFixedResponseActionConfigTypeDef",
-    {
-        "MessageBody": str,
-        "ContentType": str,
-    },
-    total=False,
-)
-
-class FixedResponseActionConfigTypeDef(
-    _RequiredFixedResponseActionConfigTypeDef, _OptionalFixedResponseActionConfigTypeDef
-):
-    pass
-
-ForwardActionConfigTypeDef = TypedDict(
-    "ForwardActionConfigTypeDef",
-    {
-        "TargetGroups": List["TargetGroupTupleTypeDef"],
-        "TargetGroupStickinessConfig": "TargetGroupStickinessConfigTypeDef",
-    },
-    total=False,
-)
-
-GetTrustStoreCaCertificatesBundleInputRequestTypeDef = TypedDict(
-    "GetTrustStoreCaCertificatesBundleInputRequestTypeDef",
-    {
-        "TrustStoreArn": str,
-    },
-)
-
-GetTrustStoreCaCertificatesBundleOutputTypeDef = TypedDict(
-    "GetTrustStoreCaCertificatesBundleOutputTypeDef",
-    {
-        "Location": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetTrustStoreRevocationContentInputRequestTypeDef = TypedDict(
-    "GetTrustStoreRevocationContentInputRequestTypeDef",
-    {
-        "TrustStoreArn": str,
-        "RevocationId": int,
-    },
-)
-
-GetTrustStoreRevocationContentOutputTypeDef = TypedDict(
-    "GetTrustStoreRevocationContentOutputTypeDef",
-    {
-        "Location": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-HostHeaderConditionConfigTypeDef = TypedDict(
-    "HostHeaderConditionConfigTypeDef",
-    {
-        "Values": List[str],
-    },
-    total=False,
-)
-
-HttpHeaderConditionConfigTypeDef = TypedDict(
-    "HttpHeaderConditionConfigTypeDef",
-    {
-        "HttpHeaderName": str,
-        "Values": List[str],
-    },
-    total=False,
-)
-
-HttpRequestMethodConditionConfigTypeDef = TypedDict(
-    "HttpRequestMethodConditionConfigTypeDef",
-    {
-        "Values": List[str],
-    },
-    total=False,
-)
-
-LimitTypeDef = TypedDict(
-    "LimitTypeDef",
-    {
-        "Name": str,
-        "Max": str,
-    },
-    total=False,
-)
-
-ListenerTypeDef = TypedDict(
-    "ListenerTypeDef",
-    {
-        "ListenerArn": str,
-        "LoadBalancerArn": str,
-        "Port": int,
-        "Protocol": ProtocolEnumType,
-        "Certificates": List["CertificateTypeDef"],
-        "SslPolicy": str,
-        "DefaultActions": List["ActionTypeDef"],
-        "AlpnPolicy": List[str],
-        "MutualAuthentication": "MutualAuthenticationAttributesTypeDef",
-    },
-    total=False,
-)
-
-LoadBalancerAddressTypeDef = TypedDict(
-    "LoadBalancerAddressTypeDef",
-    {
-        "IpAddress": str,
-        "AllocationId": str,
-        "PrivateIPv4Address": str,
-        "IPv6Address": str,
-    },
-    total=False,
-)
-
-LoadBalancerAttributeTypeDef = TypedDict(
-    "LoadBalancerAttributeTypeDef",
-    {
-        "Key": str,
-        "Value": str,
-    },
-    total=False,
-)
-
-LoadBalancerStateTypeDef = TypedDict(
-    "LoadBalancerStateTypeDef",
-    {
-        "Code": LoadBalancerStateEnumType,
-        "Reason": str,
-    },
-    total=False,
-)
-
-LoadBalancerTypeDef = TypedDict(
-    "LoadBalancerTypeDef",
-    {
-        "LoadBalancerArn": str,
-        "DNSName": str,
-        "CanonicalHostedZoneId": str,
-        "CreatedTime": datetime,
-        "LoadBalancerName": str,
-        "Scheme": LoadBalancerSchemeEnumType,
-        "VpcId": str,
-        "State": "LoadBalancerStateTypeDef",
-        "Type": LoadBalancerTypeEnumType,
-        "AvailabilityZones": List["AvailabilityZoneTypeDef"],
-        "SecurityGroups": List[str],
-        "IpAddressType": IpAddressTypeType,
-        "CustomerOwnedIpv4Pool": str,
-        "EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic": str,
-    },
-    total=False,
-)
-
-MatcherTypeDef = TypedDict(
-    "MatcherTypeDef",
-    {
-        "HttpCode": str,
-        "GrpcCode": str,
-    },
-    total=False,
-)
-
-_RequiredModifyListenerInputRequestTypeDef = TypedDict(
-    "_RequiredModifyListenerInputRequestTypeDef",
-    {
-        "ListenerArn": str,
-    },
-)
-_OptionalModifyListenerInputRequestTypeDef = TypedDict(
-    "_OptionalModifyListenerInputRequestTypeDef",
-    {
-        "Port": int,
-        "Protocol": ProtocolEnumType,
-        "SslPolicy": str,
-        "Certificates": List["CertificateTypeDef"],
-        "DefaultActions": List["ActionTypeDef"],
-        "AlpnPolicy": List[str],
-        "MutualAuthentication": "MutualAuthenticationAttributesTypeDef",
-    },
-    total=False,
-)
-
-class ModifyListenerInputRequestTypeDef(
-    _RequiredModifyListenerInputRequestTypeDef, _OptionalModifyListenerInputRequestTypeDef
-):
-    pass
-
-ModifyListenerOutputTypeDef = TypedDict(
-    "ModifyListenerOutputTypeDef",
-    {
-        "Listeners": List["ListenerTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ModifyLoadBalancerAttributesInputRequestTypeDef = TypedDict(
-    "ModifyLoadBalancerAttributesInputRequestTypeDef",
-    {
-        "LoadBalancerArn": str,
-        "Attributes": List["LoadBalancerAttributeTypeDef"],
-    },
-)
-
-ModifyLoadBalancerAttributesOutputTypeDef = TypedDict(
-    "ModifyLoadBalancerAttributesOutputTypeDef",
-    {
-        "Attributes": List["LoadBalancerAttributeTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredModifyRuleInputRequestTypeDef = TypedDict(
-    "_RequiredModifyRuleInputRequestTypeDef",
-    {
-        "RuleArn": str,
-    },
-)
-_OptionalModifyRuleInputRequestTypeDef = TypedDict(
-    "_OptionalModifyRuleInputRequestTypeDef",
-    {
-        "Conditions": List["RuleConditionTypeDef"],
-        "Actions": List["ActionTypeDef"],
-    },
-    total=False,
-)
-
-class ModifyRuleInputRequestTypeDef(
-    _RequiredModifyRuleInputRequestTypeDef, _OptionalModifyRuleInputRequestTypeDef
-):
-    pass
-
-ModifyRuleOutputTypeDef = TypedDict(
-    "ModifyRuleOutputTypeDef",
-    {
-        "Rules": List["RuleTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ModifyTargetGroupAttributesInputRequestTypeDef = TypedDict(
-    "ModifyTargetGroupAttributesInputRequestTypeDef",
-    {
-        "TargetGroupArn": str,
-        "Attributes": List["TargetGroupAttributeTypeDef"],
-    },
-)
-
-ModifyTargetGroupAttributesOutputTypeDef = TypedDict(
-    "ModifyTargetGroupAttributesOutputTypeDef",
-    {
-        "Attributes": List["TargetGroupAttributeTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredModifyTargetGroupInputRequestTypeDef = TypedDict(
-    "_RequiredModifyTargetGroupInputRequestTypeDef",
-    {
-        "TargetGroupArn": str,
-    },
-)
-_OptionalModifyTargetGroupInputRequestTypeDef = TypedDict(
-    "_OptionalModifyTargetGroupInputRequestTypeDef",
-    {
-        "HealthCheckProtocol": ProtocolEnumType,
-        "HealthCheckPort": str,
-        "HealthCheckPath": str,
-        "HealthCheckEnabled": bool,
-        "HealthCheckIntervalSeconds": int,
-        "HealthCheckTimeoutSeconds": int,
-        "HealthyThresholdCount": int,
-        "UnhealthyThresholdCount": int,
-        "Matcher": "MatcherTypeDef",
-    },
-    total=False,
-)
-
-class ModifyTargetGroupInputRequestTypeDef(
-    _RequiredModifyTargetGroupInputRequestTypeDef, _OptionalModifyTargetGroupInputRequestTypeDef
-):
-    pass
-
-ModifyTargetGroupOutputTypeDef = TypedDict(
-    "ModifyTargetGroupOutputTypeDef",
-    {
-        "TargetGroups": List["TargetGroupTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredModifyTrustStoreInputRequestTypeDef = TypedDict(
-    "_RequiredModifyTrustStoreInputRequestTypeDef",
-    {
-        "TrustStoreArn": str,
-        "CaCertificatesBundleS3Bucket": str,
-        "CaCertificatesBundleS3Key": str,
-    },
-)
-_OptionalModifyTrustStoreInputRequestTypeDef = TypedDict(
-    "_OptionalModifyTrustStoreInputRequestTypeDef",
-    {
-        "CaCertificatesBundleS3ObjectVersion": str,
-    },
-    total=False,
-)
-
-class ModifyTrustStoreInputRequestTypeDef(
-    _RequiredModifyTrustStoreInputRequestTypeDef, _OptionalModifyTrustStoreInputRequestTypeDef
-):
-    pass
-
-ModifyTrustStoreOutputTypeDef = TypedDict(
-    "ModifyTrustStoreOutputTypeDef",
-    {
-        "TrustStores": List["TrustStoreTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-MutualAuthenticationAttributesTypeDef = TypedDict(
-    "MutualAuthenticationAttributesTypeDef",
-    {
-        "Mode": str,
-        "TrustStoreArn": str,
-        "IgnoreClientCertificateExpiry": bool,
-    },
-    total=False,
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-PathPatternConditionConfigTypeDef = TypedDict(
-    "PathPatternConditionConfigTypeDef",
-    {
-        "Values": List[str],
-    },
-    total=False,
-)
-
-QueryStringConditionConfigTypeDef = TypedDict(
-    "QueryStringConditionConfigTypeDef",
-    {
-        "Values": List["QueryStringKeyValuePairTypeDef"],
-    },
-    total=False,
-)
-
-QueryStringKeyValuePairTypeDef = TypedDict(
-    "QueryStringKeyValuePairTypeDef",
-    {
-        "Key": str,
-        "Value": str,
-    },
-    total=False,
-)
-
-_RequiredRedirectActionConfigTypeDef = TypedDict(
-    "_RequiredRedirectActionConfigTypeDef",
+    "ZonalCapacityReservationStateTypeDef",
+)
+
+class AuthenticateCognitoActionConfigOutputTypeDef(TypedDict):
+    UserPoolArn: str
+    UserPoolClientId: str
+    UserPoolDomain: str
+    SessionCookieName: NotRequired[str]
+    Scope: NotRequired[str]
+    SessionTimeout: NotRequired[int]
+    AuthenticationRequestExtraParams: NotRequired[Dict[str, str]]
+    OnUnauthenticatedRequest: NotRequired[AuthenticateCognitoActionConditionalBehaviorEnumType]
+
+class AuthenticateOidcActionConfigOutputTypeDef(TypedDict):
+    Issuer: str
+    AuthorizationEndpoint: str
+    TokenEndpoint: str
+    UserInfoEndpoint: str
+    ClientId: str
+    ClientSecret: NotRequired[str]
+    SessionCookieName: NotRequired[str]
+    Scope: NotRequired[str]
+    SessionTimeout: NotRequired[int]
+    AuthenticationRequestExtraParams: NotRequired[Dict[str, str]]
+    OnUnauthenticatedRequest: NotRequired[AuthenticateOidcActionConditionalBehaviorEnumType]
+    UseExistingClientSecret: NotRequired[bool]
+
+class FixedResponseActionConfigTypeDef(TypedDict):
+    StatusCode: str
+    MessageBody: NotRequired[str]
+    ContentType: NotRequired[str]
+
+RedirectActionConfigTypeDef = TypedDict(
+    "RedirectActionConfigTypeDef",
     {
         "StatusCode": RedirectActionStatusCodeEnumType,
-    },
-)
-_OptionalRedirectActionConfigTypeDef = TypedDict(
-    "_OptionalRedirectActionConfigTypeDef",
-    {
-        "Protocol": str,
-        "Port": str,
-        "Host": str,
-        "Path": str,
-        "Query": str,
-    },
-    total=False,
-)
-
-class RedirectActionConfigTypeDef(
-    _RequiredRedirectActionConfigTypeDef, _OptionalRedirectActionConfigTypeDef
-):
-    pass
-
-RegisterTargetsInputRequestTypeDef = TypedDict(
-    "RegisterTargetsInputRequestTypeDef",
-    {
-        "TargetGroupArn": str,
-        "Targets": List["TargetDescriptionTypeDef"],
+        "Protocol": NotRequired[str],
+        "Port": NotRequired[str],
+        "Host": NotRequired[str],
+        "Path": NotRequired[str],
+        "Query": NotRequired[str],
     },
 )
 
-RemoveListenerCertificatesInputRequestTypeDef = TypedDict(
-    "RemoveListenerCertificatesInputRequestTypeDef",
-    {
-        "ListenerArn": str,
-        "Certificates": List["CertificateTypeDef"],
-    },
-)
+class CertificateTypeDef(TypedDict):
+    CertificateArn: NotRequired[str]
+    IsDefault: NotRequired[bool]
 
-RemoveTagsInputRequestTypeDef = TypedDict(
-    "RemoveTagsInputRequestTypeDef",
-    {
-        "ResourceArns": List[str],
-        "TagKeys": List[str],
-    },
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-RemoveTrustStoreRevocationsInputRequestTypeDef = TypedDict(
-    "RemoveTrustStoreRevocationsInputRequestTypeDef",
-    {
-        "TrustStoreArn": str,
-        "RevocationIds": List[int],
-    },
-)
+class TagTypeDef(TypedDict):
+    Key: str
+    Value: NotRequired[str]
 
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
+class RevocationContentTypeDef(TypedDict):
+    S3Bucket: NotRequired[str]
+    S3Key: NotRequired[str]
+    S3ObjectVersion: NotRequired[str]
+    RevocationType: NotRequired[Literal["CRL"]]
 
-RevocationContentTypeDef = TypedDict(
-    "RevocationContentTypeDef",
-    {
-        "S3Bucket": str,
-        "S3Key": str,
-        "S3ObjectVersion": str,
-        "RevocationType": Literal["CRL"],
-    },
-    total=False,
-)
+class TrustStoreRevocationTypeDef(TypedDict):
+    TrustStoreArn: NotRequired[str]
+    RevocationId: NotRequired[int]
+    RevocationType: NotRequired[Literal["CRL"]]
+    NumberOfRevokedEntries: NotRequired[int]
 
-RuleConditionTypeDef = TypedDict(
-    "RuleConditionTypeDef",
-    {
-        "Field": str,
-        "Values": List[str],
-        "HostHeaderConfig": "HostHeaderConditionConfigTypeDef",
-        "PathPatternConfig": "PathPatternConditionConfigTypeDef",
-        "HttpHeaderConfig": "HttpHeaderConditionConfigTypeDef",
-        "QueryStringConfig": "QueryStringConditionConfigTypeDef",
-        "HttpRequestMethodConfig": "HttpRequestMethodConditionConfigTypeDef",
-        "SourceIpConfig": "SourceIpConditionConfigTypeDef",
-    },
-    total=False,
-)
+class AdministrativeOverrideTypeDef(TypedDict):
+    State: NotRequired[TargetAdministrativeOverrideStateEnumType]
+    Reason: NotRequired[TargetAdministrativeOverrideReasonEnumType]
+    Description: NotRequired[str]
 
-RulePriorityPairTypeDef = TypedDict(
-    "RulePriorityPairTypeDef",
-    {
-        "RuleArn": str,
-        "Priority": int,
-    },
-    total=False,
-)
+class AnomalyDetectionTypeDef(TypedDict):
+    Result: NotRequired[AnomalyResultEnumType]
+    MitigationInEffect: NotRequired[MitigationInEffectEnumType]
 
-RuleTypeDef = TypedDict(
-    "RuleTypeDef",
-    {
-        "RuleArn": str,
-        "Priority": str,
-        "Conditions": List["RuleConditionTypeDef"],
-        "Actions": List["ActionTypeDef"],
-        "IsDefault": bool,
-    },
-    total=False,
-)
+class AuthenticateCognitoActionConfigTypeDef(TypedDict):
+    UserPoolArn: str
+    UserPoolClientId: str
+    UserPoolDomain: str
+    SessionCookieName: NotRequired[str]
+    Scope: NotRequired[str]
+    SessionTimeout: NotRequired[int]
+    AuthenticationRequestExtraParams: NotRequired[Mapping[str, str]]
+    OnUnauthenticatedRequest: NotRequired[AuthenticateCognitoActionConditionalBehaviorEnumType]
 
-SetIpAddressTypeInputRequestTypeDef = TypedDict(
-    "SetIpAddressTypeInputRequestTypeDef",
-    {
-        "LoadBalancerArn": str,
-        "IpAddressType": IpAddressTypeType,
-    },
-)
+class AuthenticateOidcActionConfigTypeDef(TypedDict):
+    Issuer: str
+    AuthorizationEndpoint: str
+    TokenEndpoint: str
+    UserInfoEndpoint: str
+    ClientId: str
+    ClientSecret: NotRequired[str]
+    SessionCookieName: NotRequired[str]
+    Scope: NotRequired[str]
+    SessionTimeout: NotRequired[int]
+    AuthenticationRequestExtraParams: NotRequired[Mapping[str, str]]
+    OnUnauthenticatedRequest: NotRequired[AuthenticateOidcActionConditionalBehaviorEnumType]
+    UseExistingClientSecret: NotRequired[bool]
 
-SetIpAddressTypeOutputTypeDef = TypedDict(
-    "SetIpAddressTypeOutputTypeDef",
-    {
-        "IpAddressType": IpAddressTypeType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class LoadBalancerAddressTypeDef(TypedDict):
+    IpAddress: NotRequired[str]
+    AllocationId: NotRequired[str]
+    PrivateIPv4Address: NotRequired[str]
+    IPv6Address: NotRequired[str]
 
-SetRulePrioritiesInputRequestTypeDef = TypedDict(
-    "SetRulePrioritiesInputRequestTypeDef",
-    {
-        "RulePriorities": List["RulePriorityPairTypeDef"],
-    },
-)
+class CapacityReservationStatusTypeDef(TypedDict):
+    Code: NotRequired[CapacityReservationStateEnumType]
+    Reason: NotRequired[str]
 
-SetRulePrioritiesOutputTypeDef = TypedDict(
-    "SetRulePrioritiesOutputTypeDef",
-    {
-        "Rules": List["RuleTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CipherTypeDef(TypedDict):
+    Name: NotRequired[str]
+    Priority: NotRequired[int]
 
-_RequiredSetSecurityGroupsInputRequestTypeDef = TypedDict(
-    "_RequiredSetSecurityGroupsInputRequestTypeDef",
-    {
-        "LoadBalancerArn": str,
-        "SecurityGroups": List[str],
-    },
-)
-_OptionalSetSecurityGroupsInputRequestTypeDef = TypedDict(
-    "_OptionalSetSecurityGroupsInputRequestTypeDef",
-    {
-        "EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic": EnforceSecurityGroupInboundRulesOnPrivateLinkTrafficEnumType,
-    },
-    total=False,
-)
+class MutualAuthenticationAttributesTypeDef(TypedDict):
+    Mode: NotRequired[str]
+    TrustStoreArn: NotRequired[str]
+    IgnoreClientCertificateExpiry: NotRequired[bool]
+    TrustStoreAssociationStatus: NotRequired[TrustStoreAssociationStatusEnumType]
+    AdvertiseTrustStoreCaNames: NotRequired[AdvertiseTrustStoreCaNamesEnumType]
 
-class SetSecurityGroupsInputRequestTypeDef(
-    _RequiredSetSecurityGroupsInputRequestTypeDef, _OptionalSetSecurityGroupsInputRequestTypeDef
-):
-    pass
+class IpamPoolsTypeDef(TypedDict):
+    Ipv4IpamPoolId: NotRequired[str]
 
-SetSecurityGroupsOutputTypeDef = TypedDict(
-    "SetSecurityGroupsOutputTypeDef",
-    {
-        "SecurityGroupIds": List[str],
-        "EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic": EnforceSecurityGroupInboundRulesOnPrivateLinkTrafficEnumType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class SubnetMappingTypeDef(TypedDict):
+    SubnetId: NotRequired[str]
+    AllocationId: NotRequired[str]
+    PrivateIPv4Address: NotRequired[str]
+    IPv6Address: NotRequired[str]
+    SourceNatIpv6Prefix: NotRequired[str]
 
-_RequiredSetSubnetsInputRequestTypeDef = TypedDict(
-    "_RequiredSetSubnetsInputRequestTypeDef",
-    {
-        "LoadBalancerArn": str,
-    },
-)
-_OptionalSetSubnetsInputRequestTypeDef = TypedDict(
-    "_OptionalSetSubnetsInputRequestTypeDef",
-    {
-        "Subnets": List[str],
-        "SubnetMappings": List["SubnetMappingTypeDef"],
-        "IpAddressType": IpAddressTypeType,
-    },
-    total=False,
-)
+class MatcherTypeDef(TypedDict):
+    HttpCode: NotRequired[str]
+    GrpcCode: NotRequired[str]
 
-class SetSubnetsInputRequestTypeDef(
-    _RequiredSetSubnetsInputRequestTypeDef, _OptionalSetSubnetsInputRequestTypeDef
-):
-    pass
+class TrustStoreTypeDef(TypedDict):
+    Name: NotRequired[str]
+    TrustStoreArn: NotRequired[str]
+    Status: NotRequired[TrustStoreStatusType]
+    NumberOfCaCertificates: NotRequired[int]
+    TotalRevokedEntries: NotRequired[int]
 
-SetSubnetsOutputTypeDef = TypedDict(
-    "SetSubnetsOutputTypeDef",
-    {
-        "AvailabilityZones": List["AvailabilityZoneTypeDef"],
-        "IpAddressType": IpAddressTypeType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DeleteListenerInputTypeDef(TypedDict):
+    ListenerArn: str
 
-SourceIpConditionConfigTypeDef = TypedDict(
-    "SourceIpConditionConfigTypeDef",
-    {
-        "Values": List[str],
-    },
-    total=False,
-)
+class DeleteLoadBalancerInputTypeDef(TypedDict):
+    LoadBalancerArn: str
 
-SslPolicyTypeDef = TypedDict(
-    "SslPolicyTypeDef",
+class DeleteRuleInputTypeDef(TypedDict):
+    RuleArn: str
+
+class DeleteSharedTrustStoreAssociationInputTypeDef(TypedDict):
+    TrustStoreArn: str
+    ResourceArn: str
+
+class DeleteTargetGroupInputTypeDef(TypedDict):
+    TargetGroupArn: str
+
+class DeleteTrustStoreInputTypeDef(TypedDict):
+    TrustStoreArn: str
+
+class TargetDescriptionTypeDef(TypedDict):
+    Id: str
+    Port: NotRequired[int]
+    AvailabilityZone: NotRequired[str]
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class DescribeAccountLimitsInputTypeDef(TypedDict):
+    Marker: NotRequired[str]
+    PageSize: NotRequired[int]
+
+class LimitTypeDef(TypedDict):
+    Name: NotRequired[str]
+    Max: NotRequired[str]
+
+class DescribeCapacityReservationInputTypeDef(TypedDict):
+    LoadBalancerArn: str
+
+class MinimumLoadBalancerCapacityTypeDef(TypedDict):
+    CapacityUnits: NotRequired[int]
+
+class DescribeListenerAttributesInputTypeDef(TypedDict):
+    ListenerArn: str
+
+class ListenerAttributeTypeDef(TypedDict):
+    Key: NotRequired[str]
+    Value: NotRequired[str]
+
+class DescribeListenerCertificatesInputTypeDef(TypedDict):
+    ListenerArn: str
+    Marker: NotRequired[str]
+    PageSize: NotRequired[int]
+
+class DescribeListenersInputTypeDef(TypedDict):
+    LoadBalancerArn: NotRequired[str]
+    ListenerArns: NotRequired[Sequence[str]]
+    Marker: NotRequired[str]
+    PageSize: NotRequired[int]
+
+class DescribeLoadBalancerAttributesInputTypeDef(TypedDict):
+    LoadBalancerArn: str
+
+class LoadBalancerAttributeTypeDef(TypedDict):
+    Key: NotRequired[str]
+    Value: NotRequired[str]
+
+class DescribeLoadBalancersInputTypeDef(TypedDict):
+    LoadBalancerArns: NotRequired[Sequence[str]]
+    Names: NotRequired[Sequence[str]]
+    Marker: NotRequired[str]
+    PageSize: NotRequired[int]
+
+class WaiterConfigTypeDef(TypedDict):
+    Delay: NotRequired[int]
+    MaxAttempts: NotRequired[int]
+
+class DescribeRulesInputTypeDef(TypedDict):
+    ListenerArn: NotRequired[str]
+    RuleArns: NotRequired[Sequence[str]]
+    Marker: NotRequired[str]
+    PageSize: NotRequired[int]
+
+class DescribeSSLPoliciesInputTypeDef(TypedDict):
+    Names: NotRequired[Sequence[str]]
+    Marker: NotRequired[str]
+    PageSize: NotRequired[int]
+    LoadBalancerType: NotRequired[LoadBalancerTypeEnumType]
+
+class DescribeTagsInputTypeDef(TypedDict):
+    ResourceArns: Sequence[str]
+
+class DescribeTargetGroupAttributesInputTypeDef(TypedDict):
+    TargetGroupArn: str
+
+class TargetGroupAttributeTypeDef(TypedDict):
+    Key: NotRequired[str]
+    Value: NotRequired[str]
+
+class DescribeTargetGroupsInputTypeDef(TypedDict):
+    LoadBalancerArn: NotRequired[str]
+    TargetGroupArns: NotRequired[Sequence[str]]
+    Names: NotRequired[Sequence[str]]
+    Marker: NotRequired[str]
+    PageSize: NotRequired[int]
+
+class DescribeTrustStoreAssociationsInputTypeDef(TypedDict):
+    TrustStoreArn: str
+    Marker: NotRequired[str]
+    PageSize: NotRequired[int]
+
+class TrustStoreAssociationTypeDef(TypedDict):
+    ResourceArn: NotRequired[str]
+
+class DescribeTrustStoreRevocationTypeDef(TypedDict):
+    TrustStoreArn: NotRequired[str]
+    RevocationId: NotRequired[int]
+    RevocationType: NotRequired[Literal["CRL"]]
+    NumberOfRevokedEntries: NotRequired[int]
+
+class DescribeTrustStoreRevocationsInputTypeDef(TypedDict):
+    TrustStoreArn: str
+    RevocationIds: NotRequired[Sequence[int]]
+    Marker: NotRequired[str]
+    PageSize: NotRequired[int]
+
+class DescribeTrustStoresInputTypeDef(TypedDict):
+    TrustStoreArns: NotRequired[Sequence[str]]
+    Names: NotRequired[Sequence[str]]
+    Marker: NotRequired[str]
+    PageSize: NotRequired[int]
+
+class TargetGroupStickinessConfigTypeDef(TypedDict):
+    Enabled: NotRequired[bool]
+    DurationSeconds: NotRequired[int]
+
+class TargetGroupTupleTypeDef(TypedDict):
+    TargetGroupArn: NotRequired[str]
+    Weight: NotRequired[int]
+
+class GetResourcePolicyInputTypeDef(TypedDict):
+    ResourceArn: str
+
+class GetTrustStoreCaCertificatesBundleInputTypeDef(TypedDict):
+    TrustStoreArn: str
+
+class GetTrustStoreRevocationContentInputTypeDef(TypedDict):
+    TrustStoreArn: str
+    RevocationId: int
+
+class HostHeaderConditionConfigOutputTypeDef(TypedDict):
+    Values: NotRequired[List[str]]
+
+class HostHeaderConditionConfigTypeDef(TypedDict):
+    Values: NotRequired[Sequence[str]]
+
+class HttpHeaderConditionConfigOutputTypeDef(TypedDict):
+    HttpHeaderName: NotRequired[str]
+    Values: NotRequired[List[str]]
+
+class HttpHeaderConditionConfigTypeDef(TypedDict):
+    HttpHeaderName: NotRequired[str]
+    Values: NotRequired[Sequence[str]]
+
+class HttpRequestMethodConditionConfigOutputTypeDef(TypedDict):
+    Values: NotRequired[List[str]]
+
+class HttpRequestMethodConditionConfigTypeDef(TypedDict):
+    Values: NotRequired[Sequence[str]]
+
+class LoadBalancerStateTypeDef(TypedDict):
+    Code: NotRequired[LoadBalancerStateEnumType]
+    Reason: NotRequired[str]
+
+class ModifyTrustStoreInputTypeDef(TypedDict):
+    TrustStoreArn: str
+    CaCertificatesBundleS3Bucket: str
+    CaCertificatesBundleS3Key: str
+    CaCertificatesBundleS3ObjectVersion: NotRequired[str]
+
+class PathPatternConditionConfigOutputTypeDef(TypedDict):
+    Values: NotRequired[List[str]]
+
+class PathPatternConditionConfigTypeDef(TypedDict):
+    Values: NotRequired[Sequence[str]]
+
+class QueryStringKeyValuePairTypeDef(TypedDict):
+    Key: NotRequired[str]
+    Value: NotRequired[str]
+
+class RemoveTagsInputTypeDef(TypedDict):
+    ResourceArns: Sequence[str]
+    TagKeys: Sequence[str]
+
+class RemoveTrustStoreRevocationsInputTypeDef(TypedDict):
+    TrustStoreArn: str
+    RevocationIds: Sequence[int]
+
+class SourceIpConditionConfigOutputTypeDef(TypedDict):
+    Values: NotRequired[List[str]]
+
+class RulePriorityPairTypeDef(TypedDict):
+    RuleArn: NotRequired[str]
+    Priority: NotRequired[int]
+
+class SetIpAddressTypeInputTypeDef(TypedDict):
+    LoadBalancerArn: str
+    IpAddressType: IpAddressTypeType
+
+class SetSecurityGroupsInputTypeDef(TypedDict):
+    LoadBalancerArn: str
+    SecurityGroups: Sequence[str]
+    EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic: NotRequired[
+        EnforceSecurityGroupInboundRulesOnPrivateLinkTrafficEnumType
+    ]
+
+class SourceIpConditionConfigTypeDef(TypedDict):
+    Values: NotRequired[Sequence[str]]
+
+class TargetHealthTypeDef(TypedDict):
+    State: NotRequired[TargetHealthStateEnumType]
+    Reason: NotRequired[TargetHealthReasonEnumType]
+    Description: NotRequired[str]
+
+class AddListenerCertificatesInputTypeDef(TypedDict):
+    ListenerArn: str
+    Certificates: Sequence[CertificateTypeDef]
+
+class RemoveListenerCertificatesInputTypeDef(TypedDict):
+    ListenerArn: str
+    Certificates: Sequence[CertificateTypeDef]
+
+class AddListenerCertificatesOutputTypeDef(TypedDict):
+    Certificates: List[CertificateTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeListenerCertificatesOutputTypeDef(TypedDict):
+    Certificates: List[CertificateTypeDef]
+    NextMarker: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetResourcePolicyOutputTypeDef(TypedDict):
+    Policy: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetTrustStoreCaCertificatesBundleOutputTypeDef(TypedDict):
+    Location: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetTrustStoreRevocationContentOutputTypeDef(TypedDict):
+    Location: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class SetIpAddressTypeOutputTypeDef(TypedDict):
+    IpAddressType: IpAddressTypeType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class SetSecurityGroupsOutputTypeDef(TypedDict):
+    SecurityGroupIds: List[str]
+    EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic: (
+        EnforceSecurityGroupInboundRulesOnPrivateLinkTrafficEnumType
+    )
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class AddTagsInputTypeDef(TypedDict):
+    ResourceArns: Sequence[str]
+    Tags: Sequence[TagTypeDef]
+
+class CreateTrustStoreInputTypeDef(TypedDict):
+    Name: str
+    CaCertificatesBundleS3Bucket: str
+    CaCertificatesBundleS3Key: str
+    CaCertificatesBundleS3ObjectVersion: NotRequired[str]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+
+class TagDescriptionTypeDef(TypedDict):
+    ResourceArn: NotRequired[str]
+    Tags: NotRequired[List[TagTypeDef]]
+
+class AddTrustStoreRevocationsInputTypeDef(TypedDict):
+    TrustStoreArn: str
+    RevocationContents: NotRequired[Sequence[RevocationContentTypeDef]]
+
+class AddTrustStoreRevocationsOutputTypeDef(TypedDict):
+    TrustStoreRevocations: List[TrustStoreRevocationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+AuthenticateCognitoActionConfigUnionTypeDef = Union[
+    AuthenticateCognitoActionConfigTypeDef, AuthenticateCognitoActionConfigOutputTypeDef
+]
+AuthenticateOidcActionConfigUnionTypeDef = Union[
+    AuthenticateOidcActionConfigTypeDef, AuthenticateOidcActionConfigOutputTypeDef
+]
+
+class AvailabilityZoneTypeDef(TypedDict):
+    ZoneName: NotRequired[str]
+    SubnetId: NotRequired[str]
+    OutpostId: NotRequired[str]
+    LoadBalancerAddresses: NotRequired[List[LoadBalancerAddressTypeDef]]
+    SourceNatIpv6Prefixes: NotRequired[List[str]]
+
+class ZonalCapacityReservationStateTypeDef(TypedDict):
+    State: NotRequired[CapacityReservationStatusTypeDef]
+    AvailabilityZone: NotRequired[str]
+    EffectiveCapacityUnits: NotRequired[float]
+
+class SslPolicyTypeDef(TypedDict):
+    SslProtocols: NotRequired[List[str]]
+    Ciphers: NotRequired[List[CipherTypeDef]]
+    Name: NotRequired[str]
+    SupportedLoadBalancerTypes: NotRequired[List[str]]
+
+class ModifyIpPoolsInputTypeDef(TypedDict):
+    LoadBalancerArn: str
+    IpamPools: NotRequired[IpamPoolsTypeDef]
+    RemoveIpamPools: NotRequired[Sequence[Literal["ipv4"]]]
+
+class ModifyIpPoolsOutputTypeDef(TypedDict):
+    IpamPools: IpamPoolsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+CreateLoadBalancerInputTypeDef = TypedDict(
+    "CreateLoadBalancerInputTypeDef",
     {
-        "SslProtocols": List[str],
-        "Ciphers": List["CipherTypeDef"],
         "Name": str,
-        "SupportedLoadBalancerTypes": List[str],
+        "Subnets": NotRequired[Sequence[str]],
+        "SubnetMappings": NotRequired[Sequence[SubnetMappingTypeDef]],
+        "SecurityGroups": NotRequired[Sequence[str]],
+        "Scheme": NotRequired[LoadBalancerSchemeEnumType],
+        "Tags": NotRequired[Sequence[TagTypeDef]],
+        "Type": NotRequired[LoadBalancerTypeEnumType],
+        "IpAddressType": NotRequired[IpAddressTypeType],
+        "CustomerOwnedIpv4Pool": NotRequired[str],
+        "EnablePrefixForIpv6SourceNat": NotRequired[EnablePrefixForIpv6SourceNatEnumType],
+        "IpamPools": NotRequired[IpamPoolsTypeDef],
     },
-    total=False,
 )
 
-SubnetMappingTypeDef = TypedDict(
-    "SubnetMappingTypeDef",
+class SetSubnetsInputTypeDef(TypedDict):
+    LoadBalancerArn: str
+    Subnets: NotRequired[Sequence[str]]
+    SubnetMappings: NotRequired[Sequence[SubnetMappingTypeDef]]
+    IpAddressType: NotRequired[IpAddressTypeType]
+    EnablePrefixForIpv6SourceNat: NotRequired[EnablePrefixForIpv6SourceNatEnumType]
+
+CreateTargetGroupInputTypeDef = TypedDict(
+    "CreateTargetGroupInputTypeDef",
     {
-        "SubnetId": str,
-        "AllocationId": str,
-        "PrivateIPv4Address": str,
-        "IPv6Address": str,
+        "Name": str,
+        "Protocol": NotRequired[ProtocolEnumType],
+        "ProtocolVersion": NotRequired[str],
+        "Port": NotRequired[int],
+        "VpcId": NotRequired[str],
+        "HealthCheckProtocol": NotRequired[ProtocolEnumType],
+        "HealthCheckPort": NotRequired[str],
+        "HealthCheckEnabled": NotRequired[bool],
+        "HealthCheckPath": NotRequired[str],
+        "HealthCheckIntervalSeconds": NotRequired[int],
+        "HealthCheckTimeoutSeconds": NotRequired[int],
+        "HealthyThresholdCount": NotRequired[int],
+        "UnhealthyThresholdCount": NotRequired[int],
+        "Matcher": NotRequired[MatcherTypeDef],
+        "TargetType": NotRequired[TargetTypeEnumType],
+        "Tags": NotRequired[Sequence[TagTypeDef]],
+        "IpAddressType": NotRequired[TargetGroupIpAddressTypeEnumType],
     },
-    total=False,
 )
 
-TagDescriptionTypeDef = TypedDict(
-    "TagDescriptionTypeDef",
-    {
-        "ResourceArn": str,
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-_RequiredTagTypeDef = TypedDict(
-    "_RequiredTagTypeDef",
-    {
-        "Key": str,
-    },
-)
-_OptionalTagTypeDef = TypedDict(
-    "_OptionalTagTypeDef",
-    {
-        "Value": str,
-    },
-    total=False,
-)
-
-class TagTypeDef(_RequiredTagTypeDef, _OptionalTagTypeDef):
-    pass
-
-_RequiredTargetDescriptionTypeDef = TypedDict(
-    "_RequiredTargetDescriptionTypeDef",
-    {
-        "Id": str,
-    },
-)
-_OptionalTargetDescriptionTypeDef = TypedDict(
-    "_OptionalTargetDescriptionTypeDef",
-    {
-        "Port": int,
-        "AvailabilityZone": str,
-    },
-    total=False,
-)
-
-class TargetDescriptionTypeDef(
-    _RequiredTargetDescriptionTypeDef, _OptionalTargetDescriptionTypeDef
-):
-    pass
-
-TargetGroupAttributeTypeDef = TypedDict(
-    "TargetGroupAttributeTypeDef",
-    {
-        "Key": str,
-        "Value": str,
-    },
-    total=False,
-)
-
-TargetGroupStickinessConfigTypeDef = TypedDict(
-    "TargetGroupStickinessConfigTypeDef",
-    {
-        "Enabled": bool,
-        "DurationSeconds": int,
-    },
-    total=False,
-)
-
-TargetGroupTupleTypeDef = TypedDict(
-    "TargetGroupTupleTypeDef",
-    {
-        "TargetGroupArn": str,
-        "Weight": int,
-    },
-    total=False,
-)
+class ModifyTargetGroupInputTypeDef(TypedDict):
+    TargetGroupArn: str
+    HealthCheckProtocol: NotRequired[ProtocolEnumType]
+    HealthCheckPort: NotRequired[str]
+    HealthCheckPath: NotRequired[str]
+    HealthCheckEnabled: NotRequired[bool]
+    HealthCheckIntervalSeconds: NotRequired[int]
+    HealthCheckTimeoutSeconds: NotRequired[int]
+    HealthyThresholdCount: NotRequired[int]
+    UnhealthyThresholdCount: NotRequired[int]
+    Matcher: NotRequired[MatcherTypeDef]
 
 TargetGroupTypeDef = TypedDict(
     "TargetGroupTypeDef",
     {
-        "TargetGroupArn": str,
-        "TargetGroupName": str,
-        "Protocol": ProtocolEnumType,
-        "Port": int,
-        "VpcId": str,
-        "HealthCheckProtocol": ProtocolEnumType,
-        "HealthCheckPort": str,
-        "HealthCheckEnabled": bool,
-        "HealthCheckIntervalSeconds": int,
-        "HealthCheckTimeoutSeconds": int,
-        "HealthyThresholdCount": int,
-        "UnhealthyThresholdCount": int,
-        "HealthCheckPath": str,
-        "Matcher": "MatcherTypeDef",
-        "LoadBalancerArns": List[str],
-        "TargetType": TargetTypeEnumType,
-        "ProtocolVersion": str,
-        "IpAddressType": TargetGroupIpAddressTypeEnumType,
+        "TargetGroupArn": NotRequired[str],
+        "TargetGroupName": NotRequired[str],
+        "Protocol": NotRequired[ProtocolEnumType],
+        "Port": NotRequired[int],
+        "VpcId": NotRequired[str],
+        "HealthCheckProtocol": NotRequired[ProtocolEnumType],
+        "HealthCheckPort": NotRequired[str],
+        "HealthCheckEnabled": NotRequired[bool],
+        "HealthCheckIntervalSeconds": NotRequired[int],
+        "HealthCheckTimeoutSeconds": NotRequired[int],
+        "HealthyThresholdCount": NotRequired[int],
+        "UnhealthyThresholdCount": NotRequired[int],
+        "HealthCheckPath": NotRequired[str],
+        "Matcher": NotRequired[MatcherTypeDef],
+        "LoadBalancerArns": NotRequired[List[str]],
+        "TargetType": NotRequired[TargetTypeEnumType],
+        "ProtocolVersion": NotRequired[str],
+        "IpAddressType": NotRequired[TargetGroupIpAddressTypeEnumType],
     },
-    total=False,
 )
 
-TargetHealthDescriptionTypeDef = TypedDict(
-    "TargetHealthDescriptionTypeDef",
+class CreateTrustStoreOutputTypeDef(TypedDict):
+    TrustStores: List[TrustStoreTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeTrustStoresOutputTypeDef(TypedDict):
+    TrustStores: List[TrustStoreTypeDef]
+    NextMarker: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ModifyTrustStoreOutputTypeDef(TypedDict):
+    TrustStores: List[TrustStoreTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeregisterTargetsInputTypeDef(TypedDict):
+    TargetGroupArn: str
+    Targets: Sequence[TargetDescriptionTypeDef]
+
+class DescribeTargetHealthInputTypeDef(TypedDict):
+    TargetGroupArn: str
+    Targets: NotRequired[Sequence[TargetDescriptionTypeDef]]
+    Include: NotRequired[Sequence[DescribeTargetHealthInputIncludeEnumType]]
+
+class RegisterTargetsInputTypeDef(TypedDict):
+    TargetGroupArn: str
+    Targets: Sequence[TargetDescriptionTypeDef]
+
+class DescribeAccountLimitsInputPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeListenerCertificatesInputPaginateTypeDef(TypedDict):
+    ListenerArn: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeListenersInputPaginateTypeDef(TypedDict):
+    LoadBalancerArn: NotRequired[str]
+    ListenerArns: NotRequired[Sequence[str]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeLoadBalancersInputPaginateTypeDef(TypedDict):
+    LoadBalancerArns: NotRequired[Sequence[str]]
+    Names: NotRequired[Sequence[str]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeRulesInputPaginateTypeDef(TypedDict):
+    ListenerArn: NotRequired[str]
+    RuleArns: NotRequired[Sequence[str]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeSSLPoliciesInputPaginateTypeDef(TypedDict):
+    Names: NotRequired[Sequence[str]]
+    LoadBalancerType: NotRequired[LoadBalancerTypeEnumType]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeTargetGroupsInputPaginateTypeDef(TypedDict):
+    LoadBalancerArn: NotRequired[str]
+    TargetGroupArns: NotRequired[Sequence[str]]
+    Names: NotRequired[Sequence[str]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeAccountLimitsOutputTypeDef(TypedDict):
+    Limits: List[LimitTypeDef]
+    NextMarker: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ModifyCapacityReservationInputTypeDef(TypedDict):
+    LoadBalancerArn: str
+    MinimumLoadBalancerCapacity: NotRequired[MinimumLoadBalancerCapacityTypeDef]
+    ResetCapacityReservation: NotRequired[bool]
+
+class DescribeListenerAttributesOutputTypeDef(TypedDict):
+    Attributes: List[ListenerAttributeTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ModifyListenerAttributesInputTypeDef(TypedDict):
+    ListenerArn: str
+    Attributes: Sequence[ListenerAttributeTypeDef]
+
+class ModifyListenerAttributesOutputTypeDef(TypedDict):
+    Attributes: List[ListenerAttributeTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeLoadBalancerAttributesOutputTypeDef(TypedDict):
+    Attributes: List[LoadBalancerAttributeTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ModifyLoadBalancerAttributesInputTypeDef(TypedDict):
+    LoadBalancerArn: str
+    Attributes: Sequence[LoadBalancerAttributeTypeDef]
+
+class ModifyLoadBalancerAttributesOutputTypeDef(TypedDict):
+    Attributes: List[LoadBalancerAttributeTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeLoadBalancersInputWaitExtraExtraTypeDef(TypedDict):
+    LoadBalancerArns: NotRequired[Sequence[str]]
+    Names: NotRequired[Sequence[str]]
+    Marker: NotRequired[str]
+    PageSize: NotRequired[int]
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class DescribeLoadBalancersInputWaitExtraTypeDef(TypedDict):
+    LoadBalancerArns: NotRequired[Sequence[str]]
+    Names: NotRequired[Sequence[str]]
+    Marker: NotRequired[str]
+    PageSize: NotRequired[int]
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class DescribeLoadBalancersInputWaitTypeDef(TypedDict):
+    LoadBalancerArns: NotRequired[Sequence[str]]
+    Names: NotRequired[Sequence[str]]
+    Marker: NotRequired[str]
+    PageSize: NotRequired[int]
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class DescribeTargetHealthInputWaitExtraTypeDef(TypedDict):
+    TargetGroupArn: str
+    Targets: NotRequired[Sequence[TargetDescriptionTypeDef]]
+    Include: NotRequired[Sequence[DescribeTargetHealthInputIncludeEnumType]]
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class DescribeTargetHealthInputWaitTypeDef(TypedDict):
+    TargetGroupArn: str
+    Targets: NotRequired[Sequence[TargetDescriptionTypeDef]]
+    Include: NotRequired[Sequence[DescribeTargetHealthInputIncludeEnumType]]
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class DescribeTargetGroupAttributesOutputTypeDef(TypedDict):
+    Attributes: List[TargetGroupAttributeTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ModifyTargetGroupAttributesInputTypeDef(TypedDict):
+    TargetGroupArn: str
+    Attributes: Sequence[TargetGroupAttributeTypeDef]
+
+class ModifyTargetGroupAttributesOutputTypeDef(TypedDict):
+    Attributes: List[TargetGroupAttributeTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeTrustStoreAssociationsOutputTypeDef(TypedDict):
+    TrustStoreAssociations: List[TrustStoreAssociationTypeDef]
+    NextMarker: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeTrustStoreRevocationsOutputTypeDef(TypedDict):
+    TrustStoreRevocations: List[DescribeTrustStoreRevocationTypeDef]
+    NextMarker: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ForwardActionConfigOutputTypeDef(TypedDict):
+    TargetGroups: NotRequired[List[TargetGroupTupleTypeDef]]
+    TargetGroupStickinessConfig: NotRequired[TargetGroupStickinessConfigTypeDef]
+
+class ForwardActionConfigTypeDef(TypedDict):
+    TargetGroups: NotRequired[Sequence[TargetGroupTupleTypeDef]]
+    TargetGroupStickinessConfig: NotRequired[TargetGroupStickinessConfigTypeDef]
+
+HostHeaderConditionConfigUnionTypeDef = Union[
+    HostHeaderConditionConfigTypeDef, HostHeaderConditionConfigOutputTypeDef
+]
+HttpHeaderConditionConfigUnionTypeDef = Union[
+    HttpHeaderConditionConfigTypeDef, HttpHeaderConditionConfigOutputTypeDef
+]
+HttpRequestMethodConditionConfigUnionTypeDef = Union[
+    HttpRequestMethodConditionConfigTypeDef, HttpRequestMethodConditionConfigOutputTypeDef
+]
+PathPatternConditionConfigUnionTypeDef = Union[
+    PathPatternConditionConfigTypeDef, PathPatternConditionConfigOutputTypeDef
+]
+
+class QueryStringConditionConfigOutputTypeDef(TypedDict):
+    Values: NotRequired[List[QueryStringKeyValuePairTypeDef]]
+
+class QueryStringConditionConfigTypeDef(TypedDict):
+    Values: NotRequired[Sequence[QueryStringKeyValuePairTypeDef]]
+
+class SetRulePrioritiesInputTypeDef(TypedDict):
+    RulePriorities: Sequence[RulePriorityPairTypeDef]
+
+SourceIpConditionConfigUnionTypeDef = Union[
+    SourceIpConditionConfigTypeDef, SourceIpConditionConfigOutputTypeDef
+]
+
+class TargetHealthDescriptionTypeDef(TypedDict):
+    Target: NotRequired[TargetDescriptionTypeDef]
+    HealthCheckPort: NotRequired[str]
+    TargetHealth: NotRequired[TargetHealthTypeDef]
+    AnomalyDetection: NotRequired[AnomalyDetectionTypeDef]
+    AdministrativeOverride: NotRequired[AdministrativeOverrideTypeDef]
+
+class DescribeTagsOutputTypeDef(TypedDict):
+    TagDescriptions: List[TagDescriptionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+LoadBalancerTypeDef = TypedDict(
+    "LoadBalancerTypeDef",
     {
-        "Target": "TargetDescriptionTypeDef",
-        "HealthCheckPort": str,
-        "TargetHealth": "TargetHealthTypeDef",
-        "AnomalyDetection": "AnomalyDetectionTypeDef",
+        "LoadBalancerArn": NotRequired[str],
+        "DNSName": NotRequired[str],
+        "CanonicalHostedZoneId": NotRequired[str],
+        "CreatedTime": NotRequired[datetime],
+        "LoadBalancerName": NotRequired[str],
+        "Scheme": NotRequired[LoadBalancerSchemeEnumType],
+        "VpcId": NotRequired[str],
+        "State": NotRequired[LoadBalancerStateTypeDef],
+        "Type": NotRequired[LoadBalancerTypeEnumType],
+        "AvailabilityZones": NotRequired[List[AvailabilityZoneTypeDef]],
+        "SecurityGroups": NotRequired[List[str]],
+        "IpAddressType": NotRequired[IpAddressTypeType],
+        "CustomerOwnedIpv4Pool": NotRequired[str],
+        "EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic": NotRequired[str],
+        "EnablePrefixForIpv6SourceNat": NotRequired[EnablePrefixForIpv6SourceNatEnumType],
+        "IpamPools": NotRequired[IpamPoolsTypeDef],
     },
-    total=False,
 )
 
-TargetHealthTypeDef = TypedDict(
-    "TargetHealthTypeDef",
+class SetSubnetsOutputTypeDef(TypedDict):
+    AvailabilityZones: List[AvailabilityZoneTypeDef]
+    IpAddressType: IpAddressTypeType
+    EnablePrefixForIpv6SourceNat: EnablePrefixForIpv6SourceNatEnumType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeCapacityReservationOutputTypeDef(TypedDict):
+    LastModifiedTime: datetime
+    DecreaseRequestsRemaining: int
+    MinimumLoadBalancerCapacity: MinimumLoadBalancerCapacityTypeDef
+    CapacityReservationState: List[ZonalCapacityReservationStateTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ModifyCapacityReservationOutputTypeDef(TypedDict):
+    LastModifiedTime: datetime
+    DecreaseRequestsRemaining: int
+    MinimumLoadBalancerCapacity: MinimumLoadBalancerCapacityTypeDef
+    CapacityReservationState: List[ZonalCapacityReservationStateTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeSSLPoliciesOutputTypeDef(TypedDict):
+    SslPolicies: List[SslPolicyTypeDef]
+    NextMarker: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateTargetGroupOutputTypeDef(TypedDict):
+    TargetGroups: List[TargetGroupTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeTargetGroupsOutputTypeDef(TypedDict):
+    TargetGroups: List[TargetGroupTypeDef]
+    NextMarker: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ModifyTargetGroupOutputTypeDef(TypedDict):
+    TargetGroups: List[TargetGroupTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+ActionOutputTypeDef = TypedDict(
+    "ActionOutputTypeDef",
     {
-        "State": TargetHealthStateEnumType,
-        "Reason": TargetHealthReasonEnumType,
-        "Description": str,
+        "Type": ActionTypeEnumType,
+        "TargetGroupArn": NotRequired[str],
+        "AuthenticateOidcConfig": NotRequired[AuthenticateOidcActionConfigOutputTypeDef],
+        "AuthenticateCognitoConfig": NotRequired[AuthenticateCognitoActionConfigOutputTypeDef],
+        "Order": NotRequired[int],
+        "RedirectConfig": NotRequired[RedirectActionConfigTypeDef],
+        "FixedResponseConfig": NotRequired[FixedResponseActionConfigTypeDef],
+        "ForwardConfig": NotRequired[ForwardActionConfigOutputTypeDef],
     },
-    total=False,
+)
+ForwardActionConfigUnionTypeDef = Union[
+    ForwardActionConfigTypeDef, ForwardActionConfigOutputTypeDef
+]
+
+class RuleConditionOutputTypeDef(TypedDict):
+    Field: NotRequired[str]
+    Values: NotRequired[List[str]]
+    HostHeaderConfig: NotRequired[HostHeaderConditionConfigOutputTypeDef]
+    PathPatternConfig: NotRequired[PathPatternConditionConfigOutputTypeDef]
+    HttpHeaderConfig: NotRequired[HttpHeaderConditionConfigOutputTypeDef]
+    QueryStringConfig: NotRequired[QueryStringConditionConfigOutputTypeDef]
+    HttpRequestMethodConfig: NotRequired[HttpRequestMethodConditionConfigOutputTypeDef]
+    SourceIpConfig: NotRequired[SourceIpConditionConfigOutputTypeDef]
+
+QueryStringConditionConfigUnionTypeDef = Union[
+    QueryStringConditionConfigTypeDef, QueryStringConditionConfigOutputTypeDef
+]
+
+class DescribeTargetHealthOutputTypeDef(TypedDict):
+    TargetHealthDescriptions: List[TargetHealthDescriptionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateLoadBalancerOutputTypeDef(TypedDict):
+    LoadBalancers: List[LoadBalancerTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeLoadBalancersOutputTypeDef(TypedDict):
+    LoadBalancers: List[LoadBalancerTypeDef]
+    NextMarker: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+ListenerTypeDef = TypedDict(
+    "ListenerTypeDef",
+    {
+        "ListenerArn": NotRequired[str],
+        "LoadBalancerArn": NotRequired[str],
+        "Port": NotRequired[int],
+        "Protocol": NotRequired[ProtocolEnumType],
+        "Certificates": NotRequired[List[CertificateTypeDef]],
+        "SslPolicy": NotRequired[str],
+        "DefaultActions": NotRequired[List[ActionOutputTypeDef]],
+        "AlpnPolicy": NotRequired[List[str]],
+        "MutualAuthentication": NotRequired[MutualAuthenticationAttributesTypeDef],
+    },
+)
+ActionTypeDef = TypedDict(
+    "ActionTypeDef",
+    {
+        "Type": ActionTypeEnumType,
+        "TargetGroupArn": NotRequired[str],
+        "AuthenticateOidcConfig": NotRequired[AuthenticateOidcActionConfigUnionTypeDef],
+        "AuthenticateCognitoConfig": NotRequired[AuthenticateCognitoActionConfigUnionTypeDef],
+        "Order": NotRequired[int],
+        "RedirectConfig": NotRequired[RedirectActionConfigTypeDef],
+        "FixedResponseConfig": NotRequired[FixedResponseActionConfigTypeDef],
+        "ForwardConfig": NotRequired[ForwardActionConfigUnionTypeDef],
+    },
 )
 
-TrustStoreAssociationTypeDef = TypedDict(
-    "TrustStoreAssociationTypeDef",
+class RuleTypeDef(TypedDict):
+    RuleArn: NotRequired[str]
+    Priority: NotRequired[str]
+    Conditions: NotRequired[List[RuleConditionOutputTypeDef]]
+    Actions: NotRequired[List[ActionOutputTypeDef]]
+    IsDefault: NotRequired[bool]
+
+class RuleConditionTypeDef(TypedDict):
+    Field: NotRequired[str]
+    Values: NotRequired[Sequence[str]]
+    HostHeaderConfig: NotRequired[HostHeaderConditionConfigUnionTypeDef]
+    PathPatternConfig: NotRequired[PathPatternConditionConfigUnionTypeDef]
+    HttpHeaderConfig: NotRequired[HttpHeaderConditionConfigUnionTypeDef]
+    QueryStringConfig: NotRequired[QueryStringConditionConfigUnionTypeDef]
+    HttpRequestMethodConfig: NotRequired[HttpRequestMethodConditionConfigUnionTypeDef]
+    SourceIpConfig: NotRequired[SourceIpConditionConfigUnionTypeDef]
+
+class CreateListenerOutputTypeDef(TypedDict):
+    Listeners: List[ListenerTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeListenersOutputTypeDef(TypedDict):
+    Listeners: List[ListenerTypeDef]
+    NextMarker: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ModifyListenerOutputTypeDef(TypedDict):
+    Listeners: List[ListenerTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+ActionUnionTypeDef = Union[ActionTypeDef, ActionOutputTypeDef]
+
+class CreateRuleOutputTypeDef(TypedDict):
+    Rules: List[RuleTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeRulesOutputTypeDef(TypedDict):
+    Rules: List[RuleTypeDef]
+    NextMarker: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ModifyRuleOutputTypeDef(TypedDict):
+    Rules: List[RuleTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class SetRulePrioritiesOutputTypeDef(TypedDict):
+    Rules: List[RuleTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+RuleConditionUnionTypeDef = Union[RuleConditionTypeDef, RuleConditionOutputTypeDef]
+CreateListenerInputTypeDef = TypedDict(
+    "CreateListenerInputTypeDef",
     {
-        "ResourceArn": str,
+        "LoadBalancerArn": str,
+        "DefaultActions": Sequence[ActionUnionTypeDef],
+        "Protocol": NotRequired[ProtocolEnumType],
+        "Port": NotRequired[int],
+        "SslPolicy": NotRequired[str],
+        "Certificates": NotRequired[Sequence[CertificateTypeDef]],
+        "AlpnPolicy": NotRequired[Sequence[str]],
+        "Tags": NotRequired[Sequence[TagTypeDef]],
+        "MutualAuthentication": NotRequired[MutualAuthenticationAttributesTypeDef],
     },
-    total=False,
+)
+ModifyListenerInputTypeDef = TypedDict(
+    "ModifyListenerInputTypeDef",
+    {
+        "ListenerArn": str,
+        "Port": NotRequired[int],
+        "Protocol": NotRequired[ProtocolEnumType],
+        "SslPolicy": NotRequired[str],
+        "Certificates": NotRequired[Sequence[CertificateTypeDef]],
+        "DefaultActions": NotRequired[Sequence[ActionUnionTypeDef]],
+        "AlpnPolicy": NotRequired[Sequence[str]],
+        "MutualAuthentication": NotRequired[MutualAuthenticationAttributesTypeDef],
+    },
 )
 
-TrustStoreRevocationTypeDef = TypedDict(
-    "TrustStoreRevocationTypeDef",
-    {
-        "TrustStoreArn": str,
-        "RevocationId": int,
-        "RevocationType": Literal["CRL"],
-        "NumberOfRevokedEntries": int,
-    },
-    total=False,
-)
+class CreateRuleInputTypeDef(TypedDict):
+    ListenerArn: str
+    Conditions: Sequence[RuleConditionUnionTypeDef]
+    Priority: int
+    Actions: Sequence[ActionUnionTypeDef]
+    Tags: NotRequired[Sequence[TagTypeDef]]
 
-TrustStoreTypeDef = TypedDict(
-    "TrustStoreTypeDef",
-    {
-        "Name": str,
-        "TrustStoreArn": str,
-        "Status": TrustStoreStatusType,
-        "NumberOfCaCertificates": int,
-        "TotalRevokedEntries": int,
-    },
-    total=False,
-)
-
-WaiterConfigTypeDef = TypedDict(
-    "WaiterConfigTypeDef",
-    {
-        "Delay": int,
-        "MaxAttempts": int,
-    },
-    total=False,
-)
+class ModifyRuleInputTypeDef(TypedDict):
+    RuleArn: str
+    Conditions: NotRequired[Sequence[RuleConditionUnionTypeDef]]
+    Actions: NotRequired[Sequence[ActionUnionTypeDef]]

@@ -1,20 +1,24 @@
 """
 Type annotations for fsx service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fsx/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fsx/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_fsx.type_defs import ActiveDirectoryBackupAttributesTypeDef
 
-    data: ActiveDirectoryBackupAttributesTypeDef = {...}
+    data: ActiveDirectoryBackupAttributesTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
+from typing import Any, Union
 
 from .literals import (
     AdministrativeActionTypeType,
@@ -47,6 +51,7 @@ from .literals import (
     OpenZFSDataCompressionTypeType,
     OpenZFSDeploymentTypeType,
     OpenZFSQuotaTypeType,
+    OpenZFSReadCacheSizingModeType,
     PrivilegedDeleteType,
     ResourceTypeType,
     RestoreOpenZFSVolumeOptionType,
@@ -70,66 +75,72 @@ from .literals import (
     WindowsDeploymentTypeType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
     "ActiveDirectoryBackupAttributesTypeDef",
     "AdministrativeActionFailureDetailsTypeDef",
+    "AdministrativeActionPaginatorTypeDef",
     "AdministrativeActionTypeDef",
     "AggregateConfigurationTypeDef",
     "AliasTypeDef",
-    "AssociateFileSystemAliasesRequestRequestTypeDef",
+    "AssociateFileSystemAliasesRequestTypeDef",
     "AssociateFileSystemAliasesResponseTypeDef",
+    "AutoExportPolicyOutputTypeDef",
     "AutoExportPolicyTypeDef",
+    "AutoImportPolicyOutputTypeDef",
     "AutoImportPolicyTypeDef",
     "AutocommitPeriodTypeDef",
     "BackupFailureDetailsTypeDef",
+    "BackupPaginatorTypeDef",
     "BackupTypeDef",
-    "CancelDataRepositoryTaskRequestRequestTypeDef",
+    "CancelDataRepositoryTaskRequestTypeDef",
     "CancelDataRepositoryTaskResponseTypeDef",
     "CompletionReportTypeDef",
-    "CopyBackupRequestRequestTypeDef",
+    "CopyBackupRequestTypeDef",
     "CopyBackupResponseTypeDef",
-    "CopySnapshotAndUpdateVolumeRequestRequestTypeDef",
+    "CopySnapshotAndUpdateVolumeRequestTypeDef",
     "CopySnapshotAndUpdateVolumeResponseTypeDef",
     "CreateAggregateConfigurationTypeDef",
-    "CreateBackupRequestRequestTypeDef",
+    "CreateBackupRequestTypeDef",
     "CreateBackupResponseTypeDef",
-    "CreateDataRepositoryAssociationRequestRequestTypeDef",
+    "CreateDataRepositoryAssociationRequestTypeDef",
     "CreateDataRepositoryAssociationResponseTypeDef",
-    "CreateDataRepositoryTaskRequestRequestTypeDef",
+    "CreateDataRepositoryTaskRequestTypeDef",
     "CreateDataRepositoryTaskResponseTypeDef",
     "CreateFileCacheLustreConfigurationTypeDef",
-    "CreateFileCacheRequestRequestTypeDef",
+    "CreateFileCacheRequestTypeDef",
     "CreateFileCacheResponseTypeDef",
-    "CreateFileSystemFromBackupRequestRequestTypeDef",
+    "CreateFileSystemFromBackupRequestTypeDef",
     "CreateFileSystemFromBackupResponseTypeDef",
     "CreateFileSystemLustreConfigurationTypeDef",
     "CreateFileSystemLustreMetadataConfigurationTypeDef",
     "CreateFileSystemOntapConfigurationTypeDef",
     "CreateFileSystemOpenZFSConfigurationTypeDef",
-    "CreateFileSystemRequestRequestTypeDef",
+    "CreateFileSystemRequestTypeDef",
     "CreateFileSystemResponseTypeDef",
     "CreateFileSystemWindowsConfigurationTypeDef",
     "CreateOntapVolumeConfigurationTypeDef",
     "CreateOpenZFSOriginSnapshotConfigurationTypeDef",
     "CreateOpenZFSVolumeConfigurationTypeDef",
     "CreateSnaplockConfigurationTypeDef",
-    "CreateSnapshotRequestRequestTypeDef",
+    "CreateSnapshotRequestTypeDef",
     "CreateSnapshotResponseTypeDef",
-    "CreateStorageVirtualMachineRequestRequestTypeDef",
+    "CreateStorageVirtualMachineRequestTypeDef",
     "CreateStorageVirtualMachineResponseTypeDef",
     "CreateSvmActiveDirectoryConfigurationTypeDef",
-    "CreateVolumeFromBackupRequestRequestTypeDef",
+    "CreateVolumeFromBackupRequestTypeDef",
     "CreateVolumeFromBackupResponseTypeDef",
-    "CreateVolumeRequestRequestTypeDef",
+    "CreateVolumeRequestTypeDef",
     "CreateVolumeResponseTypeDef",
     "DataRepositoryAssociationTypeDef",
     "DataRepositoryConfigurationTypeDef",
@@ -138,49 +149,56 @@ __all__ = (
     "DataRepositoryTaskFilterTypeDef",
     "DataRepositoryTaskStatusTypeDef",
     "DataRepositoryTaskTypeDef",
-    "DeleteBackupRequestRequestTypeDef",
+    "DeleteBackupRequestTypeDef",
     "DeleteBackupResponseTypeDef",
-    "DeleteDataRepositoryAssociationRequestRequestTypeDef",
+    "DeleteDataRepositoryAssociationRequestTypeDef",
     "DeleteDataRepositoryAssociationResponseTypeDef",
-    "DeleteFileCacheRequestRequestTypeDef",
+    "DeleteFileCacheRequestTypeDef",
     "DeleteFileCacheResponseTypeDef",
     "DeleteFileSystemLustreConfigurationTypeDef",
     "DeleteFileSystemLustreResponseTypeDef",
     "DeleteFileSystemOpenZFSConfigurationTypeDef",
     "DeleteFileSystemOpenZFSResponseTypeDef",
-    "DeleteFileSystemRequestRequestTypeDef",
+    "DeleteFileSystemRequestTypeDef",
     "DeleteFileSystemResponseTypeDef",
     "DeleteFileSystemWindowsConfigurationTypeDef",
     "DeleteFileSystemWindowsResponseTypeDef",
-    "DeleteSnapshotRequestRequestTypeDef",
+    "DeleteSnapshotRequestTypeDef",
     "DeleteSnapshotResponseTypeDef",
-    "DeleteStorageVirtualMachineRequestRequestTypeDef",
+    "DeleteStorageVirtualMachineRequestTypeDef",
     "DeleteStorageVirtualMachineResponseTypeDef",
     "DeleteVolumeOntapConfigurationTypeDef",
     "DeleteVolumeOntapResponseTypeDef",
     "DeleteVolumeOpenZFSConfigurationTypeDef",
-    "DeleteVolumeRequestRequestTypeDef",
+    "DeleteVolumeRequestTypeDef",
     "DeleteVolumeResponseTypeDef",
-    "DescribeBackupsRequestRequestTypeDef",
+    "DescribeBackupsRequestPaginateTypeDef",
+    "DescribeBackupsRequestTypeDef",
+    "DescribeBackupsResponsePaginatorTypeDef",
     "DescribeBackupsResponseTypeDef",
-    "DescribeDataRepositoryAssociationsRequestRequestTypeDef",
+    "DescribeDataRepositoryAssociationsRequestTypeDef",
     "DescribeDataRepositoryAssociationsResponseTypeDef",
-    "DescribeDataRepositoryTasksRequestRequestTypeDef",
+    "DescribeDataRepositoryTasksRequestTypeDef",
     "DescribeDataRepositoryTasksResponseTypeDef",
-    "DescribeFileCachesRequestRequestTypeDef",
+    "DescribeFileCachesRequestTypeDef",
     "DescribeFileCachesResponseTypeDef",
-    "DescribeFileSystemAliasesRequestRequestTypeDef",
+    "DescribeFileSystemAliasesRequestTypeDef",
     "DescribeFileSystemAliasesResponseTypeDef",
-    "DescribeFileSystemsRequestRequestTypeDef",
+    "DescribeFileSystemsRequestPaginateTypeDef",
+    "DescribeFileSystemsRequestTypeDef",
+    "DescribeFileSystemsResponsePaginatorTypeDef",
     "DescribeFileSystemsResponseTypeDef",
     "DescribeSharedVpcConfigurationResponseTypeDef",
-    "DescribeSnapshotsRequestRequestTypeDef",
+    "DescribeSnapshotsRequestTypeDef",
     "DescribeSnapshotsResponseTypeDef",
-    "DescribeStorageVirtualMachinesRequestRequestTypeDef",
+    "DescribeStorageVirtualMachinesRequestPaginateTypeDef",
+    "DescribeStorageVirtualMachinesRequestTypeDef",
     "DescribeStorageVirtualMachinesResponseTypeDef",
-    "DescribeVolumesRequestRequestTypeDef",
+    "DescribeVolumesRequestPaginateTypeDef",
+    "DescribeVolumesRequestTypeDef",
+    "DescribeVolumesResponsePaginatorTypeDef",
     "DescribeVolumesResponseTypeDef",
-    "DisassociateFileSystemAliasesRequestRequestTypeDef",
+    "DisassociateFileSystemAliasesRequestTypeDef",
     "DisassociateFileSystemAliasesResponseTypeDef",
     "DiskIopsConfigurationTypeDef",
     "DurationSinceLastAccessTypeDef",
@@ -195,1997 +213,210 @@ __all__ = (
     "FileSystemEndpointsTypeDef",
     "FileSystemFailureDetailsTypeDef",
     "FileSystemLustreMetadataConfigurationTypeDef",
+    "FileSystemPaginatorTypeDef",
     "FileSystemTypeDef",
     "FilterTypeDef",
     "LifecycleTransitionReasonTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestPaginateTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "LustreFileSystemConfigurationTypeDef",
     "LustreLogConfigurationTypeDef",
     "LustreLogCreateConfigurationTypeDef",
+    "LustreRootSquashConfigurationOutputTypeDef",
     "LustreRootSquashConfigurationTypeDef",
+    "LustreRootSquashConfigurationUnionTypeDef",
     "NFSDataRepositoryConfigurationTypeDef",
     "OntapFileSystemConfigurationTypeDef",
     "OntapVolumeConfigurationTypeDef",
+    "OpenZFSClientConfigurationOutputTypeDef",
     "OpenZFSClientConfigurationTypeDef",
+    "OpenZFSClientConfigurationUnionTypeDef",
     "OpenZFSCreateRootVolumeConfigurationTypeDef",
     "OpenZFSFileSystemConfigurationTypeDef",
+    "OpenZFSNfsExportOutputTypeDef",
     "OpenZFSNfsExportTypeDef",
+    "OpenZFSNfsExportUnionTypeDef",
     "OpenZFSOriginSnapshotConfigurationTypeDef",
+    "OpenZFSReadCacheConfigurationTypeDef",
     "OpenZFSUserOrGroupQuotaTypeDef",
     "OpenZFSVolumeConfigurationTypeDef",
     "PaginatorConfigTypeDef",
     "ReleaseConfigurationTypeDef",
-    "ReleaseFileSystemNfsV3LocksRequestRequestTypeDef",
+    "ReleaseFileSystemNfsV3LocksRequestTypeDef",
     "ReleaseFileSystemNfsV3LocksResponseTypeDef",
     "ResponseMetadataTypeDef",
-    "RestoreVolumeFromSnapshotRequestRequestTypeDef",
+    "RestoreVolumeFromSnapshotRequestTypeDef",
     "RestoreVolumeFromSnapshotResponseTypeDef",
     "RetentionPeriodTypeDef",
+    "S3DataRepositoryConfigurationOutputTypeDef",
     "S3DataRepositoryConfigurationTypeDef",
+    "S3DataRepositoryConfigurationUnionTypeDef",
     "SelfManagedActiveDirectoryAttributesTypeDef",
     "SelfManagedActiveDirectoryConfigurationTypeDef",
     "SelfManagedActiveDirectoryConfigurationUpdatesTypeDef",
     "SnaplockConfigurationTypeDef",
     "SnaplockRetentionPeriodTypeDef",
     "SnapshotFilterTypeDef",
+    "SnapshotPaginatorTypeDef",
     "SnapshotTypeDef",
-    "StartMisconfiguredStateRecoveryRequestRequestTypeDef",
+    "StartMisconfiguredStateRecoveryRequestTypeDef",
     "StartMisconfiguredStateRecoveryResponseTypeDef",
     "StorageVirtualMachineFilterTypeDef",
     "StorageVirtualMachineTypeDef",
     "SvmActiveDirectoryConfigurationTypeDef",
     "SvmEndpointTypeDef",
     "SvmEndpointsTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
     "TagTypeDef",
     "TieringPolicyTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateDataRepositoryAssociationRequestRequestTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateDataRepositoryAssociationRequestTypeDef",
     "UpdateDataRepositoryAssociationResponseTypeDef",
     "UpdateFileCacheLustreConfigurationTypeDef",
-    "UpdateFileCacheRequestRequestTypeDef",
+    "UpdateFileCacheRequestTypeDef",
     "UpdateFileCacheResponseTypeDef",
     "UpdateFileSystemLustreConfigurationTypeDef",
     "UpdateFileSystemLustreMetadataConfigurationTypeDef",
     "UpdateFileSystemOntapConfigurationTypeDef",
     "UpdateFileSystemOpenZFSConfigurationTypeDef",
-    "UpdateFileSystemRequestRequestTypeDef",
+    "UpdateFileSystemRequestTypeDef",
     "UpdateFileSystemResponseTypeDef",
     "UpdateFileSystemWindowsConfigurationTypeDef",
     "UpdateOntapVolumeConfigurationTypeDef",
     "UpdateOpenZFSVolumeConfigurationTypeDef",
-    "UpdateSharedVpcConfigurationRequestRequestTypeDef",
+    "UpdateSharedVpcConfigurationRequestTypeDef",
     "UpdateSharedVpcConfigurationResponseTypeDef",
     "UpdateSnaplockConfigurationTypeDef",
-    "UpdateSnapshotRequestRequestTypeDef",
+    "UpdateSnapshotRequestTypeDef",
     "UpdateSnapshotResponseTypeDef",
-    "UpdateStorageVirtualMachineRequestRequestTypeDef",
+    "UpdateStorageVirtualMachineRequestTypeDef",
     "UpdateStorageVirtualMachineResponseTypeDef",
     "UpdateSvmActiveDirectoryConfigurationTypeDef",
-    "UpdateVolumeRequestRequestTypeDef",
+    "UpdateVolumeRequestTypeDef",
     "UpdateVolumeResponseTypeDef",
     "VolumeFilterTypeDef",
+    "VolumePaginatorTypeDef",
     "VolumeTypeDef",
     "WindowsAuditLogConfigurationTypeDef",
     "WindowsAuditLogCreateConfigurationTypeDef",
     "WindowsFileSystemConfigurationTypeDef",
 )
 
-ActiveDirectoryBackupAttributesTypeDef = TypedDict(
-    "ActiveDirectoryBackupAttributesTypeDef",
-    {
-        "DomainName": str,
-        "ActiveDirectoryId": str,
-        "ResourceARN": str,
-    },
-    total=False,
-)
+class ActiveDirectoryBackupAttributesTypeDef(TypedDict):
+    DomainName: NotRequired[str]
+    ActiveDirectoryId: NotRequired[str]
+    ResourceARN: NotRequired[str]
 
-AdministrativeActionFailureDetailsTypeDef = TypedDict(
-    "AdministrativeActionFailureDetailsTypeDef",
-    {
-        "Message": str,
-    },
-    total=False,
-)
+class AdministrativeActionFailureDetailsTypeDef(TypedDict):
+    Message: NotRequired[str]
 
-AdministrativeActionTypeDef = TypedDict(
-    "AdministrativeActionTypeDef",
-    {
-        "AdministrativeActionType": AdministrativeActionTypeType,
-        "ProgressPercent": int,
-        "RequestTime": datetime,
-        "Status": StatusType,
-        "TargetFileSystemValues": Dict[str, Any],
-        "FailureDetails": "AdministrativeActionFailureDetailsTypeDef",
-        "TargetVolumeValues": Dict[str, Any],
-        "TargetSnapshotValues": Dict[str, Any],
-        "TotalTransferBytes": int,
-        "RemainingTransferBytes": int,
-    },
-    total=False,
-)
+class AggregateConfigurationTypeDef(TypedDict):
+    Aggregates: NotRequired[List[str]]
+    TotalConstituents: NotRequired[int]
 
-AggregateConfigurationTypeDef = TypedDict(
-    "AggregateConfigurationTypeDef",
-    {
-        "Aggregates": List[str],
-        "TotalConstituents": int,
-    },
-    total=False,
-)
+class AliasTypeDef(TypedDict):
+    Name: NotRequired[str]
+    Lifecycle: NotRequired[AliasLifecycleType]
 
-AliasTypeDef = TypedDict(
-    "AliasTypeDef",
-    {
-        "Name": str,
-        "Lifecycle": AliasLifecycleType,
-    },
-    total=False,
-)
+class AssociateFileSystemAliasesRequestTypeDef(TypedDict):
+    FileSystemId: str
+    Aliases: Sequence[str]
+    ClientRequestToken: NotRequired[str]
 
-_RequiredAssociateFileSystemAliasesRequestRequestTypeDef = TypedDict(
-    "_RequiredAssociateFileSystemAliasesRequestRequestTypeDef",
-    {
-        "FileSystemId": str,
-        "Aliases": List[str],
-    },
-)
-_OptionalAssociateFileSystemAliasesRequestRequestTypeDef = TypedDict(
-    "_OptionalAssociateFileSystemAliasesRequestRequestTypeDef",
-    {
-        "ClientRequestToken": str,
-    },
-    total=False,
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-class AssociateFileSystemAliasesRequestRequestTypeDef(
-    _RequiredAssociateFileSystemAliasesRequestRequestTypeDef,
-    _OptionalAssociateFileSystemAliasesRequestRequestTypeDef,
-):
-    pass
+class AutoExportPolicyOutputTypeDef(TypedDict):
+    Events: NotRequired[List[EventTypeType]]
 
-AssociateFileSystemAliasesResponseTypeDef = TypedDict(
-    "AssociateFileSystemAliasesResponseTypeDef",
-    {
-        "Aliases": List["AliasTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class AutoExportPolicyTypeDef(TypedDict):
+    Events: NotRequired[Sequence[EventTypeType]]
 
-AutoExportPolicyTypeDef = TypedDict(
-    "AutoExportPolicyTypeDef",
-    {
-        "Events": List[EventTypeType],
-    },
-    total=False,
-)
+class AutoImportPolicyOutputTypeDef(TypedDict):
+    Events: NotRequired[List[EventTypeType]]
 
-AutoImportPolicyTypeDef = TypedDict(
-    "AutoImportPolicyTypeDef",
-    {
-        "Events": List[EventTypeType],
-    },
-    total=False,
-)
+class AutoImportPolicyTypeDef(TypedDict):
+    Events: NotRequired[Sequence[EventTypeType]]
 
-_RequiredAutocommitPeriodTypeDef = TypedDict(
-    "_RequiredAutocommitPeriodTypeDef",
+AutocommitPeriodTypeDef = TypedDict(
+    "AutocommitPeriodTypeDef",
     {
         "Type": AutocommitPeriodTypeType,
-    },
-)
-_OptionalAutocommitPeriodTypeDef = TypedDict(
-    "_OptionalAutocommitPeriodTypeDef",
-    {
-        "Value": int,
-    },
-    total=False,
-)
-
-class AutocommitPeriodTypeDef(_RequiredAutocommitPeriodTypeDef, _OptionalAutocommitPeriodTypeDef):
-    pass
-
-BackupFailureDetailsTypeDef = TypedDict(
-    "BackupFailureDetailsTypeDef",
-    {
-        "Message": str,
-    },
-    total=False,
-)
-
-_RequiredBackupTypeDef = TypedDict(
-    "_RequiredBackupTypeDef",
-    {
-        "BackupId": str,
-        "Lifecycle": BackupLifecycleType,
-        "Type": BackupTypeType,
-        "CreationTime": datetime,
-        "FileSystem": "FileSystemTypeDef",
-    },
-)
-_OptionalBackupTypeDef = TypedDict(
-    "_OptionalBackupTypeDef",
-    {
-        "FailureDetails": "BackupFailureDetailsTypeDef",
-        "ProgressPercent": int,
-        "KmsKeyId": str,
-        "ResourceARN": str,
-        "Tags": List["TagTypeDef"],
-        "DirectoryInformation": "ActiveDirectoryBackupAttributesTypeDef",
-        "OwnerId": str,
-        "SourceBackupId": str,
-        "SourceBackupRegion": str,
-        "ResourceType": ResourceTypeType,
-        "Volume": "VolumeTypeDef",
-    },
-    total=False,
-)
-
-class BackupTypeDef(_RequiredBackupTypeDef, _OptionalBackupTypeDef):
-    pass
-
-CancelDataRepositoryTaskRequestRequestTypeDef = TypedDict(
-    "CancelDataRepositoryTaskRequestRequestTypeDef",
-    {
-        "TaskId": str,
-    },
-)
-
-CancelDataRepositoryTaskResponseTypeDef = TypedDict(
-    "CancelDataRepositoryTaskResponseTypeDef",
-    {
-        "Lifecycle": DataRepositoryTaskLifecycleType,
-        "TaskId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCompletionReportTypeDef = TypedDict(
-    "_RequiredCompletionReportTypeDef",
-    {
-        "Enabled": bool,
-    },
-)
-_OptionalCompletionReportTypeDef = TypedDict(
-    "_OptionalCompletionReportTypeDef",
-    {
-        "Path": str,
-        "Format": Literal["REPORT_CSV_20191124"],
-        "Scope": Literal["FAILED_FILES_ONLY"],
-    },
-    total=False,
-)
-
-class CompletionReportTypeDef(_RequiredCompletionReportTypeDef, _OptionalCompletionReportTypeDef):
-    pass
-
-_RequiredCopyBackupRequestRequestTypeDef = TypedDict(
-    "_RequiredCopyBackupRequestRequestTypeDef",
-    {
-        "SourceBackupId": str,
-    },
-)
-_OptionalCopyBackupRequestRequestTypeDef = TypedDict(
-    "_OptionalCopyBackupRequestRequestTypeDef",
-    {
-        "ClientRequestToken": str,
-        "SourceRegion": str,
-        "KmsKeyId": str,
-        "CopyTags": bool,
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CopyBackupRequestRequestTypeDef(
-    _RequiredCopyBackupRequestRequestTypeDef, _OptionalCopyBackupRequestRequestTypeDef
-):
-    pass
-
-CopyBackupResponseTypeDef = TypedDict(
-    "CopyBackupResponseTypeDef",
-    {
-        "Backup": "BackupTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCopySnapshotAndUpdateVolumeRequestRequestTypeDef = TypedDict(
-    "_RequiredCopySnapshotAndUpdateVolumeRequestRequestTypeDef",
-    {
-        "VolumeId": str,
-        "SourceSnapshotARN": str,
-    },
-)
-_OptionalCopySnapshotAndUpdateVolumeRequestRequestTypeDef = TypedDict(
-    "_OptionalCopySnapshotAndUpdateVolumeRequestRequestTypeDef",
-    {
-        "ClientRequestToken": str,
-        "CopyStrategy": OpenZFSCopyStrategyType,
-        "Options": List[UpdateOpenZFSVolumeOptionType],
-    },
-    total=False,
-)
-
-class CopySnapshotAndUpdateVolumeRequestRequestTypeDef(
-    _RequiredCopySnapshotAndUpdateVolumeRequestRequestTypeDef,
-    _OptionalCopySnapshotAndUpdateVolumeRequestRequestTypeDef,
-):
-    pass
-
-CopySnapshotAndUpdateVolumeResponseTypeDef = TypedDict(
-    "CopySnapshotAndUpdateVolumeResponseTypeDef",
-    {
-        "VolumeId": str,
-        "Lifecycle": VolumeLifecycleType,
-        "AdministrativeActions": List["AdministrativeActionTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateAggregateConfigurationTypeDef = TypedDict(
-    "CreateAggregateConfigurationTypeDef",
-    {
-        "Aggregates": List[str],
-        "ConstituentsPerAggregate": int,
-    },
-    total=False,
-)
-
-CreateBackupRequestRequestTypeDef = TypedDict(
-    "CreateBackupRequestRequestTypeDef",
-    {
-        "FileSystemId": str,
-        "ClientRequestToken": str,
-        "Tags": List["TagTypeDef"],
-        "VolumeId": str,
-    },
-    total=False,
-)
-
-CreateBackupResponseTypeDef = TypedDict(
-    "CreateBackupResponseTypeDef",
-    {
-        "Backup": "BackupTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateDataRepositoryAssociationRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateDataRepositoryAssociationRequestRequestTypeDef",
-    {
-        "FileSystemId": str,
-        "DataRepositoryPath": str,
-    },
-)
-_OptionalCreateDataRepositoryAssociationRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateDataRepositoryAssociationRequestRequestTypeDef",
-    {
-        "FileSystemPath": str,
-        "BatchImportMetaDataOnCreate": bool,
-        "ImportedFileChunkSize": int,
-        "S3": "S3DataRepositoryConfigurationTypeDef",
-        "ClientRequestToken": str,
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateDataRepositoryAssociationRequestRequestTypeDef(
-    _RequiredCreateDataRepositoryAssociationRequestRequestTypeDef,
-    _OptionalCreateDataRepositoryAssociationRequestRequestTypeDef,
-):
-    pass
-
-CreateDataRepositoryAssociationResponseTypeDef = TypedDict(
-    "CreateDataRepositoryAssociationResponseTypeDef",
-    {
-        "Association": "DataRepositoryAssociationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateDataRepositoryTaskRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateDataRepositoryTaskRequestRequestTypeDef",
-    {
-        "Type": DataRepositoryTaskTypeType,
-        "FileSystemId": str,
-        "Report": "CompletionReportTypeDef",
-    },
-)
-_OptionalCreateDataRepositoryTaskRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateDataRepositoryTaskRequestRequestTypeDef",
-    {
-        "Paths": List[str],
-        "ClientRequestToken": str,
-        "Tags": List["TagTypeDef"],
-        "CapacityToRelease": int,
-        "ReleaseConfiguration": "ReleaseConfigurationTypeDef",
-    },
-    total=False,
-)
-
-class CreateDataRepositoryTaskRequestRequestTypeDef(
-    _RequiredCreateDataRepositoryTaskRequestRequestTypeDef,
-    _OptionalCreateDataRepositoryTaskRequestRequestTypeDef,
-):
-    pass
-
-CreateDataRepositoryTaskResponseTypeDef = TypedDict(
-    "CreateDataRepositoryTaskResponseTypeDef",
-    {
-        "DataRepositoryTask": "DataRepositoryTaskTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateFileCacheLustreConfigurationTypeDef = TypedDict(
-    "_RequiredCreateFileCacheLustreConfigurationTypeDef",
-    {
-        "PerUnitStorageThroughput": int,
-        "DeploymentType": Literal["CACHE_1"],
-        "MetadataConfiguration": "FileCacheLustreMetadataConfigurationTypeDef",
-    },
-)
-_OptionalCreateFileCacheLustreConfigurationTypeDef = TypedDict(
-    "_OptionalCreateFileCacheLustreConfigurationTypeDef",
-    {
-        "WeeklyMaintenanceStartTime": str,
-    },
-    total=False,
-)
-
-class CreateFileCacheLustreConfigurationTypeDef(
-    _RequiredCreateFileCacheLustreConfigurationTypeDef,
-    _OptionalCreateFileCacheLustreConfigurationTypeDef,
-):
-    pass
-
-_RequiredCreateFileCacheRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateFileCacheRequestRequestTypeDef",
-    {
-        "FileCacheType": Literal["LUSTRE"],
-        "FileCacheTypeVersion": str,
-        "StorageCapacity": int,
-        "SubnetIds": List[str],
-    },
-)
-_OptionalCreateFileCacheRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateFileCacheRequestRequestTypeDef",
-    {
-        "ClientRequestToken": str,
-        "SecurityGroupIds": List[str],
-        "Tags": List["TagTypeDef"],
-        "CopyTagsToDataRepositoryAssociations": bool,
-        "KmsKeyId": str,
-        "LustreConfiguration": "CreateFileCacheLustreConfigurationTypeDef",
-        "DataRepositoryAssociations": List["FileCacheDataRepositoryAssociationTypeDef"],
-    },
-    total=False,
-)
-
-class CreateFileCacheRequestRequestTypeDef(
-    _RequiredCreateFileCacheRequestRequestTypeDef, _OptionalCreateFileCacheRequestRequestTypeDef
-):
-    pass
-
-CreateFileCacheResponseTypeDef = TypedDict(
-    "CreateFileCacheResponseTypeDef",
-    {
-        "FileCache": "FileCacheCreatingTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateFileSystemFromBackupRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateFileSystemFromBackupRequestRequestTypeDef",
-    {
-        "BackupId": str,
-        "SubnetIds": List[str],
-    },
-)
-_OptionalCreateFileSystemFromBackupRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateFileSystemFromBackupRequestRequestTypeDef",
-    {
-        "ClientRequestToken": str,
-        "SecurityGroupIds": List[str],
-        "Tags": List["TagTypeDef"],
-        "WindowsConfiguration": "CreateFileSystemWindowsConfigurationTypeDef",
-        "LustreConfiguration": "CreateFileSystemLustreConfigurationTypeDef",
-        "StorageType": StorageTypeType,
-        "KmsKeyId": str,
-        "FileSystemTypeVersion": str,
-        "OpenZFSConfiguration": "CreateFileSystemOpenZFSConfigurationTypeDef",
-        "StorageCapacity": int,
-    },
-    total=False,
-)
-
-class CreateFileSystemFromBackupRequestRequestTypeDef(
-    _RequiredCreateFileSystemFromBackupRequestRequestTypeDef,
-    _OptionalCreateFileSystemFromBackupRequestRequestTypeDef,
-):
-    pass
-
-CreateFileSystemFromBackupResponseTypeDef = TypedDict(
-    "CreateFileSystemFromBackupResponseTypeDef",
-    {
-        "FileSystem": "FileSystemTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateFileSystemLustreConfigurationTypeDef = TypedDict(
-    "CreateFileSystemLustreConfigurationTypeDef",
-    {
-        "WeeklyMaintenanceStartTime": str,
-        "ImportPath": str,
-        "ExportPath": str,
-        "ImportedFileChunkSize": int,
-        "DeploymentType": LustreDeploymentTypeType,
-        "AutoImportPolicy": AutoImportPolicyTypeType,
-        "PerUnitStorageThroughput": int,
-        "DailyAutomaticBackupStartTime": str,
-        "AutomaticBackupRetentionDays": int,
-        "CopyTagsToBackups": bool,
-        "DriveCacheType": DriveCacheTypeType,
-        "DataCompressionType": DataCompressionTypeType,
-        "LogConfiguration": "LustreLogCreateConfigurationTypeDef",
-        "RootSquashConfiguration": "LustreRootSquashConfigurationTypeDef",
-        "MetadataConfiguration": "CreateFileSystemLustreMetadataConfigurationTypeDef",
-    },
-    total=False,
-)
-
-_RequiredCreateFileSystemLustreMetadataConfigurationTypeDef = TypedDict(
-    "_RequiredCreateFileSystemLustreMetadataConfigurationTypeDef",
-    {
-        "Mode": MetadataConfigurationModeType,
-    },
-)
-_OptionalCreateFileSystemLustreMetadataConfigurationTypeDef = TypedDict(
-    "_OptionalCreateFileSystemLustreMetadataConfigurationTypeDef",
-    {
-        "Iops": int,
-    },
-    total=False,
-)
-
-class CreateFileSystemLustreMetadataConfigurationTypeDef(
-    _RequiredCreateFileSystemLustreMetadataConfigurationTypeDef,
-    _OptionalCreateFileSystemLustreMetadataConfigurationTypeDef,
-):
-    pass
-
-_RequiredCreateFileSystemOntapConfigurationTypeDef = TypedDict(
-    "_RequiredCreateFileSystemOntapConfigurationTypeDef",
-    {
-        "DeploymentType": OntapDeploymentTypeType,
-    },
-)
-_OptionalCreateFileSystemOntapConfigurationTypeDef = TypedDict(
-    "_OptionalCreateFileSystemOntapConfigurationTypeDef",
-    {
-        "AutomaticBackupRetentionDays": int,
-        "DailyAutomaticBackupStartTime": str,
-        "EndpointIpAddressRange": str,
-        "FsxAdminPassword": str,
-        "DiskIopsConfiguration": "DiskIopsConfigurationTypeDef",
-        "PreferredSubnetId": str,
-        "RouteTableIds": List[str],
-        "ThroughputCapacity": int,
-        "WeeklyMaintenanceStartTime": str,
-        "HAPairs": int,
-        "ThroughputCapacityPerHAPair": int,
-    },
-    total=False,
-)
-
-class CreateFileSystemOntapConfigurationTypeDef(
-    _RequiredCreateFileSystemOntapConfigurationTypeDef,
-    _OptionalCreateFileSystemOntapConfigurationTypeDef,
-):
-    pass
-
-_RequiredCreateFileSystemOpenZFSConfigurationTypeDef = TypedDict(
-    "_RequiredCreateFileSystemOpenZFSConfigurationTypeDef",
-    {
-        "DeploymentType": OpenZFSDeploymentTypeType,
-        "ThroughputCapacity": int,
-    },
-)
-_OptionalCreateFileSystemOpenZFSConfigurationTypeDef = TypedDict(
-    "_OptionalCreateFileSystemOpenZFSConfigurationTypeDef",
-    {
-        "AutomaticBackupRetentionDays": int,
-        "CopyTagsToBackups": bool,
-        "CopyTagsToVolumes": bool,
-        "DailyAutomaticBackupStartTime": str,
-        "WeeklyMaintenanceStartTime": str,
-        "DiskIopsConfiguration": "DiskIopsConfigurationTypeDef",
-        "RootVolumeConfiguration": "OpenZFSCreateRootVolumeConfigurationTypeDef",
-        "PreferredSubnetId": str,
-        "EndpointIpAddressRange": str,
-        "RouteTableIds": List[str],
-    },
-    total=False,
-)
-
-class CreateFileSystemOpenZFSConfigurationTypeDef(
-    _RequiredCreateFileSystemOpenZFSConfigurationTypeDef,
-    _OptionalCreateFileSystemOpenZFSConfigurationTypeDef,
-):
-    pass
-
-_RequiredCreateFileSystemRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateFileSystemRequestRequestTypeDef",
-    {
-        "FileSystemType": FileSystemTypeType,
-        "StorageCapacity": int,
-        "SubnetIds": List[str],
-    },
-)
-_OptionalCreateFileSystemRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateFileSystemRequestRequestTypeDef",
-    {
-        "ClientRequestToken": str,
-        "StorageType": StorageTypeType,
-        "SecurityGroupIds": List[str],
-        "Tags": List["TagTypeDef"],
-        "KmsKeyId": str,
-        "WindowsConfiguration": "CreateFileSystemWindowsConfigurationTypeDef",
-        "LustreConfiguration": "CreateFileSystemLustreConfigurationTypeDef",
-        "OntapConfiguration": "CreateFileSystemOntapConfigurationTypeDef",
-        "FileSystemTypeVersion": str,
-        "OpenZFSConfiguration": "CreateFileSystemOpenZFSConfigurationTypeDef",
-    },
-    total=False,
-)
-
-class CreateFileSystemRequestRequestTypeDef(
-    _RequiredCreateFileSystemRequestRequestTypeDef, _OptionalCreateFileSystemRequestRequestTypeDef
-):
-    pass
-
-CreateFileSystemResponseTypeDef = TypedDict(
-    "CreateFileSystemResponseTypeDef",
-    {
-        "FileSystem": "FileSystemTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateFileSystemWindowsConfigurationTypeDef = TypedDict(
-    "_RequiredCreateFileSystemWindowsConfigurationTypeDef",
-    {
-        "ThroughputCapacity": int,
-    },
-)
-_OptionalCreateFileSystemWindowsConfigurationTypeDef = TypedDict(
-    "_OptionalCreateFileSystemWindowsConfigurationTypeDef",
-    {
-        "ActiveDirectoryId": str,
-        "SelfManagedActiveDirectoryConfiguration": "SelfManagedActiveDirectoryConfigurationTypeDef",
-        "DeploymentType": WindowsDeploymentTypeType,
-        "PreferredSubnetId": str,
-        "WeeklyMaintenanceStartTime": str,
-        "DailyAutomaticBackupStartTime": str,
-        "AutomaticBackupRetentionDays": int,
-        "CopyTagsToBackups": bool,
-        "Aliases": List[str],
-        "AuditLogConfiguration": "WindowsAuditLogCreateConfigurationTypeDef",
-        "DiskIopsConfiguration": "DiskIopsConfigurationTypeDef",
-    },
-    total=False,
-)
-
-class CreateFileSystemWindowsConfigurationTypeDef(
-    _RequiredCreateFileSystemWindowsConfigurationTypeDef,
-    _OptionalCreateFileSystemWindowsConfigurationTypeDef,
-):
-    pass
-
-_RequiredCreateOntapVolumeConfigurationTypeDef = TypedDict(
-    "_RequiredCreateOntapVolumeConfigurationTypeDef",
-    {
-        "StorageVirtualMachineId": str,
-    },
-)
-_OptionalCreateOntapVolumeConfigurationTypeDef = TypedDict(
-    "_OptionalCreateOntapVolumeConfigurationTypeDef",
-    {
-        "JunctionPath": str,
-        "SecurityStyle": SecurityStyleType,
-        "SizeInMegabytes": int,
-        "StorageEfficiencyEnabled": bool,
-        "TieringPolicy": "TieringPolicyTypeDef",
-        "OntapVolumeType": InputOntapVolumeTypeType,
-        "SnapshotPolicy": str,
-        "CopyTagsToBackups": bool,
-        "SnaplockConfiguration": "CreateSnaplockConfigurationTypeDef",
-        "VolumeStyle": VolumeStyleType,
-        "AggregateConfiguration": "CreateAggregateConfigurationTypeDef",
-        "SizeInBytes": int,
-    },
-    total=False,
-)
-
-class CreateOntapVolumeConfigurationTypeDef(
-    _RequiredCreateOntapVolumeConfigurationTypeDef, _OptionalCreateOntapVolumeConfigurationTypeDef
-):
-    pass
-
-CreateOpenZFSOriginSnapshotConfigurationTypeDef = TypedDict(
-    "CreateOpenZFSOriginSnapshotConfigurationTypeDef",
-    {
-        "SnapshotARN": str,
-        "CopyStrategy": OpenZFSCopyStrategyType,
-    },
-)
-
-_RequiredCreateOpenZFSVolumeConfigurationTypeDef = TypedDict(
-    "_RequiredCreateOpenZFSVolumeConfigurationTypeDef",
-    {
-        "ParentVolumeId": str,
-    },
-)
-_OptionalCreateOpenZFSVolumeConfigurationTypeDef = TypedDict(
-    "_OptionalCreateOpenZFSVolumeConfigurationTypeDef",
-    {
-        "StorageCapacityReservationGiB": int,
-        "StorageCapacityQuotaGiB": int,
-        "RecordSizeKiB": int,
-        "DataCompressionType": OpenZFSDataCompressionTypeType,
-        "CopyTagsToSnapshots": bool,
-        "OriginSnapshot": "CreateOpenZFSOriginSnapshotConfigurationTypeDef",
-        "ReadOnly": bool,
-        "NfsExports": List["OpenZFSNfsExportTypeDef"],
-        "UserAndGroupQuotas": List["OpenZFSUserOrGroupQuotaTypeDef"],
-    },
-    total=False,
-)
-
-class CreateOpenZFSVolumeConfigurationTypeDef(
-    _RequiredCreateOpenZFSVolumeConfigurationTypeDef,
-    _OptionalCreateOpenZFSVolumeConfigurationTypeDef,
-):
-    pass
-
-_RequiredCreateSnaplockConfigurationTypeDef = TypedDict(
-    "_RequiredCreateSnaplockConfigurationTypeDef",
-    {
-        "SnaplockType": SnaplockTypeType,
-    },
-)
-_OptionalCreateSnaplockConfigurationTypeDef = TypedDict(
-    "_OptionalCreateSnaplockConfigurationTypeDef",
-    {
-        "AuditLogVolume": bool,
-        "AutocommitPeriod": "AutocommitPeriodTypeDef",
-        "PrivilegedDelete": PrivilegedDeleteType,
-        "RetentionPeriod": "SnaplockRetentionPeriodTypeDef",
-        "VolumeAppendModeEnabled": bool,
-    },
-    total=False,
-)
-
-class CreateSnaplockConfigurationTypeDef(
-    _RequiredCreateSnaplockConfigurationTypeDef, _OptionalCreateSnaplockConfigurationTypeDef
-):
-    pass
-
-_RequiredCreateSnapshotRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateSnapshotRequestRequestTypeDef",
-    {
-        "Name": str,
-        "VolumeId": str,
-    },
-)
-_OptionalCreateSnapshotRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateSnapshotRequestRequestTypeDef",
-    {
-        "ClientRequestToken": str,
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateSnapshotRequestRequestTypeDef(
-    _RequiredCreateSnapshotRequestRequestTypeDef, _OptionalCreateSnapshotRequestRequestTypeDef
-):
-    pass
-
-CreateSnapshotResponseTypeDef = TypedDict(
-    "CreateSnapshotResponseTypeDef",
-    {
-        "Snapshot": "SnapshotTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateStorageVirtualMachineRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateStorageVirtualMachineRequestRequestTypeDef",
-    {
-        "FileSystemId": str,
-        "Name": str,
-    },
-)
-_OptionalCreateStorageVirtualMachineRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateStorageVirtualMachineRequestRequestTypeDef",
-    {
-        "ActiveDirectoryConfiguration": "CreateSvmActiveDirectoryConfigurationTypeDef",
-        "ClientRequestToken": str,
-        "SvmAdminPassword": str,
-        "Tags": List["TagTypeDef"],
-        "RootVolumeSecurityStyle": StorageVirtualMachineRootVolumeSecurityStyleType,
-    },
-    total=False,
-)
-
-class CreateStorageVirtualMachineRequestRequestTypeDef(
-    _RequiredCreateStorageVirtualMachineRequestRequestTypeDef,
-    _OptionalCreateStorageVirtualMachineRequestRequestTypeDef,
-):
-    pass
-
-CreateStorageVirtualMachineResponseTypeDef = TypedDict(
-    "CreateStorageVirtualMachineResponseTypeDef",
-    {
-        "StorageVirtualMachine": "StorageVirtualMachineTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateSvmActiveDirectoryConfigurationTypeDef = TypedDict(
-    "_RequiredCreateSvmActiveDirectoryConfigurationTypeDef",
-    {
-        "NetBiosName": str,
-    },
-)
-_OptionalCreateSvmActiveDirectoryConfigurationTypeDef = TypedDict(
-    "_OptionalCreateSvmActiveDirectoryConfigurationTypeDef",
-    {
-        "SelfManagedActiveDirectoryConfiguration": "SelfManagedActiveDirectoryConfigurationTypeDef",
-    },
-    total=False,
-)
-
-class CreateSvmActiveDirectoryConfigurationTypeDef(
-    _RequiredCreateSvmActiveDirectoryConfigurationTypeDef,
-    _OptionalCreateSvmActiveDirectoryConfigurationTypeDef,
-):
-    pass
-
-_RequiredCreateVolumeFromBackupRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateVolumeFromBackupRequestRequestTypeDef",
-    {
-        "BackupId": str,
-        "Name": str,
-    },
-)
-_OptionalCreateVolumeFromBackupRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateVolumeFromBackupRequestRequestTypeDef",
-    {
-        "ClientRequestToken": str,
-        "OntapConfiguration": "CreateOntapVolumeConfigurationTypeDef",
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateVolumeFromBackupRequestRequestTypeDef(
-    _RequiredCreateVolumeFromBackupRequestRequestTypeDef,
-    _OptionalCreateVolumeFromBackupRequestRequestTypeDef,
-):
-    pass
-
-CreateVolumeFromBackupResponseTypeDef = TypedDict(
-    "CreateVolumeFromBackupResponseTypeDef",
-    {
-        "Volume": "VolumeTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateVolumeRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateVolumeRequestRequestTypeDef",
-    {
-        "VolumeType": VolumeTypeType,
-        "Name": str,
-    },
-)
-_OptionalCreateVolumeRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateVolumeRequestRequestTypeDef",
-    {
-        "ClientRequestToken": str,
-        "OntapConfiguration": "CreateOntapVolumeConfigurationTypeDef",
-        "Tags": List["TagTypeDef"],
-        "OpenZFSConfiguration": "CreateOpenZFSVolumeConfigurationTypeDef",
-    },
-    total=False,
-)
-
-class CreateVolumeRequestRequestTypeDef(
-    _RequiredCreateVolumeRequestRequestTypeDef, _OptionalCreateVolumeRequestRequestTypeDef
-):
-    pass
-
-CreateVolumeResponseTypeDef = TypedDict(
-    "CreateVolumeResponseTypeDef",
-    {
-        "Volume": "VolumeTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DataRepositoryAssociationTypeDef = TypedDict(
-    "DataRepositoryAssociationTypeDef",
-    {
-        "AssociationId": str,
-        "ResourceARN": str,
-        "FileSystemId": str,
-        "Lifecycle": DataRepositoryLifecycleType,
-        "FailureDetails": "DataRepositoryFailureDetailsTypeDef",
-        "FileSystemPath": str,
-        "DataRepositoryPath": str,
-        "BatchImportMetaDataOnCreate": bool,
-        "ImportedFileChunkSize": int,
-        "S3": "S3DataRepositoryConfigurationTypeDef",
-        "Tags": List["TagTypeDef"],
-        "CreationTime": datetime,
-        "FileCacheId": str,
-        "FileCachePath": str,
-        "DataRepositorySubdirectories": List[str],
-        "NFS": "NFSDataRepositoryConfigurationTypeDef",
-    },
-    total=False,
-)
-
-DataRepositoryConfigurationTypeDef = TypedDict(
-    "DataRepositoryConfigurationTypeDef",
-    {
-        "Lifecycle": DataRepositoryLifecycleType,
-        "ImportPath": str,
-        "ExportPath": str,
-        "ImportedFileChunkSize": int,
-        "AutoImportPolicy": AutoImportPolicyTypeType,
-        "FailureDetails": "DataRepositoryFailureDetailsTypeDef",
-    },
-    total=False,
-)
-
-DataRepositoryFailureDetailsTypeDef = TypedDict(
-    "DataRepositoryFailureDetailsTypeDef",
-    {
-        "Message": str,
-    },
-    total=False,
-)
-
-DataRepositoryTaskFailureDetailsTypeDef = TypedDict(
-    "DataRepositoryTaskFailureDetailsTypeDef",
-    {
-        "Message": str,
-    },
-    total=False,
-)
-
-DataRepositoryTaskFilterTypeDef = TypedDict(
-    "DataRepositoryTaskFilterTypeDef",
-    {
-        "Name": DataRepositoryTaskFilterNameType,
-        "Values": List[str],
-    },
-    total=False,
-)
-
-DataRepositoryTaskStatusTypeDef = TypedDict(
-    "DataRepositoryTaskStatusTypeDef",
-    {
-        "TotalCount": int,
-        "SucceededCount": int,
-        "FailedCount": int,
-        "LastUpdatedTime": datetime,
-        "ReleasedCapacity": int,
-    },
-    total=False,
-)
-
-_RequiredDataRepositoryTaskTypeDef = TypedDict(
-    "_RequiredDataRepositoryTaskTypeDef",
-    {
-        "TaskId": str,
-        "Lifecycle": DataRepositoryTaskLifecycleType,
-        "Type": DataRepositoryTaskTypeType,
-        "CreationTime": datetime,
-    },
-)
-_OptionalDataRepositoryTaskTypeDef = TypedDict(
-    "_OptionalDataRepositoryTaskTypeDef",
-    {
-        "StartTime": datetime,
-        "EndTime": datetime,
-        "ResourceARN": str,
-        "Tags": List["TagTypeDef"],
-        "FileSystemId": str,
-        "Paths": List[str],
-        "FailureDetails": "DataRepositoryTaskFailureDetailsTypeDef",
-        "Status": "DataRepositoryTaskStatusTypeDef",
-        "Report": "CompletionReportTypeDef",
-        "CapacityToRelease": int,
-        "FileCacheId": str,
-        "ReleaseConfiguration": "ReleaseConfigurationTypeDef",
-    },
-    total=False,
-)
-
-class DataRepositoryTaskTypeDef(
-    _RequiredDataRepositoryTaskTypeDef, _OptionalDataRepositoryTaskTypeDef
-):
-    pass
-
-_RequiredDeleteBackupRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteBackupRequestRequestTypeDef",
-    {
-        "BackupId": str,
-    },
-)
-_OptionalDeleteBackupRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteBackupRequestRequestTypeDef",
-    {
-        "ClientRequestToken": str,
-    },
-    total=False,
-)
-
-class DeleteBackupRequestRequestTypeDef(
-    _RequiredDeleteBackupRequestRequestTypeDef, _OptionalDeleteBackupRequestRequestTypeDef
-):
-    pass
-
-DeleteBackupResponseTypeDef = TypedDict(
-    "DeleteBackupResponseTypeDef",
-    {
-        "BackupId": str,
-        "Lifecycle": BackupLifecycleType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDeleteDataRepositoryAssociationRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteDataRepositoryAssociationRequestRequestTypeDef",
-    {
-        "AssociationId": str,
-    },
-)
-_OptionalDeleteDataRepositoryAssociationRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteDataRepositoryAssociationRequestRequestTypeDef",
-    {
-        "ClientRequestToken": str,
-        "DeleteDataInFileSystem": bool,
-    },
-    total=False,
-)
-
-class DeleteDataRepositoryAssociationRequestRequestTypeDef(
-    _RequiredDeleteDataRepositoryAssociationRequestRequestTypeDef,
-    _OptionalDeleteDataRepositoryAssociationRequestRequestTypeDef,
-):
-    pass
-
-DeleteDataRepositoryAssociationResponseTypeDef = TypedDict(
-    "DeleteDataRepositoryAssociationResponseTypeDef",
-    {
-        "AssociationId": str,
-        "Lifecycle": DataRepositoryLifecycleType,
-        "DeleteDataInFileSystem": bool,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDeleteFileCacheRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteFileCacheRequestRequestTypeDef",
-    {
-        "FileCacheId": str,
-    },
-)
-_OptionalDeleteFileCacheRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteFileCacheRequestRequestTypeDef",
-    {
-        "ClientRequestToken": str,
-    },
-    total=False,
-)
-
-class DeleteFileCacheRequestRequestTypeDef(
-    _RequiredDeleteFileCacheRequestRequestTypeDef, _OptionalDeleteFileCacheRequestRequestTypeDef
-):
-    pass
-
-DeleteFileCacheResponseTypeDef = TypedDict(
-    "DeleteFileCacheResponseTypeDef",
-    {
-        "FileCacheId": str,
-        "Lifecycle": FileCacheLifecycleType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteFileSystemLustreConfigurationTypeDef = TypedDict(
-    "DeleteFileSystemLustreConfigurationTypeDef",
-    {
-        "SkipFinalBackup": bool,
-        "FinalBackupTags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-DeleteFileSystemLustreResponseTypeDef = TypedDict(
-    "DeleteFileSystemLustreResponseTypeDef",
-    {
-        "FinalBackupId": str,
-        "FinalBackupTags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-DeleteFileSystemOpenZFSConfigurationTypeDef = TypedDict(
-    "DeleteFileSystemOpenZFSConfigurationTypeDef",
-    {
-        "SkipFinalBackup": bool,
-        "FinalBackupTags": List["TagTypeDef"],
-        "Options": List[Literal["DELETE_CHILD_VOLUMES_AND_SNAPSHOTS"]],
-    },
-    total=False,
-)
-
-DeleteFileSystemOpenZFSResponseTypeDef = TypedDict(
-    "DeleteFileSystemOpenZFSResponseTypeDef",
-    {
-        "FinalBackupId": str,
-        "FinalBackupTags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-_RequiredDeleteFileSystemRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteFileSystemRequestRequestTypeDef",
-    {
-        "FileSystemId": str,
-    },
-)
-_OptionalDeleteFileSystemRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteFileSystemRequestRequestTypeDef",
-    {
-        "ClientRequestToken": str,
-        "WindowsConfiguration": "DeleteFileSystemWindowsConfigurationTypeDef",
-        "LustreConfiguration": "DeleteFileSystemLustreConfigurationTypeDef",
-        "OpenZFSConfiguration": "DeleteFileSystemOpenZFSConfigurationTypeDef",
-    },
-    total=False,
-)
-
-class DeleteFileSystemRequestRequestTypeDef(
-    _RequiredDeleteFileSystemRequestRequestTypeDef, _OptionalDeleteFileSystemRequestRequestTypeDef
-):
-    pass
-
-DeleteFileSystemResponseTypeDef = TypedDict(
-    "DeleteFileSystemResponseTypeDef",
-    {
-        "FileSystemId": str,
-        "Lifecycle": FileSystemLifecycleType,
-        "WindowsResponse": "DeleteFileSystemWindowsResponseTypeDef",
-        "LustreResponse": "DeleteFileSystemLustreResponseTypeDef",
-        "OpenZFSResponse": "DeleteFileSystemOpenZFSResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteFileSystemWindowsConfigurationTypeDef = TypedDict(
-    "DeleteFileSystemWindowsConfigurationTypeDef",
-    {
-        "SkipFinalBackup": bool,
-        "FinalBackupTags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-DeleteFileSystemWindowsResponseTypeDef = TypedDict(
-    "DeleteFileSystemWindowsResponseTypeDef",
-    {
-        "FinalBackupId": str,
-        "FinalBackupTags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-_RequiredDeleteSnapshotRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteSnapshotRequestRequestTypeDef",
-    {
-        "SnapshotId": str,
-    },
-)
-_OptionalDeleteSnapshotRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteSnapshotRequestRequestTypeDef",
-    {
-        "ClientRequestToken": str,
-    },
-    total=False,
-)
-
-class DeleteSnapshotRequestRequestTypeDef(
-    _RequiredDeleteSnapshotRequestRequestTypeDef, _OptionalDeleteSnapshotRequestRequestTypeDef
-):
-    pass
-
-DeleteSnapshotResponseTypeDef = TypedDict(
-    "DeleteSnapshotResponseTypeDef",
-    {
-        "SnapshotId": str,
-        "Lifecycle": SnapshotLifecycleType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDeleteStorageVirtualMachineRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteStorageVirtualMachineRequestRequestTypeDef",
-    {
-        "StorageVirtualMachineId": str,
-    },
-)
-_OptionalDeleteStorageVirtualMachineRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteStorageVirtualMachineRequestRequestTypeDef",
-    {
-        "ClientRequestToken": str,
-    },
-    total=False,
-)
-
-class DeleteStorageVirtualMachineRequestRequestTypeDef(
-    _RequiredDeleteStorageVirtualMachineRequestRequestTypeDef,
-    _OptionalDeleteStorageVirtualMachineRequestRequestTypeDef,
-):
-    pass
-
-DeleteStorageVirtualMachineResponseTypeDef = TypedDict(
-    "DeleteStorageVirtualMachineResponseTypeDef",
-    {
-        "StorageVirtualMachineId": str,
-        "Lifecycle": StorageVirtualMachineLifecycleType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteVolumeOntapConfigurationTypeDef = TypedDict(
-    "DeleteVolumeOntapConfigurationTypeDef",
-    {
-        "SkipFinalBackup": bool,
-        "FinalBackupTags": List["TagTypeDef"],
-        "BypassSnaplockEnterpriseRetention": bool,
-    },
-    total=False,
-)
-
-DeleteVolumeOntapResponseTypeDef = TypedDict(
-    "DeleteVolumeOntapResponseTypeDef",
-    {
-        "FinalBackupId": str,
-        "FinalBackupTags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-DeleteVolumeOpenZFSConfigurationTypeDef = TypedDict(
-    "DeleteVolumeOpenZFSConfigurationTypeDef",
-    {
-        "Options": List[Literal["DELETE_CHILD_VOLUMES_AND_SNAPSHOTS"]],
-    },
-    total=False,
-)
-
-_RequiredDeleteVolumeRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteVolumeRequestRequestTypeDef",
-    {
-        "VolumeId": str,
-    },
-)
-_OptionalDeleteVolumeRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteVolumeRequestRequestTypeDef",
-    {
-        "ClientRequestToken": str,
-        "OntapConfiguration": "DeleteVolumeOntapConfigurationTypeDef",
-        "OpenZFSConfiguration": "DeleteVolumeOpenZFSConfigurationTypeDef",
-    },
-    total=False,
-)
-
-class DeleteVolumeRequestRequestTypeDef(
-    _RequiredDeleteVolumeRequestRequestTypeDef, _OptionalDeleteVolumeRequestRequestTypeDef
-):
-    pass
-
-DeleteVolumeResponseTypeDef = TypedDict(
-    "DeleteVolumeResponseTypeDef",
-    {
-        "VolumeId": str,
-        "Lifecycle": VolumeLifecycleType,
-        "OntapResponse": "DeleteVolumeOntapResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeBackupsRequestRequestTypeDef = TypedDict(
-    "DescribeBackupsRequestRequestTypeDef",
-    {
-        "BackupIds": List[str],
-        "Filters": List["FilterTypeDef"],
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-DescribeBackupsResponseTypeDef = TypedDict(
-    "DescribeBackupsResponseTypeDef",
-    {
-        "Backups": List["BackupTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeDataRepositoryAssociationsRequestRequestTypeDef = TypedDict(
-    "DescribeDataRepositoryAssociationsRequestRequestTypeDef",
-    {
-        "AssociationIds": List[str],
-        "Filters": List["FilterTypeDef"],
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-DescribeDataRepositoryAssociationsResponseTypeDef = TypedDict(
-    "DescribeDataRepositoryAssociationsResponseTypeDef",
-    {
-        "Associations": List["DataRepositoryAssociationTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeDataRepositoryTasksRequestRequestTypeDef = TypedDict(
-    "DescribeDataRepositoryTasksRequestRequestTypeDef",
-    {
-        "TaskIds": List[str],
-        "Filters": List["DataRepositoryTaskFilterTypeDef"],
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-DescribeDataRepositoryTasksResponseTypeDef = TypedDict(
-    "DescribeDataRepositoryTasksResponseTypeDef",
-    {
-        "DataRepositoryTasks": List["DataRepositoryTaskTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeFileCachesRequestRequestTypeDef = TypedDict(
-    "DescribeFileCachesRequestRequestTypeDef",
-    {
-        "FileCacheIds": List[str],
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-DescribeFileCachesResponseTypeDef = TypedDict(
-    "DescribeFileCachesResponseTypeDef",
-    {
-        "FileCaches": List["FileCacheTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribeFileSystemAliasesRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeFileSystemAliasesRequestRequestTypeDef",
-    {
-        "FileSystemId": str,
-    },
-)
-_OptionalDescribeFileSystemAliasesRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeFileSystemAliasesRequestRequestTypeDef",
-    {
-        "ClientRequestToken": str,
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class DescribeFileSystemAliasesRequestRequestTypeDef(
-    _RequiredDescribeFileSystemAliasesRequestRequestTypeDef,
-    _OptionalDescribeFileSystemAliasesRequestRequestTypeDef,
-):
-    pass
-
-DescribeFileSystemAliasesResponseTypeDef = TypedDict(
-    "DescribeFileSystemAliasesResponseTypeDef",
-    {
-        "Aliases": List["AliasTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeFileSystemsRequestRequestTypeDef = TypedDict(
-    "DescribeFileSystemsRequestRequestTypeDef",
-    {
-        "FileSystemIds": List[str],
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-DescribeFileSystemsResponseTypeDef = TypedDict(
-    "DescribeFileSystemsResponseTypeDef",
-    {
-        "FileSystems": List["FileSystemTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeSharedVpcConfigurationResponseTypeDef = TypedDict(
-    "DescribeSharedVpcConfigurationResponseTypeDef",
-    {
-        "EnableFsxRouteTableUpdatesFromParticipantAccounts": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeSnapshotsRequestRequestTypeDef = TypedDict(
-    "DescribeSnapshotsRequestRequestTypeDef",
-    {
-        "SnapshotIds": List[str],
-        "Filters": List["SnapshotFilterTypeDef"],
-        "MaxResults": int,
-        "NextToken": str,
-        "IncludeShared": bool,
-    },
-    total=False,
-)
-
-DescribeSnapshotsResponseTypeDef = TypedDict(
-    "DescribeSnapshotsResponseTypeDef",
-    {
-        "Snapshots": List["SnapshotTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeStorageVirtualMachinesRequestRequestTypeDef = TypedDict(
-    "DescribeStorageVirtualMachinesRequestRequestTypeDef",
-    {
-        "StorageVirtualMachineIds": List[str],
-        "Filters": List["StorageVirtualMachineFilterTypeDef"],
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-DescribeStorageVirtualMachinesResponseTypeDef = TypedDict(
-    "DescribeStorageVirtualMachinesResponseTypeDef",
-    {
-        "StorageVirtualMachines": List["StorageVirtualMachineTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeVolumesRequestRequestTypeDef = TypedDict(
-    "DescribeVolumesRequestRequestTypeDef",
-    {
-        "VolumeIds": List[str],
-        "Filters": List["VolumeFilterTypeDef"],
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-DescribeVolumesResponseTypeDef = TypedDict(
-    "DescribeVolumesResponseTypeDef",
-    {
-        "Volumes": List["VolumeTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDisassociateFileSystemAliasesRequestRequestTypeDef = TypedDict(
-    "_RequiredDisassociateFileSystemAliasesRequestRequestTypeDef",
-    {
-        "FileSystemId": str,
-        "Aliases": List[str],
-    },
-)
-_OptionalDisassociateFileSystemAliasesRequestRequestTypeDef = TypedDict(
-    "_OptionalDisassociateFileSystemAliasesRequestRequestTypeDef",
-    {
-        "ClientRequestToken": str,
-    },
-    total=False,
-)
-
-class DisassociateFileSystemAliasesRequestRequestTypeDef(
-    _RequiredDisassociateFileSystemAliasesRequestRequestTypeDef,
-    _OptionalDisassociateFileSystemAliasesRequestRequestTypeDef,
-):
-    pass
-
-DisassociateFileSystemAliasesResponseTypeDef = TypedDict(
-    "DisassociateFileSystemAliasesResponseTypeDef",
-    {
-        "Aliases": List["AliasTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DiskIopsConfigurationTypeDef = TypedDict(
-    "DiskIopsConfigurationTypeDef",
-    {
-        "Mode": DiskIopsConfigurationModeType,
-        "Iops": int,
-    },
-    total=False,
-)
-
-DurationSinceLastAccessTypeDef = TypedDict(
-    "DurationSinceLastAccessTypeDef",
-    {
-        "Unit": Literal["DAYS"],
-        "Value": int,
-    },
-    total=False,
-)
-
-FileCacheCreatingTypeDef = TypedDict(
-    "FileCacheCreatingTypeDef",
-    {
-        "OwnerId": str,
-        "CreationTime": datetime,
-        "FileCacheId": str,
-        "FileCacheType": Literal["LUSTRE"],
-        "FileCacheTypeVersion": str,
-        "Lifecycle": FileCacheLifecycleType,
-        "FailureDetails": "FileCacheFailureDetailsTypeDef",
-        "StorageCapacity": int,
-        "VpcId": str,
-        "SubnetIds": List[str],
-        "NetworkInterfaceIds": List[str],
-        "DNSName": str,
-        "KmsKeyId": str,
-        "ResourceARN": str,
-        "Tags": List["TagTypeDef"],
-        "CopyTagsToDataRepositoryAssociations": bool,
-        "LustreConfiguration": "FileCacheLustreConfigurationTypeDef",
-        "DataRepositoryAssociationIds": List[str],
-    },
-    total=False,
-)
-
-_RequiredFileCacheDataRepositoryAssociationTypeDef = TypedDict(
-    "_RequiredFileCacheDataRepositoryAssociationTypeDef",
-    {
-        "FileCachePath": str,
-        "DataRepositoryPath": str,
-    },
-)
-_OptionalFileCacheDataRepositoryAssociationTypeDef = TypedDict(
-    "_OptionalFileCacheDataRepositoryAssociationTypeDef",
-    {
-        "DataRepositorySubdirectories": List[str],
-        "NFS": "FileCacheNFSConfigurationTypeDef",
-    },
-    total=False,
-)
-
-class FileCacheDataRepositoryAssociationTypeDef(
-    _RequiredFileCacheDataRepositoryAssociationTypeDef,
-    _OptionalFileCacheDataRepositoryAssociationTypeDef,
-):
-    pass
-
-FileCacheFailureDetailsTypeDef = TypedDict(
-    "FileCacheFailureDetailsTypeDef",
-    {
-        "Message": str,
-    },
-    total=False,
-)
-
-FileCacheLustreConfigurationTypeDef = TypedDict(
-    "FileCacheLustreConfigurationTypeDef",
-    {
-        "PerUnitStorageThroughput": int,
-        "DeploymentType": Literal["CACHE_1"],
-        "MountName": str,
-        "WeeklyMaintenanceStartTime": str,
-        "MetadataConfiguration": "FileCacheLustreMetadataConfigurationTypeDef",
-        "LogConfiguration": "LustreLogConfigurationTypeDef",
-    },
-    total=False,
-)
-
-FileCacheLustreMetadataConfigurationTypeDef = TypedDict(
-    "FileCacheLustreMetadataConfigurationTypeDef",
-    {
-        "StorageCapacity": int,
-    },
-)
-
-_RequiredFileCacheNFSConfigurationTypeDef = TypedDict(
-    "_RequiredFileCacheNFSConfigurationTypeDef",
-    {
-        "Version": Literal["NFS3"],
-    },
-)
-_OptionalFileCacheNFSConfigurationTypeDef = TypedDict(
-    "_OptionalFileCacheNFSConfigurationTypeDef",
-    {
-        "DnsIps": List[str],
-    },
-    total=False,
-)
-
-class FileCacheNFSConfigurationTypeDef(
-    _RequiredFileCacheNFSConfigurationTypeDef, _OptionalFileCacheNFSConfigurationTypeDef
-):
-    pass
-
-FileCacheTypeDef = TypedDict(
-    "FileCacheTypeDef",
-    {
-        "OwnerId": str,
-        "CreationTime": datetime,
-        "FileCacheId": str,
-        "FileCacheType": Literal["LUSTRE"],
-        "FileCacheTypeVersion": str,
-        "Lifecycle": FileCacheLifecycleType,
-        "FailureDetails": "FileCacheFailureDetailsTypeDef",
-        "StorageCapacity": int,
-        "VpcId": str,
-        "SubnetIds": List[str],
-        "NetworkInterfaceIds": List[str],
-        "DNSName": str,
-        "KmsKeyId": str,
-        "ResourceARN": str,
-        "LustreConfiguration": "FileCacheLustreConfigurationTypeDef",
-        "DataRepositoryAssociationIds": List[str],
-    },
-    total=False,
-)
-
-FileSystemEndpointTypeDef = TypedDict(
-    "FileSystemEndpointTypeDef",
-    {
-        "DNSName": str,
-        "IpAddresses": List[str],
-    },
-    total=False,
-)
-
-FileSystemEndpointsTypeDef = TypedDict(
-    "FileSystemEndpointsTypeDef",
-    {
-        "Intercluster": "FileSystemEndpointTypeDef",
-        "Management": "FileSystemEndpointTypeDef",
-    },
-    total=False,
-)
-
-FileSystemFailureDetailsTypeDef = TypedDict(
-    "FileSystemFailureDetailsTypeDef",
-    {
-        "Message": str,
-    },
-    total=False,
-)
-
-_RequiredFileSystemLustreMetadataConfigurationTypeDef = TypedDict(
-    "_RequiredFileSystemLustreMetadataConfigurationTypeDef",
-    {
-        "Mode": MetadataConfigurationModeType,
-    },
-)
-_OptionalFileSystemLustreMetadataConfigurationTypeDef = TypedDict(
-    "_OptionalFileSystemLustreMetadataConfigurationTypeDef",
-    {
-        "Iops": int,
-    },
-    total=False,
-)
-
-class FileSystemLustreMetadataConfigurationTypeDef(
-    _RequiredFileSystemLustreMetadataConfigurationTypeDef,
-    _OptionalFileSystemLustreMetadataConfigurationTypeDef,
-):
-    pass
-
-FileSystemTypeDef = TypedDict(
-    "FileSystemTypeDef",
-    {
-        "OwnerId": str,
-        "CreationTime": datetime,
-        "FileSystemId": str,
-        "FileSystemType": FileSystemTypeType,
-        "Lifecycle": FileSystemLifecycleType,
-        "FailureDetails": "FileSystemFailureDetailsTypeDef",
-        "StorageCapacity": int,
-        "StorageType": StorageTypeType,
-        "VpcId": str,
-        "SubnetIds": List[str],
-        "NetworkInterfaceIds": List[str],
-        "DNSName": str,
-        "KmsKeyId": str,
-        "ResourceARN": str,
-        "Tags": List["TagTypeDef"],
-        "WindowsConfiguration": "WindowsFileSystemConfigurationTypeDef",
-        "LustreConfiguration": "LustreFileSystemConfigurationTypeDef",
-        "AdministrativeActions": List["AdministrativeActionTypeDef"],
-        "OntapConfiguration": "OntapFileSystemConfigurationTypeDef",
-        "FileSystemTypeVersion": str,
-        "OpenZFSConfiguration": "OpenZFSFileSystemConfigurationTypeDef",
-    },
-    total=False,
-)
-
-FilterTypeDef = TypedDict(
-    "FilterTypeDef",
-    {
-        "Name": FilterNameType,
-        "Values": List[str],
-    },
-    total=False,
-)
-
-LifecycleTransitionReasonTypeDef = TypedDict(
-    "LifecycleTransitionReasonTypeDef",
-    {
-        "Message": str,
-    },
-    total=False,
-)
-
-_RequiredListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "_RequiredListTagsForResourceRequestRequestTypeDef",
-    {
-        "ResourceARN": str,
-    },
-)
-_OptionalListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "_OptionalListTagsForResourceRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListTagsForResourceRequestRequestTypeDef(
-    _RequiredListTagsForResourceRequestRequestTypeDef,
-    _OptionalListTagsForResourceRequestRequestTypeDef,
-):
-    pass
-
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "Tags": List["TagTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-LustreFileSystemConfigurationTypeDef = TypedDict(
-    "LustreFileSystemConfigurationTypeDef",
-    {
-        "WeeklyMaintenanceStartTime": str,
-        "DataRepositoryConfiguration": "DataRepositoryConfigurationTypeDef",
-        "DeploymentType": LustreDeploymentTypeType,
-        "PerUnitStorageThroughput": int,
-        "MountName": str,
-        "DailyAutomaticBackupStartTime": str,
-        "AutomaticBackupRetentionDays": int,
-        "CopyTagsToBackups": bool,
-        "DriveCacheType": DriveCacheTypeType,
-        "DataCompressionType": DataCompressionTypeType,
-        "LogConfiguration": "LustreLogConfigurationTypeDef",
-        "RootSquashConfiguration": "LustreRootSquashConfigurationTypeDef",
-        "MetadataConfiguration": "FileSystemLustreMetadataConfigurationTypeDef",
-    },
-    total=False,
-)
-
-_RequiredLustreLogConfigurationTypeDef = TypedDict(
-    "_RequiredLustreLogConfigurationTypeDef",
-    {
-        "Level": LustreAccessAuditLogLevelType,
-    },
-)
-_OptionalLustreLogConfigurationTypeDef = TypedDict(
-    "_OptionalLustreLogConfigurationTypeDef",
-    {
-        "Destination": str,
-    },
-    total=False,
-)
-
-class LustreLogConfigurationTypeDef(
-    _RequiredLustreLogConfigurationTypeDef, _OptionalLustreLogConfigurationTypeDef
-):
-    pass
-
-_RequiredLustreLogCreateConfigurationTypeDef = TypedDict(
-    "_RequiredLustreLogCreateConfigurationTypeDef",
-    {
-        "Level": LustreAccessAuditLogLevelType,
-    },
-)
-_OptionalLustreLogCreateConfigurationTypeDef = TypedDict(
-    "_OptionalLustreLogCreateConfigurationTypeDef",
-    {
-        "Destination": str,
-    },
-    total=False,
-)
-
-class LustreLogCreateConfigurationTypeDef(
-    _RequiredLustreLogCreateConfigurationTypeDef, _OptionalLustreLogCreateConfigurationTypeDef
-):
-    pass
-
-LustreRootSquashConfigurationTypeDef = TypedDict(
-    "LustreRootSquashConfigurationTypeDef",
-    {
-        "RootSquash": str,
-        "NoSquashNids": List[str],
-    },
-    total=False,
-)
-
-_RequiredNFSDataRepositoryConfigurationTypeDef = TypedDict(
-    "_RequiredNFSDataRepositoryConfigurationTypeDef",
-    {
-        "Version": Literal["NFS3"],
-    },
-)
-_OptionalNFSDataRepositoryConfigurationTypeDef = TypedDict(
-    "_OptionalNFSDataRepositoryConfigurationTypeDef",
-    {
-        "DnsIps": List[str],
-        "AutoExportPolicy": "AutoExportPolicyTypeDef",
-    },
-    total=False,
-)
-
-class NFSDataRepositoryConfigurationTypeDef(
-    _RequiredNFSDataRepositoryConfigurationTypeDef, _OptionalNFSDataRepositoryConfigurationTypeDef
-):
-    pass
-
-OntapFileSystemConfigurationTypeDef = TypedDict(
-    "OntapFileSystemConfigurationTypeDef",
-    {
-        "AutomaticBackupRetentionDays": int,
-        "DailyAutomaticBackupStartTime": str,
-        "DeploymentType": OntapDeploymentTypeType,
-        "EndpointIpAddressRange": str,
-        "Endpoints": "FileSystemEndpointsTypeDef",
-        "DiskIopsConfiguration": "DiskIopsConfigurationTypeDef",
-        "PreferredSubnetId": str,
-        "RouteTableIds": List[str],
-        "ThroughputCapacity": int,
-        "WeeklyMaintenanceStartTime": str,
-        "FsxAdminPassword": str,
-        "HAPairs": int,
-        "ThroughputCapacityPerHAPair": int,
-    },
-    total=False,
-)
-
-OntapVolumeConfigurationTypeDef = TypedDict(
-    "OntapVolumeConfigurationTypeDef",
-    {
-        "FlexCacheEndpointType": FlexCacheEndpointTypeType,
-        "JunctionPath": str,
-        "SecurityStyle": SecurityStyleType,
-        "SizeInMegabytes": int,
-        "StorageEfficiencyEnabled": bool,
-        "StorageVirtualMachineId": str,
-        "StorageVirtualMachineRoot": bool,
-        "TieringPolicy": "TieringPolicyTypeDef",
-        "UUID": str,
-        "OntapVolumeType": OntapVolumeTypeType,
-        "SnapshotPolicy": str,
-        "CopyTagsToBackups": bool,
-        "SnaplockConfiguration": "SnaplockConfigurationTypeDef",
-        "VolumeStyle": VolumeStyleType,
-        "AggregateConfiguration": "AggregateConfigurationTypeDef",
-        "SizeInBytes": int,
-    },
-    total=False,
-)
-
-OpenZFSClientConfigurationTypeDef = TypedDict(
-    "OpenZFSClientConfigurationTypeDef",
-    {
-        "Clients": str,
-        "Options": List[str],
-    },
-)
-
-OpenZFSCreateRootVolumeConfigurationTypeDef = TypedDict(
-    "OpenZFSCreateRootVolumeConfigurationTypeDef",
-    {
-        "RecordSizeKiB": int,
-        "DataCompressionType": OpenZFSDataCompressionTypeType,
-        "NfsExports": List["OpenZFSNfsExportTypeDef"],
-        "UserAndGroupQuotas": List["OpenZFSUserOrGroupQuotaTypeDef"],
-        "CopyTagsToSnapshots": bool,
-        "ReadOnly": bool,
-    },
-    total=False,
-)
-
-OpenZFSFileSystemConfigurationTypeDef = TypedDict(
-    "OpenZFSFileSystemConfigurationTypeDef",
-    {
-        "AutomaticBackupRetentionDays": int,
-        "CopyTagsToBackups": bool,
-        "CopyTagsToVolumes": bool,
-        "DailyAutomaticBackupStartTime": str,
-        "DeploymentType": OpenZFSDeploymentTypeType,
-        "ThroughputCapacity": int,
-        "WeeklyMaintenanceStartTime": str,
-        "DiskIopsConfiguration": "DiskIopsConfigurationTypeDef",
-        "RootVolumeId": str,
-        "PreferredSubnetId": str,
-        "EndpointIpAddressRange": str,
-        "RouteTableIds": List[str],
-        "EndpointIpAddress": str,
-    },
-    total=False,
-)
-
-OpenZFSNfsExportTypeDef = TypedDict(
-    "OpenZFSNfsExportTypeDef",
-    {
-        "ClientConfigurations": List["OpenZFSClientConfigurationTypeDef"],
-    },
-)
-
-OpenZFSOriginSnapshotConfigurationTypeDef = TypedDict(
-    "OpenZFSOriginSnapshotConfigurationTypeDef",
-    {
-        "SnapshotARN": str,
-        "CopyStrategy": OpenZFSCopyStrategyType,
-    },
-    total=False,
-)
+        "Value": NotRequired[int],
+    },
+)
+
+class BackupFailureDetailsTypeDef(TypedDict):
+    Message: NotRequired[str]
+
+class TagTypeDef(TypedDict):
+    Key: str
+    Value: str
+
+class CancelDataRepositoryTaskRequestTypeDef(TypedDict):
+    TaskId: str
+
+class CompletionReportTypeDef(TypedDict):
+    Enabled: bool
+    Path: NotRequired[str]
+    Format: NotRequired[Literal["REPORT_CSV_20191124"]]
+    Scope: NotRequired[Literal["FAILED_FILES_ONLY"]]
+
+class CopySnapshotAndUpdateVolumeRequestTypeDef(TypedDict):
+    VolumeId: str
+    SourceSnapshotARN: str
+    ClientRequestToken: NotRequired[str]
+    CopyStrategy: NotRequired[OpenZFSCopyStrategyType]
+    Options: NotRequired[Sequence[UpdateOpenZFSVolumeOptionType]]
+
+class CreateAggregateConfigurationTypeDef(TypedDict):
+    Aggregates: NotRequired[Sequence[str]]
+    ConstituentsPerAggregate: NotRequired[int]
+
+class FileCacheLustreMetadataConfigurationTypeDef(TypedDict):
+    StorageCapacity: int
+
+class CreateFileSystemLustreMetadataConfigurationTypeDef(TypedDict):
+    Mode: MetadataConfigurationModeType
+    Iops: NotRequired[int]
+
+class LustreLogCreateConfigurationTypeDef(TypedDict):
+    Level: LustreAccessAuditLogLevelType
+    Destination: NotRequired[str]
+
+class DiskIopsConfigurationTypeDef(TypedDict):
+    Mode: NotRequired[DiskIopsConfigurationModeType]
+    Iops: NotRequired[int]
+
+class OpenZFSReadCacheConfigurationTypeDef(TypedDict):
+    SizingMode: NotRequired[OpenZFSReadCacheSizingModeType]
+    SizeGiB: NotRequired[int]
+
+class SelfManagedActiveDirectoryConfigurationTypeDef(TypedDict):
+    DomainName: str
+    UserName: str
+    Password: str
+    DnsIps: Sequence[str]
+    OrganizationalUnitDistinguishedName: NotRequired[str]
+    FileSystemAdministratorsGroup: NotRequired[str]
+
+class WindowsAuditLogCreateConfigurationTypeDef(TypedDict):
+    FileAccessAuditLogLevel: WindowsAccessAuditLogLevelType
+    FileShareAccessAuditLogLevel: WindowsAccessAuditLogLevelType
+    AuditLogDestination: NotRequired[str]
+
+class TieringPolicyTypeDef(TypedDict):
+    CoolingPeriod: NotRequired[int]
+    Name: NotRequired[TieringPolicyNameType]
+
+class CreateOpenZFSOriginSnapshotConfigurationTypeDef(TypedDict):
+    SnapshotARN: str
+    CopyStrategy: OpenZFSCopyStrategyType
 
 OpenZFSUserOrGroupQuotaTypeDef = TypedDict(
     "OpenZFSUserOrGroupQuotaTypeDef",
@@ -2196,774 +427,1335 @@ OpenZFSUserOrGroupQuotaTypeDef = TypedDict(
     },
 )
 
+class DataRepositoryFailureDetailsTypeDef(TypedDict):
+    Message: NotRequired[str]
+
+class DataRepositoryTaskFailureDetailsTypeDef(TypedDict):
+    Message: NotRequired[str]
+
+class DataRepositoryTaskFilterTypeDef(TypedDict):
+    Name: NotRequired[DataRepositoryTaskFilterNameType]
+    Values: NotRequired[Sequence[str]]
+
+class DataRepositoryTaskStatusTypeDef(TypedDict):
+    TotalCount: NotRequired[int]
+    SucceededCount: NotRequired[int]
+    FailedCount: NotRequired[int]
+    LastUpdatedTime: NotRequired[datetime]
+    ReleasedCapacity: NotRequired[int]
+
+class DeleteBackupRequestTypeDef(TypedDict):
+    BackupId: str
+    ClientRequestToken: NotRequired[str]
+
+class DeleteDataRepositoryAssociationRequestTypeDef(TypedDict):
+    AssociationId: str
+    ClientRequestToken: NotRequired[str]
+    DeleteDataInFileSystem: NotRequired[bool]
+
+class DeleteFileCacheRequestTypeDef(TypedDict):
+    FileCacheId: str
+    ClientRequestToken: NotRequired[str]
+
+class DeleteSnapshotRequestTypeDef(TypedDict):
+    SnapshotId: str
+    ClientRequestToken: NotRequired[str]
+
+class DeleteStorageVirtualMachineRequestTypeDef(TypedDict):
+    StorageVirtualMachineId: str
+    ClientRequestToken: NotRequired[str]
+
+class DeleteVolumeOpenZFSConfigurationTypeDef(TypedDict):
+    Options: NotRequired[Sequence[Literal["DELETE_CHILD_VOLUMES_AND_SNAPSHOTS"]]]
+
+class FilterTypeDef(TypedDict):
+    Name: NotRequired[FilterNameType]
+    Values: NotRequired[Sequence[str]]
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class DescribeFileCachesRequestTypeDef(TypedDict):
+    FileCacheIds: NotRequired[Sequence[str]]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class DescribeFileSystemAliasesRequestTypeDef(TypedDict):
+    FileSystemId: str
+    ClientRequestToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class DescribeFileSystemsRequestTypeDef(TypedDict):
+    FileSystemIds: NotRequired[Sequence[str]]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class SnapshotFilterTypeDef(TypedDict):
+    Name: NotRequired[SnapshotFilterNameType]
+    Values: NotRequired[Sequence[str]]
+
+class StorageVirtualMachineFilterTypeDef(TypedDict):
+    Name: NotRequired[Literal["file-system-id"]]
+    Values: NotRequired[Sequence[str]]
+
+class VolumeFilterTypeDef(TypedDict):
+    Name: NotRequired[VolumeFilterNameType]
+    Values: NotRequired[Sequence[str]]
+
+class DisassociateFileSystemAliasesRequestTypeDef(TypedDict):
+    FileSystemId: str
+    Aliases: Sequence[str]
+    ClientRequestToken: NotRequired[str]
+
+class DurationSinceLastAccessTypeDef(TypedDict):
+    Unit: NotRequired[Literal["DAYS"]]
+    Value: NotRequired[int]
+
+class FileCacheFailureDetailsTypeDef(TypedDict):
+    Message: NotRequired[str]
+
+class FileCacheNFSConfigurationTypeDef(TypedDict):
+    Version: Literal["NFS3"]
+    DnsIps: NotRequired[Sequence[str]]
+
+class LustreLogConfigurationTypeDef(TypedDict):
+    Level: LustreAccessAuditLogLevelType
+    Destination: NotRequired[str]
+
+class FileSystemEndpointTypeDef(TypedDict):
+    DNSName: NotRequired[str]
+    IpAddresses: NotRequired[List[str]]
+
+class FileSystemFailureDetailsTypeDef(TypedDict):
+    Message: NotRequired[str]
+
+class FileSystemLustreMetadataConfigurationTypeDef(TypedDict):
+    Mode: MetadataConfigurationModeType
+    Iops: NotRequired[int]
+
+class LifecycleTransitionReasonTypeDef(TypedDict):
+    Message: NotRequired[str]
+
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    ResourceARN: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class LustreRootSquashConfigurationOutputTypeDef(TypedDict):
+    RootSquash: NotRequired[str]
+    NoSquashNids: NotRequired[List[str]]
+
+class LustreRootSquashConfigurationTypeDef(TypedDict):
+    RootSquash: NotRequired[str]
+    NoSquashNids: NotRequired[Sequence[str]]
+
+class OpenZFSClientConfigurationOutputTypeDef(TypedDict):
+    Clients: str
+    Options: List[str]
+
+class OpenZFSClientConfigurationTypeDef(TypedDict):
+    Clients: str
+    Options: Sequence[str]
+
+class OpenZFSOriginSnapshotConfigurationTypeDef(TypedDict):
+    SnapshotARN: NotRequired[str]
+    CopyStrategy: NotRequired[OpenZFSCopyStrategyType]
+
+class ReleaseFileSystemNfsV3LocksRequestTypeDef(TypedDict):
+    FileSystemId: str
+    ClientRequestToken: NotRequired[str]
+
+class RestoreVolumeFromSnapshotRequestTypeDef(TypedDict):
+    VolumeId: str
+    SnapshotId: str
+    ClientRequestToken: NotRequired[str]
+    Options: NotRequired[Sequence[RestoreOpenZFSVolumeOptionType]]
+
+RetentionPeriodTypeDef = TypedDict(
+    "RetentionPeriodTypeDef",
+    {
+        "Type": RetentionPeriodTypeType,
+        "Value": NotRequired[int],
+    },
+)
+
+class SelfManagedActiveDirectoryAttributesTypeDef(TypedDict):
+    DomainName: NotRequired[str]
+    OrganizationalUnitDistinguishedName: NotRequired[str]
+    FileSystemAdministratorsGroup: NotRequired[str]
+    UserName: NotRequired[str]
+    DnsIps: NotRequired[List[str]]
+
+class SelfManagedActiveDirectoryConfigurationUpdatesTypeDef(TypedDict):
+    UserName: NotRequired[str]
+    Password: NotRequired[str]
+    DnsIps: NotRequired[Sequence[str]]
+    DomainName: NotRequired[str]
+    OrganizationalUnitDistinguishedName: NotRequired[str]
+    FileSystemAdministratorsGroup: NotRequired[str]
+
+class StartMisconfiguredStateRecoveryRequestTypeDef(TypedDict):
+    FileSystemId: str
+    ClientRequestToken: NotRequired[str]
+
+class SvmEndpointTypeDef(TypedDict):
+    DNSName: NotRequired[str]
+    IpAddresses: NotRequired[List[str]]
+
+class UntagResourceRequestTypeDef(TypedDict):
+    ResourceARN: str
+    TagKeys: Sequence[str]
+
+class UpdateFileCacheLustreConfigurationTypeDef(TypedDict):
+    WeeklyMaintenanceStartTime: NotRequired[str]
+
+class UpdateFileSystemLustreMetadataConfigurationTypeDef(TypedDict):
+    Iops: NotRequired[int]
+    Mode: NotRequired[MetadataConfigurationModeType]
+
+class UpdateSharedVpcConfigurationRequestTypeDef(TypedDict):
+    EnableFsxRouteTableUpdatesFromParticipantAccounts: NotRequired[str]
+    ClientRequestToken: NotRequired[str]
+
+class UpdateSnapshotRequestTypeDef(TypedDict):
+    Name: str
+    SnapshotId: str
+    ClientRequestToken: NotRequired[str]
+
+class WindowsAuditLogConfigurationTypeDef(TypedDict):
+    FileAccessAuditLogLevel: WindowsAccessAuditLogLevelType
+    FileShareAccessAuditLogLevel: WindowsAccessAuditLogLevelType
+    AuditLogDestination: NotRequired[str]
+
+class AssociateFileSystemAliasesResponseTypeDef(TypedDict):
+    Aliases: List[AliasTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CancelDataRepositoryTaskResponseTypeDef(TypedDict):
+    Lifecycle: DataRepositoryTaskLifecycleType
+    TaskId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteBackupResponseTypeDef(TypedDict):
+    BackupId: str
+    Lifecycle: BackupLifecycleType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteDataRepositoryAssociationResponseTypeDef(TypedDict):
+    AssociationId: str
+    Lifecycle: DataRepositoryLifecycleType
+    DeleteDataInFileSystem: bool
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteFileCacheResponseTypeDef(TypedDict):
+    FileCacheId: str
+    Lifecycle: FileCacheLifecycleType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteSnapshotResponseTypeDef(TypedDict):
+    SnapshotId: str
+    Lifecycle: SnapshotLifecycleType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteStorageVirtualMachineResponseTypeDef(TypedDict):
+    StorageVirtualMachineId: str
+    Lifecycle: StorageVirtualMachineLifecycleType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeFileSystemAliasesResponseTypeDef(TypedDict):
+    Aliases: List[AliasTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class DescribeSharedVpcConfigurationResponseTypeDef(TypedDict):
+    EnableFsxRouteTableUpdatesFromParticipantAccounts: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DisassociateFileSystemAliasesResponseTypeDef(TypedDict):
+    Aliases: List[AliasTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateSharedVpcConfigurationResponseTypeDef(TypedDict):
+    EnableFsxRouteTableUpdatesFromParticipantAccounts: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class NFSDataRepositoryConfigurationTypeDef(TypedDict):
+    Version: Literal["NFS3"]
+    DnsIps: NotRequired[List[str]]
+    AutoExportPolicy: NotRequired[AutoExportPolicyOutputTypeDef]
+
+class S3DataRepositoryConfigurationOutputTypeDef(TypedDict):
+    AutoImportPolicy: NotRequired[AutoImportPolicyOutputTypeDef]
+    AutoExportPolicy: NotRequired[AutoExportPolicyOutputTypeDef]
+
+class S3DataRepositoryConfigurationTypeDef(TypedDict):
+    AutoImportPolicy: NotRequired[AutoImportPolicyTypeDef]
+    AutoExportPolicy: NotRequired[AutoExportPolicyTypeDef]
+
+class CopyBackupRequestTypeDef(TypedDict):
+    SourceBackupId: str
+    ClientRequestToken: NotRequired[str]
+    SourceRegion: NotRequired[str]
+    KmsKeyId: NotRequired[str]
+    CopyTags: NotRequired[bool]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+
+class CreateBackupRequestTypeDef(TypedDict):
+    FileSystemId: NotRequired[str]
+    ClientRequestToken: NotRequired[str]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+    VolumeId: NotRequired[str]
+
+class CreateSnapshotRequestTypeDef(TypedDict):
+    Name: str
+    VolumeId: str
+    ClientRequestToken: NotRequired[str]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+
+class DeleteFileSystemLustreConfigurationTypeDef(TypedDict):
+    SkipFinalBackup: NotRequired[bool]
+    FinalBackupTags: NotRequired[Sequence[TagTypeDef]]
+
+class DeleteFileSystemLustreResponseTypeDef(TypedDict):
+    FinalBackupId: NotRequired[str]
+    FinalBackupTags: NotRequired[List[TagTypeDef]]
+
+class DeleteFileSystemOpenZFSConfigurationTypeDef(TypedDict):
+    SkipFinalBackup: NotRequired[bool]
+    FinalBackupTags: NotRequired[Sequence[TagTypeDef]]
+    Options: NotRequired[Sequence[Literal["DELETE_CHILD_VOLUMES_AND_SNAPSHOTS"]]]
+
+class DeleteFileSystemOpenZFSResponseTypeDef(TypedDict):
+    FinalBackupId: NotRequired[str]
+    FinalBackupTags: NotRequired[List[TagTypeDef]]
+
+class DeleteFileSystemWindowsConfigurationTypeDef(TypedDict):
+    SkipFinalBackup: NotRequired[bool]
+    FinalBackupTags: NotRequired[Sequence[TagTypeDef]]
+
+class DeleteFileSystemWindowsResponseTypeDef(TypedDict):
+    FinalBackupId: NotRequired[str]
+    FinalBackupTags: NotRequired[List[TagTypeDef]]
+
+class DeleteVolumeOntapConfigurationTypeDef(TypedDict):
+    SkipFinalBackup: NotRequired[bool]
+    FinalBackupTags: NotRequired[Sequence[TagTypeDef]]
+    BypassSnaplockEnterpriseRetention: NotRequired[bool]
+
+class DeleteVolumeOntapResponseTypeDef(TypedDict):
+    FinalBackupId: NotRequired[str]
+    FinalBackupTags: NotRequired[List[TagTypeDef]]
+
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    Tags: List[TagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class TagResourceRequestTypeDef(TypedDict):
+    ResourceARN: str
+    Tags: Sequence[TagTypeDef]
+
+class CreateFileCacheLustreConfigurationTypeDef(TypedDict):
+    PerUnitStorageThroughput: int
+    DeploymentType: Literal["CACHE_1"]
+    MetadataConfiguration: FileCacheLustreMetadataConfigurationTypeDef
+    WeeklyMaintenanceStartTime: NotRequired[str]
+
+class CreateFileSystemOntapConfigurationTypeDef(TypedDict):
+    DeploymentType: OntapDeploymentTypeType
+    AutomaticBackupRetentionDays: NotRequired[int]
+    DailyAutomaticBackupStartTime: NotRequired[str]
+    EndpointIpAddressRange: NotRequired[str]
+    FsxAdminPassword: NotRequired[str]
+    DiskIopsConfiguration: NotRequired[DiskIopsConfigurationTypeDef]
+    PreferredSubnetId: NotRequired[str]
+    RouteTableIds: NotRequired[Sequence[str]]
+    ThroughputCapacity: NotRequired[int]
+    WeeklyMaintenanceStartTime: NotRequired[str]
+    HAPairs: NotRequired[int]
+    ThroughputCapacityPerHAPair: NotRequired[int]
+
+class UpdateFileSystemOntapConfigurationTypeDef(TypedDict):
+    AutomaticBackupRetentionDays: NotRequired[int]
+    DailyAutomaticBackupStartTime: NotRequired[str]
+    FsxAdminPassword: NotRequired[str]
+    WeeklyMaintenanceStartTime: NotRequired[str]
+    DiskIopsConfiguration: NotRequired[DiskIopsConfigurationTypeDef]
+    ThroughputCapacity: NotRequired[int]
+    AddRouteTableIds: NotRequired[Sequence[str]]
+    RemoveRouteTableIds: NotRequired[Sequence[str]]
+    ThroughputCapacityPerHAPair: NotRequired[int]
+    HAPairs: NotRequired[int]
+
+class OpenZFSFileSystemConfigurationTypeDef(TypedDict):
+    AutomaticBackupRetentionDays: NotRequired[int]
+    CopyTagsToBackups: NotRequired[bool]
+    CopyTagsToVolumes: NotRequired[bool]
+    DailyAutomaticBackupStartTime: NotRequired[str]
+    DeploymentType: NotRequired[OpenZFSDeploymentTypeType]
+    ThroughputCapacity: NotRequired[int]
+    WeeklyMaintenanceStartTime: NotRequired[str]
+    DiskIopsConfiguration: NotRequired[DiskIopsConfigurationTypeDef]
+    RootVolumeId: NotRequired[str]
+    PreferredSubnetId: NotRequired[str]
+    EndpointIpAddressRange: NotRequired[str]
+    RouteTableIds: NotRequired[List[str]]
+    EndpointIpAddress: NotRequired[str]
+    ReadCacheConfiguration: NotRequired[OpenZFSReadCacheConfigurationTypeDef]
+
+class UpdateFileSystemOpenZFSConfigurationTypeDef(TypedDict):
+    AutomaticBackupRetentionDays: NotRequired[int]
+    CopyTagsToBackups: NotRequired[bool]
+    CopyTagsToVolumes: NotRequired[bool]
+    DailyAutomaticBackupStartTime: NotRequired[str]
+    ThroughputCapacity: NotRequired[int]
+    WeeklyMaintenanceStartTime: NotRequired[str]
+    DiskIopsConfiguration: NotRequired[DiskIopsConfigurationTypeDef]
+    AddRouteTableIds: NotRequired[Sequence[str]]
+    RemoveRouteTableIds: NotRequired[Sequence[str]]
+    ReadCacheConfiguration: NotRequired[OpenZFSReadCacheConfigurationTypeDef]
+
+class CreateSvmActiveDirectoryConfigurationTypeDef(TypedDict):
+    NetBiosName: str
+    SelfManagedActiveDirectoryConfiguration: NotRequired[
+        SelfManagedActiveDirectoryConfigurationTypeDef
+    ]
+
+class CreateFileSystemWindowsConfigurationTypeDef(TypedDict):
+    ThroughputCapacity: int
+    ActiveDirectoryId: NotRequired[str]
+    SelfManagedActiveDirectoryConfiguration: NotRequired[
+        SelfManagedActiveDirectoryConfigurationTypeDef
+    ]
+    DeploymentType: NotRequired[WindowsDeploymentTypeType]
+    PreferredSubnetId: NotRequired[str]
+    WeeklyMaintenanceStartTime: NotRequired[str]
+    DailyAutomaticBackupStartTime: NotRequired[str]
+    AutomaticBackupRetentionDays: NotRequired[int]
+    CopyTagsToBackups: NotRequired[bool]
+    Aliases: NotRequired[Sequence[str]]
+    AuditLogConfiguration: NotRequired[WindowsAuditLogCreateConfigurationTypeDef]
+    DiskIopsConfiguration: NotRequired[DiskIopsConfigurationTypeDef]
+
+class DataRepositoryConfigurationTypeDef(TypedDict):
+    Lifecycle: NotRequired[DataRepositoryLifecycleType]
+    ImportPath: NotRequired[str]
+    ExportPath: NotRequired[str]
+    ImportedFileChunkSize: NotRequired[int]
+    AutoImportPolicy: NotRequired[AutoImportPolicyTypeType]
+    FailureDetails: NotRequired[DataRepositoryFailureDetailsTypeDef]
+
+class DescribeDataRepositoryTasksRequestTypeDef(TypedDict):
+    TaskIds: NotRequired[Sequence[str]]
+    Filters: NotRequired[Sequence[DataRepositoryTaskFilterTypeDef]]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class DescribeBackupsRequestTypeDef(TypedDict):
+    BackupIds: NotRequired[Sequence[str]]
+    Filters: NotRequired[Sequence[FilterTypeDef]]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class DescribeDataRepositoryAssociationsRequestTypeDef(TypedDict):
+    AssociationIds: NotRequired[Sequence[str]]
+    Filters: NotRequired[Sequence[FilterTypeDef]]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class DescribeBackupsRequestPaginateTypeDef(TypedDict):
+    BackupIds: NotRequired[Sequence[str]]
+    Filters: NotRequired[Sequence[FilterTypeDef]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeFileSystemsRequestPaginateTypeDef(TypedDict):
+    FileSystemIds: NotRequired[Sequence[str]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListTagsForResourceRequestPaginateTypeDef(TypedDict):
+    ResourceARN: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeSnapshotsRequestTypeDef(TypedDict):
+    SnapshotIds: NotRequired[Sequence[str]]
+    Filters: NotRequired[Sequence[SnapshotFilterTypeDef]]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+    IncludeShared: NotRequired[bool]
+
+class DescribeStorageVirtualMachinesRequestPaginateTypeDef(TypedDict):
+    StorageVirtualMachineIds: NotRequired[Sequence[str]]
+    Filters: NotRequired[Sequence[StorageVirtualMachineFilterTypeDef]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeStorageVirtualMachinesRequestTypeDef(TypedDict):
+    StorageVirtualMachineIds: NotRequired[Sequence[str]]
+    Filters: NotRequired[Sequence[StorageVirtualMachineFilterTypeDef]]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class DescribeVolumesRequestPaginateTypeDef(TypedDict):
+    VolumeIds: NotRequired[Sequence[str]]
+    Filters: NotRequired[Sequence[VolumeFilterTypeDef]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeVolumesRequestTypeDef(TypedDict):
+    VolumeIds: NotRequired[Sequence[str]]
+    Filters: NotRequired[Sequence[VolumeFilterTypeDef]]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ReleaseConfigurationTypeDef(TypedDict):
+    DurationSinceLastAccess: NotRequired[DurationSinceLastAccessTypeDef]
+
+class FileCacheDataRepositoryAssociationTypeDef(TypedDict):
+    FileCachePath: str
+    DataRepositoryPath: str
+    DataRepositorySubdirectories: NotRequired[Sequence[str]]
+    NFS: NotRequired[FileCacheNFSConfigurationTypeDef]
+
+class FileCacheLustreConfigurationTypeDef(TypedDict):
+    PerUnitStorageThroughput: NotRequired[int]
+    DeploymentType: NotRequired[Literal["CACHE_1"]]
+    MountName: NotRequired[str]
+    WeeklyMaintenanceStartTime: NotRequired[str]
+    MetadataConfiguration: NotRequired[FileCacheLustreMetadataConfigurationTypeDef]
+    LogConfiguration: NotRequired[LustreLogConfigurationTypeDef]
+
+class FileSystemEndpointsTypeDef(TypedDict):
+    Intercluster: NotRequired[FileSystemEndpointTypeDef]
+    Management: NotRequired[FileSystemEndpointTypeDef]
+
+class SnapshotPaginatorTypeDef(TypedDict):
+    ResourceARN: NotRequired[str]
+    SnapshotId: NotRequired[str]
+    Name: NotRequired[str]
+    VolumeId: NotRequired[str]
+    CreationTime: NotRequired[datetime]
+    Lifecycle: NotRequired[SnapshotLifecycleType]
+    LifecycleTransitionReason: NotRequired[LifecycleTransitionReasonTypeDef]
+    Tags: NotRequired[List[TagTypeDef]]
+    AdministrativeActions: NotRequired[List[Dict[str, Any]]]
+
+class SnapshotTypeDef(TypedDict):
+    ResourceARN: NotRequired[str]
+    SnapshotId: NotRequired[str]
+    Name: NotRequired[str]
+    VolumeId: NotRequired[str]
+    CreationTime: NotRequired[datetime]
+    Lifecycle: NotRequired[SnapshotLifecycleType]
+    LifecycleTransitionReason: NotRequired[LifecycleTransitionReasonTypeDef]
+    Tags: NotRequired[List[TagTypeDef]]
+    AdministrativeActions: NotRequired[List[Dict[str, Any]]]
+
+LustreRootSquashConfigurationUnionTypeDef = Union[
+    LustreRootSquashConfigurationTypeDef, LustreRootSquashConfigurationOutputTypeDef
+]
+
+class OpenZFSNfsExportOutputTypeDef(TypedDict):
+    ClientConfigurations: List[OpenZFSClientConfigurationOutputTypeDef]
+
+OpenZFSClientConfigurationUnionTypeDef = Union[
+    OpenZFSClientConfigurationTypeDef, OpenZFSClientConfigurationOutputTypeDef
+]
+
+class SnaplockRetentionPeriodTypeDef(TypedDict):
+    DefaultRetention: RetentionPeriodTypeDef
+    MinimumRetention: RetentionPeriodTypeDef
+    MaximumRetention: RetentionPeriodTypeDef
+
+class SvmActiveDirectoryConfigurationTypeDef(TypedDict):
+    NetBiosName: NotRequired[str]
+    SelfManagedActiveDirectoryConfiguration: NotRequired[
+        SelfManagedActiveDirectoryAttributesTypeDef
+    ]
+
+class UpdateFileSystemWindowsConfigurationTypeDef(TypedDict):
+    WeeklyMaintenanceStartTime: NotRequired[str]
+    DailyAutomaticBackupStartTime: NotRequired[str]
+    AutomaticBackupRetentionDays: NotRequired[int]
+    ThroughputCapacity: NotRequired[int]
+    SelfManagedActiveDirectoryConfiguration: NotRequired[
+        SelfManagedActiveDirectoryConfigurationUpdatesTypeDef
+    ]
+    AuditLogConfiguration: NotRequired[WindowsAuditLogCreateConfigurationTypeDef]
+    DiskIopsConfiguration: NotRequired[DiskIopsConfigurationTypeDef]
+
+class UpdateSvmActiveDirectoryConfigurationTypeDef(TypedDict):
+    SelfManagedActiveDirectoryConfiguration: NotRequired[
+        SelfManagedActiveDirectoryConfigurationUpdatesTypeDef
+    ]
+    NetBiosName: NotRequired[str]
+
+class SvmEndpointsTypeDef(TypedDict):
+    Iscsi: NotRequired[SvmEndpointTypeDef]
+    Management: NotRequired[SvmEndpointTypeDef]
+    Nfs: NotRequired[SvmEndpointTypeDef]
+    Smb: NotRequired[SvmEndpointTypeDef]
+
+class UpdateFileCacheRequestTypeDef(TypedDict):
+    FileCacheId: str
+    ClientRequestToken: NotRequired[str]
+    LustreConfiguration: NotRequired[UpdateFileCacheLustreConfigurationTypeDef]
+
+class WindowsFileSystemConfigurationTypeDef(TypedDict):
+    ActiveDirectoryId: NotRequired[str]
+    SelfManagedActiveDirectoryConfiguration: NotRequired[
+        SelfManagedActiveDirectoryAttributesTypeDef
+    ]
+    DeploymentType: NotRequired[WindowsDeploymentTypeType]
+    RemoteAdministrationEndpoint: NotRequired[str]
+    PreferredSubnetId: NotRequired[str]
+    PreferredFileServerIp: NotRequired[str]
+    ThroughputCapacity: NotRequired[int]
+    MaintenanceOperationsInProgress: NotRequired[List[FileSystemMaintenanceOperationType]]
+    WeeklyMaintenanceStartTime: NotRequired[str]
+    DailyAutomaticBackupStartTime: NotRequired[str]
+    AutomaticBackupRetentionDays: NotRequired[int]
+    CopyTagsToBackups: NotRequired[bool]
+    Aliases: NotRequired[List[AliasTypeDef]]
+    AuditLogConfiguration: NotRequired[WindowsAuditLogConfigurationTypeDef]
+    DiskIopsConfiguration: NotRequired[DiskIopsConfigurationTypeDef]
+
+class DataRepositoryAssociationTypeDef(TypedDict):
+    AssociationId: NotRequired[str]
+    ResourceARN: NotRequired[str]
+    FileSystemId: NotRequired[str]
+    Lifecycle: NotRequired[DataRepositoryLifecycleType]
+    FailureDetails: NotRequired[DataRepositoryFailureDetailsTypeDef]
+    FileSystemPath: NotRequired[str]
+    DataRepositoryPath: NotRequired[str]
+    BatchImportMetaDataOnCreate: NotRequired[bool]
+    ImportedFileChunkSize: NotRequired[int]
+    S3: NotRequired[S3DataRepositoryConfigurationOutputTypeDef]
+    Tags: NotRequired[List[TagTypeDef]]
+    CreationTime: NotRequired[datetime]
+    FileCacheId: NotRequired[str]
+    FileCachePath: NotRequired[str]
+    DataRepositorySubdirectories: NotRequired[List[str]]
+    NFS: NotRequired[NFSDataRepositoryConfigurationTypeDef]
+
+S3DataRepositoryConfigurationUnionTypeDef = Union[
+    S3DataRepositoryConfigurationTypeDef, S3DataRepositoryConfigurationOutputTypeDef
+]
+
+class DeleteFileSystemRequestTypeDef(TypedDict):
+    FileSystemId: str
+    ClientRequestToken: NotRequired[str]
+    WindowsConfiguration: NotRequired[DeleteFileSystemWindowsConfigurationTypeDef]
+    LustreConfiguration: NotRequired[DeleteFileSystemLustreConfigurationTypeDef]
+    OpenZFSConfiguration: NotRequired[DeleteFileSystemOpenZFSConfigurationTypeDef]
+
+class DeleteFileSystemResponseTypeDef(TypedDict):
+    FileSystemId: str
+    Lifecycle: FileSystemLifecycleType
+    WindowsResponse: DeleteFileSystemWindowsResponseTypeDef
+    LustreResponse: DeleteFileSystemLustreResponseTypeDef
+    OpenZFSResponse: DeleteFileSystemOpenZFSResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteVolumeRequestTypeDef(TypedDict):
+    VolumeId: str
+    ClientRequestToken: NotRequired[str]
+    OntapConfiguration: NotRequired[DeleteVolumeOntapConfigurationTypeDef]
+    OpenZFSConfiguration: NotRequired[DeleteVolumeOpenZFSConfigurationTypeDef]
+
+class DeleteVolumeResponseTypeDef(TypedDict):
+    VolumeId: str
+    Lifecycle: VolumeLifecycleType
+    OntapResponse: DeleteVolumeOntapResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateStorageVirtualMachineRequestTypeDef(TypedDict):
+    FileSystemId: str
+    Name: str
+    ActiveDirectoryConfiguration: NotRequired[CreateSvmActiveDirectoryConfigurationTypeDef]
+    ClientRequestToken: NotRequired[str]
+    SvmAdminPassword: NotRequired[str]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+    RootVolumeSecurityStyle: NotRequired[StorageVirtualMachineRootVolumeSecurityStyleType]
+
+class LustreFileSystemConfigurationTypeDef(TypedDict):
+    WeeklyMaintenanceStartTime: NotRequired[str]
+    DataRepositoryConfiguration: NotRequired[DataRepositoryConfigurationTypeDef]
+    DeploymentType: NotRequired[LustreDeploymentTypeType]
+    PerUnitStorageThroughput: NotRequired[int]
+    MountName: NotRequired[str]
+    DailyAutomaticBackupStartTime: NotRequired[str]
+    AutomaticBackupRetentionDays: NotRequired[int]
+    CopyTagsToBackups: NotRequired[bool]
+    DriveCacheType: NotRequired[DriveCacheTypeType]
+    DataCompressionType: NotRequired[DataCompressionTypeType]
+    LogConfiguration: NotRequired[LustreLogConfigurationTypeDef]
+    RootSquashConfiguration: NotRequired[LustreRootSquashConfigurationOutputTypeDef]
+    MetadataConfiguration: NotRequired[FileSystemLustreMetadataConfigurationTypeDef]
+    EfaEnabled: NotRequired[bool]
+
+CreateDataRepositoryTaskRequestTypeDef = TypedDict(
+    "CreateDataRepositoryTaskRequestTypeDef",
+    {
+        "Type": DataRepositoryTaskTypeType,
+        "FileSystemId": str,
+        "Report": CompletionReportTypeDef,
+        "Paths": NotRequired[Sequence[str]],
+        "ClientRequestToken": NotRequired[str],
+        "Tags": NotRequired[Sequence[TagTypeDef]],
+        "CapacityToRelease": NotRequired[int],
+        "ReleaseConfiguration": NotRequired[ReleaseConfigurationTypeDef],
+    },
+)
+DataRepositoryTaskTypeDef = TypedDict(
+    "DataRepositoryTaskTypeDef",
+    {
+        "TaskId": str,
+        "Lifecycle": DataRepositoryTaskLifecycleType,
+        "Type": DataRepositoryTaskTypeType,
+        "CreationTime": datetime,
+        "StartTime": NotRequired[datetime],
+        "EndTime": NotRequired[datetime],
+        "ResourceARN": NotRequired[str],
+        "Tags": NotRequired[List[TagTypeDef]],
+        "FileSystemId": NotRequired[str],
+        "Paths": NotRequired[List[str]],
+        "FailureDetails": NotRequired[DataRepositoryTaskFailureDetailsTypeDef],
+        "Status": NotRequired[DataRepositoryTaskStatusTypeDef],
+        "Report": NotRequired[CompletionReportTypeDef],
+        "CapacityToRelease": NotRequired[int],
+        "FileCacheId": NotRequired[str],
+        "ReleaseConfiguration": NotRequired[ReleaseConfigurationTypeDef],
+    },
+)
+
+class CreateFileCacheRequestTypeDef(TypedDict):
+    FileCacheType: Literal["LUSTRE"]
+    FileCacheTypeVersion: str
+    StorageCapacity: int
+    SubnetIds: Sequence[str]
+    ClientRequestToken: NotRequired[str]
+    SecurityGroupIds: NotRequired[Sequence[str]]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+    CopyTagsToDataRepositoryAssociations: NotRequired[bool]
+    KmsKeyId: NotRequired[str]
+    LustreConfiguration: NotRequired[CreateFileCacheLustreConfigurationTypeDef]
+    DataRepositoryAssociations: NotRequired[Sequence[FileCacheDataRepositoryAssociationTypeDef]]
+
+class FileCacheCreatingTypeDef(TypedDict):
+    OwnerId: NotRequired[str]
+    CreationTime: NotRequired[datetime]
+    FileCacheId: NotRequired[str]
+    FileCacheType: NotRequired[Literal["LUSTRE"]]
+    FileCacheTypeVersion: NotRequired[str]
+    Lifecycle: NotRequired[FileCacheLifecycleType]
+    FailureDetails: NotRequired[FileCacheFailureDetailsTypeDef]
+    StorageCapacity: NotRequired[int]
+    VpcId: NotRequired[str]
+    SubnetIds: NotRequired[List[str]]
+    NetworkInterfaceIds: NotRequired[List[str]]
+    DNSName: NotRequired[str]
+    KmsKeyId: NotRequired[str]
+    ResourceARN: NotRequired[str]
+    Tags: NotRequired[List[TagTypeDef]]
+    CopyTagsToDataRepositoryAssociations: NotRequired[bool]
+    LustreConfiguration: NotRequired[FileCacheLustreConfigurationTypeDef]
+    DataRepositoryAssociationIds: NotRequired[List[str]]
+
+class FileCacheTypeDef(TypedDict):
+    OwnerId: NotRequired[str]
+    CreationTime: NotRequired[datetime]
+    FileCacheId: NotRequired[str]
+    FileCacheType: NotRequired[Literal["LUSTRE"]]
+    FileCacheTypeVersion: NotRequired[str]
+    Lifecycle: NotRequired[FileCacheLifecycleType]
+    FailureDetails: NotRequired[FileCacheFailureDetailsTypeDef]
+    StorageCapacity: NotRequired[int]
+    VpcId: NotRequired[str]
+    SubnetIds: NotRequired[List[str]]
+    NetworkInterfaceIds: NotRequired[List[str]]
+    DNSName: NotRequired[str]
+    KmsKeyId: NotRequired[str]
+    ResourceARN: NotRequired[str]
+    LustreConfiguration: NotRequired[FileCacheLustreConfigurationTypeDef]
+    DataRepositoryAssociationIds: NotRequired[List[str]]
+
+class OntapFileSystemConfigurationTypeDef(TypedDict):
+    AutomaticBackupRetentionDays: NotRequired[int]
+    DailyAutomaticBackupStartTime: NotRequired[str]
+    DeploymentType: NotRequired[OntapDeploymentTypeType]
+    EndpointIpAddressRange: NotRequired[str]
+    Endpoints: NotRequired[FileSystemEndpointsTypeDef]
+    DiskIopsConfiguration: NotRequired[DiskIopsConfigurationTypeDef]
+    PreferredSubnetId: NotRequired[str]
+    RouteTableIds: NotRequired[List[str]]
+    ThroughputCapacity: NotRequired[int]
+    WeeklyMaintenanceStartTime: NotRequired[str]
+    FsxAdminPassword: NotRequired[str]
+    HAPairs: NotRequired[int]
+    ThroughputCapacityPerHAPair: NotRequired[int]
+
+class CreateSnapshotResponseTypeDef(TypedDict):
+    Snapshot: SnapshotTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeSnapshotsResponseTypeDef(TypedDict):
+    Snapshots: List[SnapshotTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class UpdateSnapshotResponseTypeDef(TypedDict):
+    Snapshot: SnapshotTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateFileSystemLustreConfigurationTypeDef(TypedDict):
+    WeeklyMaintenanceStartTime: NotRequired[str]
+    ImportPath: NotRequired[str]
+    ExportPath: NotRequired[str]
+    ImportedFileChunkSize: NotRequired[int]
+    DeploymentType: NotRequired[LustreDeploymentTypeType]
+    AutoImportPolicy: NotRequired[AutoImportPolicyTypeType]
+    PerUnitStorageThroughput: NotRequired[int]
+    DailyAutomaticBackupStartTime: NotRequired[str]
+    AutomaticBackupRetentionDays: NotRequired[int]
+    CopyTagsToBackups: NotRequired[bool]
+    DriveCacheType: NotRequired[DriveCacheTypeType]
+    DataCompressionType: NotRequired[DataCompressionTypeType]
+    EfaEnabled: NotRequired[bool]
+    LogConfiguration: NotRequired[LustreLogCreateConfigurationTypeDef]
+    RootSquashConfiguration: NotRequired[LustreRootSquashConfigurationUnionTypeDef]
+    MetadataConfiguration: NotRequired[CreateFileSystemLustreMetadataConfigurationTypeDef]
+
+class UpdateFileSystemLustreConfigurationTypeDef(TypedDict):
+    WeeklyMaintenanceStartTime: NotRequired[str]
+    DailyAutomaticBackupStartTime: NotRequired[str]
+    AutomaticBackupRetentionDays: NotRequired[int]
+    AutoImportPolicy: NotRequired[AutoImportPolicyTypeType]
+    DataCompressionType: NotRequired[DataCompressionTypeType]
+    LogConfiguration: NotRequired[LustreLogCreateConfigurationTypeDef]
+    RootSquashConfiguration: NotRequired[LustreRootSquashConfigurationUnionTypeDef]
+    PerUnitStorageThroughput: NotRequired[int]
+    MetadataConfiguration: NotRequired[UpdateFileSystemLustreMetadataConfigurationTypeDef]
+
 OpenZFSVolumeConfigurationTypeDef = TypedDict(
     "OpenZFSVolumeConfigurationTypeDef",
     {
+        "ParentVolumeId": NotRequired[str],
+        "VolumePath": NotRequired[str],
+        "StorageCapacityReservationGiB": NotRequired[int],
+        "StorageCapacityQuotaGiB": NotRequired[int],
+        "RecordSizeKiB": NotRequired[int],
+        "DataCompressionType": NotRequired[OpenZFSDataCompressionTypeType],
+        "CopyTagsToSnapshots": NotRequired[bool],
+        "OriginSnapshot": NotRequired[OpenZFSOriginSnapshotConfigurationTypeDef],
+        "ReadOnly": NotRequired[bool],
+        "NfsExports": NotRequired[List[OpenZFSNfsExportOutputTypeDef]],
+        "UserAndGroupQuotas": NotRequired[List[OpenZFSUserOrGroupQuotaTypeDef]],
+        "RestoreToSnapshot": NotRequired[str],
+        "DeleteIntermediateSnaphots": NotRequired[bool],
+        "DeleteClonedVolumes": NotRequired[bool],
+        "DeleteIntermediateData": NotRequired[bool],
+        "SourceSnapshotARN": NotRequired[str],
+        "DestinationSnapshot": NotRequired[str],
+        "CopyStrategy": NotRequired[OpenZFSCopyStrategyType],
+    },
+)
+
+class OpenZFSNfsExportTypeDef(TypedDict):
+    ClientConfigurations: Sequence[OpenZFSClientConfigurationUnionTypeDef]
+
+class CreateSnaplockConfigurationTypeDef(TypedDict):
+    SnaplockType: SnaplockTypeType
+    AuditLogVolume: NotRequired[bool]
+    AutocommitPeriod: NotRequired[AutocommitPeriodTypeDef]
+    PrivilegedDelete: NotRequired[PrivilegedDeleteType]
+    RetentionPeriod: NotRequired[SnaplockRetentionPeriodTypeDef]
+    VolumeAppendModeEnabled: NotRequired[bool]
+
+class SnaplockConfigurationTypeDef(TypedDict):
+    AuditLogVolume: NotRequired[bool]
+    AutocommitPeriod: NotRequired[AutocommitPeriodTypeDef]
+    PrivilegedDelete: NotRequired[PrivilegedDeleteType]
+    RetentionPeriod: NotRequired[SnaplockRetentionPeriodTypeDef]
+    SnaplockType: NotRequired[SnaplockTypeType]
+    VolumeAppendModeEnabled: NotRequired[bool]
+
+class UpdateSnaplockConfigurationTypeDef(TypedDict):
+    AuditLogVolume: NotRequired[bool]
+    AutocommitPeriod: NotRequired[AutocommitPeriodTypeDef]
+    PrivilegedDelete: NotRequired[PrivilegedDeleteType]
+    RetentionPeriod: NotRequired[SnaplockRetentionPeriodTypeDef]
+    VolumeAppendModeEnabled: NotRequired[bool]
+
+class UpdateStorageVirtualMachineRequestTypeDef(TypedDict):
+    StorageVirtualMachineId: str
+    ActiveDirectoryConfiguration: NotRequired[UpdateSvmActiveDirectoryConfigurationTypeDef]
+    ClientRequestToken: NotRequired[str]
+    SvmAdminPassword: NotRequired[str]
+
+class StorageVirtualMachineTypeDef(TypedDict):
+    ActiveDirectoryConfiguration: NotRequired[SvmActiveDirectoryConfigurationTypeDef]
+    CreationTime: NotRequired[datetime]
+    Endpoints: NotRequired[SvmEndpointsTypeDef]
+    FileSystemId: NotRequired[str]
+    Lifecycle: NotRequired[StorageVirtualMachineLifecycleType]
+    Name: NotRequired[str]
+    ResourceARN: NotRequired[str]
+    StorageVirtualMachineId: NotRequired[str]
+    Subtype: NotRequired[StorageVirtualMachineSubtypeType]
+    UUID: NotRequired[str]
+    Tags: NotRequired[List[TagTypeDef]]
+    LifecycleTransitionReason: NotRequired[LifecycleTransitionReasonTypeDef]
+    RootVolumeSecurityStyle: NotRequired[StorageVirtualMachineRootVolumeSecurityStyleType]
+
+class CreateDataRepositoryAssociationResponseTypeDef(TypedDict):
+    Association: DataRepositoryAssociationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeDataRepositoryAssociationsResponseTypeDef(TypedDict):
+    Associations: List[DataRepositoryAssociationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class UpdateDataRepositoryAssociationResponseTypeDef(TypedDict):
+    Association: DataRepositoryAssociationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateDataRepositoryAssociationRequestTypeDef(TypedDict):
+    FileSystemId: str
+    DataRepositoryPath: str
+    FileSystemPath: NotRequired[str]
+    BatchImportMetaDataOnCreate: NotRequired[bool]
+    ImportedFileChunkSize: NotRequired[int]
+    S3: NotRequired[S3DataRepositoryConfigurationUnionTypeDef]
+    ClientRequestToken: NotRequired[str]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+
+class UpdateDataRepositoryAssociationRequestTypeDef(TypedDict):
+    AssociationId: str
+    ClientRequestToken: NotRequired[str]
+    ImportedFileChunkSize: NotRequired[int]
+    S3: NotRequired[S3DataRepositoryConfigurationUnionTypeDef]
+
+class CreateDataRepositoryTaskResponseTypeDef(TypedDict):
+    DataRepositoryTask: DataRepositoryTaskTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeDataRepositoryTasksResponseTypeDef(TypedDict):
+    DataRepositoryTasks: List[DataRepositoryTaskTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class CreateFileCacheResponseTypeDef(TypedDict):
+    FileCache: FileCacheCreatingTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeFileCachesResponseTypeDef(TypedDict):
+    FileCaches: List[FileCacheTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class UpdateFileCacheResponseTypeDef(TypedDict):
+    FileCache: FileCacheTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateFileSystemRequestTypeDef(TypedDict):
+    FileSystemId: str
+    ClientRequestToken: NotRequired[str]
+    StorageCapacity: NotRequired[int]
+    WindowsConfiguration: NotRequired[UpdateFileSystemWindowsConfigurationTypeDef]
+    LustreConfiguration: NotRequired[UpdateFileSystemLustreConfigurationTypeDef]
+    OntapConfiguration: NotRequired[UpdateFileSystemOntapConfigurationTypeDef]
+    OpenZFSConfiguration: NotRequired[UpdateFileSystemOpenZFSConfigurationTypeDef]
+    StorageType: NotRequired[StorageTypeType]
+    FileSystemTypeVersion: NotRequired[str]
+
+OpenZFSNfsExportUnionTypeDef = Union[OpenZFSNfsExportTypeDef, OpenZFSNfsExportOutputTypeDef]
+
+class CreateOntapVolumeConfigurationTypeDef(TypedDict):
+    StorageVirtualMachineId: str
+    JunctionPath: NotRequired[str]
+    SecurityStyle: NotRequired[SecurityStyleType]
+    SizeInMegabytes: NotRequired[int]
+    StorageEfficiencyEnabled: NotRequired[bool]
+    TieringPolicy: NotRequired[TieringPolicyTypeDef]
+    OntapVolumeType: NotRequired[InputOntapVolumeTypeType]
+    SnapshotPolicy: NotRequired[str]
+    CopyTagsToBackups: NotRequired[bool]
+    SnaplockConfiguration: NotRequired[CreateSnaplockConfigurationTypeDef]
+    VolumeStyle: NotRequired[VolumeStyleType]
+    AggregateConfiguration: NotRequired[CreateAggregateConfigurationTypeDef]
+    SizeInBytes: NotRequired[int]
+
+class OntapVolumeConfigurationTypeDef(TypedDict):
+    FlexCacheEndpointType: NotRequired[FlexCacheEndpointTypeType]
+    JunctionPath: NotRequired[str]
+    SecurityStyle: NotRequired[SecurityStyleType]
+    SizeInMegabytes: NotRequired[int]
+    StorageEfficiencyEnabled: NotRequired[bool]
+    StorageVirtualMachineId: NotRequired[str]
+    StorageVirtualMachineRoot: NotRequired[bool]
+    TieringPolicy: NotRequired[TieringPolicyTypeDef]
+    UUID: NotRequired[str]
+    OntapVolumeType: NotRequired[OntapVolumeTypeType]
+    SnapshotPolicy: NotRequired[str]
+    CopyTagsToBackups: NotRequired[bool]
+    SnaplockConfiguration: NotRequired[SnaplockConfigurationTypeDef]
+    VolumeStyle: NotRequired[VolumeStyleType]
+    AggregateConfiguration: NotRequired[AggregateConfigurationTypeDef]
+    SizeInBytes: NotRequired[int]
+
+class UpdateOntapVolumeConfigurationTypeDef(TypedDict):
+    JunctionPath: NotRequired[str]
+    SecurityStyle: NotRequired[SecurityStyleType]
+    SizeInMegabytes: NotRequired[int]
+    StorageEfficiencyEnabled: NotRequired[bool]
+    TieringPolicy: NotRequired[TieringPolicyTypeDef]
+    SnapshotPolicy: NotRequired[str]
+    CopyTagsToBackups: NotRequired[bool]
+    SnaplockConfiguration: NotRequired[UpdateSnaplockConfigurationTypeDef]
+    SizeInBytes: NotRequired[int]
+
+class CreateStorageVirtualMachineResponseTypeDef(TypedDict):
+    StorageVirtualMachine: StorageVirtualMachineTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeStorageVirtualMachinesResponseTypeDef(TypedDict):
+    StorageVirtualMachines: List[StorageVirtualMachineTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class UpdateStorageVirtualMachineResponseTypeDef(TypedDict):
+    StorageVirtualMachine: StorageVirtualMachineTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+CreateOpenZFSVolumeConfigurationTypeDef = TypedDict(
+    "CreateOpenZFSVolumeConfigurationTypeDef",
+    {
         "ParentVolumeId": str,
-        "VolumePath": str,
-        "StorageCapacityReservationGiB": int,
-        "StorageCapacityQuotaGiB": int,
-        "RecordSizeKiB": int,
-        "DataCompressionType": OpenZFSDataCompressionTypeType,
-        "CopyTagsToSnapshots": bool,
-        "OriginSnapshot": "OpenZFSOriginSnapshotConfigurationTypeDef",
-        "ReadOnly": bool,
-        "NfsExports": List["OpenZFSNfsExportTypeDef"],
-        "UserAndGroupQuotas": List["OpenZFSUserOrGroupQuotaTypeDef"],
-        "RestoreToSnapshot": str,
-        "DeleteIntermediateSnaphots": bool,
-        "DeleteClonedVolumes": bool,
-        "DeleteIntermediateData": bool,
-        "SourceSnapshotARN": str,
-        "DestinationSnapshot": str,
-        "CopyStrategy": OpenZFSCopyStrategyType,
+        "StorageCapacityReservationGiB": NotRequired[int],
+        "StorageCapacityQuotaGiB": NotRequired[int],
+        "RecordSizeKiB": NotRequired[int],
+        "DataCompressionType": NotRequired[OpenZFSDataCompressionTypeType],
+        "CopyTagsToSnapshots": NotRequired[bool],
+        "OriginSnapshot": NotRequired[CreateOpenZFSOriginSnapshotConfigurationTypeDef],
+        "ReadOnly": NotRequired[bool],
+        "NfsExports": NotRequired[Sequence[OpenZFSNfsExportUnionTypeDef]],
+        "UserAndGroupQuotas": NotRequired[Sequence[OpenZFSUserOrGroupQuotaTypeDef]],
     },
-    total=False,
 )
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
+OpenZFSCreateRootVolumeConfigurationTypeDef = TypedDict(
+    "OpenZFSCreateRootVolumeConfigurationTypeDef",
     {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-ReleaseConfigurationTypeDef = TypedDict(
-    "ReleaseConfigurationTypeDef",
-    {
-        "DurationSinceLastAccess": "DurationSinceLastAccessTypeDef",
-    },
-    total=False,
-)
-
-_RequiredReleaseFileSystemNfsV3LocksRequestRequestTypeDef = TypedDict(
-    "_RequiredReleaseFileSystemNfsV3LocksRequestRequestTypeDef",
-    {
-        "FileSystemId": str,
+        "RecordSizeKiB": NotRequired[int],
+        "DataCompressionType": NotRequired[OpenZFSDataCompressionTypeType],
+        "NfsExports": NotRequired[Sequence[OpenZFSNfsExportUnionTypeDef]],
+        "UserAndGroupQuotas": NotRequired[Sequence[OpenZFSUserOrGroupQuotaTypeDef]],
+        "CopyTagsToSnapshots": NotRequired[bool],
+        "ReadOnly": NotRequired[bool],
     },
 )
-_OptionalReleaseFileSystemNfsV3LocksRequestRequestTypeDef = TypedDict(
-    "_OptionalReleaseFileSystemNfsV3LocksRequestRequestTypeDef",
-    {
-        "ClientRequestToken": str,
-    },
-    total=False,
-)
-
-class ReleaseFileSystemNfsV3LocksRequestRequestTypeDef(
-    _RequiredReleaseFileSystemNfsV3LocksRequestRequestTypeDef,
-    _OptionalReleaseFileSystemNfsV3LocksRequestRequestTypeDef,
-):
-    pass
-
-ReleaseFileSystemNfsV3LocksResponseTypeDef = TypedDict(
-    "ReleaseFileSystemNfsV3LocksResponseTypeDef",
-    {
-        "FileSystem": "FileSystemTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-_RequiredRestoreVolumeFromSnapshotRequestRequestTypeDef = TypedDict(
-    "_RequiredRestoreVolumeFromSnapshotRequestRequestTypeDef",
-    {
-        "VolumeId": str,
-        "SnapshotId": str,
-    },
-)
-_OptionalRestoreVolumeFromSnapshotRequestRequestTypeDef = TypedDict(
-    "_OptionalRestoreVolumeFromSnapshotRequestRequestTypeDef",
-    {
-        "ClientRequestToken": str,
-        "Options": List[RestoreOpenZFSVolumeOptionType],
-    },
-    total=False,
-)
-
-class RestoreVolumeFromSnapshotRequestRequestTypeDef(
-    _RequiredRestoreVolumeFromSnapshotRequestRequestTypeDef,
-    _OptionalRestoreVolumeFromSnapshotRequestRequestTypeDef,
-):
-    pass
-
-RestoreVolumeFromSnapshotResponseTypeDef = TypedDict(
-    "RestoreVolumeFromSnapshotResponseTypeDef",
-    {
-        "VolumeId": str,
-        "Lifecycle": VolumeLifecycleType,
-        "AdministrativeActions": List["AdministrativeActionTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredRetentionPeriodTypeDef = TypedDict(
-    "_RequiredRetentionPeriodTypeDef",
-    {
-        "Type": RetentionPeriodTypeType,
-    },
-)
-_OptionalRetentionPeriodTypeDef = TypedDict(
-    "_OptionalRetentionPeriodTypeDef",
-    {
-        "Value": int,
-    },
-    total=False,
-)
-
-class RetentionPeriodTypeDef(_RequiredRetentionPeriodTypeDef, _OptionalRetentionPeriodTypeDef):
-    pass
-
-S3DataRepositoryConfigurationTypeDef = TypedDict(
-    "S3DataRepositoryConfigurationTypeDef",
-    {
-        "AutoImportPolicy": "AutoImportPolicyTypeDef",
-        "AutoExportPolicy": "AutoExportPolicyTypeDef",
-    },
-    total=False,
-)
-
-SelfManagedActiveDirectoryAttributesTypeDef = TypedDict(
-    "SelfManagedActiveDirectoryAttributesTypeDef",
-    {
-        "DomainName": str,
-        "OrganizationalUnitDistinguishedName": str,
-        "FileSystemAdministratorsGroup": str,
-        "UserName": str,
-        "DnsIps": List[str],
-    },
-    total=False,
-)
-
-_RequiredSelfManagedActiveDirectoryConfigurationTypeDef = TypedDict(
-    "_RequiredSelfManagedActiveDirectoryConfigurationTypeDef",
-    {
-        "DomainName": str,
-        "UserName": str,
-        "Password": str,
-        "DnsIps": List[str],
-    },
-)
-_OptionalSelfManagedActiveDirectoryConfigurationTypeDef = TypedDict(
-    "_OptionalSelfManagedActiveDirectoryConfigurationTypeDef",
-    {
-        "OrganizationalUnitDistinguishedName": str,
-        "FileSystemAdministratorsGroup": str,
-    },
-    total=False,
-)
-
-class SelfManagedActiveDirectoryConfigurationTypeDef(
-    _RequiredSelfManagedActiveDirectoryConfigurationTypeDef,
-    _OptionalSelfManagedActiveDirectoryConfigurationTypeDef,
-):
-    pass
-
-SelfManagedActiveDirectoryConfigurationUpdatesTypeDef = TypedDict(
-    "SelfManagedActiveDirectoryConfigurationUpdatesTypeDef",
-    {
-        "UserName": str,
-        "Password": str,
-        "DnsIps": List[str],
-        "DomainName": str,
-        "OrganizationalUnitDistinguishedName": str,
-        "FileSystemAdministratorsGroup": str,
-    },
-    total=False,
-)
-
-SnaplockConfigurationTypeDef = TypedDict(
-    "SnaplockConfigurationTypeDef",
-    {
-        "AuditLogVolume": bool,
-        "AutocommitPeriod": "AutocommitPeriodTypeDef",
-        "PrivilegedDelete": PrivilegedDeleteType,
-        "RetentionPeriod": "SnaplockRetentionPeriodTypeDef",
-        "SnaplockType": SnaplockTypeType,
-        "VolumeAppendModeEnabled": bool,
-    },
-    total=False,
-)
-
-SnaplockRetentionPeriodTypeDef = TypedDict(
-    "SnaplockRetentionPeriodTypeDef",
-    {
-        "DefaultRetention": "RetentionPeriodTypeDef",
-        "MinimumRetention": "RetentionPeriodTypeDef",
-        "MaximumRetention": "RetentionPeriodTypeDef",
-    },
-)
-
-SnapshotFilterTypeDef = TypedDict(
-    "SnapshotFilterTypeDef",
-    {
-        "Name": SnapshotFilterNameType,
-        "Values": List[str],
-    },
-    total=False,
-)
-
-SnapshotTypeDef = TypedDict(
-    "SnapshotTypeDef",
-    {
-        "ResourceARN": str,
-        "SnapshotId": str,
-        "Name": str,
-        "VolumeId": str,
-        "CreationTime": datetime,
-        "Lifecycle": SnapshotLifecycleType,
-        "LifecycleTransitionReason": "LifecycleTransitionReasonTypeDef",
-        "Tags": List["TagTypeDef"],
-        "AdministrativeActions": List[Dict[str, Any]],
-    },
-    total=False,
-)
-
-_RequiredStartMisconfiguredStateRecoveryRequestRequestTypeDef = TypedDict(
-    "_RequiredStartMisconfiguredStateRecoveryRequestRequestTypeDef",
-    {
-        "FileSystemId": str,
-    },
-)
-_OptionalStartMisconfiguredStateRecoveryRequestRequestTypeDef = TypedDict(
-    "_OptionalStartMisconfiguredStateRecoveryRequestRequestTypeDef",
-    {
-        "ClientRequestToken": str,
-    },
-    total=False,
-)
-
-class StartMisconfiguredStateRecoveryRequestRequestTypeDef(
-    _RequiredStartMisconfiguredStateRecoveryRequestRequestTypeDef,
-    _OptionalStartMisconfiguredStateRecoveryRequestRequestTypeDef,
-):
-    pass
-
-StartMisconfiguredStateRecoveryResponseTypeDef = TypedDict(
-    "StartMisconfiguredStateRecoveryResponseTypeDef",
-    {
-        "FileSystem": "FileSystemTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-StorageVirtualMachineFilterTypeDef = TypedDict(
-    "StorageVirtualMachineFilterTypeDef",
-    {
-        "Name": Literal["file-system-id"],
-        "Values": List[str],
-    },
-    total=False,
-)
-
-StorageVirtualMachineTypeDef = TypedDict(
-    "StorageVirtualMachineTypeDef",
-    {
-        "ActiveDirectoryConfiguration": "SvmActiveDirectoryConfigurationTypeDef",
-        "CreationTime": datetime,
-        "Endpoints": "SvmEndpointsTypeDef",
-        "FileSystemId": str,
-        "Lifecycle": StorageVirtualMachineLifecycleType,
-        "Name": str,
-        "ResourceARN": str,
-        "StorageVirtualMachineId": str,
-        "Subtype": StorageVirtualMachineSubtypeType,
-        "UUID": str,
-        "Tags": List["TagTypeDef"],
-        "LifecycleTransitionReason": "LifecycleTransitionReasonTypeDef",
-        "RootVolumeSecurityStyle": StorageVirtualMachineRootVolumeSecurityStyleType,
-    },
-    total=False,
-)
-
-SvmActiveDirectoryConfigurationTypeDef = TypedDict(
-    "SvmActiveDirectoryConfigurationTypeDef",
-    {
-        "NetBiosName": str,
-        "SelfManagedActiveDirectoryConfiguration": "SelfManagedActiveDirectoryAttributesTypeDef",
-    },
-    total=False,
-)
-
-SvmEndpointTypeDef = TypedDict(
-    "SvmEndpointTypeDef",
-    {
-        "DNSName": str,
-        "IpAddresses": List[str],
-    },
-    total=False,
-)
-
-SvmEndpointsTypeDef = TypedDict(
-    "SvmEndpointsTypeDef",
-    {
-        "Iscsi": "SvmEndpointTypeDef",
-        "Management": "SvmEndpointTypeDef",
-        "Nfs": "SvmEndpointTypeDef",
-        "Smb": "SvmEndpointTypeDef",
-    },
-    total=False,
-)
-
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "ResourceARN": str,
-        "Tags": List["TagTypeDef"],
-    },
-)
-
-TagTypeDef = TypedDict(
-    "TagTypeDef",
-    {
-        "Key": str,
-        "Value": str,
-    },
-)
-
-TieringPolicyTypeDef = TypedDict(
-    "TieringPolicyTypeDef",
-    {
-        "CoolingPeriod": int,
-        "Name": TieringPolicyNameType,
-    },
-    total=False,
-)
-
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "ResourceARN": str,
-        "TagKeys": List[str],
-    },
-)
-
-_RequiredUpdateDataRepositoryAssociationRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateDataRepositoryAssociationRequestRequestTypeDef",
-    {
-        "AssociationId": str,
-    },
-)
-_OptionalUpdateDataRepositoryAssociationRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateDataRepositoryAssociationRequestRequestTypeDef",
-    {
-        "ClientRequestToken": str,
-        "ImportedFileChunkSize": int,
-        "S3": "S3DataRepositoryConfigurationTypeDef",
-    },
-    total=False,
-)
-
-class UpdateDataRepositoryAssociationRequestRequestTypeDef(
-    _RequiredUpdateDataRepositoryAssociationRequestRequestTypeDef,
-    _OptionalUpdateDataRepositoryAssociationRequestRequestTypeDef,
-):
-    pass
-
-UpdateDataRepositoryAssociationResponseTypeDef = TypedDict(
-    "UpdateDataRepositoryAssociationResponseTypeDef",
-    {
-        "Association": "DataRepositoryAssociationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UpdateFileCacheLustreConfigurationTypeDef = TypedDict(
-    "UpdateFileCacheLustreConfigurationTypeDef",
-    {
-        "WeeklyMaintenanceStartTime": str,
-    },
-    total=False,
-)
-
-_RequiredUpdateFileCacheRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateFileCacheRequestRequestTypeDef",
-    {
-        "FileCacheId": str,
-    },
-)
-_OptionalUpdateFileCacheRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateFileCacheRequestRequestTypeDef",
-    {
-        "ClientRequestToken": str,
-        "LustreConfiguration": "UpdateFileCacheLustreConfigurationTypeDef",
-    },
-    total=False,
-)
-
-class UpdateFileCacheRequestRequestTypeDef(
-    _RequiredUpdateFileCacheRequestRequestTypeDef, _OptionalUpdateFileCacheRequestRequestTypeDef
-):
-    pass
-
-UpdateFileCacheResponseTypeDef = TypedDict(
-    "UpdateFileCacheResponseTypeDef",
-    {
-        "FileCache": "FileCacheTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UpdateFileSystemLustreConfigurationTypeDef = TypedDict(
-    "UpdateFileSystemLustreConfigurationTypeDef",
-    {
-        "WeeklyMaintenanceStartTime": str,
-        "DailyAutomaticBackupStartTime": str,
-        "AutomaticBackupRetentionDays": int,
-        "AutoImportPolicy": AutoImportPolicyTypeType,
-        "DataCompressionType": DataCompressionTypeType,
-        "LogConfiguration": "LustreLogCreateConfigurationTypeDef",
-        "RootSquashConfiguration": "LustreRootSquashConfigurationTypeDef",
-        "PerUnitStorageThroughput": int,
-        "MetadataConfiguration": "UpdateFileSystemLustreMetadataConfigurationTypeDef",
-    },
-    total=False,
-)
-
-UpdateFileSystemLustreMetadataConfigurationTypeDef = TypedDict(
-    "UpdateFileSystemLustreMetadataConfigurationTypeDef",
-    {
-        "Iops": int,
-        "Mode": MetadataConfigurationModeType,
-    },
-    total=False,
-)
-
-UpdateFileSystemOntapConfigurationTypeDef = TypedDict(
-    "UpdateFileSystemOntapConfigurationTypeDef",
-    {
-        "AutomaticBackupRetentionDays": int,
-        "DailyAutomaticBackupStartTime": str,
-        "FsxAdminPassword": str,
-        "WeeklyMaintenanceStartTime": str,
-        "DiskIopsConfiguration": "DiskIopsConfigurationTypeDef",
-        "ThroughputCapacity": int,
-        "AddRouteTableIds": List[str],
-        "RemoveRouteTableIds": List[str],
-        "ThroughputCapacityPerHAPair": int,
-    },
-    total=False,
-)
-
-UpdateFileSystemOpenZFSConfigurationTypeDef = TypedDict(
-    "UpdateFileSystemOpenZFSConfigurationTypeDef",
-    {
-        "AutomaticBackupRetentionDays": int,
-        "CopyTagsToBackups": bool,
-        "CopyTagsToVolumes": bool,
-        "DailyAutomaticBackupStartTime": str,
-        "ThroughputCapacity": int,
-        "WeeklyMaintenanceStartTime": str,
-        "DiskIopsConfiguration": "DiskIopsConfigurationTypeDef",
-        "AddRouteTableIds": List[str],
-        "RemoveRouteTableIds": List[str],
-    },
-    total=False,
-)
-
-_RequiredUpdateFileSystemRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateFileSystemRequestRequestTypeDef",
-    {
-        "FileSystemId": str,
-    },
-)
-_OptionalUpdateFileSystemRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateFileSystemRequestRequestTypeDef",
-    {
-        "ClientRequestToken": str,
-        "StorageCapacity": int,
-        "WindowsConfiguration": "UpdateFileSystemWindowsConfigurationTypeDef",
-        "LustreConfiguration": "UpdateFileSystemLustreConfigurationTypeDef",
-        "OntapConfiguration": "UpdateFileSystemOntapConfigurationTypeDef",
-        "OpenZFSConfiguration": "UpdateFileSystemOpenZFSConfigurationTypeDef",
-        "StorageType": StorageTypeType,
-    },
-    total=False,
-)
-
-class UpdateFileSystemRequestRequestTypeDef(
-    _RequiredUpdateFileSystemRequestRequestTypeDef, _OptionalUpdateFileSystemRequestRequestTypeDef
-):
-    pass
-
-UpdateFileSystemResponseTypeDef = TypedDict(
-    "UpdateFileSystemResponseTypeDef",
-    {
-        "FileSystem": "FileSystemTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UpdateFileSystemWindowsConfigurationTypeDef = TypedDict(
-    "UpdateFileSystemWindowsConfigurationTypeDef",
-    {
-        "WeeklyMaintenanceStartTime": str,
-        "DailyAutomaticBackupStartTime": str,
-        "AutomaticBackupRetentionDays": int,
-        "ThroughputCapacity": int,
-        "SelfManagedActiveDirectoryConfiguration": "SelfManagedActiveDirectoryConfigurationUpdatesTypeDef",
-        "AuditLogConfiguration": "WindowsAuditLogCreateConfigurationTypeDef",
-        "DiskIopsConfiguration": "DiskIopsConfigurationTypeDef",
-    },
-    total=False,
-)
-
-UpdateOntapVolumeConfigurationTypeDef = TypedDict(
-    "UpdateOntapVolumeConfigurationTypeDef",
-    {
-        "JunctionPath": str,
-        "SecurityStyle": SecurityStyleType,
-        "SizeInMegabytes": int,
-        "StorageEfficiencyEnabled": bool,
-        "TieringPolicy": "TieringPolicyTypeDef",
-        "SnapshotPolicy": str,
-        "CopyTagsToBackups": bool,
-        "SnaplockConfiguration": "UpdateSnaplockConfigurationTypeDef",
-        "SizeInBytes": int,
-    },
-    total=False,
-)
-
 UpdateOpenZFSVolumeConfigurationTypeDef = TypedDict(
     "UpdateOpenZFSVolumeConfigurationTypeDef",
     {
-        "StorageCapacityReservationGiB": int,
-        "StorageCapacityQuotaGiB": int,
-        "RecordSizeKiB": int,
-        "DataCompressionType": OpenZFSDataCompressionTypeType,
-        "NfsExports": List["OpenZFSNfsExportTypeDef"],
-        "UserAndGroupQuotas": List["OpenZFSUserOrGroupQuotaTypeDef"],
-        "ReadOnly": bool,
-    },
-    total=False,
-)
-
-UpdateSharedVpcConfigurationRequestRequestTypeDef = TypedDict(
-    "UpdateSharedVpcConfigurationRequestRequestTypeDef",
-    {
-        "EnableFsxRouteTableUpdatesFromParticipantAccounts": str,
-        "ClientRequestToken": str,
-    },
-    total=False,
-)
-
-UpdateSharedVpcConfigurationResponseTypeDef = TypedDict(
-    "UpdateSharedVpcConfigurationResponseTypeDef",
-    {
-        "EnableFsxRouteTableUpdatesFromParticipantAccounts": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "StorageCapacityReservationGiB": NotRequired[int],
+        "StorageCapacityQuotaGiB": NotRequired[int],
+        "RecordSizeKiB": NotRequired[int],
+        "DataCompressionType": NotRequired[OpenZFSDataCompressionTypeType],
+        "NfsExports": NotRequired[Sequence[OpenZFSNfsExportUnionTypeDef]],
+        "UserAndGroupQuotas": NotRequired[Sequence[OpenZFSUserOrGroupQuotaTypeDef]],
+        "ReadOnly": NotRequired[bool],
     },
 )
 
-UpdateSnaplockConfigurationTypeDef = TypedDict(
-    "UpdateSnaplockConfigurationTypeDef",
-    {
-        "AuditLogVolume": bool,
-        "AutocommitPeriod": "AutocommitPeriodTypeDef",
-        "PrivilegedDelete": PrivilegedDeleteType,
-        "RetentionPeriod": "SnaplockRetentionPeriodTypeDef",
-        "VolumeAppendModeEnabled": bool,
-    },
-    total=False,
-)
+class CreateVolumeFromBackupRequestTypeDef(TypedDict):
+    BackupId: str
+    Name: str
+    ClientRequestToken: NotRequired[str]
+    OntapConfiguration: NotRequired[CreateOntapVolumeConfigurationTypeDef]
+    Tags: NotRequired[Sequence[TagTypeDef]]
 
-_RequiredUpdateSnapshotRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateSnapshotRequestRequestTypeDef",
-    {
-        "Name": str,
-        "SnapshotId": str,
-    },
-)
-_OptionalUpdateSnapshotRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateSnapshotRequestRequestTypeDef",
-    {
-        "ClientRequestToken": str,
-    },
-    total=False,
-)
+class VolumePaginatorTypeDef(TypedDict):
+    CreationTime: NotRequired[datetime]
+    FileSystemId: NotRequired[str]
+    Lifecycle: NotRequired[VolumeLifecycleType]
+    Name: NotRequired[str]
+    OntapConfiguration: NotRequired[OntapVolumeConfigurationTypeDef]
+    ResourceARN: NotRequired[str]
+    Tags: NotRequired[List[TagTypeDef]]
+    VolumeId: NotRequired[str]
+    VolumeType: NotRequired[VolumeTypeType]
+    LifecycleTransitionReason: NotRequired[LifecycleTransitionReasonTypeDef]
+    AdministrativeActions: NotRequired[List[Dict[str, Any]]]
+    OpenZFSConfiguration: NotRequired[OpenZFSVolumeConfigurationTypeDef]
 
-class UpdateSnapshotRequestRequestTypeDef(
-    _RequiredUpdateSnapshotRequestRequestTypeDef, _OptionalUpdateSnapshotRequestRequestTypeDef
-):
-    pass
+class VolumeTypeDef(TypedDict):
+    CreationTime: NotRequired[datetime]
+    FileSystemId: NotRequired[str]
+    Lifecycle: NotRequired[VolumeLifecycleType]
+    Name: NotRequired[str]
+    OntapConfiguration: NotRequired[OntapVolumeConfigurationTypeDef]
+    ResourceARN: NotRequired[str]
+    Tags: NotRequired[List[TagTypeDef]]
+    VolumeId: NotRequired[str]
+    VolumeType: NotRequired[VolumeTypeType]
+    LifecycleTransitionReason: NotRequired[LifecycleTransitionReasonTypeDef]
+    AdministrativeActions: NotRequired[List[Dict[str, Any]]]
+    OpenZFSConfiguration: NotRequired[OpenZFSVolumeConfigurationTypeDef]
 
-UpdateSnapshotResponseTypeDef = TypedDict(
-    "UpdateSnapshotResponseTypeDef",
-    {
-        "Snapshot": "SnapshotTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CreateVolumeRequestTypeDef(TypedDict):
+    VolumeType: VolumeTypeType
+    Name: str
+    ClientRequestToken: NotRequired[str]
+    OntapConfiguration: NotRequired[CreateOntapVolumeConfigurationTypeDef]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+    OpenZFSConfiguration: NotRequired[CreateOpenZFSVolumeConfigurationTypeDef]
 
-_RequiredUpdateStorageVirtualMachineRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateStorageVirtualMachineRequestRequestTypeDef",
-    {
-        "StorageVirtualMachineId": str,
-    },
-)
-_OptionalUpdateStorageVirtualMachineRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateStorageVirtualMachineRequestRequestTypeDef",
-    {
-        "ActiveDirectoryConfiguration": "UpdateSvmActiveDirectoryConfigurationTypeDef",
-        "ClientRequestToken": str,
-        "SvmAdminPassword": str,
-    },
-    total=False,
-)
+class CreateFileSystemOpenZFSConfigurationTypeDef(TypedDict):
+    DeploymentType: OpenZFSDeploymentTypeType
+    ThroughputCapacity: int
+    AutomaticBackupRetentionDays: NotRequired[int]
+    CopyTagsToBackups: NotRequired[bool]
+    CopyTagsToVolumes: NotRequired[bool]
+    DailyAutomaticBackupStartTime: NotRequired[str]
+    WeeklyMaintenanceStartTime: NotRequired[str]
+    DiskIopsConfiguration: NotRequired[DiskIopsConfigurationTypeDef]
+    RootVolumeConfiguration: NotRequired[OpenZFSCreateRootVolumeConfigurationTypeDef]
+    PreferredSubnetId: NotRequired[str]
+    EndpointIpAddressRange: NotRequired[str]
+    RouteTableIds: NotRequired[Sequence[str]]
+    ReadCacheConfiguration: NotRequired[OpenZFSReadCacheConfigurationTypeDef]
 
-class UpdateStorageVirtualMachineRequestRequestTypeDef(
-    _RequiredUpdateStorageVirtualMachineRequestRequestTypeDef,
-    _OptionalUpdateStorageVirtualMachineRequestRequestTypeDef,
-):
-    pass
+class UpdateVolumeRequestTypeDef(TypedDict):
+    VolumeId: str
+    ClientRequestToken: NotRequired[str]
+    OntapConfiguration: NotRequired[UpdateOntapVolumeConfigurationTypeDef]
+    Name: NotRequired[str]
+    OpenZFSConfiguration: NotRequired[UpdateOpenZFSVolumeConfigurationTypeDef]
 
-UpdateStorageVirtualMachineResponseTypeDef = TypedDict(
-    "UpdateStorageVirtualMachineResponseTypeDef",
-    {
-        "StorageVirtualMachine": "StorageVirtualMachineTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class AdministrativeActionPaginatorTypeDef(TypedDict):
+    AdministrativeActionType: NotRequired[AdministrativeActionTypeType]
+    ProgressPercent: NotRequired[int]
+    RequestTime: NotRequired[datetime]
+    Status: NotRequired[StatusType]
+    TargetFileSystemValues: NotRequired[Dict[str, Any]]
+    FailureDetails: NotRequired[AdministrativeActionFailureDetailsTypeDef]
+    TargetVolumeValues: NotRequired[VolumePaginatorTypeDef]
+    TargetSnapshotValues: NotRequired[SnapshotPaginatorTypeDef]
+    TotalTransferBytes: NotRequired[int]
+    RemainingTransferBytes: NotRequired[int]
 
-UpdateSvmActiveDirectoryConfigurationTypeDef = TypedDict(
-    "UpdateSvmActiveDirectoryConfigurationTypeDef",
-    {
-        "SelfManagedActiveDirectoryConfiguration": "SelfManagedActiveDirectoryConfigurationUpdatesTypeDef",
-        "NetBiosName": str,
-    },
-    total=False,
-)
+class DescribeVolumesResponsePaginatorTypeDef(TypedDict):
+    Volumes: List[VolumePaginatorTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-_RequiredUpdateVolumeRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateVolumeRequestRequestTypeDef",
-    {
-        "VolumeId": str,
-    },
-)
-_OptionalUpdateVolumeRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateVolumeRequestRequestTypeDef",
-    {
-        "ClientRequestToken": str,
-        "OntapConfiguration": "UpdateOntapVolumeConfigurationTypeDef",
-        "Name": str,
-        "OpenZFSConfiguration": "UpdateOpenZFSVolumeConfigurationTypeDef",
-    },
-    total=False,
-)
+class AdministrativeActionTypeDef(TypedDict):
+    AdministrativeActionType: NotRequired[AdministrativeActionTypeType]
+    ProgressPercent: NotRequired[int]
+    RequestTime: NotRequired[datetime]
+    Status: NotRequired[StatusType]
+    TargetFileSystemValues: NotRequired[Dict[str, Any]]
+    FailureDetails: NotRequired[AdministrativeActionFailureDetailsTypeDef]
+    TargetVolumeValues: NotRequired[VolumeTypeDef]
+    TargetSnapshotValues: NotRequired[SnapshotTypeDef]
+    TotalTransferBytes: NotRequired[int]
+    RemainingTransferBytes: NotRequired[int]
 
-class UpdateVolumeRequestRequestTypeDef(
-    _RequiredUpdateVolumeRequestRequestTypeDef, _OptionalUpdateVolumeRequestRequestTypeDef
-):
-    pass
+class CreateVolumeFromBackupResponseTypeDef(TypedDict):
+    Volume: VolumeTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-UpdateVolumeResponseTypeDef = TypedDict(
-    "UpdateVolumeResponseTypeDef",
-    {
-        "Volume": "VolumeTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CreateVolumeResponseTypeDef(TypedDict):
+    Volume: VolumeTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-VolumeFilterTypeDef = TypedDict(
-    "VolumeFilterTypeDef",
-    {
-        "Name": VolumeFilterNameType,
-        "Values": List[str],
-    },
-    total=False,
-)
+class DescribeVolumesResponseTypeDef(TypedDict):
+    Volumes: List[VolumeTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-VolumeTypeDef = TypedDict(
-    "VolumeTypeDef",
+class UpdateVolumeResponseTypeDef(TypedDict):
+    Volume: VolumeTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateFileSystemFromBackupRequestTypeDef(TypedDict):
+    BackupId: str
+    SubnetIds: Sequence[str]
+    ClientRequestToken: NotRequired[str]
+    SecurityGroupIds: NotRequired[Sequence[str]]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+    WindowsConfiguration: NotRequired[CreateFileSystemWindowsConfigurationTypeDef]
+    LustreConfiguration: NotRequired[CreateFileSystemLustreConfigurationTypeDef]
+    StorageType: NotRequired[StorageTypeType]
+    KmsKeyId: NotRequired[str]
+    FileSystemTypeVersion: NotRequired[str]
+    OpenZFSConfiguration: NotRequired[CreateFileSystemOpenZFSConfigurationTypeDef]
+    StorageCapacity: NotRequired[int]
+
+class CreateFileSystemRequestTypeDef(TypedDict):
+    FileSystemType: FileSystemTypeType
+    SubnetIds: Sequence[str]
+    ClientRequestToken: NotRequired[str]
+    StorageCapacity: NotRequired[int]
+    StorageType: NotRequired[StorageTypeType]
+    SecurityGroupIds: NotRequired[Sequence[str]]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+    KmsKeyId: NotRequired[str]
+    WindowsConfiguration: NotRequired[CreateFileSystemWindowsConfigurationTypeDef]
+    LustreConfiguration: NotRequired[CreateFileSystemLustreConfigurationTypeDef]
+    OntapConfiguration: NotRequired[CreateFileSystemOntapConfigurationTypeDef]
+    FileSystemTypeVersion: NotRequired[str]
+    OpenZFSConfiguration: NotRequired[CreateFileSystemOpenZFSConfigurationTypeDef]
+
+class FileSystemPaginatorTypeDef(TypedDict):
+    OwnerId: NotRequired[str]
+    CreationTime: NotRequired[datetime]
+    FileSystemId: NotRequired[str]
+    FileSystemType: NotRequired[FileSystemTypeType]
+    Lifecycle: NotRequired[FileSystemLifecycleType]
+    FailureDetails: NotRequired[FileSystemFailureDetailsTypeDef]
+    StorageCapacity: NotRequired[int]
+    StorageType: NotRequired[StorageTypeType]
+    VpcId: NotRequired[str]
+    SubnetIds: NotRequired[List[str]]
+    NetworkInterfaceIds: NotRequired[List[str]]
+    DNSName: NotRequired[str]
+    KmsKeyId: NotRequired[str]
+    ResourceARN: NotRequired[str]
+    Tags: NotRequired[List[TagTypeDef]]
+    WindowsConfiguration: NotRequired[WindowsFileSystemConfigurationTypeDef]
+    LustreConfiguration: NotRequired[LustreFileSystemConfigurationTypeDef]
+    AdministrativeActions: NotRequired[List[AdministrativeActionPaginatorTypeDef]]
+    OntapConfiguration: NotRequired[OntapFileSystemConfigurationTypeDef]
+    FileSystemTypeVersion: NotRequired[str]
+    OpenZFSConfiguration: NotRequired[OpenZFSFileSystemConfigurationTypeDef]
+
+class CopySnapshotAndUpdateVolumeResponseTypeDef(TypedDict):
+    VolumeId: str
+    Lifecycle: VolumeLifecycleType
+    AdministrativeActions: List[AdministrativeActionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class FileSystemTypeDef(TypedDict):
+    OwnerId: NotRequired[str]
+    CreationTime: NotRequired[datetime]
+    FileSystemId: NotRequired[str]
+    FileSystemType: NotRequired[FileSystemTypeType]
+    Lifecycle: NotRequired[FileSystemLifecycleType]
+    FailureDetails: NotRequired[FileSystemFailureDetailsTypeDef]
+    StorageCapacity: NotRequired[int]
+    StorageType: NotRequired[StorageTypeType]
+    VpcId: NotRequired[str]
+    SubnetIds: NotRequired[List[str]]
+    NetworkInterfaceIds: NotRequired[List[str]]
+    DNSName: NotRequired[str]
+    KmsKeyId: NotRequired[str]
+    ResourceARN: NotRequired[str]
+    Tags: NotRequired[List[TagTypeDef]]
+    WindowsConfiguration: NotRequired[WindowsFileSystemConfigurationTypeDef]
+    LustreConfiguration: NotRequired[LustreFileSystemConfigurationTypeDef]
+    AdministrativeActions: NotRequired[List[AdministrativeActionTypeDef]]
+    OntapConfiguration: NotRequired[OntapFileSystemConfigurationTypeDef]
+    FileSystemTypeVersion: NotRequired[str]
+    OpenZFSConfiguration: NotRequired[OpenZFSFileSystemConfigurationTypeDef]
+
+class RestoreVolumeFromSnapshotResponseTypeDef(TypedDict):
+    VolumeId: str
+    Lifecycle: VolumeLifecycleType
+    AdministrativeActions: List[AdministrativeActionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+BackupPaginatorTypeDef = TypedDict(
+    "BackupPaginatorTypeDef",
     {
+        "BackupId": str,
+        "Lifecycle": BackupLifecycleType,
+        "Type": BackupTypeType,
         "CreationTime": datetime,
-        "FileSystemId": str,
-        "Lifecycle": VolumeLifecycleType,
-        "Name": str,
-        "OntapConfiguration": "OntapVolumeConfigurationTypeDef",
-        "ResourceARN": str,
-        "Tags": List["TagTypeDef"],
-        "VolumeId": str,
-        "VolumeType": VolumeTypeType,
-        "LifecycleTransitionReason": "LifecycleTransitionReasonTypeDef",
-        "AdministrativeActions": List["AdministrativeActionTypeDef"],
-        "OpenZFSConfiguration": "OpenZFSVolumeConfigurationTypeDef",
+        "FileSystem": FileSystemPaginatorTypeDef,
+        "FailureDetails": NotRequired[BackupFailureDetailsTypeDef],
+        "ProgressPercent": NotRequired[int],
+        "KmsKeyId": NotRequired[str],
+        "ResourceARN": NotRequired[str],
+        "Tags": NotRequired[List[TagTypeDef]],
+        "DirectoryInformation": NotRequired[ActiveDirectoryBackupAttributesTypeDef],
+        "OwnerId": NotRequired[str],
+        "SourceBackupId": NotRequired[str],
+        "SourceBackupRegion": NotRequired[str],
+        "ResourceType": NotRequired[ResourceTypeType],
+        "Volume": NotRequired[VolumePaginatorTypeDef],
+        "SizeInBytes": NotRequired[int],
     },
-    total=False,
 )
 
-_RequiredWindowsAuditLogConfigurationTypeDef = TypedDict(
-    "_RequiredWindowsAuditLogConfigurationTypeDef",
+class DescribeFileSystemsResponsePaginatorTypeDef(TypedDict):
+    FileSystems: List[FileSystemPaginatorTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+BackupTypeDef = TypedDict(
+    "BackupTypeDef",
     {
-        "FileAccessAuditLogLevel": WindowsAccessAuditLogLevelType,
-        "FileShareAccessAuditLogLevel": WindowsAccessAuditLogLevelType,
+        "BackupId": str,
+        "Lifecycle": BackupLifecycleType,
+        "Type": BackupTypeType,
+        "CreationTime": datetime,
+        "FileSystem": FileSystemTypeDef,
+        "FailureDetails": NotRequired[BackupFailureDetailsTypeDef],
+        "ProgressPercent": NotRequired[int],
+        "KmsKeyId": NotRequired[str],
+        "ResourceARN": NotRequired[str],
+        "Tags": NotRequired[List[TagTypeDef]],
+        "DirectoryInformation": NotRequired[ActiveDirectoryBackupAttributesTypeDef],
+        "OwnerId": NotRequired[str],
+        "SourceBackupId": NotRequired[str],
+        "SourceBackupRegion": NotRequired[str],
+        "ResourceType": NotRequired[ResourceTypeType],
+        "Volume": NotRequired[VolumeTypeDef],
+        "SizeInBytes": NotRequired[int],
     },
-)
-_OptionalWindowsAuditLogConfigurationTypeDef = TypedDict(
-    "_OptionalWindowsAuditLogConfigurationTypeDef",
-    {
-        "AuditLogDestination": str,
-    },
-    total=False,
 )
 
-class WindowsAuditLogConfigurationTypeDef(
-    _RequiredWindowsAuditLogConfigurationTypeDef, _OptionalWindowsAuditLogConfigurationTypeDef
-):
-    pass
+class CreateFileSystemFromBackupResponseTypeDef(TypedDict):
+    FileSystem: FileSystemTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredWindowsAuditLogCreateConfigurationTypeDef = TypedDict(
-    "_RequiredWindowsAuditLogCreateConfigurationTypeDef",
-    {
-        "FileAccessAuditLogLevel": WindowsAccessAuditLogLevelType,
-        "FileShareAccessAuditLogLevel": WindowsAccessAuditLogLevelType,
-    },
-)
-_OptionalWindowsAuditLogCreateConfigurationTypeDef = TypedDict(
-    "_OptionalWindowsAuditLogCreateConfigurationTypeDef",
-    {
-        "AuditLogDestination": str,
-    },
-    total=False,
-)
+class CreateFileSystemResponseTypeDef(TypedDict):
+    FileSystem: FileSystemTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class WindowsAuditLogCreateConfigurationTypeDef(
-    _RequiredWindowsAuditLogCreateConfigurationTypeDef,
-    _OptionalWindowsAuditLogCreateConfigurationTypeDef,
-):
-    pass
+class DescribeFileSystemsResponseTypeDef(TypedDict):
+    FileSystems: List[FileSystemTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-WindowsFileSystemConfigurationTypeDef = TypedDict(
-    "WindowsFileSystemConfigurationTypeDef",
-    {
-        "ActiveDirectoryId": str,
-        "SelfManagedActiveDirectoryConfiguration": "SelfManagedActiveDirectoryAttributesTypeDef",
-        "DeploymentType": WindowsDeploymentTypeType,
-        "RemoteAdministrationEndpoint": str,
-        "PreferredSubnetId": str,
-        "PreferredFileServerIp": str,
-        "ThroughputCapacity": int,
-        "MaintenanceOperationsInProgress": List[FileSystemMaintenanceOperationType],
-        "WeeklyMaintenanceStartTime": str,
-        "DailyAutomaticBackupStartTime": str,
-        "AutomaticBackupRetentionDays": int,
-        "CopyTagsToBackups": bool,
-        "Aliases": List["AliasTypeDef"],
-        "AuditLogConfiguration": "WindowsAuditLogConfigurationTypeDef",
-        "DiskIopsConfiguration": "DiskIopsConfigurationTypeDef",
-    },
-    total=False,
-)
+class ReleaseFileSystemNfsV3LocksResponseTypeDef(TypedDict):
+    FileSystem: FileSystemTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartMisconfiguredStateRecoveryResponseTypeDef(TypedDict):
+    FileSystem: FileSystemTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateFileSystemResponseTypeDef(TypedDict):
+    FileSystem: FileSystemTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeBackupsResponsePaginatorTypeDef(TypedDict):
+    Backups: List[BackupPaginatorTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class CopyBackupResponseTypeDef(TypedDict):
+    Backup: BackupTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateBackupResponseTypeDef(TypedDict):
+    Backup: BackupTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeBackupsResponseTypeDef(TypedDict):
+    Backups: List[BackupTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]

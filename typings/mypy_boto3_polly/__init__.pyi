@@ -1,10 +1,14 @@
 """
 Main interface for polly service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_polly/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_polly import (
         Client,
         DescribeVoicesPaginator,
@@ -13,10 +17,8 @@ Usage::
         PollyClient,
     )
 
-    session = boto3.Session()
-
-    client: PollyClient = boto3.client("polly")
-    session_client: PollyClient = session.client("polly")
+    session = Session()
+    client: PollyClient = session.client("polly")
 
     describe_voices_paginator: DescribeVoicesPaginator = client.get_paginator("describe_voices")
     list_lexicons_paginator: ListLexiconsPaginator = client.get_paginator("list_lexicons")

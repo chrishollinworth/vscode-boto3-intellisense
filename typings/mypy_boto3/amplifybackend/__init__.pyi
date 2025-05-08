@@ -1,20 +1,22 @@
 """
 Main interface for amplifybackend service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_amplifybackend/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_amplifybackend import (
         AmplifyBackendClient,
         Client,
         ListBackendJobsPaginator,
     )
 
-    session = boto3.Session()
-
-    client: AmplifyBackendClient = boto3.client("amplifybackend")
-    session_client: AmplifyBackendClient = session.client("amplifybackend")
+    session = Session()
+    client: AmplifyBackendClient = session.client("amplifybackend")
 
     list_backend_jobs_paginator: ListBackendJobsPaginator = client.get_paginator("list_backend_jobs")
     ```

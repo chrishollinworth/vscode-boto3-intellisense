@@ -1,10 +1,14 @@
 """
 Main interface for cloudwatch service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudwatch/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_cloudwatch import (
         AlarmExistsWaiter,
         Client,
@@ -20,13 +24,10 @@ Usage::
         ServiceResource,
     )
 
-    session = boto3.Session()
+    session = Session()
+    client: CloudWatchClient = session.client("cloudwatch")
 
-    client: CloudWatchClient = boto3.client("cloudwatch")
-    session_client: CloudWatchClient = session.client("cloudwatch")
-
-    resource: CloudWatchServiceResource = boto3.resource("cloudwatch")
-    session_resource: CloudWatchServiceResource = session.resource("cloudwatch")
+    resource: CloudWatchServiceResource = session.resource("cloudwatch")
 
     alarm_exists_waiter: AlarmExistsWaiter = client.get_waiter("alarm_exists")
     composite_alarm_exists_waiter: CompositeAlarmExistsWaiter = client.get_waiter("composite_alarm_exists")
@@ -49,8 +50,12 @@ from .paginator import (
     ListDashboardsPaginator,
     ListMetricsPaginator,
 )
-from .service_resource import CloudWatchServiceResource
 from .waiter import AlarmExistsWaiter, CompositeAlarmExistsWaiter
+
+try:
+    from .service_resource import CloudWatchServiceResource
+except ImportError:
+    from builtins import object as CloudWatchServiceResource  # type: ignore[assignment]
 
 Client = CloudWatchClient
 

@@ -1,266 +1,209 @@
 """
 Type annotations for repostspace service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_repostspace/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_repostspace/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_repostspace.type_defs import CreateSpaceInputRequestTypeDef
+    from mypy_boto3_repostspace.type_defs import BatchAddRoleInputTypeDef
 
-    data: CreateSpaceInputRequestTypeDef = {...}
+    data: BatchAddRoleInputTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
 
-from .literals import ConfigurationStatusType, TierLevelType, VanityDomainStatusType
+from .literals import ConfigurationStatusType, RoleType, TierLevelType, VanityDomainStatusType
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
-    "CreateSpaceInputRequestTypeDef",
+    "BatchAddRoleInputTypeDef",
+    "BatchAddRoleOutputTypeDef",
+    "BatchErrorTypeDef",
+    "BatchRemoveRoleInputTypeDef",
+    "BatchRemoveRoleOutputTypeDef",
+    "CreateSpaceInputTypeDef",
     "CreateSpaceOutputTypeDef",
-    "DeleteSpaceInputRequestTypeDef",
-    "DeregisterAdminInputRequestTypeDef",
-    "GetSpaceInputRequestTypeDef",
+    "DeleteSpaceInputTypeDef",
+    "DeregisterAdminInputTypeDef",
+    "EmptyResponseMetadataTypeDef",
+    "GetSpaceInputTypeDef",
     "GetSpaceOutputTypeDef",
-    "ListSpacesInputRequestTypeDef",
+    "ListSpacesInputPaginateTypeDef",
+    "ListSpacesInputTypeDef",
     "ListSpacesOutputTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "PaginatorConfigTypeDef",
-    "RegisterAdminInputRequestTypeDef",
+    "RegisterAdminInputTypeDef",
     "ResponseMetadataTypeDef",
-    "SendInvitesInputRequestTypeDef",
+    "SendInvitesInputTypeDef",
     "SpaceDataTypeDef",
-    "TagResourceRequestRequestTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateSpaceInputRequestTypeDef",
+    "TagResourceRequestTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateSpaceInputTypeDef",
 )
 
-_RequiredCreateSpaceInputRequestTypeDef = TypedDict(
-    "_RequiredCreateSpaceInputRequestTypeDef",
-    {
-        "name": str,
-        "subdomain": str,
-        "tier": TierLevelType,
-    },
-)
-_OptionalCreateSpaceInputRequestTypeDef = TypedDict(
-    "_OptionalCreateSpaceInputRequestTypeDef",
-    {
-        "description": str,
-        "roleArn": str,
-        "tags": Dict[str, str],
-        "userKMSKey": str,
-    },
-    total=False,
-)
+class BatchAddRoleInputTypeDef(TypedDict):
+    accessorIds: Sequence[str]
+    role: RoleType
+    spaceId: str
 
-class CreateSpaceInputRequestTypeDef(
-    _RequiredCreateSpaceInputRequestTypeDef, _OptionalCreateSpaceInputRequestTypeDef
-):
-    pass
+class BatchErrorTypeDef(TypedDict):
+    accessorId: str
+    error: int
+    message: str
 
-CreateSpaceOutputTypeDef = TypedDict(
-    "CreateSpaceOutputTypeDef",
-    {
-        "spaceId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-DeleteSpaceInputRequestTypeDef = TypedDict(
-    "DeleteSpaceInputRequestTypeDef",
-    {
-        "spaceId": str,
-    },
-)
+class BatchRemoveRoleInputTypeDef(TypedDict):
+    accessorIds: Sequence[str]
+    role: RoleType
+    spaceId: str
 
-DeregisterAdminInputRequestTypeDef = TypedDict(
-    "DeregisterAdminInputRequestTypeDef",
-    {
-        "adminId": str,
-        "spaceId": str,
-    },
-)
+class CreateSpaceInputTypeDef(TypedDict):
+    name: str
+    subdomain: str
+    tier: TierLevelType
+    description: NotRequired[str]
+    roleArn: NotRequired[str]
+    tags: NotRequired[Mapping[str, str]]
+    userKMSKey: NotRequired[str]
 
-GetSpaceInputRequestTypeDef = TypedDict(
-    "GetSpaceInputRequestTypeDef",
-    {
-        "spaceId": str,
-    },
-)
+class DeleteSpaceInputTypeDef(TypedDict):
+    spaceId: str
 
-GetSpaceOutputTypeDef = TypedDict(
-    "GetSpaceOutputTypeDef",
-    {
-        "arn": str,
-        "clientId": str,
-        "configurationStatus": ConfigurationStatusType,
-        "contentSize": int,
-        "createDateTime": datetime,
-        "customerRoleArn": str,
-        "deleteDateTime": datetime,
-        "description": str,
-        "groupAdmins": List[str],
-        "name": str,
-        "randomDomain": str,
-        "spaceId": str,
-        "status": str,
-        "storageLimit": int,
-        "tier": TierLevelType,
-        "userAdmins": List[str],
-        "userCount": int,
-        "userKMSKey": str,
-        "vanityDomain": str,
-        "vanityDomainStatus": VanityDomainStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DeregisterAdminInputTypeDef(TypedDict):
+    adminId: str
+    spaceId: str
 
-ListSpacesInputRequestTypeDef = TypedDict(
-    "ListSpacesInputRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
+class GetSpaceInputTypeDef(TypedDict):
+    spaceId: str
 
-ListSpacesOutputTypeDef = TypedDict(
-    "ListSpacesOutputTypeDef",
-    {
-        "nextToken": str,
-        "spaces": List["SpaceDataTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
 
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-    },
-)
+class ListSpacesInputTypeDef(TypedDict):
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
 
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class SpaceDataTypeDef(TypedDict):
+    arn: str
+    configurationStatus: ConfigurationStatusType
+    createDateTime: datetime
+    name: str
+    randomDomain: str
+    spaceId: str
+    status: str
+    storageLimit: int
+    tier: TierLevelType
+    vanityDomain: str
+    vanityDomainStatus: VanityDomainStatusType
+    contentSize: NotRequired[int]
+    deleteDateTime: NotRequired[datetime]
+    description: NotRequired[str]
+    userCount: NotRequired[int]
+    userKMSKey: NotRequired[str]
 
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    resourceArn: str
 
-RegisterAdminInputRequestTypeDef = TypedDict(
-    "RegisterAdminInputRequestTypeDef",
-    {
-        "adminId": str,
-        "spaceId": str,
-    },
-)
+class RegisterAdminInputTypeDef(TypedDict):
+    adminId: str
+    spaceId: str
 
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
+class SendInvitesInputTypeDef(TypedDict):
+    accessorIds: Sequence[str]
+    body: str
+    spaceId: str
+    title: str
 
-SendInvitesInputRequestTypeDef = TypedDict(
-    "SendInvitesInputRequestTypeDef",
-    {
-        "accessorIds": List[str],
-        "body": str,
-        "spaceId": str,
-        "title": str,
-    },
-)
+class TagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tags: Mapping[str, str]
 
-_RequiredSpaceDataTypeDef = TypedDict(
-    "_RequiredSpaceDataTypeDef",
-    {
-        "arn": str,
-        "configurationStatus": ConfigurationStatusType,
-        "createDateTime": datetime,
-        "name": str,
-        "randomDomain": str,
-        "spaceId": str,
-        "status": str,
-        "storageLimit": int,
-        "tier": TierLevelType,
-        "vanityDomain": str,
-        "vanityDomainStatus": VanityDomainStatusType,
-    },
-)
-_OptionalSpaceDataTypeDef = TypedDict(
-    "_OptionalSpaceDataTypeDef",
-    {
-        "contentSize": int,
-        "deleteDateTime": datetime,
-        "description": str,
-        "userCount": int,
-        "userKMSKey": str,
-    },
-    total=False,
-)
+class UntagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tagKeys: Sequence[str]
 
-class SpaceDataTypeDef(_RequiredSpaceDataTypeDef, _OptionalSpaceDataTypeDef):
-    pass
+class UpdateSpaceInputTypeDef(TypedDict):
+    spaceId: str
+    description: NotRequired[str]
+    roleArn: NotRequired[str]
+    tier: NotRequired[TierLevelType]
 
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tags": Dict[str, str],
-    },
-)
+class BatchAddRoleOutputTypeDef(TypedDict):
+    addedAccessorIds: List[str]
+    errors: List[BatchErrorTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tagKeys": List[str],
-    },
-)
+class BatchRemoveRoleOutputTypeDef(TypedDict):
+    errors: List[BatchErrorTypeDef]
+    removedAccessorIds: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredUpdateSpaceInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateSpaceInputRequestTypeDef",
-    {
-        "spaceId": str,
-    },
-)
-_OptionalUpdateSpaceInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateSpaceInputRequestTypeDef",
-    {
-        "description": str,
-        "roleArn": str,
-        "tier": TierLevelType,
-    },
-    total=False,
-)
+class CreateSpaceOutputTypeDef(TypedDict):
+    spaceId: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateSpaceInputRequestTypeDef(
-    _RequiredUpdateSpaceInputRequestTypeDef, _OptionalUpdateSpaceInputRequestTypeDef
-):
-    pass
+class EmptyResponseMetadataTypeDef(TypedDict):
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetSpaceOutputTypeDef(TypedDict):
+    arn: str
+    clientId: str
+    configurationStatus: ConfigurationStatusType
+    contentSize: int
+    createDateTime: datetime
+    customerRoleArn: str
+    deleteDateTime: datetime
+    description: str
+    groupAdmins: List[str]
+    name: str
+    randomDomain: str
+    roles: Dict[str, List[RoleType]]
+    spaceId: str
+    status: str
+    storageLimit: int
+    tier: TierLevelType
+    userAdmins: List[str]
+    userCount: int
+    userKMSKey: str
+    vanityDomain: str
+    vanityDomainStatus: VanityDomainStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListSpacesInputPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListSpacesOutputTypeDef(TypedDict):
+    spaces: List[SpaceDataTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]

@@ -1,10 +1,14 @@
 """
 Main interface for inspector2 service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_inspector2/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_inspector2 import (
         Client,
         GetCisScanResultDetailsPaginator,
@@ -25,10 +29,8 @@ Usage::
         SearchVulnerabilitiesPaginator,
     )
 
-    session = boto3.Session()
-
-    client: Inspector2Client = boto3.client("inspector2")
-    session_client: Inspector2Client = session.client("inspector2")
+    session = Session()
+    client: Inspector2Client = session.client("inspector2")
 
     get_cis_scan_result_details_paginator: GetCisScanResultDetailsPaginator = client.get_paginator("get_cis_scan_result_details")
     list_account_permissions_paginator: ListAccountPermissionsPaginator = client.get_paginator("list_account_permissions")

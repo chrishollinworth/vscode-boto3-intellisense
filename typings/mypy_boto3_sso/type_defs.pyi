@@ -1,170 +1,119 @@
 """
 Type annotations for sso service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sso/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sso/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_sso.type_defs import AccountInfoTypeDef
 
-    data: AccountInfoTypeDef = {...}
+    data: AccountInfoTypeDef = ...
     ```
 """
 
-import sys
-from typing import Any, Dict, List
+from __future__ import annotations
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+import sys
+
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
     "AccountInfoTypeDef",
-    "GetRoleCredentialsRequestRequestTypeDef",
+    "EmptyResponseMetadataTypeDef",
+    "GetRoleCredentialsRequestTypeDef",
     "GetRoleCredentialsResponseTypeDef",
-    "ListAccountRolesRequestRequestTypeDef",
+    "ListAccountRolesRequestPaginateTypeDef",
+    "ListAccountRolesRequestTypeDef",
     "ListAccountRolesResponseTypeDef",
-    "ListAccountsRequestRequestTypeDef",
+    "ListAccountsRequestPaginateTypeDef",
+    "ListAccountsRequestTypeDef",
     "ListAccountsResponseTypeDef",
-    "LogoutRequestRequestTypeDef",
+    "LogoutRequestTypeDef",
     "PaginatorConfigTypeDef",
     "ResponseMetadataTypeDef",
     "RoleCredentialsTypeDef",
     "RoleInfoTypeDef",
 )
 
-AccountInfoTypeDef = TypedDict(
-    "AccountInfoTypeDef",
-    {
-        "accountId": str,
-        "accountName": str,
-        "emailAddress": str,
-    },
-    total=False,
-)
+class AccountInfoTypeDef(TypedDict):
+    accountId: NotRequired[str]
+    accountName: NotRequired[str]
+    emailAddress: NotRequired[str]
 
-GetRoleCredentialsRequestRequestTypeDef = TypedDict(
-    "GetRoleCredentialsRequestRequestTypeDef",
-    {
-        "roleName": str,
-        "accountId": str,
-        "accessToken": str,
-    },
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-GetRoleCredentialsResponseTypeDef = TypedDict(
-    "GetRoleCredentialsResponseTypeDef",
-    {
-        "roleCredentials": "RoleCredentialsTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetRoleCredentialsRequestTypeDef(TypedDict):
+    roleName: str
+    accountId: str
+    accessToken: str
 
-_RequiredListAccountRolesRequestRequestTypeDef = TypedDict(
-    "_RequiredListAccountRolesRequestRequestTypeDef",
-    {
-        "accessToken": str,
-        "accountId": str,
-    },
-)
-_OptionalListAccountRolesRequestRequestTypeDef = TypedDict(
-    "_OptionalListAccountRolesRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
+class RoleCredentialsTypeDef(TypedDict):
+    accessKeyId: NotRequired[str]
+    secretAccessKey: NotRequired[str]
+    sessionToken: NotRequired[str]
+    expiration: NotRequired[int]
 
-class ListAccountRolesRequestRequestTypeDef(
-    _RequiredListAccountRolesRequestRequestTypeDef, _OptionalListAccountRolesRequestRequestTypeDef
-):
-    pass
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
 
-ListAccountRolesResponseTypeDef = TypedDict(
-    "ListAccountRolesResponseTypeDef",
-    {
-        "nextToken": str,
-        "roleList": List["RoleInfoTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListAccountRolesRequestTypeDef(TypedDict):
+    accessToken: str
+    accountId: str
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
 
-_RequiredListAccountsRequestRequestTypeDef = TypedDict(
-    "_RequiredListAccountsRequestRequestTypeDef",
-    {
-        "accessToken": str,
-    },
-)
-_OptionalListAccountsRequestRequestTypeDef = TypedDict(
-    "_OptionalListAccountsRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
+class RoleInfoTypeDef(TypedDict):
+    roleName: NotRequired[str]
+    accountId: NotRequired[str]
 
-class ListAccountsRequestRequestTypeDef(
-    _RequiredListAccountsRequestRequestTypeDef, _OptionalListAccountsRequestRequestTypeDef
-):
-    pass
+class ListAccountsRequestTypeDef(TypedDict):
+    accessToken: str
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
 
-ListAccountsResponseTypeDef = TypedDict(
-    "ListAccountsResponseTypeDef",
-    {
-        "nextToken": str,
-        "accountList": List["AccountInfoTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class LogoutRequestTypeDef(TypedDict):
+    accessToken: str
 
-LogoutRequestRequestTypeDef = TypedDict(
-    "LogoutRequestRequestTypeDef",
-    {
-        "accessToken": str,
-    },
-)
+class EmptyResponseMetadataTypeDef(TypedDict):
+    ResponseMetadata: ResponseMetadataTypeDef
 
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
+class ListAccountsResponseTypeDef(TypedDict):
+    accountList: List[AccountInfoTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
+class GetRoleCredentialsResponseTypeDef(TypedDict):
+    roleCredentials: RoleCredentialsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-RoleCredentialsTypeDef = TypedDict(
-    "RoleCredentialsTypeDef",
-    {
-        "accessKeyId": str,
-        "secretAccessKey": str,
-        "sessionToken": str,
-        "expiration": int,
-    },
-    total=False,
-)
+class ListAccountRolesRequestPaginateTypeDef(TypedDict):
+    accessToken: str
+    accountId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-RoleInfoTypeDef = TypedDict(
-    "RoleInfoTypeDef",
-    {
-        "roleName": str,
-        "accountId": str,
-    },
-    total=False,
-)
+class ListAccountsRequestPaginateTypeDef(TypedDict):
+    accessToken: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListAccountRolesResponseTypeDef(TypedDict):
+    roleList: List[RoleInfoTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]

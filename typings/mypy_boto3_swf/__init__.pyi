@@ -1,10 +1,14 @@
 """
 Main interface for swf service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_swf/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_swf import (
         Client,
         GetWorkflowExecutionHistoryPaginator,
@@ -17,10 +21,8 @@ Usage::
         SWFClient,
     )
 
-    session = boto3.Session()
-
-    client: SWFClient = boto3.client("swf")
-    session_client: SWFClient = session.client("swf")
+    session = Session()
+    client: SWFClient = session.client("swf")
 
     get_workflow_execution_history_paginator: GetWorkflowExecutionHistoryPaginator = client.get_paginator("get_workflow_execution_history")
     list_activity_types_paginator: ListActivityTypesPaginator = client.get_paginator("list_activity_types")

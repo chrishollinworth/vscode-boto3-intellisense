@@ -1,20 +1,26 @@
 """
 Type annotations for neptunedata service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_neptunedata/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_neptunedata/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_neptunedata.type_defs import CancelGremlinQueryInputRequestTypeDef
+    from mypy_boto3_neptunedata.type_defs import CancelGremlinQueryInputTypeDef
 
-    data: CancelGremlinQueryInputRequestTypeDef = {...}
+    data: CancelGremlinQueryInputTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
+from typing import Any
+
+from botocore.response import StreamingBody
 
 from .literals import (
     ActionType,
@@ -28,96 +34,98 @@ from .literals import (
     StatisticsAutoGenerationModeType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
-    "CancelGremlinQueryInputRequestTypeDef",
+    "CancelGremlinQueryInputTypeDef",
     "CancelGremlinQueryOutputTypeDef",
-    "CancelLoaderJobInputRequestTypeDef",
+    "CancelLoaderJobInputTypeDef",
     "CancelLoaderJobOutputTypeDef",
-    "CancelMLDataProcessingJobInputRequestTypeDef",
+    "CancelMLDataProcessingJobInputTypeDef",
     "CancelMLDataProcessingJobOutputTypeDef",
-    "CancelMLModelTrainingJobInputRequestTypeDef",
+    "CancelMLModelTrainingJobInputTypeDef",
     "CancelMLModelTrainingJobOutputTypeDef",
-    "CancelMLModelTransformJobInputRequestTypeDef",
+    "CancelMLModelTransformJobInputTypeDef",
     "CancelMLModelTransformJobOutputTypeDef",
-    "CancelOpenCypherQueryInputRequestTypeDef",
+    "CancelOpenCypherQueryInputTypeDef",
     "CancelOpenCypherQueryOutputTypeDef",
-    "CreateMLEndpointInputRequestTypeDef",
+    "CreateMLEndpointInputTypeDef",
     "CreateMLEndpointOutputTypeDef",
     "CustomModelTrainingParametersTypeDef",
     "CustomModelTransformParametersTypeDef",
-    "DeleteMLEndpointInputRequestTypeDef",
+    "DeleteMLEndpointInputTypeDef",
     "DeleteMLEndpointOutputTypeDef",
     "DeletePropertygraphStatisticsOutputTypeDef",
     "DeleteSparqlStatisticsOutputTypeDef",
     "DeleteStatisticsValueMapTypeDef",
     "EdgeStructureTypeDef",
-    "ExecuteFastResetInputRequestTypeDef",
+    "ExecuteFastResetInputTypeDef",
     "ExecuteFastResetOutputTypeDef",
-    "ExecuteGremlinExplainQueryInputRequestTypeDef",
+    "ExecuteGremlinExplainQueryInputTypeDef",
     "ExecuteGremlinExplainQueryOutputTypeDef",
-    "ExecuteGremlinProfileQueryInputRequestTypeDef",
+    "ExecuteGremlinProfileQueryInputTypeDef",
     "ExecuteGremlinProfileQueryOutputTypeDef",
-    "ExecuteGremlinQueryInputRequestTypeDef",
+    "ExecuteGremlinQueryInputTypeDef",
     "ExecuteGremlinQueryOutputTypeDef",
-    "ExecuteOpenCypherExplainQueryInputRequestTypeDef",
+    "ExecuteOpenCypherExplainQueryInputTypeDef",
     "ExecuteOpenCypherExplainQueryOutputTypeDef",
-    "ExecuteOpenCypherQueryInputRequestTypeDef",
+    "ExecuteOpenCypherQueryInputTypeDef",
     "ExecuteOpenCypherQueryOutputTypeDef",
     "FastResetTokenTypeDef",
     "GetEngineStatusOutputTypeDef",
-    "GetGremlinQueryStatusInputRequestTypeDef",
+    "GetGremlinQueryStatusInputTypeDef",
     "GetGremlinQueryStatusOutputTypeDef",
-    "GetLoaderJobStatusInputRequestTypeDef",
+    "GetLoaderJobStatusInputTypeDef",
     "GetLoaderJobStatusOutputTypeDef",
-    "GetMLDataProcessingJobInputRequestTypeDef",
+    "GetMLDataProcessingJobInputTypeDef",
     "GetMLDataProcessingJobOutputTypeDef",
-    "GetMLEndpointInputRequestTypeDef",
+    "GetMLEndpointInputTypeDef",
     "GetMLEndpointOutputTypeDef",
-    "GetMLModelTrainingJobInputRequestTypeDef",
+    "GetMLModelTrainingJobInputTypeDef",
     "GetMLModelTrainingJobOutputTypeDef",
-    "GetMLModelTransformJobInputRequestTypeDef",
+    "GetMLModelTransformJobInputTypeDef",
     "GetMLModelTransformJobOutputTypeDef",
-    "GetOpenCypherQueryStatusInputRequestTypeDef",
+    "GetOpenCypherQueryStatusInputTypeDef",
     "GetOpenCypherQueryStatusOutputTypeDef",
     "GetPropertygraphStatisticsOutputTypeDef",
-    "GetPropertygraphStreamInputRequestTypeDef",
+    "GetPropertygraphStreamInputTypeDef",
     "GetPropertygraphStreamOutputTypeDef",
-    "GetPropertygraphSummaryInputRequestTypeDef",
+    "GetPropertygraphSummaryInputTypeDef",
     "GetPropertygraphSummaryOutputTypeDef",
-    "GetRDFGraphSummaryInputRequestTypeDef",
+    "GetRDFGraphSummaryInputTypeDef",
     "GetRDFGraphSummaryOutputTypeDef",
     "GetSparqlStatisticsOutputTypeDef",
-    "GetSparqlStreamInputRequestTypeDef",
+    "GetSparqlStreamInputTypeDef",
     "GetSparqlStreamOutputTypeDef",
     "GremlinQueryStatusAttributesTypeDef",
     "GremlinQueryStatusTypeDef",
-    "ListGremlinQueriesInputRequestTypeDef",
+    "ListGremlinQueriesInputTypeDef",
     "ListGremlinQueriesOutputTypeDef",
-    "ListLoaderJobsInputRequestTypeDef",
+    "ListLoaderJobsInputTypeDef",
     "ListLoaderJobsOutputTypeDef",
-    "ListMLDataProcessingJobsInputRequestTypeDef",
+    "ListMLDataProcessingJobsInputTypeDef",
     "ListMLDataProcessingJobsOutputTypeDef",
-    "ListMLEndpointsInputRequestTypeDef",
+    "ListMLEndpointsInputTypeDef",
     "ListMLEndpointsOutputTypeDef",
-    "ListMLModelTrainingJobsInputRequestTypeDef",
+    "ListMLModelTrainingJobsInputTypeDef",
     "ListMLModelTrainingJobsOutputTypeDef",
-    "ListMLModelTransformJobsInputRequestTypeDef",
+    "ListMLModelTransformJobsInputTypeDef",
     "ListMLModelTransformJobsOutputTypeDef",
-    "ListOpenCypherQueriesInputRequestTypeDef",
+    "ListOpenCypherQueriesInputTypeDef",
     "ListOpenCypherQueriesOutputTypeDef",
     "LoaderIdResultTypeDef",
-    "ManagePropertygraphStatisticsInputRequestTypeDef",
+    "ManagePropertygraphStatisticsInputTypeDef",
     "ManagePropertygraphStatisticsOutputTypeDef",
-    "ManageSparqlStatisticsInputRequestTypeDef",
+    "ManageSparqlStatisticsInputTypeDef",
     "ManageSparqlStatisticsOutputTypeDef",
     "MlConfigDefinitionTypeDef",
     "MlResourceDefinitionTypeDef",
@@ -134,180 +142,351 @@ __all__ = (
     "ResponseMetadataTypeDef",
     "SparqlDataTypeDef",
     "SparqlRecordTypeDef",
-    "StartLoaderJobInputRequestTypeDef",
+    "StartLoaderJobInputTypeDef",
     "StartLoaderJobOutputTypeDef",
-    "StartMLDataProcessingJobInputRequestTypeDef",
+    "StartMLDataProcessingJobInputTypeDef",
     "StartMLDataProcessingJobOutputTypeDef",
-    "StartMLModelTrainingJobInputRequestTypeDef",
+    "StartMLModelTrainingJobInputTypeDef",
     "StartMLModelTrainingJobOutputTypeDef",
-    "StartMLModelTransformJobInputRequestTypeDef",
+    "StartMLModelTransformJobInputTypeDef",
     "StartMLModelTransformJobOutputTypeDef",
     "StatisticsSummaryTypeDef",
     "StatisticsTypeDef",
     "SubjectStructureTypeDef",
 )
 
-CancelGremlinQueryInputRequestTypeDef = TypedDict(
-    "CancelGremlinQueryInputRequestTypeDef",
-    {
-        "queryId": str,
-    },
-)
+class CancelGremlinQueryInputTypeDef(TypedDict):
+    queryId: str
 
-CancelGremlinQueryOutputTypeDef = TypedDict(
-    "CancelGremlinQueryOutputTypeDef",
-    {
-        "status": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-CancelLoaderJobInputRequestTypeDef = TypedDict(
-    "CancelLoaderJobInputRequestTypeDef",
-    {
-        "loadId": str,
-    },
-)
+class CancelLoaderJobInputTypeDef(TypedDict):
+    loadId: str
 
-CancelLoaderJobOutputTypeDef = TypedDict(
-    "CancelLoaderJobOutputTypeDef",
-    {
-        "status": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCancelMLDataProcessingJobInputRequestTypeDef = TypedDict(
-    "_RequiredCancelMLDataProcessingJobInputRequestTypeDef",
+CancelMLDataProcessingJobInputTypeDef = TypedDict(
+    "CancelMLDataProcessingJobInputTypeDef",
     {
         "id": str,
+        "neptuneIamRoleArn": NotRequired[str],
+        "clean": NotRequired[bool],
     },
 )
-_OptionalCancelMLDataProcessingJobInputRequestTypeDef = TypedDict(
-    "_OptionalCancelMLDataProcessingJobInputRequestTypeDef",
-    {
-        "neptuneIamRoleArn": str,
-        "clean": bool,
-    },
-    total=False,
-)
-
-class CancelMLDataProcessingJobInputRequestTypeDef(
-    _RequiredCancelMLDataProcessingJobInputRequestTypeDef,
-    _OptionalCancelMLDataProcessingJobInputRequestTypeDef,
-):
-    pass
-
-CancelMLDataProcessingJobOutputTypeDef = TypedDict(
-    "CancelMLDataProcessingJobOutputTypeDef",
-    {
-        "status": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCancelMLModelTrainingJobInputRequestTypeDef = TypedDict(
-    "_RequiredCancelMLModelTrainingJobInputRequestTypeDef",
+CancelMLModelTrainingJobInputTypeDef = TypedDict(
+    "CancelMLModelTrainingJobInputTypeDef",
     {
         "id": str,
+        "neptuneIamRoleArn": NotRequired[str],
+        "clean": NotRequired[bool],
     },
 )
-_OptionalCancelMLModelTrainingJobInputRequestTypeDef = TypedDict(
-    "_OptionalCancelMLModelTrainingJobInputRequestTypeDef",
-    {
-        "neptuneIamRoleArn": str,
-        "clean": bool,
-    },
-    total=False,
-)
-
-class CancelMLModelTrainingJobInputRequestTypeDef(
-    _RequiredCancelMLModelTrainingJobInputRequestTypeDef,
-    _OptionalCancelMLModelTrainingJobInputRequestTypeDef,
-):
-    pass
-
-CancelMLModelTrainingJobOutputTypeDef = TypedDict(
-    "CancelMLModelTrainingJobOutputTypeDef",
-    {
-        "status": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCancelMLModelTransformJobInputRequestTypeDef = TypedDict(
-    "_RequiredCancelMLModelTransformJobInputRequestTypeDef",
+CancelMLModelTransformJobInputTypeDef = TypedDict(
+    "CancelMLModelTransformJobInputTypeDef",
     {
         "id": str,
+        "neptuneIamRoleArn": NotRequired[str],
+        "clean": NotRequired[bool],
     },
 )
-_OptionalCancelMLModelTransformJobInputRequestTypeDef = TypedDict(
-    "_OptionalCancelMLModelTransformJobInputRequestTypeDef",
+
+class CancelOpenCypherQueryInputTypeDef(TypedDict):
+    queryId: str
+    silent: NotRequired[bool]
+
+CreateMLEndpointInputTypeDef = TypedDict(
+    "CreateMLEndpointInputTypeDef",
     {
-        "neptuneIamRoleArn": str,
-        "clean": bool,
-    },
-    total=False,
-)
-
-class CancelMLModelTransformJobInputRequestTypeDef(
-    _RequiredCancelMLModelTransformJobInputRequestTypeDef,
-    _OptionalCancelMLModelTransformJobInputRequestTypeDef,
-):
-    pass
-
-CancelMLModelTransformJobOutputTypeDef = TypedDict(
-    "CancelMLModelTransformJobOutputTypeDef",
-    {
-        "status": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "id": NotRequired[str],
+        "mlModelTrainingJobId": NotRequired[str],
+        "mlModelTransformJobId": NotRequired[str],
+        "update": NotRequired[bool],
+        "neptuneIamRoleArn": NotRequired[str],
+        "modelName": NotRequired[str],
+        "instanceType": NotRequired[str],
+        "instanceCount": NotRequired[int],
+        "volumeEncryptionKMSKey": NotRequired[str],
     },
 )
 
-_RequiredCancelOpenCypherQueryInputRequestTypeDef = TypedDict(
-    "_RequiredCancelOpenCypherQueryInputRequestTypeDef",
-    {
-        "queryId": str,
-    },
-)
-_OptionalCancelOpenCypherQueryInputRequestTypeDef = TypedDict(
-    "_OptionalCancelOpenCypherQueryInputRequestTypeDef",
-    {
-        "silent": bool,
-    },
-    total=False,
-)
+class CustomModelTrainingParametersTypeDef(TypedDict):
+    sourceS3DirectoryPath: str
+    trainingEntryPointScript: NotRequired[str]
+    transformEntryPointScript: NotRequired[str]
 
-class CancelOpenCypherQueryInputRequestTypeDef(
-    _RequiredCancelOpenCypherQueryInputRequestTypeDef,
-    _OptionalCancelOpenCypherQueryInputRequestTypeDef,
-):
-    pass
+class CustomModelTransformParametersTypeDef(TypedDict):
+    sourceS3DirectoryPath: str
+    transformEntryPointScript: NotRequired[str]
 
-CancelOpenCypherQueryOutputTypeDef = TypedDict(
-    "CancelOpenCypherQueryOutputTypeDef",
-    {
-        "status": str,
-        "payload": bool,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateMLEndpointInputRequestTypeDef = TypedDict(
-    "CreateMLEndpointInputRequestTypeDef",
+DeleteMLEndpointInputTypeDef = TypedDict(
+    "DeleteMLEndpointInputTypeDef",
     {
         "id": str,
-        "mlModelTrainingJobId": str,
-        "mlModelTransformJobId": str,
-        "update": bool,
-        "neptuneIamRoleArn": str,
-        "modelName": str,
-        "instanceType": str,
-        "instanceCount": int,
-        "volumeEncryptionKMSKey": str,
+        "neptuneIamRoleArn": NotRequired[str],
+        "clean": NotRequired[bool],
     },
-    total=False,
 )
+
+class DeleteStatisticsValueMapTypeDef(TypedDict):
+    active: NotRequired[bool]
+    statisticsId: NotRequired[str]
+
+class EdgeStructureTypeDef(TypedDict):
+    count: NotRequired[int]
+    edgeProperties: NotRequired[List[str]]
+
+class ExecuteFastResetInputTypeDef(TypedDict):
+    action: ActionType
+    token: NotRequired[str]
+
+class FastResetTokenTypeDef(TypedDict):
+    token: NotRequired[str]
+
+class ExecuteGremlinExplainQueryInputTypeDef(TypedDict):
+    gremlinQuery: str
+
+class ExecuteGremlinProfileQueryInputTypeDef(TypedDict):
+    gremlinQuery: str
+    results: NotRequired[bool]
+    chop: NotRequired[int]
+    serializer: NotRequired[str]
+    indexOps: NotRequired[bool]
+
+class ExecuteGremlinQueryInputTypeDef(TypedDict):
+    gremlinQuery: str
+    serializer: NotRequired[str]
+
+class GremlinQueryStatusAttributesTypeDef(TypedDict):
+    message: NotRequired[str]
+    code: NotRequired[int]
+    attributes: NotRequired[Dict[str, Any]]
+
+class ExecuteOpenCypherExplainQueryInputTypeDef(TypedDict):
+    openCypherQuery: str
+    explainMode: OpenCypherExplainModeType
+    parameters: NotRequired[str]
+
+class ExecuteOpenCypherQueryInputTypeDef(TypedDict):
+    openCypherQuery: str
+    parameters: NotRequired[str]
+
+class QueryLanguageVersionTypeDef(TypedDict):
+    version: str
+
+class GetGremlinQueryStatusInputTypeDef(TypedDict):
+    queryId: str
+
+class QueryEvalStatsTypeDef(TypedDict):
+    waited: NotRequired[int]
+    elapsed: NotRequired[int]
+    cancelled: NotRequired[bool]
+    subqueries: NotRequired[Dict[str, Any]]
+
+class GetLoaderJobStatusInputTypeDef(TypedDict):
+    loadId: str
+    details: NotRequired[bool]
+    errors: NotRequired[bool]
+    page: NotRequired[int]
+    errorsPerPage: NotRequired[int]
+
+GetMLDataProcessingJobInputTypeDef = TypedDict(
+    "GetMLDataProcessingJobInputTypeDef",
+    {
+        "id": str,
+        "neptuneIamRoleArn": NotRequired[str],
+    },
+)
+
+class MlResourceDefinitionTypeDef(TypedDict):
+    name: NotRequired[str]
+    arn: NotRequired[str]
+    status: NotRequired[str]
+    outputLocation: NotRequired[str]
+    failureReason: NotRequired[str]
+    cloudwatchLogUrl: NotRequired[str]
+
+GetMLEndpointInputTypeDef = TypedDict(
+    "GetMLEndpointInputTypeDef",
+    {
+        "id": str,
+        "neptuneIamRoleArn": NotRequired[str],
+    },
+)
+
+class MlConfigDefinitionTypeDef(TypedDict):
+    name: NotRequired[str]
+    arn: NotRequired[str]
+
+GetMLModelTrainingJobInputTypeDef = TypedDict(
+    "GetMLModelTrainingJobInputTypeDef",
+    {
+        "id": str,
+        "neptuneIamRoleArn": NotRequired[str],
+    },
+)
+GetMLModelTransformJobInputTypeDef = TypedDict(
+    "GetMLModelTransformJobInputTypeDef",
+    {
+        "id": str,
+        "neptuneIamRoleArn": NotRequired[str],
+    },
+)
+
+class GetOpenCypherQueryStatusInputTypeDef(TypedDict):
+    queryId: str
+
+class GetPropertygraphStreamInputTypeDef(TypedDict):
+    limit: NotRequired[int]
+    iteratorType: NotRequired[IteratorTypeType]
+    commitNum: NotRequired[int]
+    opNum: NotRequired[int]
+    encoding: NotRequired[Literal["gzip"]]
+
+class GetPropertygraphSummaryInputTypeDef(TypedDict):
+    mode: NotRequired[GraphSummaryTypeType]
+
+class GetRDFGraphSummaryInputTypeDef(TypedDict):
+    mode: NotRequired[GraphSummaryTypeType]
+
+class GetSparqlStreamInputTypeDef(TypedDict):
+    limit: NotRequired[int]
+    iteratorType: NotRequired[IteratorTypeType]
+    commitNum: NotRequired[int]
+    opNum: NotRequired[int]
+    encoding: NotRequired[Literal["gzip"]]
+
+class ListGremlinQueriesInputTypeDef(TypedDict):
+    includeWaiting: NotRequired[bool]
+
+class ListLoaderJobsInputTypeDef(TypedDict):
+    limit: NotRequired[int]
+    includeQueuedLoads: NotRequired[bool]
+
+class LoaderIdResultTypeDef(TypedDict):
+    loadIds: NotRequired[List[str]]
+
+class ListMLDataProcessingJobsInputTypeDef(TypedDict):
+    maxItems: NotRequired[int]
+    neptuneIamRoleArn: NotRequired[str]
+
+class ListMLEndpointsInputTypeDef(TypedDict):
+    maxItems: NotRequired[int]
+    neptuneIamRoleArn: NotRequired[str]
+
+class ListMLModelTrainingJobsInputTypeDef(TypedDict):
+    maxItems: NotRequired[int]
+    neptuneIamRoleArn: NotRequired[str]
+
+class ListMLModelTransformJobsInputTypeDef(TypedDict):
+    maxItems: NotRequired[int]
+    neptuneIamRoleArn: NotRequired[str]
+
+class ListOpenCypherQueriesInputTypeDef(TypedDict):
+    includeWaiting: NotRequired[bool]
+
+class ManagePropertygraphStatisticsInputTypeDef(TypedDict):
+    mode: NotRequired[StatisticsAutoGenerationModeType]
+
+class RefreshStatisticsIdMapTypeDef(TypedDict):
+    statisticsId: NotRequired[str]
+
+class ManageSparqlStatisticsInputTypeDef(TypedDict):
+    mode: NotRequired[StatisticsAutoGenerationModeType]
+
+class NodeStructureTypeDef(TypedDict):
+    count: NotRequired[int]
+    nodeProperties: NotRequired[List[str]]
+    distinctOutgoingEdgeLabels: NotRequired[List[str]]
+
+PropertygraphDataTypeDef = TypedDict(
+    "PropertygraphDataTypeDef",
+    {
+        "id": str,
+        "type": str,
+        "key": str,
+        "value": Dict[str, Any],
+        "from": NotRequired[str],
+        "to": NotRequired[str],
+    },
+)
+
+class SubjectStructureTypeDef(TypedDict):
+    count: NotRequired[int]
+    predicates: NotRequired[List[str]]
+
+class SparqlDataTypeDef(TypedDict):
+    stmt: str
+
+StartLoaderJobInputTypeDef = TypedDict(
+    "StartLoaderJobInputTypeDef",
+    {
+        "source": str,
+        "format": FormatType,
+        "s3BucketRegion": S3BucketRegionType,
+        "iamRoleArn": str,
+        "mode": NotRequired[ModeType],
+        "failOnError": NotRequired[bool],
+        "parallelism": NotRequired[ParallelismType],
+        "parserConfiguration": NotRequired[Mapping[str, str]],
+        "updateSingleCardinalityProperties": NotRequired[bool],
+        "queueRequest": NotRequired[bool],
+        "dependencies": NotRequired[Sequence[str]],
+        "userProvidedEdgeIds": NotRequired[bool],
+    },
+)
+StartMLDataProcessingJobInputTypeDef = TypedDict(
+    "StartMLDataProcessingJobInputTypeDef",
+    {
+        "inputDataS3Location": str,
+        "processedDataS3Location": str,
+        "id": NotRequired[str],
+        "previousDataProcessingJobId": NotRequired[str],
+        "sagemakerIamRoleArn": NotRequired[str],
+        "neptuneIamRoleArn": NotRequired[str],
+        "processingInstanceType": NotRequired[str],
+        "processingInstanceVolumeSizeInGB": NotRequired[int],
+        "processingTimeOutInSeconds": NotRequired[int],
+        "modelType": NotRequired[str],
+        "configFileName": NotRequired[str],
+        "subnets": NotRequired[Sequence[str]],
+        "securityGroupIds": NotRequired[Sequence[str]],
+        "volumeEncryptionKMSKey": NotRequired[str],
+        "s3OutputEncryptionKMSKey": NotRequired[str],
+    },
+)
+
+class StatisticsSummaryTypeDef(TypedDict):
+    signatureCount: NotRequired[int]
+    instanceCount: NotRequired[int]
+    predicateCount: NotRequired[int]
+
+class CancelGremlinQueryOutputTypeDef(TypedDict):
+    status: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CancelLoaderJobOutputTypeDef(TypedDict):
+    status: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CancelMLDataProcessingJobOutputTypeDef(TypedDict):
+    status: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CancelMLModelTrainingJobOutputTypeDef(TypedDict):
+    status: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CancelMLModelTransformJobOutputTypeDef(TypedDict):
+    status: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CancelOpenCypherQueryOutputTypeDef(TypedDict):
+    status: str
+    payload: bool
+    ResponseMetadata: ResponseMetadataTypeDef
 
 CreateMLEndpointOutputTypeDef = TypedDict(
     "CreateMLEndpointOutputTypeDef",
@@ -315,1044 +494,55 @@ CreateMLEndpointOutputTypeDef = TypedDict(
         "id": str,
         "arn": str,
         "creationTimeInMillis": int,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
 
-_RequiredCustomModelTrainingParametersTypeDef = TypedDict(
-    "_RequiredCustomModelTrainingParametersTypeDef",
-    {
-        "sourceS3DirectoryPath": str,
-    },
-)
-_OptionalCustomModelTrainingParametersTypeDef = TypedDict(
-    "_OptionalCustomModelTrainingParametersTypeDef",
-    {
-        "trainingEntryPointScript": str,
-        "transformEntryPointScript": str,
-    },
-    total=False,
-)
-
-class CustomModelTrainingParametersTypeDef(
-    _RequiredCustomModelTrainingParametersTypeDef, _OptionalCustomModelTrainingParametersTypeDef
-):
-    pass
-
-_RequiredCustomModelTransformParametersTypeDef = TypedDict(
-    "_RequiredCustomModelTransformParametersTypeDef",
-    {
-        "sourceS3DirectoryPath": str,
-    },
-)
-_OptionalCustomModelTransformParametersTypeDef = TypedDict(
-    "_OptionalCustomModelTransformParametersTypeDef",
-    {
-        "transformEntryPointScript": str,
-    },
-    total=False,
-)
-
-class CustomModelTransformParametersTypeDef(
-    _RequiredCustomModelTransformParametersTypeDef, _OptionalCustomModelTransformParametersTypeDef
-):
-    pass
-
-_RequiredDeleteMLEndpointInputRequestTypeDef = TypedDict(
-    "_RequiredDeleteMLEndpointInputRequestTypeDef",
-    {
-        "id": str,
-    },
-)
-_OptionalDeleteMLEndpointInputRequestTypeDef = TypedDict(
-    "_OptionalDeleteMLEndpointInputRequestTypeDef",
-    {
-        "neptuneIamRoleArn": str,
-        "clean": bool,
-    },
-    total=False,
-)
-
-class DeleteMLEndpointInputRequestTypeDef(
-    _RequiredDeleteMLEndpointInputRequestTypeDef, _OptionalDeleteMLEndpointInputRequestTypeDef
-):
-    pass
-
-DeleteMLEndpointOutputTypeDef = TypedDict(
-    "DeleteMLEndpointOutputTypeDef",
-    {
-        "status": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeletePropertygraphStatisticsOutputTypeDef = TypedDict(
-    "DeletePropertygraphStatisticsOutputTypeDef",
-    {
-        "statusCode": int,
-        "status": str,
-        "payload": "DeleteStatisticsValueMapTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteSparqlStatisticsOutputTypeDef = TypedDict(
-    "DeleteSparqlStatisticsOutputTypeDef",
-    {
-        "statusCode": int,
-        "status": str,
-        "payload": "DeleteStatisticsValueMapTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteStatisticsValueMapTypeDef = TypedDict(
-    "DeleteStatisticsValueMapTypeDef",
-    {
-        "active": bool,
-        "statisticsId": str,
-    },
-    total=False,
-)
-
-EdgeStructureTypeDef = TypedDict(
-    "EdgeStructureTypeDef",
-    {
-        "count": int,
-        "edgeProperties": List[str],
-    },
-    total=False,
-)
-
-_RequiredExecuteFastResetInputRequestTypeDef = TypedDict(
-    "_RequiredExecuteFastResetInputRequestTypeDef",
-    {
-        "action": ActionType,
-    },
-)
-_OptionalExecuteFastResetInputRequestTypeDef = TypedDict(
-    "_OptionalExecuteFastResetInputRequestTypeDef",
-    {
-        "token": str,
-    },
-    total=False,
-)
-
-class ExecuteFastResetInputRequestTypeDef(
-    _RequiredExecuteFastResetInputRequestTypeDef, _OptionalExecuteFastResetInputRequestTypeDef
-):
-    pass
-
-ExecuteFastResetOutputTypeDef = TypedDict(
-    "ExecuteFastResetOutputTypeDef",
-    {
-        "status": str,
-        "payload": "FastResetTokenTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ExecuteGremlinExplainQueryInputRequestTypeDef = TypedDict(
-    "ExecuteGremlinExplainQueryInputRequestTypeDef",
-    {
-        "gremlinQuery": str,
-    },
-)
-
-ExecuteGremlinExplainQueryOutputTypeDef = TypedDict(
-    "ExecuteGremlinExplainQueryOutputTypeDef",
-    {
-        "output": bytes,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredExecuteGremlinProfileQueryInputRequestTypeDef = TypedDict(
-    "_RequiredExecuteGremlinProfileQueryInputRequestTypeDef",
-    {
-        "gremlinQuery": str,
-    },
-)
-_OptionalExecuteGremlinProfileQueryInputRequestTypeDef = TypedDict(
-    "_OptionalExecuteGremlinProfileQueryInputRequestTypeDef",
-    {
-        "results": bool,
-        "chop": int,
-        "serializer": str,
-        "indexOps": bool,
-    },
-    total=False,
-)
-
-class ExecuteGremlinProfileQueryInputRequestTypeDef(
-    _RequiredExecuteGremlinProfileQueryInputRequestTypeDef,
-    _OptionalExecuteGremlinProfileQueryInputRequestTypeDef,
-):
-    pass
-
-ExecuteGremlinProfileQueryOutputTypeDef = TypedDict(
-    "ExecuteGremlinProfileQueryOutputTypeDef",
-    {
-        "output": bytes,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredExecuteGremlinQueryInputRequestTypeDef = TypedDict(
-    "_RequiredExecuteGremlinQueryInputRequestTypeDef",
-    {
-        "gremlinQuery": str,
-    },
-)
-_OptionalExecuteGremlinQueryInputRequestTypeDef = TypedDict(
-    "_OptionalExecuteGremlinQueryInputRequestTypeDef",
-    {
-        "serializer": str,
-    },
-    total=False,
-)
-
-class ExecuteGremlinQueryInputRequestTypeDef(
-    _RequiredExecuteGremlinQueryInputRequestTypeDef, _OptionalExecuteGremlinQueryInputRequestTypeDef
-):
-    pass
-
-ExecuteGremlinQueryOutputTypeDef = TypedDict(
-    "ExecuteGremlinQueryOutputTypeDef",
-    {
-        "requestId": str,
-        "status": "GremlinQueryStatusAttributesTypeDef",
-        "result": Dict[str, Any],
-        "meta": Dict[str, Any],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredExecuteOpenCypherExplainQueryInputRequestTypeDef = TypedDict(
-    "_RequiredExecuteOpenCypherExplainQueryInputRequestTypeDef",
-    {
-        "openCypherQuery": str,
-        "explainMode": OpenCypherExplainModeType,
-    },
-)
-_OptionalExecuteOpenCypherExplainQueryInputRequestTypeDef = TypedDict(
-    "_OptionalExecuteOpenCypherExplainQueryInputRequestTypeDef",
-    {
-        "parameters": str,
-    },
-    total=False,
-)
-
-class ExecuteOpenCypherExplainQueryInputRequestTypeDef(
-    _RequiredExecuteOpenCypherExplainQueryInputRequestTypeDef,
-    _OptionalExecuteOpenCypherExplainQueryInputRequestTypeDef,
-):
-    pass
-
-ExecuteOpenCypherExplainQueryOutputTypeDef = TypedDict(
-    "ExecuteOpenCypherExplainQueryOutputTypeDef",
-    {
-        "results": bytes,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredExecuteOpenCypherQueryInputRequestTypeDef = TypedDict(
-    "_RequiredExecuteOpenCypherQueryInputRequestTypeDef",
-    {
-        "openCypherQuery": str,
-    },
-)
-_OptionalExecuteOpenCypherQueryInputRequestTypeDef = TypedDict(
-    "_OptionalExecuteOpenCypherQueryInputRequestTypeDef",
-    {
-        "parameters": str,
-    },
-    total=False,
-)
-
-class ExecuteOpenCypherQueryInputRequestTypeDef(
-    _RequiredExecuteOpenCypherQueryInputRequestTypeDef,
-    _OptionalExecuteOpenCypherQueryInputRequestTypeDef,
-):
-    pass
-
-ExecuteOpenCypherQueryOutputTypeDef = TypedDict(
-    "ExecuteOpenCypherQueryOutputTypeDef",
-    {
-        "results": Dict[str, Any],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-FastResetTokenTypeDef = TypedDict(
-    "FastResetTokenTypeDef",
-    {
-        "token": str,
-    },
-    total=False,
-)
-
-GetEngineStatusOutputTypeDef = TypedDict(
-    "GetEngineStatusOutputTypeDef",
-    {
-        "status": str,
-        "startTime": str,
-        "dbEngineVersion": str,
-        "role": str,
-        "dfeQueryEngine": str,
-        "gremlin": "QueryLanguageVersionTypeDef",
-        "sparql": "QueryLanguageVersionTypeDef",
-        "opencypher": "QueryLanguageVersionTypeDef",
-        "labMode": Dict[str, str],
-        "rollingBackTrxCount": int,
-        "rollingBackTrxEarliestStartTime": str,
-        "features": Dict[str, Dict[str, Any]],
-        "settings": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetGremlinQueryStatusInputRequestTypeDef = TypedDict(
-    "GetGremlinQueryStatusInputRequestTypeDef",
-    {
-        "queryId": str,
-    },
-)
-
-GetGremlinQueryStatusOutputTypeDef = TypedDict(
-    "GetGremlinQueryStatusOutputTypeDef",
-    {
-        "queryId": str,
-        "queryString": str,
-        "queryEvalStats": "QueryEvalStatsTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetLoaderJobStatusInputRequestTypeDef = TypedDict(
-    "_RequiredGetLoaderJobStatusInputRequestTypeDef",
-    {
-        "loadId": str,
-    },
-)
-_OptionalGetLoaderJobStatusInputRequestTypeDef = TypedDict(
-    "_OptionalGetLoaderJobStatusInputRequestTypeDef",
-    {
-        "details": bool,
-        "errors": bool,
-        "page": int,
-        "errorsPerPage": int,
-    },
-    total=False,
-)
-
-class GetLoaderJobStatusInputRequestTypeDef(
-    _RequiredGetLoaderJobStatusInputRequestTypeDef, _OptionalGetLoaderJobStatusInputRequestTypeDef
-):
-    pass
-
-GetLoaderJobStatusOutputTypeDef = TypedDict(
-    "GetLoaderJobStatusOutputTypeDef",
-    {
-        "status": str,
-        "payload": Dict[str, Any],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetMLDataProcessingJobInputRequestTypeDef = TypedDict(
-    "_RequiredGetMLDataProcessingJobInputRequestTypeDef",
-    {
-        "id": str,
-    },
-)
-_OptionalGetMLDataProcessingJobInputRequestTypeDef = TypedDict(
-    "_OptionalGetMLDataProcessingJobInputRequestTypeDef",
-    {
-        "neptuneIamRoleArn": str,
-    },
-    total=False,
-)
-
-class GetMLDataProcessingJobInputRequestTypeDef(
-    _RequiredGetMLDataProcessingJobInputRequestTypeDef,
-    _OptionalGetMLDataProcessingJobInputRequestTypeDef,
-):
-    pass
-
-GetMLDataProcessingJobOutputTypeDef = TypedDict(
-    "GetMLDataProcessingJobOutputTypeDef",
-    {
-        "status": str,
-        "id": str,
-        "processingJob": "MlResourceDefinitionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetMLEndpointInputRequestTypeDef = TypedDict(
-    "_RequiredGetMLEndpointInputRequestTypeDef",
-    {
-        "id": str,
-    },
-)
-_OptionalGetMLEndpointInputRequestTypeDef = TypedDict(
-    "_OptionalGetMLEndpointInputRequestTypeDef",
-    {
-        "neptuneIamRoleArn": str,
-    },
-    total=False,
-)
-
-class GetMLEndpointInputRequestTypeDef(
-    _RequiredGetMLEndpointInputRequestTypeDef, _OptionalGetMLEndpointInputRequestTypeDef
-):
-    pass
-
-GetMLEndpointOutputTypeDef = TypedDict(
-    "GetMLEndpointOutputTypeDef",
-    {
-        "status": str,
-        "id": str,
-        "endpoint": "MlResourceDefinitionTypeDef",
-        "endpointConfig": "MlConfigDefinitionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetMLModelTrainingJobInputRequestTypeDef = TypedDict(
-    "_RequiredGetMLModelTrainingJobInputRequestTypeDef",
-    {
-        "id": str,
-    },
-)
-_OptionalGetMLModelTrainingJobInputRequestTypeDef = TypedDict(
-    "_OptionalGetMLModelTrainingJobInputRequestTypeDef",
-    {
-        "neptuneIamRoleArn": str,
-    },
-    total=False,
-)
-
-class GetMLModelTrainingJobInputRequestTypeDef(
-    _RequiredGetMLModelTrainingJobInputRequestTypeDef,
-    _OptionalGetMLModelTrainingJobInputRequestTypeDef,
-):
-    pass
-
-GetMLModelTrainingJobOutputTypeDef = TypedDict(
-    "GetMLModelTrainingJobOutputTypeDef",
-    {
-        "status": str,
-        "id": str,
-        "processingJob": "MlResourceDefinitionTypeDef",
-        "hpoJob": "MlResourceDefinitionTypeDef",
-        "modelTransformJob": "MlResourceDefinitionTypeDef",
-        "mlModels": List["MlConfigDefinitionTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetMLModelTransformJobInputRequestTypeDef = TypedDict(
-    "_RequiredGetMLModelTransformJobInputRequestTypeDef",
-    {
-        "id": str,
-    },
-)
-_OptionalGetMLModelTransformJobInputRequestTypeDef = TypedDict(
-    "_OptionalGetMLModelTransformJobInputRequestTypeDef",
-    {
-        "neptuneIamRoleArn": str,
-    },
-    total=False,
-)
-
-class GetMLModelTransformJobInputRequestTypeDef(
-    _RequiredGetMLModelTransformJobInputRequestTypeDef,
-    _OptionalGetMLModelTransformJobInputRequestTypeDef,
-):
-    pass
-
-GetMLModelTransformJobOutputTypeDef = TypedDict(
-    "GetMLModelTransformJobOutputTypeDef",
-    {
-        "status": str,
-        "id": str,
-        "baseProcessingJob": "MlResourceDefinitionTypeDef",
-        "remoteModelTransformJob": "MlResourceDefinitionTypeDef",
-        "models": List["MlConfigDefinitionTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetOpenCypherQueryStatusInputRequestTypeDef = TypedDict(
-    "GetOpenCypherQueryStatusInputRequestTypeDef",
-    {
-        "queryId": str,
-    },
-)
-
-GetOpenCypherQueryStatusOutputTypeDef = TypedDict(
-    "GetOpenCypherQueryStatusOutputTypeDef",
-    {
-        "queryId": str,
-        "queryString": str,
-        "queryEvalStats": "QueryEvalStatsTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetPropertygraphStatisticsOutputTypeDef = TypedDict(
-    "GetPropertygraphStatisticsOutputTypeDef",
-    {
-        "status": str,
-        "payload": "StatisticsTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DeleteMLEndpointOutputTypeDef(TypedDict):
+    status: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-GetPropertygraphStreamInputRequestTypeDef = TypedDict(
-    "GetPropertygraphStreamInputRequestTypeDef",
-    {
-        "limit": int,
-        "iteratorType": IteratorTypeType,
-        "commitNum": int,
-        "opNum": int,
-        "encoding": Literal["gzip"],
-    },
-    total=False,
-)
-
-GetPropertygraphStreamOutputTypeDef = TypedDict(
-    "GetPropertygraphStreamOutputTypeDef",
-    {
-        "lastEventId": Dict[str, str],
-        "lastTrxTimestampInMillis": int,
-        "format": str,
-        "records": List["PropertygraphRecordTypeDef"],
-        "totalRecords": int,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetPropertygraphSummaryInputRequestTypeDef = TypedDict(
-    "GetPropertygraphSummaryInputRequestTypeDef",
-    {
-        "mode": GraphSummaryTypeType,
-    },
-    total=False,
-)
-
-GetPropertygraphSummaryOutputTypeDef = TypedDict(
-    "GetPropertygraphSummaryOutputTypeDef",
-    {
-        "statusCode": int,
-        "payload": "PropertygraphSummaryValueMapTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetRDFGraphSummaryInputRequestTypeDef = TypedDict(
-    "GetRDFGraphSummaryInputRequestTypeDef",
-    {
-        "mode": GraphSummaryTypeType,
-    },
-    total=False,
-)
-
-GetRDFGraphSummaryOutputTypeDef = TypedDict(
-    "GetRDFGraphSummaryOutputTypeDef",
-    {
-        "statusCode": int,
-        "payload": "RDFGraphSummaryValueMapTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetSparqlStatisticsOutputTypeDef = TypedDict(
-    "GetSparqlStatisticsOutputTypeDef",
-    {
-        "status": str,
-        "payload": "StatisticsTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetSparqlStreamInputRequestTypeDef = TypedDict(
-    "GetSparqlStreamInputRequestTypeDef",
-    {
-        "limit": int,
-        "iteratorType": IteratorTypeType,
-        "commitNum": int,
-        "opNum": int,
-        "encoding": Literal["gzip"],
-    },
-    total=False,
-)
-
-GetSparqlStreamOutputTypeDef = TypedDict(
-    "GetSparqlStreamOutputTypeDef",
-    {
-        "lastEventId": Dict[str, str],
-        "lastTrxTimestampInMillis": int,
-        "format": str,
-        "records": List["SparqlRecordTypeDef"],
-        "totalRecords": int,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GremlinQueryStatusAttributesTypeDef = TypedDict(
-    "GremlinQueryStatusAttributesTypeDef",
-    {
-        "message": str,
-        "code": int,
-        "attributes": Dict[str, Any],
-    },
-    total=False,
-)
-
-GremlinQueryStatusTypeDef = TypedDict(
-    "GremlinQueryStatusTypeDef",
-    {
-        "queryId": str,
-        "queryString": str,
-        "queryEvalStats": "QueryEvalStatsTypeDef",
-    },
-    total=False,
-)
-
-ListGremlinQueriesInputRequestTypeDef = TypedDict(
-    "ListGremlinQueriesInputRequestTypeDef",
-    {
-        "includeWaiting": bool,
-    },
-    total=False,
-)
-
-ListGremlinQueriesOutputTypeDef = TypedDict(
-    "ListGremlinQueriesOutputTypeDef",
-    {
-        "acceptedQueryCount": int,
-        "runningQueryCount": int,
-        "queries": List["GremlinQueryStatusTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListLoaderJobsInputRequestTypeDef = TypedDict(
-    "ListLoaderJobsInputRequestTypeDef",
-    {
-        "limit": int,
-        "includeQueuedLoads": bool,
-    },
-    total=False,
-)
-
-ListLoaderJobsOutputTypeDef = TypedDict(
-    "ListLoaderJobsOutputTypeDef",
-    {
-        "status": str,
-        "payload": "LoaderIdResultTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListMLDataProcessingJobsInputRequestTypeDef = TypedDict(
-    "ListMLDataProcessingJobsInputRequestTypeDef",
-    {
-        "maxItems": int,
-        "neptuneIamRoleArn": str,
-    },
-    total=False,
-)
-
-ListMLDataProcessingJobsOutputTypeDef = TypedDict(
-    "ListMLDataProcessingJobsOutputTypeDef",
-    {
-        "ids": List[str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListMLEndpointsInputRequestTypeDef = TypedDict(
-    "ListMLEndpointsInputRequestTypeDef",
-    {
-        "maxItems": int,
-        "neptuneIamRoleArn": str,
-    },
-    total=False,
-)
-
-ListMLEndpointsOutputTypeDef = TypedDict(
-    "ListMLEndpointsOutputTypeDef",
-    {
-        "ids": List[str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListMLModelTrainingJobsInputRequestTypeDef = TypedDict(
-    "ListMLModelTrainingJobsInputRequestTypeDef",
-    {
-        "maxItems": int,
-        "neptuneIamRoleArn": str,
-    },
-    total=False,
-)
-
-ListMLModelTrainingJobsOutputTypeDef = TypedDict(
-    "ListMLModelTrainingJobsOutputTypeDef",
-    {
-        "ids": List[str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListMLModelTransformJobsInputRequestTypeDef = TypedDict(
-    "ListMLModelTransformJobsInputRequestTypeDef",
-    {
-        "maxItems": int,
-        "neptuneIamRoleArn": str,
-    },
-    total=False,
-)
-
-ListMLModelTransformJobsOutputTypeDef = TypedDict(
-    "ListMLModelTransformJobsOutputTypeDef",
-    {
-        "ids": List[str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListOpenCypherQueriesInputRequestTypeDef = TypedDict(
-    "ListOpenCypherQueriesInputRequestTypeDef",
-    {
-        "includeWaiting": bool,
-    },
-    total=False,
-)
-
-ListOpenCypherQueriesOutputTypeDef = TypedDict(
-    "ListOpenCypherQueriesOutputTypeDef",
-    {
-        "acceptedQueryCount": int,
-        "runningQueryCount": int,
-        "queries": List["GremlinQueryStatusTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ExecuteGremlinExplainQueryOutputTypeDef(TypedDict):
+    output: StreamingBody
+    ResponseMetadata: ResponseMetadataTypeDef
 
-LoaderIdResultTypeDef = TypedDict(
-    "LoaderIdResultTypeDef",
-    {
-        "loadIds": List[str],
-    },
-    total=False,
-)
-
-ManagePropertygraphStatisticsInputRequestTypeDef = TypedDict(
-    "ManagePropertygraphStatisticsInputRequestTypeDef",
-    {
-        "mode": StatisticsAutoGenerationModeType,
-    },
-    total=False,
-)
-
-ManagePropertygraphStatisticsOutputTypeDef = TypedDict(
-    "ManagePropertygraphStatisticsOutputTypeDef",
-    {
-        "status": str,
-        "payload": "RefreshStatisticsIdMapTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ManageSparqlStatisticsInputRequestTypeDef = TypedDict(
-    "ManageSparqlStatisticsInputRequestTypeDef",
-    {
-        "mode": StatisticsAutoGenerationModeType,
-    },
-    total=False,
-)
-
-ManageSparqlStatisticsOutputTypeDef = TypedDict(
-    "ManageSparqlStatisticsOutputTypeDef",
-    {
-        "status": str,
-        "payload": "RefreshStatisticsIdMapTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-MlConfigDefinitionTypeDef = TypedDict(
-    "MlConfigDefinitionTypeDef",
-    {
-        "name": str,
-        "arn": str,
-    },
-    total=False,
-)
-
-MlResourceDefinitionTypeDef = TypedDict(
-    "MlResourceDefinitionTypeDef",
-    {
-        "name": str,
-        "arn": str,
-        "status": str,
-        "outputLocation": str,
-        "failureReason": str,
-        "cloudwatchLogUrl": str,
-    },
-    total=False,
-)
-
-NodeStructureTypeDef = TypedDict(
-    "NodeStructureTypeDef",
-    {
-        "count": int,
-        "nodeProperties": List[str],
-        "distinctOutgoingEdgeLabels": List[str],
-    },
-    total=False,
-)
-
-_RequiredPropertygraphDataTypeDef = TypedDict(
-    "_RequiredPropertygraphDataTypeDef",
-    {
-        "id": str,
-        "type": str,
-        "key": str,
-        "value": Dict[str, Any],
-    },
-)
-_OptionalPropertygraphDataTypeDef = TypedDict(
-    "_OptionalPropertygraphDataTypeDef",
-    {
-        "from": str,
-        "to": str,
-    },
-    total=False,
-)
-
-class PropertygraphDataTypeDef(
-    _RequiredPropertygraphDataTypeDef, _OptionalPropertygraphDataTypeDef
-):
-    pass
-
-_RequiredPropertygraphRecordTypeDef = TypedDict(
-    "_RequiredPropertygraphRecordTypeDef",
-    {
-        "commitTimestampInMillis": int,
-        "eventId": Dict[str, str],
-        "data": "PropertygraphDataTypeDef",
-        "op": str,
-    },
-)
-_OptionalPropertygraphRecordTypeDef = TypedDict(
-    "_OptionalPropertygraphRecordTypeDef",
-    {
-        "isLastOp": bool,
-    },
-    total=False,
-)
-
-class PropertygraphRecordTypeDef(
-    _RequiredPropertygraphRecordTypeDef, _OptionalPropertygraphRecordTypeDef
-):
-    pass
-
-PropertygraphSummaryTypeDef = TypedDict(
-    "PropertygraphSummaryTypeDef",
-    {
-        "numNodes": int,
-        "numEdges": int,
-        "numNodeLabels": int,
-        "numEdgeLabels": int,
-        "nodeLabels": List[str],
-        "edgeLabels": List[str],
-        "numNodeProperties": int,
-        "numEdgeProperties": int,
-        "nodeProperties": List[Dict[str, int]],
-        "edgeProperties": List[Dict[str, int]],
-        "totalNodePropertyValues": int,
-        "totalEdgePropertyValues": int,
-        "nodeStructures": List["NodeStructureTypeDef"],
-        "edgeStructures": List["EdgeStructureTypeDef"],
-    },
-    total=False,
-)
-
-PropertygraphSummaryValueMapTypeDef = TypedDict(
-    "PropertygraphSummaryValueMapTypeDef",
-    {
-        "version": str,
-        "lastStatisticsComputationTime": datetime,
-        "graphSummary": "PropertygraphSummaryTypeDef",
-    },
-    total=False,
-)
-
-QueryEvalStatsTypeDef = TypedDict(
-    "QueryEvalStatsTypeDef",
-    {
-        "waited": int,
-        "elapsed": int,
-        "cancelled": bool,
-        "subqueries": Dict[str, Any],
-    },
-    total=False,
-)
-
-QueryLanguageVersionTypeDef = TypedDict(
-    "QueryLanguageVersionTypeDef",
-    {
-        "version": str,
-    },
-)
-
-RDFGraphSummaryTypeDef = TypedDict(
-    "RDFGraphSummaryTypeDef",
-    {
-        "numDistinctSubjects": int,
-        "numDistinctPredicates": int,
-        "numQuads": int,
-        "numClasses": int,
-        "classes": List[str],
-        "predicates": List[Dict[str, int]],
-        "subjectStructures": List["SubjectStructureTypeDef"],
-    },
-    total=False,
-)
-
-RDFGraphSummaryValueMapTypeDef = TypedDict(
-    "RDFGraphSummaryValueMapTypeDef",
-    {
-        "version": str,
-        "lastStatisticsComputationTime": datetime,
-        "graphSummary": "RDFGraphSummaryTypeDef",
-    },
-    total=False,
-)
-
-RefreshStatisticsIdMapTypeDef = TypedDict(
-    "RefreshStatisticsIdMapTypeDef",
-    {
-        "statisticsId": str,
-    },
-    total=False,
-)
+class ExecuteGremlinProfileQueryOutputTypeDef(TypedDict):
+    output: StreamingBody
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-SparqlDataTypeDef = TypedDict(
-    "SparqlDataTypeDef",
-    {
-        "stmt": str,
-    },
-)
+class ExecuteOpenCypherExplainQueryOutputTypeDef(TypedDict):
+    results: StreamingBody
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredSparqlRecordTypeDef = TypedDict(
-    "_RequiredSparqlRecordTypeDef",
-    {
-        "commitTimestampInMillis": int,
-        "eventId": Dict[str, str],
-        "data": "SparqlDataTypeDef",
-        "op": str,
-    },
-)
-_OptionalSparqlRecordTypeDef = TypedDict(
-    "_OptionalSparqlRecordTypeDef",
-    {
-        "isLastOp": bool,
-    },
-    total=False,
-)
+class ExecuteOpenCypherQueryOutputTypeDef(TypedDict):
+    results: Dict[str, Any]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class SparqlRecordTypeDef(_RequiredSparqlRecordTypeDef, _OptionalSparqlRecordTypeDef):
-    pass
+class GetLoaderJobStatusOutputTypeDef(TypedDict):
+    status: str
+    payload: Dict[str, Any]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredStartLoaderJobInputRequestTypeDef = TypedDict(
-    "_RequiredStartLoaderJobInputRequestTypeDef",
-    {
-        "source": str,
-        "format": FormatType,
-        "s3BucketRegion": S3BucketRegionType,
-        "iamRoleArn": str,
-    },
-)
-_OptionalStartLoaderJobInputRequestTypeDef = TypedDict(
-    "_OptionalStartLoaderJobInputRequestTypeDef",
-    {
-        "mode": ModeType,
-        "failOnError": bool,
-        "parallelism": ParallelismType,
-        "parserConfiguration": Dict[str, str],
-        "updateSingleCardinalityProperties": bool,
-        "queueRequest": bool,
-        "dependencies": List[str],
-        "userProvidedEdgeIds": bool,
-    },
-    total=False,
-)
+class ListMLDataProcessingJobsOutputTypeDef(TypedDict):
+    ids: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class StartLoaderJobInputRequestTypeDef(
-    _RequiredStartLoaderJobInputRequestTypeDef, _OptionalStartLoaderJobInputRequestTypeDef
-):
-    pass
+class ListMLEndpointsOutputTypeDef(TypedDict):
+    ids: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-StartLoaderJobOutputTypeDef = TypedDict(
-    "StartLoaderJobOutputTypeDef",
-    {
-        "status": str,
-        "payload": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListMLModelTrainingJobsOutputTypeDef(TypedDict):
+    ids: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredStartMLDataProcessingJobInputRequestTypeDef = TypedDict(
-    "_RequiredStartMLDataProcessingJobInputRequestTypeDef",
-    {
-        "inputDataS3Location": str,
-        "processedDataS3Location": str,
-    },
-)
-_OptionalStartMLDataProcessingJobInputRequestTypeDef = TypedDict(
-    "_OptionalStartMLDataProcessingJobInputRequestTypeDef",
-    {
-        "id": str,
-        "previousDataProcessingJobId": str,
-        "sagemakerIamRoleArn": str,
-        "neptuneIamRoleArn": str,
-        "processingInstanceType": str,
-        "processingInstanceVolumeSizeInGB": int,
-        "processingTimeOutInSeconds": int,
-        "modelType": str,
-        "configFileName": str,
-        "subnets": List[str],
-        "securityGroupIds": List[str],
-        "volumeEncryptionKMSKey": str,
-        "s3OutputEncryptionKMSKey": str,
-    },
-    total=False,
-)
+class ListMLModelTransformJobsOutputTypeDef(TypedDict):
+    ids: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class StartMLDataProcessingJobInputRequestTypeDef(
-    _RequiredStartMLDataProcessingJobInputRequestTypeDef,
-    _OptionalStartMLDataProcessingJobInputRequestTypeDef,
-):
-    pass
+class StartLoaderJobOutputTypeDef(TypedDict):
+    status: str
+    payload: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
 
 StartMLDataProcessingJobOutputTypeDef = TypedDict(
     "StartMLDataProcessingJobOutputTypeDef",
@@ -1360,126 +550,294 @@ StartMLDataProcessingJobOutputTypeDef = TypedDict(
         "id": str,
         "arn": str,
         "creationTimeInMillis": int,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
-
-_RequiredStartMLModelTrainingJobInputRequestTypeDef = TypedDict(
-    "_RequiredStartMLModelTrainingJobInputRequestTypeDef",
-    {
-        "dataProcessingJobId": str,
-        "trainModelS3Location": str,
-    },
-)
-_OptionalStartMLModelTrainingJobInputRequestTypeDef = TypedDict(
-    "_OptionalStartMLModelTrainingJobInputRequestTypeDef",
-    {
-        "id": str,
-        "previousModelTrainingJobId": str,
-        "sagemakerIamRoleArn": str,
-        "neptuneIamRoleArn": str,
-        "baseProcessingInstanceType": str,
-        "trainingInstanceType": str,
-        "trainingInstanceVolumeSizeInGB": int,
-        "trainingTimeOutInSeconds": int,
-        "maxHPONumberOfTrainingJobs": int,
-        "maxHPOParallelTrainingJobs": int,
-        "subnets": List[str],
-        "securityGroupIds": List[str],
-        "volumeEncryptionKMSKey": str,
-        "s3OutputEncryptionKMSKey": str,
-        "enableManagedSpotTraining": bool,
-        "customModelTrainingParameters": "CustomModelTrainingParametersTypeDef",
-    },
-    total=False,
-)
-
-class StartMLModelTrainingJobInputRequestTypeDef(
-    _RequiredStartMLModelTrainingJobInputRequestTypeDef,
-    _OptionalStartMLModelTrainingJobInputRequestTypeDef,
-):
-    pass
-
 StartMLModelTrainingJobOutputTypeDef = TypedDict(
     "StartMLModelTrainingJobOutputTypeDef",
     {
         "id": str,
         "arn": str,
         "creationTimeInMillis": int,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
-
-_RequiredStartMLModelTransformJobInputRequestTypeDef = TypedDict(
-    "_RequiredStartMLModelTransformJobInputRequestTypeDef",
-    {
-        "modelTransformOutputS3Location": str,
-    },
-)
-_OptionalStartMLModelTransformJobInputRequestTypeDef = TypedDict(
-    "_OptionalStartMLModelTransformJobInputRequestTypeDef",
-    {
-        "id": str,
-        "dataProcessingJobId": str,
-        "mlModelTrainingJobId": str,
-        "trainingJobName": str,
-        "sagemakerIamRoleArn": str,
-        "neptuneIamRoleArn": str,
-        "customModelTransformParameters": "CustomModelTransformParametersTypeDef",
-        "baseProcessingInstanceType": str,
-        "baseProcessingInstanceVolumeSizeInGB": int,
-        "subnets": List[str],
-        "securityGroupIds": List[str],
-        "volumeEncryptionKMSKey": str,
-        "s3OutputEncryptionKMSKey": str,
-    },
-    total=False,
-)
-
-class StartMLModelTransformJobInputRequestTypeDef(
-    _RequiredStartMLModelTransformJobInputRequestTypeDef,
-    _OptionalStartMLModelTransformJobInputRequestTypeDef,
-):
-    pass
-
 StartMLModelTransformJobOutputTypeDef = TypedDict(
     "StartMLModelTransformJobOutputTypeDef",
     {
         "id": str,
         "arn": str,
         "creationTimeInMillis": int,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+StartMLModelTrainingJobInputTypeDef = TypedDict(
+    "StartMLModelTrainingJobInputTypeDef",
+    {
+        "dataProcessingJobId": str,
+        "trainModelS3Location": str,
+        "id": NotRequired[str],
+        "previousModelTrainingJobId": NotRequired[str],
+        "sagemakerIamRoleArn": NotRequired[str],
+        "neptuneIamRoleArn": NotRequired[str],
+        "baseProcessingInstanceType": NotRequired[str],
+        "trainingInstanceType": NotRequired[str],
+        "trainingInstanceVolumeSizeInGB": NotRequired[int],
+        "trainingTimeOutInSeconds": NotRequired[int],
+        "maxHPONumberOfTrainingJobs": NotRequired[int],
+        "maxHPOParallelTrainingJobs": NotRequired[int],
+        "subnets": NotRequired[Sequence[str]],
+        "securityGroupIds": NotRequired[Sequence[str]],
+        "volumeEncryptionKMSKey": NotRequired[str],
+        "s3OutputEncryptionKMSKey": NotRequired[str],
+        "enableManagedSpotTraining": NotRequired[bool],
+        "customModelTrainingParameters": NotRequired[CustomModelTrainingParametersTypeDef],
+    },
+)
+StartMLModelTransformJobInputTypeDef = TypedDict(
+    "StartMLModelTransformJobInputTypeDef",
+    {
+        "modelTransformOutputS3Location": str,
+        "id": NotRequired[str],
+        "dataProcessingJobId": NotRequired[str],
+        "mlModelTrainingJobId": NotRequired[str],
+        "trainingJobName": NotRequired[str],
+        "sagemakerIamRoleArn": NotRequired[str],
+        "neptuneIamRoleArn": NotRequired[str],
+        "customModelTransformParameters": NotRequired[CustomModelTransformParametersTypeDef],
+        "baseProcessingInstanceType": NotRequired[str],
+        "baseProcessingInstanceVolumeSizeInGB": NotRequired[int],
+        "subnets": NotRequired[Sequence[str]],
+        "securityGroupIds": NotRequired[Sequence[str]],
+        "volumeEncryptionKMSKey": NotRequired[str],
+        "s3OutputEncryptionKMSKey": NotRequired[str],
     },
 )
 
-StatisticsSummaryTypeDef = TypedDict(
-    "StatisticsSummaryTypeDef",
+class DeletePropertygraphStatisticsOutputTypeDef(TypedDict):
+    statusCode: int
+    status: str
+    payload: DeleteStatisticsValueMapTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteSparqlStatisticsOutputTypeDef(TypedDict):
+    statusCode: int
+    status: str
+    payload: DeleteStatisticsValueMapTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ExecuteFastResetOutputTypeDef(TypedDict):
+    status: str
+    payload: FastResetTokenTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ExecuteGremlinQueryOutputTypeDef(TypedDict):
+    requestId: str
+    status: GremlinQueryStatusAttributesTypeDef
+    result: Dict[str, Any]
+    meta: Dict[str, Any]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetEngineStatusOutputTypeDef(TypedDict):
+    status: str
+    startTime: str
+    dbEngineVersion: str
+    role: str
+    dfeQueryEngine: str
+    gremlin: QueryLanguageVersionTypeDef
+    sparql: QueryLanguageVersionTypeDef
+    opencypher: QueryLanguageVersionTypeDef
+    labMode: Dict[str, str]
+    rollingBackTrxCount: int
+    rollingBackTrxEarliestStartTime: str
+    features: Dict[str, Dict[str, Any]]
+    settings: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetGremlinQueryStatusOutputTypeDef(TypedDict):
+    queryId: str
+    queryString: str
+    queryEvalStats: QueryEvalStatsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetOpenCypherQueryStatusOutputTypeDef(TypedDict):
+    queryId: str
+    queryString: str
+    queryEvalStats: QueryEvalStatsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GremlinQueryStatusTypeDef(TypedDict):
+    queryId: NotRequired[str]
+    queryString: NotRequired[str]
+    queryEvalStats: NotRequired[QueryEvalStatsTypeDef]
+
+GetMLDataProcessingJobOutputTypeDef = TypedDict(
+    "GetMLDataProcessingJobOutputTypeDef",
     {
-        "signatureCount": int,
-        "instanceCount": int,
-        "predicateCount": int,
+        "status": str,
+        "id": str,
+        "processingJob": MlResourceDefinitionTypeDef,
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
-    total=False,
+)
+GetMLEndpointOutputTypeDef = TypedDict(
+    "GetMLEndpointOutputTypeDef",
+    {
+        "status": str,
+        "id": str,
+        "endpoint": MlResourceDefinitionTypeDef,
+        "endpointConfig": MlConfigDefinitionTypeDef,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+GetMLModelTrainingJobOutputTypeDef = TypedDict(
+    "GetMLModelTrainingJobOutputTypeDef",
+    {
+        "status": str,
+        "id": str,
+        "processingJob": MlResourceDefinitionTypeDef,
+        "hpoJob": MlResourceDefinitionTypeDef,
+        "modelTransformJob": MlResourceDefinitionTypeDef,
+        "mlModels": List[MlConfigDefinitionTypeDef],
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+GetMLModelTransformJobOutputTypeDef = TypedDict(
+    "GetMLModelTransformJobOutputTypeDef",
+    {
+        "status": str,
+        "id": str,
+        "baseProcessingJob": MlResourceDefinitionTypeDef,
+        "remoteModelTransformJob": MlResourceDefinitionTypeDef,
+        "models": List[MlConfigDefinitionTypeDef],
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
 )
 
-StatisticsTypeDef = TypedDict(
-    "StatisticsTypeDef",
+class ListLoaderJobsOutputTypeDef(TypedDict):
+    status: str
+    payload: LoaderIdResultTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ManagePropertygraphStatisticsOutputTypeDef(TypedDict):
+    status: str
+    payload: RefreshStatisticsIdMapTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ManageSparqlStatisticsOutputTypeDef(TypedDict):
+    status: str
+    payload: RefreshStatisticsIdMapTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PropertygraphSummaryTypeDef(TypedDict):
+    numNodes: NotRequired[int]
+    numEdges: NotRequired[int]
+    numNodeLabels: NotRequired[int]
+    numEdgeLabels: NotRequired[int]
+    nodeLabels: NotRequired[List[str]]
+    edgeLabels: NotRequired[List[str]]
+    numNodeProperties: NotRequired[int]
+    numEdgeProperties: NotRequired[int]
+    nodeProperties: NotRequired[List[Dict[str, int]]]
+    edgeProperties: NotRequired[List[Dict[str, int]]]
+    totalNodePropertyValues: NotRequired[int]
+    totalEdgePropertyValues: NotRequired[int]
+    nodeStructures: NotRequired[List[NodeStructureTypeDef]]
+    edgeStructures: NotRequired[List[EdgeStructureTypeDef]]
+
+class PropertygraphRecordTypeDef(TypedDict):
+    commitTimestampInMillis: int
+    eventId: Dict[str, str]
+    data: PropertygraphDataTypeDef
+    op: str
+    isLastOp: NotRequired[bool]
+
+class RDFGraphSummaryTypeDef(TypedDict):
+    numDistinctSubjects: NotRequired[int]
+    numDistinctPredicates: NotRequired[int]
+    numQuads: NotRequired[int]
+    numClasses: NotRequired[int]
+    classes: NotRequired[List[str]]
+    predicates: NotRequired[List[Dict[str, int]]]
+    subjectStructures: NotRequired[List[SubjectStructureTypeDef]]
+
+class SparqlRecordTypeDef(TypedDict):
+    commitTimestampInMillis: int
+    eventId: Dict[str, str]
+    data: SparqlDataTypeDef
+    op: str
+    isLastOp: NotRequired[bool]
+
+class StatisticsTypeDef(TypedDict):
+    autoCompute: NotRequired[bool]
+    active: NotRequired[bool]
+    statisticsId: NotRequired[str]
+    date: NotRequired[datetime]
+    note: NotRequired[str]
+    signatureInfo: NotRequired[StatisticsSummaryTypeDef]
+
+class ListGremlinQueriesOutputTypeDef(TypedDict):
+    acceptedQueryCount: int
+    runningQueryCount: int
+    queries: List[GremlinQueryStatusTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListOpenCypherQueriesOutputTypeDef(TypedDict):
+    acceptedQueryCount: int
+    runningQueryCount: int
+    queries: List[GremlinQueryStatusTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PropertygraphSummaryValueMapTypeDef(TypedDict):
+    version: NotRequired[str]
+    lastStatisticsComputationTime: NotRequired[datetime]
+    graphSummary: NotRequired[PropertygraphSummaryTypeDef]
+
+GetPropertygraphStreamOutputTypeDef = TypedDict(
+    "GetPropertygraphStreamOutputTypeDef",
     {
-        "autoCompute": bool,
-        "active": bool,
-        "statisticsId": str,
-        "date": datetime,
-        "note": str,
-        "signatureInfo": "StatisticsSummaryTypeDef",
+        "lastEventId": Dict[str, str],
+        "lastTrxTimestampInMillis": int,
+        "format": str,
+        "records": List[PropertygraphRecordTypeDef],
+        "totalRecords": int,
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
-    total=False,
 )
 
-SubjectStructureTypeDef = TypedDict(
-    "SubjectStructureTypeDef",
+class RDFGraphSummaryValueMapTypeDef(TypedDict):
+    version: NotRequired[str]
+    lastStatisticsComputationTime: NotRequired[datetime]
+    graphSummary: NotRequired[RDFGraphSummaryTypeDef]
+
+GetSparqlStreamOutputTypeDef = TypedDict(
+    "GetSparqlStreamOutputTypeDef",
     {
-        "count": int,
-        "predicates": List[str],
+        "lastEventId": Dict[str, str],
+        "lastTrxTimestampInMillis": int,
+        "format": str,
+        "records": List[SparqlRecordTypeDef],
+        "totalRecords": int,
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
-    total=False,
 )
+
+class GetPropertygraphStatisticsOutputTypeDef(TypedDict):
+    status: str
+    payload: StatisticsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetSparqlStatisticsOutputTypeDef(TypedDict):
+    status: str
+    payload: StatisticsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetPropertygraphSummaryOutputTypeDef(TypedDict):
+    statusCode: int
+    payload: PropertygraphSummaryValueMapTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetRDFGraphSummaryOutputTypeDef(TypedDict):
+    statusCode: int
+    payload: RDFGraphSummaryValueMapTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef

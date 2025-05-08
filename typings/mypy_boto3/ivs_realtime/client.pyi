@@ -1,76 +1,111 @@
 """
-Type annotations for ivs-realtime service client.
+Type annotations for ivs-realtime service Client.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivs_realtime/client.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ivs_realtime/client/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
-    from mypy_boto3_ivs_realtime import ivsrealtimeClient
+    from boto3.session import Session
+    from mypy_boto3_ivs_realtime.client import IvsrealtimeClient
 
-    client: ivsrealtimeClient = boto3.client("ivs-realtime")
+    session = Session()
+    client: IvsrealtimeClient = session.client("ivs-realtime")
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from typing import Any, Dict, List, Type
+from typing import Any, overload
 
 from botocore.client import BaseClient, ClientMeta
+from botocore.errorfactory import BaseClientExceptions
+from botocore.exceptions import ClientError as BotocoreClientError
 
-from .literals import (
-    ParticipantRecordingFilterByRecordingStateType,
-    ParticipantStateType,
-    ParticipantTokenCapabilityType,
-)
-from .paginator import ListPublicKeysPaginator
+from .paginator import ListIngestConfigurationsPaginator, ListPublicKeysPaginator
 from .type_defs import (
-    AutoParticipantRecordingConfigurationTypeDef,
+    CreateEncoderConfigurationRequestTypeDef,
     CreateEncoderConfigurationResponseTypeDef,
+    CreateIngestConfigurationRequestTypeDef,
+    CreateIngestConfigurationResponseTypeDef,
+    CreateParticipantTokenRequestTypeDef,
     CreateParticipantTokenResponseTypeDef,
+    CreateStageRequestTypeDef,
     CreateStageResponseTypeDef,
+    CreateStorageConfigurationRequestTypeDef,
     CreateStorageConfigurationResponseTypeDef,
-    DestinationConfigurationTypeDef,
+    DeleteEncoderConfigurationRequestTypeDef,
+    DeleteIngestConfigurationRequestTypeDef,
+    DeletePublicKeyRequestTypeDef,
+    DeleteStageRequestTypeDef,
+    DeleteStorageConfigurationRequestTypeDef,
+    DisconnectParticipantRequestTypeDef,
+    GetCompositionRequestTypeDef,
     GetCompositionResponseTypeDef,
+    GetEncoderConfigurationRequestTypeDef,
     GetEncoderConfigurationResponseTypeDef,
+    GetIngestConfigurationRequestTypeDef,
+    GetIngestConfigurationResponseTypeDef,
+    GetParticipantRequestTypeDef,
     GetParticipantResponseTypeDef,
+    GetPublicKeyRequestTypeDef,
     GetPublicKeyResponseTypeDef,
+    GetStageRequestTypeDef,
     GetStageResponseTypeDef,
+    GetStageSessionRequestTypeDef,
     GetStageSessionResponseTypeDef,
+    GetStorageConfigurationRequestTypeDef,
     GetStorageConfigurationResponseTypeDef,
+    ImportPublicKeyRequestTypeDef,
     ImportPublicKeyResponseTypeDef,
-    LayoutConfigurationTypeDef,
+    ListCompositionsRequestTypeDef,
     ListCompositionsResponseTypeDef,
+    ListEncoderConfigurationsRequestTypeDef,
     ListEncoderConfigurationsResponseTypeDef,
+    ListIngestConfigurationsRequestTypeDef,
+    ListIngestConfigurationsResponseTypeDef,
+    ListParticipantEventsRequestTypeDef,
     ListParticipantEventsResponseTypeDef,
+    ListParticipantsRequestTypeDef,
     ListParticipantsResponseTypeDef,
+    ListPublicKeysRequestTypeDef,
     ListPublicKeysResponseTypeDef,
+    ListStageSessionsRequestTypeDef,
     ListStageSessionsResponseTypeDef,
+    ListStagesRequestTypeDef,
     ListStagesResponseTypeDef,
+    ListStorageConfigurationsRequestTypeDef,
     ListStorageConfigurationsResponseTypeDef,
+    ListTagsForResourceRequestTypeDef,
     ListTagsForResourceResponseTypeDef,
-    ParticipantTokenConfigurationTypeDef,
-    S3StorageConfigurationTypeDef,
+    StartCompositionRequestTypeDef,
     StartCompositionResponseTypeDef,
+    StopCompositionRequestTypeDef,
+    TagResourceRequestTypeDef,
+    UntagResourceRequestTypeDef,
+    UpdateIngestConfigurationRequestTypeDef,
+    UpdateIngestConfigurationResponseTypeDef,
+    UpdateStageRequestTypeDef,
     UpdateStageResponseTypeDef,
-    VideoTypeDef,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import type as Type
+    from collections.abc import Mapping
 else:
-    from typing_extensions import Literal
+    from typing import Dict, Mapping, Type
+if sys.version_info >= (3, 12):
+    from typing import Literal, Unpack
+else:
+    from typing_extensions import Literal, Unpack
 
-__all__ = ("ivsrealtimeClient",)
+__all__ = ("IvsrealtimeClient",)
 
-class BotocoreClientError(BaseException):
-    MSG_TEMPLATE: str
-
-    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
-        self.response: Dict[str, Any]
-        self.operation_name: str
-
-class Exceptions:
+class Exceptions(BaseClientExceptions):
     AccessDeniedException: Type[BotocoreClientError]
     ClientError: Type[BotocoreClientError]
     ConflictException: Type[BotocoreClientError]
@@ -80,10 +115,10 @@ class Exceptions:
     ServiceQuotaExceededException: Type[BotocoreClientError]
     ValidationException: Type[BotocoreClientError]
 
-class ivsrealtimeClient(BaseClient):
+class IvsrealtimeClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivs-realtime.html#ivsrealtime.Client)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivs_realtime/client.html)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ivs-realtime.html#Ivsrealtime.Client)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ivs_realtime/client/)
     """
 
     meta: ClientMeta
@@ -91,372 +126,404 @@ class ivsrealtimeClient(BaseClient):
     @property
     def exceptions(self) -> Exceptions:
         """
-        ivsrealtimeClient exceptions.
+        IvsrealtimeClient exceptions.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ivs-realtime.html#Ivsrealtime.Client)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ivs_realtime/client/#exceptions)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        Check if an operation can be paginated.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivs-realtime.html#ivsrealtime.Client.can_paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivs_realtime/client.html#can_paginate)
-        """
-
-    def close(self) -> None:
-        """
-        Closes underlying endpoint connections.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivs-realtime.html#ivsrealtime.Client.close)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivs_realtime/client.html#close)
-        """
-
-    def create_encoder_configuration(
-        self, *, name: str = None, video: "VideoTypeDef" = None, tags: Dict[str, str] = None
-    ) -> CreateEncoderConfigurationResponseTypeDef:
-        """
-        Creates an EncoderConfiguration object.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivs-realtime.html#ivsrealtime.Client.create_encoder_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivs_realtime/client.html#create_encoder_configuration)
-        """
-
-    def create_participant_token(
-        self,
-        *,
-        stageArn: str,
-        duration: int = None,
-        userId: str = None,
-        attributes: Dict[str, str] = None,
-        capabilities: List[ParticipantTokenCapabilityType] = None
-    ) -> CreateParticipantTokenResponseTypeDef:
-        """
-        Creates an additional token for a specified stage.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivs-realtime.html#ivsrealtime.Client.create_participant_token)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivs_realtime/client.html#create_participant_token)
-        """
-
-    def create_stage(
-        self,
-        *,
-        name: str = None,
-        participantTokenConfigurations: List["ParticipantTokenConfigurationTypeDef"] = None,
-        tags: Dict[str, str] = None,
-        autoParticipantRecordingConfiguration: "AutoParticipantRecordingConfigurationTypeDef" = None
-    ) -> CreateStageResponseTypeDef:
-        """
-        Creates a new stage (and optionally participant tokens).
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivs-realtime.html#ivsrealtime.Client.create_stage)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivs_realtime/client.html#create_stage)
-        """
-
-    def create_storage_configuration(
-        self, *, s3: "S3StorageConfigurationTypeDef", name: str = None, tags: Dict[str, str] = None
-    ) -> CreateStorageConfigurationResponseTypeDef:
-        """
-        Creates a new storage configuration, used to enable recording to Amazon S3.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivs-realtime.html#ivsrealtime.Client.create_storage_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivs_realtime/client.html#create_storage_configuration)
-        """
-
-    def delete_encoder_configuration(self, *, arn: str) -> Dict[str, Any]:
-        """
-        Deletes an EncoderConfiguration resource.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivs-realtime.html#ivsrealtime.Client.delete_encoder_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivs_realtime/client.html#delete_encoder_configuration)
-        """
-
-    def delete_public_key(self, *, arn: str) -> Dict[str, Any]:
-        """
-        Deletes the specified public key used to sign stage participant tokens.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivs-realtime.html#ivsrealtime.Client.delete_public_key)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivs_realtime/client.html#delete_public_key)
-        """
-
-    def delete_stage(self, *, arn: str) -> Dict[str, Any]:
-        """
-        Shuts down and deletes the specified stage (disconnecting all participants).
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivs-realtime.html#ivsrealtime.Client.delete_stage)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivs_realtime/client.html#delete_stage)
-        """
-
-    def delete_storage_configuration(self, *, arn: str) -> Dict[str, Any]:
-        """
-        Deletes the storage configuration for the specified ARN.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivs-realtime.html#ivsrealtime.Client.delete_storage_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivs_realtime/client.html#delete_storage_configuration)
-        """
-
-    def disconnect_participant(
-        self, *, stageArn: str, participantId: str, reason: str = None
-    ) -> Dict[str, Any]:
-        """
-        Disconnects a specified participant and revokes the participant permanently from
-        a specified stage.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivs-realtime.html#ivsrealtime.Client.disconnect_participant)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivs_realtime/client.html#disconnect_participant)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ivs-realtime/client/can_paginate.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ivs_realtime/client/#can_paginate)
         """
 
     def generate_presigned_url(
         self,
         ClientMethod: str,
-        Params: Dict[str, Any] = None,
+        Params: Mapping[str, Any] = ...,
         ExpiresIn: int = 3600,
-        HttpMethod: str = None,
+        HttpMethod: str = ...,
     ) -> str:
         """
-        Generate a presigned url given a client, its method, and arguments.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivs-realtime.html#ivsrealtime.Client.generate_presigned_url)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivs_realtime/client.html#generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ivs-realtime/client/generate_presigned_url.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ivs_realtime/client/#generate_presigned_url)
         """
 
-    def get_composition(self, *, arn: str) -> GetCompositionResponseTypeDef:
+    def create_encoder_configuration(
+        self, **kwargs: Unpack[CreateEncoderConfigurationRequestTypeDef]
+    ) -> CreateEncoderConfigurationResponseTypeDef:
+        """
+        Creates an EncoderConfiguration object.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ivs-realtime/client/create_encoder_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ivs_realtime/client/#create_encoder_configuration)
+        """
+
+    def create_ingest_configuration(
+        self, **kwargs: Unpack[CreateIngestConfigurationRequestTypeDef]
+    ) -> CreateIngestConfigurationResponseTypeDef:
+        """
+        Creates a new IngestConfiguration resource, used to specify the ingest protocol
+        for a stage.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ivs-realtime/client/create_ingest_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ivs_realtime/client/#create_ingest_configuration)
+        """
+
+    def create_participant_token(
+        self, **kwargs: Unpack[CreateParticipantTokenRequestTypeDef]
+    ) -> CreateParticipantTokenResponseTypeDef:
+        """
+        Creates an additional token for a specified stage.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ivs-realtime/client/create_participant_token.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ivs_realtime/client/#create_participant_token)
+        """
+
+    def create_stage(
+        self, **kwargs: Unpack[CreateStageRequestTypeDef]
+    ) -> CreateStageResponseTypeDef:
+        """
+        Creates a new stage (and optionally participant tokens).
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ivs-realtime/client/create_stage.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ivs_realtime/client/#create_stage)
+        """
+
+    def create_storage_configuration(
+        self, **kwargs: Unpack[CreateStorageConfigurationRequestTypeDef]
+    ) -> CreateStorageConfigurationResponseTypeDef:
+        """
+        Creates a new storage configuration, used to enable recording to Amazon S3.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ivs-realtime/client/create_storage_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ivs_realtime/client/#create_storage_configuration)
+        """
+
+    def delete_encoder_configuration(
+        self, **kwargs: Unpack[DeleteEncoderConfigurationRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Deletes an EncoderConfiguration resource.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ivs-realtime/client/delete_encoder_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ivs_realtime/client/#delete_encoder_configuration)
+        """
+
+    def delete_ingest_configuration(
+        self, **kwargs: Unpack[DeleteIngestConfigurationRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Deletes a specified IngestConfiguration, so it can no longer be used to
+        broadcast.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ivs-realtime/client/delete_ingest_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ivs_realtime/client/#delete_ingest_configuration)
+        """
+
+    def delete_public_key(self, **kwargs: Unpack[DeletePublicKeyRequestTypeDef]) -> Dict[str, Any]:
+        """
+        Deletes the specified public key used to sign stage participant tokens.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ivs-realtime/client/delete_public_key.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ivs_realtime/client/#delete_public_key)
+        """
+
+    def delete_stage(self, **kwargs: Unpack[DeleteStageRequestTypeDef]) -> Dict[str, Any]:
+        """
+        Shuts down and deletes the specified stage (disconnecting all participants).
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ivs-realtime/client/delete_stage.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ivs_realtime/client/#delete_stage)
+        """
+
+    def delete_storage_configuration(
+        self, **kwargs: Unpack[DeleteStorageConfigurationRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Deletes the storage configuration for the specified ARN.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ivs-realtime/client/delete_storage_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ivs_realtime/client/#delete_storage_configuration)
+        """
+
+    def disconnect_participant(
+        self, **kwargs: Unpack[DisconnectParticipantRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Disconnects a specified participant from a specified stage.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ivs-realtime/client/disconnect_participant.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ivs_realtime/client/#disconnect_participant)
+        """
+
+    def get_composition(
+        self, **kwargs: Unpack[GetCompositionRequestTypeDef]
+    ) -> GetCompositionResponseTypeDef:
         """
         Get information about the specified Composition resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivs-realtime.html#ivsrealtime.Client.get_composition)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivs_realtime/client.html#get_composition)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ivs-realtime/client/get_composition.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ivs_realtime/client/#get_composition)
         """
 
-    def get_encoder_configuration(self, *, arn: str) -> GetEncoderConfigurationResponseTypeDef:
+    def get_encoder_configuration(
+        self, **kwargs: Unpack[GetEncoderConfigurationRequestTypeDef]
+    ) -> GetEncoderConfigurationResponseTypeDef:
         """
         Gets information about the specified EncoderConfiguration resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivs-realtime.html#ivsrealtime.Client.get_encoder_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivs_realtime/client.html#get_encoder_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ivs-realtime/client/get_encoder_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ivs_realtime/client/#get_encoder_configuration)
+        """
+
+    def get_ingest_configuration(
+        self, **kwargs: Unpack[GetIngestConfigurationRequestTypeDef]
+    ) -> GetIngestConfigurationResponseTypeDef:
+        """
+        Gets information about the specified IngestConfiguration.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ivs-realtime/client/get_ingest_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ivs_realtime/client/#get_ingest_configuration)
         """
 
     def get_participant(
-        self, *, stageArn: str, sessionId: str, participantId: str
+        self, **kwargs: Unpack[GetParticipantRequestTypeDef]
     ) -> GetParticipantResponseTypeDef:
         """
         Gets information about the specified participant token.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivs-realtime.html#ivsrealtime.Client.get_participant)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivs_realtime/client.html#get_participant)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ivs-realtime/client/get_participant.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ivs_realtime/client/#get_participant)
         """
 
-    def get_public_key(self, *, arn: str) -> GetPublicKeyResponseTypeDef:
+    def get_public_key(
+        self, **kwargs: Unpack[GetPublicKeyRequestTypeDef]
+    ) -> GetPublicKeyResponseTypeDef:
         """
         Gets information for the specified public key.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivs-realtime.html#ivsrealtime.Client.get_public_key)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivs_realtime/client.html#get_public_key)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ivs-realtime/client/get_public_key.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ivs_realtime/client/#get_public_key)
         """
 
-    def get_stage(self, *, arn: str) -> GetStageResponseTypeDef:
+    def get_stage(self, **kwargs: Unpack[GetStageRequestTypeDef]) -> GetStageResponseTypeDef:
         """
         Gets information for the specified stage.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivs-realtime.html#ivsrealtime.Client.get_stage)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivs_realtime/client.html#get_stage)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ivs-realtime/client/get_stage.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ivs_realtime/client/#get_stage)
         """
 
-    def get_stage_session(self, *, stageArn: str, sessionId: str) -> GetStageSessionResponseTypeDef:
+    def get_stage_session(
+        self, **kwargs: Unpack[GetStageSessionRequestTypeDef]
+    ) -> GetStageSessionResponseTypeDef:
         """
         Gets information for the specified stage session.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivs-realtime.html#ivsrealtime.Client.get_stage_session)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivs_realtime/client.html#get_stage_session)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ivs-realtime/client/get_stage_session.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ivs_realtime/client/#get_stage_session)
         """
 
-    def get_storage_configuration(self, *, arn: str) -> GetStorageConfigurationResponseTypeDef:
+    def get_storage_configuration(
+        self, **kwargs: Unpack[GetStorageConfigurationRequestTypeDef]
+    ) -> GetStorageConfigurationResponseTypeDef:
         """
         Gets the storage configuration for the specified ARN.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivs-realtime.html#ivsrealtime.Client.get_storage_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivs_realtime/client.html#get_storage_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ivs-realtime/client/get_storage_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ivs_realtime/client/#get_storage_configuration)
         """
 
     def import_public_key(
-        self, *, publicKeyMaterial: str, name: str = None, tags: Dict[str, str] = None
+        self, **kwargs: Unpack[ImportPublicKeyRequestTypeDef]
     ) -> ImportPublicKeyResponseTypeDef:
         """
         Import a public key to be used for signing stage participant tokens.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivs-realtime.html#ivsrealtime.Client.import_public_key)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivs_realtime/client.html#import_public_key)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ivs-realtime/client/import_public_key.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ivs_realtime/client/#import_public_key)
         """
 
     def list_compositions(
-        self,
-        *,
-        filterByStageArn: str = None,
-        filterByEncoderConfigurationArn: str = None,
-        nextToken: str = None,
-        maxResults: int = None
+        self, **kwargs: Unpack[ListCompositionsRequestTypeDef]
     ) -> ListCompositionsResponseTypeDef:
         """
         Gets summary information about all Compositions in your account, in the AWS
         region where the API request is processed.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivs-realtime.html#ivsrealtime.Client.list_compositions)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivs_realtime/client.html#list_compositions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ivs-realtime/client/list_compositions.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ivs_realtime/client/#list_compositions)
         """
 
     def list_encoder_configurations(
-        self, *, nextToken: str = None, maxResults: int = None
+        self, **kwargs: Unpack[ListEncoderConfigurationsRequestTypeDef]
     ) -> ListEncoderConfigurationsResponseTypeDef:
         """
-        Gets summary information about all EncoderConfigurations in your account, in the
-        AWS region where the API request is processed.
+        Gets summary information about all EncoderConfigurations in your account, in
+        the AWS region where the API request is processed.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivs-realtime.html#ivsrealtime.Client.list_encoder_configurations)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivs_realtime/client.html#list_encoder_configurations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ivs-realtime/client/list_encoder_configurations.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ivs_realtime/client/#list_encoder_configurations)
+        """
+
+    def list_ingest_configurations(
+        self, **kwargs: Unpack[ListIngestConfigurationsRequestTypeDef]
+    ) -> ListIngestConfigurationsResponseTypeDef:
+        """
+        Lists all IngestConfigurations in your account, in the AWS region where the API
+        request is processed.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ivs-realtime/client/list_ingest_configurations.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ivs_realtime/client/#list_ingest_configurations)
         """
 
     def list_participant_events(
-        self,
-        *,
-        stageArn: str,
-        sessionId: str,
-        participantId: str,
-        nextToken: str = None,
-        maxResults: int = None
+        self, **kwargs: Unpack[ListParticipantEventsRequestTypeDef]
     ) -> ListParticipantEventsResponseTypeDef:
         """
         Lists events for a specified participant that occurred during a specified stage
         session.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivs-realtime.html#ivsrealtime.Client.list_participant_events)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivs_realtime/client.html#list_participant_events)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ivs-realtime/client/list_participant_events.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ivs_realtime/client/#list_participant_events)
         """
 
     def list_participants(
-        self,
-        *,
-        stageArn: str,
-        sessionId: str,
-        filterByUserId: str = None,
-        filterByPublished: bool = None,
-        filterByState: ParticipantStateType = None,
-        nextToken: str = None,
-        maxResults: int = None,
-        filterByRecordingState: ParticipantRecordingFilterByRecordingStateType = None
+        self, **kwargs: Unpack[ListParticipantsRequestTypeDef]
     ) -> ListParticipantsResponseTypeDef:
         """
         Lists all participants in a specified stage session.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivs-realtime.html#ivsrealtime.Client.list_participants)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivs_realtime/client.html#list_participants)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ivs-realtime/client/list_participants.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ivs_realtime/client/#list_participants)
         """
 
     def list_public_keys(
-        self, *, nextToken: str = None, maxResults: int = None
+        self, **kwargs: Unpack[ListPublicKeysRequestTypeDef]
     ) -> ListPublicKeysResponseTypeDef:
         """
         Gets summary information about all public keys in your account, in the AWS
         region where the API request is processed.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivs-realtime.html#ivsrealtime.Client.list_public_keys)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivs_realtime/client.html#list_public_keys)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ivs-realtime/client/list_public_keys.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ivs_realtime/client/#list_public_keys)
         """
 
     def list_stage_sessions(
-        self, *, stageArn: str, nextToken: str = None, maxResults: int = None
+        self, **kwargs: Unpack[ListStageSessionsRequestTypeDef]
     ) -> ListStageSessionsResponseTypeDef:
         """
         Gets all sessions for a specified stage.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivs-realtime.html#ivsrealtime.Client.list_stage_sessions)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivs_realtime/client.html#list_stage_sessions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ivs-realtime/client/list_stage_sessions.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ivs_realtime/client/#list_stage_sessions)
         """
 
-    def list_stages(
-        self, *, nextToken: str = None, maxResults: int = None
-    ) -> ListStagesResponseTypeDef:
+    def list_stages(self, **kwargs: Unpack[ListStagesRequestTypeDef]) -> ListStagesResponseTypeDef:
         """
         Gets summary information about all stages in your account, in the AWS region
         where the API request is processed.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivs-realtime.html#ivsrealtime.Client.list_stages)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivs_realtime/client.html#list_stages)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ivs-realtime/client/list_stages.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ivs_realtime/client/#list_stages)
         """
 
     def list_storage_configurations(
-        self, *, nextToken: str = None, maxResults: int = None
+        self, **kwargs: Unpack[ListStorageConfigurationsRequestTypeDef]
     ) -> ListStorageConfigurationsResponseTypeDef:
         """
         Gets summary information about all storage configurations in your account, in
         the AWS region where the API request is processed.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivs-realtime.html#ivsrealtime.Client.list_storage_configurations)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivs_realtime/client.html#list_storage_configurations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ivs-realtime/client/list_storage_configurations.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ivs_realtime/client/#list_storage_configurations)
         """
 
-    def list_tags_for_resource(self, *, resourceArn: str) -> ListTagsForResourceResponseTypeDef:
+    def list_tags_for_resource(
+        self, **kwargs: Unpack[ListTagsForResourceRequestTypeDef]
+    ) -> ListTagsForResourceResponseTypeDef:
         """
         Gets information about AWS tags for the specified ARN.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivs-realtime.html#ivsrealtime.Client.list_tags_for_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivs_realtime/client.html#list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ivs-realtime/client/list_tags_for_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ivs_realtime/client/#list_tags_for_resource)
         """
 
     def start_composition(
-        self,
-        *,
-        stageArn: str,
-        destinations: List["DestinationConfigurationTypeDef"],
-        idempotencyToken: str = None,
-        layout: "LayoutConfigurationTypeDef" = None,
-        tags: Dict[str, str] = None
+        self, **kwargs: Unpack[StartCompositionRequestTypeDef]
     ) -> StartCompositionResponseTypeDef:
         """
         Starts a Composition from a stage based on the configuration provided in the
         request.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivs-realtime.html#ivsrealtime.Client.start_composition)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivs_realtime/client.html#start_composition)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ivs-realtime/client/start_composition.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ivs_realtime/client/#start_composition)
         """
 
-    def stop_composition(self, *, arn: str) -> Dict[str, Any]:
+    def stop_composition(self, **kwargs: Unpack[StopCompositionRequestTypeDef]) -> Dict[str, Any]:
         """
         Stops and deletes a Composition resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivs-realtime.html#ivsrealtime.Client.stop_composition)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivs_realtime/client.html#stop_composition)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ivs-realtime/client/stop_composition.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ivs_realtime/client/#stop_composition)
         """
 
-    def tag_resource(self, *, resourceArn: str, tags: Dict[str, str]) -> Dict[str, Any]:
+    def tag_resource(self, **kwargs: Unpack[TagResourceRequestTypeDef]) -> Dict[str, Any]:
         """
         Adds or updates tags for the AWS resource with the specified ARN.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivs-realtime.html#ivsrealtime.Client.tag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivs_realtime/client.html#tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ivs-realtime/client/tag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ivs_realtime/client/#tag_resource)
         """
 
-    def untag_resource(self, *, resourceArn: str, tagKeys: List[str]) -> Dict[str, Any]:
+    def untag_resource(self, **kwargs: Unpack[UntagResourceRequestTypeDef]) -> Dict[str, Any]:
         """
         Removes tags from the resource with the specified ARN.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivs-realtime.html#ivsrealtime.Client.untag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivs_realtime/client.html#untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ivs-realtime/client/untag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ivs_realtime/client/#untag_resource)
+        """
+
+    def update_ingest_configuration(
+        self, **kwargs: Unpack[UpdateIngestConfigurationRequestTypeDef]
+    ) -> UpdateIngestConfigurationResponseTypeDef:
+        """
+        Updates a specified IngestConfiguration.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ivs-realtime/client/update_ingest_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ivs_realtime/client/#update_ingest_configuration)
         """
 
     def update_stage(
-        self,
-        *,
-        arn: str,
-        name: str = None,
-        autoParticipantRecordingConfiguration: "AutoParticipantRecordingConfigurationTypeDef" = None
+        self, **kwargs: Unpack[UpdateStageRequestTypeDef]
     ) -> UpdateStageResponseTypeDef:
         """
-        Updates a stage’s configuration.
+        Updates a stage's configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivs-realtime.html#ivsrealtime.Client.update_stage)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivs_realtime/client.html#update_stage)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ivs-realtime/client/update_stage.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ivs_realtime/client/#update_stage)
         """
 
-    def get_paginator(self, operation_name: Literal["list_public_keys"]) -> ListPublicKeysPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_ingest_configurations"]
+    ) -> ListIngestConfigurationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ivs-realtime.html#ivsrealtime.Paginator.ListPublicKeys)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivs_realtime/paginators.html#listpublickeyspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ivs-realtime/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ivs_realtime/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_public_keys"]
+    ) -> ListPublicKeysPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ivs-realtime/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ivs_realtime/client/#get_paginator)
         """

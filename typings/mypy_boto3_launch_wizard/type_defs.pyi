@@ -1,20 +1,23 @@
 """
 Type annotations for launch-wizard service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_launch_wizard/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_launch_wizard/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_launch_wizard.type_defs import CreateDeploymentInputRequestTypeDef
+    from mypy_boto3_launch_wizard.type_defs import CreateDeploymentInputTypeDef
 
-    data: CreateDeploymentInputRequestTypeDef = {...}
+    data: CreateDeploymentInputTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
 
 from .literals import (
     DeploymentFilterKeyType,
@@ -24,15 +27,21 @@ from .literals import (
     WorkloadStatusType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
-    "CreateDeploymentInputRequestTypeDef",
+    "CreateDeploymentInputTypeDef",
     "CreateDeploymentOutputTypeDef",
-    "DeleteDeploymentInputRequestTypeDef",
+    "DeleteDeploymentInputTypeDef",
     "DeleteDeploymentOutputTypeDef",
     "DeploymentConditionalFieldTypeDef",
     "DeploymentDataSummaryTypeDef",
@@ -40,396 +49,238 @@ __all__ = (
     "DeploymentEventDataSummaryTypeDef",
     "DeploymentFilterTypeDef",
     "DeploymentSpecificationsFieldTypeDef",
-    "GetDeploymentInputRequestTypeDef",
+    "GetDeploymentInputTypeDef",
     "GetDeploymentOutputTypeDef",
-    "GetWorkloadDeploymentPatternInputRequestTypeDef",
+    "GetWorkloadDeploymentPatternInputTypeDef",
     "GetWorkloadDeploymentPatternOutputTypeDef",
-    "GetWorkloadInputRequestTypeDef",
+    "GetWorkloadInputTypeDef",
     "GetWorkloadOutputTypeDef",
-    "ListDeploymentEventsInputRequestTypeDef",
+    "ListDeploymentEventsInputPaginateTypeDef",
+    "ListDeploymentEventsInputTypeDef",
     "ListDeploymentEventsOutputTypeDef",
-    "ListDeploymentsInputRequestTypeDef",
+    "ListDeploymentsInputPaginateTypeDef",
+    "ListDeploymentsInputTypeDef",
     "ListDeploymentsOutputTypeDef",
-    "ListTagsForResourceInputRequestTypeDef",
+    "ListTagsForResourceInputTypeDef",
     "ListTagsForResourceOutputTypeDef",
-    "ListWorkloadDeploymentPatternsInputRequestTypeDef",
+    "ListWorkloadDeploymentPatternsInputPaginateTypeDef",
+    "ListWorkloadDeploymentPatternsInputTypeDef",
     "ListWorkloadDeploymentPatternsOutputTypeDef",
-    "ListWorkloadsInputRequestTypeDef",
+    "ListWorkloadsInputPaginateTypeDef",
+    "ListWorkloadsInputTypeDef",
     "ListWorkloadsOutputTypeDef",
     "PaginatorConfigTypeDef",
     "ResponseMetadataTypeDef",
-    "TagResourceInputRequestTypeDef",
-    "UntagResourceInputRequestTypeDef",
+    "TagResourceInputTypeDef",
+    "UntagResourceInputTypeDef",
     "WorkloadDataSummaryTypeDef",
     "WorkloadDataTypeDef",
     "WorkloadDeploymentPatternDataSummaryTypeDef",
     "WorkloadDeploymentPatternDataTypeDef",
 )
 
-_RequiredCreateDeploymentInputRequestTypeDef = TypedDict(
-    "_RequiredCreateDeploymentInputRequestTypeDef",
-    {
-        "deploymentPatternName": str,
-        "name": str,
-        "specifications": Dict[str, str],
-        "workloadName": str,
-    },
-)
-_OptionalCreateDeploymentInputRequestTypeDef = TypedDict(
-    "_OptionalCreateDeploymentInputRequestTypeDef",
-    {
-        "dryRun": bool,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
+class CreateDeploymentInputTypeDef(TypedDict):
+    deploymentPatternName: str
+    name: str
+    specifications: Mapping[str, str]
+    workloadName: str
+    dryRun: NotRequired[bool]
+    tags: NotRequired[Mapping[str, str]]
 
-class CreateDeploymentInputRequestTypeDef(
-    _RequiredCreateDeploymentInputRequestTypeDef, _OptionalCreateDeploymentInputRequestTypeDef
-):
-    pass
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-CreateDeploymentOutputTypeDef = TypedDict(
-    "CreateDeploymentOutputTypeDef",
-    {
-        "deploymentId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DeleteDeploymentInputTypeDef(TypedDict):
+    deploymentId: str
 
-DeleteDeploymentInputRequestTypeDef = TypedDict(
-    "DeleteDeploymentInputRequestTypeDef",
-    {
-        "deploymentId": str,
-    },
-)
-
-DeleteDeploymentOutputTypeDef = TypedDict(
-    "DeleteDeploymentOutputTypeDef",
-    {
-        "status": DeploymentStatusType,
-        "statusReason": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeploymentConditionalFieldTypeDef = TypedDict(
-    "DeploymentConditionalFieldTypeDef",
-    {
-        "comparator": str,
-        "name": str,
-        "value": str,
-    },
-    total=False,
-)
+class DeploymentConditionalFieldTypeDef(TypedDict):
+    comparator: NotRequired[str]
+    name: NotRequired[str]
+    value: NotRequired[str]
 
 DeploymentDataSummaryTypeDef = TypedDict(
     "DeploymentDataSummaryTypeDef",
     {
-        "createdAt": datetime,
-        "id": str,
-        "name": str,
-        "patternName": str,
-        "status": DeploymentStatusType,
-        "workloadName": str,
+        "createdAt": NotRequired[datetime],
+        "id": NotRequired[str],
+        "name": NotRequired[str],
+        "patternName": NotRequired[str],
+        "status": NotRequired[DeploymentStatusType],
+        "workloadName": NotRequired[str],
     },
-    total=False,
 )
-
 DeploymentDataTypeDef = TypedDict(
     "DeploymentDataTypeDef",
     {
-        "createdAt": datetime,
-        "deletedAt": datetime,
-        "deploymentArn": str,
-        "id": str,
-        "name": str,
-        "patternName": str,
-        "resourceGroup": str,
-        "specifications": Dict[str, str],
-        "status": DeploymentStatusType,
-        "tags": Dict[str, str],
-        "workloadName": str,
-    },
-    total=False,
-)
-
-DeploymentEventDataSummaryTypeDef = TypedDict(
-    "DeploymentEventDataSummaryTypeDef",
-    {
-        "description": str,
-        "name": str,
-        "status": EventStatusType,
-        "statusReason": str,
-        "timestamp": datetime,
-    },
-    total=False,
-)
-
-DeploymentFilterTypeDef = TypedDict(
-    "DeploymentFilterTypeDef",
-    {
-        "name": DeploymentFilterKeyType,
-        "values": List[str],
-    },
-    total=False,
-)
-
-DeploymentSpecificationsFieldTypeDef = TypedDict(
-    "DeploymentSpecificationsFieldTypeDef",
-    {
-        "allowedValues": List[str],
-        "conditionals": List["DeploymentConditionalFieldTypeDef"],
-        "description": str,
-        "name": str,
-        "required": str,
-    },
-    total=False,
-)
-
-GetDeploymentInputRequestTypeDef = TypedDict(
-    "GetDeploymentInputRequestTypeDef",
-    {
-        "deploymentId": str,
+        "createdAt": NotRequired[datetime],
+        "deletedAt": NotRequired[datetime],
+        "deploymentArn": NotRequired[str],
+        "id": NotRequired[str],
+        "name": NotRequired[str],
+        "patternName": NotRequired[str],
+        "resourceGroup": NotRequired[str],
+        "specifications": NotRequired[Dict[str, str]],
+        "status": NotRequired[DeploymentStatusType],
+        "tags": NotRequired[Dict[str, str]],
+        "workloadName": NotRequired[str],
     },
 )
 
-GetDeploymentOutputTypeDef = TypedDict(
-    "GetDeploymentOutputTypeDef",
-    {
-        "deployment": "DeploymentDataTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DeploymentEventDataSummaryTypeDef(TypedDict):
+    description: NotRequired[str]
+    name: NotRequired[str]
+    status: NotRequired[EventStatusType]
+    statusReason: NotRequired[str]
+    timestamp: NotRequired[datetime]
 
-GetWorkloadDeploymentPatternInputRequestTypeDef = TypedDict(
-    "GetWorkloadDeploymentPatternInputRequestTypeDef",
-    {
-        "deploymentPatternName": str,
-        "workloadName": str,
-    },
-)
+class DeploymentFilterTypeDef(TypedDict):
+    name: NotRequired[DeploymentFilterKeyType]
+    values: NotRequired[Sequence[str]]
 
-GetWorkloadDeploymentPatternOutputTypeDef = TypedDict(
-    "GetWorkloadDeploymentPatternOutputTypeDef",
-    {
-        "workloadDeploymentPattern": "WorkloadDeploymentPatternDataTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetDeploymentInputTypeDef(TypedDict):
+    deploymentId: str
 
-GetWorkloadInputRequestTypeDef = TypedDict(
-    "GetWorkloadInputRequestTypeDef",
-    {
-        "workloadName": str,
-    },
-)
+class GetWorkloadDeploymentPatternInputTypeDef(TypedDict):
+    deploymentPatternName: str
+    workloadName: str
 
-GetWorkloadOutputTypeDef = TypedDict(
-    "GetWorkloadOutputTypeDef",
-    {
-        "workload": "WorkloadDataTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetWorkloadInputTypeDef(TypedDict):
+    workloadName: str
 
-_RequiredListDeploymentEventsInputRequestTypeDef = TypedDict(
-    "_RequiredListDeploymentEventsInputRequestTypeDef",
-    {
-        "deploymentId": str,
-    },
-)
-_OptionalListDeploymentEventsInputRequestTypeDef = TypedDict(
-    "_OptionalListDeploymentEventsInputRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
+class WorkloadDataTypeDef(TypedDict):
+    description: NotRequired[str]
+    displayName: NotRequired[str]
+    documentationUrl: NotRequired[str]
+    iconUrl: NotRequired[str]
+    status: NotRequired[WorkloadStatusType]
+    statusMessage: NotRequired[str]
+    workloadName: NotRequired[str]
 
-class ListDeploymentEventsInputRequestTypeDef(
-    _RequiredListDeploymentEventsInputRequestTypeDef,
-    _OptionalListDeploymentEventsInputRequestTypeDef,
-):
-    pass
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
 
-ListDeploymentEventsOutputTypeDef = TypedDict(
-    "ListDeploymentEventsOutputTypeDef",
-    {
-        "deploymentEvents": List["DeploymentEventDataSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListDeploymentEventsInputTypeDef(TypedDict):
+    deploymentId: str
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
 
-ListDeploymentsInputRequestTypeDef = TypedDict(
-    "ListDeploymentsInputRequestTypeDef",
-    {
-        "filters": List["DeploymentFilterTypeDef"],
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
+class ListTagsForResourceInputTypeDef(TypedDict):
+    resourceArn: str
 
-ListDeploymentsOutputTypeDef = TypedDict(
-    "ListDeploymentsOutputTypeDef",
-    {
-        "deployments": List["DeploymentDataSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListWorkloadDeploymentPatternsInputTypeDef(TypedDict):
+    workloadName: str
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
 
-ListTagsForResourceInputRequestTypeDef = TypedDict(
-    "ListTagsForResourceInputRequestTypeDef",
-    {
-        "resourceArn": str,
-    },
-)
+class WorkloadDeploymentPatternDataSummaryTypeDef(TypedDict):
+    deploymentPatternName: NotRequired[str]
+    description: NotRequired[str]
+    displayName: NotRequired[str]
+    status: NotRequired[WorkloadDeploymentPatternStatusType]
+    statusMessage: NotRequired[str]
+    workloadName: NotRequired[str]
+    workloadVersionName: NotRequired[str]
 
-ListTagsForResourceOutputTypeDef = TypedDict(
-    "ListTagsForResourceOutputTypeDef",
-    {
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListWorkloadsInputTypeDef(TypedDict):
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
 
-_RequiredListWorkloadDeploymentPatternsInputRequestTypeDef = TypedDict(
-    "_RequiredListWorkloadDeploymentPatternsInputRequestTypeDef",
-    {
-        "workloadName": str,
-    },
-)
-_OptionalListWorkloadDeploymentPatternsInputRequestTypeDef = TypedDict(
-    "_OptionalListWorkloadDeploymentPatternsInputRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
+class WorkloadDataSummaryTypeDef(TypedDict):
+    displayName: NotRequired[str]
+    workloadName: NotRequired[str]
 
-class ListWorkloadDeploymentPatternsInputRequestTypeDef(
-    _RequiredListWorkloadDeploymentPatternsInputRequestTypeDef,
-    _OptionalListWorkloadDeploymentPatternsInputRequestTypeDef,
-):
-    pass
+class TagResourceInputTypeDef(TypedDict):
+    resourceArn: str
+    tags: Mapping[str, str]
 
-ListWorkloadDeploymentPatternsOutputTypeDef = TypedDict(
-    "ListWorkloadDeploymentPatternsOutputTypeDef",
-    {
-        "nextToken": str,
-        "workloadDeploymentPatterns": List["WorkloadDeploymentPatternDataSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class UntagResourceInputTypeDef(TypedDict):
+    resourceArn: str
+    tagKeys: Sequence[str]
 
-ListWorkloadsInputRequestTypeDef = TypedDict(
-    "ListWorkloadsInputRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
+class CreateDeploymentOutputTypeDef(TypedDict):
+    deploymentId: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ListWorkloadsOutputTypeDef = TypedDict(
-    "ListWorkloadsOutputTypeDef",
-    {
-        "nextToken": str,
-        "workloads": List["WorkloadDataSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DeleteDeploymentOutputTypeDef(TypedDict):
+    status: DeploymentStatusType
+    statusReason: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
+class ListTagsForResourceOutputTypeDef(TypedDict):
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
+class DeploymentSpecificationsFieldTypeDef(TypedDict):
+    allowedValues: NotRequired[List[str]]
+    conditionals: NotRequired[List[DeploymentConditionalFieldTypeDef]]
+    description: NotRequired[str]
+    name: NotRequired[str]
+    required: NotRequired[str]
 
-TagResourceInputRequestTypeDef = TypedDict(
-    "TagResourceInputRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tags": Dict[str, str],
-    },
-)
+class ListDeploymentsOutputTypeDef(TypedDict):
+    deployments: List[DeploymentDataSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-UntagResourceInputRequestTypeDef = TypedDict(
-    "UntagResourceInputRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tagKeys": List[str],
-    },
-)
+class GetDeploymentOutputTypeDef(TypedDict):
+    deployment: DeploymentDataTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-WorkloadDataSummaryTypeDef = TypedDict(
-    "WorkloadDataSummaryTypeDef",
-    {
-        "displayName": str,
-        "workloadName": str,
-    },
-    total=False,
-)
+class ListDeploymentEventsOutputTypeDef(TypedDict):
+    deploymentEvents: List[DeploymentEventDataSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-WorkloadDataTypeDef = TypedDict(
-    "WorkloadDataTypeDef",
-    {
-        "description": str,
-        "displayName": str,
-        "documentationUrl": str,
-        "iconUrl": str,
-        "status": WorkloadStatusType,
-        "statusMessage": str,
-        "workloadName": str,
-    },
-    total=False,
-)
+class ListDeploymentsInputTypeDef(TypedDict):
+    filters: NotRequired[Sequence[DeploymentFilterTypeDef]]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
 
-WorkloadDeploymentPatternDataSummaryTypeDef = TypedDict(
-    "WorkloadDeploymentPatternDataSummaryTypeDef",
-    {
-        "deploymentPatternName": str,
-        "description": str,
-        "displayName": str,
-        "status": WorkloadDeploymentPatternStatusType,
-        "statusMessage": str,
-        "workloadName": str,
-        "workloadVersionName": str,
-    },
-    total=False,
-)
+class GetWorkloadOutputTypeDef(TypedDict):
+    workload: WorkloadDataTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-WorkloadDeploymentPatternDataTypeDef = TypedDict(
-    "WorkloadDeploymentPatternDataTypeDef",
-    {
-        "deploymentPatternName": str,
-        "description": str,
-        "displayName": str,
-        "specifications": List["DeploymentSpecificationsFieldTypeDef"],
-        "status": WorkloadDeploymentPatternStatusType,
-        "statusMessage": str,
-        "workloadName": str,
-        "workloadVersionName": str,
-    },
-    total=False,
-)
+class ListDeploymentEventsInputPaginateTypeDef(TypedDict):
+    deploymentId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListDeploymentsInputPaginateTypeDef(TypedDict):
+    filters: NotRequired[Sequence[DeploymentFilterTypeDef]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListWorkloadDeploymentPatternsInputPaginateTypeDef(TypedDict):
+    workloadName: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListWorkloadsInputPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListWorkloadDeploymentPatternsOutputTypeDef(TypedDict):
+    workloadDeploymentPatterns: List[WorkloadDeploymentPatternDataSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListWorkloadsOutputTypeDef(TypedDict):
+    workloads: List[WorkloadDataSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class WorkloadDeploymentPatternDataTypeDef(TypedDict):
+    deploymentPatternName: NotRequired[str]
+    description: NotRequired[str]
+    displayName: NotRequired[str]
+    specifications: NotRequired[List[DeploymentSpecificationsFieldTypeDef]]
+    status: NotRequired[WorkloadDeploymentPatternStatusType]
+    statusMessage: NotRequired[str]
+    workloadName: NotRequired[str]
+    workloadVersionName: NotRequired[str]
+
+class GetWorkloadDeploymentPatternOutputTypeDef(TypedDict):
+    workloadDeploymentPattern: WorkloadDeploymentPatternDataTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef

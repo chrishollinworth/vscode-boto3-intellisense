@@ -1,158 +1,217 @@
 """
-Type annotations for iotwireless service client.
+Type annotations for iotwireless service Client.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
-    from mypy_boto3_iotwireless import IoTWirelessClient
+    from boto3.session import Session
+    from mypy_boto3_iotwireless.client import IoTWirelessClient
 
-    client: IoTWirelessClient = boto3.client("iotwireless")
+    session = Session()
+    client: IoTWirelessClient = session.client("iotwireless")
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from datetime import datetime
-from typing import IO, Any, Dict, List, Type, Union
+from typing import Any
 
 from botocore.client import BaseClient, ClientMeta
-from botocore.response import StreamingBody
+from botocore.errorfactory import BaseClientExceptions
+from botocore.exceptions import ClientError as BotocoreClientError
 
-from .literals import (
-    DeviceProfileTypeType,
-    EventNotificationResourceTypeType,
-    ExpressionTypeType,
-    IdentifierTypeType,
-    LogLevelType,
-    OnboardStatusType,
-    PositioningConfigStatusType,
-    PositionResourceTypeType,
-    WirelessDeviceIdTypeType,
-    WirelessDeviceTypeType,
-    WirelessGatewayIdTypeType,
-    WirelessGatewayServiceTypeType,
-)
 from .type_defs import (
+    AssociateAwsAccountWithPartnerAccountRequestTypeDef,
     AssociateAwsAccountWithPartnerAccountResponseTypeDef,
+    AssociateMulticastGroupWithFuotaTaskRequestTypeDef,
+    AssociateWirelessDeviceWithFuotaTaskRequestTypeDef,
+    AssociateWirelessDeviceWithMulticastGroupRequestTypeDef,
+    AssociateWirelessDeviceWithThingRequestTypeDef,
+    AssociateWirelessGatewayWithCertificateRequestTypeDef,
     AssociateWirelessGatewayWithCertificateResponseTypeDef,
-    CellTowersTypeDef,
-    ConnectionStatusEventConfigurationTypeDef,
-    ConnectionStatusResourceTypeEventConfigurationTypeDef,
+    AssociateWirelessGatewayWithThingRequestTypeDef,
+    CancelMulticastGroupSessionRequestTypeDef,
+    CreateDestinationRequestTypeDef,
     CreateDestinationResponseTypeDef,
+    CreateDeviceProfileRequestTypeDef,
     CreateDeviceProfileResponseTypeDef,
+    CreateFuotaTaskRequestTypeDef,
     CreateFuotaTaskResponseTypeDef,
+    CreateMulticastGroupRequestTypeDef,
     CreateMulticastGroupResponseTypeDef,
+    CreateNetworkAnalyzerConfigurationRequestTypeDef,
     CreateNetworkAnalyzerConfigurationResponseTypeDef,
+    CreateServiceProfileRequestTypeDef,
     CreateServiceProfileResponseTypeDef,
+    CreateWirelessDeviceRequestTypeDef,
     CreateWirelessDeviceResponseTypeDef,
+    CreateWirelessGatewayRequestTypeDef,
     CreateWirelessGatewayResponseTypeDef,
+    CreateWirelessGatewayTaskDefinitionRequestTypeDef,
     CreateWirelessGatewayTaskDefinitionResponseTypeDef,
+    CreateWirelessGatewayTaskRequestTypeDef,
     CreateWirelessGatewayTaskResponseTypeDef,
-    DeviceRegistrationStateEventConfigurationTypeDef,
-    DeviceRegistrationStateResourceTypeEventConfigurationTypeDef,
+    DeleteDestinationRequestTypeDef,
+    DeleteDeviceProfileRequestTypeDef,
+    DeleteFuotaTaskRequestTypeDef,
+    DeleteMulticastGroupRequestTypeDef,
+    DeleteNetworkAnalyzerConfigurationRequestTypeDef,
+    DeleteQueuedMessagesRequestTypeDef,
+    DeleteServiceProfileRequestTypeDef,
+    DeleteWirelessDeviceImportTaskRequestTypeDef,
+    DeleteWirelessDeviceRequestTypeDef,
+    DeleteWirelessGatewayRequestTypeDef,
+    DeleteWirelessGatewayTaskDefinitionRequestTypeDef,
+    DeleteWirelessGatewayTaskRequestTypeDef,
+    DeregisterWirelessDeviceRequestTypeDef,
+    DisassociateAwsAccountFromPartnerAccountRequestTypeDef,
+    DisassociateMulticastGroupFromFuotaTaskRequestTypeDef,
+    DisassociateWirelessDeviceFromFuotaTaskRequestTypeDef,
+    DisassociateWirelessDeviceFromMulticastGroupRequestTypeDef,
+    DisassociateWirelessDeviceFromThingRequestTypeDef,
+    DisassociateWirelessGatewayFromCertificateRequestTypeDef,
+    DisassociateWirelessGatewayFromThingRequestTypeDef,
+    GetDestinationRequestTypeDef,
     GetDestinationResponseTypeDef,
+    GetDeviceProfileRequestTypeDef,
     GetDeviceProfileResponseTypeDef,
     GetEventConfigurationByResourceTypesResponseTypeDef,
+    GetFuotaTaskRequestTypeDef,
     GetFuotaTaskResponseTypeDef,
     GetLogLevelsByResourceTypesResponseTypeDef,
     GetMetricConfigurationResponseTypeDef,
+    GetMetricsRequestTypeDef,
     GetMetricsResponseTypeDef,
+    GetMulticastGroupRequestTypeDef,
     GetMulticastGroupResponseTypeDef,
+    GetMulticastGroupSessionRequestTypeDef,
     GetMulticastGroupSessionResponseTypeDef,
+    GetNetworkAnalyzerConfigurationRequestTypeDef,
     GetNetworkAnalyzerConfigurationResponseTypeDef,
+    GetPartnerAccountRequestTypeDef,
     GetPartnerAccountResponseTypeDef,
+    GetPositionConfigurationRequestTypeDef,
     GetPositionConfigurationResponseTypeDef,
+    GetPositionEstimateRequestTypeDef,
     GetPositionEstimateResponseTypeDef,
+    GetPositionRequestTypeDef,
     GetPositionResponseTypeDef,
+    GetResourceEventConfigurationRequestTypeDef,
     GetResourceEventConfigurationResponseTypeDef,
+    GetResourceLogLevelRequestTypeDef,
     GetResourceLogLevelResponseTypeDef,
+    GetResourcePositionRequestTypeDef,
     GetResourcePositionResponseTypeDef,
+    GetServiceEndpointRequestTypeDef,
     GetServiceEndpointResponseTypeDef,
+    GetServiceProfileRequestTypeDef,
     GetServiceProfileResponseTypeDef,
+    GetWirelessDeviceImportTaskRequestTypeDef,
     GetWirelessDeviceImportTaskResponseTypeDef,
+    GetWirelessDeviceRequestTypeDef,
     GetWirelessDeviceResponseTypeDef,
+    GetWirelessDeviceStatisticsRequestTypeDef,
     GetWirelessDeviceStatisticsResponseTypeDef,
+    GetWirelessGatewayCertificateRequestTypeDef,
     GetWirelessGatewayCertificateResponseTypeDef,
+    GetWirelessGatewayFirmwareInformationRequestTypeDef,
     GetWirelessGatewayFirmwareInformationResponseTypeDef,
+    GetWirelessGatewayRequestTypeDef,
     GetWirelessGatewayResponseTypeDef,
+    GetWirelessGatewayStatisticsRequestTypeDef,
     GetWirelessGatewayStatisticsResponseTypeDef,
+    GetWirelessGatewayTaskDefinitionRequestTypeDef,
     GetWirelessGatewayTaskDefinitionResponseTypeDef,
+    GetWirelessGatewayTaskRequestTypeDef,
     GetWirelessGatewayTaskResponseTypeDef,
-    GnssTypeDef,
-    IpTypeDef,
-    JoinEventConfigurationTypeDef,
-    JoinResourceTypeEventConfigurationTypeDef,
+    ListDestinationsRequestTypeDef,
     ListDestinationsResponseTypeDef,
+    ListDeviceProfilesRequestTypeDef,
     ListDeviceProfilesResponseTypeDef,
+    ListDevicesForWirelessDeviceImportTaskRequestTypeDef,
     ListDevicesForWirelessDeviceImportTaskResponseTypeDef,
+    ListEventConfigurationsRequestTypeDef,
     ListEventConfigurationsResponseTypeDef,
+    ListFuotaTasksRequestTypeDef,
     ListFuotaTasksResponseTypeDef,
+    ListMulticastGroupsByFuotaTaskRequestTypeDef,
     ListMulticastGroupsByFuotaTaskResponseTypeDef,
+    ListMulticastGroupsRequestTypeDef,
     ListMulticastGroupsResponseTypeDef,
+    ListNetworkAnalyzerConfigurationsRequestTypeDef,
     ListNetworkAnalyzerConfigurationsResponseTypeDef,
+    ListPartnerAccountsRequestTypeDef,
     ListPartnerAccountsResponseTypeDef,
+    ListPositionConfigurationsRequestTypeDef,
     ListPositionConfigurationsResponseTypeDef,
+    ListQueuedMessagesRequestTypeDef,
     ListQueuedMessagesResponseTypeDef,
+    ListServiceProfilesRequestTypeDef,
     ListServiceProfilesResponseTypeDef,
+    ListTagsForResourceRequestTypeDef,
     ListTagsForResourceResponseTypeDef,
+    ListWirelessDeviceImportTasksRequestTypeDef,
     ListWirelessDeviceImportTasksResponseTypeDef,
+    ListWirelessDevicesRequestTypeDef,
     ListWirelessDevicesResponseTypeDef,
+    ListWirelessGatewaysRequestTypeDef,
     ListWirelessGatewaysResponseTypeDef,
+    ListWirelessGatewayTaskDefinitionsRequestTypeDef,
     ListWirelessGatewayTaskDefinitionsResponseTypeDef,
-    LoRaWANDeviceProfileTypeDef,
-    LoRaWANDeviceTypeDef,
-    LoRaWANFuotaTaskTypeDef,
-    LoRaWANGatewayTypeDef,
-    LoRaWANMulticastSessionTypeDef,
-    LoRaWANMulticastTypeDef,
-    LoRaWANServiceProfileTypeDef,
-    LoRaWANStartFuotaTaskTypeDef,
-    LoRaWANUpdateDeviceTypeDef,
-    MessageDeliveryStatusEventConfigurationTypeDef,
-    MessageDeliveryStatusResourceTypeEventConfigurationTypeDef,
-    MulticastWirelessMetadataTypeDef,
-    PositionSolverConfigurationsTypeDef,
-    ProximityEventConfigurationTypeDef,
-    ProximityResourceTypeEventConfigurationTypeDef,
+    PutPositionConfigurationRequestTypeDef,
+    PutResourceLogLevelRequestTypeDef,
+    ResetResourceLogLevelRequestTypeDef,
+    SendDataToMulticastGroupRequestTypeDef,
     SendDataToMulticastGroupResponseTypeDef,
+    SendDataToWirelessDeviceRequestTypeDef,
     SendDataToWirelessDeviceResponseTypeDef,
-    SidewalkAccountInfoTypeDef,
-    SidewalkCreateWirelessDeviceTypeDef,
-    SidewalkSingleStartImportInfoTypeDef,
-    SidewalkStartImportInfoTypeDef,
-    SidewalkUpdateAccountTypeDef,
-    SidewalkUpdateImportInfoTypeDef,
+    StartBulkAssociateWirelessDeviceWithMulticastGroupRequestTypeDef,
+    StartBulkDisassociateWirelessDeviceFromMulticastGroupRequestTypeDef,
+    StartFuotaTaskRequestTypeDef,
+    StartMulticastGroupSessionRequestTypeDef,
+    StartSingleWirelessDeviceImportTaskRequestTypeDef,
     StartSingleWirelessDeviceImportTaskResponseTypeDef,
+    StartWirelessDeviceImportTaskRequestTypeDef,
     StartWirelessDeviceImportTaskResponseTypeDef,
-    SummaryMetricConfigurationTypeDef,
-    SummaryMetricQueryTypeDef,
-    TagTypeDef,
+    TagResourceRequestTypeDef,
+    TestWirelessDeviceRequestTypeDef,
     TestWirelessDeviceResponseTypeDef,
-    TraceContentTypeDef,
-    UpdateWirelessGatewayTaskCreateTypeDef,
-    WiFiAccessPointTypeDef,
-    WirelessDeviceLogOptionTypeDef,
-    WirelessGatewayLogOptionTypeDef,
-    WirelessMetadataTypeDef,
+    UntagResourceRequestTypeDef,
+    UpdateDestinationRequestTypeDef,
+    UpdateEventConfigurationByResourceTypesRequestTypeDef,
+    UpdateFuotaTaskRequestTypeDef,
+    UpdateLogLevelsByResourceTypesRequestTypeDef,
+    UpdateMetricConfigurationRequestTypeDef,
+    UpdateMulticastGroupRequestTypeDef,
+    UpdateNetworkAnalyzerConfigurationRequestTypeDef,
+    UpdatePartnerAccountRequestTypeDef,
+    UpdatePositionRequestTypeDef,
+    UpdateResourceEventConfigurationRequestTypeDef,
+    UpdateResourcePositionRequestTypeDef,
+    UpdateWirelessDeviceImportTaskRequestTypeDef,
+    UpdateWirelessDeviceRequestTypeDef,
+    UpdateWirelessGatewayRequestTypeDef,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import type as Type
+    from collections.abc import Mapping
 else:
-    from typing_extensions import Literal
+    from typing import Dict, Mapping, Type
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = ("IoTWirelessClient",)
 
-class BotocoreClientError(BaseException):
-    MSG_TEMPLATE: str
-
-    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
-        self.response: Dict[str, Any]
-        self.operation_name: str
-
-class Exceptions:
+class Exceptions(BaseClientExceptions):
     AccessDeniedException: Type[BotocoreClientError]
     ClientError: Type[BotocoreClientError]
     ConflictException: Type[BotocoreClientError]
@@ -164,8 +223,8 @@ class Exceptions:
 
 class IoTWirelessClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless.html#IoTWireless.Client)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/)
     """
 
     meta: ClientMeta
@@ -174,469 +233,425 @@ class IoTWirelessClient(BaseClient):
     def exceptions(self) -> Exceptions:
         """
         IoTWirelessClient exceptions.
-        """
 
-    def associate_aws_account_with_partner_account(
-        self,
-        *,
-        Sidewalk: "SidewalkAccountInfoTypeDef",
-        ClientRequestToken: str = None,
-        Tags: List["TagTypeDef"] = None
-    ) -> AssociateAwsAccountWithPartnerAccountResponseTypeDef:
-        """
-        Associates a partner account with your AWS account.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.associate_aws_account_with_partner_account)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#associate_aws_account_with_partner_account)
-        """
-
-    def associate_multicast_group_with_fuota_task(
-        self, *, Id: str, MulticastGroupId: str
-    ) -> Dict[str, Any]:
-        """
-        Associate a multicast group with a FUOTA task.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.associate_multicast_group_with_fuota_task)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#associate_multicast_group_with_fuota_task)
-        """
-
-    def associate_wireless_device_with_fuota_task(
-        self, *, Id: str, WirelessDeviceId: str
-    ) -> Dict[str, Any]:
-        """
-        Associate a wireless device with a FUOTA task.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.associate_wireless_device_with_fuota_task)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#associate_wireless_device_with_fuota_task)
-        """
-
-    def associate_wireless_device_with_multicast_group(
-        self, *, Id: str, WirelessDeviceId: str
-    ) -> Dict[str, Any]:
-        """
-        Associates a wireless device with a multicast group.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.associate_wireless_device_with_multicast_group)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#associate_wireless_device_with_multicast_group)
-        """
-
-    def associate_wireless_device_with_thing(self, *, Id: str, ThingArn: str) -> Dict[str, Any]:
-        """
-        Associates a wireless device with a thing.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.associate_wireless_device_with_thing)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#associate_wireless_device_with_thing)
-        """
-
-    def associate_wireless_gateway_with_certificate(
-        self, *, Id: str, IotCertificateId: str
-    ) -> AssociateWirelessGatewayWithCertificateResponseTypeDef:
-        """
-        Associates a wireless gateway with a certificate.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.associate_wireless_gateway_with_certificate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#associate_wireless_gateway_with_certificate)
-        """
-
-    def associate_wireless_gateway_with_thing(self, *, Id: str, ThingArn: str) -> Dict[str, Any]:
-        """
-        Associates a wireless gateway with a thing.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.associate_wireless_gateway_with_thing)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#associate_wireless_gateway_with_thing)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless.html#IoTWireless.Client)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#exceptions)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        Check if an operation can be paginated.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.can_paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#can_paginate)
-        """
-
-    def cancel_multicast_group_session(self, *, Id: str) -> Dict[str, Any]:
-        """
-        Cancels an existing multicast group session.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.cancel_multicast_group_session)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#cancel_multicast_group_session)
-        """
-
-    def close(self) -> None:
-        """
-        Closes underlying endpoint connections.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.close)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#close)
-        """
-
-    def create_destination(
-        self,
-        *,
-        Name: str,
-        ExpressionType: ExpressionTypeType,
-        Expression: str,
-        RoleArn: str,
-        Description: str = None,
-        Tags: List["TagTypeDef"] = None,
-        ClientRequestToken: str = None
-    ) -> CreateDestinationResponseTypeDef:
-        """
-        Creates a new destination that maps a device message to an AWS IoT rule.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.create_destination)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#create_destination)
-        """
-
-    def create_device_profile(
-        self,
-        *,
-        Name: str = None,
-        LoRaWAN: "LoRaWANDeviceProfileTypeDef" = None,
-        Tags: List["TagTypeDef"] = None,
-        ClientRequestToken: str = None,
-        Sidewalk: Dict[str, Any] = None
-    ) -> CreateDeviceProfileResponseTypeDef:
-        """
-        Creates a new device profile.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.create_device_profile)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#create_device_profile)
-        """
-
-    def create_fuota_task(
-        self,
-        *,
-        FirmwareUpdateImage: str,
-        FirmwareUpdateRole: str,
-        Name: str = None,
-        Description: str = None,
-        ClientRequestToken: str = None,
-        LoRaWAN: "LoRaWANFuotaTaskTypeDef" = None,
-        Tags: List["TagTypeDef"] = None,
-        RedundancyPercent: int = None,
-        FragmentSizeBytes: int = None,
-        FragmentIntervalMS: int = None
-    ) -> CreateFuotaTaskResponseTypeDef:
-        """
-        Creates a FUOTA task.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.create_fuota_task)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#create_fuota_task)
-        """
-
-    def create_multicast_group(
-        self,
-        *,
-        LoRaWAN: "LoRaWANMulticastTypeDef",
-        Name: str = None,
-        Description: str = None,
-        ClientRequestToken: str = None,
-        Tags: List["TagTypeDef"] = None
-    ) -> CreateMulticastGroupResponseTypeDef:
-        """
-        Creates a multicast group.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.create_multicast_group)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#create_multicast_group)
-        """
-
-    def create_network_analyzer_configuration(
-        self,
-        *,
-        Name: str,
-        TraceContent: "TraceContentTypeDef" = None,
-        WirelessDevices: List[str] = None,
-        WirelessGateways: List[str] = None,
-        Description: str = None,
-        Tags: List["TagTypeDef"] = None,
-        ClientRequestToken: str = None,
-        MulticastGroups: List[str] = None
-    ) -> CreateNetworkAnalyzerConfigurationResponseTypeDef:
-        """
-        Creates a new network analyzer configuration.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.create_network_analyzer_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#create_network_analyzer_configuration)
-        """
-
-    def create_service_profile(
-        self,
-        *,
-        Name: str = None,
-        LoRaWAN: "LoRaWANServiceProfileTypeDef" = None,
-        Tags: List["TagTypeDef"] = None,
-        ClientRequestToken: str = None
-    ) -> CreateServiceProfileResponseTypeDef:
-        """
-        Creates a new service profile.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.create_service_profile)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#create_service_profile)
-        """
-
-    def create_wireless_device(
-        self,
-        *,
-        Type: WirelessDeviceTypeType,
-        DestinationName: str,
-        Name: str = None,
-        Description: str = None,
-        ClientRequestToken: str = None,
-        LoRaWAN: "LoRaWANDeviceTypeDef" = None,
-        Tags: List["TagTypeDef"] = None,
-        Positioning: PositioningConfigStatusType = None,
-        Sidewalk: "SidewalkCreateWirelessDeviceTypeDef" = None
-    ) -> CreateWirelessDeviceResponseTypeDef:
-        """
-        Provisions a wireless device.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.create_wireless_device)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#create_wireless_device)
-        """
-
-    def create_wireless_gateway(
-        self,
-        *,
-        LoRaWAN: "LoRaWANGatewayTypeDef",
-        Name: str = None,
-        Description: str = None,
-        Tags: List["TagTypeDef"] = None,
-        ClientRequestToken: str = None
-    ) -> CreateWirelessGatewayResponseTypeDef:
-        """
-        Provisions a wireless gateway.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.create_wireless_gateway)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#create_wireless_gateway)
-        """
-
-    def create_wireless_gateway_task(
-        self, *, Id: str, WirelessGatewayTaskDefinitionId: str
-    ) -> CreateWirelessGatewayTaskResponseTypeDef:
-        """
-        Creates a task for a wireless gateway.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.create_wireless_gateway_task)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#create_wireless_gateway_task)
-        """
-
-    def create_wireless_gateway_task_definition(
-        self,
-        *,
-        AutoCreateTasks: bool,
-        Name: str = None,
-        Update: "UpdateWirelessGatewayTaskCreateTypeDef" = None,
-        ClientRequestToken: str = None,
-        Tags: List["TagTypeDef"] = None
-    ) -> CreateWirelessGatewayTaskDefinitionResponseTypeDef:
-        """
-        Creates a gateway task definition.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.create_wireless_gateway_task_definition)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#create_wireless_gateway_task_definition)
-        """
-
-    def delete_destination(self, *, Name: str) -> Dict[str, Any]:
-        """
-        Deletes a destination.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.delete_destination)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#delete_destination)
-        """
-
-    def delete_device_profile(self, *, Id: str) -> Dict[str, Any]:
-        """
-        Deletes a device profile.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.delete_device_profile)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#delete_device_profile)
-        """
-
-    def delete_fuota_task(self, *, Id: str) -> Dict[str, Any]:
-        """
-        Deletes a FUOTA task.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.delete_fuota_task)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#delete_fuota_task)
-        """
-
-    def delete_multicast_group(self, *, Id: str) -> Dict[str, Any]:
-        """
-        Deletes a multicast group if it is not in use by a fuota task.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.delete_multicast_group)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#delete_multicast_group)
-        """
-
-    def delete_network_analyzer_configuration(self, *, ConfigurationName: str) -> Dict[str, Any]:
-        """
-        Deletes a network analyzer configuration.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.delete_network_analyzer_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#delete_network_analyzer_configuration)
-        """
-
-    def delete_queued_messages(
-        self, *, Id: str, MessageId: str, WirelessDeviceType: WirelessDeviceTypeType = None
-    ) -> Dict[str, Any]:
-        """
-        Remove queued messages from the downlink queue.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.delete_queued_messages)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#delete_queued_messages)
-        """
-
-    def delete_service_profile(self, *, Id: str) -> Dict[str, Any]:
-        """
-        Deletes a service profile.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.delete_service_profile)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#delete_service_profile)
-        """
-
-    def delete_wireless_device(self, *, Id: str) -> Dict[str, Any]:
-        """
-        Deletes a wireless device.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.delete_wireless_device)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#delete_wireless_device)
-        """
-
-    def delete_wireless_device_import_task(self, *, Id: str) -> Dict[str, Any]:
-        """
-        Delete an import task.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.delete_wireless_device_import_task)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#delete_wireless_device_import_task)
-        """
-
-    def delete_wireless_gateway(self, *, Id: str) -> Dict[str, Any]:
-        """
-        Deletes a wireless gateway.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.delete_wireless_gateway)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#delete_wireless_gateway)
-        """
-
-    def delete_wireless_gateway_task(self, *, Id: str) -> Dict[str, Any]:
-        """
-        Deletes a wireless gateway task.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.delete_wireless_gateway_task)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#delete_wireless_gateway_task)
-        """
-
-    def delete_wireless_gateway_task_definition(self, *, Id: str) -> Dict[str, Any]:
-        """
-        Deletes a wireless gateway task definition.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.delete_wireless_gateway_task_definition)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#delete_wireless_gateway_task_definition)
-        """
-
-    def deregister_wireless_device(
-        self, *, Identifier: str, WirelessDeviceType: WirelessDeviceTypeType = None
-    ) -> Dict[str, Any]:
-        """
-        Deregister a wireless device from AWS IoT Wireless.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.deregister_wireless_device)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#deregister_wireless_device)
-        """
-
-    def disassociate_aws_account_from_partner_account(
-        self, *, PartnerAccountId: str, PartnerType: Literal["Sidewalk"]
-    ) -> Dict[str, Any]:
-        """
-        Disassociates your AWS account from a partner account.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.disassociate_aws_account_from_partner_account)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#disassociate_aws_account_from_partner_account)
-        """
-
-    def disassociate_multicast_group_from_fuota_task(
-        self, *, Id: str, MulticastGroupId: str
-    ) -> Dict[str, Any]:
-        """
-        Disassociates a multicast group from a fuota task.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.disassociate_multicast_group_from_fuota_task)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#disassociate_multicast_group_from_fuota_task)
-        """
-
-    def disassociate_wireless_device_from_fuota_task(
-        self, *, Id: str, WirelessDeviceId: str
-    ) -> Dict[str, Any]:
-        """
-        Disassociates a wireless device from a FUOTA task.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.disassociate_wireless_device_from_fuota_task)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#disassociate_wireless_device_from_fuota_task)
-        """
-
-    def disassociate_wireless_device_from_multicast_group(
-        self, *, Id: str, WirelessDeviceId: str
-    ) -> Dict[str, Any]:
-        """
-        Disassociates a wireless device from a multicast group.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.disassociate_wireless_device_from_multicast_group)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#disassociate_wireless_device_from_multicast_group)
-        """
-
-    def disassociate_wireless_device_from_thing(self, *, Id: str) -> Dict[str, Any]:
-        """
-        Disassociates a wireless device from its currently associated thing.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.disassociate_wireless_device_from_thing)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#disassociate_wireless_device_from_thing)
-        """
-
-    def disassociate_wireless_gateway_from_certificate(self, *, Id: str) -> Dict[str, Any]:
-        """
-        Disassociates a wireless gateway from its currently associated certificate.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.disassociate_wireless_gateway_from_certificate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#disassociate_wireless_gateway_from_certificate)
-        """
-
-    def disassociate_wireless_gateway_from_thing(self, *, Id: str) -> Dict[str, Any]:
-        """
-        Disassociates a wireless gateway from its currently associated thing.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.disassociate_wireless_gateway_from_thing)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#disassociate_wireless_gateway_from_thing)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/can_paginate.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#can_paginate)
         """
 
     def generate_presigned_url(
         self,
         ClientMethod: str,
-        Params: Dict[str, Any] = None,
+        Params: Mapping[str, Any] = ...,
         ExpiresIn: int = 3600,
-        HttpMethod: str = None,
+        HttpMethod: str = ...,
     ) -> str:
         """
-        Generate a presigned url given a client, its method, and arguments.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.generate_presigned_url)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/generate_presigned_url.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#generate_presigned_url)
         """
 
-    def get_destination(self, *, Name: str) -> GetDestinationResponseTypeDef:
+    def associate_aws_account_with_partner_account(
+        self, **kwargs: Unpack[AssociateAwsAccountWithPartnerAccountRequestTypeDef]
+    ) -> AssociateAwsAccountWithPartnerAccountResponseTypeDef:
+        """
+        Associates a partner account with your AWS account.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/associate_aws_account_with_partner_account.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#associate_aws_account_with_partner_account)
+        """
+
+    def associate_multicast_group_with_fuota_task(
+        self, **kwargs: Unpack[AssociateMulticastGroupWithFuotaTaskRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Associate a multicast group with a FUOTA task.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/associate_multicast_group_with_fuota_task.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#associate_multicast_group_with_fuota_task)
+        """
+
+    def associate_wireless_device_with_fuota_task(
+        self, **kwargs: Unpack[AssociateWirelessDeviceWithFuotaTaskRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Associate a wireless device with a FUOTA task.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/associate_wireless_device_with_fuota_task.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#associate_wireless_device_with_fuota_task)
+        """
+
+    def associate_wireless_device_with_multicast_group(
+        self, **kwargs: Unpack[AssociateWirelessDeviceWithMulticastGroupRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Associates a wireless device with a multicast group.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/associate_wireless_device_with_multicast_group.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#associate_wireless_device_with_multicast_group)
+        """
+
+    def associate_wireless_device_with_thing(
+        self, **kwargs: Unpack[AssociateWirelessDeviceWithThingRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Associates a wireless device with a thing.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/associate_wireless_device_with_thing.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#associate_wireless_device_with_thing)
+        """
+
+    def associate_wireless_gateway_with_certificate(
+        self, **kwargs: Unpack[AssociateWirelessGatewayWithCertificateRequestTypeDef]
+    ) -> AssociateWirelessGatewayWithCertificateResponseTypeDef:
+        """
+        Associates a wireless gateway with a certificate.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/associate_wireless_gateway_with_certificate.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#associate_wireless_gateway_with_certificate)
+        """
+
+    def associate_wireless_gateway_with_thing(
+        self, **kwargs: Unpack[AssociateWirelessGatewayWithThingRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Associates a wireless gateway with a thing.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/associate_wireless_gateway_with_thing.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#associate_wireless_gateway_with_thing)
+        """
+
+    def cancel_multicast_group_session(
+        self, **kwargs: Unpack[CancelMulticastGroupSessionRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Cancels an existing multicast group session.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/cancel_multicast_group_session.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#cancel_multicast_group_session)
+        """
+
+    def create_destination(
+        self, **kwargs: Unpack[CreateDestinationRequestTypeDef]
+    ) -> CreateDestinationResponseTypeDef:
+        """
+        Creates a new destination that maps a device message to an AWS IoT rule.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/create_destination.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#create_destination)
+        """
+
+    def create_device_profile(
+        self, **kwargs: Unpack[CreateDeviceProfileRequestTypeDef]
+    ) -> CreateDeviceProfileResponseTypeDef:
+        """
+        Creates a new device profile.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/create_device_profile.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#create_device_profile)
+        """
+
+    def create_fuota_task(
+        self, **kwargs: Unpack[CreateFuotaTaskRequestTypeDef]
+    ) -> CreateFuotaTaskResponseTypeDef:
+        """
+        Creates a FUOTA task.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/create_fuota_task.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#create_fuota_task)
+        """
+
+    def create_multicast_group(
+        self, **kwargs: Unpack[CreateMulticastGroupRequestTypeDef]
+    ) -> CreateMulticastGroupResponseTypeDef:
+        """
+        Creates a multicast group.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/create_multicast_group.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#create_multicast_group)
+        """
+
+    def create_network_analyzer_configuration(
+        self, **kwargs: Unpack[CreateNetworkAnalyzerConfigurationRequestTypeDef]
+    ) -> CreateNetworkAnalyzerConfigurationResponseTypeDef:
+        """
+        Creates a new network analyzer configuration.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/create_network_analyzer_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#create_network_analyzer_configuration)
+        """
+
+    def create_service_profile(
+        self, **kwargs: Unpack[CreateServiceProfileRequestTypeDef]
+    ) -> CreateServiceProfileResponseTypeDef:
+        """
+        Creates a new service profile.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/create_service_profile.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#create_service_profile)
+        """
+
+    def create_wireless_device(
+        self, **kwargs: Unpack[CreateWirelessDeviceRequestTypeDef]
+    ) -> CreateWirelessDeviceResponseTypeDef:
+        """
+        Provisions a wireless device.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/create_wireless_device.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#create_wireless_device)
+        """
+
+    def create_wireless_gateway(
+        self, **kwargs: Unpack[CreateWirelessGatewayRequestTypeDef]
+    ) -> CreateWirelessGatewayResponseTypeDef:
+        """
+        Provisions a wireless gateway.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/create_wireless_gateway.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#create_wireless_gateway)
+        """
+
+    def create_wireless_gateway_task(
+        self, **kwargs: Unpack[CreateWirelessGatewayTaskRequestTypeDef]
+    ) -> CreateWirelessGatewayTaskResponseTypeDef:
+        """
+        Creates a task for a wireless gateway.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/create_wireless_gateway_task.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#create_wireless_gateway_task)
+        """
+
+    def create_wireless_gateway_task_definition(
+        self, **kwargs: Unpack[CreateWirelessGatewayTaskDefinitionRequestTypeDef]
+    ) -> CreateWirelessGatewayTaskDefinitionResponseTypeDef:
+        """
+        Creates a gateway task definition.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/create_wireless_gateway_task_definition.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#create_wireless_gateway_task_definition)
+        """
+
+    def delete_destination(
+        self, **kwargs: Unpack[DeleteDestinationRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Deletes a destination.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/delete_destination.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#delete_destination)
+        """
+
+    def delete_device_profile(
+        self, **kwargs: Unpack[DeleteDeviceProfileRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Deletes a device profile.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/delete_device_profile.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#delete_device_profile)
+        """
+
+    def delete_fuota_task(self, **kwargs: Unpack[DeleteFuotaTaskRequestTypeDef]) -> Dict[str, Any]:
+        """
+        Deletes a FUOTA task.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/delete_fuota_task.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#delete_fuota_task)
+        """
+
+    def delete_multicast_group(
+        self, **kwargs: Unpack[DeleteMulticastGroupRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Deletes a multicast group if it is not in use by a FUOTA task.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/delete_multicast_group.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#delete_multicast_group)
+        """
+
+    def delete_network_analyzer_configuration(
+        self, **kwargs: Unpack[DeleteNetworkAnalyzerConfigurationRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Deletes a network analyzer configuration.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/delete_network_analyzer_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#delete_network_analyzer_configuration)
+        """
+
+    def delete_queued_messages(
+        self, **kwargs: Unpack[DeleteQueuedMessagesRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Remove queued messages from the downlink queue.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/delete_queued_messages.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#delete_queued_messages)
+        """
+
+    def delete_service_profile(
+        self, **kwargs: Unpack[DeleteServiceProfileRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Deletes a service profile.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/delete_service_profile.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#delete_service_profile)
+        """
+
+    def delete_wireless_device(
+        self, **kwargs: Unpack[DeleteWirelessDeviceRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Deletes a wireless device.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/delete_wireless_device.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#delete_wireless_device)
+        """
+
+    def delete_wireless_device_import_task(
+        self, **kwargs: Unpack[DeleteWirelessDeviceImportTaskRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Delete an import task.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/delete_wireless_device_import_task.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#delete_wireless_device_import_task)
+        """
+
+    def delete_wireless_gateway(
+        self, **kwargs: Unpack[DeleteWirelessGatewayRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Deletes a wireless gateway.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/delete_wireless_gateway.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#delete_wireless_gateway)
+        """
+
+    def delete_wireless_gateway_task(
+        self, **kwargs: Unpack[DeleteWirelessGatewayTaskRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Deletes a wireless gateway task.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/delete_wireless_gateway_task.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#delete_wireless_gateway_task)
+        """
+
+    def delete_wireless_gateway_task_definition(
+        self, **kwargs: Unpack[DeleteWirelessGatewayTaskDefinitionRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Deletes a wireless gateway task definition.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/delete_wireless_gateway_task_definition.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#delete_wireless_gateway_task_definition)
+        """
+
+    def deregister_wireless_device(
+        self, **kwargs: Unpack[DeregisterWirelessDeviceRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Deregister a wireless device from AWS IoT Wireless.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/deregister_wireless_device.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#deregister_wireless_device)
+        """
+
+    def disassociate_aws_account_from_partner_account(
+        self, **kwargs: Unpack[DisassociateAwsAccountFromPartnerAccountRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Disassociates your AWS account from a partner account.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/disassociate_aws_account_from_partner_account.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#disassociate_aws_account_from_partner_account)
+        """
+
+    def disassociate_multicast_group_from_fuota_task(
+        self, **kwargs: Unpack[DisassociateMulticastGroupFromFuotaTaskRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Disassociates a multicast group from a FUOTA task.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/disassociate_multicast_group_from_fuota_task.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#disassociate_multicast_group_from_fuota_task)
+        """
+
+    def disassociate_wireless_device_from_fuota_task(
+        self, **kwargs: Unpack[DisassociateWirelessDeviceFromFuotaTaskRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Disassociates a wireless device from a FUOTA task.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/disassociate_wireless_device_from_fuota_task.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#disassociate_wireless_device_from_fuota_task)
+        """
+
+    def disassociate_wireless_device_from_multicast_group(
+        self, **kwargs: Unpack[DisassociateWirelessDeviceFromMulticastGroupRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Disassociates a wireless device from a multicast group.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/disassociate_wireless_device_from_multicast_group.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#disassociate_wireless_device_from_multicast_group)
+        """
+
+    def disassociate_wireless_device_from_thing(
+        self, **kwargs: Unpack[DisassociateWirelessDeviceFromThingRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Disassociates a wireless device from its currently associated thing.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/disassociate_wireless_device_from_thing.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#disassociate_wireless_device_from_thing)
+        """
+
+    def disassociate_wireless_gateway_from_certificate(
+        self, **kwargs: Unpack[DisassociateWirelessGatewayFromCertificateRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Disassociates a wireless gateway from its currently associated certificate.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/disassociate_wireless_gateway_from_certificate.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#disassociate_wireless_gateway_from_certificate)
+        """
+
+    def disassociate_wireless_gateway_from_thing(
+        self, **kwargs: Unpack[DisassociateWirelessGatewayFromThingRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Disassociates a wireless gateway from its currently associated thing.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/disassociate_wireless_gateway_from_thing.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#disassociate_wireless_gateway_from_thing)
+        """
+
+    def get_destination(
+        self, **kwargs: Unpack[GetDestinationRequestTypeDef]
+    ) -> GetDestinationResponseTypeDef:
         """
         Gets information about a destination.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.get_destination)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#get_destination)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/get_destination.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#get_destination)
         """
 
-    def get_device_profile(self, *, Id: str) -> GetDeviceProfileResponseTypeDef:
+    def get_device_profile(
+        self, **kwargs: Unpack[GetDeviceProfileRequestTypeDef]
+    ) -> GetDeviceProfileResponseTypeDef:
         """
         Gets information about a device profile.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.get_device_profile)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#get_device_profile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/get_device_profile.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#get_device_profile)
         """
 
     def get_event_configuration_by_resource_types(
@@ -645,845 +660,710 @@ class IoTWirelessClient(BaseClient):
         """
         Get the event configuration based on resource types.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.get_event_configuration_by_resource_types)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#get_event_configuration_by_resource_types)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/get_event_configuration_by_resource_types.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#get_event_configuration_by_resource_types)
         """
 
-    def get_fuota_task(self, *, Id: str) -> GetFuotaTaskResponseTypeDef:
+    def get_fuota_task(
+        self, **kwargs: Unpack[GetFuotaTaskRequestTypeDef]
+    ) -> GetFuotaTaskResponseTypeDef:
         """
         Gets information about a FUOTA task.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.get_fuota_task)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#get_fuota_task)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/get_fuota_task.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#get_fuota_task)
         """
 
     def get_log_levels_by_resource_types(self) -> GetLogLevelsByResourceTypesResponseTypeDef:
         """
         Returns current default log levels or log levels by resource types.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.get_log_levels_by_resource_types)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#get_log_levels_by_resource_types)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/get_log_levels_by_resource_types.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#get_log_levels_by_resource_types)
         """
 
     def get_metric_configuration(self) -> GetMetricConfigurationResponseTypeDef:
         """
         Get the metric configuration status for this AWS account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.get_metric_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#get_metric_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/get_metric_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#get_metric_configuration)
         """
 
-    def get_metrics(
-        self, *, SummaryMetricQueries: List["SummaryMetricQueryTypeDef"] = None
-    ) -> GetMetricsResponseTypeDef:
+    def get_metrics(self, **kwargs: Unpack[GetMetricsRequestTypeDef]) -> GetMetricsResponseTypeDef:
         """
         Get the summary metrics for this AWS account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.get_metrics)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#get_metrics)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/get_metrics.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#get_metrics)
         """
 
-    def get_multicast_group(self, *, Id: str) -> GetMulticastGroupResponseTypeDef:
+    def get_multicast_group(
+        self, **kwargs: Unpack[GetMulticastGroupRequestTypeDef]
+    ) -> GetMulticastGroupResponseTypeDef:
         """
         Gets information about a multicast group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.get_multicast_group)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#get_multicast_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/get_multicast_group.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#get_multicast_group)
         """
 
-    def get_multicast_group_session(self, *, Id: str) -> GetMulticastGroupSessionResponseTypeDef:
+    def get_multicast_group_session(
+        self, **kwargs: Unpack[GetMulticastGroupSessionRequestTypeDef]
+    ) -> GetMulticastGroupSessionResponseTypeDef:
         """
         Gets information about a multicast group session.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.get_multicast_group_session)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#get_multicast_group_session)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/get_multicast_group_session.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#get_multicast_group_session)
         """
 
     def get_network_analyzer_configuration(
-        self, *, ConfigurationName: str
+        self, **kwargs: Unpack[GetNetworkAnalyzerConfigurationRequestTypeDef]
     ) -> GetNetworkAnalyzerConfigurationResponseTypeDef:
         """
         Get network analyzer configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.get_network_analyzer_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#get_network_analyzer_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/get_network_analyzer_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#get_network_analyzer_configuration)
         """
 
     def get_partner_account(
-        self, *, PartnerAccountId: str, PartnerType: Literal["Sidewalk"]
+        self, **kwargs: Unpack[GetPartnerAccountRequestTypeDef]
     ) -> GetPartnerAccountResponseTypeDef:
         """
         Gets information about a partner account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.get_partner_account)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#get_partner_account)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/get_partner_account.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#get_partner_account)
         """
 
     def get_position(
-        self, *, ResourceIdentifier: str, ResourceType: PositionResourceTypeType
+        self, **kwargs: Unpack[GetPositionRequestTypeDef]
     ) -> GetPositionResponseTypeDef:
         """
         Get the position information for a given resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.get_position)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#get_position)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/get_position.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#get_position)
         """
 
     def get_position_configuration(
-        self, *, ResourceIdentifier: str, ResourceType: PositionResourceTypeType
+        self, **kwargs: Unpack[GetPositionConfigurationRequestTypeDef]
     ) -> GetPositionConfigurationResponseTypeDef:
         """
         Get position configuration for a given resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.get_position_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#get_position_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/get_position_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#get_position_configuration)
         """
 
     def get_position_estimate(
-        self,
-        *,
-        WiFiAccessPoints: List["WiFiAccessPointTypeDef"] = None,
-        CellTowers: "CellTowersTypeDef" = None,
-        Ip: "IpTypeDef" = None,
-        Gnss: "GnssTypeDef" = None,
-        Timestamp: Union[datetime, str] = None
+        self, **kwargs: Unpack[GetPositionEstimateRequestTypeDef]
     ) -> GetPositionEstimateResponseTypeDef:
         """
         Get estimated position information as a payload in GeoJSON format.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.get_position_estimate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#get_position_estimate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/get_position_estimate.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#get_position_estimate)
         """
 
     def get_resource_event_configuration(
-        self,
-        *,
-        Identifier: str,
-        IdentifierType: IdentifierTypeType,
-        PartnerType: Literal["Sidewalk"] = None
+        self, **kwargs: Unpack[GetResourceEventConfigurationRequestTypeDef]
     ) -> GetResourceEventConfigurationResponseTypeDef:
         """
         Get the event configuration for a particular resource identifier.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.get_resource_event_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#get_resource_event_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/get_resource_event_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#get_resource_event_configuration)
         """
 
     def get_resource_log_level(
-        self, *, ResourceIdentifier: str, ResourceType: str
+        self, **kwargs: Unpack[GetResourceLogLevelRequestTypeDef]
     ) -> GetResourceLogLevelResponseTypeDef:
         """
-        Fetches the log-level override, if any, for a given resource-ID and resource-
-        type.
+        Fetches the log-level override, if any, for a given resource ID and resource
+        type..
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.get_resource_log_level)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#get_resource_log_level)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/get_resource_log_level.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#get_resource_log_level)
         """
 
     def get_resource_position(
-        self, *, ResourceIdentifier: str, ResourceType: PositionResourceTypeType
+        self, **kwargs: Unpack[GetResourcePositionRequestTypeDef]
     ) -> GetResourcePositionResponseTypeDef:
         """
         Get the position information for a given wireless device or a wireless gateway
         resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.get_resource_position)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#get_resource_position)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/get_resource_position.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#get_resource_position)
         """
 
     def get_service_endpoint(
-        self, *, ServiceType: WirelessGatewayServiceTypeType = None
+        self, **kwargs: Unpack[GetServiceEndpointRequestTypeDef]
     ) -> GetServiceEndpointResponseTypeDef:
         """
         Gets the account-specific endpoint for Configuration and Update Server (CUPS)
         protocol or LoRaWAN Network Server (LNS) connections.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.get_service_endpoint)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#get_service_endpoint)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/get_service_endpoint.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#get_service_endpoint)
         """
 
-    def get_service_profile(self, *, Id: str) -> GetServiceProfileResponseTypeDef:
+    def get_service_profile(
+        self, **kwargs: Unpack[GetServiceProfileRequestTypeDef]
+    ) -> GetServiceProfileResponseTypeDef:
         """
         Gets information about a service profile.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.get_service_profile)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#get_service_profile)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/get_service_profile.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#get_service_profile)
         """
 
     def get_wireless_device(
-        self, *, Identifier: str, IdentifierType: WirelessDeviceIdTypeType
+        self, **kwargs: Unpack[GetWirelessDeviceRequestTypeDef]
     ) -> GetWirelessDeviceResponseTypeDef:
         """
         Gets information about a wireless device.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.get_wireless_device)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#get_wireless_device)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/get_wireless_device.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#get_wireless_device)
         """
 
     def get_wireless_device_import_task(
-        self, *, Id: str
+        self, **kwargs: Unpack[GetWirelessDeviceImportTaskRequestTypeDef]
     ) -> GetWirelessDeviceImportTaskResponseTypeDef:
         """
         Get information about an import task and count of device onboarding summary
         information for the import task.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.get_wireless_device_import_task)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#get_wireless_device_import_task)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/get_wireless_device_import_task.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#get_wireless_device_import_task)
         """
 
     def get_wireless_device_statistics(
-        self, *, WirelessDeviceId: str
+        self, **kwargs: Unpack[GetWirelessDeviceStatisticsRequestTypeDef]
     ) -> GetWirelessDeviceStatisticsResponseTypeDef:
         """
         Gets operating information about a wireless device.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.get_wireless_device_statistics)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#get_wireless_device_statistics)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/get_wireless_device_statistics.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#get_wireless_device_statistics)
         """
 
     def get_wireless_gateway(
-        self, *, Identifier: str, IdentifierType: WirelessGatewayIdTypeType
+        self, **kwargs: Unpack[GetWirelessGatewayRequestTypeDef]
     ) -> GetWirelessGatewayResponseTypeDef:
         """
         Gets information about a wireless gateway.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.get_wireless_gateway)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#get_wireless_gateway)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/get_wireless_gateway.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#get_wireless_gateway)
         """
 
     def get_wireless_gateway_certificate(
-        self, *, Id: str
+        self, **kwargs: Unpack[GetWirelessGatewayCertificateRequestTypeDef]
     ) -> GetWirelessGatewayCertificateResponseTypeDef:
         """
         Gets the ID of the certificate that is currently associated with a wireless
         gateway.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.get_wireless_gateway_certificate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#get_wireless_gateway_certificate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/get_wireless_gateway_certificate.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#get_wireless_gateway_certificate)
         """
 
     def get_wireless_gateway_firmware_information(
-        self, *, Id: str
+        self, **kwargs: Unpack[GetWirelessGatewayFirmwareInformationRequestTypeDef]
     ) -> GetWirelessGatewayFirmwareInformationResponseTypeDef:
         """
         Gets the firmware version and other information about a wireless gateway.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.get_wireless_gateway_firmware_information)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#get_wireless_gateway_firmware_information)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/get_wireless_gateway_firmware_information.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#get_wireless_gateway_firmware_information)
         """
 
     def get_wireless_gateway_statistics(
-        self, *, WirelessGatewayId: str
+        self, **kwargs: Unpack[GetWirelessGatewayStatisticsRequestTypeDef]
     ) -> GetWirelessGatewayStatisticsResponseTypeDef:
         """
         Gets operating information about a wireless gateway.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.get_wireless_gateway_statistics)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#get_wireless_gateway_statistics)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/get_wireless_gateway_statistics.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#get_wireless_gateway_statistics)
         """
 
-    def get_wireless_gateway_task(self, *, Id: str) -> GetWirelessGatewayTaskResponseTypeDef:
+    def get_wireless_gateway_task(
+        self, **kwargs: Unpack[GetWirelessGatewayTaskRequestTypeDef]
+    ) -> GetWirelessGatewayTaskResponseTypeDef:
         """
         Gets information about a wireless gateway task.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.get_wireless_gateway_task)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#get_wireless_gateway_task)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/get_wireless_gateway_task.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#get_wireless_gateway_task)
         """
 
     def get_wireless_gateway_task_definition(
-        self, *, Id: str
+        self, **kwargs: Unpack[GetWirelessGatewayTaskDefinitionRequestTypeDef]
     ) -> GetWirelessGatewayTaskDefinitionResponseTypeDef:
         """
         Gets information about a wireless gateway task definition.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.get_wireless_gateway_task_definition)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#get_wireless_gateway_task_definition)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/get_wireless_gateway_task_definition.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#get_wireless_gateway_task_definition)
         """
 
     def list_destinations(
-        self, *, MaxResults: int = None, NextToken: str = None
+        self, **kwargs: Unpack[ListDestinationsRequestTypeDef]
     ) -> ListDestinationsResponseTypeDef:
         """
         Lists the destinations registered to your AWS account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.list_destinations)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#list_destinations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/list_destinations.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#list_destinations)
         """
 
     def list_device_profiles(
-        self,
-        *,
-        NextToken: str = None,
-        MaxResults: int = None,
-        DeviceProfileType: DeviceProfileTypeType = None
+        self, **kwargs: Unpack[ListDeviceProfilesRequestTypeDef]
     ) -> ListDeviceProfilesResponseTypeDef:
         """
         Lists the device profiles registered to your AWS account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.list_device_profiles)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#list_device_profiles)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/list_device_profiles.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#list_device_profiles)
         """
 
     def list_devices_for_wireless_device_import_task(
-        self,
-        *,
-        Id: str,
-        MaxResults: int = None,
-        NextToken: str = None,
-        Status: OnboardStatusType = None
+        self, **kwargs: Unpack[ListDevicesForWirelessDeviceImportTaskRequestTypeDef]
     ) -> ListDevicesForWirelessDeviceImportTaskResponseTypeDef:
         """
         List the Sidewalk devices in an import task and their onboarding status.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.list_devices_for_wireless_device_import_task)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#list_devices_for_wireless_device_import_task)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/list_devices_for_wireless_device_import_task.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#list_devices_for_wireless_device_import_task)
         """
 
     def list_event_configurations(
-        self,
-        *,
-        ResourceType: EventNotificationResourceTypeType,
-        MaxResults: int = None,
-        NextToken: str = None
+        self, **kwargs: Unpack[ListEventConfigurationsRequestTypeDef]
     ) -> ListEventConfigurationsResponseTypeDef:
         """
         List event configurations where at least one event topic has been enabled.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.list_event_configurations)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#list_event_configurations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/list_event_configurations.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#list_event_configurations)
         """
 
     def list_fuota_tasks(
-        self, *, NextToken: str = None, MaxResults: int = None
+        self, **kwargs: Unpack[ListFuotaTasksRequestTypeDef]
     ) -> ListFuotaTasksResponseTypeDef:
         """
         Lists the FUOTA tasks registered to your AWS account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.list_fuota_tasks)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#list_fuota_tasks)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/list_fuota_tasks.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#list_fuota_tasks)
         """
 
     def list_multicast_groups(
-        self, *, NextToken: str = None, MaxResults: int = None
+        self, **kwargs: Unpack[ListMulticastGroupsRequestTypeDef]
     ) -> ListMulticastGroupsResponseTypeDef:
         """
         Lists the multicast groups registered to your AWS account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.list_multicast_groups)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#list_multicast_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/list_multicast_groups.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#list_multicast_groups)
         """
 
     def list_multicast_groups_by_fuota_task(
-        self, *, Id: str, NextToken: str = None, MaxResults: int = None
+        self, **kwargs: Unpack[ListMulticastGroupsByFuotaTaskRequestTypeDef]
     ) -> ListMulticastGroupsByFuotaTaskResponseTypeDef:
         """
-        List all multicast groups associated with a fuota task.
+        List all multicast groups associated with a FUOTA task.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.list_multicast_groups_by_fuota_task)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#list_multicast_groups_by_fuota_task)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/list_multicast_groups_by_fuota_task.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#list_multicast_groups_by_fuota_task)
         """
 
     def list_network_analyzer_configurations(
-        self, *, MaxResults: int = None, NextToken: str = None
+        self, **kwargs: Unpack[ListNetworkAnalyzerConfigurationsRequestTypeDef]
     ) -> ListNetworkAnalyzerConfigurationsResponseTypeDef:
         """
         Lists the network analyzer configurations.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.list_network_analyzer_configurations)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#list_network_analyzer_configurations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/list_network_analyzer_configurations.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#list_network_analyzer_configurations)
         """
 
     def list_partner_accounts(
-        self, *, NextToken: str = None, MaxResults: int = None
+        self, **kwargs: Unpack[ListPartnerAccountsRequestTypeDef]
     ) -> ListPartnerAccountsResponseTypeDef:
         """
         Lists the partner accounts associated with your AWS account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.list_partner_accounts)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#list_partner_accounts)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/list_partner_accounts.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#list_partner_accounts)
         """
 
     def list_position_configurations(
-        self,
-        *,
-        ResourceType: PositionResourceTypeType = None,
-        MaxResults: int = None,
-        NextToken: str = None
+        self, **kwargs: Unpack[ListPositionConfigurationsRequestTypeDef]
     ) -> ListPositionConfigurationsResponseTypeDef:
         """
         List position configurations for a given resource, such as positioning solvers.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.list_position_configurations)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#list_position_configurations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/list_position_configurations.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#list_position_configurations)
         """
 
     def list_queued_messages(
-        self,
-        *,
-        Id: str,
-        NextToken: str = None,
-        MaxResults: int = None,
-        WirelessDeviceType: WirelessDeviceTypeType = None
+        self, **kwargs: Unpack[ListQueuedMessagesRequestTypeDef]
     ) -> ListQueuedMessagesResponseTypeDef:
         """
         List queued messages in the downlink queue.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.list_queued_messages)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#list_queued_messages)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/list_queued_messages.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#list_queued_messages)
         """
 
     def list_service_profiles(
-        self, *, NextToken: str = None, MaxResults: int = None
+        self, **kwargs: Unpack[ListServiceProfilesRequestTypeDef]
     ) -> ListServiceProfilesResponseTypeDef:
         """
         Lists the service profiles registered to your AWS account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.list_service_profiles)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#list_service_profiles)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/list_service_profiles.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#list_service_profiles)
         """
 
-    def list_tags_for_resource(self, *, ResourceArn: str) -> ListTagsForResourceResponseTypeDef:
+    def list_tags_for_resource(
+        self, **kwargs: Unpack[ListTagsForResourceRequestTypeDef]
+    ) -> ListTagsForResourceResponseTypeDef:
         """
         Lists the tags (metadata) you have assigned to the resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.list_tags_for_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/list_tags_for_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#list_tags_for_resource)
         """
 
     def list_wireless_device_import_tasks(
-        self, *, MaxResults: int = None, NextToken: str = None
+        self, **kwargs: Unpack[ListWirelessDeviceImportTasksRequestTypeDef]
     ) -> ListWirelessDeviceImportTasksResponseTypeDef:
         """
         List wireless devices that have been added to an import task.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.list_wireless_device_import_tasks)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#list_wireless_device_import_tasks)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/list_wireless_device_import_tasks.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#list_wireless_device_import_tasks)
         """
 
     def list_wireless_devices(
-        self,
-        *,
-        MaxResults: int = None,
-        NextToken: str = None,
-        DestinationName: str = None,
-        DeviceProfileId: str = None,
-        ServiceProfileId: str = None,
-        WirelessDeviceType: WirelessDeviceTypeType = None,
-        FuotaTaskId: str = None,
-        MulticastGroupId: str = None
+        self, **kwargs: Unpack[ListWirelessDevicesRequestTypeDef]
     ) -> ListWirelessDevicesResponseTypeDef:
         """
         Lists the wireless devices registered to your AWS account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.list_wireless_devices)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#list_wireless_devices)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/list_wireless_devices.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#list_wireless_devices)
         """
 
     def list_wireless_gateway_task_definitions(
-        self,
-        *,
-        MaxResults: int = None,
-        NextToken: str = None,
-        TaskDefinitionType: Literal["UPDATE"] = None
+        self, **kwargs: Unpack[ListWirelessGatewayTaskDefinitionsRequestTypeDef]
     ) -> ListWirelessGatewayTaskDefinitionsResponseTypeDef:
         """
         List the wireless gateway tasks definitions registered to your AWS account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.list_wireless_gateway_task_definitions)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#list_wireless_gateway_task_definitions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/list_wireless_gateway_task_definitions.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#list_wireless_gateway_task_definitions)
         """
 
     def list_wireless_gateways(
-        self, *, NextToken: str = None, MaxResults: int = None
+        self, **kwargs: Unpack[ListWirelessGatewaysRequestTypeDef]
     ) -> ListWirelessGatewaysResponseTypeDef:
         """
         Lists the wireless gateways registered to your AWS account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.list_wireless_gateways)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#list_wireless_gateways)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/list_wireless_gateways.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#list_wireless_gateways)
         """
 
     def put_position_configuration(
-        self,
-        *,
-        ResourceIdentifier: str,
-        ResourceType: PositionResourceTypeType,
-        Solvers: "PositionSolverConfigurationsTypeDef" = None,
-        Destination: str = None
+        self, **kwargs: Unpack[PutPositionConfigurationRequestTypeDef]
     ) -> Dict[str, Any]:
         """
         Put position configuration for a given resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.put_position_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#put_position_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/put_position_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#put_position_configuration)
         """
 
     def put_resource_log_level(
-        self, *, ResourceIdentifier: str, ResourceType: str, LogLevel: LogLevelType
+        self, **kwargs: Unpack[PutResourceLogLevelRequestTypeDef]
     ) -> Dict[str, Any]:
         """
-        Sets the log-level override for a resource-ID and resource-type.
+        Sets the log-level override for a resource ID and resource type.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.put_resource_log_level)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#put_resource_log_level)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/put_resource_log_level.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#put_resource_log_level)
         """
 
     def reset_all_resource_log_levels(self) -> Dict[str, Any]:
         """
-        Removes the log-level overrides for all resources; both wireless devices and
-        wireless gateways.
+        Removes the log-level overrides for all resources; wireless devices, wireless
+        gateways, and FUOTA tasks.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.reset_all_resource_log_levels)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#reset_all_resource_log_levels)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/reset_all_resource_log_levels.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#reset_all_resource_log_levels)
         """
 
     def reset_resource_log_level(
-        self, *, ResourceIdentifier: str, ResourceType: str
+        self, **kwargs: Unpack[ResetResourceLogLevelRequestTypeDef]
     ) -> Dict[str, Any]:
         """
-        Removes the log-level override, if any, for a specific resource-ID and resource-
+        Removes the log-level override, if any, for a specific resource ID and resource
         type.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.reset_resource_log_level)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#reset_resource_log_level)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/reset_resource_log_level.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#reset_resource_log_level)
         """
 
     def send_data_to_multicast_group(
-        self, *, Id: str, PayloadData: str, WirelessMetadata: "MulticastWirelessMetadataTypeDef"
+        self, **kwargs: Unpack[SendDataToMulticastGroupRequestTypeDef]
     ) -> SendDataToMulticastGroupResponseTypeDef:
         """
         Sends the specified data to a multicast group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.send_data_to_multicast_group)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#send_data_to_multicast_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/send_data_to_multicast_group.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#send_data_to_multicast_group)
         """
 
     def send_data_to_wireless_device(
-        self,
-        *,
-        Id: str,
-        TransmitMode: int,
-        PayloadData: str,
-        WirelessMetadata: "WirelessMetadataTypeDef" = None
+        self, **kwargs: Unpack[SendDataToWirelessDeviceRequestTypeDef]
     ) -> SendDataToWirelessDeviceResponseTypeDef:
         """
         Sends a decrypted application data frame to a device.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.send_data_to_wireless_device)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#send_data_to_wireless_device)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/send_data_to_wireless_device.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#send_data_to_wireless_device)
         """
 
     def start_bulk_associate_wireless_device_with_multicast_group(
-        self, *, Id: str, QueryString: str = None, Tags: List["TagTypeDef"] = None
+        self, **kwargs: Unpack[StartBulkAssociateWirelessDeviceWithMulticastGroupRequestTypeDef]
     ) -> Dict[str, Any]:
         """
         Starts a bulk association of all qualifying wireless devices with a multicast
         group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.start_bulk_associate_wireless_device_with_multicast_group)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#start_bulk_associate_wireless_device_with_multicast_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/start_bulk_associate_wireless_device_with_multicast_group.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#start_bulk_associate_wireless_device_with_multicast_group)
         """
 
     def start_bulk_disassociate_wireless_device_from_multicast_group(
-        self, *, Id: str, QueryString: str = None, Tags: List["TagTypeDef"] = None
+        self, **kwargs: Unpack[StartBulkDisassociateWirelessDeviceFromMulticastGroupRequestTypeDef]
     ) -> Dict[str, Any]:
         """
         Starts a bulk disassociatin of all qualifying wireless devices from a multicast
         group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.start_bulk_disassociate_wireless_device_from_multicast_group)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#start_bulk_disassociate_wireless_device_from_multicast_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/start_bulk_disassociate_wireless_device_from_multicast_group.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#start_bulk_disassociate_wireless_device_from_multicast_group)
         """
 
-    def start_fuota_task(
-        self, *, Id: str, LoRaWAN: "LoRaWANStartFuotaTaskTypeDef" = None
-    ) -> Dict[str, Any]:
+    def start_fuota_task(self, **kwargs: Unpack[StartFuotaTaskRequestTypeDef]) -> Dict[str, Any]:
         """
         Starts a FUOTA task.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.start_fuota_task)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#start_fuota_task)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/start_fuota_task.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#start_fuota_task)
         """
 
     def start_multicast_group_session(
-        self, *, Id: str, LoRaWAN: "LoRaWANMulticastSessionTypeDef"
+        self, **kwargs: Unpack[StartMulticastGroupSessionRequestTypeDef]
     ) -> Dict[str, Any]:
         """
         Starts a multicast group session.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.start_multicast_group_session)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#start_multicast_group_session)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/start_multicast_group_session.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#start_multicast_group_session)
         """
 
     def start_single_wireless_device_import_task(
-        self,
-        *,
-        DestinationName: str,
-        Sidewalk: "SidewalkSingleStartImportInfoTypeDef",
-        ClientRequestToken: str = None,
-        DeviceName: str = None,
-        Tags: List["TagTypeDef"] = None
+        self, **kwargs: Unpack[StartSingleWirelessDeviceImportTaskRequestTypeDef]
     ) -> StartSingleWirelessDeviceImportTaskResponseTypeDef:
         """
         Start import task for a single wireless device.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.start_single_wireless_device_import_task)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#start_single_wireless_device_import_task)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/start_single_wireless_device_import_task.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#start_single_wireless_device_import_task)
         """
 
     def start_wireless_device_import_task(
-        self,
-        *,
-        DestinationName: str,
-        Sidewalk: "SidewalkStartImportInfoTypeDef",
-        ClientRequestToken: str = None,
-        Tags: List["TagTypeDef"] = None
+        self, **kwargs: Unpack[StartWirelessDeviceImportTaskRequestTypeDef]
     ) -> StartWirelessDeviceImportTaskResponseTypeDef:
         """
         Start import task for provisioning Sidewalk devices in bulk using an S3 CSV
         file.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.start_wireless_device_import_task)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#start_wireless_device_import_task)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/start_wireless_device_import_task.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#start_wireless_device_import_task)
         """
 
-    def tag_resource(self, *, ResourceArn: str, Tags: List["TagTypeDef"]) -> Dict[str, Any]:
+    def tag_resource(self, **kwargs: Unpack[TagResourceRequestTypeDef]) -> Dict[str, Any]:
         """
         Adds a tag to a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.tag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/tag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#tag_resource)
         """
 
-    def test_wireless_device(self, *, Id: str) -> TestWirelessDeviceResponseTypeDef:
+    def test_wireless_device(
+        self, **kwargs: Unpack[TestWirelessDeviceRequestTypeDef]
+    ) -> TestWirelessDeviceResponseTypeDef:
         """
-        Simulates a provisioned device by sending an uplink data payload of `Hello`.
+        Simulates a provisioned device by sending an uplink data payload of
+        <code>Hello</code>.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.test_wireless_device)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#test_wireless_device)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/test_wireless_device.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#test_wireless_device)
         """
 
-    def untag_resource(self, *, ResourceArn: str, TagKeys: List[str]) -> Dict[str, Any]:
+    def untag_resource(self, **kwargs: Unpack[UntagResourceRequestTypeDef]) -> Dict[str, Any]:
         """
         Removes one or more tags from a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.untag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/untag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#untag_resource)
         """
 
     def update_destination(
-        self,
-        *,
-        Name: str,
-        ExpressionType: ExpressionTypeType = None,
-        Expression: str = None,
-        Description: str = None,
-        RoleArn: str = None
+        self, **kwargs: Unpack[UpdateDestinationRequestTypeDef]
     ) -> Dict[str, Any]:
         """
         Updates properties of a destination.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.update_destination)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#update_destination)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/update_destination.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#update_destination)
         """
 
     def update_event_configuration_by_resource_types(
-        self,
-        *,
-        DeviceRegistrationState: "DeviceRegistrationStateResourceTypeEventConfigurationTypeDef" = None,
-        Proximity: "ProximityResourceTypeEventConfigurationTypeDef" = None,
-        Join: "JoinResourceTypeEventConfigurationTypeDef" = None,
-        ConnectionStatus: "ConnectionStatusResourceTypeEventConfigurationTypeDef" = None,
-        MessageDeliveryStatus: "MessageDeliveryStatusResourceTypeEventConfigurationTypeDef" = None
+        self, **kwargs: Unpack[UpdateEventConfigurationByResourceTypesRequestTypeDef]
     ) -> Dict[str, Any]:
         """
         Update the event configuration based on resource types.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.update_event_configuration_by_resource_types)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#update_event_configuration_by_resource_types)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/update_event_configuration_by_resource_types.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#update_event_configuration_by_resource_types)
         """
 
-    def update_fuota_task(
-        self,
-        *,
-        Id: str,
-        Name: str = None,
-        Description: str = None,
-        LoRaWAN: "LoRaWANFuotaTaskTypeDef" = None,
-        FirmwareUpdateImage: str = None,
-        FirmwareUpdateRole: str = None,
-        RedundancyPercent: int = None,
-        FragmentSizeBytes: int = None,
-        FragmentIntervalMS: int = None
-    ) -> Dict[str, Any]:
+    def update_fuota_task(self, **kwargs: Unpack[UpdateFuotaTaskRequestTypeDef]) -> Dict[str, Any]:
         """
         Updates properties of a FUOTA task.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.update_fuota_task)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#update_fuota_task)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/update_fuota_task.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#update_fuota_task)
         """
 
     def update_log_levels_by_resource_types(
-        self,
-        *,
-        DefaultLogLevel: LogLevelType = None,
-        WirelessDeviceLogOptions: List["WirelessDeviceLogOptionTypeDef"] = None,
-        WirelessGatewayLogOptions: List["WirelessGatewayLogOptionTypeDef"] = None
+        self, **kwargs: Unpack[UpdateLogLevelsByResourceTypesRequestTypeDef]
     ) -> Dict[str, Any]:
         """
         Set default log level, or log levels by resource types.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.update_log_levels_by_resource_types)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#update_log_levels_by_resource_types)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/update_log_levels_by_resource_types.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#update_log_levels_by_resource_types)
         """
 
     def update_metric_configuration(
-        self, *, SummaryMetric: "SummaryMetricConfigurationTypeDef" = None
+        self, **kwargs: Unpack[UpdateMetricConfigurationRequestTypeDef]
     ) -> Dict[str, Any]:
         """
         Update the summary metric configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.update_metric_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#update_metric_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/update_metric_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#update_metric_configuration)
         """
 
     def update_multicast_group(
-        self,
-        *,
-        Id: str,
-        Name: str = None,
-        Description: str = None,
-        LoRaWAN: "LoRaWANMulticastTypeDef" = None
+        self, **kwargs: Unpack[UpdateMulticastGroupRequestTypeDef]
     ) -> Dict[str, Any]:
         """
         Updates properties of a multicast group session.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.update_multicast_group)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#update_multicast_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/update_multicast_group.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#update_multicast_group)
         """
 
     def update_network_analyzer_configuration(
-        self,
-        *,
-        ConfigurationName: str,
-        TraceContent: "TraceContentTypeDef" = None,
-        WirelessDevicesToAdd: List[str] = None,
-        WirelessDevicesToRemove: List[str] = None,
-        WirelessGatewaysToAdd: List[str] = None,
-        WirelessGatewaysToRemove: List[str] = None,
-        Description: str = None,
-        MulticastGroupsToAdd: List[str] = None,
-        MulticastGroupsToRemove: List[str] = None
+        self, **kwargs: Unpack[UpdateNetworkAnalyzerConfigurationRequestTypeDef]
     ) -> Dict[str, Any]:
         """
         Update network analyzer configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.update_network_analyzer_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#update_network_analyzer_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/update_network_analyzer_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#update_network_analyzer_configuration)
         """
 
     def update_partner_account(
-        self,
-        *,
-        Sidewalk: "SidewalkUpdateAccountTypeDef",
-        PartnerAccountId: str,
-        PartnerType: Literal["Sidewalk"]
+        self, **kwargs: Unpack[UpdatePartnerAccountRequestTypeDef]
     ) -> Dict[str, Any]:
         """
         Updates properties of a partner account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.update_partner_account)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#update_partner_account)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/update_partner_account.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#update_partner_account)
         """
 
-    def update_position(
-        self,
-        *,
-        ResourceIdentifier: str,
-        ResourceType: PositionResourceTypeType,
-        Position: List[float]
-    ) -> Dict[str, Any]:
+    def update_position(self, **kwargs: Unpack[UpdatePositionRequestTypeDef]) -> Dict[str, Any]:
         """
         Update the position information of a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.update_position)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#update_position)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/update_position.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#update_position)
         """
 
     def update_resource_event_configuration(
-        self,
-        *,
-        Identifier: str,
-        IdentifierType: IdentifierTypeType,
-        PartnerType: Literal["Sidewalk"] = None,
-        DeviceRegistrationState: "DeviceRegistrationStateEventConfigurationTypeDef" = None,
-        Proximity: "ProximityEventConfigurationTypeDef" = None,
-        Join: "JoinEventConfigurationTypeDef" = None,
-        ConnectionStatus: "ConnectionStatusEventConfigurationTypeDef" = None,
-        MessageDeliveryStatus: "MessageDeliveryStatusEventConfigurationTypeDef" = None
+        self, **kwargs: Unpack[UpdateResourceEventConfigurationRequestTypeDef]
     ) -> Dict[str, Any]:
         """
         Update the event configuration for a particular resource identifier.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.update_resource_event_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#update_resource_event_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/update_resource_event_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#update_resource_event_configuration)
         """
 
     def update_resource_position(
-        self,
-        *,
-        ResourceIdentifier: str,
-        ResourceType: PositionResourceTypeType,
-        GeoJsonPayload: Union[bytes, IO[bytes], StreamingBody] = None
+        self, **kwargs: Unpack[UpdateResourcePositionRequestTypeDef]
     ) -> Dict[str, Any]:
         """
-        Update the position information of a given wireless device or a wireless gateway
-        resource.
+        Update the position information of a given wireless device or a wireless
+        gateway resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.update_resource_position)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#update_resource_position)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/update_resource_position.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#update_resource_position)
         """
 
     def update_wireless_device(
-        self,
-        *,
-        Id: str,
-        DestinationName: str = None,
-        Name: str = None,
-        Description: str = None,
-        LoRaWAN: "LoRaWANUpdateDeviceTypeDef" = None,
-        Positioning: PositioningConfigStatusType = None
+        self, **kwargs: Unpack[UpdateWirelessDeviceRequestTypeDef]
     ) -> Dict[str, Any]:
         """
         Updates properties of a wireless device.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.update_wireless_device)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#update_wireless_device)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/update_wireless_device.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#update_wireless_device)
         """
 
     def update_wireless_device_import_task(
-        self, *, Id: str, Sidewalk: "SidewalkUpdateImportInfoTypeDef"
+        self, **kwargs: Unpack[UpdateWirelessDeviceImportTaskRequestTypeDef]
     ) -> Dict[str, Any]:
         """
         Update an import task to add more devices to the task.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.update_wireless_device_import_task)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#update_wireless_device_import_task)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/update_wireless_device_import_task.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#update_wireless_device_import_task)
         """
 
     def update_wireless_gateway(
-        self,
-        *,
-        Id: str,
-        Name: str = None,
-        Description: str = None,
-        JoinEuiFilters: List[List[str]] = None,
-        NetIdFilters: List[str] = None,
-        MaxEirp: float = None
+        self, **kwargs: Unpack[UpdateWirelessGatewayRequestTypeDef]
     ) -> Dict[str, Any]:
         """
         Updates properties of a wireless gateway.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/iotwireless.html#IoTWireless.Client.update_wireless_gateway)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client.html#update_wireless_gateway)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotwireless/client/update_wireless_gateway.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotwireless/client/#update_wireless_gateway)
         """

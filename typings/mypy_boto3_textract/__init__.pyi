@@ -1,10 +1,14 @@
 """
 Main interface for textract service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_textract/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_textract import (
         Client,
         ListAdapterVersionsPaginator,
@@ -12,10 +16,8 @@ Usage::
         TextractClient,
     )
 
-    session = boto3.Session()
-
-    client: TextractClient = boto3.client("textract")
-    session_client: TextractClient = session.client("textract")
+    session = Session()
+    client: TextractClient = session.client("textract")
 
     list_adapter_versions_paginator: ListAdapterVersionsPaginator = client.get_paginator("list_adapter_versions")
     list_adapters_paginator: ListAdaptersPaginator = client.get_paginator("list_adapters")

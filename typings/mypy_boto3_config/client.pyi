@@ -1,35 +1,30 @@
 """
-Type annotations for config service client.
+Type annotations for config service Client.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/client.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
-    from mypy_boto3_config import ConfigServiceClient
+    from boto3.session import Session
+    from mypy_boto3_config.client import ConfigServiceClient
 
-    client: ConfigServiceClient = boto3.client("config")
+    session = Session()
+    client: ConfigServiceClient = session.client("config")
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from datetime import datetime
-from typing import Any, Dict, List, Type, Union, overload
+from typing import Any, overload
 
 from botocore.client import BaseClient, ClientMeta
+from botocore.errorfactory import BaseClientExceptions
+from botocore.exceptions import ClientError as BotocoreClientError
 
-from .literals import (
-    AggregateConformancePackComplianceSummaryGroupKeyType,
-    AggregatedSourceStatusTypeType,
-    ChronologicalOrderType,
-    ComplianceTypeType,
-    ConfigRuleComplianceSummaryGroupKeyType,
-    EvaluationModeType,
-    ResourceCountGroupKeyType,
-    ResourceTypeType,
-    SortOrderType,
-)
 from .paginator import (
     DescribeAggregateComplianceByConfigRulesPaginator,
     DescribeAggregateComplianceByConformancePacksPaginator,
@@ -57,6 +52,7 @@ from .paginator import (
     GetOrganizationConformancePackDetailedStatusPaginator,
     GetResourceConfigHistoryPaginator,
     ListAggregateDiscoveredResourcesPaginator,
+    ListConfigurationRecordersPaginator,
     ListDiscoveredResourcesPaginator,
     ListResourceEvaluationsPaginator,
     ListTagsForResourcePaginator,
@@ -64,125 +60,194 @@ from .paginator import (
     SelectResourceConfigPaginator,
 )
 from .type_defs import (
-    AccountAggregationSourceTypeDef,
-    AggregateConformancePackComplianceFiltersTypeDef,
-    AggregateConformancePackComplianceSummaryFiltersTypeDef,
-    AggregateResourceIdentifierTypeDef,
+    AssociateResourceTypesRequestTypeDef,
+    AssociateResourceTypesResponseTypeDef,
+    BatchGetAggregateResourceConfigRequestTypeDef,
     BatchGetAggregateResourceConfigResponseTypeDef,
+    BatchGetResourceConfigRequestTypeDef,
     BatchGetResourceConfigResponseTypeDef,
-    ConfigRuleComplianceFiltersTypeDef,
-    ConfigRuleComplianceSummaryFiltersTypeDef,
-    ConfigRuleTypeDef,
-    ConfigurationRecorderTypeDef,
-    ConformancePackComplianceFiltersTypeDef,
-    ConformancePackComplianceScoresFiltersTypeDef,
-    ConformancePackEvaluationFiltersTypeDef,
-    ConformancePackInputParameterTypeDef,
+    DeleteAggregationAuthorizationRequestTypeDef,
+    DeleteConfigRuleRequestTypeDef,
+    DeleteConfigurationAggregatorRequestTypeDef,
+    DeleteConfigurationRecorderRequestTypeDef,
+    DeleteConformancePackRequestTypeDef,
+    DeleteDeliveryChannelRequestTypeDef,
+    DeleteEvaluationResultsRequestTypeDef,
+    DeleteOrganizationConfigRuleRequestTypeDef,
+    DeleteOrganizationConformancePackRequestTypeDef,
+    DeletePendingAggregationRequestRequestTypeDef,
+    DeleteRemediationConfigurationRequestTypeDef,
+    DeleteRemediationExceptionsRequestTypeDef,
     DeleteRemediationExceptionsResponseTypeDef,
+    DeleteResourceConfigRequestTypeDef,
+    DeleteRetentionConfigurationRequestTypeDef,
+    DeleteServiceLinkedConfigurationRecorderRequestTypeDef,
+    DeleteServiceLinkedConfigurationRecorderResponseTypeDef,
+    DeleteStoredQueryRequestTypeDef,
+    DeliverConfigSnapshotRequestTypeDef,
     DeliverConfigSnapshotResponseTypeDef,
-    DeliveryChannelTypeDef,
+    DescribeAggregateComplianceByConfigRulesRequestTypeDef,
     DescribeAggregateComplianceByConfigRulesResponseTypeDef,
+    DescribeAggregateComplianceByConformancePacksRequestTypeDef,
     DescribeAggregateComplianceByConformancePacksResponseTypeDef,
+    DescribeAggregationAuthorizationsRequestTypeDef,
     DescribeAggregationAuthorizationsResponseTypeDef,
+    DescribeComplianceByConfigRuleRequestTypeDef,
     DescribeComplianceByConfigRuleResponseTypeDef,
+    DescribeComplianceByResourceRequestTypeDef,
     DescribeComplianceByResourceResponseTypeDef,
+    DescribeConfigRuleEvaluationStatusRequestTypeDef,
     DescribeConfigRuleEvaluationStatusResponseTypeDef,
-    DescribeConfigRulesFiltersTypeDef,
+    DescribeConfigRulesRequestTypeDef,
     DescribeConfigRulesResponseTypeDef,
+    DescribeConfigurationAggregatorSourcesStatusRequestTypeDef,
     DescribeConfigurationAggregatorSourcesStatusResponseTypeDef,
+    DescribeConfigurationAggregatorsRequestTypeDef,
     DescribeConfigurationAggregatorsResponseTypeDef,
+    DescribeConfigurationRecordersRequestTypeDef,
     DescribeConfigurationRecordersResponseTypeDef,
+    DescribeConfigurationRecorderStatusRequestTypeDef,
     DescribeConfigurationRecorderStatusResponseTypeDef,
+    DescribeConformancePackComplianceRequestTypeDef,
     DescribeConformancePackComplianceResponseTypeDef,
+    DescribeConformancePacksRequestTypeDef,
     DescribeConformancePacksResponseTypeDef,
+    DescribeConformancePackStatusRequestTypeDef,
     DescribeConformancePackStatusResponseTypeDef,
+    DescribeDeliveryChannelsRequestTypeDef,
     DescribeDeliveryChannelsResponseTypeDef,
+    DescribeDeliveryChannelStatusRequestTypeDef,
     DescribeDeliveryChannelStatusResponseTypeDef,
+    DescribeOrganizationConfigRulesRequestTypeDef,
     DescribeOrganizationConfigRulesResponseTypeDef,
+    DescribeOrganizationConfigRuleStatusesRequestTypeDef,
     DescribeOrganizationConfigRuleStatusesResponseTypeDef,
+    DescribeOrganizationConformancePacksRequestTypeDef,
     DescribeOrganizationConformancePacksResponseTypeDef,
+    DescribeOrganizationConformancePackStatusesRequestTypeDef,
     DescribeOrganizationConformancePackStatusesResponseTypeDef,
+    DescribePendingAggregationRequestsRequestTypeDef,
     DescribePendingAggregationRequestsResponseTypeDef,
+    DescribeRemediationConfigurationsRequestTypeDef,
     DescribeRemediationConfigurationsResponseTypeDef,
+    DescribeRemediationExceptionsRequestTypeDef,
     DescribeRemediationExceptionsResponseTypeDef,
+    DescribeRemediationExecutionStatusRequestTypeDef,
     DescribeRemediationExecutionStatusResponseTypeDef,
+    DescribeRetentionConfigurationsRequestTypeDef,
     DescribeRetentionConfigurationsResponseTypeDef,
-    EvaluationContextTypeDef,
-    EvaluationTypeDef,
-    ExternalEvaluationTypeDef,
+    DisassociateResourceTypesRequestTypeDef,
+    DisassociateResourceTypesResponseTypeDef,
+    EmptyResponseMetadataTypeDef,
+    GetAggregateComplianceDetailsByConfigRuleRequestTypeDef,
     GetAggregateComplianceDetailsByConfigRuleResponseTypeDef,
+    GetAggregateConfigRuleComplianceSummaryRequestTypeDef,
     GetAggregateConfigRuleComplianceSummaryResponseTypeDef,
+    GetAggregateConformancePackComplianceSummaryRequestTypeDef,
     GetAggregateConformancePackComplianceSummaryResponseTypeDef,
+    GetAggregateDiscoveredResourceCountsRequestTypeDef,
     GetAggregateDiscoveredResourceCountsResponseTypeDef,
+    GetAggregateResourceConfigRequestTypeDef,
     GetAggregateResourceConfigResponseTypeDef,
+    GetComplianceDetailsByConfigRuleRequestTypeDef,
     GetComplianceDetailsByConfigRuleResponseTypeDef,
+    GetComplianceDetailsByResourceRequestTypeDef,
     GetComplianceDetailsByResourceResponseTypeDef,
     GetComplianceSummaryByConfigRuleResponseTypeDef,
+    GetComplianceSummaryByResourceTypeRequestTypeDef,
     GetComplianceSummaryByResourceTypeResponseTypeDef,
+    GetConformancePackComplianceDetailsRequestTypeDef,
     GetConformancePackComplianceDetailsResponseTypeDef,
+    GetConformancePackComplianceSummaryRequestTypeDef,
     GetConformancePackComplianceSummaryResponseTypeDef,
+    GetCustomRulePolicyRequestTypeDef,
     GetCustomRulePolicyResponseTypeDef,
+    GetDiscoveredResourceCountsRequestTypeDef,
     GetDiscoveredResourceCountsResponseTypeDef,
+    GetOrganizationConfigRuleDetailedStatusRequestTypeDef,
     GetOrganizationConfigRuleDetailedStatusResponseTypeDef,
+    GetOrganizationConformancePackDetailedStatusRequestTypeDef,
     GetOrganizationConformancePackDetailedStatusResponseTypeDef,
+    GetOrganizationCustomRulePolicyRequestTypeDef,
     GetOrganizationCustomRulePolicyResponseTypeDef,
+    GetResourceConfigHistoryRequestTypeDef,
     GetResourceConfigHistoryResponseTypeDef,
+    GetResourceEvaluationSummaryRequestTypeDef,
     GetResourceEvaluationSummaryResponseTypeDef,
+    GetStoredQueryRequestTypeDef,
     GetStoredQueryResponseTypeDef,
+    ListAggregateDiscoveredResourcesRequestTypeDef,
     ListAggregateDiscoveredResourcesResponseTypeDef,
+    ListConfigurationRecordersRequestTypeDef,
+    ListConfigurationRecordersResponseTypeDef,
+    ListConformancePackComplianceScoresRequestTypeDef,
     ListConformancePackComplianceScoresResponseTypeDef,
+    ListDiscoveredResourcesRequestTypeDef,
     ListDiscoveredResourcesResponseTypeDef,
+    ListResourceEvaluationsRequestTypeDef,
     ListResourceEvaluationsResponseTypeDef,
+    ListStoredQueriesRequestTypeDef,
     ListStoredQueriesResponseTypeDef,
+    ListTagsForResourceRequestTypeDef,
     ListTagsForResourceResponseTypeDef,
-    OrganizationAggregationSourceTypeDef,
-    OrganizationCustomPolicyRuleMetadataTypeDef,
-    OrganizationCustomRuleMetadataTypeDef,
-    OrganizationManagedRuleMetadataTypeDef,
-    OrganizationResourceDetailedStatusFiltersTypeDef,
+    PutAggregationAuthorizationRequestTypeDef,
     PutAggregationAuthorizationResponseTypeDef,
+    PutConfigRuleRequestTypeDef,
+    PutConfigurationAggregatorRequestTypeDef,
     PutConfigurationAggregatorResponseTypeDef,
+    PutConfigurationRecorderRequestTypeDef,
+    PutConformancePackRequestTypeDef,
     PutConformancePackResponseTypeDef,
+    PutDeliveryChannelRequestTypeDef,
+    PutEvaluationsRequestTypeDef,
     PutEvaluationsResponseTypeDef,
+    PutExternalEvaluationRequestTypeDef,
+    PutOrganizationConfigRuleRequestTypeDef,
     PutOrganizationConfigRuleResponseTypeDef,
+    PutOrganizationConformancePackRequestTypeDef,
     PutOrganizationConformancePackResponseTypeDef,
+    PutRemediationConfigurationsRequestTypeDef,
     PutRemediationConfigurationsResponseTypeDef,
+    PutRemediationExceptionsRequestTypeDef,
     PutRemediationExceptionsResponseTypeDef,
+    PutResourceConfigRequestTypeDef,
+    PutRetentionConfigurationRequestTypeDef,
     PutRetentionConfigurationResponseTypeDef,
+    PutServiceLinkedConfigurationRecorderRequestTypeDef,
+    PutServiceLinkedConfigurationRecorderResponseTypeDef,
+    PutStoredQueryRequestTypeDef,
     PutStoredQueryResponseTypeDef,
-    RemediationConfigurationTypeDef,
-    RemediationExceptionResourceKeyTypeDef,
-    ResourceCountFiltersTypeDef,
-    ResourceDetailsTypeDef,
-    ResourceEvaluationFiltersTypeDef,
-    ResourceFiltersTypeDef,
-    ResourceKeyTypeDef,
+    SelectAggregateResourceConfigRequestTypeDef,
     SelectAggregateResourceConfigResponseTypeDef,
+    SelectResourceConfigRequestTypeDef,
     SelectResourceConfigResponseTypeDef,
+    StartConfigRulesEvaluationRequestTypeDef,
+    StartConfigurationRecorderRequestTypeDef,
+    StartRemediationExecutionRequestTypeDef,
     StartRemediationExecutionResponseTypeDef,
+    StartResourceEvaluationRequestTypeDef,
     StartResourceEvaluationResponseTypeDef,
-    StatusDetailFiltersTypeDef,
-    StoredQueryTypeDef,
-    TagTypeDef,
-    TemplateSSMDocumentDetailsTypeDef,
+    StopConfigurationRecorderRequestTypeDef,
+    TagResourceRequestTypeDef,
+    UntagResourceRequestTypeDef,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import type as Type
+    from collections.abc import Mapping
 else:
-    from typing_extensions import Literal
+    from typing import Dict, Mapping, Type
+if sys.version_info >= (3, 12):
+    from typing import Literal, Unpack
+else:
+    from typing_extensions import Literal, Unpack
 
 __all__ = ("ConfigServiceClient",)
 
-class BotocoreClientError(BaseException):
-    MSG_TEMPLATE: str
-
-    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
-        self.response: Dict[str, Any]
-        self.operation_name: str
-
-class Exceptions:
+class Exceptions(BaseClientExceptions):
     ClientError: Type[BotocoreClientError]
+    ConflictException: Type[BotocoreClientError]
     ConformancePackTemplateValidationException: Type[BotocoreClientError]
     IdempotentParameterMismatch: Type[BotocoreClientError]
     InsufficientDeliveryPolicyException: Type[BotocoreClientError]
@@ -236,12 +301,13 @@ class Exceptions:
     ResourceNotDiscoveredException: Type[BotocoreClientError]
     ResourceNotFoundException: Type[BotocoreClientError]
     TooManyTagsException: Type[BotocoreClientError]
+    UnmodifiableEntityException: Type[BotocoreClientError]
     ValidationException: Type[BotocoreClientError]
 
 class ConfigServiceClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Client)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/client.html)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config.html#ConfigService.Client)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/)
     """
 
     meta: ClientMeta
@@ -250,642 +316,586 @@ class ConfigServiceClient(BaseClient):
     def exceptions(self) -> Exceptions:
         """
         ConfigServiceClient exceptions.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config.html#ConfigService.Client)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#exceptions)
+        """
+
+    def can_paginate(self, operation_name: str) -> bool:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/can_paginate.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#can_paginate)
+        """
+
+    def generate_presigned_url(
+        self,
+        ClientMethod: str,
+        Params: Mapping[str, Any] = ...,
+        ExpiresIn: int = 3600,
+        HttpMethod: str = ...,
+    ) -> str:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/generate_presigned_url.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#generate_presigned_url)
+        """
+
+    def associate_resource_types(
+        self, **kwargs: Unpack[AssociateResourceTypesRequestTypeDef]
+    ) -> AssociateResourceTypesResponseTypeDef:
+        """
+        Adds all resource types specified in the <code>ResourceTypes</code> list to the
+        <a
+        href="https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html">RecordingGroup</a>
+        of specified configuration recorder and includes those resource types when
+        recording.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/associate_resource_types.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#associate_resource_types)
         """
 
     def batch_get_aggregate_resource_config(
-        self,
-        *,
-        ConfigurationAggregatorName: str,
-        ResourceIdentifiers: List["AggregateResourceIdentifierTypeDef"]
+        self, **kwargs: Unpack[BatchGetAggregateResourceConfigRequestTypeDef]
     ) -> BatchGetAggregateResourceConfigResponseTypeDef:
         """
         Returns the current configuration items for resources that are present in your
         Config aggregator.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Client.batch_get_aggregate_resource_config)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/client.html#batch_get_aggregate_resource_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/batch_get_aggregate_resource_config.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#batch_get_aggregate_resource_config)
         """
 
     def batch_get_resource_config(
-        self, *, resourceKeys: List["ResourceKeyTypeDef"]
+        self, **kwargs: Unpack[BatchGetResourceConfigRequestTypeDef]
     ) -> BatchGetResourceConfigResponseTypeDef:
         """
-        Returns the `BaseConfigurationItem` for one or more requested resources.
+        Returns the <code>BaseConfigurationItem</code> for one or more requested
+        resources.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Client.batch_get_resource_config)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/client.html#batch_get_resource_config)
-        """
-
-    def can_paginate(self, operation_name: str) -> bool:
-        """
-        Check if an operation can be paginated.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Client.can_paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/client.html#can_paginate)
-        """
-
-    def close(self) -> None:
-        """
-        Closes underlying endpoint connections.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Client.close)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/client.html#close)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/batch_get_resource_config.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#batch_get_resource_config)
         """
 
     def delete_aggregation_authorization(
-        self, *, AuthorizedAccountId: str, AuthorizedAwsRegion: str
-    ) -> None:
+        self, **kwargs: Unpack[DeleteAggregationAuthorizationRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Deletes the authorization granted to the specified configuration aggregator
         account in a specified region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Client.delete_aggregation_authorization)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/client.html#delete_aggregation_authorization)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/delete_aggregation_authorization.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#delete_aggregation_authorization)
         """
 
-    def delete_config_rule(self, *, ConfigRuleName: str) -> None:
+    def delete_config_rule(
+        self, **kwargs: Unpack[DeleteConfigRuleRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Deletes the specified Config rule and all of its evaluation results.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Client.delete_config_rule)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/client.html#delete_config_rule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/delete_config_rule.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#delete_config_rule)
         """
 
-    def delete_configuration_aggregator(self, *, ConfigurationAggregatorName: str) -> None:
+    def delete_configuration_aggregator(
+        self, **kwargs: Unpack[DeleteConfigurationAggregatorRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Deletes the specified configuration aggregator and the aggregated data
         associated with the aggregator.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Client.delete_configuration_aggregator)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/client.html#delete_configuration_aggregator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/delete_configuration_aggregator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#delete_configuration_aggregator)
         """
 
-    def delete_configuration_recorder(self, *, ConfigurationRecorderName: str) -> None:
+    def delete_configuration_recorder(
+        self, **kwargs: Unpack[DeleteConfigurationRecorderRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
-        Deletes the configuration recorder.
+        Deletes the customer managed configuration recorder.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Client.delete_configuration_recorder)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/client.html#delete_configuration_recorder)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/delete_configuration_recorder.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#delete_configuration_recorder)
         """
 
-    def delete_conformance_pack(self, *, ConformancePackName: str) -> None:
+    def delete_conformance_pack(
+        self, **kwargs: Unpack[DeleteConformancePackRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Deletes the specified conformance pack and all the Config rules, remediation
         actions, and all evaluation results within that conformance pack.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Client.delete_conformance_pack)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/client.html#delete_conformance_pack)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/delete_conformance_pack.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#delete_conformance_pack)
         """
 
-    def delete_delivery_channel(self, *, DeliveryChannelName: str) -> None:
+    def delete_delivery_channel(
+        self, **kwargs: Unpack[DeleteDeliveryChannelRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Deletes the delivery channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Client.delete_delivery_channel)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/client.html#delete_delivery_channel)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/delete_delivery_channel.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#delete_delivery_channel)
         """
 
-    def delete_evaluation_results(self, *, ConfigRuleName: str) -> Dict[str, Any]:
+    def delete_evaluation_results(
+        self, **kwargs: Unpack[DeleteEvaluationResultsRequestTypeDef]
+    ) -> Dict[str, Any]:
         """
         Deletes the evaluation results for the specified Config rule.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Client.delete_evaluation_results)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/client.html#delete_evaluation_results)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/delete_evaluation_results.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#delete_evaluation_results)
         """
 
-    def delete_organization_config_rule(self, *, OrganizationConfigRuleName: str) -> None:
+    def delete_organization_config_rule(
+        self, **kwargs: Unpack[DeleteOrganizationConfigRuleRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
-        Deletes the specified organization Config rule and all of its evaluation results
-        from all member accounts in that organization.
+        Deletes the specified organization Config rule and all of its evaluation
+        results from all member accounts in that organization.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Client.delete_organization_config_rule)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/client.html#delete_organization_config_rule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/delete_organization_config_rule.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#delete_organization_config_rule)
         """
 
-    def delete_organization_conformance_pack(self, *, OrganizationConformancePackName: str) -> None:
+    def delete_organization_conformance_pack(
+        self, **kwargs: Unpack[DeleteOrganizationConformancePackRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Deletes the specified organization conformance pack and all of the Config rules
         and remediation actions from all member accounts in that organization.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Client.delete_organization_conformance_pack)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/client.html#delete_organization_conformance_pack)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/delete_organization_conformance_pack.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#delete_organization_conformance_pack)
         """
 
     def delete_pending_aggregation_request(
-        self, *, RequesterAccountId: str, RequesterAwsRegion: str
-    ) -> None:
+        self, **kwargs: Unpack[DeletePendingAggregationRequestRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Deletes pending authorization requests for a specified aggregator account in a
         specified region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Client.delete_pending_aggregation_request)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/client.html#delete_pending_aggregation_request)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/delete_pending_aggregation_request.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#delete_pending_aggregation_request)
         """
 
     def delete_remediation_configuration(
-        self, *, ConfigRuleName: str, ResourceType: str = None
+        self, **kwargs: Unpack[DeleteRemediationConfigurationRequestTypeDef]
     ) -> Dict[str, Any]:
         """
         Deletes the remediation configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Client.delete_remediation_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/client.html#delete_remediation_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/delete_remediation_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#delete_remediation_configuration)
         """
 
     def delete_remediation_exceptions(
-        self, *, ConfigRuleName: str, ResourceKeys: List["RemediationExceptionResourceKeyTypeDef"]
+        self, **kwargs: Unpack[DeleteRemediationExceptionsRequestTypeDef]
     ) -> DeleteRemediationExceptionsResponseTypeDef:
         """
         Deletes one or more remediation exceptions mentioned in the resource keys.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Client.delete_remediation_exceptions)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/client.html#delete_remediation_exceptions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/delete_remediation_exceptions.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#delete_remediation_exceptions)
         """
 
-    def delete_resource_config(self, *, ResourceType: str, ResourceId: str) -> None:
+    def delete_resource_config(
+        self, **kwargs: Unpack[DeleteResourceConfigRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Records the configuration state for a custom resource that has been deleted.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Client.delete_resource_config)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/client.html#delete_resource_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/delete_resource_config.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#delete_resource_config)
         """
 
-    def delete_retention_configuration(self, *, RetentionConfigurationName: str) -> None:
+    def delete_retention_configuration(
+        self, **kwargs: Unpack[DeleteRetentionConfigurationRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Deletes the retention configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Client.delete_retention_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/client.html#delete_retention_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/delete_retention_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#delete_retention_configuration)
         """
 
-    def delete_stored_query(self, *, QueryName: str) -> Dict[str, Any]:
+    def delete_service_linked_configuration_recorder(
+        self, **kwargs: Unpack[DeleteServiceLinkedConfigurationRecorderRequestTypeDef]
+    ) -> DeleteServiceLinkedConfigurationRecorderResponseTypeDef:
+        """
+        Deletes an existing service-linked configuration recorder.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/delete_service_linked_configuration_recorder.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#delete_service_linked_configuration_recorder)
+        """
+
+    def delete_stored_query(
+        self, **kwargs: Unpack[DeleteStoredQueryRequestTypeDef]
+    ) -> Dict[str, Any]:
         """
         Deletes the stored query for a single Amazon Web Services account and a single
         Amazon Web Services Region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Client.delete_stored_query)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/client.html#delete_stored_query)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/delete_stored_query.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#delete_stored_query)
         """
 
     def deliver_config_snapshot(
-        self, *, deliveryChannelName: str
+        self, **kwargs: Unpack[DeliverConfigSnapshotRequestTypeDef]
     ) -> DeliverConfigSnapshotResponseTypeDef:
         """
         Schedules delivery of a configuration snapshot to the Amazon S3 bucket in the
         specified delivery channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Client.deliver_config_snapshot)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/client.html#deliver_config_snapshot)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/deliver_config_snapshot.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#deliver_config_snapshot)
         """
 
     def describe_aggregate_compliance_by_config_rules(
-        self,
-        *,
-        ConfigurationAggregatorName: str,
-        Filters: "ConfigRuleComplianceFiltersTypeDef" = None,
-        Limit: int = None,
-        NextToken: str = None
+        self, **kwargs: Unpack[DescribeAggregateComplianceByConfigRulesRequestTypeDef]
     ) -> DescribeAggregateComplianceByConfigRulesResponseTypeDef:
         """
         Returns a list of compliant and noncompliant rules with the number of resources
         for compliant and noncompliant rules.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Client.describe_aggregate_compliance_by_config_rules)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/client.html#describe_aggregate_compliance_by_config_rules)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/describe_aggregate_compliance_by_config_rules.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#describe_aggregate_compliance_by_config_rules)
         """
 
     def describe_aggregate_compliance_by_conformance_packs(
-        self,
-        *,
-        ConfigurationAggregatorName: str,
-        Filters: "AggregateConformancePackComplianceFiltersTypeDef" = None,
-        Limit: int = None,
-        NextToken: str = None
+        self, **kwargs: Unpack[DescribeAggregateComplianceByConformancePacksRequestTypeDef]
     ) -> DescribeAggregateComplianceByConformancePacksResponseTypeDef:
         """
-        Returns a list of the conformance packs and their associated compliance status
-        with the count of compliant and noncompliant Config rules within each
-        conformance pack.
+        Returns a list of the existing and deleted conformance packs and their
+        associated compliance status with the count of compliant and noncompliant
+        Config rules within each conformance pack.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Client.describe_aggregate_compliance_by_conformance_packs)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/client.html#describe_aggregate_compliance_by_conformance_packs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/describe_aggregate_compliance_by_conformance_packs.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#describe_aggregate_compliance_by_conformance_packs)
         """
 
     def describe_aggregation_authorizations(
-        self, *, Limit: int = None, NextToken: str = None
+        self, **kwargs: Unpack[DescribeAggregationAuthorizationsRequestTypeDef]
     ) -> DescribeAggregationAuthorizationsResponseTypeDef:
         """
         Returns a list of authorizations granted to various aggregator accounts and
         regions.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Client.describe_aggregation_authorizations)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/client.html#describe_aggregation_authorizations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/describe_aggregation_authorizations.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#describe_aggregation_authorizations)
         """
 
     def describe_compliance_by_config_rule(
-        self,
-        *,
-        ConfigRuleNames: List[str] = None,
-        ComplianceTypes: List[ComplianceTypeType] = None,
-        NextToken: str = None
+        self, **kwargs: Unpack[DescribeComplianceByConfigRuleRequestTypeDef]
     ) -> DescribeComplianceByConfigRuleResponseTypeDef:
         """
         Indicates whether the specified Config rules are compliant.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Client.describe_compliance_by_config_rule)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/client.html#describe_compliance_by_config_rule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/describe_compliance_by_config_rule.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#describe_compliance_by_config_rule)
         """
 
     def describe_compliance_by_resource(
-        self,
-        *,
-        ResourceType: str = None,
-        ResourceId: str = None,
-        ComplianceTypes: List[ComplianceTypeType] = None,
-        Limit: int = None,
-        NextToken: str = None
+        self, **kwargs: Unpack[DescribeComplianceByResourceRequestTypeDef]
     ) -> DescribeComplianceByResourceResponseTypeDef:
         """
         Indicates whether the specified Amazon Web Services resources are compliant.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Client.describe_compliance_by_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/client.html#describe_compliance_by_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/describe_compliance_by_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#describe_compliance_by_resource)
         """
 
     def describe_config_rule_evaluation_status(
-        self, *, ConfigRuleNames: List[str] = None, NextToken: str = None, Limit: int = None
+        self, **kwargs: Unpack[DescribeConfigRuleEvaluationStatusRequestTypeDef]
     ) -> DescribeConfigRuleEvaluationStatusResponseTypeDef:
         """
         Returns status information for each of your Config managed rules.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Client.describe_config_rule_evaluation_status)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/client.html#describe_config_rule_evaluation_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/describe_config_rule_evaluation_status.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#describe_config_rule_evaluation_status)
         """
 
     def describe_config_rules(
-        self,
-        *,
-        ConfigRuleNames: List[str] = None,
-        NextToken: str = None,
-        Filters: "DescribeConfigRulesFiltersTypeDef" = None
+        self, **kwargs: Unpack[DescribeConfigRulesRequestTypeDef]
     ) -> DescribeConfigRulesResponseTypeDef:
         """
         Returns details about your Config rules.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Client.describe_config_rules)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/client.html#describe_config_rules)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/describe_config_rules.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#describe_config_rules)
         """
 
     def describe_configuration_aggregator_sources_status(
-        self,
-        *,
-        ConfigurationAggregatorName: str,
-        UpdateStatus: List[AggregatedSourceStatusTypeType] = None,
-        NextToken: str = None,
-        Limit: int = None
+        self, **kwargs: Unpack[DescribeConfigurationAggregatorSourcesStatusRequestTypeDef]
     ) -> DescribeConfigurationAggregatorSourcesStatusResponseTypeDef:
         """
         Returns status information for sources within an aggregator.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Client.describe_configuration_aggregator_sources_status)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/client.html#describe_configuration_aggregator_sources_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/describe_configuration_aggregator_sources_status.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#describe_configuration_aggregator_sources_status)
         """
 
     def describe_configuration_aggregators(
-        self,
-        *,
-        ConfigurationAggregatorNames: List[str] = None,
-        NextToken: str = None,
-        Limit: int = None
+        self, **kwargs: Unpack[DescribeConfigurationAggregatorsRequestTypeDef]
     ) -> DescribeConfigurationAggregatorsResponseTypeDef:
         """
         Returns the details of one or more configuration aggregators.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Client.describe_configuration_aggregators)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/client.html#describe_configuration_aggregators)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/describe_configuration_aggregators.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#describe_configuration_aggregators)
         """
 
     def describe_configuration_recorder_status(
-        self, *, ConfigurationRecorderNames: List[str] = None
+        self, **kwargs: Unpack[DescribeConfigurationRecorderStatusRequestTypeDef]
     ) -> DescribeConfigurationRecorderStatusResponseTypeDef:
         """
-        Returns the current status of the specified configuration recorder as well as
-        the status of the last recording event for the recorder.
+        Returns the current status of the configuration recorder you specify as well as
+        the status of the last recording event for the configuration recorders.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Client.describe_configuration_recorder_status)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/client.html#describe_configuration_recorder_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/describe_configuration_recorder_status.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#describe_configuration_recorder_status)
         """
 
     def describe_configuration_recorders(
-        self, *, ConfigurationRecorderNames: List[str] = None
+        self, **kwargs: Unpack[DescribeConfigurationRecordersRequestTypeDef]
     ) -> DescribeConfigurationRecordersResponseTypeDef:
         """
-        Returns the details for the specified configuration recorders.
+        Returns details for the configuration recorder you specify.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Client.describe_configuration_recorders)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/client.html#describe_configuration_recorders)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/describe_configuration_recorders.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#describe_configuration_recorders)
         """
 
     def describe_conformance_pack_compliance(
-        self,
-        *,
-        ConformancePackName: str,
-        Filters: "ConformancePackComplianceFiltersTypeDef" = None,
-        Limit: int = None,
-        NextToken: str = None
+        self, **kwargs: Unpack[DescribeConformancePackComplianceRequestTypeDef]
     ) -> DescribeConformancePackComplianceResponseTypeDef:
         """
         Returns compliance details for each rule in that conformance pack.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Client.describe_conformance_pack_compliance)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/client.html#describe_conformance_pack_compliance)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/describe_conformance_pack_compliance.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#describe_conformance_pack_compliance)
         """
 
     def describe_conformance_pack_status(
-        self, *, ConformancePackNames: List[str] = None, Limit: int = None, NextToken: str = None
+        self, **kwargs: Unpack[DescribeConformancePackStatusRequestTypeDef]
     ) -> DescribeConformancePackStatusResponseTypeDef:
         """
         Provides one or more conformance packs deployment status.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Client.describe_conformance_pack_status)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/client.html#describe_conformance_pack_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/describe_conformance_pack_status.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#describe_conformance_pack_status)
         """
 
     def describe_conformance_packs(
-        self, *, ConformancePackNames: List[str] = None, Limit: int = None, NextToken: str = None
+        self, **kwargs: Unpack[DescribeConformancePacksRequestTypeDef]
     ) -> DescribeConformancePacksResponseTypeDef:
         """
         Returns a list of one or more conformance packs.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Client.describe_conformance_packs)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/client.html#describe_conformance_packs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/describe_conformance_packs.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#describe_conformance_packs)
         """
 
     def describe_delivery_channel_status(
-        self, *, DeliveryChannelNames: List[str] = None
+        self, **kwargs: Unpack[DescribeDeliveryChannelStatusRequestTypeDef]
     ) -> DescribeDeliveryChannelStatusResponseTypeDef:
         """
         Returns the current status of the specified delivery channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Client.describe_delivery_channel_status)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/client.html#describe_delivery_channel_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/describe_delivery_channel_status.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#describe_delivery_channel_status)
         """
 
     def describe_delivery_channels(
-        self, *, DeliveryChannelNames: List[str] = None
+        self, **kwargs: Unpack[DescribeDeliveryChannelsRequestTypeDef]
     ) -> DescribeDeliveryChannelsResponseTypeDef:
         """
         Returns details about the specified delivery channel.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Client.describe_delivery_channels)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/client.html#describe_delivery_channels)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/describe_delivery_channels.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#describe_delivery_channels)
         """
 
     def describe_organization_config_rule_statuses(
-        self,
-        *,
-        OrganizationConfigRuleNames: List[str] = None,
-        Limit: int = None,
-        NextToken: str = None
+        self, **kwargs: Unpack[DescribeOrganizationConfigRuleStatusesRequestTypeDef]
     ) -> DescribeOrganizationConfigRuleStatusesResponseTypeDef:
         """
         Provides organization Config rule deployment status for an organization.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Client.describe_organization_config_rule_statuses)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/client.html#describe_organization_config_rule_statuses)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/describe_organization_config_rule_statuses.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#describe_organization_config_rule_statuses)
         """
 
     def describe_organization_config_rules(
-        self,
-        *,
-        OrganizationConfigRuleNames: List[str] = None,
-        Limit: int = None,
-        NextToken: str = None
+        self, **kwargs: Unpack[DescribeOrganizationConfigRulesRequestTypeDef]
     ) -> DescribeOrganizationConfigRulesResponseTypeDef:
         """
         Returns a list of organization Config rules.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Client.describe_organization_config_rules)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/client.html#describe_organization_config_rules)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/describe_organization_config_rules.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#describe_organization_config_rules)
         """
 
     def describe_organization_conformance_pack_statuses(
-        self,
-        *,
-        OrganizationConformancePackNames: List[str] = None,
-        Limit: int = None,
-        NextToken: str = None
+        self, **kwargs: Unpack[DescribeOrganizationConformancePackStatusesRequestTypeDef]
     ) -> DescribeOrganizationConformancePackStatusesResponseTypeDef:
         """
         Provides organization conformance pack deployment status for an organization.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Client.describe_organization_conformance_pack_statuses)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/client.html#describe_organization_conformance_pack_statuses)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/describe_organization_conformance_pack_statuses.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#describe_organization_conformance_pack_statuses)
         """
 
     def describe_organization_conformance_packs(
-        self,
-        *,
-        OrganizationConformancePackNames: List[str] = None,
-        Limit: int = None,
-        NextToken: str = None
+        self, **kwargs: Unpack[DescribeOrganizationConformancePacksRequestTypeDef]
     ) -> DescribeOrganizationConformancePacksResponseTypeDef:
         """
         Returns a list of organization conformance packs.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Client.describe_organization_conformance_packs)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/client.html#describe_organization_conformance_packs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/describe_organization_conformance_packs.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#describe_organization_conformance_packs)
         """
 
     def describe_pending_aggregation_requests(
-        self, *, Limit: int = None, NextToken: str = None
+        self, **kwargs: Unpack[DescribePendingAggregationRequestsRequestTypeDef]
     ) -> DescribePendingAggregationRequestsResponseTypeDef:
         """
         Returns a list of all pending aggregation requests.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Client.describe_pending_aggregation_requests)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/client.html#describe_pending_aggregation_requests)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/describe_pending_aggregation_requests.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#describe_pending_aggregation_requests)
         """
 
     def describe_remediation_configurations(
-        self, *, ConfigRuleNames: List[str]
+        self, **kwargs: Unpack[DescribeRemediationConfigurationsRequestTypeDef]
     ) -> DescribeRemediationConfigurationsResponseTypeDef:
         """
         Returns the details of one or more remediation configurations.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Client.describe_remediation_configurations)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/client.html#describe_remediation_configurations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/describe_remediation_configurations.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#describe_remediation_configurations)
         """
 
     def describe_remediation_exceptions(
-        self,
-        *,
-        ConfigRuleName: str,
-        ResourceKeys: List["RemediationExceptionResourceKeyTypeDef"] = None,
-        Limit: int = None,
-        NextToken: str = None
+        self, **kwargs: Unpack[DescribeRemediationExceptionsRequestTypeDef]
     ) -> DescribeRemediationExceptionsResponseTypeDef:
         """
         Returns the details of one or more remediation exceptions.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Client.describe_remediation_exceptions)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/client.html#describe_remediation_exceptions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/describe_remediation_exceptions.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#describe_remediation_exceptions)
         """
 
     def describe_remediation_execution_status(
-        self,
-        *,
-        ConfigRuleName: str,
-        ResourceKeys: List["ResourceKeyTypeDef"] = None,
-        Limit: int = None,
-        NextToken: str = None
+        self, **kwargs: Unpack[DescribeRemediationExecutionStatusRequestTypeDef]
     ) -> DescribeRemediationExecutionStatusResponseTypeDef:
         """
         Provides a detailed view of a Remediation Execution for a set of resources
         including state, timestamps for when steps for the remediation execution occur,
         and any error messages for steps that have failed.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Client.describe_remediation_execution_status)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/client.html#describe_remediation_execution_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/describe_remediation_execution_status.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#describe_remediation_execution_status)
         """
 
     def describe_retention_configurations(
-        self, *, RetentionConfigurationNames: List[str] = None, NextToken: str = None
+        self, **kwargs: Unpack[DescribeRetentionConfigurationsRequestTypeDef]
     ) -> DescribeRetentionConfigurationsResponseTypeDef:
         """
         Returns the details of one or more retention configurations.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Client.describe_retention_configurations)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/client.html#describe_retention_configurations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/describe_retention_configurations.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#describe_retention_configurations)
         """
 
-    def generate_presigned_url(
-        self,
-        ClientMethod: str,
-        Params: Dict[str, Any] = None,
-        ExpiresIn: int = 3600,
-        HttpMethod: str = None,
-    ) -> str:
+    def disassociate_resource_types(
+        self, **kwargs: Unpack[DisassociateResourceTypesRequestTypeDef]
+    ) -> DisassociateResourceTypesResponseTypeDef:
         """
-        Generate a presigned url given a client, its method, and arguments.
+        Removes all resource types specified in the <code>ResourceTypes</code> list
+        from the <a
+        href="https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html">RecordingGroup</a>
+        of configuration recorder and excludes these resource types when recording.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Client.generate_presigned_url)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/client.html#generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/disassociate_resource_types.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#disassociate_resource_types)
         """
 
     def get_aggregate_compliance_details_by_config_rule(
-        self,
-        *,
-        ConfigurationAggregatorName: str,
-        ConfigRuleName: str,
-        AccountId: str,
-        AwsRegion: str,
-        ComplianceType: ComplianceTypeType = None,
-        Limit: int = None,
-        NextToken: str = None
+        self, **kwargs: Unpack[GetAggregateComplianceDetailsByConfigRuleRequestTypeDef]
     ) -> GetAggregateComplianceDetailsByConfigRuleResponseTypeDef:
         """
         Returns the evaluation results for the specified Config rule for a specific
         resource in a rule.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Client.get_aggregate_compliance_details_by_config_rule)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/client.html#get_aggregate_compliance_details_by_config_rule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/get_aggregate_compliance_details_by_config_rule.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#get_aggregate_compliance_details_by_config_rule)
         """
 
     def get_aggregate_config_rule_compliance_summary(
-        self,
-        *,
-        ConfigurationAggregatorName: str,
-        Filters: "ConfigRuleComplianceSummaryFiltersTypeDef" = None,
-        GroupByKey: ConfigRuleComplianceSummaryGroupKeyType = None,
-        Limit: int = None,
-        NextToken: str = None
+        self, **kwargs: Unpack[GetAggregateConfigRuleComplianceSummaryRequestTypeDef]
     ) -> GetAggregateConfigRuleComplianceSummaryResponseTypeDef:
         """
         Returns the number of compliant and noncompliant rules for one or more accounts
         and regions in an aggregator.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Client.get_aggregate_config_rule_compliance_summary)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/client.html#get_aggregate_config_rule_compliance_summary)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/get_aggregate_config_rule_compliance_summary.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#get_aggregate_config_rule_compliance_summary)
         """
 
     def get_aggregate_conformance_pack_compliance_summary(
-        self,
-        *,
-        ConfigurationAggregatorName: str,
-        Filters: "AggregateConformancePackComplianceSummaryFiltersTypeDef" = None,
-        GroupByKey: AggregateConformancePackComplianceSummaryGroupKeyType = None,
-        Limit: int = None,
-        NextToken: str = None
+        self, **kwargs: Unpack[GetAggregateConformancePackComplianceSummaryRequestTypeDef]
     ) -> GetAggregateConformancePackComplianceSummaryResponseTypeDef:
         """
         Returns the count of compliant and noncompliant conformance packs across all
         Amazon Web Services accounts and Amazon Web Services Regions in an aggregator.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Client.get_aggregate_conformance_pack_compliance_summary)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/client.html#get_aggregate_conformance_pack_compliance_summary)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/get_aggregate_conformance_pack_compliance_summary.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#get_aggregate_conformance_pack_compliance_summary)
         """
 
     def get_aggregate_discovered_resource_counts(
-        self,
-        *,
-        ConfigurationAggregatorName: str,
-        Filters: "ResourceCountFiltersTypeDef" = None,
-        GroupByKey: ResourceCountGroupKeyType = None,
-        Limit: int = None,
-        NextToken: str = None
+        self, **kwargs: Unpack[GetAggregateDiscoveredResourceCountsRequestTypeDef]
     ) -> GetAggregateDiscoveredResourceCountsResponseTypeDef:
         """
-        Returns the resource counts across accounts and regions that are present in your
-        Config aggregator.
+        Returns the resource counts across accounts and regions that are present in
+        your Config aggregator.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Client.get_aggregate_discovered_resource_counts)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/client.html#get_aggregate_discovered_resource_counts)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/get_aggregate_discovered_resource_counts.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#get_aggregate_discovered_resource_counts)
         """
 
     def get_aggregate_resource_config(
-        self,
-        *,
-        ConfigurationAggregatorName: str,
-        ResourceIdentifier: "AggregateResourceIdentifierTypeDef"
+        self, **kwargs: Unpack[GetAggregateResourceConfigRequestTypeDef]
     ) -> GetAggregateResourceConfigResponseTypeDef:
         """
         Returns configuration item that is aggregated for your specific resource in a
         specific source account and region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Client.get_aggregate_resource_config)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/client.html#get_aggregate_resource_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/get_aggregate_resource_config.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#get_aggregate_resource_config)
         """
 
     def get_compliance_details_by_config_rule(
-        self,
-        *,
-        ConfigRuleName: str,
-        ComplianceTypes: List[ComplianceTypeType] = None,
-        Limit: int = None,
-        NextToken: str = None
+        self, **kwargs: Unpack[GetComplianceDetailsByConfigRuleRequestTypeDef]
     ) -> GetComplianceDetailsByConfigRuleResponseTypeDef:
         """
         Returns the evaluation results for the specified Config rule.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Client.get_compliance_details_by_config_rule)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/client.html#get_compliance_details_by_config_rule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/get_compliance_details_by_config_rule.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#get_compliance_details_by_config_rule)
         """
 
     def get_compliance_details_by_resource(
-        self,
-        *,
-        ResourceType: str = None,
-        ResourceId: str = None,
-        ComplianceTypes: List[ComplianceTypeType] = None,
-        NextToken: str = None,
-        ResourceEvaluationId: str = None
+        self, **kwargs: Unpack[GetComplianceDetailsByResourceRequestTypeDef]
     ) -> GetComplianceDetailsByResourceResponseTypeDef:
         """
         Returns the evaluation results for the specified Amazon Web Services resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Client.get_compliance_details_by_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/client.html#get_compliance_details_by_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/get_compliance_details_by_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#get_compliance_details_by_resource)
         """
 
     def get_compliance_summary_by_config_rule(
@@ -895,446 +905,377 @@ class ConfigServiceClient(BaseClient):
         Returns the number of Config rules that are compliant and noncompliant, up to a
         maximum of 25 for each.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Client.get_compliance_summary_by_config_rule)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/client.html#get_compliance_summary_by_config_rule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/get_compliance_summary_by_config_rule.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#get_compliance_summary_by_config_rule)
         """
 
     def get_compliance_summary_by_resource_type(
-        self, *, ResourceTypes: List[str] = None
+        self, **kwargs: Unpack[GetComplianceSummaryByResourceTypeRequestTypeDef]
     ) -> GetComplianceSummaryByResourceTypeResponseTypeDef:
         """
         Returns the number of resources that are compliant and the number that are
         noncompliant.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Client.get_compliance_summary_by_resource_type)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/client.html#get_compliance_summary_by_resource_type)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/get_compliance_summary_by_resource_type.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#get_compliance_summary_by_resource_type)
         """
 
     def get_conformance_pack_compliance_details(
-        self,
-        *,
-        ConformancePackName: str,
-        Filters: "ConformancePackEvaluationFiltersTypeDef" = None,
-        Limit: int = None,
-        NextToken: str = None
+        self, **kwargs: Unpack[GetConformancePackComplianceDetailsRequestTypeDef]
     ) -> GetConformancePackComplianceDetailsResponseTypeDef:
         """
         Returns compliance details of a conformance pack for all Amazon Web Services
         resources that are monitered by conformance pack.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Client.get_conformance_pack_compliance_details)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/client.html#get_conformance_pack_compliance_details)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/get_conformance_pack_compliance_details.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#get_conformance_pack_compliance_details)
         """
 
     def get_conformance_pack_compliance_summary(
-        self, *, ConformancePackNames: List[str], Limit: int = None, NextToken: str = None
+        self, **kwargs: Unpack[GetConformancePackComplianceSummaryRequestTypeDef]
     ) -> GetConformancePackComplianceSummaryResponseTypeDef:
         """
         Returns compliance details for the conformance pack based on the cumulative
         compliance results of all the rules in that conformance pack.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Client.get_conformance_pack_compliance_summary)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/client.html#get_conformance_pack_compliance_summary)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/get_conformance_pack_compliance_summary.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#get_conformance_pack_compliance_summary)
         """
 
     def get_custom_rule_policy(
-        self, *, ConfigRuleName: str = None
+        self, **kwargs: Unpack[GetCustomRulePolicyRequestTypeDef]
     ) -> GetCustomRulePolicyResponseTypeDef:
         """
-        Returns the policy definition containing the logic for your Config Custom Policy
-        rule.
+        Returns the policy definition containing the logic for your Config Custom
+        Policy rule.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Client.get_custom_rule_policy)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/client.html#get_custom_rule_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/get_custom_rule_policy.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#get_custom_rule_policy)
         """
 
     def get_discovered_resource_counts(
-        self, *, resourceTypes: List[str] = None, limit: int = None, nextToken: str = None
+        self, **kwargs: Unpack[GetDiscoveredResourceCountsRequestTypeDef]
     ) -> GetDiscoveredResourceCountsResponseTypeDef:
         """
         Returns the resource types, the number of each resource type, and the total
         number of resources that Config is recording in this region for your Amazon Web
         Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Client.get_discovered_resource_counts)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/client.html#get_discovered_resource_counts)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/get_discovered_resource_counts.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#get_discovered_resource_counts)
         """
 
     def get_organization_config_rule_detailed_status(
-        self,
-        *,
-        OrganizationConfigRuleName: str,
-        Filters: "StatusDetailFiltersTypeDef" = None,
-        Limit: int = None,
-        NextToken: str = None
+        self, **kwargs: Unpack[GetOrganizationConfigRuleDetailedStatusRequestTypeDef]
     ) -> GetOrganizationConfigRuleDetailedStatusResponseTypeDef:
         """
         Returns detailed status for each member account within an organization for a
         given organization Config rule.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Client.get_organization_config_rule_detailed_status)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/client.html#get_organization_config_rule_detailed_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/get_organization_config_rule_detailed_status.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#get_organization_config_rule_detailed_status)
         """
 
     def get_organization_conformance_pack_detailed_status(
-        self,
-        *,
-        OrganizationConformancePackName: str,
-        Filters: "OrganizationResourceDetailedStatusFiltersTypeDef" = None,
-        Limit: int = None,
-        NextToken: str = None
+        self, **kwargs: Unpack[GetOrganizationConformancePackDetailedStatusRequestTypeDef]
     ) -> GetOrganizationConformancePackDetailedStatusResponseTypeDef:
         """
         Returns detailed status for each member account within an organization for a
         given organization conformance pack.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Client.get_organization_conformance_pack_detailed_status)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/client.html#get_organization_conformance_pack_detailed_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/get_organization_conformance_pack_detailed_status.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#get_organization_conformance_pack_detailed_status)
         """
 
     def get_organization_custom_rule_policy(
-        self, *, OrganizationConfigRuleName: str
+        self, **kwargs: Unpack[GetOrganizationCustomRulePolicyRequestTypeDef]
     ) -> GetOrganizationCustomRulePolicyResponseTypeDef:
         """
         Returns the policy definition containing the logic for your organization Config
         Custom Policy rule.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Client.get_organization_custom_rule_policy)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/client.html#get_organization_custom_rule_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/get_organization_custom_rule_policy.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#get_organization_custom_rule_policy)
         """
 
     def get_resource_config_history(
-        self,
-        *,
-        resourceType: ResourceTypeType,
-        resourceId: str,
-        laterTime: Union[datetime, str] = None,
-        earlierTime: Union[datetime, str] = None,
-        chronologicalOrder: ChronologicalOrderType = None,
-        limit: int = None,
-        nextToken: str = None
+        self, **kwargs: Unpack[GetResourceConfigHistoryRequestTypeDef]
     ) -> GetResourceConfigHistoryResponseTypeDef:
         """
-        .
+        For accurate reporting on the compliance status, you must record the
+        <code>AWS::Config::ResourceCompliance</code> resource type.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Client.get_resource_config_history)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/client.html#get_resource_config_history)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/get_resource_config_history.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#get_resource_config_history)
         """
 
     def get_resource_evaluation_summary(
-        self, *, ResourceEvaluationId: str
+        self, **kwargs: Unpack[GetResourceEvaluationSummaryRequestTypeDef]
     ) -> GetResourceEvaluationSummaryResponseTypeDef:
         """
         Returns a summary of resource evaluation for the specified resource evaluation
         ID from the proactive rules that were run.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Client.get_resource_evaluation_summary)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/client.html#get_resource_evaluation_summary)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/get_resource_evaluation_summary.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#get_resource_evaluation_summary)
         """
 
-    def get_stored_query(self, *, QueryName: str) -> GetStoredQueryResponseTypeDef:
+    def get_stored_query(
+        self, **kwargs: Unpack[GetStoredQueryRequestTypeDef]
+    ) -> GetStoredQueryResponseTypeDef:
         """
         Returns the details of a specific stored query.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Client.get_stored_query)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/client.html#get_stored_query)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/get_stored_query.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#get_stored_query)
         """
 
     def list_aggregate_discovered_resources(
-        self,
-        *,
-        ConfigurationAggregatorName: str,
-        ResourceType: ResourceTypeType,
-        Filters: "ResourceFiltersTypeDef" = None,
-        Limit: int = None,
-        NextToken: str = None
+        self, **kwargs: Unpack[ListAggregateDiscoveredResourcesRequestTypeDef]
     ) -> ListAggregateDiscoveredResourcesResponseTypeDef:
         """
         Accepts a resource type and returns a list of resource identifiers that are
         aggregated for a specific resource type across accounts and regions.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Client.list_aggregate_discovered_resources)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/client.html#list_aggregate_discovered_resources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/list_aggregate_discovered_resources.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#list_aggregate_discovered_resources)
+        """
+
+    def list_configuration_recorders(
+        self, **kwargs: Unpack[ListConfigurationRecordersRequestTypeDef]
+    ) -> ListConfigurationRecordersResponseTypeDef:
+        """
+        Returns a list of configuration recorders depending on the filters you specify.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/list_configuration_recorders.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#list_configuration_recorders)
         """
 
     def list_conformance_pack_compliance_scores(
-        self,
-        *,
-        Filters: "ConformancePackComplianceScoresFiltersTypeDef" = None,
-        SortOrder: SortOrderType = None,
-        SortBy: Literal["SCORE"] = None,
-        Limit: int = None,
-        NextToken: str = None
+        self, **kwargs: Unpack[ListConformancePackComplianceScoresRequestTypeDef]
     ) -> ListConformancePackComplianceScoresResponseTypeDef:
         """
         Returns a list of conformance pack compliance scores.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Client.list_conformance_pack_compliance_scores)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/client.html#list_conformance_pack_compliance_scores)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/list_conformance_pack_compliance_scores.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#list_conformance_pack_compliance_scores)
         """
 
     def list_discovered_resources(
-        self,
-        *,
-        resourceType: ResourceTypeType,
-        resourceIds: List[str] = None,
-        resourceName: str = None,
-        limit: int = None,
-        includeDeletedResources: bool = None,
-        nextToken: str = None
+        self, **kwargs: Unpack[ListDiscoveredResourcesRequestTypeDef]
     ) -> ListDiscoveredResourcesResponseTypeDef:
         """
         Accepts a resource type and returns a list of resource identifiers for the
         resources of that type.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Client.list_discovered_resources)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/client.html#list_discovered_resources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/list_discovered_resources.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#list_discovered_resources)
         """
 
     def list_resource_evaluations(
-        self,
-        *,
-        Filters: "ResourceEvaluationFiltersTypeDef" = None,
-        Limit: int = None,
-        NextToken: str = None
+        self, **kwargs: Unpack[ListResourceEvaluationsRequestTypeDef]
     ) -> ListResourceEvaluationsResponseTypeDef:
         """
         Returns a list of proactive resource evaluations.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Client.list_resource_evaluations)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/client.html#list_resource_evaluations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/list_resource_evaluations.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#list_resource_evaluations)
         """
 
     def list_stored_queries(
-        self, *, NextToken: str = None, MaxResults: int = None
+        self, **kwargs: Unpack[ListStoredQueriesRequestTypeDef]
     ) -> ListStoredQueriesResponseTypeDef:
         """
         Lists the stored queries for a single Amazon Web Services account and a single
         Amazon Web Services Region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Client.list_stored_queries)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/client.html#list_stored_queries)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/list_stored_queries.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#list_stored_queries)
         """
 
     def list_tags_for_resource(
-        self, *, ResourceArn: str, Limit: int = None, NextToken: str = None
+        self, **kwargs: Unpack[ListTagsForResourceRequestTypeDef]
     ) -> ListTagsForResourceResponseTypeDef:
         """
         List the tags for Config resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Client.list_tags_for_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/client.html#list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/list_tags_for_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#list_tags_for_resource)
         """
 
     def put_aggregation_authorization(
-        self, *, AuthorizedAccountId: str, AuthorizedAwsRegion: str, Tags: List["TagTypeDef"] = None
+        self, **kwargs: Unpack[PutAggregationAuthorizationRequestTypeDef]
     ) -> PutAggregationAuthorizationResponseTypeDef:
         """
         Authorizes the aggregator account and region to collect data from the source
         account and region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Client.put_aggregation_authorization)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/client.html#put_aggregation_authorization)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/put_aggregation_authorization.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#put_aggregation_authorization)
         """
 
     def put_config_rule(
-        self, *, ConfigRule: "ConfigRuleTypeDef", Tags: List["TagTypeDef"] = None
-    ) -> None:
+        self, **kwargs: Unpack[PutConfigRuleRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
-        Adds or updates an Config rule to evaluate if your Amazon Web Services resources
-        comply with your desired configurations.
+        Adds or updates an Config rule to evaluate if your Amazon Web Services
+        resources comply with your desired configurations.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Client.put_config_rule)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/client.html#put_config_rule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/put_config_rule.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#put_config_rule)
         """
 
     def put_configuration_aggregator(
-        self,
-        *,
-        ConfigurationAggregatorName: str,
-        AccountAggregationSources: List["AccountAggregationSourceTypeDef"] = None,
-        OrganizationAggregationSource: "OrganizationAggregationSourceTypeDef" = None,
-        Tags: List["TagTypeDef"] = None
+        self, **kwargs: Unpack[PutConfigurationAggregatorRequestTypeDef]
     ) -> PutConfigurationAggregatorResponseTypeDef:
         """
         Creates and updates the configuration aggregator with the selected source
         accounts and regions.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Client.put_configuration_aggregator)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/client.html#put_configuration_aggregator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/put_configuration_aggregator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#put_configuration_aggregator)
         """
 
     def put_configuration_recorder(
-        self, *, ConfigurationRecorder: "ConfigurationRecorderTypeDef"
-    ) -> None:
+        self, **kwargs: Unpack[PutConfigurationRecorderRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
-        Creates a new configuration recorder to record configuration changes for
-        specified resource types.
+        Creates or updates the customer managed configuration recorder.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Client.put_configuration_recorder)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/client.html#put_configuration_recorder)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/put_configuration_recorder.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#put_configuration_recorder)
         """
 
     def put_conformance_pack(
-        self,
-        *,
-        ConformancePackName: str,
-        TemplateS3Uri: str = None,
-        TemplateBody: str = None,
-        DeliveryS3Bucket: str = None,
-        DeliveryS3KeyPrefix: str = None,
-        ConformancePackInputParameters: List["ConformancePackInputParameterTypeDef"] = None,
-        TemplateSSMDocumentDetails: "TemplateSSMDocumentDetailsTypeDef" = None
+        self, **kwargs: Unpack[PutConformancePackRequestTypeDef]
     ) -> PutConformancePackResponseTypeDef:
         """
         Creates or updates a conformance pack.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Client.put_conformance_pack)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/client.html#put_conformance_pack)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/put_conformance_pack.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#put_conformance_pack)
         """
 
-    def put_delivery_channel(self, *, DeliveryChannel: "DeliveryChannelTypeDef") -> None:
+    def put_delivery_channel(
+        self, **kwargs: Unpack[PutDeliveryChannelRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
-        Creates a delivery channel object to deliver configuration information and other
-        compliance information to an Amazon S3 bucket and Amazon SNS topic.
+        Creates or updates a delivery channel to deliver configuration information and
+        other compliance information.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Client.put_delivery_channel)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/client.html#put_delivery_channel)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/put_delivery_channel.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#put_delivery_channel)
         """
 
     def put_evaluations(
-        self,
-        *,
-        ResultToken: str,
-        Evaluations: List["EvaluationTypeDef"] = None,
-        TestMode: bool = None
+        self, **kwargs: Unpack[PutEvaluationsRequestTypeDef]
     ) -> PutEvaluationsResponseTypeDef:
         """
         Used by an Lambda function to deliver evaluation results to Config.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Client.put_evaluations)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/client.html#put_evaluations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/put_evaluations.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#put_evaluations)
         """
 
     def put_external_evaluation(
-        self, *, ConfigRuleName: str, ExternalEvaluation: "ExternalEvaluationTypeDef"
+        self, **kwargs: Unpack[PutExternalEvaluationRequestTypeDef]
     ) -> Dict[str, Any]:
         """
         Add or updates the evaluations for process checks.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Client.put_external_evaluation)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/client.html#put_external_evaluation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/put_external_evaluation.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#put_external_evaluation)
         """
 
     def put_organization_config_rule(
-        self,
-        *,
-        OrganizationConfigRuleName: str,
-        OrganizationManagedRuleMetadata: "OrganizationManagedRuleMetadataTypeDef" = None,
-        OrganizationCustomRuleMetadata: "OrganizationCustomRuleMetadataTypeDef" = None,
-        ExcludedAccounts: List[str] = None,
-        OrganizationCustomPolicyRuleMetadata: "OrganizationCustomPolicyRuleMetadataTypeDef" = None
+        self, **kwargs: Unpack[PutOrganizationConfigRuleRequestTypeDef]
     ) -> PutOrganizationConfigRuleResponseTypeDef:
         """
         Adds or updates an Config rule for your entire organization to evaluate if your
         Amazon Web Services resources comply with your desired configurations.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Client.put_organization_config_rule)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/client.html#put_organization_config_rule)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/put_organization_config_rule.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#put_organization_config_rule)
         """
 
     def put_organization_conformance_pack(
-        self,
-        *,
-        OrganizationConformancePackName: str,
-        TemplateS3Uri: str = None,
-        TemplateBody: str = None,
-        DeliveryS3Bucket: str = None,
-        DeliveryS3KeyPrefix: str = None,
-        ConformancePackInputParameters: List["ConformancePackInputParameterTypeDef"] = None,
-        ExcludedAccounts: List[str] = None
+        self, **kwargs: Unpack[PutOrganizationConformancePackRequestTypeDef]
     ) -> PutOrganizationConformancePackResponseTypeDef:
         """
         Deploys conformance packs across member accounts in an Amazon Web Services
         Organization.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Client.put_organization_conformance_pack)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/client.html#put_organization_conformance_pack)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/put_organization_conformance_pack.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#put_organization_conformance_pack)
         """
 
     def put_remediation_configurations(
-        self, *, RemediationConfigurations: List["RemediationConfigurationTypeDef"]
+        self, **kwargs: Unpack[PutRemediationConfigurationsRequestTypeDef]
     ) -> PutRemediationConfigurationsResponseTypeDef:
         """
         Adds or updates the remediation configuration with a specific Config rule with
         the selected target or action.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Client.put_remediation_configurations)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/client.html#put_remediation_configurations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/put_remediation_configurations.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#put_remediation_configurations)
         """
 
     def put_remediation_exceptions(
-        self,
-        *,
-        ConfigRuleName: str,
-        ResourceKeys: List["RemediationExceptionResourceKeyTypeDef"],
-        Message: str = None,
-        ExpirationTime: Union[datetime, str] = None
+        self, **kwargs: Unpack[PutRemediationExceptionsRequestTypeDef]
     ) -> PutRemediationExceptionsResponseTypeDef:
         """
-        A remediation exception is when a specified resource is no longer considered for
-        auto-remediation.
+        A remediation exception is when a specified resource is no longer considered
+        for auto-remediation.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Client.put_remediation_exceptions)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/client.html#put_remediation_exceptions)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/put_remediation_exceptions.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#put_remediation_exceptions)
         """
 
     def put_resource_config(
-        self,
-        *,
-        ResourceType: str,
-        SchemaVersionId: str,
-        ResourceId: str,
-        Configuration: str,
-        ResourceName: str = None,
-        Tags: Dict[str, str] = None
-    ) -> None:
+        self, **kwargs: Unpack[PutResourceConfigRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Records the configuration state for the resource provided in the request.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Client.put_resource_config)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/client.html#put_resource_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/put_resource_config.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#put_resource_config)
         """
 
     def put_retention_configuration(
-        self, *, RetentionPeriodInDays: int
+        self, **kwargs: Unpack[PutRetentionConfigurationRequestTypeDef]
     ) -> PutRetentionConfigurationResponseTypeDef:
         """
         Creates and updates the retention configuration with details about retention
         period (number of days) that Config stores your historical information.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Client.put_retention_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/client.html#put_retention_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/put_retention_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#put_retention_configuration)
+        """
+
+    def put_service_linked_configuration_recorder(
+        self, **kwargs: Unpack[PutServiceLinkedConfigurationRecorderRequestTypeDef]
+    ) -> PutServiceLinkedConfigurationRecorderResponseTypeDef:
+        """
+        Creates a service-linked configuration recorder that is linked to a specific
+        Amazon Web Services service based on the <code>ServicePrincipal</code> you
+        specify.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/put_service_linked_configuration_recorder.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#put_service_linked_configuration_recorder)
         """
 
     def put_stored_query(
-        self, *, StoredQuery: "StoredQueryTypeDef", Tags: List["TagTypeDef"] = None
+        self, **kwargs: Unpack[PutStoredQueryRequestTypeDef]
     ) -> PutStoredQueryResponseTypeDef:
         """
         Saves a new query or updates an existing saved query.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Client.put_stored_query)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/client.html#put_stored_query)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/put_stored_query.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#put_stored_query)
         """
 
     def select_aggregate_resource_config(
-        self,
-        *,
-        Expression: str,
-        ConfigurationAggregatorName: str,
-        Limit: int = None,
-        MaxResults: int = None,
-        NextToken: str = None
+        self, **kwargs: Unpack[SelectAggregateResourceConfigRequestTypeDef]
     ) -> SelectAggregateResourceConfigResponseTypeDef:
         """
         Accepts a structured query language (SQL) SELECT command and an aggregator to
@@ -1342,368 +1283,444 @@ class ConfigServiceClient(BaseClient):
         accounts and regions, performs the corresponding search, and returns resource
         configurations matching the properties.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Client.select_aggregate_resource_config)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/client.html#select_aggregate_resource_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/select_aggregate_resource_config.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#select_aggregate_resource_config)
         """
 
     def select_resource_config(
-        self, *, Expression: str, Limit: int = None, NextToken: str = None
+        self, **kwargs: Unpack[SelectResourceConfigRequestTypeDef]
     ) -> SelectResourceConfigResponseTypeDef:
         """
-        Accepts a structured query language (SQL) `SELECT` command, performs the
-        corresponding search, and returns resource configurations matching the
+        Accepts a structured query language (SQL) <code>SELECT</code> command, performs
+        the corresponding search, and returns resource configurations matching the
         properties.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Client.select_resource_config)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/client.html#select_resource_config)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/select_resource_config.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#select_resource_config)
         """
 
-    def start_config_rules_evaluation(self, *, ConfigRuleNames: List[str] = None) -> Dict[str, Any]:
+    def start_config_rules_evaluation(
+        self, **kwargs: Unpack[StartConfigRulesEvaluationRequestTypeDef]
+    ) -> Dict[str, Any]:
         """
         Runs an on-demand evaluation for the specified Config rules against the last
         known configuration state of the resources.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Client.start_config_rules_evaluation)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/client.html#start_config_rules_evaluation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/start_config_rules_evaluation.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#start_config_rules_evaluation)
         """
 
-    def start_configuration_recorder(self, *, ConfigurationRecorderName: str) -> None:
+    def start_configuration_recorder(
+        self, **kwargs: Unpack[StartConfigurationRecorderRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
-        Starts recording configurations of the Amazon Web Services resources you have
-        selected to record in your Amazon Web Services account.
+        Starts the customer managed configuration recorder.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Client.start_configuration_recorder)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/client.html#start_configuration_recorder)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/start_configuration_recorder.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#start_configuration_recorder)
         """
 
     def start_remediation_execution(
-        self, *, ConfigRuleName: str, ResourceKeys: List["ResourceKeyTypeDef"]
+        self, **kwargs: Unpack[StartRemediationExecutionRequestTypeDef]
     ) -> StartRemediationExecutionResponseTypeDef:
         """
         Runs an on-demand remediation for the specified Config rules against the last
         known remediation configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Client.start_remediation_execution)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/client.html#start_remediation_execution)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/start_remediation_execution.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#start_remediation_execution)
         """
 
     def start_resource_evaluation(
-        self,
-        *,
-        ResourceDetails: "ResourceDetailsTypeDef",
-        EvaluationMode: EvaluationModeType,
-        EvaluationContext: "EvaluationContextTypeDef" = None,
-        EvaluationTimeout: int = None,
-        ClientToken: str = None
+        self, **kwargs: Unpack[StartResourceEvaluationRequestTypeDef]
     ) -> StartResourceEvaluationResponseTypeDef:
         """
-        Runs an on-demand evaluation for the specified resource to determine whether the
-        resource details will comply with configured Config rules.
+        Runs an on-demand evaluation for the specified resource to determine whether
+        the resource details will comply with configured Config rules.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Client.start_resource_evaluation)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/client.html#start_resource_evaluation)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/start_resource_evaluation.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#start_resource_evaluation)
         """
 
-    def stop_configuration_recorder(self, *, ConfigurationRecorderName: str) -> None:
+    def stop_configuration_recorder(
+        self, **kwargs: Unpack[StopConfigurationRecorderRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
-        Stops recording configurations of the Amazon Web Services resources you have
-        selected to record in your Amazon Web Services account.
+        Stops the customer managed configuration recorder.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Client.stop_configuration_recorder)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/client.html#stop_configuration_recorder)
-        """
-
-    def tag_resource(self, *, ResourceArn: str, Tags: List["TagTypeDef"]) -> None:
-        """
-        Associates the specified tags to a resource with the specified resourceArn.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Client.tag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/client.html#tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/stop_configuration_recorder.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#stop_configuration_recorder)
         """
 
-    def untag_resource(self, *, ResourceArn: str, TagKeys: List[str]) -> None:
+    def tag_resource(
+        self, **kwargs: Unpack[TagResourceRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Associates the specified tags to a resource with the specified
+        <code>ResourceArn</code>.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/tag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#tag_resource)
+        """
+
+    def untag_resource(
+        self, **kwargs: Unpack[UntagResourceRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Deletes specified tags from a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Client.untag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/client.html#untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/untag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#untag_resource)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["describe_aggregate_compliance_by_config_rules"]
     ) -> DescribeAggregateComplianceByConfigRulesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Paginator.DescribeAggregateComplianceByConfigRules)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/paginators.html#describeaggregatecompliancebyconfigrulespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["describe_aggregate_compliance_by_conformance_packs"]
     ) -> DescribeAggregateComplianceByConformancePacksPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Paginator.DescribeAggregateComplianceByConformancePacks)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/paginators.html#describeaggregatecompliancebyconformancepackspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["describe_aggregation_authorizations"]
     ) -> DescribeAggregationAuthorizationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Paginator.DescribeAggregationAuthorizations)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/paginators.html#describeaggregationauthorizationspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["describe_compliance_by_config_rule"]
     ) -> DescribeComplianceByConfigRulePaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Paginator.DescribeComplianceByConfigRule)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/paginators.html#describecompliancebyconfigrulepaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["describe_compliance_by_resource"]
     ) -> DescribeComplianceByResourcePaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Paginator.DescribeComplianceByResource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/paginators.html#describecompliancebyresourcepaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["describe_config_rule_evaluation_status"]
     ) -> DescribeConfigRuleEvaluationStatusPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Paginator.DescribeConfigRuleEvaluationStatus)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/paginators.html#describeconfigruleevaluationstatuspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["describe_config_rules"]
     ) -> DescribeConfigRulesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Paginator.DescribeConfigRules)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/paginators.html#describeconfigrulespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["describe_configuration_aggregator_sources_status"]
     ) -> DescribeConfigurationAggregatorSourcesStatusPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Paginator.DescribeConfigurationAggregatorSourcesStatus)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/paginators.html#describeconfigurationaggregatorsourcesstatuspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["describe_configuration_aggregators"]
     ) -> DescribeConfigurationAggregatorsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Paginator.DescribeConfigurationAggregators)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/paginators.html#describeconfigurationaggregatorspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["describe_conformance_pack_status"]
     ) -> DescribeConformancePackStatusPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Paginator.DescribeConformancePackStatus)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/paginators.html#describeconformancepackstatuspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["describe_conformance_packs"]
     ) -> DescribeConformancePacksPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Paginator.DescribeConformancePacks)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/paginators.html#describeconformancepackspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["describe_organization_config_rule_statuses"]
     ) -> DescribeOrganizationConfigRuleStatusesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Paginator.DescribeOrganizationConfigRuleStatuses)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/paginators.html#describeorganizationconfigrulestatusespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["describe_organization_config_rules"]
     ) -> DescribeOrganizationConfigRulesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Paginator.DescribeOrganizationConfigRules)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/paginators.html#describeorganizationconfigrulespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["describe_organization_conformance_pack_statuses"]
     ) -> DescribeOrganizationConformancePackStatusesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Paginator.DescribeOrganizationConformancePackStatuses)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/paginators.html#describeorganizationconformancepackstatusespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["describe_organization_conformance_packs"]
     ) -> DescribeOrganizationConformancePacksPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Paginator.DescribeOrganizationConformancePacks)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/paginators.html#describeorganizationconformancepackspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["describe_pending_aggregation_requests"]
     ) -> DescribePendingAggregationRequestsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Paginator.DescribePendingAggregationRequests)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/paginators.html#describependingaggregationrequestspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["describe_remediation_execution_status"]
     ) -> DescribeRemediationExecutionStatusPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Paginator.DescribeRemediationExecutionStatus)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/paginators.html#describeremediationexecutionstatuspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["describe_retention_configurations"]
     ) -> DescribeRetentionConfigurationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Paginator.DescribeRetentionConfigurations)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/paginators.html#describeretentionconfigurationspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["get_aggregate_compliance_details_by_config_rule"]
     ) -> GetAggregateComplianceDetailsByConfigRulePaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Paginator.GetAggregateComplianceDetailsByConfigRule)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/paginators.html#getaggregatecompliancedetailsbyconfigrulepaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["get_compliance_details_by_config_rule"]
     ) -> GetComplianceDetailsByConfigRulePaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Paginator.GetComplianceDetailsByConfigRule)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/paginators.html#getcompliancedetailsbyconfigrulepaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["get_compliance_details_by_resource"]
     ) -> GetComplianceDetailsByResourcePaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Paginator.GetComplianceDetailsByResource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/paginators.html#getcompliancedetailsbyresourcepaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["get_conformance_pack_compliance_summary"]
     ) -> GetConformancePackComplianceSummaryPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Paginator.GetConformancePackComplianceSummary)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/paginators.html#getconformancepackcompliancesummarypaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["get_organization_config_rule_detailed_status"]
     ) -> GetOrganizationConfigRuleDetailedStatusPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Paginator.GetOrganizationConfigRuleDetailedStatus)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/paginators.html#getorganizationconfigruledetailedstatuspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["get_organization_conformance_pack_detailed_status"]
     ) -> GetOrganizationConformancePackDetailedStatusPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Paginator.GetOrganizationConformancePackDetailedStatus)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/paginators.html#getorganizationconformancepackdetailedstatuspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["get_resource_config_history"]
     ) -> GetResourceConfigHistoryPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Paginator.GetResourceConfigHistory)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/paginators.html#getresourceconfighistorypaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_aggregate_discovered_resources"]
     ) -> ListAggregateDiscoveredResourcesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Paginator.ListAggregateDiscoveredResources)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/paginators.html#listaggregatediscoveredresourcespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_configuration_recorders"]
+    ) -> ListConfigurationRecordersPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_discovered_resources"]
     ) -> ListDiscoveredResourcesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Paginator.ListDiscoveredResources)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/paginators.html#listdiscoveredresourcespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_resource_evaluations"]
     ) -> ListResourceEvaluationsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Paginator.ListResourceEvaluations)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/paginators.html#listresourceevaluationspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_tags_for_resource"]
     ) -> ListTagsForResourcePaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Paginator.ListTagsForResource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/paginators.html#listtagsforresourcepaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["select_aggregate_resource_config"]
     ) -> SelectAggregateResourceConfigPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Paginator.SelectAggregateResourceConfig)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/paginators.html#selectaggregateresourceconfigpaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["select_resource_config"]
     ) -> SelectResourceConfigPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/config.html#ConfigService.Paginator.SelectResourceConfig)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_config/paginators.html#selectresourceconfigpaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_config/client/#get_paginator)
         """

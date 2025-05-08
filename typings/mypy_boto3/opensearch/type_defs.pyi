@@ -1,25 +1,31 @@
 """
 Type annotations for opensearch service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opensearch/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_opensearch/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_opensearch.type_defs import AWSDomainInformationTypeDef
+    from mypy_boto3_opensearch.type_defs import NaturalLanguageQueryGenerationOptionsInputTypeDef
 
-    data: AWSDomainInformationTypeDef = {...}
+    data: NaturalLanguageQueryGenerationOptionsInputTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List, Union
+from typing import Union
 
 from .literals import (
     ActionSeverityType,
     ActionStatusType,
     ActionTypeType,
+    AppConfigTypeType,
+    ApplicationStatusType,
     AutoTuneDesiredStateType,
     AutoTuneStateType,
     ConfigChangeStatusType,
@@ -40,6 +46,8 @@ from .literals import (
     MaintenanceStatusType,
     MaintenanceTypeType,
     MasterNodeStatusType,
+    NaturalLanguageQueryGenerationCurrentStateType,
+    NaturalLanguageQueryGenerationDesiredStateType,
     NodeStatusType,
     NodeTypeType,
     OpenSearchPartitionInstanceTypeType,
@@ -47,17 +55,21 @@ from .literals import (
     OptionStateType,
     OutboundConnectionStatusCodeType,
     OverallChangeStatusType,
+    PackageScopeOperationEnumType,
     PackageStatusType,
     PackageTypeType,
     PrincipalTypeType,
     PropertyValueTypeType,
+    RequirementLevelType,
     ReservedInstancePaymentOptionType,
+    RolesKeyIdCOptionType,
     RollbackOnDisableType,
     ScheduleAtType,
     ScheduledAutoTuneActionTypeType,
     ScheduledAutoTuneSeverityTypeType,
     ScheduledByType,
     SkipUnavailableStatusType,
+    SubjectKeyIdCOptionType,
     TLSSecurityPolicyType,
     UpgradeStatusType,
     UpgradeStepType,
@@ -67,113 +79,140 @@ from .literals import (
     ZoneStatusType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
+    "AIMLOptionsInputTypeDef",
+    "AIMLOptionsOutputTypeDef",
+    "AIMLOptionsStatusTypeDef",
     "AWSDomainInformationTypeDef",
-    "AcceptInboundConnectionRequestRequestTypeDef",
+    "AcceptInboundConnectionRequestTypeDef",
     "AcceptInboundConnectionResponseTypeDef",
     "AccessPoliciesStatusTypeDef",
-    "AddDataSourceRequestRequestTypeDef",
+    "AddDataSourceRequestTypeDef",
     "AddDataSourceResponseTypeDef",
-    "AddTagsRequestRequestTypeDef",
+    "AddDirectQueryDataSourceRequestTypeDef",
+    "AddDirectQueryDataSourceResponseTypeDef",
+    "AddTagsRequestTypeDef",
     "AdditionalLimitTypeDef",
     "AdvancedOptionsStatusTypeDef",
     "AdvancedSecurityOptionsInputTypeDef",
     "AdvancedSecurityOptionsStatusTypeDef",
     "AdvancedSecurityOptionsTypeDef",
-    "AssociatePackageRequestRequestTypeDef",
+    "AppConfigTypeDef",
+    "ApplicationSummaryTypeDef",
+    "AssociatePackageRequestTypeDef",
     "AssociatePackageResponseTypeDef",
-    "AuthorizeVpcEndpointAccessRequestRequestTypeDef",
+    "AssociatePackagesRequestTypeDef",
+    "AssociatePackagesResponseTypeDef",
+    "AuthorizeVpcEndpointAccessRequestTypeDef",
     "AuthorizeVpcEndpointAccessResponseTypeDef",
     "AuthorizedPrincipalTypeDef",
     "AutoTuneDetailsTypeDef",
+    "AutoTuneMaintenanceScheduleOutputTypeDef",
     "AutoTuneMaintenanceScheduleTypeDef",
+    "AutoTuneMaintenanceScheduleUnionTypeDef",
+    "AutoTuneOptionsExtraTypeDef",
     "AutoTuneOptionsInputTypeDef",
     "AutoTuneOptionsOutputTypeDef",
     "AutoTuneOptionsStatusTypeDef",
     "AutoTuneOptionsTypeDef",
+    "AutoTuneOptionsUnionTypeDef",
     "AutoTuneStatusTypeDef",
     "AutoTuneTypeDef",
     "AvailabilityZoneInfoTypeDef",
-    "CancelDomainConfigChangeRequestRequestTypeDef",
+    "CancelDomainConfigChangeRequestTypeDef",
     "CancelDomainConfigChangeResponseTypeDef",
-    "CancelServiceSoftwareUpdateRequestRequestTypeDef",
+    "CancelServiceSoftwareUpdateRequestTypeDef",
     "CancelServiceSoftwareUpdateResponseTypeDef",
     "CancelledChangePropertyTypeDef",
     "ChangeProgressDetailsTypeDef",
     "ChangeProgressStageTypeDef",
     "ChangeProgressStatusDetailsTypeDef",
+    "CloudWatchDirectQueryDataSourceTypeDef",
+    "ClusterConfigOutputTypeDef",
     "ClusterConfigStatusTypeDef",
     "ClusterConfigTypeDef",
+    "ClusterConfigUnionTypeDef",
     "CognitoOptionsStatusTypeDef",
     "CognitoOptionsTypeDef",
     "ColdStorageOptionsTypeDef",
     "CompatibleVersionsMapTypeDef",
     "ConnectionPropertiesTypeDef",
-    "CreateDomainRequestRequestTypeDef",
+    "CreateApplicationRequestTypeDef",
+    "CreateApplicationResponseTypeDef",
+    "CreateDomainRequestTypeDef",
     "CreateDomainResponseTypeDef",
-    "CreateOutboundConnectionRequestRequestTypeDef",
+    "CreateOutboundConnectionRequestTypeDef",
     "CreateOutboundConnectionResponseTypeDef",
-    "CreatePackageRequestRequestTypeDef",
+    "CreatePackageRequestTypeDef",
     "CreatePackageResponseTypeDef",
-    "CreateVpcEndpointRequestRequestTypeDef",
+    "CreateVpcEndpointRequestTypeDef",
     "CreateVpcEndpointResponseTypeDef",
     "CrossClusterSearchConnectionPropertiesTypeDef",
     "DataSourceDetailsTypeDef",
+    "DataSourceTypeDef",
     "DataSourceTypeTypeDef",
-    "DeleteDataSourceRequestRequestTypeDef",
+    "DeleteApplicationRequestTypeDef",
+    "DeleteDataSourceRequestTypeDef",
     "DeleteDataSourceResponseTypeDef",
-    "DeleteDomainRequestRequestTypeDef",
+    "DeleteDirectQueryDataSourceRequestTypeDef",
+    "DeleteDomainRequestTypeDef",
     "DeleteDomainResponseTypeDef",
-    "DeleteInboundConnectionRequestRequestTypeDef",
+    "DeleteInboundConnectionRequestTypeDef",
     "DeleteInboundConnectionResponseTypeDef",
-    "DeleteOutboundConnectionRequestRequestTypeDef",
+    "DeleteOutboundConnectionRequestTypeDef",
     "DeleteOutboundConnectionResponseTypeDef",
-    "DeletePackageRequestRequestTypeDef",
+    "DeletePackageRequestTypeDef",
     "DeletePackageResponseTypeDef",
-    "DeleteVpcEndpointRequestRequestTypeDef",
+    "DeleteVpcEndpointRequestTypeDef",
     "DeleteVpcEndpointResponseTypeDef",
-    "DescribeDomainAutoTunesRequestRequestTypeDef",
+    "DescribeDomainAutoTunesRequestTypeDef",
     "DescribeDomainAutoTunesResponseTypeDef",
-    "DescribeDomainChangeProgressRequestRequestTypeDef",
+    "DescribeDomainChangeProgressRequestTypeDef",
     "DescribeDomainChangeProgressResponseTypeDef",
-    "DescribeDomainConfigRequestRequestTypeDef",
+    "DescribeDomainConfigRequestTypeDef",
     "DescribeDomainConfigResponseTypeDef",
-    "DescribeDomainHealthRequestRequestTypeDef",
+    "DescribeDomainHealthRequestTypeDef",
     "DescribeDomainHealthResponseTypeDef",
-    "DescribeDomainNodesRequestRequestTypeDef",
+    "DescribeDomainNodesRequestTypeDef",
     "DescribeDomainNodesResponseTypeDef",
-    "DescribeDomainRequestRequestTypeDef",
+    "DescribeDomainRequestTypeDef",
     "DescribeDomainResponseTypeDef",
-    "DescribeDomainsRequestRequestTypeDef",
+    "DescribeDomainsRequestTypeDef",
     "DescribeDomainsResponseTypeDef",
-    "DescribeDryRunProgressRequestRequestTypeDef",
+    "DescribeDryRunProgressRequestTypeDef",
     "DescribeDryRunProgressResponseTypeDef",
-    "DescribeInboundConnectionsRequestRequestTypeDef",
+    "DescribeInboundConnectionsRequestTypeDef",
     "DescribeInboundConnectionsResponseTypeDef",
-    "DescribeInstanceTypeLimitsRequestRequestTypeDef",
+    "DescribeInstanceTypeLimitsRequestTypeDef",
     "DescribeInstanceTypeLimitsResponseTypeDef",
-    "DescribeOutboundConnectionsRequestRequestTypeDef",
+    "DescribeOutboundConnectionsRequestTypeDef",
     "DescribeOutboundConnectionsResponseTypeDef",
     "DescribePackagesFilterTypeDef",
-    "DescribePackagesRequestRequestTypeDef",
+    "DescribePackagesRequestTypeDef",
     "DescribePackagesResponseTypeDef",
-    "DescribeReservedInstanceOfferingsRequestRequestTypeDef",
+    "DescribeReservedInstanceOfferingsRequestTypeDef",
     "DescribeReservedInstanceOfferingsResponseTypeDef",
-    "DescribeReservedInstancesRequestRequestTypeDef",
+    "DescribeReservedInstancesRequestTypeDef",
     "DescribeReservedInstancesResponseTypeDef",
-    "DescribeVpcEndpointsRequestRequestTypeDef",
+    "DescribeVpcEndpointsRequestTypeDef",
     "DescribeVpcEndpointsResponseTypeDef",
-    "DissociatePackageRequestRequestTypeDef",
+    "DirectQueryDataSourceTypeDef",
+    "DirectQueryDataSourceTypeTypeDef",
+    "DissociatePackageRequestTypeDef",
     "DissociatePackageResponseTypeDef",
+    "DissociatePackagesRequestTypeDef",
+    "DissociatePackagesResponseTypeDef",
     "DomainConfigTypeDef",
     "DomainEndpointOptionsStatusTypeDef",
     "DomainEndpointOptionsTypeDef",
@@ -188,24 +227,34 @@ __all__ = (
     "DurationTypeDef",
     "EBSOptionsStatusTypeDef",
     "EBSOptionsTypeDef",
+    "EmptyResponseMetadataTypeDef",
     "EncryptionAtRestOptionsStatusTypeDef",
     "EncryptionAtRestOptionsTypeDef",
     "EnvironmentInfoTypeDef",
     "ErrorDetailsTypeDef",
     "FilterTypeDef",
-    "GetCompatibleVersionsRequestRequestTypeDef",
+    "GetApplicationRequestTypeDef",
+    "GetApplicationResponseTypeDef",
+    "GetCompatibleVersionsRequestTypeDef",
     "GetCompatibleVersionsResponseTypeDef",
-    "GetDataSourceRequestRequestTypeDef",
+    "GetDataSourceRequestTypeDef",
     "GetDataSourceResponseTypeDef",
-    "GetDomainMaintenanceStatusRequestRequestTypeDef",
+    "GetDirectQueryDataSourceRequestTypeDef",
+    "GetDirectQueryDataSourceResponseTypeDef",
+    "GetDomainMaintenanceStatusRequestTypeDef",
     "GetDomainMaintenanceStatusResponseTypeDef",
-    "GetPackageVersionHistoryRequestRequestTypeDef",
+    "GetPackageVersionHistoryRequestTypeDef",
     "GetPackageVersionHistoryResponseTypeDef",
-    "GetUpgradeHistoryRequestRequestTypeDef",
+    "GetUpgradeHistoryRequestTypeDef",
     "GetUpgradeHistoryResponseTypeDef",
-    "GetUpgradeStatusRequestRequestTypeDef",
+    "GetUpgradeStatusRequestTypeDef",
     "GetUpgradeStatusResponseTypeDef",
     "IPAddressTypeStatusTypeDef",
+    "IamIdentityCenterOptionsInputTypeDef",
+    "IamIdentityCenterOptionsTypeDef",
+    "IdentityCenterOptionsInputTypeDef",
+    "IdentityCenterOptionsStatusTypeDef",
+    "IdentityCenterOptionsTypeDef",
     "InboundConnectionStatusTypeDef",
     "InboundConnectionTypeDef",
     "InstanceCountLimitsTypeDef",
@@ -213,35 +262,45 @@ __all__ = (
     "InstanceTypeDetailsTypeDef",
     "JWTOptionsInputTypeDef",
     "JWTOptionsOutputTypeDef",
+    "KeyStoreAccessOptionTypeDef",
     "LimitsTypeDef",
-    "ListDataSourcesRequestRequestTypeDef",
+    "ListApplicationsRequestPaginateTypeDef",
+    "ListApplicationsRequestTypeDef",
+    "ListApplicationsResponseTypeDef",
+    "ListDataSourcesRequestTypeDef",
     "ListDataSourcesResponseTypeDef",
-    "ListDomainMaintenancesRequestRequestTypeDef",
+    "ListDirectQueryDataSourcesRequestTypeDef",
+    "ListDirectQueryDataSourcesResponseTypeDef",
+    "ListDomainMaintenancesRequestTypeDef",
     "ListDomainMaintenancesResponseTypeDef",
-    "ListDomainNamesRequestRequestTypeDef",
+    "ListDomainNamesRequestTypeDef",
     "ListDomainNamesResponseTypeDef",
-    "ListDomainsForPackageRequestRequestTypeDef",
+    "ListDomainsForPackageRequestTypeDef",
     "ListDomainsForPackageResponseTypeDef",
-    "ListInstanceTypeDetailsRequestRequestTypeDef",
+    "ListInstanceTypeDetailsRequestTypeDef",
     "ListInstanceTypeDetailsResponseTypeDef",
-    "ListPackagesForDomainRequestRequestTypeDef",
+    "ListPackagesForDomainRequestTypeDef",
     "ListPackagesForDomainResponseTypeDef",
-    "ListScheduledActionsRequestRequestTypeDef",
+    "ListScheduledActionsRequestTypeDef",
     "ListScheduledActionsResponseTypeDef",
-    "ListTagsRequestRequestTypeDef",
+    "ListTagsRequestTypeDef",
     "ListTagsResponseTypeDef",
-    "ListVersionsRequestRequestTypeDef",
+    "ListVersionsRequestTypeDef",
     "ListVersionsResponseTypeDef",
-    "ListVpcEndpointAccessRequestRequestTypeDef",
+    "ListVpcEndpointAccessRequestTypeDef",
     "ListVpcEndpointAccessResponseTypeDef",
-    "ListVpcEndpointsForDomainRequestRequestTypeDef",
+    "ListVpcEndpointsForDomainRequestTypeDef",
     "ListVpcEndpointsForDomainResponseTypeDef",
-    "ListVpcEndpointsRequestRequestTypeDef",
+    "ListVpcEndpointsRequestTypeDef",
     "ListVpcEndpointsResponseTypeDef",
     "LogPublishingOptionTypeDef",
     "LogPublishingOptionsStatusTypeDef",
     "MasterUserOptionsTypeDef",
     "ModifyingPropertiesTypeDef",
+    "NaturalLanguageQueryGenerationOptionsInputTypeDef",
+    "NaturalLanguageQueryGenerationOptionsOutputTypeDef",
+    "NodeConfigTypeDef",
+    "NodeOptionTypeDef",
     "NodeToNodeEncryptionOptionsStatusTypeDef",
     "NodeToNodeEncryptionOptionsTypeDef",
     "OffPeakWindowOptionsStatusTypeDef",
@@ -250,49 +309,63 @@ __all__ = (
     "OptionStatusTypeDef",
     "OutboundConnectionStatusTypeDef",
     "OutboundConnectionTypeDef",
+    "PackageAssociationConfigurationTypeDef",
+    "PackageConfigurationTypeDef",
+    "PackageDetailsForAssociationTypeDef",
     "PackageDetailsTypeDef",
+    "PackageEncryptionOptionsTypeDef",
     "PackageSourceTypeDef",
+    "PackageVendingOptionsTypeDef",
     "PackageVersionHistoryTypeDef",
+    "PaginatorConfigTypeDef",
     "PluginPropertiesTypeDef",
-    "PurchaseReservedInstanceOfferingRequestRequestTypeDef",
+    "PurchaseReservedInstanceOfferingRequestTypeDef",
     "PurchaseReservedInstanceOfferingResponseTypeDef",
     "RecurringChargeTypeDef",
-    "RejectInboundConnectionRequestRequestTypeDef",
+    "RejectInboundConnectionRequestTypeDef",
     "RejectInboundConnectionResponseTypeDef",
-    "RemoveTagsRequestRequestTypeDef",
+    "RemoveTagsRequestTypeDef",
     "ReservedInstanceOfferingTypeDef",
     "ReservedInstanceTypeDef",
     "ResponseMetadataTypeDef",
-    "RevokeVpcEndpointAccessRequestRequestTypeDef",
+    "RevokeVpcEndpointAccessRequestTypeDef",
     "S3GlueDataCatalogTypeDef",
     "SAMLIdpTypeDef",
     "SAMLOptionsInputTypeDef",
     "SAMLOptionsOutputTypeDef",
     "ScheduledActionTypeDef",
     "ScheduledAutoTuneDetailsTypeDef",
+    "SecurityLakeDirectQueryDataSourceTypeDef",
     "ServiceSoftwareOptionsTypeDef",
     "SnapshotOptionsStatusTypeDef",
     "SnapshotOptionsTypeDef",
     "SoftwareUpdateOptionsStatusTypeDef",
     "SoftwareUpdateOptionsTypeDef",
-    "StartDomainMaintenanceRequestRequestTypeDef",
+    "StartDomainMaintenanceRequestTypeDef",
     "StartDomainMaintenanceResponseTypeDef",
-    "StartServiceSoftwareUpdateRequestRequestTypeDef",
+    "StartServiceSoftwareUpdateRequestTypeDef",
     "StartServiceSoftwareUpdateResponseTypeDef",
     "StorageTypeLimitTypeDef",
     "StorageTypeTypeDef",
     "TagTypeDef",
-    "UpdateDataSourceRequestRequestTypeDef",
+    "TimestampTypeDef",
+    "UpdateApplicationRequestTypeDef",
+    "UpdateApplicationResponseTypeDef",
+    "UpdateDataSourceRequestTypeDef",
     "UpdateDataSourceResponseTypeDef",
-    "UpdateDomainConfigRequestRequestTypeDef",
+    "UpdateDirectQueryDataSourceRequestTypeDef",
+    "UpdateDirectQueryDataSourceResponseTypeDef",
+    "UpdateDomainConfigRequestTypeDef",
     "UpdateDomainConfigResponseTypeDef",
-    "UpdatePackageRequestRequestTypeDef",
+    "UpdatePackageRequestTypeDef",
     "UpdatePackageResponseTypeDef",
-    "UpdateScheduledActionRequestRequestTypeDef",
+    "UpdatePackageScopeRequestTypeDef",
+    "UpdatePackageScopeResponseTypeDef",
+    "UpdateScheduledActionRequestTypeDef",
     "UpdateScheduledActionResponseTypeDef",
-    "UpdateVpcEndpointRequestRequestTypeDef",
+    "UpdateVpcEndpointRequestTypeDef",
     "UpdateVpcEndpointResponseTypeDef",
-    "UpgradeDomainRequestRequestTypeDef",
+    "UpgradeDomainRequestTypeDef",
     "UpgradeDomainResponseTypeDef",
     "UpgradeHistoryTypeDef",
     "UpgradeStepItemTypeDef",
@@ -308,2623 +381,1604 @@ __all__ = (
     "ZoneAwarenessConfigTypeDef",
 )
 
-_RequiredAWSDomainInformationTypeDef = TypedDict(
-    "_RequiredAWSDomainInformationTypeDef",
-    {
-        "DomainName": str,
-    },
-)
-_OptionalAWSDomainInformationTypeDef = TypedDict(
-    "_OptionalAWSDomainInformationTypeDef",
-    {
-        "OwnerId": str,
-        "Region": str,
-    },
-    total=False,
-)
-
-class AWSDomainInformationTypeDef(
-    _RequiredAWSDomainInformationTypeDef, _OptionalAWSDomainInformationTypeDef
-):
-    pass
-
-AcceptInboundConnectionRequestRequestTypeDef = TypedDict(
-    "AcceptInboundConnectionRequestRequestTypeDef",
-    {
-        "ConnectionId": str,
-    },
-)
-
-AcceptInboundConnectionResponseTypeDef = TypedDict(
-    "AcceptInboundConnectionResponseTypeDef",
-    {
-        "Connection": "InboundConnectionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-AccessPoliciesStatusTypeDef = TypedDict(
-    "AccessPoliciesStatusTypeDef",
-    {
-        "Options": str,
-        "Status": "OptionStatusTypeDef",
-    },
-)
-
-_RequiredAddDataSourceRequestRequestTypeDef = TypedDict(
-    "_RequiredAddDataSourceRequestRequestTypeDef",
-    {
-        "DomainName": str,
-        "Name": str,
-        "DataSourceType": "DataSourceTypeTypeDef",
-    },
-)
-_OptionalAddDataSourceRequestRequestTypeDef = TypedDict(
-    "_OptionalAddDataSourceRequestRequestTypeDef",
-    {
-        "Description": str,
-    },
-    total=False,
-)
-
-class AddDataSourceRequestRequestTypeDef(
-    _RequiredAddDataSourceRequestRequestTypeDef, _OptionalAddDataSourceRequestRequestTypeDef
-):
-    pass
-
-AddDataSourceResponseTypeDef = TypedDict(
-    "AddDataSourceResponseTypeDef",
-    {
-        "Message": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-AddTagsRequestRequestTypeDef = TypedDict(
-    "AddTagsRequestRequestTypeDef",
-    {
-        "ARN": str,
-        "TagList": List["TagTypeDef"],
-    },
-)
-
-AdditionalLimitTypeDef = TypedDict(
-    "AdditionalLimitTypeDef",
-    {
-        "LimitName": str,
-        "LimitValues": List[str],
-    },
-    total=False,
-)
-
-AdvancedOptionsStatusTypeDef = TypedDict(
-    "AdvancedOptionsStatusTypeDef",
-    {
-        "Options": Dict[str, str],
-        "Status": "OptionStatusTypeDef",
-    },
-)
-
-AdvancedSecurityOptionsInputTypeDef = TypedDict(
-    "AdvancedSecurityOptionsInputTypeDef",
-    {
-        "Enabled": bool,
-        "InternalUserDatabaseEnabled": bool,
-        "MasterUserOptions": "MasterUserOptionsTypeDef",
-        "SAMLOptions": "SAMLOptionsInputTypeDef",
-        "JWTOptions": "JWTOptionsInputTypeDef",
-        "AnonymousAuthEnabled": bool,
-    },
-    total=False,
-)
-
-AdvancedSecurityOptionsStatusTypeDef = TypedDict(
-    "AdvancedSecurityOptionsStatusTypeDef",
-    {
-        "Options": "AdvancedSecurityOptionsTypeDef",
-        "Status": "OptionStatusTypeDef",
-    },
-)
-
-AdvancedSecurityOptionsTypeDef = TypedDict(
-    "AdvancedSecurityOptionsTypeDef",
-    {
-        "Enabled": bool,
-        "InternalUserDatabaseEnabled": bool,
-        "SAMLOptions": "SAMLOptionsOutputTypeDef",
-        "JWTOptions": "JWTOptionsOutputTypeDef",
-        "AnonymousAuthDisableDate": datetime,
-        "AnonymousAuthEnabled": bool,
-    },
-    total=False,
-)
-
-AssociatePackageRequestRequestTypeDef = TypedDict(
-    "AssociatePackageRequestRequestTypeDef",
-    {
-        "PackageID": str,
-        "DomainName": str,
-    },
-)
-
-AssociatePackageResponseTypeDef = TypedDict(
-    "AssociatePackageResponseTypeDef",
-    {
-        "DomainPackageDetails": "DomainPackageDetailsTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-AuthorizeVpcEndpointAccessRequestRequestTypeDef = TypedDict(
-    "AuthorizeVpcEndpointAccessRequestRequestTypeDef",
-    {
-        "DomainName": str,
-        "Account": str,
-    },
-)
-
-AuthorizeVpcEndpointAccessResponseTypeDef = TypedDict(
-    "AuthorizeVpcEndpointAccessResponseTypeDef",
-    {
-        "AuthorizedPrincipal": "AuthorizedPrincipalTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-AuthorizedPrincipalTypeDef = TypedDict(
-    "AuthorizedPrincipalTypeDef",
-    {
-        "PrincipalType": PrincipalTypeType,
-        "Principal": str,
-    },
-    total=False,
-)
-
-AutoTuneDetailsTypeDef = TypedDict(
-    "AutoTuneDetailsTypeDef",
-    {
-        "ScheduledAutoTuneDetails": "ScheduledAutoTuneDetailsTypeDef",
-    },
-    total=False,
-)
-
-AutoTuneMaintenanceScheduleTypeDef = TypedDict(
-    "AutoTuneMaintenanceScheduleTypeDef",
-    {
-        "StartAt": Union[datetime, str],
-        "Duration": "DurationTypeDef",
-        "CronExpressionForRecurrence": str,
-    },
-    total=False,
-)
-
-AutoTuneOptionsInputTypeDef = TypedDict(
-    "AutoTuneOptionsInputTypeDef",
-    {
-        "DesiredState": AutoTuneDesiredStateType,
-        "MaintenanceSchedules": List["AutoTuneMaintenanceScheduleTypeDef"],
-        "UseOffPeakWindow": bool,
-    },
-    total=False,
-)
-
-AutoTuneOptionsOutputTypeDef = TypedDict(
-    "AutoTuneOptionsOutputTypeDef",
-    {
-        "State": AutoTuneStateType,
-        "ErrorMessage": str,
-        "UseOffPeakWindow": bool,
-    },
-    total=False,
-)
-
-AutoTuneOptionsStatusTypeDef = TypedDict(
-    "AutoTuneOptionsStatusTypeDef",
-    {
-        "Options": "AutoTuneOptionsTypeDef",
-        "Status": "AutoTuneStatusTypeDef",
-    },
-    total=False,
-)
-
-AutoTuneOptionsTypeDef = TypedDict(
-    "AutoTuneOptionsTypeDef",
-    {
-        "DesiredState": AutoTuneDesiredStateType,
-        "RollbackOnDisable": RollbackOnDisableType,
-        "MaintenanceSchedules": List["AutoTuneMaintenanceScheduleTypeDef"],
-        "UseOffPeakWindow": bool,
-    },
-    total=False,
-)
-
-_RequiredAutoTuneStatusTypeDef = TypedDict(
-    "_RequiredAutoTuneStatusTypeDef",
-    {
-        "CreationDate": datetime,
-        "UpdateDate": datetime,
-        "State": AutoTuneStateType,
-    },
-)
-_OptionalAutoTuneStatusTypeDef = TypedDict(
-    "_OptionalAutoTuneStatusTypeDef",
-    {
-        "UpdateVersion": int,
-        "ErrorMessage": str,
-        "PendingDeletion": bool,
-    },
-    total=False,
-)
-
-class AutoTuneStatusTypeDef(_RequiredAutoTuneStatusTypeDef, _OptionalAutoTuneStatusTypeDef):
-    pass
-
-AutoTuneTypeDef = TypedDict(
-    "AutoTuneTypeDef",
-    {
-        "AutoTuneType": Literal["SCHEDULED_ACTION"],
-        "AutoTuneDetails": "AutoTuneDetailsTypeDef",
-    },
-    total=False,
-)
-
-AvailabilityZoneInfoTypeDef = TypedDict(
-    "AvailabilityZoneInfoTypeDef",
-    {
-        "AvailabilityZoneName": str,
-        "ZoneStatus": ZoneStatusType,
-        "ConfiguredDataNodeCount": str,
-        "AvailableDataNodeCount": str,
-        "TotalShards": str,
-        "TotalUnAssignedShards": str,
-    },
-    total=False,
-)
-
-_RequiredCancelDomainConfigChangeRequestRequestTypeDef = TypedDict(
-    "_RequiredCancelDomainConfigChangeRequestRequestTypeDef",
-    {
-        "DomainName": str,
-    },
-)
-_OptionalCancelDomainConfigChangeRequestRequestTypeDef = TypedDict(
-    "_OptionalCancelDomainConfigChangeRequestRequestTypeDef",
-    {
-        "DryRun": bool,
-    },
-    total=False,
-)
-
-class CancelDomainConfigChangeRequestRequestTypeDef(
-    _RequiredCancelDomainConfigChangeRequestRequestTypeDef,
-    _OptionalCancelDomainConfigChangeRequestRequestTypeDef,
-):
-    pass
-
-CancelDomainConfigChangeResponseTypeDef = TypedDict(
-    "CancelDomainConfigChangeResponseTypeDef",
-    {
-        "CancelledChangeIds": List[str],
-        "CancelledChangeProperties": List["CancelledChangePropertyTypeDef"],
-        "DryRun": bool,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CancelServiceSoftwareUpdateRequestRequestTypeDef = TypedDict(
-    "CancelServiceSoftwareUpdateRequestRequestTypeDef",
-    {
-        "DomainName": str,
-    },
-)
-
-CancelServiceSoftwareUpdateResponseTypeDef = TypedDict(
-    "CancelServiceSoftwareUpdateResponseTypeDef",
-    {
-        "ServiceSoftwareOptions": "ServiceSoftwareOptionsTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CancelledChangePropertyTypeDef = TypedDict(
-    "CancelledChangePropertyTypeDef",
-    {
-        "PropertyName": str,
-        "CancelledValue": str,
-        "ActiveValue": str,
-    },
-    total=False,
-)
-
-ChangeProgressDetailsTypeDef = TypedDict(
-    "ChangeProgressDetailsTypeDef",
-    {
-        "ChangeId": str,
-        "Message": str,
-        "ConfigChangeStatus": ConfigChangeStatusType,
-        "InitiatedBy": InitiatedByType,
-        "StartTime": datetime,
-        "LastUpdatedTime": datetime,
-    },
-    total=False,
-)
-
-ChangeProgressStageTypeDef = TypedDict(
-    "ChangeProgressStageTypeDef",
-    {
-        "Name": str,
-        "Status": str,
-        "Description": str,
-        "LastUpdated": datetime,
-    },
-    total=False,
-)
-
-ChangeProgressStatusDetailsTypeDef = TypedDict(
-    "ChangeProgressStatusDetailsTypeDef",
-    {
-        "ChangeId": str,
-        "StartTime": datetime,
-        "Status": OverallChangeStatusType,
-        "PendingProperties": List[str],
-        "CompletedProperties": List[str],
-        "TotalNumberOfStages": int,
-        "ChangeProgressStages": List["ChangeProgressStageTypeDef"],
-        "LastUpdatedTime": datetime,
-        "ConfigChangeStatus": ConfigChangeStatusType,
-        "InitiatedBy": InitiatedByType,
-    },
-    total=False,
-)
-
-ClusterConfigStatusTypeDef = TypedDict(
-    "ClusterConfigStatusTypeDef",
-    {
-        "Options": "ClusterConfigTypeDef",
-        "Status": "OptionStatusTypeDef",
-    },
-)
-
-ClusterConfigTypeDef = TypedDict(
-    "ClusterConfigTypeDef",
-    {
-        "InstanceType": OpenSearchPartitionInstanceTypeType,
-        "InstanceCount": int,
-        "DedicatedMasterEnabled": bool,
-        "ZoneAwarenessEnabled": bool,
-        "ZoneAwarenessConfig": "ZoneAwarenessConfigTypeDef",
-        "DedicatedMasterType": OpenSearchPartitionInstanceTypeType,
-        "DedicatedMasterCount": int,
-        "WarmEnabled": bool,
-        "WarmType": OpenSearchWarmPartitionInstanceTypeType,
-        "WarmCount": int,
-        "ColdStorageOptions": "ColdStorageOptionsTypeDef",
-        "MultiAZWithStandbyEnabled": bool,
-    },
-    total=False,
-)
-
-CognitoOptionsStatusTypeDef = TypedDict(
-    "CognitoOptionsStatusTypeDef",
-    {
-        "Options": "CognitoOptionsTypeDef",
-        "Status": "OptionStatusTypeDef",
-    },
-)
-
-CognitoOptionsTypeDef = TypedDict(
-    "CognitoOptionsTypeDef",
-    {
-        "Enabled": bool,
-        "UserPoolId": str,
-        "IdentityPoolId": str,
-        "RoleArn": str,
-    },
-    total=False,
-)
-
-ColdStorageOptionsTypeDef = TypedDict(
-    "ColdStorageOptionsTypeDef",
-    {
-        "Enabled": bool,
-    },
-)
-
-CompatibleVersionsMapTypeDef = TypedDict(
-    "CompatibleVersionsMapTypeDef",
-    {
-        "SourceVersion": str,
-        "TargetVersions": List[str],
-    },
-    total=False,
-)
-
-ConnectionPropertiesTypeDef = TypedDict(
-    "ConnectionPropertiesTypeDef",
-    {
-        "Endpoint": str,
-        "CrossClusterSearch": "CrossClusterSearchConnectionPropertiesTypeDef",
-    },
-    total=False,
-)
-
-_RequiredCreateDomainRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateDomainRequestRequestTypeDef",
-    {
-        "DomainName": str,
-    },
-)
-_OptionalCreateDomainRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateDomainRequestRequestTypeDef",
-    {
-        "EngineVersion": str,
-        "ClusterConfig": "ClusterConfigTypeDef",
-        "EBSOptions": "EBSOptionsTypeDef",
-        "AccessPolicies": str,
-        "IPAddressType": IPAddressTypeType,
-        "SnapshotOptions": "SnapshotOptionsTypeDef",
-        "VPCOptions": "VPCOptionsTypeDef",
-        "CognitoOptions": "CognitoOptionsTypeDef",
-        "EncryptionAtRestOptions": "EncryptionAtRestOptionsTypeDef",
-        "NodeToNodeEncryptionOptions": "NodeToNodeEncryptionOptionsTypeDef",
-        "AdvancedOptions": Dict[str, str],
-        "LogPublishingOptions": Dict[LogTypeType, "LogPublishingOptionTypeDef"],
-        "DomainEndpointOptions": "DomainEndpointOptionsTypeDef",
-        "AdvancedSecurityOptions": "AdvancedSecurityOptionsInputTypeDef",
-        "TagList": List["TagTypeDef"],
-        "AutoTuneOptions": "AutoTuneOptionsInputTypeDef",
-        "OffPeakWindowOptions": "OffPeakWindowOptionsTypeDef",
-        "SoftwareUpdateOptions": "SoftwareUpdateOptionsTypeDef",
-    },
-    total=False,
-)
-
-class CreateDomainRequestRequestTypeDef(
-    _RequiredCreateDomainRequestRequestTypeDef, _OptionalCreateDomainRequestRequestTypeDef
-):
-    pass
-
-CreateDomainResponseTypeDef = TypedDict(
-    "CreateDomainResponseTypeDef",
-    {
-        "DomainStatus": "DomainStatusTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateOutboundConnectionRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateOutboundConnectionRequestRequestTypeDef",
-    {
-        "LocalDomainInfo": "DomainInformationContainerTypeDef",
-        "RemoteDomainInfo": "DomainInformationContainerTypeDef",
-        "ConnectionAlias": str,
-    },
-)
-_OptionalCreateOutboundConnectionRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateOutboundConnectionRequestRequestTypeDef",
-    {
-        "ConnectionMode": ConnectionModeType,
-        "ConnectionProperties": "ConnectionPropertiesTypeDef",
-    },
-    total=False,
-)
-
-class CreateOutboundConnectionRequestRequestTypeDef(
-    _RequiredCreateOutboundConnectionRequestRequestTypeDef,
-    _OptionalCreateOutboundConnectionRequestRequestTypeDef,
-):
-    pass
-
-CreateOutboundConnectionResponseTypeDef = TypedDict(
-    "CreateOutboundConnectionResponseTypeDef",
-    {
-        "LocalDomainInfo": "DomainInformationContainerTypeDef",
-        "RemoteDomainInfo": "DomainInformationContainerTypeDef",
-        "ConnectionAlias": str,
-        "ConnectionStatus": "OutboundConnectionStatusTypeDef",
-        "ConnectionId": str,
-        "ConnectionMode": ConnectionModeType,
-        "ConnectionProperties": "ConnectionPropertiesTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreatePackageRequestRequestTypeDef = TypedDict(
-    "_RequiredCreatePackageRequestRequestTypeDef",
-    {
-        "PackageName": str,
-        "PackageType": PackageTypeType,
-        "PackageSource": "PackageSourceTypeDef",
-    },
-)
-_OptionalCreatePackageRequestRequestTypeDef = TypedDict(
-    "_OptionalCreatePackageRequestRequestTypeDef",
-    {
-        "PackageDescription": str,
-    },
-    total=False,
-)
-
-class CreatePackageRequestRequestTypeDef(
-    _RequiredCreatePackageRequestRequestTypeDef, _OptionalCreatePackageRequestRequestTypeDef
-):
-    pass
-
-CreatePackageResponseTypeDef = TypedDict(
-    "CreatePackageResponseTypeDef",
-    {
-        "PackageDetails": "PackageDetailsTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateVpcEndpointRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateVpcEndpointRequestRequestTypeDef",
-    {
-        "DomainArn": str,
-        "VpcOptions": "VPCOptionsTypeDef",
-    },
-)
-_OptionalCreateVpcEndpointRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateVpcEndpointRequestRequestTypeDef",
-    {
-        "ClientToken": str,
-    },
-    total=False,
-)
-
-class CreateVpcEndpointRequestRequestTypeDef(
-    _RequiredCreateVpcEndpointRequestRequestTypeDef, _OptionalCreateVpcEndpointRequestRequestTypeDef
-):
-    pass
-
-CreateVpcEndpointResponseTypeDef = TypedDict(
-    "CreateVpcEndpointResponseTypeDef",
-    {
-        "VpcEndpoint": "VpcEndpointTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CrossClusterSearchConnectionPropertiesTypeDef = TypedDict(
-    "CrossClusterSearchConnectionPropertiesTypeDef",
-    {
-        "SkipUnavailable": SkipUnavailableStatusType,
-    },
-    total=False,
-)
-
-DataSourceDetailsTypeDef = TypedDict(
-    "DataSourceDetailsTypeDef",
-    {
-        "DataSourceType": "DataSourceTypeTypeDef",
-        "Name": str,
-        "Description": str,
-        "Status": DataSourceStatusType,
-    },
-    total=False,
-)
-
-DataSourceTypeTypeDef = TypedDict(
-    "DataSourceTypeTypeDef",
-    {
-        "S3GlueDataCatalog": "S3GlueDataCatalogTypeDef",
-    },
-    total=False,
-)
-
-DeleteDataSourceRequestRequestTypeDef = TypedDict(
-    "DeleteDataSourceRequestRequestTypeDef",
-    {
-        "DomainName": str,
-        "Name": str,
-    },
-)
-
-DeleteDataSourceResponseTypeDef = TypedDict(
-    "DeleteDataSourceResponseTypeDef",
-    {
-        "Message": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteDomainRequestRequestTypeDef = TypedDict(
-    "DeleteDomainRequestRequestTypeDef",
-    {
-        "DomainName": str,
-    },
-)
-
-DeleteDomainResponseTypeDef = TypedDict(
-    "DeleteDomainResponseTypeDef",
-    {
-        "DomainStatus": "DomainStatusTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteInboundConnectionRequestRequestTypeDef = TypedDict(
-    "DeleteInboundConnectionRequestRequestTypeDef",
-    {
-        "ConnectionId": str,
-    },
-)
-
-DeleteInboundConnectionResponseTypeDef = TypedDict(
-    "DeleteInboundConnectionResponseTypeDef",
-    {
-        "Connection": "InboundConnectionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteOutboundConnectionRequestRequestTypeDef = TypedDict(
-    "DeleteOutboundConnectionRequestRequestTypeDef",
-    {
-        "ConnectionId": str,
-    },
-)
-
-DeleteOutboundConnectionResponseTypeDef = TypedDict(
-    "DeleteOutboundConnectionResponseTypeDef",
-    {
-        "Connection": "OutboundConnectionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeletePackageRequestRequestTypeDef = TypedDict(
-    "DeletePackageRequestRequestTypeDef",
-    {
-        "PackageID": str,
-    },
-)
-
-DeletePackageResponseTypeDef = TypedDict(
-    "DeletePackageResponseTypeDef",
-    {
-        "PackageDetails": "PackageDetailsTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteVpcEndpointRequestRequestTypeDef = TypedDict(
-    "DeleteVpcEndpointRequestRequestTypeDef",
-    {
-        "VpcEndpointId": str,
-    },
-)
-
-DeleteVpcEndpointResponseTypeDef = TypedDict(
-    "DeleteVpcEndpointResponseTypeDef",
-    {
-        "VpcEndpointSummary": "VpcEndpointSummaryTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribeDomainAutoTunesRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeDomainAutoTunesRequestRequestTypeDef",
-    {
-        "DomainName": str,
-    },
-)
-_OptionalDescribeDomainAutoTunesRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeDomainAutoTunesRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class DescribeDomainAutoTunesRequestRequestTypeDef(
-    _RequiredDescribeDomainAutoTunesRequestRequestTypeDef,
-    _OptionalDescribeDomainAutoTunesRequestRequestTypeDef,
-):
-    pass
-
-DescribeDomainAutoTunesResponseTypeDef = TypedDict(
-    "DescribeDomainAutoTunesResponseTypeDef",
-    {
-        "AutoTunes": List["AutoTuneTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribeDomainChangeProgressRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeDomainChangeProgressRequestRequestTypeDef",
-    {
-        "DomainName": str,
-    },
-)
-_OptionalDescribeDomainChangeProgressRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeDomainChangeProgressRequestRequestTypeDef",
-    {
-        "ChangeId": str,
-    },
-    total=False,
-)
-
-class DescribeDomainChangeProgressRequestRequestTypeDef(
-    _RequiredDescribeDomainChangeProgressRequestRequestTypeDef,
-    _OptionalDescribeDomainChangeProgressRequestRequestTypeDef,
-):
-    pass
-
-DescribeDomainChangeProgressResponseTypeDef = TypedDict(
-    "DescribeDomainChangeProgressResponseTypeDef",
-    {
-        "ChangeProgressStatus": "ChangeProgressStatusDetailsTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeDomainConfigRequestRequestTypeDef = TypedDict(
-    "DescribeDomainConfigRequestRequestTypeDef",
-    {
-        "DomainName": str,
-    },
-)
-
-DescribeDomainConfigResponseTypeDef = TypedDict(
-    "DescribeDomainConfigResponseTypeDef",
-    {
-        "DomainConfig": "DomainConfigTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeDomainHealthRequestRequestTypeDef = TypedDict(
-    "DescribeDomainHealthRequestRequestTypeDef",
-    {
-        "DomainName": str,
-    },
-)
-
-DescribeDomainHealthResponseTypeDef = TypedDict(
-    "DescribeDomainHealthResponseTypeDef",
-    {
-        "DomainState": DomainStateType,
-        "AvailabilityZoneCount": str,
-        "ActiveAvailabilityZoneCount": str,
-        "StandByAvailabilityZoneCount": str,
-        "DataNodeCount": str,
-        "DedicatedMaster": bool,
-        "MasterEligibleNodeCount": str,
-        "WarmNodeCount": str,
-        "MasterNode": MasterNodeStatusType,
-        "ClusterHealth": DomainHealthType,
-        "TotalShards": str,
-        "TotalUnAssignedShards": str,
-        "EnvironmentInformation": List["EnvironmentInfoTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeDomainNodesRequestRequestTypeDef = TypedDict(
-    "DescribeDomainNodesRequestRequestTypeDef",
-    {
-        "DomainName": str,
-    },
-)
-
-DescribeDomainNodesResponseTypeDef = TypedDict(
-    "DescribeDomainNodesResponseTypeDef",
-    {
-        "DomainNodesStatusList": List["DomainNodesStatusTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeDomainRequestRequestTypeDef = TypedDict(
-    "DescribeDomainRequestRequestTypeDef",
-    {
-        "DomainName": str,
-    },
-)
-
-DescribeDomainResponseTypeDef = TypedDict(
-    "DescribeDomainResponseTypeDef",
-    {
-        "DomainStatus": "DomainStatusTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeDomainsRequestRequestTypeDef = TypedDict(
-    "DescribeDomainsRequestRequestTypeDef",
-    {
-        "DomainNames": List[str],
-    },
-)
-
-DescribeDomainsResponseTypeDef = TypedDict(
-    "DescribeDomainsResponseTypeDef",
-    {
-        "DomainStatusList": List["DomainStatusTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribeDryRunProgressRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeDryRunProgressRequestRequestTypeDef",
-    {
-        "DomainName": str,
-    },
-)
-_OptionalDescribeDryRunProgressRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeDryRunProgressRequestRequestTypeDef",
-    {
-        "DryRunId": str,
-        "LoadDryRunConfig": bool,
-    },
-    total=False,
-)
-
-class DescribeDryRunProgressRequestRequestTypeDef(
-    _RequiredDescribeDryRunProgressRequestRequestTypeDef,
-    _OptionalDescribeDryRunProgressRequestRequestTypeDef,
-):
-    pass
-
-DescribeDryRunProgressResponseTypeDef = TypedDict(
-    "DescribeDryRunProgressResponseTypeDef",
-    {
-        "DryRunProgressStatus": "DryRunProgressStatusTypeDef",
-        "DryRunConfig": "DomainStatusTypeDef",
-        "DryRunResults": "DryRunResultsTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeInboundConnectionsRequestRequestTypeDef = TypedDict(
-    "DescribeInboundConnectionsRequestRequestTypeDef",
-    {
-        "Filters": List["FilterTypeDef"],
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-DescribeInboundConnectionsResponseTypeDef = TypedDict(
-    "DescribeInboundConnectionsResponseTypeDef",
-    {
-        "Connections": List["InboundConnectionTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribeInstanceTypeLimitsRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeInstanceTypeLimitsRequestRequestTypeDef",
-    {
-        "InstanceType": OpenSearchPartitionInstanceTypeType,
-        "EngineVersion": str,
-    },
-)
-_OptionalDescribeInstanceTypeLimitsRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeInstanceTypeLimitsRequestRequestTypeDef",
-    {
-        "DomainName": str,
-    },
-    total=False,
-)
-
-class DescribeInstanceTypeLimitsRequestRequestTypeDef(
-    _RequiredDescribeInstanceTypeLimitsRequestRequestTypeDef,
-    _OptionalDescribeInstanceTypeLimitsRequestRequestTypeDef,
-):
-    pass
-
-DescribeInstanceTypeLimitsResponseTypeDef = TypedDict(
-    "DescribeInstanceTypeLimitsResponseTypeDef",
-    {
-        "LimitsByRole": Dict[str, "LimitsTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeOutboundConnectionsRequestRequestTypeDef = TypedDict(
-    "DescribeOutboundConnectionsRequestRequestTypeDef",
-    {
-        "Filters": List["FilterTypeDef"],
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-DescribeOutboundConnectionsResponseTypeDef = TypedDict(
-    "DescribeOutboundConnectionsResponseTypeDef",
-    {
-        "Connections": List["OutboundConnectionTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribePackagesFilterTypeDef = TypedDict(
-    "DescribePackagesFilterTypeDef",
-    {
-        "Name": DescribePackagesFilterNameType,
-        "Value": List[str],
-    },
-    total=False,
-)
-
-DescribePackagesRequestRequestTypeDef = TypedDict(
-    "DescribePackagesRequestRequestTypeDef",
-    {
-        "Filters": List["DescribePackagesFilterTypeDef"],
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-DescribePackagesResponseTypeDef = TypedDict(
-    "DescribePackagesResponseTypeDef",
-    {
-        "PackageDetailsList": List["PackageDetailsTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeReservedInstanceOfferingsRequestRequestTypeDef = TypedDict(
-    "DescribeReservedInstanceOfferingsRequestRequestTypeDef",
-    {
-        "ReservedInstanceOfferingId": str,
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-DescribeReservedInstanceOfferingsResponseTypeDef = TypedDict(
-    "DescribeReservedInstanceOfferingsResponseTypeDef",
-    {
-        "NextToken": str,
-        "ReservedInstanceOfferings": List["ReservedInstanceOfferingTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeReservedInstancesRequestRequestTypeDef = TypedDict(
-    "DescribeReservedInstancesRequestRequestTypeDef",
-    {
-        "ReservedInstanceId": str,
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-DescribeReservedInstancesResponseTypeDef = TypedDict(
-    "DescribeReservedInstancesResponseTypeDef",
-    {
-        "NextToken": str,
-        "ReservedInstances": List["ReservedInstanceTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeVpcEndpointsRequestRequestTypeDef = TypedDict(
-    "DescribeVpcEndpointsRequestRequestTypeDef",
-    {
-        "VpcEndpointIds": List[str],
-    },
-)
-
-DescribeVpcEndpointsResponseTypeDef = TypedDict(
-    "DescribeVpcEndpointsResponseTypeDef",
-    {
-        "VpcEndpoints": List["VpcEndpointTypeDef"],
-        "VpcEndpointErrors": List["VpcEndpointErrorTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DissociatePackageRequestRequestTypeDef = TypedDict(
-    "DissociatePackageRequestRequestTypeDef",
-    {
-        "PackageID": str,
-        "DomainName": str,
-    },
-)
-
-DissociatePackageResponseTypeDef = TypedDict(
-    "DissociatePackageResponseTypeDef",
-    {
-        "DomainPackageDetails": "DomainPackageDetailsTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DomainConfigTypeDef = TypedDict(
-    "DomainConfigTypeDef",
-    {
-        "EngineVersion": "VersionStatusTypeDef",
-        "ClusterConfig": "ClusterConfigStatusTypeDef",
-        "EBSOptions": "EBSOptionsStatusTypeDef",
-        "AccessPolicies": "AccessPoliciesStatusTypeDef",
-        "IPAddressType": "IPAddressTypeStatusTypeDef",
-        "SnapshotOptions": "SnapshotOptionsStatusTypeDef",
-        "VPCOptions": "VPCDerivedInfoStatusTypeDef",
-        "CognitoOptions": "CognitoOptionsStatusTypeDef",
-        "EncryptionAtRestOptions": "EncryptionAtRestOptionsStatusTypeDef",
-        "NodeToNodeEncryptionOptions": "NodeToNodeEncryptionOptionsStatusTypeDef",
-        "AdvancedOptions": "AdvancedOptionsStatusTypeDef",
-        "LogPublishingOptions": "LogPublishingOptionsStatusTypeDef",
-        "DomainEndpointOptions": "DomainEndpointOptionsStatusTypeDef",
-        "AdvancedSecurityOptions": "AdvancedSecurityOptionsStatusTypeDef",
-        "AutoTuneOptions": "AutoTuneOptionsStatusTypeDef",
-        "ChangeProgressDetails": "ChangeProgressDetailsTypeDef",
-        "OffPeakWindowOptions": "OffPeakWindowOptionsStatusTypeDef",
-        "SoftwareUpdateOptions": "SoftwareUpdateOptionsStatusTypeDef",
-        "ModifyingProperties": List["ModifyingPropertiesTypeDef"],
-    },
-    total=False,
-)
-
-DomainEndpointOptionsStatusTypeDef = TypedDict(
-    "DomainEndpointOptionsStatusTypeDef",
-    {
-        "Options": "DomainEndpointOptionsTypeDef",
-        "Status": "OptionStatusTypeDef",
-    },
-)
-
-DomainEndpointOptionsTypeDef = TypedDict(
-    "DomainEndpointOptionsTypeDef",
-    {
-        "EnforceHTTPS": bool,
-        "TLSSecurityPolicy": TLSSecurityPolicyType,
-        "CustomEndpointEnabled": bool,
-        "CustomEndpoint": str,
-        "CustomEndpointCertificateArn": str,
-    },
-    total=False,
-)
-
-DomainInfoTypeDef = TypedDict(
-    "DomainInfoTypeDef",
-    {
-        "DomainName": str,
-        "EngineType": EngineTypeType,
-    },
-    total=False,
-)
-
-DomainInformationContainerTypeDef = TypedDict(
-    "DomainInformationContainerTypeDef",
-    {
-        "AWSDomainInformation": "AWSDomainInformationTypeDef",
-    },
-    total=False,
-)
-
-DomainMaintenanceDetailsTypeDef = TypedDict(
-    "DomainMaintenanceDetailsTypeDef",
-    {
-        "MaintenanceId": str,
-        "DomainName": str,
-        "Action": MaintenanceTypeType,
-        "NodeId": str,
-        "Status": MaintenanceStatusType,
-        "StatusMessage": str,
-        "CreatedAt": datetime,
-        "UpdatedAt": datetime,
-    },
-    total=False,
-)
-
-DomainNodesStatusTypeDef = TypedDict(
-    "DomainNodesStatusTypeDef",
-    {
-        "NodeId": str,
-        "NodeType": NodeTypeType,
-        "AvailabilityZone": str,
-        "InstanceType": OpenSearchPartitionInstanceTypeType,
-        "NodeStatus": NodeStatusType,
-        "StorageType": str,
-        "StorageVolumeType": VolumeTypeType,
-        "StorageSize": str,
-    },
-    total=False,
-)
-
-DomainPackageDetailsTypeDef = TypedDict(
-    "DomainPackageDetailsTypeDef",
-    {
-        "PackageID": str,
-        "PackageName": str,
-        "PackageType": PackageTypeType,
-        "LastUpdated": datetime,
-        "DomainName": str,
-        "DomainPackageStatus": DomainPackageStatusType,
-        "PackageVersion": str,
-        "ReferencePath": str,
-        "ErrorDetails": "ErrorDetailsTypeDef",
-    },
-    total=False,
-)
-
-_RequiredDomainStatusTypeDef = TypedDict(
-    "_RequiredDomainStatusTypeDef",
-    {
-        "DomainId": str,
-        "DomainName": str,
-        "ARN": str,
-        "ClusterConfig": "ClusterConfigTypeDef",
-    },
-)
-_OptionalDomainStatusTypeDef = TypedDict(
-    "_OptionalDomainStatusTypeDef",
-    {
-        "Created": bool,
-        "Deleted": bool,
-        "Endpoint": str,
-        "EndpointV2": str,
-        "Endpoints": Dict[str, str],
-        "DomainEndpointV2HostedZoneId": str,
-        "Processing": bool,
-        "UpgradeProcessing": bool,
-        "EngineVersion": str,
-        "EBSOptions": "EBSOptionsTypeDef",
-        "AccessPolicies": str,
-        "IPAddressType": IPAddressTypeType,
-        "SnapshotOptions": "SnapshotOptionsTypeDef",
-        "VPCOptions": "VPCDerivedInfoTypeDef",
-        "CognitoOptions": "CognitoOptionsTypeDef",
-        "EncryptionAtRestOptions": "EncryptionAtRestOptionsTypeDef",
-        "NodeToNodeEncryptionOptions": "NodeToNodeEncryptionOptionsTypeDef",
-        "AdvancedOptions": Dict[str, str],
-        "LogPublishingOptions": Dict[LogTypeType, "LogPublishingOptionTypeDef"],
-        "ServiceSoftwareOptions": "ServiceSoftwareOptionsTypeDef",
-        "DomainEndpointOptions": "DomainEndpointOptionsTypeDef",
-        "AdvancedSecurityOptions": "AdvancedSecurityOptionsTypeDef",
-        "AutoTuneOptions": "AutoTuneOptionsOutputTypeDef",
-        "ChangeProgressDetails": "ChangeProgressDetailsTypeDef",
-        "OffPeakWindowOptions": "OffPeakWindowOptionsTypeDef",
-        "SoftwareUpdateOptions": "SoftwareUpdateOptionsTypeDef",
-        "DomainProcessingStatus": DomainProcessingStatusTypeType,
-        "ModifyingProperties": List["ModifyingPropertiesTypeDef"],
-    },
-    total=False,
-)
-
-class DomainStatusTypeDef(_RequiredDomainStatusTypeDef, _OptionalDomainStatusTypeDef):
-    pass
-
-_RequiredDryRunProgressStatusTypeDef = TypedDict(
-    "_RequiredDryRunProgressStatusTypeDef",
-    {
-        "DryRunId": str,
-        "DryRunStatus": str,
-        "CreationDate": str,
-        "UpdateDate": str,
-    },
-)
-_OptionalDryRunProgressStatusTypeDef = TypedDict(
-    "_OptionalDryRunProgressStatusTypeDef",
-    {
-        "ValidationFailures": List["ValidationFailureTypeDef"],
-    },
-    total=False,
-)
-
-class DryRunProgressStatusTypeDef(
-    _RequiredDryRunProgressStatusTypeDef, _OptionalDryRunProgressStatusTypeDef
-):
-    pass
-
-DryRunResultsTypeDef = TypedDict(
-    "DryRunResultsTypeDef",
-    {
-        "DeploymentType": str,
-        "Message": str,
-    },
-    total=False,
-)
-
-DurationTypeDef = TypedDict(
-    "DurationTypeDef",
-    {
-        "Value": int,
-        "Unit": Literal["HOURS"],
-    },
-    total=False,
-)
-
-EBSOptionsStatusTypeDef = TypedDict(
-    "EBSOptionsStatusTypeDef",
-    {
-        "Options": "EBSOptionsTypeDef",
-        "Status": "OptionStatusTypeDef",
-    },
-)
-
-EBSOptionsTypeDef = TypedDict(
-    "EBSOptionsTypeDef",
-    {
-        "EBSEnabled": bool,
-        "VolumeType": VolumeTypeType,
-        "VolumeSize": int,
-        "Iops": int,
-        "Throughput": int,
-    },
-    total=False,
-)
-
-EncryptionAtRestOptionsStatusTypeDef = TypedDict(
-    "EncryptionAtRestOptionsStatusTypeDef",
-    {
-        "Options": "EncryptionAtRestOptionsTypeDef",
-        "Status": "OptionStatusTypeDef",
-    },
-)
-
-EncryptionAtRestOptionsTypeDef = TypedDict(
-    "EncryptionAtRestOptionsTypeDef",
-    {
-        "Enabled": bool,
-        "KmsKeyId": str,
-    },
-    total=False,
-)
-
-EnvironmentInfoTypeDef = TypedDict(
-    "EnvironmentInfoTypeDef",
-    {
-        "AvailabilityZoneInformation": List["AvailabilityZoneInfoTypeDef"],
-    },
-    total=False,
-)
-
-ErrorDetailsTypeDef = TypedDict(
-    "ErrorDetailsTypeDef",
-    {
-        "ErrorType": str,
-        "ErrorMessage": str,
-    },
-    total=False,
-)
-
-FilterTypeDef = TypedDict(
-    "FilterTypeDef",
-    {
-        "Name": str,
-        "Values": List[str],
-    },
-    total=False,
-)
-
-GetCompatibleVersionsRequestRequestTypeDef = TypedDict(
-    "GetCompatibleVersionsRequestRequestTypeDef",
-    {
-        "DomainName": str,
-    },
-    total=False,
-)
-
-GetCompatibleVersionsResponseTypeDef = TypedDict(
-    "GetCompatibleVersionsResponseTypeDef",
-    {
-        "CompatibleVersions": List["CompatibleVersionsMapTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetDataSourceRequestRequestTypeDef = TypedDict(
-    "GetDataSourceRequestRequestTypeDef",
-    {
-        "DomainName": str,
-        "Name": str,
-    },
-)
-
-GetDataSourceResponseTypeDef = TypedDict(
-    "GetDataSourceResponseTypeDef",
-    {
-        "DataSourceType": "DataSourceTypeTypeDef",
-        "Name": str,
-        "Description": str,
-        "Status": DataSourceStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetDomainMaintenanceStatusRequestRequestTypeDef = TypedDict(
-    "GetDomainMaintenanceStatusRequestRequestTypeDef",
-    {
-        "DomainName": str,
-        "MaintenanceId": str,
-    },
-)
-
-GetDomainMaintenanceStatusResponseTypeDef = TypedDict(
-    "GetDomainMaintenanceStatusResponseTypeDef",
-    {
-        "Status": MaintenanceStatusType,
-        "StatusMessage": str,
-        "NodeId": str,
-        "Action": MaintenanceTypeType,
-        "CreatedAt": datetime,
-        "UpdatedAt": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetPackageVersionHistoryRequestRequestTypeDef = TypedDict(
-    "_RequiredGetPackageVersionHistoryRequestRequestTypeDef",
-    {
-        "PackageID": str,
-    },
-)
-_OptionalGetPackageVersionHistoryRequestRequestTypeDef = TypedDict(
-    "_OptionalGetPackageVersionHistoryRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class GetPackageVersionHistoryRequestRequestTypeDef(
-    _RequiredGetPackageVersionHistoryRequestRequestTypeDef,
-    _OptionalGetPackageVersionHistoryRequestRequestTypeDef,
-):
-    pass
-
-GetPackageVersionHistoryResponseTypeDef = TypedDict(
-    "GetPackageVersionHistoryResponseTypeDef",
-    {
-        "PackageID": str,
-        "PackageVersionHistoryList": List["PackageVersionHistoryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetUpgradeHistoryRequestRequestTypeDef = TypedDict(
-    "_RequiredGetUpgradeHistoryRequestRequestTypeDef",
-    {
-        "DomainName": str,
-    },
-)
-_OptionalGetUpgradeHistoryRequestRequestTypeDef = TypedDict(
-    "_OptionalGetUpgradeHistoryRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class GetUpgradeHistoryRequestRequestTypeDef(
-    _RequiredGetUpgradeHistoryRequestRequestTypeDef, _OptionalGetUpgradeHistoryRequestRequestTypeDef
-):
-    pass
-
-GetUpgradeHistoryResponseTypeDef = TypedDict(
-    "GetUpgradeHistoryResponseTypeDef",
-    {
-        "UpgradeHistories": List["UpgradeHistoryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetUpgradeStatusRequestRequestTypeDef = TypedDict(
-    "GetUpgradeStatusRequestRequestTypeDef",
-    {
-        "DomainName": str,
-    },
-)
-
-GetUpgradeStatusResponseTypeDef = TypedDict(
-    "GetUpgradeStatusResponseTypeDef",
-    {
-        "UpgradeStep": UpgradeStepType,
-        "StepStatus": UpgradeStatusType,
-        "UpgradeName": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-IPAddressTypeStatusTypeDef = TypedDict(
-    "IPAddressTypeStatusTypeDef",
-    {
-        "Options": IPAddressTypeType,
-        "Status": "OptionStatusTypeDef",
-    },
-)
-
-InboundConnectionStatusTypeDef = TypedDict(
-    "InboundConnectionStatusTypeDef",
-    {
-        "StatusCode": InboundConnectionStatusCodeType,
-        "Message": str,
-    },
-    total=False,
-)
-
-InboundConnectionTypeDef = TypedDict(
-    "InboundConnectionTypeDef",
-    {
-        "LocalDomainInfo": "DomainInformationContainerTypeDef",
-        "RemoteDomainInfo": "DomainInformationContainerTypeDef",
-        "ConnectionId": str,
-        "ConnectionStatus": "InboundConnectionStatusTypeDef",
-        "ConnectionMode": ConnectionModeType,
-    },
-    total=False,
-)
-
-InstanceCountLimitsTypeDef = TypedDict(
-    "InstanceCountLimitsTypeDef",
-    {
-        "MinimumInstanceCount": int,
-        "MaximumInstanceCount": int,
-    },
-    total=False,
-)
-
-InstanceLimitsTypeDef = TypedDict(
-    "InstanceLimitsTypeDef",
-    {
-        "InstanceCountLimits": "InstanceCountLimitsTypeDef",
-    },
-    total=False,
-)
-
-InstanceTypeDetailsTypeDef = TypedDict(
-    "InstanceTypeDetailsTypeDef",
-    {
-        "InstanceType": OpenSearchPartitionInstanceTypeType,
-        "EncryptionEnabled": bool,
-        "CognitoEnabled": bool,
-        "AppLogsEnabled": bool,
-        "AdvancedSecurityEnabled": bool,
-        "WarmEnabled": bool,
-        "InstanceRole": List[str],
-        "AvailabilityZones": List[str],
-    },
-    total=False,
-)
-
-JWTOptionsInputTypeDef = TypedDict(
-    "JWTOptionsInputTypeDef",
-    {
-        "Enabled": bool,
-        "SubjectKey": str,
-        "RolesKey": str,
-        "PublicKey": str,
-    },
-    total=False,
-)
-
-JWTOptionsOutputTypeDef = TypedDict(
-    "JWTOptionsOutputTypeDef",
-    {
-        "Enabled": bool,
-        "SubjectKey": str,
-        "RolesKey": str,
-        "PublicKey": str,
-    },
-    total=False,
-)
-
-LimitsTypeDef = TypedDict(
-    "LimitsTypeDef",
-    {
-        "StorageTypes": List["StorageTypeTypeDef"],
-        "InstanceLimits": "InstanceLimitsTypeDef",
-        "AdditionalLimits": List["AdditionalLimitTypeDef"],
-    },
-    total=False,
-)
-
-ListDataSourcesRequestRequestTypeDef = TypedDict(
-    "ListDataSourcesRequestRequestTypeDef",
-    {
-        "DomainName": str,
-    },
-)
-
-ListDataSourcesResponseTypeDef = TypedDict(
-    "ListDataSourcesResponseTypeDef",
-    {
-        "DataSources": List["DataSourceDetailsTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListDomainMaintenancesRequestRequestTypeDef = TypedDict(
-    "_RequiredListDomainMaintenancesRequestRequestTypeDef",
-    {
-        "DomainName": str,
-    },
-)
-_OptionalListDomainMaintenancesRequestRequestTypeDef = TypedDict(
-    "_OptionalListDomainMaintenancesRequestRequestTypeDef",
-    {
-        "Action": MaintenanceTypeType,
-        "Status": MaintenanceStatusType,
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListDomainMaintenancesRequestRequestTypeDef(
-    _RequiredListDomainMaintenancesRequestRequestTypeDef,
-    _OptionalListDomainMaintenancesRequestRequestTypeDef,
-):
-    pass
-
-ListDomainMaintenancesResponseTypeDef = TypedDict(
-    "ListDomainMaintenancesResponseTypeDef",
-    {
-        "DomainMaintenances": List["DomainMaintenanceDetailsTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListDomainNamesRequestRequestTypeDef = TypedDict(
-    "ListDomainNamesRequestRequestTypeDef",
-    {
-        "EngineType": EngineTypeType,
-    },
-    total=False,
-)
-
-ListDomainNamesResponseTypeDef = TypedDict(
-    "ListDomainNamesResponseTypeDef",
-    {
-        "DomainNames": List["DomainInfoTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListDomainsForPackageRequestRequestTypeDef = TypedDict(
-    "_RequiredListDomainsForPackageRequestRequestTypeDef",
-    {
-        "PackageID": str,
-    },
-)
-_OptionalListDomainsForPackageRequestRequestTypeDef = TypedDict(
-    "_OptionalListDomainsForPackageRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListDomainsForPackageRequestRequestTypeDef(
-    _RequiredListDomainsForPackageRequestRequestTypeDef,
-    _OptionalListDomainsForPackageRequestRequestTypeDef,
-):
-    pass
-
-ListDomainsForPackageResponseTypeDef = TypedDict(
-    "ListDomainsForPackageResponseTypeDef",
-    {
-        "DomainPackageDetailsList": List["DomainPackageDetailsTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListInstanceTypeDetailsRequestRequestTypeDef = TypedDict(
-    "_RequiredListInstanceTypeDetailsRequestRequestTypeDef",
-    {
-        "EngineVersion": str,
-    },
-)
-_OptionalListInstanceTypeDetailsRequestRequestTypeDef = TypedDict(
-    "_OptionalListInstanceTypeDetailsRequestRequestTypeDef",
-    {
-        "DomainName": str,
-        "MaxResults": int,
-        "NextToken": str,
-        "RetrieveAZs": bool,
-        "InstanceType": str,
-    },
-    total=False,
-)
-
-class ListInstanceTypeDetailsRequestRequestTypeDef(
-    _RequiredListInstanceTypeDetailsRequestRequestTypeDef,
-    _OptionalListInstanceTypeDetailsRequestRequestTypeDef,
-):
-    pass
-
-ListInstanceTypeDetailsResponseTypeDef = TypedDict(
-    "ListInstanceTypeDetailsResponseTypeDef",
-    {
-        "InstanceTypeDetails": List["InstanceTypeDetailsTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListPackagesForDomainRequestRequestTypeDef = TypedDict(
-    "_RequiredListPackagesForDomainRequestRequestTypeDef",
-    {
-        "DomainName": str,
-    },
-)
-_OptionalListPackagesForDomainRequestRequestTypeDef = TypedDict(
-    "_OptionalListPackagesForDomainRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListPackagesForDomainRequestRequestTypeDef(
-    _RequiredListPackagesForDomainRequestRequestTypeDef,
-    _OptionalListPackagesForDomainRequestRequestTypeDef,
-):
-    pass
-
-ListPackagesForDomainResponseTypeDef = TypedDict(
-    "ListPackagesForDomainResponseTypeDef",
-    {
-        "DomainPackageDetailsList": List["DomainPackageDetailsTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListScheduledActionsRequestRequestTypeDef = TypedDict(
-    "_RequiredListScheduledActionsRequestRequestTypeDef",
-    {
-        "DomainName": str,
-    },
-)
-_OptionalListScheduledActionsRequestRequestTypeDef = TypedDict(
-    "_OptionalListScheduledActionsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListScheduledActionsRequestRequestTypeDef(
-    _RequiredListScheduledActionsRequestRequestTypeDef,
-    _OptionalListScheduledActionsRequestRequestTypeDef,
-):
-    pass
-
-ListScheduledActionsResponseTypeDef = TypedDict(
-    "ListScheduledActionsResponseTypeDef",
-    {
-        "ScheduledActions": List["ScheduledActionTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTagsRequestRequestTypeDef = TypedDict(
-    "ListTagsRequestRequestTypeDef",
-    {
-        "ARN": str,
-    },
-)
-
-ListTagsResponseTypeDef = TypedDict(
-    "ListTagsResponseTypeDef",
-    {
-        "TagList": List["TagTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListVersionsRequestRequestTypeDef = TypedDict(
-    "ListVersionsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListVersionsResponseTypeDef = TypedDict(
-    "ListVersionsResponseTypeDef",
-    {
-        "Versions": List[str],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListVpcEndpointAccessRequestRequestTypeDef = TypedDict(
-    "_RequiredListVpcEndpointAccessRequestRequestTypeDef",
-    {
-        "DomainName": str,
-    },
-)
-_OptionalListVpcEndpointAccessRequestRequestTypeDef = TypedDict(
-    "_OptionalListVpcEndpointAccessRequestRequestTypeDef",
-    {
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListVpcEndpointAccessRequestRequestTypeDef(
-    _RequiredListVpcEndpointAccessRequestRequestTypeDef,
-    _OptionalListVpcEndpointAccessRequestRequestTypeDef,
-):
-    pass
-
-ListVpcEndpointAccessResponseTypeDef = TypedDict(
-    "ListVpcEndpointAccessResponseTypeDef",
-    {
-        "AuthorizedPrincipalList": List["AuthorizedPrincipalTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListVpcEndpointsForDomainRequestRequestTypeDef = TypedDict(
-    "_RequiredListVpcEndpointsForDomainRequestRequestTypeDef",
-    {
-        "DomainName": str,
-    },
-)
-_OptionalListVpcEndpointsForDomainRequestRequestTypeDef = TypedDict(
-    "_OptionalListVpcEndpointsForDomainRequestRequestTypeDef",
-    {
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListVpcEndpointsForDomainRequestRequestTypeDef(
-    _RequiredListVpcEndpointsForDomainRequestRequestTypeDef,
-    _OptionalListVpcEndpointsForDomainRequestRequestTypeDef,
-):
-    pass
-
-ListVpcEndpointsForDomainResponseTypeDef = TypedDict(
-    "ListVpcEndpointsForDomainResponseTypeDef",
-    {
-        "VpcEndpointSummaryList": List["VpcEndpointSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListVpcEndpointsRequestRequestTypeDef = TypedDict(
-    "ListVpcEndpointsRequestRequestTypeDef",
-    {
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListVpcEndpointsResponseTypeDef = TypedDict(
-    "ListVpcEndpointsResponseTypeDef",
-    {
-        "VpcEndpointSummaryList": List["VpcEndpointSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-LogPublishingOptionTypeDef = TypedDict(
-    "LogPublishingOptionTypeDef",
-    {
-        "CloudWatchLogsLogGroupArn": str,
-        "Enabled": bool,
-    },
-    total=False,
-)
-
-LogPublishingOptionsStatusTypeDef = TypedDict(
-    "LogPublishingOptionsStatusTypeDef",
-    {
-        "Options": Dict[LogTypeType, "LogPublishingOptionTypeDef"],
-        "Status": "OptionStatusTypeDef",
-    },
-    total=False,
-)
-
-MasterUserOptionsTypeDef = TypedDict(
-    "MasterUserOptionsTypeDef",
-    {
-        "MasterUserARN": str,
-        "MasterUserName": str,
-        "MasterUserPassword": str,
-    },
-    total=False,
-)
-
-ModifyingPropertiesTypeDef = TypedDict(
-    "ModifyingPropertiesTypeDef",
-    {
-        "Name": str,
-        "ActiveValue": str,
-        "PendingValue": str,
-        "ValueType": PropertyValueTypeType,
-    },
-    total=False,
-)
-
-NodeToNodeEncryptionOptionsStatusTypeDef = TypedDict(
-    "NodeToNodeEncryptionOptionsStatusTypeDef",
-    {
-        "Options": "NodeToNodeEncryptionOptionsTypeDef",
-        "Status": "OptionStatusTypeDef",
-    },
-)
-
-NodeToNodeEncryptionOptionsTypeDef = TypedDict(
-    "NodeToNodeEncryptionOptionsTypeDef",
-    {
-        "Enabled": bool,
-    },
-    total=False,
-)
-
-OffPeakWindowOptionsStatusTypeDef = TypedDict(
-    "OffPeakWindowOptionsStatusTypeDef",
-    {
-        "Options": "OffPeakWindowOptionsTypeDef",
-        "Status": "OptionStatusTypeDef",
-    },
-    total=False,
-)
-
-OffPeakWindowOptionsTypeDef = TypedDict(
-    "OffPeakWindowOptionsTypeDef",
-    {
-        "Enabled": bool,
-        "OffPeakWindow": "OffPeakWindowTypeDef",
-    },
-    total=False,
-)
-
-OffPeakWindowTypeDef = TypedDict(
-    "OffPeakWindowTypeDef",
-    {
-        "WindowStartTime": "WindowStartTimeTypeDef",
-    },
-    total=False,
-)
-
-_RequiredOptionStatusTypeDef = TypedDict(
-    "_RequiredOptionStatusTypeDef",
-    {
-        "CreationDate": datetime,
-        "UpdateDate": datetime,
-        "State": OptionStateType,
-    },
-)
-_OptionalOptionStatusTypeDef = TypedDict(
-    "_OptionalOptionStatusTypeDef",
-    {
-        "UpdateVersion": int,
-        "PendingDeletion": bool,
-    },
-    total=False,
-)
-
-class OptionStatusTypeDef(_RequiredOptionStatusTypeDef, _OptionalOptionStatusTypeDef):
-    pass
-
-OutboundConnectionStatusTypeDef = TypedDict(
-    "OutboundConnectionStatusTypeDef",
-    {
-        "StatusCode": OutboundConnectionStatusCodeType,
-        "Message": str,
-    },
-    total=False,
-)
-
-OutboundConnectionTypeDef = TypedDict(
-    "OutboundConnectionTypeDef",
-    {
-        "LocalDomainInfo": "DomainInformationContainerTypeDef",
-        "RemoteDomainInfo": "DomainInformationContainerTypeDef",
-        "ConnectionId": str,
-        "ConnectionAlias": str,
-        "ConnectionStatus": "OutboundConnectionStatusTypeDef",
-        "ConnectionMode": ConnectionModeType,
-        "ConnectionProperties": "ConnectionPropertiesTypeDef",
-    },
-    total=False,
-)
-
-PackageDetailsTypeDef = TypedDict(
-    "PackageDetailsTypeDef",
-    {
-        "PackageID": str,
-        "PackageName": str,
-        "PackageType": PackageTypeType,
-        "PackageDescription": str,
-        "PackageStatus": PackageStatusType,
-        "CreatedAt": datetime,
-        "LastUpdatedAt": datetime,
-        "AvailablePackageVersion": str,
-        "ErrorDetails": "ErrorDetailsTypeDef",
-        "EngineVersion": str,
-        "AvailablePluginProperties": "PluginPropertiesTypeDef",
-    },
-    total=False,
-)
-
-PackageSourceTypeDef = TypedDict(
-    "PackageSourceTypeDef",
-    {
-        "S3BucketName": str,
-        "S3Key": str,
-    },
-    total=False,
-)
-
-PackageVersionHistoryTypeDef = TypedDict(
-    "PackageVersionHistoryTypeDef",
-    {
-        "PackageVersion": str,
-        "CommitMessage": str,
-        "CreatedAt": datetime,
-        "PluginProperties": "PluginPropertiesTypeDef",
-    },
-    total=False,
-)
-
-PluginPropertiesTypeDef = TypedDict(
-    "PluginPropertiesTypeDef",
-    {
-        "Name": str,
-        "Description": str,
-        "Version": str,
-        "ClassName": str,
-        "UncompressedSizeInBytes": int,
-    },
-    total=False,
-)
-
-_RequiredPurchaseReservedInstanceOfferingRequestRequestTypeDef = TypedDict(
-    "_RequiredPurchaseReservedInstanceOfferingRequestRequestTypeDef",
-    {
-        "ReservedInstanceOfferingId": str,
-        "ReservationName": str,
-    },
-)
-_OptionalPurchaseReservedInstanceOfferingRequestRequestTypeDef = TypedDict(
-    "_OptionalPurchaseReservedInstanceOfferingRequestRequestTypeDef",
-    {
-        "InstanceCount": int,
-    },
-    total=False,
-)
-
-class PurchaseReservedInstanceOfferingRequestRequestTypeDef(
-    _RequiredPurchaseReservedInstanceOfferingRequestRequestTypeDef,
-    _OptionalPurchaseReservedInstanceOfferingRequestRequestTypeDef,
-):
-    pass
-
-PurchaseReservedInstanceOfferingResponseTypeDef = TypedDict(
-    "PurchaseReservedInstanceOfferingResponseTypeDef",
-    {
-        "ReservedInstanceId": str,
-        "ReservationName": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-RecurringChargeTypeDef = TypedDict(
-    "RecurringChargeTypeDef",
-    {
-        "RecurringChargeAmount": float,
-        "RecurringChargeFrequency": str,
-    },
-    total=False,
-)
-
-RejectInboundConnectionRequestRequestTypeDef = TypedDict(
-    "RejectInboundConnectionRequestRequestTypeDef",
-    {
-        "ConnectionId": str,
-    },
-)
-
-RejectInboundConnectionResponseTypeDef = TypedDict(
-    "RejectInboundConnectionResponseTypeDef",
-    {
-        "Connection": "InboundConnectionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-RemoveTagsRequestRequestTypeDef = TypedDict(
-    "RemoveTagsRequestRequestTypeDef",
-    {
-        "ARN": str,
-        "TagKeys": List[str],
-    },
-)
-
-ReservedInstanceOfferingTypeDef = TypedDict(
-    "ReservedInstanceOfferingTypeDef",
-    {
-        "ReservedInstanceOfferingId": str,
-        "InstanceType": OpenSearchPartitionInstanceTypeType,
-        "Duration": int,
-        "FixedPrice": float,
-        "UsagePrice": float,
-        "CurrencyCode": str,
-        "PaymentOption": ReservedInstancePaymentOptionType,
-        "RecurringCharges": List["RecurringChargeTypeDef"],
-    },
-    total=False,
-)
-
-ReservedInstanceTypeDef = TypedDict(
-    "ReservedInstanceTypeDef",
-    {
-        "ReservationName": str,
-        "ReservedInstanceId": str,
-        "BillingSubscriptionId": int,
-        "ReservedInstanceOfferingId": str,
-        "InstanceType": OpenSearchPartitionInstanceTypeType,
-        "StartTime": datetime,
-        "Duration": int,
-        "FixedPrice": float,
-        "UsagePrice": float,
-        "CurrencyCode": str,
-        "InstanceCount": int,
-        "State": str,
-        "PaymentOption": ReservedInstancePaymentOptionType,
-        "RecurringCharges": List["RecurringChargeTypeDef"],
-    },
-    total=False,
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-RevokeVpcEndpointAccessRequestRequestTypeDef = TypedDict(
-    "RevokeVpcEndpointAccessRequestRequestTypeDef",
-    {
-        "DomainName": str,
-        "Account": str,
-    },
-)
-
-S3GlueDataCatalogTypeDef = TypedDict(
-    "S3GlueDataCatalogTypeDef",
-    {
-        "RoleArn": str,
-    },
-    total=False,
-)
-
-SAMLIdpTypeDef = TypedDict(
-    "SAMLIdpTypeDef",
-    {
-        "MetadataContent": str,
-        "EntityId": str,
-    },
-)
-
-SAMLOptionsInputTypeDef = TypedDict(
-    "SAMLOptionsInputTypeDef",
-    {
-        "Enabled": bool,
-        "Idp": "SAMLIdpTypeDef",
-        "MasterUserName": str,
-        "MasterBackendRole": str,
-        "SubjectKey": str,
-        "RolesKey": str,
-        "SessionTimeoutMinutes": int,
-    },
-    total=False,
-)
-
-SAMLOptionsOutputTypeDef = TypedDict(
-    "SAMLOptionsOutputTypeDef",
-    {
-        "Enabled": bool,
-        "Idp": "SAMLIdpTypeDef",
-        "SubjectKey": str,
-        "RolesKey": str,
-        "SessionTimeoutMinutes": int,
-    },
-    total=False,
-)
-
-_RequiredScheduledActionTypeDef = TypedDict(
-    "_RequiredScheduledActionTypeDef",
+class NaturalLanguageQueryGenerationOptionsInputTypeDef(TypedDict):
+    DesiredState: NotRequired[NaturalLanguageQueryGenerationDesiredStateType]
+
+class NaturalLanguageQueryGenerationOptionsOutputTypeDef(TypedDict):
+    DesiredState: NotRequired[NaturalLanguageQueryGenerationDesiredStateType]
+    CurrentState: NotRequired[NaturalLanguageQueryGenerationCurrentStateType]
+
+class OptionStatusTypeDef(TypedDict):
+    CreationDate: datetime
+    UpdateDate: datetime
+    State: OptionStateType
+    UpdateVersion: NotRequired[int]
+    PendingDeletion: NotRequired[bool]
+
+class AWSDomainInformationTypeDef(TypedDict):
+    DomainName: str
+    OwnerId: NotRequired[str]
+    Region: NotRequired[str]
+
+class AcceptInboundConnectionRequestTypeDef(TypedDict):
+    ConnectionId: str
+
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
+
+class TagTypeDef(TypedDict):
+    Key: str
+    Value: str
+
+class AdditionalLimitTypeDef(TypedDict):
+    LimitName: NotRequired[str]
+    LimitValues: NotRequired[List[str]]
+
+class JWTOptionsInputTypeDef(TypedDict):
+    Enabled: NotRequired[bool]
+    SubjectKey: NotRequired[str]
+    RolesKey: NotRequired[str]
+    PublicKey: NotRequired[str]
+
+class MasterUserOptionsTypeDef(TypedDict):
+    MasterUserARN: NotRequired[str]
+    MasterUserName: NotRequired[str]
+    MasterUserPassword: NotRequired[str]
+
+class JWTOptionsOutputTypeDef(TypedDict):
+    Enabled: NotRequired[bool]
+    SubjectKey: NotRequired[str]
+    RolesKey: NotRequired[str]
+    PublicKey: NotRequired[str]
+
+class AppConfigTypeDef(TypedDict):
+    key: NotRequired[AppConfigTypeType]
+    value: NotRequired[str]
+
+ApplicationSummaryTypeDef = TypedDict(
+    "ApplicationSummaryTypeDef",
+    {
+        "id": NotRequired[str],
+        "arn": NotRequired[str],
+        "name": NotRequired[str],
+        "endpoint": NotRequired[str],
+        "status": NotRequired[ApplicationStatusType],
+        "createdAt": NotRequired[datetime],
+        "lastUpdatedAt": NotRequired[datetime],
+    },
+)
+
+class AuthorizeVpcEndpointAccessRequestTypeDef(TypedDict):
+    DomainName: str
+    Account: NotRequired[str]
+    Service: NotRequired[Literal["application.opensearchservice.amazonaws.com"]]
+
+class AuthorizedPrincipalTypeDef(TypedDict):
+    PrincipalType: NotRequired[PrincipalTypeType]
+    Principal: NotRequired[str]
+
+class ScheduledAutoTuneDetailsTypeDef(TypedDict):
+    Date: NotRequired[datetime]
+    ActionType: NotRequired[ScheduledAutoTuneActionTypeType]
+    Action: NotRequired[str]
+    Severity: NotRequired[ScheduledAutoTuneSeverityTypeType]
+
+class DurationTypeDef(TypedDict):
+    Value: NotRequired[int]
+    Unit: NotRequired[Literal["HOURS"]]
+
+TimestampTypeDef = Union[datetime, str]
+
+class AutoTuneOptionsOutputTypeDef(TypedDict):
+    State: NotRequired[AutoTuneStateType]
+    ErrorMessage: NotRequired[str]
+    UseOffPeakWindow: NotRequired[bool]
+
+class AutoTuneStatusTypeDef(TypedDict):
+    CreationDate: datetime
+    UpdateDate: datetime
+    State: AutoTuneStateType
+    UpdateVersion: NotRequired[int]
+    ErrorMessage: NotRequired[str]
+    PendingDeletion: NotRequired[bool]
+
+class AvailabilityZoneInfoTypeDef(TypedDict):
+    AvailabilityZoneName: NotRequired[str]
+    ZoneStatus: NotRequired[ZoneStatusType]
+    ConfiguredDataNodeCount: NotRequired[str]
+    AvailableDataNodeCount: NotRequired[str]
+    TotalShards: NotRequired[str]
+    TotalUnAssignedShards: NotRequired[str]
+
+class CancelDomainConfigChangeRequestTypeDef(TypedDict):
+    DomainName: str
+    DryRun: NotRequired[bool]
+
+class CancelledChangePropertyTypeDef(TypedDict):
+    PropertyName: NotRequired[str]
+    CancelledValue: NotRequired[str]
+    ActiveValue: NotRequired[str]
+
+class CancelServiceSoftwareUpdateRequestTypeDef(TypedDict):
+    DomainName: str
+
+class ServiceSoftwareOptionsTypeDef(TypedDict):
+    CurrentVersion: NotRequired[str]
+    NewVersion: NotRequired[str]
+    UpdateAvailable: NotRequired[bool]
+    Cancellable: NotRequired[bool]
+    UpdateStatus: NotRequired[DeploymentStatusType]
+    Description: NotRequired[str]
+    AutomatedUpdateDate: NotRequired[datetime]
+    OptionalDeployment: NotRequired[bool]
+
+class ChangeProgressDetailsTypeDef(TypedDict):
+    ChangeId: NotRequired[str]
+    Message: NotRequired[str]
+    ConfigChangeStatus: NotRequired[ConfigChangeStatusType]
+    InitiatedBy: NotRequired[InitiatedByType]
+    StartTime: NotRequired[datetime]
+    LastUpdatedTime: NotRequired[datetime]
+
+class ChangeProgressStageTypeDef(TypedDict):
+    Name: NotRequired[str]
+    Status: NotRequired[str]
+    Description: NotRequired[str]
+    LastUpdated: NotRequired[datetime]
+
+class CloudWatchDirectQueryDataSourceTypeDef(TypedDict):
+    RoleArn: str
+
+class ColdStorageOptionsTypeDef(TypedDict):
+    Enabled: bool
+
+class ZoneAwarenessConfigTypeDef(TypedDict):
+    AvailabilityZoneCount: NotRequired[int]
+
+class CognitoOptionsTypeDef(TypedDict):
+    Enabled: NotRequired[bool]
+    UserPoolId: NotRequired[str]
+    IdentityPoolId: NotRequired[str]
+    RoleArn: NotRequired[str]
+
+class CompatibleVersionsMapTypeDef(TypedDict):
+    SourceVersion: NotRequired[str]
+    TargetVersions: NotRequired[List[str]]
+
+class CrossClusterSearchConnectionPropertiesTypeDef(TypedDict):
+    SkipUnavailable: NotRequired[SkipUnavailableStatusType]
+
+class DataSourceTypeDef(TypedDict):
+    dataSourceArn: NotRequired[str]
+    dataSourceDescription: NotRequired[str]
+
+class IamIdentityCenterOptionsInputTypeDef(TypedDict):
+    enabled: NotRequired[bool]
+    iamIdentityCenterInstanceArn: NotRequired[str]
+    iamRoleForIdentityCenterApplicationArn: NotRequired[str]
+
+class IamIdentityCenterOptionsTypeDef(TypedDict):
+    enabled: NotRequired[bool]
+    iamIdentityCenterInstanceArn: NotRequired[str]
+    iamRoleForIdentityCenterApplicationArn: NotRequired[str]
+    iamIdentityCenterApplicationArn: NotRequired[str]
+
+class DomainEndpointOptionsTypeDef(TypedDict):
+    EnforceHTTPS: NotRequired[bool]
+    TLSSecurityPolicy: NotRequired[TLSSecurityPolicyType]
+    CustomEndpointEnabled: NotRequired[bool]
+    CustomEndpoint: NotRequired[str]
+    CustomEndpointCertificateArn: NotRequired[str]
+
+class EBSOptionsTypeDef(TypedDict):
+    EBSEnabled: NotRequired[bool]
+    VolumeType: NotRequired[VolumeTypeType]
+    VolumeSize: NotRequired[int]
+    Iops: NotRequired[int]
+    Throughput: NotRequired[int]
+
+class EncryptionAtRestOptionsTypeDef(TypedDict):
+    Enabled: NotRequired[bool]
+    KmsKeyId: NotRequired[str]
+
+class IdentityCenterOptionsInputTypeDef(TypedDict):
+    EnabledAPIAccess: NotRequired[bool]
+    IdentityCenterInstanceARN: NotRequired[str]
+    SubjectKey: NotRequired[SubjectKeyIdCOptionType]
+    RolesKey: NotRequired[RolesKeyIdCOptionType]
+
+class LogPublishingOptionTypeDef(TypedDict):
+    CloudWatchLogsLogGroupArn: NotRequired[str]
+    Enabled: NotRequired[bool]
+
+class NodeToNodeEncryptionOptionsTypeDef(TypedDict):
+    Enabled: NotRequired[bool]
+
+class SnapshotOptionsTypeDef(TypedDict):
+    AutomatedSnapshotStartHour: NotRequired[int]
+
+class SoftwareUpdateOptionsTypeDef(TypedDict):
+    AutoSoftwareUpdateEnabled: NotRequired[bool]
+
+class VPCOptionsTypeDef(TypedDict):
+    SubnetIds: NotRequired[Sequence[str]]
+    SecurityGroupIds: NotRequired[Sequence[str]]
+
+class OutboundConnectionStatusTypeDef(TypedDict):
+    StatusCode: NotRequired[OutboundConnectionStatusCodeType]
+    Message: NotRequired[str]
+
+class PackageConfigurationTypeDef(TypedDict):
+    LicenseRequirement: RequirementLevelType
+    ConfigurationRequirement: RequirementLevelType
+    LicenseFilepath: NotRequired[str]
+    RequiresRestartForConfigurationUpdate: NotRequired[bool]
+
+class PackageEncryptionOptionsTypeDef(TypedDict):
+    EncryptionEnabled: bool
+    KmsKeyIdentifier: NotRequired[str]
+
+class PackageSourceTypeDef(TypedDict):
+    S3BucketName: NotRequired[str]
+    S3Key: NotRequired[str]
+
+class PackageVendingOptionsTypeDef(TypedDict):
+    VendingEnabled: bool
+
+class S3GlueDataCatalogTypeDef(TypedDict):
+    RoleArn: NotRequired[str]
+
+DeleteApplicationRequestTypeDef = TypedDict(
+    "DeleteApplicationRequestTypeDef",
+    {
+        "id": str,
+    },
+)
+
+class DeleteDataSourceRequestTypeDef(TypedDict):
+    DomainName: str
+    Name: str
+
+class DeleteDirectQueryDataSourceRequestTypeDef(TypedDict):
+    DataSourceName: str
+
+class DeleteDomainRequestTypeDef(TypedDict):
+    DomainName: str
+
+class DeleteInboundConnectionRequestTypeDef(TypedDict):
+    ConnectionId: str
+
+class DeleteOutboundConnectionRequestTypeDef(TypedDict):
+    ConnectionId: str
+
+class DeletePackageRequestTypeDef(TypedDict):
+    PackageID: str
+
+class DeleteVpcEndpointRequestTypeDef(TypedDict):
+    VpcEndpointId: str
+
+class VpcEndpointSummaryTypeDef(TypedDict):
+    VpcEndpointId: NotRequired[str]
+    VpcEndpointOwner: NotRequired[str]
+    DomainArn: NotRequired[str]
+    Status: NotRequired[VpcEndpointStatusType]
+
+class DescribeDomainAutoTunesRequestTypeDef(TypedDict):
+    DomainName: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class DescribeDomainChangeProgressRequestTypeDef(TypedDict):
+    DomainName: str
+    ChangeId: NotRequired[str]
+
+class DescribeDomainConfigRequestTypeDef(TypedDict):
+    DomainName: str
+
+class DescribeDomainHealthRequestTypeDef(TypedDict):
+    DomainName: str
+
+class DescribeDomainNodesRequestTypeDef(TypedDict):
+    DomainName: str
+
+class DomainNodesStatusTypeDef(TypedDict):
+    NodeId: NotRequired[str]
+    NodeType: NotRequired[NodeTypeType]
+    AvailabilityZone: NotRequired[str]
+    InstanceType: NotRequired[OpenSearchPartitionInstanceTypeType]
+    NodeStatus: NotRequired[NodeStatusType]
+    StorageType: NotRequired[str]
+    StorageVolumeType: NotRequired[VolumeTypeType]
+    StorageSize: NotRequired[str]
+
+class DescribeDomainRequestTypeDef(TypedDict):
+    DomainName: str
+
+class DescribeDomainsRequestTypeDef(TypedDict):
+    DomainNames: Sequence[str]
+
+class DescribeDryRunProgressRequestTypeDef(TypedDict):
+    DomainName: str
+    DryRunId: NotRequired[str]
+    LoadDryRunConfig: NotRequired[bool]
+
+class DryRunResultsTypeDef(TypedDict):
+    DeploymentType: NotRequired[str]
+    Message: NotRequired[str]
+
+class FilterTypeDef(TypedDict):
+    Name: NotRequired[str]
+    Values: NotRequired[Sequence[str]]
+
+class DescribeInstanceTypeLimitsRequestTypeDef(TypedDict):
+    InstanceType: OpenSearchPartitionInstanceTypeType
+    EngineVersion: str
+    DomainName: NotRequired[str]
+
+class DescribePackagesFilterTypeDef(TypedDict):
+    Name: NotRequired[DescribePackagesFilterNameType]
+    Value: NotRequired[Sequence[str]]
+
+class DescribeReservedInstanceOfferingsRequestTypeDef(TypedDict):
+    ReservedInstanceOfferingId: NotRequired[str]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class DescribeReservedInstancesRequestTypeDef(TypedDict):
+    ReservedInstanceId: NotRequired[str]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class DescribeVpcEndpointsRequestTypeDef(TypedDict):
+    VpcEndpointIds: Sequence[str]
+
+class VpcEndpointErrorTypeDef(TypedDict):
+    VpcEndpointId: NotRequired[str]
+    ErrorCode: NotRequired[VpcEndpointErrorCodeType]
+    ErrorMessage: NotRequired[str]
+
+class SecurityLakeDirectQueryDataSourceTypeDef(TypedDict):
+    RoleArn: str
+
+class DissociatePackageRequestTypeDef(TypedDict):
+    PackageID: str
+    DomainName: str
+
+class DissociatePackagesRequestTypeDef(TypedDict):
+    PackageList: Sequence[str]
+    DomainName: str
+
+class ModifyingPropertiesTypeDef(TypedDict):
+    Name: NotRequired[str]
+    ActiveValue: NotRequired[str]
+    PendingValue: NotRequired[str]
+    ValueType: NotRequired[PropertyValueTypeType]
+
+class DomainInfoTypeDef(TypedDict):
+    DomainName: NotRequired[str]
+    EngineType: NotRequired[EngineTypeType]
+
+class DomainMaintenanceDetailsTypeDef(TypedDict):
+    MaintenanceId: NotRequired[str]
+    DomainName: NotRequired[str]
+    Action: NotRequired[MaintenanceTypeType]
+    NodeId: NotRequired[str]
+    Status: NotRequired[MaintenanceStatusType]
+    StatusMessage: NotRequired[str]
+    CreatedAt: NotRequired[datetime]
+    UpdatedAt: NotRequired[datetime]
+
+class ErrorDetailsTypeDef(TypedDict):
+    ErrorType: NotRequired[str]
+    ErrorMessage: NotRequired[str]
+
+class IdentityCenterOptionsTypeDef(TypedDict):
+    EnabledAPIAccess: NotRequired[bool]
+    IdentityCenterInstanceARN: NotRequired[str]
+    SubjectKey: NotRequired[SubjectKeyIdCOptionType]
+    RolesKey: NotRequired[RolesKeyIdCOptionType]
+    IdentityCenterApplicationARN: NotRequired[str]
+    IdentityStoreId: NotRequired[str]
+
+class VPCDerivedInfoTypeDef(TypedDict):
+    VPCId: NotRequired[str]
+    SubnetIds: NotRequired[List[str]]
+    AvailabilityZones: NotRequired[List[str]]
+    SecurityGroupIds: NotRequired[List[str]]
+
+class ValidationFailureTypeDef(TypedDict):
+    Code: NotRequired[str]
+    Message: NotRequired[str]
+
+GetApplicationRequestTypeDef = TypedDict(
+    "GetApplicationRequestTypeDef",
+    {
+        "id": str,
+    },
+)
+
+class GetCompatibleVersionsRequestTypeDef(TypedDict):
+    DomainName: NotRequired[str]
+
+class GetDataSourceRequestTypeDef(TypedDict):
+    DomainName: str
+    Name: str
+
+class GetDirectQueryDataSourceRequestTypeDef(TypedDict):
+    DataSourceName: str
+
+class GetDomainMaintenanceStatusRequestTypeDef(TypedDict):
+    DomainName: str
+    MaintenanceId: str
+
+class GetPackageVersionHistoryRequestTypeDef(TypedDict):
+    PackageID: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class GetUpgradeHistoryRequestTypeDef(TypedDict):
+    DomainName: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class GetUpgradeStatusRequestTypeDef(TypedDict):
+    DomainName: str
+
+class InboundConnectionStatusTypeDef(TypedDict):
+    StatusCode: NotRequired[InboundConnectionStatusCodeType]
+    Message: NotRequired[str]
+
+class InstanceCountLimitsTypeDef(TypedDict):
+    MinimumInstanceCount: NotRequired[int]
+    MaximumInstanceCount: NotRequired[int]
+
+class InstanceTypeDetailsTypeDef(TypedDict):
+    InstanceType: NotRequired[OpenSearchPartitionInstanceTypeType]
+    EncryptionEnabled: NotRequired[bool]
+    CognitoEnabled: NotRequired[bool]
+    AppLogsEnabled: NotRequired[bool]
+    AdvancedSecurityEnabled: NotRequired[bool]
+    WarmEnabled: NotRequired[bool]
+    InstanceRole: NotRequired[List[str]]
+    AvailabilityZones: NotRequired[List[str]]
+
+class KeyStoreAccessOptionTypeDef(TypedDict):
+    KeyStoreAccessEnabled: bool
+    KeyAccessRoleArn: NotRequired[str]
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class ListApplicationsRequestTypeDef(TypedDict):
+    nextToken: NotRequired[str]
+    statuses: NotRequired[Sequence[ApplicationStatusType]]
+    maxResults: NotRequired[int]
+
+class ListDataSourcesRequestTypeDef(TypedDict):
+    DomainName: str
+
+class ListDirectQueryDataSourcesRequestTypeDef(TypedDict):
+    NextToken: NotRequired[str]
+
+class ListDomainMaintenancesRequestTypeDef(TypedDict):
+    DomainName: str
+    Action: NotRequired[MaintenanceTypeType]
+    Status: NotRequired[MaintenanceStatusType]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListDomainNamesRequestTypeDef(TypedDict):
+    EngineType: NotRequired[EngineTypeType]
+
+class ListDomainsForPackageRequestTypeDef(TypedDict):
+    PackageID: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListInstanceTypeDetailsRequestTypeDef(TypedDict):
+    EngineVersion: str
+    DomainName: NotRequired[str]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+    RetrieveAZs: NotRequired[bool]
+    InstanceType: NotRequired[str]
+
+class ListPackagesForDomainRequestTypeDef(TypedDict):
+    DomainName: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListScheduledActionsRequestTypeDef(TypedDict):
+    DomainName: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+ScheduledActionTypeDef = TypedDict(
+    "ScheduledActionTypeDef",
     {
         "Id": str,
         "Type": ActionTypeType,
         "Severity": ActionSeverityType,
         "ScheduledTime": int,
-    },
-)
-_OptionalScheduledActionTypeDef = TypedDict(
-    "_OptionalScheduledActionTypeDef",
-    {
-        "Description": str,
-        "ScheduledBy": ScheduledByType,
-        "Status": ActionStatusType,
-        "Mandatory": bool,
-        "Cancellable": bool,
-    },
-    total=False,
-)
-
-class ScheduledActionTypeDef(_RequiredScheduledActionTypeDef, _OptionalScheduledActionTypeDef):
-    pass
-
-ScheduledAutoTuneDetailsTypeDef = TypedDict(
-    "ScheduledAutoTuneDetailsTypeDef",
-    {
-        "Date": datetime,
-        "ActionType": ScheduledAutoTuneActionTypeType,
-        "Action": str,
-        "Severity": ScheduledAutoTuneSeverityTypeType,
-    },
-    total=False,
-)
-
-ServiceSoftwareOptionsTypeDef = TypedDict(
-    "ServiceSoftwareOptionsTypeDef",
-    {
-        "CurrentVersion": str,
-        "NewVersion": str,
-        "UpdateAvailable": bool,
-        "Cancellable": bool,
-        "UpdateStatus": DeploymentStatusType,
-        "Description": str,
-        "AutomatedUpdateDate": datetime,
-        "OptionalDeployment": bool,
-    },
-    total=False,
-)
-
-SnapshotOptionsStatusTypeDef = TypedDict(
-    "SnapshotOptionsStatusTypeDef",
-    {
-        "Options": "SnapshotOptionsTypeDef",
-        "Status": "OptionStatusTypeDef",
+        "Description": NotRequired[str],
+        "ScheduledBy": NotRequired[ScheduledByType],
+        "Status": NotRequired[ActionStatusType],
+        "Mandatory": NotRequired[bool],
+        "Cancellable": NotRequired[bool],
     },
 )
 
-SnapshotOptionsTypeDef = TypedDict(
-    "SnapshotOptionsTypeDef",
-    {
-        "AutomatedSnapshotStartHour": int,
-    },
-    total=False,
-)
+class ListTagsRequestTypeDef(TypedDict):
+    ARN: str
 
-SoftwareUpdateOptionsStatusTypeDef = TypedDict(
-    "SoftwareUpdateOptionsStatusTypeDef",
-    {
-        "Options": "SoftwareUpdateOptionsTypeDef",
-        "Status": "OptionStatusTypeDef",
-    },
-    total=False,
-)
+class ListVersionsRequestTypeDef(TypedDict):
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
 
-SoftwareUpdateOptionsTypeDef = TypedDict(
-    "SoftwareUpdateOptionsTypeDef",
-    {
-        "AutoSoftwareUpdateEnabled": bool,
-    },
-    total=False,
-)
+class ListVpcEndpointAccessRequestTypeDef(TypedDict):
+    DomainName: str
+    NextToken: NotRequired[str]
 
-_RequiredStartDomainMaintenanceRequestRequestTypeDef = TypedDict(
-    "_RequiredStartDomainMaintenanceRequestRequestTypeDef",
-    {
-        "DomainName": str,
-        "Action": MaintenanceTypeType,
-    },
-)
-_OptionalStartDomainMaintenanceRequestRequestTypeDef = TypedDict(
-    "_OptionalStartDomainMaintenanceRequestRequestTypeDef",
-    {
-        "NodeId": str,
-    },
-    total=False,
-)
+class ListVpcEndpointsForDomainRequestTypeDef(TypedDict):
+    DomainName: str
+    NextToken: NotRequired[str]
 
-class StartDomainMaintenanceRequestRequestTypeDef(
-    _RequiredStartDomainMaintenanceRequestRequestTypeDef,
-    _OptionalStartDomainMaintenanceRequestRequestTypeDef,
-):
-    pass
+class ListVpcEndpointsRequestTypeDef(TypedDict):
+    NextToken: NotRequired[str]
 
-StartDomainMaintenanceResponseTypeDef = TypedDict(
-    "StartDomainMaintenanceResponseTypeDef",
+NodeConfigTypeDef = TypedDict(
+    "NodeConfigTypeDef",
     {
-        "MaintenanceId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "Enabled": NotRequired[bool],
+        "Type": NotRequired[OpenSearchPartitionInstanceTypeType],
+        "Count": NotRequired[int],
     },
 )
 
-_RequiredStartServiceSoftwareUpdateRequestRequestTypeDef = TypedDict(
-    "_RequiredStartServiceSoftwareUpdateRequestRequestTypeDef",
-    {
-        "DomainName": str,
-    },
-)
-_OptionalStartServiceSoftwareUpdateRequestRequestTypeDef = TypedDict(
-    "_OptionalStartServiceSoftwareUpdateRequestRequestTypeDef",
-    {
-        "ScheduleAt": ScheduleAtType,
-        "DesiredStartTime": int,
-    },
-    total=False,
-)
+class WindowStartTimeTypeDef(TypedDict):
+    Hours: int
+    Minutes: int
 
-class StartServiceSoftwareUpdateRequestRequestTypeDef(
-    _RequiredStartServiceSoftwareUpdateRequestRequestTypeDef,
-    _OptionalStartServiceSoftwareUpdateRequestRequestTypeDef,
-):
-    pass
+class PluginPropertiesTypeDef(TypedDict):
+    Name: NotRequired[str]
+    Description: NotRequired[str]
+    Version: NotRequired[str]
+    ClassName: NotRequired[str]
+    UncompressedSizeInBytes: NotRequired[int]
 
-StartServiceSoftwareUpdateResponseTypeDef = TypedDict(
-    "StartServiceSoftwareUpdateResponseTypeDef",
-    {
-        "ServiceSoftwareOptions": "ServiceSoftwareOptionsTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class PurchaseReservedInstanceOfferingRequestTypeDef(TypedDict):
+    ReservedInstanceOfferingId: str
+    ReservationName: str
+    InstanceCount: NotRequired[int]
 
-StorageTypeLimitTypeDef = TypedDict(
-    "StorageTypeLimitTypeDef",
-    {
-        "LimitName": str,
-        "LimitValues": List[str],
-    },
-    total=False,
-)
+class RecurringChargeTypeDef(TypedDict):
+    RecurringChargeAmount: NotRequired[float]
+    RecurringChargeFrequency: NotRequired[str]
 
-StorageTypeTypeDef = TypedDict(
-    "StorageTypeTypeDef",
-    {
-        "StorageTypeName": str,
-        "StorageSubTypeName": str,
-        "StorageTypeLimits": List["StorageTypeLimitTypeDef"],
-    },
-    total=False,
-)
+class RejectInboundConnectionRequestTypeDef(TypedDict):
+    ConnectionId: str
 
-TagTypeDef = TypedDict(
-    "TagTypeDef",
-    {
-        "Key": str,
-        "Value": str,
-    },
-)
+class RemoveTagsRequestTypeDef(TypedDict):
+    ARN: str
+    TagKeys: Sequence[str]
 
-_RequiredUpdateDataSourceRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateDataSourceRequestRequestTypeDef",
-    {
-        "DomainName": str,
-        "Name": str,
-        "DataSourceType": "DataSourceTypeTypeDef",
-    },
-)
-_OptionalUpdateDataSourceRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateDataSourceRequestRequestTypeDef",
-    {
-        "Description": str,
-        "Status": DataSourceStatusType,
-    },
-    total=False,
-)
+class RevokeVpcEndpointAccessRequestTypeDef(TypedDict):
+    DomainName: str
+    Account: NotRequired[str]
+    Service: NotRequired[Literal["application.opensearchservice.amazonaws.com"]]
 
-class UpdateDataSourceRequestRequestTypeDef(
-    _RequiredUpdateDataSourceRequestRequestTypeDef, _OptionalUpdateDataSourceRequestRequestTypeDef
-):
-    pass
+class SAMLIdpTypeDef(TypedDict):
+    MetadataContent: str
+    EntityId: str
 
-UpdateDataSourceResponseTypeDef = TypedDict(
-    "UpdateDataSourceResponseTypeDef",
-    {
-        "Message": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class StartDomainMaintenanceRequestTypeDef(TypedDict):
+    DomainName: str
+    Action: MaintenanceTypeType
+    NodeId: NotRequired[str]
 
-_RequiredUpdateDomainConfigRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateDomainConfigRequestRequestTypeDef",
-    {
-        "DomainName": str,
-    },
-)
-_OptionalUpdateDomainConfigRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateDomainConfigRequestRequestTypeDef",
-    {
-        "ClusterConfig": "ClusterConfigTypeDef",
-        "EBSOptions": "EBSOptionsTypeDef",
-        "SnapshotOptions": "SnapshotOptionsTypeDef",
-        "VPCOptions": "VPCOptionsTypeDef",
-        "CognitoOptions": "CognitoOptionsTypeDef",
-        "AdvancedOptions": Dict[str, str],
-        "AccessPolicies": str,
-        "IPAddressType": IPAddressTypeType,
-        "LogPublishingOptions": Dict[LogTypeType, "LogPublishingOptionTypeDef"],
-        "EncryptionAtRestOptions": "EncryptionAtRestOptionsTypeDef",
-        "DomainEndpointOptions": "DomainEndpointOptionsTypeDef",
-        "NodeToNodeEncryptionOptions": "NodeToNodeEncryptionOptionsTypeDef",
-        "AdvancedSecurityOptions": "AdvancedSecurityOptionsInputTypeDef",
-        "AutoTuneOptions": "AutoTuneOptionsTypeDef",
-        "DryRun": bool,
-        "DryRunMode": DryRunModeType,
-        "OffPeakWindowOptions": "OffPeakWindowOptionsTypeDef",
-        "SoftwareUpdateOptions": "SoftwareUpdateOptionsTypeDef",
-    },
-    total=False,
-)
+class StartServiceSoftwareUpdateRequestTypeDef(TypedDict):
+    DomainName: str
+    ScheduleAt: NotRequired[ScheduleAtType]
+    DesiredStartTime: NotRequired[int]
 
-class UpdateDomainConfigRequestRequestTypeDef(
-    _RequiredUpdateDomainConfigRequestRequestTypeDef,
-    _OptionalUpdateDomainConfigRequestRequestTypeDef,
-):
-    pass
+class StorageTypeLimitTypeDef(TypedDict):
+    LimitName: NotRequired[str]
+    LimitValues: NotRequired[List[str]]
 
-UpdateDomainConfigResponseTypeDef = TypedDict(
-    "UpdateDomainConfigResponseTypeDef",
-    {
-        "DomainConfig": "DomainConfigTypeDef",
-        "DryRunResults": "DryRunResultsTypeDef",
-        "DryRunProgressStatus": "DryRunProgressStatusTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class UpdatePackageScopeRequestTypeDef(TypedDict):
+    PackageID: str
+    Operation: PackageScopeOperationEnumType
+    PackageUserList: Sequence[str]
 
-_RequiredUpdatePackageRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdatePackageRequestRequestTypeDef",
-    {
-        "PackageID": str,
-        "PackageSource": "PackageSourceTypeDef",
-    },
-)
-_OptionalUpdatePackageRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdatePackageRequestRequestTypeDef",
-    {
-        "PackageDescription": str,
-        "CommitMessage": str,
-    },
-    total=False,
-)
+class UpdateScheduledActionRequestTypeDef(TypedDict):
+    DomainName: str
+    ActionID: str
+    ActionType: ActionTypeType
+    ScheduleAt: ScheduleAtType
+    DesiredStartTime: NotRequired[int]
 
-class UpdatePackageRequestRequestTypeDef(
-    _RequiredUpdatePackageRequestRequestTypeDef, _OptionalUpdatePackageRequestRequestTypeDef
-):
-    pass
+class UpgradeDomainRequestTypeDef(TypedDict):
+    DomainName: str
+    TargetVersion: str
+    PerformCheckOnly: NotRequired[bool]
+    AdvancedOptions: NotRequired[Mapping[str, str]]
 
-UpdatePackageResponseTypeDef = TypedDict(
-    "UpdatePackageResponseTypeDef",
-    {
-        "PackageDetails": "PackageDetailsTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class UpgradeStepItemTypeDef(TypedDict):
+    UpgradeStep: NotRequired[UpgradeStepType]
+    UpgradeStepStatus: NotRequired[UpgradeStatusType]
+    Issues: NotRequired[List[str]]
+    ProgressPercent: NotRequired[float]
 
-_RequiredUpdateScheduledActionRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateScheduledActionRequestRequestTypeDef",
-    {
-        "DomainName": str,
-        "ActionID": str,
-        "ActionType": ActionTypeType,
-        "ScheduleAt": ScheduleAtType,
-    },
-)
-_OptionalUpdateScheduledActionRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateScheduledActionRequestRequestTypeDef",
-    {
-        "DesiredStartTime": int,
-    },
-    total=False,
-)
+class AIMLOptionsInputTypeDef(TypedDict):
+    NaturalLanguageQueryGenerationOptions: NotRequired[
+        NaturalLanguageQueryGenerationOptionsInputTypeDef
+    ]
 
-class UpdateScheduledActionRequestRequestTypeDef(
-    _RequiredUpdateScheduledActionRequestRequestTypeDef,
-    _OptionalUpdateScheduledActionRequestRequestTypeDef,
-):
-    pass
+class AIMLOptionsOutputTypeDef(TypedDict):
+    NaturalLanguageQueryGenerationOptions: NotRequired[
+        NaturalLanguageQueryGenerationOptionsOutputTypeDef
+    ]
 
-UpdateScheduledActionResponseTypeDef = TypedDict(
-    "UpdateScheduledActionResponseTypeDef",
-    {
-        "ScheduledAction": "ScheduledActionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class AccessPoliciesStatusTypeDef(TypedDict):
+    Options: str
+    Status: OptionStatusTypeDef
 
-UpdateVpcEndpointRequestRequestTypeDef = TypedDict(
-    "UpdateVpcEndpointRequestRequestTypeDef",
-    {
-        "VpcEndpointId": str,
-        "VpcOptions": "VPCOptionsTypeDef",
-    },
-)
+class AdvancedOptionsStatusTypeDef(TypedDict):
+    Options: Dict[str, str]
+    Status: OptionStatusTypeDef
 
-UpdateVpcEndpointResponseTypeDef = TypedDict(
-    "UpdateVpcEndpointResponseTypeDef",
-    {
-        "VpcEndpoint": "VpcEndpointTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class IPAddressTypeStatusTypeDef(TypedDict):
+    Options: IPAddressTypeType
+    Status: OptionStatusTypeDef
 
-_RequiredUpgradeDomainRequestRequestTypeDef = TypedDict(
-    "_RequiredUpgradeDomainRequestRequestTypeDef",
-    {
-        "DomainName": str,
-        "TargetVersion": str,
-    },
-)
-_OptionalUpgradeDomainRequestRequestTypeDef = TypedDict(
-    "_OptionalUpgradeDomainRequestRequestTypeDef",
-    {
-        "PerformCheckOnly": bool,
-        "AdvancedOptions": Dict[str, str],
-    },
-    total=False,
-)
+class VersionStatusTypeDef(TypedDict):
+    Options: str
+    Status: OptionStatusTypeDef
 
-class UpgradeDomainRequestRequestTypeDef(
-    _RequiredUpgradeDomainRequestRequestTypeDef, _OptionalUpgradeDomainRequestRequestTypeDef
-):
-    pass
+class DomainInformationContainerTypeDef(TypedDict):
+    AWSDomainInformation: NotRequired[AWSDomainInformationTypeDef]
 
-UpgradeDomainResponseTypeDef = TypedDict(
-    "UpgradeDomainResponseTypeDef",
-    {
-        "UpgradeId": str,
-        "DomainName": str,
-        "TargetVersion": str,
-        "PerformCheckOnly": bool,
-        "AdvancedOptions": Dict[str, str],
-        "ChangeProgressDetails": "ChangeProgressDetailsTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class AddDataSourceResponseTypeDef(TypedDict):
+    Message: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-UpgradeHistoryTypeDef = TypedDict(
-    "UpgradeHistoryTypeDef",
-    {
-        "UpgradeName": str,
-        "StartTimestamp": datetime,
-        "UpgradeStatus": UpgradeStatusType,
-        "StepsList": List["UpgradeStepItemTypeDef"],
-    },
-    total=False,
-)
+class AddDirectQueryDataSourceResponseTypeDef(TypedDict):
+    DataSourceArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-UpgradeStepItemTypeDef = TypedDict(
-    "UpgradeStepItemTypeDef",
-    {
-        "UpgradeStep": UpgradeStepType,
-        "UpgradeStepStatus": UpgradeStatusType,
-        "Issues": List[str],
-        "ProgressPercent": float,
-    },
-    total=False,
-)
+class DeleteDataSourceResponseTypeDef(TypedDict):
+    Message: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-VPCDerivedInfoStatusTypeDef = TypedDict(
-    "VPCDerivedInfoStatusTypeDef",
+class EmptyResponseMetadataTypeDef(TypedDict):
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetDomainMaintenanceStatusResponseTypeDef(TypedDict):
+    Status: MaintenanceStatusType
+    StatusMessage: str
+    NodeId: str
+    Action: MaintenanceTypeType
+    CreatedAt: datetime
+    UpdatedAt: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetUpgradeStatusResponseTypeDef(TypedDict):
+    UpgradeStep: UpgradeStepType
+    StepStatus: UpgradeStatusType
+    UpgradeName: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListVersionsResponseTypeDef(TypedDict):
+    Versions: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class PurchaseReservedInstanceOfferingResponseTypeDef(TypedDict):
+    ReservedInstanceId: str
+    ReservationName: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartDomainMaintenanceResponseTypeDef(TypedDict):
+    MaintenanceId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateDataSourceResponseTypeDef(TypedDict):
+    Message: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateDirectQueryDataSourceResponseTypeDef(TypedDict):
+    DataSourceArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdatePackageScopeResponseTypeDef(TypedDict):
+    PackageID: str
+    Operation: PackageScopeOperationEnumType
+    PackageUserList: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class AddTagsRequestTypeDef(TypedDict):
+    ARN: str
+    TagList: Sequence[TagTypeDef]
+
+class ListTagsResponseTypeDef(TypedDict):
+    TagList: List[TagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListApplicationsResponseTypeDef(TypedDict):
+    ApplicationSummaries: List[ApplicationSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class AuthorizeVpcEndpointAccessResponseTypeDef(TypedDict):
+    AuthorizedPrincipal: AuthorizedPrincipalTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListVpcEndpointAccessResponseTypeDef(TypedDict):
+    AuthorizedPrincipalList: List[AuthorizedPrincipalTypeDef]
+    NextToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class AutoTuneDetailsTypeDef(TypedDict):
+    ScheduledAutoTuneDetails: NotRequired[ScheduledAutoTuneDetailsTypeDef]
+
+class AutoTuneMaintenanceScheduleOutputTypeDef(TypedDict):
+    StartAt: NotRequired[datetime]
+    Duration: NotRequired[DurationTypeDef]
+    CronExpressionForRecurrence: NotRequired[str]
+
+class AutoTuneMaintenanceScheduleTypeDef(TypedDict):
+    StartAt: NotRequired[TimestampTypeDef]
+    Duration: NotRequired[DurationTypeDef]
+    CronExpressionForRecurrence: NotRequired[str]
+
+class EnvironmentInfoTypeDef(TypedDict):
+    AvailabilityZoneInformation: NotRequired[List[AvailabilityZoneInfoTypeDef]]
+
+class CancelDomainConfigChangeResponseTypeDef(TypedDict):
+    CancelledChangeIds: List[str]
+    CancelledChangeProperties: List[CancelledChangePropertyTypeDef]
+    DryRun: bool
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CancelServiceSoftwareUpdateResponseTypeDef(TypedDict):
+    ServiceSoftwareOptions: ServiceSoftwareOptionsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartServiceSoftwareUpdateResponseTypeDef(TypedDict):
+    ServiceSoftwareOptions: ServiceSoftwareOptionsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpgradeDomainResponseTypeDef(TypedDict):
+    UpgradeId: str
+    DomainName: str
+    TargetVersion: str
+    PerformCheckOnly: bool
+    AdvancedOptions: Dict[str, str]
+    ChangeProgressDetails: ChangeProgressDetailsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ChangeProgressStatusDetailsTypeDef(TypedDict):
+    ChangeId: NotRequired[str]
+    StartTime: NotRequired[datetime]
+    Status: NotRequired[OverallChangeStatusType]
+    PendingProperties: NotRequired[List[str]]
+    CompletedProperties: NotRequired[List[str]]
+    TotalNumberOfStages: NotRequired[int]
+    ChangeProgressStages: NotRequired[List[ChangeProgressStageTypeDef]]
+    LastUpdatedTime: NotRequired[datetime]
+    ConfigChangeStatus: NotRequired[ConfigChangeStatusType]
+    InitiatedBy: NotRequired[InitiatedByType]
+
+class CognitoOptionsStatusTypeDef(TypedDict):
+    Options: CognitoOptionsTypeDef
+    Status: OptionStatusTypeDef
+
+class GetCompatibleVersionsResponseTypeDef(TypedDict):
+    CompatibleVersions: List[CompatibleVersionsMapTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ConnectionPropertiesTypeDef(TypedDict):
+    Endpoint: NotRequired[str]
+    CrossClusterSearch: NotRequired[CrossClusterSearchConnectionPropertiesTypeDef]
+
+UpdateApplicationRequestTypeDef = TypedDict(
+    "UpdateApplicationRequestTypeDef",
     {
-        "Options": "VPCDerivedInfoTypeDef",
-        "Status": "OptionStatusTypeDef",
+        "id": str,
+        "dataSources": NotRequired[Sequence[DataSourceTypeDef]],
+        "appConfigs": NotRequired[Sequence[AppConfigTypeDef]],
     },
 )
 
-VPCDerivedInfoTypeDef = TypedDict(
-    "VPCDerivedInfoTypeDef",
-    {
-        "VPCId": str,
-        "SubnetIds": List[str],
-        "AvailabilityZones": List[str],
-        "SecurityGroupIds": List[str],
-    },
-    total=False,
-)
+class CreateApplicationRequestTypeDef(TypedDict):
+    name: str
+    clientToken: NotRequired[str]
+    dataSources: NotRequired[Sequence[DataSourceTypeDef]]
+    iamIdentityCenterOptions: NotRequired[IamIdentityCenterOptionsInputTypeDef]
+    appConfigs: NotRequired[Sequence[AppConfigTypeDef]]
+    tagList: NotRequired[Sequence[TagTypeDef]]
 
-VPCOptionsTypeDef = TypedDict(
-    "VPCOptionsTypeDef",
+CreateApplicationResponseTypeDef = TypedDict(
+    "CreateApplicationResponseTypeDef",
     {
-        "SubnetIds": List[str],
-        "SecurityGroupIds": List[str],
-    },
-    total=False,
-)
-
-ValidationFailureTypeDef = TypedDict(
-    "ValidationFailureTypeDef",
-    {
-        "Code": str,
-        "Message": str,
-    },
-    total=False,
-)
-
-VersionStatusTypeDef = TypedDict(
-    "VersionStatusTypeDef",
-    {
-        "Options": str,
-        "Status": "OptionStatusTypeDef",
+        "id": str,
+        "name": str,
+        "arn": str,
+        "dataSources": List[DataSourceTypeDef],
+        "iamIdentityCenterOptions": IamIdentityCenterOptionsTypeDef,
+        "appConfigs": List[AppConfigTypeDef],
+        "tagList": List[TagTypeDef],
+        "createdAt": datetime,
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
-
-VpcEndpointErrorTypeDef = TypedDict(
-    "VpcEndpointErrorTypeDef",
+GetApplicationResponseTypeDef = TypedDict(
+    "GetApplicationResponseTypeDef",
     {
-        "VpcEndpointId": str,
-        "ErrorCode": VpcEndpointErrorCodeType,
-        "ErrorMessage": str,
+        "id": str,
+        "arn": str,
+        "name": str,
+        "endpoint": str,
+        "status": ApplicationStatusType,
+        "iamIdentityCenterOptions": IamIdentityCenterOptionsTypeDef,
+        "dataSources": List[DataSourceTypeDef],
+        "appConfigs": List[AppConfigTypeDef],
+        "createdAt": datetime,
+        "lastUpdatedAt": datetime,
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
-    total=False,
 )
-
-VpcEndpointSummaryTypeDef = TypedDict(
-    "VpcEndpointSummaryTypeDef",
+UpdateApplicationResponseTypeDef = TypedDict(
+    "UpdateApplicationResponseTypeDef",
     {
-        "VpcEndpointId": str,
-        "VpcEndpointOwner": str,
-        "DomainArn": str,
-        "Status": VpcEndpointStatusType,
-    },
-    total=False,
-)
-
-VpcEndpointTypeDef = TypedDict(
-    "VpcEndpointTypeDef",
-    {
-        "VpcEndpointId": str,
-        "VpcEndpointOwner": str,
-        "DomainArn": str,
-        "VpcOptions": "VPCDerivedInfoTypeDef",
-        "Status": VpcEndpointStatusType,
-        "Endpoint": str,
-    },
-    total=False,
-)
-
-WindowStartTimeTypeDef = TypedDict(
-    "WindowStartTimeTypeDef",
-    {
-        "Hours": int,
-        "Minutes": int,
+        "id": str,
+        "name": str,
+        "arn": str,
+        "dataSources": List[DataSourceTypeDef],
+        "iamIdentityCenterOptions": IamIdentityCenterOptionsTypeDef,
+        "appConfigs": List[AppConfigTypeDef],
+        "createdAt": datetime,
+        "lastUpdatedAt": datetime,
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
 
-ZoneAwarenessConfigTypeDef = TypedDict(
-    "ZoneAwarenessConfigTypeDef",
-    {
-        "AvailabilityZoneCount": int,
-    },
-    total=False,
-)
+class DomainEndpointOptionsStatusTypeDef(TypedDict):
+    Options: DomainEndpointOptionsTypeDef
+    Status: OptionStatusTypeDef
+
+class EBSOptionsStatusTypeDef(TypedDict):
+    Options: EBSOptionsTypeDef
+    Status: OptionStatusTypeDef
+
+class EncryptionAtRestOptionsStatusTypeDef(TypedDict):
+    Options: EncryptionAtRestOptionsTypeDef
+    Status: OptionStatusTypeDef
+
+class LogPublishingOptionsStatusTypeDef(TypedDict):
+    Options: NotRequired[Dict[LogTypeType, LogPublishingOptionTypeDef]]
+    Status: NotRequired[OptionStatusTypeDef]
+
+class NodeToNodeEncryptionOptionsStatusTypeDef(TypedDict):
+    Options: NodeToNodeEncryptionOptionsTypeDef
+    Status: OptionStatusTypeDef
+
+class SnapshotOptionsStatusTypeDef(TypedDict):
+    Options: SnapshotOptionsTypeDef
+    Status: OptionStatusTypeDef
+
+class SoftwareUpdateOptionsStatusTypeDef(TypedDict):
+    Options: NotRequired[SoftwareUpdateOptionsTypeDef]
+    Status: NotRequired[OptionStatusTypeDef]
+
+class CreateVpcEndpointRequestTypeDef(TypedDict):
+    DomainArn: str
+    VpcOptions: VPCOptionsTypeDef
+    ClientToken: NotRequired[str]
+
+class UpdateVpcEndpointRequestTypeDef(TypedDict):
+    VpcEndpointId: str
+    VpcOptions: VPCOptionsTypeDef
+
+class UpdatePackageRequestTypeDef(TypedDict):
+    PackageID: str
+    PackageSource: PackageSourceTypeDef
+    PackageDescription: NotRequired[str]
+    CommitMessage: NotRequired[str]
+    PackageConfiguration: NotRequired[PackageConfigurationTypeDef]
+    PackageEncryptionOptions: NotRequired[PackageEncryptionOptionsTypeDef]
+
+class CreatePackageRequestTypeDef(TypedDict):
+    PackageName: str
+    PackageType: PackageTypeType
+    PackageSource: PackageSourceTypeDef
+    PackageDescription: NotRequired[str]
+    PackageConfiguration: NotRequired[PackageConfigurationTypeDef]
+    EngineVersion: NotRequired[str]
+    PackageVendingOptions: NotRequired[PackageVendingOptionsTypeDef]
+    PackageEncryptionOptions: NotRequired[PackageEncryptionOptionsTypeDef]
+
+class DataSourceTypeTypeDef(TypedDict):
+    S3GlueDataCatalog: NotRequired[S3GlueDataCatalogTypeDef]
+
+class DeleteVpcEndpointResponseTypeDef(TypedDict):
+    VpcEndpointSummary: VpcEndpointSummaryTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListVpcEndpointsForDomainResponseTypeDef(TypedDict):
+    VpcEndpointSummaryList: List[VpcEndpointSummaryTypeDef]
+    NextToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListVpcEndpointsResponseTypeDef(TypedDict):
+    VpcEndpointSummaryList: List[VpcEndpointSummaryTypeDef]
+    NextToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeDomainNodesResponseTypeDef(TypedDict):
+    DomainNodesStatusList: List[DomainNodesStatusTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeInboundConnectionsRequestTypeDef(TypedDict):
+    Filters: NotRequired[Sequence[FilterTypeDef]]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class DescribeOutboundConnectionsRequestTypeDef(TypedDict):
+    Filters: NotRequired[Sequence[FilterTypeDef]]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class DescribePackagesRequestTypeDef(TypedDict):
+    Filters: NotRequired[Sequence[DescribePackagesFilterTypeDef]]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class DirectQueryDataSourceTypeTypeDef(TypedDict):
+    CloudWatchLog: NotRequired[CloudWatchDirectQueryDataSourceTypeDef]
+    SecurityLake: NotRequired[SecurityLakeDirectQueryDataSourceTypeDef]
+
+class ListDomainNamesResponseTypeDef(TypedDict):
+    DomainNames: List[DomainInfoTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListDomainMaintenancesResponseTypeDef(TypedDict):
+    DomainMaintenances: List[DomainMaintenanceDetailsTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class IdentityCenterOptionsStatusTypeDef(TypedDict):
+    Options: IdentityCenterOptionsTypeDef
+    Status: OptionStatusTypeDef
+
+class VPCDerivedInfoStatusTypeDef(TypedDict):
+    Options: VPCDerivedInfoTypeDef
+    Status: OptionStatusTypeDef
+
+class VpcEndpointTypeDef(TypedDict):
+    VpcEndpointId: NotRequired[str]
+    VpcEndpointOwner: NotRequired[str]
+    DomainArn: NotRequired[str]
+    VpcOptions: NotRequired[VPCDerivedInfoTypeDef]
+    Status: NotRequired[VpcEndpointStatusType]
+    Endpoint: NotRequired[str]
+
+class DryRunProgressStatusTypeDef(TypedDict):
+    DryRunId: str
+    DryRunStatus: str
+    CreationDate: str
+    UpdateDate: str
+    ValidationFailures: NotRequired[List[ValidationFailureTypeDef]]
+
+class InstanceLimitsTypeDef(TypedDict):
+    InstanceCountLimits: NotRequired[InstanceCountLimitsTypeDef]
+
+class ListInstanceTypeDetailsResponseTypeDef(TypedDict):
+    InstanceTypeDetails: List[InstanceTypeDetailsTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class PackageAssociationConfigurationTypeDef(TypedDict):
+    KeyStoreAccessOption: NotRequired[KeyStoreAccessOptionTypeDef]
+
+class ListApplicationsRequestPaginateTypeDef(TypedDict):
+    statuses: NotRequired[Sequence[ApplicationStatusType]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListScheduledActionsResponseTypeDef(TypedDict):
+    ScheduledActions: List[ScheduledActionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class UpdateScheduledActionResponseTypeDef(TypedDict):
+    ScheduledAction: ScheduledActionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class NodeOptionTypeDef(TypedDict):
+    NodeType: NotRequired[Literal["coordinator"]]
+    NodeConfig: NotRequired[NodeConfigTypeDef]
+
+class OffPeakWindowTypeDef(TypedDict):
+    WindowStartTime: NotRequired[WindowStartTimeTypeDef]
+
+class PackageDetailsTypeDef(TypedDict):
+    PackageID: NotRequired[str]
+    PackageName: NotRequired[str]
+    PackageType: NotRequired[PackageTypeType]
+    PackageDescription: NotRequired[str]
+    PackageStatus: NotRequired[PackageStatusType]
+    CreatedAt: NotRequired[datetime]
+    LastUpdatedAt: NotRequired[datetime]
+    AvailablePackageVersion: NotRequired[str]
+    ErrorDetails: NotRequired[ErrorDetailsTypeDef]
+    EngineVersion: NotRequired[str]
+    AvailablePluginProperties: NotRequired[PluginPropertiesTypeDef]
+    AvailablePackageConfiguration: NotRequired[PackageConfigurationTypeDef]
+    AllowListedUserList: NotRequired[List[str]]
+    PackageOwner: NotRequired[str]
+    PackageVendingOptions: NotRequired[PackageVendingOptionsTypeDef]
+    PackageEncryptionOptions: NotRequired[PackageEncryptionOptionsTypeDef]
+
+class PackageVersionHistoryTypeDef(TypedDict):
+    PackageVersion: NotRequired[str]
+    CommitMessage: NotRequired[str]
+    CreatedAt: NotRequired[datetime]
+    PluginProperties: NotRequired[PluginPropertiesTypeDef]
+    PackageConfiguration: NotRequired[PackageConfigurationTypeDef]
+
+class ReservedInstanceOfferingTypeDef(TypedDict):
+    ReservedInstanceOfferingId: NotRequired[str]
+    InstanceType: NotRequired[OpenSearchPartitionInstanceTypeType]
+    Duration: NotRequired[int]
+    FixedPrice: NotRequired[float]
+    UsagePrice: NotRequired[float]
+    CurrencyCode: NotRequired[str]
+    PaymentOption: NotRequired[ReservedInstancePaymentOptionType]
+    RecurringCharges: NotRequired[List[RecurringChargeTypeDef]]
+
+class ReservedInstanceTypeDef(TypedDict):
+    ReservationName: NotRequired[str]
+    ReservedInstanceId: NotRequired[str]
+    BillingSubscriptionId: NotRequired[int]
+    ReservedInstanceOfferingId: NotRequired[str]
+    InstanceType: NotRequired[OpenSearchPartitionInstanceTypeType]
+    StartTime: NotRequired[datetime]
+    Duration: NotRequired[int]
+    FixedPrice: NotRequired[float]
+    UsagePrice: NotRequired[float]
+    CurrencyCode: NotRequired[str]
+    InstanceCount: NotRequired[int]
+    State: NotRequired[str]
+    PaymentOption: NotRequired[ReservedInstancePaymentOptionType]
+    RecurringCharges: NotRequired[List[RecurringChargeTypeDef]]
+
+class SAMLOptionsInputTypeDef(TypedDict):
+    Enabled: NotRequired[bool]
+    Idp: NotRequired[SAMLIdpTypeDef]
+    MasterUserName: NotRequired[str]
+    MasterBackendRole: NotRequired[str]
+    SubjectKey: NotRequired[str]
+    RolesKey: NotRequired[str]
+    SessionTimeoutMinutes: NotRequired[int]
+
+class SAMLOptionsOutputTypeDef(TypedDict):
+    Enabled: NotRequired[bool]
+    Idp: NotRequired[SAMLIdpTypeDef]
+    SubjectKey: NotRequired[str]
+    RolesKey: NotRequired[str]
+    SessionTimeoutMinutes: NotRequired[int]
+
+class StorageTypeTypeDef(TypedDict):
+    StorageTypeName: NotRequired[str]
+    StorageSubTypeName: NotRequired[str]
+    StorageTypeLimits: NotRequired[List[StorageTypeLimitTypeDef]]
+
+class UpgradeHistoryTypeDef(TypedDict):
+    UpgradeName: NotRequired[str]
+    StartTimestamp: NotRequired[datetime]
+    UpgradeStatus: NotRequired[UpgradeStatusType]
+    StepsList: NotRequired[List[UpgradeStepItemTypeDef]]
+
+class AIMLOptionsStatusTypeDef(TypedDict):
+    Options: NotRequired[AIMLOptionsOutputTypeDef]
+    Status: NotRequired[OptionStatusTypeDef]
+
+class InboundConnectionTypeDef(TypedDict):
+    LocalDomainInfo: NotRequired[DomainInformationContainerTypeDef]
+    RemoteDomainInfo: NotRequired[DomainInformationContainerTypeDef]
+    ConnectionId: NotRequired[str]
+    ConnectionStatus: NotRequired[InboundConnectionStatusTypeDef]
+    ConnectionMode: NotRequired[ConnectionModeType]
+
+class AutoTuneTypeDef(TypedDict):
+    AutoTuneType: NotRequired[Literal["SCHEDULED_ACTION"]]
+    AutoTuneDetails: NotRequired[AutoTuneDetailsTypeDef]
+
+class AutoTuneOptionsExtraTypeDef(TypedDict):
+    DesiredState: NotRequired[AutoTuneDesiredStateType]
+    RollbackOnDisable: NotRequired[RollbackOnDisableType]
+    MaintenanceSchedules: NotRequired[List[AutoTuneMaintenanceScheduleOutputTypeDef]]
+    UseOffPeakWindow: NotRequired[bool]
+
+AutoTuneMaintenanceScheduleUnionTypeDef = Union[
+    AutoTuneMaintenanceScheduleTypeDef, AutoTuneMaintenanceScheduleOutputTypeDef
+]
+
+class AutoTuneOptionsTypeDef(TypedDict):
+    DesiredState: NotRequired[AutoTuneDesiredStateType]
+    RollbackOnDisable: NotRequired[RollbackOnDisableType]
+    MaintenanceSchedules: NotRequired[Sequence[AutoTuneMaintenanceScheduleTypeDef]]
+    UseOffPeakWindow: NotRequired[bool]
+
+class DescribeDomainHealthResponseTypeDef(TypedDict):
+    DomainState: DomainStateType
+    AvailabilityZoneCount: str
+    ActiveAvailabilityZoneCount: str
+    StandByAvailabilityZoneCount: str
+    DataNodeCount: str
+    DedicatedMaster: bool
+    MasterEligibleNodeCount: str
+    WarmNodeCount: str
+    MasterNode: MasterNodeStatusType
+    ClusterHealth: DomainHealthType
+    TotalShards: str
+    TotalUnAssignedShards: str
+    EnvironmentInformation: List[EnvironmentInfoTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeDomainChangeProgressResponseTypeDef(TypedDict):
+    ChangeProgressStatus: ChangeProgressStatusDetailsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateOutboundConnectionRequestTypeDef(TypedDict):
+    LocalDomainInfo: DomainInformationContainerTypeDef
+    RemoteDomainInfo: DomainInformationContainerTypeDef
+    ConnectionAlias: str
+    ConnectionMode: NotRequired[ConnectionModeType]
+    ConnectionProperties: NotRequired[ConnectionPropertiesTypeDef]
+
+class CreateOutboundConnectionResponseTypeDef(TypedDict):
+    LocalDomainInfo: DomainInformationContainerTypeDef
+    RemoteDomainInfo: DomainInformationContainerTypeDef
+    ConnectionAlias: str
+    ConnectionStatus: OutboundConnectionStatusTypeDef
+    ConnectionId: str
+    ConnectionMode: ConnectionModeType
+    ConnectionProperties: ConnectionPropertiesTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class OutboundConnectionTypeDef(TypedDict):
+    LocalDomainInfo: NotRequired[DomainInformationContainerTypeDef]
+    RemoteDomainInfo: NotRequired[DomainInformationContainerTypeDef]
+    ConnectionId: NotRequired[str]
+    ConnectionAlias: NotRequired[str]
+    ConnectionStatus: NotRequired[OutboundConnectionStatusTypeDef]
+    ConnectionMode: NotRequired[ConnectionModeType]
+    ConnectionProperties: NotRequired[ConnectionPropertiesTypeDef]
+
+class AddDataSourceRequestTypeDef(TypedDict):
+    DomainName: str
+    Name: str
+    DataSourceType: DataSourceTypeTypeDef
+    Description: NotRequired[str]
+
+class DataSourceDetailsTypeDef(TypedDict):
+    DataSourceType: NotRequired[DataSourceTypeTypeDef]
+    Name: NotRequired[str]
+    Description: NotRequired[str]
+    Status: NotRequired[DataSourceStatusType]
+
+class GetDataSourceResponseTypeDef(TypedDict):
+    DataSourceType: DataSourceTypeTypeDef
+    Name: str
+    Description: str
+    Status: DataSourceStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateDataSourceRequestTypeDef(TypedDict):
+    DomainName: str
+    Name: str
+    DataSourceType: DataSourceTypeTypeDef
+    Description: NotRequired[str]
+    Status: NotRequired[DataSourceStatusType]
+
+class AddDirectQueryDataSourceRequestTypeDef(TypedDict):
+    DataSourceName: str
+    DataSourceType: DirectQueryDataSourceTypeTypeDef
+    OpenSearchArns: Sequence[str]
+    Description: NotRequired[str]
+    TagList: NotRequired[Sequence[TagTypeDef]]
+
+class DirectQueryDataSourceTypeDef(TypedDict):
+    DataSourceName: NotRequired[str]
+    DataSourceType: NotRequired[DirectQueryDataSourceTypeTypeDef]
+    Description: NotRequired[str]
+    OpenSearchArns: NotRequired[List[str]]
+    DataSourceArn: NotRequired[str]
+    TagList: NotRequired[List[TagTypeDef]]
+
+class GetDirectQueryDataSourceResponseTypeDef(TypedDict):
+    DataSourceName: str
+    DataSourceType: DirectQueryDataSourceTypeTypeDef
+    Description: str
+    OpenSearchArns: List[str]
+    DataSourceArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateDirectQueryDataSourceRequestTypeDef(TypedDict):
+    DataSourceName: str
+    DataSourceType: DirectQueryDataSourceTypeTypeDef
+    OpenSearchArns: Sequence[str]
+    Description: NotRequired[str]
+
+class CreateVpcEndpointResponseTypeDef(TypedDict):
+    VpcEndpoint: VpcEndpointTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeVpcEndpointsResponseTypeDef(TypedDict):
+    VpcEndpoints: List[VpcEndpointTypeDef]
+    VpcEndpointErrors: List[VpcEndpointErrorTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateVpcEndpointResponseTypeDef(TypedDict):
+    VpcEndpoint: VpcEndpointTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class AssociatePackageRequestTypeDef(TypedDict):
+    PackageID: str
+    DomainName: str
+    PrerequisitePackageIDList: NotRequired[Sequence[str]]
+    AssociationConfiguration: NotRequired[PackageAssociationConfigurationTypeDef]
+
+class DomainPackageDetailsTypeDef(TypedDict):
+    PackageID: NotRequired[str]
+    PackageName: NotRequired[str]
+    PackageType: NotRequired[PackageTypeType]
+    LastUpdated: NotRequired[datetime]
+    DomainName: NotRequired[str]
+    DomainPackageStatus: NotRequired[DomainPackageStatusType]
+    PackageVersion: NotRequired[str]
+    PrerequisitePackageIDList: NotRequired[List[str]]
+    ReferencePath: NotRequired[str]
+    ErrorDetails: NotRequired[ErrorDetailsTypeDef]
+    AssociationConfiguration: NotRequired[PackageAssociationConfigurationTypeDef]
+
+class PackageDetailsForAssociationTypeDef(TypedDict):
+    PackageID: str
+    PrerequisitePackageIDList: NotRequired[Sequence[str]]
+    AssociationConfiguration: NotRequired[PackageAssociationConfigurationTypeDef]
+
+class ClusterConfigOutputTypeDef(TypedDict):
+    InstanceType: NotRequired[OpenSearchPartitionInstanceTypeType]
+    InstanceCount: NotRequired[int]
+    DedicatedMasterEnabled: NotRequired[bool]
+    ZoneAwarenessEnabled: NotRequired[bool]
+    ZoneAwarenessConfig: NotRequired[ZoneAwarenessConfigTypeDef]
+    DedicatedMasterType: NotRequired[OpenSearchPartitionInstanceTypeType]
+    DedicatedMasterCount: NotRequired[int]
+    WarmEnabled: NotRequired[bool]
+    WarmType: NotRequired[OpenSearchWarmPartitionInstanceTypeType]
+    WarmCount: NotRequired[int]
+    ColdStorageOptions: NotRequired[ColdStorageOptionsTypeDef]
+    MultiAZWithStandbyEnabled: NotRequired[bool]
+    NodeOptions: NotRequired[List[NodeOptionTypeDef]]
+
+class ClusterConfigTypeDef(TypedDict):
+    InstanceType: NotRequired[OpenSearchPartitionInstanceTypeType]
+    InstanceCount: NotRequired[int]
+    DedicatedMasterEnabled: NotRequired[bool]
+    ZoneAwarenessEnabled: NotRequired[bool]
+    ZoneAwarenessConfig: NotRequired[ZoneAwarenessConfigTypeDef]
+    DedicatedMasterType: NotRequired[OpenSearchPartitionInstanceTypeType]
+    DedicatedMasterCount: NotRequired[int]
+    WarmEnabled: NotRequired[bool]
+    WarmType: NotRequired[OpenSearchWarmPartitionInstanceTypeType]
+    WarmCount: NotRequired[int]
+    ColdStorageOptions: NotRequired[ColdStorageOptionsTypeDef]
+    MultiAZWithStandbyEnabled: NotRequired[bool]
+    NodeOptions: NotRequired[Sequence[NodeOptionTypeDef]]
+
+class OffPeakWindowOptionsTypeDef(TypedDict):
+    Enabled: NotRequired[bool]
+    OffPeakWindow: NotRequired[OffPeakWindowTypeDef]
+
+class CreatePackageResponseTypeDef(TypedDict):
+    PackageDetails: PackageDetailsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeletePackageResponseTypeDef(TypedDict):
+    PackageDetails: PackageDetailsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribePackagesResponseTypeDef(TypedDict):
+    PackageDetailsList: List[PackageDetailsTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class UpdatePackageResponseTypeDef(TypedDict):
+    PackageDetails: PackageDetailsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetPackageVersionHistoryResponseTypeDef(TypedDict):
+    PackageID: str
+    PackageVersionHistoryList: List[PackageVersionHistoryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class DescribeReservedInstanceOfferingsResponseTypeDef(TypedDict):
+    ReservedInstanceOfferings: List[ReservedInstanceOfferingTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class DescribeReservedInstancesResponseTypeDef(TypedDict):
+    ReservedInstances: List[ReservedInstanceTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class AdvancedSecurityOptionsInputTypeDef(TypedDict):
+    Enabled: NotRequired[bool]
+    InternalUserDatabaseEnabled: NotRequired[bool]
+    MasterUserOptions: NotRequired[MasterUserOptionsTypeDef]
+    SAMLOptions: NotRequired[SAMLOptionsInputTypeDef]
+    JWTOptions: NotRequired[JWTOptionsInputTypeDef]
+    AnonymousAuthEnabled: NotRequired[bool]
+
+class AdvancedSecurityOptionsTypeDef(TypedDict):
+    Enabled: NotRequired[bool]
+    InternalUserDatabaseEnabled: NotRequired[bool]
+    SAMLOptions: NotRequired[SAMLOptionsOutputTypeDef]
+    JWTOptions: NotRequired[JWTOptionsOutputTypeDef]
+    AnonymousAuthDisableDate: NotRequired[datetime]
+    AnonymousAuthEnabled: NotRequired[bool]
+
+class LimitsTypeDef(TypedDict):
+    StorageTypes: NotRequired[List[StorageTypeTypeDef]]
+    InstanceLimits: NotRequired[InstanceLimitsTypeDef]
+    AdditionalLimits: NotRequired[List[AdditionalLimitTypeDef]]
+
+class GetUpgradeHistoryResponseTypeDef(TypedDict):
+    UpgradeHistories: List[UpgradeHistoryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class AcceptInboundConnectionResponseTypeDef(TypedDict):
+    Connection: InboundConnectionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteInboundConnectionResponseTypeDef(TypedDict):
+    Connection: InboundConnectionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeInboundConnectionsResponseTypeDef(TypedDict):
+    Connections: List[InboundConnectionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class RejectInboundConnectionResponseTypeDef(TypedDict):
+    Connection: InboundConnectionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeDomainAutoTunesResponseTypeDef(TypedDict):
+    AutoTunes: List[AutoTuneTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class AutoTuneOptionsStatusTypeDef(TypedDict):
+    Options: NotRequired[AutoTuneOptionsExtraTypeDef]
+    Status: NotRequired[AutoTuneStatusTypeDef]
+
+class AutoTuneOptionsInputTypeDef(TypedDict):
+    DesiredState: NotRequired[AutoTuneDesiredStateType]
+    MaintenanceSchedules: NotRequired[Sequence[AutoTuneMaintenanceScheduleUnionTypeDef]]
+    UseOffPeakWindow: NotRequired[bool]
+
+AutoTuneOptionsUnionTypeDef = Union[AutoTuneOptionsTypeDef, AutoTuneOptionsExtraTypeDef]
+
+class DeleteOutboundConnectionResponseTypeDef(TypedDict):
+    Connection: OutboundConnectionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeOutboundConnectionsResponseTypeDef(TypedDict):
+    Connections: List[OutboundConnectionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListDataSourcesResponseTypeDef(TypedDict):
+    DataSources: List[DataSourceDetailsTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListDirectQueryDataSourcesResponseTypeDef(TypedDict):
+    DirectQueryDataSources: List[DirectQueryDataSourceTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class AssociatePackageResponseTypeDef(TypedDict):
+    DomainPackageDetails: DomainPackageDetailsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class AssociatePackagesResponseTypeDef(TypedDict):
+    DomainPackageDetailsList: List[DomainPackageDetailsTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DissociatePackageResponseTypeDef(TypedDict):
+    DomainPackageDetails: DomainPackageDetailsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DissociatePackagesResponseTypeDef(TypedDict):
+    DomainPackageDetailsList: List[DomainPackageDetailsTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListDomainsForPackageResponseTypeDef(TypedDict):
+    DomainPackageDetailsList: List[DomainPackageDetailsTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListPackagesForDomainResponseTypeDef(TypedDict):
+    DomainPackageDetailsList: List[DomainPackageDetailsTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class AssociatePackagesRequestTypeDef(TypedDict):
+    PackageList: Sequence[PackageDetailsForAssociationTypeDef]
+    DomainName: str
+
+class ClusterConfigStatusTypeDef(TypedDict):
+    Options: ClusterConfigOutputTypeDef
+    Status: OptionStatusTypeDef
+
+ClusterConfigUnionTypeDef = Union[ClusterConfigTypeDef, ClusterConfigOutputTypeDef]
+
+class OffPeakWindowOptionsStatusTypeDef(TypedDict):
+    Options: NotRequired[OffPeakWindowOptionsTypeDef]
+    Status: NotRequired[OptionStatusTypeDef]
+
+class AdvancedSecurityOptionsStatusTypeDef(TypedDict):
+    Options: AdvancedSecurityOptionsTypeDef
+    Status: OptionStatusTypeDef
+
+class DomainStatusTypeDef(TypedDict):
+    DomainId: str
+    DomainName: str
+    ARN: str
+    ClusterConfig: ClusterConfigOutputTypeDef
+    Created: NotRequired[bool]
+    Deleted: NotRequired[bool]
+    Endpoint: NotRequired[str]
+    EndpointV2: NotRequired[str]
+    Endpoints: NotRequired[Dict[str, str]]
+    DomainEndpointV2HostedZoneId: NotRequired[str]
+    Processing: NotRequired[bool]
+    UpgradeProcessing: NotRequired[bool]
+    EngineVersion: NotRequired[str]
+    EBSOptions: NotRequired[EBSOptionsTypeDef]
+    AccessPolicies: NotRequired[str]
+    IPAddressType: NotRequired[IPAddressTypeType]
+    SnapshotOptions: NotRequired[SnapshotOptionsTypeDef]
+    VPCOptions: NotRequired[VPCDerivedInfoTypeDef]
+    CognitoOptions: NotRequired[CognitoOptionsTypeDef]
+    EncryptionAtRestOptions: NotRequired[EncryptionAtRestOptionsTypeDef]
+    NodeToNodeEncryptionOptions: NotRequired[NodeToNodeEncryptionOptionsTypeDef]
+    AdvancedOptions: NotRequired[Dict[str, str]]
+    LogPublishingOptions: NotRequired[Dict[LogTypeType, LogPublishingOptionTypeDef]]
+    ServiceSoftwareOptions: NotRequired[ServiceSoftwareOptionsTypeDef]
+    DomainEndpointOptions: NotRequired[DomainEndpointOptionsTypeDef]
+    AdvancedSecurityOptions: NotRequired[AdvancedSecurityOptionsTypeDef]
+    IdentityCenterOptions: NotRequired[IdentityCenterOptionsTypeDef]
+    AutoTuneOptions: NotRequired[AutoTuneOptionsOutputTypeDef]
+    ChangeProgressDetails: NotRequired[ChangeProgressDetailsTypeDef]
+    OffPeakWindowOptions: NotRequired[OffPeakWindowOptionsTypeDef]
+    SoftwareUpdateOptions: NotRequired[SoftwareUpdateOptionsTypeDef]
+    DomainProcessingStatus: NotRequired[DomainProcessingStatusTypeType]
+    ModifyingProperties: NotRequired[List[ModifyingPropertiesTypeDef]]
+    AIMLOptions: NotRequired[AIMLOptionsOutputTypeDef]
+
+class DescribeInstanceTypeLimitsResponseTypeDef(TypedDict):
+    LimitsByRole: Dict[str, LimitsTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateDomainRequestTypeDef(TypedDict):
+    DomainName: str
+    EngineVersion: NotRequired[str]
+    ClusterConfig: NotRequired[ClusterConfigUnionTypeDef]
+    EBSOptions: NotRequired[EBSOptionsTypeDef]
+    AccessPolicies: NotRequired[str]
+    IPAddressType: NotRequired[IPAddressTypeType]
+    SnapshotOptions: NotRequired[SnapshotOptionsTypeDef]
+    VPCOptions: NotRequired[VPCOptionsTypeDef]
+    CognitoOptions: NotRequired[CognitoOptionsTypeDef]
+    EncryptionAtRestOptions: NotRequired[EncryptionAtRestOptionsTypeDef]
+    NodeToNodeEncryptionOptions: NotRequired[NodeToNodeEncryptionOptionsTypeDef]
+    AdvancedOptions: NotRequired[Mapping[str, str]]
+    LogPublishingOptions: NotRequired[Mapping[LogTypeType, LogPublishingOptionTypeDef]]
+    DomainEndpointOptions: NotRequired[DomainEndpointOptionsTypeDef]
+    AdvancedSecurityOptions: NotRequired[AdvancedSecurityOptionsInputTypeDef]
+    IdentityCenterOptions: NotRequired[IdentityCenterOptionsInputTypeDef]
+    TagList: NotRequired[Sequence[TagTypeDef]]
+    AutoTuneOptions: NotRequired[AutoTuneOptionsInputTypeDef]
+    OffPeakWindowOptions: NotRequired[OffPeakWindowOptionsTypeDef]
+    SoftwareUpdateOptions: NotRequired[SoftwareUpdateOptionsTypeDef]
+    AIMLOptions: NotRequired[AIMLOptionsInputTypeDef]
+
+class UpdateDomainConfigRequestTypeDef(TypedDict):
+    DomainName: str
+    ClusterConfig: NotRequired[ClusterConfigUnionTypeDef]
+    EBSOptions: NotRequired[EBSOptionsTypeDef]
+    SnapshotOptions: NotRequired[SnapshotOptionsTypeDef]
+    VPCOptions: NotRequired[VPCOptionsTypeDef]
+    CognitoOptions: NotRequired[CognitoOptionsTypeDef]
+    AdvancedOptions: NotRequired[Mapping[str, str]]
+    AccessPolicies: NotRequired[str]
+    IPAddressType: NotRequired[IPAddressTypeType]
+    LogPublishingOptions: NotRequired[Mapping[LogTypeType, LogPublishingOptionTypeDef]]
+    EncryptionAtRestOptions: NotRequired[EncryptionAtRestOptionsTypeDef]
+    DomainEndpointOptions: NotRequired[DomainEndpointOptionsTypeDef]
+    NodeToNodeEncryptionOptions: NotRequired[NodeToNodeEncryptionOptionsTypeDef]
+    AdvancedSecurityOptions: NotRequired[AdvancedSecurityOptionsInputTypeDef]
+    IdentityCenterOptions: NotRequired[IdentityCenterOptionsInputTypeDef]
+    AutoTuneOptions: NotRequired[AutoTuneOptionsUnionTypeDef]
+    DryRun: NotRequired[bool]
+    DryRunMode: NotRequired[DryRunModeType]
+    OffPeakWindowOptions: NotRequired[OffPeakWindowOptionsTypeDef]
+    SoftwareUpdateOptions: NotRequired[SoftwareUpdateOptionsTypeDef]
+    AIMLOptions: NotRequired[AIMLOptionsInputTypeDef]
+
+class DomainConfigTypeDef(TypedDict):
+    EngineVersion: NotRequired[VersionStatusTypeDef]
+    ClusterConfig: NotRequired[ClusterConfigStatusTypeDef]
+    EBSOptions: NotRequired[EBSOptionsStatusTypeDef]
+    AccessPolicies: NotRequired[AccessPoliciesStatusTypeDef]
+    IPAddressType: NotRequired[IPAddressTypeStatusTypeDef]
+    SnapshotOptions: NotRequired[SnapshotOptionsStatusTypeDef]
+    VPCOptions: NotRequired[VPCDerivedInfoStatusTypeDef]
+    CognitoOptions: NotRequired[CognitoOptionsStatusTypeDef]
+    EncryptionAtRestOptions: NotRequired[EncryptionAtRestOptionsStatusTypeDef]
+    NodeToNodeEncryptionOptions: NotRequired[NodeToNodeEncryptionOptionsStatusTypeDef]
+    AdvancedOptions: NotRequired[AdvancedOptionsStatusTypeDef]
+    LogPublishingOptions: NotRequired[LogPublishingOptionsStatusTypeDef]
+    DomainEndpointOptions: NotRequired[DomainEndpointOptionsStatusTypeDef]
+    AdvancedSecurityOptions: NotRequired[AdvancedSecurityOptionsStatusTypeDef]
+    IdentityCenterOptions: NotRequired[IdentityCenterOptionsStatusTypeDef]
+    AutoTuneOptions: NotRequired[AutoTuneOptionsStatusTypeDef]
+    ChangeProgressDetails: NotRequired[ChangeProgressDetailsTypeDef]
+    OffPeakWindowOptions: NotRequired[OffPeakWindowOptionsStatusTypeDef]
+    SoftwareUpdateOptions: NotRequired[SoftwareUpdateOptionsStatusTypeDef]
+    ModifyingProperties: NotRequired[List[ModifyingPropertiesTypeDef]]
+    AIMLOptions: NotRequired[AIMLOptionsStatusTypeDef]
+
+class CreateDomainResponseTypeDef(TypedDict):
+    DomainStatus: DomainStatusTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteDomainResponseTypeDef(TypedDict):
+    DomainStatus: DomainStatusTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeDomainResponseTypeDef(TypedDict):
+    DomainStatus: DomainStatusTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeDomainsResponseTypeDef(TypedDict):
+    DomainStatusList: List[DomainStatusTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeDryRunProgressResponseTypeDef(TypedDict):
+    DryRunProgressStatus: DryRunProgressStatusTypeDef
+    DryRunConfig: DomainStatusTypeDef
+    DryRunResults: DryRunResultsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeDomainConfigResponseTypeDef(TypedDict):
+    DomainConfig: DomainConfigTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateDomainConfigResponseTypeDef(TypedDict):
+    DomainConfig: DomainConfigTypeDef
+    DryRunResults: DryRunResultsTypeDef
+    DryRunProgressStatus: DryRunProgressStatusTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef

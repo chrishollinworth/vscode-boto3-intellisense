@@ -1,24 +1,31 @@
 """
 Type annotations for redshift-serverless service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_redshift_serverless/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_redshift_serverless.type_defs import AssociationTypeDef
 
-    data: AssociationTypeDef = {...}
+    data: AssociationTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List, Union
+from typing import Union
 
 from .literals import (
     LogExportType,
+    ManagedWorkgroupStatusType,
     NamespaceStatusType,
+    OfferingTypeType,
+    PerformanceTargetStatusType,
     SnapshotStatusType,
     StateType,
     UsageLimitBreachActionType,
@@ -27,136 +34,184 @@ from .literals import (
     WorkgroupStatusType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Sequence
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List, Sequence
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
     "AssociationTypeDef",
     "ConfigParameterTypeDef",
-    "ConvertRecoveryPointToSnapshotRequestRequestTypeDef",
+    "ConvertRecoveryPointToSnapshotRequestTypeDef",
     "ConvertRecoveryPointToSnapshotResponseTypeDef",
-    "CreateCustomDomainAssociationRequestRequestTypeDef",
+    "CreateCustomDomainAssociationRequestTypeDef",
     "CreateCustomDomainAssociationResponseTypeDef",
-    "CreateEndpointAccessRequestRequestTypeDef",
+    "CreateEndpointAccessRequestTypeDef",
     "CreateEndpointAccessResponseTypeDef",
-    "CreateNamespaceRequestRequestTypeDef",
+    "CreateNamespaceRequestTypeDef",
     "CreateNamespaceResponseTypeDef",
-    "CreateScheduledActionRequestRequestTypeDef",
+    "CreateReservationRequestTypeDef",
+    "CreateReservationResponseTypeDef",
+    "CreateScheduledActionRequestTypeDef",
     "CreateScheduledActionResponseTypeDef",
-    "CreateSnapshotCopyConfigurationRequestRequestTypeDef",
+    "CreateSnapshotCopyConfigurationRequestTypeDef",
     "CreateSnapshotCopyConfigurationResponseTypeDef",
-    "CreateSnapshotRequestRequestTypeDef",
+    "CreateSnapshotRequestTypeDef",
     "CreateSnapshotResponseTypeDef",
+    "CreateSnapshotScheduleActionParametersOutputTypeDef",
     "CreateSnapshotScheduleActionParametersTypeDef",
-    "CreateUsageLimitRequestRequestTypeDef",
+    "CreateUsageLimitRequestTypeDef",
     "CreateUsageLimitResponseTypeDef",
-    "CreateWorkgroupRequestRequestTypeDef",
+    "CreateWorkgroupRequestTypeDef",
     "CreateWorkgroupResponseTypeDef",
-    "DeleteCustomDomainAssociationRequestRequestTypeDef",
-    "DeleteEndpointAccessRequestRequestTypeDef",
+    "DeleteCustomDomainAssociationRequestTypeDef",
+    "DeleteEndpointAccessRequestTypeDef",
     "DeleteEndpointAccessResponseTypeDef",
-    "DeleteNamespaceRequestRequestTypeDef",
+    "DeleteNamespaceRequestTypeDef",
     "DeleteNamespaceResponseTypeDef",
-    "DeleteResourcePolicyRequestRequestTypeDef",
-    "DeleteScheduledActionRequestRequestTypeDef",
+    "DeleteResourcePolicyRequestTypeDef",
+    "DeleteScheduledActionRequestTypeDef",
     "DeleteScheduledActionResponseTypeDef",
-    "DeleteSnapshotCopyConfigurationRequestRequestTypeDef",
+    "DeleteSnapshotCopyConfigurationRequestTypeDef",
     "DeleteSnapshotCopyConfigurationResponseTypeDef",
-    "DeleteSnapshotRequestRequestTypeDef",
+    "DeleteSnapshotRequestTypeDef",
     "DeleteSnapshotResponseTypeDef",
-    "DeleteUsageLimitRequestRequestTypeDef",
+    "DeleteUsageLimitRequestTypeDef",
     "DeleteUsageLimitResponseTypeDef",
-    "DeleteWorkgroupRequestRequestTypeDef",
+    "DeleteWorkgroupRequestTypeDef",
     "DeleteWorkgroupResponseTypeDef",
     "EndpointAccessTypeDef",
     "EndpointTypeDef",
-    "GetCredentialsRequestRequestTypeDef",
+    "GetCredentialsRequestTypeDef",
     "GetCredentialsResponseTypeDef",
-    "GetCustomDomainAssociationRequestRequestTypeDef",
+    "GetCustomDomainAssociationRequestTypeDef",
     "GetCustomDomainAssociationResponseTypeDef",
-    "GetEndpointAccessRequestRequestTypeDef",
+    "GetEndpointAccessRequestTypeDef",
     "GetEndpointAccessResponseTypeDef",
-    "GetNamespaceRequestRequestTypeDef",
+    "GetNamespaceRequestTypeDef",
     "GetNamespaceResponseTypeDef",
-    "GetRecoveryPointRequestRequestTypeDef",
+    "GetRecoveryPointRequestTypeDef",
     "GetRecoveryPointResponseTypeDef",
-    "GetResourcePolicyRequestRequestTypeDef",
+    "GetReservationOfferingRequestTypeDef",
+    "GetReservationOfferingResponseTypeDef",
+    "GetReservationRequestTypeDef",
+    "GetReservationResponseTypeDef",
+    "GetResourcePolicyRequestTypeDef",
     "GetResourcePolicyResponseTypeDef",
-    "GetScheduledActionRequestRequestTypeDef",
+    "GetScheduledActionRequestTypeDef",
     "GetScheduledActionResponseTypeDef",
-    "GetSnapshotRequestRequestTypeDef",
+    "GetSnapshotRequestTypeDef",
     "GetSnapshotResponseTypeDef",
-    "GetTableRestoreStatusRequestRequestTypeDef",
+    "GetTableRestoreStatusRequestTypeDef",
     "GetTableRestoreStatusResponseTypeDef",
-    "GetUsageLimitRequestRequestTypeDef",
+    "GetTrackRequestTypeDef",
+    "GetTrackResponseTypeDef",
+    "GetUsageLimitRequestTypeDef",
     "GetUsageLimitResponseTypeDef",
-    "GetWorkgroupRequestRequestTypeDef",
+    "GetWorkgroupRequestTypeDef",
     "GetWorkgroupResponseTypeDef",
-    "ListCustomDomainAssociationsRequestRequestTypeDef",
+    "ListCustomDomainAssociationsRequestPaginateTypeDef",
+    "ListCustomDomainAssociationsRequestTypeDef",
     "ListCustomDomainAssociationsResponseTypeDef",
-    "ListEndpointAccessRequestRequestTypeDef",
+    "ListEndpointAccessRequestPaginateTypeDef",
+    "ListEndpointAccessRequestTypeDef",
     "ListEndpointAccessResponseTypeDef",
-    "ListNamespacesRequestRequestTypeDef",
+    "ListManagedWorkgroupsRequestPaginateTypeDef",
+    "ListManagedWorkgroupsRequestTypeDef",
+    "ListManagedWorkgroupsResponseTypeDef",
+    "ListNamespacesRequestPaginateTypeDef",
+    "ListNamespacesRequestTypeDef",
     "ListNamespacesResponseTypeDef",
-    "ListRecoveryPointsRequestRequestTypeDef",
+    "ListRecoveryPointsRequestPaginateTypeDef",
+    "ListRecoveryPointsRequestTypeDef",
     "ListRecoveryPointsResponseTypeDef",
-    "ListScheduledActionsRequestRequestTypeDef",
+    "ListReservationOfferingsRequestPaginateTypeDef",
+    "ListReservationOfferingsRequestTypeDef",
+    "ListReservationOfferingsResponseTypeDef",
+    "ListReservationsRequestPaginateTypeDef",
+    "ListReservationsRequestTypeDef",
+    "ListReservationsResponseTypeDef",
+    "ListScheduledActionsRequestPaginateTypeDef",
+    "ListScheduledActionsRequestTypeDef",
     "ListScheduledActionsResponseTypeDef",
-    "ListSnapshotCopyConfigurationsRequestRequestTypeDef",
+    "ListSnapshotCopyConfigurationsRequestPaginateTypeDef",
+    "ListSnapshotCopyConfigurationsRequestTypeDef",
     "ListSnapshotCopyConfigurationsResponseTypeDef",
-    "ListSnapshotsRequestRequestTypeDef",
+    "ListSnapshotsRequestPaginateTypeDef",
+    "ListSnapshotsRequestTypeDef",
     "ListSnapshotsResponseTypeDef",
-    "ListTableRestoreStatusRequestRequestTypeDef",
+    "ListTableRestoreStatusRequestPaginateTypeDef",
+    "ListTableRestoreStatusRequestTypeDef",
     "ListTableRestoreStatusResponseTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
-    "ListUsageLimitsRequestRequestTypeDef",
+    "ListTracksRequestPaginateTypeDef",
+    "ListTracksRequestTypeDef",
+    "ListTracksResponseTypeDef",
+    "ListUsageLimitsRequestPaginateTypeDef",
+    "ListUsageLimitsRequestTypeDef",
     "ListUsageLimitsResponseTypeDef",
-    "ListWorkgroupsRequestRequestTypeDef",
+    "ListWorkgroupsRequestPaginateTypeDef",
+    "ListWorkgroupsRequestTypeDef",
     "ListWorkgroupsResponseTypeDef",
+    "ManagedWorkgroupListItemTypeDef",
     "NamespaceTypeDef",
     "NetworkInterfaceTypeDef",
     "PaginatorConfigTypeDef",
-    "PutResourcePolicyRequestRequestTypeDef",
+    "PerformanceTargetTypeDef",
+    "PutResourcePolicyRequestTypeDef",
     "PutResourcePolicyResponseTypeDef",
     "RecoveryPointTypeDef",
+    "ReservationOfferingTypeDef",
+    "ReservationTypeDef",
     "ResourcePolicyTypeDef",
     "ResponseMetadataTypeDef",
-    "RestoreFromRecoveryPointRequestRequestTypeDef",
+    "RestoreFromRecoveryPointRequestTypeDef",
     "RestoreFromRecoveryPointResponseTypeDef",
-    "RestoreFromSnapshotRequestRequestTypeDef",
+    "RestoreFromSnapshotRequestTypeDef",
     "RestoreFromSnapshotResponseTypeDef",
-    "RestoreTableFromRecoveryPointRequestRequestTypeDef",
+    "RestoreTableFromRecoveryPointRequestTypeDef",
     "RestoreTableFromRecoveryPointResponseTypeDef",
-    "RestoreTableFromSnapshotRequestRequestTypeDef",
+    "RestoreTableFromSnapshotRequestTypeDef",
     "RestoreTableFromSnapshotResponseTypeDef",
+    "ScheduleOutputTypeDef",
     "ScheduleTypeDef",
+    "ScheduleUnionTypeDef",
     "ScheduledActionAssociationTypeDef",
     "ScheduledActionResponseTypeDef",
+    "ServerlessTrackTypeDef",
     "SnapshotCopyConfigurationTypeDef",
     "SnapshotTypeDef",
     "TableRestoreStatusTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
     "TagTypeDef",
+    "TargetActionOutputTypeDef",
     "TargetActionTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateCustomDomainAssociationRequestRequestTypeDef",
+    "TargetActionUnionTypeDef",
+    "TimestampTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateCustomDomainAssociationRequestTypeDef",
     "UpdateCustomDomainAssociationResponseTypeDef",
-    "UpdateEndpointAccessRequestRequestTypeDef",
+    "UpdateEndpointAccessRequestTypeDef",
     "UpdateEndpointAccessResponseTypeDef",
-    "UpdateNamespaceRequestRequestTypeDef",
+    "UpdateNamespaceRequestTypeDef",
     "UpdateNamespaceResponseTypeDef",
-    "UpdateScheduledActionRequestRequestTypeDef",
+    "UpdateScheduledActionRequestTypeDef",
     "UpdateScheduledActionResponseTypeDef",
-    "UpdateSnapshotCopyConfigurationRequestRequestTypeDef",
+    "UpdateSnapshotCopyConfigurationRequestTypeDef",
     "UpdateSnapshotCopyConfigurationResponseTypeDef",
-    "UpdateSnapshotRequestRequestTypeDef",
+    "UpdateSnapshotRequestTypeDef",
     "UpdateSnapshotResponseTypeDef",
-    "UpdateUsageLimitRequestRequestTypeDef",
+    "UpdateTargetTypeDef",
+    "UpdateUsageLimitRequestTypeDef",
     "UpdateUsageLimitResponseTypeDef",
-    "UpdateWorkgroupRequestRequestTypeDef",
+    "UpdateWorkgroupRequestTypeDef",
     "UpdateWorkgroupResponseTypeDef",
     "UsageLimitTypeDef",
     "VpcEndpointTypeDef",
@@ -164,1519 +219,938 @@ __all__ = (
     "WorkgroupTypeDef",
 )
 
-AssociationTypeDef = TypedDict(
-    "AssociationTypeDef",
-    {
-        "customDomainCertificateArn": str,
-        "customDomainCertificateExpiryTime": datetime,
-        "customDomainName": str,
-        "workgroupName": str,
-    },
-    total=False,
-)
-
-ConfigParameterTypeDef = TypedDict(
-    "ConfigParameterTypeDef",
-    {
-        "parameterKey": str,
-        "parameterValue": str,
-    },
-    total=False,
-)
-
-_RequiredConvertRecoveryPointToSnapshotRequestRequestTypeDef = TypedDict(
-    "_RequiredConvertRecoveryPointToSnapshotRequestRequestTypeDef",
-    {
-        "recoveryPointId": str,
-        "snapshotName": str,
-    },
-)
-_OptionalConvertRecoveryPointToSnapshotRequestRequestTypeDef = TypedDict(
-    "_OptionalConvertRecoveryPointToSnapshotRequestRequestTypeDef",
-    {
-        "retentionPeriod": int,
-        "tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class ConvertRecoveryPointToSnapshotRequestRequestTypeDef(
-    _RequiredConvertRecoveryPointToSnapshotRequestRequestTypeDef,
-    _OptionalConvertRecoveryPointToSnapshotRequestRequestTypeDef,
-):
-    pass
-
-ConvertRecoveryPointToSnapshotResponseTypeDef = TypedDict(
-    "ConvertRecoveryPointToSnapshotResponseTypeDef",
-    {
-        "snapshot": "SnapshotTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateCustomDomainAssociationRequestRequestTypeDef = TypedDict(
-    "CreateCustomDomainAssociationRequestRequestTypeDef",
-    {
-        "customDomainCertificateArn": str,
-        "customDomainName": str,
-        "workgroupName": str,
-    },
-)
-
-CreateCustomDomainAssociationResponseTypeDef = TypedDict(
-    "CreateCustomDomainAssociationResponseTypeDef",
-    {
-        "customDomainCertificateArn": str,
-        "customDomainCertificateExpiryTime": datetime,
-        "customDomainName": str,
-        "workgroupName": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateEndpointAccessRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateEndpointAccessRequestRequestTypeDef",
-    {
-        "endpointName": str,
-        "subnetIds": List[str],
-        "workgroupName": str,
-    },
-)
-_OptionalCreateEndpointAccessRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateEndpointAccessRequestRequestTypeDef",
-    {
-        "ownerAccount": str,
-        "vpcSecurityGroupIds": List[str],
-    },
-    total=False,
-)
-
-class CreateEndpointAccessRequestRequestTypeDef(
-    _RequiredCreateEndpointAccessRequestRequestTypeDef,
-    _OptionalCreateEndpointAccessRequestRequestTypeDef,
-):
-    pass
-
-CreateEndpointAccessResponseTypeDef = TypedDict(
-    "CreateEndpointAccessResponseTypeDef",
-    {
-        "endpoint": "EndpointAccessTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateNamespaceRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateNamespaceRequestRequestTypeDef",
-    {
-        "namespaceName": str,
-    },
-)
-_OptionalCreateNamespaceRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateNamespaceRequestRequestTypeDef",
-    {
-        "adminPasswordSecretKmsKeyId": str,
-        "adminUserPassword": str,
-        "adminUsername": str,
-        "dbName": str,
-        "defaultIamRoleArn": str,
-        "iamRoles": List[str],
-        "kmsKeyId": str,
-        "logExports": List[LogExportType],
-        "manageAdminPassword": bool,
-        "redshiftIdcApplicationArn": str,
-        "tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateNamespaceRequestRequestTypeDef(
-    _RequiredCreateNamespaceRequestRequestTypeDef, _OptionalCreateNamespaceRequestRequestTypeDef
-):
-    pass
-
-CreateNamespaceResponseTypeDef = TypedDict(
-    "CreateNamespaceResponseTypeDef",
-    {
-        "namespace": "NamespaceTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateScheduledActionRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateScheduledActionRequestRequestTypeDef",
-    {
-        "namespaceName": str,
-        "roleArn": str,
-        "schedule": "ScheduleTypeDef",
-        "scheduledActionName": str,
-        "targetAction": "TargetActionTypeDef",
-    },
-)
-_OptionalCreateScheduledActionRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateScheduledActionRequestRequestTypeDef",
-    {
-        "enabled": bool,
-        "endTime": Union[datetime, str],
-        "scheduledActionDescription": str,
-        "startTime": Union[datetime, str],
-    },
-    total=False,
-)
-
-class CreateScheduledActionRequestRequestTypeDef(
-    _RequiredCreateScheduledActionRequestRequestTypeDef,
-    _OptionalCreateScheduledActionRequestRequestTypeDef,
-):
-    pass
-
-CreateScheduledActionResponseTypeDef = TypedDict(
-    "CreateScheduledActionResponseTypeDef",
-    {
-        "scheduledAction": "ScheduledActionResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateSnapshotCopyConfigurationRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateSnapshotCopyConfigurationRequestRequestTypeDef",
-    {
-        "destinationRegion": str,
-        "namespaceName": str,
-    },
-)
-_OptionalCreateSnapshotCopyConfigurationRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateSnapshotCopyConfigurationRequestRequestTypeDef",
-    {
-        "destinationKmsKeyId": str,
-        "snapshotRetentionPeriod": int,
-    },
-    total=False,
-)
-
-class CreateSnapshotCopyConfigurationRequestRequestTypeDef(
-    _RequiredCreateSnapshotCopyConfigurationRequestRequestTypeDef,
-    _OptionalCreateSnapshotCopyConfigurationRequestRequestTypeDef,
-):
-    pass
-
-CreateSnapshotCopyConfigurationResponseTypeDef = TypedDict(
-    "CreateSnapshotCopyConfigurationResponseTypeDef",
-    {
-        "snapshotCopyConfiguration": "SnapshotCopyConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateSnapshotRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateSnapshotRequestRequestTypeDef",
-    {
-        "namespaceName": str,
-        "snapshotName": str,
-    },
-)
-_OptionalCreateSnapshotRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateSnapshotRequestRequestTypeDef",
-    {
-        "retentionPeriod": int,
-        "tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateSnapshotRequestRequestTypeDef(
-    _RequiredCreateSnapshotRequestRequestTypeDef, _OptionalCreateSnapshotRequestRequestTypeDef
-):
-    pass
-
-CreateSnapshotResponseTypeDef = TypedDict(
-    "CreateSnapshotResponseTypeDef",
-    {
-        "snapshot": "SnapshotTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateSnapshotScheduleActionParametersTypeDef = TypedDict(
-    "_RequiredCreateSnapshotScheduleActionParametersTypeDef",
-    {
-        "namespaceName": str,
-        "snapshotNamePrefix": str,
-    },
-)
-_OptionalCreateSnapshotScheduleActionParametersTypeDef = TypedDict(
-    "_OptionalCreateSnapshotScheduleActionParametersTypeDef",
-    {
-        "retentionPeriod": int,
-        "tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateSnapshotScheduleActionParametersTypeDef(
-    _RequiredCreateSnapshotScheduleActionParametersTypeDef,
-    _OptionalCreateSnapshotScheduleActionParametersTypeDef,
-):
-    pass
-
-_RequiredCreateUsageLimitRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateUsageLimitRequestRequestTypeDef",
-    {
-        "amount": int,
-        "resourceArn": str,
-        "usageType": UsageLimitUsageTypeType,
-    },
-)
-_OptionalCreateUsageLimitRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateUsageLimitRequestRequestTypeDef",
-    {
-        "breachAction": UsageLimitBreachActionType,
-        "period": UsageLimitPeriodType,
-    },
-    total=False,
-)
-
-class CreateUsageLimitRequestRequestTypeDef(
-    _RequiredCreateUsageLimitRequestRequestTypeDef, _OptionalCreateUsageLimitRequestRequestTypeDef
-):
-    pass
-
-CreateUsageLimitResponseTypeDef = TypedDict(
-    "CreateUsageLimitResponseTypeDef",
-    {
-        "usageLimit": "UsageLimitTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateWorkgroupRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateWorkgroupRequestRequestTypeDef",
-    {
-        "namespaceName": str,
-        "workgroupName": str,
-    },
-)
-_OptionalCreateWorkgroupRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateWorkgroupRequestRequestTypeDef",
-    {
-        "baseCapacity": int,
-        "configParameters": List["ConfigParameterTypeDef"],
-        "enhancedVpcRouting": bool,
-        "maxCapacity": int,
-        "port": int,
-        "publiclyAccessible": bool,
-        "securityGroupIds": List[str],
-        "subnetIds": List[str],
-        "tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateWorkgroupRequestRequestTypeDef(
-    _RequiredCreateWorkgroupRequestRequestTypeDef, _OptionalCreateWorkgroupRequestRequestTypeDef
-):
-    pass
-
-CreateWorkgroupResponseTypeDef = TypedDict(
-    "CreateWorkgroupResponseTypeDef",
-    {
-        "workgroup": "WorkgroupTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteCustomDomainAssociationRequestRequestTypeDef = TypedDict(
-    "DeleteCustomDomainAssociationRequestRequestTypeDef",
-    {
-        "customDomainName": str,
-        "workgroupName": str,
-    },
-)
-
-DeleteEndpointAccessRequestRequestTypeDef = TypedDict(
-    "DeleteEndpointAccessRequestRequestTypeDef",
-    {
-        "endpointName": str,
-    },
-)
-
-DeleteEndpointAccessResponseTypeDef = TypedDict(
-    "DeleteEndpointAccessResponseTypeDef",
-    {
-        "endpoint": "EndpointAccessTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDeleteNamespaceRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteNamespaceRequestRequestTypeDef",
-    {
-        "namespaceName": str,
-    },
-)
-_OptionalDeleteNamespaceRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteNamespaceRequestRequestTypeDef",
-    {
-        "finalSnapshotName": str,
-        "finalSnapshotRetentionPeriod": int,
-    },
-    total=False,
-)
-
-class DeleteNamespaceRequestRequestTypeDef(
-    _RequiredDeleteNamespaceRequestRequestTypeDef, _OptionalDeleteNamespaceRequestRequestTypeDef
-):
-    pass
-
-DeleteNamespaceResponseTypeDef = TypedDict(
-    "DeleteNamespaceResponseTypeDef",
-    {
-        "namespace": "NamespaceTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteResourcePolicyRequestRequestTypeDef = TypedDict(
-    "DeleteResourcePolicyRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-    },
-)
-
-DeleteScheduledActionRequestRequestTypeDef = TypedDict(
-    "DeleteScheduledActionRequestRequestTypeDef",
-    {
-        "scheduledActionName": str,
-    },
-)
-
-DeleteScheduledActionResponseTypeDef = TypedDict(
-    "DeleteScheduledActionResponseTypeDef",
-    {
-        "scheduledAction": "ScheduledActionResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteSnapshotCopyConfigurationRequestRequestTypeDef = TypedDict(
-    "DeleteSnapshotCopyConfigurationRequestRequestTypeDef",
-    {
-        "snapshotCopyConfigurationId": str,
-    },
-)
-
-DeleteSnapshotCopyConfigurationResponseTypeDef = TypedDict(
-    "DeleteSnapshotCopyConfigurationResponseTypeDef",
-    {
-        "snapshotCopyConfiguration": "SnapshotCopyConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteSnapshotRequestRequestTypeDef = TypedDict(
-    "DeleteSnapshotRequestRequestTypeDef",
-    {
-        "snapshotName": str,
-    },
-)
-
-DeleteSnapshotResponseTypeDef = TypedDict(
-    "DeleteSnapshotResponseTypeDef",
-    {
-        "snapshot": "SnapshotTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteUsageLimitRequestRequestTypeDef = TypedDict(
-    "DeleteUsageLimitRequestRequestTypeDef",
-    {
-        "usageLimitId": str,
-    },
-)
-
-DeleteUsageLimitResponseTypeDef = TypedDict(
-    "DeleteUsageLimitResponseTypeDef",
-    {
-        "usageLimit": "UsageLimitTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteWorkgroupRequestRequestTypeDef = TypedDict(
-    "DeleteWorkgroupRequestRequestTypeDef",
-    {
-        "workgroupName": str,
-    },
-)
-
-DeleteWorkgroupResponseTypeDef = TypedDict(
-    "DeleteWorkgroupResponseTypeDef",
-    {
-        "workgroup": "WorkgroupTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-EndpointAccessTypeDef = TypedDict(
-    "EndpointAccessTypeDef",
-    {
-        "address": str,
-        "endpointArn": str,
-        "endpointCreateTime": datetime,
-        "endpointName": str,
-        "endpointStatus": str,
-        "port": int,
-        "subnetIds": List[str],
-        "vpcEndpoint": "VpcEndpointTypeDef",
-        "vpcSecurityGroups": List["VpcSecurityGroupMembershipTypeDef"],
-        "workgroupName": str,
-    },
-    total=False,
-)
-
-EndpointTypeDef = TypedDict(
-    "EndpointTypeDef",
-    {
-        "address": str,
-        "port": int,
-        "vpcEndpoints": List["VpcEndpointTypeDef"],
-    },
-    total=False,
-)
-
-GetCredentialsRequestRequestTypeDef = TypedDict(
-    "GetCredentialsRequestRequestTypeDef",
-    {
-        "customDomainName": str,
-        "dbName": str,
-        "durationSeconds": int,
-        "workgroupName": str,
-    },
-    total=False,
-)
-
-GetCredentialsResponseTypeDef = TypedDict(
-    "GetCredentialsResponseTypeDef",
-    {
-        "dbPassword": str,
-        "dbUser": str,
-        "expiration": datetime,
-        "nextRefreshTime": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetCustomDomainAssociationRequestRequestTypeDef = TypedDict(
-    "GetCustomDomainAssociationRequestRequestTypeDef",
-    {
-        "customDomainName": str,
-        "workgroupName": str,
-    },
-)
-
-GetCustomDomainAssociationResponseTypeDef = TypedDict(
-    "GetCustomDomainAssociationResponseTypeDef",
-    {
-        "customDomainCertificateArn": str,
-        "customDomainCertificateExpiryTime": datetime,
-        "customDomainName": str,
-        "workgroupName": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetEndpointAccessRequestRequestTypeDef = TypedDict(
-    "GetEndpointAccessRequestRequestTypeDef",
-    {
-        "endpointName": str,
-    },
-)
-
-GetEndpointAccessResponseTypeDef = TypedDict(
-    "GetEndpointAccessResponseTypeDef",
-    {
-        "endpoint": "EndpointAccessTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetNamespaceRequestRequestTypeDef = TypedDict(
-    "GetNamespaceRequestRequestTypeDef",
-    {
-        "namespaceName": str,
-    },
-)
-
-GetNamespaceResponseTypeDef = TypedDict(
-    "GetNamespaceResponseTypeDef",
-    {
-        "namespace": "NamespaceTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetRecoveryPointRequestRequestTypeDef = TypedDict(
-    "GetRecoveryPointRequestRequestTypeDef",
-    {
-        "recoveryPointId": str,
-    },
-)
-
-GetRecoveryPointResponseTypeDef = TypedDict(
-    "GetRecoveryPointResponseTypeDef",
-    {
-        "recoveryPoint": "RecoveryPointTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetResourcePolicyRequestRequestTypeDef = TypedDict(
-    "GetResourcePolicyRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-    },
-)
-
-GetResourcePolicyResponseTypeDef = TypedDict(
-    "GetResourcePolicyResponseTypeDef",
-    {
-        "resourcePolicy": "ResourcePolicyTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetScheduledActionRequestRequestTypeDef = TypedDict(
-    "GetScheduledActionRequestRequestTypeDef",
-    {
-        "scheduledActionName": str,
-    },
-)
-
-GetScheduledActionResponseTypeDef = TypedDict(
-    "GetScheduledActionResponseTypeDef",
-    {
-        "scheduledAction": "ScheduledActionResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetSnapshotRequestRequestTypeDef = TypedDict(
-    "GetSnapshotRequestRequestTypeDef",
-    {
-        "ownerAccount": str,
-        "snapshotArn": str,
-        "snapshotName": str,
-    },
-    total=False,
-)
-
-GetSnapshotResponseTypeDef = TypedDict(
-    "GetSnapshotResponseTypeDef",
-    {
-        "snapshot": "SnapshotTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetTableRestoreStatusRequestRequestTypeDef = TypedDict(
-    "GetTableRestoreStatusRequestRequestTypeDef",
-    {
-        "tableRestoreRequestId": str,
-    },
-)
-
-GetTableRestoreStatusResponseTypeDef = TypedDict(
-    "GetTableRestoreStatusResponseTypeDef",
-    {
-        "tableRestoreStatus": "TableRestoreStatusTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetUsageLimitRequestRequestTypeDef = TypedDict(
-    "GetUsageLimitRequestRequestTypeDef",
-    {
-        "usageLimitId": str,
-    },
-)
-
-GetUsageLimitResponseTypeDef = TypedDict(
-    "GetUsageLimitResponseTypeDef",
-    {
-        "usageLimit": "UsageLimitTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetWorkgroupRequestRequestTypeDef = TypedDict(
-    "GetWorkgroupRequestRequestTypeDef",
-    {
-        "workgroupName": str,
-    },
-)
-
-GetWorkgroupResponseTypeDef = TypedDict(
-    "GetWorkgroupResponseTypeDef",
-    {
-        "workgroup": "WorkgroupTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListCustomDomainAssociationsRequestRequestTypeDef = TypedDict(
-    "ListCustomDomainAssociationsRequestRequestTypeDef",
-    {
-        "customDomainCertificateArn": str,
-        "customDomainName": str,
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-ListCustomDomainAssociationsResponseTypeDef = TypedDict(
-    "ListCustomDomainAssociationsResponseTypeDef",
-    {
-        "associations": List["AssociationTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListEndpointAccessRequestRequestTypeDef = TypedDict(
-    "ListEndpointAccessRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-        "ownerAccount": str,
-        "vpcId": str,
-        "workgroupName": str,
-    },
-    total=False,
-)
-
-ListEndpointAccessResponseTypeDef = TypedDict(
-    "ListEndpointAccessResponseTypeDef",
-    {
-        "endpoints": List["EndpointAccessTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListNamespacesRequestRequestTypeDef = TypedDict(
-    "ListNamespacesRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-ListNamespacesResponseTypeDef = TypedDict(
-    "ListNamespacesResponseTypeDef",
-    {
-        "namespaces": List["NamespaceTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListRecoveryPointsRequestRequestTypeDef = TypedDict(
-    "ListRecoveryPointsRequestRequestTypeDef",
-    {
-        "endTime": Union[datetime, str],
-        "maxResults": int,
-        "namespaceArn": str,
-        "namespaceName": str,
-        "nextToken": str,
-        "startTime": Union[datetime, str],
-    },
-    total=False,
-)
-
-ListRecoveryPointsResponseTypeDef = TypedDict(
-    "ListRecoveryPointsResponseTypeDef",
-    {
-        "nextToken": str,
-        "recoveryPoints": List["RecoveryPointTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListScheduledActionsRequestRequestTypeDef = TypedDict(
-    "ListScheduledActionsRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "namespaceName": str,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-ListScheduledActionsResponseTypeDef = TypedDict(
-    "ListScheduledActionsResponseTypeDef",
-    {
-        "nextToken": str,
-        "scheduledActions": List["ScheduledActionAssociationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListSnapshotCopyConfigurationsRequestRequestTypeDef = TypedDict(
-    "ListSnapshotCopyConfigurationsRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "namespaceName": str,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-ListSnapshotCopyConfigurationsResponseTypeDef = TypedDict(
-    "ListSnapshotCopyConfigurationsResponseTypeDef",
-    {
-        "nextToken": str,
-        "snapshotCopyConfigurations": List["SnapshotCopyConfigurationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListSnapshotsRequestRequestTypeDef = TypedDict(
-    "ListSnapshotsRequestRequestTypeDef",
-    {
-        "endTime": Union[datetime, str],
-        "maxResults": int,
-        "namespaceArn": str,
-        "namespaceName": str,
-        "nextToken": str,
-        "ownerAccount": str,
-        "startTime": Union[datetime, str],
-    },
-    total=False,
-)
-
-ListSnapshotsResponseTypeDef = TypedDict(
-    "ListSnapshotsResponseTypeDef",
-    {
-        "nextToken": str,
-        "snapshots": List["SnapshotTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTableRestoreStatusRequestRequestTypeDef = TypedDict(
-    "ListTableRestoreStatusRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "namespaceName": str,
-        "nextToken": str,
-        "workgroupName": str,
-    },
-    total=False,
-)
-
-ListTableRestoreStatusResponseTypeDef = TypedDict(
-    "ListTableRestoreStatusResponseTypeDef",
-    {
-        "nextToken": str,
-        "tableRestoreStatuses": List["TableRestoreStatusTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-    },
-)
-
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "tags": List["TagTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListUsageLimitsRequestRequestTypeDef = TypedDict(
-    "ListUsageLimitsRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-        "resourceArn": str,
-        "usageType": UsageLimitUsageTypeType,
-    },
-    total=False,
-)
-
-ListUsageLimitsResponseTypeDef = TypedDict(
-    "ListUsageLimitsResponseTypeDef",
-    {
-        "nextToken": str,
-        "usageLimits": List["UsageLimitTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListWorkgroupsRequestRequestTypeDef = TypedDict(
-    "ListWorkgroupsRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-        "ownerAccount": str,
-    },
-    total=False,
-)
-
-ListWorkgroupsResponseTypeDef = TypedDict(
-    "ListWorkgroupsResponseTypeDef",
-    {
-        "nextToken": str,
-        "workgroups": List["WorkgroupTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-NamespaceTypeDef = TypedDict(
-    "NamespaceTypeDef",
-    {
-        "adminPasswordSecretArn": str,
-        "adminPasswordSecretKmsKeyId": str,
-        "adminUsername": str,
-        "creationDate": datetime,
-        "dbName": str,
-        "defaultIamRoleArn": str,
-        "iamRoles": List[str],
-        "kmsKeyId": str,
-        "logExports": List[LogExportType],
-        "namespaceArn": str,
-        "namespaceId": str,
-        "namespaceName": str,
-        "status": NamespaceStatusType,
-    },
-    total=False,
-)
-
-NetworkInterfaceTypeDef = TypedDict(
-    "NetworkInterfaceTypeDef",
-    {
-        "availabilityZone": str,
-        "networkInterfaceId": str,
-        "privateIpAddress": str,
-        "subnetId": str,
-    },
-    total=False,
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-PutResourcePolicyRequestRequestTypeDef = TypedDict(
-    "PutResourcePolicyRequestRequestTypeDef",
-    {
-        "policy": str,
-        "resourceArn": str,
-    },
-)
-
-PutResourcePolicyResponseTypeDef = TypedDict(
-    "PutResourcePolicyResponseTypeDef",
-    {
-        "resourcePolicy": "ResourcePolicyTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-RecoveryPointTypeDef = TypedDict(
-    "RecoveryPointTypeDef",
-    {
-        "namespaceArn": str,
-        "namespaceName": str,
-        "recoveryPointCreateTime": datetime,
-        "recoveryPointId": str,
-        "totalSizeInMegaBytes": float,
-        "workgroupName": str,
-    },
-    total=False,
-)
-
-ResourcePolicyTypeDef = TypedDict(
-    "ResourcePolicyTypeDef",
-    {
-        "policy": str,
-        "resourceArn": str,
-    },
-    total=False,
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-RestoreFromRecoveryPointRequestRequestTypeDef = TypedDict(
-    "RestoreFromRecoveryPointRequestRequestTypeDef",
-    {
-        "namespaceName": str,
-        "recoveryPointId": str,
-        "workgroupName": str,
-    },
-)
-
-RestoreFromRecoveryPointResponseTypeDef = TypedDict(
-    "RestoreFromRecoveryPointResponseTypeDef",
-    {
-        "namespace": "NamespaceTypeDef",
-        "recoveryPointId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredRestoreFromSnapshotRequestRequestTypeDef = TypedDict(
-    "_RequiredRestoreFromSnapshotRequestRequestTypeDef",
-    {
-        "namespaceName": str,
-        "workgroupName": str,
-    },
-)
-_OptionalRestoreFromSnapshotRequestRequestTypeDef = TypedDict(
-    "_OptionalRestoreFromSnapshotRequestRequestTypeDef",
-    {
-        "adminPasswordSecretKmsKeyId": str,
-        "manageAdminPassword": bool,
-        "ownerAccount": str,
-        "snapshotArn": str,
-        "snapshotName": str,
-    },
-    total=False,
-)
-
-class RestoreFromSnapshotRequestRequestTypeDef(
-    _RequiredRestoreFromSnapshotRequestRequestTypeDef,
-    _OptionalRestoreFromSnapshotRequestRequestTypeDef,
-):
-    pass
-
-RestoreFromSnapshotResponseTypeDef = TypedDict(
-    "RestoreFromSnapshotResponseTypeDef",
-    {
-        "namespace": "NamespaceTypeDef",
-        "ownerAccount": str,
-        "snapshotName": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredRestoreTableFromRecoveryPointRequestRequestTypeDef = TypedDict(
-    "_RequiredRestoreTableFromRecoveryPointRequestRequestTypeDef",
-    {
-        "namespaceName": str,
-        "newTableName": str,
-        "recoveryPointId": str,
-        "sourceDatabaseName": str,
-        "sourceTableName": str,
-        "workgroupName": str,
-    },
-)
-_OptionalRestoreTableFromRecoveryPointRequestRequestTypeDef = TypedDict(
-    "_OptionalRestoreTableFromRecoveryPointRequestRequestTypeDef",
-    {
-        "activateCaseSensitiveIdentifier": bool,
-        "sourceSchemaName": str,
-        "targetDatabaseName": str,
-        "targetSchemaName": str,
-    },
-    total=False,
-)
-
-class RestoreTableFromRecoveryPointRequestRequestTypeDef(
-    _RequiredRestoreTableFromRecoveryPointRequestRequestTypeDef,
-    _OptionalRestoreTableFromRecoveryPointRequestRequestTypeDef,
-):
-    pass
-
-RestoreTableFromRecoveryPointResponseTypeDef = TypedDict(
-    "RestoreTableFromRecoveryPointResponseTypeDef",
-    {
-        "tableRestoreStatus": "TableRestoreStatusTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredRestoreTableFromSnapshotRequestRequestTypeDef = TypedDict(
-    "_RequiredRestoreTableFromSnapshotRequestRequestTypeDef",
-    {
-        "namespaceName": str,
-        "newTableName": str,
-        "snapshotName": str,
-        "sourceDatabaseName": str,
-        "sourceTableName": str,
-        "workgroupName": str,
-    },
-)
-_OptionalRestoreTableFromSnapshotRequestRequestTypeDef = TypedDict(
-    "_OptionalRestoreTableFromSnapshotRequestRequestTypeDef",
-    {
-        "activateCaseSensitiveIdentifier": bool,
-        "sourceSchemaName": str,
-        "targetDatabaseName": str,
-        "targetSchemaName": str,
-    },
-    total=False,
-)
-
-class RestoreTableFromSnapshotRequestRequestTypeDef(
-    _RequiredRestoreTableFromSnapshotRequestRequestTypeDef,
-    _OptionalRestoreTableFromSnapshotRequestRequestTypeDef,
-):
-    pass
-
-RestoreTableFromSnapshotResponseTypeDef = TypedDict(
-    "RestoreTableFromSnapshotResponseTypeDef",
-    {
-        "tableRestoreStatus": "TableRestoreStatusTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ScheduleTypeDef = TypedDict(
-    "ScheduleTypeDef",
-    {
-        "at": Union[datetime, str],
-        "cron": str,
-    },
-    total=False,
-)
-
-ScheduledActionAssociationTypeDef = TypedDict(
-    "ScheduledActionAssociationTypeDef",
-    {
-        "namespaceName": str,
-        "scheduledActionName": str,
-    },
-    total=False,
-)
-
-ScheduledActionResponseTypeDef = TypedDict(
-    "ScheduledActionResponseTypeDef",
-    {
-        "endTime": datetime,
-        "namespaceName": str,
-        "nextInvocations": List[datetime],
-        "roleArn": str,
-        "schedule": "ScheduleTypeDef",
-        "scheduledActionDescription": str,
-        "scheduledActionName": str,
-        "scheduledActionUuid": str,
-        "startTime": datetime,
-        "state": StateType,
-        "targetAction": "TargetActionTypeDef",
-    },
-    total=False,
-)
-
-SnapshotCopyConfigurationTypeDef = TypedDict(
-    "SnapshotCopyConfigurationTypeDef",
-    {
-        "destinationKmsKeyId": str,
-        "destinationRegion": str,
-        "namespaceName": str,
-        "snapshotCopyConfigurationArn": str,
-        "snapshotCopyConfigurationId": str,
-        "snapshotRetentionPeriod": int,
-    },
-    total=False,
-)
-
-SnapshotTypeDef = TypedDict(
-    "SnapshotTypeDef",
-    {
-        "accountsWithProvisionedRestoreAccess": List[str],
-        "accountsWithRestoreAccess": List[str],
-        "actualIncrementalBackupSizeInMegaBytes": float,
-        "adminPasswordSecretArn": str,
-        "adminPasswordSecretKmsKeyId": str,
-        "adminUsername": str,
-        "backupProgressInMegaBytes": float,
-        "currentBackupRateInMegaBytesPerSecond": float,
-        "elapsedTimeInSeconds": int,
-        "estimatedSecondsToCompletion": int,
-        "kmsKeyId": str,
-        "namespaceArn": str,
-        "namespaceName": str,
-        "ownerAccount": str,
-        "snapshotArn": str,
-        "snapshotCreateTime": datetime,
-        "snapshotName": str,
-        "snapshotRemainingDays": int,
-        "snapshotRetentionPeriod": int,
-        "snapshotRetentionStartTime": datetime,
-        "status": SnapshotStatusType,
-        "totalBackupSizeInMegaBytes": float,
-    },
-    total=False,
-)
-
-TableRestoreStatusTypeDef = TypedDict(
-    "TableRestoreStatusTypeDef",
-    {
-        "message": str,
-        "namespaceName": str,
-        "newTableName": str,
-        "progressInMegaBytes": int,
-        "recoveryPointId": str,
-        "requestTime": datetime,
-        "snapshotName": str,
-        "sourceDatabaseName": str,
-        "sourceSchemaName": str,
-        "sourceTableName": str,
-        "status": str,
-        "tableRestoreRequestId": str,
-        "targetDatabaseName": str,
-        "targetSchemaName": str,
-        "totalDataInMegaBytes": int,
-        "workgroupName": str,
-    },
-    total=False,
-)
-
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tags": List["TagTypeDef"],
-    },
-)
-
-TagTypeDef = TypedDict(
-    "TagTypeDef",
-    {
-        "key": str,
-        "value": str,
-    },
-)
-
-TargetActionTypeDef = TypedDict(
-    "TargetActionTypeDef",
-    {
-        "createSnapshot": "CreateSnapshotScheduleActionParametersTypeDef",
-    },
-    total=False,
-)
-
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tagKeys": List[str],
-    },
-)
-
-UpdateCustomDomainAssociationRequestRequestTypeDef = TypedDict(
-    "UpdateCustomDomainAssociationRequestRequestTypeDef",
-    {
-        "customDomainCertificateArn": str,
-        "customDomainName": str,
-        "workgroupName": str,
-    },
-)
-
-UpdateCustomDomainAssociationResponseTypeDef = TypedDict(
-    "UpdateCustomDomainAssociationResponseTypeDef",
-    {
-        "customDomainCertificateArn": str,
-        "customDomainCertificateExpiryTime": datetime,
-        "customDomainName": str,
-        "workgroupName": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateEndpointAccessRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateEndpointAccessRequestRequestTypeDef",
-    {
-        "endpointName": str,
-    },
-)
-_OptionalUpdateEndpointAccessRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateEndpointAccessRequestRequestTypeDef",
-    {
-        "vpcSecurityGroupIds": List[str],
-    },
-    total=False,
-)
-
-class UpdateEndpointAccessRequestRequestTypeDef(
-    _RequiredUpdateEndpointAccessRequestRequestTypeDef,
-    _OptionalUpdateEndpointAccessRequestRequestTypeDef,
-):
-    pass
-
-UpdateEndpointAccessResponseTypeDef = TypedDict(
-    "UpdateEndpointAccessResponseTypeDef",
-    {
-        "endpoint": "EndpointAccessTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateNamespaceRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateNamespaceRequestRequestTypeDef",
-    {
-        "namespaceName": str,
-    },
-)
-_OptionalUpdateNamespaceRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateNamespaceRequestRequestTypeDef",
-    {
-        "adminPasswordSecretKmsKeyId": str,
-        "adminUserPassword": str,
-        "adminUsername": str,
-        "defaultIamRoleArn": str,
-        "iamRoles": List[str],
-        "kmsKeyId": str,
-        "logExports": List[LogExportType],
-        "manageAdminPassword": bool,
-    },
-    total=False,
-)
-
-class UpdateNamespaceRequestRequestTypeDef(
-    _RequiredUpdateNamespaceRequestRequestTypeDef, _OptionalUpdateNamespaceRequestRequestTypeDef
-):
-    pass
-
-UpdateNamespaceResponseTypeDef = TypedDict(
-    "UpdateNamespaceResponseTypeDef",
-    {
-        "namespace": "NamespaceTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateScheduledActionRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateScheduledActionRequestRequestTypeDef",
-    {
-        "scheduledActionName": str,
-    },
-)
-_OptionalUpdateScheduledActionRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateScheduledActionRequestRequestTypeDef",
-    {
-        "enabled": bool,
-        "endTime": Union[datetime, str],
-        "roleArn": str,
-        "schedule": "ScheduleTypeDef",
-        "scheduledActionDescription": str,
-        "startTime": Union[datetime, str],
-        "targetAction": "TargetActionTypeDef",
-    },
-    total=False,
-)
-
-class UpdateScheduledActionRequestRequestTypeDef(
-    _RequiredUpdateScheduledActionRequestRequestTypeDef,
-    _OptionalUpdateScheduledActionRequestRequestTypeDef,
-):
-    pass
-
-UpdateScheduledActionResponseTypeDef = TypedDict(
-    "UpdateScheduledActionResponseTypeDef",
-    {
-        "scheduledAction": "ScheduledActionResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateSnapshotCopyConfigurationRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateSnapshotCopyConfigurationRequestRequestTypeDef",
-    {
-        "snapshotCopyConfigurationId": str,
-    },
-)
-_OptionalUpdateSnapshotCopyConfigurationRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateSnapshotCopyConfigurationRequestRequestTypeDef",
-    {
-        "snapshotRetentionPeriod": int,
-    },
-    total=False,
-)
-
-class UpdateSnapshotCopyConfigurationRequestRequestTypeDef(
-    _RequiredUpdateSnapshotCopyConfigurationRequestRequestTypeDef,
-    _OptionalUpdateSnapshotCopyConfigurationRequestRequestTypeDef,
-):
-    pass
-
-UpdateSnapshotCopyConfigurationResponseTypeDef = TypedDict(
-    "UpdateSnapshotCopyConfigurationResponseTypeDef",
-    {
-        "snapshotCopyConfiguration": "SnapshotCopyConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateSnapshotRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateSnapshotRequestRequestTypeDef",
-    {
-        "snapshotName": str,
-    },
-)
-_OptionalUpdateSnapshotRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateSnapshotRequestRequestTypeDef",
-    {
-        "retentionPeriod": int,
-    },
-    total=False,
-)
-
-class UpdateSnapshotRequestRequestTypeDef(
-    _RequiredUpdateSnapshotRequestRequestTypeDef, _OptionalUpdateSnapshotRequestRequestTypeDef
-):
-    pass
-
-UpdateSnapshotResponseTypeDef = TypedDict(
-    "UpdateSnapshotResponseTypeDef",
-    {
-        "snapshot": "SnapshotTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateUsageLimitRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateUsageLimitRequestRequestTypeDef",
-    {
-        "usageLimitId": str,
-    },
-)
-_OptionalUpdateUsageLimitRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateUsageLimitRequestRequestTypeDef",
-    {
-        "amount": int,
-        "breachAction": UsageLimitBreachActionType,
-    },
-    total=False,
-)
-
-class UpdateUsageLimitRequestRequestTypeDef(
-    _RequiredUpdateUsageLimitRequestRequestTypeDef, _OptionalUpdateUsageLimitRequestRequestTypeDef
-):
-    pass
-
-UpdateUsageLimitResponseTypeDef = TypedDict(
-    "UpdateUsageLimitResponseTypeDef",
-    {
-        "usageLimit": "UsageLimitTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateWorkgroupRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateWorkgroupRequestRequestTypeDef",
-    {
-        "workgroupName": str,
-    },
-)
-_OptionalUpdateWorkgroupRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateWorkgroupRequestRequestTypeDef",
-    {
-        "baseCapacity": int,
-        "configParameters": List["ConfigParameterTypeDef"],
-        "enhancedVpcRouting": bool,
-        "maxCapacity": int,
-        "port": int,
-        "publiclyAccessible": bool,
-        "securityGroupIds": List[str],
-        "subnetIds": List[str],
-    },
-    total=False,
-)
-
-class UpdateWorkgroupRequestRequestTypeDef(
-    _RequiredUpdateWorkgroupRequestRequestTypeDef, _OptionalUpdateWorkgroupRequestRequestTypeDef
-):
-    pass
-
-UpdateWorkgroupResponseTypeDef = TypedDict(
-    "UpdateWorkgroupResponseTypeDef",
-    {
-        "workgroup": "WorkgroupTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UsageLimitTypeDef = TypedDict(
-    "UsageLimitTypeDef",
-    {
-        "amount": int,
-        "breachAction": UsageLimitBreachActionType,
-        "period": UsageLimitPeriodType,
-        "resourceArn": str,
-        "usageLimitArn": str,
-        "usageLimitId": str,
-        "usageType": UsageLimitUsageTypeType,
-    },
-    total=False,
-)
-
-VpcEndpointTypeDef = TypedDict(
-    "VpcEndpointTypeDef",
-    {
-        "networkInterfaces": List["NetworkInterfaceTypeDef"],
-        "vpcEndpointId": str,
-        "vpcId": str,
-    },
-    total=False,
-)
-
-VpcSecurityGroupMembershipTypeDef = TypedDict(
-    "VpcSecurityGroupMembershipTypeDef",
-    {
-        "status": str,
-        "vpcSecurityGroupId": str,
-    },
-    total=False,
-)
-
-WorkgroupTypeDef = TypedDict(
-    "WorkgroupTypeDef",
-    {
-        "baseCapacity": int,
-        "configParameters": List["ConfigParameterTypeDef"],
-        "creationDate": datetime,
-        "crossAccountVpcs": List[str],
-        "customDomainCertificateArn": str,
-        "customDomainCertificateExpiryTime": datetime,
-        "customDomainName": str,
-        "endpoint": "EndpointTypeDef",
-        "enhancedVpcRouting": bool,
-        "maxCapacity": int,
-        "namespaceName": str,
-        "patchVersion": str,
-        "port": int,
-        "publiclyAccessible": bool,
-        "securityGroupIds": List[str],
-        "status": WorkgroupStatusType,
-        "subnetIds": List[str],
-        "workgroupArn": str,
-        "workgroupId": str,
-        "workgroupName": str,
-        "workgroupVersion": str,
-    },
-    total=False,
-)
+class AssociationTypeDef(TypedDict):
+    customDomainCertificateArn: NotRequired[str]
+    customDomainCertificateExpiryTime: NotRequired[datetime]
+    customDomainName: NotRequired[str]
+    workgroupName: NotRequired[str]
+
+class ConfigParameterTypeDef(TypedDict):
+    parameterKey: NotRequired[str]
+    parameterValue: NotRequired[str]
+
+class TagTypeDef(TypedDict):
+    key: str
+    value: str
+
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
+
+class SnapshotTypeDef(TypedDict):
+    accountsWithProvisionedRestoreAccess: NotRequired[List[str]]
+    accountsWithRestoreAccess: NotRequired[List[str]]
+    actualIncrementalBackupSizeInMegaBytes: NotRequired[float]
+    adminPasswordSecretArn: NotRequired[str]
+    adminPasswordSecretKmsKeyId: NotRequired[str]
+    adminUsername: NotRequired[str]
+    backupProgressInMegaBytes: NotRequired[float]
+    currentBackupRateInMegaBytesPerSecond: NotRequired[float]
+    elapsedTimeInSeconds: NotRequired[int]
+    estimatedSecondsToCompletion: NotRequired[int]
+    kmsKeyId: NotRequired[str]
+    namespaceArn: NotRequired[str]
+    namespaceName: NotRequired[str]
+    ownerAccount: NotRequired[str]
+    snapshotArn: NotRequired[str]
+    snapshotCreateTime: NotRequired[datetime]
+    snapshotName: NotRequired[str]
+    snapshotRemainingDays: NotRequired[int]
+    snapshotRetentionPeriod: NotRequired[int]
+    snapshotRetentionStartTime: NotRequired[datetime]
+    status: NotRequired[SnapshotStatusType]
+    totalBackupSizeInMegaBytes: NotRequired[float]
+
+class CreateCustomDomainAssociationRequestTypeDef(TypedDict):
+    customDomainCertificateArn: str
+    customDomainName: str
+    workgroupName: str
+
+class CreateEndpointAccessRequestTypeDef(TypedDict):
+    endpointName: str
+    subnetIds: Sequence[str]
+    workgroupName: str
+    ownerAccount: NotRequired[str]
+    vpcSecurityGroupIds: NotRequired[Sequence[str]]
+
+class NamespaceTypeDef(TypedDict):
+    adminPasswordSecretArn: NotRequired[str]
+    adminPasswordSecretKmsKeyId: NotRequired[str]
+    adminUsername: NotRequired[str]
+    creationDate: NotRequired[datetime]
+    dbName: NotRequired[str]
+    defaultIamRoleArn: NotRequired[str]
+    iamRoles: NotRequired[List[str]]
+    kmsKeyId: NotRequired[str]
+    logExports: NotRequired[List[LogExportType]]
+    namespaceArn: NotRequired[str]
+    namespaceId: NotRequired[str]
+    namespaceName: NotRequired[str]
+    status: NotRequired[NamespaceStatusType]
+
+class CreateReservationRequestTypeDef(TypedDict):
+    capacity: int
+    offeringId: str
+    clientToken: NotRequired[str]
+
+TimestampTypeDef = Union[datetime, str]
+
+class CreateSnapshotCopyConfigurationRequestTypeDef(TypedDict):
+    destinationRegion: str
+    namespaceName: str
+    destinationKmsKeyId: NotRequired[str]
+    snapshotRetentionPeriod: NotRequired[int]
+
+class SnapshotCopyConfigurationTypeDef(TypedDict):
+    destinationKmsKeyId: NotRequired[str]
+    destinationRegion: NotRequired[str]
+    namespaceName: NotRequired[str]
+    snapshotCopyConfigurationArn: NotRequired[str]
+    snapshotCopyConfigurationId: NotRequired[str]
+    snapshotRetentionPeriod: NotRequired[int]
+
+class CreateUsageLimitRequestTypeDef(TypedDict):
+    amount: int
+    resourceArn: str
+    usageType: UsageLimitUsageTypeType
+    breachAction: NotRequired[UsageLimitBreachActionType]
+    period: NotRequired[UsageLimitPeriodType]
+
+class UsageLimitTypeDef(TypedDict):
+    amount: NotRequired[int]
+    breachAction: NotRequired[UsageLimitBreachActionType]
+    period: NotRequired[UsageLimitPeriodType]
+    resourceArn: NotRequired[str]
+    usageLimitArn: NotRequired[str]
+    usageLimitId: NotRequired[str]
+    usageType: NotRequired[UsageLimitUsageTypeType]
+
+class PerformanceTargetTypeDef(TypedDict):
+    level: NotRequired[int]
+    status: NotRequired[PerformanceTargetStatusType]
+
+class DeleteCustomDomainAssociationRequestTypeDef(TypedDict):
+    customDomainName: str
+    workgroupName: str
+
+class DeleteEndpointAccessRequestTypeDef(TypedDict):
+    endpointName: str
+
+class DeleteNamespaceRequestTypeDef(TypedDict):
+    namespaceName: str
+    finalSnapshotName: NotRequired[str]
+    finalSnapshotRetentionPeriod: NotRequired[int]
+
+class DeleteResourcePolicyRequestTypeDef(TypedDict):
+    resourceArn: str
+
+class DeleteScheduledActionRequestTypeDef(TypedDict):
+    scheduledActionName: str
+
+class DeleteSnapshotCopyConfigurationRequestTypeDef(TypedDict):
+    snapshotCopyConfigurationId: str
+
+class DeleteSnapshotRequestTypeDef(TypedDict):
+    snapshotName: str
+
+class DeleteUsageLimitRequestTypeDef(TypedDict):
+    usageLimitId: str
+
+class DeleteWorkgroupRequestTypeDef(TypedDict):
+    workgroupName: str
+
+class VpcSecurityGroupMembershipTypeDef(TypedDict):
+    status: NotRequired[str]
+    vpcSecurityGroupId: NotRequired[str]
+
+class GetCredentialsRequestTypeDef(TypedDict):
+    customDomainName: NotRequired[str]
+    dbName: NotRequired[str]
+    durationSeconds: NotRequired[int]
+    workgroupName: NotRequired[str]
+
+class GetCustomDomainAssociationRequestTypeDef(TypedDict):
+    customDomainName: str
+    workgroupName: str
+
+class GetEndpointAccessRequestTypeDef(TypedDict):
+    endpointName: str
+
+class GetNamespaceRequestTypeDef(TypedDict):
+    namespaceName: str
+
+class GetRecoveryPointRequestTypeDef(TypedDict):
+    recoveryPointId: str
+
+class RecoveryPointTypeDef(TypedDict):
+    namespaceArn: NotRequired[str]
+    namespaceName: NotRequired[str]
+    recoveryPointCreateTime: NotRequired[datetime]
+    recoveryPointId: NotRequired[str]
+    totalSizeInMegaBytes: NotRequired[float]
+    workgroupName: NotRequired[str]
+
+class GetReservationOfferingRequestTypeDef(TypedDict):
+    offeringId: str
+
+class ReservationOfferingTypeDef(TypedDict):
+    currencyCode: NotRequired[str]
+    duration: NotRequired[int]
+    hourlyCharge: NotRequired[float]
+    offeringId: NotRequired[str]
+    offeringType: NotRequired[OfferingTypeType]
+    upfrontCharge: NotRequired[float]
+
+class GetReservationRequestTypeDef(TypedDict):
+    reservationId: str
+
+class GetResourcePolicyRequestTypeDef(TypedDict):
+    resourceArn: str
+
+class ResourcePolicyTypeDef(TypedDict):
+    policy: NotRequired[str]
+    resourceArn: NotRequired[str]
+
+class GetScheduledActionRequestTypeDef(TypedDict):
+    scheduledActionName: str
+
+class GetSnapshotRequestTypeDef(TypedDict):
+    ownerAccount: NotRequired[str]
+    snapshotArn: NotRequired[str]
+    snapshotName: NotRequired[str]
+
+class GetTableRestoreStatusRequestTypeDef(TypedDict):
+    tableRestoreRequestId: str
+
+class TableRestoreStatusTypeDef(TypedDict):
+    message: NotRequired[str]
+    namespaceName: NotRequired[str]
+    newTableName: NotRequired[str]
+    progressInMegaBytes: NotRequired[int]
+    recoveryPointId: NotRequired[str]
+    requestTime: NotRequired[datetime]
+    snapshotName: NotRequired[str]
+    sourceDatabaseName: NotRequired[str]
+    sourceSchemaName: NotRequired[str]
+    sourceTableName: NotRequired[str]
+    status: NotRequired[str]
+    tableRestoreRequestId: NotRequired[str]
+    targetDatabaseName: NotRequired[str]
+    targetSchemaName: NotRequired[str]
+    totalDataInMegaBytes: NotRequired[int]
+    workgroupName: NotRequired[str]
+
+class GetTrackRequestTypeDef(TypedDict):
+    trackName: str
+
+class GetUsageLimitRequestTypeDef(TypedDict):
+    usageLimitId: str
+
+class GetWorkgroupRequestTypeDef(TypedDict):
+    workgroupName: str
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class ListCustomDomainAssociationsRequestTypeDef(TypedDict):
+    customDomainCertificateArn: NotRequired[str]
+    customDomainName: NotRequired[str]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListEndpointAccessRequestTypeDef(TypedDict):
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+    ownerAccount: NotRequired[str]
+    vpcId: NotRequired[str]
+    workgroupName: NotRequired[str]
+
+class ListManagedWorkgroupsRequestTypeDef(TypedDict):
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+    sourceArn: NotRequired[str]
+
+class ManagedWorkgroupListItemTypeDef(TypedDict):
+    creationDate: NotRequired[datetime]
+    managedWorkgroupId: NotRequired[str]
+    managedWorkgroupName: NotRequired[str]
+    sourceArn: NotRequired[str]
+    status: NotRequired[ManagedWorkgroupStatusType]
+
+class ListNamespacesRequestTypeDef(TypedDict):
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListReservationOfferingsRequestTypeDef(TypedDict):
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListReservationsRequestTypeDef(TypedDict):
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListScheduledActionsRequestTypeDef(TypedDict):
+    maxResults: NotRequired[int]
+    namespaceName: NotRequired[str]
+    nextToken: NotRequired[str]
+
+class ScheduledActionAssociationTypeDef(TypedDict):
+    namespaceName: NotRequired[str]
+    scheduledActionName: NotRequired[str]
+
+class ListSnapshotCopyConfigurationsRequestTypeDef(TypedDict):
+    maxResults: NotRequired[int]
+    namespaceName: NotRequired[str]
+    nextToken: NotRequired[str]
+
+class ListTableRestoreStatusRequestTypeDef(TypedDict):
+    maxResults: NotRequired[int]
+    namespaceName: NotRequired[str]
+    nextToken: NotRequired[str]
+    workgroupName: NotRequired[str]
+
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+
+class ListTracksRequestTypeDef(TypedDict):
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListUsageLimitsRequestTypeDef(TypedDict):
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+    resourceArn: NotRequired[str]
+    usageType: NotRequired[UsageLimitUsageTypeType]
+
+class ListWorkgroupsRequestTypeDef(TypedDict):
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+    ownerAccount: NotRequired[str]
+
+class NetworkInterfaceTypeDef(TypedDict):
+    availabilityZone: NotRequired[str]
+    ipv6Address: NotRequired[str]
+    networkInterfaceId: NotRequired[str]
+    privateIpAddress: NotRequired[str]
+    subnetId: NotRequired[str]
+
+class PutResourcePolicyRequestTypeDef(TypedDict):
+    policy: str
+    resourceArn: str
+
+class RestoreFromRecoveryPointRequestTypeDef(TypedDict):
+    namespaceName: str
+    recoveryPointId: str
+    workgroupName: str
+
+class RestoreFromSnapshotRequestTypeDef(TypedDict):
+    namespaceName: str
+    workgroupName: str
+    adminPasswordSecretKmsKeyId: NotRequired[str]
+    manageAdminPassword: NotRequired[bool]
+    ownerAccount: NotRequired[str]
+    snapshotArn: NotRequired[str]
+    snapshotName: NotRequired[str]
+
+class RestoreTableFromRecoveryPointRequestTypeDef(TypedDict):
+    namespaceName: str
+    newTableName: str
+    recoveryPointId: str
+    sourceDatabaseName: str
+    sourceTableName: str
+    workgroupName: str
+    activateCaseSensitiveIdentifier: NotRequired[bool]
+    sourceSchemaName: NotRequired[str]
+    targetDatabaseName: NotRequired[str]
+    targetSchemaName: NotRequired[str]
+
+class RestoreTableFromSnapshotRequestTypeDef(TypedDict):
+    namespaceName: str
+    newTableName: str
+    snapshotName: str
+    sourceDatabaseName: str
+    sourceTableName: str
+    workgroupName: str
+    activateCaseSensitiveIdentifier: NotRequired[bool]
+    sourceSchemaName: NotRequired[str]
+    targetDatabaseName: NotRequired[str]
+    targetSchemaName: NotRequired[str]
+
+class ScheduleOutputTypeDef(TypedDict):
+    at: NotRequired[datetime]
+    cron: NotRequired[str]
+
+class UpdateTargetTypeDef(TypedDict):
+    trackName: NotRequired[str]
+    workgroupVersion: NotRequired[str]
+
+class UntagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tagKeys: Sequence[str]
+
+class UpdateCustomDomainAssociationRequestTypeDef(TypedDict):
+    customDomainCertificateArn: str
+    customDomainName: str
+    workgroupName: str
+
+class UpdateEndpointAccessRequestTypeDef(TypedDict):
+    endpointName: str
+    vpcSecurityGroupIds: NotRequired[Sequence[str]]
+
+class UpdateNamespaceRequestTypeDef(TypedDict):
+    namespaceName: str
+    adminPasswordSecretKmsKeyId: NotRequired[str]
+    adminUserPassword: NotRequired[str]
+    adminUsername: NotRequired[str]
+    defaultIamRoleArn: NotRequired[str]
+    iamRoles: NotRequired[Sequence[str]]
+    kmsKeyId: NotRequired[str]
+    logExports: NotRequired[Sequence[LogExportType]]
+    manageAdminPassword: NotRequired[bool]
+
+class UpdateSnapshotCopyConfigurationRequestTypeDef(TypedDict):
+    snapshotCopyConfigurationId: str
+    snapshotRetentionPeriod: NotRequired[int]
+
+class UpdateSnapshotRequestTypeDef(TypedDict):
+    snapshotName: str
+    retentionPeriod: NotRequired[int]
+
+class UpdateUsageLimitRequestTypeDef(TypedDict):
+    usageLimitId: str
+    amount: NotRequired[int]
+    breachAction: NotRequired[UsageLimitBreachActionType]
+
+class ConvertRecoveryPointToSnapshotRequestTypeDef(TypedDict):
+    recoveryPointId: str
+    snapshotName: str
+    retentionPeriod: NotRequired[int]
+    tags: NotRequired[Sequence[TagTypeDef]]
+
+class CreateNamespaceRequestTypeDef(TypedDict):
+    namespaceName: str
+    adminPasswordSecretKmsKeyId: NotRequired[str]
+    adminUserPassword: NotRequired[str]
+    adminUsername: NotRequired[str]
+    dbName: NotRequired[str]
+    defaultIamRoleArn: NotRequired[str]
+    iamRoles: NotRequired[Sequence[str]]
+    kmsKeyId: NotRequired[str]
+    logExports: NotRequired[Sequence[LogExportType]]
+    manageAdminPassword: NotRequired[bool]
+    redshiftIdcApplicationArn: NotRequired[str]
+    tags: NotRequired[Sequence[TagTypeDef]]
+
+class CreateSnapshotRequestTypeDef(TypedDict):
+    namespaceName: str
+    snapshotName: str
+    retentionPeriod: NotRequired[int]
+    tags: NotRequired[Sequence[TagTypeDef]]
+
+class CreateSnapshotScheduleActionParametersOutputTypeDef(TypedDict):
+    namespaceName: str
+    snapshotNamePrefix: str
+    retentionPeriod: NotRequired[int]
+    tags: NotRequired[List[TagTypeDef]]
+
+class CreateSnapshotScheduleActionParametersTypeDef(TypedDict):
+    namespaceName: str
+    snapshotNamePrefix: str
+    retentionPeriod: NotRequired[int]
+    tags: NotRequired[Sequence[TagTypeDef]]
+
+class TagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tags: Sequence[TagTypeDef]
+
+class CreateCustomDomainAssociationResponseTypeDef(TypedDict):
+    customDomainCertificateArn: str
+    customDomainCertificateExpiryTime: datetime
+    customDomainName: str
+    workgroupName: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetCredentialsResponseTypeDef(TypedDict):
+    dbPassword: str
+    dbUser: str
+    expiration: datetime
+    nextRefreshTime: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetCustomDomainAssociationResponseTypeDef(TypedDict):
+    customDomainCertificateArn: str
+    customDomainCertificateExpiryTime: datetime
+    customDomainName: str
+    workgroupName: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListCustomDomainAssociationsResponseTypeDef(TypedDict):
+    associations: List[AssociationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    tags: List[TagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateCustomDomainAssociationResponseTypeDef(TypedDict):
+    customDomainCertificateArn: str
+    customDomainCertificateExpiryTime: datetime
+    customDomainName: str
+    workgroupName: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ConvertRecoveryPointToSnapshotResponseTypeDef(TypedDict):
+    snapshot: SnapshotTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateSnapshotResponseTypeDef(TypedDict):
+    snapshot: SnapshotTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteSnapshotResponseTypeDef(TypedDict):
+    snapshot: SnapshotTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetSnapshotResponseTypeDef(TypedDict):
+    snapshot: SnapshotTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListSnapshotsResponseTypeDef(TypedDict):
+    snapshots: List[SnapshotTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class UpdateSnapshotResponseTypeDef(TypedDict):
+    snapshot: SnapshotTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateNamespaceResponseTypeDef(TypedDict):
+    namespace: NamespaceTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteNamespaceResponseTypeDef(TypedDict):
+    namespace: NamespaceTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetNamespaceResponseTypeDef(TypedDict):
+    namespace: NamespaceTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListNamespacesResponseTypeDef(TypedDict):
+    namespaces: List[NamespaceTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class RestoreFromRecoveryPointResponseTypeDef(TypedDict):
+    namespace: NamespaceTypeDef
+    recoveryPointId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class RestoreFromSnapshotResponseTypeDef(TypedDict):
+    namespace: NamespaceTypeDef
+    ownerAccount: str
+    snapshotName: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateNamespaceResponseTypeDef(TypedDict):
+    namespace: NamespaceTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListRecoveryPointsRequestTypeDef(TypedDict):
+    endTime: NotRequired[TimestampTypeDef]
+    maxResults: NotRequired[int]
+    namespaceArn: NotRequired[str]
+    namespaceName: NotRequired[str]
+    nextToken: NotRequired[str]
+    startTime: NotRequired[TimestampTypeDef]
+
+class ListSnapshotsRequestTypeDef(TypedDict):
+    endTime: NotRequired[TimestampTypeDef]
+    maxResults: NotRequired[int]
+    namespaceArn: NotRequired[str]
+    namespaceName: NotRequired[str]
+    nextToken: NotRequired[str]
+    ownerAccount: NotRequired[str]
+    startTime: NotRequired[TimestampTypeDef]
+
+class ScheduleTypeDef(TypedDict):
+    at: NotRequired[TimestampTypeDef]
+    cron: NotRequired[str]
+
+class CreateSnapshotCopyConfigurationResponseTypeDef(TypedDict):
+    snapshotCopyConfiguration: SnapshotCopyConfigurationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteSnapshotCopyConfigurationResponseTypeDef(TypedDict):
+    snapshotCopyConfiguration: SnapshotCopyConfigurationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListSnapshotCopyConfigurationsResponseTypeDef(TypedDict):
+    snapshotCopyConfigurations: List[SnapshotCopyConfigurationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class UpdateSnapshotCopyConfigurationResponseTypeDef(TypedDict):
+    snapshotCopyConfiguration: SnapshotCopyConfigurationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateUsageLimitResponseTypeDef(TypedDict):
+    usageLimit: UsageLimitTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteUsageLimitResponseTypeDef(TypedDict):
+    usageLimit: UsageLimitTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetUsageLimitResponseTypeDef(TypedDict):
+    usageLimit: UsageLimitTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListUsageLimitsResponseTypeDef(TypedDict):
+    usageLimits: List[UsageLimitTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class UpdateUsageLimitResponseTypeDef(TypedDict):
+    usageLimit: UsageLimitTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateWorkgroupRequestTypeDef(TypedDict):
+    namespaceName: str
+    workgroupName: str
+    baseCapacity: NotRequired[int]
+    configParameters: NotRequired[Sequence[ConfigParameterTypeDef]]
+    enhancedVpcRouting: NotRequired[bool]
+    ipAddressType: NotRequired[str]
+    maxCapacity: NotRequired[int]
+    port: NotRequired[int]
+    pricePerformanceTarget: NotRequired[PerformanceTargetTypeDef]
+    publiclyAccessible: NotRequired[bool]
+    securityGroupIds: NotRequired[Sequence[str]]
+    subnetIds: NotRequired[Sequence[str]]
+    tags: NotRequired[Sequence[TagTypeDef]]
+    trackName: NotRequired[str]
+
+class UpdateWorkgroupRequestTypeDef(TypedDict):
+    workgroupName: str
+    baseCapacity: NotRequired[int]
+    configParameters: NotRequired[Sequence[ConfigParameterTypeDef]]
+    enhancedVpcRouting: NotRequired[bool]
+    ipAddressType: NotRequired[str]
+    maxCapacity: NotRequired[int]
+    port: NotRequired[int]
+    pricePerformanceTarget: NotRequired[PerformanceTargetTypeDef]
+    publiclyAccessible: NotRequired[bool]
+    securityGroupIds: NotRequired[Sequence[str]]
+    subnetIds: NotRequired[Sequence[str]]
+    trackName: NotRequired[str]
+
+class GetRecoveryPointResponseTypeDef(TypedDict):
+    recoveryPoint: RecoveryPointTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListRecoveryPointsResponseTypeDef(TypedDict):
+    recoveryPoints: List[RecoveryPointTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class GetReservationOfferingResponseTypeDef(TypedDict):
+    reservationOffering: ReservationOfferingTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListReservationOfferingsResponseTypeDef(TypedDict):
+    reservationOfferingsList: List[ReservationOfferingTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ReservationTypeDef(TypedDict):
+    capacity: NotRequired[int]
+    endDate: NotRequired[datetime]
+    offering: NotRequired[ReservationOfferingTypeDef]
+    reservationArn: NotRequired[str]
+    reservationId: NotRequired[str]
+    startDate: NotRequired[datetime]
+    status: NotRequired[str]
+
+class GetResourcePolicyResponseTypeDef(TypedDict):
+    resourcePolicy: ResourcePolicyTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutResourcePolicyResponseTypeDef(TypedDict):
+    resourcePolicy: ResourcePolicyTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetTableRestoreStatusResponseTypeDef(TypedDict):
+    tableRestoreStatus: TableRestoreStatusTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListTableRestoreStatusResponseTypeDef(TypedDict):
+    tableRestoreStatuses: List[TableRestoreStatusTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class RestoreTableFromRecoveryPointResponseTypeDef(TypedDict):
+    tableRestoreStatus: TableRestoreStatusTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class RestoreTableFromSnapshotResponseTypeDef(TypedDict):
+    tableRestoreStatus: TableRestoreStatusTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListCustomDomainAssociationsRequestPaginateTypeDef(TypedDict):
+    customDomainCertificateArn: NotRequired[str]
+    customDomainName: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListEndpointAccessRequestPaginateTypeDef(TypedDict):
+    ownerAccount: NotRequired[str]
+    vpcId: NotRequired[str]
+    workgroupName: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListManagedWorkgroupsRequestPaginateTypeDef(TypedDict):
+    sourceArn: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListNamespacesRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListRecoveryPointsRequestPaginateTypeDef(TypedDict):
+    endTime: NotRequired[TimestampTypeDef]
+    namespaceArn: NotRequired[str]
+    namespaceName: NotRequired[str]
+    startTime: NotRequired[TimestampTypeDef]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListReservationOfferingsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListReservationsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListScheduledActionsRequestPaginateTypeDef(TypedDict):
+    namespaceName: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListSnapshotCopyConfigurationsRequestPaginateTypeDef(TypedDict):
+    namespaceName: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListSnapshotsRequestPaginateTypeDef(TypedDict):
+    endTime: NotRequired[TimestampTypeDef]
+    namespaceArn: NotRequired[str]
+    namespaceName: NotRequired[str]
+    ownerAccount: NotRequired[str]
+    startTime: NotRequired[TimestampTypeDef]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListTableRestoreStatusRequestPaginateTypeDef(TypedDict):
+    namespaceName: NotRequired[str]
+    workgroupName: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListTracksRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListUsageLimitsRequestPaginateTypeDef(TypedDict):
+    resourceArn: NotRequired[str]
+    usageType: NotRequired[UsageLimitUsageTypeType]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListWorkgroupsRequestPaginateTypeDef(TypedDict):
+    ownerAccount: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListManagedWorkgroupsResponseTypeDef(TypedDict):
+    managedWorkgroups: List[ManagedWorkgroupListItemTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListScheduledActionsResponseTypeDef(TypedDict):
+    scheduledActions: List[ScheduledActionAssociationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class VpcEndpointTypeDef(TypedDict):
+    networkInterfaces: NotRequired[List[NetworkInterfaceTypeDef]]
+    vpcEndpointId: NotRequired[str]
+    vpcId: NotRequired[str]
+
+class ServerlessTrackTypeDef(TypedDict):
+    trackName: NotRequired[str]
+    updateTargets: NotRequired[List[UpdateTargetTypeDef]]
+    workgroupVersion: NotRequired[str]
+
+class TargetActionOutputTypeDef(TypedDict):
+    createSnapshot: NotRequired[CreateSnapshotScheduleActionParametersOutputTypeDef]
+
+class TargetActionTypeDef(TypedDict):
+    createSnapshot: NotRequired[CreateSnapshotScheduleActionParametersTypeDef]
+
+ScheduleUnionTypeDef = Union[ScheduleTypeDef, ScheduleOutputTypeDef]
+
+class CreateReservationResponseTypeDef(TypedDict):
+    reservation: ReservationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetReservationResponseTypeDef(TypedDict):
+    reservation: ReservationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListReservationsResponseTypeDef(TypedDict):
+    reservationsList: List[ReservationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class EndpointAccessTypeDef(TypedDict):
+    address: NotRequired[str]
+    endpointArn: NotRequired[str]
+    endpointCreateTime: NotRequired[datetime]
+    endpointName: NotRequired[str]
+    endpointStatus: NotRequired[str]
+    port: NotRequired[int]
+    subnetIds: NotRequired[List[str]]
+    vpcEndpoint: NotRequired[VpcEndpointTypeDef]
+    vpcSecurityGroups: NotRequired[List[VpcSecurityGroupMembershipTypeDef]]
+    workgroupName: NotRequired[str]
+
+class EndpointTypeDef(TypedDict):
+    address: NotRequired[str]
+    port: NotRequired[int]
+    vpcEndpoints: NotRequired[List[VpcEndpointTypeDef]]
+
+class GetTrackResponseTypeDef(TypedDict):
+    track: ServerlessTrackTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListTracksResponseTypeDef(TypedDict):
+    tracks: List[ServerlessTrackTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ScheduledActionResponseTypeDef(TypedDict):
+    endTime: NotRequired[datetime]
+    namespaceName: NotRequired[str]
+    nextInvocations: NotRequired[List[datetime]]
+    roleArn: NotRequired[str]
+    schedule: NotRequired[ScheduleOutputTypeDef]
+    scheduledActionDescription: NotRequired[str]
+    scheduledActionName: NotRequired[str]
+    scheduledActionUuid: NotRequired[str]
+    startTime: NotRequired[datetime]
+    state: NotRequired[StateType]
+    targetAction: NotRequired[TargetActionOutputTypeDef]
+
+TargetActionUnionTypeDef = Union[TargetActionTypeDef, TargetActionOutputTypeDef]
+
+class CreateEndpointAccessResponseTypeDef(TypedDict):
+    endpoint: EndpointAccessTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteEndpointAccessResponseTypeDef(TypedDict):
+    endpoint: EndpointAccessTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetEndpointAccessResponseTypeDef(TypedDict):
+    endpoint: EndpointAccessTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListEndpointAccessResponseTypeDef(TypedDict):
+    endpoints: List[EndpointAccessTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class UpdateEndpointAccessResponseTypeDef(TypedDict):
+    endpoint: EndpointAccessTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class WorkgroupTypeDef(TypedDict):
+    baseCapacity: NotRequired[int]
+    configParameters: NotRequired[List[ConfigParameterTypeDef]]
+    creationDate: NotRequired[datetime]
+    crossAccountVpcs: NotRequired[List[str]]
+    customDomainCertificateArn: NotRequired[str]
+    customDomainCertificateExpiryTime: NotRequired[datetime]
+    customDomainName: NotRequired[str]
+    endpoint: NotRequired[EndpointTypeDef]
+    enhancedVpcRouting: NotRequired[bool]
+    ipAddressType: NotRequired[str]
+    maxCapacity: NotRequired[int]
+    namespaceName: NotRequired[str]
+    patchVersion: NotRequired[str]
+    pendingTrackName: NotRequired[str]
+    port: NotRequired[int]
+    pricePerformanceTarget: NotRequired[PerformanceTargetTypeDef]
+    publiclyAccessible: NotRequired[bool]
+    securityGroupIds: NotRequired[List[str]]
+    status: NotRequired[WorkgroupStatusType]
+    subnetIds: NotRequired[List[str]]
+    trackName: NotRequired[str]
+    workgroupArn: NotRequired[str]
+    workgroupId: NotRequired[str]
+    workgroupName: NotRequired[str]
+    workgroupVersion: NotRequired[str]
+
+class CreateScheduledActionResponseTypeDef(TypedDict):
+    scheduledAction: ScheduledActionResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteScheduledActionResponseTypeDef(TypedDict):
+    scheduledAction: ScheduledActionResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetScheduledActionResponseTypeDef(TypedDict):
+    scheduledAction: ScheduledActionResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateScheduledActionResponseTypeDef(TypedDict):
+    scheduledAction: ScheduledActionResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateScheduledActionRequestTypeDef(TypedDict):
+    namespaceName: str
+    roleArn: str
+    schedule: ScheduleUnionTypeDef
+    scheduledActionName: str
+    targetAction: TargetActionUnionTypeDef
+    enabled: NotRequired[bool]
+    endTime: NotRequired[TimestampTypeDef]
+    scheduledActionDescription: NotRequired[str]
+    startTime: NotRequired[TimestampTypeDef]
+
+class UpdateScheduledActionRequestTypeDef(TypedDict):
+    scheduledActionName: str
+    enabled: NotRequired[bool]
+    endTime: NotRequired[TimestampTypeDef]
+    roleArn: NotRequired[str]
+    schedule: NotRequired[ScheduleUnionTypeDef]
+    scheduledActionDescription: NotRequired[str]
+    startTime: NotRequired[TimestampTypeDef]
+    targetAction: NotRequired[TargetActionUnionTypeDef]
+
+class CreateWorkgroupResponseTypeDef(TypedDict):
+    workgroup: WorkgroupTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteWorkgroupResponseTypeDef(TypedDict):
+    workgroup: WorkgroupTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetWorkgroupResponseTypeDef(TypedDict):
+    workgroup: WorkgroupTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListWorkgroupsResponseTypeDef(TypedDict):
+    workgroups: List[WorkgroupTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class UpdateWorkgroupResponseTypeDef(TypedDict):
+    workgroup: WorkgroupTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef

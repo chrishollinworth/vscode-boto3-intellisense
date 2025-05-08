@@ -1,31 +1,37 @@
 """
 Type annotations for sagemaker-edge service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker_edge/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sagemaker_edge/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_sagemaker_edge.type_defs import ChecksumTypeDef
 
-    data: ChecksumTypeDef = {...}
+    data: ChecksumTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List, Union
+from typing import Union
 
 from .literals import DeploymentStatusType, FailureHandlingPolicyType, ModelStateType
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
     "ChecksumTypeDef",
@@ -34,160 +40,105 @@ __all__ = (
     "DeploymentResultTypeDef",
     "EdgeDeploymentTypeDef",
     "EdgeMetricTypeDef",
-    "GetDeploymentsRequestRequestTypeDef",
+    "EmptyResponseMetadataTypeDef",
+    "GetDeploymentsRequestTypeDef",
     "GetDeploymentsResultTypeDef",
-    "GetDeviceRegistrationRequestRequestTypeDef",
+    "GetDeviceRegistrationRequestTypeDef",
     "GetDeviceRegistrationResultTypeDef",
     "ModelTypeDef",
     "ResponseMetadataTypeDef",
-    "SendHeartbeatRequestRequestTypeDef",
+    "SendHeartbeatRequestTypeDef",
+    "TimestampTypeDef",
 )
 
 ChecksumTypeDef = TypedDict(
     "ChecksumTypeDef",
     {
-        "Type": Literal["SHA1"],
-        "Sum": str,
+        "Type": NotRequired[Literal["SHA1"]],
+        "Sum": NotRequired[str],
     },
-    total=False,
 )
 
-DefinitionTypeDef = TypedDict(
-    "DefinitionTypeDef",
-    {
-        "ModelHandle": str,
-        "S3Url": str,
-        "Checksum": "ChecksumTypeDef",
-        "State": ModelStateType,
-    },
-    total=False,
-)
+class DeploymentModelTypeDef(TypedDict):
+    ModelHandle: NotRequired[str]
+    ModelName: NotRequired[str]
+    ModelVersion: NotRequired[str]
+    DesiredState: NotRequired[ModelStateType]
+    State: NotRequired[ModelStateType]
+    Status: NotRequired[DeploymentStatusType]
+    StatusReason: NotRequired[str]
+    RollbackFailureReason: NotRequired[str]
 
-DeploymentModelTypeDef = TypedDict(
-    "DeploymentModelTypeDef",
-    {
-        "ModelHandle": str,
-        "ModelName": str,
-        "ModelVersion": str,
-        "DesiredState": ModelStateType,
-        "State": ModelStateType,
-        "Status": DeploymentStatusType,
-        "StatusReason": str,
-        "RollbackFailureReason": str,
-    },
-    total=False,
-)
+TimestampTypeDef = Union[datetime, str]
 
-DeploymentResultTypeDef = TypedDict(
-    "DeploymentResultTypeDef",
-    {
-        "DeploymentName": str,
-        "DeploymentStatus": str,
-        "DeploymentStatusMessage": str,
-        "DeploymentStartTime": Union[datetime, str],
-        "DeploymentEndTime": Union[datetime, str],
-        "DeploymentModels": List["DeploymentModelTypeDef"],
-    },
-    total=False,
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
+
+class GetDeploymentsRequestTypeDef(TypedDict):
+    DeviceName: str
+    DeviceFleetName: str
+
+class GetDeviceRegistrationRequestTypeDef(TypedDict):
+    DeviceName: str
+    DeviceFleetName: str
+
+class DefinitionTypeDef(TypedDict):
+    ModelHandle: NotRequired[str]
+    S3Url: NotRequired[str]
+    Checksum: NotRequired[ChecksumTypeDef]
+    State: NotRequired[ModelStateType]
+
+class DeploymentResultTypeDef(TypedDict):
+    DeploymentName: NotRequired[str]
+    DeploymentStatus: NotRequired[str]
+    DeploymentStatusMessage: NotRequired[str]
+    DeploymentStartTime: NotRequired[TimestampTypeDef]
+    DeploymentEndTime: NotRequired[TimestampTypeDef]
+    DeploymentModels: NotRequired[Sequence[DeploymentModelTypeDef]]
+
+class EdgeMetricTypeDef(TypedDict):
+    Dimension: NotRequired[str]
+    MetricName: NotRequired[str]
+    Value: NotRequired[float]
+    Timestamp: NotRequired[TimestampTypeDef]
+
+class EmptyResponseMetadataTypeDef(TypedDict):
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetDeviceRegistrationResultTypeDef(TypedDict):
+    DeviceRegistration: str
+    CacheTTL: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
 EdgeDeploymentTypeDef = TypedDict(
     "EdgeDeploymentTypeDef",
     {
-        "DeploymentName": str,
-        "Type": Literal["Model"],
-        "FailureHandlingPolicy": FailureHandlingPolicyType,
-        "Definitions": List["DefinitionTypeDef"],
-    },
-    total=False,
-)
-
-EdgeMetricTypeDef = TypedDict(
-    "EdgeMetricTypeDef",
-    {
-        "Dimension": str,
-        "MetricName": str,
-        "Value": float,
-        "Timestamp": Union[datetime, str],
-    },
-    total=False,
-)
-
-GetDeploymentsRequestRequestTypeDef = TypedDict(
-    "GetDeploymentsRequestRequestTypeDef",
-    {
-        "DeviceName": str,
-        "DeviceFleetName": str,
+        "DeploymentName": NotRequired[str],
+        "Type": NotRequired[Literal["Model"]],
+        "FailureHandlingPolicy": NotRequired[FailureHandlingPolicyType],
+        "Definitions": NotRequired[List[DefinitionTypeDef]],
     },
 )
 
-GetDeploymentsResultTypeDef = TypedDict(
-    "GetDeploymentsResultTypeDef",
-    {
-        "Deployments": List["EdgeDeploymentTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ModelTypeDef(TypedDict):
+    ModelName: NotRequired[str]
+    ModelVersion: NotRequired[str]
+    LatestSampleTime: NotRequired[TimestampTypeDef]
+    LatestInference: NotRequired[TimestampTypeDef]
+    ModelMetrics: NotRequired[Sequence[EdgeMetricTypeDef]]
 
-GetDeviceRegistrationRequestRequestTypeDef = TypedDict(
-    "GetDeviceRegistrationRequestRequestTypeDef",
-    {
-        "DeviceName": str,
-        "DeviceFleetName": str,
-    },
-)
+class GetDeploymentsResultTypeDef(TypedDict):
+    Deployments: List[EdgeDeploymentTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-GetDeviceRegistrationResultTypeDef = TypedDict(
-    "GetDeviceRegistrationResultTypeDef",
-    {
-        "DeviceRegistration": str,
-        "CacheTTL": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ModelTypeDef = TypedDict(
-    "ModelTypeDef",
-    {
-        "ModelName": str,
-        "ModelVersion": str,
-        "LatestSampleTime": Union[datetime, str],
-        "LatestInference": Union[datetime, str],
-        "ModelMetrics": List["EdgeMetricTypeDef"],
-    },
-    total=False,
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-_RequiredSendHeartbeatRequestRequestTypeDef = TypedDict(
-    "_RequiredSendHeartbeatRequestRequestTypeDef",
-    {
-        "AgentVersion": str,
-        "DeviceName": str,
-        "DeviceFleetName": str,
-    },
-)
-_OptionalSendHeartbeatRequestRequestTypeDef = TypedDict(
-    "_OptionalSendHeartbeatRequestRequestTypeDef",
-    {
-        "AgentMetrics": List["EdgeMetricTypeDef"],
-        "Models": List["ModelTypeDef"],
-        "DeploymentResult": "DeploymentResultTypeDef",
-    },
-    total=False,
-)
-
-class SendHeartbeatRequestRequestTypeDef(
-    _RequiredSendHeartbeatRequestRequestTypeDef, _OptionalSendHeartbeatRequestRequestTypeDef
-):
-    pass
+class SendHeartbeatRequestTypeDef(TypedDict):
+    AgentVersion: str
+    DeviceName: str
+    DeviceFleetName: str
+    AgentMetrics: NotRequired[Sequence[EdgeMetricTypeDef]]
+    Models: NotRequired[Sequence[ModelTypeDef]]
+    DeploymentResult: NotRequired[DeploymentResultTypeDef]

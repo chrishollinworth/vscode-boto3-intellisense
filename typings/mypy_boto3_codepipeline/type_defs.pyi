@@ -1,20 +1,24 @@
 """
 Type annotations for codepipeline service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codepipeline/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codepipeline/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_codepipeline.type_defs import AWSSessionCredentialsTypeDef
 
-    data: AWSSessionCredentialsTypeDef = {...}
+    data: AWSSessionCredentialsTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List, Union
+from typing import Union
 
 from .literals import (
     ActionCategoryType,
@@ -22,6 +26,8 @@ from .literals import (
     ActionExecutionStatusType,
     ActionOwnerType,
     ApprovalStatusType,
+    ConditionExecutionStatusType,
+    ConditionTypeType,
     ExecutionModeType,
     ExecutionTypeType,
     ExecutorTypeType,
@@ -30,6 +36,10 @@ from .literals import (
     JobStatusType,
     PipelineExecutionStatusType,
     PipelineTypeType,
+    ResultType,
+    RetryTriggerType,
+    RuleConfigurationPropertyTypeType,
+    RuleExecutionStatusType,
     SourceRevisionTypeType,
     StageExecutionStatusType,
     StageRetryModeType,
@@ -39,24 +49,27 @@ from .literals import (
     WebhookAuthenticationTypeType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
     "AWSSessionCredentialsTypeDef",
-    "AcknowledgeJobInputRequestTypeDef",
+    "AcknowledgeJobInputTypeDef",
     "AcknowledgeJobOutputTypeDef",
-    "AcknowledgeThirdPartyJobInputRequestTypeDef",
+    "AcknowledgeThirdPartyJobInputTypeDef",
     "AcknowledgeThirdPartyJobOutputTypeDef",
     "ActionConfigurationPropertyTypeDef",
     "ActionConfigurationTypeDef",
     "ActionContextTypeDef",
+    "ActionDeclarationOutputTypeDef",
     "ActionDeclarationTypeDef",
     "ActionExecutionDetailTypeDef",
     "ActionExecutionFilterTypeDef",
@@ -64,13 +77,19 @@ __all__ = (
     "ActionExecutionOutputTypeDef",
     "ActionExecutionResultTypeDef",
     "ActionExecutionTypeDef",
+    "ActionRevisionOutputTypeDef",
     "ActionRevisionTypeDef",
+    "ActionRevisionUnionTypeDef",
     "ActionStateTypeDef",
     "ActionTypeArtifactDetailsTypeDef",
+    "ActionTypeDeclarationOutputTypeDef",
     "ActionTypeDeclarationTypeDef",
+    "ActionTypeDeclarationUnionTypeDef",
+    "ActionTypeExecutorOutputTypeDef",
     "ActionTypeExecutorTypeDef",
     "ActionTypeIdTypeDef",
     "ActionTypeIdentifierTypeDef",
+    "ActionTypePermissionsOutputTypeDef",
     "ActionTypePermissionsTypeDef",
     "ActionTypePropertyTypeDef",
     "ActionTypeSettingsTypeDef",
@@ -83,696 +102,319 @@ __all__ = (
     "ArtifactRevisionTypeDef",
     "ArtifactStoreTypeDef",
     "ArtifactTypeDef",
+    "BeforeEntryConditionsOutputTypeDef",
+    "BeforeEntryConditionsTypeDef",
     "BlockerDeclarationTypeDef",
-    "CreateCustomActionTypeInputRequestTypeDef",
+    "ConditionExecutionTypeDef",
+    "ConditionOutputTypeDef",
+    "ConditionStateTypeDef",
+    "ConditionTypeDef",
+    "CreateCustomActionTypeInputTypeDef",
     "CreateCustomActionTypeOutputTypeDef",
-    "CreatePipelineInputRequestTypeDef",
+    "CreatePipelineInputTypeDef",
     "CreatePipelineOutputTypeDef",
     "CurrentRevisionTypeDef",
-    "DeleteCustomActionTypeInputRequestTypeDef",
-    "DeletePipelineInputRequestTypeDef",
-    "DeleteWebhookInputRequestTypeDef",
-    "DeregisterWebhookWithThirdPartyInputRequestTypeDef",
-    "DisableStageTransitionInputRequestTypeDef",
-    "EnableStageTransitionInputRequestTypeDef",
+    "DeleteCustomActionTypeInputTypeDef",
+    "DeletePipelineInputTypeDef",
+    "DeleteWebhookInputTypeDef",
+    "DeregisterWebhookWithThirdPartyInputTypeDef",
+    "DisableStageTransitionInputTypeDef",
+    "EmptyResponseMetadataTypeDef",
+    "EnableStageTransitionInputTypeDef",
     "EncryptionKeyTypeDef",
+    "EnvironmentVariableTypeDef",
     "ErrorDetailsTypeDef",
     "ExecutionDetailsTypeDef",
     "ExecutionTriggerTypeDef",
+    "ExecutorConfigurationOutputTypeDef",
     "ExecutorConfigurationTypeDef",
+    "FailureConditionsOutputTypeDef",
     "FailureConditionsTypeDef",
     "FailureDetailsTypeDef",
-    "GetActionTypeInputRequestTypeDef",
+    "GetActionTypeInputTypeDef",
     "GetActionTypeOutputTypeDef",
-    "GetJobDetailsInputRequestTypeDef",
+    "GetJobDetailsInputTypeDef",
     "GetJobDetailsOutputTypeDef",
-    "GetPipelineExecutionInputRequestTypeDef",
+    "GetPipelineExecutionInputTypeDef",
     "GetPipelineExecutionOutputTypeDef",
-    "GetPipelineInputRequestTypeDef",
+    "GetPipelineInputTypeDef",
     "GetPipelineOutputTypeDef",
-    "GetPipelineStateInputRequestTypeDef",
+    "GetPipelineStateInputTypeDef",
     "GetPipelineStateOutputTypeDef",
-    "GetThirdPartyJobDetailsInputRequestTypeDef",
+    "GetThirdPartyJobDetailsInputTypeDef",
     "GetThirdPartyJobDetailsOutputTypeDef",
+    "GitBranchFilterCriteriaOutputTypeDef",
     "GitBranchFilterCriteriaTypeDef",
+    "GitConfigurationOutputTypeDef",
     "GitConfigurationTypeDef",
+    "GitFilePathFilterCriteriaOutputTypeDef",
     "GitFilePathFilterCriteriaTypeDef",
+    "GitPullRequestFilterOutputTypeDef",
     "GitPullRequestFilterTypeDef",
+    "GitPushFilterOutputTypeDef",
     "GitPushFilterTypeDef",
+    "GitTagFilterCriteriaOutputTypeDef",
     "GitTagFilterCriteriaTypeDef",
     "InputArtifactTypeDef",
     "JobDataTypeDef",
     "JobDetailsTypeDef",
     "JobTypeDef",
+    "JobWorkerExecutorConfigurationOutputTypeDef",
     "JobWorkerExecutorConfigurationTypeDef",
     "LambdaExecutorConfigurationTypeDef",
     "LatestInPipelineExecutionFilterTypeDef",
-    "ListActionExecutionsInputRequestTypeDef",
+    "ListActionExecutionsInputPaginateTypeDef",
+    "ListActionExecutionsInputTypeDef",
     "ListActionExecutionsOutputTypeDef",
-    "ListActionTypesInputRequestTypeDef",
+    "ListActionTypesInputPaginateTypeDef",
+    "ListActionTypesInputTypeDef",
     "ListActionTypesOutputTypeDef",
-    "ListPipelineExecutionsInputRequestTypeDef",
+    "ListPipelineExecutionsInputPaginateTypeDef",
+    "ListPipelineExecutionsInputTypeDef",
     "ListPipelineExecutionsOutputTypeDef",
-    "ListPipelinesInputRequestTypeDef",
+    "ListPipelinesInputPaginateTypeDef",
+    "ListPipelinesInputTypeDef",
     "ListPipelinesOutputTypeDef",
-    "ListTagsForResourceInputRequestTypeDef",
+    "ListRuleExecutionsInputPaginateTypeDef",
+    "ListRuleExecutionsInputTypeDef",
+    "ListRuleExecutionsOutputTypeDef",
+    "ListRuleTypesInputTypeDef",
+    "ListRuleTypesOutputTypeDef",
+    "ListTagsForResourceInputPaginateTypeDef",
+    "ListTagsForResourceInputTypeDef",
     "ListTagsForResourceOutputTypeDef",
     "ListWebhookItemTypeDef",
-    "ListWebhooksInputRequestTypeDef",
+    "ListWebhooksInputPaginateTypeDef",
+    "ListWebhooksInputTypeDef",
     "ListWebhooksOutputTypeDef",
+    "OutputArtifactOutputTypeDef",
     "OutputArtifactTypeDef",
+    "OverrideStageConditionInputTypeDef",
     "PaginatorConfigTypeDef",
     "PipelineContextTypeDef",
+    "PipelineDeclarationOutputTypeDef",
     "PipelineDeclarationTypeDef",
+    "PipelineDeclarationUnionTypeDef",
     "PipelineExecutionFilterTypeDef",
     "PipelineExecutionSummaryTypeDef",
     "PipelineExecutionTypeDef",
     "PipelineMetadataTypeDef",
     "PipelineRollbackMetadataTypeDef",
     "PipelineSummaryTypeDef",
+    "PipelineTriggerDeclarationOutputTypeDef",
     "PipelineTriggerDeclarationTypeDef",
     "PipelineVariableDeclarationTypeDef",
     "PipelineVariableTypeDef",
-    "PollForJobsInputRequestTypeDef",
+    "PollForJobsInputTypeDef",
     "PollForJobsOutputTypeDef",
-    "PollForThirdPartyJobsInputRequestTypeDef",
+    "PollForThirdPartyJobsInputTypeDef",
     "PollForThirdPartyJobsOutputTypeDef",
-    "PutActionRevisionInputRequestTypeDef",
+    "PutActionRevisionInputTypeDef",
     "PutActionRevisionOutputTypeDef",
-    "PutApprovalResultInputRequestTypeDef",
+    "PutApprovalResultInputTypeDef",
     "PutApprovalResultOutputTypeDef",
-    "PutJobFailureResultInputRequestTypeDef",
-    "PutJobSuccessResultInputRequestTypeDef",
-    "PutThirdPartyJobFailureResultInputRequestTypeDef",
-    "PutThirdPartyJobSuccessResultInputRequestTypeDef",
-    "PutWebhookInputRequestTypeDef",
+    "PutJobFailureResultInputTypeDef",
+    "PutJobSuccessResultInputTypeDef",
+    "PutThirdPartyJobFailureResultInputTypeDef",
+    "PutThirdPartyJobSuccessResultInputTypeDef",
+    "PutWebhookInputTypeDef",
     "PutWebhookOutputTypeDef",
-    "RegisterWebhookWithThirdPartyInputRequestTypeDef",
+    "RegisterWebhookWithThirdPartyInputTypeDef",
     "ResolvedPipelineVariableTypeDef",
     "ResponseMetadataTypeDef",
-    "RetryStageExecutionInputRequestTypeDef",
+    "RetryConfigurationTypeDef",
+    "RetryStageExecutionInputTypeDef",
     "RetryStageExecutionOutputTypeDef",
-    "RollbackStageInputRequestTypeDef",
+    "RetryStageMetadataTypeDef",
+    "RollbackStageInputTypeDef",
     "RollbackStageOutputTypeDef",
+    "RuleConfigurationPropertyTypeDef",
+    "RuleDeclarationOutputTypeDef",
+    "RuleDeclarationTypeDef",
+    "RuleExecutionDetailTypeDef",
+    "RuleExecutionFilterTypeDef",
+    "RuleExecutionInputTypeDef",
+    "RuleExecutionOutputTypeDef",
+    "RuleExecutionResultTypeDef",
+    "RuleExecutionTypeDef",
+    "RuleRevisionTypeDef",
+    "RuleStateTypeDef",
+    "RuleTypeIdTypeDef",
+    "RuleTypeSettingsTypeDef",
+    "RuleTypeTypeDef",
     "S3ArtifactLocationTypeDef",
     "S3LocationTypeDef",
     "SourceRevisionOverrideTypeDef",
     "SourceRevisionTypeDef",
+    "StageConditionStateTypeDef",
+    "StageConditionsExecutionTypeDef",
     "StageContextTypeDef",
+    "StageDeclarationOutputTypeDef",
     "StageDeclarationTypeDef",
     "StageExecutionTypeDef",
     "StageStateTypeDef",
-    "StartPipelineExecutionInputRequestTypeDef",
+    "StartPipelineExecutionInputTypeDef",
     "StartPipelineExecutionOutputTypeDef",
     "StopExecutionTriggerTypeDef",
-    "StopPipelineExecutionInputRequestTypeDef",
+    "StopPipelineExecutionInputTypeDef",
     "StopPipelineExecutionOutputTypeDef",
     "SucceededInStageFilterTypeDef",
-    "TagResourceInputRequestTypeDef",
+    "SuccessConditionsOutputTypeDef",
+    "SuccessConditionsTypeDef",
+    "TagResourceInputTypeDef",
     "TagTypeDef",
     "ThirdPartyJobDataTypeDef",
     "ThirdPartyJobDetailsTypeDef",
     "ThirdPartyJobTypeDef",
+    "TimestampTypeDef",
     "TransitionStateTypeDef",
-    "UntagResourceInputRequestTypeDef",
-    "UpdateActionTypeInputRequestTypeDef",
-    "UpdatePipelineInputRequestTypeDef",
+    "UntagResourceInputTypeDef",
+    "UpdateActionTypeInputTypeDef",
+    "UpdatePipelineInputTypeDef",
     "UpdatePipelineOutputTypeDef",
     "WebhookAuthConfigurationTypeDef",
+    "WebhookDefinitionOutputTypeDef",
     "WebhookDefinitionTypeDef",
+    "WebhookDefinitionUnionTypeDef",
     "WebhookFilterRuleTypeDef",
 )
 
-AWSSessionCredentialsTypeDef = TypedDict(
-    "AWSSessionCredentialsTypeDef",
-    {
-        "accessKeyId": str,
-        "secretAccessKey": str,
-        "sessionToken": str,
-    },
-)
+class AWSSessionCredentialsTypeDef(TypedDict):
+    accessKeyId: str
+    secretAccessKey: str
+    sessionToken: str
 
-AcknowledgeJobInputRequestTypeDef = TypedDict(
-    "AcknowledgeJobInputRequestTypeDef",
-    {
-        "jobId": str,
-        "nonce": str,
-    },
-)
+class AcknowledgeJobInputTypeDef(TypedDict):
+    jobId: str
+    nonce: str
 
-AcknowledgeJobOutputTypeDef = TypedDict(
-    "AcknowledgeJobOutputTypeDef",
-    {
-        "status": JobStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-AcknowledgeThirdPartyJobInputRequestTypeDef = TypedDict(
-    "AcknowledgeThirdPartyJobInputRequestTypeDef",
-    {
-        "jobId": str,
-        "nonce": str,
-        "clientToken": str,
-    },
-)
+class AcknowledgeThirdPartyJobInputTypeDef(TypedDict):
+    jobId: str
+    nonce: str
+    clientToken: str
 
-AcknowledgeThirdPartyJobOutputTypeDef = TypedDict(
-    "AcknowledgeThirdPartyJobOutputTypeDef",
-    {
-        "status": JobStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredActionConfigurationPropertyTypeDef = TypedDict(
-    "_RequiredActionConfigurationPropertyTypeDef",
+ActionConfigurationPropertyTypeDef = TypedDict(
+    "ActionConfigurationPropertyTypeDef",
     {
         "name": str,
         "required": bool,
         "key": bool,
         "secret": bool,
-    },
-)
-_OptionalActionConfigurationPropertyTypeDef = TypedDict(
-    "_OptionalActionConfigurationPropertyTypeDef",
-    {
-        "queryable": bool,
-        "description": str,
-        "type": ActionConfigurationPropertyTypeType,
-    },
-    total=False,
-)
-
-class ActionConfigurationPropertyTypeDef(
-    _RequiredActionConfigurationPropertyTypeDef, _OptionalActionConfigurationPropertyTypeDef
-):
-    pass
-
-ActionConfigurationTypeDef = TypedDict(
-    "ActionConfigurationTypeDef",
-    {
-        "configuration": Dict[str, str],
-    },
-    total=False,
-)
-
-ActionContextTypeDef = TypedDict(
-    "ActionContextTypeDef",
-    {
-        "name": str,
-        "actionExecutionId": str,
-    },
-    total=False,
-)
-
-_RequiredActionDeclarationTypeDef = TypedDict(
-    "_RequiredActionDeclarationTypeDef",
-    {
-        "name": str,
-        "actionTypeId": "ActionTypeIdTypeDef",
-    },
-)
-_OptionalActionDeclarationTypeDef = TypedDict(
-    "_OptionalActionDeclarationTypeDef",
-    {
-        "runOrder": int,
-        "configuration": Dict[str, str],
-        "outputArtifacts": List["OutputArtifactTypeDef"],
-        "inputArtifacts": List["InputArtifactTypeDef"],
-        "roleArn": str,
-        "region": str,
-        "namespace": str,
-        "timeoutInMinutes": int,
-    },
-    total=False,
-)
-
-class ActionDeclarationTypeDef(
-    _RequiredActionDeclarationTypeDef, _OptionalActionDeclarationTypeDef
-):
-    pass
-
-ActionExecutionDetailTypeDef = TypedDict(
-    "ActionExecutionDetailTypeDef",
-    {
-        "pipelineExecutionId": str,
-        "actionExecutionId": str,
-        "pipelineVersion": int,
-        "stageName": str,
-        "actionName": str,
-        "startTime": datetime,
-        "lastUpdateTime": datetime,
-        "updatedBy": str,
-        "status": ActionExecutionStatusType,
-        "input": "ActionExecutionInputTypeDef",
-        "output": "ActionExecutionOutputTypeDef",
-    },
-    total=False,
-)
-
-ActionExecutionFilterTypeDef = TypedDict(
-    "ActionExecutionFilterTypeDef",
-    {
-        "pipelineExecutionId": str,
-        "latestInPipelineExecution": "LatestInPipelineExecutionFilterTypeDef",
-    },
-    total=False,
-)
-
-ActionExecutionInputTypeDef = TypedDict(
-    "ActionExecutionInputTypeDef",
-    {
-        "actionTypeId": "ActionTypeIdTypeDef",
-        "configuration": Dict[str, str],
-        "resolvedConfiguration": Dict[str, str],
-        "roleArn": str,
-        "region": str,
-        "inputArtifacts": List["ArtifactDetailTypeDef"],
-        "namespace": str,
-    },
-    total=False,
-)
-
-ActionExecutionOutputTypeDef = TypedDict(
-    "ActionExecutionOutputTypeDef",
-    {
-        "outputArtifacts": List["ArtifactDetailTypeDef"],
-        "executionResult": "ActionExecutionResultTypeDef",
-        "outputVariables": Dict[str, str],
-    },
-    total=False,
-)
-
-ActionExecutionResultTypeDef = TypedDict(
-    "ActionExecutionResultTypeDef",
-    {
-        "externalExecutionId": str,
-        "externalExecutionSummary": str,
-        "externalExecutionUrl": str,
-        "errorDetails": "ErrorDetailsTypeDef",
-    },
-    total=False,
-)
-
-ActionExecutionTypeDef = TypedDict(
-    "ActionExecutionTypeDef",
-    {
-        "actionExecutionId": str,
-        "status": ActionExecutionStatusType,
-        "summary": str,
-        "lastStatusChange": datetime,
-        "token": str,
-        "lastUpdatedBy": str,
-        "externalExecutionId": str,
-        "externalExecutionUrl": str,
-        "percentComplete": int,
-        "errorDetails": "ErrorDetailsTypeDef",
-    },
-    total=False,
-)
-
-ActionRevisionTypeDef = TypedDict(
-    "ActionRevisionTypeDef",
-    {
-        "revisionId": str,
-        "revisionChangeId": str,
-        "created": datetime,
+        "queryable": NotRequired[bool],
+        "description": NotRequired[str],
+        "type": NotRequired[ActionConfigurationPropertyTypeType],
     },
 )
 
-ActionStateTypeDef = TypedDict(
-    "ActionStateTypeDef",
-    {
-        "actionName": str,
-        "currentRevision": "ActionRevisionTypeDef",
-        "latestExecution": "ActionExecutionTypeDef",
-        "entityUrl": str,
-        "revisionUrl": str,
-    },
-    total=False,
-)
+class ActionConfigurationTypeDef(TypedDict):
+    configuration: NotRequired[Dict[str, str]]
 
-ActionTypeArtifactDetailsTypeDef = TypedDict(
-    "ActionTypeArtifactDetailsTypeDef",
-    {
-        "minimumCount": int,
-        "maximumCount": int,
-    },
-)
+class ActionContextTypeDef(TypedDict):
+    name: NotRequired[str]
+    actionExecutionId: NotRequired[str]
 
-_RequiredActionTypeDeclarationTypeDef = TypedDict(
-    "_RequiredActionTypeDeclarationTypeDef",
-    {
-        "executor": "ActionTypeExecutorTypeDef",
-        "id": "ActionTypeIdentifierTypeDef",
-        "inputArtifactDetails": "ActionTypeArtifactDetailsTypeDef",
-        "outputArtifactDetails": "ActionTypeArtifactDetailsTypeDef",
-    },
-)
-_OptionalActionTypeDeclarationTypeDef = TypedDict(
-    "_OptionalActionTypeDeclarationTypeDef",
-    {
-        "description": str,
-        "permissions": "ActionTypePermissionsTypeDef",
-        "properties": List["ActionTypePropertyTypeDef"],
-        "urls": "ActionTypeUrlsTypeDef",
-    },
-    total=False,
-)
+class ActionTypeIdTypeDef(TypedDict):
+    category: ActionCategoryType
+    owner: ActionOwnerType
+    provider: str
+    version: str
 
-class ActionTypeDeclarationTypeDef(
-    _RequiredActionTypeDeclarationTypeDef, _OptionalActionTypeDeclarationTypeDef
-):
-    pass
+class EnvironmentVariableTypeDef(TypedDict):
+    name: str
+    value: str
 
-_RequiredActionTypeExecutorTypeDef = TypedDict(
-    "_RequiredActionTypeExecutorTypeDef",
-    {
-        "configuration": "ExecutorConfigurationTypeDef",
-        "type": ExecutorTypeType,
-    },
-)
-_OptionalActionTypeExecutorTypeDef = TypedDict(
-    "_OptionalActionTypeExecutorTypeDef",
-    {
-        "policyStatementsTemplate": str,
-        "jobTimeout": int,
-    },
-    total=False,
-)
+class InputArtifactTypeDef(TypedDict):
+    name: str
 
-class ActionTypeExecutorTypeDef(
-    _RequiredActionTypeExecutorTypeDef, _OptionalActionTypeExecutorTypeDef
-):
-    pass
+class OutputArtifactOutputTypeDef(TypedDict):
+    name: str
+    files: NotRequired[List[str]]
 
-ActionTypeIdTypeDef = TypedDict(
-    "ActionTypeIdTypeDef",
-    {
-        "category": ActionCategoryType,
-        "owner": ActionOwnerType,
-        "provider": str,
-        "version": str,
-    },
-)
+class OutputArtifactTypeDef(TypedDict):
+    name: str
+    files: NotRequired[Sequence[str]]
 
-ActionTypeIdentifierTypeDef = TypedDict(
-    "ActionTypeIdentifierTypeDef",
-    {
-        "category": ActionCategoryType,
-        "owner": str,
-        "provider": str,
-        "version": str,
-    },
-)
+class LatestInPipelineExecutionFilterTypeDef(TypedDict):
+    pipelineExecutionId: str
+    startTimeRange: StartTimeRangeType
 
-ActionTypePermissionsTypeDef = TypedDict(
-    "ActionTypePermissionsTypeDef",
-    {
-        "allowedAccounts": List[str],
-    },
-)
+class ErrorDetailsTypeDef(TypedDict):
+    code: NotRequired[str]
+    message: NotRequired[str]
 
-_RequiredActionTypePropertyTypeDef = TypedDict(
-    "_RequiredActionTypePropertyTypeDef",
-    {
-        "name": str,
-        "optional": bool,
-        "key": bool,
-        "noEcho": bool,
-    },
-)
-_OptionalActionTypePropertyTypeDef = TypedDict(
-    "_OptionalActionTypePropertyTypeDef",
-    {
-        "queryable": bool,
-        "description": str,
-    },
-    total=False,
-)
+class ActionRevisionOutputTypeDef(TypedDict):
+    revisionId: str
+    revisionChangeId: str
+    created: datetime
 
-class ActionTypePropertyTypeDef(
-    _RequiredActionTypePropertyTypeDef, _OptionalActionTypePropertyTypeDef
-):
-    pass
+TimestampTypeDef = Union[datetime, str]
 
-ActionTypeSettingsTypeDef = TypedDict(
-    "ActionTypeSettingsTypeDef",
-    {
-        "thirdPartyConfigurationUrl": str,
-        "entityUrlTemplate": str,
-        "executionUrlTemplate": str,
-        "revisionUrlTemplate": str,
-    },
-    total=False,
-)
+class ActionTypeArtifactDetailsTypeDef(TypedDict):
+    minimumCount: int
+    maximumCount: int
 
-_RequiredActionTypeTypeDef = TypedDict(
-    "_RequiredActionTypeTypeDef",
-    {
-        "id": "ActionTypeIdTypeDef",
-        "inputArtifactDetails": "ArtifactDetailsTypeDef",
-        "outputArtifactDetails": "ArtifactDetailsTypeDef",
-    },
-)
-_OptionalActionTypeTypeDef = TypedDict(
-    "_OptionalActionTypeTypeDef",
-    {
-        "settings": "ActionTypeSettingsTypeDef",
-        "actionConfigurationProperties": List["ActionConfigurationPropertyTypeDef"],
-    },
-    total=False,
-)
+class ActionTypeIdentifierTypeDef(TypedDict):
+    category: ActionCategoryType
+    owner: str
+    provider: str
+    version: str
 
-class ActionTypeTypeDef(_RequiredActionTypeTypeDef, _OptionalActionTypeTypeDef):
-    pass
+class ActionTypePermissionsOutputTypeDef(TypedDict):
+    allowedAccounts: List[str]
 
-ActionTypeUrlsTypeDef = TypedDict(
-    "ActionTypeUrlsTypeDef",
-    {
-        "configurationUrl": str,
-        "entityUrlTemplate": str,
-        "executionUrlTemplate": str,
-        "revisionUrlTemplate": str,
-    },
-    total=False,
-)
+class ActionTypePropertyTypeDef(TypedDict):
+    name: str
+    optional: bool
+    key: bool
+    noEcho: bool
+    queryable: NotRequired[bool]
+    description: NotRequired[str]
 
-ApprovalResultTypeDef = TypedDict(
-    "ApprovalResultTypeDef",
-    {
-        "summary": str,
-        "status": ApprovalStatusType,
-    },
-)
+class ActionTypeUrlsTypeDef(TypedDict):
+    configurationUrl: NotRequired[str]
+    entityUrlTemplate: NotRequired[str]
+    executionUrlTemplate: NotRequired[str]
+    revisionUrlTemplate: NotRequired[str]
 
-ArtifactDetailTypeDef = TypedDict(
-    "ArtifactDetailTypeDef",
-    {
-        "name": str,
-        "s3location": "S3LocationTypeDef",
-    },
-    total=False,
-)
+class ActionTypePermissionsTypeDef(TypedDict):
+    allowedAccounts: Sequence[str]
 
-ArtifactDetailsTypeDef = TypedDict(
-    "ArtifactDetailsTypeDef",
-    {
-        "minimumCount": int,
-        "maximumCount": int,
-    },
-)
+class ActionTypeSettingsTypeDef(TypedDict):
+    thirdPartyConfigurationUrl: NotRequired[str]
+    entityUrlTemplate: NotRequired[str]
+    executionUrlTemplate: NotRequired[str]
+    revisionUrlTemplate: NotRequired[str]
 
-ArtifactLocationTypeDef = TypedDict(
-    "ArtifactLocationTypeDef",
-    {
-        "type": Literal["S3"],
-        "s3Location": "S3ArtifactLocationTypeDef",
-    },
-    total=False,
-)
+class ArtifactDetailsTypeDef(TypedDict):
+    minimumCount: int
+    maximumCount: int
 
-ArtifactRevisionTypeDef = TypedDict(
-    "ArtifactRevisionTypeDef",
-    {
-        "name": str,
-        "revisionId": str,
-        "revisionChangeIdentifier": str,
-        "revisionSummary": str,
-        "created": datetime,
-        "revisionUrl": str,
-    },
-    total=False,
-)
+class ApprovalResultTypeDef(TypedDict):
+    summary: str
+    status: ApprovalStatusType
 
-_RequiredArtifactStoreTypeDef = TypedDict(
-    "_RequiredArtifactStoreTypeDef",
-    {
-        "type": Literal["S3"],
-        "location": str,
-    },
-)
-_OptionalArtifactStoreTypeDef = TypedDict(
-    "_OptionalArtifactStoreTypeDef",
-    {
-        "encryptionKey": "EncryptionKeyTypeDef",
-    },
-    total=False,
-)
+class S3LocationTypeDef(TypedDict):
+    bucket: NotRequired[str]
+    key: NotRequired[str]
 
-class ArtifactStoreTypeDef(_RequiredArtifactStoreTypeDef, _OptionalArtifactStoreTypeDef):
-    pass
+class S3ArtifactLocationTypeDef(TypedDict):
+    bucketName: str
+    objectKey: str
 
-ArtifactTypeDef = TypedDict(
-    "ArtifactTypeDef",
-    {
-        "name": str,
-        "revision": str,
-        "location": "ArtifactLocationTypeDef",
-    },
-    total=False,
-)
-
-BlockerDeclarationTypeDef = TypedDict(
-    "BlockerDeclarationTypeDef",
-    {
-        "name": str,
-        "type": Literal["Schedule"],
-    },
-)
-
-_RequiredCreateCustomActionTypeInputRequestTypeDef = TypedDict(
-    "_RequiredCreateCustomActionTypeInputRequestTypeDef",
-    {
-        "category": ActionCategoryType,
-        "provider": str,
-        "version": str,
-        "inputArtifactDetails": "ArtifactDetailsTypeDef",
-        "outputArtifactDetails": "ArtifactDetailsTypeDef",
-    },
-)
-_OptionalCreateCustomActionTypeInputRequestTypeDef = TypedDict(
-    "_OptionalCreateCustomActionTypeInputRequestTypeDef",
-    {
-        "settings": "ActionTypeSettingsTypeDef",
-        "configurationProperties": List["ActionConfigurationPropertyTypeDef"],
-        "tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateCustomActionTypeInputRequestTypeDef(
-    _RequiredCreateCustomActionTypeInputRequestTypeDef,
-    _OptionalCreateCustomActionTypeInputRequestTypeDef,
-):
-    pass
-
-CreateCustomActionTypeOutputTypeDef = TypedDict(
-    "CreateCustomActionTypeOutputTypeDef",
-    {
-        "actionType": "ActionTypeTypeDef",
-        "tags": List["TagTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreatePipelineInputRequestTypeDef = TypedDict(
-    "_RequiredCreatePipelineInputRequestTypeDef",
-    {
-        "pipeline": "PipelineDeclarationTypeDef",
-    },
-)
-_OptionalCreatePipelineInputRequestTypeDef = TypedDict(
-    "_OptionalCreatePipelineInputRequestTypeDef",
-    {
-        "tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreatePipelineInputRequestTypeDef(
-    _RequiredCreatePipelineInputRequestTypeDef, _OptionalCreatePipelineInputRequestTypeDef
-):
-    pass
-
-CreatePipelineOutputTypeDef = TypedDict(
-    "CreatePipelineOutputTypeDef",
-    {
-        "pipeline": "PipelineDeclarationTypeDef",
-        "tags": List["TagTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCurrentRevisionTypeDef = TypedDict(
-    "_RequiredCurrentRevisionTypeDef",
-    {
-        "revision": str,
-        "changeIdentifier": str,
-    },
-)
-_OptionalCurrentRevisionTypeDef = TypedDict(
-    "_OptionalCurrentRevisionTypeDef",
-    {
-        "created": Union[datetime, str],
-        "revisionSummary": str,
-    },
-    total=False,
-)
-
-class CurrentRevisionTypeDef(_RequiredCurrentRevisionTypeDef, _OptionalCurrentRevisionTypeDef):
-    pass
-
-DeleteCustomActionTypeInputRequestTypeDef = TypedDict(
-    "DeleteCustomActionTypeInputRequestTypeDef",
-    {
-        "category": ActionCategoryType,
-        "provider": str,
-        "version": str,
-    },
-)
-
-DeletePipelineInputRequestTypeDef = TypedDict(
-    "DeletePipelineInputRequestTypeDef",
-    {
-        "name": str,
-    },
-)
-
-DeleteWebhookInputRequestTypeDef = TypedDict(
-    "DeleteWebhookInputRequestTypeDef",
-    {
-        "name": str,
-    },
-)
-
-DeregisterWebhookWithThirdPartyInputRequestTypeDef = TypedDict(
-    "DeregisterWebhookWithThirdPartyInputRequestTypeDef",
-    {
-        "webhookName": str,
-    },
-    total=False,
-)
-
-DisableStageTransitionInputRequestTypeDef = TypedDict(
-    "DisableStageTransitionInputRequestTypeDef",
-    {
-        "pipelineName": str,
-        "stageName": str,
-        "transitionType": StageTransitionTypeType,
-        "reason": str,
-    },
-)
-
-EnableStageTransitionInputRequestTypeDef = TypedDict(
-    "EnableStageTransitionInputRequestTypeDef",
-    {
-        "pipelineName": str,
-        "stageName": str,
-        "transitionType": StageTransitionTypeType,
-    },
-)
+class ArtifactRevisionTypeDef(TypedDict):
+    name: NotRequired[str]
+    revisionId: NotRequired[str]
+    revisionChangeIdentifier: NotRequired[str]
+    revisionSummary: NotRequired[str]
+    created: NotRequired[datetime]
+    revisionUrl: NotRequired[str]
 
 EncryptionKeyTypeDef = TypedDict(
     "EncryptionKeyTypeDef",
@@ -781,1202 +423,1099 @@ EncryptionKeyTypeDef = TypedDict(
         "type": Literal["KMS"],
     },
 )
-
-ErrorDetailsTypeDef = TypedDict(
-    "ErrorDetailsTypeDef",
+BlockerDeclarationTypeDef = TypedDict(
+    "BlockerDeclarationTypeDef",
     {
-        "code": str,
-        "message": str,
+        "name": str,
+        "type": Literal["Schedule"],
     },
-    total=False,
 )
 
-ExecutionDetailsTypeDef = TypedDict(
-    "ExecutionDetailsTypeDef",
-    {
-        "summary": str,
-        "externalExecutionId": str,
-        "percentComplete": int,
-    },
-    total=False,
-)
+class ConditionExecutionTypeDef(TypedDict):
+    status: NotRequired[ConditionExecutionStatusType]
+    summary: NotRequired[str]
+    lastStatusChange: NotRequired[datetime]
 
-ExecutionTriggerTypeDef = TypedDict(
-    "ExecutionTriggerTypeDef",
-    {
-        "triggerType": TriggerTypeType,
-        "triggerDetail": str,
-    },
-    total=False,
-)
+class TagTypeDef(TypedDict):
+    key: str
+    value: str
 
-ExecutorConfigurationTypeDef = TypedDict(
-    "ExecutorConfigurationTypeDef",
-    {
-        "lambdaExecutorConfiguration": "LambdaExecutorConfigurationTypeDef",
-        "jobWorkerExecutorConfiguration": "JobWorkerExecutorConfigurationTypeDef",
-    },
-    total=False,
-)
+class DeleteCustomActionTypeInputTypeDef(TypedDict):
+    category: ActionCategoryType
+    provider: str
+    version: str
 
-FailureConditionsTypeDef = TypedDict(
-    "FailureConditionsTypeDef",
-    {
-        "result": Literal["ROLLBACK"],
-    },
-    total=False,
-)
+class DeletePipelineInputTypeDef(TypedDict):
+    name: str
 
-_RequiredFailureDetailsTypeDef = TypedDict(
-    "_RequiredFailureDetailsTypeDef",
+class DeleteWebhookInputTypeDef(TypedDict):
+    name: str
+
+class DeregisterWebhookWithThirdPartyInputTypeDef(TypedDict):
+    webhookName: NotRequired[str]
+
+class DisableStageTransitionInputTypeDef(TypedDict):
+    pipelineName: str
+    stageName: str
+    transitionType: StageTransitionTypeType
+    reason: str
+
+class EnableStageTransitionInputTypeDef(TypedDict):
+    pipelineName: str
+    stageName: str
+    transitionType: StageTransitionTypeType
+
+class ExecutionDetailsTypeDef(TypedDict):
+    summary: NotRequired[str]
+    externalExecutionId: NotRequired[str]
+    percentComplete: NotRequired[int]
+
+class ExecutionTriggerTypeDef(TypedDict):
+    triggerType: NotRequired[TriggerTypeType]
+    triggerDetail: NotRequired[str]
+
+class JobWorkerExecutorConfigurationOutputTypeDef(TypedDict):
+    pollingAccounts: NotRequired[List[str]]
+    pollingServicePrincipals: NotRequired[List[str]]
+
+class LambdaExecutorConfigurationTypeDef(TypedDict):
+    lambdaFunctionArn: str
+
+class JobWorkerExecutorConfigurationTypeDef(TypedDict):
+    pollingAccounts: NotRequired[Sequence[str]]
+    pollingServicePrincipals: NotRequired[Sequence[str]]
+
+class RetryConfigurationTypeDef(TypedDict):
+    retryMode: NotRequired[StageRetryModeType]
+
+FailureDetailsTypeDef = TypedDict(
+    "FailureDetailsTypeDef",
     {
         "type": FailureTypeType,
         "message": str,
-    },
-)
-_OptionalFailureDetailsTypeDef = TypedDict(
-    "_OptionalFailureDetailsTypeDef",
-    {
-        "externalExecutionId": str,
-    },
-    total=False,
-)
-
-class FailureDetailsTypeDef(_RequiredFailureDetailsTypeDef, _OptionalFailureDetailsTypeDef):
-    pass
-
-GetActionTypeInputRequestTypeDef = TypedDict(
-    "GetActionTypeInputRequestTypeDef",
-    {
-        "category": ActionCategoryType,
-        "owner": str,
-        "provider": str,
-        "version": str,
+        "externalExecutionId": NotRequired[str],
     },
 )
 
-GetActionTypeOutputTypeDef = TypedDict(
-    "GetActionTypeOutputTypeDef",
+class GetActionTypeInputTypeDef(TypedDict):
+    category: ActionCategoryType
+    owner: str
+    provider: str
+    version: str
+
+class GetJobDetailsInputTypeDef(TypedDict):
+    jobId: str
+
+class GetPipelineExecutionInputTypeDef(TypedDict):
+    pipelineName: str
+    pipelineExecutionId: str
+
+class GetPipelineInputTypeDef(TypedDict):
+    name: str
+    version: NotRequired[int]
+
+class PipelineMetadataTypeDef(TypedDict):
+    pipelineArn: NotRequired[str]
+    created: NotRequired[datetime]
+    updated: NotRequired[datetime]
+    pollingDisabledAt: NotRequired[datetime]
+
+class GetPipelineStateInputTypeDef(TypedDict):
+    name: str
+
+class GetThirdPartyJobDetailsInputTypeDef(TypedDict):
+    jobId: str
+    clientToken: str
+
+class GitBranchFilterCriteriaOutputTypeDef(TypedDict):
+    includes: NotRequired[List[str]]
+    excludes: NotRequired[List[str]]
+
+class GitBranchFilterCriteriaTypeDef(TypedDict):
+    includes: NotRequired[Sequence[str]]
+    excludes: NotRequired[Sequence[str]]
+
+class GitFilePathFilterCriteriaOutputTypeDef(TypedDict):
+    includes: NotRequired[List[str]]
+    excludes: NotRequired[List[str]]
+
+class GitFilePathFilterCriteriaTypeDef(TypedDict):
+    includes: NotRequired[Sequence[str]]
+    excludes: NotRequired[Sequence[str]]
+
+class GitTagFilterCriteriaOutputTypeDef(TypedDict):
+    includes: NotRequired[List[str]]
+    excludes: NotRequired[List[str]]
+
+class GitTagFilterCriteriaTypeDef(TypedDict):
+    includes: NotRequired[Sequence[str]]
+    excludes: NotRequired[Sequence[str]]
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class ListActionTypesInputTypeDef(TypedDict):
+    actionOwnerFilter: NotRequired[ActionOwnerType]
+    nextToken: NotRequired[str]
+    regionFilter: NotRequired[str]
+
+class ListPipelinesInputTypeDef(TypedDict):
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class PipelineSummaryTypeDef(TypedDict):
+    name: NotRequired[str]
+    version: NotRequired[int]
+    pipelineType: NotRequired[PipelineTypeType]
+    executionMode: NotRequired[ExecutionModeType]
+    created: NotRequired[datetime]
+    updated: NotRequired[datetime]
+
+class ListRuleTypesInputTypeDef(TypedDict):
+    ruleOwnerFilter: NotRequired[Literal["AWS"]]
+    regionFilter: NotRequired[str]
+
+class ListTagsForResourceInputTypeDef(TypedDict):
+    resourceArn: str
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class ListWebhooksInputTypeDef(TypedDict):
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class OverrideStageConditionInputTypeDef(TypedDict):
+    pipelineName: str
+    stageName: str
+    pipelineExecutionId: str
+    conditionType: ConditionTypeType
+
+class StageContextTypeDef(TypedDict):
+    name: NotRequired[str]
+
+class PipelineVariableDeclarationTypeDef(TypedDict):
+    name: str
+    defaultValue: NotRequired[str]
+    description: NotRequired[str]
+
+class SucceededInStageFilterTypeDef(TypedDict):
+    stageName: NotRequired[str]
+
+class PipelineRollbackMetadataTypeDef(TypedDict):
+    rollbackTargetPipelineExecutionId: NotRequired[str]
+
+class SourceRevisionTypeDef(TypedDict):
+    actionName: str
+    revisionId: NotRequired[str]
+    revisionSummary: NotRequired[str]
+    revisionUrl: NotRequired[str]
+
+class StopExecutionTriggerTypeDef(TypedDict):
+    reason: NotRequired[str]
+
+class ResolvedPipelineVariableTypeDef(TypedDict):
+    name: NotRequired[str]
+    resolvedValue: NotRequired[str]
+
+class PipelineVariableTypeDef(TypedDict):
+    name: str
+    value: str
+
+class ThirdPartyJobTypeDef(TypedDict):
+    clientId: NotRequired[str]
+    jobId: NotRequired[str]
+
+class RegisterWebhookWithThirdPartyInputTypeDef(TypedDict):
+    webhookName: NotRequired[str]
+
+class RetryStageExecutionInputTypeDef(TypedDict):
+    pipelineName: str
+    stageName: str
+    pipelineExecutionId: str
+    retryMode: StageRetryModeType
+
+class RetryStageMetadataTypeDef(TypedDict):
+    autoStageRetryAttempt: NotRequired[int]
+    manualStageRetryAttempt: NotRequired[int]
+    latestRetryTrigger: NotRequired[RetryTriggerType]
+
+class RollbackStageInputTypeDef(TypedDict):
+    pipelineName: str
+    stageName: str
+    targetPipelineExecutionId: str
+
+RuleConfigurationPropertyTypeDef = TypedDict(
+    "RuleConfigurationPropertyTypeDef",
     {
-        "actionType": "ActionTypeDeclarationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "name": str,
+        "required": bool,
+        "key": bool,
+        "secret": bool,
+        "queryable": NotRequired[bool],
+        "description": NotRequired[str],
+        "type": NotRequired[RuleConfigurationPropertyTypeType],
     },
 )
 
-GetJobDetailsInputRequestTypeDef = TypedDict(
-    "GetJobDetailsInputRequestTypeDef",
-    {
-        "jobId": str,
-    },
-)
+class RuleTypeIdTypeDef(TypedDict):
+    category: Literal["Rule"]
+    provider: str
+    owner: NotRequired[Literal["AWS"]]
+    version: NotRequired[str]
 
-GetJobDetailsOutputTypeDef = TypedDict(
-    "GetJobDetailsOutputTypeDef",
-    {
-        "jobDetails": "JobDetailsTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class RuleRevisionTypeDef(TypedDict):
+    revisionId: str
+    revisionChangeId: str
+    created: datetime
 
-GetPipelineExecutionInputRequestTypeDef = TypedDict(
-    "GetPipelineExecutionInputRequestTypeDef",
+class RuleTypeSettingsTypeDef(TypedDict):
+    thirdPartyConfigurationUrl: NotRequired[str]
+    entityUrlTemplate: NotRequired[str]
+    executionUrlTemplate: NotRequired[str]
+    revisionUrlTemplate: NotRequired[str]
+
+class SourceRevisionOverrideTypeDef(TypedDict):
+    actionName: str
+    revisionType: SourceRevisionTypeType
+    revisionValue: str
+
+class StageConditionsExecutionTypeDef(TypedDict):
+    status: NotRequired[ConditionExecutionStatusType]
+    summary: NotRequired[str]
+
+StageExecutionTypeDef = TypedDict(
+    "StageExecutionTypeDef",
     {
-        "pipelineName": str,
         "pipelineExecutionId": str,
+        "status": StageExecutionStatusType,
+        "type": NotRequired[ExecutionTypeType],
     },
 )
 
-GetPipelineExecutionOutputTypeDef = TypedDict(
-    "GetPipelineExecutionOutputTypeDef",
+class TransitionStateTypeDef(TypedDict):
+    enabled: NotRequired[bool]
+    lastChangedBy: NotRequired[str]
+    lastChangedAt: NotRequired[datetime]
+    disabledReason: NotRequired[str]
+
+class StopPipelineExecutionInputTypeDef(TypedDict):
+    pipelineName: str
+    pipelineExecutionId: str
+    abandon: NotRequired[bool]
+    reason: NotRequired[str]
+
+class UntagResourceInputTypeDef(TypedDict):
+    resourceArn: str
+    tagKeys: Sequence[str]
+
+class WebhookAuthConfigurationTypeDef(TypedDict):
+    AllowedIPRange: NotRequired[str]
+    SecretToken: NotRequired[str]
+
+class WebhookFilterRuleTypeDef(TypedDict):
+    jsonPath: str
+    matchEquals: NotRequired[str]
+
+class AcknowledgeJobOutputTypeDef(TypedDict):
+    status: JobStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class AcknowledgeThirdPartyJobOutputTypeDef(TypedDict):
+    status: JobStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class EmptyResponseMetadataTypeDef(TypedDict):
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutActionRevisionOutputTypeDef(TypedDict):
+    newRevision: bool
+    pipelineExecutionId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutApprovalResultOutputTypeDef(TypedDict):
+    approvedAt: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class RetryStageExecutionOutputTypeDef(TypedDict):
+    pipelineExecutionId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class RollbackStageOutputTypeDef(TypedDict):
+    pipelineExecutionId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartPipelineExecutionOutputTypeDef(TypedDict):
+    pipelineExecutionId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StopPipelineExecutionOutputTypeDef(TypedDict):
+    pipelineExecutionId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PollForJobsInputTypeDef(TypedDict):
+    actionTypeId: ActionTypeIdTypeDef
+    maxBatchSize: NotRequired[int]
+    queryParam: NotRequired[Mapping[str, str]]
+
+class PollForThirdPartyJobsInputTypeDef(TypedDict):
+    actionTypeId: ActionTypeIdTypeDef
+    maxBatchSize: NotRequired[int]
+
+class ActionDeclarationOutputTypeDef(TypedDict):
+    name: str
+    actionTypeId: ActionTypeIdTypeDef
+    runOrder: NotRequired[int]
+    configuration: NotRequired[Dict[str, str]]
+    commands: NotRequired[List[str]]
+    outputArtifacts: NotRequired[List[OutputArtifactOutputTypeDef]]
+    inputArtifacts: NotRequired[List[InputArtifactTypeDef]]
+    outputVariables: NotRequired[List[str]]
+    roleArn: NotRequired[str]
+    region: NotRequired[str]
+    namespace: NotRequired[str]
+    timeoutInMinutes: NotRequired[int]
+    environmentVariables: NotRequired[List[EnvironmentVariableTypeDef]]
+
+class ActionDeclarationTypeDef(TypedDict):
+    name: str
+    actionTypeId: ActionTypeIdTypeDef
+    runOrder: NotRequired[int]
+    configuration: NotRequired[Mapping[str, str]]
+    commands: NotRequired[Sequence[str]]
+    outputArtifacts: NotRequired[Sequence[OutputArtifactTypeDef]]
+    inputArtifacts: NotRequired[Sequence[InputArtifactTypeDef]]
+    outputVariables: NotRequired[Sequence[str]]
+    roleArn: NotRequired[str]
+    region: NotRequired[str]
+    namespace: NotRequired[str]
+    timeoutInMinutes: NotRequired[int]
+    environmentVariables: NotRequired[Sequence[EnvironmentVariableTypeDef]]
+
+class ActionExecutionFilterTypeDef(TypedDict):
+    pipelineExecutionId: NotRequired[str]
+    latestInPipelineExecution: NotRequired[LatestInPipelineExecutionFilterTypeDef]
+
+class RuleExecutionFilterTypeDef(TypedDict):
+    pipelineExecutionId: NotRequired[str]
+    latestInPipelineExecution: NotRequired[LatestInPipelineExecutionFilterTypeDef]
+
+class ActionExecutionResultTypeDef(TypedDict):
+    externalExecutionId: NotRequired[str]
+    externalExecutionSummary: NotRequired[str]
+    externalExecutionUrl: NotRequired[str]
+    errorDetails: NotRequired[ErrorDetailsTypeDef]
+    logStreamARN: NotRequired[str]
+
+class ActionExecutionTypeDef(TypedDict):
+    actionExecutionId: NotRequired[str]
+    status: NotRequired[ActionExecutionStatusType]
+    summary: NotRequired[str]
+    lastStatusChange: NotRequired[datetime]
+    token: NotRequired[str]
+    lastUpdatedBy: NotRequired[str]
+    externalExecutionId: NotRequired[str]
+    externalExecutionUrl: NotRequired[str]
+    percentComplete: NotRequired[int]
+    errorDetails: NotRequired[ErrorDetailsTypeDef]
+    logStreamARN: NotRequired[str]
+
+class RuleExecutionResultTypeDef(TypedDict):
+    externalExecutionId: NotRequired[str]
+    externalExecutionSummary: NotRequired[str]
+    externalExecutionUrl: NotRequired[str]
+    errorDetails: NotRequired[ErrorDetailsTypeDef]
+
+class RuleExecutionTypeDef(TypedDict):
+    ruleExecutionId: NotRequired[str]
+    status: NotRequired[RuleExecutionStatusType]
+    summary: NotRequired[str]
+    lastStatusChange: NotRequired[datetime]
+    token: NotRequired[str]
+    lastUpdatedBy: NotRequired[str]
+    externalExecutionId: NotRequired[str]
+    externalExecutionUrl: NotRequired[str]
+    errorDetails: NotRequired[ErrorDetailsTypeDef]
+
+class ActionRevisionTypeDef(TypedDict):
+    revisionId: str
+    revisionChangeId: str
+    created: TimestampTypeDef
+
+class CurrentRevisionTypeDef(TypedDict):
+    revision: str
+    changeIdentifier: str
+    created: NotRequired[TimestampTypeDef]
+    revisionSummary: NotRequired[str]
+
+ActionTypeTypeDef = TypedDict(
+    "ActionTypeTypeDef",
     {
-        "pipelineExecution": "PipelineExecutionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "id": ActionTypeIdTypeDef,
+        "inputArtifactDetails": ArtifactDetailsTypeDef,
+        "outputArtifactDetails": ArtifactDetailsTypeDef,
+        "settings": NotRequired[ActionTypeSettingsTypeDef],
+        "actionConfigurationProperties": NotRequired[List[ActionConfigurationPropertyTypeDef]],
     },
 )
 
-_RequiredGetPipelineInputRequestTypeDef = TypedDict(
-    "_RequiredGetPipelineInputRequestTypeDef",
+class PutApprovalResultInputTypeDef(TypedDict):
+    pipelineName: str
+    stageName: str
+    actionName: str
+    result: ApprovalResultTypeDef
+    token: str
+
+class ArtifactDetailTypeDef(TypedDict):
+    name: NotRequired[str]
+    s3location: NotRequired[S3LocationTypeDef]
+
+ArtifactLocationTypeDef = TypedDict(
+    "ArtifactLocationTypeDef",
     {
-        "name": str,
+        "type": NotRequired[Literal["S3"]],
+        "s3Location": NotRequired[S3ArtifactLocationTypeDef],
     },
 )
-_OptionalGetPipelineInputRequestTypeDef = TypedDict(
-    "_OptionalGetPipelineInputRequestTypeDef",
+ArtifactStoreTypeDef = TypedDict(
+    "ArtifactStoreTypeDef",
     {
-        "version": int,
+        "type": Literal["S3"],
+        "location": str,
+        "encryptionKey": NotRequired[EncryptionKeyTypeDef],
     },
-    total=False,
 )
 
-class GetPipelineInputRequestTypeDef(
-    _RequiredGetPipelineInputRequestTypeDef, _OptionalGetPipelineInputRequestTypeDef
-):
-    pass
+class CreateCustomActionTypeInputTypeDef(TypedDict):
+    category: ActionCategoryType
+    provider: str
+    version: str
+    inputArtifactDetails: ArtifactDetailsTypeDef
+    outputArtifactDetails: ArtifactDetailsTypeDef
+    settings: NotRequired[ActionTypeSettingsTypeDef]
+    configurationProperties: NotRequired[Sequence[ActionConfigurationPropertyTypeDef]]
+    tags: NotRequired[Sequence[TagTypeDef]]
 
-GetPipelineOutputTypeDef = TypedDict(
-    "GetPipelineOutputTypeDef",
+class ListTagsForResourceOutputTypeDef(TypedDict):
+    tags: List[TagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class TagResourceInputTypeDef(TypedDict):
+    resourceArn: str
+    tags: Sequence[TagTypeDef]
+
+class ExecutorConfigurationOutputTypeDef(TypedDict):
+    lambdaExecutorConfiguration: NotRequired[LambdaExecutorConfigurationTypeDef]
+    jobWorkerExecutorConfiguration: NotRequired[JobWorkerExecutorConfigurationOutputTypeDef]
+
+class ExecutorConfigurationTypeDef(TypedDict):
+    lambdaExecutorConfiguration: NotRequired[LambdaExecutorConfigurationTypeDef]
+    jobWorkerExecutorConfiguration: NotRequired[JobWorkerExecutorConfigurationTypeDef]
+
+class PutJobFailureResultInputTypeDef(TypedDict):
+    jobId: str
+    failureDetails: FailureDetailsTypeDef
+
+class PutThirdPartyJobFailureResultInputTypeDef(TypedDict):
+    jobId: str
+    clientToken: str
+    failureDetails: FailureDetailsTypeDef
+
+class GitPullRequestFilterOutputTypeDef(TypedDict):
+    events: NotRequired[List[GitPullRequestEventTypeType]]
+    branches: NotRequired[GitBranchFilterCriteriaOutputTypeDef]
+    filePaths: NotRequired[GitFilePathFilterCriteriaOutputTypeDef]
+
+class GitPullRequestFilterTypeDef(TypedDict):
+    events: NotRequired[Sequence[GitPullRequestEventTypeType]]
+    branches: NotRequired[GitBranchFilterCriteriaTypeDef]
+    filePaths: NotRequired[GitFilePathFilterCriteriaTypeDef]
+
+class GitPushFilterOutputTypeDef(TypedDict):
+    tags: NotRequired[GitTagFilterCriteriaOutputTypeDef]
+    branches: NotRequired[GitBranchFilterCriteriaOutputTypeDef]
+    filePaths: NotRequired[GitFilePathFilterCriteriaOutputTypeDef]
+
+class GitPushFilterTypeDef(TypedDict):
+    tags: NotRequired[GitTagFilterCriteriaTypeDef]
+    branches: NotRequired[GitBranchFilterCriteriaTypeDef]
+    filePaths: NotRequired[GitFilePathFilterCriteriaTypeDef]
+
+class ListActionTypesInputPaginateTypeDef(TypedDict):
+    actionOwnerFilter: NotRequired[ActionOwnerType]
+    regionFilter: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListPipelinesInputPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListTagsForResourceInputPaginateTypeDef(TypedDict):
+    resourceArn: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListWebhooksInputPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListPipelinesOutputTypeDef(TypedDict):
+    pipelines: List[PipelineSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class PipelineContextTypeDef(TypedDict):
+    pipelineName: NotRequired[str]
+    stage: NotRequired[StageContextTypeDef]
+    action: NotRequired[ActionContextTypeDef]
+    pipelineArn: NotRequired[str]
+    pipelineExecutionId: NotRequired[str]
+
+class PipelineExecutionFilterTypeDef(TypedDict):
+    succeededInStage: NotRequired[SucceededInStageFilterTypeDef]
+
+class PipelineExecutionSummaryTypeDef(TypedDict):
+    pipelineExecutionId: NotRequired[str]
+    status: NotRequired[PipelineExecutionStatusType]
+    statusSummary: NotRequired[str]
+    startTime: NotRequired[datetime]
+    lastUpdateTime: NotRequired[datetime]
+    sourceRevisions: NotRequired[List[SourceRevisionTypeDef]]
+    trigger: NotRequired[ExecutionTriggerTypeDef]
+    stopTrigger: NotRequired[StopExecutionTriggerTypeDef]
+    executionMode: NotRequired[ExecutionModeType]
+    executionType: NotRequired[ExecutionTypeType]
+    rollbackMetadata: NotRequired[PipelineRollbackMetadataTypeDef]
+
+class PipelineExecutionTypeDef(TypedDict):
+    pipelineName: NotRequired[str]
+    pipelineVersion: NotRequired[int]
+    pipelineExecutionId: NotRequired[str]
+    status: NotRequired[PipelineExecutionStatusType]
+    statusSummary: NotRequired[str]
+    artifactRevisions: NotRequired[List[ArtifactRevisionTypeDef]]
+    variables: NotRequired[List[ResolvedPipelineVariableTypeDef]]
+    trigger: NotRequired[ExecutionTriggerTypeDef]
+    executionMode: NotRequired[ExecutionModeType]
+    executionType: NotRequired[ExecutionTypeType]
+    rollbackMetadata: NotRequired[PipelineRollbackMetadataTypeDef]
+
+class PollForThirdPartyJobsOutputTypeDef(TypedDict):
+    jobs: List[ThirdPartyJobTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class RuleDeclarationOutputTypeDef(TypedDict):
+    name: str
+    ruleTypeId: RuleTypeIdTypeDef
+    configuration: NotRequired[Dict[str, str]]
+    commands: NotRequired[List[str]]
+    inputArtifacts: NotRequired[List[InputArtifactTypeDef]]
+    roleArn: NotRequired[str]
+    region: NotRequired[str]
+    timeoutInMinutes: NotRequired[int]
+
+class RuleDeclarationTypeDef(TypedDict):
+    name: str
+    ruleTypeId: RuleTypeIdTypeDef
+    configuration: NotRequired[Mapping[str, str]]
+    commands: NotRequired[Sequence[str]]
+    inputArtifacts: NotRequired[Sequence[InputArtifactTypeDef]]
+    roleArn: NotRequired[str]
+    region: NotRequired[str]
+    timeoutInMinutes: NotRequired[int]
+
+RuleTypeTypeDef = TypedDict(
+    "RuleTypeTypeDef",
     {
-        "pipeline": "PipelineDeclarationTypeDef",
-        "metadata": "PipelineMetadataTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "id": RuleTypeIdTypeDef,
+        "inputArtifactDetails": ArtifactDetailsTypeDef,
+        "settings": NotRequired[RuleTypeSettingsTypeDef],
+        "ruleConfigurationProperties": NotRequired[List[RuleConfigurationPropertyTypeDef]],
     },
 )
 
-GetPipelineStateInputRequestTypeDef = TypedDict(
-    "GetPipelineStateInputRequestTypeDef",
-    {
-        "name": str,
-    },
-)
+class StartPipelineExecutionInputTypeDef(TypedDict):
+    name: str
+    variables: NotRequired[Sequence[PipelineVariableTypeDef]]
+    clientRequestToken: NotRequired[str]
+    sourceRevisions: NotRequired[Sequence[SourceRevisionOverrideTypeDef]]
 
-GetPipelineStateOutputTypeDef = TypedDict(
-    "GetPipelineStateOutputTypeDef",
+class WebhookDefinitionOutputTypeDef(TypedDict):
+    name: str
+    targetPipeline: str
+    targetAction: str
+    filters: List[WebhookFilterRuleTypeDef]
+    authentication: WebhookAuthenticationTypeType
+    authenticationConfiguration: WebhookAuthConfigurationTypeDef
+
+class WebhookDefinitionTypeDef(TypedDict):
+    name: str
+    targetPipeline: str
+    targetAction: str
+    filters: Sequence[WebhookFilterRuleTypeDef]
+    authentication: WebhookAuthenticationTypeType
+    authenticationConfiguration: WebhookAuthConfigurationTypeDef
+
+ListActionExecutionsInputPaginateTypeDef = TypedDict(
+    "ListActionExecutionsInputPaginateTypeDef",
     {
         "pipelineName": str,
-        "pipelineVersion": int,
-        "stageStates": List["StageStateTypeDef"],
-        "created": datetime,
-        "updated": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "filter": NotRequired[ActionExecutionFilterTypeDef],
+        "PaginationConfig": NotRequired[PaginatorConfigTypeDef],
+    },
+)
+ListActionExecutionsInputTypeDef = TypedDict(
+    "ListActionExecutionsInputTypeDef",
+    {
+        "pipelineName": str,
+        "filter": NotRequired[ActionExecutionFilterTypeDef],
+        "maxResults": NotRequired[int],
+        "nextToken": NotRequired[str],
+    },
+)
+ListRuleExecutionsInputPaginateTypeDef = TypedDict(
+    "ListRuleExecutionsInputPaginateTypeDef",
+    {
+        "pipelineName": str,
+        "filter": NotRequired[RuleExecutionFilterTypeDef],
+        "PaginationConfig": NotRequired[PaginatorConfigTypeDef],
+    },
+)
+ListRuleExecutionsInputTypeDef = TypedDict(
+    "ListRuleExecutionsInputTypeDef",
+    {
+        "pipelineName": str,
+        "filter": NotRequired[RuleExecutionFilterTypeDef],
+        "maxResults": NotRequired[int],
+        "nextToken": NotRequired[str],
     },
 )
 
-GetThirdPartyJobDetailsInputRequestTypeDef = TypedDict(
-    "GetThirdPartyJobDetailsInputRequestTypeDef",
+class ActionStateTypeDef(TypedDict):
+    actionName: NotRequired[str]
+    currentRevision: NotRequired[ActionRevisionOutputTypeDef]
+    latestExecution: NotRequired[ActionExecutionTypeDef]
+    entityUrl: NotRequired[str]
+    revisionUrl: NotRequired[str]
+
+class RuleExecutionOutputTypeDef(TypedDict):
+    executionResult: NotRequired[RuleExecutionResultTypeDef]
+
+class RuleStateTypeDef(TypedDict):
+    ruleName: NotRequired[str]
+    currentRevision: NotRequired[RuleRevisionTypeDef]
+    latestExecution: NotRequired[RuleExecutionTypeDef]
+    entityUrl: NotRequired[str]
+    revisionUrl: NotRequired[str]
+
+ActionRevisionUnionTypeDef = Union[ActionRevisionTypeDef, ActionRevisionOutputTypeDef]
+
+class PutJobSuccessResultInputTypeDef(TypedDict):
+    jobId: str
+    currentRevision: NotRequired[CurrentRevisionTypeDef]
+    continuationToken: NotRequired[str]
+    executionDetails: NotRequired[ExecutionDetailsTypeDef]
+    outputVariables: NotRequired[Mapping[str, str]]
+
+class PutThirdPartyJobSuccessResultInputTypeDef(TypedDict):
+    jobId: str
+    clientToken: str
+    currentRevision: NotRequired[CurrentRevisionTypeDef]
+    continuationToken: NotRequired[str]
+    executionDetails: NotRequired[ExecutionDetailsTypeDef]
+
+class CreateCustomActionTypeOutputTypeDef(TypedDict):
+    actionType: ActionTypeTypeDef
+    tags: List[TagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListActionTypesOutputTypeDef(TypedDict):
+    actionTypes: List[ActionTypeTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ActionExecutionInputTypeDef(TypedDict):
+    actionTypeId: NotRequired[ActionTypeIdTypeDef]
+    configuration: NotRequired[Dict[str, str]]
+    resolvedConfiguration: NotRequired[Dict[str, str]]
+    roleArn: NotRequired[str]
+    region: NotRequired[str]
+    inputArtifacts: NotRequired[List[ArtifactDetailTypeDef]]
+    namespace: NotRequired[str]
+
+class ActionExecutionOutputTypeDef(TypedDict):
+    outputArtifacts: NotRequired[List[ArtifactDetailTypeDef]]
+    executionResult: NotRequired[ActionExecutionResultTypeDef]
+    outputVariables: NotRequired[Dict[str, str]]
+
+class RuleExecutionInputTypeDef(TypedDict):
+    ruleTypeId: NotRequired[RuleTypeIdTypeDef]
+    configuration: NotRequired[Dict[str, str]]
+    resolvedConfiguration: NotRequired[Dict[str, str]]
+    roleArn: NotRequired[str]
+    region: NotRequired[str]
+    inputArtifacts: NotRequired[List[ArtifactDetailTypeDef]]
+
+class ArtifactTypeDef(TypedDict):
+    name: NotRequired[str]
+    revision: NotRequired[str]
+    location: NotRequired[ArtifactLocationTypeDef]
+
+ActionTypeExecutorOutputTypeDef = TypedDict(
+    "ActionTypeExecutorOutputTypeDef",
     {
-        "jobId": str,
-        "clientToken": str,
+        "configuration": ExecutorConfigurationOutputTypeDef,
+        "type": ExecutorTypeType,
+        "policyStatementsTemplate": NotRequired[str],
+        "jobTimeout": NotRequired[int],
+    },
+)
+ActionTypeExecutorTypeDef = TypedDict(
+    "ActionTypeExecutorTypeDef",
+    {
+        "configuration": ExecutorConfigurationTypeDef,
+        "type": ExecutorTypeType,
+        "policyStatementsTemplate": NotRequired[str],
+        "jobTimeout": NotRequired[int],
     },
 )
 
-GetThirdPartyJobDetailsOutputTypeDef = TypedDict(
-    "GetThirdPartyJobDetailsOutputTypeDef",
+class GitConfigurationOutputTypeDef(TypedDict):
+    sourceActionName: str
+    push: NotRequired[List[GitPushFilterOutputTypeDef]]
+    pullRequest: NotRequired[List[GitPullRequestFilterOutputTypeDef]]
+
+class GitConfigurationTypeDef(TypedDict):
+    sourceActionName: str
+    push: NotRequired[Sequence[GitPushFilterTypeDef]]
+    pullRequest: NotRequired[Sequence[GitPullRequestFilterTypeDef]]
+
+ListPipelineExecutionsInputPaginateTypeDef = TypedDict(
+    "ListPipelineExecutionsInputPaginateTypeDef",
     {
-        "jobDetails": "ThirdPartyJobDetailsTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "pipelineName": str,
+        "filter": NotRequired[PipelineExecutionFilterTypeDef],
+        "PaginationConfig": NotRequired[PaginatorConfigTypeDef],
+    },
+)
+ListPipelineExecutionsInputTypeDef = TypedDict(
+    "ListPipelineExecutionsInputTypeDef",
+    {
+        "pipelineName": str,
+        "maxResults": NotRequired[int],
+        "filter": NotRequired[PipelineExecutionFilterTypeDef],
+        "nextToken": NotRequired[str],
     },
 )
 
-GitBranchFilterCriteriaTypeDef = TypedDict(
-    "GitBranchFilterCriteriaTypeDef",
+class ListPipelineExecutionsOutputTypeDef(TypedDict):
+    pipelineExecutionSummaries: List[PipelineExecutionSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class GetPipelineExecutionOutputTypeDef(TypedDict):
+    pipelineExecution: PipelineExecutionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ConditionOutputTypeDef(TypedDict):
+    result: NotRequired[ResultType]
+    rules: NotRequired[List[RuleDeclarationOutputTypeDef]]
+
+class ConditionTypeDef(TypedDict):
+    result: NotRequired[ResultType]
+    rules: NotRequired[Sequence[RuleDeclarationTypeDef]]
+
+class ListRuleTypesOutputTypeDef(TypedDict):
+    ruleTypes: List[RuleTypeTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListWebhookItemTypeDef(TypedDict):
+    definition: WebhookDefinitionOutputTypeDef
+    url: str
+    errorMessage: NotRequired[str]
+    errorCode: NotRequired[str]
+    lastTriggered: NotRequired[datetime]
+    arn: NotRequired[str]
+    tags: NotRequired[List[TagTypeDef]]
+
+WebhookDefinitionUnionTypeDef = Union[WebhookDefinitionTypeDef, WebhookDefinitionOutputTypeDef]
+
+class ConditionStateTypeDef(TypedDict):
+    latestExecution: NotRequired[ConditionExecutionTypeDef]
+    ruleStates: NotRequired[List[RuleStateTypeDef]]
+
+class PutActionRevisionInputTypeDef(TypedDict):
+    pipelineName: str
+    stageName: str
+    actionName: str
+    actionRevision: ActionRevisionUnionTypeDef
+
+ActionExecutionDetailTypeDef = TypedDict(
+    "ActionExecutionDetailTypeDef",
     {
-        "includes": List[str],
-        "excludes": List[str],
+        "pipelineExecutionId": NotRequired[str],
+        "actionExecutionId": NotRequired[str],
+        "pipelineVersion": NotRequired[int],
+        "stageName": NotRequired[str],
+        "actionName": NotRequired[str],
+        "startTime": NotRequired[datetime],
+        "lastUpdateTime": NotRequired[datetime],
+        "updatedBy": NotRequired[str],
+        "status": NotRequired[ActionExecutionStatusType],
+        "input": NotRequired[ActionExecutionInputTypeDef],
+        "output": NotRequired[ActionExecutionOutputTypeDef],
     },
-    total=False,
+)
+RuleExecutionDetailTypeDef = TypedDict(
+    "RuleExecutionDetailTypeDef",
+    {
+        "pipelineExecutionId": NotRequired[str],
+        "ruleExecutionId": NotRequired[str],
+        "pipelineVersion": NotRequired[int],
+        "stageName": NotRequired[str],
+        "ruleName": NotRequired[str],
+        "startTime": NotRequired[datetime],
+        "lastUpdateTime": NotRequired[datetime],
+        "updatedBy": NotRequired[str],
+        "status": NotRequired[RuleExecutionStatusType],
+        "input": NotRequired[RuleExecutionInputTypeDef],
+        "output": NotRequired[RuleExecutionOutputTypeDef],
+    },
 )
 
-_RequiredGitConfigurationTypeDef = TypedDict(
-    "_RequiredGitConfigurationTypeDef",
+class JobDataTypeDef(TypedDict):
+    actionTypeId: NotRequired[ActionTypeIdTypeDef]
+    actionConfiguration: NotRequired[ActionConfigurationTypeDef]
+    pipelineContext: NotRequired[PipelineContextTypeDef]
+    inputArtifacts: NotRequired[List[ArtifactTypeDef]]
+    outputArtifacts: NotRequired[List[ArtifactTypeDef]]
+    artifactCredentials: NotRequired[AWSSessionCredentialsTypeDef]
+    continuationToken: NotRequired[str]
+    encryptionKey: NotRequired[EncryptionKeyTypeDef]
+
+class ThirdPartyJobDataTypeDef(TypedDict):
+    actionTypeId: NotRequired[ActionTypeIdTypeDef]
+    actionConfiguration: NotRequired[ActionConfigurationTypeDef]
+    pipelineContext: NotRequired[PipelineContextTypeDef]
+    inputArtifacts: NotRequired[List[ArtifactTypeDef]]
+    outputArtifacts: NotRequired[List[ArtifactTypeDef]]
+    artifactCredentials: NotRequired[AWSSessionCredentialsTypeDef]
+    continuationToken: NotRequired[str]
+    encryptionKey: NotRequired[EncryptionKeyTypeDef]
+
+ActionTypeDeclarationOutputTypeDef = TypedDict(
+    "ActionTypeDeclarationOutputTypeDef",
     {
-        "sourceActionName": str,
+        "executor": ActionTypeExecutorOutputTypeDef,
+        "id": ActionTypeIdentifierTypeDef,
+        "inputArtifactDetails": ActionTypeArtifactDetailsTypeDef,
+        "outputArtifactDetails": ActionTypeArtifactDetailsTypeDef,
+        "description": NotRequired[str],
+        "permissions": NotRequired[ActionTypePermissionsOutputTypeDef],
+        "properties": NotRequired[List[ActionTypePropertyTypeDef]],
+        "urls": NotRequired[ActionTypeUrlsTypeDef],
     },
 )
-_OptionalGitConfigurationTypeDef = TypedDict(
-    "_OptionalGitConfigurationTypeDef",
+ActionTypeDeclarationTypeDef = TypedDict(
+    "ActionTypeDeclarationTypeDef",
     {
-        "push": List["GitPushFilterTypeDef"],
-        "pullRequest": List["GitPullRequestFilterTypeDef"],
-    },
-    total=False,
-)
-
-class GitConfigurationTypeDef(_RequiredGitConfigurationTypeDef, _OptionalGitConfigurationTypeDef):
-    pass
-
-GitFilePathFilterCriteriaTypeDef = TypedDict(
-    "GitFilePathFilterCriteriaTypeDef",
-    {
-        "includes": List[str],
-        "excludes": List[str],
-    },
-    total=False,
-)
-
-GitPullRequestFilterTypeDef = TypedDict(
-    "GitPullRequestFilterTypeDef",
-    {
-        "events": List[GitPullRequestEventTypeType],
-        "branches": "GitBranchFilterCriteriaTypeDef",
-        "filePaths": "GitFilePathFilterCriteriaTypeDef",
-    },
-    total=False,
-)
-
-GitPushFilterTypeDef = TypedDict(
-    "GitPushFilterTypeDef",
-    {
-        "tags": "GitTagFilterCriteriaTypeDef",
-        "branches": "GitBranchFilterCriteriaTypeDef",
-        "filePaths": "GitFilePathFilterCriteriaTypeDef",
-    },
-    total=False,
-)
-
-GitTagFilterCriteriaTypeDef = TypedDict(
-    "GitTagFilterCriteriaTypeDef",
-    {
-        "includes": List[str],
-        "excludes": List[str],
-    },
-    total=False,
-)
-
-InputArtifactTypeDef = TypedDict(
-    "InputArtifactTypeDef",
-    {
-        "name": str,
+        "executor": ActionTypeExecutorTypeDef,
+        "id": ActionTypeIdentifierTypeDef,
+        "inputArtifactDetails": ActionTypeArtifactDetailsTypeDef,
+        "outputArtifactDetails": ActionTypeArtifactDetailsTypeDef,
+        "description": NotRequired[str],
+        "permissions": NotRequired[ActionTypePermissionsTypeDef],
+        "properties": NotRequired[Sequence[ActionTypePropertyTypeDef]],
+        "urls": NotRequired[ActionTypeUrlsTypeDef],
     },
 )
 
-JobDataTypeDef = TypedDict(
-    "JobDataTypeDef",
-    {
-        "actionTypeId": "ActionTypeIdTypeDef",
-        "actionConfiguration": "ActionConfigurationTypeDef",
-        "pipelineContext": "PipelineContextTypeDef",
-        "inputArtifacts": List["ArtifactTypeDef"],
-        "outputArtifacts": List["ArtifactTypeDef"],
-        "artifactCredentials": "AWSSessionCredentialsTypeDef",
-        "continuationToken": str,
-        "encryptionKey": "EncryptionKeyTypeDef",
-    },
-    total=False,
-)
+class PipelineTriggerDeclarationOutputTypeDef(TypedDict):
+    providerType: Literal["CodeStarSourceConnection"]
+    gitConfiguration: GitConfigurationOutputTypeDef
+
+class PipelineTriggerDeclarationTypeDef(TypedDict):
+    providerType: Literal["CodeStarSourceConnection"]
+    gitConfiguration: GitConfigurationTypeDef
+
+class BeforeEntryConditionsOutputTypeDef(TypedDict):
+    conditions: List[ConditionOutputTypeDef]
+
+class FailureConditionsOutputTypeDef(TypedDict):
+    result: NotRequired[ResultType]
+    retryConfiguration: NotRequired[RetryConfigurationTypeDef]
+    conditions: NotRequired[List[ConditionOutputTypeDef]]
+
+class SuccessConditionsOutputTypeDef(TypedDict):
+    conditions: List[ConditionOutputTypeDef]
+
+class BeforeEntryConditionsTypeDef(TypedDict):
+    conditions: Sequence[ConditionTypeDef]
+
+class FailureConditionsTypeDef(TypedDict):
+    result: NotRequired[ResultType]
+    retryConfiguration: NotRequired[RetryConfigurationTypeDef]
+    conditions: NotRequired[Sequence[ConditionTypeDef]]
+
+class SuccessConditionsTypeDef(TypedDict):
+    conditions: Sequence[ConditionTypeDef]
+
+class ListWebhooksOutputTypeDef(TypedDict):
+    webhooks: List[ListWebhookItemTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class PutWebhookOutputTypeDef(TypedDict):
+    webhook: ListWebhookItemTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutWebhookInputTypeDef(TypedDict):
+    webhook: WebhookDefinitionUnionTypeDef
+    tags: NotRequired[Sequence[TagTypeDef]]
+
+class StageConditionStateTypeDef(TypedDict):
+    latestExecution: NotRequired[StageConditionsExecutionTypeDef]
+    conditionStates: NotRequired[List[ConditionStateTypeDef]]
+
+class ListActionExecutionsOutputTypeDef(TypedDict):
+    actionExecutionDetails: List[ActionExecutionDetailTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListRuleExecutionsOutputTypeDef(TypedDict):
+    ruleExecutionDetails: List[RuleExecutionDetailTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
 JobDetailsTypeDef = TypedDict(
     "JobDetailsTypeDef",
     {
-        "id": str,
-        "data": "JobDataTypeDef",
-        "accountId": str,
+        "id": NotRequired[str],
+        "data": NotRequired[JobDataTypeDef],
+        "accountId": NotRequired[str],
     },
-    total=False,
 )
-
 JobTypeDef = TypedDict(
     "JobTypeDef",
     {
-        "id": str,
-        "data": "JobDataTypeDef",
-        "nonce": str,
-        "accountId": str,
+        "id": NotRequired[str],
+        "data": NotRequired[JobDataTypeDef],
+        "nonce": NotRequired[str],
+        "accountId": NotRequired[str],
     },
-    total=False,
 )
-
-JobWorkerExecutorConfigurationTypeDef = TypedDict(
-    "JobWorkerExecutorConfigurationTypeDef",
-    {
-        "pollingAccounts": List[str],
-        "pollingServicePrincipals": List[str],
-    },
-    total=False,
-)
-
-LambdaExecutorConfigurationTypeDef = TypedDict(
-    "LambdaExecutorConfigurationTypeDef",
-    {
-        "lambdaFunctionArn": str,
-    },
-)
-
-LatestInPipelineExecutionFilterTypeDef = TypedDict(
-    "LatestInPipelineExecutionFilterTypeDef",
-    {
-        "pipelineExecutionId": str,
-        "startTimeRange": StartTimeRangeType,
-    },
-)
-
-_RequiredListActionExecutionsInputRequestTypeDef = TypedDict(
-    "_RequiredListActionExecutionsInputRequestTypeDef",
-    {
-        "pipelineName": str,
-    },
-)
-_OptionalListActionExecutionsInputRequestTypeDef = TypedDict(
-    "_OptionalListActionExecutionsInputRequestTypeDef",
-    {
-        "filter": "ActionExecutionFilterTypeDef",
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListActionExecutionsInputRequestTypeDef(
-    _RequiredListActionExecutionsInputRequestTypeDef,
-    _OptionalListActionExecutionsInputRequestTypeDef,
-):
-    pass
-
-ListActionExecutionsOutputTypeDef = TypedDict(
-    "ListActionExecutionsOutputTypeDef",
-    {
-        "actionExecutionDetails": List["ActionExecutionDetailTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListActionTypesInputRequestTypeDef = TypedDict(
-    "ListActionTypesInputRequestTypeDef",
-    {
-        "actionOwnerFilter": ActionOwnerType,
-        "nextToken": str,
-        "regionFilter": str,
-    },
-    total=False,
-)
-
-ListActionTypesOutputTypeDef = TypedDict(
-    "ListActionTypesOutputTypeDef",
-    {
-        "actionTypes": List["ActionTypeTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListPipelineExecutionsInputRequestTypeDef = TypedDict(
-    "_RequiredListPipelineExecutionsInputRequestTypeDef",
-    {
-        "pipelineName": str,
-    },
-)
-_OptionalListPipelineExecutionsInputRequestTypeDef = TypedDict(
-    "_OptionalListPipelineExecutionsInputRequestTypeDef",
-    {
-        "maxResults": int,
-        "filter": "PipelineExecutionFilterTypeDef",
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListPipelineExecutionsInputRequestTypeDef(
-    _RequiredListPipelineExecutionsInputRequestTypeDef,
-    _OptionalListPipelineExecutionsInputRequestTypeDef,
-):
-    pass
-
-ListPipelineExecutionsOutputTypeDef = TypedDict(
-    "ListPipelineExecutionsOutputTypeDef",
-    {
-        "pipelineExecutionSummaries": List["PipelineExecutionSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListPipelinesInputRequestTypeDef = TypedDict(
-    "ListPipelinesInputRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-ListPipelinesOutputTypeDef = TypedDict(
-    "ListPipelinesOutputTypeDef",
-    {
-        "pipelines": List["PipelineSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListTagsForResourceInputRequestTypeDef = TypedDict(
-    "_RequiredListTagsForResourceInputRequestTypeDef",
-    {
-        "resourceArn": str,
-    },
-)
-_OptionalListTagsForResourceInputRequestTypeDef = TypedDict(
-    "_OptionalListTagsForResourceInputRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-class ListTagsForResourceInputRequestTypeDef(
-    _RequiredListTagsForResourceInputRequestTypeDef, _OptionalListTagsForResourceInputRequestTypeDef
-):
-    pass
-
-ListTagsForResourceOutputTypeDef = TypedDict(
-    "ListTagsForResourceOutputTypeDef",
-    {
-        "tags": List["TagTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListWebhookItemTypeDef = TypedDict(
-    "_RequiredListWebhookItemTypeDef",
-    {
-        "definition": "WebhookDefinitionTypeDef",
-        "url": str,
-    },
-)
-_OptionalListWebhookItemTypeDef = TypedDict(
-    "_OptionalListWebhookItemTypeDef",
-    {
-        "errorMessage": str,
-        "errorCode": str,
-        "lastTriggered": datetime,
-        "arn": str,
-        "tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class ListWebhookItemTypeDef(_RequiredListWebhookItemTypeDef, _OptionalListWebhookItemTypeDef):
-    pass
-
-ListWebhooksInputRequestTypeDef = TypedDict(
-    "ListWebhooksInputRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-ListWebhooksOutputTypeDef = TypedDict(
-    "ListWebhooksOutputTypeDef",
-    {
-        "webhooks": List["ListWebhookItemTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-OutputArtifactTypeDef = TypedDict(
-    "OutputArtifactTypeDef",
-    {
-        "name": str,
-    },
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-PipelineContextTypeDef = TypedDict(
-    "PipelineContextTypeDef",
-    {
-        "pipelineName": str,
-        "stage": "StageContextTypeDef",
-        "action": "ActionContextTypeDef",
-        "pipelineArn": str,
-        "pipelineExecutionId": str,
-    },
-    total=False,
-)
-
-_RequiredPipelineDeclarationTypeDef = TypedDict(
-    "_RequiredPipelineDeclarationTypeDef",
-    {
-        "name": str,
-        "roleArn": str,
-        "stages": List["StageDeclarationTypeDef"],
-    },
-)
-_OptionalPipelineDeclarationTypeDef = TypedDict(
-    "_OptionalPipelineDeclarationTypeDef",
-    {
-        "artifactStore": "ArtifactStoreTypeDef",
-        "artifactStores": Dict[str, "ArtifactStoreTypeDef"],
-        "version": int,
-        "executionMode": ExecutionModeType,
-        "pipelineType": PipelineTypeType,
-        "variables": List["PipelineVariableDeclarationTypeDef"],
-        "triggers": List["PipelineTriggerDeclarationTypeDef"],
-    },
-    total=False,
-)
-
-class PipelineDeclarationTypeDef(
-    _RequiredPipelineDeclarationTypeDef, _OptionalPipelineDeclarationTypeDef
-):
-    pass
-
-PipelineExecutionFilterTypeDef = TypedDict(
-    "PipelineExecutionFilterTypeDef",
-    {
-        "succeededInStage": "SucceededInStageFilterTypeDef",
-    },
-    total=False,
-)
-
-PipelineExecutionSummaryTypeDef = TypedDict(
-    "PipelineExecutionSummaryTypeDef",
-    {
-        "pipelineExecutionId": str,
-        "status": PipelineExecutionStatusType,
-        "statusSummary": str,
-        "startTime": datetime,
-        "lastUpdateTime": datetime,
-        "sourceRevisions": List["SourceRevisionTypeDef"],
-        "trigger": "ExecutionTriggerTypeDef",
-        "stopTrigger": "StopExecutionTriggerTypeDef",
-        "executionMode": ExecutionModeType,
-        "executionType": ExecutionTypeType,
-        "rollbackMetadata": "PipelineRollbackMetadataTypeDef",
-    },
-    total=False,
-)
-
-PipelineExecutionTypeDef = TypedDict(
-    "PipelineExecutionTypeDef",
-    {
-        "pipelineName": str,
-        "pipelineVersion": int,
-        "pipelineExecutionId": str,
-        "status": PipelineExecutionStatusType,
-        "statusSummary": str,
-        "artifactRevisions": List["ArtifactRevisionTypeDef"],
-        "variables": List["ResolvedPipelineVariableTypeDef"],
-        "trigger": "ExecutionTriggerTypeDef",
-        "executionMode": ExecutionModeType,
-        "executionType": ExecutionTypeType,
-        "rollbackMetadata": "PipelineRollbackMetadataTypeDef",
-    },
-    total=False,
-)
-
-PipelineMetadataTypeDef = TypedDict(
-    "PipelineMetadataTypeDef",
-    {
-        "pipelineArn": str,
-        "created": datetime,
-        "updated": datetime,
-        "pollingDisabledAt": datetime,
-    },
-    total=False,
-)
-
-PipelineRollbackMetadataTypeDef = TypedDict(
-    "PipelineRollbackMetadataTypeDef",
-    {
-        "rollbackTargetPipelineExecutionId": str,
-    },
-    total=False,
-)
-
-PipelineSummaryTypeDef = TypedDict(
-    "PipelineSummaryTypeDef",
-    {
-        "name": str,
-        "version": int,
-        "pipelineType": PipelineTypeType,
-        "executionMode": ExecutionModeType,
-        "created": datetime,
-        "updated": datetime,
-    },
-    total=False,
-)
-
-PipelineTriggerDeclarationTypeDef = TypedDict(
-    "PipelineTriggerDeclarationTypeDef",
-    {
-        "providerType": Literal["CodeStarSourceConnection"],
-        "gitConfiguration": "GitConfigurationTypeDef",
-    },
-)
-
-_RequiredPipelineVariableDeclarationTypeDef = TypedDict(
-    "_RequiredPipelineVariableDeclarationTypeDef",
-    {
-        "name": str,
-    },
-)
-_OptionalPipelineVariableDeclarationTypeDef = TypedDict(
-    "_OptionalPipelineVariableDeclarationTypeDef",
-    {
-        "defaultValue": str,
-        "description": str,
-    },
-    total=False,
-)
-
-class PipelineVariableDeclarationTypeDef(
-    _RequiredPipelineVariableDeclarationTypeDef, _OptionalPipelineVariableDeclarationTypeDef
-):
-    pass
-
-PipelineVariableTypeDef = TypedDict(
-    "PipelineVariableTypeDef",
-    {
-        "name": str,
-        "value": str,
-    },
-)
-
-_RequiredPollForJobsInputRequestTypeDef = TypedDict(
-    "_RequiredPollForJobsInputRequestTypeDef",
-    {
-        "actionTypeId": "ActionTypeIdTypeDef",
-    },
-)
-_OptionalPollForJobsInputRequestTypeDef = TypedDict(
-    "_OptionalPollForJobsInputRequestTypeDef",
-    {
-        "maxBatchSize": int,
-        "queryParam": Dict[str, str],
-    },
-    total=False,
-)
-
-class PollForJobsInputRequestTypeDef(
-    _RequiredPollForJobsInputRequestTypeDef, _OptionalPollForJobsInputRequestTypeDef
-):
-    pass
-
-PollForJobsOutputTypeDef = TypedDict(
-    "PollForJobsOutputTypeDef",
-    {
-        "jobs": List["JobTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredPollForThirdPartyJobsInputRequestTypeDef = TypedDict(
-    "_RequiredPollForThirdPartyJobsInputRequestTypeDef",
-    {
-        "actionTypeId": "ActionTypeIdTypeDef",
-    },
-)
-_OptionalPollForThirdPartyJobsInputRequestTypeDef = TypedDict(
-    "_OptionalPollForThirdPartyJobsInputRequestTypeDef",
-    {
-        "maxBatchSize": int,
-    },
-    total=False,
-)
-
-class PollForThirdPartyJobsInputRequestTypeDef(
-    _RequiredPollForThirdPartyJobsInputRequestTypeDef,
-    _OptionalPollForThirdPartyJobsInputRequestTypeDef,
-):
-    pass
-
-PollForThirdPartyJobsOutputTypeDef = TypedDict(
-    "PollForThirdPartyJobsOutputTypeDef",
-    {
-        "jobs": List["ThirdPartyJobTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-PutActionRevisionInputRequestTypeDef = TypedDict(
-    "PutActionRevisionInputRequestTypeDef",
-    {
-        "pipelineName": str,
-        "stageName": str,
-        "actionName": str,
-        "actionRevision": "ActionRevisionTypeDef",
-    },
-)
-
-PutActionRevisionOutputTypeDef = TypedDict(
-    "PutActionRevisionOutputTypeDef",
-    {
-        "newRevision": bool,
-        "pipelineExecutionId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-PutApprovalResultInputRequestTypeDef = TypedDict(
-    "PutApprovalResultInputRequestTypeDef",
-    {
-        "pipelineName": str,
-        "stageName": str,
-        "actionName": str,
-        "result": "ApprovalResultTypeDef",
-        "token": str,
-    },
-)
-
-PutApprovalResultOutputTypeDef = TypedDict(
-    "PutApprovalResultOutputTypeDef",
-    {
-        "approvedAt": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-PutJobFailureResultInputRequestTypeDef = TypedDict(
-    "PutJobFailureResultInputRequestTypeDef",
-    {
-        "jobId": str,
-        "failureDetails": "FailureDetailsTypeDef",
-    },
-)
-
-_RequiredPutJobSuccessResultInputRequestTypeDef = TypedDict(
-    "_RequiredPutJobSuccessResultInputRequestTypeDef",
-    {
-        "jobId": str,
-    },
-)
-_OptionalPutJobSuccessResultInputRequestTypeDef = TypedDict(
-    "_OptionalPutJobSuccessResultInputRequestTypeDef",
-    {
-        "currentRevision": "CurrentRevisionTypeDef",
-        "continuationToken": str,
-        "executionDetails": "ExecutionDetailsTypeDef",
-        "outputVariables": Dict[str, str],
-    },
-    total=False,
-)
-
-class PutJobSuccessResultInputRequestTypeDef(
-    _RequiredPutJobSuccessResultInputRequestTypeDef, _OptionalPutJobSuccessResultInputRequestTypeDef
-):
-    pass
-
-PutThirdPartyJobFailureResultInputRequestTypeDef = TypedDict(
-    "PutThirdPartyJobFailureResultInputRequestTypeDef",
-    {
-        "jobId": str,
-        "clientToken": str,
-        "failureDetails": "FailureDetailsTypeDef",
-    },
-)
-
-_RequiredPutThirdPartyJobSuccessResultInputRequestTypeDef = TypedDict(
-    "_RequiredPutThirdPartyJobSuccessResultInputRequestTypeDef",
-    {
-        "jobId": str,
-        "clientToken": str,
-    },
-)
-_OptionalPutThirdPartyJobSuccessResultInputRequestTypeDef = TypedDict(
-    "_OptionalPutThirdPartyJobSuccessResultInputRequestTypeDef",
-    {
-        "currentRevision": "CurrentRevisionTypeDef",
-        "continuationToken": str,
-        "executionDetails": "ExecutionDetailsTypeDef",
-    },
-    total=False,
-)
-
-class PutThirdPartyJobSuccessResultInputRequestTypeDef(
-    _RequiredPutThirdPartyJobSuccessResultInputRequestTypeDef,
-    _OptionalPutThirdPartyJobSuccessResultInputRequestTypeDef,
-):
-    pass
-
-_RequiredPutWebhookInputRequestTypeDef = TypedDict(
-    "_RequiredPutWebhookInputRequestTypeDef",
-    {
-        "webhook": "WebhookDefinitionTypeDef",
-    },
-)
-_OptionalPutWebhookInputRequestTypeDef = TypedDict(
-    "_OptionalPutWebhookInputRequestTypeDef",
-    {
-        "tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class PutWebhookInputRequestTypeDef(
-    _RequiredPutWebhookInputRequestTypeDef, _OptionalPutWebhookInputRequestTypeDef
-):
-    pass
-
-PutWebhookOutputTypeDef = TypedDict(
-    "PutWebhookOutputTypeDef",
-    {
-        "webhook": "ListWebhookItemTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-RegisterWebhookWithThirdPartyInputRequestTypeDef = TypedDict(
-    "RegisterWebhookWithThirdPartyInputRequestTypeDef",
-    {
-        "webhookName": str,
-    },
-    total=False,
-)
-
-ResolvedPipelineVariableTypeDef = TypedDict(
-    "ResolvedPipelineVariableTypeDef",
-    {
-        "name": str,
-        "resolvedValue": str,
-    },
-    total=False,
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-RetryStageExecutionInputRequestTypeDef = TypedDict(
-    "RetryStageExecutionInputRequestTypeDef",
-    {
-        "pipelineName": str,
-        "stageName": str,
-        "pipelineExecutionId": str,
-        "retryMode": StageRetryModeType,
-    },
-)
-
-RetryStageExecutionOutputTypeDef = TypedDict(
-    "RetryStageExecutionOutputTypeDef",
-    {
-        "pipelineExecutionId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-RollbackStageInputRequestTypeDef = TypedDict(
-    "RollbackStageInputRequestTypeDef",
-    {
-        "pipelineName": str,
-        "stageName": str,
-        "targetPipelineExecutionId": str,
-    },
-)
-
-RollbackStageOutputTypeDef = TypedDict(
-    "RollbackStageOutputTypeDef",
-    {
-        "pipelineExecutionId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-S3ArtifactLocationTypeDef = TypedDict(
-    "S3ArtifactLocationTypeDef",
-    {
-        "bucketName": str,
-        "objectKey": str,
-    },
-)
-
-S3LocationTypeDef = TypedDict(
-    "S3LocationTypeDef",
-    {
-        "bucket": str,
-        "key": str,
-    },
-    total=False,
-)
-
-SourceRevisionOverrideTypeDef = TypedDict(
-    "SourceRevisionOverrideTypeDef",
-    {
-        "actionName": str,
-        "revisionType": SourceRevisionTypeType,
-        "revisionValue": str,
-    },
-)
-
-_RequiredSourceRevisionTypeDef = TypedDict(
-    "_RequiredSourceRevisionTypeDef",
-    {
-        "actionName": str,
-    },
-)
-_OptionalSourceRevisionTypeDef = TypedDict(
-    "_OptionalSourceRevisionTypeDef",
-    {
-        "revisionId": str,
-        "revisionSummary": str,
-        "revisionUrl": str,
-    },
-    total=False,
-)
-
-class SourceRevisionTypeDef(_RequiredSourceRevisionTypeDef, _OptionalSourceRevisionTypeDef):
-    pass
-
-StageContextTypeDef = TypedDict(
-    "StageContextTypeDef",
-    {
-        "name": str,
-    },
-    total=False,
-)
-
-_RequiredStageDeclarationTypeDef = TypedDict(
-    "_RequiredStageDeclarationTypeDef",
-    {
-        "name": str,
-        "actions": List["ActionDeclarationTypeDef"],
-    },
-)
-_OptionalStageDeclarationTypeDef = TypedDict(
-    "_OptionalStageDeclarationTypeDef",
-    {
-        "blockers": List["BlockerDeclarationTypeDef"],
-        "onFailure": "FailureConditionsTypeDef",
-    },
-    total=False,
-)
-
-class StageDeclarationTypeDef(_RequiredStageDeclarationTypeDef, _OptionalStageDeclarationTypeDef):
-    pass
-
-_RequiredStageExecutionTypeDef = TypedDict(
-    "_RequiredStageExecutionTypeDef",
-    {
-        "pipelineExecutionId": str,
-        "status": StageExecutionStatusType,
-    },
-)
-_OptionalStageExecutionTypeDef = TypedDict(
-    "_OptionalStageExecutionTypeDef",
-    {
-        "type": ExecutionTypeType,
-    },
-    total=False,
-)
-
-class StageExecutionTypeDef(_RequiredStageExecutionTypeDef, _OptionalStageExecutionTypeDef):
-    pass
-
-StageStateTypeDef = TypedDict(
-    "StageStateTypeDef",
-    {
-        "stageName": str,
-        "inboundExecution": "StageExecutionTypeDef",
-        "inboundExecutions": List["StageExecutionTypeDef"],
-        "inboundTransitionState": "TransitionStateTypeDef",
-        "actionStates": List["ActionStateTypeDef"],
-        "latestExecution": "StageExecutionTypeDef",
-    },
-    total=False,
-)
-
-_RequiredStartPipelineExecutionInputRequestTypeDef = TypedDict(
-    "_RequiredStartPipelineExecutionInputRequestTypeDef",
-    {
-        "name": str,
-    },
-)
-_OptionalStartPipelineExecutionInputRequestTypeDef = TypedDict(
-    "_OptionalStartPipelineExecutionInputRequestTypeDef",
-    {
-        "variables": List["PipelineVariableTypeDef"],
-        "clientRequestToken": str,
-        "sourceRevisions": List["SourceRevisionOverrideTypeDef"],
-    },
-    total=False,
-)
-
-class StartPipelineExecutionInputRequestTypeDef(
-    _RequiredStartPipelineExecutionInputRequestTypeDef,
-    _OptionalStartPipelineExecutionInputRequestTypeDef,
-):
-    pass
-
-StartPipelineExecutionOutputTypeDef = TypedDict(
-    "StartPipelineExecutionOutputTypeDef",
-    {
-        "pipelineExecutionId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-StopExecutionTriggerTypeDef = TypedDict(
-    "StopExecutionTriggerTypeDef",
-    {
-        "reason": str,
-    },
-    total=False,
-)
-
-_RequiredStopPipelineExecutionInputRequestTypeDef = TypedDict(
-    "_RequiredStopPipelineExecutionInputRequestTypeDef",
-    {
-        "pipelineName": str,
-        "pipelineExecutionId": str,
-    },
-)
-_OptionalStopPipelineExecutionInputRequestTypeDef = TypedDict(
-    "_OptionalStopPipelineExecutionInputRequestTypeDef",
-    {
-        "abandon": bool,
-        "reason": str,
-    },
-    total=False,
-)
-
-class StopPipelineExecutionInputRequestTypeDef(
-    _RequiredStopPipelineExecutionInputRequestTypeDef,
-    _OptionalStopPipelineExecutionInputRequestTypeDef,
-):
-    pass
-
-StopPipelineExecutionOutputTypeDef = TypedDict(
-    "StopPipelineExecutionOutputTypeDef",
-    {
-        "pipelineExecutionId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-SucceededInStageFilterTypeDef = TypedDict(
-    "SucceededInStageFilterTypeDef",
-    {
-        "stageName": str,
-    },
-    total=False,
-)
-
-TagResourceInputRequestTypeDef = TypedDict(
-    "TagResourceInputRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tags": List["TagTypeDef"],
-    },
-)
-
-TagTypeDef = TypedDict(
-    "TagTypeDef",
-    {
-        "key": str,
-        "value": str,
-    },
-)
-
-ThirdPartyJobDataTypeDef = TypedDict(
-    "ThirdPartyJobDataTypeDef",
-    {
-        "actionTypeId": "ActionTypeIdTypeDef",
-        "actionConfiguration": "ActionConfigurationTypeDef",
-        "pipelineContext": "PipelineContextTypeDef",
-        "inputArtifacts": List["ArtifactTypeDef"],
-        "outputArtifacts": List["ArtifactTypeDef"],
-        "artifactCredentials": "AWSSessionCredentialsTypeDef",
-        "continuationToken": str,
-        "encryptionKey": "EncryptionKeyTypeDef",
-    },
-    total=False,
-)
-
 ThirdPartyJobDetailsTypeDef = TypedDict(
     "ThirdPartyJobDetailsTypeDef",
     {
-        "id": str,
-        "data": "ThirdPartyJobDataTypeDef",
-        "nonce": str,
-    },
-    total=False,
-)
-
-ThirdPartyJobTypeDef = TypedDict(
-    "ThirdPartyJobTypeDef",
-    {
-        "clientId": str,
-        "jobId": str,
-    },
-    total=False,
-)
-
-TransitionStateTypeDef = TypedDict(
-    "TransitionStateTypeDef",
-    {
-        "enabled": bool,
-        "lastChangedBy": str,
-        "lastChangedAt": datetime,
-        "disabledReason": str,
-    },
-    total=False,
-)
-
-UntagResourceInputRequestTypeDef = TypedDict(
-    "UntagResourceInputRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tagKeys": List[str],
+        "id": NotRequired[str],
+        "data": NotRequired[ThirdPartyJobDataTypeDef],
+        "nonce": NotRequired[str],
     },
 )
 
-UpdateActionTypeInputRequestTypeDef = TypedDict(
-    "UpdateActionTypeInputRequestTypeDef",
-    {
-        "actionType": "ActionTypeDeclarationTypeDef",
-    },
-)
+class GetActionTypeOutputTypeDef(TypedDict):
+    actionType: ActionTypeDeclarationOutputTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-UpdatePipelineInputRequestTypeDef = TypedDict(
-    "UpdatePipelineInputRequestTypeDef",
-    {
-        "pipeline": "PipelineDeclarationTypeDef",
-    },
-)
+ActionTypeDeclarationUnionTypeDef = Union[
+    ActionTypeDeclarationTypeDef, ActionTypeDeclarationOutputTypeDef
+]
 
-UpdatePipelineOutputTypeDef = TypedDict(
-    "UpdatePipelineOutputTypeDef",
-    {
-        "pipeline": "PipelineDeclarationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class StageDeclarationOutputTypeDef(TypedDict):
+    name: str
+    actions: List[ActionDeclarationOutputTypeDef]
+    blockers: NotRequired[List[BlockerDeclarationTypeDef]]
+    onFailure: NotRequired[FailureConditionsOutputTypeDef]
+    onSuccess: NotRequired[SuccessConditionsOutputTypeDef]
+    beforeEntry: NotRequired[BeforeEntryConditionsOutputTypeDef]
 
-WebhookAuthConfigurationTypeDef = TypedDict(
-    "WebhookAuthConfigurationTypeDef",
-    {
-        "AllowedIPRange": str,
-        "SecretToken": str,
-    },
-    total=False,
-)
+class StageDeclarationTypeDef(TypedDict):
+    name: str
+    actions: Sequence[ActionDeclarationTypeDef]
+    blockers: NotRequired[Sequence[BlockerDeclarationTypeDef]]
+    onFailure: NotRequired[FailureConditionsTypeDef]
+    onSuccess: NotRequired[SuccessConditionsTypeDef]
+    beforeEntry: NotRequired[BeforeEntryConditionsTypeDef]
 
-WebhookDefinitionTypeDef = TypedDict(
-    "WebhookDefinitionTypeDef",
-    {
-        "name": str,
-        "targetPipeline": str,
-        "targetAction": str,
-        "filters": List["WebhookFilterRuleTypeDef"],
-        "authentication": WebhookAuthenticationTypeType,
-        "authenticationConfiguration": "WebhookAuthConfigurationTypeDef",
-    },
-)
+class StageStateTypeDef(TypedDict):
+    stageName: NotRequired[str]
+    inboundExecution: NotRequired[StageExecutionTypeDef]
+    inboundExecutions: NotRequired[List[StageExecutionTypeDef]]
+    inboundTransitionState: NotRequired[TransitionStateTypeDef]
+    actionStates: NotRequired[List[ActionStateTypeDef]]
+    latestExecution: NotRequired[StageExecutionTypeDef]
+    beforeEntryConditionState: NotRequired[StageConditionStateTypeDef]
+    onSuccessConditionState: NotRequired[StageConditionStateTypeDef]
+    onFailureConditionState: NotRequired[StageConditionStateTypeDef]
+    retryStageMetadata: NotRequired[RetryStageMetadataTypeDef]
 
-_RequiredWebhookFilterRuleTypeDef = TypedDict(
-    "_RequiredWebhookFilterRuleTypeDef",
-    {
-        "jsonPath": str,
-    },
-)
-_OptionalWebhookFilterRuleTypeDef = TypedDict(
-    "_OptionalWebhookFilterRuleTypeDef",
-    {
-        "matchEquals": str,
-    },
-    total=False,
-)
+class GetJobDetailsOutputTypeDef(TypedDict):
+    jobDetails: JobDetailsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class WebhookFilterRuleTypeDef(
-    _RequiredWebhookFilterRuleTypeDef, _OptionalWebhookFilterRuleTypeDef
-):
-    pass
+class PollForJobsOutputTypeDef(TypedDict):
+    jobs: List[JobTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetThirdPartyJobDetailsOutputTypeDef(TypedDict):
+    jobDetails: ThirdPartyJobDetailsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateActionTypeInputTypeDef(TypedDict):
+    actionType: ActionTypeDeclarationUnionTypeDef
+
+class PipelineDeclarationOutputTypeDef(TypedDict):
+    name: str
+    roleArn: str
+    stages: List[StageDeclarationOutputTypeDef]
+    artifactStore: NotRequired[ArtifactStoreTypeDef]
+    artifactStores: NotRequired[Dict[str, ArtifactStoreTypeDef]]
+    version: NotRequired[int]
+    executionMode: NotRequired[ExecutionModeType]
+    pipelineType: NotRequired[PipelineTypeType]
+    variables: NotRequired[List[PipelineVariableDeclarationTypeDef]]
+    triggers: NotRequired[List[PipelineTriggerDeclarationOutputTypeDef]]
+
+class PipelineDeclarationTypeDef(TypedDict):
+    name: str
+    roleArn: str
+    stages: Sequence[StageDeclarationTypeDef]
+    artifactStore: NotRequired[ArtifactStoreTypeDef]
+    artifactStores: NotRequired[Mapping[str, ArtifactStoreTypeDef]]
+    version: NotRequired[int]
+    executionMode: NotRequired[ExecutionModeType]
+    pipelineType: NotRequired[PipelineTypeType]
+    variables: NotRequired[Sequence[PipelineVariableDeclarationTypeDef]]
+    triggers: NotRequired[Sequence[PipelineTriggerDeclarationTypeDef]]
+
+class GetPipelineStateOutputTypeDef(TypedDict):
+    pipelineName: str
+    pipelineVersion: int
+    stageStates: List[StageStateTypeDef]
+    created: datetime
+    updated: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreatePipelineOutputTypeDef(TypedDict):
+    pipeline: PipelineDeclarationOutputTypeDef
+    tags: List[TagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetPipelineOutputTypeDef(TypedDict):
+    pipeline: PipelineDeclarationOutputTypeDef
+    metadata: PipelineMetadataTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdatePipelineOutputTypeDef(TypedDict):
+    pipeline: PipelineDeclarationOutputTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+PipelineDeclarationUnionTypeDef = Union[
+    PipelineDeclarationTypeDef, PipelineDeclarationOutputTypeDef
+]
+
+class CreatePipelineInputTypeDef(TypedDict):
+    pipeline: PipelineDeclarationUnionTypeDef
+    tags: NotRequired[Sequence[TagTypeDef]]
+
+class UpdatePipelineInputTypeDef(TypedDict):
+    pipeline: PipelineDeclarationUnionTypeDef

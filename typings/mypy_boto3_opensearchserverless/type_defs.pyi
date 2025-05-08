@@ -1,108 +1,119 @@
 """
 Type annotations for opensearchserverless service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_opensearchserverless/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_opensearchserverless/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_opensearchserverless.type_defs import AccessPolicyDetailTypeDef
 
-    data: AccessPolicyDetailTypeDef = {...}
+    data: AccessPolicyDetailTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from typing import Any, Dict, List
+from typing import Any
 
 from .literals import (
     CollectionStatusType,
     CollectionTypeType,
+    IamIdentityCenterGroupAttributeType,
+    IamIdentityCenterUserAttributeType,
+    SecurityConfigTypeType,
     SecurityPolicyTypeType,
     StandbyReplicasType,
     VpcEndpointStatusType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
     "AccessPolicyDetailTypeDef",
     "AccessPolicyStatsTypeDef",
     "AccessPolicySummaryTypeDef",
     "AccountSettingsDetailTypeDef",
-    "BatchGetCollectionRequestRequestTypeDef",
+    "BatchGetCollectionRequestTypeDef",
     "BatchGetCollectionResponseTypeDef",
-    "BatchGetEffectiveLifecyclePolicyRequestRequestTypeDef",
+    "BatchGetEffectiveLifecyclePolicyRequestTypeDef",
     "BatchGetEffectiveLifecyclePolicyResponseTypeDef",
-    "BatchGetLifecyclePolicyRequestRequestTypeDef",
+    "BatchGetLifecyclePolicyRequestTypeDef",
     "BatchGetLifecyclePolicyResponseTypeDef",
-    "BatchGetVpcEndpointRequestRequestTypeDef",
+    "BatchGetVpcEndpointRequestTypeDef",
     "BatchGetVpcEndpointResponseTypeDef",
     "CapacityLimitsTypeDef",
     "CollectionDetailTypeDef",
     "CollectionErrorDetailTypeDef",
     "CollectionFiltersTypeDef",
     "CollectionSummaryTypeDef",
-    "CreateAccessPolicyRequestRequestTypeDef",
+    "CreateAccessPolicyRequestTypeDef",
     "CreateAccessPolicyResponseTypeDef",
     "CreateCollectionDetailTypeDef",
-    "CreateCollectionRequestRequestTypeDef",
+    "CreateCollectionRequestTypeDef",
     "CreateCollectionResponseTypeDef",
-    "CreateLifecyclePolicyRequestRequestTypeDef",
+    "CreateIamIdentityCenterConfigOptionsTypeDef",
+    "CreateLifecyclePolicyRequestTypeDef",
     "CreateLifecyclePolicyResponseTypeDef",
-    "CreateSecurityConfigRequestRequestTypeDef",
+    "CreateSecurityConfigRequestTypeDef",
     "CreateSecurityConfigResponseTypeDef",
-    "CreateSecurityPolicyRequestRequestTypeDef",
+    "CreateSecurityPolicyRequestTypeDef",
     "CreateSecurityPolicyResponseTypeDef",
     "CreateVpcEndpointDetailTypeDef",
-    "CreateVpcEndpointRequestRequestTypeDef",
+    "CreateVpcEndpointRequestTypeDef",
     "CreateVpcEndpointResponseTypeDef",
-    "DeleteAccessPolicyRequestRequestTypeDef",
+    "DeleteAccessPolicyRequestTypeDef",
     "DeleteCollectionDetailTypeDef",
-    "DeleteCollectionRequestRequestTypeDef",
+    "DeleteCollectionRequestTypeDef",
     "DeleteCollectionResponseTypeDef",
-    "DeleteLifecyclePolicyRequestRequestTypeDef",
-    "DeleteSecurityConfigRequestRequestTypeDef",
-    "DeleteSecurityPolicyRequestRequestTypeDef",
+    "DeleteLifecyclePolicyRequestTypeDef",
+    "DeleteSecurityConfigRequestTypeDef",
+    "DeleteSecurityPolicyRequestTypeDef",
     "DeleteVpcEndpointDetailTypeDef",
-    "DeleteVpcEndpointRequestRequestTypeDef",
+    "DeleteVpcEndpointRequestTypeDef",
     "DeleteVpcEndpointResponseTypeDef",
     "EffectiveLifecyclePolicyDetailTypeDef",
     "EffectiveLifecyclePolicyErrorDetailTypeDef",
-    "GetAccessPolicyRequestRequestTypeDef",
+    "GetAccessPolicyRequestTypeDef",
     "GetAccessPolicyResponseTypeDef",
     "GetAccountSettingsResponseTypeDef",
     "GetPoliciesStatsResponseTypeDef",
-    "GetSecurityConfigRequestRequestTypeDef",
+    "GetSecurityConfigRequestTypeDef",
     "GetSecurityConfigResponseTypeDef",
-    "GetSecurityPolicyRequestRequestTypeDef",
+    "GetSecurityPolicyRequestTypeDef",
     "GetSecurityPolicyResponseTypeDef",
+    "IamIdentityCenterConfigOptionsTypeDef",
     "LifecyclePolicyDetailTypeDef",
     "LifecyclePolicyErrorDetailTypeDef",
     "LifecyclePolicyIdentifierTypeDef",
     "LifecyclePolicyResourceIdentifierTypeDef",
     "LifecyclePolicyStatsTypeDef",
     "LifecyclePolicySummaryTypeDef",
-    "ListAccessPoliciesRequestRequestTypeDef",
+    "ListAccessPoliciesRequestTypeDef",
     "ListAccessPoliciesResponseTypeDef",
-    "ListCollectionsRequestRequestTypeDef",
+    "ListCollectionsRequestTypeDef",
     "ListCollectionsResponseTypeDef",
-    "ListLifecyclePoliciesRequestRequestTypeDef",
+    "ListLifecyclePoliciesRequestTypeDef",
     "ListLifecyclePoliciesResponseTypeDef",
-    "ListSecurityConfigsRequestRequestTypeDef",
+    "ListSecurityConfigsRequestTypeDef",
     "ListSecurityConfigsResponseTypeDef",
-    "ListSecurityPoliciesRequestRequestTypeDef",
+    "ListSecurityPoliciesRequestTypeDef",
     "ListSecurityPoliciesResponseTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
-    "ListVpcEndpointsRequestRequestTypeDef",
+    "ListVpcEndpointsRequestTypeDef",
     "ListVpcEndpointsResponseTypeDef",
     "ResponseMetadataTypeDef",
     "SamlConfigOptionsTypeDef",
@@ -112,24 +123,25 @@ __all__ = (
     "SecurityPolicyDetailTypeDef",
     "SecurityPolicyStatsTypeDef",
     "SecurityPolicySummaryTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
     "TagTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateAccessPolicyRequestRequestTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateAccessPolicyRequestTypeDef",
     "UpdateAccessPolicyResponseTypeDef",
-    "UpdateAccountSettingsRequestRequestTypeDef",
+    "UpdateAccountSettingsRequestTypeDef",
     "UpdateAccountSettingsResponseTypeDef",
     "UpdateCollectionDetailTypeDef",
-    "UpdateCollectionRequestRequestTypeDef",
+    "UpdateCollectionRequestTypeDef",
     "UpdateCollectionResponseTypeDef",
-    "UpdateLifecyclePolicyRequestRequestTypeDef",
+    "UpdateIamIdentityCenterConfigOptionsTypeDef",
+    "UpdateLifecyclePolicyRequestTypeDef",
     "UpdateLifecyclePolicyResponseTypeDef",
-    "UpdateSecurityConfigRequestRequestTypeDef",
+    "UpdateSecurityConfigRequestTypeDef",
     "UpdateSecurityConfigResponseTypeDef",
-    "UpdateSecurityPolicyRequestRequestTypeDef",
+    "UpdateSecurityPolicyRequestTypeDef",
     "UpdateSecurityPolicyResponseTypeDef",
     "UpdateVpcEndpointDetailTypeDef",
-    "UpdateVpcEndpointRequestRequestTypeDef",
+    "UpdateVpcEndpointRequestTypeDef",
     "UpdateVpcEndpointResponseTypeDef",
     "VpcEndpointDetailTypeDef",
     "VpcEndpointErrorDetailTypeDef",
@@ -140,1264 +152,742 @@ __all__ = (
 AccessPolicyDetailTypeDef = TypedDict(
     "AccessPolicyDetailTypeDef",
     {
-        "createdDate": int,
-        "description": str,
-        "lastModifiedDate": int,
-        "name": str,
-        "policy": Dict[str, Any],
-        "policyVersion": str,
-        "type": Literal["data"],
+        "type": NotRequired[Literal["data"]],
+        "name": NotRequired[str],
+        "policyVersion": NotRequired[str],
+        "description": NotRequired[str],
+        "policy": NotRequired[Dict[str, Any]],
+        "createdDate": NotRequired[int],
+        "lastModifiedDate": NotRequired[int],
     },
-    total=False,
 )
 
-AccessPolicyStatsTypeDef = TypedDict(
-    "AccessPolicyStatsTypeDef",
-    {
-        "DataPolicyCount": int,
-    },
-    total=False,
-)
+class AccessPolicyStatsTypeDef(TypedDict):
+    DataPolicyCount: NotRequired[int]
 
 AccessPolicySummaryTypeDef = TypedDict(
     "AccessPolicySummaryTypeDef",
     {
-        "createdDate": int,
-        "description": str,
-        "lastModifiedDate": int,
-        "name": str,
-        "policyVersion": str,
-        "type": Literal["data"],
-    },
-    total=False,
-)
-
-AccountSettingsDetailTypeDef = TypedDict(
-    "AccountSettingsDetailTypeDef",
-    {
-        "capacityLimits": "CapacityLimitsTypeDef",
-    },
-    total=False,
-)
-
-BatchGetCollectionRequestRequestTypeDef = TypedDict(
-    "BatchGetCollectionRequestRequestTypeDef",
-    {
-        "ids": List[str],
-        "names": List[str],
-    },
-    total=False,
-)
-
-BatchGetCollectionResponseTypeDef = TypedDict(
-    "BatchGetCollectionResponseTypeDef",
-    {
-        "collectionDetails": List["CollectionDetailTypeDef"],
-        "collectionErrorDetails": List["CollectionErrorDetailTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "type": NotRequired[Literal["data"]],
+        "name": NotRequired[str],
+        "policyVersion": NotRequired[str],
+        "description": NotRequired[str],
+        "createdDate": NotRequired[int],
+        "lastModifiedDate": NotRequired[int],
     },
 )
 
-BatchGetEffectiveLifecyclePolicyRequestRequestTypeDef = TypedDict(
-    "BatchGetEffectiveLifecyclePolicyRequestRequestTypeDef",
-    {
-        "resourceIdentifiers": List["LifecyclePolicyResourceIdentifierTypeDef"],
-    },
-)
+class CapacityLimitsTypeDef(TypedDict):
+    maxIndexingCapacityInOCU: NotRequired[int]
+    maxSearchCapacityInOCU: NotRequired[int]
 
-BatchGetEffectiveLifecyclePolicyResponseTypeDef = TypedDict(
-    "BatchGetEffectiveLifecyclePolicyResponseTypeDef",
-    {
-        "effectiveLifecyclePolicyDetails": List["EffectiveLifecyclePolicyDetailTypeDef"],
-        "effectiveLifecyclePolicyErrorDetails": List["EffectiveLifecyclePolicyErrorDetailTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-BatchGetLifecyclePolicyRequestRequestTypeDef = TypedDict(
-    "BatchGetLifecyclePolicyRequestRequestTypeDef",
-    {
-        "identifiers": List["LifecyclePolicyIdentifierTypeDef"],
-    },
-)
-
-BatchGetLifecyclePolicyResponseTypeDef = TypedDict(
-    "BatchGetLifecyclePolicyResponseTypeDef",
-    {
-        "lifecyclePolicyDetails": List["LifecyclePolicyDetailTypeDef"],
-        "lifecyclePolicyErrorDetails": List["LifecyclePolicyErrorDetailTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-BatchGetVpcEndpointRequestRequestTypeDef = TypedDict(
-    "BatchGetVpcEndpointRequestRequestTypeDef",
-    {
-        "ids": List[str],
-    },
-)
-
-BatchGetVpcEndpointResponseTypeDef = TypedDict(
-    "BatchGetVpcEndpointResponseTypeDef",
-    {
-        "vpcEndpointDetails": List["VpcEndpointDetailTypeDef"],
-        "vpcEndpointErrorDetails": List["VpcEndpointErrorDetailTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CapacityLimitsTypeDef = TypedDict(
-    "CapacityLimitsTypeDef",
-    {
-        "maxIndexingCapacityInOCU": int,
-        "maxSearchCapacityInOCU": int,
-    },
-    total=False,
-)
+class BatchGetCollectionRequestTypeDef(TypedDict):
+    ids: NotRequired[Sequence[str]]
+    names: NotRequired[Sequence[str]]
 
 CollectionDetailTypeDef = TypedDict(
     "CollectionDetailTypeDef",
     {
-        "arn": str,
-        "collectionEndpoint": str,
-        "createdDate": int,
-        "dashboardEndpoint": str,
-        "description": str,
-        "id": str,
-        "kmsKeyArn": str,
-        "lastModifiedDate": int,
-        "name": str,
-        "standbyReplicas": StandbyReplicasType,
-        "status": CollectionStatusType,
-        "type": CollectionTypeType,
+        "id": NotRequired[str],
+        "name": NotRequired[str],
+        "status": NotRequired[CollectionStatusType],
+        "type": NotRequired[CollectionTypeType],
+        "description": NotRequired[str],
+        "arn": NotRequired[str],
+        "kmsKeyArn": NotRequired[str],
+        "standbyReplicas": NotRequired[StandbyReplicasType],
+        "createdDate": NotRequired[int],
+        "lastModifiedDate": NotRequired[int],
+        "collectionEndpoint": NotRequired[str],
+        "dashboardEndpoint": NotRequired[str],
+        "failureCode": NotRequired[str],
+        "failureMessage": NotRequired[str],
     },
-    total=False,
 )
-
 CollectionErrorDetailTypeDef = TypedDict(
     "CollectionErrorDetailTypeDef",
     {
-        "errorCode": str,
-        "errorMessage": str,
-        "id": str,
-        "name": str,
-    },
-    total=False,
-)
-
-CollectionFiltersTypeDef = TypedDict(
-    "CollectionFiltersTypeDef",
-    {
-        "name": str,
-        "status": CollectionStatusType,
-    },
-    total=False,
-)
-
-CollectionSummaryTypeDef = TypedDict(
-    "CollectionSummaryTypeDef",
-    {
-        "arn": str,
-        "id": str,
-        "name": str,
-        "status": CollectionStatusType,
-    },
-    total=False,
-)
-
-_RequiredCreateAccessPolicyRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateAccessPolicyRequestRequestTypeDef",
-    {
-        "name": str,
-        "policy": str,
-        "type": Literal["data"],
-    },
-)
-_OptionalCreateAccessPolicyRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateAccessPolicyRequestRequestTypeDef",
-    {
-        "clientToken": str,
-        "description": str,
-    },
-    total=False,
-)
-
-class CreateAccessPolicyRequestRequestTypeDef(
-    _RequiredCreateAccessPolicyRequestRequestTypeDef,
-    _OptionalCreateAccessPolicyRequestRequestTypeDef,
-):
-    pass
-
-CreateAccessPolicyResponseTypeDef = TypedDict(
-    "CreateAccessPolicyResponseTypeDef",
-    {
-        "accessPolicyDetail": "AccessPolicyDetailTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "id": NotRequired[str],
+        "name": NotRequired[str],
+        "errorMessage": NotRequired[str],
+        "errorCode": NotRequired[str],
     },
 )
 
-CreateCollectionDetailTypeDef = TypedDict(
-    "CreateCollectionDetailTypeDef",
-    {
-        "arn": str,
-        "createdDate": int,
-        "description": str,
-        "id": str,
-        "kmsKeyArn": str,
-        "lastModifiedDate": int,
-        "name": str,
-        "standbyReplicas": StandbyReplicasType,
-        "status": CollectionStatusType,
-        "type": CollectionTypeType,
-    },
-    total=False,
-)
-
-_RequiredCreateCollectionRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateCollectionRequestRequestTypeDef",
-    {
-        "name": str,
-    },
-)
-_OptionalCreateCollectionRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateCollectionRequestRequestTypeDef",
-    {
-        "clientToken": str,
-        "description": str,
-        "standbyReplicas": StandbyReplicasType,
-        "tags": List["TagTypeDef"],
-        "type": CollectionTypeType,
-    },
-    total=False,
-)
-
-class CreateCollectionRequestRequestTypeDef(
-    _RequiredCreateCollectionRequestRequestTypeDef, _OptionalCreateCollectionRequestRequestTypeDef
-):
-    pass
-
-CreateCollectionResponseTypeDef = TypedDict(
-    "CreateCollectionResponseTypeDef",
-    {
-        "createCollectionDetail": "CreateCollectionDetailTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateLifecyclePolicyRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateLifecyclePolicyRequestRequestTypeDef",
-    {
-        "name": str,
-        "policy": str,
-        "type": Literal["retention"],
-    },
-)
-_OptionalCreateLifecyclePolicyRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateLifecyclePolicyRequestRequestTypeDef",
-    {
-        "clientToken": str,
-        "description": str,
-    },
-    total=False,
-)
-
-class CreateLifecyclePolicyRequestRequestTypeDef(
-    _RequiredCreateLifecyclePolicyRequestRequestTypeDef,
-    _OptionalCreateLifecyclePolicyRequestRequestTypeDef,
-):
-    pass
-
-CreateLifecyclePolicyResponseTypeDef = TypedDict(
-    "CreateLifecyclePolicyResponseTypeDef",
-    {
-        "lifecyclePolicyDetail": "LifecyclePolicyDetailTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateSecurityConfigRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateSecurityConfigRequestRequestTypeDef",
-    {
-        "name": str,
-        "type": Literal["saml"],
-    },
-)
-_OptionalCreateSecurityConfigRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateSecurityConfigRequestRequestTypeDef",
-    {
-        "clientToken": str,
-        "description": str,
-        "samlOptions": "SamlConfigOptionsTypeDef",
-    },
-    total=False,
-)
-
-class CreateSecurityConfigRequestRequestTypeDef(
-    _RequiredCreateSecurityConfigRequestRequestTypeDef,
-    _OptionalCreateSecurityConfigRequestRequestTypeDef,
-):
-    pass
-
-CreateSecurityConfigResponseTypeDef = TypedDict(
-    "CreateSecurityConfigResponseTypeDef",
-    {
-        "securityConfigDetail": "SecurityConfigDetailTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateSecurityPolicyRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateSecurityPolicyRequestRequestTypeDef",
-    {
-        "name": str,
-        "policy": str,
-        "type": SecurityPolicyTypeType,
-    },
-)
-_OptionalCreateSecurityPolicyRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateSecurityPolicyRequestRequestTypeDef",
-    {
-        "clientToken": str,
-        "description": str,
-    },
-    total=False,
-)
-
-class CreateSecurityPolicyRequestRequestTypeDef(
-    _RequiredCreateSecurityPolicyRequestRequestTypeDef,
-    _OptionalCreateSecurityPolicyRequestRequestTypeDef,
-):
-    pass
-
-CreateSecurityPolicyResponseTypeDef = TypedDict(
-    "CreateSecurityPolicyResponseTypeDef",
-    {
-        "securityPolicyDetail": "SecurityPolicyDetailTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateVpcEndpointDetailTypeDef = TypedDict(
-    "CreateVpcEndpointDetailTypeDef",
-    {
-        "id": str,
-        "name": str,
-        "status": VpcEndpointStatusType,
-    },
-    total=False,
-)
-
-_RequiredCreateVpcEndpointRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateVpcEndpointRequestRequestTypeDef",
-    {
-        "name": str,
-        "subnetIds": List[str],
-        "vpcId": str,
-    },
-)
-_OptionalCreateVpcEndpointRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateVpcEndpointRequestRequestTypeDef",
-    {
-        "clientToken": str,
-        "securityGroupIds": List[str],
-    },
-    total=False,
-)
-
-class CreateVpcEndpointRequestRequestTypeDef(
-    _RequiredCreateVpcEndpointRequestRequestTypeDef, _OptionalCreateVpcEndpointRequestRequestTypeDef
-):
-    pass
-
-CreateVpcEndpointResponseTypeDef = TypedDict(
-    "CreateVpcEndpointResponseTypeDef",
-    {
-        "createVpcEndpointDetail": "CreateVpcEndpointDetailTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDeleteAccessPolicyRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteAccessPolicyRequestRequestTypeDef",
-    {
-        "name": str,
-        "type": Literal["data"],
-    },
-)
-_OptionalDeleteAccessPolicyRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteAccessPolicyRequestRequestTypeDef",
-    {
-        "clientToken": str,
-    },
-    total=False,
-)
-
-class DeleteAccessPolicyRequestRequestTypeDef(
-    _RequiredDeleteAccessPolicyRequestRequestTypeDef,
-    _OptionalDeleteAccessPolicyRequestRequestTypeDef,
-):
-    pass
-
-DeleteCollectionDetailTypeDef = TypedDict(
-    "DeleteCollectionDetailTypeDef",
-    {
-        "id": str,
-        "name": str,
-        "status": CollectionStatusType,
-    },
-    total=False,
-)
-
-_RequiredDeleteCollectionRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteCollectionRequestRequestTypeDef",
-    {
-        "id": str,
-    },
-)
-_OptionalDeleteCollectionRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteCollectionRequestRequestTypeDef",
-    {
-        "clientToken": str,
-    },
-    total=False,
-)
-
-class DeleteCollectionRequestRequestTypeDef(
-    _RequiredDeleteCollectionRequestRequestTypeDef, _OptionalDeleteCollectionRequestRequestTypeDef
-):
-    pass
-
-DeleteCollectionResponseTypeDef = TypedDict(
-    "DeleteCollectionResponseTypeDef",
-    {
-        "deleteCollectionDetail": "DeleteCollectionDetailTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDeleteLifecyclePolicyRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteLifecyclePolicyRequestRequestTypeDef",
-    {
-        "name": str,
-        "type": Literal["retention"],
-    },
-)
-_OptionalDeleteLifecyclePolicyRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteLifecyclePolicyRequestRequestTypeDef",
-    {
-        "clientToken": str,
-    },
-    total=False,
-)
-
-class DeleteLifecyclePolicyRequestRequestTypeDef(
-    _RequiredDeleteLifecyclePolicyRequestRequestTypeDef,
-    _OptionalDeleteLifecyclePolicyRequestRequestTypeDef,
-):
-    pass
-
-_RequiredDeleteSecurityConfigRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteSecurityConfigRequestRequestTypeDef",
-    {
-        "id": str,
-    },
-)
-_OptionalDeleteSecurityConfigRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteSecurityConfigRequestRequestTypeDef",
-    {
-        "clientToken": str,
-    },
-    total=False,
-)
-
-class DeleteSecurityConfigRequestRequestTypeDef(
-    _RequiredDeleteSecurityConfigRequestRequestTypeDef,
-    _OptionalDeleteSecurityConfigRequestRequestTypeDef,
-):
-    pass
-
-_RequiredDeleteSecurityPolicyRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteSecurityPolicyRequestRequestTypeDef",
-    {
-        "name": str,
-        "type": SecurityPolicyTypeType,
-    },
-)
-_OptionalDeleteSecurityPolicyRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteSecurityPolicyRequestRequestTypeDef",
-    {
-        "clientToken": str,
-    },
-    total=False,
-)
-
-class DeleteSecurityPolicyRequestRequestTypeDef(
-    _RequiredDeleteSecurityPolicyRequestRequestTypeDef,
-    _OptionalDeleteSecurityPolicyRequestRequestTypeDef,
-):
-    pass
-
-DeleteVpcEndpointDetailTypeDef = TypedDict(
-    "DeleteVpcEndpointDetailTypeDef",
-    {
-        "id": str,
-        "name": str,
-        "status": VpcEndpointStatusType,
-    },
-    total=False,
-)
-
-_RequiredDeleteVpcEndpointRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteVpcEndpointRequestRequestTypeDef",
-    {
-        "id": str,
-    },
-)
-_OptionalDeleteVpcEndpointRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteVpcEndpointRequestRequestTypeDef",
-    {
-        "clientToken": str,
-    },
-    total=False,
-)
-
-class DeleteVpcEndpointRequestRequestTypeDef(
-    _RequiredDeleteVpcEndpointRequestRequestTypeDef, _OptionalDeleteVpcEndpointRequestRequestTypeDef
-):
-    pass
-
-DeleteVpcEndpointResponseTypeDef = TypedDict(
-    "DeleteVpcEndpointResponseTypeDef",
-    {
-        "deleteVpcEndpointDetail": "DeleteVpcEndpointDetailTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-EffectiveLifecyclePolicyDetailTypeDef = TypedDict(
-    "EffectiveLifecyclePolicyDetailTypeDef",
-    {
-        "noMinRetentionPeriod": bool,
-        "policyName": str,
-        "resource": str,
-        "resourceType": Literal["index"],
-        "retentionPeriod": str,
-        "type": Literal["retention"],
-    },
-    total=False,
-)
-
-EffectiveLifecyclePolicyErrorDetailTypeDef = TypedDict(
-    "EffectiveLifecyclePolicyErrorDetailTypeDef",
-    {
-        "errorCode": str,
-        "errorMessage": str,
-        "resource": str,
-        "type": Literal["retention"],
-    },
-    total=False,
-)
-
-GetAccessPolicyRequestRequestTypeDef = TypedDict(
-    "GetAccessPolicyRequestRequestTypeDef",
-    {
-        "name": str,
-        "type": Literal["data"],
-    },
-)
-
-GetAccessPolicyResponseTypeDef = TypedDict(
-    "GetAccessPolicyResponseTypeDef",
-    {
-        "accessPolicyDetail": "AccessPolicyDetailTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetAccountSettingsResponseTypeDef = TypedDict(
-    "GetAccountSettingsResponseTypeDef",
-    {
-        "accountSettingsDetail": "AccountSettingsDetailTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetPoliciesStatsResponseTypeDef = TypedDict(
-    "GetPoliciesStatsResponseTypeDef",
-    {
-        "AccessPolicyStats": "AccessPolicyStatsTypeDef",
-        "LifecyclePolicyStats": "LifecyclePolicyStatsTypeDef",
-        "SecurityConfigStats": "SecurityConfigStatsTypeDef",
-        "SecurityPolicyStats": "SecurityPolicyStatsTypeDef",
-        "TotalPolicyCount": int,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetSecurityConfigRequestRequestTypeDef = TypedDict(
-    "GetSecurityConfigRequestRequestTypeDef",
-    {
-        "id": str,
-    },
-)
-
-GetSecurityConfigResponseTypeDef = TypedDict(
-    "GetSecurityConfigResponseTypeDef",
-    {
-        "securityConfigDetail": "SecurityConfigDetailTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetSecurityPolicyRequestRequestTypeDef = TypedDict(
-    "GetSecurityPolicyRequestRequestTypeDef",
-    {
-        "name": str,
-        "type": SecurityPolicyTypeType,
-    },
-)
-
-GetSecurityPolicyResponseTypeDef = TypedDict(
-    "GetSecurityPolicyResponseTypeDef",
-    {
-        "securityPolicyDetail": "SecurityPolicyDetailTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-LifecyclePolicyDetailTypeDef = TypedDict(
-    "LifecyclePolicyDetailTypeDef",
-    {
-        "createdDate": int,
-        "description": str,
-        "lastModifiedDate": int,
-        "name": str,
-        "policy": Dict[str, Any],
-        "policyVersion": str,
-        "type": Literal["retention"],
-    },
-    total=False,
-)
-
-LifecyclePolicyErrorDetailTypeDef = TypedDict(
-    "LifecyclePolicyErrorDetailTypeDef",
-    {
-        "errorCode": str,
-        "errorMessage": str,
-        "name": str,
-        "type": Literal["retention"],
-    },
-    total=False,
-)
-
-LifecyclePolicyIdentifierTypeDef = TypedDict(
-    "LifecyclePolicyIdentifierTypeDef",
-    {
-        "name": str,
-        "type": Literal["retention"],
-    },
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
 LifecyclePolicyResourceIdentifierTypeDef = TypedDict(
     "LifecyclePolicyResourceIdentifierTypeDef",
     {
+        "type": Literal["retention"],
         "resource": str,
-        "type": Literal["retention"],
     },
 )
-
-LifecyclePolicyStatsTypeDef = TypedDict(
-    "LifecyclePolicyStatsTypeDef",
+EffectiveLifecyclePolicyDetailTypeDef = TypedDict(
+    "EffectiveLifecyclePolicyDetailTypeDef",
     {
-        "RetentionPolicyCount": int,
+        "type": NotRequired[Literal["retention"]],
+        "resource": NotRequired[str],
+        "policyName": NotRequired[str],
+        "resourceType": NotRequired[Literal["index"]],
+        "retentionPeriod": NotRequired[str],
+        "noMinRetentionPeriod": NotRequired[bool],
     },
-    total=False,
 )
-
-LifecyclePolicySummaryTypeDef = TypedDict(
-    "LifecyclePolicySummaryTypeDef",
+EffectiveLifecyclePolicyErrorDetailTypeDef = TypedDict(
+    "EffectiveLifecyclePolicyErrorDetailTypeDef",
     {
-        "createdDate": int,
-        "description": str,
-        "lastModifiedDate": int,
-        "name": str,
-        "policyVersion": str,
-        "type": Literal["retention"],
-    },
-    total=False,
-)
-
-_RequiredListAccessPoliciesRequestRequestTypeDef = TypedDict(
-    "_RequiredListAccessPoliciesRequestRequestTypeDef",
-    {
-        "type": Literal["data"],
+        "type": NotRequired[Literal["retention"]],
+        "resource": NotRequired[str],
+        "errorMessage": NotRequired[str],
+        "errorCode": NotRequired[str],
     },
 )
-_OptionalListAccessPoliciesRequestRequestTypeDef = TypedDict(
-    "_OptionalListAccessPoliciesRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-        "resource": List[str],
-    },
-    total=False,
-)
-
-class ListAccessPoliciesRequestRequestTypeDef(
-    _RequiredListAccessPoliciesRequestRequestTypeDef,
-    _OptionalListAccessPoliciesRequestRequestTypeDef,
-):
-    pass
-
-ListAccessPoliciesResponseTypeDef = TypedDict(
-    "ListAccessPoliciesResponseTypeDef",
-    {
-        "accessPolicySummaries": List["AccessPolicySummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListCollectionsRequestRequestTypeDef = TypedDict(
-    "ListCollectionsRequestRequestTypeDef",
-    {
-        "collectionFilters": "CollectionFiltersTypeDef",
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-ListCollectionsResponseTypeDef = TypedDict(
-    "ListCollectionsResponseTypeDef",
-    {
-        "collectionSummaries": List["CollectionSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListLifecyclePoliciesRequestRequestTypeDef = TypedDict(
-    "_RequiredListLifecyclePoliciesRequestRequestTypeDef",
+LifecyclePolicyIdentifierTypeDef = TypedDict(
+    "LifecyclePolicyIdentifierTypeDef",
     {
         "type": Literal["retention"],
-    },
-)
-_OptionalListLifecyclePoliciesRequestRequestTypeDef = TypedDict(
-    "_OptionalListLifecyclePoliciesRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-        "resources": List[str],
-    },
-    total=False,
-)
-
-class ListLifecyclePoliciesRequestRequestTypeDef(
-    _RequiredListLifecyclePoliciesRequestRequestTypeDef,
-    _OptionalListLifecyclePoliciesRequestRequestTypeDef,
-):
-    pass
-
-ListLifecyclePoliciesResponseTypeDef = TypedDict(
-    "ListLifecyclePoliciesResponseTypeDef",
-    {
-        "lifecyclePolicySummaries": List["LifecyclePolicySummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListSecurityConfigsRequestRequestTypeDef = TypedDict(
-    "_RequiredListSecurityConfigsRequestRequestTypeDef",
-    {
-        "type": Literal["saml"],
-    },
-)
-_OptionalListSecurityConfigsRequestRequestTypeDef = TypedDict(
-    "_OptionalListSecurityConfigsRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListSecurityConfigsRequestRequestTypeDef(
-    _RequiredListSecurityConfigsRequestRequestTypeDef,
-    _OptionalListSecurityConfigsRequestRequestTypeDef,
-):
-    pass
-
-ListSecurityConfigsResponseTypeDef = TypedDict(
-    "ListSecurityConfigsResponseTypeDef",
-    {
-        "nextToken": str,
-        "securityConfigSummaries": List["SecurityConfigSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListSecurityPoliciesRequestRequestTypeDef = TypedDict(
-    "_RequiredListSecurityPoliciesRequestRequestTypeDef",
-    {
-        "type": SecurityPolicyTypeType,
-    },
-)
-_OptionalListSecurityPoliciesRequestRequestTypeDef = TypedDict(
-    "_OptionalListSecurityPoliciesRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-        "resource": List[str],
-    },
-    total=False,
-)
-
-class ListSecurityPoliciesRequestRequestTypeDef(
-    _RequiredListSecurityPoliciesRequestRequestTypeDef,
-    _OptionalListSecurityPoliciesRequestRequestTypeDef,
-):
-    pass
-
-ListSecurityPoliciesResponseTypeDef = TypedDict(
-    "ListSecurityPoliciesResponseTypeDef",
-    {
-        "nextToken": str,
-        "securityPolicySummaries": List["SecurityPolicySummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-    },
-)
-
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "tags": List["TagTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListVpcEndpointsRequestRequestTypeDef = TypedDict(
-    "ListVpcEndpointsRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-        "vpcEndpointFilters": "VpcEndpointFiltersTypeDef",
-    },
-    total=False,
-)
-
-ListVpcEndpointsResponseTypeDef = TypedDict(
-    "ListVpcEndpointsResponseTypeDef",
-    {
-        "nextToken": str,
-        "vpcEndpointSummaries": List["VpcEndpointSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-_RequiredSamlConfigOptionsTypeDef = TypedDict(
-    "_RequiredSamlConfigOptionsTypeDef",
-    {
-        "metadata": str,
-    },
-)
-_OptionalSamlConfigOptionsTypeDef = TypedDict(
-    "_OptionalSamlConfigOptionsTypeDef",
-    {
-        "groupAttribute": str,
-        "sessionTimeout": int,
-        "userAttribute": str,
-    },
-    total=False,
-)
-
-class SamlConfigOptionsTypeDef(
-    _RequiredSamlConfigOptionsTypeDef, _OptionalSamlConfigOptionsTypeDef
-):
-    pass
-
-SecurityConfigDetailTypeDef = TypedDict(
-    "SecurityConfigDetailTypeDef",
-    {
-        "configVersion": str,
-        "createdDate": int,
-        "description": str,
-        "id": str,
-        "lastModifiedDate": int,
-        "samlOptions": "SamlConfigOptionsTypeDef",
-        "type": Literal["saml"],
-    },
-    total=False,
-)
-
-SecurityConfigStatsTypeDef = TypedDict(
-    "SecurityConfigStatsTypeDef",
-    {
-        "SamlConfigCount": int,
-    },
-    total=False,
-)
-
-SecurityConfigSummaryTypeDef = TypedDict(
-    "SecurityConfigSummaryTypeDef",
-    {
-        "configVersion": str,
-        "createdDate": int,
-        "description": str,
-        "id": str,
-        "lastModifiedDate": int,
-        "type": Literal["saml"],
-    },
-    total=False,
-)
-
-SecurityPolicyDetailTypeDef = TypedDict(
-    "SecurityPolicyDetailTypeDef",
-    {
-        "createdDate": int,
-        "description": str,
-        "lastModifiedDate": int,
         "name": str,
-        "policy": Dict[str, Any],
-        "policyVersion": str,
-        "type": SecurityPolicyTypeType,
     },
-    total=False,
 )
-
-SecurityPolicyStatsTypeDef = TypedDict(
-    "SecurityPolicyStatsTypeDef",
+LifecyclePolicyDetailTypeDef = TypedDict(
+    "LifecyclePolicyDetailTypeDef",
     {
-        "EncryptionPolicyCount": int,
-        "NetworkPolicyCount": int,
+        "type": NotRequired[Literal["retention"]],
+        "name": NotRequired[str],
+        "policyVersion": NotRequired[str],
+        "description": NotRequired[str],
+        "policy": NotRequired[Dict[str, Any]],
+        "createdDate": NotRequired[int],
+        "lastModifiedDate": NotRequired[int],
     },
-    total=False,
 )
-
-SecurityPolicySummaryTypeDef = TypedDict(
-    "SecurityPolicySummaryTypeDef",
+LifecyclePolicyErrorDetailTypeDef = TypedDict(
+    "LifecyclePolicyErrorDetailTypeDef",
     {
-        "createdDate": int,
-        "description": str,
-        "lastModifiedDate": int,
-        "name": str,
-        "policyVersion": str,
-        "type": SecurityPolicyTypeType,
-    },
-    total=False,
-)
-
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tags": List["TagTypeDef"],
+        "type": NotRequired[Literal["retention"]],
+        "name": NotRequired[str],
+        "errorMessage": NotRequired[str],
+        "errorCode": NotRequired[str],
     },
 )
 
-TagTypeDef = TypedDict(
-    "TagTypeDef",
-    {
-        "key": str,
-        "value": str,
-    },
-)
-
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tagKeys": List[str],
-    },
-)
-
-_RequiredUpdateAccessPolicyRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateAccessPolicyRequestRequestTypeDef",
-    {
-        "name": str,
-        "policyVersion": str,
-        "type": Literal["data"],
-    },
-)
-_OptionalUpdateAccessPolicyRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateAccessPolicyRequestRequestTypeDef",
-    {
-        "clientToken": str,
-        "description": str,
-        "policy": str,
-    },
-    total=False,
-)
-
-class UpdateAccessPolicyRequestRequestTypeDef(
-    _RequiredUpdateAccessPolicyRequestRequestTypeDef,
-    _OptionalUpdateAccessPolicyRequestRequestTypeDef,
-):
-    pass
-
-UpdateAccessPolicyResponseTypeDef = TypedDict(
-    "UpdateAccessPolicyResponseTypeDef",
-    {
-        "accessPolicyDetail": "AccessPolicyDetailTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UpdateAccountSettingsRequestRequestTypeDef = TypedDict(
-    "UpdateAccountSettingsRequestRequestTypeDef",
-    {
-        "capacityLimits": "CapacityLimitsTypeDef",
-    },
-    total=False,
-)
-
-UpdateAccountSettingsResponseTypeDef = TypedDict(
-    "UpdateAccountSettingsResponseTypeDef",
-    {
-        "accountSettingsDetail": "AccountSettingsDetailTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UpdateCollectionDetailTypeDef = TypedDict(
-    "UpdateCollectionDetailTypeDef",
-    {
-        "arn": str,
-        "createdDate": int,
-        "description": str,
-        "id": str,
-        "lastModifiedDate": int,
-        "name": str,
-        "status": CollectionStatusType,
-        "type": CollectionTypeType,
-    },
-    total=False,
-)
-
-_RequiredUpdateCollectionRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateCollectionRequestRequestTypeDef",
-    {
-        "id": str,
-    },
-)
-_OptionalUpdateCollectionRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateCollectionRequestRequestTypeDef",
-    {
-        "clientToken": str,
-        "description": str,
-    },
-    total=False,
-)
-
-class UpdateCollectionRequestRequestTypeDef(
-    _RequiredUpdateCollectionRequestRequestTypeDef, _OptionalUpdateCollectionRequestRequestTypeDef
-):
-    pass
-
-UpdateCollectionResponseTypeDef = TypedDict(
-    "UpdateCollectionResponseTypeDef",
-    {
-        "updateCollectionDetail": "UpdateCollectionDetailTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateLifecyclePolicyRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateLifecyclePolicyRequestRequestTypeDef",
-    {
-        "name": str,
-        "policyVersion": str,
-        "type": Literal["retention"],
-    },
-)
-_OptionalUpdateLifecyclePolicyRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateLifecyclePolicyRequestRequestTypeDef",
-    {
-        "clientToken": str,
-        "description": str,
-        "policy": str,
-    },
-    total=False,
-)
-
-class UpdateLifecyclePolicyRequestRequestTypeDef(
-    _RequiredUpdateLifecyclePolicyRequestRequestTypeDef,
-    _OptionalUpdateLifecyclePolicyRequestRequestTypeDef,
-):
-    pass
-
-UpdateLifecyclePolicyResponseTypeDef = TypedDict(
-    "UpdateLifecyclePolicyResponseTypeDef",
-    {
-        "lifecyclePolicyDetail": "LifecyclePolicyDetailTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateSecurityConfigRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateSecurityConfigRequestRequestTypeDef",
-    {
-        "configVersion": str,
-        "id": str,
-    },
-)
-_OptionalUpdateSecurityConfigRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateSecurityConfigRequestRequestTypeDef",
-    {
-        "clientToken": str,
-        "description": str,
-        "samlOptions": "SamlConfigOptionsTypeDef",
-    },
-    total=False,
-)
-
-class UpdateSecurityConfigRequestRequestTypeDef(
-    _RequiredUpdateSecurityConfigRequestRequestTypeDef,
-    _OptionalUpdateSecurityConfigRequestRequestTypeDef,
-):
-    pass
-
-UpdateSecurityConfigResponseTypeDef = TypedDict(
-    "UpdateSecurityConfigResponseTypeDef",
-    {
-        "securityConfigDetail": "SecurityConfigDetailTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateSecurityPolicyRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateSecurityPolicyRequestRequestTypeDef",
-    {
-        "name": str,
-        "policyVersion": str,
-        "type": SecurityPolicyTypeType,
-    },
-)
-_OptionalUpdateSecurityPolicyRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateSecurityPolicyRequestRequestTypeDef",
-    {
-        "clientToken": str,
-        "description": str,
-        "policy": str,
-    },
-    total=False,
-)
-
-class UpdateSecurityPolicyRequestRequestTypeDef(
-    _RequiredUpdateSecurityPolicyRequestRequestTypeDef,
-    _OptionalUpdateSecurityPolicyRequestRequestTypeDef,
-):
-    pass
-
-UpdateSecurityPolicyResponseTypeDef = TypedDict(
-    "UpdateSecurityPolicyResponseTypeDef",
-    {
-        "securityPolicyDetail": "SecurityPolicyDetailTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UpdateVpcEndpointDetailTypeDef = TypedDict(
-    "UpdateVpcEndpointDetailTypeDef",
-    {
-        "id": str,
-        "lastModifiedDate": int,
-        "name": str,
-        "securityGroupIds": List[str],
-        "status": VpcEndpointStatusType,
-        "subnetIds": List[str],
-    },
-    total=False,
-)
-
-_RequiredUpdateVpcEndpointRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateVpcEndpointRequestRequestTypeDef",
-    {
-        "id": str,
-    },
-)
-_OptionalUpdateVpcEndpointRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateVpcEndpointRequestRequestTypeDef",
-    {
-        "addSecurityGroupIds": List[str],
-        "addSubnetIds": List[str],
-        "clientToken": str,
-        "removeSecurityGroupIds": List[str],
-        "removeSubnetIds": List[str],
-    },
-    total=False,
-)
-
-class UpdateVpcEndpointRequestRequestTypeDef(
-    _RequiredUpdateVpcEndpointRequestRequestTypeDef, _OptionalUpdateVpcEndpointRequestRequestTypeDef
-):
-    pass
-
-UpdateVpcEndpointResponseTypeDef = TypedDict(
-    "UpdateVpcEndpointResponseTypeDef",
-    {
-        "UpdateVpcEndpointDetail": "UpdateVpcEndpointDetailTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class BatchGetVpcEndpointRequestTypeDef(TypedDict):
+    ids: Sequence[str]
 
 VpcEndpointDetailTypeDef = TypedDict(
     "VpcEndpointDetailTypeDef",
     {
-        "createdDate": int,
-        "id": str,
-        "name": str,
-        "securityGroupIds": List[str],
-        "status": VpcEndpointStatusType,
-        "subnetIds": List[str],
-        "vpcId": str,
+        "id": NotRequired[str],
+        "name": NotRequired[str],
+        "vpcId": NotRequired[str],
+        "subnetIds": NotRequired[List[str]],
+        "securityGroupIds": NotRequired[List[str]],
+        "status": NotRequired[VpcEndpointStatusType],
+        "createdDate": NotRequired[int],
+        "failureCode": NotRequired[str],
+        "failureMessage": NotRequired[str],
     },
-    total=False,
 )
-
 VpcEndpointErrorDetailTypeDef = TypedDict(
     "VpcEndpointErrorDetailTypeDef",
     {
-        "errorCode": str,
-        "errorMessage": str,
-        "id": str,
+        "id": NotRequired[str],
+        "errorMessage": NotRequired[str],
+        "errorCode": NotRequired[str],
     },
-    total=False,
 )
 
-VpcEndpointFiltersTypeDef = TypedDict(
-    "VpcEndpointFiltersTypeDef",
+class CollectionFiltersTypeDef(TypedDict):
+    name: NotRequired[str]
+    status: NotRequired[CollectionStatusType]
+
+CollectionSummaryTypeDef = TypedDict(
+    "CollectionSummaryTypeDef",
     {
-        "status": VpcEndpointStatusType,
+        "id": NotRequired[str],
+        "name": NotRequired[str],
+        "status": NotRequired[CollectionStatusType],
+        "arn": NotRequired[str],
     },
-    total=False,
 )
+CreateAccessPolicyRequestTypeDef = TypedDict(
+    "CreateAccessPolicyRequestTypeDef",
+    {
+        "type": Literal["data"],
+        "name": str,
+        "policy": str,
+        "description": NotRequired[str],
+        "clientToken": NotRequired[str],
+    },
+)
+CreateCollectionDetailTypeDef = TypedDict(
+    "CreateCollectionDetailTypeDef",
+    {
+        "id": NotRequired[str],
+        "name": NotRequired[str],
+        "status": NotRequired[CollectionStatusType],
+        "type": NotRequired[CollectionTypeType],
+        "description": NotRequired[str],
+        "arn": NotRequired[str],
+        "kmsKeyArn": NotRequired[str],
+        "standbyReplicas": NotRequired[StandbyReplicasType],
+        "createdDate": NotRequired[int],
+        "lastModifiedDate": NotRequired[int],
+    },
+)
+
+class TagTypeDef(TypedDict):
+    key: str
+    value: str
+
+class CreateIamIdentityCenterConfigOptionsTypeDef(TypedDict):
+    instanceArn: str
+    userAttribute: NotRequired[IamIdentityCenterUserAttributeType]
+    groupAttribute: NotRequired[IamIdentityCenterGroupAttributeType]
+
+CreateLifecyclePolicyRequestTypeDef = TypedDict(
+    "CreateLifecyclePolicyRequestTypeDef",
+    {
+        "type": Literal["retention"],
+        "name": str,
+        "policy": str,
+        "description": NotRequired[str],
+        "clientToken": NotRequired[str],
+    },
+)
+
+class SamlConfigOptionsTypeDef(TypedDict):
+    metadata: str
+    userAttribute: NotRequired[str]
+    groupAttribute: NotRequired[str]
+    openSearchServerlessEntityId: NotRequired[str]
+    sessionTimeout: NotRequired[int]
+
+CreateSecurityPolicyRequestTypeDef = TypedDict(
+    "CreateSecurityPolicyRequestTypeDef",
+    {
+        "type": SecurityPolicyTypeType,
+        "name": str,
+        "policy": str,
+        "description": NotRequired[str],
+        "clientToken": NotRequired[str],
+    },
+)
+SecurityPolicyDetailTypeDef = TypedDict(
+    "SecurityPolicyDetailTypeDef",
+    {
+        "type": NotRequired[SecurityPolicyTypeType],
+        "name": NotRequired[str],
+        "policyVersion": NotRequired[str],
+        "description": NotRequired[str],
+        "policy": NotRequired[Dict[str, Any]],
+        "createdDate": NotRequired[int],
+        "lastModifiedDate": NotRequired[int],
+    },
+)
+CreateVpcEndpointDetailTypeDef = TypedDict(
+    "CreateVpcEndpointDetailTypeDef",
+    {
+        "id": NotRequired[str],
+        "name": NotRequired[str],
+        "status": NotRequired[VpcEndpointStatusType],
+    },
+)
+
+class CreateVpcEndpointRequestTypeDef(TypedDict):
+    name: str
+    vpcId: str
+    subnetIds: Sequence[str]
+    securityGroupIds: NotRequired[Sequence[str]]
+    clientToken: NotRequired[str]
+
+DeleteAccessPolicyRequestTypeDef = TypedDict(
+    "DeleteAccessPolicyRequestTypeDef",
+    {
+        "type": Literal["data"],
+        "name": str,
+        "clientToken": NotRequired[str],
+    },
+)
+DeleteCollectionDetailTypeDef = TypedDict(
+    "DeleteCollectionDetailTypeDef",
+    {
+        "id": NotRequired[str],
+        "name": NotRequired[str],
+        "status": NotRequired[CollectionStatusType],
+    },
+)
+DeleteCollectionRequestTypeDef = TypedDict(
+    "DeleteCollectionRequestTypeDef",
+    {
+        "id": str,
+        "clientToken": NotRequired[str],
+    },
+)
+DeleteLifecyclePolicyRequestTypeDef = TypedDict(
+    "DeleteLifecyclePolicyRequestTypeDef",
+    {
+        "type": Literal["retention"],
+        "name": str,
+        "clientToken": NotRequired[str],
+    },
+)
+DeleteSecurityConfigRequestTypeDef = TypedDict(
+    "DeleteSecurityConfigRequestTypeDef",
+    {
+        "id": str,
+        "clientToken": NotRequired[str],
+    },
+)
+DeleteSecurityPolicyRequestTypeDef = TypedDict(
+    "DeleteSecurityPolicyRequestTypeDef",
+    {
+        "type": SecurityPolicyTypeType,
+        "name": str,
+        "clientToken": NotRequired[str],
+    },
+)
+DeleteVpcEndpointDetailTypeDef = TypedDict(
+    "DeleteVpcEndpointDetailTypeDef",
+    {
+        "id": NotRequired[str],
+        "name": NotRequired[str],
+        "status": NotRequired[VpcEndpointStatusType],
+    },
+)
+DeleteVpcEndpointRequestTypeDef = TypedDict(
+    "DeleteVpcEndpointRequestTypeDef",
+    {
+        "id": str,
+        "clientToken": NotRequired[str],
+    },
+)
+GetAccessPolicyRequestTypeDef = TypedDict(
+    "GetAccessPolicyRequestTypeDef",
+    {
+        "type": Literal["data"],
+        "name": str,
+    },
+)
+
+class LifecyclePolicyStatsTypeDef(TypedDict):
+    RetentionPolicyCount: NotRequired[int]
+
+class SecurityConfigStatsTypeDef(TypedDict):
+    SamlConfigCount: NotRequired[int]
+
+class SecurityPolicyStatsTypeDef(TypedDict):
+    EncryptionPolicyCount: NotRequired[int]
+    NetworkPolicyCount: NotRequired[int]
+
+GetSecurityConfigRequestTypeDef = TypedDict(
+    "GetSecurityConfigRequestTypeDef",
+    {
+        "id": str,
+    },
+)
+GetSecurityPolicyRequestTypeDef = TypedDict(
+    "GetSecurityPolicyRequestTypeDef",
+    {
+        "type": SecurityPolicyTypeType,
+        "name": str,
+    },
+)
+
+class IamIdentityCenterConfigOptionsTypeDef(TypedDict):
+    instanceArn: NotRequired[str]
+    applicationArn: NotRequired[str]
+    applicationName: NotRequired[str]
+    applicationDescription: NotRequired[str]
+    userAttribute: NotRequired[IamIdentityCenterUserAttributeType]
+    groupAttribute: NotRequired[IamIdentityCenterGroupAttributeType]
+
+LifecyclePolicySummaryTypeDef = TypedDict(
+    "LifecyclePolicySummaryTypeDef",
+    {
+        "type": NotRequired[Literal["retention"]],
+        "name": NotRequired[str],
+        "policyVersion": NotRequired[str],
+        "description": NotRequired[str],
+        "createdDate": NotRequired[int],
+        "lastModifiedDate": NotRequired[int],
+    },
+)
+ListAccessPoliciesRequestTypeDef = TypedDict(
+    "ListAccessPoliciesRequestTypeDef",
+    {
+        "type": Literal["data"],
+        "resource": NotRequired[Sequence[str]],
+        "nextToken": NotRequired[str],
+        "maxResults": NotRequired[int],
+    },
+)
+ListLifecyclePoliciesRequestTypeDef = TypedDict(
+    "ListLifecyclePoliciesRequestTypeDef",
+    {
+        "type": Literal["retention"],
+        "resources": NotRequired[Sequence[str]],
+        "nextToken": NotRequired[str],
+        "maxResults": NotRequired[int],
+    },
+)
+ListSecurityConfigsRequestTypeDef = TypedDict(
+    "ListSecurityConfigsRequestTypeDef",
+    {
+        "type": SecurityConfigTypeType,
+        "nextToken": NotRequired[str],
+        "maxResults": NotRequired[int],
+    },
+)
+SecurityConfigSummaryTypeDef = TypedDict(
+    "SecurityConfigSummaryTypeDef",
+    {
+        "id": NotRequired[str],
+        "type": NotRequired[SecurityConfigTypeType],
+        "configVersion": NotRequired[str],
+        "description": NotRequired[str],
+        "createdDate": NotRequired[int],
+        "lastModifiedDate": NotRequired[int],
+    },
+)
+ListSecurityPoliciesRequestTypeDef = TypedDict(
+    "ListSecurityPoliciesRequestTypeDef",
+    {
+        "type": SecurityPolicyTypeType,
+        "resource": NotRequired[Sequence[str]],
+        "nextToken": NotRequired[str],
+        "maxResults": NotRequired[int],
+    },
+)
+SecurityPolicySummaryTypeDef = TypedDict(
+    "SecurityPolicySummaryTypeDef",
+    {
+        "type": NotRequired[SecurityPolicyTypeType],
+        "name": NotRequired[str],
+        "policyVersion": NotRequired[str],
+        "description": NotRequired[str],
+        "createdDate": NotRequired[int],
+        "lastModifiedDate": NotRequired[int],
+    },
+)
+
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+
+class VpcEndpointFiltersTypeDef(TypedDict):
+    status: NotRequired[VpcEndpointStatusType]
 
 VpcEndpointSummaryTypeDef = TypedDict(
     "VpcEndpointSummaryTypeDef",
     {
-        "id": str,
-        "name": str,
-        "status": VpcEndpointStatusType,
+        "id": NotRequired[str],
+        "name": NotRequired[str],
+        "status": NotRequired[VpcEndpointStatusType],
     },
-    total=False,
 )
+
+class UntagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tagKeys: Sequence[str]
+
+UpdateAccessPolicyRequestTypeDef = TypedDict(
+    "UpdateAccessPolicyRequestTypeDef",
+    {
+        "type": Literal["data"],
+        "name": str,
+        "policyVersion": str,
+        "description": NotRequired[str],
+        "policy": NotRequired[str],
+        "clientToken": NotRequired[str],
+    },
+)
+UpdateCollectionDetailTypeDef = TypedDict(
+    "UpdateCollectionDetailTypeDef",
+    {
+        "id": NotRequired[str],
+        "name": NotRequired[str],
+        "status": NotRequired[CollectionStatusType],
+        "type": NotRequired[CollectionTypeType],
+        "description": NotRequired[str],
+        "arn": NotRequired[str],
+        "createdDate": NotRequired[int],
+        "lastModifiedDate": NotRequired[int],
+    },
+)
+UpdateCollectionRequestTypeDef = TypedDict(
+    "UpdateCollectionRequestTypeDef",
+    {
+        "id": str,
+        "description": NotRequired[str],
+        "clientToken": NotRequired[str],
+    },
+)
+
+class UpdateIamIdentityCenterConfigOptionsTypeDef(TypedDict):
+    userAttribute: NotRequired[IamIdentityCenterUserAttributeType]
+    groupAttribute: NotRequired[IamIdentityCenterGroupAttributeType]
+
+UpdateLifecyclePolicyRequestTypeDef = TypedDict(
+    "UpdateLifecyclePolicyRequestTypeDef",
+    {
+        "type": Literal["retention"],
+        "name": str,
+        "policyVersion": str,
+        "description": NotRequired[str],
+        "policy": NotRequired[str],
+        "clientToken": NotRequired[str],
+    },
+)
+UpdateSecurityPolicyRequestTypeDef = TypedDict(
+    "UpdateSecurityPolicyRequestTypeDef",
+    {
+        "type": SecurityPolicyTypeType,
+        "name": str,
+        "policyVersion": str,
+        "description": NotRequired[str],
+        "policy": NotRequired[str],
+        "clientToken": NotRequired[str],
+    },
+)
+UpdateVpcEndpointDetailTypeDef = TypedDict(
+    "UpdateVpcEndpointDetailTypeDef",
+    {
+        "id": NotRequired[str],
+        "name": NotRequired[str],
+        "status": NotRequired[VpcEndpointStatusType],
+        "subnetIds": NotRequired[List[str]],
+        "securityGroupIds": NotRequired[List[str]],
+        "lastModifiedDate": NotRequired[int],
+    },
+)
+UpdateVpcEndpointRequestTypeDef = TypedDict(
+    "UpdateVpcEndpointRequestTypeDef",
+    {
+        "id": str,
+        "addSubnetIds": NotRequired[Sequence[str]],
+        "removeSubnetIds": NotRequired[Sequence[str]],
+        "addSecurityGroupIds": NotRequired[Sequence[str]],
+        "removeSecurityGroupIds": NotRequired[Sequence[str]],
+        "clientToken": NotRequired[str],
+    },
+)
+
+class AccountSettingsDetailTypeDef(TypedDict):
+    capacityLimits: NotRequired[CapacityLimitsTypeDef]
+
+class UpdateAccountSettingsRequestTypeDef(TypedDict):
+    capacityLimits: NotRequired[CapacityLimitsTypeDef]
+
+class BatchGetCollectionResponseTypeDef(TypedDict):
+    collectionDetails: List[CollectionDetailTypeDef]
+    collectionErrorDetails: List[CollectionErrorDetailTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateAccessPolicyResponseTypeDef(TypedDict):
+    accessPolicyDetail: AccessPolicyDetailTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetAccessPolicyResponseTypeDef(TypedDict):
+    accessPolicyDetail: AccessPolicyDetailTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListAccessPoliciesResponseTypeDef(TypedDict):
+    accessPolicySummaries: List[AccessPolicySummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class UpdateAccessPolicyResponseTypeDef(TypedDict):
+    accessPolicyDetail: AccessPolicyDetailTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class BatchGetEffectiveLifecyclePolicyRequestTypeDef(TypedDict):
+    resourceIdentifiers: Sequence[LifecyclePolicyResourceIdentifierTypeDef]
+
+class BatchGetEffectiveLifecyclePolicyResponseTypeDef(TypedDict):
+    effectiveLifecyclePolicyDetails: List[EffectiveLifecyclePolicyDetailTypeDef]
+    effectiveLifecyclePolicyErrorDetails: List[EffectiveLifecyclePolicyErrorDetailTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class BatchGetLifecyclePolicyRequestTypeDef(TypedDict):
+    identifiers: Sequence[LifecyclePolicyIdentifierTypeDef]
+
+class CreateLifecyclePolicyResponseTypeDef(TypedDict):
+    lifecyclePolicyDetail: LifecyclePolicyDetailTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateLifecyclePolicyResponseTypeDef(TypedDict):
+    lifecyclePolicyDetail: LifecyclePolicyDetailTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class BatchGetLifecyclePolicyResponseTypeDef(TypedDict):
+    lifecyclePolicyDetails: List[LifecyclePolicyDetailTypeDef]
+    lifecyclePolicyErrorDetails: List[LifecyclePolicyErrorDetailTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class BatchGetVpcEndpointResponseTypeDef(TypedDict):
+    vpcEndpointDetails: List[VpcEndpointDetailTypeDef]
+    vpcEndpointErrorDetails: List[VpcEndpointErrorDetailTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListCollectionsRequestTypeDef(TypedDict):
+    collectionFilters: NotRequired[CollectionFiltersTypeDef]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class ListCollectionsResponseTypeDef(TypedDict):
+    collectionSummaries: List[CollectionSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class CreateCollectionResponseTypeDef(TypedDict):
+    createCollectionDetail: CreateCollectionDetailTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+CreateCollectionRequestTypeDef = TypedDict(
+    "CreateCollectionRequestTypeDef",
+    {
+        "name": str,
+        "type": NotRequired[CollectionTypeType],
+        "description": NotRequired[str],
+        "tags": NotRequired[Sequence[TagTypeDef]],
+        "standbyReplicas": NotRequired[StandbyReplicasType],
+        "clientToken": NotRequired[str],
+    },
+)
+
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    tags: List[TagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class TagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tags: Sequence[TagTypeDef]
+
+CreateSecurityConfigRequestTypeDef = TypedDict(
+    "CreateSecurityConfigRequestTypeDef",
+    {
+        "type": SecurityConfigTypeType,
+        "name": str,
+        "description": NotRequired[str],
+        "samlOptions": NotRequired[SamlConfigOptionsTypeDef],
+        "iamIdentityCenterOptions": NotRequired[CreateIamIdentityCenterConfigOptionsTypeDef],
+        "clientToken": NotRequired[str],
+    },
+)
+
+class CreateSecurityPolicyResponseTypeDef(TypedDict):
+    securityPolicyDetail: SecurityPolicyDetailTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetSecurityPolicyResponseTypeDef(TypedDict):
+    securityPolicyDetail: SecurityPolicyDetailTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateSecurityPolicyResponseTypeDef(TypedDict):
+    securityPolicyDetail: SecurityPolicyDetailTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateVpcEndpointResponseTypeDef(TypedDict):
+    createVpcEndpointDetail: CreateVpcEndpointDetailTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteCollectionResponseTypeDef(TypedDict):
+    deleteCollectionDetail: DeleteCollectionDetailTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteVpcEndpointResponseTypeDef(TypedDict):
+    deleteVpcEndpointDetail: DeleteVpcEndpointDetailTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetPoliciesStatsResponseTypeDef(TypedDict):
+    AccessPolicyStats: AccessPolicyStatsTypeDef
+    SecurityPolicyStats: SecurityPolicyStatsTypeDef
+    SecurityConfigStats: SecurityConfigStatsTypeDef
+    LifecyclePolicyStats: LifecyclePolicyStatsTypeDef
+    TotalPolicyCount: int
+    ResponseMetadata: ResponseMetadataTypeDef
+
+SecurityConfigDetailTypeDef = TypedDict(
+    "SecurityConfigDetailTypeDef",
+    {
+        "id": NotRequired[str],
+        "type": NotRequired[SecurityConfigTypeType],
+        "configVersion": NotRequired[str],
+        "description": NotRequired[str],
+        "samlOptions": NotRequired[SamlConfigOptionsTypeDef],
+        "iamIdentityCenterOptions": NotRequired[IamIdentityCenterConfigOptionsTypeDef],
+        "createdDate": NotRequired[int],
+        "lastModifiedDate": NotRequired[int],
+    },
+)
+
+class ListLifecyclePoliciesResponseTypeDef(TypedDict):
+    lifecyclePolicySummaries: List[LifecyclePolicySummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListSecurityConfigsResponseTypeDef(TypedDict):
+    securityConfigSummaries: List[SecurityConfigSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListSecurityPoliciesResponseTypeDef(TypedDict):
+    securityPolicySummaries: List[SecurityPolicySummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListVpcEndpointsRequestTypeDef(TypedDict):
+    vpcEndpointFilters: NotRequired[VpcEndpointFiltersTypeDef]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class ListVpcEndpointsResponseTypeDef(TypedDict):
+    vpcEndpointSummaries: List[VpcEndpointSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class UpdateCollectionResponseTypeDef(TypedDict):
+    updateCollectionDetail: UpdateCollectionDetailTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+UpdateSecurityConfigRequestTypeDef = TypedDict(
+    "UpdateSecurityConfigRequestTypeDef",
+    {
+        "id": str,
+        "configVersion": str,
+        "description": NotRequired[str],
+        "samlOptions": NotRequired[SamlConfigOptionsTypeDef],
+        "iamIdentityCenterOptionsUpdates": NotRequired[UpdateIamIdentityCenterConfigOptionsTypeDef],
+        "clientToken": NotRequired[str],
+    },
+)
+
+class UpdateVpcEndpointResponseTypeDef(TypedDict):
+    UpdateVpcEndpointDetail: UpdateVpcEndpointDetailTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetAccountSettingsResponseTypeDef(TypedDict):
+    accountSettingsDetail: AccountSettingsDetailTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateAccountSettingsResponseTypeDef(TypedDict):
+    accountSettingsDetail: AccountSettingsDetailTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateSecurityConfigResponseTypeDef(TypedDict):
+    securityConfigDetail: SecurityConfigDetailTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetSecurityConfigResponseTypeDef(TypedDict):
+    securityConfigDetail: SecurityConfigDetailTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateSecurityConfigResponseTypeDef(TypedDict):
+    securityConfigDetail: SecurityConfigDetailTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef

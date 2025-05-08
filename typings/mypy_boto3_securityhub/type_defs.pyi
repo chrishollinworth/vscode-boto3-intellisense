@@ -1,22 +1,27 @@
 """
 Type annotations for securityhub service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_securityhub/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_securityhub/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_securityhub.type_defs import AcceptAdministratorInvitationRequestRequestTypeDef
+    from mypy_boto3_securityhub.type_defs import AcceptAdministratorInvitationRequestTypeDef
 
-    data: AcceptAdministratorInvitationRequestRequestTypeDef = {...}
+    data: AcceptAdministratorInvitationRequestTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List, Union
+from typing import Union
 
 from .literals import (
+    ActorSessionMfaStatusType,
     AdminStatusType,
     AssociationStatusType,
     AssociationTypeType,
@@ -25,6 +30,7 @@ from .literals import (
     AwsS3BucketNotificationConfigurationS3KeyFilterRuleNameType,
     ComplianceStatusType,
     ConfigurationPolicyAssociationStatusType,
+    ConnectionDirectionType,
     ControlFindingGeneratorType,
     ControlStatusType,
     FindingHistoryUpdateSourceTypeType,
@@ -43,6 +49,7 @@ from .literals import (
     SeverityLabelType,
     SeverityRatingType,
     SortOrderType,
+    StandardsControlsUpdatableType,
     StandardsStatusType,
     StatusReasonCodeType,
     StringFilterComparisonType,
@@ -58,57 +65,90 @@ from .literals import (
     WorkflowStatusType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
-    "AcceptAdministratorInvitationRequestRequestTypeDef",
-    "AcceptInvitationRequestRequestTypeDef",
+    "AcceptAdministratorInvitationRequestTypeDef",
+    "AcceptInvitationRequestTypeDef",
     "AccountDetailsTypeDef",
     "ActionLocalIpDetailsTypeDef",
     "ActionLocalPortDetailsTypeDef",
+    "ActionOutputTypeDef",
     "ActionRemoteIpDetailsTypeDef",
     "ActionRemotePortDetailsTypeDef",
     "ActionTargetTypeDef",
     "ActionTypeDef",
+    "ActionUnionTypeDef",
+    "ActorSessionTypeDef",
+    "ActorTypeDef",
+    "ActorUserTypeDef",
     "AdjustmentTypeDef",
     "AdminAccountTypeDef",
     "AssociatedStandardTypeDef",
     "AssociationFiltersTypeDef",
     "AssociationSetDetailsTypeDef",
     "AssociationStateDetailsTypeDef",
+    "AutomationRulesActionOutputTypeDef",
     "AutomationRulesActionTypeDef",
+    "AutomationRulesActionUnionTypeDef",
     "AutomationRulesConfigTypeDef",
+    "AutomationRulesFindingFieldsUpdateOutputTypeDef",
     "AutomationRulesFindingFieldsUpdateTypeDef",
+    "AutomationRulesFindingFieldsUpdateUnionTypeDef",
+    "AutomationRulesFindingFiltersOutputTypeDef",
     "AutomationRulesFindingFiltersTypeDef",
+    "AutomationRulesFindingFiltersUnionTypeDef",
     "AutomationRulesMetadataTypeDef",
     "AvailabilityZoneTypeDef",
+    "AwsAmazonMqBrokerDetailsOutputTypeDef",
     "AwsAmazonMqBrokerDetailsTypeDef",
+    "AwsAmazonMqBrokerDetailsUnionTypeDef",
     "AwsAmazonMqBrokerEncryptionOptionsDetailsTypeDef",
+    "AwsAmazonMqBrokerLdapServerMetadataDetailsOutputTypeDef",
     "AwsAmazonMqBrokerLdapServerMetadataDetailsTypeDef",
+    "AwsAmazonMqBrokerLdapServerMetadataDetailsUnionTypeDef",
     "AwsAmazonMqBrokerLogsDetailsTypeDef",
     "AwsAmazonMqBrokerLogsPendingDetailsTypeDef",
     "AwsAmazonMqBrokerMaintenanceWindowStartTimeDetailsTypeDef",
     "AwsAmazonMqBrokerUsersDetailsTypeDef",
     "AwsApiCallActionDomainDetailsTypeDef",
+    "AwsApiCallActionOutputTypeDef",
     "AwsApiCallActionTypeDef",
+    "AwsApiCallActionUnionTypeDef",
     "AwsApiGatewayAccessLogSettingsTypeDef",
+    "AwsApiGatewayCanarySettingsOutputTypeDef",
     "AwsApiGatewayCanarySettingsTypeDef",
+    "AwsApiGatewayCanarySettingsUnionTypeDef",
+    "AwsApiGatewayEndpointConfigurationOutputTypeDef",
     "AwsApiGatewayEndpointConfigurationTypeDef",
+    "AwsApiGatewayEndpointConfigurationUnionTypeDef",
     "AwsApiGatewayMethodSettingsTypeDef",
+    "AwsApiGatewayRestApiDetailsOutputTypeDef",
     "AwsApiGatewayRestApiDetailsTypeDef",
+    "AwsApiGatewayRestApiDetailsUnionTypeDef",
+    "AwsApiGatewayStageDetailsOutputTypeDef",
     "AwsApiGatewayStageDetailsTypeDef",
+    "AwsApiGatewayStageDetailsUnionTypeDef",
+    "AwsApiGatewayV2ApiDetailsOutputTypeDef",
     "AwsApiGatewayV2ApiDetailsTypeDef",
+    "AwsApiGatewayV2ApiDetailsUnionTypeDef",
     "AwsApiGatewayV2RouteSettingsTypeDef",
+    "AwsApiGatewayV2StageDetailsOutputTypeDef",
     "AwsApiGatewayV2StageDetailsTypeDef",
+    "AwsApiGatewayV2StageDetailsUnionTypeDef",
     "AwsAppSyncGraphQlApiAdditionalAuthenticationProvidersDetailsTypeDef",
+    "AwsAppSyncGraphQlApiDetailsOutputTypeDef",
     "AwsAppSyncGraphQlApiDetailsTypeDef",
+    "AwsAppSyncGraphQlApiDetailsUnionTypeDef",
     "AwsAppSyncGraphQlApiLambdaAuthorizerConfigDetailsTypeDef",
     "AwsAppSyncGraphQlApiLogConfigDetailsTypeDef",
     "AwsAppSyncGraphQlApiOpenIdConnectConfigDetailsTypeDef",
@@ -118,85 +158,155 @@ __all__ = (
     "AwsAthenaWorkGroupConfigurationResultConfigurationEncryptionConfigurationDetailsTypeDef",
     "AwsAthenaWorkGroupDetailsTypeDef",
     "AwsAutoScalingAutoScalingGroupAvailabilityZonesListDetailsTypeDef",
+    "AwsAutoScalingAutoScalingGroupDetailsOutputTypeDef",
     "AwsAutoScalingAutoScalingGroupDetailsTypeDef",
+    "AwsAutoScalingAutoScalingGroupDetailsUnionTypeDef",
     "AwsAutoScalingAutoScalingGroupLaunchTemplateLaunchTemplateSpecificationTypeDef",
+    "AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetailsOutputTypeDef",
     "AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetailsTypeDef",
+    "AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetailsUnionTypeDef",
     "AwsAutoScalingAutoScalingGroupMixedInstancesPolicyInstancesDistributionDetailsTypeDef",
+    "AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateDetailsOutputTypeDef",
     "AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateDetailsTypeDef",
+    "AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateDetailsUnionTypeDef",
     "AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationTypeDef",
     "AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateOverridesListDetailsTypeDef",
     "AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetailsTypeDef",
     "AwsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetailsTypeDef",
+    "AwsAutoScalingLaunchConfigurationDetailsOutputTypeDef",
     "AwsAutoScalingLaunchConfigurationDetailsTypeDef",
+    "AwsAutoScalingLaunchConfigurationDetailsUnionTypeDef",
     "AwsAutoScalingLaunchConfigurationInstanceMonitoringDetailsTypeDef",
     "AwsAutoScalingLaunchConfigurationMetadataOptionsTypeDef",
+    "AwsBackupBackupPlanAdvancedBackupSettingsDetailsOutputTypeDef",
     "AwsBackupBackupPlanAdvancedBackupSettingsDetailsTypeDef",
+    "AwsBackupBackupPlanAdvancedBackupSettingsDetailsUnionTypeDef",
+    "AwsBackupBackupPlanBackupPlanDetailsOutputTypeDef",
     "AwsBackupBackupPlanBackupPlanDetailsTypeDef",
+    "AwsBackupBackupPlanBackupPlanDetailsUnionTypeDef",
+    "AwsBackupBackupPlanDetailsOutputTypeDef",
     "AwsBackupBackupPlanDetailsTypeDef",
+    "AwsBackupBackupPlanDetailsUnionTypeDef",
     "AwsBackupBackupPlanLifecycleDetailsTypeDef",
     "AwsBackupBackupPlanRuleCopyActionsDetailsTypeDef",
+    "AwsBackupBackupPlanRuleDetailsOutputTypeDef",
     "AwsBackupBackupPlanRuleDetailsTypeDef",
+    "AwsBackupBackupPlanRuleDetailsUnionTypeDef",
+    "AwsBackupBackupVaultDetailsOutputTypeDef",
     "AwsBackupBackupVaultDetailsTypeDef",
+    "AwsBackupBackupVaultDetailsUnionTypeDef",
+    "AwsBackupBackupVaultNotificationsDetailsOutputTypeDef",
     "AwsBackupBackupVaultNotificationsDetailsTypeDef",
+    "AwsBackupBackupVaultNotificationsDetailsUnionTypeDef",
     "AwsBackupRecoveryPointCalculatedLifecycleDetailsTypeDef",
     "AwsBackupRecoveryPointCreatedByDetailsTypeDef",
     "AwsBackupRecoveryPointDetailsTypeDef",
     "AwsBackupRecoveryPointLifecycleDetailsTypeDef",
+    "AwsCertificateManagerCertificateDetailsOutputTypeDef",
     "AwsCertificateManagerCertificateDetailsTypeDef",
+    "AwsCertificateManagerCertificateDetailsUnionTypeDef",
+    "AwsCertificateManagerCertificateDomainValidationOptionOutputTypeDef",
     "AwsCertificateManagerCertificateDomainValidationOptionTypeDef",
+    "AwsCertificateManagerCertificateDomainValidationOptionUnionTypeDef",
     "AwsCertificateManagerCertificateExtendedKeyUsageTypeDef",
     "AwsCertificateManagerCertificateKeyUsageTypeDef",
     "AwsCertificateManagerCertificateOptionsTypeDef",
+    "AwsCertificateManagerCertificateRenewalSummaryOutputTypeDef",
     "AwsCertificateManagerCertificateRenewalSummaryTypeDef",
+    "AwsCertificateManagerCertificateRenewalSummaryUnionTypeDef",
     "AwsCertificateManagerCertificateResourceRecordTypeDef",
+    "AwsCloudFormationStackDetailsOutputTypeDef",
     "AwsCloudFormationStackDetailsTypeDef",
+    "AwsCloudFormationStackDetailsUnionTypeDef",
     "AwsCloudFormationStackDriftInformationDetailsTypeDef",
     "AwsCloudFormationStackOutputsDetailsTypeDef",
     "AwsCloudFrontDistributionCacheBehaviorTypeDef",
+    "AwsCloudFrontDistributionCacheBehaviorsOutputTypeDef",
     "AwsCloudFrontDistributionCacheBehaviorsTypeDef",
+    "AwsCloudFrontDistributionCacheBehaviorsUnionTypeDef",
     "AwsCloudFrontDistributionDefaultCacheBehaviorTypeDef",
+    "AwsCloudFrontDistributionDetailsOutputTypeDef",
     "AwsCloudFrontDistributionDetailsTypeDef",
+    "AwsCloudFrontDistributionDetailsUnionTypeDef",
     "AwsCloudFrontDistributionLoggingTypeDef",
+    "AwsCloudFrontDistributionOriginCustomOriginConfigOutputTypeDef",
     "AwsCloudFrontDistributionOriginCustomOriginConfigTypeDef",
+    "AwsCloudFrontDistributionOriginCustomOriginConfigUnionTypeDef",
+    "AwsCloudFrontDistributionOriginGroupFailoverOutputTypeDef",
+    "AwsCloudFrontDistributionOriginGroupFailoverStatusCodesOutputTypeDef",
     "AwsCloudFrontDistributionOriginGroupFailoverStatusCodesTypeDef",
+    "AwsCloudFrontDistributionOriginGroupFailoverStatusCodesUnionTypeDef",
     "AwsCloudFrontDistributionOriginGroupFailoverTypeDef",
+    "AwsCloudFrontDistributionOriginGroupFailoverUnionTypeDef",
+    "AwsCloudFrontDistributionOriginGroupOutputTypeDef",
     "AwsCloudFrontDistributionOriginGroupTypeDef",
+    "AwsCloudFrontDistributionOriginGroupUnionTypeDef",
+    "AwsCloudFrontDistributionOriginGroupsOutputTypeDef",
     "AwsCloudFrontDistributionOriginGroupsTypeDef",
+    "AwsCloudFrontDistributionOriginGroupsUnionTypeDef",
+    "AwsCloudFrontDistributionOriginItemOutputTypeDef",
     "AwsCloudFrontDistributionOriginItemTypeDef",
+    "AwsCloudFrontDistributionOriginItemUnionTypeDef",
     "AwsCloudFrontDistributionOriginS3OriginConfigTypeDef",
+    "AwsCloudFrontDistributionOriginSslProtocolsOutputTypeDef",
     "AwsCloudFrontDistributionOriginSslProtocolsTypeDef",
+    "AwsCloudFrontDistributionOriginSslProtocolsUnionTypeDef",
+    "AwsCloudFrontDistributionOriginsOutputTypeDef",
     "AwsCloudFrontDistributionOriginsTypeDef",
+    "AwsCloudFrontDistributionOriginsUnionTypeDef",
     "AwsCloudFrontDistributionViewerCertificateTypeDef",
     "AwsCloudTrailTrailDetailsTypeDef",
+    "AwsCloudWatchAlarmDetailsOutputTypeDef",
     "AwsCloudWatchAlarmDetailsTypeDef",
+    "AwsCloudWatchAlarmDetailsUnionTypeDef",
     "AwsCloudWatchAlarmDimensionsDetailsTypeDef",
     "AwsCodeBuildProjectArtifactsDetailsTypeDef",
+    "AwsCodeBuildProjectDetailsOutputTypeDef",
     "AwsCodeBuildProjectDetailsTypeDef",
+    "AwsCodeBuildProjectDetailsUnionTypeDef",
     "AwsCodeBuildProjectEnvironmentEnvironmentVariablesDetailsTypeDef",
+    "AwsCodeBuildProjectEnvironmentOutputTypeDef",
     "AwsCodeBuildProjectEnvironmentRegistryCredentialTypeDef",
     "AwsCodeBuildProjectEnvironmentTypeDef",
+    "AwsCodeBuildProjectEnvironmentUnionTypeDef",
     "AwsCodeBuildProjectLogsConfigCloudWatchLogsDetailsTypeDef",
     "AwsCodeBuildProjectLogsConfigDetailsTypeDef",
     "AwsCodeBuildProjectLogsConfigS3LogsDetailsTypeDef",
     "AwsCodeBuildProjectSourceTypeDef",
+    "AwsCodeBuildProjectVpcConfigOutputTypeDef",
     "AwsCodeBuildProjectVpcConfigTypeDef",
+    "AwsCodeBuildProjectVpcConfigUnionTypeDef",
+    "AwsCorsConfigurationOutputTypeDef",
     "AwsCorsConfigurationTypeDef",
+    "AwsCorsConfigurationUnionTypeDef",
     "AwsDmsEndpointDetailsTypeDef",
+    "AwsDmsReplicationInstanceDetailsOutputTypeDef",
     "AwsDmsReplicationInstanceDetailsTypeDef",
+    "AwsDmsReplicationInstanceDetailsUnionTypeDef",
     "AwsDmsReplicationInstanceReplicationSubnetGroupDetailsTypeDef",
     "AwsDmsReplicationInstanceVpcSecurityGroupsDetailsTypeDef",
     "AwsDmsReplicationTaskDetailsTypeDef",
     "AwsDynamoDbTableAttributeDefinitionTypeDef",
     "AwsDynamoDbTableBillingModeSummaryTypeDef",
+    "AwsDynamoDbTableDetailsOutputTypeDef",
     "AwsDynamoDbTableDetailsTypeDef",
+    "AwsDynamoDbTableDetailsUnionTypeDef",
+    "AwsDynamoDbTableGlobalSecondaryIndexOutputTypeDef",
     "AwsDynamoDbTableGlobalSecondaryIndexTypeDef",
+    "AwsDynamoDbTableGlobalSecondaryIndexUnionTypeDef",
     "AwsDynamoDbTableKeySchemaTypeDef",
+    "AwsDynamoDbTableLocalSecondaryIndexOutputTypeDef",
     "AwsDynamoDbTableLocalSecondaryIndexTypeDef",
+    "AwsDynamoDbTableLocalSecondaryIndexUnionTypeDef",
+    "AwsDynamoDbTableProjectionOutputTypeDef",
     "AwsDynamoDbTableProjectionTypeDef",
+    "AwsDynamoDbTableProjectionUnionTypeDef",
     "AwsDynamoDbTableProvisionedThroughputOverrideTypeDef",
     "AwsDynamoDbTableProvisionedThroughputTypeDef",
     "AwsDynamoDbTableReplicaGlobalSecondaryIndexTypeDef",
+    "AwsDynamoDbTableReplicaOutputTypeDef",
     "AwsDynamoDbTableReplicaTypeDef",
+    "AwsDynamoDbTableReplicaUnionTypeDef",
     "AwsDynamoDbTableRestoreSummaryTypeDef",
     "AwsDynamoDbTableSseDescriptionTypeDef",
     "AwsDynamoDbTableStreamSpecificationTypeDef",
@@ -208,9 +318,13 @@ __all__ = (
     "AwsEc2ClientVpnEndpointClientConnectOptionsStatusDetailsTypeDef",
     "AwsEc2ClientVpnEndpointClientLoginBannerOptionsDetailsTypeDef",
     "AwsEc2ClientVpnEndpointConnectionLogOptionsDetailsTypeDef",
+    "AwsEc2ClientVpnEndpointDetailsOutputTypeDef",
     "AwsEc2ClientVpnEndpointDetailsTypeDef",
+    "AwsEc2ClientVpnEndpointDetailsUnionTypeDef",
     "AwsEc2EipDetailsTypeDef",
+    "AwsEc2InstanceDetailsOutputTypeDef",
     "AwsEc2InstanceDetailsTypeDef",
+    "AwsEc2InstanceDetailsUnionTypeDef",
     "AwsEc2InstanceMetadataOptionsTypeDef",
     "AwsEc2InstanceMonitoringDetailsTypeDef",
     "AwsEc2InstanceNetworkInterfacesDetailsTypeDef",
@@ -220,7 +334,9 @@ __all__ = (
     "AwsEc2LaunchTemplateDataCapacityReservationSpecificationDetailsTypeDef",
     "AwsEc2LaunchTemplateDataCpuOptionsDetailsTypeDef",
     "AwsEc2LaunchTemplateDataCreditSpecificationDetailsTypeDef",
+    "AwsEc2LaunchTemplateDataDetailsOutputTypeDef",
     "AwsEc2LaunchTemplateDataDetailsTypeDef",
+    "AwsEc2LaunchTemplateDataDetailsUnionTypeDef",
     "AwsEc2LaunchTemplateDataElasticGpuSpecificationSetDetailsTypeDef",
     "AwsEc2LaunchTemplateDataElasticInferenceAcceleratorSetDetailsTypeDef",
     "AwsEc2LaunchTemplateDataEnclaveOptionsDetailsTypeDef",
@@ -231,7 +347,9 @@ __all__ = (
     "AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorCountDetailsTypeDef",
     "AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorTotalMemoryMiBDetailsTypeDef",
     "AwsEc2LaunchTemplateDataInstanceRequirementsBaselineEbsBandwidthMbpsDetailsTypeDef",
+    "AwsEc2LaunchTemplateDataInstanceRequirementsDetailsOutputTypeDef",
     "AwsEc2LaunchTemplateDataInstanceRequirementsDetailsTypeDef",
+    "AwsEc2LaunchTemplateDataInstanceRequirementsDetailsUnionTypeDef",
     "AwsEc2LaunchTemplateDataInstanceRequirementsMemoryGiBPerVCpuDetailsTypeDef",
     "AwsEc2LaunchTemplateDataInstanceRequirementsMemoryMiBDetailsTypeDef",
     "AwsEc2LaunchTemplateDataInstanceRequirementsNetworkInterfaceCountDetailsTypeDef",
@@ -241,45 +359,81 @@ __all__ = (
     "AwsEc2LaunchTemplateDataMaintenanceOptionsDetailsTypeDef",
     "AwsEc2LaunchTemplateDataMetadataOptionsDetailsTypeDef",
     "AwsEc2LaunchTemplateDataMonitoringDetailsTypeDef",
+    "AwsEc2LaunchTemplateDataNetworkInterfaceSetDetailsOutputTypeDef",
     "AwsEc2LaunchTemplateDataNetworkInterfaceSetDetailsTypeDef",
+    "AwsEc2LaunchTemplateDataNetworkInterfaceSetDetailsUnionTypeDef",
     "AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv4PrefixesDetailsTypeDef",
     "AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6AddressesDetailsTypeDef",
     "AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6PrefixesDetailsTypeDef",
     "AwsEc2LaunchTemplateDataNetworkInterfaceSetPrivateIpAddressesDetailsTypeDef",
     "AwsEc2LaunchTemplateDataPlacementDetailsTypeDef",
     "AwsEc2LaunchTemplateDataPrivateDnsNameOptionsDetailsTypeDef",
+    "AwsEc2LaunchTemplateDetailsOutputTypeDef",
     "AwsEc2LaunchTemplateDetailsTypeDef",
+    "AwsEc2LaunchTemplateDetailsUnionTypeDef",
     "AwsEc2NetworkAclAssociationTypeDef",
+    "AwsEc2NetworkAclDetailsOutputTypeDef",
     "AwsEc2NetworkAclDetailsTypeDef",
+    "AwsEc2NetworkAclDetailsUnionTypeDef",
     "AwsEc2NetworkAclEntryTypeDef",
     "AwsEc2NetworkInterfaceAttachmentTypeDef",
+    "AwsEc2NetworkInterfaceDetailsOutputTypeDef",
     "AwsEc2NetworkInterfaceDetailsTypeDef",
+    "AwsEc2NetworkInterfaceDetailsUnionTypeDef",
     "AwsEc2NetworkInterfaceIpV6AddressDetailTypeDef",
     "AwsEc2NetworkInterfacePrivateIpAddressDetailTypeDef",
     "AwsEc2NetworkInterfaceSecurityGroupTypeDef",
+    "AwsEc2RouteTableDetailsOutputTypeDef",
     "AwsEc2RouteTableDetailsTypeDef",
+    "AwsEc2RouteTableDetailsUnionTypeDef",
+    "AwsEc2SecurityGroupDetailsOutputTypeDef",
     "AwsEc2SecurityGroupDetailsTypeDef",
+    "AwsEc2SecurityGroupDetailsUnionTypeDef",
+    "AwsEc2SecurityGroupIpPermissionOutputTypeDef",
     "AwsEc2SecurityGroupIpPermissionTypeDef",
+    "AwsEc2SecurityGroupIpPermissionUnionTypeDef",
     "AwsEc2SecurityGroupIpRangeTypeDef",
     "AwsEc2SecurityGroupIpv6RangeTypeDef",
     "AwsEc2SecurityGroupPrefixListIdTypeDef",
     "AwsEc2SecurityGroupUserIdGroupPairTypeDef",
+    "AwsEc2SubnetDetailsOutputTypeDef",
     "AwsEc2SubnetDetailsTypeDef",
+    "AwsEc2SubnetDetailsUnionTypeDef",
+    "AwsEc2TransitGatewayDetailsOutputTypeDef",
     "AwsEc2TransitGatewayDetailsTypeDef",
+    "AwsEc2TransitGatewayDetailsUnionTypeDef",
     "AwsEc2VolumeAttachmentTypeDef",
+    "AwsEc2VolumeDetailsOutputTypeDef",
     "AwsEc2VolumeDetailsTypeDef",
+    "AwsEc2VolumeDetailsUnionTypeDef",
+    "AwsEc2VpcDetailsOutputTypeDef",
     "AwsEc2VpcDetailsTypeDef",
+    "AwsEc2VpcDetailsUnionTypeDef",
+    "AwsEc2VpcEndpointServiceDetailsOutputTypeDef",
     "AwsEc2VpcEndpointServiceDetailsTypeDef",
+    "AwsEc2VpcEndpointServiceDetailsUnionTypeDef",
     "AwsEc2VpcEndpointServiceServiceTypeDetailsTypeDef",
+    "AwsEc2VpcPeeringConnectionDetailsOutputTypeDef",
     "AwsEc2VpcPeeringConnectionDetailsTypeDef",
+    "AwsEc2VpcPeeringConnectionDetailsUnionTypeDef",
     "AwsEc2VpcPeeringConnectionStatusDetailsTypeDef",
+    "AwsEc2VpcPeeringConnectionVpcInfoDetailsOutputTypeDef",
     "AwsEc2VpcPeeringConnectionVpcInfoDetailsTypeDef",
+    "AwsEc2VpcPeeringConnectionVpcInfoDetailsUnionTypeDef",
+    "AwsEc2VpnConnectionDetailsOutputTypeDef",
     "AwsEc2VpnConnectionDetailsTypeDef",
+    "AwsEc2VpnConnectionDetailsUnionTypeDef",
+    "AwsEc2VpnConnectionOptionsDetailsOutputTypeDef",
     "AwsEc2VpnConnectionOptionsDetailsTypeDef",
+    "AwsEc2VpnConnectionOptionsDetailsUnionTypeDef",
+    "AwsEc2VpnConnectionOptionsTunnelOptionsDetailsOutputTypeDef",
     "AwsEc2VpnConnectionOptionsTunnelOptionsDetailsTypeDef",
+    "AwsEc2VpnConnectionOptionsTunnelOptionsDetailsUnionTypeDef",
     "AwsEc2VpnConnectionRoutesDetailsTypeDef",
     "AwsEc2VpnConnectionVgwTelemetryDetailsTypeDef",
+    "AwsEcrContainerImageDetailsOutputTypeDef",
     "AwsEcrContainerImageDetailsTypeDef",
+    "AwsEcrContainerImageDetailsUnionTypeDef",
     "AwsEcrRepositoryDetailsTypeDef",
     "AwsEcrRepositoryImageScanningConfigurationDetailsTypeDef",
     "AwsEcrRepositoryLifecyclePolicyDetailsTypeDef",
@@ -288,31 +442,57 @@ __all__ = (
     "AwsEcsClusterConfigurationExecuteCommandConfigurationDetailsTypeDef",
     "AwsEcsClusterConfigurationExecuteCommandConfigurationLogConfigurationDetailsTypeDef",
     "AwsEcsClusterDefaultCapacityProviderStrategyDetailsTypeDef",
+    "AwsEcsClusterDetailsOutputTypeDef",
     "AwsEcsClusterDetailsTypeDef",
+    "AwsEcsClusterDetailsUnionTypeDef",
+    "AwsEcsContainerDetailsOutputTypeDef",
     "AwsEcsContainerDetailsTypeDef",
+    "AwsEcsContainerDetailsUnionTypeDef",
     "AwsEcsServiceCapacityProviderStrategyDetailsTypeDef",
     "AwsEcsServiceDeploymentConfigurationDeploymentCircuitBreakerDetailsTypeDef",
     "AwsEcsServiceDeploymentConfigurationDetailsTypeDef",
     "AwsEcsServiceDeploymentControllerDetailsTypeDef",
+    "AwsEcsServiceDetailsOutputTypeDef",
     "AwsEcsServiceDetailsTypeDef",
+    "AwsEcsServiceDetailsUnionTypeDef",
     "AwsEcsServiceLoadBalancersDetailsTypeDef",
+    "AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetailsOutputTypeDef",
     "AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetailsTypeDef",
+    "AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetailsUnionTypeDef",
+    "AwsEcsServiceNetworkConfigurationDetailsOutputTypeDef",
     "AwsEcsServiceNetworkConfigurationDetailsTypeDef",
+    "AwsEcsServiceNetworkConfigurationDetailsUnionTypeDef",
     "AwsEcsServicePlacementConstraintsDetailsTypeDef",
     "AwsEcsServicePlacementStrategiesDetailsTypeDef",
     "AwsEcsServiceServiceRegistriesDetailsTypeDef",
     "AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetailsTypeDef",
+    "AwsEcsTaskDefinitionContainerDefinitionsDetailsOutputTypeDef",
     "AwsEcsTaskDefinitionContainerDefinitionsDetailsTypeDef",
+    "AwsEcsTaskDefinitionContainerDefinitionsDetailsUnionTypeDef",
     "AwsEcsTaskDefinitionContainerDefinitionsEnvironmentDetailsTypeDef",
     "AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetailsTypeDef",
     "AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetailsTypeDef",
+    "AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetailsOutputTypeDef",
     "AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetailsTypeDef",
+    "AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetailsUnionTypeDef",
+    "AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetailsOutputTypeDef",
     "AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetailsTypeDef",
+    "AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetailsUnionTypeDef",
+    "AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetailsOutputTypeDef",
     "AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetailsTypeDef",
+    "AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetailsUnionTypeDef",
+    "AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetailsOutputTypeDef",
     "AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetailsTypeDef",
+    "AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetailsUnionTypeDef",
+    "AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetailsOutputTypeDef",
     "AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetailsTypeDef",
+    "AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetailsUnionTypeDef",
+    "AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetailsOutputTypeDef",
     "AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetailsTypeDef",
+    "AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetailsUnionTypeDef",
+    "AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetailsOutputTypeDef",
     "AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetailsTypeDef",
+    "AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetailsUnionTypeDef",
     "AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsDetailsTypeDef",
     "AwsEcsTaskDefinitionContainerDefinitionsMountPointsDetailsTypeDef",
     "AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetailsTypeDef",
@@ -322,32 +502,58 @@ __all__ = (
     "AwsEcsTaskDefinitionContainerDefinitionsSystemControlsDetailsTypeDef",
     "AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetailsTypeDef",
     "AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetailsTypeDef",
+    "AwsEcsTaskDefinitionDetailsOutputTypeDef",
     "AwsEcsTaskDefinitionDetailsTypeDef",
+    "AwsEcsTaskDefinitionDetailsUnionTypeDef",
     "AwsEcsTaskDefinitionInferenceAcceleratorsDetailsTypeDef",
     "AwsEcsTaskDefinitionPlacementConstraintsDetailsTypeDef",
+    "AwsEcsTaskDefinitionProxyConfigurationDetailsOutputTypeDef",
     "AwsEcsTaskDefinitionProxyConfigurationDetailsTypeDef",
+    "AwsEcsTaskDefinitionProxyConfigurationDetailsUnionTypeDef",
     "AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetailsTypeDef",
+    "AwsEcsTaskDefinitionVolumesDetailsOutputTypeDef",
     "AwsEcsTaskDefinitionVolumesDetailsTypeDef",
+    "AwsEcsTaskDefinitionVolumesDetailsUnionTypeDef",
+    "AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetailsOutputTypeDef",
     "AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetailsTypeDef",
+    "AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetailsUnionTypeDef",
     "AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationConfigDetailsTypeDef",
     "AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetailsTypeDef",
     "AwsEcsTaskDefinitionVolumesHostDetailsTypeDef",
+    "AwsEcsTaskDetailsOutputTypeDef",
     "AwsEcsTaskDetailsTypeDef",
+    "AwsEcsTaskDetailsUnionTypeDef",
     "AwsEcsTaskVolumeDetailsTypeDef",
     "AwsEcsTaskVolumeHostDetailsTypeDef",
+    "AwsEfsAccessPointDetailsOutputTypeDef",
     "AwsEfsAccessPointDetailsTypeDef",
+    "AwsEfsAccessPointDetailsUnionTypeDef",
+    "AwsEfsAccessPointPosixUserDetailsOutputTypeDef",
     "AwsEfsAccessPointPosixUserDetailsTypeDef",
+    "AwsEfsAccessPointPosixUserDetailsUnionTypeDef",
     "AwsEfsAccessPointRootDirectoryCreationInfoDetailsTypeDef",
     "AwsEfsAccessPointRootDirectoryDetailsTypeDef",
+    "AwsEksClusterDetailsOutputTypeDef",
     "AwsEksClusterDetailsTypeDef",
+    "AwsEksClusterDetailsUnionTypeDef",
+    "AwsEksClusterLoggingClusterLoggingDetailsOutputTypeDef",
     "AwsEksClusterLoggingClusterLoggingDetailsTypeDef",
+    "AwsEksClusterLoggingClusterLoggingDetailsUnionTypeDef",
+    "AwsEksClusterLoggingDetailsOutputTypeDef",
     "AwsEksClusterLoggingDetailsTypeDef",
+    "AwsEksClusterLoggingDetailsUnionTypeDef",
+    "AwsEksClusterResourcesVpcConfigDetailsOutputTypeDef",
     "AwsEksClusterResourcesVpcConfigDetailsTypeDef",
+    "AwsEksClusterResourcesVpcConfigDetailsUnionTypeDef",
+    "AwsElasticBeanstalkEnvironmentDetailsOutputTypeDef",
     "AwsElasticBeanstalkEnvironmentDetailsTypeDef",
+    "AwsElasticBeanstalkEnvironmentDetailsUnionTypeDef",
     "AwsElasticBeanstalkEnvironmentEnvironmentLinkTypeDef",
     "AwsElasticBeanstalkEnvironmentOptionSettingTypeDef",
     "AwsElasticBeanstalkEnvironmentTierTypeDef",
+    "AwsElasticsearchDomainDetailsOutputTypeDef",
     "AwsElasticsearchDomainDetailsTypeDef",
+    "AwsElasticsearchDomainDetailsUnionTypeDef",
     "AwsElasticsearchDomainDomainEndpointOptionsTypeDef",
     "AwsElasticsearchDomainElasticsearchClusterConfigDetailsTypeDef",
     "AwsElasticsearchDomainElasticsearchClusterConfigZoneAwarenessConfigDetailsTypeDef",
@@ -356,27 +562,43 @@ __all__ = (
     "AwsElasticsearchDomainLogPublishingOptionsTypeDef",
     "AwsElasticsearchDomainNodeToNodeEncryptionOptionsTypeDef",
     "AwsElasticsearchDomainServiceSoftwareOptionsTypeDef",
+    "AwsElasticsearchDomainVPCOptionsOutputTypeDef",
     "AwsElasticsearchDomainVPCOptionsTypeDef",
+    "AwsElasticsearchDomainVPCOptionsUnionTypeDef",
     "AwsElbAppCookieStickinessPolicyTypeDef",
     "AwsElbLbCookieStickinessPolicyTypeDef",
     "AwsElbLoadBalancerAccessLogTypeDef",
     "AwsElbLoadBalancerAdditionalAttributeTypeDef",
+    "AwsElbLoadBalancerAttributesOutputTypeDef",
     "AwsElbLoadBalancerAttributesTypeDef",
+    "AwsElbLoadBalancerAttributesUnionTypeDef",
+    "AwsElbLoadBalancerBackendServerDescriptionOutputTypeDef",
     "AwsElbLoadBalancerBackendServerDescriptionTypeDef",
+    "AwsElbLoadBalancerBackendServerDescriptionUnionTypeDef",
     "AwsElbLoadBalancerConnectionDrainingTypeDef",
     "AwsElbLoadBalancerConnectionSettingsTypeDef",
     "AwsElbLoadBalancerCrossZoneLoadBalancingTypeDef",
+    "AwsElbLoadBalancerDetailsOutputTypeDef",
     "AwsElbLoadBalancerDetailsTypeDef",
+    "AwsElbLoadBalancerDetailsUnionTypeDef",
     "AwsElbLoadBalancerHealthCheckTypeDef",
     "AwsElbLoadBalancerInstanceTypeDef",
+    "AwsElbLoadBalancerListenerDescriptionOutputTypeDef",
     "AwsElbLoadBalancerListenerDescriptionTypeDef",
+    "AwsElbLoadBalancerListenerDescriptionUnionTypeDef",
     "AwsElbLoadBalancerListenerTypeDef",
+    "AwsElbLoadBalancerPoliciesOutputTypeDef",
     "AwsElbLoadBalancerPoliciesTypeDef",
+    "AwsElbLoadBalancerPoliciesUnionTypeDef",
     "AwsElbLoadBalancerSourceSecurityGroupTypeDef",
     "AwsElbv2LoadBalancerAttributeTypeDef",
+    "AwsElbv2LoadBalancerDetailsOutputTypeDef",
     "AwsElbv2LoadBalancerDetailsTypeDef",
+    "AwsElbv2LoadBalancerDetailsUnionTypeDef",
     "AwsEventSchemasRegistryDetailsTypeDef",
+    "AwsEventsEndpointDetailsOutputTypeDef",
     "AwsEventsEndpointDetailsTypeDef",
+    "AwsEventsEndpointDetailsUnionTypeDef",
     "AwsEventsEndpointEventBusesDetailsTypeDef",
     "AwsEventsEndpointReplicationConfigDetailsTypeDef",
     "AwsEventsEndpointRoutingConfigDetailsTypeDef",
@@ -394,56 +616,92 @@ __all__ = (
     "AwsGuardDutyDetectorDataSourcesMalwareProtectionScanEc2InstanceWithFindingsDetailsTypeDef",
     "AwsGuardDutyDetectorDataSourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesDetailsTypeDef",
     "AwsGuardDutyDetectorDataSourcesS3LogsDetailsTypeDef",
+    "AwsGuardDutyDetectorDetailsOutputTypeDef",
     "AwsGuardDutyDetectorDetailsTypeDef",
+    "AwsGuardDutyDetectorDetailsUnionTypeDef",
     "AwsGuardDutyDetectorFeaturesDetailsTypeDef",
     "AwsIamAccessKeyDetailsTypeDef",
     "AwsIamAccessKeySessionContextAttributesTypeDef",
     "AwsIamAccessKeySessionContextSessionIssuerTypeDef",
     "AwsIamAccessKeySessionContextTypeDef",
     "AwsIamAttachedManagedPolicyTypeDef",
+    "AwsIamGroupDetailsOutputTypeDef",
     "AwsIamGroupDetailsTypeDef",
+    "AwsIamGroupDetailsUnionTypeDef",
     "AwsIamGroupPolicyTypeDef",
+    "AwsIamInstanceProfileOutputTypeDef",
     "AwsIamInstanceProfileRoleTypeDef",
     "AwsIamInstanceProfileTypeDef",
+    "AwsIamInstanceProfileUnionTypeDef",
     "AwsIamPermissionsBoundaryTypeDef",
+    "AwsIamPolicyDetailsOutputTypeDef",
     "AwsIamPolicyDetailsTypeDef",
+    "AwsIamPolicyDetailsUnionTypeDef",
     "AwsIamPolicyVersionTypeDef",
+    "AwsIamRoleDetailsOutputTypeDef",
     "AwsIamRoleDetailsTypeDef",
+    "AwsIamRoleDetailsUnionTypeDef",
     "AwsIamRolePolicyTypeDef",
+    "AwsIamUserDetailsOutputTypeDef",
     "AwsIamUserDetailsTypeDef",
+    "AwsIamUserDetailsUnionTypeDef",
     "AwsIamUserPolicyTypeDef",
     "AwsKinesisStreamDetailsTypeDef",
     "AwsKinesisStreamStreamEncryptionDetailsTypeDef",
     "AwsKmsKeyDetailsTypeDef",
     "AwsLambdaFunctionCodeTypeDef",
     "AwsLambdaFunctionDeadLetterConfigTypeDef",
+    "AwsLambdaFunctionDetailsOutputTypeDef",
     "AwsLambdaFunctionDetailsTypeDef",
+    "AwsLambdaFunctionDetailsUnionTypeDef",
     "AwsLambdaFunctionEnvironmentErrorTypeDef",
+    "AwsLambdaFunctionEnvironmentOutputTypeDef",
     "AwsLambdaFunctionEnvironmentTypeDef",
+    "AwsLambdaFunctionEnvironmentUnionTypeDef",
     "AwsLambdaFunctionLayerTypeDef",
     "AwsLambdaFunctionTracingConfigTypeDef",
+    "AwsLambdaFunctionVpcConfigOutputTypeDef",
     "AwsLambdaFunctionVpcConfigTypeDef",
+    "AwsLambdaFunctionVpcConfigUnionTypeDef",
+    "AwsLambdaLayerVersionDetailsOutputTypeDef",
     "AwsLambdaLayerVersionDetailsTypeDef",
+    "AwsLambdaLayerVersionDetailsUnionTypeDef",
     "AwsMountPointTypeDef",
+    "AwsMskClusterClusterInfoClientAuthenticationDetailsOutputTypeDef",
     "AwsMskClusterClusterInfoClientAuthenticationDetailsTypeDef",
+    "AwsMskClusterClusterInfoClientAuthenticationDetailsUnionTypeDef",
     "AwsMskClusterClusterInfoClientAuthenticationSaslDetailsTypeDef",
     "AwsMskClusterClusterInfoClientAuthenticationSaslIamDetailsTypeDef",
     "AwsMskClusterClusterInfoClientAuthenticationSaslScramDetailsTypeDef",
+    "AwsMskClusterClusterInfoClientAuthenticationTlsDetailsOutputTypeDef",
     "AwsMskClusterClusterInfoClientAuthenticationTlsDetailsTypeDef",
+    "AwsMskClusterClusterInfoClientAuthenticationTlsDetailsUnionTypeDef",
     "AwsMskClusterClusterInfoClientAuthenticationUnauthenticatedDetailsTypeDef",
+    "AwsMskClusterClusterInfoDetailsOutputTypeDef",
     "AwsMskClusterClusterInfoDetailsTypeDef",
+    "AwsMskClusterClusterInfoDetailsUnionTypeDef",
     "AwsMskClusterClusterInfoEncryptionInfoDetailsTypeDef",
     "AwsMskClusterClusterInfoEncryptionInfoEncryptionAtRestDetailsTypeDef",
     "AwsMskClusterClusterInfoEncryptionInfoEncryptionInTransitDetailsTypeDef",
+    "AwsMskClusterDetailsOutputTypeDef",
     "AwsMskClusterDetailsTypeDef",
+    "AwsMskClusterDetailsUnionTypeDef",
+    "AwsNetworkFirewallFirewallDetailsOutputTypeDef",
     "AwsNetworkFirewallFirewallDetailsTypeDef",
+    "AwsNetworkFirewallFirewallDetailsUnionTypeDef",
+    "AwsNetworkFirewallFirewallPolicyDetailsOutputTypeDef",
     "AwsNetworkFirewallFirewallPolicyDetailsTypeDef",
+    "AwsNetworkFirewallFirewallPolicyDetailsUnionTypeDef",
     "AwsNetworkFirewallFirewallSubnetMappingsDetailsTypeDef",
+    "AwsNetworkFirewallRuleGroupDetailsOutputTypeDef",
     "AwsNetworkFirewallRuleGroupDetailsTypeDef",
+    "AwsNetworkFirewallRuleGroupDetailsUnionTypeDef",
     "AwsOpenSearchServiceDomainAdvancedSecurityOptionsDetailsTypeDef",
     "AwsOpenSearchServiceDomainClusterConfigDetailsTypeDef",
     "AwsOpenSearchServiceDomainClusterConfigZoneAwarenessConfigDetailsTypeDef",
+    "AwsOpenSearchServiceDomainDetailsOutputTypeDef",
     "AwsOpenSearchServiceDomainDetailsTypeDef",
+    "AwsOpenSearchServiceDomainDetailsUnionTypeDef",
     "AwsOpenSearchServiceDomainDomainEndpointOptionsDetailsTypeDef",
     "AwsOpenSearchServiceDomainEncryptionAtRestOptionsDetailsTypeDef",
     "AwsOpenSearchServiceDomainLogPublishingOptionTypeDef",
@@ -451,39 +709,65 @@ __all__ = (
     "AwsOpenSearchServiceDomainMasterUserOptionsDetailsTypeDef",
     "AwsOpenSearchServiceDomainNodeToNodeEncryptionOptionsDetailsTypeDef",
     "AwsOpenSearchServiceDomainServiceSoftwareOptionsDetailsTypeDef",
+    "AwsOpenSearchServiceDomainVpcOptionsDetailsOutputTypeDef",
     "AwsOpenSearchServiceDomainVpcOptionsDetailsTypeDef",
+    "AwsOpenSearchServiceDomainVpcOptionsDetailsUnionTypeDef",
     "AwsRdsDbClusterAssociatedRoleTypeDef",
+    "AwsRdsDbClusterDetailsOutputTypeDef",
     "AwsRdsDbClusterDetailsTypeDef",
+    "AwsRdsDbClusterDetailsUnionTypeDef",
     "AwsRdsDbClusterMemberTypeDef",
     "AwsRdsDbClusterOptionGroupMembershipTypeDef",
+    "AwsRdsDbClusterSnapshotDbClusterSnapshotAttributeOutputTypeDef",
     "AwsRdsDbClusterSnapshotDbClusterSnapshotAttributeTypeDef",
+    "AwsRdsDbClusterSnapshotDbClusterSnapshotAttributeUnionTypeDef",
+    "AwsRdsDbClusterSnapshotDetailsOutputTypeDef",
     "AwsRdsDbClusterSnapshotDetailsTypeDef",
+    "AwsRdsDbClusterSnapshotDetailsUnionTypeDef",
     "AwsRdsDbDomainMembershipTypeDef",
     "AwsRdsDbInstanceAssociatedRoleTypeDef",
+    "AwsRdsDbInstanceDetailsOutputTypeDef",
     "AwsRdsDbInstanceDetailsTypeDef",
+    "AwsRdsDbInstanceDetailsUnionTypeDef",
     "AwsRdsDbInstanceEndpointTypeDef",
     "AwsRdsDbInstanceVpcSecurityGroupTypeDef",
     "AwsRdsDbOptionGroupMembershipTypeDef",
     "AwsRdsDbParameterGroupTypeDef",
+    "AwsRdsDbPendingModifiedValuesOutputTypeDef",
     "AwsRdsDbPendingModifiedValuesTypeDef",
+    "AwsRdsDbPendingModifiedValuesUnionTypeDef",
     "AwsRdsDbProcessorFeatureTypeDef",
+    "AwsRdsDbSecurityGroupDetailsOutputTypeDef",
     "AwsRdsDbSecurityGroupDetailsTypeDef",
+    "AwsRdsDbSecurityGroupDetailsUnionTypeDef",
     "AwsRdsDbSecurityGroupEc2SecurityGroupTypeDef",
     "AwsRdsDbSecurityGroupIpRangeTypeDef",
+    "AwsRdsDbSnapshotDetailsOutputTypeDef",
     "AwsRdsDbSnapshotDetailsTypeDef",
+    "AwsRdsDbSnapshotDetailsUnionTypeDef",
     "AwsRdsDbStatusInfoTypeDef",
+    "AwsRdsDbSubnetGroupOutputTypeDef",
     "AwsRdsDbSubnetGroupSubnetAvailabilityZoneTypeDef",
     "AwsRdsDbSubnetGroupSubnetTypeDef",
     "AwsRdsDbSubnetGroupTypeDef",
+    "AwsRdsDbSubnetGroupUnionTypeDef",
+    "AwsRdsEventSubscriptionDetailsOutputTypeDef",
     "AwsRdsEventSubscriptionDetailsTypeDef",
+    "AwsRdsEventSubscriptionDetailsUnionTypeDef",
+    "AwsRdsPendingCloudWatchLogsExportsOutputTypeDef",
     "AwsRdsPendingCloudWatchLogsExportsTypeDef",
+    "AwsRdsPendingCloudWatchLogsExportsUnionTypeDef",
     "AwsRedshiftClusterClusterNodeTypeDef",
+    "AwsRedshiftClusterClusterParameterGroupOutputTypeDef",
     "AwsRedshiftClusterClusterParameterGroupTypeDef",
+    "AwsRedshiftClusterClusterParameterGroupUnionTypeDef",
     "AwsRedshiftClusterClusterParameterStatusTypeDef",
     "AwsRedshiftClusterClusterSecurityGroupTypeDef",
     "AwsRedshiftClusterClusterSnapshotCopyStatusTypeDef",
     "AwsRedshiftClusterDeferredMaintenanceWindowTypeDef",
+    "AwsRedshiftClusterDetailsOutputTypeDef",
     "AwsRedshiftClusterDetailsTypeDef",
+    "AwsRedshiftClusterDetailsUnionTypeDef",
     "AwsRedshiftClusterElasticIpStatusTypeDef",
     "AwsRedshiftClusterEndpointTypeDef",
     "AwsRedshiftClusterHsmStatusTypeDef",
@@ -494,186 +778,283 @@ __all__ = (
     "AwsRedshiftClusterRestoreStatusTypeDef",
     "AwsRedshiftClusterVpcSecurityGroupTypeDef",
     "AwsRoute53HostedZoneConfigDetailsTypeDef",
+    "AwsRoute53HostedZoneDetailsOutputTypeDef",
     "AwsRoute53HostedZoneDetailsTypeDef",
+    "AwsRoute53HostedZoneDetailsUnionTypeDef",
     "AwsRoute53HostedZoneObjectDetailsTypeDef",
     "AwsRoute53HostedZoneVpcDetailsTypeDef",
     "AwsRoute53QueryLoggingConfigDetailsTypeDef",
     "AwsS3AccessPointDetailsTypeDef",
     "AwsS3AccessPointVpcConfigurationDetailsTypeDef",
     "AwsS3AccountPublicAccessBlockDetailsTypeDef",
+    "AwsS3BucketBucketLifecycleConfigurationDetailsOutputTypeDef",
     "AwsS3BucketBucketLifecycleConfigurationDetailsTypeDef",
+    "AwsS3BucketBucketLifecycleConfigurationDetailsUnionTypeDef",
     "AwsS3BucketBucketLifecycleConfigurationRulesAbortIncompleteMultipartUploadDetailsTypeDef",
+    "AwsS3BucketBucketLifecycleConfigurationRulesDetailsOutputTypeDef",
     "AwsS3BucketBucketLifecycleConfigurationRulesDetailsTypeDef",
+    "AwsS3BucketBucketLifecycleConfigurationRulesDetailsUnionTypeDef",
+    "AwsS3BucketBucketLifecycleConfigurationRulesFilterDetailsOutputTypeDef",
     "AwsS3BucketBucketLifecycleConfigurationRulesFilterDetailsTypeDef",
+    "AwsS3BucketBucketLifecycleConfigurationRulesFilterDetailsUnionTypeDef",
+    "AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetailsOutputTypeDef",
     "AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetailsTypeDef",
+    "AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetailsUnionTypeDef",
     "AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetailsTypeDef",
     "AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsTagDetailsTypeDef",
     "AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateTagDetailsTypeDef",
     "AwsS3BucketBucketLifecycleConfigurationRulesNoncurrentVersionTransitionsDetailsTypeDef",
     "AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetailsTypeDef",
     "AwsS3BucketBucketVersioningConfigurationTypeDef",
+    "AwsS3BucketDetailsOutputTypeDef",
     "AwsS3BucketDetailsTypeDef",
+    "AwsS3BucketDetailsUnionTypeDef",
     "AwsS3BucketLoggingConfigurationTypeDef",
+    "AwsS3BucketNotificationConfigurationDetailOutputTypeDef",
     "AwsS3BucketNotificationConfigurationDetailTypeDef",
+    "AwsS3BucketNotificationConfigurationDetailUnionTypeDef",
+    "AwsS3BucketNotificationConfigurationFilterOutputTypeDef",
     "AwsS3BucketNotificationConfigurationFilterTypeDef",
+    "AwsS3BucketNotificationConfigurationFilterUnionTypeDef",
+    "AwsS3BucketNotificationConfigurationOutputTypeDef",
+    "AwsS3BucketNotificationConfigurationS3KeyFilterOutputTypeDef",
     "AwsS3BucketNotificationConfigurationS3KeyFilterRuleTypeDef",
     "AwsS3BucketNotificationConfigurationS3KeyFilterTypeDef",
+    "AwsS3BucketNotificationConfigurationS3KeyFilterUnionTypeDef",
     "AwsS3BucketNotificationConfigurationTypeDef",
+    "AwsS3BucketNotificationConfigurationUnionTypeDef",
     "AwsS3BucketObjectLockConfigurationRuleDefaultRetentionDetailsTypeDef",
     "AwsS3BucketObjectLockConfigurationRuleDetailsTypeDef",
     "AwsS3BucketObjectLockConfigurationTypeDef",
     "AwsS3BucketServerSideEncryptionByDefaultTypeDef",
+    "AwsS3BucketServerSideEncryptionConfigurationOutputTypeDef",
     "AwsS3BucketServerSideEncryptionConfigurationTypeDef",
+    "AwsS3BucketServerSideEncryptionConfigurationUnionTypeDef",
     "AwsS3BucketServerSideEncryptionRuleTypeDef",
+    "AwsS3BucketWebsiteConfigurationOutputTypeDef",
     "AwsS3BucketWebsiteConfigurationRedirectToTypeDef",
     "AwsS3BucketWebsiteConfigurationRoutingRuleConditionTypeDef",
     "AwsS3BucketWebsiteConfigurationRoutingRuleRedirectTypeDef",
     "AwsS3BucketWebsiteConfigurationRoutingRuleTypeDef",
     "AwsS3BucketWebsiteConfigurationTypeDef",
+    "AwsS3BucketWebsiteConfigurationUnionTypeDef",
     "AwsS3ObjectDetailsTypeDef",
+    "AwsSageMakerNotebookInstanceDetailsOutputTypeDef",
     "AwsSageMakerNotebookInstanceDetailsTypeDef",
+    "AwsSageMakerNotebookInstanceDetailsUnionTypeDef",
     "AwsSageMakerNotebookInstanceMetadataServiceConfigurationDetailsTypeDef",
     "AwsSecretsManagerSecretDetailsTypeDef",
     "AwsSecretsManagerSecretRotationRulesTypeDef",
+    "AwsSecurityFindingFiltersOutputTypeDef",
     "AwsSecurityFindingFiltersTypeDef",
+    "AwsSecurityFindingFiltersUnionTypeDef",
     "AwsSecurityFindingIdentifierTypeDef",
+    "AwsSecurityFindingOutputTypeDef",
     "AwsSecurityFindingTypeDef",
+    "AwsSecurityFindingUnionTypeDef",
+    "AwsSnsTopicDetailsOutputTypeDef",
     "AwsSnsTopicDetailsTypeDef",
+    "AwsSnsTopicDetailsUnionTypeDef",
     "AwsSnsTopicSubscriptionTypeDef",
     "AwsSqsQueueDetailsTypeDef",
     "AwsSsmComplianceSummaryTypeDef",
     "AwsSsmPatchComplianceDetailsTypeDef",
     "AwsSsmPatchTypeDef",
+    "AwsStepFunctionStateMachineDetailsOutputTypeDef",
     "AwsStepFunctionStateMachineDetailsTypeDef",
+    "AwsStepFunctionStateMachineDetailsUnionTypeDef",
     "AwsStepFunctionStateMachineLoggingConfigurationDestinationsCloudWatchLogsLogGroupDetailsTypeDef",
     "AwsStepFunctionStateMachineLoggingConfigurationDestinationsDetailsTypeDef",
+    "AwsStepFunctionStateMachineLoggingConfigurationDetailsOutputTypeDef",
     "AwsStepFunctionStateMachineLoggingConfigurationDetailsTypeDef",
+    "AwsStepFunctionStateMachineLoggingConfigurationDetailsUnionTypeDef",
     "AwsStepFunctionStateMachineTracingConfigurationDetailsTypeDef",
+    "AwsWafRateBasedRuleDetailsOutputTypeDef",
     "AwsWafRateBasedRuleDetailsTypeDef",
+    "AwsWafRateBasedRuleDetailsUnionTypeDef",
     "AwsWafRateBasedRuleMatchPredicateTypeDef",
+    "AwsWafRegionalRateBasedRuleDetailsOutputTypeDef",
     "AwsWafRegionalRateBasedRuleDetailsTypeDef",
+    "AwsWafRegionalRateBasedRuleDetailsUnionTypeDef",
     "AwsWafRegionalRateBasedRuleMatchPredicateTypeDef",
+    "AwsWafRegionalRuleDetailsOutputTypeDef",
     "AwsWafRegionalRuleDetailsTypeDef",
+    "AwsWafRegionalRuleDetailsUnionTypeDef",
+    "AwsWafRegionalRuleGroupDetailsOutputTypeDef",
     "AwsWafRegionalRuleGroupDetailsTypeDef",
+    "AwsWafRegionalRuleGroupDetailsUnionTypeDef",
     "AwsWafRegionalRuleGroupRulesActionDetailsTypeDef",
     "AwsWafRegionalRuleGroupRulesDetailsTypeDef",
     "AwsWafRegionalRulePredicateListDetailsTypeDef",
+    "AwsWafRegionalWebAclDetailsOutputTypeDef",
     "AwsWafRegionalWebAclDetailsTypeDef",
+    "AwsWafRegionalWebAclDetailsUnionTypeDef",
     "AwsWafRegionalWebAclRulesListActionDetailsTypeDef",
     "AwsWafRegionalWebAclRulesListDetailsTypeDef",
     "AwsWafRegionalWebAclRulesListOverrideActionDetailsTypeDef",
+    "AwsWafRuleDetailsOutputTypeDef",
     "AwsWafRuleDetailsTypeDef",
+    "AwsWafRuleDetailsUnionTypeDef",
+    "AwsWafRuleGroupDetailsOutputTypeDef",
     "AwsWafRuleGroupDetailsTypeDef",
+    "AwsWafRuleGroupDetailsUnionTypeDef",
     "AwsWafRuleGroupRulesActionDetailsTypeDef",
     "AwsWafRuleGroupRulesDetailsTypeDef",
     "AwsWafRulePredicateListDetailsTypeDef",
+    "AwsWafWebAclDetailsOutputTypeDef",
     "AwsWafWebAclDetailsTypeDef",
+    "AwsWafWebAclDetailsUnionTypeDef",
+    "AwsWafWebAclRuleOutputTypeDef",
     "AwsWafWebAclRuleTypeDef",
+    "AwsWafWebAclRuleUnionTypeDef",
+    "AwsWafv2ActionAllowDetailsOutputTypeDef",
     "AwsWafv2ActionAllowDetailsTypeDef",
+    "AwsWafv2ActionAllowDetailsUnionTypeDef",
+    "AwsWafv2ActionBlockDetailsOutputTypeDef",
     "AwsWafv2ActionBlockDetailsTypeDef",
+    "AwsWafv2ActionBlockDetailsUnionTypeDef",
     "AwsWafv2CustomHttpHeaderTypeDef",
+    "AwsWafv2CustomRequestHandlingDetailsOutputTypeDef",
     "AwsWafv2CustomRequestHandlingDetailsTypeDef",
+    "AwsWafv2CustomRequestHandlingDetailsUnionTypeDef",
+    "AwsWafv2CustomResponseDetailsOutputTypeDef",
     "AwsWafv2CustomResponseDetailsTypeDef",
+    "AwsWafv2CustomResponseDetailsUnionTypeDef",
+    "AwsWafv2RuleGroupDetailsOutputTypeDef",
     "AwsWafv2RuleGroupDetailsTypeDef",
+    "AwsWafv2RuleGroupDetailsUnionTypeDef",
+    "AwsWafv2RulesActionCaptchaDetailsOutputTypeDef",
     "AwsWafv2RulesActionCaptchaDetailsTypeDef",
+    "AwsWafv2RulesActionCaptchaDetailsUnionTypeDef",
+    "AwsWafv2RulesActionCountDetailsOutputTypeDef",
     "AwsWafv2RulesActionCountDetailsTypeDef",
+    "AwsWafv2RulesActionCountDetailsUnionTypeDef",
+    "AwsWafv2RulesActionDetailsOutputTypeDef",
     "AwsWafv2RulesActionDetailsTypeDef",
+    "AwsWafv2RulesActionDetailsUnionTypeDef",
+    "AwsWafv2RulesDetailsOutputTypeDef",
     "AwsWafv2RulesDetailsTypeDef",
+    "AwsWafv2RulesDetailsUnionTypeDef",
     "AwsWafv2VisibilityConfigDetailsTypeDef",
+    "AwsWafv2WebAclActionDetailsOutputTypeDef",
     "AwsWafv2WebAclActionDetailsTypeDef",
+    "AwsWafv2WebAclActionDetailsUnionTypeDef",
     "AwsWafv2WebAclCaptchaConfigDetailsTypeDef",
     "AwsWafv2WebAclCaptchaConfigImmunityTimePropertyDetailsTypeDef",
+    "AwsWafv2WebAclDetailsOutputTypeDef",
     "AwsWafv2WebAclDetailsTypeDef",
+    "AwsWafv2WebAclDetailsUnionTypeDef",
     "AwsXrayEncryptionConfigDetailsTypeDef",
-    "BatchDeleteAutomationRulesRequestRequestTypeDef",
+    "BatchDeleteAutomationRulesRequestTypeDef",
     "BatchDeleteAutomationRulesResponseTypeDef",
-    "BatchDisableStandardsRequestRequestTypeDef",
+    "BatchDisableStandardsRequestTypeDef",
     "BatchDisableStandardsResponseTypeDef",
-    "BatchEnableStandardsRequestRequestTypeDef",
+    "BatchEnableStandardsRequestTypeDef",
     "BatchEnableStandardsResponseTypeDef",
-    "BatchGetAutomationRulesRequestRequestTypeDef",
+    "BatchGetAutomationRulesRequestTypeDef",
     "BatchGetAutomationRulesResponseTypeDef",
-    "BatchGetConfigurationPolicyAssociationsRequestRequestTypeDef",
+    "BatchGetConfigurationPolicyAssociationsRequestTypeDef",
     "BatchGetConfigurationPolicyAssociationsResponseTypeDef",
-    "BatchGetSecurityControlsRequestRequestTypeDef",
+    "BatchGetSecurityControlsRequestTypeDef",
     "BatchGetSecurityControlsResponseTypeDef",
-    "BatchGetStandardsControlAssociationsRequestRequestTypeDef",
+    "BatchGetStandardsControlAssociationsRequestTypeDef",
     "BatchGetStandardsControlAssociationsResponseTypeDef",
-    "BatchImportFindingsRequestRequestTypeDef",
+    "BatchImportFindingsRequestTypeDef",
     "BatchImportFindingsResponseTypeDef",
-    "BatchUpdateAutomationRulesRequestRequestTypeDef",
+    "BatchUpdateAutomationRulesRequestTypeDef",
     "BatchUpdateAutomationRulesResponseTypeDef",
-    "BatchUpdateFindingsRequestRequestTypeDef",
+    "BatchUpdateFindingsRequestTypeDef",
     "BatchUpdateFindingsResponseTypeDef",
     "BatchUpdateFindingsUnprocessedFindingTypeDef",
-    "BatchUpdateStandardsControlAssociationsRequestRequestTypeDef",
+    "BatchUpdateStandardsControlAssociationsRequestTypeDef",
     "BatchUpdateStandardsControlAssociationsResponseTypeDef",
     "BooleanConfigurationOptionsTypeDef",
     "BooleanFilterTypeDef",
     "CellTypeDef",
     "CidrBlockAssociationTypeDef",
     "CityTypeDef",
+    "ClassificationResultOutputTypeDef",
     "ClassificationResultTypeDef",
+    "ClassificationResultUnionTypeDef",
     "ClassificationStatusTypeDef",
     "CloudWatchLogsLogGroupArnConfigDetailsTypeDef",
     "CodeVulnerabilitiesFilePathTypeDef",
+    "ComplianceOutputTypeDef",
     "ComplianceTypeDef",
+    "ComplianceUnionTypeDef",
     "ConfigurationOptionsTypeDef",
     "ConfigurationPolicyAssociationSummaryTypeDef",
     "ConfigurationPolicyAssociationTypeDef",
     "ConfigurationPolicySummaryTypeDef",
+    "ContainerDetailsOutputTypeDef",
     "ContainerDetailsTypeDef",
+    "ContainerDetailsUnionTypeDef",
     "CountryTypeDef",
-    "CreateActionTargetRequestRequestTypeDef",
+    "CreateActionTargetRequestTypeDef",
     "CreateActionTargetResponseTypeDef",
-    "CreateAutomationRuleRequestRequestTypeDef",
+    "CreateAutomationRuleRequestTypeDef",
     "CreateAutomationRuleResponseTypeDef",
-    "CreateConfigurationPolicyRequestRequestTypeDef",
+    "CreateConfigurationPolicyRequestTypeDef",
     "CreateConfigurationPolicyResponseTypeDef",
-    "CreateFindingAggregatorRequestRequestTypeDef",
+    "CreateFindingAggregatorRequestTypeDef",
     "CreateFindingAggregatorResponseTypeDef",
-    "CreateInsightRequestRequestTypeDef",
+    "CreateInsightRequestTypeDef",
     "CreateInsightResponseTypeDef",
-    "CreateMembersRequestRequestTypeDef",
+    "CreateMembersRequestTypeDef",
     "CreateMembersResponseTypeDef",
+    "CustomDataIdentifiersDetectionsOutputTypeDef",
     "CustomDataIdentifiersDetectionsTypeDef",
+    "CustomDataIdentifiersDetectionsUnionTypeDef",
+    "CustomDataIdentifiersResultOutputTypeDef",
     "CustomDataIdentifiersResultTypeDef",
+    "CustomDataIdentifiersResultUnionTypeDef",
+    "CvssOutputTypeDef",
     "CvssTypeDef",
+    "CvssUnionTypeDef",
+    "DataClassificationDetailsOutputTypeDef",
     "DataClassificationDetailsTypeDef",
+    "DataClassificationDetailsUnionTypeDef",
     "DateFilterTypeDef",
     "DateRangeTypeDef",
-    "DeclineInvitationsRequestRequestTypeDef",
+    "DeclineInvitationsRequestTypeDef",
     "DeclineInvitationsResponseTypeDef",
-    "DeleteActionTargetRequestRequestTypeDef",
+    "DeleteActionTargetRequestTypeDef",
     "DeleteActionTargetResponseTypeDef",
-    "DeleteConfigurationPolicyRequestRequestTypeDef",
-    "DeleteFindingAggregatorRequestRequestTypeDef",
-    "DeleteInsightRequestRequestTypeDef",
+    "DeleteConfigurationPolicyRequestTypeDef",
+    "DeleteFindingAggregatorRequestTypeDef",
+    "DeleteInsightRequestTypeDef",
     "DeleteInsightResponseTypeDef",
-    "DeleteInvitationsRequestRequestTypeDef",
+    "DeleteInvitationsRequestTypeDef",
     "DeleteInvitationsResponseTypeDef",
-    "DeleteMembersRequestRequestTypeDef",
+    "DeleteMembersRequestTypeDef",
     "DeleteMembersResponseTypeDef",
-    "DescribeActionTargetsRequestRequestTypeDef",
+    "DescribeActionTargetsRequestPaginateTypeDef",
+    "DescribeActionTargetsRequestTypeDef",
     "DescribeActionTargetsResponseTypeDef",
-    "DescribeHubRequestRequestTypeDef",
+    "DescribeHubRequestTypeDef",
     "DescribeHubResponseTypeDef",
     "DescribeOrganizationConfigurationResponseTypeDef",
-    "DescribeProductsRequestRequestTypeDef",
+    "DescribeProductsRequestPaginateTypeDef",
+    "DescribeProductsRequestTypeDef",
     "DescribeProductsResponseTypeDef",
-    "DescribeStandardsControlsRequestRequestTypeDef",
+    "DescribeStandardsControlsRequestPaginateTypeDef",
+    "DescribeStandardsControlsRequestTypeDef",
     "DescribeStandardsControlsResponseTypeDef",
-    "DescribeStandardsRequestRequestTypeDef",
+    "DescribeStandardsRequestPaginateTypeDef",
+    "DescribeStandardsRequestTypeDef",
     "DescribeStandardsResponseTypeDef",
-    "DisableImportFindingsForProductRequestRequestTypeDef",
-    "DisableOrganizationAdminAccountRequestRequestTypeDef",
-    "DisassociateMembersRequestRequestTypeDef",
+    "DetectionOutputTypeDef",
+    "DetectionTypeDef",
+    "DetectionUnionTypeDef",
+    "DisableImportFindingsForProductRequestTypeDef",
+    "DisableOrganizationAdminAccountRequestTypeDef",
+    "DisassociateMembersRequestTypeDef",
     "DnsRequestActionTypeDef",
     "DoubleConfigurationOptionsTypeDef",
-    "EnableImportFindingsForProductRequestRequestTypeDef",
+    "EnableImportFindingsForProductRequestTypeDef",
     "EnableImportFindingsForProductResponseTypeDef",
-    "EnableOrganizationAdminAccountRequestRequestTypeDef",
-    "EnableSecurityHubRequestRequestTypeDef",
+    "EnableOrganizationAdminAccountRequestTypeDef",
+    "EnableSecurityHubRequestTypeDef",
     "EnumConfigurationOptionsTypeDef",
     "EnumListConfigurationOptionsTypeDef",
     "FilePathsTypeDef",
@@ -681,95 +1062,139 @@ __all__ = (
     "FindingHistoryRecordTypeDef",
     "FindingHistoryUpdateSourceTypeDef",
     "FindingHistoryUpdateTypeDef",
+    "FindingProviderFieldsOutputTypeDef",
     "FindingProviderFieldsTypeDef",
+    "FindingProviderFieldsUnionTypeDef",
     "FindingProviderSeverityTypeDef",
+    "FirewallPolicyDetailsOutputTypeDef",
     "FirewallPolicyDetailsTypeDef",
+    "FirewallPolicyDetailsUnionTypeDef",
     "FirewallPolicyStatefulRuleGroupReferencesDetailsTypeDef",
+    "FirewallPolicyStatelessCustomActionsDetailsOutputTypeDef",
     "FirewallPolicyStatelessCustomActionsDetailsTypeDef",
+    "FirewallPolicyStatelessCustomActionsDetailsUnionTypeDef",
     "FirewallPolicyStatelessRuleGroupReferencesDetailsTypeDef",
+    "GeneratorDetailsOutputTypeDef",
     "GeneratorDetailsTypeDef",
+    "GeneratorDetailsUnionTypeDef",
     "GeoLocationTypeDef",
     "GetAdministratorAccountResponseTypeDef",
-    "GetConfigurationPolicyAssociationRequestRequestTypeDef",
+    "GetConfigurationPolicyAssociationRequestTypeDef",
     "GetConfigurationPolicyAssociationResponseTypeDef",
-    "GetConfigurationPolicyRequestRequestTypeDef",
+    "GetConfigurationPolicyRequestTypeDef",
     "GetConfigurationPolicyResponseTypeDef",
-    "GetEnabledStandardsRequestRequestTypeDef",
+    "GetEnabledStandardsRequestPaginateTypeDef",
+    "GetEnabledStandardsRequestTypeDef",
     "GetEnabledStandardsResponseTypeDef",
-    "GetFindingAggregatorRequestRequestTypeDef",
+    "GetFindingAggregatorRequestTypeDef",
     "GetFindingAggregatorResponseTypeDef",
-    "GetFindingHistoryRequestRequestTypeDef",
+    "GetFindingHistoryRequestPaginateTypeDef",
+    "GetFindingHistoryRequestTypeDef",
     "GetFindingHistoryResponseTypeDef",
-    "GetFindingsRequestRequestTypeDef",
+    "GetFindingsRequestPaginateTypeDef",
+    "GetFindingsRequestTypeDef",
     "GetFindingsResponseTypeDef",
-    "GetInsightResultsRequestRequestTypeDef",
+    "GetInsightResultsRequestTypeDef",
     "GetInsightResultsResponseTypeDef",
-    "GetInsightsRequestRequestTypeDef",
+    "GetInsightsRequestPaginateTypeDef",
+    "GetInsightsRequestTypeDef",
     "GetInsightsResponseTypeDef",
     "GetInvitationsCountResponseTypeDef",
     "GetMasterAccountResponseTypeDef",
-    "GetMembersRequestRequestTypeDef",
+    "GetMembersRequestTypeDef",
     "GetMembersResponseTypeDef",
-    "GetSecurityControlDefinitionRequestRequestTypeDef",
+    "GetSecurityControlDefinitionRequestTypeDef",
     "GetSecurityControlDefinitionResponseTypeDef",
     "IcmpTypeCodeTypeDef",
     "ImportFindingsErrorTypeDef",
+    "IndicatorOutputTypeDef",
+    "IndicatorTypeDef",
+    "IndicatorUnionTypeDef",
     "InsightResultValueTypeDef",
     "InsightResultsTypeDef",
     "InsightTypeDef",
     "IntegerConfigurationOptionsTypeDef",
     "IntegerListConfigurationOptionsTypeDef",
     "InvitationTypeDef",
-    "InviteMembersRequestRequestTypeDef",
+    "InviteMembersRequestTypeDef",
     "InviteMembersResponseTypeDef",
     "IpFilterTypeDef",
     "IpOrganizationDetailsTypeDef",
     "Ipv6CidrBlockAssociationTypeDef",
     "KeywordFilterTypeDef",
-    "ListAutomationRulesRequestRequestTypeDef",
+    "ListAutomationRulesRequestTypeDef",
     "ListAutomationRulesResponseTypeDef",
-    "ListConfigurationPoliciesRequestRequestTypeDef",
+    "ListConfigurationPoliciesRequestPaginateTypeDef",
+    "ListConfigurationPoliciesRequestTypeDef",
     "ListConfigurationPoliciesResponseTypeDef",
-    "ListConfigurationPolicyAssociationsRequestRequestTypeDef",
+    "ListConfigurationPolicyAssociationsRequestPaginateTypeDef",
+    "ListConfigurationPolicyAssociationsRequestTypeDef",
     "ListConfigurationPolicyAssociationsResponseTypeDef",
-    "ListEnabledProductsForImportRequestRequestTypeDef",
+    "ListEnabledProductsForImportRequestPaginateTypeDef",
+    "ListEnabledProductsForImportRequestTypeDef",
     "ListEnabledProductsForImportResponseTypeDef",
-    "ListFindingAggregatorsRequestRequestTypeDef",
+    "ListFindingAggregatorsRequestPaginateTypeDef",
+    "ListFindingAggregatorsRequestTypeDef",
     "ListFindingAggregatorsResponseTypeDef",
-    "ListInvitationsRequestRequestTypeDef",
+    "ListInvitationsRequestPaginateTypeDef",
+    "ListInvitationsRequestTypeDef",
     "ListInvitationsResponseTypeDef",
-    "ListMembersRequestRequestTypeDef",
+    "ListMembersRequestPaginateTypeDef",
+    "ListMembersRequestTypeDef",
     "ListMembersResponseTypeDef",
-    "ListOrganizationAdminAccountsRequestRequestTypeDef",
+    "ListOrganizationAdminAccountsRequestPaginateTypeDef",
+    "ListOrganizationAdminAccountsRequestTypeDef",
     "ListOrganizationAdminAccountsResponseTypeDef",
-    "ListSecurityControlDefinitionsRequestRequestTypeDef",
+    "ListSecurityControlDefinitionsRequestPaginateTypeDef",
+    "ListSecurityControlDefinitionsRequestTypeDef",
     "ListSecurityControlDefinitionsResponseTypeDef",
-    "ListStandardsControlAssociationsRequestRequestTypeDef",
+    "ListStandardsControlAssociationsRequestPaginateTypeDef",
+    "ListStandardsControlAssociationsRequestTypeDef",
     "ListStandardsControlAssociationsResponseTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "LoadBalancerStateTypeDef",
     "MalwareTypeDef",
     "MapFilterTypeDef",
     "MemberTypeDef",
+    "NetworkAutonomousSystemTypeDef",
     "NetworkConnectionActionTypeDef",
+    "NetworkConnectionTypeDef",
+    "NetworkEndpointTypeDef",
+    "NetworkGeoLocationTypeDef",
+    "NetworkHeaderOutputTypeDef",
     "NetworkHeaderTypeDef",
+    "NetworkHeaderUnionTypeDef",
+    "NetworkPathComponentDetailsOutputTypeDef",
     "NetworkPathComponentDetailsTypeDef",
+    "NetworkPathComponentDetailsUnionTypeDef",
+    "NetworkPathComponentOutputTypeDef",
     "NetworkPathComponentTypeDef",
+    "NetworkPathComponentUnionTypeDef",
     "NetworkTypeDef",
     "NoteTypeDef",
     "NoteUpdateTypeDef",
     "NumberFilterTypeDef",
+    "OccurrencesOutputTypeDef",
     "OccurrencesTypeDef",
+    "OccurrencesUnionTypeDef",
     "OrganizationConfigurationTypeDef",
     "PageTypeDef",
     "PaginatorConfigTypeDef",
+    "ParameterConfigurationOutputTypeDef",
     "ParameterConfigurationTypeDef",
+    "ParameterConfigurationUnionTypeDef",
     "ParameterDefinitionTypeDef",
+    "ParameterValueOutputTypeDef",
     "ParameterValueTypeDef",
+    "ParameterValueUnionTypeDef",
     "PatchSummaryTypeDef",
+    "PolicyOutputTypeDef",
     "PolicyTypeDef",
+    "PolicyUnionTypeDef",
+    "PortProbeActionOutputTypeDef",
     "PortProbeActionTypeDef",
+    "PortProbeActionUnionTypeDef",
     "PortProbeDetailTypeDef",
     "PortRangeFromToTypeDef",
     "PortRangeTypeDef",
@@ -781,40 +1206,87 @@ __all__ = (
     "RecordTypeDef",
     "RelatedFindingTypeDef",
     "RemediationTypeDef",
+    "ResourceDetailsOutputTypeDef",
     "ResourceDetailsTypeDef",
+    "ResourceDetailsUnionTypeDef",
+    "ResourceOutputTypeDef",
     "ResourceTypeDef",
+    "ResourceUnionTypeDef",
     "ResponseMetadataTypeDef",
     "ResultTypeDef",
     "RouteSetDetailsTypeDef",
+    "RuleGroupDetailsOutputTypeDef",
     "RuleGroupDetailsTypeDef",
+    "RuleGroupDetailsUnionTypeDef",
+    "RuleGroupSourceCustomActionsDetailsOutputTypeDef",
     "RuleGroupSourceCustomActionsDetailsTypeDef",
+    "RuleGroupSourceCustomActionsDetailsUnionTypeDef",
+    "RuleGroupSourceListDetailsOutputTypeDef",
     "RuleGroupSourceListDetailsTypeDef",
+    "RuleGroupSourceListDetailsUnionTypeDef",
+    "RuleGroupSourceOutputTypeDef",
+    "RuleGroupSourceStatefulRulesDetailsOutputTypeDef",
     "RuleGroupSourceStatefulRulesDetailsTypeDef",
+    "RuleGroupSourceStatefulRulesDetailsUnionTypeDef",
     "RuleGroupSourceStatefulRulesHeaderDetailsTypeDef",
+    "RuleGroupSourceStatefulRulesOptionsDetailsOutputTypeDef",
     "RuleGroupSourceStatefulRulesOptionsDetailsTypeDef",
+    "RuleGroupSourceStatefulRulesOptionsDetailsUnionTypeDef",
+    "RuleGroupSourceStatelessRuleDefinitionOutputTypeDef",
     "RuleGroupSourceStatelessRuleDefinitionTypeDef",
+    "RuleGroupSourceStatelessRuleDefinitionUnionTypeDef",
     "RuleGroupSourceStatelessRuleMatchAttributesDestinationPortsTypeDef",
     "RuleGroupSourceStatelessRuleMatchAttributesDestinationsTypeDef",
+    "RuleGroupSourceStatelessRuleMatchAttributesOutputTypeDef",
     "RuleGroupSourceStatelessRuleMatchAttributesSourcePortsTypeDef",
     "RuleGroupSourceStatelessRuleMatchAttributesSourcesTypeDef",
+    "RuleGroupSourceStatelessRuleMatchAttributesTcpFlagsOutputTypeDef",
     "RuleGroupSourceStatelessRuleMatchAttributesTcpFlagsTypeDef",
+    "RuleGroupSourceStatelessRuleMatchAttributesTcpFlagsUnionTypeDef",
     "RuleGroupSourceStatelessRuleMatchAttributesTypeDef",
+    "RuleGroupSourceStatelessRuleMatchAttributesUnionTypeDef",
+    "RuleGroupSourceStatelessRulesAndCustomActionsDetailsOutputTypeDef",
     "RuleGroupSourceStatelessRulesAndCustomActionsDetailsTypeDef",
+    "RuleGroupSourceStatelessRulesAndCustomActionsDetailsUnionTypeDef",
+    "RuleGroupSourceStatelessRulesDetailsOutputTypeDef",
     "RuleGroupSourceStatelessRulesDetailsTypeDef",
+    "RuleGroupSourceStatelessRulesDetailsUnionTypeDef",
     "RuleGroupSourceTypeDef",
+    "RuleGroupSourceUnionTypeDef",
+    "RuleGroupVariablesIpSetsDetailsOutputTypeDef",
     "RuleGroupVariablesIpSetsDetailsTypeDef",
+    "RuleGroupVariablesIpSetsDetailsUnionTypeDef",
+    "RuleGroupVariablesOutputTypeDef",
+    "RuleGroupVariablesPortSetsDetailsOutputTypeDef",
     "RuleGroupVariablesPortSetsDetailsTypeDef",
+    "RuleGroupVariablesPortSetsDetailsUnionTypeDef",
     "RuleGroupVariablesTypeDef",
+    "RuleGroupVariablesUnionTypeDef",
+    "SecurityControlCustomParameterOutputTypeDef",
     "SecurityControlCustomParameterTypeDef",
     "SecurityControlDefinitionTypeDef",
+    "SecurityControlParameterOutputTypeDef",
     "SecurityControlParameterTypeDef",
+    "SecurityControlParameterUnionTypeDef",
     "SecurityControlTypeDef",
+    "SecurityControlsConfigurationOutputTypeDef",
     "SecurityControlsConfigurationTypeDef",
+    "SecurityHubPolicyOutputTypeDef",
     "SecurityHubPolicyTypeDef",
+    "SensitiveDataDetectionsOutputTypeDef",
     "SensitiveDataDetectionsTypeDef",
+    "SensitiveDataDetectionsUnionTypeDef",
+    "SensitiveDataResultOutputTypeDef",
     "SensitiveDataResultTypeDef",
+    "SensitiveDataResultUnionTypeDef",
+    "SequenceOutputTypeDef",
+    "SequenceTypeDef",
+    "SequenceUnionTypeDef",
     "SeverityTypeDef",
     "SeverityUpdateTypeDef",
+    "SignalOutputTypeDef",
+    "SignalTypeDef",
+    "SignalUnionTypeDef",
     "SoftwarePackageTypeDef",
     "SortCriterionTypeDef",
     "StandardTypeDef",
@@ -827,44 +1299,56 @@ __all__ = (
     "StandardsStatusReasonTypeDef",
     "StandardsSubscriptionRequestTypeDef",
     "StandardsSubscriptionTypeDef",
-    "StartConfigurationPolicyAssociationRequestRequestTypeDef",
+    "StartConfigurationPolicyAssociationRequestTypeDef",
     "StartConfigurationPolicyAssociationResponseTypeDef",
-    "StartConfigurationPolicyDisassociationRequestRequestTypeDef",
+    "StartConfigurationPolicyDisassociationRequestTypeDef",
+    "StatelessCustomActionDefinitionOutputTypeDef",
     "StatelessCustomActionDefinitionTypeDef",
+    "StatelessCustomActionDefinitionUnionTypeDef",
     "StatelessCustomPublishMetricActionDimensionTypeDef",
+    "StatelessCustomPublishMetricActionOutputTypeDef",
     "StatelessCustomPublishMetricActionTypeDef",
+    "StatelessCustomPublishMetricActionUnionTypeDef",
     "StatusReasonTypeDef",
     "StringConfigurationOptionsTypeDef",
     "StringFilterTypeDef",
     "StringListConfigurationOptionsTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
     "TargetTypeDef",
     "ThreatIntelIndicatorTypeDef",
+    "ThreatOutputTypeDef",
     "ThreatTypeDef",
+    "ThreatUnionTypeDef",
+    "TimestampTypeDef",
     "UnprocessedAutomationRuleTypeDef",
     "UnprocessedConfigurationPolicyAssociationTypeDef",
     "UnprocessedSecurityControlTypeDef",
     "UnprocessedStandardsControlAssociationTypeDef",
     "UnprocessedStandardsControlAssociationUpdateTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateActionTargetRequestRequestTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateActionTargetRequestTypeDef",
     "UpdateAutomationRulesRequestItemTypeDef",
-    "UpdateConfigurationPolicyRequestRequestTypeDef",
+    "UpdateConfigurationPolicyRequestTypeDef",
     "UpdateConfigurationPolicyResponseTypeDef",
-    "UpdateFindingAggregatorRequestRequestTypeDef",
+    "UpdateFindingAggregatorRequestTypeDef",
     "UpdateFindingAggregatorResponseTypeDef",
-    "UpdateFindingsRequestRequestTypeDef",
-    "UpdateInsightRequestRequestTypeDef",
-    "UpdateOrganizationConfigurationRequestRequestTypeDef",
-    "UpdateSecurityControlRequestRequestTypeDef",
-    "UpdateSecurityHubConfigurationRequestRequestTypeDef",
-    "UpdateStandardsControlRequestRequestTypeDef",
+    "UpdateFindingsRequestTypeDef",
+    "UpdateInsightRequestTypeDef",
+    "UpdateOrganizationConfigurationRequestTypeDef",
+    "UpdateSecurityControlRequestTypeDef",
+    "UpdateSecurityHubConfigurationRequestTypeDef",
+    "UpdateStandardsControlRequestTypeDef",
+    "UserAccountTypeDef",
     "VolumeMountTypeDef",
     "VpcInfoCidrBlockSetDetailsTypeDef",
     "VpcInfoIpv6CidrBlockSetDetailsTypeDef",
     "VpcInfoPeeringOptionsDetailsTypeDef",
+    "VulnerabilityCodeVulnerabilitiesOutputTypeDef",
     "VulnerabilityCodeVulnerabilitiesTypeDef",
+    "VulnerabilityCodeVulnerabilitiesUnionTypeDef",
+    "VulnerabilityOutputTypeDef",
     "VulnerabilityTypeDef",
+    "VulnerabilityUnionTypeDef",
     "VulnerabilityVendorTypeDef",
     "WafActionTypeDef",
     "WafExcludedRuleTypeDef",
@@ -873,7930 +1357,89 @@ __all__ = (
     "WorkflowUpdateTypeDef",
 )
 
-AcceptAdministratorInvitationRequestRequestTypeDef = TypedDict(
-    "AcceptAdministratorInvitationRequestRequestTypeDef",
-    {
-        "AdministratorId": str,
-        "InvitationId": str,
-    },
-)
-
-AcceptInvitationRequestRequestTypeDef = TypedDict(
-    "AcceptInvitationRequestRequestTypeDef",
-    {
-        "MasterId": str,
-        "InvitationId": str,
-    },
-)
-
-_RequiredAccountDetailsTypeDef = TypedDict(
-    "_RequiredAccountDetailsTypeDef",
-    {
-        "AccountId": str,
-    },
-)
-_OptionalAccountDetailsTypeDef = TypedDict(
-    "_OptionalAccountDetailsTypeDef",
-    {
-        "Email": str,
-    },
-    total=False,
-)
-
-class AccountDetailsTypeDef(_RequiredAccountDetailsTypeDef, _OptionalAccountDetailsTypeDef):
-    pass
-
-ActionLocalIpDetailsTypeDef = TypedDict(
-    "ActionLocalIpDetailsTypeDef",
-    {
-        "IpAddressV4": str,
-    },
-    total=False,
-)
-
-ActionLocalPortDetailsTypeDef = TypedDict(
-    "ActionLocalPortDetailsTypeDef",
-    {
-        "Port": int,
-        "PortName": str,
-    },
-    total=False,
-)
-
-ActionRemoteIpDetailsTypeDef = TypedDict(
-    "ActionRemoteIpDetailsTypeDef",
-    {
-        "IpAddressV4": str,
-        "Organization": "IpOrganizationDetailsTypeDef",
-        "Country": "CountryTypeDef",
-        "City": "CityTypeDef",
-        "GeoLocation": "GeoLocationTypeDef",
-    },
-    total=False,
-)
-
-ActionRemotePortDetailsTypeDef = TypedDict(
-    "ActionRemotePortDetailsTypeDef",
-    {
-        "Port": int,
-        "PortName": str,
-    },
-    total=False,
-)
-
-ActionTargetTypeDef = TypedDict(
-    "ActionTargetTypeDef",
-    {
-        "ActionTargetArn": str,
-        "Name": str,
-        "Description": str,
-    },
-)
-
-ActionTypeDef = TypedDict(
-    "ActionTypeDef",
-    {
-        "ActionType": str,
-        "NetworkConnectionAction": "NetworkConnectionActionTypeDef",
-        "AwsApiCallAction": "AwsApiCallActionTypeDef",
-        "DnsRequestAction": "DnsRequestActionTypeDef",
-        "PortProbeAction": "PortProbeActionTypeDef",
-    },
-    total=False,
-)
-
-AdjustmentTypeDef = TypedDict(
-    "AdjustmentTypeDef",
-    {
-        "Metric": str,
-        "Reason": str,
-    },
-    total=False,
-)
-
-AdminAccountTypeDef = TypedDict(
-    "AdminAccountTypeDef",
-    {
-        "AccountId": str,
-        "Status": AdminStatusType,
-    },
-    total=False,
-)
-
-AssociatedStandardTypeDef = TypedDict(
-    "AssociatedStandardTypeDef",
-    {
-        "StandardsId": str,
-    },
-    total=False,
-)
-
-AssociationFiltersTypeDef = TypedDict(
-    "AssociationFiltersTypeDef",
-    {
-        "ConfigurationPolicyId": str,
-        "AssociationType": AssociationTypeType,
-        "AssociationStatus": ConfigurationPolicyAssociationStatusType,
-    },
-    total=False,
-)
-
-AssociationSetDetailsTypeDef = TypedDict(
-    "AssociationSetDetailsTypeDef",
-    {
-        "AssociationState": "AssociationStateDetailsTypeDef",
-        "GatewayId": str,
-        "Main": bool,
-        "RouteTableAssociationId": str,
-        "RouteTableId": str,
-        "SubnetId": str,
-    },
-    total=False,
-)
-
-AssociationStateDetailsTypeDef = TypedDict(
-    "AssociationStateDetailsTypeDef",
-    {
-        "State": str,
-        "StatusMessage": str,
-    },
-    total=False,
-)
-
-AutomationRulesActionTypeDef = TypedDict(
-    "AutomationRulesActionTypeDef",
-    {
-        "Type": Literal["FINDING_FIELDS_UPDATE"],
-        "FindingFieldsUpdate": "AutomationRulesFindingFieldsUpdateTypeDef",
-    },
-    total=False,
-)
-
-AutomationRulesConfigTypeDef = TypedDict(
-    "AutomationRulesConfigTypeDef",
-    {
-        "RuleArn": str,
-        "RuleStatus": RuleStatusType,
-        "RuleOrder": int,
-        "RuleName": str,
-        "Description": str,
-        "IsTerminal": bool,
-        "Criteria": "AutomationRulesFindingFiltersTypeDef",
-        "Actions": List["AutomationRulesActionTypeDef"],
-        "CreatedAt": datetime,
-        "UpdatedAt": datetime,
-        "CreatedBy": str,
-    },
-    total=False,
-)
-
-AutomationRulesFindingFieldsUpdateTypeDef = TypedDict(
-    "AutomationRulesFindingFieldsUpdateTypeDef",
-    {
-        "Note": "NoteUpdateTypeDef",
-        "Severity": "SeverityUpdateTypeDef",
-        "VerificationState": VerificationStateType,
-        "Confidence": int,
-        "Criticality": int,
-        "Types": List[str],
-        "UserDefinedFields": Dict[str, str],
-        "Workflow": "WorkflowUpdateTypeDef",
-        "RelatedFindings": List["RelatedFindingTypeDef"],
-    },
-    total=False,
-)
-
-AutomationRulesFindingFiltersTypeDef = TypedDict(
-    "AutomationRulesFindingFiltersTypeDef",
-    {
-        "ProductArn": List["StringFilterTypeDef"],
-        "AwsAccountId": List["StringFilterTypeDef"],
-        "Id": List["StringFilterTypeDef"],
-        "GeneratorId": List["StringFilterTypeDef"],
-        "Type": List["StringFilterTypeDef"],
-        "FirstObservedAt": List["DateFilterTypeDef"],
-        "LastObservedAt": List["DateFilterTypeDef"],
-        "CreatedAt": List["DateFilterTypeDef"],
-        "UpdatedAt": List["DateFilterTypeDef"],
-        "Confidence": List["NumberFilterTypeDef"],
-        "Criticality": List["NumberFilterTypeDef"],
-        "Title": List["StringFilterTypeDef"],
-        "Description": List["StringFilterTypeDef"],
-        "SourceUrl": List["StringFilterTypeDef"],
-        "ProductName": List["StringFilterTypeDef"],
-        "CompanyName": List["StringFilterTypeDef"],
-        "SeverityLabel": List["StringFilterTypeDef"],
-        "ResourceType": List["StringFilterTypeDef"],
-        "ResourceId": List["StringFilterTypeDef"],
-        "ResourcePartition": List["StringFilterTypeDef"],
-        "ResourceRegion": List["StringFilterTypeDef"],
-        "ResourceTags": List["MapFilterTypeDef"],
-        "ResourceDetailsOther": List["MapFilterTypeDef"],
-        "ComplianceStatus": List["StringFilterTypeDef"],
-        "ComplianceSecurityControlId": List["StringFilterTypeDef"],
-        "ComplianceAssociatedStandardsId": List["StringFilterTypeDef"],
-        "VerificationState": List["StringFilterTypeDef"],
-        "WorkflowStatus": List["StringFilterTypeDef"],
-        "RecordState": List["StringFilterTypeDef"],
-        "RelatedFindingsProductArn": List["StringFilterTypeDef"],
-        "RelatedFindingsId": List["StringFilterTypeDef"],
-        "NoteText": List["StringFilterTypeDef"],
-        "NoteUpdatedAt": List["DateFilterTypeDef"],
-        "NoteUpdatedBy": List["StringFilterTypeDef"],
-        "UserDefinedFields": List["MapFilterTypeDef"],
-        "ResourceApplicationArn": List["StringFilterTypeDef"],
-        "ResourceApplicationName": List["StringFilterTypeDef"],
-        "AwsAccountName": List["StringFilterTypeDef"],
-    },
-    total=False,
-)
-
-AutomationRulesMetadataTypeDef = TypedDict(
-    "AutomationRulesMetadataTypeDef",
-    {
-        "RuleArn": str,
-        "RuleStatus": RuleStatusType,
-        "RuleOrder": int,
-        "RuleName": str,
-        "Description": str,
-        "IsTerminal": bool,
-        "CreatedAt": datetime,
-        "UpdatedAt": datetime,
-        "CreatedBy": str,
-    },
-    total=False,
-)
-
-AvailabilityZoneTypeDef = TypedDict(
-    "AvailabilityZoneTypeDef",
-    {
-        "ZoneName": str,
-        "SubnetId": str,
-    },
-    total=False,
-)
-
-AwsAmazonMqBrokerDetailsTypeDef = TypedDict(
-    "AwsAmazonMqBrokerDetailsTypeDef",
-    {
-        "AuthenticationStrategy": str,
-        "AutoMinorVersionUpgrade": bool,
-        "BrokerArn": str,
-        "BrokerName": str,
-        "DeploymentMode": str,
-        "EncryptionOptions": "AwsAmazonMqBrokerEncryptionOptionsDetailsTypeDef",
-        "EngineType": str,
-        "EngineVersion": str,
-        "HostInstanceType": str,
-        "BrokerId": str,
-        "LdapServerMetadata": "AwsAmazonMqBrokerLdapServerMetadataDetailsTypeDef",
-        "Logs": "AwsAmazonMqBrokerLogsDetailsTypeDef",
-        "MaintenanceWindowStartTime": "AwsAmazonMqBrokerMaintenanceWindowStartTimeDetailsTypeDef",
-        "PubliclyAccessible": bool,
-        "SecurityGroups": List[str],
-        "StorageType": str,
-        "SubnetIds": List[str],
-        "Users": List["AwsAmazonMqBrokerUsersDetailsTypeDef"],
-    },
-    total=False,
-)
-
-AwsAmazonMqBrokerEncryptionOptionsDetailsTypeDef = TypedDict(
-    "AwsAmazonMqBrokerEncryptionOptionsDetailsTypeDef",
-    {
-        "KmsKeyId": str,
-        "UseAwsOwnedKey": bool,
-    },
-    total=False,
-)
-
-AwsAmazonMqBrokerLdapServerMetadataDetailsTypeDef = TypedDict(
-    "AwsAmazonMqBrokerLdapServerMetadataDetailsTypeDef",
-    {
-        "Hosts": List[str],
-        "RoleBase": str,
-        "RoleName": str,
-        "RoleSearchMatching": str,
-        "RoleSearchSubtree": bool,
-        "ServiceAccountUsername": str,
-        "UserBase": str,
-        "UserRoleName": str,
-        "UserSearchMatching": str,
-        "UserSearchSubtree": bool,
-    },
-    total=False,
-)
-
-AwsAmazonMqBrokerLogsDetailsTypeDef = TypedDict(
-    "AwsAmazonMqBrokerLogsDetailsTypeDef",
-    {
-        "Audit": bool,
-        "General": bool,
-        "AuditLogGroup": str,
-        "GeneralLogGroup": str,
-        "Pending": "AwsAmazonMqBrokerLogsPendingDetailsTypeDef",
-    },
-    total=False,
-)
-
-AwsAmazonMqBrokerLogsPendingDetailsTypeDef = TypedDict(
-    "AwsAmazonMqBrokerLogsPendingDetailsTypeDef",
-    {
-        "Audit": bool,
-        "General": bool,
-    },
-    total=False,
-)
-
-AwsAmazonMqBrokerMaintenanceWindowStartTimeDetailsTypeDef = TypedDict(
-    "AwsAmazonMqBrokerMaintenanceWindowStartTimeDetailsTypeDef",
-    {
-        "DayOfWeek": str,
-        "TimeOfDay": str,
-        "TimeZone": str,
-    },
-    total=False,
-)
-
-AwsAmazonMqBrokerUsersDetailsTypeDef = TypedDict(
-    "AwsAmazonMqBrokerUsersDetailsTypeDef",
-    {
-        "PendingChange": str,
-        "Username": str,
-    },
-    total=False,
-)
-
-AwsApiCallActionDomainDetailsTypeDef = TypedDict(
-    "AwsApiCallActionDomainDetailsTypeDef",
-    {
-        "Domain": str,
-    },
-    total=False,
-)
-
-AwsApiCallActionTypeDef = TypedDict(
-    "AwsApiCallActionTypeDef",
-    {
-        "Api": str,
-        "ServiceName": str,
-        "CallerType": str,
-        "RemoteIpDetails": "ActionRemoteIpDetailsTypeDef",
-        "DomainDetails": "AwsApiCallActionDomainDetailsTypeDef",
-        "AffectedResources": Dict[str, str],
-        "FirstSeen": str,
-        "LastSeen": str,
-    },
-    total=False,
-)
-
-AwsApiGatewayAccessLogSettingsTypeDef = TypedDict(
-    "AwsApiGatewayAccessLogSettingsTypeDef",
-    {
-        "Format": str,
-        "DestinationArn": str,
-    },
-    total=False,
-)
-
-AwsApiGatewayCanarySettingsTypeDef = TypedDict(
-    "AwsApiGatewayCanarySettingsTypeDef",
-    {
-        "PercentTraffic": float,
-        "DeploymentId": str,
-        "StageVariableOverrides": Dict[str, str],
-        "UseStageCache": bool,
-    },
-    total=False,
-)
-
-AwsApiGatewayEndpointConfigurationTypeDef = TypedDict(
-    "AwsApiGatewayEndpointConfigurationTypeDef",
-    {
-        "Types": List[str],
-    },
-    total=False,
-)
-
-AwsApiGatewayMethodSettingsTypeDef = TypedDict(
-    "AwsApiGatewayMethodSettingsTypeDef",
-    {
-        "MetricsEnabled": bool,
-        "LoggingLevel": str,
-        "DataTraceEnabled": bool,
-        "ThrottlingBurstLimit": int,
-        "ThrottlingRateLimit": float,
-        "CachingEnabled": bool,
-        "CacheTtlInSeconds": int,
-        "CacheDataEncrypted": bool,
-        "RequireAuthorizationForCacheControl": bool,
-        "UnauthorizedCacheControlHeaderStrategy": str,
-        "HttpMethod": str,
-        "ResourcePath": str,
-    },
-    total=False,
-)
-
-AwsApiGatewayRestApiDetailsTypeDef = TypedDict(
-    "AwsApiGatewayRestApiDetailsTypeDef",
-    {
-        "Id": str,
-        "Name": str,
-        "Description": str,
-        "CreatedDate": str,
-        "Version": str,
-        "BinaryMediaTypes": List[str],
-        "MinimumCompressionSize": int,
-        "ApiKeySource": str,
-        "EndpointConfiguration": "AwsApiGatewayEndpointConfigurationTypeDef",
-    },
-    total=False,
-)
-
-AwsApiGatewayStageDetailsTypeDef = TypedDict(
-    "AwsApiGatewayStageDetailsTypeDef",
-    {
-        "DeploymentId": str,
-        "ClientCertificateId": str,
-        "StageName": str,
-        "Description": str,
-        "CacheClusterEnabled": bool,
-        "CacheClusterSize": str,
-        "CacheClusterStatus": str,
-        "MethodSettings": List["AwsApiGatewayMethodSettingsTypeDef"],
-        "Variables": Dict[str, str],
-        "DocumentationVersion": str,
-        "AccessLogSettings": "AwsApiGatewayAccessLogSettingsTypeDef",
-        "CanarySettings": "AwsApiGatewayCanarySettingsTypeDef",
-        "TracingEnabled": bool,
-        "CreatedDate": str,
-        "LastUpdatedDate": str,
-        "WebAclArn": str,
-    },
-    total=False,
-)
-
-AwsApiGatewayV2ApiDetailsTypeDef = TypedDict(
-    "AwsApiGatewayV2ApiDetailsTypeDef",
-    {
-        "ApiEndpoint": str,
-        "ApiId": str,
-        "ApiKeySelectionExpression": str,
-        "CreatedDate": str,
-        "Description": str,
-        "Version": str,
-        "Name": str,
-        "ProtocolType": str,
-        "RouteSelectionExpression": str,
-        "CorsConfiguration": "AwsCorsConfigurationTypeDef",
-    },
-    total=False,
-)
-
-AwsApiGatewayV2RouteSettingsTypeDef = TypedDict(
-    "AwsApiGatewayV2RouteSettingsTypeDef",
-    {
-        "DetailedMetricsEnabled": bool,
-        "LoggingLevel": str,
-        "DataTraceEnabled": bool,
-        "ThrottlingBurstLimit": int,
-        "ThrottlingRateLimit": float,
-    },
-    total=False,
-)
-
-AwsApiGatewayV2StageDetailsTypeDef = TypedDict(
-    "AwsApiGatewayV2StageDetailsTypeDef",
-    {
-        "ClientCertificateId": str,
-        "CreatedDate": str,
-        "Description": str,
-        "DefaultRouteSettings": "AwsApiGatewayV2RouteSettingsTypeDef",
-        "DeploymentId": str,
-        "LastUpdatedDate": str,
-        "RouteSettings": "AwsApiGatewayV2RouteSettingsTypeDef",
-        "StageName": str,
-        "StageVariables": Dict[str, str],
-        "AccessLogSettings": "AwsApiGatewayAccessLogSettingsTypeDef",
-        "AutoDeploy": bool,
-        "LastDeploymentStatusMessage": str,
-        "ApiGatewayManaged": bool,
-    },
-    total=False,
-)
-
-AwsAppSyncGraphQlApiAdditionalAuthenticationProvidersDetailsTypeDef = TypedDict(
-    "AwsAppSyncGraphQlApiAdditionalAuthenticationProvidersDetailsTypeDef",
-    {
-        "AuthenticationType": str,
-        "LambdaAuthorizerConfig": "AwsAppSyncGraphQlApiLambdaAuthorizerConfigDetailsTypeDef",
-        "OpenIdConnectConfig": "AwsAppSyncGraphQlApiOpenIdConnectConfigDetailsTypeDef",
-        "UserPoolConfig": "AwsAppSyncGraphQlApiUserPoolConfigDetailsTypeDef",
-    },
-    total=False,
-)
-
-AwsAppSyncGraphQlApiDetailsTypeDef = TypedDict(
-    "AwsAppSyncGraphQlApiDetailsTypeDef",
-    {
-        "ApiId": str,
-        "Id": str,
-        "OpenIdConnectConfig": "AwsAppSyncGraphQlApiOpenIdConnectConfigDetailsTypeDef",
-        "Name": str,
-        "LambdaAuthorizerConfig": "AwsAppSyncGraphQlApiLambdaAuthorizerConfigDetailsTypeDef",
-        "XrayEnabled": bool,
-        "Arn": str,
-        "UserPoolConfig": "AwsAppSyncGraphQlApiUserPoolConfigDetailsTypeDef",
-        "AuthenticationType": str,
-        "LogConfig": "AwsAppSyncGraphQlApiLogConfigDetailsTypeDef",
-        "AdditionalAuthenticationProviders": List[
-            "AwsAppSyncGraphQlApiAdditionalAuthenticationProvidersDetailsTypeDef"
-        ],
-        "WafWebAclArn": str,
-    },
-    total=False,
-)
-
-AwsAppSyncGraphQlApiLambdaAuthorizerConfigDetailsTypeDef = TypedDict(
-    "AwsAppSyncGraphQlApiLambdaAuthorizerConfigDetailsTypeDef",
-    {
-        "AuthorizerResultTtlInSeconds": int,
-        "AuthorizerUri": str,
-        "IdentityValidationExpression": str,
-    },
-    total=False,
-)
-
-AwsAppSyncGraphQlApiLogConfigDetailsTypeDef = TypedDict(
-    "AwsAppSyncGraphQlApiLogConfigDetailsTypeDef",
-    {
-        "CloudWatchLogsRoleArn": str,
-        "ExcludeVerboseContent": bool,
-        "FieldLogLevel": str,
-    },
-    total=False,
-)
-
-AwsAppSyncGraphQlApiOpenIdConnectConfigDetailsTypeDef = TypedDict(
-    "AwsAppSyncGraphQlApiOpenIdConnectConfigDetailsTypeDef",
-    {
-        "AuthTtL": int,
-        "ClientId": str,
-        "IatTtL": int,
-        "Issuer": str,
-    },
-    total=False,
-)
-
-AwsAppSyncGraphQlApiUserPoolConfigDetailsTypeDef = TypedDict(
-    "AwsAppSyncGraphQlApiUserPoolConfigDetailsTypeDef",
-    {
-        "AppIdClientRegex": str,
-        "AwsRegion": str,
-        "DefaultAction": str,
-        "UserPoolId": str,
-    },
-    total=False,
-)
-
-AwsAthenaWorkGroupConfigurationDetailsTypeDef = TypedDict(
-    "AwsAthenaWorkGroupConfigurationDetailsTypeDef",
-    {
-        "ResultConfiguration": "AwsAthenaWorkGroupConfigurationResultConfigurationDetailsTypeDef",
-    },
-    total=False,
-)
-
-AwsAthenaWorkGroupConfigurationResultConfigurationDetailsTypeDef = TypedDict(
-    "AwsAthenaWorkGroupConfigurationResultConfigurationDetailsTypeDef",
-    {
-        "EncryptionConfiguration": "AwsAthenaWorkGroupConfigurationResultConfigurationEncryptionConfigurationDetailsTypeDef",
-    },
-    total=False,
-)
-
-AwsAthenaWorkGroupConfigurationResultConfigurationEncryptionConfigurationDetailsTypeDef = TypedDict(
-    "AwsAthenaWorkGroupConfigurationResultConfigurationEncryptionConfigurationDetailsTypeDef",
-    {
-        "EncryptionOption": str,
-        "KmsKey": str,
-    },
-    total=False,
-)
-
-AwsAthenaWorkGroupDetailsTypeDef = TypedDict(
-    "AwsAthenaWorkGroupDetailsTypeDef",
-    {
-        "Name": str,
-        "Description": str,
-        "State": str,
-        "Configuration": "AwsAthenaWorkGroupConfigurationDetailsTypeDef",
-    },
-    total=False,
-)
-
-AwsAutoScalingAutoScalingGroupAvailabilityZonesListDetailsTypeDef = TypedDict(
-    "AwsAutoScalingAutoScalingGroupAvailabilityZonesListDetailsTypeDef",
-    {
-        "Value": str,
-    },
-    total=False,
-)
-
-AwsAutoScalingAutoScalingGroupDetailsTypeDef = TypedDict(
-    "AwsAutoScalingAutoScalingGroupDetailsTypeDef",
-    {
-        "LaunchConfigurationName": str,
-        "LoadBalancerNames": List[str],
-        "HealthCheckType": str,
-        "HealthCheckGracePeriod": int,
-        "CreatedTime": str,
-        "MixedInstancesPolicy": "AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetailsTypeDef",
-        "AvailabilityZones": List[
-            "AwsAutoScalingAutoScalingGroupAvailabilityZonesListDetailsTypeDef"
-        ],
-        "LaunchTemplate": "AwsAutoScalingAutoScalingGroupLaunchTemplateLaunchTemplateSpecificationTypeDef",
-        "CapacityRebalance": bool,
-    },
-    total=False,
-)
-
-AwsAutoScalingAutoScalingGroupLaunchTemplateLaunchTemplateSpecificationTypeDef = TypedDict(
-    "AwsAutoScalingAutoScalingGroupLaunchTemplateLaunchTemplateSpecificationTypeDef",
-    {
-        "LaunchTemplateId": str,
-        "LaunchTemplateName": str,
-        "Version": str,
-    },
-    total=False,
-)
-
-AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetailsTypeDef = TypedDict(
-    "AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetailsTypeDef",
-    {
-        "InstancesDistribution": "AwsAutoScalingAutoScalingGroupMixedInstancesPolicyInstancesDistributionDetailsTypeDef",
-        "LaunchTemplate": "AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateDetailsTypeDef",
-    },
-    total=False,
-)
-
-AwsAutoScalingAutoScalingGroupMixedInstancesPolicyInstancesDistributionDetailsTypeDef = TypedDict(
-    "AwsAutoScalingAutoScalingGroupMixedInstancesPolicyInstancesDistributionDetailsTypeDef",
-    {
-        "OnDemandAllocationStrategy": str,
-        "OnDemandBaseCapacity": int,
-        "OnDemandPercentageAboveBaseCapacity": int,
-        "SpotAllocationStrategy": str,
-        "SpotInstancePools": int,
-        "SpotMaxPrice": str,
-    },
-    total=False,
-)
-
-AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateDetailsTypeDef = TypedDict(
-    "AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateDetailsTypeDef",
-    {
-        "LaunchTemplateSpecification": "AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationTypeDef",
-        "Overrides": List[
-            "AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateOverridesListDetailsTypeDef"
-        ],
-    },
-    total=False,
-)
-
-AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationTypeDef = TypedDict(
-    "AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationTypeDef",
-    {
-        "LaunchTemplateId": str,
-        "LaunchTemplateName": str,
-        "Version": str,
-    },
-    total=False,
-)
-
-AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateOverridesListDetailsTypeDef = TypedDict(
-    "AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateOverridesListDetailsTypeDef",
-    {
-        "InstanceType": str,
-        "WeightedCapacity": str,
-    },
-    total=False,
-)
-
-AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetailsTypeDef = TypedDict(
-    "AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetailsTypeDef",
-    {
-        "DeviceName": str,
-        "Ebs": "AwsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetailsTypeDef",
-        "NoDevice": bool,
-        "VirtualName": str,
-    },
-    total=False,
-)
-
-AwsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetailsTypeDef = TypedDict(
-    "AwsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetailsTypeDef",
-    {
-        "DeleteOnTermination": bool,
-        "Encrypted": bool,
-        "Iops": int,
-        "SnapshotId": str,
-        "VolumeSize": int,
-        "VolumeType": str,
-    },
-    total=False,
-)
-
-AwsAutoScalingLaunchConfigurationDetailsTypeDef = TypedDict(
-    "AwsAutoScalingLaunchConfigurationDetailsTypeDef",
-    {
-        "AssociatePublicIpAddress": bool,
-        "BlockDeviceMappings": List[
-            "AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetailsTypeDef"
-        ],
-        "ClassicLinkVpcId": str,
-        "ClassicLinkVpcSecurityGroups": List[str],
-        "CreatedTime": str,
-        "EbsOptimized": bool,
-        "IamInstanceProfile": str,
-        "ImageId": str,
-        "InstanceMonitoring": "AwsAutoScalingLaunchConfigurationInstanceMonitoringDetailsTypeDef",
-        "InstanceType": str,
-        "KernelId": str,
-        "KeyName": str,
-        "LaunchConfigurationName": str,
-        "PlacementTenancy": str,
-        "RamdiskId": str,
-        "SecurityGroups": List[str],
-        "SpotPrice": str,
-        "UserData": str,
-        "MetadataOptions": "AwsAutoScalingLaunchConfigurationMetadataOptionsTypeDef",
-    },
-    total=False,
-)
-
-AwsAutoScalingLaunchConfigurationInstanceMonitoringDetailsTypeDef = TypedDict(
-    "AwsAutoScalingLaunchConfigurationInstanceMonitoringDetailsTypeDef",
-    {
-        "Enabled": bool,
-    },
-    total=False,
-)
-
-AwsAutoScalingLaunchConfigurationMetadataOptionsTypeDef = TypedDict(
-    "AwsAutoScalingLaunchConfigurationMetadataOptionsTypeDef",
-    {
-        "HttpEndpoint": str,
-        "HttpPutResponseHopLimit": int,
-        "HttpTokens": str,
-    },
-    total=False,
-)
-
-AwsBackupBackupPlanAdvancedBackupSettingsDetailsTypeDef = TypedDict(
-    "AwsBackupBackupPlanAdvancedBackupSettingsDetailsTypeDef",
-    {
-        "BackupOptions": Dict[str, str],
-        "ResourceType": str,
-    },
-    total=False,
-)
-
-AwsBackupBackupPlanBackupPlanDetailsTypeDef = TypedDict(
-    "AwsBackupBackupPlanBackupPlanDetailsTypeDef",
-    {
-        "BackupPlanName": str,
-        "AdvancedBackupSettings": List["AwsBackupBackupPlanAdvancedBackupSettingsDetailsTypeDef"],
-        "BackupPlanRule": List["AwsBackupBackupPlanRuleDetailsTypeDef"],
-    },
-    total=False,
-)
-
-AwsBackupBackupPlanDetailsTypeDef = TypedDict(
-    "AwsBackupBackupPlanDetailsTypeDef",
-    {
-        "BackupPlan": "AwsBackupBackupPlanBackupPlanDetailsTypeDef",
-        "BackupPlanArn": str,
-        "BackupPlanId": str,
-        "VersionId": str,
-    },
-    total=False,
-)
-
-AwsBackupBackupPlanLifecycleDetailsTypeDef = TypedDict(
-    "AwsBackupBackupPlanLifecycleDetailsTypeDef",
-    {
-        "DeleteAfterDays": int,
-        "MoveToColdStorageAfterDays": int,
-    },
-    total=False,
-)
-
-AwsBackupBackupPlanRuleCopyActionsDetailsTypeDef = TypedDict(
-    "AwsBackupBackupPlanRuleCopyActionsDetailsTypeDef",
-    {
-        "DestinationBackupVaultArn": str,
-        "Lifecycle": "AwsBackupBackupPlanLifecycleDetailsTypeDef",
-    },
-    total=False,
-)
-
-AwsBackupBackupPlanRuleDetailsTypeDef = TypedDict(
-    "AwsBackupBackupPlanRuleDetailsTypeDef",
-    {
-        "TargetBackupVault": str,
-        "StartWindowMinutes": int,
-        "ScheduleExpression": str,
-        "RuleName": str,
-        "RuleId": str,
-        "EnableContinuousBackup": bool,
-        "CompletionWindowMinutes": int,
-        "CopyActions": List["AwsBackupBackupPlanRuleCopyActionsDetailsTypeDef"],
-        "Lifecycle": "AwsBackupBackupPlanLifecycleDetailsTypeDef",
-    },
-    total=False,
-)
-
-AwsBackupBackupVaultDetailsTypeDef = TypedDict(
-    "AwsBackupBackupVaultDetailsTypeDef",
-    {
-        "BackupVaultArn": str,
-        "BackupVaultName": str,
-        "EncryptionKeyArn": str,
-        "Notifications": "AwsBackupBackupVaultNotificationsDetailsTypeDef",
-        "AccessPolicy": str,
-    },
-    total=False,
-)
-
-AwsBackupBackupVaultNotificationsDetailsTypeDef = TypedDict(
-    "AwsBackupBackupVaultNotificationsDetailsTypeDef",
-    {
-        "BackupVaultEvents": List[str],
-        "SnsTopicArn": str,
-    },
-    total=False,
-)
-
-AwsBackupRecoveryPointCalculatedLifecycleDetailsTypeDef = TypedDict(
-    "AwsBackupRecoveryPointCalculatedLifecycleDetailsTypeDef",
-    {
-        "DeleteAt": str,
-        "MoveToColdStorageAt": str,
-    },
-    total=False,
-)
-
-AwsBackupRecoveryPointCreatedByDetailsTypeDef = TypedDict(
-    "AwsBackupRecoveryPointCreatedByDetailsTypeDef",
-    {
-        "BackupPlanArn": str,
-        "BackupPlanId": str,
-        "BackupPlanVersion": str,
-        "BackupRuleId": str,
-    },
-    total=False,
-)
-
-AwsBackupRecoveryPointDetailsTypeDef = TypedDict(
-    "AwsBackupRecoveryPointDetailsTypeDef",
-    {
-        "BackupSizeInBytes": int,
-        "BackupVaultArn": str,
-        "BackupVaultName": str,
-        "CalculatedLifecycle": "AwsBackupRecoveryPointCalculatedLifecycleDetailsTypeDef",
-        "CompletionDate": str,
-        "CreatedBy": "AwsBackupRecoveryPointCreatedByDetailsTypeDef",
-        "CreationDate": str,
-        "EncryptionKeyArn": str,
-        "IamRoleArn": str,
-        "IsEncrypted": bool,
-        "LastRestoreTime": str,
-        "Lifecycle": "AwsBackupRecoveryPointLifecycleDetailsTypeDef",
-        "RecoveryPointArn": str,
-        "ResourceArn": str,
-        "ResourceType": str,
-        "SourceBackupVaultArn": str,
-        "Status": str,
-        "StatusMessage": str,
-        "StorageClass": str,
-    },
-    total=False,
-)
-
-AwsBackupRecoveryPointLifecycleDetailsTypeDef = TypedDict(
-    "AwsBackupRecoveryPointLifecycleDetailsTypeDef",
-    {
-        "DeleteAfterDays": int,
-        "MoveToColdStorageAfterDays": int,
-    },
-    total=False,
-)
-
-AwsCertificateManagerCertificateDetailsTypeDef = TypedDict(
-    "AwsCertificateManagerCertificateDetailsTypeDef",
-    {
-        "CertificateAuthorityArn": str,
-        "CreatedAt": str,
-        "DomainName": str,
-        "DomainValidationOptions": List[
-            "AwsCertificateManagerCertificateDomainValidationOptionTypeDef"
-        ],
-        "ExtendedKeyUsages": List["AwsCertificateManagerCertificateExtendedKeyUsageTypeDef"],
-        "FailureReason": str,
-        "ImportedAt": str,
-        "InUseBy": List[str],
-        "IssuedAt": str,
-        "Issuer": str,
-        "KeyAlgorithm": str,
-        "KeyUsages": List["AwsCertificateManagerCertificateKeyUsageTypeDef"],
-        "NotAfter": str,
-        "NotBefore": str,
-        "Options": "AwsCertificateManagerCertificateOptionsTypeDef",
-        "RenewalEligibility": str,
-        "RenewalSummary": "AwsCertificateManagerCertificateRenewalSummaryTypeDef",
-        "Serial": str,
-        "SignatureAlgorithm": str,
-        "Status": str,
-        "Subject": str,
-        "SubjectAlternativeNames": List[str],
-        "Type": str,
-    },
-    total=False,
-)
-
-AwsCertificateManagerCertificateDomainValidationOptionTypeDef = TypedDict(
-    "AwsCertificateManagerCertificateDomainValidationOptionTypeDef",
-    {
-        "DomainName": str,
-        "ResourceRecord": "AwsCertificateManagerCertificateResourceRecordTypeDef",
-        "ValidationDomain": str,
-        "ValidationEmails": List[str],
-        "ValidationMethod": str,
-        "ValidationStatus": str,
-    },
-    total=False,
-)
-
-AwsCertificateManagerCertificateExtendedKeyUsageTypeDef = TypedDict(
-    "AwsCertificateManagerCertificateExtendedKeyUsageTypeDef",
-    {
-        "Name": str,
-        "OId": str,
-    },
-    total=False,
-)
-
-AwsCertificateManagerCertificateKeyUsageTypeDef = TypedDict(
-    "AwsCertificateManagerCertificateKeyUsageTypeDef",
-    {
-        "Name": str,
-    },
-    total=False,
-)
-
-AwsCertificateManagerCertificateOptionsTypeDef = TypedDict(
-    "AwsCertificateManagerCertificateOptionsTypeDef",
-    {
-        "CertificateTransparencyLoggingPreference": str,
-    },
-    total=False,
-)
-
-AwsCertificateManagerCertificateRenewalSummaryTypeDef = TypedDict(
-    "AwsCertificateManagerCertificateRenewalSummaryTypeDef",
-    {
-        "DomainValidationOptions": List[
-            "AwsCertificateManagerCertificateDomainValidationOptionTypeDef"
-        ],
-        "RenewalStatus": str,
-        "RenewalStatusReason": str,
-        "UpdatedAt": str,
-    },
-    total=False,
-)
-
-AwsCertificateManagerCertificateResourceRecordTypeDef = TypedDict(
-    "AwsCertificateManagerCertificateResourceRecordTypeDef",
-    {
-        "Name": str,
-        "Type": str,
-        "Value": str,
-    },
-    total=False,
-)
-
-AwsCloudFormationStackDetailsTypeDef = TypedDict(
-    "AwsCloudFormationStackDetailsTypeDef",
-    {
-        "Capabilities": List[str],
-        "CreationTime": str,
-        "Description": str,
-        "DisableRollback": bool,
-        "DriftInformation": "AwsCloudFormationStackDriftInformationDetailsTypeDef",
-        "EnableTerminationProtection": bool,
-        "LastUpdatedTime": str,
-        "NotificationArns": List[str],
-        "Outputs": List["AwsCloudFormationStackOutputsDetailsTypeDef"],
-        "RoleArn": str,
-        "StackId": str,
-        "StackName": str,
-        "StackStatus": str,
-        "StackStatusReason": str,
-        "TimeoutInMinutes": int,
-    },
-    total=False,
-)
-
-AwsCloudFormationStackDriftInformationDetailsTypeDef = TypedDict(
-    "AwsCloudFormationStackDriftInformationDetailsTypeDef",
-    {
-        "StackDriftStatus": str,
-    },
-    total=False,
-)
-
-AwsCloudFormationStackOutputsDetailsTypeDef = TypedDict(
-    "AwsCloudFormationStackOutputsDetailsTypeDef",
-    {
-        "Description": str,
-        "OutputKey": str,
-        "OutputValue": str,
-    },
-    total=False,
-)
-
-AwsCloudFrontDistributionCacheBehaviorTypeDef = TypedDict(
-    "AwsCloudFrontDistributionCacheBehaviorTypeDef",
-    {
-        "ViewerProtocolPolicy": str,
-    },
-    total=False,
-)
-
-AwsCloudFrontDistributionCacheBehaviorsTypeDef = TypedDict(
-    "AwsCloudFrontDistributionCacheBehaviorsTypeDef",
-    {
-        "Items": List["AwsCloudFrontDistributionCacheBehaviorTypeDef"],
-    },
-    total=False,
-)
-
-AwsCloudFrontDistributionDefaultCacheBehaviorTypeDef = TypedDict(
-    "AwsCloudFrontDistributionDefaultCacheBehaviorTypeDef",
-    {
-        "ViewerProtocolPolicy": str,
-    },
-    total=False,
-)
-
-AwsCloudFrontDistributionDetailsTypeDef = TypedDict(
-    "AwsCloudFrontDistributionDetailsTypeDef",
-    {
-        "CacheBehaviors": "AwsCloudFrontDistributionCacheBehaviorsTypeDef",
-        "DefaultCacheBehavior": "AwsCloudFrontDistributionDefaultCacheBehaviorTypeDef",
-        "DefaultRootObject": str,
-        "DomainName": str,
-        "ETag": str,
-        "LastModifiedTime": str,
-        "Logging": "AwsCloudFrontDistributionLoggingTypeDef",
-        "Origins": "AwsCloudFrontDistributionOriginsTypeDef",
-        "OriginGroups": "AwsCloudFrontDistributionOriginGroupsTypeDef",
-        "ViewerCertificate": "AwsCloudFrontDistributionViewerCertificateTypeDef",
-        "Status": str,
-        "WebAclId": str,
-    },
-    total=False,
-)
-
-AwsCloudFrontDistributionLoggingTypeDef = TypedDict(
-    "AwsCloudFrontDistributionLoggingTypeDef",
-    {
-        "Bucket": str,
-        "Enabled": bool,
-        "IncludeCookies": bool,
-        "Prefix": str,
-    },
-    total=False,
-)
-
-AwsCloudFrontDistributionOriginCustomOriginConfigTypeDef = TypedDict(
-    "AwsCloudFrontDistributionOriginCustomOriginConfigTypeDef",
-    {
-        "HttpPort": int,
-        "HttpsPort": int,
-        "OriginKeepaliveTimeout": int,
-        "OriginProtocolPolicy": str,
-        "OriginReadTimeout": int,
-        "OriginSslProtocols": "AwsCloudFrontDistributionOriginSslProtocolsTypeDef",
-    },
-    total=False,
-)
-
-AwsCloudFrontDistributionOriginGroupFailoverStatusCodesTypeDef = TypedDict(
-    "AwsCloudFrontDistributionOriginGroupFailoverStatusCodesTypeDef",
-    {
-        "Items": List[int],
-        "Quantity": int,
-    },
-    total=False,
-)
-
-AwsCloudFrontDistributionOriginGroupFailoverTypeDef = TypedDict(
-    "AwsCloudFrontDistributionOriginGroupFailoverTypeDef",
-    {
-        "StatusCodes": "AwsCloudFrontDistributionOriginGroupFailoverStatusCodesTypeDef",
-    },
-    total=False,
-)
-
-AwsCloudFrontDistributionOriginGroupTypeDef = TypedDict(
-    "AwsCloudFrontDistributionOriginGroupTypeDef",
-    {
-        "FailoverCriteria": "AwsCloudFrontDistributionOriginGroupFailoverTypeDef",
-    },
-    total=False,
-)
-
-AwsCloudFrontDistributionOriginGroupsTypeDef = TypedDict(
-    "AwsCloudFrontDistributionOriginGroupsTypeDef",
-    {
-        "Items": List["AwsCloudFrontDistributionOriginGroupTypeDef"],
-    },
-    total=False,
-)
-
-AwsCloudFrontDistributionOriginItemTypeDef = TypedDict(
-    "AwsCloudFrontDistributionOriginItemTypeDef",
-    {
-        "DomainName": str,
-        "Id": str,
-        "OriginPath": str,
-        "S3OriginConfig": "AwsCloudFrontDistributionOriginS3OriginConfigTypeDef",
-        "CustomOriginConfig": "AwsCloudFrontDistributionOriginCustomOriginConfigTypeDef",
-    },
-    total=False,
-)
-
-AwsCloudFrontDistributionOriginS3OriginConfigTypeDef = TypedDict(
-    "AwsCloudFrontDistributionOriginS3OriginConfigTypeDef",
-    {
-        "OriginAccessIdentity": str,
-    },
-    total=False,
-)
-
-AwsCloudFrontDistributionOriginSslProtocolsTypeDef = TypedDict(
-    "AwsCloudFrontDistributionOriginSslProtocolsTypeDef",
-    {
-        "Items": List[str],
-        "Quantity": int,
-    },
-    total=False,
-)
-
-AwsCloudFrontDistributionOriginsTypeDef = TypedDict(
-    "AwsCloudFrontDistributionOriginsTypeDef",
-    {
-        "Items": List["AwsCloudFrontDistributionOriginItemTypeDef"],
-    },
-    total=False,
-)
-
-AwsCloudFrontDistributionViewerCertificateTypeDef = TypedDict(
-    "AwsCloudFrontDistributionViewerCertificateTypeDef",
-    {
-        "AcmCertificateArn": str,
-        "Certificate": str,
-        "CertificateSource": str,
-        "CloudFrontDefaultCertificate": bool,
-        "IamCertificateId": str,
-        "MinimumProtocolVersion": str,
-        "SslSupportMethod": str,
-    },
-    total=False,
-)
-
-AwsCloudTrailTrailDetailsTypeDef = TypedDict(
-    "AwsCloudTrailTrailDetailsTypeDef",
-    {
-        "CloudWatchLogsLogGroupArn": str,
-        "CloudWatchLogsRoleArn": str,
-        "HasCustomEventSelectors": bool,
-        "HomeRegion": str,
-        "IncludeGlobalServiceEvents": bool,
-        "IsMultiRegionTrail": bool,
-        "IsOrganizationTrail": bool,
-        "KmsKeyId": str,
-        "LogFileValidationEnabled": bool,
-        "Name": str,
-        "S3BucketName": str,
-        "S3KeyPrefix": str,
-        "SnsTopicArn": str,
-        "SnsTopicName": str,
-        "TrailArn": str,
-    },
-    total=False,
-)
-
-AwsCloudWatchAlarmDetailsTypeDef = TypedDict(
-    "AwsCloudWatchAlarmDetailsTypeDef",
-    {
-        "ActionsEnabled": bool,
-        "AlarmActions": List[str],
-        "AlarmArn": str,
-        "AlarmConfigurationUpdatedTimestamp": str,
-        "AlarmDescription": str,
-        "AlarmName": str,
-        "ComparisonOperator": str,
-        "DatapointsToAlarm": int,
-        "Dimensions": List["AwsCloudWatchAlarmDimensionsDetailsTypeDef"],
-        "EvaluateLowSampleCountPercentile": str,
-        "EvaluationPeriods": int,
-        "ExtendedStatistic": str,
-        "InsufficientDataActions": List[str],
-        "MetricName": str,
-        "Namespace": str,
-        "OkActions": List[str],
-        "Period": int,
-        "Statistic": str,
-        "Threshold": float,
-        "ThresholdMetricId": str,
-        "TreatMissingData": str,
-        "Unit": str,
-    },
-    total=False,
-)
-
-AwsCloudWatchAlarmDimensionsDetailsTypeDef = TypedDict(
-    "AwsCloudWatchAlarmDimensionsDetailsTypeDef",
-    {
-        "Name": str,
-        "Value": str,
-    },
-    total=False,
-)
-
-AwsCodeBuildProjectArtifactsDetailsTypeDef = TypedDict(
-    "AwsCodeBuildProjectArtifactsDetailsTypeDef",
-    {
-        "ArtifactIdentifier": str,
-        "EncryptionDisabled": bool,
-        "Location": str,
-        "Name": str,
-        "NamespaceType": str,
-        "OverrideArtifactName": bool,
-        "Packaging": str,
-        "Path": str,
-        "Type": str,
-    },
-    total=False,
-)
-
-AwsCodeBuildProjectDetailsTypeDef = TypedDict(
-    "AwsCodeBuildProjectDetailsTypeDef",
-    {
-        "EncryptionKey": str,
-        "Artifacts": List["AwsCodeBuildProjectArtifactsDetailsTypeDef"],
-        "Environment": "AwsCodeBuildProjectEnvironmentTypeDef",
-        "Name": str,
-        "Source": "AwsCodeBuildProjectSourceTypeDef",
-        "ServiceRole": str,
-        "LogsConfig": "AwsCodeBuildProjectLogsConfigDetailsTypeDef",
-        "VpcConfig": "AwsCodeBuildProjectVpcConfigTypeDef",
-        "SecondaryArtifacts": List["AwsCodeBuildProjectArtifactsDetailsTypeDef"],
-    },
-    total=False,
-)
-
-AwsCodeBuildProjectEnvironmentEnvironmentVariablesDetailsTypeDef = TypedDict(
-    "AwsCodeBuildProjectEnvironmentEnvironmentVariablesDetailsTypeDef",
-    {
-        "Name": str,
-        "Type": str,
-        "Value": str,
-    },
-    total=False,
-)
-
-AwsCodeBuildProjectEnvironmentRegistryCredentialTypeDef = TypedDict(
-    "AwsCodeBuildProjectEnvironmentRegistryCredentialTypeDef",
-    {
-        "Credential": str,
-        "CredentialProvider": str,
-    },
-    total=False,
-)
-
-AwsCodeBuildProjectEnvironmentTypeDef = TypedDict(
-    "AwsCodeBuildProjectEnvironmentTypeDef",
-    {
-        "Certificate": str,
-        "EnvironmentVariables": List[
-            "AwsCodeBuildProjectEnvironmentEnvironmentVariablesDetailsTypeDef"
-        ],
-        "PrivilegedMode": bool,
-        "ImagePullCredentialsType": str,
-        "RegistryCredential": "AwsCodeBuildProjectEnvironmentRegistryCredentialTypeDef",
-        "Type": str,
-    },
-    total=False,
-)
-
-AwsCodeBuildProjectLogsConfigCloudWatchLogsDetailsTypeDef = TypedDict(
-    "AwsCodeBuildProjectLogsConfigCloudWatchLogsDetailsTypeDef",
-    {
-        "GroupName": str,
-        "Status": str,
-        "StreamName": str,
-    },
-    total=False,
-)
-
-AwsCodeBuildProjectLogsConfigDetailsTypeDef = TypedDict(
-    "AwsCodeBuildProjectLogsConfigDetailsTypeDef",
-    {
-        "CloudWatchLogs": "AwsCodeBuildProjectLogsConfigCloudWatchLogsDetailsTypeDef",
-        "S3Logs": "AwsCodeBuildProjectLogsConfigS3LogsDetailsTypeDef",
-    },
-    total=False,
-)
-
-AwsCodeBuildProjectLogsConfigS3LogsDetailsTypeDef = TypedDict(
-    "AwsCodeBuildProjectLogsConfigS3LogsDetailsTypeDef",
-    {
-        "EncryptionDisabled": bool,
-        "Location": str,
-        "Status": str,
-    },
-    total=False,
-)
-
-AwsCodeBuildProjectSourceTypeDef = TypedDict(
-    "AwsCodeBuildProjectSourceTypeDef",
-    {
-        "Type": str,
-        "Location": str,
-        "GitCloneDepth": int,
-        "InsecureSsl": bool,
-    },
-    total=False,
-)
-
-AwsCodeBuildProjectVpcConfigTypeDef = TypedDict(
-    "AwsCodeBuildProjectVpcConfigTypeDef",
-    {
-        "VpcId": str,
-        "Subnets": List[str],
-        "SecurityGroupIds": List[str],
-    },
-    total=False,
-)
-
-AwsCorsConfigurationTypeDef = TypedDict(
-    "AwsCorsConfigurationTypeDef",
-    {
-        "AllowOrigins": List[str],
-        "AllowCredentials": bool,
-        "ExposeHeaders": List[str],
-        "MaxAge": int,
-        "AllowMethods": List[str],
-        "AllowHeaders": List[str],
-    },
-    total=False,
-)
-
-AwsDmsEndpointDetailsTypeDef = TypedDict(
-    "AwsDmsEndpointDetailsTypeDef",
-    {
-        "CertificateArn": str,
-        "DatabaseName": str,
-        "EndpointArn": str,
-        "EndpointIdentifier": str,
-        "EndpointType": str,
-        "EngineName": str,
-        "ExternalId": str,
-        "ExtraConnectionAttributes": str,
-        "KmsKeyId": str,
-        "Port": int,
-        "ServerName": str,
-        "SslMode": str,
-        "Username": str,
-    },
-    total=False,
-)
-
-AwsDmsReplicationInstanceDetailsTypeDef = TypedDict(
-    "AwsDmsReplicationInstanceDetailsTypeDef",
-    {
-        "AllocatedStorage": int,
-        "AutoMinorVersionUpgrade": bool,
-        "AvailabilityZone": str,
-        "EngineVersion": str,
-        "KmsKeyId": str,
-        "MultiAZ": bool,
-        "PreferredMaintenanceWindow": str,
-        "PubliclyAccessible": bool,
-        "ReplicationInstanceClass": str,
-        "ReplicationInstanceIdentifier": str,
-        "ReplicationSubnetGroup": "AwsDmsReplicationInstanceReplicationSubnetGroupDetailsTypeDef",
-        "VpcSecurityGroups": List["AwsDmsReplicationInstanceVpcSecurityGroupsDetailsTypeDef"],
-    },
-    total=False,
-)
-
-AwsDmsReplicationInstanceReplicationSubnetGroupDetailsTypeDef = TypedDict(
-    "AwsDmsReplicationInstanceReplicationSubnetGroupDetailsTypeDef",
-    {
-        "ReplicationSubnetGroupIdentifier": str,
-    },
-    total=False,
-)
-
-AwsDmsReplicationInstanceVpcSecurityGroupsDetailsTypeDef = TypedDict(
-    "AwsDmsReplicationInstanceVpcSecurityGroupsDetailsTypeDef",
-    {
-        "VpcSecurityGroupId": str,
-    },
-    total=False,
-)
-
-AwsDmsReplicationTaskDetailsTypeDef = TypedDict(
-    "AwsDmsReplicationTaskDetailsTypeDef",
-    {
-        "CdcStartPosition": str,
-        "CdcStartTime": str,
-        "CdcStopPosition": str,
-        "MigrationType": str,
-        "Id": str,
-        "ResourceIdentifier": str,
-        "ReplicationInstanceArn": str,
-        "ReplicationTaskIdentifier": str,
-        "ReplicationTaskSettings": str,
-        "SourceEndpointArn": str,
-        "TableMappings": str,
-        "TargetEndpointArn": str,
-        "TaskData": str,
-    },
-    total=False,
-)
-
-AwsDynamoDbTableAttributeDefinitionTypeDef = TypedDict(
-    "AwsDynamoDbTableAttributeDefinitionTypeDef",
-    {
-        "AttributeName": str,
-        "AttributeType": str,
-    },
-    total=False,
-)
-
-AwsDynamoDbTableBillingModeSummaryTypeDef = TypedDict(
-    "AwsDynamoDbTableBillingModeSummaryTypeDef",
-    {
-        "BillingMode": str,
-        "LastUpdateToPayPerRequestDateTime": str,
-    },
-    total=False,
-)
-
-AwsDynamoDbTableDetailsTypeDef = TypedDict(
-    "AwsDynamoDbTableDetailsTypeDef",
-    {
-        "AttributeDefinitions": List["AwsDynamoDbTableAttributeDefinitionTypeDef"],
-        "BillingModeSummary": "AwsDynamoDbTableBillingModeSummaryTypeDef",
-        "CreationDateTime": str,
-        "GlobalSecondaryIndexes": List["AwsDynamoDbTableGlobalSecondaryIndexTypeDef"],
-        "GlobalTableVersion": str,
-        "ItemCount": int,
-        "KeySchema": List["AwsDynamoDbTableKeySchemaTypeDef"],
-        "LatestStreamArn": str,
-        "LatestStreamLabel": str,
-        "LocalSecondaryIndexes": List["AwsDynamoDbTableLocalSecondaryIndexTypeDef"],
-        "ProvisionedThroughput": "AwsDynamoDbTableProvisionedThroughputTypeDef",
-        "Replicas": List["AwsDynamoDbTableReplicaTypeDef"],
-        "RestoreSummary": "AwsDynamoDbTableRestoreSummaryTypeDef",
-        "SseDescription": "AwsDynamoDbTableSseDescriptionTypeDef",
-        "StreamSpecification": "AwsDynamoDbTableStreamSpecificationTypeDef",
-        "TableId": str,
-        "TableName": str,
-        "TableSizeBytes": int,
-        "TableStatus": str,
-        "DeletionProtectionEnabled": bool,
-    },
-    total=False,
-)
-
-AwsDynamoDbTableGlobalSecondaryIndexTypeDef = TypedDict(
-    "AwsDynamoDbTableGlobalSecondaryIndexTypeDef",
-    {
-        "Backfilling": bool,
-        "IndexArn": str,
-        "IndexName": str,
-        "IndexSizeBytes": int,
-        "IndexStatus": str,
-        "ItemCount": int,
-        "KeySchema": List["AwsDynamoDbTableKeySchemaTypeDef"],
-        "Projection": "AwsDynamoDbTableProjectionTypeDef",
-        "ProvisionedThroughput": "AwsDynamoDbTableProvisionedThroughputTypeDef",
-    },
-    total=False,
-)
-
-AwsDynamoDbTableKeySchemaTypeDef = TypedDict(
-    "AwsDynamoDbTableKeySchemaTypeDef",
-    {
-        "AttributeName": str,
-        "KeyType": str,
-    },
-    total=False,
-)
-
-AwsDynamoDbTableLocalSecondaryIndexTypeDef = TypedDict(
-    "AwsDynamoDbTableLocalSecondaryIndexTypeDef",
-    {
-        "IndexArn": str,
-        "IndexName": str,
-        "KeySchema": List["AwsDynamoDbTableKeySchemaTypeDef"],
-        "Projection": "AwsDynamoDbTableProjectionTypeDef",
-    },
-    total=False,
-)
-
-AwsDynamoDbTableProjectionTypeDef = TypedDict(
-    "AwsDynamoDbTableProjectionTypeDef",
-    {
-        "NonKeyAttributes": List[str],
-        "ProjectionType": str,
-    },
-    total=False,
-)
-
-AwsDynamoDbTableProvisionedThroughputOverrideTypeDef = TypedDict(
-    "AwsDynamoDbTableProvisionedThroughputOverrideTypeDef",
-    {
-        "ReadCapacityUnits": int,
-    },
-    total=False,
-)
-
-AwsDynamoDbTableProvisionedThroughputTypeDef = TypedDict(
-    "AwsDynamoDbTableProvisionedThroughputTypeDef",
-    {
-        "LastDecreaseDateTime": str,
-        "LastIncreaseDateTime": str,
-        "NumberOfDecreasesToday": int,
-        "ReadCapacityUnits": int,
-        "WriteCapacityUnits": int,
-    },
-    total=False,
-)
-
-AwsDynamoDbTableReplicaGlobalSecondaryIndexTypeDef = TypedDict(
-    "AwsDynamoDbTableReplicaGlobalSecondaryIndexTypeDef",
-    {
-        "IndexName": str,
-        "ProvisionedThroughputOverride": "AwsDynamoDbTableProvisionedThroughputOverrideTypeDef",
-    },
-    total=False,
-)
-
-AwsDynamoDbTableReplicaTypeDef = TypedDict(
-    "AwsDynamoDbTableReplicaTypeDef",
-    {
-        "GlobalSecondaryIndexes": List["AwsDynamoDbTableReplicaGlobalSecondaryIndexTypeDef"],
-        "KmsMasterKeyId": str,
-        "ProvisionedThroughputOverride": "AwsDynamoDbTableProvisionedThroughputOverrideTypeDef",
-        "RegionName": str,
-        "ReplicaStatus": str,
-        "ReplicaStatusDescription": str,
-    },
-    total=False,
-)
-
-AwsDynamoDbTableRestoreSummaryTypeDef = TypedDict(
-    "AwsDynamoDbTableRestoreSummaryTypeDef",
-    {
-        "SourceBackupArn": str,
-        "SourceTableArn": str,
-        "RestoreDateTime": str,
-        "RestoreInProgress": bool,
-    },
-    total=False,
-)
-
-AwsDynamoDbTableSseDescriptionTypeDef = TypedDict(
-    "AwsDynamoDbTableSseDescriptionTypeDef",
-    {
-        "InaccessibleEncryptionDateTime": str,
-        "Status": str,
-        "SseType": str,
-        "KmsMasterKeyArn": str,
-    },
-    total=False,
-)
-
-AwsDynamoDbTableStreamSpecificationTypeDef = TypedDict(
-    "AwsDynamoDbTableStreamSpecificationTypeDef",
-    {
-        "StreamEnabled": bool,
-        "StreamViewType": str,
-    },
-    total=False,
-)
-
-AwsEc2ClientVpnEndpointAuthenticationOptionsActiveDirectoryDetailsTypeDef = TypedDict(
-    "AwsEc2ClientVpnEndpointAuthenticationOptionsActiveDirectoryDetailsTypeDef",
-    {
-        "DirectoryId": str,
-    },
-    total=False,
-)
-
-AwsEc2ClientVpnEndpointAuthenticationOptionsDetailsTypeDef = TypedDict(
-    "AwsEc2ClientVpnEndpointAuthenticationOptionsDetailsTypeDef",
-    {
-        "Type": str,
-        "ActiveDirectory": "AwsEc2ClientVpnEndpointAuthenticationOptionsActiveDirectoryDetailsTypeDef",
-        "MutualAuthentication": "AwsEc2ClientVpnEndpointAuthenticationOptionsMutualAuthenticationDetailsTypeDef",
-        "FederatedAuthentication": "AwsEc2ClientVpnEndpointAuthenticationOptionsFederatedAuthenticationDetailsTypeDef",
-    },
-    total=False,
-)
-
-AwsEc2ClientVpnEndpointAuthenticationOptionsFederatedAuthenticationDetailsTypeDef = TypedDict(
-    "AwsEc2ClientVpnEndpointAuthenticationOptionsFederatedAuthenticationDetailsTypeDef",
-    {
-        "SamlProviderArn": str,
-        "SelfServiceSamlProviderArn": str,
-    },
-    total=False,
-)
-
-AwsEc2ClientVpnEndpointAuthenticationOptionsMutualAuthenticationDetailsTypeDef = TypedDict(
-    "AwsEc2ClientVpnEndpointAuthenticationOptionsMutualAuthenticationDetailsTypeDef",
-    {
-        "ClientRootCertificateChain": str,
-    },
-    total=False,
-)
-
-AwsEc2ClientVpnEndpointClientConnectOptionsDetailsTypeDef = TypedDict(
-    "AwsEc2ClientVpnEndpointClientConnectOptionsDetailsTypeDef",
-    {
-        "Enabled": bool,
-        "LambdaFunctionArn": str,
-        "Status": "AwsEc2ClientVpnEndpointClientConnectOptionsStatusDetailsTypeDef",
-    },
-    total=False,
-)
-
-AwsEc2ClientVpnEndpointClientConnectOptionsStatusDetailsTypeDef = TypedDict(
-    "AwsEc2ClientVpnEndpointClientConnectOptionsStatusDetailsTypeDef",
-    {
-        "Code": str,
-        "Message": str,
-    },
-    total=False,
-)
-
-AwsEc2ClientVpnEndpointClientLoginBannerOptionsDetailsTypeDef = TypedDict(
-    "AwsEc2ClientVpnEndpointClientLoginBannerOptionsDetailsTypeDef",
-    {
-        "Enabled": bool,
-        "BannerText": str,
-    },
-    total=False,
-)
-
-AwsEc2ClientVpnEndpointConnectionLogOptionsDetailsTypeDef = TypedDict(
-    "AwsEc2ClientVpnEndpointConnectionLogOptionsDetailsTypeDef",
-    {
-        "Enabled": bool,
-        "CloudwatchLogGroup": str,
-        "CloudwatchLogStream": str,
-    },
-    total=False,
-)
-
-AwsEc2ClientVpnEndpointDetailsTypeDef = TypedDict(
-    "AwsEc2ClientVpnEndpointDetailsTypeDef",
-    {
-        "ClientVpnEndpointId": str,
-        "Description": str,
-        "ClientCidrBlock": str,
-        "DnsServer": List[str],
-        "SplitTunnel": bool,
-        "TransportProtocol": str,
-        "VpnPort": int,
-        "ServerCertificateArn": str,
-        "AuthenticationOptions": List["AwsEc2ClientVpnEndpointAuthenticationOptionsDetailsTypeDef"],
-        "ConnectionLogOptions": "AwsEc2ClientVpnEndpointConnectionLogOptionsDetailsTypeDef",
-        "SecurityGroupIdSet": List[str],
-        "VpcId": str,
-        "SelfServicePortalUrl": str,
-        "ClientConnectOptions": "AwsEc2ClientVpnEndpointClientConnectOptionsDetailsTypeDef",
-        "SessionTimeoutHours": int,
-        "ClientLoginBannerOptions": "AwsEc2ClientVpnEndpointClientLoginBannerOptionsDetailsTypeDef",
-    },
-    total=False,
-)
-
-AwsEc2EipDetailsTypeDef = TypedDict(
-    "AwsEc2EipDetailsTypeDef",
-    {
-        "InstanceId": str,
-        "PublicIp": str,
-        "AllocationId": str,
-        "AssociationId": str,
-        "Domain": str,
-        "PublicIpv4Pool": str,
-        "NetworkBorderGroup": str,
-        "NetworkInterfaceId": str,
-        "NetworkInterfaceOwnerId": str,
-        "PrivateIpAddress": str,
-    },
-    total=False,
-)
-
-AwsEc2InstanceDetailsTypeDef = TypedDict(
-    "AwsEc2InstanceDetailsTypeDef",
-    {
-        "Type": str,
-        "ImageId": str,
-        "IpV4Addresses": List[str],
-        "IpV6Addresses": List[str],
-        "KeyName": str,
-        "IamInstanceProfileArn": str,
-        "VpcId": str,
-        "SubnetId": str,
-        "LaunchedAt": str,
-        "NetworkInterfaces": List["AwsEc2InstanceNetworkInterfacesDetailsTypeDef"],
-        "VirtualizationType": str,
-        "MetadataOptions": "AwsEc2InstanceMetadataOptionsTypeDef",
-        "Monitoring": "AwsEc2InstanceMonitoringDetailsTypeDef",
-    },
-    total=False,
-)
-
-AwsEc2InstanceMetadataOptionsTypeDef = TypedDict(
-    "AwsEc2InstanceMetadataOptionsTypeDef",
-    {
-        "HttpEndpoint": str,
-        "HttpProtocolIpv6": str,
-        "HttpPutResponseHopLimit": int,
-        "HttpTokens": str,
-        "InstanceMetadataTags": str,
-    },
-    total=False,
-)
-
-AwsEc2InstanceMonitoringDetailsTypeDef = TypedDict(
-    "AwsEc2InstanceMonitoringDetailsTypeDef",
-    {
-        "State": str,
-    },
-    total=False,
-)
-
-AwsEc2InstanceNetworkInterfacesDetailsTypeDef = TypedDict(
-    "AwsEc2InstanceNetworkInterfacesDetailsTypeDef",
-    {
-        "NetworkInterfaceId": str,
-    },
-    total=False,
-)
-
-AwsEc2LaunchTemplateDataBlockDeviceMappingSetDetailsTypeDef = TypedDict(
-    "AwsEc2LaunchTemplateDataBlockDeviceMappingSetDetailsTypeDef",
-    {
-        "DeviceName": str,
-        "Ebs": "AwsEc2LaunchTemplateDataBlockDeviceMappingSetEbsDetailsTypeDef",
-        "NoDevice": str,
-        "VirtualName": str,
-    },
-    total=False,
-)
-
-AwsEc2LaunchTemplateDataBlockDeviceMappingSetEbsDetailsTypeDef = TypedDict(
-    "AwsEc2LaunchTemplateDataBlockDeviceMappingSetEbsDetailsTypeDef",
-    {
-        "DeleteOnTermination": bool,
-        "Encrypted": bool,
-        "Iops": int,
-        "KmsKeyId": str,
-        "SnapshotId": str,
-        "Throughput": int,
-        "VolumeSize": int,
-        "VolumeType": str,
-    },
-    total=False,
-)
-
-AwsEc2LaunchTemplateDataCapacityReservationSpecificationCapacityReservationTargetDetailsTypeDef = TypedDict(
-    "AwsEc2LaunchTemplateDataCapacityReservationSpecificationCapacityReservationTargetDetailsTypeDef",
-    {
-        "CapacityReservationId": str,
-        "CapacityReservationResourceGroupArn": str,
-    },
-    total=False,
-)
-
-AwsEc2LaunchTemplateDataCapacityReservationSpecificationDetailsTypeDef = TypedDict(
-    "AwsEc2LaunchTemplateDataCapacityReservationSpecificationDetailsTypeDef",
-    {
-        "CapacityReservationPreference": str,
-        "CapacityReservationTarget": "AwsEc2LaunchTemplateDataCapacityReservationSpecificationCapacityReservationTargetDetailsTypeDef",
-    },
-    total=False,
-)
-
-AwsEc2LaunchTemplateDataCpuOptionsDetailsTypeDef = TypedDict(
-    "AwsEc2LaunchTemplateDataCpuOptionsDetailsTypeDef",
-    {
-        "CoreCount": int,
-        "ThreadsPerCore": int,
-    },
-    total=False,
-)
-
-AwsEc2LaunchTemplateDataCreditSpecificationDetailsTypeDef = TypedDict(
-    "AwsEc2LaunchTemplateDataCreditSpecificationDetailsTypeDef",
-    {
-        "CpuCredits": str,
-    },
-    total=False,
-)
-
-AwsEc2LaunchTemplateDataDetailsTypeDef = TypedDict(
-    "AwsEc2LaunchTemplateDataDetailsTypeDef",
-    {
-        "BlockDeviceMappingSet": List[
-            "AwsEc2LaunchTemplateDataBlockDeviceMappingSetDetailsTypeDef"
-        ],
-        "CapacityReservationSpecification": "AwsEc2LaunchTemplateDataCapacityReservationSpecificationDetailsTypeDef",
-        "CpuOptions": "AwsEc2LaunchTemplateDataCpuOptionsDetailsTypeDef",
-        "CreditSpecification": "AwsEc2LaunchTemplateDataCreditSpecificationDetailsTypeDef",
-        "DisableApiStop": bool,
-        "DisableApiTermination": bool,
-        "EbsOptimized": bool,
-        "ElasticGpuSpecificationSet": List[
-            "AwsEc2LaunchTemplateDataElasticGpuSpecificationSetDetailsTypeDef"
-        ],
-        "ElasticInferenceAcceleratorSet": List[
-            "AwsEc2LaunchTemplateDataElasticInferenceAcceleratorSetDetailsTypeDef"
-        ],
-        "EnclaveOptions": "AwsEc2LaunchTemplateDataEnclaveOptionsDetailsTypeDef",
-        "HibernationOptions": "AwsEc2LaunchTemplateDataHibernationOptionsDetailsTypeDef",
-        "IamInstanceProfile": "AwsEc2LaunchTemplateDataIamInstanceProfileDetailsTypeDef",
-        "ImageId": str,
-        "InstanceInitiatedShutdownBehavior": str,
-        "InstanceMarketOptions": "AwsEc2LaunchTemplateDataInstanceMarketOptionsDetailsTypeDef",
-        "InstanceRequirements": "AwsEc2LaunchTemplateDataInstanceRequirementsDetailsTypeDef",
-        "InstanceType": str,
-        "KernelId": str,
-        "KeyName": str,
-        "LicenseSet": List["AwsEc2LaunchTemplateDataLicenseSetDetailsTypeDef"],
-        "MaintenanceOptions": "AwsEc2LaunchTemplateDataMaintenanceOptionsDetailsTypeDef",
-        "MetadataOptions": "AwsEc2LaunchTemplateDataMetadataOptionsDetailsTypeDef",
-        "Monitoring": "AwsEc2LaunchTemplateDataMonitoringDetailsTypeDef",
-        "NetworkInterfaceSet": List["AwsEc2LaunchTemplateDataNetworkInterfaceSetDetailsTypeDef"],
-        "Placement": "AwsEc2LaunchTemplateDataPlacementDetailsTypeDef",
-        "PrivateDnsNameOptions": "AwsEc2LaunchTemplateDataPrivateDnsNameOptionsDetailsTypeDef",
-        "RamDiskId": str,
-        "SecurityGroupIdSet": List[str],
-        "SecurityGroupSet": List[str],
-        "UserData": str,
-    },
-    total=False,
-)
-
-AwsEc2LaunchTemplateDataElasticGpuSpecificationSetDetailsTypeDef = TypedDict(
-    "AwsEc2LaunchTemplateDataElasticGpuSpecificationSetDetailsTypeDef",
-    {
-        "Type": str,
-    },
-    total=False,
-)
-
-AwsEc2LaunchTemplateDataElasticInferenceAcceleratorSetDetailsTypeDef = TypedDict(
-    "AwsEc2LaunchTemplateDataElasticInferenceAcceleratorSetDetailsTypeDef",
-    {
-        "Count": int,
-        "Type": str,
-    },
-    total=False,
-)
-
-AwsEc2LaunchTemplateDataEnclaveOptionsDetailsTypeDef = TypedDict(
-    "AwsEc2LaunchTemplateDataEnclaveOptionsDetailsTypeDef",
-    {
-        "Enabled": bool,
-    },
-    total=False,
-)
-
-AwsEc2LaunchTemplateDataHibernationOptionsDetailsTypeDef = TypedDict(
-    "AwsEc2LaunchTemplateDataHibernationOptionsDetailsTypeDef",
-    {
-        "Configured": bool,
-    },
-    total=False,
-)
-
-AwsEc2LaunchTemplateDataIamInstanceProfileDetailsTypeDef = TypedDict(
-    "AwsEc2LaunchTemplateDataIamInstanceProfileDetailsTypeDef",
-    {
-        "Arn": str,
-        "Name": str,
-    },
-    total=False,
-)
-
-AwsEc2LaunchTemplateDataInstanceMarketOptionsDetailsTypeDef = TypedDict(
-    "AwsEc2LaunchTemplateDataInstanceMarketOptionsDetailsTypeDef",
-    {
-        "MarketType": str,
-        "SpotOptions": "AwsEc2LaunchTemplateDataInstanceMarketOptionsSpotOptionsDetailsTypeDef",
-    },
-    total=False,
-)
-
-AwsEc2LaunchTemplateDataInstanceMarketOptionsSpotOptionsDetailsTypeDef = TypedDict(
-    "AwsEc2LaunchTemplateDataInstanceMarketOptionsSpotOptionsDetailsTypeDef",
-    {
-        "BlockDurationMinutes": int,
-        "InstanceInterruptionBehavior": str,
-        "MaxPrice": str,
-        "SpotInstanceType": str,
-        "ValidUntil": str,
-    },
-    total=False,
-)
-
-AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorCountDetailsTypeDef = TypedDict(
-    "AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorCountDetailsTypeDef",
-    {
-        "Max": int,
-        "Min": int,
-    },
-    total=False,
-)
-
-AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorTotalMemoryMiBDetailsTypeDef = TypedDict(
-    "AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorTotalMemoryMiBDetailsTypeDef",
-    {
-        "Max": int,
-        "Min": int,
-    },
-    total=False,
-)
-
-AwsEc2LaunchTemplateDataInstanceRequirementsBaselineEbsBandwidthMbpsDetailsTypeDef = TypedDict(
-    "AwsEc2LaunchTemplateDataInstanceRequirementsBaselineEbsBandwidthMbpsDetailsTypeDef",
-    {
-        "Max": int,
-        "Min": int,
-    },
-    total=False,
-)
-
-AwsEc2LaunchTemplateDataInstanceRequirementsDetailsTypeDef = TypedDict(
-    "AwsEc2LaunchTemplateDataInstanceRequirementsDetailsTypeDef",
-    {
-        "AcceleratorCount": "AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorCountDetailsTypeDef",
-        "AcceleratorManufacturers": List[str],
-        "AcceleratorNames": List[str],
-        "AcceleratorTotalMemoryMiB": "AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorTotalMemoryMiBDetailsTypeDef",
-        "AcceleratorTypes": List[str],
-        "BareMetal": str,
-        "BaselineEbsBandwidthMbps": "AwsEc2LaunchTemplateDataInstanceRequirementsBaselineEbsBandwidthMbpsDetailsTypeDef",
-        "BurstablePerformance": str,
-        "CpuManufacturers": List[str],
-        "ExcludedInstanceTypes": List[str],
-        "InstanceGenerations": List[str],
-        "LocalStorage": str,
-        "LocalStorageTypes": List[str],
-        "MemoryGiBPerVCpu": "AwsEc2LaunchTemplateDataInstanceRequirementsMemoryGiBPerVCpuDetailsTypeDef",
-        "MemoryMiB": "AwsEc2LaunchTemplateDataInstanceRequirementsMemoryMiBDetailsTypeDef",
-        "NetworkInterfaceCount": "AwsEc2LaunchTemplateDataInstanceRequirementsNetworkInterfaceCountDetailsTypeDef",
-        "OnDemandMaxPricePercentageOverLowestPrice": int,
-        "RequireHibernateSupport": bool,
-        "SpotMaxPricePercentageOverLowestPrice": int,
-        "TotalLocalStorageGB": "AwsEc2LaunchTemplateDataInstanceRequirementsTotalLocalStorageGBDetailsTypeDef",
-        "VCpuCount": "AwsEc2LaunchTemplateDataInstanceRequirementsVCpuCountDetailsTypeDef",
-    },
-    total=False,
-)
-
-AwsEc2LaunchTemplateDataInstanceRequirementsMemoryGiBPerVCpuDetailsTypeDef = TypedDict(
-    "AwsEc2LaunchTemplateDataInstanceRequirementsMemoryGiBPerVCpuDetailsTypeDef",
-    {
-        "Max": float,
-        "Min": float,
-    },
-    total=False,
-)
-
-AwsEc2LaunchTemplateDataInstanceRequirementsMemoryMiBDetailsTypeDef = TypedDict(
-    "AwsEc2LaunchTemplateDataInstanceRequirementsMemoryMiBDetailsTypeDef",
-    {
-        "Max": int,
-        "Min": int,
-    },
-    total=False,
-)
-
-AwsEc2LaunchTemplateDataInstanceRequirementsNetworkInterfaceCountDetailsTypeDef = TypedDict(
-    "AwsEc2LaunchTemplateDataInstanceRequirementsNetworkInterfaceCountDetailsTypeDef",
-    {
-        "Max": int,
-        "Min": int,
-    },
-    total=False,
-)
-
-AwsEc2LaunchTemplateDataInstanceRequirementsTotalLocalStorageGBDetailsTypeDef = TypedDict(
-    "AwsEc2LaunchTemplateDataInstanceRequirementsTotalLocalStorageGBDetailsTypeDef",
-    {
-        "Max": float,
-        "Min": float,
-    },
-    total=False,
-)
-
-AwsEc2LaunchTemplateDataInstanceRequirementsVCpuCountDetailsTypeDef = TypedDict(
-    "AwsEc2LaunchTemplateDataInstanceRequirementsVCpuCountDetailsTypeDef",
-    {
-        "Max": int,
-        "Min": int,
-    },
-    total=False,
-)
-
-AwsEc2LaunchTemplateDataLicenseSetDetailsTypeDef = TypedDict(
-    "AwsEc2LaunchTemplateDataLicenseSetDetailsTypeDef",
-    {
-        "LicenseConfigurationArn": str,
-    },
-    total=False,
-)
-
-AwsEc2LaunchTemplateDataMaintenanceOptionsDetailsTypeDef = TypedDict(
-    "AwsEc2LaunchTemplateDataMaintenanceOptionsDetailsTypeDef",
-    {
-        "AutoRecovery": str,
-    },
-    total=False,
-)
-
-AwsEc2LaunchTemplateDataMetadataOptionsDetailsTypeDef = TypedDict(
-    "AwsEc2LaunchTemplateDataMetadataOptionsDetailsTypeDef",
-    {
-        "HttpEndpoint": str,
-        "HttpProtocolIpv6": str,
-        "HttpTokens": str,
-        "HttpPutResponseHopLimit": int,
-        "InstanceMetadataTags": str,
-    },
-    total=False,
-)
-
-AwsEc2LaunchTemplateDataMonitoringDetailsTypeDef = TypedDict(
-    "AwsEc2LaunchTemplateDataMonitoringDetailsTypeDef",
-    {
-        "Enabled": bool,
-    },
-    total=False,
-)
-
-AwsEc2LaunchTemplateDataNetworkInterfaceSetDetailsTypeDef = TypedDict(
-    "AwsEc2LaunchTemplateDataNetworkInterfaceSetDetailsTypeDef",
-    {
-        "AssociateCarrierIpAddress": bool,
-        "AssociatePublicIpAddress": bool,
-        "DeleteOnTermination": bool,
-        "Description": str,
-        "DeviceIndex": int,
-        "Groups": List[str],
-        "InterfaceType": str,
-        "Ipv4PrefixCount": int,
-        "Ipv4Prefixes": List[
-            "AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv4PrefixesDetailsTypeDef"
-        ],
-        "Ipv6AddressCount": int,
-        "Ipv6Addresses": List[
-            "AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6AddressesDetailsTypeDef"
-        ],
-        "Ipv6PrefixCount": int,
-        "Ipv6Prefixes": List[
-            "AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6PrefixesDetailsTypeDef"
-        ],
-        "NetworkCardIndex": int,
-        "NetworkInterfaceId": str,
-        "PrivateIpAddress": str,
-        "PrivateIpAddresses": List[
-            "AwsEc2LaunchTemplateDataNetworkInterfaceSetPrivateIpAddressesDetailsTypeDef"
-        ],
-        "SecondaryPrivateIpAddressCount": int,
-        "SubnetId": str,
-    },
-    total=False,
-)
-
-AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv4PrefixesDetailsTypeDef = TypedDict(
-    "AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv4PrefixesDetailsTypeDef",
-    {
-        "Ipv4Prefix": str,
-    },
-    total=False,
-)
-
-AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6AddressesDetailsTypeDef = TypedDict(
-    "AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6AddressesDetailsTypeDef",
-    {
-        "Ipv6Address": str,
-    },
-    total=False,
-)
-
-AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6PrefixesDetailsTypeDef = TypedDict(
-    "AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6PrefixesDetailsTypeDef",
-    {
-        "Ipv6Prefix": str,
-    },
-    total=False,
-)
-
-AwsEc2LaunchTemplateDataNetworkInterfaceSetPrivateIpAddressesDetailsTypeDef = TypedDict(
-    "AwsEc2LaunchTemplateDataNetworkInterfaceSetPrivateIpAddressesDetailsTypeDef",
-    {
-        "Primary": bool,
-        "PrivateIpAddress": str,
-    },
-    total=False,
-)
-
-AwsEc2LaunchTemplateDataPlacementDetailsTypeDef = TypedDict(
-    "AwsEc2LaunchTemplateDataPlacementDetailsTypeDef",
-    {
-        "Affinity": str,
-        "AvailabilityZone": str,
-        "GroupName": str,
-        "HostId": str,
-        "HostResourceGroupArn": str,
-        "PartitionNumber": int,
-        "SpreadDomain": str,
-        "Tenancy": str,
-    },
-    total=False,
-)
-
-AwsEc2LaunchTemplateDataPrivateDnsNameOptionsDetailsTypeDef = TypedDict(
-    "AwsEc2LaunchTemplateDataPrivateDnsNameOptionsDetailsTypeDef",
-    {
-        "EnableResourceNameDnsAAAARecord": bool,
-        "EnableResourceNameDnsARecord": bool,
-        "HostnameType": str,
-    },
-    total=False,
-)
-
-AwsEc2LaunchTemplateDetailsTypeDef = TypedDict(
-    "AwsEc2LaunchTemplateDetailsTypeDef",
-    {
-        "LaunchTemplateName": str,
-        "Id": str,
-        "LaunchTemplateData": "AwsEc2LaunchTemplateDataDetailsTypeDef",
-        "DefaultVersionNumber": int,
-        "LatestVersionNumber": int,
-    },
-    total=False,
-)
-
-AwsEc2NetworkAclAssociationTypeDef = TypedDict(
-    "AwsEc2NetworkAclAssociationTypeDef",
-    {
-        "NetworkAclAssociationId": str,
-        "NetworkAclId": str,
-        "SubnetId": str,
-    },
-    total=False,
-)
-
-AwsEc2NetworkAclDetailsTypeDef = TypedDict(
-    "AwsEc2NetworkAclDetailsTypeDef",
-    {
-        "IsDefault": bool,
-        "NetworkAclId": str,
-        "OwnerId": str,
-        "VpcId": str,
-        "Associations": List["AwsEc2NetworkAclAssociationTypeDef"],
-        "Entries": List["AwsEc2NetworkAclEntryTypeDef"],
-    },
-    total=False,
-)
-
-AwsEc2NetworkAclEntryTypeDef = TypedDict(
-    "AwsEc2NetworkAclEntryTypeDef",
-    {
-        "CidrBlock": str,
-        "Egress": bool,
-        "IcmpTypeCode": "IcmpTypeCodeTypeDef",
-        "Ipv6CidrBlock": str,
-        "PortRange": "PortRangeFromToTypeDef",
-        "Protocol": str,
-        "RuleAction": str,
-        "RuleNumber": int,
-    },
-    total=False,
-)
-
-AwsEc2NetworkInterfaceAttachmentTypeDef = TypedDict(
-    "AwsEc2NetworkInterfaceAttachmentTypeDef",
-    {
-        "AttachTime": str,
-        "AttachmentId": str,
-        "DeleteOnTermination": bool,
-        "DeviceIndex": int,
-        "InstanceId": str,
-        "InstanceOwnerId": str,
-        "Status": str,
-    },
-    total=False,
-)
-
-AwsEc2NetworkInterfaceDetailsTypeDef = TypedDict(
-    "AwsEc2NetworkInterfaceDetailsTypeDef",
-    {
-        "Attachment": "AwsEc2NetworkInterfaceAttachmentTypeDef",
-        "NetworkInterfaceId": str,
-        "SecurityGroups": List["AwsEc2NetworkInterfaceSecurityGroupTypeDef"],
-        "SourceDestCheck": bool,
-        "IpV6Addresses": List["AwsEc2NetworkInterfaceIpV6AddressDetailTypeDef"],
-        "PrivateIpAddresses": List["AwsEc2NetworkInterfacePrivateIpAddressDetailTypeDef"],
-        "PublicDnsName": str,
-        "PublicIp": str,
-    },
-    total=False,
-)
-
-AwsEc2NetworkInterfaceIpV6AddressDetailTypeDef = TypedDict(
-    "AwsEc2NetworkInterfaceIpV6AddressDetailTypeDef",
-    {
-        "IpV6Address": str,
-    },
-    total=False,
-)
-
-AwsEc2NetworkInterfacePrivateIpAddressDetailTypeDef = TypedDict(
-    "AwsEc2NetworkInterfacePrivateIpAddressDetailTypeDef",
-    {
-        "PrivateIpAddress": str,
-        "PrivateDnsName": str,
-    },
-    total=False,
-)
-
-AwsEc2NetworkInterfaceSecurityGroupTypeDef = TypedDict(
-    "AwsEc2NetworkInterfaceSecurityGroupTypeDef",
-    {
-        "GroupName": str,
-        "GroupId": str,
-    },
-    total=False,
-)
-
-AwsEc2RouteTableDetailsTypeDef = TypedDict(
-    "AwsEc2RouteTableDetailsTypeDef",
-    {
-        "AssociationSet": List["AssociationSetDetailsTypeDef"],
-        "OwnerId": str,
-        "PropagatingVgwSet": List["PropagatingVgwSetDetailsTypeDef"],
-        "RouteTableId": str,
-        "RouteSet": List["RouteSetDetailsTypeDef"],
-        "VpcId": str,
-    },
-    total=False,
-)
-
-AwsEc2SecurityGroupDetailsTypeDef = TypedDict(
-    "AwsEc2SecurityGroupDetailsTypeDef",
-    {
-        "GroupName": str,
-        "GroupId": str,
-        "OwnerId": str,
-        "VpcId": str,
-        "IpPermissions": List["AwsEc2SecurityGroupIpPermissionTypeDef"],
-        "IpPermissionsEgress": List["AwsEc2SecurityGroupIpPermissionTypeDef"],
-    },
-    total=False,
-)
-
-AwsEc2SecurityGroupIpPermissionTypeDef = TypedDict(
-    "AwsEc2SecurityGroupIpPermissionTypeDef",
-    {
-        "IpProtocol": str,
-        "FromPort": int,
-        "ToPort": int,
-        "UserIdGroupPairs": List["AwsEc2SecurityGroupUserIdGroupPairTypeDef"],
-        "IpRanges": List["AwsEc2SecurityGroupIpRangeTypeDef"],
-        "Ipv6Ranges": List["AwsEc2SecurityGroupIpv6RangeTypeDef"],
-        "PrefixListIds": List["AwsEc2SecurityGroupPrefixListIdTypeDef"],
-    },
-    total=False,
-)
-
-AwsEc2SecurityGroupIpRangeTypeDef = TypedDict(
-    "AwsEc2SecurityGroupIpRangeTypeDef",
-    {
-        "CidrIp": str,
-    },
-    total=False,
-)
-
-AwsEc2SecurityGroupIpv6RangeTypeDef = TypedDict(
-    "AwsEc2SecurityGroupIpv6RangeTypeDef",
-    {
-        "CidrIpv6": str,
-    },
-    total=False,
-)
-
-AwsEc2SecurityGroupPrefixListIdTypeDef = TypedDict(
-    "AwsEc2SecurityGroupPrefixListIdTypeDef",
-    {
-        "PrefixListId": str,
-    },
-    total=False,
-)
-
-AwsEc2SecurityGroupUserIdGroupPairTypeDef = TypedDict(
-    "AwsEc2SecurityGroupUserIdGroupPairTypeDef",
-    {
-        "GroupId": str,
-        "GroupName": str,
-        "PeeringStatus": str,
-        "UserId": str,
-        "VpcId": str,
-        "VpcPeeringConnectionId": str,
-    },
-    total=False,
-)
-
-AwsEc2SubnetDetailsTypeDef = TypedDict(
-    "AwsEc2SubnetDetailsTypeDef",
-    {
-        "AssignIpv6AddressOnCreation": bool,
-        "AvailabilityZone": str,
-        "AvailabilityZoneId": str,
-        "AvailableIpAddressCount": int,
-        "CidrBlock": str,
-        "DefaultForAz": bool,
-        "MapPublicIpOnLaunch": bool,
-        "OwnerId": str,
-        "State": str,
-        "SubnetArn": str,
-        "SubnetId": str,
-        "VpcId": str,
-        "Ipv6CidrBlockAssociationSet": List["Ipv6CidrBlockAssociationTypeDef"],
-    },
-    total=False,
-)
-
-AwsEc2TransitGatewayDetailsTypeDef = TypedDict(
-    "AwsEc2TransitGatewayDetailsTypeDef",
-    {
-        "Id": str,
-        "Description": str,
-        "DefaultRouteTablePropagation": str,
-        "AutoAcceptSharedAttachments": str,
-        "DefaultRouteTableAssociation": str,
-        "TransitGatewayCidrBlocks": List[str],
-        "AssociationDefaultRouteTableId": str,
-        "PropagationDefaultRouteTableId": str,
-        "VpnEcmpSupport": str,
-        "DnsSupport": str,
-        "MulticastSupport": str,
-        "AmazonSideAsn": int,
-    },
-    total=False,
-)
-
-AwsEc2VolumeAttachmentTypeDef = TypedDict(
-    "AwsEc2VolumeAttachmentTypeDef",
-    {
-        "AttachTime": str,
-        "DeleteOnTermination": bool,
-        "InstanceId": str,
-        "Status": str,
-    },
-    total=False,
-)
-
-AwsEc2VolumeDetailsTypeDef = TypedDict(
-    "AwsEc2VolumeDetailsTypeDef",
-    {
-        "CreateTime": str,
-        "DeviceName": str,
-        "Encrypted": bool,
-        "Size": int,
-        "SnapshotId": str,
-        "Status": str,
-        "KmsKeyId": str,
-        "Attachments": List["AwsEc2VolumeAttachmentTypeDef"],
-        "VolumeId": str,
-        "VolumeType": str,
-        "VolumeScanStatus": str,
-    },
-    total=False,
-)
-
-AwsEc2VpcDetailsTypeDef = TypedDict(
-    "AwsEc2VpcDetailsTypeDef",
-    {
-        "CidrBlockAssociationSet": List["CidrBlockAssociationTypeDef"],
-        "Ipv6CidrBlockAssociationSet": List["Ipv6CidrBlockAssociationTypeDef"],
-        "DhcpOptionsId": str,
-        "State": str,
-    },
-    total=False,
-)
-
-AwsEc2VpcEndpointServiceDetailsTypeDef = TypedDict(
-    "AwsEc2VpcEndpointServiceDetailsTypeDef",
-    {
-        "AcceptanceRequired": bool,
-        "AvailabilityZones": List[str],
-        "BaseEndpointDnsNames": List[str],
-        "ManagesVpcEndpoints": bool,
-        "GatewayLoadBalancerArns": List[str],
-        "NetworkLoadBalancerArns": List[str],
-        "PrivateDnsName": str,
-        "ServiceId": str,
-        "ServiceName": str,
-        "ServiceState": str,
-        "ServiceType": List["AwsEc2VpcEndpointServiceServiceTypeDetailsTypeDef"],
-    },
-    total=False,
-)
-
-AwsEc2VpcEndpointServiceServiceTypeDetailsTypeDef = TypedDict(
-    "AwsEc2VpcEndpointServiceServiceTypeDetailsTypeDef",
-    {
-        "ServiceType": str,
-    },
-    total=False,
-)
-
-AwsEc2VpcPeeringConnectionDetailsTypeDef = TypedDict(
-    "AwsEc2VpcPeeringConnectionDetailsTypeDef",
-    {
-        "AccepterVpcInfo": "AwsEc2VpcPeeringConnectionVpcInfoDetailsTypeDef",
-        "ExpirationTime": str,
-        "RequesterVpcInfo": "AwsEc2VpcPeeringConnectionVpcInfoDetailsTypeDef",
-        "Status": "AwsEc2VpcPeeringConnectionStatusDetailsTypeDef",
-        "VpcPeeringConnectionId": str,
-    },
-    total=False,
-)
-
-AwsEc2VpcPeeringConnectionStatusDetailsTypeDef = TypedDict(
-    "AwsEc2VpcPeeringConnectionStatusDetailsTypeDef",
-    {
-        "Code": str,
-        "Message": str,
-    },
-    total=False,
-)
-
-AwsEc2VpcPeeringConnectionVpcInfoDetailsTypeDef = TypedDict(
-    "AwsEc2VpcPeeringConnectionVpcInfoDetailsTypeDef",
-    {
-        "CidrBlock": str,
-        "CidrBlockSet": List["VpcInfoCidrBlockSetDetailsTypeDef"],
-        "Ipv6CidrBlockSet": List["VpcInfoIpv6CidrBlockSetDetailsTypeDef"],
-        "OwnerId": str,
-        "PeeringOptions": "VpcInfoPeeringOptionsDetailsTypeDef",
-        "Region": str,
-        "VpcId": str,
-    },
-    total=False,
-)
-
-AwsEc2VpnConnectionDetailsTypeDef = TypedDict(
-    "AwsEc2VpnConnectionDetailsTypeDef",
-    {
-        "VpnConnectionId": str,
-        "State": str,
-        "CustomerGatewayId": str,
-        "CustomerGatewayConfiguration": str,
-        "Type": str,
-        "VpnGatewayId": str,
-        "Category": str,
-        "VgwTelemetry": List["AwsEc2VpnConnectionVgwTelemetryDetailsTypeDef"],
-        "Options": "AwsEc2VpnConnectionOptionsDetailsTypeDef",
-        "Routes": List["AwsEc2VpnConnectionRoutesDetailsTypeDef"],
-        "TransitGatewayId": str,
-    },
-    total=False,
-)
-
-AwsEc2VpnConnectionOptionsDetailsTypeDef = TypedDict(
-    "AwsEc2VpnConnectionOptionsDetailsTypeDef",
-    {
-        "StaticRoutesOnly": bool,
-        "TunnelOptions": List["AwsEc2VpnConnectionOptionsTunnelOptionsDetailsTypeDef"],
-    },
-    total=False,
-)
-
-AwsEc2VpnConnectionOptionsTunnelOptionsDetailsTypeDef = TypedDict(
-    "AwsEc2VpnConnectionOptionsTunnelOptionsDetailsTypeDef",
-    {
-        "DpdTimeoutSeconds": int,
-        "IkeVersions": List[str],
-        "OutsideIpAddress": str,
-        "Phase1DhGroupNumbers": List[int],
-        "Phase1EncryptionAlgorithms": List[str],
-        "Phase1IntegrityAlgorithms": List[str],
-        "Phase1LifetimeSeconds": int,
-        "Phase2DhGroupNumbers": List[int],
-        "Phase2EncryptionAlgorithms": List[str],
-        "Phase2IntegrityAlgorithms": List[str],
-        "Phase2LifetimeSeconds": int,
-        "PreSharedKey": str,
-        "RekeyFuzzPercentage": int,
-        "RekeyMarginTimeSeconds": int,
-        "ReplayWindowSize": int,
-        "TunnelInsideCidr": str,
-    },
-    total=False,
-)
-
-AwsEc2VpnConnectionRoutesDetailsTypeDef = TypedDict(
-    "AwsEc2VpnConnectionRoutesDetailsTypeDef",
-    {
-        "DestinationCidrBlock": str,
-        "State": str,
-    },
-    total=False,
-)
-
-AwsEc2VpnConnectionVgwTelemetryDetailsTypeDef = TypedDict(
-    "AwsEc2VpnConnectionVgwTelemetryDetailsTypeDef",
-    {
-        "AcceptedRouteCount": int,
-        "CertificateArn": str,
-        "LastStatusChange": str,
-        "OutsideIpAddress": str,
-        "Status": str,
-        "StatusMessage": str,
-    },
-    total=False,
-)
-
-AwsEcrContainerImageDetailsTypeDef = TypedDict(
-    "AwsEcrContainerImageDetailsTypeDef",
-    {
-        "RegistryId": str,
-        "RepositoryName": str,
-        "Architecture": str,
-        "ImageDigest": str,
-        "ImageTags": List[str],
-        "ImagePublishedAt": str,
-    },
-    total=False,
-)
-
-AwsEcrRepositoryDetailsTypeDef = TypedDict(
-    "AwsEcrRepositoryDetailsTypeDef",
-    {
-        "Arn": str,
-        "ImageScanningConfiguration": "AwsEcrRepositoryImageScanningConfigurationDetailsTypeDef",
-        "ImageTagMutability": str,
-        "LifecyclePolicy": "AwsEcrRepositoryLifecyclePolicyDetailsTypeDef",
-        "RepositoryName": str,
-        "RepositoryPolicyText": str,
-    },
-    total=False,
-)
-
-AwsEcrRepositoryImageScanningConfigurationDetailsTypeDef = TypedDict(
-    "AwsEcrRepositoryImageScanningConfigurationDetailsTypeDef",
-    {
-        "ScanOnPush": bool,
-    },
-    total=False,
-)
-
-AwsEcrRepositoryLifecyclePolicyDetailsTypeDef = TypedDict(
-    "AwsEcrRepositoryLifecyclePolicyDetailsTypeDef",
-    {
-        "LifecyclePolicyText": str,
-        "RegistryId": str,
-    },
-    total=False,
-)
-
-AwsEcsClusterClusterSettingsDetailsTypeDef = TypedDict(
-    "AwsEcsClusterClusterSettingsDetailsTypeDef",
-    {
-        "Name": str,
-        "Value": str,
-    },
-    total=False,
-)
-
-AwsEcsClusterConfigurationDetailsTypeDef = TypedDict(
-    "AwsEcsClusterConfigurationDetailsTypeDef",
-    {
-        "ExecuteCommandConfiguration": "AwsEcsClusterConfigurationExecuteCommandConfigurationDetailsTypeDef",
-    },
-    total=False,
-)
-
-AwsEcsClusterConfigurationExecuteCommandConfigurationDetailsTypeDef = TypedDict(
-    "AwsEcsClusterConfigurationExecuteCommandConfigurationDetailsTypeDef",
-    {
-        "KmsKeyId": str,
-        "LogConfiguration": "AwsEcsClusterConfigurationExecuteCommandConfigurationLogConfigurationDetailsTypeDef",
-        "Logging": str,
-    },
-    total=False,
-)
-
-AwsEcsClusterConfigurationExecuteCommandConfigurationLogConfigurationDetailsTypeDef = TypedDict(
-    "AwsEcsClusterConfigurationExecuteCommandConfigurationLogConfigurationDetailsTypeDef",
-    {
-        "CloudWatchEncryptionEnabled": bool,
-        "CloudWatchLogGroupName": str,
-        "S3BucketName": str,
-        "S3EncryptionEnabled": bool,
-        "S3KeyPrefix": str,
-    },
-    total=False,
-)
-
-AwsEcsClusterDefaultCapacityProviderStrategyDetailsTypeDef = TypedDict(
-    "AwsEcsClusterDefaultCapacityProviderStrategyDetailsTypeDef",
-    {
-        "Base": int,
-        "CapacityProvider": str,
-        "Weight": int,
-    },
-    total=False,
-)
-
-AwsEcsClusterDetailsTypeDef = TypedDict(
-    "AwsEcsClusterDetailsTypeDef",
-    {
-        "ClusterArn": str,
-        "ActiveServicesCount": int,
-        "CapacityProviders": List[str],
-        "ClusterSettings": List["AwsEcsClusterClusterSettingsDetailsTypeDef"],
-        "Configuration": "AwsEcsClusterConfigurationDetailsTypeDef",
-        "DefaultCapacityProviderStrategy": List[
-            "AwsEcsClusterDefaultCapacityProviderStrategyDetailsTypeDef"
-        ],
-        "ClusterName": str,
-        "RegisteredContainerInstancesCount": int,
-        "RunningTasksCount": int,
-        "Status": str,
-    },
-    total=False,
-)
-
-AwsEcsContainerDetailsTypeDef = TypedDict(
-    "AwsEcsContainerDetailsTypeDef",
-    {
-        "Name": str,
-        "Image": str,
-        "MountPoints": List["AwsMountPointTypeDef"],
-        "Privileged": bool,
-    },
-    total=False,
-)
-
-AwsEcsServiceCapacityProviderStrategyDetailsTypeDef = TypedDict(
-    "AwsEcsServiceCapacityProviderStrategyDetailsTypeDef",
-    {
-        "Base": int,
-        "CapacityProvider": str,
-        "Weight": int,
-    },
-    total=False,
-)
-
-AwsEcsServiceDeploymentConfigurationDeploymentCircuitBreakerDetailsTypeDef = TypedDict(
-    "AwsEcsServiceDeploymentConfigurationDeploymentCircuitBreakerDetailsTypeDef",
-    {
-        "Enable": bool,
-        "Rollback": bool,
-    },
-    total=False,
-)
-
-AwsEcsServiceDeploymentConfigurationDetailsTypeDef = TypedDict(
-    "AwsEcsServiceDeploymentConfigurationDetailsTypeDef",
-    {
-        "DeploymentCircuitBreaker": "AwsEcsServiceDeploymentConfigurationDeploymentCircuitBreakerDetailsTypeDef",
-        "MaximumPercent": int,
-        "MinimumHealthyPercent": int,
-    },
-    total=False,
-)
-
-AwsEcsServiceDeploymentControllerDetailsTypeDef = TypedDict(
-    "AwsEcsServiceDeploymentControllerDetailsTypeDef",
-    {
-        "Type": str,
-    },
-    total=False,
-)
-
-AwsEcsServiceDetailsTypeDef = TypedDict(
-    "AwsEcsServiceDetailsTypeDef",
-    {
-        "CapacityProviderStrategy": List["AwsEcsServiceCapacityProviderStrategyDetailsTypeDef"],
-        "Cluster": str,
-        "DeploymentConfiguration": "AwsEcsServiceDeploymentConfigurationDetailsTypeDef",
-        "DeploymentController": "AwsEcsServiceDeploymentControllerDetailsTypeDef",
-        "DesiredCount": int,
-        "EnableEcsManagedTags": bool,
-        "EnableExecuteCommand": bool,
-        "HealthCheckGracePeriodSeconds": int,
-        "LaunchType": str,
-        "LoadBalancers": List["AwsEcsServiceLoadBalancersDetailsTypeDef"],
-        "Name": str,
-        "NetworkConfiguration": "AwsEcsServiceNetworkConfigurationDetailsTypeDef",
-        "PlacementConstraints": List["AwsEcsServicePlacementConstraintsDetailsTypeDef"],
-        "PlacementStrategies": List["AwsEcsServicePlacementStrategiesDetailsTypeDef"],
-        "PlatformVersion": str,
-        "PropagateTags": str,
-        "Role": str,
-        "SchedulingStrategy": str,
-        "ServiceArn": str,
-        "ServiceName": str,
-        "ServiceRegistries": List["AwsEcsServiceServiceRegistriesDetailsTypeDef"],
-        "TaskDefinition": str,
-    },
-    total=False,
-)
-
-AwsEcsServiceLoadBalancersDetailsTypeDef = TypedDict(
-    "AwsEcsServiceLoadBalancersDetailsTypeDef",
-    {
-        "ContainerName": str,
-        "ContainerPort": int,
-        "LoadBalancerName": str,
-        "TargetGroupArn": str,
-    },
-    total=False,
-)
-
-AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetailsTypeDef = TypedDict(
-    "AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetailsTypeDef",
-    {
-        "AssignPublicIp": str,
-        "SecurityGroups": List[str],
-        "Subnets": List[str],
-    },
-    total=False,
-)
-
-AwsEcsServiceNetworkConfigurationDetailsTypeDef = TypedDict(
-    "AwsEcsServiceNetworkConfigurationDetailsTypeDef",
-    {
-        "AwsVpcConfiguration": "AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetailsTypeDef",
-    },
-    total=False,
-)
-
-AwsEcsServicePlacementConstraintsDetailsTypeDef = TypedDict(
-    "AwsEcsServicePlacementConstraintsDetailsTypeDef",
-    {
-        "Expression": str,
-        "Type": str,
-    },
-    total=False,
-)
-
-AwsEcsServicePlacementStrategiesDetailsTypeDef = TypedDict(
-    "AwsEcsServicePlacementStrategiesDetailsTypeDef",
-    {
-        "Field": str,
-        "Type": str,
-    },
-    total=False,
-)
-
-AwsEcsServiceServiceRegistriesDetailsTypeDef = TypedDict(
-    "AwsEcsServiceServiceRegistriesDetailsTypeDef",
-    {
-        "ContainerName": str,
-        "ContainerPort": int,
-        "Port": int,
-        "RegistryArn": str,
-    },
-    total=False,
-)
-
-AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetailsTypeDef = TypedDict(
-    "AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetailsTypeDef",
-    {
-        "Condition": str,
-        "ContainerName": str,
-    },
-    total=False,
-)
-
-AwsEcsTaskDefinitionContainerDefinitionsDetailsTypeDef = TypedDict(
-    "AwsEcsTaskDefinitionContainerDefinitionsDetailsTypeDef",
-    {
-        "Command": List[str],
-        "Cpu": int,
-        "DependsOn": List["AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetailsTypeDef"],
-        "DisableNetworking": bool,
-        "DnsSearchDomains": List[str],
-        "DnsServers": List[str],
-        "DockerLabels": Dict[str, str],
-        "DockerSecurityOptions": List[str],
-        "EntryPoint": List[str],
-        "Environment": List["AwsEcsTaskDefinitionContainerDefinitionsEnvironmentDetailsTypeDef"],
-        "EnvironmentFiles": List[
-            "AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetailsTypeDef"
-        ],
-        "Essential": bool,
-        "ExtraHosts": List["AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetailsTypeDef"],
-        "FirelensConfiguration": "AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetailsTypeDef",
-        "HealthCheck": "AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetailsTypeDef",
-        "Hostname": str,
-        "Image": str,
-        "Interactive": bool,
-        "Links": List[str],
-        "LinuxParameters": "AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetailsTypeDef",
-        "LogConfiguration": "AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetailsTypeDef",
-        "Memory": int,
-        "MemoryReservation": int,
-        "MountPoints": List["AwsEcsTaskDefinitionContainerDefinitionsMountPointsDetailsTypeDef"],
-        "Name": str,
-        "PortMappings": List["AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetailsTypeDef"],
-        "Privileged": bool,
-        "PseudoTerminal": bool,
-        "ReadonlyRootFilesystem": bool,
-        "RepositoryCredentials": "AwsEcsTaskDefinitionContainerDefinitionsRepositoryCredentialsDetailsTypeDef",
-        "ResourceRequirements": List[
-            "AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetailsTypeDef"
-        ],
-        "Secrets": List["AwsEcsTaskDefinitionContainerDefinitionsSecretsDetailsTypeDef"],
-        "StartTimeout": int,
-        "StopTimeout": int,
-        "SystemControls": List[
-            "AwsEcsTaskDefinitionContainerDefinitionsSystemControlsDetailsTypeDef"
-        ],
-        "Ulimits": List["AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetailsTypeDef"],
-        "User": str,
-        "VolumesFrom": List["AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetailsTypeDef"],
-        "WorkingDirectory": str,
-    },
-    total=False,
-)
-
-AwsEcsTaskDefinitionContainerDefinitionsEnvironmentDetailsTypeDef = TypedDict(
-    "AwsEcsTaskDefinitionContainerDefinitionsEnvironmentDetailsTypeDef",
-    {
-        "Name": str,
-        "Value": str,
-    },
-    total=False,
-)
-
-AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetailsTypeDef = TypedDict(
-    "AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetailsTypeDef",
-    {
-        "Type": str,
-        "Value": str,
-    },
-    total=False,
-)
-
-AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetailsTypeDef = TypedDict(
-    "AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetailsTypeDef",
-    {
-        "Hostname": str,
-        "IpAddress": str,
-    },
-    total=False,
-)
-
-AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetailsTypeDef = TypedDict(
-    "AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetailsTypeDef",
-    {
-        "Options": Dict[str, str],
-        "Type": str,
-    },
-    total=False,
-)
-
-AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetailsTypeDef = TypedDict(
-    "AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetailsTypeDef",
-    {
-        "Command": List[str],
-        "Interval": int,
-        "Retries": int,
-        "StartPeriod": int,
-        "Timeout": int,
-    },
-    total=False,
-)
-
-AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetailsTypeDef = TypedDict(
-    "AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetailsTypeDef",
-    {
-        "Add": List[str],
-        "Drop": List[str],
-    },
-    total=False,
-)
-
-AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetailsTypeDef = TypedDict(
-    "AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetailsTypeDef",
-    {
-        "Capabilities": "AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetailsTypeDef",
-        "Devices": List[
-            "AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetailsTypeDef"
-        ],
-        "InitProcessEnabled": bool,
-        "MaxSwap": int,
-        "SharedMemorySize": int,
-        "Swappiness": int,
-        "Tmpfs": List["AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetailsTypeDef"],
-    },
-    total=False,
-)
-
-AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetailsTypeDef = TypedDict(
-    "AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetailsTypeDef",
-    {
-        "ContainerPath": str,
-        "HostPath": str,
-        "Permissions": List[str],
-    },
-    total=False,
-)
-
-AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetailsTypeDef = TypedDict(
-    "AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetailsTypeDef",
-    {
-        "ContainerPath": str,
-        "MountOptions": List[str],
-        "Size": int,
-    },
-    total=False,
-)
-
-AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetailsTypeDef = TypedDict(
-    "AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetailsTypeDef",
-    {
-        "LogDriver": str,
-        "Options": Dict[str, str],
-        "SecretOptions": List[
-            "AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsDetailsTypeDef"
-        ],
-    },
-    total=False,
-)
-
-AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsDetailsTypeDef = TypedDict(
-    "AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsDetailsTypeDef",
-    {
-        "Name": str,
-        "ValueFrom": str,
-    },
-    total=False,
-)
-
-AwsEcsTaskDefinitionContainerDefinitionsMountPointsDetailsTypeDef = TypedDict(
-    "AwsEcsTaskDefinitionContainerDefinitionsMountPointsDetailsTypeDef",
-    {
-        "ContainerPath": str,
-        "ReadOnly": bool,
-        "SourceVolume": str,
-    },
-    total=False,
-)
-
-AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetailsTypeDef = TypedDict(
-    "AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetailsTypeDef",
-    {
-        "ContainerPort": int,
-        "HostPort": int,
-        "Protocol": str,
-    },
-    total=False,
-)
-
-AwsEcsTaskDefinitionContainerDefinitionsRepositoryCredentialsDetailsTypeDef = TypedDict(
-    "AwsEcsTaskDefinitionContainerDefinitionsRepositoryCredentialsDetailsTypeDef",
-    {
-        "CredentialsParameter": str,
-    },
-    total=False,
-)
-
-AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetailsTypeDef = TypedDict(
-    "AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetailsTypeDef",
-    {
-        "Type": str,
-        "Value": str,
-    },
-    total=False,
-)
-
-AwsEcsTaskDefinitionContainerDefinitionsSecretsDetailsTypeDef = TypedDict(
-    "AwsEcsTaskDefinitionContainerDefinitionsSecretsDetailsTypeDef",
-    {
-        "Name": str,
-        "ValueFrom": str,
-    },
-    total=False,
-)
-
-AwsEcsTaskDefinitionContainerDefinitionsSystemControlsDetailsTypeDef = TypedDict(
-    "AwsEcsTaskDefinitionContainerDefinitionsSystemControlsDetailsTypeDef",
-    {
-        "Namespace": str,
-        "Value": str,
-    },
-    total=False,
-)
-
-AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetailsTypeDef = TypedDict(
-    "AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetailsTypeDef",
-    {
-        "HardLimit": int,
-        "Name": str,
-        "SoftLimit": int,
-    },
-    total=False,
-)
-
-AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetailsTypeDef = TypedDict(
-    "AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetailsTypeDef",
-    {
-        "ReadOnly": bool,
-        "SourceContainer": str,
-    },
-    total=False,
-)
-
-AwsEcsTaskDefinitionDetailsTypeDef = TypedDict(
-    "AwsEcsTaskDefinitionDetailsTypeDef",
-    {
-        "ContainerDefinitions": List["AwsEcsTaskDefinitionContainerDefinitionsDetailsTypeDef"],
-        "Cpu": str,
-        "ExecutionRoleArn": str,
-        "Family": str,
-        "InferenceAccelerators": List["AwsEcsTaskDefinitionInferenceAcceleratorsDetailsTypeDef"],
-        "IpcMode": str,
-        "Memory": str,
-        "NetworkMode": str,
-        "PidMode": str,
-        "PlacementConstraints": List["AwsEcsTaskDefinitionPlacementConstraintsDetailsTypeDef"],
-        "ProxyConfiguration": "AwsEcsTaskDefinitionProxyConfigurationDetailsTypeDef",
-        "RequiresCompatibilities": List[str],
-        "TaskRoleArn": str,
-        "Volumes": List["AwsEcsTaskDefinitionVolumesDetailsTypeDef"],
-        "Status": str,
-    },
-    total=False,
-)
-
-AwsEcsTaskDefinitionInferenceAcceleratorsDetailsTypeDef = TypedDict(
-    "AwsEcsTaskDefinitionInferenceAcceleratorsDetailsTypeDef",
-    {
-        "DeviceName": str,
-        "DeviceType": str,
-    },
-    total=False,
-)
-
-AwsEcsTaskDefinitionPlacementConstraintsDetailsTypeDef = TypedDict(
-    "AwsEcsTaskDefinitionPlacementConstraintsDetailsTypeDef",
-    {
-        "Expression": str,
-        "Type": str,
-    },
-    total=False,
-)
-
-AwsEcsTaskDefinitionProxyConfigurationDetailsTypeDef = TypedDict(
-    "AwsEcsTaskDefinitionProxyConfigurationDetailsTypeDef",
-    {
-        "ContainerName": str,
-        "ProxyConfigurationProperties": List[
-            "AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetailsTypeDef"
-        ],
-        "Type": str,
-    },
-    total=False,
-)
-
-AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetailsTypeDef = TypedDict(
-    "AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetailsTypeDef",
-    {
-        "Name": str,
-        "Value": str,
-    },
-    total=False,
-)
-
-AwsEcsTaskDefinitionVolumesDetailsTypeDef = TypedDict(
-    "AwsEcsTaskDefinitionVolumesDetailsTypeDef",
-    {
-        "DockerVolumeConfiguration": "AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetailsTypeDef",
-        "EfsVolumeConfiguration": "AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetailsTypeDef",
-        "Host": "AwsEcsTaskDefinitionVolumesHostDetailsTypeDef",
-        "Name": str,
-    },
-    total=False,
-)
-
-AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetailsTypeDef = TypedDict(
-    "AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetailsTypeDef",
-    {
-        "Autoprovision": bool,
-        "Driver": str,
-        "DriverOpts": Dict[str, str],
-        "Labels": Dict[str, str],
-        "Scope": str,
-    },
-    total=False,
-)
-
-AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationConfigDetailsTypeDef = TypedDict(
-    "AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationConfigDetailsTypeDef",
-    {
-        "AccessPointId": str,
-        "Iam": str,
-    },
-    total=False,
-)
-
-AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetailsTypeDef = TypedDict(
-    "AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetailsTypeDef",
-    {
-        "AuthorizationConfig": "AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationConfigDetailsTypeDef",
-        "FilesystemId": str,
-        "RootDirectory": str,
-        "TransitEncryption": str,
-        "TransitEncryptionPort": int,
-    },
-    total=False,
-)
-
-AwsEcsTaskDefinitionVolumesHostDetailsTypeDef = TypedDict(
-    "AwsEcsTaskDefinitionVolumesHostDetailsTypeDef",
-    {
-        "SourcePath": str,
-    },
-    total=False,
-)
-
-AwsEcsTaskDetailsTypeDef = TypedDict(
-    "AwsEcsTaskDetailsTypeDef",
-    {
-        "ClusterArn": str,
-        "TaskDefinitionArn": str,
-        "Version": str,
-        "CreatedAt": str,
-        "StartedAt": str,
-        "StartedBy": str,
-        "Group": str,
-        "Volumes": List["AwsEcsTaskVolumeDetailsTypeDef"],
-        "Containers": List["AwsEcsContainerDetailsTypeDef"],
-    },
-    total=False,
-)
-
-AwsEcsTaskVolumeDetailsTypeDef = TypedDict(
-    "AwsEcsTaskVolumeDetailsTypeDef",
-    {
-        "Name": str,
-        "Host": "AwsEcsTaskVolumeHostDetailsTypeDef",
-    },
-    total=False,
-)
-
-AwsEcsTaskVolumeHostDetailsTypeDef = TypedDict(
-    "AwsEcsTaskVolumeHostDetailsTypeDef",
-    {
-        "SourcePath": str,
-    },
-    total=False,
-)
-
-AwsEfsAccessPointDetailsTypeDef = TypedDict(
-    "AwsEfsAccessPointDetailsTypeDef",
-    {
-        "AccessPointId": str,
-        "Arn": str,
-        "ClientToken": str,
-        "FileSystemId": str,
-        "PosixUser": "AwsEfsAccessPointPosixUserDetailsTypeDef",
-        "RootDirectory": "AwsEfsAccessPointRootDirectoryDetailsTypeDef",
-    },
-    total=False,
-)
-
-AwsEfsAccessPointPosixUserDetailsTypeDef = TypedDict(
-    "AwsEfsAccessPointPosixUserDetailsTypeDef",
-    {
-        "Gid": str,
-        "SecondaryGids": List[str],
-        "Uid": str,
-    },
-    total=False,
-)
-
-AwsEfsAccessPointRootDirectoryCreationInfoDetailsTypeDef = TypedDict(
-    "AwsEfsAccessPointRootDirectoryCreationInfoDetailsTypeDef",
-    {
-        "OwnerGid": str,
-        "OwnerUid": str,
-        "Permissions": str,
-    },
-    total=False,
-)
-
-AwsEfsAccessPointRootDirectoryDetailsTypeDef = TypedDict(
-    "AwsEfsAccessPointRootDirectoryDetailsTypeDef",
-    {
-        "CreationInfo": "AwsEfsAccessPointRootDirectoryCreationInfoDetailsTypeDef",
-        "Path": str,
-    },
-    total=False,
-)
-
-AwsEksClusterDetailsTypeDef = TypedDict(
-    "AwsEksClusterDetailsTypeDef",
-    {
-        "Arn": str,
-        "CertificateAuthorityData": str,
-        "ClusterStatus": str,
-        "Endpoint": str,
-        "Name": str,
-        "ResourcesVpcConfig": "AwsEksClusterResourcesVpcConfigDetailsTypeDef",
-        "RoleArn": str,
-        "Version": str,
-        "Logging": "AwsEksClusterLoggingDetailsTypeDef",
-    },
-    total=False,
-)
-
-AwsEksClusterLoggingClusterLoggingDetailsTypeDef = TypedDict(
-    "AwsEksClusterLoggingClusterLoggingDetailsTypeDef",
-    {
-        "Enabled": bool,
-        "Types": List[str],
-    },
-    total=False,
-)
-
-AwsEksClusterLoggingDetailsTypeDef = TypedDict(
-    "AwsEksClusterLoggingDetailsTypeDef",
-    {
-        "ClusterLogging": List["AwsEksClusterLoggingClusterLoggingDetailsTypeDef"],
-    },
-    total=False,
-)
-
-AwsEksClusterResourcesVpcConfigDetailsTypeDef = TypedDict(
-    "AwsEksClusterResourcesVpcConfigDetailsTypeDef",
-    {
-        "SecurityGroupIds": List[str],
-        "SubnetIds": List[str],
-        "EndpointPublicAccess": bool,
-    },
-    total=False,
-)
-
-AwsElasticBeanstalkEnvironmentDetailsTypeDef = TypedDict(
-    "AwsElasticBeanstalkEnvironmentDetailsTypeDef",
-    {
-        "ApplicationName": str,
-        "Cname": str,
-        "DateCreated": str,
-        "DateUpdated": str,
-        "Description": str,
-        "EndpointUrl": str,
-        "EnvironmentArn": str,
-        "EnvironmentId": str,
-        "EnvironmentLinks": List["AwsElasticBeanstalkEnvironmentEnvironmentLinkTypeDef"],
-        "EnvironmentName": str,
-        "OptionSettings": List["AwsElasticBeanstalkEnvironmentOptionSettingTypeDef"],
-        "PlatformArn": str,
-        "SolutionStackName": str,
-        "Status": str,
-        "Tier": "AwsElasticBeanstalkEnvironmentTierTypeDef",
-        "VersionLabel": str,
-    },
-    total=False,
-)
-
-AwsElasticBeanstalkEnvironmentEnvironmentLinkTypeDef = TypedDict(
-    "AwsElasticBeanstalkEnvironmentEnvironmentLinkTypeDef",
-    {
-        "EnvironmentName": str,
-        "LinkName": str,
-    },
-    total=False,
-)
-
-AwsElasticBeanstalkEnvironmentOptionSettingTypeDef = TypedDict(
-    "AwsElasticBeanstalkEnvironmentOptionSettingTypeDef",
-    {
-        "Namespace": str,
-        "OptionName": str,
-        "ResourceName": str,
-        "Value": str,
-    },
-    total=False,
-)
-
-AwsElasticBeanstalkEnvironmentTierTypeDef = TypedDict(
-    "AwsElasticBeanstalkEnvironmentTierTypeDef",
-    {
-        "Name": str,
-        "Type": str,
-        "Version": str,
-    },
-    total=False,
-)
-
-AwsElasticsearchDomainDetailsTypeDef = TypedDict(
-    "AwsElasticsearchDomainDetailsTypeDef",
-    {
-        "AccessPolicies": str,
-        "DomainEndpointOptions": "AwsElasticsearchDomainDomainEndpointOptionsTypeDef",
-        "DomainId": str,
-        "DomainName": str,
-        "Endpoint": str,
-        "Endpoints": Dict[str, str],
-        "ElasticsearchVersion": str,
-        "ElasticsearchClusterConfig": "AwsElasticsearchDomainElasticsearchClusterConfigDetailsTypeDef",
-        "EncryptionAtRestOptions": "AwsElasticsearchDomainEncryptionAtRestOptionsTypeDef",
-        "LogPublishingOptions": "AwsElasticsearchDomainLogPublishingOptionsTypeDef",
-        "NodeToNodeEncryptionOptions": "AwsElasticsearchDomainNodeToNodeEncryptionOptionsTypeDef",
-        "ServiceSoftwareOptions": "AwsElasticsearchDomainServiceSoftwareOptionsTypeDef",
-        "VPCOptions": "AwsElasticsearchDomainVPCOptionsTypeDef",
-    },
-    total=False,
-)
-
-AwsElasticsearchDomainDomainEndpointOptionsTypeDef = TypedDict(
-    "AwsElasticsearchDomainDomainEndpointOptionsTypeDef",
-    {
-        "EnforceHTTPS": bool,
-        "TLSSecurityPolicy": str,
-    },
-    total=False,
-)
-
-AwsElasticsearchDomainElasticsearchClusterConfigDetailsTypeDef = TypedDict(
-    "AwsElasticsearchDomainElasticsearchClusterConfigDetailsTypeDef",
-    {
-        "DedicatedMasterCount": int,
-        "DedicatedMasterEnabled": bool,
-        "DedicatedMasterType": str,
-        "InstanceCount": int,
-        "InstanceType": str,
-        "ZoneAwarenessConfig": "AwsElasticsearchDomainElasticsearchClusterConfigZoneAwarenessConfigDetailsTypeDef",
-        "ZoneAwarenessEnabled": bool,
-    },
-    total=False,
-)
-
-AwsElasticsearchDomainElasticsearchClusterConfigZoneAwarenessConfigDetailsTypeDef = TypedDict(
-    "AwsElasticsearchDomainElasticsearchClusterConfigZoneAwarenessConfigDetailsTypeDef",
-    {
-        "AvailabilityZoneCount": int,
-    },
-    total=False,
-)
-
-AwsElasticsearchDomainEncryptionAtRestOptionsTypeDef = TypedDict(
-    "AwsElasticsearchDomainEncryptionAtRestOptionsTypeDef",
-    {
-        "Enabled": bool,
-        "KmsKeyId": str,
-    },
-    total=False,
-)
-
-AwsElasticsearchDomainLogPublishingOptionsLogConfigTypeDef = TypedDict(
-    "AwsElasticsearchDomainLogPublishingOptionsLogConfigTypeDef",
-    {
-        "CloudWatchLogsLogGroupArn": str,
-        "Enabled": bool,
-    },
-    total=False,
-)
-
-AwsElasticsearchDomainLogPublishingOptionsTypeDef = TypedDict(
-    "AwsElasticsearchDomainLogPublishingOptionsTypeDef",
-    {
-        "IndexSlowLogs": "AwsElasticsearchDomainLogPublishingOptionsLogConfigTypeDef",
-        "SearchSlowLogs": "AwsElasticsearchDomainLogPublishingOptionsLogConfigTypeDef",
-        "AuditLogs": "AwsElasticsearchDomainLogPublishingOptionsLogConfigTypeDef",
-    },
-    total=False,
-)
-
-AwsElasticsearchDomainNodeToNodeEncryptionOptionsTypeDef = TypedDict(
-    "AwsElasticsearchDomainNodeToNodeEncryptionOptionsTypeDef",
-    {
-        "Enabled": bool,
-    },
-    total=False,
-)
-
-AwsElasticsearchDomainServiceSoftwareOptionsTypeDef = TypedDict(
-    "AwsElasticsearchDomainServiceSoftwareOptionsTypeDef",
-    {
-        "AutomatedUpdateDate": str,
-        "Cancellable": bool,
-        "CurrentVersion": str,
-        "Description": str,
-        "NewVersion": str,
-        "UpdateAvailable": bool,
-        "UpdateStatus": str,
-    },
-    total=False,
-)
-
-AwsElasticsearchDomainVPCOptionsTypeDef = TypedDict(
-    "AwsElasticsearchDomainVPCOptionsTypeDef",
-    {
-        "AvailabilityZones": List[str],
-        "SecurityGroupIds": List[str],
-        "SubnetIds": List[str],
-        "VPCId": str,
-    },
-    total=False,
-)
-
-AwsElbAppCookieStickinessPolicyTypeDef = TypedDict(
-    "AwsElbAppCookieStickinessPolicyTypeDef",
-    {
-        "CookieName": str,
-        "PolicyName": str,
-    },
-    total=False,
-)
-
-AwsElbLbCookieStickinessPolicyTypeDef = TypedDict(
-    "AwsElbLbCookieStickinessPolicyTypeDef",
-    {
-        "CookieExpirationPeriod": int,
-        "PolicyName": str,
-    },
-    total=False,
-)
-
-AwsElbLoadBalancerAccessLogTypeDef = TypedDict(
-    "AwsElbLoadBalancerAccessLogTypeDef",
-    {
-        "EmitInterval": int,
-        "Enabled": bool,
-        "S3BucketName": str,
-        "S3BucketPrefix": str,
-    },
-    total=False,
-)
-
-AwsElbLoadBalancerAdditionalAttributeTypeDef = TypedDict(
-    "AwsElbLoadBalancerAdditionalAttributeTypeDef",
-    {
-        "Key": str,
-        "Value": str,
-    },
-    total=False,
-)
-
-AwsElbLoadBalancerAttributesTypeDef = TypedDict(
-    "AwsElbLoadBalancerAttributesTypeDef",
-    {
-        "AccessLog": "AwsElbLoadBalancerAccessLogTypeDef",
-        "ConnectionDraining": "AwsElbLoadBalancerConnectionDrainingTypeDef",
-        "ConnectionSettings": "AwsElbLoadBalancerConnectionSettingsTypeDef",
-        "CrossZoneLoadBalancing": "AwsElbLoadBalancerCrossZoneLoadBalancingTypeDef",
-        "AdditionalAttributes": List["AwsElbLoadBalancerAdditionalAttributeTypeDef"],
-    },
-    total=False,
-)
-
-AwsElbLoadBalancerBackendServerDescriptionTypeDef = TypedDict(
-    "AwsElbLoadBalancerBackendServerDescriptionTypeDef",
-    {
-        "InstancePort": int,
-        "PolicyNames": List[str],
-    },
-    total=False,
-)
-
-AwsElbLoadBalancerConnectionDrainingTypeDef = TypedDict(
-    "AwsElbLoadBalancerConnectionDrainingTypeDef",
-    {
-        "Enabled": bool,
-        "Timeout": int,
-    },
-    total=False,
-)
-
-AwsElbLoadBalancerConnectionSettingsTypeDef = TypedDict(
-    "AwsElbLoadBalancerConnectionSettingsTypeDef",
-    {
-        "IdleTimeout": int,
-    },
-    total=False,
-)
-
-AwsElbLoadBalancerCrossZoneLoadBalancingTypeDef = TypedDict(
-    "AwsElbLoadBalancerCrossZoneLoadBalancingTypeDef",
-    {
-        "Enabled": bool,
-    },
-    total=False,
-)
-
-AwsElbLoadBalancerDetailsTypeDef = TypedDict(
-    "AwsElbLoadBalancerDetailsTypeDef",
-    {
-        "AvailabilityZones": List[str],
-        "BackendServerDescriptions": List["AwsElbLoadBalancerBackendServerDescriptionTypeDef"],
-        "CanonicalHostedZoneName": str,
-        "CanonicalHostedZoneNameID": str,
-        "CreatedTime": str,
-        "DnsName": str,
-        "HealthCheck": "AwsElbLoadBalancerHealthCheckTypeDef",
-        "Instances": List["AwsElbLoadBalancerInstanceTypeDef"],
-        "ListenerDescriptions": List["AwsElbLoadBalancerListenerDescriptionTypeDef"],
-        "LoadBalancerAttributes": "AwsElbLoadBalancerAttributesTypeDef",
-        "LoadBalancerName": str,
-        "Policies": "AwsElbLoadBalancerPoliciesTypeDef",
-        "Scheme": str,
-        "SecurityGroups": List[str],
-        "SourceSecurityGroup": "AwsElbLoadBalancerSourceSecurityGroupTypeDef",
-        "Subnets": List[str],
-        "VpcId": str,
-    },
-    total=False,
-)
-
-AwsElbLoadBalancerHealthCheckTypeDef = TypedDict(
-    "AwsElbLoadBalancerHealthCheckTypeDef",
-    {
-        "HealthyThreshold": int,
-        "Interval": int,
-        "Target": str,
-        "Timeout": int,
-        "UnhealthyThreshold": int,
-    },
-    total=False,
-)
-
-AwsElbLoadBalancerInstanceTypeDef = TypedDict(
-    "AwsElbLoadBalancerInstanceTypeDef",
-    {
-        "InstanceId": str,
-    },
-    total=False,
-)
-
-AwsElbLoadBalancerListenerDescriptionTypeDef = TypedDict(
-    "AwsElbLoadBalancerListenerDescriptionTypeDef",
-    {
-        "Listener": "AwsElbLoadBalancerListenerTypeDef",
-        "PolicyNames": List[str],
-    },
-    total=False,
-)
-
-AwsElbLoadBalancerListenerTypeDef = TypedDict(
-    "AwsElbLoadBalancerListenerTypeDef",
-    {
-        "InstancePort": int,
-        "InstanceProtocol": str,
-        "LoadBalancerPort": int,
-        "Protocol": str,
-        "SslCertificateId": str,
-    },
-    total=False,
-)
-
-AwsElbLoadBalancerPoliciesTypeDef = TypedDict(
-    "AwsElbLoadBalancerPoliciesTypeDef",
-    {
-        "AppCookieStickinessPolicies": List["AwsElbAppCookieStickinessPolicyTypeDef"],
-        "LbCookieStickinessPolicies": List["AwsElbLbCookieStickinessPolicyTypeDef"],
-        "OtherPolicies": List[str],
-    },
-    total=False,
-)
-
-AwsElbLoadBalancerSourceSecurityGroupTypeDef = TypedDict(
-    "AwsElbLoadBalancerSourceSecurityGroupTypeDef",
-    {
-        "GroupName": str,
-        "OwnerAlias": str,
-    },
-    total=False,
-)
-
-AwsElbv2LoadBalancerAttributeTypeDef = TypedDict(
-    "AwsElbv2LoadBalancerAttributeTypeDef",
-    {
-        "Key": str,
-        "Value": str,
-    },
-    total=False,
-)
-
-AwsElbv2LoadBalancerDetailsTypeDef = TypedDict(
-    "AwsElbv2LoadBalancerDetailsTypeDef",
-    {
-        "AvailabilityZones": List["AvailabilityZoneTypeDef"],
-        "CanonicalHostedZoneId": str,
-        "CreatedTime": str,
-        "DNSName": str,
-        "IpAddressType": str,
-        "Scheme": str,
-        "SecurityGroups": List[str],
-        "State": "LoadBalancerStateTypeDef",
-        "Type": str,
-        "VpcId": str,
-        "LoadBalancerAttributes": List["AwsElbv2LoadBalancerAttributeTypeDef"],
-    },
-    total=False,
-)
-
-AwsEventSchemasRegistryDetailsTypeDef = TypedDict(
-    "AwsEventSchemasRegistryDetailsTypeDef",
-    {
-        "Description": str,
-        "RegistryArn": str,
-        "RegistryName": str,
-    },
-    total=False,
-)
-
-AwsEventsEndpointDetailsTypeDef = TypedDict(
-    "AwsEventsEndpointDetailsTypeDef",
-    {
-        "Arn": str,
-        "Description": str,
-        "EndpointId": str,
-        "EndpointUrl": str,
-        "EventBuses": List["AwsEventsEndpointEventBusesDetailsTypeDef"],
-        "Name": str,
-        "ReplicationConfig": "AwsEventsEndpointReplicationConfigDetailsTypeDef",
-        "RoleArn": str,
-        "RoutingConfig": "AwsEventsEndpointRoutingConfigDetailsTypeDef",
-        "State": str,
-        "StateReason": str,
-    },
-    total=False,
-)
-
-AwsEventsEndpointEventBusesDetailsTypeDef = TypedDict(
-    "AwsEventsEndpointEventBusesDetailsTypeDef",
-    {
-        "EventBusArn": str,
-    },
-    total=False,
-)
-
-AwsEventsEndpointReplicationConfigDetailsTypeDef = TypedDict(
-    "AwsEventsEndpointReplicationConfigDetailsTypeDef",
-    {
-        "State": str,
-    },
-    total=False,
-)
-
-AwsEventsEndpointRoutingConfigDetailsTypeDef = TypedDict(
-    "AwsEventsEndpointRoutingConfigDetailsTypeDef",
-    {
-        "FailoverConfig": "AwsEventsEndpointRoutingConfigFailoverConfigDetailsTypeDef",
-    },
-    total=False,
-)
-
-AwsEventsEndpointRoutingConfigFailoverConfigDetailsTypeDef = TypedDict(
-    "AwsEventsEndpointRoutingConfigFailoverConfigDetailsTypeDef",
-    {
-        "Primary": "AwsEventsEndpointRoutingConfigFailoverConfigPrimaryDetailsTypeDef",
-        "Secondary": "AwsEventsEndpointRoutingConfigFailoverConfigSecondaryDetailsTypeDef",
-    },
-    total=False,
-)
-
-AwsEventsEndpointRoutingConfigFailoverConfigPrimaryDetailsTypeDef = TypedDict(
-    "AwsEventsEndpointRoutingConfigFailoverConfigPrimaryDetailsTypeDef",
-    {
-        "HealthCheck": str,
-    },
-    total=False,
-)
-
-AwsEventsEndpointRoutingConfigFailoverConfigSecondaryDetailsTypeDef = TypedDict(
-    "AwsEventsEndpointRoutingConfigFailoverConfigSecondaryDetailsTypeDef",
-    {
-        "Route": str,
-    },
-    total=False,
-)
-
-AwsEventsEventbusDetailsTypeDef = TypedDict(
-    "AwsEventsEventbusDetailsTypeDef",
-    {
-        "Arn": str,
-        "Name": str,
-        "Policy": str,
-    },
-    total=False,
-)
-
-AwsGuardDutyDetectorDataSourcesCloudTrailDetailsTypeDef = TypedDict(
-    "AwsGuardDutyDetectorDataSourcesCloudTrailDetailsTypeDef",
-    {
-        "Status": str,
-    },
-    total=False,
-)
-
-AwsGuardDutyDetectorDataSourcesDetailsTypeDef = TypedDict(
-    "AwsGuardDutyDetectorDataSourcesDetailsTypeDef",
-    {
-        "CloudTrail": "AwsGuardDutyDetectorDataSourcesCloudTrailDetailsTypeDef",
-        "DnsLogs": "AwsGuardDutyDetectorDataSourcesDnsLogsDetailsTypeDef",
-        "FlowLogs": "AwsGuardDutyDetectorDataSourcesFlowLogsDetailsTypeDef",
-        "Kubernetes": "AwsGuardDutyDetectorDataSourcesKubernetesDetailsTypeDef",
-        "MalwareProtection": "AwsGuardDutyDetectorDataSourcesMalwareProtectionDetailsTypeDef",
-        "S3Logs": "AwsGuardDutyDetectorDataSourcesS3LogsDetailsTypeDef",
-    },
-    total=False,
-)
-
-AwsGuardDutyDetectorDataSourcesDnsLogsDetailsTypeDef = TypedDict(
-    "AwsGuardDutyDetectorDataSourcesDnsLogsDetailsTypeDef",
-    {
-        "Status": str,
-    },
-    total=False,
-)
-
-AwsGuardDutyDetectorDataSourcesFlowLogsDetailsTypeDef = TypedDict(
-    "AwsGuardDutyDetectorDataSourcesFlowLogsDetailsTypeDef",
-    {
-        "Status": str,
-    },
-    total=False,
-)
-
-AwsGuardDutyDetectorDataSourcesKubernetesAuditLogsDetailsTypeDef = TypedDict(
-    "AwsGuardDutyDetectorDataSourcesKubernetesAuditLogsDetailsTypeDef",
-    {
-        "Status": str,
-    },
-    total=False,
-)
-
-AwsGuardDutyDetectorDataSourcesKubernetesDetailsTypeDef = TypedDict(
-    "AwsGuardDutyDetectorDataSourcesKubernetesDetailsTypeDef",
-    {
-        "AuditLogs": "AwsGuardDutyDetectorDataSourcesKubernetesAuditLogsDetailsTypeDef",
-    },
-    total=False,
-)
-
-AwsGuardDutyDetectorDataSourcesMalwareProtectionDetailsTypeDef = TypedDict(
-    "AwsGuardDutyDetectorDataSourcesMalwareProtectionDetailsTypeDef",
-    {
-        "ScanEc2InstanceWithFindings": "AwsGuardDutyDetectorDataSourcesMalwareProtectionScanEc2InstanceWithFindingsDetailsTypeDef",
-        "ServiceRole": str,
-    },
-    total=False,
-)
-
-AwsGuardDutyDetectorDataSourcesMalwareProtectionScanEc2InstanceWithFindingsDetailsTypeDef = TypedDict(
-    "AwsGuardDutyDetectorDataSourcesMalwareProtectionScanEc2InstanceWithFindingsDetailsTypeDef",
-    {
-        "EbsVolumes": "AwsGuardDutyDetectorDataSourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesDetailsTypeDef",
-    },
-    total=False,
-)
-
-AwsGuardDutyDetectorDataSourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesDetailsTypeDef = TypedDict(
-    "AwsGuardDutyDetectorDataSourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesDetailsTypeDef",
-    {
-        "Reason": str,
-        "Status": str,
-    },
-    total=False,
-)
-
-AwsGuardDutyDetectorDataSourcesS3LogsDetailsTypeDef = TypedDict(
-    "AwsGuardDutyDetectorDataSourcesS3LogsDetailsTypeDef",
-    {
-        "Status": str,
-    },
-    total=False,
-)
-
-AwsGuardDutyDetectorDetailsTypeDef = TypedDict(
-    "AwsGuardDutyDetectorDetailsTypeDef",
-    {
-        "DataSources": "AwsGuardDutyDetectorDataSourcesDetailsTypeDef",
-        "Features": List["AwsGuardDutyDetectorFeaturesDetailsTypeDef"],
-        "FindingPublishingFrequency": str,
-        "ServiceRole": str,
-        "Status": str,
-    },
-    total=False,
-)
-
-AwsGuardDutyDetectorFeaturesDetailsTypeDef = TypedDict(
-    "AwsGuardDutyDetectorFeaturesDetailsTypeDef",
-    {
-        "Name": str,
-        "Status": str,
-    },
-    total=False,
-)
-
-AwsIamAccessKeyDetailsTypeDef = TypedDict(
-    "AwsIamAccessKeyDetailsTypeDef",
-    {
-        "UserName": str,
-        "Status": AwsIamAccessKeyStatusType,
-        "CreatedAt": str,
-        "PrincipalId": str,
-        "PrincipalType": str,
-        "PrincipalName": str,
-        "AccountId": str,
-        "AccessKeyId": str,
-        "SessionContext": "AwsIamAccessKeySessionContextTypeDef",
-    },
-    total=False,
-)
-
-AwsIamAccessKeySessionContextAttributesTypeDef = TypedDict(
-    "AwsIamAccessKeySessionContextAttributesTypeDef",
-    {
-        "MfaAuthenticated": bool,
-        "CreationDate": str,
-    },
-    total=False,
-)
-
-AwsIamAccessKeySessionContextSessionIssuerTypeDef = TypedDict(
-    "AwsIamAccessKeySessionContextSessionIssuerTypeDef",
-    {
-        "Type": str,
-        "PrincipalId": str,
-        "Arn": str,
-        "AccountId": str,
-        "UserName": str,
-    },
-    total=False,
-)
-
-AwsIamAccessKeySessionContextTypeDef = TypedDict(
-    "AwsIamAccessKeySessionContextTypeDef",
-    {
-        "Attributes": "AwsIamAccessKeySessionContextAttributesTypeDef",
-        "SessionIssuer": "AwsIamAccessKeySessionContextSessionIssuerTypeDef",
-    },
-    total=False,
-)
-
-AwsIamAttachedManagedPolicyTypeDef = TypedDict(
-    "AwsIamAttachedManagedPolicyTypeDef",
-    {
-        "PolicyName": str,
-        "PolicyArn": str,
-    },
-    total=False,
-)
-
-AwsIamGroupDetailsTypeDef = TypedDict(
-    "AwsIamGroupDetailsTypeDef",
-    {
-        "AttachedManagedPolicies": List["AwsIamAttachedManagedPolicyTypeDef"],
-        "CreateDate": str,
-        "GroupId": str,
-        "GroupName": str,
-        "GroupPolicyList": List["AwsIamGroupPolicyTypeDef"],
-        "Path": str,
-    },
-    total=False,
-)
-
-AwsIamGroupPolicyTypeDef = TypedDict(
-    "AwsIamGroupPolicyTypeDef",
-    {
-        "PolicyName": str,
-    },
-    total=False,
-)
-
-AwsIamInstanceProfileRoleTypeDef = TypedDict(
-    "AwsIamInstanceProfileRoleTypeDef",
-    {
-        "Arn": str,
-        "AssumeRolePolicyDocument": str,
-        "CreateDate": str,
-        "Path": str,
-        "RoleId": str,
-        "RoleName": str,
-    },
-    total=False,
-)
-
-AwsIamInstanceProfileTypeDef = TypedDict(
-    "AwsIamInstanceProfileTypeDef",
-    {
-        "Arn": str,
-        "CreateDate": str,
-        "InstanceProfileId": str,
-        "InstanceProfileName": str,
-        "Path": str,
-        "Roles": List["AwsIamInstanceProfileRoleTypeDef"],
-    },
-    total=False,
-)
-
-AwsIamPermissionsBoundaryTypeDef = TypedDict(
-    "AwsIamPermissionsBoundaryTypeDef",
-    {
-        "PermissionsBoundaryArn": str,
-        "PermissionsBoundaryType": str,
-    },
-    total=False,
-)
-
-AwsIamPolicyDetailsTypeDef = TypedDict(
-    "AwsIamPolicyDetailsTypeDef",
-    {
-        "AttachmentCount": int,
-        "CreateDate": str,
-        "DefaultVersionId": str,
-        "Description": str,
-        "IsAttachable": bool,
-        "Path": str,
-        "PermissionsBoundaryUsageCount": int,
-        "PolicyId": str,
-        "PolicyName": str,
-        "PolicyVersionList": List["AwsIamPolicyVersionTypeDef"],
-        "UpdateDate": str,
-    },
-    total=False,
-)
-
-AwsIamPolicyVersionTypeDef = TypedDict(
-    "AwsIamPolicyVersionTypeDef",
-    {
-        "VersionId": str,
-        "IsDefaultVersion": bool,
-        "CreateDate": str,
-    },
-    total=False,
-)
-
-AwsIamRoleDetailsTypeDef = TypedDict(
-    "AwsIamRoleDetailsTypeDef",
-    {
-        "AssumeRolePolicyDocument": str,
-        "AttachedManagedPolicies": List["AwsIamAttachedManagedPolicyTypeDef"],
-        "CreateDate": str,
-        "InstanceProfileList": List["AwsIamInstanceProfileTypeDef"],
-        "PermissionsBoundary": "AwsIamPermissionsBoundaryTypeDef",
-        "RoleId": str,
-        "RoleName": str,
-        "RolePolicyList": List["AwsIamRolePolicyTypeDef"],
-        "MaxSessionDuration": int,
-        "Path": str,
-    },
-    total=False,
-)
-
-AwsIamRolePolicyTypeDef = TypedDict(
-    "AwsIamRolePolicyTypeDef",
-    {
-        "PolicyName": str,
-    },
-    total=False,
-)
-
-AwsIamUserDetailsTypeDef = TypedDict(
-    "AwsIamUserDetailsTypeDef",
-    {
-        "AttachedManagedPolicies": List["AwsIamAttachedManagedPolicyTypeDef"],
-        "CreateDate": str,
-        "GroupList": List[str],
-        "Path": str,
-        "PermissionsBoundary": "AwsIamPermissionsBoundaryTypeDef",
-        "UserId": str,
-        "UserName": str,
-        "UserPolicyList": List["AwsIamUserPolicyTypeDef"],
-    },
-    total=False,
-)
-
-AwsIamUserPolicyTypeDef = TypedDict(
-    "AwsIamUserPolicyTypeDef",
-    {
-        "PolicyName": str,
-    },
-    total=False,
-)
-
-AwsKinesisStreamDetailsTypeDef = TypedDict(
-    "AwsKinesisStreamDetailsTypeDef",
-    {
-        "Name": str,
-        "Arn": str,
-        "StreamEncryption": "AwsKinesisStreamStreamEncryptionDetailsTypeDef",
-        "ShardCount": int,
-        "RetentionPeriodHours": int,
-    },
-    total=False,
-)
-
-AwsKinesisStreamStreamEncryptionDetailsTypeDef = TypedDict(
-    "AwsKinesisStreamStreamEncryptionDetailsTypeDef",
-    {
-        "EncryptionType": str,
-        "KeyId": str,
-    },
-    total=False,
-)
-
-AwsKmsKeyDetailsTypeDef = TypedDict(
-    "AwsKmsKeyDetailsTypeDef",
-    {
-        "AWSAccountId": str,
-        "CreationDate": float,
-        "KeyId": str,
-        "KeyManager": str,
-        "KeyState": str,
-        "Origin": str,
-        "Description": str,
-        "KeyRotationStatus": bool,
-    },
-    total=False,
-)
-
-AwsLambdaFunctionCodeTypeDef = TypedDict(
-    "AwsLambdaFunctionCodeTypeDef",
-    {
-        "S3Bucket": str,
-        "S3Key": str,
-        "S3ObjectVersion": str,
-        "ZipFile": str,
-    },
-    total=False,
-)
-
-AwsLambdaFunctionDeadLetterConfigTypeDef = TypedDict(
-    "AwsLambdaFunctionDeadLetterConfigTypeDef",
-    {
-        "TargetArn": str,
-    },
-    total=False,
-)
-
-AwsLambdaFunctionDetailsTypeDef = TypedDict(
-    "AwsLambdaFunctionDetailsTypeDef",
-    {
-        "Code": "AwsLambdaFunctionCodeTypeDef",
-        "CodeSha256": str,
-        "DeadLetterConfig": "AwsLambdaFunctionDeadLetterConfigTypeDef",
-        "Environment": "AwsLambdaFunctionEnvironmentTypeDef",
-        "FunctionName": str,
-        "Handler": str,
-        "KmsKeyArn": str,
-        "LastModified": str,
-        "Layers": List["AwsLambdaFunctionLayerTypeDef"],
-        "MasterArn": str,
-        "MemorySize": int,
-        "RevisionId": str,
-        "Role": str,
-        "Runtime": str,
-        "Timeout": int,
-        "TracingConfig": "AwsLambdaFunctionTracingConfigTypeDef",
-        "VpcConfig": "AwsLambdaFunctionVpcConfigTypeDef",
-        "Version": str,
-        "Architectures": List[str],
-        "PackageType": str,
-    },
-    total=False,
-)
-
-AwsLambdaFunctionEnvironmentErrorTypeDef = TypedDict(
-    "AwsLambdaFunctionEnvironmentErrorTypeDef",
-    {
-        "ErrorCode": str,
-        "Message": str,
-    },
-    total=False,
-)
-
-AwsLambdaFunctionEnvironmentTypeDef = TypedDict(
-    "AwsLambdaFunctionEnvironmentTypeDef",
-    {
-        "Variables": Dict[str, str],
-        "Error": "AwsLambdaFunctionEnvironmentErrorTypeDef",
-    },
-    total=False,
-)
-
-AwsLambdaFunctionLayerTypeDef = TypedDict(
-    "AwsLambdaFunctionLayerTypeDef",
-    {
-        "Arn": str,
-        "CodeSize": int,
-    },
-    total=False,
-)
-
-AwsLambdaFunctionTracingConfigTypeDef = TypedDict(
-    "AwsLambdaFunctionTracingConfigTypeDef",
-    {
-        "Mode": str,
-    },
-    total=False,
-)
-
-AwsLambdaFunctionVpcConfigTypeDef = TypedDict(
-    "AwsLambdaFunctionVpcConfigTypeDef",
-    {
-        "SecurityGroupIds": List[str],
-        "SubnetIds": List[str],
-        "VpcId": str,
-    },
-    total=False,
-)
-
-AwsLambdaLayerVersionDetailsTypeDef = TypedDict(
-    "AwsLambdaLayerVersionDetailsTypeDef",
-    {
-        "Version": int,
-        "CompatibleRuntimes": List[str],
-        "CreatedDate": str,
-    },
-    total=False,
-)
-
-AwsMountPointTypeDef = TypedDict(
-    "AwsMountPointTypeDef",
-    {
-        "SourceVolume": str,
-        "ContainerPath": str,
-    },
-    total=False,
-)
-
-AwsMskClusterClusterInfoClientAuthenticationDetailsTypeDef = TypedDict(
-    "AwsMskClusterClusterInfoClientAuthenticationDetailsTypeDef",
-    {
-        "Sasl": "AwsMskClusterClusterInfoClientAuthenticationSaslDetailsTypeDef",
-        "Unauthenticated": "AwsMskClusterClusterInfoClientAuthenticationUnauthenticatedDetailsTypeDef",
-        "Tls": "AwsMskClusterClusterInfoClientAuthenticationTlsDetailsTypeDef",
-    },
-    total=False,
-)
-
-AwsMskClusterClusterInfoClientAuthenticationSaslDetailsTypeDef = TypedDict(
-    "AwsMskClusterClusterInfoClientAuthenticationSaslDetailsTypeDef",
-    {
-        "Iam": "AwsMskClusterClusterInfoClientAuthenticationSaslIamDetailsTypeDef",
-        "Scram": "AwsMskClusterClusterInfoClientAuthenticationSaslScramDetailsTypeDef",
-    },
-    total=False,
-)
-
-AwsMskClusterClusterInfoClientAuthenticationSaslIamDetailsTypeDef = TypedDict(
-    "AwsMskClusterClusterInfoClientAuthenticationSaslIamDetailsTypeDef",
-    {
-        "Enabled": bool,
-    },
-    total=False,
-)
-
-AwsMskClusterClusterInfoClientAuthenticationSaslScramDetailsTypeDef = TypedDict(
-    "AwsMskClusterClusterInfoClientAuthenticationSaslScramDetailsTypeDef",
-    {
-        "Enabled": bool,
-    },
-    total=False,
-)
-
-AwsMskClusterClusterInfoClientAuthenticationTlsDetailsTypeDef = TypedDict(
-    "AwsMskClusterClusterInfoClientAuthenticationTlsDetailsTypeDef",
-    {
-        "CertificateAuthorityArnList": List[str],
-        "Enabled": bool,
-    },
-    total=False,
-)
-
-AwsMskClusterClusterInfoClientAuthenticationUnauthenticatedDetailsTypeDef = TypedDict(
-    "AwsMskClusterClusterInfoClientAuthenticationUnauthenticatedDetailsTypeDef",
-    {
-        "Enabled": bool,
-    },
-    total=False,
-)
-
-AwsMskClusterClusterInfoDetailsTypeDef = TypedDict(
-    "AwsMskClusterClusterInfoDetailsTypeDef",
-    {
-        "EncryptionInfo": "AwsMskClusterClusterInfoEncryptionInfoDetailsTypeDef",
-        "CurrentVersion": str,
-        "NumberOfBrokerNodes": int,
-        "ClusterName": str,
-        "ClientAuthentication": "AwsMskClusterClusterInfoClientAuthenticationDetailsTypeDef",
-        "EnhancedMonitoring": str,
-    },
-    total=False,
-)
-
-AwsMskClusterClusterInfoEncryptionInfoDetailsTypeDef = TypedDict(
-    "AwsMskClusterClusterInfoEncryptionInfoDetailsTypeDef",
-    {
-        "EncryptionInTransit": "AwsMskClusterClusterInfoEncryptionInfoEncryptionInTransitDetailsTypeDef",
-        "EncryptionAtRest": "AwsMskClusterClusterInfoEncryptionInfoEncryptionAtRestDetailsTypeDef",
-    },
-    total=False,
-)
-
-AwsMskClusterClusterInfoEncryptionInfoEncryptionAtRestDetailsTypeDef = TypedDict(
-    "AwsMskClusterClusterInfoEncryptionInfoEncryptionAtRestDetailsTypeDef",
-    {
-        "DataVolumeKMSKeyId": str,
-    },
-    total=False,
-)
-
-AwsMskClusterClusterInfoEncryptionInfoEncryptionInTransitDetailsTypeDef = TypedDict(
-    "AwsMskClusterClusterInfoEncryptionInfoEncryptionInTransitDetailsTypeDef",
-    {
-        "InCluster": bool,
-        "ClientBroker": str,
-    },
-    total=False,
-)
-
-AwsMskClusterDetailsTypeDef = TypedDict(
-    "AwsMskClusterDetailsTypeDef",
-    {
-        "ClusterInfo": "AwsMskClusterClusterInfoDetailsTypeDef",
-    },
-    total=False,
-)
-
-AwsNetworkFirewallFirewallDetailsTypeDef = TypedDict(
-    "AwsNetworkFirewallFirewallDetailsTypeDef",
-    {
-        "DeleteProtection": bool,
-        "Description": str,
-        "FirewallArn": str,
-        "FirewallId": str,
-        "FirewallName": str,
-        "FirewallPolicyArn": str,
-        "FirewallPolicyChangeProtection": bool,
-        "SubnetChangeProtection": bool,
-        "SubnetMappings": List["AwsNetworkFirewallFirewallSubnetMappingsDetailsTypeDef"],
-        "VpcId": str,
-    },
-    total=False,
-)
-
-AwsNetworkFirewallFirewallPolicyDetailsTypeDef = TypedDict(
-    "AwsNetworkFirewallFirewallPolicyDetailsTypeDef",
-    {
-        "FirewallPolicy": "FirewallPolicyDetailsTypeDef",
-        "FirewallPolicyArn": str,
-        "FirewallPolicyId": str,
-        "FirewallPolicyName": str,
-        "Description": str,
-    },
-    total=False,
-)
-
-AwsNetworkFirewallFirewallSubnetMappingsDetailsTypeDef = TypedDict(
-    "AwsNetworkFirewallFirewallSubnetMappingsDetailsTypeDef",
-    {
-        "SubnetId": str,
-    },
-    total=False,
-)
-
-AwsNetworkFirewallRuleGroupDetailsTypeDef = TypedDict(
-    "AwsNetworkFirewallRuleGroupDetailsTypeDef",
-    {
-        "Capacity": int,
-        "Description": str,
-        "RuleGroup": "RuleGroupDetailsTypeDef",
-        "RuleGroupArn": str,
-        "RuleGroupId": str,
-        "RuleGroupName": str,
-        "Type": str,
-    },
-    total=False,
-)
-
-AwsOpenSearchServiceDomainAdvancedSecurityOptionsDetailsTypeDef = TypedDict(
-    "AwsOpenSearchServiceDomainAdvancedSecurityOptionsDetailsTypeDef",
-    {
-        "Enabled": bool,
-        "InternalUserDatabaseEnabled": bool,
-        "MasterUserOptions": "AwsOpenSearchServiceDomainMasterUserOptionsDetailsTypeDef",
-    },
-    total=False,
-)
-
-AwsOpenSearchServiceDomainClusterConfigDetailsTypeDef = TypedDict(
-    "AwsOpenSearchServiceDomainClusterConfigDetailsTypeDef",
-    {
-        "InstanceCount": int,
-        "WarmEnabled": bool,
-        "WarmCount": int,
-        "DedicatedMasterEnabled": bool,
-        "ZoneAwarenessConfig": "AwsOpenSearchServiceDomainClusterConfigZoneAwarenessConfigDetailsTypeDef",
-        "DedicatedMasterCount": int,
-        "InstanceType": str,
-        "WarmType": str,
-        "ZoneAwarenessEnabled": bool,
-        "DedicatedMasterType": str,
-    },
-    total=False,
-)
-
-AwsOpenSearchServiceDomainClusterConfigZoneAwarenessConfigDetailsTypeDef = TypedDict(
-    "AwsOpenSearchServiceDomainClusterConfigZoneAwarenessConfigDetailsTypeDef",
-    {
-        "AvailabilityZoneCount": int,
-    },
-    total=False,
-)
-
-AwsOpenSearchServiceDomainDetailsTypeDef = TypedDict(
-    "AwsOpenSearchServiceDomainDetailsTypeDef",
-    {
-        "Arn": str,
-        "AccessPolicies": str,
-        "DomainName": str,
-        "Id": str,
-        "DomainEndpoint": str,
-        "EngineVersion": str,
-        "EncryptionAtRestOptions": "AwsOpenSearchServiceDomainEncryptionAtRestOptionsDetailsTypeDef",
-        "NodeToNodeEncryptionOptions": "AwsOpenSearchServiceDomainNodeToNodeEncryptionOptionsDetailsTypeDef",
-        "ServiceSoftwareOptions": "AwsOpenSearchServiceDomainServiceSoftwareOptionsDetailsTypeDef",
-        "ClusterConfig": "AwsOpenSearchServiceDomainClusterConfigDetailsTypeDef",
-        "DomainEndpointOptions": "AwsOpenSearchServiceDomainDomainEndpointOptionsDetailsTypeDef",
-        "VpcOptions": "AwsOpenSearchServiceDomainVpcOptionsDetailsTypeDef",
-        "LogPublishingOptions": "AwsOpenSearchServiceDomainLogPublishingOptionsDetailsTypeDef",
-        "DomainEndpoints": Dict[str, str],
-        "AdvancedSecurityOptions": "AwsOpenSearchServiceDomainAdvancedSecurityOptionsDetailsTypeDef",
-    },
-    total=False,
-)
-
-AwsOpenSearchServiceDomainDomainEndpointOptionsDetailsTypeDef = TypedDict(
-    "AwsOpenSearchServiceDomainDomainEndpointOptionsDetailsTypeDef",
-    {
-        "CustomEndpointCertificateArn": str,
-        "CustomEndpointEnabled": bool,
-        "EnforceHTTPS": bool,
-        "CustomEndpoint": str,
-        "TLSSecurityPolicy": str,
-    },
-    total=False,
-)
-
-AwsOpenSearchServiceDomainEncryptionAtRestOptionsDetailsTypeDef = TypedDict(
-    "AwsOpenSearchServiceDomainEncryptionAtRestOptionsDetailsTypeDef",
-    {
-        "Enabled": bool,
-        "KmsKeyId": str,
-    },
-    total=False,
-)
-
-AwsOpenSearchServiceDomainLogPublishingOptionTypeDef = TypedDict(
-    "AwsOpenSearchServiceDomainLogPublishingOptionTypeDef",
-    {
-        "CloudWatchLogsLogGroupArn": str,
-        "Enabled": bool,
-    },
-    total=False,
-)
-
-AwsOpenSearchServiceDomainLogPublishingOptionsDetailsTypeDef = TypedDict(
-    "AwsOpenSearchServiceDomainLogPublishingOptionsDetailsTypeDef",
-    {
-        "IndexSlowLogs": "AwsOpenSearchServiceDomainLogPublishingOptionTypeDef",
-        "SearchSlowLogs": "AwsOpenSearchServiceDomainLogPublishingOptionTypeDef",
-        "AuditLogs": "AwsOpenSearchServiceDomainLogPublishingOptionTypeDef",
-    },
-    total=False,
-)
-
-AwsOpenSearchServiceDomainMasterUserOptionsDetailsTypeDef = TypedDict(
-    "AwsOpenSearchServiceDomainMasterUserOptionsDetailsTypeDef",
-    {
-        "MasterUserArn": str,
-        "MasterUserName": str,
-        "MasterUserPassword": str,
-    },
-    total=False,
-)
-
-AwsOpenSearchServiceDomainNodeToNodeEncryptionOptionsDetailsTypeDef = TypedDict(
-    "AwsOpenSearchServiceDomainNodeToNodeEncryptionOptionsDetailsTypeDef",
-    {
-        "Enabled": bool,
-    },
-    total=False,
-)
-
-AwsOpenSearchServiceDomainServiceSoftwareOptionsDetailsTypeDef = TypedDict(
-    "AwsOpenSearchServiceDomainServiceSoftwareOptionsDetailsTypeDef",
-    {
-        "AutomatedUpdateDate": str,
-        "Cancellable": bool,
-        "CurrentVersion": str,
-        "Description": str,
-        "NewVersion": str,
-        "UpdateAvailable": bool,
-        "UpdateStatus": str,
-        "OptionalDeployment": bool,
-    },
-    total=False,
-)
-
-AwsOpenSearchServiceDomainVpcOptionsDetailsTypeDef = TypedDict(
-    "AwsOpenSearchServiceDomainVpcOptionsDetailsTypeDef",
-    {
-        "SecurityGroupIds": List[str],
-        "SubnetIds": List[str],
-    },
-    total=False,
-)
-
-AwsRdsDbClusterAssociatedRoleTypeDef = TypedDict(
-    "AwsRdsDbClusterAssociatedRoleTypeDef",
-    {
-        "RoleArn": str,
-        "Status": str,
-    },
-    total=False,
-)
-
-AwsRdsDbClusterDetailsTypeDef = TypedDict(
-    "AwsRdsDbClusterDetailsTypeDef",
-    {
-        "AllocatedStorage": int,
-        "AvailabilityZones": List[str],
-        "BackupRetentionPeriod": int,
-        "DatabaseName": str,
-        "Status": str,
-        "Endpoint": str,
-        "ReaderEndpoint": str,
-        "CustomEndpoints": List[str],
-        "MultiAz": bool,
-        "Engine": str,
-        "EngineVersion": str,
-        "Port": int,
-        "MasterUsername": str,
-        "PreferredBackupWindow": str,
-        "PreferredMaintenanceWindow": str,
-        "ReadReplicaIdentifiers": List[str],
-        "VpcSecurityGroups": List["AwsRdsDbInstanceVpcSecurityGroupTypeDef"],
-        "HostedZoneId": str,
-        "StorageEncrypted": bool,
-        "KmsKeyId": str,
-        "DbClusterResourceId": str,
-        "AssociatedRoles": List["AwsRdsDbClusterAssociatedRoleTypeDef"],
-        "ClusterCreateTime": str,
-        "EnabledCloudWatchLogsExports": List[str],
-        "EngineMode": str,
-        "DeletionProtection": bool,
-        "HttpEndpointEnabled": bool,
-        "ActivityStreamStatus": str,
-        "CopyTagsToSnapshot": bool,
-        "CrossAccountClone": bool,
-        "DomainMemberships": List["AwsRdsDbDomainMembershipTypeDef"],
-        "DbClusterParameterGroup": str,
-        "DbSubnetGroup": str,
-        "DbClusterOptionGroupMemberships": List["AwsRdsDbClusterOptionGroupMembershipTypeDef"],
-        "DbClusterIdentifier": str,
-        "DbClusterMembers": List["AwsRdsDbClusterMemberTypeDef"],
-        "IamDatabaseAuthenticationEnabled": bool,
-        "AutoMinorVersionUpgrade": bool,
-    },
-    total=False,
-)
-
-AwsRdsDbClusterMemberTypeDef = TypedDict(
-    "AwsRdsDbClusterMemberTypeDef",
-    {
-        "IsClusterWriter": bool,
-        "PromotionTier": int,
-        "DbInstanceIdentifier": str,
-        "DbClusterParameterGroupStatus": str,
-    },
-    total=False,
-)
-
-AwsRdsDbClusterOptionGroupMembershipTypeDef = TypedDict(
-    "AwsRdsDbClusterOptionGroupMembershipTypeDef",
-    {
-        "DbClusterOptionGroupName": str,
-        "Status": str,
-    },
-    total=False,
-)
-
-AwsRdsDbClusterSnapshotDbClusterSnapshotAttributeTypeDef = TypedDict(
-    "AwsRdsDbClusterSnapshotDbClusterSnapshotAttributeTypeDef",
-    {
-        "AttributeName": str,
-        "AttributeValues": List[str],
-    },
-    total=False,
-)
-
-AwsRdsDbClusterSnapshotDetailsTypeDef = TypedDict(
-    "AwsRdsDbClusterSnapshotDetailsTypeDef",
-    {
-        "AvailabilityZones": List[str],
-        "SnapshotCreateTime": str,
-        "Engine": str,
-        "AllocatedStorage": int,
-        "Status": str,
-        "Port": int,
-        "VpcId": str,
-        "ClusterCreateTime": str,
-        "MasterUsername": str,
-        "EngineVersion": str,
-        "LicenseModel": str,
-        "SnapshotType": str,
-        "PercentProgress": int,
-        "StorageEncrypted": bool,
-        "KmsKeyId": str,
-        "DbClusterIdentifier": str,
-        "DbClusterSnapshotIdentifier": str,
-        "IamDatabaseAuthenticationEnabled": bool,
-        "DbClusterSnapshotAttributes": List[
-            "AwsRdsDbClusterSnapshotDbClusterSnapshotAttributeTypeDef"
-        ],
-    },
-    total=False,
-)
-
-AwsRdsDbDomainMembershipTypeDef = TypedDict(
-    "AwsRdsDbDomainMembershipTypeDef",
-    {
-        "Domain": str,
-        "Status": str,
-        "Fqdn": str,
-        "IamRoleName": str,
-    },
-    total=False,
-)
-
-AwsRdsDbInstanceAssociatedRoleTypeDef = TypedDict(
-    "AwsRdsDbInstanceAssociatedRoleTypeDef",
-    {
-        "RoleArn": str,
-        "FeatureName": str,
-        "Status": str,
-    },
-    total=False,
-)
-
-AwsRdsDbInstanceDetailsTypeDef = TypedDict(
-    "AwsRdsDbInstanceDetailsTypeDef",
-    {
-        "AssociatedRoles": List["AwsRdsDbInstanceAssociatedRoleTypeDef"],
-        "CACertificateIdentifier": str,
-        "DBClusterIdentifier": str,
-        "DBInstanceIdentifier": str,
-        "DBInstanceClass": str,
-        "DbInstancePort": int,
-        "DbiResourceId": str,
-        "DBName": str,
-        "DeletionProtection": bool,
-        "Endpoint": "AwsRdsDbInstanceEndpointTypeDef",
-        "Engine": str,
-        "EngineVersion": str,
-        "IAMDatabaseAuthenticationEnabled": bool,
-        "InstanceCreateTime": str,
-        "KmsKeyId": str,
-        "PubliclyAccessible": bool,
-        "StorageEncrypted": bool,
-        "TdeCredentialArn": str,
-        "VpcSecurityGroups": List["AwsRdsDbInstanceVpcSecurityGroupTypeDef"],
-        "MultiAz": bool,
-        "EnhancedMonitoringResourceArn": str,
-        "DbInstanceStatus": str,
-        "MasterUsername": str,
-        "AllocatedStorage": int,
-        "PreferredBackupWindow": str,
-        "BackupRetentionPeriod": int,
-        "DbSecurityGroups": List[str],
-        "DbParameterGroups": List["AwsRdsDbParameterGroupTypeDef"],
-        "AvailabilityZone": str,
-        "DbSubnetGroup": "AwsRdsDbSubnetGroupTypeDef",
-        "PreferredMaintenanceWindow": str,
-        "PendingModifiedValues": "AwsRdsDbPendingModifiedValuesTypeDef",
-        "LatestRestorableTime": str,
-        "AutoMinorVersionUpgrade": bool,
-        "ReadReplicaSourceDBInstanceIdentifier": str,
-        "ReadReplicaDBInstanceIdentifiers": List[str],
-        "ReadReplicaDBClusterIdentifiers": List[str],
-        "LicenseModel": str,
-        "Iops": int,
-        "OptionGroupMemberships": List["AwsRdsDbOptionGroupMembershipTypeDef"],
-        "CharacterSetName": str,
-        "SecondaryAvailabilityZone": str,
-        "StatusInfos": List["AwsRdsDbStatusInfoTypeDef"],
-        "StorageType": str,
-        "DomainMemberships": List["AwsRdsDbDomainMembershipTypeDef"],
-        "CopyTagsToSnapshot": bool,
-        "MonitoringInterval": int,
-        "MonitoringRoleArn": str,
-        "PromotionTier": int,
-        "Timezone": str,
-        "PerformanceInsightsEnabled": bool,
-        "PerformanceInsightsKmsKeyId": str,
-        "PerformanceInsightsRetentionPeriod": int,
-        "EnabledCloudWatchLogsExports": List[str],
-        "ProcessorFeatures": List["AwsRdsDbProcessorFeatureTypeDef"],
-        "ListenerEndpoint": "AwsRdsDbInstanceEndpointTypeDef",
-        "MaxAllocatedStorage": int,
-    },
-    total=False,
-)
-
-AwsRdsDbInstanceEndpointTypeDef = TypedDict(
-    "AwsRdsDbInstanceEndpointTypeDef",
-    {
-        "Address": str,
-        "Port": int,
-        "HostedZoneId": str,
-    },
-    total=False,
-)
-
-AwsRdsDbInstanceVpcSecurityGroupTypeDef = TypedDict(
-    "AwsRdsDbInstanceVpcSecurityGroupTypeDef",
-    {
-        "VpcSecurityGroupId": str,
-        "Status": str,
-    },
-    total=False,
-)
-
-AwsRdsDbOptionGroupMembershipTypeDef = TypedDict(
-    "AwsRdsDbOptionGroupMembershipTypeDef",
-    {
-        "OptionGroupName": str,
-        "Status": str,
-    },
-    total=False,
-)
-
-AwsRdsDbParameterGroupTypeDef = TypedDict(
-    "AwsRdsDbParameterGroupTypeDef",
-    {
-        "DbParameterGroupName": str,
-        "ParameterApplyStatus": str,
-    },
-    total=False,
-)
-
-AwsRdsDbPendingModifiedValuesTypeDef = TypedDict(
-    "AwsRdsDbPendingModifiedValuesTypeDef",
-    {
-        "DbInstanceClass": str,
-        "AllocatedStorage": int,
-        "MasterUserPassword": str,
-        "Port": int,
-        "BackupRetentionPeriod": int,
-        "MultiAZ": bool,
-        "EngineVersion": str,
-        "LicenseModel": str,
-        "Iops": int,
-        "DbInstanceIdentifier": str,
-        "StorageType": str,
-        "CaCertificateIdentifier": str,
-        "DbSubnetGroupName": str,
-        "PendingCloudWatchLogsExports": "AwsRdsPendingCloudWatchLogsExportsTypeDef",
-        "ProcessorFeatures": List["AwsRdsDbProcessorFeatureTypeDef"],
-    },
-    total=False,
-)
-
-AwsRdsDbProcessorFeatureTypeDef = TypedDict(
-    "AwsRdsDbProcessorFeatureTypeDef",
-    {
-        "Name": str,
-        "Value": str,
-    },
-    total=False,
-)
-
-AwsRdsDbSecurityGroupDetailsTypeDef = TypedDict(
-    "AwsRdsDbSecurityGroupDetailsTypeDef",
-    {
-        "DbSecurityGroupArn": str,
-        "DbSecurityGroupDescription": str,
-        "DbSecurityGroupName": str,
-        "Ec2SecurityGroups": List["AwsRdsDbSecurityGroupEc2SecurityGroupTypeDef"],
-        "IpRanges": List["AwsRdsDbSecurityGroupIpRangeTypeDef"],
-        "OwnerId": str,
-        "VpcId": str,
-    },
-    total=False,
-)
-
-AwsRdsDbSecurityGroupEc2SecurityGroupTypeDef = TypedDict(
-    "AwsRdsDbSecurityGroupEc2SecurityGroupTypeDef",
-    {
-        "Ec2SecurityGroupId": str,
-        "Ec2SecurityGroupName": str,
-        "Ec2SecurityGroupOwnerId": str,
-        "Status": str,
-    },
-    total=False,
-)
-
-AwsRdsDbSecurityGroupIpRangeTypeDef = TypedDict(
-    "AwsRdsDbSecurityGroupIpRangeTypeDef",
-    {
-        "CidrIp": str,
-        "Status": str,
-    },
-    total=False,
-)
-
-AwsRdsDbSnapshotDetailsTypeDef = TypedDict(
-    "AwsRdsDbSnapshotDetailsTypeDef",
-    {
-        "DbSnapshotIdentifier": str,
-        "DbInstanceIdentifier": str,
-        "SnapshotCreateTime": str,
-        "Engine": str,
-        "AllocatedStorage": int,
-        "Status": str,
-        "Port": int,
-        "AvailabilityZone": str,
-        "VpcId": str,
-        "InstanceCreateTime": str,
-        "MasterUsername": str,
-        "EngineVersion": str,
-        "LicenseModel": str,
-        "SnapshotType": str,
-        "Iops": int,
-        "OptionGroupName": str,
-        "PercentProgress": int,
-        "SourceRegion": str,
-        "SourceDbSnapshotIdentifier": str,
-        "StorageType": str,
-        "TdeCredentialArn": str,
-        "Encrypted": bool,
-        "KmsKeyId": str,
-        "Timezone": str,
-        "IamDatabaseAuthenticationEnabled": bool,
-        "ProcessorFeatures": List["AwsRdsDbProcessorFeatureTypeDef"],
-        "DbiResourceId": str,
-    },
-    total=False,
-)
-
-AwsRdsDbStatusInfoTypeDef = TypedDict(
-    "AwsRdsDbStatusInfoTypeDef",
-    {
-        "StatusType": str,
-        "Normal": bool,
-        "Status": str,
-        "Message": str,
-    },
-    total=False,
-)
-
-AwsRdsDbSubnetGroupSubnetAvailabilityZoneTypeDef = TypedDict(
-    "AwsRdsDbSubnetGroupSubnetAvailabilityZoneTypeDef",
-    {
-        "Name": str,
-    },
-    total=False,
-)
-
-AwsRdsDbSubnetGroupSubnetTypeDef = TypedDict(
-    "AwsRdsDbSubnetGroupSubnetTypeDef",
-    {
-        "SubnetIdentifier": str,
-        "SubnetAvailabilityZone": "AwsRdsDbSubnetGroupSubnetAvailabilityZoneTypeDef",
-        "SubnetStatus": str,
-    },
-    total=False,
-)
-
-AwsRdsDbSubnetGroupTypeDef = TypedDict(
-    "AwsRdsDbSubnetGroupTypeDef",
-    {
-        "DbSubnetGroupName": str,
-        "DbSubnetGroupDescription": str,
-        "VpcId": str,
-        "SubnetGroupStatus": str,
-        "Subnets": List["AwsRdsDbSubnetGroupSubnetTypeDef"],
-        "DbSubnetGroupArn": str,
-    },
-    total=False,
-)
-
-AwsRdsEventSubscriptionDetailsTypeDef = TypedDict(
-    "AwsRdsEventSubscriptionDetailsTypeDef",
-    {
-        "CustSubscriptionId": str,
-        "CustomerAwsId": str,
-        "Enabled": bool,
-        "EventCategoriesList": List[str],
-        "EventSubscriptionArn": str,
-        "SnsTopicArn": str,
-        "SourceIdsList": List[str],
-        "SourceType": str,
-        "Status": str,
-        "SubscriptionCreationTime": str,
-    },
-    total=False,
-)
-
-AwsRdsPendingCloudWatchLogsExportsTypeDef = TypedDict(
-    "AwsRdsPendingCloudWatchLogsExportsTypeDef",
-    {
-        "LogTypesToEnable": List[str],
-        "LogTypesToDisable": List[str],
-    },
-    total=False,
-)
-
-AwsRedshiftClusterClusterNodeTypeDef = TypedDict(
-    "AwsRedshiftClusterClusterNodeTypeDef",
-    {
-        "NodeRole": str,
-        "PrivateIpAddress": str,
-        "PublicIpAddress": str,
-    },
-    total=False,
-)
-
-AwsRedshiftClusterClusterParameterGroupTypeDef = TypedDict(
-    "AwsRedshiftClusterClusterParameterGroupTypeDef",
-    {
-        "ClusterParameterStatusList": List["AwsRedshiftClusterClusterParameterStatusTypeDef"],
-        "ParameterApplyStatus": str,
-        "ParameterGroupName": str,
-    },
-    total=False,
-)
-
-AwsRedshiftClusterClusterParameterStatusTypeDef = TypedDict(
-    "AwsRedshiftClusterClusterParameterStatusTypeDef",
-    {
-        "ParameterName": str,
-        "ParameterApplyStatus": str,
-        "ParameterApplyErrorDescription": str,
-    },
-    total=False,
-)
-
-AwsRedshiftClusterClusterSecurityGroupTypeDef = TypedDict(
-    "AwsRedshiftClusterClusterSecurityGroupTypeDef",
-    {
-        "ClusterSecurityGroupName": str,
-        "Status": str,
-    },
-    total=False,
-)
-
-AwsRedshiftClusterClusterSnapshotCopyStatusTypeDef = TypedDict(
-    "AwsRedshiftClusterClusterSnapshotCopyStatusTypeDef",
-    {
-        "DestinationRegion": str,
-        "ManualSnapshotRetentionPeriod": int,
-        "RetentionPeriod": int,
-        "SnapshotCopyGrantName": str,
-    },
-    total=False,
-)
-
-AwsRedshiftClusterDeferredMaintenanceWindowTypeDef = TypedDict(
-    "AwsRedshiftClusterDeferredMaintenanceWindowTypeDef",
-    {
-        "DeferMaintenanceEndTime": str,
-        "DeferMaintenanceIdentifier": str,
-        "DeferMaintenanceStartTime": str,
-    },
-    total=False,
-)
-
-AwsRedshiftClusterDetailsTypeDef = TypedDict(
-    "AwsRedshiftClusterDetailsTypeDef",
-    {
-        "AllowVersionUpgrade": bool,
-        "AutomatedSnapshotRetentionPeriod": int,
-        "AvailabilityZone": str,
-        "ClusterAvailabilityStatus": str,
-        "ClusterCreateTime": str,
-        "ClusterIdentifier": str,
-        "ClusterNodes": List["AwsRedshiftClusterClusterNodeTypeDef"],
-        "ClusterParameterGroups": List["AwsRedshiftClusterClusterParameterGroupTypeDef"],
-        "ClusterPublicKey": str,
-        "ClusterRevisionNumber": str,
-        "ClusterSecurityGroups": List["AwsRedshiftClusterClusterSecurityGroupTypeDef"],
-        "ClusterSnapshotCopyStatus": "AwsRedshiftClusterClusterSnapshotCopyStatusTypeDef",
-        "ClusterStatus": str,
-        "ClusterSubnetGroupName": str,
-        "ClusterVersion": str,
-        "DBName": str,
-        "DeferredMaintenanceWindows": List["AwsRedshiftClusterDeferredMaintenanceWindowTypeDef"],
-        "ElasticIpStatus": "AwsRedshiftClusterElasticIpStatusTypeDef",
-        "ElasticResizeNumberOfNodeOptions": str,
-        "Encrypted": bool,
-        "Endpoint": "AwsRedshiftClusterEndpointTypeDef",
-        "EnhancedVpcRouting": bool,
-        "ExpectedNextSnapshotScheduleTime": str,
-        "ExpectedNextSnapshotScheduleTimeStatus": str,
-        "HsmStatus": "AwsRedshiftClusterHsmStatusTypeDef",
-        "IamRoles": List["AwsRedshiftClusterIamRoleTypeDef"],
-        "KmsKeyId": str,
-        "MaintenanceTrackName": str,
-        "ManualSnapshotRetentionPeriod": int,
-        "MasterUsername": str,
-        "NextMaintenanceWindowStartTime": str,
-        "NodeType": str,
-        "NumberOfNodes": int,
-        "PendingActions": List[str],
-        "PendingModifiedValues": "AwsRedshiftClusterPendingModifiedValuesTypeDef",
-        "PreferredMaintenanceWindow": str,
-        "PubliclyAccessible": bool,
-        "ResizeInfo": "AwsRedshiftClusterResizeInfoTypeDef",
-        "RestoreStatus": "AwsRedshiftClusterRestoreStatusTypeDef",
-        "SnapshotScheduleIdentifier": str,
-        "SnapshotScheduleState": str,
-        "VpcId": str,
-        "VpcSecurityGroups": List["AwsRedshiftClusterVpcSecurityGroupTypeDef"],
-        "LoggingStatus": "AwsRedshiftClusterLoggingStatusTypeDef",
-    },
-    total=False,
-)
-
-AwsRedshiftClusterElasticIpStatusTypeDef = TypedDict(
-    "AwsRedshiftClusterElasticIpStatusTypeDef",
-    {
-        "ElasticIp": str,
-        "Status": str,
-    },
-    total=False,
-)
-
-AwsRedshiftClusterEndpointTypeDef = TypedDict(
-    "AwsRedshiftClusterEndpointTypeDef",
-    {
-        "Address": str,
-        "Port": int,
-    },
-    total=False,
-)
-
-AwsRedshiftClusterHsmStatusTypeDef = TypedDict(
-    "AwsRedshiftClusterHsmStatusTypeDef",
-    {
-        "HsmClientCertificateIdentifier": str,
-        "HsmConfigurationIdentifier": str,
-        "Status": str,
-    },
-    total=False,
-)
-
-AwsRedshiftClusterIamRoleTypeDef = TypedDict(
-    "AwsRedshiftClusterIamRoleTypeDef",
-    {
-        "ApplyStatus": str,
-        "IamRoleArn": str,
-    },
-    total=False,
-)
-
-AwsRedshiftClusterLoggingStatusTypeDef = TypedDict(
-    "AwsRedshiftClusterLoggingStatusTypeDef",
-    {
-        "BucketName": str,
-        "LastFailureMessage": str,
-        "LastFailureTime": str,
-        "LastSuccessfulDeliveryTime": str,
-        "LoggingEnabled": bool,
-        "S3KeyPrefix": str,
-    },
-    total=False,
-)
-
-AwsRedshiftClusterPendingModifiedValuesTypeDef = TypedDict(
-    "AwsRedshiftClusterPendingModifiedValuesTypeDef",
-    {
-        "AutomatedSnapshotRetentionPeriod": int,
-        "ClusterIdentifier": str,
-        "ClusterType": str,
-        "ClusterVersion": str,
-        "EncryptionType": str,
-        "EnhancedVpcRouting": bool,
-        "MaintenanceTrackName": str,
-        "MasterUserPassword": str,
-        "NodeType": str,
-        "NumberOfNodes": int,
-        "PubliclyAccessible": bool,
-    },
-    total=False,
-)
-
-AwsRedshiftClusterResizeInfoTypeDef = TypedDict(
-    "AwsRedshiftClusterResizeInfoTypeDef",
-    {
-        "AllowCancelResize": bool,
-        "ResizeType": str,
-    },
-    total=False,
-)
-
-AwsRedshiftClusterRestoreStatusTypeDef = TypedDict(
-    "AwsRedshiftClusterRestoreStatusTypeDef",
-    {
-        "CurrentRestoreRateInMegaBytesPerSecond": float,
-        "ElapsedTimeInSeconds": int,
-        "EstimatedTimeToCompletionInSeconds": int,
-        "ProgressInMegaBytes": int,
-        "SnapshotSizeInMegaBytes": int,
-        "Status": str,
-    },
-    total=False,
-)
-
-AwsRedshiftClusterVpcSecurityGroupTypeDef = TypedDict(
-    "AwsRedshiftClusterVpcSecurityGroupTypeDef",
-    {
-        "Status": str,
-        "VpcSecurityGroupId": str,
-    },
-    total=False,
-)
-
-AwsRoute53HostedZoneConfigDetailsTypeDef = TypedDict(
-    "AwsRoute53HostedZoneConfigDetailsTypeDef",
-    {
-        "Comment": str,
-    },
-    total=False,
-)
-
-AwsRoute53HostedZoneDetailsTypeDef = TypedDict(
-    "AwsRoute53HostedZoneDetailsTypeDef",
-    {
-        "HostedZone": "AwsRoute53HostedZoneObjectDetailsTypeDef",
-        "Vpcs": List["AwsRoute53HostedZoneVpcDetailsTypeDef"],
-        "NameServers": List[str],
-        "QueryLoggingConfig": "AwsRoute53QueryLoggingConfigDetailsTypeDef",
-    },
-    total=False,
-)
-
-AwsRoute53HostedZoneObjectDetailsTypeDef = TypedDict(
-    "AwsRoute53HostedZoneObjectDetailsTypeDef",
-    {
-        "Id": str,
-        "Name": str,
-        "Config": "AwsRoute53HostedZoneConfigDetailsTypeDef",
-    },
-    total=False,
-)
-
-AwsRoute53HostedZoneVpcDetailsTypeDef = TypedDict(
-    "AwsRoute53HostedZoneVpcDetailsTypeDef",
-    {
-        "Id": str,
-        "Region": str,
-    },
-    total=False,
-)
-
-AwsRoute53QueryLoggingConfigDetailsTypeDef = TypedDict(
-    "AwsRoute53QueryLoggingConfigDetailsTypeDef",
-    {
-        "CloudWatchLogsLogGroupArn": "CloudWatchLogsLogGroupArnConfigDetailsTypeDef",
-    },
-    total=False,
-)
-
-AwsS3AccessPointDetailsTypeDef = TypedDict(
-    "AwsS3AccessPointDetailsTypeDef",
-    {
-        "AccessPointArn": str,
-        "Alias": str,
-        "Bucket": str,
-        "BucketAccountId": str,
-        "Name": str,
-        "NetworkOrigin": str,
-        "PublicAccessBlockConfiguration": "AwsS3AccountPublicAccessBlockDetailsTypeDef",
-        "VpcConfiguration": "AwsS3AccessPointVpcConfigurationDetailsTypeDef",
-    },
-    total=False,
-)
-
-AwsS3AccessPointVpcConfigurationDetailsTypeDef = TypedDict(
-    "AwsS3AccessPointVpcConfigurationDetailsTypeDef",
-    {
-        "VpcId": str,
-    },
-    total=False,
-)
-
-AwsS3AccountPublicAccessBlockDetailsTypeDef = TypedDict(
-    "AwsS3AccountPublicAccessBlockDetailsTypeDef",
-    {
-        "BlockPublicAcls": bool,
-        "BlockPublicPolicy": bool,
-        "IgnorePublicAcls": bool,
-        "RestrictPublicBuckets": bool,
-    },
-    total=False,
-)
-
-AwsS3BucketBucketLifecycleConfigurationDetailsTypeDef = TypedDict(
-    "AwsS3BucketBucketLifecycleConfigurationDetailsTypeDef",
-    {
-        "Rules": List["AwsS3BucketBucketLifecycleConfigurationRulesDetailsTypeDef"],
-    },
-    total=False,
-)
-
-AwsS3BucketBucketLifecycleConfigurationRulesAbortIncompleteMultipartUploadDetailsTypeDef = (
-    TypedDict(
-        "AwsS3BucketBucketLifecycleConfigurationRulesAbortIncompleteMultipartUploadDetailsTypeDef",
-        {
-            "DaysAfterInitiation": int,
-        },
-        total=False,
-    )
-)
-
-AwsS3BucketBucketLifecycleConfigurationRulesDetailsTypeDef = TypedDict(
-    "AwsS3BucketBucketLifecycleConfigurationRulesDetailsTypeDef",
-    {
-        "AbortIncompleteMultipartUpload": "AwsS3BucketBucketLifecycleConfigurationRulesAbortIncompleteMultipartUploadDetailsTypeDef",
-        "ExpirationDate": str,
-        "ExpirationInDays": int,
-        "ExpiredObjectDeleteMarker": bool,
-        "Filter": "AwsS3BucketBucketLifecycleConfigurationRulesFilterDetailsTypeDef",
-        "ID": str,
-        "NoncurrentVersionExpirationInDays": int,
-        "NoncurrentVersionTransitions": List[
-            "AwsS3BucketBucketLifecycleConfigurationRulesNoncurrentVersionTransitionsDetailsTypeDef"
-        ],
-        "Prefix": str,
-        "Status": str,
-        "Transitions": List[
-            "AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetailsTypeDef"
-        ],
-    },
-    total=False,
-)
-
-AwsS3BucketBucketLifecycleConfigurationRulesFilterDetailsTypeDef = TypedDict(
-    "AwsS3BucketBucketLifecycleConfigurationRulesFilterDetailsTypeDef",
-    {
-        "Predicate": "AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetailsTypeDef",
-    },
-    total=False,
-)
-
-AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetailsTypeDef = TypedDict(
-    "AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetailsTypeDef",
-    {
-        "Operands": List[
-            "AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetailsTypeDef"
-        ],
-        "Prefix": str,
-        "Tag": "AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateTagDetailsTypeDef",
-        "Type": str,
-    },
-    total=False,
-)
-
-AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetailsTypeDef = TypedDict(
-    "AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetailsTypeDef",
-    {
-        "Prefix": str,
-        "Tag": "AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsTagDetailsTypeDef",
-        "Type": str,
-    },
-    total=False,
-)
-
-AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsTagDetailsTypeDef = TypedDict(
-    "AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsTagDetailsTypeDef",
-    {
-        "Key": str,
-        "Value": str,
-    },
-    total=False,
-)
-
-AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateTagDetailsTypeDef = TypedDict(
-    "AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateTagDetailsTypeDef",
-    {
-        "Key": str,
-        "Value": str,
-    },
-    total=False,
-)
-
-AwsS3BucketBucketLifecycleConfigurationRulesNoncurrentVersionTransitionsDetailsTypeDef = TypedDict(
-    "AwsS3BucketBucketLifecycleConfigurationRulesNoncurrentVersionTransitionsDetailsTypeDef",
-    {
-        "Days": int,
-        "StorageClass": str,
-    },
-    total=False,
-)
-
-AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetailsTypeDef = TypedDict(
-    "AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetailsTypeDef",
-    {
-        "Date": str,
-        "Days": int,
-        "StorageClass": str,
-    },
-    total=False,
-)
-
-AwsS3BucketBucketVersioningConfigurationTypeDef = TypedDict(
-    "AwsS3BucketBucketVersioningConfigurationTypeDef",
-    {
-        "IsMfaDeleteEnabled": bool,
-        "Status": str,
-    },
-    total=False,
-)
-
-AwsS3BucketDetailsTypeDef = TypedDict(
-    "AwsS3BucketDetailsTypeDef",
-    {
-        "OwnerId": str,
-        "OwnerName": str,
-        "OwnerAccountId": str,
-        "CreatedAt": str,
-        "ServerSideEncryptionConfiguration": "AwsS3BucketServerSideEncryptionConfigurationTypeDef",
-        "BucketLifecycleConfiguration": "AwsS3BucketBucketLifecycleConfigurationDetailsTypeDef",
-        "PublicAccessBlockConfiguration": "AwsS3AccountPublicAccessBlockDetailsTypeDef",
-        "AccessControlList": str,
-        "BucketLoggingConfiguration": "AwsS3BucketLoggingConfigurationTypeDef",
-        "BucketWebsiteConfiguration": "AwsS3BucketWebsiteConfigurationTypeDef",
-        "BucketNotificationConfiguration": "AwsS3BucketNotificationConfigurationTypeDef",
-        "BucketVersioningConfiguration": "AwsS3BucketBucketVersioningConfigurationTypeDef",
-        "ObjectLockConfiguration": "AwsS3BucketObjectLockConfigurationTypeDef",
-        "Name": str,
-    },
-    total=False,
-)
-
-AwsS3BucketLoggingConfigurationTypeDef = TypedDict(
-    "AwsS3BucketLoggingConfigurationTypeDef",
-    {
-        "DestinationBucketName": str,
-        "LogFilePrefix": str,
-    },
-    total=False,
-)
-
-AwsS3BucketNotificationConfigurationDetailTypeDef = TypedDict(
-    "AwsS3BucketNotificationConfigurationDetailTypeDef",
-    {
-        "Events": List[str],
-        "Filter": "AwsS3BucketNotificationConfigurationFilterTypeDef",
-        "Destination": str,
-        "Type": str,
-    },
-    total=False,
-)
-
-AwsS3BucketNotificationConfigurationFilterTypeDef = TypedDict(
-    "AwsS3BucketNotificationConfigurationFilterTypeDef",
-    {
-        "S3KeyFilter": "AwsS3BucketNotificationConfigurationS3KeyFilterTypeDef",
-    },
-    total=False,
-)
-
-AwsS3BucketNotificationConfigurationS3KeyFilterRuleTypeDef = TypedDict(
-    "AwsS3BucketNotificationConfigurationS3KeyFilterRuleTypeDef",
-    {
-        "Name": AwsS3BucketNotificationConfigurationS3KeyFilterRuleNameType,
-        "Value": str,
-    },
-    total=False,
-)
-
-AwsS3BucketNotificationConfigurationS3KeyFilterTypeDef = TypedDict(
-    "AwsS3BucketNotificationConfigurationS3KeyFilterTypeDef",
-    {
-        "FilterRules": List["AwsS3BucketNotificationConfigurationS3KeyFilterRuleTypeDef"],
-    },
-    total=False,
-)
-
-AwsS3BucketNotificationConfigurationTypeDef = TypedDict(
-    "AwsS3BucketNotificationConfigurationTypeDef",
-    {
-        "Configurations": List["AwsS3BucketNotificationConfigurationDetailTypeDef"],
-    },
-    total=False,
-)
-
-AwsS3BucketObjectLockConfigurationRuleDefaultRetentionDetailsTypeDef = TypedDict(
-    "AwsS3BucketObjectLockConfigurationRuleDefaultRetentionDetailsTypeDef",
-    {
-        "Days": int,
-        "Mode": str,
-        "Years": int,
-    },
-    total=False,
-)
-
-AwsS3BucketObjectLockConfigurationRuleDetailsTypeDef = TypedDict(
-    "AwsS3BucketObjectLockConfigurationRuleDetailsTypeDef",
-    {
-        "DefaultRetention": "AwsS3BucketObjectLockConfigurationRuleDefaultRetentionDetailsTypeDef",
-    },
-    total=False,
-)
-
-AwsS3BucketObjectLockConfigurationTypeDef = TypedDict(
-    "AwsS3BucketObjectLockConfigurationTypeDef",
-    {
-        "ObjectLockEnabled": str,
-        "Rule": "AwsS3BucketObjectLockConfigurationRuleDetailsTypeDef",
-    },
-    total=False,
-)
-
-AwsS3BucketServerSideEncryptionByDefaultTypeDef = TypedDict(
-    "AwsS3BucketServerSideEncryptionByDefaultTypeDef",
-    {
-        "SSEAlgorithm": str,
-        "KMSMasterKeyID": str,
-    },
-    total=False,
-)
-
-AwsS3BucketServerSideEncryptionConfigurationTypeDef = TypedDict(
-    "AwsS3BucketServerSideEncryptionConfigurationTypeDef",
-    {
-        "Rules": List["AwsS3BucketServerSideEncryptionRuleTypeDef"],
-    },
-    total=False,
-)
-
-AwsS3BucketServerSideEncryptionRuleTypeDef = TypedDict(
-    "AwsS3BucketServerSideEncryptionRuleTypeDef",
-    {
-        "ApplyServerSideEncryptionByDefault": "AwsS3BucketServerSideEncryptionByDefaultTypeDef",
-    },
-    total=False,
-)
-
-AwsS3BucketWebsiteConfigurationRedirectToTypeDef = TypedDict(
-    "AwsS3BucketWebsiteConfigurationRedirectToTypeDef",
-    {
-        "Hostname": str,
-        "Protocol": str,
-    },
-    total=False,
-)
-
-AwsS3BucketWebsiteConfigurationRoutingRuleConditionTypeDef = TypedDict(
-    "AwsS3BucketWebsiteConfigurationRoutingRuleConditionTypeDef",
-    {
-        "HttpErrorCodeReturnedEquals": str,
-        "KeyPrefixEquals": str,
-    },
-    total=False,
-)
-
-AwsS3BucketWebsiteConfigurationRoutingRuleRedirectTypeDef = TypedDict(
-    "AwsS3BucketWebsiteConfigurationRoutingRuleRedirectTypeDef",
-    {
-        "Hostname": str,
-        "HttpRedirectCode": str,
-        "Protocol": str,
-        "ReplaceKeyPrefixWith": str,
-        "ReplaceKeyWith": str,
-    },
-    total=False,
-)
-
-AwsS3BucketWebsiteConfigurationRoutingRuleTypeDef = TypedDict(
-    "AwsS3BucketWebsiteConfigurationRoutingRuleTypeDef",
-    {
-        "Condition": "AwsS3BucketWebsiteConfigurationRoutingRuleConditionTypeDef",
-        "Redirect": "AwsS3BucketWebsiteConfigurationRoutingRuleRedirectTypeDef",
-    },
-    total=False,
-)
-
-AwsS3BucketWebsiteConfigurationTypeDef = TypedDict(
-    "AwsS3BucketWebsiteConfigurationTypeDef",
-    {
-        "ErrorDocument": str,
-        "IndexDocumentSuffix": str,
-        "RedirectAllRequestsTo": "AwsS3BucketWebsiteConfigurationRedirectToTypeDef",
-        "RoutingRules": List["AwsS3BucketWebsiteConfigurationRoutingRuleTypeDef"],
-    },
-    total=False,
-)
-
-AwsS3ObjectDetailsTypeDef = TypedDict(
-    "AwsS3ObjectDetailsTypeDef",
-    {
-        "LastModified": str,
-        "ETag": str,
-        "VersionId": str,
-        "ContentType": str,
-        "ServerSideEncryption": str,
-        "SSEKMSKeyId": str,
-    },
-    total=False,
-)
-
-AwsSageMakerNotebookInstanceDetailsTypeDef = TypedDict(
-    "AwsSageMakerNotebookInstanceDetailsTypeDef",
-    {
-        "AcceleratorTypes": List[str],
-        "AdditionalCodeRepositories": List[str],
-        "DefaultCodeRepository": str,
-        "DirectInternetAccess": str,
-        "FailureReason": str,
-        "InstanceMetadataServiceConfiguration": "AwsSageMakerNotebookInstanceMetadataServiceConfigurationDetailsTypeDef",
-        "InstanceType": str,
-        "KmsKeyId": str,
-        "NetworkInterfaceId": str,
-        "NotebookInstanceArn": str,
-        "NotebookInstanceLifecycleConfigName": str,
-        "NotebookInstanceName": str,
-        "NotebookInstanceStatus": str,
-        "PlatformIdentifier": str,
-        "RoleArn": str,
-        "RootAccess": str,
-        "SecurityGroups": List[str],
-        "SubnetId": str,
-        "Url": str,
-        "VolumeSizeInGB": int,
-    },
-    total=False,
-)
-
-AwsSageMakerNotebookInstanceMetadataServiceConfigurationDetailsTypeDef = TypedDict(
-    "AwsSageMakerNotebookInstanceMetadataServiceConfigurationDetailsTypeDef",
-    {
-        "MinimumInstanceMetadataServiceVersion": str,
-    },
-    total=False,
-)
-
-AwsSecretsManagerSecretDetailsTypeDef = TypedDict(
-    "AwsSecretsManagerSecretDetailsTypeDef",
-    {
-        "RotationRules": "AwsSecretsManagerSecretRotationRulesTypeDef",
-        "RotationOccurredWithinFrequency": bool,
-        "KmsKeyId": str,
-        "RotationEnabled": bool,
-        "RotationLambdaArn": str,
-        "Deleted": bool,
-        "Name": str,
-        "Description": str,
-    },
-    total=False,
-)
-
-AwsSecretsManagerSecretRotationRulesTypeDef = TypedDict(
-    "AwsSecretsManagerSecretRotationRulesTypeDef",
-    {
-        "AutomaticallyAfterDays": int,
-    },
-    total=False,
-)
-
-AwsSecurityFindingFiltersTypeDef = TypedDict(
-    "AwsSecurityFindingFiltersTypeDef",
-    {
-        "ProductArn": List["StringFilterTypeDef"],
-        "AwsAccountId": List["StringFilterTypeDef"],
-        "Id": List["StringFilterTypeDef"],
-        "GeneratorId": List["StringFilterTypeDef"],
-        "Region": List["StringFilterTypeDef"],
-        "Type": List["StringFilterTypeDef"],
-        "FirstObservedAt": List["DateFilterTypeDef"],
-        "LastObservedAt": List["DateFilterTypeDef"],
-        "CreatedAt": List["DateFilterTypeDef"],
-        "UpdatedAt": List["DateFilterTypeDef"],
-        "SeverityProduct": List["NumberFilterTypeDef"],
-        "SeverityNormalized": List["NumberFilterTypeDef"],
-        "SeverityLabel": List["StringFilterTypeDef"],
-        "Confidence": List["NumberFilterTypeDef"],
-        "Criticality": List["NumberFilterTypeDef"],
-        "Title": List["StringFilterTypeDef"],
-        "Description": List["StringFilterTypeDef"],
-        "RecommendationText": List["StringFilterTypeDef"],
-        "SourceUrl": List["StringFilterTypeDef"],
-        "ProductFields": List["MapFilterTypeDef"],
-        "ProductName": List["StringFilterTypeDef"],
-        "CompanyName": List["StringFilterTypeDef"],
-        "UserDefinedFields": List["MapFilterTypeDef"],
-        "MalwareName": List["StringFilterTypeDef"],
-        "MalwareType": List["StringFilterTypeDef"],
-        "MalwarePath": List["StringFilterTypeDef"],
-        "MalwareState": List["StringFilterTypeDef"],
-        "NetworkDirection": List["StringFilterTypeDef"],
-        "NetworkProtocol": List["StringFilterTypeDef"],
-        "NetworkSourceIpV4": List["IpFilterTypeDef"],
-        "NetworkSourceIpV6": List["IpFilterTypeDef"],
-        "NetworkSourcePort": List["NumberFilterTypeDef"],
-        "NetworkSourceDomain": List["StringFilterTypeDef"],
-        "NetworkSourceMac": List["StringFilterTypeDef"],
-        "NetworkDestinationIpV4": List["IpFilterTypeDef"],
-        "NetworkDestinationIpV6": List["IpFilterTypeDef"],
-        "NetworkDestinationPort": List["NumberFilterTypeDef"],
-        "NetworkDestinationDomain": List["StringFilterTypeDef"],
-        "ProcessName": List["StringFilterTypeDef"],
-        "ProcessPath": List["StringFilterTypeDef"],
-        "ProcessPid": List["NumberFilterTypeDef"],
-        "ProcessParentPid": List["NumberFilterTypeDef"],
-        "ProcessLaunchedAt": List["DateFilterTypeDef"],
-        "ProcessTerminatedAt": List["DateFilterTypeDef"],
-        "ThreatIntelIndicatorType": List["StringFilterTypeDef"],
-        "ThreatIntelIndicatorValue": List["StringFilterTypeDef"],
-        "ThreatIntelIndicatorCategory": List["StringFilterTypeDef"],
-        "ThreatIntelIndicatorLastObservedAt": List["DateFilterTypeDef"],
-        "ThreatIntelIndicatorSource": List["StringFilterTypeDef"],
-        "ThreatIntelIndicatorSourceUrl": List["StringFilterTypeDef"],
-        "ResourceType": List["StringFilterTypeDef"],
-        "ResourceId": List["StringFilterTypeDef"],
-        "ResourcePartition": List["StringFilterTypeDef"],
-        "ResourceRegion": List["StringFilterTypeDef"],
-        "ResourceTags": List["MapFilterTypeDef"],
-        "ResourceAwsEc2InstanceType": List["StringFilterTypeDef"],
-        "ResourceAwsEc2InstanceImageId": List["StringFilterTypeDef"],
-        "ResourceAwsEc2InstanceIpV4Addresses": List["IpFilterTypeDef"],
-        "ResourceAwsEc2InstanceIpV6Addresses": List["IpFilterTypeDef"],
-        "ResourceAwsEc2InstanceKeyName": List["StringFilterTypeDef"],
-        "ResourceAwsEc2InstanceIamInstanceProfileArn": List["StringFilterTypeDef"],
-        "ResourceAwsEc2InstanceVpcId": List["StringFilterTypeDef"],
-        "ResourceAwsEc2InstanceSubnetId": List["StringFilterTypeDef"],
-        "ResourceAwsEc2InstanceLaunchedAt": List["DateFilterTypeDef"],
-        "ResourceAwsS3BucketOwnerId": List["StringFilterTypeDef"],
-        "ResourceAwsS3BucketOwnerName": List["StringFilterTypeDef"],
-        "ResourceAwsIamAccessKeyUserName": List["StringFilterTypeDef"],
-        "ResourceAwsIamAccessKeyPrincipalName": List["StringFilterTypeDef"],
-        "ResourceAwsIamAccessKeyStatus": List["StringFilterTypeDef"],
-        "ResourceAwsIamAccessKeyCreatedAt": List["DateFilterTypeDef"],
-        "ResourceAwsIamUserUserName": List["StringFilterTypeDef"],
-        "ResourceContainerName": List["StringFilterTypeDef"],
-        "ResourceContainerImageId": List["StringFilterTypeDef"],
-        "ResourceContainerImageName": List["StringFilterTypeDef"],
-        "ResourceContainerLaunchedAt": List["DateFilterTypeDef"],
-        "ResourceDetailsOther": List["MapFilterTypeDef"],
-        "ComplianceStatus": List["StringFilterTypeDef"],
-        "VerificationState": List["StringFilterTypeDef"],
-        "WorkflowState": List["StringFilterTypeDef"],
-        "WorkflowStatus": List["StringFilterTypeDef"],
-        "RecordState": List["StringFilterTypeDef"],
-        "RelatedFindingsProductArn": List["StringFilterTypeDef"],
-        "RelatedFindingsId": List["StringFilterTypeDef"],
-        "NoteText": List["StringFilterTypeDef"],
-        "NoteUpdatedAt": List["DateFilterTypeDef"],
-        "NoteUpdatedBy": List["StringFilterTypeDef"],
-        "Keyword": List["KeywordFilterTypeDef"],
-        "FindingProviderFieldsConfidence": List["NumberFilterTypeDef"],
-        "FindingProviderFieldsCriticality": List["NumberFilterTypeDef"],
-        "FindingProviderFieldsRelatedFindingsId": List["StringFilterTypeDef"],
-        "FindingProviderFieldsRelatedFindingsProductArn": List["StringFilterTypeDef"],
-        "FindingProviderFieldsSeverityLabel": List["StringFilterTypeDef"],
-        "FindingProviderFieldsSeverityOriginal": List["StringFilterTypeDef"],
-        "FindingProviderFieldsTypes": List["StringFilterTypeDef"],
-        "Sample": List["BooleanFilterTypeDef"],
-        "ComplianceSecurityControlId": List["StringFilterTypeDef"],
-        "ComplianceAssociatedStandardsId": List["StringFilterTypeDef"],
-        "VulnerabilitiesExploitAvailable": List["StringFilterTypeDef"],
-        "VulnerabilitiesFixAvailable": List["StringFilterTypeDef"],
-        "ComplianceSecurityControlParametersName": List["StringFilterTypeDef"],
-        "ComplianceSecurityControlParametersValue": List["StringFilterTypeDef"],
-        "AwsAccountName": List["StringFilterTypeDef"],
-        "ResourceApplicationName": List["StringFilterTypeDef"],
-        "ResourceApplicationArn": List["StringFilterTypeDef"],
-    },
-    total=False,
-)
-
-AwsSecurityFindingIdentifierTypeDef = TypedDict(
-    "AwsSecurityFindingIdentifierTypeDef",
-    {
-        "Id": str,
-        "ProductArn": str,
-    },
-)
-
-_RequiredAwsSecurityFindingTypeDef = TypedDict(
-    "_RequiredAwsSecurityFindingTypeDef",
-    {
-        "SchemaVersion": str,
-        "Id": str,
-        "ProductArn": str,
-        "GeneratorId": str,
-        "AwsAccountId": str,
-        "CreatedAt": str,
-        "UpdatedAt": str,
-        "Title": str,
-        "Description": str,
-        "Resources": List["ResourceTypeDef"],
-    },
-)
-_OptionalAwsSecurityFindingTypeDef = TypedDict(
-    "_OptionalAwsSecurityFindingTypeDef",
-    {
-        "ProductName": str,
-        "CompanyName": str,
-        "Region": str,
-        "Types": List[str],
-        "FirstObservedAt": str,
-        "LastObservedAt": str,
-        "Severity": "SeverityTypeDef",
-        "Confidence": int,
-        "Criticality": int,
-        "Remediation": "RemediationTypeDef",
-        "SourceUrl": str,
-        "ProductFields": Dict[str, str],
-        "UserDefinedFields": Dict[str, str],
-        "Malware": List["MalwareTypeDef"],
-        "Network": "NetworkTypeDef",
-        "NetworkPath": List["NetworkPathComponentTypeDef"],
-        "Process": "ProcessDetailsTypeDef",
-        "Threats": List["ThreatTypeDef"],
-        "ThreatIntelIndicators": List["ThreatIntelIndicatorTypeDef"],
-        "Compliance": "ComplianceTypeDef",
-        "VerificationState": VerificationStateType,
-        "WorkflowState": WorkflowStateType,
-        "Workflow": "WorkflowTypeDef",
-        "RecordState": RecordStateType,
-        "RelatedFindings": List["RelatedFindingTypeDef"],
-        "Note": "NoteTypeDef",
-        "Vulnerabilities": List["VulnerabilityTypeDef"],
-        "PatchSummary": "PatchSummaryTypeDef",
-        "Action": "ActionTypeDef",
-        "FindingProviderFields": "FindingProviderFieldsTypeDef",
-        "Sample": bool,
-        "GeneratorDetails": "GeneratorDetailsTypeDef",
-        "ProcessedAt": str,
-        "AwsAccountName": str,
-    },
-    total=False,
-)
-
-class AwsSecurityFindingTypeDef(
-    _RequiredAwsSecurityFindingTypeDef, _OptionalAwsSecurityFindingTypeDef
-):
-    pass
-
-AwsSnsTopicDetailsTypeDef = TypedDict(
-    "AwsSnsTopicDetailsTypeDef",
-    {
-        "KmsMasterKeyId": str,
-        "Subscription": List["AwsSnsTopicSubscriptionTypeDef"],
-        "TopicName": str,
-        "Owner": str,
-        "SqsSuccessFeedbackRoleArn": str,
-        "SqsFailureFeedbackRoleArn": str,
-        "ApplicationSuccessFeedbackRoleArn": str,
-        "FirehoseSuccessFeedbackRoleArn": str,
-        "FirehoseFailureFeedbackRoleArn": str,
-        "HttpSuccessFeedbackRoleArn": str,
-        "HttpFailureFeedbackRoleArn": str,
-    },
-    total=False,
-)
-
-AwsSnsTopicSubscriptionTypeDef = TypedDict(
-    "AwsSnsTopicSubscriptionTypeDef",
-    {
-        "Endpoint": str,
-        "Protocol": str,
-    },
-    total=False,
-)
-
-AwsSqsQueueDetailsTypeDef = TypedDict(
-    "AwsSqsQueueDetailsTypeDef",
-    {
-        "KmsDataKeyReusePeriodSeconds": int,
-        "KmsMasterKeyId": str,
-        "QueueName": str,
-        "DeadLetterTargetArn": str,
-    },
-    total=False,
-)
-
-AwsSsmComplianceSummaryTypeDef = TypedDict(
-    "AwsSsmComplianceSummaryTypeDef",
-    {
-        "Status": str,
-        "CompliantCriticalCount": int,
-        "CompliantHighCount": int,
-        "CompliantMediumCount": int,
-        "ExecutionType": str,
-        "NonCompliantCriticalCount": int,
-        "CompliantInformationalCount": int,
-        "NonCompliantInformationalCount": int,
-        "CompliantUnspecifiedCount": int,
-        "NonCompliantLowCount": int,
-        "NonCompliantHighCount": int,
-        "CompliantLowCount": int,
-        "ComplianceType": str,
-        "PatchBaselineId": str,
-        "OverallSeverity": str,
-        "NonCompliantMediumCount": int,
-        "NonCompliantUnspecifiedCount": int,
-        "PatchGroup": str,
-    },
-    total=False,
-)
-
-AwsSsmPatchComplianceDetailsTypeDef = TypedDict(
-    "AwsSsmPatchComplianceDetailsTypeDef",
-    {
-        "Patch": "AwsSsmPatchTypeDef",
-    },
-    total=False,
-)
-
-AwsSsmPatchTypeDef = TypedDict(
-    "AwsSsmPatchTypeDef",
-    {
-        "ComplianceSummary": "AwsSsmComplianceSummaryTypeDef",
-    },
-    total=False,
-)
-
-AwsStepFunctionStateMachineDetailsTypeDef = TypedDict(
-    "AwsStepFunctionStateMachineDetailsTypeDef",
-    {
-        "Label": str,
-        "LoggingConfiguration": "AwsStepFunctionStateMachineLoggingConfigurationDetailsTypeDef",
-        "Name": str,
-        "RoleArn": str,
-        "StateMachineArn": str,
-        "Status": str,
-        "TracingConfiguration": "AwsStepFunctionStateMachineTracingConfigurationDetailsTypeDef",
-        "Type": str,
-    },
-    total=False,
-)
-
-AwsStepFunctionStateMachineLoggingConfigurationDestinationsCloudWatchLogsLogGroupDetailsTypeDef = TypedDict(
-    "AwsStepFunctionStateMachineLoggingConfigurationDestinationsCloudWatchLogsLogGroupDetailsTypeDef",
-    {
-        "LogGroupArn": str,
-    },
-    total=False,
-)
-
-AwsStepFunctionStateMachineLoggingConfigurationDestinationsDetailsTypeDef = TypedDict(
-    "AwsStepFunctionStateMachineLoggingConfigurationDestinationsDetailsTypeDef",
-    {
-        "CloudWatchLogsLogGroup": "AwsStepFunctionStateMachineLoggingConfigurationDestinationsCloudWatchLogsLogGroupDetailsTypeDef",
-    },
-    total=False,
-)
-
-AwsStepFunctionStateMachineLoggingConfigurationDetailsTypeDef = TypedDict(
-    "AwsStepFunctionStateMachineLoggingConfigurationDetailsTypeDef",
-    {
-        "Destinations": List[
-            "AwsStepFunctionStateMachineLoggingConfigurationDestinationsDetailsTypeDef"
-        ],
-        "IncludeExecutionData": bool,
-        "Level": str,
-    },
-    total=False,
-)
-
-AwsStepFunctionStateMachineTracingConfigurationDetailsTypeDef = TypedDict(
-    "AwsStepFunctionStateMachineTracingConfigurationDetailsTypeDef",
-    {
-        "Enabled": bool,
-    },
-    total=False,
-)
-
-AwsWafRateBasedRuleDetailsTypeDef = TypedDict(
-    "AwsWafRateBasedRuleDetailsTypeDef",
-    {
-        "MetricName": str,
-        "Name": str,
-        "RateKey": str,
-        "RateLimit": int,
-        "RuleId": str,
-        "MatchPredicates": List["AwsWafRateBasedRuleMatchPredicateTypeDef"],
-    },
-    total=False,
-)
-
-AwsWafRateBasedRuleMatchPredicateTypeDef = TypedDict(
-    "AwsWafRateBasedRuleMatchPredicateTypeDef",
-    {
-        "DataId": str,
-        "Negated": bool,
-        "Type": str,
-    },
-    total=False,
-)
-
-AwsWafRegionalRateBasedRuleDetailsTypeDef = TypedDict(
-    "AwsWafRegionalRateBasedRuleDetailsTypeDef",
-    {
-        "MetricName": str,
-        "Name": str,
-        "RateKey": str,
-        "RateLimit": int,
-        "RuleId": str,
-        "MatchPredicates": List["AwsWafRegionalRateBasedRuleMatchPredicateTypeDef"],
-    },
-    total=False,
-)
-
-AwsWafRegionalRateBasedRuleMatchPredicateTypeDef = TypedDict(
-    "AwsWafRegionalRateBasedRuleMatchPredicateTypeDef",
-    {
-        "DataId": str,
-        "Negated": bool,
-        "Type": str,
-    },
-    total=False,
-)
-
-AwsWafRegionalRuleDetailsTypeDef = TypedDict(
-    "AwsWafRegionalRuleDetailsTypeDef",
-    {
-        "MetricName": str,
-        "Name": str,
-        "PredicateList": List["AwsWafRegionalRulePredicateListDetailsTypeDef"],
-        "RuleId": str,
-    },
-    total=False,
-)
-
-AwsWafRegionalRuleGroupDetailsTypeDef = TypedDict(
-    "AwsWafRegionalRuleGroupDetailsTypeDef",
-    {
-        "MetricName": str,
-        "Name": str,
-        "RuleGroupId": str,
-        "Rules": List["AwsWafRegionalRuleGroupRulesDetailsTypeDef"],
-    },
-    total=False,
-)
-
-AwsWafRegionalRuleGroupRulesActionDetailsTypeDef = TypedDict(
-    "AwsWafRegionalRuleGroupRulesActionDetailsTypeDef",
-    {
-        "Type": str,
-    },
-    total=False,
-)
-
-AwsWafRegionalRuleGroupRulesDetailsTypeDef = TypedDict(
-    "AwsWafRegionalRuleGroupRulesDetailsTypeDef",
-    {
-        "Action": "AwsWafRegionalRuleGroupRulesActionDetailsTypeDef",
-        "Priority": int,
-        "RuleId": str,
-        "Type": str,
-    },
-    total=False,
-)
-
-AwsWafRegionalRulePredicateListDetailsTypeDef = TypedDict(
-    "AwsWafRegionalRulePredicateListDetailsTypeDef",
-    {
-        "DataId": str,
-        "Negated": bool,
-        "Type": str,
-    },
-    total=False,
-)
-
-AwsWafRegionalWebAclDetailsTypeDef = TypedDict(
-    "AwsWafRegionalWebAclDetailsTypeDef",
-    {
-        "DefaultAction": str,
-        "MetricName": str,
-        "Name": str,
-        "RulesList": List["AwsWafRegionalWebAclRulesListDetailsTypeDef"],
-        "WebAclId": str,
-    },
-    total=False,
-)
-
-AwsWafRegionalWebAclRulesListActionDetailsTypeDef = TypedDict(
-    "AwsWafRegionalWebAclRulesListActionDetailsTypeDef",
-    {
-        "Type": str,
-    },
-    total=False,
-)
-
-AwsWafRegionalWebAclRulesListDetailsTypeDef = TypedDict(
-    "AwsWafRegionalWebAclRulesListDetailsTypeDef",
-    {
-        "Action": "AwsWafRegionalWebAclRulesListActionDetailsTypeDef",
-        "OverrideAction": "AwsWafRegionalWebAclRulesListOverrideActionDetailsTypeDef",
-        "Priority": int,
-        "RuleId": str,
-        "Type": str,
-    },
-    total=False,
-)
-
-AwsWafRegionalWebAclRulesListOverrideActionDetailsTypeDef = TypedDict(
-    "AwsWafRegionalWebAclRulesListOverrideActionDetailsTypeDef",
-    {
-        "Type": str,
-    },
-    total=False,
-)
-
-AwsWafRuleDetailsTypeDef = TypedDict(
-    "AwsWafRuleDetailsTypeDef",
-    {
-        "MetricName": str,
-        "Name": str,
-        "PredicateList": List["AwsWafRulePredicateListDetailsTypeDef"],
-        "RuleId": str,
-    },
-    total=False,
-)
-
-AwsWafRuleGroupDetailsTypeDef = TypedDict(
-    "AwsWafRuleGroupDetailsTypeDef",
-    {
-        "MetricName": str,
-        "Name": str,
-        "RuleGroupId": str,
-        "Rules": List["AwsWafRuleGroupRulesDetailsTypeDef"],
-    },
-    total=False,
-)
-
-AwsWafRuleGroupRulesActionDetailsTypeDef = TypedDict(
-    "AwsWafRuleGroupRulesActionDetailsTypeDef",
-    {
-        "Type": str,
-    },
-    total=False,
-)
-
-AwsWafRuleGroupRulesDetailsTypeDef = TypedDict(
-    "AwsWafRuleGroupRulesDetailsTypeDef",
-    {
-        "Action": "AwsWafRuleGroupRulesActionDetailsTypeDef",
-        "Priority": int,
-        "RuleId": str,
-        "Type": str,
-    },
-    total=False,
-)
-
-AwsWafRulePredicateListDetailsTypeDef = TypedDict(
-    "AwsWafRulePredicateListDetailsTypeDef",
-    {
-        "DataId": str,
-        "Negated": bool,
-        "Type": str,
-    },
-    total=False,
-)
-
-AwsWafWebAclDetailsTypeDef = TypedDict(
-    "AwsWafWebAclDetailsTypeDef",
-    {
-        "Name": str,
-        "DefaultAction": str,
-        "Rules": List["AwsWafWebAclRuleTypeDef"],
-        "WebAclId": str,
-    },
-    total=False,
-)
-
-AwsWafWebAclRuleTypeDef = TypedDict(
-    "AwsWafWebAclRuleTypeDef",
-    {
-        "Action": "WafActionTypeDef",
-        "ExcludedRules": List["WafExcludedRuleTypeDef"],
-        "OverrideAction": "WafOverrideActionTypeDef",
-        "Priority": int,
-        "RuleId": str,
-        "Type": str,
-    },
-    total=False,
-)
-
-AwsWafv2ActionAllowDetailsTypeDef = TypedDict(
-    "AwsWafv2ActionAllowDetailsTypeDef",
-    {
-        "CustomRequestHandling": "AwsWafv2CustomRequestHandlingDetailsTypeDef",
-    },
-    total=False,
-)
-
-AwsWafv2ActionBlockDetailsTypeDef = TypedDict(
-    "AwsWafv2ActionBlockDetailsTypeDef",
-    {
-        "CustomResponse": "AwsWafv2CustomResponseDetailsTypeDef",
-    },
-    total=False,
-)
-
-AwsWafv2CustomHttpHeaderTypeDef = TypedDict(
-    "AwsWafv2CustomHttpHeaderTypeDef",
-    {
-        "Name": str,
-        "Value": str,
-    },
-    total=False,
-)
-
-AwsWafv2CustomRequestHandlingDetailsTypeDef = TypedDict(
-    "AwsWafv2CustomRequestHandlingDetailsTypeDef",
-    {
-        "InsertHeaders": List["AwsWafv2CustomHttpHeaderTypeDef"],
-    },
-    total=False,
-)
-
-AwsWafv2CustomResponseDetailsTypeDef = TypedDict(
-    "AwsWafv2CustomResponseDetailsTypeDef",
-    {
-        "CustomResponseBodyKey": str,
-        "ResponseCode": int,
-        "ResponseHeaders": List["AwsWafv2CustomHttpHeaderTypeDef"],
-    },
-    total=False,
-)
-
-AwsWafv2RuleGroupDetailsTypeDef = TypedDict(
-    "AwsWafv2RuleGroupDetailsTypeDef",
-    {
-        "Capacity": int,
-        "Description": str,
-        "Id": str,
-        "Name": str,
-        "Arn": str,
-        "Rules": List["AwsWafv2RulesDetailsTypeDef"],
-        "Scope": str,
-        "VisibilityConfig": "AwsWafv2VisibilityConfigDetailsTypeDef",
-    },
-    total=False,
-)
-
-AwsWafv2RulesActionCaptchaDetailsTypeDef = TypedDict(
-    "AwsWafv2RulesActionCaptchaDetailsTypeDef",
-    {
-        "CustomRequestHandling": "AwsWafv2CustomRequestHandlingDetailsTypeDef",
-    },
-    total=False,
-)
-
-AwsWafv2RulesActionCountDetailsTypeDef = TypedDict(
-    "AwsWafv2RulesActionCountDetailsTypeDef",
-    {
-        "CustomRequestHandling": "AwsWafv2CustomRequestHandlingDetailsTypeDef",
-    },
-    total=False,
-)
-
-AwsWafv2RulesActionDetailsTypeDef = TypedDict(
-    "AwsWafv2RulesActionDetailsTypeDef",
-    {
-        "Allow": "AwsWafv2ActionAllowDetailsTypeDef",
-        "Block": "AwsWafv2ActionBlockDetailsTypeDef",
-        "Captcha": "AwsWafv2RulesActionCaptchaDetailsTypeDef",
-        "Count": "AwsWafv2RulesActionCountDetailsTypeDef",
-    },
-    total=False,
-)
-
-AwsWafv2RulesDetailsTypeDef = TypedDict(
-    "AwsWafv2RulesDetailsTypeDef",
-    {
-        "Action": "AwsWafv2RulesActionDetailsTypeDef",
-        "Name": str,
-        "OverrideAction": str,
-        "Priority": int,
-        "VisibilityConfig": "AwsWafv2VisibilityConfigDetailsTypeDef",
-    },
-    total=False,
-)
-
-AwsWafv2VisibilityConfigDetailsTypeDef = TypedDict(
-    "AwsWafv2VisibilityConfigDetailsTypeDef",
-    {
-        "CloudWatchMetricsEnabled": bool,
-        "MetricName": str,
-        "SampledRequestsEnabled": bool,
-    },
-    total=False,
-)
-
-AwsWafv2WebAclActionDetailsTypeDef = TypedDict(
-    "AwsWafv2WebAclActionDetailsTypeDef",
-    {
-        "Allow": "AwsWafv2ActionAllowDetailsTypeDef",
-        "Block": "AwsWafv2ActionBlockDetailsTypeDef",
-    },
-    total=False,
-)
-
-AwsWafv2WebAclCaptchaConfigDetailsTypeDef = TypedDict(
-    "AwsWafv2WebAclCaptchaConfigDetailsTypeDef",
-    {
-        "ImmunityTimeProperty": "AwsWafv2WebAclCaptchaConfigImmunityTimePropertyDetailsTypeDef",
-    },
-    total=False,
-)
-
-AwsWafv2WebAclCaptchaConfigImmunityTimePropertyDetailsTypeDef = TypedDict(
-    "AwsWafv2WebAclCaptchaConfigImmunityTimePropertyDetailsTypeDef",
-    {
-        "ImmunityTime": int,
-    },
-    total=False,
-)
-
-AwsWafv2WebAclDetailsTypeDef = TypedDict(
-    "AwsWafv2WebAclDetailsTypeDef",
-    {
-        "Name": str,
-        "Arn": str,
-        "ManagedbyFirewallManager": bool,
-        "Id": str,
-        "Capacity": int,
-        "CaptchaConfig": "AwsWafv2WebAclCaptchaConfigDetailsTypeDef",
-        "DefaultAction": "AwsWafv2WebAclActionDetailsTypeDef",
-        "Description": str,
-        "Rules": List["AwsWafv2RulesDetailsTypeDef"],
-        "VisibilityConfig": "AwsWafv2VisibilityConfigDetailsTypeDef",
-    },
-    total=False,
-)
-
-AwsXrayEncryptionConfigDetailsTypeDef = TypedDict(
-    "AwsXrayEncryptionConfigDetailsTypeDef",
-    {
-        "KeyId": str,
-        "Status": str,
-        "Type": str,
-    },
-    total=False,
-)
-
-BatchDeleteAutomationRulesRequestRequestTypeDef = TypedDict(
-    "BatchDeleteAutomationRulesRequestRequestTypeDef",
-    {
-        "AutomationRulesArns": List[str],
-    },
-)
-
-BatchDeleteAutomationRulesResponseTypeDef = TypedDict(
-    "BatchDeleteAutomationRulesResponseTypeDef",
-    {
-        "ProcessedAutomationRules": List[str],
-        "UnprocessedAutomationRules": List["UnprocessedAutomationRuleTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-BatchDisableStandardsRequestRequestTypeDef = TypedDict(
-    "BatchDisableStandardsRequestRequestTypeDef",
-    {
-        "StandardsSubscriptionArns": List[str],
-    },
-)
-
-BatchDisableStandardsResponseTypeDef = TypedDict(
-    "BatchDisableStandardsResponseTypeDef",
-    {
-        "StandardsSubscriptions": List["StandardsSubscriptionTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-BatchEnableStandardsRequestRequestTypeDef = TypedDict(
-    "BatchEnableStandardsRequestRequestTypeDef",
-    {
-        "StandardsSubscriptionRequests": List["StandardsSubscriptionRequestTypeDef"],
-    },
-)
-
-BatchEnableStandardsResponseTypeDef = TypedDict(
-    "BatchEnableStandardsResponseTypeDef",
-    {
-        "StandardsSubscriptions": List["StandardsSubscriptionTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-BatchGetAutomationRulesRequestRequestTypeDef = TypedDict(
-    "BatchGetAutomationRulesRequestRequestTypeDef",
-    {
-        "AutomationRulesArns": List[str],
-    },
-)
-
-BatchGetAutomationRulesResponseTypeDef = TypedDict(
-    "BatchGetAutomationRulesResponseTypeDef",
-    {
-        "Rules": List["AutomationRulesConfigTypeDef"],
-        "UnprocessedAutomationRules": List["UnprocessedAutomationRuleTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-BatchGetConfigurationPolicyAssociationsRequestRequestTypeDef = TypedDict(
-    "BatchGetConfigurationPolicyAssociationsRequestRequestTypeDef",
-    {
-        "ConfigurationPolicyAssociationIdentifiers": List["ConfigurationPolicyAssociationTypeDef"],
-    },
-)
-
-BatchGetConfigurationPolicyAssociationsResponseTypeDef = TypedDict(
-    "BatchGetConfigurationPolicyAssociationsResponseTypeDef",
-    {
-        "ConfigurationPolicyAssociations": List["ConfigurationPolicyAssociationSummaryTypeDef"],
-        "UnprocessedConfigurationPolicyAssociations": List[
-            "UnprocessedConfigurationPolicyAssociationTypeDef"
-        ],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-BatchGetSecurityControlsRequestRequestTypeDef = TypedDict(
-    "BatchGetSecurityControlsRequestRequestTypeDef",
-    {
-        "SecurityControlIds": List[str],
-    },
-)
-
-BatchGetSecurityControlsResponseTypeDef = TypedDict(
-    "BatchGetSecurityControlsResponseTypeDef",
-    {
-        "SecurityControls": List["SecurityControlTypeDef"],
-        "UnprocessedIds": List["UnprocessedSecurityControlTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-BatchGetStandardsControlAssociationsRequestRequestTypeDef = TypedDict(
-    "BatchGetStandardsControlAssociationsRequestRequestTypeDef",
-    {
-        "StandardsControlAssociationIds": List["StandardsControlAssociationIdTypeDef"],
-    },
-)
-
-BatchGetStandardsControlAssociationsResponseTypeDef = TypedDict(
-    "BatchGetStandardsControlAssociationsResponseTypeDef",
-    {
-        "StandardsControlAssociationDetails": List["StandardsControlAssociationDetailTypeDef"],
-        "UnprocessedAssociations": List["UnprocessedStandardsControlAssociationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-BatchImportFindingsRequestRequestTypeDef = TypedDict(
-    "BatchImportFindingsRequestRequestTypeDef",
-    {
-        "Findings": List["AwsSecurityFindingTypeDef"],
-    },
-)
-
-BatchImportFindingsResponseTypeDef = TypedDict(
-    "BatchImportFindingsResponseTypeDef",
-    {
-        "FailedCount": int,
-        "SuccessCount": int,
-        "FailedFindings": List["ImportFindingsErrorTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-BatchUpdateAutomationRulesRequestRequestTypeDef = TypedDict(
-    "BatchUpdateAutomationRulesRequestRequestTypeDef",
-    {
-        "UpdateAutomationRulesRequestItems": List["UpdateAutomationRulesRequestItemTypeDef"],
-    },
-)
-
-BatchUpdateAutomationRulesResponseTypeDef = TypedDict(
-    "BatchUpdateAutomationRulesResponseTypeDef",
-    {
-        "ProcessedAutomationRules": List[str],
-        "UnprocessedAutomationRules": List["UnprocessedAutomationRuleTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredBatchUpdateFindingsRequestRequestTypeDef = TypedDict(
-    "_RequiredBatchUpdateFindingsRequestRequestTypeDef",
-    {
-        "FindingIdentifiers": List["AwsSecurityFindingIdentifierTypeDef"],
-    },
-)
-_OptionalBatchUpdateFindingsRequestRequestTypeDef = TypedDict(
-    "_OptionalBatchUpdateFindingsRequestRequestTypeDef",
-    {
-        "Note": "NoteUpdateTypeDef",
-        "Severity": "SeverityUpdateTypeDef",
-        "VerificationState": VerificationStateType,
-        "Confidence": int,
-        "Criticality": int,
-        "Types": List[str],
-        "UserDefinedFields": Dict[str, str],
-        "Workflow": "WorkflowUpdateTypeDef",
-        "RelatedFindings": List["RelatedFindingTypeDef"],
-    },
-    total=False,
-)
-
-class BatchUpdateFindingsRequestRequestTypeDef(
-    _RequiredBatchUpdateFindingsRequestRequestTypeDef,
-    _OptionalBatchUpdateFindingsRequestRequestTypeDef,
-):
-    pass
-
-BatchUpdateFindingsResponseTypeDef = TypedDict(
-    "BatchUpdateFindingsResponseTypeDef",
-    {
-        "ProcessedFindings": List["AwsSecurityFindingIdentifierTypeDef"],
-        "UnprocessedFindings": List["BatchUpdateFindingsUnprocessedFindingTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-BatchUpdateFindingsUnprocessedFindingTypeDef = TypedDict(
-    "BatchUpdateFindingsUnprocessedFindingTypeDef",
-    {
-        "FindingIdentifier": "AwsSecurityFindingIdentifierTypeDef",
-        "ErrorCode": str,
-        "ErrorMessage": str,
-    },
-)
-
-BatchUpdateStandardsControlAssociationsRequestRequestTypeDef = TypedDict(
-    "BatchUpdateStandardsControlAssociationsRequestRequestTypeDef",
-    {
-        "StandardsControlAssociationUpdates": List["StandardsControlAssociationUpdateTypeDef"],
-    },
-)
-
-BatchUpdateStandardsControlAssociationsResponseTypeDef = TypedDict(
-    "BatchUpdateStandardsControlAssociationsResponseTypeDef",
-    {
-        "UnprocessedAssociationUpdates": List[
-            "UnprocessedStandardsControlAssociationUpdateTypeDef"
-        ],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-BooleanConfigurationOptionsTypeDef = TypedDict(
-    "BooleanConfigurationOptionsTypeDef",
-    {
-        "DefaultValue": bool,
-    },
-    total=False,
-)
-
-BooleanFilterTypeDef = TypedDict(
-    "BooleanFilterTypeDef",
-    {
-        "Value": bool,
-    },
-    total=False,
-)
-
-CellTypeDef = TypedDict(
-    "CellTypeDef",
-    {
-        "Column": int,
-        "Row": int,
-        "ColumnName": str,
-        "CellReference": str,
-    },
-    total=False,
-)
-
-CidrBlockAssociationTypeDef = TypedDict(
-    "CidrBlockAssociationTypeDef",
-    {
-        "AssociationId": str,
-        "CidrBlock": str,
-        "CidrBlockState": str,
-    },
-    total=False,
-)
-
-CityTypeDef = TypedDict(
-    "CityTypeDef",
-    {
-        "CityName": str,
-    },
-    total=False,
-)
-
-ClassificationResultTypeDef = TypedDict(
-    "ClassificationResultTypeDef",
-    {
-        "MimeType": str,
-        "SizeClassified": int,
-        "AdditionalOccurrences": bool,
-        "Status": "ClassificationStatusTypeDef",
-        "SensitiveData": List["SensitiveDataResultTypeDef"],
-        "CustomDataIdentifiers": "CustomDataIdentifiersResultTypeDef",
-    },
-    total=False,
-)
-
-ClassificationStatusTypeDef = TypedDict(
-    "ClassificationStatusTypeDef",
-    {
-        "Code": str,
-        "Reason": str,
-    },
-    total=False,
-)
-
-CloudWatchLogsLogGroupArnConfigDetailsTypeDef = TypedDict(
-    "CloudWatchLogsLogGroupArnConfigDetailsTypeDef",
-    {
-        "CloudWatchLogsLogGroupArn": str,
-        "HostedZoneId": str,
-        "Id": str,
-    },
-    total=False,
-)
-
-CodeVulnerabilitiesFilePathTypeDef = TypedDict(
-    "CodeVulnerabilitiesFilePathTypeDef",
-    {
-        "EndLine": int,
-        "FileName": str,
-        "FilePath": str,
-        "StartLine": int,
-    },
-    total=False,
-)
-
-ComplianceTypeDef = TypedDict(
-    "ComplianceTypeDef",
-    {
-        "Status": ComplianceStatusType,
-        "RelatedRequirements": List[str],
-        "StatusReasons": List["StatusReasonTypeDef"],
-        "SecurityControlId": str,
-        "AssociatedStandards": List["AssociatedStandardTypeDef"],
-        "SecurityControlParameters": List["SecurityControlParameterTypeDef"],
-    },
-    total=False,
-)
-
-ConfigurationOptionsTypeDef = TypedDict(
-    "ConfigurationOptionsTypeDef",
-    {
-        "Integer": "IntegerConfigurationOptionsTypeDef",
-        "IntegerList": "IntegerListConfigurationOptionsTypeDef",
-        "Double": "DoubleConfigurationOptionsTypeDef",
-        "String": "StringConfigurationOptionsTypeDef",
-        "StringList": "StringListConfigurationOptionsTypeDef",
-        "Boolean": "BooleanConfigurationOptionsTypeDef",
-        "Enum": "EnumConfigurationOptionsTypeDef",
-        "EnumList": "EnumListConfigurationOptionsTypeDef",
-    },
-    total=False,
-)
-
-ConfigurationPolicyAssociationSummaryTypeDef = TypedDict(
-    "ConfigurationPolicyAssociationSummaryTypeDef",
-    {
-        "ConfigurationPolicyId": str,
-        "TargetId": str,
-        "TargetType": TargetTypeType,
-        "AssociationType": AssociationTypeType,
-        "UpdatedAt": datetime,
-        "AssociationStatus": ConfigurationPolicyAssociationStatusType,
-        "AssociationStatusMessage": str,
-    },
-    total=False,
-)
-
-ConfigurationPolicyAssociationTypeDef = TypedDict(
-    "ConfigurationPolicyAssociationTypeDef",
-    {
-        "Target": "TargetTypeDef",
-    },
-    total=False,
-)
-
-ConfigurationPolicySummaryTypeDef = TypedDict(
-    "ConfigurationPolicySummaryTypeDef",
-    {
-        "Arn": str,
-        "Id": str,
-        "Name": str,
-        "Description": str,
-        "UpdatedAt": datetime,
-        "ServiceEnabled": bool,
-    },
-    total=False,
-)
-
-ContainerDetailsTypeDef = TypedDict(
-    "ContainerDetailsTypeDef",
-    {
-        "ContainerRuntime": str,
-        "Name": str,
-        "ImageId": str,
-        "ImageName": str,
-        "LaunchedAt": str,
-        "VolumeMounts": List["VolumeMountTypeDef"],
-        "Privileged": bool,
-    },
-    total=False,
-)
-
-CountryTypeDef = TypedDict(
-    "CountryTypeDef",
-    {
-        "CountryCode": str,
-        "CountryName": str,
-    },
-    total=False,
-)
-
-CreateActionTargetRequestRequestTypeDef = TypedDict(
-    "CreateActionTargetRequestRequestTypeDef",
-    {
-        "Name": str,
-        "Description": str,
-        "Id": str,
-    },
-)
-
-CreateActionTargetResponseTypeDef = TypedDict(
-    "CreateActionTargetResponseTypeDef",
-    {
-        "ActionTargetArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateAutomationRuleRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateAutomationRuleRequestRequestTypeDef",
-    {
-        "RuleOrder": int,
-        "RuleName": str,
-        "Description": str,
-        "Criteria": "AutomationRulesFindingFiltersTypeDef",
-        "Actions": List["AutomationRulesActionTypeDef"],
-    },
-)
-_OptionalCreateAutomationRuleRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateAutomationRuleRequestRequestTypeDef",
-    {
-        "Tags": Dict[str, str],
-        "RuleStatus": RuleStatusType,
-        "IsTerminal": bool,
-    },
-    total=False,
-)
-
-class CreateAutomationRuleRequestRequestTypeDef(
-    _RequiredCreateAutomationRuleRequestRequestTypeDef,
-    _OptionalCreateAutomationRuleRequestRequestTypeDef,
-):
-    pass
-
-CreateAutomationRuleResponseTypeDef = TypedDict(
-    "CreateAutomationRuleResponseTypeDef",
-    {
-        "RuleArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateConfigurationPolicyRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateConfigurationPolicyRequestRequestTypeDef",
-    {
-        "Name": str,
-        "ConfigurationPolicy": "PolicyTypeDef",
-    },
-)
-_OptionalCreateConfigurationPolicyRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateConfigurationPolicyRequestRequestTypeDef",
-    {
-        "Description": str,
-        "Tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class CreateConfigurationPolicyRequestRequestTypeDef(
-    _RequiredCreateConfigurationPolicyRequestRequestTypeDef,
-    _OptionalCreateConfigurationPolicyRequestRequestTypeDef,
-):
-    pass
-
-CreateConfigurationPolicyResponseTypeDef = TypedDict(
-    "CreateConfigurationPolicyResponseTypeDef",
-    {
-        "Arn": str,
-        "Id": str,
-        "Name": str,
-        "Description": str,
-        "UpdatedAt": datetime,
-        "CreatedAt": datetime,
-        "ConfigurationPolicy": "PolicyTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateFindingAggregatorRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateFindingAggregatorRequestRequestTypeDef",
-    {
-        "RegionLinkingMode": str,
-    },
-)
-_OptionalCreateFindingAggregatorRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateFindingAggregatorRequestRequestTypeDef",
-    {
-        "Regions": List[str],
-    },
-    total=False,
-)
-
-class CreateFindingAggregatorRequestRequestTypeDef(
-    _RequiredCreateFindingAggregatorRequestRequestTypeDef,
-    _OptionalCreateFindingAggregatorRequestRequestTypeDef,
-):
-    pass
-
-CreateFindingAggregatorResponseTypeDef = TypedDict(
-    "CreateFindingAggregatorResponseTypeDef",
-    {
-        "FindingAggregatorArn": str,
-        "FindingAggregationRegion": str,
-        "RegionLinkingMode": str,
-        "Regions": List[str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateInsightRequestRequestTypeDef = TypedDict(
-    "CreateInsightRequestRequestTypeDef",
-    {
-        "Name": str,
-        "Filters": "AwsSecurityFindingFiltersTypeDef",
-        "GroupByAttribute": str,
-    },
-)
-
-CreateInsightResponseTypeDef = TypedDict(
-    "CreateInsightResponseTypeDef",
-    {
-        "InsightArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateMembersRequestRequestTypeDef = TypedDict(
-    "CreateMembersRequestRequestTypeDef",
-    {
-        "AccountDetails": List["AccountDetailsTypeDef"],
-    },
-)
-
-CreateMembersResponseTypeDef = TypedDict(
-    "CreateMembersResponseTypeDef",
-    {
-        "UnprocessedAccounts": List["ResultTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CustomDataIdentifiersDetectionsTypeDef = TypedDict(
-    "CustomDataIdentifiersDetectionsTypeDef",
-    {
-        "Count": int,
-        "Arn": str,
-        "Name": str,
-        "Occurrences": "OccurrencesTypeDef",
-    },
-    total=False,
-)
-
-CustomDataIdentifiersResultTypeDef = TypedDict(
-    "CustomDataIdentifiersResultTypeDef",
-    {
-        "Detections": List["CustomDataIdentifiersDetectionsTypeDef"],
-        "TotalCount": int,
-    },
-    total=False,
-)
-
-CvssTypeDef = TypedDict(
-    "CvssTypeDef",
-    {
-        "Version": str,
-        "BaseScore": float,
-        "BaseVector": str,
-        "Source": str,
-        "Adjustments": List["AdjustmentTypeDef"],
-    },
-    total=False,
-)
-
-DataClassificationDetailsTypeDef = TypedDict(
-    "DataClassificationDetailsTypeDef",
-    {
-        "DetailedResultsLocation": str,
-        "Result": "ClassificationResultTypeDef",
-    },
-    total=False,
-)
-
-DateFilterTypeDef = TypedDict(
-    "DateFilterTypeDef",
-    {
-        "Start": str,
-        "End": str,
-        "DateRange": "DateRangeTypeDef",
-    },
-    total=False,
-)
-
-DateRangeTypeDef = TypedDict(
-    "DateRangeTypeDef",
-    {
-        "Value": int,
-        "Unit": Literal["DAYS"],
-    },
-    total=False,
-)
-
-DeclineInvitationsRequestRequestTypeDef = TypedDict(
-    "DeclineInvitationsRequestRequestTypeDef",
-    {
-        "AccountIds": List[str],
-    },
-)
-
-DeclineInvitationsResponseTypeDef = TypedDict(
-    "DeclineInvitationsResponseTypeDef",
-    {
-        "UnprocessedAccounts": List["ResultTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteActionTargetRequestRequestTypeDef = TypedDict(
-    "DeleteActionTargetRequestRequestTypeDef",
-    {
-        "ActionTargetArn": str,
-    },
-)
-
-DeleteActionTargetResponseTypeDef = TypedDict(
-    "DeleteActionTargetResponseTypeDef",
-    {
-        "ActionTargetArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteConfigurationPolicyRequestRequestTypeDef = TypedDict(
-    "DeleteConfigurationPolicyRequestRequestTypeDef",
-    {
-        "Identifier": str,
-    },
-)
-
-DeleteFindingAggregatorRequestRequestTypeDef = TypedDict(
-    "DeleteFindingAggregatorRequestRequestTypeDef",
-    {
-        "FindingAggregatorArn": str,
-    },
-)
-
-DeleteInsightRequestRequestTypeDef = TypedDict(
-    "DeleteInsightRequestRequestTypeDef",
-    {
-        "InsightArn": str,
-    },
-)
-
-DeleteInsightResponseTypeDef = TypedDict(
-    "DeleteInsightResponseTypeDef",
-    {
-        "InsightArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteInvitationsRequestRequestTypeDef = TypedDict(
-    "DeleteInvitationsRequestRequestTypeDef",
-    {
-        "AccountIds": List[str],
-    },
-)
-
-DeleteInvitationsResponseTypeDef = TypedDict(
-    "DeleteInvitationsResponseTypeDef",
-    {
-        "UnprocessedAccounts": List["ResultTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteMembersRequestRequestTypeDef = TypedDict(
-    "DeleteMembersRequestRequestTypeDef",
-    {
-        "AccountIds": List[str],
-    },
-)
-
-DeleteMembersResponseTypeDef = TypedDict(
-    "DeleteMembersResponseTypeDef",
-    {
-        "UnprocessedAccounts": List["ResultTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeActionTargetsRequestRequestTypeDef = TypedDict(
-    "DescribeActionTargetsRequestRequestTypeDef",
-    {
-        "ActionTargetArns": List[str],
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-DescribeActionTargetsResponseTypeDef = TypedDict(
-    "DescribeActionTargetsResponseTypeDef",
-    {
-        "ActionTargets": List["ActionTargetTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeHubRequestRequestTypeDef = TypedDict(
-    "DescribeHubRequestRequestTypeDef",
-    {
-        "HubArn": str,
-    },
-    total=False,
-)
-
-DescribeHubResponseTypeDef = TypedDict(
-    "DescribeHubResponseTypeDef",
-    {
-        "HubArn": str,
-        "SubscribedAt": str,
-        "AutoEnableControls": bool,
-        "ControlFindingGenerator": ControlFindingGeneratorType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeOrganizationConfigurationResponseTypeDef = TypedDict(
-    "DescribeOrganizationConfigurationResponseTypeDef",
-    {
-        "AutoEnable": bool,
-        "MemberAccountLimitReached": bool,
-        "AutoEnableStandards": AutoEnableStandardsType,
-        "OrganizationConfiguration": "OrganizationConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeProductsRequestRequestTypeDef = TypedDict(
-    "DescribeProductsRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-        "ProductArn": str,
-    },
-    total=False,
-)
-
-DescribeProductsResponseTypeDef = TypedDict(
-    "DescribeProductsResponseTypeDef",
-    {
-        "Products": List["ProductTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribeStandardsControlsRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeStandardsControlsRequestRequestTypeDef",
-    {
-        "StandardsSubscriptionArn": str,
-    },
-)
-_OptionalDescribeStandardsControlsRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeStandardsControlsRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-class DescribeStandardsControlsRequestRequestTypeDef(
-    _RequiredDescribeStandardsControlsRequestRequestTypeDef,
-    _OptionalDescribeStandardsControlsRequestRequestTypeDef,
-):
-    pass
-
-DescribeStandardsControlsResponseTypeDef = TypedDict(
-    "DescribeStandardsControlsResponseTypeDef",
-    {
-        "Controls": List["StandardsControlTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeStandardsRequestRequestTypeDef = TypedDict(
-    "DescribeStandardsRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-DescribeStandardsResponseTypeDef = TypedDict(
-    "DescribeStandardsResponseTypeDef",
-    {
-        "Standards": List["StandardTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DisableImportFindingsForProductRequestRequestTypeDef = TypedDict(
-    "DisableImportFindingsForProductRequestRequestTypeDef",
-    {
-        "ProductSubscriptionArn": str,
-    },
-)
-
-DisableOrganizationAdminAccountRequestRequestTypeDef = TypedDict(
-    "DisableOrganizationAdminAccountRequestRequestTypeDef",
-    {
-        "AdminAccountId": str,
-    },
-)
-
-DisassociateMembersRequestRequestTypeDef = TypedDict(
-    "DisassociateMembersRequestRequestTypeDef",
-    {
-        "AccountIds": List[str],
-    },
-)
+class AcceptAdministratorInvitationRequestTypeDef(TypedDict):
+    AdministratorId: str
+    InvitationId: str
+
+class AcceptInvitationRequestTypeDef(TypedDict):
+    MasterId: str
+    InvitationId: str
+
+class AccountDetailsTypeDef(TypedDict):
+    AccountId: str
+    Email: NotRequired[str]
+
+class ActionLocalIpDetailsTypeDef(TypedDict):
+    IpAddressV4: NotRequired[str]
+
+class ActionLocalPortDetailsTypeDef(TypedDict):
+    Port: NotRequired[int]
+    PortName: NotRequired[str]
 
 DnsRequestActionTypeDef = TypedDict(
     "DnsRequestActionTypeDef",
     {
-        "Domain": str,
-        "Protocol": str,
-        "Blocked": bool,
-    },
-    total=False,
-)
-
-DoubleConfigurationOptionsTypeDef = TypedDict(
-    "DoubleConfigurationOptionsTypeDef",
-    {
-        "DefaultValue": float,
-        "Min": float,
-        "Max": float,
-    },
-    total=False,
-)
-
-EnableImportFindingsForProductRequestRequestTypeDef = TypedDict(
-    "EnableImportFindingsForProductRequestRequestTypeDef",
-    {
-        "ProductArn": str,
-    },
-)
-
-EnableImportFindingsForProductResponseTypeDef = TypedDict(
-    "EnableImportFindingsForProductResponseTypeDef",
-    {
-        "ProductSubscriptionArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-EnableOrganizationAdminAccountRequestRequestTypeDef = TypedDict(
-    "EnableOrganizationAdminAccountRequestRequestTypeDef",
-    {
-        "AdminAccountId": str,
-    },
-)
-
-EnableSecurityHubRequestRequestTypeDef = TypedDict(
-    "EnableSecurityHubRequestRequestTypeDef",
-    {
-        "Tags": Dict[str, str],
-        "EnableDefaultStandards": bool,
-        "ControlFindingGenerator": ControlFindingGeneratorType,
-    },
-    total=False,
-)
-
-EnumConfigurationOptionsTypeDef = TypedDict(
-    "EnumConfigurationOptionsTypeDef",
-    {
-        "DefaultValue": str,
-        "AllowedValues": List[str],
-    },
-    total=False,
-)
-
-EnumListConfigurationOptionsTypeDef = TypedDict(
-    "EnumListConfigurationOptionsTypeDef",
-    {
-        "DefaultValue": List[str],
-        "MaxItems": int,
-        "AllowedValues": List[str],
-    },
-    total=False,
-)
-
-FilePathsTypeDef = TypedDict(
-    "FilePathsTypeDef",
-    {
-        "FilePath": str,
-        "FileName": str,
-        "ResourceId": str,
-        "Hash": str,
-    },
-    total=False,
-)
-
-FindingAggregatorTypeDef = TypedDict(
-    "FindingAggregatorTypeDef",
-    {
-        "FindingAggregatorArn": str,
-    },
-    total=False,
-)
-
-FindingHistoryRecordTypeDef = TypedDict(
-    "FindingHistoryRecordTypeDef",
-    {
-        "FindingIdentifier": "AwsSecurityFindingIdentifierTypeDef",
-        "UpdateTime": datetime,
-        "FindingCreated": bool,
-        "UpdateSource": "FindingHistoryUpdateSourceTypeDef",
-        "Updates": List["FindingHistoryUpdateTypeDef"],
-        "NextToken": str,
-    },
-    total=False,
-)
-
-FindingHistoryUpdateSourceTypeDef = TypedDict(
-    "FindingHistoryUpdateSourceTypeDef",
-    {
-        "Type": FindingHistoryUpdateSourceTypeType,
-        "Identity": str,
-    },
-    total=False,
-)
-
-FindingHistoryUpdateTypeDef = TypedDict(
-    "FindingHistoryUpdateTypeDef",
-    {
-        "UpdatedField": str,
-        "OldValue": str,
-        "NewValue": str,
-    },
-    total=False,
-)
-
-FindingProviderFieldsTypeDef = TypedDict(
-    "FindingProviderFieldsTypeDef",
-    {
-        "Confidence": int,
-        "Criticality": int,
-        "RelatedFindings": List["RelatedFindingTypeDef"],
-        "Severity": "FindingProviderSeverityTypeDef",
-        "Types": List[str],
-    },
-    total=False,
-)
-
-FindingProviderSeverityTypeDef = TypedDict(
-    "FindingProviderSeverityTypeDef",
-    {
-        "Label": SeverityLabelType,
-        "Original": str,
-    },
-    total=False,
-)
-
-FirewallPolicyDetailsTypeDef = TypedDict(
-    "FirewallPolicyDetailsTypeDef",
-    {
-        "StatefulRuleGroupReferences": List[
-            "FirewallPolicyStatefulRuleGroupReferencesDetailsTypeDef"
-        ],
-        "StatelessCustomActions": List["FirewallPolicyStatelessCustomActionsDetailsTypeDef"],
-        "StatelessDefaultActions": List[str],
-        "StatelessFragmentDefaultActions": List[str],
-        "StatelessRuleGroupReferences": List[
-            "FirewallPolicyStatelessRuleGroupReferencesDetailsTypeDef"
-        ],
-    },
-    total=False,
-)
-
-FirewallPolicyStatefulRuleGroupReferencesDetailsTypeDef = TypedDict(
-    "FirewallPolicyStatefulRuleGroupReferencesDetailsTypeDef",
-    {
-        "ResourceArn": str,
-    },
-    total=False,
-)
-
-FirewallPolicyStatelessCustomActionsDetailsTypeDef = TypedDict(
-    "FirewallPolicyStatelessCustomActionsDetailsTypeDef",
-    {
-        "ActionDefinition": "StatelessCustomActionDefinitionTypeDef",
-        "ActionName": str,
-    },
-    total=False,
-)
-
-FirewallPolicyStatelessRuleGroupReferencesDetailsTypeDef = TypedDict(
-    "FirewallPolicyStatelessRuleGroupReferencesDetailsTypeDef",
-    {
-        "Priority": int,
-        "ResourceArn": str,
-    },
-    total=False,
-)
-
-GeneratorDetailsTypeDef = TypedDict(
-    "GeneratorDetailsTypeDef",
-    {
-        "Name": str,
-        "Description": str,
-        "Labels": List[str],
-    },
-    total=False,
-)
-
-GeoLocationTypeDef = TypedDict(
-    "GeoLocationTypeDef",
-    {
-        "Lon": float,
-        "Lat": float,
-    },
-    total=False,
-)
-
-GetAdministratorAccountResponseTypeDef = TypedDict(
-    "GetAdministratorAccountResponseTypeDef",
-    {
-        "Administrator": "InvitationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetConfigurationPolicyAssociationRequestRequestTypeDef = TypedDict(
-    "GetConfigurationPolicyAssociationRequestRequestTypeDef",
-    {
-        "Target": "TargetTypeDef",
-    },
-)
-
-GetConfigurationPolicyAssociationResponseTypeDef = TypedDict(
-    "GetConfigurationPolicyAssociationResponseTypeDef",
-    {
-        "ConfigurationPolicyId": str,
-        "TargetId": str,
-        "TargetType": TargetTypeType,
-        "AssociationType": AssociationTypeType,
-        "UpdatedAt": datetime,
-        "AssociationStatus": ConfigurationPolicyAssociationStatusType,
-        "AssociationStatusMessage": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetConfigurationPolicyRequestRequestTypeDef = TypedDict(
-    "GetConfigurationPolicyRequestRequestTypeDef",
-    {
-        "Identifier": str,
-    },
-)
-
-GetConfigurationPolicyResponseTypeDef = TypedDict(
-    "GetConfigurationPolicyResponseTypeDef",
-    {
-        "Arn": str,
-        "Id": str,
-        "Name": str,
-        "Description": str,
-        "UpdatedAt": datetime,
-        "CreatedAt": datetime,
-        "ConfigurationPolicy": "PolicyTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetEnabledStandardsRequestRequestTypeDef = TypedDict(
-    "GetEnabledStandardsRequestRequestTypeDef",
-    {
-        "StandardsSubscriptionArns": List[str],
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-GetEnabledStandardsResponseTypeDef = TypedDict(
-    "GetEnabledStandardsResponseTypeDef",
-    {
-        "StandardsSubscriptions": List["StandardsSubscriptionTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetFindingAggregatorRequestRequestTypeDef = TypedDict(
-    "GetFindingAggregatorRequestRequestTypeDef",
-    {
-        "FindingAggregatorArn": str,
-    },
-)
-
-GetFindingAggregatorResponseTypeDef = TypedDict(
-    "GetFindingAggregatorResponseTypeDef",
-    {
-        "FindingAggregatorArn": str,
-        "FindingAggregationRegion": str,
-        "RegionLinkingMode": str,
-        "Regions": List[str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetFindingHistoryRequestRequestTypeDef = TypedDict(
-    "_RequiredGetFindingHistoryRequestRequestTypeDef",
-    {
-        "FindingIdentifier": "AwsSecurityFindingIdentifierTypeDef",
-    },
-)
-_OptionalGetFindingHistoryRequestRequestTypeDef = TypedDict(
-    "_OptionalGetFindingHistoryRequestRequestTypeDef",
-    {
-        "StartTime": Union[datetime, str],
-        "EndTime": Union[datetime, str],
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-class GetFindingHistoryRequestRequestTypeDef(
-    _RequiredGetFindingHistoryRequestRequestTypeDef, _OptionalGetFindingHistoryRequestRequestTypeDef
-):
-    pass
-
-GetFindingHistoryResponseTypeDef = TypedDict(
-    "GetFindingHistoryResponseTypeDef",
-    {
-        "Records": List["FindingHistoryRecordTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetFindingsRequestRequestTypeDef = TypedDict(
-    "GetFindingsRequestRequestTypeDef",
-    {
-        "Filters": "AwsSecurityFindingFiltersTypeDef",
-        "SortCriteria": List["SortCriterionTypeDef"],
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-GetFindingsResponseTypeDef = TypedDict(
-    "GetFindingsResponseTypeDef",
-    {
-        "Findings": List["AwsSecurityFindingTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetInsightResultsRequestRequestTypeDef = TypedDict(
-    "GetInsightResultsRequestRequestTypeDef",
-    {
-        "InsightArn": str,
-    },
-)
-
-GetInsightResultsResponseTypeDef = TypedDict(
-    "GetInsightResultsResponseTypeDef",
-    {
-        "InsightResults": "InsightResultsTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetInsightsRequestRequestTypeDef = TypedDict(
-    "GetInsightsRequestRequestTypeDef",
-    {
-        "InsightArns": List[str],
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-GetInsightsResponseTypeDef = TypedDict(
-    "GetInsightsResponseTypeDef",
-    {
-        "Insights": List["InsightTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetInvitationsCountResponseTypeDef = TypedDict(
-    "GetInvitationsCountResponseTypeDef",
-    {
-        "InvitationsCount": int,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetMasterAccountResponseTypeDef = TypedDict(
-    "GetMasterAccountResponseTypeDef",
-    {
-        "Master": "InvitationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetMembersRequestRequestTypeDef = TypedDict(
-    "GetMembersRequestRequestTypeDef",
-    {
-        "AccountIds": List[str],
-    },
-)
-
-GetMembersResponseTypeDef = TypedDict(
-    "GetMembersResponseTypeDef",
-    {
-        "Members": List["MemberTypeDef"],
-        "UnprocessedAccounts": List["ResultTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetSecurityControlDefinitionRequestRequestTypeDef = TypedDict(
-    "GetSecurityControlDefinitionRequestRequestTypeDef",
-    {
-        "SecurityControlId": str,
-    },
-)
-
-GetSecurityControlDefinitionResponseTypeDef = TypedDict(
-    "GetSecurityControlDefinitionResponseTypeDef",
-    {
-        "SecurityControlDefinition": "SecurityControlDefinitionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-IcmpTypeCodeTypeDef = TypedDict(
-    "IcmpTypeCodeTypeDef",
-    {
-        "Code": int,
-        "Type": int,
-    },
-    total=False,
-)
-
-ImportFindingsErrorTypeDef = TypedDict(
-    "ImportFindingsErrorTypeDef",
-    {
-        "Id": str,
-        "ErrorCode": str,
-        "ErrorMessage": str,
-    },
-)
-
-InsightResultValueTypeDef = TypedDict(
-    "InsightResultValueTypeDef",
-    {
-        "GroupByAttributeValue": str,
-        "Count": int,
-    },
-)
-
-InsightResultsTypeDef = TypedDict(
-    "InsightResultsTypeDef",
-    {
-        "InsightArn": str,
-        "GroupByAttribute": str,
-        "ResultValues": List["InsightResultValueTypeDef"],
-    },
-)
-
-InsightTypeDef = TypedDict(
-    "InsightTypeDef",
-    {
-        "InsightArn": str,
-        "Name": str,
-        "Filters": "AwsSecurityFindingFiltersTypeDef",
-        "GroupByAttribute": str,
-    },
-)
-
-IntegerConfigurationOptionsTypeDef = TypedDict(
-    "IntegerConfigurationOptionsTypeDef",
-    {
-        "DefaultValue": int,
-        "Min": int,
-        "Max": int,
-    },
-    total=False,
-)
-
-IntegerListConfigurationOptionsTypeDef = TypedDict(
-    "IntegerListConfigurationOptionsTypeDef",
-    {
-        "DefaultValue": List[int],
-        "Min": int,
-        "Max": int,
-        "MaxItems": int,
-    },
-    total=False,
-)
-
-InvitationTypeDef = TypedDict(
-    "InvitationTypeDef",
-    {
-        "AccountId": str,
-        "InvitationId": str,
-        "InvitedAt": datetime,
-        "MemberStatus": str,
-    },
-    total=False,
-)
-
-InviteMembersRequestRequestTypeDef = TypedDict(
-    "InviteMembersRequestRequestTypeDef",
-    {
-        "AccountIds": List[str],
-    },
-)
-
-InviteMembersResponseTypeDef = TypedDict(
-    "InviteMembersResponseTypeDef",
-    {
-        "UnprocessedAccounts": List["ResultTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-IpFilterTypeDef = TypedDict(
-    "IpFilterTypeDef",
-    {
-        "Cidr": str,
-    },
-    total=False,
-)
-
-IpOrganizationDetailsTypeDef = TypedDict(
-    "IpOrganizationDetailsTypeDef",
-    {
-        "Asn": int,
-        "AsnOrg": str,
-        "Isp": str,
-        "Org": str,
-    },
-    total=False,
-)
-
-Ipv6CidrBlockAssociationTypeDef = TypedDict(
-    "Ipv6CidrBlockAssociationTypeDef",
-    {
-        "AssociationId": str,
-        "Ipv6CidrBlock": str,
-        "CidrBlockState": str,
-    },
-    total=False,
-)
-
-KeywordFilterTypeDef = TypedDict(
-    "KeywordFilterTypeDef",
-    {
-        "Value": str,
-    },
-    total=False,
-)
-
-ListAutomationRulesRequestRequestTypeDef = TypedDict(
-    "ListAutomationRulesRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-ListAutomationRulesResponseTypeDef = TypedDict(
-    "ListAutomationRulesResponseTypeDef",
-    {
-        "AutomationRulesMetadata": List["AutomationRulesMetadataTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListConfigurationPoliciesRequestRequestTypeDef = TypedDict(
-    "ListConfigurationPoliciesRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-ListConfigurationPoliciesResponseTypeDef = TypedDict(
-    "ListConfigurationPoliciesResponseTypeDef",
-    {
-        "ConfigurationPolicySummaries": List["ConfigurationPolicySummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListConfigurationPolicyAssociationsRequestRequestTypeDef = TypedDict(
-    "ListConfigurationPolicyAssociationsRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-        "Filters": "AssociationFiltersTypeDef",
-    },
-    total=False,
-)
-
-ListConfigurationPolicyAssociationsResponseTypeDef = TypedDict(
-    "ListConfigurationPolicyAssociationsResponseTypeDef",
-    {
-        "ConfigurationPolicyAssociationSummaries": List[
-            "ConfigurationPolicyAssociationSummaryTypeDef"
-        ],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListEnabledProductsForImportRequestRequestTypeDef = TypedDict(
-    "ListEnabledProductsForImportRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-ListEnabledProductsForImportResponseTypeDef = TypedDict(
-    "ListEnabledProductsForImportResponseTypeDef",
-    {
-        "ProductSubscriptions": List[str],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListFindingAggregatorsRequestRequestTypeDef = TypedDict(
-    "ListFindingAggregatorsRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-ListFindingAggregatorsResponseTypeDef = TypedDict(
-    "ListFindingAggregatorsResponseTypeDef",
-    {
-        "FindingAggregators": List["FindingAggregatorTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListInvitationsRequestRequestTypeDef = TypedDict(
-    "ListInvitationsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListInvitationsResponseTypeDef = TypedDict(
-    "ListInvitationsResponseTypeDef",
-    {
-        "Invitations": List["InvitationTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListMembersRequestRequestTypeDef = TypedDict(
-    "ListMembersRequestRequestTypeDef",
-    {
-        "OnlyAssociated": bool,
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListMembersResponseTypeDef = TypedDict(
-    "ListMembersResponseTypeDef",
-    {
-        "Members": List["MemberTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListOrganizationAdminAccountsRequestRequestTypeDef = TypedDict(
-    "ListOrganizationAdminAccountsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListOrganizationAdminAccountsResponseTypeDef = TypedDict(
-    "ListOrganizationAdminAccountsResponseTypeDef",
-    {
-        "AdminAccounts": List["AdminAccountTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListSecurityControlDefinitionsRequestRequestTypeDef = TypedDict(
-    "ListSecurityControlDefinitionsRequestRequestTypeDef",
-    {
-        "StandardsArn": str,
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-ListSecurityControlDefinitionsResponseTypeDef = TypedDict(
-    "ListSecurityControlDefinitionsResponseTypeDef",
-    {
-        "SecurityControlDefinitions": List["SecurityControlDefinitionTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListStandardsControlAssociationsRequestRequestTypeDef = TypedDict(
-    "_RequiredListStandardsControlAssociationsRequestRequestTypeDef",
-    {
-        "SecurityControlId": str,
-    },
-)
-_OptionalListStandardsControlAssociationsRequestRequestTypeDef = TypedDict(
-    "_OptionalListStandardsControlAssociationsRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-class ListStandardsControlAssociationsRequestRequestTypeDef(
-    _RequiredListStandardsControlAssociationsRequestRequestTypeDef,
-    _OptionalListStandardsControlAssociationsRequestRequestTypeDef,
-):
-    pass
-
-ListStandardsControlAssociationsResponseTypeDef = TypedDict(
-    "ListStandardsControlAssociationsResponseTypeDef",
-    {
-        "StandardsControlAssociationSummaries": List["StandardsControlAssociationSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-    },
-)
-
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "Tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-LoadBalancerStateTypeDef = TypedDict(
-    "LoadBalancerStateTypeDef",
-    {
-        "Code": str,
-        "Reason": str,
-    },
-    total=False,
-)
-
-_RequiredMalwareTypeDef = TypedDict(
-    "_RequiredMalwareTypeDef",
-    {
-        "Name": str,
-    },
-)
-_OptionalMalwareTypeDef = TypedDict(
-    "_OptionalMalwareTypeDef",
-    {
-        "Type": MalwareTypeType,
-        "Path": str,
-        "State": MalwareStateType,
-    },
-    total=False,
-)
-
-class MalwareTypeDef(_RequiredMalwareTypeDef, _OptionalMalwareTypeDef):
-    pass
-
-MapFilterTypeDef = TypedDict(
-    "MapFilterTypeDef",
-    {
-        "Key": str,
-        "Value": str,
-        "Comparison": MapFilterComparisonType,
-    },
-    total=False,
-)
-
-MemberTypeDef = TypedDict(
-    "MemberTypeDef",
-    {
-        "AccountId": str,
-        "Email": str,
-        "MasterId": str,
-        "AdministratorId": str,
-        "MemberStatus": str,
-        "InvitedAt": datetime,
-        "UpdatedAt": datetime,
-    },
-    total=False,
-)
-
-NetworkConnectionActionTypeDef = TypedDict(
-    "NetworkConnectionActionTypeDef",
-    {
-        "ConnectionDirection": str,
-        "RemoteIpDetails": "ActionRemoteIpDetailsTypeDef",
-        "RemotePortDetails": "ActionRemotePortDetailsTypeDef",
-        "LocalPortDetails": "ActionLocalPortDetailsTypeDef",
-        "Protocol": str,
-        "Blocked": bool,
-    },
-    total=False,
-)
-
-NetworkHeaderTypeDef = TypedDict(
-    "NetworkHeaderTypeDef",
-    {
-        "Protocol": str,
-        "Destination": "NetworkPathComponentDetailsTypeDef",
-        "Source": "NetworkPathComponentDetailsTypeDef",
-    },
-    total=False,
-)
-
-NetworkPathComponentDetailsTypeDef = TypedDict(
-    "NetworkPathComponentDetailsTypeDef",
-    {
-        "Address": List[str],
-        "PortRanges": List["PortRangeTypeDef"],
-    },
-    total=False,
-)
-
-NetworkPathComponentTypeDef = TypedDict(
-    "NetworkPathComponentTypeDef",
-    {
-        "ComponentId": str,
-        "ComponentType": str,
-        "Egress": "NetworkHeaderTypeDef",
-        "Ingress": "NetworkHeaderTypeDef",
-    },
-    total=False,
-)
-
-NetworkTypeDef = TypedDict(
-    "NetworkTypeDef",
-    {
-        "Direction": NetworkDirectionType,
-        "Protocol": str,
-        "OpenPortRange": "PortRangeTypeDef",
-        "SourceIpV4": str,
-        "SourceIpV6": str,
-        "SourcePort": int,
-        "SourceDomain": str,
-        "SourceMac": str,
-        "DestinationIpV4": str,
-        "DestinationIpV6": str,
-        "DestinationPort": int,
-        "DestinationDomain": str,
-    },
-    total=False,
-)
-
-NoteTypeDef = TypedDict(
-    "NoteTypeDef",
-    {
-        "Text": str,
-        "UpdatedBy": str,
-        "UpdatedAt": str,
-    },
-)
+        "Domain": NotRequired[str],
+        "Protocol": NotRequired[str],
+        "Blocked": NotRequired[bool],
+    },
+)
+
+class CityTypeDef(TypedDict):
+    CityName: NotRequired[str]
+
+class CountryTypeDef(TypedDict):
+    CountryCode: NotRequired[str]
+    CountryName: NotRequired[str]
+
+class GeoLocationTypeDef(TypedDict):
+    Lon: NotRequired[float]
+    Lat: NotRequired[float]
+
+class IpOrganizationDetailsTypeDef(TypedDict):
+    Asn: NotRequired[int]
+    AsnOrg: NotRequired[str]
+    Isp: NotRequired[str]
+    Org: NotRequired[str]
+
+class ActionRemotePortDetailsTypeDef(TypedDict):
+    Port: NotRequired[int]
+    PortName: NotRequired[str]
+
+class ActionTargetTypeDef(TypedDict):
+    ActionTargetArn: str
+    Name: str
+    Description: str
+
+class ActorSessionTypeDef(TypedDict):
+    Uid: NotRequired[str]
+    MfaStatus: NotRequired[ActorSessionMfaStatusType]
+    CreatedTime: NotRequired[int]
+    Issuer: NotRequired[str]
+
+class UserAccountTypeDef(TypedDict):
+    Uid: NotRequired[str]
+    Name: NotRequired[str]
+
+class AdjustmentTypeDef(TypedDict):
+    Metric: NotRequired[str]
+    Reason: NotRequired[str]
+
+class AdminAccountTypeDef(TypedDict):
+    AccountId: NotRequired[str]
+    Status: NotRequired[AdminStatusType]
+
+class AssociatedStandardTypeDef(TypedDict):
+    StandardsId: NotRequired[str]
+
+class AssociationFiltersTypeDef(TypedDict):
+    ConfigurationPolicyId: NotRequired[str]
+    AssociationType: NotRequired[AssociationTypeType]
+    AssociationStatus: NotRequired[ConfigurationPolicyAssociationStatusType]
+
+class AssociationStateDetailsTypeDef(TypedDict):
+    State: NotRequired[str]
+    StatusMessage: NotRequired[str]
 
 NoteUpdateTypeDef = TypedDict(
     "NoteUpdateTypeDef",
@@ -8806,1547 +1449,9077 @@ NoteUpdateTypeDef = TypedDict(
     },
 )
 
-NumberFilterTypeDef = TypedDict(
-    "NumberFilterTypeDef",
-    {
-        "Gte": float,
-        "Lte": float,
-        "Gt": float,
-        "Lt": float,
-        "Eq": float,
-    },
-    total=False,
-)
+class RelatedFindingTypeDef(TypedDict):
+    ProductArn: str
+    Id: str
 
-OccurrencesTypeDef = TypedDict(
-    "OccurrencesTypeDef",
-    {
-        "LineRanges": List["RangeTypeDef"],
-        "OffsetRanges": List["RangeTypeDef"],
-        "Pages": List["PageTypeDef"],
-        "Records": List["RecordTypeDef"],
-        "Cells": List["CellTypeDef"],
-    },
-    total=False,
-)
+class SeverityUpdateTypeDef(TypedDict):
+    Normalized: NotRequired[int]
+    Product: NotRequired[float]
+    Label: NotRequired[SeverityLabelType]
 
-OrganizationConfigurationTypeDef = TypedDict(
-    "OrganizationConfigurationTypeDef",
-    {
-        "ConfigurationType": OrganizationConfigurationConfigurationTypeType,
-        "Status": OrganizationConfigurationStatusType,
-        "StatusMessage": str,
-    },
-    total=False,
-)
+class WorkflowUpdateTypeDef(TypedDict):
+    Status: NotRequired[WorkflowStatusType]
 
-PageTypeDef = TypedDict(
-    "PageTypeDef",
-    {
-        "PageNumber": int,
-        "LineRange": "RangeTypeDef",
-        "OffsetRange": "RangeTypeDef",
-    },
-    total=False,
-)
+class MapFilterTypeDef(TypedDict):
+    Key: NotRequired[str]
+    Value: NotRequired[str]
+    Comparison: NotRequired[MapFilterComparisonType]
 
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
+class NumberFilterTypeDef(TypedDict):
+    Gte: NotRequired[float]
+    Lte: NotRequired[float]
+    Eq: NotRequired[float]
+    Gt: NotRequired[float]
+    Lt: NotRequired[float]
 
-_RequiredParameterConfigurationTypeDef = TypedDict(
-    "_RequiredParameterConfigurationTypeDef",
-    {
-        "ValueType": ParameterValueTypeType,
-    },
-)
-_OptionalParameterConfigurationTypeDef = TypedDict(
-    "_OptionalParameterConfigurationTypeDef",
-    {
-        "Value": "ParameterValueTypeDef",
-    },
-    total=False,
-)
+class StringFilterTypeDef(TypedDict):
+    Value: NotRequired[str]
+    Comparison: NotRequired[StringFilterComparisonType]
 
-class ParameterConfigurationTypeDef(
-    _RequiredParameterConfigurationTypeDef, _OptionalParameterConfigurationTypeDef
+class AutomationRulesMetadataTypeDef(TypedDict):
+    RuleArn: NotRequired[str]
+    RuleStatus: NotRequired[RuleStatusType]
+    RuleOrder: NotRequired[int]
+    RuleName: NotRequired[str]
+    Description: NotRequired[str]
+    IsTerminal: NotRequired[bool]
+    CreatedAt: NotRequired[datetime]
+    UpdatedAt: NotRequired[datetime]
+    CreatedBy: NotRequired[str]
+
+class AvailabilityZoneTypeDef(TypedDict):
+    ZoneName: NotRequired[str]
+    SubnetId: NotRequired[str]
+
+class AwsAmazonMqBrokerEncryptionOptionsDetailsTypeDef(TypedDict):
+    KmsKeyId: NotRequired[str]
+    UseAwsOwnedKey: NotRequired[bool]
+
+class AwsAmazonMqBrokerLdapServerMetadataDetailsOutputTypeDef(TypedDict):
+    Hosts: NotRequired[List[str]]
+    RoleBase: NotRequired[str]
+    RoleName: NotRequired[str]
+    RoleSearchMatching: NotRequired[str]
+    RoleSearchSubtree: NotRequired[bool]
+    ServiceAccountUsername: NotRequired[str]
+    UserBase: NotRequired[str]
+    UserRoleName: NotRequired[str]
+    UserSearchMatching: NotRequired[str]
+    UserSearchSubtree: NotRequired[bool]
+
+class AwsAmazonMqBrokerMaintenanceWindowStartTimeDetailsTypeDef(TypedDict):
+    DayOfWeek: NotRequired[str]
+    TimeOfDay: NotRequired[str]
+    TimeZone: NotRequired[str]
+
+class AwsAmazonMqBrokerUsersDetailsTypeDef(TypedDict):
+    PendingChange: NotRequired[str]
+    Username: NotRequired[str]
+
+class AwsAmazonMqBrokerLdapServerMetadataDetailsTypeDef(TypedDict):
+    Hosts: NotRequired[Sequence[str]]
+    RoleBase: NotRequired[str]
+    RoleName: NotRequired[str]
+    RoleSearchMatching: NotRequired[str]
+    RoleSearchSubtree: NotRequired[bool]
+    ServiceAccountUsername: NotRequired[str]
+    UserBase: NotRequired[str]
+    UserRoleName: NotRequired[str]
+    UserSearchMatching: NotRequired[str]
+    UserSearchSubtree: NotRequired[bool]
+
+class AwsAmazonMqBrokerLogsPendingDetailsTypeDef(TypedDict):
+    Audit: NotRequired[bool]
+    General: NotRequired[bool]
+
+class AwsApiCallActionDomainDetailsTypeDef(TypedDict):
+    Domain: NotRequired[str]
+
+class AwsApiGatewayAccessLogSettingsTypeDef(TypedDict):
+    Format: NotRequired[str]
+    DestinationArn: NotRequired[str]
+
+class AwsApiGatewayCanarySettingsOutputTypeDef(TypedDict):
+    PercentTraffic: NotRequired[float]
+    DeploymentId: NotRequired[str]
+    StageVariableOverrides: NotRequired[Dict[str, str]]
+    UseStageCache: NotRequired[bool]
+
+class AwsApiGatewayCanarySettingsTypeDef(TypedDict):
+    PercentTraffic: NotRequired[float]
+    DeploymentId: NotRequired[str]
+    StageVariableOverrides: NotRequired[Mapping[str, str]]
+    UseStageCache: NotRequired[bool]
+
+class AwsApiGatewayEndpointConfigurationOutputTypeDef(TypedDict):
+    Types: NotRequired[List[str]]
+
+class AwsApiGatewayEndpointConfigurationTypeDef(TypedDict):
+    Types: NotRequired[Sequence[str]]
+
+class AwsApiGatewayMethodSettingsTypeDef(TypedDict):
+    MetricsEnabled: NotRequired[bool]
+    LoggingLevel: NotRequired[str]
+    DataTraceEnabled: NotRequired[bool]
+    ThrottlingBurstLimit: NotRequired[int]
+    ThrottlingRateLimit: NotRequired[float]
+    CachingEnabled: NotRequired[bool]
+    CacheTtlInSeconds: NotRequired[int]
+    CacheDataEncrypted: NotRequired[bool]
+    RequireAuthorizationForCacheControl: NotRequired[bool]
+    UnauthorizedCacheControlHeaderStrategy: NotRequired[str]
+    HttpMethod: NotRequired[str]
+    ResourcePath: NotRequired[str]
+
+class AwsCorsConfigurationOutputTypeDef(TypedDict):
+    AllowOrigins: NotRequired[List[str]]
+    AllowCredentials: NotRequired[bool]
+    ExposeHeaders: NotRequired[List[str]]
+    MaxAge: NotRequired[int]
+    AllowMethods: NotRequired[List[str]]
+    AllowHeaders: NotRequired[List[str]]
+
+class AwsApiGatewayV2RouteSettingsTypeDef(TypedDict):
+    DetailedMetricsEnabled: NotRequired[bool]
+    LoggingLevel: NotRequired[str]
+    DataTraceEnabled: NotRequired[bool]
+    ThrottlingBurstLimit: NotRequired[int]
+    ThrottlingRateLimit: NotRequired[float]
+
+class AwsAppSyncGraphQlApiLambdaAuthorizerConfigDetailsTypeDef(TypedDict):
+    AuthorizerResultTtlInSeconds: NotRequired[int]
+    AuthorizerUri: NotRequired[str]
+    IdentityValidationExpression: NotRequired[str]
+
+class AwsAppSyncGraphQlApiOpenIdConnectConfigDetailsTypeDef(TypedDict):
+    AuthTtL: NotRequired[int]
+    ClientId: NotRequired[str]
+    IatTtL: NotRequired[int]
+    Issuer: NotRequired[str]
+
+class AwsAppSyncGraphQlApiUserPoolConfigDetailsTypeDef(TypedDict):
+    AppIdClientRegex: NotRequired[str]
+    AwsRegion: NotRequired[str]
+    DefaultAction: NotRequired[str]
+    UserPoolId: NotRequired[str]
+
+class AwsAppSyncGraphQlApiLogConfigDetailsTypeDef(TypedDict):
+    CloudWatchLogsRoleArn: NotRequired[str]
+    ExcludeVerboseContent: NotRequired[bool]
+    FieldLogLevel: NotRequired[str]
+
+class AwsAthenaWorkGroupConfigurationResultConfigurationEncryptionConfigurationDetailsTypeDef(
+    TypedDict
 ):
-    pass
+    EncryptionOption: NotRequired[str]
+    KmsKey: NotRequired[str]
 
-ParameterDefinitionTypeDef = TypedDict(
-    "ParameterDefinitionTypeDef",
+class AwsAutoScalingAutoScalingGroupAvailabilityZonesListDetailsTypeDef(TypedDict):
+    Value: NotRequired[str]
+
+class AwsAutoScalingAutoScalingGroupLaunchTemplateLaunchTemplateSpecificationTypeDef(TypedDict):
+    LaunchTemplateId: NotRequired[str]
+    LaunchTemplateName: NotRequired[str]
+    Version: NotRequired[str]
+
+class AwsAutoScalingAutoScalingGroupMixedInstancesPolicyInstancesDistributionDetailsTypeDef(
+    TypedDict
+):
+    OnDemandAllocationStrategy: NotRequired[str]
+    OnDemandBaseCapacity: NotRequired[int]
+    OnDemandPercentageAboveBaseCapacity: NotRequired[int]
+    SpotAllocationStrategy: NotRequired[str]
+    SpotInstancePools: NotRequired[int]
+    SpotMaxPrice: NotRequired[str]
+
+class AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationTypeDef(
+    TypedDict
+):
+    LaunchTemplateId: NotRequired[str]
+    LaunchTemplateName: NotRequired[str]
+    Version: NotRequired[str]
+
+class AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateOverridesListDetailsTypeDef(
+    TypedDict
+):
+    InstanceType: NotRequired[str]
+    WeightedCapacity: NotRequired[str]
+
+class AwsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetailsTypeDef(TypedDict):
+    DeleteOnTermination: NotRequired[bool]
+    Encrypted: NotRequired[bool]
+    Iops: NotRequired[int]
+    SnapshotId: NotRequired[str]
+    VolumeSize: NotRequired[int]
+    VolumeType: NotRequired[str]
+
+class AwsAutoScalingLaunchConfigurationInstanceMonitoringDetailsTypeDef(TypedDict):
+    Enabled: NotRequired[bool]
+
+class AwsAutoScalingLaunchConfigurationMetadataOptionsTypeDef(TypedDict):
+    HttpEndpoint: NotRequired[str]
+    HttpPutResponseHopLimit: NotRequired[int]
+    HttpTokens: NotRequired[str]
+
+class AwsBackupBackupPlanAdvancedBackupSettingsDetailsOutputTypeDef(TypedDict):
+    BackupOptions: NotRequired[Dict[str, str]]
+    ResourceType: NotRequired[str]
+
+class AwsBackupBackupPlanAdvancedBackupSettingsDetailsTypeDef(TypedDict):
+    BackupOptions: NotRequired[Mapping[str, str]]
+    ResourceType: NotRequired[str]
+
+class AwsBackupBackupPlanLifecycleDetailsTypeDef(TypedDict):
+    DeleteAfterDays: NotRequired[int]
+    MoveToColdStorageAfterDays: NotRequired[int]
+
+class AwsBackupBackupVaultNotificationsDetailsOutputTypeDef(TypedDict):
+    BackupVaultEvents: NotRequired[List[str]]
+    SnsTopicArn: NotRequired[str]
+
+class AwsBackupBackupVaultNotificationsDetailsTypeDef(TypedDict):
+    BackupVaultEvents: NotRequired[Sequence[str]]
+    SnsTopicArn: NotRequired[str]
+
+class AwsBackupRecoveryPointCalculatedLifecycleDetailsTypeDef(TypedDict):
+    DeleteAt: NotRequired[str]
+    MoveToColdStorageAt: NotRequired[str]
+
+class AwsBackupRecoveryPointCreatedByDetailsTypeDef(TypedDict):
+    BackupPlanArn: NotRequired[str]
+    BackupPlanId: NotRequired[str]
+    BackupPlanVersion: NotRequired[str]
+    BackupRuleId: NotRequired[str]
+
+class AwsBackupRecoveryPointLifecycleDetailsTypeDef(TypedDict):
+    DeleteAfterDays: NotRequired[int]
+    MoveToColdStorageAfterDays: NotRequired[int]
+
+class AwsCertificateManagerCertificateExtendedKeyUsageTypeDef(TypedDict):
+    Name: NotRequired[str]
+    OId: NotRequired[str]
+
+class AwsCertificateManagerCertificateKeyUsageTypeDef(TypedDict):
+    Name: NotRequired[str]
+
+class AwsCertificateManagerCertificateOptionsTypeDef(TypedDict):
+    CertificateTransparencyLoggingPreference: NotRequired[str]
+
+AwsCertificateManagerCertificateResourceRecordTypeDef = TypedDict(
+    "AwsCertificateManagerCertificateResourceRecordTypeDef",
     {
-        "Description": str,
-        "ConfigurationOptions": "ConfigurationOptionsTypeDef",
+        "Name": NotRequired[str],
+        "Type": NotRequired[str],
+        "Value": NotRequired[str],
     },
 )
 
-ParameterValueTypeDef = TypedDict(
-    "ParameterValueTypeDef",
+class AwsCloudFormationStackDriftInformationDetailsTypeDef(TypedDict):
+    StackDriftStatus: NotRequired[str]
+
+class AwsCloudFormationStackOutputsDetailsTypeDef(TypedDict):
+    Description: NotRequired[str]
+    OutputKey: NotRequired[str]
+    OutputValue: NotRequired[str]
+
+class AwsCloudFrontDistributionCacheBehaviorTypeDef(TypedDict):
+    ViewerProtocolPolicy: NotRequired[str]
+
+class AwsCloudFrontDistributionDefaultCacheBehaviorTypeDef(TypedDict):
+    ViewerProtocolPolicy: NotRequired[str]
+
+class AwsCloudFrontDistributionLoggingTypeDef(TypedDict):
+    Bucket: NotRequired[str]
+    Enabled: NotRequired[bool]
+    IncludeCookies: NotRequired[bool]
+    Prefix: NotRequired[str]
+
+class AwsCloudFrontDistributionViewerCertificateTypeDef(TypedDict):
+    AcmCertificateArn: NotRequired[str]
+    Certificate: NotRequired[str]
+    CertificateSource: NotRequired[str]
+    CloudFrontDefaultCertificate: NotRequired[bool]
+    IamCertificateId: NotRequired[str]
+    MinimumProtocolVersion: NotRequired[str]
+    SslSupportMethod: NotRequired[str]
+
+class AwsCloudFrontDistributionOriginSslProtocolsOutputTypeDef(TypedDict):
+    Items: NotRequired[List[str]]
+    Quantity: NotRequired[int]
+
+class AwsCloudFrontDistributionOriginGroupFailoverStatusCodesOutputTypeDef(TypedDict):
+    Items: NotRequired[List[int]]
+    Quantity: NotRequired[int]
+
+class AwsCloudFrontDistributionOriginGroupFailoverStatusCodesTypeDef(TypedDict):
+    Items: NotRequired[Sequence[int]]
+    Quantity: NotRequired[int]
+
+class AwsCloudFrontDistributionOriginS3OriginConfigTypeDef(TypedDict):
+    OriginAccessIdentity: NotRequired[str]
+
+class AwsCloudFrontDistributionOriginSslProtocolsTypeDef(TypedDict):
+    Items: NotRequired[Sequence[str]]
+    Quantity: NotRequired[int]
+
+class AwsCloudTrailTrailDetailsTypeDef(TypedDict):
+    CloudWatchLogsLogGroupArn: NotRequired[str]
+    CloudWatchLogsRoleArn: NotRequired[str]
+    HasCustomEventSelectors: NotRequired[bool]
+    HomeRegion: NotRequired[str]
+    IncludeGlobalServiceEvents: NotRequired[bool]
+    IsMultiRegionTrail: NotRequired[bool]
+    IsOrganizationTrail: NotRequired[bool]
+    KmsKeyId: NotRequired[str]
+    LogFileValidationEnabled: NotRequired[bool]
+    Name: NotRequired[str]
+    S3BucketName: NotRequired[str]
+    S3KeyPrefix: NotRequired[str]
+    SnsTopicArn: NotRequired[str]
+    SnsTopicName: NotRequired[str]
+    TrailArn: NotRequired[str]
+
+class AwsCloudWatchAlarmDimensionsDetailsTypeDef(TypedDict):
+    Name: NotRequired[str]
+    Value: NotRequired[str]
+
+AwsCodeBuildProjectArtifactsDetailsTypeDef = TypedDict(
+    "AwsCodeBuildProjectArtifactsDetailsTypeDef",
     {
-        "Integer": int,
-        "IntegerList": List[int],
-        "Double": float,
-        "String": str,
-        "StringList": List[str],
-        "Boolean": bool,
-        "Enum": str,
-        "EnumList": List[str],
+        "ArtifactIdentifier": NotRequired[str],
+        "EncryptionDisabled": NotRequired[bool],
+        "Location": NotRequired[str],
+        "Name": NotRequired[str],
+        "NamespaceType": NotRequired[str],
+        "OverrideArtifactName": NotRequired[bool],
+        "Packaging": NotRequired[str],
+        "Path": NotRequired[str],
+        "Type": NotRequired[str],
     },
-    total=False,
+)
+AwsCodeBuildProjectSourceTypeDef = TypedDict(
+    "AwsCodeBuildProjectSourceTypeDef",
+    {
+        "Type": NotRequired[str],
+        "Location": NotRequired[str],
+        "GitCloneDepth": NotRequired[int],
+        "InsecureSsl": NotRequired[bool],
+    },
 )
 
-_RequiredPatchSummaryTypeDef = TypedDict(
-    "_RequiredPatchSummaryTypeDef",
+class AwsCodeBuildProjectVpcConfigOutputTypeDef(TypedDict):
+    VpcId: NotRequired[str]
+    Subnets: NotRequired[List[str]]
+    SecurityGroupIds: NotRequired[List[str]]
+
+AwsCodeBuildProjectEnvironmentEnvironmentVariablesDetailsTypeDef = TypedDict(
+    "AwsCodeBuildProjectEnvironmentEnvironmentVariablesDetailsTypeDef",
     {
-        "Id": str,
+        "Name": NotRequired[str],
+        "Type": NotRequired[str],
+        "Value": NotRequired[str],
     },
 )
-_OptionalPatchSummaryTypeDef = TypedDict(
-    "_OptionalPatchSummaryTypeDef",
+
+class AwsCodeBuildProjectEnvironmentRegistryCredentialTypeDef(TypedDict):
+    Credential: NotRequired[str]
+    CredentialProvider: NotRequired[str]
+
+class AwsCodeBuildProjectLogsConfigCloudWatchLogsDetailsTypeDef(TypedDict):
+    GroupName: NotRequired[str]
+    Status: NotRequired[str]
+    StreamName: NotRequired[str]
+
+class AwsCodeBuildProjectLogsConfigS3LogsDetailsTypeDef(TypedDict):
+    EncryptionDisabled: NotRequired[bool]
+    Location: NotRequired[str]
+    Status: NotRequired[str]
+
+class AwsCodeBuildProjectVpcConfigTypeDef(TypedDict):
+    VpcId: NotRequired[str]
+    Subnets: NotRequired[Sequence[str]]
+    SecurityGroupIds: NotRequired[Sequence[str]]
+
+class AwsCorsConfigurationTypeDef(TypedDict):
+    AllowOrigins: NotRequired[Sequence[str]]
+    AllowCredentials: NotRequired[bool]
+    ExposeHeaders: NotRequired[Sequence[str]]
+    MaxAge: NotRequired[int]
+    AllowMethods: NotRequired[Sequence[str]]
+    AllowHeaders: NotRequired[Sequence[str]]
+
+class AwsDmsEndpointDetailsTypeDef(TypedDict):
+    CertificateArn: NotRequired[str]
+    DatabaseName: NotRequired[str]
+    EndpointArn: NotRequired[str]
+    EndpointIdentifier: NotRequired[str]
+    EndpointType: NotRequired[str]
+    EngineName: NotRequired[str]
+    ExternalId: NotRequired[str]
+    ExtraConnectionAttributes: NotRequired[str]
+    KmsKeyId: NotRequired[str]
+    Port: NotRequired[int]
+    ServerName: NotRequired[str]
+    SslMode: NotRequired[str]
+    Username: NotRequired[str]
+
+class AwsDmsReplicationInstanceReplicationSubnetGroupDetailsTypeDef(TypedDict):
+    ReplicationSubnetGroupIdentifier: NotRequired[str]
+
+class AwsDmsReplicationInstanceVpcSecurityGroupsDetailsTypeDef(TypedDict):
+    VpcSecurityGroupId: NotRequired[str]
+
+class AwsDmsReplicationTaskDetailsTypeDef(TypedDict):
+    CdcStartPosition: NotRequired[str]
+    CdcStartTime: NotRequired[str]
+    CdcStopPosition: NotRequired[str]
+    MigrationType: NotRequired[str]
+    Id: NotRequired[str]
+    ResourceIdentifier: NotRequired[str]
+    ReplicationInstanceArn: NotRequired[str]
+    ReplicationTaskIdentifier: NotRequired[str]
+    ReplicationTaskSettings: NotRequired[str]
+    SourceEndpointArn: NotRequired[str]
+    TableMappings: NotRequired[str]
+    TargetEndpointArn: NotRequired[str]
+    TaskData: NotRequired[str]
+
+class AwsDynamoDbTableAttributeDefinitionTypeDef(TypedDict):
+    AttributeName: NotRequired[str]
+    AttributeType: NotRequired[str]
+
+class AwsDynamoDbTableBillingModeSummaryTypeDef(TypedDict):
+    BillingMode: NotRequired[str]
+    LastUpdateToPayPerRequestDateTime: NotRequired[str]
+
+class AwsDynamoDbTableKeySchemaTypeDef(TypedDict):
+    AttributeName: NotRequired[str]
+    KeyType: NotRequired[str]
+
+class AwsDynamoDbTableProvisionedThroughputTypeDef(TypedDict):
+    LastDecreaseDateTime: NotRequired[str]
+    LastIncreaseDateTime: NotRequired[str]
+    NumberOfDecreasesToday: NotRequired[int]
+    ReadCapacityUnits: NotRequired[int]
+    WriteCapacityUnits: NotRequired[int]
+
+class AwsDynamoDbTableRestoreSummaryTypeDef(TypedDict):
+    SourceBackupArn: NotRequired[str]
+    SourceTableArn: NotRequired[str]
+    RestoreDateTime: NotRequired[str]
+    RestoreInProgress: NotRequired[bool]
+
+class AwsDynamoDbTableSseDescriptionTypeDef(TypedDict):
+    InaccessibleEncryptionDateTime: NotRequired[str]
+    Status: NotRequired[str]
+    SseType: NotRequired[str]
+    KmsMasterKeyArn: NotRequired[str]
+
+class AwsDynamoDbTableStreamSpecificationTypeDef(TypedDict):
+    StreamEnabled: NotRequired[bool]
+    StreamViewType: NotRequired[str]
+
+class AwsDynamoDbTableProjectionOutputTypeDef(TypedDict):
+    NonKeyAttributes: NotRequired[List[str]]
+    ProjectionType: NotRequired[str]
+
+class AwsDynamoDbTableProjectionTypeDef(TypedDict):
+    NonKeyAttributes: NotRequired[Sequence[str]]
+    ProjectionType: NotRequired[str]
+
+class AwsDynamoDbTableProvisionedThroughputOverrideTypeDef(TypedDict):
+    ReadCapacityUnits: NotRequired[int]
+
+class AwsEc2ClientVpnEndpointAuthenticationOptionsActiveDirectoryDetailsTypeDef(TypedDict):
+    DirectoryId: NotRequired[str]
+
+class AwsEc2ClientVpnEndpointAuthenticationOptionsFederatedAuthenticationDetailsTypeDef(TypedDict):
+    SamlProviderArn: NotRequired[str]
+    SelfServiceSamlProviderArn: NotRequired[str]
+
+class AwsEc2ClientVpnEndpointAuthenticationOptionsMutualAuthenticationDetailsTypeDef(TypedDict):
+    ClientRootCertificateChain: NotRequired[str]
+
+class AwsEc2ClientVpnEndpointClientConnectOptionsStatusDetailsTypeDef(TypedDict):
+    Code: NotRequired[str]
+    Message: NotRequired[str]
+
+class AwsEc2ClientVpnEndpointClientLoginBannerOptionsDetailsTypeDef(TypedDict):
+    Enabled: NotRequired[bool]
+    BannerText: NotRequired[str]
+
+class AwsEc2ClientVpnEndpointConnectionLogOptionsDetailsTypeDef(TypedDict):
+    Enabled: NotRequired[bool]
+    CloudwatchLogGroup: NotRequired[str]
+    CloudwatchLogStream: NotRequired[str]
+
+class AwsEc2EipDetailsTypeDef(TypedDict):
+    InstanceId: NotRequired[str]
+    PublicIp: NotRequired[str]
+    AllocationId: NotRequired[str]
+    AssociationId: NotRequired[str]
+    Domain: NotRequired[str]
+    PublicIpv4Pool: NotRequired[str]
+    NetworkBorderGroup: NotRequired[str]
+    NetworkInterfaceId: NotRequired[str]
+    NetworkInterfaceOwnerId: NotRequired[str]
+    PrivateIpAddress: NotRequired[str]
+
+class AwsEc2InstanceMetadataOptionsTypeDef(TypedDict):
+    HttpEndpoint: NotRequired[str]
+    HttpProtocolIpv6: NotRequired[str]
+    HttpPutResponseHopLimit: NotRequired[int]
+    HttpTokens: NotRequired[str]
+    InstanceMetadataTags: NotRequired[str]
+
+class AwsEc2InstanceMonitoringDetailsTypeDef(TypedDict):
+    State: NotRequired[str]
+
+class AwsEc2InstanceNetworkInterfacesDetailsTypeDef(TypedDict):
+    NetworkInterfaceId: NotRequired[str]
+
+class AwsEc2LaunchTemplateDataBlockDeviceMappingSetEbsDetailsTypeDef(TypedDict):
+    DeleteOnTermination: NotRequired[bool]
+    Encrypted: NotRequired[bool]
+    Iops: NotRequired[int]
+    KmsKeyId: NotRequired[str]
+    SnapshotId: NotRequired[str]
+    Throughput: NotRequired[int]
+    VolumeSize: NotRequired[int]
+    VolumeType: NotRequired[str]
+
+class AwsEc2LaunchTemplateDataCapacityReservationSpecificationCapacityReservationTargetDetailsTypeDef(
+    TypedDict
+):
+    CapacityReservationId: NotRequired[str]
+    CapacityReservationResourceGroupArn: NotRequired[str]
+
+class AwsEc2LaunchTemplateDataCpuOptionsDetailsTypeDef(TypedDict):
+    CoreCount: NotRequired[int]
+    ThreadsPerCore: NotRequired[int]
+
+class AwsEc2LaunchTemplateDataCreditSpecificationDetailsTypeDef(TypedDict):
+    CpuCredits: NotRequired[str]
+
+AwsEc2LaunchTemplateDataElasticGpuSpecificationSetDetailsTypeDef = TypedDict(
+    "AwsEc2LaunchTemplateDataElasticGpuSpecificationSetDetailsTypeDef",
     {
-        "InstalledCount": int,
-        "MissingCount": int,
-        "FailedCount": int,
-        "InstalledOtherCount": int,
-        "InstalledRejectedCount": int,
-        "InstalledPendingReboot": int,
-        "OperationStartTime": str,
-        "OperationEndTime": str,
-        "RebootOption": str,
-        "Operation": str,
+        "Type": NotRequired[str],
     },
-    total=False,
+)
+AwsEc2LaunchTemplateDataElasticInferenceAcceleratorSetDetailsTypeDef = TypedDict(
+    "AwsEc2LaunchTemplateDataElasticInferenceAcceleratorSetDetailsTypeDef",
+    {
+        "Count": NotRequired[int],
+        "Type": NotRequired[str],
+    },
 )
 
-class PatchSummaryTypeDef(_RequiredPatchSummaryTypeDef, _OptionalPatchSummaryTypeDef):
-    pass
+class AwsEc2LaunchTemplateDataEnclaveOptionsDetailsTypeDef(TypedDict):
+    Enabled: NotRequired[bool]
 
-PolicyTypeDef = TypedDict(
-    "PolicyTypeDef",
+class AwsEc2LaunchTemplateDataHibernationOptionsDetailsTypeDef(TypedDict):
+    Configured: NotRequired[bool]
+
+class AwsEc2LaunchTemplateDataIamInstanceProfileDetailsTypeDef(TypedDict):
+    Arn: NotRequired[str]
+    Name: NotRequired[str]
+
+class AwsEc2LaunchTemplateDataLicenseSetDetailsTypeDef(TypedDict):
+    LicenseConfigurationArn: NotRequired[str]
+
+class AwsEc2LaunchTemplateDataMaintenanceOptionsDetailsTypeDef(TypedDict):
+    AutoRecovery: NotRequired[str]
+
+class AwsEc2LaunchTemplateDataMetadataOptionsDetailsTypeDef(TypedDict):
+    HttpEndpoint: NotRequired[str]
+    HttpProtocolIpv6: NotRequired[str]
+    HttpTokens: NotRequired[str]
+    HttpPutResponseHopLimit: NotRequired[int]
+    InstanceMetadataTags: NotRequired[str]
+
+class AwsEc2LaunchTemplateDataMonitoringDetailsTypeDef(TypedDict):
+    Enabled: NotRequired[bool]
+
+class AwsEc2LaunchTemplateDataPlacementDetailsTypeDef(TypedDict):
+    Affinity: NotRequired[str]
+    AvailabilityZone: NotRequired[str]
+    GroupName: NotRequired[str]
+    HostId: NotRequired[str]
+    HostResourceGroupArn: NotRequired[str]
+    PartitionNumber: NotRequired[int]
+    SpreadDomain: NotRequired[str]
+    Tenancy: NotRequired[str]
+
+class AwsEc2LaunchTemplateDataPrivateDnsNameOptionsDetailsTypeDef(TypedDict):
+    EnableResourceNameDnsAAAARecord: NotRequired[bool]
+    EnableResourceNameDnsARecord: NotRequired[bool]
+    HostnameType: NotRequired[str]
+
+class AwsEc2LaunchTemplateDataInstanceMarketOptionsSpotOptionsDetailsTypeDef(TypedDict):
+    BlockDurationMinutes: NotRequired[int]
+    InstanceInterruptionBehavior: NotRequired[str]
+    MaxPrice: NotRequired[str]
+    SpotInstanceType: NotRequired[str]
+    ValidUntil: NotRequired[str]
+
+class AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorCountDetailsTypeDef(TypedDict):
+    Max: NotRequired[int]
+    Min: NotRequired[int]
+
+class AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorTotalMemoryMiBDetailsTypeDef(
+    TypedDict
+):
+    Max: NotRequired[int]
+    Min: NotRequired[int]
+
+class AwsEc2LaunchTemplateDataInstanceRequirementsBaselineEbsBandwidthMbpsDetailsTypeDef(TypedDict):
+    Max: NotRequired[int]
+    Min: NotRequired[int]
+
+class AwsEc2LaunchTemplateDataInstanceRequirementsMemoryGiBPerVCpuDetailsTypeDef(TypedDict):
+    Max: NotRequired[float]
+    Min: NotRequired[float]
+
+class AwsEc2LaunchTemplateDataInstanceRequirementsMemoryMiBDetailsTypeDef(TypedDict):
+    Max: NotRequired[int]
+    Min: NotRequired[int]
+
+class AwsEc2LaunchTemplateDataInstanceRequirementsNetworkInterfaceCountDetailsTypeDef(TypedDict):
+    Max: NotRequired[int]
+    Min: NotRequired[int]
+
+class AwsEc2LaunchTemplateDataInstanceRequirementsTotalLocalStorageGBDetailsTypeDef(TypedDict):
+    Max: NotRequired[float]
+    Min: NotRequired[float]
+
+class AwsEc2LaunchTemplateDataInstanceRequirementsVCpuCountDetailsTypeDef(TypedDict):
+    Max: NotRequired[int]
+    Min: NotRequired[int]
+
+class AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv4PrefixesDetailsTypeDef(TypedDict):
+    Ipv4Prefix: NotRequired[str]
+
+class AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6AddressesDetailsTypeDef(TypedDict):
+    Ipv6Address: NotRequired[str]
+
+class AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6PrefixesDetailsTypeDef(TypedDict):
+    Ipv6Prefix: NotRequired[str]
+
+class AwsEc2LaunchTemplateDataNetworkInterfaceSetPrivateIpAddressesDetailsTypeDef(TypedDict):
+    Primary: NotRequired[bool]
+    PrivateIpAddress: NotRequired[str]
+
+class AwsEc2NetworkAclAssociationTypeDef(TypedDict):
+    NetworkAclAssociationId: NotRequired[str]
+    NetworkAclId: NotRequired[str]
+    SubnetId: NotRequired[str]
+
+IcmpTypeCodeTypeDef = TypedDict(
+    "IcmpTypeCodeTypeDef",
     {
-        "SecurityHub": "SecurityHubPolicyTypeDef",
+        "Code": NotRequired[int],
+        "Type": NotRequired[int],
     },
-    total=False,
 )
 
-PortProbeActionTypeDef = TypedDict(
-    "PortProbeActionTypeDef",
+class PortRangeFromToTypeDef(TypedDict):
+    From: NotRequired[int]
+    To: NotRequired[int]
+
+class AwsEc2NetworkInterfaceAttachmentTypeDef(TypedDict):
+    AttachTime: NotRequired[str]
+    AttachmentId: NotRequired[str]
+    DeleteOnTermination: NotRequired[bool]
+    DeviceIndex: NotRequired[int]
+    InstanceId: NotRequired[str]
+    InstanceOwnerId: NotRequired[str]
+    Status: NotRequired[str]
+
+class AwsEc2NetworkInterfaceIpV6AddressDetailTypeDef(TypedDict):
+    IpV6Address: NotRequired[str]
+
+class AwsEc2NetworkInterfacePrivateIpAddressDetailTypeDef(TypedDict):
+    PrivateIpAddress: NotRequired[str]
+    PrivateDnsName: NotRequired[str]
+
+class AwsEc2NetworkInterfaceSecurityGroupTypeDef(TypedDict):
+    GroupName: NotRequired[str]
+    GroupId: NotRequired[str]
+
+class PropagatingVgwSetDetailsTypeDef(TypedDict):
+    GatewayId: NotRequired[str]
+
+class RouteSetDetailsTypeDef(TypedDict):
+    CarrierGatewayId: NotRequired[str]
+    CoreNetworkArn: NotRequired[str]
+    DestinationCidrBlock: NotRequired[str]
+    DestinationIpv6CidrBlock: NotRequired[str]
+    DestinationPrefixListId: NotRequired[str]
+    EgressOnlyInternetGatewayId: NotRequired[str]
+    GatewayId: NotRequired[str]
+    InstanceId: NotRequired[str]
+    InstanceOwnerId: NotRequired[str]
+    LocalGatewayId: NotRequired[str]
+    NatGatewayId: NotRequired[str]
+    NetworkInterfaceId: NotRequired[str]
+    Origin: NotRequired[str]
+    State: NotRequired[str]
+    TransitGatewayId: NotRequired[str]
+    VpcPeeringConnectionId: NotRequired[str]
+
+class AwsEc2SecurityGroupIpRangeTypeDef(TypedDict):
+    CidrIp: NotRequired[str]
+
+class AwsEc2SecurityGroupIpv6RangeTypeDef(TypedDict):
+    CidrIpv6: NotRequired[str]
+
+class AwsEc2SecurityGroupPrefixListIdTypeDef(TypedDict):
+    PrefixListId: NotRequired[str]
+
+class AwsEc2SecurityGroupUserIdGroupPairTypeDef(TypedDict):
+    GroupId: NotRequired[str]
+    GroupName: NotRequired[str]
+    PeeringStatus: NotRequired[str]
+    UserId: NotRequired[str]
+    VpcId: NotRequired[str]
+    VpcPeeringConnectionId: NotRequired[str]
+
+class Ipv6CidrBlockAssociationTypeDef(TypedDict):
+    AssociationId: NotRequired[str]
+    Ipv6CidrBlock: NotRequired[str]
+    CidrBlockState: NotRequired[str]
+
+class AwsEc2TransitGatewayDetailsOutputTypeDef(TypedDict):
+    Id: NotRequired[str]
+    Description: NotRequired[str]
+    DefaultRouteTablePropagation: NotRequired[str]
+    AutoAcceptSharedAttachments: NotRequired[str]
+    DefaultRouteTableAssociation: NotRequired[str]
+    TransitGatewayCidrBlocks: NotRequired[List[str]]
+    AssociationDefaultRouteTableId: NotRequired[str]
+    PropagationDefaultRouteTableId: NotRequired[str]
+    VpnEcmpSupport: NotRequired[str]
+    DnsSupport: NotRequired[str]
+    MulticastSupport: NotRequired[str]
+    AmazonSideAsn: NotRequired[int]
+
+class AwsEc2TransitGatewayDetailsTypeDef(TypedDict):
+    Id: NotRequired[str]
+    Description: NotRequired[str]
+    DefaultRouteTablePropagation: NotRequired[str]
+    AutoAcceptSharedAttachments: NotRequired[str]
+    DefaultRouteTableAssociation: NotRequired[str]
+    TransitGatewayCidrBlocks: NotRequired[Sequence[str]]
+    AssociationDefaultRouteTableId: NotRequired[str]
+    PropagationDefaultRouteTableId: NotRequired[str]
+    VpnEcmpSupport: NotRequired[str]
+    DnsSupport: NotRequired[str]
+    MulticastSupport: NotRequired[str]
+    AmazonSideAsn: NotRequired[int]
+
+class AwsEc2VolumeAttachmentTypeDef(TypedDict):
+    AttachTime: NotRequired[str]
+    DeleteOnTermination: NotRequired[bool]
+    InstanceId: NotRequired[str]
+    Status: NotRequired[str]
+
+class CidrBlockAssociationTypeDef(TypedDict):
+    AssociationId: NotRequired[str]
+    CidrBlock: NotRequired[str]
+    CidrBlockState: NotRequired[str]
+
+class AwsEc2VpcEndpointServiceServiceTypeDetailsTypeDef(TypedDict):
+    ServiceType: NotRequired[str]
+
+class AwsEc2VpcPeeringConnectionStatusDetailsTypeDef(TypedDict):
+    Code: NotRequired[str]
+    Message: NotRequired[str]
+
+class VpcInfoCidrBlockSetDetailsTypeDef(TypedDict):
+    CidrBlock: NotRequired[str]
+
+class VpcInfoIpv6CidrBlockSetDetailsTypeDef(TypedDict):
+    Ipv6CidrBlock: NotRequired[str]
+
+class VpcInfoPeeringOptionsDetailsTypeDef(TypedDict):
+    AllowDnsResolutionFromRemoteVpc: NotRequired[bool]
+    AllowEgressFromLocalClassicLinkToRemoteVpc: NotRequired[bool]
+    AllowEgressFromLocalVpcToRemoteClassicLink: NotRequired[bool]
+
+class AwsEc2VpnConnectionRoutesDetailsTypeDef(TypedDict):
+    DestinationCidrBlock: NotRequired[str]
+    State: NotRequired[str]
+
+class AwsEc2VpnConnectionVgwTelemetryDetailsTypeDef(TypedDict):
+    AcceptedRouteCount: NotRequired[int]
+    CertificateArn: NotRequired[str]
+    LastStatusChange: NotRequired[str]
+    OutsideIpAddress: NotRequired[str]
+    Status: NotRequired[str]
+    StatusMessage: NotRequired[str]
+
+class AwsEc2VpnConnectionOptionsTunnelOptionsDetailsOutputTypeDef(TypedDict):
+    DpdTimeoutSeconds: NotRequired[int]
+    IkeVersions: NotRequired[List[str]]
+    OutsideIpAddress: NotRequired[str]
+    Phase1DhGroupNumbers: NotRequired[List[int]]
+    Phase1EncryptionAlgorithms: NotRequired[List[str]]
+    Phase1IntegrityAlgorithms: NotRequired[List[str]]
+    Phase1LifetimeSeconds: NotRequired[int]
+    Phase2DhGroupNumbers: NotRequired[List[int]]
+    Phase2EncryptionAlgorithms: NotRequired[List[str]]
+    Phase2IntegrityAlgorithms: NotRequired[List[str]]
+    Phase2LifetimeSeconds: NotRequired[int]
+    PreSharedKey: NotRequired[str]
+    RekeyFuzzPercentage: NotRequired[int]
+    RekeyMarginTimeSeconds: NotRequired[int]
+    ReplayWindowSize: NotRequired[int]
+    TunnelInsideCidr: NotRequired[str]
+
+class AwsEc2VpnConnectionOptionsTunnelOptionsDetailsTypeDef(TypedDict):
+    DpdTimeoutSeconds: NotRequired[int]
+    IkeVersions: NotRequired[Sequence[str]]
+    OutsideIpAddress: NotRequired[str]
+    Phase1DhGroupNumbers: NotRequired[Sequence[int]]
+    Phase1EncryptionAlgorithms: NotRequired[Sequence[str]]
+    Phase1IntegrityAlgorithms: NotRequired[Sequence[str]]
+    Phase1LifetimeSeconds: NotRequired[int]
+    Phase2DhGroupNumbers: NotRequired[Sequence[int]]
+    Phase2EncryptionAlgorithms: NotRequired[Sequence[str]]
+    Phase2IntegrityAlgorithms: NotRequired[Sequence[str]]
+    Phase2LifetimeSeconds: NotRequired[int]
+    PreSharedKey: NotRequired[str]
+    RekeyFuzzPercentage: NotRequired[int]
+    RekeyMarginTimeSeconds: NotRequired[int]
+    ReplayWindowSize: NotRequired[int]
+    TunnelInsideCidr: NotRequired[str]
+
+class AwsEcrContainerImageDetailsOutputTypeDef(TypedDict):
+    RegistryId: NotRequired[str]
+    RepositoryName: NotRequired[str]
+    Architecture: NotRequired[str]
+    ImageDigest: NotRequired[str]
+    ImageTags: NotRequired[List[str]]
+    ImagePublishedAt: NotRequired[str]
+
+class AwsEcrContainerImageDetailsTypeDef(TypedDict):
+    RegistryId: NotRequired[str]
+    RepositoryName: NotRequired[str]
+    Architecture: NotRequired[str]
+    ImageDigest: NotRequired[str]
+    ImageTags: NotRequired[Sequence[str]]
+    ImagePublishedAt: NotRequired[str]
+
+class AwsEcrRepositoryImageScanningConfigurationDetailsTypeDef(TypedDict):
+    ScanOnPush: NotRequired[bool]
+
+class AwsEcrRepositoryLifecyclePolicyDetailsTypeDef(TypedDict):
+    LifecyclePolicyText: NotRequired[str]
+    RegistryId: NotRequired[str]
+
+class AwsEcsClusterClusterSettingsDetailsTypeDef(TypedDict):
+    Name: NotRequired[str]
+    Value: NotRequired[str]
+
+class AwsEcsClusterConfigurationExecuteCommandConfigurationLogConfigurationDetailsTypeDef(
+    TypedDict
+):
+    CloudWatchEncryptionEnabled: NotRequired[bool]
+    CloudWatchLogGroupName: NotRequired[str]
+    S3BucketName: NotRequired[str]
+    S3EncryptionEnabled: NotRequired[bool]
+    S3KeyPrefix: NotRequired[str]
+
+class AwsEcsClusterDefaultCapacityProviderStrategyDetailsTypeDef(TypedDict):
+    Base: NotRequired[int]
+    CapacityProvider: NotRequired[str]
+    Weight: NotRequired[int]
+
+class AwsMountPointTypeDef(TypedDict):
+    SourceVolume: NotRequired[str]
+    ContainerPath: NotRequired[str]
+
+class AwsEcsServiceCapacityProviderStrategyDetailsTypeDef(TypedDict):
+    Base: NotRequired[int]
+    CapacityProvider: NotRequired[str]
+    Weight: NotRequired[int]
+
+class AwsEcsServiceDeploymentConfigurationDeploymentCircuitBreakerDetailsTypeDef(TypedDict):
+    Enable: NotRequired[bool]
+    Rollback: NotRequired[bool]
+
+AwsEcsServiceDeploymentControllerDetailsTypeDef = TypedDict(
+    "AwsEcsServiceDeploymentControllerDetailsTypeDef",
     {
-        "PortProbeDetails": List["PortProbeDetailTypeDef"],
-        "Blocked": bool,
+        "Type": NotRequired[str],
     },
-    total=False,
 )
 
-PortProbeDetailTypeDef = TypedDict(
-    "PortProbeDetailTypeDef",
+class AwsEcsServiceLoadBalancersDetailsTypeDef(TypedDict):
+    ContainerName: NotRequired[str]
+    ContainerPort: NotRequired[int]
+    LoadBalancerName: NotRequired[str]
+    TargetGroupArn: NotRequired[str]
+
+AwsEcsServicePlacementConstraintsDetailsTypeDef = TypedDict(
+    "AwsEcsServicePlacementConstraintsDetailsTypeDef",
     {
-        "LocalPortDetails": "ActionLocalPortDetailsTypeDef",
-        "LocalIpDetails": "ActionLocalIpDetailsTypeDef",
-        "RemoteIpDetails": "ActionRemoteIpDetailsTypeDef",
+        "Expression": NotRequired[str],
+        "Type": NotRequired[str],
     },
-    total=False,
+)
+AwsEcsServicePlacementStrategiesDetailsTypeDef = TypedDict(
+    "AwsEcsServicePlacementStrategiesDetailsTypeDef",
+    {
+        "Field": NotRequired[str],
+        "Type": NotRequired[str],
+    },
 )
 
-PortRangeFromToTypeDef = TypedDict(
-    "PortRangeFromToTypeDef",
+class AwsEcsServiceServiceRegistriesDetailsTypeDef(TypedDict):
+    ContainerName: NotRequired[str]
+    ContainerPort: NotRequired[int]
+    Port: NotRequired[int]
+    RegistryArn: NotRequired[str]
+
+class AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetailsOutputTypeDef(TypedDict):
+    AssignPublicIp: NotRequired[str]
+    SecurityGroups: NotRequired[List[str]]
+    Subnets: NotRequired[List[str]]
+
+class AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetailsTypeDef(TypedDict):
+    AssignPublicIp: NotRequired[str]
+    SecurityGroups: NotRequired[Sequence[str]]
+    Subnets: NotRequired[Sequence[str]]
+
+class AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetailsTypeDef(TypedDict):
+    Condition: NotRequired[str]
+    ContainerName: NotRequired[str]
+
+class AwsEcsTaskDefinitionContainerDefinitionsEnvironmentDetailsTypeDef(TypedDict):
+    Name: NotRequired[str]
+    Value: NotRequired[str]
+
+AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetailsTypeDef = TypedDict(
+    "AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetailsTypeDef",
     {
-        "From": int,
-        "To": int,
+        "Type": NotRequired[str],
+        "Value": NotRequired[str],
     },
-    total=False,
 )
 
-PortRangeTypeDef = TypedDict(
-    "PortRangeTypeDef",
+class AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetailsTypeDef(TypedDict):
+    Hostname: NotRequired[str]
+    IpAddress: NotRequired[str]
+
+AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetailsOutputTypeDef = TypedDict(
+    "AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetailsOutputTypeDef",
     {
-        "Begin": int,
-        "End": int,
+        "Options": NotRequired[Dict[str, str]],
+        "Type": NotRequired[str],
     },
-    total=False,
 )
 
-ProcessDetailsTypeDef = TypedDict(
-    "ProcessDetailsTypeDef",
+class AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetailsOutputTypeDef(TypedDict):
+    Command: NotRequired[List[str]]
+    Interval: NotRequired[int]
+    Retries: NotRequired[int]
+    StartPeriod: NotRequired[int]
+    Timeout: NotRequired[int]
+
+AwsEcsTaskDefinitionContainerDefinitionsMountPointsDetailsTypeDef = TypedDict(
+    "AwsEcsTaskDefinitionContainerDefinitionsMountPointsDetailsTypeDef",
+    {
+        "ContainerPath": NotRequired[str],
+        "ReadOnly": NotRequired[bool],
+        "SourceVolume": NotRequired[str],
+    },
+)
+AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetailsTypeDef = TypedDict(
+    "AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetailsTypeDef",
+    {
+        "ContainerPort": NotRequired[int],
+        "HostPort": NotRequired[int],
+        "Protocol": NotRequired[str],
+    },
+)
+
+class AwsEcsTaskDefinitionContainerDefinitionsRepositoryCredentialsDetailsTypeDef(TypedDict):
+    CredentialsParameter: NotRequired[str]
+
+AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetailsTypeDef = TypedDict(
+    "AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetailsTypeDef",
+    {
+        "Type": NotRequired[str],
+        "Value": NotRequired[str],
+    },
+)
+
+class AwsEcsTaskDefinitionContainerDefinitionsSecretsDetailsTypeDef(TypedDict):
+    Name: NotRequired[str]
+    ValueFrom: NotRequired[str]
+
+class AwsEcsTaskDefinitionContainerDefinitionsSystemControlsDetailsTypeDef(TypedDict):
+    Namespace: NotRequired[str]
+    Value: NotRequired[str]
+
+class AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetailsTypeDef(TypedDict):
+    HardLimit: NotRequired[int]
+    Name: NotRequired[str]
+    SoftLimit: NotRequired[int]
+
+AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetailsTypeDef = TypedDict(
+    "AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetailsTypeDef",
+    {
+        "ReadOnly": NotRequired[bool],
+        "SourceContainer": NotRequired[str],
+    },
+)
+AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetailsTypeDef = TypedDict(
+    "AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetailsTypeDef",
+    {
+        "Options": NotRequired[Mapping[str, str]],
+        "Type": NotRequired[str],
+    },
+)
+
+class AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetailsTypeDef(TypedDict):
+    Command: NotRequired[Sequence[str]]
+    Interval: NotRequired[int]
+    Retries: NotRequired[int]
+    StartPeriod: NotRequired[int]
+    Timeout: NotRequired[int]
+
+class AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetailsOutputTypeDef(
+    TypedDict
+):
+    Add: NotRequired[List[str]]
+    Drop: NotRequired[List[str]]
+
+class AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetailsTypeDef(TypedDict):
+    Add: NotRequired[Sequence[str]]
+    Drop: NotRequired[Sequence[str]]
+
+class AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetailsOutputTypeDef(TypedDict):
+    ContainerPath: NotRequired[str]
+    HostPath: NotRequired[str]
+    Permissions: NotRequired[List[str]]
+
+class AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetailsOutputTypeDef(TypedDict):
+    ContainerPath: NotRequired[str]
+    MountOptions: NotRequired[List[str]]
+    Size: NotRequired[int]
+
+class AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetailsTypeDef(TypedDict):
+    ContainerPath: NotRequired[str]
+    HostPath: NotRequired[str]
+    Permissions: NotRequired[Sequence[str]]
+
+class AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetailsTypeDef(TypedDict):
+    ContainerPath: NotRequired[str]
+    MountOptions: NotRequired[Sequence[str]]
+    Size: NotRequired[int]
+
+class AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsDetailsTypeDef(
+    TypedDict
+):
+    Name: NotRequired[str]
+    ValueFrom: NotRequired[str]
+
+class AwsEcsTaskDefinitionInferenceAcceleratorsDetailsTypeDef(TypedDict):
+    DeviceName: NotRequired[str]
+    DeviceType: NotRequired[str]
+
+AwsEcsTaskDefinitionPlacementConstraintsDetailsTypeDef = TypedDict(
+    "AwsEcsTaskDefinitionPlacementConstraintsDetailsTypeDef",
+    {
+        "Expression": NotRequired[str],
+        "Type": NotRequired[str],
+    },
+)
+
+class AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetailsTypeDef(TypedDict):
+    Name: NotRequired[str]
+    Value: NotRequired[str]
+
+class AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetailsOutputTypeDef(TypedDict):
+    Autoprovision: NotRequired[bool]
+    Driver: NotRequired[str]
+    DriverOpts: NotRequired[Dict[str, str]]
+    Labels: NotRequired[Dict[str, str]]
+    Scope: NotRequired[str]
+
+class AwsEcsTaskDefinitionVolumesHostDetailsTypeDef(TypedDict):
+    SourcePath: NotRequired[str]
+
+class AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetailsTypeDef(TypedDict):
+    Autoprovision: NotRequired[bool]
+    Driver: NotRequired[str]
+    DriverOpts: NotRequired[Mapping[str, str]]
+    Labels: NotRequired[Mapping[str, str]]
+    Scope: NotRequired[str]
+
+class AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationConfigDetailsTypeDef(TypedDict):
+    AccessPointId: NotRequired[str]
+    Iam: NotRequired[str]
+
+class AwsEcsTaskVolumeHostDetailsTypeDef(TypedDict):
+    SourcePath: NotRequired[str]
+
+class AwsEfsAccessPointPosixUserDetailsOutputTypeDef(TypedDict):
+    Gid: NotRequired[str]
+    SecondaryGids: NotRequired[List[str]]
+    Uid: NotRequired[str]
+
+class AwsEfsAccessPointPosixUserDetailsTypeDef(TypedDict):
+    Gid: NotRequired[str]
+    SecondaryGids: NotRequired[Sequence[str]]
+    Uid: NotRequired[str]
+
+class AwsEfsAccessPointRootDirectoryCreationInfoDetailsTypeDef(TypedDict):
+    OwnerGid: NotRequired[str]
+    OwnerUid: NotRequired[str]
+    Permissions: NotRequired[str]
+
+class AwsEksClusterResourcesVpcConfigDetailsOutputTypeDef(TypedDict):
+    SecurityGroupIds: NotRequired[List[str]]
+    SubnetIds: NotRequired[List[str]]
+    EndpointPublicAccess: NotRequired[bool]
+
+class AwsEksClusterLoggingClusterLoggingDetailsOutputTypeDef(TypedDict):
+    Enabled: NotRequired[bool]
+    Types: NotRequired[List[str]]
+
+class AwsEksClusterLoggingClusterLoggingDetailsTypeDef(TypedDict):
+    Enabled: NotRequired[bool]
+    Types: NotRequired[Sequence[str]]
+
+class AwsEksClusterResourcesVpcConfigDetailsTypeDef(TypedDict):
+    SecurityGroupIds: NotRequired[Sequence[str]]
+    SubnetIds: NotRequired[Sequence[str]]
+    EndpointPublicAccess: NotRequired[bool]
+
+class AwsElasticBeanstalkEnvironmentEnvironmentLinkTypeDef(TypedDict):
+    EnvironmentName: NotRequired[str]
+    LinkName: NotRequired[str]
+
+class AwsElasticBeanstalkEnvironmentOptionSettingTypeDef(TypedDict):
+    Namespace: NotRequired[str]
+    OptionName: NotRequired[str]
+    ResourceName: NotRequired[str]
+    Value: NotRequired[str]
+
+AwsElasticBeanstalkEnvironmentTierTypeDef = TypedDict(
+    "AwsElasticBeanstalkEnvironmentTierTypeDef",
+    {
+        "Name": NotRequired[str],
+        "Type": NotRequired[str],
+        "Version": NotRequired[str],
+    },
+)
+
+class AwsElasticsearchDomainDomainEndpointOptionsTypeDef(TypedDict):
+    EnforceHTTPS: NotRequired[bool]
+    TLSSecurityPolicy: NotRequired[str]
+
+class AwsElasticsearchDomainEncryptionAtRestOptionsTypeDef(TypedDict):
+    Enabled: NotRequired[bool]
+    KmsKeyId: NotRequired[str]
+
+class AwsElasticsearchDomainNodeToNodeEncryptionOptionsTypeDef(TypedDict):
+    Enabled: NotRequired[bool]
+
+class AwsElasticsearchDomainServiceSoftwareOptionsTypeDef(TypedDict):
+    AutomatedUpdateDate: NotRequired[str]
+    Cancellable: NotRequired[bool]
+    CurrentVersion: NotRequired[str]
+    Description: NotRequired[str]
+    NewVersion: NotRequired[str]
+    UpdateAvailable: NotRequired[bool]
+    UpdateStatus: NotRequired[str]
+
+class AwsElasticsearchDomainVPCOptionsOutputTypeDef(TypedDict):
+    AvailabilityZones: NotRequired[List[str]]
+    SecurityGroupIds: NotRequired[List[str]]
+    SubnetIds: NotRequired[List[str]]
+    VPCId: NotRequired[str]
+
+class AwsElasticsearchDomainElasticsearchClusterConfigZoneAwarenessConfigDetailsTypeDef(TypedDict):
+    AvailabilityZoneCount: NotRequired[int]
+
+class AwsElasticsearchDomainLogPublishingOptionsLogConfigTypeDef(TypedDict):
+    CloudWatchLogsLogGroupArn: NotRequired[str]
+    Enabled: NotRequired[bool]
+
+class AwsElasticsearchDomainVPCOptionsTypeDef(TypedDict):
+    AvailabilityZones: NotRequired[Sequence[str]]
+    SecurityGroupIds: NotRequired[Sequence[str]]
+    SubnetIds: NotRequired[Sequence[str]]
+    VPCId: NotRequired[str]
+
+class AwsElbAppCookieStickinessPolicyTypeDef(TypedDict):
+    CookieName: NotRequired[str]
+    PolicyName: NotRequired[str]
+
+class AwsElbLbCookieStickinessPolicyTypeDef(TypedDict):
+    CookieExpirationPeriod: NotRequired[int]
+    PolicyName: NotRequired[str]
+
+class AwsElbLoadBalancerAccessLogTypeDef(TypedDict):
+    EmitInterval: NotRequired[int]
+    Enabled: NotRequired[bool]
+    S3BucketName: NotRequired[str]
+    S3BucketPrefix: NotRequired[str]
+
+class AwsElbLoadBalancerAdditionalAttributeTypeDef(TypedDict):
+    Key: NotRequired[str]
+    Value: NotRequired[str]
+
+class AwsElbLoadBalancerConnectionDrainingTypeDef(TypedDict):
+    Enabled: NotRequired[bool]
+    Timeout: NotRequired[int]
+
+class AwsElbLoadBalancerConnectionSettingsTypeDef(TypedDict):
+    IdleTimeout: NotRequired[int]
+
+class AwsElbLoadBalancerCrossZoneLoadBalancingTypeDef(TypedDict):
+    Enabled: NotRequired[bool]
+
+class AwsElbLoadBalancerBackendServerDescriptionOutputTypeDef(TypedDict):
+    InstancePort: NotRequired[int]
+    PolicyNames: NotRequired[List[str]]
+
+class AwsElbLoadBalancerBackendServerDescriptionTypeDef(TypedDict):
+    InstancePort: NotRequired[int]
+    PolicyNames: NotRequired[Sequence[str]]
+
+class AwsElbLoadBalancerHealthCheckTypeDef(TypedDict):
+    HealthyThreshold: NotRequired[int]
+    Interval: NotRequired[int]
+    Target: NotRequired[str]
+    Timeout: NotRequired[int]
+    UnhealthyThreshold: NotRequired[int]
+
+class AwsElbLoadBalancerInstanceTypeDef(TypedDict):
+    InstanceId: NotRequired[str]
+
+class AwsElbLoadBalancerSourceSecurityGroupTypeDef(TypedDict):
+    GroupName: NotRequired[str]
+    OwnerAlias: NotRequired[str]
+
+AwsElbLoadBalancerListenerTypeDef = TypedDict(
+    "AwsElbLoadBalancerListenerTypeDef",
+    {
+        "InstancePort": NotRequired[int],
+        "InstanceProtocol": NotRequired[str],
+        "LoadBalancerPort": NotRequired[int],
+        "Protocol": NotRequired[str],
+        "SslCertificateId": NotRequired[str],
+    },
+)
+
+class AwsElbv2LoadBalancerAttributeTypeDef(TypedDict):
+    Key: NotRequired[str]
+    Value: NotRequired[str]
+
+class LoadBalancerStateTypeDef(TypedDict):
+    Code: NotRequired[str]
+    Reason: NotRequired[str]
+
+class AwsEventSchemasRegistryDetailsTypeDef(TypedDict):
+    Description: NotRequired[str]
+    RegistryArn: NotRequired[str]
+    RegistryName: NotRequired[str]
+
+class AwsEventsEndpointEventBusesDetailsTypeDef(TypedDict):
+    EventBusArn: NotRequired[str]
+
+class AwsEventsEndpointReplicationConfigDetailsTypeDef(TypedDict):
+    State: NotRequired[str]
+
+class AwsEventsEndpointRoutingConfigFailoverConfigPrimaryDetailsTypeDef(TypedDict):
+    HealthCheck: NotRequired[str]
+
+class AwsEventsEndpointRoutingConfigFailoverConfigSecondaryDetailsTypeDef(TypedDict):
+    Route: NotRequired[str]
+
+class AwsEventsEventbusDetailsTypeDef(TypedDict):
+    Arn: NotRequired[str]
+    Name: NotRequired[str]
+    Policy: NotRequired[str]
+
+class AwsGuardDutyDetectorDataSourcesCloudTrailDetailsTypeDef(TypedDict):
+    Status: NotRequired[str]
+
+class AwsGuardDutyDetectorDataSourcesDnsLogsDetailsTypeDef(TypedDict):
+    Status: NotRequired[str]
+
+class AwsGuardDutyDetectorDataSourcesFlowLogsDetailsTypeDef(TypedDict):
+    Status: NotRequired[str]
+
+class AwsGuardDutyDetectorDataSourcesS3LogsDetailsTypeDef(TypedDict):
+    Status: NotRequired[str]
+
+class AwsGuardDutyDetectorDataSourcesKubernetesAuditLogsDetailsTypeDef(TypedDict):
+    Status: NotRequired[str]
+
+class AwsGuardDutyDetectorDataSourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesDetailsTypeDef(
+    TypedDict
+):
+    Reason: NotRequired[str]
+    Status: NotRequired[str]
+
+class AwsGuardDutyDetectorFeaturesDetailsTypeDef(TypedDict):
+    Name: NotRequired[str]
+    Status: NotRequired[str]
+
+class AwsIamAccessKeySessionContextAttributesTypeDef(TypedDict):
+    MfaAuthenticated: NotRequired[bool]
+    CreationDate: NotRequired[str]
+
+AwsIamAccessKeySessionContextSessionIssuerTypeDef = TypedDict(
+    "AwsIamAccessKeySessionContextSessionIssuerTypeDef",
+    {
+        "Type": NotRequired[str],
+        "PrincipalId": NotRequired[str],
+        "Arn": NotRequired[str],
+        "AccountId": NotRequired[str],
+        "UserName": NotRequired[str],
+    },
+)
+
+class AwsIamAttachedManagedPolicyTypeDef(TypedDict):
+    PolicyName: NotRequired[str]
+    PolicyArn: NotRequired[str]
+
+class AwsIamGroupPolicyTypeDef(TypedDict):
+    PolicyName: NotRequired[str]
+
+class AwsIamInstanceProfileRoleTypeDef(TypedDict):
+    Arn: NotRequired[str]
+    AssumeRolePolicyDocument: NotRequired[str]
+    CreateDate: NotRequired[str]
+    Path: NotRequired[str]
+    RoleId: NotRequired[str]
+    RoleName: NotRequired[str]
+
+class AwsIamPermissionsBoundaryTypeDef(TypedDict):
+    PermissionsBoundaryArn: NotRequired[str]
+    PermissionsBoundaryType: NotRequired[str]
+
+class AwsIamPolicyVersionTypeDef(TypedDict):
+    VersionId: NotRequired[str]
+    IsDefaultVersion: NotRequired[bool]
+    CreateDate: NotRequired[str]
+
+class AwsIamRolePolicyTypeDef(TypedDict):
+    PolicyName: NotRequired[str]
+
+class AwsIamUserPolicyTypeDef(TypedDict):
+    PolicyName: NotRequired[str]
+
+class AwsKinesisStreamStreamEncryptionDetailsTypeDef(TypedDict):
+    EncryptionType: NotRequired[str]
+    KeyId: NotRequired[str]
+
+class AwsKmsKeyDetailsTypeDef(TypedDict):
+    AWSAccountId: NotRequired[str]
+    CreationDate: NotRequired[float]
+    KeyId: NotRequired[str]
+    KeyManager: NotRequired[str]
+    KeyState: NotRequired[str]
+    Origin: NotRequired[str]
+    Description: NotRequired[str]
+    KeyRotationStatus: NotRequired[bool]
+
+class AwsLambdaFunctionCodeTypeDef(TypedDict):
+    S3Bucket: NotRequired[str]
+    S3Key: NotRequired[str]
+    S3ObjectVersion: NotRequired[str]
+    ZipFile: NotRequired[str]
+
+class AwsLambdaFunctionDeadLetterConfigTypeDef(TypedDict):
+    TargetArn: NotRequired[str]
+
+class AwsLambdaFunctionLayerTypeDef(TypedDict):
+    Arn: NotRequired[str]
+    CodeSize: NotRequired[int]
+
+class AwsLambdaFunctionTracingConfigTypeDef(TypedDict):
+    Mode: NotRequired[str]
+
+class AwsLambdaFunctionVpcConfigOutputTypeDef(TypedDict):
+    SecurityGroupIds: NotRequired[List[str]]
+    SubnetIds: NotRequired[List[str]]
+    VpcId: NotRequired[str]
+
+class AwsLambdaFunctionEnvironmentErrorTypeDef(TypedDict):
+    ErrorCode: NotRequired[str]
+    Message: NotRequired[str]
+
+class AwsLambdaFunctionVpcConfigTypeDef(TypedDict):
+    SecurityGroupIds: NotRequired[Sequence[str]]
+    SubnetIds: NotRequired[Sequence[str]]
+    VpcId: NotRequired[str]
+
+class AwsLambdaLayerVersionDetailsOutputTypeDef(TypedDict):
+    Version: NotRequired[int]
+    CompatibleRuntimes: NotRequired[List[str]]
+    CreatedDate: NotRequired[str]
+
+class AwsLambdaLayerVersionDetailsTypeDef(TypedDict):
+    Version: NotRequired[int]
+    CompatibleRuntimes: NotRequired[Sequence[str]]
+    CreatedDate: NotRequired[str]
+
+class AwsMskClusterClusterInfoClientAuthenticationTlsDetailsOutputTypeDef(TypedDict):
+    CertificateAuthorityArnList: NotRequired[List[str]]
+    Enabled: NotRequired[bool]
+
+class AwsMskClusterClusterInfoClientAuthenticationUnauthenticatedDetailsTypeDef(TypedDict):
+    Enabled: NotRequired[bool]
+
+class AwsMskClusterClusterInfoClientAuthenticationSaslIamDetailsTypeDef(TypedDict):
+    Enabled: NotRequired[bool]
+
+class AwsMskClusterClusterInfoClientAuthenticationSaslScramDetailsTypeDef(TypedDict):
+    Enabled: NotRequired[bool]
+
+class AwsMskClusterClusterInfoClientAuthenticationTlsDetailsTypeDef(TypedDict):
+    CertificateAuthorityArnList: NotRequired[Sequence[str]]
+    Enabled: NotRequired[bool]
+
+class AwsMskClusterClusterInfoEncryptionInfoEncryptionAtRestDetailsTypeDef(TypedDict):
+    DataVolumeKMSKeyId: NotRequired[str]
+
+class AwsMskClusterClusterInfoEncryptionInfoEncryptionInTransitDetailsTypeDef(TypedDict):
+    InCluster: NotRequired[bool]
+    ClientBroker: NotRequired[str]
+
+class AwsNetworkFirewallFirewallSubnetMappingsDetailsTypeDef(TypedDict):
+    SubnetId: NotRequired[str]
+
+class AwsOpenSearchServiceDomainMasterUserOptionsDetailsTypeDef(TypedDict):
+    MasterUserArn: NotRequired[str]
+    MasterUserName: NotRequired[str]
+    MasterUserPassword: NotRequired[str]
+
+class AwsOpenSearchServiceDomainClusterConfigZoneAwarenessConfigDetailsTypeDef(TypedDict):
+    AvailabilityZoneCount: NotRequired[int]
+
+class AwsOpenSearchServiceDomainDomainEndpointOptionsDetailsTypeDef(TypedDict):
+    CustomEndpointCertificateArn: NotRequired[str]
+    CustomEndpointEnabled: NotRequired[bool]
+    EnforceHTTPS: NotRequired[bool]
+    CustomEndpoint: NotRequired[str]
+    TLSSecurityPolicy: NotRequired[str]
+
+class AwsOpenSearchServiceDomainEncryptionAtRestOptionsDetailsTypeDef(TypedDict):
+    Enabled: NotRequired[bool]
+    KmsKeyId: NotRequired[str]
+
+class AwsOpenSearchServiceDomainNodeToNodeEncryptionOptionsDetailsTypeDef(TypedDict):
+    Enabled: NotRequired[bool]
+
+class AwsOpenSearchServiceDomainServiceSoftwareOptionsDetailsTypeDef(TypedDict):
+    AutomatedUpdateDate: NotRequired[str]
+    Cancellable: NotRequired[bool]
+    CurrentVersion: NotRequired[str]
+    Description: NotRequired[str]
+    NewVersion: NotRequired[str]
+    UpdateAvailable: NotRequired[bool]
+    UpdateStatus: NotRequired[str]
+    OptionalDeployment: NotRequired[bool]
+
+class AwsOpenSearchServiceDomainVpcOptionsDetailsOutputTypeDef(TypedDict):
+    SecurityGroupIds: NotRequired[List[str]]
+    SubnetIds: NotRequired[List[str]]
+
+class AwsOpenSearchServiceDomainLogPublishingOptionTypeDef(TypedDict):
+    CloudWatchLogsLogGroupArn: NotRequired[str]
+    Enabled: NotRequired[bool]
+
+class AwsOpenSearchServiceDomainVpcOptionsDetailsTypeDef(TypedDict):
+    SecurityGroupIds: NotRequired[Sequence[str]]
+    SubnetIds: NotRequired[Sequence[str]]
+
+class AwsRdsDbClusterAssociatedRoleTypeDef(TypedDict):
+    RoleArn: NotRequired[str]
+    Status: NotRequired[str]
+
+class AwsRdsDbClusterMemberTypeDef(TypedDict):
+    IsClusterWriter: NotRequired[bool]
+    PromotionTier: NotRequired[int]
+    DbInstanceIdentifier: NotRequired[str]
+    DbClusterParameterGroupStatus: NotRequired[str]
+
+class AwsRdsDbClusterOptionGroupMembershipTypeDef(TypedDict):
+    DbClusterOptionGroupName: NotRequired[str]
+    Status: NotRequired[str]
+
+class AwsRdsDbDomainMembershipTypeDef(TypedDict):
+    Domain: NotRequired[str]
+    Status: NotRequired[str]
+    Fqdn: NotRequired[str]
+    IamRoleName: NotRequired[str]
+
+class AwsRdsDbInstanceVpcSecurityGroupTypeDef(TypedDict):
+    VpcSecurityGroupId: NotRequired[str]
+    Status: NotRequired[str]
+
+class AwsRdsDbClusterSnapshotDbClusterSnapshotAttributeOutputTypeDef(TypedDict):
+    AttributeName: NotRequired[str]
+    AttributeValues: NotRequired[List[str]]
+
+class AwsRdsDbClusterSnapshotDbClusterSnapshotAttributeTypeDef(TypedDict):
+    AttributeName: NotRequired[str]
+    AttributeValues: NotRequired[Sequence[str]]
+
+class AwsRdsDbInstanceAssociatedRoleTypeDef(TypedDict):
+    RoleArn: NotRequired[str]
+    FeatureName: NotRequired[str]
+    Status: NotRequired[str]
+
+class AwsRdsDbInstanceEndpointTypeDef(TypedDict):
+    Address: NotRequired[str]
+    Port: NotRequired[int]
+    HostedZoneId: NotRequired[str]
+
+class AwsRdsDbOptionGroupMembershipTypeDef(TypedDict):
+    OptionGroupName: NotRequired[str]
+    Status: NotRequired[str]
+
+class AwsRdsDbParameterGroupTypeDef(TypedDict):
+    DbParameterGroupName: NotRequired[str]
+    ParameterApplyStatus: NotRequired[str]
+
+class AwsRdsDbProcessorFeatureTypeDef(TypedDict):
+    Name: NotRequired[str]
+    Value: NotRequired[str]
+
+class AwsRdsDbStatusInfoTypeDef(TypedDict):
+    StatusType: NotRequired[str]
+    Normal: NotRequired[bool]
+    Status: NotRequired[str]
+    Message: NotRequired[str]
+
+class AwsRdsPendingCloudWatchLogsExportsOutputTypeDef(TypedDict):
+    LogTypesToEnable: NotRequired[List[str]]
+    LogTypesToDisable: NotRequired[List[str]]
+
+class AwsRdsDbSecurityGroupEc2SecurityGroupTypeDef(TypedDict):
+    Ec2SecurityGroupId: NotRequired[str]
+    Ec2SecurityGroupName: NotRequired[str]
+    Ec2SecurityGroupOwnerId: NotRequired[str]
+    Status: NotRequired[str]
+
+class AwsRdsDbSecurityGroupIpRangeTypeDef(TypedDict):
+    CidrIp: NotRequired[str]
+    Status: NotRequired[str]
+
+class AwsRdsDbSubnetGroupSubnetAvailabilityZoneTypeDef(TypedDict):
+    Name: NotRequired[str]
+
+class AwsRdsEventSubscriptionDetailsOutputTypeDef(TypedDict):
+    CustSubscriptionId: NotRequired[str]
+    CustomerAwsId: NotRequired[str]
+    Enabled: NotRequired[bool]
+    EventCategoriesList: NotRequired[List[str]]
+    EventSubscriptionArn: NotRequired[str]
+    SnsTopicArn: NotRequired[str]
+    SourceIdsList: NotRequired[List[str]]
+    SourceType: NotRequired[str]
+    Status: NotRequired[str]
+    SubscriptionCreationTime: NotRequired[str]
+
+class AwsRdsEventSubscriptionDetailsTypeDef(TypedDict):
+    CustSubscriptionId: NotRequired[str]
+    CustomerAwsId: NotRequired[str]
+    Enabled: NotRequired[bool]
+    EventCategoriesList: NotRequired[Sequence[str]]
+    EventSubscriptionArn: NotRequired[str]
+    SnsTopicArn: NotRequired[str]
+    SourceIdsList: NotRequired[Sequence[str]]
+    SourceType: NotRequired[str]
+    Status: NotRequired[str]
+    SubscriptionCreationTime: NotRequired[str]
+
+class AwsRdsPendingCloudWatchLogsExportsTypeDef(TypedDict):
+    LogTypesToEnable: NotRequired[Sequence[str]]
+    LogTypesToDisable: NotRequired[Sequence[str]]
+
+class AwsRedshiftClusterClusterNodeTypeDef(TypedDict):
+    NodeRole: NotRequired[str]
+    PrivateIpAddress: NotRequired[str]
+    PublicIpAddress: NotRequired[str]
+
+class AwsRedshiftClusterClusterParameterStatusTypeDef(TypedDict):
+    ParameterName: NotRequired[str]
+    ParameterApplyStatus: NotRequired[str]
+    ParameterApplyErrorDescription: NotRequired[str]
+
+class AwsRedshiftClusterClusterSecurityGroupTypeDef(TypedDict):
+    ClusterSecurityGroupName: NotRequired[str]
+    Status: NotRequired[str]
+
+class AwsRedshiftClusterClusterSnapshotCopyStatusTypeDef(TypedDict):
+    DestinationRegion: NotRequired[str]
+    ManualSnapshotRetentionPeriod: NotRequired[int]
+    RetentionPeriod: NotRequired[int]
+    SnapshotCopyGrantName: NotRequired[str]
+
+class AwsRedshiftClusterDeferredMaintenanceWindowTypeDef(TypedDict):
+    DeferMaintenanceEndTime: NotRequired[str]
+    DeferMaintenanceIdentifier: NotRequired[str]
+    DeferMaintenanceStartTime: NotRequired[str]
+
+class AwsRedshiftClusterElasticIpStatusTypeDef(TypedDict):
+    ElasticIp: NotRequired[str]
+    Status: NotRequired[str]
+
+class AwsRedshiftClusterEndpointTypeDef(TypedDict):
+    Address: NotRequired[str]
+    Port: NotRequired[int]
+
+class AwsRedshiftClusterHsmStatusTypeDef(TypedDict):
+    HsmClientCertificateIdentifier: NotRequired[str]
+    HsmConfigurationIdentifier: NotRequired[str]
+    Status: NotRequired[str]
+
+class AwsRedshiftClusterIamRoleTypeDef(TypedDict):
+    ApplyStatus: NotRequired[str]
+    IamRoleArn: NotRequired[str]
+
+class AwsRedshiftClusterLoggingStatusTypeDef(TypedDict):
+    BucketName: NotRequired[str]
+    LastFailureMessage: NotRequired[str]
+    LastFailureTime: NotRequired[str]
+    LastSuccessfulDeliveryTime: NotRequired[str]
+    LoggingEnabled: NotRequired[bool]
+    S3KeyPrefix: NotRequired[str]
+
+class AwsRedshiftClusterPendingModifiedValuesTypeDef(TypedDict):
+    AutomatedSnapshotRetentionPeriod: NotRequired[int]
+    ClusterIdentifier: NotRequired[str]
+    ClusterType: NotRequired[str]
+    ClusterVersion: NotRequired[str]
+    EncryptionType: NotRequired[str]
+    EnhancedVpcRouting: NotRequired[bool]
+    MaintenanceTrackName: NotRequired[str]
+    MasterUserPassword: NotRequired[str]
+    NodeType: NotRequired[str]
+    NumberOfNodes: NotRequired[int]
+    PubliclyAccessible: NotRequired[bool]
+
+class AwsRedshiftClusterResizeInfoTypeDef(TypedDict):
+    AllowCancelResize: NotRequired[bool]
+    ResizeType: NotRequired[str]
+
+class AwsRedshiftClusterRestoreStatusTypeDef(TypedDict):
+    CurrentRestoreRateInMegaBytesPerSecond: NotRequired[float]
+    ElapsedTimeInSeconds: NotRequired[int]
+    EstimatedTimeToCompletionInSeconds: NotRequired[int]
+    ProgressInMegaBytes: NotRequired[int]
+    SnapshotSizeInMegaBytes: NotRequired[int]
+    Status: NotRequired[str]
+
+class AwsRedshiftClusterVpcSecurityGroupTypeDef(TypedDict):
+    Status: NotRequired[str]
+    VpcSecurityGroupId: NotRequired[str]
+
+class AwsRoute53HostedZoneConfigDetailsTypeDef(TypedDict):
+    Comment: NotRequired[str]
+
+class AwsRoute53HostedZoneVpcDetailsTypeDef(TypedDict):
+    Id: NotRequired[str]
+    Region: NotRequired[str]
+
+class CloudWatchLogsLogGroupArnConfigDetailsTypeDef(TypedDict):
+    CloudWatchLogsLogGroupArn: NotRequired[str]
+    HostedZoneId: NotRequired[str]
+    Id: NotRequired[str]
+
+class AwsS3AccessPointVpcConfigurationDetailsTypeDef(TypedDict):
+    VpcId: NotRequired[str]
+
+class AwsS3AccountPublicAccessBlockDetailsTypeDef(TypedDict):
+    BlockPublicAcls: NotRequired[bool]
+    BlockPublicPolicy: NotRequired[bool]
+    IgnorePublicAcls: NotRequired[bool]
+    RestrictPublicBuckets: NotRequired[bool]
+
+class AwsS3BucketBucketLifecycleConfigurationRulesAbortIncompleteMultipartUploadDetailsTypeDef(
+    TypedDict
+):
+    DaysAfterInitiation: NotRequired[int]
+
+class AwsS3BucketBucketLifecycleConfigurationRulesNoncurrentVersionTransitionsDetailsTypeDef(
+    TypedDict
+):
+    Days: NotRequired[int]
+    StorageClass: NotRequired[str]
+
+class AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetailsTypeDef(TypedDict):
+    Date: NotRequired[str]
+    Days: NotRequired[int]
+    StorageClass: NotRequired[str]
+
+class AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateTagDetailsTypeDef(TypedDict):
+    Key: NotRequired[str]
+    Value: NotRequired[str]
+
+class AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsTagDetailsTypeDef(
+    TypedDict
+):
+    Key: NotRequired[str]
+    Value: NotRequired[str]
+
+class AwsS3BucketBucketVersioningConfigurationTypeDef(TypedDict):
+    IsMfaDeleteEnabled: NotRequired[bool]
+    Status: NotRequired[str]
+
+class AwsS3BucketLoggingConfigurationTypeDef(TypedDict):
+    DestinationBucketName: NotRequired[str]
+    LogFilePrefix: NotRequired[str]
+
+class AwsS3BucketNotificationConfigurationS3KeyFilterRuleTypeDef(TypedDict):
+    Name: NotRequired[AwsS3BucketNotificationConfigurationS3KeyFilterRuleNameType]
+    Value: NotRequired[str]
+
+class AwsS3BucketObjectLockConfigurationRuleDefaultRetentionDetailsTypeDef(TypedDict):
+    Days: NotRequired[int]
+    Mode: NotRequired[str]
+    Years: NotRequired[int]
+
+class AwsS3BucketServerSideEncryptionByDefaultTypeDef(TypedDict):
+    SSEAlgorithm: NotRequired[str]
+    KMSMasterKeyID: NotRequired[str]
+
+AwsS3BucketWebsiteConfigurationRedirectToTypeDef = TypedDict(
+    "AwsS3BucketWebsiteConfigurationRedirectToTypeDef",
+    {
+        "Hostname": NotRequired[str],
+        "Protocol": NotRequired[str],
+    },
+)
+
+class AwsS3BucketWebsiteConfigurationRoutingRuleConditionTypeDef(TypedDict):
+    HttpErrorCodeReturnedEquals: NotRequired[str]
+    KeyPrefixEquals: NotRequired[str]
+
+AwsS3BucketWebsiteConfigurationRoutingRuleRedirectTypeDef = TypedDict(
+    "AwsS3BucketWebsiteConfigurationRoutingRuleRedirectTypeDef",
+    {
+        "Hostname": NotRequired[str],
+        "HttpRedirectCode": NotRequired[str],
+        "Protocol": NotRequired[str],
+        "ReplaceKeyPrefixWith": NotRequired[str],
+        "ReplaceKeyWith": NotRequired[str],
+    },
+)
+
+class AwsS3ObjectDetailsTypeDef(TypedDict):
+    LastModified: NotRequired[str]
+    ETag: NotRequired[str]
+    VersionId: NotRequired[str]
+    ContentType: NotRequired[str]
+    ServerSideEncryption: NotRequired[str]
+    SSEKMSKeyId: NotRequired[str]
+
+class AwsSageMakerNotebookInstanceMetadataServiceConfigurationDetailsTypeDef(TypedDict):
+    MinimumInstanceMetadataServiceVersion: NotRequired[str]
+
+class AwsSecretsManagerSecretRotationRulesTypeDef(TypedDict):
+    AutomaticallyAfterDays: NotRequired[int]
+
+class BooleanFilterTypeDef(TypedDict):
+    Value: NotRequired[bool]
+
+class IpFilterTypeDef(TypedDict):
+    Cidr: NotRequired[str]
+
+class KeywordFilterTypeDef(TypedDict):
+    Value: NotRequired[str]
+
+class AwsSecurityFindingIdentifierTypeDef(TypedDict):
+    Id: str
+    ProductArn: str
+
+class GeneratorDetailsOutputTypeDef(TypedDict):
+    Name: NotRequired[str]
+    Description: NotRequired[str]
+    Labels: NotRequired[List[str]]
+
+MalwareTypeDef = TypedDict(
+    "MalwareTypeDef",
     {
         "Name": str,
-        "Path": str,
-        "Pid": int,
-        "ParentPid": int,
-        "LaunchedAt": str,
-        "TerminatedAt": str,
-    },
-    total=False,
-)
-
-_RequiredProductTypeDef = TypedDict(
-    "_RequiredProductTypeDef",
-    {
-        "ProductArn": str,
+        "Type": NotRequired[MalwareTypeType],
+        "Path": NotRequired[str],
+        "State": NotRequired[MalwareStateType],
     },
 )
-_OptionalProductTypeDef = TypedDict(
-    "_OptionalProductTypeDef",
-    {
-        "ProductName": str,
-        "CompanyName": str,
-        "Description": str,
-        "Categories": List[str],
-        "IntegrationTypes": List[IntegrationTypeType],
-        "MarketplaceUrl": str,
-        "ActivationUrl": str,
-        "ProductSubscriptionResourcePolicy": str,
-    },
-    total=False,
-)
-
-class ProductTypeDef(_RequiredProductTypeDef, _OptionalProductTypeDef):
-    pass
-
-PropagatingVgwSetDetailsTypeDef = TypedDict(
-    "PropagatingVgwSetDetailsTypeDef",
-    {
-        "GatewayId": str,
-    },
-    total=False,
-)
-
-RangeTypeDef = TypedDict(
-    "RangeTypeDef",
-    {
-        "Start": int,
-        "End": int,
-        "StartColumn": int,
-    },
-    total=False,
-)
-
-RecommendationTypeDef = TypedDict(
-    "RecommendationTypeDef",
+NoteTypeDef = TypedDict(
+    "NoteTypeDef",
     {
         "Text": str,
-        "Url": str,
-    },
-    total=False,
-)
-
-RecordTypeDef = TypedDict(
-    "RecordTypeDef",
-    {
-        "JsonPath": str,
-        "RecordIndex": int,
-    },
-    total=False,
-)
-
-RelatedFindingTypeDef = TypedDict(
-    "RelatedFindingTypeDef",
-    {
-        "ProductArn": str,
-        "Id": str,
-    },
-)
-
-RemediationTypeDef = TypedDict(
-    "RemediationTypeDef",
-    {
-        "Recommendation": "RecommendationTypeDef",
-    },
-    total=False,
-)
-
-ResourceDetailsTypeDef = TypedDict(
-    "ResourceDetailsTypeDef",
-    {
-        "AwsAutoScalingAutoScalingGroup": "AwsAutoScalingAutoScalingGroupDetailsTypeDef",
-        "AwsCodeBuildProject": "AwsCodeBuildProjectDetailsTypeDef",
-        "AwsCloudFrontDistribution": "AwsCloudFrontDistributionDetailsTypeDef",
-        "AwsEc2Instance": "AwsEc2InstanceDetailsTypeDef",
-        "AwsEc2NetworkInterface": "AwsEc2NetworkInterfaceDetailsTypeDef",
-        "AwsEc2SecurityGroup": "AwsEc2SecurityGroupDetailsTypeDef",
-        "AwsEc2Volume": "AwsEc2VolumeDetailsTypeDef",
-        "AwsEc2Vpc": "AwsEc2VpcDetailsTypeDef",
-        "AwsEc2Eip": "AwsEc2EipDetailsTypeDef",
-        "AwsEc2Subnet": "AwsEc2SubnetDetailsTypeDef",
-        "AwsEc2NetworkAcl": "AwsEc2NetworkAclDetailsTypeDef",
-        "AwsElbv2LoadBalancer": "AwsElbv2LoadBalancerDetailsTypeDef",
-        "AwsElasticBeanstalkEnvironment": "AwsElasticBeanstalkEnvironmentDetailsTypeDef",
-        "AwsElasticsearchDomain": "AwsElasticsearchDomainDetailsTypeDef",
-        "AwsS3Bucket": "AwsS3BucketDetailsTypeDef",
-        "AwsS3AccountPublicAccessBlock": "AwsS3AccountPublicAccessBlockDetailsTypeDef",
-        "AwsS3Object": "AwsS3ObjectDetailsTypeDef",
-        "AwsSecretsManagerSecret": "AwsSecretsManagerSecretDetailsTypeDef",
-        "AwsIamAccessKey": "AwsIamAccessKeyDetailsTypeDef",
-        "AwsIamUser": "AwsIamUserDetailsTypeDef",
-        "AwsIamPolicy": "AwsIamPolicyDetailsTypeDef",
-        "AwsApiGatewayV2Stage": "AwsApiGatewayV2StageDetailsTypeDef",
-        "AwsApiGatewayV2Api": "AwsApiGatewayV2ApiDetailsTypeDef",
-        "AwsDynamoDbTable": "AwsDynamoDbTableDetailsTypeDef",
-        "AwsApiGatewayStage": "AwsApiGatewayStageDetailsTypeDef",
-        "AwsApiGatewayRestApi": "AwsApiGatewayRestApiDetailsTypeDef",
-        "AwsCloudTrailTrail": "AwsCloudTrailTrailDetailsTypeDef",
-        "AwsSsmPatchCompliance": "AwsSsmPatchComplianceDetailsTypeDef",
-        "AwsCertificateManagerCertificate": "AwsCertificateManagerCertificateDetailsTypeDef",
-        "AwsRedshiftCluster": "AwsRedshiftClusterDetailsTypeDef",
-        "AwsElbLoadBalancer": "AwsElbLoadBalancerDetailsTypeDef",
-        "AwsIamGroup": "AwsIamGroupDetailsTypeDef",
-        "AwsIamRole": "AwsIamRoleDetailsTypeDef",
-        "AwsKmsKey": "AwsKmsKeyDetailsTypeDef",
-        "AwsLambdaFunction": "AwsLambdaFunctionDetailsTypeDef",
-        "AwsLambdaLayerVersion": "AwsLambdaLayerVersionDetailsTypeDef",
-        "AwsRdsDbInstance": "AwsRdsDbInstanceDetailsTypeDef",
-        "AwsSnsTopic": "AwsSnsTopicDetailsTypeDef",
-        "AwsSqsQueue": "AwsSqsQueueDetailsTypeDef",
-        "AwsWafWebAcl": "AwsWafWebAclDetailsTypeDef",
-        "AwsRdsDbSnapshot": "AwsRdsDbSnapshotDetailsTypeDef",
-        "AwsRdsDbClusterSnapshot": "AwsRdsDbClusterSnapshotDetailsTypeDef",
-        "AwsRdsDbCluster": "AwsRdsDbClusterDetailsTypeDef",
-        "AwsEcsCluster": "AwsEcsClusterDetailsTypeDef",
-        "AwsEcsContainer": "AwsEcsContainerDetailsTypeDef",
-        "AwsEcsTaskDefinition": "AwsEcsTaskDefinitionDetailsTypeDef",
-        "Container": "ContainerDetailsTypeDef",
-        "Other": Dict[str, str],
-        "AwsRdsEventSubscription": "AwsRdsEventSubscriptionDetailsTypeDef",
-        "AwsEcsService": "AwsEcsServiceDetailsTypeDef",
-        "AwsAutoScalingLaunchConfiguration": "AwsAutoScalingLaunchConfigurationDetailsTypeDef",
-        "AwsEc2VpnConnection": "AwsEc2VpnConnectionDetailsTypeDef",
-        "AwsEcrContainerImage": "AwsEcrContainerImageDetailsTypeDef",
-        "AwsOpenSearchServiceDomain": "AwsOpenSearchServiceDomainDetailsTypeDef",
-        "AwsEc2VpcEndpointService": "AwsEc2VpcEndpointServiceDetailsTypeDef",
-        "AwsXrayEncryptionConfig": "AwsXrayEncryptionConfigDetailsTypeDef",
-        "AwsWafRateBasedRule": "AwsWafRateBasedRuleDetailsTypeDef",
-        "AwsWafRegionalRateBasedRule": "AwsWafRegionalRateBasedRuleDetailsTypeDef",
-        "AwsEcrRepository": "AwsEcrRepositoryDetailsTypeDef",
-        "AwsEksCluster": "AwsEksClusterDetailsTypeDef",
-        "AwsNetworkFirewallFirewallPolicy": "AwsNetworkFirewallFirewallPolicyDetailsTypeDef",
-        "AwsNetworkFirewallFirewall": "AwsNetworkFirewallFirewallDetailsTypeDef",
-        "AwsNetworkFirewallRuleGroup": "AwsNetworkFirewallRuleGroupDetailsTypeDef",
-        "AwsRdsDbSecurityGroup": "AwsRdsDbSecurityGroupDetailsTypeDef",
-        "AwsKinesisStream": "AwsKinesisStreamDetailsTypeDef",
-        "AwsEc2TransitGateway": "AwsEc2TransitGatewayDetailsTypeDef",
-        "AwsEfsAccessPoint": "AwsEfsAccessPointDetailsTypeDef",
-        "AwsCloudFormationStack": "AwsCloudFormationStackDetailsTypeDef",
-        "AwsCloudWatchAlarm": "AwsCloudWatchAlarmDetailsTypeDef",
-        "AwsEc2VpcPeeringConnection": "AwsEc2VpcPeeringConnectionDetailsTypeDef",
-        "AwsWafRegionalRuleGroup": "AwsWafRegionalRuleGroupDetailsTypeDef",
-        "AwsWafRegionalRule": "AwsWafRegionalRuleDetailsTypeDef",
-        "AwsWafRegionalWebAcl": "AwsWafRegionalWebAclDetailsTypeDef",
-        "AwsWafRule": "AwsWafRuleDetailsTypeDef",
-        "AwsWafRuleGroup": "AwsWafRuleGroupDetailsTypeDef",
-        "AwsEcsTask": "AwsEcsTaskDetailsTypeDef",
-        "AwsBackupBackupVault": "AwsBackupBackupVaultDetailsTypeDef",
-        "AwsBackupBackupPlan": "AwsBackupBackupPlanDetailsTypeDef",
-        "AwsBackupRecoveryPoint": "AwsBackupRecoveryPointDetailsTypeDef",
-        "AwsEc2LaunchTemplate": "AwsEc2LaunchTemplateDetailsTypeDef",
-        "AwsSageMakerNotebookInstance": "AwsSageMakerNotebookInstanceDetailsTypeDef",
-        "AwsWafv2WebAcl": "AwsWafv2WebAclDetailsTypeDef",
-        "AwsWafv2RuleGroup": "AwsWafv2RuleGroupDetailsTypeDef",
-        "AwsEc2RouteTable": "AwsEc2RouteTableDetailsTypeDef",
-        "AwsAmazonMqBroker": "AwsAmazonMqBrokerDetailsTypeDef",
-        "AwsAppSyncGraphQlApi": "AwsAppSyncGraphQlApiDetailsTypeDef",
-        "AwsEventSchemasRegistry": "AwsEventSchemasRegistryDetailsTypeDef",
-        "AwsGuardDutyDetector": "AwsGuardDutyDetectorDetailsTypeDef",
-        "AwsStepFunctionStateMachine": "AwsStepFunctionStateMachineDetailsTypeDef",
-        "AwsAthenaWorkGroup": "AwsAthenaWorkGroupDetailsTypeDef",
-        "AwsEventsEventbus": "AwsEventsEventbusDetailsTypeDef",
-        "AwsDmsEndpoint": "AwsDmsEndpointDetailsTypeDef",
-        "AwsEventsEndpoint": "AwsEventsEndpointDetailsTypeDef",
-        "AwsDmsReplicationTask": "AwsDmsReplicationTaskDetailsTypeDef",
-        "AwsDmsReplicationInstance": "AwsDmsReplicationInstanceDetailsTypeDef",
-        "AwsRoute53HostedZone": "AwsRoute53HostedZoneDetailsTypeDef",
-        "AwsMskCluster": "AwsMskClusterDetailsTypeDef",
-        "AwsS3AccessPoint": "AwsS3AccessPointDetailsTypeDef",
-        "AwsEc2ClientVpnEndpoint": "AwsEc2ClientVpnEndpointDetailsTypeDef",
-    },
-    total=False,
-)
-
-_RequiredResourceTypeDef = TypedDict(
-    "_RequiredResourceTypeDef",
-    {
-        "Type": str,
-        "Id": str,
-    },
-)
-_OptionalResourceTypeDef = TypedDict(
-    "_OptionalResourceTypeDef",
-    {
-        "Partition": PartitionType,
-        "Region": str,
-        "ResourceRole": str,
-        "Tags": Dict[str, str],
-        "DataClassification": "DataClassificationDetailsTypeDef",
-        "Details": "ResourceDetailsTypeDef",
-        "ApplicationName": str,
-        "ApplicationArn": str,
-    },
-    total=False,
-)
-
-class ResourceTypeDef(_RequiredResourceTypeDef, _OptionalResourceTypeDef):
-    pass
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-ResultTypeDef = TypedDict(
-    "ResultTypeDef",
-    {
-        "AccountId": str,
-        "ProcessingResult": str,
-    },
-    total=False,
-)
-
-RouteSetDetailsTypeDef = TypedDict(
-    "RouteSetDetailsTypeDef",
-    {
-        "CarrierGatewayId": str,
-        "CoreNetworkArn": str,
-        "DestinationCidrBlock": str,
-        "DestinationIpv6CidrBlock": str,
-        "DestinationPrefixListId": str,
-        "EgressOnlyInternetGatewayId": str,
-        "GatewayId": str,
-        "InstanceId": str,
-        "InstanceOwnerId": str,
-        "LocalGatewayId": str,
-        "NatGatewayId": str,
-        "NetworkInterfaceId": str,
-        "Origin": str,
-        "State": str,
-        "TransitGatewayId": str,
-        "VpcPeeringConnectionId": str,
-    },
-    total=False,
-)
-
-RuleGroupDetailsTypeDef = TypedDict(
-    "RuleGroupDetailsTypeDef",
-    {
-        "RuleVariables": "RuleGroupVariablesTypeDef",
-        "RulesSource": "RuleGroupSourceTypeDef",
-    },
-    total=False,
-)
-
-RuleGroupSourceCustomActionsDetailsTypeDef = TypedDict(
-    "RuleGroupSourceCustomActionsDetailsTypeDef",
-    {
-        "ActionDefinition": "StatelessCustomActionDefinitionTypeDef",
-        "ActionName": str,
-    },
-    total=False,
-)
-
-RuleGroupSourceListDetailsTypeDef = TypedDict(
-    "RuleGroupSourceListDetailsTypeDef",
-    {
-        "GeneratedRulesType": str,
-        "TargetTypes": List[str],
-        "Targets": List[str],
-    },
-    total=False,
-)
-
-RuleGroupSourceStatefulRulesDetailsTypeDef = TypedDict(
-    "RuleGroupSourceStatefulRulesDetailsTypeDef",
-    {
-        "Action": str,
-        "Header": "RuleGroupSourceStatefulRulesHeaderDetailsTypeDef",
-        "RuleOptions": List["RuleGroupSourceStatefulRulesOptionsDetailsTypeDef"],
-    },
-    total=False,
-)
-
-RuleGroupSourceStatefulRulesHeaderDetailsTypeDef = TypedDict(
-    "RuleGroupSourceStatefulRulesHeaderDetailsTypeDef",
-    {
-        "Destination": str,
-        "DestinationPort": str,
-        "Direction": str,
-        "Protocol": str,
-        "Source": str,
-        "SourcePort": str,
-    },
-    total=False,
-)
-
-RuleGroupSourceStatefulRulesOptionsDetailsTypeDef = TypedDict(
-    "RuleGroupSourceStatefulRulesOptionsDetailsTypeDef",
-    {
-        "Keyword": str,
-        "Settings": List[str],
-    },
-    total=False,
-)
-
-RuleGroupSourceStatelessRuleDefinitionTypeDef = TypedDict(
-    "RuleGroupSourceStatelessRuleDefinitionTypeDef",
-    {
-        "Actions": List[str],
-        "MatchAttributes": "RuleGroupSourceStatelessRuleMatchAttributesTypeDef",
-    },
-    total=False,
-)
-
-RuleGroupSourceStatelessRuleMatchAttributesDestinationPortsTypeDef = TypedDict(
-    "RuleGroupSourceStatelessRuleMatchAttributesDestinationPortsTypeDef",
-    {
-        "FromPort": int,
-        "ToPort": int,
-    },
-    total=False,
-)
-
-RuleGroupSourceStatelessRuleMatchAttributesDestinationsTypeDef = TypedDict(
-    "RuleGroupSourceStatelessRuleMatchAttributesDestinationsTypeDef",
-    {
-        "AddressDefinition": str,
-    },
-    total=False,
-)
-
-RuleGroupSourceStatelessRuleMatchAttributesSourcePortsTypeDef = TypedDict(
-    "RuleGroupSourceStatelessRuleMatchAttributesSourcePortsTypeDef",
-    {
-        "FromPort": int,
-        "ToPort": int,
-    },
-    total=False,
-)
-
-RuleGroupSourceStatelessRuleMatchAttributesSourcesTypeDef = TypedDict(
-    "RuleGroupSourceStatelessRuleMatchAttributesSourcesTypeDef",
-    {
-        "AddressDefinition": str,
-    },
-    total=False,
-)
-
-RuleGroupSourceStatelessRuleMatchAttributesTcpFlagsTypeDef = TypedDict(
-    "RuleGroupSourceStatelessRuleMatchAttributesTcpFlagsTypeDef",
-    {
-        "Flags": List[str],
-        "Masks": List[str],
-    },
-    total=False,
-)
-
-RuleGroupSourceStatelessRuleMatchAttributesTypeDef = TypedDict(
-    "RuleGroupSourceStatelessRuleMatchAttributesTypeDef",
-    {
-        "DestinationPorts": List[
-            "RuleGroupSourceStatelessRuleMatchAttributesDestinationPortsTypeDef"
-        ],
-        "Destinations": List["RuleGroupSourceStatelessRuleMatchAttributesDestinationsTypeDef"],
-        "Protocols": List[int],
-        "SourcePorts": List["RuleGroupSourceStatelessRuleMatchAttributesSourcePortsTypeDef"],
-        "Sources": List["RuleGroupSourceStatelessRuleMatchAttributesSourcesTypeDef"],
-        "TcpFlags": List["RuleGroupSourceStatelessRuleMatchAttributesTcpFlagsTypeDef"],
-    },
-    total=False,
-)
-
-RuleGroupSourceStatelessRulesAndCustomActionsDetailsTypeDef = TypedDict(
-    "RuleGroupSourceStatelessRulesAndCustomActionsDetailsTypeDef",
-    {
-        "CustomActions": List["RuleGroupSourceCustomActionsDetailsTypeDef"],
-        "StatelessRules": List["RuleGroupSourceStatelessRulesDetailsTypeDef"],
-    },
-    total=False,
-)
-
-RuleGroupSourceStatelessRulesDetailsTypeDef = TypedDict(
-    "RuleGroupSourceStatelessRulesDetailsTypeDef",
-    {
-        "Priority": int,
-        "RuleDefinition": "RuleGroupSourceStatelessRuleDefinitionTypeDef",
-    },
-    total=False,
-)
-
-RuleGroupSourceTypeDef = TypedDict(
-    "RuleGroupSourceTypeDef",
-    {
-        "RulesSourceList": "RuleGroupSourceListDetailsTypeDef",
-        "RulesString": str,
-        "StatefulRules": List["RuleGroupSourceStatefulRulesDetailsTypeDef"],
-        "StatelessRulesAndCustomActions": "RuleGroupSourceStatelessRulesAndCustomActionsDetailsTypeDef",
-    },
-    total=False,
-)
-
-RuleGroupVariablesIpSetsDetailsTypeDef = TypedDict(
-    "RuleGroupVariablesIpSetsDetailsTypeDef",
-    {
-        "Definition": List[str],
-    },
-    total=False,
-)
-
-RuleGroupVariablesPortSetsDetailsTypeDef = TypedDict(
-    "RuleGroupVariablesPortSetsDetailsTypeDef",
-    {
-        "Definition": List[str],
-    },
-    total=False,
-)
-
-RuleGroupVariablesTypeDef = TypedDict(
-    "RuleGroupVariablesTypeDef",
-    {
-        "IpSets": "RuleGroupVariablesIpSetsDetailsTypeDef",
-        "PortSets": "RuleGroupVariablesPortSetsDetailsTypeDef",
-    },
-    total=False,
-)
-
-SecurityControlCustomParameterTypeDef = TypedDict(
-    "SecurityControlCustomParameterTypeDef",
-    {
-        "SecurityControlId": str,
-        "Parameters": Dict[str, "ParameterConfigurationTypeDef"],
-    },
-    total=False,
-)
-
-_RequiredSecurityControlDefinitionTypeDef = TypedDict(
-    "_RequiredSecurityControlDefinitionTypeDef",
-    {
-        "SecurityControlId": str,
-        "Title": str,
-        "Description": str,
-        "RemediationUrl": str,
-        "SeverityRating": SeverityRatingType,
-        "CurrentRegionAvailability": RegionAvailabilityStatusType,
-    },
-)
-_OptionalSecurityControlDefinitionTypeDef = TypedDict(
-    "_OptionalSecurityControlDefinitionTypeDef",
-    {
-        "CustomizableProperties": List[Literal["Parameters"]],
-        "ParameterDefinitions": Dict[str, "ParameterDefinitionTypeDef"],
-    },
-    total=False,
-)
-
-class SecurityControlDefinitionTypeDef(
-    _RequiredSecurityControlDefinitionTypeDef, _OptionalSecurityControlDefinitionTypeDef
-):
-    pass
-
-SecurityControlParameterTypeDef = TypedDict(
-    "SecurityControlParameterTypeDef",
-    {
-        "Name": str,
-        "Value": List[str],
-    },
-    total=False,
-)
-
-_RequiredSecurityControlTypeDef = TypedDict(
-    "_RequiredSecurityControlTypeDef",
-    {
-        "SecurityControlId": str,
-        "SecurityControlArn": str,
-        "Title": str,
-        "Description": str,
-        "RemediationUrl": str,
-        "SeverityRating": SeverityRatingType,
-        "SecurityControlStatus": ControlStatusType,
-    },
-)
-_OptionalSecurityControlTypeDef = TypedDict(
-    "_OptionalSecurityControlTypeDef",
-    {
-        "UpdateStatus": UpdateStatusType,
-        "Parameters": Dict[str, "ParameterConfigurationTypeDef"],
-        "LastUpdateReason": str,
-    },
-    total=False,
-)
-
-class SecurityControlTypeDef(_RequiredSecurityControlTypeDef, _OptionalSecurityControlTypeDef):
-    pass
-
-SecurityControlsConfigurationTypeDef = TypedDict(
-    "SecurityControlsConfigurationTypeDef",
-    {
-        "EnabledSecurityControlIdentifiers": List[str],
-        "DisabledSecurityControlIdentifiers": List[str],
-        "SecurityControlCustomParameters": List["SecurityControlCustomParameterTypeDef"],
-    },
-    total=False,
-)
-
-SecurityHubPolicyTypeDef = TypedDict(
-    "SecurityHubPolicyTypeDef",
-    {
-        "ServiceEnabled": bool,
-        "EnabledStandardIdentifiers": List[str],
-        "SecurityControlsConfiguration": "SecurityControlsConfigurationTypeDef",
-    },
-    total=False,
-)
-
-SensitiveDataDetectionsTypeDef = TypedDict(
-    "SensitiveDataDetectionsTypeDef",
-    {
-        "Count": int,
-        "Type": str,
-        "Occurrences": "OccurrencesTypeDef",
-    },
-    total=False,
-)
-
-SensitiveDataResultTypeDef = TypedDict(
-    "SensitiveDataResultTypeDef",
-    {
-        "Category": str,
-        "Detections": List["SensitiveDataDetectionsTypeDef"],
-        "TotalCount": int,
-    },
-    total=False,
-)
-
-SeverityTypeDef = TypedDict(
-    "SeverityTypeDef",
-    {
-        "Product": float,
-        "Label": SeverityLabelType,
-        "Normalized": int,
-        "Original": str,
-    },
-    total=False,
-)
-
-SeverityUpdateTypeDef = TypedDict(
-    "SeverityUpdateTypeDef",
-    {
-        "Normalized": int,
-        "Product": float,
-        "Label": SeverityLabelType,
-    },
-    total=False,
-)
-
-SoftwarePackageTypeDef = TypedDict(
-    "SoftwarePackageTypeDef",
-    {
-        "Name": str,
-        "Version": str,
-        "Epoch": str,
-        "Release": str,
-        "Architecture": str,
-        "PackageManager": str,
-        "FilePath": str,
-        "FixedInVersion": str,
-        "Remediation": str,
-        "SourceLayerHash": str,
-        "SourceLayerArn": str,
-    },
-    total=False,
-)
-
-SortCriterionTypeDef = TypedDict(
-    "SortCriterionTypeDef",
-    {
-        "Field": str,
-        "SortOrder": SortOrderType,
-    },
-    total=False,
-)
-
-StandardTypeDef = TypedDict(
-    "StandardTypeDef",
-    {
-        "StandardsArn": str,
-        "Name": str,
-        "Description": str,
-        "EnabledByDefault": bool,
-        "StandardsManagedBy": "StandardsManagedByTypeDef",
-    },
-    total=False,
-)
-
-_RequiredStandardsControlAssociationDetailTypeDef = TypedDict(
-    "_RequiredStandardsControlAssociationDetailTypeDef",
-    {
-        "StandardsArn": str,
-        "SecurityControlId": str,
-        "SecurityControlArn": str,
-        "AssociationStatus": AssociationStatusType,
-    },
-)
-_OptionalStandardsControlAssociationDetailTypeDef = TypedDict(
-    "_OptionalStandardsControlAssociationDetailTypeDef",
-    {
-        "RelatedRequirements": List[str],
-        "UpdatedAt": datetime,
-        "UpdatedReason": str,
-        "StandardsControlTitle": str,
-        "StandardsControlDescription": str,
-        "StandardsControlArns": List[str],
-    },
-    total=False,
-)
-
-class StandardsControlAssociationDetailTypeDef(
-    _RequiredStandardsControlAssociationDetailTypeDef,
-    _OptionalStandardsControlAssociationDetailTypeDef,
-):
-    pass
-
-StandardsControlAssociationIdTypeDef = TypedDict(
-    "StandardsControlAssociationIdTypeDef",
-    {
-        "SecurityControlId": str,
-        "StandardsArn": str,
-    },
-)
-
-_RequiredStandardsControlAssociationSummaryTypeDef = TypedDict(
-    "_RequiredStandardsControlAssociationSummaryTypeDef",
-    {
-        "StandardsArn": str,
-        "SecurityControlId": str,
-        "SecurityControlArn": str,
-        "AssociationStatus": AssociationStatusType,
-    },
-)
-_OptionalStandardsControlAssociationSummaryTypeDef = TypedDict(
-    "_OptionalStandardsControlAssociationSummaryTypeDef",
-    {
-        "RelatedRequirements": List[str],
-        "UpdatedAt": datetime,
-        "UpdatedReason": str,
-        "StandardsControlTitle": str,
-        "StandardsControlDescription": str,
-    },
-    total=False,
-)
-
-class StandardsControlAssociationSummaryTypeDef(
-    _RequiredStandardsControlAssociationSummaryTypeDef,
-    _OptionalStandardsControlAssociationSummaryTypeDef,
-):
-    pass
-
-_RequiredStandardsControlAssociationUpdateTypeDef = TypedDict(
-    "_RequiredStandardsControlAssociationUpdateTypeDef",
-    {
-        "StandardsArn": str,
-        "SecurityControlId": str,
-        "AssociationStatus": AssociationStatusType,
-    },
-)
-_OptionalStandardsControlAssociationUpdateTypeDef = TypedDict(
-    "_OptionalStandardsControlAssociationUpdateTypeDef",
-    {
-        "UpdatedReason": str,
-    },
-    total=False,
-)
-
-class StandardsControlAssociationUpdateTypeDef(
-    _RequiredStandardsControlAssociationUpdateTypeDef,
-    _OptionalStandardsControlAssociationUpdateTypeDef,
-):
-    pass
-
-StandardsControlTypeDef = TypedDict(
-    "StandardsControlTypeDef",
-    {
-        "StandardsControlArn": str,
-        "ControlStatus": ControlStatusType,
-        "DisabledReason": str,
-        "ControlStatusUpdatedAt": datetime,
-        "ControlId": str,
-        "Title": str,
-        "Description": str,
-        "RemediationUrl": str,
-        "SeverityRating": SeverityRatingType,
-        "RelatedRequirements": List[str],
-    },
-    total=False,
-)
-
-StandardsManagedByTypeDef = TypedDict(
-    "StandardsManagedByTypeDef",
-    {
-        "Company": str,
-        "Product": str,
-    },
-    total=False,
-)
-
-StandardsStatusReasonTypeDef = TypedDict(
-    "StandardsStatusReasonTypeDef",
-    {
-        "StatusReasonCode": StatusReasonCodeType,
-    },
-)
-
-_RequiredStandardsSubscriptionRequestTypeDef = TypedDict(
-    "_RequiredStandardsSubscriptionRequestTypeDef",
-    {
-        "StandardsArn": str,
-    },
-)
-_OptionalStandardsSubscriptionRequestTypeDef = TypedDict(
-    "_OptionalStandardsSubscriptionRequestTypeDef",
-    {
-        "StandardsInput": Dict[str, str],
-    },
-    total=False,
-)
-
-class StandardsSubscriptionRequestTypeDef(
-    _RequiredStandardsSubscriptionRequestTypeDef, _OptionalStandardsSubscriptionRequestTypeDef
-):
-    pass
-
-_RequiredStandardsSubscriptionTypeDef = TypedDict(
-    "_RequiredStandardsSubscriptionTypeDef",
-    {
-        "StandardsSubscriptionArn": str,
-        "StandardsArn": str,
-        "StandardsInput": Dict[str, str],
-        "StandardsStatus": StandardsStatusType,
-    },
-)
-_OptionalStandardsSubscriptionTypeDef = TypedDict(
-    "_OptionalStandardsSubscriptionTypeDef",
-    {
-        "StandardsStatusReason": "StandardsStatusReasonTypeDef",
-    },
-    total=False,
-)
-
-class StandardsSubscriptionTypeDef(
-    _RequiredStandardsSubscriptionTypeDef, _OptionalStandardsSubscriptionTypeDef
-):
-    pass
-
-StartConfigurationPolicyAssociationRequestRequestTypeDef = TypedDict(
-    "StartConfigurationPolicyAssociationRequestRequestTypeDef",
-    {
-        "ConfigurationPolicyIdentifier": str,
-        "Target": "TargetTypeDef",
-    },
-)
-
-StartConfigurationPolicyAssociationResponseTypeDef = TypedDict(
-    "StartConfigurationPolicyAssociationResponseTypeDef",
-    {
-        "ConfigurationPolicyId": str,
-        "TargetId": str,
-        "TargetType": TargetTypeType,
-        "AssociationType": AssociationTypeType,
-        "UpdatedAt": datetime,
-        "AssociationStatus": ConfigurationPolicyAssociationStatusType,
-        "AssociationStatusMessage": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredStartConfigurationPolicyDisassociationRequestRequestTypeDef = TypedDict(
-    "_RequiredStartConfigurationPolicyDisassociationRequestRequestTypeDef",
-    {
-        "ConfigurationPolicyIdentifier": str,
-    },
-)
-_OptionalStartConfigurationPolicyDisassociationRequestRequestTypeDef = TypedDict(
-    "_OptionalStartConfigurationPolicyDisassociationRequestRequestTypeDef",
-    {
-        "Target": "TargetTypeDef",
-    },
-    total=False,
-)
-
-class StartConfigurationPolicyDisassociationRequestRequestTypeDef(
-    _RequiredStartConfigurationPolicyDisassociationRequestRequestTypeDef,
-    _OptionalStartConfigurationPolicyDisassociationRequestRequestTypeDef,
-):
-    pass
-
-StatelessCustomActionDefinitionTypeDef = TypedDict(
-    "StatelessCustomActionDefinitionTypeDef",
-    {
-        "PublishMetricAction": "StatelessCustomPublishMetricActionTypeDef",
-    },
-    total=False,
-)
-
-StatelessCustomPublishMetricActionDimensionTypeDef = TypedDict(
-    "StatelessCustomPublishMetricActionDimensionTypeDef",
-    {
-        "Value": str,
-    },
-    total=False,
-)
-
-StatelessCustomPublishMetricActionTypeDef = TypedDict(
-    "StatelessCustomPublishMetricActionTypeDef",
-    {
-        "Dimensions": List["StatelessCustomPublishMetricActionDimensionTypeDef"],
-    },
-    total=False,
-)
-
-_RequiredStatusReasonTypeDef = TypedDict(
-    "_RequiredStatusReasonTypeDef",
-    {
-        "ReasonCode": str,
-    },
-)
-_OptionalStatusReasonTypeDef = TypedDict(
-    "_OptionalStatusReasonTypeDef",
-    {
-        "Description": str,
-    },
-    total=False,
-)
-
-class StatusReasonTypeDef(_RequiredStatusReasonTypeDef, _OptionalStatusReasonTypeDef):
-    pass
-
-StringConfigurationOptionsTypeDef = TypedDict(
-    "StringConfigurationOptionsTypeDef",
-    {
-        "DefaultValue": str,
-        "Re2Expression": str,
-        "ExpressionDescription": str,
-    },
-    total=False,
-)
-
-StringFilterTypeDef = TypedDict(
-    "StringFilterTypeDef",
-    {
-        "Value": str,
-        "Comparison": StringFilterComparisonType,
-    },
-    total=False,
-)
-
-StringListConfigurationOptionsTypeDef = TypedDict(
-    "StringListConfigurationOptionsTypeDef",
-    {
-        "DefaultValue": List[str],
-        "Re2Expression": str,
-        "MaxItems": int,
-        "ExpressionDescription": str,
-    },
-    total=False,
-)
-
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-        "Tags": Dict[str, str],
-    },
-)
-
-TargetTypeDef = TypedDict(
-    "TargetTypeDef",
-    {
-        "AccountId": str,
-        "OrganizationalUnitId": str,
-        "RootId": str,
-    },
-    total=False,
-)
+        "UpdatedBy": str,
+        "UpdatedAt": str,
+    },
+)
+
+class PatchSummaryTypeDef(TypedDict):
+    Id: str
+    InstalledCount: NotRequired[int]
+    MissingCount: NotRequired[int]
+    FailedCount: NotRequired[int]
+    InstalledOtherCount: NotRequired[int]
+    InstalledRejectedCount: NotRequired[int]
+    InstalledPendingReboot: NotRequired[int]
+    OperationStartTime: NotRequired[str]
+    OperationEndTime: NotRequired[str]
+    RebootOption: NotRequired[str]
+    Operation: NotRequired[str]
+
+class ProcessDetailsTypeDef(TypedDict):
+    Name: NotRequired[str]
+    Path: NotRequired[str]
+    Pid: NotRequired[int]
+    ParentPid: NotRequired[int]
+    LaunchedAt: NotRequired[str]
+    TerminatedAt: NotRequired[str]
+
+class SeverityTypeDef(TypedDict):
+    Product: NotRequired[float]
+    Label: NotRequired[SeverityLabelType]
+    Normalized: NotRequired[int]
+    Original: NotRequired[str]
 
 ThreatIntelIndicatorTypeDef = TypedDict(
     "ThreatIntelIndicatorTypeDef",
     {
-        "Type": ThreatIntelIndicatorTypeType,
-        "Value": str,
-        "Category": ThreatIntelIndicatorCategoryType,
-        "LastObservedAt": str,
-        "Source": str,
-        "SourceUrl": str,
+        "Type": NotRequired[ThreatIntelIndicatorTypeType],
+        "Value": NotRequired[str],
+        "Category": NotRequired[ThreatIntelIndicatorCategoryType],
+        "LastObservedAt": NotRequired[str],
+        "Source": NotRequired[str],
+        "SourceUrl": NotRequired[str],
     },
-    total=False,
 )
 
-ThreatTypeDef = TypedDict(
-    "ThreatTypeDef",
+class WorkflowTypeDef(TypedDict):
+    Status: NotRequired[WorkflowStatusType]
+
+AwsSnsTopicSubscriptionTypeDef = TypedDict(
+    "AwsSnsTopicSubscriptionTypeDef",
     {
-        "Name": str,
-        "Severity": str,
-        "ItemCount": int,
-        "FilePaths": List["FilePathsTypeDef"],
+        "Endpoint": NotRequired[str],
+        "Protocol": NotRequired[str],
     },
-    total=False,
 )
 
-UnprocessedAutomationRuleTypeDef = TypedDict(
-    "UnprocessedAutomationRuleTypeDef",
-    {
-        "RuleArn": str,
-        "ErrorCode": int,
-        "ErrorMessage": str,
-    },
-    total=False,
-)
+class AwsSqsQueueDetailsTypeDef(TypedDict):
+    KmsDataKeyReusePeriodSeconds: NotRequired[int]
+    KmsMasterKeyId: NotRequired[str]
+    QueueName: NotRequired[str]
+    DeadLetterTargetArn: NotRequired[str]
 
-UnprocessedConfigurationPolicyAssociationTypeDef = TypedDict(
-    "UnprocessedConfigurationPolicyAssociationTypeDef",
-    {
-        "ConfigurationPolicyAssociationIdentifiers": "ConfigurationPolicyAssociationTypeDef",
-        "ErrorCode": str,
-        "ErrorReason": str,
-    },
-    total=False,
-)
+class AwsSsmComplianceSummaryTypeDef(TypedDict):
+    Status: NotRequired[str]
+    CompliantCriticalCount: NotRequired[int]
+    CompliantHighCount: NotRequired[int]
+    CompliantMediumCount: NotRequired[int]
+    ExecutionType: NotRequired[str]
+    NonCompliantCriticalCount: NotRequired[int]
+    CompliantInformationalCount: NotRequired[int]
+    NonCompliantInformationalCount: NotRequired[int]
+    CompliantUnspecifiedCount: NotRequired[int]
+    NonCompliantLowCount: NotRequired[int]
+    NonCompliantHighCount: NotRequired[int]
+    CompliantLowCount: NotRequired[int]
+    ComplianceType: NotRequired[str]
+    PatchBaselineId: NotRequired[str]
+    OverallSeverity: NotRequired[str]
+    NonCompliantMediumCount: NotRequired[int]
+    NonCompliantUnspecifiedCount: NotRequired[int]
+    PatchGroup: NotRequired[str]
 
-_RequiredUnprocessedSecurityControlTypeDef = TypedDict(
-    "_RequiredUnprocessedSecurityControlTypeDef",
-    {
-        "SecurityControlId": str,
-        "ErrorCode": UnprocessedErrorCodeType,
-    },
-)
-_OptionalUnprocessedSecurityControlTypeDef = TypedDict(
-    "_OptionalUnprocessedSecurityControlTypeDef",
-    {
-        "ErrorReason": str,
-    },
-    total=False,
-)
+class AwsStepFunctionStateMachineTracingConfigurationDetailsTypeDef(TypedDict):
+    Enabled: NotRequired[bool]
 
-class UnprocessedSecurityControlTypeDef(
-    _RequiredUnprocessedSecurityControlTypeDef, _OptionalUnprocessedSecurityControlTypeDef
+class AwsStepFunctionStateMachineLoggingConfigurationDestinationsCloudWatchLogsLogGroupDetailsTypeDef(
+    TypedDict
 ):
-    pass
+    LogGroupArn: NotRequired[str]
 
-_RequiredUnprocessedStandardsControlAssociationTypeDef = TypedDict(
-    "_RequiredUnprocessedStandardsControlAssociationTypeDef",
+AwsWafRateBasedRuleMatchPredicateTypeDef = TypedDict(
+    "AwsWafRateBasedRuleMatchPredicateTypeDef",
     {
-        "StandardsControlAssociationId": "StandardsControlAssociationIdTypeDef",
-        "ErrorCode": UnprocessedErrorCodeType,
+        "DataId": NotRequired[str],
+        "Negated": NotRequired[bool],
+        "Type": NotRequired[str],
     },
 )
-_OptionalUnprocessedStandardsControlAssociationTypeDef = TypedDict(
-    "_OptionalUnprocessedStandardsControlAssociationTypeDef",
+AwsWafRegionalRateBasedRuleMatchPredicateTypeDef = TypedDict(
+    "AwsWafRegionalRateBasedRuleMatchPredicateTypeDef",
     {
-        "ErrorReason": str,
-    },
-    total=False,
-)
-
-class UnprocessedStandardsControlAssociationTypeDef(
-    _RequiredUnprocessedStandardsControlAssociationTypeDef,
-    _OptionalUnprocessedStandardsControlAssociationTypeDef,
-):
-    pass
-
-_RequiredUnprocessedStandardsControlAssociationUpdateTypeDef = TypedDict(
-    "_RequiredUnprocessedStandardsControlAssociationUpdateTypeDef",
-    {
-        "StandardsControlAssociationUpdate": "StandardsControlAssociationUpdateTypeDef",
-        "ErrorCode": UnprocessedErrorCodeType,
+        "DataId": NotRequired[str],
+        "Negated": NotRequired[bool],
+        "Type": NotRequired[str],
     },
 )
-_OptionalUnprocessedStandardsControlAssociationUpdateTypeDef = TypedDict(
-    "_OptionalUnprocessedStandardsControlAssociationUpdateTypeDef",
+AwsWafRegionalRulePredicateListDetailsTypeDef = TypedDict(
+    "AwsWafRegionalRulePredicateListDetailsTypeDef",
     {
-        "ErrorReason": str,
-    },
-    total=False,
-)
-
-class UnprocessedStandardsControlAssociationUpdateTypeDef(
-    _RequiredUnprocessedStandardsControlAssociationUpdateTypeDef,
-    _OptionalUnprocessedStandardsControlAssociationUpdateTypeDef,
-):
-    pass
-
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-        "TagKeys": List[str],
+        "DataId": NotRequired[str],
+        "Negated": NotRequired[bool],
+        "Type": NotRequired[str],
     },
 )
-
-_RequiredUpdateActionTargetRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateActionTargetRequestRequestTypeDef",
+AwsWafRegionalRuleGroupRulesActionDetailsTypeDef = TypedDict(
+    "AwsWafRegionalRuleGroupRulesActionDetailsTypeDef",
     {
-        "ActionTargetArn": str,
+        "Type": NotRequired[str],
     },
 )
-_OptionalUpdateActionTargetRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateActionTargetRequestRequestTypeDef",
+AwsWafRegionalWebAclRulesListActionDetailsTypeDef = TypedDict(
+    "AwsWafRegionalWebAclRulesListActionDetailsTypeDef",
     {
-        "Name": str,
-        "Description": str,
-    },
-    total=False,
-)
-
-class UpdateActionTargetRequestRequestTypeDef(
-    _RequiredUpdateActionTargetRequestRequestTypeDef,
-    _OptionalUpdateActionTargetRequestRequestTypeDef,
-):
-    pass
-
-_RequiredUpdateAutomationRulesRequestItemTypeDef = TypedDict(
-    "_RequiredUpdateAutomationRulesRequestItemTypeDef",
-    {
-        "RuleArn": str,
+        "Type": NotRequired[str],
     },
 )
-_OptionalUpdateAutomationRulesRequestItemTypeDef = TypedDict(
-    "_OptionalUpdateAutomationRulesRequestItemTypeDef",
+AwsWafRegionalWebAclRulesListOverrideActionDetailsTypeDef = TypedDict(
+    "AwsWafRegionalWebAclRulesListOverrideActionDetailsTypeDef",
     {
-        "RuleStatus": RuleStatusType,
-        "RuleOrder": int,
-        "Description": str,
-        "RuleName": str,
-        "IsTerminal": bool,
-        "Criteria": "AutomationRulesFindingFiltersTypeDef",
-        "Actions": List["AutomationRulesActionTypeDef"],
-    },
-    total=False,
-)
-
-class UpdateAutomationRulesRequestItemTypeDef(
-    _RequiredUpdateAutomationRulesRequestItemTypeDef,
-    _OptionalUpdateAutomationRulesRequestItemTypeDef,
-):
-    pass
-
-_RequiredUpdateConfigurationPolicyRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateConfigurationPolicyRequestRequestTypeDef",
-    {
-        "Identifier": str,
+        "Type": NotRequired[str],
     },
 )
-_OptionalUpdateConfigurationPolicyRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateConfigurationPolicyRequestRequestTypeDef",
+AwsWafRulePredicateListDetailsTypeDef = TypedDict(
+    "AwsWafRulePredicateListDetailsTypeDef",
     {
-        "Name": str,
-        "Description": str,
-        "UpdatedReason": str,
-        "ConfigurationPolicy": "PolicyTypeDef",
-    },
-    total=False,
-)
-
-class UpdateConfigurationPolicyRequestRequestTypeDef(
-    _RequiredUpdateConfigurationPolicyRequestRequestTypeDef,
-    _OptionalUpdateConfigurationPolicyRequestRequestTypeDef,
-):
-    pass
-
-UpdateConfigurationPolicyResponseTypeDef = TypedDict(
-    "UpdateConfigurationPolicyResponseTypeDef",
-    {
-        "Arn": str,
-        "Id": str,
-        "Name": str,
-        "Description": str,
-        "UpdatedAt": datetime,
-        "CreatedAt": datetime,
-        "ConfigurationPolicy": "PolicyTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "DataId": NotRequired[str],
+        "Negated": NotRequired[bool],
+        "Type": NotRequired[str],
     },
 )
-
-_RequiredUpdateFindingAggregatorRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateFindingAggregatorRequestRequestTypeDef",
+AwsWafRuleGroupRulesActionDetailsTypeDef = TypedDict(
+    "AwsWafRuleGroupRulesActionDetailsTypeDef",
     {
-        "FindingAggregatorArn": str,
-        "RegionLinkingMode": str,
+        "Type": NotRequired[str],
     },
 )
-_OptionalUpdateFindingAggregatorRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateFindingAggregatorRequestRequestTypeDef",
-    {
-        "Regions": List[str],
-    },
-    total=False,
-)
-
-class UpdateFindingAggregatorRequestRequestTypeDef(
-    _RequiredUpdateFindingAggregatorRequestRequestTypeDef,
-    _OptionalUpdateFindingAggregatorRequestRequestTypeDef,
-):
-    pass
-
-UpdateFindingAggregatorResponseTypeDef = TypedDict(
-    "UpdateFindingAggregatorResponseTypeDef",
-    {
-        "FindingAggregatorArn": str,
-        "FindingAggregationRegion": str,
-        "RegionLinkingMode": str,
-        "Regions": List[str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateFindingsRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateFindingsRequestRequestTypeDef",
-    {
-        "Filters": "AwsSecurityFindingFiltersTypeDef",
-    },
-)
-_OptionalUpdateFindingsRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateFindingsRequestRequestTypeDef",
-    {
-        "Note": "NoteUpdateTypeDef",
-        "RecordState": RecordStateType,
-    },
-    total=False,
-)
-
-class UpdateFindingsRequestRequestTypeDef(
-    _RequiredUpdateFindingsRequestRequestTypeDef, _OptionalUpdateFindingsRequestRequestTypeDef
-):
-    pass
-
-_RequiredUpdateInsightRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateInsightRequestRequestTypeDef",
-    {
-        "InsightArn": str,
-    },
-)
-_OptionalUpdateInsightRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateInsightRequestRequestTypeDef",
-    {
-        "Name": str,
-        "Filters": "AwsSecurityFindingFiltersTypeDef",
-        "GroupByAttribute": str,
-    },
-    total=False,
-)
-
-class UpdateInsightRequestRequestTypeDef(
-    _RequiredUpdateInsightRequestRequestTypeDef, _OptionalUpdateInsightRequestRequestTypeDef
-):
-    pass
-
-_RequiredUpdateOrganizationConfigurationRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateOrganizationConfigurationRequestRequestTypeDef",
-    {
-        "AutoEnable": bool,
-    },
-)
-_OptionalUpdateOrganizationConfigurationRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateOrganizationConfigurationRequestRequestTypeDef",
-    {
-        "AutoEnableStandards": AutoEnableStandardsType,
-        "OrganizationConfiguration": "OrganizationConfigurationTypeDef",
-    },
-    total=False,
-)
-
-class UpdateOrganizationConfigurationRequestRequestTypeDef(
-    _RequiredUpdateOrganizationConfigurationRequestRequestTypeDef,
-    _OptionalUpdateOrganizationConfigurationRequestRequestTypeDef,
-):
-    pass
-
-_RequiredUpdateSecurityControlRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateSecurityControlRequestRequestTypeDef",
-    {
-        "SecurityControlId": str,
-        "Parameters": Dict[str, "ParameterConfigurationTypeDef"],
-    },
-)
-_OptionalUpdateSecurityControlRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateSecurityControlRequestRequestTypeDef",
-    {
-        "LastUpdateReason": str,
-    },
-    total=False,
-)
-
-class UpdateSecurityControlRequestRequestTypeDef(
-    _RequiredUpdateSecurityControlRequestRequestTypeDef,
-    _OptionalUpdateSecurityControlRequestRequestTypeDef,
-):
-    pass
-
-UpdateSecurityHubConfigurationRequestRequestTypeDef = TypedDict(
-    "UpdateSecurityHubConfigurationRequestRequestTypeDef",
-    {
-        "AutoEnableControls": bool,
-        "ControlFindingGenerator": ControlFindingGeneratorType,
-    },
-    total=False,
-)
-
-_RequiredUpdateStandardsControlRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateStandardsControlRequestRequestTypeDef",
-    {
-        "StandardsControlArn": str,
-    },
-)
-_OptionalUpdateStandardsControlRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateStandardsControlRequestRequestTypeDef",
-    {
-        "ControlStatus": ControlStatusType,
-        "DisabledReason": str,
-    },
-    total=False,
-)
-
-class UpdateStandardsControlRequestRequestTypeDef(
-    _RequiredUpdateStandardsControlRequestRequestTypeDef,
-    _OptionalUpdateStandardsControlRequestRequestTypeDef,
-):
-    pass
-
-VolumeMountTypeDef = TypedDict(
-    "VolumeMountTypeDef",
-    {
-        "Name": str,
-        "MountPath": str,
-    },
-    total=False,
-)
-
-VpcInfoCidrBlockSetDetailsTypeDef = TypedDict(
-    "VpcInfoCidrBlockSetDetailsTypeDef",
-    {
-        "CidrBlock": str,
-    },
-    total=False,
-)
-
-VpcInfoIpv6CidrBlockSetDetailsTypeDef = TypedDict(
-    "VpcInfoIpv6CidrBlockSetDetailsTypeDef",
-    {
-        "Ipv6CidrBlock": str,
-    },
-    total=False,
-)
-
-VpcInfoPeeringOptionsDetailsTypeDef = TypedDict(
-    "VpcInfoPeeringOptionsDetailsTypeDef",
-    {
-        "AllowDnsResolutionFromRemoteVpc": bool,
-        "AllowEgressFromLocalClassicLinkToRemoteVpc": bool,
-        "AllowEgressFromLocalVpcToRemoteClassicLink": bool,
-    },
-    total=False,
-)
-
-VulnerabilityCodeVulnerabilitiesTypeDef = TypedDict(
-    "VulnerabilityCodeVulnerabilitiesTypeDef",
-    {
-        "Cwes": List[str],
-        "FilePath": "CodeVulnerabilitiesFilePathTypeDef",
-        "SourceArn": str,
-    },
-    total=False,
-)
-
-_RequiredVulnerabilityTypeDef = TypedDict(
-    "_RequiredVulnerabilityTypeDef",
-    {
-        "Id": str,
-    },
-)
-_OptionalVulnerabilityTypeDef = TypedDict(
-    "_OptionalVulnerabilityTypeDef",
-    {
-        "VulnerablePackages": List["SoftwarePackageTypeDef"],
-        "Cvss": List["CvssTypeDef"],
-        "RelatedVulnerabilities": List[str],
-        "Vendor": "VulnerabilityVendorTypeDef",
-        "ReferenceUrls": List[str],
-        "FixAvailable": VulnerabilityFixAvailableType,
-        "EpssScore": float,
-        "ExploitAvailable": VulnerabilityExploitAvailableType,
-        "LastKnownExploitAt": str,
-        "CodeVulnerabilities": List["VulnerabilityCodeVulnerabilitiesTypeDef"],
-    },
-    total=False,
-)
-
-class VulnerabilityTypeDef(_RequiredVulnerabilityTypeDef, _OptionalVulnerabilityTypeDef):
-    pass
-
-_RequiredVulnerabilityVendorTypeDef = TypedDict(
-    "_RequiredVulnerabilityVendorTypeDef",
-    {
-        "Name": str,
-    },
-)
-_OptionalVulnerabilityVendorTypeDef = TypedDict(
-    "_OptionalVulnerabilityVendorTypeDef",
-    {
-        "Url": str,
-        "VendorSeverity": str,
-        "VendorCreatedAt": str,
-        "VendorUpdatedAt": str,
-    },
-    total=False,
-)
-
-class VulnerabilityVendorTypeDef(
-    _RequiredVulnerabilityVendorTypeDef, _OptionalVulnerabilityVendorTypeDef
-):
-    pass
-
 WafActionTypeDef = TypedDict(
     "WafActionTypeDef",
     {
-        "Type": str,
+        "Type": NotRequired[str],
     },
-    total=False,
 )
 
-WafExcludedRuleTypeDef = TypedDict(
-    "WafExcludedRuleTypeDef",
-    {
-        "RuleId": str,
-    },
-    total=False,
-)
+class WafExcludedRuleTypeDef(TypedDict):
+    RuleId: NotRequired[str]
 
 WafOverrideActionTypeDef = TypedDict(
     "WafOverrideActionTypeDef",
     {
+        "Type": NotRequired[str],
+    },
+)
+
+class AwsWafv2CustomHttpHeaderTypeDef(TypedDict):
+    Name: NotRequired[str]
+    Value: NotRequired[str]
+
+class AwsWafv2VisibilityConfigDetailsTypeDef(TypedDict):
+    CloudWatchMetricsEnabled: NotRequired[bool]
+    MetricName: NotRequired[str]
+    SampledRequestsEnabled: NotRequired[bool]
+
+class AwsWafv2WebAclCaptchaConfigImmunityTimePropertyDetailsTypeDef(TypedDict):
+    ImmunityTime: NotRequired[int]
+
+AwsXrayEncryptionConfigDetailsTypeDef = TypedDict(
+    "AwsXrayEncryptionConfigDetailsTypeDef",
+    {
+        "KeyId": NotRequired[str],
+        "Status": NotRequired[str],
+        "Type": NotRequired[str],
+    },
+)
+
+class BatchDeleteAutomationRulesRequestTypeDef(TypedDict):
+    AutomationRulesArns: Sequence[str]
+
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
+
+class UnprocessedAutomationRuleTypeDef(TypedDict):
+    RuleArn: NotRequired[str]
+    ErrorCode: NotRequired[int]
+    ErrorMessage: NotRequired[str]
+
+class BatchDisableStandardsRequestTypeDef(TypedDict):
+    StandardsSubscriptionArns: Sequence[str]
+
+class StandardsSubscriptionRequestTypeDef(TypedDict):
+    StandardsArn: str
+    StandardsInput: NotRequired[Mapping[str, str]]
+
+class BatchGetAutomationRulesRequestTypeDef(TypedDict):
+    AutomationRulesArns: Sequence[str]
+
+class ConfigurationPolicyAssociationSummaryTypeDef(TypedDict):
+    ConfigurationPolicyId: NotRequired[str]
+    TargetId: NotRequired[str]
+    TargetType: NotRequired[TargetTypeType]
+    AssociationType: NotRequired[AssociationTypeType]
+    UpdatedAt: NotRequired[datetime]
+    AssociationStatus: NotRequired[ConfigurationPolicyAssociationStatusType]
+    AssociationStatusMessage: NotRequired[str]
+
+class BatchGetSecurityControlsRequestTypeDef(TypedDict):
+    SecurityControlIds: Sequence[str]
+
+class UnprocessedSecurityControlTypeDef(TypedDict):
+    SecurityControlId: str
+    ErrorCode: UnprocessedErrorCodeType
+    ErrorReason: NotRequired[str]
+
+class StandardsControlAssociationIdTypeDef(TypedDict):
+    SecurityControlId: str
+    StandardsArn: str
+
+class StandardsControlAssociationDetailTypeDef(TypedDict):
+    StandardsArn: str
+    SecurityControlId: str
+    SecurityControlArn: str
+    AssociationStatus: AssociationStatusType
+    RelatedRequirements: NotRequired[List[str]]
+    UpdatedAt: NotRequired[datetime]
+    UpdatedReason: NotRequired[str]
+    StandardsControlTitle: NotRequired[str]
+    StandardsControlDescription: NotRequired[str]
+    StandardsControlArns: NotRequired[List[str]]
+
+class ImportFindingsErrorTypeDef(TypedDict):
+    Id: str
+    ErrorCode: str
+    ErrorMessage: str
+
+class StandardsControlAssociationUpdateTypeDef(TypedDict):
+    StandardsArn: str
+    SecurityControlId: str
+    AssociationStatus: AssociationStatusType
+    UpdatedReason: NotRequired[str]
+
+class BooleanConfigurationOptionsTypeDef(TypedDict):
+    DefaultValue: NotRequired[bool]
+
+class CellTypeDef(TypedDict):
+    Column: NotRequired[int]
+    Row: NotRequired[int]
+    ColumnName: NotRequired[str]
+    CellReference: NotRequired[str]
+
+class ClassificationStatusTypeDef(TypedDict):
+    Code: NotRequired[str]
+    Reason: NotRequired[str]
+
+class CodeVulnerabilitiesFilePathTypeDef(TypedDict):
+    EndLine: NotRequired[int]
+    FileName: NotRequired[str]
+    FilePath: NotRequired[str]
+    StartLine: NotRequired[int]
+
+class SecurityControlParameterOutputTypeDef(TypedDict):
+    Name: NotRequired[str]
+    Value: NotRequired[List[str]]
+
+class StatusReasonTypeDef(TypedDict):
+    ReasonCode: str
+    Description: NotRequired[str]
+
+class DoubleConfigurationOptionsTypeDef(TypedDict):
+    DefaultValue: NotRequired[float]
+    Min: NotRequired[float]
+    Max: NotRequired[float]
+
+class EnumConfigurationOptionsTypeDef(TypedDict):
+    DefaultValue: NotRequired[str]
+    AllowedValues: NotRequired[List[str]]
+
+class EnumListConfigurationOptionsTypeDef(TypedDict):
+    DefaultValue: NotRequired[List[str]]
+    MaxItems: NotRequired[int]
+    AllowedValues: NotRequired[List[str]]
+
+class IntegerConfigurationOptionsTypeDef(TypedDict):
+    DefaultValue: NotRequired[int]
+    Min: NotRequired[int]
+    Max: NotRequired[int]
+
+class IntegerListConfigurationOptionsTypeDef(TypedDict):
+    DefaultValue: NotRequired[List[int]]
+    Min: NotRequired[int]
+    Max: NotRequired[int]
+    MaxItems: NotRequired[int]
+
+class StringConfigurationOptionsTypeDef(TypedDict):
+    DefaultValue: NotRequired[str]
+    Re2Expression: NotRequired[str]
+    ExpressionDescription: NotRequired[str]
+
+class StringListConfigurationOptionsTypeDef(TypedDict):
+    DefaultValue: NotRequired[List[str]]
+    Re2Expression: NotRequired[str]
+    MaxItems: NotRequired[int]
+    ExpressionDescription: NotRequired[str]
+
+class TargetTypeDef(TypedDict):
+    AccountId: NotRequired[str]
+    OrganizationalUnitId: NotRequired[str]
+    RootId: NotRequired[str]
+
+class ConfigurationPolicySummaryTypeDef(TypedDict):
+    Arn: NotRequired[str]
+    Id: NotRequired[str]
+    Name: NotRequired[str]
+    Description: NotRequired[str]
+    UpdatedAt: NotRequired[datetime]
+    ServiceEnabled: NotRequired[bool]
+
+class VolumeMountTypeDef(TypedDict):
+    Name: NotRequired[str]
+    MountPath: NotRequired[str]
+
+class CreateActionTargetRequestTypeDef(TypedDict):
+    Name: str
+    Description: str
+    Id: str
+
+class CreateFindingAggregatorRequestTypeDef(TypedDict):
+    RegionLinkingMode: str
+    Regions: NotRequired[Sequence[str]]
+
+class ResultTypeDef(TypedDict):
+    AccountId: NotRequired[str]
+    ProcessingResult: NotRequired[str]
+
+class DateRangeTypeDef(TypedDict):
+    Value: NotRequired[int]
+    Unit: NotRequired[Literal["DAYS"]]
+
+class DeclineInvitationsRequestTypeDef(TypedDict):
+    AccountIds: Sequence[str]
+
+class DeleteActionTargetRequestTypeDef(TypedDict):
+    ActionTargetArn: str
+
+class DeleteConfigurationPolicyRequestTypeDef(TypedDict):
+    Identifier: str
+
+class DeleteFindingAggregatorRequestTypeDef(TypedDict):
+    FindingAggregatorArn: str
+
+class DeleteInsightRequestTypeDef(TypedDict):
+    InsightArn: str
+
+class DeleteInvitationsRequestTypeDef(TypedDict):
+    AccountIds: Sequence[str]
+
+class DeleteMembersRequestTypeDef(TypedDict):
+    AccountIds: Sequence[str]
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class DescribeActionTargetsRequestTypeDef(TypedDict):
+    ActionTargetArns: NotRequired[Sequence[str]]
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class DescribeHubRequestTypeDef(TypedDict):
+    HubArn: NotRequired[str]
+
+class OrganizationConfigurationTypeDef(TypedDict):
+    ConfigurationType: NotRequired[OrganizationConfigurationConfigurationTypeType]
+    Status: NotRequired[OrganizationConfigurationStatusType]
+    StatusMessage: NotRequired[str]
+
+class DescribeProductsRequestTypeDef(TypedDict):
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+    ProductArn: NotRequired[str]
+
+class ProductTypeDef(TypedDict):
+    ProductArn: str
+    ProductName: NotRequired[str]
+    CompanyName: NotRequired[str]
+    Description: NotRequired[str]
+    Categories: NotRequired[List[str]]
+    IntegrationTypes: NotRequired[List[IntegrationTypeType]]
+    MarketplaceUrl: NotRequired[str]
+    ActivationUrl: NotRequired[str]
+    ProductSubscriptionResourcePolicy: NotRequired[str]
+
+class DescribeStandardsControlsRequestTypeDef(TypedDict):
+    StandardsSubscriptionArn: str
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class StandardsControlTypeDef(TypedDict):
+    StandardsControlArn: NotRequired[str]
+    ControlStatus: NotRequired[ControlStatusType]
+    DisabledReason: NotRequired[str]
+    ControlStatusUpdatedAt: NotRequired[datetime]
+    ControlId: NotRequired[str]
+    Title: NotRequired[str]
+    Description: NotRequired[str]
+    RemediationUrl: NotRequired[str]
+    SeverityRating: NotRequired[SeverityRatingType]
+    RelatedRequirements: NotRequired[List[str]]
+
+class DescribeStandardsRequestTypeDef(TypedDict):
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class DisableImportFindingsForProductRequestTypeDef(TypedDict):
+    ProductSubscriptionArn: str
+
+class DisableOrganizationAdminAccountRequestTypeDef(TypedDict):
+    AdminAccountId: str
+
+class DisassociateMembersRequestTypeDef(TypedDict):
+    AccountIds: Sequence[str]
+
+class EnableImportFindingsForProductRequestTypeDef(TypedDict):
+    ProductArn: str
+
+class EnableOrganizationAdminAccountRequestTypeDef(TypedDict):
+    AdminAccountId: str
+
+class EnableSecurityHubRequestTypeDef(TypedDict):
+    Tags: NotRequired[Mapping[str, str]]
+    EnableDefaultStandards: NotRequired[bool]
+    ControlFindingGenerator: NotRequired[ControlFindingGeneratorType]
+
+class FilePathsTypeDef(TypedDict):
+    FilePath: NotRequired[str]
+    FileName: NotRequired[str]
+    ResourceId: NotRequired[str]
+    Hash: NotRequired[str]
+
+class FindingAggregatorTypeDef(TypedDict):
+    FindingAggregatorArn: NotRequired[str]
+
+FindingHistoryUpdateSourceTypeDef = TypedDict(
+    "FindingHistoryUpdateSourceTypeDef",
+    {
+        "Type": NotRequired[FindingHistoryUpdateSourceTypeType],
+        "Identity": NotRequired[str],
+    },
+)
+
+class FindingHistoryUpdateTypeDef(TypedDict):
+    UpdatedField: NotRequired[str]
+    OldValue: NotRequired[str]
+    NewValue: NotRequired[str]
+
+class FindingProviderSeverityTypeDef(TypedDict):
+    Label: NotRequired[SeverityLabelType]
+    Original: NotRequired[str]
+
+class FirewallPolicyStatefulRuleGroupReferencesDetailsTypeDef(TypedDict):
+    ResourceArn: NotRequired[str]
+
+class FirewallPolicyStatelessRuleGroupReferencesDetailsTypeDef(TypedDict):
+    Priority: NotRequired[int]
+    ResourceArn: NotRequired[str]
+
+class GeneratorDetailsTypeDef(TypedDict):
+    Name: NotRequired[str]
+    Description: NotRequired[str]
+    Labels: NotRequired[Sequence[str]]
+
+class InvitationTypeDef(TypedDict):
+    AccountId: NotRequired[str]
+    InvitationId: NotRequired[str]
+    InvitedAt: NotRequired[datetime]
+    MemberStatus: NotRequired[str]
+
+class GetConfigurationPolicyRequestTypeDef(TypedDict):
+    Identifier: str
+
+class GetEnabledStandardsRequestTypeDef(TypedDict):
+    StandardsSubscriptionArns: NotRequired[Sequence[str]]
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class GetFindingAggregatorRequestTypeDef(TypedDict):
+    FindingAggregatorArn: str
+
+TimestampTypeDef = Union[datetime, str]
+
+class SortCriterionTypeDef(TypedDict):
+    Field: NotRequired[str]
+    SortOrder: NotRequired[SortOrderType]
+
+class GetInsightResultsRequestTypeDef(TypedDict):
+    InsightArn: str
+
+class GetInsightsRequestTypeDef(TypedDict):
+    InsightArns: NotRequired[Sequence[str]]
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class GetMembersRequestTypeDef(TypedDict):
+    AccountIds: Sequence[str]
+
+class MemberTypeDef(TypedDict):
+    AccountId: NotRequired[str]
+    Email: NotRequired[str]
+    MasterId: NotRequired[str]
+    AdministratorId: NotRequired[str]
+    MemberStatus: NotRequired[str]
+    InvitedAt: NotRequired[datetime]
+    UpdatedAt: NotRequired[datetime]
+
+class GetSecurityControlDefinitionRequestTypeDef(TypedDict):
+    SecurityControlId: str
+
+IndicatorOutputTypeDef = TypedDict(
+    "IndicatorOutputTypeDef",
+    {
+        "Key": NotRequired[str],
+        "Values": NotRequired[List[str]],
+        "Title": NotRequired[str],
+        "Type": NotRequired[str],
+    },
+)
+IndicatorTypeDef = TypedDict(
+    "IndicatorTypeDef",
+    {
+        "Key": NotRequired[str],
+        "Values": NotRequired[Sequence[str]],
+        "Title": NotRequired[str],
+        "Type": NotRequired[str],
+    },
+)
+
+class InsightResultValueTypeDef(TypedDict):
+    GroupByAttributeValue: str
+    Count: int
+
+class InviteMembersRequestTypeDef(TypedDict):
+    AccountIds: Sequence[str]
+
+class ListAutomationRulesRequestTypeDef(TypedDict):
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class ListConfigurationPoliciesRequestTypeDef(TypedDict):
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class ListEnabledProductsForImportRequestTypeDef(TypedDict):
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class ListFindingAggregatorsRequestTypeDef(TypedDict):
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class ListInvitationsRequestTypeDef(TypedDict):
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListMembersRequestTypeDef(TypedDict):
+    OnlyAssociated: NotRequired[bool]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListOrganizationAdminAccountsRequestTypeDef(TypedDict):
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListSecurityControlDefinitionsRequestTypeDef(TypedDict):
+    StandardsArn: NotRequired[str]
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class ListStandardsControlAssociationsRequestTypeDef(TypedDict):
+    SecurityControlId: str
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class StandardsControlAssociationSummaryTypeDef(TypedDict):
+    StandardsArn: str
+    SecurityControlId: str
+    SecurityControlArn: str
+    AssociationStatus: AssociationStatusType
+    RelatedRequirements: NotRequired[List[str]]
+    UpdatedAt: NotRequired[datetime]
+    UpdatedReason: NotRequired[str]
+    StandardsControlTitle: NotRequired[str]
+    StandardsControlDescription: NotRequired[str]
+
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+
+class NetworkAutonomousSystemTypeDef(TypedDict):
+    Name: NotRequired[str]
+    Number: NotRequired[int]
+
+class NetworkConnectionTypeDef(TypedDict):
+    Direction: NotRequired[ConnectionDirectionType]
+
+class NetworkGeoLocationTypeDef(TypedDict):
+    City: NotRequired[str]
+    Country: NotRequired[str]
+    Lat: NotRequired[float]
+    Lon: NotRequired[float]
+
+class PortRangeTypeDef(TypedDict):
+    Begin: NotRequired[int]
+    End: NotRequired[int]
+
+class RangeTypeDef(TypedDict):
+    Start: NotRequired[int]
+    End: NotRequired[int]
+    StartColumn: NotRequired[int]
+
+class RecordTypeDef(TypedDict):
+    JsonPath: NotRequired[str]
+    RecordIndex: NotRequired[int]
+
+class ParameterValueOutputTypeDef(TypedDict):
+    Integer: NotRequired[int]
+    IntegerList: NotRequired[List[int]]
+    Double: NotRequired[float]
+    String: NotRequired[str]
+    StringList: NotRequired[List[str]]
+    Boolean: NotRequired[bool]
+    Enum: NotRequired[str]
+    EnumList: NotRequired[List[str]]
+
+class ParameterValueTypeDef(TypedDict):
+    Integer: NotRequired[int]
+    IntegerList: NotRequired[Sequence[int]]
+    Double: NotRequired[float]
+    String: NotRequired[str]
+    StringList: NotRequired[Sequence[str]]
+    Boolean: NotRequired[bool]
+    Enum: NotRequired[str]
+    EnumList: NotRequired[Sequence[str]]
+
+RecommendationTypeDef = TypedDict(
+    "RecommendationTypeDef",
+    {
+        "Text": NotRequired[str],
+        "Url": NotRequired[str],
+    },
+)
+
+class RuleGroupSourceListDetailsOutputTypeDef(TypedDict):
+    GeneratedRulesType: NotRequired[str]
+    TargetTypes: NotRequired[List[str]]
+    Targets: NotRequired[List[str]]
+
+class RuleGroupSourceListDetailsTypeDef(TypedDict):
+    GeneratedRulesType: NotRequired[str]
+    TargetTypes: NotRequired[Sequence[str]]
+    Targets: NotRequired[Sequence[str]]
+
+RuleGroupSourceStatefulRulesHeaderDetailsTypeDef = TypedDict(
+    "RuleGroupSourceStatefulRulesHeaderDetailsTypeDef",
+    {
+        "Destination": NotRequired[str],
+        "DestinationPort": NotRequired[str],
+        "Direction": NotRequired[str],
+        "Protocol": NotRequired[str],
+        "Source": NotRequired[str],
+        "SourcePort": NotRequired[str],
+    },
+)
+
+class RuleGroupSourceStatefulRulesOptionsDetailsOutputTypeDef(TypedDict):
+    Keyword: NotRequired[str]
+    Settings: NotRequired[List[str]]
+
+class RuleGroupSourceStatefulRulesOptionsDetailsTypeDef(TypedDict):
+    Keyword: NotRequired[str]
+    Settings: NotRequired[Sequence[str]]
+
+class RuleGroupSourceStatelessRuleMatchAttributesDestinationPortsTypeDef(TypedDict):
+    FromPort: NotRequired[int]
+    ToPort: NotRequired[int]
+
+class RuleGroupSourceStatelessRuleMatchAttributesDestinationsTypeDef(TypedDict):
+    AddressDefinition: NotRequired[str]
+
+class RuleGroupSourceStatelessRuleMatchAttributesSourcePortsTypeDef(TypedDict):
+    FromPort: NotRequired[int]
+    ToPort: NotRequired[int]
+
+class RuleGroupSourceStatelessRuleMatchAttributesSourcesTypeDef(TypedDict):
+    AddressDefinition: NotRequired[str]
+
+class RuleGroupSourceStatelessRuleMatchAttributesTcpFlagsOutputTypeDef(TypedDict):
+    Flags: NotRequired[List[str]]
+    Masks: NotRequired[List[str]]
+
+class RuleGroupSourceStatelessRuleMatchAttributesTcpFlagsTypeDef(TypedDict):
+    Flags: NotRequired[Sequence[str]]
+    Masks: NotRequired[Sequence[str]]
+
+class RuleGroupVariablesIpSetsDetailsOutputTypeDef(TypedDict):
+    Definition: NotRequired[List[str]]
+
+class RuleGroupVariablesIpSetsDetailsTypeDef(TypedDict):
+    Definition: NotRequired[Sequence[str]]
+
+class RuleGroupVariablesPortSetsDetailsOutputTypeDef(TypedDict):
+    Definition: NotRequired[List[str]]
+
+class RuleGroupVariablesPortSetsDetailsTypeDef(TypedDict):
+    Definition: NotRequired[Sequence[str]]
+
+class SecurityControlParameterTypeDef(TypedDict):
+    Name: NotRequired[str]
+    Value: NotRequired[Sequence[str]]
+
+class SoftwarePackageTypeDef(TypedDict):
+    Name: NotRequired[str]
+    Version: NotRequired[str]
+    Epoch: NotRequired[str]
+    Release: NotRequired[str]
+    Architecture: NotRequired[str]
+    PackageManager: NotRequired[str]
+    FilePath: NotRequired[str]
+    FixedInVersion: NotRequired[str]
+    Remediation: NotRequired[str]
+    SourceLayerHash: NotRequired[str]
+    SourceLayerArn: NotRequired[str]
+
+class StandardsManagedByTypeDef(TypedDict):
+    Company: NotRequired[str]
+    Product: NotRequired[str]
+
+class StandardsStatusReasonTypeDef(TypedDict):
+    StatusReasonCode: StatusReasonCodeType
+
+class StatelessCustomPublishMetricActionDimensionTypeDef(TypedDict):
+    Value: NotRequired[str]
+
+class TagResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+    Tags: Mapping[str, str]
+
+class UntagResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+    TagKeys: Sequence[str]
+
+class UpdateActionTargetRequestTypeDef(TypedDict):
+    ActionTargetArn: str
+    Name: NotRequired[str]
+    Description: NotRequired[str]
+
+class UpdateFindingAggregatorRequestTypeDef(TypedDict):
+    FindingAggregatorArn: str
+    RegionLinkingMode: str
+    Regions: NotRequired[Sequence[str]]
+
+class UpdateSecurityHubConfigurationRequestTypeDef(TypedDict):
+    AutoEnableControls: NotRequired[bool]
+    ControlFindingGenerator: NotRequired[ControlFindingGeneratorType]
+
+class UpdateStandardsControlRequestTypeDef(TypedDict):
+    StandardsControlArn: str
+    ControlStatus: NotRequired[ControlStatusType]
+    DisabledReason: NotRequired[str]
+
+class VulnerabilityVendorTypeDef(TypedDict):
+    Name: str
+    Url: NotRequired[str]
+    VendorSeverity: NotRequired[str]
+    VendorCreatedAt: NotRequired[str]
+    VendorUpdatedAt: NotRequired[str]
+
+class CreateMembersRequestTypeDef(TypedDict):
+    AccountDetails: Sequence[AccountDetailsTypeDef]
+
+class ActionRemoteIpDetailsTypeDef(TypedDict):
+    IpAddressV4: NotRequired[str]
+    Organization: NotRequired[IpOrganizationDetailsTypeDef]
+    Country: NotRequired[CountryTypeDef]
+    City: NotRequired[CityTypeDef]
+    GeoLocation: NotRequired[GeoLocationTypeDef]
+
+ActorUserTypeDef = TypedDict(
+    "ActorUserTypeDef",
+    {
+        "Name": NotRequired[str],
+        "Uid": NotRequired[str],
+        "Type": NotRequired[str],
+        "CredentialUid": NotRequired[str],
+        "Account": NotRequired[UserAccountTypeDef],
+    },
+)
+
+class CvssOutputTypeDef(TypedDict):
+    Version: NotRequired[str]
+    BaseScore: NotRequired[float]
+    BaseVector: NotRequired[str]
+    Source: NotRequired[str]
+    Adjustments: NotRequired[List[AdjustmentTypeDef]]
+
+class CvssTypeDef(TypedDict):
+    Version: NotRequired[str]
+    BaseScore: NotRequired[float]
+    BaseVector: NotRequired[str]
+    Source: NotRequired[str]
+    Adjustments: NotRequired[Sequence[AdjustmentTypeDef]]
+
+class ListConfigurationPolicyAssociationsRequestTypeDef(TypedDict):
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+    Filters: NotRequired[AssociationFiltersTypeDef]
+
+class AssociationSetDetailsTypeDef(TypedDict):
+    AssociationState: NotRequired[AssociationStateDetailsTypeDef]
+    GatewayId: NotRequired[str]
+    Main: NotRequired[bool]
+    RouteTableAssociationId: NotRequired[str]
+    RouteTableId: NotRequired[str]
+    SubnetId: NotRequired[str]
+
+class AutomationRulesFindingFieldsUpdateOutputTypeDef(TypedDict):
+    Note: NotRequired[NoteUpdateTypeDef]
+    Severity: NotRequired[SeverityUpdateTypeDef]
+    VerificationState: NotRequired[VerificationStateType]
+    Confidence: NotRequired[int]
+    Criticality: NotRequired[int]
+    Types: NotRequired[List[str]]
+    UserDefinedFields: NotRequired[Dict[str, str]]
+    Workflow: NotRequired[WorkflowUpdateTypeDef]
+    RelatedFindings: NotRequired[List[RelatedFindingTypeDef]]
+
+class AutomationRulesFindingFieldsUpdateTypeDef(TypedDict):
+    Note: NotRequired[NoteUpdateTypeDef]
+    Severity: NotRequired[SeverityUpdateTypeDef]
+    VerificationState: NotRequired[VerificationStateType]
+    Confidence: NotRequired[int]
+    Criticality: NotRequired[int]
+    Types: NotRequired[Sequence[str]]
+    UserDefinedFields: NotRequired[Mapping[str, str]]
+    Workflow: NotRequired[WorkflowUpdateTypeDef]
+    RelatedFindings: NotRequired[Sequence[RelatedFindingTypeDef]]
+
+AwsAmazonMqBrokerLdapServerMetadataDetailsUnionTypeDef = Union[
+    AwsAmazonMqBrokerLdapServerMetadataDetailsTypeDef,
+    AwsAmazonMqBrokerLdapServerMetadataDetailsOutputTypeDef,
+]
+
+class AwsAmazonMqBrokerLogsDetailsTypeDef(TypedDict):
+    Audit: NotRequired[bool]
+    General: NotRequired[bool]
+    AuditLogGroup: NotRequired[str]
+    GeneralLogGroup: NotRequired[str]
+    Pending: NotRequired[AwsAmazonMqBrokerLogsPendingDetailsTypeDef]
+
+AwsApiGatewayCanarySettingsUnionTypeDef = Union[
+    AwsApiGatewayCanarySettingsTypeDef, AwsApiGatewayCanarySettingsOutputTypeDef
+]
+
+class AwsApiGatewayRestApiDetailsOutputTypeDef(TypedDict):
+    Id: NotRequired[str]
+    Name: NotRequired[str]
+    Description: NotRequired[str]
+    CreatedDate: NotRequired[str]
+    Version: NotRequired[str]
+    BinaryMediaTypes: NotRequired[List[str]]
+    MinimumCompressionSize: NotRequired[int]
+    ApiKeySource: NotRequired[str]
+    EndpointConfiguration: NotRequired[AwsApiGatewayEndpointConfigurationOutputTypeDef]
+
+AwsApiGatewayEndpointConfigurationUnionTypeDef = Union[
+    AwsApiGatewayEndpointConfigurationTypeDef, AwsApiGatewayEndpointConfigurationOutputTypeDef
+]
+
+class AwsApiGatewayStageDetailsOutputTypeDef(TypedDict):
+    DeploymentId: NotRequired[str]
+    ClientCertificateId: NotRequired[str]
+    StageName: NotRequired[str]
+    Description: NotRequired[str]
+    CacheClusterEnabled: NotRequired[bool]
+    CacheClusterSize: NotRequired[str]
+    CacheClusterStatus: NotRequired[str]
+    MethodSettings: NotRequired[List[AwsApiGatewayMethodSettingsTypeDef]]
+    Variables: NotRequired[Dict[str, str]]
+    DocumentationVersion: NotRequired[str]
+    AccessLogSettings: NotRequired[AwsApiGatewayAccessLogSettingsTypeDef]
+    CanarySettings: NotRequired[AwsApiGatewayCanarySettingsOutputTypeDef]
+    TracingEnabled: NotRequired[bool]
+    CreatedDate: NotRequired[str]
+    LastUpdatedDate: NotRequired[str]
+    WebAclArn: NotRequired[str]
+
+class AwsApiGatewayV2ApiDetailsOutputTypeDef(TypedDict):
+    ApiEndpoint: NotRequired[str]
+    ApiId: NotRequired[str]
+    ApiKeySelectionExpression: NotRequired[str]
+    CreatedDate: NotRequired[str]
+    Description: NotRequired[str]
+    Version: NotRequired[str]
+    Name: NotRequired[str]
+    ProtocolType: NotRequired[str]
+    RouteSelectionExpression: NotRequired[str]
+    CorsConfiguration: NotRequired[AwsCorsConfigurationOutputTypeDef]
+
+class AwsApiGatewayV2StageDetailsOutputTypeDef(TypedDict):
+    ClientCertificateId: NotRequired[str]
+    CreatedDate: NotRequired[str]
+    Description: NotRequired[str]
+    DefaultRouteSettings: NotRequired[AwsApiGatewayV2RouteSettingsTypeDef]
+    DeploymentId: NotRequired[str]
+    LastUpdatedDate: NotRequired[str]
+    RouteSettings: NotRequired[AwsApiGatewayV2RouteSettingsTypeDef]
+    StageName: NotRequired[str]
+    StageVariables: NotRequired[Dict[str, str]]
+    AccessLogSettings: NotRequired[AwsApiGatewayAccessLogSettingsTypeDef]
+    AutoDeploy: NotRequired[bool]
+    LastDeploymentStatusMessage: NotRequired[str]
+    ApiGatewayManaged: NotRequired[bool]
+
+class AwsApiGatewayV2StageDetailsTypeDef(TypedDict):
+    ClientCertificateId: NotRequired[str]
+    CreatedDate: NotRequired[str]
+    Description: NotRequired[str]
+    DefaultRouteSettings: NotRequired[AwsApiGatewayV2RouteSettingsTypeDef]
+    DeploymentId: NotRequired[str]
+    LastUpdatedDate: NotRequired[str]
+    RouteSettings: NotRequired[AwsApiGatewayV2RouteSettingsTypeDef]
+    StageName: NotRequired[str]
+    StageVariables: NotRequired[Mapping[str, str]]
+    AccessLogSettings: NotRequired[AwsApiGatewayAccessLogSettingsTypeDef]
+    AutoDeploy: NotRequired[bool]
+    LastDeploymentStatusMessage: NotRequired[str]
+    ApiGatewayManaged: NotRequired[bool]
+
+class AwsAppSyncGraphQlApiAdditionalAuthenticationProvidersDetailsTypeDef(TypedDict):
+    AuthenticationType: NotRequired[str]
+    LambdaAuthorizerConfig: NotRequired[AwsAppSyncGraphQlApiLambdaAuthorizerConfigDetailsTypeDef]
+    OpenIdConnectConfig: NotRequired[AwsAppSyncGraphQlApiOpenIdConnectConfigDetailsTypeDef]
+    UserPoolConfig: NotRequired[AwsAppSyncGraphQlApiUserPoolConfigDetailsTypeDef]
+
+class AwsAthenaWorkGroupConfigurationResultConfigurationDetailsTypeDef(TypedDict):
+    EncryptionConfiguration: NotRequired[
+        AwsAthenaWorkGroupConfigurationResultConfigurationEncryptionConfigurationDetailsTypeDef
+    ]
+
+class AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateDetailsOutputTypeDef(
+    TypedDict
+):
+    LaunchTemplateSpecification: NotRequired[
+        AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationTypeDef
+    ]
+    Overrides: NotRequired[
+        List[
+            AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateOverridesListDetailsTypeDef
+        ]
+    ]
+
+class AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateDetailsTypeDef(TypedDict):
+    LaunchTemplateSpecification: NotRequired[
+        AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationTypeDef
+    ]
+    Overrides: NotRequired[
+        Sequence[
+            AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateOverridesListDetailsTypeDef
+        ]
+    ]
+
+class AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetailsTypeDef(TypedDict):
+    DeviceName: NotRequired[str]
+    Ebs: NotRequired[AwsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetailsTypeDef]
+    NoDevice: NotRequired[bool]
+    VirtualName: NotRequired[str]
+
+AwsBackupBackupPlanAdvancedBackupSettingsDetailsUnionTypeDef = Union[
+    AwsBackupBackupPlanAdvancedBackupSettingsDetailsTypeDef,
+    AwsBackupBackupPlanAdvancedBackupSettingsDetailsOutputTypeDef,
+]
+
+class AwsBackupBackupPlanRuleCopyActionsDetailsTypeDef(TypedDict):
+    DestinationBackupVaultArn: NotRequired[str]
+    Lifecycle: NotRequired[AwsBackupBackupPlanLifecycleDetailsTypeDef]
+
+class AwsBackupBackupVaultDetailsOutputTypeDef(TypedDict):
+    BackupVaultArn: NotRequired[str]
+    BackupVaultName: NotRequired[str]
+    EncryptionKeyArn: NotRequired[str]
+    Notifications: NotRequired[AwsBackupBackupVaultNotificationsDetailsOutputTypeDef]
+    AccessPolicy: NotRequired[str]
+
+AwsBackupBackupVaultNotificationsDetailsUnionTypeDef = Union[
+    AwsBackupBackupVaultNotificationsDetailsTypeDef,
+    AwsBackupBackupVaultNotificationsDetailsOutputTypeDef,
+]
+
+class AwsBackupRecoveryPointDetailsTypeDef(TypedDict):
+    BackupSizeInBytes: NotRequired[int]
+    BackupVaultArn: NotRequired[str]
+    BackupVaultName: NotRequired[str]
+    CalculatedLifecycle: NotRequired[AwsBackupRecoveryPointCalculatedLifecycleDetailsTypeDef]
+    CompletionDate: NotRequired[str]
+    CreatedBy: NotRequired[AwsBackupRecoveryPointCreatedByDetailsTypeDef]
+    CreationDate: NotRequired[str]
+    EncryptionKeyArn: NotRequired[str]
+    IamRoleArn: NotRequired[str]
+    IsEncrypted: NotRequired[bool]
+    LastRestoreTime: NotRequired[str]
+    Lifecycle: NotRequired[AwsBackupRecoveryPointLifecycleDetailsTypeDef]
+    RecoveryPointArn: NotRequired[str]
+    ResourceArn: NotRequired[str]
+    ResourceType: NotRequired[str]
+    SourceBackupVaultArn: NotRequired[str]
+    Status: NotRequired[str]
+    StatusMessage: NotRequired[str]
+    StorageClass: NotRequired[str]
+
+class AwsCertificateManagerCertificateDomainValidationOptionOutputTypeDef(TypedDict):
+    DomainName: NotRequired[str]
+    ResourceRecord: NotRequired[AwsCertificateManagerCertificateResourceRecordTypeDef]
+    ValidationDomain: NotRequired[str]
+    ValidationEmails: NotRequired[List[str]]
+    ValidationMethod: NotRequired[str]
+    ValidationStatus: NotRequired[str]
+
+class AwsCertificateManagerCertificateDomainValidationOptionTypeDef(TypedDict):
+    DomainName: NotRequired[str]
+    ResourceRecord: NotRequired[AwsCertificateManagerCertificateResourceRecordTypeDef]
+    ValidationDomain: NotRequired[str]
+    ValidationEmails: NotRequired[Sequence[str]]
+    ValidationMethod: NotRequired[str]
+    ValidationStatus: NotRequired[str]
+
+class AwsCloudFormationStackDetailsOutputTypeDef(TypedDict):
+    Capabilities: NotRequired[List[str]]
+    CreationTime: NotRequired[str]
+    Description: NotRequired[str]
+    DisableRollback: NotRequired[bool]
+    DriftInformation: NotRequired[AwsCloudFormationStackDriftInformationDetailsTypeDef]
+    EnableTerminationProtection: NotRequired[bool]
+    LastUpdatedTime: NotRequired[str]
+    NotificationArns: NotRequired[List[str]]
+    Outputs: NotRequired[List[AwsCloudFormationStackOutputsDetailsTypeDef]]
+    RoleArn: NotRequired[str]
+    StackId: NotRequired[str]
+    StackName: NotRequired[str]
+    StackStatus: NotRequired[str]
+    StackStatusReason: NotRequired[str]
+    TimeoutInMinutes: NotRequired[int]
+
+class AwsCloudFormationStackDetailsTypeDef(TypedDict):
+    Capabilities: NotRequired[Sequence[str]]
+    CreationTime: NotRequired[str]
+    Description: NotRequired[str]
+    DisableRollback: NotRequired[bool]
+    DriftInformation: NotRequired[AwsCloudFormationStackDriftInformationDetailsTypeDef]
+    EnableTerminationProtection: NotRequired[bool]
+    LastUpdatedTime: NotRequired[str]
+    NotificationArns: NotRequired[Sequence[str]]
+    Outputs: NotRequired[Sequence[AwsCloudFormationStackOutputsDetailsTypeDef]]
+    RoleArn: NotRequired[str]
+    StackId: NotRequired[str]
+    StackName: NotRequired[str]
+    StackStatus: NotRequired[str]
+    StackStatusReason: NotRequired[str]
+    TimeoutInMinutes: NotRequired[int]
+
+class AwsCloudFrontDistributionCacheBehaviorsOutputTypeDef(TypedDict):
+    Items: NotRequired[List[AwsCloudFrontDistributionCacheBehaviorTypeDef]]
+
+class AwsCloudFrontDistributionCacheBehaviorsTypeDef(TypedDict):
+    Items: NotRequired[Sequence[AwsCloudFrontDistributionCacheBehaviorTypeDef]]
+
+class AwsCloudFrontDistributionOriginCustomOriginConfigOutputTypeDef(TypedDict):
+    HttpPort: NotRequired[int]
+    HttpsPort: NotRequired[int]
+    OriginKeepaliveTimeout: NotRequired[int]
+    OriginProtocolPolicy: NotRequired[str]
+    OriginReadTimeout: NotRequired[int]
+    OriginSslProtocols: NotRequired[AwsCloudFrontDistributionOriginSslProtocolsOutputTypeDef]
+
+class AwsCloudFrontDistributionOriginGroupFailoverOutputTypeDef(TypedDict):
+    StatusCodes: NotRequired[AwsCloudFrontDistributionOriginGroupFailoverStatusCodesOutputTypeDef]
+
+AwsCloudFrontDistributionOriginGroupFailoverStatusCodesUnionTypeDef = Union[
+    AwsCloudFrontDistributionOriginGroupFailoverStatusCodesTypeDef,
+    AwsCloudFrontDistributionOriginGroupFailoverStatusCodesOutputTypeDef,
+]
+AwsCloudFrontDistributionOriginSslProtocolsUnionTypeDef = Union[
+    AwsCloudFrontDistributionOriginSslProtocolsTypeDef,
+    AwsCloudFrontDistributionOriginSslProtocolsOutputTypeDef,
+]
+
+class AwsCloudWatchAlarmDetailsOutputTypeDef(TypedDict):
+    ActionsEnabled: NotRequired[bool]
+    AlarmActions: NotRequired[List[str]]
+    AlarmArn: NotRequired[str]
+    AlarmConfigurationUpdatedTimestamp: NotRequired[str]
+    AlarmDescription: NotRequired[str]
+    AlarmName: NotRequired[str]
+    ComparisonOperator: NotRequired[str]
+    DatapointsToAlarm: NotRequired[int]
+    Dimensions: NotRequired[List[AwsCloudWatchAlarmDimensionsDetailsTypeDef]]
+    EvaluateLowSampleCountPercentile: NotRequired[str]
+    EvaluationPeriods: NotRequired[int]
+    ExtendedStatistic: NotRequired[str]
+    InsufficientDataActions: NotRequired[List[str]]
+    MetricName: NotRequired[str]
+    Namespace: NotRequired[str]
+    OkActions: NotRequired[List[str]]
+    Period: NotRequired[int]
+    Statistic: NotRequired[str]
+    Threshold: NotRequired[float]
+    ThresholdMetricId: NotRequired[str]
+    TreatMissingData: NotRequired[str]
+    Unit: NotRequired[str]
+
+class AwsCloudWatchAlarmDetailsTypeDef(TypedDict):
+    ActionsEnabled: NotRequired[bool]
+    AlarmActions: NotRequired[Sequence[str]]
+    AlarmArn: NotRequired[str]
+    AlarmConfigurationUpdatedTimestamp: NotRequired[str]
+    AlarmDescription: NotRequired[str]
+    AlarmName: NotRequired[str]
+    ComparisonOperator: NotRequired[str]
+    DatapointsToAlarm: NotRequired[int]
+    Dimensions: NotRequired[Sequence[AwsCloudWatchAlarmDimensionsDetailsTypeDef]]
+    EvaluateLowSampleCountPercentile: NotRequired[str]
+    EvaluationPeriods: NotRequired[int]
+    ExtendedStatistic: NotRequired[str]
+    InsufficientDataActions: NotRequired[Sequence[str]]
+    MetricName: NotRequired[str]
+    Namespace: NotRequired[str]
+    OkActions: NotRequired[Sequence[str]]
+    Period: NotRequired[int]
+    Statistic: NotRequired[str]
+    Threshold: NotRequired[float]
+    ThresholdMetricId: NotRequired[str]
+    TreatMissingData: NotRequired[str]
+    Unit: NotRequired[str]
+
+AwsCodeBuildProjectEnvironmentOutputTypeDef = TypedDict(
+    "AwsCodeBuildProjectEnvironmentOutputTypeDef",
+    {
+        "Certificate": NotRequired[str],
+        "EnvironmentVariables": NotRequired[
+            List[AwsCodeBuildProjectEnvironmentEnvironmentVariablesDetailsTypeDef]
+        ],
+        "PrivilegedMode": NotRequired[bool],
+        "ImagePullCredentialsType": NotRequired[str],
+        "RegistryCredential": NotRequired[AwsCodeBuildProjectEnvironmentRegistryCredentialTypeDef],
+        "Type": NotRequired[str],
+    },
+)
+AwsCodeBuildProjectEnvironmentTypeDef = TypedDict(
+    "AwsCodeBuildProjectEnvironmentTypeDef",
+    {
+        "Certificate": NotRequired[str],
+        "EnvironmentVariables": NotRequired[
+            Sequence[AwsCodeBuildProjectEnvironmentEnvironmentVariablesDetailsTypeDef]
+        ],
+        "PrivilegedMode": NotRequired[bool],
+        "ImagePullCredentialsType": NotRequired[str],
+        "RegistryCredential": NotRequired[AwsCodeBuildProjectEnvironmentRegistryCredentialTypeDef],
+        "Type": NotRequired[str],
+    },
+)
+
+class AwsCodeBuildProjectLogsConfigDetailsTypeDef(TypedDict):
+    CloudWatchLogs: NotRequired[AwsCodeBuildProjectLogsConfigCloudWatchLogsDetailsTypeDef]
+    S3Logs: NotRequired[AwsCodeBuildProjectLogsConfigS3LogsDetailsTypeDef]
+
+AwsCodeBuildProjectVpcConfigUnionTypeDef = Union[
+    AwsCodeBuildProjectVpcConfigTypeDef, AwsCodeBuildProjectVpcConfigOutputTypeDef
+]
+AwsCorsConfigurationUnionTypeDef = Union[
+    AwsCorsConfigurationTypeDef, AwsCorsConfigurationOutputTypeDef
+]
+
+class AwsDmsReplicationInstanceDetailsOutputTypeDef(TypedDict):
+    AllocatedStorage: NotRequired[int]
+    AutoMinorVersionUpgrade: NotRequired[bool]
+    AvailabilityZone: NotRequired[str]
+    EngineVersion: NotRequired[str]
+    KmsKeyId: NotRequired[str]
+    MultiAZ: NotRequired[bool]
+    PreferredMaintenanceWindow: NotRequired[str]
+    PubliclyAccessible: NotRequired[bool]
+    ReplicationInstanceClass: NotRequired[str]
+    ReplicationInstanceIdentifier: NotRequired[str]
+    ReplicationSubnetGroup: NotRequired[
+        AwsDmsReplicationInstanceReplicationSubnetGroupDetailsTypeDef
+    ]
+    VpcSecurityGroups: NotRequired[List[AwsDmsReplicationInstanceVpcSecurityGroupsDetailsTypeDef]]
+
+class AwsDmsReplicationInstanceDetailsTypeDef(TypedDict):
+    AllocatedStorage: NotRequired[int]
+    AutoMinorVersionUpgrade: NotRequired[bool]
+    AvailabilityZone: NotRequired[str]
+    EngineVersion: NotRequired[str]
+    KmsKeyId: NotRequired[str]
+    MultiAZ: NotRequired[bool]
+    PreferredMaintenanceWindow: NotRequired[str]
+    PubliclyAccessible: NotRequired[bool]
+    ReplicationInstanceClass: NotRequired[str]
+    ReplicationInstanceIdentifier: NotRequired[str]
+    ReplicationSubnetGroup: NotRequired[
+        AwsDmsReplicationInstanceReplicationSubnetGroupDetailsTypeDef
+    ]
+    VpcSecurityGroups: NotRequired[
+        Sequence[AwsDmsReplicationInstanceVpcSecurityGroupsDetailsTypeDef]
+    ]
+
+class AwsDynamoDbTableGlobalSecondaryIndexOutputTypeDef(TypedDict):
+    Backfilling: NotRequired[bool]
+    IndexArn: NotRequired[str]
+    IndexName: NotRequired[str]
+    IndexSizeBytes: NotRequired[int]
+    IndexStatus: NotRequired[str]
+    ItemCount: NotRequired[int]
+    KeySchema: NotRequired[List[AwsDynamoDbTableKeySchemaTypeDef]]
+    Projection: NotRequired[AwsDynamoDbTableProjectionOutputTypeDef]
+    ProvisionedThroughput: NotRequired[AwsDynamoDbTableProvisionedThroughputTypeDef]
+
+class AwsDynamoDbTableLocalSecondaryIndexOutputTypeDef(TypedDict):
+    IndexArn: NotRequired[str]
+    IndexName: NotRequired[str]
+    KeySchema: NotRequired[List[AwsDynamoDbTableKeySchemaTypeDef]]
+    Projection: NotRequired[AwsDynamoDbTableProjectionOutputTypeDef]
+
+AwsDynamoDbTableProjectionUnionTypeDef = Union[
+    AwsDynamoDbTableProjectionTypeDef, AwsDynamoDbTableProjectionOutputTypeDef
+]
+
+class AwsDynamoDbTableReplicaGlobalSecondaryIndexTypeDef(TypedDict):
+    IndexName: NotRequired[str]
+    ProvisionedThroughputOverride: NotRequired[AwsDynamoDbTableProvisionedThroughputOverrideTypeDef]
+
+AwsEc2ClientVpnEndpointAuthenticationOptionsDetailsTypeDef = TypedDict(
+    "AwsEc2ClientVpnEndpointAuthenticationOptionsDetailsTypeDef",
+    {
+        "Type": NotRequired[str],
+        "ActiveDirectory": NotRequired[
+            AwsEc2ClientVpnEndpointAuthenticationOptionsActiveDirectoryDetailsTypeDef
+        ],
+        "MutualAuthentication": NotRequired[
+            AwsEc2ClientVpnEndpointAuthenticationOptionsMutualAuthenticationDetailsTypeDef
+        ],
+        "FederatedAuthentication": NotRequired[
+            AwsEc2ClientVpnEndpointAuthenticationOptionsFederatedAuthenticationDetailsTypeDef
+        ],
+    },
+)
+
+class AwsEc2ClientVpnEndpointClientConnectOptionsDetailsTypeDef(TypedDict):
+    Enabled: NotRequired[bool]
+    LambdaFunctionArn: NotRequired[str]
+    Status: NotRequired[AwsEc2ClientVpnEndpointClientConnectOptionsStatusDetailsTypeDef]
+
+AwsEc2InstanceDetailsOutputTypeDef = TypedDict(
+    "AwsEc2InstanceDetailsOutputTypeDef",
+    {
+        "Type": NotRequired[str],
+        "ImageId": NotRequired[str],
+        "IpV4Addresses": NotRequired[List[str]],
+        "IpV6Addresses": NotRequired[List[str]],
+        "KeyName": NotRequired[str],
+        "IamInstanceProfileArn": NotRequired[str],
+        "VpcId": NotRequired[str],
+        "SubnetId": NotRequired[str],
+        "LaunchedAt": NotRequired[str],
+        "NetworkInterfaces": NotRequired[List[AwsEc2InstanceNetworkInterfacesDetailsTypeDef]],
+        "VirtualizationType": NotRequired[str],
+        "MetadataOptions": NotRequired[AwsEc2InstanceMetadataOptionsTypeDef],
+        "Monitoring": NotRequired[AwsEc2InstanceMonitoringDetailsTypeDef],
+    },
+)
+AwsEc2InstanceDetailsTypeDef = TypedDict(
+    "AwsEc2InstanceDetailsTypeDef",
+    {
+        "Type": NotRequired[str],
+        "ImageId": NotRequired[str],
+        "IpV4Addresses": NotRequired[Sequence[str]],
+        "IpV6Addresses": NotRequired[Sequence[str]],
+        "KeyName": NotRequired[str],
+        "IamInstanceProfileArn": NotRequired[str],
+        "VpcId": NotRequired[str],
+        "SubnetId": NotRequired[str],
+        "LaunchedAt": NotRequired[str],
+        "NetworkInterfaces": NotRequired[Sequence[AwsEc2InstanceNetworkInterfacesDetailsTypeDef]],
+        "VirtualizationType": NotRequired[str],
+        "MetadataOptions": NotRequired[AwsEc2InstanceMetadataOptionsTypeDef],
+        "Monitoring": NotRequired[AwsEc2InstanceMonitoringDetailsTypeDef],
+    },
+)
+
+class AwsEc2LaunchTemplateDataBlockDeviceMappingSetDetailsTypeDef(TypedDict):
+    DeviceName: NotRequired[str]
+    Ebs: NotRequired[AwsEc2LaunchTemplateDataBlockDeviceMappingSetEbsDetailsTypeDef]
+    NoDevice: NotRequired[str]
+    VirtualName: NotRequired[str]
+
+class AwsEc2LaunchTemplateDataCapacityReservationSpecificationDetailsTypeDef(TypedDict):
+    CapacityReservationPreference: NotRequired[str]
+    CapacityReservationTarget: NotRequired[
+        AwsEc2LaunchTemplateDataCapacityReservationSpecificationCapacityReservationTargetDetailsTypeDef
+    ]
+
+class AwsEc2LaunchTemplateDataInstanceMarketOptionsDetailsTypeDef(TypedDict):
+    MarketType: NotRequired[str]
+    SpotOptions: NotRequired[AwsEc2LaunchTemplateDataInstanceMarketOptionsSpotOptionsDetailsTypeDef]
+
+class AwsEc2LaunchTemplateDataInstanceRequirementsDetailsOutputTypeDef(TypedDict):
+    AcceleratorCount: NotRequired[
+        AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorCountDetailsTypeDef
+    ]
+    AcceleratorManufacturers: NotRequired[List[str]]
+    AcceleratorNames: NotRequired[List[str]]
+    AcceleratorTotalMemoryMiB: NotRequired[
+        AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorTotalMemoryMiBDetailsTypeDef
+    ]
+    AcceleratorTypes: NotRequired[List[str]]
+    BareMetal: NotRequired[str]
+    BaselineEbsBandwidthMbps: NotRequired[
+        AwsEc2LaunchTemplateDataInstanceRequirementsBaselineEbsBandwidthMbpsDetailsTypeDef
+    ]
+    BurstablePerformance: NotRequired[str]
+    CpuManufacturers: NotRequired[List[str]]
+    ExcludedInstanceTypes: NotRequired[List[str]]
+    InstanceGenerations: NotRequired[List[str]]
+    LocalStorage: NotRequired[str]
+    LocalStorageTypes: NotRequired[List[str]]
+    MemoryGiBPerVCpu: NotRequired[
+        AwsEc2LaunchTemplateDataInstanceRequirementsMemoryGiBPerVCpuDetailsTypeDef
+    ]
+    MemoryMiB: NotRequired[AwsEc2LaunchTemplateDataInstanceRequirementsMemoryMiBDetailsTypeDef]
+    NetworkInterfaceCount: NotRequired[
+        AwsEc2LaunchTemplateDataInstanceRequirementsNetworkInterfaceCountDetailsTypeDef
+    ]
+    OnDemandMaxPricePercentageOverLowestPrice: NotRequired[int]
+    RequireHibernateSupport: NotRequired[bool]
+    SpotMaxPricePercentageOverLowestPrice: NotRequired[int]
+    TotalLocalStorageGB: NotRequired[
+        AwsEc2LaunchTemplateDataInstanceRequirementsTotalLocalStorageGBDetailsTypeDef
+    ]
+    VCpuCount: NotRequired[AwsEc2LaunchTemplateDataInstanceRequirementsVCpuCountDetailsTypeDef]
+
+class AwsEc2LaunchTemplateDataInstanceRequirementsDetailsTypeDef(TypedDict):
+    AcceleratorCount: NotRequired[
+        AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorCountDetailsTypeDef
+    ]
+    AcceleratorManufacturers: NotRequired[Sequence[str]]
+    AcceleratorNames: NotRequired[Sequence[str]]
+    AcceleratorTotalMemoryMiB: NotRequired[
+        AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorTotalMemoryMiBDetailsTypeDef
+    ]
+    AcceleratorTypes: NotRequired[Sequence[str]]
+    BareMetal: NotRequired[str]
+    BaselineEbsBandwidthMbps: NotRequired[
+        AwsEc2LaunchTemplateDataInstanceRequirementsBaselineEbsBandwidthMbpsDetailsTypeDef
+    ]
+    BurstablePerformance: NotRequired[str]
+    CpuManufacturers: NotRequired[Sequence[str]]
+    ExcludedInstanceTypes: NotRequired[Sequence[str]]
+    InstanceGenerations: NotRequired[Sequence[str]]
+    LocalStorage: NotRequired[str]
+    LocalStorageTypes: NotRequired[Sequence[str]]
+    MemoryGiBPerVCpu: NotRequired[
+        AwsEc2LaunchTemplateDataInstanceRequirementsMemoryGiBPerVCpuDetailsTypeDef
+    ]
+    MemoryMiB: NotRequired[AwsEc2LaunchTemplateDataInstanceRequirementsMemoryMiBDetailsTypeDef]
+    NetworkInterfaceCount: NotRequired[
+        AwsEc2LaunchTemplateDataInstanceRequirementsNetworkInterfaceCountDetailsTypeDef
+    ]
+    OnDemandMaxPricePercentageOverLowestPrice: NotRequired[int]
+    RequireHibernateSupport: NotRequired[bool]
+    SpotMaxPricePercentageOverLowestPrice: NotRequired[int]
+    TotalLocalStorageGB: NotRequired[
+        AwsEc2LaunchTemplateDataInstanceRequirementsTotalLocalStorageGBDetailsTypeDef
+    ]
+    VCpuCount: NotRequired[AwsEc2LaunchTemplateDataInstanceRequirementsVCpuCountDetailsTypeDef]
+
+class AwsEc2LaunchTemplateDataNetworkInterfaceSetDetailsOutputTypeDef(TypedDict):
+    AssociateCarrierIpAddress: NotRequired[bool]
+    AssociatePublicIpAddress: NotRequired[bool]
+    DeleteOnTermination: NotRequired[bool]
+    Description: NotRequired[str]
+    DeviceIndex: NotRequired[int]
+    Groups: NotRequired[List[str]]
+    InterfaceType: NotRequired[str]
+    Ipv4PrefixCount: NotRequired[int]
+    Ipv4Prefixes: NotRequired[
+        List[AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv4PrefixesDetailsTypeDef]
+    ]
+    Ipv6AddressCount: NotRequired[int]
+    Ipv6Addresses: NotRequired[
+        List[AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6AddressesDetailsTypeDef]
+    ]
+    Ipv6PrefixCount: NotRequired[int]
+    Ipv6Prefixes: NotRequired[
+        List[AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6PrefixesDetailsTypeDef]
+    ]
+    NetworkCardIndex: NotRequired[int]
+    NetworkInterfaceId: NotRequired[str]
+    PrivateIpAddress: NotRequired[str]
+    PrivateIpAddresses: NotRequired[
+        List[AwsEc2LaunchTemplateDataNetworkInterfaceSetPrivateIpAddressesDetailsTypeDef]
+    ]
+    SecondaryPrivateIpAddressCount: NotRequired[int]
+    SubnetId: NotRequired[str]
+
+class AwsEc2LaunchTemplateDataNetworkInterfaceSetDetailsTypeDef(TypedDict):
+    AssociateCarrierIpAddress: NotRequired[bool]
+    AssociatePublicIpAddress: NotRequired[bool]
+    DeleteOnTermination: NotRequired[bool]
+    Description: NotRequired[str]
+    DeviceIndex: NotRequired[int]
+    Groups: NotRequired[Sequence[str]]
+    InterfaceType: NotRequired[str]
+    Ipv4PrefixCount: NotRequired[int]
+    Ipv4Prefixes: NotRequired[
+        Sequence[AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv4PrefixesDetailsTypeDef]
+    ]
+    Ipv6AddressCount: NotRequired[int]
+    Ipv6Addresses: NotRequired[
+        Sequence[AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6AddressesDetailsTypeDef]
+    ]
+    Ipv6PrefixCount: NotRequired[int]
+    Ipv6Prefixes: NotRequired[
+        Sequence[AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6PrefixesDetailsTypeDef]
+    ]
+    NetworkCardIndex: NotRequired[int]
+    NetworkInterfaceId: NotRequired[str]
+    PrivateIpAddress: NotRequired[str]
+    PrivateIpAddresses: NotRequired[
+        Sequence[AwsEc2LaunchTemplateDataNetworkInterfaceSetPrivateIpAddressesDetailsTypeDef]
+    ]
+    SecondaryPrivateIpAddressCount: NotRequired[int]
+    SubnetId: NotRequired[str]
+
+AwsEc2NetworkAclEntryTypeDef = TypedDict(
+    "AwsEc2NetworkAclEntryTypeDef",
+    {
+        "CidrBlock": NotRequired[str],
+        "Egress": NotRequired[bool],
+        "IcmpTypeCode": NotRequired[IcmpTypeCodeTypeDef],
+        "Ipv6CidrBlock": NotRequired[str],
+        "PortRange": NotRequired[PortRangeFromToTypeDef],
+        "Protocol": NotRequired[str],
+        "RuleAction": NotRequired[str],
+        "RuleNumber": NotRequired[int],
+    },
+)
+
+class AwsEc2NetworkInterfaceDetailsOutputTypeDef(TypedDict):
+    Attachment: NotRequired[AwsEc2NetworkInterfaceAttachmentTypeDef]
+    NetworkInterfaceId: NotRequired[str]
+    SecurityGroups: NotRequired[List[AwsEc2NetworkInterfaceSecurityGroupTypeDef]]
+    SourceDestCheck: NotRequired[bool]
+    IpV6Addresses: NotRequired[List[AwsEc2NetworkInterfaceIpV6AddressDetailTypeDef]]
+    PrivateIpAddresses: NotRequired[List[AwsEc2NetworkInterfacePrivateIpAddressDetailTypeDef]]
+    PublicDnsName: NotRequired[str]
+    PublicIp: NotRequired[str]
+
+class AwsEc2NetworkInterfaceDetailsTypeDef(TypedDict):
+    Attachment: NotRequired[AwsEc2NetworkInterfaceAttachmentTypeDef]
+    NetworkInterfaceId: NotRequired[str]
+    SecurityGroups: NotRequired[Sequence[AwsEc2NetworkInterfaceSecurityGroupTypeDef]]
+    SourceDestCheck: NotRequired[bool]
+    IpV6Addresses: NotRequired[Sequence[AwsEc2NetworkInterfaceIpV6AddressDetailTypeDef]]
+    PrivateIpAddresses: NotRequired[Sequence[AwsEc2NetworkInterfacePrivateIpAddressDetailTypeDef]]
+    PublicDnsName: NotRequired[str]
+    PublicIp: NotRequired[str]
+
+class AwsEc2SecurityGroupIpPermissionOutputTypeDef(TypedDict):
+    IpProtocol: NotRequired[str]
+    FromPort: NotRequired[int]
+    ToPort: NotRequired[int]
+    UserIdGroupPairs: NotRequired[List[AwsEc2SecurityGroupUserIdGroupPairTypeDef]]
+    IpRanges: NotRequired[List[AwsEc2SecurityGroupIpRangeTypeDef]]
+    Ipv6Ranges: NotRequired[List[AwsEc2SecurityGroupIpv6RangeTypeDef]]
+    PrefixListIds: NotRequired[List[AwsEc2SecurityGroupPrefixListIdTypeDef]]
+
+class AwsEc2SecurityGroupIpPermissionTypeDef(TypedDict):
+    IpProtocol: NotRequired[str]
+    FromPort: NotRequired[int]
+    ToPort: NotRequired[int]
+    UserIdGroupPairs: NotRequired[Sequence[AwsEc2SecurityGroupUserIdGroupPairTypeDef]]
+    IpRanges: NotRequired[Sequence[AwsEc2SecurityGroupIpRangeTypeDef]]
+    Ipv6Ranges: NotRequired[Sequence[AwsEc2SecurityGroupIpv6RangeTypeDef]]
+    PrefixListIds: NotRequired[Sequence[AwsEc2SecurityGroupPrefixListIdTypeDef]]
+
+class AwsEc2SubnetDetailsOutputTypeDef(TypedDict):
+    AssignIpv6AddressOnCreation: NotRequired[bool]
+    AvailabilityZone: NotRequired[str]
+    AvailabilityZoneId: NotRequired[str]
+    AvailableIpAddressCount: NotRequired[int]
+    CidrBlock: NotRequired[str]
+    DefaultForAz: NotRequired[bool]
+    MapPublicIpOnLaunch: NotRequired[bool]
+    OwnerId: NotRequired[str]
+    State: NotRequired[str]
+    SubnetArn: NotRequired[str]
+    SubnetId: NotRequired[str]
+    VpcId: NotRequired[str]
+    Ipv6CidrBlockAssociationSet: NotRequired[List[Ipv6CidrBlockAssociationTypeDef]]
+
+class AwsEc2SubnetDetailsTypeDef(TypedDict):
+    AssignIpv6AddressOnCreation: NotRequired[bool]
+    AvailabilityZone: NotRequired[str]
+    AvailabilityZoneId: NotRequired[str]
+    AvailableIpAddressCount: NotRequired[int]
+    CidrBlock: NotRequired[str]
+    DefaultForAz: NotRequired[bool]
+    MapPublicIpOnLaunch: NotRequired[bool]
+    OwnerId: NotRequired[str]
+    State: NotRequired[str]
+    SubnetArn: NotRequired[str]
+    SubnetId: NotRequired[str]
+    VpcId: NotRequired[str]
+    Ipv6CidrBlockAssociationSet: NotRequired[Sequence[Ipv6CidrBlockAssociationTypeDef]]
+
+AwsEc2TransitGatewayDetailsUnionTypeDef = Union[
+    AwsEc2TransitGatewayDetailsTypeDef, AwsEc2TransitGatewayDetailsOutputTypeDef
+]
+
+class AwsEc2VolumeDetailsOutputTypeDef(TypedDict):
+    CreateTime: NotRequired[str]
+    DeviceName: NotRequired[str]
+    Encrypted: NotRequired[bool]
+    Size: NotRequired[int]
+    SnapshotId: NotRequired[str]
+    Status: NotRequired[str]
+    KmsKeyId: NotRequired[str]
+    Attachments: NotRequired[List[AwsEc2VolumeAttachmentTypeDef]]
+    VolumeId: NotRequired[str]
+    VolumeType: NotRequired[str]
+    VolumeScanStatus: NotRequired[str]
+
+class AwsEc2VolumeDetailsTypeDef(TypedDict):
+    CreateTime: NotRequired[str]
+    DeviceName: NotRequired[str]
+    Encrypted: NotRequired[bool]
+    Size: NotRequired[int]
+    SnapshotId: NotRequired[str]
+    Status: NotRequired[str]
+    KmsKeyId: NotRequired[str]
+    Attachments: NotRequired[Sequence[AwsEc2VolumeAttachmentTypeDef]]
+    VolumeId: NotRequired[str]
+    VolumeType: NotRequired[str]
+    VolumeScanStatus: NotRequired[str]
+
+class AwsEc2VpcDetailsOutputTypeDef(TypedDict):
+    CidrBlockAssociationSet: NotRequired[List[CidrBlockAssociationTypeDef]]
+    Ipv6CidrBlockAssociationSet: NotRequired[List[Ipv6CidrBlockAssociationTypeDef]]
+    DhcpOptionsId: NotRequired[str]
+    State: NotRequired[str]
+
+class AwsEc2VpcDetailsTypeDef(TypedDict):
+    CidrBlockAssociationSet: NotRequired[Sequence[CidrBlockAssociationTypeDef]]
+    Ipv6CidrBlockAssociationSet: NotRequired[Sequence[Ipv6CidrBlockAssociationTypeDef]]
+    DhcpOptionsId: NotRequired[str]
+    State: NotRequired[str]
+
+AwsEc2VpcEndpointServiceDetailsOutputTypeDef = TypedDict(
+    "AwsEc2VpcEndpointServiceDetailsOutputTypeDef",
+    {
+        "AcceptanceRequired": NotRequired[bool],
+        "AvailabilityZones": NotRequired[List[str]],
+        "BaseEndpointDnsNames": NotRequired[List[str]],
+        "ManagesVpcEndpoints": NotRequired[bool],
+        "GatewayLoadBalancerArns": NotRequired[List[str]],
+        "NetworkLoadBalancerArns": NotRequired[List[str]],
+        "PrivateDnsName": NotRequired[str],
+        "ServiceId": NotRequired[str],
+        "ServiceName": NotRequired[str],
+        "ServiceState": NotRequired[str],
+        "ServiceType": NotRequired[List[AwsEc2VpcEndpointServiceServiceTypeDetailsTypeDef]],
+    },
+)
+AwsEc2VpcEndpointServiceDetailsTypeDef = TypedDict(
+    "AwsEc2VpcEndpointServiceDetailsTypeDef",
+    {
+        "AcceptanceRequired": NotRequired[bool],
+        "AvailabilityZones": NotRequired[Sequence[str]],
+        "BaseEndpointDnsNames": NotRequired[Sequence[str]],
+        "ManagesVpcEndpoints": NotRequired[bool],
+        "GatewayLoadBalancerArns": NotRequired[Sequence[str]],
+        "NetworkLoadBalancerArns": NotRequired[Sequence[str]],
+        "PrivateDnsName": NotRequired[str],
+        "ServiceId": NotRequired[str],
+        "ServiceName": NotRequired[str],
+        "ServiceState": NotRequired[str],
+        "ServiceType": NotRequired[Sequence[AwsEc2VpcEndpointServiceServiceTypeDetailsTypeDef]],
+    },
+)
+
+class AwsEc2VpcPeeringConnectionVpcInfoDetailsOutputTypeDef(TypedDict):
+    CidrBlock: NotRequired[str]
+    CidrBlockSet: NotRequired[List[VpcInfoCidrBlockSetDetailsTypeDef]]
+    Ipv6CidrBlockSet: NotRequired[List[VpcInfoIpv6CidrBlockSetDetailsTypeDef]]
+    OwnerId: NotRequired[str]
+    PeeringOptions: NotRequired[VpcInfoPeeringOptionsDetailsTypeDef]
+    Region: NotRequired[str]
+    VpcId: NotRequired[str]
+
+class AwsEc2VpcPeeringConnectionVpcInfoDetailsTypeDef(TypedDict):
+    CidrBlock: NotRequired[str]
+    CidrBlockSet: NotRequired[Sequence[VpcInfoCidrBlockSetDetailsTypeDef]]
+    Ipv6CidrBlockSet: NotRequired[Sequence[VpcInfoIpv6CidrBlockSetDetailsTypeDef]]
+    OwnerId: NotRequired[str]
+    PeeringOptions: NotRequired[VpcInfoPeeringOptionsDetailsTypeDef]
+    Region: NotRequired[str]
+    VpcId: NotRequired[str]
+
+class AwsEc2VpnConnectionOptionsDetailsOutputTypeDef(TypedDict):
+    StaticRoutesOnly: NotRequired[bool]
+    TunnelOptions: NotRequired[List[AwsEc2VpnConnectionOptionsTunnelOptionsDetailsOutputTypeDef]]
+
+AwsEc2VpnConnectionOptionsTunnelOptionsDetailsUnionTypeDef = Union[
+    AwsEc2VpnConnectionOptionsTunnelOptionsDetailsTypeDef,
+    AwsEc2VpnConnectionOptionsTunnelOptionsDetailsOutputTypeDef,
+]
+AwsEcrContainerImageDetailsUnionTypeDef = Union[
+    AwsEcrContainerImageDetailsTypeDef, AwsEcrContainerImageDetailsOutputTypeDef
+]
+
+class AwsEcrRepositoryDetailsTypeDef(TypedDict):
+    Arn: NotRequired[str]
+    ImageScanningConfiguration: NotRequired[
+        AwsEcrRepositoryImageScanningConfigurationDetailsTypeDef
+    ]
+    ImageTagMutability: NotRequired[str]
+    LifecyclePolicy: NotRequired[AwsEcrRepositoryLifecyclePolicyDetailsTypeDef]
+    RepositoryName: NotRequired[str]
+    RepositoryPolicyText: NotRequired[str]
+
+class AwsEcsClusterConfigurationExecuteCommandConfigurationDetailsTypeDef(TypedDict):
+    KmsKeyId: NotRequired[str]
+    LogConfiguration: NotRequired[
+        AwsEcsClusterConfigurationExecuteCommandConfigurationLogConfigurationDetailsTypeDef
+    ]
+    Logging: NotRequired[str]
+
+class AwsEcsContainerDetailsOutputTypeDef(TypedDict):
+    Name: NotRequired[str]
+    Image: NotRequired[str]
+    MountPoints: NotRequired[List[AwsMountPointTypeDef]]
+    Privileged: NotRequired[bool]
+
+class AwsEcsContainerDetailsTypeDef(TypedDict):
+    Name: NotRequired[str]
+    Image: NotRequired[str]
+    MountPoints: NotRequired[Sequence[AwsMountPointTypeDef]]
+    Privileged: NotRequired[bool]
+
+class AwsEcsServiceDeploymentConfigurationDetailsTypeDef(TypedDict):
+    DeploymentCircuitBreaker: NotRequired[
+        AwsEcsServiceDeploymentConfigurationDeploymentCircuitBreakerDetailsTypeDef
+    ]
+    MaximumPercent: NotRequired[int]
+    MinimumHealthyPercent: NotRequired[int]
+
+class AwsEcsServiceNetworkConfigurationDetailsOutputTypeDef(TypedDict):
+    AwsVpcConfiguration: NotRequired[
+        AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetailsOutputTypeDef
+    ]
+
+AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetailsUnionTypeDef = Union[
+    AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetailsTypeDef,
+    AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetailsOutputTypeDef,
+]
+AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetailsUnionTypeDef = Union[
+    AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetailsTypeDef,
+    AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetailsOutputTypeDef,
+]
+AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetailsUnionTypeDef = Union[
+    AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetailsTypeDef,
+    AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetailsOutputTypeDef,
+]
+AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetailsUnionTypeDef = Union[
+    AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetailsTypeDef,
+    AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetailsOutputTypeDef,
+]
+
+class AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetailsOutputTypeDef(TypedDict):
+    Capabilities: NotRequired[
+        AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetailsOutputTypeDef
+    ]
+    Devices: NotRequired[
+        List[AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetailsOutputTypeDef]
+    ]
+    InitProcessEnabled: NotRequired[bool]
+    MaxSwap: NotRequired[int]
+    SharedMemorySize: NotRequired[int]
+    Swappiness: NotRequired[int]
+    Tmpfs: NotRequired[
+        List[AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetailsOutputTypeDef]
+    ]
+
+AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetailsUnionTypeDef = Union[
+    AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetailsTypeDef,
+    AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetailsOutputTypeDef,
+]
+AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetailsUnionTypeDef = Union[
+    AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetailsTypeDef,
+    AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetailsOutputTypeDef,
+]
+
+class AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetailsOutputTypeDef(TypedDict):
+    LogDriver: NotRequired[str]
+    Options: NotRequired[Dict[str, str]]
+    SecretOptions: NotRequired[
+        List[AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsDetailsTypeDef]
+    ]
+
+class AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetailsTypeDef(TypedDict):
+    LogDriver: NotRequired[str]
+    Options: NotRequired[Mapping[str, str]]
+    SecretOptions: NotRequired[
+        Sequence[
+            AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsDetailsTypeDef
+        ]
+    ]
+
+AwsEcsTaskDefinitionProxyConfigurationDetailsOutputTypeDef = TypedDict(
+    "AwsEcsTaskDefinitionProxyConfigurationDetailsOutputTypeDef",
+    {
+        "ContainerName": NotRequired[str],
+        "ProxyConfigurationProperties": NotRequired[
+            List[AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetailsTypeDef]
+        ],
+        "Type": NotRequired[str],
+    },
+)
+AwsEcsTaskDefinitionProxyConfigurationDetailsTypeDef = TypedDict(
+    "AwsEcsTaskDefinitionProxyConfigurationDetailsTypeDef",
+    {
+        "ContainerName": NotRequired[str],
+        "ProxyConfigurationProperties": NotRequired[
+            Sequence[
+                AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetailsTypeDef
+            ]
+        ],
+        "Type": NotRequired[str],
+    },
+)
+AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetailsUnionTypeDef = Union[
+    AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetailsTypeDef,
+    AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetailsOutputTypeDef,
+]
+
+class AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetailsTypeDef(TypedDict):
+    AuthorizationConfig: NotRequired[
+        AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationConfigDetailsTypeDef
+    ]
+    FilesystemId: NotRequired[str]
+    RootDirectory: NotRequired[str]
+    TransitEncryption: NotRequired[str]
+    TransitEncryptionPort: NotRequired[int]
+
+class AwsEcsTaskVolumeDetailsTypeDef(TypedDict):
+    Name: NotRequired[str]
+    Host: NotRequired[AwsEcsTaskVolumeHostDetailsTypeDef]
+
+AwsEfsAccessPointPosixUserDetailsUnionTypeDef = Union[
+    AwsEfsAccessPointPosixUserDetailsTypeDef, AwsEfsAccessPointPosixUserDetailsOutputTypeDef
+]
+
+class AwsEfsAccessPointRootDirectoryDetailsTypeDef(TypedDict):
+    CreationInfo: NotRequired[AwsEfsAccessPointRootDirectoryCreationInfoDetailsTypeDef]
+    Path: NotRequired[str]
+
+class AwsEksClusterLoggingDetailsOutputTypeDef(TypedDict):
+    ClusterLogging: NotRequired[List[AwsEksClusterLoggingClusterLoggingDetailsOutputTypeDef]]
+
+AwsEksClusterLoggingClusterLoggingDetailsUnionTypeDef = Union[
+    AwsEksClusterLoggingClusterLoggingDetailsTypeDef,
+    AwsEksClusterLoggingClusterLoggingDetailsOutputTypeDef,
+]
+AwsEksClusterResourcesVpcConfigDetailsUnionTypeDef = Union[
+    AwsEksClusterResourcesVpcConfigDetailsTypeDef,
+    AwsEksClusterResourcesVpcConfigDetailsOutputTypeDef,
+]
+
+class AwsElasticBeanstalkEnvironmentDetailsOutputTypeDef(TypedDict):
+    ApplicationName: NotRequired[str]
+    Cname: NotRequired[str]
+    DateCreated: NotRequired[str]
+    DateUpdated: NotRequired[str]
+    Description: NotRequired[str]
+    EndpointUrl: NotRequired[str]
+    EnvironmentArn: NotRequired[str]
+    EnvironmentId: NotRequired[str]
+    EnvironmentLinks: NotRequired[List[AwsElasticBeanstalkEnvironmentEnvironmentLinkTypeDef]]
+    EnvironmentName: NotRequired[str]
+    OptionSettings: NotRequired[List[AwsElasticBeanstalkEnvironmentOptionSettingTypeDef]]
+    PlatformArn: NotRequired[str]
+    SolutionStackName: NotRequired[str]
+    Status: NotRequired[str]
+    Tier: NotRequired[AwsElasticBeanstalkEnvironmentTierTypeDef]
+    VersionLabel: NotRequired[str]
+
+class AwsElasticBeanstalkEnvironmentDetailsTypeDef(TypedDict):
+    ApplicationName: NotRequired[str]
+    Cname: NotRequired[str]
+    DateCreated: NotRequired[str]
+    DateUpdated: NotRequired[str]
+    Description: NotRequired[str]
+    EndpointUrl: NotRequired[str]
+    EnvironmentArn: NotRequired[str]
+    EnvironmentId: NotRequired[str]
+    EnvironmentLinks: NotRequired[Sequence[AwsElasticBeanstalkEnvironmentEnvironmentLinkTypeDef]]
+    EnvironmentName: NotRequired[str]
+    OptionSettings: NotRequired[Sequence[AwsElasticBeanstalkEnvironmentOptionSettingTypeDef]]
+    PlatformArn: NotRequired[str]
+    SolutionStackName: NotRequired[str]
+    Status: NotRequired[str]
+    Tier: NotRequired[AwsElasticBeanstalkEnvironmentTierTypeDef]
+    VersionLabel: NotRequired[str]
+
+class AwsElasticsearchDomainElasticsearchClusterConfigDetailsTypeDef(TypedDict):
+    DedicatedMasterCount: NotRequired[int]
+    DedicatedMasterEnabled: NotRequired[bool]
+    DedicatedMasterType: NotRequired[str]
+    InstanceCount: NotRequired[int]
+    InstanceType: NotRequired[str]
+    ZoneAwarenessConfig: NotRequired[
+        AwsElasticsearchDomainElasticsearchClusterConfigZoneAwarenessConfigDetailsTypeDef
+    ]
+    ZoneAwarenessEnabled: NotRequired[bool]
+
+class AwsElasticsearchDomainLogPublishingOptionsTypeDef(TypedDict):
+    IndexSlowLogs: NotRequired[AwsElasticsearchDomainLogPublishingOptionsLogConfigTypeDef]
+    SearchSlowLogs: NotRequired[AwsElasticsearchDomainLogPublishingOptionsLogConfigTypeDef]
+    AuditLogs: NotRequired[AwsElasticsearchDomainLogPublishingOptionsLogConfigTypeDef]
+
+AwsElasticsearchDomainVPCOptionsUnionTypeDef = Union[
+    AwsElasticsearchDomainVPCOptionsTypeDef, AwsElasticsearchDomainVPCOptionsOutputTypeDef
+]
+
+class AwsElbLoadBalancerPoliciesOutputTypeDef(TypedDict):
+    AppCookieStickinessPolicies: NotRequired[List[AwsElbAppCookieStickinessPolicyTypeDef]]
+    LbCookieStickinessPolicies: NotRequired[List[AwsElbLbCookieStickinessPolicyTypeDef]]
+    OtherPolicies: NotRequired[List[str]]
+
+class AwsElbLoadBalancerPoliciesTypeDef(TypedDict):
+    AppCookieStickinessPolicies: NotRequired[Sequence[AwsElbAppCookieStickinessPolicyTypeDef]]
+    LbCookieStickinessPolicies: NotRequired[Sequence[AwsElbLbCookieStickinessPolicyTypeDef]]
+    OtherPolicies: NotRequired[Sequence[str]]
+
+class AwsElbLoadBalancerAttributesOutputTypeDef(TypedDict):
+    AccessLog: NotRequired[AwsElbLoadBalancerAccessLogTypeDef]
+    ConnectionDraining: NotRequired[AwsElbLoadBalancerConnectionDrainingTypeDef]
+    ConnectionSettings: NotRequired[AwsElbLoadBalancerConnectionSettingsTypeDef]
+    CrossZoneLoadBalancing: NotRequired[AwsElbLoadBalancerCrossZoneLoadBalancingTypeDef]
+    AdditionalAttributes: NotRequired[List[AwsElbLoadBalancerAdditionalAttributeTypeDef]]
+
+class AwsElbLoadBalancerAttributesTypeDef(TypedDict):
+    AccessLog: NotRequired[AwsElbLoadBalancerAccessLogTypeDef]
+    ConnectionDraining: NotRequired[AwsElbLoadBalancerConnectionDrainingTypeDef]
+    ConnectionSettings: NotRequired[AwsElbLoadBalancerConnectionSettingsTypeDef]
+    CrossZoneLoadBalancing: NotRequired[AwsElbLoadBalancerCrossZoneLoadBalancingTypeDef]
+    AdditionalAttributes: NotRequired[Sequence[AwsElbLoadBalancerAdditionalAttributeTypeDef]]
+
+AwsElbLoadBalancerBackendServerDescriptionUnionTypeDef = Union[
+    AwsElbLoadBalancerBackendServerDescriptionTypeDef,
+    AwsElbLoadBalancerBackendServerDescriptionOutputTypeDef,
+]
+
+class AwsElbLoadBalancerListenerDescriptionOutputTypeDef(TypedDict):
+    Listener: NotRequired[AwsElbLoadBalancerListenerTypeDef]
+    PolicyNames: NotRequired[List[str]]
+
+class AwsElbLoadBalancerListenerDescriptionTypeDef(TypedDict):
+    Listener: NotRequired[AwsElbLoadBalancerListenerTypeDef]
+    PolicyNames: NotRequired[Sequence[str]]
+
+AwsElbv2LoadBalancerDetailsOutputTypeDef = TypedDict(
+    "AwsElbv2LoadBalancerDetailsOutputTypeDef",
+    {
+        "AvailabilityZones": NotRequired[List[AvailabilityZoneTypeDef]],
+        "CanonicalHostedZoneId": NotRequired[str],
+        "CreatedTime": NotRequired[str],
+        "DNSName": NotRequired[str],
+        "IpAddressType": NotRequired[str],
+        "Scheme": NotRequired[str],
+        "SecurityGroups": NotRequired[List[str]],
+        "State": NotRequired[LoadBalancerStateTypeDef],
+        "Type": NotRequired[str],
+        "VpcId": NotRequired[str],
+        "LoadBalancerAttributes": NotRequired[List[AwsElbv2LoadBalancerAttributeTypeDef]],
+    },
+)
+AwsElbv2LoadBalancerDetailsTypeDef = TypedDict(
+    "AwsElbv2LoadBalancerDetailsTypeDef",
+    {
+        "AvailabilityZones": NotRequired[Sequence[AvailabilityZoneTypeDef]],
+        "CanonicalHostedZoneId": NotRequired[str],
+        "CreatedTime": NotRequired[str],
+        "DNSName": NotRequired[str],
+        "IpAddressType": NotRequired[str],
+        "Scheme": NotRequired[str],
+        "SecurityGroups": NotRequired[Sequence[str]],
+        "State": NotRequired[LoadBalancerStateTypeDef],
+        "Type": NotRequired[str],
+        "VpcId": NotRequired[str],
+        "LoadBalancerAttributes": NotRequired[Sequence[AwsElbv2LoadBalancerAttributeTypeDef]],
+    },
+)
+
+class AwsEventsEndpointRoutingConfigFailoverConfigDetailsTypeDef(TypedDict):
+    Primary: NotRequired[AwsEventsEndpointRoutingConfigFailoverConfigPrimaryDetailsTypeDef]
+    Secondary: NotRequired[AwsEventsEndpointRoutingConfigFailoverConfigSecondaryDetailsTypeDef]
+
+class AwsGuardDutyDetectorDataSourcesKubernetesDetailsTypeDef(TypedDict):
+    AuditLogs: NotRequired[AwsGuardDutyDetectorDataSourcesKubernetesAuditLogsDetailsTypeDef]
+
+class AwsGuardDutyDetectorDataSourcesMalwareProtectionScanEc2InstanceWithFindingsDetailsTypeDef(
+    TypedDict
+):
+    EbsVolumes: NotRequired[
+        AwsGuardDutyDetectorDataSourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesDetailsTypeDef
+    ]
+
+class AwsIamAccessKeySessionContextTypeDef(TypedDict):
+    Attributes: NotRequired[AwsIamAccessKeySessionContextAttributesTypeDef]
+    SessionIssuer: NotRequired[AwsIamAccessKeySessionContextSessionIssuerTypeDef]
+
+class AwsIamGroupDetailsOutputTypeDef(TypedDict):
+    AttachedManagedPolicies: NotRequired[List[AwsIamAttachedManagedPolicyTypeDef]]
+    CreateDate: NotRequired[str]
+    GroupId: NotRequired[str]
+    GroupName: NotRequired[str]
+    GroupPolicyList: NotRequired[List[AwsIamGroupPolicyTypeDef]]
+    Path: NotRequired[str]
+
+class AwsIamGroupDetailsTypeDef(TypedDict):
+    AttachedManagedPolicies: NotRequired[Sequence[AwsIamAttachedManagedPolicyTypeDef]]
+    CreateDate: NotRequired[str]
+    GroupId: NotRequired[str]
+    GroupName: NotRequired[str]
+    GroupPolicyList: NotRequired[Sequence[AwsIamGroupPolicyTypeDef]]
+    Path: NotRequired[str]
+
+class AwsIamInstanceProfileOutputTypeDef(TypedDict):
+    Arn: NotRequired[str]
+    CreateDate: NotRequired[str]
+    InstanceProfileId: NotRequired[str]
+    InstanceProfileName: NotRequired[str]
+    Path: NotRequired[str]
+    Roles: NotRequired[List[AwsIamInstanceProfileRoleTypeDef]]
+
+class AwsIamInstanceProfileTypeDef(TypedDict):
+    Arn: NotRequired[str]
+    CreateDate: NotRequired[str]
+    InstanceProfileId: NotRequired[str]
+    InstanceProfileName: NotRequired[str]
+    Path: NotRequired[str]
+    Roles: NotRequired[Sequence[AwsIamInstanceProfileRoleTypeDef]]
+
+class AwsIamPolicyDetailsOutputTypeDef(TypedDict):
+    AttachmentCount: NotRequired[int]
+    CreateDate: NotRequired[str]
+    DefaultVersionId: NotRequired[str]
+    Description: NotRequired[str]
+    IsAttachable: NotRequired[bool]
+    Path: NotRequired[str]
+    PermissionsBoundaryUsageCount: NotRequired[int]
+    PolicyId: NotRequired[str]
+    PolicyName: NotRequired[str]
+    PolicyVersionList: NotRequired[List[AwsIamPolicyVersionTypeDef]]
+    UpdateDate: NotRequired[str]
+
+class AwsIamPolicyDetailsTypeDef(TypedDict):
+    AttachmentCount: NotRequired[int]
+    CreateDate: NotRequired[str]
+    DefaultVersionId: NotRequired[str]
+    Description: NotRequired[str]
+    IsAttachable: NotRequired[bool]
+    Path: NotRequired[str]
+    PermissionsBoundaryUsageCount: NotRequired[int]
+    PolicyId: NotRequired[str]
+    PolicyName: NotRequired[str]
+    PolicyVersionList: NotRequired[Sequence[AwsIamPolicyVersionTypeDef]]
+    UpdateDate: NotRequired[str]
+
+class AwsIamUserDetailsOutputTypeDef(TypedDict):
+    AttachedManagedPolicies: NotRequired[List[AwsIamAttachedManagedPolicyTypeDef]]
+    CreateDate: NotRequired[str]
+    GroupList: NotRequired[List[str]]
+    Path: NotRequired[str]
+    PermissionsBoundary: NotRequired[AwsIamPermissionsBoundaryTypeDef]
+    UserId: NotRequired[str]
+    UserName: NotRequired[str]
+    UserPolicyList: NotRequired[List[AwsIamUserPolicyTypeDef]]
+
+class AwsIamUserDetailsTypeDef(TypedDict):
+    AttachedManagedPolicies: NotRequired[Sequence[AwsIamAttachedManagedPolicyTypeDef]]
+    CreateDate: NotRequired[str]
+    GroupList: NotRequired[Sequence[str]]
+    Path: NotRequired[str]
+    PermissionsBoundary: NotRequired[AwsIamPermissionsBoundaryTypeDef]
+    UserId: NotRequired[str]
+    UserName: NotRequired[str]
+    UserPolicyList: NotRequired[Sequence[AwsIamUserPolicyTypeDef]]
+
+class AwsKinesisStreamDetailsTypeDef(TypedDict):
+    Name: NotRequired[str]
+    Arn: NotRequired[str]
+    StreamEncryption: NotRequired[AwsKinesisStreamStreamEncryptionDetailsTypeDef]
+    ShardCount: NotRequired[int]
+    RetentionPeriodHours: NotRequired[int]
+
+class AwsLambdaFunctionEnvironmentOutputTypeDef(TypedDict):
+    Variables: NotRequired[Dict[str, str]]
+    Error: NotRequired[AwsLambdaFunctionEnvironmentErrorTypeDef]
+
+class AwsLambdaFunctionEnvironmentTypeDef(TypedDict):
+    Variables: NotRequired[Mapping[str, str]]
+    Error: NotRequired[AwsLambdaFunctionEnvironmentErrorTypeDef]
+
+AwsLambdaFunctionVpcConfigUnionTypeDef = Union[
+    AwsLambdaFunctionVpcConfigTypeDef, AwsLambdaFunctionVpcConfigOutputTypeDef
+]
+AwsLambdaLayerVersionDetailsUnionTypeDef = Union[
+    AwsLambdaLayerVersionDetailsTypeDef, AwsLambdaLayerVersionDetailsOutputTypeDef
+]
+
+class AwsMskClusterClusterInfoClientAuthenticationSaslDetailsTypeDef(TypedDict):
+    Iam: NotRequired[AwsMskClusterClusterInfoClientAuthenticationSaslIamDetailsTypeDef]
+    Scram: NotRequired[AwsMskClusterClusterInfoClientAuthenticationSaslScramDetailsTypeDef]
+
+AwsMskClusterClusterInfoClientAuthenticationTlsDetailsUnionTypeDef = Union[
+    AwsMskClusterClusterInfoClientAuthenticationTlsDetailsTypeDef,
+    AwsMskClusterClusterInfoClientAuthenticationTlsDetailsOutputTypeDef,
+]
+
+class AwsMskClusterClusterInfoEncryptionInfoDetailsTypeDef(TypedDict):
+    EncryptionInTransit: NotRequired[
+        AwsMskClusterClusterInfoEncryptionInfoEncryptionInTransitDetailsTypeDef
+    ]
+    EncryptionAtRest: NotRequired[
+        AwsMskClusterClusterInfoEncryptionInfoEncryptionAtRestDetailsTypeDef
+    ]
+
+class AwsNetworkFirewallFirewallDetailsOutputTypeDef(TypedDict):
+    DeleteProtection: NotRequired[bool]
+    Description: NotRequired[str]
+    FirewallArn: NotRequired[str]
+    FirewallId: NotRequired[str]
+    FirewallName: NotRequired[str]
+    FirewallPolicyArn: NotRequired[str]
+    FirewallPolicyChangeProtection: NotRequired[bool]
+    SubnetChangeProtection: NotRequired[bool]
+    SubnetMappings: NotRequired[List[AwsNetworkFirewallFirewallSubnetMappingsDetailsTypeDef]]
+    VpcId: NotRequired[str]
+
+class AwsNetworkFirewallFirewallDetailsTypeDef(TypedDict):
+    DeleteProtection: NotRequired[bool]
+    Description: NotRequired[str]
+    FirewallArn: NotRequired[str]
+    FirewallId: NotRequired[str]
+    FirewallName: NotRequired[str]
+    FirewallPolicyArn: NotRequired[str]
+    FirewallPolicyChangeProtection: NotRequired[bool]
+    SubnetChangeProtection: NotRequired[bool]
+    SubnetMappings: NotRequired[Sequence[AwsNetworkFirewallFirewallSubnetMappingsDetailsTypeDef]]
+    VpcId: NotRequired[str]
+
+class AwsOpenSearchServiceDomainAdvancedSecurityOptionsDetailsTypeDef(TypedDict):
+    Enabled: NotRequired[bool]
+    InternalUserDatabaseEnabled: NotRequired[bool]
+    MasterUserOptions: NotRequired[AwsOpenSearchServiceDomainMasterUserOptionsDetailsTypeDef]
+
+class AwsOpenSearchServiceDomainClusterConfigDetailsTypeDef(TypedDict):
+    InstanceCount: NotRequired[int]
+    WarmEnabled: NotRequired[bool]
+    WarmCount: NotRequired[int]
+    DedicatedMasterEnabled: NotRequired[bool]
+    ZoneAwarenessConfig: NotRequired[
+        AwsOpenSearchServiceDomainClusterConfigZoneAwarenessConfigDetailsTypeDef
+    ]
+    DedicatedMasterCount: NotRequired[int]
+    InstanceType: NotRequired[str]
+    WarmType: NotRequired[str]
+    ZoneAwarenessEnabled: NotRequired[bool]
+    DedicatedMasterType: NotRequired[str]
+
+class AwsOpenSearchServiceDomainLogPublishingOptionsDetailsTypeDef(TypedDict):
+    IndexSlowLogs: NotRequired[AwsOpenSearchServiceDomainLogPublishingOptionTypeDef]
+    SearchSlowLogs: NotRequired[AwsOpenSearchServiceDomainLogPublishingOptionTypeDef]
+    AuditLogs: NotRequired[AwsOpenSearchServiceDomainLogPublishingOptionTypeDef]
+
+AwsOpenSearchServiceDomainVpcOptionsDetailsUnionTypeDef = Union[
+    AwsOpenSearchServiceDomainVpcOptionsDetailsTypeDef,
+    AwsOpenSearchServiceDomainVpcOptionsDetailsOutputTypeDef,
+]
+
+class AwsRdsDbClusterDetailsOutputTypeDef(TypedDict):
+    AllocatedStorage: NotRequired[int]
+    AvailabilityZones: NotRequired[List[str]]
+    BackupRetentionPeriod: NotRequired[int]
+    DatabaseName: NotRequired[str]
+    Status: NotRequired[str]
+    Endpoint: NotRequired[str]
+    ReaderEndpoint: NotRequired[str]
+    CustomEndpoints: NotRequired[List[str]]
+    MultiAz: NotRequired[bool]
+    Engine: NotRequired[str]
+    EngineVersion: NotRequired[str]
+    Port: NotRequired[int]
+    MasterUsername: NotRequired[str]
+    PreferredBackupWindow: NotRequired[str]
+    PreferredMaintenanceWindow: NotRequired[str]
+    ReadReplicaIdentifiers: NotRequired[List[str]]
+    VpcSecurityGroups: NotRequired[List[AwsRdsDbInstanceVpcSecurityGroupTypeDef]]
+    HostedZoneId: NotRequired[str]
+    StorageEncrypted: NotRequired[bool]
+    KmsKeyId: NotRequired[str]
+    DbClusterResourceId: NotRequired[str]
+    AssociatedRoles: NotRequired[List[AwsRdsDbClusterAssociatedRoleTypeDef]]
+    ClusterCreateTime: NotRequired[str]
+    EnabledCloudWatchLogsExports: NotRequired[List[str]]
+    EngineMode: NotRequired[str]
+    DeletionProtection: NotRequired[bool]
+    HttpEndpointEnabled: NotRequired[bool]
+    ActivityStreamStatus: NotRequired[str]
+    CopyTagsToSnapshot: NotRequired[bool]
+    CrossAccountClone: NotRequired[bool]
+    DomainMemberships: NotRequired[List[AwsRdsDbDomainMembershipTypeDef]]
+    DbClusterParameterGroup: NotRequired[str]
+    DbSubnetGroup: NotRequired[str]
+    DbClusterOptionGroupMemberships: NotRequired[List[AwsRdsDbClusterOptionGroupMembershipTypeDef]]
+    DbClusterIdentifier: NotRequired[str]
+    DbClusterMembers: NotRequired[List[AwsRdsDbClusterMemberTypeDef]]
+    IamDatabaseAuthenticationEnabled: NotRequired[bool]
+    AutoMinorVersionUpgrade: NotRequired[bool]
+
+class AwsRdsDbClusterDetailsTypeDef(TypedDict):
+    AllocatedStorage: NotRequired[int]
+    AvailabilityZones: NotRequired[Sequence[str]]
+    BackupRetentionPeriod: NotRequired[int]
+    DatabaseName: NotRequired[str]
+    Status: NotRequired[str]
+    Endpoint: NotRequired[str]
+    ReaderEndpoint: NotRequired[str]
+    CustomEndpoints: NotRequired[Sequence[str]]
+    MultiAz: NotRequired[bool]
+    Engine: NotRequired[str]
+    EngineVersion: NotRequired[str]
+    Port: NotRequired[int]
+    MasterUsername: NotRequired[str]
+    PreferredBackupWindow: NotRequired[str]
+    PreferredMaintenanceWindow: NotRequired[str]
+    ReadReplicaIdentifiers: NotRequired[Sequence[str]]
+    VpcSecurityGroups: NotRequired[Sequence[AwsRdsDbInstanceVpcSecurityGroupTypeDef]]
+    HostedZoneId: NotRequired[str]
+    StorageEncrypted: NotRequired[bool]
+    KmsKeyId: NotRequired[str]
+    DbClusterResourceId: NotRequired[str]
+    AssociatedRoles: NotRequired[Sequence[AwsRdsDbClusterAssociatedRoleTypeDef]]
+    ClusterCreateTime: NotRequired[str]
+    EnabledCloudWatchLogsExports: NotRequired[Sequence[str]]
+    EngineMode: NotRequired[str]
+    DeletionProtection: NotRequired[bool]
+    HttpEndpointEnabled: NotRequired[bool]
+    ActivityStreamStatus: NotRequired[str]
+    CopyTagsToSnapshot: NotRequired[bool]
+    CrossAccountClone: NotRequired[bool]
+    DomainMemberships: NotRequired[Sequence[AwsRdsDbDomainMembershipTypeDef]]
+    DbClusterParameterGroup: NotRequired[str]
+    DbSubnetGroup: NotRequired[str]
+    DbClusterOptionGroupMemberships: NotRequired[
+        Sequence[AwsRdsDbClusterOptionGroupMembershipTypeDef]
+    ]
+    DbClusterIdentifier: NotRequired[str]
+    DbClusterMembers: NotRequired[Sequence[AwsRdsDbClusterMemberTypeDef]]
+    IamDatabaseAuthenticationEnabled: NotRequired[bool]
+    AutoMinorVersionUpgrade: NotRequired[bool]
+
+class AwsRdsDbClusterSnapshotDetailsOutputTypeDef(TypedDict):
+    AvailabilityZones: NotRequired[List[str]]
+    SnapshotCreateTime: NotRequired[str]
+    Engine: NotRequired[str]
+    AllocatedStorage: NotRequired[int]
+    Status: NotRequired[str]
+    Port: NotRequired[int]
+    VpcId: NotRequired[str]
+    ClusterCreateTime: NotRequired[str]
+    MasterUsername: NotRequired[str]
+    EngineVersion: NotRequired[str]
+    LicenseModel: NotRequired[str]
+    SnapshotType: NotRequired[str]
+    PercentProgress: NotRequired[int]
+    StorageEncrypted: NotRequired[bool]
+    KmsKeyId: NotRequired[str]
+    DbClusterIdentifier: NotRequired[str]
+    DbClusterSnapshotIdentifier: NotRequired[str]
+    IamDatabaseAuthenticationEnabled: NotRequired[bool]
+    DbClusterSnapshotAttributes: NotRequired[
+        List[AwsRdsDbClusterSnapshotDbClusterSnapshotAttributeOutputTypeDef]
+    ]
+
+AwsRdsDbClusterSnapshotDbClusterSnapshotAttributeUnionTypeDef = Union[
+    AwsRdsDbClusterSnapshotDbClusterSnapshotAttributeTypeDef,
+    AwsRdsDbClusterSnapshotDbClusterSnapshotAttributeOutputTypeDef,
+]
+
+class AwsRdsDbSnapshotDetailsOutputTypeDef(TypedDict):
+    DbSnapshotIdentifier: NotRequired[str]
+    DbInstanceIdentifier: NotRequired[str]
+    SnapshotCreateTime: NotRequired[str]
+    Engine: NotRequired[str]
+    AllocatedStorage: NotRequired[int]
+    Status: NotRequired[str]
+    Port: NotRequired[int]
+    AvailabilityZone: NotRequired[str]
+    VpcId: NotRequired[str]
+    InstanceCreateTime: NotRequired[str]
+    MasterUsername: NotRequired[str]
+    EngineVersion: NotRequired[str]
+    LicenseModel: NotRequired[str]
+    SnapshotType: NotRequired[str]
+    Iops: NotRequired[int]
+    OptionGroupName: NotRequired[str]
+    PercentProgress: NotRequired[int]
+    SourceRegion: NotRequired[str]
+    SourceDbSnapshotIdentifier: NotRequired[str]
+    StorageType: NotRequired[str]
+    TdeCredentialArn: NotRequired[str]
+    Encrypted: NotRequired[bool]
+    KmsKeyId: NotRequired[str]
+    Timezone: NotRequired[str]
+    IamDatabaseAuthenticationEnabled: NotRequired[bool]
+    ProcessorFeatures: NotRequired[List[AwsRdsDbProcessorFeatureTypeDef]]
+    DbiResourceId: NotRequired[str]
+
+class AwsRdsDbSnapshotDetailsTypeDef(TypedDict):
+    DbSnapshotIdentifier: NotRequired[str]
+    DbInstanceIdentifier: NotRequired[str]
+    SnapshotCreateTime: NotRequired[str]
+    Engine: NotRequired[str]
+    AllocatedStorage: NotRequired[int]
+    Status: NotRequired[str]
+    Port: NotRequired[int]
+    AvailabilityZone: NotRequired[str]
+    VpcId: NotRequired[str]
+    InstanceCreateTime: NotRequired[str]
+    MasterUsername: NotRequired[str]
+    EngineVersion: NotRequired[str]
+    LicenseModel: NotRequired[str]
+    SnapshotType: NotRequired[str]
+    Iops: NotRequired[int]
+    OptionGroupName: NotRequired[str]
+    PercentProgress: NotRequired[int]
+    SourceRegion: NotRequired[str]
+    SourceDbSnapshotIdentifier: NotRequired[str]
+    StorageType: NotRequired[str]
+    TdeCredentialArn: NotRequired[str]
+    Encrypted: NotRequired[bool]
+    KmsKeyId: NotRequired[str]
+    Timezone: NotRequired[str]
+    IamDatabaseAuthenticationEnabled: NotRequired[bool]
+    ProcessorFeatures: NotRequired[Sequence[AwsRdsDbProcessorFeatureTypeDef]]
+    DbiResourceId: NotRequired[str]
+
+class AwsRdsDbPendingModifiedValuesOutputTypeDef(TypedDict):
+    DbInstanceClass: NotRequired[str]
+    AllocatedStorage: NotRequired[int]
+    MasterUserPassword: NotRequired[str]
+    Port: NotRequired[int]
+    BackupRetentionPeriod: NotRequired[int]
+    MultiAZ: NotRequired[bool]
+    EngineVersion: NotRequired[str]
+    LicenseModel: NotRequired[str]
+    Iops: NotRequired[int]
+    DbInstanceIdentifier: NotRequired[str]
+    StorageType: NotRequired[str]
+    CaCertificateIdentifier: NotRequired[str]
+    DbSubnetGroupName: NotRequired[str]
+    PendingCloudWatchLogsExports: NotRequired[AwsRdsPendingCloudWatchLogsExportsOutputTypeDef]
+    ProcessorFeatures: NotRequired[List[AwsRdsDbProcessorFeatureTypeDef]]
+
+class AwsRdsDbSecurityGroupDetailsOutputTypeDef(TypedDict):
+    DbSecurityGroupArn: NotRequired[str]
+    DbSecurityGroupDescription: NotRequired[str]
+    DbSecurityGroupName: NotRequired[str]
+    Ec2SecurityGroups: NotRequired[List[AwsRdsDbSecurityGroupEc2SecurityGroupTypeDef]]
+    IpRanges: NotRequired[List[AwsRdsDbSecurityGroupIpRangeTypeDef]]
+    OwnerId: NotRequired[str]
+    VpcId: NotRequired[str]
+
+class AwsRdsDbSecurityGroupDetailsTypeDef(TypedDict):
+    DbSecurityGroupArn: NotRequired[str]
+    DbSecurityGroupDescription: NotRequired[str]
+    DbSecurityGroupName: NotRequired[str]
+    Ec2SecurityGroups: NotRequired[Sequence[AwsRdsDbSecurityGroupEc2SecurityGroupTypeDef]]
+    IpRanges: NotRequired[Sequence[AwsRdsDbSecurityGroupIpRangeTypeDef]]
+    OwnerId: NotRequired[str]
+    VpcId: NotRequired[str]
+
+class AwsRdsDbSubnetGroupSubnetTypeDef(TypedDict):
+    SubnetIdentifier: NotRequired[str]
+    SubnetAvailabilityZone: NotRequired[AwsRdsDbSubnetGroupSubnetAvailabilityZoneTypeDef]
+    SubnetStatus: NotRequired[str]
+
+AwsRdsEventSubscriptionDetailsUnionTypeDef = Union[
+    AwsRdsEventSubscriptionDetailsTypeDef, AwsRdsEventSubscriptionDetailsOutputTypeDef
+]
+AwsRdsPendingCloudWatchLogsExportsUnionTypeDef = Union[
+    AwsRdsPendingCloudWatchLogsExportsTypeDef, AwsRdsPendingCloudWatchLogsExportsOutputTypeDef
+]
+
+class AwsRedshiftClusterClusterParameterGroupOutputTypeDef(TypedDict):
+    ClusterParameterStatusList: NotRequired[List[AwsRedshiftClusterClusterParameterStatusTypeDef]]
+    ParameterApplyStatus: NotRequired[str]
+    ParameterGroupName: NotRequired[str]
+
+class AwsRedshiftClusterClusterParameterGroupTypeDef(TypedDict):
+    ClusterParameterStatusList: NotRequired[
+        Sequence[AwsRedshiftClusterClusterParameterStatusTypeDef]
+    ]
+    ParameterApplyStatus: NotRequired[str]
+    ParameterGroupName: NotRequired[str]
+
+class AwsRoute53HostedZoneObjectDetailsTypeDef(TypedDict):
+    Id: NotRequired[str]
+    Name: NotRequired[str]
+    Config: NotRequired[AwsRoute53HostedZoneConfigDetailsTypeDef]
+
+class AwsRoute53QueryLoggingConfigDetailsTypeDef(TypedDict):
+    CloudWatchLogsLogGroupArn: NotRequired[CloudWatchLogsLogGroupArnConfigDetailsTypeDef]
+
+class AwsS3AccessPointDetailsTypeDef(TypedDict):
+    AccessPointArn: NotRequired[str]
+    Alias: NotRequired[str]
+    Bucket: NotRequired[str]
+    BucketAccountId: NotRequired[str]
+    Name: NotRequired[str]
+    NetworkOrigin: NotRequired[str]
+    PublicAccessBlockConfiguration: NotRequired[AwsS3AccountPublicAccessBlockDetailsTypeDef]
+    VpcConfiguration: NotRequired[AwsS3AccessPointVpcConfigurationDetailsTypeDef]
+
+AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetailsTypeDef = TypedDict(
+    "AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetailsTypeDef",
+    {
+        "Prefix": NotRequired[str],
+        "Tag": NotRequired[
+            AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsTagDetailsTypeDef
+        ],
+        "Type": NotRequired[str],
+    },
+)
+
+class AwsS3BucketNotificationConfigurationS3KeyFilterOutputTypeDef(TypedDict):
+    FilterRules: NotRequired[List[AwsS3BucketNotificationConfigurationS3KeyFilterRuleTypeDef]]
+
+class AwsS3BucketNotificationConfigurationS3KeyFilterTypeDef(TypedDict):
+    FilterRules: NotRequired[Sequence[AwsS3BucketNotificationConfigurationS3KeyFilterRuleTypeDef]]
+
+class AwsS3BucketObjectLockConfigurationRuleDetailsTypeDef(TypedDict):
+    DefaultRetention: NotRequired[
+        AwsS3BucketObjectLockConfigurationRuleDefaultRetentionDetailsTypeDef
+    ]
+
+class AwsS3BucketServerSideEncryptionRuleTypeDef(TypedDict):
+    ApplyServerSideEncryptionByDefault: NotRequired[AwsS3BucketServerSideEncryptionByDefaultTypeDef]
+
+class AwsS3BucketWebsiteConfigurationRoutingRuleTypeDef(TypedDict):
+    Condition: NotRequired[AwsS3BucketWebsiteConfigurationRoutingRuleConditionTypeDef]
+    Redirect: NotRequired[AwsS3BucketWebsiteConfigurationRoutingRuleRedirectTypeDef]
+
+class AwsSageMakerNotebookInstanceDetailsOutputTypeDef(TypedDict):
+    AcceleratorTypes: NotRequired[List[str]]
+    AdditionalCodeRepositories: NotRequired[List[str]]
+    DefaultCodeRepository: NotRequired[str]
+    DirectInternetAccess: NotRequired[str]
+    FailureReason: NotRequired[str]
+    InstanceMetadataServiceConfiguration: NotRequired[
+        AwsSageMakerNotebookInstanceMetadataServiceConfigurationDetailsTypeDef
+    ]
+    InstanceType: NotRequired[str]
+    KmsKeyId: NotRequired[str]
+    NetworkInterfaceId: NotRequired[str]
+    NotebookInstanceArn: NotRequired[str]
+    NotebookInstanceLifecycleConfigName: NotRequired[str]
+    NotebookInstanceName: NotRequired[str]
+    NotebookInstanceStatus: NotRequired[str]
+    PlatformIdentifier: NotRequired[str]
+    RoleArn: NotRequired[str]
+    RootAccess: NotRequired[str]
+    SecurityGroups: NotRequired[List[str]]
+    SubnetId: NotRequired[str]
+    Url: NotRequired[str]
+    VolumeSizeInGB: NotRequired[int]
+
+class AwsSageMakerNotebookInstanceDetailsTypeDef(TypedDict):
+    AcceleratorTypes: NotRequired[Sequence[str]]
+    AdditionalCodeRepositories: NotRequired[Sequence[str]]
+    DefaultCodeRepository: NotRequired[str]
+    DirectInternetAccess: NotRequired[str]
+    FailureReason: NotRequired[str]
+    InstanceMetadataServiceConfiguration: NotRequired[
+        AwsSageMakerNotebookInstanceMetadataServiceConfigurationDetailsTypeDef
+    ]
+    InstanceType: NotRequired[str]
+    KmsKeyId: NotRequired[str]
+    NetworkInterfaceId: NotRequired[str]
+    NotebookInstanceArn: NotRequired[str]
+    NotebookInstanceLifecycleConfigName: NotRequired[str]
+    NotebookInstanceName: NotRequired[str]
+    NotebookInstanceStatus: NotRequired[str]
+    PlatformIdentifier: NotRequired[str]
+    RoleArn: NotRequired[str]
+    RootAccess: NotRequired[str]
+    SecurityGroups: NotRequired[Sequence[str]]
+    SubnetId: NotRequired[str]
+    Url: NotRequired[str]
+    VolumeSizeInGB: NotRequired[int]
+
+class AwsSecretsManagerSecretDetailsTypeDef(TypedDict):
+    RotationRules: NotRequired[AwsSecretsManagerSecretRotationRulesTypeDef]
+    RotationOccurredWithinFrequency: NotRequired[bool]
+    KmsKeyId: NotRequired[str]
+    RotationEnabled: NotRequired[bool]
+    RotationLambdaArn: NotRequired[str]
+    Deleted: NotRequired[bool]
+    Name: NotRequired[str]
+    Description: NotRequired[str]
+
+class BatchUpdateFindingsRequestTypeDef(TypedDict):
+    FindingIdentifiers: Sequence[AwsSecurityFindingIdentifierTypeDef]
+    Note: NotRequired[NoteUpdateTypeDef]
+    Severity: NotRequired[SeverityUpdateTypeDef]
+    VerificationState: NotRequired[VerificationStateType]
+    Confidence: NotRequired[int]
+    Criticality: NotRequired[int]
+    Types: NotRequired[Sequence[str]]
+    UserDefinedFields: NotRequired[Mapping[str, str]]
+    Workflow: NotRequired[WorkflowUpdateTypeDef]
+    RelatedFindings: NotRequired[Sequence[RelatedFindingTypeDef]]
+
+class BatchUpdateFindingsUnprocessedFindingTypeDef(TypedDict):
+    FindingIdentifier: AwsSecurityFindingIdentifierTypeDef
+    ErrorCode: str
+    ErrorMessage: str
+
+class AwsSnsTopicDetailsOutputTypeDef(TypedDict):
+    KmsMasterKeyId: NotRequired[str]
+    Subscription: NotRequired[List[AwsSnsTopicSubscriptionTypeDef]]
+    TopicName: NotRequired[str]
+    Owner: NotRequired[str]
+    SqsSuccessFeedbackRoleArn: NotRequired[str]
+    SqsFailureFeedbackRoleArn: NotRequired[str]
+    ApplicationSuccessFeedbackRoleArn: NotRequired[str]
+    FirehoseSuccessFeedbackRoleArn: NotRequired[str]
+    FirehoseFailureFeedbackRoleArn: NotRequired[str]
+    HttpSuccessFeedbackRoleArn: NotRequired[str]
+    HttpFailureFeedbackRoleArn: NotRequired[str]
+
+class AwsSnsTopicDetailsTypeDef(TypedDict):
+    KmsMasterKeyId: NotRequired[str]
+    Subscription: NotRequired[Sequence[AwsSnsTopicSubscriptionTypeDef]]
+    TopicName: NotRequired[str]
+    Owner: NotRequired[str]
+    SqsSuccessFeedbackRoleArn: NotRequired[str]
+    SqsFailureFeedbackRoleArn: NotRequired[str]
+    ApplicationSuccessFeedbackRoleArn: NotRequired[str]
+    FirehoseSuccessFeedbackRoleArn: NotRequired[str]
+    FirehoseFailureFeedbackRoleArn: NotRequired[str]
+    HttpSuccessFeedbackRoleArn: NotRequired[str]
+    HttpFailureFeedbackRoleArn: NotRequired[str]
+
+class AwsSsmPatchTypeDef(TypedDict):
+    ComplianceSummary: NotRequired[AwsSsmComplianceSummaryTypeDef]
+
+class AwsStepFunctionStateMachineLoggingConfigurationDestinationsDetailsTypeDef(TypedDict):
+    CloudWatchLogsLogGroup: NotRequired[
+        AwsStepFunctionStateMachineLoggingConfigurationDestinationsCloudWatchLogsLogGroupDetailsTypeDef
+    ]
+
+class AwsWafRateBasedRuleDetailsOutputTypeDef(TypedDict):
+    MetricName: NotRequired[str]
+    Name: NotRequired[str]
+    RateKey: NotRequired[str]
+    RateLimit: NotRequired[int]
+    RuleId: NotRequired[str]
+    MatchPredicates: NotRequired[List[AwsWafRateBasedRuleMatchPredicateTypeDef]]
+
+class AwsWafRateBasedRuleDetailsTypeDef(TypedDict):
+    MetricName: NotRequired[str]
+    Name: NotRequired[str]
+    RateKey: NotRequired[str]
+    RateLimit: NotRequired[int]
+    RuleId: NotRequired[str]
+    MatchPredicates: NotRequired[Sequence[AwsWafRateBasedRuleMatchPredicateTypeDef]]
+
+class AwsWafRegionalRateBasedRuleDetailsOutputTypeDef(TypedDict):
+    MetricName: NotRequired[str]
+    Name: NotRequired[str]
+    RateKey: NotRequired[str]
+    RateLimit: NotRequired[int]
+    RuleId: NotRequired[str]
+    MatchPredicates: NotRequired[List[AwsWafRegionalRateBasedRuleMatchPredicateTypeDef]]
+
+class AwsWafRegionalRateBasedRuleDetailsTypeDef(TypedDict):
+    MetricName: NotRequired[str]
+    Name: NotRequired[str]
+    RateKey: NotRequired[str]
+    RateLimit: NotRequired[int]
+    RuleId: NotRequired[str]
+    MatchPredicates: NotRequired[Sequence[AwsWafRegionalRateBasedRuleMatchPredicateTypeDef]]
+
+class AwsWafRegionalRuleDetailsOutputTypeDef(TypedDict):
+    MetricName: NotRequired[str]
+    Name: NotRequired[str]
+    PredicateList: NotRequired[List[AwsWafRegionalRulePredicateListDetailsTypeDef]]
+    RuleId: NotRequired[str]
+
+class AwsWafRegionalRuleDetailsTypeDef(TypedDict):
+    MetricName: NotRequired[str]
+    Name: NotRequired[str]
+    PredicateList: NotRequired[Sequence[AwsWafRegionalRulePredicateListDetailsTypeDef]]
+    RuleId: NotRequired[str]
+
+AwsWafRegionalRuleGroupRulesDetailsTypeDef = TypedDict(
+    "AwsWafRegionalRuleGroupRulesDetailsTypeDef",
+    {
+        "Action": NotRequired[AwsWafRegionalRuleGroupRulesActionDetailsTypeDef],
+        "Priority": NotRequired[int],
+        "RuleId": NotRequired[str],
+        "Type": NotRequired[str],
+    },
+)
+AwsWafRegionalWebAclRulesListDetailsTypeDef = TypedDict(
+    "AwsWafRegionalWebAclRulesListDetailsTypeDef",
+    {
+        "Action": NotRequired[AwsWafRegionalWebAclRulesListActionDetailsTypeDef],
+        "OverrideAction": NotRequired[AwsWafRegionalWebAclRulesListOverrideActionDetailsTypeDef],
+        "Priority": NotRequired[int],
+        "RuleId": NotRequired[str],
+        "Type": NotRequired[str],
+    },
+)
+
+class AwsWafRuleDetailsOutputTypeDef(TypedDict):
+    MetricName: NotRequired[str]
+    Name: NotRequired[str]
+    PredicateList: NotRequired[List[AwsWafRulePredicateListDetailsTypeDef]]
+    RuleId: NotRequired[str]
+
+class AwsWafRuleDetailsTypeDef(TypedDict):
+    MetricName: NotRequired[str]
+    Name: NotRequired[str]
+    PredicateList: NotRequired[Sequence[AwsWafRulePredicateListDetailsTypeDef]]
+    RuleId: NotRequired[str]
+
+AwsWafRuleGroupRulesDetailsTypeDef = TypedDict(
+    "AwsWafRuleGroupRulesDetailsTypeDef",
+    {
+        "Action": NotRequired[AwsWafRuleGroupRulesActionDetailsTypeDef],
+        "Priority": NotRequired[int],
+        "RuleId": NotRequired[str],
+        "Type": NotRequired[str],
+    },
+)
+AwsWafWebAclRuleOutputTypeDef = TypedDict(
+    "AwsWafWebAclRuleOutputTypeDef",
+    {
+        "Action": NotRequired[WafActionTypeDef],
+        "ExcludedRules": NotRequired[List[WafExcludedRuleTypeDef]],
+        "OverrideAction": NotRequired[WafOverrideActionTypeDef],
+        "Priority": NotRequired[int],
+        "RuleId": NotRequired[str],
+        "Type": NotRequired[str],
+    },
+)
+AwsWafWebAclRuleTypeDef = TypedDict(
+    "AwsWafWebAclRuleTypeDef",
+    {
+        "Action": NotRequired[WafActionTypeDef],
+        "ExcludedRules": NotRequired[Sequence[WafExcludedRuleTypeDef]],
+        "OverrideAction": NotRequired[WafOverrideActionTypeDef],
+        "Priority": NotRequired[int],
+        "RuleId": NotRequired[str],
+        "Type": NotRequired[str],
+    },
+)
+
+class AwsWafv2CustomRequestHandlingDetailsOutputTypeDef(TypedDict):
+    InsertHeaders: NotRequired[List[AwsWafv2CustomHttpHeaderTypeDef]]
+
+class AwsWafv2CustomRequestHandlingDetailsTypeDef(TypedDict):
+    InsertHeaders: NotRequired[Sequence[AwsWafv2CustomHttpHeaderTypeDef]]
+
+class AwsWafv2CustomResponseDetailsOutputTypeDef(TypedDict):
+    CustomResponseBodyKey: NotRequired[str]
+    ResponseCode: NotRequired[int]
+    ResponseHeaders: NotRequired[List[AwsWafv2CustomHttpHeaderTypeDef]]
+
+class AwsWafv2CustomResponseDetailsTypeDef(TypedDict):
+    CustomResponseBodyKey: NotRequired[str]
+    ResponseCode: NotRequired[int]
+    ResponseHeaders: NotRequired[Sequence[AwsWafv2CustomHttpHeaderTypeDef]]
+
+class AwsWafv2WebAclCaptchaConfigDetailsTypeDef(TypedDict):
+    ImmunityTimeProperty: NotRequired[AwsWafv2WebAclCaptchaConfigImmunityTimePropertyDetailsTypeDef]
+
+class CreateActionTargetResponseTypeDef(TypedDict):
+    ActionTargetArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateAutomationRuleResponseTypeDef(TypedDict):
+    RuleArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateFindingAggregatorResponseTypeDef(TypedDict):
+    FindingAggregatorArn: str
+    FindingAggregationRegion: str
+    RegionLinkingMode: str
+    Regions: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateInsightResponseTypeDef(TypedDict):
+    InsightArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteActionTargetResponseTypeDef(TypedDict):
+    ActionTargetArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteInsightResponseTypeDef(TypedDict):
+    InsightArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeActionTargetsResponseTypeDef(TypedDict):
+    ActionTargets: List[ActionTargetTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class DescribeHubResponseTypeDef(TypedDict):
+    HubArn: str
+    SubscribedAt: str
+    AutoEnableControls: bool
+    ControlFindingGenerator: ControlFindingGeneratorType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class EnableImportFindingsForProductResponseTypeDef(TypedDict):
+    ProductSubscriptionArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetConfigurationPolicyAssociationResponseTypeDef(TypedDict):
+    ConfigurationPolicyId: str
+    TargetId: str
+    TargetType: TargetTypeType
+    AssociationType: AssociationTypeType
+    UpdatedAt: datetime
+    AssociationStatus: ConfigurationPolicyAssociationStatusType
+    AssociationStatusMessage: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetFindingAggregatorResponseTypeDef(TypedDict):
+    FindingAggregatorArn: str
+    FindingAggregationRegion: str
+    RegionLinkingMode: str
+    Regions: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetInvitationsCountResponseTypeDef(TypedDict):
+    InvitationsCount: int
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListAutomationRulesResponseTypeDef(TypedDict):
+    AutomationRulesMetadata: List[AutomationRulesMetadataTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListEnabledProductsForImportResponseTypeDef(TypedDict):
+    ProductSubscriptions: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListOrganizationAdminAccountsResponseTypeDef(TypedDict):
+    AdminAccounts: List[AdminAccountTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    Tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartConfigurationPolicyAssociationResponseTypeDef(TypedDict):
+    ConfigurationPolicyId: str
+    TargetId: str
+    TargetType: TargetTypeType
+    AssociationType: AssociationTypeType
+    UpdatedAt: datetime
+    AssociationStatus: ConfigurationPolicyAssociationStatusType
+    AssociationStatusMessage: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateFindingAggregatorResponseTypeDef(TypedDict):
+    FindingAggregatorArn: str
+    FindingAggregationRegion: str
+    RegionLinkingMode: str
+    Regions: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class BatchDeleteAutomationRulesResponseTypeDef(TypedDict):
+    ProcessedAutomationRules: List[str]
+    UnprocessedAutomationRules: List[UnprocessedAutomationRuleTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class BatchUpdateAutomationRulesResponseTypeDef(TypedDict):
+    ProcessedAutomationRules: List[str]
+    UnprocessedAutomationRules: List[UnprocessedAutomationRuleTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class BatchEnableStandardsRequestTypeDef(TypedDict):
+    StandardsSubscriptionRequests: Sequence[StandardsSubscriptionRequestTypeDef]
+
+class ListConfigurationPolicyAssociationsResponseTypeDef(TypedDict):
+    ConfigurationPolicyAssociationSummaries: List[ConfigurationPolicyAssociationSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class BatchGetStandardsControlAssociationsRequestTypeDef(TypedDict):
+    StandardsControlAssociationIds: Sequence[StandardsControlAssociationIdTypeDef]
+
+class UnprocessedStandardsControlAssociationTypeDef(TypedDict):
+    StandardsControlAssociationId: StandardsControlAssociationIdTypeDef
+    ErrorCode: UnprocessedErrorCodeType
+    ErrorReason: NotRequired[str]
+
+class BatchImportFindingsResponseTypeDef(TypedDict):
+    FailedCount: int
+    SuccessCount: int
+    FailedFindings: List[ImportFindingsErrorTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class BatchUpdateStandardsControlAssociationsRequestTypeDef(TypedDict):
+    StandardsControlAssociationUpdates: Sequence[StandardsControlAssociationUpdateTypeDef]
+
+class UnprocessedStandardsControlAssociationUpdateTypeDef(TypedDict):
+    StandardsControlAssociationUpdate: StandardsControlAssociationUpdateTypeDef
+    ErrorCode: UnprocessedErrorCodeType
+    ErrorReason: NotRequired[str]
+
+class VulnerabilityCodeVulnerabilitiesOutputTypeDef(TypedDict):
+    Cwes: NotRequired[List[str]]
+    FilePath: NotRequired[CodeVulnerabilitiesFilePathTypeDef]
+    SourceArn: NotRequired[str]
+
+class VulnerabilityCodeVulnerabilitiesTypeDef(TypedDict):
+    Cwes: NotRequired[Sequence[str]]
+    FilePath: NotRequired[CodeVulnerabilitiesFilePathTypeDef]
+    SourceArn: NotRequired[str]
+
+class ComplianceOutputTypeDef(TypedDict):
+    Status: NotRequired[ComplianceStatusType]
+    RelatedRequirements: NotRequired[List[str]]
+    StatusReasons: NotRequired[List[StatusReasonTypeDef]]
+    SecurityControlId: NotRequired[str]
+    AssociatedStandards: NotRequired[List[AssociatedStandardTypeDef]]
+    SecurityControlParameters: NotRequired[List[SecurityControlParameterOutputTypeDef]]
+
+class ConfigurationOptionsTypeDef(TypedDict):
+    Integer: NotRequired[IntegerConfigurationOptionsTypeDef]
+    IntegerList: NotRequired[IntegerListConfigurationOptionsTypeDef]
+    Double: NotRequired[DoubleConfigurationOptionsTypeDef]
+    String: NotRequired[StringConfigurationOptionsTypeDef]
+    StringList: NotRequired[StringListConfigurationOptionsTypeDef]
+    Boolean: NotRequired[BooleanConfigurationOptionsTypeDef]
+    Enum: NotRequired[EnumConfigurationOptionsTypeDef]
+    EnumList: NotRequired[EnumListConfigurationOptionsTypeDef]
+
+class ConfigurationPolicyAssociationTypeDef(TypedDict):
+    Target: NotRequired[TargetTypeDef]
+
+class GetConfigurationPolicyAssociationRequestTypeDef(TypedDict):
+    Target: TargetTypeDef
+
+class StartConfigurationPolicyAssociationRequestTypeDef(TypedDict):
+    ConfigurationPolicyIdentifier: str
+    Target: TargetTypeDef
+
+class StartConfigurationPolicyDisassociationRequestTypeDef(TypedDict):
+    ConfigurationPolicyIdentifier: str
+    Target: NotRequired[TargetTypeDef]
+
+class ListConfigurationPoliciesResponseTypeDef(TypedDict):
+    ConfigurationPolicySummaries: List[ConfigurationPolicySummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ContainerDetailsOutputTypeDef(TypedDict):
+    ContainerRuntime: NotRequired[str]
+    Name: NotRequired[str]
+    ImageId: NotRequired[str]
+    ImageName: NotRequired[str]
+    LaunchedAt: NotRequired[str]
+    VolumeMounts: NotRequired[List[VolumeMountTypeDef]]
+    Privileged: NotRequired[bool]
+
+class ContainerDetailsTypeDef(TypedDict):
+    ContainerRuntime: NotRequired[str]
+    Name: NotRequired[str]
+    ImageId: NotRequired[str]
+    ImageName: NotRequired[str]
+    LaunchedAt: NotRequired[str]
+    VolumeMounts: NotRequired[Sequence[VolumeMountTypeDef]]
+    Privileged: NotRequired[bool]
+
+class CreateMembersResponseTypeDef(TypedDict):
+    UnprocessedAccounts: List[ResultTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeclineInvitationsResponseTypeDef(TypedDict):
+    UnprocessedAccounts: List[ResultTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteInvitationsResponseTypeDef(TypedDict):
+    UnprocessedAccounts: List[ResultTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteMembersResponseTypeDef(TypedDict):
+    UnprocessedAccounts: List[ResultTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class InviteMembersResponseTypeDef(TypedDict):
+    UnprocessedAccounts: List[ResultTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DateFilterTypeDef(TypedDict):
+    Start: NotRequired[str]
+    End: NotRequired[str]
+    DateRange: NotRequired[DateRangeTypeDef]
+
+class DescribeActionTargetsRequestPaginateTypeDef(TypedDict):
+    ActionTargetArns: NotRequired[Sequence[str]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeProductsRequestPaginateTypeDef(TypedDict):
+    ProductArn: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeStandardsControlsRequestPaginateTypeDef(TypedDict):
+    StandardsSubscriptionArn: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeStandardsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class GetEnabledStandardsRequestPaginateTypeDef(TypedDict):
+    StandardsSubscriptionArns: NotRequired[Sequence[str]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class GetInsightsRequestPaginateTypeDef(TypedDict):
+    InsightArns: NotRequired[Sequence[str]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListConfigurationPoliciesRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListConfigurationPolicyAssociationsRequestPaginateTypeDef(TypedDict):
+    Filters: NotRequired[AssociationFiltersTypeDef]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListEnabledProductsForImportRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListFindingAggregatorsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListInvitationsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListMembersRequestPaginateTypeDef(TypedDict):
+    OnlyAssociated: NotRequired[bool]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListOrganizationAdminAccountsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListSecurityControlDefinitionsRequestPaginateTypeDef(TypedDict):
+    StandardsArn: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListStandardsControlAssociationsRequestPaginateTypeDef(TypedDict):
+    SecurityControlId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeOrganizationConfigurationResponseTypeDef(TypedDict):
+    AutoEnable: bool
+    MemberAccountLimitReached: bool
+    AutoEnableStandards: AutoEnableStandardsType
+    OrganizationConfiguration: OrganizationConfigurationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateOrganizationConfigurationRequestTypeDef(TypedDict):
+    AutoEnable: bool
+    AutoEnableStandards: NotRequired[AutoEnableStandardsType]
+    OrganizationConfiguration: NotRequired[OrganizationConfigurationTypeDef]
+
+class DescribeProductsResponseTypeDef(TypedDict):
+    Products: List[ProductTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class DescribeStandardsControlsResponseTypeDef(TypedDict):
+    Controls: List[StandardsControlTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ThreatOutputTypeDef(TypedDict):
+    Name: NotRequired[str]
+    Severity: NotRequired[str]
+    ItemCount: NotRequired[int]
+    FilePaths: NotRequired[List[FilePathsTypeDef]]
+
+class ThreatTypeDef(TypedDict):
+    Name: NotRequired[str]
+    Severity: NotRequired[str]
+    ItemCount: NotRequired[int]
+    FilePaths: NotRequired[Sequence[FilePathsTypeDef]]
+
+class ListFindingAggregatorsResponseTypeDef(TypedDict):
+    FindingAggregators: List[FindingAggregatorTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class FindingHistoryRecordTypeDef(TypedDict):
+    FindingIdentifier: NotRequired[AwsSecurityFindingIdentifierTypeDef]
+    UpdateTime: NotRequired[datetime]
+    FindingCreated: NotRequired[bool]
+    UpdateSource: NotRequired[FindingHistoryUpdateSourceTypeDef]
+    Updates: NotRequired[List[FindingHistoryUpdateTypeDef]]
+    NextToken: NotRequired[str]
+
+class FindingProviderFieldsOutputTypeDef(TypedDict):
+    Confidence: NotRequired[int]
+    Criticality: NotRequired[int]
+    RelatedFindings: NotRequired[List[RelatedFindingTypeDef]]
+    Severity: NotRequired[FindingProviderSeverityTypeDef]
+    Types: NotRequired[List[str]]
+
+class FindingProviderFieldsTypeDef(TypedDict):
+    Confidence: NotRequired[int]
+    Criticality: NotRequired[int]
+    RelatedFindings: NotRequired[Sequence[RelatedFindingTypeDef]]
+    Severity: NotRequired[FindingProviderSeverityTypeDef]
+    Types: NotRequired[Sequence[str]]
+
+GeneratorDetailsUnionTypeDef = Union[GeneratorDetailsTypeDef, GeneratorDetailsOutputTypeDef]
+
+class GetAdministratorAccountResponseTypeDef(TypedDict):
+    Administrator: InvitationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetMasterAccountResponseTypeDef(TypedDict):
+    Master: InvitationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListInvitationsResponseTypeDef(TypedDict):
+    Invitations: List[InvitationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class GetFindingHistoryRequestPaginateTypeDef(TypedDict):
+    FindingIdentifier: AwsSecurityFindingIdentifierTypeDef
+    StartTime: NotRequired[TimestampTypeDef]
+    EndTime: NotRequired[TimestampTypeDef]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class GetFindingHistoryRequestTypeDef(TypedDict):
+    FindingIdentifier: AwsSecurityFindingIdentifierTypeDef
+    StartTime: NotRequired[TimestampTypeDef]
+    EndTime: NotRequired[TimestampTypeDef]
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class GetMembersResponseTypeDef(TypedDict):
+    Members: List[MemberTypeDef]
+    UnprocessedAccounts: List[ResultTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListMembersResponseTypeDef(TypedDict):
+    Members: List[MemberTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+SignalOutputTypeDef = TypedDict(
+    "SignalOutputTypeDef",
+    {
+        "Type": NotRequired[str],
+        "Id": NotRequired[str],
+        "Title": NotRequired[str],
+        "ProductArn": NotRequired[str],
+        "ResourceIds": NotRequired[List[str]],
+        "SignalIndicators": NotRequired[List[IndicatorOutputTypeDef]],
+        "Name": NotRequired[str],
+        "CreatedAt": NotRequired[int],
+        "UpdatedAt": NotRequired[int],
+        "FirstSeenAt": NotRequired[int],
+        "LastSeenAt": NotRequired[int],
+        "Severity": NotRequired[float],
+        "Count": NotRequired[int],
+        "ActorIds": NotRequired[List[str]],
+        "EndpointIds": NotRequired[List[str]],
+    },
+)
+IndicatorUnionTypeDef = Union[IndicatorTypeDef, IndicatorOutputTypeDef]
+SignalTypeDef = TypedDict(
+    "SignalTypeDef",
+    {
+        "Type": NotRequired[str],
+        "Id": NotRequired[str],
+        "Title": NotRequired[str],
+        "ProductArn": NotRequired[str],
+        "ResourceIds": NotRequired[Sequence[str]],
+        "SignalIndicators": NotRequired[Sequence[IndicatorTypeDef]],
+        "Name": NotRequired[str],
+        "CreatedAt": NotRequired[int],
+        "UpdatedAt": NotRequired[int],
+        "FirstSeenAt": NotRequired[int],
+        "LastSeenAt": NotRequired[int],
+        "Severity": NotRequired[float],
+        "Count": NotRequired[int],
+        "ActorIds": NotRequired[Sequence[str]],
+        "EndpointIds": NotRequired[Sequence[str]],
+    },
+)
+
+class InsightResultsTypeDef(TypedDict):
+    InsightArn: str
+    GroupByAttribute: str
+    ResultValues: List[InsightResultValueTypeDef]
+
+class ListStandardsControlAssociationsResponseTypeDef(TypedDict):
+    StandardsControlAssociationSummaries: List[StandardsControlAssociationSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class NetworkEndpointTypeDef(TypedDict):
+    Id: NotRequired[str]
+    Ip: NotRequired[str]
+    Domain: NotRequired[str]
+    Port: NotRequired[int]
+    Location: NotRequired[NetworkGeoLocationTypeDef]
+    AutonomousSystem: NotRequired[NetworkAutonomousSystemTypeDef]
+    Connection: NotRequired[NetworkConnectionTypeDef]
+
+class NetworkPathComponentDetailsOutputTypeDef(TypedDict):
+    Address: NotRequired[List[str]]
+    PortRanges: NotRequired[List[PortRangeTypeDef]]
+
+class NetworkPathComponentDetailsTypeDef(TypedDict):
+    Address: NotRequired[Sequence[str]]
+    PortRanges: NotRequired[Sequence[PortRangeTypeDef]]
+
+NetworkTypeDef = TypedDict(
+    "NetworkTypeDef",
+    {
+        "Direction": NotRequired[NetworkDirectionType],
+        "Protocol": NotRequired[str],
+        "OpenPortRange": NotRequired[PortRangeTypeDef],
+        "SourceIpV4": NotRequired[str],
+        "SourceIpV6": NotRequired[str],
+        "SourcePort": NotRequired[int],
+        "SourceDomain": NotRequired[str],
+        "SourceMac": NotRequired[str],
+        "DestinationIpV4": NotRequired[str],
+        "DestinationIpV6": NotRequired[str],
+        "DestinationPort": NotRequired[int],
+        "DestinationDomain": NotRequired[str],
+    },
+)
+
+class PageTypeDef(TypedDict):
+    PageNumber: NotRequired[int]
+    LineRange: NotRequired[RangeTypeDef]
+    OffsetRange: NotRequired[RangeTypeDef]
+
+class ParameterConfigurationOutputTypeDef(TypedDict):
+    ValueType: ParameterValueTypeType
+    Value: NotRequired[ParameterValueOutputTypeDef]
+
+ParameterValueUnionTypeDef = Union[ParameterValueTypeDef, ParameterValueOutputTypeDef]
+
+class RemediationTypeDef(TypedDict):
+    Recommendation: NotRequired[RecommendationTypeDef]
+
+RuleGroupSourceListDetailsUnionTypeDef = Union[
+    RuleGroupSourceListDetailsTypeDef, RuleGroupSourceListDetailsOutputTypeDef
+]
+
+class RuleGroupSourceStatefulRulesDetailsOutputTypeDef(TypedDict):
+    Action: NotRequired[str]
+    Header: NotRequired[RuleGroupSourceStatefulRulesHeaderDetailsTypeDef]
+    RuleOptions: NotRequired[List[RuleGroupSourceStatefulRulesOptionsDetailsOutputTypeDef]]
+
+RuleGroupSourceStatefulRulesOptionsDetailsUnionTypeDef = Union[
+    RuleGroupSourceStatefulRulesOptionsDetailsTypeDef,
+    RuleGroupSourceStatefulRulesOptionsDetailsOutputTypeDef,
+]
+
+class RuleGroupSourceStatelessRuleMatchAttributesOutputTypeDef(TypedDict):
+    DestinationPorts: NotRequired[
+        List[RuleGroupSourceStatelessRuleMatchAttributesDestinationPortsTypeDef]
+    ]
+    Destinations: NotRequired[List[RuleGroupSourceStatelessRuleMatchAttributesDestinationsTypeDef]]
+    Protocols: NotRequired[List[int]]
+    SourcePorts: NotRequired[List[RuleGroupSourceStatelessRuleMatchAttributesSourcePortsTypeDef]]
+    Sources: NotRequired[List[RuleGroupSourceStatelessRuleMatchAttributesSourcesTypeDef]]
+    TcpFlags: NotRequired[List[RuleGroupSourceStatelessRuleMatchAttributesTcpFlagsOutputTypeDef]]
+
+RuleGroupSourceStatelessRuleMatchAttributesTcpFlagsUnionTypeDef = Union[
+    RuleGroupSourceStatelessRuleMatchAttributesTcpFlagsTypeDef,
+    RuleGroupSourceStatelessRuleMatchAttributesTcpFlagsOutputTypeDef,
+]
+RuleGroupVariablesIpSetsDetailsUnionTypeDef = Union[
+    RuleGroupVariablesIpSetsDetailsTypeDef, RuleGroupVariablesIpSetsDetailsOutputTypeDef
+]
+
+class RuleGroupVariablesOutputTypeDef(TypedDict):
+    IpSets: NotRequired[RuleGroupVariablesIpSetsDetailsOutputTypeDef]
+    PortSets: NotRequired[RuleGroupVariablesPortSetsDetailsOutputTypeDef]
+
+RuleGroupVariablesPortSetsDetailsUnionTypeDef = Union[
+    RuleGroupVariablesPortSetsDetailsTypeDef, RuleGroupVariablesPortSetsDetailsOutputTypeDef
+]
+SecurityControlParameterUnionTypeDef = Union[
+    SecurityControlParameterTypeDef, SecurityControlParameterOutputTypeDef
+]
+
+class StandardTypeDef(TypedDict):
+    StandardsArn: NotRequired[str]
+    Name: NotRequired[str]
+    Description: NotRequired[str]
+    EnabledByDefault: NotRequired[bool]
+    StandardsManagedBy: NotRequired[StandardsManagedByTypeDef]
+
+class StandardsSubscriptionTypeDef(TypedDict):
+    StandardsSubscriptionArn: str
+    StandardsArn: str
+    StandardsInput: Dict[str, str]
+    StandardsStatus: StandardsStatusType
+    StandardsControlsUpdatable: NotRequired[StandardsControlsUpdatableType]
+    StandardsStatusReason: NotRequired[StandardsStatusReasonTypeDef]
+
+class StatelessCustomPublishMetricActionOutputTypeDef(TypedDict):
+    Dimensions: NotRequired[List[StatelessCustomPublishMetricActionDimensionTypeDef]]
+
+class StatelessCustomPublishMetricActionTypeDef(TypedDict):
+    Dimensions: NotRequired[Sequence[StatelessCustomPublishMetricActionDimensionTypeDef]]
+
+AwsApiCallActionOutputTypeDef = TypedDict(
+    "AwsApiCallActionOutputTypeDef",
+    {
+        "Api": NotRequired[str],
+        "ServiceName": NotRequired[str],
+        "CallerType": NotRequired[str],
+        "RemoteIpDetails": NotRequired[ActionRemoteIpDetailsTypeDef],
+        "DomainDetails": NotRequired[AwsApiCallActionDomainDetailsTypeDef],
+        "AffectedResources": NotRequired[Dict[str, str]],
+        "FirstSeen": NotRequired[str],
+        "LastSeen": NotRequired[str],
+    },
+)
+AwsApiCallActionTypeDef = TypedDict(
+    "AwsApiCallActionTypeDef",
+    {
+        "Api": NotRequired[str],
+        "ServiceName": NotRequired[str],
+        "CallerType": NotRequired[str],
+        "RemoteIpDetails": NotRequired[ActionRemoteIpDetailsTypeDef],
+        "DomainDetails": NotRequired[AwsApiCallActionDomainDetailsTypeDef],
+        "AffectedResources": NotRequired[Mapping[str, str]],
+        "FirstSeen": NotRequired[str],
+        "LastSeen": NotRequired[str],
+    },
+)
+NetworkConnectionActionTypeDef = TypedDict(
+    "NetworkConnectionActionTypeDef",
+    {
+        "ConnectionDirection": NotRequired[str],
+        "RemoteIpDetails": NotRequired[ActionRemoteIpDetailsTypeDef],
+        "RemotePortDetails": NotRequired[ActionRemotePortDetailsTypeDef],
+        "LocalPortDetails": NotRequired[ActionLocalPortDetailsTypeDef],
+        "Protocol": NotRequired[str],
+        "Blocked": NotRequired[bool],
+    },
+)
+
+class PortProbeDetailTypeDef(TypedDict):
+    LocalPortDetails: NotRequired[ActionLocalPortDetailsTypeDef]
+    LocalIpDetails: NotRequired[ActionLocalIpDetailsTypeDef]
+    RemoteIpDetails: NotRequired[ActionRemoteIpDetailsTypeDef]
+
+class ActorTypeDef(TypedDict):
+    Id: NotRequired[str]
+    User: NotRequired[ActorUserTypeDef]
+    Session: NotRequired[ActorSessionTypeDef]
+
+CvssUnionTypeDef = Union[CvssTypeDef, CvssOutputTypeDef]
+
+class AwsEc2RouteTableDetailsOutputTypeDef(TypedDict):
+    AssociationSet: NotRequired[List[AssociationSetDetailsTypeDef]]
+    OwnerId: NotRequired[str]
+    PropagatingVgwSet: NotRequired[List[PropagatingVgwSetDetailsTypeDef]]
+    RouteTableId: NotRequired[str]
+    RouteSet: NotRequired[List[RouteSetDetailsTypeDef]]
+    VpcId: NotRequired[str]
+
+class AwsEc2RouteTableDetailsTypeDef(TypedDict):
+    AssociationSet: NotRequired[Sequence[AssociationSetDetailsTypeDef]]
+    OwnerId: NotRequired[str]
+    PropagatingVgwSet: NotRequired[Sequence[PropagatingVgwSetDetailsTypeDef]]
+    RouteTableId: NotRequired[str]
+    RouteSet: NotRequired[Sequence[RouteSetDetailsTypeDef]]
+    VpcId: NotRequired[str]
+
+AutomationRulesActionOutputTypeDef = TypedDict(
+    "AutomationRulesActionOutputTypeDef",
+    {
+        "Type": NotRequired[Literal["FINDING_FIELDS_UPDATE"]],
+        "FindingFieldsUpdate": NotRequired[AutomationRulesFindingFieldsUpdateOutputTypeDef],
+    },
+)
+AutomationRulesFindingFieldsUpdateUnionTypeDef = Union[
+    AutomationRulesFindingFieldsUpdateTypeDef, AutomationRulesFindingFieldsUpdateOutputTypeDef
+]
+
+class AwsAmazonMqBrokerDetailsOutputTypeDef(TypedDict):
+    AuthenticationStrategy: NotRequired[str]
+    AutoMinorVersionUpgrade: NotRequired[bool]
+    BrokerArn: NotRequired[str]
+    BrokerName: NotRequired[str]
+    DeploymentMode: NotRequired[str]
+    EncryptionOptions: NotRequired[AwsAmazonMqBrokerEncryptionOptionsDetailsTypeDef]
+    EngineType: NotRequired[str]
+    EngineVersion: NotRequired[str]
+    HostInstanceType: NotRequired[str]
+    BrokerId: NotRequired[str]
+    LdapServerMetadata: NotRequired[AwsAmazonMqBrokerLdapServerMetadataDetailsOutputTypeDef]
+    Logs: NotRequired[AwsAmazonMqBrokerLogsDetailsTypeDef]
+    MaintenanceWindowStartTime: NotRequired[
+        AwsAmazonMqBrokerMaintenanceWindowStartTimeDetailsTypeDef
+    ]
+    PubliclyAccessible: NotRequired[bool]
+    SecurityGroups: NotRequired[List[str]]
+    StorageType: NotRequired[str]
+    SubnetIds: NotRequired[List[str]]
+    Users: NotRequired[List[AwsAmazonMqBrokerUsersDetailsTypeDef]]
+
+class AwsAmazonMqBrokerDetailsTypeDef(TypedDict):
+    AuthenticationStrategy: NotRequired[str]
+    AutoMinorVersionUpgrade: NotRequired[bool]
+    BrokerArn: NotRequired[str]
+    BrokerName: NotRequired[str]
+    DeploymentMode: NotRequired[str]
+    EncryptionOptions: NotRequired[AwsAmazonMqBrokerEncryptionOptionsDetailsTypeDef]
+    EngineType: NotRequired[str]
+    EngineVersion: NotRequired[str]
+    HostInstanceType: NotRequired[str]
+    BrokerId: NotRequired[str]
+    LdapServerMetadata: NotRequired[AwsAmazonMqBrokerLdapServerMetadataDetailsUnionTypeDef]
+    Logs: NotRequired[AwsAmazonMqBrokerLogsDetailsTypeDef]
+    MaintenanceWindowStartTime: NotRequired[
+        AwsAmazonMqBrokerMaintenanceWindowStartTimeDetailsTypeDef
+    ]
+    PubliclyAccessible: NotRequired[bool]
+    SecurityGroups: NotRequired[Sequence[str]]
+    StorageType: NotRequired[str]
+    SubnetIds: NotRequired[Sequence[str]]
+    Users: NotRequired[Sequence[AwsAmazonMqBrokerUsersDetailsTypeDef]]
+
+class AwsApiGatewayStageDetailsTypeDef(TypedDict):
+    DeploymentId: NotRequired[str]
+    ClientCertificateId: NotRequired[str]
+    StageName: NotRequired[str]
+    Description: NotRequired[str]
+    CacheClusterEnabled: NotRequired[bool]
+    CacheClusterSize: NotRequired[str]
+    CacheClusterStatus: NotRequired[str]
+    MethodSettings: NotRequired[Sequence[AwsApiGatewayMethodSettingsTypeDef]]
+    Variables: NotRequired[Mapping[str, str]]
+    DocumentationVersion: NotRequired[str]
+    AccessLogSettings: NotRequired[AwsApiGatewayAccessLogSettingsTypeDef]
+    CanarySettings: NotRequired[AwsApiGatewayCanarySettingsUnionTypeDef]
+    TracingEnabled: NotRequired[bool]
+    CreatedDate: NotRequired[str]
+    LastUpdatedDate: NotRequired[str]
+    WebAclArn: NotRequired[str]
+
+class AwsApiGatewayRestApiDetailsTypeDef(TypedDict):
+    Id: NotRequired[str]
+    Name: NotRequired[str]
+    Description: NotRequired[str]
+    CreatedDate: NotRequired[str]
+    Version: NotRequired[str]
+    BinaryMediaTypes: NotRequired[Sequence[str]]
+    MinimumCompressionSize: NotRequired[int]
+    ApiKeySource: NotRequired[str]
+    EndpointConfiguration: NotRequired[AwsApiGatewayEndpointConfigurationUnionTypeDef]
+
+AwsApiGatewayV2StageDetailsUnionTypeDef = Union[
+    AwsApiGatewayV2StageDetailsTypeDef, AwsApiGatewayV2StageDetailsOutputTypeDef
+]
+
+class AwsAppSyncGraphQlApiDetailsOutputTypeDef(TypedDict):
+    ApiId: NotRequired[str]
+    Id: NotRequired[str]
+    OpenIdConnectConfig: NotRequired[AwsAppSyncGraphQlApiOpenIdConnectConfigDetailsTypeDef]
+    Name: NotRequired[str]
+    LambdaAuthorizerConfig: NotRequired[AwsAppSyncGraphQlApiLambdaAuthorizerConfigDetailsTypeDef]
+    XrayEnabled: NotRequired[bool]
+    Arn: NotRequired[str]
+    UserPoolConfig: NotRequired[AwsAppSyncGraphQlApiUserPoolConfigDetailsTypeDef]
+    AuthenticationType: NotRequired[str]
+    LogConfig: NotRequired[AwsAppSyncGraphQlApiLogConfigDetailsTypeDef]
+    AdditionalAuthenticationProviders: NotRequired[
+        List[AwsAppSyncGraphQlApiAdditionalAuthenticationProvidersDetailsTypeDef]
+    ]
+    WafWebAclArn: NotRequired[str]
+
+class AwsAppSyncGraphQlApiDetailsTypeDef(TypedDict):
+    ApiId: NotRequired[str]
+    Id: NotRequired[str]
+    OpenIdConnectConfig: NotRequired[AwsAppSyncGraphQlApiOpenIdConnectConfigDetailsTypeDef]
+    Name: NotRequired[str]
+    LambdaAuthorizerConfig: NotRequired[AwsAppSyncGraphQlApiLambdaAuthorizerConfigDetailsTypeDef]
+    XrayEnabled: NotRequired[bool]
+    Arn: NotRequired[str]
+    UserPoolConfig: NotRequired[AwsAppSyncGraphQlApiUserPoolConfigDetailsTypeDef]
+    AuthenticationType: NotRequired[str]
+    LogConfig: NotRequired[AwsAppSyncGraphQlApiLogConfigDetailsTypeDef]
+    AdditionalAuthenticationProviders: NotRequired[
+        Sequence[AwsAppSyncGraphQlApiAdditionalAuthenticationProvidersDetailsTypeDef]
+    ]
+    WafWebAclArn: NotRequired[str]
+
+class AwsAthenaWorkGroupConfigurationDetailsTypeDef(TypedDict):
+    ResultConfiguration: NotRequired[
+        AwsAthenaWorkGroupConfigurationResultConfigurationDetailsTypeDef
+    ]
+
+class AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetailsOutputTypeDef(TypedDict):
+    InstancesDistribution: NotRequired[
+        AwsAutoScalingAutoScalingGroupMixedInstancesPolicyInstancesDistributionDetailsTypeDef
+    ]
+    LaunchTemplate: NotRequired[
+        AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateDetailsOutputTypeDef
+    ]
+
+AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateDetailsUnionTypeDef = Union[
+    AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateDetailsTypeDef,
+    AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateDetailsOutputTypeDef,
+]
+
+class AwsAutoScalingLaunchConfigurationDetailsOutputTypeDef(TypedDict):
+    AssociatePublicIpAddress: NotRequired[bool]
+    BlockDeviceMappings: NotRequired[
+        List[AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetailsTypeDef]
+    ]
+    ClassicLinkVpcId: NotRequired[str]
+    ClassicLinkVpcSecurityGroups: NotRequired[List[str]]
+    CreatedTime: NotRequired[str]
+    EbsOptimized: NotRequired[bool]
+    IamInstanceProfile: NotRequired[str]
+    ImageId: NotRequired[str]
+    InstanceMonitoring: NotRequired[
+        AwsAutoScalingLaunchConfigurationInstanceMonitoringDetailsTypeDef
+    ]
+    InstanceType: NotRequired[str]
+    KernelId: NotRequired[str]
+    KeyName: NotRequired[str]
+    LaunchConfigurationName: NotRequired[str]
+    PlacementTenancy: NotRequired[str]
+    RamdiskId: NotRequired[str]
+    SecurityGroups: NotRequired[List[str]]
+    SpotPrice: NotRequired[str]
+    UserData: NotRequired[str]
+    MetadataOptions: NotRequired[AwsAutoScalingLaunchConfigurationMetadataOptionsTypeDef]
+
+class AwsAutoScalingLaunchConfigurationDetailsTypeDef(TypedDict):
+    AssociatePublicIpAddress: NotRequired[bool]
+    BlockDeviceMappings: NotRequired[
+        Sequence[AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetailsTypeDef]
+    ]
+    ClassicLinkVpcId: NotRequired[str]
+    ClassicLinkVpcSecurityGroups: NotRequired[Sequence[str]]
+    CreatedTime: NotRequired[str]
+    EbsOptimized: NotRequired[bool]
+    IamInstanceProfile: NotRequired[str]
+    ImageId: NotRequired[str]
+    InstanceMonitoring: NotRequired[
+        AwsAutoScalingLaunchConfigurationInstanceMonitoringDetailsTypeDef
+    ]
+    InstanceType: NotRequired[str]
+    KernelId: NotRequired[str]
+    KeyName: NotRequired[str]
+    LaunchConfigurationName: NotRequired[str]
+    PlacementTenancy: NotRequired[str]
+    RamdiskId: NotRequired[str]
+    SecurityGroups: NotRequired[Sequence[str]]
+    SpotPrice: NotRequired[str]
+    UserData: NotRequired[str]
+    MetadataOptions: NotRequired[AwsAutoScalingLaunchConfigurationMetadataOptionsTypeDef]
+
+class AwsBackupBackupPlanRuleDetailsOutputTypeDef(TypedDict):
+    TargetBackupVault: NotRequired[str]
+    StartWindowMinutes: NotRequired[int]
+    ScheduleExpression: NotRequired[str]
+    RuleName: NotRequired[str]
+    RuleId: NotRequired[str]
+    EnableContinuousBackup: NotRequired[bool]
+    CompletionWindowMinutes: NotRequired[int]
+    CopyActions: NotRequired[List[AwsBackupBackupPlanRuleCopyActionsDetailsTypeDef]]
+    Lifecycle: NotRequired[AwsBackupBackupPlanLifecycleDetailsTypeDef]
+
+class AwsBackupBackupPlanRuleDetailsTypeDef(TypedDict):
+    TargetBackupVault: NotRequired[str]
+    StartWindowMinutes: NotRequired[int]
+    ScheduleExpression: NotRequired[str]
+    RuleName: NotRequired[str]
+    RuleId: NotRequired[str]
+    EnableContinuousBackup: NotRequired[bool]
+    CompletionWindowMinutes: NotRequired[int]
+    CopyActions: NotRequired[Sequence[AwsBackupBackupPlanRuleCopyActionsDetailsTypeDef]]
+    Lifecycle: NotRequired[AwsBackupBackupPlanLifecycleDetailsTypeDef]
+
+class AwsBackupBackupVaultDetailsTypeDef(TypedDict):
+    BackupVaultArn: NotRequired[str]
+    BackupVaultName: NotRequired[str]
+    EncryptionKeyArn: NotRequired[str]
+    Notifications: NotRequired[AwsBackupBackupVaultNotificationsDetailsUnionTypeDef]
+    AccessPolicy: NotRequired[str]
+
+class AwsCertificateManagerCertificateRenewalSummaryOutputTypeDef(TypedDict):
+    DomainValidationOptions: NotRequired[
+        List[AwsCertificateManagerCertificateDomainValidationOptionOutputTypeDef]
+    ]
+    RenewalStatus: NotRequired[str]
+    RenewalStatusReason: NotRequired[str]
+    UpdatedAt: NotRequired[str]
+
+AwsCertificateManagerCertificateDomainValidationOptionUnionTypeDef = Union[
+    AwsCertificateManagerCertificateDomainValidationOptionTypeDef,
+    AwsCertificateManagerCertificateDomainValidationOptionOutputTypeDef,
+]
+
+class AwsCertificateManagerCertificateRenewalSummaryTypeDef(TypedDict):
+    DomainValidationOptions: NotRequired[
+        Sequence[AwsCertificateManagerCertificateDomainValidationOptionTypeDef]
+    ]
+    RenewalStatus: NotRequired[str]
+    RenewalStatusReason: NotRequired[str]
+    UpdatedAt: NotRequired[str]
+
+AwsCloudFormationStackDetailsUnionTypeDef = Union[
+    AwsCloudFormationStackDetailsTypeDef, AwsCloudFormationStackDetailsOutputTypeDef
+]
+AwsCloudFrontDistributionCacheBehaviorsUnionTypeDef = Union[
+    AwsCloudFrontDistributionCacheBehaviorsTypeDef,
+    AwsCloudFrontDistributionCacheBehaviorsOutputTypeDef,
+]
+
+class AwsCloudFrontDistributionOriginItemOutputTypeDef(TypedDict):
+    DomainName: NotRequired[str]
+    Id: NotRequired[str]
+    OriginPath: NotRequired[str]
+    S3OriginConfig: NotRequired[AwsCloudFrontDistributionOriginS3OriginConfigTypeDef]
+    CustomOriginConfig: NotRequired[AwsCloudFrontDistributionOriginCustomOriginConfigOutputTypeDef]
+
+class AwsCloudFrontDistributionOriginGroupOutputTypeDef(TypedDict):
+    FailoverCriteria: NotRequired[AwsCloudFrontDistributionOriginGroupFailoverOutputTypeDef]
+
+class AwsCloudFrontDistributionOriginGroupFailoverTypeDef(TypedDict):
+    StatusCodes: NotRequired[AwsCloudFrontDistributionOriginGroupFailoverStatusCodesUnionTypeDef]
+
+class AwsCloudFrontDistributionOriginCustomOriginConfigTypeDef(TypedDict):
+    HttpPort: NotRequired[int]
+    HttpsPort: NotRequired[int]
+    OriginKeepaliveTimeout: NotRequired[int]
+    OriginProtocolPolicy: NotRequired[str]
+    OriginReadTimeout: NotRequired[int]
+    OriginSslProtocols: NotRequired[AwsCloudFrontDistributionOriginSslProtocolsUnionTypeDef]
+
+AwsCloudWatchAlarmDetailsUnionTypeDef = Union[
+    AwsCloudWatchAlarmDetailsTypeDef, AwsCloudWatchAlarmDetailsOutputTypeDef
+]
+AwsCodeBuildProjectEnvironmentUnionTypeDef = Union[
+    AwsCodeBuildProjectEnvironmentTypeDef, AwsCodeBuildProjectEnvironmentOutputTypeDef
+]
+
+class AwsCodeBuildProjectDetailsOutputTypeDef(TypedDict):
+    EncryptionKey: NotRequired[str]
+    Artifacts: NotRequired[List[AwsCodeBuildProjectArtifactsDetailsTypeDef]]
+    Environment: NotRequired[AwsCodeBuildProjectEnvironmentOutputTypeDef]
+    Name: NotRequired[str]
+    Source: NotRequired[AwsCodeBuildProjectSourceTypeDef]
+    ServiceRole: NotRequired[str]
+    LogsConfig: NotRequired[AwsCodeBuildProjectLogsConfigDetailsTypeDef]
+    VpcConfig: NotRequired[AwsCodeBuildProjectVpcConfigOutputTypeDef]
+    SecondaryArtifacts: NotRequired[List[AwsCodeBuildProjectArtifactsDetailsTypeDef]]
+
+class AwsApiGatewayV2ApiDetailsTypeDef(TypedDict):
+    ApiEndpoint: NotRequired[str]
+    ApiId: NotRequired[str]
+    ApiKeySelectionExpression: NotRequired[str]
+    CreatedDate: NotRequired[str]
+    Description: NotRequired[str]
+    Version: NotRequired[str]
+    Name: NotRequired[str]
+    ProtocolType: NotRequired[str]
+    RouteSelectionExpression: NotRequired[str]
+    CorsConfiguration: NotRequired[AwsCorsConfigurationUnionTypeDef]
+
+AwsDmsReplicationInstanceDetailsUnionTypeDef = Union[
+    AwsDmsReplicationInstanceDetailsTypeDef, AwsDmsReplicationInstanceDetailsOutputTypeDef
+]
+
+class AwsDynamoDbTableGlobalSecondaryIndexTypeDef(TypedDict):
+    Backfilling: NotRequired[bool]
+    IndexArn: NotRequired[str]
+    IndexName: NotRequired[str]
+    IndexSizeBytes: NotRequired[int]
+    IndexStatus: NotRequired[str]
+    ItemCount: NotRequired[int]
+    KeySchema: NotRequired[Sequence[AwsDynamoDbTableKeySchemaTypeDef]]
+    Projection: NotRequired[AwsDynamoDbTableProjectionUnionTypeDef]
+    ProvisionedThroughput: NotRequired[AwsDynamoDbTableProvisionedThroughputTypeDef]
+
+class AwsDynamoDbTableLocalSecondaryIndexTypeDef(TypedDict):
+    IndexArn: NotRequired[str]
+    IndexName: NotRequired[str]
+    KeySchema: NotRequired[Sequence[AwsDynamoDbTableKeySchemaTypeDef]]
+    Projection: NotRequired[AwsDynamoDbTableProjectionUnionTypeDef]
+
+AwsDynamoDbTableReplicaOutputTypeDef = TypedDict(
+    "AwsDynamoDbTableReplicaOutputTypeDef",
+    {
+        "GlobalSecondaryIndexes": NotRequired[
+            List[AwsDynamoDbTableReplicaGlobalSecondaryIndexTypeDef]
+        ],
+        "KmsMasterKeyId": NotRequired[str],
+        "ProvisionedThroughputOverride": NotRequired[
+            AwsDynamoDbTableProvisionedThroughputOverrideTypeDef
+        ],
+        "RegionName": NotRequired[str],
+        "ReplicaStatus": NotRequired[str],
+        "ReplicaStatusDescription": NotRequired[str],
+    },
+)
+AwsDynamoDbTableReplicaTypeDef = TypedDict(
+    "AwsDynamoDbTableReplicaTypeDef",
+    {
+        "GlobalSecondaryIndexes": NotRequired[
+            Sequence[AwsDynamoDbTableReplicaGlobalSecondaryIndexTypeDef]
+        ],
+        "KmsMasterKeyId": NotRequired[str],
+        "ProvisionedThroughputOverride": NotRequired[
+            AwsDynamoDbTableProvisionedThroughputOverrideTypeDef
+        ],
+        "RegionName": NotRequired[str],
+        "ReplicaStatus": NotRequired[str],
+        "ReplicaStatusDescription": NotRequired[str],
+    },
+)
+
+class AwsEc2ClientVpnEndpointDetailsOutputTypeDef(TypedDict):
+    ClientVpnEndpointId: NotRequired[str]
+    Description: NotRequired[str]
+    ClientCidrBlock: NotRequired[str]
+    DnsServer: NotRequired[List[str]]
+    SplitTunnel: NotRequired[bool]
+    TransportProtocol: NotRequired[str]
+    VpnPort: NotRequired[int]
+    ServerCertificateArn: NotRequired[str]
+    AuthenticationOptions: NotRequired[
+        List[AwsEc2ClientVpnEndpointAuthenticationOptionsDetailsTypeDef]
+    ]
+    ConnectionLogOptions: NotRequired[AwsEc2ClientVpnEndpointConnectionLogOptionsDetailsTypeDef]
+    SecurityGroupIdSet: NotRequired[List[str]]
+    VpcId: NotRequired[str]
+    SelfServicePortalUrl: NotRequired[str]
+    ClientConnectOptions: NotRequired[AwsEc2ClientVpnEndpointClientConnectOptionsDetailsTypeDef]
+    SessionTimeoutHours: NotRequired[int]
+    ClientLoginBannerOptions: NotRequired[
+        AwsEc2ClientVpnEndpointClientLoginBannerOptionsDetailsTypeDef
+    ]
+
+class AwsEc2ClientVpnEndpointDetailsTypeDef(TypedDict):
+    ClientVpnEndpointId: NotRequired[str]
+    Description: NotRequired[str]
+    ClientCidrBlock: NotRequired[str]
+    DnsServer: NotRequired[Sequence[str]]
+    SplitTunnel: NotRequired[bool]
+    TransportProtocol: NotRequired[str]
+    VpnPort: NotRequired[int]
+    ServerCertificateArn: NotRequired[str]
+    AuthenticationOptions: NotRequired[
+        Sequence[AwsEc2ClientVpnEndpointAuthenticationOptionsDetailsTypeDef]
+    ]
+    ConnectionLogOptions: NotRequired[AwsEc2ClientVpnEndpointConnectionLogOptionsDetailsTypeDef]
+    SecurityGroupIdSet: NotRequired[Sequence[str]]
+    VpcId: NotRequired[str]
+    SelfServicePortalUrl: NotRequired[str]
+    ClientConnectOptions: NotRequired[AwsEc2ClientVpnEndpointClientConnectOptionsDetailsTypeDef]
+    SessionTimeoutHours: NotRequired[int]
+    ClientLoginBannerOptions: NotRequired[
+        AwsEc2ClientVpnEndpointClientLoginBannerOptionsDetailsTypeDef
+    ]
+
+AwsEc2InstanceDetailsUnionTypeDef = Union[
+    AwsEc2InstanceDetailsTypeDef, AwsEc2InstanceDetailsOutputTypeDef
+]
+AwsEc2LaunchTemplateDataInstanceRequirementsDetailsUnionTypeDef = Union[
+    AwsEc2LaunchTemplateDataInstanceRequirementsDetailsTypeDef,
+    AwsEc2LaunchTemplateDataInstanceRequirementsDetailsOutputTypeDef,
+]
+
+class AwsEc2LaunchTemplateDataDetailsOutputTypeDef(TypedDict):
+    BlockDeviceMappingSet: NotRequired[
+        List[AwsEc2LaunchTemplateDataBlockDeviceMappingSetDetailsTypeDef]
+    ]
+    CapacityReservationSpecification: NotRequired[
+        AwsEc2LaunchTemplateDataCapacityReservationSpecificationDetailsTypeDef
+    ]
+    CpuOptions: NotRequired[AwsEc2LaunchTemplateDataCpuOptionsDetailsTypeDef]
+    CreditSpecification: NotRequired[AwsEc2LaunchTemplateDataCreditSpecificationDetailsTypeDef]
+    DisableApiStop: NotRequired[bool]
+    DisableApiTermination: NotRequired[bool]
+    EbsOptimized: NotRequired[bool]
+    ElasticGpuSpecificationSet: NotRequired[
+        List[AwsEc2LaunchTemplateDataElasticGpuSpecificationSetDetailsTypeDef]
+    ]
+    ElasticInferenceAcceleratorSet: NotRequired[
+        List[AwsEc2LaunchTemplateDataElasticInferenceAcceleratorSetDetailsTypeDef]
+    ]
+    EnclaveOptions: NotRequired[AwsEc2LaunchTemplateDataEnclaveOptionsDetailsTypeDef]
+    HibernationOptions: NotRequired[AwsEc2LaunchTemplateDataHibernationOptionsDetailsTypeDef]
+    IamInstanceProfile: NotRequired[AwsEc2LaunchTemplateDataIamInstanceProfileDetailsTypeDef]
+    ImageId: NotRequired[str]
+    InstanceInitiatedShutdownBehavior: NotRequired[str]
+    InstanceMarketOptions: NotRequired[AwsEc2LaunchTemplateDataInstanceMarketOptionsDetailsTypeDef]
+    InstanceRequirements: NotRequired[
+        AwsEc2LaunchTemplateDataInstanceRequirementsDetailsOutputTypeDef
+    ]
+    InstanceType: NotRequired[str]
+    KernelId: NotRequired[str]
+    KeyName: NotRequired[str]
+    LicenseSet: NotRequired[List[AwsEc2LaunchTemplateDataLicenseSetDetailsTypeDef]]
+    MaintenanceOptions: NotRequired[AwsEc2LaunchTemplateDataMaintenanceOptionsDetailsTypeDef]
+    MetadataOptions: NotRequired[AwsEc2LaunchTemplateDataMetadataOptionsDetailsTypeDef]
+    Monitoring: NotRequired[AwsEc2LaunchTemplateDataMonitoringDetailsTypeDef]
+    NetworkInterfaceSet: NotRequired[
+        List[AwsEc2LaunchTemplateDataNetworkInterfaceSetDetailsOutputTypeDef]
+    ]
+    Placement: NotRequired[AwsEc2LaunchTemplateDataPlacementDetailsTypeDef]
+    PrivateDnsNameOptions: NotRequired[AwsEc2LaunchTemplateDataPrivateDnsNameOptionsDetailsTypeDef]
+    RamDiskId: NotRequired[str]
+    SecurityGroupIdSet: NotRequired[List[str]]
+    SecurityGroupSet: NotRequired[List[str]]
+    UserData: NotRequired[str]
+
+AwsEc2LaunchTemplateDataNetworkInterfaceSetDetailsUnionTypeDef = Union[
+    AwsEc2LaunchTemplateDataNetworkInterfaceSetDetailsTypeDef,
+    AwsEc2LaunchTemplateDataNetworkInterfaceSetDetailsOutputTypeDef,
+]
+
+class AwsEc2NetworkAclDetailsOutputTypeDef(TypedDict):
+    IsDefault: NotRequired[bool]
+    NetworkAclId: NotRequired[str]
+    OwnerId: NotRequired[str]
+    VpcId: NotRequired[str]
+    Associations: NotRequired[List[AwsEc2NetworkAclAssociationTypeDef]]
+    Entries: NotRequired[List[AwsEc2NetworkAclEntryTypeDef]]
+
+class AwsEc2NetworkAclDetailsTypeDef(TypedDict):
+    IsDefault: NotRequired[bool]
+    NetworkAclId: NotRequired[str]
+    OwnerId: NotRequired[str]
+    VpcId: NotRequired[str]
+    Associations: NotRequired[Sequence[AwsEc2NetworkAclAssociationTypeDef]]
+    Entries: NotRequired[Sequence[AwsEc2NetworkAclEntryTypeDef]]
+
+AwsEc2NetworkInterfaceDetailsUnionTypeDef = Union[
+    AwsEc2NetworkInterfaceDetailsTypeDef, AwsEc2NetworkInterfaceDetailsOutputTypeDef
+]
+
+class AwsEc2SecurityGroupDetailsOutputTypeDef(TypedDict):
+    GroupName: NotRequired[str]
+    GroupId: NotRequired[str]
+    OwnerId: NotRequired[str]
+    VpcId: NotRequired[str]
+    IpPermissions: NotRequired[List[AwsEc2SecurityGroupIpPermissionOutputTypeDef]]
+    IpPermissionsEgress: NotRequired[List[AwsEc2SecurityGroupIpPermissionOutputTypeDef]]
+
+AwsEc2SecurityGroupIpPermissionUnionTypeDef = Union[
+    AwsEc2SecurityGroupIpPermissionTypeDef, AwsEc2SecurityGroupIpPermissionOutputTypeDef
+]
+AwsEc2SubnetDetailsUnionTypeDef = Union[
+    AwsEc2SubnetDetailsTypeDef, AwsEc2SubnetDetailsOutputTypeDef
+]
+AwsEc2VolumeDetailsUnionTypeDef = Union[
+    AwsEc2VolumeDetailsTypeDef, AwsEc2VolumeDetailsOutputTypeDef
+]
+AwsEc2VpcDetailsUnionTypeDef = Union[AwsEc2VpcDetailsTypeDef, AwsEc2VpcDetailsOutputTypeDef]
+AwsEc2VpcEndpointServiceDetailsUnionTypeDef = Union[
+    AwsEc2VpcEndpointServiceDetailsTypeDef, AwsEc2VpcEndpointServiceDetailsOutputTypeDef
+]
+
+class AwsEc2VpcPeeringConnectionDetailsOutputTypeDef(TypedDict):
+    AccepterVpcInfo: NotRequired[AwsEc2VpcPeeringConnectionVpcInfoDetailsOutputTypeDef]
+    ExpirationTime: NotRequired[str]
+    RequesterVpcInfo: NotRequired[AwsEc2VpcPeeringConnectionVpcInfoDetailsOutputTypeDef]
+    Status: NotRequired[AwsEc2VpcPeeringConnectionStatusDetailsTypeDef]
+    VpcPeeringConnectionId: NotRequired[str]
+
+AwsEc2VpcPeeringConnectionVpcInfoDetailsUnionTypeDef = Union[
+    AwsEc2VpcPeeringConnectionVpcInfoDetailsTypeDef,
+    AwsEc2VpcPeeringConnectionVpcInfoDetailsOutputTypeDef,
+]
+AwsEc2VpnConnectionDetailsOutputTypeDef = TypedDict(
+    "AwsEc2VpnConnectionDetailsOutputTypeDef",
+    {
+        "VpnConnectionId": NotRequired[str],
+        "State": NotRequired[str],
+        "CustomerGatewayId": NotRequired[str],
+        "CustomerGatewayConfiguration": NotRequired[str],
+        "Type": NotRequired[str],
+        "VpnGatewayId": NotRequired[str],
+        "Category": NotRequired[str],
+        "VgwTelemetry": NotRequired[List[AwsEc2VpnConnectionVgwTelemetryDetailsTypeDef]],
+        "Options": NotRequired[AwsEc2VpnConnectionOptionsDetailsOutputTypeDef],
+        "Routes": NotRequired[List[AwsEc2VpnConnectionRoutesDetailsTypeDef]],
+        "TransitGatewayId": NotRequired[str],
+    },
+)
+
+class AwsEc2VpnConnectionOptionsDetailsTypeDef(TypedDict):
+    StaticRoutesOnly: NotRequired[bool]
+    TunnelOptions: NotRequired[Sequence[AwsEc2VpnConnectionOptionsTunnelOptionsDetailsUnionTypeDef]]
+
+class AwsEcsClusterConfigurationDetailsTypeDef(TypedDict):
+    ExecuteCommandConfiguration: NotRequired[
+        AwsEcsClusterConfigurationExecuteCommandConfigurationDetailsTypeDef
+    ]
+
+AwsEcsContainerDetailsUnionTypeDef = Union[
+    AwsEcsContainerDetailsTypeDef, AwsEcsContainerDetailsOutputTypeDef
+]
+AwsEcsServiceDetailsOutputTypeDef = TypedDict(
+    "AwsEcsServiceDetailsOutputTypeDef",
+    {
+        "CapacityProviderStrategy": NotRequired[
+            List[AwsEcsServiceCapacityProviderStrategyDetailsTypeDef]
+        ],
+        "Cluster": NotRequired[str],
+        "DeploymentConfiguration": NotRequired[AwsEcsServiceDeploymentConfigurationDetailsTypeDef],
+        "DeploymentController": NotRequired[AwsEcsServiceDeploymentControllerDetailsTypeDef],
+        "DesiredCount": NotRequired[int],
+        "EnableEcsManagedTags": NotRequired[bool],
+        "EnableExecuteCommand": NotRequired[bool],
+        "HealthCheckGracePeriodSeconds": NotRequired[int],
+        "LaunchType": NotRequired[str],
+        "LoadBalancers": NotRequired[List[AwsEcsServiceLoadBalancersDetailsTypeDef]],
+        "Name": NotRequired[str],
+        "NetworkConfiguration": NotRequired[AwsEcsServiceNetworkConfigurationDetailsOutputTypeDef],
+        "PlacementConstraints": NotRequired[List[AwsEcsServicePlacementConstraintsDetailsTypeDef]],
+        "PlacementStrategies": NotRequired[List[AwsEcsServicePlacementStrategiesDetailsTypeDef]],
+        "PlatformVersion": NotRequired[str],
+        "PropagateTags": NotRequired[str],
+        "Role": NotRequired[str],
+        "SchedulingStrategy": NotRequired[str],
+        "ServiceArn": NotRequired[str],
+        "ServiceName": NotRequired[str],
+        "ServiceRegistries": NotRequired[List[AwsEcsServiceServiceRegistriesDetailsTypeDef]],
+        "TaskDefinition": NotRequired[str],
+    },
+)
+
+class AwsEcsServiceNetworkConfigurationDetailsTypeDef(TypedDict):
+    AwsVpcConfiguration: NotRequired[
+        AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetailsUnionTypeDef
+    ]
+
+class AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetailsTypeDef(TypedDict):
+    Capabilities: NotRequired[
+        AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetailsUnionTypeDef
+    ]
+    Devices: NotRequired[
+        Sequence[AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetailsUnionTypeDef]
+    ]
+    InitProcessEnabled: NotRequired[bool]
+    MaxSwap: NotRequired[int]
+    SharedMemorySize: NotRequired[int]
+    Swappiness: NotRequired[int]
+    Tmpfs: NotRequired[
+        Sequence[AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetailsUnionTypeDef]
+    ]
+
+class AwsEcsTaskDefinitionContainerDefinitionsDetailsOutputTypeDef(TypedDict):
+    Command: NotRequired[List[str]]
+    Cpu: NotRequired[int]
+    DependsOn: NotRequired[List[AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetailsTypeDef]]
+    DisableNetworking: NotRequired[bool]
+    DnsSearchDomains: NotRequired[List[str]]
+    DnsServers: NotRequired[List[str]]
+    DockerLabels: NotRequired[Dict[str, str]]
+    DockerSecurityOptions: NotRequired[List[str]]
+    EntryPoint: NotRequired[List[str]]
+    Environment: NotRequired[
+        List[AwsEcsTaskDefinitionContainerDefinitionsEnvironmentDetailsTypeDef]
+    ]
+    EnvironmentFiles: NotRequired[
+        List[AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetailsTypeDef]
+    ]
+    Essential: NotRequired[bool]
+    ExtraHosts: NotRequired[List[AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetailsTypeDef]]
+    FirelensConfiguration: NotRequired[
+        AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetailsOutputTypeDef
+    ]
+    HealthCheck: NotRequired[
+        AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetailsOutputTypeDef
+    ]
+    Hostname: NotRequired[str]
+    Image: NotRequired[str]
+    Interactive: NotRequired[bool]
+    Links: NotRequired[List[str]]
+    LinuxParameters: NotRequired[
+        AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetailsOutputTypeDef
+    ]
+    LogConfiguration: NotRequired[
+        AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetailsOutputTypeDef
+    ]
+    Memory: NotRequired[int]
+    MemoryReservation: NotRequired[int]
+    MountPoints: NotRequired[
+        List[AwsEcsTaskDefinitionContainerDefinitionsMountPointsDetailsTypeDef]
+    ]
+    Name: NotRequired[str]
+    PortMappings: NotRequired[
+        List[AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetailsTypeDef]
+    ]
+    Privileged: NotRequired[bool]
+    PseudoTerminal: NotRequired[bool]
+    ReadonlyRootFilesystem: NotRequired[bool]
+    RepositoryCredentials: NotRequired[
+        AwsEcsTaskDefinitionContainerDefinitionsRepositoryCredentialsDetailsTypeDef
+    ]
+    ResourceRequirements: NotRequired[
+        List[AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetailsTypeDef]
+    ]
+    Secrets: NotRequired[List[AwsEcsTaskDefinitionContainerDefinitionsSecretsDetailsTypeDef]]
+    StartTimeout: NotRequired[int]
+    StopTimeout: NotRequired[int]
+    SystemControls: NotRequired[
+        List[AwsEcsTaskDefinitionContainerDefinitionsSystemControlsDetailsTypeDef]
+    ]
+    Ulimits: NotRequired[List[AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetailsTypeDef]]
+    User: NotRequired[str]
+    VolumesFrom: NotRequired[
+        List[AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetailsTypeDef]
+    ]
+    WorkingDirectory: NotRequired[str]
+
+AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetailsUnionTypeDef = Union[
+    AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetailsTypeDef,
+    AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetailsOutputTypeDef,
+]
+AwsEcsTaskDefinitionProxyConfigurationDetailsUnionTypeDef = Union[
+    AwsEcsTaskDefinitionProxyConfigurationDetailsTypeDef,
+    AwsEcsTaskDefinitionProxyConfigurationDetailsOutputTypeDef,
+]
+
+class AwsEcsTaskDefinitionVolumesDetailsOutputTypeDef(TypedDict):
+    DockerVolumeConfiguration: NotRequired[
+        AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetailsOutputTypeDef
+    ]
+    EfsVolumeConfiguration: NotRequired[
+        AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetailsTypeDef
+    ]
+    Host: NotRequired[AwsEcsTaskDefinitionVolumesHostDetailsTypeDef]
+    Name: NotRequired[str]
+
+class AwsEcsTaskDefinitionVolumesDetailsTypeDef(TypedDict):
+    DockerVolumeConfiguration: NotRequired[
+        AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetailsUnionTypeDef
+    ]
+    EfsVolumeConfiguration: NotRequired[
+        AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetailsTypeDef
+    ]
+    Host: NotRequired[AwsEcsTaskDefinitionVolumesHostDetailsTypeDef]
+    Name: NotRequired[str]
+
+class AwsEcsTaskDetailsOutputTypeDef(TypedDict):
+    ClusterArn: NotRequired[str]
+    TaskDefinitionArn: NotRequired[str]
+    Version: NotRequired[str]
+    CreatedAt: NotRequired[str]
+    StartedAt: NotRequired[str]
+    StartedBy: NotRequired[str]
+    Group: NotRequired[str]
+    Volumes: NotRequired[List[AwsEcsTaskVolumeDetailsTypeDef]]
+    Containers: NotRequired[List[AwsEcsContainerDetailsOutputTypeDef]]
+
+class AwsEfsAccessPointDetailsOutputTypeDef(TypedDict):
+    AccessPointId: NotRequired[str]
+    Arn: NotRequired[str]
+    ClientToken: NotRequired[str]
+    FileSystemId: NotRequired[str]
+    PosixUser: NotRequired[AwsEfsAccessPointPosixUserDetailsOutputTypeDef]
+    RootDirectory: NotRequired[AwsEfsAccessPointRootDirectoryDetailsTypeDef]
+
+class AwsEfsAccessPointDetailsTypeDef(TypedDict):
+    AccessPointId: NotRequired[str]
+    Arn: NotRequired[str]
+    ClientToken: NotRequired[str]
+    FileSystemId: NotRequired[str]
+    PosixUser: NotRequired[AwsEfsAccessPointPosixUserDetailsUnionTypeDef]
+    RootDirectory: NotRequired[AwsEfsAccessPointRootDirectoryDetailsTypeDef]
+
+class AwsEksClusterDetailsOutputTypeDef(TypedDict):
+    Arn: NotRequired[str]
+    CertificateAuthorityData: NotRequired[str]
+    ClusterStatus: NotRequired[str]
+    Endpoint: NotRequired[str]
+    Name: NotRequired[str]
+    ResourcesVpcConfig: NotRequired[AwsEksClusterResourcesVpcConfigDetailsOutputTypeDef]
+    RoleArn: NotRequired[str]
+    Version: NotRequired[str]
+    Logging: NotRequired[AwsEksClusterLoggingDetailsOutputTypeDef]
+
+class AwsEksClusterLoggingDetailsTypeDef(TypedDict):
+    ClusterLogging: NotRequired[Sequence[AwsEksClusterLoggingClusterLoggingDetailsUnionTypeDef]]
+
+AwsElasticBeanstalkEnvironmentDetailsUnionTypeDef = Union[
+    AwsElasticBeanstalkEnvironmentDetailsTypeDef, AwsElasticBeanstalkEnvironmentDetailsOutputTypeDef
+]
+
+class AwsElasticsearchDomainDetailsOutputTypeDef(TypedDict):
+    AccessPolicies: NotRequired[str]
+    DomainEndpointOptions: NotRequired[AwsElasticsearchDomainDomainEndpointOptionsTypeDef]
+    DomainId: NotRequired[str]
+    DomainName: NotRequired[str]
+    Endpoint: NotRequired[str]
+    Endpoints: NotRequired[Dict[str, str]]
+    ElasticsearchVersion: NotRequired[str]
+    ElasticsearchClusterConfig: NotRequired[
+        AwsElasticsearchDomainElasticsearchClusterConfigDetailsTypeDef
+    ]
+    EncryptionAtRestOptions: NotRequired[AwsElasticsearchDomainEncryptionAtRestOptionsTypeDef]
+    LogPublishingOptions: NotRequired[AwsElasticsearchDomainLogPublishingOptionsTypeDef]
+    NodeToNodeEncryptionOptions: NotRequired[
+        AwsElasticsearchDomainNodeToNodeEncryptionOptionsTypeDef
+    ]
+    ServiceSoftwareOptions: NotRequired[AwsElasticsearchDomainServiceSoftwareOptionsTypeDef]
+    VPCOptions: NotRequired[AwsElasticsearchDomainVPCOptionsOutputTypeDef]
+
+class AwsElasticsearchDomainDetailsTypeDef(TypedDict):
+    AccessPolicies: NotRequired[str]
+    DomainEndpointOptions: NotRequired[AwsElasticsearchDomainDomainEndpointOptionsTypeDef]
+    DomainId: NotRequired[str]
+    DomainName: NotRequired[str]
+    Endpoint: NotRequired[str]
+    Endpoints: NotRequired[Mapping[str, str]]
+    ElasticsearchVersion: NotRequired[str]
+    ElasticsearchClusterConfig: NotRequired[
+        AwsElasticsearchDomainElasticsearchClusterConfigDetailsTypeDef
+    ]
+    EncryptionAtRestOptions: NotRequired[AwsElasticsearchDomainEncryptionAtRestOptionsTypeDef]
+    LogPublishingOptions: NotRequired[AwsElasticsearchDomainLogPublishingOptionsTypeDef]
+    NodeToNodeEncryptionOptions: NotRequired[
+        AwsElasticsearchDomainNodeToNodeEncryptionOptionsTypeDef
+    ]
+    ServiceSoftwareOptions: NotRequired[AwsElasticsearchDomainServiceSoftwareOptionsTypeDef]
+    VPCOptions: NotRequired[AwsElasticsearchDomainVPCOptionsUnionTypeDef]
+
+AwsElbLoadBalancerPoliciesUnionTypeDef = Union[
+    AwsElbLoadBalancerPoliciesTypeDef, AwsElbLoadBalancerPoliciesOutputTypeDef
+]
+AwsElbLoadBalancerAttributesUnionTypeDef = Union[
+    AwsElbLoadBalancerAttributesTypeDef, AwsElbLoadBalancerAttributesOutputTypeDef
+]
+
+class AwsElbLoadBalancerDetailsOutputTypeDef(TypedDict):
+    AvailabilityZones: NotRequired[List[str]]
+    BackendServerDescriptions: NotRequired[
+        List[AwsElbLoadBalancerBackendServerDescriptionOutputTypeDef]
+    ]
+    CanonicalHostedZoneName: NotRequired[str]
+    CanonicalHostedZoneNameID: NotRequired[str]
+    CreatedTime: NotRequired[str]
+    DnsName: NotRequired[str]
+    HealthCheck: NotRequired[AwsElbLoadBalancerHealthCheckTypeDef]
+    Instances: NotRequired[List[AwsElbLoadBalancerInstanceTypeDef]]
+    ListenerDescriptions: NotRequired[List[AwsElbLoadBalancerListenerDescriptionOutputTypeDef]]
+    LoadBalancerAttributes: NotRequired[AwsElbLoadBalancerAttributesOutputTypeDef]
+    LoadBalancerName: NotRequired[str]
+    Policies: NotRequired[AwsElbLoadBalancerPoliciesOutputTypeDef]
+    Scheme: NotRequired[str]
+    SecurityGroups: NotRequired[List[str]]
+    SourceSecurityGroup: NotRequired[AwsElbLoadBalancerSourceSecurityGroupTypeDef]
+    Subnets: NotRequired[List[str]]
+    VpcId: NotRequired[str]
+
+AwsElbLoadBalancerListenerDescriptionUnionTypeDef = Union[
+    AwsElbLoadBalancerListenerDescriptionTypeDef, AwsElbLoadBalancerListenerDescriptionOutputTypeDef
+]
+AwsElbv2LoadBalancerDetailsUnionTypeDef = Union[
+    AwsElbv2LoadBalancerDetailsTypeDef, AwsElbv2LoadBalancerDetailsOutputTypeDef
+]
+
+class AwsEventsEndpointRoutingConfigDetailsTypeDef(TypedDict):
+    FailoverConfig: NotRequired[AwsEventsEndpointRoutingConfigFailoverConfigDetailsTypeDef]
+
+class AwsGuardDutyDetectorDataSourcesMalwareProtectionDetailsTypeDef(TypedDict):
+    ScanEc2InstanceWithFindings: NotRequired[
+        AwsGuardDutyDetectorDataSourcesMalwareProtectionScanEc2InstanceWithFindingsDetailsTypeDef
+    ]
+    ServiceRole: NotRequired[str]
+
+class AwsIamAccessKeyDetailsTypeDef(TypedDict):
+    UserName: NotRequired[str]
+    Status: NotRequired[AwsIamAccessKeyStatusType]
+    CreatedAt: NotRequired[str]
+    PrincipalId: NotRequired[str]
+    PrincipalType: NotRequired[str]
+    PrincipalName: NotRequired[str]
+    AccountId: NotRequired[str]
+    AccessKeyId: NotRequired[str]
+    SessionContext: NotRequired[AwsIamAccessKeySessionContextTypeDef]
+
+AwsIamGroupDetailsUnionTypeDef = Union[AwsIamGroupDetailsTypeDef, AwsIamGroupDetailsOutputTypeDef]
+
+class AwsIamRoleDetailsOutputTypeDef(TypedDict):
+    AssumeRolePolicyDocument: NotRequired[str]
+    AttachedManagedPolicies: NotRequired[List[AwsIamAttachedManagedPolicyTypeDef]]
+    CreateDate: NotRequired[str]
+    InstanceProfileList: NotRequired[List[AwsIamInstanceProfileOutputTypeDef]]
+    PermissionsBoundary: NotRequired[AwsIamPermissionsBoundaryTypeDef]
+    RoleId: NotRequired[str]
+    RoleName: NotRequired[str]
+    RolePolicyList: NotRequired[List[AwsIamRolePolicyTypeDef]]
+    MaxSessionDuration: NotRequired[int]
+    Path: NotRequired[str]
+
+AwsIamInstanceProfileUnionTypeDef = Union[
+    AwsIamInstanceProfileTypeDef, AwsIamInstanceProfileOutputTypeDef
+]
+AwsIamPolicyDetailsUnionTypeDef = Union[
+    AwsIamPolicyDetailsTypeDef, AwsIamPolicyDetailsOutputTypeDef
+]
+AwsIamUserDetailsUnionTypeDef = Union[AwsIamUserDetailsTypeDef, AwsIamUserDetailsOutputTypeDef]
+
+class AwsLambdaFunctionDetailsOutputTypeDef(TypedDict):
+    Code: NotRequired[AwsLambdaFunctionCodeTypeDef]
+    CodeSha256: NotRequired[str]
+    DeadLetterConfig: NotRequired[AwsLambdaFunctionDeadLetterConfigTypeDef]
+    Environment: NotRequired[AwsLambdaFunctionEnvironmentOutputTypeDef]
+    FunctionName: NotRequired[str]
+    Handler: NotRequired[str]
+    KmsKeyArn: NotRequired[str]
+    LastModified: NotRequired[str]
+    Layers: NotRequired[List[AwsLambdaFunctionLayerTypeDef]]
+    MasterArn: NotRequired[str]
+    MemorySize: NotRequired[int]
+    RevisionId: NotRequired[str]
+    Role: NotRequired[str]
+    Runtime: NotRequired[str]
+    Timeout: NotRequired[int]
+    TracingConfig: NotRequired[AwsLambdaFunctionTracingConfigTypeDef]
+    VpcConfig: NotRequired[AwsLambdaFunctionVpcConfigOutputTypeDef]
+    Version: NotRequired[str]
+    Architectures: NotRequired[List[str]]
+    PackageType: NotRequired[str]
+
+AwsLambdaFunctionEnvironmentUnionTypeDef = Union[
+    AwsLambdaFunctionEnvironmentTypeDef, AwsLambdaFunctionEnvironmentOutputTypeDef
+]
+
+class AwsMskClusterClusterInfoClientAuthenticationDetailsOutputTypeDef(TypedDict):
+    Sasl: NotRequired[AwsMskClusterClusterInfoClientAuthenticationSaslDetailsTypeDef]
+    Unauthenticated: NotRequired[
+        AwsMskClusterClusterInfoClientAuthenticationUnauthenticatedDetailsTypeDef
+    ]
+    Tls: NotRequired[AwsMskClusterClusterInfoClientAuthenticationTlsDetailsOutputTypeDef]
+
+class AwsMskClusterClusterInfoClientAuthenticationDetailsTypeDef(TypedDict):
+    Sasl: NotRequired[AwsMskClusterClusterInfoClientAuthenticationSaslDetailsTypeDef]
+    Unauthenticated: NotRequired[
+        AwsMskClusterClusterInfoClientAuthenticationUnauthenticatedDetailsTypeDef
+    ]
+    Tls: NotRequired[AwsMskClusterClusterInfoClientAuthenticationTlsDetailsUnionTypeDef]
+
+AwsNetworkFirewallFirewallDetailsUnionTypeDef = Union[
+    AwsNetworkFirewallFirewallDetailsTypeDef, AwsNetworkFirewallFirewallDetailsOutputTypeDef
+]
+
+class AwsOpenSearchServiceDomainDetailsOutputTypeDef(TypedDict):
+    Arn: NotRequired[str]
+    AccessPolicies: NotRequired[str]
+    DomainName: NotRequired[str]
+    Id: NotRequired[str]
+    DomainEndpoint: NotRequired[str]
+    EngineVersion: NotRequired[str]
+    EncryptionAtRestOptions: NotRequired[
+        AwsOpenSearchServiceDomainEncryptionAtRestOptionsDetailsTypeDef
+    ]
+    NodeToNodeEncryptionOptions: NotRequired[
+        AwsOpenSearchServiceDomainNodeToNodeEncryptionOptionsDetailsTypeDef
+    ]
+    ServiceSoftwareOptions: NotRequired[
+        AwsOpenSearchServiceDomainServiceSoftwareOptionsDetailsTypeDef
+    ]
+    ClusterConfig: NotRequired[AwsOpenSearchServiceDomainClusterConfigDetailsTypeDef]
+    DomainEndpointOptions: NotRequired[
+        AwsOpenSearchServiceDomainDomainEndpointOptionsDetailsTypeDef
+    ]
+    VpcOptions: NotRequired[AwsOpenSearchServiceDomainVpcOptionsDetailsOutputTypeDef]
+    LogPublishingOptions: NotRequired[AwsOpenSearchServiceDomainLogPublishingOptionsDetailsTypeDef]
+    DomainEndpoints: NotRequired[Dict[str, str]]
+    AdvancedSecurityOptions: NotRequired[
+        AwsOpenSearchServiceDomainAdvancedSecurityOptionsDetailsTypeDef
+    ]
+
+class AwsOpenSearchServiceDomainDetailsTypeDef(TypedDict):
+    Arn: NotRequired[str]
+    AccessPolicies: NotRequired[str]
+    DomainName: NotRequired[str]
+    Id: NotRequired[str]
+    DomainEndpoint: NotRequired[str]
+    EngineVersion: NotRequired[str]
+    EncryptionAtRestOptions: NotRequired[
+        AwsOpenSearchServiceDomainEncryptionAtRestOptionsDetailsTypeDef
+    ]
+    NodeToNodeEncryptionOptions: NotRequired[
+        AwsOpenSearchServiceDomainNodeToNodeEncryptionOptionsDetailsTypeDef
+    ]
+    ServiceSoftwareOptions: NotRequired[
+        AwsOpenSearchServiceDomainServiceSoftwareOptionsDetailsTypeDef
+    ]
+    ClusterConfig: NotRequired[AwsOpenSearchServiceDomainClusterConfigDetailsTypeDef]
+    DomainEndpointOptions: NotRequired[
+        AwsOpenSearchServiceDomainDomainEndpointOptionsDetailsTypeDef
+    ]
+    VpcOptions: NotRequired[AwsOpenSearchServiceDomainVpcOptionsDetailsUnionTypeDef]
+    LogPublishingOptions: NotRequired[AwsOpenSearchServiceDomainLogPublishingOptionsDetailsTypeDef]
+    DomainEndpoints: NotRequired[Mapping[str, str]]
+    AdvancedSecurityOptions: NotRequired[
+        AwsOpenSearchServiceDomainAdvancedSecurityOptionsDetailsTypeDef
+    ]
+
+AwsRdsDbClusterDetailsUnionTypeDef = Union[
+    AwsRdsDbClusterDetailsTypeDef, AwsRdsDbClusterDetailsOutputTypeDef
+]
+
+class AwsRdsDbClusterSnapshotDetailsTypeDef(TypedDict):
+    AvailabilityZones: NotRequired[Sequence[str]]
+    SnapshotCreateTime: NotRequired[str]
+    Engine: NotRequired[str]
+    AllocatedStorage: NotRequired[int]
+    Status: NotRequired[str]
+    Port: NotRequired[int]
+    VpcId: NotRequired[str]
+    ClusterCreateTime: NotRequired[str]
+    MasterUsername: NotRequired[str]
+    EngineVersion: NotRequired[str]
+    LicenseModel: NotRequired[str]
+    SnapshotType: NotRequired[str]
+    PercentProgress: NotRequired[int]
+    StorageEncrypted: NotRequired[bool]
+    KmsKeyId: NotRequired[str]
+    DbClusterIdentifier: NotRequired[str]
+    DbClusterSnapshotIdentifier: NotRequired[str]
+    IamDatabaseAuthenticationEnabled: NotRequired[bool]
+    DbClusterSnapshotAttributes: NotRequired[
+        Sequence[AwsRdsDbClusterSnapshotDbClusterSnapshotAttributeUnionTypeDef]
+    ]
+
+AwsRdsDbSnapshotDetailsUnionTypeDef = Union[
+    AwsRdsDbSnapshotDetailsTypeDef, AwsRdsDbSnapshotDetailsOutputTypeDef
+]
+AwsRdsDbSecurityGroupDetailsUnionTypeDef = Union[
+    AwsRdsDbSecurityGroupDetailsTypeDef, AwsRdsDbSecurityGroupDetailsOutputTypeDef
+]
+
+class AwsRdsDbSubnetGroupOutputTypeDef(TypedDict):
+    DbSubnetGroupName: NotRequired[str]
+    DbSubnetGroupDescription: NotRequired[str]
+    VpcId: NotRequired[str]
+    SubnetGroupStatus: NotRequired[str]
+    Subnets: NotRequired[List[AwsRdsDbSubnetGroupSubnetTypeDef]]
+    DbSubnetGroupArn: NotRequired[str]
+
+class AwsRdsDbSubnetGroupTypeDef(TypedDict):
+    DbSubnetGroupName: NotRequired[str]
+    DbSubnetGroupDescription: NotRequired[str]
+    VpcId: NotRequired[str]
+    SubnetGroupStatus: NotRequired[str]
+    Subnets: NotRequired[Sequence[AwsRdsDbSubnetGroupSubnetTypeDef]]
+    DbSubnetGroupArn: NotRequired[str]
+
+class AwsRdsDbPendingModifiedValuesTypeDef(TypedDict):
+    DbInstanceClass: NotRequired[str]
+    AllocatedStorage: NotRequired[int]
+    MasterUserPassword: NotRequired[str]
+    Port: NotRequired[int]
+    BackupRetentionPeriod: NotRequired[int]
+    MultiAZ: NotRequired[bool]
+    EngineVersion: NotRequired[str]
+    LicenseModel: NotRequired[str]
+    Iops: NotRequired[int]
+    DbInstanceIdentifier: NotRequired[str]
+    StorageType: NotRequired[str]
+    CaCertificateIdentifier: NotRequired[str]
+    DbSubnetGroupName: NotRequired[str]
+    PendingCloudWatchLogsExports: NotRequired[AwsRdsPendingCloudWatchLogsExportsUnionTypeDef]
+    ProcessorFeatures: NotRequired[Sequence[AwsRdsDbProcessorFeatureTypeDef]]
+
+class AwsRedshiftClusterDetailsOutputTypeDef(TypedDict):
+    AllowVersionUpgrade: NotRequired[bool]
+    AutomatedSnapshotRetentionPeriod: NotRequired[int]
+    AvailabilityZone: NotRequired[str]
+    ClusterAvailabilityStatus: NotRequired[str]
+    ClusterCreateTime: NotRequired[str]
+    ClusterIdentifier: NotRequired[str]
+    ClusterNodes: NotRequired[List[AwsRedshiftClusterClusterNodeTypeDef]]
+    ClusterParameterGroups: NotRequired[List[AwsRedshiftClusterClusterParameterGroupOutputTypeDef]]
+    ClusterPublicKey: NotRequired[str]
+    ClusterRevisionNumber: NotRequired[str]
+    ClusterSecurityGroups: NotRequired[List[AwsRedshiftClusterClusterSecurityGroupTypeDef]]
+    ClusterSnapshotCopyStatus: NotRequired[AwsRedshiftClusterClusterSnapshotCopyStatusTypeDef]
+    ClusterStatus: NotRequired[str]
+    ClusterSubnetGroupName: NotRequired[str]
+    ClusterVersion: NotRequired[str]
+    DBName: NotRequired[str]
+    DeferredMaintenanceWindows: NotRequired[
+        List[AwsRedshiftClusterDeferredMaintenanceWindowTypeDef]
+    ]
+    ElasticIpStatus: NotRequired[AwsRedshiftClusterElasticIpStatusTypeDef]
+    ElasticResizeNumberOfNodeOptions: NotRequired[str]
+    Encrypted: NotRequired[bool]
+    Endpoint: NotRequired[AwsRedshiftClusterEndpointTypeDef]
+    EnhancedVpcRouting: NotRequired[bool]
+    ExpectedNextSnapshotScheduleTime: NotRequired[str]
+    ExpectedNextSnapshotScheduleTimeStatus: NotRequired[str]
+    HsmStatus: NotRequired[AwsRedshiftClusterHsmStatusTypeDef]
+    IamRoles: NotRequired[List[AwsRedshiftClusterIamRoleTypeDef]]
+    KmsKeyId: NotRequired[str]
+    MaintenanceTrackName: NotRequired[str]
+    ManualSnapshotRetentionPeriod: NotRequired[int]
+    MasterUsername: NotRequired[str]
+    NextMaintenanceWindowStartTime: NotRequired[str]
+    NodeType: NotRequired[str]
+    NumberOfNodes: NotRequired[int]
+    PendingActions: NotRequired[List[str]]
+    PendingModifiedValues: NotRequired[AwsRedshiftClusterPendingModifiedValuesTypeDef]
+    PreferredMaintenanceWindow: NotRequired[str]
+    PubliclyAccessible: NotRequired[bool]
+    ResizeInfo: NotRequired[AwsRedshiftClusterResizeInfoTypeDef]
+    RestoreStatus: NotRequired[AwsRedshiftClusterRestoreStatusTypeDef]
+    SnapshotScheduleIdentifier: NotRequired[str]
+    SnapshotScheduleState: NotRequired[str]
+    VpcId: NotRequired[str]
+    VpcSecurityGroups: NotRequired[List[AwsRedshiftClusterVpcSecurityGroupTypeDef]]
+    LoggingStatus: NotRequired[AwsRedshiftClusterLoggingStatusTypeDef]
+
+AwsRedshiftClusterClusterParameterGroupUnionTypeDef = Union[
+    AwsRedshiftClusterClusterParameterGroupTypeDef,
+    AwsRedshiftClusterClusterParameterGroupOutputTypeDef,
+]
+
+class AwsRoute53HostedZoneDetailsOutputTypeDef(TypedDict):
+    HostedZone: NotRequired[AwsRoute53HostedZoneObjectDetailsTypeDef]
+    Vpcs: NotRequired[List[AwsRoute53HostedZoneVpcDetailsTypeDef]]
+    NameServers: NotRequired[List[str]]
+    QueryLoggingConfig: NotRequired[AwsRoute53QueryLoggingConfigDetailsTypeDef]
+
+class AwsRoute53HostedZoneDetailsTypeDef(TypedDict):
+    HostedZone: NotRequired[AwsRoute53HostedZoneObjectDetailsTypeDef]
+    Vpcs: NotRequired[Sequence[AwsRoute53HostedZoneVpcDetailsTypeDef]]
+    NameServers: NotRequired[Sequence[str]]
+    QueryLoggingConfig: NotRequired[AwsRoute53QueryLoggingConfigDetailsTypeDef]
+
+AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetailsOutputTypeDef = TypedDict(
+    "AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetailsOutputTypeDef",
+    {
+        "Operands": NotRequired[
+            List[AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetailsTypeDef]
+        ],
+        "Prefix": NotRequired[str],
+        "Tag": NotRequired[
+            AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateTagDetailsTypeDef
+        ],
+        "Type": NotRequired[str],
+    },
+)
+AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetailsTypeDef = TypedDict(
+    "AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetailsTypeDef",
+    {
+        "Operands": NotRequired[
+            Sequence[
+                AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetailsTypeDef
+            ]
+        ],
+        "Prefix": NotRequired[str],
+        "Tag": NotRequired[
+            AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateTagDetailsTypeDef
+        ],
+        "Type": NotRequired[str],
+    },
+)
+
+class AwsS3BucketNotificationConfigurationFilterOutputTypeDef(TypedDict):
+    S3KeyFilter: NotRequired[AwsS3BucketNotificationConfigurationS3KeyFilterOutputTypeDef]
+
+AwsS3BucketNotificationConfigurationS3KeyFilterUnionTypeDef = Union[
+    AwsS3BucketNotificationConfigurationS3KeyFilterTypeDef,
+    AwsS3BucketNotificationConfigurationS3KeyFilterOutputTypeDef,
+]
+
+class AwsS3BucketObjectLockConfigurationTypeDef(TypedDict):
+    ObjectLockEnabled: NotRequired[str]
+    Rule: NotRequired[AwsS3BucketObjectLockConfigurationRuleDetailsTypeDef]
+
+class AwsS3BucketServerSideEncryptionConfigurationOutputTypeDef(TypedDict):
+    Rules: NotRequired[List[AwsS3BucketServerSideEncryptionRuleTypeDef]]
+
+class AwsS3BucketServerSideEncryptionConfigurationTypeDef(TypedDict):
+    Rules: NotRequired[Sequence[AwsS3BucketServerSideEncryptionRuleTypeDef]]
+
+class AwsS3BucketWebsiteConfigurationOutputTypeDef(TypedDict):
+    ErrorDocument: NotRequired[str]
+    IndexDocumentSuffix: NotRequired[str]
+    RedirectAllRequestsTo: NotRequired[AwsS3BucketWebsiteConfigurationRedirectToTypeDef]
+    RoutingRules: NotRequired[List[AwsS3BucketWebsiteConfigurationRoutingRuleTypeDef]]
+
+class AwsS3BucketWebsiteConfigurationTypeDef(TypedDict):
+    ErrorDocument: NotRequired[str]
+    IndexDocumentSuffix: NotRequired[str]
+    RedirectAllRequestsTo: NotRequired[AwsS3BucketWebsiteConfigurationRedirectToTypeDef]
+    RoutingRules: NotRequired[Sequence[AwsS3BucketWebsiteConfigurationRoutingRuleTypeDef]]
+
+AwsSageMakerNotebookInstanceDetailsUnionTypeDef = Union[
+    AwsSageMakerNotebookInstanceDetailsTypeDef, AwsSageMakerNotebookInstanceDetailsOutputTypeDef
+]
+
+class BatchUpdateFindingsResponseTypeDef(TypedDict):
+    ProcessedFindings: List[AwsSecurityFindingIdentifierTypeDef]
+    UnprocessedFindings: List[BatchUpdateFindingsUnprocessedFindingTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+AwsSnsTopicDetailsUnionTypeDef = Union[AwsSnsTopicDetailsTypeDef, AwsSnsTopicDetailsOutputTypeDef]
+
+class AwsSsmPatchComplianceDetailsTypeDef(TypedDict):
+    Patch: NotRequired[AwsSsmPatchTypeDef]
+
+class AwsStepFunctionStateMachineLoggingConfigurationDetailsOutputTypeDef(TypedDict):
+    Destinations: NotRequired[
+        List[AwsStepFunctionStateMachineLoggingConfigurationDestinationsDetailsTypeDef]
+    ]
+    IncludeExecutionData: NotRequired[bool]
+    Level: NotRequired[str]
+
+class AwsStepFunctionStateMachineLoggingConfigurationDetailsTypeDef(TypedDict):
+    Destinations: NotRequired[
+        Sequence[AwsStepFunctionStateMachineLoggingConfigurationDestinationsDetailsTypeDef]
+    ]
+    IncludeExecutionData: NotRequired[bool]
+    Level: NotRequired[str]
+
+AwsWafRateBasedRuleDetailsUnionTypeDef = Union[
+    AwsWafRateBasedRuleDetailsTypeDef, AwsWafRateBasedRuleDetailsOutputTypeDef
+]
+AwsWafRegionalRateBasedRuleDetailsUnionTypeDef = Union[
+    AwsWafRegionalRateBasedRuleDetailsTypeDef, AwsWafRegionalRateBasedRuleDetailsOutputTypeDef
+]
+AwsWafRegionalRuleDetailsUnionTypeDef = Union[
+    AwsWafRegionalRuleDetailsTypeDef, AwsWafRegionalRuleDetailsOutputTypeDef
+]
+
+class AwsWafRegionalRuleGroupDetailsOutputTypeDef(TypedDict):
+    MetricName: NotRequired[str]
+    Name: NotRequired[str]
+    RuleGroupId: NotRequired[str]
+    Rules: NotRequired[List[AwsWafRegionalRuleGroupRulesDetailsTypeDef]]
+
+class AwsWafRegionalRuleGroupDetailsTypeDef(TypedDict):
+    MetricName: NotRequired[str]
+    Name: NotRequired[str]
+    RuleGroupId: NotRequired[str]
+    Rules: NotRequired[Sequence[AwsWafRegionalRuleGroupRulesDetailsTypeDef]]
+
+class AwsWafRegionalWebAclDetailsOutputTypeDef(TypedDict):
+    DefaultAction: NotRequired[str]
+    MetricName: NotRequired[str]
+    Name: NotRequired[str]
+    RulesList: NotRequired[List[AwsWafRegionalWebAclRulesListDetailsTypeDef]]
+    WebAclId: NotRequired[str]
+
+class AwsWafRegionalWebAclDetailsTypeDef(TypedDict):
+    DefaultAction: NotRequired[str]
+    MetricName: NotRequired[str]
+    Name: NotRequired[str]
+    RulesList: NotRequired[Sequence[AwsWafRegionalWebAclRulesListDetailsTypeDef]]
+    WebAclId: NotRequired[str]
+
+AwsWafRuleDetailsUnionTypeDef = Union[AwsWafRuleDetailsTypeDef, AwsWafRuleDetailsOutputTypeDef]
+
+class AwsWafRuleGroupDetailsOutputTypeDef(TypedDict):
+    MetricName: NotRequired[str]
+    Name: NotRequired[str]
+    RuleGroupId: NotRequired[str]
+    Rules: NotRequired[List[AwsWafRuleGroupRulesDetailsTypeDef]]
+
+class AwsWafRuleGroupDetailsTypeDef(TypedDict):
+    MetricName: NotRequired[str]
+    Name: NotRequired[str]
+    RuleGroupId: NotRequired[str]
+    Rules: NotRequired[Sequence[AwsWafRuleGroupRulesDetailsTypeDef]]
+
+class AwsWafWebAclDetailsOutputTypeDef(TypedDict):
+    Name: NotRequired[str]
+    DefaultAction: NotRequired[str]
+    Rules: NotRequired[List[AwsWafWebAclRuleOutputTypeDef]]
+    WebAclId: NotRequired[str]
+
+AwsWafWebAclRuleUnionTypeDef = Union[AwsWafWebAclRuleTypeDef, AwsWafWebAclRuleOutputTypeDef]
+
+class AwsWafv2ActionAllowDetailsOutputTypeDef(TypedDict):
+    CustomRequestHandling: NotRequired[AwsWafv2CustomRequestHandlingDetailsOutputTypeDef]
+
+class AwsWafv2RulesActionCaptchaDetailsOutputTypeDef(TypedDict):
+    CustomRequestHandling: NotRequired[AwsWafv2CustomRequestHandlingDetailsOutputTypeDef]
+
+class AwsWafv2RulesActionCountDetailsOutputTypeDef(TypedDict):
+    CustomRequestHandling: NotRequired[AwsWafv2CustomRequestHandlingDetailsOutputTypeDef]
+
+AwsWafv2CustomRequestHandlingDetailsUnionTypeDef = Union[
+    AwsWafv2CustomRequestHandlingDetailsTypeDef, AwsWafv2CustomRequestHandlingDetailsOutputTypeDef
+]
+
+class AwsWafv2ActionBlockDetailsOutputTypeDef(TypedDict):
+    CustomResponse: NotRequired[AwsWafv2CustomResponseDetailsOutputTypeDef]
+
+AwsWafv2CustomResponseDetailsUnionTypeDef = Union[
+    AwsWafv2CustomResponseDetailsTypeDef, AwsWafv2CustomResponseDetailsOutputTypeDef
+]
+
+class BatchGetStandardsControlAssociationsResponseTypeDef(TypedDict):
+    StandardsControlAssociationDetails: List[StandardsControlAssociationDetailTypeDef]
+    UnprocessedAssociations: List[UnprocessedStandardsControlAssociationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class BatchUpdateStandardsControlAssociationsResponseTypeDef(TypedDict):
+    UnprocessedAssociationUpdates: List[UnprocessedStandardsControlAssociationUpdateTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class VulnerabilityOutputTypeDef(TypedDict):
+    Id: str
+    VulnerablePackages: NotRequired[List[SoftwarePackageTypeDef]]
+    Cvss: NotRequired[List[CvssOutputTypeDef]]
+    RelatedVulnerabilities: NotRequired[List[str]]
+    Vendor: NotRequired[VulnerabilityVendorTypeDef]
+    ReferenceUrls: NotRequired[List[str]]
+    FixAvailable: NotRequired[VulnerabilityFixAvailableType]
+    EpssScore: NotRequired[float]
+    ExploitAvailable: NotRequired[VulnerabilityExploitAvailableType]
+    LastKnownExploitAt: NotRequired[str]
+    CodeVulnerabilities: NotRequired[List[VulnerabilityCodeVulnerabilitiesOutputTypeDef]]
+
+VulnerabilityCodeVulnerabilitiesUnionTypeDef = Union[
+    VulnerabilityCodeVulnerabilitiesTypeDef, VulnerabilityCodeVulnerabilitiesOutputTypeDef
+]
+
+class ParameterDefinitionTypeDef(TypedDict):
+    Description: str
+    ConfigurationOptions: ConfigurationOptionsTypeDef
+
+class BatchGetConfigurationPolicyAssociationsRequestTypeDef(TypedDict):
+    ConfigurationPolicyAssociationIdentifiers: Sequence[ConfigurationPolicyAssociationTypeDef]
+
+class UnprocessedConfigurationPolicyAssociationTypeDef(TypedDict):
+    ConfigurationPolicyAssociationIdentifiers: NotRequired[ConfigurationPolicyAssociationTypeDef]
+    ErrorCode: NotRequired[str]
+    ErrorReason: NotRequired[str]
+
+ContainerDetailsUnionTypeDef = Union[ContainerDetailsTypeDef, ContainerDetailsOutputTypeDef]
+AutomationRulesFindingFiltersOutputTypeDef = TypedDict(
+    "AutomationRulesFindingFiltersOutputTypeDef",
+    {
+        "ProductArn": NotRequired[List[StringFilterTypeDef]],
+        "AwsAccountId": NotRequired[List[StringFilterTypeDef]],
+        "Id": NotRequired[List[StringFilterTypeDef]],
+        "GeneratorId": NotRequired[List[StringFilterTypeDef]],
+        "Type": NotRequired[List[StringFilterTypeDef]],
+        "FirstObservedAt": NotRequired[List[DateFilterTypeDef]],
+        "LastObservedAt": NotRequired[List[DateFilterTypeDef]],
+        "CreatedAt": NotRequired[List[DateFilterTypeDef]],
+        "UpdatedAt": NotRequired[List[DateFilterTypeDef]],
+        "Confidence": NotRequired[List[NumberFilterTypeDef]],
+        "Criticality": NotRequired[List[NumberFilterTypeDef]],
+        "Title": NotRequired[List[StringFilterTypeDef]],
+        "Description": NotRequired[List[StringFilterTypeDef]],
+        "SourceUrl": NotRequired[List[StringFilterTypeDef]],
+        "ProductName": NotRequired[List[StringFilterTypeDef]],
+        "CompanyName": NotRequired[List[StringFilterTypeDef]],
+        "SeverityLabel": NotRequired[List[StringFilterTypeDef]],
+        "ResourceType": NotRequired[List[StringFilterTypeDef]],
+        "ResourceId": NotRequired[List[StringFilterTypeDef]],
+        "ResourcePartition": NotRequired[List[StringFilterTypeDef]],
+        "ResourceRegion": NotRequired[List[StringFilterTypeDef]],
+        "ResourceTags": NotRequired[List[MapFilterTypeDef]],
+        "ResourceDetailsOther": NotRequired[List[MapFilterTypeDef]],
+        "ComplianceStatus": NotRequired[List[StringFilterTypeDef]],
+        "ComplianceSecurityControlId": NotRequired[List[StringFilterTypeDef]],
+        "ComplianceAssociatedStandardsId": NotRequired[List[StringFilterTypeDef]],
+        "VerificationState": NotRequired[List[StringFilterTypeDef]],
+        "WorkflowStatus": NotRequired[List[StringFilterTypeDef]],
+        "RecordState": NotRequired[List[StringFilterTypeDef]],
+        "RelatedFindingsProductArn": NotRequired[List[StringFilterTypeDef]],
+        "RelatedFindingsId": NotRequired[List[StringFilterTypeDef]],
+        "NoteText": NotRequired[List[StringFilterTypeDef]],
+        "NoteUpdatedAt": NotRequired[List[DateFilterTypeDef]],
+        "NoteUpdatedBy": NotRequired[List[StringFilterTypeDef]],
+        "UserDefinedFields": NotRequired[List[MapFilterTypeDef]],
+        "ResourceApplicationArn": NotRequired[List[StringFilterTypeDef]],
+        "ResourceApplicationName": NotRequired[List[StringFilterTypeDef]],
+        "AwsAccountName": NotRequired[List[StringFilterTypeDef]],
+    },
+)
+AutomationRulesFindingFiltersTypeDef = TypedDict(
+    "AutomationRulesFindingFiltersTypeDef",
+    {
+        "ProductArn": NotRequired[Sequence[StringFilterTypeDef]],
+        "AwsAccountId": NotRequired[Sequence[StringFilterTypeDef]],
+        "Id": NotRequired[Sequence[StringFilterTypeDef]],
+        "GeneratorId": NotRequired[Sequence[StringFilterTypeDef]],
+        "Type": NotRequired[Sequence[StringFilterTypeDef]],
+        "FirstObservedAt": NotRequired[Sequence[DateFilterTypeDef]],
+        "LastObservedAt": NotRequired[Sequence[DateFilterTypeDef]],
+        "CreatedAt": NotRequired[Sequence[DateFilterTypeDef]],
+        "UpdatedAt": NotRequired[Sequence[DateFilterTypeDef]],
+        "Confidence": NotRequired[Sequence[NumberFilterTypeDef]],
+        "Criticality": NotRequired[Sequence[NumberFilterTypeDef]],
+        "Title": NotRequired[Sequence[StringFilterTypeDef]],
+        "Description": NotRequired[Sequence[StringFilterTypeDef]],
+        "SourceUrl": NotRequired[Sequence[StringFilterTypeDef]],
+        "ProductName": NotRequired[Sequence[StringFilterTypeDef]],
+        "CompanyName": NotRequired[Sequence[StringFilterTypeDef]],
+        "SeverityLabel": NotRequired[Sequence[StringFilterTypeDef]],
+        "ResourceType": NotRequired[Sequence[StringFilterTypeDef]],
+        "ResourceId": NotRequired[Sequence[StringFilterTypeDef]],
+        "ResourcePartition": NotRequired[Sequence[StringFilterTypeDef]],
+        "ResourceRegion": NotRequired[Sequence[StringFilterTypeDef]],
+        "ResourceTags": NotRequired[Sequence[MapFilterTypeDef]],
+        "ResourceDetailsOther": NotRequired[Sequence[MapFilterTypeDef]],
+        "ComplianceStatus": NotRequired[Sequence[StringFilterTypeDef]],
+        "ComplianceSecurityControlId": NotRequired[Sequence[StringFilterTypeDef]],
+        "ComplianceAssociatedStandardsId": NotRequired[Sequence[StringFilterTypeDef]],
+        "VerificationState": NotRequired[Sequence[StringFilterTypeDef]],
+        "WorkflowStatus": NotRequired[Sequence[StringFilterTypeDef]],
+        "RecordState": NotRequired[Sequence[StringFilterTypeDef]],
+        "RelatedFindingsProductArn": NotRequired[Sequence[StringFilterTypeDef]],
+        "RelatedFindingsId": NotRequired[Sequence[StringFilterTypeDef]],
+        "NoteText": NotRequired[Sequence[StringFilterTypeDef]],
+        "NoteUpdatedAt": NotRequired[Sequence[DateFilterTypeDef]],
+        "NoteUpdatedBy": NotRequired[Sequence[StringFilterTypeDef]],
+        "UserDefinedFields": NotRequired[Sequence[MapFilterTypeDef]],
+        "ResourceApplicationArn": NotRequired[Sequence[StringFilterTypeDef]],
+        "ResourceApplicationName": NotRequired[Sequence[StringFilterTypeDef]],
+        "AwsAccountName": NotRequired[Sequence[StringFilterTypeDef]],
+    },
+)
+AwsSecurityFindingFiltersOutputTypeDef = TypedDict(
+    "AwsSecurityFindingFiltersOutputTypeDef",
+    {
+        "ProductArn": NotRequired[List[StringFilterTypeDef]],
+        "AwsAccountId": NotRequired[List[StringFilterTypeDef]],
+        "Id": NotRequired[List[StringFilterTypeDef]],
+        "GeneratorId": NotRequired[List[StringFilterTypeDef]],
+        "Region": NotRequired[List[StringFilterTypeDef]],
+        "Type": NotRequired[List[StringFilterTypeDef]],
+        "FirstObservedAt": NotRequired[List[DateFilterTypeDef]],
+        "LastObservedAt": NotRequired[List[DateFilterTypeDef]],
+        "CreatedAt": NotRequired[List[DateFilterTypeDef]],
+        "UpdatedAt": NotRequired[List[DateFilterTypeDef]],
+        "SeverityProduct": NotRequired[List[NumberFilterTypeDef]],
+        "SeverityNormalized": NotRequired[List[NumberFilterTypeDef]],
+        "SeverityLabel": NotRequired[List[StringFilterTypeDef]],
+        "Confidence": NotRequired[List[NumberFilterTypeDef]],
+        "Criticality": NotRequired[List[NumberFilterTypeDef]],
+        "Title": NotRequired[List[StringFilterTypeDef]],
+        "Description": NotRequired[List[StringFilterTypeDef]],
+        "RecommendationText": NotRequired[List[StringFilterTypeDef]],
+        "SourceUrl": NotRequired[List[StringFilterTypeDef]],
+        "ProductFields": NotRequired[List[MapFilterTypeDef]],
+        "ProductName": NotRequired[List[StringFilterTypeDef]],
+        "CompanyName": NotRequired[List[StringFilterTypeDef]],
+        "UserDefinedFields": NotRequired[List[MapFilterTypeDef]],
+        "MalwareName": NotRequired[List[StringFilterTypeDef]],
+        "MalwareType": NotRequired[List[StringFilterTypeDef]],
+        "MalwarePath": NotRequired[List[StringFilterTypeDef]],
+        "MalwareState": NotRequired[List[StringFilterTypeDef]],
+        "NetworkDirection": NotRequired[List[StringFilterTypeDef]],
+        "NetworkProtocol": NotRequired[List[StringFilterTypeDef]],
+        "NetworkSourceIpV4": NotRequired[List[IpFilterTypeDef]],
+        "NetworkSourceIpV6": NotRequired[List[IpFilterTypeDef]],
+        "NetworkSourcePort": NotRequired[List[NumberFilterTypeDef]],
+        "NetworkSourceDomain": NotRequired[List[StringFilterTypeDef]],
+        "NetworkSourceMac": NotRequired[List[StringFilterTypeDef]],
+        "NetworkDestinationIpV4": NotRequired[List[IpFilterTypeDef]],
+        "NetworkDestinationIpV6": NotRequired[List[IpFilterTypeDef]],
+        "NetworkDestinationPort": NotRequired[List[NumberFilterTypeDef]],
+        "NetworkDestinationDomain": NotRequired[List[StringFilterTypeDef]],
+        "ProcessName": NotRequired[List[StringFilterTypeDef]],
+        "ProcessPath": NotRequired[List[StringFilterTypeDef]],
+        "ProcessPid": NotRequired[List[NumberFilterTypeDef]],
+        "ProcessParentPid": NotRequired[List[NumberFilterTypeDef]],
+        "ProcessLaunchedAt": NotRequired[List[DateFilterTypeDef]],
+        "ProcessTerminatedAt": NotRequired[List[DateFilterTypeDef]],
+        "ThreatIntelIndicatorType": NotRequired[List[StringFilterTypeDef]],
+        "ThreatIntelIndicatorValue": NotRequired[List[StringFilterTypeDef]],
+        "ThreatIntelIndicatorCategory": NotRequired[List[StringFilterTypeDef]],
+        "ThreatIntelIndicatorLastObservedAt": NotRequired[List[DateFilterTypeDef]],
+        "ThreatIntelIndicatorSource": NotRequired[List[StringFilterTypeDef]],
+        "ThreatIntelIndicatorSourceUrl": NotRequired[List[StringFilterTypeDef]],
+        "ResourceType": NotRequired[List[StringFilterTypeDef]],
+        "ResourceId": NotRequired[List[StringFilterTypeDef]],
+        "ResourcePartition": NotRequired[List[StringFilterTypeDef]],
+        "ResourceRegion": NotRequired[List[StringFilterTypeDef]],
+        "ResourceTags": NotRequired[List[MapFilterTypeDef]],
+        "ResourceAwsEc2InstanceType": NotRequired[List[StringFilterTypeDef]],
+        "ResourceAwsEc2InstanceImageId": NotRequired[List[StringFilterTypeDef]],
+        "ResourceAwsEc2InstanceIpV4Addresses": NotRequired[List[IpFilterTypeDef]],
+        "ResourceAwsEc2InstanceIpV6Addresses": NotRequired[List[IpFilterTypeDef]],
+        "ResourceAwsEc2InstanceKeyName": NotRequired[List[StringFilterTypeDef]],
+        "ResourceAwsEc2InstanceIamInstanceProfileArn": NotRequired[List[StringFilterTypeDef]],
+        "ResourceAwsEc2InstanceVpcId": NotRequired[List[StringFilterTypeDef]],
+        "ResourceAwsEc2InstanceSubnetId": NotRequired[List[StringFilterTypeDef]],
+        "ResourceAwsEc2InstanceLaunchedAt": NotRequired[List[DateFilterTypeDef]],
+        "ResourceAwsS3BucketOwnerId": NotRequired[List[StringFilterTypeDef]],
+        "ResourceAwsS3BucketOwnerName": NotRequired[List[StringFilterTypeDef]],
+        "ResourceAwsIamAccessKeyUserName": NotRequired[List[StringFilterTypeDef]],
+        "ResourceAwsIamAccessKeyPrincipalName": NotRequired[List[StringFilterTypeDef]],
+        "ResourceAwsIamAccessKeyStatus": NotRequired[List[StringFilterTypeDef]],
+        "ResourceAwsIamAccessKeyCreatedAt": NotRequired[List[DateFilterTypeDef]],
+        "ResourceAwsIamUserUserName": NotRequired[List[StringFilterTypeDef]],
+        "ResourceContainerName": NotRequired[List[StringFilterTypeDef]],
+        "ResourceContainerImageId": NotRequired[List[StringFilterTypeDef]],
+        "ResourceContainerImageName": NotRequired[List[StringFilterTypeDef]],
+        "ResourceContainerLaunchedAt": NotRequired[List[DateFilterTypeDef]],
+        "ResourceDetailsOther": NotRequired[List[MapFilterTypeDef]],
+        "ComplianceStatus": NotRequired[List[StringFilterTypeDef]],
+        "VerificationState": NotRequired[List[StringFilterTypeDef]],
+        "WorkflowState": NotRequired[List[StringFilterTypeDef]],
+        "WorkflowStatus": NotRequired[List[StringFilterTypeDef]],
+        "RecordState": NotRequired[List[StringFilterTypeDef]],
+        "RelatedFindingsProductArn": NotRequired[List[StringFilterTypeDef]],
+        "RelatedFindingsId": NotRequired[List[StringFilterTypeDef]],
+        "NoteText": NotRequired[List[StringFilterTypeDef]],
+        "NoteUpdatedAt": NotRequired[List[DateFilterTypeDef]],
+        "NoteUpdatedBy": NotRequired[List[StringFilterTypeDef]],
+        "Keyword": NotRequired[List[KeywordFilterTypeDef]],
+        "FindingProviderFieldsConfidence": NotRequired[List[NumberFilterTypeDef]],
+        "FindingProviderFieldsCriticality": NotRequired[List[NumberFilterTypeDef]],
+        "FindingProviderFieldsRelatedFindingsId": NotRequired[List[StringFilterTypeDef]],
+        "FindingProviderFieldsRelatedFindingsProductArn": NotRequired[List[StringFilterTypeDef]],
+        "FindingProviderFieldsSeverityLabel": NotRequired[List[StringFilterTypeDef]],
+        "FindingProviderFieldsSeverityOriginal": NotRequired[List[StringFilterTypeDef]],
+        "FindingProviderFieldsTypes": NotRequired[List[StringFilterTypeDef]],
+        "Sample": NotRequired[List[BooleanFilterTypeDef]],
+        "ComplianceSecurityControlId": NotRequired[List[StringFilterTypeDef]],
+        "ComplianceAssociatedStandardsId": NotRequired[List[StringFilterTypeDef]],
+        "VulnerabilitiesExploitAvailable": NotRequired[List[StringFilterTypeDef]],
+        "VulnerabilitiesFixAvailable": NotRequired[List[StringFilterTypeDef]],
+        "ComplianceSecurityControlParametersName": NotRequired[List[StringFilterTypeDef]],
+        "ComplianceSecurityControlParametersValue": NotRequired[List[StringFilterTypeDef]],
+        "AwsAccountName": NotRequired[List[StringFilterTypeDef]],
+        "ResourceApplicationName": NotRequired[List[StringFilterTypeDef]],
+        "ResourceApplicationArn": NotRequired[List[StringFilterTypeDef]],
+    },
+)
+AwsSecurityFindingFiltersTypeDef = TypedDict(
+    "AwsSecurityFindingFiltersTypeDef",
+    {
+        "ProductArn": NotRequired[Sequence[StringFilterTypeDef]],
+        "AwsAccountId": NotRequired[Sequence[StringFilterTypeDef]],
+        "Id": NotRequired[Sequence[StringFilterTypeDef]],
+        "GeneratorId": NotRequired[Sequence[StringFilterTypeDef]],
+        "Region": NotRequired[Sequence[StringFilterTypeDef]],
+        "Type": NotRequired[Sequence[StringFilterTypeDef]],
+        "FirstObservedAt": NotRequired[Sequence[DateFilterTypeDef]],
+        "LastObservedAt": NotRequired[Sequence[DateFilterTypeDef]],
+        "CreatedAt": NotRequired[Sequence[DateFilterTypeDef]],
+        "UpdatedAt": NotRequired[Sequence[DateFilterTypeDef]],
+        "SeverityProduct": NotRequired[Sequence[NumberFilterTypeDef]],
+        "SeverityNormalized": NotRequired[Sequence[NumberFilterTypeDef]],
+        "SeverityLabel": NotRequired[Sequence[StringFilterTypeDef]],
+        "Confidence": NotRequired[Sequence[NumberFilterTypeDef]],
+        "Criticality": NotRequired[Sequence[NumberFilterTypeDef]],
+        "Title": NotRequired[Sequence[StringFilterTypeDef]],
+        "Description": NotRequired[Sequence[StringFilterTypeDef]],
+        "RecommendationText": NotRequired[Sequence[StringFilterTypeDef]],
+        "SourceUrl": NotRequired[Sequence[StringFilterTypeDef]],
+        "ProductFields": NotRequired[Sequence[MapFilterTypeDef]],
+        "ProductName": NotRequired[Sequence[StringFilterTypeDef]],
+        "CompanyName": NotRequired[Sequence[StringFilterTypeDef]],
+        "UserDefinedFields": NotRequired[Sequence[MapFilterTypeDef]],
+        "MalwareName": NotRequired[Sequence[StringFilterTypeDef]],
+        "MalwareType": NotRequired[Sequence[StringFilterTypeDef]],
+        "MalwarePath": NotRequired[Sequence[StringFilterTypeDef]],
+        "MalwareState": NotRequired[Sequence[StringFilterTypeDef]],
+        "NetworkDirection": NotRequired[Sequence[StringFilterTypeDef]],
+        "NetworkProtocol": NotRequired[Sequence[StringFilterTypeDef]],
+        "NetworkSourceIpV4": NotRequired[Sequence[IpFilterTypeDef]],
+        "NetworkSourceIpV6": NotRequired[Sequence[IpFilterTypeDef]],
+        "NetworkSourcePort": NotRequired[Sequence[NumberFilterTypeDef]],
+        "NetworkSourceDomain": NotRequired[Sequence[StringFilterTypeDef]],
+        "NetworkSourceMac": NotRequired[Sequence[StringFilterTypeDef]],
+        "NetworkDestinationIpV4": NotRequired[Sequence[IpFilterTypeDef]],
+        "NetworkDestinationIpV6": NotRequired[Sequence[IpFilterTypeDef]],
+        "NetworkDestinationPort": NotRequired[Sequence[NumberFilterTypeDef]],
+        "NetworkDestinationDomain": NotRequired[Sequence[StringFilterTypeDef]],
+        "ProcessName": NotRequired[Sequence[StringFilterTypeDef]],
+        "ProcessPath": NotRequired[Sequence[StringFilterTypeDef]],
+        "ProcessPid": NotRequired[Sequence[NumberFilterTypeDef]],
+        "ProcessParentPid": NotRequired[Sequence[NumberFilterTypeDef]],
+        "ProcessLaunchedAt": NotRequired[Sequence[DateFilterTypeDef]],
+        "ProcessTerminatedAt": NotRequired[Sequence[DateFilterTypeDef]],
+        "ThreatIntelIndicatorType": NotRequired[Sequence[StringFilterTypeDef]],
+        "ThreatIntelIndicatorValue": NotRequired[Sequence[StringFilterTypeDef]],
+        "ThreatIntelIndicatorCategory": NotRequired[Sequence[StringFilterTypeDef]],
+        "ThreatIntelIndicatorLastObservedAt": NotRequired[Sequence[DateFilterTypeDef]],
+        "ThreatIntelIndicatorSource": NotRequired[Sequence[StringFilterTypeDef]],
+        "ThreatIntelIndicatorSourceUrl": NotRequired[Sequence[StringFilterTypeDef]],
+        "ResourceType": NotRequired[Sequence[StringFilterTypeDef]],
+        "ResourceId": NotRequired[Sequence[StringFilterTypeDef]],
+        "ResourcePartition": NotRequired[Sequence[StringFilterTypeDef]],
+        "ResourceRegion": NotRequired[Sequence[StringFilterTypeDef]],
+        "ResourceTags": NotRequired[Sequence[MapFilterTypeDef]],
+        "ResourceAwsEc2InstanceType": NotRequired[Sequence[StringFilterTypeDef]],
+        "ResourceAwsEc2InstanceImageId": NotRequired[Sequence[StringFilterTypeDef]],
+        "ResourceAwsEc2InstanceIpV4Addresses": NotRequired[Sequence[IpFilterTypeDef]],
+        "ResourceAwsEc2InstanceIpV6Addresses": NotRequired[Sequence[IpFilterTypeDef]],
+        "ResourceAwsEc2InstanceKeyName": NotRequired[Sequence[StringFilterTypeDef]],
+        "ResourceAwsEc2InstanceIamInstanceProfileArn": NotRequired[Sequence[StringFilterTypeDef]],
+        "ResourceAwsEc2InstanceVpcId": NotRequired[Sequence[StringFilterTypeDef]],
+        "ResourceAwsEc2InstanceSubnetId": NotRequired[Sequence[StringFilterTypeDef]],
+        "ResourceAwsEc2InstanceLaunchedAt": NotRequired[Sequence[DateFilterTypeDef]],
+        "ResourceAwsS3BucketOwnerId": NotRequired[Sequence[StringFilterTypeDef]],
+        "ResourceAwsS3BucketOwnerName": NotRequired[Sequence[StringFilterTypeDef]],
+        "ResourceAwsIamAccessKeyUserName": NotRequired[Sequence[StringFilterTypeDef]],
+        "ResourceAwsIamAccessKeyPrincipalName": NotRequired[Sequence[StringFilterTypeDef]],
+        "ResourceAwsIamAccessKeyStatus": NotRequired[Sequence[StringFilterTypeDef]],
+        "ResourceAwsIamAccessKeyCreatedAt": NotRequired[Sequence[DateFilterTypeDef]],
+        "ResourceAwsIamUserUserName": NotRequired[Sequence[StringFilterTypeDef]],
+        "ResourceContainerName": NotRequired[Sequence[StringFilterTypeDef]],
+        "ResourceContainerImageId": NotRequired[Sequence[StringFilterTypeDef]],
+        "ResourceContainerImageName": NotRequired[Sequence[StringFilterTypeDef]],
+        "ResourceContainerLaunchedAt": NotRequired[Sequence[DateFilterTypeDef]],
+        "ResourceDetailsOther": NotRequired[Sequence[MapFilterTypeDef]],
+        "ComplianceStatus": NotRequired[Sequence[StringFilterTypeDef]],
+        "VerificationState": NotRequired[Sequence[StringFilterTypeDef]],
+        "WorkflowState": NotRequired[Sequence[StringFilterTypeDef]],
+        "WorkflowStatus": NotRequired[Sequence[StringFilterTypeDef]],
+        "RecordState": NotRequired[Sequence[StringFilterTypeDef]],
+        "RelatedFindingsProductArn": NotRequired[Sequence[StringFilterTypeDef]],
+        "RelatedFindingsId": NotRequired[Sequence[StringFilterTypeDef]],
+        "NoteText": NotRequired[Sequence[StringFilterTypeDef]],
+        "NoteUpdatedAt": NotRequired[Sequence[DateFilterTypeDef]],
+        "NoteUpdatedBy": NotRequired[Sequence[StringFilterTypeDef]],
+        "Keyword": NotRequired[Sequence[KeywordFilterTypeDef]],
+        "FindingProviderFieldsConfidence": NotRequired[Sequence[NumberFilterTypeDef]],
+        "FindingProviderFieldsCriticality": NotRequired[Sequence[NumberFilterTypeDef]],
+        "FindingProviderFieldsRelatedFindingsId": NotRequired[Sequence[StringFilterTypeDef]],
+        "FindingProviderFieldsRelatedFindingsProductArn": NotRequired[
+            Sequence[StringFilterTypeDef]
+        ],
+        "FindingProviderFieldsSeverityLabel": NotRequired[Sequence[StringFilterTypeDef]],
+        "FindingProviderFieldsSeverityOriginal": NotRequired[Sequence[StringFilterTypeDef]],
+        "FindingProviderFieldsTypes": NotRequired[Sequence[StringFilterTypeDef]],
+        "Sample": NotRequired[Sequence[BooleanFilterTypeDef]],
+        "ComplianceSecurityControlId": NotRequired[Sequence[StringFilterTypeDef]],
+        "ComplianceAssociatedStandardsId": NotRequired[Sequence[StringFilterTypeDef]],
+        "VulnerabilitiesExploitAvailable": NotRequired[Sequence[StringFilterTypeDef]],
+        "VulnerabilitiesFixAvailable": NotRequired[Sequence[StringFilterTypeDef]],
+        "ComplianceSecurityControlParametersName": NotRequired[Sequence[StringFilterTypeDef]],
+        "ComplianceSecurityControlParametersValue": NotRequired[Sequence[StringFilterTypeDef]],
+        "AwsAccountName": NotRequired[Sequence[StringFilterTypeDef]],
+        "ResourceApplicationName": NotRequired[Sequence[StringFilterTypeDef]],
+        "ResourceApplicationArn": NotRequired[Sequence[StringFilterTypeDef]],
+    },
+)
+ThreatUnionTypeDef = Union[ThreatTypeDef, ThreatOutputTypeDef]
+
+class GetFindingHistoryResponseTypeDef(TypedDict):
+    Records: List[FindingHistoryRecordTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+FindingProviderFieldsUnionTypeDef = Union[
+    FindingProviderFieldsTypeDef, FindingProviderFieldsOutputTypeDef
+]
+SignalUnionTypeDef = Union[SignalTypeDef, SignalOutputTypeDef]
+
+class GetInsightResultsResponseTypeDef(TypedDict):
+    InsightResults: InsightResultsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+NetworkHeaderOutputTypeDef = TypedDict(
+    "NetworkHeaderOutputTypeDef",
+    {
+        "Protocol": NotRequired[str],
+        "Destination": NotRequired[NetworkPathComponentDetailsOutputTypeDef],
+        "Source": NotRequired[NetworkPathComponentDetailsOutputTypeDef],
+    },
+)
+NetworkPathComponentDetailsUnionTypeDef = Union[
+    NetworkPathComponentDetailsTypeDef, NetworkPathComponentDetailsOutputTypeDef
+]
+
+class OccurrencesOutputTypeDef(TypedDict):
+    LineRanges: NotRequired[List[RangeTypeDef]]
+    OffsetRanges: NotRequired[List[RangeTypeDef]]
+    Pages: NotRequired[List[PageTypeDef]]
+    Records: NotRequired[List[RecordTypeDef]]
+    Cells: NotRequired[List[CellTypeDef]]
+
+class OccurrencesTypeDef(TypedDict):
+    LineRanges: NotRequired[Sequence[RangeTypeDef]]
+    OffsetRanges: NotRequired[Sequence[RangeTypeDef]]
+    Pages: NotRequired[Sequence[PageTypeDef]]
+    Records: NotRequired[Sequence[RecordTypeDef]]
+    Cells: NotRequired[Sequence[CellTypeDef]]
+
+class SecurityControlCustomParameterOutputTypeDef(TypedDict):
+    SecurityControlId: NotRequired[str]
+    Parameters: NotRequired[Dict[str, ParameterConfigurationOutputTypeDef]]
+
+class SecurityControlTypeDef(TypedDict):
+    SecurityControlId: str
+    SecurityControlArn: str
+    Title: str
+    Description: str
+    RemediationUrl: str
+    SeverityRating: SeverityRatingType
+    SecurityControlStatus: ControlStatusType
+    UpdateStatus: NotRequired[UpdateStatusType]
+    Parameters: NotRequired[Dict[str, ParameterConfigurationOutputTypeDef]]
+    LastUpdateReason: NotRequired[str]
+
+class ParameterConfigurationTypeDef(TypedDict):
+    ValueType: ParameterValueTypeType
+    Value: NotRequired[ParameterValueUnionTypeDef]
+
+class RuleGroupSourceStatefulRulesDetailsTypeDef(TypedDict):
+    Action: NotRequired[str]
+    Header: NotRequired[RuleGroupSourceStatefulRulesHeaderDetailsTypeDef]
+    RuleOptions: NotRequired[Sequence[RuleGroupSourceStatefulRulesOptionsDetailsUnionTypeDef]]
+
+class RuleGroupSourceStatelessRuleDefinitionOutputTypeDef(TypedDict):
+    Actions: NotRequired[List[str]]
+    MatchAttributes: NotRequired[RuleGroupSourceStatelessRuleMatchAttributesOutputTypeDef]
+
+class RuleGroupSourceStatelessRuleMatchAttributesTypeDef(TypedDict):
+    DestinationPorts: NotRequired[
+        Sequence[RuleGroupSourceStatelessRuleMatchAttributesDestinationPortsTypeDef]
+    ]
+    Destinations: NotRequired[
+        Sequence[RuleGroupSourceStatelessRuleMatchAttributesDestinationsTypeDef]
+    ]
+    Protocols: NotRequired[Sequence[int]]
+    SourcePorts: NotRequired[
+        Sequence[RuleGroupSourceStatelessRuleMatchAttributesSourcePortsTypeDef]
+    ]
+    Sources: NotRequired[Sequence[RuleGroupSourceStatelessRuleMatchAttributesSourcesTypeDef]]
+    TcpFlags: NotRequired[Sequence[RuleGroupSourceStatelessRuleMatchAttributesTcpFlagsUnionTypeDef]]
+
+class RuleGroupVariablesTypeDef(TypedDict):
+    IpSets: NotRequired[RuleGroupVariablesIpSetsDetailsUnionTypeDef]
+    PortSets: NotRequired[RuleGroupVariablesPortSetsDetailsUnionTypeDef]
+
+class ComplianceTypeDef(TypedDict):
+    Status: NotRequired[ComplianceStatusType]
+    RelatedRequirements: NotRequired[Sequence[str]]
+    StatusReasons: NotRequired[Sequence[StatusReasonTypeDef]]
+    SecurityControlId: NotRequired[str]
+    AssociatedStandards: NotRequired[Sequence[AssociatedStandardTypeDef]]
+    SecurityControlParameters: NotRequired[Sequence[SecurityControlParameterUnionTypeDef]]
+
+class DescribeStandardsResponseTypeDef(TypedDict):
+    Standards: List[StandardTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class BatchDisableStandardsResponseTypeDef(TypedDict):
+    StandardsSubscriptions: List[StandardsSubscriptionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class BatchEnableStandardsResponseTypeDef(TypedDict):
+    StandardsSubscriptions: List[StandardsSubscriptionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetEnabledStandardsResponseTypeDef(TypedDict):
+    StandardsSubscriptions: List[StandardsSubscriptionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class StatelessCustomActionDefinitionOutputTypeDef(TypedDict):
+    PublishMetricAction: NotRequired[StatelessCustomPublishMetricActionOutputTypeDef]
+
+StatelessCustomPublishMetricActionUnionTypeDef = Union[
+    StatelessCustomPublishMetricActionTypeDef, StatelessCustomPublishMetricActionOutputTypeDef
+]
+AwsApiCallActionUnionTypeDef = Union[AwsApiCallActionTypeDef, AwsApiCallActionOutputTypeDef]
+
+class PortProbeActionOutputTypeDef(TypedDict):
+    PortProbeDetails: NotRequired[List[PortProbeDetailTypeDef]]
+    Blocked: NotRequired[bool]
+
+class PortProbeActionTypeDef(TypedDict):
+    PortProbeDetails: NotRequired[Sequence[PortProbeDetailTypeDef]]
+    Blocked: NotRequired[bool]
+
+class SequenceOutputTypeDef(TypedDict):
+    Uid: NotRequired[str]
+    Actors: NotRequired[List[ActorTypeDef]]
+    Endpoints: NotRequired[List[NetworkEndpointTypeDef]]
+    Signals: NotRequired[List[SignalOutputTypeDef]]
+    SequenceIndicators: NotRequired[List[IndicatorOutputTypeDef]]
+
+AwsEc2RouteTableDetailsUnionTypeDef = Union[
+    AwsEc2RouteTableDetailsTypeDef, AwsEc2RouteTableDetailsOutputTypeDef
+]
+AutomationRulesActionTypeDef = TypedDict(
+    "AutomationRulesActionTypeDef",
+    {
+        "Type": NotRequired[Literal["FINDING_FIELDS_UPDATE"]],
+        "FindingFieldsUpdate": NotRequired[AutomationRulesFindingFieldsUpdateUnionTypeDef],
+    },
+)
+AwsAmazonMqBrokerDetailsUnionTypeDef = Union[
+    AwsAmazonMqBrokerDetailsTypeDef, AwsAmazonMqBrokerDetailsOutputTypeDef
+]
+AwsApiGatewayStageDetailsUnionTypeDef = Union[
+    AwsApiGatewayStageDetailsTypeDef, AwsApiGatewayStageDetailsOutputTypeDef
+]
+AwsApiGatewayRestApiDetailsUnionTypeDef = Union[
+    AwsApiGatewayRestApiDetailsTypeDef, AwsApiGatewayRestApiDetailsOutputTypeDef
+]
+AwsAppSyncGraphQlApiDetailsUnionTypeDef = Union[
+    AwsAppSyncGraphQlApiDetailsTypeDef, AwsAppSyncGraphQlApiDetailsOutputTypeDef
+]
+
+class AwsAthenaWorkGroupDetailsTypeDef(TypedDict):
+    Name: NotRequired[str]
+    Description: NotRequired[str]
+    State: NotRequired[str]
+    Configuration: NotRequired[AwsAthenaWorkGroupConfigurationDetailsTypeDef]
+
+class AwsAutoScalingAutoScalingGroupDetailsOutputTypeDef(TypedDict):
+    LaunchConfigurationName: NotRequired[str]
+    LoadBalancerNames: NotRequired[List[str]]
+    HealthCheckType: NotRequired[str]
+    HealthCheckGracePeriod: NotRequired[int]
+    CreatedTime: NotRequired[str]
+    MixedInstancesPolicy: NotRequired[
+        AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetailsOutputTypeDef
+    ]
+    AvailabilityZones: NotRequired[
+        List[AwsAutoScalingAutoScalingGroupAvailabilityZonesListDetailsTypeDef]
+    ]
+    LaunchTemplate: NotRequired[
+        AwsAutoScalingAutoScalingGroupLaunchTemplateLaunchTemplateSpecificationTypeDef
+    ]
+    CapacityRebalance: NotRequired[bool]
+
+class AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetailsTypeDef(TypedDict):
+    InstancesDistribution: NotRequired[
+        AwsAutoScalingAutoScalingGroupMixedInstancesPolicyInstancesDistributionDetailsTypeDef
+    ]
+    LaunchTemplate: NotRequired[
+        AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateDetailsUnionTypeDef
+    ]
+
+AwsAutoScalingLaunchConfigurationDetailsUnionTypeDef = Union[
+    AwsAutoScalingLaunchConfigurationDetailsTypeDef,
+    AwsAutoScalingLaunchConfigurationDetailsOutputTypeDef,
+]
+
+class AwsBackupBackupPlanBackupPlanDetailsOutputTypeDef(TypedDict):
+    BackupPlanName: NotRequired[str]
+    AdvancedBackupSettings: NotRequired[
+        List[AwsBackupBackupPlanAdvancedBackupSettingsDetailsOutputTypeDef]
+    ]
+    BackupPlanRule: NotRequired[List[AwsBackupBackupPlanRuleDetailsOutputTypeDef]]
+
+AwsBackupBackupPlanRuleDetailsUnionTypeDef = Union[
+    AwsBackupBackupPlanRuleDetailsTypeDef, AwsBackupBackupPlanRuleDetailsOutputTypeDef
+]
+AwsBackupBackupVaultDetailsUnionTypeDef = Union[
+    AwsBackupBackupVaultDetailsTypeDef, AwsBackupBackupVaultDetailsOutputTypeDef
+]
+AwsCertificateManagerCertificateDetailsOutputTypeDef = TypedDict(
+    "AwsCertificateManagerCertificateDetailsOutputTypeDef",
+    {
+        "CertificateAuthorityArn": NotRequired[str],
+        "CreatedAt": NotRequired[str],
+        "DomainName": NotRequired[str],
+        "DomainValidationOptions": NotRequired[
+            List[AwsCertificateManagerCertificateDomainValidationOptionOutputTypeDef]
+        ],
+        "ExtendedKeyUsages": NotRequired[
+            List[AwsCertificateManagerCertificateExtendedKeyUsageTypeDef]
+        ],
+        "FailureReason": NotRequired[str],
+        "ImportedAt": NotRequired[str],
+        "InUseBy": NotRequired[List[str]],
+        "IssuedAt": NotRequired[str],
+        "Issuer": NotRequired[str],
+        "KeyAlgorithm": NotRequired[str],
+        "KeyUsages": NotRequired[List[AwsCertificateManagerCertificateKeyUsageTypeDef]],
+        "NotAfter": NotRequired[str],
+        "NotBefore": NotRequired[str],
+        "Options": NotRequired[AwsCertificateManagerCertificateOptionsTypeDef],
+        "RenewalEligibility": NotRequired[str],
+        "RenewalSummary": NotRequired[AwsCertificateManagerCertificateRenewalSummaryOutputTypeDef],
+        "Serial": NotRequired[str],
+        "SignatureAlgorithm": NotRequired[str],
+        "Status": NotRequired[str],
+        "Subject": NotRequired[str],
+        "SubjectAlternativeNames": NotRequired[List[str]],
+        "Type": NotRequired[str],
+    },
+)
+AwsCertificateManagerCertificateRenewalSummaryUnionTypeDef = Union[
+    AwsCertificateManagerCertificateRenewalSummaryTypeDef,
+    AwsCertificateManagerCertificateRenewalSummaryOutputTypeDef,
+]
+
+class AwsCloudFrontDistributionOriginsOutputTypeDef(TypedDict):
+    Items: NotRequired[List[AwsCloudFrontDistributionOriginItemOutputTypeDef]]
+
+class AwsCloudFrontDistributionOriginGroupsOutputTypeDef(TypedDict):
+    Items: NotRequired[List[AwsCloudFrontDistributionOriginGroupOutputTypeDef]]
+
+AwsCloudFrontDistributionOriginGroupFailoverUnionTypeDef = Union[
+    AwsCloudFrontDistributionOriginGroupFailoverTypeDef,
+    AwsCloudFrontDistributionOriginGroupFailoverOutputTypeDef,
+]
+AwsCloudFrontDistributionOriginCustomOriginConfigUnionTypeDef = Union[
+    AwsCloudFrontDistributionOriginCustomOriginConfigTypeDef,
+    AwsCloudFrontDistributionOriginCustomOriginConfigOutputTypeDef,
+]
+
+class AwsCodeBuildProjectDetailsTypeDef(TypedDict):
+    EncryptionKey: NotRequired[str]
+    Artifacts: NotRequired[Sequence[AwsCodeBuildProjectArtifactsDetailsTypeDef]]
+    Environment: NotRequired[AwsCodeBuildProjectEnvironmentUnionTypeDef]
+    Name: NotRequired[str]
+    Source: NotRequired[AwsCodeBuildProjectSourceTypeDef]
+    ServiceRole: NotRequired[str]
+    LogsConfig: NotRequired[AwsCodeBuildProjectLogsConfigDetailsTypeDef]
+    VpcConfig: NotRequired[AwsCodeBuildProjectVpcConfigUnionTypeDef]
+    SecondaryArtifacts: NotRequired[Sequence[AwsCodeBuildProjectArtifactsDetailsTypeDef]]
+
+AwsApiGatewayV2ApiDetailsUnionTypeDef = Union[
+    AwsApiGatewayV2ApiDetailsTypeDef, AwsApiGatewayV2ApiDetailsOutputTypeDef
+]
+AwsDynamoDbTableGlobalSecondaryIndexUnionTypeDef = Union[
+    AwsDynamoDbTableGlobalSecondaryIndexTypeDef, AwsDynamoDbTableGlobalSecondaryIndexOutputTypeDef
+]
+AwsDynamoDbTableLocalSecondaryIndexUnionTypeDef = Union[
+    AwsDynamoDbTableLocalSecondaryIndexTypeDef, AwsDynamoDbTableLocalSecondaryIndexOutputTypeDef
+]
+
+class AwsDynamoDbTableDetailsOutputTypeDef(TypedDict):
+    AttributeDefinitions: NotRequired[List[AwsDynamoDbTableAttributeDefinitionTypeDef]]
+    BillingModeSummary: NotRequired[AwsDynamoDbTableBillingModeSummaryTypeDef]
+    CreationDateTime: NotRequired[str]
+    GlobalSecondaryIndexes: NotRequired[List[AwsDynamoDbTableGlobalSecondaryIndexOutputTypeDef]]
+    GlobalTableVersion: NotRequired[str]
+    ItemCount: NotRequired[int]
+    KeySchema: NotRequired[List[AwsDynamoDbTableKeySchemaTypeDef]]
+    LatestStreamArn: NotRequired[str]
+    LatestStreamLabel: NotRequired[str]
+    LocalSecondaryIndexes: NotRequired[List[AwsDynamoDbTableLocalSecondaryIndexOutputTypeDef]]
+    ProvisionedThroughput: NotRequired[AwsDynamoDbTableProvisionedThroughputTypeDef]
+    Replicas: NotRequired[List[AwsDynamoDbTableReplicaOutputTypeDef]]
+    RestoreSummary: NotRequired[AwsDynamoDbTableRestoreSummaryTypeDef]
+    SseDescription: NotRequired[AwsDynamoDbTableSseDescriptionTypeDef]
+    StreamSpecification: NotRequired[AwsDynamoDbTableStreamSpecificationTypeDef]
+    TableId: NotRequired[str]
+    TableName: NotRequired[str]
+    TableSizeBytes: NotRequired[int]
+    TableStatus: NotRequired[str]
+    DeletionProtectionEnabled: NotRequired[bool]
+
+AwsDynamoDbTableReplicaUnionTypeDef = Union[
+    AwsDynamoDbTableReplicaTypeDef, AwsDynamoDbTableReplicaOutputTypeDef
+]
+AwsEc2ClientVpnEndpointDetailsUnionTypeDef = Union[
+    AwsEc2ClientVpnEndpointDetailsTypeDef, AwsEc2ClientVpnEndpointDetailsOutputTypeDef
+]
+
+class AwsEc2LaunchTemplateDetailsOutputTypeDef(TypedDict):
+    LaunchTemplateName: NotRequired[str]
+    Id: NotRequired[str]
+    LaunchTemplateData: NotRequired[AwsEc2LaunchTemplateDataDetailsOutputTypeDef]
+    DefaultVersionNumber: NotRequired[int]
+    LatestVersionNumber: NotRequired[int]
+
+class AwsEc2LaunchTemplateDataDetailsTypeDef(TypedDict):
+    BlockDeviceMappingSet: NotRequired[
+        Sequence[AwsEc2LaunchTemplateDataBlockDeviceMappingSetDetailsTypeDef]
+    ]
+    CapacityReservationSpecification: NotRequired[
+        AwsEc2LaunchTemplateDataCapacityReservationSpecificationDetailsTypeDef
+    ]
+    CpuOptions: NotRequired[AwsEc2LaunchTemplateDataCpuOptionsDetailsTypeDef]
+    CreditSpecification: NotRequired[AwsEc2LaunchTemplateDataCreditSpecificationDetailsTypeDef]
+    DisableApiStop: NotRequired[bool]
+    DisableApiTermination: NotRequired[bool]
+    EbsOptimized: NotRequired[bool]
+    ElasticGpuSpecificationSet: NotRequired[
+        Sequence[AwsEc2LaunchTemplateDataElasticGpuSpecificationSetDetailsTypeDef]
+    ]
+    ElasticInferenceAcceleratorSet: NotRequired[
+        Sequence[AwsEc2LaunchTemplateDataElasticInferenceAcceleratorSetDetailsTypeDef]
+    ]
+    EnclaveOptions: NotRequired[AwsEc2LaunchTemplateDataEnclaveOptionsDetailsTypeDef]
+    HibernationOptions: NotRequired[AwsEc2LaunchTemplateDataHibernationOptionsDetailsTypeDef]
+    IamInstanceProfile: NotRequired[AwsEc2LaunchTemplateDataIamInstanceProfileDetailsTypeDef]
+    ImageId: NotRequired[str]
+    InstanceInitiatedShutdownBehavior: NotRequired[str]
+    InstanceMarketOptions: NotRequired[AwsEc2LaunchTemplateDataInstanceMarketOptionsDetailsTypeDef]
+    InstanceRequirements: NotRequired[
+        AwsEc2LaunchTemplateDataInstanceRequirementsDetailsUnionTypeDef
+    ]
+    InstanceType: NotRequired[str]
+    KernelId: NotRequired[str]
+    KeyName: NotRequired[str]
+    LicenseSet: NotRequired[Sequence[AwsEc2LaunchTemplateDataLicenseSetDetailsTypeDef]]
+    MaintenanceOptions: NotRequired[AwsEc2LaunchTemplateDataMaintenanceOptionsDetailsTypeDef]
+    MetadataOptions: NotRequired[AwsEc2LaunchTemplateDataMetadataOptionsDetailsTypeDef]
+    Monitoring: NotRequired[AwsEc2LaunchTemplateDataMonitoringDetailsTypeDef]
+    NetworkInterfaceSet: NotRequired[
+        Sequence[AwsEc2LaunchTemplateDataNetworkInterfaceSetDetailsUnionTypeDef]
+    ]
+    Placement: NotRequired[AwsEc2LaunchTemplateDataPlacementDetailsTypeDef]
+    PrivateDnsNameOptions: NotRequired[AwsEc2LaunchTemplateDataPrivateDnsNameOptionsDetailsTypeDef]
+    RamDiskId: NotRequired[str]
+    SecurityGroupIdSet: NotRequired[Sequence[str]]
+    SecurityGroupSet: NotRequired[Sequence[str]]
+    UserData: NotRequired[str]
+
+AwsEc2NetworkAclDetailsUnionTypeDef = Union[
+    AwsEc2NetworkAclDetailsTypeDef, AwsEc2NetworkAclDetailsOutputTypeDef
+]
+
+class AwsEc2SecurityGroupDetailsTypeDef(TypedDict):
+    GroupName: NotRequired[str]
+    GroupId: NotRequired[str]
+    OwnerId: NotRequired[str]
+    VpcId: NotRequired[str]
+    IpPermissions: NotRequired[Sequence[AwsEc2SecurityGroupIpPermissionUnionTypeDef]]
+    IpPermissionsEgress: NotRequired[Sequence[AwsEc2SecurityGroupIpPermissionTypeDef]]
+
+class AwsEc2VpcPeeringConnectionDetailsTypeDef(TypedDict):
+    AccepterVpcInfo: NotRequired[AwsEc2VpcPeeringConnectionVpcInfoDetailsUnionTypeDef]
+    ExpirationTime: NotRequired[str]
+    RequesterVpcInfo: NotRequired[AwsEc2VpcPeeringConnectionVpcInfoDetailsUnionTypeDef]
+    Status: NotRequired[AwsEc2VpcPeeringConnectionStatusDetailsTypeDef]
+    VpcPeeringConnectionId: NotRequired[str]
+
+AwsEc2VpnConnectionOptionsDetailsUnionTypeDef = Union[
+    AwsEc2VpnConnectionOptionsDetailsTypeDef, AwsEc2VpnConnectionOptionsDetailsOutputTypeDef
+]
+
+class AwsEcsClusterDetailsOutputTypeDef(TypedDict):
+    ClusterArn: NotRequired[str]
+    ActiveServicesCount: NotRequired[int]
+    CapacityProviders: NotRequired[List[str]]
+    ClusterSettings: NotRequired[List[AwsEcsClusterClusterSettingsDetailsTypeDef]]
+    Configuration: NotRequired[AwsEcsClusterConfigurationDetailsTypeDef]
+    DefaultCapacityProviderStrategy: NotRequired[
+        List[AwsEcsClusterDefaultCapacityProviderStrategyDetailsTypeDef]
+    ]
+    ClusterName: NotRequired[str]
+    RegisteredContainerInstancesCount: NotRequired[int]
+    RunningTasksCount: NotRequired[int]
+    Status: NotRequired[str]
+
+class AwsEcsClusterDetailsTypeDef(TypedDict):
+    ClusterArn: NotRequired[str]
+    ActiveServicesCount: NotRequired[int]
+    CapacityProviders: NotRequired[Sequence[str]]
+    ClusterSettings: NotRequired[Sequence[AwsEcsClusterClusterSettingsDetailsTypeDef]]
+    Configuration: NotRequired[AwsEcsClusterConfigurationDetailsTypeDef]
+    DefaultCapacityProviderStrategy: NotRequired[
+        Sequence[AwsEcsClusterDefaultCapacityProviderStrategyDetailsTypeDef]
+    ]
+    ClusterName: NotRequired[str]
+    RegisteredContainerInstancesCount: NotRequired[int]
+    RunningTasksCount: NotRequired[int]
+    Status: NotRequired[str]
+
+class AwsEcsTaskDetailsTypeDef(TypedDict):
+    ClusterArn: NotRequired[str]
+    TaskDefinitionArn: NotRequired[str]
+    Version: NotRequired[str]
+    CreatedAt: NotRequired[str]
+    StartedAt: NotRequired[str]
+    StartedBy: NotRequired[str]
+    Group: NotRequired[str]
+    Volumes: NotRequired[Sequence[AwsEcsTaskVolumeDetailsTypeDef]]
+    Containers: NotRequired[Sequence[AwsEcsContainerDetailsUnionTypeDef]]
+
+AwsEcsServiceNetworkConfigurationDetailsUnionTypeDef = Union[
+    AwsEcsServiceNetworkConfigurationDetailsTypeDef,
+    AwsEcsServiceNetworkConfigurationDetailsOutputTypeDef,
+]
+AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetailsUnionTypeDef = Union[
+    AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetailsTypeDef,
+    AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetailsOutputTypeDef,
+]
+
+class AwsEcsTaskDefinitionDetailsOutputTypeDef(TypedDict):
+    ContainerDefinitions: NotRequired[
+        List[AwsEcsTaskDefinitionContainerDefinitionsDetailsOutputTypeDef]
+    ]
+    Cpu: NotRequired[str]
+    ExecutionRoleArn: NotRequired[str]
+    Family: NotRequired[str]
+    InferenceAccelerators: NotRequired[
+        List[AwsEcsTaskDefinitionInferenceAcceleratorsDetailsTypeDef]
+    ]
+    IpcMode: NotRequired[str]
+    Memory: NotRequired[str]
+    NetworkMode: NotRequired[str]
+    PidMode: NotRequired[str]
+    PlacementConstraints: NotRequired[List[AwsEcsTaskDefinitionPlacementConstraintsDetailsTypeDef]]
+    ProxyConfiguration: NotRequired[AwsEcsTaskDefinitionProxyConfigurationDetailsOutputTypeDef]
+    RequiresCompatibilities: NotRequired[List[str]]
+    TaskRoleArn: NotRequired[str]
+    Volumes: NotRequired[List[AwsEcsTaskDefinitionVolumesDetailsOutputTypeDef]]
+    Status: NotRequired[str]
+
+AwsEcsTaskDefinitionVolumesDetailsUnionTypeDef = Union[
+    AwsEcsTaskDefinitionVolumesDetailsTypeDef, AwsEcsTaskDefinitionVolumesDetailsOutputTypeDef
+]
+AwsEfsAccessPointDetailsUnionTypeDef = Union[
+    AwsEfsAccessPointDetailsTypeDef, AwsEfsAccessPointDetailsOutputTypeDef
+]
+AwsEksClusterLoggingDetailsUnionTypeDef = Union[
+    AwsEksClusterLoggingDetailsTypeDef, AwsEksClusterLoggingDetailsOutputTypeDef
+]
+AwsElasticsearchDomainDetailsUnionTypeDef = Union[
+    AwsElasticsearchDomainDetailsTypeDef, AwsElasticsearchDomainDetailsOutputTypeDef
+]
+
+class AwsElbLoadBalancerDetailsTypeDef(TypedDict):
+    AvailabilityZones: NotRequired[Sequence[str]]
+    BackendServerDescriptions: NotRequired[
+        Sequence[AwsElbLoadBalancerBackendServerDescriptionUnionTypeDef]
+    ]
+    CanonicalHostedZoneName: NotRequired[str]
+    CanonicalHostedZoneNameID: NotRequired[str]
+    CreatedTime: NotRequired[str]
+    DnsName: NotRequired[str]
+    HealthCheck: NotRequired[AwsElbLoadBalancerHealthCheckTypeDef]
+    Instances: NotRequired[Sequence[AwsElbLoadBalancerInstanceTypeDef]]
+    ListenerDescriptions: NotRequired[Sequence[AwsElbLoadBalancerListenerDescriptionUnionTypeDef]]
+    LoadBalancerAttributes: NotRequired[AwsElbLoadBalancerAttributesUnionTypeDef]
+    LoadBalancerName: NotRequired[str]
+    Policies: NotRequired[AwsElbLoadBalancerPoliciesUnionTypeDef]
+    Scheme: NotRequired[str]
+    SecurityGroups: NotRequired[Sequence[str]]
+    SourceSecurityGroup: NotRequired[AwsElbLoadBalancerSourceSecurityGroupTypeDef]
+    Subnets: NotRequired[Sequence[str]]
+    VpcId: NotRequired[str]
+
+class AwsEventsEndpointDetailsOutputTypeDef(TypedDict):
+    Arn: NotRequired[str]
+    Description: NotRequired[str]
+    EndpointId: NotRequired[str]
+    EndpointUrl: NotRequired[str]
+    EventBuses: NotRequired[List[AwsEventsEndpointEventBusesDetailsTypeDef]]
+    Name: NotRequired[str]
+    ReplicationConfig: NotRequired[AwsEventsEndpointReplicationConfigDetailsTypeDef]
+    RoleArn: NotRequired[str]
+    RoutingConfig: NotRequired[AwsEventsEndpointRoutingConfigDetailsTypeDef]
+    State: NotRequired[str]
+    StateReason: NotRequired[str]
+
+class AwsEventsEndpointDetailsTypeDef(TypedDict):
+    Arn: NotRequired[str]
+    Description: NotRequired[str]
+    EndpointId: NotRequired[str]
+    EndpointUrl: NotRequired[str]
+    EventBuses: NotRequired[Sequence[AwsEventsEndpointEventBusesDetailsTypeDef]]
+    Name: NotRequired[str]
+    ReplicationConfig: NotRequired[AwsEventsEndpointReplicationConfigDetailsTypeDef]
+    RoleArn: NotRequired[str]
+    RoutingConfig: NotRequired[AwsEventsEndpointRoutingConfigDetailsTypeDef]
+    State: NotRequired[str]
+    StateReason: NotRequired[str]
+
+class AwsGuardDutyDetectorDataSourcesDetailsTypeDef(TypedDict):
+    CloudTrail: NotRequired[AwsGuardDutyDetectorDataSourcesCloudTrailDetailsTypeDef]
+    DnsLogs: NotRequired[AwsGuardDutyDetectorDataSourcesDnsLogsDetailsTypeDef]
+    FlowLogs: NotRequired[AwsGuardDutyDetectorDataSourcesFlowLogsDetailsTypeDef]
+    Kubernetes: NotRequired[AwsGuardDutyDetectorDataSourcesKubernetesDetailsTypeDef]
+    MalwareProtection: NotRequired[AwsGuardDutyDetectorDataSourcesMalwareProtectionDetailsTypeDef]
+    S3Logs: NotRequired[AwsGuardDutyDetectorDataSourcesS3LogsDetailsTypeDef]
+
+class AwsIamRoleDetailsTypeDef(TypedDict):
+    AssumeRolePolicyDocument: NotRequired[str]
+    AttachedManagedPolicies: NotRequired[Sequence[AwsIamAttachedManagedPolicyTypeDef]]
+    CreateDate: NotRequired[str]
+    InstanceProfileList: NotRequired[Sequence[AwsIamInstanceProfileUnionTypeDef]]
+    PermissionsBoundary: NotRequired[AwsIamPermissionsBoundaryTypeDef]
+    RoleId: NotRequired[str]
+    RoleName: NotRequired[str]
+    RolePolicyList: NotRequired[Sequence[AwsIamRolePolicyTypeDef]]
+    MaxSessionDuration: NotRequired[int]
+    Path: NotRequired[str]
+
+class AwsLambdaFunctionDetailsTypeDef(TypedDict):
+    Code: NotRequired[AwsLambdaFunctionCodeTypeDef]
+    CodeSha256: NotRequired[str]
+    DeadLetterConfig: NotRequired[AwsLambdaFunctionDeadLetterConfigTypeDef]
+    Environment: NotRequired[AwsLambdaFunctionEnvironmentUnionTypeDef]
+    FunctionName: NotRequired[str]
+    Handler: NotRequired[str]
+    KmsKeyArn: NotRequired[str]
+    LastModified: NotRequired[str]
+    Layers: NotRequired[Sequence[AwsLambdaFunctionLayerTypeDef]]
+    MasterArn: NotRequired[str]
+    MemorySize: NotRequired[int]
+    RevisionId: NotRequired[str]
+    Role: NotRequired[str]
+    Runtime: NotRequired[str]
+    Timeout: NotRequired[int]
+    TracingConfig: NotRequired[AwsLambdaFunctionTracingConfigTypeDef]
+    VpcConfig: NotRequired[AwsLambdaFunctionVpcConfigUnionTypeDef]
+    Version: NotRequired[str]
+    Architectures: NotRequired[Sequence[str]]
+    PackageType: NotRequired[str]
+
+class AwsMskClusterClusterInfoDetailsOutputTypeDef(TypedDict):
+    EncryptionInfo: NotRequired[AwsMskClusterClusterInfoEncryptionInfoDetailsTypeDef]
+    CurrentVersion: NotRequired[str]
+    NumberOfBrokerNodes: NotRequired[int]
+    ClusterName: NotRequired[str]
+    ClientAuthentication: NotRequired[
+        AwsMskClusterClusterInfoClientAuthenticationDetailsOutputTypeDef
+    ]
+    EnhancedMonitoring: NotRequired[str]
+
+AwsMskClusterClusterInfoClientAuthenticationDetailsUnionTypeDef = Union[
+    AwsMskClusterClusterInfoClientAuthenticationDetailsTypeDef,
+    AwsMskClusterClusterInfoClientAuthenticationDetailsOutputTypeDef,
+]
+AwsOpenSearchServiceDomainDetailsUnionTypeDef = Union[
+    AwsOpenSearchServiceDomainDetailsTypeDef, AwsOpenSearchServiceDomainDetailsOutputTypeDef
+]
+AwsRdsDbClusterSnapshotDetailsUnionTypeDef = Union[
+    AwsRdsDbClusterSnapshotDetailsTypeDef, AwsRdsDbClusterSnapshotDetailsOutputTypeDef
+]
+
+class AwsRdsDbInstanceDetailsOutputTypeDef(TypedDict):
+    AssociatedRoles: NotRequired[List[AwsRdsDbInstanceAssociatedRoleTypeDef]]
+    CACertificateIdentifier: NotRequired[str]
+    DBClusterIdentifier: NotRequired[str]
+    DBInstanceIdentifier: NotRequired[str]
+    DBInstanceClass: NotRequired[str]
+    DbInstancePort: NotRequired[int]
+    DbiResourceId: NotRequired[str]
+    DBName: NotRequired[str]
+    DeletionProtection: NotRequired[bool]
+    Endpoint: NotRequired[AwsRdsDbInstanceEndpointTypeDef]
+    Engine: NotRequired[str]
+    EngineVersion: NotRequired[str]
+    IAMDatabaseAuthenticationEnabled: NotRequired[bool]
+    InstanceCreateTime: NotRequired[str]
+    KmsKeyId: NotRequired[str]
+    PubliclyAccessible: NotRequired[bool]
+    StorageEncrypted: NotRequired[bool]
+    TdeCredentialArn: NotRequired[str]
+    VpcSecurityGroups: NotRequired[List[AwsRdsDbInstanceVpcSecurityGroupTypeDef]]
+    MultiAz: NotRequired[bool]
+    EnhancedMonitoringResourceArn: NotRequired[str]
+    DbInstanceStatus: NotRequired[str]
+    MasterUsername: NotRequired[str]
+    AllocatedStorage: NotRequired[int]
+    PreferredBackupWindow: NotRequired[str]
+    BackupRetentionPeriod: NotRequired[int]
+    DbSecurityGroups: NotRequired[List[str]]
+    DbParameterGroups: NotRequired[List[AwsRdsDbParameterGroupTypeDef]]
+    AvailabilityZone: NotRequired[str]
+    DbSubnetGroup: NotRequired[AwsRdsDbSubnetGroupOutputTypeDef]
+    PreferredMaintenanceWindow: NotRequired[str]
+    PendingModifiedValues: NotRequired[AwsRdsDbPendingModifiedValuesOutputTypeDef]
+    LatestRestorableTime: NotRequired[str]
+    AutoMinorVersionUpgrade: NotRequired[bool]
+    ReadReplicaSourceDBInstanceIdentifier: NotRequired[str]
+    ReadReplicaDBInstanceIdentifiers: NotRequired[List[str]]
+    ReadReplicaDBClusterIdentifiers: NotRequired[List[str]]
+    LicenseModel: NotRequired[str]
+    Iops: NotRequired[int]
+    OptionGroupMemberships: NotRequired[List[AwsRdsDbOptionGroupMembershipTypeDef]]
+    CharacterSetName: NotRequired[str]
+    SecondaryAvailabilityZone: NotRequired[str]
+    StatusInfos: NotRequired[List[AwsRdsDbStatusInfoTypeDef]]
+    StorageType: NotRequired[str]
+    DomainMemberships: NotRequired[List[AwsRdsDbDomainMembershipTypeDef]]
+    CopyTagsToSnapshot: NotRequired[bool]
+    MonitoringInterval: NotRequired[int]
+    MonitoringRoleArn: NotRequired[str]
+    PromotionTier: NotRequired[int]
+    Timezone: NotRequired[str]
+    PerformanceInsightsEnabled: NotRequired[bool]
+    PerformanceInsightsKmsKeyId: NotRequired[str]
+    PerformanceInsightsRetentionPeriod: NotRequired[int]
+    EnabledCloudWatchLogsExports: NotRequired[List[str]]
+    ProcessorFeatures: NotRequired[List[AwsRdsDbProcessorFeatureTypeDef]]
+    ListenerEndpoint: NotRequired[AwsRdsDbInstanceEndpointTypeDef]
+    MaxAllocatedStorage: NotRequired[int]
+
+AwsRdsDbSubnetGroupUnionTypeDef = Union[
+    AwsRdsDbSubnetGroupTypeDef, AwsRdsDbSubnetGroupOutputTypeDef
+]
+AwsRdsDbPendingModifiedValuesUnionTypeDef = Union[
+    AwsRdsDbPendingModifiedValuesTypeDef, AwsRdsDbPendingModifiedValuesOutputTypeDef
+]
+
+class AwsRedshiftClusterDetailsTypeDef(TypedDict):
+    AllowVersionUpgrade: NotRequired[bool]
+    AutomatedSnapshotRetentionPeriod: NotRequired[int]
+    AvailabilityZone: NotRequired[str]
+    ClusterAvailabilityStatus: NotRequired[str]
+    ClusterCreateTime: NotRequired[str]
+    ClusterIdentifier: NotRequired[str]
+    ClusterNodes: NotRequired[Sequence[AwsRedshiftClusterClusterNodeTypeDef]]
+    ClusterParameterGroups: NotRequired[
+        Sequence[AwsRedshiftClusterClusterParameterGroupUnionTypeDef]
+    ]
+    ClusterPublicKey: NotRequired[str]
+    ClusterRevisionNumber: NotRequired[str]
+    ClusterSecurityGroups: NotRequired[Sequence[AwsRedshiftClusterClusterSecurityGroupTypeDef]]
+    ClusterSnapshotCopyStatus: NotRequired[AwsRedshiftClusterClusterSnapshotCopyStatusTypeDef]
+    ClusterStatus: NotRequired[str]
+    ClusterSubnetGroupName: NotRequired[str]
+    ClusterVersion: NotRequired[str]
+    DBName: NotRequired[str]
+    DeferredMaintenanceWindows: NotRequired[
+        Sequence[AwsRedshiftClusterDeferredMaintenanceWindowTypeDef]
+    ]
+    ElasticIpStatus: NotRequired[AwsRedshiftClusterElasticIpStatusTypeDef]
+    ElasticResizeNumberOfNodeOptions: NotRequired[str]
+    Encrypted: NotRequired[bool]
+    Endpoint: NotRequired[AwsRedshiftClusterEndpointTypeDef]
+    EnhancedVpcRouting: NotRequired[bool]
+    ExpectedNextSnapshotScheduleTime: NotRequired[str]
+    ExpectedNextSnapshotScheduleTimeStatus: NotRequired[str]
+    HsmStatus: NotRequired[AwsRedshiftClusterHsmStatusTypeDef]
+    IamRoles: NotRequired[Sequence[AwsRedshiftClusterIamRoleTypeDef]]
+    KmsKeyId: NotRequired[str]
+    MaintenanceTrackName: NotRequired[str]
+    ManualSnapshotRetentionPeriod: NotRequired[int]
+    MasterUsername: NotRequired[str]
+    NextMaintenanceWindowStartTime: NotRequired[str]
+    NodeType: NotRequired[str]
+    NumberOfNodes: NotRequired[int]
+    PendingActions: NotRequired[Sequence[str]]
+    PendingModifiedValues: NotRequired[AwsRedshiftClusterPendingModifiedValuesTypeDef]
+    PreferredMaintenanceWindow: NotRequired[str]
+    PubliclyAccessible: NotRequired[bool]
+    ResizeInfo: NotRequired[AwsRedshiftClusterResizeInfoTypeDef]
+    RestoreStatus: NotRequired[AwsRedshiftClusterRestoreStatusTypeDef]
+    SnapshotScheduleIdentifier: NotRequired[str]
+    SnapshotScheduleState: NotRequired[str]
+    VpcId: NotRequired[str]
+    VpcSecurityGroups: NotRequired[Sequence[AwsRedshiftClusterVpcSecurityGroupTypeDef]]
+    LoggingStatus: NotRequired[AwsRedshiftClusterLoggingStatusTypeDef]
+
+AwsRoute53HostedZoneDetailsUnionTypeDef = Union[
+    AwsRoute53HostedZoneDetailsTypeDef, AwsRoute53HostedZoneDetailsOutputTypeDef
+]
+
+class AwsS3BucketBucketLifecycleConfigurationRulesFilterDetailsOutputTypeDef(TypedDict):
+    Predicate: NotRequired[
+        AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetailsOutputTypeDef
+    ]
+
+AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetailsUnionTypeDef = Union[
+    AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetailsTypeDef,
+    AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetailsOutputTypeDef,
+]
+AwsS3BucketNotificationConfigurationDetailOutputTypeDef = TypedDict(
+    "AwsS3BucketNotificationConfigurationDetailOutputTypeDef",
+    {
+        "Events": NotRequired[List[str]],
+        "Filter": NotRequired[AwsS3BucketNotificationConfigurationFilterOutputTypeDef],
+        "Destination": NotRequired[str],
+        "Type": NotRequired[str],
+    },
+)
+
+class AwsS3BucketNotificationConfigurationFilterTypeDef(TypedDict):
+    S3KeyFilter: NotRequired[AwsS3BucketNotificationConfigurationS3KeyFilterUnionTypeDef]
+
+AwsS3BucketServerSideEncryptionConfigurationUnionTypeDef = Union[
+    AwsS3BucketServerSideEncryptionConfigurationTypeDef,
+    AwsS3BucketServerSideEncryptionConfigurationOutputTypeDef,
+]
+AwsS3BucketWebsiteConfigurationUnionTypeDef = Union[
+    AwsS3BucketWebsiteConfigurationTypeDef, AwsS3BucketWebsiteConfigurationOutputTypeDef
+]
+AwsStepFunctionStateMachineDetailsOutputTypeDef = TypedDict(
+    "AwsStepFunctionStateMachineDetailsOutputTypeDef",
+    {
+        "Label": NotRequired[str],
+        "LoggingConfiguration": NotRequired[
+            AwsStepFunctionStateMachineLoggingConfigurationDetailsOutputTypeDef
+        ],
+        "Name": NotRequired[str],
+        "RoleArn": NotRequired[str],
+        "StateMachineArn": NotRequired[str],
+        "Status": NotRequired[str],
+        "TracingConfiguration": NotRequired[
+            AwsStepFunctionStateMachineTracingConfigurationDetailsTypeDef
+        ],
+        "Type": NotRequired[str],
+    },
+)
+AwsStepFunctionStateMachineLoggingConfigurationDetailsUnionTypeDef = Union[
+    AwsStepFunctionStateMachineLoggingConfigurationDetailsTypeDef,
+    AwsStepFunctionStateMachineLoggingConfigurationDetailsOutputTypeDef,
+]
+AwsWafRegionalRuleGroupDetailsUnionTypeDef = Union[
+    AwsWafRegionalRuleGroupDetailsTypeDef, AwsWafRegionalRuleGroupDetailsOutputTypeDef
+]
+AwsWafRegionalWebAclDetailsUnionTypeDef = Union[
+    AwsWafRegionalWebAclDetailsTypeDef, AwsWafRegionalWebAclDetailsOutputTypeDef
+]
+AwsWafRuleGroupDetailsUnionTypeDef = Union[
+    AwsWafRuleGroupDetailsTypeDef, AwsWafRuleGroupDetailsOutputTypeDef
+]
+
+class AwsWafWebAclDetailsTypeDef(TypedDict):
+    Name: NotRequired[str]
+    DefaultAction: NotRequired[str]
+    Rules: NotRequired[Sequence[AwsWafWebAclRuleUnionTypeDef]]
+    WebAclId: NotRequired[str]
+
+class AwsWafv2ActionAllowDetailsTypeDef(TypedDict):
+    CustomRequestHandling: NotRequired[AwsWafv2CustomRequestHandlingDetailsUnionTypeDef]
+
+class AwsWafv2RulesActionCaptchaDetailsTypeDef(TypedDict):
+    CustomRequestHandling: NotRequired[AwsWafv2CustomRequestHandlingDetailsUnionTypeDef]
+
+class AwsWafv2RulesActionCountDetailsTypeDef(TypedDict):
+    CustomRequestHandling: NotRequired[AwsWafv2CustomRequestHandlingDetailsUnionTypeDef]
+
+class AwsWafv2RulesActionDetailsOutputTypeDef(TypedDict):
+    Allow: NotRequired[AwsWafv2ActionAllowDetailsOutputTypeDef]
+    Block: NotRequired[AwsWafv2ActionBlockDetailsOutputTypeDef]
+    Captcha: NotRequired[AwsWafv2RulesActionCaptchaDetailsOutputTypeDef]
+    Count: NotRequired[AwsWafv2RulesActionCountDetailsOutputTypeDef]
+
+class AwsWafv2WebAclActionDetailsOutputTypeDef(TypedDict):
+    Allow: NotRequired[AwsWafv2ActionAllowDetailsOutputTypeDef]
+    Block: NotRequired[AwsWafv2ActionBlockDetailsOutputTypeDef]
+
+class AwsWafv2ActionBlockDetailsTypeDef(TypedDict):
+    CustomResponse: NotRequired[AwsWafv2CustomResponseDetailsUnionTypeDef]
+
+class VulnerabilityTypeDef(TypedDict):
+    Id: str
+    VulnerablePackages: NotRequired[Sequence[SoftwarePackageTypeDef]]
+    Cvss: NotRequired[Sequence[CvssUnionTypeDef]]
+    RelatedVulnerabilities: NotRequired[Sequence[str]]
+    Vendor: NotRequired[VulnerabilityVendorTypeDef]
+    ReferenceUrls: NotRequired[Sequence[str]]
+    FixAvailable: NotRequired[VulnerabilityFixAvailableType]
+    EpssScore: NotRequired[float]
+    ExploitAvailable: NotRequired[VulnerabilityExploitAvailableType]
+    LastKnownExploitAt: NotRequired[str]
+    CodeVulnerabilities: NotRequired[Sequence[VulnerabilityCodeVulnerabilitiesUnionTypeDef]]
+
+class SecurityControlDefinitionTypeDef(TypedDict):
+    SecurityControlId: str
+    Title: str
+    Description: str
+    RemediationUrl: str
+    SeverityRating: SeverityRatingType
+    CurrentRegionAvailability: RegionAvailabilityStatusType
+    CustomizableProperties: NotRequired[List[Literal["Parameters"]]]
+    ParameterDefinitions: NotRequired[Dict[str, ParameterDefinitionTypeDef]]
+
+class BatchGetConfigurationPolicyAssociationsResponseTypeDef(TypedDict):
+    ConfigurationPolicyAssociations: List[ConfigurationPolicyAssociationSummaryTypeDef]
+    UnprocessedConfigurationPolicyAssociations: List[
+        UnprocessedConfigurationPolicyAssociationTypeDef
+    ]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class AutomationRulesConfigTypeDef(TypedDict):
+    RuleArn: NotRequired[str]
+    RuleStatus: NotRequired[RuleStatusType]
+    RuleOrder: NotRequired[int]
+    RuleName: NotRequired[str]
+    Description: NotRequired[str]
+    IsTerminal: NotRequired[bool]
+    Criteria: NotRequired[AutomationRulesFindingFiltersOutputTypeDef]
+    Actions: NotRequired[List[AutomationRulesActionOutputTypeDef]]
+    CreatedAt: NotRequired[datetime]
+    UpdatedAt: NotRequired[datetime]
+    CreatedBy: NotRequired[str]
+
+AutomationRulesFindingFiltersUnionTypeDef = Union[
+    AutomationRulesFindingFiltersTypeDef, AutomationRulesFindingFiltersOutputTypeDef
+]
+
+class InsightTypeDef(TypedDict):
+    InsightArn: str
+    Name: str
+    Filters: AwsSecurityFindingFiltersOutputTypeDef
+    GroupByAttribute: str
+
+AwsSecurityFindingFiltersUnionTypeDef = Union[
+    AwsSecurityFindingFiltersTypeDef, AwsSecurityFindingFiltersOutputTypeDef
+]
+
+class SequenceTypeDef(TypedDict):
+    Uid: NotRequired[str]
+    Actors: NotRequired[Sequence[ActorTypeDef]]
+    Endpoints: NotRequired[Sequence[NetworkEndpointTypeDef]]
+    Signals: NotRequired[Sequence[SignalUnionTypeDef]]
+    SequenceIndicators: NotRequired[Sequence[IndicatorUnionTypeDef]]
+
+class NetworkPathComponentOutputTypeDef(TypedDict):
+    ComponentId: NotRequired[str]
+    ComponentType: NotRequired[str]
+    Egress: NotRequired[NetworkHeaderOutputTypeDef]
+    Ingress: NotRequired[NetworkHeaderOutputTypeDef]
+
+NetworkHeaderTypeDef = TypedDict(
+    "NetworkHeaderTypeDef",
+    {
+        "Protocol": NotRequired[str],
+        "Destination": NotRequired[NetworkPathComponentDetailsUnionTypeDef],
+        "Source": NotRequired[NetworkPathComponentDetailsUnionTypeDef],
+    },
+)
+
+class CustomDataIdentifiersDetectionsOutputTypeDef(TypedDict):
+    Count: NotRequired[int]
+    Arn: NotRequired[str]
+    Name: NotRequired[str]
+    Occurrences: NotRequired[OccurrencesOutputTypeDef]
+
+SensitiveDataDetectionsOutputTypeDef = TypedDict(
+    "SensitiveDataDetectionsOutputTypeDef",
+    {
+        "Count": NotRequired[int],
+        "Type": NotRequired[str],
+        "Occurrences": NotRequired[OccurrencesOutputTypeDef],
+    },
+)
+OccurrencesUnionTypeDef = Union[OccurrencesTypeDef, OccurrencesOutputTypeDef]
+
+class SecurityControlsConfigurationOutputTypeDef(TypedDict):
+    EnabledSecurityControlIdentifiers: NotRequired[List[str]]
+    DisabledSecurityControlIdentifiers: NotRequired[List[str]]
+    SecurityControlCustomParameters: NotRequired[List[SecurityControlCustomParameterOutputTypeDef]]
+
+class BatchGetSecurityControlsResponseTypeDef(TypedDict):
+    SecurityControls: List[SecurityControlTypeDef]
+    UnprocessedIds: List[UnprocessedSecurityControlTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+ParameterConfigurationUnionTypeDef = Union[
+    ParameterConfigurationTypeDef, ParameterConfigurationOutputTypeDef
+]
+
+class SecurityControlCustomParameterTypeDef(TypedDict):
+    SecurityControlId: NotRequired[str]
+    Parameters: NotRequired[Mapping[str, ParameterConfigurationTypeDef]]
+
+RuleGroupSourceStatefulRulesDetailsUnionTypeDef = Union[
+    RuleGroupSourceStatefulRulesDetailsTypeDef, RuleGroupSourceStatefulRulesDetailsOutputTypeDef
+]
+
+class RuleGroupSourceStatelessRulesDetailsOutputTypeDef(TypedDict):
+    Priority: NotRequired[int]
+    RuleDefinition: NotRequired[RuleGroupSourceStatelessRuleDefinitionOutputTypeDef]
+
+RuleGroupSourceStatelessRuleMatchAttributesUnionTypeDef = Union[
+    RuleGroupSourceStatelessRuleMatchAttributesTypeDef,
+    RuleGroupSourceStatelessRuleMatchAttributesOutputTypeDef,
+]
+RuleGroupVariablesUnionTypeDef = Union[RuleGroupVariablesTypeDef, RuleGroupVariablesOutputTypeDef]
+ComplianceUnionTypeDef = Union[ComplianceTypeDef, ComplianceOutputTypeDef]
+
+class FirewallPolicyStatelessCustomActionsDetailsOutputTypeDef(TypedDict):
+    ActionDefinition: NotRequired[StatelessCustomActionDefinitionOutputTypeDef]
+    ActionName: NotRequired[str]
+
+class RuleGroupSourceCustomActionsDetailsOutputTypeDef(TypedDict):
+    ActionDefinition: NotRequired[StatelessCustomActionDefinitionOutputTypeDef]
+    ActionName: NotRequired[str]
+
+class StatelessCustomActionDefinitionTypeDef(TypedDict):
+    PublishMetricAction: NotRequired[StatelessCustomPublishMetricActionUnionTypeDef]
+
+class ActionOutputTypeDef(TypedDict):
+    ActionType: NotRequired[str]
+    NetworkConnectionAction: NotRequired[NetworkConnectionActionTypeDef]
+    AwsApiCallAction: NotRequired[AwsApiCallActionOutputTypeDef]
+    DnsRequestAction: NotRequired[DnsRequestActionTypeDef]
+    PortProbeAction: NotRequired[PortProbeActionOutputTypeDef]
+
+PortProbeActionUnionTypeDef = Union[PortProbeActionTypeDef, PortProbeActionOutputTypeDef]
+DetectionOutputTypeDef = TypedDict(
+    "DetectionOutputTypeDef",
+    {
+        "Sequence": NotRequired[SequenceOutputTypeDef],
+    },
+)
+AutomationRulesActionUnionTypeDef = Union[
+    AutomationRulesActionTypeDef, AutomationRulesActionOutputTypeDef
+]
+AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetailsUnionTypeDef = Union[
+    AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetailsTypeDef,
+    AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetailsOutputTypeDef,
+]
+
+class AwsBackupBackupPlanDetailsOutputTypeDef(TypedDict):
+    BackupPlan: NotRequired[AwsBackupBackupPlanBackupPlanDetailsOutputTypeDef]
+    BackupPlanArn: NotRequired[str]
+    BackupPlanId: NotRequired[str]
+    VersionId: NotRequired[str]
+
+class AwsBackupBackupPlanBackupPlanDetailsTypeDef(TypedDict):
+    BackupPlanName: NotRequired[str]
+    AdvancedBackupSettings: NotRequired[
+        Sequence[AwsBackupBackupPlanAdvancedBackupSettingsDetailsUnionTypeDef]
+    ]
+    BackupPlanRule: NotRequired[Sequence[AwsBackupBackupPlanRuleDetailsUnionTypeDef]]
+
+AwsCertificateManagerCertificateDetailsTypeDef = TypedDict(
+    "AwsCertificateManagerCertificateDetailsTypeDef",
+    {
+        "CertificateAuthorityArn": NotRequired[str],
+        "CreatedAt": NotRequired[str],
+        "DomainName": NotRequired[str],
+        "DomainValidationOptions": NotRequired[
+            Sequence[AwsCertificateManagerCertificateDomainValidationOptionUnionTypeDef]
+        ],
+        "ExtendedKeyUsages": NotRequired[
+            Sequence[AwsCertificateManagerCertificateExtendedKeyUsageTypeDef]
+        ],
+        "FailureReason": NotRequired[str],
+        "ImportedAt": NotRequired[str],
+        "InUseBy": NotRequired[Sequence[str]],
+        "IssuedAt": NotRequired[str],
+        "Issuer": NotRequired[str],
+        "KeyAlgorithm": NotRequired[str],
+        "KeyUsages": NotRequired[Sequence[AwsCertificateManagerCertificateKeyUsageTypeDef]],
+        "NotAfter": NotRequired[str],
+        "NotBefore": NotRequired[str],
+        "Options": NotRequired[AwsCertificateManagerCertificateOptionsTypeDef],
+        "RenewalEligibility": NotRequired[str],
+        "RenewalSummary": NotRequired[AwsCertificateManagerCertificateRenewalSummaryUnionTypeDef],
+        "Serial": NotRequired[str],
+        "SignatureAlgorithm": NotRequired[str],
+        "Status": NotRequired[str],
+        "Subject": NotRequired[str],
+        "SubjectAlternativeNames": NotRequired[Sequence[str]],
+        "Type": NotRequired[str],
+    },
+)
+
+class AwsCloudFrontDistributionDetailsOutputTypeDef(TypedDict):
+    CacheBehaviors: NotRequired[AwsCloudFrontDistributionCacheBehaviorsOutputTypeDef]
+    DefaultCacheBehavior: NotRequired[AwsCloudFrontDistributionDefaultCacheBehaviorTypeDef]
+    DefaultRootObject: NotRequired[str]
+    DomainName: NotRequired[str]
+    ETag: NotRequired[str]
+    LastModifiedTime: NotRequired[str]
+    Logging: NotRequired[AwsCloudFrontDistributionLoggingTypeDef]
+    Origins: NotRequired[AwsCloudFrontDistributionOriginsOutputTypeDef]
+    OriginGroups: NotRequired[AwsCloudFrontDistributionOriginGroupsOutputTypeDef]
+    ViewerCertificate: NotRequired[AwsCloudFrontDistributionViewerCertificateTypeDef]
+    Status: NotRequired[str]
+    WebAclId: NotRequired[str]
+
+class AwsCloudFrontDistributionOriginGroupTypeDef(TypedDict):
+    FailoverCriteria: NotRequired[AwsCloudFrontDistributionOriginGroupFailoverUnionTypeDef]
+
+class AwsCloudFrontDistributionOriginItemTypeDef(TypedDict):
+    DomainName: NotRequired[str]
+    Id: NotRequired[str]
+    OriginPath: NotRequired[str]
+    S3OriginConfig: NotRequired[AwsCloudFrontDistributionOriginS3OriginConfigTypeDef]
+    CustomOriginConfig: NotRequired[AwsCloudFrontDistributionOriginCustomOriginConfigUnionTypeDef]
+
+AwsCodeBuildProjectDetailsUnionTypeDef = Union[
+    AwsCodeBuildProjectDetailsTypeDef, AwsCodeBuildProjectDetailsOutputTypeDef
+]
+
+class AwsDynamoDbTableDetailsTypeDef(TypedDict):
+    AttributeDefinitions: NotRequired[Sequence[AwsDynamoDbTableAttributeDefinitionTypeDef]]
+    BillingModeSummary: NotRequired[AwsDynamoDbTableBillingModeSummaryTypeDef]
+    CreationDateTime: NotRequired[str]
+    GlobalSecondaryIndexes: NotRequired[Sequence[AwsDynamoDbTableGlobalSecondaryIndexUnionTypeDef]]
+    GlobalTableVersion: NotRequired[str]
+    ItemCount: NotRequired[int]
+    KeySchema: NotRequired[Sequence[AwsDynamoDbTableKeySchemaTypeDef]]
+    LatestStreamArn: NotRequired[str]
+    LatestStreamLabel: NotRequired[str]
+    LocalSecondaryIndexes: NotRequired[Sequence[AwsDynamoDbTableLocalSecondaryIndexUnionTypeDef]]
+    ProvisionedThroughput: NotRequired[AwsDynamoDbTableProvisionedThroughputTypeDef]
+    Replicas: NotRequired[Sequence[AwsDynamoDbTableReplicaUnionTypeDef]]
+    RestoreSummary: NotRequired[AwsDynamoDbTableRestoreSummaryTypeDef]
+    SseDescription: NotRequired[AwsDynamoDbTableSseDescriptionTypeDef]
+    StreamSpecification: NotRequired[AwsDynamoDbTableStreamSpecificationTypeDef]
+    TableId: NotRequired[str]
+    TableName: NotRequired[str]
+    TableSizeBytes: NotRequired[int]
+    TableStatus: NotRequired[str]
+    DeletionProtectionEnabled: NotRequired[bool]
+
+AwsEc2LaunchTemplateDataDetailsUnionTypeDef = Union[
+    AwsEc2LaunchTemplateDataDetailsTypeDef, AwsEc2LaunchTemplateDataDetailsOutputTypeDef
+]
+AwsEc2SecurityGroupDetailsUnionTypeDef = Union[
+    AwsEc2SecurityGroupDetailsTypeDef, AwsEc2SecurityGroupDetailsOutputTypeDef
+]
+AwsEc2VpcPeeringConnectionDetailsUnionTypeDef = Union[
+    AwsEc2VpcPeeringConnectionDetailsTypeDef, AwsEc2VpcPeeringConnectionDetailsOutputTypeDef
+]
+AwsEc2VpnConnectionDetailsTypeDef = TypedDict(
+    "AwsEc2VpnConnectionDetailsTypeDef",
+    {
+        "VpnConnectionId": NotRequired[str],
+        "State": NotRequired[str],
+        "CustomerGatewayId": NotRequired[str],
+        "CustomerGatewayConfiguration": NotRequired[str],
+        "Type": NotRequired[str],
+        "VpnGatewayId": NotRequired[str],
+        "Category": NotRequired[str],
+        "VgwTelemetry": NotRequired[Sequence[AwsEc2VpnConnectionVgwTelemetryDetailsTypeDef]],
+        "Options": NotRequired[AwsEc2VpnConnectionOptionsDetailsUnionTypeDef],
+        "Routes": NotRequired[Sequence[AwsEc2VpnConnectionRoutesDetailsTypeDef]],
+        "TransitGatewayId": NotRequired[str],
+    },
+)
+AwsEcsClusterDetailsUnionTypeDef = Union[
+    AwsEcsClusterDetailsTypeDef, AwsEcsClusterDetailsOutputTypeDef
+]
+AwsEcsTaskDetailsUnionTypeDef = Union[AwsEcsTaskDetailsTypeDef, AwsEcsTaskDetailsOutputTypeDef]
+AwsEcsServiceDetailsTypeDef = TypedDict(
+    "AwsEcsServiceDetailsTypeDef",
+    {
+        "CapacityProviderStrategy": NotRequired[
+            Sequence[AwsEcsServiceCapacityProviderStrategyDetailsTypeDef]
+        ],
+        "Cluster": NotRequired[str],
+        "DeploymentConfiguration": NotRequired[AwsEcsServiceDeploymentConfigurationDetailsTypeDef],
+        "DeploymentController": NotRequired[AwsEcsServiceDeploymentControllerDetailsTypeDef],
+        "DesiredCount": NotRequired[int],
+        "EnableEcsManagedTags": NotRequired[bool],
+        "EnableExecuteCommand": NotRequired[bool],
+        "HealthCheckGracePeriodSeconds": NotRequired[int],
+        "LaunchType": NotRequired[str],
+        "LoadBalancers": NotRequired[Sequence[AwsEcsServiceLoadBalancersDetailsTypeDef]],
+        "Name": NotRequired[str],
+        "NetworkConfiguration": NotRequired[AwsEcsServiceNetworkConfigurationDetailsUnionTypeDef],
+        "PlacementConstraints": NotRequired[
+            Sequence[AwsEcsServicePlacementConstraintsDetailsTypeDef]
+        ],
+        "PlacementStrategies": NotRequired[
+            Sequence[AwsEcsServicePlacementStrategiesDetailsTypeDef]
+        ],
+        "PlatformVersion": NotRequired[str],
+        "PropagateTags": NotRequired[str],
+        "Role": NotRequired[str],
+        "SchedulingStrategy": NotRequired[str],
+        "ServiceArn": NotRequired[str],
+        "ServiceName": NotRequired[str],
+        "ServiceRegistries": NotRequired[Sequence[AwsEcsServiceServiceRegistriesDetailsTypeDef]],
+        "TaskDefinition": NotRequired[str],
+    },
+)
+
+class AwsEcsTaskDefinitionContainerDefinitionsDetailsTypeDef(TypedDict):
+    Command: NotRequired[Sequence[str]]
+    Cpu: NotRequired[int]
+    DependsOn: NotRequired[
+        Sequence[AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetailsTypeDef]
+    ]
+    DisableNetworking: NotRequired[bool]
+    DnsSearchDomains: NotRequired[Sequence[str]]
+    DnsServers: NotRequired[Sequence[str]]
+    DockerLabels: NotRequired[Mapping[str, str]]
+    DockerSecurityOptions: NotRequired[Sequence[str]]
+    EntryPoint: NotRequired[Sequence[str]]
+    Environment: NotRequired[
+        Sequence[AwsEcsTaskDefinitionContainerDefinitionsEnvironmentDetailsTypeDef]
+    ]
+    EnvironmentFiles: NotRequired[
+        Sequence[AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetailsTypeDef]
+    ]
+    Essential: NotRequired[bool]
+    ExtraHosts: NotRequired[
+        Sequence[AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetailsTypeDef]
+    ]
+    FirelensConfiguration: NotRequired[
+        AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetailsUnionTypeDef
+    ]
+    HealthCheck: NotRequired[AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetailsUnionTypeDef]
+    Hostname: NotRequired[str]
+    Image: NotRequired[str]
+    Interactive: NotRequired[bool]
+    Links: NotRequired[Sequence[str]]
+    LinuxParameters: NotRequired[
+        AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetailsUnionTypeDef
+    ]
+    LogConfiguration: NotRequired[
+        AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetailsUnionTypeDef
+    ]
+    Memory: NotRequired[int]
+    MemoryReservation: NotRequired[int]
+    MountPoints: NotRequired[
+        Sequence[AwsEcsTaskDefinitionContainerDefinitionsMountPointsDetailsTypeDef]
+    ]
+    Name: NotRequired[str]
+    PortMappings: NotRequired[
+        Sequence[AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetailsTypeDef]
+    ]
+    Privileged: NotRequired[bool]
+    PseudoTerminal: NotRequired[bool]
+    ReadonlyRootFilesystem: NotRequired[bool]
+    RepositoryCredentials: NotRequired[
+        AwsEcsTaskDefinitionContainerDefinitionsRepositoryCredentialsDetailsTypeDef
+    ]
+    ResourceRequirements: NotRequired[
+        Sequence[AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetailsTypeDef]
+    ]
+    Secrets: NotRequired[Sequence[AwsEcsTaskDefinitionContainerDefinitionsSecretsDetailsTypeDef]]
+    StartTimeout: NotRequired[int]
+    StopTimeout: NotRequired[int]
+    SystemControls: NotRequired[
+        Sequence[AwsEcsTaskDefinitionContainerDefinitionsSystemControlsDetailsTypeDef]
+    ]
+    Ulimits: NotRequired[Sequence[AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetailsTypeDef]]
+    User: NotRequired[str]
+    VolumesFrom: NotRequired[
+        Sequence[AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetailsTypeDef]
+    ]
+    WorkingDirectory: NotRequired[str]
+
+class AwsEksClusterDetailsTypeDef(TypedDict):
+    Arn: NotRequired[str]
+    CertificateAuthorityData: NotRequired[str]
+    ClusterStatus: NotRequired[str]
+    Endpoint: NotRequired[str]
+    Name: NotRequired[str]
+    ResourcesVpcConfig: NotRequired[AwsEksClusterResourcesVpcConfigDetailsUnionTypeDef]
+    RoleArn: NotRequired[str]
+    Version: NotRequired[str]
+    Logging: NotRequired[AwsEksClusterLoggingDetailsUnionTypeDef]
+
+AwsElbLoadBalancerDetailsUnionTypeDef = Union[
+    AwsElbLoadBalancerDetailsTypeDef, AwsElbLoadBalancerDetailsOutputTypeDef
+]
+AwsEventsEndpointDetailsUnionTypeDef = Union[
+    AwsEventsEndpointDetailsTypeDef, AwsEventsEndpointDetailsOutputTypeDef
+]
+
+class AwsGuardDutyDetectorDetailsOutputTypeDef(TypedDict):
+    DataSources: NotRequired[AwsGuardDutyDetectorDataSourcesDetailsTypeDef]
+    Features: NotRequired[List[AwsGuardDutyDetectorFeaturesDetailsTypeDef]]
+    FindingPublishingFrequency: NotRequired[str]
+    ServiceRole: NotRequired[str]
+    Status: NotRequired[str]
+
+class AwsGuardDutyDetectorDetailsTypeDef(TypedDict):
+    DataSources: NotRequired[AwsGuardDutyDetectorDataSourcesDetailsTypeDef]
+    Features: NotRequired[Sequence[AwsGuardDutyDetectorFeaturesDetailsTypeDef]]
+    FindingPublishingFrequency: NotRequired[str]
+    ServiceRole: NotRequired[str]
+    Status: NotRequired[str]
+
+AwsIamRoleDetailsUnionTypeDef = Union[AwsIamRoleDetailsTypeDef, AwsIamRoleDetailsOutputTypeDef]
+AwsLambdaFunctionDetailsUnionTypeDef = Union[
+    AwsLambdaFunctionDetailsTypeDef, AwsLambdaFunctionDetailsOutputTypeDef
+]
+
+class AwsMskClusterDetailsOutputTypeDef(TypedDict):
+    ClusterInfo: NotRequired[AwsMskClusterClusterInfoDetailsOutputTypeDef]
+
+class AwsMskClusterClusterInfoDetailsTypeDef(TypedDict):
+    EncryptionInfo: NotRequired[AwsMskClusterClusterInfoEncryptionInfoDetailsTypeDef]
+    CurrentVersion: NotRequired[str]
+    NumberOfBrokerNodes: NotRequired[int]
+    ClusterName: NotRequired[str]
+    ClientAuthentication: NotRequired[
+        AwsMskClusterClusterInfoClientAuthenticationDetailsUnionTypeDef
+    ]
+    EnhancedMonitoring: NotRequired[str]
+
+class AwsRdsDbInstanceDetailsTypeDef(TypedDict):
+    AssociatedRoles: NotRequired[Sequence[AwsRdsDbInstanceAssociatedRoleTypeDef]]
+    CACertificateIdentifier: NotRequired[str]
+    DBClusterIdentifier: NotRequired[str]
+    DBInstanceIdentifier: NotRequired[str]
+    DBInstanceClass: NotRequired[str]
+    DbInstancePort: NotRequired[int]
+    DbiResourceId: NotRequired[str]
+    DBName: NotRequired[str]
+    DeletionProtection: NotRequired[bool]
+    Endpoint: NotRequired[AwsRdsDbInstanceEndpointTypeDef]
+    Engine: NotRequired[str]
+    EngineVersion: NotRequired[str]
+    IAMDatabaseAuthenticationEnabled: NotRequired[bool]
+    InstanceCreateTime: NotRequired[str]
+    KmsKeyId: NotRequired[str]
+    PubliclyAccessible: NotRequired[bool]
+    StorageEncrypted: NotRequired[bool]
+    TdeCredentialArn: NotRequired[str]
+    VpcSecurityGroups: NotRequired[Sequence[AwsRdsDbInstanceVpcSecurityGroupTypeDef]]
+    MultiAz: NotRequired[bool]
+    EnhancedMonitoringResourceArn: NotRequired[str]
+    DbInstanceStatus: NotRequired[str]
+    MasterUsername: NotRequired[str]
+    AllocatedStorage: NotRequired[int]
+    PreferredBackupWindow: NotRequired[str]
+    BackupRetentionPeriod: NotRequired[int]
+    DbSecurityGroups: NotRequired[Sequence[str]]
+    DbParameterGroups: NotRequired[Sequence[AwsRdsDbParameterGroupTypeDef]]
+    AvailabilityZone: NotRequired[str]
+    DbSubnetGroup: NotRequired[AwsRdsDbSubnetGroupUnionTypeDef]
+    PreferredMaintenanceWindow: NotRequired[str]
+    PendingModifiedValues: NotRequired[AwsRdsDbPendingModifiedValuesUnionTypeDef]
+    LatestRestorableTime: NotRequired[str]
+    AutoMinorVersionUpgrade: NotRequired[bool]
+    ReadReplicaSourceDBInstanceIdentifier: NotRequired[str]
+    ReadReplicaDBInstanceIdentifiers: NotRequired[Sequence[str]]
+    ReadReplicaDBClusterIdentifiers: NotRequired[Sequence[str]]
+    LicenseModel: NotRequired[str]
+    Iops: NotRequired[int]
+    OptionGroupMemberships: NotRequired[Sequence[AwsRdsDbOptionGroupMembershipTypeDef]]
+    CharacterSetName: NotRequired[str]
+    SecondaryAvailabilityZone: NotRequired[str]
+    StatusInfos: NotRequired[Sequence[AwsRdsDbStatusInfoTypeDef]]
+    StorageType: NotRequired[str]
+    DomainMemberships: NotRequired[Sequence[AwsRdsDbDomainMembershipTypeDef]]
+    CopyTagsToSnapshot: NotRequired[bool]
+    MonitoringInterval: NotRequired[int]
+    MonitoringRoleArn: NotRequired[str]
+    PromotionTier: NotRequired[int]
+    Timezone: NotRequired[str]
+    PerformanceInsightsEnabled: NotRequired[bool]
+    PerformanceInsightsKmsKeyId: NotRequired[str]
+    PerformanceInsightsRetentionPeriod: NotRequired[int]
+    EnabledCloudWatchLogsExports: NotRequired[Sequence[str]]
+    ProcessorFeatures: NotRequired[Sequence[AwsRdsDbProcessorFeatureTypeDef]]
+    ListenerEndpoint: NotRequired[AwsRdsDbInstanceEndpointTypeDef]
+    MaxAllocatedStorage: NotRequired[int]
+
+AwsRedshiftClusterDetailsUnionTypeDef = Union[
+    AwsRedshiftClusterDetailsTypeDef, AwsRedshiftClusterDetailsOutputTypeDef
+]
+
+class AwsS3BucketBucketLifecycleConfigurationRulesDetailsOutputTypeDef(TypedDict):
+    AbortIncompleteMultipartUpload: NotRequired[
+        AwsS3BucketBucketLifecycleConfigurationRulesAbortIncompleteMultipartUploadDetailsTypeDef
+    ]
+    ExpirationDate: NotRequired[str]
+    ExpirationInDays: NotRequired[int]
+    ExpiredObjectDeleteMarker: NotRequired[bool]
+    Filter: NotRequired[AwsS3BucketBucketLifecycleConfigurationRulesFilterDetailsOutputTypeDef]
+    ID: NotRequired[str]
+    NoncurrentVersionExpirationInDays: NotRequired[int]
+    NoncurrentVersionTransitions: NotRequired[
+        List[AwsS3BucketBucketLifecycleConfigurationRulesNoncurrentVersionTransitionsDetailsTypeDef]
+    ]
+    Prefix: NotRequired[str]
+    Status: NotRequired[str]
+    Transitions: NotRequired[
+        List[AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetailsTypeDef]
+    ]
+
+class AwsS3BucketBucketLifecycleConfigurationRulesFilterDetailsTypeDef(TypedDict):
+    Predicate: NotRequired[
+        AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetailsUnionTypeDef
+    ]
+
+class AwsS3BucketNotificationConfigurationOutputTypeDef(TypedDict):
+    Configurations: NotRequired[List[AwsS3BucketNotificationConfigurationDetailOutputTypeDef]]
+
+AwsS3BucketNotificationConfigurationFilterUnionTypeDef = Union[
+    AwsS3BucketNotificationConfigurationFilterTypeDef,
+    AwsS3BucketNotificationConfigurationFilterOutputTypeDef,
+]
+AwsStepFunctionStateMachineDetailsTypeDef = TypedDict(
+    "AwsStepFunctionStateMachineDetailsTypeDef",
+    {
+        "Label": NotRequired[str],
+        "LoggingConfiguration": NotRequired[
+            AwsStepFunctionStateMachineLoggingConfigurationDetailsUnionTypeDef
+        ],
+        "Name": NotRequired[str],
+        "RoleArn": NotRequired[str],
+        "StateMachineArn": NotRequired[str],
+        "Status": NotRequired[str],
+        "TracingConfiguration": NotRequired[
+            AwsStepFunctionStateMachineTracingConfigurationDetailsTypeDef
+        ],
+        "Type": NotRequired[str],
+    },
+)
+AwsWafWebAclDetailsUnionTypeDef = Union[
+    AwsWafWebAclDetailsTypeDef, AwsWafWebAclDetailsOutputTypeDef
+]
+AwsWafv2ActionAllowDetailsUnionTypeDef = Union[
+    AwsWafv2ActionAllowDetailsTypeDef, AwsWafv2ActionAllowDetailsOutputTypeDef
+]
+AwsWafv2RulesActionCaptchaDetailsUnionTypeDef = Union[
+    AwsWafv2RulesActionCaptchaDetailsTypeDef, AwsWafv2RulesActionCaptchaDetailsOutputTypeDef
+]
+AwsWafv2RulesActionCountDetailsUnionTypeDef = Union[
+    AwsWafv2RulesActionCountDetailsTypeDef, AwsWafv2RulesActionCountDetailsOutputTypeDef
+]
+
+class AwsWafv2RulesDetailsOutputTypeDef(TypedDict):
+    Action: NotRequired[AwsWafv2RulesActionDetailsOutputTypeDef]
+    Name: NotRequired[str]
+    OverrideAction: NotRequired[str]
+    Priority: NotRequired[int]
+    VisibilityConfig: NotRequired[AwsWafv2VisibilityConfigDetailsTypeDef]
+
+AwsWafv2ActionBlockDetailsUnionTypeDef = Union[
+    AwsWafv2ActionBlockDetailsTypeDef, AwsWafv2ActionBlockDetailsOutputTypeDef
+]
+VulnerabilityUnionTypeDef = Union[VulnerabilityTypeDef, VulnerabilityOutputTypeDef]
+
+class GetSecurityControlDefinitionResponseTypeDef(TypedDict):
+    SecurityControlDefinition: SecurityControlDefinitionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListSecurityControlDefinitionsResponseTypeDef(TypedDict):
+    SecurityControlDefinitions: List[SecurityControlDefinitionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class BatchGetAutomationRulesResponseTypeDef(TypedDict):
+    Rules: List[AutomationRulesConfigTypeDef]
+    UnprocessedAutomationRules: List[UnprocessedAutomationRuleTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetInsightsResponseTypeDef(TypedDict):
+    Insights: List[InsightTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class CreateInsightRequestTypeDef(TypedDict):
+    Name: str
+    Filters: AwsSecurityFindingFiltersUnionTypeDef
+    GroupByAttribute: str
+
+class GetFindingsRequestPaginateTypeDef(TypedDict):
+    Filters: NotRequired[AwsSecurityFindingFiltersUnionTypeDef]
+    SortCriteria: NotRequired[Sequence[SortCriterionTypeDef]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class GetFindingsRequestTypeDef(TypedDict):
+    Filters: NotRequired[AwsSecurityFindingFiltersUnionTypeDef]
+    SortCriteria: NotRequired[Sequence[SortCriterionTypeDef]]
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class UpdateFindingsRequestTypeDef(TypedDict):
+    Filters: AwsSecurityFindingFiltersUnionTypeDef
+    Note: NotRequired[NoteUpdateTypeDef]
+    RecordState: NotRequired[RecordStateType]
+
+class UpdateInsightRequestTypeDef(TypedDict):
+    InsightArn: str
+    Name: NotRequired[str]
+    Filters: NotRequired[AwsSecurityFindingFiltersUnionTypeDef]
+    GroupByAttribute: NotRequired[str]
+
+SequenceUnionTypeDef = Union[SequenceTypeDef, SequenceOutputTypeDef]
+NetworkHeaderUnionTypeDef = Union[NetworkHeaderTypeDef, NetworkHeaderOutputTypeDef]
+
+class CustomDataIdentifiersResultOutputTypeDef(TypedDict):
+    Detections: NotRequired[List[CustomDataIdentifiersDetectionsOutputTypeDef]]
+    TotalCount: NotRequired[int]
+
+class SensitiveDataResultOutputTypeDef(TypedDict):
+    Category: NotRequired[str]
+    Detections: NotRequired[List[SensitiveDataDetectionsOutputTypeDef]]
+    TotalCount: NotRequired[int]
+
+class CustomDataIdentifiersDetectionsTypeDef(TypedDict):
+    Count: NotRequired[int]
+    Arn: NotRequired[str]
+    Name: NotRequired[str]
+    Occurrences: NotRequired[OccurrencesUnionTypeDef]
+
+SensitiveDataDetectionsTypeDef = TypedDict(
+    "SensitiveDataDetectionsTypeDef",
+    {
+        "Count": NotRequired[int],
+        "Type": NotRequired[str],
+        "Occurrences": NotRequired[OccurrencesUnionTypeDef],
+    },
+)
+
+class SecurityHubPolicyOutputTypeDef(TypedDict):
+    ServiceEnabled: NotRequired[bool]
+    EnabledStandardIdentifiers: NotRequired[List[str]]
+    SecurityControlsConfiguration: NotRequired[SecurityControlsConfigurationOutputTypeDef]
+
+class UpdateSecurityControlRequestTypeDef(TypedDict):
+    SecurityControlId: str
+    Parameters: Mapping[str, ParameterConfigurationUnionTypeDef]
+    LastUpdateReason: NotRequired[str]
+
+class SecurityControlsConfigurationTypeDef(TypedDict):
+    EnabledSecurityControlIdentifiers: NotRequired[Sequence[str]]
+    DisabledSecurityControlIdentifiers: NotRequired[Sequence[str]]
+    SecurityControlCustomParameters: NotRequired[Sequence[SecurityControlCustomParameterTypeDef]]
+
+class RuleGroupSourceStatelessRuleDefinitionTypeDef(TypedDict):
+    Actions: NotRequired[Sequence[str]]
+    MatchAttributes: NotRequired[RuleGroupSourceStatelessRuleMatchAttributesUnionTypeDef]
+
+class FirewallPolicyDetailsOutputTypeDef(TypedDict):
+    StatefulRuleGroupReferences: NotRequired[
+        List[FirewallPolicyStatefulRuleGroupReferencesDetailsTypeDef]
+    ]
+    StatelessCustomActions: NotRequired[
+        List[FirewallPolicyStatelessCustomActionsDetailsOutputTypeDef]
+    ]
+    StatelessDefaultActions: NotRequired[List[str]]
+    StatelessFragmentDefaultActions: NotRequired[List[str]]
+    StatelessRuleGroupReferences: NotRequired[
+        List[FirewallPolicyStatelessRuleGroupReferencesDetailsTypeDef]
+    ]
+
+class RuleGroupSourceStatelessRulesAndCustomActionsDetailsOutputTypeDef(TypedDict):
+    CustomActions: NotRequired[List[RuleGroupSourceCustomActionsDetailsOutputTypeDef]]
+    StatelessRules: NotRequired[List[RuleGroupSourceStatelessRulesDetailsOutputTypeDef]]
+
+StatelessCustomActionDefinitionUnionTypeDef = Union[
+    StatelessCustomActionDefinitionTypeDef, StatelessCustomActionDefinitionOutputTypeDef
+]
+
+class ActionTypeDef(TypedDict):
+    ActionType: NotRequired[str]
+    NetworkConnectionAction: NotRequired[NetworkConnectionActionTypeDef]
+    AwsApiCallAction: NotRequired[AwsApiCallActionUnionTypeDef]
+    DnsRequestAction: NotRequired[DnsRequestActionTypeDef]
+    PortProbeAction: NotRequired[PortProbeActionUnionTypeDef]
+
+class CreateAutomationRuleRequestTypeDef(TypedDict):
+    RuleOrder: int
+    RuleName: str
+    Description: str
+    Criteria: AutomationRulesFindingFiltersUnionTypeDef
+    Actions: Sequence[AutomationRulesActionUnionTypeDef]
+    Tags: NotRequired[Mapping[str, str]]
+    RuleStatus: NotRequired[RuleStatusType]
+    IsTerminal: NotRequired[bool]
+
+class UpdateAutomationRulesRequestItemTypeDef(TypedDict):
+    RuleArn: str
+    RuleStatus: NotRequired[RuleStatusType]
+    RuleOrder: NotRequired[int]
+    Description: NotRequired[str]
+    RuleName: NotRequired[str]
+    IsTerminal: NotRequired[bool]
+    Criteria: NotRequired[AutomationRulesFindingFiltersUnionTypeDef]
+    Actions: NotRequired[Sequence[AutomationRulesActionUnionTypeDef]]
+
+class AwsAutoScalingAutoScalingGroupDetailsTypeDef(TypedDict):
+    LaunchConfigurationName: NotRequired[str]
+    LoadBalancerNames: NotRequired[Sequence[str]]
+    HealthCheckType: NotRequired[str]
+    HealthCheckGracePeriod: NotRequired[int]
+    CreatedTime: NotRequired[str]
+    MixedInstancesPolicy: NotRequired[
+        AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetailsUnionTypeDef
+    ]
+    AvailabilityZones: NotRequired[
+        Sequence[AwsAutoScalingAutoScalingGroupAvailabilityZonesListDetailsTypeDef]
+    ]
+    LaunchTemplate: NotRequired[
+        AwsAutoScalingAutoScalingGroupLaunchTemplateLaunchTemplateSpecificationTypeDef
+    ]
+    CapacityRebalance: NotRequired[bool]
+
+AwsBackupBackupPlanBackupPlanDetailsUnionTypeDef = Union[
+    AwsBackupBackupPlanBackupPlanDetailsTypeDef, AwsBackupBackupPlanBackupPlanDetailsOutputTypeDef
+]
+AwsCertificateManagerCertificateDetailsUnionTypeDef = Union[
+    AwsCertificateManagerCertificateDetailsTypeDef,
+    AwsCertificateManagerCertificateDetailsOutputTypeDef,
+]
+AwsCloudFrontDistributionOriginGroupUnionTypeDef = Union[
+    AwsCloudFrontDistributionOriginGroupTypeDef, AwsCloudFrontDistributionOriginGroupOutputTypeDef
+]
+AwsCloudFrontDistributionOriginItemUnionTypeDef = Union[
+    AwsCloudFrontDistributionOriginItemTypeDef, AwsCloudFrontDistributionOriginItemOutputTypeDef
+]
+AwsDynamoDbTableDetailsUnionTypeDef = Union[
+    AwsDynamoDbTableDetailsTypeDef, AwsDynamoDbTableDetailsOutputTypeDef
+]
+
+class AwsEc2LaunchTemplateDetailsTypeDef(TypedDict):
+    LaunchTemplateName: NotRequired[str]
+    Id: NotRequired[str]
+    LaunchTemplateData: NotRequired[AwsEc2LaunchTemplateDataDetailsUnionTypeDef]
+    DefaultVersionNumber: NotRequired[int]
+    LatestVersionNumber: NotRequired[int]
+
+AwsEc2VpnConnectionDetailsUnionTypeDef = Union[
+    AwsEc2VpnConnectionDetailsTypeDef, AwsEc2VpnConnectionDetailsOutputTypeDef
+]
+AwsEcsServiceDetailsUnionTypeDef = Union[
+    AwsEcsServiceDetailsTypeDef, AwsEcsServiceDetailsOutputTypeDef
+]
+AwsEcsTaskDefinitionContainerDefinitionsDetailsUnionTypeDef = Union[
+    AwsEcsTaskDefinitionContainerDefinitionsDetailsTypeDef,
+    AwsEcsTaskDefinitionContainerDefinitionsDetailsOutputTypeDef,
+]
+AwsEksClusterDetailsUnionTypeDef = Union[
+    AwsEksClusterDetailsTypeDef, AwsEksClusterDetailsOutputTypeDef
+]
+AwsGuardDutyDetectorDetailsUnionTypeDef = Union[
+    AwsGuardDutyDetectorDetailsTypeDef, AwsGuardDutyDetectorDetailsOutputTypeDef
+]
+AwsMskClusterClusterInfoDetailsUnionTypeDef = Union[
+    AwsMskClusterClusterInfoDetailsTypeDef, AwsMskClusterClusterInfoDetailsOutputTypeDef
+]
+AwsRdsDbInstanceDetailsUnionTypeDef = Union[
+    AwsRdsDbInstanceDetailsTypeDef, AwsRdsDbInstanceDetailsOutputTypeDef
+]
+
+class AwsS3BucketBucketLifecycleConfigurationDetailsOutputTypeDef(TypedDict):
+    Rules: NotRequired[List[AwsS3BucketBucketLifecycleConfigurationRulesDetailsOutputTypeDef]]
+
+AwsS3BucketBucketLifecycleConfigurationRulesFilterDetailsUnionTypeDef = Union[
+    AwsS3BucketBucketLifecycleConfigurationRulesFilterDetailsTypeDef,
+    AwsS3BucketBucketLifecycleConfigurationRulesFilterDetailsOutputTypeDef,
+]
+AwsS3BucketNotificationConfigurationDetailTypeDef = TypedDict(
+    "AwsS3BucketNotificationConfigurationDetailTypeDef",
+    {
+        "Events": NotRequired[Sequence[str]],
+        "Filter": NotRequired[AwsS3BucketNotificationConfigurationFilterUnionTypeDef],
+        "Destination": NotRequired[str],
+        "Type": NotRequired[str],
+    },
+)
+AwsStepFunctionStateMachineDetailsUnionTypeDef = Union[
+    AwsStepFunctionStateMachineDetailsTypeDef, AwsStepFunctionStateMachineDetailsOutputTypeDef
+]
+
+class AwsWafv2RuleGroupDetailsOutputTypeDef(TypedDict):
+    Capacity: NotRequired[int]
+    Description: NotRequired[str]
+    Id: NotRequired[str]
+    Name: NotRequired[str]
+    Arn: NotRequired[str]
+    Rules: NotRequired[List[AwsWafv2RulesDetailsOutputTypeDef]]
+    Scope: NotRequired[str]
+    VisibilityConfig: NotRequired[AwsWafv2VisibilityConfigDetailsTypeDef]
+
+class AwsWafv2WebAclDetailsOutputTypeDef(TypedDict):
+    Name: NotRequired[str]
+    Arn: NotRequired[str]
+    ManagedbyFirewallManager: NotRequired[bool]
+    Id: NotRequired[str]
+    Capacity: NotRequired[int]
+    CaptchaConfig: NotRequired[AwsWafv2WebAclCaptchaConfigDetailsTypeDef]
+    DefaultAction: NotRequired[AwsWafv2WebAclActionDetailsOutputTypeDef]
+    Description: NotRequired[str]
+    Rules: NotRequired[List[AwsWafv2RulesDetailsOutputTypeDef]]
+    VisibilityConfig: NotRequired[AwsWafv2VisibilityConfigDetailsTypeDef]
+
+class AwsWafv2RulesActionDetailsTypeDef(TypedDict):
+    Allow: NotRequired[AwsWafv2ActionAllowDetailsUnionTypeDef]
+    Block: NotRequired[AwsWafv2ActionBlockDetailsUnionTypeDef]
+    Captcha: NotRequired[AwsWafv2RulesActionCaptchaDetailsUnionTypeDef]
+    Count: NotRequired[AwsWafv2RulesActionCountDetailsUnionTypeDef]
+
+class AwsWafv2WebAclActionDetailsTypeDef(TypedDict):
+    Allow: NotRequired[AwsWafv2ActionAllowDetailsUnionTypeDef]
+    Block: NotRequired[AwsWafv2ActionBlockDetailsUnionTypeDef]
+
+DetectionTypeDef = TypedDict(
+    "DetectionTypeDef",
+    {
+        "Sequence": NotRequired[SequenceUnionTypeDef],
+    },
+)
+
+class NetworkPathComponentTypeDef(TypedDict):
+    ComponentId: NotRequired[str]
+    ComponentType: NotRequired[str]
+    Egress: NotRequired[NetworkHeaderUnionTypeDef]
+    Ingress: NotRequired[NetworkHeaderUnionTypeDef]
+
+class ClassificationResultOutputTypeDef(TypedDict):
+    MimeType: NotRequired[str]
+    SizeClassified: NotRequired[int]
+    AdditionalOccurrences: NotRequired[bool]
+    Status: NotRequired[ClassificationStatusTypeDef]
+    SensitiveData: NotRequired[List[SensitiveDataResultOutputTypeDef]]
+    CustomDataIdentifiers: NotRequired[CustomDataIdentifiersResultOutputTypeDef]
+
+CustomDataIdentifiersDetectionsUnionTypeDef = Union[
+    CustomDataIdentifiersDetectionsTypeDef, CustomDataIdentifiersDetectionsOutputTypeDef
+]
+SensitiveDataDetectionsUnionTypeDef = Union[
+    SensitiveDataDetectionsTypeDef, SensitiveDataDetectionsOutputTypeDef
+]
+
+class PolicyOutputTypeDef(TypedDict):
+    SecurityHub: NotRequired[SecurityHubPolicyOutputTypeDef]
+
+class SecurityHubPolicyTypeDef(TypedDict):
+    ServiceEnabled: NotRequired[bool]
+    EnabledStandardIdentifiers: NotRequired[Sequence[str]]
+    SecurityControlsConfiguration: NotRequired[SecurityControlsConfigurationTypeDef]
+
+RuleGroupSourceStatelessRuleDefinitionUnionTypeDef = Union[
+    RuleGroupSourceStatelessRuleDefinitionTypeDef,
+    RuleGroupSourceStatelessRuleDefinitionOutputTypeDef,
+]
+
+class AwsNetworkFirewallFirewallPolicyDetailsOutputTypeDef(TypedDict):
+    FirewallPolicy: NotRequired[FirewallPolicyDetailsOutputTypeDef]
+    FirewallPolicyArn: NotRequired[str]
+    FirewallPolicyId: NotRequired[str]
+    FirewallPolicyName: NotRequired[str]
+    Description: NotRequired[str]
+
+class RuleGroupSourceOutputTypeDef(TypedDict):
+    RulesSourceList: NotRequired[RuleGroupSourceListDetailsOutputTypeDef]
+    RulesString: NotRequired[str]
+    StatefulRules: NotRequired[List[RuleGroupSourceStatefulRulesDetailsOutputTypeDef]]
+    StatelessRulesAndCustomActions: NotRequired[
+        RuleGroupSourceStatelessRulesAndCustomActionsDetailsOutputTypeDef
+    ]
+
+class FirewallPolicyStatelessCustomActionsDetailsTypeDef(TypedDict):
+    ActionDefinition: NotRequired[StatelessCustomActionDefinitionUnionTypeDef]
+    ActionName: NotRequired[str]
+
+class RuleGroupSourceCustomActionsDetailsTypeDef(TypedDict):
+    ActionDefinition: NotRequired[StatelessCustomActionDefinitionUnionTypeDef]
+    ActionName: NotRequired[str]
+
+ActionUnionTypeDef = Union[ActionTypeDef, ActionOutputTypeDef]
+
+class BatchUpdateAutomationRulesRequestTypeDef(TypedDict):
+    UpdateAutomationRulesRequestItems: Sequence[UpdateAutomationRulesRequestItemTypeDef]
+
+AwsAutoScalingAutoScalingGroupDetailsUnionTypeDef = Union[
+    AwsAutoScalingAutoScalingGroupDetailsTypeDef, AwsAutoScalingAutoScalingGroupDetailsOutputTypeDef
+]
+
+class AwsBackupBackupPlanDetailsTypeDef(TypedDict):
+    BackupPlan: NotRequired[AwsBackupBackupPlanBackupPlanDetailsUnionTypeDef]
+    BackupPlanArn: NotRequired[str]
+    BackupPlanId: NotRequired[str]
+    VersionId: NotRequired[str]
+
+class AwsCloudFrontDistributionOriginGroupsTypeDef(TypedDict):
+    Items: NotRequired[Sequence[AwsCloudFrontDistributionOriginGroupUnionTypeDef]]
+
+class AwsCloudFrontDistributionOriginsTypeDef(TypedDict):
+    Items: NotRequired[Sequence[AwsCloudFrontDistributionOriginItemUnionTypeDef]]
+
+AwsEc2LaunchTemplateDetailsUnionTypeDef = Union[
+    AwsEc2LaunchTemplateDetailsTypeDef, AwsEc2LaunchTemplateDetailsOutputTypeDef
+]
+
+class AwsEcsTaskDefinitionDetailsTypeDef(TypedDict):
+    ContainerDefinitions: NotRequired[
+        Sequence[AwsEcsTaskDefinitionContainerDefinitionsDetailsUnionTypeDef]
+    ]
+    Cpu: NotRequired[str]
+    ExecutionRoleArn: NotRequired[str]
+    Family: NotRequired[str]
+    InferenceAccelerators: NotRequired[
+        Sequence[AwsEcsTaskDefinitionInferenceAcceleratorsDetailsTypeDef]
+    ]
+    IpcMode: NotRequired[str]
+    Memory: NotRequired[str]
+    NetworkMode: NotRequired[str]
+    PidMode: NotRequired[str]
+    PlacementConstraints: NotRequired[
+        Sequence[AwsEcsTaskDefinitionPlacementConstraintsDetailsTypeDef]
+    ]
+    ProxyConfiguration: NotRequired[AwsEcsTaskDefinitionProxyConfigurationDetailsUnionTypeDef]
+    RequiresCompatibilities: NotRequired[Sequence[str]]
+    TaskRoleArn: NotRequired[str]
+    Volumes: NotRequired[Sequence[AwsEcsTaskDefinitionVolumesDetailsUnionTypeDef]]
+    Status: NotRequired[str]
+
+class AwsMskClusterDetailsTypeDef(TypedDict):
+    ClusterInfo: NotRequired[AwsMskClusterClusterInfoDetailsUnionTypeDef]
+
+class AwsS3BucketDetailsOutputTypeDef(TypedDict):
+    OwnerId: NotRequired[str]
+    OwnerName: NotRequired[str]
+    OwnerAccountId: NotRequired[str]
+    CreatedAt: NotRequired[str]
+    ServerSideEncryptionConfiguration: NotRequired[
+        AwsS3BucketServerSideEncryptionConfigurationOutputTypeDef
+    ]
+    BucketLifecycleConfiguration: NotRequired[
+        AwsS3BucketBucketLifecycleConfigurationDetailsOutputTypeDef
+    ]
+    PublicAccessBlockConfiguration: NotRequired[AwsS3AccountPublicAccessBlockDetailsTypeDef]
+    AccessControlList: NotRequired[str]
+    BucketLoggingConfiguration: NotRequired[AwsS3BucketLoggingConfigurationTypeDef]
+    BucketWebsiteConfiguration: NotRequired[AwsS3BucketWebsiteConfigurationOutputTypeDef]
+    BucketNotificationConfiguration: NotRequired[AwsS3BucketNotificationConfigurationOutputTypeDef]
+    BucketVersioningConfiguration: NotRequired[AwsS3BucketBucketVersioningConfigurationTypeDef]
+    ObjectLockConfiguration: NotRequired[AwsS3BucketObjectLockConfigurationTypeDef]
+    Name: NotRequired[str]
+
+class AwsS3BucketBucketLifecycleConfigurationRulesDetailsTypeDef(TypedDict):
+    AbortIncompleteMultipartUpload: NotRequired[
+        AwsS3BucketBucketLifecycleConfigurationRulesAbortIncompleteMultipartUploadDetailsTypeDef
+    ]
+    ExpirationDate: NotRequired[str]
+    ExpirationInDays: NotRequired[int]
+    ExpiredObjectDeleteMarker: NotRequired[bool]
+    Filter: NotRequired[AwsS3BucketBucketLifecycleConfigurationRulesFilterDetailsUnionTypeDef]
+    ID: NotRequired[str]
+    NoncurrentVersionExpirationInDays: NotRequired[int]
+    NoncurrentVersionTransitions: NotRequired[
+        Sequence[
+            AwsS3BucketBucketLifecycleConfigurationRulesNoncurrentVersionTransitionsDetailsTypeDef
+        ]
+    ]
+    Prefix: NotRequired[str]
+    Status: NotRequired[str]
+    Transitions: NotRequired[
+        Sequence[AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetailsTypeDef]
+    ]
+
+AwsS3BucketNotificationConfigurationDetailUnionTypeDef = Union[
+    AwsS3BucketNotificationConfigurationDetailTypeDef,
+    AwsS3BucketNotificationConfigurationDetailOutputTypeDef,
+]
+AwsWafv2RulesActionDetailsUnionTypeDef = Union[
+    AwsWafv2RulesActionDetailsTypeDef, AwsWafv2RulesActionDetailsOutputTypeDef
+]
+AwsWafv2WebAclActionDetailsUnionTypeDef = Union[
+    AwsWafv2WebAclActionDetailsTypeDef, AwsWafv2WebAclActionDetailsOutputTypeDef
+]
+DetectionUnionTypeDef = Union[DetectionTypeDef, DetectionOutputTypeDef]
+NetworkPathComponentUnionTypeDef = Union[
+    NetworkPathComponentTypeDef, NetworkPathComponentOutputTypeDef
+]
+
+class DataClassificationDetailsOutputTypeDef(TypedDict):
+    DetailedResultsLocation: NotRequired[str]
+    Result: NotRequired[ClassificationResultOutputTypeDef]
+
+class CustomDataIdentifiersResultTypeDef(TypedDict):
+    Detections: NotRequired[Sequence[CustomDataIdentifiersDetectionsUnionTypeDef]]
+    TotalCount: NotRequired[int]
+
+class SensitiveDataResultTypeDef(TypedDict):
+    Category: NotRequired[str]
+    Detections: NotRequired[Sequence[SensitiveDataDetectionsUnionTypeDef]]
+    TotalCount: NotRequired[int]
+
+class CreateConfigurationPolicyResponseTypeDef(TypedDict):
+    Arn: str
+    Id: str
+    Name: str
+    Description: str
+    UpdatedAt: datetime
+    CreatedAt: datetime
+    ConfigurationPolicy: PolicyOutputTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetConfigurationPolicyResponseTypeDef(TypedDict):
+    Arn: str
+    Id: str
+    Name: str
+    Description: str
+    UpdatedAt: datetime
+    CreatedAt: datetime
+    ConfigurationPolicy: PolicyOutputTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateConfigurationPolicyResponseTypeDef(TypedDict):
+    Arn: str
+    Id: str
+    Name: str
+    Description: str
+    UpdatedAt: datetime
+    CreatedAt: datetime
+    ConfigurationPolicy: PolicyOutputTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PolicyTypeDef(TypedDict):
+    SecurityHub: NotRequired[SecurityHubPolicyTypeDef]
+
+class RuleGroupSourceStatelessRulesDetailsTypeDef(TypedDict):
+    Priority: NotRequired[int]
+    RuleDefinition: NotRequired[RuleGroupSourceStatelessRuleDefinitionUnionTypeDef]
+
+class RuleGroupDetailsOutputTypeDef(TypedDict):
+    RuleVariables: NotRequired[RuleGroupVariablesOutputTypeDef]
+    RulesSource: NotRequired[RuleGroupSourceOutputTypeDef]
+
+FirewallPolicyStatelessCustomActionsDetailsUnionTypeDef = Union[
+    FirewallPolicyStatelessCustomActionsDetailsTypeDef,
+    FirewallPolicyStatelessCustomActionsDetailsOutputTypeDef,
+]
+RuleGroupSourceCustomActionsDetailsUnionTypeDef = Union[
+    RuleGroupSourceCustomActionsDetailsTypeDef, RuleGroupSourceCustomActionsDetailsOutputTypeDef
+]
+AwsBackupBackupPlanDetailsUnionTypeDef = Union[
+    AwsBackupBackupPlanDetailsTypeDef, AwsBackupBackupPlanDetailsOutputTypeDef
+]
+AwsCloudFrontDistributionOriginGroupsUnionTypeDef = Union[
+    AwsCloudFrontDistributionOriginGroupsTypeDef, AwsCloudFrontDistributionOriginGroupsOutputTypeDef
+]
+AwsCloudFrontDistributionOriginsUnionTypeDef = Union[
+    AwsCloudFrontDistributionOriginsTypeDef, AwsCloudFrontDistributionOriginsOutputTypeDef
+]
+AwsEcsTaskDefinitionDetailsUnionTypeDef = Union[
+    AwsEcsTaskDefinitionDetailsTypeDef, AwsEcsTaskDefinitionDetailsOutputTypeDef
+]
+AwsMskClusterDetailsUnionTypeDef = Union[
+    AwsMskClusterDetailsTypeDef, AwsMskClusterDetailsOutputTypeDef
+]
+AwsS3BucketBucketLifecycleConfigurationRulesDetailsUnionTypeDef = Union[
+    AwsS3BucketBucketLifecycleConfigurationRulesDetailsTypeDef,
+    AwsS3BucketBucketLifecycleConfigurationRulesDetailsOutputTypeDef,
+]
+
+class AwsS3BucketNotificationConfigurationTypeDef(TypedDict):
+    Configurations: NotRequired[Sequence[AwsS3BucketNotificationConfigurationDetailUnionTypeDef]]
+
+class AwsWafv2RulesDetailsTypeDef(TypedDict):
+    Action: NotRequired[AwsWafv2RulesActionDetailsUnionTypeDef]
+    Name: NotRequired[str]
+    OverrideAction: NotRequired[str]
+    Priority: NotRequired[int]
+    VisibilityConfig: NotRequired[AwsWafv2VisibilityConfigDetailsTypeDef]
+
+CustomDataIdentifiersResultUnionTypeDef = Union[
+    CustomDataIdentifiersResultTypeDef, CustomDataIdentifiersResultOutputTypeDef
+]
+SensitiveDataResultUnionTypeDef = Union[
+    SensitiveDataResultTypeDef, SensitiveDataResultOutputTypeDef
+]
+PolicyUnionTypeDef = Union[PolicyTypeDef, PolicyOutputTypeDef]
+RuleGroupSourceStatelessRulesDetailsUnionTypeDef = Union[
+    RuleGroupSourceStatelessRulesDetailsTypeDef, RuleGroupSourceStatelessRulesDetailsOutputTypeDef
+]
+AwsNetworkFirewallRuleGroupDetailsOutputTypeDef = TypedDict(
+    "AwsNetworkFirewallRuleGroupDetailsOutputTypeDef",
+    {
+        "Capacity": NotRequired[int],
+        "Description": NotRequired[str],
+        "RuleGroup": NotRequired[RuleGroupDetailsOutputTypeDef],
+        "RuleGroupArn": NotRequired[str],
+        "RuleGroupId": NotRequired[str],
+        "RuleGroupName": NotRequired[str],
+        "Type": NotRequired[str],
+    },
+)
+
+class FirewallPolicyDetailsTypeDef(TypedDict):
+    StatefulRuleGroupReferences: NotRequired[
+        Sequence[FirewallPolicyStatefulRuleGroupReferencesDetailsTypeDef]
+    ]
+    StatelessCustomActions: NotRequired[
+        Sequence[FirewallPolicyStatelessCustomActionsDetailsUnionTypeDef]
+    ]
+    StatelessDefaultActions: NotRequired[Sequence[str]]
+    StatelessFragmentDefaultActions: NotRequired[Sequence[str]]
+    StatelessRuleGroupReferences: NotRequired[
+        Sequence[FirewallPolicyStatelessRuleGroupReferencesDetailsTypeDef]
+    ]
+
+class AwsCloudFrontDistributionDetailsTypeDef(TypedDict):
+    CacheBehaviors: NotRequired[AwsCloudFrontDistributionCacheBehaviorsUnionTypeDef]
+    DefaultCacheBehavior: NotRequired[AwsCloudFrontDistributionDefaultCacheBehaviorTypeDef]
+    DefaultRootObject: NotRequired[str]
+    DomainName: NotRequired[str]
+    ETag: NotRequired[str]
+    LastModifiedTime: NotRequired[str]
+    Logging: NotRequired[AwsCloudFrontDistributionLoggingTypeDef]
+    Origins: NotRequired[AwsCloudFrontDistributionOriginsUnionTypeDef]
+    OriginGroups: NotRequired[AwsCloudFrontDistributionOriginGroupsUnionTypeDef]
+    ViewerCertificate: NotRequired[AwsCloudFrontDistributionViewerCertificateTypeDef]
+    Status: NotRequired[str]
+    WebAclId: NotRequired[str]
+
+class AwsS3BucketBucketLifecycleConfigurationDetailsTypeDef(TypedDict):
+    Rules: NotRequired[Sequence[AwsS3BucketBucketLifecycleConfigurationRulesDetailsUnionTypeDef]]
+
+AwsS3BucketNotificationConfigurationUnionTypeDef = Union[
+    AwsS3BucketNotificationConfigurationTypeDef, AwsS3BucketNotificationConfigurationOutputTypeDef
+]
+AwsWafv2RulesDetailsUnionTypeDef = Union[
+    AwsWafv2RulesDetailsTypeDef, AwsWafv2RulesDetailsOutputTypeDef
+]
+
+class AwsWafv2WebAclDetailsTypeDef(TypedDict):
+    Name: NotRequired[str]
+    Arn: NotRequired[str]
+    ManagedbyFirewallManager: NotRequired[bool]
+    Id: NotRequired[str]
+    Capacity: NotRequired[int]
+    CaptchaConfig: NotRequired[AwsWafv2WebAclCaptchaConfigDetailsTypeDef]
+    DefaultAction: NotRequired[AwsWafv2WebAclActionDetailsUnionTypeDef]
+    Description: NotRequired[str]
+    Rules: NotRequired[Sequence[AwsWafv2RulesDetailsTypeDef]]
+    VisibilityConfig: NotRequired[AwsWafv2VisibilityConfigDetailsTypeDef]
+
+class ClassificationResultTypeDef(TypedDict):
+    MimeType: NotRequired[str]
+    SizeClassified: NotRequired[int]
+    AdditionalOccurrences: NotRequired[bool]
+    Status: NotRequired[ClassificationStatusTypeDef]
+    SensitiveData: NotRequired[Sequence[SensitiveDataResultUnionTypeDef]]
+    CustomDataIdentifiers: NotRequired[CustomDataIdentifiersResultUnionTypeDef]
+
+class CreateConfigurationPolicyRequestTypeDef(TypedDict):
+    Name: str
+    ConfigurationPolicy: PolicyUnionTypeDef
+    Description: NotRequired[str]
+    Tags: NotRequired[Mapping[str, str]]
+
+class UpdateConfigurationPolicyRequestTypeDef(TypedDict):
+    Identifier: str
+    Name: NotRequired[str]
+    Description: NotRequired[str]
+    UpdatedReason: NotRequired[str]
+    ConfigurationPolicy: NotRequired[PolicyUnionTypeDef]
+
+class RuleGroupSourceStatelessRulesAndCustomActionsDetailsTypeDef(TypedDict):
+    CustomActions: NotRequired[Sequence[RuleGroupSourceCustomActionsDetailsUnionTypeDef]]
+    StatelessRules: NotRequired[Sequence[RuleGroupSourceStatelessRulesDetailsUnionTypeDef]]
+
+ResourceDetailsOutputTypeDef = TypedDict(
+    "ResourceDetailsOutputTypeDef",
+    {
+        "AwsAutoScalingAutoScalingGroup": NotRequired[
+            AwsAutoScalingAutoScalingGroupDetailsOutputTypeDef
+        ],
+        "AwsCodeBuildProject": NotRequired[AwsCodeBuildProjectDetailsOutputTypeDef],
+        "AwsCloudFrontDistribution": NotRequired[AwsCloudFrontDistributionDetailsOutputTypeDef],
+        "AwsEc2Instance": NotRequired[AwsEc2InstanceDetailsOutputTypeDef],
+        "AwsEc2NetworkInterface": NotRequired[AwsEc2NetworkInterfaceDetailsOutputTypeDef],
+        "AwsEc2SecurityGroup": NotRequired[AwsEc2SecurityGroupDetailsOutputTypeDef],
+        "AwsEc2Volume": NotRequired[AwsEc2VolumeDetailsOutputTypeDef],
+        "AwsEc2Vpc": NotRequired[AwsEc2VpcDetailsOutputTypeDef],
+        "AwsEc2Eip": NotRequired[AwsEc2EipDetailsTypeDef],
+        "AwsEc2Subnet": NotRequired[AwsEc2SubnetDetailsOutputTypeDef],
+        "AwsEc2NetworkAcl": NotRequired[AwsEc2NetworkAclDetailsOutputTypeDef],
+        "AwsElbv2LoadBalancer": NotRequired[AwsElbv2LoadBalancerDetailsOutputTypeDef],
+        "AwsElasticBeanstalkEnvironment": NotRequired[
+            AwsElasticBeanstalkEnvironmentDetailsOutputTypeDef
+        ],
+        "AwsElasticsearchDomain": NotRequired[AwsElasticsearchDomainDetailsOutputTypeDef],
+        "AwsS3Bucket": NotRequired[AwsS3BucketDetailsOutputTypeDef],
+        "AwsS3AccountPublicAccessBlock": NotRequired[AwsS3AccountPublicAccessBlockDetailsTypeDef],
+        "AwsS3Object": NotRequired[AwsS3ObjectDetailsTypeDef],
+        "AwsSecretsManagerSecret": NotRequired[AwsSecretsManagerSecretDetailsTypeDef],
+        "AwsIamAccessKey": NotRequired[AwsIamAccessKeyDetailsTypeDef],
+        "AwsIamUser": NotRequired[AwsIamUserDetailsOutputTypeDef],
+        "AwsIamPolicy": NotRequired[AwsIamPolicyDetailsOutputTypeDef],
+        "AwsApiGatewayV2Stage": NotRequired[AwsApiGatewayV2StageDetailsOutputTypeDef],
+        "AwsApiGatewayV2Api": NotRequired[AwsApiGatewayV2ApiDetailsOutputTypeDef],
+        "AwsDynamoDbTable": NotRequired[AwsDynamoDbTableDetailsOutputTypeDef],
+        "AwsApiGatewayStage": NotRequired[AwsApiGatewayStageDetailsOutputTypeDef],
+        "AwsApiGatewayRestApi": NotRequired[AwsApiGatewayRestApiDetailsOutputTypeDef],
+        "AwsCloudTrailTrail": NotRequired[AwsCloudTrailTrailDetailsTypeDef],
+        "AwsSsmPatchCompliance": NotRequired[AwsSsmPatchComplianceDetailsTypeDef],
+        "AwsCertificateManagerCertificate": NotRequired[
+            AwsCertificateManagerCertificateDetailsOutputTypeDef
+        ],
+        "AwsRedshiftCluster": NotRequired[AwsRedshiftClusterDetailsOutputTypeDef],
+        "AwsElbLoadBalancer": NotRequired[AwsElbLoadBalancerDetailsOutputTypeDef],
+        "AwsIamGroup": NotRequired[AwsIamGroupDetailsOutputTypeDef],
+        "AwsIamRole": NotRequired[AwsIamRoleDetailsOutputTypeDef],
+        "AwsKmsKey": NotRequired[AwsKmsKeyDetailsTypeDef],
+        "AwsLambdaFunction": NotRequired[AwsLambdaFunctionDetailsOutputTypeDef],
+        "AwsLambdaLayerVersion": NotRequired[AwsLambdaLayerVersionDetailsOutputTypeDef],
+        "AwsRdsDbInstance": NotRequired[AwsRdsDbInstanceDetailsOutputTypeDef],
+        "AwsSnsTopic": NotRequired[AwsSnsTopicDetailsOutputTypeDef],
+        "AwsSqsQueue": NotRequired[AwsSqsQueueDetailsTypeDef],
+        "AwsWafWebAcl": NotRequired[AwsWafWebAclDetailsOutputTypeDef],
+        "AwsRdsDbSnapshot": NotRequired[AwsRdsDbSnapshotDetailsOutputTypeDef],
+        "AwsRdsDbClusterSnapshot": NotRequired[AwsRdsDbClusterSnapshotDetailsOutputTypeDef],
+        "AwsRdsDbCluster": NotRequired[AwsRdsDbClusterDetailsOutputTypeDef],
+        "AwsEcsCluster": NotRequired[AwsEcsClusterDetailsOutputTypeDef],
+        "AwsEcsContainer": NotRequired[AwsEcsContainerDetailsOutputTypeDef],
+        "AwsEcsTaskDefinition": NotRequired[AwsEcsTaskDefinitionDetailsOutputTypeDef],
+        "Container": NotRequired[ContainerDetailsOutputTypeDef],
+        "Other": NotRequired[Dict[str, str]],
+        "AwsRdsEventSubscription": NotRequired[AwsRdsEventSubscriptionDetailsOutputTypeDef],
+        "AwsEcsService": NotRequired[AwsEcsServiceDetailsOutputTypeDef],
+        "AwsAutoScalingLaunchConfiguration": NotRequired[
+            AwsAutoScalingLaunchConfigurationDetailsOutputTypeDef
+        ],
+        "AwsEc2VpnConnection": NotRequired[AwsEc2VpnConnectionDetailsOutputTypeDef],
+        "AwsEcrContainerImage": NotRequired[AwsEcrContainerImageDetailsOutputTypeDef],
+        "AwsOpenSearchServiceDomain": NotRequired[AwsOpenSearchServiceDomainDetailsOutputTypeDef],
+        "AwsEc2VpcEndpointService": NotRequired[AwsEc2VpcEndpointServiceDetailsOutputTypeDef],
+        "AwsXrayEncryptionConfig": NotRequired[AwsXrayEncryptionConfigDetailsTypeDef],
+        "AwsWafRateBasedRule": NotRequired[AwsWafRateBasedRuleDetailsOutputTypeDef],
+        "AwsWafRegionalRateBasedRule": NotRequired[AwsWafRegionalRateBasedRuleDetailsOutputTypeDef],
+        "AwsEcrRepository": NotRequired[AwsEcrRepositoryDetailsTypeDef],
+        "AwsEksCluster": NotRequired[AwsEksClusterDetailsOutputTypeDef],
+        "AwsNetworkFirewallFirewallPolicy": NotRequired[
+            AwsNetworkFirewallFirewallPolicyDetailsOutputTypeDef
+        ],
+        "AwsNetworkFirewallFirewall": NotRequired[AwsNetworkFirewallFirewallDetailsOutputTypeDef],
+        "AwsNetworkFirewallRuleGroup": NotRequired[AwsNetworkFirewallRuleGroupDetailsOutputTypeDef],
+        "AwsRdsDbSecurityGroup": NotRequired[AwsRdsDbSecurityGroupDetailsOutputTypeDef],
+        "AwsKinesisStream": NotRequired[AwsKinesisStreamDetailsTypeDef],
+        "AwsEc2TransitGateway": NotRequired[AwsEc2TransitGatewayDetailsOutputTypeDef],
+        "AwsEfsAccessPoint": NotRequired[AwsEfsAccessPointDetailsOutputTypeDef],
+        "AwsCloudFormationStack": NotRequired[AwsCloudFormationStackDetailsOutputTypeDef],
+        "AwsCloudWatchAlarm": NotRequired[AwsCloudWatchAlarmDetailsOutputTypeDef],
+        "AwsEc2VpcPeeringConnection": NotRequired[AwsEc2VpcPeeringConnectionDetailsOutputTypeDef],
+        "AwsWafRegionalRuleGroup": NotRequired[AwsWafRegionalRuleGroupDetailsOutputTypeDef],
+        "AwsWafRegionalRule": NotRequired[AwsWafRegionalRuleDetailsOutputTypeDef],
+        "AwsWafRegionalWebAcl": NotRequired[AwsWafRegionalWebAclDetailsOutputTypeDef],
+        "AwsWafRule": NotRequired[AwsWafRuleDetailsOutputTypeDef],
+        "AwsWafRuleGroup": NotRequired[AwsWafRuleGroupDetailsOutputTypeDef],
+        "AwsEcsTask": NotRequired[AwsEcsTaskDetailsOutputTypeDef],
+        "AwsBackupBackupVault": NotRequired[AwsBackupBackupVaultDetailsOutputTypeDef],
+        "AwsBackupBackupPlan": NotRequired[AwsBackupBackupPlanDetailsOutputTypeDef],
+        "AwsBackupRecoveryPoint": NotRequired[AwsBackupRecoveryPointDetailsTypeDef],
+        "AwsEc2LaunchTemplate": NotRequired[AwsEc2LaunchTemplateDetailsOutputTypeDef],
+        "AwsSageMakerNotebookInstance": NotRequired[
+            AwsSageMakerNotebookInstanceDetailsOutputTypeDef
+        ],
+        "AwsWafv2WebAcl": NotRequired[AwsWafv2WebAclDetailsOutputTypeDef],
+        "AwsWafv2RuleGroup": NotRequired[AwsWafv2RuleGroupDetailsOutputTypeDef],
+        "AwsEc2RouteTable": NotRequired[AwsEc2RouteTableDetailsOutputTypeDef],
+        "AwsAmazonMqBroker": NotRequired[AwsAmazonMqBrokerDetailsOutputTypeDef],
+        "AwsAppSyncGraphQlApi": NotRequired[AwsAppSyncGraphQlApiDetailsOutputTypeDef],
+        "AwsEventSchemasRegistry": NotRequired[AwsEventSchemasRegistryDetailsTypeDef],
+        "AwsGuardDutyDetector": NotRequired[AwsGuardDutyDetectorDetailsOutputTypeDef],
+        "AwsStepFunctionStateMachine": NotRequired[AwsStepFunctionStateMachineDetailsOutputTypeDef],
+        "AwsAthenaWorkGroup": NotRequired[AwsAthenaWorkGroupDetailsTypeDef],
+        "AwsEventsEventbus": NotRequired[AwsEventsEventbusDetailsTypeDef],
+        "AwsDmsEndpoint": NotRequired[AwsDmsEndpointDetailsTypeDef],
+        "AwsEventsEndpoint": NotRequired[AwsEventsEndpointDetailsOutputTypeDef],
+        "AwsDmsReplicationTask": NotRequired[AwsDmsReplicationTaskDetailsTypeDef],
+        "AwsDmsReplicationInstance": NotRequired[AwsDmsReplicationInstanceDetailsOutputTypeDef],
+        "AwsRoute53HostedZone": NotRequired[AwsRoute53HostedZoneDetailsOutputTypeDef],
+        "AwsMskCluster": NotRequired[AwsMskClusterDetailsOutputTypeDef],
+        "AwsS3AccessPoint": NotRequired[AwsS3AccessPointDetailsTypeDef],
+        "AwsEc2ClientVpnEndpoint": NotRequired[AwsEc2ClientVpnEndpointDetailsOutputTypeDef],
+    },
+)
+FirewallPolicyDetailsUnionTypeDef = Union[
+    FirewallPolicyDetailsTypeDef, FirewallPolicyDetailsOutputTypeDef
+]
+AwsCloudFrontDistributionDetailsUnionTypeDef = Union[
+    AwsCloudFrontDistributionDetailsTypeDef, AwsCloudFrontDistributionDetailsOutputTypeDef
+]
+AwsS3BucketBucketLifecycleConfigurationDetailsUnionTypeDef = Union[
+    AwsS3BucketBucketLifecycleConfigurationDetailsTypeDef,
+    AwsS3BucketBucketLifecycleConfigurationDetailsOutputTypeDef,
+]
+
+class AwsWafv2RuleGroupDetailsTypeDef(TypedDict):
+    Capacity: NotRequired[int]
+    Description: NotRequired[str]
+    Id: NotRequired[str]
+    Name: NotRequired[str]
+    Arn: NotRequired[str]
+    Rules: NotRequired[Sequence[AwsWafv2RulesDetailsUnionTypeDef]]
+    Scope: NotRequired[str]
+    VisibilityConfig: NotRequired[AwsWafv2VisibilityConfigDetailsTypeDef]
+
+AwsWafv2WebAclDetailsUnionTypeDef = Union[
+    AwsWafv2WebAclDetailsTypeDef, AwsWafv2WebAclDetailsOutputTypeDef
+]
+ClassificationResultUnionTypeDef = Union[
+    ClassificationResultTypeDef, ClassificationResultOutputTypeDef
+]
+RuleGroupSourceStatelessRulesAndCustomActionsDetailsUnionTypeDef = Union[
+    RuleGroupSourceStatelessRulesAndCustomActionsDetailsTypeDef,
+    RuleGroupSourceStatelessRulesAndCustomActionsDetailsOutputTypeDef,
+]
+ResourceOutputTypeDef = TypedDict(
+    "ResourceOutputTypeDef",
+    {
         "Type": str,
+        "Id": str,
+        "Partition": NotRequired[PartitionType],
+        "Region": NotRequired[str],
+        "ResourceRole": NotRequired[str],
+        "Tags": NotRequired[Dict[str, str]],
+        "DataClassification": NotRequired[DataClassificationDetailsOutputTypeDef],
+        "Details": NotRequired[ResourceDetailsOutputTypeDef],
+        "ApplicationName": NotRequired[str],
+        "ApplicationArn": NotRequired[str],
     },
-    total=False,
 )
 
-WorkflowTypeDef = TypedDict(
-    "WorkflowTypeDef",
-    {
-        "Status": WorkflowStatusType,
-    },
-    total=False,
-)
+class AwsNetworkFirewallFirewallPolicyDetailsTypeDef(TypedDict):
+    FirewallPolicy: NotRequired[FirewallPolicyDetailsUnionTypeDef]
+    FirewallPolicyArn: NotRequired[str]
+    FirewallPolicyId: NotRequired[str]
+    FirewallPolicyName: NotRequired[str]
+    Description: NotRequired[str]
 
-WorkflowUpdateTypeDef = TypedDict(
-    "WorkflowUpdateTypeDef",
+class AwsS3BucketDetailsTypeDef(TypedDict):
+    OwnerId: NotRequired[str]
+    OwnerName: NotRequired[str]
+    OwnerAccountId: NotRequired[str]
+    CreatedAt: NotRequired[str]
+    ServerSideEncryptionConfiguration: NotRequired[
+        AwsS3BucketServerSideEncryptionConfigurationUnionTypeDef
+    ]
+    BucketLifecycleConfiguration: NotRequired[
+        AwsS3BucketBucketLifecycleConfigurationDetailsUnionTypeDef
+    ]
+    PublicAccessBlockConfiguration: NotRequired[AwsS3AccountPublicAccessBlockDetailsTypeDef]
+    AccessControlList: NotRequired[str]
+    BucketLoggingConfiguration: NotRequired[AwsS3BucketLoggingConfigurationTypeDef]
+    BucketWebsiteConfiguration: NotRequired[AwsS3BucketWebsiteConfigurationUnionTypeDef]
+    BucketNotificationConfiguration: NotRequired[AwsS3BucketNotificationConfigurationUnionTypeDef]
+    BucketVersioningConfiguration: NotRequired[AwsS3BucketBucketVersioningConfigurationTypeDef]
+    ObjectLockConfiguration: NotRequired[AwsS3BucketObjectLockConfigurationTypeDef]
+    Name: NotRequired[str]
+
+AwsWafv2RuleGroupDetailsUnionTypeDef = Union[
+    AwsWafv2RuleGroupDetailsTypeDef, AwsWafv2RuleGroupDetailsOutputTypeDef
+]
+
+class DataClassificationDetailsTypeDef(TypedDict):
+    DetailedResultsLocation: NotRequired[str]
+    Result: NotRequired[ClassificationResultUnionTypeDef]
+
+class RuleGroupSourceTypeDef(TypedDict):
+    RulesSourceList: NotRequired[RuleGroupSourceListDetailsUnionTypeDef]
+    RulesString: NotRequired[str]
+    StatefulRules: NotRequired[Sequence[RuleGroupSourceStatefulRulesDetailsUnionTypeDef]]
+    StatelessRulesAndCustomActions: NotRequired[
+        RuleGroupSourceStatelessRulesAndCustomActionsDetailsUnionTypeDef
+    ]
+
+class AwsSecurityFindingOutputTypeDef(TypedDict):
+    SchemaVersion: str
+    Id: str
+    ProductArn: str
+    GeneratorId: str
+    AwsAccountId: str
+    CreatedAt: str
+    UpdatedAt: str
+    Title: str
+    Description: str
+    Resources: List[ResourceOutputTypeDef]
+    ProductName: NotRequired[str]
+    CompanyName: NotRequired[str]
+    Region: NotRequired[str]
+    Types: NotRequired[List[str]]
+    FirstObservedAt: NotRequired[str]
+    LastObservedAt: NotRequired[str]
+    Severity: NotRequired[SeverityTypeDef]
+    Confidence: NotRequired[int]
+    Criticality: NotRequired[int]
+    Remediation: NotRequired[RemediationTypeDef]
+    SourceUrl: NotRequired[str]
+    ProductFields: NotRequired[Dict[str, str]]
+    UserDefinedFields: NotRequired[Dict[str, str]]
+    Malware: NotRequired[List[MalwareTypeDef]]
+    Network: NotRequired[NetworkTypeDef]
+    NetworkPath: NotRequired[List[NetworkPathComponentOutputTypeDef]]
+    Process: NotRequired[ProcessDetailsTypeDef]
+    Threats: NotRequired[List[ThreatOutputTypeDef]]
+    ThreatIntelIndicators: NotRequired[List[ThreatIntelIndicatorTypeDef]]
+    Compliance: NotRequired[ComplianceOutputTypeDef]
+    VerificationState: NotRequired[VerificationStateType]
+    WorkflowState: NotRequired[WorkflowStateType]
+    Workflow: NotRequired[WorkflowTypeDef]
+    RecordState: NotRequired[RecordStateType]
+    RelatedFindings: NotRequired[List[RelatedFindingTypeDef]]
+    Note: NotRequired[NoteTypeDef]
+    Vulnerabilities: NotRequired[List[VulnerabilityOutputTypeDef]]
+    PatchSummary: NotRequired[PatchSummaryTypeDef]
+    Action: NotRequired[ActionOutputTypeDef]
+    FindingProviderFields: NotRequired[FindingProviderFieldsOutputTypeDef]
+    Sample: NotRequired[bool]
+    GeneratorDetails: NotRequired[GeneratorDetailsOutputTypeDef]
+    ProcessedAt: NotRequired[str]
+    AwsAccountName: NotRequired[str]
+    Detection: NotRequired[DetectionOutputTypeDef]
+
+AwsNetworkFirewallFirewallPolicyDetailsUnionTypeDef = Union[
+    AwsNetworkFirewallFirewallPolicyDetailsTypeDef,
+    AwsNetworkFirewallFirewallPolicyDetailsOutputTypeDef,
+]
+AwsS3BucketDetailsUnionTypeDef = Union[AwsS3BucketDetailsTypeDef, AwsS3BucketDetailsOutputTypeDef]
+DataClassificationDetailsUnionTypeDef = Union[
+    DataClassificationDetailsTypeDef, DataClassificationDetailsOutputTypeDef
+]
+RuleGroupSourceUnionTypeDef = Union[RuleGroupSourceTypeDef, RuleGroupSourceOutputTypeDef]
+
+class GetFindingsResponseTypeDef(TypedDict):
+    Findings: List[AwsSecurityFindingOutputTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class RuleGroupDetailsTypeDef(TypedDict):
+    RuleVariables: NotRequired[RuleGroupVariablesUnionTypeDef]
+    RulesSource: NotRequired[RuleGroupSourceUnionTypeDef]
+
+RuleGroupDetailsUnionTypeDef = Union[RuleGroupDetailsTypeDef, RuleGroupDetailsOutputTypeDef]
+AwsNetworkFirewallRuleGroupDetailsTypeDef = TypedDict(
+    "AwsNetworkFirewallRuleGroupDetailsTypeDef",
     {
-        "Status": WorkflowStatusType,
+        "Capacity": NotRequired[int],
+        "Description": NotRequired[str],
+        "RuleGroup": NotRequired[RuleGroupDetailsUnionTypeDef],
+        "RuleGroupArn": NotRequired[str],
+        "RuleGroupId": NotRequired[str],
+        "RuleGroupName": NotRequired[str],
+        "Type": NotRequired[str],
     },
-    total=False,
 )
+AwsNetworkFirewallRuleGroupDetailsUnionTypeDef = Union[
+    AwsNetworkFirewallRuleGroupDetailsTypeDef, AwsNetworkFirewallRuleGroupDetailsOutputTypeDef
+]
+ResourceDetailsTypeDef = TypedDict(
+    "ResourceDetailsTypeDef",
+    {
+        "AwsAutoScalingAutoScalingGroup": NotRequired[
+            AwsAutoScalingAutoScalingGroupDetailsUnionTypeDef
+        ],
+        "AwsCodeBuildProject": NotRequired[AwsCodeBuildProjectDetailsUnionTypeDef],
+        "AwsCloudFrontDistribution": NotRequired[AwsCloudFrontDistributionDetailsUnionTypeDef],
+        "AwsEc2Instance": NotRequired[AwsEc2InstanceDetailsUnionTypeDef],
+        "AwsEc2NetworkInterface": NotRequired[AwsEc2NetworkInterfaceDetailsUnionTypeDef],
+        "AwsEc2SecurityGroup": NotRequired[AwsEc2SecurityGroupDetailsUnionTypeDef],
+        "AwsEc2Volume": NotRequired[AwsEc2VolumeDetailsUnionTypeDef],
+        "AwsEc2Vpc": NotRequired[AwsEc2VpcDetailsUnionTypeDef],
+        "AwsEc2Eip": NotRequired[AwsEc2EipDetailsTypeDef],
+        "AwsEc2Subnet": NotRequired[AwsEc2SubnetDetailsUnionTypeDef],
+        "AwsEc2NetworkAcl": NotRequired[AwsEc2NetworkAclDetailsUnionTypeDef],
+        "AwsElbv2LoadBalancer": NotRequired[AwsElbv2LoadBalancerDetailsUnionTypeDef],
+        "AwsElasticBeanstalkEnvironment": NotRequired[
+            AwsElasticBeanstalkEnvironmentDetailsUnionTypeDef
+        ],
+        "AwsElasticsearchDomain": NotRequired[AwsElasticsearchDomainDetailsUnionTypeDef],
+        "AwsS3Bucket": NotRequired[AwsS3BucketDetailsUnionTypeDef],
+        "AwsS3AccountPublicAccessBlock": NotRequired[AwsS3AccountPublicAccessBlockDetailsTypeDef],
+        "AwsS3Object": NotRequired[AwsS3ObjectDetailsTypeDef],
+        "AwsSecretsManagerSecret": NotRequired[AwsSecretsManagerSecretDetailsTypeDef],
+        "AwsIamAccessKey": NotRequired[AwsIamAccessKeyDetailsTypeDef],
+        "AwsIamUser": NotRequired[AwsIamUserDetailsUnionTypeDef],
+        "AwsIamPolicy": NotRequired[AwsIamPolicyDetailsUnionTypeDef],
+        "AwsApiGatewayV2Stage": NotRequired[AwsApiGatewayV2StageDetailsUnionTypeDef],
+        "AwsApiGatewayV2Api": NotRequired[AwsApiGatewayV2ApiDetailsUnionTypeDef],
+        "AwsDynamoDbTable": NotRequired[AwsDynamoDbTableDetailsUnionTypeDef],
+        "AwsApiGatewayStage": NotRequired[AwsApiGatewayStageDetailsUnionTypeDef],
+        "AwsApiGatewayRestApi": NotRequired[AwsApiGatewayRestApiDetailsUnionTypeDef],
+        "AwsCloudTrailTrail": NotRequired[AwsCloudTrailTrailDetailsTypeDef],
+        "AwsSsmPatchCompliance": NotRequired[AwsSsmPatchComplianceDetailsTypeDef],
+        "AwsCertificateManagerCertificate": NotRequired[
+            AwsCertificateManagerCertificateDetailsUnionTypeDef
+        ],
+        "AwsRedshiftCluster": NotRequired[AwsRedshiftClusterDetailsUnionTypeDef],
+        "AwsElbLoadBalancer": NotRequired[AwsElbLoadBalancerDetailsUnionTypeDef],
+        "AwsIamGroup": NotRequired[AwsIamGroupDetailsUnionTypeDef],
+        "AwsIamRole": NotRequired[AwsIamRoleDetailsUnionTypeDef],
+        "AwsKmsKey": NotRequired[AwsKmsKeyDetailsTypeDef],
+        "AwsLambdaFunction": NotRequired[AwsLambdaFunctionDetailsUnionTypeDef],
+        "AwsLambdaLayerVersion": NotRequired[AwsLambdaLayerVersionDetailsUnionTypeDef],
+        "AwsRdsDbInstance": NotRequired[AwsRdsDbInstanceDetailsUnionTypeDef],
+        "AwsSnsTopic": NotRequired[AwsSnsTopicDetailsUnionTypeDef],
+        "AwsSqsQueue": NotRequired[AwsSqsQueueDetailsTypeDef],
+        "AwsWafWebAcl": NotRequired[AwsWafWebAclDetailsUnionTypeDef],
+        "AwsRdsDbSnapshot": NotRequired[AwsRdsDbSnapshotDetailsUnionTypeDef],
+        "AwsRdsDbClusterSnapshot": NotRequired[AwsRdsDbClusterSnapshotDetailsUnionTypeDef],
+        "AwsRdsDbCluster": NotRequired[AwsRdsDbClusterDetailsUnionTypeDef],
+        "AwsEcsCluster": NotRequired[AwsEcsClusterDetailsUnionTypeDef],
+        "AwsEcsContainer": NotRequired[AwsEcsContainerDetailsUnionTypeDef],
+        "AwsEcsTaskDefinition": NotRequired[AwsEcsTaskDefinitionDetailsUnionTypeDef],
+        "Container": NotRequired[ContainerDetailsUnionTypeDef],
+        "Other": NotRequired[Mapping[str, str]],
+        "AwsRdsEventSubscription": NotRequired[AwsRdsEventSubscriptionDetailsUnionTypeDef],
+        "AwsEcsService": NotRequired[AwsEcsServiceDetailsUnionTypeDef],
+        "AwsAutoScalingLaunchConfiguration": NotRequired[
+            AwsAutoScalingLaunchConfigurationDetailsUnionTypeDef
+        ],
+        "AwsEc2VpnConnection": NotRequired[AwsEc2VpnConnectionDetailsUnionTypeDef],
+        "AwsEcrContainerImage": NotRequired[AwsEcrContainerImageDetailsUnionTypeDef],
+        "AwsOpenSearchServiceDomain": NotRequired[AwsOpenSearchServiceDomainDetailsUnionTypeDef],
+        "AwsEc2VpcEndpointService": NotRequired[AwsEc2VpcEndpointServiceDetailsUnionTypeDef],
+        "AwsXrayEncryptionConfig": NotRequired[AwsXrayEncryptionConfigDetailsTypeDef],
+        "AwsWafRateBasedRule": NotRequired[AwsWafRateBasedRuleDetailsUnionTypeDef],
+        "AwsWafRegionalRateBasedRule": NotRequired[AwsWafRegionalRateBasedRuleDetailsUnionTypeDef],
+        "AwsEcrRepository": NotRequired[AwsEcrRepositoryDetailsTypeDef],
+        "AwsEksCluster": NotRequired[AwsEksClusterDetailsUnionTypeDef],
+        "AwsNetworkFirewallFirewallPolicy": NotRequired[
+            AwsNetworkFirewallFirewallPolicyDetailsUnionTypeDef
+        ],
+        "AwsNetworkFirewallFirewall": NotRequired[AwsNetworkFirewallFirewallDetailsUnionTypeDef],
+        "AwsNetworkFirewallRuleGroup": NotRequired[AwsNetworkFirewallRuleGroupDetailsUnionTypeDef],
+        "AwsRdsDbSecurityGroup": NotRequired[AwsRdsDbSecurityGroupDetailsUnionTypeDef],
+        "AwsKinesisStream": NotRequired[AwsKinesisStreamDetailsTypeDef],
+        "AwsEc2TransitGateway": NotRequired[AwsEc2TransitGatewayDetailsUnionTypeDef],
+        "AwsEfsAccessPoint": NotRequired[AwsEfsAccessPointDetailsUnionTypeDef],
+        "AwsCloudFormationStack": NotRequired[AwsCloudFormationStackDetailsUnionTypeDef],
+        "AwsCloudWatchAlarm": NotRequired[AwsCloudWatchAlarmDetailsUnionTypeDef],
+        "AwsEc2VpcPeeringConnection": NotRequired[AwsEc2VpcPeeringConnectionDetailsUnionTypeDef],
+        "AwsWafRegionalRuleGroup": NotRequired[AwsWafRegionalRuleGroupDetailsUnionTypeDef],
+        "AwsWafRegionalRule": NotRequired[AwsWafRegionalRuleDetailsUnionTypeDef],
+        "AwsWafRegionalWebAcl": NotRequired[AwsWafRegionalWebAclDetailsUnionTypeDef],
+        "AwsWafRule": NotRequired[AwsWafRuleDetailsUnionTypeDef],
+        "AwsWafRuleGroup": NotRequired[AwsWafRuleGroupDetailsUnionTypeDef],
+        "AwsEcsTask": NotRequired[AwsEcsTaskDetailsUnionTypeDef],
+        "AwsBackupBackupVault": NotRequired[AwsBackupBackupVaultDetailsUnionTypeDef],
+        "AwsBackupBackupPlan": NotRequired[AwsBackupBackupPlanDetailsUnionTypeDef],
+        "AwsBackupRecoveryPoint": NotRequired[AwsBackupRecoveryPointDetailsTypeDef],
+        "AwsEc2LaunchTemplate": NotRequired[AwsEc2LaunchTemplateDetailsUnionTypeDef],
+        "AwsSageMakerNotebookInstance": NotRequired[
+            AwsSageMakerNotebookInstanceDetailsUnionTypeDef
+        ],
+        "AwsWafv2WebAcl": NotRequired[AwsWafv2WebAclDetailsUnionTypeDef],
+        "AwsWafv2RuleGroup": NotRequired[AwsWafv2RuleGroupDetailsUnionTypeDef],
+        "AwsEc2RouteTable": NotRequired[AwsEc2RouteTableDetailsUnionTypeDef],
+        "AwsAmazonMqBroker": NotRequired[AwsAmazonMqBrokerDetailsUnionTypeDef],
+        "AwsAppSyncGraphQlApi": NotRequired[AwsAppSyncGraphQlApiDetailsUnionTypeDef],
+        "AwsEventSchemasRegistry": NotRequired[AwsEventSchemasRegistryDetailsTypeDef],
+        "AwsGuardDutyDetector": NotRequired[AwsGuardDutyDetectorDetailsUnionTypeDef],
+        "AwsStepFunctionStateMachine": NotRequired[AwsStepFunctionStateMachineDetailsUnionTypeDef],
+        "AwsAthenaWorkGroup": NotRequired[AwsAthenaWorkGroupDetailsTypeDef],
+        "AwsEventsEventbus": NotRequired[AwsEventsEventbusDetailsTypeDef],
+        "AwsDmsEndpoint": NotRequired[AwsDmsEndpointDetailsTypeDef],
+        "AwsEventsEndpoint": NotRequired[AwsEventsEndpointDetailsUnionTypeDef],
+        "AwsDmsReplicationTask": NotRequired[AwsDmsReplicationTaskDetailsTypeDef],
+        "AwsDmsReplicationInstance": NotRequired[AwsDmsReplicationInstanceDetailsUnionTypeDef],
+        "AwsRoute53HostedZone": NotRequired[AwsRoute53HostedZoneDetailsUnionTypeDef],
+        "AwsMskCluster": NotRequired[AwsMskClusterDetailsUnionTypeDef],
+        "AwsS3AccessPoint": NotRequired[AwsS3AccessPointDetailsTypeDef],
+        "AwsEc2ClientVpnEndpoint": NotRequired[AwsEc2ClientVpnEndpointDetailsUnionTypeDef],
+    },
+)
+ResourceDetailsUnionTypeDef = Union[ResourceDetailsTypeDef, ResourceDetailsOutputTypeDef]
+ResourceTypeDef = TypedDict(
+    "ResourceTypeDef",
+    {
+        "Type": str,
+        "Id": str,
+        "Partition": NotRequired[PartitionType],
+        "Region": NotRequired[str],
+        "ResourceRole": NotRequired[str],
+        "Tags": NotRequired[Mapping[str, str]],
+        "DataClassification": NotRequired[DataClassificationDetailsUnionTypeDef],
+        "Details": NotRequired[ResourceDetailsUnionTypeDef],
+        "ApplicationName": NotRequired[str],
+        "ApplicationArn": NotRequired[str],
+    },
+)
+ResourceUnionTypeDef = Union[ResourceTypeDef, ResourceOutputTypeDef]
+
+class AwsSecurityFindingTypeDef(TypedDict):
+    SchemaVersion: str
+    Id: str
+    ProductArn: str
+    GeneratorId: str
+    AwsAccountId: str
+    CreatedAt: str
+    UpdatedAt: str
+    Title: str
+    Description: str
+    Resources: Sequence[ResourceUnionTypeDef]
+    ProductName: NotRequired[str]
+    CompanyName: NotRequired[str]
+    Region: NotRequired[str]
+    Types: NotRequired[Sequence[str]]
+    FirstObservedAt: NotRequired[str]
+    LastObservedAt: NotRequired[str]
+    Severity: NotRequired[SeverityTypeDef]
+    Confidence: NotRequired[int]
+    Criticality: NotRequired[int]
+    Remediation: NotRequired[RemediationTypeDef]
+    SourceUrl: NotRequired[str]
+    ProductFields: NotRequired[Mapping[str, str]]
+    UserDefinedFields: NotRequired[Mapping[str, str]]
+    Malware: NotRequired[Sequence[MalwareTypeDef]]
+    Network: NotRequired[NetworkTypeDef]
+    NetworkPath: NotRequired[Sequence[NetworkPathComponentUnionTypeDef]]
+    Process: NotRequired[ProcessDetailsTypeDef]
+    Threats: NotRequired[Sequence[ThreatUnionTypeDef]]
+    ThreatIntelIndicators: NotRequired[Sequence[ThreatIntelIndicatorTypeDef]]
+    Compliance: NotRequired[ComplianceUnionTypeDef]
+    VerificationState: NotRequired[VerificationStateType]
+    WorkflowState: NotRequired[WorkflowStateType]
+    Workflow: NotRequired[WorkflowTypeDef]
+    RecordState: NotRequired[RecordStateType]
+    RelatedFindings: NotRequired[Sequence[RelatedFindingTypeDef]]
+    Note: NotRequired[NoteTypeDef]
+    Vulnerabilities: NotRequired[Sequence[VulnerabilityUnionTypeDef]]
+    PatchSummary: NotRequired[PatchSummaryTypeDef]
+    Action: NotRequired[ActionUnionTypeDef]
+    FindingProviderFields: NotRequired[FindingProviderFieldsUnionTypeDef]
+    Sample: NotRequired[bool]
+    GeneratorDetails: NotRequired[GeneratorDetailsUnionTypeDef]
+    ProcessedAt: NotRequired[str]
+    AwsAccountName: NotRequired[str]
+    Detection: NotRequired[DetectionUnionTypeDef]
+
+AwsSecurityFindingUnionTypeDef = Union[AwsSecurityFindingTypeDef, AwsSecurityFindingOutputTypeDef]
+
+class BatchImportFindingsRequestTypeDef(TypedDict):
+    Findings: Sequence[AwsSecurityFindingUnionTypeDef]

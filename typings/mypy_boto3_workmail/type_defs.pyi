@@ -1,20 +1,24 @@
 """
 Type annotations for workmail service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workmail/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_workmail/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_workmail.type_defs import AccessControlRuleTypeDef
 
-    data: AccessControlRuleTypeDef = {...}
+    data: AccessControlRuleTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
+from typing import Union
 
 from .literals import (
     AccessControlRuleEffectType,
@@ -24,142 +28,174 @@ from .literals import (
     EntityStateType,
     EntityTypeType,
     FolderNameType,
+    IdentityProviderAuthenticationModeType,
     ImpersonationRoleTypeType,
     MailboxExportJobStateType,
     MemberTypeType,
     MobileDeviceAccessRuleEffectType,
     PermissionTypeType,
+    PersonalAccessTokenConfigurationStatusType,
     ResourceTypeType,
     RetentionActionType,
     UserRoleType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Sequence
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List, Sequence
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
     "AccessControlRuleTypeDef",
-    "AssociateDelegateToResourceRequestRequestTypeDef",
-    "AssociateMemberToGroupRequestRequestTypeDef",
-    "AssumeImpersonationRoleRequestRequestTypeDef",
+    "AssociateDelegateToResourceRequestTypeDef",
+    "AssociateMemberToGroupRequestTypeDef",
+    "AssumeImpersonationRoleRequestTypeDef",
     "AssumeImpersonationRoleResponseTypeDef",
     "AvailabilityConfigurationTypeDef",
     "BookingOptionsTypeDef",
-    "CancelMailboxExportJobRequestRequestTypeDef",
-    "CreateAliasRequestRequestTypeDef",
-    "CreateAvailabilityConfigurationRequestRequestTypeDef",
-    "CreateGroupRequestRequestTypeDef",
+    "CancelMailboxExportJobRequestTypeDef",
+    "CreateAliasRequestTypeDef",
+    "CreateAvailabilityConfigurationRequestTypeDef",
+    "CreateGroupRequestTypeDef",
     "CreateGroupResponseTypeDef",
-    "CreateImpersonationRoleRequestRequestTypeDef",
+    "CreateIdentityCenterApplicationRequestTypeDef",
+    "CreateIdentityCenterApplicationResponseTypeDef",
+    "CreateImpersonationRoleRequestTypeDef",
     "CreateImpersonationRoleResponseTypeDef",
-    "CreateMobileDeviceAccessRuleRequestRequestTypeDef",
+    "CreateMobileDeviceAccessRuleRequestTypeDef",
     "CreateMobileDeviceAccessRuleResponseTypeDef",
-    "CreateOrganizationRequestRequestTypeDef",
+    "CreateOrganizationRequestTypeDef",
     "CreateOrganizationResponseTypeDef",
-    "CreateResourceRequestRequestTypeDef",
+    "CreateResourceRequestTypeDef",
     "CreateResourceResponseTypeDef",
-    "CreateUserRequestRequestTypeDef",
+    "CreateUserRequestTypeDef",
     "CreateUserResponseTypeDef",
     "DelegateTypeDef",
-    "DeleteAccessControlRuleRequestRequestTypeDef",
-    "DeleteAliasRequestRequestTypeDef",
-    "DeleteAvailabilityConfigurationRequestRequestTypeDef",
-    "DeleteEmailMonitoringConfigurationRequestRequestTypeDef",
-    "DeleteGroupRequestRequestTypeDef",
-    "DeleteImpersonationRoleRequestRequestTypeDef",
-    "DeleteMailboxPermissionsRequestRequestTypeDef",
-    "DeleteMobileDeviceAccessOverrideRequestRequestTypeDef",
-    "DeleteMobileDeviceAccessRuleRequestRequestTypeDef",
-    "DeleteOrganizationRequestRequestTypeDef",
+    "DeleteAccessControlRuleRequestTypeDef",
+    "DeleteAliasRequestTypeDef",
+    "DeleteAvailabilityConfigurationRequestTypeDef",
+    "DeleteEmailMonitoringConfigurationRequestTypeDef",
+    "DeleteGroupRequestTypeDef",
+    "DeleteIdentityCenterApplicationRequestTypeDef",
+    "DeleteIdentityProviderConfigurationRequestTypeDef",
+    "DeleteImpersonationRoleRequestTypeDef",
+    "DeleteMailboxPermissionsRequestTypeDef",
+    "DeleteMobileDeviceAccessOverrideRequestTypeDef",
+    "DeleteMobileDeviceAccessRuleRequestTypeDef",
+    "DeleteOrganizationRequestTypeDef",
     "DeleteOrganizationResponseTypeDef",
-    "DeleteResourceRequestRequestTypeDef",
-    "DeleteRetentionPolicyRequestRequestTypeDef",
-    "DeleteUserRequestRequestTypeDef",
-    "DeregisterFromWorkMailRequestRequestTypeDef",
-    "DeregisterMailDomainRequestRequestTypeDef",
-    "DescribeEmailMonitoringConfigurationRequestRequestTypeDef",
+    "DeletePersonalAccessTokenRequestTypeDef",
+    "DeleteResourceRequestTypeDef",
+    "DeleteRetentionPolicyRequestTypeDef",
+    "DeleteUserRequestTypeDef",
+    "DeregisterFromWorkMailRequestTypeDef",
+    "DeregisterMailDomainRequestTypeDef",
+    "DescribeEmailMonitoringConfigurationRequestTypeDef",
     "DescribeEmailMonitoringConfigurationResponseTypeDef",
-    "DescribeEntityRequestRequestTypeDef",
+    "DescribeEntityRequestTypeDef",
     "DescribeEntityResponseTypeDef",
-    "DescribeGroupRequestRequestTypeDef",
+    "DescribeGroupRequestTypeDef",
     "DescribeGroupResponseTypeDef",
-    "DescribeInboundDmarcSettingsRequestRequestTypeDef",
+    "DescribeIdentityProviderConfigurationRequestTypeDef",
+    "DescribeIdentityProviderConfigurationResponseTypeDef",
+    "DescribeInboundDmarcSettingsRequestTypeDef",
     "DescribeInboundDmarcSettingsResponseTypeDef",
-    "DescribeMailboxExportJobRequestRequestTypeDef",
+    "DescribeMailboxExportJobRequestTypeDef",
     "DescribeMailboxExportJobResponseTypeDef",
-    "DescribeOrganizationRequestRequestTypeDef",
+    "DescribeOrganizationRequestTypeDef",
     "DescribeOrganizationResponseTypeDef",
-    "DescribeResourceRequestRequestTypeDef",
+    "DescribeResourceRequestTypeDef",
     "DescribeResourceResponseTypeDef",
-    "DescribeUserRequestRequestTypeDef",
+    "DescribeUserRequestTypeDef",
     "DescribeUserResponseTypeDef",
-    "DisassociateDelegateFromResourceRequestRequestTypeDef",
-    "DisassociateMemberFromGroupRequestRequestTypeDef",
+    "DisassociateDelegateFromResourceRequestTypeDef",
+    "DisassociateMemberFromGroupRequestTypeDef",
     "DnsRecordTypeDef",
     "DomainTypeDef",
     "EwsAvailabilityProviderTypeDef",
     "FolderConfigurationTypeDef",
-    "GetAccessControlEffectRequestRequestTypeDef",
+    "GetAccessControlEffectRequestTypeDef",
     "GetAccessControlEffectResponseTypeDef",
-    "GetDefaultRetentionPolicyRequestRequestTypeDef",
+    "GetDefaultRetentionPolicyRequestTypeDef",
     "GetDefaultRetentionPolicyResponseTypeDef",
-    "GetImpersonationRoleEffectRequestRequestTypeDef",
+    "GetImpersonationRoleEffectRequestTypeDef",
     "GetImpersonationRoleEffectResponseTypeDef",
-    "GetImpersonationRoleRequestRequestTypeDef",
+    "GetImpersonationRoleRequestTypeDef",
     "GetImpersonationRoleResponseTypeDef",
-    "GetMailDomainRequestRequestTypeDef",
+    "GetMailDomainRequestTypeDef",
     "GetMailDomainResponseTypeDef",
-    "GetMailboxDetailsRequestRequestTypeDef",
+    "GetMailboxDetailsRequestTypeDef",
     "GetMailboxDetailsResponseTypeDef",
-    "GetMobileDeviceAccessEffectRequestRequestTypeDef",
+    "GetMobileDeviceAccessEffectRequestTypeDef",
     "GetMobileDeviceAccessEffectResponseTypeDef",
-    "GetMobileDeviceAccessOverrideRequestRequestTypeDef",
+    "GetMobileDeviceAccessOverrideRequestTypeDef",
     "GetMobileDeviceAccessOverrideResponseTypeDef",
+    "GetPersonalAccessTokenMetadataRequestTypeDef",
+    "GetPersonalAccessTokenMetadataResponseTypeDef",
     "GroupIdentifierTypeDef",
     "GroupTypeDef",
+    "IdentityCenterConfigurationTypeDef",
     "ImpersonationMatchedRuleTypeDef",
     "ImpersonationRoleTypeDef",
+    "ImpersonationRuleOutputTypeDef",
     "ImpersonationRuleTypeDef",
+    "ImpersonationRuleUnionTypeDef",
     "LambdaAvailabilityProviderTypeDef",
-    "ListAccessControlRulesRequestRequestTypeDef",
+    "ListAccessControlRulesRequestTypeDef",
     "ListAccessControlRulesResponseTypeDef",
-    "ListAliasesRequestRequestTypeDef",
+    "ListAliasesRequestPaginateTypeDef",
+    "ListAliasesRequestTypeDef",
     "ListAliasesResponseTypeDef",
-    "ListAvailabilityConfigurationsRequestRequestTypeDef",
+    "ListAvailabilityConfigurationsRequestPaginateTypeDef",
+    "ListAvailabilityConfigurationsRequestTypeDef",
     "ListAvailabilityConfigurationsResponseTypeDef",
-    "ListGroupMembersRequestRequestTypeDef",
+    "ListGroupMembersRequestPaginateTypeDef",
+    "ListGroupMembersRequestTypeDef",
     "ListGroupMembersResponseTypeDef",
     "ListGroupsFiltersTypeDef",
     "ListGroupsForEntityFiltersTypeDef",
-    "ListGroupsForEntityRequestRequestTypeDef",
+    "ListGroupsForEntityRequestTypeDef",
     "ListGroupsForEntityResponseTypeDef",
-    "ListGroupsRequestRequestTypeDef",
+    "ListGroupsRequestPaginateTypeDef",
+    "ListGroupsRequestTypeDef",
     "ListGroupsResponseTypeDef",
-    "ListImpersonationRolesRequestRequestTypeDef",
+    "ListImpersonationRolesRequestTypeDef",
     "ListImpersonationRolesResponseTypeDef",
-    "ListMailDomainsRequestRequestTypeDef",
+    "ListMailDomainsRequestTypeDef",
     "ListMailDomainsResponseTypeDef",
-    "ListMailboxExportJobsRequestRequestTypeDef",
+    "ListMailboxExportJobsRequestTypeDef",
     "ListMailboxExportJobsResponseTypeDef",
-    "ListMailboxPermissionsRequestRequestTypeDef",
+    "ListMailboxPermissionsRequestPaginateTypeDef",
+    "ListMailboxPermissionsRequestTypeDef",
     "ListMailboxPermissionsResponseTypeDef",
-    "ListMobileDeviceAccessOverridesRequestRequestTypeDef",
+    "ListMobileDeviceAccessOverridesRequestTypeDef",
     "ListMobileDeviceAccessOverridesResponseTypeDef",
-    "ListMobileDeviceAccessRulesRequestRequestTypeDef",
+    "ListMobileDeviceAccessRulesRequestTypeDef",
     "ListMobileDeviceAccessRulesResponseTypeDef",
-    "ListOrganizationsRequestRequestTypeDef",
+    "ListOrganizationsRequestPaginateTypeDef",
+    "ListOrganizationsRequestTypeDef",
     "ListOrganizationsResponseTypeDef",
-    "ListResourceDelegatesRequestRequestTypeDef",
+    "ListPersonalAccessTokensRequestPaginateTypeDef",
+    "ListPersonalAccessTokensRequestTypeDef",
+    "ListPersonalAccessTokensResponseTypeDef",
+    "ListResourceDelegatesRequestPaginateTypeDef",
+    "ListResourceDelegatesRequestTypeDef",
     "ListResourceDelegatesResponseTypeDef",
     "ListResourcesFiltersTypeDef",
-    "ListResourcesRequestRequestTypeDef",
+    "ListResourcesRequestPaginateTypeDef",
+    "ListResourcesRequestTypeDef",
     "ListResourcesResponseTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "ListUsersFiltersTypeDef",
-    "ListUsersRequestRequestTypeDef",
+    "ListUsersRequestPaginateTypeDef",
+    "ListUsersRequestTypeDef",
     "ListUsersResponseTypeDef",
     "MailDomainSummaryTypeDef",
     "MailboxExportJobTypeDef",
@@ -170,349 +206,153 @@ __all__ = (
     "OrganizationSummaryTypeDef",
     "PaginatorConfigTypeDef",
     "PermissionTypeDef",
-    "PutAccessControlRuleRequestRequestTypeDef",
-    "PutEmailMonitoringConfigurationRequestRequestTypeDef",
-    "PutInboundDmarcSettingsRequestRequestTypeDef",
-    "PutMailboxPermissionsRequestRequestTypeDef",
-    "PutMobileDeviceAccessOverrideRequestRequestTypeDef",
-    "PutRetentionPolicyRequestRequestTypeDef",
+    "PersonalAccessTokenConfigurationTypeDef",
+    "PersonalAccessTokenSummaryTypeDef",
+    "PutAccessControlRuleRequestTypeDef",
+    "PutEmailMonitoringConfigurationRequestTypeDef",
+    "PutIdentityProviderConfigurationRequestTypeDef",
+    "PutInboundDmarcSettingsRequestTypeDef",
+    "PutMailboxPermissionsRequestTypeDef",
+    "PutMobileDeviceAccessOverrideRequestTypeDef",
+    "PutRetentionPolicyRequestTypeDef",
     "RedactedEwsAvailabilityProviderTypeDef",
-    "RegisterMailDomainRequestRequestTypeDef",
-    "RegisterToWorkMailRequestRequestTypeDef",
-    "ResetPasswordRequestRequestTypeDef",
+    "RegisterMailDomainRequestTypeDef",
+    "RegisterToWorkMailRequestTypeDef",
+    "ResetPasswordRequestTypeDef",
     "ResourceTypeDef",
     "ResponseMetadataTypeDef",
-    "StartMailboxExportJobRequestRequestTypeDef",
+    "StartMailboxExportJobRequestTypeDef",
     "StartMailboxExportJobResponseTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
     "TagTypeDef",
-    "TestAvailabilityConfigurationRequestRequestTypeDef",
+    "TestAvailabilityConfigurationRequestTypeDef",
     "TestAvailabilityConfigurationResponseTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateAvailabilityConfigurationRequestRequestTypeDef",
-    "UpdateDefaultMailDomainRequestRequestTypeDef",
-    "UpdateGroupRequestRequestTypeDef",
-    "UpdateImpersonationRoleRequestRequestTypeDef",
-    "UpdateMailboxQuotaRequestRequestTypeDef",
-    "UpdateMobileDeviceAccessRuleRequestRequestTypeDef",
-    "UpdatePrimaryEmailAddressRequestRequestTypeDef",
-    "UpdateResourceRequestRequestTypeDef",
-    "UpdateUserRequestRequestTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateAvailabilityConfigurationRequestTypeDef",
+    "UpdateDefaultMailDomainRequestTypeDef",
+    "UpdateGroupRequestTypeDef",
+    "UpdateImpersonationRoleRequestTypeDef",
+    "UpdateMailboxQuotaRequestTypeDef",
+    "UpdateMobileDeviceAccessRuleRequestTypeDef",
+    "UpdatePrimaryEmailAddressRequestTypeDef",
+    "UpdateResourceRequestTypeDef",
+    "UpdateUserRequestTypeDef",
     "UserTypeDef",
 )
 
-AccessControlRuleTypeDef = TypedDict(
-    "AccessControlRuleTypeDef",
-    {
-        "Name": str,
-        "Effect": AccessControlRuleEffectType,
-        "Description": str,
-        "IpRanges": List[str],
-        "NotIpRanges": List[str],
-        "Actions": List[str],
-        "NotActions": List[str],
-        "UserIds": List[str],
-        "NotUserIds": List[str],
-        "DateCreated": datetime,
-        "DateModified": datetime,
-        "ImpersonationRoleIds": List[str],
-        "NotImpersonationRoleIds": List[str],
-    },
-    total=False,
-)
+class AccessControlRuleTypeDef(TypedDict):
+    Name: NotRequired[str]
+    Effect: NotRequired[AccessControlRuleEffectType]
+    Description: NotRequired[str]
+    IpRanges: NotRequired[List[str]]
+    NotIpRanges: NotRequired[List[str]]
+    Actions: NotRequired[List[str]]
+    NotActions: NotRequired[List[str]]
+    UserIds: NotRequired[List[str]]
+    NotUserIds: NotRequired[List[str]]
+    DateCreated: NotRequired[datetime]
+    DateModified: NotRequired[datetime]
+    ImpersonationRoleIds: NotRequired[List[str]]
+    NotImpersonationRoleIds: NotRequired[List[str]]
 
-AssociateDelegateToResourceRequestRequestTypeDef = TypedDict(
-    "AssociateDelegateToResourceRequestRequestTypeDef",
-    {
-        "OrganizationId": str,
-        "ResourceId": str,
-        "EntityId": str,
-    },
-)
+class AssociateDelegateToResourceRequestTypeDef(TypedDict):
+    OrganizationId: str
+    ResourceId: str
+    EntityId: str
 
-AssociateMemberToGroupRequestRequestTypeDef = TypedDict(
-    "AssociateMemberToGroupRequestRequestTypeDef",
-    {
-        "OrganizationId": str,
-        "GroupId": str,
-        "MemberId": str,
-    },
-)
+class AssociateMemberToGroupRequestTypeDef(TypedDict):
+    OrganizationId: str
+    GroupId: str
+    MemberId: str
 
-AssumeImpersonationRoleRequestRequestTypeDef = TypedDict(
-    "AssumeImpersonationRoleRequestRequestTypeDef",
-    {
-        "OrganizationId": str,
-        "ImpersonationRoleId": str,
-    },
-)
+class AssumeImpersonationRoleRequestTypeDef(TypedDict):
+    OrganizationId: str
+    ImpersonationRoleId: str
 
-AssumeImpersonationRoleResponseTypeDef = TypedDict(
-    "AssumeImpersonationRoleResponseTypeDef",
-    {
-        "Token": str,
-        "ExpiresIn": int,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-AvailabilityConfigurationTypeDef = TypedDict(
-    "AvailabilityConfigurationTypeDef",
-    {
-        "DomainName": str,
-        "ProviderType": AvailabilityProviderTypeType,
-        "EwsProvider": "RedactedEwsAvailabilityProviderTypeDef",
-        "LambdaProvider": "LambdaAvailabilityProviderTypeDef",
-        "DateCreated": datetime,
-        "DateModified": datetime,
-    },
-    total=False,
-)
+class LambdaAvailabilityProviderTypeDef(TypedDict):
+    LambdaArn: str
 
-BookingOptionsTypeDef = TypedDict(
-    "BookingOptionsTypeDef",
-    {
-        "AutoAcceptRequests": bool,
-        "AutoDeclineRecurringRequests": bool,
-        "AutoDeclineConflictingRequests": bool,
-    },
-    total=False,
-)
+class RedactedEwsAvailabilityProviderTypeDef(TypedDict):
+    EwsEndpoint: NotRequired[str]
+    EwsUsername: NotRequired[str]
 
-CancelMailboxExportJobRequestRequestTypeDef = TypedDict(
-    "CancelMailboxExportJobRequestRequestTypeDef",
-    {
-        "ClientToken": str,
-        "JobId": str,
-        "OrganizationId": str,
-    },
-)
+class BookingOptionsTypeDef(TypedDict):
+    AutoAcceptRequests: NotRequired[bool]
+    AutoDeclineRecurringRequests: NotRequired[bool]
+    AutoDeclineConflictingRequests: NotRequired[bool]
 
-CreateAliasRequestRequestTypeDef = TypedDict(
-    "CreateAliasRequestRequestTypeDef",
-    {
-        "OrganizationId": str,
-        "EntityId": str,
-        "Alias": str,
-    },
-)
+class CancelMailboxExportJobRequestTypeDef(TypedDict):
+    ClientToken: str
+    JobId: str
+    OrganizationId: str
 
-_RequiredCreateAvailabilityConfigurationRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateAvailabilityConfigurationRequestRequestTypeDef",
-    {
-        "OrganizationId": str,
-        "DomainName": str,
-    },
-)
-_OptionalCreateAvailabilityConfigurationRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateAvailabilityConfigurationRequestRequestTypeDef",
-    {
-        "ClientToken": str,
-        "EwsProvider": "EwsAvailabilityProviderTypeDef",
-        "LambdaProvider": "LambdaAvailabilityProviderTypeDef",
-    },
-    total=False,
-)
+class CreateAliasRequestTypeDef(TypedDict):
+    OrganizationId: str
+    EntityId: str
+    Alias: str
 
-class CreateAvailabilityConfigurationRequestRequestTypeDef(
-    _RequiredCreateAvailabilityConfigurationRequestRequestTypeDef,
-    _OptionalCreateAvailabilityConfigurationRequestRequestTypeDef,
-):
-    pass
+class EwsAvailabilityProviderTypeDef(TypedDict):
+    EwsEndpoint: str
+    EwsUsername: str
+    EwsPassword: str
 
-_RequiredCreateGroupRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateGroupRequestRequestTypeDef",
-    {
-        "OrganizationId": str,
-        "Name": str,
-    },
-)
-_OptionalCreateGroupRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateGroupRequestRequestTypeDef",
-    {
-        "HiddenFromGlobalAddressList": bool,
-    },
-    total=False,
-)
+class CreateGroupRequestTypeDef(TypedDict):
+    OrganizationId: str
+    Name: str
+    HiddenFromGlobalAddressList: NotRequired[bool]
 
-class CreateGroupRequestRequestTypeDef(
-    _RequiredCreateGroupRequestRequestTypeDef, _OptionalCreateGroupRequestRequestTypeDef
-):
-    pass
+class CreateIdentityCenterApplicationRequestTypeDef(TypedDict):
+    Name: str
+    InstanceArn: str
+    ClientToken: NotRequired[str]
 
-CreateGroupResponseTypeDef = TypedDict(
-    "CreateGroupResponseTypeDef",
-    {
-        "GroupId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CreateMobileDeviceAccessRuleRequestTypeDef(TypedDict):
+    OrganizationId: str
+    Name: str
+    Effect: MobileDeviceAccessRuleEffectType
+    ClientToken: NotRequired[str]
+    Description: NotRequired[str]
+    DeviceTypes: NotRequired[Sequence[str]]
+    NotDeviceTypes: NotRequired[Sequence[str]]
+    DeviceModels: NotRequired[Sequence[str]]
+    NotDeviceModels: NotRequired[Sequence[str]]
+    DeviceOperatingSystems: NotRequired[Sequence[str]]
+    NotDeviceOperatingSystems: NotRequired[Sequence[str]]
+    DeviceUserAgents: NotRequired[Sequence[str]]
+    NotDeviceUserAgents: NotRequired[Sequence[str]]
 
-_RequiredCreateImpersonationRoleRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateImpersonationRoleRequestRequestTypeDef",
-    {
-        "OrganizationId": str,
-        "Name": str,
-        "Type": ImpersonationRoleTypeType,
-        "Rules": List["ImpersonationRuleTypeDef"],
-    },
-)
-_OptionalCreateImpersonationRoleRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateImpersonationRoleRequestRequestTypeDef",
-    {
-        "ClientToken": str,
-        "Description": str,
-    },
-    total=False,
-)
+class DomainTypeDef(TypedDict):
+    DomainName: str
+    HostedZoneId: NotRequired[str]
 
-class CreateImpersonationRoleRequestRequestTypeDef(
-    _RequiredCreateImpersonationRoleRequestRequestTypeDef,
-    _OptionalCreateImpersonationRoleRequestRequestTypeDef,
-):
-    pass
-
-CreateImpersonationRoleResponseTypeDef = TypedDict(
-    "CreateImpersonationRoleResponseTypeDef",
-    {
-        "ImpersonationRoleId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateMobileDeviceAccessRuleRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateMobileDeviceAccessRuleRequestRequestTypeDef",
-    {
-        "OrganizationId": str,
-        "Name": str,
-        "Effect": MobileDeviceAccessRuleEffectType,
-    },
-)
-_OptionalCreateMobileDeviceAccessRuleRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateMobileDeviceAccessRuleRequestRequestTypeDef",
-    {
-        "ClientToken": str,
-        "Description": str,
-        "DeviceTypes": List[str],
-        "NotDeviceTypes": List[str],
-        "DeviceModels": List[str],
-        "NotDeviceModels": List[str],
-        "DeviceOperatingSystems": List[str],
-        "NotDeviceOperatingSystems": List[str],
-        "DeviceUserAgents": List[str],
-        "NotDeviceUserAgents": List[str],
-    },
-    total=False,
-)
-
-class CreateMobileDeviceAccessRuleRequestRequestTypeDef(
-    _RequiredCreateMobileDeviceAccessRuleRequestRequestTypeDef,
-    _OptionalCreateMobileDeviceAccessRuleRequestRequestTypeDef,
-):
-    pass
-
-CreateMobileDeviceAccessRuleResponseTypeDef = TypedDict(
-    "CreateMobileDeviceAccessRuleResponseTypeDef",
-    {
-        "MobileDeviceAccessRuleId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateOrganizationRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateOrganizationRequestRequestTypeDef",
-    {
-        "Alias": str,
-    },
-)
-_OptionalCreateOrganizationRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateOrganizationRequestRequestTypeDef",
-    {
-        "DirectoryId": str,
-        "ClientToken": str,
-        "Domains": List["DomainTypeDef"],
-        "KmsKeyArn": str,
-        "EnableInteroperability": bool,
-    },
-    total=False,
-)
-
-class CreateOrganizationRequestRequestTypeDef(
-    _RequiredCreateOrganizationRequestRequestTypeDef,
-    _OptionalCreateOrganizationRequestRequestTypeDef,
-):
-    pass
-
-CreateOrganizationResponseTypeDef = TypedDict(
-    "CreateOrganizationResponseTypeDef",
-    {
-        "OrganizationId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateResourceRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateResourceRequestRequestTypeDef",
+CreateResourceRequestTypeDef = TypedDict(
+    "CreateResourceRequestTypeDef",
     {
         "OrganizationId": str,
         "Name": str,
         "Type": ResourceTypeType,
-    },
-)
-_OptionalCreateResourceRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateResourceRequestRequestTypeDef",
-    {
-        "Description": str,
-        "HiddenFromGlobalAddressList": bool,
-    },
-    total=False,
-)
-
-class CreateResourceRequestRequestTypeDef(
-    _RequiredCreateResourceRequestRequestTypeDef, _OptionalCreateResourceRequestRequestTypeDef
-):
-    pass
-
-CreateResourceResponseTypeDef = TypedDict(
-    "CreateResourceResponseTypeDef",
-    {
-        "ResourceId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "Description": NotRequired[str],
+        "HiddenFromGlobalAddressList": NotRequired[bool],
     },
 )
 
-_RequiredCreateUserRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateUserRequestRequestTypeDef",
-    {
-        "OrganizationId": str,
-        "Name": str,
-        "DisplayName": str,
-    },
-)
-_OptionalCreateUserRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateUserRequestRequestTypeDef",
-    {
-        "Password": str,
-        "Role": UserRoleType,
-        "FirstName": str,
-        "LastName": str,
-        "HiddenFromGlobalAddressList": bool,
-    },
-    total=False,
-)
-
-class CreateUserRequestRequestTypeDef(
-    _RequiredCreateUserRequestRequestTypeDef, _OptionalCreateUserRequestRequestTypeDef
-):
-    pass
-
-CreateUserResponseTypeDef = TypedDict(
-    "CreateUserResponseTypeDef",
-    {
-        "UserId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CreateUserRequestTypeDef(TypedDict):
+    OrganizationId: str
+    Name: str
+    DisplayName: str
+    Password: NotRequired[str]
+    Role: NotRequired[UserRoleType]
+    FirstName: NotRequired[str]
+    LastName: NotRequired[str]
+    HiddenFromGlobalAddressList: NotRequired[bool]
+    IdentityProviderUserId: NotRequired[str]
 
 DelegateTypeDef = TypedDict(
     "DelegateTypeDef",
@@ -522,174 +362,593 @@ DelegateTypeDef = TypedDict(
     },
 )
 
-DeleteAccessControlRuleRequestRequestTypeDef = TypedDict(
-    "DeleteAccessControlRuleRequestRequestTypeDef",
+class DeleteAccessControlRuleRequestTypeDef(TypedDict):
+    OrganizationId: str
+    Name: str
+
+class DeleteAliasRequestTypeDef(TypedDict):
+    OrganizationId: str
+    EntityId: str
+    Alias: str
+
+class DeleteAvailabilityConfigurationRequestTypeDef(TypedDict):
+    OrganizationId: str
+    DomainName: str
+
+class DeleteEmailMonitoringConfigurationRequestTypeDef(TypedDict):
+    OrganizationId: str
+
+class DeleteGroupRequestTypeDef(TypedDict):
+    OrganizationId: str
+    GroupId: str
+
+class DeleteIdentityCenterApplicationRequestTypeDef(TypedDict):
+    ApplicationArn: str
+
+class DeleteIdentityProviderConfigurationRequestTypeDef(TypedDict):
+    OrganizationId: str
+
+class DeleteImpersonationRoleRequestTypeDef(TypedDict):
+    OrganizationId: str
+    ImpersonationRoleId: str
+
+class DeleteMailboxPermissionsRequestTypeDef(TypedDict):
+    OrganizationId: str
+    EntityId: str
+    GranteeId: str
+
+class DeleteMobileDeviceAccessOverrideRequestTypeDef(TypedDict):
+    OrganizationId: str
+    UserId: str
+    DeviceId: str
+
+class DeleteMobileDeviceAccessRuleRequestTypeDef(TypedDict):
+    OrganizationId: str
+    MobileDeviceAccessRuleId: str
+
+class DeleteOrganizationRequestTypeDef(TypedDict):
+    OrganizationId: str
+    DeleteDirectory: bool
+    ClientToken: NotRequired[str]
+    ForceDelete: NotRequired[bool]
+    DeleteIdentityCenterApplication: NotRequired[bool]
+
+class DeletePersonalAccessTokenRequestTypeDef(TypedDict):
+    OrganizationId: str
+    PersonalAccessTokenId: str
+
+class DeleteResourceRequestTypeDef(TypedDict):
+    OrganizationId: str
+    ResourceId: str
+
+class DeleteRetentionPolicyRequestTypeDef(TypedDict):
+    OrganizationId: str
+    Id: str
+
+class DeleteUserRequestTypeDef(TypedDict):
+    OrganizationId: str
+    UserId: str
+
+class DeregisterFromWorkMailRequestTypeDef(TypedDict):
+    OrganizationId: str
+    EntityId: str
+
+class DeregisterMailDomainRequestTypeDef(TypedDict):
+    OrganizationId: str
+    DomainName: str
+
+class DescribeEmailMonitoringConfigurationRequestTypeDef(TypedDict):
+    OrganizationId: str
+
+class DescribeEntityRequestTypeDef(TypedDict):
+    OrganizationId: str
+    Email: str
+
+class DescribeGroupRequestTypeDef(TypedDict):
+    OrganizationId: str
+    GroupId: str
+
+class DescribeIdentityProviderConfigurationRequestTypeDef(TypedDict):
+    OrganizationId: str
+
+class IdentityCenterConfigurationTypeDef(TypedDict):
+    InstanceArn: str
+    ApplicationArn: str
+
+class PersonalAccessTokenConfigurationTypeDef(TypedDict):
+    Status: PersonalAccessTokenConfigurationStatusType
+    LifetimeInDays: NotRequired[int]
+
+class DescribeInboundDmarcSettingsRequestTypeDef(TypedDict):
+    OrganizationId: str
+
+class DescribeMailboxExportJobRequestTypeDef(TypedDict):
+    JobId: str
+    OrganizationId: str
+
+class DescribeOrganizationRequestTypeDef(TypedDict):
+    OrganizationId: str
+
+class DescribeResourceRequestTypeDef(TypedDict):
+    OrganizationId: str
+    ResourceId: str
+
+class DescribeUserRequestTypeDef(TypedDict):
+    OrganizationId: str
+    UserId: str
+
+class DisassociateDelegateFromResourceRequestTypeDef(TypedDict):
+    OrganizationId: str
+    ResourceId: str
+    EntityId: str
+
+class DisassociateMemberFromGroupRequestTypeDef(TypedDict):
+    OrganizationId: str
+    GroupId: str
+    MemberId: str
+
+DnsRecordTypeDef = TypedDict(
+    "DnsRecordTypeDef",
     {
-        "OrganizationId": str,
-        "Name": str,
+        "Type": NotRequired[str],
+        "Hostname": NotRequired[str],
+        "Value": NotRequired[str],
     },
 )
 
-DeleteAliasRequestRequestTypeDef = TypedDict(
-    "DeleteAliasRequestRequestTypeDef",
+class FolderConfigurationTypeDef(TypedDict):
+    Name: FolderNameType
+    Action: RetentionActionType
+    Period: NotRequired[int]
+
+class GetAccessControlEffectRequestTypeDef(TypedDict):
+    OrganizationId: str
+    IpAddress: str
+    Action: str
+    UserId: NotRequired[str]
+    ImpersonationRoleId: NotRequired[str]
+
+class GetDefaultRetentionPolicyRequestTypeDef(TypedDict):
+    OrganizationId: str
+
+class GetImpersonationRoleEffectRequestTypeDef(TypedDict):
+    OrganizationId: str
+    ImpersonationRoleId: str
+    TargetUser: str
+
+class ImpersonationMatchedRuleTypeDef(TypedDict):
+    ImpersonationRuleId: NotRequired[str]
+    Name: NotRequired[str]
+
+class GetImpersonationRoleRequestTypeDef(TypedDict):
+    OrganizationId: str
+    ImpersonationRoleId: str
+
+class ImpersonationRuleOutputTypeDef(TypedDict):
+    ImpersonationRuleId: str
+    Effect: AccessEffectType
+    Name: NotRequired[str]
+    Description: NotRequired[str]
+    TargetUsers: NotRequired[List[str]]
+    NotTargetUsers: NotRequired[List[str]]
+
+class GetMailDomainRequestTypeDef(TypedDict):
+    OrganizationId: str
+    DomainName: str
+
+class GetMailboxDetailsRequestTypeDef(TypedDict):
+    OrganizationId: str
+    UserId: str
+
+class GetMobileDeviceAccessEffectRequestTypeDef(TypedDict):
+    OrganizationId: str
+    DeviceType: NotRequired[str]
+    DeviceModel: NotRequired[str]
+    DeviceOperatingSystem: NotRequired[str]
+    DeviceUserAgent: NotRequired[str]
+
+class MobileDeviceAccessMatchedRuleTypeDef(TypedDict):
+    MobileDeviceAccessRuleId: NotRequired[str]
+    Name: NotRequired[str]
+
+class GetMobileDeviceAccessOverrideRequestTypeDef(TypedDict):
+    OrganizationId: str
+    UserId: str
+    DeviceId: str
+
+class GetPersonalAccessTokenMetadataRequestTypeDef(TypedDict):
+    OrganizationId: str
+    PersonalAccessTokenId: str
+
+class GroupIdentifierTypeDef(TypedDict):
+    GroupId: NotRequired[str]
+    GroupName: NotRequired[str]
+
+class GroupTypeDef(TypedDict):
+    Id: NotRequired[str]
+    Email: NotRequired[str]
+    Name: NotRequired[str]
+    State: NotRequired[EntityStateType]
+    EnabledDate: NotRequired[datetime]
+    DisabledDate: NotRequired[datetime]
+
+ImpersonationRoleTypeDef = TypedDict(
+    "ImpersonationRoleTypeDef",
     {
-        "OrganizationId": str,
-        "EntityId": str,
-        "Alias": str,
+        "ImpersonationRoleId": NotRequired[str],
+        "Name": NotRequired[str],
+        "Type": NotRequired[ImpersonationRoleTypeType],
+        "DateCreated": NotRequired[datetime],
+        "DateModified": NotRequired[datetime],
     },
 )
 
-DeleteAvailabilityConfigurationRequestRequestTypeDef = TypedDict(
-    "DeleteAvailabilityConfigurationRequestRequestTypeDef",
+class ImpersonationRuleTypeDef(TypedDict):
+    ImpersonationRuleId: str
+    Effect: AccessEffectType
+    Name: NotRequired[str]
+    Description: NotRequired[str]
+    TargetUsers: NotRequired[Sequence[str]]
+    NotTargetUsers: NotRequired[Sequence[str]]
+
+class ListAccessControlRulesRequestTypeDef(TypedDict):
+    OrganizationId: str
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class ListAliasesRequestTypeDef(TypedDict):
+    OrganizationId: str
+    EntityId: str
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class ListAvailabilityConfigurationsRequestTypeDef(TypedDict):
+    OrganizationId: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListGroupMembersRequestTypeDef(TypedDict):
+    OrganizationId: str
+    GroupId: str
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+MemberTypeDef = TypedDict(
+    "MemberTypeDef",
     {
-        "OrganizationId": str,
-        "DomainName": str,
+        "Id": NotRequired[str],
+        "Name": NotRequired[str],
+        "Type": NotRequired[MemberTypeType],
+        "State": NotRequired[EntityStateType],
+        "EnabledDate": NotRequired[datetime],
+        "DisabledDate": NotRequired[datetime],
     },
 )
 
-DeleteEmailMonitoringConfigurationRequestRequestTypeDef = TypedDict(
-    "DeleteEmailMonitoringConfigurationRequestRequestTypeDef",
+class ListGroupsFiltersTypeDef(TypedDict):
+    NamePrefix: NotRequired[str]
+    PrimaryEmailPrefix: NotRequired[str]
+    State: NotRequired[EntityStateType]
+
+class ListGroupsForEntityFiltersTypeDef(TypedDict):
+    GroupNamePrefix: NotRequired[str]
+
+class ListImpersonationRolesRequestTypeDef(TypedDict):
+    OrganizationId: str
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class ListMailDomainsRequestTypeDef(TypedDict):
+    OrganizationId: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class MailDomainSummaryTypeDef(TypedDict):
+    DomainName: NotRequired[str]
+    DefaultDomain: NotRequired[bool]
+
+class ListMailboxExportJobsRequestTypeDef(TypedDict):
+    OrganizationId: str
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class MailboxExportJobTypeDef(TypedDict):
+    JobId: NotRequired[str]
+    EntityId: NotRequired[str]
+    Description: NotRequired[str]
+    S3BucketName: NotRequired[str]
+    S3Path: NotRequired[str]
+    EstimatedProgress: NotRequired[int]
+    State: NotRequired[MailboxExportJobStateType]
+    StartTime: NotRequired[datetime]
+    EndTime: NotRequired[datetime]
+
+class ListMailboxPermissionsRequestTypeDef(TypedDict):
+    OrganizationId: str
+    EntityId: str
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class PermissionTypeDef(TypedDict):
+    GranteeId: str
+    GranteeType: MemberTypeType
+    PermissionValues: List[PermissionTypeType]
+
+class ListMobileDeviceAccessOverridesRequestTypeDef(TypedDict):
+    OrganizationId: str
+    UserId: NotRequired[str]
+    DeviceId: NotRequired[str]
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class MobileDeviceAccessOverrideTypeDef(TypedDict):
+    UserId: NotRequired[str]
+    DeviceId: NotRequired[str]
+    Effect: NotRequired[MobileDeviceAccessRuleEffectType]
+    Description: NotRequired[str]
+    DateCreated: NotRequired[datetime]
+    DateModified: NotRequired[datetime]
+
+class ListMobileDeviceAccessRulesRequestTypeDef(TypedDict):
+    OrganizationId: str
+
+class MobileDeviceAccessRuleTypeDef(TypedDict):
+    MobileDeviceAccessRuleId: NotRequired[str]
+    Name: NotRequired[str]
+    Description: NotRequired[str]
+    Effect: NotRequired[MobileDeviceAccessRuleEffectType]
+    DeviceTypes: NotRequired[List[str]]
+    NotDeviceTypes: NotRequired[List[str]]
+    DeviceModels: NotRequired[List[str]]
+    NotDeviceModels: NotRequired[List[str]]
+    DeviceOperatingSystems: NotRequired[List[str]]
+    NotDeviceOperatingSystems: NotRequired[List[str]]
+    DeviceUserAgents: NotRequired[List[str]]
+    NotDeviceUserAgents: NotRequired[List[str]]
+    DateCreated: NotRequired[datetime]
+    DateModified: NotRequired[datetime]
+
+class ListOrganizationsRequestTypeDef(TypedDict):
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class OrganizationSummaryTypeDef(TypedDict):
+    OrganizationId: NotRequired[str]
+    Alias: NotRequired[str]
+    DefaultMailDomain: NotRequired[str]
+    ErrorMessage: NotRequired[str]
+    State: NotRequired[str]
+
+class ListPersonalAccessTokensRequestTypeDef(TypedDict):
+    OrganizationId: str
+    UserId: NotRequired[str]
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class PersonalAccessTokenSummaryTypeDef(TypedDict):
+    PersonalAccessTokenId: NotRequired[str]
+    UserId: NotRequired[str]
+    Name: NotRequired[str]
+    DateCreated: NotRequired[datetime]
+    DateLastUsed: NotRequired[datetime]
+    ExpiresTime: NotRequired[datetime]
+    Scopes: NotRequired[List[str]]
+
+class ListResourceDelegatesRequestTypeDef(TypedDict):
+    OrganizationId: str
+    ResourceId: str
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class ListResourcesFiltersTypeDef(TypedDict):
+    NamePrefix: NotRequired[str]
+    PrimaryEmailPrefix: NotRequired[str]
+    State: NotRequired[EntityStateType]
+
+ResourceTypeDef = TypedDict(
+    "ResourceTypeDef",
     {
-        "OrganizationId": str,
+        "Id": NotRequired[str],
+        "Email": NotRequired[str],
+        "Name": NotRequired[str],
+        "Type": NotRequired[ResourceTypeType],
+        "State": NotRequired[EntityStateType],
+        "EnabledDate": NotRequired[datetime],
+        "DisabledDate": NotRequired[datetime],
+        "Description": NotRequired[str],
     },
 )
 
-DeleteGroupRequestRequestTypeDef = TypedDict(
-    "DeleteGroupRequestRequestTypeDef",
-    {
-        "OrganizationId": str,
-        "GroupId": str,
-    },
-)
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    ResourceARN: str
 
-DeleteImpersonationRoleRequestRequestTypeDef = TypedDict(
-    "DeleteImpersonationRoleRequestRequestTypeDef",
-    {
-        "OrganizationId": str,
-        "ImpersonationRoleId": str,
-    },
-)
+class TagTypeDef(TypedDict):
+    Key: str
+    Value: str
 
-DeleteMailboxPermissionsRequestRequestTypeDef = TypedDict(
-    "DeleteMailboxPermissionsRequestRequestTypeDef",
-    {
-        "OrganizationId": str,
-        "EntityId": str,
-        "GranteeId": str,
-    },
-)
+class ListUsersFiltersTypeDef(TypedDict):
+    UsernamePrefix: NotRequired[str]
+    DisplayNamePrefix: NotRequired[str]
+    PrimaryEmailPrefix: NotRequired[str]
+    State: NotRequired[EntityStateType]
+    IdentityProviderUserIdPrefix: NotRequired[str]
 
-DeleteMobileDeviceAccessOverrideRequestRequestTypeDef = TypedDict(
-    "DeleteMobileDeviceAccessOverrideRequestRequestTypeDef",
-    {
-        "OrganizationId": str,
-        "UserId": str,
-        "DeviceId": str,
-    },
-)
+class UserTypeDef(TypedDict):
+    Id: NotRequired[str]
+    Email: NotRequired[str]
+    Name: NotRequired[str]
+    DisplayName: NotRequired[str]
+    State: NotRequired[EntityStateType]
+    UserRole: NotRequired[UserRoleType]
+    EnabledDate: NotRequired[datetime]
+    DisabledDate: NotRequired[datetime]
+    IdentityProviderUserId: NotRequired[str]
+    IdentityProviderIdentityStoreId: NotRequired[str]
 
-DeleteMobileDeviceAccessRuleRequestRequestTypeDef = TypedDict(
-    "DeleteMobileDeviceAccessRuleRequestRequestTypeDef",
-    {
-        "OrganizationId": str,
-        "MobileDeviceAccessRuleId": str,
-    },
-)
+class PutAccessControlRuleRequestTypeDef(TypedDict):
+    Name: str
+    Effect: AccessControlRuleEffectType
+    Description: str
+    OrganizationId: str
+    IpRanges: NotRequired[Sequence[str]]
+    NotIpRanges: NotRequired[Sequence[str]]
+    Actions: NotRequired[Sequence[str]]
+    NotActions: NotRequired[Sequence[str]]
+    UserIds: NotRequired[Sequence[str]]
+    NotUserIds: NotRequired[Sequence[str]]
+    ImpersonationRoleIds: NotRequired[Sequence[str]]
+    NotImpersonationRoleIds: NotRequired[Sequence[str]]
 
-_RequiredDeleteOrganizationRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteOrganizationRequestRequestTypeDef",
-    {
-        "OrganizationId": str,
-        "DeleteDirectory": bool,
-    },
-)
-_OptionalDeleteOrganizationRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteOrganizationRequestRequestTypeDef",
-    {
-        "ClientToken": str,
-        "ForceDelete": bool,
-    },
-    total=False,
-)
+class PutEmailMonitoringConfigurationRequestTypeDef(TypedDict):
+    OrganizationId: str
+    RoleArn: str
+    LogGroupArn: str
 
-class DeleteOrganizationRequestRequestTypeDef(
-    _RequiredDeleteOrganizationRequestRequestTypeDef,
-    _OptionalDeleteOrganizationRequestRequestTypeDef,
-):
-    pass
+class PutInboundDmarcSettingsRequestTypeDef(TypedDict):
+    OrganizationId: str
+    Enforced: bool
 
-DeleteOrganizationResponseTypeDef = TypedDict(
-    "DeleteOrganizationResponseTypeDef",
-    {
-        "OrganizationId": str,
-        "State": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class PutMailboxPermissionsRequestTypeDef(TypedDict):
+    OrganizationId: str
+    EntityId: str
+    GranteeId: str
+    PermissionValues: Sequence[PermissionTypeType]
 
-DeleteResourceRequestRequestTypeDef = TypedDict(
-    "DeleteResourceRequestRequestTypeDef",
-    {
-        "OrganizationId": str,
-        "ResourceId": str,
-    },
-)
+class PutMobileDeviceAccessOverrideRequestTypeDef(TypedDict):
+    OrganizationId: str
+    UserId: str
+    DeviceId: str
+    Effect: MobileDeviceAccessRuleEffectType
+    Description: NotRequired[str]
 
-DeleteRetentionPolicyRequestRequestTypeDef = TypedDict(
-    "DeleteRetentionPolicyRequestRequestTypeDef",
-    {
-        "OrganizationId": str,
-        "Id": str,
-    },
-)
+class RegisterMailDomainRequestTypeDef(TypedDict):
+    OrganizationId: str
+    DomainName: str
+    ClientToken: NotRequired[str]
 
-DeleteUserRequestRequestTypeDef = TypedDict(
-    "DeleteUserRequestRequestTypeDef",
-    {
-        "OrganizationId": str,
-        "UserId": str,
-    },
-)
+class RegisterToWorkMailRequestTypeDef(TypedDict):
+    OrganizationId: str
+    EntityId: str
+    Email: str
 
-DeregisterFromWorkMailRequestRequestTypeDef = TypedDict(
-    "DeregisterFromWorkMailRequestRequestTypeDef",
-    {
-        "OrganizationId": str,
-        "EntityId": str,
-    },
-)
+class ResetPasswordRequestTypeDef(TypedDict):
+    OrganizationId: str
+    UserId: str
+    Password: str
 
-DeregisterMailDomainRequestRequestTypeDef = TypedDict(
-    "DeregisterMailDomainRequestRequestTypeDef",
-    {
-        "OrganizationId": str,
-        "DomainName": str,
-    },
-)
+class StartMailboxExportJobRequestTypeDef(TypedDict):
+    ClientToken: str
+    OrganizationId: str
+    EntityId: str
+    RoleArn: str
+    KmsKeyArn: str
+    S3BucketName: str
+    S3Prefix: str
+    Description: NotRequired[str]
 
-DescribeEmailMonitoringConfigurationRequestRequestTypeDef = TypedDict(
-    "DescribeEmailMonitoringConfigurationRequestRequestTypeDef",
-    {
-        "OrganizationId": str,
-    },
-)
+class UntagResourceRequestTypeDef(TypedDict):
+    ResourceARN: str
+    TagKeys: Sequence[str]
 
-DescribeEmailMonitoringConfigurationResponseTypeDef = TypedDict(
-    "DescribeEmailMonitoringConfigurationResponseTypeDef",
-    {
-        "RoleArn": str,
-        "LogGroupArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class UpdateDefaultMailDomainRequestTypeDef(TypedDict):
+    OrganizationId: str
+    DomainName: str
 
-DescribeEntityRequestRequestTypeDef = TypedDict(
-    "DescribeEntityRequestRequestTypeDef",
-    {
-        "OrganizationId": str,
-        "Email": str,
-    },
-)
+class UpdateGroupRequestTypeDef(TypedDict):
+    OrganizationId: str
+    GroupId: str
+    HiddenFromGlobalAddressList: NotRequired[bool]
+
+class UpdateMailboxQuotaRequestTypeDef(TypedDict):
+    OrganizationId: str
+    UserId: str
+    MailboxQuota: int
+
+class UpdateMobileDeviceAccessRuleRequestTypeDef(TypedDict):
+    OrganizationId: str
+    MobileDeviceAccessRuleId: str
+    Name: str
+    Effect: MobileDeviceAccessRuleEffectType
+    Description: NotRequired[str]
+    DeviceTypes: NotRequired[Sequence[str]]
+    NotDeviceTypes: NotRequired[Sequence[str]]
+    DeviceModels: NotRequired[Sequence[str]]
+    NotDeviceModels: NotRequired[Sequence[str]]
+    DeviceOperatingSystems: NotRequired[Sequence[str]]
+    NotDeviceOperatingSystems: NotRequired[Sequence[str]]
+    DeviceUserAgents: NotRequired[Sequence[str]]
+    NotDeviceUserAgents: NotRequired[Sequence[str]]
+
+class UpdatePrimaryEmailAddressRequestTypeDef(TypedDict):
+    OrganizationId: str
+    EntityId: str
+    Email: str
+
+class UpdateUserRequestTypeDef(TypedDict):
+    OrganizationId: str
+    UserId: str
+    Role: NotRequired[UserRoleType]
+    DisplayName: NotRequired[str]
+    FirstName: NotRequired[str]
+    LastName: NotRequired[str]
+    HiddenFromGlobalAddressList: NotRequired[bool]
+    Initials: NotRequired[str]
+    Telephone: NotRequired[str]
+    Street: NotRequired[str]
+    JobTitle: NotRequired[str]
+    City: NotRequired[str]
+    Company: NotRequired[str]
+    ZipCode: NotRequired[str]
+    Department: NotRequired[str]
+    Country: NotRequired[str]
+    Office: NotRequired[str]
+    IdentityProviderUserId: NotRequired[str]
+
+class AssumeImpersonationRoleResponseTypeDef(TypedDict):
+    Token: str
+    ExpiresIn: int
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateGroupResponseTypeDef(TypedDict):
+    GroupId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateIdentityCenterApplicationResponseTypeDef(TypedDict):
+    ApplicationArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateImpersonationRoleResponseTypeDef(TypedDict):
+    ImpersonationRoleId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateMobileDeviceAccessRuleResponseTypeDef(TypedDict):
+    MobileDeviceAccessRuleId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateOrganizationResponseTypeDef(TypedDict):
+    OrganizationId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateResourceResponseTypeDef(TypedDict):
+    ResourceId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateUserResponseTypeDef(TypedDict):
+    UserId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteOrganizationResponseTypeDef(TypedDict):
+    OrganizationId: str
+    State: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeEmailMonitoringConfigurationResponseTypeDef(TypedDict):
+    RoleArn: str
+    LogGroupArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
 DescribeEntityResponseTypeDef = TypedDict(
     "DescribeEntityResponseTypeDef",
@@ -697,106 +956,135 @@ DescribeEntityResponseTypeDef = TypedDict(
         "EntityId": str,
         "Name": str,
         "Type": EntityTypeType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
 
-DescribeGroupRequestRequestTypeDef = TypedDict(
-    "DescribeGroupRequestRequestTypeDef",
-    {
-        "OrganizationId": str,
-        "GroupId": str,
-    },
-)
+class DescribeGroupResponseTypeDef(TypedDict):
+    GroupId: str
+    Name: str
+    Email: str
+    State: EntityStateType
+    EnabledDate: datetime
+    DisabledDate: datetime
+    HiddenFromGlobalAddressList: bool
+    ResponseMetadata: ResponseMetadataTypeDef
 
-DescribeGroupResponseTypeDef = TypedDict(
-    "DescribeGroupResponseTypeDef",
-    {
-        "GroupId": str,
-        "Name": str,
-        "Email": str,
-        "State": EntityStateType,
-        "EnabledDate": datetime,
-        "DisabledDate": datetime,
-        "HiddenFromGlobalAddressList": bool,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DescribeInboundDmarcSettingsResponseTypeDef(TypedDict):
+    Enforced: bool
+    ResponseMetadata: ResponseMetadataTypeDef
 
-DescribeInboundDmarcSettingsRequestRequestTypeDef = TypedDict(
-    "DescribeInboundDmarcSettingsRequestRequestTypeDef",
-    {
-        "OrganizationId": str,
-    },
-)
+class DescribeMailboxExportJobResponseTypeDef(TypedDict):
+    EntityId: str
+    Description: str
+    RoleArn: str
+    KmsKeyArn: str
+    S3BucketName: str
+    S3Prefix: str
+    S3Path: str
+    EstimatedProgress: int
+    State: MailboxExportJobStateType
+    ErrorInfo: str
+    StartTime: datetime
+    EndTime: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
 
-DescribeInboundDmarcSettingsResponseTypeDef = TypedDict(
-    "DescribeInboundDmarcSettingsResponseTypeDef",
-    {
-        "Enforced": bool,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DescribeOrganizationResponseTypeDef(TypedDict):
+    OrganizationId: str
+    Alias: str
+    State: str
+    DirectoryId: str
+    DirectoryType: str
+    DefaultMailDomain: str
+    CompletedDate: datetime
+    ErrorMessage: str
+    ARN: str
+    MigrationAdmin: str
+    InteroperabilityEnabled: bool
+    ResponseMetadata: ResponseMetadataTypeDef
 
-DescribeMailboxExportJobRequestRequestTypeDef = TypedDict(
-    "DescribeMailboxExportJobRequestRequestTypeDef",
-    {
-        "JobId": str,
-        "OrganizationId": str,
-    },
-)
+class DescribeUserResponseTypeDef(TypedDict):
+    UserId: str
+    Name: str
+    Email: str
+    DisplayName: str
+    State: EntityStateType
+    UserRole: UserRoleType
+    EnabledDate: datetime
+    DisabledDate: datetime
+    MailboxProvisionedDate: datetime
+    MailboxDeprovisionedDate: datetime
+    FirstName: str
+    LastName: str
+    HiddenFromGlobalAddressList: bool
+    Initials: str
+    Telephone: str
+    Street: str
+    JobTitle: str
+    City: str
+    Company: str
+    ZipCode: str
+    Department: str
+    Country: str
+    Office: str
+    IdentityProviderUserId: str
+    IdentityProviderIdentityStoreId: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-DescribeMailboxExportJobResponseTypeDef = TypedDict(
-    "DescribeMailboxExportJobResponseTypeDef",
-    {
-        "EntityId": str,
-        "Description": str,
-        "RoleArn": str,
-        "KmsKeyArn": str,
-        "S3BucketName": str,
-        "S3Prefix": str,
-        "S3Path": str,
-        "EstimatedProgress": int,
-        "State": MailboxExportJobStateType,
-        "ErrorInfo": str,
-        "StartTime": datetime,
-        "EndTime": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetAccessControlEffectResponseTypeDef(TypedDict):
+    Effect: AccessControlRuleEffectType
+    MatchedRules: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-DescribeOrganizationRequestRequestTypeDef = TypedDict(
-    "DescribeOrganizationRequestRequestTypeDef",
-    {
-        "OrganizationId": str,
-    },
-)
+class GetMailboxDetailsResponseTypeDef(TypedDict):
+    MailboxQuota: int
+    MailboxSize: float
+    ResponseMetadata: ResponseMetadataTypeDef
 
-DescribeOrganizationResponseTypeDef = TypedDict(
-    "DescribeOrganizationResponseTypeDef",
-    {
-        "OrganizationId": str,
-        "Alias": str,
-        "State": str,
-        "DirectoryId": str,
-        "DirectoryType": str,
-        "DefaultMailDomain": str,
-        "CompletedDate": datetime,
-        "ErrorMessage": str,
-        "ARN": str,
-        "MigrationAdmin": str,
-        "InteroperabilityEnabled": bool,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetMobileDeviceAccessOverrideResponseTypeDef(TypedDict):
+    UserId: str
+    DeviceId: str
+    Effect: MobileDeviceAccessRuleEffectType
+    Description: str
+    DateCreated: datetime
+    DateModified: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
 
-DescribeResourceRequestRequestTypeDef = TypedDict(
-    "DescribeResourceRequestRequestTypeDef",
-    {
-        "OrganizationId": str,
-        "ResourceId": str,
-    },
-)
+class GetPersonalAccessTokenMetadataResponseTypeDef(TypedDict):
+    PersonalAccessTokenId: str
+    UserId: str
+    Name: str
+    DateCreated: datetime
+    DateLastUsed: datetime
+    ExpiresTime: datetime
+    Scopes: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListAccessControlRulesResponseTypeDef(TypedDict):
+    Rules: List[AccessControlRuleTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListAliasesResponseTypeDef(TypedDict):
+    Aliases: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class StartMailboxExportJobResponseTypeDef(TypedDict):
+    JobId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class TestAvailabilityConfigurationResponseTypeDef(TypedDict):
+    TestPassed: bool
+    FailureReason: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class AvailabilityConfigurationTypeDef(TypedDict):
+    DomainName: NotRequired[str]
+    ProviderType: NotRequired[AvailabilityProviderTypeType]
+    EwsProvider: NotRequired[RedactedEwsAvailabilityProviderTypeDef]
+    LambdaProvider: NotRequired[LambdaAvailabilityProviderTypeDef]
+    DateCreated: NotRequired[datetime]
+    DateModified: NotRequired[datetime]
 
 DescribeResourceResponseTypeDef = TypedDict(
     "DescribeResourceResponseTypeDef",
@@ -805,205 +1093,103 @@ DescribeResourceResponseTypeDef = TypedDict(
         "Email": str,
         "Name": str,
         "Type": ResourceTypeType,
-        "BookingOptions": "BookingOptionsTypeDef",
+        "BookingOptions": BookingOptionsTypeDef,
         "State": EntityStateType,
         "EnabledDate": datetime,
         "DisabledDate": datetime,
         "Description": str,
         "HiddenFromGlobalAddressList": bool,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
-
-DescribeUserRequestRequestTypeDef = TypedDict(
-    "DescribeUserRequestRequestTypeDef",
-    {
-        "OrganizationId": str,
-        "UserId": str,
-    },
-)
-
-DescribeUserResponseTypeDef = TypedDict(
-    "DescribeUserResponseTypeDef",
-    {
-        "UserId": str,
-        "Name": str,
-        "Email": str,
-        "DisplayName": str,
-        "State": EntityStateType,
-        "UserRole": UserRoleType,
-        "EnabledDate": datetime,
-        "DisabledDate": datetime,
-        "MailboxProvisionedDate": datetime,
-        "MailboxDeprovisionedDate": datetime,
-        "FirstName": str,
-        "LastName": str,
-        "HiddenFromGlobalAddressList": bool,
-        "Initials": str,
-        "Telephone": str,
-        "Street": str,
-        "JobTitle": str,
-        "City": str,
-        "Company": str,
-        "ZipCode": str,
-        "Department": str,
-        "Country": str,
-        "Office": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DisassociateDelegateFromResourceRequestRequestTypeDef = TypedDict(
-    "DisassociateDelegateFromResourceRequestRequestTypeDef",
+UpdateResourceRequestTypeDef = TypedDict(
+    "UpdateResourceRequestTypeDef",
     {
         "OrganizationId": str,
         "ResourceId": str,
-        "EntityId": str,
+        "Name": NotRequired[str],
+        "BookingOptions": NotRequired[BookingOptionsTypeDef],
+        "Description": NotRequired[str],
+        "Type": NotRequired[ResourceTypeType],
+        "HiddenFromGlobalAddressList": NotRequired[bool],
     },
 )
 
-DisassociateMemberFromGroupRequestRequestTypeDef = TypedDict(
-    "DisassociateMemberFromGroupRequestRequestTypeDef",
-    {
-        "OrganizationId": str,
-        "GroupId": str,
-        "MemberId": str,
-    },
-)
+class CreateAvailabilityConfigurationRequestTypeDef(TypedDict):
+    OrganizationId: str
+    DomainName: str
+    ClientToken: NotRequired[str]
+    EwsProvider: NotRequired[EwsAvailabilityProviderTypeDef]
+    LambdaProvider: NotRequired[LambdaAvailabilityProviderTypeDef]
 
-DnsRecordTypeDef = TypedDict(
-    "DnsRecordTypeDef",
-    {
-        "Type": str,
-        "Hostname": str,
-        "Value": str,
-    },
-    total=False,
-)
+class TestAvailabilityConfigurationRequestTypeDef(TypedDict):
+    OrganizationId: str
+    DomainName: NotRequired[str]
+    EwsProvider: NotRequired[EwsAvailabilityProviderTypeDef]
+    LambdaProvider: NotRequired[LambdaAvailabilityProviderTypeDef]
 
-_RequiredDomainTypeDef = TypedDict(
-    "_RequiredDomainTypeDef",
-    {
-        "DomainName": str,
-    },
-)
-_OptionalDomainTypeDef = TypedDict(
-    "_OptionalDomainTypeDef",
-    {
-        "HostedZoneId": str,
-    },
-    total=False,
-)
+class UpdateAvailabilityConfigurationRequestTypeDef(TypedDict):
+    OrganizationId: str
+    DomainName: str
+    EwsProvider: NotRequired[EwsAvailabilityProviderTypeDef]
+    LambdaProvider: NotRequired[LambdaAvailabilityProviderTypeDef]
 
-class DomainTypeDef(_RequiredDomainTypeDef, _OptionalDomainTypeDef):
-    pass
+class CreateOrganizationRequestTypeDef(TypedDict):
+    Alias: str
+    DirectoryId: NotRequired[str]
+    ClientToken: NotRequired[str]
+    Domains: NotRequired[Sequence[DomainTypeDef]]
+    KmsKeyArn: NotRequired[str]
+    EnableInteroperability: NotRequired[bool]
 
-EwsAvailabilityProviderTypeDef = TypedDict(
-    "EwsAvailabilityProviderTypeDef",
-    {
-        "EwsEndpoint": str,
-        "EwsUsername": str,
-        "EwsPassword": str,
-    },
-)
+class ListResourceDelegatesResponseTypeDef(TypedDict):
+    Delegates: List[DelegateTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-_RequiredFolderConfigurationTypeDef = TypedDict(
-    "_RequiredFolderConfigurationTypeDef",
-    {
-        "Name": FolderNameType,
-        "Action": RetentionActionType,
-    },
-)
-_OptionalFolderConfigurationTypeDef = TypedDict(
-    "_OptionalFolderConfigurationTypeDef",
-    {
-        "Period": int,
-    },
-    total=False,
-)
+class DescribeIdentityProviderConfigurationResponseTypeDef(TypedDict):
+    AuthenticationMode: IdentityProviderAuthenticationModeType
+    IdentityCenterConfiguration: IdentityCenterConfigurationTypeDef
+    PersonalAccessTokenConfiguration: PersonalAccessTokenConfigurationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class FolderConfigurationTypeDef(
-    _RequiredFolderConfigurationTypeDef, _OptionalFolderConfigurationTypeDef
-):
-    pass
+class PutIdentityProviderConfigurationRequestTypeDef(TypedDict):
+    OrganizationId: str
+    AuthenticationMode: IdentityProviderAuthenticationModeType
+    IdentityCenterConfiguration: IdentityCenterConfigurationTypeDef
+    PersonalAccessTokenConfiguration: PersonalAccessTokenConfigurationTypeDef
 
-_RequiredGetAccessControlEffectRequestRequestTypeDef = TypedDict(
-    "_RequiredGetAccessControlEffectRequestRequestTypeDef",
-    {
-        "OrganizationId": str,
-        "IpAddress": str,
-        "Action": str,
-    },
-)
-_OptionalGetAccessControlEffectRequestRequestTypeDef = TypedDict(
-    "_OptionalGetAccessControlEffectRequestRequestTypeDef",
-    {
-        "UserId": str,
-        "ImpersonationRoleId": str,
-    },
-    total=False,
-)
+class GetMailDomainResponseTypeDef(TypedDict):
+    Records: List[DnsRecordTypeDef]
+    IsTestDomain: bool
+    IsDefault: bool
+    OwnershipVerificationStatus: DnsRecordVerificationStatusType
+    DkimVerificationStatus: DnsRecordVerificationStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class GetAccessControlEffectRequestRequestTypeDef(
-    _RequiredGetAccessControlEffectRequestRequestTypeDef,
-    _OptionalGetAccessControlEffectRequestRequestTypeDef,
-):
-    pass
+class GetDefaultRetentionPolicyResponseTypeDef(TypedDict):
+    Id: str
+    Name: str
+    Description: str
+    FolderConfigurations: List[FolderConfigurationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-GetAccessControlEffectResponseTypeDef = TypedDict(
-    "GetAccessControlEffectResponseTypeDef",
-    {
-        "Effect": AccessControlRuleEffectType,
-        "MatchedRules": List[str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetDefaultRetentionPolicyRequestRequestTypeDef = TypedDict(
-    "GetDefaultRetentionPolicyRequestRequestTypeDef",
-    {
-        "OrganizationId": str,
-    },
-)
-
-GetDefaultRetentionPolicyResponseTypeDef = TypedDict(
-    "GetDefaultRetentionPolicyResponseTypeDef",
-    {
-        "Id": str,
-        "Name": str,
-        "Description": str,
-        "FolderConfigurations": List["FolderConfigurationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetImpersonationRoleEffectRequestRequestTypeDef = TypedDict(
-    "GetImpersonationRoleEffectRequestRequestTypeDef",
-    {
-        "OrganizationId": str,
-        "ImpersonationRoleId": str,
-        "TargetUser": str,
-    },
-)
+class PutRetentionPolicyRequestTypeDef(TypedDict):
+    OrganizationId: str
+    Name: str
+    FolderConfigurations: Sequence[FolderConfigurationTypeDef]
+    Id: NotRequired[str]
+    Description: NotRequired[str]
 
 GetImpersonationRoleEffectResponseTypeDef = TypedDict(
     "GetImpersonationRoleEffectResponseTypeDef",
     {
         "Type": ImpersonationRoleTypeType,
         "Effect": AccessEffectType,
-        "MatchedRules": List["ImpersonationMatchedRuleTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "MatchedRules": List[ImpersonationMatchedRuleTypeDef],
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
-
-GetImpersonationRoleRequestRequestTypeDef = TypedDict(
-    "GetImpersonationRoleRequestRequestTypeDef",
-    {
-        "OrganizationId": str,
-        "ImpersonationRoleId": str,
-    },
-)
-
 GetImpersonationRoleResponseTypeDef = TypedDict(
     "GetImpersonationRoleResponseTypeDef",
     {
@@ -1011,1244 +1197,188 @@ GetImpersonationRoleResponseTypeDef = TypedDict(
         "Name": str,
         "Type": ImpersonationRoleTypeType,
         "Description": str,
-        "Rules": List["ImpersonationRuleTypeDef"],
+        "Rules": List[ImpersonationRuleOutputTypeDef],
         "DateCreated": datetime,
         "DateModified": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
 
-GetMailDomainRequestRequestTypeDef = TypedDict(
-    "GetMailDomainRequestRequestTypeDef",
+class GetMobileDeviceAccessEffectResponseTypeDef(TypedDict):
+    Effect: MobileDeviceAccessRuleEffectType
+    MatchedRules: List[MobileDeviceAccessMatchedRuleTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListGroupsForEntityResponseTypeDef(TypedDict):
+    Groups: List[GroupIdentifierTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListGroupsResponseTypeDef(TypedDict):
+    Groups: List[GroupTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListImpersonationRolesResponseTypeDef(TypedDict):
+    Roles: List[ImpersonationRoleTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+ImpersonationRuleUnionTypeDef = Union[ImpersonationRuleTypeDef, ImpersonationRuleOutputTypeDef]
+
+class ListAliasesRequestPaginateTypeDef(TypedDict):
+    OrganizationId: str
+    EntityId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListAvailabilityConfigurationsRequestPaginateTypeDef(TypedDict):
+    OrganizationId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListGroupMembersRequestPaginateTypeDef(TypedDict):
+    OrganizationId: str
+    GroupId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListMailboxPermissionsRequestPaginateTypeDef(TypedDict):
+    OrganizationId: str
+    EntityId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListOrganizationsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListPersonalAccessTokensRequestPaginateTypeDef(TypedDict):
+    OrganizationId: str
+    UserId: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListResourceDelegatesRequestPaginateTypeDef(TypedDict):
+    OrganizationId: str
+    ResourceId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListGroupMembersResponseTypeDef(TypedDict):
+    Members: List[MemberTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListGroupsRequestPaginateTypeDef(TypedDict):
+    OrganizationId: str
+    Filters: NotRequired[ListGroupsFiltersTypeDef]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListGroupsRequestTypeDef(TypedDict):
+    OrganizationId: str
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+    Filters: NotRequired[ListGroupsFiltersTypeDef]
+
+class ListGroupsForEntityRequestTypeDef(TypedDict):
+    OrganizationId: str
+    EntityId: str
+    Filters: NotRequired[ListGroupsForEntityFiltersTypeDef]
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class ListMailDomainsResponseTypeDef(TypedDict):
+    MailDomains: List[MailDomainSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListMailboxExportJobsResponseTypeDef(TypedDict):
+    Jobs: List[MailboxExportJobTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListMailboxPermissionsResponseTypeDef(TypedDict):
+    Permissions: List[PermissionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListMobileDeviceAccessOverridesResponseTypeDef(TypedDict):
+    Overrides: List[MobileDeviceAccessOverrideTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListMobileDeviceAccessRulesResponseTypeDef(TypedDict):
+    Rules: List[MobileDeviceAccessRuleTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListOrganizationsResponseTypeDef(TypedDict):
+    OrganizationSummaries: List[OrganizationSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListPersonalAccessTokensResponseTypeDef(TypedDict):
+    PersonalAccessTokenSummaries: List[PersonalAccessTokenSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListResourcesRequestPaginateTypeDef(TypedDict):
+    OrganizationId: str
+    Filters: NotRequired[ListResourcesFiltersTypeDef]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListResourcesRequestTypeDef(TypedDict):
+    OrganizationId: str
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+    Filters: NotRequired[ListResourcesFiltersTypeDef]
+
+class ListResourcesResponseTypeDef(TypedDict):
+    Resources: List[ResourceTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    Tags: List[TagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class TagResourceRequestTypeDef(TypedDict):
+    ResourceARN: str
+    Tags: Sequence[TagTypeDef]
+
+class ListUsersRequestPaginateTypeDef(TypedDict):
+    OrganizationId: str
+    Filters: NotRequired[ListUsersFiltersTypeDef]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListUsersRequestTypeDef(TypedDict):
+    OrganizationId: str
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+    Filters: NotRequired[ListUsersFiltersTypeDef]
+
+class ListUsersResponseTypeDef(TypedDict):
+    Users: List[UserTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListAvailabilityConfigurationsResponseTypeDef(TypedDict):
+    AvailabilityConfigurations: List[AvailabilityConfigurationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+CreateImpersonationRoleRequestTypeDef = TypedDict(
+    "CreateImpersonationRoleRequestTypeDef",
     {
         "OrganizationId": str,
-        "DomainName": str,
-    },
-)
-
-GetMailDomainResponseTypeDef = TypedDict(
-    "GetMailDomainResponseTypeDef",
-    {
-        "Records": List["DnsRecordTypeDef"],
-        "IsTestDomain": bool,
-        "IsDefault": bool,
-        "OwnershipVerificationStatus": DnsRecordVerificationStatusType,
-        "DkimVerificationStatus": DnsRecordVerificationStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetMailboxDetailsRequestRequestTypeDef = TypedDict(
-    "GetMailboxDetailsRequestRequestTypeDef",
-    {
-        "OrganizationId": str,
-        "UserId": str,
-    },
-)
-
-GetMailboxDetailsResponseTypeDef = TypedDict(
-    "GetMailboxDetailsResponseTypeDef",
-    {
-        "MailboxQuota": int,
-        "MailboxSize": float,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetMobileDeviceAccessEffectRequestRequestTypeDef = TypedDict(
-    "_RequiredGetMobileDeviceAccessEffectRequestRequestTypeDef",
-    {
-        "OrganizationId": str,
-    },
-)
-_OptionalGetMobileDeviceAccessEffectRequestRequestTypeDef = TypedDict(
-    "_OptionalGetMobileDeviceAccessEffectRequestRequestTypeDef",
-    {
-        "DeviceType": str,
-        "DeviceModel": str,
-        "DeviceOperatingSystem": str,
-        "DeviceUserAgent": str,
-    },
-    total=False,
-)
-
-class GetMobileDeviceAccessEffectRequestRequestTypeDef(
-    _RequiredGetMobileDeviceAccessEffectRequestRequestTypeDef,
-    _OptionalGetMobileDeviceAccessEffectRequestRequestTypeDef,
-):
-    pass
-
-GetMobileDeviceAccessEffectResponseTypeDef = TypedDict(
-    "GetMobileDeviceAccessEffectResponseTypeDef",
-    {
-        "Effect": MobileDeviceAccessRuleEffectType,
-        "MatchedRules": List["MobileDeviceAccessMatchedRuleTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetMobileDeviceAccessOverrideRequestRequestTypeDef = TypedDict(
-    "GetMobileDeviceAccessOverrideRequestRequestTypeDef",
-    {
-        "OrganizationId": str,
-        "UserId": str,
-        "DeviceId": str,
-    },
-)
-
-GetMobileDeviceAccessOverrideResponseTypeDef = TypedDict(
-    "GetMobileDeviceAccessOverrideResponseTypeDef",
-    {
-        "UserId": str,
-        "DeviceId": str,
-        "Effect": MobileDeviceAccessRuleEffectType,
-        "Description": str,
-        "DateCreated": datetime,
-        "DateModified": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GroupIdentifierTypeDef = TypedDict(
-    "GroupIdentifierTypeDef",
-    {
-        "GroupId": str,
-        "GroupName": str,
-    },
-    total=False,
-)
-
-GroupTypeDef = TypedDict(
-    "GroupTypeDef",
-    {
-        "Id": str,
-        "Email": str,
-        "Name": str,
-        "State": EntityStateType,
-        "EnabledDate": datetime,
-        "DisabledDate": datetime,
-    },
-    total=False,
-)
-
-ImpersonationMatchedRuleTypeDef = TypedDict(
-    "ImpersonationMatchedRuleTypeDef",
-    {
-        "ImpersonationRuleId": str,
-        "Name": str,
-    },
-    total=False,
-)
-
-ImpersonationRoleTypeDef = TypedDict(
-    "ImpersonationRoleTypeDef",
-    {
-        "ImpersonationRoleId": str,
         "Name": str,
         "Type": ImpersonationRoleTypeType,
-        "DateCreated": datetime,
-        "DateModified": datetime,
+        "Rules": Sequence[ImpersonationRuleUnionTypeDef],
+        "ClientToken": NotRequired[str],
+        "Description": NotRequired[str],
     },
-    total=False,
 )
-
-_RequiredImpersonationRuleTypeDef = TypedDict(
-    "_RequiredImpersonationRuleTypeDef",
-    {
-        "ImpersonationRuleId": str,
-        "Effect": AccessEffectType,
-    },
-)
-_OptionalImpersonationRuleTypeDef = TypedDict(
-    "_OptionalImpersonationRuleTypeDef",
-    {
-        "Name": str,
-        "Description": str,
-        "TargetUsers": List[str],
-        "NotTargetUsers": List[str],
-    },
-    total=False,
-)
-
-class ImpersonationRuleTypeDef(
-    _RequiredImpersonationRuleTypeDef, _OptionalImpersonationRuleTypeDef
-):
-    pass
-
-LambdaAvailabilityProviderTypeDef = TypedDict(
-    "LambdaAvailabilityProviderTypeDef",
-    {
-        "LambdaArn": str,
-    },
-)
-
-ListAccessControlRulesRequestRequestTypeDef = TypedDict(
-    "ListAccessControlRulesRequestRequestTypeDef",
-    {
-        "OrganizationId": str,
-    },
-)
-
-ListAccessControlRulesResponseTypeDef = TypedDict(
-    "ListAccessControlRulesResponseTypeDef",
-    {
-        "Rules": List["AccessControlRuleTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListAliasesRequestRequestTypeDef = TypedDict(
-    "_RequiredListAliasesRequestRequestTypeDef",
-    {
-        "OrganizationId": str,
-        "EntityId": str,
-    },
-)
-_OptionalListAliasesRequestRequestTypeDef = TypedDict(
-    "_OptionalListAliasesRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-class ListAliasesRequestRequestTypeDef(
-    _RequiredListAliasesRequestRequestTypeDef, _OptionalListAliasesRequestRequestTypeDef
-):
-    pass
-
-ListAliasesResponseTypeDef = TypedDict(
-    "ListAliasesResponseTypeDef",
-    {
-        "Aliases": List[str],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListAvailabilityConfigurationsRequestRequestTypeDef = TypedDict(
-    "_RequiredListAvailabilityConfigurationsRequestRequestTypeDef",
-    {
-        "OrganizationId": str,
-    },
-)
-_OptionalListAvailabilityConfigurationsRequestRequestTypeDef = TypedDict(
-    "_OptionalListAvailabilityConfigurationsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListAvailabilityConfigurationsRequestRequestTypeDef(
-    _RequiredListAvailabilityConfigurationsRequestRequestTypeDef,
-    _OptionalListAvailabilityConfigurationsRequestRequestTypeDef,
-):
-    pass
-
-ListAvailabilityConfigurationsResponseTypeDef = TypedDict(
-    "ListAvailabilityConfigurationsResponseTypeDef",
-    {
-        "AvailabilityConfigurations": List["AvailabilityConfigurationTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListGroupMembersRequestRequestTypeDef = TypedDict(
-    "_RequiredListGroupMembersRequestRequestTypeDef",
-    {
-        "OrganizationId": str,
-        "GroupId": str,
-    },
-)
-_OptionalListGroupMembersRequestRequestTypeDef = TypedDict(
-    "_OptionalListGroupMembersRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-class ListGroupMembersRequestRequestTypeDef(
-    _RequiredListGroupMembersRequestRequestTypeDef, _OptionalListGroupMembersRequestRequestTypeDef
-):
-    pass
-
-ListGroupMembersResponseTypeDef = TypedDict(
-    "ListGroupMembersResponseTypeDef",
-    {
-        "Members": List["MemberTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListGroupsFiltersTypeDef = TypedDict(
-    "ListGroupsFiltersTypeDef",
-    {
-        "NamePrefix": str,
-        "PrimaryEmailPrefix": str,
-        "State": EntityStateType,
-    },
-    total=False,
-)
-
-ListGroupsForEntityFiltersTypeDef = TypedDict(
-    "ListGroupsForEntityFiltersTypeDef",
-    {
-        "GroupNamePrefix": str,
-    },
-    total=False,
-)
-
-_RequiredListGroupsForEntityRequestRequestTypeDef = TypedDict(
-    "_RequiredListGroupsForEntityRequestRequestTypeDef",
-    {
-        "OrganizationId": str,
-        "EntityId": str,
-    },
-)
-_OptionalListGroupsForEntityRequestRequestTypeDef = TypedDict(
-    "_OptionalListGroupsForEntityRequestRequestTypeDef",
-    {
-        "Filters": "ListGroupsForEntityFiltersTypeDef",
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-class ListGroupsForEntityRequestRequestTypeDef(
-    _RequiredListGroupsForEntityRequestRequestTypeDef,
-    _OptionalListGroupsForEntityRequestRequestTypeDef,
-):
-    pass
-
-ListGroupsForEntityResponseTypeDef = TypedDict(
-    "ListGroupsForEntityResponseTypeDef",
-    {
-        "Groups": List["GroupIdentifierTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListGroupsRequestRequestTypeDef = TypedDict(
-    "_RequiredListGroupsRequestRequestTypeDef",
-    {
-        "OrganizationId": str,
-    },
-)
-_OptionalListGroupsRequestRequestTypeDef = TypedDict(
-    "_OptionalListGroupsRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-        "Filters": "ListGroupsFiltersTypeDef",
-    },
-    total=False,
-)
-
-class ListGroupsRequestRequestTypeDef(
-    _RequiredListGroupsRequestRequestTypeDef, _OptionalListGroupsRequestRequestTypeDef
-):
-    pass
-
-ListGroupsResponseTypeDef = TypedDict(
-    "ListGroupsResponseTypeDef",
-    {
-        "Groups": List["GroupTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListImpersonationRolesRequestRequestTypeDef = TypedDict(
-    "_RequiredListImpersonationRolesRequestRequestTypeDef",
-    {
-        "OrganizationId": str,
-    },
-)
-_OptionalListImpersonationRolesRequestRequestTypeDef = TypedDict(
-    "_OptionalListImpersonationRolesRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-class ListImpersonationRolesRequestRequestTypeDef(
-    _RequiredListImpersonationRolesRequestRequestTypeDef,
-    _OptionalListImpersonationRolesRequestRequestTypeDef,
-):
-    pass
-
-ListImpersonationRolesResponseTypeDef = TypedDict(
-    "ListImpersonationRolesResponseTypeDef",
-    {
-        "Roles": List["ImpersonationRoleTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListMailDomainsRequestRequestTypeDef = TypedDict(
-    "_RequiredListMailDomainsRequestRequestTypeDef",
-    {
-        "OrganizationId": str,
-    },
-)
-_OptionalListMailDomainsRequestRequestTypeDef = TypedDict(
-    "_OptionalListMailDomainsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListMailDomainsRequestRequestTypeDef(
-    _RequiredListMailDomainsRequestRequestTypeDef, _OptionalListMailDomainsRequestRequestTypeDef
-):
-    pass
-
-ListMailDomainsResponseTypeDef = TypedDict(
-    "ListMailDomainsResponseTypeDef",
-    {
-        "MailDomains": List["MailDomainSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListMailboxExportJobsRequestRequestTypeDef = TypedDict(
-    "_RequiredListMailboxExportJobsRequestRequestTypeDef",
-    {
-        "OrganizationId": str,
-    },
-)
-_OptionalListMailboxExportJobsRequestRequestTypeDef = TypedDict(
-    "_OptionalListMailboxExportJobsRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-class ListMailboxExportJobsRequestRequestTypeDef(
-    _RequiredListMailboxExportJobsRequestRequestTypeDef,
-    _OptionalListMailboxExportJobsRequestRequestTypeDef,
-):
-    pass
-
-ListMailboxExportJobsResponseTypeDef = TypedDict(
-    "ListMailboxExportJobsResponseTypeDef",
-    {
-        "Jobs": List["MailboxExportJobTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListMailboxPermissionsRequestRequestTypeDef = TypedDict(
-    "_RequiredListMailboxPermissionsRequestRequestTypeDef",
-    {
-        "OrganizationId": str,
-        "EntityId": str,
-    },
-)
-_OptionalListMailboxPermissionsRequestRequestTypeDef = TypedDict(
-    "_OptionalListMailboxPermissionsRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-class ListMailboxPermissionsRequestRequestTypeDef(
-    _RequiredListMailboxPermissionsRequestRequestTypeDef,
-    _OptionalListMailboxPermissionsRequestRequestTypeDef,
-):
-    pass
-
-ListMailboxPermissionsResponseTypeDef = TypedDict(
-    "ListMailboxPermissionsResponseTypeDef",
-    {
-        "Permissions": List["PermissionTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListMobileDeviceAccessOverridesRequestRequestTypeDef = TypedDict(
-    "_RequiredListMobileDeviceAccessOverridesRequestRequestTypeDef",
-    {
-        "OrganizationId": str,
-    },
-)
-_OptionalListMobileDeviceAccessOverridesRequestRequestTypeDef = TypedDict(
-    "_OptionalListMobileDeviceAccessOverridesRequestRequestTypeDef",
-    {
-        "UserId": str,
-        "DeviceId": str,
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-class ListMobileDeviceAccessOverridesRequestRequestTypeDef(
-    _RequiredListMobileDeviceAccessOverridesRequestRequestTypeDef,
-    _OptionalListMobileDeviceAccessOverridesRequestRequestTypeDef,
-):
-    pass
-
-ListMobileDeviceAccessOverridesResponseTypeDef = TypedDict(
-    "ListMobileDeviceAccessOverridesResponseTypeDef",
-    {
-        "Overrides": List["MobileDeviceAccessOverrideTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListMobileDeviceAccessRulesRequestRequestTypeDef = TypedDict(
-    "ListMobileDeviceAccessRulesRequestRequestTypeDef",
-    {
-        "OrganizationId": str,
-    },
-)
-
-ListMobileDeviceAccessRulesResponseTypeDef = TypedDict(
-    "ListMobileDeviceAccessRulesResponseTypeDef",
-    {
-        "Rules": List["MobileDeviceAccessRuleTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListOrganizationsRequestRequestTypeDef = TypedDict(
-    "ListOrganizationsRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-ListOrganizationsResponseTypeDef = TypedDict(
-    "ListOrganizationsResponseTypeDef",
-    {
-        "OrganizationSummaries": List["OrganizationSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListResourceDelegatesRequestRequestTypeDef = TypedDict(
-    "_RequiredListResourceDelegatesRequestRequestTypeDef",
-    {
-        "OrganizationId": str,
-        "ResourceId": str,
-    },
-)
-_OptionalListResourceDelegatesRequestRequestTypeDef = TypedDict(
-    "_OptionalListResourceDelegatesRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-class ListResourceDelegatesRequestRequestTypeDef(
-    _RequiredListResourceDelegatesRequestRequestTypeDef,
-    _OptionalListResourceDelegatesRequestRequestTypeDef,
-):
-    pass
-
-ListResourceDelegatesResponseTypeDef = TypedDict(
-    "ListResourceDelegatesResponseTypeDef",
-    {
-        "Delegates": List["DelegateTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListResourcesFiltersTypeDef = TypedDict(
-    "ListResourcesFiltersTypeDef",
-    {
-        "NamePrefix": str,
-        "PrimaryEmailPrefix": str,
-        "State": EntityStateType,
-    },
-    total=False,
-)
-
-_RequiredListResourcesRequestRequestTypeDef = TypedDict(
-    "_RequiredListResourcesRequestRequestTypeDef",
-    {
-        "OrganizationId": str,
-    },
-)
-_OptionalListResourcesRequestRequestTypeDef = TypedDict(
-    "_OptionalListResourcesRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-        "Filters": "ListResourcesFiltersTypeDef",
-    },
-    total=False,
-)
-
-class ListResourcesRequestRequestTypeDef(
-    _RequiredListResourcesRequestRequestTypeDef, _OptionalListResourcesRequestRequestTypeDef
-):
-    pass
-
-ListResourcesResponseTypeDef = TypedDict(
-    "ListResourcesResponseTypeDef",
-    {
-        "Resources": List["ResourceTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "ResourceARN": str,
-    },
-)
-
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "Tags": List["TagTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListUsersFiltersTypeDef = TypedDict(
-    "ListUsersFiltersTypeDef",
-    {
-        "UsernamePrefix": str,
-        "DisplayNamePrefix": str,
-        "PrimaryEmailPrefix": str,
-        "State": EntityStateType,
-    },
-    total=False,
-)
-
-_RequiredListUsersRequestRequestTypeDef = TypedDict(
-    "_RequiredListUsersRequestRequestTypeDef",
-    {
-        "OrganizationId": str,
-    },
-)
-_OptionalListUsersRequestRequestTypeDef = TypedDict(
-    "_OptionalListUsersRequestRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-        "Filters": "ListUsersFiltersTypeDef",
-    },
-    total=False,
-)
-
-class ListUsersRequestRequestTypeDef(
-    _RequiredListUsersRequestRequestTypeDef, _OptionalListUsersRequestRequestTypeDef
-):
-    pass
-
-ListUsersResponseTypeDef = TypedDict(
-    "ListUsersResponseTypeDef",
-    {
-        "Users": List["UserTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-MailDomainSummaryTypeDef = TypedDict(
-    "MailDomainSummaryTypeDef",
-    {
-        "DomainName": str,
-        "DefaultDomain": bool,
-    },
-    total=False,
-)
-
-MailboxExportJobTypeDef = TypedDict(
-    "MailboxExportJobTypeDef",
-    {
-        "JobId": str,
-        "EntityId": str,
-        "Description": str,
-        "S3BucketName": str,
-        "S3Path": str,
-        "EstimatedProgress": int,
-        "State": MailboxExportJobStateType,
-        "StartTime": datetime,
-        "EndTime": datetime,
-    },
-    total=False,
-)
-
-MemberTypeDef = TypedDict(
-    "MemberTypeDef",
-    {
-        "Id": str,
-        "Name": str,
-        "Type": MemberTypeType,
-        "State": EntityStateType,
-        "EnabledDate": datetime,
-        "DisabledDate": datetime,
-    },
-    total=False,
-)
-
-MobileDeviceAccessMatchedRuleTypeDef = TypedDict(
-    "MobileDeviceAccessMatchedRuleTypeDef",
-    {
-        "MobileDeviceAccessRuleId": str,
-        "Name": str,
-    },
-    total=False,
-)
-
-MobileDeviceAccessOverrideTypeDef = TypedDict(
-    "MobileDeviceAccessOverrideTypeDef",
-    {
-        "UserId": str,
-        "DeviceId": str,
-        "Effect": MobileDeviceAccessRuleEffectType,
-        "Description": str,
-        "DateCreated": datetime,
-        "DateModified": datetime,
-    },
-    total=False,
-)
-
-MobileDeviceAccessRuleTypeDef = TypedDict(
-    "MobileDeviceAccessRuleTypeDef",
-    {
-        "MobileDeviceAccessRuleId": str,
-        "Name": str,
-        "Description": str,
-        "Effect": MobileDeviceAccessRuleEffectType,
-        "DeviceTypes": List[str],
-        "NotDeviceTypes": List[str],
-        "DeviceModels": List[str],
-        "NotDeviceModels": List[str],
-        "DeviceOperatingSystems": List[str],
-        "NotDeviceOperatingSystems": List[str],
-        "DeviceUserAgents": List[str],
-        "NotDeviceUserAgents": List[str],
-        "DateCreated": datetime,
-        "DateModified": datetime,
-    },
-    total=False,
-)
-
-OrganizationSummaryTypeDef = TypedDict(
-    "OrganizationSummaryTypeDef",
-    {
-        "OrganizationId": str,
-        "Alias": str,
-        "DefaultMailDomain": str,
-        "ErrorMessage": str,
-        "State": str,
-    },
-    total=False,
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-PermissionTypeDef = TypedDict(
-    "PermissionTypeDef",
-    {
-        "GranteeId": str,
-        "GranteeType": MemberTypeType,
-        "PermissionValues": List[PermissionTypeType],
-    },
-)
-
-_RequiredPutAccessControlRuleRequestRequestTypeDef = TypedDict(
-    "_RequiredPutAccessControlRuleRequestRequestTypeDef",
-    {
-        "Name": str,
-        "Effect": AccessControlRuleEffectType,
-        "Description": str,
-        "OrganizationId": str,
-    },
-)
-_OptionalPutAccessControlRuleRequestRequestTypeDef = TypedDict(
-    "_OptionalPutAccessControlRuleRequestRequestTypeDef",
-    {
-        "IpRanges": List[str],
-        "NotIpRanges": List[str],
-        "Actions": List[str],
-        "NotActions": List[str],
-        "UserIds": List[str],
-        "NotUserIds": List[str],
-        "ImpersonationRoleIds": List[str],
-        "NotImpersonationRoleIds": List[str],
-    },
-    total=False,
-)
-
-class PutAccessControlRuleRequestRequestTypeDef(
-    _RequiredPutAccessControlRuleRequestRequestTypeDef,
-    _OptionalPutAccessControlRuleRequestRequestTypeDef,
-):
-    pass
-
-PutEmailMonitoringConfigurationRequestRequestTypeDef = TypedDict(
-    "PutEmailMonitoringConfigurationRequestRequestTypeDef",
-    {
-        "OrganizationId": str,
-        "RoleArn": str,
-        "LogGroupArn": str,
-    },
-)
-
-PutInboundDmarcSettingsRequestRequestTypeDef = TypedDict(
-    "PutInboundDmarcSettingsRequestRequestTypeDef",
-    {
-        "OrganizationId": str,
-        "Enforced": bool,
-    },
-)
-
-PutMailboxPermissionsRequestRequestTypeDef = TypedDict(
-    "PutMailboxPermissionsRequestRequestTypeDef",
-    {
-        "OrganizationId": str,
-        "EntityId": str,
-        "GranteeId": str,
-        "PermissionValues": List[PermissionTypeType],
-    },
-)
-
-_RequiredPutMobileDeviceAccessOverrideRequestRequestTypeDef = TypedDict(
-    "_RequiredPutMobileDeviceAccessOverrideRequestRequestTypeDef",
-    {
-        "OrganizationId": str,
-        "UserId": str,
-        "DeviceId": str,
-        "Effect": MobileDeviceAccessRuleEffectType,
-    },
-)
-_OptionalPutMobileDeviceAccessOverrideRequestRequestTypeDef = TypedDict(
-    "_OptionalPutMobileDeviceAccessOverrideRequestRequestTypeDef",
-    {
-        "Description": str,
-    },
-    total=False,
-)
-
-class PutMobileDeviceAccessOverrideRequestRequestTypeDef(
-    _RequiredPutMobileDeviceAccessOverrideRequestRequestTypeDef,
-    _OptionalPutMobileDeviceAccessOverrideRequestRequestTypeDef,
-):
-    pass
-
-_RequiredPutRetentionPolicyRequestRequestTypeDef = TypedDict(
-    "_RequiredPutRetentionPolicyRequestRequestTypeDef",
-    {
-        "OrganizationId": str,
-        "Name": str,
-        "FolderConfigurations": List["FolderConfigurationTypeDef"],
-    },
-)
-_OptionalPutRetentionPolicyRequestRequestTypeDef = TypedDict(
-    "_OptionalPutRetentionPolicyRequestRequestTypeDef",
-    {
-        "Id": str,
-        "Description": str,
-    },
-    total=False,
-)
-
-class PutRetentionPolicyRequestRequestTypeDef(
-    _RequiredPutRetentionPolicyRequestRequestTypeDef,
-    _OptionalPutRetentionPolicyRequestRequestTypeDef,
-):
-    pass
-
-RedactedEwsAvailabilityProviderTypeDef = TypedDict(
-    "RedactedEwsAvailabilityProviderTypeDef",
-    {
-        "EwsEndpoint": str,
-        "EwsUsername": str,
-    },
-    total=False,
-)
-
-_RequiredRegisterMailDomainRequestRequestTypeDef = TypedDict(
-    "_RequiredRegisterMailDomainRequestRequestTypeDef",
-    {
-        "OrganizationId": str,
-        "DomainName": str,
-    },
-)
-_OptionalRegisterMailDomainRequestRequestTypeDef = TypedDict(
-    "_OptionalRegisterMailDomainRequestRequestTypeDef",
-    {
-        "ClientToken": str,
-    },
-    total=False,
-)
-
-class RegisterMailDomainRequestRequestTypeDef(
-    _RequiredRegisterMailDomainRequestRequestTypeDef,
-    _OptionalRegisterMailDomainRequestRequestTypeDef,
-):
-    pass
-
-RegisterToWorkMailRequestRequestTypeDef = TypedDict(
-    "RegisterToWorkMailRequestRequestTypeDef",
-    {
-        "OrganizationId": str,
-        "EntityId": str,
-        "Email": str,
-    },
-)
-
-ResetPasswordRequestRequestTypeDef = TypedDict(
-    "ResetPasswordRequestRequestTypeDef",
-    {
-        "OrganizationId": str,
-        "UserId": str,
-        "Password": str,
-    },
-)
-
-ResourceTypeDef = TypedDict(
-    "ResourceTypeDef",
-    {
-        "Id": str,
-        "Email": str,
-        "Name": str,
-        "Type": ResourceTypeType,
-        "State": EntityStateType,
-        "EnabledDate": datetime,
-        "DisabledDate": datetime,
-        "Description": str,
-    },
-    total=False,
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-_RequiredStartMailboxExportJobRequestRequestTypeDef = TypedDict(
-    "_RequiredStartMailboxExportJobRequestRequestTypeDef",
-    {
-        "ClientToken": str,
-        "OrganizationId": str,
-        "EntityId": str,
-        "RoleArn": str,
-        "KmsKeyArn": str,
-        "S3BucketName": str,
-        "S3Prefix": str,
-    },
-)
-_OptionalStartMailboxExportJobRequestRequestTypeDef = TypedDict(
-    "_OptionalStartMailboxExportJobRequestRequestTypeDef",
-    {
-        "Description": str,
-    },
-    total=False,
-)
-
-class StartMailboxExportJobRequestRequestTypeDef(
-    _RequiredStartMailboxExportJobRequestRequestTypeDef,
-    _OptionalStartMailboxExportJobRequestRequestTypeDef,
-):
-    pass
-
-StartMailboxExportJobResponseTypeDef = TypedDict(
-    "StartMailboxExportJobResponseTypeDef",
-    {
-        "JobId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "ResourceARN": str,
-        "Tags": List["TagTypeDef"],
-    },
-)
-
-TagTypeDef = TypedDict(
-    "TagTypeDef",
-    {
-        "Key": str,
-        "Value": str,
-    },
-)
-
-_RequiredTestAvailabilityConfigurationRequestRequestTypeDef = TypedDict(
-    "_RequiredTestAvailabilityConfigurationRequestRequestTypeDef",
-    {
-        "OrganizationId": str,
-    },
-)
-_OptionalTestAvailabilityConfigurationRequestRequestTypeDef = TypedDict(
-    "_OptionalTestAvailabilityConfigurationRequestRequestTypeDef",
-    {
-        "DomainName": str,
-        "EwsProvider": "EwsAvailabilityProviderTypeDef",
-        "LambdaProvider": "LambdaAvailabilityProviderTypeDef",
-    },
-    total=False,
-)
-
-class TestAvailabilityConfigurationRequestRequestTypeDef(
-    _RequiredTestAvailabilityConfigurationRequestRequestTypeDef,
-    _OptionalTestAvailabilityConfigurationRequestRequestTypeDef,
-):
-    pass
-
-TestAvailabilityConfigurationResponseTypeDef = TypedDict(
-    "TestAvailabilityConfigurationResponseTypeDef",
-    {
-        "TestPassed": bool,
-        "FailureReason": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "ResourceARN": str,
-        "TagKeys": List[str],
-    },
-)
-
-_RequiredUpdateAvailabilityConfigurationRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateAvailabilityConfigurationRequestRequestTypeDef",
-    {
-        "OrganizationId": str,
-        "DomainName": str,
-    },
-)
-_OptionalUpdateAvailabilityConfigurationRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateAvailabilityConfigurationRequestRequestTypeDef",
-    {
-        "EwsProvider": "EwsAvailabilityProviderTypeDef",
-        "LambdaProvider": "LambdaAvailabilityProviderTypeDef",
-    },
-    total=False,
-)
-
-class UpdateAvailabilityConfigurationRequestRequestTypeDef(
-    _RequiredUpdateAvailabilityConfigurationRequestRequestTypeDef,
-    _OptionalUpdateAvailabilityConfigurationRequestRequestTypeDef,
-):
-    pass
-
-UpdateDefaultMailDomainRequestRequestTypeDef = TypedDict(
-    "UpdateDefaultMailDomainRequestRequestTypeDef",
-    {
-        "OrganizationId": str,
-        "DomainName": str,
-    },
-)
-
-_RequiredUpdateGroupRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateGroupRequestRequestTypeDef",
-    {
-        "OrganizationId": str,
-        "GroupId": str,
-    },
-)
-_OptionalUpdateGroupRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateGroupRequestRequestTypeDef",
-    {
-        "HiddenFromGlobalAddressList": bool,
-    },
-    total=False,
-)
-
-class UpdateGroupRequestRequestTypeDef(
-    _RequiredUpdateGroupRequestRequestTypeDef, _OptionalUpdateGroupRequestRequestTypeDef
-):
-    pass
-
-_RequiredUpdateImpersonationRoleRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateImpersonationRoleRequestRequestTypeDef",
+UpdateImpersonationRoleRequestTypeDef = TypedDict(
+    "UpdateImpersonationRoleRequestTypeDef",
     {
         "OrganizationId": str,
         "ImpersonationRoleId": str,
         "Name": str,
         "Type": ImpersonationRoleTypeType,
-        "Rules": List["ImpersonationRuleTypeDef"],
+        "Rules": Sequence[ImpersonationRuleUnionTypeDef],
+        "Description": NotRequired[str],
     },
-)
-_OptionalUpdateImpersonationRoleRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateImpersonationRoleRequestRequestTypeDef",
-    {
-        "Description": str,
-    },
-    total=False,
-)
-
-class UpdateImpersonationRoleRequestRequestTypeDef(
-    _RequiredUpdateImpersonationRoleRequestRequestTypeDef,
-    _OptionalUpdateImpersonationRoleRequestRequestTypeDef,
-):
-    pass
-
-UpdateMailboxQuotaRequestRequestTypeDef = TypedDict(
-    "UpdateMailboxQuotaRequestRequestTypeDef",
-    {
-        "OrganizationId": str,
-        "UserId": str,
-        "MailboxQuota": int,
-    },
-)
-
-_RequiredUpdateMobileDeviceAccessRuleRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateMobileDeviceAccessRuleRequestRequestTypeDef",
-    {
-        "OrganizationId": str,
-        "MobileDeviceAccessRuleId": str,
-        "Name": str,
-        "Effect": MobileDeviceAccessRuleEffectType,
-    },
-)
-_OptionalUpdateMobileDeviceAccessRuleRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateMobileDeviceAccessRuleRequestRequestTypeDef",
-    {
-        "Description": str,
-        "DeviceTypes": List[str],
-        "NotDeviceTypes": List[str],
-        "DeviceModels": List[str],
-        "NotDeviceModels": List[str],
-        "DeviceOperatingSystems": List[str],
-        "NotDeviceOperatingSystems": List[str],
-        "DeviceUserAgents": List[str],
-        "NotDeviceUserAgents": List[str],
-    },
-    total=False,
-)
-
-class UpdateMobileDeviceAccessRuleRequestRequestTypeDef(
-    _RequiredUpdateMobileDeviceAccessRuleRequestRequestTypeDef,
-    _OptionalUpdateMobileDeviceAccessRuleRequestRequestTypeDef,
-):
-    pass
-
-UpdatePrimaryEmailAddressRequestRequestTypeDef = TypedDict(
-    "UpdatePrimaryEmailAddressRequestRequestTypeDef",
-    {
-        "OrganizationId": str,
-        "EntityId": str,
-        "Email": str,
-    },
-)
-
-_RequiredUpdateResourceRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateResourceRequestRequestTypeDef",
-    {
-        "OrganizationId": str,
-        "ResourceId": str,
-    },
-)
-_OptionalUpdateResourceRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateResourceRequestRequestTypeDef",
-    {
-        "Name": str,
-        "BookingOptions": "BookingOptionsTypeDef",
-        "Description": str,
-        "Type": ResourceTypeType,
-        "HiddenFromGlobalAddressList": bool,
-    },
-    total=False,
-)
-
-class UpdateResourceRequestRequestTypeDef(
-    _RequiredUpdateResourceRequestRequestTypeDef, _OptionalUpdateResourceRequestRequestTypeDef
-):
-    pass
-
-_RequiredUpdateUserRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateUserRequestRequestTypeDef",
-    {
-        "OrganizationId": str,
-        "UserId": str,
-    },
-)
-_OptionalUpdateUserRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateUserRequestRequestTypeDef",
-    {
-        "Role": UserRoleType,
-        "DisplayName": str,
-        "FirstName": str,
-        "LastName": str,
-        "HiddenFromGlobalAddressList": bool,
-        "Initials": str,
-        "Telephone": str,
-        "Street": str,
-        "JobTitle": str,
-        "City": str,
-        "Company": str,
-        "ZipCode": str,
-        "Department": str,
-        "Country": str,
-        "Office": str,
-    },
-    total=False,
-)
-
-class UpdateUserRequestRequestTypeDef(
-    _RequiredUpdateUserRequestRequestTypeDef, _OptionalUpdateUserRequestRequestTypeDef
-):
-    pass
-
-UserTypeDef = TypedDict(
-    "UserTypeDef",
-    {
-        "Id": str,
-        "Email": str,
-        "Name": str,
-        "DisplayName": str,
-        "State": EntityStateType,
-        "UserRole": UserRoleType,
-        "EnabledDate": datetime,
-        "DisabledDate": datetime,
-    },
-    total=False,
 )

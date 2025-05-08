@@ -1,10 +1,14 @@
 """
 Main interface for arc-zonal-shift service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_arc_zonal_shift/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_arc_zonal_shift import (
         ARCZonalShiftClient,
         Client,
@@ -13,10 +17,8 @@ Usage::
         ListZonalShiftsPaginator,
     )
 
-    session = boto3.Session()
-
-    client: ARCZonalShiftClient = boto3.client("arc-zonal-shift")
-    session_client: ARCZonalShiftClient = session.client("arc-zonal-shift")
+    session = Session()
+    client: ARCZonalShiftClient = session.client("arc-zonal-shift")
 
     list_autoshifts_paginator: ListAutoshiftsPaginator = client.get_paginator("list_autoshifts")
     list_managed_resources_paginator: ListManagedResourcesPaginator = client.get_paginator("list_managed_resources")

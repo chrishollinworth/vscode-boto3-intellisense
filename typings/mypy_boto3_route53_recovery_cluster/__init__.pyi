@@ -1,20 +1,22 @@
 """
 Main interface for route53-recovery-cluster service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53_recovery_cluster/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_route53_recovery_cluster import (
         Client,
         ListRoutingControlsPaginator,
         Route53RecoveryClusterClient,
     )
 
-    session = boto3.Session()
-
-    client: Route53RecoveryClusterClient = boto3.client("route53-recovery-cluster")
-    session_client: Route53RecoveryClusterClient = session.client("route53-recovery-cluster")
+    session = Session()
+    client: Route53RecoveryClusterClient = session.client("route53-recovery-cluster")
 
     list_routing_controls_paginator: ListRoutingControlsPaginator = client.get_paginator("list_routing_controls")
     ```

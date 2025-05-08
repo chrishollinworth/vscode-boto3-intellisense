@@ -1,14 +1,16 @@
 """
 Type annotations for athena service client paginators.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_athena/paginators.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_athena/paginators/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
 
-    from mypy_boto3_athena import AthenaClient
+    from mypy_boto3_athena.client import AthenaClient
     from mypy_boto3_athena.paginator import (
         GetQueryResultsPaginator,
         ListDataCatalogsPaginator,
@@ -19,7 +21,8 @@ Usage::
         ListTagsForResourcePaginator,
     )
 
-    client: AthenaClient = boto3.client("athena")
+    session = Session()
+    client: AthenaClient = session.client("athena")
 
     get_query_results_paginator: GetQueryResultsPaginator = client.get_paginator("get_query_results")
     list_data_catalogs_paginator: ListDataCatalogsPaginator = client.get_paginator("list_data_catalogs")
@@ -31,20 +34,34 @@ Usage::
     ```
 """
 
-from typing import Iterator
+from __future__ import annotations
 
-from botocore.paginate import Paginator as Boto3Paginator
+import sys
+from typing import TYPE_CHECKING
+
+from botocore.paginate import PageIterator, Paginator
 
 from .type_defs import (
+    GetQueryResultsInputPaginateTypeDef,
     GetQueryResultsOutputTypeDef,
+    ListDatabasesInputPaginateTypeDef,
     ListDatabasesOutputTypeDef,
+    ListDataCatalogsInputPaginateTypeDef,
     ListDataCatalogsOutputTypeDef,
+    ListNamedQueriesInputPaginateTypeDef,
     ListNamedQueriesOutputTypeDef,
+    ListQueryExecutionsInputPaginateTypeDef,
     ListQueryExecutionsOutputTypeDef,
+    ListTableMetadataInputPaginateTypeDef,
     ListTableMetadataOutputTypeDef,
+    ListTagsForResourceInputPaginateTypeDef,
     ListTagsForResourceOutputTypeDef,
-    PaginatorConfigTypeDef,
 )
+
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = (
     "GetQueryResultsPaginator",
@@ -56,110 +73,128 @@ __all__ = (
     "ListTagsForResourcePaginator",
 )
 
-class GetQueryResultsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/athena.html#Athena.Paginator.GetQueryResults)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_athena/paginators.html#getqueryresultspaginator)
-    """
+if TYPE_CHECKING:
+    _GetQueryResultsPaginatorBase = Paginator[GetQueryResultsOutputTypeDef]
+else:
+    _GetQueryResultsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, QueryExecutionId: str, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[GetQueryResultsOutputTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/athena.html#Athena.Paginator.GetQueryResults.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_athena/paginators.html#getqueryresultspaginator)
-        """
-
-class ListDataCatalogsPaginator(Boto3Paginator):
+class GetQueryResultsPaginator(_GetQueryResultsPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/athena.html#Athena.Paginator.ListDataCatalogs)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_athena/paginators.html#listdatacatalogspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/athena/paginator/GetQueryResults.html#Athena.Paginator.GetQueryResults)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_athena/paginators/#getqueryresultspaginator)
     """
-
-    def paginate(
-        self, *, WorkGroup: str = None, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListDataCatalogsOutputTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[GetQueryResultsInputPaginateTypeDef]
+    ) -> PageIterator[GetQueryResultsOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/athena.html#Athena.Paginator.ListDataCatalogs.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_athena/paginators.html#listdatacatalogspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/athena/paginator/GetQueryResults.html#Athena.Paginator.GetQueryResults.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_athena/paginators/#getqueryresultspaginator)
         """
 
-class ListDatabasesPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/athena.html#Athena.Paginator.ListDatabases)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_athena/paginators.html#listdatabasespaginator)
-    """
+if TYPE_CHECKING:
+    _ListDataCatalogsPaginatorBase = Paginator[ListDataCatalogsOutputTypeDef]
+else:
+    _ListDataCatalogsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        CatalogName: str,
-        WorkGroup: str = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListDatabasesOutputTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/athena.html#Athena.Paginator.ListDatabases.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_athena/paginators.html#listdatabasespaginator)
-        """
-
-class ListNamedQueriesPaginator(Boto3Paginator):
+class ListDataCatalogsPaginator(_ListDataCatalogsPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/athena.html#Athena.Paginator.ListNamedQueries)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_athena/paginators.html#listnamedqueriespaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/athena/paginator/ListDataCatalogs.html#Athena.Paginator.ListDataCatalogs)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_athena/paginators/#listdatacatalogspaginator)
     """
-
-    def paginate(
-        self, *, WorkGroup: str = None, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListNamedQueriesOutputTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListDataCatalogsInputPaginateTypeDef]
+    ) -> PageIterator[ListDataCatalogsOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/athena.html#Athena.Paginator.ListNamedQueries.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_athena/paginators.html#listnamedqueriespaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/athena/paginator/ListDataCatalogs.html#Athena.Paginator.ListDataCatalogs.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_athena/paginators/#listdatacatalogspaginator)
         """
 
-class ListQueryExecutionsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/athena.html#Athena.Paginator.ListQueryExecutions)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_athena/paginators.html#listqueryexecutionspaginator)
-    """
+if TYPE_CHECKING:
+    _ListDatabasesPaginatorBase = Paginator[ListDatabasesOutputTypeDef]
+else:
+    _ListDatabasesPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, WorkGroup: str = None, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListQueryExecutionsOutputTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/athena.html#Athena.Paginator.ListQueryExecutions.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_athena/paginators.html#listqueryexecutionspaginator)
-        """
-
-class ListTableMetadataPaginator(Boto3Paginator):
+class ListDatabasesPaginator(_ListDatabasesPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/athena.html#Athena.Paginator.ListTableMetadata)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_athena/paginators.html#listtablemetadatapaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/athena/paginator/ListDatabases.html#Athena.Paginator.ListDatabases)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_athena/paginators/#listdatabasespaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        CatalogName: str,
-        DatabaseName: str,
-        Expression: str = None,
-        WorkGroup: str = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListTableMetadataOutputTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListDatabasesInputPaginateTypeDef]
+    ) -> PageIterator[ListDatabasesOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/athena.html#Athena.Paginator.ListTableMetadata.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_athena/paginators.html#listtablemetadatapaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/athena/paginator/ListDatabases.html#Athena.Paginator.ListDatabases.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_athena/paginators/#listdatabasespaginator)
         """
 
-class ListTagsForResourcePaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/athena.html#Athena.Paginator.ListTagsForResource)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_athena/paginators.html#listtagsforresourcepaginator)
-    """
+if TYPE_CHECKING:
+    _ListNamedQueriesPaginatorBase = Paginator[ListNamedQueriesOutputTypeDef]
+else:
+    _ListNamedQueriesPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, ResourceARN: str, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListTagsForResourceOutputTypeDef]:
+class ListNamedQueriesPaginator(_ListNamedQueriesPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/athena/paginator/ListNamedQueries.html#Athena.Paginator.ListNamedQueries)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_athena/paginators/#listnamedqueriespaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListNamedQueriesInputPaginateTypeDef]
+    ) -> PageIterator[ListNamedQueriesOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/athena.html#Athena.Paginator.ListTagsForResource.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_athena/paginators.html#listtagsforresourcepaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/athena/paginator/ListNamedQueries.html#Athena.Paginator.ListNamedQueries.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_athena/paginators/#listnamedqueriespaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListQueryExecutionsPaginatorBase = Paginator[ListQueryExecutionsOutputTypeDef]
+else:
+    _ListQueryExecutionsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListQueryExecutionsPaginator(_ListQueryExecutionsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/athena/paginator/ListQueryExecutions.html#Athena.Paginator.ListQueryExecutions)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_athena/paginators/#listqueryexecutionspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListQueryExecutionsInputPaginateTypeDef]
+    ) -> PageIterator[ListQueryExecutionsOutputTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/athena/paginator/ListQueryExecutions.html#Athena.Paginator.ListQueryExecutions.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_athena/paginators/#listqueryexecutionspaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListTableMetadataPaginatorBase = Paginator[ListTableMetadataOutputTypeDef]
+else:
+    _ListTableMetadataPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListTableMetadataPaginator(_ListTableMetadataPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/athena/paginator/ListTableMetadata.html#Athena.Paginator.ListTableMetadata)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_athena/paginators/#listtablemetadatapaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListTableMetadataInputPaginateTypeDef]
+    ) -> PageIterator[ListTableMetadataOutputTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/athena/paginator/ListTableMetadata.html#Athena.Paginator.ListTableMetadata.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_athena/paginators/#listtablemetadatapaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListTagsForResourcePaginatorBase = Paginator[ListTagsForResourceOutputTypeDef]
+else:
+    _ListTagsForResourcePaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListTagsForResourcePaginator(_ListTagsForResourcePaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/athena/paginator/ListTagsForResource.html#Athena.Paginator.ListTagsForResource)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_athena/paginators/#listtagsforresourcepaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListTagsForResourceInputPaginateTypeDef]
+    ) -> PageIterator[ListTagsForResourceOutputTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/athena/paginator/ListTagsForResource.html#Athena.Paginator.ListTagsForResource.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_athena/paginators/#listtagsforresourcepaginator)
         """

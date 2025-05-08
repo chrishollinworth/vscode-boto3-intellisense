@@ -1,10 +1,14 @@
 """
 Main interface for amp service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_amp/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_amp import (
         Client,
         ListRuleGroupsNamespacesPaginator,
@@ -17,10 +21,8 @@ Usage::
         WorkspaceDeletedWaiter,
     )
 
-    session = boto3.Session()
-
-    client: PrometheusServiceClient = boto3.client("amp")
-    session_client: PrometheusServiceClient = session.client("amp")
+    session = Session()
+    client: PrometheusServiceClient = session.client("amp")
 
     scraper_active_waiter: ScraperActiveWaiter = client.get_waiter("scraper_active")
     scraper_deleted_waiter: ScraperDeletedWaiter = client.get_waiter("scraper_deleted")

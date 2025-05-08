@@ -1,19 +1,22 @@
 """
 Type annotations for connectparticipant service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connectparticipant/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connectparticipant/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_connectparticipant.type_defs import AttachmentItemTypeDef
 
-    data: AttachmentItemTypeDef = {...}
+    data: AttachmentItemTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from typing import Any, Dict, List
 
 from .literals import (
     ArtifactStatusType,
@@ -24,33 +27,42 @@ from .literals import (
     SortKeyType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Sequence
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List, Sequence
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
     "AttachmentItemTypeDef",
-    "CompleteAttachmentUploadRequestRequestTypeDef",
+    "CancelParticipantAuthenticationRequestTypeDef",
+    "CompleteAttachmentUploadRequestTypeDef",
     "ConnectionCredentialsTypeDef",
-    "CreateParticipantConnectionRequestRequestTypeDef",
+    "CreateParticipantConnectionRequestTypeDef",
     "CreateParticipantConnectionResponseTypeDef",
-    "DescribeViewRequestRequestTypeDef",
+    "DescribeViewRequestTypeDef",
     "DescribeViewResponseTypeDef",
-    "DisconnectParticipantRequestRequestTypeDef",
-    "GetAttachmentRequestRequestTypeDef",
+    "DisconnectParticipantRequestTypeDef",
+    "GetAttachmentRequestTypeDef",
     "GetAttachmentResponseTypeDef",
-    "GetTranscriptRequestRequestTypeDef",
+    "GetAuthenticationUrlRequestTypeDef",
+    "GetAuthenticationUrlResponseTypeDef",
+    "GetTranscriptRequestTypeDef",
     "GetTranscriptResponseTypeDef",
     "ItemTypeDef",
     "MessageMetadataTypeDef",
     "ReceiptTypeDef",
     "ResponseMetadataTypeDef",
-    "SendEventRequestRequestTypeDef",
+    "SendEventRequestTypeDef",
     "SendEventResponseTypeDef",
-    "SendMessageRequestRequestTypeDef",
+    "SendMessageRequestTypeDef",
     "SendMessageResponseTypeDef",
-    "StartAttachmentUploadRequestRequestTypeDef",
+    "StartAttachmentUploadRequestTypeDef",
     "StartAttachmentUploadResponseTypeDef",
     "StartPositionTypeDef",
     "UploadMetadataTypeDef",
@@ -59,328 +71,176 @@ __all__ = (
     "WebsocketTypeDef",
 )
 
-AttachmentItemTypeDef = TypedDict(
-    "AttachmentItemTypeDef",
-    {
-        "ContentType": str,
-        "AttachmentId": str,
-        "AttachmentName": str,
-        "Status": ArtifactStatusType,
-    },
-    total=False,
-)
+class AttachmentItemTypeDef(TypedDict):
+    ContentType: NotRequired[str]
+    AttachmentId: NotRequired[str]
+    AttachmentName: NotRequired[str]
+    Status: NotRequired[ArtifactStatusType]
 
-CompleteAttachmentUploadRequestRequestTypeDef = TypedDict(
-    "CompleteAttachmentUploadRequestRequestTypeDef",
-    {
-        "AttachmentIds": List[str],
-        "ClientToken": str,
-        "ConnectionToken": str,
-    },
-)
+class CancelParticipantAuthenticationRequestTypeDef(TypedDict):
+    SessionId: str
+    ConnectionToken: str
 
-ConnectionCredentialsTypeDef = TypedDict(
-    "ConnectionCredentialsTypeDef",
-    {
-        "ConnectionToken": str,
-        "Expiry": str,
-    },
-    total=False,
-)
+class CompleteAttachmentUploadRequestTypeDef(TypedDict):
+    AttachmentIds: Sequence[str]
+    ClientToken: str
+    ConnectionToken: str
 
-_RequiredCreateParticipantConnectionRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateParticipantConnectionRequestRequestTypeDef",
+class ConnectionCredentialsTypeDef(TypedDict):
+    ConnectionToken: NotRequired[str]
+    Expiry: NotRequired[str]
+
+CreateParticipantConnectionRequestTypeDef = TypedDict(
+    "CreateParticipantConnectionRequestTypeDef",
     {
         "ParticipantToken": str,
-    },
-)
-_OptionalCreateParticipantConnectionRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateParticipantConnectionRequestRequestTypeDef",
-    {
-        "Type": List[ConnectionTypeType],
-        "ConnectParticipant": bool,
-    },
-    total=False,
-)
-
-class CreateParticipantConnectionRequestRequestTypeDef(
-    _RequiredCreateParticipantConnectionRequestRequestTypeDef,
-    _OptionalCreateParticipantConnectionRequestRequestTypeDef,
-):
-    pass
-
-CreateParticipantConnectionResponseTypeDef = TypedDict(
-    "CreateParticipantConnectionResponseTypeDef",
-    {
-        "Websocket": "WebsocketTypeDef",
-        "ConnectionCredentials": "ConnectionCredentialsTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "Type": NotRequired[Sequence[ConnectionTypeType]],
+        "ConnectParticipant": NotRequired[bool],
     },
 )
 
-DescribeViewRequestRequestTypeDef = TypedDict(
-    "DescribeViewRequestRequestTypeDef",
-    {
-        "ViewToken": str,
-        "ConnectionToken": str,
-    },
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-DescribeViewResponseTypeDef = TypedDict(
-    "DescribeViewResponseTypeDef",
-    {
-        "View": "ViewTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class WebsocketTypeDef(TypedDict):
+    Url: NotRequired[str]
+    ConnectionExpiry: NotRequired[str]
 
-_RequiredDisconnectParticipantRequestRequestTypeDef = TypedDict(
-    "_RequiredDisconnectParticipantRequestRequestTypeDef",
-    {
-        "ConnectionToken": str,
-    },
-)
-_OptionalDisconnectParticipantRequestRequestTypeDef = TypedDict(
-    "_OptionalDisconnectParticipantRequestRequestTypeDef",
-    {
-        "ClientToken": str,
-    },
-    total=False,
-)
+class DescribeViewRequestTypeDef(TypedDict):
+    ViewToken: str
+    ConnectionToken: str
 
-class DisconnectParticipantRequestRequestTypeDef(
-    _RequiredDisconnectParticipantRequestRequestTypeDef,
-    _OptionalDisconnectParticipantRequestRequestTypeDef,
-):
-    pass
+class DisconnectParticipantRequestTypeDef(TypedDict):
+    ConnectionToken: str
+    ClientToken: NotRequired[str]
 
-GetAttachmentRequestRequestTypeDef = TypedDict(
-    "GetAttachmentRequestRequestTypeDef",
-    {
-        "AttachmentId": str,
-        "ConnectionToken": str,
-    },
-)
+class GetAttachmentRequestTypeDef(TypedDict):
+    AttachmentId: str
+    ConnectionToken: str
+    UrlExpiryInSeconds: NotRequired[int]
 
-GetAttachmentResponseTypeDef = TypedDict(
-    "GetAttachmentResponseTypeDef",
-    {
-        "Url": str,
-        "UrlExpiry": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetAuthenticationUrlRequestTypeDef(TypedDict):
+    SessionId: str
+    RedirectUri: str
+    ConnectionToken: str
 
-_RequiredGetTranscriptRequestRequestTypeDef = TypedDict(
-    "_RequiredGetTranscriptRequestRequestTypeDef",
-    {
-        "ConnectionToken": str,
-    },
-)
-_OptionalGetTranscriptRequestRequestTypeDef = TypedDict(
-    "_OptionalGetTranscriptRequestRequestTypeDef",
-    {
-        "ContactId": str,
-        "MaxResults": int,
-        "NextToken": str,
-        "ScanDirection": ScanDirectionType,
-        "SortOrder": SortKeyType,
-        "StartPosition": "StartPositionTypeDef",
-    },
-    total=False,
-)
+class StartPositionTypeDef(TypedDict):
+    Id: NotRequired[str]
+    AbsoluteTime: NotRequired[str]
+    MostRecent: NotRequired[int]
 
-class GetTranscriptRequestRequestTypeDef(
-    _RequiredGetTranscriptRequestRequestTypeDef, _OptionalGetTranscriptRequestRequestTypeDef
-):
-    pass
+class ReceiptTypeDef(TypedDict):
+    DeliveredTimestamp: NotRequired[str]
+    ReadTimestamp: NotRequired[str]
+    RecipientParticipantId: NotRequired[str]
 
-GetTranscriptResponseTypeDef = TypedDict(
-    "GetTranscriptResponseTypeDef",
-    {
-        "InitialContactId": str,
-        "Transcript": List["ItemTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class SendEventRequestTypeDef(TypedDict):
+    ContentType: str
+    ConnectionToken: str
+    Content: NotRequired[str]
+    ClientToken: NotRequired[str]
+
+class SendMessageRequestTypeDef(TypedDict):
+    ContentType: str
+    Content: str
+    ConnectionToken: str
+    ClientToken: NotRequired[str]
+
+class StartAttachmentUploadRequestTypeDef(TypedDict):
+    ContentType: str
+    AttachmentSizeInBytes: int
+    AttachmentName: str
+    ClientToken: str
+    ConnectionToken: str
+
+class UploadMetadataTypeDef(TypedDict):
+    Url: NotRequired[str]
+    UrlExpiry: NotRequired[str]
+    HeadersToInclude: NotRequired[Dict[str, str]]
+
+class ViewContentTypeDef(TypedDict):
+    InputSchema: NotRequired[str]
+    Template: NotRequired[str]
+    Actions: NotRequired[List[str]]
+
+class GetAttachmentResponseTypeDef(TypedDict):
+    Url: str
+    UrlExpiry: str
+    AttachmentSizeInBytes: int
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetAuthenticationUrlResponseTypeDef(TypedDict):
+    AuthenticationUrl: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class SendEventResponseTypeDef(TypedDict):
+    Id: str
+    AbsoluteTime: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class SendMessageResponseTypeDef(TypedDict):
+    Id: str
+    AbsoluteTime: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateParticipantConnectionResponseTypeDef(TypedDict):
+    Websocket: WebsocketTypeDef
+    ConnectionCredentials: ConnectionCredentialsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetTranscriptRequestTypeDef(TypedDict):
+    ConnectionToken: str
+    ContactId: NotRequired[str]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+    ScanDirection: NotRequired[ScanDirectionType]
+    SortOrder: NotRequired[SortKeyType]
+    StartPosition: NotRequired[StartPositionTypeDef]
+
+class MessageMetadataTypeDef(TypedDict):
+    MessageId: NotRequired[str]
+    Receipts: NotRequired[List[ReceiptTypeDef]]
+
+class StartAttachmentUploadResponseTypeDef(TypedDict):
+    AttachmentId: str
+    UploadMetadata: UploadMetadataTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ViewTypeDef(TypedDict):
+    Id: NotRequired[str]
+    Arn: NotRequired[str]
+    Name: NotRequired[str]
+    Version: NotRequired[int]
+    Content: NotRequired[ViewContentTypeDef]
 
 ItemTypeDef = TypedDict(
     "ItemTypeDef",
     {
-        "AbsoluteTime": str,
-        "Content": str,
-        "ContentType": str,
-        "Id": str,
-        "Type": ChatItemTypeType,
-        "ParticipantId": str,
-        "DisplayName": str,
-        "ParticipantRole": ParticipantRoleType,
-        "Attachments": List["AttachmentItemTypeDef"],
-        "MessageMetadata": "MessageMetadataTypeDef",
-        "RelatedContactId": str,
-        "ContactId": str,
-    },
-    total=False,
-)
-
-MessageMetadataTypeDef = TypedDict(
-    "MessageMetadataTypeDef",
-    {
-        "MessageId": str,
-        "Receipts": List["ReceiptTypeDef"],
-    },
-    total=False,
-)
-
-ReceiptTypeDef = TypedDict(
-    "ReceiptTypeDef",
-    {
-        "DeliveredTimestamp": str,
-        "ReadTimestamp": str,
-        "RecipientParticipantId": str,
-    },
-    total=False,
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
+        "AbsoluteTime": NotRequired[str],
+        "Content": NotRequired[str],
+        "ContentType": NotRequired[str],
+        "Id": NotRequired[str],
+        "Type": NotRequired[ChatItemTypeType],
+        "ParticipantId": NotRequired[str],
+        "DisplayName": NotRequired[str],
+        "ParticipantRole": NotRequired[ParticipantRoleType],
+        "Attachments": NotRequired[List[AttachmentItemTypeDef]],
+        "MessageMetadata": NotRequired[MessageMetadataTypeDef],
+        "RelatedContactId": NotRequired[str],
+        "ContactId": NotRequired[str],
     },
 )
 
-_RequiredSendEventRequestRequestTypeDef = TypedDict(
-    "_RequiredSendEventRequestRequestTypeDef",
-    {
-        "ContentType": str,
-        "ConnectionToken": str,
-    },
-)
-_OptionalSendEventRequestRequestTypeDef = TypedDict(
-    "_OptionalSendEventRequestRequestTypeDef",
-    {
-        "Content": str,
-        "ClientToken": str,
-    },
-    total=False,
-)
+class DescribeViewResponseTypeDef(TypedDict):
+    View: ViewTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class SendEventRequestRequestTypeDef(
-    _RequiredSendEventRequestRequestTypeDef, _OptionalSendEventRequestRequestTypeDef
-):
-    pass
-
-SendEventResponseTypeDef = TypedDict(
-    "SendEventResponseTypeDef",
-    {
-        "Id": str,
-        "AbsoluteTime": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredSendMessageRequestRequestTypeDef = TypedDict(
-    "_RequiredSendMessageRequestRequestTypeDef",
-    {
-        "ContentType": str,
-        "Content": str,
-        "ConnectionToken": str,
-    },
-)
-_OptionalSendMessageRequestRequestTypeDef = TypedDict(
-    "_OptionalSendMessageRequestRequestTypeDef",
-    {
-        "ClientToken": str,
-    },
-    total=False,
-)
-
-class SendMessageRequestRequestTypeDef(
-    _RequiredSendMessageRequestRequestTypeDef, _OptionalSendMessageRequestRequestTypeDef
-):
-    pass
-
-SendMessageResponseTypeDef = TypedDict(
-    "SendMessageResponseTypeDef",
-    {
-        "Id": str,
-        "AbsoluteTime": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-StartAttachmentUploadRequestRequestTypeDef = TypedDict(
-    "StartAttachmentUploadRequestRequestTypeDef",
-    {
-        "ContentType": str,
-        "AttachmentSizeInBytes": int,
-        "AttachmentName": str,
-        "ClientToken": str,
-        "ConnectionToken": str,
-    },
-)
-
-StartAttachmentUploadResponseTypeDef = TypedDict(
-    "StartAttachmentUploadResponseTypeDef",
-    {
-        "AttachmentId": str,
-        "UploadMetadata": "UploadMetadataTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-StartPositionTypeDef = TypedDict(
-    "StartPositionTypeDef",
-    {
-        "Id": str,
-        "AbsoluteTime": str,
-        "MostRecent": int,
-    },
-    total=False,
-)
-
-UploadMetadataTypeDef = TypedDict(
-    "UploadMetadataTypeDef",
-    {
-        "Url": str,
-        "UrlExpiry": str,
-        "HeadersToInclude": Dict[str, str],
-    },
-    total=False,
-)
-
-ViewContentTypeDef = TypedDict(
-    "ViewContentTypeDef",
-    {
-        "InputSchema": str,
-        "Template": str,
-        "Actions": List[str],
-    },
-    total=False,
-)
-
-ViewTypeDef = TypedDict(
-    "ViewTypeDef",
-    {
-        "Id": str,
-        "Arn": str,
-        "Name": str,
-        "Version": int,
-        "Content": "ViewContentTypeDef",
-    },
-    total=False,
-)
-
-WebsocketTypeDef = TypedDict(
-    "WebsocketTypeDef",
-    {
-        "Url": str,
-        "ConnectionExpiry": str,
-    },
-    total=False,
-)
+class GetTranscriptResponseTypeDef(TypedDict):
+    InitialContactId: str
+    Transcript: List[ItemTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]

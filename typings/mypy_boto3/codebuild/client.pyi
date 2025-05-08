@@ -1,43 +1,30 @@
 """
-Type annotations for codebuild service client.
+Type annotations for codebuild service Client.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
-    from mypy_boto3_codebuild import CodeBuildClient
+    from boto3.session import Session
+    from mypy_boto3_codebuild.client import CodeBuildClient
 
-    client: CodeBuildClient = boto3.client("codebuild")
+    session = Session()
+    client: CodeBuildClient = session.client("codebuild")
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from typing import Any, Dict, List, Type, overload
+from typing import Any, overload
 
 from botocore.client import BaseClient, ClientMeta
+from botocore.errorfactory import BaseClientExceptions
+from botocore.exceptions import ClientError as BotocoreClientError
 
-from .literals import (
-    AuthTypeType,
-    ComputeTypeType,
-    EnvironmentTypeType,
-    FleetOverflowBehaviorType,
-    FleetSortByTypeType,
-    ImagePullCredentialsTypeType,
-    ProjectSortByTypeType,
-    ProjectVisibilityTypeType,
-    ReportCodeCoverageSortByTypeType,
-    ReportGroupSortByTypeType,
-    ReportGroupTrendFieldTypeType,
-    ReportTypeType,
-    RetryBuildBatchTypeType,
-    ServerTypeType,
-    SharedResourceSortByTypeType,
-    SortOrderTypeType,
-    SourceTypeType,
-    WebhookBuildTypeType,
-)
 from .paginator import (
     DescribeCodeCoveragesPaginator,
     DescribeTestCasesPaginator,
@@ -45,98 +32,144 @@ from .paginator import (
     ListBuildBatchesPaginator,
     ListBuildsForProjectPaginator,
     ListBuildsPaginator,
+    ListCommandExecutionsForSandboxPaginator,
     ListProjectsPaginator,
     ListReportGroupsPaginator,
     ListReportsForReportGroupPaginator,
     ListReportsPaginator,
+    ListSandboxesForProjectPaginator,
+    ListSandboxesPaginator,
     ListSharedProjectsPaginator,
     ListSharedReportGroupsPaginator,
 )
 from .type_defs import (
+    BatchDeleteBuildsInputTypeDef,
     BatchDeleteBuildsOutputTypeDef,
+    BatchGetBuildBatchesInputTypeDef,
     BatchGetBuildBatchesOutputTypeDef,
+    BatchGetBuildsInputTypeDef,
     BatchGetBuildsOutputTypeDef,
+    BatchGetCommandExecutionsInputTypeDef,
+    BatchGetCommandExecutionsOutputTypeDef,
+    BatchGetFleetsInputTypeDef,
     BatchGetFleetsOutputTypeDef,
+    BatchGetProjectsInputTypeDef,
     BatchGetProjectsOutputTypeDef,
+    BatchGetReportGroupsInputTypeDef,
     BatchGetReportGroupsOutputTypeDef,
+    BatchGetReportsInputTypeDef,
     BatchGetReportsOutputTypeDef,
-    BuildBatchFilterTypeDef,
-    BuildStatusConfigTypeDef,
+    BatchGetSandboxesInputTypeDef,
+    BatchGetSandboxesOutputTypeDef,
+    CreateFleetInputTypeDef,
     CreateFleetOutputTypeDef,
+    CreateProjectInputTypeDef,
     CreateProjectOutputTypeDef,
+    CreateReportGroupInputTypeDef,
     CreateReportGroupOutputTypeDef,
+    CreateWebhookInputTypeDef,
     CreateWebhookOutputTypeDef,
+    DeleteBuildBatchInputTypeDef,
     DeleteBuildBatchOutputTypeDef,
+    DeleteFleetInputTypeDef,
+    DeleteProjectInputTypeDef,
+    DeleteReportGroupInputTypeDef,
+    DeleteReportInputTypeDef,
+    DeleteResourcePolicyInputTypeDef,
+    DeleteSourceCredentialsInputTypeDef,
     DeleteSourceCredentialsOutputTypeDef,
+    DeleteWebhookInputTypeDef,
+    DescribeCodeCoveragesInputTypeDef,
     DescribeCodeCoveragesOutputTypeDef,
+    DescribeTestCasesInputTypeDef,
     DescribeTestCasesOutputTypeDef,
-    EnvironmentVariableTypeDef,
+    GetReportGroupTrendInputTypeDef,
     GetReportGroupTrendOutputTypeDef,
+    GetResourcePolicyInputTypeDef,
     GetResourcePolicyOutputTypeDef,
-    GitSubmodulesConfigTypeDef,
+    ImportSourceCredentialsInputTypeDef,
     ImportSourceCredentialsOutputTypeDef,
+    InvalidateProjectCacheInputTypeDef,
+    ListBuildBatchesForProjectInputTypeDef,
     ListBuildBatchesForProjectOutputTypeDef,
+    ListBuildBatchesInputTypeDef,
     ListBuildBatchesOutputTypeDef,
+    ListBuildsForProjectInputTypeDef,
     ListBuildsForProjectOutputTypeDef,
+    ListBuildsInputTypeDef,
     ListBuildsOutputTypeDef,
+    ListCommandExecutionsForSandboxInputTypeDef,
+    ListCommandExecutionsForSandboxOutputTypeDef,
     ListCuratedEnvironmentImagesOutputTypeDef,
+    ListFleetsInputTypeDef,
     ListFleetsOutputTypeDef,
+    ListProjectsInputTypeDef,
     ListProjectsOutputTypeDef,
+    ListReportGroupsInputTypeDef,
     ListReportGroupsOutputTypeDef,
+    ListReportsForReportGroupInputTypeDef,
     ListReportsForReportGroupOutputTypeDef,
+    ListReportsInputTypeDef,
     ListReportsOutputTypeDef,
+    ListSandboxesForProjectInputTypeDef,
+    ListSandboxesForProjectOutputTypeDef,
+    ListSandboxesInputTypeDef,
+    ListSandboxesOutputTypeDef,
+    ListSharedProjectsInputTypeDef,
     ListSharedProjectsOutputTypeDef,
+    ListSharedReportGroupsInputTypeDef,
     ListSharedReportGroupsOutputTypeDef,
     ListSourceCredentialsOutputTypeDef,
-    LogsConfigTypeDef,
-    ProjectArtifactsTypeDef,
-    ProjectBuildBatchConfigTypeDef,
-    ProjectCacheTypeDef,
-    ProjectEnvironmentTypeDef,
-    ProjectFileSystemLocationTypeDef,
-    ProjectFleetTypeDef,
-    ProjectSourceTypeDef,
-    ProjectSourceVersionTypeDef,
+    PutResourcePolicyInputTypeDef,
     PutResourcePolicyOutputTypeDef,
-    RegistryCredentialTypeDef,
-    ReportExportConfigTypeDef,
-    ReportFilterTypeDef,
+    RetryBuildBatchInputTypeDef,
     RetryBuildBatchOutputTypeDef,
+    RetryBuildInputTypeDef,
     RetryBuildOutputTypeDef,
-    ScalingConfigurationInputTypeDef,
-    ScopeConfigurationTypeDef,
-    SourceAuthTypeDef,
+    StartBuildBatchInputTypeDef,
     StartBuildBatchOutputTypeDef,
+    StartBuildInputTypeDef,
     StartBuildOutputTypeDef,
+    StartCommandExecutionInputTypeDef,
+    StartCommandExecutionOutputTypeDef,
+    StartSandboxConnectionInputTypeDef,
+    StartSandboxConnectionOutputTypeDef,
+    StartSandboxInputTypeDef,
+    StartSandboxOutputTypeDef,
+    StopBuildBatchInputTypeDef,
     StopBuildBatchOutputTypeDef,
+    StopBuildInputTypeDef,
     StopBuildOutputTypeDef,
-    TagTypeDef,
-    TestCaseFilterTypeDef,
+    StopSandboxInputTypeDef,
+    StopSandboxOutputTypeDef,
+    UpdateFleetInputTypeDef,
     UpdateFleetOutputTypeDef,
+    UpdateProjectInputTypeDef,
     UpdateProjectOutputTypeDef,
+    UpdateProjectVisibilityInputTypeDef,
     UpdateProjectVisibilityOutputTypeDef,
+    UpdateReportGroupInputTypeDef,
     UpdateReportGroupOutputTypeDef,
+    UpdateWebhookInputTypeDef,
     UpdateWebhookOutputTypeDef,
-    VpcConfigTypeDef,
-    WebhookFilterTypeDef,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import type as Type
+    from collections.abc import Mapping
 else:
-    from typing_extensions import Literal
+    from typing import Dict, Mapping, Type
+if sys.version_info >= (3, 12):
+    from typing import Literal, Unpack
+else:
+    from typing_extensions import Literal, Unpack
 
 __all__ = ("CodeBuildClient",)
 
-class BotocoreClientError(BaseException):
-    MSG_TEMPLATE: str
-
-    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
-        self.response: Dict[str, Any]
-        self.operation_name: str
-
-class Exceptions:
+class Exceptions(BaseClientExceptions):
     AccountLimitExceededException: Type[BotocoreClientError]
+    AccountSuspendedException: Type[BotocoreClientError]
     ClientError: Type[BotocoreClientError]
     InvalidInputException: Type[BotocoreClientError]
     OAuthProviderException: Type[BotocoreClientError]
@@ -145,8 +178,8 @@ class Exceptions:
 
 class CodeBuildClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codebuild.html#CodeBuild.Client)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client/)
     """
 
     meta: ClientMeta
@@ -155,836 +188,765 @@ class CodeBuildClient(BaseClient):
     def exceptions(self) -> Exceptions:
         """
         CodeBuildClient exceptions.
-        """
 
-    def batch_delete_builds(self, *, ids: List[str]) -> BatchDeleteBuildsOutputTypeDef:
-        """
-        Deletes one or more builds.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.batch_delete_builds)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#batch_delete_builds)
-        """
-
-    def batch_get_build_batches(self, *, ids: List[str]) -> BatchGetBuildBatchesOutputTypeDef:
-        """
-        Retrieves information about one or more batch builds.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.batch_get_build_batches)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#batch_get_build_batches)
-        """
-
-    def batch_get_builds(self, *, ids: List[str]) -> BatchGetBuildsOutputTypeDef:
-        """
-        Gets information about one or more builds.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.batch_get_builds)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#batch_get_builds)
-        """
-
-    def batch_get_fleets(self, *, names: List[str]) -> BatchGetFleetsOutputTypeDef:
-        """
-        Gets information about one or more compute fleets.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.batch_get_fleets)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#batch_get_fleets)
-        """
-
-    def batch_get_projects(self, *, names: List[str]) -> BatchGetProjectsOutputTypeDef:
-        """
-        Gets information about one or more build projects.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.batch_get_projects)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#batch_get_projects)
-        """
-
-    def batch_get_report_groups(
-        self, *, reportGroupArns: List[str]
-    ) -> BatchGetReportGroupsOutputTypeDef:
-        """
-        Returns an array of report groups.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.batch_get_report_groups)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#batch_get_report_groups)
-        """
-
-    def batch_get_reports(self, *, reportArns: List[str]) -> BatchGetReportsOutputTypeDef:
-        """
-        Returns an array of reports.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.batch_get_reports)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#batch_get_reports)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codebuild.html#CodeBuild.Client)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client/#exceptions)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        Check if an operation can be paginated.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.can_paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#can_paginate)
-        """
-
-    def close(self) -> None:
-        """
-        Closes underlying endpoint connections.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.close)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#close)
-        """
-
-    def create_fleet(
-        self,
-        *,
-        name: str,
-        baseCapacity: int,
-        environmentType: EnvironmentTypeType,
-        computeType: ComputeTypeType,
-        scalingConfiguration: "ScalingConfigurationInputTypeDef" = None,
-        overflowBehavior: FleetOverflowBehaviorType = None,
-        vpcConfig: "VpcConfigTypeDef" = None,
-        fleetServiceRole: str = None,
-        tags: List["TagTypeDef"] = None
-    ) -> CreateFleetOutputTypeDef:
-        """
-        Creates a compute fleet.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.create_fleet)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#create_fleet)
-        """
-
-    def create_project(
-        self,
-        *,
-        name: str,
-        source: "ProjectSourceTypeDef",
-        artifacts: "ProjectArtifactsTypeDef",
-        environment: "ProjectEnvironmentTypeDef",
-        serviceRole: str,
-        description: str = None,
-        secondarySources: List["ProjectSourceTypeDef"] = None,
-        sourceVersion: str = None,
-        secondarySourceVersions: List["ProjectSourceVersionTypeDef"] = None,
-        secondaryArtifacts: List["ProjectArtifactsTypeDef"] = None,
-        cache: "ProjectCacheTypeDef" = None,
-        timeoutInMinutes: int = None,
-        queuedTimeoutInMinutes: int = None,
-        encryptionKey: str = None,
-        tags: List["TagTypeDef"] = None,
-        vpcConfig: "VpcConfigTypeDef" = None,
-        badgeEnabled: bool = None,
-        logsConfig: "LogsConfigTypeDef" = None,
-        fileSystemLocations: List["ProjectFileSystemLocationTypeDef"] = None,
-        buildBatchConfig: "ProjectBuildBatchConfigTypeDef" = None,
-        concurrentBuildLimit: int = None
-    ) -> CreateProjectOutputTypeDef:
-        """
-        Creates a build project.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.create_project)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#create_project)
-        """
-
-    def create_report_group(
-        self,
-        *,
-        name: str,
-        type: ReportTypeType,
-        exportConfig: "ReportExportConfigTypeDef",
-        tags: List["TagTypeDef"] = None
-    ) -> CreateReportGroupOutputTypeDef:
-        """
-        Creates a report group.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.create_report_group)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#create_report_group)
-        """
-
-    def create_webhook(
-        self,
-        *,
-        projectName: str,
-        branchFilter: str = None,
-        filterGroups: List[List["WebhookFilterTypeDef"]] = None,
-        buildType: WebhookBuildTypeType = None,
-        manualCreation: bool = None,
-        scopeConfiguration: "ScopeConfigurationTypeDef" = None
-    ) -> CreateWebhookOutputTypeDef:
-        """
-        For an existing CodeBuild build project that has its source code stored in a
-        GitHub or Bitbucket repository, enables CodeBuild to start rebuilding the source
-        code every time a code change is pushed to the repository.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.create_webhook)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#create_webhook)
-        """
-
-    def delete_build_batch(self, *, id: str) -> DeleteBuildBatchOutputTypeDef:
-        """
-        Deletes a batch build.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.delete_build_batch)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#delete_build_batch)
-        """
-
-    def delete_fleet(self, *, arn: str) -> Dict[str, Any]:
-        """
-        Deletes a compute fleet.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.delete_fleet)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#delete_fleet)
-        """
-
-    def delete_project(self, *, name: str) -> Dict[str, Any]:
-        """
-        Deletes a build project.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.delete_project)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#delete_project)
-        """
-
-    def delete_report(self, *, arn: str) -> Dict[str, Any]:
-        """
-        Deletes a report.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.delete_report)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#delete_report)
-        """
-
-    def delete_report_group(self, *, arn: str, deleteReports: bool = None) -> Dict[str, Any]:
-        """
-        Deletes a report group.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.delete_report_group)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#delete_report_group)
-        """
-
-    def delete_resource_policy(self, *, resourceArn: str) -> Dict[str, Any]:
-        """
-        Deletes a resource policy that is identified by its resource ARN.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.delete_resource_policy)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#delete_resource_policy)
-        """
-
-    def delete_source_credentials(self, *, arn: str) -> DeleteSourceCredentialsOutputTypeDef:
-        """
-        Deletes a set of GitHub, GitHub Enterprise, or Bitbucket source credentials.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.delete_source_credentials)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#delete_source_credentials)
-        """
-
-    def delete_webhook(self, *, projectName: str) -> Dict[str, Any]:
-        """
-        For an existing CodeBuild build project that has its source code stored in a
-        GitHub or Bitbucket repository, stops CodeBuild from rebuilding the source code
-        every time a code change is pushed to the repository.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.delete_webhook)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#delete_webhook)
-        """
-
-    def describe_code_coverages(
-        self,
-        *,
-        reportArn: str,
-        nextToken: str = None,
-        maxResults: int = None,
-        sortOrder: SortOrderTypeType = None,
-        sortBy: ReportCodeCoverageSortByTypeType = None,
-        minLineCoveragePercentage: float = None,
-        maxLineCoveragePercentage: float = None
-    ) -> DescribeCodeCoveragesOutputTypeDef:
-        """
-        Retrieves one or more code coverage reports.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.describe_code_coverages)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#describe_code_coverages)
-        """
-
-    def describe_test_cases(
-        self,
-        *,
-        reportArn: str,
-        nextToken: str = None,
-        maxResults: int = None,
-        filter: "TestCaseFilterTypeDef" = None
-    ) -> DescribeTestCasesOutputTypeDef:
-        """
-        Returns a list of details about test cases for a report.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.describe_test_cases)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#describe_test_cases)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codebuild/client/can_paginate.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client/#can_paginate)
         """
 
     def generate_presigned_url(
         self,
         ClientMethod: str,
-        Params: Dict[str, Any] = None,
+        Params: Mapping[str, Any] = ...,
         ExpiresIn: int = 3600,
-        HttpMethod: str = None,
+        HttpMethod: str = ...,
     ) -> str:
         """
-        Generate a presigned url given a client, its method, and arguments.
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codebuild/client/generate_presigned_url.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client/#generate_presigned_url)
+        """
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.generate_presigned_url)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#generate_presigned_url)
+    def batch_delete_builds(
+        self, **kwargs: Unpack[BatchDeleteBuildsInputTypeDef]
+    ) -> BatchDeleteBuildsOutputTypeDef:
+        """
+        Deletes one or more builds.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codebuild/client/batch_delete_builds.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client/#batch_delete_builds)
+        """
+
+    def batch_get_build_batches(
+        self, **kwargs: Unpack[BatchGetBuildBatchesInputTypeDef]
+    ) -> BatchGetBuildBatchesOutputTypeDef:
+        """
+        Retrieves information about one or more batch builds.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codebuild/client/batch_get_build_batches.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client/#batch_get_build_batches)
+        """
+
+    def batch_get_builds(
+        self, **kwargs: Unpack[BatchGetBuildsInputTypeDef]
+    ) -> BatchGetBuildsOutputTypeDef:
+        """
+        Gets information about one or more builds.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codebuild/client/batch_get_builds.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client/#batch_get_builds)
+        """
+
+    def batch_get_command_executions(
+        self, **kwargs: Unpack[BatchGetCommandExecutionsInputTypeDef]
+    ) -> BatchGetCommandExecutionsOutputTypeDef:
+        """
+        Gets information about the command executions.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codebuild/client/batch_get_command_executions.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client/#batch_get_command_executions)
+        """
+
+    def batch_get_fleets(
+        self, **kwargs: Unpack[BatchGetFleetsInputTypeDef]
+    ) -> BatchGetFleetsOutputTypeDef:
+        """
+        Gets information about one or more compute fleets.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codebuild/client/batch_get_fleets.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client/#batch_get_fleets)
+        """
+
+    def batch_get_projects(
+        self, **kwargs: Unpack[BatchGetProjectsInputTypeDef]
+    ) -> BatchGetProjectsOutputTypeDef:
+        """
+        Gets information about one or more build projects.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codebuild/client/batch_get_projects.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client/#batch_get_projects)
+        """
+
+    def batch_get_report_groups(
+        self, **kwargs: Unpack[BatchGetReportGroupsInputTypeDef]
+    ) -> BatchGetReportGroupsOutputTypeDef:
+        """
+        Returns an array of report groups.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codebuild/client/batch_get_report_groups.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client/#batch_get_report_groups)
+        """
+
+    def batch_get_reports(
+        self, **kwargs: Unpack[BatchGetReportsInputTypeDef]
+    ) -> BatchGetReportsOutputTypeDef:
+        """
+        Returns an array of reports.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codebuild/client/batch_get_reports.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client/#batch_get_reports)
+        """
+
+    def batch_get_sandboxes(
+        self, **kwargs: Unpack[BatchGetSandboxesInputTypeDef]
+    ) -> BatchGetSandboxesOutputTypeDef:
+        """
+        Gets information about the sandbox status.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codebuild/client/batch_get_sandboxes.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client/#batch_get_sandboxes)
+        """
+
+    def create_fleet(self, **kwargs: Unpack[CreateFleetInputTypeDef]) -> CreateFleetOutputTypeDef:
+        """
+        Creates a compute fleet.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codebuild/client/create_fleet.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client/#create_fleet)
+        """
+
+    def create_project(
+        self, **kwargs: Unpack[CreateProjectInputTypeDef]
+    ) -> CreateProjectOutputTypeDef:
+        """
+        Creates a build project.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codebuild/client/create_project.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client/#create_project)
+        """
+
+    def create_report_group(
+        self, **kwargs: Unpack[CreateReportGroupInputTypeDef]
+    ) -> CreateReportGroupOutputTypeDef:
+        """
+        Creates a report group.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codebuild/client/create_report_group.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client/#create_report_group)
+        """
+
+    def create_webhook(
+        self, **kwargs: Unpack[CreateWebhookInputTypeDef]
+    ) -> CreateWebhookOutputTypeDef:
+        """
+        For an existing CodeBuild build project that has its source code stored in a
+        GitHub or Bitbucket repository, enables CodeBuild to start rebuilding the
+        source code every time a code change is pushed to the repository.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codebuild/client/create_webhook.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client/#create_webhook)
+        """
+
+    def delete_build_batch(
+        self, **kwargs: Unpack[DeleteBuildBatchInputTypeDef]
+    ) -> DeleteBuildBatchOutputTypeDef:
+        """
+        Deletes a batch build.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codebuild/client/delete_build_batch.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client/#delete_build_batch)
+        """
+
+    def delete_fleet(self, **kwargs: Unpack[DeleteFleetInputTypeDef]) -> Dict[str, Any]:
+        """
+        Deletes a compute fleet.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codebuild/client/delete_fleet.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client/#delete_fleet)
+        """
+
+    def delete_project(self, **kwargs: Unpack[DeleteProjectInputTypeDef]) -> Dict[str, Any]:
+        """
+        Deletes a build project.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codebuild/client/delete_project.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client/#delete_project)
+        """
+
+    def delete_report(self, **kwargs: Unpack[DeleteReportInputTypeDef]) -> Dict[str, Any]:
+        """
+        Deletes a report.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codebuild/client/delete_report.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client/#delete_report)
+        """
+
+    def delete_report_group(
+        self, **kwargs: Unpack[DeleteReportGroupInputTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Deletes a report group.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codebuild/client/delete_report_group.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client/#delete_report_group)
+        """
+
+    def delete_resource_policy(
+        self, **kwargs: Unpack[DeleteResourcePolicyInputTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Deletes a resource policy that is identified by its resource ARN.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codebuild/client/delete_resource_policy.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client/#delete_resource_policy)
+        """
+
+    def delete_source_credentials(
+        self, **kwargs: Unpack[DeleteSourceCredentialsInputTypeDef]
+    ) -> DeleteSourceCredentialsOutputTypeDef:
+        """
+        Deletes a set of GitHub, GitHub Enterprise, or Bitbucket source credentials.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codebuild/client/delete_source_credentials.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client/#delete_source_credentials)
+        """
+
+    def delete_webhook(self, **kwargs: Unpack[DeleteWebhookInputTypeDef]) -> Dict[str, Any]:
+        """
+        For an existing CodeBuild build project that has its source code stored in a
+        GitHub or Bitbucket repository, stops CodeBuild from rebuilding the source code
+        every time a code change is pushed to the repository.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codebuild/client/delete_webhook.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client/#delete_webhook)
+        """
+
+    def describe_code_coverages(
+        self, **kwargs: Unpack[DescribeCodeCoveragesInputTypeDef]
+    ) -> DescribeCodeCoveragesOutputTypeDef:
+        """
+        Retrieves one or more code coverage reports.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codebuild/client/describe_code_coverages.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client/#describe_code_coverages)
+        """
+
+    def describe_test_cases(
+        self, **kwargs: Unpack[DescribeTestCasesInputTypeDef]
+    ) -> DescribeTestCasesOutputTypeDef:
+        """
+        Returns a list of details about test cases for a report.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codebuild/client/describe_test_cases.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client/#describe_test_cases)
         """
 
     def get_report_group_trend(
-        self,
-        *,
-        reportGroupArn: str,
-        trendField: ReportGroupTrendFieldTypeType,
-        numOfReports: int = None
+        self, **kwargs: Unpack[GetReportGroupTrendInputTypeDef]
     ) -> GetReportGroupTrendOutputTypeDef:
         """
         Analyzes and accumulates test report values for the specified test reports.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.get_report_group_trend)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#get_report_group_trend)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codebuild/client/get_report_group_trend.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client/#get_report_group_trend)
         """
 
-    def get_resource_policy(self, *, resourceArn: str) -> GetResourcePolicyOutputTypeDef:
+    def get_resource_policy(
+        self, **kwargs: Unpack[GetResourcePolicyInputTypeDef]
+    ) -> GetResourcePolicyOutputTypeDef:
         """
         Gets a resource policy that is identified by its resource ARN.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.get_resource_policy)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#get_resource_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codebuild/client/get_resource_policy.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client/#get_resource_policy)
         """
 
     def import_source_credentials(
-        self,
-        *,
-        token: str,
-        serverType: ServerTypeType,
-        authType: AuthTypeType,
-        username: str = None,
-        shouldOverwrite: bool = None
+        self, **kwargs: Unpack[ImportSourceCredentialsInputTypeDef]
     ) -> ImportSourceCredentialsOutputTypeDef:
         """
         Imports the source repository credentials for an CodeBuild project that has its
-        source code stored in a GitHub, GitHub Enterprise, or Bitbucket repository.
+        source code stored in a GitHub, GitHub Enterprise, GitLab, GitLab Self Managed,
+        or Bitbucket repository.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.import_source_credentials)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#import_source_credentials)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codebuild/client/import_source_credentials.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client/#import_source_credentials)
         """
 
-    def invalidate_project_cache(self, *, projectName: str) -> Dict[str, Any]:
+    def invalidate_project_cache(
+        self, **kwargs: Unpack[InvalidateProjectCacheInputTypeDef]
+    ) -> Dict[str, Any]:
         """
         Resets the cache for a project.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.invalidate_project_cache)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#invalidate_project_cache)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codebuild/client/invalidate_project_cache.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client/#invalidate_project_cache)
         """
 
     def list_build_batches(
-        self,
-        *,
-        filter: "BuildBatchFilterTypeDef" = None,
-        maxResults: int = None,
-        sortOrder: SortOrderTypeType = None,
-        nextToken: str = None
+        self, **kwargs: Unpack[ListBuildBatchesInputTypeDef]
     ) -> ListBuildBatchesOutputTypeDef:
         """
         Retrieves the identifiers of your build batches in the current region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.list_build_batches)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#list_build_batches)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codebuild/client/list_build_batches.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client/#list_build_batches)
         """
 
     def list_build_batches_for_project(
-        self,
-        *,
-        projectName: str = None,
-        filter: "BuildBatchFilterTypeDef" = None,
-        maxResults: int = None,
-        sortOrder: SortOrderTypeType = None,
-        nextToken: str = None
+        self, **kwargs: Unpack[ListBuildBatchesForProjectInputTypeDef]
     ) -> ListBuildBatchesForProjectOutputTypeDef:
         """
         Retrieves the identifiers of the build batches for a specific project.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.list_build_batches_for_project)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#list_build_batches_for_project)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codebuild/client/list_build_batches_for_project.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client/#list_build_batches_for_project)
         """
 
-    def list_builds(
-        self, *, sortOrder: SortOrderTypeType = None, nextToken: str = None
-    ) -> ListBuildsOutputTypeDef:
+    def list_builds(self, **kwargs: Unpack[ListBuildsInputTypeDef]) -> ListBuildsOutputTypeDef:
         """
         Gets a list of build IDs, with each build ID representing a single build.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.list_builds)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#list_builds)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codebuild/client/list_builds.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client/#list_builds)
         """
 
     def list_builds_for_project(
-        self, *, projectName: str, sortOrder: SortOrderTypeType = None, nextToken: str = None
+        self, **kwargs: Unpack[ListBuildsForProjectInputTypeDef]
     ) -> ListBuildsForProjectOutputTypeDef:
         """
         Gets a list of build identifiers for the specified build project, with each
         build identifier representing a single build.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.list_builds_for_project)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#list_builds_for_project)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codebuild/client/list_builds_for_project.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client/#list_builds_for_project)
+        """
+
+    def list_command_executions_for_sandbox(
+        self, **kwargs: Unpack[ListCommandExecutionsForSandboxInputTypeDef]
+    ) -> ListCommandExecutionsForSandboxOutputTypeDef:
+        """
+        Gets a list of command executions for a sandbox.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codebuild/client/list_command_executions_for_sandbox.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client/#list_command_executions_for_sandbox)
         """
 
     def list_curated_environment_images(self) -> ListCuratedEnvironmentImagesOutputTypeDef:
         """
         Gets information about Docker images that are managed by CodeBuild.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.list_curated_environment_images)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#list_curated_environment_images)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codebuild/client/list_curated_environment_images.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client/#list_curated_environment_images)
         """
 
-    def list_fleets(
-        self,
-        *,
-        nextToken: str = None,
-        maxResults: int = None,
-        sortOrder: SortOrderTypeType = None,
-        sortBy: FleetSortByTypeType = None
-    ) -> ListFleetsOutputTypeDef:
+    def list_fleets(self, **kwargs: Unpack[ListFleetsInputTypeDef]) -> ListFleetsOutputTypeDef:
         """
         Gets a list of compute fleet names with each compute fleet name representing a
         single compute fleet.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.list_fleets)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#list_fleets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codebuild/client/list_fleets.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client/#list_fleets)
         """
 
     def list_projects(
-        self,
-        *,
-        sortBy: ProjectSortByTypeType = None,
-        sortOrder: SortOrderTypeType = None,
-        nextToken: str = None
+        self, **kwargs: Unpack[ListProjectsInputTypeDef]
     ) -> ListProjectsOutputTypeDef:
         """
         Gets a list of build project names, with each build project name representing a
         single build project.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.list_projects)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#list_projects)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codebuild/client/list_projects.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client/#list_projects)
         """
 
     def list_report_groups(
-        self,
-        *,
-        sortOrder: SortOrderTypeType = None,
-        sortBy: ReportGroupSortByTypeType = None,
-        nextToken: str = None,
-        maxResults: int = None
+        self, **kwargs: Unpack[ListReportGroupsInputTypeDef]
     ) -> ListReportGroupsOutputTypeDef:
         """
         Gets a list ARNs for the report groups in the current Amazon Web Services
         account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.list_report_groups)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#list_report_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codebuild/client/list_report_groups.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client/#list_report_groups)
         """
 
-    def list_reports(
-        self,
-        *,
-        sortOrder: SortOrderTypeType = None,
-        nextToken: str = None,
-        maxResults: int = None,
-        filter: "ReportFilterTypeDef" = None
-    ) -> ListReportsOutputTypeDef:
+    def list_reports(self, **kwargs: Unpack[ListReportsInputTypeDef]) -> ListReportsOutputTypeDef:
         """
         Returns a list of ARNs for the reports in the current Amazon Web Services
         account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.list_reports)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#list_reports)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codebuild/client/list_reports.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client/#list_reports)
         """
 
     def list_reports_for_report_group(
-        self,
-        *,
-        reportGroupArn: str,
-        nextToken: str = None,
-        sortOrder: SortOrderTypeType = None,
-        maxResults: int = None,
-        filter: "ReportFilterTypeDef" = None
+        self, **kwargs: Unpack[ListReportsForReportGroupInputTypeDef]
     ) -> ListReportsForReportGroupOutputTypeDef:
         """
-        Returns a list of ARNs for the reports that belong to a `ReportGroup`.
+        Returns a list of ARNs for the reports that belong to a
+        <code>ReportGroup</code>.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.list_reports_for_report_group)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#list_reports_for_report_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codebuild/client/list_reports_for_report_group.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client/#list_reports_for_report_group)
+        """
+
+    def list_sandboxes(
+        self, **kwargs: Unpack[ListSandboxesInputTypeDef]
+    ) -> ListSandboxesOutputTypeDef:
+        """
+        Gets a list of sandboxes.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codebuild/client/list_sandboxes.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client/#list_sandboxes)
+        """
+
+    def list_sandboxes_for_project(
+        self, **kwargs: Unpack[ListSandboxesForProjectInputTypeDef]
+    ) -> ListSandboxesForProjectOutputTypeDef:
+        """
+        Gets a list of sandboxes for a given project.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codebuild/client/list_sandboxes_for_project.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client/#list_sandboxes_for_project)
         """
 
     def list_shared_projects(
-        self,
-        *,
-        sortBy: SharedResourceSortByTypeType = None,
-        sortOrder: SortOrderTypeType = None,
-        maxResults: int = None,
-        nextToken: str = None
+        self, **kwargs: Unpack[ListSharedProjectsInputTypeDef]
     ) -> ListSharedProjectsOutputTypeDef:
         """
         Gets a list of projects that are shared with other Amazon Web Services accounts
         or users.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.list_shared_projects)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#list_shared_projects)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codebuild/client/list_shared_projects.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client/#list_shared_projects)
         """
 
     def list_shared_report_groups(
-        self,
-        *,
-        sortOrder: SortOrderTypeType = None,
-        sortBy: SharedResourceSortByTypeType = None,
-        nextToken: str = None,
-        maxResults: int = None
+        self, **kwargs: Unpack[ListSharedReportGroupsInputTypeDef]
     ) -> ListSharedReportGroupsOutputTypeDef:
         """
         Gets a list of report groups that are shared with other Amazon Web Services
         accounts or users.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.list_shared_report_groups)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#list_shared_report_groups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codebuild/client/list_shared_report_groups.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client/#list_shared_report_groups)
         """
 
     def list_source_credentials(self) -> ListSourceCredentialsOutputTypeDef:
         """
-        Returns a list of `SourceCredentialsInfo` objects.
+        Returns a list of <code>SourceCredentialsInfo</code> objects.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.list_source_credentials)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#list_source_credentials)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codebuild/client/list_source_credentials.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client/#list_source_credentials)
         """
 
     def put_resource_policy(
-        self, *, policy: str, resourceArn: str
+        self, **kwargs: Unpack[PutResourcePolicyInputTypeDef]
     ) -> PutResourcePolicyOutputTypeDef:
         """
-        Stores a resource policy for the ARN of a `Project` or `ReportGroup` object.
+        Stores a resource policy for the ARN of a <code>Project</code> or
+        <code>ReportGroup</code> object.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.put_resource_policy)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#put_resource_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codebuild/client/put_resource_policy.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client/#put_resource_policy)
         """
 
-    def retry_build(
-        self, *, id: str = None, idempotencyToken: str = None
-    ) -> RetryBuildOutputTypeDef:
+    def retry_build(self, **kwargs: Unpack[RetryBuildInputTypeDef]) -> RetryBuildOutputTypeDef:
         """
         Restarts a build.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.retry_build)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#retry_build)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codebuild/client/retry_build.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client/#retry_build)
         """
 
     def retry_build_batch(
-        self,
-        *,
-        id: str = None,
-        idempotencyToken: str = None,
-        retryType: RetryBuildBatchTypeType = None
+        self, **kwargs: Unpack[RetryBuildBatchInputTypeDef]
     ) -> RetryBuildBatchOutputTypeDef:
         """
         Restarts a failed batch build.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.retry_build_batch)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#retry_build_batch)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codebuild/client/retry_build_batch.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client/#retry_build_batch)
         """
 
-    def start_build(
-        self,
-        *,
-        projectName: str,
-        secondarySourcesOverride: List["ProjectSourceTypeDef"] = None,
-        secondarySourcesVersionOverride: List["ProjectSourceVersionTypeDef"] = None,
-        sourceVersion: str = None,
-        artifactsOverride: "ProjectArtifactsTypeDef" = None,
-        secondaryArtifactsOverride: List["ProjectArtifactsTypeDef"] = None,
-        environmentVariablesOverride: List["EnvironmentVariableTypeDef"] = None,
-        sourceTypeOverride: SourceTypeType = None,
-        sourceLocationOverride: str = None,
-        sourceAuthOverride: "SourceAuthTypeDef" = None,
-        gitCloneDepthOverride: int = None,
-        gitSubmodulesConfigOverride: "GitSubmodulesConfigTypeDef" = None,
-        buildspecOverride: str = None,
-        insecureSslOverride: bool = None,
-        reportBuildStatusOverride: bool = None,
-        buildStatusConfigOverride: "BuildStatusConfigTypeDef" = None,
-        environmentTypeOverride: EnvironmentTypeType = None,
-        imageOverride: str = None,
-        computeTypeOverride: ComputeTypeType = None,
-        certificateOverride: str = None,
-        cacheOverride: "ProjectCacheTypeDef" = None,
-        serviceRoleOverride: str = None,
-        privilegedModeOverride: bool = None,
-        timeoutInMinutesOverride: int = None,
-        queuedTimeoutInMinutesOverride: int = None,
-        encryptionKeyOverride: str = None,
-        idempotencyToken: str = None,
-        logsConfigOverride: "LogsConfigTypeDef" = None,
-        registryCredentialOverride: "RegistryCredentialTypeDef" = None,
-        imagePullCredentialsTypeOverride: ImagePullCredentialsTypeType = None,
-        debugSessionEnabled: bool = None,
-        fleetOverride: "ProjectFleetTypeDef" = None
-    ) -> StartBuildOutputTypeDef:
+    def start_build(self, **kwargs: Unpack[StartBuildInputTypeDef]) -> StartBuildOutputTypeDef:
         """
         Starts running a build with the settings defined in the project.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.start_build)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#start_build)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codebuild/client/start_build.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client/#start_build)
         """
 
     def start_build_batch(
-        self,
-        *,
-        projectName: str,
-        secondarySourcesOverride: List["ProjectSourceTypeDef"] = None,
-        secondarySourcesVersionOverride: List["ProjectSourceVersionTypeDef"] = None,
-        sourceVersion: str = None,
-        artifactsOverride: "ProjectArtifactsTypeDef" = None,
-        secondaryArtifactsOverride: List["ProjectArtifactsTypeDef"] = None,
-        environmentVariablesOverride: List["EnvironmentVariableTypeDef"] = None,
-        sourceTypeOverride: SourceTypeType = None,
-        sourceLocationOverride: str = None,
-        sourceAuthOverride: "SourceAuthTypeDef" = None,
-        gitCloneDepthOverride: int = None,
-        gitSubmodulesConfigOverride: "GitSubmodulesConfigTypeDef" = None,
-        buildspecOverride: str = None,
-        insecureSslOverride: bool = None,
-        reportBuildBatchStatusOverride: bool = None,
-        environmentTypeOverride: EnvironmentTypeType = None,
-        imageOverride: str = None,
-        computeTypeOverride: ComputeTypeType = None,
-        certificateOverride: str = None,
-        cacheOverride: "ProjectCacheTypeDef" = None,
-        serviceRoleOverride: str = None,
-        privilegedModeOverride: bool = None,
-        buildTimeoutInMinutesOverride: int = None,
-        queuedTimeoutInMinutesOverride: int = None,
-        encryptionKeyOverride: str = None,
-        idempotencyToken: str = None,
-        logsConfigOverride: "LogsConfigTypeDef" = None,
-        registryCredentialOverride: "RegistryCredentialTypeDef" = None,
-        imagePullCredentialsTypeOverride: ImagePullCredentialsTypeType = None,
-        buildBatchConfigOverride: "ProjectBuildBatchConfigTypeDef" = None,
-        debugSessionEnabled: bool = None
+        self, **kwargs: Unpack[StartBuildBatchInputTypeDef]
     ) -> StartBuildBatchOutputTypeDef:
         """
         Starts a batch build for a project.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.start_build_batch)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#start_build_batch)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codebuild/client/start_build_batch.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client/#start_build_batch)
         """
 
-    def stop_build(self, *, id: str) -> StopBuildOutputTypeDef:
+    def start_command_execution(
+        self, **kwargs: Unpack[StartCommandExecutionInputTypeDef]
+    ) -> StartCommandExecutionOutputTypeDef:
+        """
+        Starts a command execution.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codebuild/client/start_command_execution.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client/#start_command_execution)
+        """
+
+    def start_sandbox(
+        self, **kwargs: Unpack[StartSandboxInputTypeDef]
+    ) -> StartSandboxOutputTypeDef:
+        """
+        Starts a sandbox.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codebuild/client/start_sandbox.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client/#start_sandbox)
+        """
+
+    def start_sandbox_connection(
+        self, **kwargs: Unpack[StartSandboxConnectionInputTypeDef]
+    ) -> StartSandboxConnectionOutputTypeDef:
+        """
+        Starts a sandbox connection.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codebuild/client/start_sandbox_connection.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client/#start_sandbox_connection)
+        """
+
+    def stop_build(self, **kwargs: Unpack[StopBuildInputTypeDef]) -> StopBuildOutputTypeDef:
         """
         Attempts to stop running a build.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.stop_build)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#stop_build)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codebuild/client/stop_build.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client/#stop_build)
         """
 
-    def stop_build_batch(self, *, id: str) -> StopBuildBatchOutputTypeDef:
+    def stop_build_batch(
+        self, **kwargs: Unpack[StopBuildBatchInputTypeDef]
+    ) -> StopBuildBatchOutputTypeDef:
         """
         Stops a running batch build.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.stop_build_batch)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#stop_build_batch)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codebuild/client/stop_build_batch.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client/#stop_build_batch)
         """
 
-    def update_fleet(
-        self,
-        *,
-        arn: str,
-        baseCapacity: int = None,
-        environmentType: EnvironmentTypeType = None,
-        computeType: ComputeTypeType = None,
-        scalingConfiguration: "ScalingConfigurationInputTypeDef" = None,
-        overflowBehavior: FleetOverflowBehaviorType = None,
-        vpcConfig: "VpcConfigTypeDef" = None,
-        fleetServiceRole: str = None,
-        tags: List["TagTypeDef"] = None
-    ) -> UpdateFleetOutputTypeDef:
+    def stop_sandbox(self, **kwargs: Unpack[StopSandboxInputTypeDef]) -> StopSandboxOutputTypeDef:
+        """
+        Stops a sandbox.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codebuild/client/stop_sandbox.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client/#stop_sandbox)
+        """
+
+    def update_fleet(self, **kwargs: Unpack[UpdateFleetInputTypeDef]) -> UpdateFleetOutputTypeDef:
         """
         Updates a compute fleet.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.update_fleet)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#update_fleet)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codebuild/client/update_fleet.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client/#update_fleet)
         """
 
     def update_project(
-        self,
-        *,
-        name: str,
-        description: str = None,
-        source: "ProjectSourceTypeDef" = None,
-        secondarySources: List["ProjectSourceTypeDef"] = None,
-        sourceVersion: str = None,
-        secondarySourceVersions: List["ProjectSourceVersionTypeDef"] = None,
-        artifacts: "ProjectArtifactsTypeDef" = None,
-        secondaryArtifacts: List["ProjectArtifactsTypeDef"] = None,
-        cache: "ProjectCacheTypeDef" = None,
-        environment: "ProjectEnvironmentTypeDef" = None,
-        serviceRole: str = None,
-        timeoutInMinutes: int = None,
-        queuedTimeoutInMinutes: int = None,
-        encryptionKey: str = None,
-        tags: List["TagTypeDef"] = None,
-        vpcConfig: "VpcConfigTypeDef" = None,
-        badgeEnabled: bool = None,
-        logsConfig: "LogsConfigTypeDef" = None,
-        fileSystemLocations: List["ProjectFileSystemLocationTypeDef"] = None,
-        buildBatchConfig: "ProjectBuildBatchConfigTypeDef" = None,
-        concurrentBuildLimit: int = None
+        self, **kwargs: Unpack[UpdateProjectInputTypeDef]
     ) -> UpdateProjectOutputTypeDef:
         """
         Changes the settings of a build project.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.update_project)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#update_project)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codebuild/client/update_project.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client/#update_project)
         """
 
     def update_project_visibility(
-        self,
-        *,
-        projectArn: str,
-        projectVisibility: ProjectVisibilityTypeType,
-        resourceAccessRole: str = None
+        self, **kwargs: Unpack[UpdateProjectVisibilityInputTypeDef]
     ) -> UpdateProjectVisibilityOutputTypeDef:
         """
         Changes the public visibility for a project.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.update_project_visibility)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#update_project_visibility)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codebuild/client/update_project_visibility.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client/#update_project_visibility)
         """
 
     def update_report_group(
-        self,
-        *,
-        arn: str,
-        exportConfig: "ReportExportConfigTypeDef" = None,
-        tags: List["TagTypeDef"] = None
+        self, **kwargs: Unpack[UpdateReportGroupInputTypeDef]
     ) -> UpdateReportGroupOutputTypeDef:
         """
         Updates a report group.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.update_report_group)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#update_report_group)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codebuild/client/update_report_group.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client/#update_report_group)
         """
 
     def update_webhook(
-        self,
-        *,
-        projectName: str,
-        branchFilter: str = None,
-        rotateSecret: bool = None,
-        filterGroups: List[List["WebhookFilterTypeDef"]] = None,
-        buildType: WebhookBuildTypeType = None
+        self, **kwargs: Unpack[UpdateWebhookInputTypeDef]
     ) -> UpdateWebhookOutputTypeDef:
         """
         Updates the webhook associated with an CodeBuild build project.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Client.update_webhook)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client.html#update_webhook)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codebuild/client/update_webhook.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client/#update_webhook)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["describe_code_coverages"]
     ) -> DescribeCodeCoveragesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Paginator.DescribeCodeCoverages)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/paginators.html#describecodecoveragespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codebuild/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["describe_test_cases"]
     ) -> DescribeTestCasesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Paginator.DescribeTestCases)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/paginators.html#describetestcasespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codebuild/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
-        self, operation_name: Literal["list_build_batches"]
-    ) -> ListBuildBatchesPaginator:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Paginator.ListBuildBatches)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/paginators.html#listbuildbatchespaginator)
-        """
-
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_build_batches_for_project"]
     ) -> ListBuildBatchesForProjectPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Paginator.ListBuildBatchesForProject)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/paginators.html#listbuildbatchesforprojectpaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codebuild/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_builds"]) -> ListBuildsPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_build_batches"]
+    ) -> ListBuildBatchesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Paginator.ListBuilds)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/paginators.html#listbuildspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codebuild/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_builds_for_project"]
     ) -> ListBuildsForProjectPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Paginator.ListBuildsForProject)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/paginators.html#listbuildsforprojectpaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codebuild/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_projects"]) -> ListProjectsPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_builds"]
+    ) -> ListBuildsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Paginator.ListProjects)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/paginators.html#listprojectspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codebuild/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_command_executions_for_sandbox"]
+    ) -> ListCommandExecutionsForSandboxPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codebuild/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_projects"]
+    ) -> ListProjectsPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codebuild/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_report_groups"]
     ) -> ListReportGroupsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Paginator.ListReportGroups)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/paginators.html#listreportgroupspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codebuild/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_reports"]) -> ListReportsPaginator:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Paginator.ListReports)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/paginators.html#listreportspaginator)
-        """
-
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_reports_for_report_group"]
     ) -> ListReportsForReportGroupPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Paginator.ListReportsForReportGroup)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/paginators.html#listreportsforreportgrouppaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codebuild/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_reports"]
+    ) -> ListReportsPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codebuild/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_sandboxes_for_project"]
+    ) -> ListSandboxesForProjectPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codebuild/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_sandboxes"]
+    ) -> ListSandboxesPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codebuild/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_shared_projects"]
     ) -> ListSharedProjectsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Paginator.ListSharedProjects)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/paginators.html#listsharedprojectspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codebuild/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_shared_report_groups"]
     ) -> ListSharedReportGroupsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/codebuild.html#CodeBuild.Paginator.ListSharedReportGroups)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codebuild/paginators.html#listsharedreportgroupspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codebuild/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codebuild/client/#get_paginator)
         """

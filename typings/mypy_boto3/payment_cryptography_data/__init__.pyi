@@ -1,19 +1,21 @@
 """
 Main interface for payment-cryptography-data service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography_data/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_payment_cryptography_data import (
         Client,
         PaymentCryptographyDataPlaneClient,
     )
 
-    session = boto3.Session()
-
-    client: PaymentCryptographyDataPlaneClient = boto3.client("payment-cryptography-data")
-    session_client: PaymentCryptographyDataPlaneClient = session.client("payment-cryptography-data")
+    session = Session()
+    client: PaymentCryptographyDataPlaneClient = session.client("payment-cryptography-data")
     ```
 """
 

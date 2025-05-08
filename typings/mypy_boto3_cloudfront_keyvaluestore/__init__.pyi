@@ -1,20 +1,22 @@
 """
 Main interface for cloudfront-keyvaluestore service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudfront_keyvaluestore/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_cloudfront_keyvaluestore import (
         Client,
         CloudFrontKeyValueStoreClient,
         ListKeysPaginator,
     )
 
-    session = boto3.Session()
-
-    client: CloudFrontKeyValueStoreClient = boto3.client("cloudfront-keyvaluestore")
-    session_client: CloudFrontKeyValueStoreClient = session.client("cloudfront-keyvaluestore")
+    session = Session()
+    client: CloudFrontKeyValueStoreClient = session.client("cloudfront-keyvaluestore")
 
     list_keys_paginator: ListKeysPaginator = client.get_paginator("list_keys")
     ```

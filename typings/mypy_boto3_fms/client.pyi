@@ -1,25 +1,30 @@
 """
-Type annotations for fms service client.
+Type annotations for fms service Client.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fms/client.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fms/client/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
-    from mypy_boto3_fms import FMSClient
+    from boto3.session import Session
+    from mypy_boto3_fms.client import FMSClient
 
-    client: FMSClient = boto3.client("fms")
+    session = Session()
+    client: FMSClient = session.client("fms")
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from datetime import datetime
-from typing import Any, Dict, List, Type, Union, overload
+from typing import Any, overload
 
 from botocore.client import BaseClient, ClientMeta
+from botocore.errorfactory import BaseClientExceptions
+from botocore.exceptions import ClientError as BotocoreClientError
 
-from .literals import ThirdPartyFirewallType
 from .paginator import (
     ListAdminAccountsForOrganizationPaginator,
     ListAdminsManagingAccountPaginator,
@@ -31,60 +36,92 @@ from .paginator import (
     ListThirdPartyFirewallFirewallPoliciesPaginator,
 )
 from .type_defs import (
-    AdminScopeTypeDef,
-    AppsListDataTypeDef,
+    AssociateAdminAccountRequestTypeDef,
+    AssociateThirdPartyFirewallRequestTypeDef,
     AssociateThirdPartyFirewallResponseTypeDef,
+    BatchAssociateResourceRequestTypeDef,
     BatchAssociateResourceResponseTypeDef,
+    BatchDisassociateResourceRequestTypeDef,
     BatchDisassociateResourceResponseTypeDef,
+    DeleteAppsListRequestTypeDef,
+    DeletePolicyRequestTypeDef,
+    DeleteProtocolsListRequestTypeDef,
+    DeleteResourceSetRequestTypeDef,
+    DisassociateThirdPartyFirewallRequestTypeDef,
     DisassociateThirdPartyFirewallResponseTypeDef,
+    EmptyResponseMetadataTypeDef,
     GetAdminAccountResponseTypeDef,
+    GetAdminScopeRequestTypeDef,
     GetAdminScopeResponseTypeDef,
+    GetAppsListRequestTypeDef,
     GetAppsListResponseTypeDef,
+    GetComplianceDetailRequestTypeDef,
     GetComplianceDetailResponseTypeDef,
     GetNotificationChannelResponseTypeDef,
+    GetPolicyRequestTypeDef,
     GetPolicyResponseTypeDef,
+    GetProtectionStatusRequestTypeDef,
     GetProtectionStatusResponseTypeDef,
+    GetProtocolsListRequestTypeDef,
     GetProtocolsListResponseTypeDef,
+    GetResourceSetRequestTypeDef,
     GetResourceSetResponseTypeDef,
+    GetThirdPartyFirewallAssociationStatusRequestTypeDef,
     GetThirdPartyFirewallAssociationStatusResponseTypeDef,
+    GetViolationDetailsRequestTypeDef,
     GetViolationDetailsResponseTypeDef,
+    ListAdminAccountsForOrganizationRequestTypeDef,
     ListAdminAccountsForOrganizationResponseTypeDef,
+    ListAdminsManagingAccountRequestTypeDef,
     ListAdminsManagingAccountResponseTypeDef,
+    ListAppsListsRequestTypeDef,
     ListAppsListsResponseTypeDef,
+    ListComplianceStatusRequestTypeDef,
     ListComplianceStatusResponseTypeDef,
+    ListDiscoveredResourcesRequestTypeDef,
     ListDiscoveredResourcesResponseTypeDef,
+    ListMemberAccountsRequestTypeDef,
     ListMemberAccountsResponseTypeDef,
+    ListPoliciesRequestTypeDef,
     ListPoliciesResponseTypeDef,
+    ListProtocolsListsRequestTypeDef,
     ListProtocolsListsResponseTypeDef,
+    ListResourceSetResourcesRequestTypeDef,
     ListResourceSetResourcesResponseTypeDef,
+    ListResourceSetsRequestTypeDef,
     ListResourceSetsResponseTypeDef,
+    ListTagsForResourceRequestTypeDef,
     ListTagsForResourceResponseTypeDef,
+    ListThirdPartyFirewallFirewallPoliciesRequestTypeDef,
     ListThirdPartyFirewallFirewallPoliciesResponseTypeDef,
-    PolicyTypeDef,
-    ProtocolsListDataTypeDef,
+    PutAdminAccountRequestTypeDef,
+    PutAppsListRequestTypeDef,
     PutAppsListResponseTypeDef,
+    PutNotificationChannelRequestTypeDef,
+    PutPolicyRequestTypeDef,
     PutPolicyResponseTypeDef,
+    PutProtocolsListRequestTypeDef,
     PutProtocolsListResponseTypeDef,
+    PutResourceSetRequestTypeDef,
     PutResourceSetResponseTypeDef,
-    ResourceSetTypeDef,
-    TagTypeDef,
+    TagResourceRequestTypeDef,
+    UntagResourceRequestTypeDef,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import type as Type
+    from collections.abc import Mapping
 else:
-    from typing_extensions import Literal
+    from typing import Dict, Mapping, Type
+if sys.version_info >= (3, 12):
+    from typing import Literal, Unpack
+else:
+    from typing_extensions import Literal, Unpack
 
 __all__ = ("FMSClient",)
 
-class BotocoreClientError(BaseException):
-    MSG_TEMPLATE: str
-
-    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
-        self.response: Dict[str, Any]
-        self.operation_name: str
-
-class Exceptions:
+class Exceptions(BaseClientExceptions):
     ClientError: Type[BotocoreClientError]
     InternalErrorException: Type[BotocoreClientError]
     InvalidInputException: Type[BotocoreClientError]
@@ -95,8 +132,8 @@ class Exceptions:
 
 class FMSClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fms.html#FMS.Client)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fms/client.html)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fms.html#FMS.Client)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fms/client/)
     """
 
     meta: ClientMeta
@@ -105,136 +142,137 @@ class FMSClient(BaseClient):
     def exceptions(self) -> Exceptions:
         """
         FMSClient exceptions.
-        """
 
-    def associate_admin_account(self, *, AdminAccount: str) -> None:
-        """
-        Sets a Firewall Manager default administrator account.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fms.html#FMS.Client.associate_admin_account)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fms/client.html#associate_admin_account)
-        """
-
-    def associate_third_party_firewall(
-        self, *, ThirdPartyFirewall: ThirdPartyFirewallType
-    ) -> AssociateThirdPartyFirewallResponseTypeDef:
-        """
-        Sets the Firewall Manager policy administrator as a tenant administrator of a
-        third-party firewall service.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fms.html#FMS.Client.associate_third_party_firewall)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fms/client.html#associate_third_party_firewall)
-        """
-
-    def batch_associate_resource(
-        self, *, ResourceSetIdentifier: str, Items: List[str]
-    ) -> BatchAssociateResourceResponseTypeDef:
-        """
-        Associate resources to a Firewall Manager resource set.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fms.html#FMS.Client.batch_associate_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fms/client.html#batch_associate_resource)
-        """
-
-    def batch_disassociate_resource(
-        self, *, ResourceSetIdentifier: str, Items: List[str]
-    ) -> BatchDisassociateResourceResponseTypeDef:
-        """
-        Disassociates resources from a Firewall Manager resource set.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fms.html#FMS.Client.batch_disassociate_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fms/client.html#batch_disassociate_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fms.html#FMS.Client)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fms/client/#exceptions)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        Check if an operation can be paginated.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fms.html#FMS.Client.can_paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fms/client.html#can_paginate)
-        """
-
-    def close(self) -> None:
-        """
-        Closes underlying endpoint connections.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fms.html#FMS.Client.close)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fms/client.html#close)
-        """
-
-    def delete_apps_list(self, *, ListId: str) -> None:
-        """
-        Permanently deletes an Firewall Manager applications list.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fms.html#FMS.Client.delete_apps_list)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fms/client.html#delete_apps_list)
-        """
-
-    def delete_notification_channel(self) -> None:
-        """
-        Deletes an Firewall Manager association with the IAM role and the Amazon Simple
-        Notification Service (SNS) topic that is used to record Firewall Manager SNS
-        logs.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fms.html#FMS.Client.delete_notification_channel)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fms/client.html#delete_notification_channel)
-        """
-
-    def delete_policy(self, *, PolicyId: str, DeleteAllPolicyResources: bool = None) -> None:
-        """
-        Permanently deletes an Firewall Manager policy.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fms.html#FMS.Client.delete_policy)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fms/client.html#delete_policy)
-        """
-
-    def delete_protocols_list(self, *, ListId: str) -> None:
-        """
-        Permanently deletes an Firewall Manager protocols list.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fms.html#FMS.Client.delete_protocols_list)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fms/client.html#delete_protocols_list)
-        """
-
-    def delete_resource_set(self, *, Identifier: str) -> None:
-        """
-        Deletes the specified  ResourceSet.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fms.html#FMS.Client.delete_resource_set)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fms/client.html#delete_resource_set)
-        """
-
-    def disassociate_admin_account(self) -> None:
-        """
-        Disassociates an Firewall Manager administrator account.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fms.html#FMS.Client.disassociate_admin_account)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fms/client.html#disassociate_admin_account)
-        """
-
-    def disassociate_third_party_firewall(
-        self, *, ThirdPartyFirewall: ThirdPartyFirewallType
-    ) -> DisassociateThirdPartyFirewallResponseTypeDef:
-        """
-        Disassociates a Firewall Manager policy administrator from a third-party
-        firewall tenant.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fms.html#FMS.Client.disassociate_third_party_firewall)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fms/client.html#disassociate_third_party_firewall)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fms/client/can_paginate.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fms/client/#can_paginate)
         """
 
     def generate_presigned_url(
         self,
         ClientMethod: str,
-        Params: Dict[str, Any] = None,
+        Params: Mapping[str, Any] = ...,
         ExpiresIn: int = 3600,
-        HttpMethod: str = None,
+        HttpMethod: str = ...,
     ) -> str:
         """
-        Generate a presigned url given a client, its method, and arguments.
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fms/client/generate_presigned_url.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fms/client/#generate_presigned_url)
+        """
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fms.html#FMS.Client.generate_presigned_url)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fms/client.html#generate_presigned_url)
+    def associate_admin_account(
+        self, **kwargs: Unpack[AssociateAdminAccountRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Sets a Firewall Manager default administrator account.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fms/client/associate_admin_account.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fms/client/#associate_admin_account)
+        """
+
+    def associate_third_party_firewall(
+        self, **kwargs: Unpack[AssociateThirdPartyFirewallRequestTypeDef]
+    ) -> AssociateThirdPartyFirewallResponseTypeDef:
+        """
+        Sets the Firewall Manager policy administrator as a tenant administrator of a
+        third-party firewall service.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fms/client/associate_third_party_firewall.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fms/client/#associate_third_party_firewall)
+        """
+
+    def batch_associate_resource(
+        self, **kwargs: Unpack[BatchAssociateResourceRequestTypeDef]
+    ) -> BatchAssociateResourceResponseTypeDef:
+        """
+        Associate resources to a Firewall Manager resource set.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fms/client/batch_associate_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fms/client/#batch_associate_resource)
+        """
+
+    def batch_disassociate_resource(
+        self, **kwargs: Unpack[BatchDisassociateResourceRequestTypeDef]
+    ) -> BatchDisassociateResourceResponseTypeDef:
+        """
+        Disassociates resources from a Firewall Manager resource set.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fms/client/batch_disassociate_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fms/client/#batch_disassociate_resource)
+        """
+
+    def delete_apps_list(
+        self, **kwargs: Unpack[DeleteAppsListRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Permanently deletes an Firewall Manager applications list.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fms/client/delete_apps_list.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fms/client/#delete_apps_list)
+        """
+
+    def delete_notification_channel(self) -> EmptyResponseMetadataTypeDef:
+        """
+        Deletes an Firewall Manager association with the IAM role and the Amazon Simple
+        Notification Service (SNS) topic that is used to record Firewall Manager SNS
+        logs.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fms/client/delete_notification_channel.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fms/client/#delete_notification_channel)
+        """
+
+    def delete_policy(
+        self, **kwargs: Unpack[DeletePolicyRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Permanently deletes an Firewall Manager policy.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fms/client/delete_policy.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fms/client/#delete_policy)
+        """
+
+    def delete_protocols_list(
+        self, **kwargs: Unpack[DeleteProtocolsListRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Permanently deletes an Firewall Manager protocols list.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fms/client/delete_protocols_list.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fms/client/#delete_protocols_list)
+        """
+
+    def delete_resource_set(
+        self, **kwargs: Unpack[DeleteResourceSetRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
+        """
+        Deletes the specified <a>ResourceSet</a>.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fms/client/delete_resource_set.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fms/client/#delete_resource_set)
+        """
+
+    def disassociate_admin_account(self) -> EmptyResponseMetadataTypeDef:
+        """
+        Disassociates an Firewall Manager administrator account.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fms/client/disassociate_admin_account.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fms/client/#disassociate_admin_account)
+        """
+
+    def disassociate_third_party_firewall(
+        self, **kwargs: Unpack[DisassociateThirdPartyFirewallRequestTypeDef]
+    ) -> DisassociateThirdPartyFirewallResponseTypeDef:
+        """
+        Disassociates a Firewall Manager policy administrator from a third-party
+        firewall tenant.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fms/client/disassociate_third_party_firewall.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fms/client/#disassociate_third_party_firewall)
         """
 
     def get_admin_account(self) -> GetAdminAccountResponseTypeDef:
@@ -242,34 +280,38 @@ class FMSClient(BaseClient):
         Returns the Organizations account that is associated with Firewall Manager as
         the Firewall Manager default administrator.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fms.html#FMS.Client.get_admin_account)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fms/client.html#get_admin_account)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fms/client/get_admin_account.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fms/client/#get_admin_account)
         """
 
-    def get_admin_scope(self, *, AdminAccount: str) -> GetAdminScopeResponseTypeDef:
+    def get_admin_scope(
+        self, **kwargs: Unpack[GetAdminScopeRequestTypeDef]
+    ) -> GetAdminScopeResponseTypeDef:
         """
         Returns information about the specified account's administrative scope.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fms.html#FMS.Client.get_admin_scope)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fms/client.html#get_admin_scope)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fms/client/get_admin_scope.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fms/client/#get_admin_scope)
         """
 
-    def get_apps_list(self, *, ListId: str, DefaultList: bool = None) -> GetAppsListResponseTypeDef:
+    def get_apps_list(
+        self, **kwargs: Unpack[GetAppsListRequestTypeDef]
+    ) -> GetAppsListResponseTypeDef:
         """
         Returns information about the specified Firewall Manager applications list.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fms.html#FMS.Client.get_apps_list)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fms/client.html#get_apps_list)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fms/client/get_apps_list.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fms/client/#get_apps_list)
         """
 
     def get_compliance_detail(
-        self, *, PolicyId: str, MemberAccount: str
+        self, **kwargs: Unpack[GetComplianceDetailRequestTypeDef]
     ) -> GetComplianceDetailResponseTypeDef:
         """
         Returns detailed compliance information about the specified member account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fms.html#FMS.Client.get_compliance_detail)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fms/client.html#get_compliance_detail)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fms/client/get_compliance_detail.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fms/client/#get_compliance_detail)
         """
 
     def get_notification_channel(self) -> GetNotificationChannelResponseTypeDef:
@@ -277,343 +319,355 @@ class FMSClient(BaseClient):
         Information about the Amazon Simple Notification Service (SNS) topic that is
         used to record Firewall Manager SNS logs.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fms.html#FMS.Client.get_notification_channel)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fms/client.html#get_notification_channel)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fms/client/get_notification_channel.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fms/client/#get_notification_channel)
         """
 
-    def get_policy(self, *, PolicyId: str) -> GetPolicyResponseTypeDef:
+    def get_policy(self, **kwargs: Unpack[GetPolicyRequestTypeDef]) -> GetPolicyResponseTypeDef:
         """
         Returns information about the specified Firewall Manager policy.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fms.html#FMS.Client.get_policy)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fms/client.html#get_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fms/client/get_policy.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fms/client/#get_policy)
         """
 
     def get_protection_status(
-        self,
-        *,
-        PolicyId: str,
-        MemberAccountId: str = None,
-        StartTime: Union[datetime, str] = None,
-        EndTime: Union[datetime, str] = None,
-        NextToken: str = None,
-        MaxResults: int = None
+        self, **kwargs: Unpack[GetProtectionStatusRequestTypeDef]
     ) -> GetProtectionStatusResponseTypeDef:
         """
         If you created a Shield Advanced policy, returns policy-level attack summary
         information in the event of a potential DDoS attack.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fms.html#FMS.Client.get_protection_status)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fms/client.html#get_protection_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fms/client/get_protection_status.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fms/client/#get_protection_status)
         """
 
     def get_protocols_list(
-        self, *, ListId: str, DefaultList: bool = None
+        self, **kwargs: Unpack[GetProtocolsListRequestTypeDef]
     ) -> GetProtocolsListResponseTypeDef:
         """
         Returns information about the specified Firewall Manager protocols list.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fms.html#FMS.Client.get_protocols_list)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fms/client.html#get_protocols_list)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fms/client/get_protocols_list.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fms/client/#get_protocols_list)
         """
 
-    def get_resource_set(self, *, Identifier: str) -> GetResourceSetResponseTypeDef:
+    def get_resource_set(
+        self, **kwargs: Unpack[GetResourceSetRequestTypeDef]
+    ) -> GetResourceSetResponseTypeDef:
         """
         Gets information about a specific resource set.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fms.html#FMS.Client.get_resource_set)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fms/client.html#get_resource_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fms/client/get_resource_set.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fms/client/#get_resource_set)
         """
 
     def get_third_party_firewall_association_status(
-        self, *, ThirdPartyFirewall: ThirdPartyFirewallType
+        self, **kwargs: Unpack[GetThirdPartyFirewallAssociationStatusRequestTypeDef]
     ) -> GetThirdPartyFirewallAssociationStatusResponseTypeDef:
         """
         The onboarding status of a Firewall Manager admin account to third-party
         firewall vendor tenant.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fms.html#FMS.Client.get_third_party_firewall_association_status)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fms/client.html#get_third_party_firewall_association_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fms/client/get_third_party_firewall_association_status.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fms/client/#get_third_party_firewall_association_status)
         """
 
     def get_violation_details(
-        self, *, PolicyId: str, MemberAccount: str, ResourceId: str, ResourceType: str
+        self, **kwargs: Unpack[GetViolationDetailsRequestTypeDef]
     ) -> GetViolationDetailsResponseTypeDef:
         """
         Retrieves violations for a resource based on the specified Firewall Manager
         policy and Amazon Web Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fms.html#FMS.Client.get_violation_details)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fms/client.html#get_violation_details)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fms/client/get_violation_details.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fms/client/#get_violation_details)
         """
 
     def list_admin_accounts_for_organization(
-        self, *, NextToken: str = None, MaxResults: int = None
+        self, **kwargs: Unpack[ListAdminAccountsForOrganizationRequestTypeDef]
     ) -> ListAdminAccountsForOrganizationResponseTypeDef:
         """
-        Returns a `AdminAccounts` object that lists the Firewall Manager administrators
-        within the organization that are onboarded to Firewall Manager by
-        AssociateAdminAccount.
+        Returns a <code>AdminAccounts</code> object that lists the Firewall Manager
+        administrators within the organization that are onboarded to Firewall Manager
+        by <a>AssociateAdminAccount</a>.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fms.html#FMS.Client.list_admin_accounts_for_organization)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fms/client.html#list_admin_accounts_for_organization)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fms/client/list_admin_accounts_for_organization.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fms/client/#list_admin_accounts_for_organization)
         """
 
     def list_admins_managing_account(
-        self, *, NextToken: str = None, MaxResults: int = None
+        self, **kwargs: Unpack[ListAdminsManagingAccountRequestTypeDef]
     ) -> ListAdminsManagingAccountResponseTypeDef:
         """
         Lists the accounts that are managing the specified Organizations member account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fms.html#FMS.Client.list_admins_managing_account)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fms/client.html#list_admins_managing_account)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fms/client/list_admins_managing_account.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fms/client/#list_admins_managing_account)
         """
 
     def list_apps_lists(
-        self, *, MaxResults: int, DefaultLists: bool = None, NextToken: str = None
+        self, **kwargs: Unpack[ListAppsListsRequestTypeDef]
     ) -> ListAppsListsResponseTypeDef:
         """
-        Returns an array of `AppsListDataSummary` objects.
+        Returns an array of <code>AppsListDataSummary</code> objects.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fms.html#FMS.Client.list_apps_lists)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fms/client.html#list_apps_lists)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fms/client/list_apps_lists.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fms/client/#list_apps_lists)
         """
 
     def list_compliance_status(
-        self, *, PolicyId: str, NextToken: str = None, MaxResults: int = None
+        self, **kwargs: Unpack[ListComplianceStatusRequestTypeDef]
     ) -> ListComplianceStatusResponseTypeDef:
         """
-        Returns an array of `PolicyComplianceStatus` objects.
+        Returns an array of <code>PolicyComplianceStatus</code> objects.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fms.html#FMS.Client.list_compliance_status)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fms/client.html#list_compliance_status)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fms/client/list_compliance_status.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fms/client/#list_compliance_status)
         """
 
     def list_discovered_resources(
-        self,
-        *,
-        MemberAccountIds: List[str],
-        ResourceType: str,
-        MaxResults: int = None,
-        NextToken: str = None
+        self, **kwargs: Unpack[ListDiscoveredResourcesRequestTypeDef]
     ) -> ListDiscoveredResourcesResponseTypeDef:
         """
         Returns an array of resources in the organization's accounts that are available
         to be associated with a resource set.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fms.html#FMS.Client.list_discovered_resources)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fms/client.html#list_discovered_resources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fms/client/list_discovered_resources.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fms/client/#list_discovered_resources)
         """
 
     def list_member_accounts(
-        self, *, NextToken: str = None, MaxResults: int = None
+        self, **kwargs: Unpack[ListMemberAccountsRequestTypeDef]
     ) -> ListMemberAccountsResponseTypeDef:
         """
-        Returns a `MemberAccounts` object that lists the member accounts in the
-        administrator's Amazon Web Services organization.
+        Returns a <code>MemberAccounts</code> object that lists the member accounts in
+        the administrator's Amazon Web Services organization.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fms.html#FMS.Client.list_member_accounts)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fms/client.html#list_member_accounts)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fms/client/list_member_accounts.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fms/client/#list_member_accounts)
         """
 
     def list_policies(
-        self, *, NextToken: str = None, MaxResults: int = None
+        self, **kwargs: Unpack[ListPoliciesRequestTypeDef]
     ) -> ListPoliciesResponseTypeDef:
         """
-        Returns an array of `PolicySummary` objects.
+        Returns an array of <code>PolicySummary</code> objects.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fms.html#FMS.Client.list_policies)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fms/client.html#list_policies)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fms/client/list_policies.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fms/client/#list_policies)
         """
 
     def list_protocols_lists(
-        self, *, MaxResults: int, DefaultLists: bool = None, NextToken: str = None
+        self, **kwargs: Unpack[ListProtocolsListsRequestTypeDef]
     ) -> ListProtocolsListsResponseTypeDef:
         """
-        Returns an array of `ProtocolsListDataSummary` objects.
+        Returns an array of <code>ProtocolsListDataSummary</code> objects.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fms.html#FMS.Client.list_protocols_lists)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fms/client.html#list_protocols_lists)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fms/client/list_protocols_lists.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fms/client/#list_protocols_lists)
         """
 
     def list_resource_set_resources(
-        self, *, Identifier: str, MaxResults: int = None, NextToken: str = None
+        self, **kwargs: Unpack[ListResourceSetResourcesRequestTypeDef]
     ) -> ListResourceSetResourcesResponseTypeDef:
         """
         Returns an array of resources that are currently associated to a resource set.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fms.html#FMS.Client.list_resource_set_resources)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fms/client.html#list_resource_set_resources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fms/client/list_resource_set_resources.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fms/client/#list_resource_set_resources)
         """
 
     def list_resource_sets(
-        self, *, NextToken: str = None, MaxResults: int = None
+        self, **kwargs: Unpack[ListResourceSetsRequestTypeDef]
     ) -> ListResourceSetsResponseTypeDef:
         """
-        Returns an array of `ResourceSetSummary` objects.
+        Returns an array of <code>ResourceSetSummary</code> objects.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fms.html#FMS.Client.list_resource_sets)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fms/client.html#list_resource_sets)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fms/client/list_resource_sets.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fms/client/#list_resource_sets)
         """
 
-    def list_tags_for_resource(self, *, ResourceArn: str) -> ListTagsForResourceResponseTypeDef:
+    def list_tags_for_resource(
+        self, **kwargs: Unpack[ListTagsForResourceRequestTypeDef]
+    ) -> ListTagsForResourceResponseTypeDef:
         """
         Retrieves the list of tags for the specified Amazon Web Services resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fms.html#FMS.Client.list_tags_for_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fms/client.html#list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fms/client/list_tags_for_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fms/client/#list_tags_for_resource)
         """
 
     def list_third_party_firewall_firewall_policies(
-        self, *, ThirdPartyFirewall: ThirdPartyFirewallType, MaxResults: int, NextToken: str = None
+        self, **kwargs: Unpack[ListThirdPartyFirewallFirewallPoliciesRequestTypeDef]
     ) -> ListThirdPartyFirewallFirewallPoliciesResponseTypeDef:
         """
-        Retrieves a list of all of the third-party firewall policies that are associated
-        with the third-party firewall administrator's account.
+        Retrieves a list of all of the third-party firewall policies that are
+        associated with the third-party firewall administrator's account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fms.html#FMS.Client.list_third_party_firewall_firewall_policies)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fms/client.html#list_third_party_firewall_firewall_policies)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fms/client/list_third_party_firewall_firewall_policies.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fms/client/#list_third_party_firewall_firewall_policies)
         """
 
     def put_admin_account(
-        self, *, AdminAccount: str, AdminScope: "AdminScopeTypeDef" = None
-    ) -> None:
+        self, **kwargs: Unpack[PutAdminAccountRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Creates or updates an Firewall Manager administrator account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fms.html#FMS.Client.put_admin_account)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fms/client.html#put_admin_account)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fms/client/put_admin_account.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fms/client/#put_admin_account)
         """
 
     def put_apps_list(
-        self, *, AppsList: "AppsListDataTypeDef", TagList: List["TagTypeDef"] = None
+        self, **kwargs: Unpack[PutAppsListRequestTypeDef]
     ) -> PutAppsListResponseTypeDef:
         """
         Creates an Firewall Manager applications list.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fms.html#FMS.Client.put_apps_list)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fms/client.html#put_apps_list)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fms/client/put_apps_list.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fms/client/#put_apps_list)
         """
 
-    def put_notification_channel(self, *, SnsTopicArn: str, SnsRoleName: str) -> None:
+    def put_notification_channel(
+        self, **kwargs: Unpack[PutNotificationChannelRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Designates the IAM role and Amazon Simple Notification Service (SNS) topic that
         Firewall Manager uses to record SNS logs.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fms.html#FMS.Client.put_notification_channel)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fms/client.html#put_notification_channel)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fms/client/put_notification_channel.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fms/client/#put_notification_channel)
         """
 
-    def put_policy(
-        self, *, Policy: "PolicyTypeDef", TagList: List["TagTypeDef"] = None
-    ) -> PutPolicyResponseTypeDef:
+    def put_policy(self, **kwargs: Unpack[PutPolicyRequestTypeDef]) -> PutPolicyResponseTypeDef:
         """
         Creates an Firewall Manager policy.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fms.html#FMS.Client.put_policy)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fms/client.html#put_policy)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fms/client/put_policy.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fms/client/#put_policy)
         """
 
     def put_protocols_list(
-        self, *, ProtocolsList: "ProtocolsListDataTypeDef", TagList: List["TagTypeDef"] = None
+        self, **kwargs: Unpack[PutProtocolsListRequestTypeDef]
     ) -> PutProtocolsListResponseTypeDef:
         """
         Creates an Firewall Manager protocols list.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fms.html#FMS.Client.put_protocols_list)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fms/client.html#put_protocols_list)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fms/client/put_protocols_list.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fms/client/#put_protocols_list)
         """
 
     def put_resource_set(
-        self, *, ResourceSet: "ResourceSetTypeDef", TagList: List["TagTypeDef"] = None
+        self, **kwargs: Unpack[PutResourceSetRequestTypeDef]
     ) -> PutResourceSetResponseTypeDef:
         """
         Creates the resource set.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fms.html#FMS.Client.put_resource_set)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fms/client.html#put_resource_set)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fms/client/put_resource_set.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fms/client/#put_resource_set)
         """
 
-    def tag_resource(self, *, ResourceArn: str, TagList: List["TagTypeDef"]) -> Dict[str, Any]:
+    def tag_resource(self, **kwargs: Unpack[TagResourceRequestTypeDef]) -> Dict[str, Any]:
         """
         Adds one or more tags to an Amazon Web Services resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fms.html#FMS.Client.tag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fms/client.html#tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fms/client/tag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fms/client/#tag_resource)
         """
 
-    def untag_resource(self, *, ResourceArn: str, TagKeys: List[str]) -> Dict[str, Any]:
+    def untag_resource(self, **kwargs: Unpack[UntagResourceRequestTypeDef]) -> Dict[str, Any]:
         """
         Removes one or more tags from an Amazon Web Services resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fms.html#FMS.Client.untag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fms/client.html#untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fms/client/untag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fms/client/#untag_resource)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_admin_accounts_for_organization"]
     ) -> ListAdminAccountsForOrganizationPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fms.html#FMS.Paginator.ListAdminAccountsForOrganization)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fms/paginators.html#listadminaccountsfororganizationpaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fms/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fms/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_admins_managing_account"]
     ) -> ListAdminsManagingAccountPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fms.html#FMS.Paginator.ListAdminsManagingAccount)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fms/paginators.html#listadminsmanagingaccountpaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fms/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fms/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_apps_lists"]) -> ListAppsListsPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_apps_lists"]
+    ) -> ListAppsListsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fms.html#FMS.Paginator.ListAppsLists)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fms/paginators.html#listappslistspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fms/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fms/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_compliance_status"]
     ) -> ListComplianceStatusPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fms.html#FMS.Paginator.ListComplianceStatus)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fms/paginators.html#listcompliancestatuspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fms/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fms/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_member_accounts"]
     ) -> ListMemberAccountsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fms.html#FMS.Paginator.ListMemberAccounts)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fms/paginators.html#listmemberaccountspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fms/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fms/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_policies"]) -> ListPoliciesPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_policies"]
+    ) -> ListPoliciesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fms.html#FMS.Paginator.ListPolicies)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fms/paginators.html#listpoliciespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fms/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fms/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_protocols_lists"]
     ) -> ListProtocolsListsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fms.html#FMS.Paginator.ListProtocolsLists)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fms/paginators.html#listprotocolslistspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fms/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fms/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_third_party_firewall_firewall_policies"]
     ) -> ListThirdPartyFirewallFirewallPoliciesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fms.html#FMS.Paginator.ListThirdPartyFirewallFirewallPolicies)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fms/paginators.html#listthirdpartyfirewallfirewallpoliciespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fms/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fms/client/#get_paginator)
         """

@@ -1,20 +1,24 @@
 """
 Type annotations for dax service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dax/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dax/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_dax.type_defs import ClusterTypeDef
+    from mypy_boto3_dax.type_defs import EndpointTypeDef
 
-    data: ClusterTypeDef = {...}
+    data: EndpointTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List, Union
+from typing import Union
 
 from .literals import (
     ChangeTypeType,
@@ -25,44 +29,57 @@ from .literals import (
     SSEStatusType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Sequence
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List, Sequence
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
     "ClusterTypeDef",
-    "CreateClusterRequestRequestTypeDef",
+    "CreateClusterRequestTypeDef",
     "CreateClusterResponseTypeDef",
-    "CreateParameterGroupRequestRequestTypeDef",
+    "CreateParameterGroupRequestTypeDef",
     "CreateParameterGroupResponseTypeDef",
-    "CreateSubnetGroupRequestRequestTypeDef",
+    "CreateSubnetGroupRequestTypeDef",
     "CreateSubnetGroupResponseTypeDef",
-    "DecreaseReplicationFactorRequestRequestTypeDef",
+    "DecreaseReplicationFactorRequestTypeDef",
     "DecreaseReplicationFactorResponseTypeDef",
-    "DeleteClusterRequestRequestTypeDef",
+    "DeleteClusterRequestTypeDef",
     "DeleteClusterResponseTypeDef",
-    "DeleteParameterGroupRequestRequestTypeDef",
+    "DeleteParameterGroupRequestTypeDef",
     "DeleteParameterGroupResponseTypeDef",
-    "DeleteSubnetGroupRequestRequestTypeDef",
+    "DeleteSubnetGroupRequestTypeDef",
     "DeleteSubnetGroupResponseTypeDef",
-    "DescribeClustersRequestRequestTypeDef",
+    "DescribeClustersRequestPaginateTypeDef",
+    "DescribeClustersRequestTypeDef",
     "DescribeClustersResponseTypeDef",
-    "DescribeDefaultParametersRequestRequestTypeDef",
+    "DescribeDefaultParametersRequestPaginateTypeDef",
+    "DescribeDefaultParametersRequestTypeDef",
     "DescribeDefaultParametersResponseTypeDef",
-    "DescribeEventsRequestRequestTypeDef",
+    "DescribeEventsRequestPaginateTypeDef",
+    "DescribeEventsRequestTypeDef",
     "DescribeEventsResponseTypeDef",
-    "DescribeParameterGroupsRequestRequestTypeDef",
+    "DescribeParameterGroupsRequestPaginateTypeDef",
+    "DescribeParameterGroupsRequestTypeDef",
     "DescribeParameterGroupsResponseTypeDef",
-    "DescribeParametersRequestRequestTypeDef",
+    "DescribeParametersRequestPaginateTypeDef",
+    "DescribeParametersRequestTypeDef",
     "DescribeParametersResponseTypeDef",
-    "DescribeSubnetGroupsRequestRequestTypeDef",
+    "DescribeSubnetGroupsRequestPaginateTypeDef",
+    "DescribeSubnetGroupsRequestTypeDef",
     "DescribeSubnetGroupsResponseTypeDef",
     "EndpointTypeDef",
     "EventTypeDef",
-    "IncreaseReplicationFactorRequestRequestTypeDef",
+    "IncreaseReplicationFactorRequestTypeDef",
     "IncreaseReplicationFactorResponseTypeDef",
-    "ListTagsRequestRequestTypeDef",
+    "ListTagsRequestPaginateTypeDef",
+    "ListTagsRequestTypeDef",
     "ListTagsResponseTypeDef",
     "NodeTypeDef",
     "NodeTypeSpecificValueTypeDef",
@@ -72,7 +89,7 @@ __all__ = (
     "ParameterGroupTypeDef",
     "ParameterNameValueTypeDef",
     "ParameterTypeDef",
-    "RebootNodeRequestRequestTypeDef",
+    "RebootNodeRequestTypeDef",
     "RebootNodeResponseTypeDef",
     "ResponseMetadataTypeDef",
     "SSEDescriptionTypeDef",
@@ -80,691 +97,362 @@ __all__ = (
     "SecurityGroupMembershipTypeDef",
     "SubnetGroupTypeDef",
     "SubnetTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
     "TagResourceResponseTypeDef",
     "TagTypeDef",
-    "UntagResourceRequestRequestTypeDef",
+    "TimestampTypeDef",
+    "UntagResourceRequestTypeDef",
     "UntagResourceResponseTypeDef",
-    "UpdateClusterRequestRequestTypeDef",
+    "UpdateClusterRequestTypeDef",
     "UpdateClusterResponseTypeDef",
-    "UpdateParameterGroupRequestRequestTypeDef",
+    "UpdateParameterGroupRequestTypeDef",
     "UpdateParameterGroupResponseTypeDef",
-    "UpdateSubnetGroupRequestRequestTypeDef",
+    "UpdateSubnetGroupRequestTypeDef",
     "UpdateSubnetGroupResponseTypeDef",
 )
 
-ClusterTypeDef = TypedDict(
-    "ClusterTypeDef",
-    {
-        "ClusterName": str,
-        "Description": str,
-        "ClusterArn": str,
-        "TotalNodes": int,
-        "ActiveNodes": int,
-        "NodeType": str,
-        "Status": str,
-        "ClusterDiscoveryEndpoint": "EndpointTypeDef",
-        "NodeIdsToRemove": List[str],
-        "Nodes": List["NodeTypeDef"],
-        "PreferredMaintenanceWindow": str,
-        "NotificationConfiguration": "NotificationConfigurationTypeDef",
-        "SubnetGroup": str,
-        "SecurityGroups": List["SecurityGroupMembershipTypeDef"],
-        "IamRoleArn": str,
-        "ParameterGroup": "ParameterGroupStatusTypeDef",
-        "SSEDescription": "SSEDescriptionTypeDef",
-        "ClusterEndpointEncryptionType": ClusterEndpointEncryptionTypeType,
-    },
-    total=False,
-)
-
-_RequiredCreateClusterRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateClusterRequestRequestTypeDef",
-    {
-        "ClusterName": str,
-        "NodeType": str,
-        "ReplicationFactor": int,
-        "IamRoleArn": str,
-    },
-)
-_OptionalCreateClusterRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateClusterRequestRequestTypeDef",
-    {
-        "Description": str,
-        "AvailabilityZones": List[str],
-        "SubnetGroupName": str,
-        "SecurityGroupIds": List[str],
-        "PreferredMaintenanceWindow": str,
-        "NotificationTopicArn": str,
-        "ParameterGroupName": str,
-        "Tags": List["TagTypeDef"],
-        "SSESpecification": "SSESpecificationTypeDef",
-        "ClusterEndpointEncryptionType": ClusterEndpointEncryptionTypeType,
-    },
-    total=False,
-)
-
-class CreateClusterRequestRequestTypeDef(
-    _RequiredCreateClusterRequestRequestTypeDef, _OptionalCreateClusterRequestRequestTypeDef
-):
-    pass
-
-CreateClusterResponseTypeDef = TypedDict(
-    "CreateClusterResponseTypeDef",
-    {
-        "Cluster": "ClusterTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateParameterGroupRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateParameterGroupRequestRequestTypeDef",
-    {
-        "ParameterGroupName": str,
-    },
-)
-_OptionalCreateParameterGroupRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateParameterGroupRequestRequestTypeDef",
-    {
-        "Description": str,
-    },
-    total=False,
-)
-
-class CreateParameterGroupRequestRequestTypeDef(
-    _RequiredCreateParameterGroupRequestRequestTypeDef,
-    _OptionalCreateParameterGroupRequestRequestTypeDef,
-):
-    pass
-
-CreateParameterGroupResponseTypeDef = TypedDict(
-    "CreateParameterGroupResponseTypeDef",
-    {
-        "ParameterGroup": "ParameterGroupTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateSubnetGroupRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateSubnetGroupRequestRequestTypeDef",
-    {
-        "SubnetGroupName": str,
-        "SubnetIds": List[str],
-    },
-)
-_OptionalCreateSubnetGroupRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateSubnetGroupRequestRequestTypeDef",
-    {
-        "Description": str,
-    },
-    total=False,
-)
-
-class CreateSubnetGroupRequestRequestTypeDef(
-    _RequiredCreateSubnetGroupRequestRequestTypeDef, _OptionalCreateSubnetGroupRequestRequestTypeDef
-):
-    pass
-
-CreateSubnetGroupResponseTypeDef = TypedDict(
-    "CreateSubnetGroupResponseTypeDef",
-    {
-        "SubnetGroup": "SubnetGroupTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDecreaseReplicationFactorRequestRequestTypeDef = TypedDict(
-    "_RequiredDecreaseReplicationFactorRequestRequestTypeDef",
-    {
-        "ClusterName": str,
-        "NewReplicationFactor": int,
-    },
-)
-_OptionalDecreaseReplicationFactorRequestRequestTypeDef = TypedDict(
-    "_OptionalDecreaseReplicationFactorRequestRequestTypeDef",
-    {
-        "AvailabilityZones": List[str],
-        "NodeIdsToRemove": List[str],
-    },
-    total=False,
-)
-
-class DecreaseReplicationFactorRequestRequestTypeDef(
-    _RequiredDecreaseReplicationFactorRequestRequestTypeDef,
-    _OptionalDecreaseReplicationFactorRequestRequestTypeDef,
-):
-    pass
-
-DecreaseReplicationFactorResponseTypeDef = TypedDict(
-    "DecreaseReplicationFactorResponseTypeDef",
-    {
-        "Cluster": "ClusterTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteClusterRequestRequestTypeDef = TypedDict(
-    "DeleteClusterRequestRequestTypeDef",
-    {
-        "ClusterName": str,
-    },
-)
-
-DeleteClusterResponseTypeDef = TypedDict(
-    "DeleteClusterResponseTypeDef",
-    {
-        "Cluster": "ClusterTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteParameterGroupRequestRequestTypeDef = TypedDict(
-    "DeleteParameterGroupRequestRequestTypeDef",
-    {
-        "ParameterGroupName": str,
-    },
-)
-
-DeleteParameterGroupResponseTypeDef = TypedDict(
-    "DeleteParameterGroupResponseTypeDef",
-    {
-        "DeletionMessage": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteSubnetGroupRequestRequestTypeDef = TypedDict(
-    "DeleteSubnetGroupRequestRequestTypeDef",
-    {
-        "SubnetGroupName": str,
-    },
-)
-
-DeleteSubnetGroupResponseTypeDef = TypedDict(
-    "DeleteSubnetGroupResponseTypeDef",
-    {
-        "DeletionMessage": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeClustersRequestRequestTypeDef = TypedDict(
-    "DescribeClustersRequestRequestTypeDef",
-    {
-        "ClusterNames": List[str],
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-DescribeClustersResponseTypeDef = TypedDict(
-    "DescribeClustersResponseTypeDef",
-    {
-        "NextToken": str,
-        "Clusters": List["ClusterTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeDefaultParametersRequestRequestTypeDef = TypedDict(
-    "DescribeDefaultParametersRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-DescribeDefaultParametersResponseTypeDef = TypedDict(
-    "DescribeDefaultParametersResponseTypeDef",
-    {
-        "NextToken": str,
-        "Parameters": List["ParameterTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeEventsRequestRequestTypeDef = TypedDict(
-    "DescribeEventsRequestRequestTypeDef",
-    {
-        "SourceName": str,
-        "SourceType": SourceTypeType,
-        "StartTime": Union[datetime, str],
-        "EndTime": Union[datetime, str],
-        "Duration": int,
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-DescribeEventsResponseTypeDef = TypedDict(
-    "DescribeEventsResponseTypeDef",
-    {
-        "NextToken": str,
-        "Events": List["EventTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeParameterGroupsRequestRequestTypeDef = TypedDict(
-    "DescribeParameterGroupsRequestRequestTypeDef",
-    {
-        "ParameterGroupNames": List[str],
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-DescribeParameterGroupsResponseTypeDef = TypedDict(
-    "DescribeParameterGroupsResponseTypeDef",
-    {
-        "NextToken": str,
-        "ParameterGroups": List["ParameterGroupTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribeParametersRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeParametersRequestRequestTypeDef",
-    {
-        "ParameterGroupName": str,
-    },
-)
-_OptionalDescribeParametersRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeParametersRequestRequestTypeDef",
-    {
-        "Source": str,
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class DescribeParametersRequestRequestTypeDef(
-    _RequiredDescribeParametersRequestRequestTypeDef,
-    _OptionalDescribeParametersRequestRequestTypeDef,
-):
-    pass
-
-DescribeParametersResponseTypeDef = TypedDict(
-    "DescribeParametersResponseTypeDef",
-    {
-        "NextToken": str,
-        "Parameters": List["ParameterTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeSubnetGroupsRequestRequestTypeDef = TypedDict(
-    "DescribeSubnetGroupsRequestRequestTypeDef",
-    {
-        "SubnetGroupNames": List[str],
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-DescribeSubnetGroupsResponseTypeDef = TypedDict(
-    "DescribeSubnetGroupsResponseTypeDef",
-    {
-        "NextToken": str,
-        "SubnetGroups": List["SubnetGroupTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-EndpointTypeDef = TypedDict(
-    "EndpointTypeDef",
-    {
-        "Address": str,
-        "Port": int,
-        "URL": str,
-    },
-    total=False,
-)
-
-EventTypeDef = TypedDict(
-    "EventTypeDef",
-    {
-        "SourceName": str,
-        "SourceType": SourceTypeType,
-        "Message": str,
-        "Date": datetime,
-    },
-    total=False,
-)
-
-_RequiredIncreaseReplicationFactorRequestRequestTypeDef = TypedDict(
-    "_RequiredIncreaseReplicationFactorRequestRequestTypeDef",
-    {
-        "ClusterName": str,
-        "NewReplicationFactor": int,
-    },
-)
-_OptionalIncreaseReplicationFactorRequestRequestTypeDef = TypedDict(
-    "_OptionalIncreaseReplicationFactorRequestRequestTypeDef",
-    {
-        "AvailabilityZones": List[str],
-    },
-    total=False,
-)
-
-class IncreaseReplicationFactorRequestRequestTypeDef(
-    _RequiredIncreaseReplicationFactorRequestRequestTypeDef,
-    _OptionalIncreaseReplicationFactorRequestRequestTypeDef,
-):
-    pass
-
-IncreaseReplicationFactorResponseTypeDef = TypedDict(
-    "IncreaseReplicationFactorResponseTypeDef",
-    {
-        "Cluster": "ClusterTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListTagsRequestRequestTypeDef = TypedDict(
-    "_RequiredListTagsRequestRequestTypeDef",
-    {
-        "ResourceName": str,
-    },
-)
-_OptionalListTagsRequestRequestTypeDef = TypedDict(
-    "_OptionalListTagsRequestRequestTypeDef",
-    {
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListTagsRequestRequestTypeDef(
-    _RequiredListTagsRequestRequestTypeDef, _OptionalListTagsRequestRequestTypeDef
-):
-    pass
-
-ListTagsResponseTypeDef = TypedDict(
-    "ListTagsResponseTypeDef",
-    {
-        "Tags": List["TagTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-NodeTypeDef = TypedDict(
-    "NodeTypeDef",
-    {
-        "NodeId": str,
-        "Endpoint": "EndpointTypeDef",
-        "NodeCreateTime": datetime,
-        "AvailabilityZone": str,
-        "NodeStatus": str,
-        "ParameterGroupStatus": str,
-    },
-    total=False,
-)
-
-NodeTypeSpecificValueTypeDef = TypedDict(
-    "NodeTypeSpecificValueTypeDef",
-    {
-        "NodeType": str,
-        "Value": str,
-    },
-    total=False,
-)
-
-NotificationConfigurationTypeDef = TypedDict(
-    "NotificationConfigurationTypeDef",
-    {
-        "TopicArn": str,
-        "TopicStatus": str,
-    },
-    total=False,
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-ParameterGroupStatusTypeDef = TypedDict(
-    "ParameterGroupStatusTypeDef",
-    {
-        "ParameterGroupName": str,
-        "ParameterApplyStatus": str,
-        "NodeIdsToReboot": List[str],
-    },
-    total=False,
-)
-
-ParameterGroupTypeDef = TypedDict(
-    "ParameterGroupTypeDef",
-    {
-        "ParameterGroupName": str,
-        "Description": str,
-    },
-    total=False,
-)
-
-ParameterNameValueTypeDef = TypedDict(
-    "ParameterNameValueTypeDef",
-    {
-        "ParameterName": str,
-        "ParameterValue": str,
-    },
-    total=False,
-)
-
-ParameterTypeDef = TypedDict(
-    "ParameterTypeDef",
-    {
-        "ParameterName": str,
-        "ParameterType": ParameterTypeType,
-        "ParameterValue": str,
-        "NodeTypeSpecificValues": List["NodeTypeSpecificValueTypeDef"],
-        "Description": str,
-        "Source": str,
-        "DataType": str,
-        "AllowedValues": str,
-        "IsModifiable": IsModifiableType,
-        "ChangeType": ChangeTypeType,
-    },
-    total=False,
-)
-
-RebootNodeRequestRequestTypeDef = TypedDict(
-    "RebootNodeRequestRequestTypeDef",
-    {
-        "ClusterName": str,
-        "NodeId": str,
-    },
-)
-
-RebootNodeResponseTypeDef = TypedDict(
-    "RebootNodeResponseTypeDef",
-    {
-        "Cluster": "ClusterTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-SSEDescriptionTypeDef = TypedDict(
-    "SSEDescriptionTypeDef",
-    {
-        "Status": SSEStatusType,
-    },
-    total=False,
-)
-
-SSESpecificationTypeDef = TypedDict(
-    "SSESpecificationTypeDef",
-    {
-        "Enabled": bool,
-    },
-)
-
-SecurityGroupMembershipTypeDef = TypedDict(
-    "SecurityGroupMembershipTypeDef",
-    {
-        "SecurityGroupIdentifier": str,
-        "Status": str,
-    },
-    total=False,
-)
-
-SubnetGroupTypeDef = TypedDict(
-    "SubnetGroupTypeDef",
-    {
-        "SubnetGroupName": str,
-        "Description": str,
-        "VpcId": str,
-        "Subnets": List["SubnetTypeDef"],
-    },
-    total=False,
-)
-
-SubnetTypeDef = TypedDict(
-    "SubnetTypeDef",
-    {
-        "SubnetIdentifier": str,
-        "SubnetAvailabilityZone": str,
-    },
-    total=False,
-)
-
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "ResourceName": str,
-        "Tags": List["TagTypeDef"],
-    },
-)
-
-TagResourceResponseTypeDef = TypedDict(
-    "TagResourceResponseTypeDef",
-    {
-        "Tags": List["TagTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-TagTypeDef = TypedDict(
-    "TagTypeDef",
-    {
-        "Key": str,
-        "Value": str,
-    },
-    total=False,
-)
-
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "ResourceName": str,
-        "TagKeys": List[str],
-    },
-)
-
-UntagResourceResponseTypeDef = TypedDict(
-    "UntagResourceResponseTypeDef",
-    {
-        "Tags": List["TagTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateClusterRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateClusterRequestRequestTypeDef",
-    {
-        "ClusterName": str,
-    },
-)
-_OptionalUpdateClusterRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateClusterRequestRequestTypeDef",
-    {
-        "Description": str,
-        "PreferredMaintenanceWindow": str,
-        "NotificationTopicArn": str,
-        "NotificationTopicStatus": str,
-        "ParameterGroupName": str,
-        "SecurityGroupIds": List[str],
-    },
-    total=False,
-)
-
-class UpdateClusterRequestRequestTypeDef(
-    _RequiredUpdateClusterRequestRequestTypeDef, _OptionalUpdateClusterRequestRequestTypeDef
-):
-    pass
-
-UpdateClusterResponseTypeDef = TypedDict(
-    "UpdateClusterResponseTypeDef",
-    {
-        "Cluster": "ClusterTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UpdateParameterGroupRequestRequestTypeDef = TypedDict(
-    "UpdateParameterGroupRequestRequestTypeDef",
-    {
-        "ParameterGroupName": str,
-        "ParameterNameValues": List["ParameterNameValueTypeDef"],
-    },
-)
-
-UpdateParameterGroupResponseTypeDef = TypedDict(
-    "UpdateParameterGroupResponseTypeDef",
-    {
-        "ParameterGroup": "ParameterGroupTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateSubnetGroupRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateSubnetGroupRequestRequestTypeDef",
-    {
-        "SubnetGroupName": str,
-    },
-)
-_OptionalUpdateSubnetGroupRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateSubnetGroupRequestRequestTypeDef",
-    {
-        "Description": str,
-        "SubnetIds": List[str],
-    },
-    total=False,
-)
-
-class UpdateSubnetGroupRequestRequestTypeDef(
-    _RequiredUpdateSubnetGroupRequestRequestTypeDef, _OptionalUpdateSubnetGroupRequestRequestTypeDef
-):
-    pass
-
-UpdateSubnetGroupResponseTypeDef = TypedDict(
-    "UpdateSubnetGroupResponseTypeDef",
-    {
-        "SubnetGroup": "SubnetGroupTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class EndpointTypeDef(TypedDict):
+    Address: NotRequired[str]
+    Port: NotRequired[int]
+    URL: NotRequired[str]
+
+class NotificationConfigurationTypeDef(TypedDict):
+    TopicArn: NotRequired[str]
+    TopicStatus: NotRequired[str]
+
+class ParameterGroupStatusTypeDef(TypedDict):
+    ParameterGroupName: NotRequired[str]
+    ParameterApplyStatus: NotRequired[str]
+    NodeIdsToReboot: NotRequired[List[str]]
+
+class SSEDescriptionTypeDef(TypedDict):
+    Status: NotRequired[SSEStatusType]
+
+class SecurityGroupMembershipTypeDef(TypedDict):
+    SecurityGroupIdentifier: NotRequired[str]
+    Status: NotRequired[str]
+
+class SSESpecificationTypeDef(TypedDict):
+    Enabled: bool
+
+class TagTypeDef(TypedDict):
+    Key: NotRequired[str]
+    Value: NotRequired[str]
+
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
+
+class CreateParameterGroupRequestTypeDef(TypedDict):
+    ParameterGroupName: str
+    Description: NotRequired[str]
+
+class ParameterGroupTypeDef(TypedDict):
+    ParameterGroupName: NotRequired[str]
+    Description: NotRequired[str]
+
+class CreateSubnetGroupRequestTypeDef(TypedDict):
+    SubnetGroupName: str
+    SubnetIds: Sequence[str]
+    Description: NotRequired[str]
+
+class DecreaseReplicationFactorRequestTypeDef(TypedDict):
+    ClusterName: str
+    NewReplicationFactor: int
+    AvailabilityZones: NotRequired[Sequence[str]]
+    NodeIdsToRemove: NotRequired[Sequence[str]]
+
+class DeleteClusterRequestTypeDef(TypedDict):
+    ClusterName: str
+
+class DeleteParameterGroupRequestTypeDef(TypedDict):
+    ParameterGroupName: str
+
+class DeleteSubnetGroupRequestTypeDef(TypedDict):
+    SubnetGroupName: str
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class DescribeClustersRequestTypeDef(TypedDict):
+    ClusterNames: NotRequired[Sequence[str]]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class DescribeDefaultParametersRequestTypeDef(TypedDict):
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+TimestampTypeDef = Union[datetime, str]
+
+class EventTypeDef(TypedDict):
+    SourceName: NotRequired[str]
+    SourceType: NotRequired[SourceTypeType]
+    Message: NotRequired[str]
+    Date: NotRequired[datetime]
+
+class DescribeParameterGroupsRequestTypeDef(TypedDict):
+    ParameterGroupNames: NotRequired[Sequence[str]]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class DescribeParametersRequestTypeDef(TypedDict):
+    ParameterGroupName: str
+    Source: NotRequired[str]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class DescribeSubnetGroupsRequestTypeDef(TypedDict):
+    SubnetGroupNames: NotRequired[Sequence[str]]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class IncreaseReplicationFactorRequestTypeDef(TypedDict):
+    ClusterName: str
+    NewReplicationFactor: int
+    AvailabilityZones: NotRequired[Sequence[str]]
+
+class ListTagsRequestTypeDef(TypedDict):
+    ResourceName: str
+    NextToken: NotRequired[str]
+
+class NodeTypeSpecificValueTypeDef(TypedDict):
+    NodeType: NotRequired[str]
+    Value: NotRequired[str]
+
+class ParameterNameValueTypeDef(TypedDict):
+    ParameterName: NotRequired[str]
+    ParameterValue: NotRequired[str]
+
+class RebootNodeRequestTypeDef(TypedDict):
+    ClusterName: str
+    NodeId: str
+
+class SubnetTypeDef(TypedDict):
+    SubnetIdentifier: NotRequired[str]
+    SubnetAvailabilityZone: NotRequired[str]
+
+class UntagResourceRequestTypeDef(TypedDict):
+    ResourceName: str
+    TagKeys: Sequence[str]
+
+class UpdateClusterRequestTypeDef(TypedDict):
+    ClusterName: str
+    Description: NotRequired[str]
+    PreferredMaintenanceWindow: NotRequired[str]
+    NotificationTopicArn: NotRequired[str]
+    NotificationTopicStatus: NotRequired[str]
+    ParameterGroupName: NotRequired[str]
+    SecurityGroupIds: NotRequired[Sequence[str]]
+
+class UpdateSubnetGroupRequestTypeDef(TypedDict):
+    SubnetGroupName: str
+    Description: NotRequired[str]
+    SubnetIds: NotRequired[Sequence[str]]
+
+class NodeTypeDef(TypedDict):
+    NodeId: NotRequired[str]
+    Endpoint: NotRequired[EndpointTypeDef]
+    NodeCreateTime: NotRequired[datetime]
+    AvailabilityZone: NotRequired[str]
+    NodeStatus: NotRequired[str]
+    ParameterGroupStatus: NotRequired[str]
+
+class CreateClusterRequestTypeDef(TypedDict):
+    ClusterName: str
+    NodeType: str
+    ReplicationFactor: int
+    IamRoleArn: str
+    Description: NotRequired[str]
+    AvailabilityZones: NotRequired[Sequence[str]]
+    SubnetGroupName: NotRequired[str]
+    SecurityGroupIds: NotRequired[Sequence[str]]
+    PreferredMaintenanceWindow: NotRequired[str]
+    NotificationTopicArn: NotRequired[str]
+    ParameterGroupName: NotRequired[str]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+    SSESpecification: NotRequired[SSESpecificationTypeDef]
+    ClusterEndpointEncryptionType: NotRequired[ClusterEndpointEncryptionTypeType]
+
+class TagResourceRequestTypeDef(TypedDict):
+    ResourceName: str
+    Tags: Sequence[TagTypeDef]
+
+class DeleteParameterGroupResponseTypeDef(TypedDict):
+    DeletionMessage: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteSubnetGroupResponseTypeDef(TypedDict):
+    DeletionMessage: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListTagsResponseTypeDef(TypedDict):
+    Tags: List[TagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class TagResourceResponseTypeDef(TypedDict):
+    Tags: List[TagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UntagResourceResponseTypeDef(TypedDict):
+    Tags: List[TagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateParameterGroupResponseTypeDef(TypedDict):
+    ParameterGroup: ParameterGroupTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeParameterGroupsResponseTypeDef(TypedDict):
+    ParameterGroups: List[ParameterGroupTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class UpdateParameterGroupResponseTypeDef(TypedDict):
+    ParameterGroup: ParameterGroupTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeClustersRequestPaginateTypeDef(TypedDict):
+    ClusterNames: NotRequired[Sequence[str]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeDefaultParametersRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeParameterGroupsRequestPaginateTypeDef(TypedDict):
+    ParameterGroupNames: NotRequired[Sequence[str]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeParametersRequestPaginateTypeDef(TypedDict):
+    ParameterGroupName: str
+    Source: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeSubnetGroupsRequestPaginateTypeDef(TypedDict):
+    SubnetGroupNames: NotRequired[Sequence[str]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListTagsRequestPaginateTypeDef(TypedDict):
+    ResourceName: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeEventsRequestPaginateTypeDef(TypedDict):
+    SourceName: NotRequired[str]
+    SourceType: NotRequired[SourceTypeType]
+    StartTime: NotRequired[TimestampTypeDef]
+    EndTime: NotRequired[TimestampTypeDef]
+    Duration: NotRequired[int]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeEventsRequestTypeDef(TypedDict):
+    SourceName: NotRequired[str]
+    SourceType: NotRequired[SourceTypeType]
+    StartTime: NotRequired[TimestampTypeDef]
+    EndTime: NotRequired[TimestampTypeDef]
+    Duration: NotRequired[int]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class DescribeEventsResponseTypeDef(TypedDict):
+    Events: List[EventTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ParameterTypeDef(TypedDict):
+    ParameterName: NotRequired[str]
+    ParameterType: NotRequired[ParameterTypeType]
+    ParameterValue: NotRequired[str]
+    NodeTypeSpecificValues: NotRequired[List[NodeTypeSpecificValueTypeDef]]
+    Description: NotRequired[str]
+    Source: NotRequired[str]
+    DataType: NotRequired[str]
+    AllowedValues: NotRequired[str]
+    IsModifiable: NotRequired[IsModifiableType]
+    ChangeType: NotRequired[ChangeTypeType]
+
+class UpdateParameterGroupRequestTypeDef(TypedDict):
+    ParameterGroupName: str
+    ParameterNameValues: Sequence[ParameterNameValueTypeDef]
+
+class SubnetGroupTypeDef(TypedDict):
+    SubnetGroupName: NotRequired[str]
+    Description: NotRequired[str]
+    VpcId: NotRequired[str]
+    Subnets: NotRequired[List[SubnetTypeDef]]
+
+class ClusterTypeDef(TypedDict):
+    ClusterName: NotRequired[str]
+    Description: NotRequired[str]
+    ClusterArn: NotRequired[str]
+    TotalNodes: NotRequired[int]
+    ActiveNodes: NotRequired[int]
+    NodeType: NotRequired[str]
+    Status: NotRequired[str]
+    ClusterDiscoveryEndpoint: NotRequired[EndpointTypeDef]
+    NodeIdsToRemove: NotRequired[List[str]]
+    Nodes: NotRequired[List[NodeTypeDef]]
+    PreferredMaintenanceWindow: NotRequired[str]
+    NotificationConfiguration: NotRequired[NotificationConfigurationTypeDef]
+    SubnetGroup: NotRequired[str]
+    SecurityGroups: NotRequired[List[SecurityGroupMembershipTypeDef]]
+    IamRoleArn: NotRequired[str]
+    ParameterGroup: NotRequired[ParameterGroupStatusTypeDef]
+    SSEDescription: NotRequired[SSEDescriptionTypeDef]
+    ClusterEndpointEncryptionType: NotRequired[ClusterEndpointEncryptionTypeType]
+
+class DescribeDefaultParametersResponseTypeDef(TypedDict):
+    Parameters: List[ParameterTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class DescribeParametersResponseTypeDef(TypedDict):
+    Parameters: List[ParameterTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class CreateSubnetGroupResponseTypeDef(TypedDict):
+    SubnetGroup: SubnetGroupTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeSubnetGroupsResponseTypeDef(TypedDict):
+    SubnetGroups: List[SubnetGroupTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class UpdateSubnetGroupResponseTypeDef(TypedDict):
+    SubnetGroup: SubnetGroupTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateClusterResponseTypeDef(TypedDict):
+    Cluster: ClusterTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DecreaseReplicationFactorResponseTypeDef(TypedDict):
+    Cluster: ClusterTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteClusterResponseTypeDef(TypedDict):
+    Cluster: ClusterTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeClustersResponseTypeDef(TypedDict):
+    Clusters: List[ClusterTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class IncreaseReplicationFactorResponseTypeDef(TypedDict):
+    Cluster: ClusterTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class RebootNodeResponseTypeDef(TypedDict):
+    Cluster: ClusterTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateClusterResponseTypeDef(TypedDict):
+    Cluster: ClusterTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef

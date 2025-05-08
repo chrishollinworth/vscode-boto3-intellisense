@@ -1,19 +1,21 @@
 """
 Main interface for apprunner service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_apprunner/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_apprunner import (
         AppRunnerClient,
         Client,
     )
 
-    session = boto3.Session()
-
-    client: AppRunnerClient = boto3.client("apprunner")
-    session_client: AppRunnerClient = session.client("apprunner")
+    session = Session()
+    client: AppRunnerClient = session.client("apprunner")
     ```
 """
 

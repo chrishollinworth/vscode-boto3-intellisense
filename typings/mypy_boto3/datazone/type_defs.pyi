@@ -1,60 +1,90 @@
 """
 Type annotations for datazone service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_datazone/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_datazone/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_datazone.type_defs import AcceptChoiceTypeDef
 
-    data: AcceptChoiceTypeDef = {...}
+    data: AcceptChoiceTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import IO, Any, Dict, List, Union
+from typing import IO, Any, Union
 
 from botocore.response import StreamingBody
 
 from .literals import (
     AcceptRuleBehaviorType,
+    AuthenticationTypeType,
     AuthTypeType,
     ChangeActionType,
+    ComputeEnvironmentsType,
     ConfigurableActionTypeAuthorizationType,
+    ConnectionStatusType,
+    ConnectionTypeType,
     DataAssetActivityStatusType,
+    DataProductStatusType,
     DataSourceErrorTypeType,
     DataSourceRunStatusType,
     DataSourceRunTypeType,
     DataSourceStatusType,
+    DeploymentModeType,
     DeploymentStatusType,
     DeploymentTypeType,
     DomainStatusType,
+    DomainVersionType,
     EdgeDirectionType,
     EnableSettingType,
+    EntityTypeType,
     EnvironmentStatusType,
     FilterExpressionTypeType,
+    FilterStatusType,
     FormTypeStatusType,
     GlossaryStatusType,
     GlossaryTermStatusType,
+    GlueConnectionTypeType,
+    GovernanceTypeType,
     GroupProfileStatusType,
     GroupSearchTypeType,
+    HyperPodOrchestratorType,
     InventorySearchScopeType,
+    JobRunModeType,
+    JobRunStatusType,
+    LineageEventProcessingStatusType,
+    LineageImportStatusType,
     ListingStatusType,
+    ManagedPolicyTypeType,
     MetadataGenerationRunStatusType,
     NotificationRoleType,
     NotificationTypeType,
+    OAuth2GrantTypeType,
+    OpenLineageRunStateType,
+    OverallDeploymentStatusType,
+    ProjectDesignationType,
     ProjectStatusType,
+    ProtocolType,
     RejectRuleBehaviorType,
+    RuleActionType,
+    RuleScopeSelectionModeType,
     SearchOutputAdditionalAttributeType,
     SelfGrantStatusType,
     SortKeyType,
     SortOrderType,
+    StatusType,
     SubscriptionGrantOverallStatusType,
     SubscriptionGrantStatusType,
     SubscriptionRequestStatusType,
     SubscriptionStatusType,
+    TargetEntityTypeType,
     TaskStatusType,
     TimeSeriesEntityTypeType,
     TimezoneType,
@@ -67,23 +97,34 @@ from .literals import (
     UserTypeType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
     "AcceptChoiceTypeDef",
-    "AcceptPredictionsInputRequestTypeDef",
+    "AcceptPredictionsInputTypeDef",
     "AcceptPredictionsOutputTypeDef",
     "AcceptRuleTypeDef",
-    "AcceptSubscriptionRequestInputRequestTypeDef",
+    "AcceptSubscriptionRequestInputTypeDef",
     "AcceptSubscriptionRequestOutputTypeDef",
+    "AcceptedAssetScopeTypeDef",
     "ActionParametersTypeDef",
+    "AddEntityOwnerInputTypeDef",
+    "AddPolicyGrantInputTypeDef",
+    "AddToProjectMemberPoolPolicyGrantDetailTypeDef",
+    "AssetFilterConfigurationOutputTypeDef",
+    "AssetFilterConfigurationTypeDef",
+    "AssetFilterConfigurationUnionTypeDef",
+    "AssetFilterSummaryTypeDef",
+    "AssetInDataProductListingItemTypeDef",
     "AssetItemAdditionalAttributesTypeDef",
     "AssetItemTypeDef",
     "AssetListingDetailsTypeDef",
@@ -91,97 +132,181 @@ __all__ = (
     "AssetListingItemTypeDef",
     "AssetListingTypeDef",
     "AssetRevisionTypeDef",
+    "AssetScopeTypeDef",
     "AssetTargetNameMapTypeDef",
     "AssetTypeItemTypeDef",
-    "AssociateEnvironmentRoleInputRequestTypeDef",
+    "AssetTypesForRuleOutputTypeDef",
+    "AssetTypesForRuleTypeDef",
+    "AssociateEnvironmentRoleInputTypeDef",
+    "AthenaPropertiesInputTypeDef",
+    "AthenaPropertiesOutputTypeDef",
+    "AthenaPropertiesPatchTypeDef",
+    "AuthenticationConfigurationInputTypeDef",
+    "AuthenticationConfigurationPatchTypeDef",
+    "AuthenticationConfigurationTypeDef",
+    "AuthorizationCodePropertiesTypeDef",
+    "AwsAccountTypeDef",
     "AwsConsoleLinkParametersTypeDef",
+    "AwsLocationTypeDef",
+    "BasicAuthenticationCredentialsTypeDef",
+    "BlobTypeDef",
     "BusinessNameGenerationConfigurationTypeDef",
-    "CancelMetadataGenerationRunInputRequestTypeDef",
-    "CancelSubscriptionInputRequestTypeDef",
+    "CancelMetadataGenerationRunInputTypeDef",
+    "CancelSubscriptionInputTypeDef",
     "CancelSubscriptionOutputTypeDef",
     "CloudFormationPropertiesTypeDef",
+    "ColumnFilterConfigurationOutputTypeDef",
+    "ColumnFilterConfigurationTypeDef",
     "ConfigurableActionParameterTypeDef",
     "ConfigurableEnvironmentActionTypeDef",
-    "CreateAssetInputRequestTypeDef",
+    "ConnectionCredentialsTypeDef",
+    "ConnectionPropertiesInputTypeDef",
+    "ConnectionPropertiesOutputTypeDef",
+    "ConnectionPropertiesPatchTypeDef",
+    "ConnectionSummaryTypeDef",
+    "CreateAssetFilterInputTypeDef",
+    "CreateAssetFilterOutputTypeDef",
+    "CreateAssetInputTypeDef",
     "CreateAssetOutputTypeDef",
-    "CreateAssetRevisionInputRequestTypeDef",
+    "CreateAssetRevisionInputTypeDef",
     "CreateAssetRevisionOutputTypeDef",
-    "CreateAssetTypeInputRequestTypeDef",
+    "CreateAssetTypeInputTypeDef",
     "CreateAssetTypeOutputTypeDef",
-    "CreateDataSourceInputRequestTypeDef",
+    "CreateAssetTypePolicyGrantDetailTypeDef",
+    "CreateConnectionInputTypeDef",
+    "CreateConnectionOutputTypeDef",
+    "CreateDataProductInputTypeDef",
+    "CreateDataProductOutputTypeDef",
+    "CreateDataProductRevisionInputTypeDef",
+    "CreateDataProductRevisionOutputTypeDef",
+    "CreateDataSourceInputTypeDef",
     "CreateDataSourceOutputTypeDef",
-    "CreateDomainInputRequestTypeDef",
+    "CreateDomainInputTypeDef",
     "CreateDomainOutputTypeDef",
-    "CreateEnvironmentActionInputRequestTypeDef",
+    "CreateDomainUnitInputTypeDef",
+    "CreateDomainUnitOutputTypeDef",
+    "CreateDomainUnitPolicyGrantDetailTypeDef",
+    "CreateEnvironmentActionInputTypeDef",
     "CreateEnvironmentActionOutputTypeDef",
-    "CreateEnvironmentInputRequestTypeDef",
+    "CreateEnvironmentInputTypeDef",
     "CreateEnvironmentOutputTypeDef",
-    "CreateEnvironmentProfileInputRequestTypeDef",
+    "CreateEnvironmentProfileInputTypeDef",
     "CreateEnvironmentProfileOutputTypeDef",
-    "CreateFormTypeInputRequestTypeDef",
+    "CreateEnvironmentProfilePolicyGrantDetailTypeDef",
+    "CreateFormTypeInputTypeDef",
     "CreateFormTypeOutputTypeDef",
-    "CreateGlossaryInputRequestTypeDef",
+    "CreateFormTypePolicyGrantDetailTypeDef",
+    "CreateGlossaryInputTypeDef",
     "CreateGlossaryOutputTypeDef",
-    "CreateGlossaryTermInputRequestTypeDef",
+    "CreateGlossaryPolicyGrantDetailTypeDef",
+    "CreateGlossaryTermInputTypeDef",
     "CreateGlossaryTermOutputTypeDef",
-    "CreateGroupProfileInputRequestTypeDef",
+    "CreateGroupProfileInputTypeDef",
     "CreateGroupProfileOutputTypeDef",
-    "CreateListingChangeSetInputRequestTypeDef",
+    "CreateListingChangeSetInputTypeDef",
     "CreateListingChangeSetOutputTypeDef",
-    "CreateProjectInputRequestTypeDef",
-    "CreateProjectMembershipInputRequestTypeDef",
+    "CreateProjectFromProjectProfilePolicyGrantDetailOutputTypeDef",
+    "CreateProjectFromProjectProfilePolicyGrantDetailTypeDef",
+    "CreateProjectInputTypeDef",
+    "CreateProjectMembershipInputTypeDef",
     "CreateProjectOutputTypeDef",
-    "CreateSubscriptionGrantInputRequestTypeDef",
+    "CreateProjectPolicyGrantDetailTypeDef",
+    "CreateProjectProfileInputTypeDef",
+    "CreateProjectProfileOutputTypeDef",
+    "CreateRuleInputTypeDef",
+    "CreateRuleOutputTypeDef",
+    "CreateSubscriptionGrantInputTypeDef",
     "CreateSubscriptionGrantOutputTypeDef",
-    "CreateSubscriptionRequestInputRequestTypeDef",
+    "CreateSubscriptionRequestInputTypeDef",
     "CreateSubscriptionRequestOutputTypeDef",
-    "CreateSubscriptionTargetInputRequestTypeDef",
+    "CreateSubscriptionTargetInputTypeDef",
     "CreateSubscriptionTargetOutputTypeDef",
-    "CreateUserProfileInputRequestTypeDef",
+    "CreateUserProfileInputTypeDef",
     "CreateUserProfileOutputTypeDef",
     "CustomParameterTypeDef",
+    "DataProductItemOutputTypeDef",
     "DataProductItemTypeDef",
-    "DataProductSummaryTypeDef",
+    "DataProductItemUnionTypeDef",
+    "DataProductListingItemAdditionalAttributesTypeDef",
+    "DataProductListingItemTypeDef",
+    "DataProductListingTypeDef",
+    "DataProductResultItemTypeDef",
+    "DataProductRevisionTypeDef",
     "DataSourceConfigurationInputTypeDef",
     "DataSourceConfigurationOutputTypeDef",
     "DataSourceErrorMessageTypeDef",
     "DataSourceRunActivityTypeDef",
+    "DataSourceRunLineageSummaryTypeDef",
     "DataSourceRunSummaryTypeDef",
     "DataSourceSummaryTypeDef",
-    "DeleteAssetInputRequestTypeDef",
-    "DeleteAssetTypeInputRequestTypeDef",
-    "DeleteDataSourceInputRequestTypeDef",
+    "DeleteAssetFilterInputTypeDef",
+    "DeleteAssetInputTypeDef",
+    "DeleteAssetTypeInputTypeDef",
+    "DeleteConnectionInputTypeDef",
+    "DeleteConnectionOutputTypeDef",
+    "DeleteDataProductInputTypeDef",
+    "DeleteDataSourceInputTypeDef",
     "DeleteDataSourceOutputTypeDef",
-    "DeleteDomainInputRequestTypeDef",
+    "DeleteDomainInputTypeDef",
     "DeleteDomainOutputTypeDef",
-    "DeleteEnvironmentActionInputRequestTypeDef",
-    "DeleteEnvironmentBlueprintConfigurationInputRequestTypeDef",
-    "DeleteEnvironmentInputRequestTypeDef",
-    "DeleteEnvironmentProfileInputRequestTypeDef",
-    "DeleteFormTypeInputRequestTypeDef",
-    "DeleteGlossaryInputRequestTypeDef",
-    "DeleteGlossaryTermInputRequestTypeDef",
-    "DeleteListingInputRequestTypeDef",
-    "DeleteProjectInputRequestTypeDef",
-    "DeleteProjectMembershipInputRequestTypeDef",
-    "DeleteSubscriptionGrantInputRequestTypeDef",
+    "DeleteDomainUnitInputTypeDef",
+    "DeleteEnvironmentActionInputTypeDef",
+    "DeleteEnvironmentBlueprintConfigurationInputTypeDef",
+    "DeleteEnvironmentInputTypeDef",
+    "DeleteEnvironmentProfileInputTypeDef",
+    "DeleteFormTypeInputTypeDef",
+    "DeleteGlossaryInputTypeDef",
+    "DeleteGlossaryTermInputTypeDef",
+    "DeleteListingInputTypeDef",
+    "DeleteProjectInputTypeDef",
+    "DeleteProjectMembershipInputTypeDef",
+    "DeleteProjectProfileInputTypeDef",
+    "DeleteRuleInputTypeDef",
+    "DeleteSubscriptionGrantInputTypeDef",
     "DeleteSubscriptionGrantOutputTypeDef",
-    "DeleteSubscriptionRequestInputRequestTypeDef",
-    "DeleteSubscriptionTargetInputRequestTypeDef",
-    "DeleteTimeSeriesDataPointsInputRequestTypeDef",
+    "DeleteSubscriptionRequestInputTypeDef",
+    "DeleteSubscriptionTargetInputTypeDef",
+    "DeleteTimeSeriesDataPointsInputTypeDef",
     "DeploymentPropertiesTypeDef",
     "DeploymentTypeDef",
     "DetailedGlossaryTermTypeDef",
-    "DisassociateEnvironmentRoleInputRequestTypeDef",
+    "DisassociateEnvironmentRoleInputTypeDef",
     "DomainSummaryTypeDef",
+    "DomainUnitFilterForProjectTypeDef",
+    "DomainUnitGrantFilterOutputTypeDef",
+    "DomainUnitGrantFilterTypeDef",
+    "DomainUnitGroupPropertiesTypeDef",
+    "DomainUnitOwnerPropertiesTypeDef",
+    "DomainUnitPolicyGrantPrincipalOutputTypeDef",
+    "DomainUnitPolicyGrantPrincipalTypeDef",
+    "DomainUnitSummaryTypeDef",
+    "DomainUnitTargetTypeDef",
+    "DomainUnitUserPropertiesTypeDef",
+    "EmptyResponseMetadataTypeDef",
     "EnvironmentActionSummaryTypeDef",
     "EnvironmentBlueprintConfigurationItemTypeDef",
     "EnvironmentBlueprintSummaryTypeDef",
+    "EnvironmentConfigurationOutputTypeDef",
+    "EnvironmentConfigurationParameterTypeDef",
+    "EnvironmentConfigurationParametersDetailsOutputTypeDef",
+    "EnvironmentConfigurationParametersDetailsTypeDef",
+    "EnvironmentConfigurationParametersDetailsUnionTypeDef",
+    "EnvironmentConfigurationTypeDef",
+    "EnvironmentConfigurationUnionTypeDef",
+    "EnvironmentConfigurationUserParameterOutputTypeDef",
+    "EnvironmentConfigurationUserParameterTypeDef",
+    "EnvironmentConfigurationUserParameterUnionTypeDef",
+    "EnvironmentDeploymentDetailsOutputTypeDef",
+    "EnvironmentDeploymentDetailsTypeDef",
+    "EnvironmentDeploymentDetailsUnionTypeDef",
     "EnvironmentErrorTypeDef",
     "EnvironmentParameterTypeDef",
     "EnvironmentProfileSummaryTypeDef",
     "EnvironmentSummaryTypeDef",
+    "EqualToExpressionTypeDef",
+    "EventSummaryTypeDef",
     "FailureCauseTypeDef",
+    "FilterClausePaginatorTypeDef",
     "FilterClauseTypeDef",
     "FilterExpressionTypeDef",
     "FilterTypeDef",
@@ -190,176 +315,360 @@ __all__ = (
     "FormInputTypeDef",
     "FormOutputTypeDef",
     "FormTypeDataTypeDef",
-    "GetAssetInputRequestTypeDef",
+    "GetAssetFilterInputTypeDef",
+    "GetAssetFilterOutputTypeDef",
+    "GetAssetInputTypeDef",
     "GetAssetOutputTypeDef",
-    "GetAssetTypeInputRequestTypeDef",
+    "GetAssetTypeInputTypeDef",
     "GetAssetTypeOutputTypeDef",
-    "GetDataSourceInputRequestTypeDef",
+    "GetConnectionInputTypeDef",
+    "GetConnectionOutputTypeDef",
+    "GetDataProductInputTypeDef",
+    "GetDataProductOutputTypeDef",
+    "GetDataSourceInputTypeDef",
     "GetDataSourceOutputTypeDef",
-    "GetDataSourceRunInputRequestTypeDef",
+    "GetDataSourceRunInputTypeDef",
     "GetDataSourceRunOutputTypeDef",
-    "GetDomainInputRequestTypeDef",
+    "GetDomainInputTypeDef",
     "GetDomainOutputTypeDef",
-    "GetEnvironmentActionInputRequestTypeDef",
+    "GetDomainUnitInputTypeDef",
+    "GetDomainUnitOutputTypeDef",
+    "GetEnvironmentActionInputTypeDef",
     "GetEnvironmentActionOutputTypeDef",
-    "GetEnvironmentBlueprintConfigurationInputRequestTypeDef",
+    "GetEnvironmentBlueprintConfigurationInputTypeDef",
     "GetEnvironmentBlueprintConfigurationOutputTypeDef",
-    "GetEnvironmentBlueprintInputRequestTypeDef",
+    "GetEnvironmentBlueprintInputTypeDef",
     "GetEnvironmentBlueprintOutputTypeDef",
-    "GetEnvironmentInputRequestTypeDef",
+    "GetEnvironmentCredentialsInputTypeDef",
+    "GetEnvironmentCredentialsOutputTypeDef",
+    "GetEnvironmentInputTypeDef",
     "GetEnvironmentOutputTypeDef",
-    "GetEnvironmentProfileInputRequestTypeDef",
+    "GetEnvironmentProfileInputTypeDef",
     "GetEnvironmentProfileOutputTypeDef",
-    "GetFormTypeInputRequestTypeDef",
+    "GetFormTypeInputTypeDef",
     "GetFormTypeOutputTypeDef",
-    "GetGlossaryInputRequestTypeDef",
+    "GetGlossaryInputTypeDef",
     "GetGlossaryOutputTypeDef",
-    "GetGlossaryTermInputRequestTypeDef",
+    "GetGlossaryTermInputTypeDef",
     "GetGlossaryTermOutputTypeDef",
-    "GetGroupProfileInputRequestTypeDef",
+    "GetGroupProfileInputTypeDef",
     "GetGroupProfileOutputTypeDef",
-    "GetIamPortalLoginUrlInputRequestTypeDef",
+    "GetIamPortalLoginUrlInputTypeDef",
     "GetIamPortalLoginUrlOutputTypeDef",
-    "GetLineageNodeInputRequestTypeDef",
+    "GetJobRunInputTypeDef",
+    "GetJobRunOutputTypeDef",
+    "GetLineageEventInputTypeDef",
+    "GetLineageEventOutputTypeDef",
+    "GetLineageNodeInputTypeDef",
     "GetLineageNodeOutputTypeDef",
-    "GetListingInputRequestTypeDef",
+    "GetListingInputTypeDef",
     "GetListingOutputTypeDef",
-    "GetMetadataGenerationRunInputRequestTypeDef",
+    "GetMetadataGenerationRunInputTypeDef",
     "GetMetadataGenerationRunOutputTypeDef",
-    "GetProjectInputRequestTypeDef",
+    "GetProjectInputTypeDef",
     "GetProjectOutputTypeDef",
-    "GetSubscriptionGrantInputRequestTypeDef",
+    "GetProjectProfileInputTypeDef",
+    "GetProjectProfileOutputTypeDef",
+    "GetRuleInputTypeDef",
+    "GetRuleOutputTypeDef",
+    "GetSubscriptionGrantInputTypeDef",
     "GetSubscriptionGrantOutputTypeDef",
-    "GetSubscriptionInputRequestTypeDef",
+    "GetSubscriptionInputTypeDef",
     "GetSubscriptionOutputTypeDef",
-    "GetSubscriptionRequestDetailsInputRequestTypeDef",
+    "GetSubscriptionRequestDetailsInputTypeDef",
     "GetSubscriptionRequestDetailsOutputTypeDef",
-    "GetSubscriptionTargetInputRequestTypeDef",
+    "GetSubscriptionTargetInputTypeDef",
     "GetSubscriptionTargetOutputTypeDef",
-    "GetTimeSeriesDataPointInputRequestTypeDef",
+    "GetTimeSeriesDataPointInputTypeDef",
     "GetTimeSeriesDataPointOutputTypeDef",
-    "GetUserProfileInputRequestTypeDef",
+    "GetUserProfileInputTypeDef",
     "GetUserProfileOutputTypeDef",
     "GlossaryItemTypeDef",
     "GlossaryTermItemTypeDef",
+    "GlueConnectionInputTypeDef",
+    "GlueConnectionPatchTypeDef",
+    "GlueConnectionTypeDef",
+    "GlueOAuth2CredentialsTypeDef",
+    "GluePropertiesInputTypeDef",
+    "GluePropertiesOutputTypeDef",
+    "GluePropertiesPatchTypeDef",
     "GlueRunConfigurationInputTypeDef",
     "GlueRunConfigurationOutputTypeDef",
     "GlueSelfGrantStatusOutputTypeDef",
     "GrantedEntityInputTypeDef",
     "GrantedEntityTypeDef",
+    "GreaterThanExpressionTypeDef",
+    "GreaterThanOrEqualToExpressionTypeDef",
     "GroupDetailsTypeDef",
+    "GroupPolicyGrantPrincipalTypeDef",
     "GroupProfileSummaryTypeDef",
+    "HyperPodPropertiesInputTypeDef",
+    "HyperPodPropertiesOutputTypeDef",
+    "IamPropertiesInputTypeDef",
+    "IamPropertiesOutputTypeDef",
+    "IamPropertiesPatchTypeDef",
     "IamUserProfileDetailsTypeDef",
     "ImportTypeDef",
+    "InExpressionOutputTypeDef",
+    "InExpressionTypeDef",
+    "IsNotNullExpressionTypeDef",
+    "IsNullExpressionTypeDef",
+    "JobRunDetailsTypeDef",
+    "JobRunErrorTypeDef",
+    "JobRunSummaryTypeDef",
+    "LakeFormationConfigurationOutputTypeDef",
+    "LakeFormationConfigurationTypeDef",
+    "LakeFormationConfigurationUnionTypeDef",
+    "LessThanExpressionTypeDef",
+    "LessThanOrEqualToExpressionTypeDef",
+    "LikeExpressionTypeDef",
+    "LineageEventSummaryTypeDef",
+    "LineageInfoTypeDef",
     "LineageNodeReferenceTypeDef",
     "LineageNodeSummaryTypeDef",
     "LineageNodeTypeItemTypeDef",
-    "ListAssetRevisionsInputRequestTypeDef",
+    "LineageRunDetailsTypeDef",
+    "LineageSqlQueryRunDetailsTypeDef",
+    "LineageSyncScheduleTypeDef",
+    "ListAssetFiltersInputPaginateTypeDef",
+    "ListAssetFiltersInputTypeDef",
+    "ListAssetFiltersOutputTypeDef",
+    "ListAssetRevisionsInputPaginateTypeDef",
+    "ListAssetRevisionsInputTypeDef",
     "ListAssetRevisionsOutputTypeDef",
-    "ListDataSourceRunActivitiesInputRequestTypeDef",
+    "ListConnectionsInputPaginateTypeDef",
+    "ListConnectionsInputTypeDef",
+    "ListConnectionsOutputTypeDef",
+    "ListDataProductRevisionsInputPaginateTypeDef",
+    "ListDataProductRevisionsInputTypeDef",
+    "ListDataProductRevisionsOutputTypeDef",
+    "ListDataSourceRunActivitiesInputPaginateTypeDef",
+    "ListDataSourceRunActivitiesInputTypeDef",
     "ListDataSourceRunActivitiesOutputTypeDef",
-    "ListDataSourceRunsInputRequestTypeDef",
+    "ListDataSourceRunsInputPaginateTypeDef",
+    "ListDataSourceRunsInputTypeDef",
     "ListDataSourceRunsOutputTypeDef",
-    "ListDataSourcesInputRequestTypeDef",
+    "ListDataSourcesInputPaginateTypeDef",
+    "ListDataSourcesInputTypeDef",
     "ListDataSourcesOutputTypeDef",
-    "ListDomainsInputRequestTypeDef",
+    "ListDomainUnitsForParentInputPaginateTypeDef",
+    "ListDomainUnitsForParentInputTypeDef",
+    "ListDomainUnitsForParentOutputTypeDef",
+    "ListDomainsInputPaginateTypeDef",
+    "ListDomainsInputTypeDef",
     "ListDomainsOutputTypeDef",
-    "ListEnvironmentActionsInputRequestTypeDef",
+    "ListEntityOwnersInputPaginateTypeDef",
+    "ListEntityOwnersInputTypeDef",
+    "ListEntityOwnersOutputTypeDef",
+    "ListEnvironmentActionsInputPaginateTypeDef",
+    "ListEnvironmentActionsInputTypeDef",
     "ListEnvironmentActionsOutputTypeDef",
-    "ListEnvironmentBlueprintConfigurationsInputRequestTypeDef",
+    "ListEnvironmentBlueprintConfigurationsInputPaginateTypeDef",
+    "ListEnvironmentBlueprintConfigurationsInputTypeDef",
     "ListEnvironmentBlueprintConfigurationsOutputTypeDef",
-    "ListEnvironmentBlueprintsInputRequestTypeDef",
+    "ListEnvironmentBlueprintsInputPaginateTypeDef",
+    "ListEnvironmentBlueprintsInputTypeDef",
     "ListEnvironmentBlueprintsOutputTypeDef",
-    "ListEnvironmentProfilesInputRequestTypeDef",
+    "ListEnvironmentProfilesInputPaginateTypeDef",
+    "ListEnvironmentProfilesInputTypeDef",
     "ListEnvironmentProfilesOutputTypeDef",
-    "ListEnvironmentsInputRequestTypeDef",
+    "ListEnvironmentsInputPaginateTypeDef",
+    "ListEnvironmentsInputTypeDef",
     "ListEnvironmentsOutputTypeDef",
-    "ListLineageNodeHistoryInputRequestTypeDef",
+    "ListJobRunsInputPaginateTypeDef",
+    "ListJobRunsInputTypeDef",
+    "ListJobRunsOutputTypeDef",
+    "ListLineageEventsInputPaginateTypeDef",
+    "ListLineageEventsInputTypeDef",
+    "ListLineageEventsOutputTypeDef",
+    "ListLineageNodeHistoryInputPaginateTypeDef",
+    "ListLineageNodeHistoryInputTypeDef",
     "ListLineageNodeHistoryOutputTypeDef",
-    "ListMetadataGenerationRunsInputRequestTypeDef",
+    "ListMetadataGenerationRunsInputPaginateTypeDef",
+    "ListMetadataGenerationRunsInputTypeDef",
     "ListMetadataGenerationRunsOutputTypeDef",
-    "ListNotificationsInputRequestTypeDef",
+    "ListNotificationsInputPaginateTypeDef",
+    "ListNotificationsInputTypeDef",
     "ListNotificationsOutputTypeDef",
-    "ListProjectMembershipsInputRequestTypeDef",
+    "ListPolicyGrantsInputPaginateTypeDef",
+    "ListPolicyGrantsInputTypeDef",
+    "ListPolicyGrantsOutputTypeDef",
+    "ListProjectMembershipsInputPaginateTypeDef",
+    "ListProjectMembershipsInputTypeDef",
     "ListProjectMembershipsOutputTypeDef",
-    "ListProjectsInputRequestTypeDef",
+    "ListProjectProfilesInputPaginateTypeDef",
+    "ListProjectProfilesInputTypeDef",
+    "ListProjectProfilesOutputTypeDef",
+    "ListProjectsInputPaginateTypeDef",
+    "ListProjectsInputTypeDef",
     "ListProjectsOutputTypeDef",
-    "ListSubscriptionGrantsInputRequestTypeDef",
+    "ListRulesInputPaginateTypeDef",
+    "ListRulesInputTypeDef",
+    "ListRulesOutputTypeDef",
+    "ListSubscriptionGrantsInputPaginateTypeDef",
+    "ListSubscriptionGrantsInputTypeDef",
     "ListSubscriptionGrantsOutputTypeDef",
-    "ListSubscriptionRequestsInputRequestTypeDef",
+    "ListSubscriptionRequestsInputPaginateTypeDef",
+    "ListSubscriptionRequestsInputTypeDef",
     "ListSubscriptionRequestsOutputTypeDef",
-    "ListSubscriptionTargetsInputRequestTypeDef",
+    "ListSubscriptionTargetsInputPaginateTypeDef",
+    "ListSubscriptionTargetsInputTypeDef",
     "ListSubscriptionTargetsOutputTypeDef",
-    "ListSubscriptionsInputRequestTypeDef",
+    "ListSubscriptionsInputPaginateTypeDef",
+    "ListSubscriptionsInputTypeDef",
     "ListSubscriptionsOutputTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
-    "ListTimeSeriesDataPointsInputRequestTypeDef",
+    "ListTimeSeriesDataPointsInputPaginateTypeDef",
+    "ListTimeSeriesDataPointsInputTypeDef",
     "ListTimeSeriesDataPointsOutputTypeDef",
     "ListingItemTypeDef",
     "ListingRevisionInputTypeDef",
     "ListingRevisionTypeDef",
+    "ListingSummaryItemTypeDef",
+    "ListingSummaryTypeDef",
     "MemberDetailsTypeDef",
     "MemberTypeDef",
+    "MetadataFormEnforcementDetailOutputTypeDef",
+    "MetadataFormEnforcementDetailTypeDef",
+    "MetadataFormReferenceTypeDef",
+    "MetadataFormSummaryTypeDef",
     "MetadataGenerationRunItemTypeDef",
     "MetadataGenerationRunTargetTypeDef",
     "ModelTypeDef",
+    "NameIdentifierTypeDef",
+    "NotEqualToExpressionTypeDef",
+    "NotInExpressionOutputTypeDef",
+    "NotInExpressionTypeDef",
+    "NotLikeExpressionTypeDef",
     "NotificationOutputTypeDef",
     "NotificationResourceTypeDef",
+    "OAuth2ClientApplicationTypeDef",
+    "OAuth2PropertiesOutputTypeDef",
+    "OAuth2PropertiesTypeDef",
+    "OAuth2PropertiesUnionTypeDef",
+    "OpenLineageRunEventSummaryTypeDef",
+    "OverrideDomainUnitOwnersPolicyGrantDetailTypeDef",
+    "OverrideProjectOwnersPolicyGrantDetailTypeDef",
+    "OwnerGroupPropertiesOutputTypeDef",
+    "OwnerGroupPropertiesTypeDef",
+    "OwnerPropertiesOutputTypeDef",
+    "OwnerPropertiesTypeDef",
+    "OwnerUserPropertiesOutputTypeDef",
+    "OwnerUserPropertiesTypeDef",
     "PaginatorConfigTypeDef",
-    "PostLineageEventInputRequestTypeDef",
-    "PostTimeSeriesDataPointsInputRequestTypeDef",
+    "PhysicalConnectionRequirementsOutputTypeDef",
+    "PhysicalConnectionRequirementsTypeDef",
+    "PhysicalConnectionRequirementsUnionTypeDef",
+    "PhysicalEndpointTypeDef",
+    "PolicyGrantDetailOutputTypeDef",
+    "PolicyGrantDetailTypeDef",
+    "PolicyGrantDetailUnionTypeDef",
+    "PolicyGrantMemberTypeDef",
+    "PolicyGrantPrincipalOutputTypeDef",
+    "PolicyGrantPrincipalTypeDef",
+    "PolicyGrantPrincipalUnionTypeDef",
+    "PostLineageEventInputTypeDef",
+    "PostLineageEventOutputTypeDef",
+    "PostTimeSeriesDataPointsInputTypeDef",
     "PostTimeSeriesDataPointsOutputTypeDef",
     "PredictionConfigurationTypeDef",
     "ProjectDeletionErrorTypeDef",
+    "ProjectGrantFilterTypeDef",
     "ProjectMemberTypeDef",
+    "ProjectPolicyGrantPrincipalTypeDef",
+    "ProjectProfileSummaryTypeDef",
     "ProjectSummaryTypeDef",
+    "ProjectsForRuleOutputTypeDef",
+    "ProjectsForRuleTypeDef",
+    "ProvisioningConfigurationOutputTypeDef",
+    "ProvisioningConfigurationTypeDef",
+    "ProvisioningConfigurationUnionTypeDef",
     "ProvisioningPropertiesTypeDef",
-    "PutEnvironmentBlueprintConfigurationInputRequestTypeDef",
+    "PutEnvironmentBlueprintConfigurationInputTypeDef",
     "PutEnvironmentBlueprintConfigurationOutputTypeDef",
     "RecommendationConfigurationTypeDef",
     "RedshiftClusterStorageTypeDef",
     "RedshiftCredentialConfigurationTypeDef",
+    "RedshiftCredentialsTypeDef",
+    "RedshiftLineageSyncConfigurationInputTypeDef",
+    "RedshiftLineageSyncConfigurationOutputTypeDef",
+    "RedshiftPropertiesInputTypeDef",
+    "RedshiftPropertiesOutputTypeDef",
+    "RedshiftPropertiesPatchTypeDef",
     "RedshiftRunConfigurationInputTypeDef",
     "RedshiftRunConfigurationOutputTypeDef",
     "RedshiftSelfGrantStatusOutputTypeDef",
     "RedshiftServerlessStorageTypeDef",
+    "RedshiftStoragePropertiesTypeDef",
     "RedshiftStorageTypeDef",
+    "RegionTypeDef",
     "RejectChoiceTypeDef",
-    "RejectPredictionsInputRequestTypeDef",
+    "RejectPredictionsInputTypeDef",
     "RejectPredictionsOutputTypeDef",
     "RejectRuleTypeDef",
-    "RejectSubscriptionRequestInputRequestTypeDef",
+    "RejectSubscriptionRequestInputTypeDef",
     "RejectSubscriptionRequestOutputTypeDef",
+    "RelationalFilterConfigurationOutputTypeDef",
     "RelationalFilterConfigurationTypeDef",
+    "RelationalFilterConfigurationUnionTypeDef",
+    "RemoveEntityOwnerInputTypeDef",
+    "RemovePolicyGrantInputTypeDef",
     "ResourceTypeDef",
     "ResponseMetadataTypeDef",
-    "RevokeSubscriptionInputRequestTypeDef",
+    "RevokeSubscriptionInputTypeDef",
     "RevokeSubscriptionOutputTypeDef",
+    "RowFilterConfigurationOutputTypeDef",
+    "RowFilterConfigurationTypeDef",
+    "RowFilterExpressionOutputTypeDef",
+    "RowFilterExpressionTypeDef",
+    "RowFilterOutputTypeDef",
+    "RowFilterTypeDef",
+    "RuleDetailOutputTypeDef",
+    "RuleDetailTypeDef",
+    "RuleDetailUnionTypeDef",
+    "RuleScopeOutputTypeDef",
+    "RuleScopeTypeDef",
+    "RuleScopeUnionTypeDef",
+    "RuleSummaryTypeDef",
+    "RuleTargetTypeDef",
     "RunStatisticsForAssetsTypeDef",
+    "SageMakerRunConfigurationInputTypeDef",
+    "SageMakerRunConfigurationOutputTypeDef",
     "ScheduleConfigurationTypeDef",
-    "SearchGroupProfilesInputRequestTypeDef",
+    "SearchGroupProfilesInputPaginateTypeDef",
+    "SearchGroupProfilesInputTypeDef",
     "SearchGroupProfilesOutputTypeDef",
     "SearchInItemTypeDef",
-    "SearchInputRequestTypeDef",
+    "SearchInputPaginateTypeDef",
+    "SearchInputTypeDef",
     "SearchInventoryResultItemTypeDef",
-    "SearchListingsInputRequestTypeDef",
+    "SearchListingsInputPaginateTypeDef",
+    "SearchListingsInputTypeDef",
     "SearchListingsOutputTypeDef",
     "SearchOutputTypeDef",
     "SearchResultItemTypeDef",
     "SearchSortTypeDef",
-    "SearchTypesInputRequestTypeDef",
+    "SearchTypesInputPaginateTypeDef",
+    "SearchTypesInputTypeDef",
     "SearchTypesOutputTypeDef",
     "SearchTypesResultItemTypeDef",
-    "SearchUserProfilesInputRequestTypeDef",
+    "SearchUserProfilesInputPaginateTypeDef",
+    "SearchUserProfilesInputTypeDef",
     "SearchUserProfilesOutputTypeDef",
     "SelfGrantStatusDetailTypeDef",
     "SelfGrantStatusOutputTypeDef",
     "SingleSignOnTypeDef",
+    "SparkEmrPropertiesInputTypeDef",
+    "SparkEmrPropertiesOutputTypeDef",
+    "SparkEmrPropertiesPatchTypeDef",
+    "SparkGlueArgsTypeDef",
+    "SparkGluePropertiesInputTypeDef",
+    "SparkGluePropertiesOutputTypeDef",
     "SsoUserProfileDetailsTypeDef",
-    "StartDataSourceRunInputRequestTypeDef",
+    "StartDataSourceRunInputTypeDef",
     "StartDataSourceRunOutputTypeDef",
-    "StartMetadataGenerationRunInputRequestTypeDef",
+    "StartMetadataGenerationRunInputTypeDef",
     "StartMetadataGenerationRunOutputTypeDef",
     "SubscribedAssetListingTypeDef",
     "SubscribedAssetTypeDef",
@@ -368,6 +677,7 @@ __all__ = (
     "SubscribedListingTypeDef",
     "SubscribedPrincipalInputTypeDef",
     "SubscribedPrincipalTypeDef",
+    "SubscribedProductListingTypeDef",
     "SubscribedProjectInputTypeDef",
     "SubscribedProjectTypeDef",
     "SubscriptionGrantSummaryTypeDef",
@@ -375,612 +685,1924 @@ __all__ = (
     "SubscriptionSummaryTypeDef",
     "SubscriptionTargetFormTypeDef",
     "SubscriptionTargetSummaryTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
+    "TermRelationsOutputTypeDef",
     "TermRelationsTypeDef",
+    "TermRelationsUnionTypeDef",
     "TimeSeriesDataPointFormInputTypeDef",
     "TimeSeriesDataPointFormOutputTypeDef",
     "TimeSeriesDataPointSummaryFormOutputTypeDef",
+    "TimestampTypeDef",
     "TopicTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateDataSourceInputRequestTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateAssetFilterInputTypeDef",
+    "UpdateAssetFilterOutputTypeDef",
+    "UpdateConnectionInputTypeDef",
+    "UpdateConnectionOutputTypeDef",
+    "UpdateDataSourceInputTypeDef",
     "UpdateDataSourceOutputTypeDef",
-    "UpdateDomainInputRequestTypeDef",
+    "UpdateDomainInputTypeDef",
     "UpdateDomainOutputTypeDef",
-    "UpdateEnvironmentActionInputRequestTypeDef",
+    "UpdateDomainUnitInputTypeDef",
+    "UpdateDomainUnitOutputTypeDef",
+    "UpdateEnvironmentActionInputTypeDef",
     "UpdateEnvironmentActionOutputTypeDef",
-    "UpdateEnvironmentInputRequestTypeDef",
+    "UpdateEnvironmentInputTypeDef",
     "UpdateEnvironmentOutputTypeDef",
-    "UpdateEnvironmentProfileInputRequestTypeDef",
+    "UpdateEnvironmentProfileInputTypeDef",
     "UpdateEnvironmentProfileOutputTypeDef",
-    "UpdateGlossaryInputRequestTypeDef",
+    "UpdateGlossaryInputTypeDef",
     "UpdateGlossaryOutputTypeDef",
-    "UpdateGlossaryTermInputRequestTypeDef",
+    "UpdateGlossaryTermInputTypeDef",
     "UpdateGlossaryTermOutputTypeDef",
-    "UpdateGroupProfileInputRequestTypeDef",
+    "UpdateGroupProfileInputTypeDef",
     "UpdateGroupProfileOutputTypeDef",
-    "UpdateProjectInputRequestTypeDef",
+    "UpdateProjectInputTypeDef",
     "UpdateProjectOutputTypeDef",
-    "UpdateSubscriptionGrantStatusInputRequestTypeDef",
+    "UpdateProjectProfileInputTypeDef",
+    "UpdateProjectProfileOutputTypeDef",
+    "UpdateRuleInputTypeDef",
+    "UpdateRuleOutputTypeDef",
+    "UpdateSubscriptionGrantStatusInputTypeDef",
     "UpdateSubscriptionGrantStatusOutputTypeDef",
-    "UpdateSubscriptionRequestInputRequestTypeDef",
+    "UpdateSubscriptionRequestInputTypeDef",
     "UpdateSubscriptionRequestOutputTypeDef",
-    "UpdateSubscriptionTargetInputRequestTypeDef",
+    "UpdateSubscriptionTargetInputTypeDef",
     "UpdateSubscriptionTargetOutputTypeDef",
-    "UpdateUserProfileInputRequestTypeDef",
+    "UpdateUserProfileInputTypeDef",
     "UpdateUserProfileOutputTypeDef",
+    "UseAssetTypePolicyGrantDetailTypeDef",
     "UserDetailsTypeDef",
+    "UserPolicyGrantPrincipalOutputTypeDef",
+    "UserPolicyGrantPrincipalTypeDef",
     "UserProfileDetailsTypeDef",
     "UserProfileSummaryTypeDef",
+    "UsernamePasswordTypeDef",
 )
 
-_RequiredAcceptChoiceTypeDef = TypedDict(
-    "_RequiredAcceptChoiceTypeDef",
-    {
-        "predictionTarget": str,
-    },
-)
-_OptionalAcceptChoiceTypeDef = TypedDict(
-    "_OptionalAcceptChoiceTypeDef",
-    {
-        "editedValue": str,
-        "predictionChoice": int,
-    },
-    total=False,
-)
+class AcceptChoiceTypeDef(TypedDict):
+    predictionTarget: str
+    editedValue: NotRequired[str]
+    predictionChoice: NotRequired[int]
 
-class AcceptChoiceTypeDef(_RequiredAcceptChoiceTypeDef, _OptionalAcceptChoiceTypeDef):
-    pass
+class AcceptRuleTypeDef(TypedDict):
+    rule: NotRequired[AcceptRuleBehaviorType]
+    threshold: NotRequired[float]
 
-_RequiredAcceptPredictionsInputRequestTypeDef = TypedDict(
-    "_RequiredAcceptPredictionsInputRequestTypeDef",
-    {
-        "domainIdentifier": str,
-        "identifier": str,
-    },
-)
-_OptionalAcceptPredictionsInputRequestTypeDef = TypedDict(
-    "_OptionalAcceptPredictionsInputRequestTypeDef",
-    {
-        "acceptChoices": List["AcceptChoiceTypeDef"],
-        "acceptRule": "AcceptRuleTypeDef",
-        "clientToken": str,
-        "revision": str,
-    },
-    total=False,
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-class AcceptPredictionsInputRequestTypeDef(
-    _RequiredAcceptPredictionsInputRequestTypeDef, _OptionalAcceptPredictionsInputRequestTypeDef
-):
-    pass
+class AcceptedAssetScopeTypeDef(TypedDict):
+    assetId: str
+    filterIds: Sequence[str]
 
-AcceptPredictionsOutputTypeDef = TypedDict(
-    "AcceptPredictionsOutputTypeDef",
+class FormOutputTypeDef(TypedDict):
+    formName: str
+    content: NotRequired[str]
+    typeName: NotRequired[str]
+    typeRevision: NotRequired[str]
+
+class AwsConsoleLinkParametersTypeDef(TypedDict):
+    uri: NotRequired[str]
+
+class AddToProjectMemberPoolPolicyGrantDetailTypeDef(TypedDict):
+    includeChildDomainUnits: NotRequired[bool]
+
+class ColumnFilterConfigurationOutputTypeDef(TypedDict):
+    includedColumnNames: NotRequired[List[str]]
+
+class ColumnFilterConfigurationTypeDef(TypedDict):
+    includedColumnNames: NotRequired[Sequence[str]]
+
+AssetFilterSummaryTypeDef = TypedDict(
+    "AssetFilterSummaryTypeDef",
     {
         "assetId": str,
-        "domainId": str,
-        "revision": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-AcceptRuleTypeDef = TypedDict(
-    "AcceptRuleTypeDef",
-    {
-        "rule": AcceptRuleBehaviorType,
-        "threshold": float,
-    },
-    total=False,
-)
-
-_RequiredAcceptSubscriptionRequestInputRequestTypeDef = TypedDict(
-    "_RequiredAcceptSubscriptionRequestInputRequestTypeDef",
-    {
-        "domainIdentifier": str,
-        "identifier": str,
-    },
-)
-_OptionalAcceptSubscriptionRequestInputRequestTypeDef = TypedDict(
-    "_OptionalAcceptSubscriptionRequestInputRequestTypeDef",
-    {
-        "decisionComment": str,
-    },
-    total=False,
-)
-
-class AcceptSubscriptionRequestInputRequestTypeDef(
-    _RequiredAcceptSubscriptionRequestInputRequestTypeDef,
-    _OptionalAcceptSubscriptionRequestInputRequestTypeDef,
-):
-    pass
-
-AcceptSubscriptionRequestOutputTypeDef = TypedDict(
-    "AcceptSubscriptionRequestOutputTypeDef",
-    {
-        "createdAt": datetime,
-        "createdBy": str,
-        "decisionComment": str,
         "domainId": str,
         "id": str,
-        "requestReason": str,
-        "reviewerId": str,
-        "status": SubscriptionRequestStatusType,
-        "subscribedListings": List["SubscribedListingTypeDef"],
-        "subscribedPrincipals": List["SubscribedPrincipalTypeDef"],
-        "updatedAt": datetime,
-        "updatedBy": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ActionParametersTypeDef = TypedDict(
-    "ActionParametersTypeDef",
-    {
-        "awsConsoleLink": "AwsConsoleLinkParametersTypeDef",
-    },
-    total=False,
-)
-
-AssetItemAdditionalAttributesTypeDef = TypedDict(
-    "AssetItemAdditionalAttributesTypeDef",
-    {
-        "formsOutput": List["FormOutputTypeDef"],
-        "latestTimeSeriesDataPointFormsOutput": List["TimeSeriesDataPointSummaryFormOutputTypeDef"],
-        "readOnlyFormsOutput": List["FormOutputTypeDef"],
-    },
-    total=False,
-)
-
-_RequiredAssetItemTypeDef = TypedDict(
-    "_RequiredAssetItemTypeDef",
-    {
-        "domainId": str,
-        "identifier": str,
         "name": str,
-        "owningProjectId": str,
+        "createdAt": NotRequired[datetime],
+        "description": NotRequired[str],
+        "effectiveColumnNames": NotRequired[List[str]],
+        "effectiveRowFilter": NotRequired[str],
+        "errorMessage": NotRequired[str],
+        "status": NotRequired[FilterStatusType],
+    },
+)
+
+class AssetInDataProductListingItemTypeDef(TypedDict):
+    entityId: NotRequired[str]
+    entityRevision: NotRequired[str]
+    entityType: NotRequired[str]
+
+TimeSeriesDataPointSummaryFormOutputTypeDef = TypedDict(
+    "TimeSeriesDataPointSummaryFormOutputTypeDef",
+    {
+        "formName": str,
+        "timestamp": datetime,
         "typeIdentifier": str,
-        "typeRevision": str,
-    },
-)
-_OptionalAssetItemTypeDef = TypedDict(
-    "_OptionalAssetItemTypeDef",
-    {
-        "additionalAttributes": "AssetItemAdditionalAttributesTypeDef",
-        "createdAt": datetime,
-        "createdBy": str,
-        "description": str,
-        "externalIdentifier": str,
-        "firstRevisionCreatedAt": datetime,
-        "firstRevisionCreatedBy": str,
-        "glossaryTerms": List[str],
-    },
-    total=False,
-)
-
-class AssetItemTypeDef(_RequiredAssetItemTypeDef, _OptionalAssetItemTypeDef):
-    pass
-
-AssetListingDetailsTypeDef = TypedDict(
-    "AssetListingDetailsTypeDef",
-    {
-        "listingId": str,
-        "listingStatus": ListingStatusType,
+        "contentSummary": NotRequired[str],
+        "id": NotRequired[str],
+        "typeRevision": NotRequired[str],
     },
 )
 
-AssetListingItemAdditionalAttributesTypeDef = TypedDict(
-    "AssetListingItemAdditionalAttributesTypeDef",
-    {
-        "forms": str,
-        "latestTimeSeriesDataPointForms": List["TimeSeriesDataPointSummaryFormOutputTypeDef"],
-    },
-    total=False,
-)
+class AssetListingDetailsTypeDef(TypedDict):
+    listingId: str
+    listingStatus: ListingStatusType
 
-AssetListingItemTypeDef = TypedDict(
-    "AssetListingItemTypeDef",
-    {
-        "additionalAttributes": "AssetListingItemAdditionalAttributesTypeDef",
-        "createdAt": datetime,
-        "description": str,
-        "entityId": str,
-        "entityRevision": str,
-        "entityType": str,
-        "glossaryTerms": List["DetailedGlossaryTermTypeDef"],
-        "listingCreatedBy": str,
-        "listingId": str,
-        "listingRevision": str,
-        "listingUpdatedBy": str,
-        "name": str,
-        "owningProjectId": str,
-    },
-    total=False,
-)
-
-AssetListingTypeDef = TypedDict(
-    "AssetListingTypeDef",
-    {
-        "assetId": str,
-        "assetRevision": str,
-        "assetType": str,
-        "createdAt": datetime,
-        "forms": str,
-        "glossaryTerms": List["DetailedGlossaryTermTypeDef"],
-        "latestTimeSeriesDataPointForms": List["TimeSeriesDataPointSummaryFormOutputTypeDef"],
-        "owningProjectId": str,
-    },
-    total=False,
-)
+class DetailedGlossaryTermTypeDef(TypedDict):
+    name: NotRequired[str]
+    shortDescription: NotRequired[str]
 
 AssetRevisionTypeDef = TypedDict(
     "AssetRevisionTypeDef",
     {
-        "createdAt": datetime,
-        "createdBy": str,
-        "domainId": str,
-        "id": str,
-        "revision": str,
-    },
-    total=False,
-)
-
-AssetTargetNameMapTypeDef = TypedDict(
-    "AssetTargetNameMapTypeDef",
-    {
-        "assetId": str,
-        "targetName": str,
+        "createdAt": NotRequired[datetime],
+        "createdBy": NotRequired[str],
+        "domainId": NotRequired[str],
+        "id": NotRequired[str],
+        "revision": NotRequired[str],
     },
 )
 
-_RequiredAssetTypeItemTypeDef = TypedDict(
-    "_RequiredAssetTypeItemTypeDef",
+class AssetScopeTypeDef(TypedDict):
+    assetId: str
+    filterIds: List[str]
+    status: str
+    errorMessage: NotRequired[str]
+
+class AssetTargetNameMapTypeDef(TypedDict):
+    assetId: str
+    targetName: str
+
+class FormEntryOutputTypeDef(TypedDict):
+    typeName: str
+    typeRevision: str
+    required: NotRequired[bool]
+
+class AssetTypesForRuleOutputTypeDef(TypedDict):
+    selectionMode: RuleScopeSelectionModeType
+    specificAssetTypes: NotRequired[List[str]]
+
+class AssetTypesForRuleTypeDef(TypedDict):
+    selectionMode: RuleScopeSelectionModeType
+    specificAssetTypes: NotRequired[Sequence[str]]
+
+class AssociateEnvironmentRoleInputTypeDef(TypedDict):
+    domainIdentifier: str
+    environmentIdentifier: str
+    environmentRoleArn: str
+
+class AthenaPropertiesInputTypeDef(TypedDict):
+    workgroupName: NotRequired[str]
+
+class AthenaPropertiesOutputTypeDef(TypedDict):
+    workgroupName: NotRequired[str]
+
+class AthenaPropertiesPatchTypeDef(TypedDict):
+    workgroupName: NotRequired[str]
+
+class BasicAuthenticationCredentialsTypeDef(TypedDict):
+    password: NotRequired[str]
+    userName: NotRequired[str]
+
+class AuthorizationCodePropertiesTypeDef(TypedDict):
+    authorizationCode: NotRequired[str]
+    redirectUri: NotRequired[str]
+
+class AwsAccountTypeDef(TypedDict):
+    awsAccountId: NotRequired[str]
+    awsAccountIdPath: NotRequired[str]
+
+class AwsLocationTypeDef(TypedDict):
+    accessRole: NotRequired[str]
+    awsAccountId: NotRequired[str]
+    awsRegion: NotRequired[str]
+    iamConnectionId: NotRequired[str]
+
+BlobTypeDef = Union[str, bytes, IO[Any], StreamingBody]
+
+class BusinessNameGenerationConfigurationTypeDef(TypedDict):
+    enabled: NotRequired[bool]
+
+class CancelMetadataGenerationRunInputTypeDef(TypedDict):
+    domainIdentifier: str
+    identifier: str
+
+class CancelSubscriptionInputTypeDef(TypedDict):
+    domainIdentifier: str
+    identifier: str
+
+class CloudFormationPropertiesTypeDef(TypedDict):
+    templateUrl: str
+
+class ConfigurableActionParameterTypeDef(TypedDict):
+    key: NotRequired[str]
+    value: NotRequired[str]
+
+class ConnectionCredentialsTypeDef(TypedDict):
+    accessKeyId: NotRequired[str]
+    expiration: NotRequired[datetime]
+    secretAccessKey: NotRequired[str]
+    sessionToken: NotRequired[str]
+
+class HyperPodPropertiesInputTypeDef(TypedDict):
+    clusterName: str
+
+class IamPropertiesInputTypeDef(TypedDict):
+    glueLineageSyncEnabled: NotRequired[bool]
+
+class SparkEmrPropertiesInputTypeDef(TypedDict):
+    computeArn: NotRequired[str]
+    instanceProfileArn: NotRequired[str]
+    javaVirtualEnv: NotRequired[str]
+    logUri: NotRequired[str]
+    pythonVirtualEnv: NotRequired[str]
+    runtimeRole: NotRequired[str]
+    trustedCertificatesS3Uri: NotRequired[str]
+
+class GluePropertiesOutputTypeDef(TypedDict):
+    errorMessage: NotRequired[str]
+    status: NotRequired[ConnectionStatusType]
+
+class HyperPodPropertiesOutputTypeDef(TypedDict):
+    clusterName: str
+    clusterArn: NotRequired[str]
+    orchestrator: NotRequired[HyperPodOrchestratorType]
+
+class IamPropertiesOutputTypeDef(TypedDict):
+    environmentId: NotRequired[str]
+    glueLineageSyncEnabled: NotRequired[bool]
+
+class IamPropertiesPatchTypeDef(TypedDict):
+    glueLineageSyncEnabled: NotRequired[bool]
+
+class SparkEmrPropertiesPatchTypeDef(TypedDict):
+    computeArn: NotRequired[str]
+    instanceProfileArn: NotRequired[str]
+    javaVirtualEnv: NotRequired[str]
+    logUri: NotRequired[str]
+    pythonVirtualEnv: NotRequired[str]
+    runtimeRole: NotRequired[str]
+    trustedCertificatesS3Uri: NotRequired[str]
+
+class FormInputTypeDef(TypedDict):
+    formName: str
+    content: NotRequired[str]
+    typeIdentifier: NotRequired[str]
+    typeRevision: NotRequired[str]
+
+class FormEntryInputTypeDef(TypedDict):
+    typeIdentifier: str
+    typeRevision: str
+    required: NotRequired[bool]
+
+class CreateAssetTypePolicyGrantDetailTypeDef(TypedDict):
+    includeChildDomainUnits: NotRequired[bool]
+
+class DataProductItemOutputTypeDef(TypedDict):
+    identifier: str
+    itemType: Literal["ASSET"]
+    glossaryTerms: NotRequired[List[str]]
+    revision: NotRequired[str]
+
+class RecommendationConfigurationTypeDef(TypedDict):
+    enableBusinessNameGeneration: NotRequired[bool]
+
+class ScheduleConfigurationTypeDef(TypedDict):
+    schedule: NotRequired[str]
+    timezone: NotRequired[TimezoneType]
+
+class DataSourceErrorMessageTypeDef(TypedDict):
+    errorType: DataSourceErrorTypeType
+    errorDetail: NotRequired[str]
+
+SingleSignOnTypeDef = TypedDict(
+    "SingleSignOnTypeDef",
     {
-        "domainId": str,
-        "formsOutput": Dict[str, "FormEntryOutputTypeDef"],
-        "name": str,
-        "owningProjectId": str,
-        "revision": str,
+        "idcInstanceArn": NotRequired[str],
+        "type": NotRequired[AuthTypeType],
+        "userAssignment": NotRequired[UserAssignmentType],
     },
 )
-_OptionalAssetTypeItemTypeDef = TypedDict(
-    "_OptionalAssetTypeItemTypeDef",
-    {
-        "createdAt": datetime,
-        "createdBy": str,
-        "description": str,
-        "originDomainId": str,
-        "originProjectId": str,
-        "updatedAt": datetime,
-        "updatedBy": str,
-    },
-    total=False,
-)
 
-class AssetTypeItemTypeDef(_RequiredAssetTypeItemTypeDef, _OptionalAssetTypeItemTypeDef):
-    pass
+class CreateDomainUnitInputTypeDef(TypedDict):
+    domainIdentifier: str
+    name: str
+    parentDomainUnitIdentifier: str
+    clientToken: NotRequired[str]
+    description: NotRequired[str]
 
-AssociateEnvironmentRoleInputRequestTypeDef = TypedDict(
-    "AssociateEnvironmentRoleInputRequestTypeDef",
-    {
-        "domainIdentifier": str,
-        "environmentIdentifier": str,
-        "environmentRoleArn": str,
-    },
-)
+class CreateDomainUnitPolicyGrantDetailTypeDef(TypedDict):
+    includeChildDomainUnits: NotRequired[bool]
 
-AwsConsoleLinkParametersTypeDef = TypedDict(
-    "AwsConsoleLinkParametersTypeDef",
-    {
-        "uri": str,
-    },
-    total=False,
-)
+class EnvironmentParameterTypeDef(TypedDict):
+    name: NotRequired[str]
+    value: NotRequired[str]
 
-BusinessNameGenerationConfigurationTypeDef = TypedDict(
-    "BusinessNameGenerationConfigurationTypeDef",
-    {
-        "enabled": bool,
-    },
-    total=False,
-)
+class CustomParameterTypeDef(TypedDict):
+    fieldType: str
+    keyName: str
+    defaultValue: NotRequired[str]
+    description: NotRequired[str]
+    isEditable: NotRequired[bool]
+    isOptional: NotRequired[bool]
 
-CancelMetadataGenerationRunInputRequestTypeDef = TypedDict(
-    "CancelMetadataGenerationRunInputRequestTypeDef",
-    {
-        "domainIdentifier": str,
-        "identifier": str,
-    },
-)
+class DeploymentPropertiesTypeDef(TypedDict):
+    endTimeoutMinutes: NotRequired[int]
+    startTimeoutMinutes: NotRequired[int]
 
-CancelSubscriptionInputRequestTypeDef = TypedDict(
-    "CancelSubscriptionInputRequestTypeDef",
+ResourceTypeDef = TypedDict(
+    "ResourceTypeDef",
     {
-        "domainIdentifier": str,
-        "identifier": str,
-    },
-)
-
-CancelSubscriptionOutputTypeDef = TypedDict(
-    "CancelSubscriptionOutputTypeDef",
-    {
-        "createdAt": datetime,
-        "createdBy": str,
-        "domainId": str,
-        "id": str,
-        "retainPermissions": bool,
-        "status": SubscriptionStatusType,
-        "subscribedListing": "SubscribedListingTypeDef",
-        "subscribedPrincipal": "SubscribedPrincipalTypeDef",
-        "subscriptionRequestId": str,
-        "updatedAt": datetime,
-        "updatedBy": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CloudFormationPropertiesTypeDef = TypedDict(
-    "CloudFormationPropertiesTypeDef",
-    {
-        "templateUrl": str,
-    },
-)
-
-ConfigurableActionParameterTypeDef = TypedDict(
-    "ConfigurableActionParameterTypeDef",
-    {
-        "key": str,
+        "type": str,
         "value": str,
-    },
-    total=False,
-)
-
-_RequiredConfigurableEnvironmentActionTypeDef = TypedDict(
-    "_RequiredConfigurableEnvironmentActionTypeDef",
-    {
-        "parameters": List["ConfigurableActionParameterTypeDef"],
-        "type": str,
+        "name": NotRequired[str],
+        "provider": NotRequired[str],
     },
 )
-_OptionalConfigurableEnvironmentActionTypeDef = TypedDict(
-    "_OptionalConfigurableEnvironmentActionTypeDef",
-    {
-        "auth": ConfigurableActionTypeAuthorizationType,
-    },
-    total=False,
-)
 
-class ConfigurableEnvironmentActionTypeDef(
-    _RequiredConfigurableEnvironmentActionTypeDef, _OptionalConfigurableEnvironmentActionTypeDef
-):
-    pass
+class CreateEnvironmentProfilePolicyGrantDetailTypeDef(TypedDict):
+    domainUnitId: NotRequired[str]
 
-_RequiredCreateAssetInputRequestTypeDef = TypedDict(
-    "_RequiredCreateAssetInputRequestTypeDef",
-    {
-        "domainIdentifier": str,
-        "name": str,
-        "owningProjectIdentifier": str,
-        "typeIdentifier": str,
-    },
-)
-_OptionalCreateAssetInputRequestTypeDef = TypedDict(
-    "_OptionalCreateAssetInputRequestTypeDef",
-    {
-        "clientToken": str,
-        "description": str,
-        "externalIdentifier": str,
-        "formsInput": List["FormInputTypeDef"],
-        "glossaryTerms": List[str],
-        "predictionConfiguration": "PredictionConfigurationTypeDef",
-        "typeRevision": str,
-    },
-    total=False,
-)
+class ModelTypeDef(TypedDict):
+    smithy: NotRequired[str]
 
-class CreateAssetInputRequestTypeDef(
-    _RequiredCreateAssetInputRequestTypeDef, _OptionalCreateAssetInputRequestTypeDef
-):
-    pass
+class CreateFormTypePolicyGrantDetailTypeDef(TypedDict):
+    includeChildDomainUnits: NotRequired[bool]
 
-CreateAssetOutputTypeDef = TypedDict(
-    "CreateAssetOutputTypeDef",
+class CreateGlossaryInputTypeDef(TypedDict):
+    domainIdentifier: str
+    name: str
+    owningProjectIdentifier: str
+    clientToken: NotRequired[str]
+    description: NotRequired[str]
+    status: NotRequired[GlossaryStatusType]
+
+class CreateGlossaryPolicyGrantDetailTypeDef(TypedDict):
+    includeChildDomainUnits: NotRequired[bool]
+
+class TermRelationsOutputTypeDef(TypedDict):
+    classifies: NotRequired[List[str]]
+    isA: NotRequired[List[str]]
+
+class CreateGroupProfileInputTypeDef(TypedDict):
+    domainIdentifier: str
+    groupIdentifier: str
+    clientToken: NotRequired[str]
+
+class CreateListingChangeSetInputTypeDef(TypedDict):
+    action: ChangeActionType
+    domainIdentifier: str
+    entityIdentifier: str
+    entityType: EntityTypeType
+    clientToken: NotRequired[str]
+    entityRevision: NotRequired[str]
+
+class CreateProjectFromProjectProfilePolicyGrantDetailOutputTypeDef(TypedDict):
+    includeChildDomainUnits: NotRequired[bool]
+    projectProfiles: NotRequired[List[str]]
+
+class CreateProjectFromProjectProfilePolicyGrantDetailTypeDef(TypedDict):
+    includeChildDomainUnits: NotRequired[bool]
+    projectProfiles: NotRequired[Sequence[str]]
+
+class MemberTypeDef(TypedDict):
+    groupIdentifier: NotRequired[str]
+    userIdentifier: NotRequired[str]
+
+class ProjectDeletionErrorTypeDef(TypedDict):
+    code: NotRequired[str]
+    message: NotRequired[str]
+
+class CreateProjectPolicyGrantDetailTypeDef(TypedDict):
+    includeChildDomainUnits: NotRequired[bool]
+
+class SubscribedListingInputTypeDef(TypedDict):
+    identifier: str
+
+class SubscriptionTargetFormTypeDef(TypedDict):
+    content: str
+    formName: str
+
+class CreateUserProfileInputTypeDef(TypedDict):
+    domainIdentifier: str
+    userIdentifier: str
+    clientToken: NotRequired[str]
+    userType: NotRequired[UserTypeType]
+
+class DataProductItemTypeDef(TypedDict):
+    identifier: str
+    itemType: Literal["ASSET"]
+    glossaryTerms: NotRequired[Sequence[str]]
+    revision: NotRequired[str]
+
+class DataProductListingItemAdditionalAttributesTypeDef(TypedDict):
+    forms: NotRequired[str]
+
+DataProductResultItemTypeDef = TypedDict(
+    "DataProductResultItemTypeDef",
     {
-        "createdAt": datetime,
-        "createdBy": str,
-        "description": str,
         "domainId": str,
-        "externalIdentifier": str,
-        "firstRevisionCreatedAt": datetime,
-        "firstRevisionCreatedBy": str,
-        "formsOutput": List["FormOutputTypeDef"],
-        "glossaryTerms": List[str],
         "id": str,
-        "latestTimeSeriesDataPointFormsOutput": List["TimeSeriesDataPointSummaryFormOutputTypeDef"],
-        "listing": "AssetListingDetailsTypeDef",
         "name": str,
         "owningProjectId": str,
-        "predictionConfiguration": "PredictionConfigurationTypeDef",
-        "readOnlyFormsOutput": List["FormOutputTypeDef"],
-        "revision": str,
-        "typeIdentifier": str,
-        "typeRevision": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "createdAt": NotRequired[datetime],
+        "createdBy": NotRequired[str],
+        "description": NotRequired[str],
+        "firstRevisionCreatedAt": NotRequired[datetime],
+        "firstRevisionCreatedBy": NotRequired[str],
+        "glossaryTerms": NotRequired[List[str]],
+    },
+)
+DataProductRevisionTypeDef = TypedDict(
+    "DataProductRevisionTypeDef",
+    {
+        "createdAt": NotRequired[datetime],
+        "createdBy": NotRequired[str],
+        "domainId": NotRequired[str],
+        "id": NotRequired[str],
+        "revision": NotRequired[str],
     },
 )
 
-_RequiredCreateAssetRevisionInputRequestTypeDef = TypedDict(
-    "_RequiredCreateAssetRevisionInputRequestTypeDef",
-    {
-        "domainIdentifier": str,
-        "identifier": str,
-        "name": str,
-    },
-)
-_OptionalCreateAssetRevisionInputRequestTypeDef = TypedDict(
-    "_OptionalCreateAssetRevisionInputRequestTypeDef",
-    {
-        "clientToken": str,
-        "description": str,
-        "formsInput": List["FormInputTypeDef"],
-        "glossaryTerms": List[str],
-        "predictionConfiguration": "PredictionConfigurationTypeDef",
-        "typeRevision": str,
-    },
-    total=False,
-)
+class SageMakerRunConfigurationInputTypeDef(TypedDict):
+    trackingAssets: Mapping[str, Sequence[str]]
 
-class CreateAssetRevisionInputRequestTypeDef(
-    _RequiredCreateAssetRevisionInputRequestTypeDef, _OptionalCreateAssetRevisionInputRequestTypeDef
-):
-    pass
+class SageMakerRunConfigurationOutputTypeDef(TypedDict):
+    trackingAssets: Dict[str, List[str]]
+    accountId: NotRequired[str]
+    region: NotRequired[str]
 
-CreateAssetRevisionOutputTypeDef = TypedDict(
-    "CreateAssetRevisionOutputTypeDef",
+class LineageInfoTypeDef(TypedDict):
+    errorMessage: NotRequired[str]
+    eventId: NotRequired[str]
+    eventStatus: NotRequired[LineageEventProcessingStatusType]
+
+class DataSourceRunLineageSummaryTypeDef(TypedDict):
+    importStatus: NotRequired[LineageImportStatusType]
+
+class RunStatisticsForAssetsTypeDef(TypedDict):
+    added: NotRequired[int]
+    failed: NotRequired[int]
+    skipped: NotRequired[int]
+    unchanged: NotRequired[int]
+    updated: NotRequired[int]
+
+class DeleteAssetFilterInputTypeDef(TypedDict):
+    assetIdentifier: str
+    domainIdentifier: str
+    identifier: str
+
+class DeleteAssetInputTypeDef(TypedDict):
+    domainIdentifier: str
+    identifier: str
+
+class DeleteAssetTypeInputTypeDef(TypedDict):
+    domainIdentifier: str
+    identifier: str
+
+class DeleteConnectionInputTypeDef(TypedDict):
+    domainIdentifier: str
+    identifier: str
+
+class DeleteDataProductInputTypeDef(TypedDict):
+    domainIdentifier: str
+    identifier: str
+
+class DeleteDataSourceInputTypeDef(TypedDict):
+    domainIdentifier: str
+    identifier: str
+    clientToken: NotRequired[str]
+    retainPermissionsOnRevokeFailure: NotRequired[bool]
+
+class DeleteDomainInputTypeDef(TypedDict):
+    identifier: str
+    clientToken: NotRequired[str]
+    skipDeletionCheck: NotRequired[bool]
+
+class DeleteDomainUnitInputTypeDef(TypedDict):
+    domainIdentifier: str
+    identifier: str
+
+class DeleteEnvironmentActionInputTypeDef(TypedDict):
+    domainIdentifier: str
+    environmentIdentifier: str
+    identifier: str
+
+class DeleteEnvironmentBlueprintConfigurationInputTypeDef(TypedDict):
+    domainIdentifier: str
+    environmentBlueprintIdentifier: str
+
+class DeleteEnvironmentInputTypeDef(TypedDict):
+    domainIdentifier: str
+    identifier: str
+
+class DeleteEnvironmentProfileInputTypeDef(TypedDict):
+    domainIdentifier: str
+    identifier: str
+
+class DeleteFormTypeInputTypeDef(TypedDict):
+    domainIdentifier: str
+    formTypeIdentifier: str
+
+class DeleteGlossaryInputTypeDef(TypedDict):
+    domainIdentifier: str
+    identifier: str
+
+class DeleteGlossaryTermInputTypeDef(TypedDict):
+    domainIdentifier: str
+    identifier: str
+
+class DeleteListingInputTypeDef(TypedDict):
+    domainIdentifier: str
+    identifier: str
+
+class DeleteProjectInputTypeDef(TypedDict):
+    domainIdentifier: str
+    identifier: str
+    skipDeletionCheck: NotRequired[bool]
+
+class DeleteProjectProfileInputTypeDef(TypedDict):
+    domainIdentifier: str
+    identifier: str
+
+class DeleteRuleInputTypeDef(TypedDict):
+    domainIdentifier: str
+    identifier: str
+
+class DeleteSubscriptionGrantInputTypeDef(TypedDict):
+    domainIdentifier: str
+    identifier: str
+
+class DeleteSubscriptionRequestInputTypeDef(TypedDict):
+    domainIdentifier: str
+    identifier: str
+
+class DeleteSubscriptionTargetInputTypeDef(TypedDict):
+    domainIdentifier: str
+    environmentIdentifier: str
+    identifier: str
+
+class DeleteTimeSeriesDataPointsInputTypeDef(TypedDict):
+    domainIdentifier: str
+    entityIdentifier: str
+    entityType: TimeSeriesEntityTypeType
+    formName: str
+    clientToken: NotRequired[str]
+
+class EnvironmentErrorTypeDef(TypedDict):
+    message: str
+    code: NotRequired[str]
+
+class DisassociateEnvironmentRoleInputTypeDef(TypedDict):
+    domainIdentifier: str
+    environmentIdentifier: str
+    environmentRoleArn: str
+
+DomainSummaryTypeDef = TypedDict(
+    "DomainSummaryTypeDef",
     {
+        "arn": str,
         "createdAt": datetime,
-        "createdBy": str,
-        "description": str,
-        "domainId": str,
-        "externalIdentifier": str,
-        "firstRevisionCreatedAt": datetime,
-        "firstRevisionCreatedBy": str,
-        "formsOutput": List["FormOutputTypeDef"],
-        "glossaryTerms": List[str],
         "id": str,
-        "latestTimeSeriesDataPointFormsOutput": List["TimeSeriesDataPointSummaryFormOutputTypeDef"],
-        "listing": "AssetListingDetailsTypeDef",
+        "managedAccountId": str,
         "name": str,
-        "owningProjectId": str,
-        "predictionConfiguration": "PredictionConfigurationTypeDef",
-        "readOnlyFormsOutput": List["FormOutputTypeDef"],
-        "revision": str,
-        "typeIdentifier": str,
-        "typeRevision": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "status": DomainStatusType,
+        "description": NotRequired[str],
+        "domainVersion": NotRequired[DomainVersionType],
+        "lastUpdatedAt": NotRequired[datetime],
+        "portalUrl": NotRequired[str],
     },
 )
 
-_RequiredCreateAssetTypeInputRequestTypeDef = TypedDict(
-    "_RequiredCreateAssetTypeInputRequestTypeDef",
-    {
-        "domainIdentifier": str,
-        "formsInput": Dict[str, "FormEntryInputTypeDef"],
-        "name": str,
-        "owningProjectIdentifier": str,
-    },
-)
-_OptionalCreateAssetTypeInputRequestTypeDef = TypedDict(
-    "_OptionalCreateAssetTypeInputRequestTypeDef",
-    {
-        "description": str,
-    },
-    total=False,
-)
+class DomainUnitFilterForProjectTypeDef(TypedDict):
+    domainUnit: str
+    includeChildDomainUnits: NotRequired[bool]
 
-class CreateAssetTypeInputRequestTypeDef(
-    _RequiredCreateAssetTypeInputRequestTypeDef, _OptionalCreateAssetTypeInputRequestTypeDef
-):
-    pass
+class DomainUnitGrantFilterOutputTypeDef(TypedDict):
+    allDomainUnitsGrantFilter: NotRequired[Dict[str, Any]]
 
-CreateAssetTypeOutputTypeDef = TypedDict(
-    "CreateAssetTypeOutputTypeDef",
-    {
-        "createdAt": datetime,
-        "createdBy": str,
-        "description": str,
-        "domainId": str,
-        "formsOutput": Dict[str, "FormEntryOutputTypeDef"],
-        "name": str,
-        "originDomainId": str,
-        "originProjectId": str,
-        "owningProjectId": str,
-        "revision": str,
-        "updatedAt": datetime,
-        "updatedBy": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DomainUnitGrantFilterTypeDef(TypedDict):
+    allDomainUnitsGrantFilter: NotRequired[Mapping[str, Any]]
 
-_RequiredCreateDataSourceInputRequestTypeDef = TypedDict(
-    "_RequiredCreateDataSourceInputRequestTypeDef",
-    {
-        "domainIdentifier": str,
-        "environmentIdentifier": str,
-        "name": str,
-        "projectIdentifier": str,
-        "type": str,
-    },
-)
-_OptionalCreateDataSourceInputRequestTypeDef = TypedDict(
-    "_OptionalCreateDataSourceInputRequestTypeDef",
-    {
-        "assetFormsInput": List["FormInputTypeDef"],
-        "clientToken": str,
-        "configuration": "DataSourceConfigurationInputTypeDef",
-        "description": str,
-        "enableSetting": EnableSettingType,
-        "publishOnImport": bool,
-        "recommendation": "RecommendationConfigurationTypeDef",
-        "schedule": "ScheduleConfigurationTypeDef",
-    },
-    total=False,
-)
+class DomainUnitGroupPropertiesTypeDef(TypedDict):
+    groupId: NotRequired[str]
 
-class CreateDataSourceInputRequestTypeDef(
-    _RequiredCreateDataSourceInputRequestTypeDef, _OptionalCreateDataSourceInputRequestTypeDef
-):
-    pass
+class DomainUnitUserPropertiesTypeDef(TypedDict):
+    userId: NotRequired[str]
 
-CreateDataSourceOutputTypeDef = TypedDict(
-    "CreateDataSourceOutputTypeDef",
+DomainUnitSummaryTypeDef = TypedDict(
+    "DomainUnitSummaryTypeDef",
     {
-        "assetFormsOutput": List["FormOutputTypeDef"],
-        "configuration": "DataSourceConfigurationOutputTypeDef",
-        "createdAt": datetime,
-        "description": str,
-        "domainId": str,
-        "enableSetting": EnableSettingType,
-        "environmentId": str,
-        "errorMessage": "DataSourceErrorMessageTypeDef",
         "id": str,
-        "lastRunAt": datetime,
-        "lastRunErrorMessage": "DataSourceErrorMessageTypeDef",
-        "lastRunStatus": DataSourceRunStatusType,
+        "name": str,
+    },
+)
+
+class DomainUnitTargetTypeDef(TypedDict):
+    domainUnitId: str
+    includeChildDomainUnits: NotRequired[bool]
+
+class RegionTypeDef(TypedDict):
+    regionName: NotRequired[str]
+    regionNamePath: NotRequired[str]
+
+class EnvironmentConfigurationParameterTypeDef(TypedDict):
+    isEditable: NotRequired[bool]
+    name: NotRequired[str]
+    value: NotRequired[str]
+
+EnvironmentProfileSummaryTypeDef = TypedDict(
+    "EnvironmentProfileSummaryTypeDef",
+    {
+        "createdBy": str,
+        "domainId": str,
+        "environmentBlueprintId": str,
+        "id": str,
+        "name": str,
+        "awsAccountId": NotRequired[str],
+        "awsAccountRegion": NotRequired[str],
+        "createdAt": NotRequired[datetime],
+        "description": NotRequired[str],
+        "projectId": NotRequired[str],
+        "updatedAt": NotRequired[datetime],
+    },
+)
+EnvironmentSummaryTypeDef = TypedDict(
+    "EnvironmentSummaryTypeDef",
+    {
+        "createdBy": str,
+        "domainId": str,
         "name": str,
         "projectId": str,
-        "publishOnImport": bool,
-        "recommendation": "RecommendationConfigurationTypeDef",
-        "schedule": "ScheduleConfigurationTypeDef",
+        "provider": str,
+        "awsAccountId": NotRequired[str],
+        "awsAccountRegion": NotRequired[str],
+        "createdAt": NotRequired[datetime],
+        "description": NotRequired[str],
+        "environmentConfigurationId": NotRequired[str],
+        "environmentProfileId": NotRequired[str],
+        "id": NotRequired[str],
+        "status": NotRequired[EnvironmentStatusType],
+        "updatedAt": NotRequired[datetime],
+    },
+)
+
+class EqualToExpressionTypeDef(TypedDict):
+    columnName: str
+    value: str
+
+class FailureCauseTypeDef(TypedDict):
+    message: NotRequired[str]
+
+class FilterTypeDef(TypedDict):
+    attribute: str
+    value: str
+
+FilterExpressionTypeDef = TypedDict(
+    "FilterExpressionTypeDef",
+    {
+        "expression": str,
+        "type": FilterExpressionTypeType,
+    },
+)
+
+class ImportTypeDef(TypedDict):
+    name: str
+    revision: str
+
+class GetAssetFilterInputTypeDef(TypedDict):
+    assetIdentifier: str
+    domainIdentifier: str
+    identifier: str
+
+class GetAssetInputTypeDef(TypedDict):
+    domainIdentifier: str
+    identifier: str
+    revision: NotRequired[str]
+
+class GetAssetTypeInputTypeDef(TypedDict):
+    domainIdentifier: str
+    identifier: str
+    revision: NotRequired[str]
+
+class GetConnectionInputTypeDef(TypedDict):
+    domainIdentifier: str
+    identifier: str
+    withSecret: NotRequired[bool]
+
+class GetDataProductInputTypeDef(TypedDict):
+    domainIdentifier: str
+    identifier: str
+    revision: NotRequired[str]
+
+class GetDataSourceInputTypeDef(TypedDict):
+    domainIdentifier: str
+    identifier: str
+
+class GetDataSourceRunInputTypeDef(TypedDict):
+    domainIdentifier: str
+    identifier: str
+
+class GetDomainInputTypeDef(TypedDict):
+    identifier: str
+
+class GetDomainUnitInputTypeDef(TypedDict):
+    domainIdentifier: str
+    identifier: str
+
+class GetEnvironmentActionInputTypeDef(TypedDict):
+    domainIdentifier: str
+    environmentIdentifier: str
+    identifier: str
+
+class GetEnvironmentBlueprintConfigurationInputTypeDef(TypedDict):
+    domainIdentifier: str
+    environmentBlueprintIdentifier: str
+
+class GetEnvironmentBlueprintInputTypeDef(TypedDict):
+    domainIdentifier: str
+    identifier: str
+
+class GetEnvironmentCredentialsInputTypeDef(TypedDict):
+    domainIdentifier: str
+    environmentIdentifier: str
+
+class GetEnvironmentInputTypeDef(TypedDict):
+    domainIdentifier: str
+    identifier: str
+
+class GetEnvironmentProfileInputTypeDef(TypedDict):
+    domainIdentifier: str
+    identifier: str
+
+class GetFormTypeInputTypeDef(TypedDict):
+    domainIdentifier: str
+    formTypeIdentifier: str
+    revision: NotRequired[str]
+
+class GetGlossaryInputTypeDef(TypedDict):
+    domainIdentifier: str
+    identifier: str
+
+class GetGlossaryTermInputTypeDef(TypedDict):
+    domainIdentifier: str
+    identifier: str
+
+class GetGroupProfileInputTypeDef(TypedDict):
+    domainIdentifier: str
+    groupIdentifier: str
+
+class GetIamPortalLoginUrlInputTypeDef(TypedDict):
+    domainIdentifier: str
+
+class GetJobRunInputTypeDef(TypedDict):
+    domainIdentifier: str
+    identifier: str
+
+class JobRunErrorTypeDef(TypedDict):
+    message: str
+
+class GetLineageEventInputTypeDef(TypedDict):
+    domainIdentifier: str
+    identifier: str
+
+TimestampTypeDef = Union[datetime, str]
+LineageNodeReferenceTypeDef = TypedDict(
+    "LineageNodeReferenceTypeDef",
+    {
+        "eventTimestamp": NotRequired[datetime],
+        "id": NotRequired[str],
+    },
+)
+
+class GetListingInputTypeDef(TypedDict):
+    domainIdentifier: str
+    identifier: str
+    listingRevision: NotRequired[str]
+
+class GetMetadataGenerationRunInputTypeDef(TypedDict):
+    domainIdentifier: str
+    identifier: str
+
+MetadataGenerationRunTargetTypeDef = TypedDict(
+    "MetadataGenerationRunTargetTypeDef",
+    {
+        "identifier": str,
+        "type": Literal["ASSET"],
+        "revision": NotRequired[str],
+    },
+)
+
+class GetProjectInputTypeDef(TypedDict):
+    domainIdentifier: str
+    identifier: str
+
+class GetProjectProfileInputTypeDef(TypedDict):
+    domainIdentifier: str
+    identifier: str
+
+class GetRuleInputTypeDef(TypedDict):
+    domainIdentifier: str
+    identifier: str
+    revision: NotRequired[str]
+
+class GetSubscriptionGrantInputTypeDef(TypedDict):
+    domainIdentifier: str
+    identifier: str
+
+class GetSubscriptionInputTypeDef(TypedDict):
+    domainIdentifier: str
+    identifier: str
+
+class GetSubscriptionRequestDetailsInputTypeDef(TypedDict):
+    domainIdentifier: str
+    identifier: str
+
+class GetSubscriptionTargetInputTypeDef(TypedDict):
+    domainIdentifier: str
+    environmentIdentifier: str
+    identifier: str
+
+class GetTimeSeriesDataPointInputTypeDef(TypedDict):
+    domainIdentifier: str
+    entityIdentifier: str
+    entityType: TimeSeriesEntityTypeType
+    formName: str
+    identifier: str
+
+TimeSeriesDataPointFormOutputTypeDef = TypedDict(
+    "TimeSeriesDataPointFormOutputTypeDef",
+    {
+        "formName": str,
+        "timestamp": datetime,
+        "typeIdentifier": str,
+        "content": NotRequired[str],
+        "id": NotRequired[str],
+        "typeRevision": NotRequired[str],
+    },
+)
+GetUserProfileInputTypeDef = TypedDict(
+    "GetUserProfileInputTypeDef",
+    {
+        "domainIdentifier": str,
+        "userIdentifier": str,
+        "type": NotRequired[UserProfileTypeType],
+    },
+)
+GlossaryItemTypeDef = TypedDict(
+    "GlossaryItemTypeDef",
+    {
+        "domainId": str,
+        "id": str,
+        "name": str,
+        "owningProjectId": str,
+        "status": GlossaryStatusType,
+        "createdAt": NotRequired[datetime],
+        "createdBy": NotRequired[str],
+        "description": NotRequired[str],
+        "updatedAt": NotRequired[datetime],
+        "updatedBy": NotRequired[str],
+    },
+)
+
+class PhysicalConnectionRequirementsOutputTypeDef(TypedDict):
+    availabilityZone: NotRequired[str]
+    securityGroupIdList: NotRequired[List[str]]
+    subnetId: NotRequired[str]
+    subnetIdList: NotRequired[List[str]]
+
+class GlueOAuth2CredentialsTypeDef(TypedDict):
+    accessToken: NotRequired[str]
+    jwtToken: NotRequired[str]
+    refreshToken: NotRequired[str]
+    userManagedClientApplicationClientSecret: NotRequired[str]
+
+class SelfGrantStatusDetailTypeDef(TypedDict):
+    databaseName: str
+    status: SelfGrantStatusType
+    failureCause: NotRequired[str]
+    schemaName: NotRequired[str]
+
+class ListingRevisionInputTypeDef(TypedDict):
+    identifier: str
+    revision: str
+
+ListingRevisionTypeDef = TypedDict(
+    "ListingRevisionTypeDef",
+    {
+        "id": str,
+        "revision": str,
+    },
+)
+
+class GreaterThanExpressionTypeDef(TypedDict):
+    columnName: str
+    value: str
+
+class GreaterThanOrEqualToExpressionTypeDef(TypedDict):
+    columnName: str
+    value: str
+
+class GroupDetailsTypeDef(TypedDict):
+    groupId: str
+
+class GroupPolicyGrantPrincipalTypeDef(TypedDict):
+    groupIdentifier: NotRequired[str]
+
+GroupProfileSummaryTypeDef = TypedDict(
+    "GroupProfileSummaryTypeDef",
+    {
+        "domainId": NotRequired[str],
+        "groupName": NotRequired[str],
+        "id": NotRequired[str],
+        "status": NotRequired[GroupProfileStatusType],
+    },
+)
+
+class IamUserProfileDetailsTypeDef(TypedDict):
+    arn: NotRequired[str]
+
+class InExpressionOutputTypeDef(TypedDict):
+    columnName: str
+    values: List[str]
+
+class InExpressionTypeDef(TypedDict):
+    columnName: str
+    values: Sequence[str]
+
+class IsNotNullExpressionTypeDef(TypedDict):
+    columnName: str
+
+class IsNullExpressionTypeDef(TypedDict):
+    columnName: str
+
+class LakeFormationConfigurationOutputTypeDef(TypedDict):
+    locationRegistrationExcludeS3Locations: NotRequired[List[str]]
+    locationRegistrationRole: NotRequired[str]
+
+class LakeFormationConfigurationTypeDef(TypedDict):
+    locationRegistrationExcludeS3Locations: NotRequired[Sequence[str]]
+    locationRegistrationRole: NotRequired[str]
+
+class LessThanExpressionTypeDef(TypedDict):
+    columnName: str
+    value: str
+
+class LessThanOrEqualToExpressionTypeDef(TypedDict):
+    columnName: str
+    value: str
+
+class LikeExpressionTypeDef(TypedDict):
+    columnName: str
+    value: str
+
+LineageNodeSummaryTypeDef = TypedDict(
+    "LineageNodeSummaryTypeDef",
+    {
+        "domainId": str,
+        "id": str,
+        "typeName": str,
+        "createdAt": NotRequired[datetime],
+        "createdBy": NotRequired[str],
+        "description": NotRequired[str],
+        "eventTimestamp": NotRequired[datetime],
+        "name": NotRequired[str],
+        "sourceIdentifier": NotRequired[str],
+        "typeRevision": NotRequired[str],
+        "updatedAt": NotRequired[datetime],
+        "updatedBy": NotRequired[str],
+    },
+)
+
+class LineageSqlQueryRunDetailsTypeDef(TypedDict):
+    errorMessages: NotRequired[List[str]]
+    numQueriesFailed: NotRequired[int]
+    queryEndTime: NotRequired[datetime]
+    queryStartTime: NotRequired[datetime]
+    totalQueriesProcessed: NotRequired[int]
+
+class LineageSyncScheduleTypeDef(TypedDict):
+    schedule: NotRequired[str]
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class ListAssetFiltersInputTypeDef(TypedDict):
+    assetIdentifier: str
+    domainIdentifier: str
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+    status: NotRequired[FilterStatusType]
+
+class ListAssetRevisionsInputTypeDef(TypedDict):
+    domainIdentifier: str
+    identifier: str
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+ListConnectionsInputTypeDef = TypedDict(
+    "ListConnectionsInputTypeDef",
+    {
+        "domainIdentifier": str,
+        "projectIdentifier": str,
+        "environmentIdentifier": NotRequired[str],
+        "maxResults": NotRequired[int],
+        "name": NotRequired[str],
+        "nextToken": NotRequired[str],
+        "sortBy": NotRequired[Literal["NAME"]],
+        "sortOrder": NotRequired[SortOrderType],
+        "type": NotRequired[ConnectionTypeType],
+    },
+)
+
+class ListDataProductRevisionsInputTypeDef(TypedDict):
+    domainIdentifier: str
+    identifier: str
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListDataSourceRunActivitiesInputTypeDef(TypedDict):
+    domainIdentifier: str
+    identifier: str
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+    status: NotRequired[DataAssetActivityStatusType]
+
+class ListDataSourceRunsInputTypeDef(TypedDict):
+    dataSourceIdentifier: str
+    domainIdentifier: str
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+    status: NotRequired[DataSourceRunStatusType]
+
+ListDataSourcesInputTypeDef = TypedDict(
+    "ListDataSourcesInputTypeDef",
+    {
+        "domainIdentifier": str,
+        "projectIdentifier": str,
+        "connectionIdentifier": NotRequired[str],
+        "environmentIdentifier": NotRequired[str],
+        "maxResults": NotRequired[int],
+        "name": NotRequired[str],
+        "nextToken": NotRequired[str],
+        "status": NotRequired[DataSourceStatusType],
+        "type": NotRequired[str],
+    },
+)
+
+class ListDomainUnitsForParentInputTypeDef(TypedDict):
+    domainIdentifier: str
+    parentDomainUnitIdentifier: str
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListDomainsInputTypeDef(TypedDict):
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+    status: NotRequired[DomainStatusType]
+
+class ListEntityOwnersInputTypeDef(TypedDict):
+    domainIdentifier: str
+    entityIdentifier: str
+    entityType: Literal["DOMAIN_UNIT"]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListEnvironmentActionsInputTypeDef(TypedDict):
+    domainIdentifier: str
+    environmentIdentifier: str
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListEnvironmentBlueprintConfigurationsInputTypeDef(TypedDict):
+    domainIdentifier: str
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListEnvironmentBlueprintsInputTypeDef(TypedDict):
+    domainIdentifier: str
+    managed: NotRequired[bool]
+    maxResults: NotRequired[int]
+    name: NotRequired[str]
+    nextToken: NotRequired[str]
+
+class ListEnvironmentProfilesInputTypeDef(TypedDict):
+    domainIdentifier: str
+    awsAccountId: NotRequired[str]
+    awsAccountRegion: NotRequired[str]
+    environmentBlueprintIdentifier: NotRequired[str]
+    maxResults: NotRequired[int]
+    name: NotRequired[str]
+    nextToken: NotRequired[str]
+    projectIdentifier: NotRequired[str]
+
+class ListEnvironmentsInputTypeDef(TypedDict):
+    domainIdentifier: str
+    projectIdentifier: str
+    awsAccountId: NotRequired[str]
+    awsAccountRegion: NotRequired[str]
+    environmentBlueprintIdentifier: NotRequired[str]
+    environmentProfileIdentifier: NotRequired[str]
+    maxResults: NotRequired[int]
+    name: NotRequired[str]
+    nextToken: NotRequired[str]
+    provider: NotRequired[str]
+    status: NotRequired[EnvironmentStatusType]
+
+class ListJobRunsInputTypeDef(TypedDict):
+    domainIdentifier: str
+    jobIdentifier: str
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+    sortOrder: NotRequired[SortOrderType]
+    status: NotRequired[JobRunStatusType]
+
+ListMetadataGenerationRunsInputTypeDef = TypedDict(
+    "ListMetadataGenerationRunsInputTypeDef",
+    {
+        "domainIdentifier": str,
+        "maxResults": NotRequired[int],
+        "nextToken": NotRequired[str],
+        "status": NotRequired[MetadataGenerationRunStatusType],
+        "type": NotRequired[Literal["BUSINESS_DESCRIPTIONS"]],
+    },
+)
+
+class ListPolicyGrantsInputTypeDef(TypedDict):
+    domainIdentifier: str
+    entityIdentifier: str
+    entityType: TargetEntityTypeType
+    policyType: ManagedPolicyTypeType
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListProjectMembershipsInputTypeDef(TypedDict):
+    domainIdentifier: str
+    projectIdentifier: str
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+    sortBy: NotRequired[Literal["NAME"]]
+    sortOrder: NotRequired[SortOrderType]
+
+class ListProjectProfilesInputTypeDef(TypedDict):
+    domainIdentifier: str
+    maxResults: NotRequired[int]
+    name: NotRequired[str]
+    nextToken: NotRequired[str]
+    sortBy: NotRequired[Literal["NAME"]]
+    sortOrder: NotRequired[SortOrderType]
+
+ProjectProfileSummaryTypeDef = TypedDict(
+    "ProjectProfileSummaryTypeDef",
+    {
+        "createdBy": str,
+        "domainId": str,
+        "id": str,
+        "name": str,
+        "createdAt": NotRequired[datetime],
+        "description": NotRequired[str],
+        "domainUnitId": NotRequired[str],
+        "lastUpdatedAt": NotRequired[datetime],
+        "status": NotRequired[StatusType],
+    },
+)
+
+class ListProjectsInputTypeDef(TypedDict):
+    domainIdentifier: str
+    groupIdentifier: NotRequired[str]
+    maxResults: NotRequired[int]
+    name: NotRequired[str]
+    nextToken: NotRequired[str]
+    userIdentifier: NotRequired[str]
+
+class ListRulesInputTypeDef(TypedDict):
+    domainIdentifier: str
+    targetIdentifier: str
+    targetType: Literal["DOMAIN_UNIT"]
+    action: NotRequired[RuleActionType]
+    assetTypes: NotRequired[Sequence[str]]
+    dataProduct: NotRequired[bool]
+    includeCascaded: NotRequired[bool]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+    projectIds: NotRequired[Sequence[str]]
+    ruleType: NotRequired[Literal["METADATA_FORM_ENFORCEMENT"]]
+
+class ListSubscriptionGrantsInputTypeDef(TypedDict):
+    domainIdentifier: str
+    environmentId: NotRequired[str]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+    owningProjectId: NotRequired[str]
+    sortBy: NotRequired[SortKeyType]
+    sortOrder: NotRequired[SortOrderType]
+    subscribedListingId: NotRequired[str]
+    subscriptionId: NotRequired[str]
+    subscriptionTargetId: NotRequired[str]
+
+class ListSubscriptionRequestsInputTypeDef(TypedDict):
+    domainIdentifier: str
+    approverProjectId: NotRequired[str]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+    owningProjectId: NotRequired[str]
+    sortBy: NotRequired[SortKeyType]
+    sortOrder: NotRequired[SortOrderType]
+    status: NotRequired[SubscriptionRequestStatusType]
+    subscribedListingId: NotRequired[str]
+
+class ListSubscriptionTargetsInputTypeDef(TypedDict):
+    domainIdentifier: str
+    environmentIdentifier: str
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+    sortBy: NotRequired[SortKeyType]
+    sortOrder: NotRequired[SortOrderType]
+
+class ListSubscriptionsInputTypeDef(TypedDict):
+    domainIdentifier: str
+    approverProjectId: NotRequired[str]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+    owningProjectId: NotRequired[str]
+    sortBy: NotRequired[SortKeyType]
+    sortOrder: NotRequired[SortOrderType]
+    status: NotRequired[SubscriptionStatusType]
+    subscribedListingId: NotRequired[str]
+    subscriptionRequestIdentifier: NotRequired[str]
+
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+
+class UserDetailsTypeDef(TypedDict):
+    userId: str
+
+class MetadataFormReferenceTypeDef(TypedDict):
+    typeIdentifier: str
+    typeRevision: str
+
+class MetadataFormSummaryTypeDef(TypedDict):
+    typeName: str
+    typeRevision: str
+    formName: NotRequired[str]
+
+class NameIdentifierTypeDef(TypedDict):
+    name: NotRequired[str]
+    namespace: NotRequired[str]
+
+class NotEqualToExpressionTypeDef(TypedDict):
+    columnName: str
+    value: str
+
+class NotInExpressionOutputTypeDef(TypedDict):
+    columnName: str
+    values: List[str]
+
+class NotInExpressionTypeDef(TypedDict):
+    columnName: str
+    values: Sequence[str]
+
+class NotLikeExpressionTypeDef(TypedDict):
+    columnName: str
+    value: str
+
+NotificationResourceTypeDef = TypedDict(
+    "NotificationResourceTypeDef",
+    {
+        "id": str,
+        "type": Literal["PROJECT"],
+        "name": NotRequired[str],
+    },
+)
+
+class OAuth2ClientApplicationTypeDef(TypedDict):
+    aWSManagedClientApplicationReference: NotRequired[str]
+    userManagedClientApplicationClientId: NotRequired[str]
+
+class OverrideDomainUnitOwnersPolicyGrantDetailTypeDef(TypedDict):
+    includeChildDomainUnits: NotRequired[bool]
+
+class OverrideProjectOwnersPolicyGrantDetailTypeDef(TypedDict):
+    includeChildDomainUnits: NotRequired[bool]
+
+class OwnerGroupPropertiesOutputTypeDef(TypedDict):
+    groupId: NotRequired[str]
+
+class OwnerGroupPropertiesTypeDef(TypedDict):
+    groupIdentifier: str
+
+class OwnerUserPropertiesOutputTypeDef(TypedDict):
+    userId: NotRequired[str]
+
+class OwnerUserPropertiesTypeDef(TypedDict):
+    userIdentifier: str
+
+class PhysicalConnectionRequirementsTypeDef(TypedDict):
+    availabilityZone: NotRequired[str]
+    securityGroupIdList: NotRequired[Sequence[str]]
+    subnetId: NotRequired[str]
+    subnetIdList: NotRequired[Sequence[str]]
+
+class UseAssetTypePolicyGrantDetailTypeDef(TypedDict):
+    domainUnitId: NotRequired[str]
+
+class UserPolicyGrantPrincipalOutputTypeDef(TypedDict):
+    allUsersGrantFilter: NotRequired[Dict[str, Any]]
+    userIdentifier: NotRequired[str]
+
+class UserPolicyGrantPrincipalTypeDef(TypedDict):
+    allUsersGrantFilter: NotRequired[Mapping[str, Any]]
+    userIdentifier: NotRequired[str]
+
+class ProjectsForRuleOutputTypeDef(TypedDict):
+    selectionMode: RuleScopeSelectionModeType
+    specificProjects: NotRequired[List[str]]
+
+class ProjectsForRuleTypeDef(TypedDict):
+    selectionMode: RuleScopeSelectionModeType
+    specificProjects: NotRequired[Sequence[str]]
+
+class RedshiftClusterStorageTypeDef(TypedDict):
+    clusterName: str
+
+class RedshiftCredentialConfigurationTypeDef(TypedDict):
+    secretManagerArn: str
+
+class UsernamePasswordTypeDef(TypedDict):
+    password: str
+    username: str
+
+class RedshiftStoragePropertiesTypeDef(TypedDict):
+    clusterName: NotRequired[str]
+    workgroupName: NotRequired[str]
+
+class RedshiftServerlessStorageTypeDef(TypedDict):
+    workgroupName: str
+
+class RejectChoiceTypeDef(TypedDict):
+    predictionTarget: str
+    predictionChoices: NotRequired[Sequence[int]]
+
+class RejectRuleTypeDef(TypedDict):
+    rule: NotRequired[RejectRuleBehaviorType]
+    threshold: NotRequired[float]
+
+class RejectSubscriptionRequestInputTypeDef(TypedDict):
+    domainIdentifier: str
+    identifier: str
+    decisionComment: NotRequired[str]
+
+class RevokeSubscriptionInputTypeDef(TypedDict):
+    domainIdentifier: str
+    identifier: str
+    retainPermissions: NotRequired[bool]
+
+class SearchGroupProfilesInputTypeDef(TypedDict):
+    domainIdentifier: str
+    groupType: GroupSearchTypeType
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+    searchText: NotRequired[str]
+
+class SearchInItemTypeDef(TypedDict):
+    attribute: str
+
+class SearchSortTypeDef(TypedDict):
+    attribute: str
+    order: NotRequired[SortOrderType]
+
+class SearchUserProfilesInputTypeDef(TypedDict):
+    domainIdentifier: str
+    userType: UserSearchTypeType
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+    searchText: NotRequired[str]
+
+class SparkGlueArgsTypeDef(TypedDict):
+    connection: NotRequired[str]
+
+class SsoUserProfileDetailsTypeDef(TypedDict):
+    firstName: NotRequired[str]
+    lastName: NotRequired[str]
+    username: NotRequired[str]
+
+class StartDataSourceRunInputTypeDef(TypedDict):
+    dataSourceIdentifier: str
+    domainIdentifier: str
+    clientToken: NotRequired[str]
+
+class SubscribedProjectInputTypeDef(TypedDict):
+    identifier: NotRequired[str]
+
+SubscribedProjectTypeDef = TypedDict(
+    "SubscribedProjectTypeDef",
+    {
+        "id": NotRequired[str],
+        "name": NotRequired[str],
+    },
+)
+
+class TagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tags: Mapping[str, str]
+
+class TermRelationsTypeDef(TypedDict):
+    classifies: NotRequired[Sequence[str]]
+    isA: NotRequired[Sequence[str]]
+
+class UntagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tagKeys: Sequence[str]
+
+class UpdateDomainUnitInputTypeDef(TypedDict):
+    domainIdentifier: str
+    identifier: str
+    description: NotRequired[str]
+    name: NotRequired[str]
+
+class UpdateGlossaryInputTypeDef(TypedDict):
+    domainIdentifier: str
+    identifier: str
+    clientToken: NotRequired[str]
+    description: NotRequired[str]
+    name: NotRequired[str]
+    status: NotRequired[GlossaryStatusType]
+
+class UpdateGroupProfileInputTypeDef(TypedDict):
+    domainIdentifier: str
+    groupIdentifier: str
+    status: GroupProfileStatusType
+
+class UpdateSubscriptionRequestInputTypeDef(TypedDict):
+    domainIdentifier: str
+    identifier: str
+    requestReason: str
+
+UpdateUserProfileInputTypeDef = TypedDict(
+    "UpdateUserProfileInputTypeDef",
+    {
+        "domainIdentifier": str,
+        "status": UserProfileStatusType,
+        "userIdentifier": str,
+        "type": NotRequired[UserProfileTypeType],
+    },
+)
+
+class AcceptPredictionsInputTypeDef(TypedDict):
+    domainIdentifier: str
+    identifier: str
+    acceptChoices: NotRequired[Sequence[AcceptChoiceTypeDef]]
+    acceptRule: NotRequired[AcceptRuleTypeDef]
+    clientToken: NotRequired[str]
+    revision: NotRequired[str]
+
+class AcceptPredictionsOutputTypeDef(TypedDict):
+    assetId: str
+    domainId: str
+    revision: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateFormTypeOutputTypeDef(TypedDict):
+    description: str
+    domainId: str
+    name: str
+    originDomainId: str
+    originProjectId: str
+    owningProjectId: str
+    revision: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+CreateGlossaryOutputTypeDef = TypedDict(
+    "CreateGlossaryOutputTypeDef",
+    {
+        "description": str,
+        "domainId": str,
+        "id": str,
+        "name": str,
+        "owningProjectId": str,
+        "status": GlossaryStatusType,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+CreateGroupProfileOutputTypeDef = TypedDict(
+    "CreateGroupProfileOutputTypeDef",
+    {
+        "domainId": str,
+        "groupName": str,
+        "id": str,
+        "status": GroupProfileStatusType,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+
+class CreateListingChangeSetOutputTypeDef(TypedDict):
+    listingId: str
+    listingRevision: str
+    status: ListingStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteConnectionOutputTypeDef(TypedDict):
+    status: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteDomainOutputTypeDef(TypedDict):
+    status: DomainStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class EmptyResponseMetadataTypeDef(TypedDict):
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetEnvironmentCredentialsOutputTypeDef(TypedDict):
+    accessKeyId: str
+    expiration: datetime
+    secretAccessKey: str
+    sessionToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+GetGlossaryOutputTypeDef = TypedDict(
+    "GetGlossaryOutputTypeDef",
+    {
+        "createdAt": datetime,
+        "createdBy": str,
+        "description": str,
+        "domainId": str,
+        "id": str,
+        "name": str,
+        "owningProjectId": str,
+        "status": GlossaryStatusType,
+        "updatedAt": datetime,
+        "updatedBy": str,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+GetGroupProfileOutputTypeDef = TypedDict(
+    "GetGroupProfileOutputTypeDef",
+    {
+        "domainId": str,
+        "groupName": str,
+        "id": str,
+        "status": GroupProfileStatusType,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+
+class GetIamPortalLoginUrlOutputTypeDef(TypedDict):
+    authCodeUrl: str
+    userProfileId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+GetLineageEventOutputTypeDef = TypedDict(
+    "GetLineageEventOutputTypeDef",
+    {
+        "createdAt": datetime,
+        "createdBy": str,
+        "domainId": str,
+        "event": StreamingBody,
+        "eventTime": datetime,
+        "id": str,
+        "processingStatus": LineageEventProcessingStatusType,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+PostLineageEventOutputTypeDef = TypedDict(
+    "PostLineageEventOutputTypeDef",
+    {
+        "domainId": str,
+        "id": str,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+
+class RejectPredictionsOutputTypeDef(TypedDict):
+    assetId: str
+    assetRevision: str
+    domainId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+StartMetadataGenerationRunOutputTypeDef = TypedDict(
+    "StartMetadataGenerationRunOutputTypeDef",
+    {
+        "createdAt": datetime,
+        "createdBy": str,
+        "domainId": str,
+        "id": str,
+        "owningProjectId": str,
+        "status": MetadataGenerationRunStatusType,
+        "type": Literal["BUSINESS_DESCRIPTIONS"],
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+UpdateGlossaryOutputTypeDef = TypedDict(
+    "UpdateGlossaryOutputTypeDef",
+    {
+        "description": str,
+        "domainId": str,
+        "id": str,
+        "name": str,
+        "owningProjectId": str,
+        "status": GlossaryStatusType,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+UpdateGroupProfileOutputTypeDef = TypedDict(
+    "UpdateGroupProfileOutputTypeDef",
+    {
+        "domainId": str,
+        "groupName": str,
+        "id": str,
+        "status": GroupProfileStatusType,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+
+class AcceptSubscriptionRequestInputTypeDef(TypedDict):
+    domainIdentifier: str
+    identifier: str
+    assetScopes: NotRequired[Sequence[AcceptedAssetScopeTypeDef]]
+    decisionComment: NotRequired[str]
+
+class ActionParametersTypeDef(TypedDict):
+    awsConsoleLink: NotRequired[AwsConsoleLinkParametersTypeDef]
+
+class ListAssetFiltersOutputTypeDef(TypedDict):
+    items: List[AssetFilterSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class AssetItemAdditionalAttributesTypeDef(TypedDict):
+    formsOutput: NotRequired[List[FormOutputTypeDef]]
+    latestTimeSeriesDataPointFormsOutput: NotRequired[
+        List[TimeSeriesDataPointSummaryFormOutputTypeDef]
+    ]
+    readOnlyFormsOutput: NotRequired[List[FormOutputTypeDef]]
+
+class AssetListingItemAdditionalAttributesTypeDef(TypedDict):
+    forms: NotRequired[str]
+    latestTimeSeriesDataPointForms: NotRequired[List[TimeSeriesDataPointSummaryFormOutputTypeDef]]
+
+class ListTimeSeriesDataPointsOutputTypeDef(TypedDict):
+    items: List[TimeSeriesDataPointSummaryFormOutputTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+GetAssetOutputTypeDef = TypedDict(
+    "GetAssetOutputTypeDef",
+    {
+        "createdAt": datetime,
+        "createdBy": str,
+        "description": str,
+        "domainId": str,
+        "externalIdentifier": str,
+        "firstRevisionCreatedAt": datetime,
+        "firstRevisionCreatedBy": str,
+        "formsOutput": List[FormOutputTypeDef],
+        "glossaryTerms": List[str],
+        "id": str,
+        "latestTimeSeriesDataPointFormsOutput": List[TimeSeriesDataPointSummaryFormOutputTypeDef],
+        "listing": AssetListingDetailsTypeDef,
+        "name": str,
+        "owningProjectId": str,
+        "readOnlyFormsOutput": List[FormOutputTypeDef],
+        "revision": str,
+        "typeIdentifier": str,
+        "typeRevision": str,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+
+class AssetListingTypeDef(TypedDict):
+    assetId: NotRequired[str]
+    assetRevision: NotRequired[str]
+    assetType: NotRequired[str]
+    createdAt: NotRequired[datetime]
+    forms: NotRequired[str]
+    glossaryTerms: NotRequired[List[DetailedGlossaryTermTypeDef]]
+    latestTimeSeriesDataPointForms: NotRequired[List[TimeSeriesDataPointSummaryFormOutputTypeDef]]
+    owningProjectId: NotRequired[str]
+
+class ListingSummaryItemTypeDef(TypedDict):
+    glossaryTerms: NotRequired[List[DetailedGlossaryTermTypeDef]]
+    listingId: NotRequired[str]
+    listingRevision: NotRequired[str]
+
+class ListingSummaryTypeDef(TypedDict):
+    glossaryTerms: NotRequired[List[DetailedGlossaryTermTypeDef]]
+    listingId: NotRequired[str]
+    listingRevision: NotRequired[str]
+
+class SubscribedProductListingTypeDef(TypedDict):
+    assetListings: NotRequired[List[AssetInDataProductListingItemTypeDef]]
+    description: NotRequired[str]
+    entityId: NotRequired[str]
+    entityRevision: NotRequired[str]
+    glossaryTerms: NotRequired[List[DetailedGlossaryTermTypeDef]]
+    name: NotRequired[str]
+
+class ListAssetRevisionsOutputTypeDef(TypedDict):
+    items: List[AssetRevisionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class SubscribedAssetListingTypeDef(TypedDict):
+    assetScope: NotRequired[AssetScopeTypeDef]
+    entityId: NotRequired[str]
+    entityRevision: NotRequired[str]
+    entityType: NotRequired[str]
+    forms: NotRequired[str]
+    glossaryTerms: NotRequired[List[DetailedGlossaryTermTypeDef]]
+
+class AssetTypeItemTypeDef(TypedDict):
+    domainId: str
+    formsOutput: Dict[str, FormEntryOutputTypeDef]
+    name: str
+    owningProjectId: str
+    revision: str
+    createdAt: NotRequired[datetime]
+    createdBy: NotRequired[str]
+    description: NotRequired[str]
+    originDomainId: NotRequired[str]
+    originProjectId: NotRequired[str]
+    updatedAt: NotRequired[datetime]
+    updatedBy: NotRequired[str]
+
+class CreateAssetTypeOutputTypeDef(TypedDict):
+    createdAt: datetime
+    createdBy: str
+    description: str
+    domainId: str
+    formsOutput: Dict[str, FormEntryOutputTypeDef]
+    name: str
+    originDomainId: str
+    originProjectId: str
+    owningProjectId: str
+    revision: str
+    updatedAt: datetime
+    updatedBy: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetAssetTypeOutputTypeDef(TypedDict):
+    createdAt: datetime
+    createdBy: str
+    description: str
+    domainId: str
+    formsOutput: Dict[str, FormEntryOutputTypeDef]
+    name: str
+    originDomainId: str
+    originProjectId: str
+    owningProjectId: str
+    revision: str
+    updatedAt: datetime
+    updatedBy: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class LineageNodeTypeItemTypeDef(TypedDict):
+    domainId: str
+    formsOutput: Dict[str, FormEntryOutputTypeDef]
+    revision: str
+    createdAt: NotRequired[datetime]
+    createdBy: NotRequired[str]
+    description: NotRequired[str]
+    name: NotRequired[str]
+    updatedAt: NotRequired[datetime]
+    updatedBy: NotRequired[str]
+
+class AuthenticationConfigurationPatchTypeDef(TypedDict):
+    basicAuthenticationCredentials: NotRequired[BasicAuthenticationCredentialsTypeDef]
+    secretArn: NotRequired[str]
+
+class PostLineageEventInputTypeDef(TypedDict):
+    domainIdentifier: str
+    event: BlobTypeDef
+    clientToken: NotRequired[str]
+
+class PredictionConfigurationTypeDef(TypedDict):
+    businessNameGeneration: NotRequired[BusinessNameGenerationConfigurationTypeDef]
+
+class ProvisioningPropertiesTypeDef(TypedDict):
+    cloudFormation: NotRequired[CloudFormationPropertiesTypeDef]
+
+ConfigurableEnvironmentActionTypeDef = TypedDict(
+    "ConfigurableEnvironmentActionTypeDef",
+    {
+        "parameters": List[ConfigurableActionParameterTypeDef],
+        "type": str,
+        "auth": NotRequired[ConfigurableActionTypeAuthorizationType],
+    },
+)
+
+class CreateAssetTypeInputTypeDef(TypedDict):
+    domainIdentifier: str
+    formsInput: Mapping[str, FormEntryInputTypeDef]
+    name: str
+    owningProjectIdentifier: str
+    description: NotRequired[str]
+
+CreateDataProductOutputTypeDef = TypedDict(
+    "CreateDataProductOutputTypeDef",
+    {
+        "createdAt": datetime,
+        "createdBy": str,
+        "description": str,
+        "domainId": str,
+        "firstRevisionCreatedAt": datetime,
+        "firstRevisionCreatedBy": str,
+        "formsOutput": List[FormOutputTypeDef],
+        "glossaryTerms": List[str],
+        "id": str,
+        "items": List[DataProductItemOutputTypeDef],
+        "name": str,
+        "owningProjectId": str,
+        "revision": str,
+        "status": DataProductStatusType,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+CreateDataProductRevisionOutputTypeDef = TypedDict(
+    "CreateDataProductRevisionOutputTypeDef",
+    {
+        "createdAt": datetime,
+        "createdBy": str,
+        "description": str,
+        "domainId": str,
+        "firstRevisionCreatedAt": datetime,
+        "firstRevisionCreatedBy": str,
+        "formsOutput": List[FormOutputTypeDef],
+        "glossaryTerms": List[str],
+        "id": str,
+        "items": List[DataProductItemOutputTypeDef],
+        "name": str,
+        "owningProjectId": str,
+        "revision": str,
+        "status": DataProductStatusType,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+GetDataProductOutputTypeDef = TypedDict(
+    "GetDataProductOutputTypeDef",
+    {
+        "createdAt": datetime,
+        "createdBy": str,
+        "description": str,
+        "domainId": str,
+        "firstRevisionCreatedAt": datetime,
+        "firstRevisionCreatedBy": str,
+        "formsOutput": List[FormOutputTypeDef],
+        "glossaryTerms": List[str],
+        "id": str,
+        "items": List[DataProductItemOutputTypeDef],
+        "name": str,
+        "owningProjectId": str,
+        "revision": str,
+        "status": DataProductStatusType,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+DataSourceSummaryTypeDef = TypedDict(
+    "DataSourceSummaryTypeDef",
+    {
+        "dataSourceId": str,
+        "domainId": str,
+        "name": str,
         "status": DataSourceStatusType,
         "type": str,
-        "updatedAt": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "connectionId": NotRequired[str],
+        "createdAt": NotRequired[datetime],
+        "description": NotRequired[str],
+        "enableSetting": NotRequired[EnableSettingType],
+        "environmentId": NotRequired[str],
+        "lastRunAssetCount": NotRequired[int],
+        "lastRunAt": NotRequired[datetime],
+        "lastRunErrorMessage": NotRequired[DataSourceErrorMessageTypeDef],
+        "lastRunStatus": NotRequired[DataSourceRunStatusType],
+        "schedule": NotRequired[ScheduleConfigurationTypeDef],
+        "updatedAt": NotRequired[datetime],
     },
 )
 
-_RequiredCreateDomainInputRequestTypeDef = TypedDict(
-    "_RequiredCreateDomainInputRequestTypeDef",
-    {
-        "domainExecutionRole": str,
-        "name": str,
-    },
-)
-_OptionalCreateDomainInputRequestTypeDef = TypedDict(
-    "_OptionalCreateDomainInputRequestTypeDef",
-    {
-        "clientToken": str,
-        "description": str,
-        "kmsKeyIdentifier": str,
-        "singleSignOn": "SingleSignOnTypeDef",
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class CreateDomainInputRequestTypeDef(
-    _RequiredCreateDomainInputRequestTypeDef, _OptionalCreateDomainInputRequestTypeDef
-):
-    pass
+class CreateDomainInputTypeDef(TypedDict):
+    domainExecutionRole: str
+    name: str
+    clientToken: NotRequired[str]
+    description: NotRequired[str]
+    domainVersion: NotRequired[DomainVersionType]
+    kmsKeyIdentifier: NotRequired[str]
+    serviceRole: NotRequired[str]
+    singleSignOn: NotRequired[SingleSignOnTypeDef]
+    tags: NotRequired[Mapping[str, str]]
 
 CreateDomainOutputTypeDef = TypedDict(
     "CreateDomainOutputTypeDef",
@@ -988,133 +2610,116 @@ CreateDomainOutputTypeDef = TypedDict(
         "arn": str,
         "description": str,
         "domainExecutionRole": str,
+        "domainVersion": DomainVersionType,
         "id": str,
         "kmsKeyIdentifier": str,
         "name": str,
         "portalUrl": str,
-        "singleSignOn": "SingleSignOnTypeDef",
+        "rootDomainUnitId": str,
+        "serviceRole": str,
+        "singleSignOn": SingleSignOnTypeDef,
         "status": DomainStatusType,
         "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
-
-_RequiredCreateEnvironmentActionInputRequestTypeDef = TypedDict(
-    "_RequiredCreateEnvironmentActionInputRequestTypeDef",
+GetDomainOutputTypeDef = TypedDict(
+    "GetDomainOutputTypeDef",
     {
-        "domainIdentifier": str,
-        "environmentIdentifier": str,
-        "name": str,
-        "parameters": "ActionParametersTypeDef",
-    },
-)
-_OptionalCreateEnvironmentActionInputRequestTypeDef = TypedDict(
-    "_OptionalCreateEnvironmentActionInputRequestTypeDef",
-    {
-        "description": str,
-    },
-    total=False,
-)
-
-class CreateEnvironmentActionInputRequestTypeDef(
-    _RequiredCreateEnvironmentActionInputRequestTypeDef,
-    _OptionalCreateEnvironmentActionInputRequestTypeDef,
-):
-    pass
-
-CreateEnvironmentActionOutputTypeDef = TypedDict(
-    "CreateEnvironmentActionOutputTypeDef",
-    {
-        "description": str,
-        "domainId": str,
-        "environmentId": str,
-        "id": str,
-        "name": str,
-        "parameters": "ActionParametersTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateEnvironmentInputRequestTypeDef = TypedDict(
-    "_RequiredCreateEnvironmentInputRequestTypeDef",
-    {
-        "domainIdentifier": str,
-        "environmentProfileIdentifier": str,
-        "name": str,
-        "projectIdentifier": str,
-    },
-)
-_OptionalCreateEnvironmentInputRequestTypeDef = TypedDict(
-    "_OptionalCreateEnvironmentInputRequestTypeDef",
-    {
-        "description": str,
-        "environmentAccountIdentifier": str,
-        "environmentAccountRegion": str,
-        "environmentBlueprintIdentifier": str,
-        "glossaryTerms": List[str],
-        "userParameters": List["EnvironmentParameterTypeDef"],
-    },
-    total=False,
-)
-
-class CreateEnvironmentInputRequestTypeDef(
-    _RequiredCreateEnvironmentInputRequestTypeDef, _OptionalCreateEnvironmentInputRequestTypeDef
-):
-    pass
-
-CreateEnvironmentOutputTypeDef = TypedDict(
-    "CreateEnvironmentOutputTypeDef",
-    {
-        "awsAccountId": str,
-        "awsAccountRegion": str,
+        "arn": str,
         "createdAt": datetime,
-        "createdBy": str,
-        "deploymentProperties": "DeploymentPropertiesTypeDef",
         "description": str,
-        "domainId": str,
-        "environmentActions": List["ConfigurableEnvironmentActionTypeDef"],
-        "environmentBlueprintId": str,
-        "environmentProfileId": str,
-        "glossaryTerms": List[str],
+        "domainExecutionRole": str,
+        "domainVersion": DomainVersionType,
         "id": str,
-        "lastDeployment": "DeploymentTypeDef",
+        "kmsKeyIdentifier": str,
+        "lastUpdatedAt": datetime,
         "name": str,
-        "projectId": str,
-        "provider": str,
-        "provisionedResources": List["ResourceTypeDef"],
-        "provisioningProperties": "ProvisioningPropertiesTypeDef",
-        "status": EnvironmentStatusType,
-        "updatedAt": datetime,
-        "userParameters": List["CustomParameterTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "portalUrl": str,
+        "rootDomainUnitId": str,
+        "serviceRole": str,
+        "singleSignOn": SingleSignOnTypeDef,
+        "status": DomainStatusType,
+        "tags": Dict[str, str],
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
 
-_RequiredCreateEnvironmentProfileInputRequestTypeDef = TypedDict(
-    "_RequiredCreateEnvironmentProfileInputRequestTypeDef",
+class UpdateDomainInputTypeDef(TypedDict):
+    identifier: str
+    clientToken: NotRequired[str]
+    description: NotRequired[str]
+    domainExecutionRole: NotRequired[str]
+    name: NotRequired[str]
+    serviceRole: NotRequired[str]
+    singleSignOn: NotRequired[SingleSignOnTypeDef]
+
+UpdateDomainOutputTypeDef = TypedDict(
+    "UpdateDomainOutputTypeDef",
     {
-        "domainIdentifier": str,
-        "environmentBlueprintIdentifier": str,
-        "name": str,
-        "projectIdentifier": str,
-    },
-)
-_OptionalCreateEnvironmentProfileInputRequestTypeDef = TypedDict(
-    "_OptionalCreateEnvironmentProfileInputRequestTypeDef",
-    {
-        "awsAccountId": str,
-        "awsAccountRegion": str,
         "description": str,
-        "userParameters": List["EnvironmentParameterTypeDef"],
+        "domainExecutionRole": str,
+        "id": str,
+        "lastUpdatedAt": datetime,
+        "name": str,
+        "rootDomainUnitId": str,
+        "serviceRole": str,
+        "singleSignOn": SingleSignOnTypeDef,
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
-    total=False,
 )
 
-class CreateEnvironmentProfileInputRequestTypeDef(
-    _RequiredCreateEnvironmentProfileInputRequestTypeDef,
-    _OptionalCreateEnvironmentProfileInputRequestTypeDef,
-):
-    pass
+class CreateEnvironmentInputTypeDef(TypedDict):
+    domainIdentifier: str
+    environmentProfileIdentifier: str
+    name: str
+    projectIdentifier: str
+    deploymentOrder: NotRequired[int]
+    description: NotRequired[str]
+    environmentAccountIdentifier: NotRequired[str]
+    environmentAccountRegion: NotRequired[str]
+    environmentBlueprintIdentifier: NotRequired[str]
+    environmentConfigurationId: NotRequired[str]
+    glossaryTerms: NotRequired[Sequence[str]]
+    userParameters: NotRequired[Sequence[EnvironmentParameterTypeDef]]
+
+class CreateEnvironmentProfileInputTypeDef(TypedDict):
+    domainIdentifier: str
+    environmentBlueprintIdentifier: str
+    name: str
+    projectIdentifier: str
+    awsAccountId: NotRequired[str]
+    awsAccountRegion: NotRequired[str]
+    description: NotRequired[str]
+    userParameters: NotRequired[Sequence[EnvironmentParameterTypeDef]]
+
+class EnvironmentConfigurationUserParameterOutputTypeDef(TypedDict):
+    environmentConfigurationName: NotRequired[str]
+    environmentId: NotRequired[str]
+    environmentParameters: NotRequired[List[EnvironmentParameterTypeDef]]
+
+class EnvironmentConfigurationUserParameterTypeDef(TypedDict):
+    environmentConfigurationName: NotRequired[str]
+    environmentId: NotRequired[str]
+    environmentParameters: NotRequired[Sequence[EnvironmentParameterTypeDef]]
+
+class UpdateEnvironmentInputTypeDef(TypedDict):
+    domainIdentifier: str
+    identifier: str
+    blueprintVersion: NotRequired[str]
+    description: NotRequired[str]
+    glossaryTerms: NotRequired[Sequence[str]]
+    name: NotRequired[str]
+    userParameters: NotRequired[Sequence[EnvironmentParameterTypeDef]]
+
+class UpdateEnvironmentProfileInputTypeDef(TypedDict):
+    domainIdentifier: str
+    identifier: str
+    awsAccountId: NotRequired[str]
+    awsAccountRegion: NotRequired[str]
+    description: NotRequired[str]
+    name: NotRequired[str]
+    userParameters: NotRequired[Sequence[EnvironmentParameterTypeDef]]
 
 CreateEnvironmentProfileOutputTypeDef = TypedDict(
     "CreateEnvironmentProfileOutputTypeDef",
@@ -1130,1483 +2735,10 @@ CreateEnvironmentProfileOutputTypeDef = TypedDict(
         "name": str,
         "projectId": str,
         "updatedAt": datetime,
-        "userParameters": List["CustomParameterTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "userParameters": List[CustomParameterTypeDef],
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
-
-_RequiredCreateFormTypeInputRequestTypeDef = TypedDict(
-    "_RequiredCreateFormTypeInputRequestTypeDef",
-    {
-        "domainIdentifier": str,
-        "model": "ModelTypeDef",
-        "name": str,
-        "owningProjectIdentifier": str,
-    },
-)
-_OptionalCreateFormTypeInputRequestTypeDef = TypedDict(
-    "_OptionalCreateFormTypeInputRequestTypeDef",
-    {
-        "description": str,
-        "status": FormTypeStatusType,
-    },
-    total=False,
-)
-
-class CreateFormTypeInputRequestTypeDef(
-    _RequiredCreateFormTypeInputRequestTypeDef, _OptionalCreateFormTypeInputRequestTypeDef
-):
-    pass
-
-CreateFormTypeOutputTypeDef = TypedDict(
-    "CreateFormTypeOutputTypeDef",
-    {
-        "description": str,
-        "domainId": str,
-        "name": str,
-        "originDomainId": str,
-        "originProjectId": str,
-        "owningProjectId": str,
-        "revision": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateGlossaryInputRequestTypeDef = TypedDict(
-    "_RequiredCreateGlossaryInputRequestTypeDef",
-    {
-        "domainIdentifier": str,
-        "name": str,
-        "owningProjectIdentifier": str,
-    },
-)
-_OptionalCreateGlossaryInputRequestTypeDef = TypedDict(
-    "_OptionalCreateGlossaryInputRequestTypeDef",
-    {
-        "clientToken": str,
-        "description": str,
-        "status": GlossaryStatusType,
-    },
-    total=False,
-)
-
-class CreateGlossaryInputRequestTypeDef(
-    _RequiredCreateGlossaryInputRequestTypeDef, _OptionalCreateGlossaryInputRequestTypeDef
-):
-    pass
-
-CreateGlossaryOutputTypeDef = TypedDict(
-    "CreateGlossaryOutputTypeDef",
-    {
-        "description": str,
-        "domainId": str,
-        "id": str,
-        "name": str,
-        "owningProjectId": str,
-        "status": GlossaryStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateGlossaryTermInputRequestTypeDef = TypedDict(
-    "_RequiredCreateGlossaryTermInputRequestTypeDef",
-    {
-        "domainIdentifier": str,
-        "glossaryIdentifier": str,
-        "name": str,
-    },
-)
-_OptionalCreateGlossaryTermInputRequestTypeDef = TypedDict(
-    "_OptionalCreateGlossaryTermInputRequestTypeDef",
-    {
-        "clientToken": str,
-        "longDescription": str,
-        "shortDescription": str,
-        "status": GlossaryTermStatusType,
-        "termRelations": "TermRelationsTypeDef",
-    },
-    total=False,
-)
-
-class CreateGlossaryTermInputRequestTypeDef(
-    _RequiredCreateGlossaryTermInputRequestTypeDef, _OptionalCreateGlossaryTermInputRequestTypeDef
-):
-    pass
-
-CreateGlossaryTermOutputTypeDef = TypedDict(
-    "CreateGlossaryTermOutputTypeDef",
-    {
-        "domainId": str,
-        "glossaryId": str,
-        "id": str,
-        "longDescription": str,
-        "name": str,
-        "shortDescription": str,
-        "status": GlossaryTermStatusType,
-        "termRelations": "TermRelationsTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateGroupProfileInputRequestTypeDef = TypedDict(
-    "_RequiredCreateGroupProfileInputRequestTypeDef",
-    {
-        "domainIdentifier": str,
-        "groupIdentifier": str,
-    },
-)
-_OptionalCreateGroupProfileInputRequestTypeDef = TypedDict(
-    "_OptionalCreateGroupProfileInputRequestTypeDef",
-    {
-        "clientToken": str,
-    },
-    total=False,
-)
-
-class CreateGroupProfileInputRequestTypeDef(
-    _RequiredCreateGroupProfileInputRequestTypeDef, _OptionalCreateGroupProfileInputRequestTypeDef
-):
-    pass
-
-CreateGroupProfileOutputTypeDef = TypedDict(
-    "CreateGroupProfileOutputTypeDef",
-    {
-        "domainId": str,
-        "groupName": str,
-        "id": str,
-        "status": GroupProfileStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateListingChangeSetInputRequestTypeDef = TypedDict(
-    "_RequiredCreateListingChangeSetInputRequestTypeDef",
-    {
-        "action": ChangeActionType,
-        "domainIdentifier": str,
-        "entityIdentifier": str,
-        "entityType": Literal["ASSET"],
-    },
-)
-_OptionalCreateListingChangeSetInputRequestTypeDef = TypedDict(
-    "_OptionalCreateListingChangeSetInputRequestTypeDef",
-    {
-        "clientToken": str,
-        "entityRevision": str,
-    },
-    total=False,
-)
-
-class CreateListingChangeSetInputRequestTypeDef(
-    _RequiredCreateListingChangeSetInputRequestTypeDef,
-    _OptionalCreateListingChangeSetInputRequestTypeDef,
-):
-    pass
-
-CreateListingChangeSetOutputTypeDef = TypedDict(
-    "CreateListingChangeSetOutputTypeDef",
-    {
-        "listingId": str,
-        "listingRevision": str,
-        "status": ListingStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateProjectInputRequestTypeDef = TypedDict(
-    "_RequiredCreateProjectInputRequestTypeDef",
-    {
-        "domainIdentifier": str,
-        "name": str,
-    },
-)
-_OptionalCreateProjectInputRequestTypeDef = TypedDict(
-    "_OptionalCreateProjectInputRequestTypeDef",
-    {
-        "description": str,
-        "glossaryTerms": List[str],
-    },
-    total=False,
-)
-
-class CreateProjectInputRequestTypeDef(
-    _RequiredCreateProjectInputRequestTypeDef, _OptionalCreateProjectInputRequestTypeDef
-):
-    pass
-
-CreateProjectMembershipInputRequestTypeDef = TypedDict(
-    "CreateProjectMembershipInputRequestTypeDef",
-    {
-        "designation": UserDesignationType,
-        "domainIdentifier": str,
-        "member": "MemberTypeDef",
-        "projectIdentifier": str,
-    },
-)
-
-CreateProjectOutputTypeDef = TypedDict(
-    "CreateProjectOutputTypeDef",
-    {
-        "createdAt": datetime,
-        "createdBy": str,
-        "description": str,
-        "domainId": str,
-        "failureReasons": List["ProjectDeletionErrorTypeDef"],
-        "glossaryTerms": List[str],
-        "id": str,
-        "lastUpdatedAt": datetime,
-        "name": str,
-        "projectStatus": ProjectStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateSubscriptionGrantInputRequestTypeDef = TypedDict(
-    "_RequiredCreateSubscriptionGrantInputRequestTypeDef",
-    {
-        "domainIdentifier": str,
-        "environmentIdentifier": str,
-        "grantedEntity": "GrantedEntityInputTypeDef",
-        "subscriptionTargetIdentifier": str,
-    },
-)
-_OptionalCreateSubscriptionGrantInputRequestTypeDef = TypedDict(
-    "_OptionalCreateSubscriptionGrantInputRequestTypeDef",
-    {
-        "assetTargetNames": List["AssetTargetNameMapTypeDef"],
-        "clientToken": str,
-    },
-    total=False,
-)
-
-class CreateSubscriptionGrantInputRequestTypeDef(
-    _RequiredCreateSubscriptionGrantInputRequestTypeDef,
-    _OptionalCreateSubscriptionGrantInputRequestTypeDef,
-):
-    pass
-
-CreateSubscriptionGrantOutputTypeDef = TypedDict(
-    "CreateSubscriptionGrantOutputTypeDef",
-    {
-        "assets": List["SubscribedAssetTypeDef"],
-        "createdAt": datetime,
-        "createdBy": str,
-        "domainId": str,
-        "grantedEntity": "GrantedEntityTypeDef",
-        "id": str,
-        "status": SubscriptionGrantOverallStatusType,
-        "subscriptionId": str,
-        "subscriptionTargetId": str,
-        "updatedAt": datetime,
-        "updatedBy": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateSubscriptionRequestInputRequestTypeDef = TypedDict(
-    "_RequiredCreateSubscriptionRequestInputRequestTypeDef",
-    {
-        "domainIdentifier": str,
-        "requestReason": str,
-        "subscribedListings": List["SubscribedListingInputTypeDef"],
-        "subscribedPrincipals": List["SubscribedPrincipalInputTypeDef"],
-    },
-)
-_OptionalCreateSubscriptionRequestInputRequestTypeDef = TypedDict(
-    "_OptionalCreateSubscriptionRequestInputRequestTypeDef",
-    {
-        "clientToken": str,
-    },
-    total=False,
-)
-
-class CreateSubscriptionRequestInputRequestTypeDef(
-    _RequiredCreateSubscriptionRequestInputRequestTypeDef,
-    _OptionalCreateSubscriptionRequestInputRequestTypeDef,
-):
-    pass
-
-CreateSubscriptionRequestOutputTypeDef = TypedDict(
-    "CreateSubscriptionRequestOutputTypeDef",
-    {
-        "createdAt": datetime,
-        "createdBy": str,
-        "decisionComment": str,
-        "domainId": str,
-        "id": str,
-        "requestReason": str,
-        "reviewerId": str,
-        "status": SubscriptionRequestStatusType,
-        "subscribedListings": List["SubscribedListingTypeDef"],
-        "subscribedPrincipals": List["SubscribedPrincipalTypeDef"],
-        "updatedAt": datetime,
-        "updatedBy": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateSubscriptionTargetInputRequestTypeDef = TypedDict(
-    "_RequiredCreateSubscriptionTargetInputRequestTypeDef",
-    {
-        "applicableAssetTypes": List[str],
-        "authorizedPrincipals": List[str],
-        "domainIdentifier": str,
-        "environmentIdentifier": str,
-        "manageAccessRole": str,
-        "name": str,
-        "subscriptionTargetConfig": List["SubscriptionTargetFormTypeDef"],
-        "type": str,
-    },
-)
-_OptionalCreateSubscriptionTargetInputRequestTypeDef = TypedDict(
-    "_OptionalCreateSubscriptionTargetInputRequestTypeDef",
-    {
-        "clientToken": str,
-        "provider": str,
-    },
-    total=False,
-)
-
-class CreateSubscriptionTargetInputRequestTypeDef(
-    _RequiredCreateSubscriptionTargetInputRequestTypeDef,
-    _OptionalCreateSubscriptionTargetInputRequestTypeDef,
-):
-    pass
-
-CreateSubscriptionTargetOutputTypeDef = TypedDict(
-    "CreateSubscriptionTargetOutputTypeDef",
-    {
-        "applicableAssetTypes": List[str],
-        "authorizedPrincipals": List[str],
-        "createdAt": datetime,
-        "createdBy": str,
-        "domainId": str,
-        "environmentId": str,
-        "id": str,
-        "manageAccessRole": str,
-        "name": str,
-        "projectId": str,
-        "provider": str,
-        "subscriptionTargetConfig": List["SubscriptionTargetFormTypeDef"],
-        "type": str,
-        "updatedAt": datetime,
-        "updatedBy": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateUserProfileInputRequestTypeDef = TypedDict(
-    "_RequiredCreateUserProfileInputRequestTypeDef",
-    {
-        "domainIdentifier": str,
-        "userIdentifier": str,
-    },
-)
-_OptionalCreateUserProfileInputRequestTypeDef = TypedDict(
-    "_OptionalCreateUserProfileInputRequestTypeDef",
-    {
-        "clientToken": str,
-        "userType": UserTypeType,
-    },
-    total=False,
-)
-
-class CreateUserProfileInputRequestTypeDef(
-    _RequiredCreateUserProfileInputRequestTypeDef, _OptionalCreateUserProfileInputRequestTypeDef
-):
-    pass
-
-CreateUserProfileOutputTypeDef = TypedDict(
-    "CreateUserProfileOutputTypeDef",
-    {
-        "details": "UserProfileDetailsTypeDef",
-        "domainId": str,
-        "id": str,
-        "status": UserProfileStatusType,
-        "type": UserProfileTypeType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCustomParameterTypeDef = TypedDict(
-    "_RequiredCustomParameterTypeDef",
-    {
-        "fieldType": str,
-        "keyName": str,
-    },
-)
-_OptionalCustomParameterTypeDef = TypedDict(
-    "_OptionalCustomParameterTypeDef",
-    {
-        "defaultValue": str,
-        "description": str,
-        "isEditable": bool,
-        "isOptional": bool,
-    },
-    total=False,
-)
-
-class CustomParameterTypeDef(_RequiredCustomParameterTypeDef, _OptionalCustomParameterTypeDef):
-    pass
-
-DataProductItemTypeDef = TypedDict(
-    "DataProductItemTypeDef",
-    {
-        "domainId": str,
-        "itemId": str,
-    },
-    total=False,
-)
-
-_RequiredDataProductSummaryTypeDef = TypedDict(
-    "_RequiredDataProductSummaryTypeDef",
-    {
-        "domainId": str,
-        "id": str,
-        "name": str,
-        "owningProjectId": str,
-    },
-)
-_OptionalDataProductSummaryTypeDef = TypedDict(
-    "_OptionalDataProductSummaryTypeDef",
-    {
-        "createdAt": datetime,
-        "createdBy": str,
-        "dataProductItems": List["DataProductItemTypeDef"],
-        "description": str,
-        "glossaryTerms": List[str],
-        "updatedAt": datetime,
-        "updatedBy": str,
-    },
-    total=False,
-)
-
-class DataProductSummaryTypeDef(
-    _RequiredDataProductSummaryTypeDef, _OptionalDataProductSummaryTypeDef
-):
-    pass
-
-DataSourceConfigurationInputTypeDef = TypedDict(
-    "DataSourceConfigurationInputTypeDef",
-    {
-        "glueRunConfiguration": "GlueRunConfigurationInputTypeDef",
-        "redshiftRunConfiguration": "RedshiftRunConfigurationInputTypeDef",
-    },
-    total=False,
-)
-
-DataSourceConfigurationOutputTypeDef = TypedDict(
-    "DataSourceConfigurationOutputTypeDef",
-    {
-        "glueRunConfiguration": "GlueRunConfigurationOutputTypeDef",
-        "redshiftRunConfiguration": "RedshiftRunConfigurationOutputTypeDef",
-    },
-    total=False,
-)
-
-_RequiredDataSourceErrorMessageTypeDef = TypedDict(
-    "_RequiredDataSourceErrorMessageTypeDef",
-    {
-        "errorType": DataSourceErrorTypeType,
-    },
-)
-_OptionalDataSourceErrorMessageTypeDef = TypedDict(
-    "_OptionalDataSourceErrorMessageTypeDef",
-    {
-        "errorDetail": str,
-    },
-    total=False,
-)
-
-class DataSourceErrorMessageTypeDef(
-    _RequiredDataSourceErrorMessageTypeDef, _OptionalDataSourceErrorMessageTypeDef
-):
-    pass
-
-_RequiredDataSourceRunActivityTypeDef = TypedDict(
-    "_RequiredDataSourceRunActivityTypeDef",
-    {
-        "createdAt": datetime,
-        "dataAssetStatus": DataAssetActivityStatusType,
-        "dataSourceRunId": str,
-        "database": str,
-        "projectId": str,
-        "technicalName": str,
-        "updatedAt": datetime,
-    },
-)
-_OptionalDataSourceRunActivityTypeDef = TypedDict(
-    "_OptionalDataSourceRunActivityTypeDef",
-    {
-        "dataAssetId": str,
-        "errorMessage": "DataSourceErrorMessageTypeDef",
-        "technicalDescription": str,
-    },
-    total=False,
-)
-
-class DataSourceRunActivityTypeDef(
-    _RequiredDataSourceRunActivityTypeDef, _OptionalDataSourceRunActivityTypeDef
-):
-    pass
-
-_RequiredDataSourceRunSummaryTypeDef = TypedDict(
-    "_RequiredDataSourceRunSummaryTypeDef",
-    {
-        "createdAt": datetime,
-        "dataSourceId": str,
-        "id": str,
-        "projectId": str,
-        "status": DataSourceRunStatusType,
-        "type": DataSourceRunTypeType,
-        "updatedAt": datetime,
-    },
-)
-_OptionalDataSourceRunSummaryTypeDef = TypedDict(
-    "_OptionalDataSourceRunSummaryTypeDef",
-    {
-        "errorMessage": "DataSourceErrorMessageTypeDef",
-        "runStatisticsForAssets": "RunStatisticsForAssetsTypeDef",
-        "startedAt": datetime,
-        "stoppedAt": datetime,
-    },
-    total=False,
-)
-
-class DataSourceRunSummaryTypeDef(
-    _RequiredDataSourceRunSummaryTypeDef, _OptionalDataSourceRunSummaryTypeDef
-):
-    pass
-
-_RequiredDataSourceSummaryTypeDef = TypedDict(
-    "_RequiredDataSourceSummaryTypeDef",
-    {
-        "dataSourceId": str,
-        "domainId": str,
-        "environmentId": str,
-        "name": str,
-        "status": DataSourceStatusType,
-        "type": str,
-    },
-)
-_OptionalDataSourceSummaryTypeDef = TypedDict(
-    "_OptionalDataSourceSummaryTypeDef",
-    {
-        "createdAt": datetime,
-        "enableSetting": EnableSettingType,
-        "lastRunAssetCount": int,
-        "lastRunAt": datetime,
-        "lastRunErrorMessage": "DataSourceErrorMessageTypeDef",
-        "lastRunStatus": DataSourceRunStatusType,
-        "schedule": "ScheduleConfigurationTypeDef",
-        "updatedAt": datetime,
-    },
-    total=False,
-)
-
-class DataSourceSummaryTypeDef(
-    _RequiredDataSourceSummaryTypeDef, _OptionalDataSourceSummaryTypeDef
-):
-    pass
-
-DeleteAssetInputRequestTypeDef = TypedDict(
-    "DeleteAssetInputRequestTypeDef",
-    {
-        "domainIdentifier": str,
-        "identifier": str,
-    },
-)
-
-DeleteAssetTypeInputRequestTypeDef = TypedDict(
-    "DeleteAssetTypeInputRequestTypeDef",
-    {
-        "domainIdentifier": str,
-        "identifier": str,
-    },
-)
-
-_RequiredDeleteDataSourceInputRequestTypeDef = TypedDict(
-    "_RequiredDeleteDataSourceInputRequestTypeDef",
-    {
-        "domainIdentifier": str,
-        "identifier": str,
-    },
-)
-_OptionalDeleteDataSourceInputRequestTypeDef = TypedDict(
-    "_OptionalDeleteDataSourceInputRequestTypeDef",
-    {
-        "clientToken": str,
-        "retainPermissionsOnRevokeFailure": bool,
-    },
-    total=False,
-)
-
-class DeleteDataSourceInputRequestTypeDef(
-    _RequiredDeleteDataSourceInputRequestTypeDef, _OptionalDeleteDataSourceInputRequestTypeDef
-):
-    pass
-
-DeleteDataSourceOutputTypeDef = TypedDict(
-    "DeleteDataSourceOutputTypeDef",
-    {
-        "assetFormsOutput": List["FormOutputTypeDef"],
-        "configuration": "DataSourceConfigurationOutputTypeDef",
-        "createdAt": datetime,
-        "description": str,
-        "domainId": str,
-        "enableSetting": EnableSettingType,
-        "environmentId": str,
-        "errorMessage": "DataSourceErrorMessageTypeDef",
-        "id": str,
-        "lastRunAt": datetime,
-        "lastRunErrorMessage": "DataSourceErrorMessageTypeDef",
-        "lastRunStatus": DataSourceRunStatusType,
-        "name": str,
-        "projectId": str,
-        "publishOnImport": bool,
-        "retainPermissionsOnRevokeFailure": bool,
-        "schedule": "ScheduleConfigurationTypeDef",
-        "selfGrantStatus": "SelfGrantStatusOutputTypeDef",
-        "status": DataSourceStatusType,
-        "type": str,
-        "updatedAt": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDeleteDomainInputRequestTypeDef = TypedDict(
-    "_RequiredDeleteDomainInputRequestTypeDef",
-    {
-        "identifier": str,
-    },
-)
-_OptionalDeleteDomainInputRequestTypeDef = TypedDict(
-    "_OptionalDeleteDomainInputRequestTypeDef",
-    {
-        "clientToken": str,
-        "skipDeletionCheck": bool,
-    },
-    total=False,
-)
-
-class DeleteDomainInputRequestTypeDef(
-    _RequiredDeleteDomainInputRequestTypeDef, _OptionalDeleteDomainInputRequestTypeDef
-):
-    pass
-
-DeleteDomainOutputTypeDef = TypedDict(
-    "DeleteDomainOutputTypeDef",
-    {
-        "status": DomainStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteEnvironmentActionInputRequestTypeDef = TypedDict(
-    "DeleteEnvironmentActionInputRequestTypeDef",
-    {
-        "domainIdentifier": str,
-        "environmentIdentifier": str,
-        "identifier": str,
-    },
-)
-
-DeleteEnvironmentBlueprintConfigurationInputRequestTypeDef = TypedDict(
-    "DeleteEnvironmentBlueprintConfigurationInputRequestTypeDef",
-    {
-        "domainIdentifier": str,
-        "environmentBlueprintIdentifier": str,
-    },
-)
-
-DeleteEnvironmentInputRequestTypeDef = TypedDict(
-    "DeleteEnvironmentInputRequestTypeDef",
-    {
-        "domainIdentifier": str,
-        "identifier": str,
-    },
-)
-
-DeleteEnvironmentProfileInputRequestTypeDef = TypedDict(
-    "DeleteEnvironmentProfileInputRequestTypeDef",
-    {
-        "domainIdentifier": str,
-        "identifier": str,
-    },
-)
-
-DeleteFormTypeInputRequestTypeDef = TypedDict(
-    "DeleteFormTypeInputRequestTypeDef",
-    {
-        "domainIdentifier": str,
-        "formTypeIdentifier": str,
-    },
-)
-
-DeleteGlossaryInputRequestTypeDef = TypedDict(
-    "DeleteGlossaryInputRequestTypeDef",
-    {
-        "domainIdentifier": str,
-        "identifier": str,
-    },
-)
-
-DeleteGlossaryTermInputRequestTypeDef = TypedDict(
-    "DeleteGlossaryTermInputRequestTypeDef",
-    {
-        "domainIdentifier": str,
-        "identifier": str,
-    },
-)
-
-DeleteListingInputRequestTypeDef = TypedDict(
-    "DeleteListingInputRequestTypeDef",
-    {
-        "domainIdentifier": str,
-        "identifier": str,
-    },
-)
-
-_RequiredDeleteProjectInputRequestTypeDef = TypedDict(
-    "_RequiredDeleteProjectInputRequestTypeDef",
-    {
-        "domainIdentifier": str,
-        "identifier": str,
-    },
-)
-_OptionalDeleteProjectInputRequestTypeDef = TypedDict(
-    "_OptionalDeleteProjectInputRequestTypeDef",
-    {
-        "skipDeletionCheck": bool,
-    },
-    total=False,
-)
-
-class DeleteProjectInputRequestTypeDef(
-    _RequiredDeleteProjectInputRequestTypeDef, _OptionalDeleteProjectInputRequestTypeDef
-):
-    pass
-
-DeleteProjectMembershipInputRequestTypeDef = TypedDict(
-    "DeleteProjectMembershipInputRequestTypeDef",
-    {
-        "domainIdentifier": str,
-        "member": "MemberTypeDef",
-        "projectIdentifier": str,
-    },
-)
-
-DeleteSubscriptionGrantInputRequestTypeDef = TypedDict(
-    "DeleteSubscriptionGrantInputRequestTypeDef",
-    {
-        "domainIdentifier": str,
-        "identifier": str,
-    },
-)
-
-DeleteSubscriptionGrantOutputTypeDef = TypedDict(
-    "DeleteSubscriptionGrantOutputTypeDef",
-    {
-        "assets": List["SubscribedAssetTypeDef"],
-        "createdAt": datetime,
-        "createdBy": str,
-        "domainId": str,
-        "grantedEntity": "GrantedEntityTypeDef",
-        "id": str,
-        "status": SubscriptionGrantOverallStatusType,
-        "subscriptionId": str,
-        "subscriptionTargetId": str,
-        "updatedAt": datetime,
-        "updatedBy": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteSubscriptionRequestInputRequestTypeDef = TypedDict(
-    "DeleteSubscriptionRequestInputRequestTypeDef",
-    {
-        "domainIdentifier": str,
-        "identifier": str,
-    },
-)
-
-DeleteSubscriptionTargetInputRequestTypeDef = TypedDict(
-    "DeleteSubscriptionTargetInputRequestTypeDef",
-    {
-        "domainIdentifier": str,
-        "environmentIdentifier": str,
-        "identifier": str,
-    },
-)
-
-_RequiredDeleteTimeSeriesDataPointsInputRequestTypeDef = TypedDict(
-    "_RequiredDeleteTimeSeriesDataPointsInputRequestTypeDef",
-    {
-        "domainIdentifier": str,
-        "entityIdentifier": str,
-        "entityType": TimeSeriesEntityTypeType,
-        "formName": str,
-    },
-)
-_OptionalDeleteTimeSeriesDataPointsInputRequestTypeDef = TypedDict(
-    "_OptionalDeleteTimeSeriesDataPointsInputRequestTypeDef",
-    {
-        "clientToken": str,
-    },
-    total=False,
-)
-
-class DeleteTimeSeriesDataPointsInputRequestTypeDef(
-    _RequiredDeleteTimeSeriesDataPointsInputRequestTypeDef,
-    _OptionalDeleteTimeSeriesDataPointsInputRequestTypeDef,
-):
-    pass
-
-DeploymentPropertiesTypeDef = TypedDict(
-    "DeploymentPropertiesTypeDef",
-    {
-        "endTimeoutMinutes": int,
-        "startTimeoutMinutes": int,
-    },
-    total=False,
-)
-
-DeploymentTypeDef = TypedDict(
-    "DeploymentTypeDef",
-    {
-        "deploymentId": str,
-        "deploymentStatus": DeploymentStatusType,
-        "deploymentType": DeploymentTypeType,
-        "failureReason": "EnvironmentErrorTypeDef",
-        "isDeploymentComplete": bool,
-        "messages": List[str],
-    },
-    total=False,
-)
-
-DetailedGlossaryTermTypeDef = TypedDict(
-    "DetailedGlossaryTermTypeDef",
-    {
-        "name": str,
-        "shortDescription": str,
-    },
-    total=False,
-)
-
-DisassociateEnvironmentRoleInputRequestTypeDef = TypedDict(
-    "DisassociateEnvironmentRoleInputRequestTypeDef",
-    {
-        "domainIdentifier": str,
-        "environmentIdentifier": str,
-        "environmentRoleArn": str,
-    },
-)
-
-_RequiredDomainSummaryTypeDef = TypedDict(
-    "_RequiredDomainSummaryTypeDef",
-    {
-        "arn": str,
-        "createdAt": datetime,
-        "id": str,
-        "managedAccountId": str,
-        "name": str,
-        "status": DomainStatusType,
-    },
-)
-_OptionalDomainSummaryTypeDef = TypedDict(
-    "_OptionalDomainSummaryTypeDef",
-    {
-        "description": str,
-        "lastUpdatedAt": datetime,
-        "portalUrl": str,
-    },
-    total=False,
-)
-
-class DomainSummaryTypeDef(_RequiredDomainSummaryTypeDef, _OptionalDomainSummaryTypeDef):
-    pass
-
-_RequiredEnvironmentActionSummaryTypeDef = TypedDict(
-    "_RequiredEnvironmentActionSummaryTypeDef",
-    {
-        "domainId": str,
-        "environmentId": str,
-        "id": str,
-        "name": str,
-        "parameters": "ActionParametersTypeDef",
-    },
-)
-_OptionalEnvironmentActionSummaryTypeDef = TypedDict(
-    "_OptionalEnvironmentActionSummaryTypeDef",
-    {
-        "description": str,
-    },
-    total=False,
-)
-
-class EnvironmentActionSummaryTypeDef(
-    _RequiredEnvironmentActionSummaryTypeDef, _OptionalEnvironmentActionSummaryTypeDef
-):
-    pass
-
-_RequiredEnvironmentBlueprintConfigurationItemTypeDef = TypedDict(
-    "_RequiredEnvironmentBlueprintConfigurationItemTypeDef",
-    {
-        "domainId": str,
-        "environmentBlueprintId": str,
-    },
-)
-_OptionalEnvironmentBlueprintConfigurationItemTypeDef = TypedDict(
-    "_OptionalEnvironmentBlueprintConfigurationItemTypeDef",
-    {
-        "createdAt": datetime,
-        "enabledRegions": List[str],
-        "manageAccessRoleArn": str,
-        "provisioningRoleArn": str,
-        "regionalParameters": Dict[str, Dict[str, str]],
-        "updatedAt": datetime,
-    },
-    total=False,
-)
-
-class EnvironmentBlueprintConfigurationItemTypeDef(
-    _RequiredEnvironmentBlueprintConfigurationItemTypeDef,
-    _OptionalEnvironmentBlueprintConfigurationItemTypeDef,
-):
-    pass
-
-_RequiredEnvironmentBlueprintSummaryTypeDef = TypedDict(
-    "_RequiredEnvironmentBlueprintSummaryTypeDef",
-    {
-        "id": str,
-        "name": str,
-        "provider": str,
-        "provisioningProperties": "ProvisioningPropertiesTypeDef",
-    },
-)
-_OptionalEnvironmentBlueprintSummaryTypeDef = TypedDict(
-    "_OptionalEnvironmentBlueprintSummaryTypeDef",
-    {
-        "createdAt": datetime,
-        "description": str,
-        "updatedAt": datetime,
-    },
-    total=False,
-)
-
-class EnvironmentBlueprintSummaryTypeDef(
-    _RequiredEnvironmentBlueprintSummaryTypeDef, _OptionalEnvironmentBlueprintSummaryTypeDef
-):
-    pass
-
-_RequiredEnvironmentErrorTypeDef = TypedDict(
-    "_RequiredEnvironmentErrorTypeDef",
-    {
-        "message": str,
-    },
-)
-_OptionalEnvironmentErrorTypeDef = TypedDict(
-    "_OptionalEnvironmentErrorTypeDef",
-    {
-        "code": str,
-    },
-    total=False,
-)
-
-class EnvironmentErrorTypeDef(_RequiredEnvironmentErrorTypeDef, _OptionalEnvironmentErrorTypeDef):
-    pass
-
-EnvironmentParameterTypeDef = TypedDict(
-    "EnvironmentParameterTypeDef",
-    {
-        "name": str,
-        "value": str,
-    },
-    total=False,
-)
-
-_RequiredEnvironmentProfileSummaryTypeDef = TypedDict(
-    "_RequiredEnvironmentProfileSummaryTypeDef",
-    {
-        "createdBy": str,
-        "domainId": str,
-        "environmentBlueprintId": str,
-        "id": str,
-        "name": str,
-    },
-)
-_OptionalEnvironmentProfileSummaryTypeDef = TypedDict(
-    "_OptionalEnvironmentProfileSummaryTypeDef",
-    {
-        "awsAccountId": str,
-        "awsAccountRegion": str,
-        "createdAt": datetime,
-        "description": str,
-        "projectId": str,
-        "updatedAt": datetime,
-    },
-    total=False,
-)
-
-class EnvironmentProfileSummaryTypeDef(
-    _RequiredEnvironmentProfileSummaryTypeDef, _OptionalEnvironmentProfileSummaryTypeDef
-):
-    pass
-
-_RequiredEnvironmentSummaryTypeDef = TypedDict(
-    "_RequiredEnvironmentSummaryTypeDef",
-    {
-        "createdBy": str,
-        "domainId": str,
-        "name": str,
-        "projectId": str,
-        "provider": str,
-    },
-)
-_OptionalEnvironmentSummaryTypeDef = TypedDict(
-    "_OptionalEnvironmentSummaryTypeDef",
-    {
-        "awsAccountId": str,
-        "awsAccountRegion": str,
-        "createdAt": datetime,
-        "description": str,
-        "environmentProfileId": str,
-        "id": str,
-        "status": EnvironmentStatusType,
-        "updatedAt": datetime,
-    },
-    total=False,
-)
-
-class EnvironmentSummaryTypeDef(
-    _RequiredEnvironmentSummaryTypeDef, _OptionalEnvironmentSummaryTypeDef
-):
-    pass
-
-FailureCauseTypeDef = TypedDict(
-    "FailureCauseTypeDef",
-    {
-        "message": str,
-    },
-    total=False,
-)
-
-FilterClauseTypeDef = TypedDict(
-    "FilterClauseTypeDef",
-    {
-        "and": List[Dict[str, Any]],
-        "filter": "FilterTypeDef",
-        "or": List[Dict[str, Any]],
-    },
-    total=False,
-)
-
-FilterExpressionTypeDef = TypedDict(
-    "FilterExpressionTypeDef",
-    {
-        "expression": str,
-        "type": FilterExpressionTypeType,
-    },
-)
-
-FilterTypeDef = TypedDict(
-    "FilterTypeDef",
-    {
-        "attribute": str,
-        "value": str,
-    },
-)
-
-_RequiredFormEntryInputTypeDef = TypedDict(
-    "_RequiredFormEntryInputTypeDef",
-    {
-        "typeIdentifier": str,
-        "typeRevision": str,
-    },
-)
-_OptionalFormEntryInputTypeDef = TypedDict(
-    "_OptionalFormEntryInputTypeDef",
-    {
-        "required": bool,
-    },
-    total=False,
-)
-
-class FormEntryInputTypeDef(_RequiredFormEntryInputTypeDef, _OptionalFormEntryInputTypeDef):
-    pass
-
-_RequiredFormEntryOutputTypeDef = TypedDict(
-    "_RequiredFormEntryOutputTypeDef",
-    {
-        "typeName": str,
-        "typeRevision": str,
-    },
-)
-_OptionalFormEntryOutputTypeDef = TypedDict(
-    "_OptionalFormEntryOutputTypeDef",
-    {
-        "required": bool,
-    },
-    total=False,
-)
-
-class FormEntryOutputTypeDef(_RequiredFormEntryOutputTypeDef, _OptionalFormEntryOutputTypeDef):
-    pass
-
-_RequiredFormInputTypeDef = TypedDict(
-    "_RequiredFormInputTypeDef",
-    {
-        "formName": str,
-    },
-)
-_OptionalFormInputTypeDef = TypedDict(
-    "_OptionalFormInputTypeDef",
-    {
-        "content": str,
-        "typeIdentifier": str,
-        "typeRevision": str,
-    },
-    total=False,
-)
-
-class FormInputTypeDef(_RequiredFormInputTypeDef, _OptionalFormInputTypeDef):
-    pass
-
-_RequiredFormOutputTypeDef = TypedDict(
-    "_RequiredFormOutputTypeDef",
-    {
-        "formName": str,
-    },
-)
-_OptionalFormOutputTypeDef = TypedDict(
-    "_OptionalFormOutputTypeDef",
-    {
-        "content": str,
-        "typeName": str,
-        "typeRevision": str,
-    },
-    total=False,
-)
-
-class FormOutputTypeDef(_RequiredFormOutputTypeDef, _OptionalFormOutputTypeDef):
-    pass
-
-_RequiredFormTypeDataTypeDef = TypedDict(
-    "_RequiredFormTypeDataTypeDef",
-    {
-        "domainId": str,
-        "name": str,
-        "revision": str,
-    },
-)
-_OptionalFormTypeDataTypeDef = TypedDict(
-    "_OptionalFormTypeDataTypeDef",
-    {
-        "createdAt": datetime,
-        "createdBy": str,
-        "description": str,
-        "imports": List["ImportTypeDef"],
-        "model": "ModelTypeDef",
-        "originDomainId": str,
-        "originProjectId": str,
-        "owningProjectId": str,
-        "status": FormTypeStatusType,
-    },
-    total=False,
-)
-
-class FormTypeDataTypeDef(_RequiredFormTypeDataTypeDef, _OptionalFormTypeDataTypeDef):
-    pass
-
-_RequiredGetAssetInputRequestTypeDef = TypedDict(
-    "_RequiredGetAssetInputRequestTypeDef",
-    {
-        "domainIdentifier": str,
-        "identifier": str,
-    },
-)
-_OptionalGetAssetInputRequestTypeDef = TypedDict(
-    "_OptionalGetAssetInputRequestTypeDef",
-    {
-        "revision": str,
-    },
-    total=False,
-)
-
-class GetAssetInputRequestTypeDef(
-    _RequiredGetAssetInputRequestTypeDef, _OptionalGetAssetInputRequestTypeDef
-):
-    pass
-
-GetAssetOutputTypeDef = TypedDict(
-    "GetAssetOutputTypeDef",
-    {
-        "createdAt": datetime,
-        "createdBy": str,
-        "description": str,
-        "domainId": str,
-        "externalIdentifier": str,
-        "firstRevisionCreatedAt": datetime,
-        "firstRevisionCreatedBy": str,
-        "formsOutput": List["FormOutputTypeDef"],
-        "glossaryTerms": List[str],
-        "id": str,
-        "latestTimeSeriesDataPointFormsOutput": List["TimeSeriesDataPointSummaryFormOutputTypeDef"],
-        "listing": "AssetListingDetailsTypeDef",
-        "name": str,
-        "owningProjectId": str,
-        "readOnlyFormsOutput": List["FormOutputTypeDef"],
-        "revision": str,
-        "typeIdentifier": str,
-        "typeRevision": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetAssetTypeInputRequestTypeDef = TypedDict(
-    "_RequiredGetAssetTypeInputRequestTypeDef",
-    {
-        "domainIdentifier": str,
-        "identifier": str,
-    },
-)
-_OptionalGetAssetTypeInputRequestTypeDef = TypedDict(
-    "_OptionalGetAssetTypeInputRequestTypeDef",
-    {
-        "revision": str,
-    },
-    total=False,
-)
-
-class GetAssetTypeInputRequestTypeDef(
-    _RequiredGetAssetTypeInputRequestTypeDef, _OptionalGetAssetTypeInputRequestTypeDef
-):
-    pass
-
-GetAssetTypeOutputTypeDef = TypedDict(
-    "GetAssetTypeOutputTypeDef",
-    {
-        "createdAt": datetime,
-        "createdBy": str,
-        "description": str,
-        "domainId": str,
-        "formsOutput": Dict[str, "FormEntryOutputTypeDef"],
-        "name": str,
-        "originDomainId": str,
-        "originProjectId": str,
-        "owningProjectId": str,
-        "revision": str,
-        "updatedAt": datetime,
-        "updatedBy": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetDataSourceInputRequestTypeDef = TypedDict(
-    "GetDataSourceInputRequestTypeDef",
-    {
-        "domainIdentifier": str,
-        "identifier": str,
-    },
-)
-
-GetDataSourceOutputTypeDef = TypedDict(
-    "GetDataSourceOutputTypeDef",
-    {
-        "assetFormsOutput": List["FormOutputTypeDef"],
-        "configuration": "DataSourceConfigurationOutputTypeDef",
-        "createdAt": datetime,
-        "description": str,
-        "domainId": str,
-        "enableSetting": EnableSettingType,
-        "environmentId": str,
-        "errorMessage": "DataSourceErrorMessageTypeDef",
-        "id": str,
-        "lastRunAssetCount": int,
-        "lastRunAt": datetime,
-        "lastRunErrorMessage": "DataSourceErrorMessageTypeDef",
-        "lastRunStatus": DataSourceRunStatusType,
-        "name": str,
-        "projectId": str,
-        "publishOnImport": bool,
-        "recommendation": "RecommendationConfigurationTypeDef",
-        "schedule": "ScheduleConfigurationTypeDef",
-        "selfGrantStatus": "SelfGrantStatusOutputTypeDef",
-        "status": DataSourceStatusType,
-        "type": str,
-        "updatedAt": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetDataSourceRunInputRequestTypeDef = TypedDict(
-    "GetDataSourceRunInputRequestTypeDef",
-    {
-        "domainIdentifier": str,
-        "identifier": str,
-    },
-)
-
-GetDataSourceRunOutputTypeDef = TypedDict(
-    "GetDataSourceRunOutputTypeDef",
-    {
-        "createdAt": datetime,
-        "dataSourceConfigurationSnapshot": str,
-        "dataSourceId": str,
-        "domainId": str,
-        "errorMessage": "DataSourceErrorMessageTypeDef",
-        "id": str,
-        "projectId": str,
-        "runStatisticsForAssets": "RunStatisticsForAssetsTypeDef",
-        "startedAt": datetime,
-        "status": DataSourceRunStatusType,
-        "stoppedAt": datetime,
-        "type": DataSourceRunTypeType,
-        "updatedAt": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetDomainInputRequestTypeDef = TypedDict(
-    "GetDomainInputRequestTypeDef",
-    {
-        "identifier": str,
-    },
-)
-
-GetDomainOutputTypeDef = TypedDict(
-    "GetDomainOutputTypeDef",
-    {
-        "arn": str,
-        "createdAt": datetime,
-        "description": str,
-        "domainExecutionRole": str,
-        "id": str,
-        "kmsKeyIdentifier": str,
-        "lastUpdatedAt": datetime,
-        "name": str,
-        "portalUrl": str,
-        "singleSignOn": "SingleSignOnTypeDef",
-        "status": DomainStatusType,
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetEnvironmentActionInputRequestTypeDef = TypedDict(
-    "GetEnvironmentActionInputRequestTypeDef",
-    {
-        "domainIdentifier": str,
-        "environmentIdentifier": str,
-        "identifier": str,
-    },
-)
-
-GetEnvironmentActionOutputTypeDef = TypedDict(
-    "GetEnvironmentActionOutputTypeDef",
-    {
-        "description": str,
-        "domainId": str,
-        "environmentId": str,
-        "id": str,
-        "name": str,
-        "parameters": "ActionParametersTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetEnvironmentBlueprintConfigurationInputRequestTypeDef = TypedDict(
-    "GetEnvironmentBlueprintConfigurationInputRequestTypeDef",
-    {
-        "domainIdentifier": str,
-        "environmentBlueprintIdentifier": str,
-    },
-)
-
-GetEnvironmentBlueprintConfigurationOutputTypeDef = TypedDict(
-    "GetEnvironmentBlueprintConfigurationOutputTypeDef",
-    {
-        "createdAt": datetime,
-        "domainId": str,
-        "enabledRegions": List[str],
-        "environmentBlueprintId": str,
-        "manageAccessRoleArn": str,
-        "provisioningRoleArn": str,
-        "regionalParameters": Dict[str, Dict[str, str]],
-        "updatedAt": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetEnvironmentBlueprintInputRequestTypeDef = TypedDict(
-    "GetEnvironmentBlueprintInputRequestTypeDef",
-    {
-        "domainIdentifier": str,
-        "identifier": str,
-    },
-)
-
-GetEnvironmentBlueprintOutputTypeDef = TypedDict(
-    "GetEnvironmentBlueprintOutputTypeDef",
-    {
-        "createdAt": datetime,
-        "deploymentProperties": "DeploymentPropertiesTypeDef",
-        "description": str,
-        "glossaryTerms": List[str],
-        "id": str,
-        "name": str,
-        "provider": str,
-        "provisioningProperties": "ProvisioningPropertiesTypeDef",
-        "updatedAt": datetime,
-        "userParameters": List["CustomParameterTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetEnvironmentInputRequestTypeDef = TypedDict(
-    "GetEnvironmentInputRequestTypeDef",
-    {
-        "domainIdentifier": str,
-        "identifier": str,
-    },
-)
-
-GetEnvironmentOutputTypeDef = TypedDict(
-    "GetEnvironmentOutputTypeDef",
-    {
-        "awsAccountId": str,
-        "awsAccountRegion": str,
-        "createdAt": datetime,
-        "createdBy": str,
-        "deploymentProperties": "DeploymentPropertiesTypeDef",
-        "description": str,
-        "domainId": str,
-        "environmentActions": List["ConfigurableEnvironmentActionTypeDef"],
-        "environmentBlueprintId": str,
-        "environmentProfileId": str,
-        "glossaryTerms": List[str],
-        "id": str,
-        "lastDeployment": "DeploymentTypeDef",
-        "name": str,
-        "projectId": str,
-        "provider": str,
-        "provisionedResources": List["ResourceTypeDef"],
-        "provisioningProperties": "ProvisioningPropertiesTypeDef",
-        "status": EnvironmentStatusType,
-        "updatedAt": datetime,
-        "userParameters": List["CustomParameterTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetEnvironmentProfileInputRequestTypeDef = TypedDict(
-    "GetEnvironmentProfileInputRequestTypeDef",
-    {
-        "domainIdentifier": str,
-        "identifier": str,
-    },
-)
-
 GetEnvironmentProfileOutputTypeDef = TypedDict(
     "GetEnvironmentProfileOutputTypeDef",
     {
@@ -2621,2801 +2753,10 @@ GetEnvironmentProfileOutputTypeDef = TypedDict(
         "name": str,
         "projectId": str,
         "updatedAt": datetime,
-        "userParameters": List["CustomParameterTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "userParameters": List[CustomParameterTypeDef],
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
-
-_RequiredGetFormTypeInputRequestTypeDef = TypedDict(
-    "_RequiredGetFormTypeInputRequestTypeDef",
-    {
-        "domainIdentifier": str,
-        "formTypeIdentifier": str,
-    },
-)
-_OptionalGetFormTypeInputRequestTypeDef = TypedDict(
-    "_OptionalGetFormTypeInputRequestTypeDef",
-    {
-        "revision": str,
-    },
-    total=False,
-)
-
-class GetFormTypeInputRequestTypeDef(
-    _RequiredGetFormTypeInputRequestTypeDef, _OptionalGetFormTypeInputRequestTypeDef
-):
-    pass
-
-GetFormTypeOutputTypeDef = TypedDict(
-    "GetFormTypeOutputTypeDef",
-    {
-        "createdAt": datetime,
-        "createdBy": str,
-        "description": str,
-        "domainId": str,
-        "imports": List["ImportTypeDef"],
-        "model": "ModelTypeDef",
-        "name": str,
-        "originDomainId": str,
-        "originProjectId": str,
-        "owningProjectId": str,
-        "revision": str,
-        "status": FormTypeStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetGlossaryInputRequestTypeDef = TypedDict(
-    "GetGlossaryInputRequestTypeDef",
-    {
-        "domainIdentifier": str,
-        "identifier": str,
-    },
-)
-
-GetGlossaryOutputTypeDef = TypedDict(
-    "GetGlossaryOutputTypeDef",
-    {
-        "createdAt": datetime,
-        "createdBy": str,
-        "description": str,
-        "domainId": str,
-        "id": str,
-        "name": str,
-        "owningProjectId": str,
-        "status": GlossaryStatusType,
-        "updatedAt": datetime,
-        "updatedBy": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetGlossaryTermInputRequestTypeDef = TypedDict(
-    "GetGlossaryTermInputRequestTypeDef",
-    {
-        "domainIdentifier": str,
-        "identifier": str,
-    },
-)
-
-GetGlossaryTermOutputTypeDef = TypedDict(
-    "GetGlossaryTermOutputTypeDef",
-    {
-        "createdAt": datetime,
-        "createdBy": str,
-        "domainId": str,
-        "glossaryId": str,
-        "id": str,
-        "longDescription": str,
-        "name": str,
-        "shortDescription": str,
-        "status": GlossaryTermStatusType,
-        "termRelations": "TermRelationsTypeDef",
-        "updatedAt": datetime,
-        "updatedBy": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetGroupProfileInputRequestTypeDef = TypedDict(
-    "GetGroupProfileInputRequestTypeDef",
-    {
-        "domainIdentifier": str,
-        "groupIdentifier": str,
-    },
-)
-
-GetGroupProfileOutputTypeDef = TypedDict(
-    "GetGroupProfileOutputTypeDef",
-    {
-        "domainId": str,
-        "groupName": str,
-        "id": str,
-        "status": GroupProfileStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetIamPortalLoginUrlInputRequestTypeDef = TypedDict(
-    "GetIamPortalLoginUrlInputRequestTypeDef",
-    {
-        "domainIdentifier": str,
-    },
-)
-
-GetIamPortalLoginUrlOutputTypeDef = TypedDict(
-    "GetIamPortalLoginUrlOutputTypeDef",
-    {
-        "authCodeUrl": str,
-        "userProfileId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetLineageNodeInputRequestTypeDef = TypedDict(
-    "_RequiredGetLineageNodeInputRequestTypeDef",
-    {
-        "domainIdentifier": str,
-        "identifier": str,
-    },
-)
-_OptionalGetLineageNodeInputRequestTypeDef = TypedDict(
-    "_OptionalGetLineageNodeInputRequestTypeDef",
-    {
-        "eventTimestamp": Union[datetime, str],
-    },
-    total=False,
-)
-
-class GetLineageNodeInputRequestTypeDef(
-    _RequiredGetLineageNodeInputRequestTypeDef, _OptionalGetLineageNodeInputRequestTypeDef
-):
-    pass
-
-GetLineageNodeOutputTypeDef = TypedDict(
-    "GetLineageNodeOutputTypeDef",
-    {
-        "createdAt": datetime,
-        "createdBy": str,
-        "description": str,
-        "domainId": str,
-        "downstreamNodes": List["LineageNodeReferenceTypeDef"],
-        "eventTimestamp": datetime,
-        "formsOutput": List["FormOutputTypeDef"],
-        "id": str,
-        "name": str,
-        "sourceIdentifier": str,
-        "typeName": str,
-        "typeRevision": str,
-        "updatedAt": datetime,
-        "updatedBy": str,
-        "upstreamNodes": List["LineageNodeReferenceTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetListingInputRequestTypeDef = TypedDict(
-    "_RequiredGetListingInputRequestTypeDef",
-    {
-        "domainIdentifier": str,
-        "identifier": str,
-    },
-)
-_OptionalGetListingInputRequestTypeDef = TypedDict(
-    "_OptionalGetListingInputRequestTypeDef",
-    {
-        "listingRevision": str,
-    },
-    total=False,
-)
-
-class GetListingInputRequestTypeDef(
-    _RequiredGetListingInputRequestTypeDef, _OptionalGetListingInputRequestTypeDef
-):
-    pass
-
-GetListingOutputTypeDef = TypedDict(
-    "GetListingOutputTypeDef",
-    {
-        "createdAt": datetime,
-        "createdBy": str,
-        "description": str,
-        "domainId": str,
-        "id": str,
-        "item": "ListingItemTypeDef",
-        "listingRevision": str,
-        "name": str,
-        "status": ListingStatusType,
-        "updatedAt": datetime,
-        "updatedBy": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetMetadataGenerationRunInputRequestTypeDef = TypedDict(
-    "GetMetadataGenerationRunInputRequestTypeDef",
-    {
-        "domainIdentifier": str,
-        "identifier": str,
-    },
-)
-
-GetMetadataGenerationRunOutputTypeDef = TypedDict(
-    "GetMetadataGenerationRunOutputTypeDef",
-    {
-        "createdAt": datetime,
-        "createdBy": str,
-        "domainId": str,
-        "id": str,
-        "owningProjectId": str,
-        "status": MetadataGenerationRunStatusType,
-        "target": "MetadataGenerationRunTargetTypeDef",
-        "type": Literal["BUSINESS_DESCRIPTIONS"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetProjectInputRequestTypeDef = TypedDict(
-    "GetProjectInputRequestTypeDef",
-    {
-        "domainIdentifier": str,
-        "identifier": str,
-    },
-)
-
-GetProjectOutputTypeDef = TypedDict(
-    "GetProjectOutputTypeDef",
-    {
-        "createdAt": datetime,
-        "createdBy": str,
-        "description": str,
-        "domainId": str,
-        "failureReasons": List["ProjectDeletionErrorTypeDef"],
-        "glossaryTerms": List[str],
-        "id": str,
-        "lastUpdatedAt": datetime,
-        "name": str,
-        "projectStatus": ProjectStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetSubscriptionGrantInputRequestTypeDef = TypedDict(
-    "GetSubscriptionGrantInputRequestTypeDef",
-    {
-        "domainIdentifier": str,
-        "identifier": str,
-    },
-)
-
-GetSubscriptionGrantOutputTypeDef = TypedDict(
-    "GetSubscriptionGrantOutputTypeDef",
-    {
-        "assets": List["SubscribedAssetTypeDef"],
-        "createdAt": datetime,
-        "createdBy": str,
-        "domainId": str,
-        "grantedEntity": "GrantedEntityTypeDef",
-        "id": str,
-        "status": SubscriptionGrantOverallStatusType,
-        "subscriptionId": str,
-        "subscriptionTargetId": str,
-        "updatedAt": datetime,
-        "updatedBy": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetSubscriptionInputRequestTypeDef = TypedDict(
-    "GetSubscriptionInputRequestTypeDef",
-    {
-        "domainIdentifier": str,
-        "identifier": str,
-    },
-)
-
-GetSubscriptionOutputTypeDef = TypedDict(
-    "GetSubscriptionOutputTypeDef",
-    {
-        "createdAt": datetime,
-        "createdBy": str,
-        "domainId": str,
-        "id": str,
-        "retainPermissions": bool,
-        "status": SubscriptionStatusType,
-        "subscribedListing": "SubscribedListingTypeDef",
-        "subscribedPrincipal": "SubscribedPrincipalTypeDef",
-        "subscriptionRequestId": str,
-        "updatedAt": datetime,
-        "updatedBy": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetSubscriptionRequestDetailsInputRequestTypeDef = TypedDict(
-    "GetSubscriptionRequestDetailsInputRequestTypeDef",
-    {
-        "domainIdentifier": str,
-        "identifier": str,
-    },
-)
-
-GetSubscriptionRequestDetailsOutputTypeDef = TypedDict(
-    "GetSubscriptionRequestDetailsOutputTypeDef",
-    {
-        "createdAt": datetime,
-        "createdBy": str,
-        "decisionComment": str,
-        "domainId": str,
-        "id": str,
-        "requestReason": str,
-        "reviewerId": str,
-        "status": SubscriptionRequestStatusType,
-        "subscribedListings": List["SubscribedListingTypeDef"],
-        "subscribedPrincipals": List["SubscribedPrincipalTypeDef"],
-        "updatedAt": datetime,
-        "updatedBy": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetSubscriptionTargetInputRequestTypeDef = TypedDict(
-    "GetSubscriptionTargetInputRequestTypeDef",
-    {
-        "domainIdentifier": str,
-        "environmentIdentifier": str,
-        "identifier": str,
-    },
-)
-
-GetSubscriptionTargetOutputTypeDef = TypedDict(
-    "GetSubscriptionTargetOutputTypeDef",
-    {
-        "applicableAssetTypes": List[str],
-        "authorizedPrincipals": List[str],
-        "createdAt": datetime,
-        "createdBy": str,
-        "domainId": str,
-        "environmentId": str,
-        "id": str,
-        "manageAccessRole": str,
-        "name": str,
-        "projectId": str,
-        "provider": str,
-        "subscriptionTargetConfig": List["SubscriptionTargetFormTypeDef"],
-        "type": str,
-        "updatedAt": datetime,
-        "updatedBy": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetTimeSeriesDataPointInputRequestTypeDef = TypedDict(
-    "GetTimeSeriesDataPointInputRequestTypeDef",
-    {
-        "domainIdentifier": str,
-        "entityIdentifier": str,
-        "entityType": TimeSeriesEntityTypeType,
-        "formName": str,
-        "identifier": str,
-    },
-)
-
-GetTimeSeriesDataPointOutputTypeDef = TypedDict(
-    "GetTimeSeriesDataPointOutputTypeDef",
-    {
-        "domainId": str,
-        "entityId": str,
-        "entityType": TimeSeriesEntityTypeType,
-        "form": "TimeSeriesDataPointFormOutputTypeDef",
-        "formName": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetUserProfileInputRequestTypeDef = TypedDict(
-    "_RequiredGetUserProfileInputRequestTypeDef",
-    {
-        "domainIdentifier": str,
-        "userIdentifier": str,
-    },
-)
-_OptionalGetUserProfileInputRequestTypeDef = TypedDict(
-    "_OptionalGetUserProfileInputRequestTypeDef",
-    {
-        "type": UserProfileTypeType,
-    },
-    total=False,
-)
-
-class GetUserProfileInputRequestTypeDef(
-    _RequiredGetUserProfileInputRequestTypeDef, _OptionalGetUserProfileInputRequestTypeDef
-):
-    pass
-
-GetUserProfileOutputTypeDef = TypedDict(
-    "GetUserProfileOutputTypeDef",
-    {
-        "details": "UserProfileDetailsTypeDef",
-        "domainId": str,
-        "id": str,
-        "status": UserProfileStatusType,
-        "type": UserProfileTypeType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGlossaryItemTypeDef = TypedDict(
-    "_RequiredGlossaryItemTypeDef",
-    {
-        "domainId": str,
-        "id": str,
-        "name": str,
-        "owningProjectId": str,
-        "status": GlossaryStatusType,
-    },
-)
-_OptionalGlossaryItemTypeDef = TypedDict(
-    "_OptionalGlossaryItemTypeDef",
-    {
-        "createdAt": datetime,
-        "createdBy": str,
-        "description": str,
-        "updatedAt": datetime,
-        "updatedBy": str,
-    },
-    total=False,
-)
-
-class GlossaryItemTypeDef(_RequiredGlossaryItemTypeDef, _OptionalGlossaryItemTypeDef):
-    pass
-
-_RequiredGlossaryTermItemTypeDef = TypedDict(
-    "_RequiredGlossaryTermItemTypeDef",
-    {
-        "domainId": str,
-        "glossaryId": str,
-        "id": str,
-        "name": str,
-        "status": GlossaryTermStatusType,
-    },
-)
-_OptionalGlossaryTermItemTypeDef = TypedDict(
-    "_OptionalGlossaryTermItemTypeDef",
-    {
-        "createdAt": datetime,
-        "createdBy": str,
-        "longDescription": str,
-        "shortDescription": str,
-        "termRelations": "TermRelationsTypeDef",
-        "updatedAt": datetime,
-        "updatedBy": str,
-    },
-    total=False,
-)
-
-class GlossaryTermItemTypeDef(_RequiredGlossaryTermItemTypeDef, _OptionalGlossaryTermItemTypeDef):
-    pass
-
-_RequiredGlueRunConfigurationInputTypeDef = TypedDict(
-    "_RequiredGlueRunConfigurationInputTypeDef",
-    {
-        "relationalFilterConfigurations": List["RelationalFilterConfigurationTypeDef"],
-    },
-)
-_OptionalGlueRunConfigurationInputTypeDef = TypedDict(
-    "_OptionalGlueRunConfigurationInputTypeDef",
-    {
-        "autoImportDataQualityResult": bool,
-        "dataAccessRole": str,
-    },
-    total=False,
-)
-
-class GlueRunConfigurationInputTypeDef(
-    _RequiredGlueRunConfigurationInputTypeDef, _OptionalGlueRunConfigurationInputTypeDef
-):
-    pass
-
-_RequiredGlueRunConfigurationOutputTypeDef = TypedDict(
-    "_RequiredGlueRunConfigurationOutputTypeDef",
-    {
-        "relationalFilterConfigurations": List["RelationalFilterConfigurationTypeDef"],
-    },
-)
-_OptionalGlueRunConfigurationOutputTypeDef = TypedDict(
-    "_OptionalGlueRunConfigurationOutputTypeDef",
-    {
-        "accountId": str,
-        "autoImportDataQualityResult": bool,
-        "dataAccessRole": str,
-        "region": str,
-    },
-    total=False,
-)
-
-class GlueRunConfigurationOutputTypeDef(
-    _RequiredGlueRunConfigurationOutputTypeDef, _OptionalGlueRunConfigurationOutputTypeDef
-):
-    pass
-
-GlueSelfGrantStatusOutputTypeDef = TypedDict(
-    "GlueSelfGrantStatusOutputTypeDef",
-    {
-        "selfGrantStatusDetails": List["SelfGrantStatusDetailTypeDef"],
-    },
-)
-
-GrantedEntityInputTypeDef = TypedDict(
-    "GrantedEntityInputTypeDef",
-    {
-        "listing": "ListingRevisionInputTypeDef",
-    },
-    total=False,
-)
-
-GrantedEntityTypeDef = TypedDict(
-    "GrantedEntityTypeDef",
-    {
-        "listing": "ListingRevisionTypeDef",
-    },
-    total=False,
-)
-
-GroupDetailsTypeDef = TypedDict(
-    "GroupDetailsTypeDef",
-    {
-        "groupId": str,
-    },
-)
-
-GroupProfileSummaryTypeDef = TypedDict(
-    "GroupProfileSummaryTypeDef",
-    {
-        "domainId": str,
-        "groupName": str,
-        "id": str,
-        "status": GroupProfileStatusType,
-    },
-    total=False,
-)
-
-IamUserProfileDetailsTypeDef = TypedDict(
-    "IamUserProfileDetailsTypeDef",
-    {
-        "arn": str,
-    },
-    total=False,
-)
-
-ImportTypeDef = TypedDict(
-    "ImportTypeDef",
-    {
-        "name": str,
-        "revision": str,
-    },
-)
-
-LineageNodeReferenceTypeDef = TypedDict(
-    "LineageNodeReferenceTypeDef",
-    {
-        "eventTimestamp": datetime,
-        "id": str,
-    },
-    total=False,
-)
-
-_RequiredLineageNodeSummaryTypeDef = TypedDict(
-    "_RequiredLineageNodeSummaryTypeDef",
-    {
-        "domainId": str,
-        "id": str,
-        "typeName": str,
-    },
-)
-_OptionalLineageNodeSummaryTypeDef = TypedDict(
-    "_OptionalLineageNodeSummaryTypeDef",
-    {
-        "createdAt": datetime,
-        "createdBy": str,
-        "description": str,
-        "eventTimestamp": datetime,
-        "name": str,
-        "sourceIdentifier": str,
-        "typeRevision": str,
-        "updatedAt": datetime,
-        "updatedBy": str,
-    },
-    total=False,
-)
-
-class LineageNodeSummaryTypeDef(
-    _RequiredLineageNodeSummaryTypeDef, _OptionalLineageNodeSummaryTypeDef
-):
-    pass
-
-_RequiredLineageNodeTypeItemTypeDef = TypedDict(
-    "_RequiredLineageNodeTypeItemTypeDef",
-    {
-        "domainId": str,
-        "formsOutput": Dict[str, "FormEntryOutputTypeDef"],
-        "revision": str,
-    },
-)
-_OptionalLineageNodeTypeItemTypeDef = TypedDict(
-    "_OptionalLineageNodeTypeItemTypeDef",
-    {
-        "createdAt": datetime,
-        "createdBy": str,
-        "description": str,
-        "name": str,
-        "updatedAt": datetime,
-        "updatedBy": str,
-    },
-    total=False,
-)
-
-class LineageNodeTypeItemTypeDef(
-    _RequiredLineageNodeTypeItemTypeDef, _OptionalLineageNodeTypeItemTypeDef
-):
-    pass
-
-_RequiredListAssetRevisionsInputRequestTypeDef = TypedDict(
-    "_RequiredListAssetRevisionsInputRequestTypeDef",
-    {
-        "domainIdentifier": str,
-        "identifier": str,
-    },
-)
-_OptionalListAssetRevisionsInputRequestTypeDef = TypedDict(
-    "_OptionalListAssetRevisionsInputRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListAssetRevisionsInputRequestTypeDef(
-    _RequiredListAssetRevisionsInputRequestTypeDef, _OptionalListAssetRevisionsInputRequestTypeDef
-):
-    pass
-
-ListAssetRevisionsOutputTypeDef = TypedDict(
-    "ListAssetRevisionsOutputTypeDef",
-    {
-        "items": List["AssetRevisionTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListDataSourceRunActivitiesInputRequestTypeDef = TypedDict(
-    "_RequiredListDataSourceRunActivitiesInputRequestTypeDef",
-    {
-        "domainIdentifier": str,
-        "identifier": str,
-    },
-)
-_OptionalListDataSourceRunActivitiesInputRequestTypeDef = TypedDict(
-    "_OptionalListDataSourceRunActivitiesInputRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-        "status": DataAssetActivityStatusType,
-    },
-    total=False,
-)
-
-class ListDataSourceRunActivitiesInputRequestTypeDef(
-    _RequiredListDataSourceRunActivitiesInputRequestTypeDef,
-    _OptionalListDataSourceRunActivitiesInputRequestTypeDef,
-):
-    pass
-
-ListDataSourceRunActivitiesOutputTypeDef = TypedDict(
-    "ListDataSourceRunActivitiesOutputTypeDef",
-    {
-        "items": List["DataSourceRunActivityTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListDataSourceRunsInputRequestTypeDef = TypedDict(
-    "_RequiredListDataSourceRunsInputRequestTypeDef",
-    {
-        "dataSourceIdentifier": str,
-        "domainIdentifier": str,
-    },
-)
-_OptionalListDataSourceRunsInputRequestTypeDef = TypedDict(
-    "_OptionalListDataSourceRunsInputRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-        "status": DataSourceRunStatusType,
-    },
-    total=False,
-)
-
-class ListDataSourceRunsInputRequestTypeDef(
-    _RequiredListDataSourceRunsInputRequestTypeDef, _OptionalListDataSourceRunsInputRequestTypeDef
-):
-    pass
-
-ListDataSourceRunsOutputTypeDef = TypedDict(
-    "ListDataSourceRunsOutputTypeDef",
-    {
-        "items": List["DataSourceRunSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListDataSourcesInputRequestTypeDef = TypedDict(
-    "_RequiredListDataSourcesInputRequestTypeDef",
-    {
-        "domainIdentifier": str,
-        "projectIdentifier": str,
-    },
-)
-_OptionalListDataSourcesInputRequestTypeDef = TypedDict(
-    "_OptionalListDataSourcesInputRequestTypeDef",
-    {
-        "environmentIdentifier": str,
-        "maxResults": int,
-        "name": str,
-        "nextToken": str,
-        "status": DataSourceStatusType,
-        "type": str,
-    },
-    total=False,
-)
-
-class ListDataSourcesInputRequestTypeDef(
-    _RequiredListDataSourcesInputRequestTypeDef, _OptionalListDataSourcesInputRequestTypeDef
-):
-    pass
-
-ListDataSourcesOutputTypeDef = TypedDict(
-    "ListDataSourcesOutputTypeDef",
-    {
-        "items": List["DataSourceSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListDomainsInputRequestTypeDef = TypedDict(
-    "ListDomainsInputRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-        "status": DomainStatusType,
-    },
-    total=False,
-)
-
-ListDomainsOutputTypeDef = TypedDict(
-    "ListDomainsOutputTypeDef",
-    {
-        "items": List["DomainSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListEnvironmentActionsInputRequestTypeDef = TypedDict(
-    "_RequiredListEnvironmentActionsInputRequestTypeDef",
-    {
-        "domainIdentifier": str,
-        "environmentIdentifier": str,
-    },
-)
-_OptionalListEnvironmentActionsInputRequestTypeDef = TypedDict(
-    "_OptionalListEnvironmentActionsInputRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListEnvironmentActionsInputRequestTypeDef(
-    _RequiredListEnvironmentActionsInputRequestTypeDef,
-    _OptionalListEnvironmentActionsInputRequestTypeDef,
-):
-    pass
-
-ListEnvironmentActionsOutputTypeDef = TypedDict(
-    "ListEnvironmentActionsOutputTypeDef",
-    {
-        "items": List["EnvironmentActionSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListEnvironmentBlueprintConfigurationsInputRequestTypeDef = TypedDict(
-    "_RequiredListEnvironmentBlueprintConfigurationsInputRequestTypeDef",
-    {
-        "domainIdentifier": str,
-    },
-)
-_OptionalListEnvironmentBlueprintConfigurationsInputRequestTypeDef = TypedDict(
-    "_OptionalListEnvironmentBlueprintConfigurationsInputRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListEnvironmentBlueprintConfigurationsInputRequestTypeDef(
-    _RequiredListEnvironmentBlueprintConfigurationsInputRequestTypeDef,
-    _OptionalListEnvironmentBlueprintConfigurationsInputRequestTypeDef,
-):
-    pass
-
-ListEnvironmentBlueprintConfigurationsOutputTypeDef = TypedDict(
-    "ListEnvironmentBlueprintConfigurationsOutputTypeDef",
-    {
-        "items": List["EnvironmentBlueprintConfigurationItemTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListEnvironmentBlueprintsInputRequestTypeDef = TypedDict(
-    "_RequiredListEnvironmentBlueprintsInputRequestTypeDef",
-    {
-        "domainIdentifier": str,
-    },
-)
-_OptionalListEnvironmentBlueprintsInputRequestTypeDef = TypedDict(
-    "_OptionalListEnvironmentBlueprintsInputRequestTypeDef",
-    {
-        "managed": bool,
-        "maxResults": int,
-        "name": str,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListEnvironmentBlueprintsInputRequestTypeDef(
-    _RequiredListEnvironmentBlueprintsInputRequestTypeDef,
-    _OptionalListEnvironmentBlueprintsInputRequestTypeDef,
-):
-    pass
-
-ListEnvironmentBlueprintsOutputTypeDef = TypedDict(
-    "ListEnvironmentBlueprintsOutputTypeDef",
-    {
-        "items": List["EnvironmentBlueprintSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListEnvironmentProfilesInputRequestTypeDef = TypedDict(
-    "_RequiredListEnvironmentProfilesInputRequestTypeDef",
-    {
-        "domainIdentifier": str,
-    },
-)
-_OptionalListEnvironmentProfilesInputRequestTypeDef = TypedDict(
-    "_OptionalListEnvironmentProfilesInputRequestTypeDef",
-    {
-        "awsAccountId": str,
-        "awsAccountRegion": str,
-        "environmentBlueprintIdentifier": str,
-        "maxResults": int,
-        "name": str,
-        "nextToken": str,
-        "projectIdentifier": str,
-    },
-    total=False,
-)
-
-class ListEnvironmentProfilesInputRequestTypeDef(
-    _RequiredListEnvironmentProfilesInputRequestTypeDef,
-    _OptionalListEnvironmentProfilesInputRequestTypeDef,
-):
-    pass
-
-ListEnvironmentProfilesOutputTypeDef = TypedDict(
-    "ListEnvironmentProfilesOutputTypeDef",
-    {
-        "items": List["EnvironmentProfileSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListEnvironmentsInputRequestTypeDef = TypedDict(
-    "_RequiredListEnvironmentsInputRequestTypeDef",
-    {
-        "domainIdentifier": str,
-        "projectIdentifier": str,
-    },
-)
-_OptionalListEnvironmentsInputRequestTypeDef = TypedDict(
-    "_OptionalListEnvironmentsInputRequestTypeDef",
-    {
-        "awsAccountId": str,
-        "awsAccountRegion": str,
-        "environmentBlueprintIdentifier": str,
-        "environmentProfileIdentifier": str,
-        "maxResults": int,
-        "name": str,
-        "nextToken": str,
-        "provider": str,
-        "status": EnvironmentStatusType,
-    },
-    total=False,
-)
-
-class ListEnvironmentsInputRequestTypeDef(
-    _RequiredListEnvironmentsInputRequestTypeDef, _OptionalListEnvironmentsInputRequestTypeDef
-):
-    pass
-
-ListEnvironmentsOutputTypeDef = TypedDict(
-    "ListEnvironmentsOutputTypeDef",
-    {
-        "items": List["EnvironmentSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListLineageNodeHistoryInputRequestTypeDef = TypedDict(
-    "_RequiredListLineageNodeHistoryInputRequestTypeDef",
-    {
-        "domainIdentifier": str,
-        "identifier": str,
-    },
-)
-_OptionalListLineageNodeHistoryInputRequestTypeDef = TypedDict(
-    "_OptionalListLineageNodeHistoryInputRequestTypeDef",
-    {
-        "direction": EdgeDirectionType,
-        "eventTimestampGTE": Union[datetime, str],
-        "eventTimestampLTE": Union[datetime, str],
-        "maxResults": int,
-        "nextToken": str,
-        "sortOrder": SortOrderType,
-    },
-    total=False,
-)
-
-class ListLineageNodeHistoryInputRequestTypeDef(
-    _RequiredListLineageNodeHistoryInputRequestTypeDef,
-    _OptionalListLineageNodeHistoryInputRequestTypeDef,
-):
-    pass
-
-ListLineageNodeHistoryOutputTypeDef = TypedDict(
-    "ListLineageNodeHistoryOutputTypeDef",
-    {
-        "nextToken": str,
-        "nodes": List["LineageNodeSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListMetadataGenerationRunsInputRequestTypeDef = TypedDict(
-    "_RequiredListMetadataGenerationRunsInputRequestTypeDef",
-    {
-        "domainIdentifier": str,
-    },
-)
-_OptionalListMetadataGenerationRunsInputRequestTypeDef = TypedDict(
-    "_OptionalListMetadataGenerationRunsInputRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-        "status": MetadataGenerationRunStatusType,
-        "type": Literal["BUSINESS_DESCRIPTIONS"],
-    },
-    total=False,
-)
-
-class ListMetadataGenerationRunsInputRequestTypeDef(
-    _RequiredListMetadataGenerationRunsInputRequestTypeDef,
-    _OptionalListMetadataGenerationRunsInputRequestTypeDef,
-):
-    pass
-
-ListMetadataGenerationRunsOutputTypeDef = TypedDict(
-    "ListMetadataGenerationRunsOutputTypeDef",
-    {
-        "items": List["MetadataGenerationRunItemTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListNotificationsInputRequestTypeDef = TypedDict(
-    "_RequiredListNotificationsInputRequestTypeDef",
-    {
-        "domainIdentifier": str,
-        "type": NotificationTypeType,
-    },
-)
-_OptionalListNotificationsInputRequestTypeDef = TypedDict(
-    "_OptionalListNotificationsInputRequestTypeDef",
-    {
-        "afterTimestamp": Union[datetime, str],
-        "beforeTimestamp": Union[datetime, str],
-        "maxResults": int,
-        "nextToken": str,
-        "subjects": List[str],
-        "taskStatus": TaskStatusType,
-    },
-    total=False,
-)
-
-class ListNotificationsInputRequestTypeDef(
-    _RequiredListNotificationsInputRequestTypeDef, _OptionalListNotificationsInputRequestTypeDef
-):
-    pass
-
-ListNotificationsOutputTypeDef = TypedDict(
-    "ListNotificationsOutputTypeDef",
-    {
-        "nextToken": str,
-        "notifications": List["NotificationOutputTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListProjectMembershipsInputRequestTypeDef = TypedDict(
-    "_RequiredListProjectMembershipsInputRequestTypeDef",
-    {
-        "domainIdentifier": str,
-        "projectIdentifier": str,
-    },
-)
-_OptionalListProjectMembershipsInputRequestTypeDef = TypedDict(
-    "_OptionalListProjectMembershipsInputRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-        "sortBy": Literal["NAME"],
-        "sortOrder": SortOrderType,
-    },
-    total=False,
-)
-
-class ListProjectMembershipsInputRequestTypeDef(
-    _RequiredListProjectMembershipsInputRequestTypeDef,
-    _OptionalListProjectMembershipsInputRequestTypeDef,
-):
-    pass
-
-ListProjectMembershipsOutputTypeDef = TypedDict(
-    "ListProjectMembershipsOutputTypeDef",
-    {
-        "members": List["ProjectMemberTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListProjectsInputRequestTypeDef = TypedDict(
-    "_RequiredListProjectsInputRequestTypeDef",
-    {
-        "domainIdentifier": str,
-    },
-)
-_OptionalListProjectsInputRequestTypeDef = TypedDict(
-    "_OptionalListProjectsInputRequestTypeDef",
-    {
-        "groupIdentifier": str,
-        "maxResults": int,
-        "name": str,
-        "nextToken": str,
-        "userIdentifier": str,
-    },
-    total=False,
-)
-
-class ListProjectsInputRequestTypeDef(
-    _RequiredListProjectsInputRequestTypeDef, _OptionalListProjectsInputRequestTypeDef
-):
-    pass
-
-ListProjectsOutputTypeDef = TypedDict(
-    "ListProjectsOutputTypeDef",
-    {
-        "items": List["ProjectSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListSubscriptionGrantsInputRequestTypeDef = TypedDict(
-    "_RequiredListSubscriptionGrantsInputRequestTypeDef",
-    {
-        "domainIdentifier": str,
-    },
-)
-_OptionalListSubscriptionGrantsInputRequestTypeDef = TypedDict(
-    "_OptionalListSubscriptionGrantsInputRequestTypeDef",
-    {
-        "environmentId": str,
-        "maxResults": int,
-        "nextToken": str,
-        "sortBy": SortKeyType,
-        "sortOrder": SortOrderType,
-        "subscribedListingId": str,
-        "subscriptionId": str,
-        "subscriptionTargetId": str,
-    },
-    total=False,
-)
-
-class ListSubscriptionGrantsInputRequestTypeDef(
-    _RequiredListSubscriptionGrantsInputRequestTypeDef,
-    _OptionalListSubscriptionGrantsInputRequestTypeDef,
-):
-    pass
-
-ListSubscriptionGrantsOutputTypeDef = TypedDict(
-    "ListSubscriptionGrantsOutputTypeDef",
-    {
-        "items": List["SubscriptionGrantSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListSubscriptionRequestsInputRequestTypeDef = TypedDict(
-    "_RequiredListSubscriptionRequestsInputRequestTypeDef",
-    {
-        "domainIdentifier": str,
-    },
-)
-_OptionalListSubscriptionRequestsInputRequestTypeDef = TypedDict(
-    "_OptionalListSubscriptionRequestsInputRequestTypeDef",
-    {
-        "approverProjectId": str,
-        "maxResults": int,
-        "nextToken": str,
-        "owningProjectId": str,
-        "sortBy": SortKeyType,
-        "sortOrder": SortOrderType,
-        "status": SubscriptionRequestStatusType,
-        "subscribedListingId": str,
-    },
-    total=False,
-)
-
-class ListSubscriptionRequestsInputRequestTypeDef(
-    _RequiredListSubscriptionRequestsInputRequestTypeDef,
-    _OptionalListSubscriptionRequestsInputRequestTypeDef,
-):
-    pass
-
-ListSubscriptionRequestsOutputTypeDef = TypedDict(
-    "ListSubscriptionRequestsOutputTypeDef",
-    {
-        "items": List["SubscriptionRequestSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListSubscriptionTargetsInputRequestTypeDef = TypedDict(
-    "_RequiredListSubscriptionTargetsInputRequestTypeDef",
-    {
-        "domainIdentifier": str,
-        "environmentIdentifier": str,
-    },
-)
-_OptionalListSubscriptionTargetsInputRequestTypeDef = TypedDict(
-    "_OptionalListSubscriptionTargetsInputRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-        "sortBy": SortKeyType,
-        "sortOrder": SortOrderType,
-    },
-    total=False,
-)
-
-class ListSubscriptionTargetsInputRequestTypeDef(
-    _RequiredListSubscriptionTargetsInputRequestTypeDef,
-    _OptionalListSubscriptionTargetsInputRequestTypeDef,
-):
-    pass
-
-ListSubscriptionTargetsOutputTypeDef = TypedDict(
-    "ListSubscriptionTargetsOutputTypeDef",
-    {
-        "items": List["SubscriptionTargetSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListSubscriptionsInputRequestTypeDef = TypedDict(
-    "_RequiredListSubscriptionsInputRequestTypeDef",
-    {
-        "domainIdentifier": str,
-    },
-)
-_OptionalListSubscriptionsInputRequestTypeDef = TypedDict(
-    "_OptionalListSubscriptionsInputRequestTypeDef",
-    {
-        "approverProjectId": str,
-        "maxResults": int,
-        "nextToken": str,
-        "owningProjectId": str,
-        "sortBy": SortKeyType,
-        "sortOrder": SortOrderType,
-        "status": SubscriptionStatusType,
-        "subscribedListingId": str,
-        "subscriptionRequestIdentifier": str,
-    },
-    total=False,
-)
-
-class ListSubscriptionsInputRequestTypeDef(
-    _RequiredListSubscriptionsInputRequestTypeDef, _OptionalListSubscriptionsInputRequestTypeDef
-):
-    pass
-
-ListSubscriptionsOutputTypeDef = TypedDict(
-    "ListSubscriptionsOutputTypeDef",
-    {
-        "items": List["SubscriptionSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-    },
-)
-
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListTimeSeriesDataPointsInputRequestTypeDef = TypedDict(
-    "_RequiredListTimeSeriesDataPointsInputRequestTypeDef",
-    {
-        "domainIdentifier": str,
-        "entityIdentifier": str,
-        "entityType": TimeSeriesEntityTypeType,
-        "formName": str,
-    },
-)
-_OptionalListTimeSeriesDataPointsInputRequestTypeDef = TypedDict(
-    "_OptionalListTimeSeriesDataPointsInputRequestTypeDef",
-    {
-        "endedAt": Union[datetime, str],
-        "maxResults": int,
-        "nextToken": str,
-        "startedAt": Union[datetime, str],
-    },
-    total=False,
-)
-
-class ListTimeSeriesDataPointsInputRequestTypeDef(
-    _RequiredListTimeSeriesDataPointsInputRequestTypeDef,
-    _OptionalListTimeSeriesDataPointsInputRequestTypeDef,
-):
-    pass
-
-ListTimeSeriesDataPointsOutputTypeDef = TypedDict(
-    "ListTimeSeriesDataPointsOutputTypeDef",
-    {
-        "items": List["TimeSeriesDataPointSummaryFormOutputTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListingItemTypeDef = TypedDict(
-    "ListingItemTypeDef",
-    {
-        "assetListing": "AssetListingTypeDef",
-    },
-    total=False,
-)
-
-ListingRevisionInputTypeDef = TypedDict(
-    "ListingRevisionInputTypeDef",
-    {
-        "identifier": str,
-        "revision": str,
-    },
-)
-
-ListingRevisionTypeDef = TypedDict(
-    "ListingRevisionTypeDef",
-    {
-        "id": str,
-        "revision": str,
-    },
-)
-
-MemberDetailsTypeDef = TypedDict(
-    "MemberDetailsTypeDef",
-    {
-        "group": "GroupDetailsTypeDef",
-        "user": "UserDetailsTypeDef",
-    },
-    total=False,
-)
-
-MemberTypeDef = TypedDict(
-    "MemberTypeDef",
-    {
-        "groupIdentifier": str,
-        "userIdentifier": str,
-    },
-    total=False,
-)
-
-_RequiredMetadataGenerationRunItemTypeDef = TypedDict(
-    "_RequiredMetadataGenerationRunItemTypeDef",
-    {
-        "domainId": str,
-        "id": str,
-        "owningProjectId": str,
-    },
-)
-_OptionalMetadataGenerationRunItemTypeDef = TypedDict(
-    "_OptionalMetadataGenerationRunItemTypeDef",
-    {
-        "createdAt": datetime,
-        "createdBy": str,
-        "status": MetadataGenerationRunStatusType,
-        "target": "MetadataGenerationRunTargetTypeDef",
-        "type": Literal["BUSINESS_DESCRIPTIONS"],
-    },
-    total=False,
-)
-
-class MetadataGenerationRunItemTypeDef(
-    _RequiredMetadataGenerationRunItemTypeDef, _OptionalMetadataGenerationRunItemTypeDef
-):
-    pass
-
-_RequiredMetadataGenerationRunTargetTypeDef = TypedDict(
-    "_RequiredMetadataGenerationRunTargetTypeDef",
-    {
-        "identifier": str,
-        "type": Literal["ASSET"],
-    },
-)
-_OptionalMetadataGenerationRunTargetTypeDef = TypedDict(
-    "_OptionalMetadataGenerationRunTargetTypeDef",
-    {
-        "revision": str,
-    },
-    total=False,
-)
-
-class MetadataGenerationRunTargetTypeDef(
-    _RequiredMetadataGenerationRunTargetTypeDef, _OptionalMetadataGenerationRunTargetTypeDef
-):
-    pass
-
-ModelTypeDef = TypedDict(
-    "ModelTypeDef",
-    {
-        "smithy": str,
-    },
-    total=False,
-)
-
-_RequiredNotificationOutputTypeDef = TypedDict(
-    "_RequiredNotificationOutputTypeDef",
-    {
-        "actionLink": str,
-        "creationTimestamp": datetime,
-        "domainIdentifier": str,
-        "identifier": str,
-        "lastUpdatedTimestamp": datetime,
-        "message": str,
-        "title": str,
-        "topic": "TopicTypeDef",
-        "type": NotificationTypeType,
-    },
-)
-_OptionalNotificationOutputTypeDef = TypedDict(
-    "_OptionalNotificationOutputTypeDef",
-    {
-        "metadata": Dict[str, str],
-        "status": TaskStatusType,
-    },
-    total=False,
-)
-
-class NotificationOutputTypeDef(
-    _RequiredNotificationOutputTypeDef, _OptionalNotificationOutputTypeDef
-):
-    pass
-
-_RequiredNotificationResourceTypeDef = TypedDict(
-    "_RequiredNotificationResourceTypeDef",
-    {
-        "id": str,
-        "type": Literal["PROJECT"],
-    },
-)
-_OptionalNotificationResourceTypeDef = TypedDict(
-    "_OptionalNotificationResourceTypeDef",
-    {
-        "name": str,
-    },
-    total=False,
-)
-
-class NotificationResourceTypeDef(
-    _RequiredNotificationResourceTypeDef, _OptionalNotificationResourceTypeDef
-):
-    pass
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-_RequiredPostLineageEventInputRequestTypeDef = TypedDict(
-    "_RequiredPostLineageEventInputRequestTypeDef",
-    {
-        "domainIdentifier": str,
-        "event": Union[bytes, IO[bytes], StreamingBody],
-    },
-)
-_OptionalPostLineageEventInputRequestTypeDef = TypedDict(
-    "_OptionalPostLineageEventInputRequestTypeDef",
-    {
-        "clientToken": str,
-    },
-    total=False,
-)
-
-class PostLineageEventInputRequestTypeDef(
-    _RequiredPostLineageEventInputRequestTypeDef, _OptionalPostLineageEventInputRequestTypeDef
-):
-    pass
-
-_RequiredPostTimeSeriesDataPointsInputRequestTypeDef = TypedDict(
-    "_RequiredPostTimeSeriesDataPointsInputRequestTypeDef",
-    {
-        "domainIdentifier": str,
-        "entityIdentifier": str,
-        "entityType": TimeSeriesEntityTypeType,
-        "forms": List["TimeSeriesDataPointFormInputTypeDef"],
-    },
-)
-_OptionalPostTimeSeriesDataPointsInputRequestTypeDef = TypedDict(
-    "_OptionalPostTimeSeriesDataPointsInputRequestTypeDef",
-    {
-        "clientToken": str,
-    },
-    total=False,
-)
-
-class PostTimeSeriesDataPointsInputRequestTypeDef(
-    _RequiredPostTimeSeriesDataPointsInputRequestTypeDef,
-    _OptionalPostTimeSeriesDataPointsInputRequestTypeDef,
-):
-    pass
-
-PostTimeSeriesDataPointsOutputTypeDef = TypedDict(
-    "PostTimeSeriesDataPointsOutputTypeDef",
-    {
-        "domainId": str,
-        "entityId": str,
-        "entityType": TimeSeriesEntityTypeType,
-        "forms": List["TimeSeriesDataPointFormOutputTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-PredictionConfigurationTypeDef = TypedDict(
-    "PredictionConfigurationTypeDef",
-    {
-        "businessNameGeneration": "BusinessNameGenerationConfigurationTypeDef",
-    },
-    total=False,
-)
-
-ProjectDeletionErrorTypeDef = TypedDict(
-    "ProjectDeletionErrorTypeDef",
-    {
-        "code": str,
-        "message": str,
-    },
-    total=False,
-)
-
-ProjectMemberTypeDef = TypedDict(
-    "ProjectMemberTypeDef",
-    {
-        "designation": UserDesignationType,
-        "memberDetails": "MemberDetailsTypeDef",
-    },
-)
-
-_RequiredProjectSummaryTypeDef = TypedDict(
-    "_RequiredProjectSummaryTypeDef",
-    {
-        "createdBy": str,
-        "domainId": str,
-        "id": str,
-        "name": str,
-    },
-)
-_OptionalProjectSummaryTypeDef = TypedDict(
-    "_OptionalProjectSummaryTypeDef",
-    {
-        "createdAt": datetime,
-        "description": str,
-        "failureReasons": List["ProjectDeletionErrorTypeDef"],
-        "projectStatus": ProjectStatusType,
-        "updatedAt": datetime,
-    },
-    total=False,
-)
-
-class ProjectSummaryTypeDef(_RequiredProjectSummaryTypeDef, _OptionalProjectSummaryTypeDef):
-    pass
-
-ProvisioningPropertiesTypeDef = TypedDict(
-    "ProvisioningPropertiesTypeDef",
-    {
-        "cloudFormation": "CloudFormationPropertiesTypeDef",
-    },
-    total=False,
-)
-
-_RequiredPutEnvironmentBlueprintConfigurationInputRequestTypeDef = TypedDict(
-    "_RequiredPutEnvironmentBlueprintConfigurationInputRequestTypeDef",
-    {
-        "domainIdentifier": str,
-        "enabledRegions": List[str],
-        "environmentBlueprintIdentifier": str,
-    },
-)
-_OptionalPutEnvironmentBlueprintConfigurationInputRequestTypeDef = TypedDict(
-    "_OptionalPutEnvironmentBlueprintConfigurationInputRequestTypeDef",
-    {
-        "manageAccessRoleArn": str,
-        "provisioningRoleArn": str,
-        "regionalParameters": Dict[str, Dict[str, str]],
-    },
-    total=False,
-)
-
-class PutEnvironmentBlueprintConfigurationInputRequestTypeDef(
-    _RequiredPutEnvironmentBlueprintConfigurationInputRequestTypeDef,
-    _OptionalPutEnvironmentBlueprintConfigurationInputRequestTypeDef,
-):
-    pass
-
-PutEnvironmentBlueprintConfigurationOutputTypeDef = TypedDict(
-    "PutEnvironmentBlueprintConfigurationOutputTypeDef",
-    {
-        "createdAt": datetime,
-        "domainId": str,
-        "enabledRegions": List[str],
-        "environmentBlueprintId": str,
-        "manageAccessRoleArn": str,
-        "provisioningRoleArn": str,
-        "regionalParameters": Dict[str, Dict[str, str]],
-        "updatedAt": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-RecommendationConfigurationTypeDef = TypedDict(
-    "RecommendationConfigurationTypeDef",
-    {
-        "enableBusinessNameGeneration": bool,
-    },
-    total=False,
-)
-
-RedshiftClusterStorageTypeDef = TypedDict(
-    "RedshiftClusterStorageTypeDef",
-    {
-        "clusterName": str,
-    },
-)
-
-RedshiftCredentialConfigurationTypeDef = TypedDict(
-    "RedshiftCredentialConfigurationTypeDef",
-    {
-        "secretManagerArn": str,
-    },
-)
-
-_RequiredRedshiftRunConfigurationInputTypeDef = TypedDict(
-    "_RequiredRedshiftRunConfigurationInputTypeDef",
-    {
-        "redshiftCredentialConfiguration": "RedshiftCredentialConfigurationTypeDef",
-        "redshiftStorage": "RedshiftStorageTypeDef",
-        "relationalFilterConfigurations": List["RelationalFilterConfigurationTypeDef"],
-    },
-)
-_OptionalRedshiftRunConfigurationInputTypeDef = TypedDict(
-    "_OptionalRedshiftRunConfigurationInputTypeDef",
-    {
-        "dataAccessRole": str,
-    },
-    total=False,
-)
-
-class RedshiftRunConfigurationInputTypeDef(
-    _RequiredRedshiftRunConfigurationInputTypeDef, _OptionalRedshiftRunConfigurationInputTypeDef
-):
-    pass
-
-_RequiredRedshiftRunConfigurationOutputTypeDef = TypedDict(
-    "_RequiredRedshiftRunConfigurationOutputTypeDef",
-    {
-        "redshiftCredentialConfiguration": "RedshiftCredentialConfigurationTypeDef",
-        "redshiftStorage": "RedshiftStorageTypeDef",
-        "relationalFilterConfigurations": List["RelationalFilterConfigurationTypeDef"],
-    },
-)
-_OptionalRedshiftRunConfigurationOutputTypeDef = TypedDict(
-    "_OptionalRedshiftRunConfigurationOutputTypeDef",
-    {
-        "accountId": str,
-        "dataAccessRole": str,
-        "region": str,
-    },
-    total=False,
-)
-
-class RedshiftRunConfigurationOutputTypeDef(
-    _RequiredRedshiftRunConfigurationOutputTypeDef, _OptionalRedshiftRunConfigurationOutputTypeDef
-):
-    pass
-
-RedshiftSelfGrantStatusOutputTypeDef = TypedDict(
-    "RedshiftSelfGrantStatusOutputTypeDef",
-    {
-        "selfGrantStatusDetails": List["SelfGrantStatusDetailTypeDef"],
-    },
-)
-
-RedshiftServerlessStorageTypeDef = TypedDict(
-    "RedshiftServerlessStorageTypeDef",
-    {
-        "workgroupName": str,
-    },
-)
-
-RedshiftStorageTypeDef = TypedDict(
-    "RedshiftStorageTypeDef",
-    {
-        "redshiftClusterSource": "RedshiftClusterStorageTypeDef",
-        "redshiftServerlessSource": "RedshiftServerlessStorageTypeDef",
-    },
-    total=False,
-)
-
-_RequiredRejectChoiceTypeDef = TypedDict(
-    "_RequiredRejectChoiceTypeDef",
-    {
-        "predictionTarget": str,
-    },
-)
-_OptionalRejectChoiceTypeDef = TypedDict(
-    "_OptionalRejectChoiceTypeDef",
-    {
-        "predictionChoices": List[int],
-    },
-    total=False,
-)
-
-class RejectChoiceTypeDef(_RequiredRejectChoiceTypeDef, _OptionalRejectChoiceTypeDef):
-    pass
-
-_RequiredRejectPredictionsInputRequestTypeDef = TypedDict(
-    "_RequiredRejectPredictionsInputRequestTypeDef",
-    {
-        "domainIdentifier": str,
-        "identifier": str,
-    },
-)
-_OptionalRejectPredictionsInputRequestTypeDef = TypedDict(
-    "_OptionalRejectPredictionsInputRequestTypeDef",
-    {
-        "clientToken": str,
-        "rejectChoices": List["RejectChoiceTypeDef"],
-        "rejectRule": "RejectRuleTypeDef",
-        "revision": str,
-    },
-    total=False,
-)
-
-class RejectPredictionsInputRequestTypeDef(
-    _RequiredRejectPredictionsInputRequestTypeDef, _OptionalRejectPredictionsInputRequestTypeDef
-):
-    pass
-
-RejectPredictionsOutputTypeDef = TypedDict(
-    "RejectPredictionsOutputTypeDef",
-    {
-        "assetId": str,
-        "assetRevision": str,
-        "domainId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-RejectRuleTypeDef = TypedDict(
-    "RejectRuleTypeDef",
-    {
-        "rule": RejectRuleBehaviorType,
-        "threshold": float,
-    },
-    total=False,
-)
-
-_RequiredRejectSubscriptionRequestInputRequestTypeDef = TypedDict(
-    "_RequiredRejectSubscriptionRequestInputRequestTypeDef",
-    {
-        "domainIdentifier": str,
-        "identifier": str,
-    },
-)
-_OptionalRejectSubscriptionRequestInputRequestTypeDef = TypedDict(
-    "_OptionalRejectSubscriptionRequestInputRequestTypeDef",
-    {
-        "decisionComment": str,
-    },
-    total=False,
-)
-
-class RejectSubscriptionRequestInputRequestTypeDef(
-    _RequiredRejectSubscriptionRequestInputRequestTypeDef,
-    _OptionalRejectSubscriptionRequestInputRequestTypeDef,
-):
-    pass
-
-RejectSubscriptionRequestOutputTypeDef = TypedDict(
-    "RejectSubscriptionRequestOutputTypeDef",
-    {
-        "createdAt": datetime,
-        "createdBy": str,
-        "decisionComment": str,
-        "domainId": str,
-        "id": str,
-        "requestReason": str,
-        "reviewerId": str,
-        "status": SubscriptionRequestStatusType,
-        "subscribedListings": List["SubscribedListingTypeDef"],
-        "subscribedPrincipals": List["SubscribedPrincipalTypeDef"],
-        "updatedAt": datetime,
-        "updatedBy": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredRelationalFilterConfigurationTypeDef = TypedDict(
-    "_RequiredRelationalFilterConfigurationTypeDef",
-    {
-        "databaseName": str,
-    },
-)
-_OptionalRelationalFilterConfigurationTypeDef = TypedDict(
-    "_OptionalRelationalFilterConfigurationTypeDef",
-    {
-        "filterExpressions": List["FilterExpressionTypeDef"],
-        "schemaName": str,
-    },
-    total=False,
-)
-
-class RelationalFilterConfigurationTypeDef(
-    _RequiredRelationalFilterConfigurationTypeDef, _OptionalRelationalFilterConfigurationTypeDef
-):
-    pass
-
-_RequiredResourceTypeDef = TypedDict(
-    "_RequiredResourceTypeDef",
-    {
-        "type": str,
-        "value": str,
-    },
-)
-_OptionalResourceTypeDef = TypedDict(
-    "_OptionalResourceTypeDef",
-    {
-        "name": str,
-        "provider": str,
-    },
-    total=False,
-)
-
-class ResourceTypeDef(_RequiredResourceTypeDef, _OptionalResourceTypeDef):
-    pass
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-_RequiredRevokeSubscriptionInputRequestTypeDef = TypedDict(
-    "_RequiredRevokeSubscriptionInputRequestTypeDef",
-    {
-        "domainIdentifier": str,
-        "identifier": str,
-    },
-)
-_OptionalRevokeSubscriptionInputRequestTypeDef = TypedDict(
-    "_OptionalRevokeSubscriptionInputRequestTypeDef",
-    {
-        "retainPermissions": bool,
-    },
-    total=False,
-)
-
-class RevokeSubscriptionInputRequestTypeDef(
-    _RequiredRevokeSubscriptionInputRequestTypeDef, _OptionalRevokeSubscriptionInputRequestTypeDef
-):
-    pass
-
-RevokeSubscriptionOutputTypeDef = TypedDict(
-    "RevokeSubscriptionOutputTypeDef",
-    {
-        "createdAt": datetime,
-        "createdBy": str,
-        "domainId": str,
-        "id": str,
-        "retainPermissions": bool,
-        "status": SubscriptionStatusType,
-        "subscribedListing": "SubscribedListingTypeDef",
-        "subscribedPrincipal": "SubscribedPrincipalTypeDef",
-        "subscriptionRequestId": str,
-        "updatedAt": datetime,
-        "updatedBy": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-RunStatisticsForAssetsTypeDef = TypedDict(
-    "RunStatisticsForAssetsTypeDef",
-    {
-        "added": int,
-        "failed": int,
-        "skipped": int,
-        "unchanged": int,
-        "updated": int,
-    },
-    total=False,
-)
-
-ScheduleConfigurationTypeDef = TypedDict(
-    "ScheduleConfigurationTypeDef",
-    {
-        "schedule": str,
-        "timezone": TimezoneType,
-    },
-    total=False,
-)
-
-_RequiredSearchGroupProfilesInputRequestTypeDef = TypedDict(
-    "_RequiredSearchGroupProfilesInputRequestTypeDef",
-    {
-        "domainIdentifier": str,
-        "groupType": GroupSearchTypeType,
-    },
-)
-_OptionalSearchGroupProfilesInputRequestTypeDef = TypedDict(
-    "_OptionalSearchGroupProfilesInputRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-        "searchText": str,
-    },
-    total=False,
-)
-
-class SearchGroupProfilesInputRequestTypeDef(
-    _RequiredSearchGroupProfilesInputRequestTypeDef, _OptionalSearchGroupProfilesInputRequestTypeDef
-):
-    pass
-
-SearchGroupProfilesOutputTypeDef = TypedDict(
-    "SearchGroupProfilesOutputTypeDef",
-    {
-        "items": List["GroupProfileSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-SearchInItemTypeDef = TypedDict(
-    "SearchInItemTypeDef",
-    {
-        "attribute": str,
-    },
-)
-
-_RequiredSearchInputRequestTypeDef = TypedDict(
-    "_RequiredSearchInputRequestTypeDef",
-    {
-        "domainIdentifier": str,
-        "searchScope": InventorySearchScopeType,
-    },
-)
-_OptionalSearchInputRequestTypeDef = TypedDict(
-    "_OptionalSearchInputRequestTypeDef",
-    {
-        "additionalAttributes": List[SearchOutputAdditionalAttributeType],
-        "filters": "FilterClauseTypeDef",
-        "maxResults": int,
-        "nextToken": str,
-        "owningProjectIdentifier": str,
-        "searchIn": List["SearchInItemTypeDef"],
-        "searchText": str,
-        "sort": "SearchSortTypeDef",
-    },
-    total=False,
-)
-
-class SearchInputRequestTypeDef(
-    _RequiredSearchInputRequestTypeDef, _OptionalSearchInputRequestTypeDef
-):
-    pass
-
-SearchInventoryResultItemTypeDef = TypedDict(
-    "SearchInventoryResultItemTypeDef",
-    {
-        "assetItem": "AssetItemTypeDef",
-        "dataProductItem": "DataProductSummaryTypeDef",
-        "glossaryItem": "GlossaryItemTypeDef",
-        "glossaryTermItem": "GlossaryTermItemTypeDef",
-    },
-    total=False,
-)
-
-_RequiredSearchListingsInputRequestTypeDef = TypedDict(
-    "_RequiredSearchListingsInputRequestTypeDef",
-    {
-        "domainIdentifier": str,
-    },
-)
-_OptionalSearchListingsInputRequestTypeDef = TypedDict(
-    "_OptionalSearchListingsInputRequestTypeDef",
-    {
-        "additionalAttributes": List[SearchOutputAdditionalAttributeType],
-        "filters": "FilterClauseTypeDef",
-        "maxResults": int,
-        "nextToken": str,
-        "searchIn": List["SearchInItemTypeDef"],
-        "searchText": str,
-        "sort": "SearchSortTypeDef",
-    },
-    total=False,
-)
-
-class SearchListingsInputRequestTypeDef(
-    _RequiredSearchListingsInputRequestTypeDef, _OptionalSearchListingsInputRequestTypeDef
-):
-    pass
-
-SearchListingsOutputTypeDef = TypedDict(
-    "SearchListingsOutputTypeDef",
-    {
-        "items": List["SearchResultItemTypeDef"],
-        "nextToken": str,
-        "totalMatchCount": int,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-SearchOutputTypeDef = TypedDict(
-    "SearchOutputTypeDef",
-    {
-        "items": List["SearchInventoryResultItemTypeDef"],
-        "nextToken": str,
-        "totalMatchCount": int,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-SearchResultItemTypeDef = TypedDict(
-    "SearchResultItemTypeDef",
-    {
-        "assetListing": "AssetListingItemTypeDef",
-    },
-    total=False,
-)
-
-_RequiredSearchSortTypeDef = TypedDict(
-    "_RequiredSearchSortTypeDef",
-    {
-        "attribute": str,
-    },
-)
-_OptionalSearchSortTypeDef = TypedDict(
-    "_OptionalSearchSortTypeDef",
-    {
-        "order": SortOrderType,
-    },
-    total=False,
-)
-
-class SearchSortTypeDef(_RequiredSearchSortTypeDef, _OptionalSearchSortTypeDef):
-    pass
-
-_RequiredSearchTypesInputRequestTypeDef = TypedDict(
-    "_RequiredSearchTypesInputRequestTypeDef",
-    {
-        "domainIdentifier": str,
-        "managed": bool,
-        "searchScope": TypesSearchScopeType,
-    },
-)
-_OptionalSearchTypesInputRequestTypeDef = TypedDict(
-    "_OptionalSearchTypesInputRequestTypeDef",
-    {
-        "filters": "FilterClauseTypeDef",
-        "maxResults": int,
-        "nextToken": str,
-        "searchIn": List["SearchInItemTypeDef"],
-        "searchText": str,
-        "sort": "SearchSortTypeDef",
-    },
-    total=False,
-)
-
-class SearchTypesInputRequestTypeDef(
-    _RequiredSearchTypesInputRequestTypeDef, _OptionalSearchTypesInputRequestTypeDef
-):
-    pass
-
-SearchTypesOutputTypeDef = TypedDict(
-    "SearchTypesOutputTypeDef",
-    {
-        "items": List["SearchTypesResultItemTypeDef"],
-        "nextToken": str,
-        "totalMatchCount": int,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-SearchTypesResultItemTypeDef = TypedDict(
-    "SearchTypesResultItemTypeDef",
-    {
-        "assetTypeItem": "AssetTypeItemTypeDef",
-        "formTypeItem": "FormTypeDataTypeDef",
-        "lineageNodeTypeItem": "LineageNodeTypeItemTypeDef",
-    },
-    total=False,
-)
-
-_RequiredSearchUserProfilesInputRequestTypeDef = TypedDict(
-    "_RequiredSearchUserProfilesInputRequestTypeDef",
-    {
-        "domainIdentifier": str,
-        "userType": UserSearchTypeType,
-    },
-)
-_OptionalSearchUserProfilesInputRequestTypeDef = TypedDict(
-    "_OptionalSearchUserProfilesInputRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-        "searchText": str,
-    },
-    total=False,
-)
-
-class SearchUserProfilesInputRequestTypeDef(
-    _RequiredSearchUserProfilesInputRequestTypeDef, _OptionalSearchUserProfilesInputRequestTypeDef
-):
-    pass
-
-SearchUserProfilesOutputTypeDef = TypedDict(
-    "SearchUserProfilesOutputTypeDef",
-    {
-        "items": List["UserProfileSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredSelfGrantStatusDetailTypeDef = TypedDict(
-    "_RequiredSelfGrantStatusDetailTypeDef",
-    {
-        "databaseName": str,
-        "status": SelfGrantStatusType,
-    },
-)
-_OptionalSelfGrantStatusDetailTypeDef = TypedDict(
-    "_OptionalSelfGrantStatusDetailTypeDef",
-    {
-        "failureCause": str,
-        "schemaName": str,
-    },
-    total=False,
-)
-
-class SelfGrantStatusDetailTypeDef(
-    _RequiredSelfGrantStatusDetailTypeDef, _OptionalSelfGrantStatusDetailTypeDef
-):
-    pass
-
-SelfGrantStatusOutputTypeDef = TypedDict(
-    "SelfGrantStatusOutputTypeDef",
-    {
-        "glueSelfGrantStatus": "GlueSelfGrantStatusOutputTypeDef",
-        "redshiftSelfGrantStatus": "RedshiftSelfGrantStatusOutputTypeDef",
-    },
-    total=False,
-)
-
-SingleSignOnTypeDef = TypedDict(
-    "SingleSignOnTypeDef",
-    {
-        "type": AuthTypeType,
-        "userAssignment": UserAssignmentType,
-    },
-    total=False,
-)
-
-SsoUserProfileDetailsTypeDef = TypedDict(
-    "SsoUserProfileDetailsTypeDef",
-    {
-        "firstName": str,
-        "lastName": str,
-        "username": str,
-    },
-    total=False,
-)
-
-_RequiredStartDataSourceRunInputRequestTypeDef = TypedDict(
-    "_RequiredStartDataSourceRunInputRequestTypeDef",
-    {
-        "dataSourceIdentifier": str,
-        "domainIdentifier": str,
-    },
-)
-_OptionalStartDataSourceRunInputRequestTypeDef = TypedDict(
-    "_OptionalStartDataSourceRunInputRequestTypeDef",
-    {
-        "clientToken": str,
-    },
-    total=False,
-)
-
-class StartDataSourceRunInputRequestTypeDef(
-    _RequiredStartDataSourceRunInputRequestTypeDef, _OptionalStartDataSourceRunInputRequestTypeDef
-):
-    pass
-
-StartDataSourceRunOutputTypeDef = TypedDict(
-    "StartDataSourceRunOutputTypeDef",
-    {
-        "createdAt": datetime,
-        "dataSourceConfigurationSnapshot": str,
-        "dataSourceId": str,
-        "domainId": str,
-        "errorMessage": "DataSourceErrorMessageTypeDef",
-        "id": str,
-        "projectId": str,
-        "runStatisticsForAssets": "RunStatisticsForAssetsTypeDef",
-        "startedAt": datetime,
-        "status": DataSourceRunStatusType,
-        "stoppedAt": datetime,
-        "type": DataSourceRunTypeType,
-        "updatedAt": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredStartMetadataGenerationRunInputRequestTypeDef = TypedDict(
-    "_RequiredStartMetadataGenerationRunInputRequestTypeDef",
-    {
-        "domainIdentifier": str,
-        "owningProjectIdentifier": str,
-        "target": "MetadataGenerationRunTargetTypeDef",
-        "type": Literal["BUSINESS_DESCRIPTIONS"],
-    },
-)
-_OptionalStartMetadataGenerationRunInputRequestTypeDef = TypedDict(
-    "_OptionalStartMetadataGenerationRunInputRequestTypeDef",
-    {
-        "clientToken": str,
-    },
-    total=False,
-)
-
-class StartMetadataGenerationRunInputRequestTypeDef(
-    _RequiredStartMetadataGenerationRunInputRequestTypeDef,
-    _OptionalStartMetadataGenerationRunInputRequestTypeDef,
-):
-    pass
-
-StartMetadataGenerationRunOutputTypeDef = TypedDict(
-    "StartMetadataGenerationRunOutputTypeDef",
-    {
-        "createdAt": datetime,
-        "createdBy": str,
-        "domainId": str,
-        "id": str,
-        "owningProjectId": str,
-        "status": MetadataGenerationRunStatusType,
-        "type": Literal["BUSINESS_DESCRIPTIONS"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-SubscribedAssetListingTypeDef = TypedDict(
-    "SubscribedAssetListingTypeDef",
-    {
-        "entityId": str,
-        "entityRevision": str,
-        "entityType": str,
-        "forms": str,
-        "glossaryTerms": List["DetailedGlossaryTermTypeDef"],
-    },
-    total=False,
-)
-
-_RequiredSubscribedAssetTypeDef = TypedDict(
-    "_RequiredSubscribedAssetTypeDef",
-    {
-        "assetId": str,
-        "assetRevision": str,
-        "status": SubscriptionGrantStatusType,
-    },
-)
-_OptionalSubscribedAssetTypeDef = TypedDict(
-    "_OptionalSubscribedAssetTypeDef",
-    {
-        "failureCause": "FailureCauseTypeDef",
-        "failureTimestamp": datetime,
-        "grantedTimestamp": datetime,
-        "targetName": str,
-    },
-    total=False,
-)
-
-class SubscribedAssetTypeDef(_RequiredSubscribedAssetTypeDef, _OptionalSubscribedAssetTypeDef):
-    pass
-
-SubscribedListingInputTypeDef = TypedDict(
-    "SubscribedListingInputTypeDef",
-    {
-        "identifier": str,
-    },
-)
-
-SubscribedListingItemTypeDef = TypedDict(
-    "SubscribedListingItemTypeDef",
-    {
-        "assetListing": "SubscribedAssetListingTypeDef",
-    },
-    total=False,
-)
-
-_RequiredSubscribedListingTypeDef = TypedDict(
-    "_RequiredSubscribedListingTypeDef",
-    {
-        "description": str,
-        "id": str,
-        "item": "SubscribedListingItemTypeDef",
-        "name": str,
-        "ownerProjectId": str,
-    },
-)
-_OptionalSubscribedListingTypeDef = TypedDict(
-    "_OptionalSubscribedListingTypeDef",
-    {
-        "ownerProjectName": str,
-        "revision": str,
-    },
-    total=False,
-)
-
-class SubscribedListingTypeDef(
-    _RequiredSubscribedListingTypeDef, _OptionalSubscribedListingTypeDef
-):
-    pass
-
-SubscribedPrincipalInputTypeDef = TypedDict(
-    "SubscribedPrincipalInputTypeDef",
-    {
-        "project": "SubscribedProjectInputTypeDef",
-    },
-    total=False,
-)
-
-SubscribedPrincipalTypeDef = TypedDict(
-    "SubscribedPrincipalTypeDef",
-    {
-        "project": "SubscribedProjectTypeDef",
-    },
-    total=False,
-)
-
-SubscribedProjectInputTypeDef = TypedDict(
-    "SubscribedProjectInputTypeDef",
-    {
-        "identifier": str,
-    },
-    total=False,
-)
-
-SubscribedProjectTypeDef = TypedDict(
-    "SubscribedProjectTypeDef",
-    {
-        "id": str,
-        "name": str,
-    },
-    total=False,
-)
-
-_RequiredSubscriptionGrantSummaryTypeDef = TypedDict(
-    "_RequiredSubscriptionGrantSummaryTypeDef",
-    {
-        "createdAt": datetime,
-        "createdBy": str,
-        "domainId": str,
-        "grantedEntity": "GrantedEntityTypeDef",
-        "id": str,
-        "status": SubscriptionGrantOverallStatusType,
-        "subscriptionTargetId": str,
-        "updatedAt": datetime,
-    },
-)
-_OptionalSubscriptionGrantSummaryTypeDef = TypedDict(
-    "_OptionalSubscriptionGrantSummaryTypeDef",
-    {
-        "assets": List["SubscribedAssetTypeDef"],
-        "subscriptionId": str,
-        "updatedBy": str,
-    },
-    total=False,
-)
-
-class SubscriptionGrantSummaryTypeDef(
-    _RequiredSubscriptionGrantSummaryTypeDef, _OptionalSubscriptionGrantSummaryTypeDef
-):
-    pass
-
-_RequiredSubscriptionRequestSummaryTypeDef = TypedDict(
-    "_RequiredSubscriptionRequestSummaryTypeDef",
-    {
-        "createdAt": datetime,
-        "createdBy": str,
-        "domainId": str,
-        "id": str,
-        "requestReason": str,
-        "status": SubscriptionRequestStatusType,
-        "subscribedListings": List["SubscribedListingTypeDef"],
-        "subscribedPrincipals": List["SubscribedPrincipalTypeDef"],
-        "updatedAt": datetime,
-    },
-)
-_OptionalSubscriptionRequestSummaryTypeDef = TypedDict(
-    "_OptionalSubscriptionRequestSummaryTypeDef",
-    {
-        "decisionComment": str,
-        "reviewerId": str,
-        "updatedBy": str,
-    },
-    total=False,
-)
-
-class SubscriptionRequestSummaryTypeDef(
-    _RequiredSubscriptionRequestSummaryTypeDef, _OptionalSubscriptionRequestSummaryTypeDef
-):
-    pass
-
-_RequiredSubscriptionSummaryTypeDef = TypedDict(
-    "_RequiredSubscriptionSummaryTypeDef",
-    {
-        "createdAt": datetime,
-        "createdBy": str,
-        "domainId": str,
-        "id": str,
-        "status": SubscriptionStatusType,
-        "subscribedListing": "SubscribedListingTypeDef",
-        "subscribedPrincipal": "SubscribedPrincipalTypeDef",
-        "updatedAt": datetime,
-    },
-)
-_OptionalSubscriptionSummaryTypeDef = TypedDict(
-    "_OptionalSubscriptionSummaryTypeDef",
-    {
-        "retainPermissions": bool,
-        "subscriptionRequestId": str,
-        "updatedBy": str,
-    },
-    total=False,
-)
-
-class SubscriptionSummaryTypeDef(
-    _RequiredSubscriptionSummaryTypeDef, _OptionalSubscriptionSummaryTypeDef
-):
-    pass
-
-SubscriptionTargetFormTypeDef = TypedDict(
-    "SubscriptionTargetFormTypeDef",
-    {
-        "content": str,
-        "formName": str,
-    },
-)
-
-_RequiredSubscriptionTargetSummaryTypeDef = TypedDict(
-    "_RequiredSubscriptionTargetSummaryTypeDef",
-    {
-        "applicableAssetTypes": List[str],
-        "authorizedPrincipals": List[str],
-        "createdAt": datetime,
-        "createdBy": str,
-        "domainId": str,
-        "environmentId": str,
-        "id": str,
-        "manageAccessRole": str,
-        "name": str,
-        "projectId": str,
-        "provider": str,
-        "subscriptionTargetConfig": List["SubscriptionTargetFormTypeDef"],
-        "type": str,
-    },
-)
-_OptionalSubscriptionTargetSummaryTypeDef = TypedDict(
-    "_OptionalSubscriptionTargetSummaryTypeDef",
-    {
-        "updatedAt": datetime,
-        "updatedBy": str,
-    },
-    total=False,
-)
-
-class SubscriptionTargetSummaryTypeDef(
-    _RequiredSubscriptionTargetSummaryTypeDef, _OptionalSubscriptionTargetSummaryTypeDef
-):
-    pass
-
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tags": Dict[str, str],
-    },
-)
-
-TermRelationsTypeDef = TypedDict(
-    "TermRelationsTypeDef",
-    {
-        "classifies": List[str],
-        "isA": List[str],
-    },
-    total=False,
-)
-
-_RequiredTimeSeriesDataPointFormInputTypeDef = TypedDict(
-    "_RequiredTimeSeriesDataPointFormInputTypeDef",
-    {
-        "formName": str,
-        "timestamp": Union[datetime, str],
-        "typeIdentifier": str,
-    },
-)
-_OptionalTimeSeriesDataPointFormInputTypeDef = TypedDict(
-    "_OptionalTimeSeriesDataPointFormInputTypeDef",
-    {
-        "content": str,
-        "typeRevision": str,
-    },
-    total=False,
-)
-
-class TimeSeriesDataPointFormInputTypeDef(
-    _RequiredTimeSeriesDataPointFormInputTypeDef, _OptionalTimeSeriesDataPointFormInputTypeDef
-):
-    pass
-
-_RequiredTimeSeriesDataPointFormOutputTypeDef = TypedDict(
-    "_RequiredTimeSeriesDataPointFormOutputTypeDef",
-    {
-        "formName": str,
-        "timestamp": datetime,
-        "typeIdentifier": str,
-    },
-)
-_OptionalTimeSeriesDataPointFormOutputTypeDef = TypedDict(
-    "_OptionalTimeSeriesDataPointFormOutputTypeDef",
-    {
-        "content": str,
-        "id": str,
-        "typeRevision": str,
-    },
-    total=False,
-)
-
-class TimeSeriesDataPointFormOutputTypeDef(
-    _RequiredTimeSeriesDataPointFormOutputTypeDef, _OptionalTimeSeriesDataPointFormOutputTypeDef
-):
-    pass
-
-_RequiredTimeSeriesDataPointSummaryFormOutputTypeDef = TypedDict(
-    "_RequiredTimeSeriesDataPointSummaryFormOutputTypeDef",
-    {
-        "formName": str,
-        "timestamp": datetime,
-        "typeIdentifier": str,
-    },
-)
-_OptionalTimeSeriesDataPointSummaryFormOutputTypeDef = TypedDict(
-    "_OptionalTimeSeriesDataPointSummaryFormOutputTypeDef",
-    {
-        "contentSummary": str,
-        "id": str,
-        "typeRevision": str,
-    },
-    total=False,
-)
-
-class TimeSeriesDataPointSummaryFormOutputTypeDef(
-    _RequiredTimeSeriesDataPointSummaryFormOutputTypeDef,
-    _OptionalTimeSeriesDataPointSummaryFormOutputTypeDef,
-):
-    pass
-
-TopicTypeDef = TypedDict(
-    "TopicTypeDef",
-    {
-        "resource": "NotificationResourceTypeDef",
-        "role": NotificationRoleType,
-        "subject": str,
-    },
-)
-
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tagKeys": List[str],
-    },
-)
-
-_RequiredUpdateDataSourceInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateDataSourceInputRequestTypeDef",
-    {
-        "domainIdentifier": str,
-        "identifier": str,
-    },
-)
-_OptionalUpdateDataSourceInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateDataSourceInputRequestTypeDef",
-    {
-        "assetFormsInput": List["FormInputTypeDef"],
-        "configuration": "DataSourceConfigurationInputTypeDef",
-        "description": str,
-        "enableSetting": EnableSettingType,
-        "name": str,
-        "publishOnImport": bool,
-        "recommendation": "RecommendationConfigurationTypeDef",
-        "retainPermissionsOnRevokeFailure": bool,
-        "schedule": "ScheduleConfigurationTypeDef",
-    },
-    total=False,
-)
-
-class UpdateDataSourceInputRequestTypeDef(
-    _RequiredUpdateDataSourceInputRequestTypeDef, _OptionalUpdateDataSourceInputRequestTypeDef
-):
-    pass
-
-UpdateDataSourceOutputTypeDef = TypedDict(
-    "UpdateDataSourceOutputTypeDef",
-    {
-        "assetFormsOutput": List["FormOutputTypeDef"],
-        "configuration": "DataSourceConfigurationOutputTypeDef",
-        "createdAt": datetime,
-        "description": str,
-        "domainId": str,
-        "enableSetting": EnableSettingType,
-        "environmentId": str,
-        "errorMessage": "DataSourceErrorMessageTypeDef",
-        "id": str,
-        "lastRunAt": datetime,
-        "lastRunErrorMessage": "DataSourceErrorMessageTypeDef",
-        "lastRunStatus": DataSourceRunStatusType,
-        "name": str,
-        "projectId": str,
-        "publishOnImport": bool,
-        "recommendation": "RecommendationConfigurationTypeDef",
-        "retainPermissionsOnRevokeFailure": bool,
-        "schedule": "ScheduleConfigurationTypeDef",
-        "selfGrantStatus": "SelfGrantStatusOutputTypeDef",
-        "status": DataSourceStatusType,
-        "type": str,
-        "updatedAt": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateDomainInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateDomainInputRequestTypeDef",
-    {
-        "identifier": str,
-    },
-)
-_OptionalUpdateDomainInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateDomainInputRequestTypeDef",
-    {
-        "clientToken": str,
-        "description": str,
-        "domainExecutionRole": str,
-        "name": str,
-        "singleSignOn": "SingleSignOnTypeDef",
-    },
-    total=False,
-)
-
-class UpdateDomainInputRequestTypeDef(
-    _RequiredUpdateDomainInputRequestTypeDef, _OptionalUpdateDomainInputRequestTypeDef
-):
-    pass
-
-UpdateDomainOutputTypeDef = TypedDict(
-    "UpdateDomainOutputTypeDef",
-    {
-        "description": str,
-        "domainExecutionRole": str,
-        "id": str,
-        "lastUpdatedAt": datetime,
-        "name": str,
-        "singleSignOn": "SingleSignOnTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateEnvironmentActionInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateEnvironmentActionInputRequestTypeDef",
-    {
-        "domainIdentifier": str,
-        "environmentIdentifier": str,
-        "identifier": str,
-    },
-)
-_OptionalUpdateEnvironmentActionInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateEnvironmentActionInputRequestTypeDef",
-    {
-        "description": str,
-        "name": str,
-        "parameters": "ActionParametersTypeDef",
-    },
-    total=False,
-)
-
-class UpdateEnvironmentActionInputRequestTypeDef(
-    _RequiredUpdateEnvironmentActionInputRequestTypeDef,
-    _OptionalUpdateEnvironmentActionInputRequestTypeDef,
-):
-    pass
-
-UpdateEnvironmentActionOutputTypeDef = TypedDict(
-    "UpdateEnvironmentActionOutputTypeDef",
-    {
-        "description": str,
-        "domainId": str,
-        "environmentId": str,
-        "id": str,
-        "name": str,
-        "parameters": "ActionParametersTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateEnvironmentInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateEnvironmentInputRequestTypeDef",
-    {
-        "domainIdentifier": str,
-        "identifier": str,
-    },
-)
-_OptionalUpdateEnvironmentInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateEnvironmentInputRequestTypeDef",
-    {
-        "description": str,
-        "glossaryTerms": List[str],
-        "name": str,
-    },
-    total=False,
-)
-
-class UpdateEnvironmentInputRequestTypeDef(
-    _RequiredUpdateEnvironmentInputRequestTypeDef, _OptionalUpdateEnvironmentInputRequestTypeDef
-):
-    pass
-
-UpdateEnvironmentOutputTypeDef = TypedDict(
-    "UpdateEnvironmentOutputTypeDef",
-    {
-        "awsAccountId": str,
-        "awsAccountRegion": str,
-        "createdAt": datetime,
-        "createdBy": str,
-        "deploymentProperties": "DeploymentPropertiesTypeDef",
-        "description": str,
-        "domainId": str,
-        "environmentActions": List["ConfigurableEnvironmentActionTypeDef"],
-        "environmentBlueprintId": str,
-        "environmentProfileId": str,
-        "glossaryTerms": List[str],
-        "id": str,
-        "lastDeployment": "DeploymentTypeDef",
-        "name": str,
-        "projectId": str,
-        "provider": str,
-        "provisionedResources": List["ResourceTypeDef"],
-        "provisioningProperties": "ProvisioningPropertiesTypeDef",
-        "status": EnvironmentStatusType,
-        "updatedAt": datetime,
-        "userParameters": List["CustomParameterTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateEnvironmentProfileInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateEnvironmentProfileInputRequestTypeDef",
-    {
-        "domainIdentifier": str,
-        "identifier": str,
-    },
-)
-_OptionalUpdateEnvironmentProfileInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateEnvironmentProfileInputRequestTypeDef",
-    {
-        "awsAccountId": str,
-        "awsAccountRegion": str,
-        "description": str,
-        "name": str,
-        "userParameters": List["EnvironmentParameterTypeDef"],
-    },
-    total=False,
-)
-
-class UpdateEnvironmentProfileInputRequestTypeDef(
-    _RequiredUpdateEnvironmentProfileInputRequestTypeDef,
-    _OptionalUpdateEnvironmentProfileInputRequestTypeDef,
-):
-    pass
-
 UpdateEnvironmentProfileOutputTypeDef = TypedDict(
     "UpdateEnvironmentProfileOutputTypeDef",
     {
@@ -5430,72 +2771,68 @@ UpdateEnvironmentProfileOutputTypeDef = TypedDict(
         "name": str,
         "projectId": str,
         "updatedAt": datetime,
-        "userParameters": List["CustomParameterTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "userParameters": List[CustomParameterTypeDef],
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
 
-_RequiredUpdateGlossaryInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateGlossaryInputRequestTypeDef",
-    {
-        "domainIdentifier": str,
-        "identifier": str,
-    },
-)
-_OptionalUpdateGlossaryInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateGlossaryInputRequestTypeDef",
-    {
-        "clientToken": str,
-        "description": str,
-        "name": str,
-        "status": GlossaryStatusType,
-    },
-    total=False,
-)
+class CreateFormTypeInputTypeDef(TypedDict):
+    domainIdentifier: str
+    model: ModelTypeDef
+    name: str
+    owningProjectIdentifier: str
+    description: NotRequired[str]
+    status: NotRequired[FormTypeStatusType]
 
-class UpdateGlossaryInputRequestTypeDef(
-    _RequiredUpdateGlossaryInputRequestTypeDef, _OptionalUpdateGlossaryInputRequestTypeDef
-):
-    pass
-
-UpdateGlossaryOutputTypeDef = TypedDict(
-    "UpdateGlossaryOutputTypeDef",
+CreateGlossaryTermOutputTypeDef = TypedDict(
+    "CreateGlossaryTermOutputTypeDef",
     {
-        "description": str,
         "domainId": str,
+        "glossaryId": str,
         "id": str,
-        "name": str,
-        "owningProjectId": str,
-        "status": GlossaryStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateGlossaryTermInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateGlossaryTermInputRequestTypeDef",
-    {
-        "domainIdentifier": str,
-        "identifier": str,
-    },
-)
-_OptionalUpdateGlossaryTermInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateGlossaryTermInputRequestTypeDef",
-    {
-        "glossaryIdentifier": str,
         "longDescription": str,
         "name": str,
         "shortDescription": str,
         "status": GlossaryTermStatusType,
-        "termRelations": "TermRelationsTypeDef",
+        "termRelations": TermRelationsOutputTypeDef,
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
-    total=False,
 )
-
-class UpdateGlossaryTermInputRequestTypeDef(
-    _RequiredUpdateGlossaryTermInputRequestTypeDef, _OptionalUpdateGlossaryTermInputRequestTypeDef
-):
-    pass
-
+GetGlossaryTermOutputTypeDef = TypedDict(
+    "GetGlossaryTermOutputTypeDef",
+    {
+        "createdAt": datetime,
+        "createdBy": str,
+        "domainId": str,
+        "glossaryId": str,
+        "id": str,
+        "longDescription": str,
+        "name": str,
+        "shortDescription": str,
+        "status": GlossaryTermStatusType,
+        "termRelations": TermRelationsOutputTypeDef,
+        "updatedAt": datetime,
+        "updatedBy": str,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+GlossaryTermItemTypeDef = TypedDict(
+    "GlossaryTermItemTypeDef",
+    {
+        "domainId": str,
+        "glossaryId": str,
+        "id": str,
+        "name": str,
+        "status": GlossaryTermStatusType,
+        "createdAt": NotRequired[datetime],
+        "createdBy": NotRequired[str],
+        "longDescription": NotRequired[str],
+        "shortDescription": NotRequired[str],
+        "termRelations": NotRequired[TermRelationsOutputTypeDef],
+        "updatedAt": NotRequired[datetime],
+        "updatedBy": NotRequired[str],
+    },
+)
 UpdateGlossaryTermOutputTypeDef = TypedDict(
     "UpdateGlossaryTermOutputTypeDef",
     {
@@ -5506,166 +2843,125 @@ UpdateGlossaryTermOutputTypeDef = TypedDict(
         "name": str,
         "shortDescription": str,
         "status": GlossaryTermStatusType,
-        "termRelations": "TermRelationsTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "termRelations": TermRelationsOutputTypeDef,
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
 
-UpdateGroupProfileInputRequestTypeDef = TypedDict(
-    "UpdateGroupProfileInputRequestTypeDef",
-    {
-        "domainIdentifier": str,
-        "groupIdentifier": str,
-        "status": GroupProfileStatusType,
-    },
-)
+class CreateProjectMembershipInputTypeDef(TypedDict):
+    designation: UserDesignationType
+    domainIdentifier: str
+    member: MemberTypeDef
+    projectIdentifier: str
 
-UpdateGroupProfileOutputTypeDef = TypedDict(
-    "UpdateGroupProfileOutputTypeDef",
+class DeleteProjectMembershipInputTypeDef(TypedDict):
+    domainIdentifier: str
+    member: MemberTypeDef
+    projectIdentifier: str
+
+ProjectSummaryTypeDef = TypedDict(
+    "ProjectSummaryTypeDef",
     {
+        "createdBy": str,
         "domainId": str,
-        "groupName": str,
         "id": str,
-        "status": GroupProfileStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateProjectInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateProjectInputRequestTypeDef",
-    {
-        "domainIdentifier": str,
-        "identifier": str,
-    },
-)
-_OptionalUpdateProjectInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateProjectInputRequestTypeDef",
-    {
-        "description": str,
-        "glossaryTerms": List[str],
         "name": str,
-    },
-    total=False,
-)
-
-class UpdateProjectInputRequestTypeDef(
-    _RequiredUpdateProjectInputRequestTypeDef, _OptionalUpdateProjectInputRequestTypeDef
-):
-    pass
-
-UpdateProjectOutputTypeDef = TypedDict(
-    "UpdateProjectOutputTypeDef",
-    {
-        "createdAt": datetime,
-        "createdBy": str,
-        "description": str,
-        "domainId": str,
-        "failureReasons": List["ProjectDeletionErrorTypeDef"],
-        "glossaryTerms": List[str],
-        "id": str,
-        "lastUpdatedAt": datetime,
-        "name": str,
-        "projectStatus": ProjectStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "createdAt": NotRequired[datetime],
+        "description": NotRequired[str],
+        "domainUnitId": NotRequired[str],
+        "failureReasons": NotRequired[List[ProjectDeletionErrorTypeDef]],
+        "projectStatus": NotRequired[ProjectStatusType],
+        "updatedAt": NotRequired[datetime],
     },
 )
-
-_RequiredUpdateSubscriptionGrantStatusInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateSubscriptionGrantStatusInputRequestTypeDef",
+CreateSubscriptionTargetInputTypeDef = TypedDict(
+    "CreateSubscriptionTargetInputTypeDef",
     {
-        "assetIdentifier": str,
-        "domainIdentifier": str,
-        "identifier": str,
-        "status": SubscriptionGrantStatusType,
-    },
-)
-_OptionalUpdateSubscriptionGrantStatusInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateSubscriptionGrantStatusInputRequestTypeDef",
-    {
-        "failureCause": "FailureCauseTypeDef",
-        "targetName": str,
-    },
-    total=False,
-)
-
-class UpdateSubscriptionGrantStatusInputRequestTypeDef(
-    _RequiredUpdateSubscriptionGrantStatusInputRequestTypeDef,
-    _OptionalUpdateSubscriptionGrantStatusInputRequestTypeDef,
-):
-    pass
-
-UpdateSubscriptionGrantStatusOutputTypeDef = TypedDict(
-    "UpdateSubscriptionGrantStatusOutputTypeDef",
-    {
-        "assets": List["SubscribedAssetTypeDef"],
-        "createdAt": datetime,
-        "createdBy": str,
-        "domainId": str,
-        "grantedEntity": "GrantedEntityTypeDef",
-        "id": str,
-        "status": SubscriptionGrantOverallStatusType,
-        "subscriptionId": str,
-        "subscriptionTargetId": str,
-        "updatedAt": datetime,
-        "updatedBy": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UpdateSubscriptionRequestInputRequestTypeDef = TypedDict(
-    "UpdateSubscriptionRequestInputRequestTypeDef",
-    {
-        "domainIdentifier": str,
-        "identifier": str,
-        "requestReason": str,
-    },
-)
-
-UpdateSubscriptionRequestOutputTypeDef = TypedDict(
-    "UpdateSubscriptionRequestOutputTypeDef",
-    {
-        "createdAt": datetime,
-        "createdBy": str,
-        "decisionComment": str,
-        "domainId": str,
-        "id": str,
-        "requestReason": str,
-        "reviewerId": str,
-        "status": SubscriptionRequestStatusType,
-        "subscribedListings": List["SubscribedListingTypeDef"],
-        "subscribedPrincipals": List["SubscribedPrincipalTypeDef"],
-        "updatedAt": datetime,
-        "updatedBy": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateSubscriptionTargetInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateSubscriptionTargetInputRequestTypeDef",
-    {
+        "applicableAssetTypes": Sequence[str],
+        "authorizedPrincipals": Sequence[str],
         "domainIdentifier": str,
         "environmentIdentifier": str,
-        "identifier": str,
+        "manageAccessRole": str,
+        "name": str,
+        "subscriptionTargetConfig": Sequence[SubscriptionTargetFormTypeDef],
+        "type": str,
+        "clientToken": NotRequired[str],
+        "provider": NotRequired[str],
     },
 )
-_OptionalUpdateSubscriptionTargetInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateSubscriptionTargetInputRequestTypeDef",
+CreateSubscriptionTargetOutputTypeDef = TypedDict(
+    "CreateSubscriptionTargetOutputTypeDef",
     {
         "applicableAssetTypes": List[str],
         "authorizedPrincipals": List[str],
+        "createdAt": datetime,
+        "createdBy": str,
+        "domainId": str,
+        "environmentId": str,
+        "id": str,
         "manageAccessRole": str,
         "name": str,
+        "projectId": str,
         "provider": str,
-        "subscriptionTargetConfig": List["SubscriptionTargetFormTypeDef"],
+        "subscriptionTargetConfig": List[SubscriptionTargetFormTypeDef],
+        "type": str,
+        "updatedAt": datetime,
+        "updatedBy": str,
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
-    total=False,
+)
+GetSubscriptionTargetOutputTypeDef = TypedDict(
+    "GetSubscriptionTargetOutputTypeDef",
+    {
+        "applicableAssetTypes": List[str],
+        "authorizedPrincipals": List[str],
+        "createdAt": datetime,
+        "createdBy": str,
+        "domainId": str,
+        "environmentId": str,
+        "id": str,
+        "manageAccessRole": str,
+        "name": str,
+        "projectId": str,
+        "provider": str,
+        "subscriptionTargetConfig": List[SubscriptionTargetFormTypeDef],
+        "type": str,
+        "updatedAt": datetime,
+        "updatedBy": str,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+SubscriptionTargetSummaryTypeDef = TypedDict(
+    "SubscriptionTargetSummaryTypeDef",
+    {
+        "applicableAssetTypes": List[str],
+        "authorizedPrincipals": List[str],
+        "createdAt": datetime,
+        "createdBy": str,
+        "domainId": str,
+        "environmentId": str,
+        "id": str,
+        "name": str,
+        "projectId": str,
+        "provider": str,
+        "subscriptionTargetConfig": List[SubscriptionTargetFormTypeDef],
+        "type": str,
+        "manageAccessRole": NotRequired[str],
+        "updatedAt": NotRequired[datetime],
+        "updatedBy": NotRequired[str],
+    },
 )
 
-class UpdateSubscriptionTargetInputRequestTypeDef(
-    _RequiredUpdateSubscriptionTargetInputRequestTypeDef,
-    _OptionalUpdateSubscriptionTargetInputRequestTypeDef,
-):
-    pass
+class UpdateSubscriptionTargetInputTypeDef(TypedDict):
+    domainIdentifier: str
+    environmentIdentifier: str
+    identifier: str
+    applicableAssetTypes: NotRequired[Sequence[str]]
+    authorizedPrincipals: NotRequired[Sequence[str]]
+    manageAccessRole: NotRequired[str]
+    name: NotRequired[str]
+    provider: NotRequired[str]
+    subscriptionTargetConfig: NotRequired[Sequence[SubscriptionTargetFormTypeDef]]
 
 UpdateSubscriptionTargetOutputTypeDef = TypedDict(
     "UpdateSubscriptionTargetOutputTypeDef",
@@ -5681,71 +2977,2781 @@ UpdateSubscriptionTargetOutputTypeDef = TypedDict(
         "name": str,
         "projectId": str,
         "provider": str,
-        "subscriptionTargetConfig": List["SubscriptionTargetFormTypeDef"],
+        "subscriptionTargetConfig": List[SubscriptionTargetFormTypeDef],
         "type": str,
         "updatedAt": datetime,
         "updatedBy": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+DataProductItemUnionTypeDef = Union[DataProductItemTypeDef, DataProductItemOutputTypeDef]
+
+class ListDataProductRevisionsOutputTypeDef(TypedDict):
+    items: List[DataProductRevisionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class DataSourceRunActivityTypeDef(TypedDict):
+    createdAt: datetime
+    dataAssetStatus: DataAssetActivityStatusType
+    dataSourceRunId: str
+    database: str
+    projectId: str
+    technicalName: str
+    updatedAt: datetime
+    dataAssetId: NotRequired[str]
+    errorMessage: NotRequired[DataSourceErrorMessageTypeDef]
+    lineageSummary: NotRequired[LineageInfoTypeDef]
+    technicalDescription: NotRequired[str]
+
+DataSourceRunSummaryTypeDef = TypedDict(
+    "DataSourceRunSummaryTypeDef",
+    {
+        "createdAt": datetime,
+        "dataSourceId": str,
+        "id": str,
+        "projectId": str,
+        "status": DataSourceRunStatusType,
+        "type": DataSourceRunTypeType,
+        "updatedAt": datetime,
+        "errorMessage": NotRequired[DataSourceErrorMessageTypeDef],
+        "lineageSummary": NotRequired[DataSourceRunLineageSummaryTypeDef],
+        "runStatisticsForAssets": NotRequired[RunStatisticsForAssetsTypeDef],
+        "startedAt": NotRequired[datetime],
+        "stoppedAt": NotRequired[datetime],
+    },
+)
+GetDataSourceRunOutputTypeDef = TypedDict(
+    "GetDataSourceRunOutputTypeDef",
+    {
+        "createdAt": datetime,
+        "dataSourceConfigurationSnapshot": str,
+        "dataSourceId": str,
+        "domainId": str,
+        "errorMessage": DataSourceErrorMessageTypeDef,
+        "id": str,
+        "lineageSummary": DataSourceRunLineageSummaryTypeDef,
+        "projectId": str,
+        "runStatisticsForAssets": RunStatisticsForAssetsTypeDef,
+        "startedAt": datetime,
+        "status": DataSourceRunStatusType,
+        "stoppedAt": datetime,
+        "type": DataSourceRunTypeType,
+        "updatedAt": datetime,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+StartDataSourceRunOutputTypeDef = TypedDict(
+    "StartDataSourceRunOutputTypeDef",
+    {
+        "createdAt": datetime,
+        "dataSourceConfigurationSnapshot": str,
+        "dataSourceId": str,
+        "domainId": str,
+        "errorMessage": DataSourceErrorMessageTypeDef,
+        "id": str,
+        "projectId": str,
+        "runStatisticsForAssets": RunStatisticsForAssetsTypeDef,
+        "startedAt": datetime,
+        "status": DataSourceRunStatusType,
+        "stoppedAt": datetime,
+        "type": DataSourceRunTypeType,
+        "updatedAt": datetime,
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
 
-_RequiredUpdateUserProfileInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateUserProfileInputRequestTypeDef",
+class DeploymentTypeDef(TypedDict):
+    deploymentId: NotRequired[str]
+    deploymentStatus: NotRequired[DeploymentStatusType]
+    deploymentType: NotRequired[DeploymentTypeType]
+    failureReason: NotRequired[EnvironmentErrorTypeDef]
+    isDeploymentComplete: NotRequired[bool]
+    messages: NotRequired[List[str]]
+
+class EnvironmentDeploymentDetailsOutputTypeDef(TypedDict):
+    environmentFailureReasons: NotRequired[Dict[str, List[EnvironmentErrorTypeDef]]]
+    overallDeploymentStatus: NotRequired[OverallDeploymentStatusType]
+
+class EnvironmentDeploymentDetailsTypeDef(TypedDict):
+    environmentFailureReasons: NotRequired[Mapping[str, Sequence[EnvironmentErrorTypeDef]]]
+    overallDeploymentStatus: NotRequired[OverallDeploymentStatusType]
+
+class ListDomainsOutputTypeDef(TypedDict):
+    items: List[DomainSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ProjectGrantFilterTypeDef(TypedDict):
+    domainUnitFilter: NotRequired[DomainUnitFilterForProjectTypeDef]
+
+class DomainUnitPolicyGrantPrincipalOutputTypeDef(TypedDict):
+    domainUnitDesignation: Literal["OWNER"]
+    domainUnitGrantFilter: NotRequired[DomainUnitGrantFilterOutputTypeDef]
+    domainUnitIdentifier: NotRequired[str]
+
+class DomainUnitPolicyGrantPrincipalTypeDef(TypedDict):
+    domainUnitDesignation: Literal["OWNER"]
+    domainUnitGrantFilter: NotRequired[DomainUnitGrantFilterTypeDef]
+    domainUnitIdentifier: NotRequired[str]
+
+class DomainUnitOwnerPropertiesTypeDef(TypedDict):
+    group: NotRequired[DomainUnitGroupPropertiesTypeDef]
+    user: NotRequired[DomainUnitUserPropertiesTypeDef]
+
+class ListDomainUnitsForParentOutputTypeDef(TypedDict):
+    items: List[DomainUnitSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class RuleTargetTypeDef(TypedDict):
+    domainUnitTarget: NotRequired[DomainUnitTargetTypeDef]
+
+class EnvironmentConfigurationParametersDetailsOutputTypeDef(TypedDict):
+    parameterOverrides: NotRequired[List[EnvironmentConfigurationParameterTypeDef]]
+    resolvedParameters: NotRequired[List[EnvironmentConfigurationParameterTypeDef]]
+    ssmPath: NotRequired[str]
+
+class EnvironmentConfigurationParametersDetailsTypeDef(TypedDict):
+    parameterOverrides: NotRequired[Sequence[EnvironmentConfigurationParameterTypeDef]]
+    resolvedParameters: NotRequired[Sequence[EnvironmentConfigurationParameterTypeDef]]
+    ssmPath: NotRequired[str]
+
+class ListEnvironmentProfilesOutputTypeDef(TypedDict):
+    items: List[EnvironmentProfileSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListEnvironmentsOutputTypeDef(TypedDict):
+    items: List[EnvironmentSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class SubscribedAssetTypeDef(TypedDict):
+    assetId: str
+    assetRevision: str
+    status: SubscriptionGrantStatusType
+    assetScope: NotRequired[AssetScopeTypeDef]
+    failureCause: NotRequired[FailureCauseTypeDef]
+    failureTimestamp: NotRequired[datetime]
+    grantedTimestamp: NotRequired[datetime]
+    targetName: NotRequired[str]
+
+class UpdateSubscriptionGrantStatusInputTypeDef(TypedDict):
+    assetIdentifier: str
+    domainIdentifier: str
+    identifier: str
+    status: SubscriptionGrantStatusType
+    failureCause: NotRequired[FailureCauseTypeDef]
+    targetName: NotRequired[str]
+
+FilterClausePaginatorTypeDef = TypedDict(
+    "FilterClausePaginatorTypeDef",
+    {
+        "and": NotRequired[Sequence[Mapping[str, Any]]],
+        "filter": NotRequired[FilterTypeDef],
+        "or": NotRequired[Sequence[Mapping[str, Any]]],
+    },
+)
+FilterClauseTypeDef = TypedDict(
+    "FilterClauseTypeDef",
+    {
+        "and": NotRequired[Sequence[Mapping[str, Any]]],
+        "filter": NotRequired[FilterTypeDef],
+        "or": NotRequired[Sequence[Mapping[str, Any]]],
+    },
+)
+
+class RelationalFilterConfigurationOutputTypeDef(TypedDict):
+    databaseName: str
+    filterExpressions: NotRequired[List[FilterExpressionTypeDef]]
+    schemaName: NotRequired[str]
+
+class RelationalFilterConfigurationTypeDef(TypedDict):
+    databaseName: str
+    filterExpressions: NotRequired[Sequence[FilterExpressionTypeDef]]
+    schemaName: NotRequired[str]
+
+class FormTypeDataTypeDef(TypedDict):
+    domainId: str
+    name: str
+    revision: str
+    createdAt: NotRequired[datetime]
+    createdBy: NotRequired[str]
+    description: NotRequired[str]
+    imports: NotRequired[List[ImportTypeDef]]
+    model: NotRequired[ModelTypeDef]
+    originDomainId: NotRequired[str]
+    originProjectId: NotRequired[str]
+    owningProjectId: NotRequired[str]
+    status: NotRequired[FormTypeStatusType]
+
+class GetFormTypeOutputTypeDef(TypedDict):
+    createdAt: datetime
+    createdBy: str
+    description: str
+    domainId: str
+    imports: List[ImportTypeDef]
+    model: ModelTypeDef
+    name: str
+    originDomainId: str
+    originProjectId: str
+    owningProjectId: str
+    revision: str
+    status: FormTypeStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class JobRunSummaryTypeDef(TypedDict):
+    createdAt: NotRequired[datetime]
+    createdBy: NotRequired[str]
+    domainId: NotRequired[str]
+    endTime: NotRequired[datetime]
+    error: NotRequired[JobRunErrorTypeDef]
+    jobId: NotRequired[str]
+    jobType: NotRequired[Literal["LINEAGE"]]
+    runId: NotRequired[str]
+    runMode: NotRequired[JobRunModeType]
+    startTime: NotRequired[datetime]
+    status: NotRequired[JobRunStatusType]
+
+class GetLineageNodeInputTypeDef(TypedDict):
+    domainIdentifier: str
+    identifier: str
+    eventTimestamp: NotRequired[TimestampTypeDef]
+
+class ListLineageEventsInputTypeDef(TypedDict):
+    domainIdentifier: str
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+    processingStatus: NotRequired[LineageEventProcessingStatusType]
+    sortOrder: NotRequired[SortOrderType]
+    timestampAfter: NotRequired[TimestampTypeDef]
+    timestampBefore: NotRequired[TimestampTypeDef]
+
+class ListLineageNodeHistoryInputTypeDef(TypedDict):
+    domainIdentifier: str
+    identifier: str
+    direction: NotRequired[EdgeDirectionType]
+    eventTimestampGTE: NotRequired[TimestampTypeDef]
+    eventTimestampLTE: NotRequired[TimestampTypeDef]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+    sortOrder: NotRequired[SortOrderType]
+
+ListNotificationsInputTypeDef = TypedDict(
+    "ListNotificationsInputTypeDef",
     {
         "domainIdentifier": str,
-        "status": UserProfileStatusType,
-        "userIdentifier": str,
+        "type": NotificationTypeType,
+        "afterTimestamp": NotRequired[TimestampTypeDef],
+        "beforeTimestamp": NotRequired[TimestampTypeDef],
+        "maxResults": NotRequired[int],
+        "nextToken": NotRequired[str],
+        "subjects": NotRequired[Sequence[str]],
+        "taskStatus": NotRequired[TaskStatusType],
     },
 )
-_OptionalUpdateUserProfileInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateUserProfileInputRequestTypeDef",
+
+class ListTimeSeriesDataPointsInputTypeDef(TypedDict):
+    domainIdentifier: str
+    entityIdentifier: str
+    entityType: TimeSeriesEntityTypeType
+    formName: str
+    endedAt: NotRequired[TimestampTypeDef]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+    startedAt: NotRequired[TimestampTypeDef]
+
+class TimeSeriesDataPointFormInputTypeDef(TypedDict):
+    formName: str
+    timestamp: TimestampTypeDef
+    typeIdentifier: str
+    content: NotRequired[str]
+    typeRevision: NotRequired[str]
+
+GetLineageNodeOutputTypeDef = TypedDict(
+    "GetLineageNodeOutputTypeDef",
     {
-        "type": UserProfileTypeType,
+        "createdAt": datetime,
+        "createdBy": str,
+        "description": str,
+        "domainId": str,
+        "downstreamNodes": List[LineageNodeReferenceTypeDef],
+        "eventTimestamp": datetime,
+        "formsOutput": List[FormOutputTypeDef],
+        "id": str,
+        "name": str,
+        "sourceIdentifier": str,
+        "typeName": str,
+        "typeRevision": str,
+        "updatedAt": datetime,
+        "updatedBy": str,
+        "upstreamNodes": List[LineageNodeReferenceTypeDef],
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
-    total=False,
+)
+GetMetadataGenerationRunOutputTypeDef = TypedDict(
+    "GetMetadataGenerationRunOutputTypeDef",
+    {
+        "createdAt": datetime,
+        "createdBy": str,
+        "domainId": str,
+        "id": str,
+        "owningProjectId": str,
+        "status": MetadataGenerationRunStatusType,
+        "target": MetadataGenerationRunTargetTypeDef,
+        "type": Literal["BUSINESS_DESCRIPTIONS"],
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+MetadataGenerationRunItemTypeDef = TypedDict(
+    "MetadataGenerationRunItemTypeDef",
+    {
+        "domainId": str,
+        "id": str,
+        "owningProjectId": str,
+        "createdAt": NotRequired[datetime],
+        "createdBy": NotRequired[str],
+        "status": NotRequired[MetadataGenerationRunStatusType],
+        "target": NotRequired[MetadataGenerationRunTargetTypeDef],
+        "type": NotRequired[Literal["BUSINESS_DESCRIPTIONS"]],
+    },
+)
+StartMetadataGenerationRunInputTypeDef = TypedDict(
+    "StartMetadataGenerationRunInputTypeDef",
+    {
+        "domainIdentifier": str,
+        "owningProjectIdentifier": str,
+        "target": MetadataGenerationRunTargetTypeDef,
+        "type": Literal["BUSINESS_DESCRIPTIONS"],
+        "clientToken": NotRequired[str],
+    },
 )
 
-class UpdateUserProfileInputRequestTypeDef(
-    _RequiredUpdateUserProfileInputRequestTypeDef, _OptionalUpdateUserProfileInputRequestTypeDef
-):
-    pass
+class GetTimeSeriesDataPointOutputTypeDef(TypedDict):
+    domainId: str
+    entityId: str
+    entityType: TimeSeriesEntityTypeType
+    form: TimeSeriesDataPointFormOutputTypeDef
+    formName: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
+class PostTimeSeriesDataPointsOutputTypeDef(TypedDict):
+    domainId: str
+    entityId: str
+    entityType: TimeSeriesEntityTypeType
+    forms: List[TimeSeriesDataPointFormOutputTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GlueSelfGrantStatusOutputTypeDef(TypedDict):
+    selfGrantStatusDetails: List[SelfGrantStatusDetailTypeDef]
+
+class RedshiftSelfGrantStatusOutputTypeDef(TypedDict):
+    selfGrantStatusDetails: List[SelfGrantStatusDetailTypeDef]
+
+class GrantedEntityInputTypeDef(TypedDict):
+    listing: NotRequired[ListingRevisionInputTypeDef]
+
+class GrantedEntityTypeDef(TypedDict):
+    listing: NotRequired[ListingRevisionTypeDef]
+
+class SearchGroupProfilesOutputTypeDef(TypedDict):
+    items: List[GroupProfileSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ProvisioningConfigurationOutputTypeDef(TypedDict):
+    lakeFormationConfiguration: NotRequired[LakeFormationConfigurationOutputTypeDef]
+
+LakeFormationConfigurationUnionTypeDef = Union[
+    LakeFormationConfigurationTypeDef, LakeFormationConfigurationOutputTypeDef
+]
+
+class ListLineageNodeHistoryOutputTypeDef(TypedDict):
+    nodes: List[LineageNodeSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class LineageRunDetailsTypeDef(TypedDict):
+    sqlQueryRunDetails: NotRequired[LineageSqlQueryRunDetailsTypeDef]
+
+class RedshiftLineageSyncConfigurationInputTypeDef(TypedDict):
+    enabled: NotRequired[bool]
+    schedule: NotRequired[LineageSyncScheduleTypeDef]
+
+class RedshiftLineageSyncConfigurationOutputTypeDef(TypedDict):
+    enabled: NotRequired[bool]
+    lineageJobId: NotRequired[str]
+    schedule: NotRequired[LineageSyncScheduleTypeDef]
+
+class ListAssetFiltersInputPaginateTypeDef(TypedDict):
+    assetIdentifier: str
+    domainIdentifier: str
+    status: NotRequired[FilterStatusType]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListAssetRevisionsInputPaginateTypeDef(TypedDict):
+    domainIdentifier: str
+    identifier: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+ListConnectionsInputPaginateTypeDef = TypedDict(
+    "ListConnectionsInputPaginateTypeDef",
+    {
+        "domainIdentifier": str,
+        "projectIdentifier": str,
+        "environmentIdentifier": NotRequired[str],
+        "name": NotRequired[str],
+        "sortBy": NotRequired[Literal["NAME"]],
+        "sortOrder": NotRequired[SortOrderType],
+        "type": NotRequired[ConnectionTypeType],
+        "PaginationConfig": NotRequired[PaginatorConfigTypeDef],
+    },
+)
+
+class ListDataProductRevisionsInputPaginateTypeDef(TypedDict):
+    domainIdentifier: str
+    identifier: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListDataSourceRunActivitiesInputPaginateTypeDef(TypedDict):
+    domainIdentifier: str
+    identifier: str
+    status: NotRequired[DataAssetActivityStatusType]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListDataSourceRunsInputPaginateTypeDef(TypedDict):
+    dataSourceIdentifier: str
+    domainIdentifier: str
+    status: NotRequired[DataSourceRunStatusType]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+ListDataSourcesInputPaginateTypeDef = TypedDict(
+    "ListDataSourcesInputPaginateTypeDef",
+    {
+        "domainIdentifier": str,
+        "projectIdentifier": str,
+        "connectionIdentifier": NotRequired[str],
+        "environmentIdentifier": NotRequired[str],
+        "name": NotRequired[str],
+        "status": NotRequired[DataSourceStatusType],
+        "type": NotRequired[str],
+        "PaginationConfig": NotRequired[PaginatorConfigTypeDef],
+    },
+)
+
+class ListDomainUnitsForParentInputPaginateTypeDef(TypedDict):
+    domainIdentifier: str
+    parentDomainUnitIdentifier: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListDomainsInputPaginateTypeDef(TypedDict):
+    status: NotRequired[DomainStatusType]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListEntityOwnersInputPaginateTypeDef(TypedDict):
+    domainIdentifier: str
+    entityIdentifier: str
+    entityType: Literal["DOMAIN_UNIT"]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListEnvironmentActionsInputPaginateTypeDef(TypedDict):
+    domainIdentifier: str
+    environmentIdentifier: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListEnvironmentBlueprintConfigurationsInputPaginateTypeDef(TypedDict):
+    domainIdentifier: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListEnvironmentBlueprintsInputPaginateTypeDef(TypedDict):
+    domainIdentifier: str
+    managed: NotRequired[bool]
+    name: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListEnvironmentProfilesInputPaginateTypeDef(TypedDict):
+    domainIdentifier: str
+    awsAccountId: NotRequired[str]
+    awsAccountRegion: NotRequired[str]
+    environmentBlueprintIdentifier: NotRequired[str]
+    name: NotRequired[str]
+    projectIdentifier: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListEnvironmentsInputPaginateTypeDef(TypedDict):
+    domainIdentifier: str
+    projectIdentifier: str
+    awsAccountId: NotRequired[str]
+    awsAccountRegion: NotRequired[str]
+    environmentBlueprintIdentifier: NotRequired[str]
+    environmentProfileIdentifier: NotRequired[str]
+    name: NotRequired[str]
+    provider: NotRequired[str]
+    status: NotRequired[EnvironmentStatusType]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListJobRunsInputPaginateTypeDef(TypedDict):
+    domainIdentifier: str
+    jobIdentifier: str
+    sortOrder: NotRequired[SortOrderType]
+    status: NotRequired[JobRunStatusType]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListLineageEventsInputPaginateTypeDef(TypedDict):
+    domainIdentifier: str
+    processingStatus: NotRequired[LineageEventProcessingStatusType]
+    sortOrder: NotRequired[SortOrderType]
+    timestampAfter: NotRequired[TimestampTypeDef]
+    timestampBefore: NotRequired[TimestampTypeDef]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListLineageNodeHistoryInputPaginateTypeDef(TypedDict):
+    domainIdentifier: str
+    identifier: str
+    direction: NotRequired[EdgeDirectionType]
+    eventTimestampGTE: NotRequired[TimestampTypeDef]
+    eventTimestampLTE: NotRequired[TimestampTypeDef]
+    sortOrder: NotRequired[SortOrderType]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+ListMetadataGenerationRunsInputPaginateTypeDef = TypedDict(
+    "ListMetadataGenerationRunsInputPaginateTypeDef",
+    {
+        "domainIdentifier": str,
+        "status": NotRequired[MetadataGenerationRunStatusType],
+        "type": NotRequired[Literal["BUSINESS_DESCRIPTIONS"]],
+        "PaginationConfig": NotRequired[PaginatorConfigTypeDef],
+    },
+)
+ListNotificationsInputPaginateTypeDef = TypedDict(
+    "ListNotificationsInputPaginateTypeDef",
+    {
+        "domainIdentifier": str,
+        "type": NotificationTypeType,
+        "afterTimestamp": NotRequired[TimestampTypeDef],
+        "beforeTimestamp": NotRequired[TimestampTypeDef],
+        "subjects": NotRequired[Sequence[str]],
+        "taskStatus": NotRequired[TaskStatusType],
+        "PaginationConfig": NotRequired[PaginatorConfigTypeDef],
+    },
+)
+
+class ListPolicyGrantsInputPaginateTypeDef(TypedDict):
+    domainIdentifier: str
+    entityIdentifier: str
+    entityType: TargetEntityTypeType
+    policyType: ManagedPolicyTypeType
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListProjectMembershipsInputPaginateTypeDef(TypedDict):
+    domainIdentifier: str
+    projectIdentifier: str
+    sortBy: NotRequired[Literal["NAME"]]
+    sortOrder: NotRequired[SortOrderType]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListProjectProfilesInputPaginateTypeDef(TypedDict):
+    domainIdentifier: str
+    name: NotRequired[str]
+    sortBy: NotRequired[Literal["NAME"]]
+    sortOrder: NotRequired[SortOrderType]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListProjectsInputPaginateTypeDef(TypedDict):
+    domainIdentifier: str
+    groupIdentifier: NotRequired[str]
+    name: NotRequired[str]
+    userIdentifier: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListRulesInputPaginateTypeDef(TypedDict):
+    domainIdentifier: str
+    targetIdentifier: str
+    targetType: Literal["DOMAIN_UNIT"]
+    action: NotRequired[RuleActionType]
+    assetTypes: NotRequired[Sequence[str]]
+    dataProduct: NotRequired[bool]
+    includeCascaded: NotRequired[bool]
+    projectIds: NotRequired[Sequence[str]]
+    ruleType: NotRequired[Literal["METADATA_FORM_ENFORCEMENT"]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListSubscriptionGrantsInputPaginateTypeDef(TypedDict):
+    domainIdentifier: str
+    environmentId: NotRequired[str]
+    owningProjectId: NotRequired[str]
+    sortBy: NotRequired[SortKeyType]
+    sortOrder: NotRequired[SortOrderType]
+    subscribedListingId: NotRequired[str]
+    subscriptionId: NotRequired[str]
+    subscriptionTargetId: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListSubscriptionRequestsInputPaginateTypeDef(TypedDict):
+    domainIdentifier: str
+    approverProjectId: NotRequired[str]
+    owningProjectId: NotRequired[str]
+    sortBy: NotRequired[SortKeyType]
+    sortOrder: NotRequired[SortOrderType]
+    status: NotRequired[SubscriptionRequestStatusType]
+    subscribedListingId: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListSubscriptionTargetsInputPaginateTypeDef(TypedDict):
+    domainIdentifier: str
+    environmentIdentifier: str
+    sortBy: NotRequired[SortKeyType]
+    sortOrder: NotRequired[SortOrderType]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListSubscriptionsInputPaginateTypeDef(TypedDict):
+    domainIdentifier: str
+    approverProjectId: NotRequired[str]
+    owningProjectId: NotRequired[str]
+    sortBy: NotRequired[SortKeyType]
+    sortOrder: NotRequired[SortOrderType]
+    status: NotRequired[SubscriptionStatusType]
+    subscribedListingId: NotRequired[str]
+    subscriptionRequestIdentifier: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListTimeSeriesDataPointsInputPaginateTypeDef(TypedDict):
+    domainIdentifier: str
+    entityIdentifier: str
+    entityType: TimeSeriesEntityTypeType
+    formName: str
+    endedAt: NotRequired[TimestampTypeDef]
+    startedAt: NotRequired[TimestampTypeDef]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class SearchGroupProfilesInputPaginateTypeDef(TypedDict):
+    domainIdentifier: str
+    groupType: GroupSearchTypeType
+    searchText: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class SearchUserProfilesInputPaginateTypeDef(TypedDict):
+    domainIdentifier: str
+    userType: UserSearchTypeType
+    searchText: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListProjectProfilesOutputTypeDef(TypedDict):
+    items: List[ProjectProfileSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class MemberDetailsTypeDef(TypedDict):
+    group: NotRequired[GroupDetailsTypeDef]
+    user: NotRequired[UserDetailsTypeDef]
+
+class MetadataFormEnforcementDetailOutputTypeDef(TypedDict):
+    requiredMetadataForms: NotRequired[List[MetadataFormReferenceTypeDef]]
+
+class MetadataFormEnforcementDetailTypeDef(TypedDict):
+    requiredMetadataForms: NotRequired[Sequence[MetadataFormReferenceTypeDef]]
+
+class OpenLineageRunEventSummaryTypeDef(TypedDict):
+    eventType: NotRequired[OpenLineageRunStateType]
+    inputs: NotRequired[List[NameIdentifierTypeDef]]
+    job: NotRequired[NameIdentifierTypeDef]
+    outputs: NotRequired[List[NameIdentifierTypeDef]]
+    runId: NotRequired[str]
+
+RowFilterExpressionOutputTypeDef = TypedDict(
+    "RowFilterExpressionOutputTypeDef",
+    {
+        "equalTo": NotRequired[EqualToExpressionTypeDef],
+        "greaterThan": NotRequired[GreaterThanExpressionTypeDef],
+        "greaterThanOrEqualTo": NotRequired[GreaterThanOrEqualToExpressionTypeDef],
+        "in": NotRequired[InExpressionOutputTypeDef],
+        "isNotNull": NotRequired[IsNotNullExpressionTypeDef],
+        "isNull": NotRequired[IsNullExpressionTypeDef],
+        "lessThan": NotRequired[LessThanExpressionTypeDef],
+        "lessThanOrEqualTo": NotRequired[LessThanOrEqualToExpressionTypeDef],
+        "like": NotRequired[LikeExpressionTypeDef],
+        "notEqualTo": NotRequired[NotEqualToExpressionTypeDef],
+        "notIn": NotRequired[NotInExpressionOutputTypeDef],
+        "notLike": NotRequired[NotLikeExpressionTypeDef],
+    },
+)
+RowFilterExpressionTypeDef = TypedDict(
+    "RowFilterExpressionTypeDef",
+    {
+        "equalTo": NotRequired[EqualToExpressionTypeDef],
+        "greaterThan": NotRequired[GreaterThanExpressionTypeDef],
+        "greaterThanOrEqualTo": NotRequired[GreaterThanOrEqualToExpressionTypeDef],
+        "in": NotRequired[InExpressionTypeDef],
+        "isNotNull": NotRequired[IsNotNullExpressionTypeDef],
+        "isNull": NotRequired[IsNullExpressionTypeDef],
+        "lessThan": NotRequired[LessThanExpressionTypeDef],
+        "lessThanOrEqualTo": NotRequired[LessThanOrEqualToExpressionTypeDef],
+        "like": NotRequired[LikeExpressionTypeDef],
+        "notEqualTo": NotRequired[NotEqualToExpressionTypeDef],
+        "notIn": NotRequired[NotInExpressionTypeDef],
+        "notLike": NotRequired[NotLikeExpressionTypeDef],
+    },
+)
+
+class TopicTypeDef(TypedDict):
+    resource: NotificationResourceTypeDef
+    role: NotificationRoleType
+    subject: str
+
+class OAuth2PropertiesOutputTypeDef(TypedDict):
+    authorizationCodeProperties: NotRequired[AuthorizationCodePropertiesTypeDef]
+    oAuth2ClientApplication: NotRequired[OAuth2ClientApplicationTypeDef]
+    oAuth2Credentials: NotRequired[GlueOAuth2CredentialsTypeDef]
+    oAuth2GrantType: NotRequired[OAuth2GrantTypeType]
+    tokenUrl: NotRequired[str]
+    tokenUrlParametersMap: NotRequired[Dict[str, str]]
+
+class OAuth2PropertiesTypeDef(TypedDict):
+    authorizationCodeProperties: NotRequired[AuthorizationCodePropertiesTypeDef]
+    oAuth2ClientApplication: NotRequired[OAuth2ClientApplicationTypeDef]
+    oAuth2Credentials: NotRequired[GlueOAuth2CredentialsTypeDef]
+    oAuth2GrantType: NotRequired[OAuth2GrantTypeType]
+    tokenUrl: NotRequired[str]
+    tokenUrlParametersMap: NotRequired[Mapping[str, str]]
+
+class OwnerPropertiesOutputTypeDef(TypedDict):
+    group: NotRequired[OwnerGroupPropertiesOutputTypeDef]
+    user: NotRequired[OwnerUserPropertiesOutputTypeDef]
+
+class OwnerPropertiesTypeDef(TypedDict):
+    group: NotRequired[OwnerGroupPropertiesTypeDef]
+    user: NotRequired[OwnerUserPropertiesTypeDef]
+
+PhysicalConnectionRequirementsUnionTypeDef = Union[
+    PhysicalConnectionRequirementsTypeDef, PhysicalConnectionRequirementsOutputTypeDef
+]
+
+class PolicyGrantDetailOutputTypeDef(TypedDict):
+    addToProjectMemberPool: NotRequired[AddToProjectMemberPoolPolicyGrantDetailTypeDef]
+    createAssetType: NotRequired[CreateAssetTypePolicyGrantDetailTypeDef]
+    createDomainUnit: NotRequired[CreateDomainUnitPolicyGrantDetailTypeDef]
+    createEnvironment: NotRequired[Dict[str, Any]]
+    createEnvironmentFromBlueprint: NotRequired[Dict[str, Any]]
+    createEnvironmentProfile: NotRequired[CreateEnvironmentProfilePolicyGrantDetailTypeDef]
+    createFormType: NotRequired[CreateFormTypePolicyGrantDetailTypeDef]
+    createGlossary: NotRequired[CreateGlossaryPolicyGrantDetailTypeDef]
+    createProject: NotRequired[CreateProjectPolicyGrantDetailTypeDef]
+    createProjectFromProjectProfile: NotRequired[
+        CreateProjectFromProjectProfilePolicyGrantDetailOutputTypeDef
+    ]
+    delegateCreateEnvironmentProfile: NotRequired[Dict[str, Any]]
+    overrideDomainUnitOwners: NotRequired[OverrideDomainUnitOwnersPolicyGrantDetailTypeDef]
+    overrideProjectOwners: NotRequired[OverrideProjectOwnersPolicyGrantDetailTypeDef]
+    useAssetType: NotRequired[UseAssetTypePolicyGrantDetailTypeDef]
+
+class PolicyGrantDetailTypeDef(TypedDict):
+    addToProjectMemberPool: NotRequired[AddToProjectMemberPoolPolicyGrantDetailTypeDef]
+    createAssetType: NotRequired[CreateAssetTypePolicyGrantDetailTypeDef]
+    createDomainUnit: NotRequired[CreateDomainUnitPolicyGrantDetailTypeDef]
+    createEnvironment: NotRequired[Mapping[str, Any]]
+    createEnvironmentFromBlueprint: NotRequired[Mapping[str, Any]]
+    createEnvironmentProfile: NotRequired[CreateEnvironmentProfilePolicyGrantDetailTypeDef]
+    createFormType: NotRequired[CreateFormTypePolicyGrantDetailTypeDef]
+    createGlossary: NotRequired[CreateGlossaryPolicyGrantDetailTypeDef]
+    createProject: NotRequired[CreateProjectPolicyGrantDetailTypeDef]
+    createProjectFromProjectProfile: NotRequired[
+        CreateProjectFromProjectProfilePolicyGrantDetailTypeDef
+    ]
+    delegateCreateEnvironmentProfile: NotRequired[Mapping[str, Any]]
+    overrideDomainUnitOwners: NotRequired[OverrideDomainUnitOwnersPolicyGrantDetailTypeDef]
+    overrideProjectOwners: NotRequired[OverrideProjectOwnersPolicyGrantDetailTypeDef]
+    useAssetType: NotRequired[UseAssetTypePolicyGrantDetailTypeDef]
+
+class RuleScopeOutputTypeDef(TypedDict):
+    assetType: NotRequired[AssetTypesForRuleOutputTypeDef]
+    dataProduct: NotRequired[bool]
+    project: NotRequired[ProjectsForRuleOutputTypeDef]
+
+class RuleScopeTypeDef(TypedDict):
+    assetType: NotRequired[AssetTypesForRuleTypeDef]
+    dataProduct: NotRequired[bool]
+    project: NotRequired[ProjectsForRuleTypeDef]
+
+class RedshiftCredentialsTypeDef(TypedDict):
+    secretArn: NotRequired[str]
+    usernamePassword: NotRequired[UsernamePasswordTypeDef]
+
+class SparkEmrPropertiesOutputTypeDef(TypedDict):
+    computeArn: NotRequired[str]
+    credentials: NotRequired[UsernamePasswordTypeDef]
+    credentialsExpiration: NotRequired[datetime]
+    governanceType: NotRequired[GovernanceTypeType]
+    instanceProfileArn: NotRequired[str]
+    javaVirtualEnv: NotRequired[str]
+    livyEndpoint: NotRequired[str]
+    logUri: NotRequired[str]
+    pythonVirtualEnv: NotRequired[str]
+    runtimeRole: NotRequired[str]
+    trustedCertificatesS3Uri: NotRequired[str]
+
+class RedshiftStorageTypeDef(TypedDict):
+    redshiftClusterSource: NotRequired[RedshiftClusterStorageTypeDef]
+    redshiftServerlessSource: NotRequired[RedshiftServerlessStorageTypeDef]
+
+class RejectPredictionsInputTypeDef(TypedDict):
+    domainIdentifier: str
+    identifier: str
+    clientToken: NotRequired[str]
+    rejectChoices: NotRequired[Sequence[RejectChoiceTypeDef]]
+    rejectRule: NotRequired[RejectRuleTypeDef]
+    revision: NotRequired[str]
+
+class SparkGluePropertiesInputTypeDef(TypedDict):
+    additionalArgs: NotRequired[SparkGlueArgsTypeDef]
+    glueConnectionName: NotRequired[str]
+    glueVersion: NotRequired[str]
+    idleTimeout: NotRequired[int]
+    javaVirtualEnv: NotRequired[str]
+    numberOfWorkers: NotRequired[int]
+    pythonVirtualEnv: NotRequired[str]
+    workerType: NotRequired[str]
+
+class SparkGluePropertiesOutputTypeDef(TypedDict):
+    additionalArgs: NotRequired[SparkGlueArgsTypeDef]
+    glueConnectionName: NotRequired[str]
+    glueVersion: NotRequired[str]
+    idleTimeout: NotRequired[int]
+    javaVirtualEnv: NotRequired[str]
+    numberOfWorkers: NotRequired[int]
+    pythonVirtualEnv: NotRequired[str]
+    workerType: NotRequired[str]
+
+class UserProfileDetailsTypeDef(TypedDict):
+    iam: NotRequired[IamUserProfileDetailsTypeDef]
+    sso: NotRequired[SsoUserProfileDetailsTypeDef]
+
+class SubscribedPrincipalInputTypeDef(TypedDict):
+    project: NotRequired[SubscribedProjectInputTypeDef]
+
+class SubscribedPrincipalTypeDef(TypedDict):
+    project: NotRequired[SubscribedProjectTypeDef]
+
+TermRelationsUnionTypeDef = Union[TermRelationsTypeDef, TermRelationsOutputTypeDef]
+
+class CreateEnvironmentActionInputTypeDef(TypedDict):
+    domainIdentifier: str
+    environmentIdentifier: str
+    name: str
+    parameters: ActionParametersTypeDef
+    description: NotRequired[str]
+
+CreateEnvironmentActionOutputTypeDef = TypedDict(
+    "CreateEnvironmentActionOutputTypeDef",
+    {
+        "description": str,
+        "domainId": str,
+        "environmentId": str,
+        "id": str,
+        "name": str,
+        "parameters": ActionParametersTypeDef,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+EnvironmentActionSummaryTypeDef = TypedDict(
+    "EnvironmentActionSummaryTypeDef",
+    {
+        "domainId": str,
+        "environmentId": str,
+        "id": str,
+        "name": str,
+        "parameters": ActionParametersTypeDef,
+        "description": NotRequired[str],
+    },
+)
+GetEnvironmentActionOutputTypeDef = TypedDict(
+    "GetEnvironmentActionOutputTypeDef",
+    {
+        "description": str,
+        "domainId": str,
+        "environmentId": str,
+        "id": str,
+        "name": str,
+        "parameters": ActionParametersTypeDef,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+
+class UpdateEnvironmentActionInputTypeDef(TypedDict):
+    domainIdentifier: str
+    environmentIdentifier: str
+    identifier: str
+    description: NotRequired[str]
+    name: NotRequired[str]
+    parameters: NotRequired[ActionParametersTypeDef]
+
+UpdateEnvironmentActionOutputTypeDef = TypedDict(
+    "UpdateEnvironmentActionOutputTypeDef",
+    {
+        "description": str,
+        "domainId": str,
+        "environmentId": str,
+        "id": str,
+        "name": str,
+        "parameters": ActionParametersTypeDef,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+
+class AssetItemTypeDef(TypedDict):
+    domainId: str
+    identifier: str
+    name: str
+    owningProjectId: str
+    typeIdentifier: str
+    typeRevision: str
+    additionalAttributes: NotRequired[AssetItemAdditionalAttributesTypeDef]
+    createdAt: NotRequired[datetime]
+    createdBy: NotRequired[str]
+    description: NotRequired[str]
+    externalIdentifier: NotRequired[str]
+    firstRevisionCreatedAt: NotRequired[datetime]
+    firstRevisionCreatedBy: NotRequired[str]
+    glossaryTerms: NotRequired[List[str]]
+
+class AssetListingItemTypeDef(TypedDict):
+    additionalAttributes: NotRequired[AssetListingItemAdditionalAttributesTypeDef]
+    createdAt: NotRequired[datetime]
+    description: NotRequired[str]
+    entityId: NotRequired[str]
+    entityRevision: NotRequired[str]
+    entityType: NotRequired[str]
+    glossaryTerms: NotRequired[List[DetailedGlossaryTermTypeDef]]
+    listingCreatedBy: NotRequired[str]
+    listingId: NotRequired[str]
+    listingRevision: NotRequired[str]
+    listingUpdatedBy: NotRequired[str]
+    name: NotRequired[str]
+    owningProjectId: NotRequired[str]
+
+class DataProductListingItemTypeDef(TypedDict):
+    additionalAttributes: NotRequired[DataProductListingItemAdditionalAttributesTypeDef]
+    createdAt: NotRequired[datetime]
+    description: NotRequired[str]
+    entityId: NotRequired[str]
+    entityRevision: NotRequired[str]
+    glossaryTerms: NotRequired[List[DetailedGlossaryTermTypeDef]]
+    items: NotRequired[List[ListingSummaryItemTypeDef]]
+    listingCreatedBy: NotRequired[str]
+    listingId: NotRequired[str]
+    listingRevision: NotRequired[str]
+    listingUpdatedBy: NotRequired[str]
+    name: NotRequired[str]
+    owningProjectId: NotRequired[str]
+
+class DataProductListingTypeDef(TypedDict):
+    createdAt: NotRequired[datetime]
+    dataProductId: NotRequired[str]
+    dataProductRevision: NotRequired[str]
+    forms: NotRequired[str]
+    glossaryTerms: NotRequired[List[DetailedGlossaryTermTypeDef]]
+    items: NotRequired[List[ListingSummaryTypeDef]]
+    owningProjectId: NotRequired[str]
+
+class SubscribedListingItemTypeDef(TypedDict):
+    assetListing: NotRequired[SubscribedAssetListingTypeDef]
+    productListing: NotRequired[SubscribedProductListingTypeDef]
+
+class GlueConnectionPatchTypeDef(TypedDict):
+    authenticationConfiguration: NotRequired[AuthenticationConfigurationPatchTypeDef]
+    connectionProperties: NotRequired[Mapping[str, str]]
+    description: NotRequired[str]
+
+class CreateAssetInputTypeDef(TypedDict):
+    domainIdentifier: str
+    name: str
+    owningProjectIdentifier: str
+    typeIdentifier: str
+    clientToken: NotRequired[str]
+    description: NotRequired[str]
+    externalIdentifier: NotRequired[str]
+    formsInput: NotRequired[Sequence[FormInputTypeDef]]
+    glossaryTerms: NotRequired[Sequence[str]]
+    predictionConfiguration: NotRequired[PredictionConfigurationTypeDef]
+    typeRevision: NotRequired[str]
+
+CreateAssetOutputTypeDef = TypedDict(
+    "CreateAssetOutputTypeDef",
+    {
+        "createdAt": datetime,
+        "createdBy": str,
+        "description": str,
+        "domainId": str,
+        "externalIdentifier": str,
+        "firstRevisionCreatedAt": datetime,
+        "firstRevisionCreatedBy": str,
+        "formsOutput": List[FormOutputTypeDef],
+        "glossaryTerms": List[str],
+        "id": str,
+        "latestTimeSeriesDataPointFormsOutput": List[TimeSeriesDataPointSummaryFormOutputTypeDef],
+        "listing": AssetListingDetailsTypeDef,
+        "name": str,
+        "owningProjectId": str,
+        "predictionConfiguration": PredictionConfigurationTypeDef,
+        "readOnlyFormsOutput": List[FormOutputTypeDef],
+        "revision": str,
+        "typeIdentifier": str,
+        "typeRevision": str,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+
+class CreateAssetRevisionInputTypeDef(TypedDict):
+    domainIdentifier: str
+    identifier: str
+    name: str
+    clientToken: NotRequired[str]
+    description: NotRequired[str]
+    formsInput: NotRequired[Sequence[FormInputTypeDef]]
+    glossaryTerms: NotRequired[Sequence[str]]
+    predictionConfiguration: NotRequired[PredictionConfigurationTypeDef]
+    typeRevision: NotRequired[str]
+
+CreateAssetRevisionOutputTypeDef = TypedDict(
+    "CreateAssetRevisionOutputTypeDef",
+    {
+        "createdAt": datetime,
+        "createdBy": str,
+        "description": str,
+        "domainId": str,
+        "externalIdentifier": str,
+        "firstRevisionCreatedAt": datetime,
+        "firstRevisionCreatedBy": str,
+        "formsOutput": List[FormOutputTypeDef],
+        "glossaryTerms": List[str],
+        "id": str,
+        "latestTimeSeriesDataPointFormsOutput": List[TimeSeriesDataPointSummaryFormOutputTypeDef],
+        "listing": AssetListingDetailsTypeDef,
+        "name": str,
+        "owningProjectId": str,
+        "predictionConfiguration": PredictionConfigurationTypeDef,
+        "readOnlyFormsOutput": List[FormOutputTypeDef],
+        "revision": str,
+        "typeIdentifier": str,
+        "typeRevision": str,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+EnvironmentBlueprintSummaryTypeDef = TypedDict(
+    "EnvironmentBlueprintSummaryTypeDef",
+    {
+        "id": str,
+        "name": str,
+        "provider": str,
+        "provisioningProperties": ProvisioningPropertiesTypeDef,
+        "createdAt": NotRequired[datetime],
+        "description": NotRequired[str],
+        "updatedAt": NotRequired[datetime],
+    },
+)
+GetEnvironmentBlueprintOutputTypeDef = TypedDict(
+    "GetEnvironmentBlueprintOutputTypeDef",
+    {
+        "createdAt": datetime,
+        "deploymentProperties": DeploymentPropertiesTypeDef,
+        "description": str,
+        "glossaryTerms": List[str],
+        "id": str,
+        "name": str,
+        "provider": str,
+        "provisioningProperties": ProvisioningPropertiesTypeDef,
+        "updatedAt": datetime,
+        "userParameters": List[CustomParameterTypeDef],
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+
+class ListDataSourcesOutputTypeDef(TypedDict):
+    items: List[DataSourceSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+EnvironmentConfigurationUserParameterUnionTypeDef = Union[
+    EnvironmentConfigurationUserParameterTypeDef, EnvironmentConfigurationUserParameterOutputTypeDef
+]
+
+class ListProjectsOutputTypeDef(TypedDict):
+    items: List[ProjectSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListSubscriptionTargetsOutputTypeDef(TypedDict):
+    items: List[SubscriptionTargetSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class CreateDataProductInputTypeDef(TypedDict):
+    domainIdentifier: str
+    name: str
+    owningProjectIdentifier: str
+    clientToken: NotRequired[str]
+    description: NotRequired[str]
+    formsInput: NotRequired[Sequence[FormInputTypeDef]]
+    glossaryTerms: NotRequired[Sequence[str]]
+    items: NotRequired[Sequence[DataProductItemUnionTypeDef]]
+
+class CreateDataProductRevisionInputTypeDef(TypedDict):
+    domainIdentifier: str
+    identifier: str
+    name: str
+    clientToken: NotRequired[str]
+    description: NotRequired[str]
+    formsInput: NotRequired[Sequence[FormInputTypeDef]]
+    glossaryTerms: NotRequired[Sequence[str]]
+    items: NotRequired[Sequence[DataProductItemUnionTypeDef]]
+
+class ListDataSourceRunActivitiesOutputTypeDef(TypedDict):
+    items: List[DataSourceRunActivityTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListDataSourceRunsOutputTypeDef(TypedDict):
+    items: List[DataSourceRunSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+CreateEnvironmentOutputTypeDef = TypedDict(
+    "CreateEnvironmentOutputTypeDef",
+    {
+        "awsAccountId": str,
+        "awsAccountRegion": str,
+        "createdAt": datetime,
+        "createdBy": str,
+        "deploymentProperties": DeploymentPropertiesTypeDef,
+        "description": str,
+        "domainId": str,
+        "environmentActions": List[ConfigurableEnvironmentActionTypeDef],
+        "environmentBlueprintId": str,
+        "environmentConfigurationId": str,
+        "environmentProfileId": str,
+        "glossaryTerms": List[str],
+        "id": str,
+        "lastDeployment": DeploymentTypeDef,
+        "name": str,
+        "projectId": str,
+        "provider": str,
+        "provisionedResources": List[ResourceTypeDef],
+        "provisioningProperties": ProvisioningPropertiesTypeDef,
+        "status": EnvironmentStatusType,
+        "updatedAt": datetime,
+        "userParameters": List[CustomParameterTypeDef],
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+GetEnvironmentOutputTypeDef = TypedDict(
+    "GetEnvironmentOutputTypeDef",
+    {
+        "awsAccountId": str,
+        "awsAccountRegion": str,
+        "createdAt": datetime,
+        "createdBy": str,
+        "deploymentProperties": DeploymentPropertiesTypeDef,
+        "description": str,
+        "domainId": str,
+        "environmentActions": List[ConfigurableEnvironmentActionTypeDef],
+        "environmentBlueprintId": str,
+        "environmentConfigurationId": str,
+        "environmentProfileId": str,
+        "glossaryTerms": List[str],
+        "id": str,
+        "lastDeployment": DeploymentTypeDef,
+        "name": str,
+        "projectId": str,
+        "provider": str,
+        "provisionedResources": List[ResourceTypeDef],
+        "provisioningProperties": ProvisioningPropertiesTypeDef,
+        "status": EnvironmentStatusType,
+        "updatedAt": datetime,
+        "userParameters": List[CustomParameterTypeDef],
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+UpdateEnvironmentOutputTypeDef = TypedDict(
+    "UpdateEnvironmentOutputTypeDef",
+    {
+        "awsAccountId": str,
+        "awsAccountRegion": str,
+        "createdAt": datetime,
+        "createdBy": str,
+        "deploymentProperties": DeploymentPropertiesTypeDef,
+        "description": str,
+        "domainId": str,
+        "environmentActions": List[ConfigurableEnvironmentActionTypeDef],
+        "environmentBlueprintId": str,
+        "environmentConfigurationId": str,
+        "environmentProfileId": str,
+        "glossaryTerms": List[str],
+        "id": str,
+        "lastDeployment": DeploymentTypeDef,
+        "name": str,
+        "projectId": str,
+        "provider": str,
+        "provisionedResources": List[ResourceTypeDef],
+        "provisioningProperties": ProvisioningPropertiesTypeDef,
+        "status": EnvironmentStatusType,
+        "updatedAt": datetime,
+        "userParameters": List[CustomParameterTypeDef],
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+CreateProjectOutputTypeDef = TypedDict(
+    "CreateProjectOutputTypeDef",
+    {
+        "createdAt": datetime,
+        "createdBy": str,
+        "description": str,
+        "domainId": str,
+        "domainUnitId": str,
+        "environmentDeploymentDetails": EnvironmentDeploymentDetailsOutputTypeDef,
+        "failureReasons": List[ProjectDeletionErrorTypeDef],
+        "glossaryTerms": List[str],
+        "id": str,
+        "lastUpdatedAt": datetime,
+        "name": str,
+        "projectProfileId": str,
+        "projectStatus": ProjectStatusType,
+        "userParameters": List[EnvironmentConfigurationUserParameterOutputTypeDef],
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+GetProjectOutputTypeDef = TypedDict(
+    "GetProjectOutputTypeDef",
+    {
+        "createdAt": datetime,
+        "createdBy": str,
+        "description": str,
+        "domainId": str,
+        "domainUnitId": str,
+        "environmentDeploymentDetails": EnvironmentDeploymentDetailsOutputTypeDef,
+        "failureReasons": List[ProjectDeletionErrorTypeDef],
+        "glossaryTerms": List[str],
+        "id": str,
+        "lastUpdatedAt": datetime,
+        "name": str,
+        "projectProfileId": str,
+        "projectStatus": ProjectStatusType,
+        "userParameters": List[EnvironmentConfigurationUserParameterOutputTypeDef],
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+UpdateProjectOutputTypeDef = TypedDict(
+    "UpdateProjectOutputTypeDef",
+    {
+        "createdAt": datetime,
+        "createdBy": str,
+        "description": str,
+        "domainId": str,
+        "domainUnitId": str,
+        "environmentDeploymentDetails": EnvironmentDeploymentDetailsOutputTypeDef,
+        "failureReasons": List[ProjectDeletionErrorTypeDef],
+        "glossaryTerms": List[str],
+        "id": str,
+        "lastUpdatedAt": datetime,
+        "name": str,
+        "projectProfileId": str,
+        "projectStatus": ProjectStatusType,
+        "userParameters": List[EnvironmentConfigurationUserParameterOutputTypeDef],
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+EnvironmentDeploymentDetailsUnionTypeDef = Union[
+    EnvironmentDeploymentDetailsTypeDef, EnvironmentDeploymentDetailsOutputTypeDef
+]
+
+class ProjectPolicyGrantPrincipalTypeDef(TypedDict):
+    projectDesignation: ProjectDesignationType
+    projectGrantFilter: NotRequired[ProjectGrantFilterTypeDef]
+    projectIdentifier: NotRequired[str]
+
+CreateDomainUnitOutputTypeDef = TypedDict(
+    "CreateDomainUnitOutputTypeDef",
+    {
+        "ancestorDomainUnitIds": List[str],
+        "createdAt": datetime,
+        "createdBy": str,
+        "description": str,
+        "domainId": str,
+        "id": str,
+        "name": str,
+        "owners": List[DomainUnitOwnerPropertiesTypeDef],
+        "parentDomainUnitId": str,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+GetDomainUnitOutputTypeDef = TypedDict(
+    "GetDomainUnitOutputTypeDef",
+    {
+        "createdAt": datetime,
+        "createdBy": str,
+        "description": str,
+        "domainId": str,
+        "id": str,
+        "lastUpdatedAt": datetime,
+        "lastUpdatedBy": str,
+        "name": str,
+        "owners": List[DomainUnitOwnerPropertiesTypeDef],
+        "parentDomainUnitId": str,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+UpdateDomainUnitOutputTypeDef = TypedDict(
+    "UpdateDomainUnitOutputTypeDef",
+    {
+        "createdAt": datetime,
+        "createdBy": str,
+        "description": str,
+        "domainId": str,
+        "id": str,
+        "lastUpdatedAt": datetime,
+        "lastUpdatedBy": str,
+        "name": str,
+        "owners": List[DomainUnitOwnerPropertiesTypeDef],
+        "parentDomainUnitId": str,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+EnvironmentConfigurationOutputTypeDef = TypedDict(
+    "EnvironmentConfigurationOutputTypeDef",
+    {
+        "awsAccount": AwsAccountTypeDef,
+        "awsRegion": RegionTypeDef,
+        "environmentBlueprintId": str,
+        "name": str,
+        "configurationParameters": NotRequired[
+            EnvironmentConfigurationParametersDetailsOutputTypeDef
+        ],
+        "deploymentMode": NotRequired[DeploymentModeType],
+        "deploymentOrder": NotRequired[int],
+        "description": NotRequired[str],
+        "id": NotRequired[str],
+    },
+)
+EnvironmentConfigurationParametersDetailsUnionTypeDef = Union[
+    EnvironmentConfigurationParametersDetailsTypeDef,
+    EnvironmentConfigurationParametersDetailsOutputTypeDef,
+]
+
+class SearchInputPaginateTypeDef(TypedDict):
+    domainIdentifier: str
+    searchScope: InventorySearchScopeType
+    additionalAttributes: NotRequired[Sequence[SearchOutputAdditionalAttributeType]]
+    filters: NotRequired[FilterClausePaginatorTypeDef]
+    owningProjectIdentifier: NotRequired[str]
+    searchIn: NotRequired[Sequence[SearchInItemTypeDef]]
+    searchText: NotRequired[str]
+    sort: NotRequired[SearchSortTypeDef]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class SearchListingsInputPaginateTypeDef(TypedDict):
+    domainIdentifier: str
+    additionalAttributes: NotRequired[Sequence[SearchOutputAdditionalAttributeType]]
+    filters: NotRequired[FilterClausePaginatorTypeDef]
+    searchIn: NotRequired[Sequence[SearchInItemTypeDef]]
+    searchText: NotRequired[str]
+    sort: NotRequired[SearchSortTypeDef]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class SearchTypesInputPaginateTypeDef(TypedDict):
+    domainIdentifier: str
+    managed: bool
+    searchScope: TypesSearchScopeType
+    filters: NotRequired[FilterClausePaginatorTypeDef]
+    searchIn: NotRequired[Sequence[SearchInItemTypeDef]]
+    searchText: NotRequired[str]
+    sort: NotRequired[SearchSortTypeDef]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class SearchInputTypeDef(TypedDict):
+    domainIdentifier: str
+    searchScope: InventorySearchScopeType
+    additionalAttributes: NotRequired[Sequence[SearchOutputAdditionalAttributeType]]
+    filters: NotRequired[FilterClauseTypeDef]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+    owningProjectIdentifier: NotRequired[str]
+    searchIn: NotRequired[Sequence[SearchInItemTypeDef]]
+    searchText: NotRequired[str]
+    sort: NotRequired[SearchSortTypeDef]
+
+class SearchListingsInputTypeDef(TypedDict):
+    domainIdentifier: str
+    additionalAttributes: NotRequired[Sequence[SearchOutputAdditionalAttributeType]]
+    filters: NotRequired[FilterClauseTypeDef]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+    searchIn: NotRequired[Sequence[SearchInItemTypeDef]]
+    searchText: NotRequired[str]
+    sort: NotRequired[SearchSortTypeDef]
+
+class SearchTypesInputTypeDef(TypedDict):
+    domainIdentifier: str
+    managed: bool
+    searchScope: TypesSearchScopeType
+    filters: NotRequired[FilterClauseTypeDef]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+    searchIn: NotRequired[Sequence[SearchInItemTypeDef]]
+    searchText: NotRequired[str]
+    sort: NotRequired[SearchSortTypeDef]
+
+class GlueRunConfigurationOutputTypeDef(TypedDict):
+    relationalFilterConfigurations: List[RelationalFilterConfigurationOutputTypeDef]
+    accountId: NotRequired[str]
+    autoImportDataQualityResult: NotRequired[bool]
+    catalogName: NotRequired[str]
+    dataAccessRole: NotRequired[str]
+    region: NotRequired[str]
+
+RelationalFilterConfigurationUnionTypeDef = Union[
+    RelationalFilterConfigurationTypeDef, RelationalFilterConfigurationOutputTypeDef
+]
+
+class SearchTypesResultItemTypeDef(TypedDict):
+    assetTypeItem: NotRequired[AssetTypeItemTypeDef]
+    formTypeItem: NotRequired[FormTypeDataTypeDef]
+    lineageNodeTypeItem: NotRequired[LineageNodeTypeItemTypeDef]
+
+class ListJobRunsOutputTypeDef(TypedDict):
+    items: List[JobRunSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class PostTimeSeriesDataPointsInputTypeDef(TypedDict):
+    domainIdentifier: str
+    entityIdentifier: str
+    entityType: TimeSeriesEntityTypeType
+    forms: Sequence[TimeSeriesDataPointFormInputTypeDef]
+    clientToken: NotRequired[str]
+
+class ListMetadataGenerationRunsOutputTypeDef(TypedDict):
+    items: List[MetadataGenerationRunItemTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class SelfGrantStatusOutputTypeDef(TypedDict):
+    glueSelfGrantStatus: NotRequired[GlueSelfGrantStatusOutputTypeDef]
+    redshiftSelfGrantStatus: NotRequired[RedshiftSelfGrantStatusOutputTypeDef]
+
+class CreateSubscriptionGrantInputTypeDef(TypedDict):
+    domainIdentifier: str
+    environmentIdentifier: str
+    grantedEntity: GrantedEntityInputTypeDef
+    assetTargetNames: NotRequired[Sequence[AssetTargetNameMapTypeDef]]
+    clientToken: NotRequired[str]
+    subscriptionTargetIdentifier: NotRequired[str]
+
+CreateSubscriptionGrantOutputTypeDef = TypedDict(
+    "CreateSubscriptionGrantOutputTypeDef",
+    {
+        "assets": List[SubscribedAssetTypeDef],
+        "createdAt": datetime,
+        "createdBy": str,
+        "domainId": str,
+        "grantedEntity": GrantedEntityTypeDef,
+        "id": str,
+        "status": SubscriptionGrantOverallStatusType,
+        "subscriptionId": str,
+        "subscriptionTargetId": str,
+        "updatedAt": datetime,
+        "updatedBy": str,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+DeleteSubscriptionGrantOutputTypeDef = TypedDict(
+    "DeleteSubscriptionGrantOutputTypeDef",
+    {
+        "assets": List[SubscribedAssetTypeDef],
+        "createdAt": datetime,
+        "createdBy": str,
+        "domainId": str,
+        "grantedEntity": GrantedEntityTypeDef,
+        "id": str,
+        "status": SubscriptionGrantOverallStatusType,
+        "subscriptionId": str,
+        "subscriptionTargetId": str,
+        "updatedAt": datetime,
+        "updatedBy": str,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+GetSubscriptionGrantOutputTypeDef = TypedDict(
+    "GetSubscriptionGrantOutputTypeDef",
+    {
+        "assets": List[SubscribedAssetTypeDef],
+        "createdAt": datetime,
+        "createdBy": str,
+        "domainId": str,
+        "grantedEntity": GrantedEntityTypeDef,
+        "id": str,
+        "status": SubscriptionGrantOverallStatusType,
+        "subscriptionId": str,
+        "subscriptionTargetId": str,
+        "updatedAt": datetime,
+        "updatedBy": str,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+SubscriptionGrantSummaryTypeDef = TypedDict(
+    "SubscriptionGrantSummaryTypeDef",
+    {
+        "createdAt": datetime,
+        "createdBy": str,
+        "domainId": str,
+        "grantedEntity": GrantedEntityTypeDef,
+        "id": str,
+        "status": SubscriptionGrantOverallStatusType,
+        "subscriptionTargetId": str,
+        "updatedAt": datetime,
+        "assets": NotRequired[List[SubscribedAssetTypeDef]],
+        "subscriptionId": NotRequired[str],
+        "updatedBy": NotRequired[str],
+    },
+)
+UpdateSubscriptionGrantStatusOutputTypeDef = TypedDict(
+    "UpdateSubscriptionGrantStatusOutputTypeDef",
+    {
+        "assets": List[SubscribedAssetTypeDef],
+        "createdAt": datetime,
+        "createdBy": str,
+        "domainId": str,
+        "grantedEntity": GrantedEntityTypeDef,
+        "id": str,
+        "status": SubscriptionGrantOverallStatusType,
+        "subscriptionId": str,
+        "subscriptionTargetId": str,
+        "updatedAt": datetime,
+        "updatedBy": str,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+
+class EnvironmentBlueprintConfigurationItemTypeDef(TypedDict):
+    domainId: str
+    environmentBlueprintId: str
+    createdAt: NotRequired[datetime]
+    enabledRegions: NotRequired[List[str]]
+    environmentRolePermissionBoundary: NotRequired[str]
+    manageAccessRoleArn: NotRequired[str]
+    provisioningConfigurations: NotRequired[List[ProvisioningConfigurationOutputTypeDef]]
+    provisioningRoleArn: NotRequired[str]
+    regionalParameters: NotRequired[Dict[str, Dict[str, str]]]
+    updatedAt: NotRequired[datetime]
+
+class GetEnvironmentBlueprintConfigurationOutputTypeDef(TypedDict):
+    createdAt: datetime
+    domainId: str
+    enabledRegions: List[str]
+    environmentBlueprintId: str
+    environmentRolePermissionBoundary: str
+    manageAccessRoleArn: str
+    provisioningConfigurations: List[ProvisioningConfigurationOutputTypeDef]
+    provisioningRoleArn: str
+    regionalParameters: Dict[str, Dict[str, str]]
+    updatedAt: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutEnvironmentBlueprintConfigurationOutputTypeDef(TypedDict):
+    createdAt: datetime
+    domainId: str
+    enabledRegions: List[str]
+    environmentBlueprintId: str
+    environmentRolePermissionBoundary: str
+    manageAccessRoleArn: str
+    provisioningConfigurations: List[ProvisioningConfigurationOutputTypeDef]
+    provisioningRoleArn: str
+    regionalParameters: Dict[str, Dict[str, str]]
+    updatedAt: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ProvisioningConfigurationTypeDef(TypedDict):
+    lakeFormationConfiguration: NotRequired[LakeFormationConfigurationUnionTypeDef]
+
+class JobRunDetailsTypeDef(TypedDict):
+    lineageRunDetails: NotRequired[LineageRunDetailsTypeDef]
+
+class ProjectMemberTypeDef(TypedDict):
+    designation: UserDesignationType
+    memberDetails: MemberDetailsTypeDef
+
+class RuleDetailOutputTypeDef(TypedDict):
+    metadataFormEnforcementDetail: NotRequired[MetadataFormEnforcementDetailOutputTypeDef]
+
+class RuleDetailTypeDef(TypedDict):
+    metadataFormEnforcementDetail: NotRequired[MetadataFormEnforcementDetailTypeDef]
+
+class EventSummaryTypeDef(TypedDict):
+    openLineageRunEventSummary: NotRequired[OpenLineageRunEventSummaryTypeDef]
+
+RowFilterOutputTypeDef = TypedDict(
+    "RowFilterOutputTypeDef",
+    {
+        "and": NotRequired[List[Dict[str, Any]]],
+        "expression": NotRequired[RowFilterExpressionOutputTypeDef],
+        "or": NotRequired[List[Dict[str, Any]]],
+    },
+)
+RowFilterTypeDef = TypedDict(
+    "RowFilterTypeDef",
+    {
+        "and": NotRequired[Sequence[Mapping[str, Any]]],
+        "expression": NotRequired[RowFilterExpressionTypeDef],
+        "or": NotRequired[Sequence[Mapping[str, Any]]],
+    },
+)
+NotificationOutputTypeDef = TypedDict(
+    "NotificationOutputTypeDef",
+    {
+        "actionLink": str,
+        "creationTimestamp": datetime,
+        "domainIdentifier": str,
+        "identifier": str,
+        "lastUpdatedTimestamp": datetime,
+        "message": str,
+        "title": str,
+        "topic": TopicTypeDef,
+        "type": NotificationTypeType,
+        "metadata": NotRequired[Dict[str, str]],
+        "status": NotRequired[TaskStatusType],
+    },
+)
+
+class AuthenticationConfigurationTypeDef(TypedDict):
+    authenticationType: NotRequired[AuthenticationTypeType]
+    oAuth2Properties: NotRequired[OAuth2PropertiesOutputTypeDef]
+    secretArn: NotRequired[str]
+
+OAuth2PropertiesUnionTypeDef = Union[OAuth2PropertiesTypeDef, OAuth2PropertiesOutputTypeDef]
+
+class ListEntityOwnersOutputTypeDef(TypedDict):
+    owners: List[OwnerPropertiesOutputTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class AddEntityOwnerInputTypeDef(TypedDict):
+    domainIdentifier: str
+    entityIdentifier: str
+    entityType: Literal["DOMAIN_UNIT"]
+    owner: OwnerPropertiesTypeDef
+    clientToken: NotRequired[str]
+
+class RemoveEntityOwnerInputTypeDef(TypedDict):
+    domainIdentifier: str
+    entityIdentifier: str
+    entityType: Literal["DOMAIN_UNIT"]
+    owner: OwnerPropertiesTypeDef
+    clientToken: NotRequired[str]
+
+PolicyGrantDetailUnionTypeDef = Union[PolicyGrantDetailTypeDef, PolicyGrantDetailOutputTypeDef]
+
+class RuleSummaryTypeDef(TypedDict):
+    action: NotRequired[RuleActionType]
+    identifier: NotRequired[str]
+    lastUpdatedBy: NotRequired[str]
+    name: NotRequired[str]
+    revision: NotRequired[str]
+    ruleType: NotRequired[Literal["METADATA_FORM_ENFORCEMENT"]]
+    scope: NotRequired[RuleScopeOutputTypeDef]
+    target: NotRequired[RuleTargetTypeDef]
+    targetType: NotRequired[Literal["DOMAIN_UNIT"]]
+    updatedAt: NotRequired[datetime]
+
+RuleScopeUnionTypeDef = Union[RuleScopeTypeDef, RuleScopeOutputTypeDef]
+
+class RedshiftPropertiesInputTypeDef(TypedDict):
+    credentials: NotRequired[RedshiftCredentialsTypeDef]
+    databaseName: NotRequired[str]
+    host: NotRequired[str]
+    lineageSync: NotRequired[RedshiftLineageSyncConfigurationInputTypeDef]
+    port: NotRequired[int]
+    storage: NotRequired[RedshiftStoragePropertiesTypeDef]
+
+class RedshiftPropertiesOutputTypeDef(TypedDict):
+    credentials: NotRequired[RedshiftCredentialsTypeDef]
+    databaseName: NotRequired[str]
+    isProvisionedSecret: NotRequired[bool]
+    jdbcIamUrl: NotRequired[str]
+    jdbcUrl: NotRequired[str]
+    lineageSync: NotRequired[RedshiftLineageSyncConfigurationOutputTypeDef]
+    redshiftTempDir: NotRequired[str]
+    status: NotRequired[ConnectionStatusType]
+    storage: NotRequired[RedshiftStoragePropertiesTypeDef]
+
+class RedshiftPropertiesPatchTypeDef(TypedDict):
+    credentials: NotRequired[RedshiftCredentialsTypeDef]
+    databaseName: NotRequired[str]
+    host: NotRequired[str]
+    lineageSync: NotRequired[RedshiftLineageSyncConfigurationInputTypeDef]
+    port: NotRequired[int]
+    storage: NotRequired[RedshiftStoragePropertiesTypeDef]
+
+class RedshiftRunConfigurationOutputTypeDef(TypedDict):
+    redshiftStorage: RedshiftStorageTypeDef
+    relationalFilterConfigurations: List[RelationalFilterConfigurationOutputTypeDef]
+    accountId: NotRequired[str]
+    dataAccessRole: NotRequired[str]
+    redshiftCredentialConfiguration: NotRequired[RedshiftCredentialConfigurationTypeDef]
+    region: NotRequired[str]
+
+CreateUserProfileOutputTypeDef = TypedDict(
+    "CreateUserProfileOutputTypeDef",
+    {
+        "details": UserProfileDetailsTypeDef,
+        "domainId": str,
+        "id": str,
+        "status": UserProfileStatusType,
+        "type": UserProfileTypeType,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+GetUserProfileOutputTypeDef = TypedDict(
+    "GetUserProfileOutputTypeDef",
+    {
+        "details": UserProfileDetailsTypeDef,
+        "domainId": str,
+        "id": str,
+        "status": UserProfileStatusType,
+        "type": UserProfileTypeType,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
 UpdateUserProfileOutputTypeDef = TypedDict(
     "UpdateUserProfileOutputTypeDef",
     {
-        "details": "UserProfileDetailsTypeDef",
+        "details": UserProfileDetailsTypeDef,
         "domainId": str,
         "id": str,
         "status": UserProfileStatusType,
         "type": UserProfileTypeType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
-
-UserDetailsTypeDef = TypedDict(
-    "UserDetailsTypeDef",
-    {
-        "userId": str,
-    },
-)
-
-UserProfileDetailsTypeDef = TypedDict(
-    "UserProfileDetailsTypeDef",
-    {
-        "iam": "IamUserProfileDetailsTypeDef",
-        "sso": "SsoUserProfileDetailsTypeDef",
-    },
-    total=False,
-)
-
 UserProfileSummaryTypeDef = TypedDict(
     "UserProfileSummaryTypeDef",
     {
-        "details": "UserProfileDetailsTypeDef",
+        "details": NotRequired[UserProfileDetailsTypeDef],
+        "domainId": NotRequired[str],
+        "id": NotRequired[str],
+        "status": NotRequired[UserProfileStatusType],
+        "type": NotRequired[UserProfileTypeType],
+    },
+)
+
+class CreateSubscriptionRequestInputTypeDef(TypedDict):
+    domainIdentifier: str
+    requestReason: str
+    subscribedListings: Sequence[SubscribedListingInputTypeDef]
+    subscribedPrincipals: Sequence[SubscribedPrincipalInputTypeDef]
+    clientToken: NotRequired[str]
+    metadataForms: NotRequired[Sequence[FormInputTypeDef]]
+
+class CreateGlossaryTermInputTypeDef(TypedDict):
+    domainIdentifier: str
+    glossaryIdentifier: str
+    name: str
+    clientToken: NotRequired[str]
+    longDescription: NotRequired[str]
+    shortDescription: NotRequired[str]
+    status: NotRequired[GlossaryTermStatusType]
+    termRelations: NotRequired[TermRelationsUnionTypeDef]
+
+class UpdateGlossaryTermInputTypeDef(TypedDict):
+    domainIdentifier: str
+    identifier: str
+    glossaryIdentifier: NotRequired[str]
+    longDescription: NotRequired[str]
+    name: NotRequired[str]
+    shortDescription: NotRequired[str]
+    status: NotRequired[GlossaryTermStatusType]
+    termRelations: NotRequired[TermRelationsUnionTypeDef]
+
+class ListEnvironmentActionsOutputTypeDef(TypedDict):
+    items: List[EnvironmentActionSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class SearchInventoryResultItemTypeDef(TypedDict):
+    assetItem: NotRequired[AssetItemTypeDef]
+    dataProductItem: NotRequired[DataProductResultItemTypeDef]
+    glossaryItem: NotRequired[GlossaryItemTypeDef]
+    glossaryTermItem: NotRequired[GlossaryTermItemTypeDef]
+
+class SearchResultItemTypeDef(TypedDict):
+    assetListing: NotRequired[AssetListingItemTypeDef]
+    dataProductListing: NotRequired[DataProductListingItemTypeDef]
+
+class ListingItemTypeDef(TypedDict):
+    assetListing: NotRequired[AssetListingTypeDef]
+    dataProductListing: NotRequired[DataProductListingTypeDef]
+
+SubscribedListingTypeDef = TypedDict(
+    "SubscribedListingTypeDef",
+    {
+        "description": str,
+        "id": str,
+        "item": SubscribedListingItemTypeDef,
+        "name": str,
+        "ownerProjectId": str,
+        "ownerProjectName": NotRequired[str],
+        "revision": NotRequired[str],
+    },
+)
+
+class GluePropertiesPatchTypeDef(TypedDict):
+    glueConnectionInput: NotRequired[GlueConnectionPatchTypeDef]
+
+class ListEnvironmentBlueprintsOutputTypeDef(TypedDict):
+    items: List[EnvironmentBlueprintSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class CreateProjectInputTypeDef(TypedDict):
+    domainIdentifier: str
+    name: str
+    description: NotRequired[str]
+    domainUnitId: NotRequired[str]
+    glossaryTerms: NotRequired[Sequence[str]]
+    projectProfileId: NotRequired[str]
+    userParameters: NotRequired[Sequence[EnvironmentConfigurationUserParameterUnionTypeDef]]
+
+class UpdateProjectInputTypeDef(TypedDict):
+    domainIdentifier: str
+    identifier: str
+    description: NotRequired[str]
+    environmentDeploymentDetails: NotRequired[EnvironmentDeploymentDetailsUnionTypeDef]
+    glossaryTerms: NotRequired[Sequence[str]]
+    name: NotRequired[str]
+    projectProfileVersion: NotRequired[str]
+    userParameters: NotRequired[Sequence[EnvironmentConfigurationUserParameterUnionTypeDef]]
+
+class PolicyGrantPrincipalOutputTypeDef(TypedDict):
+    domainUnit: NotRequired[DomainUnitPolicyGrantPrincipalOutputTypeDef]
+    group: NotRequired[GroupPolicyGrantPrincipalTypeDef]
+    project: NotRequired[ProjectPolicyGrantPrincipalTypeDef]
+    user: NotRequired[UserPolicyGrantPrincipalOutputTypeDef]
+
+class PolicyGrantPrincipalTypeDef(TypedDict):
+    domainUnit: NotRequired[DomainUnitPolicyGrantPrincipalTypeDef]
+    group: NotRequired[GroupPolicyGrantPrincipalTypeDef]
+    project: NotRequired[ProjectPolicyGrantPrincipalTypeDef]
+    user: NotRequired[UserPolicyGrantPrincipalTypeDef]
+
+CreateProjectProfileOutputTypeDef = TypedDict(
+    "CreateProjectProfileOutputTypeDef",
+    {
+        "createdAt": datetime,
+        "createdBy": str,
+        "description": str,
+        "domainId": str,
+        "domainUnitId": str,
+        "environmentConfigurations": List[EnvironmentConfigurationOutputTypeDef],
+        "id": str,
+        "lastUpdatedAt": datetime,
+        "name": str,
+        "status": StatusType,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+GetProjectProfileOutputTypeDef = TypedDict(
+    "GetProjectProfileOutputTypeDef",
+    {
+        "createdAt": datetime,
+        "createdBy": str,
+        "description": str,
+        "domainId": str,
+        "domainUnitId": str,
+        "environmentConfigurations": List[EnvironmentConfigurationOutputTypeDef],
+        "id": str,
+        "lastUpdatedAt": datetime,
+        "name": str,
+        "status": StatusType,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+UpdateProjectProfileOutputTypeDef = TypedDict(
+    "UpdateProjectProfileOutputTypeDef",
+    {
+        "createdAt": datetime,
+        "createdBy": str,
+        "description": str,
+        "domainId": str,
+        "domainUnitId": str,
+        "environmentConfigurations": List[EnvironmentConfigurationOutputTypeDef],
+        "id": str,
+        "lastUpdatedAt": datetime,
+        "name": str,
+        "status": StatusType,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+EnvironmentConfigurationTypeDef = TypedDict(
+    "EnvironmentConfigurationTypeDef",
+    {
+        "awsAccount": AwsAccountTypeDef,
+        "awsRegion": RegionTypeDef,
+        "environmentBlueprintId": str,
+        "name": str,
+        "configurationParameters": NotRequired[
+            EnvironmentConfigurationParametersDetailsUnionTypeDef
+        ],
+        "deploymentMode": NotRequired[DeploymentModeType],
+        "deploymentOrder": NotRequired[int],
+        "description": NotRequired[str],
+        "id": NotRequired[str],
+    },
+)
+
+class GlueRunConfigurationInputTypeDef(TypedDict):
+    relationalFilterConfigurations: Sequence[RelationalFilterConfigurationUnionTypeDef]
+    autoImportDataQualityResult: NotRequired[bool]
+    catalogName: NotRequired[str]
+    dataAccessRole: NotRequired[str]
+
+class RedshiftRunConfigurationInputTypeDef(TypedDict):
+    relationalFilterConfigurations: Sequence[RelationalFilterConfigurationUnionTypeDef]
+    dataAccessRole: NotRequired[str]
+    redshiftCredentialConfiguration: NotRequired[RedshiftCredentialConfigurationTypeDef]
+    redshiftStorage: NotRequired[RedshiftStorageTypeDef]
+
+class SearchTypesOutputTypeDef(TypedDict):
+    items: List[SearchTypesResultItemTypeDef]
+    totalMatchCount: int
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListSubscriptionGrantsOutputTypeDef(TypedDict):
+    items: List[SubscriptionGrantSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListEnvironmentBlueprintConfigurationsOutputTypeDef(TypedDict):
+    items: List[EnvironmentBlueprintConfigurationItemTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+ProvisioningConfigurationUnionTypeDef = Union[
+    ProvisioningConfigurationTypeDef, ProvisioningConfigurationOutputTypeDef
+]
+GetJobRunOutputTypeDef = TypedDict(
+    "GetJobRunOutputTypeDef",
+    {
+        "createdAt": datetime,
+        "createdBy": str,
+        "details": JobRunDetailsTypeDef,
+        "domainId": str,
+        "endTime": datetime,
+        "error": JobRunErrorTypeDef,
+        "id": str,
+        "jobId": str,
+        "jobType": Literal["LINEAGE"],
+        "runMode": JobRunModeType,
+        "startTime": datetime,
+        "status": JobRunStatusType,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+
+class ListProjectMembershipsOutputTypeDef(TypedDict):
+    members: List[ProjectMemberTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class CreateRuleOutputTypeDef(TypedDict):
+    action: RuleActionType
+    createdAt: datetime
+    createdBy: str
+    description: str
+    detail: RuleDetailOutputTypeDef
+    identifier: str
+    name: str
+    ruleType: Literal["METADATA_FORM_ENFORCEMENT"]
+    scope: RuleScopeOutputTypeDef
+    target: RuleTargetTypeDef
+    targetType: Literal["DOMAIN_UNIT"]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetRuleOutputTypeDef(TypedDict):
+    action: RuleActionType
+    createdAt: datetime
+    createdBy: str
+    description: str
+    detail: RuleDetailOutputTypeDef
+    identifier: str
+    lastUpdatedBy: str
+    name: str
+    revision: str
+    ruleType: Literal["METADATA_FORM_ENFORCEMENT"]
+    scope: RuleScopeOutputTypeDef
+    target: RuleTargetTypeDef
+    targetType: Literal["DOMAIN_UNIT"]
+    updatedAt: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateRuleOutputTypeDef(TypedDict):
+    action: RuleActionType
+    createdAt: datetime
+    createdBy: str
+    description: str
+    detail: RuleDetailOutputTypeDef
+    identifier: str
+    lastUpdatedBy: str
+    name: str
+    revision: str
+    ruleType: Literal["METADATA_FORM_ENFORCEMENT"]
+    scope: RuleScopeOutputTypeDef
+    target: RuleTargetTypeDef
+    updatedAt: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+RuleDetailUnionTypeDef = Union[RuleDetailTypeDef, RuleDetailOutputTypeDef]
+LineageEventSummaryTypeDef = TypedDict(
+    "LineageEventSummaryTypeDef",
+    {
+        "createdAt": NotRequired[datetime],
+        "createdBy": NotRequired[str],
+        "domainId": NotRequired[str],
+        "eventSummary": NotRequired[EventSummaryTypeDef],
+        "eventTime": NotRequired[datetime],
+        "id": NotRequired[str],
+        "processingStatus": NotRequired[LineageEventProcessingStatusType],
+    },
+)
+
+class RowFilterConfigurationOutputTypeDef(TypedDict):
+    rowFilter: RowFilterOutputTypeDef
+    sensitive: NotRequired[bool]
+
+class RowFilterConfigurationTypeDef(TypedDict):
+    rowFilter: RowFilterTypeDef
+    sensitive: NotRequired[bool]
+
+class ListNotificationsOutputTypeDef(TypedDict):
+    notifications: List[NotificationOutputTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class GlueConnectionTypeDef(TypedDict):
+    athenaProperties: NotRequired[Dict[str, str]]
+    authenticationConfiguration: NotRequired[AuthenticationConfigurationTypeDef]
+    compatibleComputeEnvironments: NotRequired[List[ComputeEnvironmentsType]]
+    connectionProperties: NotRequired[Dict[str, str]]
+    connectionSchemaVersion: NotRequired[int]
+    connectionType: NotRequired[ConnectionTypeType]
+    creationTime: NotRequired[datetime]
+    description: NotRequired[str]
+    lastConnectionValidationTime: NotRequired[datetime]
+    lastUpdatedBy: NotRequired[str]
+    lastUpdatedTime: NotRequired[datetime]
+    matchCriteria: NotRequired[List[str]]
+    name: NotRequired[str]
+    physicalConnectionRequirements: NotRequired[PhysicalConnectionRequirementsOutputTypeDef]
+    pythonProperties: NotRequired[Dict[str, str]]
+    sparkProperties: NotRequired[Dict[str, str]]
+    status: NotRequired[ConnectionStatusType]
+    statusReason: NotRequired[str]
+
+class AuthenticationConfigurationInputTypeDef(TypedDict):
+    authenticationType: NotRequired[AuthenticationTypeType]
+    basicAuthenticationCredentials: NotRequired[BasicAuthenticationCredentialsTypeDef]
+    customAuthenticationCredentials: NotRequired[Mapping[str, str]]
+    kmsKeyArn: NotRequired[str]
+    oAuth2Properties: NotRequired[OAuth2PropertiesUnionTypeDef]
+    secretArn: NotRequired[str]
+
+class ListRulesOutputTypeDef(TypedDict):
+    items: List[RuleSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ConnectionPropertiesOutputTypeDef(TypedDict):
+    athenaProperties: NotRequired[AthenaPropertiesOutputTypeDef]
+    glueProperties: NotRequired[GluePropertiesOutputTypeDef]
+    hyperPodProperties: NotRequired[HyperPodPropertiesOutputTypeDef]
+    iamProperties: NotRequired[IamPropertiesOutputTypeDef]
+    redshiftProperties: NotRequired[RedshiftPropertiesOutputTypeDef]
+    sparkEmrProperties: NotRequired[SparkEmrPropertiesOutputTypeDef]
+    sparkGlueProperties: NotRequired[SparkGluePropertiesOutputTypeDef]
+
+class DataSourceConfigurationOutputTypeDef(TypedDict):
+    glueRunConfiguration: NotRequired[GlueRunConfigurationOutputTypeDef]
+    redshiftRunConfiguration: NotRequired[RedshiftRunConfigurationOutputTypeDef]
+    sageMakerRunConfiguration: NotRequired[SageMakerRunConfigurationOutputTypeDef]
+
+class SearchUserProfilesOutputTypeDef(TypedDict):
+    items: List[UserProfileSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class SearchOutputTypeDef(TypedDict):
+    items: List[SearchInventoryResultItemTypeDef]
+    totalMatchCount: int
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class SearchListingsOutputTypeDef(TypedDict):
+    items: List[SearchResultItemTypeDef]
+    totalMatchCount: int
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+GetListingOutputTypeDef = TypedDict(
+    "GetListingOutputTypeDef",
+    {
+        "createdAt": datetime,
+        "createdBy": str,
+        "description": str,
         "domainId": str,
         "id": str,
-        "status": UserProfileStatusType,
-        "type": UserProfileTypeType,
+        "item": ListingItemTypeDef,
+        "listingRevision": str,
+        "name": str,
+        "status": ListingStatusType,
+        "updatedAt": datetime,
+        "updatedBy": str,
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
-    total=False,
 )
+AcceptSubscriptionRequestOutputTypeDef = TypedDict(
+    "AcceptSubscriptionRequestOutputTypeDef",
+    {
+        "createdAt": datetime,
+        "createdBy": str,
+        "decisionComment": str,
+        "domainId": str,
+        "existingSubscriptionId": str,
+        "id": str,
+        "metadataForms": List[FormOutputTypeDef],
+        "requestReason": str,
+        "reviewerId": str,
+        "status": SubscriptionRequestStatusType,
+        "subscribedListings": List[SubscribedListingTypeDef],
+        "subscribedPrincipals": List[SubscribedPrincipalTypeDef],
+        "updatedAt": datetime,
+        "updatedBy": str,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+CancelSubscriptionOutputTypeDef = TypedDict(
+    "CancelSubscriptionOutputTypeDef",
+    {
+        "createdAt": datetime,
+        "createdBy": str,
+        "domainId": str,
+        "id": str,
+        "retainPermissions": bool,
+        "status": SubscriptionStatusType,
+        "subscribedListing": SubscribedListingTypeDef,
+        "subscribedPrincipal": SubscribedPrincipalTypeDef,
+        "subscriptionRequestId": str,
+        "updatedAt": datetime,
+        "updatedBy": str,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+CreateSubscriptionRequestOutputTypeDef = TypedDict(
+    "CreateSubscriptionRequestOutputTypeDef",
+    {
+        "createdAt": datetime,
+        "createdBy": str,
+        "decisionComment": str,
+        "domainId": str,
+        "existingSubscriptionId": str,
+        "id": str,
+        "metadataForms": List[FormOutputTypeDef],
+        "requestReason": str,
+        "reviewerId": str,
+        "status": SubscriptionRequestStatusType,
+        "subscribedListings": List[SubscribedListingTypeDef],
+        "subscribedPrincipals": List[SubscribedPrincipalTypeDef],
+        "updatedAt": datetime,
+        "updatedBy": str,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+GetSubscriptionOutputTypeDef = TypedDict(
+    "GetSubscriptionOutputTypeDef",
+    {
+        "createdAt": datetime,
+        "createdBy": str,
+        "domainId": str,
+        "id": str,
+        "retainPermissions": bool,
+        "status": SubscriptionStatusType,
+        "subscribedListing": SubscribedListingTypeDef,
+        "subscribedPrincipal": SubscribedPrincipalTypeDef,
+        "subscriptionRequestId": str,
+        "updatedAt": datetime,
+        "updatedBy": str,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+GetSubscriptionRequestDetailsOutputTypeDef = TypedDict(
+    "GetSubscriptionRequestDetailsOutputTypeDef",
+    {
+        "createdAt": datetime,
+        "createdBy": str,
+        "decisionComment": str,
+        "domainId": str,
+        "existingSubscriptionId": str,
+        "id": str,
+        "metadataForms": List[FormOutputTypeDef],
+        "requestReason": str,
+        "reviewerId": str,
+        "status": SubscriptionRequestStatusType,
+        "subscribedListings": List[SubscribedListingTypeDef],
+        "subscribedPrincipals": List[SubscribedPrincipalTypeDef],
+        "updatedAt": datetime,
+        "updatedBy": str,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+RejectSubscriptionRequestOutputTypeDef = TypedDict(
+    "RejectSubscriptionRequestOutputTypeDef",
+    {
+        "createdAt": datetime,
+        "createdBy": str,
+        "decisionComment": str,
+        "domainId": str,
+        "existingSubscriptionId": str,
+        "id": str,
+        "metadataForms": List[FormOutputTypeDef],
+        "requestReason": str,
+        "reviewerId": str,
+        "status": SubscriptionRequestStatusType,
+        "subscribedListings": List[SubscribedListingTypeDef],
+        "subscribedPrincipals": List[SubscribedPrincipalTypeDef],
+        "updatedAt": datetime,
+        "updatedBy": str,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+RevokeSubscriptionOutputTypeDef = TypedDict(
+    "RevokeSubscriptionOutputTypeDef",
+    {
+        "createdAt": datetime,
+        "createdBy": str,
+        "domainId": str,
+        "id": str,
+        "retainPermissions": bool,
+        "status": SubscriptionStatusType,
+        "subscribedListing": SubscribedListingTypeDef,
+        "subscribedPrincipal": SubscribedPrincipalTypeDef,
+        "subscriptionRequestId": str,
+        "updatedAt": datetime,
+        "updatedBy": str,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+SubscriptionRequestSummaryTypeDef = TypedDict(
+    "SubscriptionRequestSummaryTypeDef",
+    {
+        "createdAt": datetime,
+        "createdBy": str,
+        "domainId": str,
+        "id": str,
+        "requestReason": str,
+        "status": SubscriptionRequestStatusType,
+        "subscribedListings": List[SubscribedListingTypeDef],
+        "subscribedPrincipals": List[SubscribedPrincipalTypeDef],
+        "updatedAt": datetime,
+        "decisionComment": NotRequired[str],
+        "existingSubscriptionId": NotRequired[str],
+        "metadataFormsSummary": NotRequired[List[MetadataFormSummaryTypeDef]],
+        "reviewerId": NotRequired[str],
+        "updatedBy": NotRequired[str],
+    },
+)
+SubscriptionSummaryTypeDef = TypedDict(
+    "SubscriptionSummaryTypeDef",
+    {
+        "createdAt": datetime,
+        "createdBy": str,
+        "domainId": str,
+        "id": str,
+        "status": SubscriptionStatusType,
+        "subscribedListing": SubscribedListingTypeDef,
+        "subscribedPrincipal": SubscribedPrincipalTypeDef,
+        "updatedAt": datetime,
+        "retainPermissions": NotRequired[bool],
+        "subscriptionRequestId": NotRequired[str],
+        "updatedBy": NotRequired[str],
+    },
+)
+UpdateSubscriptionRequestOutputTypeDef = TypedDict(
+    "UpdateSubscriptionRequestOutputTypeDef",
+    {
+        "createdAt": datetime,
+        "createdBy": str,
+        "decisionComment": str,
+        "domainId": str,
+        "existingSubscriptionId": str,
+        "id": str,
+        "metadataForms": List[FormOutputTypeDef],
+        "requestReason": str,
+        "reviewerId": str,
+        "status": SubscriptionRequestStatusType,
+        "subscribedListings": List[SubscribedListingTypeDef],
+        "subscribedPrincipals": List[SubscribedPrincipalTypeDef],
+        "updatedAt": datetime,
+        "updatedBy": str,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+
+class ConnectionPropertiesPatchTypeDef(TypedDict):
+    athenaProperties: NotRequired[AthenaPropertiesPatchTypeDef]
+    glueProperties: NotRequired[GluePropertiesPatchTypeDef]
+    iamProperties: NotRequired[IamPropertiesPatchTypeDef]
+    redshiftProperties: NotRequired[RedshiftPropertiesPatchTypeDef]
+    sparkEmrProperties: NotRequired[SparkEmrPropertiesPatchTypeDef]
+
+class PolicyGrantMemberTypeDef(TypedDict):
+    createdAt: NotRequired[datetime]
+    createdBy: NotRequired[str]
+    detail: NotRequired[PolicyGrantDetailOutputTypeDef]
+    principal: NotRequired[PolicyGrantPrincipalOutputTypeDef]
+
+PolicyGrantPrincipalUnionTypeDef = Union[
+    PolicyGrantPrincipalTypeDef, PolicyGrantPrincipalOutputTypeDef
+]
+EnvironmentConfigurationUnionTypeDef = Union[
+    EnvironmentConfigurationTypeDef, EnvironmentConfigurationOutputTypeDef
+]
+
+class DataSourceConfigurationInputTypeDef(TypedDict):
+    glueRunConfiguration: NotRequired[GlueRunConfigurationInputTypeDef]
+    redshiftRunConfiguration: NotRequired[RedshiftRunConfigurationInputTypeDef]
+    sageMakerRunConfiguration: NotRequired[SageMakerRunConfigurationInputTypeDef]
+
+class PutEnvironmentBlueprintConfigurationInputTypeDef(TypedDict):
+    domainIdentifier: str
+    enabledRegions: Sequence[str]
+    environmentBlueprintIdentifier: str
+    environmentRolePermissionBoundary: NotRequired[str]
+    manageAccessRoleArn: NotRequired[str]
+    provisioningConfigurations: NotRequired[Sequence[ProvisioningConfigurationUnionTypeDef]]
+    provisioningRoleArn: NotRequired[str]
+    regionalParameters: NotRequired[Mapping[str, Mapping[str, str]]]
+
+class CreateRuleInputTypeDef(TypedDict):
+    action: RuleActionType
+    detail: RuleDetailUnionTypeDef
+    domainIdentifier: str
+    name: str
+    scope: RuleScopeUnionTypeDef
+    target: RuleTargetTypeDef
+    clientToken: NotRequired[str]
+    description: NotRequired[str]
+
+class UpdateRuleInputTypeDef(TypedDict):
+    domainIdentifier: str
+    identifier: str
+    description: NotRequired[str]
+    detail: NotRequired[RuleDetailUnionTypeDef]
+    includeChildDomainUnits: NotRequired[bool]
+    name: NotRequired[str]
+    scope: NotRequired[RuleScopeUnionTypeDef]
+
+class ListLineageEventsOutputTypeDef(TypedDict):
+    items: List[LineageEventSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class AssetFilterConfigurationOutputTypeDef(TypedDict):
+    columnConfiguration: NotRequired[ColumnFilterConfigurationOutputTypeDef]
+    rowConfiguration: NotRequired[RowFilterConfigurationOutputTypeDef]
+
+class AssetFilterConfigurationTypeDef(TypedDict):
+    columnConfiguration: NotRequired[ColumnFilterConfigurationTypeDef]
+    rowConfiguration: NotRequired[RowFilterConfigurationTypeDef]
+
+class PhysicalEndpointTypeDef(TypedDict):
+    awsLocation: NotRequired[AwsLocationTypeDef]
+    glueConnection: NotRequired[GlueConnectionTypeDef]
+    glueConnectionName: NotRequired[str]
+    host: NotRequired[str]
+    port: NotRequired[int]
+    protocol: NotRequired[ProtocolType]
+    stage: NotRequired[str]
+
+class GlueConnectionInputTypeDef(TypedDict):
+    athenaProperties: NotRequired[Mapping[str, str]]
+    authenticationConfiguration: NotRequired[AuthenticationConfigurationInputTypeDef]
+    connectionProperties: NotRequired[Mapping[str, str]]
+    connectionType: NotRequired[GlueConnectionTypeType]
+    description: NotRequired[str]
+    matchCriteria: NotRequired[str]
+    name: NotRequired[str]
+    physicalConnectionRequirements: NotRequired[PhysicalConnectionRequirementsUnionTypeDef]
+    pythonProperties: NotRequired[Mapping[str, str]]
+    sparkProperties: NotRequired[Mapping[str, str]]
+    validateCredentials: NotRequired[bool]
+    validateForComputeEnvironments: NotRequired[Sequence[ComputeEnvironmentsType]]
+
+CreateDataSourceOutputTypeDef = TypedDict(
+    "CreateDataSourceOutputTypeDef",
+    {
+        "assetFormsOutput": List[FormOutputTypeDef],
+        "configuration": DataSourceConfigurationOutputTypeDef,
+        "connectionId": str,
+        "createdAt": datetime,
+        "description": str,
+        "domainId": str,
+        "enableSetting": EnableSettingType,
+        "environmentId": str,
+        "errorMessage": DataSourceErrorMessageTypeDef,
+        "id": str,
+        "lastRunAt": datetime,
+        "lastRunErrorMessage": DataSourceErrorMessageTypeDef,
+        "lastRunStatus": DataSourceRunStatusType,
+        "name": str,
+        "projectId": str,
+        "publishOnImport": bool,
+        "recommendation": RecommendationConfigurationTypeDef,
+        "schedule": ScheduleConfigurationTypeDef,
+        "status": DataSourceStatusType,
+        "type": str,
+        "updatedAt": datetime,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+DeleteDataSourceOutputTypeDef = TypedDict(
+    "DeleteDataSourceOutputTypeDef",
+    {
+        "assetFormsOutput": List[FormOutputTypeDef],
+        "configuration": DataSourceConfigurationOutputTypeDef,
+        "connectionId": str,
+        "createdAt": datetime,
+        "description": str,
+        "domainId": str,
+        "enableSetting": EnableSettingType,
+        "environmentId": str,
+        "errorMessage": DataSourceErrorMessageTypeDef,
+        "id": str,
+        "lastRunAt": datetime,
+        "lastRunErrorMessage": DataSourceErrorMessageTypeDef,
+        "lastRunStatus": DataSourceRunStatusType,
+        "name": str,
+        "projectId": str,
+        "publishOnImport": bool,
+        "retainPermissionsOnRevokeFailure": bool,
+        "schedule": ScheduleConfigurationTypeDef,
+        "selfGrantStatus": SelfGrantStatusOutputTypeDef,
+        "status": DataSourceStatusType,
+        "type": str,
+        "updatedAt": datetime,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+GetDataSourceOutputTypeDef = TypedDict(
+    "GetDataSourceOutputTypeDef",
+    {
+        "assetFormsOutput": List[FormOutputTypeDef],
+        "configuration": DataSourceConfigurationOutputTypeDef,
+        "connectionId": str,
+        "createdAt": datetime,
+        "description": str,
+        "domainId": str,
+        "enableSetting": EnableSettingType,
+        "environmentId": str,
+        "errorMessage": DataSourceErrorMessageTypeDef,
+        "id": str,
+        "lastRunAssetCount": int,
+        "lastRunAt": datetime,
+        "lastRunErrorMessage": DataSourceErrorMessageTypeDef,
+        "lastRunStatus": DataSourceRunStatusType,
+        "name": str,
+        "projectId": str,
+        "publishOnImport": bool,
+        "recommendation": RecommendationConfigurationTypeDef,
+        "schedule": ScheduleConfigurationTypeDef,
+        "selfGrantStatus": SelfGrantStatusOutputTypeDef,
+        "status": DataSourceStatusType,
+        "type": str,
+        "updatedAt": datetime,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+UpdateDataSourceOutputTypeDef = TypedDict(
+    "UpdateDataSourceOutputTypeDef",
+    {
+        "assetFormsOutput": List[FormOutputTypeDef],
+        "configuration": DataSourceConfigurationOutputTypeDef,
+        "connectionId": str,
+        "createdAt": datetime,
+        "description": str,
+        "domainId": str,
+        "enableSetting": EnableSettingType,
+        "environmentId": str,
+        "errorMessage": DataSourceErrorMessageTypeDef,
+        "id": str,
+        "lastRunAt": datetime,
+        "lastRunErrorMessage": DataSourceErrorMessageTypeDef,
+        "lastRunStatus": DataSourceRunStatusType,
+        "name": str,
+        "projectId": str,
+        "publishOnImport": bool,
+        "recommendation": RecommendationConfigurationTypeDef,
+        "retainPermissionsOnRevokeFailure": bool,
+        "schedule": ScheduleConfigurationTypeDef,
+        "selfGrantStatus": SelfGrantStatusOutputTypeDef,
+        "status": DataSourceStatusType,
+        "type": str,
+        "updatedAt": datetime,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+
+class ListSubscriptionRequestsOutputTypeDef(TypedDict):
+    items: List[SubscriptionRequestSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListSubscriptionsOutputTypeDef(TypedDict):
+    items: List[SubscriptionSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class UpdateConnectionInputTypeDef(TypedDict):
+    domainIdentifier: str
+    identifier: str
+    awsLocation: NotRequired[AwsLocationTypeDef]
+    description: NotRequired[str]
+    props: NotRequired[ConnectionPropertiesPatchTypeDef]
+
+class ListPolicyGrantsOutputTypeDef(TypedDict):
+    grantList: List[PolicyGrantMemberTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class AddPolicyGrantInputTypeDef(TypedDict):
+    detail: PolicyGrantDetailUnionTypeDef
+    domainIdentifier: str
+    entityIdentifier: str
+    entityType: TargetEntityTypeType
+    policyType: ManagedPolicyTypeType
+    principal: PolicyGrantPrincipalUnionTypeDef
+    clientToken: NotRequired[str]
+
+class RemovePolicyGrantInputTypeDef(TypedDict):
+    domainIdentifier: str
+    entityIdentifier: str
+    entityType: TargetEntityTypeType
+    policyType: ManagedPolicyTypeType
+    principal: PolicyGrantPrincipalUnionTypeDef
+    clientToken: NotRequired[str]
+
+class CreateProjectProfileInputTypeDef(TypedDict):
+    domainIdentifier: str
+    name: str
+    description: NotRequired[str]
+    domainUnitIdentifier: NotRequired[str]
+    environmentConfigurations: NotRequired[Sequence[EnvironmentConfigurationUnionTypeDef]]
+    status: NotRequired[StatusType]
+
+class UpdateProjectProfileInputTypeDef(TypedDict):
+    domainIdentifier: str
+    identifier: str
+    description: NotRequired[str]
+    domainUnitIdentifier: NotRequired[str]
+    environmentConfigurations: NotRequired[Sequence[EnvironmentConfigurationUnionTypeDef]]
+    name: NotRequired[str]
+    status: NotRequired[StatusType]
+
+CreateDataSourceInputTypeDef = TypedDict(
+    "CreateDataSourceInputTypeDef",
+    {
+        "domainIdentifier": str,
+        "name": str,
+        "projectIdentifier": str,
+        "type": str,
+        "assetFormsInput": NotRequired[Sequence[FormInputTypeDef]],
+        "clientToken": NotRequired[str],
+        "configuration": NotRequired[DataSourceConfigurationInputTypeDef],
+        "connectionIdentifier": NotRequired[str],
+        "description": NotRequired[str],
+        "enableSetting": NotRequired[EnableSettingType],
+        "environmentIdentifier": NotRequired[str],
+        "publishOnImport": NotRequired[bool],
+        "recommendation": NotRequired[RecommendationConfigurationTypeDef],
+        "schedule": NotRequired[ScheduleConfigurationTypeDef],
+    },
+)
+
+class UpdateDataSourceInputTypeDef(TypedDict):
+    domainIdentifier: str
+    identifier: str
+    assetFormsInput: NotRequired[Sequence[FormInputTypeDef]]
+    configuration: NotRequired[DataSourceConfigurationInputTypeDef]
+    description: NotRequired[str]
+    enableSetting: NotRequired[EnableSettingType]
+    name: NotRequired[str]
+    publishOnImport: NotRequired[bool]
+    recommendation: NotRequired[RecommendationConfigurationTypeDef]
+    retainPermissionsOnRevokeFailure: NotRequired[bool]
+    schedule: NotRequired[ScheduleConfigurationTypeDef]
+
+CreateAssetFilterOutputTypeDef = TypedDict(
+    "CreateAssetFilterOutputTypeDef",
+    {
+        "assetId": str,
+        "configuration": AssetFilterConfigurationOutputTypeDef,
+        "createdAt": datetime,
+        "description": str,
+        "domainId": str,
+        "effectiveColumnNames": List[str],
+        "effectiveRowFilter": str,
+        "errorMessage": str,
+        "id": str,
+        "name": str,
+        "status": FilterStatusType,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+GetAssetFilterOutputTypeDef = TypedDict(
+    "GetAssetFilterOutputTypeDef",
+    {
+        "assetId": str,
+        "configuration": AssetFilterConfigurationOutputTypeDef,
+        "createdAt": datetime,
+        "description": str,
+        "domainId": str,
+        "effectiveColumnNames": List[str],
+        "effectiveRowFilter": str,
+        "errorMessage": str,
+        "id": str,
+        "name": str,
+        "status": FilterStatusType,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+UpdateAssetFilterOutputTypeDef = TypedDict(
+    "UpdateAssetFilterOutputTypeDef",
+    {
+        "assetId": str,
+        "configuration": AssetFilterConfigurationOutputTypeDef,
+        "createdAt": datetime,
+        "description": str,
+        "domainId": str,
+        "effectiveColumnNames": List[str],
+        "effectiveRowFilter": str,
+        "errorMessage": str,
+        "id": str,
+        "name": str,
+        "status": FilterStatusType,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+AssetFilterConfigurationUnionTypeDef = Union[
+    AssetFilterConfigurationTypeDef, AssetFilterConfigurationOutputTypeDef
+]
+ConnectionSummaryTypeDef = TypedDict(
+    "ConnectionSummaryTypeDef",
+    {
+        "connectionId": str,
+        "domainId": str,
+        "domainUnitId": str,
+        "name": str,
+        "physicalEndpoints": List[PhysicalEndpointTypeDef],
+        "type": ConnectionTypeType,
+        "environmentId": NotRequired[str],
+        "projectId": NotRequired[str],
+        "props": NotRequired[ConnectionPropertiesOutputTypeDef],
+    },
+)
+CreateConnectionOutputTypeDef = TypedDict(
+    "CreateConnectionOutputTypeDef",
+    {
+        "connectionId": str,
+        "description": str,
+        "domainId": str,
+        "domainUnitId": str,
+        "environmentId": str,
+        "name": str,
+        "physicalEndpoints": List[PhysicalEndpointTypeDef],
+        "projectId": str,
+        "props": ConnectionPropertiesOutputTypeDef,
+        "type": ConnectionTypeType,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+GetConnectionOutputTypeDef = TypedDict(
+    "GetConnectionOutputTypeDef",
+    {
+        "connectionCredentials": ConnectionCredentialsTypeDef,
+        "connectionId": str,
+        "description": str,
+        "domainId": str,
+        "domainUnitId": str,
+        "environmentId": str,
+        "environmentUserRole": str,
+        "name": str,
+        "physicalEndpoints": List[PhysicalEndpointTypeDef],
+        "projectId": str,
+        "props": ConnectionPropertiesOutputTypeDef,
+        "type": ConnectionTypeType,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+UpdateConnectionOutputTypeDef = TypedDict(
+    "UpdateConnectionOutputTypeDef",
+    {
+        "connectionId": str,
+        "description": str,
+        "domainId": str,
+        "domainUnitId": str,
+        "environmentId": str,
+        "name": str,
+        "physicalEndpoints": List[PhysicalEndpointTypeDef],
+        "projectId": str,
+        "props": ConnectionPropertiesOutputTypeDef,
+        "type": ConnectionTypeType,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+
+class GluePropertiesInputTypeDef(TypedDict):
+    glueConnectionInput: NotRequired[GlueConnectionInputTypeDef]
+
+class CreateAssetFilterInputTypeDef(TypedDict):
+    assetIdentifier: str
+    configuration: AssetFilterConfigurationUnionTypeDef
+    domainIdentifier: str
+    name: str
+    clientToken: NotRequired[str]
+    description: NotRequired[str]
+
+class UpdateAssetFilterInputTypeDef(TypedDict):
+    assetIdentifier: str
+    domainIdentifier: str
+    identifier: str
+    configuration: NotRequired[AssetFilterConfigurationUnionTypeDef]
+    description: NotRequired[str]
+    name: NotRequired[str]
+
+class ListConnectionsOutputTypeDef(TypedDict):
+    items: List[ConnectionSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ConnectionPropertiesInputTypeDef(TypedDict):
+    athenaProperties: NotRequired[AthenaPropertiesInputTypeDef]
+    glueProperties: NotRequired[GluePropertiesInputTypeDef]
+    hyperPodProperties: NotRequired[HyperPodPropertiesInputTypeDef]
+    iamProperties: NotRequired[IamPropertiesInputTypeDef]
+    redshiftProperties: NotRequired[RedshiftPropertiesInputTypeDef]
+    sparkEmrProperties: NotRequired[SparkEmrPropertiesInputTypeDef]
+    sparkGlueProperties: NotRequired[SparkGluePropertiesInputTypeDef]
+
+class CreateConnectionInputTypeDef(TypedDict):
+    domainIdentifier: str
+    environmentIdentifier: str
+    name: str
+    awsLocation: NotRequired[AwsLocationTypeDef]
+    clientToken: NotRequired[str]
+    description: NotRequired[str]
+    props: NotRequired[ConnectionPropertiesInputTypeDef]

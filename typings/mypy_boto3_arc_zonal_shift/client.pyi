@@ -1,57 +1,74 @@
 """
-Type annotations for arc-zonal-shift service client.
+Type annotations for arc-zonal-shift service Client.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_arc_zonal_shift/client.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_arc_zonal_shift/client/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
-    from mypy_boto3_arc_zonal_shift import ARCZonalShiftClient
+    from boto3.session import Session
+    from mypy_boto3_arc_zonal_shift.client import ARCZonalShiftClient
 
-    client: ARCZonalShiftClient = boto3.client("arc-zonal-shift")
+    session = Session()
+    client: ARCZonalShiftClient = session.client("arc-zonal-shift")
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from typing import Any, Dict, List, Type, overload
+from typing import Any, overload
 
 from botocore.client import BaseClient, ClientMeta
+from botocore.errorfactory import BaseClientExceptions
+from botocore.exceptions import ClientError as BotocoreClientError
 
-from .literals import AutoshiftExecutionStatusType, ZonalAutoshiftStatusType, ZonalShiftStatusType
 from .paginator import (
     ListAutoshiftsPaginator,
     ListManagedResourcesPaginator,
     ListZonalShiftsPaginator,
 )
 from .type_defs import (
-    ControlConditionTypeDef,
+    CancelZonalShiftRequestTypeDef,
+    CreatePracticeRunConfigurationRequestTypeDef,
     CreatePracticeRunConfigurationResponseTypeDef,
+    DeletePracticeRunConfigurationRequestTypeDef,
     DeletePracticeRunConfigurationResponseTypeDef,
+    GetAutoshiftObserverNotificationStatusResponseTypeDef,
+    GetManagedResourceRequestTypeDef,
     GetManagedResourceResponseTypeDef,
+    ListAutoshiftsRequestTypeDef,
     ListAutoshiftsResponseTypeDef,
+    ListManagedResourcesRequestTypeDef,
     ListManagedResourcesResponseTypeDef,
+    ListZonalShiftsRequestTypeDef,
     ListZonalShiftsResponseTypeDef,
+    StartZonalShiftRequestTypeDef,
+    UpdateAutoshiftObserverNotificationStatusRequestTypeDef,
+    UpdateAutoshiftObserverNotificationStatusResponseTypeDef,
+    UpdatePracticeRunConfigurationRequestTypeDef,
     UpdatePracticeRunConfigurationResponseTypeDef,
+    UpdateZonalAutoshiftConfigurationRequestTypeDef,
     UpdateZonalAutoshiftConfigurationResponseTypeDef,
+    UpdateZonalShiftRequestTypeDef,
     ZonalShiftTypeDef,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import type as Type
+    from collections.abc import Mapping
 else:
-    from typing_extensions import Literal
+    from typing import Mapping, Type
+if sys.version_info >= (3, 12):
+    from typing import Literal, Unpack
+else:
+    from typing_extensions import Literal, Unpack
 
 __all__ = ("ARCZonalShiftClient",)
 
-class BotocoreClientError(BaseException):
-    MSG_TEMPLATE: str
-
-    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
-        self.response: Dict[str, Any]
-        self.operation_name: str
-
-class Exceptions:
+class Exceptions(BaseClientExceptions):
     AccessDeniedException: Type[BotocoreClientError]
     ClientError: Type[BotocoreClientError]
     ConflictException: Type[BotocoreClientError]
@@ -62,8 +79,8 @@ class Exceptions:
 
 class ARCZonalShiftClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/arc-zonal-shift.html#ARCZonalShift.Client)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_arc_zonal_shift/client.html)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/arc-zonal-shift.html#ARCZonalShift.Client)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_arc_zonal_shift/client/)
     """
 
     meta: ClientMeta
@@ -72,200 +89,202 @@ class ARCZonalShiftClient(BaseClient):
     def exceptions(self) -> Exceptions:
         """
         ARCZonalShiftClient exceptions.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/arc-zonal-shift.html#ARCZonalShift.Client)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_arc_zonal_shift/client/#exceptions)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        Check if an operation can be paginated.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/arc-zonal-shift.html#ARCZonalShift.Client.can_paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_arc_zonal_shift/client.html#can_paginate)
-        """
-
-    def cancel_zonal_shift(self, *, zonalShiftId: str) -> ZonalShiftTypeDef:
-        """
-        Cancel a zonal shift in Amazon Route 53 Application Recovery Controller.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/arc-zonal-shift.html#ARCZonalShift.Client.cancel_zonal_shift)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_arc_zonal_shift/client.html#cancel_zonal_shift)
-        """
-
-    def close(self) -> None:
-        """
-        Closes underlying endpoint connections.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/arc-zonal-shift.html#ARCZonalShift.Client.close)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_arc_zonal_shift/client.html#close)
-        """
-
-    def create_practice_run_configuration(
-        self,
-        *,
-        outcomeAlarms: List["ControlConditionTypeDef"],
-        resourceIdentifier: str,
-        blockedDates: List[str] = None,
-        blockedWindows: List[str] = None,
-        blockingAlarms: List["ControlConditionTypeDef"] = None
-    ) -> CreatePracticeRunConfigurationResponseTypeDef:
-        """
-        A practice run configuration for zonal autoshift is required when you enable
-        zonal autoshift.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/arc-zonal-shift.html#ARCZonalShift.Client.create_practice_run_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_arc_zonal_shift/client.html#create_practice_run_configuration)
-        """
-
-    def delete_practice_run_configuration(
-        self, *, resourceIdentifier: str
-    ) -> DeletePracticeRunConfigurationResponseTypeDef:
-        """
-        Deletes the practice run configuration for a resource.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/arc-zonal-shift.html#ARCZonalShift.Client.delete_practice_run_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_arc_zonal_shift/client.html#delete_practice_run_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/arc-zonal-shift/client/can_paginate.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_arc_zonal_shift/client/#can_paginate)
         """
 
     def generate_presigned_url(
         self,
         ClientMethod: str,
-        Params: Dict[str, Any] = None,
+        Params: Mapping[str, Any] = ...,
         ExpiresIn: int = 3600,
-        HttpMethod: str = None,
+        HttpMethod: str = ...,
     ) -> str:
         """
-        Generate a presigned url given a client, its method, and arguments.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/arc-zonal-shift.html#ARCZonalShift.Client.generate_presigned_url)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_arc_zonal_shift/client.html#generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/arc-zonal-shift/client/generate_presigned_url.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_arc_zonal_shift/client/#generate_presigned_url)
         """
 
-    def get_managed_resource(self, *, resourceIdentifier: str) -> GetManagedResourceResponseTypeDef:
+    def cancel_zonal_shift(
+        self, **kwargs: Unpack[CancelZonalShiftRequestTypeDef]
+    ) -> ZonalShiftTypeDef:
+        """
+        Cancel a zonal shift in Amazon Route 53 Application Recovery Controller.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/arc-zonal-shift/client/cancel_zonal_shift.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_arc_zonal_shift/client/#cancel_zonal_shift)
+        """
+
+    def create_practice_run_configuration(
+        self, **kwargs: Unpack[CreatePracticeRunConfigurationRequestTypeDef]
+    ) -> CreatePracticeRunConfigurationResponseTypeDef:
+        """
+        A practice run configuration for zonal autoshift is required when you enable
+        zonal autoshift.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/arc-zonal-shift/client/create_practice_run_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_arc_zonal_shift/client/#create_practice_run_configuration)
+        """
+
+    def delete_practice_run_configuration(
+        self, **kwargs: Unpack[DeletePracticeRunConfigurationRequestTypeDef]
+    ) -> DeletePracticeRunConfigurationResponseTypeDef:
+        """
+        Deletes the practice run configuration for a resource.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/arc-zonal-shift/client/delete_practice_run_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_arc_zonal_shift/client/#delete_practice_run_configuration)
+        """
+
+    def get_autoshift_observer_notification_status(
+        self,
+    ) -> GetAutoshiftObserverNotificationStatusResponseTypeDef:
+        """
+        Returns the status of the autoshift observer notification.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/arc-zonal-shift/client/get_autoshift_observer_notification_status.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_arc_zonal_shift/client/#get_autoshift_observer_notification_status)
+        """
+
+    def get_managed_resource(
+        self, **kwargs: Unpack[GetManagedResourceRequestTypeDef]
+    ) -> GetManagedResourceResponseTypeDef:
         """
         Get information about a resource that's been registered for zonal shifts with
         Amazon Route 53 Application Recovery Controller in this Amazon Web Services
         Region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/arc-zonal-shift.html#ARCZonalShift.Client.get_managed_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_arc_zonal_shift/client.html#get_managed_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/arc-zonal-shift/client/get_managed_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_arc_zonal_shift/client/#get_managed_resource)
         """
 
     def list_autoshifts(
-        self,
-        *,
-        maxResults: int = None,
-        nextToken: str = None,
-        status: AutoshiftExecutionStatusType = None
+        self, **kwargs: Unpack[ListAutoshiftsRequestTypeDef]
     ) -> ListAutoshiftsResponseTypeDef:
         """
-        Returns the active autoshifts for a specified resource.
+        Returns the autoshifts for an Amazon Web Services Region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/arc-zonal-shift.html#ARCZonalShift.Client.list_autoshifts)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_arc_zonal_shift/client.html#list_autoshifts)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/arc-zonal-shift/client/list_autoshifts.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_arc_zonal_shift/client/#list_autoshifts)
         """
 
     def list_managed_resources(
-        self, *, maxResults: int = None, nextToken: str = None
+        self, **kwargs: Unpack[ListManagedResourcesRequestTypeDef]
     ) -> ListManagedResourcesResponseTypeDef:
         """
         Lists all the resources in your Amazon Web Services account in this Amazon Web
-        Services Region that are managed for zonal shifts in Amazon Route 53 Application
-        Recovery Controller, and information about them.
+        Services Region that are managed for zonal shifts in Amazon Route 53
+        Application Recovery Controller, and information about them.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/arc-zonal-shift.html#ARCZonalShift.Client.list_managed_resources)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_arc_zonal_shift/client.html#list_managed_resources)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/arc-zonal-shift/client/list_managed_resources.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_arc_zonal_shift/client/#list_managed_resources)
         """
 
     def list_zonal_shifts(
-        self,
-        *,
-        maxResults: int = None,
-        nextToken: str = None,
-        resourceIdentifier: str = None,
-        status: ZonalShiftStatusType = None
+        self, **kwargs: Unpack[ListZonalShiftsRequestTypeDef]
     ) -> ListZonalShiftsResponseTypeDef:
         """
         Lists all active and completed zonal shifts in Amazon Route 53 Application
         Recovery Controller in your Amazon Web Services account in this Amazon Web
         Services Region.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/arc-zonal-shift.html#ARCZonalShift.Client.list_zonal_shifts)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_arc_zonal_shift/client.html#list_zonal_shifts)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/arc-zonal-shift/client/list_zonal_shifts.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_arc_zonal_shift/client/#list_zonal_shifts)
         """
 
     def start_zonal_shift(
-        self, *, awayFrom: str, comment: str, expiresIn: str, resourceIdentifier: str
+        self, **kwargs: Unpack[StartZonalShiftRequestTypeDef]
     ) -> ZonalShiftTypeDef:
         """
         You start a zonal shift to temporarily move load balancer traffic away from an
         Availability Zone in an Amazon Web Services Region, to help your application
-        recover immediately, for example, from a developer's bad code deployment or from
-        an Amazon Web Services infrastructure failure in a single Av...
+        recover immediately, for example, from a developer's bad code deployment or
+        from an Amazon Web Services infrastructure failure in a single Av...
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/arc-zonal-shift.html#ARCZonalShift.Client.start_zonal_shift)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_arc_zonal_shift/client.html#start_zonal_shift)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/arc-zonal-shift/client/start_zonal_shift.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_arc_zonal_shift/client/#start_zonal_shift)
+        """
+
+    def update_autoshift_observer_notification_status(
+        self, **kwargs: Unpack[UpdateAutoshiftObserverNotificationStatusRequestTypeDef]
+    ) -> UpdateAutoshiftObserverNotificationStatusResponseTypeDef:
+        """
+        Update the status of autoshift observer notification.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/arc-zonal-shift/client/update_autoshift_observer_notification_status.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_arc_zonal_shift/client/#update_autoshift_observer_notification_status)
         """
 
     def update_practice_run_configuration(
-        self,
-        *,
-        resourceIdentifier: str,
-        blockedDates: List[str] = None,
-        blockedWindows: List[str] = None,
-        blockingAlarms: List["ControlConditionTypeDef"] = None,
-        outcomeAlarms: List["ControlConditionTypeDef"] = None
+        self, **kwargs: Unpack[UpdatePracticeRunConfigurationRequestTypeDef]
     ) -> UpdatePracticeRunConfigurationResponseTypeDef:
         """
-        Update a practice run configuration to change one or more of the following: add,
-        change, or remove the blocking alarm; change the outcome alarm; or add, change,
-        or remove blocking dates or time windows.
+        Update a practice run configuration to change one or more of the following:
+        add, change, or remove the blocking alarm; change the outcome alarm; or add,
+        change, or remove blocking dates or time windows.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/arc-zonal-shift.html#ARCZonalShift.Client.update_practice_run_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_arc_zonal_shift/client.html#update_practice_run_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/arc-zonal-shift/client/update_practice_run_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_arc_zonal_shift/client/#update_practice_run_configuration)
         """
 
     def update_zonal_autoshift_configuration(
-        self, *, resourceIdentifier: str, zonalAutoshiftStatus: ZonalAutoshiftStatusType
+        self, **kwargs: Unpack[UpdateZonalAutoshiftConfigurationRequestTypeDef]
     ) -> UpdateZonalAutoshiftConfigurationResponseTypeDef:
         """
-        You can update the zonal autoshift status for a resource, to enable or disable
-        zonal autoshift.
+        The zonal autoshift configuration for a resource includes the practice run
+        configuration and the status for running autoshifts, zonal autoshift status.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/arc-zonal-shift.html#ARCZonalShift.Client.update_zonal_autoshift_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_arc_zonal_shift/client.html#update_zonal_autoshift_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/arc-zonal-shift/client/update_zonal_autoshift_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_arc_zonal_shift/client/#update_zonal_autoshift_configuration)
         """
 
     def update_zonal_shift(
-        self, *, zonalShiftId: str, comment: str = None, expiresIn: str = None
+        self, **kwargs: Unpack[UpdateZonalShiftRequestTypeDef]
     ) -> ZonalShiftTypeDef:
         """
         Update an active zonal shift in Amazon Route 53 Application Recovery Controller
         in your Amazon Web Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/arc-zonal-shift.html#ARCZonalShift.Client.update_zonal_shift)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_arc_zonal_shift/client.html#update_zonal_shift)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/arc-zonal-shift/client/update_zonal_shift.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_arc_zonal_shift/client/#update_zonal_shift)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_autoshifts"]) -> ListAutoshiftsPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_autoshifts"]
+    ) -> ListAutoshiftsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/arc-zonal-shift.html#ARCZonalShift.Paginator.ListAutoshifts)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_arc_zonal_shift/paginators.html#listautoshiftspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/arc-zonal-shift/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_arc_zonal_shift/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_managed_resources"]
     ) -> ListManagedResourcesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/arc-zonal-shift.html#ARCZonalShift.Paginator.ListManagedResources)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_arc_zonal_shift/paginators.html#listmanagedresourcespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/arc-zonal-shift/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_arc_zonal_shift/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_zonal_shifts"]
     ) -> ListZonalShiftsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/arc-zonal-shift.html#ARCZonalShift.Paginator.ListZonalShifts)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_arc_zonal_shift/paginators.html#listzonalshiftspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/arc-zonal-shift/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_arc_zonal_shift/client/#get_paginator)
         """

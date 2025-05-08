@@ -1,20 +1,24 @@
 """
 Type annotations for workdocs service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_workdocs/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_workdocs/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_workdocs.type_defs import AbortDocumentVersionUploadRequestRequestTypeDef
+    from mypy_boto3_workdocs.type_defs import AbortDocumentVersionUploadRequestTypeDef
 
-    data: AbortDocumentVersionUploadRequestRequestTypeDef = {...}
+    data: AbortDocumentVersionUploadRequestTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List, Union
+from typing import Union
 
 from .literals import (
     ActivityTypeType,
@@ -51,83 +55,95 @@ from .literals import (
     UserTypeType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
-    "AbortDocumentVersionUploadRequestRequestTypeDef",
-    "ActivateUserRequestRequestTypeDef",
+    "AbortDocumentVersionUploadRequestTypeDef",
+    "ActivateUserRequestTypeDef",
     "ActivateUserResponseTypeDef",
     "ActivityTypeDef",
-    "AddResourcePermissionsRequestRequestTypeDef",
+    "AddResourcePermissionsRequestTypeDef",
     "AddResourcePermissionsResponseTypeDef",
     "CommentMetadataTypeDef",
     "CommentTypeDef",
-    "CreateCommentRequestRequestTypeDef",
+    "CreateCommentRequestTypeDef",
     "CreateCommentResponseTypeDef",
-    "CreateCustomMetadataRequestRequestTypeDef",
-    "CreateFolderRequestRequestTypeDef",
+    "CreateCustomMetadataRequestTypeDef",
+    "CreateFolderRequestTypeDef",
     "CreateFolderResponseTypeDef",
-    "CreateLabelsRequestRequestTypeDef",
-    "CreateNotificationSubscriptionRequestRequestTypeDef",
+    "CreateLabelsRequestTypeDef",
+    "CreateNotificationSubscriptionRequestTypeDef",
     "CreateNotificationSubscriptionResponseTypeDef",
-    "CreateUserRequestRequestTypeDef",
+    "CreateUserRequestTypeDef",
     "CreateUserResponseTypeDef",
     "DateRangeTypeTypeDef",
-    "DeactivateUserRequestRequestTypeDef",
-    "DeleteCommentRequestRequestTypeDef",
-    "DeleteCustomMetadataRequestRequestTypeDef",
-    "DeleteDocumentRequestRequestTypeDef",
-    "DeleteDocumentVersionRequestRequestTypeDef",
-    "DeleteFolderContentsRequestRequestTypeDef",
-    "DeleteFolderRequestRequestTypeDef",
-    "DeleteLabelsRequestRequestTypeDef",
-    "DeleteNotificationSubscriptionRequestRequestTypeDef",
-    "DeleteUserRequestRequestTypeDef",
-    "DescribeActivitiesRequestRequestTypeDef",
+    "DeactivateUserRequestTypeDef",
+    "DeleteCommentRequestTypeDef",
+    "DeleteCustomMetadataRequestTypeDef",
+    "DeleteDocumentRequestTypeDef",
+    "DeleteDocumentVersionRequestTypeDef",
+    "DeleteFolderContentsRequestTypeDef",
+    "DeleteFolderRequestTypeDef",
+    "DeleteLabelsRequestTypeDef",
+    "DeleteNotificationSubscriptionRequestTypeDef",
+    "DeleteUserRequestTypeDef",
+    "DescribeActivitiesRequestPaginateTypeDef",
+    "DescribeActivitiesRequestTypeDef",
     "DescribeActivitiesResponseTypeDef",
-    "DescribeCommentsRequestRequestTypeDef",
+    "DescribeCommentsRequestPaginateTypeDef",
+    "DescribeCommentsRequestTypeDef",
     "DescribeCommentsResponseTypeDef",
-    "DescribeDocumentVersionsRequestRequestTypeDef",
+    "DescribeDocumentVersionsRequestPaginateTypeDef",
+    "DescribeDocumentVersionsRequestTypeDef",
     "DescribeDocumentVersionsResponseTypeDef",
-    "DescribeFolderContentsRequestRequestTypeDef",
+    "DescribeFolderContentsRequestPaginateTypeDef",
+    "DescribeFolderContentsRequestTypeDef",
     "DescribeFolderContentsResponseTypeDef",
-    "DescribeGroupsRequestRequestTypeDef",
+    "DescribeGroupsRequestPaginateTypeDef",
+    "DescribeGroupsRequestTypeDef",
     "DescribeGroupsResponseTypeDef",
-    "DescribeNotificationSubscriptionsRequestRequestTypeDef",
+    "DescribeNotificationSubscriptionsRequestPaginateTypeDef",
+    "DescribeNotificationSubscriptionsRequestTypeDef",
     "DescribeNotificationSubscriptionsResponseTypeDef",
-    "DescribeResourcePermissionsRequestRequestTypeDef",
+    "DescribeResourcePermissionsRequestPaginateTypeDef",
+    "DescribeResourcePermissionsRequestTypeDef",
     "DescribeResourcePermissionsResponseTypeDef",
-    "DescribeRootFoldersRequestRequestTypeDef",
+    "DescribeRootFoldersRequestPaginateTypeDef",
+    "DescribeRootFoldersRequestTypeDef",
     "DescribeRootFoldersResponseTypeDef",
-    "DescribeUsersRequestRequestTypeDef",
+    "DescribeUsersRequestPaginateTypeDef",
+    "DescribeUsersRequestTypeDef",
     "DescribeUsersResponseTypeDef",
     "DocumentMetadataTypeDef",
     "DocumentVersionMetadataTypeDef",
+    "EmptyResponseMetadataTypeDef",
     "FiltersTypeDef",
     "FolderMetadataTypeDef",
-    "GetCurrentUserRequestRequestTypeDef",
+    "GetCurrentUserRequestTypeDef",
     "GetCurrentUserResponseTypeDef",
-    "GetDocumentPathRequestRequestTypeDef",
+    "GetDocumentPathRequestTypeDef",
     "GetDocumentPathResponseTypeDef",
-    "GetDocumentRequestRequestTypeDef",
+    "GetDocumentRequestTypeDef",
     "GetDocumentResponseTypeDef",
-    "GetDocumentVersionRequestRequestTypeDef",
+    "GetDocumentVersionRequestTypeDef",
     "GetDocumentVersionResponseTypeDef",
-    "GetFolderPathRequestRequestTypeDef",
+    "GetFolderPathRequestTypeDef",
     "GetFolderPathResponseTypeDef",
-    "GetFolderRequestRequestTypeDef",
+    "GetFolderRequestTypeDef",
     "GetFolderResponseTypeDef",
-    "GetResourcesRequestRequestTypeDef",
+    "GetResourcesRequestTypeDef",
     "GetResourcesResponseTypeDef",
     "GroupMetadataTypeDef",
-    "InitiateDocumentVersionUploadRequestRequestTypeDef",
+    "InitiateDocumentVersionUploadRequestTypeDef",
     "InitiateDocumentVersionUploadResponseTypeDef",
     "LongRangeTypeTypeDef",
     "NotificationOptionsTypeDef",
@@ -135,26 +151,28 @@ __all__ = (
     "ParticipantsTypeDef",
     "PermissionInfoTypeDef",
     "PrincipalTypeDef",
-    "RemoveAllResourcePermissionsRequestRequestTypeDef",
-    "RemoveResourcePermissionRequestRequestTypeDef",
+    "RemoveAllResourcePermissionsRequestTypeDef",
+    "RemoveResourcePermissionRequestTypeDef",
     "ResourceMetadataTypeDef",
     "ResourcePathComponentTypeDef",
     "ResourcePathTypeDef",
     "ResponseItemTypeDef",
     "ResponseMetadataTypeDef",
-    "RestoreDocumentVersionsRequestRequestTypeDef",
+    "RestoreDocumentVersionsRequestTypeDef",
     "SearchPrincipalTypeTypeDef",
-    "SearchResourcesRequestRequestTypeDef",
+    "SearchResourcesRequestPaginateTypeDef",
+    "SearchResourcesRequestTypeDef",
     "SearchResourcesResponseTypeDef",
     "SearchSortResultTypeDef",
     "SharePrincipalTypeDef",
     "ShareResultTypeDef",
     "StorageRuleTypeTypeDef",
     "SubscriptionTypeDef",
-    "UpdateDocumentRequestRequestTypeDef",
-    "UpdateDocumentVersionRequestRequestTypeDef",
-    "UpdateFolderRequestRequestTypeDef",
-    "UpdateUserRequestRequestTypeDef",
+    "TimestampTypeDef",
+    "UpdateDocumentRequestTypeDef",
+    "UpdateDocumentVersionRequestTypeDef",
+    "UpdateFolderRequestTypeDef",
+    "UpdateUserRequestTypeDef",
     "UpdateUserResponseTypeDef",
     "UploadMetadataTypeDef",
     "UserMetadataTypeDef",
@@ -162,1283 +180,32 @@ __all__ = (
     "UserTypeDef",
 )
 
-_RequiredAbortDocumentVersionUploadRequestRequestTypeDef = TypedDict(
-    "_RequiredAbortDocumentVersionUploadRequestRequestTypeDef",
-    {
-        "DocumentId": str,
-        "VersionId": str,
-    },
-)
-_OptionalAbortDocumentVersionUploadRequestRequestTypeDef = TypedDict(
-    "_OptionalAbortDocumentVersionUploadRequestRequestTypeDef",
-    {
-        "AuthenticationToken": str,
-    },
-    total=False,
-)
-
-class AbortDocumentVersionUploadRequestRequestTypeDef(
-    _RequiredAbortDocumentVersionUploadRequestRequestTypeDef,
-    _OptionalAbortDocumentVersionUploadRequestRequestTypeDef,
-):
-    pass
-
-_RequiredActivateUserRequestRequestTypeDef = TypedDict(
-    "_RequiredActivateUserRequestRequestTypeDef",
-    {
-        "UserId": str,
-    },
-)
-_OptionalActivateUserRequestRequestTypeDef = TypedDict(
-    "_OptionalActivateUserRequestRequestTypeDef",
-    {
-        "AuthenticationToken": str,
-    },
-    total=False,
-)
-
-class ActivateUserRequestRequestTypeDef(
-    _RequiredActivateUserRequestRequestTypeDef, _OptionalActivateUserRequestRequestTypeDef
-):
-    pass
-
-ActivateUserResponseTypeDef = TypedDict(
-    "ActivateUserResponseTypeDef",
-    {
-        "User": "UserTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ActivityTypeDef = TypedDict(
-    "ActivityTypeDef",
-    {
-        "Type": ActivityTypeType,
-        "TimeStamp": datetime,
-        "IsIndirectActivity": bool,
-        "OrganizationId": str,
-        "Initiator": "UserMetadataTypeDef",
-        "Participants": "ParticipantsTypeDef",
-        "ResourceMetadata": "ResourceMetadataTypeDef",
-        "OriginalParent": "ResourceMetadataTypeDef",
-        "CommentMetadata": "CommentMetadataTypeDef",
-    },
-    total=False,
-)
-
-_RequiredAddResourcePermissionsRequestRequestTypeDef = TypedDict(
-    "_RequiredAddResourcePermissionsRequestRequestTypeDef",
-    {
-        "ResourceId": str,
-        "Principals": List["SharePrincipalTypeDef"],
-    },
-)
-_OptionalAddResourcePermissionsRequestRequestTypeDef = TypedDict(
-    "_OptionalAddResourcePermissionsRequestRequestTypeDef",
-    {
-        "AuthenticationToken": str,
-        "NotificationOptions": "NotificationOptionsTypeDef",
-    },
-    total=False,
-)
-
-class AddResourcePermissionsRequestRequestTypeDef(
-    _RequiredAddResourcePermissionsRequestRequestTypeDef,
-    _OptionalAddResourcePermissionsRequestRequestTypeDef,
-):
-    pass
-
-AddResourcePermissionsResponseTypeDef = TypedDict(
-    "AddResourcePermissionsResponseTypeDef",
-    {
-        "ShareResults": List["ShareResultTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CommentMetadataTypeDef = TypedDict(
-    "CommentMetadataTypeDef",
-    {
-        "CommentId": str,
-        "Contributor": "UserTypeDef",
-        "CreatedTimestamp": datetime,
-        "CommentStatus": CommentStatusTypeType,
-        "RecipientId": str,
-        "ContributorId": str,
-    },
-    total=False,
-)
-
-_RequiredCommentTypeDef = TypedDict(
-    "_RequiredCommentTypeDef",
-    {
-        "CommentId": str,
-    },
-)
-_OptionalCommentTypeDef = TypedDict(
-    "_OptionalCommentTypeDef",
-    {
-        "ParentId": str,
-        "ThreadId": str,
-        "Text": str,
-        "Contributor": "UserTypeDef",
-        "CreatedTimestamp": datetime,
-        "Status": CommentStatusTypeType,
-        "Visibility": CommentVisibilityTypeType,
-        "RecipientId": str,
-    },
-    total=False,
-)
-
-class CommentTypeDef(_RequiredCommentTypeDef, _OptionalCommentTypeDef):
-    pass
-
-_RequiredCreateCommentRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateCommentRequestRequestTypeDef",
-    {
-        "DocumentId": str,
-        "VersionId": str,
-        "Text": str,
-    },
-)
-_OptionalCreateCommentRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateCommentRequestRequestTypeDef",
-    {
-        "AuthenticationToken": str,
-        "ParentId": str,
-        "ThreadId": str,
-        "Visibility": CommentVisibilityTypeType,
-        "NotifyCollaborators": bool,
-    },
-    total=False,
-)
-
-class CreateCommentRequestRequestTypeDef(
-    _RequiredCreateCommentRequestRequestTypeDef, _OptionalCreateCommentRequestRequestTypeDef
-):
-    pass
-
-CreateCommentResponseTypeDef = TypedDict(
-    "CreateCommentResponseTypeDef",
-    {
-        "Comment": "CommentTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateCustomMetadataRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateCustomMetadataRequestRequestTypeDef",
-    {
-        "ResourceId": str,
-        "CustomMetadata": Dict[str, str],
-    },
-)
-_OptionalCreateCustomMetadataRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateCustomMetadataRequestRequestTypeDef",
-    {
-        "AuthenticationToken": str,
-        "VersionId": str,
-    },
-    total=False,
-)
-
-class CreateCustomMetadataRequestRequestTypeDef(
-    _RequiredCreateCustomMetadataRequestRequestTypeDef,
-    _OptionalCreateCustomMetadataRequestRequestTypeDef,
-):
-    pass
-
-_RequiredCreateFolderRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateFolderRequestRequestTypeDef",
-    {
-        "ParentFolderId": str,
-    },
-)
-_OptionalCreateFolderRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateFolderRequestRequestTypeDef",
-    {
-        "AuthenticationToken": str,
-        "Name": str,
-    },
-    total=False,
-)
-
-class CreateFolderRequestRequestTypeDef(
-    _RequiredCreateFolderRequestRequestTypeDef, _OptionalCreateFolderRequestRequestTypeDef
-):
-    pass
-
-CreateFolderResponseTypeDef = TypedDict(
-    "CreateFolderResponseTypeDef",
-    {
-        "Metadata": "FolderMetadataTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateLabelsRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateLabelsRequestRequestTypeDef",
-    {
-        "ResourceId": str,
-        "Labels": List[str],
-    },
-)
-_OptionalCreateLabelsRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateLabelsRequestRequestTypeDef",
-    {
-        "AuthenticationToken": str,
-    },
-    total=False,
-)
-
-class CreateLabelsRequestRequestTypeDef(
-    _RequiredCreateLabelsRequestRequestTypeDef, _OptionalCreateLabelsRequestRequestTypeDef
-):
-    pass
-
-CreateNotificationSubscriptionRequestRequestTypeDef = TypedDict(
-    "CreateNotificationSubscriptionRequestRequestTypeDef",
-    {
-        "OrganizationId": str,
-        "Endpoint": str,
-        "Protocol": SubscriptionProtocolTypeType,
-        "SubscriptionType": Literal["ALL"],
-    },
-)
-
-CreateNotificationSubscriptionResponseTypeDef = TypedDict(
-    "CreateNotificationSubscriptionResponseTypeDef",
-    {
-        "Subscription": "SubscriptionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateUserRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateUserRequestRequestTypeDef",
-    {
-        "Username": str,
-        "GivenName": str,
-        "Surname": str,
-        "Password": str,
-    },
-)
-_OptionalCreateUserRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateUserRequestRequestTypeDef",
-    {
-        "OrganizationId": str,
-        "EmailAddress": str,
-        "TimeZoneId": str,
-        "StorageRule": "StorageRuleTypeTypeDef",
-        "AuthenticationToken": str,
-    },
-    total=False,
-)
-
-class CreateUserRequestRequestTypeDef(
-    _RequiredCreateUserRequestRequestTypeDef, _OptionalCreateUserRequestRequestTypeDef
-):
-    pass
-
-CreateUserResponseTypeDef = TypedDict(
-    "CreateUserResponseTypeDef",
-    {
-        "User": "UserTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DateRangeTypeTypeDef = TypedDict(
-    "DateRangeTypeTypeDef",
-    {
-        "StartValue": Union[datetime, str],
-        "EndValue": Union[datetime, str],
-    },
-    total=False,
-)
-
-_RequiredDeactivateUserRequestRequestTypeDef = TypedDict(
-    "_RequiredDeactivateUserRequestRequestTypeDef",
-    {
-        "UserId": str,
-    },
-)
-_OptionalDeactivateUserRequestRequestTypeDef = TypedDict(
-    "_OptionalDeactivateUserRequestRequestTypeDef",
-    {
-        "AuthenticationToken": str,
-    },
-    total=False,
-)
-
-class DeactivateUserRequestRequestTypeDef(
-    _RequiredDeactivateUserRequestRequestTypeDef, _OptionalDeactivateUserRequestRequestTypeDef
-):
-    pass
-
-_RequiredDeleteCommentRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteCommentRequestRequestTypeDef",
-    {
-        "DocumentId": str,
-        "VersionId": str,
-        "CommentId": str,
-    },
-)
-_OptionalDeleteCommentRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteCommentRequestRequestTypeDef",
-    {
-        "AuthenticationToken": str,
-    },
-    total=False,
-)
-
-class DeleteCommentRequestRequestTypeDef(
-    _RequiredDeleteCommentRequestRequestTypeDef, _OptionalDeleteCommentRequestRequestTypeDef
-):
-    pass
-
-_RequiredDeleteCustomMetadataRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteCustomMetadataRequestRequestTypeDef",
-    {
-        "ResourceId": str,
-    },
-)
-_OptionalDeleteCustomMetadataRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteCustomMetadataRequestRequestTypeDef",
-    {
-        "AuthenticationToken": str,
-        "VersionId": str,
-        "Keys": List[str],
-        "DeleteAll": bool,
-    },
-    total=False,
-)
-
-class DeleteCustomMetadataRequestRequestTypeDef(
-    _RequiredDeleteCustomMetadataRequestRequestTypeDef,
-    _OptionalDeleteCustomMetadataRequestRequestTypeDef,
-):
-    pass
-
-_RequiredDeleteDocumentRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteDocumentRequestRequestTypeDef",
-    {
-        "DocumentId": str,
-    },
-)
-_OptionalDeleteDocumentRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteDocumentRequestRequestTypeDef",
-    {
-        "AuthenticationToken": str,
-    },
-    total=False,
-)
-
-class DeleteDocumentRequestRequestTypeDef(
-    _RequiredDeleteDocumentRequestRequestTypeDef, _OptionalDeleteDocumentRequestRequestTypeDef
-):
-    pass
-
-_RequiredDeleteDocumentVersionRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteDocumentVersionRequestRequestTypeDef",
-    {
-        "DocumentId": str,
-        "VersionId": str,
-        "DeletePriorVersions": bool,
-    },
-)
-_OptionalDeleteDocumentVersionRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteDocumentVersionRequestRequestTypeDef",
-    {
-        "AuthenticationToken": str,
-    },
-    total=False,
-)
-
-class DeleteDocumentVersionRequestRequestTypeDef(
-    _RequiredDeleteDocumentVersionRequestRequestTypeDef,
-    _OptionalDeleteDocumentVersionRequestRequestTypeDef,
-):
-    pass
-
-_RequiredDeleteFolderContentsRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteFolderContentsRequestRequestTypeDef",
-    {
-        "FolderId": str,
-    },
-)
-_OptionalDeleteFolderContentsRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteFolderContentsRequestRequestTypeDef",
-    {
-        "AuthenticationToken": str,
-    },
-    total=False,
-)
-
-class DeleteFolderContentsRequestRequestTypeDef(
-    _RequiredDeleteFolderContentsRequestRequestTypeDef,
-    _OptionalDeleteFolderContentsRequestRequestTypeDef,
-):
-    pass
-
-_RequiredDeleteFolderRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteFolderRequestRequestTypeDef",
-    {
-        "FolderId": str,
-    },
-)
-_OptionalDeleteFolderRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteFolderRequestRequestTypeDef",
-    {
-        "AuthenticationToken": str,
-    },
-    total=False,
-)
-
-class DeleteFolderRequestRequestTypeDef(
-    _RequiredDeleteFolderRequestRequestTypeDef, _OptionalDeleteFolderRequestRequestTypeDef
-):
-    pass
-
-_RequiredDeleteLabelsRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteLabelsRequestRequestTypeDef",
-    {
-        "ResourceId": str,
-    },
-)
-_OptionalDeleteLabelsRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteLabelsRequestRequestTypeDef",
-    {
-        "AuthenticationToken": str,
-        "Labels": List[str],
-        "DeleteAll": bool,
-    },
-    total=False,
-)
-
-class DeleteLabelsRequestRequestTypeDef(
-    _RequiredDeleteLabelsRequestRequestTypeDef, _OptionalDeleteLabelsRequestRequestTypeDef
-):
-    pass
-
-DeleteNotificationSubscriptionRequestRequestTypeDef = TypedDict(
-    "DeleteNotificationSubscriptionRequestRequestTypeDef",
-    {
-        "SubscriptionId": str,
-        "OrganizationId": str,
-    },
-)
-
-_RequiredDeleteUserRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteUserRequestRequestTypeDef",
-    {
-        "UserId": str,
-    },
-)
-_OptionalDeleteUserRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteUserRequestRequestTypeDef",
-    {
-        "AuthenticationToken": str,
-    },
-    total=False,
-)
-
-class DeleteUserRequestRequestTypeDef(
-    _RequiredDeleteUserRequestRequestTypeDef, _OptionalDeleteUserRequestRequestTypeDef
-):
-    pass
-
-DescribeActivitiesRequestRequestTypeDef = TypedDict(
-    "DescribeActivitiesRequestRequestTypeDef",
-    {
-        "AuthenticationToken": str,
-        "StartTime": Union[datetime, str],
-        "EndTime": Union[datetime, str],
-        "OrganizationId": str,
-        "ActivityTypes": str,
-        "ResourceId": str,
-        "UserId": str,
-        "IncludeIndirectActivities": bool,
-        "Limit": int,
-        "Marker": str,
-    },
-    total=False,
-)
-
-DescribeActivitiesResponseTypeDef = TypedDict(
-    "DescribeActivitiesResponseTypeDef",
-    {
-        "UserActivities": List["ActivityTypeDef"],
-        "Marker": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribeCommentsRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeCommentsRequestRequestTypeDef",
-    {
-        "DocumentId": str,
-        "VersionId": str,
-    },
-)
-_OptionalDescribeCommentsRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeCommentsRequestRequestTypeDef",
-    {
-        "AuthenticationToken": str,
-        "Limit": int,
-        "Marker": str,
-    },
-    total=False,
-)
-
-class DescribeCommentsRequestRequestTypeDef(
-    _RequiredDescribeCommentsRequestRequestTypeDef, _OptionalDescribeCommentsRequestRequestTypeDef
-):
-    pass
-
-DescribeCommentsResponseTypeDef = TypedDict(
-    "DescribeCommentsResponseTypeDef",
-    {
-        "Comments": List["CommentTypeDef"],
-        "Marker": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribeDocumentVersionsRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeDocumentVersionsRequestRequestTypeDef",
-    {
-        "DocumentId": str,
-    },
-)
-_OptionalDescribeDocumentVersionsRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeDocumentVersionsRequestRequestTypeDef",
-    {
-        "AuthenticationToken": str,
-        "Marker": str,
-        "Limit": int,
-        "Include": str,
-        "Fields": str,
-    },
-    total=False,
-)
-
-class DescribeDocumentVersionsRequestRequestTypeDef(
-    _RequiredDescribeDocumentVersionsRequestRequestTypeDef,
-    _OptionalDescribeDocumentVersionsRequestRequestTypeDef,
-):
-    pass
-
-DescribeDocumentVersionsResponseTypeDef = TypedDict(
-    "DescribeDocumentVersionsResponseTypeDef",
-    {
-        "DocumentVersions": List["DocumentVersionMetadataTypeDef"],
-        "Marker": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribeFolderContentsRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeFolderContentsRequestRequestTypeDef",
-    {
-        "FolderId": str,
-    },
-)
-_OptionalDescribeFolderContentsRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeFolderContentsRequestRequestTypeDef",
-    {
-        "AuthenticationToken": str,
-        "Sort": ResourceSortTypeType,
-        "Order": OrderTypeType,
-        "Limit": int,
-        "Marker": str,
-        "Type": FolderContentTypeType,
-        "Include": str,
-    },
-    total=False,
-)
-
-class DescribeFolderContentsRequestRequestTypeDef(
-    _RequiredDescribeFolderContentsRequestRequestTypeDef,
-    _OptionalDescribeFolderContentsRequestRequestTypeDef,
-):
-    pass
-
-DescribeFolderContentsResponseTypeDef = TypedDict(
-    "DescribeFolderContentsResponseTypeDef",
-    {
-        "Folders": List["FolderMetadataTypeDef"],
-        "Documents": List["DocumentMetadataTypeDef"],
-        "Marker": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribeGroupsRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeGroupsRequestRequestTypeDef",
-    {
-        "SearchQuery": str,
-    },
-)
-_OptionalDescribeGroupsRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeGroupsRequestRequestTypeDef",
-    {
-        "AuthenticationToken": str,
-        "OrganizationId": str,
-        "Marker": str,
-        "Limit": int,
-    },
-    total=False,
-)
-
-class DescribeGroupsRequestRequestTypeDef(
-    _RequiredDescribeGroupsRequestRequestTypeDef, _OptionalDescribeGroupsRequestRequestTypeDef
-):
-    pass
-
-DescribeGroupsResponseTypeDef = TypedDict(
-    "DescribeGroupsResponseTypeDef",
-    {
-        "Groups": List["GroupMetadataTypeDef"],
-        "Marker": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribeNotificationSubscriptionsRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeNotificationSubscriptionsRequestRequestTypeDef",
-    {
-        "OrganizationId": str,
-    },
-)
-_OptionalDescribeNotificationSubscriptionsRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeNotificationSubscriptionsRequestRequestTypeDef",
-    {
-        "Marker": str,
-        "Limit": int,
-    },
-    total=False,
-)
-
-class DescribeNotificationSubscriptionsRequestRequestTypeDef(
-    _RequiredDescribeNotificationSubscriptionsRequestRequestTypeDef,
-    _OptionalDescribeNotificationSubscriptionsRequestRequestTypeDef,
-):
-    pass
-
-DescribeNotificationSubscriptionsResponseTypeDef = TypedDict(
-    "DescribeNotificationSubscriptionsResponseTypeDef",
-    {
-        "Subscriptions": List["SubscriptionTypeDef"],
-        "Marker": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribeResourcePermissionsRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeResourcePermissionsRequestRequestTypeDef",
-    {
-        "ResourceId": str,
-    },
-)
-_OptionalDescribeResourcePermissionsRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeResourcePermissionsRequestRequestTypeDef",
-    {
-        "AuthenticationToken": str,
-        "PrincipalId": str,
-        "Limit": int,
-        "Marker": str,
-    },
-    total=False,
-)
-
-class DescribeResourcePermissionsRequestRequestTypeDef(
-    _RequiredDescribeResourcePermissionsRequestRequestTypeDef,
-    _OptionalDescribeResourcePermissionsRequestRequestTypeDef,
-):
-    pass
-
-DescribeResourcePermissionsResponseTypeDef = TypedDict(
-    "DescribeResourcePermissionsResponseTypeDef",
-    {
-        "Principals": List["PrincipalTypeDef"],
-        "Marker": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribeRootFoldersRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeRootFoldersRequestRequestTypeDef",
-    {
-        "AuthenticationToken": str,
-    },
-)
-_OptionalDescribeRootFoldersRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeRootFoldersRequestRequestTypeDef",
-    {
-        "Limit": int,
-        "Marker": str,
-    },
-    total=False,
-)
-
-class DescribeRootFoldersRequestRequestTypeDef(
-    _RequiredDescribeRootFoldersRequestRequestTypeDef,
-    _OptionalDescribeRootFoldersRequestRequestTypeDef,
-):
-    pass
-
-DescribeRootFoldersResponseTypeDef = TypedDict(
-    "DescribeRootFoldersResponseTypeDef",
-    {
-        "Folders": List["FolderMetadataTypeDef"],
-        "Marker": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeUsersRequestRequestTypeDef = TypedDict(
-    "DescribeUsersRequestRequestTypeDef",
-    {
-        "AuthenticationToken": str,
-        "OrganizationId": str,
-        "UserIds": str,
-        "Query": str,
-        "Include": UserFilterTypeType,
-        "Order": OrderTypeType,
-        "Sort": UserSortTypeType,
-        "Marker": str,
-        "Limit": int,
-        "Fields": str,
-    },
-    total=False,
-)
-
-DescribeUsersResponseTypeDef = TypedDict(
-    "DescribeUsersResponseTypeDef",
-    {
-        "Users": List["UserTypeDef"],
-        "TotalNumberOfUsers": int,
-        "Marker": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DocumentMetadataTypeDef = TypedDict(
-    "DocumentMetadataTypeDef",
-    {
-        "Id": str,
-        "CreatorId": str,
-        "ParentFolderId": str,
-        "CreatedTimestamp": datetime,
-        "ModifiedTimestamp": datetime,
-        "LatestVersionMetadata": "DocumentVersionMetadataTypeDef",
-        "ResourceState": ResourceStateTypeType,
-        "Labels": List[str],
-    },
-    total=False,
-)
-
-DocumentVersionMetadataTypeDef = TypedDict(
-    "DocumentVersionMetadataTypeDef",
-    {
-        "Id": str,
-        "Name": str,
-        "ContentType": str,
-        "Size": int,
-        "Signature": str,
-        "Status": DocumentStatusTypeType,
-        "CreatedTimestamp": datetime,
-        "ModifiedTimestamp": datetime,
-        "ContentCreatedTimestamp": datetime,
-        "ContentModifiedTimestamp": datetime,
-        "CreatorId": str,
-        "Thumbnail": Dict[DocumentThumbnailTypeType, str],
-        "Source": Dict[DocumentSourceTypeType, str],
-    },
-    total=False,
-)
-
-FiltersTypeDef = TypedDict(
-    "FiltersTypeDef",
-    {
-        "TextLocales": List[LanguageCodeTypeType],
-        "ContentCategories": List[ContentCategoryTypeType],
-        "ResourceTypes": List[SearchResourceTypeType],
-        "Labels": List[str],
-        "Principals": List["SearchPrincipalTypeTypeDef"],
-        "AncestorIds": List[str],
-        "SearchCollectionTypes": List[SearchCollectionTypeType],
-        "SizeRange": "LongRangeTypeTypeDef",
-        "CreatedRange": "DateRangeTypeTypeDef",
-        "ModifiedRange": "DateRangeTypeTypeDef",
-    },
-    total=False,
-)
-
-FolderMetadataTypeDef = TypedDict(
-    "FolderMetadataTypeDef",
-    {
-        "Id": str,
-        "Name": str,
-        "CreatorId": str,
-        "ParentFolderId": str,
-        "CreatedTimestamp": datetime,
-        "ModifiedTimestamp": datetime,
-        "ResourceState": ResourceStateTypeType,
-        "Signature": str,
-        "Labels": List[str],
-        "Size": int,
-        "LatestVersionSize": int,
-    },
-    total=False,
-)
-
-GetCurrentUserRequestRequestTypeDef = TypedDict(
-    "GetCurrentUserRequestRequestTypeDef",
-    {
-        "AuthenticationToken": str,
-    },
-)
-
-GetCurrentUserResponseTypeDef = TypedDict(
-    "GetCurrentUserResponseTypeDef",
-    {
-        "User": "UserTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetDocumentPathRequestRequestTypeDef = TypedDict(
-    "_RequiredGetDocumentPathRequestRequestTypeDef",
-    {
-        "DocumentId": str,
-    },
-)
-_OptionalGetDocumentPathRequestRequestTypeDef = TypedDict(
-    "_OptionalGetDocumentPathRequestRequestTypeDef",
-    {
-        "AuthenticationToken": str,
-        "Limit": int,
-        "Fields": str,
-        "Marker": str,
-    },
-    total=False,
-)
-
-class GetDocumentPathRequestRequestTypeDef(
-    _RequiredGetDocumentPathRequestRequestTypeDef, _OptionalGetDocumentPathRequestRequestTypeDef
-):
-    pass
-
-GetDocumentPathResponseTypeDef = TypedDict(
-    "GetDocumentPathResponseTypeDef",
-    {
-        "Path": "ResourcePathTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetDocumentRequestRequestTypeDef = TypedDict(
-    "_RequiredGetDocumentRequestRequestTypeDef",
-    {
-        "DocumentId": str,
-    },
-)
-_OptionalGetDocumentRequestRequestTypeDef = TypedDict(
-    "_OptionalGetDocumentRequestRequestTypeDef",
-    {
-        "AuthenticationToken": str,
-        "IncludeCustomMetadata": bool,
-    },
-    total=False,
-)
-
-class GetDocumentRequestRequestTypeDef(
-    _RequiredGetDocumentRequestRequestTypeDef, _OptionalGetDocumentRequestRequestTypeDef
-):
-    pass
-
-GetDocumentResponseTypeDef = TypedDict(
-    "GetDocumentResponseTypeDef",
-    {
-        "Metadata": "DocumentMetadataTypeDef",
-        "CustomMetadata": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetDocumentVersionRequestRequestTypeDef = TypedDict(
-    "_RequiredGetDocumentVersionRequestRequestTypeDef",
-    {
-        "DocumentId": str,
-        "VersionId": str,
-    },
-)
-_OptionalGetDocumentVersionRequestRequestTypeDef = TypedDict(
-    "_OptionalGetDocumentVersionRequestRequestTypeDef",
-    {
-        "AuthenticationToken": str,
-        "Fields": str,
-        "IncludeCustomMetadata": bool,
-    },
-    total=False,
-)
-
-class GetDocumentVersionRequestRequestTypeDef(
-    _RequiredGetDocumentVersionRequestRequestTypeDef,
-    _OptionalGetDocumentVersionRequestRequestTypeDef,
-):
-    pass
-
-GetDocumentVersionResponseTypeDef = TypedDict(
-    "GetDocumentVersionResponseTypeDef",
-    {
-        "Metadata": "DocumentVersionMetadataTypeDef",
-        "CustomMetadata": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetFolderPathRequestRequestTypeDef = TypedDict(
-    "_RequiredGetFolderPathRequestRequestTypeDef",
-    {
-        "FolderId": str,
-    },
-)
-_OptionalGetFolderPathRequestRequestTypeDef = TypedDict(
-    "_OptionalGetFolderPathRequestRequestTypeDef",
-    {
-        "AuthenticationToken": str,
-        "Limit": int,
-        "Fields": str,
-        "Marker": str,
-    },
-    total=False,
-)
-
-class GetFolderPathRequestRequestTypeDef(
-    _RequiredGetFolderPathRequestRequestTypeDef, _OptionalGetFolderPathRequestRequestTypeDef
-):
-    pass
-
-GetFolderPathResponseTypeDef = TypedDict(
-    "GetFolderPathResponseTypeDef",
-    {
-        "Path": "ResourcePathTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetFolderRequestRequestTypeDef = TypedDict(
-    "_RequiredGetFolderRequestRequestTypeDef",
-    {
-        "FolderId": str,
-    },
-)
-_OptionalGetFolderRequestRequestTypeDef = TypedDict(
-    "_OptionalGetFolderRequestRequestTypeDef",
-    {
-        "AuthenticationToken": str,
-        "IncludeCustomMetadata": bool,
-    },
-    total=False,
-)
-
-class GetFolderRequestRequestTypeDef(
-    _RequiredGetFolderRequestRequestTypeDef, _OptionalGetFolderRequestRequestTypeDef
-):
-    pass
-
-GetFolderResponseTypeDef = TypedDict(
-    "GetFolderResponseTypeDef",
-    {
-        "Metadata": "FolderMetadataTypeDef",
-        "CustomMetadata": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetResourcesRequestRequestTypeDef = TypedDict(
-    "GetResourcesRequestRequestTypeDef",
-    {
-        "AuthenticationToken": str,
-        "UserId": str,
-        "CollectionType": Literal["SHARED_WITH_ME"],
-        "Limit": int,
-        "Marker": str,
-    },
-    total=False,
-)
-
-GetResourcesResponseTypeDef = TypedDict(
-    "GetResourcesResponseTypeDef",
-    {
-        "Folders": List["FolderMetadataTypeDef"],
-        "Documents": List["DocumentMetadataTypeDef"],
-        "Marker": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GroupMetadataTypeDef = TypedDict(
-    "GroupMetadataTypeDef",
-    {
-        "Id": str,
-        "Name": str,
-    },
-    total=False,
-)
-
-InitiateDocumentVersionUploadRequestRequestTypeDef = TypedDict(
-    "InitiateDocumentVersionUploadRequestRequestTypeDef",
-    {
-        "AuthenticationToken": str,
-        "Id": str,
-        "Name": str,
-        "ContentCreatedTimestamp": Union[datetime, str],
-        "ContentModifiedTimestamp": Union[datetime, str],
-        "ContentType": str,
-        "DocumentSizeInBytes": int,
-        "ParentFolderId": str,
-    },
-    total=False,
-)
-
-InitiateDocumentVersionUploadResponseTypeDef = TypedDict(
-    "InitiateDocumentVersionUploadResponseTypeDef",
-    {
-        "Metadata": "DocumentMetadataTypeDef",
-        "UploadMetadata": "UploadMetadataTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-LongRangeTypeTypeDef = TypedDict(
-    "LongRangeTypeTypeDef",
-    {
-        "StartValue": int,
-        "EndValue": int,
-    },
-    total=False,
-)
-
-NotificationOptionsTypeDef = TypedDict(
-    "NotificationOptionsTypeDef",
-    {
-        "SendEmail": bool,
-        "EmailMessage": str,
-    },
-    total=False,
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-ParticipantsTypeDef = TypedDict(
-    "ParticipantsTypeDef",
-    {
-        "Users": List["UserMetadataTypeDef"],
-        "Groups": List["GroupMetadataTypeDef"],
-    },
-    total=False,
-)
-
-PermissionInfoTypeDef = TypedDict(
-    "PermissionInfoTypeDef",
-    {
-        "Role": RoleTypeType,
-        "Type": RolePermissionTypeType,
-    },
-    total=False,
-)
-
-PrincipalTypeDef = TypedDict(
-    "PrincipalTypeDef",
-    {
-        "Id": str,
-        "Type": PrincipalTypeType,
-        "Roles": List["PermissionInfoTypeDef"],
-    },
-    total=False,
-)
-
-_RequiredRemoveAllResourcePermissionsRequestRequestTypeDef = TypedDict(
-    "_RequiredRemoveAllResourcePermissionsRequestRequestTypeDef",
-    {
-        "ResourceId": str,
-    },
-)
-_OptionalRemoveAllResourcePermissionsRequestRequestTypeDef = TypedDict(
-    "_OptionalRemoveAllResourcePermissionsRequestRequestTypeDef",
-    {
-        "AuthenticationToken": str,
-    },
-    total=False,
-)
-
-class RemoveAllResourcePermissionsRequestRequestTypeDef(
-    _RequiredRemoveAllResourcePermissionsRequestRequestTypeDef,
-    _OptionalRemoveAllResourcePermissionsRequestRequestTypeDef,
-):
-    pass
-
-_RequiredRemoveResourcePermissionRequestRequestTypeDef = TypedDict(
-    "_RequiredRemoveResourcePermissionRequestRequestTypeDef",
-    {
-        "ResourceId": str,
-        "PrincipalId": str,
-    },
-)
-_OptionalRemoveResourcePermissionRequestRequestTypeDef = TypedDict(
-    "_OptionalRemoveResourcePermissionRequestRequestTypeDef",
-    {
-        "AuthenticationToken": str,
-        "PrincipalType": PrincipalTypeType,
-    },
-    total=False,
-)
-
-class RemoveResourcePermissionRequestRequestTypeDef(
-    _RequiredRemoveResourcePermissionRequestRequestTypeDef,
-    _OptionalRemoveResourcePermissionRequestRequestTypeDef,
-):
-    pass
-
-ResourceMetadataTypeDef = TypedDict(
-    "ResourceMetadataTypeDef",
-    {
-        "Type": ResourceTypeType,
-        "Name": str,
-        "OriginalName": str,
-        "Id": str,
-        "VersionId": str,
-        "Owner": "UserMetadataTypeDef",
-        "ParentId": str,
-    },
-    total=False,
-)
-
-ResourcePathComponentTypeDef = TypedDict(
-    "ResourcePathComponentTypeDef",
-    {
-        "Id": str,
-        "Name": str,
-    },
-    total=False,
-)
-
-ResourcePathTypeDef = TypedDict(
-    "ResourcePathTypeDef",
-    {
-        "Components": List["ResourcePathComponentTypeDef"],
-    },
-    total=False,
-)
-
-ResponseItemTypeDef = TypedDict(
-    "ResponseItemTypeDef",
-    {
-        "ResourceType": ResponseItemTypeType,
-        "WebUrl": str,
-        "DocumentMetadata": "DocumentMetadataTypeDef",
-        "FolderMetadata": "FolderMetadataTypeDef",
-        "CommentMetadata": "CommentMetadataTypeDef",
-        "DocumentVersionMetadata": "DocumentVersionMetadataTypeDef",
-    },
-    total=False,
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-_RequiredRestoreDocumentVersionsRequestRequestTypeDef = TypedDict(
-    "_RequiredRestoreDocumentVersionsRequestRequestTypeDef",
-    {
-        "DocumentId": str,
-    },
-)
-_OptionalRestoreDocumentVersionsRequestRequestTypeDef = TypedDict(
-    "_OptionalRestoreDocumentVersionsRequestRequestTypeDef",
-    {
-        "AuthenticationToken": str,
-    },
-    total=False,
-)
-
-class RestoreDocumentVersionsRequestRequestTypeDef(
-    _RequiredRestoreDocumentVersionsRequestRequestTypeDef,
-    _OptionalRestoreDocumentVersionsRequestRequestTypeDef,
-):
-    pass
-
-_RequiredSearchPrincipalTypeTypeDef = TypedDict(
-    "_RequiredSearchPrincipalTypeTypeDef",
-    {
-        "Id": str,
-    },
-)
-_OptionalSearchPrincipalTypeTypeDef = TypedDict(
-    "_OptionalSearchPrincipalTypeTypeDef",
-    {
-        "Roles": List[PrincipalRoleTypeType],
-    },
-    total=False,
-)
-
-class SearchPrincipalTypeTypeDef(
-    _RequiredSearchPrincipalTypeTypeDef, _OptionalSearchPrincipalTypeTypeDef
-):
-    pass
-
-SearchResourcesRequestRequestTypeDef = TypedDict(
-    "SearchResourcesRequestRequestTypeDef",
-    {
-        "AuthenticationToken": str,
-        "QueryText": str,
-        "QueryScopes": List[SearchQueryScopeTypeType],
-        "OrganizationId": str,
-        "AdditionalResponseFields": List[Literal["WEBURL"]],
-        "Filters": "FiltersTypeDef",
-        "OrderBy": List["SearchSortResultTypeDef"],
-        "Limit": int,
-        "Marker": str,
-    },
-    total=False,
-)
-
-SearchResourcesResponseTypeDef = TypedDict(
-    "SearchResourcesResponseTypeDef",
-    {
-        "Items": List["ResponseItemTypeDef"],
-        "Marker": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-SearchSortResultTypeDef = TypedDict(
-    "SearchSortResultTypeDef",
-    {
-        "Field": OrderByFieldTypeType,
-        "Order": SortOrderType,
-    },
-    total=False,
-)
+class AbortDocumentVersionUploadRequestTypeDef(TypedDict):
+    DocumentId: str
+    VersionId: str
+    AuthenticationToken: NotRequired[str]
+
+class ActivateUserRequestTypeDef(TypedDict):
+    UserId: str
+    AuthenticationToken: NotRequired[str]
+
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
+
+class UserMetadataTypeDef(TypedDict):
+    Id: NotRequired[str]
+    Username: NotRequired[str]
+    GivenName: NotRequired[str]
+    Surname: NotRequired[str]
+    EmailAddress: NotRequired[str]
+
+class NotificationOptionsTypeDef(TypedDict):
+    SendEmail: NotRequired[bool]
+    EmailMessage: NotRequired[str]
 
 SharePrincipalTypeDef = TypedDict(
     "SharePrincipalTypeDef",
@@ -1449,186 +216,708 @@ SharePrincipalTypeDef = TypedDict(
     },
 )
 
-ShareResultTypeDef = TypedDict(
-    "ShareResultTypeDef",
-    {
-        "PrincipalId": str,
-        "InviteePrincipalId": str,
-        "Role": RoleTypeType,
-        "Status": ShareStatusTypeType,
-        "ShareId": str,
-        "StatusMessage": str,
-    },
-    total=False,
-)
+class ShareResultTypeDef(TypedDict):
+    PrincipalId: NotRequired[str]
+    InviteePrincipalId: NotRequired[str]
+    Role: NotRequired[RoleTypeType]
+    Status: NotRequired[ShareStatusTypeType]
+    ShareId: NotRequired[str]
+    StatusMessage: NotRequired[str]
 
-StorageRuleTypeTypeDef = TypedDict(
-    "StorageRuleTypeTypeDef",
-    {
-        "StorageAllocatedInBytes": int,
-        "StorageType": StorageTypeType,
-    },
-    total=False,
-)
-
-SubscriptionTypeDef = TypedDict(
-    "SubscriptionTypeDef",
-    {
-        "SubscriptionId": str,
-        "EndPoint": str,
-        "Protocol": SubscriptionProtocolTypeType,
-    },
-    total=False,
-)
-
-_RequiredUpdateDocumentRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateDocumentRequestRequestTypeDef",
-    {
-        "DocumentId": str,
-    },
-)
-_OptionalUpdateDocumentRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateDocumentRequestRequestTypeDef",
-    {
-        "AuthenticationToken": str,
-        "Name": str,
-        "ParentFolderId": str,
-        "ResourceState": ResourceStateTypeType,
-    },
-    total=False,
-)
-
-class UpdateDocumentRequestRequestTypeDef(
-    _RequiredUpdateDocumentRequestRequestTypeDef, _OptionalUpdateDocumentRequestRequestTypeDef
-):
-    pass
-
-_RequiredUpdateDocumentVersionRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateDocumentVersionRequestRequestTypeDef",
+CreateCommentRequestTypeDef = TypedDict(
+    "CreateCommentRequestTypeDef",
     {
         "DocumentId": str,
         "VersionId": str,
+        "Text": str,
+        "AuthenticationToken": NotRequired[str],
+        "ParentId": NotRequired[str],
+        "ThreadId": NotRequired[str],
+        "Visibility": NotRequired[CommentVisibilityTypeType],
+        "NotifyCollaborators": NotRequired[bool],
     },
 )
-_OptionalUpdateDocumentVersionRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateDocumentVersionRequestRequestTypeDef",
+
+class CreateCustomMetadataRequestTypeDef(TypedDict):
+    ResourceId: str
+    CustomMetadata: Mapping[str, str]
+    AuthenticationToken: NotRequired[str]
+    VersionId: NotRequired[str]
+
+class CreateFolderRequestTypeDef(TypedDict):
+    ParentFolderId: str
+    AuthenticationToken: NotRequired[str]
+    Name: NotRequired[str]
+
+class FolderMetadataTypeDef(TypedDict):
+    Id: NotRequired[str]
+    Name: NotRequired[str]
+    CreatorId: NotRequired[str]
+    ParentFolderId: NotRequired[str]
+    CreatedTimestamp: NotRequired[datetime]
+    ModifiedTimestamp: NotRequired[datetime]
+    ResourceState: NotRequired[ResourceStateTypeType]
+    Signature: NotRequired[str]
+    Labels: NotRequired[List[str]]
+    Size: NotRequired[int]
+    LatestVersionSize: NotRequired[int]
+
+class CreateLabelsRequestTypeDef(TypedDict):
+    ResourceId: str
+    Labels: Sequence[str]
+    AuthenticationToken: NotRequired[str]
+
+CreateNotificationSubscriptionRequestTypeDef = TypedDict(
+    "CreateNotificationSubscriptionRequestTypeDef",
     {
-        "AuthenticationToken": str,
-        "VersionStatus": Literal["ACTIVE"],
+        "OrganizationId": str,
+        "Endpoint": str,
+        "Protocol": SubscriptionProtocolTypeType,
+        "SubscriptionType": Literal["ALL"],
     },
-    total=False,
+)
+SubscriptionTypeDef = TypedDict(
+    "SubscriptionTypeDef",
+    {
+        "SubscriptionId": NotRequired[str],
+        "EndPoint": NotRequired[str],
+        "Protocol": NotRequired[SubscriptionProtocolTypeType],
+    },
 )
 
-class UpdateDocumentVersionRequestRequestTypeDef(
-    _RequiredUpdateDocumentVersionRequestRequestTypeDef,
-    _OptionalUpdateDocumentVersionRequestRequestTypeDef,
-):
-    pass
+class StorageRuleTypeTypeDef(TypedDict):
+    StorageAllocatedInBytes: NotRequired[int]
+    StorageType: NotRequired[StorageTypeType]
 
-_RequiredUpdateFolderRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateFolderRequestRequestTypeDef",
+TimestampTypeDef = Union[datetime, str]
+
+class DeactivateUserRequestTypeDef(TypedDict):
+    UserId: str
+    AuthenticationToken: NotRequired[str]
+
+class DeleteCommentRequestTypeDef(TypedDict):
+    DocumentId: str
+    VersionId: str
+    CommentId: str
+    AuthenticationToken: NotRequired[str]
+
+class DeleteCustomMetadataRequestTypeDef(TypedDict):
+    ResourceId: str
+    AuthenticationToken: NotRequired[str]
+    VersionId: NotRequired[str]
+    Keys: NotRequired[Sequence[str]]
+    DeleteAll: NotRequired[bool]
+
+class DeleteDocumentRequestTypeDef(TypedDict):
+    DocumentId: str
+    AuthenticationToken: NotRequired[str]
+
+class DeleteDocumentVersionRequestTypeDef(TypedDict):
+    DocumentId: str
+    VersionId: str
+    DeletePriorVersions: bool
+    AuthenticationToken: NotRequired[str]
+
+class DeleteFolderContentsRequestTypeDef(TypedDict):
+    FolderId: str
+    AuthenticationToken: NotRequired[str]
+
+class DeleteFolderRequestTypeDef(TypedDict):
+    FolderId: str
+    AuthenticationToken: NotRequired[str]
+
+class DeleteLabelsRequestTypeDef(TypedDict):
+    ResourceId: str
+    AuthenticationToken: NotRequired[str]
+    Labels: NotRequired[Sequence[str]]
+    DeleteAll: NotRequired[bool]
+
+class DeleteNotificationSubscriptionRequestTypeDef(TypedDict):
+    SubscriptionId: str
+    OrganizationId: str
+
+class DeleteUserRequestTypeDef(TypedDict):
+    UserId: str
+    AuthenticationToken: NotRequired[str]
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class DescribeCommentsRequestTypeDef(TypedDict):
+    DocumentId: str
+    VersionId: str
+    AuthenticationToken: NotRequired[str]
+    Limit: NotRequired[int]
+    Marker: NotRequired[str]
+
+class DescribeDocumentVersionsRequestTypeDef(TypedDict):
+    DocumentId: str
+    AuthenticationToken: NotRequired[str]
+    Marker: NotRequired[str]
+    Limit: NotRequired[int]
+    Include: NotRequired[str]
+    Fields: NotRequired[str]
+
+class DocumentVersionMetadataTypeDef(TypedDict):
+    Id: NotRequired[str]
+    Name: NotRequired[str]
+    ContentType: NotRequired[str]
+    Size: NotRequired[int]
+    Signature: NotRequired[str]
+    Status: NotRequired[DocumentStatusTypeType]
+    CreatedTimestamp: NotRequired[datetime]
+    ModifiedTimestamp: NotRequired[datetime]
+    ContentCreatedTimestamp: NotRequired[datetime]
+    ContentModifiedTimestamp: NotRequired[datetime]
+    CreatorId: NotRequired[str]
+    Thumbnail: NotRequired[Dict[DocumentThumbnailTypeType, str]]
+    Source: NotRequired[Dict[DocumentSourceTypeType, str]]
+
+DescribeFolderContentsRequestTypeDef = TypedDict(
+    "DescribeFolderContentsRequestTypeDef",
     {
         "FolderId": str,
+        "AuthenticationToken": NotRequired[str],
+        "Sort": NotRequired[ResourceSortTypeType],
+        "Order": NotRequired[OrderTypeType],
+        "Limit": NotRequired[int],
+        "Marker": NotRequired[str],
+        "Type": NotRequired[FolderContentTypeType],
+        "Include": NotRequired[str],
     },
 )
-_OptionalUpdateFolderRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateFolderRequestRequestTypeDef",
+
+class DescribeGroupsRequestTypeDef(TypedDict):
+    SearchQuery: str
+    AuthenticationToken: NotRequired[str]
+    OrganizationId: NotRequired[str]
+    Marker: NotRequired[str]
+    Limit: NotRequired[int]
+
+class GroupMetadataTypeDef(TypedDict):
+    Id: NotRequired[str]
+    Name: NotRequired[str]
+
+class DescribeNotificationSubscriptionsRequestTypeDef(TypedDict):
+    OrganizationId: str
+    Marker: NotRequired[str]
+    Limit: NotRequired[int]
+
+class DescribeResourcePermissionsRequestTypeDef(TypedDict):
+    ResourceId: str
+    AuthenticationToken: NotRequired[str]
+    PrincipalId: NotRequired[str]
+    Limit: NotRequired[int]
+    Marker: NotRequired[str]
+
+class DescribeRootFoldersRequestTypeDef(TypedDict):
+    AuthenticationToken: str
+    Limit: NotRequired[int]
+    Marker: NotRequired[str]
+
+class DescribeUsersRequestTypeDef(TypedDict):
+    AuthenticationToken: NotRequired[str]
+    OrganizationId: NotRequired[str]
+    UserIds: NotRequired[str]
+    Query: NotRequired[str]
+    Include: NotRequired[UserFilterTypeType]
+    Order: NotRequired[OrderTypeType]
+    Sort: NotRequired[UserSortTypeType]
+    Marker: NotRequired[str]
+    Limit: NotRequired[int]
+    Fields: NotRequired[str]
+
+class LongRangeTypeTypeDef(TypedDict):
+    StartValue: NotRequired[int]
+    EndValue: NotRequired[int]
+
+class SearchPrincipalTypeTypeDef(TypedDict):
+    Id: str
+    Roles: NotRequired[Sequence[PrincipalRoleTypeType]]
+
+class GetCurrentUserRequestTypeDef(TypedDict):
+    AuthenticationToken: str
+
+class GetDocumentPathRequestTypeDef(TypedDict):
+    DocumentId: str
+    AuthenticationToken: NotRequired[str]
+    Limit: NotRequired[int]
+    Fields: NotRequired[str]
+    Marker: NotRequired[str]
+
+class GetDocumentRequestTypeDef(TypedDict):
+    DocumentId: str
+    AuthenticationToken: NotRequired[str]
+    IncludeCustomMetadata: NotRequired[bool]
+
+class GetDocumentVersionRequestTypeDef(TypedDict):
+    DocumentId: str
+    VersionId: str
+    AuthenticationToken: NotRequired[str]
+    Fields: NotRequired[str]
+    IncludeCustomMetadata: NotRequired[bool]
+
+class GetFolderPathRequestTypeDef(TypedDict):
+    FolderId: str
+    AuthenticationToken: NotRequired[str]
+    Limit: NotRequired[int]
+    Fields: NotRequired[str]
+    Marker: NotRequired[str]
+
+class GetFolderRequestTypeDef(TypedDict):
+    FolderId: str
+    AuthenticationToken: NotRequired[str]
+    IncludeCustomMetadata: NotRequired[bool]
+
+class GetResourcesRequestTypeDef(TypedDict):
+    AuthenticationToken: NotRequired[str]
+    UserId: NotRequired[str]
+    CollectionType: NotRequired[Literal["SHARED_WITH_ME"]]
+    Limit: NotRequired[int]
+    Marker: NotRequired[str]
+
+class UploadMetadataTypeDef(TypedDict):
+    UploadUrl: NotRequired[str]
+    SignedHeaders: NotRequired[Dict[str, str]]
+
+PermissionInfoTypeDef = TypedDict(
+    "PermissionInfoTypeDef",
     {
-        "AuthenticationToken": str,
-        "Name": str,
-        "ParentFolderId": str,
-        "ResourceState": ResourceStateTypeType,
+        "Role": NotRequired[RoleTypeType],
+        "Type": NotRequired[RolePermissionTypeType],
     },
-    total=False,
 )
 
-class UpdateFolderRequestRequestTypeDef(
-    _RequiredUpdateFolderRequestRequestTypeDef, _OptionalUpdateFolderRequestRequestTypeDef
-):
-    pass
+class RemoveAllResourcePermissionsRequestTypeDef(TypedDict):
+    ResourceId: str
+    AuthenticationToken: NotRequired[str]
 
-_RequiredUpdateUserRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateUserRequestRequestTypeDef",
+class RemoveResourcePermissionRequestTypeDef(TypedDict):
+    ResourceId: str
+    PrincipalId: str
+    AuthenticationToken: NotRequired[str]
+    PrincipalType: NotRequired[PrincipalTypeType]
+
+class ResourcePathComponentTypeDef(TypedDict):
+    Id: NotRequired[str]
+    Name: NotRequired[str]
+
+class RestoreDocumentVersionsRequestTypeDef(TypedDict):
+    DocumentId: str
+    AuthenticationToken: NotRequired[str]
+
+class SearchSortResultTypeDef(TypedDict):
+    Field: NotRequired[OrderByFieldTypeType]
+    Order: NotRequired[SortOrderType]
+
+class UpdateDocumentRequestTypeDef(TypedDict):
+    DocumentId: str
+    AuthenticationToken: NotRequired[str]
+    Name: NotRequired[str]
+    ParentFolderId: NotRequired[str]
+    ResourceState: NotRequired[ResourceStateTypeType]
+
+class UpdateDocumentVersionRequestTypeDef(TypedDict):
+    DocumentId: str
+    VersionId: str
+    AuthenticationToken: NotRequired[str]
+    VersionStatus: NotRequired[Literal["ACTIVE"]]
+
+class UpdateFolderRequestTypeDef(TypedDict):
+    FolderId: str
+    AuthenticationToken: NotRequired[str]
+    Name: NotRequired[str]
+    ParentFolderId: NotRequired[str]
+    ResourceState: NotRequired[ResourceStateTypeType]
+
+class EmptyResponseMetadataTypeDef(TypedDict):
+    ResponseMetadata: ResponseMetadataTypeDef
+
+ResourceMetadataTypeDef = TypedDict(
+    "ResourceMetadataTypeDef",
+    {
+        "Type": NotRequired[ResourceTypeType],
+        "Name": NotRequired[str],
+        "OriginalName": NotRequired[str],
+        "Id": NotRequired[str],
+        "VersionId": NotRequired[str],
+        "Owner": NotRequired[UserMetadataTypeDef],
+        "ParentId": NotRequired[str],
+    },
+)
+
+class AddResourcePermissionsRequestTypeDef(TypedDict):
+    ResourceId: str
+    Principals: Sequence[SharePrincipalTypeDef]
+    AuthenticationToken: NotRequired[str]
+    NotificationOptions: NotRequired[NotificationOptionsTypeDef]
+
+class AddResourcePermissionsResponseTypeDef(TypedDict):
+    ShareResults: List[ShareResultTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateFolderResponseTypeDef(TypedDict):
+    Metadata: FolderMetadataTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeRootFoldersResponseTypeDef(TypedDict):
+    Folders: List[FolderMetadataTypeDef]
+    Marker: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetFolderResponseTypeDef(TypedDict):
+    Metadata: FolderMetadataTypeDef
+    CustomMetadata: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateNotificationSubscriptionResponseTypeDef(TypedDict):
+    Subscription: SubscriptionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeNotificationSubscriptionsResponseTypeDef(TypedDict):
+    Subscriptions: List[SubscriptionTypeDef]
+    Marker: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateUserRequestTypeDef(TypedDict):
+    Username: str
+    GivenName: str
+    Surname: str
+    Password: str
+    OrganizationId: NotRequired[str]
+    EmailAddress: NotRequired[str]
+    TimeZoneId: NotRequired[str]
+    StorageRule: NotRequired[StorageRuleTypeTypeDef]
+    AuthenticationToken: NotRequired[str]
+
+UpdateUserRequestTypeDef = TypedDict(
+    "UpdateUserRequestTypeDef",
     {
         "UserId": str,
-    },
-)
-_OptionalUpdateUserRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateUserRequestRequestTypeDef",
-    {
-        "AuthenticationToken": str,
-        "GivenName": str,
-        "Surname": str,
-        "Type": UserTypeType,
-        "StorageRule": "StorageRuleTypeTypeDef",
-        "TimeZoneId": str,
-        "Locale": LocaleTypeType,
-        "GrantPoweruserPrivileges": BooleanEnumTypeType,
-    },
-    total=False,
-)
-
-class UpdateUserRequestRequestTypeDef(
-    _RequiredUpdateUserRequestRequestTypeDef, _OptionalUpdateUserRequestRequestTypeDef
-):
-    pass
-
-UpdateUserResponseTypeDef = TypedDict(
-    "UpdateUserResponseTypeDef",
-    {
-        "User": "UserTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "AuthenticationToken": NotRequired[str],
+        "GivenName": NotRequired[str],
+        "Surname": NotRequired[str],
+        "Type": NotRequired[UserTypeType],
+        "StorageRule": NotRequired[StorageRuleTypeTypeDef],
+        "TimeZoneId": NotRequired[str],
+        "Locale": NotRequired[LocaleTypeType],
+        "GrantPoweruserPrivileges": NotRequired[BooleanEnumTypeType],
     },
 )
 
-UploadMetadataTypeDef = TypedDict(
-    "UploadMetadataTypeDef",
+class UserStorageMetadataTypeDef(TypedDict):
+    StorageUtilizedInBytes: NotRequired[int]
+    StorageRule: NotRequired[StorageRuleTypeTypeDef]
+
+class DateRangeTypeTypeDef(TypedDict):
+    StartValue: NotRequired[TimestampTypeDef]
+    EndValue: NotRequired[TimestampTypeDef]
+
+class DescribeActivitiesRequestTypeDef(TypedDict):
+    AuthenticationToken: NotRequired[str]
+    StartTime: NotRequired[TimestampTypeDef]
+    EndTime: NotRequired[TimestampTypeDef]
+    OrganizationId: NotRequired[str]
+    ActivityTypes: NotRequired[str]
+    ResourceId: NotRequired[str]
+    UserId: NotRequired[str]
+    IncludeIndirectActivities: NotRequired[bool]
+    Limit: NotRequired[int]
+    Marker: NotRequired[str]
+
+class InitiateDocumentVersionUploadRequestTypeDef(TypedDict):
+    AuthenticationToken: NotRequired[str]
+    Id: NotRequired[str]
+    Name: NotRequired[str]
+    ContentCreatedTimestamp: NotRequired[TimestampTypeDef]
+    ContentModifiedTimestamp: NotRequired[TimestampTypeDef]
+    ContentType: NotRequired[str]
+    DocumentSizeInBytes: NotRequired[int]
+    ParentFolderId: NotRequired[str]
+
+class DescribeActivitiesRequestPaginateTypeDef(TypedDict):
+    AuthenticationToken: NotRequired[str]
+    StartTime: NotRequired[TimestampTypeDef]
+    EndTime: NotRequired[TimestampTypeDef]
+    OrganizationId: NotRequired[str]
+    ActivityTypes: NotRequired[str]
+    ResourceId: NotRequired[str]
+    UserId: NotRequired[str]
+    IncludeIndirectActivities: NotRequired[bool]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeCommentsRequestPaginateTypeDef(TypedDict):
+    DocumentId: str
+    VersionId: str
+    AuthenticationToken: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeDocumentVersionsRequestPaginateTypeDef(TypedDict):
+    DocumentId: str
+    AuthenticationToken: NotRequired[str]
+    Include: NotRequired[str]
+    Fields: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+DescribeFolderContentsRequestPaginateTypeDef = TypedDict(
+    "DescribeFolderContentsRequestPaginateTypeDef",
     {
-        "UploadUrl": str,
-        "SignedHeaders": Dict[str, str],
+        "FolderId": str,
+        "AuthenticationToken": NotRequired[str],
+        "Sort": NotRequired[ResourceSortTypeType],
+        "Order": NotRequired[OrderTypeType],
+        "Type": NotRequired[FolderContentTypeType],
+        "Include": NotRequired[str],
+        "PaginationConfig": NotRequired[PaginatorConfigTypeDef],
     },
-    total=False,
 )
 
-UserMetadataTypeDef = TypedDict(
-    "UserMetadataTypeDef",
+class DescribeGroupsRequestPaginateTypeDef(TypedDict):
+    SearchQuery: str
+    AuthenticationToken: NotRequired[str]
+    OrganizationId: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeNotificationSubscriptionsRequestPaginateTypeDef(TypedDict):
+    OrganizationId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeResourcePermissionsRequestPaginateTypeDef(TypedDict):
+    ResourceId: str
+    AuthenticationToken: NotRequired[str]
+    PrincipalId: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeRootFoldersRequestPaginateTypeDef(TypedDict):
+    AuthenticationToken: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeUsersRequestPaginateTypeDef(TypedDict):
+    AuthenticationToken: NotRequired[str]
+    OrganizationId: NotRequired[str]
+    UserIds: NotRequired[str]
+    Query: NotRequired[str]
+    Include: NotRequired[UserFilterTypeType]
+    Order: NotRequired[OrderTypeType]
+    Sort: NotRequired[UserSortTypeType]
+    Fields: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeDocumentVersionsResponseTypeDef(TypedDict):
+    DocumentVersions: List[DocumentVersionMetadataTypeDef]
+    Marker: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DocumentMetadataTypeDef(TypedDict):
+    Id: NotRequired[str]
+    CreatorId: NotRequired[str]
+    ParentFolderId: NotRequired[str]
+    CreatedTimestamp: NotRequired[datetime]
+    ModifiedTimestamp: NotRequired[datetime]
+    LatestVersionMetadata: NotRequired[DocumentVersionMetadataTypeDef]
+    ResourceState: NotRequired[ResourceStateTypeType]
+    Labels: NotRequired[List[str]]
+
+class GetDocumentVersionResponseTypeDef(TypedDict):
+    Metadata: DocumentVersionMetadataTypeDef
+    CustomMetadata: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeGroupsResponseTypeDef(TypedDict):
+    Groups: List[GroupMetadataTypeDef]
+    Marker: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ParticipantsTypeDef(TypedDict):
+    Users: NotRequired[List[UserMetadataTypeDef]]
+    Groups: NotRequired[List[GroupMetadataTypeDef]]
+
+PrincipalTypeDef = TypedDict(
+    "PrincipalTypeDef",
     {
-        "Id": str,
-        "Username": str,
-        "GivenName": str,
-        "Surname": str,
-        "EmailAddress": str,
+        "Id": NotRequired[str],
+        "Type": NotRequired[PrincipalTypeType],
+        "Roles": NotRequired[List[PermissionInfoTypeDef]],
     },
-    total=False,
 )
 
-UserStorageMetadataTypeDef = TypedDict(
-    "UserStorageMetadataTypeDef",
-    {
-        "StorageUtilizedInBytes": int,
-        "StorageRule": "StorageRuleTypeTypeDef",
-    },
-    total=False,
-)
+class ResourcePathTypeDef(TypedDict):
+    Components: NotRequired[List[ResourcePathComponentTypeDef]]
 
 UserTypeDef = TypedDict(
     "UserTypeDef",
     {
-        "Id": str,
-        "Username": str,
-        "EmailAddress": str,
-        "GivenName": str,
-        "Surname": str,
-        "OrganizationId": str,
-        "RootFolderId": str,
-        "RecycleBinFolderId": str,
-        "Status": UserStatusTypeType,
-        "Type": UserTypeType,
-        "CreatedTimestamp": datetime,
-        "ModifiedTimestamp": datetime,
-        "TimeZoneId": str,
-        "Locale": LocaleTypeType,
-        "Storage": "UserStorageMetadataTypeDef",
+        "Id": NotRequired[str],
+        "Username": NotRequired[str],
+        "EmailAddress": NotRequired[str],
+        "GivenName": NotRequired[str],
+        "Surname": NotRequired[str],
+        "OrganizationId": NotRequired[str],
+        "RootFolderId": NotRequired[str],
+        "RecycleBinFolderId": NotRequired[str],
+        "Status": NotRequired[UserStatusTypeType],
+        "Type": NotRequired[UserTypeType],
+        "CreatedTimestamp": NotRequired[datetime],
+        "ModifiedTimestamp": NotRequired[datetime],
+        "TimeZoneId": NotRequired[str],
+        "Locale": NotRequired[LocaleTypeType],
+        "Storage": NotRequired[UserStorageMetadataTypeDef],
     },
-    total=False,
 )
+
+class FiltersTypeDef(TypedDict):
+    TextLocales: NotRequired[Sequence[LanguageCodeTypeType]]
+    ContentCategories: NotRequired[Sequence[ContentCategoryTypeType]]
+    ResourceTypes: NotRequired[Sequence[SearchResourceTypeType]]
+    Labels: NotRequired[Sequence[str]]
+    Principals: NotRequired[Sequence[SearchPrincipalTypeTypeDef]]
+    AncestorIds: NotRequired[Sequence[str]]
+    SearchCollectionTypes: NotRequired[Sequence[SearchCollectionTypeType]]
+    SizeRange: NotRequired[LongRangeTypeTypeDef]
+    CreatedRange: NotRequired[DateRangeTypeTypeDef]
+    ModifiedRange: NotRequired[DateRangeTypeTypeDef]
+
+class DescribeFolderContentsResponseTypeDef(TypedDict):
+    Folders: List[FolderMetadataTypeDef]
+    Documents: List[DocumentMetadataTypeDef]
+    Marker: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetDocumentResponseTypeDef(TypedDict):
+    Metadata: DocumentMetadataTypeDef
+    CustomMetadata: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetResourcesResponseTypeDef(TypedDict):
+    Folders: List[FolderMetadataTypeDef]
+    Documents: List[DocumentMetadataTypeDef]
+    Marker: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class InitiateDocumentVersionUploadResponseTypeDef(TypedDict):
+    Metadata: DocumentMetadataTypeDef
+    UploadMetadata: UploadMetadataTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeResourcePermissionsResponseTypeDef(TypedDict):
+    Principals: List[PrincipalTypeDef]
+    Marker: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetDocumentPathResponseTypeDef(TypedDict):
+    Path: ResourcePathTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetFolderPathResponseTypeDef(TypedDict):
+    Path: ResourcePathTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ActivateUserResponseTypeDef(TypedDict):
+    User: UserTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CommentMetadataTypeDef(TypedDict):
+    CommentId: NotRequired[str]
+    Contributor: NotRequired[UserTypeDef]
+    CreatedTimestamp: NotRequired[datetime]
+    CommentStatus: NotRequired[CommentStatusTypeType]
+    RecipientId: NotRequired[str]
+    ContributorId: NotRequired[str]
+
+CommentTypeDef = TypedDict(
+    "CommentTypeDef",
+    {
+        "CommentId": str,
+        "ParentId": NotRequired[str],
+        "ThreadId": NotRequired[str],
+        "Text": NotRequired[str],
+        "Contributor": NotRequired[UserTypeDef],
+        "CreatedTimestamp": NotRequired[datetime],
+        "Status": NotRequired[CommentStatusTypeType],
+        "Visibility": NotRequired[CommentVisibilityTypeType],
+        "RecipientId": NotRequired[str],
+    },
+)
+
+class CreateUserResponseTypeDef(TypedDict):
+    User: UserTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeUsersResponseTypeDef(TypedDict):
+    Users: List[UserTypeDef]
+    TotalNumberOfUsers: int
+    Marker: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetCurrentUserResponseTypeDef(TypedDict):
+    User: UserTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateUserResponseTypeDef(TypedDict):
+    User: UserTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class SearchResourcesRequestPaginateTypeDef(TypedDict):
+    AuthenticationToken: NotRequired[str]
+    QueryText: NotRequired[str]
+    QueryScopes: NotRequired[Sequence[SearchQueryScopeTypeType]]
+    OrganizationId: NotRequired[str]
+    AdditionalResponseFields: NotRequired[Sequence[Literal["WEBURL"]]]
+    Filters: NotRequired[FiltersTypeDef]
+    OrderBy: NotRequired[Sequence[SearchSortResultTypeDef]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class SearchResourcesRequestTypeDef(TypedDict):
+    AuthenticationToken: NotRequired[str]
+    QueryText: NotRequired[str]
+    QueryScopes: NotRequired[Sequence[SearchQueryScopeTypeType]]
+    OrganizationId: NotRequired[str]
+    AdditionalResponseFields: NotRequired[Sequence[Literal["WEBURL"]]]
+    Filters: NotRequired[FiltersTypeDef]
+    OrderBy: NotRequired[Sequence[SearchSortResultTypeDef]]
+    Limit: NotRequired[int]
+    Marker: NotRequired[str]
+
+ActivityTypeDef = TypedDict(
+    "ActivityTypeDef",
+    {
+        "Type": NotRequired[ActivityTypeType],
+        "TimeStamp": NotRequired[datetime],
+        "IsIndirectActivity": NotRequired[bool],
+        "OrganizationId": NotRequired[str],
+        "Initiator": NotRequired[UserMetadataTypeDef],
+        "Participants": NotRequired[ParticipantsTypeDef],
+        "ResourceMetadata": NotRequired[ResourceMetadataTypeDef],
+        "OriginalParent": NotRequired[ResourceMetadataTypeDef],
+        "CommentMetadata": NotRequired[CommentMetadataTypeDef],
+    },
+)
+
+class ResponseItemTypeDef(TypedDict):
+    ResourceType: NotRequired[ResponseItemTypeType]
+    WebUrl: NotRequired[str]
+    DocumentMetadata: NotRequired[DocumentMetadataTypeDef]
+    FolderMetadata: NotRequired[FolderMetadataTypeDef]
+    CommentMetadata: NotRequired[CommentMetadataTypeDef]
+    DocumentVersionMetadata: NotRequired[DocumentVersionMetadataTypeDef]
+
+class CreateCommentResponseTypeDef(TypedDict):
+    Comment: CommentTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeCommentsResponseTypeDef(TypedDict):
+    Comments: List[CommentTypeDef]
+    Marker: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeActivitiesResponseTypeDef(TypedDict):
+    UserActivities: List[ActivityTypeDef]
+    Marker: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class SearchResourcesResponseTypeDef(TypedDict):
+    Items: List[ResponseItemTypeDef]
+    Marker: str
+    ResponseMetadata: ResponseMetadataTypeDef

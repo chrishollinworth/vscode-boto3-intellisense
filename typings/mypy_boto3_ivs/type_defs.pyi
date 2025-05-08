@@ -1,24 +1,31 @@
 """
 Type annotations for ivs service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ivs/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ivs/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_ivs.type_defs import AudioConfigurationTypeDef
 
-    data: AudioConfigurationTypeDef = {...}
+    data: AudioConfigurationTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
+from typing import Union
 
 from .literals import (
     ChannelLatencyModeType,
     ChannelTypeType,
+    ContainerFormatType,
+    MultitrackMaximumResolutionType,
+    MultitrackPolicyType,
     RecordingConfigurationStateType,
     RecordingModeType,
     RenditionConfigurationRenditionSelectionType,
@@ -30,85 +37,101 @@ from .literals import (
     TranscodePresetType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
     "AudioConfigurationTypeDef",
     "BatchErrorTypeDef",
-    "BatchGetChannelRequestRequestTypeDef",
+    "BatchGetChannelRequestTypeDef",
     "BatchGetChannelResponseTypeDef",
-    "BatchGetStreamKeyRequestRequestTypeDef",
+    "BatchGetStreamKeyRequestTypeDef",
     "BatchGetStreamKeyResponseTypeDef",
     "BatchStartViewerSessionRevocationErrorTypeDef",
-    "BatchStartViewerSessionRevocationRequestRequestTypeDef",
+    "BatchStartViewerSessionRevocationRequestTypeDef",
     "BatchStartViewerSessionRevocationResponseTypeDef",
     "BatchStartViewerSessionRevocationViewerSessionTypeDef",
     "ChannelSummaryTypeDef",
     "ChannelTypeDef",
-    "CreateChannelRequestRequestTypeDef",
+    "CreateChannelRequestTypeDef",
     "CreateChannelResponseTypeDef",
-    "CreatePlaybackRestrictionPolicyRequestRequestTypeDef",
+    "CreatePlaybackRestrictionPolicyRequestTypeDef",
     "CreatePlaybackRestrictionPolicyResponseTypeDef",
-    "CreateRecordingConfigurationRequestRequestTypeDef",
+    "CreateRecordingConfigurationRequestTypeDef",
     "CreateRecordingConfigurationResponseTypeDef",
-    "CreateStreamKeyRequestRequestTypeDef",
+    "CreateStreamKeyRequestTypeDef",
     "CreateStreamKeyResponseTypeDef",
-    "DeleteChannelRequestRequestTypeDef",
-    "DeletePlaybackKeyPairRequestRequestTypeDef",
-    "DeletePlaybackRestrictionPolicyRequestRequestTypeDef",
-    "DeleteRecordingConfigurationRequestRequestTypeDef",
-    "DeleteStreamKeyRequestRequestTypeDef",
+    "DeleteChannelRequestTypeDef",
+    "DeletePlaybackKeyPairRequestTypeDef",
+    "DeletePlaybackRestrictionPolicyRequestTypeDef",
+    "DeleteRecordingConfigurationRequestTypeDef",
+    "DeleteStreamKeyRequestTypeDef",
     "DestinationConfigurationTypeDef",
-    "GetChannelRequestRequestTypeDef",
+    "EmptyResponseMetadataTypeDef",
+    "GetChannelRequestTypeDef",
     "GetChannelResponseTypeDef",
-    "GetPlaybackKeyPairRequestRequestTypeDef",
+    "GetPlaybackKeyPairRequestTypeDef",
     "GetPlaybackKeyPairResponseTypeDef",
-    "GetPlaybackRestrictionPolicyRequestRequestTypeDef",
+    "GetPlaybackRestrictionPolicyRequestTypeDef",
     "GetPlaybackRestrictionPolicyResponseTypeDef",
-    "GetRecordingConfigurationRequestRequestTypeDef",
+    "GetRecordingConfigurationRequestTypeDef",
     "GetRecordingConfigurationResponseTypeDef",
-    "GetStreamKeyRequestRequestTypeDef",
+    "GetStreamKeyRequestTypeDef",
     "GetStreamKeyResponseTypeDef",
-    "GetStreamRequestRequestTypeDef",
+    "GetStreamRequestTypeDef",
     "GetStreamResponseTypeDef",
-    "GetStreamSessionRequestRequestTypeDef",
+    "GetStreamSessionRequestTypeDef",
     "GetStreamSessionResponseTypeDef",
-    "ImportPlaybackKeyPairRequestRequestTypeDef",
+    "ImportPlaybackKeyPairRequestTypeDef",
     "ImportPlaybackKeyPairResponseTypeDef",
     "IngestConfigurationTypeDef",
-    "ListChannelsRequestRequestTypeDef",
+    "IngestConfigurationsTypeDef",
+    "ListChannelsRequestPaginateTypeDef",
+    "ListChannelsRequestTypeDef",
     "ListChannelsResponseTypeDef",
-    "ListPlaybackKeyPairsRequestRequestTypeDef",
+    "ListPlaybackKeyPairsRequestPaginateTypeDef",
+    "ListPlaybackKeyPairsRequestTypeDef",
     "ListPlaybackKeyPairsResponseTypeDef",
-    "ListPlaybackRestrictionPoliciesRequestRequestTypeDef",
+    "ListPlaybackRestrictionPoliciesRequestTypeDef",
     "ListPlaybackRestrictionPoliciesResponseTypeDef",
-    "ListRecordingConfigurationsRequestRequestTypeDef",
+    "ListRecordingConfigurationsRequestPaginateTypeDef",
+    "ListRecordingConfigurationsRequestTypeDef",
     "ListRecordingConfigurationsResponseTypeDef",
-    "ListStreamKeysRequestRequestTypeDef",
+    "ListStreamKeysRequestPaginateTypeDef",
+    "ListStreamKeysRequestTypeDef",
     "ListStreamKeysResponseTypeDef",
-    "ListStreamSessionsRequestRequestTypeDef",
+    "ListStreamSessionsRequestTypeDef",
     "ListStreamSessionsResponseTypeDef",
-    "ListStreamsRequestRequestTypeDef",
+    "ListStreamsRequestPaginateTypeDef",
+    "ListStreamsRequestTypeDef",
     "ListStreamsResponseTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
+    "MultitrackInputConfigurationTypeDef",
     "PaginatorConfigTypeDef",
     "PlaybackKeyPairSummaryTypeDef",
     "PlaybackKeyPairTypeDef",
     "PlaybackRestrictionPolicySummaryTypeDef",
     "PlaybackRestrictionPolicyTypeDef",
-    "PutMetadataRequestRequestTypeDef",
+    "PutMetadataRequestTypeDef",
     "RecordingConfigurationSummaryTypeDef",
     "RecordingConfigurationTypeDef",
+    "RenditionConfigurationOutputTypeDef",
     "RenditionConfigurationTypeDef",
+    "RenditionConfigurationUnionTypeDef",
     "ResponseMetadataTypeDef",
     "S3DestinationConfigurationTypeDef",
     "SrtTypeDef",
-    "StartViewerSessionRevocationRequestRequestTypeDef",
-    "StopStreamRequestRequestTypeDef",
+    "StartViewerSessionRevocationRequestTypeDef",
+    "StopStreamRequestTypeDef",
     "StreamEventTypeDef",
     "StreamFiltersTypeDef",
     "StreamKeySummaryTypeDef",
@@ -117,1025 +140,549 @@ __all__ = (
     "StreamSessionTypeDef",
     "StreamSummaryTypeDef",
     "StreamTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
+    "ThumbnailConfigurationOutputTypeDef",
     "ThumbnailConfigurationTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateChannelRequestRequestTypeDef",
+    "ThumbnailConfigurationUnionTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateChannelRequestTypeDef",
     "UpdateChannelResponseTypeDef",
-    "UpdatePlaybackRestrictionPolicyRequestRequestTypeDef",
+    "UpdatePlaybackRestrictionPolicyRequestTypeDef",
     "UpdatePlaybackRestrictionPolicyResponseTypeDef",
     "VideoConfigurationTypeDef",
 )
 
-AudioConfigurationTypeDef = TypedDict(
-    "AudioConfigurationTypeDef",
-    {
-        "channels": int,
-        "codec": str,
-        "sampleRate": int,
-        "targetBitrate": int,
-    },
-    total=False,
-)
+class AudioConfigurationTypeDef(TypedDict):
+    channels: NotRequired[int]
+    codec: NotRequired[str]
+    sampleRate: NotRequired[int]
+    targetBitrate: NotRequired[int]
+    track: NotRequired[str]
 
-BatchErrorTypeDef = TypedDict(
-    "BatchErrorTypeDef",
-    {
-        "arn": str,
-        "code": str,
-        "message": str,
-    },
-    total=False,
-)
+class BatchErrorTypeDef(TypedDict):
+    arn: NotRequired[str]
+    code: NotRequired[str]
+    message: NotRequired[str]
 
-BatchGetChannelRequestRequestTypeDef = TypedDict(
-    "BatchGetChannelRequestRequestTypeDef",
-    {
-        "arns": List[str],
-    },
-)
+class BatchGetChannelRequestTypeDef(TypedDict):
+    arns: Sequence[str]
 
-BatchGetChannelResponseTypeDef = TypedDict(
-    "BatchGetChannelResponseTypeDef",
-    {
-        "channels": List["ChannelTypeDef"],
-        "errors": List["BatchErrorTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-BatchGetStreamKeyRequestRequestTypeDef = TypedDict(
-    "BatchGetStreamKeyRequestRequestTypeDef",
-    {
-        "arns": List[str],
-    },
-)
+class BatchGetStreamKeyRequestTypeDef(TypedDict):
+    arns: Sequence[str]
 
-BatchGetStreamKeyResponseTypeDef = TypedDict(
-    "BatchGetStreamKeyResponseTypeDef",
-    {
-        "errors": List["BatchErrorTypeDef"],
-        "streamKeys": List["StreamKeyTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class StreamKeyTypeDef(TypedDict):
+    arn: NotRequired[str]
+    channelArn: NotRequired[str]
+    tags: NotRequired[Dict[str, str]]
+    value: NotRequired[str]
 
-_RequiredBatchStartViewerSessionRevocationErrorTypeDef = TypedDict(
-    "_RequiredBatchStartViewerSessionRevocationErrorTypeDef",
-    {
-        "channelArn": str,
-        "viewerId": str,
-    },
-)
-_OptionalBatchStartViewerSessionRevocationErrorTypeDef = TypedDict(
-    "_OptionalBatchStartViewerSessionRevocationErrorTypeDef",
-    {
-        "code": str,
-        "message": str,
-    },
-    total=False,
-)
+class BatchStartViewerSessionRevocationErrorTypeDef(TypedDict):
+    channelArn: str
+    viewerId: str
+    code: NotRequired[str]
+    message: NotRequired[str]
 
-class BatchStartViewerSessionRevocationErrorTypeDef(
-    _RequiredBatchStartViewerSessionRevocationErrorTypeDef,
-    _OptionalBatchStartViewerSessionRevocationErrorTypeDef,
-):
-    pass
-
-BatchStartViewerSessionRevocationRequestRequestTypeDef = TypedDict(
-    "BatchStartViewerSessionRevocationRequestRequestTypeDef",
-    {
-        "viewerSessions": List["BatchStartViewerSessionRevocationViewerSessionTypeDef"],
-    },
-)
-
-BatchStartViewerSessionRevocationResponseTypeDef = TypedDict(
-    "BatchStartViewerSessionRevocationResponseTypeDef",
-    {
-        "errors": List["BatchStartViewerSessionRevocationErrorTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredBatchStartViewerSessionRevocationViewerSessionTypeDef = TypedDict(
-    "_RequiredBatchStartViewerSessionRevocationViewerSessionTypeDef",
-    {
-        "channelArn": str,
-        "viewerId": str,
-    },
-)
-_OptionalBatchStartViewerSessionRevocationViewerSessionTypeDef = TypedDict(
-    "_OptionalBatchStartViewerSessionRevocationViewerSessionTypeDef",
-    {
-        "viewerSessionVersionsLessThanOrEqualTo": int,
-    },
-    total=False,
-)
-
-class BatchStartViewerSessionRevocationViewerSessionTypeDef(
-    _RequiredBatchStartViewerSessionRevocationViewerSessionTypeDef,
-    _OptionalBatchStartViewerSessionRevocationViewerSessionTypeDef,
-):
-    pass
+class BatchStartViewerSessionRevocationViewerSessionTypeDef(TypedDict):
+    channelArn: str
+    viewerId: str
+    viewerSessionVersionsLessThanOrEqualTo: NotRequired[int]
 
 ChannelSummaryTypeDef = TypedDict(
     "ChannelSummaryTypeDef",
     {
-        "arn": str,
-        "authorized": bool,
-        "insecureIngest": bool,
-        "latencyMode": ChannelLatencyModeType,
-        "name": str,
-        "playbackRestrictionPolicyArn": str,
-        "preset": TranscodePresetType,
-        "recordingConfigurationArn": str,
-        "tags": Dict[str, str],
-        "type": ChannelTypeType,
-    },
-    total=False,
-)
-
-ChannelTypeDef = TypedDict(
-    "ChannelTypeDef",
-    {
-        "arn": str,
-        "authorized": bool,
-        "ingestEndpoint": str,
-        "insecureIngest": bool,
-        "latencyMode": ChannelLatencyModeType,
-        "name": str,
-        "playbackRestrictionPolicyArn": str,
-        "playbackUrl": str,
-        "preset": TranscodePresetType,
-        "recordingConfigurationArn": str,
-        "srt": "SrtTypeDef",
-        "tags": Dict[str, str],
-        "type": ChannelTypeType,
-    },
-    total=False,
-)
-
-CreateChannelRequestRequestTypeDef = TypedDict(
-    "CreateChannelRequestRequestTypeDef",
-    {
-        "authorized": bool,
-        "insecureIngest": bool,
-        "latencyMode": ChannelLatencyModeType,
-        "name": str,
-        "playbackRestrictionPolicyArn": str,
-        "preset": TranscodePresetType,
-        "recordingConfigurationArn": str,
-        "tags": Dict[str, str],
-        "type": ChannelTypeType,
-    },
-    total=False,
-)
-
-CreateChannelResponseTypeDef = TypedDict(
-    "CreateChannelResponseTypeDef",
-    {
-        "channel": "ChannelTypeDef",
-        "streamKey": "StreamKeyTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreatePlaybackRestrictionPolicyRequestRequestTypeDef = TypedDict(
-    "CreatePlaybackRestrictionPolicyRequestRequestTypeDef",
-    {
-        "allowedCountries": List[str],
-        "allowedOrigins": List[str],
-        "enableStrictOriginEnforcement": bool,
-        "name": str,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-CreatePlaybackRestrictionPolicyResponseTypeDef = TypedDict(
-    "CreatePlaybackRestrictionPolicyResponseTypeDef",
-    {
-        "playbackRestrictionPolicy": "PlaybackRestrictionPolicyTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateRecordingConfigurationRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateRecordingConfigurationRequestRequestTypeDef",
-    {
-        "destinationConfiguration": "DestinationConfigurationTypeDef",
-    },
-)
-_OptionalCreateRecordingConfigurationRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateRecordingConfigurationRequestRequestTypeDef",
-    {
-        "name": str,
-        "recordingReconnectWindowSeconds": int,
-        "renditionConfiguration": "RenditionConfigurationTypeDef",
-        "tags": Dict[str, str],
-        "thumbnailConfiguration": "ThumbnailConfigurationTypeDef",
-    },
-    total=False,
-)
-
-class CreateRecordingConfigurationRequestRequestTypeDef(
-    _RequiredCreateRecordingConfigurationRequestRequestTypeDef,
-    _OptionalCreateRecordingConfigurationRequestRequestTypeDef,
-):
-    pass
-
-CreateRecordingConfigurationResponseTypeDef = TypedDict(
-    "CreateRecordingConfigurationResponseTypeDef",
-    {
-        "recordingConfiguration": "RecordingConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateStreamKeyRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateStreamKeyRequestRequestTypeDef",
-    {
-        "channelArn": str,
-    },
-)
-_OptionalCreateStreamKeyRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateStreamKeyRequestRequestTypeDef",
-    {
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class CreateStreamKeyRequestRequestTypeDef(
-    _RequiredCreateStreamKeyRequestRequestTypeDef, _OptionalCreateStreamKeyRequestRequestTypeDef
-):
-    pass
-
-CreateStreamKeyResponseTypeDef = TypedDict(
-    "CreateStreamKeyResponseTypeDef",
-    {
-        "streamKey": "StreamKeyTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteChannelRequestRequestTypeDef = TypedDict(
-    "DeleteChannelRequestRequestTypeDef",
-    {
-        "arn": str,
-    },
-)
-
-DeletePlaybackKeyPairRequestRequestTypeDef = TypedDict(
-    "DeletePlaybackKeyPairRequestRequestTypeDef",
-    {
-        "arn": str,
-    },
-)
-
-DeletePlaybackRestrictionPolicyRequestRequestTypeDef = TypedDict(
-    "DeletePlaybackRestrictionPolicyRequestRequestTypeDef",
-    {
-        "arn": str,
-    },
-)
-
-DeleteRecordingConfigurationRequestRequestTypeDef = TypedDict(
-    "DeleteRecordingConfigurationRequestRequestTypeDef",
-    {
-        "arn": str,
-    },
-)
-
-DeleteStreamKeyRequestRequestTypeDef = TypedDict(
-    "DeleteStreamKeyRequestRequestTypeDef",
-    {
-        "arn": str,
-    },
-)
-
-DestinationConfigurationTypeDef = TypedDict(
-    "DestinationConfigurationTypeDef",
-    {
-        "s3": "S3DestinationConfigurationTypeDef",
-    },
-    total=False,
-)
-
-GetChannelRequestRequestTypeDef = TypedDict(
-    "GetChannelRequestRequestTypeDef",
-    {
-        "arn": str,
-    },
-)
-
-GetChannelResponseTypeDef = TypedDict(
-    "GetChannelResponseTypeDef",
-    {
-        "channel": "ChannelTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetPlaybackKeyPairRequestRequestTypeDef = TypedDict(
-    "GetPlaybackKeyPairRequestRequestTypeDef",
-    {
-        "arn": str,
-    },
-)
-
-GetPlaybackKeyPairResponseTypeDef = TypedDict(
-    "GetPlaybackKeyPairResponseTypeDef",
-    {
-        "keyPair": "PlaybackKeyPairTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetPlaybackRestrictionPolicyRequestRequestTypeDef = TypedDict(
-    "GetPlaybackRestrictionPolicyRequestRequestTypeDef",
-    {
-        "arn": str,
-    },
-)
-
-GetPlaybackRestrictionPolicyResponseTypeDef = TypedDict(
-    "GetPlaybackRestrictionPolicyResponseTypeDef",
-    {
-        "playbackRestrictionPolicy": "PlaybackRestrictionPolicyTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetRecordingConfigurationRequestRequestTypeDef = TypedDict(
-    "GetRecordingConfigurationRequestRequestTypeDef",
-    {
-        "arn": str,
-    },
-)
-
-GetRecordingConfigurationResponseTypeDef = TypedDict(
-    "GetRecordingConfigurationResponseTypeDef",
-    {
-        "recordingConfiguration": "RecordingConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetStreamKeyRequestRequestTypeDef = TypedDict(
-    "GetStreamKeyRequestRequestTypeDef",
-    {
-        "arn": str,
-    },
-)
-
-GetStreamKeyResponseTypeDef = TypedDict(
-    "GetStreamKeyResponseTypeDef",
-    {
-        "streamKey": "StreamKeyTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetStreamRequestRequestTypeDef = TypedDict(
-    "GetStreamRequestRequestTypeDef",
-    {
-        "channelArn": str,
-    },
-)
-
-GetStreamResponseTypeDef = TypedDict(
-    "GetStreamResponseTypeDef",
-    {
-        "stream": "StreamTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetStreamSessionRequestRequestTypeDef = TypedDict(
-    "_RequiredGetStreamSessionRequestRequestTypeDef",
-    {
-        "channelArn": str,
-    },
-)
-_OptionalGetStreamSessionRequestRequestTypeDef = TypedDict(
-    "_OptionalGetStreamSessionRequestRequestTypeDef",
-    {
-        "streamId": str,
-    },
-    total=False,
-)
-
-class GetStreamSessionRequestRequestTypeDef(
-    _RequiredGetStreamSessionRequestRequestTypeDef, _OptionalGetStreamSessionRequestRequestTypeDef
-):
-    pass
-
-GetStreamSessionResponseTypeDef = TypedDict(
-    "GetStreamSessionResponseTypeDef",
-    {
-        "streamSession": "StreamSessionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredImportPlaybackKeyPairRequestRequestTypeDef = TypedDict(
-    "_RequiredImportPlaybackKeyPairRequestRequestTypeDef",
-    {
-        "publicKeyMaterial": str,
-    },
-)
-_OptionalImportPlaybackKeyPairRequestRequestTypeDef = TypedDict(
-    "_OptionalImportPlaybackKeyPairRequestRequestTypeDef",
-    {
-        "name": str,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class ImportPlaybackKeyPairRequestRequestTypeDef(
-    _RequiredImportPlaybackKeyPairRequestRequestTypeDef,
-    _OptionalImportPlaybackKeyPairRequestRequestTypeDef,
-):
-    pass
-
-ImportPlaybackKeyPairResponseTypeDef = TypedDict(
-    "ImportPlaybackKeyPairResponseTypeDef",
-    {
-        "keyPair": "PlaybackKeyPairTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-IngestConfigurationTypeDef = TypedDict(
-    "IngestConfigurationTypeDef",
-    {
-        "audio": "AudioConfigurationTypeDef",
-        "video": "VideoConfigurationTypeDef",
-    },
-    total=False,
-)
-
-ListChannelsRequestRequestTypeDef = TypedDict(
-    "ListChannelsRequestRequestTypeDef",
-    {
-        "filterByName": str,
-        "filterByPlaybackRestrictionPolicyArn": str,
-        "filterByRecordingConfigurationArn": str,
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-ListChannelsResponseTypeDef = TypedDict(
-    "ListChannelsResponseTypeDef",
-    {
-        "channels": List["ChannelSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListPlaybackKeyPairsRequestRequestTypeDef = TypedDict(
-    "ListPlaybackKeyPairsRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-ListPlaybackKeyPairsResponseTypeDef = TypedDict(
-    "ListPlaybackKeyPairsResponseTypeDef",
-    {
-        "keyPairs": List["PlaybackKeyPairSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListPlaybackRestrictionPoliciesRequestRequestTypeDef = TypedDict(
-    "ListPlaybackRestrictionPoliciesRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-ListPlaybackRestrictionPoliciesResponseTypeDef = TypedDict(
-    "ListPlaybackRestrictionPoliciesResponseTypeDef",
-    {
-        "nextToken": str,
-        "playbackRestrictionPolicies": List["PlaybackRestrictionPolicySummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListRecordingConfigurationsRequestRequestTypeDef = TypedDict(
-    "ListRecordingConfigurationsRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-ListRecordingConfigurationsResponseTypeDef = TypedDict(
-    "ListRecordingConfigurationsResponseTypeDef",
-    {
-        "nextToken": str,
-        "recordingConfigurations": List["RecordingConfigurationSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListStreamKeysRequestRequestTypeDef = TypedDict(
-    "_RequiredListStreamKeysRequestRequestTypeDef",
-    {
-        "channelArn": str,
-    },
-)
-_OptionalListStreamKeysRequestRequestTypeDef = TypedDict(
-    "_OptionalListStreamKeysRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListStreamKeysRequestRequestTypeDef(
-    _RequiredListStreamKeysRequestRequestTypeDef, _OptionalListStreamKeysRequestRequestTypeDef
-):
-    pass
-
-ListStreamKeysResponseTypeDef = TypedDict(
-    "ListStreamKeysResponseTypeDef",
-    {
-        "nextToken": str,
-        "streamKeys": List["StreamKeySummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListStreamSessionsRequestRequestTypeDef = TypedDict(
-    "_RequiredListStreamSessionsRequestRequestTypeDef",
-    {
-        "channelArn": str,
-    },
-)
-_OptionalListStreamSessionsRequestRequestTypeDef = TypedDict(
-    "_OptionalListStreamSessionsRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListStreamSessionsRequestRequestTypeDef(
-    _RequiredListStreamSessionsRequestRequestTypeDef,
-    _OptionalListStreamSessionsRequestRequestTypeDef,
-):
-    pass
-
-ListStreamSessionsResponseTypeDef = TypedDict(
-    "ListStreamSessionsResponseTypeDef",
-    {
-        "nextToken": str,
-        "streamSessions": List["StreamSessionSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListStreamsRequestRequestTypeDef = TypedDict(
-    "ListStreamsRequestRequestTypeDef",
-    {
-        "filterBy": "StreamFiltersTypeDef",
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-ListStreamsResponseTypeDef = TypedDict(
-    "ListStreamsResponseTypeDef",
-    {
-        "nextToken": str,
-        "streams": List["StreamSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-    },
-)
-
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-PlaybackKeyPairSummaryTypeDef = TypedDict(
-    "PlaybackKeyPairSummaryTypeDef",
-    {
-        "arn": str,
-        "name": str,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-PlaybackKeyPairTypeDef = TypedDict(
-    "PlaybackKeyPairTypeDef",
-    {
-        "arn": str,
-        "fingerprint": str,
-        "name": str,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-_RequiredPlaybackRestrictionPolicySummaryTypeDef = TypedDict(
-    "_RequiredPlaybackRestrictionPolicySummaryTypeDef",
-    {
-        "allowedCountries": List[str],
-        "allowedOrigins": List[str],
-        "arn": str,
-    },
-)
-_OptionalPlaybackRestrictionPolicySummaryTypeDef = TypedDict(
-    "_OptionalPlaybackRestrictionPolicySummaryTypeDef",
-    {
-        "enableStrictOriginEnforcement": bool,
-        "name": str,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class PlaybackRestrictionPolicySummaryTypeDef(
-    _RequiredPlaybackRestrictionPolicySummaryTypeDef,
-    _OptionalPlaybackRestrictionPolicySummaryTypeDef,
-):
-    pass
-
-_RequiredPlaybackRestrictionPolicyTypeDef = TypedDict(
-    "_RequiredPlaybackRestrictionPolicyTypeDef",
-    {
-        "allowedCountries": List[str],
-        "allowedOrigins": List[str],
-        "arn": str,
-    },
-)
-_OptionalPlaybackRestrictionPolicyTypeDef = TypedDict(
-    "_OptionalPlaybackRestrictionPolicyTypeDef",
-    {
-        "enableStrictOriginEnforcement": bool,
-        "name": str,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class PlaybackRestrictionPolicyTypeDef(
-    _RequiredPlaybackRestrictionPolicyTypeDef, _OptionalPlaybackRestrictionPolicyTypeDef
-):
-    pass
-
-PutMetadataRequestRequestTypeDef = TypedDict(
-    "PutMetadataRequestRequestTypeDef",
-    {
-        "channelArn": str,
-        "metadata": str,
-    },
-)
-
-_RequiredRecordingConfigurationSummaryTypeDef = TypedDict(
-    "_RequiredRecordingConfigurationSummaryTypeDef",
-    {
-        "arn": str,
-        "destinationConfiguration": "DestinationConfigurationTypeDef",
-        "state": RecordingConfigurationStateType,
-    },
-)
-_OptionalRecordingConfigurationSummaryTypeDef = TypedDict(
-    "_OptionalRecordingConfigurationSummaryTypeDef",
-    {
-        "name": str,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class RecordingConfigurationSummaryTypeDef(
-    _RequiredRecordingConfigurationSummaryTypeDef, _OptionalRecordingConfigurationSummaryTypeDef
-):
-    pass
-
-_RequiredRecordingConfigurationTypeDef = TypedDict(
-    "_RequiredRecordingConfigurationTypeDef",
-    {
-        "arn": str,
-        "destinationConfiguration": "DestinationConfigurationTypeDef",
-        "state": RecordingConfigurationStateType,
-    },
-)
-_OptionalRecordingConfigurationTypeDef = TypedDict(
-    "_OptionalRecordingConfigurationTypeDef",
-    {
-        "name": str,
-        "recordingReconnectWindowSeconds": int,
-        "renditionConfiguration": "RenditionConfigurationTypeDef",
-        "tags": Dict[str, str],
-        "thumbnailConfiguration": "ThumbnailConfigurationTypeDef",
-    },
-    total=False,
-)
-
-class RecordingConfigurationTypeDef(
-    _RequiredRecordingConfigurationTypeDef, _OptionalRecordingConfigurationTypeDef
-):
-    pass
-
-RenditionConfigurationTypeDef = TypedDict(
-    "RenditionConfigurationTypeDef",
-    {
-        "renditionSelection": RenditionConfigurationRenditionSelectionType,
-        "renditions": List[RenditionConfigurationRenditionType],
-    },
-    total=False,
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-S3DestinationConfigurationTypeDef = TypedDict(
-    "S3DestinationConfigurationTypeDef",
-    {
-        "bucketName": str,
-    },
-)
-
-SrtTypeDef = TypedDict(
-    "SrtTypeDef",
-    {
-        "endpoint": str,
-        "passphrase": str,
-    },
-    total=False,
-)
-
-_RequiredStartViewerSessionRevocationRequestRequestTypeDef = TypedDict(
-    "_RequiredStartViewerSessionRevocationRequestRequestTypeDef",
-    {
-        "channelArn": str,
-        "viewerId": str,
-    },
-)
-_OptionalStartViewerSessionRevocationRequestRequestTypeDef = TypedDict(
-    "_OptionalStartViewerSessionRevocationRequestRequestTypeDef",
-    {
-        "viewerSessionVersionsLessThanOrEqualTo": int,
-    },
-    total=False,
-)
-
-class StartViewerSessionRevocationRequestRequestTypeDef(
-    _RequiredStartViewerSessionRevocationRequestRequestTypeDef,
-    _OptionalStartViewerSessionRevocationRequestRequestTypeDef,
-):
-    pass
-
-StopStreamRequestRequestTypeDef = TypedDict(
-    "StopStreamRequestRequestTypeDef",
-    {
-        "channelArn": str,
-    },
-)
+        "arn": NotRequired[str],
+        "authorized": NotRequired[bool],
+        "insecureIngest": NotRequired[bool],
+        "latencyMode": NotRequired[ChannelLatencyModeType],
+        "name": NotRequired[str],
+        "playbackRestrictionPolicyArn": NotRequired[str],
+        "preset": NotRequired[TranscodePresetType],
+        "recordingConfigurationArn": NotRequired[str],
+        "tags": NotRequired[Dict[str, str]],
+        "type": NotRequired[ChannelTypeType],
+    },
+)
+
+class MultitrackInputConfigurationTypeDef(TypedDict):
+    enabled: NotRequired[bool]
+    maximumResolution: NotRequired[MultitrackMaximumResolutionType]
+    policy: NotRequired[MultitrackPolicyType]
+
+class SrtTypeDef(TypedDict):
+    endpoint: NotRequired[str]
+    passphrase: NotRequired[str]
+
+class CreatePlaybackRestrictionPolicyRequestTypeDef(TypedDict):
+    allowedCountries: NotRequired[Sequence[str]]
+    allowedOrigins: NotRequired[Sequence[str]]
+    enableStrictOriginEnforcement: NotRequired[bool]
+    name: NotRequired[str]
+    tags: NotRequired[Mapping[str, str]]
+
+class PlaybackRestrictionPolicyTypeDef(TypedDict):
+    allowedCountries: List[str]
+    allowedOrigins: List[str]
+    arn: str
+    enableStrictOriginEnforcement: NotRequired[bool]
+    name: NotRequired[str]
+    tags: NotRequired[Dict[str, str]]
+
+class CreateStreamKeyRequestTypeDef(TypedDict):
+    channelArn: str
+    tags: NotRequired[Mapping[str, str]]
+
+class DeleteChannelRequestTypeDef(TypedDict):
+    arn: str
+
+class DeletePlaybackKeyPairRequestTypeDef(TypedDict):
+    arn: str
+
+class DeletePlaybackRestrictionPolicyRequestTypeDef(TypedDict):
+    arn: str
+
+class DeleteRecordingConfigurationRequestTypeDef(TypedDict):
+    arn: str
+
+class DeleteStreamKeyRequestTypeDef(TypedDict):
+    arn: str
+
+class S3DestinationConfigurationTypeDef(TypedDict):
+    bucketName: str
+
+class GetChannelRequestTypeDef(TypedDict):
+    arn: str
+
+class GetPlaybackKeyPairRequestTypeDef(TypedDict):
+    arn: str
+
+class PlaybackKeyPairTypeDef(TypedDict):
+    arn: NotRequired[str]
+    fingerprint: NotRequired[str]
+    name: NotRequired[str]
+    tags: NotRequired[Dict[str, str]]
+
+class GetPlaybackRestrictionPolicyRequestTypeDef(TypedDict):
+    arn: str
+
+class GetRecordingConfigurationRequestTypeDef(TypedDict):
+    arn: str
+
+class GetStreamKeyRequestTypeDef(TypedDict):
+    arn: str
+
+class GetStreamRequestTypeDef(TypedDict):
+    channelArn: str
+
+class StreamTypeDef(TypedDict):
+    channelArn: NotRequired[str]
+    health: NotRequired[StreamHealthType]
+    playbackUrl: NotRequired[str]
+    startTime: NotRequired[datetime]
+    state: NotRequired[StreamStateType]
+    streamId: NotRequired[str]
+    viewerCount: NotRequired[int]
+
+class GetStreamSessionRequestTypeDef(TypedDict):
+    channelArn: str
+    streamId: NotRequired[str]
+
+class ImportPlaybackKeyPairRequestTypeDef(TypedDict):
+    publicKeyMaterial: str
+    name: NotRequired[str]
+    tags: NotRequired[Mapping[str, str]]
+
+class VideoConfigurationTypeDef(TypedDict):
+    avcLevel: NotRequired[str]
+    avcProfile: NotRequired[str]
+    codec: NotRequired[str]
+    encoder: NotRequired[str]
+    level: NotRequired[str]
+    profile: NotRequired[str]
+    targetBitrate: NotRequired[int]
+    targetFramerate: NotRequired[int]
+    track: NotRequired[str]
+    videoHeight: NotRequired[int]
+    videoWidth: NotRequired[int]
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class ListChannelsRequestTypeDef(TypedDict):
+    filterByName: NotRequired[str]
+    filterByPlaybackRestrictionPolicyArn: NotRequired[str]
+    filterByRecordingConfigurationArn: NotRequired[str]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListPlaybackKeyPairsRequestTypeDef(TypedDict):
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class PlaybackKeyPairSummaryTypeDef(TypedDict):
+    arn: NotRequired[str]
+    name: NotRequired[str]
+    tags: NotRequired[Dict[str, str]]
+
+class ListPlaybackRestrictionPoliciesRequestTypeDef(TypedDict):
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class PlaybackRestrictionPolicySummaryTypeDef(TypedDict):
+    allowedCountries: List[str]
+    allowedOrigins: List[str]
+    arn: str
+    enableStrictOriginEnforcement: NotRequired[bool]
+    name: NotRequired[str]
+    tags: NotRequired[Dict[str, str]]
+
+class ListRecordingConfigurationsRequestTypeDef(TypedDict):
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListStreamKeysRequestTypeDef(TypedDict):
+    channelArn: str
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class StreamKeySummaryTypeDef(TypedDict):
+    arn: NotRequired[str]
+    channelArn: NotRequired[str]
+    tags: NotRequired[Dict[str, str]]
+
+class ListStreamSessionsRequestTypeDef(TypedDict):
+    channelArn: str
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class StreamSessionSummaryTypeDef(TypedDict):
+    endTime: NotRequired[datetime]
+    hasErrorEvent: NotRequired[bool]
+    startTime: NotRequired[datetime]
+    streamId: NotRequired[str]
+
+class StreamFiltersTypeDef(TypedDict):
+    health: NotRequired[StreamHealthType]
+
+class StreamSummaryTypeDef(TypedDict):
+    channelArn: NotRequired[str]
+    health: NotRequired[StreamHealthType]
+    startTime: NotRequired[datetime]
+    state: NotRequired[StreamStateType]
+    streamId: NotRequired[str]
+    viewerCount: NotRequired[int]
+
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+
+class PutMetadataRequestTypeDef(TypedDict):
+    channelArn: str
+    metadata: str
+
+class RenditionConfigurationOutputTypeDef(TypedDict):
+    renditionSelection: NotRequired[RenditionConfigurationRenditionSelectionType]
+    renditions: NotRequired[List[RenditionConfigurationRenditionType]]
+
+class ThumbnailConfigurationOutputTypeDef(TypedDict):
+    recordingMode: NotRequired[RecordingModeType]
+    resolution: NotRequired[ThumbnailConfigurationResolutionType]
+    storage: NotRequired[List[ThumbnailConfigurationStorageType]]
+    targetIntervalSeconds: NotRequired[int]
+
+class RenditionConfigurationTypeDef(TypedDict):
+    renditionSelection: NotRequired[RenditionConfigurationRenditionSelectionType]
+    renditions: NotRequired[Sequence[RenditionConfigurationRenditionType]]
+
+class StartViewerSessionRevocationRequestTypeDef(TypedDict):
+    channelArn: str
+    viewerId: str
+    viewerSessionVersionsLessThanOrEqualTo: NotRequired[int]
+
+class StopStreamRequestTypeDef(TypedDict):
+    channelArn: str
 
 StreamEventTypeDef = TypedDict(
     "StreamEventTypeDef",
     {
-        "eventTime": datetime,
-        "name": str,
-        "type": str,
+        "code": NotRequired[str],
+        "eventTime": NotRequired[datetime],
+        "name": NotRequired[str],
+        "type": NotRequired[str],
     },
-    total=False,
 )
 
-StreamFiltersTypeDef = TypedDict(
-    "StreamFiltersTypeDef",
+class TagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tags: Mapping[str, str]
+
+class ThumbnailConfigurationTypeDef(TypedDict):
+    recordingMode: NotRequired[RecordingModeType]
+    resolution: NotRequired[ThumbnailConfigurationResolutionType]
+    storage: NotRequired[Sequence[ThumbnailConfigurationStorageType]]
+    targetIntervalSeconds: NotRequired[int]
+
+class UntagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tagKeys: Sequence[str]
+
+class UpdatePlaybackRestrictionPolicyRequestTypeDef(TypedDict):
+    arn: str
+    allowedCountries: NotRequired[Sequence[str]]
+    allowedOrigins: NotRequired[Sequence[str]]
+    enableStrictOriginEnforcement: NotRequired[bool]
+    name: NotRequired[str]
+
+class EmptyResponseMetadataTypeDef(TypedDict):
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class BatchGetStreamKeyResponseTypeDef(TypedDict):
+    errors: List[BatchErrorTypeDef]
+    streamKeys: List[StreamKeyTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateStreamKeyResponseTypeDef(TypedDict):
+    streamKey: StreamKeyTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetStreamKeyResponseTypeDef(TypedDict):
+    streamKey: StreamKeyTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class BatchStartViewerSessionRevocationResponseTypeDef(TypedDict):
+    errors: List[BatchStartViewerSessionRevocationErrorTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class BatchStartViewerSessionRevocationRequestTypeDef(TypedDict):
+    viewerSessions: Sequence[BatchStartViewerSessionRevocationViewerSessionTypeDef]
+
+class ListChannelsResponseTypeDef(TypedDict):
+    channels: List[ChannelSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+CreateChannelRequestTypeDef = TypedDict(
+    "CreateChannelRequestTypeDef",
     {
-        "health": StreamHealthType,
-    },
-    total=False,
-)
-
-StreamKeySummaryTypeDef = TypedDict(
-    "StreamKeySummaryTypeDef",
-    {
-        "arn": str,
-        "channelArn": str,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-StreamKeyTypeDef = TypedDict(
-    "StreamKeyTypeDef",
-    {
-        "arn": str,
-        "channelArn": str,
-        "tags": Dict[str, str],
-        "value": str,
-    },
-    total=False,
-)
-
-StreamSessionSummaryTypeDef = TypedDict(
-    "StreamSessionSummaryTypeDef",
-    {
-        "endTime": datetime,
-        "hasErrorEvent": bool,
-        "startTime": datetime,
-        "streamId": str,
-    },
-    total=False,
-)
-
-StreamSessionTypeDef = TypedDict(
-    "StreamSessionTypeDef",
-    {
-        "channel": "ChannelTypeDef",
-        "endTime": datetime,
-        "ingestConfiguration": "IngestConfigurationTypeDef",
-        "recordingConfiguration": "RecordingConfigurationTypeDef",
-        "startTime": datetime,
-        "streamId": str,
-        "truncatedEvents": List["StreamEventTypeDef"],
-    },
-    total=False,
-)
-
-StreamSummaryTypeDef = TypedDict(
-    "StreamSummaryTypeDef",
-    {
-        "channelArn": str,
-        "health": StreamHealthType,
-        "startTime": datetime,
-        "state": StreamStateType,
-        "streamId": str,
-        "viewerCount": int,
-    },
-    total=False,
-)
-
-StreamTypeDef = TypedDict(
-    "StreamTypeDef",
-    {
-        "channelArn": str,
-        "health": StreamHealthType,
-        "playbackUrl": str,
-        "startTime": datetime,
-        "state": StreamStateType,
-        "streamId": str,
-        "viewerCount": int,
-    },
-    total=False,
-)
-
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tags": Dict[str, str],
+        "authorized": NotRequired[bool],
+        "containerFormat": NotRequired[ContainerFormatType],
+        "insecureIngest": NotRequired[bool],
+        "latencyMode": NotRequired[ChannelLatencyModeType],
+        "multitrackInputConfiguration": NotRequired[MultitrackInputConfigurationTypeDef],
+        "name": NotRequired[str],
+        "playbackRestrictionPolicyArn": NotRequired[str],
+        "preset": NotRequired[TranscodePresetType],
+        "recordingConfigurationArn": NotRequired[str],
+        "tags": NotRequired[Mapping[str, str]],
+        "type": NotRequired[ChannelTypeType],
     },
 )
-
-ThumbnailConfigurationTypeDef = TypedDict(
-    "ThumbnailConfigurationTypeDef",
-    {
-        "recordingMode": RecordingModeType,
-        "resolution": ThumbnailConfigurationResolutionType,
-        "storage": List[ThumbnailConfigurationStorageType],
-        "targetIntervalSeconds": int,
-    },
-    total=False,
-)
-
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tagKeys": List[str],
-    },
-)
-
-_RequiredUpdateChannelRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateChannelRequestRequestTypeDef",
+UpdateChannelRequestTypeDef = TypedDict(
+    "UpdateChannelRequestTypeDef",
     {
         "arn": str,
+        "authorized": NotRequired[bool],
+        "containerFormat": NotRequired[ContainerFormatType],
+        "insecureIngest": NotRequired[bool],
+        "latencyMode": NotRequired[ChannelLatencyModeType],
+        "multitrackInputConfiguration": NotRequired[MultitrackInputConfigurationTypeDef],
+        "name": NotRequired[str],
+        "playbackRestrictionPolicyArn": NotRequired[str],
+        "preset": NotRequired[TranscodePresetType],
+        "recordingConfigurationArn": NotRequired[str],
+        "type": NotRequired[ChannelTypeType],
     },
 )
-_OptionalUpdateChannelRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateChannelRequestRequestTypeDef",
+ChannelTypeDef = TypedDict(
+    "ChannelTypeDef",
     {
-        "authorized": bool,
-        "insecureIngest": bool,
-        "latencyMode": ChannelLatencyModeType,
-        "name": str,
-        "playbackRestrictionPolicyArn": str,
-        "preset": TranscodePresetType,
-        "recordingConfigurationArn": str,
-        "type": ChannelTypeType,
-    },
-    total=False,
-)
-
-class UpdateChannelRequestRequestTypeDef(
-    _RequiredUpdateChannelRequestRequestTypeDef, _OptionalUpdateChannelRequestRequestTypeDef
-):
-    pass
-
-UpdateChannelResponseTypeDef = TypedDict(
-    "UpdateChannelResponseTypeDef",
-    {
-        "channel": "ChannelTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdatePlaybackRestrictionPolicyRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdatePlaybackRestrictionPolicyRequestRequestTypeDef",
-    {
-        "arn": str,
-    },
-)
-_OptionalUpdatePlaybackRestrictionPolicyRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdatePlaybackRestrictionPolicyRequestRequestTypeDef",
-    {
-        "allowedCountries": List[str],
-        "allowedOrigins": List[str],
-        "enableStrictOriginEnforcement": bool,
-        "name": str,
-    },
-    total=False,
-)
-
-class UpdatePlaybackRestrictionPolicyRequestRequestTypeDef(
-    _RequiredUpdatePlaybackRestrictionPolicyRequestRequestTypeDef,
-    _OptionalUpdatePlaybackRestrictionPolicyRequestRequestTypeDef,
-):
-    pass
-
-UpdatePlaybackRestrictionPolicyResponseTypeDef = TypedDict(
-    "UpdatePlaybackRestrictionPolicyResponseTypeDef",
-    {
-        "playbackRestrictionPolicy": "PlaybackRestrictionPolicyTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "arn": NotRequired[str],
+        "authorized": NotRequired[bool],
+        "containerFormat": NotRequired[ContainerFormatType],
+        "ingestEndpoint": NotRequired[str],
+        "insecureIngest": NotRequired[bool],
+        "latencyMode": NotRequired[ChannelLatencyModeType],
+        "multitrackInputConfiguration": NotRequired[MultitrackInputConfigurationTypeDef],
+        "name": NotRequired[str],
+        "playbackRestrictionPolicyArn": NotRequired[str],
+        "playbackUrl": NotRequired[str],
+        "preset": NotRequired[TranscodePresetType],
+        "recordingConfigurationArn": NotRequired[str],
+        "srt": NotRequired[SrtTypeDef],
+        "tags": NotRequired[Dict[str, str]],
+        "type": NotRequired[ChannelTypeType],
     },
 )
 
-VideoConfigurationTypeDef = TypedDict(
-    "VideoConfigurationTypeDef",
-    {
-        "avcLevel": str,
-        "avcProfile": str,
-        "codec": str,
-        "encoder": str,
-        "targetBitrate": int,
-        "targetFramerate": int,
-        "videoHeight": int,
-        "videoWidth": int,
-    },
-    total=False,
-)
+class CreatePlaybackRestrictionPolicyResponseTypeDef(TypedDict):
+    playbackRestrictionPolicy: PlaybackRestrictionPolicyTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetPlaybackRestrictionPolicyResponseTypeDef(TypedDict):
+    playbackRestrictionPolicy: PlaybackRestrictionPolicyTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdatePlaybackRestrictionPolicyResponseTypeDef(TypedDict):
+    playbackRestrictionPolicy: PlaybackRestrictionPolicyTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DestinationConfigurationTypeDef(TypedDict):
+    s3: NotRequired[S3DestinationConfigurationTypeDef]
+
+class GetPlaybackKeyPairResponseTypeDef(TypedDict):
+    keyPair: PlaybackKeyPairTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ImportPlaybackKeyPairResponseTypeDef(TypedDict):
+    keyPair: PlaybackKeyPairTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetStreamResponseTypeDef(TypedDict):
+    stream: StreamTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class IngestConfigurationTypeDef(TypedDict):
+    audio: NotRequired[AudioConfigurationTypeDef]
+    video: NotRequired[VideoConfigurationTypeDef]
+
+class IngestConfigurationsTypeDef(TypedDict):
+    audioConfigurations: List[AudioConfigurationTypeDef]
+    videoConfigurations: List[VideoConfigurationTypeDef]
+
+class ListChannelsRequestPaginateTypeDef(TypedDict):
+    filterByName: NotRequired[str]
+    filterByPlaybackRestrictionPolicyArn: NotRequired[str]
+    filterByRecordingConfigurationArn: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListPlaybackKeyPairsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListRecordingConfigurationsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListStreamKeysRequestPaginateTypeDef(TypedDict):
+    channelArn: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListPlaybackKeyPairsResponseTypeDef(TypedDict):
+    keyPairs: List[PlaybackKeyPairSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListPlaybackRestrictionPoliciesResponseTypeDef(TypedDict):
+    playbackRestrictionPolicies: List[PlaybackRestrictionPolicySummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListStreamKeysResponseTypeDef(TypedDict):
+    streamKeys: List[StreamKeySummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListStreamSessionsResponseTypeDef(TypedDict):
+    streamSessions: List[StreamSessionSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListStreamsRequestPaginateTypeDef(TypedDict):
+    filterBy: NotRequired[StreamFiltersTypeDef]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListStreamsRequestTypeDef(TypedDict):
+    filterBy: NotRequired[StreamFiltersTypeDef]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListStreamsResponseTypeDef(TypedDict):
+    streams: List[StreamSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+RenditionConfigurationUnionTypeDef = Union[
+    RenditionConfigurationTypeDef, RenditionConfigurationOutputTypeDef
+]
+ThumbnailConfigurationUnionTypeDef = Union[
+    ThumbnailConfigurationTypeDef, ThumbnailConfigurationOutputTypeDef
+]
+
+class BatchGetChannelResponseTypeDef(TypedDict):
+    channels: List[ChannelTypeDef]
+    errors: List[BatchErrorTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateChannelResponseTypeDef(TypedDict):
+    channel: ChannelTypeDef
+    streamKey: StreamKeyTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetChannelResponseTypeDef(TypedDict):
+    channel: ChannelTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateChannelResponseTypeDef(TypedDict):
+    channel: ChannelTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class RecordingConfigurationSummaryTypeDef(TypedDict):
+    arn: str
+    destinationConfiguration: DestinationConfigurationTypeDef
+    state: RecordingConfigurationStateType
+    name: NotRequired[str]
+    tags: NotRequired[Dict[str, str]]
+
+class RecordingConfigurationTypeDef(TypedDict):
+    arn: str
+    destinationConfiguration: DestinationConfigurationTypeDef
+    state: RecordingConfigurationStateType
+    name: NotRequired[str]
+    recordingReconnectWindowSeconds: NotRequired[int]
+    renditionConfiguration: NotRequired[RenditionConfigurationOutputTypeDef]
+    tags: NotRequired[Dict[str, str]]
+    thumbnailConfiguration: NotRequired[ThumbnailConfigurationOutputTypeDef]
+
+class CreateRecordingConfigurationRequestTypeDef(TypedDict):
+    destinationConfiguration: DestinationConfigurationTypeDef
+    name: NotRequired[str]
+    recordingReconnectWindowSeconds: NotRequired[int]
+    renditionConfiguration: NotRequired[RenditionConfigurationUnionTypeDef]
+    tags: NotRequired[Mapping[str, str]]
+    thumbnailConfiguration: NotRequired[ThumbnailConfigurationUnionTypeDef]
+
+class ListRecordingConfigurationsResponseTypeDef(TypedDict):
+    recordingConfigurations: List[RecordingConfigurationSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class CreateRecordingConfigurationResponseTypeDef(TypedDict):
+    recordingConfiguration: RecordingConfigurationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetRecordingConfigurationResponseTypeDef(TypedDict):
+    recordingConfiguration: RecordingConfigurationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StreamSessionTypeDef(TypedDict):
+    channel: NotRequired[ChannelTypeDef]
+    endTime: NotRequired[datetime]
+    ingestConfiguration: NotRequired[IngestConfigurationTypeDef]
+    ingestConfigurations: NotRequired[IngestConfigurationsTypeDef]
+    recordingConfiguration: NotRequired[RecordingConfigurationTypeDef]
+    startTime: NotRequired[datetime]
+    streamId: NotRequired[str]
+    truncatedEvents: NotRequired[List[StreamEventTypeDef]]
+
+class GetStreamSessionResponseTypeDef(TypedDict):
+    streamSession: StreamSessionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef

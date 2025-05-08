@@ -1,19 +1,21 @@
 """
 Main interface for appflow service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appflow/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_appflow import (
         AppflowClient,
         Client,
     )
 
-    session = boto3.Session()
-
-    client: AppflowClient = boto3.client("appflow")
-    session_client: AppflowClient = session.client("appflow")
+    session = Session()
+    client: AppflowClient = session.client("appflow")
     ```
 """
 

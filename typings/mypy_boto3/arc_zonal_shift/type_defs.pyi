@@ -1,96 +1,97 @@
 """
 Type annotations for arc-zonal-shift service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_arc_zonal_shift/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_arc_zonal_shift/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_arc_zonal_shift.type_defs import AutoshiftInResourceTypeDef
 
-    data: AutoshiftInResourceTypeDef = {...}
+    data: AutoshiftInResourceTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
 
 from .literals import (
     AppliedStatusType,
     AutoshiftAppliedStatusType,
     AutoshiftExecutionStatusType,
+    AutoshiftObserverNotificationStatusType,
     PracticeRunOutcomeType,
+    ShiftTypeType,
     ZonalAutoshiftStatusType,
     ZonalShiftStatusType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
     "AutoshiftInResourceTypeDef",
     "AutoshiftSummaryTypeDef",
-    "CancelZonalShiftRequestRequestTypeDef",
+    "CancelZonalShiftRequestTypeDef",
     "ControlConditionTypeDef",
-    "CreatePracticeRunConfigurationRequestRequestTypeDef",
+    "CreatePracticeRunConfigurationRequestTypeDef",
     "CreatePracticeRunConfigurationResponseTypeDef",
-    "DeletePracticeRunConfigurationRequestRequestTypeDef",
+    "DeletePracticeRunConfigurationRequestTypeDef",
     "DeletePracticeRunConfigurationResponseTypeDef",
-    "GetManagedResourceRequestRequestTypeDef",
+    "GetAutoshiftObserverNotificationStatusResponseTypeDef",
+    "GetManagedResourceRequestTypeDef",
     "GetManagedResourceResponseTypeDef",
-    "ListAutoshiftsRequestRequestTypeDef",
+    "ListAutoshiftsRequestPaginateTypeDef",
+    "ListAutoshiftsRequestTypeDef",
     "ListAutoshiftsResponseTypeDef",
-    "ListManagedResourcesRequestRequestTypeDef",
+    "ListManagedResourcesRequestPaginateTypeDef",
+    "ListManagedResourcesRequestTypeDef",
     "ListManagedResourcesResponseTypeDef",
-    "ListZonalShiftsRequestRequestTypeDef",
+    "ListZonalShiftsRequestPaginateTypeDef",
+    "ListZonalShiftsRequestTypeDef",
     "ListZonalShiftsResponseTypeDef",
     "ManagedResourceSummaryTypeDef",
     "PaginatorConfigTypeDef",
     "PracticeRunConfigurationTypeDef",
     "ResponseMetadataTypeDef",
-    "StartZonalShiftRequestRequestTypeDef",
-    "UpdatePracticeRunConfigurationRequestRequestTypeDef",
+    "StartZonalShiftRequestTypeDef",
+    "UpdateAutoshiftObserverNotificationStatusRequestTypeDef",
+    "UpdateAutoshiftObserverNotificationStatusResponseTypeDef",
+    "UpdatePracticeRunConfigurationRequestTypeDef",
     "UpdatePracticeRunConfigurationResponseTypeDef",
-    "UpdateZonalAutoshiftConfigurationRequestRequestTypeDef",
+    "UpdateZonalAutoshiftConfigurationRequestTypeDef",
     "UpdateZonalAutoshiftConfigurationResponseTypeDef",
-    "UpdateZonalShiftRequestRequestTypeDef",
+    "UpdateZonalShiftRequestTypeDef",
     "ZonalShiftInResourceTypeDef",
     "ZonalShiftSummaryTypeDef",
     "ZonalShiftTypeDef",
 )
 
-AutoshiftInResourceTypeDef = TypedDict(
-    "AutoshiftInResourceTypeDef",
-    {
-        "appliedStatus": AutoshiftAppliedStatusType,
-        "awayFrom": str,
-        "startTime": datetime,
-    },
-)
+class AutoshiftInResourceTypeDef(TypedDict):
+    appliedStatus: AutoshiftAppliedStatusType
+    awayFrom: str
+    startTime: datetime
 
-AutoshiftSummaryTypeDef = TypedDict(
-    "AutoshiftSummaryTypeDef",
-    {
-        "awayFrom": str,
-        "endTime": datetime,
-        "startTime": datetime,
-        "status": AutoshiftExecutionStatusType,
-    },
-)
+class AutoshiftSummaryTypeDef(TypedDict):
+    awayFrom: str
+    startTime: datetime
+    status: AutoshiftExecutionStatusType
+    endTime: NotRequired[datetime]
 
-CancelZonalShiftRequestRequestTypeDef = TypedDict(
-    "CancelZonalShiftRequestRequestTypeDef",
-    {
-        "zonalShiftId": str,
-    },
-)
+class CancelZonalShiftRequestTypeDef(TypedDict):
+    zonalShiftId: str
 
 ControlConditionTypeDef = TypedDict(
     "ControlConditionTypeDef",
@@ -100,343 +101,185 @@ ControlConditionTypeDef = TypedDict(
     },
 )
 
-_RequiredCreatePracticeRunConfigurationRequestRequestTypeDef = TypedDict(
-    "_RequiredCreatePracticeRunConfigurationRequestRequestTypeDef",
-    {
-        "outcomeAlarms": List["ControlConditionTypeDef"],
-        "resourceIdentifier": str,
-    },
-)
-_OptionalCreatePracticeRunConfigurationRequestRequestTypeDef = TypedDict(
-    "_OptionalCreatePracticeRunConfigurationRequestRequestTypeDef",
-    {
-        "blockedDates": List[str],
-        "blockedWindows": List[str],
-        "blockingAlarms": List["ControlConditionTypeDef"],
-    },
-    total=False,
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-class CreatePracticeRunConfigurationRequestRequestTypeDef(
-    _RequiredCreatePracticeRunConfigurationRequestRequestTypeDef,
-    _OptionalCreatePracticeRunConfigurationRequestRequestTypeDef,
-):
-    pass
+class DeletePracticeRunConfigurationRequestTypeDef(TypedDict):
+    resourceIdentifier: str
 
-CreatePracticeRunConfigurationResponseTypeDef = TypedDict(
-    "CreatePracticeRunConfigurationResponseTypeDef",
-    {
-        "arn": str,
-        "name": str,
-        "practiceRunConfiguration": "PracticeRunConfigurationTypeDef",
-        "zonalAutoshiftStatus": ZonalAutoshiftStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetManagedResourceRequestTypeDef(TypedDict):
+    resourceIdentifier: str
 
-DeletePracticeRunConfigurationRequestRequestTypeDef = TypedDict(
-    "DeletePracticeRunConfigurationRequestRequestTypeDef",
-    {
-        "resourceIdentifier": str,
-    },
-)
+class ZonalShiftInResourceTypeDef(TypedDict):
+    appliedStatus: AppliedStatusType
+    awayFrom: str
+    comment: str
+    expiryTime: datetime
+    resourceIdentifier: str
+    startTime: datetime
+    zonalShiftId: str
+    practiceRunOutcome: NotRequired[PracticeRunOutcomeType]
+    shiftType: NotRequired[ShiftTypeType]
 
-DeletePracticeRunConfigurationResponseTypeDef = TypedDict(
-    "DeletePracticeRunConfigurationResponseTypeDef",
-    {
-        "arn": str,
-        "name": str,
-        "zonalAutoshiftStatus": ZonalAutoshiftStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
 
-GetManagedResourceRequestRequestTypeDef = TypedDict(
-    "GetManagedResourceRequestRequestTypeDef",
-    {
-        "resourceIdentifier": str,
-    },
-)
+class ListAutoshiftsRequestTypeDef(TypedDict):
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+    status: NotRequired[AutoshiftExecutionStatusType]
 
-GetManagedResourceResponseTypeDef = TypedDict(
-    "GetManagedResourceResponseTypeDef",
-    {
-        "appliedWeights": Dict[str, float],
-        "arn": str,
-        "autoshifts": List["AutoshiftInResourceTypeDef"],
-        "name": str,
-        "practiceRunConfiguration": "PracticeRunConfigurationTypeDef",
-        "zonalAutoshiftStatus": ZonalAutoshiftStatusType,
-        "zonalShifts": List["ZonalShiftInResourceTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListManagedResourcesRequestTypeDef(TypedDict):
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
 
-ListAutoshiftsRequestRequestTypeDef = TypedDict(
-    "ListAutoshiftsRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-        "status": AutoshiftExecutionStatusType,
-    },
-    total=False,
-)
+class ListZonalShiftsRequestTypeDef(TypedDict):
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+    resourceIdentifier: NotRequired[str]
+    status: NotRequired[ZonalShiftStatusType]
 
-ListAutoshiftsResponseTypeDef = TypedDict(
-    "ListAutoshiftsResponseTypeDef",
-    {
-        "items": List["AutoshiftSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ZonalShiftSummaryTypeDef(TypedDict):
+    awayFrom: str
+    comment: str
+    expiryTime: datetime
+    resourceIdentifier: str
+    startTime: datetime
+    status: ZonalShiftStatusType
+    zonalShiftId: str
+    practiceRunOutcome: NotRequired[PracticeRunOutcomeType]
+    shiftType: NotRequired[ShiftTypeType]
 
-ListManagedResourcesRequestRequestTypeDef = TypedDict(
-    "ListManagedResourcesRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
+class StartZonalShiftRequestTypeDef(TypedDict):
+    awayFrom: str
+    comment: str
+    expiresIn: str
+    resourceIdentifier: str
 
-ListManagedResourcesResponseTypeDef = TypedDict(
-    "ListManagedResourcesResponseTypeDef",
-    {
-        "items": List["ManagedResourceSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class UpdateAutoshiftObserverNotificationStatusRequestTypeDef(TypedDict):
+    status: AutoshiftObserverNotificationStatusType
 
-ListZonalShiftsRequestRequestTypeDef = TypedDict(
-    "ListZonalShiftsRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-        "resourceIdentifier": str,
-        "status": ZonalShiftStatusType,
-    },
-    total=False,
-)
+class UpdateZonalAutoshiftConfigurationRequestTypeDef(TypedDict):
+    resourceIdentifier: str
+    zonalAutoshiftStatus: ZonalAutoshiftStatusType
 
-ListZonalShiftsResponseTypeDef = TypedDict(
-    "ListZonalShiftsResponseTypeDef",
-    {
-        "items": List["ZonalShiftSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class UpdateZonalShiftRequestTypeDef(TypedDict):
+    zonalShiftId: str
+    comment: NotRequired[str]
+    expiresIn: NotRequired[str]
 
-_RequiredManagedResourceSummaryTypeDef = TypedDict(
-    "_RequiredManagedResourceSummaryTypeDef",
-    {
-        "availabilityZones": List[str],
-    },
-)
-_OptionalManagedResourceSummaryTypeDef = TypedDict(
-    "_OptionalManagedResourceSummaryTypeDef",
-    {
-        "appliedWeights": Dict[str, float],
-        "arn": str,
-        "autoshifts": List["AutoshiftInResourceTypeDef"],
-        "name": str,
-        "practiceRunStatus": ZonalAutoshiftStatusType,
-        "zonalAutoshiftStatus": ZonalAutoshiftStatusType,
-        "zonalShifts": List["ZonalShiftInResourceTypeDef"],
-    },
-    total=False,
-)
+class CreatePracticeRunConfigurationRequestTypeDef(TypedDict):
+    outcomeAlarms: Sequence[ControlConditionTypeDef]
+    resourceIdentifier: str
+    blockedDates: NotRequired[Sequence[str]]
+    blockedWindows: NotRequired[Sequence[str]]
+    blockingAlarms: NotRequired[Sequence[ControlConditionTypeDef]]
 
-class ManagedResourceSummaryTypeDef(
-    _RequiredManagedResourceSummaryTypeDef, _OptionalManagedResourceSummaryTypeDef
-):
-    pass
+class PracticeRunConfigurationTypeDef(TypedDict):
+    outcomeAlarms: List[ControlConditionTypeDef]
+    blockedDates: NotRequired[List[str]]
+    blockedWindows: NotRequired[List[str]]
+    blockingAlarms: NotRequired[List[ControlConditionTypeDef]]
 
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
+class UpdatePracticeRunConfigurationRequestTypeDef(TypedDict):
+    resourceIdentifier: str
+    blockedDates: NotRequired[Sequence[str]]
+    blockedWindows: NotRequired[Sequence[str]]
+    blockingAlarms: NotRequired[Sequence[ControlConditionTypeDef]]
+    outcomeAlarms: NotRequired[Sequence[ControlConditionTypeDef]]
 
-_RequiredPracticeRunConfigurationTypeDef = TypedDict(
-    "_RequiredPracticeRunConfigurationTypeDef",
-    {
-        "outcomeAlarms": List["ControlConditionTypeDef"],
-    },
-)
-_OptionalPracticeRunConfigurationTypeDef = TypedDict(
-    "_OptionalPracticeRunConfigurationTypeDef",
-    {
-        "blockedDates": List[str],
-        "blockedWindows": List[str],
-        "blockingAlarms": List["ControlConditionTypeDef"],
-    },
-    total=False,
-)
+class DeletePracticeRunConfigurationResponseTypeDef(TypedDict):
+    arn: str
+    name: str
+    zonalAutoshiftStatus: ZonalAutoshiftStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class PracticeRunConfigurationTypeDef(
-    _RequiredPracticeRunConfigurationTypeDef, _OptionalPracticeRunConfigurationTypeDef
-):
-    pass
+class GetAutoshiftObserverNotificationStatusResponseTypeDef(TypedDict):
+    status: AutoshiftObserverNotificationStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
+class ListAutoshiftsResponseTypeDef(TypedDict):
+    items: List[AutoshiftSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-StartZonalShiftRequestRequestTypeDef = TypedDict(
-    "StartZonalShiftRequestRequestTypeDef",
-    {
-        "awayFrom": str,
-        "comment": str,
-        "expiresIn": str,
-        "resourceIdentifier": str,
-    },
-)
+class UpdateAutoshiftObserverNotificationStatusResponseTypeDef(TypedDict):
+    status: AutoshiftObserverNotificationStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredUpdatePracticeRunConfigurationRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdatePracticeRunConfigurationRequestRequestTypeDef",
-    {
-        "resourceIdentifier": str,
-    },
-)
-_OptionalUpdatePracticeRunConfigurationRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdatePracticeRunConfigurationRequestRequestTypeDef",
-    {
-        "blockedDates": List[str],
-        "blockedWindows": List[str],
-        "blockingAlarms": List["ControlConditionTypeDef"],
-        "outcomeAlarms": List["ControlConditionTypeDef"],
-    },
-    total=False,
-)
+class UpdateZonalAutoshiftConfigurationResponseTypeDef(TypedDict):
+    resourceIdentifier: str
+    zonalAutoshiftStatus: ZonalAutoshiftStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdatePracticeRunConfigurationRequestRequestTypeDef(
-    _RequiredUpdatePracticeRunConfigurationRequestRequestTypeDef,
-    _OptionalUpdatePracticeRunConfigurationRequestRequestTypeDef,
-):
-    pass
+class ZonalShiftTypeDef(TypedDict):
+    awayFrom: str
+    comment: str
+    expiryTime: datetime
+    resourceIdentifier: str
+    startTime: datetime
+    status: ZonalShiftStatusType
+    zonalShiftId: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-UpdatePracticeRunConfigurationResponseTypeDef = TypedDict(
-    "UpdatePracticeRunConfigurationResponseTypeDef",
-    {
-        "arn": str,
-        "name": str,
-        "practiceRunConfiguration": "PracticeRunConfigurationTypeDef",
-        "zonalAutoshiftStatus": ZonalAutoshiftStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ManagedResourceSummaryTypeDef(TypedDict):
+    availabilityZones: List[str]
+    appliedWeights: NotRequired[Dict[str, float]]
+    arn: NotRequired[str]
+    autoshifts: NotRequired[List[AutoshiftInResourceTypeDef]]
+    name: NotRequired[str]
+    practiceRunStatus: NotRequired[ZonalAutoshiftStatusType]
+    zonalAutoshiftStatus: NotRequired[ZonalAutoshiftStatusType]
+    zonalShifts: NotRequired[List[ZonalShiftInResourceTypeDef]]
 
-UpdateZonalAutoshiftConfigurationRequestRequestTypeDef = TypedDict(
-    "UpdateZonalAutoshiftConfigurationRequestRequestTypeDef",
-    {
-        "resourceIdentifier": str,
-        "zonalAutoshiftStatus": ZonalAutoshiftStatusType,
-    },
-)
+class ListAutoshiftsRequestPaginateTypeDef(TypedDict):
+    status: NotRequired[AutoshiftExecutionStatusType]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-UpdateZonalAutoshiftConfigurationResponseTypeDef = TypedDict(
-    "UpdateZonalAutoshiftConfigurationResponseTypeDef",
-    {
-        "resourceIdentifier": str,
-        "zonalAutoshiftStatus": ZonalAutoshiftStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListManagedResourcesRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-_RequiredUpdateZonalShiftRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateZonalShiftRequestRequestTypeDef",
-    {
-        "zonalShiftId": str,
-    },
-)
-_OptionalUpdateZonalShiftRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateZonalShiftRequestRequestTypeDef",
-    {
-        "comment": str,
-        "expiresIn": str,
-    },
-    total=False,
-)
+class ListZonalShiftsRequestPaginateTypeDef(TypedDict):
+    resourceIdentifier: NotRequired[str]
+    status: NotRequired[ZonalShiftStatusType]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-class UpdateZonalShiftRequestRequestTypeDef(
-    _RequiredUpdateZonalShiftRequestRequestTypeDef, _OptionalUpdateZonalShiftRequestRequestTypeDef
-):
-    pass
+class ListZonalShiftsResponseTypeDef(TypedDict):
+    items: List[ZonalShiftSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-_RequiredZonalShiftInResourceTypeDef = TypedDict(
-    "_RequiredZonalShiftInResourceTypeDef",
-    {
-        "appliedStatus": AppliedStatusType,
-        "awayFrom": str,
-        "comment": str,
-        "expiryTime": datetime,
-        "resourceIdentifier": str,
-        "startTime": datetime,
-        "zonalShiftId": str,
-    },
-)
-_OptionalZonalShiftInResourceTypeDef = TypedDict(
-    "_OptionalZonalShiftInResourceTypeDef",
-    {
-        "practiceRunOutcome": PracticeRunOutcomeType,
-    },
-    total=False,
-)
+class CreatePracticeRunConfigurationResponseTypeDef(TypedDict):
+    arn: str
+    name: str
+    practiceRunConfiguration: PracticeRunConfigurationTypeDef
+    zonalAutoshiftStatus: ZonalAutoshiftStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class ZonalShiftInResourceTypeDef(
-    _RequiredZonalShiftInResourceTypeDef, _OptionalZonalShiftInResourceTypeDef
-):
-    pass
+class GetManagedResourceResponseTypeDef(TypedDict):
+    appliedWeights: Dict[str, float]
+    arn: str
+    autoshifts: List[AutoshiftInResourceTypeDef]
+    name: str
+    practiceRunConfiguration: PracticeRunConfigurationTypeDef
+    zonalAutoshiftStatus: ZonalAutoshiftStatusType
+    zonalShifts: List[ZonalShiftInResourceTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredZonalShiftSummaryTypeDef = TypedDict(
-    "_RequiredZonalShiftSummaryTypeDef",
-    {
-        "awayFrom": str,
-        "comment": str,
-        "expiryTime": datetime,
-        "resourceIdentifier": str,
-        "startTime": datetime,
-        "status": ZonalShiftStatusType,
-        "zonalShiftId": str,
-    },
-)
-_OptionalZonalShiftSummaryTypeDef = TypedDict(
-    "_OptionalZonalShiftSummaryTypeDef",
-    {
-        "practiceRunOutcome": PracticeRunOutcomeType,
-    },
-    total=False,
-)
+class UpdatePracticeRunConfigurationResponseTypeDef(TypedDict):
+    arn: str
+    name: str
+    practiceRunConfiguration: PracticeRunConfigurationTypeDef
+    zonalAutoshiftStatus: ZonalAutoshiftStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class ZonalShiftSummaryTypeDef(
-    _RequiredZonalShiftSummaryTypeDef, _OptionalZonalShiftSummaryTypeDef
-):
-    pass
-
-ZonalShiftTypeDef = TypedDict(
-    "ZonalShiftTypeDef",
-    {
-        "awayFrom": str,
-        "comment": str,
-        "expiryTime": datetime,
-        "resourceIdentifier": str,
-        "startTime": datetime,
-        "status": ZonalShiftStatusType,
-        "zonalShiftId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListManagedResourcesResponseTypeDef(TypedDict):
+    items: List[ManagedResourceSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]

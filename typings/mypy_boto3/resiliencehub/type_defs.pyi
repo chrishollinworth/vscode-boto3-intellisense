@@ -1,20 +1,24 @@
 """
 Type annotations for resiliencehub service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_resiliencehub/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_resiliencehub/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_resiliencehub.type_defs import AddDraftAppVersionResourceMappingsRequestRequestTypeDef
+    from mypy_boto3_resiliencehub.type_defs import AcceptGroupingRecommendationEntryTypeDef
 
-    data: AddDraftAppVersionResourceMappingsRequestRequestTypeDef = {...}
+    data: AcceptGroupingRecommendationEntryTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List, Union
+from typing import Union
 
 from .literals import (
     AlarmTypeType,
@@ -25,6 +29,7 @@ from .literals import (
     AssessmentInvokerType,
     AssessmentStatusType,
     ComplianceStatusType,
+    ConditionOperatorTypeType,
     ConfigRecommendationOptimizationTypeType,
     CostFrequencyType,
     DataLocationConstraintType,
@@ -35,7 +40,12 @@ from .literals import (
     EstimatedCostTierType,
     EventTypeType,
     ExcludeRecommendationReasonType,
+    FieldAggregationTypeType,
+    GroupingRecommendationConfidenceLevelType,
+    GroupingRecommendationRejectionReasonType,
+    GroupingRecommendationStatusTypeType,
     HaArchitectureType,
+    MetricsExportStatusTypeType,
     PermissionModelTypeType,
     PhysicalIdentifierTypeType,
     RecommendationComplianceStatusType,
@@ -48,25 +58,32 @@ from .literals import (
     ResourceImportStrategyTypeType,
     ResourceMappingTypeType,
     ResourceResolutionStatusTypeType,
+    ResourcesGroupingRecGenStatusTypeType,
     ResourceSourceTypeType,
     TemplateFormatType,
     TestRiskType,
     TestTypeType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
-    "AddDraftAppVersionResourceMappingsRequestRequestTypeDef",
+    "AcceptGroupingRecommendationEntryTypeDef",
+    "AcceptResourceGroupingRecommendationsRequestTypeDef",
+    "AcceptResourceGroupingRecommendationsResponseTypeDef",
+    "AddDraftAppVersionResourceMappingsRequestTypeDef",
     "AddDraftAppVersionResourceMappingsResponseTypeDef",
     "AlarmRecommendationTypeDef",
+    "AlarmTypeDef",
     "AppAssessmentSummaryTypeDef",
     "AppAssessmentTypeDef",
     "AppComponentComplianceTypeDef",
@@ -75,118 +92,146 @@ __all__ = (
     "AppSummaryTypeDef",
     "AppTypeDef",
     "AppVersionSummaryTypeDef",
+    "AssessmentRiskRecommendationTypeDef",
+    "AssessmentSummaryTypeDef",
     "BatchUpdateRecommendationStatusFailedEntryTypeDef",
-    "BatchUpdateRecommendationStatusRequestRequestTypeDef",
+    "BatchUpdateRecommendationStatusRequestTypeDef",
     "BatchUpdateRecommendationStatusResponseTypeDef",
     "BatchUpdateRecommendationStatusSuccessfulEntryTypeDef",
     "ComplianceDriftTypeDef",
     "ComponentRecommendationTypeDef",
+    "ConditionTypeDef",
     "ConfigRecommendationTypeDef",
     "CostTypeDef",
-    "CreateAppRequestRequestTypeDef",
+    "CreateAppRequestTypeDef",
     "CreateAppResponseTypeDef",
-    "CreateAppVersionAppComponentRequestRequestTypeDef",
+    "CreateAppVersionAppComponentRequestTypeDef",
     "CreateAppVersionAppComponentResponseTypeDef",
-    "CreateAppVersionResourceRequestRequestTypeDef",
+    "CreateAppVersionResourceRequestTypeDef",
     "CreateAppVersionResourceResponseTypeDef",
-    "CreateRecommendationTemplateRequestRequestTypeDef",
+    "CreateRecommendationTemplateRequestTypeDef",
     "CreateRecommendationTemplateResponseTypeDef",
-    "CreateResiliencyPolicyRequestRequestTypeDef",
+    "CreateResiliencyPolicyRequestTypeDef",
     "CreateResiliencyPolicyResponseTypeDef",
-    "DeleteAppAssessmentRequestRequestTypeDef",
+    "DeleteAppAssessmentRequestTypeDef",
     "DeleteAppAssessmentResponseTypeDef",
-    "DeleteAppInputSourceRequestRequestTypeDef",
+    "DeleteAppInputSourceRequestTypeDef",
     "DeleteAppInputSourceResponseTypeDef",
-    "DeleteAppRequestRequestTypeDef",
+    "DeleteAppRequestTypeDef",
     "DeleteAppResponseTypeDef",
-    "DeleteAppVersionAppComponentRequestRequestTypeDef",
+    "DeleteAppVersionAppComponentRequestTypeDef",
     "DeleteAppVersionAppComponentResponseTypeDef",
-    "DeleteAppVersionResourceRequestRequestTypeDef",
+    "DeleteAppVersionResourceRequestTypeDef",
     "DeleteAppVersionResourceResponseTypeDef",
-    "DeleteRecommendationTemplateRequestRequestTypeDef",
+    "DeleteRecommendationTemplateRequestTypeDef",
     "DeleteRecommendationTemplateResponseTypeDef",
-    "DeleteResiliencyPolicyRequestRequestTypeDef",
+    "DeleteResiliencyPolicyRequestTypeDef",
     "DeleteResiliencyPolicyResponseTypeDef",
-    "DescribeAppAssessmentRequestRequestTypeDef",
+    "DescribeAppAssessmentRequestTypeDef",
     "DescribeAppAssessmentResponseTypeDef",
-    "DescribeAppRequestRequestTypeDef",
+    "DescribeAppRequestTypeDef",
     "DescribeAppResponseTypeDef",
-    "DescribeAppVersionAppComponentRequestRequestTypeDef",
+    "DescribeAppVersionAppComponentRequestTypeDef",
     "DescribeAppVersionAppComponentResponseTypeDef",
-    "DescribeAppVersionRequestRequestTypeDef",
-    "DescribeAppVersionResourceRequestRequestTypeDef",
+    "DescribeAppVersionRequestTypeDef",
+    "DescribeAppVersionResourceRequestTypeDef",
     "DescribeAppVersionResourceResponseTypeDef",
-    "DescribeAppVersionResourcesResolutionStatusRequestRequestTypeDef",
+    "DescribeAppVersionResourcesResolutionStatusRequestTypeDef",
     "DescribeAppVersionResourcesResolutionStatusResponseTypeDef",
     "DescribeAppVersionResponseTypeDef",
-    "DescribeAppVersionTemplateRequestRequestTypeDef",
+    "DescribeAppVersionTemplateRequestTypeDef",
     "DescribeAppVersionTemplateResponseTypeDef",
-    "DescribeDraftAppVersionResourcesImportStatusRequestRequestTypeDef",
+    "DescribeDraftAppVersionResourcesImportStatusRequestTypeDef",
     "DescribeDraftAppVersionResourcesImportStatusResponseTypeDef",
-    "DescribeResiliencyPolicyRequestRequestTypeDef",
+    "DescribeMetricsExportRequestTypeDef",
+    "DescribeMetricsExportResponseTypeDef",
+    "DescribeResiliencyPolicyRequestTypeDef",
     "DescribeResiliencyPolicyResponseTypeDef",
+    "DescribeResourceGroupingRecommendationTaskRequestTypeDef",
+    "DescribeResourceGroupingRecommendationTaskResponseTypeDef",
     "DisruptionComplianceTypeDef",
     "EksSourceClusterNamespaceTypeDef",
+    "EksSourceOutputTypeDef",
     "EksSourceTypeDef",
+    "EksSourceUnionTypeDef",
+    "ErrorDetailTypeDef",
     "EventSubscriptionTypeDef",
+    "ExperimentTypeDef",
+    "FailedGroupingRecommendationEntryTypeDef",
     "FailurePolicyTypeDef",
-    "ImportResourcesToDraftAppVersionRequestRequestTypeDef",
+    "FieldTypeDef",
+    "GroupingAppComponentTypeDef",
+    "GroupingRecommendationTypeDef",
+    "GroupingResourceTypeDef",
+    "ImportResourcesToDraftAppVersionRequestTypeDef",
     "ImportResourcesToDraftAppVersionResponseTypeDef",
-    "ListAlarmRecommendationsRequestRequestTypeDef",
+    "ListAlarmRecommendationsRequestTypeDef",
     "ListAlarmRecommendationsResponseTypeDef",
-    "ListAppAssessmentComplianceDriftsRequestRequestTypeDef",
+    "ListAppAssessmentComplianceDriftsRequestTypeDef",
     "ListAppAssessmentComplianceDriftsResponseTypeDef",
-    "ListAppAssessmentResourceDriftsRequestRequestTypeDef",
+    "ListAppAssessmentResourceDriftsRequestPaginateTypeDef",
+    "ListAppAssessmentResourceDriftsRequestTypeDef",
     "ListAppAssessmentResourceDriftsResponseTypeDef",
-    "ListAppAssessmentsRequestRequestTypeDef",
+    "ListAppAssessmentsRequestTypeDef",
     "ListAppAssessmentsResponseTypeDef",
-    "ListAppComponentCompliancesRequestRequestTypeDef",
+    "ListAppComponentCompliancesRequestTypeDef",
     "ListAppComponentCompliancesResponseTypeDef",
-    "ListAppComponentRecommendationsRequestRequestTypeDef",
+    "ListAppComponentRecommendationsRequestTypeDef",
     "ListAppComponentRecommendationsResponseTypeDef",
-    "ListAppInputSourcesRequestRequestTypeDef",
+    "ListAppInputSourcesRequestTypeDef",
     "ListAppInputSourcesResponseTypeDef",
-    "ListAppVersionAppComponentsRequestRequestTypeDef",
+    "ListAppVersionAppComponentsRequestTypeDef",
     "ListAppVersionAppComponentsResponseTypeDef",
-    "ListAppVersionResourceMappingsRequestRequestTypeDef",
+    "ListAppVersionResourceMappingsRequestTypeDef",
     "ListAppVersionResourceMappingsResponseTypeDef",
-    "ListAppVersionResourcesRequestRequestTypeDef",
+    "ListAppVersionResourcesRequestTypeDef",
     "ListAppVersionResourcesResponseTypeDef",
-    "ListAppVersionsRequestRequestTypeDef",
+    "ListAppVersionsRequestTypeDef",
     "ListAppVersionsResponseTypeDef",
-    "ListAppsRequestRequestTypeDef",
+    "ListAppsRequestTypeDef",
     "ListAppsResponseTypeDef",
-    "ListRecommendationTemplatesRequestRequestTypeDef",
+    "ListMetricsRequestPaginateTypeDef",
+    "ListMetricsRequestTypeDef",
+    "ListMetricsResponseTypeDef",
+    "ListRecommendationTemplatesRequestTypeDef",
     "ListRecommendationTemplatesResponseTypeDef",
-    "ListResiliencyPoliciesRequestRequestTypeDef",
+    "ListResiliencyPoliciesRequestTypeDef",
     "ListResiliencyPoliciesResponseTypeDef",
-    "ListSopRecommendationsRequestRequestTypeDef",
+    "ListResourceGroupingRecommendationsRequestPaginateTypeDef",
+    "ListResourceGroupingRecommendationsRequestTypeDef",
+    "ListResourceGroupingRecommendationsResponseTypeDef",
+    "ListSopRecommendationsRequestTypeDef",
     "ListSopRecommendationsResponseTypeDef",
-    "ListSuggestedResiliencyPoliciesRequestRequestTypeDef",
+    "ListSuggestedResiliencyPoliciesRequestTypeDef",
     "ListSuggestedResiliencyPoliciesResponseTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
-    "ListTestRecommendationsRequestRequestTypeDef",
+    "ListTestRecommendationsRequestTypeDef",
     "ListTestRecommendationsResponseTypeDef",
-    "ListUnsupportedAppVersionResourcesRequestRequestTypeDef",
+    "ListUnsupportedAppVersionResourcesRequestTypeDef",
     "ListUnsupportedAppVersionResourcesResponseTypeDef",
     "LogicalResourceIdTypeDef",
     "PaginatorConfigTypeDef",
+    "PermissionModelOutputTypeDef",
     "PermissionModelTypeDef",
+    "PermissionModelUnionTypeDef",
     "PhysicalResourceIdTypeDef",
     "PhysicalResourceTypeDef",
-    "PublishAppVersionRequestRequestTypeDef",
+    "PublishAppVersionRequestTypeDef",
     "PublishAppVersionResponseTypeDef",
-    "PutDraftAppVersionTemplateRequestRequestTypeDef",
+    "PutDraftAppVersionTemplateRequestTypeDef",
     "PutDraftAppVersionTemplateResponseTypeDef",
     "RecommendationDisruptionComplianceTypeDef",
     "RecommendationItemTypeDef",
     "RecommendationTemplateTypeDef",
-    "RemoveDraftAppVersionResourceMappingsRequestRequestTypeDef",
+    "RejectGroupingRecommendationEntryTypeDef",
+    "RejectResourceGroupingRecommendationsRequestTypeDef",
+    "RejectResourceGroupingRecommendationsResponseTypeDef",
+    "RemoveDraftAppVersionResourceMappingsRequestTypeDef",
     "RemoveDraftAppVersionResourceMappingsResponseTypeDef",
     "ResiliencyPolicyTypeDef",
     "ResiliencyScoreTypeDef",
-    "ResolveAppVersionResourcesRequestRequestTypeDef",
+    "ResolveAppVersionResourcesRequestTypeDef",
     "ResolveAppVersionResourcesResponseTypeDef",
     "ResourceDriftTypeDef",
     "ResourceErrorTypeDef",
@@ -197,2298 +242,1246 @@ __all__ = (
     "S3LocationTypeDef",
     "ScoringComponentResiliencyScoreTypeDef",
     "SopRecommendationTypeDef",
-    "StartAppAssessmentRequestRequestTypeDef",
+    "SortTypeDef",
+    "StartAppAssessmentRequestTypeDef",
     "StartAppAssessmentResponseTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "StartMetricsExportRequestTypeDef",
+    "StartMetricsExportResponseTypeDef",
+    "StartResourceGroupingRecommendationTaskRequestTypeDef",
+    "StartResourceGroupingRecommendationTaskResponseTypeDef",
+    "TagResourceRequestTypeDef",
     "TerraformSourceTypeDef",
     "TestRecommendationTypeDef",
+    "TimestampTypeDef",
     "UnsupportedResourceTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateAppRequestRequestTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateAppRequestTypeDef",
     "UpdateAppResponseTypeDef",
-    "UpdateAppVersionAppComponentRequestRequestTypeDef",
+    "UpdateAppVersionAppComponentRequestTypeDef",
     "UpdateAppVersionAppComponentResponseTypeDef",
-    "UpdateAppVersionRequestRequestTypeDef",
-    "UpdateAppVersionResourceRequestRequestTypeDef",
+    "UpdateAppVersionRequestTypeDef",
+    "UpdateAppVersionResourceRequestTypeDef",
     "UpdateAppVersionResourceResponseTypeDef",
     "UpdateAppVersionResponseTypeDef",
     "UpdateRecommendationStatusItemTypeDef",
     "UpdateRecommendationStatusRequestEntryTypeDef",
-    "UpdateResiliencyPolicyRequestRequestTypeDef",
+    "UpdateResiliencyPolicyRequestTypeDef",
     "UpdateResiliencyPolicyResponseTypeDef",
 )
 
-AddDraftAppVersionResourceMappingsRequestRequestTypeDef = TypedDict(
-    "AddDraftAppVersionResourceMappingsRequestRequestTypeDef",
+class AcceptGroupingRecommendationEntryTypeDef(TypedDict):
+    groupingRecommendationId: str
+
+class FailedGroupingRecommendationEntryTypeDef(TypedDict):
+    errorMessage: str
+    groupingRecommendationId: str
+
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
+
+class AlarmTypeDef(TypedDict):
+    alarmArn: NotRequired[str]
+    source: NotRequired[str]
+
+class CostTypeDef(TypedDict):
+    amount: float
+    currency: str
+    frequency: CostFrequencyType
+
+class DisruptionComplianceTypeDef(TypedDict):
+    complianceStatus: ComplianceStatusType
+    achievableRpoInSecs: NotRequired[int]
+    achievableRtoInSecs: NotRequired[int]
+    currentRpoInSecs: NotRequired[int]
+    currentRtoInSecs: NotRequired[int]
+    message: NotRequired[str]
+    rpoDescription: NotRequired[str]
+    rpoReferenceId: NotRequired[str]
+    rtoDescription: NotRequired[str]
+    rtoReferenceId: NotRequired[str]
+
+AppComponentTypeDef = TypedDict(
+    "AppComponentTypeDef",
     {
-        "appArn": str,
-        "resourceMappings": List["ResourceMappingTypeDef"],
+        "name": str,
+        "type": str,
+        "additionalInfo": NotRequired[Dict[str, List[str]]],
+        "id": NotRequired[str],
     },
 )
 
-AddDraftAppVersionResourceMappingsResponseTypeDef = TypedDict(
-    "AddDraftAppVersionResourceMappingsResponseTypeDef",
+class EksSourceClusterNamespaceTypeDef(TypedDict):
+    eksClusterArn: str
+    namespace: str
+
+class TerraformSourceTypeDef(TypedDict):
+    s3StateFileUrl: str
+
+class AppSummaryTypeDef(TypedDict):
+    appArn: str
+    creationTime: datetime
+    name: str
+    assessmentSchedule: NotRequired[AppAssessmentScheduleTypeType]
+    awsApplicationArn: NotRequired[str]
+    complianceStatus: NotRequired[AppComplianceStatusTypeType]
+    description: NotRequired[str]
+    driftStatus: NotRequired[AppDriftStatusTypeType]
+    lastAppComplianceEvaluationTime: NotRequired[datetime]
+    resiliencyScore: NotRequired[float]
+    rpoInSecs: NotRequired[int]
+    rtoInSecs: NotRequired[int]
+    status: NotRequired[AppStatusTypeType]
+
+class EventSubscriptionTypeDef(TypedDict):
+    eventType: EventTypeType
+    name: str
+    snsTopicArn: NotRequired[str]
+
+PermissionModelOutputTypeDef = TypedDict(
+    "PermissionModelOutputTypeDef",
+    {
+        "type": PermissionModelTypeType,
+        "crossAccountRoleArns": NotRequired[List[str]],
+        "invokerRoleName": NotRequired[str],
+    },
+)
+
+class AppVersionSummaryTypeDef(TypedDict):
+    appVersion: str
+    creationTime: NotRequired[datetime]
+    identifier: NotRequired[int]
+    versionName: NotRequired[str]
+
+class AssessmentRiskRecommendationTypeDef(TypedDict):
+    appComponents: NotRequired[List[str]]
+    recommendation: NotRequired[str]
+    risk: NotRequired[str]
+
+class BatchUpdateRecommendationStatusFailedEntryTypeDef(TypedDict):
+    entryId: str
+    errorMessage: str
+
+class UpdateRecommendationStatusItemTypeDef(TypedDict):
+    resourceId: NotRequired[str]
+    targetAccountId: NotRequired[str]
+    targetRegion: NotRequired[str]
+
+ConditionTypeDef = TypedDict(
+    "ConditionTypeDef",
+    {
+        "field": str,
+        "operator": ConditionOperatorTypeType,
+        "value": NotRequired[str],
+    },
+)
+
+class RecommendationDisruptionComplianceTypeDef(TypedDict):
+    expectedComplianceStatus: ComplianceStatusType
+    expectedRpoDescription: NotRequired[str]
+    expectedRpoInSecs: NotRequired[int]
+    expectedRtoDescription: NotRequired[str]
+    expectedRtoInSecs: NotRequired[int]
+
+CreateAppVersionAppComponentRequestTypeDef = TypedDict(
+    "CreateAppVersionAppComponentRequestTypeDef",
+    {
+        "appArn": str,
+        "name": str,
+        "type": str,
+        "additionalInfo": NotRequired[Mapping[str, Sequence[str]]],
+        "clientToken": NotRequired[str],
+        "id": NotRequired[str],
+    },
+)
+
+class LogicalResourceIdTypeDef(TypedDict):
+    identifier: str
+    eksSourceName: NotRequired[str]
+    logicalStackName: NotRequired[str]
+    resourceGroupName: NotRequired[str]
+    terraformSourceName: NotRequired[str]
+
+CreateRecommendationTemplateRequestTypeDef = TypedDict(
+    "CreateRecommendationTemplateRequestTypeDef",
+    {
+        "assessmentArn": str,
+        "name": str,
+        "bucketName": NotRequired[str],
+        "clientToken": NotRequired[str],
+        "format": NotRequired[TemplateFormatType],
+        "recommendationIds": NotRequired[Sequence[str]],
+        "recommendationTypes": NotRequired[Sequence[RenderRecommendationTypeType]],
+        "tags": NotRequired[Mapping[str, str]],
+    },
+)
+
+class FailurePolicyTypeDef(TypedDict):
+    rpoInSecs: int
+    rtoInSecs: int
+
+class DeleteAppAssessmentRequestTypeDef(TypedDict):
+    assessmentArn: str
+    clientToken: NotRequired[str]
+
+class DeleteAppRequestTypeDef(TypedDict):
+    appArn: str
+    clientToken: NotRequired[str]
+    forceDelete: NotRequired[bool]
+
+DeleteAppVersionAppComponentRequestTypeDef = TypedDict(
+    "DeleteAppVersionAppComponentRequestTypeDef",
+    {
+        "appArn": str,
+        "id": str,
+        "clientToken": NotRequired[str],
+    },
+)
+
+class DeleteRecommendationTemplateRequestTypeDef(TypedDict):
+    recommendationTemplateArn: str
+    clientToken: NotRequired[str]
+
+class DeleteResiliencyPolicyRequestTypeDef(TypedDict):
+    policyArn: str
+    clientToken: NotRequired[str]
+
+class DescribeAppAssessmentRequestTypeDef(TypedDict):
+    assessmentArn: str
+
+class DescribeAppRequestTypeDef(TypedDict):
+    appArn: str
+
+DescribeAppVersionAppComponentRequestTypeDef = TypedDict(
+    "DescribeAppVersionAppComponentRequestTypeDef",
     {
         "appArn": str,
         "appVersion": str,
-        "resourceMappings": List["ResourceMappingTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "id": str,
     },
 )
 
-_RequiredAlarmRecommendationTypeDef = TypedDict(
-    "_RequiredAlarmRecommendationTypeDef",
+class DescribeAppVersionRequestTypeDef(TypedDict):
+    appArn: str
+    appVersion: str
+
+class DescribeAppVersionResourcesResolutionStatusRequestTypeDef(TypedDict):
+    appArn: str
+    appVersion: str
+    resolutionId: NotRequired[str]
+
+class DescribeAppVersionTemplateRequestTypeDef(TypedDict):
+    appArn: str
+    appVersion: str
+
+class DescribeDraftAppVersionResourcesImportStatusRequestTypeDef(TypedDict):
+    appArn: str
+
+class ErrorDetailTypeDef(TypedDict):
+    errorMessage: NotRequired[str]
+
+class DescribeMetricsExportRequestTypeDef(TypedDict):
+    metricsExportId: str
+
+class S3LocationTypeDef(TypedDict):
+    bucket: NotRequired[str]
+    prefix: NotRequired[str]
+
+class DescribeResiliencyPolicyRequestTypeDef(TypedDict):
+    policyArn: str
+
+class DescribeResourceGroupingRecommendationTaskRequestTypeDef(TypedDict):
+    appArn: str
+    groupingId: NotRequired[str]
+
+class EksSourceOutputTypeDef(TypedDict):
+    eksClusterArn: str
+    namespaces: List[str]
+
+class EksSourceTypeDef(TypedDict):
+    eksClusterArn: str
+    namespaces: Sequence[str]
+
+class ExperimentTypeDef(TypedDict):
+    experimentArn: NotRequired[str]
+    experimentTemplateId: NotRequired[str]
+
+class FieldTypeDef(TypedDict):
+    name: str
+    aggregation: NotRequired[FieldAggregationTypeType]
+
+class GroupingAppComponentTypeDef(TypedDict):
+    appComponentId: str
+    appComponentName: str
+    appComponentType: str
+
+PhysicalResourceIdTypeDef = TypedDict(
+    "PhysicalResourceIdTypeDef",
+    {
+        "identifier": str,
+        "type": PhysicalIdentifierTypeType,
+        "awsAccountId": NotRequired[str],
+        "awsRegion": NotRequired[str],
+    },
+)
+
+class ListAlarmRecommendationsRequestTypeDef(TypedDict):
+    assessmentArn: str
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListAppAssessmentComplianceDriftsRequestTypeDef(TypedDict):
+    assessmentArn: str
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class ListAppAssessmentResourceDriftsRequestTypeDef(TypedDict):
+    assessmentArn: str
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListAppAssessmentsRequestTypeDef(TypedDict):
+    appArn: NotRequired[str]
+    assessmentName: NotRequired[str]
+    assessmentStatus: NotRequired[Sequence[AssessmentStatusType]]
+    complianceStatus: NotRequired[ComplianceStatusType]
+    invoker: NotRequired[AssessmentInvokerType]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+    reverseOrder: NotRequired[bool]
+
+class ListAppComponentCompliancesRequestTypeDef(TypedDict):
+    assessmentArn: str
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListAppComponentRecommendationsRequestTypeDef(TypedDict):
+    assessmentArn: str
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListAppInputSourcesRequestTypeDef(TypedDict):
+    appArn: str
+    appVersion: str
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListAppVersionAppComponentsRequestTypeDef(TypedDict):
+    appArn: str
+    appVersion: str
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListAppVersionResourceMappingsRequestTypeDef(TypedDict):
+    appArn: str
+    appVersion: str
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListAppVersionResourcesRequestTypeDef(TypedDict):
+    appArn: str
+    appVersion: str
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+    resolutionId: NotRequired[str]
+
+TimestampTypeDef = Union[datetime, str]
+
+class SortTypeDef(TypedDict):
+    field: str
+    ascending: NotRequired[bool]
+
+class ListRecommendationTemplatesRequestTypeDef(TypedDict):
+    assessmentArn: NotRequired[str]
+    maxResults: NotRequired[int]
+    name: NotRequired[str]
+    nextToken: NotRequired[str]
+    recommendationTemplateArn: NotRequired[str]
+    reverseOrder: NotRequired[bool]
+    status: NotRequired[Sequence[RecommendationTemplateStatusType]]
+
+class ListResiliencyPoliciesRequestTypeDef(TypedDict):
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+    policyName: NotRequired[str]
+
+class ListResourceGroupingRecommendationsRequestTypeDef(TypedDict):
+    appArn: NotRequired[str]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListSopRecommendationsRequestTypeDef(TypedDict):
+    assessmentArn: str
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListSuggestedResiliencyPoliciesRequestTypeDef(TypedDict):
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+
+class ListTestRecommendationsRequestTypeDef(TypedDict):
+    assessmentArn: str
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListUnsupportedAppVersionResourcesRequestTypeDef(TypedDict):
+    appArn: str
+    appVersion: str
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+    resolutionId: NotRequired[str]
+
+PermissionModelTypeDef = TypedDict(
+    "PermissionModelTypeDef",
+    {
+        "type": PermissionModelTypeType,
+        "crossAccountRoleArns": NotRequired[Sequence[str]],
+        "invokerRoleName": NotRequired[str],
+    },
+)
+
+class PublishAppVersionRequestTypeDef(TypedDict):
+    appArn: str
+    versionName: NotRequired[str]
+
+class PutDraftAppVersionTemplateRequestTypeDef(TypedDict):
+    appArn: str
+    appTemplateBody: str
+
+class RejectGroupingRecommendationEntryTypeDef(TypedDict):
+    groupingRecommendationId: str
+    rejectionReason: NotRequired[GroupingRecommendationRejectionReasonType]
+
+class RemoveDraftAppVersionResourceMappingsRequestTypeDef(TypedDict):
+    appArn: str
+    appRegistryAppNames: NotRequired[Sequence[str]]
+    eksSourceNames: NotRequired[Sequence[str]]
+    logicalStackNames: NotRequired[Sequence[str]]
+    resourceGroupNames: NotRequired[Sequence[str]]
+    resourceNames: NotRequired[Sequence[str]]
+    terraformSourceNames: NotRequired[Sequence[str]]
+
+class ScoringComponentResiliencyScoreTypeDef(TypedDict):
+    excludedCount: NotRequired[int]
+    outstandingCount: NotRequired[int]
+    possibleScore: NotRequired[float]
+    score: NotRequired[float]
+
+class ResolveAppVersionResourcesRequestTypeDef(TypedDict):
+    appArn: str
+    appVersion: str
+
+class ResourceErrorTypeDef(TypedDict):
+    logicalResourceId: NotRequired[str]
+    physicalResourceId: NotRequired[str]
+    reason: NotRequired[str]
+
+class StartAppAssessmentRequestTypeDef(TypedDict):
+    appArn: str
+    appVersion: str
+    assessmentName: str
+    clientToken: NotRequired[str]
+    tags: NotRequired[Mapping[str, str]]
+
+class StartMetricsExportRequestTypeDef(TypedDict):
+    bucketName: NotRequired[str]
+    clientToken: NotRequired[str]
+
+class StartResourceGroupingRecommendationTaskRequestTypeDef(TypedDict):
+    appArn: str
+
+class TagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tags: Mapping[str, str]
+
+class UntagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tagKeys: Sequence[str]
+
+UpdateAppVersionAppComponentRequestTypeDef = TypedDict(
+    "UpdateAppVersionAppComponentRequestTypeDef",
+    {
+        "appArn": str,
+        "id": str,
+        "additionalInfo": NotRequired[Mapping[str, Sequence[str]]],
+        "name": NotRequired[str],
+        "type": NotRequired[str],
+    },
+)
+
+class UpdateAppVersionRequestTypeDef(TypedDict):
+    appArn: str
+    additionalInfo: NotRequired[Mapping[str, Sequence[str]]]
+
+class AcceptResourceGroupingRecommendationsRequestTypeDef(TypedDict):
+    appArn: str
+    entries: Sequence[AcceptGroupingRecommendationEntryTypeDef]
+
+class AcceptResourceGroupingRecommendationsResponseTypeDef(TypedDict):
+    appArn: str
+    failedEntries: List[FailedGroupingRecommendationEntryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteAppAssessmentResponseTypeDef(TypedDict):
+    assessmentArn: str
+    assessmentStatus: AssessmentStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteAppResponseTypeDef(TypedDict):
+    appArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteRecommendationTemplateResponseTypeDef(TypedDict):
+    recommendationTemplateArn: str
+    status: RecommendationTemplateStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteResiliencyPolicyResponseTypeDef(TypedDict):
+    policyArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeAppVersionResourcesResolutionStatusResponseTypeDef(TypedDict):
+    appArn: str
+    appVersion: str
+    errorMessage: str
+    resolutionId: str
+    status: ResourceResolutionStatusTypeType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeAppVersionResponseTypeDef(TypedDict):
+    additionalInfo: Dict[str, List[str]]
+    appArn: str
+    appVersion: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeAppVersionTemplateResponseTypeDef(TypedDict):
+    appArn: str
+    appTemplateBody: str
+    appVersion: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeResourceGroupingRecommendationTaskResponseTypeDef(TypedDict):
+    errorMessage: str
+    groupingId: str
+    status: ResourcesGroupingRecGenStatusTypeType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListMetricsResponseTypeDef(TypedDict):
+    rows: List[List[str]]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PublishAppVersionResponseTypeDef(TypedDict):
+    appArn: str
+    appVersion: str
+    identifier: int
+    versionName: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutDraftAppVersionTemplateResponseTypeDef(TypedDict):
+    appArn: str
+    appVersion: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class RejectResourceGroupingRecommendationsResponseTypeDef(TypedDict):
+    appArn: str
+    failedEntries: List[FailedGroupingRecommendationEntryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class RemoveDraftAppVersionResourceMappingsResponseTypeDef(TypedDict):
+    appArn: str
+    appVersion: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ResolveAppVersionResourcesResponseTypeDef(TypedDict):
+    appArn: str
+    appVersion: str
+    resolutionId: str
+    status: ResourceResolutionStatusTypeType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartMetricsExportResponseTypeDef(TypedDict):
+    metricsExportId: str
+    status: MetricsExportStatusTypeType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartResourceGroupingRecommendationTaskResponseTypeDef(TypedDict):
+    appArn: str
+    errorMessage: str
+    groupingId: str
+    status: ResourcesGroupingRecGenStatusTypeType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateAppVersionResponseTypeDef(TypedDict):
+    additionalInfo: Dict[str, List[str]]
+    appArn: str
+    appVersion: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class AppAssessmentSummaryTypeDef(TypedDict):
+    assessmentArn: str
+    assessmentStatus: AssessmentStatusType
+    appArn: NotRequired[str]
+    appVersion: NotRequired[str]
+    assessmentName: NotRequired[str]
+    complianceStatus: NotRequired[ComplianceStatusType]
+    cost: NotRequired[CostTypeDef]
+    driftStatus: NotRequired[DriftStatusType]
+    endTime: NotRequired[datetime]
+    invoker: NotRequired[AssessmentInvokerType]
+    message: NotRequired[str]
+    resiliencyScore: NotRequired[float]
+    startTime: NotRequired[datetime]
+    versionName: NotRequired[str]
+
+class ComplianceDriftTypeDef(TypedDict):
+    actualReferenceId: NotRequired[str]
+    actualValue: NotRequired[Dict[DisruptionTypeType, DisruptionComplianceTypeDef]]
+    appId: NotRequired[str]
+    appVersion: NotRequired[str]
+    diffType: NotRequired[DifferenceTypeType]
+    driftType: NotRequired[DriftTypeType]
+    entityId: NotRequired[str]
+    entityType: NotRequired[str]
+    expectedReferenceId: NotRequired[str]
+    expectedValue: NotRequired[Dict[DisruptionTypeType, DisruptionComplianceTypeDef]]
+
+class CreateAppVersionAppComponentResponseTypeDef(TypedDict):
+    appArn: str
+    appComponent: AppComponentTypeDef
+    appVersion: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteAppVersionAppComponentResponseTypeDef(TypedDict):
+    appArn: str
+    appComponent: AppComponentTypeDef
+    appVersion: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeAppVersionAppComponentResponseTypeDef(TypedDict):
+    appArn: str
+    appComponent: AppComponentTypeDef
+    appVersion: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListAppVersionAppComponentsResponseTypeDef(TypedDict):
+    appArn: str
+    appComponents: List[AppComponentTypeDef]
+    appVersion: str
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class UpdateAppVersionAppComponentResponseTypeDef(TypedDict):
+    appArn: str
+    appComponent: AppComponentTypeDef
+    appVersion: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class AppInputSourceTypeDef(TypedDict):
+    importType: ResourceMappingTypeType
+    eksSourceClusterNamespace: NotRequired[EksSourceClusterNamespaceTypeDef]
+    resourceCount: NotRequired[int]
+    sourceArn: NotRequired[str]
+    sourceName: NotRequired[str]
+    terraformSource: NotRequired[TerraformSourceTypeDef]
+
+class DeleteAppInputSourceRequestTypeDef(TypedDict):
+    appArn: str
+    clientToken: NotRequired[str]
+    eksSourceClusterNamespace: NotRequired[EksSourceClusterNamespaceTypeDef]
+    sourceArn: NotRequired[str]
+    terraformSource: NotRequired[TerraformSourceTypeDef]
+
+class ListAppsResponseTypeDef(TypedDict):
+    appSummaries: List[AppSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class AppTypeDef(TypedDict):
+    appArn: str
+    creationTime: datetime
+    name: str
+    assessmentSchedule: NotRequired[AppAssessmentScheduleTypeType]
+    awsApplicationArn: NotRequired[str]
+    complianceStatus: NotRequired[AppComplianceStatusTypeType]
+    description: NotRequired[str]
+    driftStatus: NotRequired[AppDriftStatusTypeType]
+    eventSubscriptions: NotRequired[List[EventSubscriptionTypeDef]]
+    lastAppComplianceEvaluationTime: NotRequired[datetime]
+    lastDriftEvaluationTime: NotRequired[datetime]
+    lastResiliencyScoreEvaluationTime: NotRequired[datetime]
+    permissionModel: NotRequired[PermissionModelOutputTypeDef]
+    policyArn: NotRequired[str]
+    resiliencyScore: NotRequired[float]
+    rpoInSecs: NotRequired[int]
+    rtoInSecs: NotRequired[int]
+    status: NotRequired[AppStatusTypeType]
+    tags: NotRequired[Dict[str, str]]
+
+class ListAppVersionsResponseTypeDef(TypedDict):
+    appVersions: List[AppVersionSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class AssessmentSummaryTypeDef(TypedDict):
+    riskRecommendations: NotRequired[List[AssessmentRiskRecommendationTypeDef]]
+    summary: NotRequired[str]
+
+class BatchUpdateRecommendationStatusSuccessfulEntryTypeDef(TypedDict):
+    entryId: str
+    excluded: bool
+    referenceId: str
+    appComponentId: NotRequired[str]
+    excludeReason: NotRequired[ExcludeRecommendationReasonType]
+    item: NotRequired[UpdateRecommendationStatusItemTypeDef]
+
+class UpdateRecommendationStatusRequestEntryTypeDef(TypedDict):
+    entryId: str
+    excluded: bool
+    referenceId: str
+    appComponentId: NotRequired[str]
+    excludeReason: NotRequired[ExcludeRecommendationReasonType]
+    item: NotRequired[UpdateRecommendationStatusItemTypeDef]
+
+class ConfigRecommendationTypeDef(TypedDict):
+    name: str
+    optimizationType: ConfigRecommendationOptimizationTypeType
+    referenceId: str
+    appComponentName: NotRequired[str]
+    compliance: NotRequired[Dict[DisruptionTypeType, DisruptionComplianceTypeDef]]
+    cost: NotRequired[CostTypeDef]
+    description: NotRequired[str]
+    haArchitecture: NotRequired[HaArchitectureType]
+    recommendationCompliance: NotRequired[
+        Dict[DisruptionTypeType, RecommendationDisruptionComplianceTypeDef]
+    ]
+    suggestedChanges: NotRequired[List[str]]
+
+class CreateAppVersionResourceRequestTypeDef(TypedDict):
+    appArn: str
+    appComponents: Sequence[str]
+    logicalResourceId: LogicalResourceIdTypeDef
+    physicalResourceId: str
+    resourceType: str
+    additionalInfo: NotRequired[Mapping[str, Sequence[str]]]
+    awsAccountId: NotRequired[str]
+    awsRegion: NotRequired[str]
+    clientToken: NotRequired[str]
+    resourceName: NotRequired[str]
+
+class DeleteAppVersionResourceRequestTypeDef(TypedDict):
+    appArn: str
+    awsAccountId: NotRequired[str]
+    awsRegion: NotRequired[str]
+    clientToken: NotRequired[str]
+    logicalResourceId: NotRequired[LogicalResourceIdTypeDef]
+    physicalResourceId: NotRequired[str]
+    resourceName: NotRequired[str]
+
+class DescribeAppVersionResourceRequestTypeDef(TypedDict):
+    appArn: str
+    appVersion: str
+    awsAccountId: NotRequired[str]
+    awsRegion: NotRequired[str]
+    logicalResourceId: NotRequired[LogicalResourceIdTypeDef]
+    physicalResourceId: NotRequired[str]
+    resourceName: NotRequired[str]
+
+class ResourceIdentifierTypeDef(TypedDict):
+    logicalResourceId: NotRequired[LogicalResourceIdTypeDef]
+    resourceType: NotRequired[str]
+
+class UpdateAppVersionResourceRequestTypeDef(TypedDict):
+    appArn: str
+    additionalInfo: NotRequired[Mapping[str, Sequence[str]]]
+    appComponents: NotRequired[Sequence[str]]
+    awsAccountId: NotRequired[str]
+    awsRegion: NotRequired[str]
+    excluded: NotRequired[bool]
+    logicalResourceId: NotRequired[LogicalResourceIdTypeDef]
+    physicalResourceId: NotRequired[str]
+    resourceName: NotRequired[str]
+    resourceType: NotRequired[str]
+
+class CreateResiliencyPolicyRequestTypeDef(TypedDict):
+    policy: Mapping[DisruptionTypeType, FailurePolicyTypeDef]
+    policyName: str
+    tier: ResiliencyPolicyTierType
+    clientToken: NotRequired[str]
+    dataLocationConstraint: NotRequired[DataLocationConstraintType]
+    policyDescription: NotRequired[str]
+    tags: NotRequired[Mapping[str, str]]
+
+class ResiliencyPolicyTypeDef(TypedDict):
+    creationTime: NotRequired[datetime]
+    dataLocationConstraint: NotRequired[DataLocationConstraintType]
+    estimatedCostTier: NotRequired[EstimatedCostTierType]
+    policy: NotRequired[Dict[DisruptionTypeType, FailurePolicyTypeDef]]
+    policyArn: NotRequired[str]
+    policyDescription: NotRequired[str]
+    policyName: NotRequired[str]
+    tags: NotRequired[Dict[str, str]]
+    tier: NotRequired[ResiliencyPolicyTierType]
+
+class UpdateResiliencyPolicyRequestTypeDef(TypedDict):
+    policyArn: str
+    dataLocationConstraint: NotRequired[DataLocationConstraintType]
+    policy: NotRequired[Mapping[DisruptionTypeType, FailurePolicyTypeDef]]
+    policyDescription: NotRequired[str]
+    policyName: NotRequired[str]
+    tier: NotRequired[ResiliencyPolicyTierType]
+
+class DescribeDraftAppVersionResourcesImportStatusResponseTypeDef(TypedDict):
+    appArn: str
+    appVersion: str
+    errorDetails: List[ErrorDetailTypeDef]
+    errorMessage: str
+    status: ResourceImportStatusTypeType
+    statusChangeTime: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeMetricsExportResponseTypeDef(TypedDict):
+    errorMessage: str
+    exportLocation: S3LocationTypeDef
+    metricsExportId: str
+    status: MetricsExportStatusTypeType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+RecommendationTemplateTypeDef = TypedDict(
+    "RecommendationTemplateTypeDef",
+    {
+        "assessmentArn": str,
+        "format": TemplateFormatType,
+        "name": str,
+        "recommendationTemplateArn": str,
+        "recommendationTypes": List[RenderRecommendationTypeType],
+        "status": RecommendationTemplateStatusType,
+        "appArn": NotRequired[str],
+        "endTime": NotRequired[datetime],
+        "message": NotRequired[str],
+        "needsReplacements": NotRequired[bool],
+        "recommendationIds": NotRequired[List[str]],
+        "startTime": NotRequired[datetime],
+        "tags": NotRequired[Dict[str, str]],
+        "templatesLocation": NotRequired[S3LocationTypeDef],
+    },
+)
+
+class ImportResourcesToDraftAppVersionResponseTypeDef(TypedDict):
+    appArn: str
+    appVersion: str
+    eksSources: List[EksSourceOutputTypeDef]
+    sourceArns: List[str]
+    status: ResourceImportStatusTypeType
+    terraformSources: List[TerraformSourceTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+EksSourceUnionTypeDef = Union[EksSourceTypeDef, EksSourceOutputTypeDef]
+
+class RecommendationItemTypeDef(TypedDict):
+    alreadyImplemented: NotRequired[bool]
+    discoveredAlarm: NotRequired[AlarmTypeDef]
+    excludeReason: NotRequired[ExcludeRecommendationReasonType]
+    excluded: NotRequired[bool]
+    latestDiscoveredExperiment: NotRequired[ExperimentTypeDef]
+    resourceId: NotRequired[str]
+    targetAccountId: NotRequired[str]
+    targetRegion: NotRequired[str]
+
+class GroupingResourceTypeDef(TypedDict):
+    logicalResourceId: LogicalResourceIdTypeDef
+    physicalResourceId: PhysicalResourceIdTypeDef
+    resourceName: str
+    resourceType: str
+    sourceAppComponentIds: List[str]
+
+class PhysicalResourceTypeDef(TypedDict):
+    logicalResourceId: LogicalResourceIdTypeDef
+    physicalResourceId: PhysicalResourceIdTypeDef
+    resourceType: str
+    additionalInfo: NotRequired[Dict[str, List[str]]]
+    appComponents: NotRequired[List[AppComponentTypeDef]]
+    excluded: NotRequired[bool]
+    parentResourceName: NotRequired[str]
+    resourceName: NotRequired[str]
+    sourceType: NotRequired[ResourceSourceTypeType]
+
+class ResourceMappingTypeDef(TypedDict):
+    mappingType: ResourceMappingTypeType
+    physicalResourceId: PhysicalResourceIdTypeDef
+    appRegistryAppName: NotRequired[str]
+    eksSourceName: NotRequired[str]
+    logicalStackName: NotRequired[str]
+    resourceGroupName: NotRequired[str]
+    resourceName: NotRequired[str]
+    terraformSourceName: NotRequired[str]
+
+class UnsupportedResourceTypeDef(TypedDict):
+    logicalResourceId: LogicalResourceIdTypeDef
+    physicalResourceId: PhysicalResourceIdTypeDef
+    resourceType: str
+    unsupportedResourceStatus: NotRequired[str]
+
+class ListAppAssessmentResourceDriftsRequestPaginateTypeDef(TypedDict):
+    assessmentArn: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListResourceGroupingRecommendationsRequestPaginateTypeDef(TypedDict):
+    appArn: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListAppVersionsRequestTypeDef(TypedDict):
+    appArn: str
+    endTime: NotRequired[TimestampTypeDef]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+    startTime: NotRequired[TimestampTypeDef]
+
+class ListAppsRequestTypeDef(TypedDict):
+    appArn: NotRequired[str]
+    awsApplicationArn: NotRequired[str]
+    fromLastAssessmentTime: NotRequired[TimestampTypeDef]
+    maxResults: NotRequired[int]
+    name: NotRequired[str]
+    nextToken: NotRequired[str]
+    reverseOrder: NotRequired[bool]
+    toLastAssessmentTime: NotRequired[TimestampTypeDef]
+
+class ListMetricsRequestPaginateTypeDef(TypedDict):
+    conditions: NotRequired[Sequence[ConditionTypeDef]]
+    dataSource: NotRequired[str]
+    fields: NotRequired[Sequence[FieldTypeDef]]
+    sorts: NotRequired[Sequence[SortTypeDef]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListMetricsRequestTypeDef(TypedDict):
+    conditions: NotRequired[Sequence[ConditionTypeDef]]
+    dataSource: NotRequired[str]
+    fields: NotRequired[Sequence[FieldTypeDef]]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+    sorts: NotRequired[Sequence[SortTypeDef]]
+
+PermissionModelUnionTypeDef = Union[PermissionModelTypeDef, PermissionModelOutputTypeDef]
+
+class RejectResourceGroupingRecommendationsRequestTypeDef(TypedDict):
+    appArn: str
+    entries: Sequence[RejectGroupingRecommendationEntryTypeDef]
+
+class ResiliencyScoreTypeDef(TypedDict):
+    disruptionScore: Dict[DisruptionTypeType, float]
+    score: float
+    componentScore: NotRequired[
+        Dict[ResiliencyScoreTypeType, ScoringComponentResiliencyScoreTypeDef]
+    ]
+
+class ResourceErrorsDetailsTypeDef(TypedDict):
+    hasMoreErrors: NotRequired[bool]
+    resourceErrors: NotRequired[List[ResourceErrorTypeDef]]
+
+class ListAppAssessmentsResponseTypeDef(TypedDict):
+    assessmentSummaries: List[AppAssessmentSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListAppAssessmentComplianceDriftsResponseTypeDef(TypedDict):
+    complianceDrifts: List[ComplianceDriftTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class DeleteAppInputSourceResponseTypeDef(TypedDict):
+    appArn: str
+    appInputSource: AppInputSourceTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListAppInputSourcesResponseTypeDef(TypedDict):
+    appInputSources: List[AppInputSourceTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class CreateAppResponseTypeDef(TypedDict):
+    app: AppTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeAppResponseTypeDef(TypedDict):
+    app: AppTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateAppResponseTypeDef(TypedDict):
+    app: AppTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class BatchUpdateRecommendationStatusResponseTypeDef(TypedDict):
+    appArn: str
+    failedEntries: List[BatchUpdateRecommendationStatusFailedEntryTypeDef]
+    successfulEntries: List[BatchUpdateRecommendationStatusSuccessfulEntryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class BatchUpdateRecommendationStatusRequestTypeDef(TypedDict):
+    appArn: str
+    requestEntries: Sequence[UpdateRecommendationStatusRequestEntryTypeDef]
+
+class ComponentRecommendationTypeDef(TypedDict):
+    appComponentName: str
+    configRecommendations: List[ConfigRecommendationTypeDef]
+    recommendationStatus: RecommendationComplianceStatusType
+
+class ResourceDriftTypeDef(TypedDict):
+    appArn: NotRequired[str]
+    appVersion: NotRequired[str]
+    diffType: NotRequired[DifferenceTypeType]
+    referenceId: NotRequired[str]
+    resourceIdentifier: NotRequired[ResourceIdentifierTypeDef]
+
+class CreateResiliencyPolicyResponseTypeDef(TypedDict):
+    policy: ResiliencyPolicyTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeResiliencyPolicyResponseTypeDef(TypedDict):
+    policy: ResiliencyPolicyTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListResiliencyPoliciesResponseTypeDef(TypedDict):
+    resiliencyPolicies: List[ResiliencyPolicyTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListSuggestedResiliencyPoliciesResponseTypeDef(TypedDict):
+    resiliencyPolicies: List[ResiliencyPolicyTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class UpdateResiliencyPolicyResponseTypeDef(TypedDict):
+    policy: ResiliencyPolicyTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateRecommendationTemplateResponseTypeDef(TypedDict):
+    recommendationTemplate: RecommendationTemplateTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListRecommendationTemplatesResponseTypeDef(TypedDict):
+    recommendationTemplates: List[RecommendationTemplateTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ImportResourcesToDraftAppVersionRequestTypeDef(TypedDict):
+    appArn: str
+    eksSources: NotRequired[Sequence[EksSourceUnionTypeDef]]
+    importStrategy: NotRequired[ResourceImportStrategyTypeType]
+    sourceArns: NotRequired[Sequence[str]]
+    terraformSources: NotRequired[Sequence[TerraformSourceTypeDef]]
+
+AlarmRecommendationTypeDef = TypedDict(
+    "AlarmRecommendationTypeDef",
     {
         "name": str,
         "recommendationId": str,
         "referenceId": str,
         "type": AlarmTypeType,
-    },
-)
-_OptionalAlarmRecommendationTypeDef = TypedDict(
-    "_OptionalAlarmRecommendationTypeDef",
-    {
-        "appComponentName": str,
-        "appComponentNames": List[str],
-        "description": str,
-        "items": List["RecommendationItemTypeDef"],
-        "prerequisite": str,
-        "recommendationStatus": RecommendationStatusType,
-    },
-    total=False,
-)
-
-class AlarmRecommendationTypeDef(
-    _RequiredAlarmRecommendationTypeDef, _OptionalAlarmRecommendationTypeDef
-):
-    pass
-
-_RequiredAppAssessmentSummaryTypeDef = TypedDict(
-    "_RequiredAppAssessmentSummaryTypeDef",
-    {
-        "assessmentArn": str,
-        "assessmentStatus": AssessmentStatusType,
-    },
-)
-_OptionalAppAssessmentSummaryTypeDef = TypedDict(
-    "_OptionalAppAssessmentSummaryTypeDef",
-    {
-        "appArn": str,
-        "appVersion": str,
-        "assessmentName": str,
-        "complianceStatus": ComplianceStatusType,
-        "cost": "CostTypeDef",
-        "driftStatus": DriftStatusType,
-        "endTime": datetime,
-        "invoker": AssessmentInvokerType,
-        "message": str,
-        "resiliencyScore": float,
-        "startTime": datetime,
-        "versionName": str,
-    },
-    total=False,
-)
-
-class AppAssessmentSummaryTypeDef(
-    _RequiredAppAssessmentSummaryTypeDef, _OptionalAppAssessmentSummaryTypeDef
-):
-    pass
-
-_RequiredAppAssessmentTypeDef = TypedDict(
-    "_RequiredAppAssessmentTypeDef",
-    {
-        "assessmentArn": str,
-        "assessmentStatus": AssessmentStatusType,
-        "invoker": AssessmentInvokerType,
-    },
-)
-_OptionalAppAssessmentTypeDef = TypedDict(
-    "_OptionalAppAssessmentTypeDef",
-    {
-        "appArn": str,
-        "appVersion": str,
-        "assessmentName": str,
-        "compliance": Dict[DisruptionTypeType, "DisruptionComplianceTypeDef"],
-        "complianceStatus": ComplianceStatusType,
-        "cost": "CostTypeDef",
-        "driftStatus": DriftStatusType,
-        "endTime": datetime,
-        "message": str,
-        "policy": "ResiliencyPolicyTypeDef",
-        "resiliencyScore": "ResiliencyScoreTypeDef",
-        "resourceErrorsDetails": "ResourceErrorsDetailsTypeDef",
-        "startTime": datetime,
-        "tags": Dict[str, str],
-        "versionName": str,
-    },
-    total=False,
-)
-
-class AppAssessmentTypeDef(_RequiredAppAssessmentTypeDef, _OptionalAppAssessmentTypeDef):
-    pass
-
-AppComponentComplianceTypeDef = TypedDict(
-    "AppComponentComplianceTypeDef",
-    {
-        "appComponentName": str,
-        "compliance": Dict[DisruptionTypeType, "DisruptionComplianceTypeDef"],
-        "cost": "CostTypeDef",
-        "message": str,
-        "resiliencyScore": "ResiliencyScoreTypeDef",
-        "status": ComplianceStatusType,
-    },
-    total=False,
-)
-
-_RequiredAppComponentTypeDef = TypedDict(
-    "_RequiredAppComponentTypeDef",
-    {
-        "name": str,
-        "type": str,
-    },
-)
-_OptionalAppComponentTypeDef = TypedDict(
-    "_OptionalAppComponentTypeDef",
-    {
-        "additionalInfo": Dict[str, List[str]],
-        "id": str,
-    },
-    total=False,
-)
-
-class AppComponentTypeDef(_RequiredAppComponentTypeDef, _OptionalAppComponentTypeDef):
-    pass
-
-_RequiredAppInputSourceTypeDef = TypedDict(
-    "_RequiredAppInputSourceTypeDef",
-    {
-        "importType": ResourceMappingTypeType,
-    },
-)
-_OptionalAppInputSourceTypeDef = TypedDict(
-    "_OptionalAppInputSourceTypeDef",
-    {
-        "eksSourceClusterNamespace": "EksSourceClusterNamespaceTypeDef",
-        "resourceCount": int,
-        "sourceArn": str,
-        "sourceName": str,
-        "terraformSource": "TerraformSourceTypeDef",
-    },
-    total=False,
-)
-
-class AppInputSourceTypeDef(_RequiredAppInputSourceTypeDef, _OptionalAppInputSourceTypeDef):
-    pass
-
-_RequiredAppSummaryTypeDef = TypedDict(
-    "_RequiredAppSummaryTypeDef",
-    {
-        "appArn": str,
-        "creationTime": datetime,
-        "name": str,
-    },
-)
-_OptionalAppSummaryTypeDef = TypedDict(
-    "_OptionalAppSummaryTypeDef",
-    {
-        "assessmentSchedule": AppAssessmentScheduleTypeType,
-        "complianceStatus": AppComplianceStatusTypeType,
-        "description": str,
-        "driftStatus": AppDriftStatusTypeType,
-        "lastAppComplianceEvaluationTime": datetime,
-        "resiliencyScore": float,
-        "rpoInSecs": int,
-        "rtoInSecs": int,
-        "status": AppStatusTypeType,
-    },
-    total=False,
-)
-
-class AppSummaryTypeDef(_RequiredAppSummaryTypeDef, _OptionalAppSummaryTypeDef):
-    pass
-
-_RequiredAppTypeDef = TypedDict(
-    "_RequiredAppTypeDef",
-    {
-        "appArn": str,
-        "creationTime": datetime,
-        "name": str,
-    },
-)
-_OptionalAppTypeDef = TypedDict(
-    "_OptionalAppTypeDef",
-    {
-        "assessmentSchedule": AppAssessmentScheduleTypeType,
-        "complianceStatus": AppComplianceStatusTypeType,
-        "description": str,
-        "driftStatus": AppDriftStatusTypeType,
-        "eventSubscriptions": List["EventSubscriptionTypeDef"],
-        "lastAppComplianceEvaluationTime": datetime,
-        "lastDriftEvaluationTime": datetime,
-        "lastResiliencyScoreEvaluationTime": datetime,
-        "permissionModel": "PermissionModelTypeDef",
-        "policyArn": str,
-        "resiliencyScore": float,
-        "rpoInSecs": int,
-        "rtoInSecs": int,
-        "status": AppStatusTypeType,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class AppTypeDef(_RequiredAppTypeDef, _OptionalAppTypeDef):
-    pass
-
-_RequiredAppVersionSummaryTypeDef = TypedDict(
-    "_RequiredAppVersionSummaryTypeDef",
-    {
-        "appVersion": str,
-    },
-)
-_OptionalAppVersionSummaryTypeDef = TypedDict(
-    "_OptionalAppVersionSummaryTypeDef",
-    {
-        "creationTime": datetime,
-        "identifier": int,
-        "versionName": str,
-    },
-    total=False,
-)
-
-class AppVersionSummaryTypeDef(
-    _RequiredAppVersionSummaryTypeDef, _OptionalAppVersionSummaryTypeDef
-):
-    pass
-
-BatchUpdateRecommendationStatusFailedEntryTypeDef = TypedDict(
-    "BatchUpdateRecommendationStatusFailedEntryTypeDef",
-    {
-        "entryId": str,
-        "errorMessage": str,
-    },
-)
-
-BatchUpdateRecommendationStatusRequestRequestTypeDef = TypedDict(
-    "BatchUpdateRecommendationStatusRequestRequestTypeDef",
-    {
-        "appArn": str,
-        "requestEntries": List["UpdateRecommendationStatusRequestEntryTypeDef"],
-    },
-)
-
-BatchUpdateRecommendationStatusResponseTypeDef = TypedDict(
-    "BatchUpdateRecommendationStatusResponseTypeDef",
-    {
-        "appArn": str,
-        "failedEntries": List["BatchUpdateRecommendationStatusFailedEntryTypeDef"],
-        "successfulEntries": List["BatchUpdateRecommendationStatusSuccessfulEntryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredBatchUpdateRecommendationStatusSuccessfulEntryTypeDef = TypedDict(
-    "_RequiredBatchUpdateRecommendationStatusSuccessfulEntryTypeDef",
-    {
-        "entryId": str,
-        "excluded": bool,
-        "item": "UpdateRecommendationStatusItemTypeDef",
-        "referenceId": str,
-    },
-)
-_OptionalBatchUpdateRecommendationStatusSuccessfulEntryTypeDef = TypedDict(
-    "_OptionalBatchUpdateRecommendationStatusSuccessfulEntryTypeDef",
-    {
-        "excludeReason": ExcludeRecommendationReasonType,
-    },
-    total=False,
-)
-
-class BatchUpdateRecommendationStatusSuccessfulEntryTypeDef(
-    _RequiredBatchUpdateRecommendationStatusSuccessfulEntryTypeDef,
-    _OptionalBatchUpdateRecommendationStatusSuccessfulEntryTypeDef,
-):
-    pass
-
-ComplianceDriftTypeDef = TypedDict(
-    "ComplianceDriftTypeDef",
-    {
-        "actualReferenceId": str,
-        "actualValue": Dict[DisruptionTypeType, "DisruptionComplianceTypeDef"],
-        "appId": str,
-        "appVersion": str,
-        "diffType": DifferenceTypeType,
-        "driftType": DriftTypeType,
-        "entityId": str,
-        "entityType": str,
-        "expectedReferenceId": str,
-        "expectedValue": Dict[DisruptionTypeType, "DisruptionComplianceTypeDef"],
-    },
-    total=False,
-)
-
-ComponentRecommendationTypeDef = TypedDict(
-    "ComponentRecommendationTypeDef",
-    {
-        "appComponentName": str,
-        "configRecommendations": List["ConfigRecommendationTypeDef"],
-        "recommendationStatus": RecommendationComplianceStatusType,
-    },
-)
-
-_RequiredConfigRecommendationTypeDef = TypedDict(
-    "_RequiredConfigRecommendationTypeDef",
-    {
-        "name": str,
-        "optimizationType": ConfigRecommendationOptimizationTypeType,
-        "referenceId": str,
-    },
-)
-_OptionalConfigRecommendationTypeDef = TypedDict(
-    "_OptionalConfigRecommendationTypeDef",
-    {
-        "appComponentName": str,
-        "compliance": Dict[DisruptionTypeType, "DisruptionComplianceTypeDef"],
-        "cost": "CostTypeDef",
-        "description": str,
-        "haArchitecture": HaArchitectureType,
-        "recommendationCompliance": Dict[
-            DisruptionTypeType, "RecommendationDisruptionComplianceTypeDef"
-        ],
-        "suggestedChanges": List[str],
-    },
-    total=False,
-)
-
-class ConfigRecommendationTypeDef(
-    _RequiredConfigRecommendationTypeDef, _OptionalConfigRecommendationTypeDef
-):
-    pass
-
-CostTypeDef = TypedDict(
-    "CostTypeDef",
-    {
-        "amount": float,
-        "currency": str,
-        "frequency": CostFrequencyType,
-    },
-)
-
-_RequiredCreateAppRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateAppRequestRequestTypeDef",
-    {
-        "name": str,
-    },
-)
-_OptionalCreateAppRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateAppRequestRequestTypeDef",
-    {
-        "assessmentSchedule": AppAssessmentScheduleTypeType,
-        "clientToken": str,
-        "description": str,
-        "eventSubscriptions": List["EventSubscriptionTypeDef"],
-        "permissionModel": "PermissionModelTypeDef",
-        "policyArn": str,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class CreateAppRequestRequestTypeDef(
-    _RequiredCreateAppRequestRequestTypeDef, _OptionalCreateAppRequestRequestTypeDef
-):
-    pass
-
-CreateAppResponseTypeDef = TypedDict(
-    "CreateAppResponseTypeDef",
-    {
-        "app": "AppTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateAppVersionAppComponentRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateAppVersionAppComponentRequestRequestTypeDef",
-    {
-        "appArn": str,
-        "name": str,
-        "type": str,
-    },
-)
-_OptionalCreateAppVersionAppComponentRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateAppVersionAppComponentRequestRequestTypeDef",
-    {
-        "additionalInfo": Dict[str, List[str]],
-        "clientToken": str,
-        "id": str,
-    },
-    total=False,
-)
-
-class CreateAppVersionAppComponentRequestRequestTypeDef(
-    _RequiredCreateAppVersionAppComponentRequestRequestTypeDef,
-    _OptionalCreateAppVersionAppComponentRequestRequestTypeDef,
-):
-    pass
-
-CreateAppVersionAppComponentResponseTypeDef = TypedDict(
-    "CreateAppVersionAppComponentResponseTypeDef",
-    {
-        "appArn": str,
-        "appComponent": "AppComponentTypeDef",
-        "appVersion": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateAppVersionResourceRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateAppVersionResourceRequestRequestTypeDef",
-    {
-        "appArn": str,
-        "appComponents": List[str],
-        "logicalResourceId": "LogicalResourceIdTypeDef",
-        "physicalResourceId": str,
-        "resourceType": str,
-    },
-)
-_OptionalCreateAppVersionResourceRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateAppVersionResourceRequestRequestTypeDef",
-    {
-        "additionalInfo": Dict[str, List[str]],
-        "awsAccountId": str,
-        "awsRegion": str,
-        "clientToken": str,
-        "resourceName": str,
-    },
-    total=False,
-)
-
-class CreateAppVersionResourceRequestRequestTypeDef(
-    _RequiredCreateAppVersionResourceRequestRequestTypeDef,
-    _OptionalCreateAppVersionResourceRequestRequestTypeDef,
-):
-    pass
-
-CreateAppVersionResourceResponseTypeDef = TypedDict(
-    "CreateAppVersionResourceResponseTypeDef",
-    {
-        "appArn": str,
-        "appVersion": str,
-        "physicalResource": "PhysicalResourceTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateRecommendationTemplateRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateRecommendationTemplateRequestRequestTypeDef",
-    {
-        "assessmentArn": str,
-        "name": str,
-    },
-)
-_OptionalCreateRecommendationTemplateRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateRecommendationTemplateRequestRequestTypeDef",
-    {
-        "bucketName": str,
-        "clientToken": str,
-        "format": TemplateFormatType,
-        "recommendationIds": List[str],
-        "recommendationTypes": List[RenderRecommendationTypeType],
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class CreateRecommendationTemplateRequestRequestTypeDef(
-    _RequiredCreateRecommendationTemplateRequestRequestTypeDef,
-    _OptionalCreateRecommendationTemplateRequestRequestTypeDef,
-):
-    pass
-
-CreateRecommendationTemplateResponseTypeDef = TypedDict(
-    "CreateRecommendationTemplateResponseTypeDef",
-    {
-        "recommendationTemplate": "RecommendationTemplateTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateResiliencyPolicyRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateResiliencyPolicyRequestRequestTypeDef",
-    {
-        "policy": Dict[DisruptionTypeType, "FailurePolicyTypeDef"],
-        "policyName": str,
-        "tier": ResiliencyPolicyTierType,
-    },
-)
-_OptionalCreateResiliencyPolicyRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateResiliencyPolicyRequestRequestTypeDef",
-    {
-        "clientToken": str,
-        "dataLocationConstraint": DataLocationConstraintType,
-        "policyDescription": str,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class CreateResiliencyPolicyRequestRequestTypeDef(
-    _RequiredCreateResiliencyPolicyRequestRequestTypeDef,
-    _OptionalCreateResiliencyPolicyRequestRequestTypeDef,
-):
-    pass
-
-CreateResiliencyPolicyResponseTypeDef = TypedDict(
-    "CreateResiliencyPolicyResponseTypeDef",
-    {
-        "policy": "ResiliencyPolicyTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDeleteAppAssessmentRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteAppAssessmentRequestRequestTypeDef",
-    {
-        "assessmentArn": str,
-    },
-)
-_OptionalDeleteAppAssessmentRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteAppAssessmentRequestRequestTypeDef",
-    {
-        "clientToken": str,
-    },
-    total=False,
-)
-
-class DeleteAppAssessmentRequestRequestTypeDef(
-    _RequiredDeleteAppAssessmentRequestRequestTypeDef,
-    _OptionalDeleteAppAssessmentRequestRequestTypeDef,
-):
-    pass
-
-DeleteAppAssessmentResponseTypeDef = TypedDict(
-    "DeleteAppAssessmentResponseTypeDef",
-    {
-        "assessmentArn": str,
-        "assessmentStatus": AssessmentStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDeleteAppInputSourceRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteAppInputSourceRequestRequestTypeDef",
-    {
-        "appArn": str,
-    },
-)
-_OptionalDeleteAppInputSourceRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteAppInputSourceRequestRequestTypeDef",
-    {
-        "clientToken": str,
-        "eksSourceClusterNamespace": "EksSourceClusterNamespaceTypeDef",
-        "sourceArn": str,
-        "terraformSource": "TerraformSourceTypeDef",
-    },
-    total=False,
-)
-
-class DeleteAppInputSourceRequestRequestTypeDef(
-    _RequiredDeleteAppInputSourceRequestRequestTypeDef,
-    _OptionalDeleteAppInputSourceRequestRequestTypeDef,
-):
-    pass
-
-DeleteAppInputSourceResponseTypeDef = TypedDict(
-    "DeleteAppInputSourceResponseTypeDef",
-    {
-        "appArn": str,
-        "appInputSource": "AppInputSourceTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDeleteAppRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteAppRequestRequestTypeDef",
-    {
-        "appArn": str,
-    },
-)
-_OptionalDeleteAppRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteAppRequestRequestTypeDef",
-    {
-        "clientToken": str,
-        "forceDelete": bool,
-    },
-    total=False,
-)
-
-class DeleteAppRequestRequestTypeDef(
-    _RequiredDeleteAppRequestRequestTypeDef, _OptionalDeleteAppRequestRequestTypeDef
-):
-    pass
-
-DeleteAppResponseTypeDef = TypedDict(
-    "DeleteAppResponseTypeDef",
-    {
-        "appArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDeleteAppVersionAppComponentRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteAppVersionAppComponentRequestRequestTypeDef",
-    {
-        "appArn": str,
-        "id": str,
-    },
-)
-_OptionalDeleteAppVersionAppComponentRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteAppVersionAppComponentRequestRequestTypeDef",
-    {
-        "clientToken": str,
-    },
-    total=False,
-)
-
-class DeleteAppVersionAppComponentRequestRequestTypeDef(
-    _RequiredDeleteAppVersionAppComponentRequestRequestTypeDef,
-    _OptionalDeleteAppVersionAppComponentRequestRequestTypeDef,
-):
-    pass
-
-DeleteAppVersionAppComponentResponseTypeDef = TypedDict(
-    "DeleteAppVersionAppComponentResponseTypeDef",
-    {
-        "appArn": str,
-        "appComponent": "AppComponentTypeDef",
-        "appVersion": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDeleteAppVersionResourceRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteAppVersionResourceRequestRequestTypeDef",
-    {
-        "appArn": str,
-    },
-)
-_OptionalDeleteAppVersionResourceRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteAppVersionResourceRequestRequestTypeDef",
-    {
-        "awsAccountId": str,
-        "awsRegion": str,
-        "clientToken": str,
-        "logicalResourceId": "LogicalResourceIdTypeDef",
-        "physicalResourceId": str,
-        "resourceName": str,
-    },
-    total=False,
-)
-
-class DeleteAppVersionResourceRequestRequestTypeDef(
-    _RequiredDeleteAppVersionResourceRequestRequestTypeDef,
-    _OptionalDeleteAppVersionResourceRequestRequestTypeDef,
-):
-    pass
-
-DeleteAppVersionResourceResponseTypeDef = TypedDict(
-    "DeleteAppVersionResourceResponseTypeDef",
-    {
-        "appArn": str,
-        "appVersion": str,
-        "physicalResource": "PhysicalResourceTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDeleteRecommendationTemplateRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteRecommendationTemplateRequestRequestTypeDef",
-    {
-        "recommendationTemplateArn": str,
-    },
-)
-_OptionalDeleteRecommendationTemplateRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteRecommendationTemplateRequestRequestTypeDef",
-    {
-        "clientToken": str,
-    },
-    total=False,
-)
-
-class DeleteRecommendationTemplateRequestRequestTypeDef(
-    _RequiredDeleteRecommendationTemplateRequestRequestTypeDef,
-    _OptionalDeleteRecommendationTemplateRequestRequestTypeDef,
-):
-    pass
-
-DeleteRecommendationTemplateResponseTypeDef = TypedDict(
-    "DeleteRecommendationTemplateResponseTypeDef",
-    {
-        "recommendationTemplateArn": str,
-        "status": RecommendationTemplateStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDeleteResiliencyPolicyRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteResiliencyPolicyRequestRequestTypeDef",
-    {
-        "policyArn": str,
-    },
-)
-_OptionalDeleteResiliencyPolicyRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteResiliencyPolicyRequestRequestTypeDef",
-    {
-        "clientToken": str,
-    },
-    total=False,
-)
-
-class DeleteResiliencyPolicyRequestRequestTypeDef(
-    _RequiredDeleteResiliencyPolicyRequestRequestTypeDef,
-    _OptionalDeleteResiliencyPolicyRequestRequestTypeDef,
-):
-    pass
-
-DeleteResiliencyPolicyResponseTypeDef = TypedDict(
-    "DeleteResiliencyPolicyResponseTypeDef",
-    {
-        "policyArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeAppAssessmentRequestRequestTypeDef = TypedDict(
-    "DescribeAppAssessmentRequestRequestTypeDef",
-    {
-        "assessmentArn": str,
-    },
-)
-
-DescribeAppAssessmentResponseTypeDef = TypedDict(
-    "DescribeAppAssessmentResponseTypeDef",
-    {
-        "assessment": "AppAssessmentTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeAppRequestRequestTypeDef = TypedDict(
-    "DescribeAppRequestRequestTypeDef",
-    {
-        "appArn": str,
-    },
-)
-
-DescribeAppResponseTypeDef = TypedDict(
-    "DescribeAppResponseTypeDef",
-    {
-        "app": "AppTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeAppVersionAppComponentRequestRequestTypeDef = TypedDict(
-    "DescribeAppVersionAppComponentRequestRequestTypeDef",
-    {
-        "appArn": str,
-        "appVersion": str,
-        "id": str,
-    },
-)
-
-DescribeAppVersionAppComponentResponseTypeDef = TypedDict(
-    "DescribeAppVersionAppComponentResponseTypeDef",
-    {
-        "appArn": str,
-        "appComponent": "AppComponentTypeDef",
-        "appVersion": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeAppVersionRequestRequestTypeDef = TypedDict(
-    "DescribeAppVersionRequestRequestTypeDef",
-    {
-        "appArn": str,
-        "appVersion": str,
-    },
-)
-
-_RequiredDescribeAppVersionResourceRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeAppVersionResourceRequestRequestTypeDef",
-    {
-        "appArn": str,
-        "appVersion": str,
-    },
-)
-_OptionalDescribeAppVersionResourceRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeAppVersionResourceRequestRequestTypeDef",
-    {
-        "awsAccountId": str,
-        "awsRegion": str,
-        "logicalResourceId": "LogicalResourceIdTypeDef",
-        "physicalResourceId": str,
-        "resourceName": str,
-    },
-    total=False,
-)
-
-class DescribeAppVersionResourceRequestRequestTypeDef(
-    _RequiredDescribeAppVersionResourceRequestRequestTypeDef,
-    _OptionalDescribeAppVersionResourceRequestRequestTypeDef,
-):
-    pass
-
-DescribeAppVersionResourceResponseTypeDef = TypedDict(
-    "DescribeAppVersionResourceResponseTypeDef",
-    {
-        "appArn": str,
-        "appVersion": str,
-        "physicalResource": "PhysicalResourceTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribeAppVersionResourcesResolutionStatusRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeAppVersionResourcesResolutionStatusRequestRequestTypeDef",
-    {
-        "appArn": str,
-        "appVersion": str,
-    },
-)
-_OptionalDescribeAppVersionResourcesResolutionStatusRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeAppVersionResourcesResolutionStatusRequestRequestTypeDef",
-    {
-        "resolutionId": str,
-    },
-    total=False,
-)
-
-class DescribeAppVersionResourcesResolutionStatusRequestRequestTypeDef(
-    _RequiredDescribeAppVersionResourcesResolutionStatusRequestRequestTypeDef,
-    _OptionalDescribeAppVersionResourcesResolutionStatusRequestRequestTypeDef,
-):
-    pass
-
-DescribeAppVersionResourcesResolutionStatusResponseTypeDef = TypedDict(
-    "DescribeAppVersionResourcesResolutionStatusResponseTypeDef",
-    {
-        "appArn": str,
-        "appVersion": str,
-        "errorMessage": str,
-        "resolutionId": str,
-        "status": ResourceResolutionStatusTypeType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeAppVersionResponseTypeDef = TypedDict(
-    "DescribeAppVersionResponseTypeDef",
-    {
-        "additionalInfo": Dict[str, List[str]],
-        "appArn": str,
-        "appVersion": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeAppVersionTemplateRequestRequestTypeDef = TypedDict(
-    "DescribeAppVersionTemplateRequestRequestTypeDef",
-    {
-        "appArn": str,
-        "appVersion": str,
-    },
-)
-
-DescribeAppVersionTemplateResponseTypeDef = TypedDict(
-    "DescribeAppVersionTemplateResponseTypeDef",
-    {
-        "appArn": str,
-        "appTemplateBody": str,
-        "appVersion": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeDraftAppVersionResourcesImportStatusRequestRequestTypeDef = TypedDict(
-    "DescribeDraftAppVersionResourcesImportStatusRequestRequestTypeDef",
-    {
-        "appArn": str,
-    },
-)
-
-DescribeDraftAppVersionResourcesImportStatusResponseTypeDef = TypedDict(
-    "DescribeDraftAppVersionResourcesImportStatusResponseTypeDef",
-    {
-        "appArn": str,
-        "appVersion": str,
-        "errorMessage": str,
-        "status": ResourceImportStatusTypeType,
-        "statusChangeTime": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeResiliencyPolicyRequestRequestTypeDef = TypedDict(
-    "DescribeResiliencyPolicyRequestRequestTypeDef",
-    {
-        "policyArn": str,
-    },
-)
-
-DescribeResiliencyPolicyResponseTypeDef = TypedDict(
-    "DescribeResiliencyPolicyResponseTypeDef",
-    {
-        "policy": "ResiliencyPolicyTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDisruptionComplianceTypeDef = TypedDict(
-    "_RequiredDisruptionComplianceTypeDef",
-    {
-        "complianceStatus": ComplianceStatusType,
-    },
-)
-_OptionalDisruptionComplianceTypeDef = TypedDict(
-    "_OptionalDisruptionComplianceTypeDef",
-    {
-        "achievableRpoInSecs": int,
-        "achievableRtoInSecs": int,
-        "currentRpoInSecs": int,
-        "currentRtoInSecs": int,
-        "message": str,
-        "rpoDescription": str,
-        "rpoReferenceId": str,
-        "rtoDescription": str,
-        "rtoReferenceId": str,
-    },
-    total=False,
-)
-
-class DisruptionComplianceTypeDef(
-    _RequiredDisruptionComplianceTypeDef, _OptionalDisruptionComplianceTypeDef
-):
-    pass
-
-EksSourceClusterNamespaceTypeDef = TypedDict(
-    "EksSourceClusterNamespaceTypeDef",
-    {
-        "eksClusterArn": str,
-        "namespace": str,
-    },
-)
-
-EksSourceTypeDef = TypedDict(
-    "EksSourceTypeDef",
-    {
-        "eksClusterArn": str,
-        "namespaces": List[str],
-    },
-)
-
-_RequiredEventSubscriptionTypeDef = TypedDict(
-    "_RequiredEventSubscriptionTypeDef",
-    {
-        "eventType": EventTypeType,
-        "name": str,
-    },
-)
-_OptionalEventSubscriptionTypeDef = TypedDict(
-    "_OptionalEventSubscriptionTypeDef",
-    {
-        "snsTopicArn": str,
-    },
-    total=False,
-)
-
-class EventSubscriptionTypeDef(
-    _RequiredEventSubscriptionTypeDef, _OptionalEventSubscriptionTypeDef
-):
-    pass
-
-FailurePolicyTypeDef = TypedDict(
-    "FailurePolicyTypeDef",
-    {
-        "rpoInSecs": int,
-        "rtoInSecs": int,
-    },
-)
-
-_RequiredImportResourcesToDraftAppVersionRequestRequestTypeDef = TypedDict(
-    "_RequiredImportResourcesToDraftAppVersionRequestRequestTypeDef",
-    {
-        "appArn": str,
-    },
-)
-_OptionalImportResourcesToDraftAppVersionRequestRequestTypeDef = TypedDict(
-    "_OptionalImportResourcesToDraftAppVersionRequestRequestTypeDef",
-    {
-        "eksSources": List["EksSourceTypeDef"],
-        "importStrategy": ResourceImportStrategyTypeType,
-        "sourceArns": List[str],
-        "terraformSources": List["TerraformSourceTypeDef"],
-    },
-    total=False,
-)
-
-class ImportResourcesToDraftAppVersionRequestRequestTypeDef(
-    _RequiredImportResourcesToDraftAppVersionRequestRequestTypeDef,
-    _OptionalImportResourcesToDraftAppVersionRequestRequestTypeDef,
-):
-    pass
-
-ImportResourcesToDraftAppVersionResponseTypeDef = TypedDict(
-    "ImportResourcesToDraftAppVersionResponseTypeDef",
-    {
-        "appArn": str,
-        "appVersion": str,
-        "eksSources": List["EksSourceTypeDef"],
-        "sourceArns": List[str],
-        "status": ResourceImportStatusTypeType,
-        "terraformSources": List["TerraformSourceTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListAlarmRecommendationsRequestRequestTypeDef = TypedDict(
-    "_RequiredListAlarmRecommendationsRequestRequestTypeDef",
-    {
-        "assessmentArn": str,
-    },
-)
-_OptionalListAlarmRecommendationsRequestRequestTypeDef = TypedDict(
-    "_OptionalListAlarmRecommendationsRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListAlarmRecommendationsRequestRequestTypeDef(
-    _RequiredListAlarmRecommendationsRequestRequestTypeDef,
-    _OptionalListAlarmRecommendationsRequestRequestTypeDef,
-):
-    pass
-
-ListAlarmRecommendationsResponseTypeDef = TypedDict(
-    "ListAlarmRecommendationsResponseTypeDef",
-    {
-        "alarmRecommendations": List["AlarmRecommendationTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListAppAssessmentComplianceDriftsRequestRequestTypeDef = TypedDict(
-    "_RequiredListAppAssessmentComplianceDriftsRequestRequestTypeDef",
-    {
-        "assessmentArn": str,
-    },
-)
-_OptionalListAppAssessmentComplianceDriftsRequestRequestTypeDef = TypedDict(
-    "_OptionalListAppAssessmentComplianceDriftsRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListAppAssessmentComplianceDriftsRequestRequestTypeDef(
-    _RequiredListAppAssessmentComplianceDriftsRequestRequestTypeDef,
-    _OptionalListAppAssessmentComplianceDriftsRequestRequestTypeDef,
-):
-    pass
-
-ListAppAssessmentComplianceDriftsResponseTypeDef = TypedDict(
-    "ListAppAssessmentComplianceDriftsResponseTypeDef",
-    {
-        "complianceDrifts": List["ComplianceDriftTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListAppAssessmentResourceDriftsRequestRequestTypeDef = TypedDict(
-    "_RequiredListAppAssessmentResourceDriftsRequestRequestTypeDef",
-    {
-        "assessmentArn": str,
-    },
-)
-_OptionalListAppAssessmentResourceDriftsRequestRequestTypeDef = TypedDict(
-    "_OptionalListAppAssessmentResourceDriftsRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListAppAssessmentResourceDriftsRequestRequestTypeDef(
-    _RequiredListAppAssessmentResourceDriftsRequestRequestTypeDef,
-    _OptionalListAppAssessmentResourceDriftsRequestRequestTypeDef,
-):
-    pass
-
-ListAppAssessmentResourceDriftsResponseTypeDef = TypedDict(
-    "ListAppAssessmentResourceDriftsResponseTypeDef",
-    {
-        "nextToken": str,
-        "resourceDrifts": List["ResourceDriftTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListAppAssessmentsRequestRequestTypeDef = TypedDict(
-    "ListAppAssessmentsRequestRequestTypeDef",
-    {
-        "appArn": str,
-        "assessmentName": str,
-        "assessmentStatus": List[AssessmentStatusType],
-        "complianceStatus": ComplianceStatusType,
-        "invoker": AssessmentInvokerType,
-        "maxResults": int,
-        "nextToken": str,
-        "reverseOrder": bool,
-    },
-    total=False,
-)
-
-ListAppAssessmentsResponseTypeDef = TypedDict(
-    "ListAppAssessmentsResponseTypeDef",
-    {
-        "assessmentSummaries": List["AppAssessmentSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListAppComponentCompliancesRequestRequestTypeDef = TypedDict(
-    "_RequiredListAppComponentCompliancesRequestRequestTypeDef",
-    {
-        "assessmentArn": str,
-    },
-)
-_OptionalListAppComponentCompliancesRequestRequestTypeDef = TypedDict(
-    "_OptionalListAppComponentCompliancesRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListAppComponentCompliancesRequestRequestTypeDef(
-    _RequiredListAppComponentCompliancesRequestRequestTypeDef,
-    _OptionalListAppComponentCompliancesRequestRequestTypeDef,
-):
-    pass
-
-ListAppComponentCompliancesResponseTypeDef = TypedDict(
-    "ListAppComponentCompliancesResponseTypeDef",
-    {
-        "componentCompliances": List["AppComponentComplianceTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListAppComponentRecommendationsRequestRequestTypeDef = TypedDict(
-    "_RequiredListAppComponentRecommendationsRequestRequestTypeDef",
-    {
-        "assessmentArn": str,
-    },
-)
-_OptionalListAppComponentRecommendationsRequestRequestTypeDef = TypedDict(
-    "_OptionalListAppComponentRecommendationsRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListAppComponentRecommendationsRequestRequestTypeDef(
-    _RequiredListAppComponentRecommendationsRequestRequestTypeDef,
-    _OptionalListAppComponentRecommendationsRequestRequestTypeDef,
-):
-    pass
-
-ListAppComponentRecommendationsResponseTypeDef = TypedDict(
-    "ListAppComponentRecommendationsResponseTypeDef",
-    {
-        "componentRecommendations": List["ComponentRecommendationTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListAppInputSourcesRequestRequestTypeDef = TypedDict(
-    "_RequiredListAppInputSourcesRequestRequestTypeDef",
-    {
-        "appArn": str,
-        "appVersion": str,
-    },
-)
-_OptionalListAppInputSourcesRequestRequestTypeDef = TypedDict(
-    "_OptionalListAppInputSourcesRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListAppInputSourcesRequestRequestTypeDef(
-    _RequiredListAppInputSourcesRequestRequestTypeDef,
-    _OptionalListAppInputSourcesRequestRequestTypeDef,
-):
-    pass
-
-ListAppInputSourcesResponseTypeDef = TypedDict(
-    "ListAppInputSourcesResponseTypeDef",
-    {
-        "appInputSources": List["AppInputSourceTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListAppVersionAppComponentsRequestRequestTypeDef = TypedDict(
-    "_RequiredListAppVersionAppComponentsRequestRequestTypeDef",
-    {
-        "appArn": str,
-        "appVersion": str,
-    },
-)
-_OptionalListAppVersionAppComponentsRequestRequestTypeDef = TypedDict(
-    "_OptionalListAppVersionAppComponentsRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListAppVersionAppComponentsRequestRequestTypeDef(
-    _RequiredListAppVersionAppComponentsRequestRequestTypeDef,
-    _OptionalListAppVersionAppComponentsRequestRequestTypeDef,
-):
-    pass
-
-ListAppVersionAppComponentsResponseTypeDef = TypedDict(
-    "ListAppVersionAppComponentsResponseTypeDef",
-    {
-        "appArn": str,
-        "appComponents": List["AppComponentTypeDef"],
-        "appVersion": str,
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListAppVersionResourceMappingsRequestRequestTypeDef = TypedDict(
-    "_RequiredListAppVersionResourceMappingsRequestRequestTypeDef",
-    {
-        "appArn": str,
-        "appVersion": str,
-    },
-)
-_OptionalListAppVersionResourceMappingsRequestRequestTypeDef = TypedDict(
-    "_OptionalListAppVersionResourceMappingsRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListAppVersionResourceMappingsRequestRequestTypeDef(
-    _RequiredListAppVersionResourceMappingsRequestRequestTypeDef,
-    _OptionalListAppVersionResourceMappingsRequestRequestTypeDef,
-):
-    pass
-
-ListAppVersionResourceMappingsResponseTypeDef = TypedDict(
-    "ListAppVersionResourceMappingsResponseTypeDef",
-    {
-        "nextToken": str,
-        "resourceMappings": List["ResourceMappingTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListAppVersionResourcesRequestRequestTypeDef = TypedDict(
-    "_RequiredListAppVersionResourcesRequestRequestTypeDef",
-    {
-        "appArn": str,
-        "appVersion": str,
-    },
-)
-_OptionalListAppVersionResourcesRequestRequestTypeDef = TypedDict(
-    "_OptionalListAppVersionResourcesRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-        "resolutionId": str,
-    },
-    total=False,
-)
-
-class ListAppVersionResourcesRequestRequestTypeDef(
-    _RequiredListAppVersionResourcesRequestRequestTypeDef,
-    _OptionalListAppVersionResourcesRequestRequestTypeDef,
-):
-    pass
-
-ListAppVersionResourcesResponseTypeDef = TypedDict(
-    "ListAppVersionResourcesResponseTypeDef",
-    {
-        "nextToken": str,
-        "physicalResources": List["PhysicalResourceTypeDef"],
-        "resolutionId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListAppVersionsRequestRequestTypeDef = TypedDict(
-    "_RequiredListAppVersionsRequestRequestTypeDef",
-    {
-        "appArn": str,
-    },
-)
-_OptionalListAppVersionsRequestRequestTypeDef = TypedDict(
-    "_OptionalListAppVersionsRequestRequestTypeDef",
-    {
-        "endTime": Union[datetime, str],
-        "maxResults": int,
-        "nextToken": str,
-        "startTime": Union[datetime, str],
-    },
-    total=False,
-)
-
-class ListAppVersionsRequestRequestTypeDef(
-    _RequiredListAppVersionsRequestRequestTypeDef, _OptionalListAppVersionsRequestRequestTypeDef
-):
-    pass
-
-ListAppVersionsResponseTypeDef = TypedDict(
-    "ListAppVersionsResponseTypeDef",
-    {
-        "appVersions": List["AppVersionSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListAppsRequestRequestTypeDef = TypedDict(
-    "ListAppsRequestRequestTypeDef",
-    {
-        "appArn": str,
-        "fromLastAssessmentTime": Union[datetime, str],
-        "maxResults": int,
-        "name": str,
-        "nextToken": str,
-        "reverseOrder": bool,
-        "toLastAssessmentTime": Union[datetime, str],
-    },
-    total=False,
-)
-
-ListAppsResponseTypeDef = TypedDict(
-    "ListAppsResponseTypeDef",
-    {
-        "appSummaries": List["AppSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListRecommendationTemplatesRequestRequestTypeDef = TypedDict(
-    "ListRecommendationTemplatesRequestRequestTypeDef",
-    {
-        "assessmentArn": str,
-        "maxResults": int,
-        "name": str,
-        "nextToken": str,
-        "recommendationTemplateArn": str,
-        "reverseOrder": bool,
-        "status": List[RecommendationTemplateStatusType],
-    },
-    total=False,
-)
-
-ListRecommendationTemplatesResponseTypeDef = TypedDict(
-    "ListRecommendationTemplatesResponseTypeDef",
-    {
-        "nextToken": str,
-        "recommendationTemplates": List["RecommendationTemplateTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListResiliencyPoliciesRequestRequestTypeDef = TypedDict(
-    "ListResiliencyPoliciesRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-        "policyName": str,
-    },
-    total=False,
-)
-
-ListResiliencyPoliciesResponseTypeDef = TypedDict(
-    "ListResiliencyPoliciesResponseTypeDef",
-    {
-        "nextToken": str,
-        "resiliencyPolicies": List["ResiliencyPolicyTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListSopRecommendationsRequestRequestTypeDef = TypedDict(
-    "_RequiredListSopRecommendationsRequestRequestTypeDef",
-    {
-        "assessmentArn": str,
-    },
-)
-_OptionalListSopRecommendationsRequestRequestTypeDef = TypedDict(
-    "_OptionalListSopRecommendationsRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListSopRecommendationsRequestRequestTypeDef(
-    _RequiredListSopRecommendationsRequestRequestTypeDef,
-    _OptionalListSopRecommendationsRequestRequestTypeDef,
-):
-    pass
-
-ListSopRecommendationsResponseTypeDef = TypedDict(
-    "ListSopRecommendationsResponseTypeDef",
-    {
-        "nextToken": str,
-        "sopRecommendations": List["SopRecommendationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListSuggestedResiliencyPoliciesRequestRequestTypeDef = TypedDict(
-    "ListSuggestedResiliencyPoliciesRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-ListSuggestedResiliencyPoliciesResponseTypeDef = TypedDict(
-    "ListSuggestedResiliencyPoliciesResponseTypeDef",
-    {
-        "nextToken": str,
-        "resiliencyPolicies": List["ResiliencyPolicyTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-    },
-)
-
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListTestRecommendationsRequestRequestTypeDef = TypedDict(
-    "_RequiredListTestRecommendationsRequestRequestTypeDef",
-    {
-        "assessmentArn": str,
-    },
-)
-_OptionalListTestRecommendationsRequestRequestTypeDef = TypedDict(
-    "_OptionalListTestRecommendationsRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListTestRecommendationsRequestRequestTypeDef(
-    _RequiredListTestRecommendationsRequestRequestTypeDef,
-    _OptionalListTestRecommendationsRequestRequestTypeDef,
-):
-    pass
-
-ListTestRecommendationsResponseTypeDef = TypedDict(
-    "ListTestRecommendationsResponseTypeDef",
-    {
-        "nextToken": str,
-        "testRecommendations": List["TestRecommendationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListUnsupportedAppVersionResourcesRequestRequestTypeDef = TypedDict(
-    "_RequiredListUnsupportedAppVersionResourcesRequestRequestTypeDef",
-    {
-        "appArn": str,
-        "appVersion": str,
-    },
-)
-_OptionalListUnsupportedAppVersionResourcesRequestRequestTypeDef = TypedDict(
-    "_OptionalListUnsupportedAppVersionResourcesRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-        "resolutionId": str,
-    },
-    total=False,
-)
-
-class ListUnsupportedAppVersionResourcesRequestRequestTypeDef(
-    _RequiredListUnsupportedAppVersionResourcesRequestRequestTypeDef,
-    _OptionalListUnsupportedAppVersionResourcesRequestRequestTypeDef,
-):
-    pass
-
-ListUnsupportedAppVersionResourcesResponseTypeDef = TypedDict(
-    "ListUnsupportedAppVersionResourcesResponseTypeDef",
-    {
-        "nextToken": str,
-        "resolutionId": str,
-        "unsupportedResources": List["UnsupportedResourceTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredLogicalResourceIdTypeDef = TypedDict(
-    "_RequiredLogicalResourceIdTypeDef",
-    {
-        "identifier": str,
-    },
-)
-_OptionalLogicalResourceIdTypeDef = TypedDict(
-    "_OptionalLogicalResourceIdTypeDef",
-    {
-        "eksSourceName": str,
-        "logicalStackName": str,
-        "resourceGroupName": str,
-        "terraformSourceName": str,
-    },
-    total=False,
-)
-
-class LogicalResourceIdTypeDef(
-    _RequiredLogicalResourceIdTypeDef, _OptionalLogicalResourceIdTypeDef
-):
-    pass
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-_RequiredPermissionModelTypeDef = TypedDict(
-    "_RequiredPermissionModelTypeDef",
-    {
-        "type": PermissionModelTypeType,
-    },
-)
-_OptionalPermissionModelTypeDef = TypedDict(
-    "_OptionalPermissionModelTypeDef",
-    {
-        "crossAccountRoleArns": List[str],
-        "invokerRoleName": str,
-    },
-    total=False,
-)
-
-class PermissionModelTypeDef(_RequiredPermissionModelTypeDef, _OptionalPermissionModelTypeDef):
-    pass
-
-_RequiredPhysicalResourceIdTypeDef = TypedDict(
-    "_RequiredPhysicalResourceIdTypeDef",
-    {
-        "identifier": str,
-        "type": PhysicalIdentifierTypeType,
-    },
-)
-_OptionalPhysicalResourceIdTypeDef = TypedDict(
-    "_OptionalPhysicalResourceIdTypeDef",
-    {
-        "awsAccountId": str,
-        "awsRegion": str,
-    },
-    total=False,
-)
-
-class PhysicalResourceIdTypeDef(
-    _RequiredPhysicalResourceIdTypeDef, _OptionalPhysicalResourceIdTypeDef
-):
-    pass
-
-_RequiredPhysicalResourceTypeDef = TypedDict(
-    "_RequiredPhysicalResourceTypeDef",
-    {
-        "logicalResourceId": "LogicalResourceIdTypeDef",
-        "physicalResourceId": "PhysicalResourceIdTypeDef",
-        "resourceType": str,
-    },
-)
-_OptionalPhysicalResourceTypeDef = TypedDict(
-    "_OptionalPhysicalResourceTypeDef",
-    {
-        "additionalInfo": Dict[str, List[str]],
-        "appComponents": List["AppComponentTypeDef"],
-        "excluded": bool,
-        "parentResourceName": str,
-        "resourceName": str,
-        "sourceType": ResourceSourceTypeType,
-    },
-    total=False,
-)
-
-class PhysicalResourceTypeDef(_RequiredPhysicalResourceTypeDef, _OptionalPhysicalResourceTypeDef):
-    pass
-
-_RequiredPublishAppVersionRequestRequestTypeDef = TypedDict(
-    "_RequiredPublishAppVersionRequestRequestTypeDef",
-    {
-        "appArn": str,
-    },
-)
-_OptionalPublishAppVersionRequestRequestTypeDef = TypedDict(
-    "_OptionalPublishAppVersionRequestRequestTypeDef",
-    {
-        "versionName": str,
-    },
-    total=False,
-)
-
-class PublishAppVersionRequestRequestTypeDef(
-    _RequiredPublishAppVersionRequestRequestTypeDef, _OptionalPublishAppVersionRequestRequestTypeDef
-):
-    pass
-
-PublishAppVersionResponseTypeDef = TypedDict(
-    "PublishAppVersionResponseTypeDef",
-    {
-        "appArn": str,
-        "appVersion": str,
-        "identifier": int,
-        "versionName": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-PutDraftAppVersionTemplateRequestRequestTypeDef = TypedDict(
-    "PutDraftAppVersionTemplateRequestRequestTypeDef",
-    {
-        "appArn": str,
-        "appTemplateBody": str,
-    },
-)
-
-PutDraftAppVersionTemplateResponseTypeDef = TypedDict(
-    "PutDraftAppVersionTemplateResponseTypeDef",
-    {
-        "appArn": str,
-        "appVersion": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredRecommendationDisruptionComplianceTypeDef = TypedDict(
-    "_RequiredRecommendationDisruptionComplianceTypeDef",
-    {
-        "expectedComplianceStatus": ComplianceStatusType,
-    },
-)
-_OptionalRecommendationDisruptionComplianceTypeDef = TypedDict(
-    "_OptionalRecommendationDisruptionComplianceTypeDef",
-    {
-        "expectedRpoDescription": str,
-        "expectedRpoInSecs": int,
-        "expectedRtoDescription": str,
-        "expectedRtoInSecs": int,
-    },
-    total=False,
-)
-
-class RecommendationDisruptionComplianceTypeDef(
-    _RequiredRecommendationDisruptionComplianceTypeDef,
-    _OptionalRecommendationDisruptionComplianceTypeDef,
-):
-    pass
-
-RecommendationItemTypeDef = TypedDict(
-    "RecommendationItemTypeDef",
-    {
-        "alreadyImplemented": bool,
-        "excludeReason": ExcludeRecommendationReasonType,
-        "excluded": bool,
-        "resourceId": str,
-        "targetAccountId": str,
-        "targetRegion": str,
-    },
-    total=False,
-)
-
-_RequiredRecommendationTemplateTypeDef = TypedDict(
-    "_RequiredRecommendationTemplateTypeDef",
-    {
-        "assessmentArn": str,
-        "format": TemplateFormatType,
-        "name": str,
-        "recommendationTemplateArn": str,
-        "recommendationTypes": List[RenderRecommendationTypeType],
-        "status": RecommendationTemplateStatusType,
-    },
-)
-_OptionalRecommendationTemplateTypeDef = TypedDict(
-    "_OptionalRecommendationTemplateTypeDef",
-    {
-        "appArn": str,
-        "endTime": datetime,
-        "message": str,
-        "needsReplacements": bool,
-        "recommendationIds": List[str],
-        "startTime": datetime,
-        "tags": Dict[str, str],
-        "templatesLocation": "S3LocationTypeDef",
-    },
-    total=False,
-)
-
-class RecommendationTemplateTypeDef(
-    _RequiredRecommendationTemplateTypeDef, _OptionalRecommendationTemplateTypeDef
-):
-    pass
-
-_RequiredRemoveDraftAppVersionResourceMappingsRequestRequestTypeDef = TypedDict(
-    "_RequiredRemoveDraftAppVersionResourceMappingsRequestRequestTypeDef",
-    {
-        "appArn": str,
-    },
-)
-_OptionalRemoveDraftAppVersionResourceMappingsRequestRequestTypeDef = TypedDict(
-    "_OptionalRemoveDraftAppVersionResourceMappingsRequestRequestTypeDef",
-    {
-        "appRegistryAppNames": List[str],
-        "eksSourceNames": List[str],
-        "logicalStackNames": List[str],
-        "resourceGroupNames": List[str],
-        "resourceNames": List[str],
-        "terraformSourceNames": List[str],
-    },
-    total=False,
-)
-
-class RemoveDraftAppVersionResourceMappingsRequestRequestTypeDef(
-    _RequiredRemoveDraftAppVersionResourceMappingsRequestRequestTypeDef,
-    _OptionalRemoveDraftAppVersionResourceMappingsRequestRequestTypeDef,
-):
-    pass
-
-RemoveDraftAppVersionResourceMappingsResponseTypeDef = TypedDict(
-    "RemoveDraftAppVersionResourceMappingsResponseTypeDef",
-    {
-        "appArn": str,
-        "appVersion": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ResiliencyPolicyTypeDef = TypedDict(
-    "ResiliencyPolicyTypeDef",
-    {
-        "creationTime": datetime,
-        "dataLocationConstraint": DataLocationConstraintType,
-        "estimatedCostTier": EstimatedCostTierType,
-        "policy": Dict[DisruptionTypeType, "FailurePolicyTypeDef"],
-        "policyArn": str,
-        "policyDescription": str,
-        "policyName": str,
-        "tags": Dict[str, str],
-        "tier": ResiliencyPolicyTierType,
-    },
-    total=False,
-)
-
-_RequiredResiliencyScoreTypeDef = TypedDict(
-    "_RequiredResiliencyScoreTypeDef",
-    {
-        "disruptionScore": Dict[DisruptionTypeType, float],
-        "score": float,
-    },
-)
-_OptionalResiliencyScoreTypeDef = TypedDict(
-    "_OptionalResiliencyScoreTypeDef",
-    {
-        "componentScore": Dict[ResiliencyScoreTypeType, "ScoringComponentResiliencyScoreTypeDef"],
-    },
-    total=False,
-)
-
-class ResiliencyScoreTypeDef(_RequiredResiliencyScoreTypeDef, _OptionalResiliencyScoreTypeDef):
-    pass
-
-ResolveAppVersionResourcesRequestRequestTypeDef = TypedDict(
-    "ResolveAppVersionResourcesRequestRequestTypeDef",
-    {
-        "appArn": str,
-        "appVersion": str,
-    },
-)
-
-ResolveAppVersionResourcesResponseTypeDef = TypedDict(
-    "ResolveAppVersionResourcesResponseTypeDef",
-    {
-        "appArn": str,
-        "appVersion": str,
-        "resolutionId": str,
-        "status": ResourceResolutionStatusTypeType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ResourceDriftTypeDef = TypedDict(
-    "ResourceDriftTypeDef",
-    {
-        "appArn": str,
-        "appVersion": str,
-        "diffType": DifferenceTypeType,
-        "referenceId": str,
-        "resourceIdentifier": "ResourceIdentifierTypeDef",
-    },
-    total=False,
-)
-
-ResourceErrorTypeDef = TypedDict(
-    "ResourceErrorTypeDef",
-    {
-        "logicalResourceId": str,
-        "physicalResourceId": str,
-        "reason": str,
-    },
-    total=False,
-)
-
-ResourceErrorsDetailsTypeDef = TypedDict(
-    "ResourceErrorsDetailsTypeDef",
-    {
-        "hasMoreErrors": bool,
-        "resourceErrors": List["ResourceErrorTypeDef"],
-    },
-    total=False,
-)
-
-ResourceIdentifierTypeDef = TypedDict(
-    "ResourceIdentifierTypeDef",
-    {
-        "logicalResourceId": "LogicalResourceIdTypeDef",
-        "resourceType": str,
-    },
-    total=False,
-)
-
-_RequiredResourceMappingTypeDef = TypedDict(
-    "_RequiredResourceMappingTypeDef",
-    {
-        "mappingType": ResourceMappingTypeType,
-        "physicalResourceId": "PhysicalResourceIdTypeDef",
-    },
-)
-_OptionalResourceMappingTypeDef = TypedDict(
-    "_OptionalResourceMappingTypeDef",
-    {
-        "appRegistryAppName": str,
-        "eksSourceName": str,
-        "logicalStackName": str,
-        "resourceGroupName": str,
-        "resourceName": str,
-        "terraformSourceName": str,
-    },
-    total=False,
-)
-
-class ResourceMappingTypeDef(_RequiredResourceMappingTypeDef, _OptionalResourceMappingTypeDef):
-    pass
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-S3LocationTypeDef = TypedDict(
-    "S3LocationTypeDef",
-    {
-        "bucket": str,
-        "prefix": str,
-    },
-    total=False,
-)
-
-ScoringComponentResiliencyScoreTypeDef = TypedDict(
-    "ScoringComponentResiliencyScoreTypeDef",
-    {
-        "excludedCount": int,
-        "outstandingCount": int,
-        "possibleScore": float,
-        "score": float,
-    },
-    total=False,
-)
-
-_RequiredSopRecommendationTypeDef = TypedDict(
-    "_RequiredSopRecommendationTypeDef",
-    {
-        "recommendationId": str,
-        "referenceId": str,
-        "serviceType": Literal["SSM"],
-    },
-)
-_OptionalSopRecommendationTypeDef = TypedDict(
-    "_OptionalSopRecommendationTypeDef",
-    {
-        "appComponentName": str,
-        "description": str,
-        "items": List["RecommendationItemTypeDef"],
-        "name": str,
-        "prerequisite": str,
-        "recommendationStatus": RecommendationStatusType,
-    },
-    total=False,
-)
-
-class SopRecommendationTypeDef(
-    _RequiredSopRecommendationTypeDef, _OptionalSopRecommendationTypeDef
-):
-    pass
-
-_RequiredStartAppAssessmentRequestRequestTypeDef = TypedDict(
-    "_RequiredStartAppAssessmentRequestRequestTypeDef",
-    {
-        "appArn": str,
-        "appVersion": str,
-        "assessmentName": str,
-    },
-)
-_OptionalStartAppAssessmentRequestRequestTypeDef = TypedDict(
-    "_OptionalStartAppAssessmentRequestRequestTypeDef",
-    {
-        "clientToken": str,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class StartAppAssessmentRequestRequestTypeDef(
-    _RequiredStartAppAssessmentRequestRequestTypeDef,
-    _OptionalStartAppAssessmentRequestRequestTypeDef,
-):
-    pass
-
-StartAppAssessmentResponseTypeDef = TypedDict(
-    "StartAppAssessmentResponseTypeDef",
-    {
-        "assessment": "AppAssessmentTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tags": Dict[str, str],
-    },
-)
-
-TerraformSourceTypeDef = TypedDict(
-    "TerraformSourceTypeDef",
-    {
-        "s3StateFileUrl": str,
-    },
-)
-
-_RequiredTestRecommendationTypeDef = TypedDict(
-    "_RequiredTestRecommendationTypeDef",
+        "appComponentName": NotRequired[str],
+        "appComponentNames": NotRequired[List[str]],
+        "description": NotRequired[str],
+        "items": NotRequired[List[RecommendationItemTypeDef]],
+        "prerequisite": NotRequired[str],
+        "recommendationStatus": NotRequired[RecommendationStatusType],
+    },
+)
+
+class SopRecommendationTypeDef(TypedDict):
+    recommendationId: str
+    referenceId: str
+    serviceType: Literal["SSM"]
+    appComponentName: NotRequired[str]
+    description: NotRequired[str]
+    items: NotRequired[List[RecommendationItemTypeDef]]
+    name: NotRequired[str]
+    prerequisite: NotRequired[str]
+    recommendationStatus: NotRequired[RecommendationStatusType]
+
+TestRecommendationTypeDef = TypedDict(
+    "TestRecommendationTypeDef",
     {
         "referenceId": str,
-    },
-)
-_OptionalTestRecommendationTypeDef = TypedDict(
-    "_OptionalTestRecommendationTypeDef",
-    {
-        "appComponentName": str,
-        "dependsOnAlarms": List[str],
-        "description": str,
-        "intent": str,
-        "items": List["RecommendationItemTypeDef"],
-        "name": str,
-        "prerequisite": str,
-        "recommendationId": str,
-        "recommendationStatus": RecommendationStatusType,
-        "risk": TestRiskType,
-        "type": TestTypeType,
-    },
-    total=False,
-)
-
-class TestRecommendationTypeDef(
-    _RequiredTestRecommendationTypeDef, _OptionalTestRecommendationTypeDef
-):
-    pass
-
-_RequiredUnsupportedResourceTypeDef = TypedDict(
-    "_RequiredUnsupportedResourceTypeDef",
-    {
-        "logicalResourceId": "LogicalResourceIdTypeDef",
-        "physicalResourceId": "PhysicalResourceIdTypeDef",
-        "resourceType": str,
-    },
-)
-_OptionalUnsupportedResourceTypeDef = TypedDict(
-    "_OptionalUnsupportedResourceTypeDef",
-    {
-        "unsupportedResourceStatus": str,
-    },
-    total=False,
-)
-
-class UnsupportedResourceTypeDef(
-    _RequiredUnsupportedResourceTypeDef, _OptionalUnsupportedResourceTypeDef
-):
-    pass
-
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tagKeys": List[str],
+        "appComponentId": NotRequired[str],
+        "appComponentName": NotRequired[str],
+        "dependsOnAlarms": NotRequired[List[str]],
+        "description": NotRequired[str],
+        "intent": NotRequired[str],
+        "items": NotRequired[List[RecommendationItemTypeDef]],
+        "name": NotRequired[str],
+        "prerequisite": NotRequired[str],
+        "recommendationId": NotRequired[str],
+        "recommendationStatus": NotRequired[RecommendationStatusType],
+        "risk": NotRequired[TestRiskType],
+        "type": NotRequired[TestTypeType],
     },
 )
 
-_RequiredUpdateAppRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateAppRequestRequestTypeDef",
-    {
-        "appArn": str,
-    },
-)
-_OptionalUpdateAppRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateAppRequestRequestTypeDef",
-    {
-        "assessmentSchedule": AppAssessmentScheduleTypeType,
-        "clearResiliencyPolicyArn": bool,
-        "description": str,
-        "eventSubscriptions": List["EventSubscriptionTypeDef"],
-        "permissionModel": "PermissionModelTypeDef",
-        "policyArn": str,
-    },
-    total=False,
-)
+class GroupingRecommendationTypeDef(TypedDict):
+    confidenceLevel: GroupingRecommendationConfidenceLevelType
+    creationTime: datetime
+    groupingAppComponent: GroupingAppComponentTypeDef
+    groupingRecommendationId: str
+    recommendationReasons: List[str]
+    resources: List[GroupingResourceTypeDef]
+    score: float
+    status: GroupingRecommendationStatusTypeType
+    rejectionReason: NotRequired[GroupingRecommendationRejectionReasonType]
 
-class UpdateAppRequestRequestTypeDef(
-    _RequiredUpdateAppRequestRequestTypeDef, _OptionalUpdateAppRequestRequestTypeDef
-):
-    pass
+class CreateAppVersionResourceResponseTypeDef(TypedDict):
+    appArn: str
+    appVersion: str
+    physicalResource: PhysicalResourceTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-UpdateAppResponseTypeDef = TypedDict(
-    "UpdateAppResponseTypeDef",
-    {
-        "app": "AppTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DeleteAppVersionResourceResponseTypeDef(TypedDict):
+    appArn: str
+    appVersion: str
+    physicalResource: PhysicalResourceTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredUpdateAppVersionAppComponentRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateAppVersionAppComponentRequestRequestTypeDef",
-    {
-        "appArn": str,
-        "id": str,
-    },
-)
-_OptionalUpdateAppVersionAppComponentRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateAppVersionAppComponentRequestRequestTypeDef",
-    {
-        "additionalInfo": Dict[str, List[str]],
-        "name": str,
-        "type": str,
-    },
-    total=False,
-)
+class DescribeAppVersionResourceResponseTypeDef(TypedDict):
+    appArn: str
+    appVersion: str
+    physicalResource: PhysicalResourceTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class UpdateAppVersionAppComponentRequestRequestTypeDef(
-    _RequiredUpdateAppVersionAppComponentRequestRequestTypeDef,
-    _OptionalUpdateAppVersionAppComponentRequestRequestTypeDef,
-):
-    pass
+class ListAppVersionResourcesResponseTypeDef(TypedDict):
+    physicalResources: List[PhysicalResourceTypeDef]
+    resolutionId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-UpdateAppVersionAppComponentResponseTypeDef = TypedDict(
-    "UpdateAppVersionAppComponentResponseTypeDef",
-    {
-        "appArn": str,
-        "appComponent": "AppComponentTypeDef",
-        "appVersion": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class UpdateAppVersionResourceResponseTypeDef(TypedDict):
+    appArn: str
+    appVersion: str
+    physicalResource: PhysicalResourceTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredUpdateAppVersionRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateAppVersionRequestRequestTypeDef",
-    {
-        "appArn": str,
-    },
-)
-_OptionalUpdateAppVersionRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateAppVersionRequestRequestTypeDef",
-    {
-        "additionalInfo": Dict[str, List[str]],
-    },
-    total=False,
-)
+class AddDraftAppVersionResourceMappingsRequestTypeDef(TypedDict):
+    appArn: str
+    resourceMappings: Sequence[ResourceMappingTypeDef]
 
-class UpdateAppVersionRequestRequestTypeDef(
-    _RequiredUpdateAppVersionRequestRequestTypeDef, _OptionalUpdateAppVersionRequestRequestTypeDef
-):
-    pass
+class AddDraftAppVersionResourceMappingsResponseTypeDef(TypedDict):
+    appArn: str
+    appVersion: str
+    resourceMappings: List[ResourceMappingTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredUpdateAppVersionResourceRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateAppVersionResourceRequestRequestTypeDef",
-    {
-        "appArn": str,
-    },
-)
-_OptionalUpdateAppVersionResourceRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateAppVersionResourceRequestRequestTypeDef",
-    {
-        "additionalInfo": Dict[str, List[str]],
-        "appComponents": List[str],
-        "awsAccountId": str,
-        "awsRegion": str,
-        "excluded": bool,
-        "logicalResourceId": "LogicalResourceIdTypeDef",
-        "physicalResourceId": str,
-        "resourceName": str,
-        "resourceType": str,
-    },
-    total=False,
-)
+class ListAppVersionResourceMappingsResponseTypeDef(TypedDict):
+    resourceMappings: List[ResourceMappingTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-class UpdateAppVersionResourceRequestRequestTypeDef(
-    _RequiredUpdateAppVersionResourceRequestRequestTypeDef,
-    _OptionalUpdateAppVersionResourceRequestRequestTypeDef,
-):
-    pass
+class ListUnsupportedAppVersionResourcesResponseTypeDef(TypedDict):
+    resolutionId: str
+    unsupportedResources: List[UnsupportedResourceTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-UpdateAppVersionResourceResponseTypeDef = TypedDict(
-    "UpdateAppVersionResourceResponseTypeDef",
-    {
-        "appArn": str,
-        "appVersion": str,
-        "physicalResource": "PhysicalResourceTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CreateAppRequestTypeDef(TypedDict):
+    name: str
+    assessmentSchedule: NotRequired[AppAssessmentScheduleTypeType]
+    awsApplicationArn: NotRequired[str]
+    clientToken: NotRequired[str]
+    description: NotRequired[str]
+    eventSubscriptions: NotRequired[Sequence[EventSubscriptionTypeDef]]
+    permissionModel: NotRequired[PermissionModelUnionTypeDef]
+    policyArn: NotRequired[str]
+    tags: NotRequired[Mapping[str, str]]
 
-UpdateAppVersionResponseTypeDef = TypedDict(
-    "UpdateAppVersionResponseTypeDef",
-    {
-        "additionalInfo": Dict[str, List[str]],
-        "appArn": str,
-        "appVersion": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class UpdateAppRequestTypeDef(TypedDict):
+    appArn: str
+    assessmentSchedule: NotRequired[AppAssessmentScheduleTypeType]
+    clearResiliencyPolicyArn: NotRequired[bool]
+    description: NotRequired[str]
+    eventSubscriptions: NotRequired[Sequence[EventSubscriptionTypeDef]]
+    permissionModel: NotRequired[PermissionModelUnionTypeDef]
+    policyArn: NotRequired[str]
 
-UpdateRecommendationStatusItemTypeDef = TypedDict(
-    "UpdateRecommendationStatusItemTypeDef",
-    {
-        "resourceId": str,
-        "targetAccountId": str,
-        "targetRegion": str,
-    },
-    total=False,
-)
+class AppComponentComplianceTypeDef(TypedDict):
+    appComponentName: NotRequired[str]
+    compliance: NotRequired[Dict[DisruptionTypeType, DisruptionComplianceTypeDef]]
+    cost: NotRequired[CostTypeDef]
+    message: NotRequired[str]
+    resiliencyScore: NotRequired[ResiliencyScoreTypeDef]
+    status: NotRequired[ComplianceStatusType]
 
-_RequiredUpdateRecommendationStatusRequestEntryTypeDef = TypedDict(
-    "_RequiredUpdateRecommendationStatusRequestEntryTypeDef",
-    {
-        "entryId": str,
-        "excluded": bool,
-        "item": "UpdateRecommendationStatusItemTypeDef",
-        "referenceId": str,
-    },
-)
-_OptionalUpdateRecommendationStatusRequestEntryTypeDef = TypedDict(
-    "_OptionalUpdateRecommendationStatusRequestEntryTypeDef",
-    {
-        "excludeReason": ExcludeRecommendationReasonType,
-    },
-    total=False,
-)
+class AppAssessmentTypeDef(TypedDict):
+    assessmentArn: str
+    assessmentStatus: AssessmentStatusType
+    invoker: AssessmentInvokerType
+    appArn: NotRequired[str]
+    appVersion: NotRequired[str]
+    assessmentName: NotRequired[str]
+    compliance: NotRequired[Dict[DisruptionTypeType, DisruptionComplianceTypeDef]]
+    complianceStatus: NotRequired[ComplianceStatusType]
+    cost: NotRequired[CostTypeDef]
+    driftStatus: NotRequired[DriftStatusType]
+    endTime: NotRequired[datetime]
+    message: NotRequired[str]
+    policy: NotRequired[ResiliencyPolicyTypeDef]
+    resiliencyScore: NotRequired[ResiliencyScoreTypeDef]
+    resourceErrorsDetails: NotRequired[ResourceErrorsDetailsTypeDef]
+    startTime: NotRequired[datetime]
+    summary: NotRequired[AssessmentSummaryTypeDef]
+    tags: NotRequired[Dict[str, str]]
+    versionName: NotRequired[str]
 
-class UpdateRecommendationStatusRequestEntryTypeDef(
-    _RequiredUpdateRecommendationStatusRequestEntryTypeDef,
-    _OptionalUpdateRecommendationStatusRequestEntryTypeDef,
-):
-    pass
+class ListAppComponentRecommendationsResponseTypeDef(TypedDict):
+    componentRecommendations: List[ComponentRecommendationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-_RequiredUpdateResiliencyPolicyRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateResiliencyPolicyRequestRequestTypeDef",
-    {
-        "policyArn": str,
-    },
-)
-_OptionalUpdateResiliencyPolicyRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateResiliencyPolicyRequestRequestTypeDef",
-    {
-        "dataLocationConstraint": DataLocationConstraintType,
-        "policy": Dict[DisruptionTypeType, "FailurePolicyTypeDef"],
-        "policyDescription": str,
-        "policyName": str,
-        "tier": ResiliencyPolicyTierType,
-    },
-    total=False,
-)
+class ListAppAssessmentResourceDriftsResponseTypeDef(TypedDict):
+    resourceDrifts: List[ResourceDriftTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-class UpdateResiliencyPolicyRequestRequestTypeDef(
-    _RequiredUpdateResiliencyPolicyRequestRequestTypeDef,
-    _OptionalUpdateResiliencyPolicyRequestRequestTypeDef,
-):
-    pass
+class ListAlarmRecommendationsResponseTypeDef(TypedDict):
+    alarmRecommendations: List[AlarmRecommendationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-UpdateResiliencyPolicyResponseTypeDef = TypedDict(
-    "UpdateResiliencyPolicyResponseTypeDef",
-    {
-        "policy": "ResiliencyPolicyTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListSopRecommendationsResponseTypeDef(TypedDict):
+    sopRecommendations: List[SopRecommendationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListTestRecommendationsResponseTypeDef(TypedDict):
+    testRecommendations: List[TestRecommendationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListResourceGroupingRecommendationsResponseTypeDef(TypedDict):
+    groupingRecommendations: List[GroupingRecommendationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListAppComponentCompliancesResponseTypeDef(TypedDict):
+    componentCompliances: List[AppComponentComplianceTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class DescribeAppAssessmentResponseTypeDef(TypedDict):
+    assessment: AppAssessmentTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartAppAssessmentResponseTypeDef(TypedDict):
+    assessment: AppAssessmentTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef

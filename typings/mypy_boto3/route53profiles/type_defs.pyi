@@ -1,54 +1,66 @@
 """
 Type annotations for route53profiles service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53profiles/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53profiles/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_route53profiles.type_defs import AssociateProfileRequestRequestTypeDef
+    from mypy_boto3_route53profiles.type_defs import TagTypeDef
 
-    data: AssociateProfileRequestRequestTypeDef = {...}
+    data: TagTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
 
 from .literals import ProfileStatusType, ShareStatusType
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
-    "AssociateProfileRequestRequestTypeDef",
+    "AssociateProfileRequestTypeDef",
     "AssociateProfileResponseTypeDef",
-    "AssociateResourceToProfileRequestRequestTypeDef",
+    "AssociateResourceToProfileRequestTypeDef",
     "AssociateResourceToProfileResponseTypeDef",
-    "CreateProfileRequestRequestTypeDef",
+    "CreateProfileRequestTypeDef",
     "CreateProfileResponseTypeDef",
-    "DeleteProfileRequestRequestTypeDef",
+    "DeleteProfileRequestTypeDef",
     "DeleteProfileResponseTypeDef",
-    "DisassociateProfileRequestRequestTypeDef",
+    "DisassociateProfileRequestTypeDef",
     "DisassociateProfileResponseTypeDef",
-    "DisassociateResourceFromProfileRequestRequestTypeDef",
+    "DisassociateResourceFromProfileRequestTypeDef",
     "DisassociateResourceFromProfileResponseTypeDef",
-    "GetProfileAssociationRequestRequestTypeDef",
+    "GetProfileAssociationRequestTypeDef",
     "GetProfileAssociationResponseTypeDef",
-    "GetProfileRequestRequestTypeDef",
-    "GetProfileResourceAssociationRequestRequestTypeDef",
+    "GetProfileRequestTypeDef",
+    "GetProfileResourceAssociationRequestTypeDef",
     "GetProfileResourceAssociationResponseTypeDef",
     "GetProfileResponseTypeDef",
-    "ListProfileAssociationsRequestRequestTypeDef",
+    "ListProfileAssociationsRequestPaginateTypeDef",
+    "ListProfileAssociationsRequestTypeDef",
     "ListProfileAssociationsResponseTypeDef",
-    "ListProfileResourceAssociationsRequestRequestTypeDef",
+    "ListProfileResourceAssociationsRequestPaginateTypeDef",
+    "ListProfileResourceAssociationsRequestTypeDef",
     "ListProfileResourceAssociationsResponseTypeDef",
-    "ListProfilesRequestRequestTypeDef",
+    "ListProfilesRequestPaginateTypeDef",
+    "ListProfilesRequestTypeDef",
     "ListProfilesResponseTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "PaginatorConfigTypeDef",
     "ProfileAssociationTypeDef",
@@ -56,408 +68,208 @@ __all__ = (
     "ProfileSummaryTypeDef",
     "ProfileTypeDef",
     "ResponseMetadataTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
     "TagTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateProfileResourceAssociationRequestRequestTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateProfileResourceAssociationRequestTypeDef",
     "UpdateProfileResourceAssociationResponseTypeDef",
 )
 
-_RequiredAssociateProfileRequestRequestTypeDef = TypedDict(
-    "_RequiredAssociateProfileRequestRequestTypeDef",
-    {
-        "Name": str,
-        "ProfileId": str,
-        "ResourceId": str,
-    },
-)
-_OptionalAssociateProfileRequestRequestTypeDef = TypedDict(
-    "_OptionalAssociateProfileRequestRequestTypeDef",
-    {
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
+class TagTypeDef(TypedDict):
+    Key: str
+    Value: str
 
-class AssociateProfileRequestRequestTypeDef(
-    _RequiredAssociateProfileRequestRequestTypeDef, _OptionalAssociateProfileRequestRequestTypeDef
-):
-    pass
+class ProfileAssociationTypeDef(TypedDict):
+    CreationTime: NotRequired[datetime]
+    Id: NotRequired[str]
+    ModificationTime: NotRequired[datetime]
+    Name: NotRequired[str]
+    OwnerId: NotRequired[str]
+    ProfileId: NotRequired[str]
+    ResourceId: NotRequired[str]
+    Status: NotRequired[ProfileStatusType]
+    StatusMessage: NotRequired[str]
 
-AssociateProfileResponseTypeDef = TypedDict(
-    "AssociateProfileResponseTypeDef",
-    {
-        "ProfileAssociation": "ProfileAssociationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-_RequiredAssociateResourceToProfileRequestRequestTypeDef = TypedDict(
-    "_RequiredAssociateResourceToProfileRequestRequestTypeDef",
-    {
-        "Name": str,
-        "ProfileId": str,
-        "ResourceArn": str,
-    },
-)
-_OptionalAssociateResourceToProfileRequestRequestTypeDef = TypedDict(
-    "_OptionalAssociateResourceToProfileRequestRequestTypeDef",
-    {
-        "ResourceProperties": str,
-    },
-    total=False,
-)
+class AssociateResourceToProfileRequestTypeDef(TypedDict):
+    Name: str
+    ProfileId: str
+    ResourceArn: str
+    ResourceProperties: NotRequired[str]
 
-class AssociateResourceToProfileRequestRequestTypeDef(
-    _RequiredAssociateResourceToProfileRequestRequestTypeDef,
-    _OptionalAssociateResourceToProfileRequestRequestTypeDef,
-):
-    pass
+class ProfileResourceAssociationTypeDef(TypedDict):
+    CreationTime: NotRequired[datetime]
+    Id: NotRequired[str]
+    ModificationTime: NotRequired[datetime]
+    Name: NotRequired[str]
+    OwnerId: NotRequired[str]
+    ProfileId: NotRequired[str]
+    ResourceArn: NotRequired[str]
+    ResourceProperties: NotRequired[str]
+    ResourceType: NotRequired[str]
+    Status: NotRequired[ProfileStatusType]
+    StatusMessage: NotRequired[str]
 
-AssociateResourceToProfileResponseTypeDef = TypedDict(
-    "AssociateResourceToProfileResponseTypeDef",
-    {
-        "ProfileResourceAssociation": "ProfileResourceAssociationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ProfileTypeDef(TypedDict):
+    Arn: NotRequired[str]
+    ClientToken: NotRequired[str]
+    CreationTime: NotRequired[datetime]
+    Id: NotRequired[str]
+    ModificationTime: NotRequired[datetime]
+    Name: NotRequired[str]
+    OwnerId: NotRequired[str]
+    ShareStatus: NotRequired[ShareStatusType]
+    Status: NotRequired[ProfileStatusType]
+    StatusMessage: NotRequired[str]
 
-_RequiredCreateProfileRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateProfileRequestRequestTypeDef",
-    {
-        "ClientToken": str,
-        "Name": str,
-    },
-)
-_OptionalCreateProfileRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateProfileRequestRequestTypeDef",
-    {
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
+class DeleteProfileRequestTypeDef(TypedDict):
+    ProfileId: str
 
-class CreateProfileRequestRequestTypeDef(
-    _RequiredCreateProfileRequestRequestTypeDef, _OptionalCreateProfileRequestRequestTypeDef
-):
-    pass
+class DisassociateProfileRequestTypeDef(TypedDict):
+    ProfileId: str
+    ResourceId: str
 
-CreateProfileResponseTypeDef = TypedDict(
-    "CreateProfileResponseTypeDef",
-    {
-        "Profile": "ProfileTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DisassociateResourceFromProfileRequestTypeDef(TypedDict):
+    ProfileId: str
+    ResourceArn: str
 
-DeleteProfileRequestRequestTypeDef = TypedDict(
-    "DeleteProfileRequestRequestTypeDef",
-    {
-        "ProfileId": str,
-    },
-)
+class GetProfileAssociationRequestTypeDef(TypedDict):
+    ProfileAssociationId: str
 
-DeleteProfileResponseTypeDef = TypedDict(
-    "DeleteProfileResponseTypeDef",
-    {
-        "Profile": "ProfileTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetProfileRequestTypeDef(TypedDict):
+    ProfileId: str
 
-DisassociateProfileRequestRequestTypeDef = TypedDict(
-    "DisassociateProfileRequestRequestTypeDef",
-    {
-        "ProfileId": str,
-        "ResourceId": str,
-    },
-)
+class GetProfileResourceAssociationRequestTypeDef(TypedDict):
+    ProfileResourceAssociationId: str
 
-DisassociateProfileResponseTypeDef = TypedDict(
-    "DisassociateProfileResponseTypeDef",
-    {
-        "ProfileAssociation": "ProfileAssociationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
 
-DisassociateResourceFromProfileRequestRequestTypeDef = TypedDict(
-    "DisassociateResourceFromProfileRequestRequestTypeDef",
-    {
-        "ProfileId": str,
-        "ResourceArn": str,
-    },
-)
+class ListProfileAssociationsRequestTypeDef(TypedDict):
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+    ProfileId: NotRequired[str]
+    ResourceId: NotRequired[str]
 
-DisassociateResourceFromProfileResponseTypeDef = TypedDict(
-    "DisassociateResourceFromProfileResponseTypeDef",
-    {
-        "ProfileResourceAssociation": "ProfileResourceAssociationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListProfileResourceAssociationsRequestTypeDef(TypedDict):
+    ProfileId: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+    ResourceType: NotRequired[str]
 
-GetProfileAssociationRequestRequestTypeDef = TypedDict(
-    "GetProfileAssociationRequestRequestTypeDef",
-    {
-        "ProfileAssociationId": str,
-    },
-)
+class ListProfilesRequestTypeDef(TypedDict):
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
 
-GetProfileAssociationResponseTypeDef = TypedDict(
-    "GetProfileAssociationResponseTypeDef",
-    {
-        "ProfileAssociation": "ProfileAssociationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ProfileSummaryTypeDef(TypedDict):
+    Arn: NotRequired[str]
+    Id: NotRequired[str]
+    Name: NotRequired[str]
+    ShareStatus: NotRequired[ShareStatusType]
 
-GetProfileRequestRequestTypeDef = TypedDict(
-    "GetProfileRequestRequestTypeDef",
-    {
-        "ProfileId": str,
-    },
-)
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
 
-GetProfileResourceAssociationRequestRequestTypeDef = TypedDict(
-    "GetProfileResourceAssociationRequestRequestTypeDef",
-    {
-        "ProfileResourceAssociationId": str,
-    },
-)
+class TagResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+    Tags: Mapping[str, str]
 
-GetProfileResourceAssociationResponseTypeDef = TypedDict(
-    "GetProfileResourceAssociationResponseTypeDef",
-    {
-        "ProfileResourceAssociation": "ProfileResourceAssociationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class UntagResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+    TagKeys: Sequence[str]
 
-GetProfileResponseTypeDef = TypedDict(
-    "GetProfileResponseTypeDef",
-    {
-        "Profile": "ProfileTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class UpdateProfileResourceAssociationRequestTypeDef(TypedDict):
+    ProfileResourceAssociationId: str
+    Name: NotRequired[str]
+    ResourceProperties: NotRequired[str]
 
-ListProfileAssociationsRequestRequestTypeDef = TypedDict(
-    "ListProfileAssociationsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-        "ProfileId": str,
-        "ResourceId": str,
-    },
-    total=False,
-)
+class AssociateProfileRequestTypeDef(TypedDict):
+    Name: str
+    ProfileId: str
+    ResourceId: str
+    Tags: NotRequired[Sequence[TagTypeDef]]
 
-ListProfileAssociationsResponseTypeDef = TypedDict(
-    "ListProfileAssociationsResponseTypeDef",
-    {
-        "NextToken": str,
-        "ProfileAssociations": List["ProfileAssociationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CreateProfileRequestTypeDef(TypedDict):
+    ClientToken: str
+    Name: str
+    Tags: NotRequired[Sequence[TagTypeDef]]
 
-_RequiredListProfileResourceAssociationsRequestRequestTypeDef = TypedDict(
-    "_RequiredListProfileResourceAssociationsRequestRequestTypeDef",
-    {
-        "ProfileId": str,
-    },
-)
-_OptionalListProfileResourceAssociationsRequestRequestTypeDef = TypedDict(
-    "_OptionalListProfileResourceAssociationsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-        "ResourceType": str,
-    },
-    total=False,
-)
+class AssociateProfileResponseTypeDef(TypedDict):
+    ProfileAssociation: ProfileAssociationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class ListProfileResourceAssociationsRequestRequestTypeDef(
-    _RequiredListProfileResourceAssociationsRequestRequestTypeDef,
-    _OptionalListProfileResourceAssociationsRequestRequestTypeDef,
-):
-    pass
+class DisassociateProfileResponseTypeDef(TypedDict):
+    ProfileAssociation: ProfileAssociationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ListProfileResourceAssociationsResponseTypeDef = TypedDict(
-    "ListProfileResourceAssociationsResponseTypeDef",
-    {
-        "NextToken": str,
-        "ProfileResourceAssociations": List["ProfileResourceAssociationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetProfileAssociationResponseTypeDef(TypedDict):
+    ProfileAssociation: ProfileAssociationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ListProfilesRequestRequestTypeDef = TypedDict(
-    "ListProfilesRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
+class ListProfileAssociationsResponseTypeDef(TypedDict):
+    ProfileAssociations: List[ProfileAssociationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-ListProfilesResponseTypeDef = TypedDict(
-    "ListProfilesResponseTypeDef",
-    {
-        "NextToken": str,
-        "ProfileSummaries": List["ProfileSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    Tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-    },
-)
+class AssociateResourceToProfileResponseTypeDef(TypedDict):
+    ProfileResourceAssociation: ProfileResourceAssociationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "Tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DisassociateResourceFromProfileResponseTypeDef(TypedDict):
+    ProfileResourceAssociation: ProfileResourceAssociationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
+class GetProfileResourceAssociationResponseTypeDef(TypedDict):
+    ProfileResourceAssociation: ProfileResourceAssociationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ProfileAssociationTypeDef = TypedDict(
-    "ProfileAssociationTypeDef",
-    {
-        "CreationTime": datetime,
-        "Id": str,
-        "ModificationTime": datetime,
-        "Name": str,
-        "OwnerId": str,
-        "ProfileId": str,
-        "ResourceId": str,
-        "Status": ProfileStatusType,
-        "StatusMessage": str,
-    },
-    total=False,
-)
+class ListProfileResourceAssociationsResponseTypeDef(TypedDict):
+    ProfileResourceAssociations: List[ProfileResourceAssociationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-ProfileResourceAssociationTypeDef = TypedDict(
-    "ProfileResourceAssociationTypeDef",
-    {
-        "CreationTime": datetime,
-        "Id": str,
-        "ModificationTime": datetime,
-        "Name": str,
-        "OwnerId": str,
-        "ProfileId": str,
-        "ResourceArn": str,
-        "ResourceProperties": str,
-        "ResourceType": str,
-        "Status": ProfileStatusType,
-        "StatusMessage": str,
-    },
-    total=False,
-)
+class UpdateProfileResourceAssociationResponseTypeDef(TypedDict):
+    ProfileResourceAssociation: ProfileResourceAssociationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ProfileSummaryTypeDef = TypedDict(
-    "ProfileSummaryTypeDef",
-    {
-        "Arn": str,
-        "Id": str,
-        "Name": str,
-        "ShareStatus": ShareStatusType,
-    },
-    total=False,
-)
+class CreateProfileResponseTypeDef(TypedDict):
+    Profile: ProfileTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ProfileTypeDef = TypedDict(
-    "ProfileTypeDef",
-    {
-        "Arn": str,
-        "ClientToken": str,
-        "CreationTime": datetime,
-        "Id": str,
-        "ModificationTime": datetime,
-        "Name": str,
-        "OwnerId": str,
-        "ShareStatus": ShareStatusType,
-        "Status": ProfileStatusType,
-        "StatusMessage": str,
-    },
-    total=False,
-)
+class DeleteProfileResponseTypeDef(TypedDict):
+    Profile: ProfileTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
+class GetProfileResponseTypeDef(TypedDict):
+    Profile: ProfileTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-        "Tags": Dict[str, str],
-    },
-)
+class ListProfileAssociationsRequestPaginateTypeDef(TypedDict):
+    ProfileId: NotRequired[str]
+    ResourceId: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-TagTypeDef = TypedDict(
-    "TagTypeDef",
-    {
-        "Key": str,
-        "Value": str,
-    },
-)
+class ListProfileResourceAssociationsRequestPaginateTypeDef(TypedDict):
+    ProfileId: str
+    ResourceType: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-        "TagKeys": List[str],
-    },
-)
+class ListProfilesRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-_RequiredUpdateProfileResourceAssociationRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateProfileResourceAssociationRequestRequestTypeDef",
-    {
-        "ProfileResourceAssociationId": str,
-    },
-)
-_OptionalUpdateProfileResourceAssociationRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateProfileResourceAssociationRequestRequestTypeDef",
-    {
-        "Name": str,
-        "ResourceProperties": str,
-    },
-    total=False,
-)
-
-class UpdateProfileResourceAssociationRequestRequestTypeDef(
-    _RequiredUpdateProfileResourceAssociationRequestRequestTypeDef,
-    _OptionalUpdateProfileResourceAssociationRequestRequestTypeDef,
-):
-    pass
-
-UpdateProfileResourceAssociationResponseTypeDef = TypedDict(
-    "UpdateProfileResourceAssociationResponseTypeDef",
-    {
-        "ProfileResourceAssociation": "ProfileResourceAssociationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListProfilesResponseTypeDef(TypedDict):
+    ProfileSummaries: List[ProfileSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]

@@ -1,10 +1,14 @@
 """
 Main interface for sms service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sms/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_sms import (
         Client,
         GetConnectorsPaginator,
@@ -15,10 +19,8 @@ Usage::
         SMSClient,
     )
 
-    session = boto3.Session()
-
-    client: SMSClient = boto3.client("sms")
-    session_client: SMSClient = session.client("sms")
+    session = Session()
+    client: SMSClient = session.client("sms")
 
     get_connectors_paginator: GetConnectorsPaginator = client.get_paginator("get_connectors")
     get_replication_jobs_paginator: GetReplicationJobsPaginator = client.get_paginator("get_replication_jobs")

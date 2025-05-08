@@ -1,20 +1,23 @@
 """
 Type annotations for drs service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_drs/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_drs/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_drs.type_defs import AccountTypeDef
 
-    data: AccountTypeDef = {...}
+    data: AccountTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
 
 from .literals import (
     DataReplicationErrorStringType,
@@ -56,67 +59,82 @@ from .literals import (
     VolumeStatusType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
     "AccountTypeDef",
-    "AssociateSourceNetworkStackRequestRequestTypeDef",
+    "AssociateSourceNetworkStackRequestTypeDef",
     "AssociateSourceNetworkStackResponseTypeDef",
     "CPUTypeDef",
     "ConversionPropertiesTypeDef",
-    "CreateExtendedSourceServerRequestRequestTypeDef",
+    "CreateExtendedSourceServerRequestTypeDef",
     "CreateExtendedSourceServerResponseTypeDef",
-    "CreateLaunchConfigurationTemplateRequestRequestTypeDef",
+    "CreateLaunchConfigurationTemplateRequestTypeDef",
     "CreateLaunchConfigurationTemplateResponseTypeDef",
-    "CreateReplicationConfigurationTemplateRequestRequestTypeDef",
-    "CreateSourceNetworkRequestRequestTypeDef",
+    "CreateReplicationConfigurationTemplateRequestTypeDef",
+    "CreateSourceNetworkRequestTypeDef",
     "CreateSourceNetworkResponseTypeDef",
     "DataReplicationErrorTypeDef",
     "DataReplicationInfoReplicatedDiskTypeDef",
     "DataReplicationInfoTypeDef",
     "DataReplicationInitiationStepTypeDef",
     "DataReplicationInitiationTypeDef",
-    "DeleteJobRequestRequestTypeDef",
-    "DeleteLaunchActionRequestRequestTypeDef",
-    "DeleteLaunchConfigurationTemplateRequestRequestTypeDef",
-    "DeleteRecoveryInstanceRequestRequestTypeDef",
-    "DeleteReplicationConfigurationTemplateRequestRequestTypeDef",
-    "DeleteSourceNetworkRequestRequestTypeDef",
-    "DeleteSourceServerRequestRequestTypeDef",
-    "DescribeJobLogItemsRequestRequestTypeDef",
+    "DeleteJobRequestTypeDef",
+    "DeleteLaunchActionRequestTypeDef",
+    "DeleteLaunchConfigurationTemplateRequestTypeDef",
+    "DeleteRecoveryInstanceRequestTypeDef",
+    "DeleteReplicationConfigurationTemplateRequestTypeDef",
+    "DeleteSourceNetworkRequestTypeDef",
+    "DeleteSourceServerRequestTypeDef",
+    "DescribeJobLogItemsRequestPaginateTypeDef",
+    "DescribeJobLogItemsRequestTypeDef",
     "DescribeJobLogItemsResponseTypeDef",
     "DescribeJobsRequestFiltersTypeDef",
-    "DescribeJobsRequestRequestTypeDef",
+    "DescribeJobsRequestPaginateTypeDef",
+    "DescribeJobsRequestTypeDef",
     "DescribeJobsResponseTypeDef",
-    "DescribeLaunchConfigurationTemplatesRequestRequestTypeDef",
+    "DescribeLaunchConfigurationTemplatesRequestPaginateTypeDef",
+    "DescribeLaunchConfigurationTemplatesRequestTypeDef",
     "DescribeLaunchConfigurationTemplatesResponseTypeDef",
     "DescribeRecoveryInstancesRequestFiltersTypeDef",
-    "DescribeRecoveryInstancesRequestRequestTypeDef",
+    "DescribeRecoveryInstancesRequestPaginateTypeDef",
+    "DescribeRecoveryInstancesRequestTypeDef",
     "DescribeRecoveryInstancesResponseTypeDef",
     "DescribeRecoverySnapshotsRequestFiltersTypeDef",
-    "DescribeRecoverySnapshotsRequestRequestTypeDef",
+    "DescribeRecoverySnapshotsRequestPaginateTypeDef",
+    "DescribeRecoverySnapshotsRequestTypeDef",
     "DescribeRecoverySnapshotsResponseTypeDef",
-    "DescribeReplicationConfigurationTemplatesRequestRequestTypeDef",
+    "DescribeReplicationConfigurationTemplatesRequestPaginateTypeDef",
+    "DescribeReplicationConfigurationTemplatesRequestTypeDef",
     "DescribeReplicationConfigurationTemplatesResponseTypeDef",
     "DescribeSourceNetworksRequestFiltersTypeDef",
-    "DescribeSourceNetworksRequestRequestTypeDef",
+    "DescribeSourceNetworksRequestPaginateTypeDef",
+    "DescribeSourceNetworksRequestTypeDef",
     "DescribeSourceNetworksResponseTypeDef",
     "DescribeSourceServersRequestFiltersTypeDef",
-    "DescribeSourceServersRequestRequestTypeDef",
+    "DescribeSourceServersRequestPaginateTypeDef",
+    "DescribeSourceServersRequestTypeDef",
     "DescribeSourceServersResponseTypeDef",
-    "DisconnectRecoveryInstanceRequestRequestTypeDef",
-    "DisconnectSourceServerRequestRequestTypeDef",
+    "DisconnectRecoveryInstanceRequestTypeDef",
+    "DisconnectSourceServerRequestTypeDef",
     "DiskTypeDef",
+    "EmptyResponseMetadataTypeDef",
     "EventResourceDataTypeDef",
-    "ExportSourceNetworkCfnTemplateRequestRequestTypeDef",
+    "ExportSourceNetworkCfnTemplateRequestTypeDef",
     "ExportSourceNetworkCfnTemplateResponseTypeDef",
-    "GetFailbackReplicationConfigurationRequestRequestTypeDef",
+    "GetFailbackReplicationConfigurationRequestTypeDef",
     "GetFailbackReplicationConfigurationResponseTypeDef",
-    "GetLaunchConfigurationRequestRequestTypeDef",
-    "GetReplicationConfigurationRequestRequestTypeDef",
+    "GetLaunchConfigurationRequestTypeDef",
+    "GetReplicationConfigurationRequestTypeDef",
     "IdentificationHintsTypeDef",
     "JobLogEventDataTypeDef",
     "JobLogTypeDef",
@@ -133,13 +151,16 @@ __all__ = (
     "LifeCycleLastLaunchInitiatedTypeDef",
     "LifeCycleLastLaunchTypeDef",
     "LifeCycleTypeDef",
-    "ListExtensibleSourceServersRequestRequestTypeDef",
+    "ListExtensibleSourceServersRequestPaginateTypeDef",
+    "ListExtensibleSourceServersRequestTypeDef",
     "ListExtensibleSourceServersResponseTypeDef",
-    "ListLaunchActionsRequestRequestTypeDef",
+    "ListLaunchActionsRequestPaginateTypeDef",
+    "ListLaunchActionsRequestTypeDef",
     "ListLaunchActionsResponseTypeDef",
-    "ListStagingAccountsRequestRequestTypeDef",
+    "ListStagingAccountsRequestPaginateTypeDef",
+    "ListStagingAccountsRequestTypeDef",
     "ListStagingAccountsResponseTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "NetworkInterfaceTypeDef",
     "OSTypeDef",
@@ -149,7 +170,7 @@ __all__ = (
     "ParticipatingResourceTypeDef",
     "ParticipatingServerTypeDef",
     "ProductCodeTypeDef",
-    "PutLaunchActionRequestRequestTypeDef",
+    "PutLaunchActionRequestTypeDef",
     "PutLaunchActionResponseTypeDef",
     "RecoveryInstanceDataReplicationErrorTypeDef",
     "RecoveryInstanceDataReplicationInfoReplicatedDiskTypeDef",
@@ -163,1020 +184,642 @@ __all__ = (
     "RecoveryLifeCycleTypeDef",
     "RecoverySnapshotTypeDef",
     "ReplicationConfigurationReplicatedDiskTypeDef",
-    "ReplicationConfigurationTemplateResponseMetadataTypeDef",
+    "ReplicationConfigurationTemplateResponseTypeDef",
     "ReplicationConfigurationTemplateTypeDef",
     "ReplicationConfigurationTypeDef",
     "ResponseMetadataTypeDef",
-    "RetryDataReplicationRequestRequestTypeDef",
-    "ReverseReplicationRequestRequestTypeDef",
+    "RetryDataReplicationRequestTypeDef",
+    "ReverseReplicationRequestTypeDef",
     "ReverseReplicationResponseTypeDef",
     "SourceCloudPropertiesTypeDef",
     "SourceNetworkDataTypeDef",
     "SourceNetworkTypeDef",
     "SourcePropertiesTypeDef",
-    "SourceServerResponseMetadataTypeDef",
+    "SourceServerResponseTypeDef",
     "SourceServerTypeDef",
     "StagingAreaTypeDef",
     "StagingSourceServerTypeDef",
-    "StartFailbackLaunchRequestRequestTypeDef",
+    "StartFailbackLaunchRequestTypeDef",
     "StartFailbackLaunchResponseTypeDef",
-    "StartRecoveryRequestRequestTypeDef",
     "StartRecoveryRequestSourceServerTypeDef",
+    "StartRecoveryRequestTypeDef",
     "StartRecoveryResponseTypeDef",
-    "StartReplicationRequestRequestTypeDef",
+    "StartReplicationRequestTypeDef",
     "StartReplicationResponseTypeDef",
     "StartSourceNetworkRecoveryRequestNetworkEntryTypeDef",
-    "StartSourceNetworkRecoveryRequestRequestTypeDef",
+    "StartSourceNetworkRecoveryRequestTypeDef",
     "StartSourceNetworkRecoveryResponseTypeDef",
-    "StartSourceNetworkReplicationRequestRequestTypeDef",
+    "StartSourceNetworkReplicationRequestTypeDef",
     "StartSourceNetworkReplicationResponseTypeDef",
-    "StopFailbackRequestRequestTypeDef",
-    "StopReplicationRequestRequestTypeDef",
+    "StopFailbackRequestTypeDef",
+    "StopReplicationRequestTypeDef",
     "StopReplicationResponseTypeDef",
-    "StopSourceNetworkReplicationRequestRequestTypeDef",
+    "StopSourceNetworkReplicationRequestTypeDef",
     "StopSourceNetworkReplicationResponseTypeDef",
-    "TagResourceRequestRequestTypeDef",
-    "TerminateRecoveryInstancesRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
+    "TerminateRecoveryInstancesRequestTypeDef",
     "TerminateRecoveryInstancesResponseTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateFailbackReplicationConfigurationRequestRequestTypeDef",
-    "UpdateLaunchConfigurationRequestRequestTypeDef",
-    "UpdateLaunchConfigurationTemplateRequestRequestTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateFailbackReplicationConfigurationRequestTypeDef",
+    "UpdateLaunchConfigurationRequestTypeDef",
+    "UpdateLaunchConfigurationTemplateRequestTypeDef",
     "UpdateLaunchConfigurationTemplateResponseTypeDef",
-    "UpdateReplicationConfigurationRequestRequestTypeDef",
-    "UpdateReplicationConfigurationTemplateRequestRequestTypeDef",
+    "UpdateReplicationConfigurationRequestTypeDef",
+    "UpdateReplicationConfigurationTemplateRequestTypeDef",
 )
 
-AccountTypeDef = TypedDict(
-    "AccountTypeDef",
-    {
-        "accountID": str,
-    },
-    total=False,
-)
+class AccountTypeDef(TypedDict):
+    accountID: NotRequired[str]
 
-AssociateSourceNetworkStackRequestRequestTypeDef = TypedDict(
-    "AssociateSourceNetworkStackRequestRequestTypeDef",
-    {
-        "cfnStackName": str,
-        "sourceNetworkID": str,
-    },
-)
+class AssociateSourceNetworkStackRequestTypeDef(TypedDict):
+    cfnStackName: str
+    sourceNetworkID: str
 
-AssociateSourceNetworkStackResponseTypeDef = TypedDict(
-    "AssociateSourceNetworkStackResponseTypeDef",
-    {
-        "job": "JobTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-CPUTypeDef = TypedDict(
-    "CPUTypeDef",
-    {
-        "cores": int,
-        "modelName": str,
-    },
-    total=False,
-)
+class CPUTypeDef(TypedDict):
+    cores: NotRequired[int]
+    modelName: NotRequired[str]
 
-ConversionPropertiesTypeDef = TypedDict(
-    "ConversionPropertiesTypeDef",
-    {
-        "dataTimestamp": str,
-        "forceUefi": bool,
-        "rootVolumeName": str,
-        "volumeToConversionMap": Dict[str, Dict[str, str]],
-        "volumeToProductCodes": Dict[str, List["ProductCodeTypeDef"]],
-        "volumeToVolumeSize": Dict[str, int],
-    },
-    total=False,
-)
+class ProductCodeTypeDef(TypedDict):
+    productCodeId: NotRequired[str]
+    productCodeMode: NotRequired[ProductCodeModeType]
 
-_RequiredCreateExtendedSourceServerRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateExtendedSourceServerRequestRequestTypeDef",
-    {
-        "sourceServerArn": str,
-    },
-)
-_OptionalCreateExtendedSourceServerRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateExtendedSourceServerRequestRequestTypeDef",
-    {
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
+class CreateExtendedSourceServerRequestTypeDef(TypedDict):
+    sourceServerArn: str
+    tags: NotRequired[Mapping[str, str]]
 
-class CreateExtendedSourceServerRequestRequestTypeDef(
-    _RequiredCreateExtendedSourceServerRequestRequestTypeDef,
-    _OptionalCreateExtendedSourceServerRequestRequestTypeDef,
-):
-    pass
+class LicensingTypeDef(TypedDict):
+    osByol: NotRequired[bool]
 
-CreateExtendedSourceServerResponseTypeDef = TypedDict(
-    "CreateExtendedSourceServerResponseTypeDef",
-    {
-        "sourceServer": "SourceServerTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class PITPolicyRuleTypeDef(TypedDict):
+    interval: int
+    retentionDuration: int
+    units: PITPolicyRuleUnitsType
+    enabled: NotRequired[bool]
+    ruleID: NotRequired[int]
 
-CreateLaunchConfigurationTemplateRequestRequestTypeDef = TypedDict(
-    "CreateLaunchConfigurationTemplateRequestRequestTypeDef",
-    {
-        "copyPrivateIp": bool,
-        "copyTags": bool,
-        "exportBucketArn": str,
-        "launchDisposition": LaunchDispositionType,
-        "launchIntoSourceInstance": bool,
-        "licensing": "LicensingTypeDef",
-        "postLaunchEnabled": bool,
-        "tags": Dict[str, str],
-        "targetInstanceTypeRightSizingMethod": TargetInstanceTypeRightSizingMethodType,
-    },
-    total=False,
-)
+class CreateSourceNetworkRequestTypeDef(TypedDict):
+    originAccountID: str
+    originRegion: str
+    vpcID: str
+    tags: NotRequired[Mapping[str, str]]
 
-CreateLaunchConfigurationTemplateResponseTypeDef = TypedDict(
-    "CreateLaunchConfigurationTemplateResponseTypeDef",
-    {
-        "launchConfigurationTemplate": "LaunchConfigurationTemplateTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DataReplicationErrorTypeDef(TypedDict):
+    error: NotRequired[DataReplicationErrorStringType]
+    rawError: NotRequired[str]
 
-_RequiredCreateReplicationConfigurationTemplateRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateReplicationConfigurationTemplateRequestRequestTypeDef",
-    {
-        "associateDefaultSecurityGroup": bool,
-        "bandwidthThrottling": int,
-        "createPublicIP": bool,
-        "dataPlaneRouting": ReplicationConfigurationDataPlaneRoutingType,
-        "defaultLargeStagingDiskType": ReplicationConfigurationDefaultLargeStagingDiskTypeType,
-        "ebsEncryption": ReplicationConfigurationEbsEncryptionType,
-        "pitPolicy": List["PITPolicyRuleTypeDef"],
-        "replicationServerInstanceType": str,
-        "replicationServersSecurityGroupsIDs": List[str],
-        "stagingAreaSubnetId": str,
-        "stagingAreaTags": Dict[str, str],
-        "useDedicatedReplicationServer": bool,
-    },
-)
-_OptionalCreateReplicationConfigurationTemplateRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateReplicationConfigurationTemplateRequestRequestTypeDef",
-    {
-        "autoReplicateNewDisks": bool,
-        "ebsEncryptionKeyArn": str,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
+class DataReplicationInfoReplicatedDiskTypeDef(TypedDict):
+    backloggedStorageBytes: NotRequired[int]
+    deviceName: NotRequired[str]
+    replicatedStorageBytes: NotRequired[int]
+    rescannedStorageBytes: NotRequired[int]
+    totalStorageBytes: NotRequired[int]
+    volumeStatus: NotRequired[VolumeStatusType]
 
-class CreateReplicationConfigurationTemplateRequestRequestTypeDef(
-    _RequiredCreateReplicationConfigurationTemplateRequestRequestTypeDef,
-    _OptionalCreateReplicationConfigurationTemplateRequestRequestTypeDef,
-):
-    pass
+class DataReplicationInitiationStepTypeDef(TypedDict):
+    name: NotRequired[DataReplicationInitiationStepNameType]
+    status: NotRequired[DataReplicationInitiationStepStatusType]
 
-_RequiredCreateSourceNetworkRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateSourceNetworkRequestRequestTypeDef",
-    {
-        "originAccountID": str,
-        "originRegion": str,
-        "vpcID": str,
-    },
-)
-_OptionalCreateSourceNetworkRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateSourceNetworkRequestRequestTypeDef",
-    {
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
+class DeleteJobRequestTypeDef(TypedDict):
+    jobID: str
 
-class CreateSourceNetworkRequestRequestTypeDef(
-    _RequiredCreateSourceNetworkRequestRequestTypeDef,
-    _OptionalCreateSourceNetworkRequestRequestTypeDef,
-):
-    pass
+class DeleteLaunchActionRequestTypeDef(TypedDict):
+    actionId: str
+    resourceId: str
 
-CreateSourceNetworkResponseTypeDef = TypedDict(
-    "CreateSourceNetworkResponseTypeDef",
-    {
-        "sourceNetworkID": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DeleteLaunchConfigurationTemplateRequestTypeDef(TypedDict):
+    launchConfigurationTemplateID: str
 
-DataReplicationErrorTypeDef = TypedDict(
-    "DataReplicationErrorTypeDef",
-    {
-        "error": DataReplicationErrorStringType,
-        "rawError": str,
-    },
-    total=False,
-)
+class DeleteRecoveryInstanceRequestTypeDef(TypedDict):
+    recoveryInstanceID: str
 
-DataReplicationInfoReplicatedDiskTypeDef = TypedDict(
-    "DataReplicationInfoReplicatedDiskTypeDef",
-    {
-        "backloggedStorageBytes": int,
-        "deviceName": str,
-        "replicatedStorageBytes": int,
-        "rescannedStorageBytes": int,
-        "totalStorageBytes": int,
-        "volumeStatus": VolumeStatusType,
-    },
-    total=False,
-)
+class DeleteReplicationConfigurationTemplateRequestTypeDef(TypedDict):
+    replicationConfigurationTemplateID: str
 
-DataReplicationInfoTypeDef = TypedDict(
-    "DataReplicationInfoTypeDef",
-    {
-        "dataReplicationError": "DataReplicationErrorTypeDef",
-        "dataReplicationInitiation": "DataReplicationInitiationTypeDef",
-        "dataReplicationState": DataReplicationStateType,
-        "etaDateTime": str,
-        "lagDuration": str,
-        "replicatedDisks": List["DataReplicationInfoReplicatedDiskTypeDef"],
-        "stagingAvailabilityZone": str,
-        "stagingOutpostArn": str,
-    },
-    total=False,
-)
+class DeleteSourceNetworkRequestTypeDef(TypedDict):
+    sourceNetworkID: str
 
-DataReplicationInitiationStepTypeDef = TypedDict(
-    "DataReplicationInitiationStepTypeDef",
-    {
-        "name": DataReplicationInitiationStepNameType,
-        "status": DataReplicationInitiationStepStatusType,
-    },
-    total=False,
-)
+class DeleteSourceServerRequestTypeDef(TypedDict):
+    sourceServerID: str
 
-DataReplicationInitiationTypeDef = TypedDict(
-    "DataReplicationInitiationTypeDef",
-    {
-        "nextAttemptDateTime": str,
-        "startDateTime": str,
-        "steps": List["DataReplicationInitiationStepTypeDef"],
-    },
-    total=False,
-)
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
 
-DeleteJobRequestRequestTypeDef = TypedDict(
-    "DeleteJobRequestRequestTypeDef",
-    {
-        "jobID": str,
-    },
-)
+class DescribeJobLogItemsRequestTypeDef(TypedDict):
+    jobID: str
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
 
-DeleteLaunchActionRequestRequestTypeDef = TypedDict(
-    "DeleteLaunchActionRequestRequestTypeDef",
-    {
-        "actionId": str,
-        "resourceId": str,
-    },
-)
+class DescribeJobsRequestFiltersTypeDef(TypedDict):
+    fromDate: NotRequired[str]
+    jobIDs: NotRequired[Sequence[str]]
+    toDate: NotRequired[str]
 
-DeleteLaunchConfigurationTemplateRequestRequestTypeDef = TypedDict(
-    "DeleteLaunchConfigurationTemplateRequestRequestTypeDef",
-    {
-        "launchConfigurationTemplateID": str,
-    },
-)
+class DescribeLaunchConfigurationTemplatesRequestTypeDef(TypedDict):
+    launchConfigurationTemplateIDs: NotRequired[Sequence[str]]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
 
-DeleteRecoveryInstanceRequestRequestTypeDef = TypedDict(
-    "DeleteRecoveryInstanceRequestRequestTypeDef",
-    {
-        "recoveryInstanceID": str,
-    },
-)
+class DescribeRecoveryInstancesRequestFiltersTypeDef(TypedDict):
+    recoveryInstanceIDs: NotRequired[Sequence[str]]
+    sourceServerIDs: NotRequired[Sequence[str]]
 
-DeleteReplicationConfigurationTemplateRequestRequestTypeDef = TypedDict(
-    "DeleteReplicationConfigurationTemplateRequestRequestTypeDef",
-    {
-        "replicationConfigurationTemplateID": str,
-    },
-)
+class DescribeRecoverySnapshotsRequestFiltersTypeDef(TypedDict):
+    fromDateTime: NotRequired[str]
+    toDateTime: NotRequired[str]
 
-DeleteSourceNetworkRequestRequestTypeDef = TypedDict(
-    "DeleteSourceNetworkRequestRequestTypeDef",
-    {
-        "sourceNetworkID": str,
-    },
-)
+class RecoverySnapshotTypeDef(TypedDict):
+    expectedTimestamp: str
+    snapshotID: str
+    sourceServerID: str
+    ebsSnapshots: NotRequired[List[str]]
+    timestamp: NotRequired[str]
 
-DeleteSourceServerRequestRequestTypeDef = TypedDict(
-    "DeleteSourceServerRequestRequestTypeDef",
-    {
-        "sourceServerID": str,
-    },
-)
+class DescribeReplicationConfigurationTemplatesRequestTypeDef(TypedDict):
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+    replicationConfigurationTemplateIDs: NotRequired[Sequence[str]]
 
-_RequiredDescribeJobLogItemsRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeJobLogItemsRequestRequestTypeDef",
-    {
-        "jobID": str,
-    },
-)
-_OptionalDescribeJobLogItemsRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeJobLogItemsRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
+class DescribeSourceNetworksRequestFiltersTypeDef(TypedDict):
+    originAccountID: NotRequired[str]
+    originRegion: NotRequired[str]
+    sourceNetworkIDs: NotRequired[Sequence[str]]
 
-class DescribeJobLogItemsRequestRequestTypeDef(
-    _RequiredDescribeJobLogItemsRequestRequestTypeDef,
-    _OptionalDescribeJobLogItemsRequestRequestTypeDef,
-):
-    pass
+class DescribeSourceServersRequestFiltersTypeDef(TypedDict):
+    hardwareId: NotRequired[str]
+    sourceServerIDs: NotRequired[Sequence[str]]
+    stagingAccountIDs: NotRequired[Sequence[str]]
 
-DescribeJobLogItemsResponseTypeDef = TypedDict(
-    "DescribeJobLogItemsResponseTypeDef",
-    {
-        "items": List["JobLogTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DisconnectRecoveryInstanceRequestTypeDef(TypedDict):
+    recoveryInstanceID: str
 
-DescribeJobsRequestFiltersTypeDef = TypedDict(
-    "DescribeJobsRequestFiltersTypeDef",
-    {
-        "fromDate": str,
-        "jobIDs": List[str],
-        "toDate": str,
-    },
-    total=False,
-)
-
-DescribeJobsRequestRequestTypeDef = TypedDict(
-    "DescribeJobsRequestRequestTypeDef",
-    {
-        "filters": "DescribeJobsRequestFiltersTypeDef",
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-DescribeJobsResponseTypeDef = TypedDict(
-    "DescribeJobsResponseTypeDef",
-    {
-        "items": List["JobTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeLaunchConfigurationTemplatesRequestRequestTypeDef = TypedDict(
-    "DescribeLaunchConfigurationTemplatesRequestRequestTypeDef",
-    {
-        "launchConfigurationTemplateIDs": List[str],
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-DescribeLaunchConfigurationTemplatesResponseTypeDef = TypedDict(
-    "DescribeLaunchConfigurationTemplatesResponseTypeDef",
-    {
-        "items": List["LaunchConfigurationTemplateTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeRecoveryInstancesRequestFiltersTypeDef = TypedDict(
-    "DescribeRecoveryInstancesRequestFiltersTypeDef",
-    {
-        "recoveryInstanceIDs": List[str],
-        "sourceServerIDs": List[str],
-    },
-    total=False,
-)
-
-DescribeRecoveryInstancesRequestRequestTypeDef = TypedDict(
-    "DescribeRecoveryInstancesRequestRequestTypeDef",
-    {
-        "filters": "DescribeRecoveryInstancesRequestFiltersTypeDef",
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-DescribeRecoveryInstancesResponseTypeDef = TypedDict(
-    "DescribeRecoveryInstancesResponseTypeDef",
-    {
-        "items": List["RecoveryInstanceTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeRecoverySnapshotsRequestFiltersTypeDef = TypedDict(
-    "DescribeRecoverySnapshotsRequestFiltersTypeDef",
-    {
-        "fromDateTime": str,
-        "toDateTime": str,
-    },
-    total=False,
-)
-
-_RequiredDescribeRecoverySnapshotsRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeRecoverySnapshotsRequestRequestTypeDef",
-    {
-        "sourceServerID": str,
-    },
-)
-_OptionalDescribeRecoverySnapshotsRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeRecoverySnapshotsRequestRequestTypeDef",
-    {
-        "filters": "DescribeRecoverySnapshotsRequestFiltersTypeDef",
-        "maxResults": int,
-        "nextToken": str,
-        "order": RecoverySnapshotsOrderType,
-    },
-    total=False,
-)
-
-class DescribeRecoverySnapshotsRequestRequestTypeDef(
-    _RequiredDescribeRecoverySnapshotsRequestRequestTypeDef,
-    _OptionalDescribeRecoverySnapshotsRequestRequestTypeDef,
-):
-    pass
-
-DescribeRecoverySnapshotsResponseTypeDef = TypedDict(
-    "DescribeRecoverySnapshotsResponseTypeDef",
-    {
-        "items": List["RecoverySnapshotTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeReplicationConfigurationTemplatesRequestRequestTypeDef = TypedDict(
-    "DescribeReplicationConfigurationTemplatesRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-        "replicationConfigurationTemplateIDs": List[str],
-    },
-    total=False,
-)
-
-DescribeReplicationConfigurationTemplatesResponseTypeDef = TypedDict(
-    "DescribeReplicationConfigurationTemplatesResponseTypeDef",
-    {
-        "items": List["ReplicationConfigurationTemplateTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeSourceNetworksRequestFiltersTypeDef = TypedDict(
-    "DescribeSourceNetworksRequestFiltersTypeDef",
-    {
-        "originAccountID": str,
-        "originRegion": str,
-        "sourceNetworkIDs": List[str],
-    },
-    total=False,
-)
-
-DescribeSourceNetworksRequestRequestTypeDef = TypedDict(
-    "DescribeSourceNetworksRequestRequestTypeDef",
-    {
-        "filters": "DescribeSourceNetworksRequestFiltersTypeDef",
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-DescribeSourceNetworksResponseTypeDef = TypedDict(
-    "DescribeSourceNetworksResponseTypeDef",
-    {
-        "items": List["SourceNetworkTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeSourceServersRequestFiltersTypeDef = TypedDict(
-    "DescribeSourceServersRequestFiltersTypeDef",
-    {
-        "hardwareId": str,
-        "sourceServerIDs": List[str],
-        "stagingAccountIDs": List[str],
-    },
-    total=False,
-)
-
-DescribeSourceServersRequestRequestTypeDef = TypedDict(
-    "DescribeSourceServersRequestRequestTypeDef",
-    {
-        "filters": "DescribeSourceServersRequestFiltersTypeDef",
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-DescribeSourceServersResponseTypeDef = TypedDict(
-    "DescribeSourceServersResponseTypeDef",
-    {
-        "items": List["SourceServerTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DisconnectRecoveryInstanceRequestRequestTypeDef = TypedDict(
-    "DisconnectRecoveryInstanceRequestRequestTypeDef",
-    {
-        "recoveryInstanceID": str,
-    },
-)
-
-DisconnectSourceServerRequestRequestTypeDef = TypedDict(
-    "DisconnectSourceServerRequestRequestTypeDef",
-    {
-        "sourceServerID": str,
-    },
-)
+class DisconnectSourceServerRequestTypeDef(TypedDict):
+    sourceServerID: str
 
 DiskTypeDef = TypedDict(
     "DiskTypeDef",
     {
-        "bytes": int,
-        "deviceName": str,
-    },
-    total=False,
-)
-
-EventResourceDataTypeDef = TypedDict(
-    "EventResourceDataTypeDef",
-    {
-        "sourceNetworkData": "SourceNetworkDataTypeDef",
-    },
-    total=False,
-)
-
-ExportSourceNetworkCfnTemplateRequestRequestTypeDef = TypedDict(
-    "ExportSourceNetworkCfnTemplateRequestRequestTypeDef",
-    {
-        "sourceNetworkID": str,
+        "bytes": NotRequired[int],
+        "deviceName": NotRequired[str],
     },
 )
 
-ExportSourceNetworkCfnTemplateResponseTypeDef = TypedDict(
-    "ExportSourceNetworkCfnTemplateResponseTypeDef",
-    {
-        "s3DestinationUrl": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class SourceNetworkDataTypeDef(TypedDict):
+    sourceNetworkID: NotRequired[str]
+    sourceVpc: NotRequired[str]
+    stackName: NotRequired[str]
+    targetVpc: NotRequired[str]
 
-GetFailbackReplicationConfigurationRequestRequestTypeDef = TypedDict(
-    "GetFailbackReplicationConfigurationRequestRequestTypeDef",
-    {
-        "recoveryInstanceID": str,
-    },
-)
+class ExportSourceNetworkCfnTemplateRequestTypeDef(TypedDict):
+    sourceNetworkID: str
 
-GetFailbackReplicationConfigurationResponseTypeDef = TypedDict(
-    "GetFailbackReplicationConfigurationResponseTypeDef",
-    {
-        "bandwidthThrottling": int,
-        "name": str,
-        "recoveryInstanceID": str,
-        "usePrivateIP": bool,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetFailbackReplicationConfigurationRequestTypeDef(TypedDict):
+    recoveryInstanceID: str
 
-GetLaunchConfigurationRequestRequestTypeDef = TypedDict(
-    "GetLaunchConfigurationRequestRequestTypeDef",
-    {
-        "sourceServerID": str,
-    },
-)
+class GetLaunchConfigurationRequestTypeDef(TypedDict):
+    sourceServerID: str
 
-GetReplicationConfigurationRequestRequestTypeDef = TypedDict(
-    "GetReplicationConfigurationRequestRequestTypeDef",
-    {
-        "sourceServerID": str,
-    },
-)
+class GetReplicationConfigurationRequestTypeDef(TypedDict):
+    sourceServerID: str
 
-IdentificationHintsTypeDef = TypedDict(
-    "IdentificationHintsTypeDef",
-    {
-        "awsInstanceID": str,
-        "fqdn": str,
-        "hostname": str,
-        "vmWareUuid": str,
-    },
-    total=False,
-)
-
-JobLogEventDataTypeDef = TypedDict(
-    "JobLogEventDataTypeDef",
-    {
-        "conversionProperties": "ConversionPropertiesTypeDef",
-        "conversionServerID": str,
-        "eventResourceData": "EventResourceDataTypeDef",
-        "rawError": str,
-        "sourceServerID": str,
-        "targetInstanceID": str,
-    },
-    total=False,
-)
-
-JobLogTypeDef = TypedDict(
-    "JobLogTypeDef",
-    {
-        "event": JobLogEventType,
-        "eventData": "JobLogEventDataTypeDef",
-        "logDateTime": str,
-    },
-    total=False,
-)
-
-_RequiredJobTypeDef = TypedDict(
-    "_RequiredJobTypeDef",
-    {
-        "jobID": str,
-    },
-)
-_OptionalJobTypeDef = TypedDict(
-    "_OptionalJobTypeDef",
-    {
-        "arn": str,
-        "creationDateTime": str,
-        "endDateTime": str,
-        "initiatedBy": InitiatedByType,
-        "participatingResources": List["ParticipatingResourceTypeDef"],
-        "participatingServers": List["ParticipatingServerTypeDef"],
-        "status": JobStatusType,
-        "tags": Dict[str, str],
-        "type": JobTypeType,
-    },
-    total=False,
-)
-
-class JobTypeDef(_RequiredJobTypeDef, _OptionalJobTypeDef):
-    pass
+class IdentificationHintsTypeDef(TypedDict):
+    awsInstanceID: NotRequired[str]
+    fqdn: NotRequired[str]
+    hostname: NotRequired[str]
+    vmWareUuid: NotRequired[str]
 
 LaunchActionParameterTypeDef = TypedDict(
     "LaunchActionParameterTypeDef",
     {
-        "type": LaunchActionParameterTypeType,
-        "value": str,
-    },
-    total=False,
-)
-
-LaunchActionRunTypeDef = TypedDict(
-    "LaunchActionRunTypeDef",
-    {
-        "action": "LaunchActionTypeDef",
-        "failureReason": str,
-        "runId": str,
-        "status": LaunchActionRunStatusType,
-    },
-    total=False,
-)
-
-LaunchActionTypeDef = TypedDict(
-    "LaunchActionTypeDef",
-    {
-        "actionCode": str,
-        "actionId": str,
-        "actionVersion": str,
-        "active": bool,
-        "category": LaunchActionCategoryType,
-        "description": str,
-        "name": str,
-        "optional": bool,
-        "order": int,
-        "parameters": Dict[str, "LaunchActionParameterTypeDef"],
-        "type": LaunchActionTypeType,
-    },
-    total=False,
-)
-
-LaunchActionsRequestFiltersTypeDef = TypedDict(
-    "LaunchActionsRequestFiltersTypeDef",
-    {
-        "actionIds": List[str],
-    },
-    total=False,
-)
-
-LaunchActionsStatusTypeDef = TypedDict(
-    "LaunchActionsStatusTypeDef",
-    {
-        "runs": List["LaunchActionRunTypeDef"],
-        "ssmAgentDiscoveryDatetime": str,
-    },
-    total=False,
-)
-
-LaunchConfigurationTemplateTypeDef = TypedDict(
-    "LaunchConfigurationTemplateTypeDef",
-    {
-        "arn": str,
-        "copyPrivateIp": bool,
-        "copyTags": bool,
-        "exportBucketArn": str,
-        "launchConfigurationTemplateID": str,
-        "launchDisposition": LaunchDispositionType,
-        "launchIntoSourceInstance": bool,
-        "licensing": "LicensingTypeDef",
-        "postLaunchEnabled": bool,
-        "tags": Dict[str, str],
-        "targetInstanceTypeRightSizingMethod": TargetInstanceTypeRightSizingMethodType,
-    },
-    total=False,
-)
-
-LaunchConfigurationTypeDef = TypedDict(
-    "LaunchConfigurationTypeDef",
-    {
-        "copyPrivateIp": bool,
-        "copyTags": bool,
-        "ec2LaunchTemplateID": str,
-        "launchDisposition": LaunchDispositionType,
-        "launchIntoInstanceProperties": "LaunchIntoInstancePropertiesTypeDef",
-        "licensing": "LicensingTypeDef",
-        "name": str,
-        "postLaunchEnabled": bool,
-        "sourceServerID": str,
-        "targetInstanceTypeRightSizingMethod": TargetInstanceTypeRightSizingMethodType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "type": NotRequired[LaunchActionParameterTypeType],
+        "value": NotRequired[str],
     },
 )
 
-LaunchIntoInstancePropertiesTypeDef = TypedDict(
-    "LaunchIntoInstancePropertiesTypeDef",
-    {
-        "launchIntoEC2InstanceID": str,
-    },
-    total=False,
-)
+class LaunchActionsRequestFiltersTypeDef(TypedDict):
+    actionIds: NotRequired[Sequence[str]]
 
-LicensingTypeDef = TypedDict(
-    "LicensingTypeDef",
-    {
-        "osByol": bool,
-    },
-    total=False,
-)
+class LaunchIntoInstancePropertiesTypeDef(TypedDict):
+    launchIntoEC2InstanceID: NotRequired[str]
 
 LifeCycleLastLaunchInitiatedTypeDef = TypedDict(
     "LifeCycleLastLaunchInitiatedTypeDef",
     {
-        "apiCallDateTime": str,
-        "jobID": str,
-        "type": LastLaunchTypeType,
-    },
-    total=False,
-)
-
-LifeCycleLastLaunchTypeDef = TypedDict(
-    "LifeCycleLastLaunchTypeDef",
-    {
-        "initiated": "LifeCycleLastLaunchInitiatedTypeDef",
-        "status": LaunchStatusType,
-    },
-    total=False,
-)
-
-LifeCycleTypeDef = TypedDict(
-    "LifeCycleTypeDef",
-    {
-        "addedToServiceDateTime": str,
-        "elapsedReplicationDuration": str,
-        "firstByteDateTime": str,
-        "lastLaunch": "LifeCycleLastLaunchTypeDef",
-        "lastSeenByServiceDateTime": str,
-    },
-    total=False,
-)
-
-_RequiredListExtensibleSourceServersRequestRequestTypeDef = TypedDict(
-    "_RequiredListExtensibleSourceServersRequestRequestTypeDef",
-    {
-        "stagingAccountID": str,
-    },
-)
-_OptionalListExtensibleSourceServersRequestRequestTypeDef = TypedDict(
-    "_OptionalListExtensibleSourceServersRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListExtensibleSourceServersRequestRequestTypeDef(
-    _RequiredListExtensibleSourceServersRequestRequestTypeDef,
-    _OptionalListExtensibleSourceServersRequestRequestTypeDef,
-):
-    pass
-
-ListExtensibleSourceServersResponseTypeDef = TypedDict(
-    "ListExtensibleSourceServersResponseTypeDef",
-    {
-        "items": List["StagingSourceServerTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "apiCallDateTime": NotRequired[str],
+        "jobID": NotRequired[str],
+        "type": NotRequired[LastLaunchTypeType],
     },
 )
 
-_RequiredListLaunchActionsRequestRequestTypeDef = TypedDict(
-    "_RequiredListLaunchActionsRequestRequestTypeDef",
-    {
-        "resourceId": str,
-    },
-)
-_OptionalListLaunchActionsRequestRequestTypeDef = TypedDict(
-    "_OptionalListLaunchActionsRequestRequestTypeDef",
-    {
-        "filters": "LaunchActionsRequestFiltersTypeDef",
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
+class ListExtensibleSourceServersRequestTypeDef(TypedDict):
+    stagingAccountID: str
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
 
-class ListLaunchActionsRequestRequestTypeDef(
-    _RequiredListLaunchActionsRequestRequestTypeDef, _OptionalListLaunchActionsRequestRequestTypeDef
-):
-    pass
+class StagingSourceServerTypeDef(TypedDict):
+    arn: NotRequired[str]
+    hostname: NotRequired[str]
+    tags: NotRequired[Dict[str, str]]
 
-ListLaunchActionsResponseTypeDef = TypedDict(
-    "ListLaunchActionsResponseTypeDef",
-    {
-        "items": List["LaunchActionTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListStagingAccountsRequestTypeDef(TypedDict):
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
 
-ListStagingAccountsRequestRequestTypeDef = TypedDict(
-    "ListStagingAccountsRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    resourceArn: str
 
-ListStagingAccountsResponseTypeDef = TypedDict(
-    "ListStagingAccountsResponseTypeDef",
-    {
-        "accounts": List["AccountTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class NetworkInterfaceTypeDef(TypedDict):
+    ips: NotRequired[List[str]]
+    isPrimary: NotRequired[bool]
+    macAddress: NotRequired[str]
 
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
+class OSTypeDef(TypedDict):
+    fullString: NotRequired[str]
+
+class ParticipatingResourceIDTypeDef(TypedDict):
+    sourceNetworkID: NotRequired[str]
+
+class RecoveryInstanceDataReplicationErrorTypeDef(TypedDict):
+    error: NotRequired[FailbackReplicationErrorType]
+    rawError: NotRequired[str]
+
+class RecoveryInstanceDataReplicationInfoReplicatedDiskTypeDef(TypedDict):
+    backloggedStorageBytes: NotRequired[int]
+    deviceName: NotRequired[str]
+    replicatedStorageBytes: NotRequired[int]
+    rescannedStorageBytes: NotRequired[int]
+    totalStorageBytes: NotRequired[int]
+
+class RecoveryInstanceDataReplicationInitiationStepTypeDef(TypedDict):
+    name: NotRequired[RecoveryInstanceDataReplicationInitiationStepNameType]
+    status: NotRequired[RecoveryInstanceDataReplicationInitiationStepStatusType]
+
+RecoveryInstanceDiskTypeDef = TypedDict(
+    "RecoveryInstanceDiskTypeDef",
     {
-        "resourceArn": str,
+        "bytes": NotRequired[int],
+        "ebsVolumeID": NotRequired[str],
+        "internalDeviceName": NotRequired[str],
     },
 )
 
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
+class RecoveryInstanceFailbackTypeDef(TypedDict):
+    agentLastSeenByServiceDateTime: NotRequired[str]
+    elapsedReplicationDuration: NotRequired[str]
+    failbackClientID: NotRequired[str]
+    failbackClientLastSeenByServiceDateTime: NotRequired[str]
+    failbackInitiationTime: NotRequired[str]
+    failbackJobID: NotRequired[str]
+    failbackLaunchType: NotRequired[FailbackLaunchTypeType]
+    failbackToOriginalServer: NotRequired[bool]
+    firstByteDateTime: NotRequired[str]
+    state: NotRequired[FailbackStateType]
+
+class RecoveryLifeCycleTypeDef(TypedDict):
+    apiCallDateTime: NotRequired[datetime]
+    jobID: NotRequired[str]
+    lastRecoveryResult: NotRequired[RecoveryResultType]
+
+class ReplicationConfigurationReplicatedDiskTypeDef(TypedDict):
+    deviceName: NotRequired[str]
+    iops: NotRequired[int]
+    isBootDisk: NotRequired[bool]
+    optimizedStagingDiskType: NotRequired[ReplicationConfigurationReplicatedDiskStagingDiskTypeType]
+    stagingDiskType: NotRequired[ReplicationConfigurationReplicatedDiskStagingDiskTypeType]
+    throughput: NotRequired[int]
+
+class RetryDataReplicationRequestTypeDef(TypedDict):
+    sourceServerID: str
+
+class ReverseReplicationRequestTypeDef(TypedDict):
+    recoveryInstanceID: str
+
+class SourceCloudPropertiesTypeDef(TypedDict):
+    originAccountID: NotRequired[str]
+    originAvailabilityZone: NotRequired[str]
+    originRegion: NotRequired[str]
+    sourceOutpostArn: NotRequired[str]
+
+class StagingAreaTypeDef(TypedDict):
+    errorMessage: NotRequired[str]
+    stagingAccountID: NotRequired[str]
+    stagingSourceServerArn: NotRequired[str]
+    status: NotRequired[ExtensionStatusType]
+
+class StartFailbackLaunchRequestTypeDef(TypedDict):
+    recoveryInstanceIDs: Sequence[str]
+    tags: NotRequired[Mapping[str, str]]
+
+class StartRecoveryRequestSourceServerTypeDef(TypedDict):
+    sourceServerID: str
+    recoverySnapshotID: NotRequired[str]
+
+class StartReplicationRequestTypeDef(TypedDict):
+    sourceServerID: str
+
+class StartSourceNetworkRecoveryRequestNetworkEntryTypeDef(TypedDict):
+    sourceNetworkID: str
+    cfnStackName: NotRequired[str]
+
+class StartSourceNetworkReplicationRequestTypeDef(TypedDict):
+    sourceNetworkID: str
+
+class StopFailbackRequestTypeDef(TypedDict):
+    recoveryInstanceID: str
+
+class StopReplicationRequestTypeDef(TypedDict):
+    sourceServerID: str
+
+class StopSourceNetworkReplicationRequestTypeDef(TypedDict):
+    sourceNetworkID: str
+
+class TagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tags: Mapping[str, str]
+
+class TerminateRecoveryInstancesRequestTypeDef(TypedDict):
+    recoveryInstanceIDs: Sequence[str]
+
+class UntagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tagKeys: Sequence[str]
+
+class UpdateFailbackReplicationConfigurationRequestTypeDef(TypedDict):
+    recoveryInstanceID: str
+    bandwidthThrottling: NotRequired[int]
+    name: NotRequired[str]
+    usePrivateIP: NotRequired[bool]
+
+class CreateSourceNetworkResponseTypeDef(TypedDict):
+    sourceNetworkID: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class EmptyResponseMetadataTypeDef(TypedDict):
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ExportSourceNetworkCfnTemplateResponseTypeDef(TypedDict):
+    s3DestinationUrl: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetFailbackReplicationConfigurationResponseTypeDef(TypedDict):
+    bandwidthThrottling: int
+    name: str
+    recoveryInstanceID: str
+    usePrivateIP: bool
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListStagingAccountsResponseTypeDef(TypedDict):
+    accounts: List[AccountTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ReverseReplicationResponseTypeDef(TypedDict):
+    reversedDirectionSourceServerArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ConversionPropertiesTypeDef(TypedDict):
+    dataTimestamp: NotRequired[str]
+    forceUefi: NotRequired[bool]
+    rootVolumeName: NotRequired[str]
+    volumeToConversionMap: NotRequired[Dict[str, Dict[str, str]]]
+    volumeToProductCodes: NotRequired[Dict[str, List[ProductCodeTypeDef]]]
+    volumeToVolumeSize: NotRequired[Dict[str, int]]
+
+class CreateLaunchConfigurationTemplateRequestTypeDef(TypedDict):
+    copyPrivateIp: NotRequired[bool]
+    copyTags: NotRequired[bool]
+    exportBucketArn: NotRequired[str]
+    launchDisposition: NotRequired[LaunchDispositionType]
+    launchIntoSourceInstance: NotRequired[bool]
+    licensing: NotRequired[LicensingTypeDef]
+    postLaunchEnabled: NotRequired[bool]
+    tags: NotRequired[Mapping[str, str]]
+    targetInstanceTypeRightSizingMethod: NotRequired[TargetInstanceTypeRightSizingMethodType]
+
+class LaunchConfigurationTemplateTypeDef(TypedDict):
+    arn: NotRequired[str]
+    copyPrivateIp: NotRequired[bool]
+    copyTags: NotRequired[bool]
+    exportBucketArn: NotRequired[str]
+    launchConfigurationTemplateID: NotRequired[str]
+    launchDisposition: NotRequired[LaunchDispositionType]
+    launchIntoSourceInstance: NotRequired[bool]
+    licensing: NotRequired[LicensingTypeDef]
+    postLaunchEnabled: NotRequired[bool]
+    tags: NotRequired[Dict[str, str]]
+    targetInstanceTypeRightSizingMethod: NotRequired[TargetInstanceTypeRightSizingMethodType]
+
+class UpdateLaunchConfigurationTemplateRequestTypeDef(TypedDict):
+    launchConfigurationTemplateID: str
+    copyPrivateIp: NotRequired[bool]
+    copyTags: NotRequired[bool]
+    exportBucketArn: NotRequired[str]
+    launchDisposition: NotRequired[LaunchDispositionType]
+    launchIntoSourceInstance: NotRequired[bool]
+    licensing: NotRequired[LicensingTypeDef]
+    postLaunchEnabled: NotRequired[bool]
+    targetInstanceTypeRightSizingMethod: NotRequired[TargetInstanceTypeRightSizingMethodType]
+
+class CreateReplicationConfigurationTemplateRequestTypeDef(TypedDict):
+    associateDefaultSecurityGroup: bool
+    bandwidthThrottling: int
+    createPublicIP: bool
+    dataPlaneRouting: ReplicationConfigurationDataPlaneRoutingType
+    defaultLargeStagingDiskType: ReplicationConfigurationDefaultLargeStagingDiskTypeType
+    ebsEncryption: ReplicationConfigurationEbsEncryptionType
+    pitPolicy: Sequence[PITPolicyRuleTypeDef]
+    replicationServerInstanceType: str
+    replicationServersSecurityGroupsIDs: Sequence[str]
+    stagingAreaSubnetId: str
+    stagingAreaTags: Mapping[str, str]
+    useDedicatedReplicationServer: bool
+    autoReplicateNewDisks: NotRequired[bool]
+    ebsEncryptionKeyArn: NotRequired[str]
+    tags: NotRequired[Mapping[str, str]]
+
+class ReplicationConfigurationTemplateResponseTypeDef(TypedDict):
+    arn: str
+    associateDefaultSecurityGroup: bool
+    autoReplicateNewDisks: bool
+    bandwidthThrottling: int
+    createPublicIP: bool
+    dataPlaneRouting: ReplicationConfigurationDataPlaneRoutingType
+    defaultLargeStagingDiskType: ReplicationConfigurationDefaultLargeStagingDiskTypeType
+    ebsEncryption: ReplicationConfigurationEbsEncryptionType
+    ebsEncryptionKeyArn: str
+    pitPolicy: List[PITPolicyRuleTypeDef]
+    replicationConfigurationTemplateID: str
+    replicationServerInstanceType: str
+    replicationServersSecurityGroupsIDs: List[str]
+    stagingAreaSubnetId: str
+    stagingAreaTags: Dict[str, str]
+    tags: Dict[str, str]
+    useDedicatedReplicationServer: bool
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ReplicationConfigurationTemplateTypeDef(TypedDict):
+    replicationConfigurationTemplateID: str
+    arn: NotRequired[str]
+    associateDefaultSecurityGroup: NotRequired[bool]
+    autoReplicateNewDisks: NotRequired[bool]
+    bandwidthThrottling: NotRequired[int]
+    createPublicIP: NotRequired[bool]
+    dataPlaneRouting: NotRequired[ReplicationConfigurationDataPlaneRoutingType]
+    defaultLargeStagingDiskType: NotRequired[
+        ReplicationConfigurationDefaultLargeStagingDiskTypeType
+    ]
+    ebsEncryption: NotRequired[ReplicationConfigurationEbsEncryptionType]
+    ebsEncryptionKeyArn: NotRequired[str]
+    pitPolicy: NotRequired[List[PITPolicyRuleTypeDef]]
+    replicationServerInstanceType: NotRequired[str]
+    replicationServersSecurityGroupsIDs: NotRequired[List[str]]
+    stagingAreaSubnetId: NotRequired[str]
+    stagingAreaTags: NotRequired[Dict[str, str]]
+    tags: NotRequired[Dict[str, str]]
+    useDedicatedReplicationServer: NotRequired[bool]
+
+class UpdateReplicationConfigurationTemplateRequestTypeDef(TypedDict):
+    replicationConfigurationTemplateID: str
+    arn: NotRequired[str]
+    associateDefaultSecurityGroup: NotRequired[bool]
+    autoReplicateNewDisks: NotRequired[bool]
+    bandwidthThrottling: NotRequired[int]
+    createPublicIP: NotRequired[bool]
+    dataPlaneRouting: NotRequired[ReplicationConfigurationDataPlaneRoutingType]
+    defaultLargeStagingDiskType: NotRequired[
+        ReplicationConfigurationDefaultLargeStagingDiskTypeType
+    ]
+    ebsEncryption: NotRequired[ReplicationConfigurationEbsEncryptionType]
+    ebsEncryptionKeyArn: NotRequired[str]
+    pitPolicy: NotRequired[Sequence[PITPolicyRuleTypeDef]]
+    replicationServerInstanceType: NotRequired[str]
+    replicationServersSecurityGroupsIDs: NotRequired[Sequence[str]]
+    stagingAreaSubnetId: NotRequired[str]
+    stagingAreaTags: NotRequired[Mapping[str, str]]
+    useDedicatedReplicationServer: NotRequired[bool]
+
+class DataReplicationInitiationTypeDef(TypedDict):
+    nextAttemptDateTime: NotRequired[str]
+    startDateTime: NotRequired[str]
+    steps: NotRequired[List[DataReplicationInitiationStepTypeDef]]
+
+class DescribeJobLogItemsRequestPaginateTypeDef(TypedDict):
+    jobID: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeLaunchConfigurationTemplatesRequestPaginateTypeDef(TypedDict):
+    launchConfigurationTemplateIDs: NotRequired[Sequence[str]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeReplicationConfigurationTemplatesRequestPaginateTypeDef(TypedDict):
+    replicationConfigurationTemplateIDs: NotRequired[Sequence[str]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListExtensibleSourceServersRequestPaginateTypeDef(TypedDict):
+    stagingAccountID: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListStagingAccountsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeJobsRequestPaginateTypeDef(TypedDict):
+    filters: NotRequired[DescribeJobsRequestFiltersTypeDef]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeJobsRequestTypeDef(TypedDict):
+    filters: NotRequired[DescribeJobsRequestFiltersTypeDef]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class DescribeRecoveryInstancesRequestPaginateTypeDef(TypedDict):
+    filters: NotRequired[DescribeRecoveryInstancesRequestFiltersTypeDef]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeRecoveryInstancesRequestTypeDef(TypedDict):
+    filters: NotRequired[DescribeRecoveryInstancesRequestFiltersTypeDef]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class DescribeRecoverySnapshotsRequestPaginateTypeDef(TypedDict):
+    sourceServerID: str
+    filters: NotRequired[DescribeRecoverySnapshotsRequestFiltersTypeDef]
+    order: NotRequired[RecoverySnapshotsOrderType]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeRecoverySnapshotsRequestTypeDef(TypedDict):
+    sourceServerID: str
+    filters: NotRequired[DescribeRecoverySnapshotsRequestFiltersTypeDef]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+    order: NotRequired[RecoverySnapshotsOrderType]
+
+class DescribeRecoverySnapshotsResponseTypeDef(TypedDict):
+    items: List[RecoverySnapshotTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class DescribeSourceNetworksRequestPaginateTypeDef(TypedDict):
+    filters: NotRequired[DescribeSourceNetworksRequestFiltersTypeDef]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeSourceNetworksRequestTypeDef(TypedDict):
+    filters: NotRequired[DescribeSourceNetworksRequestFiltersTypeDef]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class DescribeSourceServersRequestPaginateTypeDef(TypedDict):
+    filters: NotRequired[DescribeSourceServersRequestFiltersTypeDef]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeSourceServersRequestTypeDef(TypedDict):
+    filters: NotRequired[DescribeSourceServersRequestFiltersTypeDef]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class EventResourceDataTypeDef(TypedDict):
+    sourceNetworkData: NotRequired[SourceNetworkDataTypeDef]
+
+LaunchActionTypeDef = TypedDict(
+    "LaunchActionTypeDef",
     {
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "actionCode": NotRequired[str],
+        "actionId": NotRequired[str],
+        "actionVersion": NotRequired[str],
+        "active": NotRequired[bool],
+        "category": NotRequired[LaunchActionCategoryType],
+        "description": NotRequired[str],
+        "name": NotRequired[str],
+        "optional": NotRequired[bool],
+        "order": NotRequired[int],
+        "parameters": NotRequired[Dict[str, LaunchActionParameterTypeDef]],
+        "type": NotRequired[LaunchActionTypeType],
     },
 )
 
-NetworkInterfaceTypeDef = TypedDict(
-    "NetworkInterfaceTypeDef",
-    {
-        "ips": List[str],
-        "isPrimary": bool,
-        "macAddress": str,
-    },
-    total=False,
-)
-
-OSTypeDef = TypedDict(
-    "OSTypeDef",
-    {
-        "fullString": str,
-    },
-    total=False,
-)
-
-_RequiredPITPolicyRuleTypeDef = TypedDict(
-    "_RequiredPITPolicyRuleTypeDef",
-    {
-        "interval": int,
-        "retentionDuration": int,
-        "units": PITPolicyRuleUnitsType,
-    },
-)
-_OptionalPITPolicyRuleTypeDef = TypedDict(
-    "_OptionalPITPolicyRuleTypeDef",
-    {
-        "enabled": bool,
-        "ruleID": int,
-    },
-    total=False,
-)
-
-class PITPolicyRuleTypeDef(_RequiredPITPolicyRuleTypeDef, _OptionalPITPolicyRuleTypeDef):
-    pass
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-ParticipatingResourceIDTypeDef = TypedDict(
-    "ParticipatingResourceIDTypeDef",
-    {
-        "sourceNetworkID": str,
-    },
-    total=False,
-)
-
-ParticipatingResourceTypeDef = TypedDict(
-    "ParticipatingResourceTypeDef",
-    {
-        "launchStatus": LaunchStatusType,
-        "participatingResourceID": "ParticipatingResourceIDTypeDef",
-    },
-    total=False,
-)
-
-ParticipatingServerTypeDef = TypedDict(
-    "ParticipatingServerTypeDef",
-    {
-        "launchActionsStatus": "LaunchActionsStatusTypeDef",
-        "launchStatus": LaunchStatusType,
-        "recoveryInstanceID": str,
-        "sourceServerID": str,
-    },
-    total=False,
-)
-
-ProductCodeTypeDef = TypedDict(
-    "ProductCodeTypeDef",
-    {
-        "productCodeId": str,
-        "productCodeMode": ProductCodeModeType,
-    },
-    total=False,
-)
-
-_RequiredPutLaunchActionRequestRequestTypeDef = TypedDict(
-    "_RequiredPutLaunchActionRequestRequestTypeDef",
-    {
-        "actionCode": str,
-        "actionId": str,
-        "actionVersion": str,
-        "active": bool,
-        "category": LaunchActionCategoryType,
-        "description": str,
-        "name": str,
-        "optional": bool,
-        "order": int,
-        "resourceId": str,
-    },
-)
-_OptionalPutLaunchActionRequestRequestTypeDef = TypedDict(
-    "_OptionalPutLaunchActionRequestRequestTypeDef",
-    {
-        "parameters": Dict[str, "LaunchActionParameterTypeDef"],
-    },
-    total=False,
-)
-
-class PutLaunchActionRequestRequestTypeDef(
-    _RequiredPutLaunchActionRequestRequestTypeDef, _OptionalPutLaunchActionRequestRequestTypeDef
-):
-    pass
+class PutLaunchActionRequestTypeDef(TypedDict):
+    actionCode: str
+    actionId: str
+    actionVersion: str
+    active: bool
+    category: LaunchActionCategoryType
+    description: str
+    name: str
+    optional: bool
+    order: int
+    resourceId: str
+    parameters: NotRequired[Mapping[str, LaunchActionParameterTypeDef]]
 
 PutLaunchActionResponseTypeDef = TypedDict(
     "PutLaunchActionResponseTypeDef",
@@ -1190,781 +833,356 @@ PutLaunchActionResponseTypeDef = TypedDict(
         "name": str,
         "optional": bool,
         "order": int,
-        "parameters": Dict[str, "LaunchActionParameterTypeDef"],
+        "parameters": Dict[str, LaunchActionParameterTypeDef],
         "resourceId": str,
         "type": LaunchActionTypeType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
 
-RecoveryInstanceDataReplicationErrorTypeDef = TypedDict(
-    "RecoveryInstanceDataReplicationErrorTypeDef",
-    {
-        "error": FailbackReplicationErrorType,
-        "rawError": str,
-    },
-    total=False,
-)
+class ListLaunchActionsRequestPaginateTypeDef(TypedDict):
+    resourceId: str
+    filters: NotRequired[LaunchActionsRequestFiltersTypeDef]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-RecoveryInstanceDataReplicationInfoReplicatedDiskTypeDef = TypedDict(
-    "RecoveryInstanceDataReplicationInfoReplicatedDiskTypeDef",
-    {
-        "backloggedStorageBytes": int,
-        "deviceName": str,
-        "replicatedStorageBytes": int,
-        "rescannedStorageBytes": int,
-        "totalStorageBytes": int,
-    },
-    total=False,
-)
+class ListLaunchActionsRequestTypeDef(TypedDict):
+    resourceId: str
+    filters: NotRequired[LaunchActionsRequestFiltersTypeDef]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
 
-RecoveryInstanceDataReplicationInfoTypeDef = TypedDict(
-    "RecoveryInstanceDataReplicationInfoTypeDef",
-    {
-        "dataReplicationError": "RecoveryInstanceDataReplicationErrorTypeDef",
-        "dataReplicationInitiation": "RecoveryInstanceDataReplicationInitiationTypeDef",
-        "dataReplicationState": RecoveryInstanceDataReplicationStateType,
-        "etaDateTime": str,
-        "lagDuration": str,
-        "replicatedDisks": List["RecoveryInstanceDataReplicationInfoReplicatedDiskTypeDef"],
-        "stagingAvailabilityZone": str,
-        "stagingOutpostArn": str,
-    },
-    total=False,
-)
+class LaunchConfigurationTypeDef(TypedDict):
+    copyPrivateIp: bool
+    copyTags: bool
+    ec2LaunchTemplateID: str
+    launchDisposition: LaunchDispositionType
+    launchIntoInstanceProperties: LaunchIntoInstancePropertiesTypeDef
+    licensing: LicensingTypeDef
+    name: str
+    postLaunchEnabled: bool
+    sourceServerID: str
+    targetInstanceTypeRightSizingMethod: TargetInstanceTypeRightSizingMethodType
+    ResponseMetadata: ResponseMetadataTypeDef
 
-RecoveryInstanceDataReplicationInitiationStepTypeDef = TypedDict(
-    "RecoveryInstanceDataReplicationInitiationStepTypeDef",
-    {
-        "name": RecoveryInstanceDataReplicationInitiationStepNameType,
-        "status": RecoveryInstanceDataReplicationInitiationStepStatusType,
-    },
-    total=False,
-)
+class UpdateLaunchConfigurationRequestTypeDef(TypedDict):
+    sourceServerID: str
+    copyPrivateIp: NotRequired[bool]
+    copyTags: NotRequired[bool]
+    launchDisposition: NotRequired[LaunchDispositionType]
+    launchIntoInstanceProperties: NotRequired[LaunchIntoInstancePropertiesTypeDef]
+    licensing: NotRequired[LicensingTypeDef]
+    name: NotRequired[str]
+    postLaunchEnabled: NotRequired[bool]
+    targetInstanceTypeRightSizingMethod: NotRequired[TargetInstanceTypeRightSizingMethodType]
 
-RecoveryInstanceDataReplicationInitiationTypeDef = TypedDict(
-    "RecoveryInstanceDataReplicationInitiationTypeDef",
-    {
-        "startDateTime": str,
-        "steps": List["RecoveryInstanceDataReplicationInitiationStepTypeDef"],
-    },
-    total=False,
-)
+class LifeCycleLastLaunchTypeDef(TypedDict):
+    initiated: NotRequired[LifeCycleLastLaunchInitiatedTypeDef]
+    status: NotRequired[LaunchStatusType]
 
-RecoveryInstanceDiskTypeDef = TypedDict(
-    "RecoveryInstanceDiskTypeDef",
-    {
-        "bytes": int,
-        "ebsVolumeID": str,
-        "internalDeviceName": str,
-    },
-    total=False,
-)
+class ListExtensibleSourceServersResponseTypeDef(TypedDict):
+    items: List[StagingSourceServerTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-RecoveryInstanceFailbackTypeDef = TypedDict(
-    "RecoveryInstanceFailbackTypeDef",
-    {
-        "agentLastSeenByServiceDateTime": str,
-        "elapsedReplicationDuration": str,
-        "failbackClientID": str,
-        "failbackClientLastSeenByServiceDateTime": str,
-        "failbackInitiationTime": str,
-        "failbackJobID": str,
-        "failbackLaunchType": FailbackLaunchTypeType,
-        "failbackToOriginalServer": bool,
-        "firstByteDateTime": str,
-        "state": FailbackStateType,
-    },
-    total=False,
-)
+class SourcePropertiesTypeDef(TypedDict):
+    cpus: NotRequired[List[CPUTypeDef]]
+    disks: NotRequired[List[DiskTypeDef]]
+    identificationHints: NotRequired[IdentificationHintsTypeDef]
+    lastUpdatedDateTime: NotRequired[str]
+    networkInterfaces: NotRequired[List[NetworkInterfaceTypeDef]]
+    os: NotRequired[OSTypeDef]
+    ramBytes: NotRequired[int]
+    recommendedInstanceType: NotRequired[str]
+    supportsNitroInstances: NotRequired[bool]
 
-RecoveryInstancePropertiesTypeDef = TypedDict(
-    "RecoveryInstancePropertiesTypeDef",
-    {
-        "cpus": List["CPUTypeDef"],
-        "disks": List["RecoveryInstanceDiskTypeDef"],
-        "identificationHints": "IdentificationHintsTypeDef",
-        "lastUpdatedDateTime": str,
-        "networkInterfaces": List["NetworkInterfaceTypeDef"],
-        "os": "OSTypeDef",
-        "ramBytes": int,
-    },
-    total=False,
-)
+class ParticipatingResourceTypeDef(TypedDict):
+    launchStatus: NotRequired[LaunchStatusType]
+    participatingResourceID: NotRequired[ParticipatingResourceIDTypeDef]
 
-RecoveryInstanceTypeDef = TypedDict(
-    "RecoveryInstanceTypeDef",
+class RecoveryInstanceDataReplicationInitiationTypeDef(TypedDict):
+    startDateTime: NotRequired[str]
+    steps: NotRequired[List[RecoveryInstanceDataReplicationInitiationStepTypeDef]]
+
+class RecoveryInstancePropertiesTypeDef(TypedDict):
+    cpus: NotRequired[List[CPUTypeDef]]
+    disks: NotRequired[List[RecoveryInstanceDiskTypeDef]]
+    identificationHints: NotRequired[IdentificationHintsTypeDef]
+    lastUpdatedDateTime: NotRequired[str]
+    networkInterfaces: NotRequired[List[NetworkInterfaceTypeDef]]
+    os: NotRequired[OSTypeDef]
+    ramBytes: NotRequired[int]
+
+class SourceNetworkTypeDef(TypedDict):
+    arn: NotRequired[str]
+    cfnStackName: NotRequired[str]
+    lastRecovery: NotRequired[RecoveryLifeCycleTypeDef]
+    launchedVpcID: NotRequired[str]
+    replicationStatus: NotRequired[ReplicationStatusType]
+    replicationStatusDetails: NotRequired[str]
+    sourceAccountID: NotRequired[str]
+    sourceNetworkID: NotRequired[str]
+    sourceRegion: NotRequired[str]
+    sourceVpcID: NotRequired[str]
+    tags: NotRequired[Dict[str, str]]
+
+class ReplicationConfigurationTypeDef(TypedDict):
+    associateDefaultSecurityGroup: bool
+    autoReplicateNewDisks: bool
+    bandwidthThrottling: int
+    createPublicIP: bool
+    dataPlaneRouting: ReplicationConfigurationDataPlaneRoutingType
+    defaultLargeStagingDiskType: ReplicationConfigurationDefaultLargeStagingDiskTypeType
+    ebsEncryption: ReplicationConfigurationEbsEncryptionType
+    ebsEncryptionKeyArn: str
+    name: str
+    pitPolicy: List[PITPolicyRuleTypeDef]
+    replicatedDisks: List[ReplicationConfigurationReplicatedDiskTypeDef]
+    replicationServerInstanceType: str
+    replicationServersSecurityGroupsIDs: List[str]
+    sourceServerID: str
+    stagingAreaSubnetId: str
+    stagingAreaTags: Dict[str, str]
+    useDedicatedReplicationServer: bool
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateReplicationConfigurationRequestTypeDef(TypedDict):
+    sourceServerID: str
+    associateDefaultSecurityGroup: NotRequired[bool]
+    autoReplicateNewDisks: NotRequired[bool]
+    bandwidthThrottling: NotRequired[int]
+    createPublicIP: NotRequired[bool]
+    dataPlaneRouting: NotRequired[ReplicationConfigurationDataPlaneRoutingType]
+    defaultLargeStagingDiskType: NotRequired[
+        ReplicationConfigurationDefaultLargeStagingDiskTypeType
+    ]
+    ebsEncryption: NotRequired[ReplicationConfigurationEbsEncryptionType]
+    ebsEncryptionKeyArn: NotRequired[str]
+    name: NotRequired[str]
+    pitPolicy: NotRequired[Sequence[PITPolicyRuleTypeDef]]
+    replicatedDisks: NotRequired[Sequence[ReplicationConfigurationReplicatedDiskTypeDef]]
+    replicationServerInstanceType: NotRequired[str]
+    replicationServersSecurityGroupsIDs: NotRequired[Sequence[str]]
+    stagingAreaSubnetId: NotRequired[str]
+    stagingAreaTags: NotRequired[Mapping[str, str]]
+    useDedicatedReplicationServer: NotRequired[bool]
+
+class StartRecoveryRequestTypeDef(TypedDict):
+    sourceServers: Sequence[StartRecoveryRequestSourceServerTypeDef]
+    isDrill: NotRequired[bool]
+    tags: NotRequired[Mapping[str, str]]
+
+class StartSourceNetworkRecoveryRequestTypeDef(TypedDict):
+    sourceNetworks: Sequence[StartSourceNetworkRecoveryRequestNetworkEntryTypeDef]
+    deployAsNew: NotRequired[bool]
+    tags: NotRequired[Mapping[str, str]]
+
+class CreateLaunchConfigurationTemplateResponseTypeDef(TypedDict):
+    launchConfigurationTemplate: LaunchConfigurationTemplateTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeLaunchConfigurationTemplatesResponseTypeDef(TypedDict):
+    items: List[LaunchConfigurationTemplateTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class UpdateLaunchConfigurationTemplateResponseTypeDef(TypedDict):
+    launchConfigurationTemplate: LaunchConfigurationTemplateTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeReplicationConfigurationTemplatesResponseTypeDef(TypedDict):
+    items: List[ReplicationConfigurationTemplateTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class DataReplicationInfoTypeDef(TypedDict):
+    dataReplicationError: NotRequired[DataReplicationErrorTypeDef]
+    dataReplicationInitiation: NotRequired[DataReplicationInitiationTypeDef]
+    dataReplicationState: NotRequired[DataReplicationStateType]
+    etaDateTime: NotRequired[str]
+    lagDuration: NotRequired[str]
+    replicatedDisks: NotRequired[List[DataReplicationInfoReplicatedDiskTypeDef]]
+    stagingAvailabilityZone: NotRequired[str]
+    stagingOutpostArn: NotRequired[str]
+
+class JobLogEventDataTypeDef(TypedDict):
+    conversionProperties: NotRequired[ConversionPropertiesTypeDef]
+    conversionServerID: NotRequired[str]
+    eventResourceData: NotRequired[EventResourceDataTypeDef]
+    rawError: NotRequired[str]
+    sourceServerID: NotRequired[str]
+    targetInstanceID: NotRequired[str]
+
+class LaunchActionRunTypeDef(TypedDict):
+    action: NotRequired[LaunchActionTypeDef]
+    failureReason: NotRequired[str]
+    runId: NotRequired[str]
+    status: NotRequired[LaunchActionRunStatusType]
+
+class ListLaunchActionsResponseTypeDef(TypedDict):
+    items: List[LaunchActionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class LifeCycleTypeDef(TypedDict):
+    addedToServiceDateTime: NotRequired[str]
+    elapsedReplicationDuration: NotRequired[str]
+    firstByteDateTime: NotRequired[str]
+    lastLaunch: NotRequired[LifeCycleLastLaunchTypeDef]
+    lastSeenByServiceDateTime: NotRequired[str]
+
+class RecoveryInstanceDataReplicationInfoTypeDef(TypedDict):
+    dataReplicationError: NotRequired[RecoveryInstanceDataReplicationErrorTypeDef]
+    dataReplicationInitiation: NotRequired[RecoveryInstanceDataReplicationInitiationTypeDef]
+    dataReplicationState: NotRequired[RecoveryInstanceDataReplicationStateType]
+    etaDateTime: NotRequired[str]
+    lagDuration: NotRequired[str]
+    replicatedDisks: NotRequired[List[RecoveryInstanceDataReplicationInfoReplicatedDiskTypeDef]]
+    stagingAvailabilityZone: NotRequired[str]
+    stagingOutpostArn: NotRequired[str]
+
+class DescribeSourceNetworksResponseTypeDef(TypedDict):
+    items: List[SourceNetworkTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class StartSourceNetworkReplicationResponseTypeDef(TypedDict):
+    sourceNetwork: SourceNetworkTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StopSourceNetworkReplicationResponseTypeDef(TypedDict):
+    sourceNetwork: SourceNetworkTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class JobLogTypeDef(TypedDict):
+    event: NotRequired[JobLogEventType]
+    eventData: NotRequired[JobLogEventDataTypeDef]
+    logDateTime: NotRequired[str]
+
+class LaunchActionsStatusTypeDef(TypedDict):
+    runs: NotRequired[List[LaunchActionRunTypeDef]]
+    ssmAgentDiscoveryDatetime: NotRequired[str]
+
+class SourceServerResponseTypeDef(TypedDict):
+    agentVersion: str
+    arn: str
+    dataReplicationInfo: DataReplicationInfoTypeDef
+    lastLaunchResult: LastLaunchResultType
+    lifeCycle: LifeCycleTypeDef
+    recoveryInstanceId: str
+    replicationDirection: ReplicationDirectionType
+    reversedDirectionSourceServerArn: str
+    sourceCloudProperties: SourceCloudPropertiesTypeDef
+    sourceNetworkID: str
+    sourceProperties: SourcePropertiesTypeDef
+    sourceServerID: str
+    stagingArea: StagingAreaTypeDef
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class SourceServerTypeDef(TypedDict):
+    agentVersion: NotRequired[str]
+    arn: NotRequired[str]
+    dataReplicationInfo: NotRequired[DataReplicationInfoTypeDef]
+    lastLaunchResult: NotRequired[LastLaunchResultType]
+    lifeCycle: NotRequired[LifeCycleTypeDef]
+    recoveryInstanceId: NotRequired[str]
+    replicationDirection: NotRequired[ReplicationDirectionType]
+    reversedDirectionSourceServerArn: NotRequired[str]
+    sourceCloudProperties: NotRequired[SourceCloudPropertiesTypeDef]
+    sourceNetworkID: NotRequired[str]
+    sourceProperties: NotRequired[SourcePropertiesTypeDef]
+    sourceServerID: NotRequired[str]
+    stagingArea: NotRequired[StagingAreaTypeDef]
+    tags: NotRequired[Dict[str, str]]
+
+class RecoveryInstanceTypeDef(TypedDict):
+    agentVersion: NotRequired[str]
+    arn: NotRequired[str]
+    dataReplicationInfo: NotRequired[RecoveryInstanceDataReplicationInfoTypeDef]
+    ec2InstanceID: NotRequired[str]
+    ec2InstanceState: NotRequired[EC2InstanceStateType]
+    failback: NotRequired[RecoveryInstanceFailbackTypeDef]
+    isDrill: NotRequired[bool]
+    jobID: NotRequired[str]
+    originAvailabilityZone: NotRequired[str]
+    originEnvironment: NotRequired[OriginEnvironmentType]
+    pointInTimeSnapshotDateTime: NotRequired[str]
+    recoveryInstanceID: NotRequired[str]
+    recoveryInstanceProperties: NotRequired[RecoveryInstancePropertiesTypeDef]
+    sourceOutpostArn: NotRequired[str]
+    sourceServerID: NotRequired[str]
+    tags: NotRequired[Dict[str, str]]
+
+class DescribeJobLogItemsResponseTypeDef(TypedDict):
+    items: List[JobLogTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ParticipatingServerTypeDef(TypedDict):
+    launchActionsStatus: NotRequired[LaunchActionsStatusTypeDef]
+    launchStatus: NotRequired[LaunchStatusType]
+    recoveryInstanceID: NotRequired[str]
+    sourceServerID: NotRequired[str]
+
+class CreateExtendedSourceServerResponseTypeDef(TypedDict):
+    sourceServer: SourceServerTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeSourceServersResponseTypeDef(TypedDict):
+    items: List[SourceServerTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class StartReplicationResponseTypeDef(TypedDict):
+    sourceServer: SourceServerTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StopReplicationResponseTypeDef(TypedDict):
+    sourceServer: SourceServerTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeRecoveryInstancesResponseTypeDef(TypedDict):
+    items: List[RecoveryInstanceTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+JobTypeDef = TypedDict(
+    "JobTypeDef",
     {
-        "agentVersion": str,
-        "arn": str,
-        "dataReplicationInfo": "RecoveryInstanceDataReplicationInfoTypeDef",
-        "ec2InstanceID": str,
-        "ec2InstanceState": EC2InstanceStateType,
-        "failback": "RecoveryInstanceFailbackTypeDef",
-        "isDrill": bool,
         "jobID": str,
-        "originAvailabilityZone": str,
-        "originEnvironment": OriginEnvironmentType,
-        "pointInTimeSnapshotDateTime": str,
-        "recoveryInstanceID": str,
-        "recoveryInstanceProperties": "RecoveryInstancePropertiesTypeDef",
-        "sourceOutpostArn": str,
-        "sourceServerID": str,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-RecoveryLifeCycleTypeDef = TypedDict(
-    "RecoveryLifeCycleTypeDef",
-    {
-        "apiCallDateTime": datetime,
-        "jobID": str,
-        "lastRecoveryResult": RecoveryResultType,
-    },
-    total=False,
-)
-
-_RequiredRecoverySnapshotTypeDef = TypedDict(
-    "_RequiredRecoverySnapshotTypeDef",
-    {
-        "expectedTimestamp": str,
-        "snapshotID": str,
-        "sourceServerID": str,
-    },
-)
-_OptionalRecoverySnapshotTypeDef = TypedDict(
-    "_OptionalRecoverySnapshotTypeDef",
-    {
-        "ebsSnapshots": List[str],
-        "timestamp": str,
-    },
-    total=False,
-)
-
-class RecoverySnapshotTypeDef(_RequiredRecoverySnapshotTypeDef, _OptionalRecoverySnapshotTypeDef):
-    pass
-
-ReplicationConfigurationReplicatedDiskTypeDef = TypedDict(
-    "ReplicationConfigurationReplicatedDiskTypeDef",
-    {
-        "deviceName": str,
-        "iops": int,
-        "isBootDisk": bool,
-        "optimizedStagingDiskType": ReplicationConfigurationReplicatedDiskStagingDiskTypeType,
-        "stagingDiskType": ReplicationConfigurationReplicatedDiskStagingDiskTypeType,
-        "throughput": int,
-    },
-    total=False,
-)
-
-ReplicationConfigurationTemplateResponseMetadataTypeDef = TypedDict(
-    "ReplicationConfigurationTemplateResponseMetadataTypeDef",
-    {
-        "arn": str,
-        "associateDefaultSecurityGroup": bool,
-        "autoReplicateNewDisks": bool,
-        "bandwidthThrottling": int,
-        "createPublicIP": bool,
-        "dataPlaneRouting": ReplicationConfigurationDataPlaneRoutingType,
-        "defaultLargeStagingDiskType": ReplicationConfigurationDefaultLargeStagingDiskTypeType,
-        "ebsEncryption": ReplicationConfigurationEbsEncryptionType,
-        "ebsEncryptionKeyArn": str,
-        "pitPolicy": List["PITPolicyRuleTypeDef"],
-        "replicationConfigurationTemplateID": str,
-        "replicationServerInstanceType": str,
-        "replicationServersSecurityGroupsIDs": List[str],
-        "stagingAreaSubnetId": str,
-        "stagingAreaTags": Dict[str, str],
-        "tags": Dict[str, str],
-        "useDedicatedReplicationServer": bool,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "arn": NotRequired[str],
+        "creationDateTime": NotRequired[str],
+        "endDateTime": NotRequired[str],
+        "initiatedBy": NotRequired[InitiatedByType],
+        "participatingResources": NotRequired[List[ParticipatingResourceTypeDef]],
+        "participatingServers": NotRequired[List[ParticipatingServerTypeDef]],
+        "status": NotRequired[JobStatusType],
+        "tags": NotRequired[Dict[str, str]],
+        "type": NotRequired[JobTypeType],
     },
 )
 
-_RequiredReplicationConfigurationTemplateTypeDef = TypedDict(
-    "_RequiredReplicationConfigurationTemplateTypeDef",
-    {
-        "replicationConfigurationTemplateID": str,
-    },
-)
-_OptionalReplicationConfigurationTemplateTypeDef = TypedDict(
-    "_OptionalReplicationConfigurationTemplateTypeDef",
-    {
-        "arn": str,
-        "associateDefaultSecurityGroup": bool,
-        "autoReplicateNewDisks": bool,
-        "bandwidthThrottling": int,
-        "createPublicIP": bool,
-        "dataPlaneRouting": ReplicationConfigurationDataPlaneRoutingType,
-        "defaultLargeStagingDiskType": ReplicationConfigurationDefaultLargeStagingDiskTypeType,
-        "ebsEncryption": ReplicationConfigurationEbsEncryptionType,
-        "ebsEncryptionKeyArn": str,
-        "pitPolicy": List["PITPolicyRuleTypeDef"],
-        "replicationServerInstanceType": str,
-        "replicationServersSecurityGroupsIDs": List[str],
-        "stagingAreaSubnetId": str,
-        "stagingAreaTags": Dict[str, str],
-        "tags": Dict[str, str],
-        "useDedicatedReplicationServer": bool,
-    },
-    total=False,
-)
+class AssociateSourceNetworkStackResponseTypeDef(TypedDict):
+    job: JobTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class ReplicationConfigurationTemplateTypeDef(
-    _RequiredReplicationConfigurationTemplateTypeDef,
-    _OptionalReplicationConfigurationTemplateTypeDef,
-):
-    pass
+class DescribeJobsResponseTypeDef(TypedDict):
+    items: List[JobTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-ReplicationConfigurationTypeDef = TypedDict(
-    "ReplicationConfigurationTypeDef",
-    {
-        "associateDefaultSecurityGroup": bool,
-        "autoReplicateNewDisks": bool,
-        "bandwidthThrottling": int,
-        "createPublicIP": bool,
-        "dataPlaneRouting": ReplicationConfigurationDataPlaneRoutingType,
-        "defaultLargeStagingDiskType": ReplicationConfigurationDefaultLargeStagingDiskTypeType,
-        "ebsEncryption": ReplicationConfigurationEbsEncryptionType,
-        "ebsEncryptionKeyArn": str,
-        "name": str,
-        "pitPolicy": List["PITPolicyRuleTypeDef"],
-        "replicatedDisks": List["ReplicationConfigurationReplicatedDiskTypeDef"],
-        "replicationServerInstanceType": str,
-        "replicationServersSecurityGroupsIDs": List[str],
-        "sourceServerID": str,
-        "stagingAreaSubnetId": str,
-        "stagingAreaTags": Dict[str, str],
-        "useDedicatedReplicationServer": bool,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class StartFailbackLaunchResponseTypeDef(TypedDict):
+    job: JobTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
+class StartRecoveryResponseTypeDef(TypedDict):
+    job: JobTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-RetryDataReplicationRequestRequestTypeDef = TypedDict(
-    "RetryDataReplicationRequestRequestTypeDef",
-    {
-        "sourceServerID": str,
-    },
-)
+class StartSourceNetworkRecoveryResponseTypeDef(TypedDict):
+    job: JobTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ReverseReplicationRequestRequestTypeDef = TypedDict(
-    "ReverseReplicationRequestRequestTypeDef",
-    {
-        "recoveryInstanceID": str,
-    },
-)
-
-ReverseReplicationResponseTypeDef = TypedDict(
-    "ReverseReplicationResponseTypeDef",
-    {
-        "reversedDirectionSourceServerArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-SourceCloudPropertiesTypeDef = TypedDict(
-    "SourceCloudPropertiesTypeDef",
-    {
-        "originAccountID": str,
-        "originAvailabilityZone": str,
-        "originRegion": str,
-        "sourceOutpostArn": str,
-    },
-    total=False,
-)
-
-SourceNetworkDataTypeDef = TypedDict(
-    "SourceNetworkDataTypeDef",
-    {
-        "sourceNetworkID": str,
-        "sourceVpc": str,
-        "stackName": str,
-        "targetVpc": str,
-    },
-    total=False,
-)
-
-SourceNetworkTypeDef = TypedDict(
-    "SourceNetworkTypeDef",
-    {
-        "arn": str,
-        "cfnStackName": str,
-        "lastRecovery": "RecoveryLifeCycleTypeDef",
-        "launchedVpcID": str,
-        "replicationStatus": ReplicationStatusType,
-        "replicationStatusDetails": str,
-        "sourceAccountID": str,
-        "sourceNetworkID": str,
-        "sourceRegion": str,
-        "sourceVpcID": str,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-SourcePropertiesTypeDef = TypedDict(
-    "SourcePropertiesTypeDef",
-    {
-        "cpus": List["CPUTypeDef"],
-        "disks": List["DiskTypeDef"],
-        "identificationHints": "IdentificationHintsTypeDef",
-        "lastUpdatedDateTime": str,
-        "networkInterfaces": List["NetworkInterfaceTypeDef"],
-        "os": "OSTypeDef",
-        "ramBytes": int,
-        "recommendedInstanceType": str,
-        "supportsNitroInstances": bool,
-    },
-    total=False,
-)
-
-SourceServerResponseMetadataTypeDef = TypedDict(
-    "SourceServerResponseMetadataTypeDef",
-    {
-        "agentVersion": str,
-        "arn": str,
-        "dataReplicationInfo": "DataReplicationInfoTypeDef",
-        "lastLaunchResult": LastLaunchResultType,
-        "lifeCycle": "LifeCycleTypeDef",
-        "recoveryInstanceId": str,
-        "replicationDirection": ReplicationDirectionType,
-        "reversedDirectionSourceServerArn": str,
-        "sourceCloudProperties": "SourceCloudPropertiesTypeDef",
-        "sourceNetworkID": str,
-        "sourceProperties": "SourcePropertiesTypeDef",
-        "sourceServerID": str,
-        "stagingArea": "StagingAreaTypeDef",
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-SourceServerTypeDef = TypedDict(
-    "SourceServerTypeDef",
-    {
-        "agentVersion": str,
-        "arn": str,
-        "dataReplicationInfo": "DataReplicationInfoTypeDef",
-        "lastLaunchResult": LastLaunchResultType,
-        "lifeCycle": "LifeCycleTypeDef",
-        "recoveryInstanceId": str,
-        "replicationDirection": ReplicationDirectionType,
-        "reversedDirectionSourceServerArn": str,
-        "sourceCloudProperties": "SourceCloudPropertiesTypeDef",
-        "sourceNetworkID": str,
-        "sourceProperties": "SourcePropertiesTypeDef",
-        "sourceServerID": str,
-        "stagingArea": "StagingAreaTypeDef",
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-StagingAreaTypeDef = TypedDict(
-    "StagingAreaTypeDef",
-    {
-        "errorMessage": str,
-        "stagingAccountID": str,
-        "stagingSourceServerArn": str,
-        "status": ExtensionStatusType,
-    },
-    total=False,
-)
-
-StagingSourceServerTypeDef = TypedDict(
-    "StagingSourceServerTypeDef",
-    {
-        "arn": str,
-        "hostname": str,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-_RequiredStartFailbackLaunchRequestRequestTypeDef = TypedDict(
-    "_RequiredStartFailbackLaunchRequestRequestTypeDef",
-    {
-        "recoveryInstanceIDs": List[str],
-    },
-)
-_OptionalStartFailbackLaunchRequestRequestTypeDef = TypedDict(
-    "_OptionalStartFailbackLaunchRequestRequestTypeDef",
-    {
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class StartFailbackLaunchRequestRequestTypeDef(
-    _RequiredStartFailbackLaunchRequestRequestTypeDef,
-    _OptionalStartFailbackLaunchRequestRequestTypeDef,
-):
-    pass
-
-StartFailbackLaunchResponseTypeDef = TypedDict(
-    "StartFailbackLaunchResponseTypeDef",
-    {
-        "job": "JobTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredStartRecoveryRequestRequestTypeDef = TypedDict(
-    "_RequiredStartRecoveryRequestRequestTypeDef",
-    {
-        "sourceServers": List["StartRecoveryRequestSourceServerTypeDef"],
-    },
-)
-_OptionalStartRecoveryRequestRequestTypeDef = TypedDict(
-    "_OptionalStartRecoveryRequestRequestTypeDef",
-    {
-        "isDrill": bool,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class StartRecoveryRequestRequestTypeDef(
-    _RequiredStartRecoveryRequestRequestTypeDef, _OptionalStartRecoveryRequestRequestTypeDef
-):
-    pass
-
-_RequiredStartRecoveryRequestSourceServerTypeDef = TypedDict(
-    "_RequiredStartRecoveryRequestSourceServerTypeDef",
-    {
-        "sourceServerID": str,
-    },
-)
-_OptionalStartRecoveryRequestSourceServerTypeDef = TypedDict(
-    "_OptionalStartRecoveryRequestSourceServerTypeDef",
-    {
-        "recoverySnapshotID": str,
-    },
-    total=False,
-)
-
-class StartRecoveryRequestSourceServerTypeDef(
-    _RequiredStartRecoveryRequestSourceServerTypeDef,
-    _OptionalStartRecoveryRequestSourceServerTypeDef,
-):
-    pass
-
-StartRecoveryResponseTypeDef = TypedDict(
-    "StartRecoveryResponseTypeDef",
-    {
-        "job": "JobTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-StartReplicationRequestRequestTypeDef = TypedDict(
-    "StartReplicationRequestRequestTypeDef",
-    {
-        "sourceServerID": str,
-    },
-)
-
-StartReplicationResponseTypeDef = TypedDict(
-    "StartReplicationResponseTypeDef",
-    {
-        "sourceServer": "SourceServerTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredStartSourceNetworkRecoveryRequestNetworkEntryTypeDef = TypedDict(
-    "_RequiredStartSourceNetworkRecoveryRequestNetworkEntryTypeDef",
-    {
-        "sourceNetworkID": str,
-    },
-)
-_OptionalStartSourceNetworkRecoveryRequestNetworkEntryTypeDef = TypedDict(
-    "_OptionalStartSourceNetworkRecoveryRequestNetworkEntryTypeDef",
-    {
-        "cfnStackName": str,
-    },
-    total=False,
-)
-
-class StartSourceNetworkRecoveryRequestNetworkEntryTypeDef(
-    _RequiredStartSourceNetworkRecoveryRequestNetworkEntryTypeDef,
-    _OptionalStartSourceNetworkRecoveryRequestNetworkEntryTypeDef,
-):
-    pass
-
-_RequiredStartSourceNetworkRecoveryRequestRequestTypeDef = TypedDict(
-    "_RequiredStartSourceNetworkRecoveryRequestRequestTypeDef",
-    {
-        "sourceNetworks": List["StartSourceNetworkRecoveryRequestNetworkEntryTypeDef"],
-    },
-)
-_OptionalStartSourceNetworkRecoveryRequestRequestTypeDef = TypedDict(
-    "_OptionalStartSourceNetworkRecoveryRequestRequestTypeDef",
-    {
-        "deployAsNew": bool,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class StartSourceNetworkRecoveryRequestRequestTypeDef(
-    _RequiredStartSourceNetworkRecoveryRequestRequestTypeDef,
-    _OptionalStartSourceNetworkRecoveryRequestRequestTypeDef,
-):
-    pass
-
-StartSourceNetworkRecoveryResponseTypeDef = TypedDict(
-    "StartSourceNetworkRecoveryResponseTypeDef",
-    {
-        "job": "JobTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-StartSourceNetworkReplicationRequestRequestTypeDef = TypedDict(
-    "StartSourceNetworkReplicationRequestRequestTypeDef",
-    {
-        "sourceNetworkID": str,
-    },
-)
-
-StartSourceNetworkReplicationResponseTypeDef = TypedDict(
-    "StartSourceNetworkReplicationResponseTypeDef",
-    {
-        "sourceNetwork": "SourceNetworkTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-StopFailbackRequestRequestTypeDef = TypedDict(
-    "StopFailbackRequestRequestTypeDef",
-    {
-        "recoveryInstanceID": str,
-    },
-)
-
-StopReplicationRequestRequestTypeDef = TypedDict(
-    "StopReplicationRequestRequestTypeDef",
-    {
-        "sourceServerID": str,
-    },
-)
-
-StopReplicationResponseTypeDef = TypedDict(
-    "StopReplicationResponseTypeDef",
-    {
-        "sourceServer": "SourceServerTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-StopSourceNetworkReplicationRequestRequestTypeDef = TypedDict(
-    "StopSourceNetworkReplicationRequestRequestTypeDef",
-    {
-        "sourceNetworkID": str,
-    },
-)
-
-StopSourceNetworkReplicationResponseTypeDef = TypedDict(
-    "StopSourceNetworkReplicationResponseTypeDef",
-    {
-        "sourceNetwork": "SourceNetworkTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tags": Dict[str, str],
-    },
-)
-
-TerminateRecoveryInstancesRequestRequestTypeDef = TypedDict(
-    "TerminateRecoveryInstancesRequestRequestTypeDef",
-    {
-        "recoveryInstanceIDs": List[str],
-    },
-)
-
-TerminateRecoveryInstancesResponseTypeDef = TypedDict(
-    "TerminateRecoveryInstancesResponseTypeDef",
-    {
-        "job": "JobTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tagKeys": List[str],
-    },
-)
-
-_RequiredUpdateFailbackReplicationConfigurationRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateFailbackReplicationConfigurationRequestRequestTypeDef",
-    {
-        "recoveryInstanceID": str,
-    },
-)
-_OptionalUpdateFailbackReplicationConfigurationRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateFailbackReplicationConfigurationRequestRequestTypeDef",
-    {
-        "bandwidthThrottling": int,
-        "name": str,
-        "usePrivateIP": bool,
-    },
-    total=False,
-)
-
-class UpdateFailbackReplicationConfigurationRequestRequestTypeDef(
-    _RequiredUpdateFailbackReplicationConfigurationRequestRequestTypeDef,
-    _OptionalUpdateFailbackReplicationConfigurationRequestRequestTypeDef,
-):
-    pass
-
-_RequiredUpdateLaunchConfigurationRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateLaunchConfigurationRequestRequestTypeDef",
-    {
-        "sourceServerID": str,
-    },
-)
-_OptionalUpdateLaunchConfigurationRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateLaunchConfigurationRequestRequestTypeDef",
-    {
-        "copyPrivateIp": bool,
-        "copyTags": bool,
-        "launchDisposition": LaunchDispositionType,
-        "launchIntoInstanceProperties": "LaunchIntoInstancePropertiesTypeDef",
-        "licensing": "LicensingTypeDef",
-        "name": str,
-        "postLaunchEnabled": bool,
-        "targetInstanceTypeRightSizingMethod": TargetInstanceTypeRightSizingMethodType,
-    },
-    total=False,
-)
-
-class UpdateLaunchConfigurationRequestRequestTypeDef(
-    _RequiredUpdateLaunchConfigurationRequestRequestTypeDef,
-    _OptionalUpdateLaunchConfigurationRequestRequestTypeDef,
-):
-    pass
-
-_RequiredUpdateLaunchConfigurationTemplateRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateLaunchConfigurationTemplateRequestRequestTypeDef",
-    {
-        "launchConfigurationTemplateID": str,
-    },
-)
-_OptionalUpdateLaunchConfigurationTemplateRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateLaunchConfigurationTemplateRequestRequestTypeDef",
-    {
-        "copyPrivateIp": bool,
-        "copyTags": bool,
-        "exportBucketArn": str,
-        "launchDisposition": LaunchDispositionType,
-        "launchIntoSourceInstance": bool,
-        "licensing": "LicensingTypeDef",
-        "postLaunchEnabled": bool,
-        "targetInstanceTypeRightSizingMethod": TargetInstanceTypeRightSizingMethodType,
-    },
-    total=False,
-)
-
-class UpdateLaunchConfigurationTemplateRequestRequestTypeDef(
-    _RequiredUpdateLaunchConfigurationTemplateRequestRequestTypeDef,
-    _OptionalUpdateLaunchConfigurationTemplateRequestRequestTypeDef,
-):
-    pass
-
-UpdateLaunchConfigurationTemplateResponseTypeDef = TypedDict(
-    "UpdateLaunchConfigurationTemplateResponseTypeDef",
-    {
-        "launchConfigurationTemplate": "LaunchConfigurationTemplateTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateReplicationConfigurationRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateReplicationConfigurationRequestRequestTypeDef",
-    {
-        "sourceServerID": str,
-    },
-)
-_OptionalUpdateReplicationConfigurationRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateReplicationConfigurationRequestRequestTypeDef",
-    {
-        "associateDefaultSecurityGroup": bool,
-        "autoReplicateNewDisks": bool,
-        "bandwidthThrottling": int,
-        "createPublicIP": bool,
-        "dataPlaneRouting": ReplicationConfigurationDataPlaneRoutingType,
-        "defaultLargeStagingDiskType": ReplicationConfigurationDefaultLargeStagingDiskTypeType,
-        "ebsEncryption": ReplicationConfigurationEbsEncryptionType,
-        "ebsEncryptionKeyArn": str,
-        "name": str,
-        "pitPolicy": List["PITPolicyRuleTypeDef"],
-        "replicatedDisks": List["ReplicationConfigurationReplicatedDiskTypeDef"],
-        "replicationServerInstanceType": str,
-        "replicationServersSecurityGroupsIDs": List[str],
-        "stagingAreaSubnetId": str,
-        "stagingAreaTags": Dict[str, str],
-        "useDedicatedReplicationServer": bool,
-    },
-    total=False,
-)
-
-class UpdateReplicationConfigurationRequestRequestTypeDef(
-    _RequiredUpdateReplicationConfigurationRequestRequestTypeDef,
-    _OptionalUpdateReplicationConfigurationRequestRequestTypeDef,
-):
-    pass
-
-_RequiredUpdateReplicationConfigurationTemplateRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateReplicationConfigurationTemplateRequestRequestTypeDef",
-    {
-        "replicationConfigurationTemplateID": str,
-    },
-)
-_OptionalUpdateReplicationConfigurationTemplateRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateReplicationConfigurationTemplateRequestRequestTypeDef",
-    {
-        "arn": str,
-        "associateDefaultSecurityGroup": bool,
-        "autoReplicateNewDisks": bool,
-        "bandwidthThrottling": int,
-        "createPublicIP": bool,
-        "dataPlaneRouting": ReplicationConfigurationDataPlaneRoutingType,
-        "defaultLargeStagingDiskType": ReplicationConfigurationDefaultLargeStagingDiskTypeType,
-        "ebsEncryption": ReplicationConfigurationEbsEncryptionType,
-        "ebsEncryptionKeyArn": str,
-        "pitPolicy": List["PITPolicyRuleTypeDef"],
-        "replicationServerInstanceType": str,
-        "replicationServersSecurityGroupsIDs": List[str],
-        "stagingAreaSubnetId": str,
-        "stagingAreaTags": Dict[str, str],
-        "useDedicatedReplicationServer": bool,
-    },
-    total=False,
-)
-
-class UpdateReplicationConfigurationTemplateRequestRequestTypeDef(
-    _RequiredUpdateReplicationConfigurationTemplateRequestRequestTypeDef,
-    _OptionalUpdateReplicationConfigurationTemplateRequestRequestTypeDef,
-):
-    pass
+class TerminateRecoveryInstancesResponseTypeDef(TypedDict):
+    job: JobTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef

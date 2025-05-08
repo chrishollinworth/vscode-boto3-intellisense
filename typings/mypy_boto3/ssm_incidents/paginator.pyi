@@ -1,14 +1,16 @@
 """
 Type annotations for ssm-incidents service client paginators.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/paginators.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/paginators/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
 
-    from mypy_boto3_ssm_incidents import SSMIncidentsClient
+    from mypy_boto3_ssm_incidents.client import SSMIncidentsClient
     from mypy_boto3_ssm_incidents.paginator import (
         GetResourcePoliciesPaginator,
         ListIncidentFindingsPaginator,
@@ -19,7 +21,8 @@ Usage::
         ListTimelineEventsPaginator,
     )
 
-    client: SSMIncidentsClient = boto3.client("ssm-incidents")
+    session = Session()
+    client: SSMIncidentsClient = session.client("ssm-incidents")
 
     get_resource_policies_paginator: GetResourcePoliciesPaginator = client.get_paginator("get_resource_policies")
     list_incident_findings_paginator: ListIncidentFindingsPaginator = client.get_paginator("list_incident_findings")
@@ -31,28 +34,34 @@ Usage::
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from typing import Iterator, List
+from typing import TYPE_CHECKING
 
-from botocore.paginate import Paginator as Boto3Paginator
+from botocore.paginate import PageIterator, Paginator
 
-from .literals import SortOrderType
 from .type_defs import (
-    FilterTypeDef,
+    GetResourcePoliciesInputPaginateTypeDef,
     GetResourcePoliciesOutputTypeDef,
+    ListIncidentFindingsInputPaginateTypeDef,
     ListIncidentFindingsOutputTypeDef,
+    ListIncidentRecordsInputPaginateTypeDef,
     ListIncidentRecordsOutputTypeDef,
+    ListRelatedItemsInputPaginateTypeDef,
     ListRelatedItemsOutputTypeDef,
+    ListReplicationSetsInputPaginateTypeDef,
     ListReplicationSetsOutputTypeDef,
+    ListResponsePlansInputPaginateTypeDef,
     ListResponsePlansOutputTypeDef,
+    ListTimelineEventsInputPaginateTypeDef,
     ListTimelineEventsOutputTypeDef,
-    PaginatorConfigTypeDef,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 12):
+    from typing import Unpack
 else:
-    from typing_extensions import Literal
+    from typing_extensions import Unpack
 
 __all__ = (
     "GetResourcePoliciesPaginator",
@@ -64,109 +73,128 @@ __all__ = (
     "ListTimelineEventsPaginator",
 )
 
-class GetResourcePoliciesPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-incidents.html#SSMIncidents.Paginator.GetResourcePolicies)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/paginators.html#getresourcepoliciespaginator)
-    """
+if TYPE_CHECKING:
+    _GetResourcePoliciesPaginatorBase = Paginator[GetResourcePoliciesOutputTypeDef]
+else:
+    _GetResourcePoliciesPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, resourceArn: str, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[GetResourcePoliciesOutputTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-incidents.html#SSMIncidents.Paginator.GetResourcePolicies.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/paginators.html#getresourcepoliciespaginator)
-        """
-
-class ListIncidentFindingsPaginator(Boto3Paginator):
+class GetResourcePoliciesPaginator(_GetResourcePoliciesPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-incidents.html#SSMIncidents.Paginator.ListIncidentFindings)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/paginators.html#listincidentfindingspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm-incidents/paginator/GetResourcePolicies.html#SSMIncidents.Paginator.GetResourcePolicies)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/paginators/#getresourcepoliciespaginator)
     """
-
-    def paginate(
-        self, *, incidentRecordArn: str, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListIncidentFindingsOutputTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[GetResourcePoliciesInputPaginateTypeDef]
+    ) -> PageIterator[GetResourcePoliciesOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-incidents.html#SSMIncidents.Paginator.ListIncidentFindings.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/paginators.html#listincidentfindingspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm-incidents/paginator/GetResourcePolicies.html#SSMIncidents.Paginator.GetResourcePolicies.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/paginators/#getresourcepoliciespaginator)
         """
 
-class ListIncidentRecordsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-incidents.html#SSMIncidents.Paginator.ListIncidentRecords)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/paginators.html#listincidentrecordspaginator)
-    """
+if TYPE_CHECKING:
+    _ListIncidentFindingsPaginatorBase = Paginator[ListIncidentFindingsOutputTypeDef]
+else:
+    _ListIncidentFindingsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        filters: List["FilterTypeDef"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListIncidentRecordsOutputTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-incidents.html#SSMIncidents.Paginator.ListIncidentRecords.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/paginators.html#listincidentrecordspaginator)
-        """
-
-class ListRelatedItemsPaginator(Boto3Paginator):
+class ListIncidentFindingsPaginator(_ListIncidentFindingsPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-incidents.html#SSMIncidents.Paginator.ListRelatedItems)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/paginators.html#listrelateditemspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm-incidents/paginator/ListIncidentFindings.html#SSMIncidents.Paginator.ListIncidentFindings)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/paginators/#listincidentfindingspaginator)
     """
-
-    def paginate(
-        self, *, incidentRecordArn: str, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListRelatedItemsOutputTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListIncidentFindingsInputPaginateTypeDef]
+    ) -> PageIterator[ListIncidentFindingsOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-incidents.html#SSMIncidents.Paginator.ListRelatedItems.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/paginators.html#listrelateditemspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm-incidents/paginator/ListIncidentFindings.html#SSMIncidents.Paginator.ListIncidentFindings.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/paginators/#listincidentfindingspaginator)
         """
 
-class ListReplicationSetsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-incidents.html#SSMIncidents.Paginator.ListReplicationSets)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/paginators.html#listreplicationsetspaginator)
-    """
+if TYPE_CHECKING:
+    _ListIncidentRecordsPaginatorBase = Paginator[ListIncidentRecordsOutputTypeDef]
+else:
+    _ListIncidentRecordsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListReplicationSetsOutputTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-incidents.html#SSMIncidents.Paginator.ListReplicationSets.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/paginators.html#listreplicationsetspaginator)
-        """
-
-class ListResponsePlansPaginator(Boto3Paginator):
+class ListIncidentRecordsPaginator(_ListIncidentRecordsPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-incidents.html#SSMIncidents.Paginator.ListResponsePlans)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/paginators.html#listresponseplanspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm-incidents/paginator/ListIncidentRecords.html#SSMIncidents.Paginator.ListIncidentRecords)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/paginators/#listincidentrecordspaginator)
     """
-
-    def paginate(
-        self, *, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListResponsePlansOutputTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListIncidentRecordsInputPaginateTypeDef]
+    ) -> PageIterator[ListIncidentRecordsOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-incidents.html#SSMIncidents.Paginator.ListResponsePlans.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/paginators.html#listresponseplanspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm-incidents/paginator/ListIncidentRecords.html#SSMIncidents.Paginator.ListIncidentRecords.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/paginators/#listincidentrecordspaginator)
         """
 
-class ListTimelineEventsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-incidents.html#SSMIncidents.Paginator.ListTimelineEvents)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/paginators.html#listtimelineeventspaginator)
-    """
+if TYPE_CHECKING:
+    _ListRelatedItemsPaginatorBase = Paginator[ListRelatedItemsOutputTypeDef]
+else:
+    _ListRelatedItemsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        incidentRecordArn: str,
-        filters: List["FilterTypeDef"] = None,
-        sortBy: Literal["EVENT_TIME"] = None,
-        sortOrder: SortOrderType = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListTimelineEventsOutputTypeDef]:
+class ListRelatedItemsPaginator(_ListRelatedItemsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm-incidents/paginator/ListRelatedItems.html#SSMIncidents.Paginator.ListRelatedItems)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/paginators/#listrelateditemspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListRelatedItemsInputPaginateTypeDef]
+    ) -> PageIterator[ListRelatedItemsOutputTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/ssm-incidents.html#SSMIncidents.Paginator.ListTimelineEvents.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/paginators.html#listtimelineeventspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm-incidents/paginator/ListRelatedItems.html#SSMIncidents.Paginator.ListRelatedItems.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/paginators/#listrelateditemspaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListReplicationSetsPaginatorBase = Paginator[ListReplicationSetsOutputTypeDef]
+else:
+    _ListReplicationSetsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListReplicationSetsPaginator(_ListReplicationSetsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm-incidents/paginator/ListReplicationSets.html#SSMIncidents.Paginator.ListReplicationSets)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/paginators/#listreplicationsetspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListReplicationSetsInputPaginateTypeDef]
+    ) -> PageIterator[ListReplicationSetsOutputTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm-incidents/paginator/ListReplicationSets.html#SSMIncidents.Paginator.ListReplicationSets.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/paginators/#listreplicationsetspaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListResponsePlansPaginatorBase = Paginator[ListResponsePlansOutputTypeDef]
+else:
+    _ListResponsePlansPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListResponsePlansPaginator(_ListResponsePlansPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm-incidents/paginator/ListResponsePlans.html#SSMIncidents.Paginator.ListResponsePlans)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/paginators/#listresponseplanspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListResponsePlansInputPaginateTypeDef]
+    ) -> PageIterator[ListResponsePlansOutputTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm-incidents/paginator/ListResponsePlans.html#SSMIncidents.Paginator.ListResponsePlans.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/paginators/#listresponseplanspaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListTimelineEventsPaginatorBase = Paginator[ListTimelineEventsOutputTypeDef]
+else:
+    _ListTimelineEventsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListTimelineEventsPaginator(_ListTimelineEventsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm-incidents/paginator/ListTimelineEvents.html#SSMIncidents.Paginator.ListTimelineEvents)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/paginators/#listtimelineeventspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListTimelineEventsInputPaginateTypeDef]
+    ) -> PageIterator[ListTimelineEventsOutputTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm-incidents/paginator/ListTimelineEvents.html#SSMIncidents.Paginator.ListTimelineEvents.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/paginators/#listtimelineeventspaginator)
         """

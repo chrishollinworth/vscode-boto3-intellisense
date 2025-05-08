@@ -1,41 +1,53 @@
 """
-Type annotations for sagemaker-featurestore-runtime service client.
+Type annotations for sagemaker-featurestore-runtime service Client.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker_featurestore_runtime/client.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sagemaker_featurestore_runtime/client/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
-    from mypy_boto3_sagemaker_featurestore_runtime import SageMakerFeatureStoreRuntimeClient
+    from boto3.session import Session
+    from mypy_boto3_sagemaker_featurestore_runtime.client import SageMakerFeatureStoreRuntimeClient
 
-    client: SageMakerFeatureStoreRuntimeClient = boto3.client("sagemaker-featurestore-runtime")
+    session = Session()
+    client: SageMakerFeatureStoreRuntimeClient = session.client("sagemaker-featurestore-runtime")
     ```
 """
 
-from typing import Any, Dict, List, Type
+from __future__ import annotations
+
+import sys
+from typing import Any
 
 from botocore.client import BaseClient, ClientMeta
+from botocore.errorfactory import BaseClientExceptions
+from botocore.exceptions import ClientError as BotocoreClientError
 
-from .literals import DeletionModeType, ExpirationTimeResponseType, TargetStoreType
 from .type_defs import (
-    BatchGetRecordIdentifierTypeDef,
+    BatchGetRecordRequestTypeDef,
     BatchGetRecordResponseTypeDef,
-    FeatureValueTypeDef,
+    DeleteRecordRequestTypeDef,
+    EmptyResponseMetadataTypeDef,
+    GetRecordRequestTypeDef,
     GetRecordResponseTypeDef,
-    TtlDurationTypeDef,
+    PutRecordRequestTypeDef,
 )
+
+if sys.version_info >= (3, 9):
+    from builtins import type as Type
+    from collections.abc import Mapping
+else:
+    from typing import Mapping, Type
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = ("SageMakerFeatureStoreRuntimeClient",)
 
-class BotocoreClientError(BaseException):
-    MSG_TEMPLATE: str
-
-    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
-        self.response: Dict[str, Any]
-        self.operation_name: str
-
-class Exceptions:
+class Exceptions(BaseClientExceptions):
     AccessForbidden: Type[BotocoreClientError]
     ClientError: Type[BotocoreClientError]
     InternalFailure: Type[BotocoreClientError]
@@ -45,8 +57,8 @@ class Exceptions:
 
 class SageMakerFeatureStoreRuntimeClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sagemaker-featurestore-runtime.html#SageMakerFeatureStoreRuntime.Client)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker_featurestore_runtime/client.html)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker-featurestore-runtime.html#SageMakerFeatureStoreRuntime.Client)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sagemaker_featurestore_runtime/client/)
     """
 
     meta: ClientMeta
@@ -55,94 +67,63 @@ class SageMakerFeatureStoreRuntimeClient(BaseClient):
     def exceptions(self) -> Exceptions:
         """
         SageMakerFeatureStoreRuntimeClient exceptions.
-        """
 
-    def batch_get_record(
-        self,
-        *,
-        Identifiers: List["BatchGetRecordIdentifierTypeDef"],
-        ExpirationTimeResponse: ExpirationTimeResponseType = None
-    ) -> BatchGetRecordResponseTypeDef:
-        """
-        Retrieves a batch of `Records` from a `FeatureGroup`.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sagemaker-featurestore-runtime.html#SageMakerFeatureStoreRuntime.Client.batch_get_record)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker_featurestore_runtime/client.html#batch_get_record)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker-featurestore-runtime.html#SageMakerFeatureStoreRuntime.Client)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sagemaker_featurestore_runtime/client/#exceptions)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        Check if an operation can be paginated.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sagemaker-featurestore-runtime.html#SageMakerFeatureStoreRuntime.Client.can_paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker_featurestore_runtime/client.html#can_paginate)
-        """
-
-    def close(self) -> None:
-        """
-        Closes underlying endpoint connections.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sagemaker-featurestore-runtime.html#SageMakerFeatureStoreRuntime.Client.close)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker_featurestore_runtime/client.html#close)
-        """
-
-    def delete_record(
-        self,
-        *,
-        FeatureGroupName: str,
-        RecordIdentifierValueAsString: str,
-        EventTime: str,
-        TargetStores: List[TargetStoreType] = None,
-        DeletionMode: DeletionModeType = None
-    ) -> None:
-        """
-        Deletes a `Record` from a `FeatureGroup` in the `OnlineStore`.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sagemaker-featurestore-runtime.html#SageMakerFeatureStoreRuntime.Client.delete_record)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker_featurestore_runtime/client.html#delete_record)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker-featurestore-runtime/client/can_paginate.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sagemaker_featurestore_runtime/client/#can_paginate)
         """
 
     def generate_presigned_url(
         self,
         ClientMethod: str,
-        Params: Dict[str, Any] = None,
+        Params: Mapping[str, Any] = ...,
         ExpiresIn: int = 3600,
-        HttpMethod: str = None,
+        HttpMethod: str = ...,
     ) -> str:
         """
-        Generate a presigned url given a client, its method, and arguments.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sagemaker-featurestore-runtime.html#SageMakerFeatureStoreRuntime.Client.generate_presigned_url)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker_featurestore_runtime/client.html#generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker-featurestore-runtime/client/generate_presigned_url.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sagemaker_featurestore_runtime/client/#generate_presigned_url)
         """
 
-    def get_record(
-        self,
-        *,
-        FeatureGroupName: str,
-        RecordIdentifierValueAsString: str,
-        FeatureNames: List[str] = None,
-        ExpirationTimeResponse: ExpirationTimeResponseType = None
-    ) -> GetRecordResponseTypeDef:
+    def batch_get_record(
+        self, **kwargs: Unpack[BatchGetRecordRequestTypeDef]
+    ) -> BatchGetRecordResponseTypeDef:
         """
-        Use for `OnlineStore` serving from a `FeatureStore`.
+        Retrieves a batch of <code>Records</code> from a <code>FeatureGroup</code>.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sagemaker-featurestore-runtime.html#SageMakerFeatureStoreRuntime.Client.get_record)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker_featurestore_runtime/client.html#get_record)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker-featurestore-runtime/client/batch_get_record.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sagemaker_featurestore_runtime/client/#batch_get_record)
         """
 
-    def put_record(
-        self,
-        *,
-        FeatureGroupName: str,
-        Record: List["FeatureValueTypeDef"],
-        TargetStores: List[TargetStoreType] = None,
-        TtlDuration: "TtlDurationTypeDef" = None
-    ) -> None:
+    def delete_record(
+        self, **kwargs: Unpack[DeleteRecordRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
-        The `PutRecord` API is used to ingest a list of `Records` into your feature
-        group.
+        Deletes a <code>Record</code> from a <code>FeatureGroup</code> in the
+        <code>OnlineStore</code>.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/sagemaker-featurestore-runtime.html#SageMakerFeatureStoreRuntime.Client.put_record)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_sagemaker_featurestore_runtime/client.html#put_record)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker-featurestore-runtime/client/delete_record.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sagemaker_featurestore_runtime/client/#delete_record)
+        """
+
+    def get_record(self, **kwargs: Unpack[GetRecordRequestTypeDef]) -> GetRecordResponseTypeDef:
+        """
+        Use for <code>OnlineStore</code> serving from a <code>FeatureStore</code>.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker-featurestore-runtime/client/get_record.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sagemaker_featurestore_runtime/client/#get_record)
+        """
+
+    def put_record(self, **kwargs: Unpack[PutRecordRequestTypeDef]) -> EmptyResponseMetadataTypeDef:
+        """
+        The <code>PutRecord</code> API is used to ingest a list of <code>Records</code>
+        into your feature group.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker-featurestore-runtime/client/put_record.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sagemaker_featurestore_runtime/client/#put_record)
         """

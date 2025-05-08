@@ -1,92 +1,67 @@
 """
 Type annotations for kinesis-video-media service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_kinesis_video_media/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kinesis_video_media/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_kinesis_video_media.type_defs import GetMediaInputRequestTypeDef
+    from mypy_boto3_kinesis_video_media.type_defs import ResponseMetadataTypeDef
 
-    data: GetMediaInputRequestTypeDef = {...}
+    data: ResponseMetadataTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, Union
+from typing import Union
 
 from botocore.response import StreamingBody
 
 from .literals import StartSelectorTypeType
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
-    "GetMediaInputRequestTypeDef",
+    "GetMediaInputTypeDef",
     "GetMediaOutputTypeDef",
     "ResponseMetadataTypeDef",
     "StartSelectorTypeDef",
+    "TimestampTypeDef",
 )
 
-_RequiredGetMediaInputRequestTypeDef = TypedDict(
-    "_RequiredGetMediaInputRequestTypeDef",
-    {
-        "StartSelector": "StartSelectorTypeDef",
-    },
-)
-_OptionalGetMediaInputRequestTypeDef = TypedDict(
-    "_OptionalGetMediaInputRequestTypeDef",
-    {
-        "StreamName": str,
-        "StreamARN": str,
-    },
-    total=False,
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-class GetMediaInputRequestTypeDef(
-    _RequiredGetMediaInputRequestTypeDef, _OptionalGetMediaInputRequestTypeDef
-):
-    pass
+TimestampTypeDef = Union[datetime, str]
 
-GetMediaOutputTypeDef = TypedDict(
-    "GetMediaOutputTypeDef",
-    {
-        "ContentType": str,
-        "Payload": StreamingBody,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetMediaOutputTypeDef(TypedDict):
+    ContentType: str
+    Payload: StreamingBody
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
+class StartSelectorTypeDef(TypedDict):
+    StartSelectorType: StartSelectorTypeType
+    AfterFragmentNumber: NotRequired[str]
+    StartTimestamp: NotRequired[TimestampTypeDef]
+    ContinuationToken: NotRequired[str]
 
-_RequiredStartSelectorTypeDef = TypedDict(
-    "_RequiredStartSelectorTypeDef",
-    {
-        "StartSelectorType": StartSelectorTypeType,
-    },
-)
-_OptionalStartSelectorTypeDef = TypedDict(
-    "_OptionalStartSelectorTypeDef",
-    {
-        "AfterFragmentNumber": str,
-        "StartTimestamp": Union[datetime, str],
-        "ContinuationToken": str,
-    },
-    total=False,
-)
-
-class StartSelectorTypeDef(_RequiredStartSelectorTypeDef, _OptionalStartSelectorTypeDef):
-    pass
+class GetMediaInputTypeDef(TypedDict):
+    StartSelector: StartSelectorTypeDef
+    StreamName: NotRequired[str]
+    StreamARN: NotRequired[str]

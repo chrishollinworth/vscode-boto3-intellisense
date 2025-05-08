@@ -1,20 +1,24 @@
 """
 Type annotations for iottwinmaker service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iottwinmaker/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iottwinmaker/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_iottwinmaker.type_defs import BatchPutPropertyErrorEntryTypeDef
+    from mypy_boto3_iottwinmaker.type_defs import ResponseMetadataTypeDef
 
-    data: BatchPutPropertyErrorEntryTypeDef = {...}
+    data: ResponseMetadataTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List, Union
+from typing import Any, Union
 
 from .literals import (
     ColumnTypeType,
@@ -39,22 +43,24 @@ from .literals import (
     UpdateReasonType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
     "BatchPutPropertyErrorEntryTypeDef",
     "BatchPutPropertyErrorTypeDef",
-    "BatchPutPropertyValuesRequestRequestTypeDef",
+    "BatchPutPropertyValuesRequestTypeDef",
     "BatchPutPropertyValuesResponseTypeDef",
     "BundleInformationTypeDef",
-    "CancelMetadataTransferJobRequestRequestTypeDef",
+    "CancelMetadataTransferJobRequestTypeDef",
     "CancelMetadataTransferJobResponseTypeDef",
     "ColumnDescriptionTypeDef",
     "ComponentPropertyGroupRequestTypeDef",
@@ -68,35 +74,41 @@ __all__ = (
     "CompositeComponentTypeRequestTypeDef",
     "CompositeComponentTypeResponseTypeDef",
     "CompositeComponentUpdateRequestTypeDef",
-    "CreateComponentTypeRequestRequestTypeDef",
+    "CreateComponentTypeRequestTypeDef",
     "CreateComponentTypeResponseTypeDef",
-    "CreateEntityRequestRequestTypeDef",
+    "CreateEntityRequestTypeDef",
     "CreateEntityResponseTypeDef",
-    "CreateMetadataTransferJobRequestRequestTypeDef",
+    "CreateMetadataTransferJobRequestTypeDef",
     "CreateMetadataTransferJobResponseTypeDef",
-    "CreateSceneRequestRequestTypeDef",
+    "CreateSceneRequestTypeDef",
     "CreateSceneResponseTypeDef",
-    "CreateSyncJobRequestRequestTypeDef",
+    "CreateSyncJobRequestTypeDef",
     "CreateSyncJobResponseTypeDef",
-    "CreateWorkspaceRequestRequestTypeDef",
+    "CreateWorkspaceRequestTypeDef",
     "CreateWorkspaceResponseTypeDef",
     "DataConnectorTypeDef",
+    "DataTypeOutputTypeDef",
     "DataTypeTypeDef",
+    "DataTypeUnionTypeDef",
+    "DataValueOutputTypeDef",
     "DataValueTypeDef",
-    "DeleteComponentTypeRequestRequestTypeDef",
+    "DataValueUnionTypeDef",
+    "DeleteComponentTypeRequestTypeDef",
     "DeleteComponentTypeResponseTypeDef",
-    "DeleteEntityRequestRequestTypeDef",
+    "DeleteEntityRequestTypeDef",
     "DeleteEntityResponseTypeDef",
-    "DeleteSceneRequestRequestTypeDef",
-    "DeleteSyncJobRequestRequestTypeDef",
+    "DeleteSceneRequestTypeDef",
+    "DeleteSyncJobRequestTypeDef",
     "DeleteSyncJobResponseTypeDef",
-    "DeleteWorkspaceRequestRequestTypeDef",
+    "DeleteWorkspaceRequestTypeDef",
     "DeleteWorkspaceResponseTypeDef",
     "DestinationConfigurationTypeDef",
+    "EntityPropertyReferenceOutputTypeDef",
     "EntityPropertyReferenceTypeDef",
+    "EntityPropertyReferenceUnionTypeDef",
     "EntitySummaryTypeDef",
     "ErrorDetailsTypeDef",
-    "ExecuteQueryRequestRequestTypeDef",
+    "ExecuteQueryRequestTypeDef",
     "ExecuteQueryResponseTypeDef",
     "FilterByAssetModelTypeDef",
     "FilterByAssetTypeDef",
@@ -104,52 +116,56 @@ __all__ = (
     "FilterByEntityTypeDef",
     "FunctionRequestTypeDef",
     "FunctionResponseTypeDef",
-    "GetComponentTypeRequestRequestTypeDef",
+    "GetComponentTypeRequestTypeDef",
     "GetComponentTypeResponseTypeDef",
-    "GetEntityRequestRequestTypeDef",
+    "GetEntityRequestTypeDef",
     "GetEntityResponseTypeDef",
-    "GetMetadataTransferJobRequestRequestTypeDef",
+    "GetMetadataTransferJobRequestTypeDef",
     "GetMetadataTransferJobResponseTypeDef",
     "GetPricingPlanResponseTypeDef",
-    "GetPropertyValueHistoryRequestRequestTypeDef",
+    "GetPropertyValueHistoryRequestTypeDef",
     "GetPropertyValueHistoryResponseTypeDef",
-    "GetPropertyValueRequestRequestTypeDef",
+    "GetPropertyValueRequestTypeDef",
     "GetPropertyValueResponseTypeDef",
-    "GetSceneRequestRequestTypeDef",
+    "GetSceneRequestTypeDef",
     "GetSceneResponseTypeDef",
-    "GetSyncJobRequestRequestTypeDef",
+    "GetSyncJobRequestTypeDef",
     "GetSyncJobResponseTypeDef",
-    "GetWorkspaceRequestRequestTypeDef",
+    "GetWorkspaceRequestTypeDef",
     "GetWorkspaceResponseTypeDef",
     "InterpolationParametersTypeDef",
     "IotSiteWiseSourceConfigurationFilterTypeDef",
+    "IotSiteWiseSourceConfigurationOutputTypeDef",
     "IotSiteWiseSourceConfigurationTypeDef",
+    "IotSiteWiseSourceConfigurationUnionTypeDef",
     "IotTwinMakerDestinationConfigurationTypeDef",
     "IotTwinMakerSourceConfigurationFilterTypeDef",
+    "IotTwinMakerSourceConfigurationOutputTypeDef",
     "IotTwinMakerSourceConfigurationTypeDef",
+    "IotTwinMakerSourceConfigurationUnionTypeDef",
     "LambdaFunctionTypeDef",
     "ListComponentTypesFilterTypeDef",
-    "ListComponentTypesRequestRequestTypeDef",
+    "ListComponentTypesRequestTypeDef",
     "ListComponentTypesResponseTypeDef",
-    "ListComponentsRequestRequestTypeDef",
+    "ListComponentsRequestTypeDef",
     "ListComponentsResponseTypeDef",
     "ListEntitiesFilterTypeDef",
-    "ListEntitiesRequestRequestTypeDef",
+    "ListEntitiesRequestTypeDef",
     "ListEntitiesResponseTypeDef",
     "ListMetadataTransferJobsFilterTypeDef",
-    "ListMetadataTransferJobsRequestRequestTypeDef",
+    "ListMetadataTransferJobsRequestTypeDef",
     "ListMetadataTransferJobsResponseTypeDef",
-    "ListPropertiesRequestRequestTypeDef",
+    "ListPropertiesRequestTypeDef",
     "ListPropertiesResponseTypeDef",
-    "ListScenesRequestRequestTypeDef",
+    "ListScenesRequestTypeDef",
     "ListScenesResponseTypeDef",
-    "ListSyncJobsRequestRequestTypeDef",
+    "ListSyncJobsRequestTypeDef",
     "ListSyncJobsResponseTypeDef",
-    "ListSyncResourcesRequestRequestTypeDef",
+    "ListSyncResourcesRequestTypeDef",
     "ListSyncResourcesResponseTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
-    "ListWorkspacesRequestRequestTypeDef",
+    "ListWorkspacesRequestTypeDef",
     "ListWorkspacesResponseTypeDef",
     "MetadataTransferJobProgressTypeDef",
     "MetadataTransferJobStatusTypeDef",
@@ -166,9 +182,13 @@ __all__ = (
     "PropertyRequestTypeDef",
     "PropertyResponseTypeDef",
     "PropertySummaryTypeDef",
+    "PropertyValueEntryOutputTypeDef",
     "PropertyValueEntryTypeDef",
+    "PropertyValueEntryUnionTypeDef",
     "PropertyValueHistoryTypeDef",
+    "PropertyValueOutputTypeDef",
     "PropertyValueTypeDef",
+    "PropertyValueUnionTypeDef",
     "RelationshipTypeDef",
     "RelationshipValueTypeDef",
     "ResponseMetadataTypeDef",
@@ -177,7 +197,9 @@ __all__ = (
     "S3SourceConfigurationTypeDef",
     "SceneErrorTypeDef",
     "SceneSummaryTypeDef",
+    "SourceConfigurationOutputTypeDef",
     "SourceConfigurationTypeDef",
+    "SourceConfigurationUnionTypeDef",
     "StatusTypeDef",
     "SyncJobStatusTypeDef",
     "SyncJobSummaryTypeDef",
@@ -185,2038 +207,1007 @@ __all__ = (
     "SyncResourceStatusTypeDef",
     "SyncResourceSummaryTypeDef",
     "TabularConditionsTypeDef",
-    "TagResourceRequestRequestTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateComponentTypeRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
+    "TimestampTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateComponentTypeRequestTypeDef",
     "UpdateComponentTypeResponseTypeDef",
-    "UpdateEntityRequestRequestTypeDef",
+    "UpdateEntityRequestTypeDef",
     "UpdateEntityResponseTypeDef",
-    "UpdatePricingPlanRequestRequestTypeDef",
+    "UpdatePricingPlanRequestTypeDef",
     "UpdatePricingPlanResponseTypeDef",
-    "UpdateSceneRequestRequestTypeDef",
+    "UpdateSceneRequestTypeDef",
     "UpdateSceneResponseTypeDef",
-    "UpdateWorkspaceRequestRequestTypeDef",
+    "UpdateWorkspaceRequestTypeDef",
     "UpdateWorkspaceResponseTypeDef",
     "WorkspaceSummaryTypeDef",
 )
 
-BatchPutPropertyErrorEntryTypeDef = TypedDict(
-    "BatchPutPropertyErrorEntryTypeDef",
-    {
-        "errors": List["BatchPutPropertyErrorTypeDef"],
-    },
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-BatchPutPropertyErrorTypeDef = TypedDict(
-    "BatchPutPropertyErrorTypeDef",
-    {
-        "errorCode": str,
-        "errorMessage": str,
-        "entry": "PropertyValueEntryTypeDef",
-    },
-)
+class BundleInformationTypeDef(TypedDict):
+    bundleNames: List[str]
+    pricingTier: NotRequired[PricingTierType]
 
-BatchPutPropertyValuesRequestRequestTypeDef = TypedDict(
-    "BatchPutPropertyValuesRequestRequestTypeDef",
-    {
-        "workspaceId": str,
-        "entries": List["PropertyValueEntryTypeDef"],
-    },
-)
+class CancelMetadataTransferJobRequestTypeDef(TypedDict):
+    metadataTransferJobId: str
 
-BatchPutPropertyValuesResponseTypeDef = TypedDict(
-    "BatchPutPropertyValuesResponseTypeDef",
-    {
-        "errorEntries": List["BatchPutPropertyErrorEntryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredBundleInformationTypeDef = TypedDict(
-    "_RequiredBundleInformationTypeDef",
-    {
-        "bundleNames": List[str],
-    },
-)
-_OptionalBundleInformationTypeDef = TypedDict(
-    "_OptionalBundleInformationTypeDef",
-    {
-        "pricingTier": PricingTierType,
-    },
-    total=False,
-)
-
-class BundleInformationTypeDef(
-    _RequiredBundleInformationTypeDef, _OptionalBundleInformationTypeDef
-):
-    pass
-
-CancelMetadataTransferJobRequestRequestTypeDef = TypedDict(
-    "CancelMetadataTransferJobRequestRequestTypeDef",
-    {
-        "metadataTransferJobId": str,
-    },
-)
-
-CancelMetadataTransferJobResponseTypeDef = TypedDict(
-    "CancelMetadataTransferJobResponseTypeDef",
-    {
-        "metadataTransferJobId": str,
-        "arn": str,
-        "updateDateTime": datetime,
-        "status": "MetadataTransferJobStatusTypeDef",
-        "progress": "MetadataTransferJobProgressTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class MetadataTransferJobProgressTypeDef(TypedDict):
+    totalCount: NotRequired[int]
+    succeededCount: NotRequired[int]
+    skippedCount: NotRequired[int]
+    failedCount: NotRequired[int]
 
 ColumnDescriptionTypeDef = TypedDict(
     "ColumnDescriptionTypeDef",
     {
-        "name": str,
-        "type": ColumnTypeType,
-    },
-    total=False,
-)
-
-ComponentPropertyGroupRequestTypeDef = TypedDict(
-    "ComponentPropertyGroupRequestTypeDef",
-    {
-        "groupType": Literal["TABULAR"],
-        "propertyNames": List[str],
-        "updateType": PropertyGroupUpdateTypeType,
-    },
-    total=False,
-)
-
-ComponentPropertyGroupResponseTypeDef = TypedDict(
-    "ComponentPropertyGroupResponseTypeDef",
-    {
-        "groupType": Literal["TABULAR"],
-        "propertyNames": List[str],
-        "isInherited": bool,
+        "name": NotRequired[str],
+        "type": NotRequired[ColumnTypeType],
     },
 )
 
-ComponentRequestTypeDef = TypedDict(
-    "ComponentRequestTypeDef",
-    {
-        "description": str,
-        "componentTypeId": str,
-        "properties": Dict[str, "PropertyRequestTypeDef"],
-        "propertyGroups": Dict[str, "ComponentPropertyGroupRequestTypeDef"],
-    },
-    total=False,
-)
+class ComponentPropertyGroupRequestTypeDef(TypedDict):
+    groupType: NotRequired[Literal["TABULAR"]]
+    propertyNames: NotRequired[Sequence[str]]
+    updateType: NotRequired[PropertyGroupUpdateTypeType]
 
-ComponentResponseTypeDef = TypedDict(
-    "ComponentResponseTypeDef",
-    {
-        "componentName": str,
-        "description": str,
-        "componentTypeId": str,
-        "status": "StatusTypeDef",
-        "definedIn": str,
-        "properties": Dict[str, "PropertyResponseTypeDef"],
-        "propertyGroups": Dict[str, "ComponentPropertyGroupResponseTypeDef"],
-        "syncSource": str,
-        "areAllPropertiesReturned": bool,
-        "compositeComponents": Dict[str, "ComponentSummaryTypeDef"],
-        "areAllCompositeComponentsReturned": bool,
-    },
-    total=False,
-)
+class ComponentPropertyGroupResponseTypeDef(TypedDict):
+    groupType: Literal["TABULAR"]
+    propertyNames: List[str]
+    isInherited: bool
 
-_RequiredComponentSummaryTypeDef = TypedDict(
-    "_RequiredComponentSummaryTypeDef",
-    {
-        "componentName": str,
-        "componentTypeId": str,
-        "status": "StatusTypeDef",
-    },
-)
-_OptionalComponentSummaryTypeDef = TypedDict(
-    "_OptionalComponentSummaryTypeDef",
-    {
-        "definedIn": str,
-        "description": str,
-        "propertyGroups": Dict[str, "ComponentPropertyGroupResponseTypeDef"],
-        "syncSource": str,
-        "componentPath": str,
-    },
-    total=False,
-)
+class CompositeComponentTypeRequestTypeDef(TypedDict):
+    componentTypeId: NotRequired[str]
 
-class ComponentSummaryTypeDef(_RequiredComponentSummaryTypeDef, _OptionalComponentSummaryTypeDef):
-    pass
+class CompositeComponentTypeResponseTypeDef(TypedDict):
+    componentTypeId: NotRequired[str]
+    isInherited: NotRequired[bool]
 
-_RequiredComponentTypeSummaryTypeDef = TypedDict(
-    "_RequiredComponentTypeSummaryTypeDef",
-    {
-        "arn": str,
-        "componentTypeId": str,
-        "creationDateTime": datetime,
-        "updateDateTime": datetime,
-    },
-)
-_OptionalComponentTypeSummaryTypeDef = TypedDict(
-    "_OptionalComponentTypeSummaryTypeDef",
-    {
-        "description": str,
-        "status": "StatusTypeDef",
-        "componentTypeName": str,
-    },
-    total=False,
-)
+class PropertyGroupRequestTypeDef(TypedDict):
+    groupType: NotRequired[Literal["TABULAR"]]
+    propertyNames: NotRequired[Sequence[str]]
 
-class ComponentTypeSummaryTypeDef(
-    _RequiredComponentTypeSummaryTypeDef, _OptionalComponentTypeSummaryTypeDef
-):
-    pass
+class CreateSceneRequestTypeDef(TypedDict):
+    workspaceId: str
+    sceneId: str
+    contentLocation: str
+    description: NotRequired[str]
+    capabilities: NotRequired[Sequence[str]]
+    tags: NotRequired[Mapping[str, str]]
+    sceneMetadata: NotRequired[Mapping[str, str]]
 
-ComponentUpdateRequestTypeDef = TypedDict(
-    "ComponentUpdateRequestTypeDef",
-    {
-        "updateType": ComponentUpdateTypeType,
-        "description": str,
-        "componentTypeId": str,
-        "propertyUpdates": Dict[str, "PropertyRequestTypeDef"],
-        "propertyGroupUpdates": Dict[str, "ComponentPropertyGroupRequestTypeDef"],
-    },
-    total=False,
-)
+class CreateSyncJobRequestTypeDef(TypedDict):
+    workspaceId: str
+    syncSource: str
+    syncRole: str
+    tags: NotRequired[Mapping[str, str]]
 
-CompositeComponentRequestTypeDef = TypedDict(
-    "CompositeComponentRequestTypeDef",
-    {
-        "description": str,
-        "properties": Dict[str, "PropertyRequestTypeDef"],
-        "propertyGroups": Dict[str, "ComponentPropertyGroupRequestTypeDef"],
-    },
-    total=False,
-)
+class CreateWorkspaceRequestTypeDef(TypedDict):
+    workspaceId: str
+    description: NotRequired[str]
+    s3Location: NotRequired[str]
+    role: NotRequired[str]
+    tags: NotRequired[Mapping[str, str]]
 
-CompositeComponentTypeRequestTypeDef = TypedDict(
-    "CompositeComponentTypeRequestTypeDef",
-    {
-        "componentTypeId": str,
-    },
-    total=False,
-)
+class LambdaFunctionTypeDef(TypedDict):
+    arn: str
 
-CompositeComponentTypeResponseTypeDef = TypedDict(
-    "CompositeComponentTypeResponseTypeDef",
-    {
-        "componentTypeId": str,
-        "isInherited": bool,
-    },
-    total=False,
-)
+class RelationshipTypeDef(TypedDict):
+    targetComponentTypeId: NotRequired[str]
+    relationshipType: NotRequired[str]
 
-CompositeComponentUpdateRequestTypeDef = TypedDict(
-    "CompositeComponentUpdateRequestTypeDef",
-    {
-        "updateType": ComponentUpdateTypeType,
-        "description": str,
-        "propertyUpdates": Dict[str, "PropertyRequestTypeDef"],
-        "propertyGroupUpdates": Dict[str, "ComponentPropertyGroupRequestTypeDef"],
-    },
-    total=False,
-)
+class RelationshipValueTypeDef(TypedDict):
+    targetEntityId: NotRequired[str]
+    targetComponentName: NotRequired[str]
 
-_RequiredCreateComponentTypeRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateComponentTypeRequestRequestTypeDef",
-    {
-        "workspaceId": str,
-        "componentTypeId": str,
-    },
-)
-_OptionalCreateComponentTypeRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateComponentTypeRequestRequestTypeDef",
-    {
-        "isSingleton": bool,
-        "description": str,
-        "propertyDefinitions": Dict[str, "PropertyDefinitionRequestTypeDef"],
-        "extendsFrom": List[str],
-        "functions": Dict[str, "FunctionRequestTypeDef"],
-        "tags": Dict[str, str],
-        "propertyGroups": Dict[str, "PropertyGroupRequestTypeDef"],
-        "componentTypeName": str,
-        "compositeComponentTypes": Dict[str, "CompositeComponentTypeRequestTypeDef"],
-    },
-    total=False,
-)
+class DeleteComponentTypeRequestTypeDef(TypedDict):
+    workspaceId: str
+    componentTypeId: str
 
-class CreateComponentTypeRequestRequestTypeDef(
-    _RequiredCreateComponentTypeRequestRequestTypeDef,
-    _OptionalCreateComponentTypeRequestRequestTypeDef,
-):
-    pass
+class DeleteEntityRequestTypeDef(TypedDict):
+    workspaceId: str
+    entityId: str
+    isRecursive: NotRequired[bool]
 
-CreateComponentTypeResponseTypeDef = TypedDict(
-    "CreateComponentTypeResponseTypeDef",
-    {
-        "arn": str,
-        "creationDateTime": datetime,
-        "state": StateType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DeleteSceneRequestTypeDef(TypedDict):
+    workspaceId: str
+    sceneId: str
 
-_RequiredCreateEntityRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateEntityRequestRequestTypeDef",
-    {
-        "workspaceId": str,
-        "entityName": str,
-    },
-)
-_OptionalCreateEntityRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateEntityRequestRequestTypeDef",
-    {
-        "entityId": str,
-        "description": str,
-        "components": Dict[str, "ComponentRequestTypeDef"],
-        "compositeComponents": Dict[str, "CompositeComponentRequestTypeDef"],
-        "parentEntityId": str,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
+class DeleteSyncJobRequestTypeDef(TypedDict):
+    workspaceId: str
+    syncSource: str
 
-class CreateEntityRequestRequestTypeDef(
-    _RequiredCreateEntityRequestRequestTypeDef, _OptionalCreateEntityRequestRequestTypeDef
-):
-    pass
+class DeleteWorkspaceRequestTypeDef(TypedDict):
+    workspaceId: str
 
-CreateEntityResponseTypeDef = TypedDict(
-    "CreateEntityResponseTypeDef",
-    {
-        "entityId": str,
-        "arn": str,
-        "creationDateTime": datetime,
-        "state": StateType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class IotTwinMakerDestinationConfigurationTypeDef(TypedDict):
+    workspace: str
 
-_RequiredCreateMetadataTransferJobRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateMetadataTransferJobRequestRequestTypeDef",
-    {
-        "sources": List["SourceConfigurationTypeDef"],
-        "destination": "DestinationConfigurationTypeDef",
-    },
-)
-_OptionalCreateMetadataTransferJobRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateMetadataTransferJobRequestRequestTypeDef",
-    {
-        "metadataTransferJobId": str,
-        "description": str,
-    },
-    total=False,
-)
+class S3DestinationConfigurationTypeDef(TypedDict):
+    location: str
 
-class CreateMetadataTransferJobRequestRequestTypeDef(
-    _RequiredCreateMetadataTransferJobRequestRequestTypeDef,
-    _OptionalCreateMetadataTransferJobRequestRequestTypeDef,
-):
-    pass
+class EntityPropertyReferenceOutputTypeDef(TypedDict):
+    propertyName: str
+    componentName: NotRequired[str]
+    componentPath: NotRequired[str]
+    externalIdProperty: NotRequired[Dict[str, str]]
+    entityId: NotRequired[str]
 
-CreateMetadataTransferJobResponseTypeDef = TypedDict(
-    "CreateMetadataTransferJobResponseTypeDef",
-    {
-        "metadataTransferJobId": str,
-        "arn": str,
-        "creationDateTime": datetime,
-        "status": "MetadataTransferJobStatusTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class EntityPropertyReferenceTypeDef(TypedDict):
+    propertyName: str
+    componentName: NotRequired[str]
+    componentPath: NotRequired[str]
+    externalIdProperty: NotRequired[Mapping[str, str]]
+    entityId: NotRequired[str]
 
-_RequiredCreateSceneRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateSceneRequestRequestTypeDef",
-    {
-        "workspaceId": str,
-        "sceneId": str,
-        "contentLocation": str,
-    },
-)
-_OptionalCreateSceneRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateSceneRequestRequestTypeDef",
-    {
-        "description": str,
-        "capabilities": List[str],
-        "tags": Dict[str, str],
-        "sceneMetadata": Dict[str, str],
-    },
-    total=False,
-)
+class ErrorDetailsTypeDef(TypedDict):
+    code: NotRequired[ErrorCodeType]
+    message: NotRequired[str]
 
-class CreateSceneRequestRequestTypeDef(
-    _RequiredCreateSceneRequestRequestTypeDef, _OptionalCreateSceneRequestRequestTypeDef
-):
-    pass
+class ExecuteQueryRequestTypeDef(TypedDict):
+    workspaceId: str
+    queryStatement: str
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
 
-CreateSceneResponseTypeDef = TypedDict(
-    "CreateSceneResponseTypeDef",
-    {
-        "arn": str,
-        "creationDateTime": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class RowTypeDef(TypedDict):
+    rowData: NotRequired[List[Dict[str, Any]]]
 
-_RequiredCreateSyncJobRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateSyncJobRequestRequestTypeDef",
-    {
-        "workspaceId": str,
-        "syncSource": str,
-        "syncRole": str,
-    },
-)
-_OptionalCreateSyncJobRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateSyncJobRequestRequestTypeDef",
-    {
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
+class FilterByAssetModelTypeDef(TypedDict):
+    assetModelId: NotRequired[str]
+    assetModelExternalId: NotRequired[str]
+    includeOffspring: NotRequired[bool]
+    includeAssets: NotRequired[bool]
 
-class CreateSyncJobRequestRequestTypeDef(
-    _RequiredCreateSyncJobRequestRequestTypeDef, _OptionalCreateSyncJobRequestRequestTypeDef
-):
-    pass
+class FilterByAssetTypeDef(TypedDict):
+    assetId: NotRequired[str]
+    assetExternalId: NotRequired[str]
+    includeOffspring: NotRequired[bool]
+    includeAssetModel: NotRequired[bool]
 
-CreateSyncJobResponseTypeDef = TypedDict(
-    "CreateSyncJobResponseTypeDef",
-    {
-        "arn": str,
-        "creationDateTime": datetime,
-        "state": SyncJobStateType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class FilterByComponentTypeTypeDef(TypedDict):
+    componentTypeId: str
 
-_RequiredCreateWorkspaceRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateWorkspaceRequestRequestTypeDef",
-    {
-        "workspaceId": str,
-    },
-)
-_OptionalCreateWorkspaceRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateWorkspaceRequestRequestTypeDef",
-    {
-        "description": str,
-        "s3Location": str,
-        "role": str,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
+class FilterByEntityTypeDef(TypedDict):
+    entityId: str
 
-class CreateWorkspaceRequestRequestTypeDef(
-    _RequiredCreateWorkspaceRequestRequestTypeDef, _OptionalCreateWorkspaceRequestRequestTypeDef
-):
-    pass
+class GetComponentTypeRequestTypeDef(TypedDict):
+    workspaceId: str
+    componentTypeId: str
 
-CreateWorkspaceResponseTypeDef = TypedDict(
-    "CreateWorkspaceResponseTypeDef",
-    {
-        "arn": str,
-        "creationDateTime": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class PropertyGroupResponseTypeDef(TypedDict):
+    groupType: Literal["TABULAR"]
+    propertyNames: List[str]
+    isInherited: bool
+
+class GetEntityRequestTypeDef(TypedDict):
+    workspaceId: str
+    entityId: str
+
+class GetMetadataTransferJobRequestTypeDef(TypedDict):
+    metadataTransferJobId: str
+
+class InterpolationParametersTypeDef(TypedDict):
+    interpolationType: NotRequired[Literal["LINEAR"]]
+    intervalInSeconds: NotRequired[int]
+
+TimestampTypeDef = Union[datetime, str]
+
+class GetSceneRequestTypeDef(TypedDict):
+    workspaceId: str
+    sceneId: str
+
+class SceneErrorTypeDef(TypedDict):
+    code: NotRequired[Literal["MATTERPORT_ERROR"]]
+    message: NotRequired[str]
+
+class GetSyncJobRequestTypeDef(TypedDict):
+    syncSource: str
+    workspaceId: NotRequired[str]
+
+class GetWorkspaceRequestTypeDef(TypedDict):
+    workspaceId: str
+
+class ListComponentTypesFilterTypeDef(TypedDict):
+    extendsFrom: NotRequired[str]
+    namespace: NotRequired[str]
+    isAbstract: NotRequired[bool]
+
+class ListComponentsRequestTypeDef(TypedDict):
+    workspaceId: str
+    entityId: str
+    componentPath: NotRequired[str]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListEntitiesFilterTypeDef(TypedDict):
+    parentEntityId: NotRequired[str]
+    componentTypeId: NotRequired[str]
+    externalId: NotRequired[str]
+
+class ListMetadataTransferJobsFilterTypeDef(TypedDict):
+    workspaceId: NotRequired[str]
+    state: NotRequired[MetadataTransferJobStateType]
+
+class ListPropertiesRequestTypeDef(TypedDict):
+    workspaceId: str
+    entityId: str
+    componentName: NotRequired[str]
+    componentPath: NotRequired[str]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListScenesRequestTypeDef(TypedDict):
+    workspaceId: str
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class SceneSummaryTypeDef(TypedDict):
+    sceneId: str
+    contentLocation: str
+    arn: str
+    creationDateTime: datetime
+    updateDateTime: datetime
+    description: NotRequired[str]
+
+class ListSyncJobsRequestTypeDef(TypedDict):
+    workspaceId: str
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class SyncResourceFilterTypeDef(TypedDict):
+    state: NotRequired[SyncResourceStateType]
+    resourceType: NotRequired[SyncResourceTypeType]
+    resourceId: NotRequired[str]
+    externalId: NotRequired[str]
+
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    resourceARN: str
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListWorkspacesRequestTypeDef(TypedDict):
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class WorkspaceSummaryTypeDef(TypedDict):
+    workspaceId: str
+    arn: str
+    creationDateTime: datetime
+    updateDateTime: datetime
+    description: NotRequired[str]
+    linkedServices: NotRequired[List[str]]
+
+class OrderByTypeDef(TypedDict):
+    propertyName: str
+    order: NotRequired[OrderType]
+
+class ParentEntityUpdateRequestTypeDef(TypedDict):
+    updateType: ParentEntityUpdateTypeType
+    parentEntityId: NotRequired[str]
+
+class S3SourceConfigurationTypeDef(TypedDict):
+    location: str
+
+class TagResourceRequestTypeDef(TypedDict):
+    resourceARN: str
+    tags: Mapping[str, str]
+
+class UntagResourceRequestTypeDef(TypedDict):
+    resourceARN: str
+    tagKeys: Sequence[str]
+
+class UpdatePricingPlanRequestTypeDef(TypedDict):
+    pricingMode: PricingModeType
+    bundleNames: NotRequired[Sequence[str]]
+
+class UpdateSceneRequestTypeDef(TypedDict):
+    workspaceId: str
+    sceneId: str
+    contentLocation: NotRequired[str]
+    description: NotRequired[str]
+    capabilities: NotRequired[Sequence[str]]
+    sceneMetadata: NotRequired[Mapping[str, str]]
+
+class UpdateWorkspaceRequestTypeDef(TypedDict):
+    workspaceId: str
+    description: NotRequired[str]
+    role: NotRequired[str]
+    s3Location: NotRequired[str]
+
+class CreateComponentTypeResponseTypeDef(TypedDict):
+    arn: str
+    creationDateTime: datetime
+    state: StateType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateEntityResponseTypeDef(TypedDict):
+    entityId: str
+    arn: str
+    creationDateTime: datetime
+    state: StateType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateSceneResponseTypeDef(TypedDict):
+    arn: str
+    creationDateTime: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateSyncJobResponseTypeDef(TypedDict):
+    arn: str
+    creationDateTime: datetime
+    state: SyncJobStateType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateWorkspaceResponseTypeDef(TypedDict):
+    arn: str
+    creationDateTime: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteComponentTypeResponseTypeDef(TypedDict):
+    state: StateType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteEntityResponseTypeDef(TypedDict):
+    state: StateType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteSyncJobResponseTypeDef(TypedDict):
+    state: SyncJobStateType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteWorkspaceResponseTypeDef(TypedDict):
+    message: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetWorkspaceResponseTypeDef(TypedDict):
+    workspaceId: str
+    arn: str
+    description: str
+    linkedServices: List[str]
+    s3Location: str
+    role: str
+    creationDateTime: datetime
+    updateDateTime: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class UpdateComponentTypeResponseTypeDef(TypedDict):
+    workspaceId: str
+    arn: str
+    componentTypeId: str
+    state: StateType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateEntityResponseTypeDef(TypedDict):
+    updateDateTime: datetime
+    state: StateType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateSceneResponseTypeDef(TypedDict):
+    updateDateTime: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateWorkspaceResponseTypeDef(TypedDict):
+    updateDateTime: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PricingPlanTypeDef(TypedDict):
+    effectiveDateTime: datetime
+    pricingMode: PricingModeType
+    updateDateTime: datetime
+    updateReason: UpdateReasonType
+    billableEntityCount: NotRequired[int]
+    bundleInformation: NotRequired[BundleInformationTypeDef]
 
 DataConnectorTypeDef = TypedDict(
     "DataConnectorTypeDef",
     {
-        "lambda": "LambdaFunctionTypeDef",
-        "isNative": bool,
-    },
-    total=False,
-)
-
-_RequiredDataTypeTypeDef = TypedDict(
-    "_RequiredDataTypeTypeDef",
-    {
-        "type": TypeType,
-    },
-)
-_OptionalDataTypeTypeDef = TypedDict(
-    "_OptionalDataTypeTypeDef",
-    {
-        "nestedType": Dict[str, Any],
-        "allowedValues": List["DataValueTypeDef"],
-        "unitOfMeasure": str,
-        "relationship": "RelationshipTypeDef",
-    },
-    total=False,
-)
-
-class DataTypeTypeDef(_RequiredDataTypeTypeDef, _OptionalDataTypeTypeDef):
-    pass
-
-DataValueTypeDef = TypedDict(
-    "DataValueTypeDef",
-    {
-        "booleanValue": bool,
-        "doubleValue": float,
-        "integerValue": int,
-        "longValue": int,
-        "stringValue": str,
-        "listValue": List[Dict[str, Any]],
-        "mapValue": Dict[str, Dict[str, Any]],
-        "relationshipValue": "RelationshipValueTypeDef",
-        "expression": str,
-    },
-    total=False,
-)
-
-DeleteComponentTypeRequestRequestTypeDef = TypedDict(
-    "DeleteComponentTypeRequestRequestTypeDef",
-    {
-        "workspaceId": str,
-        "componentTypeId": str,
+        "lambda": NotRequired[LambdaFunctionTypeDef],
+        "isNative": NotRequired[bool],
     },
 )
 
-DeleteComponentTypeResponseTypeDef = TypedDict(
-    "DeleteComponentTypeResponseTypeDef",
-    {
-        "state": StateType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DataValueOutputTypeDef(TypedDict):
+    booleanValue: NotRequired[bool]
+    doubleValue: NotRequired[float]
+    integerValue: NotRequired[int]
+    longValue: NotRequired[int]
+    stringValue: NotRequired[str]
+    listValue: NotRequired[List[Dict[str, Any]]]
+    mapValue: NotRequired[Dict[str, Dict[str, Any]]]
+    relationshipValue: NotRequired[RelationshipValueTypeDef]
+    expression: NotRequired[str]
 
-_RequiredDeleteEntityRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteEntityRequestRequestTypeDef",
-    {
-        "workspaceId": str,
-        "entityId": str,
-    },
-)
-_OptionalDeleteEntityRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteEntityRequestRequestTypeDef",
-    {
-        "isRecursive": bool,
-    },
-    total=False,
-)
+class DataValueTypeDef(TypedDict):
+    booleanValue: NotRequired[bool]
+    doubleValue: NotRequired[float]
+    integerValue: NotRequired[int]
+    longValue: NotRequired[int]
+    stringValue: NotRequired[str]
+    listValue: NotRequired[Sequence[Mapping[str, Any]]]
+    mapValue: NotRequired[Mapping[str, Mapping[str, Any]]]
+    relationshipValue: NotRequired[RelationshipValueTypeDef]
+    expression: NotRequired[str]
 
-class DeleteEntityRequestRequestTypeDef(
-    _RequiredDeleteEntityRequestRequestTypeDef, _OptionalDeleteEntityRequestRequestTypeDef
-):
-    pass
-
-DeleteEntityResponseTypeDef = TypedDict(
-    "DeleteEntityResponseTypeDef",
-    {
-        "state": StateType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteSceneRequestRequestTypeDef = TypedDict(
-    "DeleteSceneRequestRequestTypeDef",
-    {
-        "workspaceId": str,
-        "sceneId": str,
-    },
-)
-
-DeleteSyncJobRequestRequestTypeDef = TypedDict(
-    "DeleteSyncJobRequestRequestTypeDef",
-    {
-        "workspaceId": str,
-        "syncSource": str,
-    },
-)
-
-DeleteSyncJobResponseTypeDef = TypedDict(
-    "DeleteSyncJobResponseTypeDef",
-    {
-        "state": SyncJobStateType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteWorkspaceRequestRequestTypeDef = TypedDict(
-    "DeleteWorkspaceRequestRequestTypeDef",
-    {
-        "workspaceId": str,
-    },
-)
-
-DeleteWorkspaceResponseTypeDef = TypedDict(
-    "DeleteWorkspaceResponseTypeDef",
-    {
-        "message": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDestinationConfigurationTypeDef = TypedDict(
-    "_RequiredDestinationConfigurationTypeDef",
+DestinationConfigurationTypeDef = TypedDict(
+    "DestinationConfigurationTypeDef",
     {
         "type": DestinationTypeType,
+        "s3Configuration": NotRequired[S3DestinationConfigurationTypeDef],
+        "iotTwinMakerConfiguration": NotRequired[IotTwinMakerDestinationConfigurationTypeDef],
+    },
+)
+EntityPropertyReferenceUnionTypeDef = Union[
+    EntityPropertyReferenceTypeDef, EntityPropertyReferenceOutputTypeDef
+]
+
+class MetadataTransferJobStatusTypeDef(TypedDict):
+    state: NotRequired[MetadataTransferJobStateType]
+    error: NotRequired[ErrorDetailsTypeDef]
+    queuedPosition: NotRequired[int]
+
+class StatusTypeDef(TypedDict):
+    state: NotRequired[StateType]
+    error: NotRequired[ErrorDetailsTypeDef]
+
+class SyncJobStatusTypeDef(TypedDict):
+    state: NotRequired[SyncJobStateType]
+    error: NotRequired[ErrorDetailsTypeDef]
+
+class SyncResourceStatusTypeDef(TypedDict):
+    state: NotRequired[SyncResourceStateType]
+    error: NotRequired[ErrorDetailsTypeDef]
+
+class ExecuteQueryResponseTypeDef(TypedDict):
+    columnDescriptions: List[ColumnDescriptionTypeDef]
+    rows: List[RowTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class IotSiteWiseSourceConfigurationFilterTypeDef(TypedDict):
+    filterByAssetModel: NotRequired[FilterByAssetModelTypeDef]
+    filterByAsset: NotRequired[FilterByAssetTypeDef]
+
+class IotTwinMakerSourceConfigurationFilterTypeDef(TypedDict):
+    filterByComponentType: NotRequired[FilterByComponentTypeTypeDef]
+    filterByEntity: NotRequired[FilterByEntityTypeDef]
+
+class GetSceneResponseTypeDef(TypedDict):
+    workspaceId: str
+    sceneId: str
+    contentLocation: str
+    arn: str
+    creationDateTime: datetime
+    updateDateTime: datetime
+    description: str
+    capabilities: List[str]
+    sceneMetadata: Dict[str, str]
+    generatedSceneMetadata: Dict[str, str]
+    error: SceneErrorTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListComponentTypesRequestTypeDef(TypedDict):
+    workspaceId: str
+    filters: NotRequired[Sequence[ListComponentTypesFilterTypeDef]]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class ListEntitiesRequestTypeDef(TypedDict):
+    workspaceId: str
+    filters: NotRequired[Sequence[ListEntitiesFilterTypeDef]]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListMetadataTransferJobsRequestTypeDef(TypedDict):
+    sourceType: SourceTypeType
+    destinationType: DestinationTypeType
+    filters: NotRequired[Sequence[ListMetadataTransferJobsFilterTypeDef]]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class ListScenesResponseTypeDef(TypedDict):
+    sceneSummaries: List[SceneSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListSyncResourcesRequestTypeDef(TypedDict):
+    workspaceId: str
+    syncSource: str
+    filters: NotRequired[Sequence[SyncResourceFilterTypeDef]]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListWorkspacesResponseTypeDef(TypedDict):
+    workspaceSummaries: List[WorkspaceSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class GetPricingPlanResponseTypeDef(TypedDict):
+    currentPricingPlan: PricingPlanTypeDef
+    pendingPricingPlan: PricingPlanTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdatePricingPlanResponseTypeDef(TypedDict):
+    currentPricingPlan: PricingPlanTypeDef
+    pendingPricingPlan: PricingPlanTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class FunctionRequestTypeDef(TypedDict):
+    requiredProperties: NotRequired[Sequence[str]]
+    scope: NotRequired[ScopeType]
+    implementedBy: NotRequired[DataConnectorTypeDef]
+
+class FunctionResponseTypeDef(TypedDict):
+    requiredProperties: NotRequired[List[str]]
+    scope: NotRequired[ScopeType]
+    implementedBy: NotRequired[DataConnectorTypeDef]
+    isInherited: NotRequired[bool]
+
+DataTypeOutputTypeDef = TypedDict(
+    "DataTypeOutputTypeDef",
+    {
+        "type": TypeType,
+        "nestedType": NotRequired[Dict[str, Any]],
+        "allowedValues": NotRequired[List[DataValueOutputTypeDef]],
+        "unitOfMeasure": NotRequired[str],
+        "relationship": NotRequired[RelationshipTypeDef],
+    },
+)
+
+class PropertyLatestValueTypeDef(TypedDict):
+    propertyReference: EntityPropertyReferenceOutputTypeDef
+    propertyValue: NotRequired[DataValueOutputTypeDef]
+
+class PropertyValueOutputTypeDef(TypedDict):
+    value: DataValueOutputTypeDef
+    timestamp: NotRequired[datetime]
+    time: NotRequired[str]
+
+DataValueUnionTypeDef = Union[DataValueTypeDef, DataValueOutputTypeDef]
+
+class CancelMetadataTransferJobResponseTypeDef(TypedDict):
+    metadataTransferJobId: str
+    arn: str
+    updateDateTime: datetime
+    status: MetadataTransferJobStatusTypeDef
+    progress: MetadataTransferJobProgressTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateMetadataTransferJobResponseTypeDef(TypedDict):
+    metadataTransferJobId: str
+    arn: str
+    creationDateTime: datetime
+    status: MetadataTransferJobStatusTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class MetadataTransferJobSummaryTypeDef(TypedDict):
+    metadataTransferJobId: str
+    arn: str
+    creationDateTime: datetime
+    updateDateTime: datetime
+    status: MetadataTransferJobStatusTypeDef
+    progress: NotRequired[MetadataTransferJobProgressTypeDef]
+
+class ComponentSummaryTypeDef(TypedDict):
+    componentName: str
+    componentTypeId: str
+    status: StatusTypeDef
+    definedIn: NotRequired[str]
+    description: NotRequired[str]
+    propertyGroups: NotRequired[Dict[str, ComponentPropertyGroupResponseTypeDef]]
+    syncSource: NotRequired[str]
+    componentPath: NotRequired[str]
+
+class ComponentTypeSummaryTypeDef(TypedDict):
+    arn: str
+    componentTypeId: str
+    creationDateTime: datetime
+    updateDateTime: datetime
+    description: NotRequired[str]
+    status: NotRequired[StatusTypeDef]
+    componentTypeName: NotRequired[str]
+
+class EntitySummaryTypeDef(TypedDict):
+    entityId: str
+    entityName: str
+    arn: str
+    status: StatusTypeDef
+    creationDateTime: datetime
+    updateDateTime: datetime
+    parentEntityId: NotRequired[str]
+    description: NotRequired[str]
+    hasChildEntities: NotRequired[bool]
+
+class GetSyncJobResponseTypeDef(TypedDict):
+    arn: str
+    workspaceId: str
+    syncSource: str
+    syncRole: str
+    status: SyncJobStatusTypeDef
+    creationDateTime: datetime
+    updateDateTime: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class SyncJobSummaryTypeDef(TypedDict):
+    arn: NotRequired[str]
+    workspaceId: NotRequired[str]
+    syncSource: NotRequired[str]
+    status: NotRequired[SyncJobStatusTypeDef]
+    creationDateTime: NotRequired[datetime]
+    updateDateTime: NotRequired[datetime]
+
+class SyncResourceSummaryTypeDef(TypedDict):
+    resourceType: NotRequired[SyncResourceTypeType]
+    externalId: NotRequired[str]
+    resourceId: NotRequired[str]
+    status: NotRequired[SyncResourceStatusTypeDef]
+    updateDateTime: NotRequired[datetime]
+
+class IotSiteWiseSourceConfigurationOutputTypeDef(TypedDict):
+    filters: NotRequired[List[IotSiteWiseSourceConfigurationFilterTypeDef]]
+
+class IotSiteWiseSourceConfigurationTypeDef(TypedDict):
+    filters: NotRequired[Sequence[IotSiteWiseSourceConfigurationFilterTypeDef]]
+
+class IotTwinMakerSourceConfigurationOutputTypeDef(TypedDict):
+    workspace: str
+    filters: NotRequired[List[IotTwinMakerSourceConfigurationFilterTypeDef]]
+
+class IotTwinMakerSourceConfigurationTypeDef(TypedDict):
+    workspace: str
+    filters: NotRequired[Sequence[IotTwinMakerSourceConfigurationFilterTypeDef]]
+
+class PropertyDefinitionResponseTypeDef(TypedDict):
+    dataType: DataTypeOutputTypeDef
+    isTimeSeries: bool
+    isRequiredInEntity: bool
+    isExternalId: bool
+    isStoredExternally: bool
+    isImported: bool
+    isFinal: bool
+    isInherited: bool
+    defaultValue: NotRequired[DataValueOutputTypeDef]
+    configuration: NotRequired[Dict[str, str]]
+    displayName: NotRequired[str]
+
+class GetPropertyValueResponseTypeDef(TypedDict):
+    propertyValues: Dict[str, PropertyLatestValueTypeDef]
+    tabularPropertyValues: List[List[Dict[str, DataValueOutputTypeDef]]]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class PropertyValueEntryOutputTypeDef(TypedDict):
+    entityPropertyReference: EntityPropertyReferenceOutputTypeDef
+    propertyValues: NotRequired[List[PropertyValueOutputTypeDef]]
+
+class PropertyValueHistoryTypeDef(TypedDict):
+    entityPropertyReference: EntityPropertyReferenceOutputTypeDef
+    values: NotRequired[List[PropertyValueOutputTypeDef]]
+
+DataTypeTypeDef = TypedDict(
+    "DataTypeTypeDef",
+    {
+        "type": TypeType,
+        "nestedType": NotRequired[Mapping[str, Any]],
+        "allowedValues": NotRequired[Sequence[DataValueUnionTypeDef]],
+        "unitOfMeasure": NotRequired[str],
+        "relationship": NotRequired[RelationshipTypeDef],
     },
 )
-_OptionalDestinationConfigurationTypeDef = TypedDict(
-    "_OptionalDestinationConfigurationTypeDef",
-    {
-        "s3Configuration": "S3DestinationConfigurationTypeDef",
-        "iotTwinMakerConfiguration": "IotTwinMakerDestinationConfigurationTypeDef",
-    },
-    total=False,
-)
-
-class DestinationConfigurationTypeDef(
-    _RequiredDestinationConfigurationTypeDef, _OptionalDestinationConfigurationTypeDef
-):
-    pass
-
-_RequiredEntityPropertyReferenceTypeDef = TypedDict(
-    "_RequiredEntityPropertyReferenceTypeDef",
-    {
-        "propertyName": str,
-    },
-)
-_OptionalEntityPropertyReferenceTypeDef = TypedDict(
-    "_OptionalEntityPropertyReferenceTypeDef",
-    {
-        "componentName": str,
-        "componentPath": str,
-        "externalIdProperty": Dict[str, str],
-        "entityId": str,
-    },
-    total=False,
-)
-
-class EntityPropertyReferenceTypeDef(
-    _RequiredEntityPropertyReferenceTypeDef, _OptionalEntityPropertyReferenceTypeDef
-):
-    pass
-
-_RequiredEntitySummaryTypeDef = TypedDict(
-    "_RequiredEntitySummaryTypeDef",
-    {
-        "entityId": str,
-        "entityName": str,
-        "arn": str,
-        "status": "StatusTypeDef",
-        "creationDateTime": datetime,
-        "updateDateTime": datetime,
-    },
-)
-_OptionalEntitySummaryTypeDef = TypedDict(
-    "_OptionalEntitySummaryTypeDef",
-    {
-        "parentEntityId": str,
-        "description": str,
-        "hasChildEntities": bool,
-    },
-    total=False,
-)
-
-class EntitySummaryTypeDef(_RequiredEntitySummaryTypeDef, _OptionalEntitySummaryTypeDef):
-    pass
-
-ErrorDetailsTypeDef = TypedDict(
-    "ErrorDetailsTypeDef",
-    {
-        "code": ErrorCodeType,
-        "message": str,
-    },
-    total=False,
-)
-
-_RequiredExecuteQueryRequestRequestTypeDef = TypedDict(
-    "_RequiredExecuteQueryRequestRequestTypeDef",
-    {
-        "workspaceId": str,
-        "queryStatement": str,
-    },
-)
-_OptionalExecuteQueryRequestRequestTypeDef = TypedDict(
-    "_OptionalExecuteQueryRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ExecuteQueryRequestRequestTypeDef(
-    _RequiredExecuteQueryRequestRequestTypeDef, _OptionalExecuteQueryRequestRequestTypeDef
-):
-    pass
-
-ExecuteQueryResponseTypeDef = TypedDict(
-    "ExecuteQueryResponseTypeDef",
-    {
-        "columnDescriptions": List["ColumnDescriptionTypeDef"],
-        "rows": List["RowTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-FilterByAssetModelTypeDef = TypedDict(
-    "FilterByAssetModelTypeDef",
-    {
-        "assetModelId": str,
-        "assetModelExternalId": str,
-        "includeOffspring": bool,
-        "includeAssets": bool,
-    },
-    total=False,
-)
-
-FilterByAssetTypeDef = TypedDict(
-    "FilterByAssetTypeDef",
-    {
-        "assetId": str,
-        "assetExternalId": str,
-        "includeOffspring": bool,
-        "includeAssetModel": bool,
-    },
-    total=False,
-)
-
-FilterByComponentTypeTypeDef = TypedDict(
-    "FilterByComponentTypeTypeDef",
-    {
-        "componentTypeId": str,
-    },
-)
-
-FilterByEntityTypeDef = TypedDict(
-    "FilterByEntityTypeDef",
-    {
-        "entityId": str,
-    },
-)
-
-FunctionRequestTypeDef = TypedDict(
-    "FunctionRequestTypeDef",
-    {
-        "requiredProperties": List[str],
-        "scope": ScopeType,
-        "implementedBy": "DataConnectorTypeDef",
-    },
-    total=False,
-)
-
-FunctionResponseTypeDef = TypedDict(
-    "FunctionResponseTypeDef",
-    {
-        "requiredProperties": List[str],
-        "scope": ScopeType,
-        "implementedBy": "DataConnectorTypeDef",
-        "isInherited": bool,
-    },
-    total=False,
-)
-
-GetComponentTypeRequestRequestTypeDef = TypedDict(
-    "GetComponentTypeRequestRequestTypeDef",
-    {
-        "workspaceId": str,
-        "componentTypeId": str,
-    },
-)
-
-GetComponentTypeResponseTypeDef = TypedDict(
-    "GetComponentTypeResponseTypeDef",
-    {
-        "workspaceId": str,
-        "isSingleton": bool,
-        "componentTypeId": str,
-        "description": str,
-        "propertyDefinitions": Dict[str, "PropertyDefinitionResponseTypeDef"],
-        "extendsFrom": List[str],
-        "functions": Dict[str, "FunctionResponseTypeDef"],
-        "creationDateTime": datetime,
-        "updateDateTime": datetime,
-        "arn": str,
-        "isAbstract": bool,
-        "isSchemaInitialized": bool,
-        "status": "StatusTypeDef",
-        "propertyGroups": Dict[str, "PropertyGroupResponseTypeDef"],
-        "syncSource": str,
-        "componentTypeName": str,
-        "compositeComponentTypes": Dict[str, "CompositeComponentTypeResponseTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetEntityRequestRequestTypeDef = TypedDict(
-    "GetEntityRequestRequestTypeDef",
-    {
-        "workspaceId": str,
-        "entityId": str,
-    },
-)
-
-GetEntityResponseTypeDef = TypedDict(
-    "GetEntityResponseTypeDef",
-    {
-        "entityId": str,
-        "entityName": str,
-        "arn": str,
-        "status": "StatusTypeDef",
-        "workspaceId": str,
-        "description": str,
-        "components": Dict[str, "ComponentResponseTypeDef"],
-        "parentEntityId": str,
-        "hasChildEntities": bool,
-        "creationDateTime": datetime,
-        "updateDateTime": datetime,
-        "syncSource": str,
-        "areAllComponentsReturned": bool,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetMetadataTransferJobRequestRequestTypeDef = TypedDict(
-    "GetMetadataTransferJobRequestRequestTypeDef",
-    {
-        "metadataTransferJobId": str,
-    },
-)
-
-GetMetadataTransferJobResponseTypeDef = TypedDict(
-    "GetMetadataTransferJobResponseTypeDef",
-    {
-        "metadataTransferJobId": str,
-        "arn": str,
-        "description": str,
-        "sources": List["SourceConfigurationTypeDef"],
-        "destination": "DestinationConfigurationTypeDef",
-        "metadataTransferJobRole": str,
-        "reportUrl": str,
-        "creationDateTime": datetime,
-        "updateDateTime": datetime,
-        "status": "MetadataTransferJobStatusTypeDef",
-        "progress": "MetadataTransferJobProgressTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetPricingPlanResponseTypeDef = TypedDict(
-    "GetPricingPlanResponseTypeDef",
-    {
-        "currentPricingPlan": "PricingPlanTypeDef",
-        "pendingPricingPlan": "PricingPlanTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetPropertyValueHistoryRequestRequestTypeDef = TypedDict(
-    "_RequiredGetPropertyValueHistoryRequestRequestTypeDef",
-    {
-        "workspaceId": str,
-        "selectedProperties": List[str],
-    },
-)
-_OptionalGetPropertyValueHistoryRequestRequestTypeDef = TypedDict(
-    "_OptionalGetPropertyValueHistoryRequestRequestTypeDef",
-    {
-        "entityId": str,
-        "componentName": str,
-        "componentPath": str,
-        "componentTypeId": str,
-        "propertyFilters": List["PropertyFilterTypeDef"],
-        "startDateTime": Union[datetime, str],
-        "endDateTime": Union[datetime, str],
-        "interpolation": "InterpolationParametersTypeDef",
-        "nextToken": str,
-        "maxResults": int,
-        "orderByTime": OrderByTimeType,
-        "startTime": str,
-        "endTime": str,
-    },
-    total=False,
-)
-
-class GetPropertyValueHistoryRequestRequestTypeDef(
-    _RequiredGetPropertyValueHistoryRequestRequestTypeDef,
-    _OptionalGetPropertyValueHistoryRequestRequestTypeDef,
-):
-    pass
-
-GetPropertyValueHistoryResponseTypeDef = TypedDict(
-    "GetPropertyValueHistoryResponseTypeDef",
-    {
-        "propertyValues": List["PropertyValueHistoryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetPropertyValueRequestRequestTypeDef = TypedDict(
-    "_RequiredGetPropertyValueRequestRequestTypeDef",
-    {
-        "selectedProperties": List[str],
-        "workspaceId": str,
-    },
-)
-_OptionalGetPropertyValueRequestRequestTypeDef = TypedDict(
-    "_OptionalGetPropertyValueRequestRequestTypeDef",
-    {
-        "componentName": str,
-        "componentPath": str,
-        "componentTypeId": str,
-        "entityId": str,
-        "maxResults": int,
-        "nextToken": str,
-        "propertyGroupName": str,
-        "tabularConditions": "TabularConditionsTypeDef",
-    },
-    total=False,
-)
-
-class GetPropertyValueRequestRequestTypeDef(
-    _RequiredGetPropertyValueRequestRequestTypeDef, _OptionalGetPropertyValueRequestRequestTypeDef
-):
-    pass
-
-GetPropertyValueResponseTypeDef = TypedDict(
-    "GetPropertyValueResponseTypeDef",
-    {
-        "propertyValues": Dict[str, "PropertyLatestValueTypeDef"],
-        "nextToken": str,
-        "tabularPropertyValues": List[List[Dict[str, "DataValueTypeDef"]]],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetSceneRequestRequestTypeDef = TypedDict(
-    "GetSceneRequestRequestTypeDef",
-    {
-        "workspaceId": str,
-        "sceneId": str,
-    },
-)
-
-GetSceneResponseTypeDef = TypedDict(
-    "GetSceneResponseTypeDef",
-    {
-        "workspaceId": str,
-        "sceneId": str,
-        "contentLocation": str,
-        "arn": str,
-        "creationDateTime": datetime,
-        "updateDateTime": datetime,
-        "description": str,
-        "capabilities": List[str],
-        "sceneMetadata": Dict[str, str],
-        "generatedSceneMetadata": Dict[str, str],
-        "error": "SceneErrorTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetSyncJobRequestRequestTypeDef = TypedDict(
-    "_RequiredGetSyncJobRequestRequestTypeDef",
-    {
-        "syncSource": str,
-    },
-)
-_OptionalGetSyncJobRequestRequestTypeDef = TypedDict(
-    "_OptionalGetSyncJobRequestRequestTypeDef",
-    {
-        "workspaceId": str,
-    },
-    total=False,
-)
-
-class GetSyncJobRequestRequestTypeDef(
-    _RequiredGetSyncJobRequestRequestTypeDef, _OptionalGetSyncJobRequestRequestTypeDef
-):
-    pass
-
-GetSyncJobResponseTypeDef = TypedDict(
-    "GetSyncJobResponseTypeDef",
-    {
-        "arn": str,
-        "workspaceId": str,
-        "syncSource": str,
-        "syncRole": str,
-        "status": "SyncJobStatusTypeDef",
-        "creationDateTime": datetime,
-        "updateDateTime": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetWorkspaceRequestRequestTypeDef = TypedDict(
-    "GetWorkspaceRequestRequestTypeDef",
-    {
-        "workspaceId": str,
-    },
-)
-
-GetWorkspaceResponseTypeDef = TypedDict(
-    "GetWorkspaceResponseTypeDef",
-    {
-        "workspaceId": str,
-        "arn": str,
-        "description": str,
-        "linkedServices": List[str],
-        "s3Location": str,
-        "role": str,
-        "creationDateTime": datetime,
-        "updateDateTime": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-InterpolationParametersTypeDef = TypedDict(
-    "InterpolationParametersTypeDef",
-    {
-        "interpolationType": Literal["LINEAR"],
-        "intervalInSeconds": int,
-    },
-    total=False,
-)
-
-IotSiteWiseSourceConfigurationFilterTypeDef = TypedDict(
-    "IotSiteWiseSourceConfigurationFilterTypeDef",
-    {
-        "filterByAssetModel": "FilterByAssetModelTypeDef",
-        "filterByAsset": "FilterByAssetTypeDef",
-    },
-    total=False,
-)
-
-IotSiteWiseSourceConfigurationTypeDef = TypedDict(
-    "IotSiteWiseSourceConfigurationTypeDef",
-    {
-        "filters": List["IotSiteWiseSourceConfigurationFilterTypeDef"],
-    },
-    total=False,
-)
-
-IotTwinMakerDestinationConfigurationTypeDef = TypedDict(
-    "IotTwinMakerDestinationConfigurationTypeDef",
-    {
-        "workspace": str,
-    },
-)
-
-IotTwinMakerSourceConfigurationFilterTypeDef = TypedDict(
-    "IotTwinMakerSourceConfigurationFilterTypeDef",
-    {
-        "filterByComponentType": "FilterByComponentTypeTypeDef",
-        "filterByEntity": "FilterByEntityTypeDef",
-    },
-    total=False,
-)
-
-_RequiredIotTwinMakerSourceConfigurationTypeDef = TypedDict(
-    "_RequiredIotTwinMakerSourceConfigurationTypeDef",
-    {
-        "workspace": str,
-    },
-)
-_OptionalIotTwinMakerSourceConfigurationTypeDef = TypedDict(
-    "_OptionalIotTwinMakerSourceConfigurationTypeDef",
-    {
-        "filters": List["IotTwinMakerSourceConfigurationFilterTypeDef"],
-    },
-    total=False,
-)
-
-class IotTwinMakerSourceConfigurationTypeDef(
-    _RequiredIotTwinMakerSourceConfigurationTypeDef, _OptionalIotTwinMakerSourceConfigurationTypeDef
-):
-    pass
-
-LambdaFunctionTypeDef = TypedDict(
-    "LambdaFunctionTypeDef",
-    {
-        "arn": str,
-    },
-)
-
-ListComponentTypesFilterTypeDef = TypedDict(
-    "ListComponentTypesFilterTypeDef",
-    {
-        "extendsFrom": str,
-        "namespace": str,
-        "isAbstract": bool,
-    },
-    total=False,
-)
-
-_RequiredListComponentTypesRequestRequestTypeDef = TypedDict(
-    "_RequiredListComponentTypesRequestRequestTypeDef",
-    {
-        "workspaceId": str,
-    },
-)
-_OptionalListComponentTypesRequestRequestTypeDef = TypedDict(
-    "_OptionalListComponentTypesRequestRequestTypeDef",
-    {
-        "filters": List["ListComponentTypesFilterTypeDef"],
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-class ListComponentTypesRequestRequestTypeDef(
-    _RequiredListComponentTypesRequestRequestTypeDef,
-    _OptionalListComponentTypesRequestRequestTypeDef,
-):
-    pass
-
-ListComponentTypesResponseTypeDef = TypedDict(
-    "ListComponentTypesResponseTypeDef",
-    {
-        "workspaceId": str,
-        "componentTypeSummaries": List["ComponentTypeSummaryTypeDef"],
-        "nextToken": str,
-        "maxResults": int,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListComponentsRequestRequestTypeDef = TypedDict(
-    "_RequiredListComponentsRequestRequestTypeDef",
-    {
-        "workspaceId": str,
-        "entityId": str,
-    },
-)
-_OptionalListComponentsRequestRequestTypeDef = TypedDict(
-    "_OptionalListComponentsRequestRequestTypeDef",
-    {
-        "componentPath": str,
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListComponentsRequestRequestTypeDef(
-    _RequiredListComponentsRequestRequestTypeDef, _OptionalListComponentsRequestRequestTypeDef
-):
-    pass
-
-ListComponentsResponseTypeDef = TypedDict(
-    "ListComponentsResponseTypeDef",
-    {
-        "componentSummaries": List["ComponentSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListEntitiesFilterTypeDef = TypedDict(
-    "ListEntitiesFilterTypeDef",
-    {
-        "parentEntityId": str,
-        "componentTypeId": str,
-        "externalId": str,
-    },
-    total=False,
-)
-
-_RequiredListEntitiesRequestRequestTypeDef = TypedDict(
-    "_RequiredListEntitiesRequestRequestTypeDef",
-    {
-        "workspaceId": str,
-    },
-)
-_OptionalListEntitiesRequestRequestTypeDef = TypedDict(
-    "_OptionalListEntitiesRequestRequestTypeDef",
-    {
-        "filters": List["ListEntitiesFilterTypeDef"],
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListEntitiesRequestRequestTypeDef(
-    _RequiredListEntitiesRequestRequestTypeDef, _OptionalListEntitiesRequestRequestTypeDef
-):
-    pass
-
-ListEntitiesResponseTypeDef = TypedDict(
-    "ListEntitiesResponseTypeDef",
-    {
-        "entitySummaries": List["EntitySummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListMetadataTransferJobsFilterTypeDef = TypedDict(
-    "ListMetadataTransferJobsFilterTypeDef",
-    {
-        "workspaceId": str,
-        "state": MetadataTransferJobStateType,
-    },
-    total=False,
-)
-
-_RequiredListMetadataTransferJobsRequestRequestTypeDef = TypedDict(
-    "_RequiredListMetadataTransferJobsRequestRequestTypeDef",
-    {
-        "sourceType": SourceTypeType,
-        "destinationType": DestinationTypeType,
-    },
-)
-_OptionalListMetadataTransferJobsRequestRequestTypeDef = TypedDict(
-    "_OptionalListMetadataTransferJobsRequestRequestTypeDef",
-    {
-        "filters": List["ListMetadataTransferJobsFilterTypeDef"],
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-class ListMetadataTransferJobsRequestRequestTypeDef(
-    _RequiredListMetadataTransferJobsRequestRequestTypeDef,
-    _OptionalListMetadataTransferJobsRequestRequestTypeDef,
-):
-    pass
-
-ListMetadataTransferJobsResponseTypeDef = TypedDict(
-    "ListMetadataTransferJobsResponseTypeDef",
-    {
-        "metadataTransferJobSummaries": List["MetadataTransferJobSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListPropertiesRequestRequestTypeDef = TypedDict(
-    "_RequiredListPropertiesRequestRequestTypeDef",
-    {
-        "workspaceId": str,
-        "entityId": str,
-    },
-)
-_OptionalListPropertiesRequestRequestTypeDef = TypedDict(
-    "_OptionalListPropertiesRequestRequestTypeDef",
-    {
-        "componentName": str,
-        "componentPath": str,
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListPropertiesRequestRequestTypeDef(
-    _RequiredListPropertiesRequestRequestTypeDef, _OptionalListPropertiesRequestRequestTypeDef
-):
-    pass
-
-ListPropertiesResponseTypeDef = TypedDict(
-    "ListPropertiesResponseTypeDef",
-    {
-        "propertySummaries": List["PropertySummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListScenesRequestRequestTypeDef = TypedDict(
-    "_RequiredListScenesRequestRequestTypeDef",
-    {
-        "workspaceId": str,
-    },
-)
-_OptionalListScenesRequestRequestTypeDef = TypedDict(
-    "_OptionalListScenesRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListScenesRequestRequestTypeDef(
-    _RequiredListScenesRequestRequestTypeDef, _OptionalListScenesRequestRequestTypeDef
-):
-    pass
-
-ListScenesResponseTypeDef = TypedDict(
-    "ListScenesResponseTypeDef",
-    {
-        "sceneSummaries": List["SceneSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListSyncJobsRequestRequestTypeDef = TypedDict(
-    "_RequiredListSyncJobsRequestRequestTypeDef",
-    {
-        "workspaceId": str,
-    },
-)
-_OptionalListSyncJobsRequestRequestTypeDef = TypedDict(
-    "_OptionalListSyncJobsRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListSyncJobsRequestRequestTypeDef(
-    _RequiredListSyncJobsRequestRequestTypeDef, _OptionalListSyncJobsRequestRequestTypeDef
-):
-    pass
-
-ListSyncJobsResponseTypeDef = TypedDict(
-    "ListSyncJobsResponseTypeDef",
-    {
-        "syncJobSummaries": List["SyncJobSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListSyncResourcesRequestRequestTypeDef = TypedDict(
-    "_RequiredListSyncResourcesRequestRequestTypeDef",
-    {
-        "workspaceId": str,
-        "syncSource": str,
-    },
-)
-_OptionalListSyncResourcesRequestRequestTypeDef = TypedDict(
-    "_OptionalListSyncResourcesRequestRequestTypeDef",
-    {
-        "filters": List["SyncResourceFilterTypeDef"],
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListSyncResourcesRequestRequestTypeDef(
-    _RequiredListSyncResourcesRequestRequestTypeDef, _OptionalListSyncResourcesRequestRequestTypeDef
-):
-    pass
-
-ListSyncResourcesResponseTypeDef = TypedDict(
-    "ListSyncResourcesResponseTypeDef",
-    {
-        "syncResources": List["SyncResourceSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "_RequiredListTagsForResourceRequestRequestTypeDef",
-    {
-        "resourceARN": str,
-    },
-)
-_OptionalListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "_OptionalListTagsForResourceRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListTagsForResourceRequestRequestTypeDef(
-    _RequiredListTagsForResourceRequestRequestTypeDef,
-    _OptionalListTagsForResourceRequestRequestTypeDef,
-):
-    pass
-
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "tags": Dict[str, str],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListWorkspacesRequestRequestTypeDef = TypedDict(
-    "ListWorkspacesRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-ListWorkspacesResponseTypeDef = TypedDict(
-    "ListWorkspacesResponseTypeDef",
-    {
-        "workspaceSummaries": List["WorkspaceSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-MetadataTransferJobProgressTypeDef = TypedDict(
-    "MetadataTransferJobProgressTypeDef",
-    {
-        "totalCount": int,
-        "succeededCount": int,
-        "skippedCount": int,
-        "failedCount": int,
-    },
-    total=False,
-)
-
-MetadataTransferJobStatusTypeDef = TypedDict(
-    "MetadataTransferJobStatusTypeDef",
-    {
-        "state": MetadataTransferJobStateType,
-        "error": "ErrorDetailsTypeDef",
-        "queuedPosition": int,
-    },
-    total=False,
-)
-
-_RequiredMetadataTransferJobSummaryTypeDef = TypedDict(
-    "_RequiredMetadataTransferJobSummaryTypeDef",
-    {
-        "metadataTransferJobId": str,
-        "arn": str,
-        "creationDateTime": datetime,
-        "updateDateTime": datetime,
-        "status": "MetadataTransferJobStatusTypeDef",
-    },
-)
-_OptionalMetadataTransferJobSummaryTypeDef = TypedDict(
-    "_OptionalMetadataTransferJobSummaryTypeDef",
-    {
-        "progress": "MetadataTransferJobProgressTypeDef",
-    },
-    total=False,
-)
-
-class MetadataTransferJobSummaryTypeDef(
-    _RequiredMetadataTransferJobSummaryTypeDef, _OptionalMetadataTransferJobSummaryTypeDef
-):
-    pass
-
-_RequiredOrderByTypeDef = TypedDict(
-    "_RequiredOrderByTypeDef",
-    {
-        "propertyName": str,
-    },
-)
-_OptionalOrderByTypeDef = TypedDict(
-    "_OptionalOrderByTypeDef",
-    {
-        "order": OrderType,
-    },
-    total=False,
-)
-
-class OrderByTypeDef(_RequiredOrderByTypeDef, _OptionalOrderByTypeDef):
-    pass
-
-_RequiredParentEntityUpdateRequestTypeDef = TypedDict(
-    "_RequiredParentEntityUpdateRequestTypeDef",
-    {
-        "updateType": ParentEntityUpdateTypeType,
-    },
-)
-_OptionalParentEntityUpdateRequestTypeDef = TypedDict(
-    "_OptionalParentEntityUpdateRequestTypeDef",
-    {
-        "parentEntityId": str,
-    },
-    total=False,
-)
-
-class ParentEntityUpdateRequestTypeDef(
-    _RequiredParentEntityUpdateRequestTypeDef, _OptionalParentEntityUpdateRequestTypeDef
-):
-    pass
-
-_RequiredPricingPlanTypeDef = TypedDict(
-    "_RequiredPricingPlanTypeDef",
-    {
-        "effectiveDateTime": datetime,
-        "pricingMode": PricingModeType,
-        "updateDateTime": datetime,
-        "updateReason": UpdateReasonType,
-    },
-)
-_OptionalPricingPlanTypeDef = TypedDict(
-    "_OptionalPricingPlanTypeDef",
-    {
-        "billableEntityCount": int,
-        "bundleInformation": "BundleInformationTypeDef",
-    },
-    total=False,
-)
-
-class PricingPlanTypeDef(_RequiredPricingPlanTypeDef, _OptionalPricingPlanTypeDef):
-    pass
-
-PropertyDefinitionRequestTypeDef = TypedDict(
-    "PropertyDefinitionRequestTypeDef",
-    {
-        "dataType": "DataTypeTypeDef",
-        "isRequiredInEntity": bool,
-        "isExternalId": bool,
-        "isStoredExternally": bool,
-        "isTimeSeries": bool,
-        "defaultValue": "DataValueTypeDef",
-        "configuration": Dict[str, str],
-        "displayName": str,
-    },
-    total=False,
-)
-
-_RequiredPropertyDefinitionResponseTypeDef = TypedDict(
-    "_RequiredPropertyDefinitionResponseTypeDef",
-    {
-        "dataType": "DataTypeTypeDef",
-        "isTimeSeries": bool,
-        "isRequiredInEntity": bool,
-        "isExternalId": bool,
-        "isStoredExternally": bool,
-        "isImported": bool,
-        "isFinal": bool,
-        "isInherited": bool,
-    },
-)
-_OptionalPropertyDefinitionResponseTypeDef = TypedDict(
-    "_OptionalPropertyDefinitionResponseTypeDef",
-    {
-        "defaultValue": "DataValueTypeDef",
-        "configuration": Dict[str, str],
-        "displayName": str,
-    },
-    total=False,
-)
-
-class PropertyDefinitionResponseTypeDef(
-    _RequiredPropertyDefinitionResponseTypeDef, _OptionalPropertyDefinitionResponseTypeDef
-):
-    pass
-
 PropertyFilterTypeDef = TypedDict(
     "PropertyFilterTypeDef",
     {
-        "propertyName": str,
-        "operator": str,
-        "value": "DataValueTypeDef",
-    },
-    total=False,
-)
-
-PropertyGroupRequestTypeDef = TypedDict(
-    "PropertyGroupRequestTypeDef",
-    {
-        "groupType": Literal["TABULAR"],
-        "propertyNames": List[str],
-    },
-    total=False,
-)
-
-PropertyGroupResponseTypeDef = TypedDict(
-    "PropertyGroupResponseTypeDef",
-    {
-        "groupType": Literal["TABULAR"],
-        "propertyNames": List[str],
-        "isInherited": bool,
+        "propertyName": NotRequired[str],
+        "operator": NotRequired[str],
+        "value": NotRequired[DataValueUnionTypeDef],
     },
 )
 
-_RequiredPropertyLatestValueTypeDef = TypedDict(
-    "_RequiredPropertyLatestValueTypeDef",
-    {
-        "propertyReference": "EntityPropertyReferenceTypeDef",
-    },
-)
-_OptionalPropertyLatestValueTypeDef = TypedDict(
-    "_OptionalPropertyLatestValueTypeDef",
-    {
-        "propertyValue": "DataValueTypeDef",
-    },
-    total=False,
-)
+class PropertyValueTypeDef(TypedDict):
+    value: DataValueUnionTypeDef
+    timestamp: NotRequired[TimestampTypeDef]
+    time: NotRequired[str]
 
-class PropertyLatestValueTypeDef(
-    _RequiredPropertyLatestValueTypeDef, _OptionalPropertyLatestValueTypeDef
-):
-    pass
+class ListMetadataTransferJobsResponseTypeDef(TypedDict):
+    metadataTransferJobSummaries: List[MetadataTransferJobSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-PropertyRequestTypeDef = TypedDict(
-    "PropertyRequestTypeDef",
-    {
-        "definition": "PropertyDefinitionRequestTypeDef",
-        "value": "DataValueTypeDef",
-        "updateType": PropertyUpdateTypeType,
-    },
-    total=False,
-)
+class ListComponentsResponseTypeDef(TypedDict):
+    componentSummaries: List[ComponentSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-PropertyResponseTypeDef = TypedDict(
-    "PropertyResponseTypeDef",
-    {
-        "definition": "PropertyDefinitionResponseTypeDef",
-        "value": "DataValueTypeDef",
-        "areAllPropertyValuesReturned": bool,
-    },
-    total=False,
-)
+class ListComponentTypesResponseTypeDef(TypedDict):
+    workspaceId: str
+    componentTypeSummaries: List[ComponentTypeSummaryTypeDef]
+    maxResults: int
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-_RequiredPropertySummaryTypeDef = TypedDict(
-    "_RequiredPropertySummaryTypeDef",
-    {
-        "propertyName": str,
-    },
-)
-_OptionalPropertySummaryTypeDef = TypedDict(
-    "_OptionalPropertySummaryTypeDef",
-    {
-        "definition": "PropertyDefinitionResponseTypeDef",
-        "value": "DataValueTypeDef",
-        "areAllPropertyValuesReturned": bool,
-    },
-    total=False,
-)
+class ListEntitiesResponseTypeDef(TypedDict):
+    entitySummaries: List[EntitySummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-class PropertySummaryTypeDef(_RequiredPropertySummaryTypeDef, _OptionalPropertySummaryTypeDef):
-    pass
+class ListSyncJobsResponseTypeDef(TypedDict):
+    syncJobSummaries: List[SyncJobSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-_RequiredPropertyValueEntryTypeDef = TypedDict(
-    "_RequiredPropertyValueEntryTypeDef",
-    {
-        "entityPropertyReference": "EntityPropertyReferenceTypeDef",
-    },
-)
-_OptionalPropertyValueEntryTypeDef = TypedDict(
-    "_OptionalPropertyValueEntryTypeDef",
-    {
-        "propertyValues": List["PropertyValueTypeDef"],
-    },
-    total=False,
-)
+class ListSyncResourcesResponseTypeDef(TypedDict):
+    syncResources: List[SyncResourceSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-class PropertyValueEntryTypeDef(
-    _RequiredPropertyValueEntryTypeDef, _OptionalPropertyValueEntryTypeDef
-):
-    pass
-
-_RequiredPropertyValueHistoryTypeDef = TypedDict(
-    "_RequiredPropertyValueHistoryTypeDef",
-    {
-        "entityPropertyReference": "EntityPropertyReferenceTypeDef",
-    },
-)
-_OptionalPropertyValueHistoryTypeDef = TypedDict(
-    "_OptionalPropertyValueHistoryTypeDef",
-    {
-        "values": List["PropertyValueTypeDef"],
-    },
-    total=False,
-)
-
-class PropertyValueHistoryTypeDef(
-    _RequiredPropertyValueHistoryTypeDef, _OptionalPropertyValueHistoryTypeDef
-):
-    pass
-
-_RequiredPropertyValueTypeDef = TypedDict(
-    "_RequiredPropertyValueTypeDef",
-    {
-        "value": "DataValueTypeDef",
-    },
-)
-_OptionalPropertyValueTypeDef = TypedDict(
-    "_OptionalPropertyValueTypeDef",
-    {
-        "timestamp": Union[datetime, str],
-        "time": str,
-    },
-    total=False,
-)
-
-class PropertyValueTypeDef(_RequiredPropertyValueTypeDef, _OptionalPropertyValueTypeDef):
-    pass
-
-RelationshipTypeDef = TypedDict(
-    "RelationshipTypeDef",
-    {
-        "targetComponentTypeId": str,
-        "relationshipType": str,
-    },
-    total=False,
-)
-
-RelationshipValueTypeDef = TypedDict(
-    "RelationshipValueTypeDef",
-    {
-        "targetEntityId": str,
-        "targetComponentName": str,
-    },
-    total=False,
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-RowTypeDef = TypedDict(
-    "RowTypeDef",
-    {
-        "rowData": List[Dict[str, Any]],
-    },
-    total=False,
-)
-
-S3DestinationConfigurationTypeDef = TypedDict(
-    "S3DestinationConfigurationTypeDef",
-    {
-        "location": str,
-    },
-)
-
-S3SourceConfigurationTypeDef = TypedDict(
-    "S3SourceConfigurationTypeDef",
-    {
-        "location": str,
-    },
-)
-
-SceneErrorTypeDef = TypedDict(
-    "SceneErrorTypeDef",
-    {
-        "code": Literal["MATTERPORT_ERROR"],
-        "message": str,
-    },
-    total=False,
-)
-
-_RequiredSceneSummaryTypeDef = TypedDict(
-    "_RequiredSceneSummaryTypeDef",
-    {
-        "sceneId": str,
-        "contentLocation": str,
-        "arn": str,
-        "creationDateTime": datetime,
-        "updateDateTime": datetime,
-    },
-)
-_OptionalSceneSummaryTypeDef = TypedDict(
-    "_OptionalSceneSummaryTypeDef",
-    {
-        "description": str,
-    },
-    total=False,
-)
-
-class SceneSummaryTypeDef(_RequiredSceneSummaryTypeDef, _OptionalSceneSummaryTypeDef):
-    pass
-
-_RequiredSourceConfigurationTypeDef = TypedDict(
-    "_RequiredSourceConfigurationTypeDef",
+IotSiteWiseSourceConfigurationUnionTypeDef = Union[
+    IotSiteWiseSourceConfigurationTypeDef, IotSiteWiseSourceConfigurationOutputTypeDef
+]
+SourceConfigurationOutputTypeDef = TypedDict(
+    "SourceConfigurationOutputTypeDef",
     {
         "type": SourceTypeType,
+        "s3Configuration": NotRequired[S3SourceConfigurationTypeDef],
+        "iotSiteWiseConfiguration": NotRequired[IotSiteWiseSourceConfigurationOutputTypeDef],
+        "iotTwinMakerConfiguration": NotRequired[IotTwinMakerSourceConfigurationOutputTypeDef],
     },
 )
-_OptionalSourceConfigurationTypeDef = TypedDict(
-    "_OptionalSourceConfigurationTypeDef",
-    {
-        "s3Configuration": "S3SourceConfigurationTypeDef",
-        "iotSiteWiseConfiguration": "IotSiteWiseSourceConfigurationTypeDef",
-        "iotTwinMakerConfiguration": "IotTwinMakerSourceConfigurationTypeDef",
-    },
-    total=False,
-)
+IotTwinMakerSourceConfigurationUnionTypeDef = Union[
+    IotTwinMakerSourceConfigurationTypeDef, IotTwinMakerSourceConfigurationOutputTypeDef
+]
 
-class SourceConfigurationTypeDef(
-    _RequiredSourceConfigurationTypeDef, _OptionalSourceConfigurationTypeDef
-):
-    pass
+class GetComponentTypeResponseTypeDef(TypedDict):
+    workspaceId: str
+    isSingleton: bool
+    componentTypeId: str
+    description: str
+    propertyDefinitions: Dict[str, PropertyDefinitionResponseTypeDef]
+    extendsFrom: List[str]
+    functions: Dict[str, FunctionResponseTypeDef]
+    creationDateTime: datetime
+    updateDateTime: datetime
+    arn: str
+    isAbstract: bool
+    isSchemaInitialized: bool
+    status: StatusTypeDef
+    propertyGroups: Dict[str, PropertyGroupResponseTypeDef]
+    syncSource: str
+    componentTypeName: str
+    compositeComponentTypes: Dict[str, CompositeComponentTypeResponseTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-StatusTypeDef = TypedDict(
-    "StatusTypeDef",
-    {
-        "state": StateType,
-        "error": "ErrorDetailsTypeDef",
-    },
-    total=False,
-)
+class PropertyResponseTypeDef(TypedDict):
+    definition: NotRequired[PropertyDefinitionResponseTypeDef]
+    value: NotRequired[DataValueOutputTypeDef]
+    areAllPropertyValuesReturned: NotRequired[bool]
 
-SyncJobStatusTypeDef = TypedDict(
-    "SyncJobStatusTypeDef",
-    {
-        "state": SyncJobStateType,
-        "error": "ErrorDetailsTypeDef",
-    },
-    total=False,
-)
+class PropertySummaryTypeDef(TypedDict):
+    propertyName: str
+    definition: NotRequired[PropertyDefinitionResponseTypeDef]
+    value: NotRequired[DataValueOutputTypeDef]
+    areAllPropertyValuesReturned: NotRequired[bool]
 
-SyncJobSummaryTypeDef = TypedDict(
-    "SyncJobSummaryTypeDef",
-    {
-        "arn": str,
-        "workspaceId": str,
-        "syncSource": str,
-        "status": "SyncJobStatusTypeDef",
-        "creationDateTime": datetime,
-        "updateDateTime": datetime,
-    },
-    total=False,
-)
+class BatchPutPropertyErrorTypeDef(TypedDict):
+    errorCode: str
+    errorMessage: str
+    entry: PropertyValueEntryOutputTypeDef
 
-SyncResourceFilterTypeDef = TypedDict(
-    "SyncResourceFilterTypeDef",
-    {
-        "state": SyncResourceStateType,
-        "resourceType": SyncResourceTypeType,
-        "resourceId": str,
-        "externalId": str,
-    },
-    total=False,
-)
+class GetPropertyValueHistoryResponseTypeDef(TypedDict):
+    propertyValues: List[PropertyValueHistoryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-SyncResourceStatusTypeDef = TypedDict(
-    "SyncResourceStatusTypeDef",
-    {
-        "state": SyncResourceStateType,
-        "error": "ErrorDetailsTypeDef",
-    },
-    total=False,
-)
+DataTypeUnionTypeDef = Union[DataTypeTypeDef, DataTypeOutputTypeDef]
 
-SyncResourceSummaryTypeDef = TypedDict(
-    "SyncResourceSummaryTypeDef",
-    {
-        "resourceType": SyncResourceTypeType,
-        "externalId": str,
-        "resourceId": str,
-        "status": "SyncResourceStatusTypeDef",
-        "updateDateTime": datetime,
-    },
-    total=False,
-)
+class GetPropertyValueHistoryRequestTypeDef(TypedDict):
+    workspaceId: str
+    selectedProperties: Sequence[str]
+    entityId: NotRequired[str]
+    componentName: NotRequired[str]
+    componentPath: NotRequired[str]
+    componentTypeId: NotRequired[str]
+    propertyFilters: NotRequired[Sequence[PropertyFilterTypeDef]]
+    startDateTime: NotRequired[TimestampTypeDef]
+    endDateTime: NotRequired[TimestampTypeDef]
+    interpolation: NotRequired[InterpolationParametersTypeDef]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+    orderByTime: NotRequired[OrderByTimeType]
+    startTime: NotRequired[str]
+    endTime: NotRequired[str]
 
-TabularConditionsTypeDef = TypedDict(
-    "TabularConditionsTypeDef",
-    {
-        "orderBy": List["OrderByTypeDef"],
-        "propertyFilters": List["PropertyFilterTypeDef"],
-    },
-    total=False,
-)
+class TabularConditionsTypeDef(TypedDict):
+    orderBy: NotRequired[Sequence[OrderByTypeDef]]
+    propertyFilters: NotRequired[Sequence[PropertyFilterTypeDef]]
 
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "resourceARN": str,
-        "tags": Dict[str, str],
-    },
-)
+PropertyValueUnionTypeDef = Union[PropertyValueTypeDef, PropertyValueOutputTypeDef]
 
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
+class GetMetadataTransferJobResponseTypeDef(TypedDict):
+    metadataTransferJobId: str
+    arn: str
+    description: str
+    sources: List[SourceConfigurationOutputTypeDef]
+    destination: DestinationConfigurationTypeDef
+    metadataTransferJobRole: str
+    reportUrl: str
+    creationDateTime: datetime
+    updateDateTime: datetime
+    status: MetadataTransferJobStatusTypeDef
+    progress: MetadataTransferJobProgressTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+SourceConfigurationTypeDef = TypedDict(
+    "SourceConfigurationTypeDef",
     {
-        "resourceARN": str,
-        "tagKeys": List[str],
+        "type": SourceTypeType,
+        "s3Configuration": NotRequired[S3SourceConfigurationTypeDef],
+        "iotSiteWiseConfiguration": NotRequired[IotSiteWiseSourceConfigurationUnionTypeDef],
+        "iotTwinMakerConfiguration": NotRequired[IotTwinMakerSourceConfigurationUnionTypeDef],
     },
 )
 
-_RequiredUpdateComponentTypeRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateComponentTypeRequestRequestTypeDef",
-    {
-        "workspaceId": str,
-        "componentTypeId": str,
-    },
-)
-_OptionalUpdateComponentTypeRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateComponentTypeRequestRequestTypeDef",
-    {
-        "isSingleton": bool,
-        "description": str,
-        "propertyDefinitions": Dict[str, "PropertyDefinitionRequestTypeDef"],
-        "extendsFrom": List[str],
-        "functions": Dict[str, "FunctionRequestTypeDef"],
-        "propertyGroups": Dict[str, "PropertyGroupRequestTypeDef"],
-        "componentTypeName": str,
-        "compositeComponentTypes": Dict[str, "CompositeComponentTypeRequestTypeDef"],
-    },
-    total=False,
-)
+class ComponentResponseTypeDef(TypedDict):
+    componentName: NotRequired[str]
+    description: NotRequired[str]
+    componentTypeId: NotRequired[str]
+    status: NotRequired[StatusTypeDef]
+    definedIn: NotRequired[str]
+    properties: NotRequired[Dict[str, PropertyResponseTypeDef]]
+    propertyGroups: NotRequired[Dict[str, ComponentPropertyGroupResponseTypeDef]]
+    syncSource: NotRequired[str]
+    areAllPropertiesReturned: NotRequired[bool]
+    compositeComponents: NotRequired[Dict[str, ComponentSummaryTypeDef]]
+    areAllCompositeComponentsReturned: NotRequired[bool]
 
-class UpdateComponentTypeRequestRequestTypeDef(
-    _RequiredUpdateComponentTypeRequestRequestTypeDef,
-    _OptionalUpdateComponentTypeRequestRequestTypeDef,
-):
-    pass
+class ListPropertiesResponseTypeDef(TypedDict):
+    propertySummaries: List[PropertySummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-UpdateComponentTypeResponseTypeDef = TypedDict(
-    "UpdateComponentTypeResponseTypeDef",
-    {
-        "workspaceId": str,
-        "arn": str,
-        "componentTypeId": str,
-        "state": StateType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class BatchPutPropertyErrorEntryTypeDef(TypedDict):
+    errors: List[BatchPutPropertyErrorTypeDef]
 
-_RequiredUpdateEntityRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateEntityRequestRequestTypeDef",
-    {
-        "workspaceId": str,
-        "entityId": str,
-    },
-)
-_OptionalUpdateEntityRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateEntityRequestRequestTypeDef",
-    {
-        "entityName": str,
-        "description": str,
-        "componentUpdates": Dict[str, "ComponentUpdateRequestTypeDef"],
-        "compositeComponentUpdates": Dict[str, "CompositeComponentUpdateRequestTypeDef"],
-        "parentEntityUpdate": "ParentEntityUpdateRequestTypeDef",
-    },
-    total=False,
-)
+class PropertyDefinitionRequestTypeDef(TypedDict):
+    dataType: NotRequired[DataTypeUnionTypeDef]
+    isRequiredInEntity: NotRequired[bool]
+    isExternalId: NotRequired[bool]
+    isStoredExternally: NotRequired[bool]
+    isTimeSeries: NotRequired[bool]
+    defaultValue: NotRequired[DataValueUnionTypeDef]
+    configuration: NotRequired[Mapping[str, str]]
+    displayName: NotRequired[str]
 
-class UpdateEntityRequestRequestTypeDef(
-    _RequiredUpdateEntityRequestRequestTypeDef, _OptionalUpdateEntityRequestRequestTypeDef
-):
-    pass
+class GetPropertyValueRequestTypeDef(TypedDict):
+    selectedProperties: Sequence[str]
+    workspaceId: str
+    componentName: NotRequired[str]
+    componentPath: NotRequired[str]
+    componentTypeId: NotRequired[str]
+    entityId: NotRequired[str]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+    propertyGroupName: NotRequired[str]
+    tabularConditions: NotRequired[TabularConditionsTypeDef]
 
-UpdateEntityResponseTypeDef = TypedDict(
-    "UpdateEntityResponseTypeDef",
-    {
-        "updateDateTime": datetime,
-        "state": StateType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class PropertyValueEntryTypeDef(TypedDict):
+    entityPropertyReference: EntityPropertyReferenceUnionTypeDef
+    propertyValues: NotRequired[Sequence[PropertyValueUnionTypeDef]]
 
-_RequiredUpdatePricingPlanRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdatePricingPlanRequestRequestTypeDef",
-    {
-        "pricingMode": PricingModeType,
-    },
-)
-_OptionalUpdatePricingPlanRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdatePricingPlanRequestRequestTypeDef",
-    {
-        "bundleNames": List[str],
-    },
-    total=False,
-)
+SourceConfigurationUnionTypeDef = Union[
+    SourceConfigurationTypeDef, SourceConfigurationOutputTypeDef
+]
 
-class UpdatePricingPlanRequestRequestTypeDef(
-    _RequiredUpdatePricingPlanRequestRequestTypeDef, _OptionalUpdatePricingPlanRequestRequestTypeDef
-):
-    pass
+class GetEntityResponseTypeDef(TypedDict):
+    entityId: str
+    entityName: str
+    arn: str
+    status: StatusTypeDef
+    workspaceId: str
+    description: str
+    components: Dict[str, ComponentResponseTypeDef]
+    parentEntityId: str
+    hasChildEntities: bool
+    creationDateTime: datetime
+    updateDateTime: datetime
+    syncSource: str
+    areAllComponentsReturned: bool
+    ResponseMetadata: ResponseMetadataTypeDef
 
-UpdatePricingPlanResponseTypeDef = TypedDict(
-    "UpdatePricingPlanResponseTypeDef",
-    {
-        "currentPricingPlan": "PricingPlanTypeDef",
-        "pendingPricingPlan": "PricingPlanTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class BatchPutPropertyValuesResponseTypeDef(TypedDict):
+    errorEntries: List[BatchPutPropertyErrorEntryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredUpdateSceneRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateSceneRequestRequestTypeDef",
-    {
-        "workspaceId": str,
-        "sceneId": str,
-    },
-)
-_OptionalUpdateSceneRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateSceneRequestRequestTypeDef",
-    {
-        "contentLocation": str,
-        "description": str,
-        "capabilities": List[str],
-        "sceneMetadata": Dict[str, str],
-    },
-    total=False,
-)
+class CreateComponentTypeRequestTypeDef(TypedDict):
+    workspaceId: str
+    componentTypeId: str
+    isSingleton: NotRequired[bool]
+    description: NotRequired[str]
+    propertyDefinitions: NotRequired[Mapping[str, PropertyDefinitionRequestTypeDef]]
+    extendsFrom: NotRequired[Sequence[str]]
+    functions: NotRequired[Mapping[str, FunctionRequestTypeDef]]
+    tags: NotRequired[Mapping[str, str]]
+    propertyGroups: NotRequired[Mapping[str, PropertyGroupRequestTypeDef]]
+    componentTypeName: NotRequired[str]
+    compositeComponentTypes: NotRequired[Mapping[str, CompositeComponentTypeRequestTypeDef]]
 
-class UpdateSceneRequestRequestTypeDef(
-    _RequiredUpdateSceneRequestRequestTypeDef, _OptionalUpdateSceneRequestRequestTypeDef
-):
-    pass
+class PropertyRequestTypeDef(TypedDict):
+    definition: NotRequired[PropertyDefinitionRequestTypeDef]
+    value: NotRequired[DataValueUnionTypeDef]
+    updateType: NotRequired[PropertyUpdateTypeType]
 
-UpdateSceneResponseTypeDef = TypedDict(
-    "UpdateSceneResponseTypeDef",
-    {
-        "updateDateTime": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class UpdateComponentTypeRequestTypeDef(TypedDict):
+    workspaceId: str
+    componentTypeId: str
+    isSingleton: NotRequired[bool]
+    description: NotRequired[str]
+    propertyDefinitions: NotRequired[Mapping[str, PropertyDefinitionRequestTypeDef]]
+    extendsFrom: NotRequired[Sequence[str]]
+    functions: NotRequired[Mapping[str, FunctionRequestTypeDef]]
+    propertyGroups: NotRequired[Mapping[str, PropertyGroupRequestTypeDef]]
+    componentTypeName: NotRequired[str]
+    compositeComponentTypes: NotRequired[Mapping[str, CompositeComponentTypeRequestTypeDef]]
 
-_RequiredUpdateWorkspaceRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateWorkspaceRequestRequestTypeDef",
-    {
-        "workspaceId": str,
-    },
-)
-_OptionalUpdateWorkspaceRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateWorkspaceRequestRequestTypeDef",
-    {
-        "description": str,
-        "role": str,
-        "s3Location": str,
-    },
-    total=False,
-)
+PropertyValueEntryUnionTypeDef = Union[PropertyValueEntryTypeDef, PropertyValueEntryOutputTypeDef]
 
-class UpdateWorkspaceRequestRequestTypeDef(
-    _RequiredUpdateWorkspaceRequestRequestTypeDef, _OptionalUpdateWorkspaceRequestRequestTypeDef
-):
-    pass
+class CreateMetadataTransferJobRequestTypeDef(TypedDict):
+    sources: Sequence[SourceConfigurationUnionTypeDef]
+    destination: DestinationConfigurationTypeDef
+    metadataTransferJobId: NotRequired[str]
+    description: NotRequired[str]
 
-UpdateWorkspaceResponseTypeDef = TypedDict(
-    "UpdateWorkspaceResponseTypeDef",
-    {
-        "updateDateTime": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ComponentRequestTypeDef(TypedDict):
+    description: NotRequired[str]
+    componentTypeId: NotRequired[str]
+    properties: NotRequired[Mapping[str, PropertyRequestTypeDef]]
+    propertyGroups: NotRequired[Mapping[str, ComponentPropertyGroupRequestTypeDef]]
 
-_RequiredWorkspaceSummaryTypeDef = TypedDict(
-    "_RequiredWorkspaceSummaryTypeDef",
-    {
-        "workspaceId": str,
-        "arn": str,
-        "creationDateTime": datetime,
-        "updateDateTime": datetime,
-    },
-)
-_OptionalWorkspaceSummaryTypeDef = TypedDict(
-    "_OptionalWorkspaceSummaryTypeDef",
-    {
-        "description": str,
-        "linkedServices": List[str],
-    },
-    total=False,
-)
+class ComponentUpdateRequestTypeDef(TypedDict):
+    updateType: NotRequired[ComponentUpdateTypeType]
+    description: NotRequired[str]
+    componentTypeId: NotRequired[str]
+    propertyUpdates: NotRequired[Mapping[str, PropertyRequestTypeDef]]
+    propertyGroupUpdates: NotRequired[Mapping[str, ComponentPropertyGroupRequestTypeDef]]
 
-class WorkspaceSummaryTypeDef(_RequiredWorkspaceSummaryTypeDef, _OptionalWorkspaceSummaryTypeDef):
-    pass
+class CompositeComponentRequestTypeDef(TypedDict):
+    description: NotRequired[str]
+    properties: NotRequired[Mapping[str, PropertyRequestTypeDef]]
+    propertyGroups: NotRequired[Mapping[str, ComponentPropertyGroupRequestTypeDef]]
+
+class CompositeComponentUpdateRequestTypeDef(TypedDict):
+    updateType: NotRequired[ComponentUpdateTypeType]
+    description: NotRequired[str]
+    propertyUpdates: NotRequired[Mapping[str, PropertyRequestTypeDef]]
+    propertyGroupUpdates: NotRequired[Mapping[str, ComponentPropertyGroupRequestTypeDef]]
+
+class BatchPutPropertyValuesRequestTypeDef(TypedDict):
+    workspaceId: str
+    entries: Sequence[PropertyValueEntryUnionTypeDef]
+
+class CreateEntityRequestTypeDef(TypedDict):
+    workspaceId: str
+    entityName: str
+    entityId: NotRequired[str]
+    description: NotRequired[str]
+    components: NotRequired[Mapping[str, ComponentRequestTypeDef]]
+    compositeComponents: NotRequired[Mapping[str, CompositeComponentRequestTypeDef]]
+    parentEntityId: NotRequired[str]
+    tags: NotRequired[Mapping[str, str]]
+
+class UpdateEntityRequestTypeDef(TypedDict):
+    workspaceId: str
+    entityId: str
+    entityName: NotRequired[str]
+    description: NotRequired[str]
+    componentUpdates: NotRequired[Mapping[str, ComponentUpdateRequestTypeDef]]
+    compositeComponentUpdates: NotRequired[Mapping[str, CompositeComponentUpdateRequestTypeDef]]
+    parentEntityUpdate: NotRequired[ParentEntityUpdateRequestTypeDef]

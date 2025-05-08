@@ -1,60 +1,70 @@
 """
-Type annotations for payment-cryptography-data service client.
+Type annotations for payment-cryptography-data service Client.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography_data/client.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography_data/client/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
-    from mypy_boto3_payment_cryptography_data import PaymentCryptographyDataPlaneClient
+    from boto3.session import Session
+    from mypy_boto3_payment_cryptography_data.client import PaymentCryptographyDataPlaneClient
 
-    client: PaymentCryptographyDataPlaneClient = boto3.client("payment-cryptography-data")
+    session = Session()
+    client: PaymentCryptographyDataPlaneClient = session.client("payment-cryptography-data")
     ```
 """
 
-from typing import Any, Dict, Type
+from __future__ import annotations
+
+import sys
+from typing import Any
 
 from botocore.client import BaseClient, ClientMeta
+from botocore.errorfactory import BaseClientExceptions
+from botocore.exceptions import ClientError as BotocoreClientError
 
-from .literals import MajorKeyDerivationModeType, PinBlockFormatForPinDataType
 from .type_defs import (
-    CardGenerationAttributesTypeDef,
-    CardVerificationAttributesTypeDef,
-    CryptogramAuthResponseTypeDef,
+    DecryptDataInputTypeDef,
     DecryptDataOutputTypeDef,
-    DukptAttributesTypeDef,
-    DukptDerivationAttributesTypeDef,
+    EncryptDataInputTypeDef,
     EncryptDataOutputTypeDef,
-    EncryptionDecryptionAttributesTypeDef,
+    GenerateCardValidationDataInputTypeDef,
     GenerateCardValidationDataOutputTypeDef,
+    GenerateMacEmvPinChangeInputTypeDef,
+    GenerateMacEmvPinChangeOutputTypeDef,
+    GenerateMacInputTypeDef,
     GenerateMacOutputTypeDef,
+    GeneratePinDataInputTypeDef,
     GeneratePinDataOutputTypeDef,
-    MacAttributesTypeDef,
-    PinGenerationAttributesTypeDef,
-    PinVerificationAttributesTypeDef,
+    ReEncryptDataInputTypeDef,
     ReEncryptDataOutputTypeDef,
-    ReEncryptionAttributesTypeDef,
-    SessionKeyDerivationTypeDef,
+    TranslatePinDataInputTypeDef,
     TranslatePinDataOutputTypeDef,
-    TranslationIsoFormatsTypeDef,
+    VerifyAuthRequestCryptogramInputTypeDef,
     VerifyAuthRequestCryptogramOutputTypeDef,
+    VerifyCardValidationDataInputTypeDef,
     VerifyCardValidationDataOutputTypeDef,
+    VerifyMacInputTypeDef,
     VerifyMacOutputTypeDef,
+    VerifyPinDataInputTypeDef,
     VerifyPinDataOutputTypeDef,
-    WrappedKeyTypeDef,
 )
+
+if sys.version_info >= (3, 9):
+    from builtins import type as Type
+    from collections.abc import Mapping
+else:
+    from typing import Mapping, Type
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = ("PaymentCryptographyDataPlaneClient",)
 
-class BotocoreClientError(BaseException):
-    MSG_TEMPLATE: str
-
-    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
-        self.response: Dict[str, Any]
-        self.operation_name: str
-
-class Exceptions:
+class Exceptions(BaseClientExceptions):
     AccessDeniedException: Type[BotocoreClientError]
     ClientError: Type[BotocoreClientError]
     InternalServerException: Type[BotocoreClientError]
@@ -65,8 +75,8 @@ class Exceptions:
 
 class PaymentCryptographyDataPlaneClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/payment-cryptography-data.html#PaymentCryptographyDataPlane.Client)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography_data/client.html)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/payment-cryptography-data.html#PaymentCryptographyDataPlane.Client)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography_data/client/)
     """
 
     meta: ClientMeta
@@ -75,226 +85,148 @@ class PaymentCryptographyDataPlaneClient(BaseClient):
     def exceptions(self) -> Exceptions:
         """
         PaymentCryptographyDataPlaneClient exceptions.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/payment-cryptography-data.html#PaymentCryptographyDataPlane.Client)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography_data/client/#exceptions)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        Check if an operation can be paginated.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/payment-cryptography-data.html#PaymentCryptographyDataPlane.Client.can_paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography_data/client.html#can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/payment-cryptography-data/client/can_paginate.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography_data/client/#can_paginate)
         """
 
-    def close(self) -> None:
-        """
-        Closes underlying endpoint connections.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/payment-cryptography-data.html#PaymentCryptographyDataPlane.Client.close)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography_data/client.html#close)
-        """
-
-    def decrypt_data(
+    def generate_presigned_url(
         self,
-        *,
-        KeyIdentifier: str,
-        CipherText: str,
-        DecryptionAttributes: "EncryptionDecryptionAttributesTypeDef",
-        WrappedKey: "WrappedKeyTypeDef" = None
-    ) -> DecryptDataOutputTypeDef:
+        ClientMethod: str,
+        Params: Mapping[str, Any] = ...,
+        ExpiresIn: int = 3600,
+        HttpMethod: str = ...,
+    ) -> str:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/payment-cryptography-data/client/generate_presigned_url.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography_data/client/#generate_presigned_url)
+        """
+
+    def decrypt_data(self, **kwargs: Unpack[DecryptDataInputTypeDef]) -> DecryptDataOutputTypeDef:
         """
         Decrypts ciphertext data to plaintext using a symmetric (TDES, AES), asymmetric
         (RSA), or derived (DUKPT or EMV) encryption key scheme.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/payment-cryptography-data.html#PaymentCryptographyDataPlane.Client.decrypt_data)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography_data/client.html#decrypt_data)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/payment-cryptography-data/client/decrypt_data.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography_data/client/#decrypt_data)
         """
 
-    def encrypt_data(
-        self,
-        *,
-        KeyIdentifier: str,
-        PlainText: str,
-        EncryptionAttributes: "EncryptionDecryptionAttributesTypeDef",
-        WrappedKey: "WrappedKeyTypeDef" = None
-    ) -> EncryptDataOutputTypeDef:
+    def encrypt_data(self, **kwargs: Unpack[EncryptDataInputTypeDef]) -> EncryptDataOutputTypeDef:
         """
         Encrypts plaintext data to ciphertext using a symmetric (TDES, AES), asymmetric
         (RSA), or derived (DUKPT or EMV) encryption key scheme.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/payment-cryptography-data.html#PaymentCryptographyDataPlane.Client.encrypt_data)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography_data/client.html#encrypt_data)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/payment-cryptography-data/client/encrypt_data.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography_data/client/#encrypt_data)
         """
 
     def generate_card_validation_data(
-        self,
-        *,
-        KeyIdentifier: str,
-        PrimaryAccountNumber: str,
-        GenerationAttributes: "CardGenerationAttributesTypeDef",
-        ValidationDataLength: int = None
+        self, **kwargs: Unpack[GenerateCardValidationDataInputTypeDef]
     ) -> GenerateCardValidationDataOutputTypeDef:
         """
         Generates card-related validation data using algorithms such as Card
         Verification Values (CVV/CVV2), Dynamic Card Verification Values (dCVV/dCVV2),
         or Card Security Codes (CSC).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/payment-cryptography-data.html#PaymentCryptographyDataPlane.Client.generate_card_validation_data)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography_data/client.html#generate_card_validation_data)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/payment-cryptography-data/client/generate_card_validation_data.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography_data/client/#generate_card_validation_data)
         """
 
-    def generate_mac(
-        self,
-        *,
-        KeyIdentifier: str,
-        MessageData: str,
-        GenerationAttributes: "MacAttributesTypeDef",
-        MacLength: int = None
-    ) -> GenerateMacOutputTypeDef:
+    def generate_mac(self, **kwargs: Unpack[GenerateMacInputTypeDef]) -> GenerateMacOutputTypeDef:
         """
         Generates a Message Authentication Code (MAC) cryptogram within Amazon Web
         Services Payment Cryptography.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/payment-cryptography-data.html#PaymentCryptographyDataPlane.Client.generate_mac)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography_data/client.html#generate_mac)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/payment-cryptography-data/client/generate_mac.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography_data/client/#generate_mac)
+        """
+
+    def generate_mac_emv_pin_change(
+        self, **kwargs: Unpack[GenerateMacEmvPinChangeInputTypeDef]
+    ) -> GenerateMacEmvPinChangeOutputTypeDef:
+        """
+        Generates an issuer script mac for EMV payment cards that use offline PINs as
+        the cardholder verification method (CVM).
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/payment-cryptography-data/client/generate_mac_emv_pin_change.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography_data/client/#generate_mac_emv_pin_change)
         """
 
     def generate_pin_data(
-        self,
-        *,
-        GenerationKeyIdentifier: str,
-        EncryptionKeyIdentifier: str,
-        GenerationAttributes: "PinGenerationAttributesTypeDef",
-        PrimaryAccountNumber: str,
-        PinBlockFormat: PinBlockFormatForPinDataType,
-        PinDataLength: int = None
+        self, **kwargs: Unpack[GeneratePinDataInputTypeDef]
     ) -> GeneratePinDataOutputTypeDef:
         """
-        Generates pin-related data such as PIN, PIN Verification Value (PVV), PIN Block,
-        and PIN Offset during new card issuance or reissuance.
+        Generates pin-related data such as PIN, PIN Verification Value (PVV), PIN
+        Block, and PIN Offset during new card issuance or reissuance.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/payment-cryptography-data.html#PaymentCryptographyDataPlane.Client.generate_pin_data)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography_data/client.html#generate_pin_data)
-        """
-
-    def generate_presigned_url(
-        self,
-        ClientMethod: str,
-        Params: Dict[str, Any] = None,
-        ExpiresIn: int = 3600,
-        HttpMethod: str = None,
-    ) -> str:
-        """
-        Generate a presigned url given a client, its method, and arguments.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/payment-cryptography-data.html#PaymentCryptographyDataPlane.Client.generate_presigned_url)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography_data/client.html#generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/payment-cryptography-data/client/generate_pin_data.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography_data/client/#generate_pin_data)
         """
 
     def re_encrypt_data(
-        self,
-        *,
-        IncomingKeyIdentifier: str,
-        OutgoingKeyIdentifier: str,
-        CipherText: str,
-        IncomingEncryptionAttributes: "ReEncryptionAttributesTypeDef",
-        OutgoingEncryptionAttributes: "ReEncryptionAttributesTypeDef",
-        IncomingWrappedKey: "WrappedKeyTypeDef" = None,
-        OutgoingWrappedKey: "WrappedKeyTypeDef" = None
+        self, **kwargs: Unpack[ReEncryptDataInputTypeDef]
     ) -> ReEncryptDataOutputTypeDef:
         """
         Re-encrypt ciphertext using DUKPT or Symmetric data encryption keys.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/payment-cryptography-data.html#PaymentCryptographyDataPlane.Client.re_encrypt_data)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography_data/client.html#re_encrypt_data)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/payment-cryptography-data/client/re_encrypt_data.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography_data/client/#re_encrypt_data)
         """
 
     def translate_pin_data(
-        self,
-        *,
-        IncomingKeyIdentifier: str,
-        OutgoingKeyIdentifier: str,
-        IncomingTranslationAttributes: "TranslationIsoFormatsTypeDef",
-        OutgoingTranslationAttributes: "TranslationIsoFormatsTypeDef",
-        EncryptedPinBlock: str,
-        IncomingDukptAttributes: "DukptDerivationAttributesTypeDef" = None,
-        OutgoingDukptAttributes: "DukptDerivationAttributesTypeDef" = None,
-        IncomingWrappedKey: "WrappedKeyTypeDef" = None,
-        OutgoingWrappedKey: "WrappedKeyTypeDef" = None
+        self, **kwargs: Unpack[TranslatePinDataInputTypeDef]
     ) -> TranslatePinDataOutputTypeDef:
         """
         Translates encrypted PIN block from and to ISO 9564 formats 0,1,3,4.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/payment-cryptography-data.html#PaymentCryptographyDataPlane.Client.translate_pin_data)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography_data/client.html#translate_pin_data)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/payment-cryptography-data/client/translate_pin_data.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography_data/client/#translate_pin_data)
         """
 
     def verify_auth_request_cryptogram(
-        self,
-        *,
-        KeyIdentifier: str,
-        TransactionData: str,
-        AuthRequestCryptogram: str,
-        MajorKeyDerivationMode: MajorKeyDerivationModeType,
-        SessionKeyDerivationAttributes: "SessionKeyDerivationTypeDef",
-        AuthResponseAttributes: "CryptogramAuthResponseTypeDef" = None
+        self, **kwargs: Unpack[VerifyAuthRequestCryptogramInputTypeDef]
     ) -> VerifyAuthRequestCryptogramOutputTypeDef:
         """
         Verifies Authorization Request Cryptogram (ARQC) for a EMV chip payment card
         authorization.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/payment-cryptography-data.html#PaymentCryptographyDataPlane.Client.verify_auth_request_cryptogram)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography_data/client.html#verify_auth_request_cryptogram)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/payment-cryptography-data/client/verify_auth_request_cryptogram.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography_data/client/#verify_auth_request_cryptogram)
         """
 
     def verify_card_validation_data(
-        self,
-        *,
-        KeyIdentifier: str,
-        PrimaryAccountNumber: str,
-        VerificationAttributes: "CardVerificationAttributesTypeDef",
-        ValidationData: str
+        self, **kwargs: Unpack[VerifyCardValidationDataInputTypeDef]
     ) -> VerifyCardValidationDataOutputTypeDef:
         """
-        Verifies card-related validation data using algorithms such as Card Verification
-        Values (CVV/CVV2), Dynamic Card Verification Values (dCVV/dCVV2) and Card
-        Security Codes (CSC).
+        Verifies card-related validation data using algorithms such as Card
+        Verification Values (CVV/CVV2), Dynamic Card Verification Values (dCVV/dCVV2)
+        and Card Security Codes (CSC).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/payment-cryptography-data.html#PaymentCryptographyDataPlane.Client.verify_card_validation_data)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography_data/client.html#verify_card_validation_data)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/payment-cryptography-data/client/verify_card_validation_data.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography_data/client/#verify_card_validation_data)
         """
 
-    def verify_mac(
-        self,
-        *,
-        KeyIdentifier: str,
-        MessageData: str,
-        Mac: str,
-        VerificationAttributes: "MacAttributesTypeDef",
-        MacLength: int = None
-    ) -> VerifyMacOutputTypeDef:
+    def verify_mac(self, **kwargs: Unpack[VerifyMacInputTypeDef]) -> VerifyMacOutputTypeDef:
         """
         Verifies a Message Authentication Code (MAC).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/payment-cryptography-data.html#PaymentCryptographyDataPlane.Client.verify_mac)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography_data/client.html#verify_mac)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/payment-cryptography-data/client/verify_mac.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography_data/client/#verify_mac)
         """
 
     def verify_pin_data(
-        self,
-        *,
-        VerificationKeyIdentifier: str,
-        EncryptionKeyIdentifier: str,
-        VerificationAttributes: "PinVerificationAttributesTypeDef",
-        EncryptedPinBlock: str,
-        PrimaryAccountNumber: str,
-        PinBlockFormat: PinBlockFormatForPinDataType,
-        PinDataLength: int = None,
-        DukptAttributes: "DukptAttributesTypeDef" = None
+        self, **kwargs: Unpack[VerifyPinDataInputTypeDef]
     ) -> VerifyPinDataOutputTypeDef:
         """
         Verifies pin-related data such as PIN and PIN Offset using algorithms including
         VISA PVV and IBM3624.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/payment-cryptography-data.html#PaymentCryptographyDataPlane.Client.verify_pin_data)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography_data/client.html#verify_pin_data)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/payment-cryptography-data/client/verify_pin_data.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_payment_cryptography_data/client/#verify_pin_data)
         """

@@ -1,10 +1,14 @@
 """
 Main interface for launch-wizard service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_launch_wizard/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_launch_wizard import (
         Client,
         LaunchWizardClient,
@@ -14,10 +18,8 @@ Usage::
         ListWorkloadsPaginator,
     )
 
-    session = boto3.Session()
-
-    client: LaunchWizardClient = boto3.client("launch-wizard")
-    session_client: LaunchWizardClient = session.client("launch-wizard")
+    session = Session()
+    client: LaunchWizardClient = session.client("launch-wizard")
 
     list_deployment_events_paginator: ListDeploymentEventsPaginator = client.get_paginator("list_deployment_events")
     list_deployments_paginator: ListDeploymentsPaginator = client.get_paginator("list_deployments")

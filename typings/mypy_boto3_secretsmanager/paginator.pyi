@@ -1,48 +1,57 @@
 """
 Type annotations for secretsmanager service client paginators.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_secretsmanager/paginators.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_secretsmanager/paginators/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
 
-    from mypy_boto3_secretsmanager import SecretsManagerClient
+    from mypy_boto3_secretsmanager.client import SecretsManagerClient
     from mypy_boto3_secretsmanager.paginator import (
         ListSecretsPaginator,
     )
 
-    client: SecretsManagerClient = boto3.client("secretsmanager")
+    session = Session()
+    client: SecretsManagerClient = session.client("secretsmanager")
 
     list_secrets_paginator: ListSecretsPaginator = client.get_paginator("list_secrets")
     ```
 """
 
-from typing import Iterator, List
+from __future__ import annotations
 
-from botocore.paginate import Paginator as Boto3Paginator
+import sys
+from typing import TYPE_CHECKING
 
-from .literals import SortOrderTypeType
-from .type_defs import FilterTypeDef, ListSecretsResponseTypeDef, PaginatorConfigTypeDef
+from botocore.paginate import PageIterator, Paginator
+
+from .type_defs import ListSecretsRequestPaginateTypeDef, ListSecretsResponseTypeDef
+
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = ("ListSecretsPaginator",)
 
-class ListSecretsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/secretsmanager.html#SecretsManager.Paginator.ListSecrets)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_secretsmanager/paginators.html#listsecretspaginator)
-    """
+if TYPE_CHECKING:
+    _ListSecretsPaginatorBase = Paginator[ListSecretsResponseTypeDef]
+else:
+    _ListSecretsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        IncludePlannedDeletion: bool = None,
-        Filters: List["FilterTypeDef"] = None,
-        SortOrder: SortOrderTypeType = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListSecretsResponseTypeDef]:
+class ListSecretsPaginator(_ListSecretsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/secretsmanager/paginator/ListSecrets.html#SecretsManager.Paginator.ListSecrets)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_secretsmanager/paginators/#listsecretspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListSecretsRequestPaginateTypeDef]
+    ) -> PageIterator[ListSecretsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/secretsmanager.html#SecretsManager.Paginator.ListSecrets.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_secretsmanager/paginators.html#listsecretspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/secretsmanager/paginator/ListSecrets.html#SecretsManager.Paginator.ListSecrets.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_secretsmanager/paginators/#listsecretspaginator)
         """

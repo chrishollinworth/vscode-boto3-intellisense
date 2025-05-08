@@ -1,20 +1,24 @@
 """
 Type annotations for dlm service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_dlm/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_dlm/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_dlm.type_defs import ActionTypeDef
+    from mypy_boto3_dlm.type_defs import RetentionArchiveTierTypeDef
 
-    data: ActionTypeDef = {...}
+    data: RetentionArchiveTierTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
+from typing import Union
 
 from .literals import (
     DefaultPoliciesTypeValuesType,
@@ -30,542 +34,390 @@ from .literals import (
     StageValuesType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
+    "ActionOutputTypeDef",
     "ActionTypeDef",
     "ArchiveRetainRuleTypeDef",
     "ArchiveRuleTypeDef",
-    "CreateLifecyclePolicyRequestRequestTypeDef",
+    "CreateLifecyclePolicyRequestTypeDef",
     "CreateLifecyclePolicyResponseTypeDef",
+    "CreateRuleOutputTypeDef",
     "CreateRuleTypeDef",
     "CrossRegionCopyActionTypeDef",
     "CrossRegionCopyDeprecateRuleTypeDef",
     "CrossRegionCopyRetainRuleTypeDef",
     "CrossRegionCopyRuleTypeDef",
     "CrossRegionCopyTargetTypeDef",
-    "DeleteLifecyclePolicyRequestRequestTypeDef",
+    "DeleteLifecyclePolicyRequestTypeDef",
     "DeprecateRuleTypeDef",
     "EncryptionConfigurationTypeDef",
+    "EventParametersOutputTypeDef",
     "EventParametersTypeDef",
+    "EventSourceOutputTypeDef",
     "EventSourceTypeDef",
+    "ExclusionsOutputTypeDef",
     "ExclusionsTypeDef",
+    "ExclusionsUnionTypeDef",
+    "FastRestoreRuleOutputTypeDef",
     "FastRestoreRuleTypeDef",
-    "GetLifecyclePoliciesRequestRequestTypeDef",
+    "GetLifecyclePoliciesRequestTypeDef",
     "GetLifecyclePoliciesResponseTypeDef",
-    "GetLifecyclePolicyRequestRequestTypeDef",
+    "GetLifecyclePolicyRequestTypeDef",
     "GetLifecyclePolicyResponseTypeDef",
     "LifecyclePolicySummaryTypeDef",
     "LifecyclePolicyTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
+    "ParametersOutputTypeDef",
     "ParametersTypeDef",
+    "PolicyDetailsOutputTypeDef",
     "PolicyDetailsTypeDef",
+    "PolicyDetailsUnionTypeDef",
     "ResponseMetadataTypeDef",
     "RetainRuleTypeDef",
     "RetentionArchiveTierTypeDef",
+    "ScheduleOutputTypeDef",
     "ScheduleTypeDef",
+    "ScriptOutputTypeDef",
     "ScriptTypeDef",
+    "ShareRuleOutputTypeDef",
     "ShareRuleTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
     "TagTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateLifecyclePolicyRequestRequestTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateLifecyclePolicyRequestTypeDef",
 )
 
-ActionTypeDef = TypedDict(
-    "ActionTypeDef",
-    {
-        "Name": str,
-        "CrossRegionCopy": List["CrossRegionCopyActionTypeDef"],
-    },
-)
+class RetentionArchiveTierTypeDef(TypedDict):
+    Count: NotRequired[int]
+    Interval: NotRequired[int]
+    IntervalUnit: NotRequired[RetentionIntervalUnitValuesType]
 
-ArchiveRetainRuleTypeDef = TypedDict(
-    "ArchiveRetainRuleTypeDef",
-    {
-        "RetentionArchiveTier": "RetentionArchiveTierTypeDef",
-    },
-)
+class CrossRegionCopyTargetTypeDef(TypedDict):
+    TargetRegion: NotRequired[str]
 
-ArchiveRuleTypeDef = TypedDict(
-    "ArchiveRuleTypeDef",
-    {
-        "RetainRule": "ArchiveRetainRuleTypeDef",
-    },
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-_RequiredCreateLifecyclePolicyRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateLifecyclePolicyRequestRequestTypeDef",
-    {
-        "ExecutionRoleArn": str,
-        "Description": str,
-        "State": SettablePolicyStateValuesType,
-    },
-)
-_OptionalCreateLifecyclePolicyRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateLifecyclePolicyRequestRequestTypeDef",
-    {
-        "PolicyDetails": "PolicyDetailsTypeDef",
-        "Tags": Dict[str, str],
-        "DefaultPolicy": DefaultPolicyTypeValuesType,
-        "CreateInterval": int,
-        "RetainInterval": int,
-        "CopyTags": bool,
-        "ExtendDeletion": bool,
-        "CrossRegionCopyTargets": List["CrossRegionCopyTargetTypeDef"],
-        "Exclusions": "ExclusionsTypeDef",
-    },
-    total=False,
-)
+class ScriptOutputTypeDef(TypedDict):
+    ExecutionHandler: str
+    Stages: NotRequired[List[StageValuesType]]
+    ExecutionHandlerService: NotRequired[Literal["AWS_SYSTEMS_MANAGER"]]
+    ExecuteOperationOnScriptFailure: NotRequired[bool]
+    ExecutionTimeout: NotRequired[int]
+    MaximumRetryCount: NotRequired[int]
 
-class CreateLifecyclePolicyRequestRequestTypeDef(
-    _RequiredCreateLifecyclePolicyRequestRequestTypeDef,
-    _OptionalCreateLifecyclePolicyRequestRequestTypeDef,
-):
-    pass
+class ScriptTypeDef(TypedDict):
+    ExecutionHandler: str
+    Stages: NotRequired[Sequence[StageValuesType]]
+    ExecutionHandlerService: NotRequired[Literal["AWS_SYSTEMS_MANAGER"]]
+    ExecuteOperationOnScriptFailure: NotRequired[bool]
+    ExecutionTimeout: NotRequired[int]
+    MaximumRetryCount: NotRequired[int]
 
-CreateLifecyclePolicyResponseTypeDef = TypedDict(
-    "CreateLifecyclePolicyResponseTypeDef",
-    {
-        "PolicyId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CrossRegionCopyRetainRuleTypeDef(TypedDict):
+    Interval: NotRequired[int]
+    IntervalUnit: NotRequired[RetentionIntervalUnitValuesType]
 
-CreateRuleTypeDef = TypedDict(
-    "CreateRuleTypeDef",
-    {
-        "Location": LocationValuesType,
-        "Interval": int,
-        "IntervalUnit": Literal["HOURS"],
-        "Times": List[str],
-        "CronExpression": str,
-        "Scripts": List["ScriptTypeDef"],
-    },
-    total=False,
-)
+class EncryptionConfigurationTypeDef(TypedDict):
+    Encrypted: bool
+    CmkArn: NotRequired[str]
 
-_RequiredCrossRegionCopyActionTypeDef = TypedDict(
-    "_RequiredCrossRegionCopyActionTypeDef",
-    {
-        "Target": str,
-        "EncryptionConfiguration": "EncryptionConfigurationTypeDef",
-    },
-)
-_OptionalCrossRegionCopyActionTypeDef = TypedDict(
-    "_OptionalCrossRegionCopyActionTypeDef",
-    {
-        "RetainRule": "CrossRegionCopyRetainRuleTypeDef",
-    },
-    total=False,
-)
+class CrossRegionCopyDeprecateRuleTypeDef(TypedDict):
+    Interval: NotRequired[int]
+    IntervalUnit: NotRequired[RetentionIntervalUnitValuesType]
 
-class CrossRegionCopyActionTypeDef(
-    _RequiredCrossRegionCopyActionTypeDef, _OptionalCrossRegionCopyActionTypeDef
-):
-    pass
+class DeleteLifecyclePolicyRequestTypeDef(TypedDict):
+    PolicyId: str
 
-CrossRegionCopyDeprecateRuleTypeDef = TypedDict(
-    "CrossRegionCopyDeprecateRuleTypeDef",
-    {
-        "Interval": int,
-        "IntervalUnit": RetentionIntervalUnitValuesType,
-    },
-    total=False,
-)
+class DeprecateRuleTypeDef(TypedDict):
+    Count: NotRequired[int]
+    Interval: NotRequired[int]
+    IntervalUnit: NotRequired[RetentionIntervalUnitValuesType]
 
-CrossRegionCopyRetainRuleTypeDef = TypedDict(
-    "CrossRegionCopyRetainRuleTypeDef",
-    {
-        "Interval": int,
-        "IntervalUnit": RetentionIntervalUnitValuesType,
-    },
-    total=False,
-)
+class EventParametersOutputTypeDef(TypedDict):
+    EventType: Literal["shareSnapshot"]
+    SnapshotOwner: List[str]
+    DescriptionRegex: str
 
-_RequiredCrossRegionCopyRuleTypeDef = TypedDict(
-    "_RequiredCrossRegionCopyRuleTypeDef",
-    {
-        "Encrypted": bool,
-    },
-)
-_OptionalCrossRegionCopyRuleTypeDef = TypedDict(
-    "_OptionalCrossRegionCopyRuleTypeDef",
-    {
-        "TargetRegion": str,
-        "Target": str,
-        "CmkArn": str,
-        "CopyTags": bool,
-        "RetainRule": "CrossRegionCopyRetainRuleTypeDef",
-        "DeprecateRule": "CrossRegionCopyDeprecateRuleTypeDef",
-    },
-    total=False,
-)
+class EventParametersTypeDef(TypedDict):
+    EventType: Literal["shareSnapshot"]
+    SnapshotOwner: Sequence[str]
+    DescriptionRegex: str
 
-class CrossRegionCopyRuleTypeDef(
-    _RequiredCrossRegionCopyRuleTypeDef, _OptionalCrossRegionCopyRuleTypeDef
-):
-    pass
+class TagTypeDef(TypedDict):
+    Key: str
+    Value: str
 
-CrossRegionCopyTargetTypeDef = TypedDict(
-    "CrossRegionCopyTargetTypeDef",
-    {
-        "TargetRegion": str,
-    },
-    total=False,
-)
+class FastRestoreRuleOutputTypeDef(TypedDict):
+    AvailabilityZones: List[str]
+    Count: NotRequired[int]
+    Interval: NotRequired[int]
+    IntervalUnit: NotRequired[RetentionIntervalUnitValuesType]
 
-DeleteLifecyclePolicyRequestRequestTypeDef = TypedDict(
-    "DeleteLifecyclePolicyRequestRequestTypeDef",
-    {
-        "PolicyId": str,
-    },
-)
+class FastRestoreRuleTypeDef(TypedDict):
+    AvailabilityZones: Sequence[str]
+    Count: NotRequired[int]
+    Interval: NotRequired[int]
+    IntervalUnit: NotRequired[RetentionIntervalUnitValuesType]
 
-DeprecateRuleTypeDef = TypedDict(
-    "DeprecateRuleTypeDef",
-    {
-        "Count": int,
-        "Interval": int,
-        "IntervalUnit": RetentionIntervalUnitValuesType,
-    },
-    total=False,
-)
+class GetLifecyclePoliciesRequestTypeDef(TypedDict):
+    PolicyIds: NotRequired[Sequence[str]]
+    State: NotRequired[GettablePolicyStateValuesType]
+    ResourceTypes: NotRequired[Sequence[ResourceTypeValuesType]]
+    TargetTags: NotRequired[Sequence[str]]
+    TagsToAdd: NotRequired[Sequence[str]]
+    DefaultPolicyType: NotRequired[DefaultPoliciesTypeValuesType]
 
-_RequiredEncryptionConfigurationTypeDef = TypedDict(
-    "_RequiredEncryptionConfigurationTypeDef",
-    {
-        "Encrypted": bool,
-    },
-)
-_OptionalEncryptionConfigurationTypeDef = TypedDict(
-    "_OptionalEncryptionConfigurationTypeDef",
-    {
-        "CmkArn": str,
-    },
-    total=False,
-)
+class LifecyclePolicySummaryTypeDef(TypedDict):
+    PolicyId: NotRequired[str]
+    Description: NotRequired[str]
+    State: NotRequired[GettablePolicyStateValuesType]
+    Tags: NotRequired[Dict[str, str]]
+    PolicyType: NotRequired[PolicyTypeValuesType]
+    DefaultPolicy: NotRequired[bool]
 
-class EncryptionConfigurationTypeDef(
-    _RequiredEncryptionConfigurationTypeDef, _OptionalEncryptionConfigurationTypeDef
-):
-    pass
+class GetLifecyclePolicyRequestTypeDef(TypedDict):
+    PolicyId: str
 
-EventParametersTypeDef = TypedDict(
-    "EventParametersTypeDef",
-    {
-        "EventType": Literal["shareSnapshot"],
-        "SnapshotOwner": List[str],
-        "DescriptionRegex": str,
-    },
-)
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
 
-_RequiredEventSourceTypeDef = TypedDict(
-    "_RequiredEventSourceTypeDef",
+class RetainRuleTypeDef(TypedDict):
+    Count: NotRequired[int]
+    Interval: NotRequired[int]
+    IntervalUnit: NotRequired[RetentionIntervalUnitValuesType]
+
+class ShareRuleOutputTypeDef(TypedDict):
+    TargetAccounts: List[str]
+    UnshareInterval: NotRequired[int]
+    UnshareIntervalUnit: NotRequired[RetentionIntervalUnitValuesType]
+
+class ShareRuleTypeDef(TypedDict):
+    TargetAccounts: Sequence[str]
+    UnshareInterval: NotRequired[int]
+    UnshareIntervalUnit: NotRequired[RetentionIntervalUnitValuesType]
+
+class TagResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+    Tags: Mapping[str, str]
+
+class UntagResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+    TagKeys: Sequence[str]
+
+class ArchiveRetainRuleTypeDef(TypedDict):
+    RetentionArchiveTier: RetentionArchiveTierTypeDef
+
+class CreateLifecyclePolicyResponseTypeDef(TypedDict):
+    PolicyId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    Tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateRuleOutputTypeDef(TypedDict):
+    Location: NotRequired[LocationValuesType]
+    Interval: NotRequired[int]
+    IntervalUnit: NotRequired[Literal["HOURS"]]
+    Times: NotRequired[List[str]]
+    CronExpression: NotRequired[str]
+    Scripts: NotRequired[List[ScriptOutputTypeDef]]
+
+class CreateRuleTypeDef(TypedDict):
+    Location: NotRequired[LocationValuesType]
+    Interval: NotRequired[int]
+    IntervalUnit: NotRequired[Literal["HOURS"]]
+    Times: NotRequired[Sequence[str]]
+    CronExpression: NotRequired[str]
+    Scripts: NotRequired[Sequence[ScriptTypeDef]]
+
+class CrossRegionCopyActionTypeDef(TypedDict):
+    Target: str
+    EncryptionConfiguration: EncryptionConfigurationTypeDef
+    RetainRule: NotRequired[CrossRegionCopyRetainRuleTypeDef]
+
+class CrossRegionCopyRuleTypeDef(TypedDict):
+    Encrypted: bool
+    TargetRegion: NotRequired[str]
+    Target: NotRequired[str]
+    CmkArn: NotRequired[str]
+    CopyTags: NotRequired[bool]
+    RetainRule: NotRequired[CrossRegionCopyRetainRuleTypeDef]
+    DeprecateRule: NotRequired[CrossRegionCopyDeprecateRuleTypeDef]
+
+EventSourceOutputTypeDef = TypedDict(
+    "EventSourceOutputTypeDef",
     {
         "Type": Literal["MANAGED_CWE"],
+        "Parameters": NotRequired[EventParametersOutputTypeDef],
     },
 )
-_OptionalEventSourceTypeDef = TypedDict(
-    "_OptionalEventSourceTypeDef",
+EventSourceTypeDef = TypedDict(
+    "EventSourceTypeDef",
     {
-        "Parameters": "EventParametersTypeDef",
-    },
-    total=False,
-)
-
-class EventSourceTypeDef(_RequiredEventSourceTypeDef, _OptionalEventSourceTypeDef):
-    pass
-
-ExclusionsTypeDef = TypedDict(
-    "ExclusionsTypeDef",
-    {
-        "ExcludeBootVolumes": bool,
-        "ExcludeVolumeTypes": List[str],
-        "ExcludeTags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-_RequiredFastRestoreRuleTypeDef = TypedDict(
-    "_RequiredFastRestoreRuleTypeDef",
-    {
-        "AvailabilityZones": List[str],
-    },
-)
-_OptionalFastRestoreRuleTypeDef = TypedDict(
-    "_OptionalFastRestoreRuleTypeDef",
-    {
-        "Count": int,
-        "Interval": int,
-        "IntervalUnit": RetentionIntervalUnitValuesType,
-    },
-    total=False,
-)
-
-class FastRestoreRuleTypeDef(_RequiredFastRestoreRuleTypeDef, _OptionalFastRestoreRuleTypeDef):
-    pass
-
-GetLifecyclePoliciesRequestRequestTypeDef = TypedDict(
-    "GetLifecyclePoliciesRequestRequestTypeDef",
-    {
-        "PolicyIds": List[str],
-        "State": GettablePolicyStateValuesType,
-        "ResourceTypes": List[ResourceTypeValuesType],
-        "TargetTags": List[str],
-        "TagsToAdd": List[str],
-        "DefaultPolicyType": DefaultPoliciesTypeValuesType,
-    },
-    total=False,
-)
-
-GetLifecyclePoliciesResponseTypeDef = TypedDict(
-    "GetLifecyclePoliciesResponseTypeDef",
-    {
-        "Policies": List["LifecyclePolicySummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "Type": Literal["MANAGED_CWE"],
+        "Parameters": NotRequired[EventParametersTypeDef],
     },
 )
 
-GetLifecyclePolicyRequestRequestTypeDef = TypedDict(
-    "GetLifecyclePolicyRequestRequestTypeDef",
-    {
-        "PolicyId": str,
-    },
-)
+class ExclusionsOutputTypeDef(TypedDict):
+    ExcludeBootVolumes: NotRequired[bool]
+    ExcludeVolumeTypes: NotRequired[List[str]]
+    ExcludeTags: NotRequired[List[TagTypeDef]]
 
-GetLifecyclePolicyResponseTypeDef = TypedDict(
-    "GetLifecyclePolicyResponseTypeDef",
-    {
-        "Policy": "LifecyclePolicyTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ExclusionsTypeDef(TypedDict):
+    ExcludeBootVolumes: NotRequired[bool]
+    ExcludeVolumeTypes: NotRequired[Sequence[str]]
+    ExcludeTags: NotRequired[Sequence[TagTypeDef]]
 
-LifecyclePolicySummaryTypeDef = TypedDict(
-    "LifecyclePolicySummaryTypeDef",
-    {
-        "PolicyId": str,
-        "Description": str,
-        "State": GettablePolicyStateValuesType,
-        "Tags": Dict[str, str],
-        "PolicyType": PolicyTypeValuesType,
-        "DefaultPolicy": bool,
-    },
-    total=False,
-)
+class ParametersOutputTypeDef(TypedDict):
+    ExcludeBootVolume: NotRequired[bool]
+    NoReboot: NotRequired[bool]
+    ExcludeDataVolumeTags: NotRequired[List[TagTypeDef]]
 
-LifecyclePolicyTypeDef = TypedDict(
-    "LifecyclePolicyTypeDef",
-    {
-        "PolicyId": str,
-        "Description": str,
-        "State": GettablePolicyStateValuesType,
-        "StatusMessage": str,
-        "ExecutionRoleArn": str,
-        "DateCreated": datetime,
-        "DateModified": datetime,
-        "PolicyDetails": "PolicyDetailsTypeDef",
-        "Tags": Dict[str, str],
-        "PolicyArn": str,
-        "DefaultPolicy": bool,
-    },
-    total=False,
-)
+class ParametersTypeDef(TypedDict):
+    ExcludeBootVolume: NotRequired[bool]
+    NoReboot: NotRequired[bool]
+    ExcludeDataVolumeTags: NotRequired[Sequence[TagTypeDef]]
 
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-    },
-)
+class GetLifecyclePoliciesResponseTypeDef(TypedDict):
+    Policies: List[LifecyclePolicySummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "Tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ArchiveRuleTypeDef(TypedDict):
+    RetainRule: ArchiveRetainRuleTypeDef
 
-ParametersTypeDef = TypedDict(
-    "ParametersTypeDef",
-    {
-        "ExcludeBootVolume": bool,
-        "NoReboot": bool,
-        "ExcludeDataVolumeTags": List["TagTypeDef"],
-    },
-    total=False,
-)
+class ActionOutputTypeDef(TypedDict):
+    Name: str
+    CrossRegionCopy: List[CrossRegionCopyActionTypeDef]
 
-PolicyDetailsTypeDef = TypedDict(
-    "PolicyDetailsTypeDef",
-    {
-        "PolicyType": PolicyTypeValuesType,
-        "ResourceTypes": List[ResourceTypeValuesType],
-        "ResourceLocations": List[ResourceLocationValuesType],
-        "TargetTags": List["TagTypeDef"],
-        "Schedules": List["ScheduleTypeDef"],
-        "Parameters": "ParametersTypeDef",
-        "EventSource": "EventSourceTypeDef",
-        "Actions": List["ActionTypeDef"],
-        "PolicyLanguage": PolicyLanguageValuesType,
-        "ResourceType": ResourceTypeValuesType,
-        "CreateInterval": int,
-        "RetainInterval": int,
-        "CopyTags": bool,
-        "CrossRegionCopyTargets": List["CrossRegionCopyTargetTypeDef"],
-        "ExtendDeletion": bool,
-        "Exclusions": "ExclusionsTypeDef",
-    },
-    total=False,
-)
+class ActionTypeDef(TypedDict):
+    Name: str
+    CrossRegionCopy: Sequence[CrossRegionCopyActionTypeDef]
 
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
+ExclusionsUnionTypeDef = Union[ExclusionsTypeDef, ExclusionsOutputTypeDef]
 
-RetainRuleTypeDef = TypedDict(
-    "RetainRuleTypeDef",
-    {
-        "Count": int,
-        "Interval": int,
-        "IntervalUnit": RetentionIntervalUnitValuesType,
-    },
-    total=False,
-)
+class ScheduleOutputTypeDef(TypedDict):
+    Name: NotRequired[str]
+    CopyTags: NotRequired[bool]
+    TagsToAdd: NotRequired[List[TagTypeDef]]
+    VariableTags: NotRequired[List[TagTypeDef]]
+    CreateRule: NotRequired[CreateRuleOutputTypeDef]
+    RetainRule: NotRequired[RetainRuleTypeDef]
+    FastRestoreRule: NotRequired[FastRestoreRuleOutputTypeDef]
+    CrossRegionCopyRules: NotRequired[List[CrossRegionCopyRuleTypeDef]]
+    ShareRules: NotRequired[List[ShareRuleOutputTypeDef]]
+    DeprecateRule: NotRequired[DeprecateRuleTypeDef]
+    ArchiveRule: NotRequired[ArchiveRuleTypeDef]
 
-RetentionArchiveTierTypeDef = TypedDict(
-    "RetentionArchiveTierTypeDef",
-    {
-        "Count": int,
-        "Interval": int,
-        "IntervalUnit": RetentionIntervalUnitValuesType,
-    },
-    total=False,
-)
+class ScheduleTypeDef(TypedDict):
+    Name: NotRequired[str]
+    CopyTags: NotRequired[bool]
+    TagsToAdd: NotRequired[Sequence[TagTypeDef]]
+    VariableTags: NotRequired[Sequence[TagTypeDef]]
+    CreateRule: NotRequired[CreateRuleTypeDef]
+    RetainRule: NotRequired[RetainRuleTypeDef]
+    FastRestoreRule: NotRequired[FastRestoreRuleTypeDef]
+    CrossRegionCopyRules: NotRequired[Sequence[CrossRegionCopyRuleTypeDef]]
+    ShareRules: NotRequired[Sequence[ShareRuleTypeDef]]
+    DeprecateRule: NotRequired[DeprecateRuleTypeDef]
+    ArchiveRule: NotRequired[ArchiveRuleTypeDef]
 
-ScheduleTypeDef = TypedDict(
-    "ScheduleTypeDef",
-    {
-        "Name": str,
-        "CopyTags": bool,
-        "TagsToAdd": List["TagTypeDef"],
-        "VariableTags": List["TagTypeDef"],
-        "CreateRule": "CreateRuleTypeDef",
-        "RetainRule": "RetainRuleTypeDef",
-        "FastRestoreRule": "FastRestoreRuleTypeDef",
-        "CrossRegionCopyRules": List["CrossRegionCopyRuleTypeDef"],
-        "ShareRules": List["ShareRuleTypeDef"],
-        "DeprecateRule": "DeprecateRuleTypeDef",
-        "ArchiveRule": "ArchiveRuleTypeDef",
-    },
-    total=False,
-)
+class PolicyDetailsOutputTypeDef(TypedDict):
+    PolicyType: NotRequired[PolicyTypeValuesType]
+    ResourceTypes: NotRequired[List[ResourceTypeValuesType]]
+    ResourceLocations: NotRequired[List[ResourceLocationValuesType]]
+    TargetTags: NotRequired[List[TagTypeDef]]
+    Schedules: NotRequired[List[ScheduleOutputTypeDef]]
+    Parameters: NotRequired[ParametersOutputTypeDef]
+    EventSource: NotRequired[EventSourceOutputTypeDef]
+    Actions: NotRequired[List[ActionOutputTypeDef]]
+    PolicyLanguage: NotRequired[PolicyLanguageValuesType]
+    ResourceType: NotRequired[ResourceTypeValuesType]
+    CreateInterval: NotRequired[int]
+    RetainInterval: NotRequired[int]
+    CopyTags: NotRequired[bool]
+    CrossRegionCopyTargets: NotRequired[List[CrossRegionCopyTargetTypeDef]]
+    ExtendDeletion: NotRequired[bool]
+    Exclusions: NotRequired[ExclusionsOutputTypeDef]
 
-_RequiredScriptTypeDef = TypedDict(
-    "_RequiredScriptTypeDef",
-    {
-        "ExecutionHandler": str,
-    },
-)
-_OptionalScriptTypeDef = TypedDict(
-    "_OptionalScriptTypeDef",
-    {
-        "Stages": List[StageValuesType],
-        "ExecutionHandlerService": Literal["AWS_SYSTEMS_MANAGER"],
-        "ExecuteOperationOnScriptFailure": bool,
-        "ExecutionTimeout": int,
-        "MaximumRetryCount": int,
-    },
-    total=False,
-)
+class PolicyDetailsTypeDef(TypedDict):
+    PolicyType: NotRequired[PolicyTypeValuesType]
+    ResourceTypes: NotRequired[Sequence[ResourceTypeValuesType]]
+    ResourceLocations: NotRequired[Sequence[ResourceLocationValuesType]]
+    TargetTags: NotRequired[Sequence[TagTypeDef]]
+    Schedules: NotRequired[Sequence[ScheduleTypeDef]]
+    Parameters: NotRequired[ParametersTypeDef]
+    EventSource: NotRequired[EventSourceTypeDef]
+    Actions: NotRequired[Sequence[ActionTypeDef]]
+    PolicyLanguage: NotRequired[PolicyLanguageValuesType]
+    ResourceType: NotRequired[ResourceTypeValuesType]
+    CreateInterval: NotRequired[int]
+    RetainInterval: NotRequired[int]
+    CopyTags: NotRequired[bool]
+    CrossRegionCopyTargets: NotRequired[Sequence[CrossRegionCopyTargetTypeDef]]
+    ExtendDeletion: NotRequired[bool]
+    Exclusions: NotRequired[ExclusionsTypeDef]
 
-class ScriptTypeDef(_RequiredScriptTypeDef, _OptionalScriptTypeDef):
-    pass
+class LifecyclePolicyTypeDef(TypedDict):
+    PolicyId: NotRequired[str]
+    Description: NotRequired[str]
+    State: NotRequired[GettablePolicyStateValuesType]
+    StatusMessage: NotRequired[str]
+    ExecutionRoleArn: NotRequired[str]
+    DateCreated: NotRequired[datetime]
+    DateModified: NotRequired[datetime]
+    PolicyDetails: NotRequired[PolicyDetailsOutputTypeDef]
+    Tags: NotRequired[Dict[str, str]]
+    PolicyArn: NotRequired[str]
+    DefaultPolicy: NotRequired[bool]
 
-_RequiredShareRuleTypeDef = TypedDict(
-    "_RequiredShareRuleTypeDef",
-    {
-        "TargetAccounts": List[str],
-    },
-)
-_OptionalShareRuleTypeDef = TypedDict(
-    "_OptionalShareRuleTypeDef",
-    {
-        "UnshareInterval": int,
-        "UnshareIntervalUnit": RetentionIntervalUnitValuesType,
-    },
-    total=False,
-)
+PolicyDetailsUnionTypeDef = Union[PolicyDetailsTypeDef, PolicyDetailsOutputTypeDef]
 
-class ShareRuleTypeDef(_RequiredShareRuleTypeDef, _OptionalShareRuleTypeDef):
-    pass
+class GetLifecyclePolicyResponseTypeDef(TypedDict):
+    Policy: LifecyclePolicyTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-        "Tags": Dict[str, str],
-    },
-)
+class CreateLifecyclePolicyRequestTypeDef(TypedDict):
+    ExecutionRoleArn: str
+    Description: str
+    State: SettablePolicyStateValuesType
+    PolicyDetails: NotRequired[PolicyDetailsUnionTypeDef]
+    Tags: NotRequired[Mapping[str, str]]
+    DefaultPolicy: NotRequired[DefaultPolicyTypeValuesType]
+    CreateInterval: NotRequired[int]
+    RetainInterval: NotRequired[int]
+    CopyTags: NotRequired[bool]
+    ExtendDeletion: NotRequired[bool]
+    CrossRegionCopyTargets: NotRequired[Sequence[CrossRegionCopyTargetTypeDef]]
+    Exclusions: NotRequired[ExclusionsUnionTypeDef]
 
-TagTypeDef = TypedDict(
-    "TagTypeDef",
-    {
-        "Key": str,
-        "Value": str,
-    },
-)
-
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-        "TagKeys": List[str],
-    },
-)
-
-_RequiredUpdateLifecyclePolicyRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateLifecyclePolicyRequestRequestTypeDef",
-    {
-        "PolicyId": str,
-    },
-)
-_OptionalUpdateLifecyclePolicyRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateLifecyclePolicyRequestRequestTypeDef",
-    {
-        "ExecutionRoleArn": str,
-        "State": SettablePolicyStateValuesType,
-        "Description": str,
-        "PolicyDetails": "PolicyDetailsTypeDef",
-        "CreateInterval": int,
-        "RetainInterval": int,
-        "CopyTags": bool,
-        "ExtendDeletion": bool,
-        "CrossRegionCopyTargets": List["CrossRegionCopyTargetTypeDef"],
-        "Exclusions": "ExclusionsTypeDef",
-    },
-    total=False,
-)
-
-class UpdateLifecyclePolicyRequestRequestTypeDef(
-    _RequiredUpdateLifecyclePolicyRequestRequestTypeDef,
-    _OptionalUpdateLifecyclePolicyRequestRequestTypeDef,
-):
-    pass
+class UpdateLifecyclePolicyRequestTypeDef(TypedDict):
+    PolicyId: str
+    ExecutionRoleArn: NotRequired[str]
+    State: NotRequired[SettablePolicyStateValuesType]
+    Description: NotRequired[str]
+    PolicyDetails: NotRequired[PolicyDetailsUnionTypeDef]
+    CreateInterval: NotRequired[int]
+    RetainInterval: NotRequired[int]
+    CopyTags: NotRequired[bool]
+    ExtendDeletion: NotRequired[bool]
+    CrossRegionCopyTargets: NotRequired[Sequence[CrossRegionCopyTargetTypeDef]]
+    Exclusions: NotRequired[ExclusionsUnionTypeDef]

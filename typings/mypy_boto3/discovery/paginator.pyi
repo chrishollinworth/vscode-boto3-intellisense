@@ -1,14 +1,16 @@
 """
 Type annotations for discovery service client paginators.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_discovery/paginators.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_discovery/paginators/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
 
-    from mypy_boto3_discovery import ApplicationDiscoveryServiceClient
+    from mypy_boto3_discovery.client import ApplicationDiscoveryServiceClient
     from mypy_boto3_discovery.paginator import (
         DescribeAgentsPaginator,
         DescribeContinuousExportsPaginator,
@@ -19,7 +21,8 @@ Usage::
         ListConfigurationsPaginator,
     )
 
-    client: ApplicationDiscoveryServiceClient = boto3.client("discovery")
+    session = Session()
+    client: ApplicationDiscoveryServiceClient = session.client("discovery")
 
     describe_agents_paginator: DescribeAgentsPaginator = client.get_paginator("describe_agents")
     describe_continuous_exports_paginator: DescribeContinuousExportsPaginator = client.get_paginator("describe_continuous_exports")
@@ -31,26 +34,34 @@ Usage::
     ```
 """
 
-from typing import Iterator, List
+from __future__ import annotations
 
-from botocore.paginate import Paginator as Boto3Paginator
+import sys
+from typing import TYPE_CHECKING
 
-from .literals import ConfigurationItemTypeType
+from botocore.paginate import PageIterator, Paginator
+
 from .type_defs import (
+    DescribeAgentsRequestPaginateTypeDef,
     DescribeAgentsResponseTypeDef,
+    DescribeContinuousExportsRequestPaginateTypeDef,
     DescribeContinuousExportsResponseTypeDef,
+    DescribeExportConfigurationsRequestPaginateTypeDef,
     DescribeExportConfigurationsResponseTypeDef,
+    DescribeExportTasksRequestPaginateTypeDef,
     DescribeExportTasksResponseTypeDef,
+    DescribeImportTasksRequestPaginateTypeDef,
     DescribeImportTasksResponseTypeDef,
+    DescribeTagsRequestPaginateTypeDef,
     DescribeTagsResponseTypeDef,
-    ExportFilterTypeDef,
-    FilterTypeDef,
-    ImportTaskFilterTypeDef,
+    ListConfigurationsRequestPaginateTypeDef,
     ListConfigurationsResponseTypeDef,
-    OrderByElementTypeDef,
-    PaginatorConfigTypeDef,
-    TagFilterTypeDef,
 )
+
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = (
     "DescribeAgentsPaginator",
@@ -62,119 +73,130 @@ __all__ = (
     "ListConfigurationsPaginator",
 )
 
-class DescribeAgentsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/discovery.html#ApplicationDiscoveryService.Paginator.DescribeAgents)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_discovery/paginators.html#describeagentspaginator)
-    """
+if TYPE_CHECKING:
+    _DescribeAgentsPaginatorBase = Paginator[DescribeAgentsResponseTypeDef]
+else:
+    _DescribeAgentsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        agentIds: List[str] = None,
-        filters: List["FilterTypeDef"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[DescribeAgentsResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/discovery.html#ApplicationDiscoveryService.Paginator.DescribeAgents.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_discovery/paginators.html#describeagentspaginator)
-        """
-
-class DescribeContinuousExportsPaginator(Boto3Paginator):
+class DescribeAgentsPaginator(_DescribeAgentsPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/discovery.html#ApplicationDiscoveryService.Paginator.DescribeContinuousExports)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_discovery/paginators.html#describecontinuousexportspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/discovery/paginator/DescribeAgents.html#ApplicationDiscoveryService.Paginator.DescribeAgents)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_discovery/paginators/#describeagentspaginator)
     """
-
-    def paginate(
-        self, *, exportIds: List[str] = None, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[DescribeContinuousExportsResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeAgentsRequestPaginateTypeDef]
+    ) -> PageIterator[DescribeAgentsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/discovery.html#ApplicationDiscoveryService.Paginator.DescribeContinuousExports.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_discovery/paginators.html#describecontinuousexportspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/discovery/paginator/DescribeAgents.html#ApplicationDiscoveryService.Paginator.DescribeAgents.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_discovery/paginators/#describeagentspaginator)
         """
 
-class DescribeExportConfigurationsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/discovery.html#ApplicationDiscoveryService.Paginator.DescribeExportConfigurations)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_discovery/paginators.html#describeexportconfigurationspaginator)
-    """
+if TYPE_CHECKING:
+    _DescribeContinuousExportsPaginatorBase = Paginator[DescribeContinuousExportsResponseTypeDef]
+else:
+    _DescribeContinuousExportsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, exportIds: List[str] = None, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[DescribeExportConfigurationsResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/discovery.html#ApplicationDiscoveryService.Paginator.DescribeExportConfigurations.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_discovery/paginators.html#describeexportconfigurationspaginator)
-        """
-
-class DescribeExportTasksPaginator(Boto3Paginator):
+class DescribeContinuousExportsPaginator(_DescribeContinuousExportsPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/discovery.html#ApplicationDiscoveryService.Paginator.DescribeExportTasks)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_discovery/paginators.html#describeexporttaskspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/discovery/paginator/DescribeContinuousExports.html#ApplicationDiscoveryService.Paginator.DescribeContinuousExports)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_discovery/paginators/#describecontinuousexportspaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        exportIds: List[str] = None,
-        filters: List["ExportFilterTypeDef"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[DescribeExportTasksResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeContinuousExportsRequestPaginateTypeDef]
+    ) -> PageIterator[DescribeContinuousExportsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/discovery.html#ApplicationDiscoveryService.Paginator.DescribeExportTasks.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_discovery/paginators.html#describeexporttaskspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/discovery/paginator/DescribeContinuousExports.html#ApplicationDiscoveryService.Paginator.DescribeContinuousExports.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_discovery/paginators/#describecontinuousexportspaginator)
         """
 
-class DescribeImportTasksPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/discovery.html#ApplicationDiscoveryService.Paginator.DescribeImportTasks)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_discovery/paginators.html#describeimporttaskspaginator)
-    """
+if TYPE_CHECKING:
+    _DescribeExportConfigurationsPaginatorBase = Paginator[
+        DescribeExportConfigurationsResponseTypeDef
+    ]
+else:
+    _DescribeExportConfigurationsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        filters: List["ImportTaskFilterTypeDef"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[DescribeImportTasksResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/discovery.html#ApplicationDiscoveryService.Paginator.DescribeImportTasks.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_discovery/paginators.html#describeimporttaskspaginator)
-        """
-
-class DescribeTagsPaginator(Boto3Paginator):
+class DescribeExportConfigurationsPaginator(_DescribeExportConfigurationsPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/discovery.html#ApplicationDiscoveryService.Paginator.DescribeTags)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_discovery/paginators.html#describetagspaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/discovery/paginator/DescribeExportConfigurations.html#ApplicationDiscoveryService.Paginator.DescribeExportConfigurations)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_discovery/paginators/#describeexportconfigurationspaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        filters: List["TagFilterTypeDef"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[DescribeTagsResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeExportConfigurationsRequestPaginateTypeDef]
+    ) -> PageIterator[DescribeExportConfigurationsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/discovery.html#ApplicationDiscoveryService.Paginator.DescribeTags.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_discovery/paginators.html#describetagspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/discovery/paginator/DescribeExportConfigurations.html#ApplicationDiscoveryService.Paginator.DescribeExportConfigurations.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_discovery/paginators/#describeexportconfigurationspaginator)
         """
 
-class ListConfigurationsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/discovery.html#ApplicationDiscoveryService.Paginator.ListConfigurations)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_discovery/paginators.html#listconfigurationspaginator)
-    """
+if TYPE_CHECKING:
+    _DescribeExportTasksPaginatorBase = Paginator[DescribeExportTasksResponseTypeDef]
+else:
+    _DescribeExportTasksPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        configurationType: ConfigurationItemTypeType,
-        filters: List["FilterTypeDef"] = None,
-        orderBy: List["OrderByElementTypeDef"] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListConfigurationsResponseTypeDef]:
+class DescribeExportTasksPaginator(_DescribeExportTasksPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/discovery/paginator/DescribeExportTasks.html#ApplicationDiscoveryService.Paginator.DescribeExportTasks)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_discovery/paginators/#describeexporttaskspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeExportTasksRequestPaginateTypeDef]
+    ) -> PageIterator[DescribeExportTasksResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/discovery.html#ApplicationDiscoveryService.Paginator.ListConfigurations.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_discovery/paginators.html#listconfigurationspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/discovery/paginator/DescribeExportTasks.html#ApplicationDiscoveryService.Paginator.DescribeExportTasks.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_discovery/paginators/#describeexporttaskspaginator)
+        """
+
+if TYPE_CHECKING:
+    _DescribeImportTasksPaginatorBase = Paginator[DescribeImportTasksResponseTypeDef]
+else:
+    _DescribeImportTasksPaginatorBase = Paginator  # type: ignore[assignment]
+
+class DescribeImportTasksPaginator(_DescribeImportTasksPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/discovery/paginator/DescribeImportTasks.html#ApplicationDiscoveryService.Paginator.DescribeImportTasks)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_discovery/paginators/#describeimporttaskspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeImportTasksRequestPaginateTypeDef]
+    ) -> PageIterator[DescribeImportTasksResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/discovery/paginator/DescribeImportTasks.html#ApplicationDiscoveryService.Paginator.DescribeImportTasks.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_discovery/paginators/#describeimporttaskspaginator)
+        """
+
+if TYPE_CHECKING:
+    _DescribeTagsPaginatorBase = Paginator[DescribeTagsResponseTypeDef]
+else:
+    _DescribeTagsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class DescribeTagsPaginator(_DescribeTagsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/discovery/paginator/DescribeTags.html#ApplicationDiscoveryService.Paginator.DescribeTags)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_discovery/paginators/#describetagspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeTagsRequestPaginateTypeDef]
+    ) -> PageIterator[DescribeTagsResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/discovery/paginator/DescribeTags.html#ApplicationDiscoveryService.Paginator.DescribeTags.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_discovery/paginators/#describetagspaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListConfigurationsPaginatorBase = Paginator[ListConfigurationsResponseTypeDef]
+else:
+    _ListConfigurationsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListConfigurationsPaginator(_ListConfigurationsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/discovery/paginator/ListConfigurations.html#ApplicationDiscoveryService.Paginator.ListConfigurations)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_discovery/paginators/#listconfigurationspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListConfigurationsRequestPaginateTypeDef]
+    ) -> PageIterator[ListConfigurationsResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/discovery/paginator/ListConfigurations.html#ApplicationDiscoveryService.Paginator.ListConfigurations.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_discovery/paginators/#listconfigurationspaginator)
         """

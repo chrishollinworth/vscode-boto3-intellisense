@@ -1,10 +1,14 @@
 """
 Main interface for robomaker service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_robomaker/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_robomaker import (
         Client,
         ListDeploymentJobsPaginator,
@@ -21,10 +25,8 @@ Usage::
         RoboMakerClient,
     )
 
-    session = boto3.Session()
-
-    client: RoboMakerClient = boto3.client("robomaker")
-    session_client: RoboMakerClient = session.client("robomaker")
+    session = Session()
+    client: RoboMakerClient = session.client("robomaker")
 
     list_deployment_jobs_paginator: ListDeploymentJobsPaginator = client.get_paginator("list_deployment_jobs")
     list_fleets_paginator: ListFleetsPaginator = client.get_paginator("list_fleets")

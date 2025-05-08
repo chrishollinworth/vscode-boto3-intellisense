@@ -1,107 +1,85 @@
 """
 Type annotations for marketplace-entitlement service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_marketplace_entitlement/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_marketplace_entitlement/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_marketplace_entitlement.type_defs import EntitlementTypeDef
+    from mypy_boto3_marketplace_entitlement.type_defs import EntitlementValueTypeDef
 
-    data: EntitlementTypeDef = {...}
+    data: EntitlementValueTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
 
 from .literals import GetEntitlementFilterNameType
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
     "EntitlementTypeDef",
     "EntitlementValueTypeDef",
-    "GetEntitlementsRequestRequestTypeDef",
+    "GetEntitlementsRequestPaginateTypeDef",
+    "GetEntitlementsRequestTypeDef",
     "GetEntitlementsResultTypeDef",
     "PaginatorConfigTypeDef",
     "ResponseMetadataTypeDef",
 )
 
-EntitlementTypeDef = TypedDict(
-    "EntitlementTypeDef",
-    {
-        "ProductCode": str,
-        "Dimension": str,
-        "CustomerIdentifier": str,
-        "Value": "EntitlementValueTypeDef",
-        "ExpirationDate": datetime,
-    },
-    total=False,
-)
+class EntitlementValueTypeDef(TypedDict):
+    IntegerValue: NotRequired[int]
+    DoubleValue: NotRequired[float]
+    BooleanValue: NotRequired[bool]
+    StringValue: NotRequired[str]
 
-EntitlementValueTypeDef = TypedDict(
-    "EntitlementValueTypeDef",
-    {
-        "IntegerValue": int,
-        "DoubleValue": float,
-        "BooleanValue": bool,
-        "StringValue": str,
-    },
-    total=False,
-)
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
 
-_RequiredGetEntitlementsRequestRequestTypeDef = TypedDict(
-    "_RequiredGetEntitlementsRequestRequestTypeDef",
-    {
-        "ProductCode": str,
-    },
-)
-_OptionalGetEntitlementsRequestRequestTypeDef = TypedDict(
-    "_OptionalGetEntitlementsRequestRequestTypeDef",
-    {
-        "Filter": Dict[GetEntitlementFilterNameType, List[str]],
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
+class GetEntitlementsRequestTypeDef(TypedDict):
+    ProductCode: str
+    Filter: NotRequired[Mapping[GetEntitlementFilterNameType, Sequence[str]]]
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
 
-class GetEntitlementsRequestRequestTypeDef(
-    _RequiredGetEntitlementsRequestRequestTypeDef, _OptionalGetEntitlementsRequestRequestTypeDef
-):
-    pass
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-GetEntitlementsResultTypeDef = TypedDict(
-    "GetEntitlementsResultTypeDef",
-    {
-        "Entitlements": List["EntitlementTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class EntitlementTypeDef(TypedDict):
+    ProductCode: NotRequired[str]
+    Dimension: NotRequired[str]
+    CustomerIdentifier: NotRequired[str]
+    CustomerAWSAccountId: NotRequired[str]
+    Value: NotRequired[EntitlementValueTypeDef]
+    ExpirationDate: NotRequired[datetime]
 
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
+class GetEntitlementsRequestPaginateTypeDef(TypedDict):
+    ProductCode: str
+    Filter: NotRequired[Mapping[GetEntitlementFilterNameType, Sequence[str]]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
+class GetEntitlementsResultTypeDef(TypedDict):
+    Entitlements: List[EntitlementTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]

@@ -1,47 +1,57 @@
 """
 Type annotations for account service client paginators.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_account/paginators.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_account/paginators/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
 
-    from mypy_boto3_account import AccountClient
+    from mypy_boto3_account.client import AccountClient
     from mypy_boto3_account.paginator import (
         ListRegionsPaginator,
     )
 
-    client: AccountClient = boto3.client("account")
+    session = Session()
+    client: AccountClient = session.client("account")
 
     list_regions_paginator: ListRegionsPaginator = client.get_paginator("list_regions")
     ```
 """
 
-from typing import Iterator, List
+from __future__ import annotations
 
-from botocore.paginate import Paginator as Boto3Paginator
+import sys
+from typing import TYPE_CHECKING
 
-from .literals import RegionOptStatusType
-from .type_defs import ListRegionsResponseTypeDef, PaginatorConfigTypeDef
+from botocore.paginate import PageIterator, Paginator
+
+from .type_defs import ListRegionsRequestPaginateTypeDef, ListRegionsResponseTypeDef
+
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = ("ListRegionsPaginator",)
 
-class ListRegionsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/account.html#Account.Paginator.ListRegions)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_account/paginators.html#listregionspaginator)
-    """
+if TYPE_CHECKING:
+    _ListRegionsPaginatorBase = Paginator[ListRegionsResponseTypeDef]
+else:
+    _ListRegionsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        AccountId: str = None,
-        RegionOptStatusContains: List[RegionOptStatusType] = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListRegionsResponseTypeDef]:
+class ListRegionsPaginator(_ListRegionsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/account/paginator/ListRegions.html#Account.Paginator.ListRegions)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_account/paginators/#listregionspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListRegionsRequestPaginateTypeDef]
+    ) -> PageIterator[ListRegionsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/account.html#Account.Paginator.ListRegions.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_account/paginators.html#listregionspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/account/paginator/ListRegions.html#Account.Paginator.ListRegions.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_account/paginators/#listregionspaginator)
         """

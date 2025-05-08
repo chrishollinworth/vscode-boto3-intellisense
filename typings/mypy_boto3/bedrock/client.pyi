@@ -1,107 +1,176 @@
 """
-Type annotations for bedrock service client.
+Type annotations for bedrock service Client.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
-    from mypy_boto3_bedrock import BedrockClient
+    from boto3.session import Session
+    from mypy_boto3_bedrock.client import BedrockClient
 
-    client: BedrockClient = boto3.client("bedrock")
+    session = Session()
+    client: BedrockClient = session.client("bedrock")
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from datetime import datetime
-from typing import Any, Dict, List, Type, Union, overload
+from typing import Any, overload
 
 from botocore.client import BaseClient, ClientMeta
+from botocore.errorfactory import BaseClientExceptions
+from botocore.exceptions import ClientError as BotocoreClientError
 
-from .literals import (
-    CommitmentDurationType,
-    CustomizationTypeType,
-    EvaluationJobStatusType,
-    FineTuningJobStatusType,
-    InferenceTypeType,
-    ModelCustomizationType,
-    ModelModalityType,
-    ProvisionedModelStatusType,
-    SortOrderType,
-)
 from .paginator import (
     ListCustomModelsPaginator,
     ListEvaluationJobsPaginator,
     ListGuardrailsPaginator,
+    ListImportedModelsPaginator,
+    ListInferenceProfilesPaginator,
+    ListMarketplaceModelEndpointsPaginator,
+    ListModelCopyJobsPaginator,
     ListModelCustomizationJobsPaginator,
+    ListModelImportJobsPaginator,
+    ListModelInvocationJobsPaginator,
+    ListPromptRoutersPaginator,
     ListProvisionedModelThroughputsPaginator,
 )
 from .type_defs import (
+    BatchDeleteEvaluationJobRequestTypeDef,
+    BatchDeleteEvaluationJobResponseTypeDef,
+    CreateEvaluationJobRequestTypeDef,
     CreateEvaluationJobResponseTypeDef,
+    CreateGuardrailRequestTypeDef,
     CreateGuardrailResponseTypeDef,
+    CreateGuardrailVersionRequestTypeDef,
     CreateGuardrailVersionResponseTypeDef,
+    CreateInferenceProfileRequestTypeDef,
+    CreateInferenceProfileResponseTypeDef,
+    CreateMarketplaceModelEndpointRequestTypeDef,
+    CreateMarketplaceModelEndpointResponseTypeDef,
+    CreateModelCopyJobRequestTypeDef,
+    CreateModelCopyJobResponseTypeDef,
+    CreateModelCustomizationJobRequestTypeDef,
     CreateModelCustomizationJobResponseTypeDef,
+    CreateModelImportJobRequestTypeDef,
+    CreateModelImportJobResponseTypeDef,
+    CreateModelInvocationJobRequestTypeDef,
+    CreateModelInvocationJobResponseTypeDef,
+    CreatePromptRouterRequestTypeDef,
+    CreatePromptRouterResponseTypeDef,
+    CreateProvisionedModelThroughputRequestTypeDef,
     CreateProvisionedModelThroughputResponseTypeDef,
-    EvaluationConfigTypeDef,
-    EvaluationInferenceConfigTypeDef,
-    EvaluationOutputDataConfigTypeDef,
+    DeleteCustomModelRequestTypeDef,
+    DeleteGuardrailRequestTypeDef,
+    DeleteImportedModelRequestTypeDef,
+    DeleteInferenceProfileRequestTypeDef,
+    DeleteMarketplaceModelEndpointRequestTypeDef,
+    DeletePromptRouterRequestTypeDef,
+    DeleteProvisionedModelThroughputRequestTypeDef,
+    DeregisterMarketplaceModelEndpointRequestTypeDef,
+    GetCustomModelRequestTypeDef,
     GetCustomModelResponseTypeDef,
+    GetEvaluationJobRequestTypeDef,
     GetEvaluationJobResponseTypeDef,
+    GetFoundationModelRequestTypeDef,
     GetFoundationModelResponseTypeDef,
+    GetGuardrailRequestTypeDef,
     GetGuardrailResponseTypeDef,
+    GetImportedModelRequestTypeDef,
+    GetImportedModelResponseTypeDef,
+    GetInferenceProfileRequestTypeDef,
+    GetInferenceProfileResponseTypeDef,
+    GetMarketplaceModelEndpointRequestTypeDef,
+    GetMarketplaceModelEndpointResponseTypeDef,
+    GetModelCopyJobRequestTypeDef,
+    GetModelCopyJobResponseTypeDef,
+    GetModelCustomizationJobRequestTypeDef,
     GetModelCustomizationJobResponseTypeDef,
+    GetModelImportJobRequestTypeDef,
+    GetModelImportJobResponseTypeDef,
+    GetModelInvocationJobRequestTypeDef,
+    GetModelInvocationJobResponseTypeDef,
     GetModelInvocationLoggingConfigurationResponseTypeDef,
+    GetPromptRouterRequestTypeDef,
+    GetPromptRouterResponseTypeDef,
+    GetProvisionedModelThroughputRequestTypeDef,
     GetProvisionedModelThroughputResponseTypeDef,
-    GuardrailContentPolicyConfigTypeDef,
-    GuardrailSensitiveInformationPolicyConfigTypeDef,
-    GuardrailTopicPolicyConfigTypeDef,
-    GuardrailWordPolicyConfigTypeDef,
+    ListCustomModelsRequestTypeDef,
     ListCustomModelsResponseTypeDef,
+    ListEvaluationJobsRequestTypeDef,
     ListEvaluationJobsResponseTypeDef,
+    ListFoundationModelsRequestTypeDef,
     ListFoundationModelsResponseTypeDef,
+    ListGuardrailsRequestTypeDef,
     ListGuardrailsResponseTypeDef,
+    ListImportedModelsRequestTypeDef,
+    ListImportedModelsResponseTypeDef,
+    ListInferenceProfilesRequestTypeDef,
+    ListInferenceProfilesResponseTypeDef,
+    ListMarketplaceModelEndpointsRequestTypeDef,
+    ListMarketplaceModelEndpointsResponseTypeDef,
+    ListModelCopyJobsRequestTypeDef,
+    ListModelCopyJobsResponseTypeDef,
+    ListModelCustomizationJobsRequestTypeDef,
     ListModelCustomizationJobsResponseTypeDef,
+    ListModelImportJobsRequestTypeDef,
+    ListModelImportJobsResponseTypeDef,
+    ListModelInvocationJobsRequestTypeDef,
+    ListModelInvocationJobsResponseTypeDef,
+    ListPromptRoutersRequestTypeDef,
+    ListPromptRoutersResponseTypeDef,
+    ListProvisionedModelThroughputsRequestTypeDef,
     ListProvisionedModelThroughputsResponseTypeDef,
+    ListTagsForResourceRequestTypeDef,
     ListTagsForResourceResponseTypeDef,
-    LoggingConfigTypeDef,
-    OutputDataConfigTypeDef,
-    TagTypeDef,
-    TrainingDataConfigTypeDef,
+    PutModelInvocationLoggingConfigurationRequestTypeDef,
+    RegisterMarketplaceModelEndpointRequestTypeDef,
+    RegisterMarketplaceModelEndpointResponseTypeDef,
+    StopEvaluationJobRequestTypeDef,
+    StopModelCustomizationJobRequestTypeDef,
+    StopModelInvocationJobRequestTypeDef,
+    TagResourceRequestTypeDef,
+    UntagResourceRequestTypeDef,
+    UpdateGuardrailRequestTypeDef,
     UpdateGuardrailResponseTypeDef,
-    ValidationDataConfigTypeDef,
-    VpcConfigTypeDef,
+    UpdateMarketplaceModelEndpointRequestTypeDef,
+    UpdateMarketplaceModelEndpointResponseTypeDef,
+    UpdateProvisionedModelThroughputRequestTypeDef,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import type as Type
+    from collections.abc import Mapping
 else:
-    from typing_extensions import Literal
+    from typing import Dict, Mapping, Type
+if sys.version_info >= (3, 12):
+    from typing import Literal, Unpack
+else:
+    from typing_extensions import Literal, Unpack
 
 __all__ = ("BedrockClient",)
 
-class BotocoreClientError(BaseException):
-    MSG_TEMPLATE: str
-
-    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
-        self.response: Dict[str, Any]
-        self.operation_name: str
-
-class Exceptions:
+class Exceptions(BaseClientExceptions):
     AccessDeniedException: Type[BotocoreClientError]
     ClientError: Type[BotocoreClientError]
     ConflictException: Type[BotocoreClientError]
     InternalServerException: Type[BotocoreClientError]
     ResourceNotFoundException: Type[BotocoreClientError]
     ServiceQuotaExceededException: Type[BotocoreClientError]
+    ServiceUnavailableException: Type[BotocoreClientError]
     ThrottlingException: Type[BotocoreClientError]
     TooManyTagsException: Type[BotocoreClientError]
     ValidationException: Type[BotocoreClientError]
 
 class BedrockClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock.html#Bedrock.Client)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client.html)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock.html#Bedrock.Client)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/)
     """
 
     meta: ClientMeta
@@ -110,215 +179,355 @@ class BedrockClient(BaseClient):
     def exceptions(self) -> Exceptions:
         """
         BedrockClient exceptions.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock.html#Bedrock.Client)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#exceptions)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        Check if an operation can be paginated.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock.html#Bedrock.Client.can_paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client.html#can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/can_paginate.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#can_paginate)
         """
 
-    def close(self) -> None:
+    def generate_presigned_url(
+        self,
+        ClientMethod: str,
+        Params: Mapping[str, Any] = ...,
+        ExpiresIn: int = 3600,
+        HttpMethod: str = ...,
+    ) -> str:
         """
-        Closes underlying endpoint connections.
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/generate_presigned_url.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#generate_presigned_url)
+        """
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock.html#Bedrock.Client.close)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client.html#close)
+    def batch_delete_evaluation_job(
+        self, **kwargs: Unpack[BatchDeleteEvaluationJobRequestTypeDef]
+    ) -> BatchDeleteEvaluationJobResponseTypeDef:
+        """
+        Deletes a batch of evaluation jobs.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/batch_delete_evaluation_job.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#batch_delete_evaluation_job)
         """
 
     def create_evaluation_job(
-        self,
-        *,
-        jobName: str,
-        roleArn: str,
-        evaluationConfig: "EvaluationConfigTypeDef",
-        inferenceConfig: "EvaluationInferenceConfigTypeDef",
-        outputDataConfig: "EvaluationOutputDataConfigTypeDef",
-        jobDescription: str = None,
-        clientRequestToken: str = None,
-        customerEncryptionKeyId: str = None,
-        jobTags: List["TagTypeDef"] = None
+        self, **kwargs: Unpack[CreateEvaluationJobRequestTypeDef]
     ) -> CreateEvaluationJobResponseTypeDef:
         """
-        API operation for creating and managing Amazon Bedrock automatic model
-        evaluation jobs and model evaluation jobs that use human workers.
+        Creates an evaluation job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock.html#Bedrock.Client.create_evaluation_job)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client.html#create_evaluation_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/create_evaluation_job.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#create_evaluation_job)
         """
 
     def create_guardrail(
-        self,
-        *,
-        name: str,
-        blockedInputMessaging: str,
-        blockedOutputsMessaging: str,
-        description: str = None,
-        topicPolicyConfig: "GuardrailTopicPolicyConfigTypeDef" = None,
-        contentPolicyConfig: "GuardrailContentPolicyConfigTypeDef" = None,
-        wordPolicyConfig: "GuardrailWordPolicyConfigTypeDef" = None,
-        sensitiveInformationPolicyConfig: "GuardrailSensitiveInformationPolicyConfigTypeDef" = None,
-        kmsKeyId: str = None,
-        tags: List["TagTypeDef"] = None,
-        clientRequestToken: str = None
+        self, **kwargs: Unpack[CreateGuardrailRequestTypeDef]
     ) -> CreateGuardrailResponseTypeDef:
         """
-        Creates a guardrail to block topics and to filter out harmful content.
+        Creates a guardrail to block topics and to implement safeguards for your
+        generative AI applications.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock.html#Bedrock.Client.create_guardrail)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client.html#create_guardrail)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/create_guardrail.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#create_guardrail)
         """
 
     def create_guardrail_version(
-        self, *, guardrailIdentifier: str, description: str = None, clientRequestToken: str = None
+        self, **kwargs: Unpack[CreateGuardrailVersionRequestTypeDef]
     ) -> CreateGuardrailVersionResponseTypeDef:
         """
         Creates a version of the guardrail.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock.html#Bedrock.Client.create_guardrail_version)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client.html#create_guardrail_version)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/create_guardrail_version.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#create_guardrail_version)
+        """
+
+    def create_inference_profile(
+        self, **kwargs: Unpack[CreateInferenceProfileRequestTypeDef]
+    ) -> CreateInferenceProfileResponseTypeDef:
+        """
+        Creates an application inference profile to track metrics and costs when
+        invoking a model.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/create_inference_profile.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#create_inference_profile)
+        """
+
+    def create_marketplace_model_endpoint(
+        self, **kwargs: Unpack[CreateMarketplaceModelEndpointRequestTypeDef]
+    ) -> CreateMarketplaceModelEndpointResponseTypeDef:
+        """
+        Creates an endpoint for a model from Amazon Bedrock Marketplace.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/create_marketplace_model_endpoint.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#create_marketplace_model_endpoint)
+        """
+
+    def create_model_copy_job(
+        self, **kwargs: Unpack[CreateModelCopyJobRequestTypeDef]
+    ) -> CreateModelCopyJobResponseTypeDef:
+        """
+        Copies a model to another region so that it can be used there.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/create_model_copy_job.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#create_model_copy_job)
         """
 
     def create_model_customization_job(
-        self,
-        *,
-        jobName: str,
-        customModelName: str,
-        roleArn: str,
-        baseModelIdentifier: str,
-        trainingDataConfig: "TrainingDataConfigTypeDef",
-        outputDataConfig: "OutputDataConfigTypeDef",
-        hyperParameters: Dict[str, str],
-        clientRequestToken: str = None,
-        customizationType: CustomizationTypeType = None,
-        customModelKmsKeyId: str = None,
-        jobTags: List["TagTypeDef"] = None,
-        customModelTags: List["TagTypeDef"] = None,
-        validationDataConfig: "ValidationDataConfigTypeDef" = None,
-        vpcConfig: "VpcConfigTypeDef" = None
+        self, **kwargs: Unpack[CreateModelCustomizationJobRequestTypeDef]
     ) -> CreateModelCustomizationJobResponseTypeDef:
         """
         Creates a fine-tuning job to customize a base model.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock.html#Bedrock.Client.create_model_customization_job)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client.html#create_model_customization_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/create_model_customization_job.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#create_model_customization_job)
+        """
+
+    def create_model_import_job(
+        self, **kwargs: Unpack[CreateModelImportJobRequestTypeDef]
+    ) -> CreateModelImportJobResponseTypeDef:
+        """
+        Creates a model import job to import model that you have customized in other
+        environments, such as Amazon SageMaker.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/create_model_import_job.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#create_model_import_job)
+        """
+
+    def create_model_invocation_job(
+        self, **kwargs: Unpack[CreateModelInvocationJobRequestTypeDef]
+    ) -> CreateModelInvocationJobResponseTypeDef:
+        """
+        Creates a batch inference job to invoke a model on multiple prompts.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/create_model_invocation_job.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#create_model_invocation_job)
+        """
+
+    def create_prompt_router(
+        self, **kwargs: Unpack[CreatePromptRouterRequestTypeDef]
+    ) -> CreatePromptRouterResponseTypeDef:
+        """
+        Creates a prompt router that manages the routing of requests between multiple
+        foundation models based on the routing criteria.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/create_prompt_router.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#create_prompt_router)
         """
 
     def create_provisioned_model_throughput(
-        self,
-        *,
-        modelUnits: int,
-        provisionedModelName: str,
-        modelId: str,
-        clientRequestToken: str = None,
-        commitmentDuration: CommitmentDurationType = None,
-        tags: List["TagTypeDef"] = None
+        self, **kwargs: Unpack[CreateProvisionedModelThroughputRequestTypeDef]
     ) -> CreateProvisionedModelThroughputResponseTypeDef:
         """
-        Creates dedicated throughput for a base or custom model with the model units and
-        for the duration that you specify.
+        Creates dedicated throughput for a base or custom model with the model units
+        and for the duration that you specify.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock.html#Bedrock.Client.create_provisioned_model_throughput)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client.html#create_provisioned_model_throughput)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/create_provisioned_model_throughput.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#create_provisioned_model_throughput)
         """
 
-    def delete_custom_model(self, *, modelIdentifier: str) -> Dict[str, Any]:
+    def delete_custom_model(
+        self, **kwargs: Unpack[DeleteCustomModelRequestTypeDef]
+    ) -> Dict[str, Any]:
         """
         Deletes a custom model that you created earlier.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock.html#Bedrock.Client.delete_custom_model)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client.html#delete_custom_model)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/delete_custom_model.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#delete_custom_model)
         """
 
-    def delete_guardrail(
-        self, *, guardrailIdentifier: str, guardrailVersion: str = None
-    ) -> Dict[str, Any]:
+    def delete_guardrail(self, **kwargs: Unpack[DeleteGuardrailRequestTypeDef]) -> Dict[str, Any]:
         """
         Deletes a guardrail.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock.html#Bedrock.Client.delete_guardrail)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client.html#delete_guardrail)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/delete_guardrail.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#delete_guardrail)
+        """
+
+    def delete_imported_model(
+        self, **kwargs: Unpack[DeleteImportedModelRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Deletes a custom model that you imported earlier.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/delete_imported_model.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#delete_imported_model)
+        """
+
+    def delete_inference_profile(
+        self, **kwargs: Unpack[DeleteInferenceProfileRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Deletes an application inference profile.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/delete_inference_profile.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#delete_inference_profile)
+        """
+
+    def delete_marketplace_model_endpoint(
+        self, **kwargs: Unpack[DeleteMarketplaceModelEndpointRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Deletes an endpoint for a model from Amazon Bedrock Marketplace.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/delete_marketplace_model_endpoint.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#delete_marketplace_model_endpoint)
         """
 
     def delete_model_invocation_logging_configuration(self) -> Dict[str, Any]:
         """
         Delete the invocation logging.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock.html#Bedrock.Client.delete_model_invocation_logging_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client.html#delete_model_invocation_logging_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/delete_model_invocation_logging_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#delete_model_invocation_logging_configuration)
         """
 
-    def delete_provisioned_model_throughput(self, *, provisionedModelId: str) -> Dict[str, Any]:
+    def delete_prompt_router(
+        self, **kwargs: Unpack[DeletePromptRouterRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Deletes a specified prompt router.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/delete_prompt_router.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#delete_prompt_router)
+        """
+
+    def delete_provisioned_model_throughput(
+        self, **kwargs: Unpack[DeleteProvisionedModelThroughputRequestTypeDef]
+    ) -> Dict[str, Any]:
         """
         Deletes a Provisioned Throughput.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock.html#Bedrock.Client.delete_provisioned_model_throughput)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client.html#delete_provisioned_model_throughput)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/delete_provisioned_model_throughput.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#delete_provisioned_model_throughput)
         """
 
-    def generate_presigned_url(
-        self,
-        ClientMethod: str,
-        Params: Dict[str, Any] = None,
-        ExpiresIn: int = 3600,
-        HttpMethod: str = None,
-    ) -> str:
+    def deregister_marketplace_model_endpoint(
+        self, **kwargs: Unpack[DeregisterMarketplaceModelEndpointRequestTypeDef]
+    ) -> Dict[str, Any]:
         """
-        Generate a presigned url given a client, its method, and arguments.
+        Deregisters an endpoint for a model from Amazon Bedrock Marketplace.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock.html#Bedrock.Client.generate_presigned_url)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client.html#generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/deregister_marketplace_model_endpoint.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#deregister_marketplace_model_endpoint)
         """
 
-    def get_custom_model(self, *, modelIdentifier: str) -> GetCustomModelResponseTypeDef:
+    def get_custom_model(
+        self, **kwargs: Unpack[GetCustomModelRequestTypeDef]
+    ) -> GetCustomModelResponseTypeDef:
         """
         Get the properties associated with a Amazon Bedrock custom model that you have
-        created.For more information, see `Custom models
-        <https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html>`__ in
-        the Amazon Bedrock User Guide.
+        created.For more information, see <a
+        href="https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html">Custom
+        models</a> in the <a
+        href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service...
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock.html#Bedrock.Client.get_custom_model)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client.html#get_custom_model)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/get_custom_model.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#get_custom_model)
         """
 
-    def get_evaluation_job(self, *, jobIdentifier: str) -> GetEvaluationJobResponseTypeDef:
+    def get_evaluation_job(
+        self, **kwargs: Unpack[GetEvaluationJobRequestTypeDef]
+    ) -> GetEvaluationJobResponseTypeDef:
         """
-        Retrieves the properties associated with a model evaluation job, including the
-        status of the job.
+        Gets information about an evaluation job, such as the status of the job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock.html#Bedrock.Client.get_evaluation_job)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client.html#get_evaluation_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/get_evaluation_job.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#get_evaluation_job)
         """
 
-    def get_foundation_model(self, *, modelIdentifier: str) -> GetFoundationModelResponseTypeDef:
+    def get_foundation_model(
+        self, **kwargs: Unpack[GetFoundationModelRequestTypeDef]
+    ) -> GetFoundationModelResponseTypeDef:
         """
         Get details about a Amazon Bedrock foundation model.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock.html#Bedrock.Client.get_foundation_model)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client.html#get_foundation_model)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/get_foundation_model.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#get_foundation_model)
         """
 
     def get_guardrail(
-        self, *, guardrailIdentifier: str, guardrailVersion: str = None
+        self, **kwargs: Unpack[GetGuardrailRequestTypeDef]
     ) -> GetGuardrailResponseTypeDef:
         """
         Gets details about a guardrail.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock.html#Bedrock.Client.get_guardrail)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client.html#get_guardrail)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/get_guardrail.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#get_guardrail)
+        """
+
+    def get_imported_model(
+        self, **kwargs: Unpack[GetImportedModelRequestTypeDef]
+    ) -> GetImportedModelResponseTypeDef:
+        """
+        Gets properties associated with a customized model you imported.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/get_imported_model.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#get_imported_model)
+        """
+
+    def get_inference_profile(
+        self, **kwargs: Unpack[GetInferenceProfileRequestTypeDef]
+    ) -> GetInferenceProfileResponseTypeDef:
+        """
+        Gets information about an inference profile.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/get_inference_profile.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#get_inference_profile)
+        """
+
+    def get_marketplace_model_endpoint(
+        self, **kwargs: Unpack[GetMarketplaceModelEndpointRequestTypeDef]
+    ) -> GetMarketplaceModelEndpointResponseTypeDef:
+        """
+        Retrieves details about a specific endpoint for a model from Amazon Bedrock
+        Marketplace.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/get_marketplace_model_endpoint.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#get_marketplace_model_endpoint)
+        """
+
+    def get_model_copy_job(
+        self, **kwargs: Unpack[GetModelCopyJobRequestTypeDef]
+    ) -> GetModelCopyJobResponseTypeDef:
+        """
+        Retrieves information about a model copy job.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/get_model_copy_job.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#get_model_copy_job)
         """
 
     def get_model_customization_job(
-        self, *, jobIdentifier: str
+        self, **kwargs: Unpack[GetModelCustomizationJobRequestTypeDef]
     ) -> GetModelCustomizationJobResponseTypeDef:
         """
         Retrieves the properties associated with a model-customization job, including
         the status of the job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock.html#Bedrock.Client.get_model_customization_job)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client.html#get_model_customization_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/get_model_customization_job.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#get_model_customization_job)
+        """
+
+    def get_model_import_job(
+        self, **kwargs: Unpack[GetModelImportJobRequestTypeDef]
+    ) -> GetModelImportJobResponseTypeDef:
+        """
+        Retrieves the properties associated with import model job, including the status
+        of the job.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/get_model_import_job.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#get_model_import_job)
+        """
+
+    def get_model_invocation_job(
+        self, **kwargs: Unpack[GetModelInvocationJobRequestTypeDef]
+    ) -> GetModelInvocationJobResponseTypeDef:
+        """
+        Gets details about a batch inference job.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/get_model_invocation_job.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#get_model_invocation_job)
         """
 
     def get_model_invocation_logging_configuration(
@@ -327,248 +536,398 @@ class BedrockClient(BaseClient):
         """
         Get the current configuration values for model invocation logging.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock.html#Bedrock.Client.get_model_invocation_logging_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client.html#get_model_invocation_logging_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/get_model_invocation_logging_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#get_model_invocation_logging_configuration)
+        """
+
+    def get_prompt_router(
+        self, **kwargs: Unpack[GetPromptRouterRequestTypeDef]
+    ) -> GetPromptRouterResponseTypeDef:
+        """
+        Retrieves details about a prompt router.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/get_prompt_router.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#get_prompt_router)
         """
 
     def get_provisioned_model_throughput(
-        self, *, provisionedModelId: str
+        self, **kwargs: Unpack[GetProvisionedModelThroughputRequestTypeDef]
     ) -> GetProvisionedModelThroughputResponseTypeDef:
         """
         Returns details for a Provisioned Throughput.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock.html#Bedrock.Client.get_provisioned_model_throughput)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client.html#get_provisioned_model_throughput)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/get_provisioned_model_throughput.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#get_provisioned_model_throughput)
         """
 
     def list_custom_models(
-        self,
-        *,
-        creationTimeBefore: Union[datetime, str] = None,
-        creationTimeAfter: Union[datetime, str] = None,
-        nameContains: str = None,
-        baseModelArnEquals: str = None,
-        foundationModelArnEquals: str = None,
-        maxResults: int = None,
-        nextToken: str = None,
-        sortBy: Literal["CreationTime"] = None,
-        sortOrder: SortOrderType = None
+        self, **kwargs: Unpack[ListCustomModelsRequestTypeDef]
     ) -> ListCustomModelsResponseTypeDef:
         """
         Returns a list of the custom models that you have created with the
-        `CreateModelCustomizationJob` operation.
+        <code>CreateModelCustomizationJob</code> operation.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock.html#Bedrock.Client.list_custom_models)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client.html#list_custom_models)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/list_custom_models.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#list_custom_models)
         """
 
     def list_evaluation_jobs(
-        self,
-        *,
-        creationTimeAfter: Union[datetime, str] = None,
-        creationTimeBefore: Union[datetime, str] = None,
-        statusEquals: EvaluationJobStatusType = None,
-        nameContains: str = None,
-        maxResults: int = None,
-        nextToken: str = None,
-        sortBy: Literal["CreationTime"] = None,
-        sortOrder: SortOrderType = None
+        self, **kwargs: Unpack[ListEvaluationJobsRequestTypeDef]
     ) -> ListEvaluationJobsResponseTypeDef:
         """
-        Lists model evaluation jobs.
+        Lists all existing evaluation jobs.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock.html#Bedrock.Client.list_evaluation_jobs)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client.html#list_evaluation_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/list_evaluation_jobs.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#list_evaluation_jobs)
         """
 
     def list_foundation_models(
-        self,
-        *,
-        byProvider: str = None,
-        byCustomizationType: ModelCustomizationType = None,
-        byOutputModality: ModelModalityType = None,
-        byInferenceType: InferenceTypeType = None
+        self, **kwargs: Unpack[ListFoundationModelsRequestTypeDef]
     ) -> ListFoundationModelsResponseTypeDef:
         """
         Lists Amazon Bedrock foundation models that you can use.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock.html#Bedrock.Client.list_foundation_models)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client.html#list_foundation_models)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/list_foundation_models.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#list_foundation_models)
         """
 
     def list_guardrails(
-        self, *, guardrailIdentifier: str = None, maxResults: int = None, nextToken: str = None
+        self, **kwargs: Unpack[ListGuardrailsRequestTypeDef]
     ) -> ListGuardrailsResponseTypeDef:
         """
         Lists details about all the guardrails in an account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock.html#Bedrock.Client.list_guardrails)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client.html#list_guardrails)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/list_guardrails.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#list_guardrails)
+        """
+
+    def list_imported_models(
+        self, **kwargs: Unpack[ListImportedModelsRequestTypeDef]
+    ) -> ListImportedModelsResponseTypeDef:
+        """
+        Returns a list of models you've imported.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/list_imported_models.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#list_imported_models)
+        """
+
+    def list_inference_profiles(
+        self, **kwargs: Unpack[ListInferenceProfilesRequestTypeDef]
+    ) -> ListInferenceProfilesResponseTypeDef:
+        """
+        Returns a list of inference profiles that you can use.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/list_inference_profiles.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#list_inference_profiles)
+        """
+
+    def list_marketplace_model_endpoints(
+        self, **kwargs: Unpack[ListMarketplaceModelEndpointsRequestTypeDef]
+    ) -> ListMarketplaceModelEndpointsResponseTypeDef:
+        """
+        Lists the endpoints for models from Amazon Bedrock Marketplace in your Amazon
+        Web Services account.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/list_marketplace_model_endpoints.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#list_marketplace_model_endpoints)
+        """
+
+    def list_model_copy_jobs(
+        self, **kwargs: Unpack[ListModelCopyJobsRequestTypeDef]
+    ) -> ListModelCopyJobsResponseTypeDef:
+        """
+        Returns a list of model copy jobs that you have submitted.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/list_model_copy_jobs.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#list_model_copy_jobs)
         """
 
     def list_model_customization_jobs(
-        self,
-        *,
-        creationTimeAfter: Union[datetime, str] = None,
-        creationTimeBefore: Union[datetime, str] = None,
-        statusEquals: FineTuningJobStatusType = None,
-        nameContains: str = None,
-        maxResults: int = None,
-        nextToken: str = None,
-        sortBy: Literal["CreationTime"] = None,
-        sortOrder: SortOrderType = None
+        self, **kwargs: Unpack[ListModelCustomizationJobsRequestTypeDef]
     ) -> ListModelCustomizationJobsResponseTypeDef:
         """
         Returns a list of model customization jobs that you have submitted.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock.html#Bedrock.Client.list_model_customization_jobs)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client.html#list_model_customization_jobs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/list_model_customization_jobs.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#list_model_customization_jobs)
+        """
+
+    def list_model_import_jobs(
+        self, **kwargs: Unpack[ListModelImportJobsRequestTypeDef]
+    ) -> ListModelImportJobsResponseTypeDef:
+        """
+        Returns a list of import jobs you've submitted.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/list_model_import_jobs.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#list_model_import_jobs)
+        """
+
+    def list_model_invocation_jobs(
+        self, **kwargs: Unpack[ListModelInvocationJobsRequestTypeDef]
+    ) -> ListModelInvocationJobsResponseTypeDef:
+        """
+        Lists all batch inference jobs in the account.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/list_model_invocation_jobs.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#list_model_invocation_jobs)
+        """
+
+    def list_prompt_routers(
+        self, **kwargs: Unpack[ListPromptRoutersRequestTypeDef]
+    ) -> ListPromptRoutersResponseTypeDef:
+        """
+        Retrieves a list of prompt routers.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/list_prompt_routers.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#list_prompt_routers)
         """
 
     def list_provisioned_model_throughputs(
-        self,
-        *,
-        creationTimeAfter: Union[datetime, str] = None,
-        creationTimeBefore: Union[datetime, str] = None,
-        statusEquals: ProvisionedModelStatusType = None,
-        modelArnEquals: str = None,
-        nameContains: str = None,
-        maxResults: int = None,
-        nextToken: str = None,
-        sortBy: Literal["CreationTime"] = None,
-        sortOrder: SortOrderType = None
+        self, **kwargs: Unpack[ListProvisionedModelThroughputsRequestTypeDef]
     ) -> ListProvisionedModelThroughputsResponseTypeDef:
         """
         Lists the Provisioned Throughputs in the account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock.html#Bedrock.Client.list_provisioned_model_throughputs)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client.html#list_provisioned_model_throughputs)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/list_provisioned_model_throughputs.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#list_provisioned_model_throughputs)
         """
 
-    def list_tags_for_resource(self, *, resourceARN: str) -> ListTagsForResourceResponseTypeDef:
+    def list_tags_for_resource(
+        self, **kwargs: Unpack[ListTagsForResourceRequestTypeDef]
+    ) -> ListTagsForResourceResponseTypeDef:
         """
         List the tags associated with the specified resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock.html#Bedrock.Client.list_tags_for_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client.html#list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/list_tags_for_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#list_tags_for_resource)
         """
 
     def put_model_invocation_logging_configuration(
-        self, *, loggingConfig: "LoggingConfigTypeDef"
+        self, **kwargs: Unpack[PutModelInvocationLoggingConfigurationRequestTypeDef]
     ) -> Dict[str, Any]:
         """
         Set the configuration values for model invocation logging.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock.html#Bedrock.Client.put_model_invocation_logging_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client.html#put_model_invocation_logging_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/put_model_invocation_logging_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#put_model_invocation_logging_configuration)
         """
 
-    def stop_evaluation_job(self, *, jobIdentifier: str) -> Dict[str, Any]:
+    def register_marketplace_model_endpoint(
+        self, **kwargs: Unpack[RegisterMarketplaceModelEndpointRequestTypeDef]
+    ) -> RegisterMarketplaceModelEndpointResponseTypeDef:
         """
-        Stops an in progress model evaluation job.
+        Registers an existing Amazon SageMaker endpoint with Amazon Bedrock
+        Marketplace, allowing it to be used with Amazon Bedrock APIs.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock.html#Bedrock.Client.stop_evaluation_job)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client.html#stop_evaluation_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/register_marketplace_model_endpoint.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#register_marketplace_model_endpoint)
         """
 
-    def stop_model_customization_job(self, *, jobIdentifier: str) -> Dict[str, Any]:
+    def stop_evaluation_job(
+        self, **kwargs: Unpack[StopEvaluationJobRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Stops an evaluation job that is current being created or running.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/stop_evaluation_job.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#stop_evaluation_job)
+        """
+
+    def stop_model_customization_job(
+        self, **kwargs: Unpack[StopModelCustomizationJobRequestTypeDef]
+    ) -> Dict[str, Any]:
         """
         Stops an active model customization job.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock.html#Bedrock.Client.stop_model_customization_job)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client.html#stop_model_customization_job)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/stop_model_customization_job.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#stop_model_customization_job)
         """
 
-    def tag_resource(self, *, resourceARN: str, tags: List["TagTypeDef"]) -> Dict[str, Any]:
+    def stop_model_invocation_job(
+        self, **kwargs: Unpack[StopModelInvocationJobRequestTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        Stops a batch inference job.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/stop_model_invocation_job.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#stop_model_invocation_job)
+        """
+
+    def tag_resource(self, **kwargs: Unpack[TagResourceRequestTypeDef]) -> Dict[str, Any]:
         """
         Associate tags with a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock.html#Bedrock.Client.tag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client.html#tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/tag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#tag_resource)
         """
 
-    def untag_resource(self, *, resourceARN: str, tagKeys: List[str]) -> Dict[str, Any]:
+    def untag_resource(self, **kwargs: Unpack[UntagResourceRequestTypeDef]) -> Dict[str, Any]:
         """
         Remove one or more tags from a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock.html#Bedrock.Client.untag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client.html#untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/untag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#untag_resource)
         """
 
     def update_guardrail(
-        self,
-        *,
-        guardrailIdentifier: str,
-        name: str,
-        blockedInputMessaging: str,
-        blockedOutputsMessaging: str,
-        description: str = None,
-        topicPolicyConfig: "GuardrailTopicPolicyConfigTypeDef" = None,
-        contentPolicyConfig: "GuardrailContentPolicyConfigTypeDef" = None,
-        wordPolicyConfig: "GuardrailWordPolicyConfigTypeDef" = None,
-        sensitiveInformationPolicyConfig: "GuardrailSensitiveInformationPolicyConfigTypeDef" = None,
-        kmsKeyId: str = None
+        self, **kwargs: Unpack[UpdateGuardrailRequestTypeDef]
     ) -> UpdateGuardrailResponseTypeDef:
         """
         Updates a guardrail with the values you specify.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock.html#Bedrock.Client.update_guardrail)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client.html#update_guardrail)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/update_guardrail.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#update_guardrail)
+        """
+
+    def update_marketplace_model_endpoint(
+        self, **kwargs: Unpack[UpdateMarketplaceModelEndpointRequestTypeDef]
+    ) -> UpdateMarketplaceModelEndpointResponseTypeDef:
+        """
+        Updates the configuration of an existing endpoint for a model from Amazon
+        Bedrock Marketplace.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/update_marketplace_model_endpoint.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#update_marketplace_model_endpoint)
         """
 
     def update_provisioned_model_throughput(
-        self,
-        *,
-        provisionedModelId: str,
-        desiredProvisionedModelName: str = None,
-        desiredModelId: str = None
+        self, **kwargs: Unpack[UpdateProvisionedModelThroughputRequestTypeDef]
     ) -> Dict[str, Any]:
         """
         Updates the name or associated model for a Provisioned Throughput.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock.html#Bedrock.Client.update_provisioned_model_throughput)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client.html#update_provisioned_model_throughput)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/update_provisioned_model_throughput.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#update_provisioned_model_throughput)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_custom_models"]
     ) -> ListCustomModelsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock.html#Bedrock.Paginator.ListCustomModels)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/paginators.html#listcustommodelspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_evaluation_jobs"]
     ) -> ListEvaluationJobsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock.html#Bedrock.Paginator.ListEvaluationJobs)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/paginators.html#listevaluationjobspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["list_guardrails"]) -> ListGuardrailsPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_guardrails"]
+    ) -> ListGuardrailsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock.html#Bedrock.Paginator.ListGuardrails)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/paginators.html#listguardrailspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_imported_models"]
+    ) -> ListImportedModelsPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_inference_profiles"]
+    ) -> ListInferenceProfilesPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_marketplace_model_endpoints"]
+    ) -> ListMarketplaceModelEndpointsPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_model_copy_jobs"]
+    ) -> ListModelCopyJobsPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_model_customization_jobs"]
     ) -> ListModelCustomizationJobsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock.html#Bedrock.Paginator.ListModelCustomizationJobs)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/paginators.html#listmodelcustomizationjobspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_model_import_jobs"]
+    ) -> ListModelImportJobsPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_model_invocation_jobs"]
+    ) -> ListModelInvocationJobsPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_prompt_routers"]
+    ) -> ListPromptRoutersPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_provisioned_model_throughputs"]
     ) -> ListProvisionedModelThroughputsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/bedrock.html#Bedrock.Paginator.ListProvisionedModelThroughputs)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_bedrock/paginators.html#listprovisionedmodelthroughputspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_bedrock/client/#get_paginator)
         """

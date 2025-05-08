@@ -1,22 +1,27 @@
 """
 Type annotations for emr-containers service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_emr_containers.type_defs import AuthorizationConfigurationTypeDef
+    from mypy_boto3_emr_containers.type_defs import CancelJobRunRequestTypeDef
 
-    data: AuthorizationConfigurationTypeDef = {...}
+    data: CancelJobRunRequestTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List, Union
+from typing import Any, Union
 
 from .literals import (
+    AllowAWSToRetainLogsType,
     EndpointStateType,
     FailureReasonType,
     JobRunStateType,
@@ -25,77 +30,103 @@ from .literals import (
     VirtualClusterStateType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
     "AuthorizationConfigurationTypeDef",
-    "CancelJobRunRequestRequestTypeDef",
+    "CancelJobRunRequestTypeDef",
     "CancelJobRunResponseTypeDef",
     "CertificateTypeDef",
     "CloudWatchMonitoringConfigurationTypeDef",
+    "ConfigurationOutputTypeDef",
+    "ConfigurationOverridesOutputTypeDef",
+    "ConfigurationOverridesPaginatorTypeDef",
     "ConfigurationOverridesTypeDef",
+    "ConfigurationOverridesUnionTypeDef",
+    "ConfigurationPaginatorTypeDef",
     "ConfigurationTypeDef",
     "ContainerInfoTypeDef",
     "ContainerLogRotationConfigurationTypeDef",
     "ContainerProviderTypeDef",
-    "CreateJobTemplateRequestRequestTypeDef",
+    "CreateJobTemplateRequestTypeDef",
     "CreateJobTemplateResponseTypeDef",
-    "CreateManagedEndpointRequestRequestTypeDef",
+    "CreateManagedEndpointRequestTypeDef",
     "CreateManagedEndpointResponseTypeDef",
-    "CreateSecurityConfigurationRequestRequestTypeDef",
+    "CreateSecurityConfigurationRequestTypeDef",
     "CreateSecurityConfigurationResponseTypeDef",
-    "CreateVirtualClusterRequestRequestTypeDef",
+    "CreateVirtualClusterRequestTypeDef",
     "CreateVirtualClusterResponseTypeDef",
     "CredentialsTypeDef",
-    "DeleteJobTemplateRequestRequestTypeDef",
+    "DeleteJobTemplateRequestTypeDef",
     "DeleteJobTemplateResponseTypeDef",
-    "DeleteManagedEndpointRequestRequestTypeDef",
+    "DeleteManagedEndpointRequestTypeDef",
     "DeleteManagedEndpointResponseTypeDef",
-    "DeleteVirtualClusterRequestRequestTypeDef",
+    "DeleteVirtualClusterRequestTypeDef",
     "DeleteVirtualClusterResponseTypeDef",
-    "DescribeJobRunRequestRequestTypeDef",
+    "DescribeJobRunRequestTypeDef",
     "DescribeJobRunResponseTypeDef",
-    "DescribeJobTemplateRequestRequestTypeDef",
+    "DescribeJobTemplateRequestTypeDef",
     "DescribeJobTemplateResponseTypeDef",
-    "DescribeManagedEndpointRequestRequestTypeDef",
+    "DescribeManagedEndpointRequestTypeDef",
     "DescribeManagedEndpointResponseTypeDef",
-    "DescribeSecurityConfigurationRequestRequestTypeDef",
+    "DescribeSecurityConfigurationRequestTypeDef",
     "DescribeSecurityConfigurationResponseTypeDef",
-    "DescribeVirtualClusterRequestRequestTypeDef",
+    "DescribeVirtualClusterRequestTypeDef",
     "DescribeVirtualClusterResponseTypeDef",
     "EksInfoTypeDef",
     "EncryptionConfigurationTypeDef",
+    "EndpointPaginatorTypeDef",
     "EndpointTypeDef",
-    "GetManagedEndpointSessionCredentialsRequestRequestTypeDef",
+    "GetManagedEndpointSessionCredentialsRequestTypeDef",
     "GetManagedEndpointSessionCredentialsResponseTypeDef",
     "InTransitEncryptionConfigurationTypeDef",
+    "JobDriverOutputTypeDef",
     "JobDriverTypeDef",
+    "JobDriverUnionTypeDef",
+    "JobRunPaginatorTypeDef",
     "JobRunTypeDef",
+    "JobTemplateDataOutputTypeDef",
+    "JobTemplateDataPaginatorTypeDef",
     "JobTemplateDataTypeDef",
+    "JobTemplateDataUnionTypeDef",
+    "JobTemplatePaginatorTypeDef",
     "JobTemplateTypeDef",
     "LakeFormationConfigurationTypeDef",
-    "ListJobRunsRequestRequestTypeDef",
+    "ListJobRunsRequestPaginateTypeDef",
+    "ListJobRunsRequestTypeDef",
+    "ListJobRunsResponsePaginatorTypeDef",
     "ListJobRunsResponseTypeDef",
-    "ListJobTemplatesRequestRequestTypeDef",
+    "ListJobTemplatesRequestPaginateTypeDef",
+    "ListJobTemplatesRequestTypeDef",
+    "ListJobTemplatesResponsePaginatorTypeDef",
     "ListJobTemplatesResponseTypeDef",
-    "ListManagedEndpointsRequestRequestTypeDef",
+    "ListManagedEndpointsRequestPaginateTypeDef",
+    "ListManagedEndpointsRequestTypeDef",
+    "ListManagedEndpointsResponsePaginatorTypeDef",
     "ListManagedEndpointsResponseTypeDef",
-    "ListSecurityConfigurationsRequestRequestTypeDef",
+    "ListSecurityConfigurationsRequestPaginateTypeDef",
+    "ListSecurityConfigurationsRequestTypeDef",
     "ListSecurityConfigurationsResponseTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
-    "ListVirtualClustersRequestRequestTypeDef",
+    "ListVirtualClustersRequestPaginateTypeDef",
+    "ListVirtualClustersRequestTypeDef",
     "ListVirtualClustersResponseTypeDef",
+    "ManagedLogsTypeDef",
     "MonitoringConfigurationTypeDef",
     "PaginatorConfigTypeDef",
     "ParametricCloudWatchMonitoringConfigurationTypeDef",
+    "ParametricConfigurationOverridesOutputTypeDef",
+    "ParametricConfigurationOverridesPaginatorTypeDef",
     "ParametricConfigurationOverridesTypeDef",
     "ParametricMonitoringConfigurationTypeDef",
     "ParametricS3MonitoringConfigurationTypeDef",
@@ -107,156 +138,204 @@ __all__ = (
     "SecurityConfigurationDataTypeDef",
     "SecurityConfigurationTypeDef",
     "SparkSqlJobDriverTypeDef",
+    "SparkSubmitJobDriverOutputTypeDef",
     "SparkSubmitJobDriverTypeDef",
-    "StartJobRunRequestRequestTypeDef",
+    "StartJobRunRequestTypeDef",
     "StartJobRunResponseTypeDef",
     "TLSCertificateConfigurationTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
     "TemplateParameterConfigurationTypeDef",
-    "UntagResourceRequestRequestTypeDef",
+    "TimestampTypeDef",
+    "UntagResourceRequestTypeDef",
     "VirtualClusterTypeDef",
 )
 
-AuthorizationConfigurationTypeDef = TypedDict(
-    "AuthorizationConfigurationTypeDef",
-    {
-        "lakeFormationConfiguration": "LakeFormationConfigurationTypeDef",
-        "encryptionConfiguration": "EncryptionConfigurationTypeDef",
-    },
-    total=False,
-)
-
-CancelJobRunRequestRequestTypeDef = TypedDict(
-    "CancelJobRunRequestRequestTypeDef",
+CancelJobRunRequestTypeDef = TypedDict(
+    "CancelJobRunRequestTypeDef",
     {
         "id": str,
         "virtualClusterId": str,
     },
 )
+
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
+
+class CertificateTypeDef(TypedDict):
+    certificateArn: NotRequired[str]
+    certificateData: NotRequired[str]
+
+class CloudWatchMonitoringConfigurationTypeDef(TypedDict):
+    logGroupName: str
+    logStreamNamePrefix: NotRequired[str]
+
+class ConfigurationOutputTypeDef(TypedDict):
+    classification: str
+    properties: NotRequired[Dict[str, str]]
+    configurations: NotRequired[List[Dict[str, Any]]]
+
+class ConfigurationPaginatorTypeDef(TypedDict):
+    classification: str
+    properties: NotRequired[Dict[str, str]]
+    configurations: NotRequired[List[Dict[str, Any]]]
+
+class ConfigurationTypeDef(TypedDict):
+    classification: str
+    properties: NotRequired[Mapping[str, str]]
+    configurations: NotRequired[Sequence[Mapping[str, Any]]]
+
+class EksInfoTypeDef(TypedDict):
+    namespace: NotRequired[str]
+
+class ContainerLogRotationConfigurationTypeDef(TypedDict):
+    rotationSize: str
+    maxFilesToKeep: int
+
+class CredentialsTypeDef(TypedDict):
+    token: NotRequired[str]
+
+DeleteJobTemplateRequestTypeDef = TypedDict(
+    "DeleteJobTemplateRequestTypeDef",
+    {
+        "id": str,
+    },
+)
+DeleteManagedEndpointRequestTypeDef = TypedDict(
+    "DeleteManagedEndpointRequestTypeDef",
+    {
+        "id": str,
+        "virtualClusterId": str,
+    },
+)
+DeleteVirtualClusterRequestTypeDef = TypedDict(
+    "DeleteVirtualClusterRequestTypeDef",
+    {
+        "id": str,
+    },
+)
+DescribeJobRunRequestTypeDef = TypedDict(
+    "DescribeJobRunRequestTypeDef",
+    {
+        "id": str,
+        "virtualClusterId": str,
+    },
+)
+DescribeJobTemplateRequestTypeDef = TypedDict(
+    "DescribeJobTemplateRequestTypeDef",
+    {
+        "id": str,
+    },
+)
+DescribeManagedEndpointRequestTypeDef = TypedDict(
+    "DescribeManagedEndpointRequestTypeDef",
+    {
+        "id": str,
+        "virtualClusterId": str,
+    },
+)
+DescribeSecurityConfigurationRequestTypeDef = TypedDict(
+    "DescribeSecurityConfigurationRequestTypeDef",
+    {
+        "id": str,
+    },
+)
+DescribeVirtualClusterRequestTypeDef = TypedDict(
+    "DescribeVirtualClusterRequestTypeDef",
+    {
+        "id": str,
+    },
+)
+
+class GetManagedEndpointSessionCredentialsRequestTypeDef(TypedDict):
+    endpointIdentifier: str
+    virtualClusterIdentifier: str
+    executionRoleArn: str
+    credentialType: str
+    durationInSeconds: NotRequired[int]
+    logContext: NotRequired[str]
+    clientToken: NotRequired[str]
+
+class TLSCertificateConfigurationTypeDef(TypedDict):
+    certificateProviderType: NotRequired[Literal["PEM"]]
+    publicCertificateSecretArn: NotRequired[str]
+    privateCertificateSecretArn: NotRequired[str]
+
+class SparkSqlJobDriverTypeDef(TypedDict):
+    entryPoint: NotRequired[str]
+    sparkSqlParameters: NotRequired[str]
+
+class SparkSubmitJobDriverOutputTypeDef(TypedDict):
+    entryPoint: str
+    entryPointArguments: NotRequired[List[str]]
+    sparkSubmitParameters: NotRequired[str]
+
+class SparkSubmitJobDriverTypeDef(TypedDict):
+    entryPoint: str
+    entryPointArguments: NotRequired[Sequence[str]]
+    sparkSubmitParameters: NotRequired[str]
+
+class RetryPolicyConfigurationTypeDef(TypedDict):
+    maxAttempts: int
+
+class RetryPolicyExecutionTypeDef(TypedDict):
+    currentAttemptCount: int
+
+TemplateParameterConfigurationTypeDef = TypedDict(
+    "TemplateParameterConfigurationTypeDef",
+    {
+        "type": NotRequired[TemplateParameterDataTypeType],
+        "defaultValue": NotRequired[str],
+    },
+)
+
+class SecureNamespaceInfoTypeDef(TypedDict):
+    clusterId: NotRequired[str]
+    namespace: NotRequired[str]
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+TimestampTypeDef = Union[datetime, str]
+
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+
+class ManagedLogsTypeDef(TypedDict):
+    allowAWSToRetainLogs: NotRequired[AllowAWSToRetainLogsType]
+    encryptionKeyArn: NotRequired[str]
+
+class S3MonitoringConfigurationTypeDef(TypedDict):
+    logUri: str
+
+class ParametricCloudWatchMonitoringConfigurationTypeDef(TypedDict):
+    logGroupName: NotRequired[str]
+    logStreamNamePrefix: NotRequired[str]
+
+class ParametricS3MonitoringConfigurationTypeDef(TypedDict):
+    logUri: NotRequired[str]
+
+class TagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tags: Mapping[str, str]
+
+class UntagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tagKeys: Sequence[str]
 
 CancelJobRunResponseTypeDef = TypedDict(
     "CancelJobRunResponseTypeDef",
     {
         "id": str,
         "virtualClusterId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
-
-CertificateTypeDef = TypedDict(
-    "CertificateTypeDef",
-    {
-        "certificateArn": str,
-        "certificateData": str,
-    },
-    total=False,
-)
-
-_RequiredCloudWatchMonitoringConfigurationTypeDef = TypedDict(
-    "_RequiredCloudWatchMonitoringConfigurationTypeDef",
-    {
-        "logGroupName": str,
-    },
-)
-_OptionalCloudWatchMonitoringConfigurationTypeDef = TypedDict(
-    "_OptionalCloudWatchMonitoringConfigurationTypeDef",
-    {
-        "logStreamNamePrefix": str,
-    },
-    total=False,
-)
-
-class CloudWatchMonitoringConfigurationTypeDef(
-    _RequiredCloudWatchMonitoringConfigurationTypeDef,
-    _OptionalCloudWatchMonitoringConfigurationTypeDef,
-):
-    pass
-
-ConfigurationOverridesTypeDef = TypedDict(
-    "ConfigurationOverridesTypeDef",
-    {
-        "applicationConfiguration": List["ConfigurationTypeDef"],
-        "monitoringConfiguration": "MonitoringConfigurationTypeDef",
-    },
-    total=False,
-)
-
-_RequiredConfigurationTypeDef = TypedDict(
-    "_RequiredConfigurationTypeDef",
-    {
-        "classification": str,
-    },
-)
-_OptionalConfigurationTypeDef = TypedDict(
-    "_OptionalConfigurationTypeDef",
-    {
-        "properties": Dict[str, str],
-        "configurations": List[Dict[str, Any]],
-    },
-    total=False,
-)
-
-class ConfigurationTypeDef(_RequiredConfigurationTypeDef, _OptionalConfigurationTypeDef):
-    pass
-
-ContainerInfoTypeDef = TypedDict(
-    "ContainerInfoTypeDef",
-    {
-        "eksInfo": "EksInfoTypeDef",
-    },
-    total=False,
-)
-
-ContainerLogRotationConfigurationTypeDef = TypedDict(
-    "ContainerLogRotationConfigurationTypeDef",
-    {
-        "rotationSize": str,
-        "maxFilesToKeep": int,
-    },
-)
-
-_RequiredContainerProviderTypeDef = TypedDict(
-    "_RequiredContainerProviderTypeDef",
-    {
-        "type": Literal["EKS"],
-        "id": str,
-    },
-)
-_OptionalContainerProviderTypeDef = TypedDict(
-    "_OptionalContainerProviderTypeDef",
-    {
-        "info": "ContainerInfoTypeDef",
-    },
-    total=False,
-)
-
-class ContainerProviderTypeDef(
-    _RequiredContainerProviderTypeDef, _OptionalContainerProviderTypeDef
-):
-    pass
-
-_RequiredCreateJobTemplateRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateJobTemplateRequestRequestTypeDef",
-    {
-        "name": str,
-        "clientToken": str,
-        "jobTemplateData": "JobTemplateDataTypeDef",
-    },
-)
-_OptionalCreateJobTemplateRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateJobTemplateRequestRequestTypeDef",
-    {
-        "tags": Dict[str, str],
-        "kmsKeyArn": str,
-    },
-    total=False,
-)
-
-class CreateJobTemplateRequestRequestTypeDef(
-    _RequiredCreateJobTemplateRequestRequestTypeDef, _OptionalCreateJobTemplateRequestRequestTypeDef
-):
-    pass
-
 CreateJobTemplateResponseTypeDef = TypedDict(
     "CreateJobTemplateResponseTypeDef",
     {
@@ -264,37 +343,9 @@ CreateJobTemplateResponseTypeDef = TypedDict(
         "name": str,
         "arn": str,
         "createdAt": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
-
-_RequiredCreateManagedEndpointRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateManagedEndpointRequestRequestTypeDef",
-    {
-        "name": str,
-        "virtualClusterId": str,
-        "type": str,
-        "releaseLabel": str,
-        "executionRoleArn": str,
-        "clientToken": str,
-    },
-)
-_OptionalCreateManagedEndpointRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateManagedEndpointRequestRequestTypeDef",
-    {
-        "certificateArn": str,
-        "configurationOverrides": "ConfigurationOverridesTypeDef",
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class CreateManagedEndpointRequestRequestTypeDef(
-    _RequiredCreateManagedEndpointRequestRequestTypeDef,
-    _OptionalCreateManagedEndpointRequestRequestTypeDef,
-):
-    pass
-
 CreateManagedEndpointResponseTypeDef = TypedDict(
     "CreateManagedEndpointResponseTypeDef",
     {
@@ -302,702 +353,53 @@ CreateManagedEndpointResponseTypeDef = TypedDict(
         "name": str,
         "arn": str,
         "virtualClusterId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
-
-_RequiredCreateSecurityConfigurationRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateSecurityConfigurationRequestRequestTypeDef",
-    {
-        "clientToken": str,
-        "name": str,
-        "securityConfigurationData": "SecurityConfigurationDataTypeDef",
-    },
-)
-_OptionalCreateSecurityConfigurationRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateSecurityConfigurationRequestRequestTypeDef",
-    {
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class CreateSecurityConfigurationRequestRequestTypeDef(
-    _RequiredCreateSecurityConfigurationRequestRequestTypeDef,
-    _OptionalCreateSecurityConfigurationRequestRequestTypeDef,
-):
-    pass
-
 CreateSecurityConfigurationResponseTypeDef = TypedDict(
     "CreateSecurityConfigurationResponseTypeDef",
     {
         "id": str,
         "name": str,
         "arn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
-
-_RequiredCreateVirtualClusterRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateVirtualClusterRequestRequestTypeDef",
-    {
-        "name": str,
-        "containerProvider": "ContainerProviderTypeDef",
-        "clientToken": str,
-    },
-)
-_OptionalCreateVirtualClusterRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateVirtualClusterRequestRequestTypeDef",
-    {
-        "tags": Dict[str, str],
-        "securityConfigurationId": str,
-    },
-    total=False,
-)
-
-class CreateVirtualClusterRequestRequestTypeDef(
-    _RequiredCreateVirtualClusterRequestRequestTypeDef,
-    _OptionalCreateVirtualClusterRequestRequestTypeDef,
-):
-    pass
-
 CreateVirtualClusterResponseTypeDef = TypedDict(
     "CreateVirtualClusterResponseTypeDef",
     {
         "id": str,
         "name": str,
         "arn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
-
-CredentialsTypeDef = TypedDict(
-    "CredentialsTypeDef",
-    {
-        "token": str,
-    },
-    total=False,
-)
-
-DeleteJobTemplateRequestRequestTypeDef = TypedDict(
-    "DeleteJobTemplateRequestRequestTypeDef",
-    {
-        "id": str,
-    },
-)
-
 DeleteJobTemplateResponseTypeDef = TypedDict(
     "DeleteJobTemplateResponseTypeDef",
     {
         "id": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
-
-DeleteManagedEndpointRequestRequestTypeDef = TypedDict(
-    "DeleteManagedEndpointRequestRequestTypeDef",
-    {
-        "id": str,
-        "virtualClusterId": str,
-    },
-)
-
 DeleteManagedEndpointResponseTypeDef = TypedDict(
     "DeleteManagedEndpointResponseTypeDef",
     {
         "id": str,
         "virtualClusterId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
-
-DeleteVirtualClusterRequestRequestTypeDef = TypedDict(
-    "DeleteVirtualClusterRequestRequestTypeDef",
-    {
-        "id": str,
-    },
-)
-
 DeleteVirtualClusterResponseTypeDef = TypedDict(
     "DeleteVirtualClusterResponseTypeDef",
     {
         "id": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
 
-DescribeJobRunRequestRequestTypeDef = TypedDict(
-    "DescribeJobRunRequestRequestTypeDef",
-    {
-        "id": str,
-        "virtualClusterId": str,
-    },
-)
-
-DescribeJobRunResponseTypeDef = TypedDict(
-    "DescribeJobRunResponseTypeDef",
-    {
-        "jobRun": "JobRunTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeJobTemplateRequestRequestTypeDef = TypedDict(
-    "DescribeJobTemplateRequestRequestTypeDef",
-    {
-        "id": str,
-    },
-)
-
-DescribeJobTemplateResponseTypeDef = TypedDict(
-    "DescribeJobTemplateResponseTypeDef",
-    {
-        "jobTemplate": "JobTemplateTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeManagedEndpointRequestRequestTypeDef = TypedDict(
-    "DescribeManagedEndpointRequestRequestTypeDef",
-    {
-        "id": str,
-        "virtualClusterId": str,
-    },
-)
-
-DescribeManagedEndpointResponseTypeDef = TypedDict(
-    "DescribeManagedEndpointResponseTypeDef",
-    {
-        "endpoint": "EndpointTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeSecurityConfigurationRequestRequestTypeDef = TypedDict(
-    "DescribeSecurityConfigurationRequestRequestTypeDef",
-    {
-        "id": str,
-    },
-)
-
-DescribeSecurityConfigurationResponseTypeDef = TypedDict(
-    "DescribeSecurityConfigurationResponseTypeDef",
-    {
-        "securityConfiguration": "SecurityConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeVirtualClusterRequestRequestTypeDef = TypedDict(
-    "DescribeVirtualClusterRequestRequestTypeDef",
-    {
-        "id": str,
-    },
-)
-
-DescribeVirtualClusterResponseTypeDef = TypedDict(
-    "DescribeVirtualClusterResponseTypeDef",
-    {
-        "virtualCluster": "VirtualClusterTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-EksInfoTypeDef = TypedDict(
-    "EksInfoTypeDef",
-    {
-        "namespace": str,
-    },
-    total=False,
-)
-
-EncryptionConfigurationTypeDef = TypedDict(
-    "EncryptionConfigurationTypeDef",
-    {
-        "inTransitEncryptionConfiguration": "InTransitEncryptionConfigurationTypeDef",
-    },
-    total=False,
-)
-
-EndpointTypeDef = TypedDict(
-    "EndpointTypeDef",
-    {
-        "id": str,
-        "name": str,
-        "arn": str,
-        "virtualClusterId": str,
-        "type": str,
-        "state": EndpointStateType,
-        "releaseLabel": str,
-        "executionRoleArn": str,
-        "certificateArn": str,
-        "certificateAuthority": "CertificateTypeDef",
-        "configurationOverrides": "ConfigurationOverridesTypeDef",
-        "serverUrl": str,
-        "createdAt": datetime,
-        "securityGroup": str,
-        "subnetIds": List[str],
-        "stateDetails": str,
-        "failureReason": FailureReasonType,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-_RequiredGetManagedEndpointSessionCredentialsRequestRequestTypeDef = TypedDict(
-    "_RequiredGetManagedEndpointSessionCredentialsRequestRequestTypeDef",
-    {
-        "endpointIdentifier": str,
-        "virtualClusterIdentifier": str,
-        "executionRoleArn": str,
-        "credentialType": str,
-    },
-)
-_OptionalGetManagedEndpointSessionCredentialsRequestRequestTypeDef = TypedDict(
-    "_OptionalGetManagedEndpointSessionCredentialsRequestRequestTypeDef",
-    {
-        "durationInSeconds": int,
-        "logContext": str,
-        "clientToken": str,
-    },
-    total=False,
-)
-
-class GetManagedEndpointSessionCredentialsRequestRequestTypeDef(
-    _RequiredGetManagedEndpointSessionCredentialsRequestRequestTypeDef,
-    _OptionalGetManagedEndpointSessionCredentialsRequestRequestTypeDef,
-):
-    pass
-
-GetManagedEndpointSessionCredentialsResponseTypeDef = TypedDict(
-    "GetManagedEndpointSessionCredentialsResponseTypeDef",
-    {
-        "id": str,
-        "credentials": "CredentialsTypeDef",
-        "expiresAt": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-InTransitEncryptionConfigurationTypeDef = TypedDict(
-    "InTransitEncryptionConfigurationTypeDef",
-    {
-        "tlsCertificateConfiguration": "TLSCertificateConfigurationTypeDef",
-    },
-    total=False,
-)
-
-JobDriverTypeDef = TypedDict(
-    "JobDriverTypeDef",
-    {
-        "sparkSubmitJobDriver": "SparkSubmitJobDriverTypeDef",
-        "sparkSqlJobDriver": "SparkSqlJobDriverTypeDef",
-    },
-    total=False,
-)
-
-JobRunTypeDef = TypedDict(
-    "JobRunTypeDef",
-    {
-        "id": str,
-        "name": str,
-        "virtualClusterId": str,
-        "arn": str,
-        "state": JobRunStateType,
-        "clientToken": str,
-        "executionRoleArn": str,
-        "releaseLabel": str,
-        "configurationOverrides": "ConfigurationOverridesTypeDef",
-        "jobDriver": "JobDriverTypeDef",
-        "createdAt": datetime,
-        "createdBy": str,
-        "finishedAt": datetime,
-        "stateDetails": str,
-        "failureReason": FailureReasonType,
-        "tags": Dict[str, str],
-        "retryPolicyConfiguration": "RetryPolicyConfigurationTypeDef",
-        "retryPolicyExecution": "RetryPolicyExecutionTypeDef",
-    },
-    total=False,
-)
-
-_RequiredJobTemplateDataTypeDef = TypedDict(
-    "_RequiredJobTemplateDataTypeDef",
-    {
-        "executionRoleArn": str,
-        "releaseLabel": str,
-        "jobDriver": "JobDriverTypeDef",
-    },
-)
-_OptionalJobTemplateDataTypeDef = TypedDict(
-    "_OptionalJobTemplateDataTypeDef",
-    {
-        "configurationOverrides": "ParametricConfigurationOverridesTypeDef",
-        "parameterConfiguration": Dict[str, "TemplateParameterConfigurationTypeDef"],
-        "jobTags": Dict[str, str],
-    },
-    total=False,
-)
-
-class JobTemplateDataTypeDef(_RequiredJobTemplateDataTypeDef, _OptionalJobTemplateDataTypeDef):
-    pass
-
-_RequiredJobTemplateTypeDef = TypedDict(
-    "_RequiredJobTemplateTypeDef",
-    {
-        "jobTemplateData": "JobTemplateDataTypeDef",
-    },
-)
-_OptionalJobTemplateTypeDef = TypedDict(
-    "_OptionalJobTemplateTypeDef",
-    {
-        "name": str,
-        "id": str,
-        "arn": str,
-        "createdAt": datetime,
-        "createdBy": str,
-        "tags": Dict[str, str],
-        "kmsKeyArn": str,
-        "decryptionError": str,
-    },
-    total=False,
-)
-
-class JobTemplateTypeDef(_RequiredJobTemplateTypeDef, _OptionalJobTemplateTypeDef):
-    pass
-
-LakeFormationConfigurationTypeDef = TypedDict(
-    "LakeFormationConfigurationTypeDef",
-    {
-        "authorizedSessionTagValue": str,
-        "secureNamespaceInfo": "SecureNamespaceInfoTypeDef",
-        "queryEngineRoleArn": str,
-    },
-    total=False,
-)
-
-_RequiredListJobRunsRequestRequestTypeDef = TypedDict(
-    "_RequiredListJobRunsRequestRequestTypeDef",
-    {
-        "virtualClusterId": str,
-    },
-)
-_OptionalListJobRunsRequestRequestTypeDef = TypedDict(
-    "_OptionalListJobRunsRequestRequestTypeDef",
-    {
-        "createdBefore": Union[datetime, str],
-        "createdAfter": Union[datetime, str],
-        "name": str,
-        "states": List[JobRunStateType],
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListJobRunsRequestRequestTypeDef(
-    _RequiredListJobRunsRequestRequestTypeDef, _OptionalListJobRunsRequestRequestTypeDef
-):
-    pass
-
-ListJobRunsResponseTypeDef = TypedDict(
-    "ListJobRunsResponseTypeDef",
-    {
-        "jobRuns": List["JobRunTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListJobTemplatesRequestRequestTypeDef = TypedDict(
-    "ListJobTemplatesRequestRequestTypeDef",
-    {
-        "createdAfter": Union[datetime, str],
-        "createdBefore": Union[datetime, str],
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-ListJobTemplatesResponseTypeDef = TypedDict(
-    "ListJobTemplatesResponseTypeDef",
-    {
-        "templates": List["JobTemplateTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListManagedEndpointsRequestRequestTypeDef = TypedDict(
-    "_RequiredListManagedEndpointsRequestRequestTypeDef",
-    {
-        "virtualClusterId": str,
-    },
-)
-_OptionalListManagedEndpointsRequestRequestTypeDef = TypedDict(
-    "_OptionalListManagedEndpointsRequestRequestTypeDef",
-    {
-        "createdBefore": Union[datetime, str],
-        "createdAfter": Union[datetime, str],
-        "types": List[str],
-        "states": List[EndpointStateType],
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListManagedEndpointsRequestRequestTypeDef(
-    _RequiredListManagedEndpointsRequestRequestTypeDef,
-    _OptionalListManagedEndpointsRequestRequestTypeDef,
-):
-    pass
-
-ListManagedEndpointsResponseTypeDef = TypedDict(
-    "ListManagedEndpointsResponseTypeDef",
-    {
-        "endpoints": List["EndpointTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListSecurityConfigurationsRequestRequestTypeDef = TypedDict(
-    "ListSecurityConfigurationsRequestRequestTypeDef",
-    {
-        "createdAfter": Union[datetime, str],
-        "createdBefore": Union[datetime, str],
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-ListSecurityConfigurationsResponseTypeDef = TypedDict(
-    "ListSecurityConfigurationsResponseTypeDef",
-    {
-        "securityConfigurations": List["SecurityConfigurationTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-    },
-)
-
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListVirtualClustersRequestRequestTypeDef = TypedDict(
-    "ListVirtualClustersRequestRequestTypeDef",
-    {
-        "containerProviderId": str,
-        "containerProviderType": Literal["EKS"],
-        "createdAfter": Union[datetime, str],
-        "createdBefore": Union[datetime, str],
-        "states": List[VirtualClusterStateType],
-        "maxResults": int,
-        "nextToken": str,
-        "eksAccessEntryIntegrated": bool,
-    },
-    total=False,
-)
-
-ListVirtualClustersResponseTypeDef = TypedDict(
-    "ListVirtualClustersResponseTypeDef",
-    {
-        "virtualClusters": List["VirtualClusterTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-MonitoringConfigurationTypeDef = TypedDict(
-    "MonitoringConfigurationTypeDef",
-    {
-        "persistentAppUI": PersistentAppUIType,
-        "cloudWatchMonitoringConfiguration": "CloudWatchMonitoringConfigurationTypeDef",
-        "s3MonitoringConfiguration": "S3MonitoringConfigurationTypeDef",
-        "containerLogRotationConfiguration": "ContainerLogRotationConfigurationTypeDef",
-    },
-    total=False,
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-ParametricCloudWatchMonitoringConfigurationTypeDef = TypedDict(
-    "ParametricCloudWatchMonitoringConfigurationTypeDef",
-    {
-        "logGroupName": str,
-        "logStreamNamePrefix": str,
-    },
-    total=False,
-)
-
-ParametricConfigurationOverridesTypeDef = TypedDict(
-    "ParametricConfigurationOverridesTypeDef",
-    {
-        "applicationConfiguration": List["ConfigurationTypeDef"],
-        "monitoringConfiguration": "ParametricMonitoringConfigurationTypeDef",
-    },
-    total=False,
-)
-
-ParametricMonitoringConfigurationTypeDef = TypedDict(
-    "ParametricMonitoringConfigurationTypeDef",
-    {
-        "persistentAppUI": str,
-        "cloudWatchMonitoringConfiguration": "ParametricCloudWatchMonitoringConfigurationTypeDef",
-        "s3MonitoringConfiguration": "ParametricS3MonitoringConfigurationTypeDef",
-    },
-    total=False,
-)
-
-ParametricS3MonitoringConfigurationTypeDef = TypedDict(
-    "ParametricS3MonitoringConfigurationTypeDef",
-    {
-        "logUri": str,
-    },
-    total=False,
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-RetryPolicyConfigurationTypeDef = TypedDict(
-    "RetryPolicyConfigurationTypeDef",
-    {
-        "maxAttempts": int,
-    },
-)
-
-RetryPolicyExecutionTypeDef = TypedDict(
-    "RetryPolicyExecutionTypeDef",
-    {
-        "currentAttemptCount": int,
-    },
-)
-
-S3MonitoringConfigurationTypeDef = TypedDict(
-    "S3MonitoringConfigurationTypeDef",
-    {
-        "logUri": str,
-    },
-)
-
-SecureNamespaceInfoTypeDef = TypedDict(
-    "SecureNamespaceInfoTypeDef",
-    {
-        "clusterId": str,
-        "namespace": str,
-    },
-    total=False,
-)
-
-SecurityConfigurationDataTypeDef = TypedDict(
-    "SecurityConfigurationDataTypeDef",
-    {
-        "authorizationConfiguration": "AuthorizationConfigurationTypeDef",
-    },
-    total=False,
-)
-
-SecurityConfigurationTypeDef = TypedDict(
-    "SecurityConfigurationTypeDef",
-    {
-        "id": str,
-        "name": str,
-        "arn": str,
-        "createdAt": datetime,
-        "createdBy": str,
-        "securityConfigurationData": "SecurityConfigurationDataTypeDef",
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-SparkSqlJobDriverTypeDef = TypedDict(
-    "SparkSqlJobDriverTypeDef",
-    {
-        "entryPoint": str,
-        "sparkSqlParameters": str,
-    },
-    total=False,
-)
-
-_RequiredSparkSubmitJobDriverTypeDef = TypedDict(
-    "_RequiredSparkSubmitJobDriverTypeDef",
-    {
-        "entryPoint": str,
-    },
-)
-_OptionalSparkSubmitJobDriverTypeDef = TypedDict(
-    "_OptionalSparkSubmitJobDriverTypeDef",
-    {
-        "entryPointArguments": List[str],
-        "sparkSubmitParameters": str,
-    },
-    total=False,
-)
-
-class SparkSubmitJobDriverTypeDef(
-    _RequiredSparkSubmitJobDriverTypeDef, _OptionalSparkSubmitJobDriverTypeDef
-):
-    pass
-
-_RequiredStartJobRunRequestRequestTypeDef = TypedDict(
-    "_RequiredStartJobRunRequestRequestTypeDef",
-    {
-        "virtualClusterId": str,
-        "clientToken": str,
-    },
-)
-_OptionalStartJobRunRequestRequestTypeDef = TypedDict(
-    "_OptionalStartJobRunRequestRequestTypeDef",
-    {
-        "name": str,
-        "executionRoleArn": str,
-        "releaseLabel": str,
-        "jobDriver": "JobDriverTypeDef",
-        "configurationOverrides": "ConfigurationOverridesTypeDef",
-        "tags": Dict[str, str],
-        "jobTemplateId": str,
-        "jobTemplateParameters": Dict[str, str],
-        "retryPolicyConfiguration": "RetryPolicyConfigurationTypeDef",
-    },
-    total=False,
-)
-
-class StartJobRunRequestRequestTypeDef(
-    _RequiredStartJobRunRequestRequestTypeDef, _OptionalStartJobRunRequestRequestTypeDef
-):
-    pass
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
 
 StartJobRunResponseTypeDef = TypedDict(
     "StartJobRunResponseTypeDef",
@@ -1006,56 +408,461 @@ StartJobRunResponseTypeDef = TypedDict(
         "name": str,
         "arn": str,
         "virtualClusterId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
 
-TLSCertificateConfigurationTypeDef = TypedDict(
-    "TLSCertificateConfigurationTypeDef",
-    {
-        "certificateProviderType": Literal["PEM"],
-        "publicCertificateSecretArn": str,
-        "privateCertificateSecretArn": str,
-    },
-    total=False,
-)
+class ContainerInfoTypeDef(TypedDict):
+    eksInfo: NotRequired[EksInfoTypeDef]
 
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
+GetManagedEndpointSessionCredentialsResponseTypeDef = TypedDict(
+    "GetManagedEndpointSessionCredentialsResponseTypeDef",
     {
-        "resourceArn": str,
-        "tags": Dict[str, str],
+        "id": str,
+        "credentials": CredentialsTypeDef,
+        "expiresAt": datetime,
+        "ResponseMetadata": ResponseMetadataTypeDef,
     },
 )
 
-TemplateParameterConfigurationTypeDef = TypedDict(
-    "TemplateParameterConfigurationTypeDef",
+class InTransitEncryptionConfigurationTypeDef(TypedDict):
+    tlsCertificateConfiguration: NotRequired[TLSCertificateConfigurationTypeDef]
+
+class JobDriverOutputTypeDef(TypedDict):
+    sparkSubmitJobDriver: NotRequired[SparkSubmitJobDriverOutputTypeDef]
+    sparkSqlJobDriver: NotRequired[SparkSqlJobDriverTypeDef]
+
+class JobDriverTypeDef(TypedDict):
+    sparkSubmitJobDriver: NotRequired[SparkSubmitJobDriverTypeDef]
+    sparkSqlJobDriver: NotRequired[SparkSqlJobDriverTypeDef]
+
+class LakeFormationConfigurationTypeDef(TypedDict):
+    authorizedSessionTagValue: NotRequired[str]
+    secureNamespaceInfo: NotRequired[SecureNamespaceInfoTypeDef]
+    queryEngineRoleArn: NotRequired[str]
+
+class ListJobRunsRequestPaginateTypeDef(TypedDict):
+    virtualClusterId: str
+    createdBefore: NotRequired[TimestampTypeDef]
+    createdAfter: NotRequired[TimestampTypeDef]
+    name: NotRequired[str]
+    states: NotRequired[Sequence[JobRunStateType]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListJobRunsRequestTypeDef(TypedDict):
+    virtualClusterId: str
+    createdBefore: NotRequired[TimestampTypeDef]
+    createdAfter: NotRequired[TimestampTypeDef]
+    name: NotRequired[str]
+    states: NotRequired[Sequence[JobRunStateType]]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListJobTemplatesRequestPaginateTypeDef(TypedDict):
+    createdAfter: NotRequired[TimestampTypeDef]
+    createdBefore: NotRequired[TimestampTypeDef]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListJobTemplatesRequestTypeDef(TypedDict):
+    createdAfter: NotRequired[TimestampTypeDef]
+    createdBefore: NotRequired[TimestampTypeDef]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+ListManagedEndpointsRequestPaginateTypeDef = TypedDict(
+    "ListManagedEndpointsRequestPaginateTypeDef",
     {
-        "type": TemplateParameterDataTypeType,
-        "defaultValue": str,
+        "virtualClusterId": str,
+        "createdBefore": NotRequired[TimestampTypeDef],
+        "createdAfter": NotRequired[TimestampTypeDef],
+        "types": NotRequired[Sequence[str]],
+        "states": NotRequired[Sequence[EndpointStateType]],
+        "PaginationConfig": NotRequired[PaginatorConfigTypeDef],
     },
-    total=False,
+)
+ListManagedEndpointsRequestTypeDef = TypedDict(
+    "ListManagedEndpointsRequestTypeDef",
+    {
+        "virtualClusterId": str,
+        "createdBefore": NotRequired[TimestampTypeDef],
+        "createdAfter": NotRequired[TimestampTypeDef],
+        "types": NotRequired[Sequence[str]],
+        "states": NotRequired[Sequence[EndpointStateType]],
+        "maxResults": NotRequired[int],
+        "nextToken": NotRequired[str],
+    },
 )
 
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
+class ListSecurityConfigurationsRequestPaginateTypeDef(TypedDict):
+    createdAfter: NotRequired[TimestampTypeDef]
+    createdBefore: NotRequired[TimestampTypeDef]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListSecurityConfigurationsRequestTypeDef(TypedDict):
+    createdAfter: NotRequired[TimestampTypeDef]
+    createdBefore: NotRequired[TimestampTypeDef]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListVirtualClustersRequestPaginateTypeDef(TypedDict):
+    containerProviderId: NotRequired[str]
+    containerProviderType: NotRequired[Literal["EKS"]]
+    createdAfter: NotRequired[TimestampTypeDef]
+    createdBefore: NotRequired[TimestampTypeDef]
+    states: NotRequired[Sequence[VirtualClusterStateType]]
+    eksAccessEntryIntegrated: NotRequired[bool]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListVirtualClustersRequestTypeDef(TypedDict):
+    containerProviderId: NotRequired[str]
+    containerProviderType: NotRequired[Literal["EKS"]]
+    createdAfter: NotRequired[TimestampTypeDef]
+    createdBefore: NotRequired[TimestampTypeDef]
+    states: NotRequired[Sequence[VirtualClusterStateType]]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+    eksAccessEntryIntegrated: NotRequired[bool]
+
+class MonitoringConfigurationTypeDef(TypedDict):
+    managedLogs: NotRequired[ManagedLogsTypeDef]
+    persistentAppUI: NotRequired[PersistentAppUIType]
+    cloudWatchMonitoringConfiguration: NotRequired[CloudWatchMonitoringConfigurationTypeDef]
+    s3MonitoringConfiguration: NotRequired[S3MonitoringConfigurationTypeDef]
+    containerLogRotationConfiguration: NotRequired[ContainerLogRotationConfigurationTypeDef]
+
+class ParametricMonitoringConfigurationTypeDef(TypedDict):
+    persistentAppUI: NotRequired[str]
+    cloudWatchMonitoringConfiguration: NotRequired[
+        ParametricCloudWatchMonitoringConfigurationTypeDef
+    ]
+    s3MonitoringConfiguration: NotRequired[ParametricS3MonitoringConfigurationTypeDef]
+
+ContainerProviderTypeDef = TypedDict(
+    "ContainerProviderTypeDef",
     {
-        "resourceArn": str,
-        "tagKeys": List[str],
+        "type": Literal["EKS"],
+        "id": str,
+        "info": NotRequired[ContainerInfoTypeDef],
     },
 )
+
+class EncryptionConfigurationTypeDef(TypedDict):
+    inTransitEncryptionConfiguration: NotRequired[InTransitEncryptionConfigurationTypeDef]
+
+JobDriverUnionTypeDef = Union[JobDriverTypeDef, JobDriverOutputTypeDef]
+
+class ConfigurationOverridesOutputTypeDef(TypedDict):
+    applicationConfiguration: NotRequired[List[ConfigurationOutputTypeDef]]
+    monitoringConfiguration: NotRequired[MonitoringConfigurationTypeDef]
+
+class ConfigurationOverridesPaginatorTypeDef(TypedDict):
+    applicationConfiguration: NotRequired[List[ConfigurationPaginatorTypeDef]]
+    monitoringConfiguration: NotRequired[MonitoringConfigurationTypeDef]
+
+class ConfigurationOverridesTypeDef(TypedDict):
+    applicationConfiguration: NotRequired[Sequence[ConfigurationTypeDef]]
+    monitoringConfiguration: NotRequired[MonitoringConfigurationTypeDef]
+
+class ParametricConfigurationOverridesOutputTypeDef(TypedDict):
+    applicationConfiguration: NotRequired[List[ConfigurationOutputTypeDef]]
+    monitoringConfiguration: NotRequired[ParametricMonitoringConfigurationTypeDef]
+
+class ParametricConfigurationOverridesPaginatorTypeDef(TypedDict):
+    applicationConfiguration: NotRequired[List[ConfigurationPaginatorTypeDef]]
+    monitoringConfiguration: NotRequired[ParametricMonitoringConfigurationTypeDef]
+
+class ParametricConfigurationOverridesTypeDef(TypedDict):
+    applicationConfiguration: NotRequired[Sequence[ConfigurationTypeDef]]
+    monitoringConfiguration: NotRequired[ParametricMonitoringConfigurationTypeDef]
+
+class CreateVirtualClusterRequestTypeDef(TypedDict):
+    name: str
+    containerProvider: ContainerProviderTypeDef
+    clientToken: str
+    tags: NotRequired[Mapping[str, str]]
+    securityConfigurationId: NotRequired[str]
 
 VirtualClusterTypeDef = TypedDict(
     "VirtualClusterTypeDef",
     {
-        "id": str,
-        "name": str,
-        "arn": str,
-        "state": VirtualClusterStateType,
-        "containerProvider": "ContainerProviderTypeDef",
-        "createdAt": datetime,
-        "tags": Dict[str, str],
-        "securityConfigurationId": str,
+        "id": NotRequired[str],
+        "name": NotRequired[str],
+        "arn": NotRequired[str],
+        "state": NotRequired[VirtualClusterStateType],
+        "containerProvider": NotRequired[ContainerProviderTypeDef],
+        "createdAt": NotRequired[datetime],
+        "tags": NotRequired[Dict[str, str]],
+        "securityConfigurationId": NotRequired[str],
     },
-    total=False,
 )
+
+class AuthorizationConfigurationTypeDef(TypedDict):
+    lakeFormationConfiguration: NotRequired[LakeFormationConfigurationTypeDef]
+    encryptionConfiguration: NotRequired[EncryptionConfigurationTypeDef]
+
+EndpointTypeDef = TypedDict(
+    "EndpointTypeDef",
+    {
+        "id": NotRequired[str],
+        "name": NotRequired[str],
+        "arn": NotRequired[str],
+        "virtualClusterId": NotRequired[str],
+        "type": NotRequired[str],
+        "state": NotRequired[EndpointStateType],
+        "releaseLabel": NotRequired[str],
+        "executionRoleArn": NotRequired[str],
+        "certificateArn": NotRequired[str],
+        "certificateAuthority": NotRequired[CertificateTypeDef],
+        "configurationOverrides": NotRequired[ConfigurationOverridesOutputTypeDef],
+        "serverUrl": NotRequired[str],
+        "createdAt": NotRequired[datetime],
+        "securityGroup": NotRequired[str],
+        "subnetIds": NotRequired[List[str]],
+        "stateDetails": NotRequired[str],
+        "failureReason": NotRequired[FailureReasonType],
+        "tags": NotRequired[Dict[str, str]],
+    },
+)
+JobRunTypeDef = TypedDict(
+    "JobRunTypeDef",
+    {
+        "id": NotRequired[str],
+        "name": NotRequired[str],
+        "virtualClusterId": NotRequired[str],
+        "arn": NotRequired[str],
+        "state": NotRequired[JobRunStateType],
+        "clientToken": NotRequired[str],
+        "executionRoleArn": NotRequired[str],
+        "releaseLabel": NotRequired[str],
+        "configurationOverrides": NotRequired[ConfigurationOverridesOutputTypeDef],
+        "jobDriver": NotRequired[JobDriverOutputTypeDef],
+        "createdAt": NotRequired[datetime],
+        "createdBy": NotRequired[str],
+        "finishedAt": NotRequired[datetime],
+        "stateDetails": NotRequired[str],
+        "failureReason": NotRequired[FailureReasonType],
+        "tags": NotRequired[Dict[str, str]],
+        "retryPolicyConfiguration": NotRequired[RetryPolicyConfigurationTypeDef],
+        "retryPolicyExecution": NotRequired[RetryPolicyExecutionTypeDef],
+    },
+)
+EndpointPaginatorTypeDef = TypedDict(
+    "EndpointPaginatorTypeDef",
+    {
+        "id": NotRequired[str],
+        "name": NotRequired[str],
+        "arn": NotRequired[str],
+        "virtualClusterId": NotRequired[str],
+        "type": NotRequired[str],
+        "state": NotRequired[EndpointStateType],
+        "releaseLabel": NotRequired[str],
+        "executionRoleArn": NotRequired[str],
+        "certificateArn": NotRequired[str],
+        "certificateAuthority": NotRequired[CertificateTypeDef],
+        "configurationOverrides": NotRequired[ConfigurationOverridesPaginatorTypeDef],
+        "serverUrl": NotRequired[str],
+        "createdAt": NotRequired[datetime],
+        "securityGroup": NotRequired[str],
+        "subnetIds": NotRequired[List[str]],
+        "stateDetails": NotRequired[str],
+        "failureReason": NotRequired[FailureReasonType],
+        "tags": NotRequired[Dict[str, str]],
+    },
+)
+JobRunPaginatorTypeDef = TypedDict(
+    "JobRunPaginatorTypeDef",
+    {
+        "id": NotRequired[str],
+        "name": NotRequired[str],
+        "virtualClusterId": NotRequired[str],
+        "arn": NotRequired[str],
+        "state": NotRequired[JobRunStateType],
+        "clientToken": NotRequired[str],
+        "executionRoleArn": NotRequired[str],
+        "releaseLabel": NotRequired[str],
+        "configurationOverrides": NotRequired[ConfigurationOverridesPaginatorTypeDef],
+        "jobDriver": NotRequired[JobDriverOutputTypeDef],
+        "createdAt": NotRequired[datetime],
+        "createdBy": NotRequired[str],
+        "finishedAt": NotRequired[datetime],
+        "stateDetails": NotRequired[str],
+        "failureReason": NotRequired[FailureReasonType],
+        "tags": NotRequired[Dict[str, str]],
+        "retryPolicyConfiguration": NotRequired[RetryPolicyConfigurationTypeDef],
+        "retryPolicyExecution": NotRequired[RetryPolicyExecutionTypeDef],
+    },
+)
+ConfigurationOverridesUnionTypeDef = Union[
+    ConfigurationOverridesTypeDef, ConfigurationOverridesOutputTypeDef
+]
+
+class JobTemplateDataOutputTypeDef(TypedDict):
+    executionRoleArn: str
+    releaseLabel: str
+    jobDriver: JobDriverOutputTypeDef
+    configurationOverrides: NotRequired[ParametricConfigurationOverridesOutputTypeDef]
+    parameterConfiguration: NotRequired[Dict[str, TemplateParameterConfigurationTypeDef]]
+    jobTags: NotRequired[Dict[str, str]]
+
+class JobTemplateDataPaginatorTypeDef(TypedDict):
+    executionRoleArn: str
+    releaseLabel: str
+    jobDriver: JobDriverOutputTypeDef
+    configurationOverrides: NotRequired[ParametricConfigurationOverridesPaginatorTypeDef]
+    parameterConfiguration: NotRequired[Dict[str, TemplateParameterConfigurationTypeDef]]
+    jobTags: NotRequired[Dict[str, str]]
+
+class JobTemplateDataTypeDef(TypedDict):
+    executionRoleArn: str
+    releaseLabel: str
+    jobDriver: JobDriverTypeDef
+    configurationOverrides: NotRequired[ParametricConfigurationOverridesTypeDef]
+    parameterConfiguration: NotRequired[Mapping[str, TemplateParameterConfigurationTypeDef]]
+    jobTags: NotRequired[Mapping[str, str]]
+
+class DescribeVirtualClusterResponseTypeDef(TypedDict):
+    virtualCluster: VirtualClusterTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListVirtualClustersResponseTypeDef(TypedDict):
+    virtualClusters: List[VirtualClusterTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class SecurityConfigurationDataTypeDef(TypedDict):
+    authorizationConfiguration: NotRequired[AuthorizationConfigurationTypeDef]
+
+class DescribeManagedEndpointResponseTypeDef(TypedDict):
+    endpoint: EndpointTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListManagedEndpointsResponseTypeDef(TypedDict):
+    endpoints: List[EndpointTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class DescribeJobRunResponseTypeDef(TypedDict):
+    jobRun: JobRunTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListJobRunsResponseTypeDef(TypedDict):
+    jobRuns: List[JobRunTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListManagedEndpointsResponsePaginatorTypeDef(TypedDict):
+    endpoints: List[EndpointPaginatorTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListJobRunsResponsePaginatorTypeDef(TypedDict):
+    jobRuns: List[JobRunPaginatorTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+CreateManagedEndpointRequestTypeDef = TypedDict(
+    "CreateManagedEndpointRequestTypeDef",
+    {
+        "name": str,
+        "virtualClusterId": str,
+        "type": str,
+        "releaseLabel": str,
+        "executionRoleArn": str,
+        "clientToken": str,
+        "certificateArn": NotRequired[str],
+        "configurationOverrides": NotRequired[ConfigurationOverridesUnionTypeDef],
+        "tags": NotRequired[Mapping[str, str]],
+    },
+)
+
+class StartJobRunRequestTypeDef(TypedDict):
+    virtualClusterId: str
+    clientToken: str
+    name: NotRequired[str]
+    executionRoleArn: NotRequired[str]
+    releaseLabel: NotRequired[str]
+    jobDriver: NotRequired[JobDriverUnionTypeDef]
+    configurationOverrides: NotRequired[ConfigurationOverridesUnionTypeDef]
+    tags: NotRequired[Mapping[str, str]]
+    jobTemplateId: NotRequired[str]
+    jobTemplateParameters: NotRequired[Mapping[str, str]]
+    retryPolicyConfiguration: NotRequired[RetryPolicyConfigurationTypeDef]
+
+JobTemplateTypeDef = TypedDict(
+    "JobTemplateTypeDef",
+    {
+        "jobTemplateData": JobTemplateDataOutputTypeDef,
+        "name": NotRequired[str],
+        "id": NotRequired[str],
+        "arn": NotRequired[str],
+        "createdAt": NotRequired[datetime],
+        "createdBy": NotRequired[str],
+        "tags": NotRequired[Dict[str, str]],
+        "kmsKeyArn": NotRequired[str],
+        "decryptionError": NotRequired[str],
+    },
+)
+JobTemplatePaginatorTypeDef = TypedDict(
+    "JobTemplatePaginatorTypeDef",
+    {
+        "jobTemplateData": JobTemplateDataPaginatorTypeDef,
+        "name": NotRequired[str],
+        "id": NotRequired[str],
+        "arn": NotRequired[str],
+        "createdAt": NotRequired[datetime],
+        "createdBy": NotRequired[str],
+        "tags": NotRequired[Dict[str, str]],
+        "kmsKeyArn": NotRequired[str],
+        "decryptionError": NotRequired[str],
+    },
+)
+JobTemplateDataUnionTypeDef = Union[JobTemplateDataTypeDef, JobTemplateDataOutputTypeDef]
+
+class CreateSecurityConfigurationRequestTypeDef(TypedDict):
+    clientToken: str
+    name: str
+    securityConfigurationData: SecurityConfigurationDataTypeDef
+    tags: NotRequired[Mapping[str, str]]
+
+SecurityConfigurationTypeDef = TypedDict(
+    "SecurityConfigurationTypeDef",
+    {
+        "id": NotRequired[str],
+        "name": NotRequired[str],
+        "arn": NotRequired[str],
+        "createdAt": NotRequired[datetime],
+        "createdBy": NotRequired[str],
+        "securityConfigurationData": NotRequired[SecurityConfigurationDataTypeDef],
+        "tags": NotRequired[Dict[str, str]],
+    },
+)
+
+class DescribeJobTemplateResponseTypeDef(TypedDict):
+    jobTemplate: JobTemplateTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListJobTemplatesResponseTypeDef(TypedDict):
+    templates: List[JobTemplateTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListJobTemplatesResponsePaginatorTypeDef(TypedDict):
+    templates: List[JobTemplatePaginatorTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class CreateJobTemplateRequestTypeDef(TypedDict):
+    name: str
+    clientToken: str
+    jobTemplateData: JobTemplateDataUnionTypeDef
+    tags: NotRequired[Mapping[str, str]]
+    kmsKeyArn: NotRequired[str]
+
+class DescribeSecurityConfigurationResponseTypeDef(TypedDict):
+    securityConfiguration: SecurityConfigurationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListSecurityConfigurationsResponseTypeDef(TypedDict):
+    securityConfigurations: List[SecurityConfigurationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]

@@ -1,33 +1,30 @@
 """
-Type annotations for fsx service client.
+Type annotations for fsx service Client.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fsx/client.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fsx/client/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
-    from mypy_boto3_fsx import FSxClient
+    from boto3.session import Session
+    from mypy_boto3_fsx.client import FSxClient
 
-    client: FSxClient = boto3.client("fsx")
+    session = Session()
+    client: FSxClient = session.client("fsx")
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from typing import Any, Dict, List, Type, overload
+from typing import Any, overload
 
 from botocore.client import BaseClient, ClientMeta
+from botocore.errorfactory import BaseClientExceptions
+from botocore.exceptions import ClientError as BotocoreClientError
 
-from .literals import (
-    DataRepositoryTaskTypeType,
-    FileSystemTypeType,
-    OpenZFSCopyStrategyType,
-    RestoreOpenZFSVolumeOptionType,
-    StorageTypeType,
-    StorageVirtualMachineRootVolumeSecurityStyleType,
-    UpdateOpenZFSVolumeOptionType,
-    VolumeTypeType,
-)
 from .paginator import (
     DescribeBackupsPaginator,
     DescribeFileSystemsPaginator,
@@ -36,97 +33,109 @@ from .paginator import (
     ListTagsForResourcePaginator,
 )
 from .type_defs import (
+    AssociateFileSystemAliasesRequestTypeDef,
     AssociateFileSystemAliasesResponseTypeDef,
+    CancelDataRepositoryTaskRequestTypeDef,
     CancelDataRepositoryTaskResponseTypeDef,
-    CompletionReportTypeDef,
+    CopyBackupRequestTypeDef,
     CopyBackupResponseTypeDef,
+    CopySnapshotAndUpdateVolumeRequestTypeDef,
     CopySnapshotAndUpdateVolumeResponseTypeDef,
+    CreateBackupRequestTypeDef,
     CreateBackupResponseTypeDef,
+    CreateDataRepositoryAssociationRequestTypeDef,
     CreateDataRepositoryAssociationResponseTypeDef,
+    CreateDataRepositoryTaskRequestTypeDef,
     CreateDataRepositoryTaskResponseTypeDef,
-    CreateFileCacheLustreConfigurationTypeDef,
+    CreateFileCacheRequestTypeDef,
     CreateFileCacheResponseTypeDef,
+    CreateFileSystemFromBackupRequestTypeDef,
     CreateFileSystemFromBackupResponseTypeDef,
-    CreateFileSystemLustreConfigurationTypeDef,
-    CreateFileSystemOntapConfigurationTypeDef,
-    CreateFileSystemOpenZFSConfigurationTypeDef,
+    CreateFileSystemRequestTypeDef,
     CreateFileSystemResponseTypeDef,
-    CreateFileSystemWindowsConfigurationTypeDef,
-    CreateOntapVolumeConfigurationTypeDef,
-    CreateOpenZFSVolumeConfigurationTypeDef,
+    CreateSnapshotRequestTypeDef,
     CreateSnapshotResponseTypeDef,
+    CreateStorageVirtualMachineRequestTypeDef,
     CreateStorageVirtualMachineResponseTypeDef,
-    CreateSvmActiveDirectoryConfigurationTypeDef,
+    CreateVolumeFromBackupRequestTypeDef,
     CreateVolumeFromBackupResponseTypeDef,
+    CreateVolumeRequestTypeDef,
     CreateVolumeResponseTypeDef,
-    DataRepositoryTaskFilterTypeDef,
+    DeleteBackupRequestTypeDef,
     DeleteBackupResponseTypeDef,
+    DeleteDataRepositoryAssociationRequestTypeDef,
     DeleteDataRepositoryAssociationResponseTypeDef,
+    DeleteFileCacheRequestTypeDef,
     DeleteFileCacheResponseTypeDef,
-    DeleteFileSystemLustreConfigurationTypeDef,
-    DeleteFileSystemOpenZFSConfigurationTypeDef,
+    DeleteFileSystemRequestTypeDef,
     DeleteFileSystemResponseTypeDef,
-    DeleteFileSystemWindowsConfigurationTypeDef,
+    DeleteSnapshotRequestTypeDef,
     DeleteSnapshotResponseTypeDef,
+    DeleteStorageVirtualMachineRequestTypeDef,
     DeleteStorageVirtualMachineResponseTypeDef,
-    DeleteVolumeOntapConfigurationTypeDef,
-    DeleteVolumeOpenZFSConfigurationTypeDef,
+    DeleteVolumeRequestTypeDef,
     DeleteVolumeResponseTypeDef,
+    DescribeBackupsRequestTypeDef,
     DescribeBackupsResponseTypeDef,
+    DescribeDataRepositoryAssociationsRequestTypeDef,
     DescribeDataRepositoryAssociationsResponseTypeDef,
+    DescribeDataRepositoryTasksRequestTypeDef,
     DescribeDataRepositoryTasksResponseTypeDef,
+    DescribeFileCachesRequestTypeDef,
     DescribeFileCachesResponseTypeDef,
+    DescribeFileSystemAliasesRequestTypeDef,
     DescribeFileSystemAliasesResponseTypeDef,
+    DescribeFileSystemsRequestTypeDef,
     DescribeFileSystemsResponseTypeDef,
     DescribeSharedVpcConfigurationResponseTypeDef,
+    DescribeSnapshotsRequestTypeDef,
     DescribeSnapshotsResponseTypeDef,
+    DescribeStorageVirtualMachinesRequestTypeDef,
     DescribeStorageVirtualMachinesResponseTypeDef,
+    DescribeVolumesRequestTypeDef,
     DescribeVolumesResponseTypeDef,
+    DisassociateFileSystemAliasesRequestTypeDef,
     DisassociateFileSystemAliasesResponseTypeDef,
-    FileCacheDataRepositoryAssociationTypeDef,
-    FilterTypeDef,
+    ListTagsForResourceRequestTypeDef,
     ListTagsForResourceResponseTypeDef,
-    ReleaseConfigurationTypeDef,
+    ReleaseFileSystemNfsV3LocksRequestTypeDef,
     ReleaseFileSystemNfsV3LocksResponseTypeDef,
+    RestoreVolumeFromSnapshotRequestTypeDef,
     RestoreVolumeFromSnapshotResponseTypeDef,
-    S3DataRepositoryConfigurationTypeDef,
-    SnapshotFilterTypeDef,
+    StartMisconfiguredStateRecoveryRequestTypeDef,
     StartMisconfiguredStateRecoveryResponseTypeDef,
-    StorageVirtualMachineFilterTypeDef,
-    TagTypeDef,
+    TagResourceRequestTypeDef,
+    UntagResourceRequestTypeDef,
+    UpdateDataRepositoryAssociationRequestTypeDef,
     UpdateDataRepositoryAssociationResponseTypeDef,
-    UpdateFileCacheLustreConfigurationTypeDef,
+    UpdateFileCacheRequestTypeDef,
     UpdateFileCacheResponseTypeDef,
-    UpdateFileSystemLustreConfigurationTypeDef,
-    UpdateFileSystemOntapConfigurationTypeDef,
-    UpdateFileSystemOpenZFSConfigurationTypeDef,
+    UpdateFileSystemRequestTypeDef,
     UpdateFileSystemResponseTypeDef,
-    UpdateFileSystemWindowsConfigurationTypeDef,
-    UpdateOntapVolumeConfigurationTypeDef,
-    UpdateOpenZFSVolumeConfigurationTypeDef,
+    UpdateSharedVpcConfigurationRequestTypeDef,
     UpdateSharedVpcConfigurationResponseTypeDef,
+    UpdateSnapshotRequestTypeDef,
     UpdateSnapshotResponseTypeDef,
+    UpdateStorageVirtualMachineRequestTypeDef,
     UpdateStorageVirtualMachineResponseTypeDef,
-    UpdateSvmActiveDirectoryConfigurationTypeDef,
+    UpdateVolumeRequestTypeDef,
     UpdateVolumeResponseTypeDef,
-    VolumeFilterTypeDef,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import type as Type
+    from collections.abc import Mapping
 else:
-    from typing_extensions import Literal
+    from typing import Dict, Mapping, Type
+if sys.version_info >= (3, 12):
+    from typing import Literal, Unpack
+else:
+    from typing_extensions import Literal, Unpack
 
 __all__ = ("FSxClient",)
 
-class BotocoreClientError(BaseException):
-    MSG_TEMPLATE: str
-
-    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
-        self.response: Dict[str, Any]
-        self.operation_name: str
-
-class Exceptions:
+class Exceptions(BaseClientExceptions):
     ActiveDirectoryError: Type[BotocoreClientError]
     BackupBeingCopied: Type[BotocoreClientError]
     BackupInProgress: Type[BotocoreClientError]
@@ -166,8 +175,8 @@ class Exceptions:
 
 class FSxClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fsx.html#FSx.Client)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fsx/client.html)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fsx.html#FSx.Client)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fsx/client/)
     """
 
     meta: ClientMeta
@@ -176,445 +185,312 @@ class FSxClient(BaseClient):
     def exceptions(self) -> Exceptions:
         """
         FSxClient exceptions.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fsx.html#FSx.Client)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fsx/client/#exceptions)
+        """
+
+    def can_paginate(self, operation_name: str) -> bool:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fsx/client/can_paginate.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fsx/client/#can_paginate)
+        """
+
+    def generate_presigned_url(
+        self,
+        ClientMethod: str,
+        Params: Mapping[str, Any] = ...,
+        ExpiresIn: int = 3600,
+        HttpMethod: str = ...,
+    ) -> str:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fsx/client/generate_presigned_url.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fsx/client/#generate_presigned_url)
         """
 
     def associate_file_system_aliases(
-        self, *, FileSystemId: str, Aliases: List[str], ClientRequestToken: str = None
+        self, **kwargs: Unpack[AssociateFileSystemAliasesRequestTypeDef]
     ) -> AssociateFileSystemAliasesResponseTypeDef:
         """
         Use this action to associate one or more Domain Name Server (DNS) aliases with
         an existing Amazon FSx for Windows File Server file system.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fsx.html#FSx.Client.associate_file_system_aliases)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fsx/client.html#associate_file_system_aliases)
-        """
-
-    def can_paginate(self, operation_name: str) -> bool:
-        """
-        Check if an operation can be paginated.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fsx.html#FSx.Client.can_paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fsx/client.html#can_paginate)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fsx/client/associate_file_system_aliases.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fsx/client/#associate_file_system_aliases)
         """
 
     def cancel_data_repository_task(
-        self, *, TaskId: str
+        self, **kwargs: Unpack[CancelDataRepositoryTaskRequestTypeDef]
     ) -> CancelDataRepositoryTaskResponseTypeDef:
         """
         Cancels an existing Amazon FSx for Lustre data repository task if that task is
-        in either the `PENDING` or `EXECUTING` state.
+        in either the <code>PENDING</code> or <code>EXECUTING</code> state.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fsx.html#FSx.Client.cancel_data_repository_task)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fsx/client.html#cancel_data_repository_task)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fsx/client/cancel_data_repository_task.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fsx/client/#cancel_data_repository_task)
         """
 
-    def close(self) -> None:
+    def copy_backup(self, **kwargs: Unpack[CopyBackupRequestTypeDef]) -> CopyBackupResponseTypeDef:
         """
-        Closes underlying endpoint connections.
+        Copies an existing backup within the same Amazon Web Services account to
+        another Amazon Web Services Region (cross-Region copy) or within the same
+        Amazon Web Services Region (in-Region copy).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fsx.html#FSx.Client.close)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fsx/client.html#close)
-        """
-
-    def copy_backup(
-        self,
-        *,
-        SourceBackupId: str,
-        ClientRequestToken: str = None,
-        SourceRegion: str = None,
-        KmsKeyId: str = None,
-        CopyTags: bool = None,
-        Tags: List["TagTypeDef"] = None
-    ) -> CopyBackupResponseTypeDef:
-        """
-        Copies an existing backup within the same Amazon Web Services account to another
-        Amazon Web Services Region (cross-Region copy) or within the same Amazon Web
-        Services Region (in-Region copy).
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fsx.html#FSx.Client.copy_backup)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fsx/client.html#copy_backup)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fsx/client/copy_backup.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fsx/client/#copy_backup)
         """
 
     def copy_snapshot_and_update_volume(
-        self,
-        *,
-        VolumeId: str,
-        SourceSnapshotARN: str,
-        ClientRequestToken: str = None,
-        CopyStrategy: OpenZFSCopyStrategyType = None,
-        Options: List[UpdateOpenZFSVolumeOptionType] = None
+        self, **kwargs: Unpack[CopySnapshotAndUpdateVolumeRequestTypeDef]
     ) -> CopySnapshotAndUpdateVolumeResponseTypeDef:
         """
         Updates an existing volume by using a snapshot from another Amazon FSx for
         OpenZFS file system.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fsx.html#FSx.Client.copy_snapshot_and_update_volume)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fsx/client.html#copy_snapshot_and_update_volume)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fsx/client/copy_snapshot_and_update_volume.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fsx/client/#copy_snapshot_and_update_volume)
         """
 
     def create_backup(
-        self,
-        *,
-        FileSystemId: str = None,
-        ClientRequestToken: str = None,
-        Tags: List["TagTypeDef"] = None,
-        VolumeId: str = None
+        self, **kwargs: Unpack[CreateBackupRequestTypeDef]
     ) -> CreateBackupResponseTypeDef:
         """
         Creates a backup of an existing Amazon FSx for Windows File Server file system,
-        Amazon FSx for Lustre file system, Amazon FSx for NetApp ONTAP volume, or Amazon
-        FSx for OpenZFS file system.
+        Amazon FSx for Lustre file system, Amazon FSx for NetApp ONTAP volume, or
+        Amazon FSx for OpenZFS file system.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fsx.html#FSx.Client.create_backup)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fsx/client.html#create_backup)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fsx/client/create_backup.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fsx/client/#create_backup)
         """
 
     def create_data_repository_association(
-        self,
-        *,
-        FileSystemId: str,
-        DataRepositoryPath: str,
-        FileSystemPath: str = None,
-        BatchImportMetaDataOnCreate: bool = None,
-        ImportedFileChunkSize: int = None,
-        S3: "S3DataRepositoryConfigurationTypeDef" = None,
-        ClientRequestToken: str = None,
-        Tags: List["TagTypeDef"] = None
+        self, **kwargs: Unpack[CreateDataRepositoryAssociationRequestTypeDef]
     ) -> CreateDataRepositoryAssociationResponseTypeDef:
         """
         Creates an Amazon FSx for Lustre data repository association (DRA).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fsx.html#FSx.Client.create_data_repository_association)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fsx/client.html#create_data_repository_association)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fsx/client/create_data_repository_association.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fsx/client/#create_data_repository_association)
         """
 
     def create_data_repository_task(
-        self,
-        *,
-        Type: DataRepositoryTaskTypeType,
-        FileSystemId: str,
-        Report: "CompletionReportTypeDef",
-        Paths: List[str] = None,
-        ClientRequestToken: str = None,
-        Tags: List["TagTypeDef"] = None,
-        CapacityToRelease: int = None,
-        ReleaseConfiguration: "ReleaseConfigurationTypeDef" = None
+        self, **kwargs: Unpack[CreateDataRepositoryTaskRequestTypeDef]
     ) -> CreateDataRepositoryTaskResponseTypeDef:
         """
         Creates an Amazon FSx for Lustre data repository task.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fsx.html#FSx.Client.create_data_repository_task)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fsx/client.html#create_data_repository_task)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fsx/client/create_data_repository_task.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fsx/client/#create_data_repository_task)
         """
 
     def create_file_cache(
-        self,
-        *,
-        FileCacheType: Literal["LUSTRE"],
-        FileCacheTypeVersion: str,
-        StorageCapacity: int,
-        SubnetIds: List[str],
-        ClientRequestToken: str = None,
-        SecurityGroupIds: List[str] = None,
-        Tags: List["TagTypeDef"] = None,
-        CopyTagsToDataRepositoryAssociations: bool = None,
-        KmsKeyId: str = None,
-        LustreConfiguration: "CreateFileCacheLustreConfigurationTypeDef" = None,
-        DataRepositoryAssociations: List["FileCacheDataRepositoryAssociationTypeDef"] = None
+        self, **kwargs: Unpack[CreateFileCacheRequestTypeDef]
     ) -> CreateFileCacheResponseTypeDef:
         """
         Creates a new Amazon File Cache resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fsx.html#FSx.Client.create_file_cache)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fsx/client.html#create_file_cache)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fsx/client/create_file_cache.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fsx/client/#create_file_cache)
         """
 
     def create_file_system(
-        self,
-        *,
-        FileSystemType: FileSystemTypeType,
-        StorageCapacity: int,
-        SubnetIds: List[str],
-        ClientRequestToken: str = None,
-        StorageType: StorageTypeType = None,
-        SecurityGroupIds: List[str] = None,
-        Tags: List["TagTypeDef"] = None,
-        KmsKeyId: str = None,
-        WindowsConfiguration: "CreateFileSystemWindowsConfigurationTypeDef" = None,
-        LustreConfiguration: "CreateFileSystemLustreConfigurationTypeDef" = None,
-        OntapConfiguration: "CreateFileSystemOntapConfigurationTypeDef" = None,
-        FileSystemTypeVersion: str = None,
-        OpenZFSConfiguration: "CreateFileSystemOpenZFSConfigurationTypeDef" = None
+        self, **kwargs: Unpack[CreateFileSystemRequestTypeDef]
     ) -> CreateFileSystemResponseTypeDef:
         """
         Creates a new, empty Amazon FSx file system.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fsx.html#FSx.Client.create_file_system)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fsx/client.html#create_file_system)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fsx/client/create_file_system.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fsx/client/#create_file_system)
         """
 
     def create_file_system_from_backup(
-        self,
-        *,
-        BackupId: str,
-        SubnetIds: List[str],
-        ClientRequestToken: str = None,
-        SecurityGroupIds: List[str] = None,
-        Tags: List["TagTypeDef"] = None,
-        WindowsConfiguration: "CreateFileSystemWindowsConfigurationTypeDef" = None,
-        LustreConfiguration: "CreateFileSystemLustreConfigurationTypeDef" = None,
-        StorageType: StorageTypeType = None,
-        KmsKeyId: str = None,
-        FileSystemTypeVersion: str = None,
-        OpenZFSConfiguration: "CreateFileSystemOpenZFSConfigurationTypeDef" = None,
-        StorageCapacity: int = None
+        self, **kwargs: Unpack[CreateFileSystemFromBackupRequestTypeDef]
     ) -> CreateFileSystemFromBackupResponseTypeDef:
         """
         Creates a new Amazon FSx for Lustre, Amazon FSx for Windows File Server, or
         Amazon FSx for OpenZFS file system from an existing Amazon FSx backup.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fsx.html#FSx.Client.create_file_system_from_backup)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fsx/client.html#create_file_system_from_backup)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fsx/client/create_file_system_from_backup.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fsx/client/#create_file_system_from_backup)
         """
 
     def create_snapshot(
-        self,
-        *,
-        Name: str,
-        VolumeId: str,
-        ClientRequestToken: str = None,
-        Tags: List["TagTypeDef"] = None
+        self, **kwargs: Unpack[CreateSnapshotRequestTypeDef]
     ) -> CreateSnapshotResponseTypeDef:
         """
         Creates a snapshot of an existing Amazon FSx for OpenZFS volume.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fsx.html#FSx.Client.create_snapshot)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fsx/client.html#create_snapshot)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fsx/client/create_snapshot.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fsx/client/#create_snapshot)
         """
 
     def create_storage_virtual_machine(
-        self,
-        *,
-        FileSystemId: str,
-        Name: str,
-        ActiveDirectoryConfiguration: "CreateSvmActiveDirectoryConfigurationTypeDef" = None,
-        ClientRequestToken: str = None,
-        SvmAdminPassword: str = None,
-        Tags: List["TagTypeDef"] = None,
-        RootVolumeSecurityStyle: StorageVirtualMachineRootVolumeSecurityStyleType = None
+        self, **kwargs: Unpack[CreateStorageVirtualMachineRequestTypeDef]
     ) -> CreateStorageVirtualMachineResponseTypeDef:
         """
         Creates a storage virtual machine (SVM) for an Amazon FSx for ONTAP file system.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fsx.html#FSx.Client.create_storage_virtual_machine)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fsx/client.html#create_storage_virtual_machine)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fsx/client/create_storage_virtual_machine.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fsx/client/#create_storage_virtual_machine)
         """
 
     def create_volume(
-        self,
-        *,
-        VolumeType: VolumeTypeType,
-        Name: str,
-        ClientRequestToken: str = None,
-        OntapConfiguration: "CreateOntapVolumeConfigurationTypeDef" = None,
-        Tags: List["TagTypeDef"] = None,
-        OpenZFSConfiguration: "CreateOpenZFSVolumeConfigurationTypeDef" = None
+        self, **kwargs: Unpack[CreateVolumeRequestTypeDef]
     ) -> CreateVolumeResponseTypeDef:
         """
         Creates an FSx for ONTAP or Amazon FSx for OpenZFS storage volume.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fsx.html#FSx.Client.create_volume)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fsx/client.html#create_volume)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fsx/client/create_volume.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fsx/client/#create_volume)
         """
 
     def create_volume_from_backup(
-        self,
-        *,
-        BackupId: str,
-        Name: str,
-        ClientRequestToken: str = None,
-        OntapConfiguration: "CreateOntapVolumeConfigurationTypeDef" = None,
-        Tags: List["TagTypeDef"] = None
+        self, **kwargs: Unpack[CreateVolumeFromBackupRequestTypeDef]
     ) -> CreateVolumeFromBackupResponseTypeDef:
         """
         Creates a new Amazon FSx for NetApp ONTAP volume from an existing Amazon FSx
         volume backup.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fsx.html#FSx.Client.create_volume_from_backup)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fsx/client.html#create_volume_from_backup)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fsx/client/create_volume_from_backup.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fsx/client/#create_volume_from_backup)
         """
 
     def delete_backup(
-        self, *, BackupId: str, ClientRequestToken: str = None
+        self, **kwargs: Unpack[DeleteBackupRequestTypeDef]
     ) -> DeleteBackupResponseTypeDef:
         """
         Deletes an Amazon FSx backup.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fsx.html#FSx.Client.delete_backup)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fsx/client.html#delete_backup)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fsx/client/delete_backup.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fsx/client/#delete_backup)
         """
 
     def delete_data_repository_association(
-        self,
-        *,
-        AssociationId: str,
-        ClientRequestToken: str = None,
-        DeleteDataInFileSystem: bool = None
+        self, **kwargs: Unpack[DeleteDataRepositoryAssociationRequestTypeDef]
     ) -> DeleteDataRepositoryAssociationResponseTypeDef:
         """
         Deletes a data repository association on an Amazon FSx for Lustre file system.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fsx.html#FSx.Client.delete_data_repository_association)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fsx/client.html#delete_data_repository_association)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fsx/client/delete_data_repository_association.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fsx/client/#delete_data_repository_association)
         """
 
     def delete_file_cache(
-        self, *, FileCacheId: str, ClientRequestToken: str = None
+        self, **kwargs: Unpack[DeleteFileCacheRequestTypeDef]
     ) -> DeleteFileCacheResponseTypeDef:
         """
         Deletes an Amazon File Cache resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fsx.html#FSx.Client.delete_file_cache)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fsx/client.html#delete_file_cache)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fsx/client/delete_file_cache.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fsx/client/#delete_file_cache)
         """
 
     def delete_file_system(
-        self,
-        *,
-        FileSystemId: str,
-        ClientRequestToken: str = None,
-        WindowsConfiguration: "DeleteFileSystemWindowsConfigurationTypeDef" = None,
-        LustreConfiguration: "DeleteFileSystemLustreConfigurationTypeDef" = None,
-        OpenZFSConfiguration: "DeleteFileSystemOpenZFSConfigurationTypeDef" = None
+        self, **kwargs: Unpack[DeleteFileSystemRequestTypeDef]
     ) -> DeleteFileSystemResponseTypeDef:
         """
         Deletes a file system.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fsx.html#FSx.Client.delete_file_system)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fsx/client.html#delete_file_system)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fsx/client/delete_file_system.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fsx/client/#delete_file_system)
         """
 
     def delete_snapshot(
-        self, *, SnapshotId: str, ClientRequestToken: str = None
+        self, **kwargs: Unpack[DeleteSnapshotRequestTypeDef]
     ) -> DeleteSnapshotResponseTypeDef:
         """
         Deletes an Amazon FSx for OpenZFS snapshot.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fsx.html#FSx.Client.delete_snapshot)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fsx/client.html#delete_snapshot)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fsx/client/delete_snapshot.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fsx/client/#delete_snapshot)
         """
 
     def delete_storage_virtual_machine(
-        self, *, StorageVirtualMachineId: str, ClientRequestToken: str = None
+        self, **kwargs: Unpack[DeleteStorageVirtualMachineRequestTypeDef]
     ) -> DeleteStorageVirtualMachineResponseTypeDef:
         """
         Deletes an existing Amazon FSx for ONTAP storage virtual machine (SVM).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fsx.html#FSx.Client.delete_storage_virtual_machine)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fsx/client.html#delete_storage_virtual_machine)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fsx/client/delete_storage_virtual_machine.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fsx/client/#delete_storage_virtual_machine)
         """
 
     def delete_volume(
-        self,
-        *,
-        VolumeId: str,
-        ClientRequestToken: str = None,
-        OntapConfiguration: "DeleteVolumeOntapConfigurationTypeDef" = None,
-        OpenZFSConfiguration: "DeleteVolumeOpenZFSConfigurationTypeDef" = None
+        self, **kwargs: Unpack[DeleteVolumeRequestTypeDef]
     ) -> DeleteVolumeResponseTypeDef:
         """
         Deletes an Amazon FSx for NetApp ONTAP or Amazon FSx for OpenZFS volume.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fsx.html#FSx.Client.delete_volume)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fsx/client.html#delete_volume)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fsx/client/delete_volume.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fsx/client/#delete_volume)
         """
 
     def describe_backups(
-        self,
-        *,
-        BackupIds: List[str] = None,
-        Filters: List["FilterTypeDef"] = None,
-        MaxResults: int = None,
-        NextToken: str = None
+        self, **kwargs: Unpack[DescribeBackupsRequestTypeDef]
     ) -> DescribeBackupsResponseTypeDef:
         """
-        Returns the description of a specific Amazon FSx backup, if a `BackupIds` value
-        is provided for that backup.
+        Returns the description of a specific Amazon FSx backup, if a
+        <code>BackupIds</code> value is provided for that backup.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fsx.html#FSx.Client.describe_backups)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fsx/client.html#describe_backups)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fsx/client/describe_backups.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fsx/client/#describe_backups)
         """
 
     def describe_data_repository_associations(
-        self,
-        *,
-        AssociationIds: List[str] = None,
-        Filters: List["FilterTypeDef"] = None,
-        MaxResults: int = None,
-        NextToken: str = None
+        self, **kwargs: Unpack[DescribeDataRepositoryAssociationsRequestTypeDef]
     ) -> DescribeDataRepositoryAssociationsResponseTypeDef:
         """
         Returns the description of specific Amazon FSx for Lustre or Amazon File Cache
-        data repository associations, if one or more `AssociationIds` values are
-        provided in the request, or if filters are used in the request.
+        data repository associations, if one or more <code>AssociationIds</code> values
+        are provided in the request, or if filters are used in the request.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fsx.html#FSx.Client.describe_data_repository_associations)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fsx/client.html#describe_data_repository_associations)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fsx/client/describe_data_repository_associations.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fsx/client/#describe_data_repository_associations)
         """
 
     def describe_data_repository_tasks(
-        self,
-        *,
-        TaskIds: List[str] = None,
-        Filters: List["DataRepositoryTaskFilterTypeDef"] = None,
-        MaxResults: int = None,
-        NextToken: str = None
+        self, **kwargs: Unpack[DescribeDataRepositoryTasksRequestTypeDef]
     ) -> DescribeDataRepositoryTasksResponseTypeDef:
         """
         Returns the description of specific Amazon FSx for Lustre or Amazon File Cache
-        data repository tasks, if one or more `TaskIds` values are provided in the
-        request, or if filters are used in the request.
+        data repository tasks, if one or more <code>TaskIds</code> values are provided
+        in the request, or if filters are used in the request.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fsx.html#FSx.Client.describe_data_repository_tasks)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fsx/client.html#describe_data_repository_tasks)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fsx/client/describe_data_repository_tasks.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fsx/client/#describe_data_repository_tasks)
         """
 
     def describe_file_caches(
-        self, *, FileCacheIds: List[str] = None, MaxResults: int = None, NextToken: str = None
+        self, **kwargs: Unpack[DescribeFileCachesRequestTypeDef]
     ) -> DescribeFileCachesResponseTypeDef:
         """
         Returns the description of a specific Amazon File Cache resource, if a
-        `FileCacheIds` value is provided for that cache.
+        <code>FileCacheIds</code> value is provided for that cache.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fsx.html#FSx.Client.describe_file_caches)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fsx/client.html#describe_file_caches)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fsx/client/describe_file_caches.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fsx/client/#describe_file_caches)
         """
 
     def describe_file_system_aliases(
-        self,
-        *,
-        FileSystemId: str,
-        ClientRequestToken: str = None,
-        MaxResults: int = None,
-        NextToken: str = None
+        self, **kwargs: Unpack[DescribeFileSystemAliasesRequestTypeDef]
     ) -> DescribeFileSystemAliasesResponseTypeDef:
         """
         Returns the DNS aliases that are associated with the specified Amazon FSx for
         Windows File Server file system.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fsx.html#FSx.Client.describe_file_system_aliases)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fsx/client.html#describe_file_system_aliases)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fsx/client/describe_file_system_aliases.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fsx/client/#describe_file_system_aliases)
         """
 
     def describe_file_systems(
-        self, *, FileSystemIds: List[str] = None, MaxResults: int = None, NextToken: str = None
+        self, **kwargs: Unpack[DescribeFileSystemsRequestTypeDef]
     ) -> DescribeFileSystemsResponseTypeDef:
         """
         Returns the description of specific Amazon FSx file systems, if a
-        `FileSystemIds` value is provided for that file system.
+        <code>FileSystemIds</code> value is provided for that file system.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fsx.html#FSx.Client.describe_file_systems)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fsx/client.html#describe_file_systems)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fsx/client/describe_file_systems.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fsx/client/#describe_file_systems)
         """
 
     def describe_shared_vpc_configuration(self) -> DescribeSharedVpcConfigurationResponseTypeDef:
@@ -623,296 +499,239 @@ class FSxClient(BaseClient):
         FSx for NetApp ONTAP Multi-AZ file systems in subnets that are shared by a
         virtual private cloud (VPC) owner.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fsx.html#FSx.Client.describe_shared_vpc_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fsx/client.html#describe_shared_vpc_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fsx/client/describe_shared_vpc_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fsx/client/#describe_shared_vpc_configuration)
         """
 
     def describe_snapshots(
-        self,
-        *,
-        SnapshotIds: List[str] = None,
-        Filters: List["SnapshotFilterTypeDef"] = None,
-        MaxResults: int = None,
-        NextToken: str = None,
-        IncludeShared: bool = None
+        self, **kwargs: Unpack[DescribeSnapshotsRequestTypeDef]
     ) -> DescribeSnapshotsResponseTypeDef:
         """
         Returns the description of specific Amazon FSx for OpenZFS snapshots, if a
-        `SnapshotIds` value is provided.
+        <code>SnapshotIds</code> value is provided.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fsx.html#FSx.Client.describe_snapshots)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fsx/client.html#describe_snapshots)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fsx/client/describe_snapshots.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fsx/client/#describe_snapshots)
         """
 
     def describe_storage_virtual_machines(
-        self,
-        *,
-        StorageVirtualMachineIds: List[str] = None,
-        Filters: List["StorageVirtualMachineFilterTypeDef"] = None,
-        MaxResults: int = None,
-        NextToken: str = None
+        self, **kwargs: Unpack[DescribeStorageVirtualMachinesRequestTypeDef]
     ) -> DescribeStorageVirtualMachinesResponseTypeDef:
         """
         Describes one or more Amazon FSx for NetApp ONTAP storage virtual machines
         (SVMs).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fsx.html#FSx.Client.describe_storage_virtual_machines)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fsx/client.html#describe_storage_virtual_machines)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fsx/client/describe_storage_virtual_machines.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fsx/client/#describe_storage_virtual_machines)
         """
 
     def describe_volumes(
-        self,
-        *,
-        VolumeIds: List[str] = None,
-        Filters: List["VolumeFilterTypeDef"] = None,
-        MaxResults: int = None,
-        NextToken: str = None
+        self, **kwargs: Unpack[DescribeVolumesRequestTypeDef]
     ) -> DescribeVolumesResponseTypeDef:
         """
         Describes one or more Amazon FSx for NetApp ONTAP or Amazon FSx for OpenZFS
         volumes.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fsx.html#FSx.Client.describe_volumes)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fsx/client.html#describe_volumes)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fsx/client/describe_volumes.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fsx/client/#describe_volumes)
         """
 
     def disassociate_file_system_aliases(
-        self, *, FileSystemId: str, Aliases: List[str], ClientRequestToken: str = None
+        self, **kwargs: Unpack[DisassociateFileSystemAliasesRequestTypeDef]
     ) -> DisassociateFileSystemAliasesResponseTypeDef:
         """
         Use this action to disassociate, or remove, one or more Domain Name Service
         (DNS) aliases from an Amazon FSx for Windows File Server file system.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fsx.html#FSx.Client.disassociate_file_system_aliases)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fsx/client.html#disassociate_file_system_aliases)
-        """
-
-    def generate_presigned_url(
-        self,
-        ClientMethod: str,
-        Params: Dict[str, Any] = None,
-        ExpiresIn: int = 3600,
-        HttpMethod: str = None,
-    ) -> str:
-        """
-        Generate a presigned url given a client, its method, and arguments.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fsx.html#FSx.Client.generate_presigned_url)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fsx/client.html#generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fsx/client/disassociate_file_system_aliases.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fsx/client/#disassociate_file_system_aliases)
         """
 
     def list_tags_for_resource(
-        self, *, ResourceARN: str, MaxResults: int = None, NextToken: str = None
+        self, **kwargs: Unpack[ListTagsForResourceRequestTypeDef]
     ) -> ListTagsForResourceResponseTypeDef:
         """
         Lists tags for Amazon FSx resources.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fsx.html#FSx.Client.list_tags_for_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fsx/client.html#list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fsx/client/list_tags_for_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fsx/client/#list_tags_for_resource)
         """
 
     def release_file_system_nfs_v3_locks(
-        self, *, FileSystemId: str, ClientRequestToken: str = None
+        self, **kwargs: Unpack[ReleaseFileSystemNfsV3LocksRequestTypeDef]
     ) -> ReleaseFileSystemNfsV3LocksResponseTypeDef:
         """
         Releases the file system lock from an Amazon FSx for OpenZFS file system.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fsx.html#FSx.Client.release_file_system_nfs_v3_locks)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fsx/client.html#release_file_system_nfs_v3_locks)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fsx/client/release_file_system_nfs_v3_locks.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fsx/client/#release_file_system_nfs_v3_locks)
         """
 
     def restore_volume_from_snapshot(
-        self,
-        *,
-        VolumeId: str,
-        SnapshotId: str,
-        ClientRequestToken: str = None,
-        Options: List[RestoreOpenZFSVolumeOptionType] = None
+        self, **kwargs: Unpack[RestoreVolumeFromSnapshotRequestTypeDef]
     ) -> RestoreVolumeFromSnapshotResponseTypeDef:
         """
         Returns an Amazon FSx for OpenZFS volume to the state saved by the specified
         snapshot.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fsx.html#FSx.Client.restore_volume_from_snapshot)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fsx/client.html#restore_volume_from_snapshot)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fsx/client/restore_volume_from_snapshot.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fsx/client/#restore_volume_from_snapshot)
         """
 
     def start_misconfigured_state_recovery(
-        self, *, FileSystemId: str, ClientRequestToken: str = None
+        self, **kwargs: Unpack[StartMisconfiguredStateRecoveryRequestTypeDef]
     ) -> StartMisconfiguredStateRecoveryResponseTypeDef:
         """
         After performing steps to repair the Active Directory configuration of an FSx
         for Windows File Server file system, use this action to initiate the process of
         Amazon FSx attempting to reconnect to the file system.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fsx.html#FSx.Client.start_misconfigured_state_recovery)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fsx/client.html#start_misconfigured_state_recovery)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fsx/client/start_misconfigured_state_recovery.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fsx/client/#start_misconfigured_state_recovery)
         """
 
-    def tag_resource(self, *, ResourceARN: str, Tags: List["TagTypeDef"]) -> Dict[str, Any]:
+    def tag_resource(self, **kwargs: Unpack[TagResourceRequestTypeDef]) -> Dict[str, Any]:
         """
         Tags an Amazon FSx resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fsx.html#FSx.Client.tag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fsx/client.html#tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fsx/client/tag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fsx/client/#tag_resource)
         """
 
-    def untag_resource(self, *, ResourceARN: str, TagKeys: List[str]) -> Dict[str, Any]:
+    def untag_resource(self, **kwargs: Unpack[UntagResourceRequestTypeDef]) -> Dict[str, Any]:
         """
         This action removes a tag from an Amazon FSx resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fsx.html#FSx.Client.untag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fsx/client.html#untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fsx/client/untag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fsx/client/#untag_resource)
         """
 
     def update_data_repository_association(
-        self,
-        *,
-        AssociationId: str,
-        ClientRequestToken: str = None,
-        ImportedFileChunkSize: int = None,
-        S3: "S3DataRepositoryConfigurationTypeDef" = None
+        self, **kwargs: Unpack[UpdateDataRepositoryAssociationRequestTypeDef]
     ) -> UpdateDataRepositoryAssociationResponseTypeDef:
         """
         Updates the configuration of an existing data repository association on an
         Amazon FSx for Lustre file system.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fsx.html#FSx.Client.update_data_repository_association)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fsx/client.html#update_data_repository_association)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fsx/client/update_data_repository_association.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fsx/client/#update_data_repository_association)
         """
 
     def update_file_cache(
-        self,
-        *,
-        FileCacheId: str,
-        ClientRequestToken: str = None,
-        LustreConfiguration: "UpdateFileCacheLustreConfigurationTypeDef" = None
+        self, **kwargs: Unpack[UpdateFileCacheRequestTypeDef]
     ) -> UpdateFileCacheResponseTypeDef:
         """
         Updates the configuration of an existing Amazon File Cache resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fsx.html#FSx.Client.update_file_cache)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fsx/client.html#update_file_cache)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fsx/client/update_file_cache.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fsx/client/#update_file_cache)
         """
 
     def update_file_system(
-        self,
-        *,
-        FileSystemId: str,
-        ClientRequestToken: str = None,
-        StorageCapacity: int = None,
-        WindowsConfiguration: "UpdateFileSystemWindowsConfigurationTypeDef" = None,
-        LustreConfiguration: "UpdateFileSystemLustreConfigurationTypeDef" = None,
-        OntapConfiguration: "UpdateFileSystemOntapConfigurationTypeDef" = None,
-        OpenZFSConfiguration: "UpdateFileSystemOpenZFSConfigurationTypeDef" = None,
-        StorageType: StorageTypeType = None
+        self, **kwargs: Unpack[UpdateFileSystemRequestTypeDef]
     ) -> UpdateFileSystemResponseTypeDef:
         """
         Use this operation to update the configuration of an existing Amazon FSx file
         system.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fsx.html#FSx.Client.update_file_system)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fsx/client.html#update_file_system)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fsx/client/update_file_system.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fsx/client/#update_file_system)
         """
 
     def update_shared_vpc_configuration(
-        self,
-        *,
-        EnableFsxRouteTableUpdatesFromParticipantAccounts: str = None,
-        ClientRequestToken: str = None
+        self, **kwargs: Unpack[UpdateSharedVpcConfigurationRequestTypeDef]
     ) -> UpdateSharedVpcConfigurationResponseTypeDef:
         """
         Configures whether participant accounts in your organization can create Amazon
         FSx for NetApp ONTAP Multi-AZ file systems in subnets that are shared by a
         virtual private cloud (VPC) owner.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fsx.html#FSx.Client.update_shared_vpc_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fsx/client.html#update_shared_vpc_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fsx/client/update_shared_vpc_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fsx/client/#update_shared_vpc_configuration)
         """
 
     def update_snapshot(
-        self, *, Name: str, SnapshotId: str, ClientRequestToken: str = None
+        self, **kwargs: Unpack[UpdateSnapshotRequestTypeDef]
     ) -> UpdateSnapshotResponseTypeDef:
         """
         Updates the name of an Amazon FSx for OpenZFS snapshot.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fsx.html#FSx.Client.update_snapshot)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fsx/client.html#update_snapshot)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fsx/client/update_snapshot.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fsx/client/#update_snapshot)
         """
 
     def update_storage_virtual_machine(
-        self,
-        *,
-        StorageVirtualMachineId: str,
-        ActiveDirectoryConfiguration: "UpdateSvmActiveDirectoryConfigurationTypeDef" = None,
-        ClientRequestToken: str = None,
-        SvmAdminPassword: str = None
+        self, **kwargs: Unpack[UpdateStorageVirtualMachineRequestTypeDef]
     ) -> UpdateStorageVirtualMachineResponseTypeDef:
         """
         Updates an FSx for ONTAP storage virtual machine (SVM).
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fsx.html#FSx.Client.update_storage_virtual_machine)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fsx/client.html#update_storage_virtual_machine)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fsx/client/update_storage_virtual_machine.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fsx/client/#update_storage_virtual_machine)
         """
 
     def update_volume(
-        self,
-        *,
-        VolumeId: str,
-        ClientRequestToken: str = None,
-        OntapConfiguration: "UpdateOntapVolumeConfigurationTypeDef" = None,
-        Name: str = None,
-        OpenZFSConfiguration: "UpdateOpenZFSVolumeConfigurationTypeDef" = None
+        self, **kwargs: Unpack[UpdateVolumeRequestTypeDef]
     ) -> UpdateVolumeResponseTypeDef:
         """
         Updates the configuration of an Amazon FSx for NetApp ONTAP or Amazon FSx for
         OpenZFS volume.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fsx.html#FSx.Client.update_volume)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fsx/client.html#update_volume)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fsx/client/update_volume.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fsx/client/#update_volume)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["describe_backups"]
     ) -> DescribeBackupsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fsx.html#FSx.Paginator.DescribeBackups)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fsx/paginators.html#describebackupspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fsx/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fsx/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["describe_file_systems"]
     ) -> DescribeFileSystemsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fsx.html#FSx.Paginator.DescribeFileSystems)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fsx/paginators.html#describefilesystemspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fsx/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fsx/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["describe_storage_virtual_machines"]
     ) -> DescribeStorageVirtualMachinesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fsx.html#FSx.Paginator.DescribeStorageVirtualMachines)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fsx/paginators.html#describestoragevirtualmachinespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fsx/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fsx/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["describe_volumes"]
     ) -> DescribeVolumesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fsx.html#FSx.Paginator.DescribeVolumes)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fsx/paginators.html#describevolumespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fsx/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fsx/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["list_tags_for_resource"]
     ) -> ListTagsForResourcePaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/fsx.html#FSx.Paginator.ListTagsForResource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_fsx/paginators.html#listtagsforresourcepaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fsx/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_fsx/client/#get_paginator)
         """

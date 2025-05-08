@@ -1,78 +1,114 @@
 """
-Type annotations for connectcases service client.
+Type annotations for connectcases service Client.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connectcases/client.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connectcases/client/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
-    from mypy_boto3_connectcases import ConnectCasesClient
+    from boto3.session import Session
+    from mypy_boto3_connectcases.client import ConnectCasesClient
 
-    client: ConnectCasesClient = boto3.client("connectcases")
+    session = Session()
+    client: ConnectCasesClient = session.client("connectcases")
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from typing import Any, Dict, List, Type, overload
+from typing import Any, overload
 
 from botocore.client import BaseClient, ClientMeta
+from botocore.errorfactory import BaseClientExceptions
+from botocore.exceptions import ClientError as BotocoreClientError
 
-from .literals import FieldTypeType, RelatedItemTypeType, TemplateStatusType
-from .paginator import SearchCasesPaginator, SearchRelatedItemsPaginator
+from .paginator import ListCaseRulesPaginator, SearchCasesPaginator, SearchRelatedItemsPaginator
 from .type_defs import (
+    BatchGetCaseRuleRequestTypeDef,
+    BatchGetCaseRuleResponseTypeDef,
+    BatchGetFieldRequestTypeDef,
     BatchGetFieldResponseTypeDef,
+    BatchPutFieldOptionsRequestTypeDef,
     BatchPutFieldOptionsResponseTypeDef,
-    CaseFilterTypeDef,
+    CreateCaseRequestTypeDef,
     CreateCaseResponseTypeDef,
+    CreateCaseRuleRequestTypeDef,
+    CreateCaseRuleResponseTypeDef,
+    CreateDomainRequestTypeDef,
     CreateDomainResponseTypeDef,
+    CreateFieldRequestTypeDef,
     CreateFieldResponseTypeDef,
+    CreateLayoutRequestTypeDef,
     CreateLayoutResponseTypeDef,
+    CreateRelatedItemRequestTypeDef,
     CreateRelatedItemResponseTypeDef,
+    CreateTemplateRequestTypeDef,
     CreateTemplateResponseTypeDef,
-    EventBridgeConfigurationTypeDef,
-    FieldIdentifierTypeDef,
-    FieldOptionTypeDef,
-    FieldValueTypeDef,
+    DeleteCaseRuleRequestTypeDef,
+    DeleteDomainRequestTypeDef,
+    DeleteFieldRequestTypeDef,
+    DeleteLayoutRequestTypeDef,
+    DeleteTemplateRequestTypeDef,
+    EmptyResponseMetadataTypeDef,
+    GetCaseAuditEventsRequestTypeDef,
     GetCaseAuditEventsResponseTypeDef,
+    GetCaseEventConfigurationRequestTypeDef,
     GetCaseEventConfigurationResponseTypeDef,
+    GetCaseRequestTypeDef,
     GetCaseResponseTypeDef,
+    GetDomainRequestTypeDef,
     GetDomainResponseTypeDef,
+    GetLayoutRequestTypeDef,
     GetLayoutResponseTypeDef,
+    GetTemplateRequestTypeDef,
     GetTemplateResponseTypeDef,
-    LayoutConfigurationTypeDef,
-    LayoutContentTypeDef,
+    ListCaseRulesRequestTypeDef,
+    ListCaseRulesResponseTypeDef,
+    ListCasesForContactRequestTypeDef,
     ListCasesForContactResponseTypeDef,
+    ListDomainsRequestTypeDef,
     ListDomainsResponseTypeDef,
+    ListFieldOptionsRequestTypeDef,
     ListFieldOptionsResponseTypeDef,
+    ListFieldsRequestTypeDef,
     ListFieldsResponseTypeDef,
+    ListLayoutsRequestTypeDef,
     ListLayoutsResponseTypeDef,
+    ListTagsForResourceRequestTypeDef,
     ListTagsForResourceResponseTypeDef,
+    ListTemplatesRequestTypeDef,
     ListTemplatesResponseTypeDef,
-    RelatedItemInputContentTypeDef,
-    RelatedItemTypeFilterTypeDef,
-    RequiredFieldTypeDef,
+    PutCaseEventConfigurationRequestTypeDef,
+    SearchCasesRequestTypeDef,
     SearchCasesResponseTypeDef,
+    SearchRelatedItemsRequestTypeDef,
     SearchRelatedItemsResponseTypeDef,
-    SortTypeDef,
-    UserUnionTypeDef,
+    TagResourceRequestTypeDef,
+    UntagResourceRequestTypeDef,
+    UpdateCaseRequestTypeDef,
+    UpdateCaseRuleRequestTypeDef,
+    UpdateFieldRequestTypeDef,
+    UpdateLayoutRequestTypeDef,
+    UpdateTemplateRequestTypeDef,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import type as Type
+    from collections.abc import Mapping
 else:
-    from typing_extensions import Literal
+    from typing import Dict, Mapping, Type
+if sys.version_info >= (3, 12):
+    from typing import Literal, Unpack
+else:
+    from typing_extensions import Literal, Unpack
 
 __all__ = ("ConnectCasesClient",)
 
-class BotocoreClientError(BaseException):
-    MSG_TEMPLATE: str
-
-    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
-        self.response: Dict[str, Any]
-        self.operation_name: str
-
-class Exceptions:
+class Exceptions(BaseClientExceptions):
     AccessDeniedException: Type[BotocoreClientError]
     ClientError: Type[BotocoreClientError]
     ConflictException: Type[BotocoreClientError]
@@ -84,8 +120,8 @@ class Exceptions:
 
 class ConnectCasesClient(BaseClient):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connectcases.html#ConnectCases.Client)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connectcases/client.html)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connectcases.html#ConnectCases.Client)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connectcases/client/)
     """
 
     meta: ClientMeta
@@ -94,438 +130,427 @@ class ConnectCasesClient(BaseClient):
     def exceptions(self) -> Exceptions:
         """
         ConnectCasesClient exceptions.
-        """
 
-    def batch_get_field(
-        self, *, domainId: str, fields: List["FieldIdentifierTypeDef"]
-    ) -> BatchGetFieldResponseTypeDef:
-        """
-        Returns the description for the list of fields in the request parameters.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connectcases.html#ConnectCases.Client.batch_get_field)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connectcases/client.html#batch_get_field)
-        """
-
-    def batch_put_field_options(
-        self, *, domainId: str, fieldId: str, options: List["FieldOptionTypeDef"]
-    ) -> BatchPutFieldOptionsResponseTypeDef:
-        """
-        Creates and updates a set of field options for a single select field in a Cases
-        domain.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connectcases.html#ConnectCases.Client.batch_put_field_options)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connectcases/client.html#batch_put_field_options)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connectcases.html#ConnectCases.Client)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connectcases/client/#exceptions)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        Check if an operation can be paginated.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connectcases.html#ConnectCases.Client.can_paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connectcases/client.html#can_paginate)
-        """
-
-    def close(self) -> None:
-        """
-        Closes underlying endpoint connections.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connectcases.html#ConnectCases.Client.close)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connectcases/client.html#close)
-        """
-
-    def create_case(
-        self,
-        *,
-        domainId: str,
-        fields: List["FieldValueTypeDef"],
-        templateId: str,
-        clientToken: str = None,
-        performedBy: "UserUnionTypeDef" = None
-    ) -> CreateCaseResponseTypeDef:
-        """
-        .
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connectcases.html#ConnectCases.Client.create_case)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connectcases/client.html#create_case)
-        """
-
-    def create_domain(self, *, name: str) -> CreateDomainResponseTypeDef:
-        """
-        Creates a domain, which is a container for all case data, such as cases, fields,
-        templates and layouts.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connectcases.html#ConnectCases.Client.create_domain)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connectcases/client.html#create_domain)
-        """
-
-    def create_field(
-        self, *, domainId: str, name: str, type: FieldTypeType, description: str = None
-    ) -> CreateFieldResponseTypeDef:
-        """
-        Creates a field in the Cases domain.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connectcases.html#ConnectCases.Client.create_field)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connectcases/client.html#create_field)
-        """
-
-    def create_layout(
-        self, *, content: "LayoutContentTypeDef", domainId: str, name: str
-    ) -> CreateLayoutResponseTypeDef:
-        """
-        Creates a layout in the Cases domain.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connectcases.html#ConnectCases.Client.create_layout)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connectcases/client.html#create_layout)
-        """
-
-    def create_related_item(
-        self,
-        *,
-        caseId: str,
-        content: "RelatedItemInputContentTypeDef",
-        domainId: str,
-        type: RelatedItemTypeType,
-        performedBy: "UserUnionTypeDef" = None
-    ) -> CreateRelatedItemResponseTypeDef:
-        """
-        Creates a related item (comments, tasks, and contacts) and associates it with a
-        case.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connectcases.html#ConnectCases.Client.create_related_item)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connectcases/client.html#create_related_item)
-        """
-
-    def create_template(
-        self,
-        *,
-        domainId: str,
-        name: str,
-        description: str = None,
-        layoutConfiguration: "LayoutConfigurationTypeDef" = None,
-        requiredFields: List["RequiredFieldTypeDef"] = None,
-        status: TemplateStatusType = None
-    ) -> CreateTemplateResponseTypeDef:
-        """
-        Creates a template in the Cases domain.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connectcases.html#ConnectCases.Client.create_template)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connectcases/client.html#create_template)
-        """
-
-    def delete_domain(self, *, domainId: str) -> Dict[str, Any]:
-        """
-        Deletes a Cases domain.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connectcases.html#ConnectCases.Client.delete_domain)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connectcases/client.html#delete_domain)
-        """
-
-    def delete_field(self, *, domainId: str, fieldId: str) -> Dict[str, Any]:
-        """
-        Deletes a field from a cases template.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connectcases.html#ConnectCases.Client.delete_field)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connectcases/client.html#delete_field)
-        """
-
-    def delete_layout(self, *, domainId: str, layoutId: str) -> Dict[str, Any]:
-        """
-        Deletes a layout from a cases template.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connectcases.html#ConnectCases.Client.delete_layout)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connectcases/client.html#delete_layout)
-        """
-
-    def delete_template(self, *, domainId: str, templateId: str) -> Dict[str, Any]:
-        """
-        Deletes a cases template.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connectcases.html#ConnectCases.Client.delete_template)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connectcases/client.html#delete_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connectcases/client/can_paginate.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connectcases/client/#can_paginate)
         """
 
     def generate_presigned_url(
         self,
         ClientMethod: str,
-        Params: Dict[str, Any] = None,
+        Params: Mapping[str, Any] = ...,
         ExpiresIn: int = 3600,
-        HttpMethod: str = None,
+        HttpMethod: str = ...,
     ) -> str:
         """
-        Generate a presigned url given a client, its method, and arguments.
-
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connectcases.html#ConnectCases.Client.generate_presigned_url)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connectcases/client.html#generate_presigned_url)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connectcases/client/generate_presigned_url.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connectcases/client/#generate_presigned_url)
         """
 
-    def get_case(
-        self,
-        *,
-        caseId: str,
-        domainId: str,
-        fields: List["FieldIdentifierTypeDef"],
-        nextToken: str = None
-    ) -> GetCaseResponseTypeDef:
+    def batch_get_case_rule(
+        self, **kwargs: Unpack[BatchGetCaseRuleRequestTypeDef]
+    ) -> BatchGetCaseRuleResponseTypeDef:
+        """
+        Gets a batch of case rules.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connectcases/client/batch_get_case_rule.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connectcases/client/#batch_get_case_rule)
+        """
+
+    def batch_get_field(
+        self, **kwargs: Unpack[BatchGetFieldRequestTypeDef]
+    ) -> BatchGetFieldResponseTypeDef:
+        """
+        Returns the description for the list of fields in the request parameters.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connectcases/client/batch_get_field.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connectcases/client/#batch_get_field)
+        """
+
+    def batch_put_field_options(
+        self, **kwargs: Unpack[BatchPutFieldOptionsRequestTypeDef]
+    ) -> BatchPutFieldOptionsResponseTypeDef:
+        """
+        Creates and updates a set of field options for a single select field in a Cases
+        domain.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connectcases/client/batch_put_field_options.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connectcases/client/#batch_put_field_options)
+        """
+
+    def create_case(self, **kwargs: Unpack[CreateCaseRequestTypeDef]) -> CreateCaseResponseTypeDef:
+        """
+        If you provide a value for <code>PerformedBy.UserArn</code> you must also have
+        <a
+        href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeUser.html">connect:DescribeUser</a>
+        permission on the User ARN resource that you provide.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connectcases/client/create_case.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connectcases/client/#create_case)
+        """
+
+    def create_case_rule(
+        self, **kwargs: Unpack[CreateCaseRuleRequestTypeDef]
+    ) -> CreateCaseRuleResponseTypeDef:
+        """
+        Creates a new case rule.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connectcases/client/create_case_rule.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connectcases/client/#create_case_rule)
+        """
+
+    def create_domain(
+        self, **kwargs: Unpack[CreateDomainRequestTypeDef]
+    ) -> CreateDomainResponseTypeDef:
+        """
+        Creates a domain, which is a container for all case data, such as cases,
+        fields, templates and layouts.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connectcases/client/create_domain.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connectcases/client/#create_domain)
+        """
+
+    def create_field(
+        self, **kwargs: Unpack[CreateFieldRequestTypeDef]
+    ) -> CreateFieldResponseTypeDef:
+        """
+        Creates a field in the Cases domain.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connectcases/client/create_field.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connectcases/client/#create_field)
+        """
+
+    def create_layout(
+        self, **kwargs: Unpack[CreateLayoutRequestTypeDef]
+    ) -> CreateLayoutResponseTypeDef:
+        """
+        Creates a layout in the Cases domain.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connectcases/client/create_layout.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connectcases/client/#create_layout)
+        """
+
+    def create_related_item(
+        self, **kwargs: Unpack[CreateRelatedItemRequestTypeDef]
+    ) -> CreateRelatedItemResponseTypeDef:
+        """
+        Creates a related item (comments, tasks, and contacts) and associates it with a
+        case.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connectcases/client/create_related_item.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connectcases/client/#create_related_item)
+        """
+
+    def create_template(
+        self, **kwargs: Unpack[CreateTemplateRequestTypeDef]
+    ) -> CreateTemplateResponseTypeDef:
+        """
+        Creates a template in the Cases domain.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connectcases/client/create_template.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connectcases/client/#create_template)
+        """
+
+    def delete_case_rule(self, **kwargs: Unpack[DeleteCaseRuleRequestTypeDef]) -> Dict[str, Any]:
+        """
+        Deletes a case rule.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connectcases/client/delete_case_rule.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connectcases/client/#delete_case_rule)
+        """
+
+    def delete_domain(self, **kwargs: Unpack[DeleteDomainRequestTypeDef]) -> Dict[str, Any]:
+        """
+        Deletes a Cases domain.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connectcases/client/delete_domain.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connectcases/client/#delete_domain)
+        """
+
+    def delete_field(self, **kwargs: Unpack[DeleteFieldRequestTypeDef]) -> Dict[str, Any]:
+        """
+        Deletes a field from a cases template.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connectcases/client/delete_field.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connectcases/client/#delete_field)
+        """
+
+    def delete_layout(self, **kwargs: Unpack[DeleteLayoutRequestTypeDef]) -> Dict[str, Any]:
+        """
+        Deletes a layout from a cases template.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connectcases/client/delete_layout.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connectcases/client/#delete_layout)
+        """
+
+    def delete_template(self, **kwargs: Unpack[DeleteTemplateRequestTypeDef]) -> Dict[str, Any]:
+        """
+        Deletes a cases template.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connectcases/client/delete_template.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connectcases/client/#delete_template)
+        """
+
+    def get_case(self, **kwargs: Unpack[GetCaseRequestTypeDef]) -> GetCaseResponseTypeDef:
         """
         Returns information about a specific case if it exists.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connectcases.html#ConnectCases.Client.get_case)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connectcases/client.html#get_case)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connectcases/client/get_case.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connectcases/client/#get_case)
         """
 
     def get_case_audit_events(
-        self, *, caseId: str, domainId: str, maxResults: int = None, nextToken: str = None
+        self, **kwargs: Unpack[GetCaseAuditEventsRequestTypeDef]
     ) -> GetCaseAuditEventsResponseTypeDef:
         """
         Returns the audit history about a specific case if it exists.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connectcases.html#ConnectCases.Client.get_case_audit_events)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connectcases/client.html#get_case_audit_events)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connectcases/client/get_case_audit_events.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connectcases/client/#get_case_audit_events)
         """
 
     def get_case_event_configuration(
-        self, *, domainId: str
+        self, **kwargs: Unpack[GetCaseEventConfigurationRequestTypeDef]
     ) -> GetCaseEventConfigurationResponseTypeDef:
         """
         Returns the case event publishing configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connectcases.html#ConnectCases.Client.get_case_event_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connectcases/client.html#get_case_event_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connectcases/client/get_case_event_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connectcases/client/#get_case_event_configuration)
         """
 
-    def get_domain(self, *, domainId: str) -> GetDomainResponseTypeDef:
+    def get_domain(self, **kwargs: Unpack[GetDomainRequestTypeDef]) -> GetDomainResponseTypeDef:
         """
         Returns information about a specific domain if it exists.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connectcases.html#ConnectCases.Client.get_domain)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connectcases/client.html#get_domain)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connectcases/client/get_domain.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connectcases/client/#get_domain)
         """
 
-    def get_layout(self, *, domainId: str, layoutId: str) -> GetLayoutResponseTypeDef:
+    def get_layout(self, **kwargs: Unpack[GetLayoutRequestTypeDef]) -> GetLayoutResponseTypeDef:
         """
         Returns the details for the requested layout.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connectcases.html#ConnectCases.Client.get_layout)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connectcases/client.html#get_layout)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connectcases/client/get_layout.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connectcases/client/#get_layout)
         """
 
-    def get_template(self, *, domainId: str, templateId: str) -> GetTemplateResponseTypeDef:
+    def get_template(
+        self, **kwargs: Unpack[GetTemplateRequestTypeDef]
+    ) -> GetTemplateResponseTypeDef:
         """
         Returns the details for the requested template.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connectcases.html#ConnectCases.Client.get_template)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connectcases/client.html#get_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connectcases/client/get_template.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connectcases/client/#get_template)
+        """
+
+    def list_case_rules(
+        self, **kwargs: Unpack[ListCaseRulesRequestTypeDef]
+    ) -> ListCaseRulesResponseTypeDef:
+        """
+        Lists all case rules in a Cases domain.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connectcases/client/list_case_rules.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connectcases/client/#list_case_rules)
         """
 
     def list_cases_for_contact(
-        self, *, contactArn: str, domainId: str, maxResults: int = None, nextToken: str = None
+        self, **kwargs: Unpack[ListCasesForContactRequestTypeDef]
     ) -> ListCasesForContactResponseTypeDef:
         """
         Lists cases for a given contact.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connectcases.html#ConnectCases.Client.list_cases_for_contact)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connectcases/client.html#list_cases_for_contact)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connectcases/client/list_cases_for_contact.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connectcases/client/#list_cases_for_contact)
         """
 
     def list_domains(
-        self, *, maxResults: int = None, nextToken: str = None
+        self, **kwargs: Unpack[ListDomainsRequestTypeDef]
     ) -> ListDomainsResponseTypeDef:
         """
         Lists all cases domains in the Amazon Web Services account.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connectcases.html#ConnectCases.Client.list_domains)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connectcases/client.html#list_domains)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connectcases/client/list_domains.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connectcases/client/#list_domains)
         """
 
     def list_field_options(
-        self,
-        *,
-        domainId: str,
-        fieldId: str,
-        maxResults: int = None,
-        nextToken: str = None,
-        values: List[str] = None
+        self, **kwargs: Unpack[ListFieldOptionsRequestTypeDef]
     ) -> ListFieldOptionsResponseTypeDef:
         """
         Lists all of the field options for a field identifier in the domain.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connectcases.html#ConnectCases.Client.list_field_options)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connectcases/client.html#list_field_options)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connectcases/client/list_field_options.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connectcases/client/#list_field_options)
         """
 
-    def list_fields(
-        self, *, domainId: str, maxResults: int = None, nextToken: str = None
-    ) -> ListFieldsResponseTypeDef:
+    def list_fields(self, **kwargs: Unpack[ListFieldsRequestTypeDef]) -> ListFieldsResponseTypeDef:
         """
         Lists all fields in a Cases domain.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connectcases.html#ConnectCases.Client.list_fields)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connectcases/client.html#list_fields)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connectcases/client/list_fields.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connectcases/client/#list_fields)
         """
 
     def list_layouts(
-        self, *, domainId: str, maxResults: int = None, nextToken: str = None
+        self, **kwargs: Unpack[ListLayoutsRequestTypeDef]
     ) -> ListLayoutsResponseTypeDef:
         """
         Lists all layouts in the given cases domain.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connectcases.html#ConnectCases.Client.list_layouts)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connectcases/client.html#list_layouts)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connectcases/client/list_layouts.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connectcases/client/#list_layouts)
         """
 
-    def list_tags_for_resource(self, *, arn: str) -> ListTagsForResourceResponseTypeDef:
+    def list_tags_for_resource(
+        self, **kwargs: Unpack[ListTagsForResourceRequestTypeDef]
+    ) -> ListTagsForResourceResponseTypeDef:
         """
         Lists tags for a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connectcases.html#ConnectCases.Client.list_tags_for_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connectcases/client.html#list_tags_for_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connectcases/client/list_tags_for_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connectcases/client/#list_tags_for_resource)
         """
 
     def list_templates(
-        self,
-        *,
-        domainId: str,
-        maxResults: int = None,
-        nextToken: str = None,
-        status: List[TemplateStatusType] = None
+        self, **kwargs: Unpack[ListTemplatesRequestTypeDef]
     ) -> ListTemplatesResponseTypeDef:
         """
         Lists all of the templates in a Cases domain.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connectcases.html#ConnectCases.Client.list_templates)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connectcases/client.html#list_templates)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connectcases/client/list_templates.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connectcases/client/#list_templates)
         """
 
     def put_case_event_configuration(
-        self, *, domainId: str, eventBridge: "EventBridgeConfigurationTypeDef"
+        self, **kwargs: Unpack[PutCaseEventConfigurationRequestTypeDef]
     ) -> Dict[str, Any]:
         """
         Adds case event publishing configuration.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connectcases.html#ConnectCases.Client.put_case_event_configuration)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connectcases/client.html#put_case_event_configuration)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connectcases/client/put_case_event_configuration.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connectcases/client/#put_case_event_configuration)
         """
 
     def search_cases(
-        self,
-        *,
-        domainId: str,
-        fields: List["FieldIdentifierTypeDef"] = None,
-        filter: "CaseFilterTypeDef" = None,
-        maxResults: int = None,
-        nextToken: str = None,
-        searchTerm: str = None,
-        sorts: List["SortTypeDef"] = None
+        self, **kwargs: Unpack[SearchCasesRequestTypeDef]
     ) -> SearchCasesResponseTypeDef:
         """
         Searches for cases within their associated Cases domain.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connectcases.html#ConnectCases.Client.search_cases)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connectcases/client.html#search_cases)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connectcases/client/search_cases.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connectcases/client/#search_cases)
         """
 
     def search_related_items(
-        self,
-        *,
-        caseId: str,
-        domainId: str,
-        filters: List["RelatedItemTypeFilterTypeDef"] = None,
-        maxResults: int = None,
-        nextToken: str = None
+        self, **kwargs: Unpack[SearchRelatedItemsRequestTypeDef]
     ) -> SearchRelatedItemsResponseTypeDef:
         """
         Searches for related items that are associated with a case.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connectcases.html#ConnectCases.Client.search_related_items)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connectcases/client.html#search_related_items)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connectcases/client/search_related_items.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connectcases/client/#search_related_items)
         """
 
-    def tag_resource(self, *, arn: str, tags: Dict[str, str]) -> None:
+    def tag_resource(
+        self, **kwargs: Unpack[TagResourceRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Adds tags to a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connectcases.html#ConnectCases.Client.tag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connectcases/client.html#tag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connectcases/client/tag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connectcases/client/#tag_resource)
         """
 
-    def untag_resource(self, *, arn: str, tagKeys: List[str]) -> None:
+    def untag_resource(
+        self, **kwargs: Unpack[UntagResourceRequestTypeDef]
+    ) -> EmptyResponseMetadataTypeDef:
         """
         Untags a resource.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connectcases.html#ConnectCases.Client.untag_resource)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connectcases/client.html#untag_resource)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connectcases/client/untag_resource.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connectcases/client/#untag_resource)
         """
 
-    def update_case(
-        self,
-        *,
-        caseId: str,
-        domainId: str,
-        fields: List["FieldValueTypeDef"],
-        performedBy: "UserUnionTypeDef" = None
-    ) -> Dict[str, Any]:
+    def update_case(self, **kwargs: Unpack[UpdateCaseRequestTypeDef]) -> Dict[str, Any]:
         """
-        .
+        If you provide a value for <code>PerformedBy.UserArn</code> you must also have
+        <a
+        href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeUser.html">connect:DescribeUser</a>
+        permission on the User ARN resource that you provide.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connectcases.html#ConnectCases.Client.update_case)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connectcases/client.html#update_case)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connectcases/client/update_case.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connectcases/client/#update_case)
         """
 
-    def update_field(
-        self, *, domainId: str, fieldId: str, description: str = None, name: str = None
-    ) -> Dict[str, Any]:
+    def update_case_rule(self, **kwargs: Unpack[UpdateCaseRuleRequestTypeDef]) -> Dict[str, Any]:
+        """
+        Updates a case rule.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connectcases/client/update_case_rule.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connectcases/client/#update_case_rule)
+        """
+
+    def update_field(self, **kwargs: Unpack[UpdateFieldRequestTypeDef]) -> Dict[str, Any]:
         """
         Updates the properties of an existing field.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connectcases.html#ConnectCases.Client.update_field)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connectcases/client.html#update_field)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connectcases/client/update_field.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connectcases/client/#update_field)
         """
 
-    def update_layout(
-        self,
-        *,
-        domainId: str,
-        layoutId: str,
-        content: "LayoutContentTypeDef" = None,
-        name: str = None
-    ) -> Dict[str, Any]:
+    def update_layout(self, **kwargs: Unpack[UpdateLayoutRequestTypeDef]) -> Dict[str, Any]:
         """
         Updates the attributes of an existing layout.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connectcases.html#ConnectCases.Client.update_layout)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connectcases/client.html#update_layout)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connectcases/client/update_layout.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connectcases/client/#update_layout)
         """
 
-    def update_template(
-        self,
-        *,
-        domainId: str,
-        templateId: str,
-        description: str = None,
-        layoutConfiguration: "LayoutConfigurationTypeDef" = None,
-        name: str = None,
-        requiredFields: List["RequiredFieldTypeDef"] = None,
-        status: TemplateStatusType = None
-    ) -> Dict[str, Any]:
+    def update_template(self, **kwargs: Unpack[UpdateTemplateRequestTypeDef]) -> Dict[str, Any]:
         """
         Updates the attributes of an existing template.
 
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connectcases.html#ConnectCases.Client.update_template)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connectcases/client.html#update_template)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connectcases/client/update_template.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connectcases/client/#update_template)
         """
 
-    @overload
-    def get_paginator(self, operation_name: Literal["search_cases"]) -> SearchCasesPaginator:
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["list_case_rules"]
+    ) -> ListCaseRulesPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connectcases.html#ConnectCases.Paginator.SearchCases)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connectcases/paginators.html#searchcasespaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connectcases/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connectcases/client/#get_paginator)
         """
 
-    @overload
-    def get_paginator(
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
+        self, operation_name: Literal["search_cases"]
+    ) -> SearchCasesPaginator:
+        """
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connectcases/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connectcases/client/#get_paginator)
+        """
+
+    @overload  # type: ignore[override]
+    def get_paginator(  # type: ignore[override]
         self, operation_name: Literal["search_related_items"]
     ) -> SearchRelatedItemsPaginator:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/connectcases.html#ConnectCases.Paginator.SearchRelatedItems)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_connectcases/paginators.html#searchrelateditemspaginator)
+        Create a paginator for an operation.
+
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connectcases/client/get_paginator.html)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_connectcases/client/#get_paginator)
         """

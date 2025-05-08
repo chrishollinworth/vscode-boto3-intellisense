@@ -1,20 +1,24 @@
 """
 Type annotations for robomaker service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_robomaker/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_robomaker/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_robomaker.type_defs import BatchDeleteWorldsRequestRequestTypeDef
+    from mypy_boto3_robomaker.type_defs import BatchDeleteWorldsRequestTypeDef
 
-    data: BatchDeleteWorldsRequestRequestTypeDef = {...}
+    data: BatchDeleteWorldsRequestTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
+from typing import Union
 
 from .literals import (
     ArchitectureType,
@@ -39,84 +43,92 @@ from .literals import (
     WorldGenerationJobStatusType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
-    "BatchDeleteWorldsRequestRequestTypeDef",
+    "BatchDeleteWorldsRequestTypeDef",
     "BatchDeleteWorldsResponseTypeDef",
-    "BatchDescribeSimulationJobRequestRequestTypeDef",
+    "BatchDescribeSimulationJobRequestTypeDef",
     "BatchDescribeSimulationJobResponseTypeDef",
     "BatchPolicyTypeDef",
-    "CancelDeploymentJobRequestRequestTypeDef",
-    "CancelSimulationJobBatchRequestRequestTypeDef",
-    "CancelSimulationJobRequestRequestTypeDef",
-    "CancelWorldExportJobRequestRequestTypeDef",
-    "CancelWorldGenerationJobRequestRequestTypeDef",
+    "CancelDeploymentJobRequestTypeDef",
+    "CancelSimulationJobBatchRequestTypeDef",
+    "CancelSimulationJobRequestTypeDef",
+    "CancelWorldExportJobRequestTypeDef",
+    "CancelWorldGenerationJobRequestTypeDef",
     "ComputeResponseTypeDef",
     "ComputeTypeDef",
-    "CreateDeploymentJobRequestRequestTypeDef",
+    "CreateDeploymentJobRequestTypeDef",
     "CreateDeploymentJobResponseTypeDef",
-    "CreateFleetRequestRequestTypeDef",
+    "CreateFleetRequestTypeDef",
     "CreateFleetResponseTypeDef",
-    "CreateRobotApplicationRequestRequestTypeDef",
+    "CreateRobotApplicationRequestTypeDef",
     "CreateRobotApplicationResponseTypeDef",
-    "CreateRobotApplicationVersionRequestRequestTypeDef",
+    "CreateRobotApplicationVersionRequestTypeDef",
     "CreateRobotApplicationVersionResponseTypeDef",
-    "CreateRobotRequestRequestTypeDef",
+    "CreateRobotRequestTypeDef",
     "CreateRobotResponseTypeDef",
-    "CreateSimulationApplicationRequestRequestTypeDef",
+    "CreateSimulationApplicationRequestTypeDef",
     "CreateSimulationApplicationResponseTypeDef",
-    "CreateSimulationApplicationVersionRequestRequestTypeDef",
+    "CreateSimulationApplicationVersionRequestTypeDef",
     "CreateSimulationApplicationVersionResponseTypeDef",
-    "CreateSimulationJobRequestRequestTypeDef",
+    "CreateSimulationJobRequestTypeDef",
     "CreateSimulationJobResponseTypeDef",
-    "CreateWorldExportJobRequestRequestTypeDef",
+    "CreateWorldExportJobRequestTypeDef",
     "CreateWorldExportJobResponseTypeDef",
-    "CreateWorldGenerationJobRequestRequestTypeDef",
+    "CreateWorldGenerationJobRequestTypeDef",
     "CreateWorldGenerationJobResponseTypeDef",
-    "CreateWorldTemplateRequestRequestTypeDef",
+    "CreateWorldTemplateRequestTypeDef",
     "CreateWorldTemplateResponseTypeDef",
+    "DataSourceConfigOutputTypeDef",
     "DataSourceConfigTypeDef",
+    "DataSourceConfigUnionTypeDef",
     "DataSourceTypeDef",
-    "DeleteFleetRequestRequestTypeDef",
-    "DeleteRobotApplicationRequestRequestTypeDef",
-    "DeleteRobotRequestRequestTypeDef",
-    "DeleteSimulationApplicationRequestRequestTypeDef",
-    "DeleteWorldTemplateRequestRequestTypeDef",
+    "DeleteFleetRequestTypeDef",
+    "DeleteRobotApplicationRequestTypeDef",
+    "DeleteRobotRequestTypeDef",
+    "DeleteSimulationApplicationRequestTypeDef",
+    "DeleteWorldTemplateRequestTypeDef",
+    "DeploymentApplicationConfigOutputTypeDef",
     "DeploymentApplicationConfigTypeDef",
+    "DeploymentApplicationConfigUnionTypeDef",
     "DeploymentConfigTypeDef",
     "DeploymentJobTypeDef",
+    "DeploymentLaunchConfigOutputTypeDef",
     "DeploymentLaunchConfigTypeDef",
-    "DeregisterRobotRequestRequestTypeDef",
+    "DeploymentLaunchConfigUnionTypeDef",
+    "DeregisterRobotRequestTypeDef",
     "DeregisterRobotResponseTypeDef",
-    "DescribeDeploymentJobRequestRequestTypeDef",
+    "DescribeDeploymentJobRequestTypeDef",
     "DescribeDeploymentJobResponseTypeDef",
-    "DescribeFleetRequestRequestTypeDef",
+    "DescribeFleetRequestTypeDef",
     "DescribeFleetResponseTypeDef",
-    "DescribeRobotApplicationRequestRequestTypeDef",
+    "DescribeRobotApplicationRequestTypeDef",
     "DescribeRobotApplicationResponseTypeDef",
-    "DescribeRobotRequestRequestTypeDef",
+    "DescribeRobotRequestTypeDef",
     "DescribeRobotResponseTypeDef",
-    "DescribeSimulationApplicationRequestRequestTypeDef",
+    "DescribeSimulationApplicationRequestTypeDef",
     "DescribeSimulationApplicationResponseTypeDef",
-    "DescribeSimulationJobBatchRequestRequestTypeDef",
+    "DescribeSimulationJobBatchRequestTypeDef",
     "DescribeSimulationJobBatchResponseTypeDef",
-    "DescribeSimulationJobRequestRequestTypeDef",
+    "DescribeSimulationJobRequestTypeDef",
     "DescribeSimulationJobResponseTypeDef",
-    "DescribeWorldExportJobRequestRequestTypeDef",
+    "DescribeWorldExportJobRequestTypeDef",
     "DescribeWorldExportJobResponseTypeDef",
-    "DescribeWorldGenerationJobRequestRequestTypeDef",
+    "DescribeWorldGenerationJobRequestTypeDef",
     "DescribeWorldGenerationJobResponseTypeDef",
-    "DescribeWorldRequestRequestTypeDef",
+    "DescribeWorldRequestTypeDef",
     "DescribeWorldResponseTypeDef",
-    "DescribeWorldTemplateRequestRequestTypeDef",
+    "DescribeWorldTemplateRequestTypeDef",
     "DescribeWorldTemplateResponseTypeDef",
     "EnvironmentTypeDef",
     "FailedCreateSimulationJobRequestTypeDef",
@@ -124,79 +136,102 @@ __all__ = (
     "FilterTypeDef",
     "FinishedWorldsSummaryTypeDef",
     "FleetTypeDef",
-    "GetWorldTemplateBodyRequestRequestTypeDef",
+    "GetWorldTemplateBodyRequestTypeDef",
     "GetWorldTemplateBodyResponseTypeDef",
+    "LaunchConfigOutputTypeDef",
     "LaunchConfigTypeDef",
-    "ListDeploymentJobsRequestRequestTypeDef",
+    "LaunchConfigUnionTypeDef",
+    "ListDeploymentJobsRequestPaginateTypeDef",
+    "ListDeploymentJobsRequestTypeDef",
     "ListDeploymentJobsResponseTypeDef",
-    "ListFleetsRequestRequestTypeDef",
+    "ListFleetsRequestPaginateTypeDef",
+    "ListFleetsRequestTypeDef",
     "ListFleetsResponseTypeDef",
-    "ListRobotApplicationsRequestRequestTypeDef",
+    "ListRobotApplicationsRequestPaginateTypeDef",
+    "ListRobotApplicationsRequestTypeDef",
     "ListRobotApplicationsResponseTypeDef",
-    "ListRobotsRequestRequestTypeDef",
+    "ListRobotsRequestPaginateTypeDef",
+    "ListRobotsRequestTypeDef",
     "ListRobotsResponseTypeDef",
-    "ListSimulationApplicationsRequestRequestTypeDef",
+    "ListSimulationApplicationsRequestPaginateTypeDef",
+    "ListSimulationApplicationsRequestTypeDef",
     "ListSimulationApplicationsResponseTypeDef",
-    "ListSimulationJobBatchesRequestRequestTypeDef",
+    "ListSimulationJobBatchesRequestPaginateTypeDef",
+    "ListSimulationJobBatchesRequestTypeDef",
     "ListSimulationJobBatchesResponseTypeDef",
-    "ListSimulationJobsRequestRequestTypeDef",
+    "ListSimulationJobsRequestPaginateTypeDef",
+    "ListSimulationJobsRequestTypeDef",
     "ListSimulationJobsResponseTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
-    "ListWorldExportJobsRequestRequestTypeDef",
+    "ListWorldExportJobsRequestPaginateTypeDef",
+    "ListWorldExportJobsRequestTypeDef",
     "ListWorldExportJobsResponseTypeDef",
-    "ListWorldGenerationJobsRequestRequestTypeDef",
+    "ListWorldGenerationJobsRequestPaginateTypeDef",
+    "ListWorldGenerationJobsRequestTypeDef",
     "ListWorldGenerationJobsResponseTypeDef",
-    "ListWorldTemplatesRequestRequestTypeDef",
+    "ListWorldTemplatesRequestPaginateTypeDef",
+    "ListWorldTemplatesRequestTypeDef",
     "ListWorldTemplatesResponseTypeDef",
-    "ListWorldsRequestRequestTypeDef",
+    "ListWorldsRequestPaginateTypeDef",
+    "ListWorldsRequestTypeDef",
     "ListWorldsResponseTypeDef",
     "LoggingConfigTypeDef",
     "NetworkInterfaceTypeDef",
     "OutputLocationTypeDef",
     "PaginatorConfigTypeDef",
+    "PortForwardingConfigOutputTypeDef",
     "PortForwardingConfigTypeDef",
+    "PortForwardingConfigUnionTypeDef",
     "PortMappingTypeDef",
     "ProgressDetailTypeDef",
-    "RegisterRobotRequestRequestTypeDef",
+    "RegisterRobotRequestTypeDef",
     "RegisterRobotResponseTypeDef",
     "RenderingEngineTypeDef",
     "ResponseMetadataTypeDef",
-    "RestartSimulationJobRequestRequestTypeDef",
+    "RestartSimulationJobRequestTypeDef",
+    "RobotApplicationConfigOutputTypeDef",
     "RobotApplicationConfigTypeDef",
+    "RobotApplicationConfigUnionTypeDef",
     "RobotApplicationSummaryTypeDef",
     "RobotDeploymentTypeDef",
     "RobotSoftwareSuiteTypeDef",
     "RobotTypeDef",
     "S3KeyOutputTypeDef",
     "S3ObjectTypeDef",
+    "SimulationApplicationConfigOutputTypeDef",
     "SimulationApplicationConfigTypeDef",
+    "SimulationApplicationConfigUnionTypeDef",
     "SimulationApplicationSummaryTypeDef",
     "SimulationJobBatchSummaryTypeDef",
+    "SimulationJobRequestOutputTypeDef",
     "SimulationJobRequestTypeDef",
+    "SimulationJobRequestUnionTypeDef",
     "SimulationJobSummaryTypeDef",
     "SimulationJobTypeDef",
     "SimulationSoftwareSuiteTypeDef",
     "SourceConfigTypeDef",
     "SourceTypeDef",
-    "StartSimulationJobBatchRequestRequestTypeDef",
+    "StartSimulationJobBatchRequestTypeDef",
     "StartSimulationJobBatchResponseTypeDef",
-    "SyncDeploymentJobRequestRequestTypeDef",
+    "SyncDeploymentJobRequestTypeDef",
     "SyncDeploymentJobResponseTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
     "TemplateLocationTypeDef",
     "TemplateSummaryTypeDef",
     "ToolTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateRobotApplicationRequestRequestTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateRobotApplicationRequestTypeDef",
     "UpdateRobotApplicationResponseTypeDef",
-    "UpdateSimulationApplicationRequestRequestTypeDef",
+    "UpdateSimulationApplicationRequestTypeDef",
     "UpdateSimulationApplicationResponseTypeDef",
-    "UpdateWorldTemplateRequestRequestTypeDef",
+    "UpdateWorldTemplateRequestTypeDef",
     "UpdateWorldTemplateResponseTypeDef",
     "UploadConfigurationTypeDef",
+    "VPCConfigOutputTypeDef",
     "VPCConfigResponseTypeDef",
     "VPCConfigTypeDef",
+    "VPCConfigUnionTypeDef",
     "WorldConfigTypeDef",
     "WorldCountTypeDef",
     "WorldExportJobSummaryTypeDef",
@@ -205,2001 +240,1181 @@ __all__ = (
     "WorldSummaryTypeDef",
 )
 
-BatchDeleteWorldsRequestRequestTypeDef = TypedDict(
-    "BatchDeleteWorldsRequestRequestTypeDef",
-    {
-        "worlds": List[str],
-    },
-)
+class BatchDeleteWorldsRequestTypeDef(TypedDict):
+    worlds: Sequence[str]
 
-BatchDeleteWorldsResponseTypeDef = TypedDict(
-    "BatchDeleteWorldsResponseTypeDef",
-    {
-        "unprocessedWorlds": List[str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-BatchDescribeSimulationJobRequestRequestTypeDef = TypedDict(
-    "BatchDescribeSimulationJobRequestRequestTypeDef",
-    {
-        "jobs": List[str],
-    },
-)
+class BatchDescribeSimulationJobRequestTypeDef(TypedDict):
+    jobs: Sequence[str]
 
-BatchDescribeSimulationJobResponseTypeDef = TypedDict(
-    "BatchDescribeSimulationJobResponseTypeDef",
-    {
-        "jobs": List["SimulationJobTypeDef"],
-        "unprocessedJobs": List[str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class BatchPolicyTypeDef(TypedDict):
+    timeoutInSeconds: NotRequired[int]
+    maxConcurrency: NotRequired[int]
 
-BatchPolicyTypeDef = TypedDict(
-    "BatchPolicyTypeDef",
-    {
-        "timeoutInSeconds": int,
-        "maxConcurrency": int,
-    },
-    total=False,
-)
+class CancelDeploymentJobRequestTypeDef(TypedDict):
+    job: str
 
-CancelDeploymentJobRequestRequestTypeDef = TypedDict(
-    "CancelDeploymentJobRequestRequestTypeDef",
-    {
-        "job": str,
-    },
-)
+class CancelSimulationJobBatchRequestTypeDef(TypedDict):
+    batch: str
 
-CancelSimulationJobBatchRequestRequestTypeDef = TypedDict(
-    "CancelSimulationJobBatchRequestRequestTypeDef",
-    {
-        "batch": str,
-    },
-)
+class CancelSimulationJobRequestTypeDef(TypedDict):
+    job: str
 
-CancelSimulationJobRequestRequestTypeDef = TypedDict(
-    "CancelSimulationJobRequestRequestTypeDef",
-    {
-        "job": str,
-    },
-)
+class CancelWorldExportJobRequestTypeDef(TypedDict):
+    job: str
 
-CancelWorldExportJobRequestRequestTypeDef = TypedDict(
-    "CancelWorldExportJobRequestRequestTypeDef",
-    {
-        "job": str,
-    },
-)
+class CancelWorldGenerationJobRequestTypeDef(TypedDict):
+    job: str
 
-CancelWorldGenerationJobRequestRequestTypeDef = TypedDict(
-    "CancelWorldGenerationJobRequestRequestTypeDef",
-    {
-        "job": str,
-    },
-)
+class ComputeResponseTypeDef(TypedDict):
+    simulationUnitLimit: NotRequired[int]
+    computeType: NotRequired[ComputeTypeType]
+    gpuUnitLimit: NotRequired[int]
 
-ComputeResponseTypeDef = TypedDict(
-    "ComputeResponseTypeDef",
-    {
-        "simulationUnitLimit": int,
-        "computeType": ComputeTypeType,
-        "gpuUnitLimit": int,
-    },
-    total=False,
-)
+class ComputeTypeDef(TypedDict):
+    simulationUnitLimit: NotRequired[int]
+    computeType: NotRequired[ComputeTypeType]
+    gpuUnitLimit: NotRequired[int]
 
-ComputeTypeDef = TypedDict(
-    "ComputeTypeDef",
-    {
-        "simulationUnitLimit": int,
-        "computeType": ComputeTypeType,
-        "gpuUnitLimit": int,
-    },
-    total=False,
-)
+class CreateFleetRequestTypeDef(TypedDict):
+    name: str
+    tags: NotRequired[Mapping[str, str]]
 
-_RequiredCreateDeploymentJobRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateDeploymentJobRequestRequestTypeDef",
-    {
-        "clientRequestToken": str,
-        "fleet": str,
-        "deploymentApplicationConfigs": List["DeploymentApplicationConfigTypeDef"],
-    },
-)
-_OptionalCreateDeploymentJobRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateDeploymentJobRequestRequestTypeDef",
-    {
-        "deploymentConfig": "DeploymentConfigTypeDef",
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
+class EnvironmentTypeDef(TypedDict):
+    uri: NotRequired[str]
 
-class CreateDeploymentJobRequestRequestTypeDef(
-    _RequiredCreateDeploymentJobRequestRequestTypeDef,
-    _OptionalCreateDeploymentJobRequestRequestTypeDef,
-):
-    pass
+class RobotSoftwareSuiteTypeDef(TypedDict):
+    name: NotRequired[RobotSoftwareSuiteTypeType]
+    version: NotRequired[RobotSoftwareSuiteVersionTypeType]
 
-CreateDeploymentJobResponseTypeDef = TypedDict(
-    "CreateDeploymentJobResponseTypeDef",
-    {
-        "arn": str,
-        "fleet": str,
-        "status": DeploymentStatusType,
-        "deploymentApplicationConfigs": List["DeploymentApplicationConfigTypeDef"],
-        "failureReason": str,
-        "failureCode": DeploymentJobErrorCodeType,
-        "createdAt": datetime,
-        "deploymentConfig": "DeploymentConfigTypeDef",
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class SourceConfigTypeDef(TypedDict):
+    s3Bucket: NotRequired[str]
+    s3Key: NotRequired[str]
+    architecture: NotRequired[ArchitectureType]
 
-_RequiredCreateFleetRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateFleetRequestRequestTypeDef",
-    {
-        "name": str,
-    },
-)
-_OptionalCreateFleetRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateFleetRequestRequestTypeDef",
-    {
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
+class SourceTypeDef(TypedDict):
+    s3Bucket: NotRequired[str]
+    s3Key: NotRequired[str]
+    etag: NotRequired[str]
+    architecture: NotRequired[ArchitectureType]
 
-class CreateFleetRequestRequestTypeDef(
-    _RequiredCreateFleetRequestRequestTypeDef, _OptionalCreateFleetRequestRequestTypeDef
-):
-    pass
+class CreateRobotApplicationVersionRequestTypeDef(TypedDict):
+    application: str
+    currentRevisionId: NotRequired[str]
+    s3Etags: NotRequired[Sequence[str]]
+    imageDigest: NotRequired[str]
 
-CreateFleetResponseTypeDef = TypedDict(
-    "CreateFleetResponseTypeDef",
-    {
-        "arn": str,
-        "name": str,
-        "createdAt": datetime,
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CreateRobotRequestTypeDef(TypedDict):
+    name: str
+    architecture: ArchitectureType
+    greengrassGroupId: str
+    tags: NotRequired[Mapping[str, str]]
 
-_RequiredCreateRobotApplicationRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateRobotApplicationRequestRequestTypeDef",
-    {
-        "name": str,
-        "robotSoftwareSuite": "RobotSoftwareSuiteTypeDef",
-    },
-)
-_OptionalCreateRobotApplicationRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateRobotApplicationRequestRequestTypeDef",
-    {
-        "sources": List["SourceConfigTypeDef"],
-        "tags": Dict[str, str],
-        "environment": "EnvironmentTypeDef",
-    },
-    total=False,
-)
+class RenderingEngineTypeDef(TypedDict):
+    name: NotRequired[Literal["OGRE"]]
+    version: NotRequired[str]
 
-class CreateRobotApplicationRequestRequestTypeDef(
-    _RequiredCreateRobotApplicationRequestRequestTypeDef,
-    _OptionalCreateRobotApplicationRequestRequestTypeDef,
-):
-    pass
+class SimulationSoftwareSuiteTypeDef(TypedDict):
+    name: NotRequired[SimulationSoftwareSuiteTypeType]
+    version: NotRequired[str]
 
-CreateRobotApplicationResponseTypeDef = TypedDict(
-    "CreateRobotApplicationResponseTypeDef",
-    {
-        "arn": str,
-        "name": str,
-        "version": str,
-        "sources": List["SourceTypeDef"],
-        "robotSoftwareSuite": "RobotSoftwareSuiteTypeDef",
-        "lastUpdatedAt": datetime,
-        "revisionId": str,
-        "tags": Dict[str, str],
-        "environment": "EnvironmentTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CreateSimulationApplicationVersionRequestTypeDef(TypedDict):
+    application: str
+    currentRevisionId: NotRequired[str]
+    s3Etags: NotRequired[Sequence[str]]
+    imageDigest: NotRequired[str]
 
-_RequiredCreateRobotApplicationVersionRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateRobotApplicationVersionRequestRequestTypeDef",
-    {
-        "application": str,
-    },
-)
-_OptionalCreateRobotApplicationVersionRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateRobotApplicationVersionRequestRequestTypeDef",
-    {
-        "currentRevisionId": str,
-        "s3Etags": List[str],
-        "imageDigest": str,
-    },
-    total=False,
-)
+class LoggingConfigTypeDef(TypedDict):
+    recordAllRosTopics: NotRequired[bool]
 
-class CreateRobotApplicationVersionRequestRequestTypeDef(
-    _RequiredCreateRobotApplicationVersionRequestRequestTypeDef,
-    _OptionalCreateRobotApplicationVersionRequestRequestTypeDef,
-):
-    pass
+class OutputLocationTypeDef(TypedDict):
+    s3Bucket: NotRequired[str]
+    s3Prefix: NotRequired[str]
 
-CreateRobotApplicationVersionResponseTypeDef = TypedDict(
-    "CreateRobotApplicationVersionResponseTypeDef",
-    {
-        "arn": str,
-        "name": str,
-        "version": str,
-        "sources": List["SourceTypeDef"],
-        "robotSoftwareSuite": "RobotSoftwareSuiteTypeDef",
-        "lastUpdatedAt": datetime,
-        "revisionId": str,
-        "environment": "EnvironmentTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class VPCConfigResponseTypeDef(TypedDict):
+    subnets: NotRequired[List[str]]
+    securityGroups: NotRequired[List[str]]
+    vpcId: NotRequired[str]
+    assignPublicIp: NotRequired[bool]
 
-_RequiredCreateRobotRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateRobotRequestRequestTypeDef",
-    {
-        "name": str,
-        "architecture": ArchitectureType,
-        "greengrassGroupId": str,
-    },
-)
-_OptionalCreateRobotRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateRobotRequestRequestTypeDef",
-    {
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
+class WorldCountTypeDef(TypedDict):
+    floorplanCount: NotRequired[int]
+    interiorCountPerFloorplan: NotRequired[int]
 
-class CreateRobotRequestRequestTypeDef(
-    _RequiredCreateRobotRequestRequestTypeDef, _OptionalCreateRobotRequestRequestTypeDef
-):
-    pass
+class TemplateLocationTypeDef(TypedDict):
+    s3Bucket: str
+    s3Key: str
 
-CreateRobotResponseTypeDef = TypedDict(
-    "CreateRobotResponseTypeDef",
-    {
-        "arn": str,
-        "name": str,
-        "createdAt": datetime,
-        "greengrassGroupId": str,
-        "architecture": ArchitectureType,
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateSimulationApplicationRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateSimulationApplicationRequestRequestTypeDef",
-    {
-        "name": str,
-        "simulationSoftwareSuite": "SimulationSoftwareSuiteTypeDef",
-        "robotSoftwareSuite": "RobotSoftwareSuiteTypeDef",
-    },
-)
-_OptionalCreateSimulationApplicationRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateSimulationApplicationRequestRequestTypeDef",
-    {
-        "sources": List["SourceConfigTypeDef"],
-        "renderingEngine": "RenderingEngineTypeDef",
-        "tags": Dict[str, str],
-        "environment": "EnvironmentTypeDef",
-    },
-    total=False,
-)
-
-class CreateSimulationApplicationRequestRequestTypeDef(
-    _RequiredCreateSimulationApplicationRequestRequestTypeDef,
-    _OptionalCreateSimulationApplicationRequestRequestTypeDef,
-):
-    pass
-
-CreateSimulationApplicationResponseTypeDef = TypedDict(
-    "CreateSimulationApplicationResponseTypeDef",
-    {
-        "arn": str,
-        "name": str,
-        "version": str,
-        "sources": List["SourceTypeDef"],
-        "simulationSoftwareSuite": "SimulationSoftwareSuiteTypeDef",
-        "robotSoftwareSuite": "RobotSoftwareSuiteTypeDef",
-        "renderingEngine": "RenderingEngineTypeDef",
-        "lastUpdatedAt": datetime,
-        "revisionId": str,
-        "tags": Dict[str, str],
-        "environment": "EnvironmentTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateSimulationApplicationVersionRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateSimulationApplicationVersionRequestRequestTypeDef",
-    {
-        "application": str,
-    },
-)
-_OptionalCreateSimulationApplicationVersionRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateSimulationApplicationVersionRequestRequestTypeDef",
-    {
-        "currentRevisionId": str,
-        "s3Etags": List[str],
-        "imageDigest": str,
-    },
-    total=False,
-)
-
-class CreateSimulationApplicationVersionRequestRequestTypeDef(
-    _RequiredCreateSimulationApplicationVersionRequestRequestTypeDef,
-    _OptionalCreateSimulationApplicationVersionRequestRequestTypeDef,
-):
-    pass
-
-CreateSimulationApplicationVersionResponseTypeDef = TypedDict(
-    "CreateSimulationApplicationVersionResponseTypeDef",
-    {
-        "arn": str,
-        "name": str,
-        "version": str,
-        "sources": List["SourceTypeDef"],
-        "simulationSoftwareSuite": "SimulationSoftwareSuiteTypeDef",
-        "robotSoftwareSuite": "RobotSoftwareSuiteTypeDef",
-        "renderingEngine": "RenderingEngineTypeDef",
-        "lastUpdatedAt": datetime,
-        "revisionId": str,
-        "environment": "EnvironmentTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateSimulationJobRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateSimulationJobRequestRequestTypeDef",
-    {
-        "maxJobDurationInSeconds": int,
-        "iamRole": str,
-    },
-)
-_OptionalCreateSimulationJobRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateSimulationJobRequestRequestTypeDef",
-    {
-        "clientRequestToken": str,
-        "outputLocation": "OutputLocationTypeDef",
-        "loggingConfig": "LoggingConfigTypeDef",
-        "failureBehavior": FailureBehaviorType,
-        "robotApplications": List["RobotApplicationConfigTypeDef"],
-        "simulationApplications": List["SimulationApplicationConfigTypeDef"],
-        "dataSources": List["DataSourceConfigTypeDef"],
-        "tags": Dict[str, str],
-        "vpcConfig": "VPCConfigTypeDef",
-        "compute": "ComputeTypeDef",
-    },
-    total=False,
-)
-
-class CreateSimulationJobRequestRequestTypeDef(
-    _RequiredCreateSimulationJobRequestRequestTypeDef,
-    _OptionalCreateSimulationJobRequestRequestTypeDef,
-):
-    pass
-
-CreateSimulationJobResponseTypeDef = TypedDict(
-    "CreateSimulationJobResponseTypeDef",
-    {
-        "arn": str,
-        "status": SimulationJobStatusType,
-        "lastStartedAt": datetime,
-        "lastUpdatedAt": datetime,
-        "failureBehavior": FailureBehaviorType,
-        "failureCode": SimulationJobErrorCodeType,
-        "clientRequestToken": str,
-        "outputLocation": "OutputLocationTypeDef",
-        "loggingConfig": "LoggingConfigTypeDef",
-        "maxJobDurationInSeconds": int,
-        "simulationTimeMillis": int,
-        "iamRole": str,
-        "robotApplications": List["RobotApplicationConfigTypeDef"],
-        "simulationApplications": List["SimulationApplicationConfigTypeDef"],
-        "dataSources": List["DataSourceTypeDef"],
-        "tags": Dict[str, str],
-        "vpcConfig": "VPCConfigResponseTypeDef",
-        "compute": "ComputeResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateWorldExportJobRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateWorldExportJobRequestRequestTypeDef",
-    {
-        "worlds": List[str],
-        "outputLocation": "OutputLocationTypeDef",
-        "iamRole": str,
-    },
-)
-_OptionalCreateWorldExportJobRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateWorldExportJobRequestRequestTypeDef",
-    {
-        "clientRequestToken": str,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class CreateWorldExportJobRequestRequestTypeDef(
-    _RequiredCreateWorldExportJobRequestRequestTypeDef,
-    _OptionalCreateWorldExportJobRequestRequestTypeDef,
-):
-    pass
-
-CreateWorldExportJobResponseTypeDef = TypedDict(
-    "CreateWorldExportJobResponseTypeDef",
-    {
-        "arn": str,
-        "status": WorldExportJobStatusType,
-        "createdAt": datetime,
-        "failureCode": WorldExportJobErrorCodeType,
-        "clientRequestToken": str,
-        "outputLocation": "OutputLocationTypeDef",
-        "iamRole": str,
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateWorldGenerationJobRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateWorldGenerationJobRequestRequestTypeDef",
-    {
-        "template": str,
-        "worldCount": "WorldCountTypeDef",
-    },
-)
-_OptionalCreateWorldGenerationJobRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateWorldGenerationJobRequestRequestTypeDef",
-    {
-        "clientRequestToken": str,
-        "tags": Dict[str, str],
-        "worldTags": Dict[str, str],
-    },
-    total=False,
-)
-
-class CreateWorldGenerationJobRequestRequestTypeDef(
-    _RequiredCreateWorldGenerationJobRequestRequestTypeDef,
-    _OptionalCreateWorldGenerationJobRequestRequestTypeDef,
-):
-    pass
-
-CreateWorldGenerationJobResponseTypeDef = TypedDict(
-    "CreateWorldGenerationJobResponseTypeDef",
-    {
-        "arn": str,
-        "status": WorldGenerationJobStatusType,
-        "createdAt": datetime,
-        "failureCode": WorldGenerationJobErrorCodeType,
-        "clientRequestToken": str,
-        "template": str,
-        "worldCount": "WorldCountTypeDef",
-        "tags": Dict[str, str],
-        "worldTags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateWorldTemplateRequestRequestTypeDef = TypedDict(
-    "CreateWorldTemplateRequestRequestTypeDef",
-    {
-        "clientRequestToken": str,
-        "name": str,
-        "templateBody": str,
-        "templateLocation": "TemplateLocationTypeDef",
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-CreateWorldTemplateResponseTypeDef = TypedDict(
-    "CreateWorldTemplateResponseTypeDef",
-    {
-        "arn": str,
-        "clientRequestToken": str,
-        "createdAt": datetime,
-        "name": str,
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDataSourceConfigTypeDef = TypedDict(
-    "_RequiredDataSourceConfigTypeDef",
+DataSourceConfigOutputTypeDef = TypedDict(
+    "DataSourceConfigOutputTypeDef",
     {
         "name": str,
         "s3Bucket": str,
         "s3Keys": List[str],
+        "type": NotRequired[DataSourceTypeType],
+        "destination": NotRequired[str],
     },
 )
-_OptionalDataSourceConfigTypeDef = TypedDict(
-    "_OptionalDataSourceConfigTypeDef",
+DataSourceConfigTypeDef = TypedDict(
+    "DataSourceConfigTypeDef",
     {
-        "type": DataSourceTypeType,
-        "destination": str,
+        "name": str,
+        "s3Bucket": str,
+        "s3Keys": Sequence[str],
+        "type": NotRequired[DataSourceTypeType],
+        "destination": NotRequired[str],
     },
-    total=False,
 )
 
-class DataSourceConfigTypeDef(_RequiredDataSourceConfigTypeDef, _OptionalDataSourceConfigTypeDef):
-    pass
+class S3KeyOutputTypeDef(TypedDict):
+    s3Key: NotRequired[str]
+    etag: NotRequired[str]
 
+class DeleteFleetRequestTypeDef(TypedDict):
+    fleet: str
+
+class DeleteRobotApplicationRequestTypeDef(TypedDict):
+    application: str
+    applicationVersion: NotRequired[str]
+
+class DeleteRobotRequestTypeDef(TypedDict):
+    robot: str
+
+class DeleteSimulationApplicationRequestTypeDef(TypedDict):
+    application: str
+    applicationVersion: NotRequired[str]
+
+class DeleteWorldTemplateRequestTypeDef(TypedDict):
+    template: str
+
+class DeploymentLaunchConfigOutputTypeDef(TypedDict):
+    packageName: str
+    launchFile: str
+    preLaunchFile: NotRequired[str]
+    postLaunchFile: NotRequired[str]
+    environmentVariables: NotRequired[Dict[str, str]]
+
+class S3ObjectTypeDef(TypedDict):
+    bucket: str
+    key: str
+    etag: NotRequired[str]
+
+class DeploymentLaunchConfigTypeDef(TypedDict):
+    packageName: str
+    launchFile: str
+    preLaunchFile: NotRequired[str]
+    postLaunchFile: NotRequired[str]
+    environmentVariables: NotRequired[Mapping[str, str]]
+
+class DeregisterRobotRequestTypeDef(TypedDict):
+    fleet: str
+    robot: str
+
+class DescribeDeploymentJobRequestTypeDef(TypedDict):
+    job: str
+
+class DescribeFleetRequestTypeDef(TypedDict):
+    fleet: str
+
+class RobotTypeDef(TypedDict):
+    arn: NotRequired[str]
+    name: NotRequired[str]
+    fleetArn: NotRequired[str]
+    status: NotRequired[RobotStatusType]
+    greenGrassGroupId: NotRequired[str]
+    createdAt: NotRequired[datetime]
+    architecture: NotRequired[ArchitectureType]
+    lastDeploymentJob: NotRequired[str]
+    lastDeploymentTime: NotRequired[datetime]
+
+class DescribeRobotApplicationRequestTypeDef(TypedDict):
+    application: str
+    applicationVersion: NotRequired[str]
+
+class DescribeRobotRequestTypeDef(TypedDict):
+    robot: str
+
+class DescribeSimulationApplicationRequestTypeDef(TypedDict):
+    application: str
+    applicationVersion: NotRequired[str]
+
+class DescribeSimulationJobBatchRequestTypeDef(TypedDict):
+    batch: str
+
+class SimulationJobSummaryTypeDef(TypedDict):
+    arn: NotRequired[str]
+    lastUpdatedAt: NotRequired[datetime]
+    name: NotRequired[str]
+    status: NotRequired[SimulationJobStatusType]
+    simulationApplicationNames: NotRequired[List[str]]
+    robotApplicationNames: NotRequired[List[str]]
+    dataSourceNames: NotRequired[List[str]]
+    computeType: NotRequired[ComputeTypeType]
+
+class DescribeSimulationJobRequestTypeDef(TypedDict):
+    job: str
+
+class NetworkInterfaceTypeDef(TypedDict):
+    networkInterfaceId: NotRequired[str]
+    privateIpAddress: NotRequired[str]
+    publicIpAddress: NotRequired[str]
+
+class DescribeWorldExportJobRequestTypeDef(TypedDict):
+    job: str
+
+class DescribeWorldGenerationJobRequestTypeDef(TypedDict):
+    job: str
+
+class DescribeWorldRequestTypeDef(TypedDict):
+    world: str
+
+class DescribeWorldTemplateRequestTypeDef(TypedDict):
+    template: str
+
+class WorldFailureTypeDef(TypedDict):
+    failureCode: NotRequired[WorldGenerationJobErrorCodeType]
+    sampleFailureReason: NotRequired[str]
+    failureCount: NotRequired[int]
+
+class FilterTypeDef(TypedDict):
+    name: NotRequired[str]
+    values: NotRequired[Sequence[str]]
+
+class FleetTypeDef(TypedDict):
+    name: NotRequired[str]
+    arn: NotRequired[str]
+    createdAt: NotRequired[datetime]
+    lastDeploymentStatus: NotRequired[DeploymentStatusType]
+    lastDeploymentJob: NotRequired[str]
+    lastDeploymentTime: NotRequired[datetime]
+
+class GetWorldTemplateBodyRequestTypeDef(TypedDict):
+    template: NotRequired[str]
+    generationJob: NotRequired[str]
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class SimulationJobBatchSummaryTypeDef(TypedDict):
+    arn: NotRequired[str]
+    lastUpdatedAt: NotRequired[datetime]
+    createdAt: NotRequired[datetime]
+    status: NotRequired[SimulationJobBatchStatusType]
+    failedRequestCount: NotRequired[int]
+    pendingRequestCount: NotRequired[int]
+    createdRequestCount: NotRequired[int]
+
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+
+class ListWorldTemplatesRequestTypeDef(TypedDict):
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class TemplateSummaryTypeDef(TypedDict):
+    arn: NotRequired[str]
+    createdAt: NotRequired[datetime]
+    lastUpdatedAt: NotRequired[datetime]
+    name: NotRequired[str]
+    version: NotRequired[str]
+
+class WorldSummaryTypeDef(TypedDict):
+    arn: NotRequired[str]
+    createdAt: NotRequired[datetime]
+    generationJob: NotRequired[str]
+    template: NotRequired[str]
+
+class PortMappingTypeDef(TypedDict):
+    jobPort: int
+    applicationPort: int
+    enableOnPublicIp: NotRequired[bool]
+
+class ProgressDetailTypeDef(TypedDict):
+    currentProgress: NotRequired[RobotDeploymentStepType]
+    percentDone: NotRequired[float]
+    estimatedTimeRemainingSeconds: NotRequired[int]
+    targetResource: NotRequired[str]
+
+class RegisterRobotRequestTypeDef(TypedDict):
+    fleet: str
+    robot: str
+
+class RestartSimulationJobRequestTypeDef(TypedDict):
+    job: str
+
+class ToolTypeDef(TypedDict):
+    name: str
+    command: str
+    streamUI: NotRequired[bool]
+    streamOutputToCloudWatch: NotRequired[bool]
+    exitBehavior: NotRequired[ExitBehaviorType]
+
+class UploadConfigurationTypeDef(TypedDict):
+    name: str
+    path: str
+    uploadBehavior: UploadBehaviorType
+
+class WorldConfigTypeDef(TypedDict):
+    world: NotRequired[str]
+
+class VPCConfigOutputTypeDef(TypedDict):
+    subnets: List[str]
+    securityGroups: NotRequired[List[str]]
+    assignPublicIp: NotRequired[bool]
+
+class SyncDeploymentJobRequestTypeDef(TypedDict):
+    clientRequestToken: str
+    fleet: str
+
+class TagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tags: Mapping[str, str]
+
+class UntagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tagKeys: Sequence[str]
+
+class VPCConfigTypeDef(TypedDict):
+    subnets: Sequence[str]
+    securityGroups: NotRequired[Sequence[str]]
+    assignPublicIp: NotRequired[bool]
+
+class BatchDeleteWorldsResponseTypeDef(TypedDict):
+    unprocessedWorlds: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateFleetResponseTypeDef(TypedDict):
+    arn: str
+    name: str
+    createdAt: datetime
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateRobotResponseTypeDef(TypedDict):
+    arn: str
+    name: str
+    createdAt: datetime
+    greengrassGroupId: str
+    architecture: ArchitectureType
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateWorldTemplateResponseTypeDef(TypedDict):
+    arn: str
+    clientRequestToken: str
+    createdAt: datetime
+    name: str
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeregisterRobotResponseTypeDef(TypedDict):
+    fleet: str
+    robot: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeRobotResponseTypeDef(TypedDict):
+    arn: str
+    name: str
+    fleetArn: str
+    status: RobotStatusType
+    greengrassGroupId: str
+    createdAt: datetime
+    architecture: ArchitectureType
+    lastDeploymentJob: str
+    lastDeploymentTime: datetime
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeWorldResponseTypeDef(TypedDict):
+    arn: str
+    generationJob: str
+    template: str
+    createdAt: datetime
+    tags: Dict[str, str]
+    worldDescriptionBody: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeWorldTemplateResponseTypeDef(TypedDict):
+    arn: str
+    clientRequestToken: str
+    name: str
+    createdAt: datetime
+    lastUpdatedAt: datetime
+    tags: Dict[str, str]
+    version: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetWorldTemplateBodyResponseTypeDef(TypedDict):
+    templateBody: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class RegisterRobotResponseTypeDef(TypedDict):
+    fleet: str
+    robot: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateWorldTemplateResponseTypeDef(TypedDict):
+    arn: str
+    name: str
+    createdAt: datetime
+    lastUpdatedAt: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class RobotApplicationSummaryTypeDef(TypedDict):
+    name: NotRequired[str]
+    arn: NotRequired[str]
+    version: NotRequired[str]
+    lastUpdatedAt: NotRequired[datetime]
+    robotSoftwareSuite: NotRequired[RobotSoftwareSuiteTypeDef]
+
+class CreateRobotApplicationRequestTypeDef(TypedDict):
+    name: str
+    robotSoftwareSuite: RobotSoftwareSuiteTypeDef
+    sources: NotRequired[Sequence[SourceConfigTypeDef]]
+    tags: NotRequired[Mapping[str, str]]
+    environment: NotRequired[EnvironmentTypeDef]
+
+class UpdateRobotApplicationRequestTypeDef(TypedDict):
+    application: str
+    robotSoftwareSuite: RobotSoftwareSuiteTypeDef
+    sources: NotRequired[Sequence[SourceConfigTypeDef]]
+    currentRevisionId: NotRequired[str]
+    environment: NotRequired[EnvironmentTypeDef]
+
+class CreateRobotApplicationResponseTypeDef(TypedDict):
+    arn: str
+    name: str
+    version: str
+    sources: List[SourceTypeDef]
+    robotSoftwareSuite: RobotSoftwareSuiteTypeDef
+    lastUpdatedAt: datetime
+    revisionId: str
+    tags: Dict[str, str]
+    environment: EnvironmentTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateRobotApplicationVersionResponseTypeDef(TypedDict):
+    arn: str
+    name: str
+    version: str
+    sources: List[SourceTypeDef]
+    robotSoftwareSuite: RobotSoftwareSuiteTypeDef
+    lastUpdatedAt: datetime
+    revisionId: str
+    environment: EnvironmentTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeRobotApplicationResponseTypeDef(TypedDict):
+    arn: str
+    name: str
+    version: str
+    sources: List[SourceTypeDef]
+    robotSoftwareSuite: RobotSoftwareSuiteTypeDef
+    revisionId: str
+    lastUpdatedAt: datetime
+    tags: Dict[str, str]
+    environment: EnvironmentTypeDef
+    imageDigest: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateRobotApplicationResponseTypeDef(TypedDict):
+    arn: str
+    name: str
+    version: str
+    sources: List[SourceTypeDef]
+    robotSoftwareSuite: RobotSoftwareSuiteTypeDef
+    lastUpdatedAt: datetime
+    revisionId: str
+    environment: EnvironmentTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateSimulationApplicationRequestTypeDef(TypedDict):
+    name: str
+    simulationSoftwareSuite: SimulationSoftwareSuiteTypeDef
+    robotSoftwareSuite: RobotSoftwareSuiteTypeDef
+    sources: NotRequired[Sequence[SourceConfigTypeDef]]
+    renderingEngine: NotRequired[RenderingEngineTypeDef]
+    tags: NotRequired[Mapping[str, str]]
+    environment: NotRequired[EnvironmentTypeDef]
+
+class CreateSimulationApplicationResponseTypeDef(TypedDict):
+    arn: str
+    name: str
+    version: str
+    sources: List[SourceTypeDef]
+    simulationSoftwareSuite: SimulationSoftwareSuiteTypeDef
+    robotSoftwareSuite: RobotSoftwareSuiteTypeDef
+    renderingEngine: RenderingEngineTypeDef
+    lastUpdatedAt: datetime
+    revisionId: str
+    tags: Dict[str, str]
+    environment: EnvironmentTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateSimulationApplicationVersionResponseTypeDef(TypedDict):
+    arn: str
+    name: str
+    version: str
+    sources: List[SourceTypeDef]
+    simulationSoftwareSuite: SimulationSoftwareSuiteTypeDef
+    robotSoftwareSuite: RobotSoftwareSuiteTypeDef
+    renderingEngine: RenderingEngineTypeDef
+    lastUpdatedAt: datetime
+    revisionId: str
+    environment: EnvironmentTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeSimulationApplicationResponseTypeDef(TypedDict):
+    arn: str
+    name: str
+    version: str
+    sources: List[SourceTypeDef]
+    simulationSoftwareSuite: SimulationSoftwareSuiteTypeDef
+    robotSoftwareSuite: RobotSoftwareSuiteTypeDef
+    renderingEngine: RenderingEngineTypeDef
+    revisionId: str
+    lastUpdatedAt: datetime
+    tags: Dict[str, str]
+    environment: EnvironmentTypeDef
+    imageDigest: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class SimulationApplicationSummaryTypeDef(TypedDict):
+    name: NotRequired[str]
+    arn: NotRequired[str]
+    version: NotRequired[str]
+    lastUpdatedAt: NotRequired[datetime]
+    robotSoftwareSuite: NotRequired[RobotSoftwareSuiteTypeDef]
+    simulationSoftwareSuite: NotRequired[SimulationSoftwareSuiteTypeDef]
+
+class UpdateSimulationApplicationRequestTypeDef(TypedDict):
+    application: str
+    simulationSoftwareSuite: SimulationSoftwareSuiteTypeDef
+    robotSoftwareSuite: RobotSoftwareSuiteTypeDef
+    sources: NotRequired[Sequence[SourceConfigTypeDef]]
+    renderingEngine: NotRequired[RenderingEngineTypeDef]
+    currentRevisionId: NotRequired[str]
+    environment: NotRequired[EnvironmentTypeDef]
+
+class UpdateSimulationApplicationResponseTypeDef(TypedDict):
+    arn: str
+    name: str
+    version: str
+    sources: List[SourceTypeDef]
+    simulationSoftwareSuite: SimulationSoftwareSuiteTypeDef
+    robotSoftwareSuite: RobotSoftwareSuiteTypeDef
+    renderingEngine: RenderingEngineTypeDef
+    lastUpdatedAt: datetime
+    revisionId: str
+    environment: EnvironmentTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateWorldExportJobRequestTypeDef(TypedDict):
+    worlds: Sequence[str]
+    outputLocation: OutputLocationTypeDef
+    iamRole: str
+    clientRequestToken: NotRequired[str]
+    tags: NotRequired[Mapping[str, str]]
+
+class CreateWorldExportJobResponseTypeDef(TypedDict):
+    arn: str
+    status: WorldExportJobStatusType
+    createdAt: datetime
+    failureCode: WorldExportJobErrorCodeType
+    clientRequestToken: str
+    outputLocation: OutputLocationTypeDef
+    iamRole: str
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeWorldExportJobResponseTypeDef(TypedDict):
+    arn: str
+    status: WorldExportJobStatusType
+    createdAt: datetime
+    failureCode: WorldExportJobErrorCodeType
+    failureReason: str
+    clientRequestToken: str
+    worlds: List[str]
+    outputLocation: OutputLocationTypeDef
+    iamRole: str
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class WorldExportJobSummaryTypeDef(TypedDict):
+    arn: NotRequired[str]
+    status: NotRequired[WorldExportJobStatusType]
+    createdAt: NotRequired[datetime]
+    worlds: NotRequired[List[str]]
+    outputLocation: NotRequired[OutputLocationTypeDef]
+
+class CreateWorldGenerationJobRequestTypeDef(TypedDict):
+    template: str
+    worldCount: WorldCountTypeDef
+    clientRequestToken: NotRequired[str]
+    tags: NotRequired[Mapping[str, str]]
+    worldTags: NotRequired[Mapping[str, str]]
+
+class CreateWorldGenerationJobResponseTypeDef(TypedDict):
+    arn: str
+    status: WorldGenerationJobStatusType
+    createdAt: datetime
+    failureCode: WorldGenerationJobErrorCodeType
+    clientRequestToken: str
+    template: str
+    worldCount: WorldCountTypeDef
+    tags: Dict[str, str]
+    worldTags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class WorldGenerationJobSummaryTypeDef(TypedDict):
+    arn: NotRequired[str]
+    template: NotRequired[str]
+    createdAt: NotRequired[datetime]
+    status: NotRequired[WorldGenerationJobStatusType]
+    worldCount: NotRequired[WorldCountTypeDef]
+    succeededWorldCount: NotRequired[int]
+    failedWorldCount: NotRequired[int]
+
+class CreateWorldTemplateRequestTypeDef(TypedDict):
+    clientRequestToken: NotRequired[str]
+    name: NotRequired[str]
+    templateBody: NotRequired[str]
+    templateLocation: NotRequired[TemplateLocationTypeDef]
+    tags: NotRequired[Mapping[str, str]]
+
+class UpdateWorldTemplateRequestTypeDef(TypedDict):
+    template: str
+    name: NotRequired[str]
+    templateBody: NotRequired[str]
+    templateLocation: NotRequired[TemplateLocationTypeDef]
+
+DataSourceConfigUnionTypeDef = Union[DataSourceConfigTypeDef, DataSourceConfigOutputTypeDef]
 DataSourceTypeDef = TypedDict(
     "DataSourceTypeDef",
     {
-        "name": str,
-        "s3Bucket": str,
-        "s3Keys": List["S3KeyOutputTypeDef"],
-        "type": DataSourceTypeType,
-        "destination": str,
-    },
-    total=False,
-)
-
-DeleteFleetRequestRequestTypeDef = TypedDict(
-    "DeleteFleetRequestRequestTypeDef",
-    {
-        "fleet": str,
-    },
-)
-
-_RequiredDeleteRobotApplicationRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteRobotApplicationRequestRequestTypeDef",
-    {
-        "application": str,
-    },
-)
-_OptionalDeleteRobotApplicationRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteRobotApplicationRequestRequestTypeDef",
-    {
-        "applicationVersion": str,
-    },
-    total=False,
-)
-
-class DeleteRobotApplicationRequestRequestTypeDef(
-    _RequiredDeleteRobotApplicationRequestRequestTypeDef,
-    _OptionalDeleteRobotApplicationRequestRequestTypeDef,
-):
-    pass
-
-DeleteRobotRequestRequestTypeDef = TypedDict(
-    "DeleteRobotRequestRequestTypeDef",
-    {
-        "robot": str,
-    },
-)
-
-_RequiredDeleteSimulationApplicationRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteSimulationApplicationRequestRequestTypeDef",
-    {
-        "application": str,
-    },
-)
-_OptionalDeleteSimulationApplicationRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteSimulationApplicationRequestRequestTypeDef",
-    {
-        "applicationVersion": str,
-    },
-    total=False,
-)
-
-class DeleteSimulationApplicationRequestRequestTypeDef(
-    _RequiredDeleteSimulationApplicationRequestRequestTypeDef,
-    _OptionalDeleteSimulationApplicationRequestRequestTypeDef,
-):
-    pass
-
-DeleteWorldTemplateRequestRequestTypeDef = TypedDict(
-    "DeleteWorldTemplateRequestRequestTypeDef",
-    {
-        "template": str,
-    },
-)
-
-DeploymentApplicationConfigTypeDef = TypedDict(
-    "DeploymentApplicationConfigTypeDef",
-    {
-        "application": str,
-        "applicationVersion": str,
-        "launchConfig": "DeploymentLaunchConfigTypeDef",
-    },
-)
-
-DeploymentConfigTypeDef = TypedDict(
-    "DeploymentConfigTypeDef",
-    {
-        "concurrentDeploymentPercentage": int,
-        "failureThresholdPercentage": int,
-        "robotDeploymentTimeoutInSeconds": int,
-        "downloadConditionFile": "S3ObjectTypeDef",
-    },
-    total=False,
-)
-
-DeploymentJobTypeDef = TypedDict(
-    "DeploymentJobTypeDef",
-    {
-        "arn": str,
-        "fleet": str,
-        "status": DeploymentStatusType,
-        "deploymentApplicationConfigs": List["DeploymentApplicationConfigTypeDef"],
-        "deploymentConfig": "DeploymentConfigTypeDef",
-        "failureReason": str,
-        "failureCode": DeploymentJobErrorCodeType,
-        "createdAt": datetime,
-    },
-    total=False,
-)
-
-_RequiredDeploymentLaunchConfigTypeDef = TypedDict(
-    "_RequiredDeploymentLaunchConfigTypeDef",
-    {
-        "packageName": str,
-        "launchFile": str,
-    },
-)
-_OptionalDeploymentLaunchConfigTypeDef = TypedDict(
-    "_OptionalDeploymentLaunchConfigTypeDef",
-    {
-        "preLaunchFile": str,
-        "postLaunchFile": str,
-        "environmentVariables": Dict[str, str],
-    },
-    total=False,
-)
-
-class DeploymentLaunchConfigTypeDef(
-    _RequiredDeploymentLaunchConfigTypeDef, _OptionalDeploymentLaunchConfigTypeDef
-):
-    pass
-
-DeregisterRobotRequestRequestTypeDef = TypedDict(
-    "DeregisterRobotRequestRequestTypeDef",
-    {
-        "fleet": str,
-        "robot": str,
-    },
-)
-
-DeregisterRobotResponseTypeDef = TypedDict(
-    "DeregisterRobotResponseTypeDef",
-    {
-        "fleet": str,
-        "robot": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeDeploymentJobRequestRequestTypeDef = TypedDict(
-    "DescribeDeploymentJobRequestRequestTypeDef",
-    {
-        "job": str,
-    },
-)
-
-DescribeDeploymentJobResponseTypeDef = TypedDict(
-    "DescribeDeploymentJobResponseTypeDef",
-    {
-        "arn": str,
-        "fleet": str,
-        "status": DeploymentStatusType,
-        "deploymentConfig": "DeploymentConfigTypeDef",
-        "deploymentApplicationConfigs": List["DeploymentApplicationConfigTypeDef"],
-        "failureReason": str,
-        "failureCode": DeploymentJobErrorCodeType,
-        "createdAt": datetime,
-        "robotDeploymentSummary": List["RobotDeploymentTypeDef"],
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeFleetRequestRequestTypeDef = TypedDict(
-    "DescribeFleetRequestRequestTypeDef",
-    {
-        "fleet": str,
-    },
-)
-
-DescribeFleetResponseTypeDef = TypedDict(
-    "DescribeFleetResponseTypeDef",
-    {
-        "name": str,
-        "arn": str,
-        "robots": List["RobotTypeDef"],
-        "createdAt": datetime,
-        "lastDeploymentStatus": DeploymentStatusType,
-        "lastDeploymentJob": str,
-        "lastDeploymentTime": datetime,
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribeRobotApplicationRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeRobotApplicationRequestRequestTypeDef",
-    {
-        "application": str,
-    },
-)
-_OptionalDescribeRobotApplicationRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeRobotApplicationRequestRequestTypeDef",
-    {
-        "applicationVersion": str,
-    },
-    total=False,
-)
-
-class DescribeRobotApplicationRequestRequestTypeDef(
-    _RequiredDescribeRobotApplicationRequestRequestTypeDef,
-    _OptionalDescribeRobotApplicationRequestRequestTypeDef,
-):
-    pass
-
-DescribeRobotApplicationResponseTypeDef = TypedDict(
-    "DescribeRobotApplicationResponseTypeDef",
-    {
-        "arn": str,
-        "name": str,
-        "version": str,
-        "sources": List["SourceTypeDef"],
-        "robotSoftwareSuite": "RobotSoftwareSuiteTypeDef",
-        "revisionId": str,
-        "lastUpdatedAt": datetime,
-        "tags": Dict[str, str],
-        "environment": "EnvironmentTypeDef",
-        "imageDigest": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeRobotRequestRequestTypeDef = TypedDict(
-    "DescribeRobotRequestRequestTypeDef",
-    {
-        "robot": str,
-    },
-)
-
-DescribeRobotResponseTypeDef = TypedDict(
-    "DescribeRobotResponseTypeDef",
-    {
-        "arn": str,
-        "name": str,
-        "fleetArn": str,
-        "status": RobotStatusType,
-        "greengrassGroupId": str,
-        "createdAt": datetime,
-        "architecture": ArchitectureType,
-        "lastDeploymentJob": str,
-        "lastDeploymentTime": datetime,
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDescribeSimulationApplicationRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeSimulationApplicationRequestRequestTypeDef",
-    {
-        "application": str,
-    },
-)
-_OptionalDescribeSimulationApplicationRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeSimulationApplicationRequestRequestTypeDef",
-    {
-        "applicationVersion": str,
-    },
-    total=False,
-)
-
-class DescribeSimulationApplicationRequestRequestTypeDef(
-    _RequiredDescribeSimulationApplicationRequestRequestTypeDef,
-    _OptionalDescribeSimulationApplicationRequestRequestTypeDef,
-):
-    pass
-
-DescribeSimulationApplicationResponseTypeDef = TypedDict(
-    "DescribeSimulationApplicationResponseTypeDef",
-    {
-        "arn": str,
-        "name": str,
-        "version": str,
-        "sources": List["SourceTypeDef"],
-        "simulationSoftwareSuite": "SimulationSoftwareSuiteTypeDef",
-        "robotSoftwareSuite": "RobotSoftwareSuiteTypeDef",
-        "renderingEngine": "RenderingEngineTypeDef",
-        "revisionId": str,
-        "lastUpdatedAt": datetime,
-        "tags": Dict[str, str],
-        "environment": "EnvironmentTypeDef",
-        "imageDigest": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeSimulationJobBatchRequestRequestTypeDef = TypedDict(
-    "DescribeSimulationJobBatchRequestRequestTypeDef",
-    {
-        "batch": str,
-    },
-)
-
-DescribeSimulationJobBatchResponseTypeDef = TypedDict(
-    "DescribeSimulationJobBatchResponseTypeDef",
-    {
-        "arn": str,
-        "status": SimulationJobBatchStatusType,
-        "lastUpdatedAt": datetime,
-        "createdAt": datetime,
-        "clientRequestToken": str,
-        "batchPolicy": "BatchPolicyTypeDef",
-        "failureCode": Literal["InternalServiceError"],
-        "failureReason": str,
-        "failedRequests": List["FailedCreateSimulationJobRequestTypeDef"],
-        "pendingRequests": List["SimulationJobRequestTypeDef"],
-        "createdRequests": List["SimulationJobSummaryTypeDef"],
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeSimulationJobRequestRequestTypeDef = TypedDict(
-    "DescribeSimulationJobRequestRequestTypeDef",
-    {
-        "job": str,
-    },
-)
-
-DescribeSimulationJobResponseTypeDef = TypedDict(
-    "DescribeSimulationJobResponseTypeDef",
-    {
-        "arn": str,
-        "name": str,
-        "status": SimulationJobStatusType,
-        "lastStartedAt": datetime,
-        "lastUpdatedAt": datetime,
-        "failureBehavior": FailureBehaviorType,
-        "failureCode": SimulationJobErrorCodeType,
-        "failureReason": str,
-        "clientRequestToken": str,
-        "outputLocation": "OutputLocationTypeDef",
-        "loggingConfig": "LoggingConfigTypeDef",
-        "maxJobDurationInSeconds": int,
-        "simulationTimeMillis": int,
-        "iamRole": str,
-        "robotApplications": List["RobotApplicationConfigTypeDef"],
-        "simulationApplications": List["SimulationApplicationConfigTypeDef"],
-        "dataSources": List["DataSourceTypeDef"],
-        "tags": Dict[str, str],
-        "vpcConfig": "VPCConfigResponseTypeDef",
-        "networkInterface": "NetworkInterfaceTypeDef",
-        "compute": "ComputeResponseTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeWorldExportJobRequestRequestTypeDef = TypedDict(
-    "DescribeWorldExportJobRequestRequestTypeDef",
-    {
-        "job": str,
-    },
-)
-
-DescribeWorldExportJobResponseTypeDef = TypedDict(
-    "DescribeWorldExportJobResponseTypeDef",
-    {
-        "arn": str,
-        "status": WorldExportJobStatusType,
-        "createdAt": datetime,
-        "failureCode": WorldExportJobErrorCodeType,
-        "failureReason": str,
-        "clientRequestToken": str,
-        "worlds": List[str],
-        "outputLocation": "OutputLocationTypeDef",
-        "iamRole": str,
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeWorldGenerationJobRequestRequestTypeDef = TypedDict(
-    "DescribeWorldGenerationJobRequestRequestTypeDef",
-    {
-        "job": str,
-    },
-)
-
-DescribeWorldGenerationJobResponseTypeDef = TypedDict(
-    "DescribeWorldGenerationJobResponseTypeDef",
-    {
-        "arn": str,
-        "status": WorldGenerationJobStatusType,
-        "createdAt": datetime,
-        "failureCode": WorldGenerationJobErrorCodeType,
-        "failureReason": str,
-        "clientRequestToken": str,
-        "template": str,
-        "worldCount": "WorldCountTypeDef",
-        "finishedWorldsSummary": "FinishedWorldsSummaryTypeDef",
-        "tags": Dict[str, str],
-        "worldTags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeWorldRequestRequestTypeDef = TypedDict(
-    "DescribeWorldRequestRequestTypeDef",
-    {
-        "world": str,
-    },
-)
-
-DescribeWorldResponseTypeDef = TypedDict(
-    "DescribeWorldResponseTypeDef",
-    {
-        "arn": str,
-        "generationJob": str,
-        "template": str,
-        "createdAt": datetime,
-        "tags": Dict[str, str],
-        "worldDescriptionBody": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeWorldTemplateRequestRequestTypeDef = TypedDict(
-    "DescribeWorldTemplateRequestRequestTypeDef",
-    {
-        "template": str,
-    },
-)
-
-DescribeWorldTemplateResponseTypeDef = TypedDict(
-    "DescribeWorldTemplateResponseTypeDef",
-    {
-        "arn": str,
-        "clientRequestToken": str,
-        "name": str,
-        "createdAt": datetime,
-        "lastUpdatedAt": datetime,
-        "tags": Dict[str, str],
-        "version": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-EnvironmentTypeDef = TypedDict(
-    "EnvironmentTypeDef",
-    {
-        "uri": str,
-    },
-    total=False,
-)
-
-FailedCreateSimulationJobRequestTypeDef = TypedDict(
-    "FailedCreateSimulationJobRequestTypeDef",
-    {
-        "request": "SimulationJobRequestTypeDef",
-        "failureReason": str,
-        "failureCode": SimulationJobErrorCodeType,
-        "failedAt": datetime,
-    },
-    total=False,
-)
-
-FailureSummaryTypeDef = TypedDict(
-    "FailureSummaryTypeDef",
-    {
-        "totalFailureCount": int,
-        "failures": List["WorldFailureTypeDef"],
-    },
-    total=False,
-)
-
-FilterTypeDef = TypedDict(
-    "FilterTypeDef",
-    {
-        "name": str,
-        "values": List[str],
-    },
-    total=False,
-)
-
-FinishedWorldsSummaryTypeDef = TypedDict(
-    "FinishedWorldsSummaryTypeDef",
-    {
-        "finishedCount": int,
-        "succeededWorlds": List[str],
-        "failureSummary": "FailureSummaryTypeDef",
-    },
-    total=False,
-)
-
-FleetTypeDef = TypedDict(
-    "FleetTypeDef",
-    {
-        "name": str,
-        "arn": str,
-        "createdAt": datetime,
-        "lastDeploymentStatus": DeploymentStatusType,
-        "lastDeploymentJob": str,
-        "lastDeploymentTime": datetime,
-    },
-    total=False,
-)
-
-GetWorldTemplateBodyRequestRequestTypeDef = TypedDict(
-    "GetWorldTemplateBodyRequestRequestTypeDef",
-    {
-        "template": str,
-        "generationJob": str,
-    },
-    total=False,
-)
-
-GetWorldTemplateBodyResponseTypeDef = TypedDict(
-    "GetWorldTemplateBodyResponseTypeDef",
-    {
-        "templateBody": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-LaunchConfigTypeDef = TypedDict(
-    "LaunchConfigTypeDef",
-    {
-        "packageName": str,
-        "launchFile": str,
-        "environmentVariables": Dict[str, str],
-        "portForwardingConfig": "PortForwardingConfigTypeDef",
-        "streamUI": bool,
-        "command": List[str],
-    },
-    total=False,
-)
-
-ListDeploymentJobsRequestRequestTypeDef = TypedDict(
-    "ListDeploymentJobsRequestRequestTypeDef",
-    {
-        "filters": List["FilterTypeDef"],
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-ListDeploymentJobsResponseTypeDef = TypedDict(
-    "ListDeploymentJobsResponseTypeDef",
-    {
-        "deploymentJobs": List["DeploymentJobTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListFleetsRequestRequestTypeDef = TypedDict(
-    "ListFleetsRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-        "filters": List["FilterTypeDef"],
-    },
-    total=False,
-)
-
-ListFleetsResponseTypeDef = TypedDict(
-    "ListFleetsResponseTypeDef",
-    {
-        "fleetDetails": List["FleetTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListRobotApplicationsRequestRequestTypeDef = TypedDict(
-    "ListRobotApplicationsRequestRequestTypeDef",
-    {
-        "versionQualifier": str,
-        "nextToken": str,
-        "maxResults": int,
-        "filters": List["FilterTypeDef"],
-    },
-    total=False,
-)
-
-ListRobotApplicationsResponseTypeDef = TypedDict(
-    "ListRobotApplicationsResponseTypeDef",
-    {
-        "robotApplicationSummaries": List["RobotApplicationSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListRobotsRequestRequestTypeDef = TypedDict(
-    "ListRobotsRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-        "filters": List["FilterTypeDef"],
-    },
-    total=False,
-)
-
-ListRobotsResponseTypeDef = TypedDict(
-    "ListRobotsResponseTypeDef",
-    {
-        "robots": List["RobotTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListSimulationApplicationsRequestRequestTypeDef = TypedDict(
-    "ListSimulationApplicationsRequestRequestTypeDef",
-    {
-        "versionQualifier": str,
-        "nextToken": str,
-        "maxResults": int,
-        "filters": List["FilterTypeDef"],
-    },
-    total=False,
-)
-
-ListSimulationApplicationsResponseTypeDef = TypedDict(
-    "ListSimulationApplicationsResponseTypeDef",
-    {
-        "simulationApplicationSummaries": List["SimulationApplicationSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListSimulationJobBatchesRequestRequestTypeDef = TypedDict(
-    "ListSimulationJobBatchesRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-        "filters": List["FilterTypeDef"],
-    },
-    total=False,
-)
-
-ListSimulationJobBatchesResponseTypeDef = TypedDict(
-    "ListSimulationJobBatchesResponseTypeDef",
-    {
-        "simulationJobBatchSummaries": List["SimulationJobBatchSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListSimulationJobsRequestRequestTypeDef = TypedDict(
-    "ListSimulationJobsRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-        "filters": List["FilterTypeDef"],
-    },
-    total=False,
-)
-
-ListSimulationJobsResponseTypeDef = TypedDict(
-    "ListSimulationJobsResponseTypeDef",
-    {
-        "simulationJobSummaries": List["SimulationJobSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-    },
-)
-
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListWorldExportJobsRequestRequestTypeDef = TypedDict(
-    "ListWorldExportJobsRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-        "filters": List["FilterTypeDef"],
-    },
-    total=False,
-)
-
-ListWorldExportJobsResponseTypeDef = TypedDict(
-    "ListWorldExportJobsResponseTypeDef",
-    {
-        "worldExportJobSummaries": List["WorldExportJobSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListWorldGenerationJobsRequestRequestTypeDef = TypedDict(
-    "ListWorldGenerationJobsRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-        "filters": List["FilterTypeDef"],
-    },
-    total=False,
-)
-
-ListWorldGenerationJobsResponseTypeDef = TypedDict(
-    "ListWorldGenerationJobsResponseTypeDef",
-    {
-        "worldGenerationJobSummaries": List["WorldGenerationJobSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListWorldTemplatesRequestRequestTypeDef = TypedDict(
-    "ListWorldTemplatesRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-ListWorldTemplatesResponseTypeDef = TypedDict(
-    "ListWorldTemplatesResponseTypeDef",
-    {
-        "templateSummaries": List["TemplateSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListWorldsRequestRequestTypeDef = TypedDict(
-    "ListWorldsRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-        "filters": List["FilterTypeDef"],
-    },
-    total=False,
-)
-
-ListWorldsResponseTypeDef = TypedDict(
-    "ListWorldsResponseTypeDef",
-    {
-        "worldSummaries": List["WorldSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-LoggingConfigTypeDef = TypedDict(
-    "LoggingConfigTypeDef",
-    {
-        "recordAllRosTopics": bool,
-    },
-    total=False,
-)
-
-NetworkInterfaceTypeDef = TypedDict(
-    "NetworkInterfaceTypeDef",
-    {
-        "networkInterfaceId": str,
-        "privateIpAddress": str,
-        "publicIpAddress": str,
-    },
-    total=False,
-)
-
-OutputLocationTypeDef = TypedDict(
-    "OutputLocationTypeDef",
-    {
-        "s3Bucket": str,
-        "s3Prefix": str,
-    },
-    total=False,
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-PortForwardingConfigTypeDef = TypedDict(
-    "PortForwardingConfigTypeDef",
-    {
-        "portMappings": List["PortMappingTypeDef"],
-    },
-    total=False,
-)
-
-_RequiredPortMappingTypeDef = TypedDict(
-    "_RequiredPortMappingTypeDef",
-    {
-        "jobPort": int,
-        "applicationPort": int,
-    },
-)
-_OptionalPortMappingTypeDef = TypedDict(
-    "_OptionalPortMappingTypeDef",
-    {
-        "enableOnPublicIp": bool,
-    },
-    total=False,
-)
-
-class PortMappingTypeDef(_RequiredPortMappingTypeDef, _OptionalPortMappingTypeDef):
-    pass
-
-ProgressDetailTypeDef = TypedDict(
-    "ProgressDetailTypeDef",
-    {
-        "currentProgress": RobotDeploymentStepType,
-        "percentDone": float,
-        "estimatedTimeRemainingSeconds": int,
-        "targetResource": str,
-    },
-    total=False,
-)
-
-RegisterRobotRequestRequestTypeDef = TypedDict(
-    "RegisterRobotRequestRequestTypeDef",
-    {
-        "fleet": str,
-        "robot": str,
-    },
-)
-
-RegisterRobotResponseTypeDef = TypedDict(
-    "RegisterRobotResponseTypeDef",
-    {
-        "fleet": str,
-        "robot": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-RenderingEngineTypeDef = TypedDict(
-    "RenderingEngineTypeDef",
-    {
-        "name": Literal["OGRE"],
-        "version": str,
-    },
-    total=False,
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-RestartSimulationJobRequestRequestTypeDef = TypedDict(
-    "RestartSimulationJobRequestRequestTypeDef",
-    {
-        "job": str,
-    },
-)
-
-_RequiredRobotApplicationConfigTypeDef = TypedDict(
-    "_RequiredRobotApplicationConfigTypeDef",
-    {
-        "application": str,
-        "launchConfig": "LaunchConfigTypeDef",
-    },
-)
-_OptionalRobotApplicationConfigTypeDef = TypedDict(
-    "_OptionalRobotApplicationConfigTypeDef",
-    {
-        "applicationVersion": str,
-        "uploadConfigurations": List["UploadConfigurationTypeDef"],
-        "useDefaultUploadConfigurations": bool,
-        "tools": List["ToolTypeDef"],
-        "useDefaultTools": bool,
-    },
-    total=False,
-)
-
-class RobotApplicationConfigTypeDef(
-    _RequiredRobotApplicationConfigTypeDef, _OptionalRobotApplicationConfigTypeDef
-):
-    pass
-
-RobotApplicationSummaryTypeDef = TypedDict(
-    "RobotApplicationSummaryTypeDef",
-    {
-        "name": str,
-        "arn": str,
-        "version": str,
-        "lastUpdatedAt": datetime,
-        "robotSoftwareSuite": "RobotSoftwareSuiteTypeDef",
-    },
-    total=False,
-)
-
-RobotDeploymentTypeDef = TypedDict(
-    "RobotDeploymentTypeDef",
-    {
-        "arn": str,
-        "deploymentStartTime": datetime,
-        "deploymentFinishTime": datetime,
-        "status": RobotStatusType,
-        "progressDetail": "ProgressDetailTypeDef",
-        "failureReason": str,
-        "failureCode": DeploymentJobErrorCodeType,
-    },
-    total=False,
-)
-
-RobotSoftwareSuiteTypeDef = TypedDict(
-    "RobotSoftwareSuiteTypeDef",
-    {
-        "name": RobotSoftwareSuiteTypeType,
-        "version": RobotSoftwareSuiteVersionTypeType,
-    },
-    total=False,
-)
-
-RobotTypeDef = TypedDict(
-    "RobotTypeDef",
-    {
-        "arn": str,
-        "name": str,
-        "fleetArn": str,
-        "status": RobotStatusType,
-        "greenGrassGroupId": str,
-        "createdAt": datetime,
-        "architecture": ArchitectureType,
-        "lastDeploymentJob": str,
-        "lastDeploymentTime": datetime,
-    },
-    total=False,
-)
-
-S3KeyOutputTypeDef = TypedDict(
-    "S3KeyOutputTypeDef",
-    {
-        "s3Key": str,
-        "etag": str,
-    },
-    total=False,
-)
-
-_RequiredS3ObjectTypeDef = TypedDict(
-    "_RequiredS3ObjectTypeDef",
-    {
-        "bucket": str,
-        "key": str,
-    },
-)
-_OptionalS3ObjectTypeDef = TypedDict(
-    "_OptionalS3ObjectTypeDef",
-    {
-        "etag": str,
-    },
-    total=False,
-)
-
-class S3ObjectTypeDef(_RequiredS3ObjectTypeDef, _OptionalS3ObjectTypeDef):
-    pass
-
-_RequiredSimulationApplicationConfigTypeDef = TypedDict(
-    "_RequiredSimulationApplicationConfigTypeDef",
-    {
-        "application": str,
-        "launchConfig": "LaunchConfigTypeDef",
-    },
-)
-_OptionalSimulationApplicationConfigTypeDef = TypedDict(
-    "_OptionalSimulationApplicationConfigTypeDef",
-    {
-        "applicationVersion": str,
-        "uploadConfigurations": List["UploadConfigurationTypeDef"],
-        "worldConfigs": List["WorldConfigTypeDef"],
-        "useDefaultUploadConfigurations": bool,
-        "tools": List["ToolTypeDef"],
-        "useDefaultTools": bool,
-    },
-    total=False,
-)
-
-class SimulationApplicationConfigTypeDef(
-    _RequiredSimulationApplicationConfigTypeDef, _OptionalSimulationApplicationConfigTypeDef
-):
-    pass
-
-SimulationApplicationSummaryTypeDef = TypedDict(
-    "SimulationApplicationSummaryTypeDef",
-    {
-        "name": str,
-        "arn": str,
-        "version": str,
-        "lastUpdatedAt": datetime,
-        "robotSoftwareSuite": "RobotSoftwareSuiteTypeDef",
-        "simulationSoftwareSuite": "SimulationSoftwareSuiteTypeDef",
-    },
-    total=False,
-)
-
-SimulationJobBatchSummaryTypeDef = TypedDict(
-    "SimulationJobBatchSummaryTypeDef",
-    {
-        "arn": str,
-        "lastUpdatedAt": datetime,
-        "createdAt": datetime,
-        "status": SimulationJobBatchStatusType,
-        "failedRequestCount": int,
-        "pendingRequestCount": int,
-        "createdRequestCount": int,
-    },
-    total=False,
-)
-
-_RequiredSimulationJobRequestTypeDef = TypedDict(
-    "_RequiredSimulationJobRequestTypeDef",
-    {
-        "maxJobDurationInSeconds": int,
-    },
-)
-_OptionalSimulationJobRequestTypeDef = TypedDict(
-    "_OptionalSimulationJobRequestTypeDef",
-    {
-        "outputLocation": "OutputLocationTypeDef",
-        "loggingConfig": "LoggingConfigTypeDef",
-        "iamRole": str,
-        "failureBehavior": FailureBehaviorType,
-        "useDefaultApplications": bool,
-        "robotApplications": List["RobotApplicationConfigTypeDef"],
-        "simulationApplications": List["SimulationApplicationConfigTypeDef"],
-        "dataSources": List["DataSourceConfigTypeDef"],
-        "vpcConfig": "VPCConfigTypeDef",
-        "compute": "ComputeTypeDef",
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class SimulationJobRequestTypeDef(
-    _RequiredSimulationJobRequestTypeDef, _OptionalSimulationJobRequestTypeDef
-):
-    pass
-
-SimulationJobSummaryTypeDef = TypedDict(
-    "SimulationJobSummaryTypeDef",
-    {
-        "arn": str,
-        "lastUpdatedAt": datetime,
-        "name": str,
-        "status": SimulationJobStatusType,
-        "simulationApplicationNames": List[str],
-        "robotApplicationNames": List[str],
-        "dataSourceNames": List[str],
-        "computeType": ComputeTypeType,
-    },
-    total=False,
-)
-
-SimulationJobTypeDef = TypedDict(
-    "SimulationJobTypeDef",
-    {
-        "arn": str,
-        "name": str,
-        "status": SimulationJobStatusType,
-        "lastStartedAt": datetime,
-        "lastUpdatedAt": datetime,
-        "failureBehavior": FailureBehaviorType,
-        "failureCode": SimulationJobErrorCodeType,
-        "failureReason": str,
-        "clientRequestToken": str,
-        "outputLocation": "OutputLocationTypeDef",
-        "loggingConfig": "LoggingConfigTypeDef",
-        "maxJobDurationInSeconds": int,
-        "simulationTimeMillis": int,
-        "iamRole": str,
-        "robotApplications": List["RobotApplicationConfigTypeDef"],
-        "simulationApplications": List["SimulationApplicationConfigTypeDef"],
-        "dataSources": List["DataSourceTypeDef"],
-        "tags": Dict[str, str],
-        "vpcConfig": "VPCConfigResponseTypeDef",
-        "networkInterface": "NetworkInterfaceTypeDef",
-        "compute": "ComputeResponseTypeDef",
-    },
-    total=False,
-)
-
-SimulationSoftwareSuiteTypeDef = TypedDict(
-    "SimulationSoftwareSuiteTypeDef",
-    {
-        "name": SimulationSoftwareSuiteTypeType,
-        "version": str,
-    },
-    total=False,
-)
-
-SourceConfigTypeDef = TypedDict(
-    "SourceConfigTypeDef",
-    {
-        "s3Bucket": str,
-        "s3Key": str,
-        "architecture": ArchitectureType,
-    },
-    total=False,
-)
-
-SourceTypeDef = TypedDict(
-    "SourceTypeDef",
-    {
-        "s3Bucket": str,
-        "s3Key": str,
-        "etag": str,
-        "architecture": ArchitectureType,
-    },
-    total=False,
-)
-
-_RequiredStartSimulationJobBatchRequestRequestTypeDef = TypedDict(
-    "_RequiredStartSimulationJobBatchRequestRequestTypeDef",
-    {
-        "createSimulationJobRequests": List["SimulationJobRequestTypeDef"],
-    },
-)
-_OptionalStartSimulationJobBatchRequestRequestTypeDef = TypedDict(
-    "_OptionalStartSimulationJobBatchRequestRequestTypeDef",
-    {
-        "clientRequestToken": str,
-        "batchPolicy": "BatchPolicyTypeDef",
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
-
-class StartSimulationJobBatchRequestRequestTypeDef(
-    _RequiredStartSimulationJobBatchRequestRequestTypeDef,
-    _OptionalStartSimulationJobBatchRequestRequestTypeDef,
-):
-    pass
-
-StartSimulationJobBatchResponseTypeDef = TypedDict(
-    "StartSimulationJobBatchResponseTypeDef",
-    {
-        "arn": str,
-        "status": SimulationJobBatchStatusType,
-        "createdAt": datetime,
-        "clientRequestToken": str,
-        "batchPolicy": "BatchPolicyTypeDef",
-        "failureCode": Literal["InternalServiceError"],
-        "failureReason": str,
-        "failedRequests": List["FailedCreateSimulationJobRequestTypeDef"],
-        "pendingRequests": List["SimulationJobRequestTypeDef"],
-        "createdRequests": List["SimulationJobSummaryTypeDef"],
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-SyncDeploymentJobRequestRequestTypeDef = TypedDict(
-    "SyncDeploymentJobRequestRequestTypeDef",
-    {
-        "clientRequestToken": str,
-        "fleet": str,
-    },
-)
-
-SyncDeploymentJobResponseTypeDef = TypedDict(
-    "SyncDeploymentJobResponseTypeDef",
-    {
-        "arn": str,
-        "fleet": str,
-        "status": DeploymentStatusType,
-        "deploymentConfig": "DeploymentConfigTypeDef",
-        "deploymentApplicationConfigs": List["DeploymentApplicationConfigTypeDef"],
-        "failureReason": str,
-        "failureCode": DeploymentJobErrorCodeType,
-        "createdAt": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tags": Dict[str, str],
-    },
-)
-
-TemplateLocationTypeDef = TypedDict(
-    "TemplateLocationTypeDef",
-    {
-        "s3Bucket": str,
-        "s3Key": str,
-    },
-)
-
-TemplateSummaryTypeDef = TypedDict(
-    "TemplateSummaryTypeDef",
-    {
-        "arn": str,
-        "createdAt": datetime,
-        "lastUpdatedAt": datetime,
-        "name": str,
-        "version": str,
-    },
-    total=False,
-)
-
-_RequiredToolTypeDef = TypedDict(
-    "_RequiredToolTypeDef",
-    {
-        "name": str,
-        "command": str,
-    },
-)
-_OptionalToolTypeDef = TypedDict(
-    "_OptionalToolTypeDef",
-    {
-        "streamUI": bool,
-        "streamOutputToCloudWatch": bool,
-        "exitBehavior": ExitBehaviorType,
-    },
-    total=False,
-)
-
-class ToolTypeDef(_RequiredToolTypeDef, _OptionalToolTypeDef):
-    pass
-
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tagKeys": List[str],
-    },
-)
-
-_RequiredUpdateRobotApplicationRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateRobotApplicationRequestRequestTypeDef",
-    {
-        "application": str,
-        "robotSoftwareSuite": "RobotSoftwareSuiteTypeDef",
-    },
-)
-_OptionalUpdateRobotApplicationRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateRobotApplicationRequestRequestTypeDef",
-    {
-        "sources": List["SourceConfigTypeDef"],
-        "currentRevisionId": str,
-        "environment": "EnvironmentTypeDef",
-    },
-    total=False,
-)
-
-class UpdateRobotApplicationRequestRequestTypeDef(
-    _RequiredUpdateRobotApplicationRequestRequestTypeDef,
-    _OptionalUpdateRobotApplicationRequestRequestTypeDef,
-):
-    pass
-
-UpdateRobotApplicationResponseTypeDef = TypedDict(
-    "UpdateRobotApplicationResponseTypeDef",
-    {
-        "arn": str,
-        "name": str,
-        "version": str,
-        "sources": List["SourceTypeDef"],
-        "robotSoftwareSuite": "RobotSoftwareSuiteTypeDef",
-        "lastUpdatedAt": datetime,
-        "revisionId": str,
-        "environment": "EnvironmentTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateSimulationApplicationRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateSimulationApplicationRequestRequestTypeDef",
-    {
-        "application": str,
-        "simulationSoftwareSuite": "SimulationSoftwareSuiteTypeDef",
-        "robotSoftwareSuite": "RobotSoftwareSuiteTypeDef",
-    },
-)
-_OptionalUpdateSimulationApplicationRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateSimulationApplicationRequestRequestTypeDef",
-    {
-        "sources": List["SourceConfigTypeDef"],
-        "renderingEngine": "RenderingEngineTypeDef",
-        "currentRevisionId": str,
-        "environment": "EnvironmentTypeDef",
-    },
-    total=False,
-)
-
-class UpdateSimulationApplicationRequestRequestTypeDef(
-    _RequiredUpdateSimulationApplicationRequestRequestTypeDef,
-    _OptionalUpdateSimulationApplicationRequestRequestTypeDef,
-):
-    pass
-
-UpdateSimulationApplicationResponseTypeDef = TypedDict(
-    "UpdateSimulationApplicationResponseTypeDef",
-    {
-        "arn": str,
-        "name": str,
-        "version": str,
-        "sources": List["SourceTypeDef"],
-        "simulationSoftwareSuite": "SimulationSoftwareSuiteTypeDef",
-        "robotSoftwareSuite": "RobotSoftwareSuiteTypeDef",
-        "renderingEngine": "RenderingEngineTypeDef",
-        "lastUpdatedAt": datetime,
-        "revisionId": str,
-        "environment": "EnvironmentTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateWorldTemplateRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateWorldTemplateRequestRequestTypeDef",
-    {
-        "template": str,
-    },
-)
-_OptionalUpdateWorldTemplateRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateWorldTemplateRequestRequestTypeDef",
-    {
-        "name": str,
-        "templateBody": str,
-        "templateLocation": "TemplateLocationTypeDef",
-    },
-    total=False,
-)
-
-class UpdateWorldTemplateRequestRequestTypeDef(
-    _RequiredUpdateWorldTemplateRequestRequestTypeDef,
-    _OptionalUpdateWorldTemplateRequestRequestTypeDef,
-):
-    pass
-
-UpdateWorldTemplateResponseTypeDef = TypedDict(
-    "UpdateWorldTemplateResponseTypeDef",
-    {
-        "arn": str,
-        "name": str,
-        "createdAt": datetime,
-        "lastUpdatedAt": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UploadConfigurationTypeDef = TypedDict(
-    "UploadConfigurationTypeDef",
-    {
-        "name": str,
-        "path": str,
-        "uploadBehavior": UploadBehaviorType,
-    },
-)
-
-VPCConfigResponseTypeDef = TypedDict(
-    "VPCConfigResponseTypeDef",
-    {
-        "subnets": List[str],
-        "securityGroups": List[str],
-        "vpcId": str,
-        "assignPublicIp": bool,
-    },
-    total=False,
-)
-
-_RequiredVPCConfigTypeDef = TypedDict(
-    "_RequiredVPCConfigTypeDef",
-    {
-        "subnets": List[str],
-    },
-)
-_OptionalVPCConfigTypeDef = TypedDict(
-    "_OptionalVPCConfigTypeDef",
-    {
-        "securityGroups": List[str],
-        "assignPublicIp": bool,
-    },
-    total=False,
-)
-
-class VPCConfigTypeDef(_RequiredVPCConfigTypeDef, _OptionalVPCConfigTypeDef):
-    pass
-
-WorldConfigTypeDef = TypedDict(
-    "WorldConfigTypeDef",
-    {
-        "world": str,
-    },
-    total=False,
-)
-
-WorldCountTypeDef = TypedDict(
-    "WorldCountTypeDef",
-    {
-        "floorplanCount": int,
-        "interiorCountPerFloorplan": int,
-    },
-    total=False,
-)
-
-WorldExportJobSummaryTypeDef = TypedDict(
-    "WorldExportJobSummaryTypeDef",
-    {
-        "arn": str,
-        "status": WorldExportJobStatusType,
-        "createdAt": datetime,
-        "worlds": List[str],
-        "outputLocation": "OutputLocationTypeDef",
-    },
-    total=False,
-)
-
-WorldFailureTypeDef = TypedDict(
-    "WorldFailureTypeDef",
-    {
-        "failureCode": WorldGenerationJobErrorCodeType,
-        "sampleFailureReason": str,
-        "failureCount": int,
-    },
-    total=False,
-)
-
-WorldGenerationJobSummaryTypeDef = TypedDict(
-    "WorldGenerationJobSummaryTypeDef",
-    {
-        "arn": str,
-        "template": str,
-        "createdAt": datetime,
-        "status": WorldGenerationJobStatusType,
-        "worldCount": "WorldCountTypeDef",
-        "succeededWorldCount": int,
-        "failedWorldCount": int,
-    },
-    total=False,
-)
-
-WorldSummaryTypeDef = TypedDict(
-    "WorldSummaryTypeDef",
-    {
-        "arn": str,
-        "createdAt": datetime,
-        "generationJob": str,
-        "template": str,
-    },
-    total=False,
-)
+        "name": NotRequired[str],
+        "s3Bucket": NotRequired[str],
+        "s3Keys": NotRequired[List[S3KeyOutputTypeDef]],
+        "type": NotRequired[DataSourceTypeType],
+        "destination": NotRequired[str],
+    },
+)
+
+class DeploymentApplicationConfigOutputTypeDef(TypedDict):
+    application: str
+    applicationVersion: str
+    launchConfig: DeploymentLaunchConfigOutputTypeDef
+
+class DeploymentConfigTypeDef(TypedDict):
+    concurrentDeploymentPercentage: NotRequired[int]
+    failureThresholdPercentage: NotRequired[int]
+    robotDeploymentTimeoutInSeconds: NotRequired[int]
+    downloadConditionFile: NotRequired[S3ObjectTypeDef]
+
+DeploymentLaunchConfigUnionTypeDef = Union[
+    DeploymentLaunchConfigTypeDef, DeploymentLaunchConfigOutputTypeDef
+]
+
+class DescribeFleetResponseTypeDef(TypedDict):
+    name: str
+    arn: str
+    robots: List[RobotTypeDef]
+    createdAt: datetime
+    lastDeploymentStatus: DeploymentStatusType
+    lastDeploymentJob: str
+    lastDeploymentTime: datetime
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListRobotsResponseTypeDef(TypedDict):
+    robots: List[RobotTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListSimulationJobsResponseTypeDef(TypedDict):
+    simulationJobSummaries: List[SimulationJobSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class FailureSummaryTypeDef(TypedDict):
+    totalFailureCount: NotRequired[int]
+    failures: NotRequired[List[WorldFailureTypeDef]]
+
+class ListDeploymentJobsRequestTypeDef(TypedDict):
+    filters: NotRequired[Sequence[FilterTypeDef]]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class ListFleetsRequestTypeDef(TypedDict):
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+    filters: NotRequired[Sequence[FilterTypeDef]]
+
+class ListRobotApplicationsRequestTypeDef(TypedDict):
+    versionQualifier: NotRequired[str]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+    filters: NotRequired[Sequence[FilterTypeDef]]
+
+class ListRobotsRequestTypeDef(TypedDict):
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+    filters: NotRequired[Sequence[FilterTypeDef]]
+
+class ListSimulationApplicationsRequestTypeDef(TypedDict):
+    versionQualifier: NotRequired[str]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+    filters: NotRequired[Sequence[FilterTypeDef]]
+
+class ListSimulationJobBatchesRequestTypeDef(TypedDict):
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+    filters: NotRequired[Sequence[FilterTypeDef]]
+
+class ListSimulationJobsRequestTypeDef(TypedDict):
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+    filters: NotRequired[Sequence[FilterTypeDef]]
+
+class ListWorldExportJobsRequestTypeDef(TypedDict):
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+    filters: NotRequired[Sequence[FilterTypeDef]]
+
+class ListWorldGenerationJobsRequestTypeDef(TypedDict):
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+    filters: NotRequired[Sequence[FilterTypeDef]]
+
+class ListWorldsRequestTypeDef(TypedDict):
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+    filters: NotRequired[Sequence[FilterTypeDef]]
+
+class ListFleetsResponseTypeDef(TypedDict):
+    fleetDetails: List[FleetTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListDeploymentJobsRequestPaginateTypeDef(TypedDict):
+    filters: NotRequired[Sequence[FilterTypeDef]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListFleetsRequestPaginateTypeDef(TypedDict):
+    filters: NotRequired[Sequence[FilterTypeDef]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListRobotApplicationsRequestPaginateTypeDef(TypedDict):
+    versionQualifier: NotRequired[str]
+    filters: NotRequired[Sequence[FilterTypeDef]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListRobotsRequestPaginateTypeDef(TypedDict):
+    filters: NotRequired[Sequence[FilterTypeDef]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListSimulationApplicationsRequestPaginateTypeDef(TypedDict):
+    versionQualifier: NotRequired[str]
+    filters: NotRequired[Sequence[FilterTypeDef]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListSimulationJobBatchesRequestPaginateTypeDef(TypedDict):
+    filters: NotRequired[Sequence[FilterTypeDef]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListSimulationJobsRequestPaginateTypeDef(TypedDict):
+    filters: NotRequired[Sequence[FilterTypeDef]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListWorldExportJobsRequestPaginateTypeDef(TypedDict):
+    filters: NotRequired[Sequence[FilterTypeDef]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListWorldGenerationJobsRequestPaginateTypeDef(TypedDict):
+    filters: NotRequired[Sequence[FilterTypeDef]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListWorldTemplatesRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListWorldsRequestPaginateTypeDef(TypedDict):
+    filters: NotRequired[Sequence[FilterTypeDef]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListSimulationJobBatchesResponseTypeDef(TypedDict):
+    simulationJobBatchSummaries: List[SimulationJobBatchSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListWorldTemplatesResponseTypeDef(TypedDict):
+    templateSummaries: List[TemplateSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListWorldsResponseTypeDef(TypedDict):
+    worldSummaries: List[WorldSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class PortForwardingConfigOutputTypeDef(TypedDict):
+    portMappings: NotRequired[List[PortMappingTypeDef]]
+
+class PortForwardingConfigTypeDef(TypedDict):
+    portMappings: NotRequired[Sequence[PortMappingTypeDef]]
+
+class RobotDeploymentTypeDef(TypedDict):
+    arn: NotRequired[str]
+    deploymentStartTime: NotRequired[datetime]
+    deploymentFinishTime: NotRequired[datetime]
+    status: NotRequired[RobotStatusType]
+    progressDetail: NotRequired[ProgressDetailTypeDef]
+    failureReason: NotRequired[str]
+    failureCode: NotRequired[DeploymentJobErrorCodeType]
+
+VPCConfigUnionTypeDef = Union[VPCConfigTypeDef, VPCConfigOutputTypeDef]
+
+class ListRobotApplicationsResponseTypeDef(TypedDict):
+    robotApplicationSummaries: List[RobotApplicationSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListSimulationApplicationsResponseTypeDef(TypedDict):
+    simulationApplicationSummaries: List[SimulationApplicationSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListWorldExportJobsResponseTypeDef(TypedDict):
+    worldExportJobSummaries: List[WorldExportJobSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListWorldGenerationJobsResponseTypeDef(TypedDict):
+    worldGenerationJobSummaries: List[WorldGenerationJobSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class CreateDeploymentJobResponseTypeDef(TypedDict):
+    arn: str
+    fleet: str
+    status: DeploymentStatusType
+    deploymentApplicationConfigs: List[DeploymentApplicationConfigOutputTypeDef]
+    failureReason: str
+    failureCode: DeploymentJobErrorCodeType
+    createdAt: datetime
+    deploymentConfig: DeploymentConfigTypeDef
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeploymentJobTypeDef(TypedDict):
+    arn: NotRequired[str]
+    fleet: NotRequired[str]
+    status: NotRequired[DeploymentStatusType]
+    deploymentApplicationConfigs: NotRequired[List[DeploymentApplicationConfigOutputTypeDef]]
+    deploymentConfig: NotRequired[DeploymentConfigTypeDef]
+    failureReason: NotRequired[str]
+    failureCode: NotRequired[DeploymentJobErrorCodeType]
+    createdAt: NotRequired[datetime]
+
+class SyncDeploymentJobResponseTypeDef(TypedDict):
+    arn: str
+    fleet: str
+    status: DeploymentStatusType
+    deploymentConfig: DeploymentConfigTypeDef
+    deploymentApplicationConfigs: List[DeploymentApplicationConfigOutputTypeDef]
+    failureReason: str
+    failureCode: DeploymentJobErrorCodeType
+    createdAt: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeploymentApplicationConfigTypeDef(TypedDict):
+    application: str
+    applicationVersion: str
+    launchConfig: DeploymentLaunchConfigUnionTypeDef
+
+class FinishedWorldsSummaryTypeDef(TypedDict):
+    finishedCount: NotRequired[int]
+    succeededWorlds: NotRequired[List[str]]
+    failureSummary: NotRequired[FailureSummaryTypeDef]
+
+class LaunchConfigOutputTypeDef(TypedDict):
+    packageName: NotRequired[str]
+    launchFile: NotRequired[str]
+    environmentVariables: NotRequired[Dict[str, str]]
+    portForwardingConfig: NotRequired[PortForwardingConfigOutputTypeDef]
+    streamUI: NotRequired[bool]
+    command: NotRequired[List[str]]
+
+PortForwardingConfigUnionTypeDef = Union[
+    PortForwardingConfigTypeDef, PortForwardingConfigOutputTypeDef
+]
+
+class DescribeDeploymentJobResponseTypeDef(TypedDict):
+    arn: str
+    fleet: str
+    status: DeploymentStatusType
+    deploymentConfig: DeploymentConfigTypeDef
+    deploymentApplicationConfigs: List[DeploymentApplicationConfigOutputTypeDef]
+    failureReason: str
+    failureCode: DeploymentJobErrorCodeType
+    createdAt: datetime
+    robotDeploymentSummary: List[RobotDeploymentTypeDef]
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListDeploymentJobsResponseTypeDef(TypedDict):
+    deploymentJobs: List[DeploymentJobTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+DeploymentApplicationConfigUnionTypeDef = Union[
+    DeploymentApplicationConfigTypeDef, DeploymentApplicationConfigOutputTypeDef
+]
+
+class DescribeWorldGenerationJobResponseTypeDef(TypedDict):
+    arn: str
+    status: WorldGenerationJobStatusType
+    createdAt: datetime
+    failureCode: WorldGenerationJobErrorCodeType
+    failureReason: str
+    clientRequestToken: str
+    template: str
+    worldCount: WorldCountTypeDef
+    finishedWorldsSummary: FinishedWorldsSummaryTypeDef
+    tags: Dict[str, str]
+    worldTags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class RobotApplicationConfigOutputTypeDef(TypedDict):
+    application: str
+    launchConfig: LaunchConfigOutputTypeDef
+    applicationVersion: NotRequired[str]
+    uploadConfigurations: NotRequired[List[UploadConfigurationTypeDef]]
+    useDefaultUploadConfigurations: NotRequired[bool]
+    tools: NotRequired[List[ToolTypeDef]]
+    useDefaultTools: NotRequired[bool]
+
+class SimulationApplicationConfigOutputTypeDef(TypedDict):
+    application: str
+    launchConfig: LaunchConfigOutputTypeDef
+    applicationVersion: NotRequired[str]
+    uploadConfigurations: NotRequired[List[UploadConfigurationTypeDef]]
+    worldConfigs: NotRequired[List[WorldConfigTypeDef]]
+    useDefaultUploadConfigurations: NotRequired[bool]
+    tools: NotRequired[List[ToolTypeDef]]
+    useDefaultTools: NotRequired[bool]
+
+class LaunchConfigTypeDef(TypedDict):
+    packageName: NotRequired[str]
+    launchFile: NotRequired[str]
+    environmentVariables: NotRequired[Mapping[str, str]]
+    portForwardingConfig: NotRequired[PortForwardingConfigUnionTypeDef]
+    streamUI: NotRequired[bool]
+    command: NotRequired[Sequence[str]]
+
+class CreateDeploymentJobRequestTypeDef(TypedDict):
+    clientRequestToken: str
+    fleet: str
+    deploymentApplicationConfigs: Sequence[DeploymentApplicationConfigUnionTypeDef]
+    deploymentConfig: NotRequired[DeploymentConfigTypeDef]
+    tags: NotRequired[Mapping[str, str]]
+
+class CreateSimulationJobResponseTypeDef(TypedDict):
+    arn: str
+    status: SimulationJobStatusType
+    lastStartedAt: datetime
+    lastUpdatedAt: datetime
+    failureBehavior: FailureBehaviorType
+    failureCode: SimulationJobErrorCodeType
+    clientRequestToken: str
+    outputLocation: OutputLocationTypeDef
+    loggingConfig: LoggingConfigTypeDef
+    maxJobDurationInSeconds: int
+    simulationTimeMillis: int
+    iamRole: str
+    robotApplications: List[RobotApplicationConfigOutputTypeDef]
+    simulationApplications: List[SimulationApplicationConfigOutputTypeDef]
+    dataSources: List[DataSourceTypeDef]
+    tags: Dict[str, str]
+    vpcConfig: VPCConfigResponseTypeDef
+    compute: ComputeResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeSimulationJobResponseTypeDef(TypedDict):
+    arn: str
+    name: str
+    status: SimulationJobStatusType
+    lastStartedAt: datetime
+    lastUpdatedAt: datetime
+    failureBehavior: FailureBehaviorType
+    failureCode: SimulationJobErrorCodeType
+    failureReason: str
+    clientRequestToken: str
+    outputLocation: OutputLocationTypeDef
+    loggingConfig: LoggingConfigTypeDef
+    maxJobDurationInSeconds: int
+    simulationTimeMillis: int
+    iamRole: str
+    robotApplications: List[RobotApplicationConfigOutputTypeDef]
+    simulationApplications: List[SimulationApplicationConfigOutputTypeDef]
+    dataSources: List[DataSourceTypeDef]
+    tags: Dict[str, str]
+    vpcConfig: VPCConfigResponseTypeDef
+    networkInterface: NetworkInterfaceTypeDef
+    compute: ComputeResponseTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class SimulationJobRequestOutputTypeDef(TypedDict):
+    maxJobDurationInSeconds: int
+    outputLocation: NotRequired[OutputLocationTypeDef]
+    loggingConfig: NotRequired[LoggingConfigTypeDef]
+    iamRole: NotRequired[str]
+    failureBehavior: NotRequired[FailureBehaviorType]
+    useDefaultApplications: NotRequired[bool]
+    robotApplications: NotRequired[List[RobotApplicationConfigOutputTypeDef]]
+    simulationApplications: NotRequired[List[SimulationApplicationConfigOutputTypeDef]]
+    dataSources: NotRequired[List[DataSourceConfigOutputTypeDef]]
+    vpcConfig: NotRequired[VPCConfigOutputTypeDef]
+    compute: NotRequired[ComputeTypeDef]
+    tags: NotRequired[Dict[str, str]]
+
+class SimulationJobTypeDef(TypedDict):
+    arn: NotRequired[str]
+    name: NotRequired[str]
+    status: NotRequired[SimulationJobStatusType]
+    lastStartedAt: NotRequired[datetime]
+    lastUpdatedAt: NotRequired[datetime]
+    failureBehavior: NotRequired[FailureBehaviorType]
+    failureCode: NotRequired[SimulationJobErrorCodeType]
+    failureReason: NotRequired[str]
+    clientRequestToken: NotRequired[str]
+    outputLocation: NotRequired[OutputLocationTypeDef]
+    loggingConfig: NotRequired[LoggingConfigTypeDef]
+    maxJobDurationInSeconds: NotRequired[int]
+    simulationTimeMillis: NotRequired[int]
+    iamRole: NotRequired[str]
+    robotApplications: NotRequired[List[RobotApplicationConfigOutputTypeDef]]
+    simulationApplications: NotRequired[List[SimulationApplicationConfigOutputTypeDef]]
+    dataSources: NotRequired[List[DataSourceTypeDef]]
+    tags: NotRequired[Dict[str, str]]
+    vpcConfig: NotRequired[VPCConfigResponseTypeDef]
+    networkInterface: NotRequired[NetworkInterfaceTypeDef]
+    compute: NotRequired[ComputeResponseTypeDef]
+
+LaunchConfigUnionTypeDef = Union[LaunchConfigTypeDef, LaunchConfigOutputTypeDef]
+
+class FailedCreateSimulationJobRequestTypeDef(TypedDict):
+    request: NotRequired[SimulationJobRequestOutputTypeDef]
+    failureReason: NotRequired[str]
+    failureCode: NotRequired[SimulationJobErrorCodeType]
+    failedAt: NotRequired[datetime]
+
+class BatchDescribeSimulationJobResponseTypeDef(TypedDict):
+    jobs: List[SimulationJobTypeDef]
+    unprocessedJobs: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class RobotApplicationConfigTypeDef(TypedDict):
+    application: str
+    launchConfig: LaunchConfigUnionTypeDef
+    applicationVersion: NotRequired[str]
+    uploadConfigurations: NotRequired[Sequence[UploadConfigurationTypeDef]]
+    useDefaultUploadConfigurations: NotRequired[bool]
+    tools: NotRequired[Sequence[ToolTypeDef]]
+    useDefaultTools: NotRequired[bool]
+
+class SimulationApplicationConfigTypeDef(TypedDict):
+    application: str
+    launchConfig: LaunchConfigUnionTypeDef
+    applicationVersion: NotRequired[str]
+    uploadConfigurations: NotRequired[Sequence[UploadConfigurationTypeDef]]
+    worldConfigs: NotRequired[Sequence[WorldConfigTypeDef]]
+    useDefaultUploadConfigurations: NotRequired[bool]
+    tools: NotRequired[Sequence[ToolTypeDef]]
+    useDefaultTools: NotRequired[bool]
+
+class DescribeSimulationJobBatchResponseTypeDef(TypedDict):
+    arn: str
+    status: SimulationJobBatchStatusType
+    lastUpdatedAt: datetime
+    createdAt: datetime
+    clientRequestToken: str
+    batchPolicy: BatchPolicyTypeDef
+    failureCode: Literal["InternalServiceError"]
+    failureReason: str
+    failedRequests: List[FailedCreateSimulationJobRequestTypeDef]
+    pendingRequests: List[SimulationJobRequestOutputTypeDef]
+    createdRequests: List[SimulationJobSummaryTypeDef]
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartSimulationJobBatchResponseTypeDef(TypedDict):
+    arn: str
+    status: SimulationJobBatchStatusType
+    createdAt: datetime
+    clientRequestToken: str
+    batchPolicy: BatchPolicyTypeDef
+    failureCode: Literal["InternalServiceError"]
+    failureReason: str
+    failedRequests: List[FailedCreateSimulationJobRequestTypeDef]
+    pendingRequests: List[SimulationJobRequestOutputTypeDef]
+    createdRequests: List[SimulationJobSummaryTypeDef]
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+RobotApplicationConfigUnionTypeDef = Union[
+    RobotApplicationConfigTypeDef, RobotApplicationConfigOutputTypeDef
+]
+SimulationApplicationConfigUnionTypeDef = Union[
+    SimulationApplicationConfigTypeDef, SimulationApplicationConfigOutputTypeDef
+]
+
+class CreateSimulationJobRequestTypeDef(TypedDict):
+    maxJobDurationInSeconds: int
+    iamRole: str
+    clientRequestToken: NotRequired[str]
+    outputLocation: NotRequired[OutputLocationTypeDef]
+    loggingConfig: NotRequired[LoggingConfigTypeDef]
+    failureBehavior: NotRequired[FailureBehaviorType]
+    robotApplications: NotRequired[Sequence[RobotApplicationConfigUnionTypeDef]]
+    simulationApplications: NotRequired[Sequence[SimulationApplicationConfigUnionTypeDef]]
+    dataSources: NotRequired[Sequence[DataSourceConfigUnionTypeDef]]
+    tags: NotRequired[Mapping[str, str]]
+    vpcConfig: NotRequired[VPCConfigUnionTypeDef]
+    compute: NotRequired[ComputeTypeDef]
+
+class SimulationJobRequestTypeDef(TypedDict):
+    maxJobDurationInSeconds: int
+    outputLocation: NotRequired[OutputLocationTypeDef]
+    loggingConfig: NotRequired[LoggingConfigTypeDef]
+    iamRole: NotRequired[str]
+    failureBehavior: NotRequired[FailureBehaviorType]
+    useDefaultApplications: NotRequired[bool]
+    robotApplications: NotRequired[Sequence[RobotApplicationConfigUnionTypeDef]]
+    simulationApplications: NotRequired[Sequence[SimulationApplicationConfigUnionTypeDef]]
+    dataSources: NotRequired[Sequence[DataSourceConfigUnionTypeDef]]
+    vpcConfig: NotRequired[VPCConfigUnionTypeDef]
+    compute: NotRequired[ComputeTypeDef]
+    tags: NotRequired[Mapping[str, str]]
+
+SimulationJobRequestUnionTypeDef = Union[
+    SimulationJobRequestTypeDef, SimulationJobRequestOutputTypeDef
+]
+
+class StartSimulationJobBatchRequestTypeDef(TypedDict):
+    createSimulationJobRequests: Sequence[SimulationJobRequestUnionTypeDef]
+    clientRequestToken: NotRequired[str]
+    batchPolicy: NotRequired[BatchPolicyTypeDef]
+    tags: NotRequired[Mapping[str, str]]

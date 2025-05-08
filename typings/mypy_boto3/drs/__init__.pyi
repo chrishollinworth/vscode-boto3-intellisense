@@ -1,10 +1,14 @@
 """
 Main interface for drs service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_drs/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_drs import (
         Client,
         DescribeJobLogItemsPaginator,
@@ -15,16 +19,14 @@ Usage::
         DescribeReplicationConfigurationTemplatesPaginator,
         DescribeSourceNetworksPaginator,
         DescribeSourceServersPaginator,
+        DrsClient,
         ListExtensibleSourceServersPaginator,
         ListLaunchActionsPaginator,
         ListStagingAccountsPaginator,
-        drsClient,
     )
 
-    session = boto3.Session()
-
-    client: drsClient = boto3.client("drs")
-    session_client: drsClient = session.client("drs")
+    session = Session()
+    client: DrsClient = session.client("drs")
 
     describe_job_log_items_paginator: DescribeJobLogItemsPaginator = client.get_paginator("describe_job_log_items")
     describe_jobs_paginator: DescribeJobsPaginator = client.get_paginator("describe_jobs")
@@ -40,7 +42,7 @@ Usage::
     ```
 """
 
-from .client import drsClient
+from .client import DrsClient
 from .paginator import (
     DescribeJobLogItemsPaginator,
     DescribeJobsPaginator,
@@ -55,7 +57,7 @@ from .paginator import (
     ListStagingAccountsPaginator,
 )
 
-Client = drsClient
+Client = DrsClient
 
 __all__ = (
     "Client",
@@ -67,8 +69,8 @@ __all__ = (
     "DescribeReplicationConfigurationTemplatesPaginator",
     "DescribeSourceNetworksPaginator",
     "DescribeSourceServersPaginator",
+    "DrsClient",
     "ListExtensibleSourceServersPaginator",
     "ListLaunchActionsPaginator",
     "ListStagingAccountsPaginator",
-    "drsClient",
 )

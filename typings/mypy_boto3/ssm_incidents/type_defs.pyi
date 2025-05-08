@@ -1,20 +1,24 @@
 """
 Type annotations for ssm-incidents service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ssm_incidents/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_ssm_incidents.type_defs import ActionTypeDef
+    from mypy_boto3_ssm_incidents.type_defs import AddRegionActionTypeDef
 
-    data: ActionTypeDef = {...}
+    data: AddRegionActionTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List, Union
+from typing import Any, Union
 
 from .literals import (
     IncidentRecordStatusType,
@@ -26,39 +30,45 @@ from .literals import (
     VariableTypeType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
+    "ActionOutputTypeDef",
     "ActionTypeDef",
+    "ActionUnionTypeDef",
     "AddRegionActionTypeDef",
     "AttributeValueListTypeDef",
     "AutomationExecutionTypeDef",
     "BatchGetIncidentFindingsErrorTypeDef",
-    "BatchGetIncidentFindingsInputRequestTypeDef",
+    "BatchGetIncidentFindingsInputTypeDef",
     "BatchGetIncidentFindingsOutputTypeDef",
+    "ChatChannelOutputTypeDef",
     "ChatChannelTypeDef",
+    "ChatChannelUnionTypeDef",
     "CloudFormationStackUpdateTypeDef",
     "CodeDeployDeploymentTypeDef",
     "ConditionTypeDef",
-    "CreateReplicationSetInputRequestTypeDef",
+    "CreateReplicationSetInputTypeDef",
     "CreateReplicationSetOutputTypeDef",
-    "CreateResponsePlanInputRequestTypeDef",
+    "CreateResponsePlanInputTypeDef",
     "CreateResponsePlanOutputTypeDef",
-    "CreateTimelineEventInputRequestTypeDef",
+    "CreateTimelineEventInputTypeDef",
     "CreateTimelineEventOutputTypeDef",
-    "DeleteIncidentRecordInputRequestTypeDef",
+    "DeleteIncidentRecordInputTypeDef",
     "DeleteRegionActionTypeDef",
-    "DeleteReplicationSetInputRequestTypeDef",
-    "DeleteResourcePolicyInputRequestTypeDef",
-    "DeleteResponsePlanInputRequestTypeDef",
-    "DeleteTimelineEventInputRequestTypeDef",
+    "DeleteReplicationSetInputTypeDef",
+    "DeleteResourcePolicyInputTypeDef",
+    "DeleteResponsePlanInputTypeDef",
+    "DeleteTimelineEventInputTypeDef",
     "DynamicSsmParameterValueTypeDef",
     "EventReferenceTypeDef",
     "EventSummaryTypeDef",
@@ -66,43 +76,54 @@ __all__ = (
     "FindingDetailsTypeDef",
     "FindingSummaryTypeDef",
     "FindingTypeDef",
-    "GetIncidentRecordInputRequestTypeDef",
+    "GetIncidentRecordInputTypeDef",
     "GetIncidentRecordOutputTypeDef",
-    "GetReplicationSetInputRequestTypeDef",
+    "GetReplicationSetInputTypeDef",
+    "GetReplicationSetInputWaitExtraTypeDef",
+    "GetReplicationSetInputWaitTypeDef",
     "GetReplicationSetOutputTypeDef",
-    "GetResourcePoliciesInputRequestTypeDef",
+    "GetResourcePoliciesInputPaginateTypeDef",
+    "GetResourcePoliciesInputTypeDef",
     "GetResourcePoliciesOutputTypeDef",
-    "GetResponsePlanInputRequestTypeDef",
+    "GetResponsePlanInputTypeDef",
     "GetResponsePlanOutputTypeDef",
-    "GetTimelineEventInputRequestTypeDef",
+    "GetTimelineEventInputTypeDef",
     "GetTimelineEventOutputTypeDef",
     "IncidentRecordSourceTypeDef",
     "IncidentRecordSummaryTypeDef",
     "IncidentRecordTypeDef",
+    "IncidentTemplateOutputTypeDef",
     "IncidentTemplateTypeDef",
+    "IncidentTemplateUnionTypeDef",
     "IntegrationTypeDef",
     "ItemIdentifierTypeDef",
     "ItemValueTypeDef",
-    "ListIncidentFindingsInputRequestTypeDef",
+    "ListIncidentFindingsInputPaginateTypeDef",
+    "ListIncidentFindingsInputTypeDef",
     "ListIncidentFindingsOutputTypeDef",
-    "ListIncidentRecordsInputRequestTypeDef",
+    "ListIncidentRecordsInputPaginateTypeDef",
+    "ListIncidentRecordsInputTypeDef",
     "ListIncidentRecordsOutputTypeDef",
-    "ListRelatedItemsInputRequestTypeDef",
+    "ListRelatedItemsInputPaginateTypeDef",
+    "ListRelatedItemsInputTypeDef",
     "ListRelatedItemsOutputTypeDef",
-    "ListReplicationSetsInputRequestTypeDef",
+    "ListReplicationSetsInputPaginateTypeDef",
+    "ListReplicationSetsInputTypeDef",
     "ListReplicationSetsOutputTypeDef",
-    "ListResponsePlansInputRequestTypeDef",
+    "ListResponsePlansInputPaginateTypeDef",
+    "ListResponsePlansInputTypeDef",
     "ListResponsePlansOutputTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
-    "ListTimelineEventsInputRequestTypeDef",
+    "ListTimelineEventsInputPaginateTypeDef",
+    "ListTimelineEventsInputTypeDef",
     "ListTimelineEventsOutputTypeDef",
     "NotificationTargetItemTypeDef",
     "PagerDutyConfigurationTypeDef",
     "PagerDutyIncidentConfigurationTypeDef",
     "PagerDutyIncidentDetailTypeDef",
     "PaginatorConfigTypeDef",
-    "PutResourcePolicyInputRequestTypeDef",
+    "PutResourcePolicyInputTypeDef",
     "PutResourcePolicyOutputTypeDef",
     "RegionInfoTypeDef",
     "RegionMapInputValueTypeDef",
@@ -112,344 +133,103 @@ __all__ = (
     "ResourcePolicyTypeDef",
     "ResponseMetadataTypeDef",
     "ResponsePlanSummaryTypeDef",
+    "SsmAutomationOutputTypeDef",
     "SsmAutomationTypeDef",
-    "StartIncidentInputRequestTypeDef",
+    "SsmAutomationUnionTypeDef",
+    "StartIncidentInputTypeDef",
     "StartIncidentOutputTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
     "TimelineEventTypeDef",
+    "TimestampTypeDef",
     "TriggerDetailsTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateDeletionProtectionInputRequestTypeDef",
-    "UpdateIncidentRecordInputRequestTypeDef",
-    "UpdateRelatedItemsInputRequestTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateDeletionProtectionInputTypeDef",
+    "UpdateIncidentRecordInputTypeDef",
+    "UpdateRelatedItemsInputTypeDef",
     "UpdateReplicationSetActionTypeDef",
-    "UpdateReplicationSetInputRequestTypeDef",
-    "UpdateResponsePlanInputRequestTypeDef",
-    "UpdateTimelineEventInputRequestTypeDef",
+    "UpdateReplicationSetInputTypeDef",
+    "UpdateResponsePlanInputTypeDef",
+    "UpdateTimelineEventInputTypeDef",
     "WaiterConfigTypeDef",
 )
 
-ActionTypeDef = TypedDict(
-    "ActionTypeDef",
-    {
-        "ssmAutomation": "SsmAutomationTypeDef",
-    },
-    total=False,
-)
+class AddRegionActionTypeDef(TypedDict):
+    regionName: str
+    sseKmsKeyId: NotRequired[str]
 
-_RequiredAddRegionActionTypeDef = TypedDict(
-    "_RequiredAddRegionActionTypeDef",
-    {
-        "regionName": str,
-    },
-)
-_OptionalAddRegionActionTypeDef = TypedDict(
-    "_OptionalAddRegionActionTypeDef",
-    {
-        "sseKmsKeyId": str,
-    },
-    total=False,
-)
+class AttributeValueListTypeDef(TypedDict):
+    integerValues: NotRequired[Sequence[int]]
+    stringValues: NotRequired[Sequence[str]]
 
-class AddRegionActionTypeDef(_RequiredAddRegionActionTypeDef, _OptionalAddRegionActionTypeDef):
-    pass
+class AutomationExecutionTypeDef(TypedDict):
+    ssmExecutionArn: NotRequired[str]
 
-AttributeValueListTypeDef = TypedDict(
-    "AttributeValueListTypeDef",
-    {
-        "integerValues": List[int],
-        "stringValues": List[str],
-    },
-    total=False,
-)
+class BatchGetIncidentFindingsErrorTypeDef(TypedDict):
+    code: str
+    findingId: str
+    message: str
 
-AutomationExecutionTypeDef = TypedDict(
-    "AutomationExecutionTypeDef",
-    {
-        "ssmExecutionArn": str,
-    },
-    total=False,
-)
+class BatchGetIncidentFindingsInputTypeDef(TypedDict):
+    findingIds: Sequence[str]
+    incidentRecordArn: str
 
-BatchGetIncidentFindingsErrorTypeDef = TypedDict(
-    "BatchGetIncidentFindingsErrorTypeDef",
-    {
-        "code": str,
-        "findingId": str,
-        "message": str,
-    },
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-BatchGetIncidentFindingsInputRequestTypeDef = TypedDict(
-    "BatchGetIncidentFindingsInputRequestTypeDef",
-    {
-        "findingIds": List[str],
-        "incidentRecordArn": str,
-    },
-)
+class ChatChannelOutputTypeDef(TypedDict):
+    chatbotSns: NotRequired[List[str]]
+    empty: NotRequired[Dict[str, Any]]
 
-BatchGetIncidentFindingsOutputTypeDef = TypedDict(
-    "BatchGetIncidentFindingsOutputTypeDef",
-    {
-        "errors": List["BatchGetIncidentFindingsErrorTypeDef"],
-        "findings": List["FindingTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ChatChannelTypeDef(TypedDict):
+    chatbotSns: NotRequired[Sequence[str]]
+    empty: NotRequired[Mapping[str, Any]]
 
-ChatChannelTypeDef = TypedDict(
-    "ChatChannelTypeDef",
-    {
-        "chatbotSns": List[str],
-        "empty": Dict[str, Any],
-    },
-    total=False,
-)
+class CloudFormationStackUpdateTypeDef(TypedDict):
+    stackArn: str
+    startTime: datetime
+    endTime: NotRequired[datetime]
 
-_RequiredCloudFormationStackUpdateTypeDef = TypedDict(
-    "_RequiredCloudFormationStackUpdateTypeDef",
-    {
-        "stackArn": str,
-        "startTime": datetime,
-    },
-)
-_OptionalCloudFormationStackUpdateTypeDef = TypedDict(
-    "_OptionalCloudFormationStackUpdateTypeDef",
-    {
-        "endTime": datetime,
-    },
-    total=False,
-)
+class CodeDeployDeploymentTypeDef(TypedDict):
+    deploymentGroupArn: str
+    deploymentId: str
+    startTime: datetime
+    endTime: NotRequired[datetime]
 
-class CloudFormationStackUpdateTypeDef(
-    _RequiredCloudFormationStackUpdateTypeDef, _OptionalCloudFormationStackUpdateTypeDef
-):
-    pass
+TimestampTypeDef = Union[datetime, str]
 
-_RequiredCodeDeployDeploymentTypeDef = TypedDict(
-    "_RequiredCodeDeployDeploymentTypeDef",
-    {
-        "deploymentGroupArn": str,
-        "deploymentId": str,
-        "startTime": datetime,
-    },
-)
-_OptionalCodeDeployDeploymentTypeDef = TypedDict(
-    "_OptionalCodeDeployDeploymentTypeDef",
-    {
-        "endTime": datetime,
-    },
-    total=False,
-)
+class RegionMapInputValueTypeDef(TypedDict):
+    sseKmsKeyId: NotRequired[str]
 
-class CodeDeployDeploymentTypeDef(
-    _RequiredCodeDeployDeploymentTypeDef, _OptionalCodeDeployDeploymentTypeDef
-):
-    pass
+class EventReferenceTypeDef(TypedDict):
+    relatedItemId: NotRequired[str]
+    resource: NotRequired[str]
 
-ConditionTypeDef = TypedDict(
-    "ConditionTypeDef",
-    {
-        "after": Union[datetime, str],
-        "before": Union[datetime, str],
-        "equals": "AttributeValueListTypeDef",
-    },
-    total=False,
-)
+class DeleteIncidentRecordInputTypeDef(TypedDict):
+    arn: str
 
-_RequiredCreateReplicationSetInputRequestTypeDef = TypedDict(
-    "_RequiredCreateReplicationSetInputRequestTypeDef",
-    {
-        "regions": Dict[str, "RegionMapInputValueTypeDef"],
-    },
-)
-_OptionalCreateReplicationSetInputRequestTypeDef = TypedDict(
-    "_OptionalCreateReplicationSetInputRequestTypeDef",
-    {
-        "clientToken": str,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
+class DeleteRegionActionTypeDef(TypedDict):
+    regionName: str
 
-class CreateReplicationSetInputRequestTypeDef(
-    _RequiredCreateReplicationSetInputRequestTypeDef,
-    _OptionalCreateReplicationSetInputRequestTypeDef,
-):
-    pass
+class DeleteReplicationSetInputTypeDef(TypedDict):
+    arn: str
 
-CreateReplicationSetOutputTypeDef = TypedDict(
-    "CreateReplicationSetOutputTypeDef",
-    {
-        "arn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DeleteResourcePolicyInputTypeDef(TypedDict):
+    policyId: str
+    resourceArn: str
 
-_RequiredCreateResponsePlanInputRequestTypeDef = TypedDict(
-    "_RequiredCreateResponsePlanInputRequestTypeDef",
-    {
-        "incidentTemplate": "IncidentTemplateTypeDef",
-        "name": str,
-    },
-)
-_OptionalCreateResponsePlanInputRequestTypeDef = TypedDict(
-    "_OptionalCreateResponsePlanInputRequestTypeDef",
-    {
-        "actions": List["ActionTypeDef"],
-        "chatChannel": "ChatChannelTypeDef",
-        "clientToken": str,
-        "displayName": str,
-        "engagements": List[str],
-        "integrations": List["IntegrationTypeDef"],
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
+class DeleteResponsePlanInputTypeDef(TypedDict):
+    arn: str
 
-class CreateResponsePlanInputRequestTypeDef(
-    _RequiredCreateResponsePlanInputRequestTypeDef, _OptionalCreateResponsePlanInputRequestTypeDef
-):
-    pass
+class DeleteTimelineEventInputTypeDef(TypedDict):
+    eventId: str
+    incidentRecordArn: str
 
-CreateResponsePlanOutputTypeDef = TypedDict(
-    "CreateResponsePlanOutputTypeDef",
-    {
-        "arn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateTimelineEventInputRequestTypeDef = TypedDict(
-    "_RequiredCreateTimelineEventInputRequestTypeDef",
-    {
-        "eventData": str,
-        "eventTime": Union[datetime, str],
-        "eventType": str,
-        "incidentRecordArn": str,
-    },
-)
-_OptionalCreateTimelineEventInputRequestTypeDef = TypedDict(
-    "_OptionalCreateTimelineEventInputRequestTypeDef",
-    {
-        "clientToken": str,
-        "eventReferences": List["EventReferenceTypeDef"],
-    },
-    total=False,
-)
-
-class CreateTimelineEventInputRequestTypeDef(
-    _RequiredCreateTimelineEventInputRequestTypeDef, _OptionalCreateTimelineEventInputRequestTypeDef
-):
-    pass
-
-CreateTimelineEventOutputTypeDef = TypedDict(
-    "CreateTimelineEventOutputTypeDef",
-    {
-        "eventId": str,
-        "incidentRecordArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteIncidentRecordInputRequestTypeDef = TypedDict(
-    "DeleteIncidentRecordInputRequestTypeDef",
-    {
-        "arn": str,
-    },
-)
-
-DeleteRegionActionTypeDef = TypedDict(
-    "DeleteRegionActionTypeDef",
-    {
-        "regionName": str,
-    },
-)
-
-DeleteReplicationSetInputRequestTypeDef = TypedDict(
-    "DeleteReplicationSetInputRequestTypeDef",
-    {
-        "arn": str,
-    },
-)
-
-DeleteResourcePolicyInputRequestTypeDef = TypedDict(
-    "DeleteResourcePolicyInputRequestTypeDef",
-    {
-        "policyId": str,
-        "resourceArn": str,
-    },
-)
-
-DeleteResponsePlanInputRequestTypeDef = TypedDict(
-    "DeleteResponsePlanInputRequestTypeDef",
-    {
-        "arn": str,
-    },
-)
-
-DeleteTimelineEventInputRequestTypeDef = TypedDict(
-    "DeleteTimelineEventInputRequestTypeDef",
-    {
-        "eventId": str,
-        "incidentRecordArn": str,
-    },
-)
-
-DynamicSsmParameterValueTypeDef = TypedDict(
-    "DynamicSsmParameterValueTypeDef",
-    {
-        "variable": VariableTypeType,
-    },
-    total=False,
-)
-
-EventReferenceTypeDef = TypedDict(
-    "EventReferenceTypeDef",
-    {
-        "relatedItemId": str,
-        "resource": str,
-    },
-    total=False,
-)
-
-_RequiredEventSummaryTypeDef = TypedDict(
-    "_RequiredEventSummaryTypeDef",
-    {
-        "eventId": str,
-        "eventTime": datetime,
-        "eventType": str,
-        "eventUpdatedTime": datetime,
-        "incidentRecordArn": str,
-    },
-)
-_OptionalEventSummaryTypeDef = TypedDict(
-    "_OptionalEventSummaryTypeDef",
-    {
-        "eventReferences": List["EventReferenceTypeDef"],
-    },
-    total=False,
-)
-
-class EventSummaryTypeDef(_RequiredEventSummaryTypeDef, _OptionalEventSummaryTypeDef):
-    pass
-
-FilterTypeDef = TypedDict(
-    "FilterTypeDef",
-    {
-        "condition": "ConditionTypeDef",
-        "key": str,
-    },
-)
-
-FindingDetailsTypeDef = TypedDict(
-    "FindingDetailsTypeDef",
-    {
-        "cloudFormationStackUpdate": "CloudFormationStackUpdateTypeDef",
-        "codeDeployDeployment": "CodeDeployDeploymentTypeDef",
-    },
-    total=False,
-)
+class DynamicSsmParameterValueTypeDef(TypedDict):
+    variable: NotRequired[VariableTypeType]
 
 FindingSummaryTypeDef = TypedDict(
     "FindingSummaryTypeDef",
@@ -459,857 +239,479 @@ FindingSummaryTypeDef = TypedDict(
     },
 )
 
-_RequiredFindingTypeDef = TypedDict(
-    "_RequiredFindingTypeDef",
+class GetIncidentRecordInputTypeDef(TypedDict):
+    arn: str
+
+class GetReplicationSetInputTypeDef(TypedDict):
+    arn: str
+
+class WaiterConfigTypeDef(TypedDict):
+    Delay: NotRequired[int]
+    MaxAttempts: NotRequired[int]
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class GetResourcePoliciesInputTypeDef(TypedDict):
+    resourceArn: str
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ResourcePolicyTypeDef(TypedDict):
+    policyDocument: str
+    policyId: str
+    ramResourceShareRegion: str
+
+class GetResponsePlanInputTypeDef(TypedDict):
+    arn: str
+
+class GetTimelineEventInputTypeDef(TypedDict):
+    eventId: str
+    incidentRecordArn: str
+
+class IncidentRecordSourceTypeDef(TypedDict):
+    createdBy: str
+    source: str
+    invokedBy: NotRequired[str]
+    resourceArn: NotRequired[str]
+
+class NotificationTargetItemTypeDef(TypedDict):
+    snsTopicArn: NotRequired[str]
+
+PagerDutyIncidentDetailTypeDef = TypedDict(
+    "PagerDutyIncidentDetailTypeDef",
+    {
+        "id": str,
+        "autoResolve": NotRequired[bool],
+        "secretId": NotRequired[str],
+    },
+)
+
+class ListIncidentFindingsInputTypeDef(TypedDict):
+    incidentRecordArn: str
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListRelatedItemsInputTypeDef(TypedDict):
+    incidentRecordArn: str
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListReplicationSetsInputTypeDef(TypedDict):
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ListResponsePlansInputTypeDef(TypedDict):
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+class ResponsePlanSummaryTypeDef(TypedDict):
+    arn: str
+    name: str
+    displayName: NotRequired[str]
+
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+
+class PagerDutyIncidentConfigurationTypeDef(TypedDict):
+    serviceId: str
+
+class PutResourcePolicyInputTypeDef(TypedDict):
+    policy: str
+    resourceArn: str
+
+class RegionInfoTypeDef(TypedDict):
+    status: RegionStatusType
+    statusUpdateDateTime: datetime
+    sseKmsKeyId: NotRequired[str]
+    statusMessage: NotRequired[str]
+
+class TagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tags: Mapping[str, str]
+
+class UntagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tagKeys: Sequence[str]
+
+class UpdateDeletionProtectionInputTypeDef(TypedDict):
+    arn: str
+    deletionProtected: bool
+    clientToken: NotRequired[str]
+
+class CreateReplicationSetOutputTypeDef(TypedDict):
+    arn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateResponsePlanOutputTypeDef(TypedDict):
+    arn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateTimelineEventOutputTypeDef(TypedDict):
+    eventId: str
+    incidentRecordArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListReplicationSetsOutputTypeDef(TypedDict):
+    replicationSetArns: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutResourcePolicyOutputTypeDef(TypedDict):
+    policyId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartIncidentOutputTypeDef(TypedDict):
+    incidentRecordArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+ChatChannelUnionTypeDef = Union[ChatChannelTypeDef, ChatChannelOutputTypeDef]
+
+class FindingDetailsTypeDef(TypedDict):
+    cloudFormationStackUpdate: NotRequired[CloudFormationStackUpdateTypeDef]
+    codeDeployDeployment: NotRequired[CodeDeployDeploymentTypeDef]
+
+class ConditionTypeDef(TypedDict):
+    after: NotRequired[TimestampTypeDef]
+    before: NotRequired[TimestampTypeDef]
+    equals: NotRequired[AttributeValueListTypeDef]
+
+class TriggerDetailsTypeDef(TypedDict):
+    source: str
+    timestamp: TimestampTypeDef
+    rawData: NotRequired[str]
+    triggerArn: NotRequired[str]
+
+class CreateReplicationSetInputTypeDef(TypedDict):
+    regions: Mapping[str, RegionMapInputValueTypeDef]
+    clientToken: NotRequired[str]
+    tags: NotRequired[Mapping[str, str]]
+
+class CreateTimelineEventInputTypeDef(TypedDict):
+    eventData: str
+    eventTime: TimestampTypeDef
+    eventType: str
+    incidentRecordArn: str
+    clientToken: NotRequired[str]
+    eventReferences: NotRequired[Sequence[EventReferenceTypeDef]]
+
+class EventSummaryTypeDef(TypedDict):
+    eventId: str
+    eventTime: datetime
+    eventType: str
+    eventUpdatedTime: datetime
+    incidentRecordArn: str
+    eventReferences: NotRequired[List[EventReferenceTypeDef]]
+
+class TimelineEventTypeDef(TypedDict):
+    eventData: str
+    eventId: str
+    eventTime: datetime
+    eventType: str
+    eventUpdatedTime: datetime
+    incidentRecordArn: str
+    eventReferences: NotRequired[List[EventReferenceTypeDef]]
+
+class UpdateTimelineEventInputTypeDef(TypedDict):
+    eventId: str
+    incidentRecordArn: str
+    clientToken: NotRequired[str]
+    eventData: NotRequired[str]
+    eventReferences: NotRequired[Sequence[EventReferenceTypeDef]]
+    eventTime: NotRequired[TimestampTypeDef]
+    eventType: NotRequired[str]
+
+class UpdateReplicationSetActionTypeDef(TypedDict):
+    addRegionAction: NotRequired[AddRegionActionTypeDef]
+    deleteRegionAction: NotRequired[DeleteRegionActionTypeDef]
+
+class SsmAutomationOutputTypeDef(TypedDict):
+    documentName: str
+    roleArn: str
+    documentVersion: NotRequired[str]
+    dynamicParameters: NotRequired[Dict[str, DynamicSsmParameterValueTypeDef]]
+    parameters: NotRequired[Dict[str, List[str]]]
+    targetAccount: NotRequired[SsmTargetAccountType]
+
+class SsmAutomationTypeDef(TypedDict):
+    documentName: str
+    roleArn: str
+    documentVersion: NotRequired[str]
+    dynamicParameters: NotRequired[Mapping[str, DynamicSsmParameterValueTypeDef]]
+    parameters: NotRequired[Mapping[str, Sequence[str]]]
+    targetAccount: NotRequired[SsmTargetAccountType]
+
+class ListIncidentFindingsOutputTypeDef(TypedDict):
+    findings: List[FindingSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class GetReplicationSetInputWaitExtraTypeDef(TypedDict):
+    arn: str
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class GetReplicationSetInputWaitTypeDef(TypedDict):
+    arn: str
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class GetResourcePoliciesInputPaginateTypeDef(TypedDict):
+    resourceArn: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListIncidentFindingsInputPaginateTypeDef(TypedDict):
+    incidentRecordArn: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListRelatedItemsInputPaginateTypeDef(TypedDict):
+    incidentRecordArn: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListReplicationSetsInputPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListResponsePlansInputPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class GetResourcePoliciesOutputTypeDef(TypedDict):
+    resourcePolicies: List[ResourcePolicyTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class IncidentRecordSummaryTypeDef(TypedDict):
+    arn: str
+    creationTime: datetime
+    impact: int
+    incidentRecordSource: IncidentRecordSourceTypeDef
+    status: IncidentRecordStatusType
+    title: str
+    resolvedTime: NotRequired[datetime]
+
+class IncidentRecordTypeDef(TypedDict):
+    arn: str
+    creationTime: datetime
+    dedupeString: str
+    impact: int
+    incidentRecordSource: IncidentRecordSourceTypeDef
+    lastModifiedBy: str
+    lastModifiedTime: datetime
+    status: IncidentRecordStatusType
+    title: str
+    automationExecutions: NotRequired[List[AutomationExecutionTypeDef]]
+    chatChannel: NotRequired[ChatChannelOutputTypeDef]
+    notificationTargets: NotRequired[List[NotificationTargetItemTypeDef]]
+    resolvedTime: NotRequired[datetime]
+    summary: NotRequired[str]
+
+class IncidentTemplateOutputTypeDef(TypedDict):
+    impact: int
+    title: str
+    dedupeString: NotRequired[str]
+    incidentTags: NotRequired[Dict[str, str]]
+    notificationTargets: NotRequired[List[NotificationTargetItemTypeDef]]
+    summary: NotRequired[str]
+
+class IncidentTemplateTypeDef(TypedDict):
+    impact: int
+    title: str
+    dedupeString: NotRequired[str]
+    incidentTags: NotRequired[Mapping[str, str]]
+    notificationTargets: NotRequired[Sequence[NotificationTargetItemTypeDef]]
+    summary: NotRequired[str]
+
+class ItemValueTypeDef(TypedDict):
+    arn: NotRequired[str]
+    metricDefinition: NotRequired[str]
+    pagerDutyIncidentDetail: NotRequired[PagerDutyIncidentDetailTypeDef]
+    url: NotRequired[str]
+
+class ListResponsePlansOutputTypeDef(TypedDict):
+    responsePlanSummaries: List[ResponsePlanSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class PagerDutyConfigurationTypeDef(TypedDict):
+    name: str
+    pagerDutyIncidentConfiguration: PagerDutyIncidentConfigurationTypeDef
+    secretId: str
+
+class ReplicationSetTypeDef(TypedDict):
+    createdBy: str
+    createdTime: datetime
+    deletionProtected: bool
+    lastModifiedBy: str
+    lastModifiedTime: datetime
+    regionMap: Dict[str, RegionInfoTypeDef]
+    status: ReplicationSetStatusType
+    arn: NotRequired[str]
+
+class UpdateIncidentRecordInputTypeDef(TypedDict):
+    arn: str
+    chatChannel: NotRequired[ChatChannelUnionTypeDef]
+    clientToken: NotRequired[str]
+    impact: NotRequired[int]
+    notificationTargets: NotRequired[Sequence[NotificationTargetItemTypeDef]]
+    status: NotRequired[IncidentRecordStatusType]
+    summary: NotRequired[str]
+    title: NotRequired[str]
+
+FindingTypeDef = TypedDict(
+    "FindingTypeDef",
     {
         "creationTime": datetime,
         "id": str,
         "lastModifiedTime": datetime,
-    },
-)
-_OptionalFindingTypeDef = TypedDict(
-    "_OptionalFindingTypeDef",
-    {
-        "details": "FindingDetailsTypeDef",
-    },
-    total=False,
-)
-
-class FindingTypeDef(_RequiredFindingTypeDef, _OptionalFindingTypeDef):
-    pass
-
-GetIncidentRecordInputRequestTypeDef = TypedDict(
-    "GetIncidentRecordInputRequestTypeDef",
-    {
-        "arn": str,
+        "details": NotRequired[FindingDetailsTypeDef],
     },
 )
 
-GetIncidentRecordOutputTypeDef = TypedDict(
-    "GetIncidentRecordOutputTypeDef",
-    {
-        "incidentRecord": "IncidentRecordTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class FilterTypeDef(TypedDict):
+    condition: ConditionTypeDef
+    key: str
 
-GetReplicationSetInputRequestTypeDef = TypedDict(
-    "GetReplicationSetInputRequestTypeDef",
-    {
-        "arn": str,
-    },
-)
+class ListTimelineEventsOutputTypeDef(TypedDict):
+    eventSummaries: List[EventSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-GetReplicationSetOutputTypeDef = TypedDict(
-    "GetReplicationSetOutputTypeDef",
-    {
-        "replicationSet": "ReplicationSetTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetTimelineEventOutputTypeDef(TypedDict):
+    event: TimelineEventTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredGetResourcePoliciesInputRequestTypeDef = TypedDict(
-    "_RequiredGetResourcePoliciesInputRequestTypeDef",
-    {
-        "resourceArn": str,
-    },
-)
-_OptionalGetResourcePoliciesInputRequestTypeDef = TypedDict(
-    "_OptionalGetResourcePoliciesInputRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
+class UpdateReplicationSetInputTypeDef(TypedDict):
+    actions: Sequence[UpdateReplicationSetActionTypeDef]
+    arn: str
+    clientToken: NotRequired[str]
 
-class GetResourcePoliciesInputRequestTypeDef(
-    _RequiredGetResourcePoliciesInputRequestTypeDef, _OptionalGetResourcePoliciesInputRequestTypeDef
-):
-    pass
+class ActionOutputTypeDef(TypedDict):
+    ssmAutomation: NotRequired[SsmAutomationOutputTypeDef]
 
-GetResourcePoliciesOutputTypeDef = TypedDict(
-    "GetResourcePoliciesOutputTypeDef",
-    {
-        "nextToken": str,
-        "resourcePolicies": List["ResourcePolicyTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+SsmAutomationUnionTypeDef = Union[SsmAutomationTypeDef, SsmAutomationOutputTypeDef]
 
-GetResponsePlanInputRequestTypeDef = TypedDict(
-    "GetResponsePlanInputRequestTypeDef",
-    {
-        "arn": str,
-    },
-)
+class ListIncidentRecordsOutputTypeDef(TypedDict):
+    incidentRecordSummaries: List[IncidentRecordSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-GetResponsePlanOutputTypeDef = TypedDict(
-    "GetResponsePlanOutputTypeDef",
-    {
-        "actions": List["ActionTypeDef"],
-        "arn": str,
-        "chatChannel": "ChatChannelTypeDef",
-        "displayName": str,
-        "engagements": List[str],
-        "incidentTemplate": "IncidentTemplateTypeDef",
-        "integrations": List["IntegrationTypeDef"],
-        "name": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetIncidentRecordOutputTypeDef(TypedDict):
+    incidentRecord: IncidentRecordTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-GetTimelineEventInputRequestTypeDef = TypedDict(
-    "GetTimelineEventInputRequestTypeDef",
-    {
-        "eventId": str,
-        "incidentRecordArn": str,
-    },
-)
-
-GetTimelineEventOutputTypeDef = TypedDict(
-    "GetTimelineEventOutputTypeDef",
-    {
-        "event": "TimelineEventTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredIncidentRecordSourceTypeDef = TypedDict(
-    "_RequiredIncidentRecordSourceTypeDef",
-    {
-        "createdBy": str,
-        "source": str,
-    },
-)
-_OptionalIncidentRecordSourceTypeDef = TypedDict(
-    "_OptionalIncidentRecordSourceTypeDef",
-    {
-        "invokedBy": str,
-        "resourceArn": str,
-    },
-    total=False,
-)
-
-class IncidentRecordSourceTypeDef(
-    _RequiredIncidentRecordSourceTypeDef, _OptionalIncidentRecordSourceTypeDef
-):
-    pass
-
-_RequiredIncidentRecordSummaryTypeDef = TypedDict(
-    "_RequiredIncidentRecordSummaryTypeDef",
-    {
-        "arn": str,
-        "creationTime": datetime,
-        "impact": int,
-        "incidentRecordSource": "IncidentRecordSourceTypeDef",
-        "status": IncidentRecordStatusType,
-        "title": str,
-    },
-)
-_OptionalIncidentRecordSummaryTypeDef = TypedDict(
-    "_OptionalIncidentRecordSummaryTypeDef",
-    {
-        "resolvedTime": datetime,
-    },
-    total=False,
-)
-
-class IncidentRecordSummaryTypeDef(
-    _RequiredIncidentRecordSummaryTypeDef, _OptionalIncidentRecordSummaryTypeDef
-):
-    pass
-
-_RequiredIncidentRecordTypeDef = TypedDict(
-    "_RequiredIncidentRecordTypeDef",
-    {
-        "arn": str,
-        "creationTime": datetime,
-        "dedupeString": str,
-        "impact": int,
-        "incidentRecordSource": "IncidentRecordSourceTypeDef",
-        "lastModifiedBy": str,
-        "lastModifiedTime": datetime,
-        "status": IncidentRecordStatusType,
-        "title": str,
-    },
-)
-_OptionalIncidentRecordTypeDef = TypedDict(
-    "_OptionalIncidentRecordTypeDef",
-    {
-        "automationExecutions": List["AutomationExecutionTypeDef"],
-        "chatChannel": "ChatChannelTypeDef",
-        "notificationTargets": List["NotificationTargetItemTypeDef"],
-        "resolvedTime": datetime,
-        "summary": str,
-    },
-    total=False,
-)
-
-class IncidentRecordTypeDef(_RequiredIncidentRecordTypeDef, _OptionalIncidentRecordTypeDef):
-    pass
-
-_RequiredIncidentTemplateTypeDef = TypedDict(
-    "_RequiredIncidentTemplateTypeDef",
-    {
-        "impact": int,
-        "title": str,
-    },
-)
-_OptionalIncidentTemplateTypeDef = TypedDict(
-    "_OptionalIncidentTemplateTypeDef",
-    {
-        "dedupeString": str,
-        "incidentTags": Dict[str, str],
-        "notificationTargets": List["NotificationTargetItemTypeDef"],
-        "summary": str,
-    },
-    total=False,
-)
-
-class IncidentTemplateTypeDef(_RequiredIncidentTemplateTypeDef, _OptionalIncidentTemplateTypeDef):
-    pass
-
-IntegrationTypeDef = TypedDict(
-    "IntegrationTypeDef",
-    {
-        "pagerDutyConfiguration": "PagerDutyConfigurationTypeDef",
-    },
-    total=False,
-)
-
+IncidentTemplateUnionTypeDef = Union[IncidentTemplateTypeDef, IncidentTemplateOutputTypeDef]
 ItemIdentifierTypeDef = TypedDict(
     "ItemIdentifierTypeDef",
     {
         "type": ItemTypeType,
-        "value": "ItemValueTypeDef",
+        "value": ItemValueTypeDef,
     },
 )
 
-ItemValueTypeDef = TypedDict(
-    "ItemValueTypeDef",
-    {
-        "arn": str,
-        "metricDefinition": str,
-        "pagerDutyIncidentDetail": "PagerDutyIncidentDetailTypeDef",
-        "url": str,
-    },
-    total=False,
-)
+class IntegrationTypeDef(TypedDict):
+    pagerDutyConfiguration: NotRequired[PagerDutyConfigurationTypeDef]
 
-_RequiredListIncidentFindingsInputRequestTypeDef = TypedDict(
-    "_RequiredListIncidentFindingsInputRequestTypeDef",
-    {
-        "incidentRecordArn": str,
-    },
-)
-_OptionalListIncidentFindingsInputRequestTypeDef = TypedDict(
-    "_OptionalListIncidentFindingsInputRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
+class GetReplicationSetOutputTypeDef(TypedDict):
+    replicationSet: ReplicationSetTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class ListIncidentFindingsInputRequestTypeDef(
-    _RequiredListIncidentFindingsInputRequestTypeDef,
-    _OptionalListIncidentFindingsInputRequestTypeDef,
-):
-    pass
+class BatchGetIncidentFindingsOutputTypeDef(TypedDict):
+    errors: List[BatchGetIncidentFindingsErrorTypeDef]
+    findings: List[FindingTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ListIncidentFindingsOutputTypeDef = TypedDict(
-    "ListIncidentFindingsOutputTypeDef",
-    {
-        "findings": List["FindingSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListIncidentRecordsInputPaginateTypeDef(TypedDict):
+    filters: NotRequired[Sequence[FilterTypeDef]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-ListIncidentRecordsInputRequestTypeDef = TypedDict(
-    "ListIncidentRecordsInputRequestTypeDef",
-    {
-        "filters": List["FilterTypeDef"],
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
+class ListIncidentRecordsInputTypeDef(TypedDict):
+    filters: NotRequired[Sequence[FilterTypeDef]]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
 
-ListIncidentRecordsOutputTypeDef = TypedDict(
-    "ListIncidentRecordsOutputTypeDef",
-    {
-        "incidentRecordSummaries": List["IncidentRecordSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListTimelineEventsInputPaginateTypeDef(TypedDict):
+    incidentRecordArn: str
+    filters: NotRequired[Sequence[FilterTypeDef]]
+    sortBy: NotRequired[Literal["EVENT_TIME"]]
+    sortOrder: NotRequired[SortOrderType]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-_RequiredListRelatedItemsInputRequestTypeDef = TypedDict(
-    "_RequiredListRelatedItemsInputRequestTypeDef",
-    {
-        "incidentRecordArn": str,
-    },
-)
-_OptionalListRelatedItemsInputRequestTypeDef = TypedDict(
-    "_OptionalListRelatedItemsInputRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
+class ListTimelineEventsInputTypeDef(TypedDict):
+    incidentRecordArn: str
+    filters: NotRequired[Sequence[FilterTypeDef]]
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+    sortBy: NotRequired[Literal["EVENT_TIME"]]
+    sortOrder: NotRequired[SortOrderType]
 
-class ListRelatedItemsInputRequestTypeDef(
-    _RequiredListRelatedItemsInputRequestTypeDef, _OptionalListRelatedItemsInputRequestTypeDef
-):
-    pass
+class ActionTypeDef(TypedDict):
+    ssmAutomation: NotRequired[SsmAutomationUnionTypeDef]
 
-ListRelatedItemsOutputTypeDef = TypedDict(
-    "ListRelatedItemsOutputTypeDef",
-    {
-        "nextToken": str,
-        "relatedItems": List["RelatedItemTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class RelatedItemTypeDef(TypedDict):
+    identifier: ItemIdentifierTypeDef
+    generatedId: NotRequired[str]
+    title: NotRequired[str]
 
-ListReplicationSetsInputRequestTypeDef = TypedDict(
-    "ListReplicationSetsInputRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
+class GetResponsePlanOutputTypeDef(TypedDict):
+    actions: List[ActionOutputTypeDef]
+    arn: str
+    chatChannel: ChatChannelOutputTypeDef
+    displayName: str
+    engagements: List[str]
+    incidentTemplate: IncidentTemplateOutputTypeDef
+    integrations: List[IntegrationTypeDef]
+    name: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ListReplicationSetsOutputTypeDef = TypedDict(
-    "ListReplicationSetsOutputTypeDef",
-    {
-        "nextToken": str,
-        "replicationSetArns": List[str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+ActionUnionTypeDef = Union[ActionTypeDef, ActionOutputTypeDef]
 
-ListResponsePlansInputRequestTypeDef = TypedDict(
-    "ListResponsePlansInputRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
+class ListRelatedItemsOutputTypeDef(TypedDict):
+    relatedItems: List[RelatedItemTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-ListResponsePlansOutputTypeDef = TypedDict(
-    "ListResponsePlansOutputTypeDef",
-    {
-        "nextToken": str,
-        "responsePlanSummaries": List["ResponsePlanSummaryTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class RelatedItemsUpdateTypeDef(TypedDict):
+    itemToAdd: NotRequired[RelatedItemTypeDef]
+    itemToRemove: NotRequired[ItemIdentifierTypeDef]
 
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-    },
-)
+class StartIncidentInputTypeDef(TypedDict):
+    responsePlanArn: str
+    clientToken: NotRequired[str]
+    impact: NotRequired[int]
+    relatedItems: NotRequired[Sequence[RelatedItemTypeDef]]
+    title: NotRequired[str]
+    triggerDetails: NotRequired[TriggerDetailsTypeDef]
 
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CreateResponsePlanInputTypeDef(TypedDict):
+    incidentTemplate: IncidentTemplateUnionTypeDef
+    name: str
+    actions: NotRequired[Sequence[ActionUnionTypeDef]]
+    chatChannel: NotRequired[ChatChannelUnionTypeDef]
+    clientToken: NotRequired[str]
+    displayName: NotRequired[str]
+    engagements: NotRequired[Sequence[str]]
+    integrations: NotRequired[Sequence[IntegrationTypeDef]]
+    tags: NotRequired[Mapping[str, str]]
 
-_RequiredListTimelineEventsInputRequestTypeDef = TypedDict(
-    "_RequiredListTimelineEventsInputRequestTypeDef",
-    {
-        "incidentRecordArn": str,
-    },
-)
-_OptionalListTimelineEventsInputRequestTypeDef = TypedDict(
-    "_OptionalListTimelineEventsInputRequestTypeDef",
-    {
-        "filters": List["FilterTypeDef"],
-        "maxResults": int,
-        "nextToken": str,
-        "sortBy": Literal["EVENT_TIME"],
-        "sortOrder": SortOrderType,
-    },
-    total=False,
-)
+class UpdateResponsePlanInputTypeDef(TypedDict):
+    arn: str
+    actions: NotRequired[Sequence[ActionUnionTypeDef]]
+    chatChannel: NotRequired[ChatChannelUnionTypeDef]
+    clientToken: NotRequired[str]
+    displayName: NotRequired[str]
+    engagements: NotRequired[Sequence[str]]
+    incidentTemplateDedupeString: NotRequired[str]
+    incidentTemplateImpact: NotRequired[int]
+    incidentTemplateNotificationTargets: NotRequired[Sequence[NotificationTargetItemTypeDef]]
+    incidentTemplateSummary: NotRequired[str]
+    incidentTemplateTags: NotRequired[Mapping[str, str]]
+    incidentTemplateTitle: NotRequired[str]
+    integrations: NotRequired[Sequence[IntegrationTypeDef]]
 
-class ListTimelineEventsInputRequestTypeDef(
-    _RequiredListTimelineEventsInputRequestTypeDef, _OptionalListTimelineEventsInputRequestTypeDef
-):
-    pass
-
-ListTimelineEventsOutputTypeDef = TypedDict(
-    "ListTimelineEventsOutputTypeDef",
-    {
-        "eventSummaries": List["EventSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-NotificationTargetItemTypeDef = TypedDict(
-    "NotificationTargetItemTypeDef",
-    {
-        "snsTopicArn": str,
-    },
-    total=False,
-)
-
-PagerDutyConfigurationTypeDef = TypedDict(
-    "PagerDutyConfigurationTypeDef",
-    {
-        "name": str,
-        "pagerDutyIncidentConfiguration": "PagerDutyIncidentConfigurationTypeDef",
-        "secretId": str,
-    },
-)
-
-PagerDutyIncidentConfigurationTypeDef = TypedDict(
-    "PagerDutyIncidentConfigurationTypeDef",
-    {
-        "serviceId": str,
-    },
-)
-
-_RequiredPagerDutyIncidentDetailTypeDef = TypedDict(
-    "_RequiredPagerDutyIncidentDetailTypeDef",
-    {
-        "id": str,
-    },
-)
-_OptionalPagerDutyIncidentDetailTypeDef = TypedDict(
-    "_OptionalPagerDutyIncidentDetailTypeDef",
-    {
-        "autoResolve": bool,
-        "secretId": str,
-    },
-    total=False,
-)
-
-class PagerDutyIncidentDetailTypeDef(
-    _RequiredPagerDutyIncidentDetailTypeDef, _OptionalPagerDutyIncidentDetailTypeDef
-):
-    pass
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-PutResourcePolicyInputRequestTypeDef = TypedDict(
-    "PutResourcePolicyInputRequestTypeDef",
-    {
-        "policy": str,
-        "resourceArn": str,
-    },
-)
-
-PutResourcePolicyOutputTypeDef = TypedDict(
-    "PutResourcePolicyOutputTypeDef",
-    {
-        "policyId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredRegionInfoTypeDef = TypedDict(
-    "_RequiredRegionInfoTypeDef",
-    {
-        "status": RegionStatusType,
-        "statusUpdateDateTime": datetime,
-    },
-)
-_OptionalRegionInfoTypeDef = TypedDict(
-    "_OptionalRegionInfoTypeDef",
-    {
-        "sseKmsKeyId": str,
-        "statusMessage": str,
-    },
-    total=False,
-)
-
-class RegionInfoTypeDef(_RequiredRegionInfoTypeDef, _OptionalRegionInfoTypeDef):
-    pass
-
-RegionMapInputValueTypeDef = TypedDict(
-    "RegionMapInputValueTypeDef",
-    {
-        "sseKmsKeyId": str,
-    },
-    total=False,
-)
-
-_RequiredRelatedItemTypeDef = TypedDict(
-    "_RequiredRelatedItemTypeDef",
-    {
-        "identifier": "ItemIdentifierTypeDef",
-    },
-)
-_OptionalRelatedItemTypeDef = TypedDict(
-    "_OptionalRelatedItemTypeDef",
-    {
-        "generatedId": str,
-        "title": str,
-    },
-    total=False,
-)
-
-class RelatedItemTypeDef(_RequiredRelatedItemTypeDef, _OptionalRelatedItemTypeDef):
-    pass
-
-RelatedItemsUpdateTypeDef = TypedDict(
-    "RelatedItemsUpdateTypeDef",
-    {
-        "itemToAdd": "RelatedItemTypeDef",
-        "itemToRemove": "ItemIdentifierTypeDef",
-    },
-    total=False,
-)
-
-_RequiredReplicationSetTypeDef = TypedDict(
-    "_RequiredReplicationSetTypeDef",
-    {
-        "createdBy": str,
-        "createdTime": datetime,
-        "deletionProtected": bool,
-        "lastModifiedBy": str,
-        "lastModifiedTime": datetime,
-        "regionMap": Dict[str, "RegionInfoTypeDef"],
-        "status": ReplicationSetStatusType,
-    },
-)
-_OptionalReplicationSetTypeDef = TypedDict(
-    "_OptionalReplicationSetTypeDef",
-    {
-        "arn": str,
-    },
-    total=False,
-)
-
-class ReplicationSetTypeDef(_RequiredReplicationSetTypeDef, _OptionalReplicationSetTypeDef):
-    pass
-
-ResourcePolicyTypeDef = TypedDict(
-    "ResourcePolicyTypeDef",
-    {
-        "policyDocument": str,
-        "policyId": str,
-        "ramResourceShareRegion": str,
-    },
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-_RequiredResponsePlanSummaryTypeDef = TypedDict(
-    "_RequiredResponsePlanSummaryTypeDef",
-    {
-        "arn": str,
-        "name": str,
-    },
-)
-_OptionalResponsePlanSummaryTypeDef = TypedDict(
-    "_OptionalResponsePlanSummaryTypeDef",
-    {
-        "displayName": str,
-    },
-    total=False,
-)
-
-class ResponsePlanSummaryTypeDef(
-    _RequiredResponsePlanSummaryTypeDef, _OptionalResponsePlanSummaryTypeDef
-):
-    pass
-
-_RequiredSsmAutomationTypeDef = TypedDict(
-    "_RequiredSsmAutomationTypeDef",
-    {
-        "documentName": str,
-        "roleArn": str,
-    },
-)
-_OptionalSsmAutomationTypeDef = TypedDict(
-    "_OptionalSsmAutomationTypeDef",
-    {
-        "documentVersion": str,
-        "dynamicParameters": Dict[str, "DynamicSsmParameterValueTypeDef"],
-        "parameters": Dict[str, List[str]],
-        "targetAccount": SsmTargetAccountType,
-    },
-    total=False,
-)
-
-class SsmAutomationTypeDef(_RequiredSsmAutomationTypeDef, _OptionalSsmAutomationTypeDef):
-    pass
-
-_RequiredStartIncidentInputRequestTypeDef = TypedDict(
-    "_RequiredStartIncidentInputRequestTypeDef",
-    {
-        "responsePlanArn": str,
-    },
-)
-_OptionalStartIncidentInputRequestTypeDef = TypedDict(
-    "_OptionalStartIncidentInputRequestTypeDef",
-    {
-        "clientToken": str,
-        "impact": int,
-        "relatedItems": List["RelatedItemTypeDef"],
-        "title": str,
-        "triggerDetails": "TriggerDetailsTypeDef",
-    },
-    total=False,
-)
-
-class StartIncidentInputRequestTypeDef(
-    _RequiredStartIncidentInputRequestTypeDef, _OptionalStartIncidentInputRequestTypeDef
-):
-    pass
-
-StartIncidentOutputTypeDef = TypedDict(
-    "StartIncidentOutputTypeDef",
-    {
-        "incidentRecordArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tags": Dict[str, str],
-    },
-)
-
-_RequiredTimelineEventTypeDef = TypedDict(
-    "_RequiredTimelineEventTypeDef",
-    {
-        "eventData": str,
-        "eventId": str,
-        "eventTime": datetime,
-        "eventType": str,
-        "eventUpdatedTime": datetime,
-        "incidentRecordArn": str,
-    },
-)
-_OptionalTimelineEventTypeDef = TypedDict(
-    "_OptionalTimelineEventTypeDef",
-    {
-        "eventReferences": List["EventReferenceTypeDef"],
-    },
-    total=False,
-)
-
-class TimelineEventTypeDef(_RequiredTimelineEventTypeDef, _OptionalTimelineEventTypeDef):
-    pass
-
-_RequiredTriggerDetailsTypeDef = TypedDict(
-    "_RequiredTriggerDetailsTypeDef",
-    {
-        "source": str,
-        "timestamp": Union[datetime, str],
-    },
-)
-_OptionalTriggerDetailsTypeDef = TypedDict(
-    "_OptionalTriggerDetailsTypeDef",
-    {
-        "rawData": str,
-        "triggerArn": str,
-    },
-    total=False,
-)
-
-class TriggerDetailsTypeDef(_RequiredTriggerDetailsTypeDef, _OptionalTriggerDetailsTypeDef):
-    pass
-
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tagKeys": List[str],
-    },
-)
-
-_RequiredUpdateDeletionProtectionInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateDeletionProtectionInputRequestTypeDef",
-    {
-        "arn": str,
-        "deletionProtected": bool,
-    },
-)
-_OptionalUpdateDeletionProtectionInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateDeletionProtectionInputRequestTypeDef",
-    {
-        "clientToken": str,
-    },
-    total=False,
-)
-
-class UpdateDeletionProtectionInputRequestTypeDef(
-    _RequiredUpdateDeletionProtectionInputRequestTypeDef,
-    _OptionalUpdateDeletionProtectionInputRequestTypeDef,
-):
-    pass
-
-_RequiredUpdateIncidentRecordInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateIncidentRecordInputRequestTypeDef",
-    {
-        "arn": str,
-    },
-)
-_OptionalUpdateIncidentRecordInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateIncidentRecordInputRequestTypeDef",
-    {
-        "chatChannel": "ChatChannelTypeDef",
-        "clientToken": str,
-        "impact": int,
-        "notificationTargets": List["NotificationTargetItemTypeDef"],
-        "status": IncidentRecordStatusType,
-        "summary": str,
-        "title": str,
-    },
-    total=False,
-)
-
-class UpdateIncidentRecordInputRequestTypeDef(
-    _RequiredUpdateIncidentRecordInputRequestTypeDef,
-    _OptionalUpdateIncidentRecordInputRequestTypeDef,
-):
-    pass
-
-_RequiredUpdateRelatedItemsInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateRelatedItemsInputRequestTypeDef",
-    {
-        "incidentRecordArn": str,
-        "relatedItemsUpdate": "RelatedItemsUpdateTypeDef",
-    },
-)
-_OptionalUpdateRelatedItemsInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateRelatedItemsInputRequestTypeDef",
-    {
-        "clientToken": str,
-    },
-    total=False,
-)
-
-class UpdateRelatedItemsInputRequestTypeDef(
-    _RequiredUpdateRelatedItemsInputRequestTypeDef, _OptionalUpdateRelatedItemsInputRequestTypeDef
-):
-    pass
-
-UpdateReplicationSetActionTypeDef = TypedDict(
-    "UpdateReplicationSetActionTypeDef",
-    {
-        "addRegionAction": "AddRegionActionTypeDef",
-        "deleteRegionAction": "DeleteRegionActionTypeDef",
-    },
-    total=False,
-)
-
-_RequiredUpdateReplicationSetInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateReplicationSetInputRequestTypeDef",
-    {
-        "actions": List["UpdateReplicationSetActionTypeDef"],
-        "arn": str,
-    },
-)
-_OptionalUpdateReplicationSetInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateReplicationSetInputRequestTypeDef",
-    {
-        "clientToken": str,
-    },
-    total=False,
-)
-
-class UpdateReplicationSetInputRequestTypeDef(
-    _RequiredUpdateReplicationSetInputRequestTypeDef,
-    _OptionalUpdateReplicationSetInputRequestTypeDef,
-):
-    pass
-
-_RequiredUpdateResponsePlanInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateResponsePlanInputRequestTypeDef",
-    {
-        "arn": str,
-    },
-)
-_OptionalUpdateResponsePlanInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateResponsePlanInputRequestTypeDef",
-    {
-        "actions": List["ActionTypeDef"],
-        "chatChannel": "ChatChannelTypeDef",
-        "clientToken": str,
-        "displayName": str,
-        "engagements": List[str],
-        "incidentTemplateDedupeString": str,
-        "incidentTemplateImpact": int,
-        "incidentTemplateNotificationTargets": List["NotificationTargetItemTypeDef"],
-        "incidentTemplateSummary": str,
-        "incidentTemplateTags": Dict[str, str],
-        "incidentTemplateTitle": str,
-        "integrations": List["IntegrationTypeDef"],
-    },
-    total=False,
-)
-
-class UpdateResponsePlanInputRequestTypeDef(
-    _RequiredUpdateResponsePlanInputRequestTypeDef, _OptionalUpdateResponsePlanInputRequestTypeDef
-):
-    pass
-
-_RequiredUpdateTimelineEventInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateTimelineEventInputRequestTypeDef",
-    {
-        "eventId": str,
-        "incidentRecordArn": str,
-    },
-)
-_OptionalUpdateTimelineEventInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateTimelineEventInputRequestTypeDef",
-    {
-        "clientToken": str,
-        "eventData": str,
-        "eventReferences": List["EventReferenceTypeDef"],
-        "eventTime": Union[datetime, str],
-        "eventType": str,
-    },
-    total=False,
-)
-
-class UpdateTimelineEventInputRequestTypeDef(
-    _RequiredUpdateTimelineEventInputRequestTypeDef, _OptionalUpdateTimelineEventInputRequestTypeDef
-):
-    pass
-
-WaiterConfigTypeDef = TypedDict(
-    "WaiterConfigTypeDef",
-    {
-        "Delay": int,
-        "MaxAttempts": int,
-    },
-    total=False,
-)
+class UpdateRelatedItemsInputTypeDef(TypedDict):
+    incidentRecordArn: str
+    relatedItemsUpdate: RelatedItemsUpdateTypeDef
+    clientToken: NotRequired[str]

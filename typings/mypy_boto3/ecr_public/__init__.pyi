@@ -1,10 +1,14 @@
 """
 Main interface for ecr-public service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ecr_public/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_ecr_public import (
         Client,
         DescribeImageTagsPaginator,
@@ -14,10 +18,8 @@ Usage::
         ECRPublicClient,
     )
 
-    session = boto3.Session()
-
-    client: ECRPublicClient = boto3.client("ecr-public")
-    session_client: ECRPublicClient = session.client("ecr-public")
+    session = Session()
+    client: ECRPublicClient = session.client("ecr-public")
 
     describe_image_tags_paginator: DescribeImageTagsPaginator = client.get_paginator("describe_image_tags")
     describe_images_paginator: DescribeImagesPaginator = client.get_paginator("describe_images")

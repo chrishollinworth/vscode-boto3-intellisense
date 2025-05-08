@@ -1,21 +1,24 @@
 """
 Type annotations for cost-optimization-hub service client paginators.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cost_optimization_hub/paginators.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cost_optimization_hub/paginators/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
 
-    from mypy_boto3_cost_optimization_hub import CostOptimizationHubClient
+    from mypy_boto3_cost_optimization_hub.client import CostOptimizationHubClient
     from mypy_boto3_cost_optimization_hub.paginator import (
         ListEnrollmentStatusesPaginator,
         ListRecommendationSummariesPaginator,
         ListRecommendationsPaginator,
     )
 
-    client: CostOptimizationHubClient = boto3.client("cost-optimization-hub")
+    session = Session()
+    client: CostOptimizationHubClient = session.client("cost-optimization-hub")
 
     list_enrollment_statuses_paginator: ListEnrollmentStatusesPaginator = client.get_paginator("list_enrollment_statuses")
     list_recommendation_summaries_paginator: ListRecommendationSummariesPaginator = client.get_paginator("list_recommendation_summaries")
@@ -23,18 +26,26 @@ Usage::
     ```
 """
 
-from typing import Iterator
+from __future__ import annotations
 
-from botocore.paginate import Paginator as Boto3Paginator
+import sys
+from typing import TYPE_CHECKING
+
+from botocore.paginate import PageIterator, Paginator
 
 from .type_defs import (
-    FilterTypeDef,
+    ListEnrollmentStatusesRequestPaginateTypeDef,
     ListEnrollmentStatusesResponseTypeDef,
+    ListRecommendationsRequestPaginateTypeDef,
     ListRecommendationsResponseTypeDef,
+    ListRecommendationSummariesRequestPaginateTypeDef,
     ListRecommendationSummariesResponseTypeDef,
-    OrderByTypeDef,
-    PaginatorConfigTypeDef,
 )
+
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = (
     "ListEnrollmentStatusesPaginator",
@@ -42,57 +53,58 @@ __all__ = (
     "ListRecommendationsPaginator",
 )
 
-class ListEnrollmentStatusesPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cost-optimization-hub.html#CostOptimizationHub.Paginator.ListEnrollmentStatuses)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cost_optimization_hub/paginators.html#listenrollmentstatusespaginator)
-    """
+if TYPE_CHECKING:
+    _ListEnrollmentStatusesPaginatorBase = Paginator[ListEnrollmentStatusesResponseTypeDef]
+else:
+    _ListEnrollmentStatusesPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        includeOrganizationInfo: bool = None,
-        accountId: str = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListEnrollmentStatusesResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cost-optimization-hub.html#CostOptimizationHub.Paginator.ListEnrollmentStatuses.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cost_optimization_hub/paginators.html#listenrollmentstatusespaginator)
-        """
-
-class ListRecommendationSummariesPaginator(Boto3Paginator):
+class ListEnrollmentStatusesPaginator(_ListEnrollmentStatusesPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cost-optimization-hub.html#CostOptimizationHub.Paginator.ListRecommendationSummaries)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cost_optimization_hub/paginators.html#listrecommendationsummariespaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cost-optimization-hub/paginator/ListEnrollmentStatuses.html#CostOptimizationHub.Paginator.ListEnrollmentStatuses)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cost_optimization_hub/paginators/#listenrollmentstatusespaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        groupBy: str,
-        filter: "FilterTypeDef" = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListRecommendationSummariesResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListEnrollmentStatusesRequestPaginateTypeDef]
+    ) -> PageIterator[ListEnrollmentStatusesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cost-optimization-hub.html#CostOptimizationHub.Paginator.ListRecommendationSummaries.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cost_optimization_hub/paginators.html#listrecommendationsummariespaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cost-optimization-hub/paginator/ListEnrollmentStatuses.html#CostOptimizationHub.Paginator.ListEnrollmentStatuses.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cost_optimization_hub/paginators/#listenrollmentstatusespaginator)
         """
 
-class ListRecommendationsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cost-optimization-hub.html#CostOptimizationHub.Paginator.ListRecommendations)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cost_optimization_hub/paginators.html#listrecommendationspaginator)
-    """
+if TYPE_CHECKING:
+    _ListRecommendationSummariesPaginatorBase = Paginator[
+        ListRecommendationSummariesResponseTypeDef
+    ]
+else:
+    _ListRecommendationSummariesPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        filter: "FilterTypeDef" = None,
-        orderBy: "OrderByTypeDef" = None,
-        includeAllRecommendations: bool = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListRecommendationsResponseTypeDef]:
+class ListRecommendationSummariesPaginator(_ListRecommendationSummariesPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cost-optimization-hub/paginator/ListRecommendationSummaries.html#CostOptimizationHub.Paginator.ListRecommendationSummaries)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cost_optimization_hub/paginators/#listrecommendationsummariespaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListRecommendationSummariesRequestPaginateTypeDef]
+    ) -> PageIterator[ListRecommendationSummariesResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/cost-optimization-hub.html#CostOptimizationHub.Paginator.ListRecommendations.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cost_optimization_hub/paginators.html#listrecommendationspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cost-optimization-hub/paginator/ListRecommendationSummaries.html#CostOptimizationHub.Paginator.ListRecommendationSummaries.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cost_optimization_hub/paginators/#listrecommendationsummariespaginator)
+        """
+
+if TYPE_CHECKING:
+    _ListRecommendationsPaginatorBase = Paginator[ListRecommendationsResponseTypeDef]
+else:
+    _ListRecommendationsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class ListRecommendationsPaginator(_ListRecommendationsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cost-optimization-hub/paginator/ListRecommendations.html#CostOptimizationHub.Paginator.ListRecommendations)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cost_optimization_hub/paginators/#listrecommendationspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListRecommendationsRequestPaginateTypeDef]
+    ) -> PageIterator[ListRecommendationsResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cost-optimization-hub/paginator/ListRecommendations.html#CostOptimizationHub.Paginator.ListRecommendations.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cost_optimization_hub/paginators/#listrecommendationspaginator)
         """

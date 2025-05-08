@@ -1,24 +1,29 @@
 """
 Type annotations for route53resolver service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_route53resolver/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_route53resolver.type_defs import AssociateFirewallRuleGroupRequestRequestTypeDef
+    from mypy_boto3_route53resolver.type_defs import TagTypeDef
 
-    data: AssociateFirewallRuleGroupRequestRequestTypeDef = {...}
+    data: TagTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
-from typing import Any, Dict, List
 
 from .literals import (
     ActionType,
     AutodefinedReverseFlagType,
     BlockResponseType,
+    ConfidenceThresholdType,
+    DnsThreatProtectionType,
     FirewallDomainListStatusType,
     FirewallDomainRedirectionActionType,
     FirewallDomainUpdateOperationType,
@@ -45,59 +50,61 @@ from .literals import (
     ValidationType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
-    "AssociateFirewallRuleGroupRequestRequestTypeDef",
+    "AssociateFirewallRuleGroupRequestTypeDef",
     "AssociateFirewallRuleGroupResponseTypeDef",
-    "AssociateResolverEndpointIpAddressRequestRequestTypeDef",
+    "AssociateResolverEndpointIpAddressRequestTypeDef",
     "AssociateResolverEndpointIpAddressResponseTypeDef",
-    "AssociateResolverQueryLogConfigRequestRequestTypeDef",
+    "AssociateResolverQueryLogConfigRequestTypeDef",
     "AssociateResolverQueryLogConfigResponseTypeDef",
-    "AssociateResolverRuleRequestRequestTypeDef",
+    "AssociateResolverRuleRequestTypeDef",
     "AssociateResolverRuleResponseTypeDef",
-    "CreateFirewallDomainListRequestRequestTypeDef",
+    "CreateFirewallDomainListRequestTypeDef",
     "CreateFirewallDomainListResponseTypeDef",
-    "CreateFirewallRuleGroupRequestRequestTypeDef",
+    "CreateFirewallRuleGroupRequestTypeDef",
     "CreateFirewallRuleGroupResponseTypeDef",
-    "CreateFirewallRuleRequestRequestTypeDef",
+    "CreateFirewallRuleRequestTypeDef",
     "CreateFirewallRuleResponseTypeDef",
-    "CreateOutpostResolverRequestRequestTypeDef",
+    "CreateOutpostResolverRequestTypeDef",
     "CreateOutpostResolverResponseTypeDef",
-    "CreateResolverEndpointRequestRequestTypeDef",
+    "CreateResolverEndpointRequestTypeDef",
     "CreateResolverEndpointResponseTypeDef",
-    "CreateResolverQueryLogConfigRequestRequestTypeDef",
+    "CreateResolverQueryLogConfigRequestTypeDef",
     "CreateResolverQueryLogConfigResponseTypeDef",
-    "CreateResolverRuleRequestRequestTypeDef",
+    "CreateResolverRuleRequestTypeDef",
     "CreateResolverRuleResponseTypeDef",
-    "DeleteFirewallDomainListRequestRequestTypeDef",
+    "DeleteFirewallDomainListRequestTypeDef",
     "DeleteFirewallDomainListResponseTypeDef",
-    "DeleteFirewallRuleGroupRequestRequestTypeDef",
+    "DeleteFirewallRuleGroupRequestTypeDef",
     "DeleteFirewallRuleGroupResponseTypeDef",
-    "DeleteFirewallRuleRequestRequestTypeDef",
+    "DeleteFirewallRuleRequestTypeDef",
     "DeleteFirewallRuleResponseTypeDef",
-    "DeleteOutpostResolverRequestRequestTypeDef",
+    "DeleteOutpostResolverRequestTypeDef",
     "DeleteOutpostResolverResponseTypeDef",
-    "DeleteResolverEndpointRequestRequestTypeDef",
+    "DeleteResolverEndpointRequestTypeDef",
     "DeleteResolverEndpointResponseTypeDef",
-    "DeleteResolverQueryLogConfigRequestRequestTypeDef",
+    "DeleteResolverQueryLogConfigRequestTypeDef",
     "DeleteResolverQueryLogConfigResponseTypeDef",
-    "DeleteResolverRuleRequestRequestTypeDef",
+    "DeleteResolverRuleRequestTypeDef",
     "DeleteResolverRuleResponseTypeDef",
-    "DisassociateFirewallRuleGroupRequestRequestTypeDef",
+    "DisassociateFirewallRuleGroupRequestTypeDef",
     "DisassociateFirewallRuleGroupResponseTypeDef",
-    "DisassociateResolverEndpointIpAddressRequestRequestTypeDef",
+    "DisassociateResolverEndpointIpAddressRequestTypeDef",
     "DisassociateResolverEndpointIpAddressResponseTypeDef",
-    "DisassociateResolverQueryLogConfigRequestRequestTypeDef",
+    "DisassociateResolverQueryLogConfigRequestTypeDef",
     "DisassociateResolverQueryLogConfigResponseTypeDef",
-    "DisassociateResolverRuleRequestRequestTypeDef",
+    "DisassociateResolverRuleRequestTypeDef",
     "DisassociateResolverRuleResponseTypeDef",
     "FilterTypeDef",
     "FirewallConfigTypeDef",
@@ -107,80 +114,96 @@ __all__ = (
     "FirewallRuleGroupMetadataTypeDef",
     "FirewallRuleGroupTypeDef",
     "FirewallRuleTypeDef",
-    "GetFirewallConfigRequestRequestTypeDef",
+    "GetFirewallConfigRequestTypeDef",
     "GetFirewallConfigResponseTypeDef",
-    "GetFirewallDomainListRequestRequestTypeDef",
+    "GetFirewallDomainListRequestTypeDef",
     "GetFirewallDomainListResponseTypeDef",
-    "GetFirewallRuleGroupAssociationRequestRequestTypeDef",
+    "GetFirewallRuleGroupAssociationRequestTypeDef",
     "GetFirewallRuleGroupAssociationResponseTypeDef",
-    "GetFirewallRuleGroupPolicyRequestRequestTypeDef",
+    "GetFirewallRuleGroupPolicyRequestTypeDef",
     "GetFirewallRuleGroupPolicyResponseTypeDef",
-    "GetFirewallRuleGroupRequestRequestTypeDef",
+    "GetFirewallRuleGroupRequestTypeDef",
     "GetFirewallRuleGroupResponseTypeDef",
-    "GetOutpostResolverRequestRequestTypeDef",
+    "GetOutpostResolverRequestTypeDef",
     "GetOutpostResolverResponseTypeDef",
-    "GetResolverConfigRequestRequestTypeDef",
+    "GetResolverConfigRequestTypeDef",
     "GetResolverConfigResponseTypeDef",
-    "GetResolverDnssecConfigRequestRequestTypeDef",
+    "GetResolverDnssecConfigRequestTypeDef",
     "GetResolverDnssecConfigResponseTypeDef",
-    "GetResolverEndpointRequestRequestTypeDef",
+    "GetResolverEndpointRequestTypeDef",
     "GetResolverEndpointResponseTypeDef",
-    "GetResolverQueryLogConfigAssociationRequestRequestTypeDef",
+    "GetResolverQueryLogConfigAssociationRequestTypeDef",
     "GetResolverQueryLogConfigAssociationResponseTypeDef",
-    "GetResolverQueryLogConfigPolicyRequestRequestTypeDef",
+    "GetResolverQueryLogConfigPolicyRequestTypeDef",
     "GetResolverQueryLogConfigPolicyResponseTypeDef",
-    "GetResolverQueryLogConfigRequestRequestTypeDef",
+    "GetResolverQueryLogConfigRequestTypeDef",
     "GetResolverQueryLogConfigResponseTypeDef",
-    "GetResolverRuleAssociationRequestRequestTypeDef",
+    "GetResolverRuleAssociationRequestTypeDef",
     "GetResolverRuleAssociationResponseTypeDef",
-    "GetResolverRulePolicyRequestRequestTypeDef",
+    "GetResolverRulePolicyRequestTypeDef",
     "GetResolverRulePolicyResponseTypeDef",
-    "GetResolverRuleRequestRequestTypeDef",
+    "GetResolverRuleRequestTypeDef",
     "GetResolverRuleResponseTypeDef",
-    "ImportFirewallDomainsRequestRequestTypeDef",
+    "ImportFirewallDomainsRequestTypeDef",
     "ImportFirewallDomainsResponseTypeDef",
     "IpAddressRequestTypeDef",
     "IpAddressResponseTypeDef",
     "IpAddressUpdateTypeDef",
-    "ListFirewallConfigsRequestRequestTypeDef",
+    "ListFirewallConfigsRequestPaginateTypeDef",
+    "ListFirewallConfigsRequestTypeDef",
     "ListFirewallConfigsResponseTypeDef",
-    "ListFirewallDomainListsRequestRequestTypeDef",
+    "ListFirewallDomainListsRequestPaginateTypeDef",
+    "ListFirewallDomainListsRequestTypeDef",
     "ListFirewallDomainListsResponseTypeDef",
-    "ListFirewallDomainsRequestRequestTypeDef",
+    "ListFirewallDomainsRequestPaginateTypeDef",
+    "ListFirewallDomainsRequestTypeDef",
     "ListFirewallDomainsResponseTypeDef",
-    "ListFirewallRuleGroupAssociationsRequestRequestTypeDef",
+    "ListFirewallRuleGroupAssociationsRequestPaginateTypeDef",
+    "ListFirewallRuleGroupAssociationsRequestTypeDef",
     "ListFirewallRuleGroupAssociationsResponseTypeDef",
-    "ListFirewallRuleGroupsRequestRequestTypeDef",
+    "ListFirewallRuleGroupsRequestPaginateTypeDef",
+    "ListFirewallRuleGroupsRequestTypeDef",
     "ListFirewallRuleGroupsResponseTypeDef",
-    "ListFirewallRulesRequestRequestTypeDef",
+    "ListFirewallRulesRequestPaginateTypeDef",
+    "ListFirewallRulesRequestTypeDef",
     "ListFirewallRulesResponseTypeDef",
-    "ListOutpostResolversRequestRequestTypeDef",
+    "ListOutpostResolversRequestPaginateTypeDef",
+    "ListOutpostResolversRequestTypeDef",
     "ListOutpostResolversResponseTypeDef",
-    "ListResolverConfigsRequestRequestTypeDef",
+    "ListResolverConfigsRequestPaginateTypeDef",
+    "ListResolverConfigsRequestTypeDef",
     "ListResolverConfigsResponseTypeDef",
-    "ListResolverDnssecConfigsRequestRequestTypeDef",
+    "ListResolverDnssecConfigsRequestPaginateTypeDef",
+    "ListResolverDnssecConfigsRequestTypeDef",
     "ListResolverDnssecConfigsResponseTypeDef",
-    "ListResolverEndpointIpAddressesRequestRequestTypeDef",
+    "ListResolverEndpointIpAddressesRequestPaginateTypeDef",
+    "ListResolverEndpointIpAddressesRequestTypeDef",
     "ListResolverEndpointIpAddressesResponseTypeDef",
-    "ListResolverEndpointsRequestRequestTypeDef",
+    "ListResolverEndpointsRequestPaginateTypeDef",
+    "ListResolverEndpointsRequestTypeDef",
     "ListResolverEndpointsResponseTypeDef",
-    "ListResolverQueryLogConfigAssociationsRequestRequestTypeDef",
+    "ListResolverQueryLogConfigAssociationsRequestPaginateTypeDef",
+    "ListResolverQueryLogConfigAssociationsRequestTypeDef",
     "ListResolverQueryLogConfigAssociationsResponseTypeDef",
-    "ListResolverQueryLogConfigsRequestRequestTypeDef",
+    "ListResolverQueryLogConfigsRequestPaginateTypeDef",
+    "ListResolverQueryLogConfigsRequestTypeDef",
     "ListResolverQueryLogConfigsResponseTypeDef",
-    "ListResolverRuleAssociationsRequestRequestTypeDef",
+    "ListResolverRuleAssociationsRequestPaginateTypeDef",
+    "ListResolverRuleAssociationsRequestTypeDef",
     "ListResolverRuleAssociationsResponseTypeDef",
-    "ListResolverRulesRequestRequestTypeDef",
+    "ListResolverRulesRequestPaginateTypeDef",
+    "ListResolverRulesRequestTypeDef",
     "ListResolverRulesResponseTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestPaginateTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "OutpostResolverTypeDef",
     "PaginatorConfigTypeDef",
-    "PutFirewallRuleGroupPolicyRequestRequestTypeDef",
+    "PutFirewallRuleGroupPolicyRequestTypeDef",
     "PutFirewallRuleGroupPolicyResponseTypeDef",
-    "PutResolverQueryLogConfigPolicyRequestRequestTypeDef",
+    "PutResolverQueryLogConfigPolicyRequestTypeDef",
     "PutResolverQueryLogConfigPolicyResponseTypeDef",
-    "PutResolverRulePolicyRequestRequestTypeDef",
+    "PutResolverRulePolicyRequestTypeDef",
     "PutResolverRulePolicyResponseTypeDef",
     "ResolverConfigTypeDef",
     "ResolverDnssecConfigTypeDef",
@@ -191,1762 +214,952 @@ __all__ = (
     "ResolverRuleConfigTypeDef",
     "ResolverRuleTypeDef",
     "ResponseMetadataTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
     "TagTypeDef",
     "TargetAddressTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateFirewallConfigRequestRequestTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateFirewallConfigRequestTypeDef",
     "UpdateFirewallConfigResponseTypeDef",
-    "UpdateFirewallDomainsRequestRequestTypeDef",
+    "UpdateFirewallDomainsRequestTypeDef",
     "UpdateFirewallDomainsResponseTypeDef",
-    "UpdateFirewallRuleGroupAssociationRequestRequestTypeDef",
+    "UpdateFirewallRuleGroupAssociationRequestTypeDef",
     "UpdateFirewallRuleGroupAssociationResponseTypeDef",
-    "UpdateFirewallRuleRequestRequestTypeDef",
+    "UpdateFirewallRuleRequestTypeDef",
     "UpdateFirewallRuleResponseTypeDef",
     "UpdateIpAddressTypeDef",
-    "UpdateOutpostResolverRequestRequestTypeDef",
+    "UpdateOutpostResolverRequestTypeDef",
     "UpdateOutpostResolverResponseTypeDef",
-    "UpdateResolverConfigRequestRequestTypeDef",
+    "UpdateResolverConfigRequestTypeDef",
     "UpdateResolverConfigResponseTypeDef",
-    "UpdateResolverDnssecConfigRequestRequestTypeDef",
+    "UpdateResolverDnssecConfigRequestTypeDef",
     "UpdateResolverDnssecConfigResponseTypeDef",
-    "UpdateResolverEndpointRequestRequestTypeDef",
+    "UpdateResolverEndpointRequestTypeDef",
     "UpdateResolverEndpointResponseTypeDef",
-    "UpdateResolverRuleRequestRequestTypeDef",
+    "UpdateResolverRuleRequestTypeDef",
     "UpdateResolverRuleResponseTypeDef",
 )
 
-_RequiredAssociateFirewallRuleGroupRequestRequestTypeDef = TypedDict(
-    "_RequiredAssociateFirewallRuleGroupRequestRequestTypeDef",
-    {
-        "CreatorRequestId": str,
-        "FirewallRuleGroupId": str,
-        "VpcId": str,
-        "Priority": int,
-        "Name": str,
-    },
-)
-_OptionalAssociateFirewallRuleGroupRequestRequestTypeDef = TypedDict(
-    "_OptionalAssociateFirewallRuleGroupRequestRequestTypeDef",
-    {
-        "MutationProtection": MutationProtectionStatusType,
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class AssociateFirewallRuleGroupRequestRequestTypeDef(
-    _RequiredAssociateFirewallRuleGroupRequestRequestTypeDef,
-    _OptionalAssociateFirewallRuleGroupRequestRequestTypeDef,
-):
-    pass
-
-AssociateFirewallRuleGroupResponseTypeDef = TypedDict(
-    "AssociateFirewallRuleGroupResponseTypeDef",
-    {
-        "FirewallRuleGroupAssociation": "FirewallRuleGroupAssociationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-AssociateResolverEndpointIpAddressRequestRequestTypeDef = TypedDict(
-    "AssociateResolverEndpointIpAddressRequestRequestTypeDef",
-    {
-        "ResolverEndpointId": str,
-        "IpAddress": "IpAddressUpdateTypeDef",
-    },
-)
-
-AssociateResolverEndpointIpAddressResponseTypeDef = TypedDict(
-    "AssociateResolverEndpointIpAddressResponseTypeDef",
-    {
-        "ResolverEndpoint": "ResolverEndpointTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-AssociateResolverQueryLogConfigRequestRequestTypeDef = TypedDict(
-    "AssociateResolverQueryLogConfigRequestRequestTypeDef",
-    {
-        "ResolverQueryLogConfigId": str,
-        "ResourceId": str,
-    },
-)
-
-AssociateResolverQueryLogConfigResponseTypeDef = TypedDict(
-    "AssociateResolverQueryLogConfigResponseTypeDef",
-    {
-        "ResolverQueryLogConfigAssociation": "ResolverQueryLogConfigAssociationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredAssociateResolverRuleRequestRequestTypeDef = TypedDict(
-    "_RequiredAssociateResolverRuleRequestRequestTypeDef",
-    {
-        "ResolverRuleId": str,
-        "VPCId": str,
-    },
-)
-_OptionalAssociateResolverRuleRequestRequestTypeDef = TypedDict(
-    "_OptionalAssociateResolverRuleRequestRequestTypeDef",
-    {
-        "Name": str,
-    },
-    total=False,
-)
-
-class AssociateResolverRuleRequestRequestTypeDef(
-    _RequiredAssociateResolverRuleRequestRequestTypeDef,
-    _OptionalAssociateResolverRuleRequestRequestTypeDef,
-):
-    pass
-
-AssociateResolverRuleResponseTypeDef = TypedDict(
-    "AssociateResolverRuleResponseTypeDef",
-    {
-        "ResolverRuleAssociation": "ResolverRuleAssociationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateFirewallDomainListRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateFirewallDomainListRequestRequestTypeDef",
-    {
-        "CreatorRequestId": str,
-        "Name": str,
-    },
-)
-_OptionalCreateFirewallDomainListRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateFirewallDomainListRequestRequestTypeDef",
-    {
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateFirewallDomainListRequestRequestTypeDef(
-    _RequiredCreateFirewallDomainListRequestRequestTypeDef,
-    _OptionalCreateFirewallDomainListRequestRequestTypeDef,
-):
-    pass
-
-CreateFirewallDomainListResponseTypeDef = TypedDict(
-    "CreateFirewallDomainListResponseTypeDef",
-    {
-        "FirewallDomainList": "FirewallDomainListTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateFirewallRuleGroupRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateFirewallRuleGroupRequestRequestTypeDef",
-    {
-        "CreatorRequestId": str,
-        "Name": str,
-    },
-)
-_OptionalCreateFirewallRuleGroupRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateFirewallRuleGroupRequestRequestTypeDef",
-    {
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateFirewallRuleGroupRequestRequestTypeDef(
-    _RequiredCreateFirewallRuleGroupRequestRequestTypeDef,
-    _OptionalCreateFirewallRuleGroupRequestRequestTypeDef,
-):
-    pass
-
-CreateFirewallRuleGroupResponseTypeDef = TypedDict(
-    "CreateFirewallRuleGroupResponseTypeDef",
-    {
-        "FirewallRuleGroup": "FirewallRuleGroupTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateFirewallRuleRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateFirewallRuleRequestRequestTypeDef",
-    {
-        "CreatorRequestId": str,
-        "FirewallRuleGroupId": str,
-        "FirewallDomainListId": str,
-        "Priority": int,
-        "Action": ActionType,
-        "Name": str,
-    },
-)
-_OptionalCreateFirewallRuleRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateFirewallRuleRequestRequestTypeDef",
-    {
-        "BlockResponse": BlockResponseType,
-        "BlockOverrideDomain": str,
-        "BlockOverrideDnsType": Literal["CNAME"],
-        "BlockOverrideTtl": int,
-        "FirewallDomainRedirectionAction": FirewallDomainRedirectionActionType,
-        "Qtype": str,
-    },
-    total=False,
-)
-
-class CreateFirewallRuleRequestRequestTypeDef(
-    _RequiredCreateFirewallRuleRequestRequestTypeDef,
-    _OptionalCreateFirewallRuleRequestRequestTypeDef,
-):
-    pass
-
-CreateFirewallRuleResponseTypeDef = TypedDict(
-    "CreateFirewallRuleResponseTypeDef",
-    {
-        "FirewallRule": "FirewallRuleTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateOutpostResolverRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateOutpostResolverRequestRequestTypeDef",
-    {
-        "CreatorRequestId": str,
-        "Name": str,
-        "PreferredInstanceType": str,
-        "OutpostArn": str,
-    },
-)
-_OptionalCreateOutpostResolverRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateOutpostResolverRequestRequestTypeDef",
-    {
-        "InstanceCount": int,
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateOutpostResolverRequestRequestTypeDef(
-    _RequiredCreateOutpostResolverRequestRequestTypeDef,
-    _OptionalCreateOutpostResolverRequestRequestTypeDef,
-):
-    pass
-
-CreateOutpostResolverResponseTypeDef = TypedDict(
-    "CreateOutpostResolverResponseTypeDef",
-    {
-        "OutpostResolver": "OutpostResolverTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateResolverEndpointRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateResolverEndpointRequestRequestTypeDef",
-    {
-        "CreatorRequestId": str,
-        "SecurityGroupIds": List[str],
-        "Direction": ResolverEndpointDirectionType,
-        "IpAddresses": List["IpAddressRequestTypeDef"],
-    },
-)
-_OptionalCreateResolverEndpointRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateResolverEndpointRequestRequestTypeDef",
-    {
-        "Name": str,
-        "OutpostArn": str,
-        "PreferredInstanceType": str,
-        "Tags": List["TagTypeDef"],
-        "ResolverEndpointType": ResolverEndpointTypeType,
-        "Protocols": List[ProtocolType],
-    },
-    total=False,
-)
-
-class CreateResolverEndpointRequestRequestTypeDef(
-    _RequiredCreateResolverEndpointRequestRequestTypeDef,
-    _OptionalCreateResolverEndpointRequestRequestTypeDef,
-):
-    pass
-
-CreateResolverEndpointResponseTypeDef = TypedDict(
-    "CreateResolverEndpointResponseTypeDef",
-    {
-        "ResolverEndpoint": "ResolverEndpointTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateResolverQueryLogConfigRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateResolverQueryLogConfigRequestRequestTypeDef",
-    {
-        "Name": str,
-        "DestinationArn": str,
-        "CreatorRequestId": str,
-    },
-)
-_OptionalCreateResolverQueryLogConfigRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateResolverQueryLogConfigRequestRequestTypeDef",
-    {
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateResolverQueryLogConfigRequestRequestTypeDef(
-    _RequiredCreateResolverQueryLogConfigRequestRequestTypeDef,
-    _OptionalCreateResolverQueryLogConfigRequestRequestTypeDef,
-):
-    pass
-
-CreateResolverQueryLogConfigResponseTypeDef = TypedDict(
-    "CreateResolverQueryLogConfigResponseTypeDef",
-    {
-        "ResolverQueryLogConfig": "ResolverQueryLogConfigTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateResolverRuleRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateResolverRuleRequestRequestTypeDef",
-    {
-        "CreatorRequestId": str,
-        "RuleType": RuleTypeOptionType,
-    },
-)
-_OptionalCreateResolverRuleRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateResolverRuleRequestRequestTypeDef",
-    {
-        "Name": str,
-        "DomainName": str,
-        "TargetIps": List["TargetAddressTypeDef"],
-        "ResolverEndpointId": str,
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
-
-class CreateResolverRuleRequestRequestTypeDef(
-    _RequiredCreateResolverRuleRequestRequestTypeDef,
-    _OptionalCreateResolverRuleRequestRequestTypeDef,
-):
-    pass
-
-CreateResolverRuleResponseTypeDef = TypedDict(
-    "CreateResolverRuleResponseTypeDef",
-    {
-        "ResolverRule": "ResolverRuleTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteFirewallDomainListRequestRequestTypeDef = TypedDict(
-    "DeleteFirewallDomainListRequestRequestTypeDef",
-    {
-        "FirewallDomainListId": str,
-    },
-)
-
-DeleteFirewallDomainListResponseTypeDef = TypedDict(
-    "DeleteFirewallDomainListResponseTypeDef",
-    {
-        "FirewallDomainList": "FirewallDomainListTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteFirewallRuleGroupRequestRequestTypeDef = TypedDict(
-    "DeleteFirewallRuleGroupRequestRequestTypeDef",
-    {
-        "FirewallRuleGroupId": str,
-    },
-)
-
-DeleteFirewallRuleGroupResponseTypeDef = TypedDict(
-    "DeleteFirewallRuleGroupResponseTypeDef",
-    {
-        "FirewallRuleGroup": "FirewallRuleGroupTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDeleteFirewallRuleRequestRequestTypeDef = TypedDict(
-    "_RequiredDeleteFirewallRuleRequestRequestTypeDef",
-    {
-        "FirewallRuleGroupId": str,
-        "FirewallDomainListId": str,
-    },
-)
-_OptionalDeleteFirewallRuleRequestRequestTypeDef = TypedDict(
-    "_OptionalDeleteFirewallRuleRequestRequestTypeDef",
-    {
-        "Qtype": str,
-    },
-    total=False,
-)
-
-class DeleteFirewallRuleRequestRequestTypeDef(
-    _RequiredDeleteFirewallRuleRequestRequestTypeDef,
-    _OptionalDeleteFirewallRuleRequestRequestTypeDef,
-):
-    pass
-
-DeleteFirewallRuleResponseTypeDef = TypedDict(
-    "DeleteFirewallRuleResponseTypeDef",
-    {
-        "FirewallRule": "FirewallRuleTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteOutpostResolverRequestRequestTypeDef = TypedDict(
-    "DeleteOutpostResolverRequestRequestTypeDef",
-    {
-        "Id": str,
-    },
-)
-
-DeleteOutpostResolverResponseTypeDef = TypedDict(
-    "DeleteOutpostResolverResponseTypeDef",
-    {
-        "OutpostResolver": "OutpostResolverTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteResolverEndpointRequestRequestTypeDef = TypedDict(
-    "DeleteResolverEndpointRequestRequestTypeDef",
-    {
-        "ResolverEndpointId": str,
-    },
-)
-
-DeleteResolverEndpointResponseTypeDef = TypedDict(
-    "DeleteResolverEndpointResponseTypeDef",
-    {
-        "ResolverEndpoint": "ResolverEndpointTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteResolverQueryLogConfigRequestRequestTypeDef = TypedDict(
-    "DeleteResolverQueryLogConfigRequestRequestTypeDef",
-    {
-        "ResolverQueryLogConfigId": str,
-    },
-)
-
-DeleteResolverQueryLogConfigResponseTypeDef = TypedDict(
-    "DeleteResolverQueryLogConfigResponseTypeDef",
-    {
-        "ResolverQueryLogConfig": "ResolverQueryLogConfigTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteResolverRuleRequestRequestTypeDef = TypedDict(
-    "DeleteResolverRuleRequestRequestTypeDef",
-    {
-        "ResolverRuleId": str,
-    },
-)
-
-DeleteResolverRuleResponseTypeDef = TypedDict(
-    "DeleteResolverRuleResponseTypeDef",
-    {
-        "ResolverRule": "ResolverRuleTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DisassociateFirewallRuleGroupRequestRequestTypeDef = TypedDict(
-    "DisassociateFirewallRuleGroupRequestRequestTypeDef",
-    {
-        "FirewallRuleGroupAssociationId": str,
-    },
-)
-
-DisassociateFirewallRuleGroupResponseTypeDef = TypedDict(
-    "DisassociateFirewallRuleGroupResponseTypeDef",
-    {
-        "FirewallRuleGroupAssociation": "FirewallRuleGroupAssociationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DisassociateResolverEndpointIpAddressRequestRequestTypeDef = TypedDict(
-    "DisassociateResolverEndpointIpAddressRequestRequestTypeDef",
-    {
-        "ResolverEndpointId": str,
-        "IpAddress": "IpAddressUpdateTypeDef",
-    },
-)
-
-DisassociateResolverEndpointIpAddressResponseTypeDef = TypedDict(
-    "DisassociateResolverEndpointIpAddressResponseTypeDef",
-    {
-        "ResolverEndpoint": "ResolverEndpointTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DisassociateResolverQueryLogConfigRequestRequestTypeDef = TypedDict(
-    "DisassociateResolverQueryLogConfigRequestRequestTypeDef",
-    {
-        "ResolverQueryLogConfigId": str,
-        "ResourceId": str,
-    },
-)
-
-DisassociateResolverQueryLogConfigResponseTypeDef = TypedDict(
-    "DisassociateResolverQueryLogConfigResponseTypeDef",
-    {
-        "ResolverQueryLogConfigAssociation": "ResolverQueryLogConfigAssociationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DisassociateResolverRuleRequestRequestTypeDef = TypedDict(
-    "DisassociateResolverRuleRequestRequestTypeDef",
-    {
-        "VPCId": str,
-        "ResolverRuleId": str,
-    },
-)
-
-DisassociateResolverRuleResponseTypeDef = TypedDict(
-    "DisassociateResolverRuleResponseTypeDef",
-    {
-        "ResolverRuleAssociation": "ResolverRuleAssociationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-FilterTypeDef = TypedDict(
-    "FilterTypeDef",
-    {
-        "Name": str,
-        "Values": List[str],
-    },
-    total=False,
-)
-
-FirewallConfigTypeDef = TypedDict(
-    "FirewallConfigTypeDef",
-    {
-        "Id": str,
-        "ResourceId": str,
-        "OwnerId": str,
-        "FirewallFailOpen": FirewallFailOpenStatusType,
-    },
-    total=False,
-)
-
-FirewallDomainListMetadataTypeDef = TypedDict(
-    "FirewallDomainListMetadataTypeDef",
-    {
-        "Id": str,
-        "Arn": str,
-        "Name": str,
-        "CreatorRequestId": str,
-        "ManagedOwnerName": str,
-    },
-    total=False,
-)
-
-FirewallDomainListTypeDef = TypedDict(
-    "FirewallDomainListTypeDef",
-    {
-        "Id": str,
-        "Arn": str,
-        "Name": str,
-        "DomainCount": int,
-        "Status": FirewallDomainListStatusType,
-        "StatusMessage": str,
-        "ManagedOwnerName": str,
-        "CreatorRequestId": str,
-        "CreationTime": str,
-        "ModificationTime": str,
-    },
-    total=False,
-)
-
-FirewallRuleGroupAssociationTypeDef = TypedDict(
-    "FirewallRuleGroupAssociationTypeDef",
-    {
-        "Id": str,
-        "Arn": str,
-        "FirewallRuleGroupId": str,
-        "VpcId": str,
-        "Name": str,
-        "Priority": int,
-        "MutationProtection": MutationProtectionStatusType,
-        "ManagedOwnerName": str,
-        "Status": FirewallRuleGroupAssociationStatusType,
-        "StatusMessage": str,
-        "CreatorRequestId": str,
-        "CreationTime": str,
-        "ModificationTime": str,
-    },
-    total=False,
-)
-
-FirewallRuleGroupMetadataTypeDef = TypedDict(
-    "FirewallRuleGroupMetadataTypeDef",
-    {
-        "Id": str,
-        "Arn": str,
-        "Name": str,
-        "OwnerId": str,
-        "CreatorRequestId": str,
-        "ShareStatus": ShareStatusType,
-    },
-    total=False,
-)
-
-FirewallRuleGroupTypeDef = TypedDict(
-    "FirewallRuleGroupTypeDef",
-    {
-        "Id": str,
-        "Arn": str,
-        "Name": str,
-        "RuleCount": int,
-        "Status": FirewallRuleGroupStatusType,
-        "StatusMessage": str,
-        "OwnerId": str,
-        "CreatorRequestId": str,
-        "ShareStatus": ShareStatusType,
-        "CreationTime": str,
-        "ModificationTime": str,
-    },
-    total=False,
-)
-
-FirewallRuleTypeDef = TypedDict(
-    "FirewallRuleTypeDef",
-    {
-        "FirewallRuleGroupId": str,
-        "FirewallDomainListId": str,
-        "Name": str,
-        "Priority": int,
-        "Action": ActionType,
-        "BlockResponse": BlockResponseType,
-        "BlockOverrideDomain": str,
-        "BlockOverrideDnsType": Literal["CNAME"],
-        "BlockOverrideTtl": int,
-        "CreatorRequestId": str,
-        "CreationTime": str,
-        "ModificationTime": str,
-        "FirewallDomainRedirectionAction": FirewallDomainRedirectionActionType,
-        "Qtype": str,
-    },
-    total=False,
-)
-
-GetFirewallConfigRequestRequestTypeDef = TypedDict(
-    "GetFirewallConfigRequestRequestTypeDef",
-    {
-        "ResourceId": str,
-    },
-)
-
-GetFirewallConfigResponseTypeDef = TypedDict(
-    "GetFirewallConfigResponseTypeDef",
-    {
-        "FirewallConfig": "FirewallConfigTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetFirewallDomainListRequestRequestTypeDef = TypedDict(
-    "GetFirewallDomainListRequestRequestTypeDef",
-    {
-        "FirewallDomainListId": str,
-    },
-)
-
-GetFirewallDomainListResponseTypeDef = TypedDict(
-    "GetFirewallDomainListResponseTypeDef",
-    {
-        "FirewallDomainList": "FirewallDomainListTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetFirewallRuleGroupAssociationRequestRequestTypeDef = TypedDict(
-    "GetFirewallRuleGroupAssociationRequestRequestTypeDef",
-    {
-        "FirewallRuleGroupAssociationId": str,
-    },
-)
-
-GetFirewallRuleGroupAssociationResponseTypeDef = TypedDict(
-    "GetFirewallRuleGroupAssociationResponseTypeDef",
-    {
-        "FirewallRuleGroupAssociation": "FirewallRuleGroupAssociationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetFirewallRuleGroupPolicyRequestRequestTypeDef = TypedDict(
-    "GetFirewallRuleGroupPolicyRequestRequestTypeDef",
-    {
-        "Arn": str,
-    },
-)
-
-GetFirewallRuleGroupPolicyResponseTypeDef = TypedDict(
-    "GetFirewallRuleGroupPolicyResponseTypeDef",
-    {
-        "FirewallRuleGroupPolicy": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetFirewallRuleGroupRequestRequestTypeDef = TypedDict(
-    "GetFirewallRuleGroupRequestRequestTypeDef",
-    {
-        "FirewallRuleGroupId": str,
-    },
-)
-
-GetFirewallRuleGroupResponseTypeDef = TypedDict(
-    "GetFirewallRuleGroupResponseTypeDef",
-    {
-        "FirewallRuleGroup": "FirewallRuleGroupTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetOutpostResolverRequestRequestTypeDef = TypedDict(
-    "GetOutpostResolverRequestRequestTypeDef",
-    {
-        "Id": str,
-    },
-)
-
-GetOutpostResolverResponseTypeDef = TypedDict(
-    "GetOutpostResolverResponseTypeDef",
-    {
-        "OutpostResolver": "OutpostResolverTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetResolverConfigRequestRequestTypeDef = TypedDict(
-    "GetResolverConfigRequestRequestTypeDef",
-    {
-        "ResourceId": str,
-    },
-)
-
-GetResolverConfigResponseTypeDef = TypedDict(
-    "GetResolverConfigResponseTypeDef",
-    {
-        "ResolverConfig": "ResolverConfigTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetResolverDnssecConfigRequestRequestTypeDef = TypedDict(
-    "GetResolverDnssecConfigRequestRequestTypeDef",
-    {
-        "ResourceId": str,
-    },
-)
-
-GetResolverDnssecConfigResponseTypeDef = TypedDict(
-    "GetResolverDnssecConfigResponseTypeDef",
-    {
-        "ResolverDNSSECConfig": "ResolverDnssecConfigTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetResolverEndpointRequestRequestTypeDef = TypedDict(
-    "GetResolverEndpointRequestRequestTypeDef",
-    {
-        "ResolverEndpointId": str,
-    },
-)
-
-GetResolverEndpointResponseTypeDef = TypedDict(
-    "GetResolverEndpointResponseTypeDef",
-    {
-        "ResolverEndpoint": "ResolverEndpointTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetResolverQueryLogConfigAssociationRequestRequestTypeDef = TypedDict(
-    "GetResolverQueryLogConfigAssociationRequestRequestTypeDef",
-    {
-        "ResolverQueryLogConfigAssociationId": str,
-    },
-)
-
-GetResolverQueryLogConfigAssociationResponseTypeDef = TypedDict(
-    "GetResolverQueryLogConfigAssociationResponseTypeDef",
-    {
-        "ResolverQueryLogConfigAssociation": "ResolverQueryLogConfigAssociationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetResolverQueryLogConfigPolicyRequestRequestTypeDef = TypedDict(
-    "GetResolverQueryLogConfigPolicyRequestRequestTypeDef",
-    {
-        "Arn": str,
-    },
-)
-
-GetResolverQueryLogConfigPolicyResponseTypeDef = TypedDict(
-    "GetResolverQueryLogConfigPolicyResponseTypeDef",
-    {
-        "ResolverQueryLogConfigPolicy": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetResolverQueryLogConfigRequestRequestTypeDef = TypedDict(
-    "GetResolverQueryLogConfigRequestRequestTypeDef",
-    {
-        "ResolverQueryLogConfigId": str,
-    },
-)
-
-GetResolverQueryLogConfigResponseTypeDef = TypedDict(
-    "GetResolverQueryLogConfigResponseTypeDef",
-    {
-        "ResolverQueryLogConfig": "ResolverQueryLogConfigTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetResolverRuleAssociationRequestRequestTypeDef = TypedDict(
-    "GetResolverRuleAssociationRequestRequestTypeDef",
-    {
-        "ResolverRuleAssociationId": str,
-    },
-)
-
-GetResolverRuleAssociationResponseTypeDef = TypedDict(
-    "GetResolverRuleAssociationResponseTypeDef",
-    {
-        "ResolverRuleAssociation": "ResolverRuleAssociationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetResolverRulePolicyRequestRequestTypeDef = TypedDict(
-    "GetResolverRulePolicyRequestRequestTypeDef",
-    {
-        "Arn": str,
-    },
-)
-
-GetResolverRulePolicyResponseTypeDef = TypedDict(
-    "GetResolverRulePolicyResponseTypeDef",
-    {
-        "ResolverRulePolicy": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetResolverRuleRequestRequestTypeDef = TypedDict(
-    "GetResolverRuleRequestRequestTypeDef",
-    {
-        "ResolverRuleId": str,
-    },
-)
-
-GetResolverRuleResponseTypeDef = TypedDict(
-    "GetResolverRuleResponseTypeDef",
-    {
-        "ResolverRule": "ResolverRuleTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ImportFirewallDomainsRequestRequestTypeDef = TypedDict(
-    "ImportFirewallDomainsRequestRequestTypeDef",
-    {
-        "FirewallDomainListId": str,
-        "Operation": Literal["REPLACE"],
-        "DomainFileUrl": str,
-    },
-)
-
-ImportFirewallDomainsResponseTypeDef = TypedDict(
-    "ImportFirewallDomainsResponseTypeDef",
-    {
-        "Id": str,
-        "Name": str,
-        "Status": FirewallDomainListStatusType,
-        "StatusMessage": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredIpAddressRequestTypeDef = TypedDict(
-    "_RequiredIpAddressRequestTypeDef",
-    {
-        "SubnetId": str,
-    },
-)
-_OptionalIpAddressRequestTypeDef = TypedDict(
-    "_OptionalIpAddressRequestTypeDef",
-    {
-        "Ip": str,
-        "Ipv6": str,
-    },
-    total=False,
-)
-
-class IpAddressRequestTypeDef(_RequiredIpAddressRequestTypeDef, _OptionalIpAddressRequestTypeDef):
-    pass
-
-IpAddressResponseTypeDef = TypedDict(
-    "IpAddressResponseTypeDef",
-    {
-        "IpId": str,
-        "SubnetId": str,
-        "Ip": str,
-        "Ipv6": str,
-        "Status": IpAddressStatusType,
-        "StatusMessage": str,
-        "CreationTime": str,
-        "ModificationTime": str,
-    },
-    total=False,
-)
-
-IpAddressUpdateTypeDef = TypedDict(
-    "IpAddressUpdateTypeDef",
-    {
-        "IpId": str,
-        "SubnetId": str,
-        "Ip": str,
-        "Ipv6": str,
-    },
-    total=False,
-)
-
-ListFirewallConfigsRequestRequestTypeDef = TypedDict(
-    "ListFirewallConfigsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListFirewallConfigsResponseTypeDef = TypedDict(
-    "ListFirewallConfigsResponseTypeDef",
-    {
-        "NextToken": str,
-        "FirewallConfigs": List["FirewallConfigTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListFirewallDomainListsRequestRequestTypeDef = TypedDict(
-    "ListFirewallDomainListsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListFirewallDomainListsResponseTypeDef = TypedDict(
-    "ListFirewallDomainListsResponseTypeDef",
-    {
-        "NextToken": str,
-        "FirewallDomainLists": List["FirewallDomainListMetadataTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListFirewallDomainsRequestRequestTypeDef = TypedDict(
-    "_RequiredListFirewallDomainsRequestRequestTypeDef",
-    {
-        "FirewallDomainListId": str,
-    },
-)
-_OptionalListFirewallDomainsRequestRequestTypeDef = TypedDict(
-    "_OptionalListFirewallDomainsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListFirewallDomainsRequestRequestTypeDef(
-    _RequiredListFirewallDomainsRequestRequestTypeDef,
-    _OptionalListFirewallDomainsRequestRequestTypeDef,
-):
-    pass
-
-ListFirewallDomainsResponseTypeDef = TypedDict(
-    "ListFirewallDomainsResponseTypeDef",
-    {
-        "NextToken": str,
-        "Domains": List[str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListFirewallRuleGroupAssociationsRequestRequestTypeDef = TypedDict(
-    "ListFirewallRuleGroupAssociationsRequestRequestTypeDef",
-    {
-        "FirewallRuleGroupId": str,
-        "VpcId": str,
-        "Priority": int,
-        "Status": FirewallRuleGroupAssociationStatusType,
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListFirewallRuleGroupAssociationsResponseTypeDef = TypedDict(
-    "ListFirewallRuleGroupAssociationsResponseTypeDef",
-    {
-        "NextToken": str,
-        "FirewallRuleGroupAssociations": List["FirewallRuleGroupAssociationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListFirewallRuleGroupsRequestRequestTypeDef = TypedDict(
-    "ListFirewallRuleGroupsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListFirewallRuleGroupsResponseTypeDef = TypedDict(
-    "ListFirewallRuleGroupsResponseTypeDef",
-    {
-        "NextToken": str,
-        "FirewallRuleGroups": List["FirewallRuleGroupMetadataTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListFirewallRulesRequestRequestTypeDef = TypedDict(
-    "_RequiredListFirewallRulesRequestRequestTypeDef",
-    {
-        "FirewallRuleGroupId": str,
-    },
-)
-_OptionalListFirewallRulesRequestRequestTypeDef = TypedDict(
-    "_OptionalListFirewallRulesRequestRequestTypeDef",
-    {
-        "Priority": int,
-        "Action": ActionType,
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListFirewallRulesRequestRequestTypeDef(
-    _RequiredListFirewallRulesRequestRequestTypeDef, _OptionalListFirewallRulesRequestRequestTypeDef
-):
-    pass
-
-ListFirewallRulesResponseTypeDef = TypedDict(
-    "ListFirewallRulesResponseTypeDef",
-    {
-        "NextToken": str,
-        "FirewallRules": List["FirewallRuleTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListOutpostResolversRequestRequestTypeDef = TypedDict(
-    "ListOutpostResolversRequestRequestTypeDef",
-    {
-        "OutpostArn": str,
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListOutpostResolversResponseTypeDef = TypedDict(
-    "ListOutpostResolversResponseTypeDef",
-    {
-        "OutpostResolvers": List["OutpostResolverTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListResolverConfigsRequestRequestTypeDef = TypedDict(
-    "ListResolverConfigsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListResolverConfigsResponseTypeDef = TypedDict(
-    "ListResolverConfigsResponseTypeDef",
-    {
-        "NextToken": str,
-        "ResolverConfigs": List["ResolverConfigTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListResolverDnssecConfigsRequestRequestTypeDef = TypedDict(
-    "ListResolverDnssecConfigsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-        "Filters": List["FilterTypeDef"],
-    },
-    total=False,
-)
-
-ListResolverDnssecConfigsResponseTypeDef = TypedDict(
-    "ListResolverDnssecConfigsResponseTypeDef",
-    {
-        "NextToken": str,
-        "ResolverDnssecConfigs": List["ResolverDnssecConfigTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListResolverEndpointIpAddressesRequestRequestTypeDef = TypedDict(
-    "_RequiredListResolverEndpointIpAddressesRequestRequestTypeDef",
-    {
-        "ResolverEndpointId": str,
-    },
-)
-_OptionalListResolverEndpointIpAddressesRequestRequestTypeDef = TypedDict(
-    "_OptionalListResolverEndpointIpAddressesRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListResolverEndpointIpAddressesRequestRequestTypeDef(
-    _RequiredListResolverEndpointIpAddressesRequestRequestTypeDef,
-    _OptionalListResolverEndpointIpAddressesRequestRequestTypeDef,
-):
-    pass
-
-ListResolverEndpointIpAddressesResponseTypeDef = TypedDict(
-    "ListResolverEndpointIpAddressesResponseTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-        "IpAddresses": List["IpAddressResponseTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListResolverEndpointsRequestRequestTypeDef = TypedDict(
-    "ListResolverEndpointsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-        "Filters": List["FilterTypeDef"],
-    },
-    total=False,
-)
-
-ListResolverEndpointsResponseTypeDef = TypedDict(
-    "ListResolverEndpointsResponseTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-        "ResolverEndpoints": List["ResolverEndpointTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListResolverQueryLogConfigAssociationsRequestRequestTypeDef = TypedDict(
-    "ListResolverQueryLogConfigAssociationsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-        "Filters": List["FilterTypeDef"],
-        "SortBy": str,
-        "SortOrder": SortOrderType,
-    },
-    total=False,
-)
-
-ListResolverQueryLogConfigAssociationsResponseTypeDef = TypedDict(
-    "ListResolverQueryLogConfigAssociationsResponseTypeDef",
-    {
-        "NextToken": str,
-        "TotalCount": int,
-        "TotalFilteredCount": int,
-        "ResolverQueryLogConfigAssociations": List["ResolverQueryLogConfigAssociationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListResolverQueryLogConfigsRequestRequestTypeDef = TypedDict(
-    "ListResolverQueryLogConfigsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-        "Filters": List["FilterTypeDef"],
-        "SortBy": str,
-        "SortOrder": SortOrderType,
-    },
-    total=False,
-)
-
-ListResolverQueryLogConfigsResponseTypeDef = TypedDict(
-    "ListResolverQueryLogConfigsResponseTypeDef",
-    {
-        "NextToken": str,
-        "TotalCount": int,
-        "TotalFilteredCount": int,
-        "ResolverQueryLogConfigs": List["ResolverQueryLogConfigTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListResolverRuleAssociationsRequestRequestTypeDef = TypedDict(
-    "ListResolverRuleAssociationsRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-        "Filters": List["FilterTypeDef"],
-    },
-    total=False,
-)
-
-ListResolverRuleAssociationsResponseTypeDef = TypedDict(
-    "ListResolverRuleAssociationsResponseTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-        "ResolverRuleAssociations": List["ResolverRuleAssociationTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListResolverRulesRequestRequestTypeDef = TypedDict(
-    "ListResolverRulesRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-        "Filters": List["FilterTypeDef"],
-    },
-    total=False,
-)
-
-ListResolverRulesResponseTypeDef = TypedDict(
-    "ListResolverRulesResponseTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-        "ResolverRules": List["ResolverRuleTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "_RequiredListTagsForResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-    },
-)
-_OptionalListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "_OptionalListTagsForResourceRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListTagsForResourceRequestRequestTypeDef(
-    _RequiredListTagsForResourceRequestRequestTypeDef,
-    _OptionalListTagsForResourceRequestRequestTypeDef,
-):
-    pass
-
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "Tags": List["TagTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-OutpostResolverTypeDef = TypedDict(
-    "OutpostResolverTypeDef",
-    {
-        "Arn": str,
-        "CreationTime": str,
-        "ModificationTime": str,
-        "CreatorRequestId": str,
-        "Id": str,
-        "InstanceCount": int,
-        "PreferredInstanceType": str,
-        "Name": str,
-        "Status": OutpostResolverStatusType,
-        "StatusMessage": str,
-        "OutpostArn": str,
-    },
-    total=False,
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-PutFirewallRuleGroupPolicyRequestRequestTypeDef = TypedDict(
-    "PutFirewallRuleGroupPolicyRequestRequestTypeDef",
-    {
-        "Arn": str,
-        "FirewallRuleGroupPolicy": str,
-    },
-)
-
-PutFirewallRuleGroupPolicyResponseTypeDef = TypedDict(
-    "PutFirewallRuleGroupPolicyResponseTypeDef",
-    {
-        "ReturnValue": bool,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-PutResolverQueryLogConfigPolicyRequestRequestTypeDef = TypedDict(
-    "PutResolverQueryLogConfigPolicyRequestRequestTypeDef",
-    {
-        "Arn": str,
-        "ResolverQueryLogConfigPolicy": str,
-    },
-)
-
-PutResolverQueryLogConfigPolicyResponseTypeDef = TypedDict(
-    "PutResolverQueryLogConfigPolicyResponseTypeDef",
-    {
-        "ReturnValue": bool,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-PutResolverRulePolicyRequestRequestTypeDef = TypedDict(
-    "PutResolverRulePolicyRequestRequestTypeDef",
-    {
-        "Arn": str,
-        "ResolverRulePolicy": str,
-    },
-)
-
-PutResolverRulePolicyResponseTypeDef = TypedDict(
-    "PutResolverRulePolicyResponseTypeDef",
-    {
-        "ReturnValue": bool,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ResolverConfigTypeDef = TypedDict(
-    "ResolverConfigTypeDef",
-    {
-        "Id": str,
-        "ResourceId": str,
-        "OwnerId": str,
-        "AutodefinedReverse": ResolverAutodefinedReverseStatusType,
-    },
-    total=False,
-)
-
-ResolverDnssecConfigTypeDef = TypedDict(
-    "ResolverDnssecConfigTypeDef",
-    {
-        "Id": str,
-        "OwnerId": str,
-        "ResourceId": str,
-        "ValidationStatus": ResolverDNSSECValidationStatusType,
-    },
-    total=False,
-)
-
-ResolverEndpointTypeDef = TypedDict(
-    "ResolverEndpointTypeDef",
-    {
-        "Id": str,
-        "CreatorRequestId": str,
-        "Arn": str,
-        "Name": str,
-        "SecurityGroupIds": List[str],
-        "Direction": ResolverEndpointDirectionType,
-        "IpAddressCount": int,
-        "HostVPCId": str,
-        "Status": ResolverEndpointStatusType,
-        "StatusMessage": str,
-        "CreationTime": str,
-        "ModificationTime": str,
-        "OutpostArn": str,
-        "PreferredInstanceType": str,
-        "ResolverEndpointType": ResolverEndpointTypeType,
-        "Protocols": List[ProtocolType],
-    },
-    total=False,
-)
-
-ResolverQueryLogConfigAssociationTypeDef = TypedDict(
-    "ResolverQueryLogConfigAssociationTypeDef",
-    {
-        "Id": str,
-        "ResolverQueryLogConfigId": str,
-        "ResourceId": str,
-        "Status": ResolverQueryLogConfigAssociationStatusType,
-        "Error": ResolverQueryLogConfigAssociationErrorType,
-        "ErrorMessage": str,
-        "CreationTime": str,
-    },
-    total=False,
-)
-
-ResolverQueryLogConfigTypeDef = TypedDict(
-    "ResolverQueryLogConfigTypeDef",
-    {
-        "Id": str,
-        "OwnerId": str,
-        "Status": ResolverQueryLogConfigStatusType,
-        "ShareStatus": ShareStatusType,
-        "AssociationCount": int,
-        "Arn": str,
-        "Name": str,
-        "DestinationArn": str,
-        "CreatorRequestId": str,
-        "CreationTime": str,
-    },
-    total=False,
-)
-
-ResolverRuleAssociationTypeDef = TypedDict(
-    "ResolverRuleAssociationTypeDef",
-    {
-        "Id": str,
-        "ResolverRuleId": str,
-        "Name": str,
-        "VPCId": str,
-        "Status": ResolverRuleAssociationStatusType,
-        "StatusMessage": str,
-    },
-    total=False,
-)
-
-ResolverRuleConfigTypeDef = TypedDict(
-    "ResolverRuleConfigTypeDef",
-    {
-        "Name": str,
-        "TargetIps": List["TargetAddressTypeDef"],
-        "ResolverEndpointId": str,
-    },
-    total=False,
-)
-
-ResolverRuleTypeDef = TypedDict(
-    "ResolverRuleTypeDef",
-    {
-        "Id": str,
-        "CreatorRequestId": str,
-        "Arn": str,
-        "DomainName": str,
-        "Status": ResolverRuleStatusType,
-        "StatusMessage": str,
-        "RuleType": RuleTypeOptionType,
-        "Name": str,
-        "TargetIps": List["TargetAddressTypeDef"],
-        "ResolverEndpointId": str,
-        "OwnerId": str,
-        "ShareStatus": ShareStatusType,
-        "CreationTime": str,
-        "ModificationTime": str,
-    },
-    total=False,
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-        "Tags": List["TagTypeDef"],
-    },
-)
-
-TagTypeDef = TypedDict(
-    "TagTypeDef",
-    {
-        "Key": str,
-        "Value": str,
-    },
-)
+class TagTypeDef(TypedDict):
+    Key: str
+    Value: str
+
+class FirewallRuleGroupAssociationTypeDef(TypedDict):
+    Id: NotRequired[str]
+    Arn: NotRequired[str]
+    FirewallRuleGroupId: NotRequired[str]
+    VpcId: NotRequired[str]
+    Name: NotRequired[str]
+    Priority: NotRequired[int]
+    MutationProtection: NotRequired[MutationProtectionStatusType]
+    ManagedOwnerName: NotRequired[str]
+    Status: NotRequired[FirewallRuleGroupAssociationStatusType]
+    StatusMessage: NotRequired[str]
+    CreatorRequestId: NotRequired[str]
+    CreationTime: NotRequired[str]
+    ModificationTime: NotRequired[str]
+
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
+
+class IpAddressUpdateTypeDef(TypedDict):
+    IpId: NotRequired[str]
+    SubnetId: NotRequired[str]
+    Ip: NotRequired[str]
+    Ipv6: NotRequired[str]
+
+class ResolverEndpointTypeDef(TypedDict):
+    Id: NotRequired[str]
+    CreatorRequestId: NotRequired[str]
+    Arn: NotRequired[str]
+    Name: NotRequired[str]
+    SecurityGroupIds: NotRequired[List[str]]
+    Direction: NotRequired[ResolverEndpointDirectionType]
+    IpAddressCount: NotRequired[int]
+    HostVPCId: NotRequired[str]
+    Status: NotRequired[ResolverEndpointStatusType]
+    StatusMessage: NotRequired[str]
+    CreationTime: NotRequired[str]
+    ModificationTime: NotRequired[str]
+    OutpostArn: NotRequired[str]
+    PreferredInstanceType: NotRequired[str]
+    ResolverEndpointType: NotRequired[ResolverEndpointTypeType]
+    Protocols: NotRequired[List[ProtocolType]]
+
+class AssociateResolverQueryLogConfigRequestTypeDef(TypedDict):
+    ResolverQueryLogConfigId: str
+    ResourceId: str
+
+class ResolverQueryLogConfigAssociationTypeDef(TypedDict):
+    Id: NotRequired[str]
+    ResolverQueryLogConfigId: NotRequired[str]
+    ResourceId: NotRequired[str]
+    Status: NotRequired[ResolverQueryLogConfigAssociationStatusType]
+    Error: NotRequired[ResolverQueryLogConfigAssociationErrorType]
+    ErrorMessage: NotRequired[str]
+    CreationTime: NotRequired[str]
+
+class AssociateResolverRuleRequestTypeDef(TypedDict):
+    ResolverRuleId: str
+    VPCId: str
+    Name: NotRequired[str]
+
+class ResolverRuleAssociationTypeDef(TypedDict):
+    Id: NotRequired[str]
+    ResolverRuleId: NotRequired[str]
+    Name: NotRequired[str]
+    VPCId: NotRequired[str]
+    Status: NotRequired[ResolverRuleAssociationStatusType]
+    StatusMessage: NotRequired[str]
+
+class FirewallDomainListTypeDef(TypedDict):
+    Id: NotRequired[str]
+    Arn: NotRequired[str]
+    Name: NotRequired[str]
+    DomainCount: NotRequired[int]
+    Status: NotRequired[FirewallDomainListStatusType]
+    StatusMessage: NotRequired[str]
+    ManagedOwnerName: NotRequired[str]
+    CreatorRequestId: NotRequired[str]
+    CreationTime: NotRequired[str]
+    ModificationTime: NotRequired[str]
+
+class FirewallRuleGroupTypeDef(TypedDict):
+    Id: NotRequired[str]
+    Arn: NotRequired[str]
+    Name: NotRequired[str]
+    RuleCount: NotRequired[int]
+    Status: NotRequired[FirewallRuleGroupStatusType]
+    StatusMessage: NotRequired[str]
+    OwnerId: NotRequired[str]
+    CreatorRequestId: NotRequired[str]
+    ShareStatus: NotRequired[ShareStatusType]
+    CreationTime: NotRequired[str]
+    ModificationTime: NotRequired[str]
+
+class CreateFirewallRuleRequestTypeDef(TypedDict):
+    CreatorRequestId: str
+    FirewallRuleGroupId: str
+    Priority: int
+    Action: ActionType
+    Name: str
+    FirewallDomainListId: NotRequired[str]
+    BlockResponse: NotRequired[BlockResponseType]
+    BlockOverrideDomain: NotRequired[str]
+    BlockOverrideDnsType: NotRequired[Literal["CNAME"]]
+    BlockOverrideTtl: NotRequired[int]
+    FirewallDomainRedirectionAction: NotRequired[FirewallDomainRedirectionActionType]
+    Qtype: NotRequired[str]
+    DnsThreatProtection: NotRequired[DnsThreatProtectionType]
+    ConfidenceThreshold: NotRequired[ConfidenceThresholdType]
+
+class FirewallRuleTypeDef(TypedDict):
+    FirewallRuleGroupId: NotRequired[str]
+    FirewallDomainListId: NotRequired[str]
+    FirewallThreatProtectionId: NotRequired[str]
+    Name: NotRequired[str]
+    Priority: NotRequired[int]
+    Action: NotRequired[ActionType]
+    BlockResponse: NotRequired[BlockResponseType]
+    BlockOverrideDomain: NotRequired[str]
+    BlockOverrideDnsType: NotRequired[Literal["CNAME"]]
+    BlockOverrideTtl: NotRequired[int]
+    CreatorRequestId: NotRequired[str]
+    CreationTime: NotRequired[str]
+    ModificationTime: NotRequired[str]
+    FirewallDomainRedirectionAction: NotRequired[FirewallDomainRedirectionActionType]
+    Qtype: NotRequired[str]
+    DnsThreatProtection: NotRequired[DnsThreatProtectionType]
+    ConfidenceThreshold: NotRequired[ConfidenceThresholdType]
+
+class OutpostResolverTypeDef(TypedDict):
+    Arn: NotRequired[str]
+    CreationTime: NotRequired[str]
+    ModificationTime: NotRequired[str]
+    CreatorRequestId: NotRequired[str]
+    Id: NotRequired[str]
+    InstanceCount: NotRequired[int]
+    PreferredInstanceType: NotRequired[str]
+    Name: NotRequired[str]
+    Status: NotRequired[OutpostResolverStatusType]
+    StatusMessage: NotRequired[str]
+    OutpostArn: NotRequired[str]
+
+class IpAddressRequestTypeDef(TypedDict):
+    SubnetId: str
+    Ip: NotRequired[str]
+    Ipv6: NotRequired[str]
+
+class ResolverQueryLogConfigTypeDef(TypedDict):
+    Id: NotRequired[str]
+    OwnerId: NotRequired[str]
+    Status: NotRequired[ResolverQueryLogConfigStatusType]
+    ShareStatus: NotRequired[ShareStatusType]
+    AssociationCount: NotRequired[int]
+    Arn: NotRequired[str]
+    Name: NotRequired[str]
+    DestinationArn: NotRequired[str]
+    CreatorRequestId: NotRequired[str]
+    CreationTime: NotRequired[str]
 
 TargetAddressTypeDef = TypedDict(
     "TargetAddressTypeDef",
     {
-        "Ip": str,
-        "Port": int,
-        "Ipv6": str,
-        "Protocol": ProtocolType,
-    },
-    total=False,
-)
-
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "ResourceArn": str,
-        "TagKeys": List[str],
+        "Ip": NotRequired[str],
+        "Port": NotRequired[int],
+        "Ipv6": NotRequired[str],
+        "Protocol": NotRequired[ProtocolType],
+        "ServerNameIndication": NotRequired[str],
     },
 )
 
-UpdateFirewallConfigRequestRequestTypeDef = TypedDict(
-    "UpdateFirewallConfigRequestRequestTypeDef",
-    {
-        "ResourceId": str,
-        "FirewallFailOpen": FirewallFailOpenStatusType,
-    },
-)
+class DeleteFirewallDomainListRequestTypeDef(TypedDict):
+    FirewallDomainListId: str
 
-UpdateFirewallConfigResponseTypeDef = TypedDict(
-    "UpdateFirewallConfigResponseTypeDef",
-    {
-        "FirewallConfig": "FirewallConfigTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DeleteFirewallRuleGroupRequestTypeDef(TypedDict):
+    FirewallRuleGroupId: str
 
-UpdateFirewallDomainsRequestRequestTypeDef = TypedDict(
-    "UpdateFirewallDomainsRequestRequestTypeDef",
-    {
-        "FirewallDomainListId": str,
-        "Operation": FirewallDomainUpdateOperationType,
-        "Domains": List[str],
-    },
-)
+class DeleteFirewallRuleRequestTypeDef(TypedDict):
+    FirewallRuleGroupId: str
+    FirewallDomainListId: NotRequired[str]
+    FirewallThreatProtectionId: NotRequired[str]
+    Qtype: NotRequired[str]
 
-UpdateFirewallDomainsResponseTypeDef = TypedDict(
-    "UpdateFirewallDomainsResponseTypeDef",
-    {
-        "Id": str,
-        "Name": str,
-        "Status": FirewallDomainListStatusType,
-        "StatusMessage": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DeleteOutpostResolverRequestTypeDef(TypedDict):
+    Id: str
 
-_RequiredUpdateFirewallRuleGroupAssociationRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateFirewallRuleGroupAssociationRequestRequestTypeDef",
-    {
-        "FirewallRuleGroupAssociationId": str,
-    },
-)
-_OptionalUpdateFirewallRuleGroupAssociationRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateFirewallRuleGroupAssociationRequestRequestTypeDef",
-    {
-        "Priority": int,
-        "MutationProtection": MutationProtectionStatusType,
-        "Name": str,
-    },
-    total=False,
-)
+class DeleteResolverEndpointRequestTypeDef(TypedDict):
+    ResolverEndpointId: str
 
-class UpdateFirewallRuleGroupAssociationRequestRequestTypeDef(
-    _RequiredUpdateFirewallRuleGroupAssociationRequestRequestTypeDef,
-    _OptionalUpdateFirewallRuleGroupAssociationRequestRequestTypeDef,
-):
-    pass
+class DeleteResolverQueryLogConfigRequestTypeDef(TypedDict):
+    ResolverQueryLogConfigId: str
 
-UpdateFirewallRuleGroupAssociationResponseTypeDef = TypedDict(
-    "UpdateFirewallRuleGroupAssociationResponseTypeDef",
-    {
-        "FirewallRuleGroupAssociation": "FirewallRuleGroupAssociationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DeleteResolverRuleRequestTypeDef(TypedDict):
+    ResolverRuleId: str
 
-_RequiredUpdateFirewallRuleRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateFirewallRuleRequestRequestTypeDef",
-    {
-        "FirewallRuleGroupId": str,
-        "FirewallDomainListId": str,
-    },
-)
-_OptionalUpdateFirewallRuleRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateFirewallRuleRequestRequestTypeDef",
-    {
-        "Priority": int,
-        "Action": ActionType,
-        "BlockResponse": BlockResponseType,
-        "BlockOverrideDomain": str,
-        "BlockOverrideDnsType": Literal["CNAME"],
-        "BlockOverrideTtl": int,
-        "Name": str,
-        "FirewallDomainRedirectionAction": FirewallDomainRedirectionActionType,
-        "Qtype": str,
-    },
-    total=False,
-)
+class DisassociateFirewallRuleGroupRequestTypeDef(TypedDict):
+    FirewallRuleGroupAssociationId: str
 
-class UpdateFirewallRuleRequestRequestTypeDef(
-    _RequiredUpdateFirewallRuleRequestRequestTypeDef,
-    _OptionalUpdateFirewallRuleRequestRequestTypeDef,
-):
-    pass
+class DisassociateResolverQueryLogConfigRequestTypeDef(TypedDict):
+    ResolverQueryLogConfigId: str
+    ResourceId: str
 
-UpdateFirewallRuleResponseTypeDef = TypedDict(
-    "UpdateFirewallRuleResponseTypeDef",
-    {
-        "FirewallRule": "FirewallRuleTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DisassociateResolverRuleRequestTypeDef(TypedDict):
+    VPCId: str
+    ResolverRuleId: str
 
-UpdateIpAddressTypeDef = TypedDict(
-    "UpdateIpAddressTypeDef",
-    {
-        "IpId": str,
-        "Ipv6": str,
-    },
-)
+class FilterTypeDef(TypedDict):
+    Name: NotRequired[str]
+    Values: NotRequired[Sequence[str]]
 
-_RequiredUpdateOutpostResolverRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateOutpostResolverRequestRequestTypeDef",
-    {
-        "Id": str,
-    },
-)
-_OptionalUpdateOutpostResolverRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateOutpostResolverRequestRequestTypeDef",
-    {
-        "Name": str,
-        "InstanceCount": int,
-        "PreferredInstanceType": str,
-    },
-    total=False,
-)
+class FirewallConfigTypeDef(TypedDict):
+    Id: NotRequired[str]
+    ResourceId: NotRequired[str]
+    OwnerId: NotRequired[str]
+    FirewallFailOpen: NotRequired[FirewallFailOpenStatusType]
 
-class UpdateOutpostResolverRequestRequestTypeDef(
-    _RequiredUpdateOutpostResolverRequestRequestTypeDef,
-    _OptionalUpdateOutpostResolverRequestRequestTypeDef,
-):
-    pass
+class FirewallDomainListMetadataTypeDef(TypedDict):
+    Id: NotRequired[str]
+    Arn: NotRequired[str]
+    Name: NotRequired[str]
+    CreatorRequestId: NotRequired[str]
+    ManagedOwnerName: NotRequired[str]
 
-UpdateOutpostResolverResponseTypeDef = TypedDict(
-    "UpdateOutpostResolverResponseTypeDef",
-    {
-        "OutpostResolver": "OutpostResolverTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class FirewallRuleGroupMetadataTypeDef(TypedDict):
+    Id: NotRequired[str]
+    Arn: NotRequired[str]
+    Name: NotRequired[str]
+    OwnerId: NotRequired[str]
+    CreatorRequestId: NotRequired[str]
+    ShareStatus: NotRequired[ShareStatusType]
 
-UpdateResolverConfigRequestRequestTypeDef = TypedDict(
-    "UpdateResolverConfigRequestRequestTypeDef",
-    {
-        "ResourceId": str,
-        "AutodefinedReverseFlag": AutodefinedReverseFlagType,
-    },
-)
+class GetFirewallConfigRequestTypeDef(TypedDict):
+    ResourceId: str
 
-UpdateResolverConfigResponseTypeDef = TypedDict(
-    "UpdateResolverConfigResponseTypeDef",
-    {
-        "ResolverConfig": "ResolverConfigTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetFirewallDomainListRequestTypeDef(TypedDict):
+    FirewallDomainListId: str
 
-UpdateResolverDnssecConfigRequestRequestTypeDef = TypedDict(
-    "UpdateResolverDnssecConfigRequestRequestTypeDef",
-    {
-        "ResourceId": str,
-        "Validation": ValidationType,
-    },
-)
+class GetFirewallRuleGroupAssociationRequestTypeDef(TypedDict):
+    FirewallRuleGroupAssociationId: str
 
-UpdateResolverDnssecConfigResponseTypeDef = TypedDict(
-    "UpdateResolverDnssecConfigResponseTypeDef",
-    {
-        "ResolverDNSSECConfig": "ResolverDnssecConfigTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetFirewallRuleGroupPolicyRequestTypeDef(TypedDict):
+    Arn: str
 
-_RequiredUpdateResolverEndpointRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateResolverEndpointRequestRequestTypeDef",
-    {
-        "ResolverEndpointId": str,
-    },
-)
-_OptionalUpdateResolverEndpointRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateResolverEndpointRequestRequestTypeDef",
-    {
-        "Name": str,
-        "ResolverEndpointType": ResolverEndpointTypeType,
-        "UpdateIpAddresses": List["UpdateIpAddressTypeDef"],
-        "Protocols": List[ProtocolType],
-    },
-    total=False,
-)
+class GetFirewallRuleGroupRequestTypeDef(TypedDict):
+    FirewallRuleGroupId: str
 
-class UpdateResolverEndpointRequestRequestTypeDef(
-    _RequiredUpdateResolverEndpointRequestRequestTypeDef,
-    _OptionalUpdateResolverEndpointRequestRequestTypeDef,
-):
-    pass
+class GetOutpostResolverRequestTypeDef(TypedDict):
+    Id: str
 
-UpdateResolverEndpointResponseTypeDef = TypedDict(
-    "UpdateResolverEndpointResponseTypeDef",
-    {
-        "ResolverEndpoint": "ResolverEndpointTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetResolverConfigRequestTypeDef(TypedDict):
+    ResourceId: str
 
-UpdateResolverRuleRequestRequestTypeDef = TypedDict(
-    "UpdateResolverRuleRequestRequestTypeDef",
-    {
-        "ResolverRuleId": str,
-        "Config": "ResolverRuleConfigTypeDef",
-    },
-)
+class ResolverConfigTypeDef(TypedDict):
+    Id: NotRequired[str]
+    ResourceId: NotRequired[str]
+    OwnerId: NotRequired[str]
+    AutodefinedReverse: NotRequired[ResolverAutodefinedReverseStatusType]
 
-UpdateResolverRuleResponseTypeDef = TypedDict(
-    "UpdateResolverRuleResponseTypeDef",
-    {
-        "ResolverRule": "ResolverRuleTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetResolverDnssecConfigRequestTypeDef(TypedDict):
+    ResourceId: str
+
+class ResolverDnssecConfigTypeDef(TypedDict):
+    Id: NotRequired[str]
+    OwnerId: NotRequired[str]
+    ResourceId: NotRequired[str]
+    ValidationStatus: NotRequired[ResolverDNSSECValidationStatusType]
+
+class GetResolverEndpointRequestTypeDef(TypedDict):
+    ResolverEndpointId: str
+
+class GetResolverQueryLogConfigAssociationRequestTypeDef(TypedDict):
+    ResolverQueryLogConfigAssociationId: str
+
+class GetResolverQueryLogConfigPolicyRequestTypeDef(TypedDict):
+    Arn: str
+
+class GetResolverQueryLogConfigRequestTypeDef(TypedDict):
+    ResolverQueryLogConfigId: str
+
+class GetResolverRuleAssociationRequestTypeDef(TypedDict):
+    ResolverRuleAssociationId: str
+
+class GetResolverRulePolicyRequestTypeDef(TypedDict):
+    Arn: str
+
+class GetResolverRuleRequestTypeDef(TypedDict):
+    ResolverRuleId: str
+
+class ImportFirewallDomainsRequestTypeDef(TypedDict):
+    FirewallDomainListId: str
+    Operation: Literal["REPLACE"]
+    DomainFileUrl: str
+
+class IpAddressResponseTypeDef(TypedDict):
+    IpId: NotRequired[str]
+    SubnetId: NotRequired[str]
+    Ip: NotRequired[str]
+    Ipv6: NotRequired[str]
+    Status: NotRequired[IpAddressStatusType]
+    StatusMessage: NotRequired[str]
+    CreationTime: NotRequired[str]
+    ModificationTime: NotRequired[str]
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class ListFirewallConfigsRequestTypeDef(TypedDict):
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListFirewallDomainListsRequestTypeDef(TypedDict):
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListFirewallDomainsRequestTypeDef(TypedDict):
+    FirewallDomainListId: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListFirewallRuleGroupAssociationsRequestTypeDef(TypedDict):
+    FirewallRuleGroupId: NotRequired[str]
+    VpcId: NotRequired[str]
+    Priority: NotRequired[int]
+    Status: NotRequired[FirewallRuleGroupAssociationStatusType]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListFirewallRuleGroupsRequestTypeDef(TypedDict):
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListFirewallRulesRequestTypeDef(TypedDict):
+    FirewallRuleGroupId: str
+    Priority: NotRequired[int]
+    Action: NotRequired[ActionType]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListOutpostResolversRequestTypeDef(TypedDict):
+    OutpostArn: NotRequired[str]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListResolverConfigsRequestTypeDef(TypedDict):
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListResolverEndpointIpAddressesRequestTypeDef(TypedDict):
+    ResolverEndpointId: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class PutFirewallRuleGroupPolicyRequestTypeDef(TypedDict):
+    Arn: str
+    FirewallRuleGroupPolicy: str
+
+class PutResolverQueryLogConfigPolicyRequestTypeDef(TypedDict):
+    Arn: str
+    ResolverQueryLogConfigPolicy: str
+
+class PutResolverRulePolicyRequestTypeDef(TypedDict):
+    Arn: str
+    ResolverRulePolicy: str
+
+class UntagResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+    TagKeys: Sequence[str]
+
+class UpdateFirewallConfigRequestTypeDef(TypedDict):
+    ResourceId: str
+    FirewallFailOpen: FirewallFailOpenStatusType
+
+class UpdateFirewallDomainsRequestTypeDef(TypedDict):
+    FirewallDomainListId: str
+    Operation: FirewallDomainUpdateOperationType
+    Domains: Sequence[str]
+
+class UpdateFirewallRuleGroupAssociationRequestTypeDef(TypedDict):
+    FirewallRuleGroupAssociationId: str
+    Priority: NotRequired[int]
+    MutationProtection: NotRequired[MutationProtectionStatusType]
+    Name: NotRequired[str]
+
+class UpdateFirewallRuleRequestTypeDef(TypedDict):
+    FirewallRuleGroupId: str
+    FirewallDomainListId: NotRequired[str]
+    FirewallThreatProtectionId: NotRequired[str]
+    Priority: NotRequired[int]
+    Action: NotRequired[ActionType]
+    BlockResponse: NotRequired[BlockResponseType]
+    BlockOverrideDomain: NotRequired[str]
+    BlockOverrideDnsType: NotRequired[Literal["CNAME"]]
+    BlockOverrideTtl: NotRequired[int]
+    Name: NotRequired[str]
+    FirewallDomainRedirectionAction: NotRequired[FirewallDomainRedirectionActionType]
+    Qtype: NotRequired[str]
+    DnsThreatProtection: NotRequired[DnsThreatProtectionType]
+    ConfidenceThreshold: NotRequired[ConfidenceThresholdType]
+
+class UpdateIpAddressTypeDef(TypedDict):
+    IpId: str
+    Ipv6: str
+
+class UpdateOutpostResolverRequestTypeDef(TypedDict):
+    Id: str
+    Name: NotRequired[str]
+    InstanceCount: NotRequired[int]
+    PreferredInstanceType: NotRequired[str]
+
+class UpdateResolverConfigRequestTypeDef(TypedDict):
+    ResourceId: str
+    AutodefinedReverseFlag: AutodefinedReverseFlagType
+
+class UpdateResolverDnssecConfigRequestTypeDef(TypedDict):
+    ResourceId: str
+    Validation: ValidationType
+
+class AssociateFirewallRuleGroupRequestTypeDef(TypedDict):
+    CreatorRequestId: str
+    FirewallRuleGroupId: str
+    VpcId: str
+    Priority: int
+    Name: str
+    MutationProtection: NotRequired[MutationProtectionStatusType]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+
+class CreateFirewallDomainListRequestTypeDef(TypedDict):
+    CreatorRequestId: str
+    Name: str
+    Tags: NotRequired[Sequence[TagTypeDef]]
+
+class CreateFirewallRuleGroupRequestTypeDef(TypedDict):
+    CreatorRequestId: str
+    Name: str
+    Tags: NotRequired[Sequence[TagTypeDef]]
+
+class CreateOutpostResolverRequestTypeDef(TypedDict):
+    CreatorRequestId: str
+    Name: str
+    PreferredInstanceType: str
+    OutpostArn: str
+    InstanceCount: NotRequired[int]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+
+class CreateResolverQueryLogConfigRequestTypeDef(TypedDict):
+    Name: str
+    DestinationArn: str
+    CreatorRequestId: str
+    Tags: NotRequired[Sequence[TagTypeDef]]
+
+class TagResourceRequestTypeDef(TypedDict):
+    ResourceArn: str
+    Tags: Sequence[TagTypeDef]
+
+class AssociateFirewallRuleGroupResponseTypeDef(TypedDict):
+    FirewallRuleGroupAssociation: FirewallRuleGroupAssociationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DisassociateFirewallRuleGroupResponseTypeDef(TypedDict):
+    FirewallRuleGroupAssociation: FirewallRuleGroupAssociationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetFirewallRuleGroupAssociationResponseTypeDef(TypedDict):
+    FirewallRuleGroupAssociation: FirewallRuleGroupAssociationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetFirewallRuleGroupPolicyResponseTypeDef(TypedDict):
+    FirewallRuleGroupPolicy: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetResolverQueryLogConfigPolicyResponseTypeDef(TypedDict):
+    ResolverQueryLogConfigPolicy: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetResolverRulePolicyResponseTypeDef(TypedDict):
+    ResolverRulePolicy: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ImportFirewallDomainsResponseTypeDef(TypedDict):
+    Id: str
+    Name: str
+    Status: FirewallDomainListStatusType
+    StatusMessage: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListFirewallDomainsResponseTypeDef(TypedDict):
+    Domains: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListFirewallRuleGroupAssociationsResponseTypeDef(TypedDict):
+    FirewallRuleGroupAssociations: List[FirewallRuleGroupAssociationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    Tags: List[TagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class PutFirewallRuleGroupPolicyResponseTypeDef(TypedDict):
+    ReturnValue: bool
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutResolverQueryLogConfigPolicyResponseTypeDef(TypedDict):
+    ReturnValue: bool
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class PutResolverRulePolicyResponseTypeDef(TypedDict):
+    ReturnValue: bool
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateFirewallDomainsResponseTypeDef(TypedDict):
+    Id: str
+    Name: str
+    Status: FirewallDomainListStatusType
+    StatusMessage: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateFirewallRuleGroupAssociationResponseTypeDef(TypedDict):
+    FirewallRuleGroupAssociation: FirewallRuleGroupAssociationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class AssociateResolverEndpointIpAddressRequestTypeDef(TypedDict):
+    ResolverEndpointId: str
+    IpAddress: IpAddressUpdateTypeDef
+
+class DisassociateResolverEndpointIpAddressRequestTypeDef(TypedDict):
+    ResolverEndpointId: str
+    IpAddress: IpAddressUpdateTypeDef
+
+class AssociateResolverEndpointIpAddressResponseTypeDef(TypedDict):
+    ResolverEndpoint: ResolverEndpointTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateResolverEndpointResponseTypeDef(TypedDict):
+    ResolverEndpoint: ResolverEndpointTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteResolverEndpointResponseTypeDef(TypedDict):
+    ResolverEndpoint: ResolverEndpointTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DisassociateResolverEndpointIpAddressResponseTypeDef(TypedDict):
+    ResolverEndpoint: ResolverEndpointTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetResolverEndpointResponseTypeDef(TypedDict):
+    ResolverEndpoint: ResolverEndpointTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListResolverEndpointsResponseTypeDef(TypedDict):
+    MaxResults: int
+    ResolverEndpoints: List[ResolverEndpointTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class UpdateResolverEndpointResponseTypeDef(TypedDict):
+    ResolverEndpoint: ResolverEndpointTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class AssociateResolverQueryLogConfigResponseTypeDef(TypedDict):
+    ResolverQueryLogConfigAssociation: ResolverQueryLogConfigAssociationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DisassociateResolverQueryLogConfigResponseTypeDef(TypedDict):
+    ResolverQueryLogConfigAssociation: ResolverQueryLogConfigAssociationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetResolverQueryLogConfigAssociationResponseTypeDef(TypedDict):
+    ResolverQueryLogConfigAssociation: ResolverQueryLogConfigAssociationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListResolverQueryLogConfigAssociationsResponseTypeDef(TypedDict):
+    TotalCount: int
+    TotalFilteredCount: int
+    ResolverQueryLogConfigAssociations: List[ResolverQueryLogConfigAssociationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class AssociateResolverRuleResponseTypeDef(TypedDict):
+    ResolverRuleAssociation: ResolverRuleAssociationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DisassociateResolverRuleResponseTypeDef(TypedDict):
+    ResolverRuleAssociation: ResolverRuleAssociationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetResolverRuleAssociationResponseTypeDef(TypedDict):
+    ResolverRuleAssociation: ResolverRuleAssociationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListResolverRuleAssociationsResponseTypeDef(TypedDict):
+    MaxResults: int
+    ResolverRuleAssociations: List[ResolverRuleAssociationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class CreateFirewallDomainListResponseTypeDef(TypedDict):
+    FirewallDomainList: FirewallDomainListTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteFirewallDomainListResponseTypeDef(TypedDict):
+    FirewallDomainList: FirewallDomainListTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetFirewallDomainListResponseTypeDef(TypedDict):
+    FirewallDomainList: FirewallDomainListTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateFirewallRuleGroupResponseTypeDef(TypedDict):
+    FirewallRuleGroup: FirewallRuleGroupTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteFirewallRuleGroupResponseTypeDef(TypedDict):
+    FirewallRuleGroup: FirewallRuleGroupTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetFirewallRuleGroupResponseTypeDef(TypedDict):
+    FirewallRuleGroup: FirewallRuleGroupTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateFirewallRuleResponseTypeDef(TypedDict):
+    FirewallRule: FirewallRuleTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteFirewallRuleResponseTypeDef(TypedDict):
+    FirewallRule: FirewallRuleTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListFirewallRulesResponseTypeDef(TypedDict):
+    FirewallRules: List[FirewallRuleTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class UpdateFirewallRuleResponseTypeDef(TypedDict):
+    FirewallRule: FirewallRuleTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateOutpostResolverResponseTypeDef(TypedDict):
+    OutpostResolver: OutpostResolverTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteOutpostResolverResponseTypeDef(TypedDict):
+    OutpostResolver: OutpostResolverTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetOutpostResolverResponseTypeDef(TypedDict):
+    OutpostResolver: OutpostResolverTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListOutpostResolversResponseTypeDef(TypedDict):
+    OutpostResolvers: List[OutpostResolverTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class UpdateOutpostResolverResponseTypeDef(TypedDict):
+    OutpostResolver: OutpostResolverTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateResolverEndpointRequestTypeDef(TypedDict):
+    CreatorRequestId: str
+    SecurityGroupIds: Sequence[str]
+    Direction: ResolverEndpointDirectionType
+    IpAddresses: Sequence[IpAddressRequestTypeDef]
+    Name: NotRequired[str]
+    OutpostArn: NotRequired[str]
+    PreferredInstanceType: NotRequired[str]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+    ResolverEndpointType: NotRequired[ResolverEndpointTypeType]
+    Protocols: NotRequired[Sequence[ProtocolType]]
+
+class CreateResolverQueryLogConfigResponseTypeDef(TypedDict):
+    ResolverQueryLogConfig: ResolverQueryLogConfigTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteResolverQueryLogConfigResponseTypeDef(TypedDict):
+    ResolverQueryLogConfig: ResolverQueryLogConfigTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetResolverQueryLogConfigResponseTypeDef(TypedDict):
+    ResolverQueryLogConfig: ResolverQueryLogConfigTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListResolverQueryLogConfigsResponseTypeDef(TypedDict):
+    TotalCount: int
+    TotalFilteredCount: int
+    ResolverQueryLogConfigs: List[ResolverQueryLogConfigTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class CreateResolverRuleRequestTypeDef(TypedDict):
+    CreatorRequestId: str
+    RuleType: RuleTypeOptionType
+    Name: NotRequired[str]
+    DomainName: NotRequired[str]
+    TargetIps: NotRequired[Sequence[TargetAddressTypeDef]]
+    ResolverEndpointId: NotRequired[str]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+
+class ResolverRuleConfigTypeDef(TypedDict):
+    Name: NotRequired[str]
+    TargetIps: NotRequired[Sequence[TargetAddressTypeDef]]
+    ResolverEndpointId: NotRequired[str]
+
+class ResolverRuleTypeDef(TypedDict):
+    Id: NotRequired[str]
+    CreatorRequestId: NotRequired[str]
+    Arn: NotRequired[str]
+    DomainName: NotRequired[str]
+    Status: NotRequired[ResolverRuleStatusType]
+    StatusMessage: NotRequired[str]
+    RuleType: NotRequired[RuleTypeOptionType]
+    Name: NotRequired[str]
+    TargetIps: NotRequired[List[TargetAddressTypeDef]]
+    ResolverEndpointId: NotRequired[str]
+    OwnerId: NotRequired[str]
+    ShareStatus: NotRequired[ShareStatusType]
+    CreationTime: NotRequired[str]
+    ModificationTime: NotRequired[str]
+
+class ListResolverDnssecConfigsRequestTypeDef(TypedDict):
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+    Filters: NotRequired[Sequence[FilterTypeDef]]
+
+class ListResolverEndpointsRequestTypeDef(TypedDict):
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+    Filters: NotRequired[Sequence[FilterTypeDef]]
+
+class ListResolverQueryLogConfigAssociationsRequestTypeDef(TypedDict):
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+    Filters: NotRequired[Sequence[FilterTypeDef]]
+    SortBy: NotRequired[str]
+    SortOrder: NotRequired[SortOrderType]
+
+class ListResolverQueryLogConfigsRequestTypeDef(TypedDict):
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+    Filters: NotRequired[Sequence[FilterTypeDef]]
+    SortBy: NotRequired[str]
+    SortOrder: NotRequired[SortOrderType]
+
+class ListResolverRuleAssociationsRequestTypeDef(TypedDict):
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+    Filters: NotRequired[Sequence[FilterTypeDef]]
+
+class ListResolverRulesRequestTypeDef(TypedDict):
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+    Filters: NotRequired[Sequence[FilterTypeDef]]
+
+class GetFirewallConfigResponseTypeDef(TypedDict):
+    FirewallConfig: FirewallConfigTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListFirewallConfigsResponseTypeDef(TypedDict):
+    FirewallConfigs: List[FirewallConfigTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class UpdateFirewallConfigResponseTypeDef(TypedDict):
+    FirewallConfig: FirewallConfigTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListFirewallDomainListsResponseTypeDef(TypedDict):
+    FirewallDomainLists: List[FirewallDomainListMetadataTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListFirewallRuleGroupsResponseTypeDef(TypedDict):
+    FirewallRuleGroups: List[FirewallRuleGroupMetadataTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class GetResolverConfigResponseTypeDef(TypedDict):
+    ResolverConfig: ResolverConfigTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListResolverConfigsResponseTypeDef(TypedDict):
+    ResolverConfigs: List[ResolverConfigTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class UpdateResolverConfigResponseTypeDef(TypedDict):
+    ResolverConfig: ResolverConfigTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetResolverDnssecConfigResponseTypeDef(TypedDict):
+    ResolverDNSSECConfig: ResolverDnssecConfigTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListResolverDnssecConfigsResponseTypeDef(TypedDict):
+    ResolverDnssecConfigs: List[ResolverDnssecConfigTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class UpdateResolverDnssecConfigResponseTypeDef(TypedDict):
+    ResolverDNSSECConfig: ResolverDnssecConfigTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListResolverEndpointIpAddressesResponseTypeDef(TypedDict):
+    MaxResults: int
+    IpAddresses: List[IpAddressResponseTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListFirewallConfigsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListFirewallDomainListsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListFirewallDomainsRequestPaginateTypeDef(TypedDict):
+    FirewallDomainListId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListFirewallRuleGroupAssociationsRequestPaginateTypeDef(TypedDict):
+    FirewallRuleGroupId: NotRequired[str]
+    VpcId: NotRequired[str]
+    Priority: NotRequired[int]
+    Status: NotRequired[FirewallRuleGroupAssociationStatusType]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListFirewallRuleGroupsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListFirewallRulesRequestPaginateTypeDef(TypedDict):
+    FirewallRuleGroupId: str
+    Priority: NotRequired[int]
+    Action: NotRequired[ActionType]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListOutpostResolversRequestPaginateTypeDef(TypedDict):
+    OutpostArn: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListResolverConfigsRequestPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListResolverDnssecConfigsRequestPaginateTypeDef(TypedDict):
+    Filters: NotRequired[Sequence[FilterTypeDef]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListResolverEndpointIpAddressesRequestPaginateTypeDef(TypedDict):
+    ResolverEndpointId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListResolverEndpointsRequestPaginateTypeDef(TypedDict):
+    Filters: NotRequired[Sequence[FilterTypeDef]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListResolverQueryLogConfigAssociationsRequestPaginateTypeDef(TypedDict):
+    Filters: NotRequired[Sequence[FilterTypeDef]]
+    SortBy: NotRequired[str]
+    SortOrder: NotRequired[SortOrderType]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListResolverQueryLogConfigsRequestPaginateTypeDef(TypedDict):
+    Filters: NotRequired[Sequence[FilterTypeDef]]
+    SortBy: NotRequired[str]
+    SortOrder: NotRequired[SortOrderType]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListResolverRuleAssociationsRequestPaginateTypeDef(TypedDict):
+    Filters: NotRequired[Sequence[FilterTypeDef]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListResolverRulesRequestPaginateTypeDef(TypedDict):
+    Filters: NotRequired[Sequence[FilterTypeDef]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListTagsForResourceRequestPaginateTypeDef(TypedDict):
+    ResourceArn: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class UpdateResolverEndpointRequestTypeDef(TypedDict):
+    ResolverEndpointId: str
+    Name: NotRequired[str]
+    ResolverEndpointType: NotRequired[ResolverEndpointTypeType]
+    UpdateIpAddresses: NotRequired[Sequence[UpdateIpAddressTypeDef]]
+    Protocols: NotRequired[Sequence[ProtocolType]]
+
+class UpdateResolverRuleRequestTypeDef(TypedDict):
+    ResolverRuleId: str
+    Config: ResolverRuleConfigTypeDef
+
+class CreateResolverRuleResponseTypeDef(TypedDict):
+    ResolverRule: ResolverRuleTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteResolverRuleResponseTypeDef(TypedDict):
+    ResolverRule: ResolverRuleTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetResolverRuleResponseTypeDef(TypedDict):
+    ResolverRule: ResolverRuleTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListResolverRulesResponseTypeDef(TypedDict):
+    MaxResults: int
+    ResolverRules: List[ResolverRuleTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class UpdateResolverRuleResponseTypeDef(TypedDict):
+    ResolverRule: ResolverRuleTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef

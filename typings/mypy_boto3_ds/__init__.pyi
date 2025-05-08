@@ -1,10 +1,14 @@
 """
 Main interface for ds service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_ds/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_ds import (
         Client,
         DescribeClientAuthenticationSettingsPaginator,
@@ -24,10 +28,8 @@ Usage::
         ListTagsForResourcePaginator,
     )
 
-    session = boto3.Session()
-
-    client: DirectoryServiceClient = boto3.client("ds")
-    session_client: DirectoryServiceClient = session.client("ds")
+    session = Session()
+    client: DirectoryServiceClient = session.client("ds")
 
     describe_client_authentication_settings_paginator: DescribeClientAuthenticationSettingsPaginator = client.get_paginator("describe_client_authentication_settings")
     describe_directories_paginator: DescribeDirectoriesPaginator = client.get_paginator("describe_directories")

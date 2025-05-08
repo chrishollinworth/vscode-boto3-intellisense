@@ -1,14 +1,16 @@
 """
 Type annotations for medical-imaging service client paginators.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medical_imaging/paginators.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medical_imaging/paginators/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
 
-    from mypy_boto3_medical_imaging import HealthImagingClient
+    from mypy_boto3_medical_imaging.client import HealthImagingClient
     from mypy_boto3_medical_imaging.paginator import (
         ListDICOMImportJobsPaginator,
         ListDatastoresPaginator,
@@ -16,7 +18,8 @@ Usage::
         SearchImageSetsPaginator,
     )
 
-    client: HealthImagingClient = boto3.client("medical-imaging")
+    session = Session()
+    client: HealthImagingClient = session.client("medical-imaging")
 
     list_dicom_import_jobs_paginator: ListDICOMImportJobsPaginator = client.get_paginator("list_dicom_import_jobs")
     list_datastores_paginator: ListDatastoresPaginator = client.get_paginator("list_datastores")
@@ -25,19 +28,28 @@ Usage::
     ```
 """
 
-from typing import Iterator
+from __future__ import annotations
 
-from botocore.paginate import Paginator as Boto3Paginator
+import sys
+from typing import TYPE_CHECKING
 
-from .literals import DatastoreStatusType, JobStatusType
+from botocore.paginate import PageIterator, Paginator
+
 from .type_defs import (
+    ListDatastoresRequestPaginateTypeDef,
     ListDatastoresResponseTypeDef,
+    ListDICOMImportJobsRequestPaginateTypeDef,
     ListDICOMImportJobsResponseTypeDef,
+    ListImageSetVersionsRequestPaginateTypeDef,
     ListImageSetVersionsResponseTypeDef,
-    PaginatorConfigTypeDef,
-    SearchCriteriaTypeDef,
+    SearchImageSetsRequestPaginateTypeDef,
     SearchImageSetsResponseTypeDef,
 )
+
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = (
     "ListDICOMImportJobsPaginator",
@@ -46,69 +58,74 @@ __all__ = (
     "SearchImageSetsPaginator",
 )
 
-class ListDICOMImportJobsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medical-imaging.html#HealthImaging.Paginator.ListDICOMImportJobs)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medical_imaging/paginators.html#listdicomimportjobspaginator)
-    """
+if TYPE_CHECKING:
+    _ListDICOMImportJobsPaginatorBase = Paginator[ListDICOMImportJobsResponseTypeDef]
+else:
+    _ListDICOMImportJobsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        datastoreId: str,
-        jobStatus: JobStatusType = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListDICOMImportJobsResponseTypeDef]:
-        """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medical-imaging.html#HealthImaging.Paginator.ListDICOMImportJobs.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medical_imaging/paginators.html#listdicomimportjobspaginator)
-        """
-
-class ListDatastoresPaginator(Boto3Paginator):
+class ListDICOMImportJobsPaginator(_ListDICOMImportJobsPaginatorBase):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medical-imaging.html#HealthImaging.Paginator.ListDatastores)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medical_imaging/paginators.html#listdatastorespaginator)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medical-imaging/paginator/ListDICOMImportJobs.html#HealthImaging.Paginator.ListDICOMImportJobs)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medical_imaging/paginators/#listdicomimportjobspaginator)
     """
-
-    def paginate(
-        self,
-        *,
-        datastoreStatus: DatastoreStatusType = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListDatastoresResponseTypeDef]:
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListDICOMImportJobsRequestPaginateTypeDef]
+    ) -> PageIterator[ListDICOMImportJobsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medical-imaging.html#HealthImaging.Paginator.ListDatastores.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medical_imaging/paginators.html#listdatastorespaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medical-imaging/paginator/ListDICOMImportJobs.html#HealthImaging.Paginator.ListDICOMImportJobs.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medical_imaging/paginators/#listdicomimportjobspaginator)
         """
 
-class ListImageSetVersionsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medical-imaging.html#HealthImaging.Paginator.ListImageSetVersions)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medical_imaging/paginators.html#listimagesetversionspaginator)
-    """
+if TYPE_CHECKING:
+    _ListDatastoresPaginatorBase = Paginator[ListDatastoresResponseTypeDef]
+else:
+    _ListDatastoresPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self, *, datastoreId: str, imageSetId: str, PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[ListImageSetVersionsResponseTypeDef]:
+class ListDatastoresPaginator(_ListDatastoresPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medical-imaging/paginator/ListDatastores.html#HealthImaging.Paginator.ListDatastores)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medical_imaging/paginators/#listdatastorespaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListDatastoresRequestPaginateTypeDef]
+    ) -> PageIterator[ListDatastoresResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medical-imaging.html#HealthImaging.Paginator.ListImageSetVersions.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medical_imaging/paginators.html#listimagesetversionspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medical-imaging/paginator/ListDatastores.html#HealthImaging.Paginator.ListDatastores.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medical_imaging/paginators/#listdatastorespaginator)
         """
 
-class SearchImageSetsPaginator(Boto3Paginator):
-    """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medical-imaging.html#HealthImaging.Paginator.SearchImageSets)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medical_imaging/paginators.html#searchimagesetspaginator)
-    """
+if TYPE_CHECKING:
+    _ListImageSetVersionsPaginatorBase = Paginator[ListImageSetVersionsResponseTypeDef]
+else:
+    _ListImageSetVersionsPaginatorBase = Paginator  # type: ignore[assignment]
 
-    def paginate(
-        self,
-        *,
-        datastoreId: str,
-        searchCriteria: "SearchCriteriaTypeDef" = None,
-        PaginationConfig: PaginatorConfigTypeDef = None
-    ) -> Iterator[SearchImageSetsResponseTypeDef]:
+class ListImageSetVersionsPaginator(_ListImageSetVersionsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medical-imaging/paginator/ListImageSetVersions.html#HealthImaging.Paginator.ListImageSetVersions)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medical_imaging/paginators/#listimagesetversionspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[ListImageSetVersionsRequestPaginateTypeDef]
+    ) -> PageIterator[ListImageSetVersionsResponseTypeDef]:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/medical-imaging.html#HealthImaging.Paginator.SearchImageSets.paginate)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_medical_imaging/paginators.html#searchimagesetspaginator)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medical-imaging/paginator/ListImageSetVersions.html#HealthImaging.Paginator.ListImageSetVersions.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medical_imaging/paginators/#listimagesetversionspaginator)
+        """
+
+if TYPE_CHECKING:
+    _SearchImageSetsPaginatorBase = Paginator[SearchImageSetsResponseTypeDef]
+else:
+    _SearchImageSetsPaginatorBase = Paginator  # type: ignore[assignment]
+
+class SearchImageSetsPaginator(_SearchImageSetsPaginatorBase):
+    """
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medical-imaging/paginator/SearchImageSets.html#HealthImaging.Paginator.SearchImageSets)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medical_imaging/paginators/#searchimagesetspaginator)
+    """
+    def paginate(  # type: ignore[override]
+        self, **kwargs: Unpack[SearchImageSetsRequestPaginateTypeDef]
+    ) -> PageIterator[SearchImageSetsResponseTypeDef]:
+        """
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medical-imaging/paginator/SearchImageSets.html#HealthImaging.Paginator.SearchImageSets.paginate)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_medical_imaging/paginators/#searchimagesetspaginator)
         """

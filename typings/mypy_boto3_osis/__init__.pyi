@@ -1,19 +1,21 @@
 """
 Main interface for osis service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_osis/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_osis import (
         Client,
         OpenSearchIngestionClient,
     )
 
-    session = boto3.Session()
-
-    client: OpenSearchIngestionClient = boto3.client("osis")
-    session_client: OpenSearchIngestionClient = session.client("osis")
+    session = Session()
+    client: OpenSearchIngestionClient = session.client("osis")
     ```
 """
 

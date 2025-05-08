@@ -1,10 +1,14 @@
 """
 Main interface for opsworkscm service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_opsworkscm/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_opsworkscm import (
         Client,
         DescribeBackupsPaginator,
@@ -15,10 +19,8 @@ Usage::
         OpsWorksCMClient,
     )
 
-    session = boto3.Session()
-
-    client: OpsWorksCMClient = boto3.client("opsworkscm")
-    session_client: OpsWorksCMClient = session.client("opsworkscm")
+    session = Session()
+    client: OpsWorksCMClient = session.client("opsworkscm")
 
     node_associated_waiter: NodeAssociatedWaiter = client.get_waiter("node_associated")
 

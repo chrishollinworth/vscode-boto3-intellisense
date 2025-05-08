@@ -1,19 +1,21 @@
 """
 Main interface for rds-data service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_rds_data/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_rds_data import (
         Client,
         RDSDataServiceClient,
     )
 
-    session = boto3.Session()
-
-    client: RDSDataServiceClient = boto3.client("rds-data")
-    session_client: RDSDataServiceClient = session.client("rds-data")
+    session = Session()
+    client: RDSDataServiceClient = session.client("rds-data")
     ```
 """
 

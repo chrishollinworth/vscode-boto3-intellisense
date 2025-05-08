@@ -1,20 +1,24 @@
 """
 Type annotations for textract service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_textract/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_textract/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_textract.type_defs import AdapterOverviewTypeDef
 
-    data: AdapterOverviewTypeDef = {...}
+    data: AdapterOverviewTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import IO, Any, Dict, List, Union
+from typing import IO, Any, Union
 
 from botocore.response import StreamingBody
 
@@ -31,14 +35,16 @@ from .literals import (
     TextTypeType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
     "AdapterOverviewTypeDef",
@@ -47,22 +53,23 @@ __all__ = (
     "AdapterVersionEvaluationMetricTypeDef",
     "AdapterVersionOverviewTypeDef",
     "AdaptersConfigTypeDef",
-    "AnalyzeDocumentRequestRequestTypeDef",
+    "AnalyzeDocumentRequestTypeDef",
     "AnalyzeDocumentResponseTypeDef",
-    "AnalyzeExpenseRequestRequestTypeDef",
+    "AnalyzeExpenseRequestTypeDef",
     "AnalyzeExpenseResponseTypeDef",
     "AnalyzeIDDetectionsTypeDef",
-    "AnalyzeIDRequestRequestTypeDef",
+    "AnalyzeIDRequestTypeDef",
     "AnalyzeIDResponseTypeDef",
+    "BlobTypeDef",
     "BlockTypeDef",
     "BoundingBoxTypeDef",
-    "CreateAdapterRequestRequestTypeDef",
+    "CreateAdapterRequestTypeDef",
     "CreateAdapterResponseTypeDef",
-    "CreateAdapterVersionRequestRequestTypeDef",
+    "CreateAdapterVersionRequestTypeDef",
     "CreateAdapterVersionResponseTypeDef",
-    "DeleteAdapterRequestRequestTypeDef",
-    "DeleteAdapterVersionRequestRequestTypeDef",
-    "DetectDocumentTextRequestRequestTypeDef",
+    "DeleteAdapterRequestTypeDef",
+    "DeleteAdapterVersionRequestTypeDef",
+    "DetectDocumentTextRequestTypeDef",
     "DetectDocumentTextResponseTypeDef",
     "DetectedSignatureTypeDef",
     "DocumentGroupTypeDef",
@@ -78,19 +85,19 @@ __all__ = (
     "ExpenseTypeTypeDef",
     "ExtractionTypeDef",
     "GeometryTypeDef",
-    "GetAdapterRequestRequestTypeDef",
+    "GetAdapterRequestTypeDef",
     "GetAdapterResponseTypeDef",
-    "GetAdapterVersionRequestRequestTypeDef",
+    "GetAdapterVersionRequestTypeDef",
     "GetAdapterVersionResponseTypeDef",
-    "GetDocumentAnalysisRequestRequestTypeDef",
+    "GetDocumentAnalysisRequestTypeDef",
     "GetDocumentAnalysisResponseTypeDef",
-    "GetDocumentTextDetectionRequestRequestTypeDef",
+    "GetDocumentTextDetectionRequestTypeDef",
     "GetDocumentTextDetectionResponseTypeDef",
-    "GetExpenseAnalysisRequestRequestTypeDef",
+    "GetExpenseAnalysisRequestTypeDef",
     "GetExpenseAnalysisResponseTypeDef",
-    "GetLendingAnalysisRequestRequestTypeDef",
+    "GetLendingAnalysisRequestTypeDef",
     "GetLendingAnalysisResponseTypeDef",
-    "GetLendingAnalysisSummaryRequestRequestTypeDef",
+    "GetLendingAnalysisSummaryRequestTypeDef",
     "GetLendingAnalysisSummaryResponseTypeDef",
     "HumanLoopActivationOutputTypeDef",
     "HumanLoopConfigTypeDef",
@@ -104,11 +111,13 @@ __all__ = (
     "LendingSummaryTypeDef",
     "LineItemFieldsTypeDef",
     "LineItemGroupTypeDef",
-    "ListAdapterVersionsRequestRequestTypeDef",
+    "ListAdapterVersionsRequestPaginateTypeDef",
+    "ListAdapterVersionsRequestTypeDef",
     "ListAdapterVersionsResponseTypeDef",
-    "ListAdaptersRequestRequestTypeDef",
+    "ListAdaptersRequestPaginateTypeDef",
+    "ListAdaptersRequestTypeDef",
     "ListAdaptersResponseTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "NormalizedValueTypeDef",
     "NotificationChannelTypeDef",
@@ -118,1165 +127,614 @@ __all__ = (
     "PointTypeDef",
     "PredictionTypeDef",
     "QueriesConfigTypeDef",
+    "QueryOutputTypeDef",
     "QueryTypeDef",
+    "QueryUnionTypeDef",
     "RelationshipTypeDef",
     "ResponseMetadataTypeDef",
     "S3ObjectTypeDef",
     "SignatureDetectionTypeDef",
     "SplitDocumentTypeDef",
-    "StartDocumentAnalysisRequestRequestTypeDef",
+    "StartDocumentAnalysisRequestTypeDef",
     "StartDocumentAnalysisResponseTypeDef",
-    "StartDocumentTextDetectionRequestRequestTypeDef",
+    "StartDocumentTextDetectionRequestTypeDef",
     "StartDocumentTextDetectionResponseTypeDef",
-    "StartExpenseAnalysisRequestRequestTypeDef",
+    "StartExpenseAnalysisRequestTypeDef",
     "StartExpenseAnalysisResponseTypeDef",
-    "StartLendingAnalysisRequestRequestTypeDef",
+    "StartLendingAnalysisRequestTypeDef",
     "StartLendingAnalysisResponseTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
+    "TimestampTypeDef",
     "UndetectedSignatureTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateAdapterRequestRequestTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateAdapterRequestTypeDef",
     "UpdateAdapterResponseTypeDef",
     "WarningTypeDef",
 )
 
-AdapterOverviewTypeDef = TypedDict(
-    "AdapterOverviewTypeDef",
-    {
-        "AdapterId": str,
-        "AdapterName": str,
-        "CreationTime": datetime,
-        "FeatureTypes": List[FeatureTypeType],
-    },
-    total=False,
-)
+class AdapterOverviewTypeDef(TypedDict):
+    AdapterId: NotRequired[str]
+    AdapterName: NotRequired[str]
+    CreationTime: NotRequired[datetime]
+    FeatureTypes: NotRequired[List[FeatureTypeType]]
 
-_RequiredAdapterTypeDef = TypedDict(
-    "_RequiredAdapterTypeDef",
-    {
-        "AdapterId": str,
-        "Version": str,
-    },
-)
-_OptionalAdapterTypeDef = TypedDict(
-    "_OptionalAdapterTypeDef",
-    {
-        "Pages": List[str],
-    },
-    total=False,
-)
+class AdapterTypeDef(TypedDict):
+    AdapterId: str
+    Version: str
+    Pages: NotRequired[Sequence[str]]
 
-class AdapterTypeDef(_RequiredAdapterTypeDef, _OptionalAdapterTypeDef):
-    pass
+class S3ObjectTypeDef(TypedDict):
+    Bucket: NotRequired[str]
+    Name: NotRequired[str]
+    Version: NotRequired[str]
 
-AdapterVersionDatasetConfigTypeDef = TypedDict(
-    "AdapterVersionDatasetConfigTypeDef",
-    {
-        "ManifestS3Object": "S3ObjectTypeDef",
-    },
-    total=False,
-)
+class EvaluationMetricTypeDef(TypedDict):
+    F1Score: NotRequired[float]
+    Precision: NotRequired[float]
+    Recall: NotRequired[float]
 
-AdapterVersionEvaluationMetricTypeDef = TypedDict(
-    "AdapterVersionEvaluationMetricTypeDef",
-    {
-        "Baseline": "EvaluationMetricTypeDef",
-        "AdapterVersion": "EvaluationMetricTypeDef",
-        "FeatureType": FeatureTypeType,
-    },
-    total=False,
-)
+class AdapterVersionOverviewTypeDef(TypedDict):
+    AdapterId: NotRequired[str]
+    AdapterVersion: NotRequired[str]
+    CreationTime: NotRequired[datetime]
+    FeatureTypes: NotRequired[List[FeatureTypeType]]
+    Status: NotRequired[AdapterVersionStatusType]
+    StatusMessage: NotRequired[str]
 
-AdapterVersionOverviewTypeDef = TypedDict(
-    "AdapterVersionOverviewTypeDef",
-    {
-        "AdapterId": str,
-        "AdapterVersion": str,
-        "CreationTime": datetime,
-        "FeatureTypes": List[FeatureTypeType],
-        "Status": AdapterVersionStatusType,
-        "StatusMessage": str,
-    },
-    total=False,
-)
+class DocumentMetadataTypeDef(TypedDict):
+    Pages: NotRequired[int]
 
-AdaptersConfigTypeDef = TypedDict(
-    "AdaptersConfigTypeDef",
-    {
-        "Adapters": List["AdapterTypeDef"],
-    },
-)
+class HumanLoopActivationOutputTypeDef(TypedDict):
+    HumanLoopArn: NotRequired[str]
+    HumanLoopActivationReasons: NotRequired[List[str]]
+    HumanLoopActivationConditionsEvaluationResults: NotRequired[str]
 
-_RequiredAnalyzeDocumentRequestRequestTypeDef = TypedDict(
-    "_RequiredAnalyzeDocumentRequestRequestTypeDef",
-    {
-        "Document": "DocumentTypeDef",
-        "FeatureTypes": List[FeatureTypeType],
-    },
-)
-_OptionalAnalyzeDocumentRequestRequestTypeDef = TypedDict(
-    "_OptionalAnalyzeDocumentRequestRequestTypeDef",
-    {
-        "HumanLoopConfig": "HumanLoopConfigTypeDef",
-        "QueriesConfig": "QueriesConfigTypeDef",
-        "AdaptersConfig": "AdaptersConfigTypeDef",
-    },
-    total=False,
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-class AnalyzeDocumentRequestRequestTypeDef(
-    _RequiredAnalyzeDocumentRequestRequestTypeDef, _OptionalAnalyzeDocumentRequestRequestTypeDef
-):
-    pass
+class NormalizedValueTypeDef(TypedDict):
+    Value: NotRequired[str]
+    ValueType: NotRequired[Literal["DATE"]]
 
-AnalyzeDocumentResponseTypeDef = TypedDict(
-    "AnalyzeDocumentResponseTypeDef",
-    {
-        "DocumentMetadata": "DocumentMetadataTypeDef",
-        "Blocks": List["BlockTypeDef"],
-        "HumanLoopActivationOutput": "HumanLoopActivationOutputTypeDef",
-        "AnalyzeDocumentModelVersion": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-AnalyzeExpenseRequestRequestTypeDef = TypedDict(
-    "AnalyzeExpenseRequestRequestTypeDef",
-    {
-        "Document": "DocumentTypeDef",
-    },
-)
-
-AnalyzeExpenseResponseTypeDef = TypedDict(
-    "AnalyzeExpenseResponseTypeDef",
-    {
-        "DocumentMetadata": "DocumentMetadataTypeDef",
-        "ExpenseDocuments": List["ExpenseDocumentTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredAnalyzeIDDetectionsTypeDef = TypedDict(
-    "_RequiredAnalyzeIDDetectionsTypeDef",
+BlobTypeDef = Union[str, bytes, IO[Any], StreamingBody]
+QueryOutputTypeDef = TypedDict(
+    "QueryOutputTypeDef",
     {
         "Text": str,
+        "Alias": NotRequired[str],
+        "Pages": NotRequired[List[str]],
     },
 )
-_OptionalAnalyzeIDDetectionsTypeDef = TypedDict(
-    "_OptionalAnalyzeIDDetectionsTypeDef",
+RelationshipTypeDef = TypedDict(
+    "RelationshipTypeDef",
     {
-        "NormalizedValue": "NormalizedValueTypeDef",
-        "Confidence": float,
-    },
-    total=False,
-)
-
-class AnalyzeIDDetectionsTypeDef(
-    _RequiredAnalyzeIDDetectionsTypeDef, _OptionalAnalyzeIDDetectionsTypeDef
-):
-    pass
-
-AnalyzeIDRequestRequestTypeDef = TypedDict(
-    "AnalyzeIDRequestRequestTypeDef",
-    {
-        "DocumentPages": List["DocumentTypeDef"],
+        "Type": NotRequired[RelationshipTypeType],
+        "Ids": NotRequired[List[str]],
     },
 )
 
-AnalyzeIDResponseTypeDef = TypedDict(
-    "AnalyzeIDResponseTypeDef",
-    {
-        "IdentityDocuments": List["IdentityDocumentTypeDef"],
-        "DocumentMetadata": "DocumentMetadataTypeDef",
-        "AnalyzeIDModelVersion": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class BoundingBoxTypeDef(TypedDict):
+    Width: NotRequired[float]
+    Height: NotRequired[float]
+    Left: NotRequired[float]
+    Top: NotRequired[float]
 
-BlockTypeDef = TypedDict(
-    "BlockTypeDef",
-    {
-        "BlockType": BlockTypeType,
-        "Confidence": float,
-        "Text": str,
-        "TextType": TextTypeType,
-        "RowIndex": int,
-        "ColumnIndex": int,
-        "RowSpan": int,
-        "ColumnSpan": int,
-        "Geometry": "GeometryTypeDef",
-        "Id": str,
-        "Relationships": List["RelationshipTypeDef"],
-        "EntityTypes": List[EntityTypeType],
-        "SelectionStatus": SelectionStatusType,
-        "Page": int,
-        "Query": "QueryTypeDef",
-    },
-    total=False,
-)
+class CreateAdapterRequestTypeDef(TypedDict):
+    AdapterName: str
+    FeatureTypes: Sequence[FeatureTypeType]
+    ClientRequestToken: NotRequired[str]
+    Description: NotRequired[str]
+    AutoUpdate: NotRequired[AutoUpdateType]
+    Tags: NotRequired[Mapping[str, str]]
 
-BoundingBoxTypeDef = TypedDict(
-    "BoundingBoxTypeDef",
-    {
-        "Width": float,
-        "Height": float,
-        "Left": float,
-        "Top": float,
-    },
-    total=False,
-)
+class OutputConfigTypeDef(TypedDict):
+    S3Bucket: str
+    S3Prefix: NotRequired[str]
 
-_RequiredCreateAdapterRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateAdapterRequestRequestTypeDef",
-    {
-        "AdapterName": str,
-        "FeatureTypes": List[FeatureTypeType],
-    },
-)
-_OptionalCreateAdapterRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateAdapterRequestRequestTypeDef",
-    {
-        "ClientRequestToken": str,
-        "Description": str,
-        "AutoUpdate": AutoUpdateType,
-        "Tags": Dict[str, str],
-    },
-    total=False,
-)
+class DeleteAdapterRequestTypeDef(TypedDict):
+    AdapterId: str
 
-class CreateAdapterRequestRequestTypeDef(
-    _RequiredCreateAdapterRequestRequestTypeDef, _OptionalCreateAdapterRequestRequestTypeDef
-):
-    pass
+class DeleteAdapterVersionRequestTypeDef(TypedDict):
+    AdapterId: str
+    AdapterVersion: str
 
-CreateAdapterResponseTypeDef = TypedDict(
-    "CreateAdapterResponseTypeDef",
-    {
-        "AdapterId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DetectedSignatureTypeDef(TypedDict):
+    Page: NotRequired[int]
 
-_RequiredCreateAdapterVersionRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateAdapterVersionRequestRequestTypeDef",
-    {
-        "AdapterId": str,
-        "DatasetConfig": "AdapterVersionDatasetConfigTypeDef",
-        "OutputConfig": "OutputConfigTypeDef",
-    },
-)
-_OptionalCreateAdapterVersionRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateAdapterVersionRequestRequestTypeDef",
-    {
-        "ClientRequestToken": str,
-        "KMSKeyId": str,
-        "Tags": Dict[str, str],
-    },
-    total=False,
-)
+class SplitDocumentTypeDef(TypedDict):
+    Index: NotRequired[int]
+    Pages: NotRequired[List[int]]
 
-class CreateAdapterVersionRequestRequestTypeDef(
-    _RequiredCreateAdapterVersionRequestRequestTypeDef,
-    _OptionalCreateAdapterVersionRequestRequestTypeDef,
-):
-    pass
+class UndetectedSignatureTypeDef(TypedDict):
+    Page: NotRequired[int]
 
-CreateAdapterVersionResponseTypeDef = TypedDict(
-    "CreateAdapterVersionResponseTypeDef",
-    {
-        "AdapterId": str,
-        "AdapterVersion": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ExpenseCurrencyTypeDef(TypedDict):
+    Code: NotRequired[str]
+    Confidence: NotRequired[float]
 
-DeleteAdapterRequestRequestTypeDef = TypedDict(
-    "DeleteAdapterRequestRequestTypeDef",
-    {
-        "AdapterId": str,
-    },
-)
-
-DeleteAdapterVersionRequestRequestTypeDef = TypedDict(
-    "DeleteAdapterVersionRequestRequestTypeDef",
-    {
-        "AdapterId": str,
-        "AdapterVersion": str,
-    },
-)
-
-DetectDocumentTextRequestRequestTypeDef = TypedDict(
-    "DetectDocumentTextRequestRequestTypeDef",
-    {
-        "Document": "DocumentTypeDef",
-    },
-)
-
-DetectDocumentTextResponseTypeDef = TypedDict(
-    "DetectDocumentTextResponseTypeDef",
-    {
-        "DocumentMetadata": "DocumentMetadataTypeDef",
-        "Blocks": List["BlockTypeDef"],
-        "DetectDocumentTextModelVersion": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DetectedSignatureTypeDef = TypedDict(
-    "DetectedSignatureTypeDef",
-    {
-        "Page": int,
-    },
-    total=False,
-)
-
-DocumentGroupTypeDef = TypedDict(
-    "DocumentGroupTypeDef",
-    {
-        "Type": str,
-        "SplitDocuments": List["SplitDocumentTypeDef"],
-        "DetectedSignatures": List["DetectedSignatureTypeDef"],
-        "UndetectedSignatures": List["UndetectedSignatureTypeDef"],
-    },
-    total=False,
-)
-
-DocumentLocationTypeDef = TypedDict(
-    "DocumentLocationTypeDef",
-    {
-        "S3Object": "S3ObjectTypeDef",
-    },
-    total=False,
-)
-
-DocumentMetadataTypeDef = TypedDict(
-    "DocumentMetadataTypeDef",
-    {
-        "Pages": int,
-    },
-    total=False,
-)
-
-DocumentTypeDef = TypedDict(
-    "DocumentTypeDef",
-    {
-        "Bytes": Union[bytes, IO[bytes], StreamingBody],
-        "S3Object": "S3ObjectTypeDef",
-    },
-    total=False,
-)
-
-EvaluationMetricTypeDef = TypedDict(
-    "EvaluationMetricTypeDef",
-    {
-        "F1Score": float,
-        "Precision": float,
-        "Recall": float,
-    },
-    total=False,
-)
-
-ExpenseCurrencyTypeDef = TypedDict(
-    "ExpenseCurrencyTypeDef",
-    {
-        "Code": str,
-        "Confidence": float,
-    },
-    total=False,
-)
-
-ExpenseDetectionTypeDef = TypedDict(
-    "ExpenseDetectionTypeDef",
-    {
-        "Text": str,
-        "Geometry": "GeometryTypeDef",
-        "Confidence": float,
-    },
-    total=False,
-)
-
-ExpenseDocumentTypeDef = TypedDict(
-    "ExpenseDocumentTypeDef",
-    {
-        "ExpenseIndex": int,
-        "SummaryFields": List["ExpenseFieldTypeDef"],
-        "LineItemGroups": List["LineItemGroupTypeDef"],
-        "Blocks": List["BlockTypeDef"],
-    },
-    total=False,
-)
-
-ExpenseFieldTypeDef = TypedDict(
-    "ExpenseFieldTypeDef",
-    {
-        "Type": "ExpenseTypeTypeDef",
-        "LabelDetection": "ExpenseDetectionTypeDef",
-        "ValueDetection": "ExpenseDetectionTypeDef",
-        "PageNumber": int,
-        "Currency": "ExpenseCurrencyTypeDef",
-        "GroupProperties": List["ExpenseGroupPropertyTypeDef"],
-    },
-    total=False,
-)
-
-ExpenseGroupPropertyTypeDef = TypedDict(
-    "ExpenseGroupPropertyTypeDef",
-    {
-        "Types": List[str],
-        "Id": str,
-    },
-    total=False,
-)
+class ExpenseGroupPropertyTypeDef(TypedDict):
+    Types: NotRequired[List[str]]
+    Id: NotRequired[str]
 
 ExpenseTypeTypeDef = TypedDict(
     "ExpenseTypeTypeDef",
     {
+        "Text": NotRequired[str],
+        "Confidence": NotRequired[float],
+    },
+)
+
+class PointTypeDef(TypedDict):
+    X: NotRequired[float]
+    Y: NotRequired[float]
+
+class GetAdapterRequestTypeDef(TypedDict):
+    AdapterId: str
+
+class GetAdapterVersionRequestTypeDef(TypedDict):
+    AdapterId: str
+    AdapterVersion: str
+
+class GetDocumentAnalysisRequestTypeDef(TypedDict):
+    JobId: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class WarningTypeDef(TypedDict):
+    ErrorCode: NotRequired[str]
+    Pages: NotRequired[List[int]]
+
+class GetDocumentTextDetectionRequestTypeDef(TypedDict):
+    JobId: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class GetExpenseAnalysisRequestTypeDef(TypedDict):
+    JobId: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class GetLendingAnalysisRequestTypeDef(TypedDict):
+    JobId: str
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
+
+class GetLendingAnalysisSummaryRequestTypeDef(TypedDict):
+    JobId: str
+
+class HumanLoopDataAttributesTypeDef(TypedDict):
+    ContentClassifiers: NotRequired[Sequence[ContentClassifierType]]
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+TimestampTypeDef = Union[datetime, str]
+
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    ResourceARN: str
+
+class NotificationChannelTypeDef(TypedDict):
+    SNSTopicArn: str
+    RoleArn: str
+
+class PredictionTypeDef(TypedDict):
+    Value: NotRequired[str]
+    Confidence: NotRequired[float]
+
+QueryTypeDef = TypedDict(
+    "QueryTypeDef",
+    {
         "Text": str,
-        "Confidence": float,
-    },
-    total=False,
-)
-
-ExtractionTypeDef = TypedDict(
-    "ExtractionTypeDef",
-    {
-        "LendingDocument": "LendingDocumentTypeDef",
-        "ExpenseDocument": "ExpenseDocumentTypeDef",
-        "IdentityDocument": "IdentityDocumentTypeDef",
-    },
-    total=False,
-)
-
-GeometryTypeDef = TypedDict(
-    "GeometryTypeDef",
-    {
-        "BoundingBox": "BoundingBoxTypeDef",
-        "Polygon": List["PointTypeDef"],
-    },
-    total=False,
-)
-
-GetAdapterRequestRequestTypeDef = TypedDict(
-    "GetAdapterRequestRequestTypeDef",
-    {
-        "AdapterId": str,
+        "Alias": NotRequired[str],
+        "Pages": NotRequired[Sequence[str]],
     },
 )
 
-GetAdapterResponseTypeDef = TypedDict(
-    "GetAdapterResponseTypeDef",
+class TagResourceRequestTypeDef(TypedDict):
+    ResourceARN: str
+    Tags: Mapping[str, str]
+
+class UntagResourceRequestTypeDef(TypedDict):
+    ResourceARN: str
+    TagKeys: Sequence[str]
+
+class UpdateAdapterRequestTypeDef(TypedDict):
+    AdapterId: str
+    Description: NotRequired[str]
+    AdapterName: NotRequired[str]
+    AutoUpdate: NotRequired[AutoUpdateType]
+
+class AdaptersConfigTypeDef(TypedDict):
+    Adapters: Sequence[AdapterTypeDef]
+
+class AdapterVersionDatasetConfigTypeDef(TypedDict):
+    ManifestS3Object: NotRequired[S3ObjectTypeDef]
+
+class DocumentLocationTypeDef(TypedDict):
+    S3Object: NotRequired[S3ObjectTypeDef]
+
+class AdapterVersionEvaluationMetricTypeDef(TypedDict):
+    Baseline: NotRequired[EvaluationMetricTypeDef]
+    AdapterVersion: NotRequired[EvaluationMetricTypeDef]
+    FeatureType: NotRequired[FeatureTypeType]
+
+class CreateAdapterResponseTypeDef(TypedDict):
+    AdapterId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateAdapterVersionResponseTypeDef(TypedDict):
+    AdapterId: str
+    AdapterVersion: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetAdapterResponseTypeDef(TypedDict):
+    AdapterId: str
+    AdapterName: str
+    CreationTime: datetime
+    Description: str
+    FeatureTypes: List[FeatureTypeType]
+    AutoUpdate: AutoUpdateType
+    Tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListAdapterVersionsResponseTypeDef(TypedDict):
+    AdapterVersions: List[AdapterVersionOverviewTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListAdaptersResponseTypeDef(TypedDict):
+    Adapters: List[AdapterOverviewTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    Tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartDocumentAnalysisResponseTypeDef(TypedDict):
+    JobId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartDocumentTextDetectionResponseTypeDef(TypedDict):
+    JobId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartExpenseAnalysisResponseTypeDef(TypedDict):
+    JobId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class StartLendingAnalysisResponseTypeDef(TypedDict):
+    JobId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdateAdapterResponseTypeDef(TypedDict):
+    AdapterId: str
+    AdapterName: str
+    CreationTime: datetime
+    Description: str
+    FeatureTypes: List[FeatureTypeType]
+    AutoUpdate: AutoUpdateType
+    ResponseMetadata: ResponseMetadataTypeDef
+
+AnalyzeIDDetectionsTypeDef = TypedDict(
+    "AnalyzeIDDetectionsTypeDef",
     {
-        "AdapterId": str,
-        "AdapterName": str,
-        "CreationTime": datetime,
-        "Description": str,
-        "FeatureTypes": List[FeatureTypeType],
-        "AutoUpdate": AutoUpdateType,
-        "Tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "Text": str,
+        "NormalizedValue": NotRequired[NormalizedValueTypeDef],
+        "Confidence": NotRequired[float],
     },
 )
 
-GetAdapterVersionRequestRequestTypeDef = TypedDict(
-    "GetAdapterVersionRequestRequestTypeDef",
+class DocumentTypeDef(TypedDict):
+    Bytes: NotRequired[BlobTypeDef]
+    S3Object: NotRequired[S3ObjectTypeDef]
+
+DocumentGroupTypeDef = TypedDict(
+    "DocumentGroupTypeDef",
     {
-        "AdapterId": str,
-        "AdapterVersion": str,
+        "Type": NotRequired[str],
+        "SplitDocuments": NotRequired[List[SplitDocumentTypeDef]],
+        "DetectedSignatures": NotRequired[List[DetectedSignatureTypeDef]],
+        "UndetectedSignatures": NotRequired[List[UndetectedSignatureTypeDef]],
     },
 )
 
-GetAdapterVersionResponseTypeDef = TypedDict(
-    "GetAdapterVersionResponseTypeDef",
-    {
-        "AdapterId": str,
-        "AdapterVersion": str,
-        "CreationTime": datetime,
-        "FeatureTypes": List[FeatureTypeType],
-        "Status": AdapterVersionStatusType,
-        "StatusMessage": str,
-        "DatasetConfig": "AdapterVersionDatasetConfigTypeDef",
-        "KMSKeyId": str,
-        "OutputConfig": "OutputConfigTypeDef",
-        "EvaluationMetrics": List["AdapterVersionEvaluationMetricTypeDef"],
-        "Tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GeometryTypeDef(TypedDict):
+    BoundingBox: NotRequired[BoundingBoxTypeDef]
+    Polygon: NotRequired[List[PointTypeDef]]
 
-_RequiredGetDocumentAnalysisRequestRequestTypeDef = TypedDict(
-    "_RequiredGetDocumentAnalysisRequestRequestTypeDef",
-    {
-        "JobId": str,
-    },
-)
-_OptionalGetDocumentAnalysisRequestRequestTypeDef = TypedDict(
-    "_OptionalGetDocumentAnalysisRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
+class HumanLoopConfigTypeDef(TypedDict):
+    HumanLoopName: str
+    FlowDefinitionArn: str
+    DataAttributes: NotRequired[HumanLoopDataAttributesTypeDef]
 
-class GetDocumentAnalysisRequestRequestTypeDef(
-    _RequiredGetDocumentAnalysisRequestRequestTypeDef,
-    _OptionalGetDocumentAnalysisRequestRequestTypeDef,
-):
-    pass
+class ListAdapterVersionsRequestPaginateTypeDef(TypedDict):
+    AdapterId: NotRequired[str]
+    AfterCreationTime: NotRequired[TimestampTypeDef]
+    BeforeCreationTime: NotRequired[TimestampTypeDef]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-GetDocumentAnalysisResponseTypeDef = TypedDict(
-    "GetDocumentAnalysisResponseTypeDef",
-    {
-        "DocumentMetadata": "DocumentMetadataTypeDef",
-        "JobStatus": JobStatusType,
-        "NextToken": str,
-        "Blocks": List["BlockTypeDef"],
-        "Warnings": List["WarningTypeDef"],
-        "StatusMessage": str,
-        "AnalyzeDocumentModelVersion": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListAdapterVersionsRequestTypeDef(TypedDict):
+    AdapterId: NotRequired[str]
+    AfterCreationTime: NotRequired[TimestampTypeDef]
+    BeforeCreationTime: NotRequired[TimestampTypeDef]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
 
-_RequiredGetDocumentTextDetectionRequestRequestTypeDef = TypedDict(
-    "_RequiredGetDocumentTextDetectionRequestRequestTypeDef",
-    {
-        "JobId": str,
-    },
-)
-_OptionalGetDocumentTextDetectionRequestRequestTypeDef = TypedDict(
-    "_OptionalGetDocumentTextDetectionRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
+class ListAdaptersRequestPaginateTypeDef(TypedDict):
+    AfterCreationTime: NotRequired[TimestampTypeDef]
+    BeforeCreationTime: NotRequired[TimestampTypeDef]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-class GetDocumentTextDetectionRequestRequestTypeDef(
-    _RequiredGetDocumentTextDetectionRequestRequestTypeDef,
-    _OptionalGetDocumentTextDetectionRequestRequestTypeDef,
-):
-    pass
+class ListAdaptersRequestTypeDef(TypedDict):
+    AfterCreationTime: NotRequired[TimestampTypeDef]
+    BeforeCreationTime: NotRequired[TimestampTypeDef]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
 
-GetDocumentTextDetectionResponseTypeDef = TypedDict(
-    "GetDocumentTextDetectionResponseTypeDef",
-    {
-        "DocumentMetadata": "DocumentMetadataTypeDef",
-        "JobStatus": JobStatusType,
-        "NextToken": str,
-        "Blocks": List["BlockTypeDef"],
-        "Warnings": List["WarningTypeDef"],
-        "StatusMessage": str,
-        "DetectDocumentTextModelVersion": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class PageClassificationTypeDef(TypedDict):
+    PageType: List[PredictionTypeDef]
+    PageNumber: List[PredictionTypeDef]
 
-_RequiredGetExpenseAnalysisRequestRequestTypeDef = TypedDict(
-    "_RequiredGetExpenseAnalysisRequestRequestTypeDef",
-    {
-        "JobId": str,
-    },
-)
-_OptionalGetExpenseAnalysisRequestRequestTypeDef = TypedDict(
-    "_OptionalGetExpenseAnalysisRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
+QueryUnionTypeDef = Union[QueryTypeDef, QueryOutputTypeDef]
 
-class GetExpenseAnalysisRequestRequestTypeDef(
-    _RequiredGetExpenseAnalysisRequestRequestTypeDef,
-    _OptionalGetExpenseAnalysisRequestRequestTypeDef,
-):
-    pass
+class CreateAdapterVersionRequestTypeDef(TypedDict):
+    AdapterId: str
+    DatasetConfig: AdapterVersionDatasetConfigTypeDef
+    OutputConfig: OutputConfigTypeDef
+    ClientRequestToken: NotRequired[str]
+    KMSKeyId: NotRequired[str]
+    Tags: NotRequired[Mapping[str, str]]
 
-GetExpenseAnalysisResponseTypeDef = TypedDict(
-    "GetExpenseAnalysisResponseTypeDef",
-    {
-        "DocumentMetadata": "DocumentMetadataTypeDef",
-        "JobStatus": JobStatusType,
-        "NextToken": str,
-        "ExpenseDocuments": List["ExpenseDocumentTypeDef"],
-        "Warnings": List["WarningTypeDef"],
-        "StatusMessage": str,
-        "AnalyzeExpenseModelVersion": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class StartDocumentTextDetectionRequestTypeDef(TypedDict):
+    DocumentLocation: DocumentLocationTypeDef
+    ClientRequestToken: NotRequired[str]
+    JobTag: NotRequired[str]
+    NotificationChannel: NotRequired[NotificationChannelTypeDef]
+    OutputConfig: NotRequired[OutputConfigTypeDef]
+    KMSKeyId: NotRequired[str]
 
-_RequiredGetLendingAnalysisRequestRequestTypeDef = TypedDict(
-    "_RequiredGetLendingAnalysisRequestRequestTypeDef",
-    {
-        "JobId": str,
-    },
-)
-_OptionalGetLendingAnalysisRequestRequestTypeDef = TypedDict(
-    "_OptionalGetLendingAnalysisRequestRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
+class StartExpenseAnalysisRequestTypeDef(TypedDict):
+    DocumentLocation: DocumentLocationTypeDef
+    ClientRequestToken: NotRequired[str]
+    JobTag: NotRequired[str]
+    NotificationChannel: NotRequired[NotificationChannelTypeDef]
+    OutputConfig: NotRequired[OutputConfigTypeDef]
+    KMSKeyId: NotRequired[str]
 
-class GetLendingAnalysisRequestRequestTypeDef(
-    _RequiredGetLendingAnalysisRequestRequestTypeDef,
-    _OptionalGetLendingAnalysisRequestRequestTypeDef,
-):
-    pass
+class StartLendingAnalysisRequestTypeDef(TypedDict):
+    DocumentLocation: DocumentLocationTypeDef
+    ClientRequestToken: NotRequired[str]
+    JobTag: NotRequired[str]
+    NotificationChannel: NotRequired[NotificationChannelTypeDef]
+    OutputConfig: NotRequired[OutputConfigTypeDef]
+    KMSKeyId: NotRequired[str]
 
-GetLendingAnalysisResponseTypeDef = TypedDict(
-    "GetLendingAnalysisResponseTypeDef",
-    {
-        "DocumentMetadata": "DocumentMetadataTypeDef",
-        "JobStatus": JobStatusType,
-        "NextToken": str,
-        "Results": List["LendingResultTypeDef"],
-        "Warnings": List["WarningTypeDef"],
-        "StatusMessage": str,
-        "AnalyzeLendingModelVersion": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetLendingAnalysisSummaryRequestRequestTypeDef = TypedDict(
-    "GetLendingAnalysisSummaryRequestRequestTypeDef",
-    {
-        "JobId": str,
-    },
-)
-
-GetLendingAnalysisSummaryResponseTypeDef = TypedDict(
-    "GetLendingAnalysisSummaryResponseTypeDef",
-    {
-        "DocumentMetadata": "DocumentMetadataTypeDef",
-        "JobStatus": JobStatusType,
-        "Summary": "LendingSummaryTypeDef",
-        "Warnings": List["WarningTypeDef"],
-        "StatusMessage": str,
-        "AnalyzeLendingModelVersion": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-HumanLoopActivationOutputTypeDef = TypedDict(
-    "HumanLoopActivationOutputTypeDef",
-    {
-        "HumanLoopArn": str,
-        "HumanLoopActivationReasons": List[str],
-        "HumanLoopActivationConditionsEvaluationResults": str,
-    },
-    total=False,
-)
-
-_RequiredHumanLoopConfigTypeDef = TypedDict(
-    "_RequiredHumanLoopConfigTypeDef",
-    {
-        "HumanLoopName": str,
-        "FlowDefinitionArn": str,
-    },
-)
-_OptionalHumanLoopConfigTypeDef = TypedDict(
-    "_OptionalHumanLoopConfigTypeDef",
-    {
-        "DataAttributes": "HumanLoopDataAttributesTypeDef",
-    },
-    total=False,
-)
-
-class HumanLoopConfigTypeDef(_RequiredHumanLoopConfigTypeDef, _OptionalHumanLoopConfigTypeDef):
-    pass
-
-HumanLoopDataAttributesTypeDef = TypedDict(
-    "HumanLoopDataAttributesTypeDef",
-    {
-        "ContentClassifiers": List[ContentClassifierType],
-    },
-    total=False,
-)
+class GetAdapterVersionResponseTypeDef(TypedDict):
+    AdapterId: str
+    AdapterVersion: str
+    CreationTime: datetime
+    FeatureTypes: List[FeatureTypeType]
+    Status: AdapterVersionStatusType
+    StatusMessage: str
+    DatasetConfig: AdapterVersionDatasetConfigTypeDef
+    KMSKeyId: str
+    OutputConfig: OutputConfigTypeDef
+    EvaluationMetrics: List[AdapterVersionEvaluationMetricTypeDef]
+    Tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
 
 IdentityDocumentFieldTypeDef = TypedDict(
     "IdentityDocumentFieldTypeDef",
     {
-        "Type": "AnalyzeIDDetectionsTypeDef",
-        "ValueDetection": "AnalyzeIDDetectionsTypeDef",
+        "Type": NotRequired[AnalyzeIDDetectionsTypeDef],
+        "ValueDetection": NotRequired[AnalyzeIDDetectionsTypeDef],
     },
-    total=False,
 )
 
-IdentityDocumentTypeDef = TypedDict(
-    "IdentityDocumentTypeDef",
+class AnalyzeExpenseRequestTypeDef(TypedDict):
+    Document: DocumentTypeDef
+
+class AnalyzeIDRequestTypeDef(TypedDict):
+    DocumentPages: Sequence[DocumentTypeDef]
+
+class DetectDocumentTextRequestTypeDef(TypedDict):
+    Document: DocumentTypeDef
+
+class LendingSummaryTypeDef(TypedDict):
+    DocumentGroups: NotRequired[List[DocumentGroupTypeDef]]
+    UndetectedDocumentTypes: NotRequired[List[str]]
+
+BlockTypeDef = TypedDict(
+    "BlockTypeDef",
     {
-        "DocumentIndex": int,
-        "IdentityDocumentFields": List["IdentityDocumentFieldTypeDef"],
-        "Blocks": List["BlockTypeDef"],
+        "BlockType": NotRequired[BlockTypeType],
+        "Confidence": NotRequired[float],
+        "Text": NotRequired[str],
+        "TextType": NotRequired[TextTypeType],
+        "RowIndex": NotRequired[int],
+        "ColumnIndex": NotRequired[int],
+        "RowSpan": NotRequired[int],
+        "ColumnSpan": NotRequired[int],
+        "Geometry": NotRequired[GeometryTypeDef],
+        "Id": NotRequired[str],
+        "Relationships": NotRequired[List[RelationshipTypeDef]],
+        "EntityTypes": NotRequired[List[EntityTypeType]],
+        "SelectionStatus": NotRequired[SelectionStatusType],
+        "Page": NotRequired[int],
+        "Query": NotRequired[QueryOutputTypeDef],
     },
-    total=False,
 )
-
+ExpenseDetectionTypeDef = TypedDict(
+    "ExpenseDetectionTypeDef",
+    {
+        "Text": NotRequired[str],
+        "Geometry": NotRequired[GeometryTypeDef],
+        "Confidence": NotRequired[float],
+    },
+)
 LendingDetectionTypeDef = TypedDict(
     "LendingDetectionTypeDef",
     {
-        "Text": str,
-        "SelectionStatus": SelectionStatusType,
-        "Geometry": "GeometryTypeDef",
-        "Confidence": float,
+        "Text": NotRequired[str],
+        "SelectionStatus": NotRequired[SelectionStatusType],
+        "Geometry": NotRequired[GeometryTypeDef],
+        "Confidence": NotRequired[float],
     },
-    total=False,
 )
 
-LendingDocumentTypeDef = TypedDict(
-    "LendingDocumentTypeDef",
+class SignatureDetectionTypeDef(TypedDict):
+    Confidence: NotRequired[float]
+    Geometry: NotRequired[GeometryTypeDef]
+
+class QueriesConfigTypeDef(TypedDict):
+    Queries: Sequence[QueryUnionTypeDef]
+
+class GetLendingAnalysisSummaryResponseTypeDef(TypedDict):
+    DocumentMetadata: DocumentMetadataTypeDef
+    JobStatus: JobStatusType
+    Summary: LendingSummaryTypeDef
+    Warnings: List[WarningTypeDef]
+    StatusMessage: str
+    AnalyzeLendingModelVersion: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class AnalyzeDocumentResponseTypeDef(TypedDict):
+    DocumentMetadata: DocumentMetadataTypeDef
+    Blocks: List[BlockTypeDef]
+    HumanLoopActivationOutput: HumanLoopActivationOutputTypeDef
+    AnalyzeDocumentModelVersion: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DetectDocumentTextResponseTypeDef(TypedDict):
+    DocumentMetadata: DocumentMetadataTypeDef
+    Blocks: List[BlockTypeDef]
+    DetectDocumentTextModelVersion: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetDocumentAnalysisResponseTypeDef(TypedDict):
+    DocumentMetadata: DocumentMetadataTypeDef
+    JobStatus: JobStatusType
+    Blocks: List[BlockTypeDef]
+    Warnings: List[WarningTypeDef]
+    StatusMessage: str
+    AnalyzeDocumentModelVersion: str
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class GetDocumentTextDetectionResponseTypeDef(TypedDict):
+    DocumentMetadata: DocumentMetadataTypeDef
+    JobStatus: JobStatusType
+    Blocks: List[BlockTypeDef]
+    Warnings: List[WarningTypeDef]
+    StatusMessage: str
+    DetectDocumentTextModelVersion: str
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class IdentityDocumentTypeDef(TypedDict):
+    DocumentIndex: NotRequired[int]
+    IdentityDocumentFields: NotRequired[List[IdentityDocumentFieldTypeDef]]
+    Blocks: NotRequired[List[BlockTypeDef]]
+
+ExpenseFieldTypeDef = TypedDict(
+    "ExpenseFieldTypeDef",
     {
-        "LendingFields": List["LendingFieldTypeDef"],
-        "SignatureDetections": List["SignatureDetectionTypeDef"],
+        "Type": NotRequired[ExpenseTypeTypeDef],
+        "LabelDetection": NotRequired[ExpenseDetectionTypeDef],
+        "ValueDetection": NotRequired[ExpenseDetectionTypeDef],
+        "PageNumber": NotRequired[int],
+        "Currency": NotRequired[ExpenseCurrencyTypeDef],
+        "GroupProperties": NotRequired[List[ExpenseGroupPropertyTypeDef]],
     },
-    total=False,
 )
-
 LendingFieldTypeDef = TypedDict(
     "LendingFieldTypeDef",
     {
-        "Type": str,
-        "KeyDetection": "LendingDetectionTypeDef",
-        "ValueDetections": List["LendingDetectionTypeDef"],
-    },
-    total=False,
-)
-
-LendingResultTypeDef = TypedDict(
-    "LendingResultTypeDef",
-    {
-        "Page": int,
-        "PageClassification": "PageClassificationTypeDef",
-        "Extractions": List["ExtractionTypeDef"],
-    },
-    total=False,
-)
-
-LendingSummaryTypeDef = TypedDict(
-    "LendingSummaryTypeDef",
-    {
-        "DocumentGroups": List["DocumentGroupTypeDef"],
-        "UndetectedDocumentTypes": List[str],
-    },
-    total=False,
-)
-
-LineItemFieldsTypeDef = TypedDict(
-    "LineItemFieldsTypeDef",
-    {
-        "LineItemExpenseFields": List["ExpenseFieldTypeDef"],
-    },
-    total=False,
-)
-
-LineItemGroupTypeDef = TypedDict(
-    "LineItemGroupTypeDef",
-    {
-        "LineItemGroupIndex": int,
-        "LineItems": List["LineItemFieldsTypeDef"],
-    },
-    total=False,
-)
-
-ListAdapterVersionsRequestRequestTypeDef = TypedDict(
-    "ListAdapterVersionsRequestRequestTypeDef",
-    {
-        "AdapterId": str,
-        "AfterCreationTime": Union[datetime, str],
-        "BeforeCreationTime": Union[datetime, str],
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListAdapterVersionsResponseTypeDef = TypedDict(
-    "ListAdapterVersionsResponseTypeDef",
-    {
-        "AdapterVersions": List["AdapterVersionOverviewTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "Type": NotRequired[str],
+        "KeyDetection": NotRequired[LendingDetectionTypeDef],
+        "ValueDetections": NotRequired[List[LendingDetectionTypeDef]],
     },
 )
 
-ListAdaptersRequestRequestTypeDef = TypedDict(
-    "ListAdaptersRequestRequestTypeDef",
-    {
-        "AfterCreationTime": Union[datetime, str],
-        "BeforeCreationTime": Union[datetime, str],
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
+class AnalyzeDocumentRequestTypeDef(TypedDict):
+    Document: DocumentTypeDef
+    FeatureTypes: Sequence[FeatureTypeType]
+    HumanLoopConfig: NotRequired[HumanLoopConfigTypeDef]
+    QueriesConfig: NotRequired[QueriesConfigTypeDef]
+    AdaptersConfig: NotRequired[AdaptersConfigTypeDef]
 
-ListAdaptersResponseTypeDef = TypedDict(
-    "ListAdaptersResponseTypeDef",
-    {
-        "Adapters": List["AdapterOverviewTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class StartDocumentAnalysisRequestTypeDef(TypedDict):
+    DocumentLocation: DocumentLocationTypeDef
+    FeatureTypes: Sequence[FeatureTypeType]
+    ClientRequestToken: NotRequired[str]
+    JobTag: NotRequired[str]
+    NotificationChannel: NotRequired[NotificationChannelTypeDef]
+    OutputConfig: NotRequired[OutputConfigTypeDef]
+    KMSKeyId: NotRequired[str]
+    QueriesConfig: NotRequired[QueriesConfigTypeDef]
+    AdaptersConfig: NotRequired[AdaptersConfigTypeDef]
 
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "ResourceARN": str,
-    },
-)
+class AnalyzeIDResponseTypeDef(TypedDict):
+    IdentityDocuments: List[IdentityDocumentTypeDef]
+    DocumentMetadata: DocumentMetadataTypeDef
+    AnalyzeIDModelVersion: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "Tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class LineItemFieldsTypeDef(TypedDict):
+    LineItemExpenseFields: NotRequired[List[ExpenseFieldTypeDef]]
 
-NormalizedValueTypeDef = TypedDict(
-    "NormalizedValueTypeDef",
-    {
-        "Value": str,
-        "ValueType": Literal["DATE"],
-    },
-    total=False,
-)
+class LendingDocumentTypeDef(TypedDict):
+    LendingFields: NotRequired[List[LendingFieldTypeDef]]
+    SignatureDetections: NotRequired[List[SignatureDetectionTypeDef]]
 
-NotificationChannelTypeDef = TypedDict(
-    "NotificationChannelTypeDef",
-    {
-        "SNSTopicArn": str,
-        "RoleArn": str,
-    },
-)
+class LineItemGroupTypeDef(TypedDict):
+    LineItemGroupIndex: NotRequired[int]
+    LineItems: NotRequired[List[LineItemFieldsTypeDef]]
 
-_RequiredOutputConfigTypeDef = TypedDict(
-    "_RequiredOutputConfigTypeDef",
-    {
-        "S3Bucket": str,
-    },
-)
-_OptionalOutputConfigTypeDef = TypedDict(
-    "_OptionalOutputConfigTypeDef",
-    {
-        "S3Prefix": str,
-    },
-    total=False,
-)
+class ExpenseDocumentTypeDef(TypedDict):
+    ExpenseIndex: NotRequired[int]
+    SummaryFields: NotRequired[List[ExpenseFieldTypeDef]]
+    LineItemGroups: NotRequired[List[LineItemGroupTypeDef]]
+    Blocks: NotRequired[List[BlockTypeDef]]
 
-class OutputConfigTypeDef(_RequiredOutputConfigTypeDef, _OptionalOutputConfigTypeDef):
-    pass
+class AnalyzeExpenseResponseTypeDef(TypedDict):
+    DocumentMetadata: DocumentMetadataTypeDef
+    ExpenseDocuments: List[ExpenseDocumentTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-PageClassificationTypeDef = TypedDict(
-    "PageClassificationTypeDef",
-    {
-        "PageType": List["PredictionTypeDef"],
-        "PageNumber": List["PredictionTypeDef"],
-    },
-)
+class ExtractionTypeDef(TypedDict):
+    LendingDocument: NotRequired[LendingDocumentTypeDef]
+    ExpenseDocument: NotRequired[ExpenseDocumentTypeDef]
+    IdentityDocument: NotRequired[IdentityDocumentTypeDef]
 
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
+class GetExpenseAnalysisResponseTypeDef(TypedDict):
+    DocumentMetadata: DocumentMetadataTypeDef
+    JobStatus: JobStatusType
+    ExpenseDocuments: List[ExpenseDocumentTypeDef]
+    Warnings: List[WarningTypeDef]
+    StatusMessage: str
+    AnalyzeExpenseModelVersion: str
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-PointTypeDef = TypedDict(
-    "PointTypeDef",
-    {
-        "X": float,
-        "Y": float,
-    },
-    total=False,
-)
+class LendingResultTypeDef(TypedDict):
+    Page: NotRequired[int]
+    PageClassification: NotRequired[PageClassificationTypeDef]
+    Extractions: NotRequired[List[ExtractionTypeDef]]
 
-PredictionTypeDef = TypedDict(
-    "PredictionTypeDef",
-    {
-        "Value": str,
-        "Confidence": float,
-    },
-    total=False,
-)
-
-QueriesConfigTypeDef = TypedDict(
-    "QueriesConfigTypeDef",
-    {
-        "Queries": List["QueryTypeDef"],
-    },
-)
-
-_RequiredQueryTypeDef = TypedDict(
-    "_RequiredQueryTypeDef",
-    {
-        "Text": str,
-    },
-)
-_OptionalQueryTypeDef = TypedDict(
-    "_OptionalQueryTypeDef",
-    {
-        "Alias": str,
-        "Pages": List[str],
-    },
-    total=False,
-)
-
-class QueryTypeDef(_RequiredQueryTypeDef, _OptionalQueryTypeDef):
-    pass
-
-RelationshipTypeDef = TypedDict(
-    "RelationshipTypeDef",
-    {
-        "Type": RelationshipTypeType,
-        "Ids": List[str],
-    },
-    total=False,
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-S3ObjectTypeDef = TypedDict(
-    "S3ObjectTypeDef",
-    {
-        "Bucket": str,
-        "Name": str,
-        "Version": str,
-    },
-    total=False,
-)
-
-SignatureDetectionTypeDef = TypedDict(
-    "SignatureDetectionTypeDef",
-    {
-        "Confidence": float,
-        "Geometry": "GeometryTypeDef",
-    },
-    total=False,
-)
-
-SplitDocumentTypeDef = TypedDict(
-    "SplitDocumentTypeDef",
-    {
-        "Index": int,
-        "Pages": List[int],
-    },
-    total=False,
-)
-
-_RequiredStartDocumentAnalysisRequestRequestTypeDef = TypedDict(
-    "_RequiredStartDocumentAnalysisRequestRequestTypeDef",
-    {
-        "DocumentLocation": "DocumentLocationTypeDef",
-        "FeatureTypes": List[FeatureTypeType],
-    },
-)
-_OptionalStartDocumentAnalysisRequestRequestTypeDef = TypedDict(
-    "_OptionalStartDocumentAnalysisRequestRequestTypeDef",
-    {
-        "ClientRequestToken": str,
-        "JobTag": str,
-        "NotificationChannel": "NotificationChannelTypeDef",
-        "OutputConfig": "OutputConfigTypeDef",
-        "KMSKeyId": str,
-        "QueriesConfig": "QueriesConfigTypeDef",
-        "AdaptersConfig": "AdaptersConfigTypeDef",
-    },
-    total=False,
-)
-
-class StartDocumentAnalysisRequestRequestTypeDef(
-    _RequiredStartDocumentAnalysisRequestRequestTypeDef,
-    _OptionalStartDocumentAnalysisRequestRequestTypeDef,
-):
-    pass
-
-StartDocumentAnalysisResponseTypeDef = TypedDict(
-    "StartDocumentAnalysisResponseTypeDef",
-    {
-        "JobId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredStartDocumentTextDetectionRequestRequestTypeDef = TypedDict(
-    "_RequiredStartDocumentTextDetectionRequestRequestTypeDef",
-    {
-        "DocumentLocation": "DocumentLocationTypeDef",
-    },
-)
-_OptionalStartDocumentTextDetectionRequestRequestTypeDef = TypedDict(
-    "_OptionalStartDocumentTextDetectionRequestRequestTypeDef",
-    {
-        "ClientRequestToken": str,
-        "JobTag": str,
-        "NotificationChannel": "NotificationChannelTypeDef",
-        "OutputConfig": "OutputConfigTypeDef",
-        "KMSKeyId": str,
-    },
-    total=False,
-)
-
-class StartDocumentTextDetectionRequestRequestTypeDef(
-    _RequiredStartDocumentTextDetectionRequestRequestTypeDef,
-    _OptionalStartDocumentTextDetectionRequestRequestTypeDef,
-):
-    pass
-
-StartDocumentTextDetectionResponseTypeDef = TypedDict(
-    "StartDocumentTextDetectionResponseTypeDef",
-    {
-        "JobId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredStartExpenseAnalysisRequestRequestTypeDef = TypedDict(
-    "_RequiredStartExpenseAnalysisRequestRequestTypeDef",
-    {
-        "DocumentLocation": "DocumentLocationTypeDef",
-    },
-)
-_OptionalStartExpenseAnalysisRequestRequestTypeDef = TypedDict(
-    "_OptionalStartExpenseAnalysisRequestRequestTypeDef",
-    {
-        "ClientRequestToken": str,
-        "JobTag": str,
-        "NotificationChannel": "NotificationChannelTypeDef",
-        "OutputConfig": "OutputConfigTypeDef",
-        "KMSKeyId": str,
-    },
-    total=False,
-)
-
-class StartExpenseAnalysisRequestRequestTypeDef(
-    _RequiredStartExpenseAnalysisRequestRequestTypeDef,
-    _OptionalStartExpenseAnalysisRequestRequestTypeDef,
-):
-    pass
-
-StartExpenseAnalysisResponseTypeDef = TypedDict(
-    "StartExpenseAnalysisResponseTypeDef",
-    {
-        "JobId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredStartLendingAnalysisRequestRequestTypeDef = TypedDict(
-    "_RequiredStartLendingAnalysisRequestRequestTypeDef",
-    {
-        "DocumentLocation": "DocumentLocationTypeDef",
-    },
-)
-_OptionalStartLendingAnalysisRequestRequestTypeDef = TypedDict(
-    "_OptionalStartLendingAnalysisRequestRequestTypeDef",
-    {
-        "ClientRequestToken": str,
-        "JobTag": str,
-        "NotificationChannel": "NotificationChannelTypeDef",
-        "OutputConfig": "OutputConfigTypeDef",
-        "KMSKeyId": str,
-    },
-    total=False,
-)
-
-class StartLendingAnalysisRequestRequestTypeDef(
-    _RequiredStartLendingAnalysisRequestRequestTypeDef,
-    _OptionalStartLendingAnalysisRequestRequestTypeDef,
-):
-    pass
-
-StartLendingAnalysisResponseTypeDef = TypedDict(
-    "StartLendingAnalysisResponseTypeDef",
-    {
-        "JobId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "ResourceARN": str,
-        "Tags": Dict[str, str],
-    },
-)
-
-UndetectedSignatureTypeDef = TypedDict(
-    "UndetectedSignatureTypeDef",
-    {
-        "Page": int,
-    },
-    total=False,
-)
-
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "ResourceARN": str,
-        "TagKeys": List[str],
-    },
-)
-
-_RequiredUpdateAdapterRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateAdapterRequestRequestTypeDef",
-    {
-        "AdapterId": str,
-    },
-)
-_OptionalUpdateAdapterRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateAdapterRequestRequestTypeDef",
-    {
-        "Description": str,
-        "AdapterName": str,
-        "AutoUpdate": AutoUpdateType,
-    },
-    total=False,
-)
-
-class UpdateAdapterRequestRequestTypeDef(
-    _RequiredUpdateAdapterRequestRequestTypeDef, _OptionalUpdateAdapterRequestRequestTypeDef
-):
-    pass
-
-UpdateAdapterResponseTypeDef = TypedDict(
-    "UpdateAdapterResponseTypeDef",
-    {
-        "AdapterId": str,
-        "AdapterName": str,
-        "CreationTime": datetime,
-        "Description": str,
-        "FeatureTypes": List[FeatureTypeType],
-        "AutoUpdate": AutoUpdateType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-WarningTypeDef = TypedDict(
-    "WarningTypeDef",
-    {
-        "ErrorCode": str,
-        "Pages": List[int],
-    },
-    total=False,
-)
+class GetLendingAnalysisResponseTypeDef(TypedDict):
+    DocumentMetadata: DocumentMetadataTypeDef
+    JobStatus: JobStatusType
+    Results: List[LendingResultTypeDef]
+    Warnings: List[WarningTypeDef]
+    StatusMessage: str
+    AnalyzeLendingModelVersion: str
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]

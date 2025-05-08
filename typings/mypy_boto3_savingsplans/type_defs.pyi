@@ -1,20 +1,24 @@
 """
 Type annotations for savingsplans service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_savingsplans/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_savingsplans/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_savingsplans.type_defs import CreateSavingsPlanRequestRequestTypeDef
+    from mypy_boto3_savingsplans.type_defs import TimestampTypeDef
 
-    data: CreateSavingsPlanRequestRequestTypeDef = {...}
+    data: TimestampTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List, Union
+from typing import Union
 
 from .literals import (
     CurrencyCodeType,
@@ -32,28 +36,34 @@ from .literals import (
     SavingsPlanTypeType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
-    "CreateSavingsPlanRequestRequestTypeDef",
+    "CreateSavingsPlanRequestTypeDef",
     "CreateSavingsPlanResponseTypeDef",
-    "DeleteQueuedSavingsPlanRequestRequestTypeDef",
-    "DescribeSavingsPlanRatesRequestRequestTypeDef",
+    "DeleteQueuedSavingsPlanRequestTypeDef",
+    "DescribeSavingsPlanRatesRequestTypeDef",
     "DescribeSavingsPlanRatesResponseTypeDef",
-    "DescribeSavingsPlansOfferingRatesRequestRequestTypeDef",
+    "DescribeSavingsPlansOfferingRatesRequestTypeDef",
     "DescribeSavingsPlansOfferingRatesResponseTypeDef",
-    "DescribeSavingsPlansOfferingsRequestRequestTypeDef",
+    "DescribeSavingsPlansOfferingsRequestTypeDef",
     "DescribeSavingsPlansOfferingsResponseTypeDef",
-    "DescribeSavingsPlansRequestRequestTypeDef",
+    "DescribeSavingsPlansRequestTypeDef",
     "DescribeSavingsPlansResponseTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "ParentSavingsPlanOfferingTypeDef",
     "ResponseMetadataTypeDef",
-    "ReturnSavingsPlanRequestRequestTypeDef",
+    "ReturnSavingsPlanRequestTypeDef",
     "ReturnSavingsPlanResponseTypeDef",
     "SavingsPlanFilterTypeDef",
     "SavingsPlanOfferingFilterElementTypeDef",
@@ -66,372 +76,206 @@ __all__ = (
     "SavingsPlanRatePropertyTypeDef",
     "SavingsPlanRateTypeDef",
     "SavingsPlanTypeDef",
-    "TagResourceRequestRequestTypeDef",
-    "UntagResourceRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
+    "TimestampTypeDef",
+    "UntagResourceRequestTypeDef",
 )
 
-_RequiredCreateSavingsPlanRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateSavingsPlanRequestRequestTypeDef",
-    {
-        "savingsPlanOfferingId": str,
-        "commitment": str,
-    },
-)
-_OptionalCreateSavingsPlanRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateSavingsPlanRequestRequestTypeDef",
-    {
-        "upfrontPaymentAmount": str,
-        "purchaseTime": Union[datetime, str],
-        "clientToken": str,
-        "tags": Dict[str, str],
-    },
-    total=False,
-)
+TimestampTypeDef = Union[datetime, str]
 
-class CreateSavingsPlanRequestRequestTypeDef(
-    _RequiredCreateSavingsPlanRequestRequestTypeDef, _OptionalCreateSavingsPlanRequestRequestTypeDef
-):
-    pass
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-CreateSavingsPlanResponseTypeDef = TypedDict(
-    "CreateSavingsPlanResponseTypeDef",
-    {
-        "savingsPlanId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DeleteQueuedSavingsPlanRequestTypeDef(TypedDict):
+    savingsPlanId: str
 
-DeleteQueuedSavingsPlanRequestRequestTypeDef = TypedDict(
-    "DeleteQueuedSavingsPlanRequestRequestTypeDef",
-    {
-        "savingsPlanId": str,
-    },
-)
+class SavingsPlanRateFilterTypeDef(TypedDict):
+    name: NotRequired[SavingsPlanRateFilterNameType]
+    values: NotRequired[Sequence[str]]
 
-_RequiredDescribeSavingsPlanRatesRequestRequestTypeDef = TypedDict(
-    "_RequiredDescribeSavingsPlanRatesRequestRequestTypeDef",
-    {
-        "savingsPlanId": str,
-    },
-)
-_OptionalDescribeSavingsPlanRatesRequestRequestTypeDef = TypedDict(
-    "_OptionalDescribeSavingsPlanRatesRequestRequestTypeDef",
-    {
-        "filters": List["SavingsPlanRateFilterTypeDef"],
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
+class SavingsPlanOfferingRateFilterElementTypeDef(TypedDict):
+    name: NotRequired[SavingsPlanRateFilterAttributeType]
+    values: NotRequired[Sequence[str]]
 
-class DescribeSavingsPlanRatesRequestRequestTypeDef(
-    _RequiredDescribeSavingsPlanRatesRequestRequestTypeDef,
-    _OptionalDescribeSavingsPlanRatesRequestRequestTypeDef,
-):
-    pass
+class SavingsPlanOfferingFilterElementTypeDef(TypedDict):
+    name: NotRequired[SavingsPlanOfferingFilterAttributeType]
+    values: NotRequired[Sequence[str]]
 
-DescribeSavingsPlanRatesResponseTypeDef = TypedDict(
-    "DescribeSavingsPlanRatesResponseTypeDef",
-    {
-        "savingsPlanId": str,
-        "searchResults": List["SavingsPlanRateTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class SavingsPlanFilterTypeDef(TypedDict):
+    name: NotRequired[SavingsPlansFilterNameType]
+    values: NotRequired[Sequence[str]]
 
-DescribeSavingsPlansOfferingRatesRequestRequestTypeDef = TypedDict(
-    "DescribeSavingsPlansOfferingRatesRequestRequestTypeDef",
-    {
-        "savingsPlanOfferingIds": List[str],
-        "savingsPlanPaymentOptions": List[SavingsPlanPaymentOptionType],
-        "savingsPlanTypes": List[SavingsPlanTypeType],
-        "products": List[SavingsPlanProductTypeType],
-        "serviceCodes": List[SavingsPlanRateServiceCodeType],
-        "usageTypes": List[str],
-        "operations": List[str],
-        "filters": List["SavingsPlanOfferingRateFilterElementTypeDef"],
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
+class SavingsPlanTypeDef(TypedDict):
+    offeringId: NotRequired[str]
+    savingsPlanId: NotRequired[str]
+    savingsPlanArn: NotRequired[str]
+    description: NotRequired[str]
+    start: NotRequired[str]
+    end: NotRequired[str]
+    state: NotRequired[SavingsPlanStateType]
+    region: NotRequired[str]
+    ec2InstanceFamily: NotRequired[str]
+    savingsPlanType: NotRequired[SavingsPlanTypeType]
+    paymentOption: NotRequired[SavingsPlanPaymentOptionType]
+    productTypes: NotRequired[List[SavingsPlanProductTypeType]]
+    currency: NotRequired[CurrencyCodeType]
+    commitment: NotRequired[str]
+    upfrontPaymentAmount: NotRequired[str]
+    recurringPaymentAmount: NotRequired[str]
+    termDurationInSeconds: NotRequired[int]
+    tags: NotRequired[Dict[str, str]]
+    returnableUntil: NotRequired[str]
 
-DescribeSavingsPlansOfferingRatesResponseTypeDef = TypedDict(
-    "DescribeSavingsPlansOfferingRatesResponseTypeDef",
-    {
-        "searchResults": List["SavingsPlanOfferingRateTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    resourceArn: str
 
-DescribeSavingsPlansOfferingsRequestRequestTypeDef = TypedDict(
-    "DescribeSavingsPlansOfferingsRequestRequestTypeDef",
-    {
-        "offeringIds": List[str],
-        "paymentOptions": List[SavingsPlanPaymentOptionType],
-        "productType": SavingsPlanProductTypeType,
-        "planTypes": List[SavingsPlanTypeType],
-        "durations": List[int],
-        "currencies": List[CurrencyCodeType],
-        "descriptions": List[str],
-        "serviceCodes": List[str],
-        "usageTypes": List[str],
-        "operations": List[str],
-        "filters": List["SavingsPlanOfferingFilterElementTypeDef"],
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
+class ParentSavingsPlanOfferingTypeDef(TypedDict):
+    offeringId: NotRequired[str]
+    paymentOption: NotRequired[SavingsPlanPaymentOptionType]
+    planType: NotRequired[SavingsPlanTypeType]
+    durationSeconds: NotRequired[int]
+    currency: NotRequired[CurrencyCodeType]
+    planDescription: NotRequired[str]
 
-DescribeSavingsPlansOfferingsResponseTypeDef = TypedDict(
-    "DescribeSavingsPlansOfferingsResponseTypeDef",
-    {
-        "searchResults": List["SavingsPlanOfferingTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ReturnSavingsPlanRequestTypeDef(TypedDict):
+    savingsPlanId: str
+    clientToken: NotRequired[str]
 
-DescribeSavingsPlansRequestRequestTypeDef = TypedDict(
-    "DescribeSavingsPlansRequestRequestTypeDef",
-    {
-        "savingsPlanArns": List[str],
-        "savingsPlanIds": List[str],
-        "nextToken": str,
-        "maxResults": int,
-        "states": List[SavingsPlanStateType],
-        "filters": List["SavingsPlanFilterTypeDef"],
-    },
-    total=False,
-)
+class SavingsPlanOfferingPropertyTypeDef(TypedDict):
+    name: NotRequired[SavingsPlanOfferingPropertyKeyType]
+    value: NotRequired[str]
 
-DescribeSavingsPlansResponseTypeDef = TypedDict(
-    "DescribeSavingsPlansResponseTypeDef",
-    {
-        "savingsPlans": List["SavingsPlanTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class SavingsPlanOfferingRatePropertyTypeDef(TypedDict):
+    name: NotRequired[str]
+    value: NotRequired[str]
 
-ListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "ListTagsForResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-    },
-)
+class SavingsPlanRatePropertyTypeDef(TypedDict):
+    name: NotRequired[SavingsPlanRatePropertyKeyType]
+    value: NotRequired[str]
 
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "tags": Dict[str, str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class TagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tags: Mapping[str, str]
 
-ParentSavingsPlanOfferingTypeDef = TypedDict(
-    "ParentSavingsPlanOfferingTypeDef",
-    {
-        "offeringId": str,
-        "paymentOption": SavingsPlanPaymentOptionType,
-        "planType": SavingsPlanTypeType,
-        "durationSeconds": int,
-        "currency": CurrencyCodeType,
-        "planDescription": str,
-    },
-    total=False,
-)
+class UntagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tagKeys: Sequence[str]
 
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
+class CreateSavingsPlanRequestTypeDef(TypedDict):
+    savingsPlanOfferingId: str
+    commitment: str
+    upfrontPaymentAmount: NotRequired[str]
+    purchaseTime: NotRequired[TimestampTypeDef]
+    clientToken: NotRequired[str]
+    tags: NotRequired[Mapping[str, str]]
 
-_RequiredReturnSavingsPlanRequestRequestTypeDef = TypedDict(
-    "_RequiredReturnSavingsPlanRequestRequestTypeDef",
-    {
-        "savingsPlanId": str,
-    },
-)
-_OptionalReturnSavingsPlanRequestRequestTypeDef = TypedDict(
-    "_OptionalReturnSavingsPlanRequestRequestTypeDef",
-    {
-        "clientToken": str,
-    },
-    total=False,
-)
+class CreateSavingsPlanResponseTypeDef(TypedDict):
+    savingsPlanId: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class ReturnSavingsPlanRequestRequestTypeDef(
-    _RequiredReturnSavingsPlanRequestRequestTypeDef, _OptionalReturnSavingsPlanRequestRequestTypeDef
-):
-    pass
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    tags: Dict[str, str]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ReturnSavingsPlanResponseTypeDef = TypedDict(
-    "ReturnSavingsPlanResponseTypeDef",
-    {
-        "savingsPlanId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ReturnSavingsPlanResponseTypeDef(TypedDict):
+    savingsPlanId: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-SavingsPlanFilterTypeDef = TypedDict(
-    "SavingsPlanFilterTypeDef",
-    {
-        "name": SavingsPlansFilterNameType,
-        "values": List[str],
-    },
-    total=False,
-)
+class DescribeSavingsPlanRatesRequestTypeDef(TypedDict):
+    savingsPlanId: str
+    filters: NotRequired[Sequence[SavingsPlanRateFilterTypeDef]]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
 
-SavingsPlanOfferingFilterElementTypeDef = TypedDict(
-    "SavingsPlanOfferingFilterElementTypeDef",
-    {
-        "name": SavingsPlanOfferingFilterAttributeType,
-        "values": List[str],
-    },
-    total=False,
-)
+class DescribeSavingsPlansOfferingRatesRequestTypeDef(TypedDict):
+    savingsPlanOfferingIds: NotRequired[Sequence[str]]
+    savingsPlanPaymentOptions: NotRequired[Sequence[SavingsPlanPaymentOptionType]]
+    savingsPlanTypes: NotRequired[Sequence[SavingsPlanTypeType]]
+    products: NotRequired[Sequence[SavingsPlanProductTypeType]]
+    serviceCodes: NotRequired[Sequence[SavingsPlanRateServiceCodeType]]
+    usageTypes: NotRequired[Sequence[str]]
+    operations: NotRequired[Sequence[str]]
+    filters: NotRequired[Sequence[SavingsPlanOfferingRateFilterElementTypeDef]]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
 
-SavingsPlanOfferingPropertyTypeDef = TypedDict(
-    "SavingsPlanOfferingPropertyTypeDef",
-    {
-        "name": SavingsPlanOfferingPropertyKeyType,
-        "value": str,
-    },
-    total=False,
-)
+class DescribeSavingsPlansOfferingsRequestTypeDef(TypedDict):
+    offeringIds: NotRequired[Sequence[str]]
+    paymentOptions: NotRequired[Sequence[SavingsPlanPaymentOptionType]]
+    productType: NotRequired[SavingsPlanProductTypeType]
+    planTypes: NotRequired[Sequence[SavingsPlanTypeType]]
+    durations: NotRequired[Sequence[int]]
+    currencies: NotRequired[Sequence[CurrencyCodeType]]
+    descriptions: NotRequired[Sequence[str]]
+    serviceCodes: NotRequired[Sequence[str]]
+    usageTypes: NotRequired[Sequence[str]]
+    operations: NotRequired[Sequence[str]]
+    filters: NotRequired[Sequence[SavingsPlanOfferingFilterElementTypeDef]]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
 
-SavingsPlanOfferingRateFilterElementTypeDef = TypedDict(
-    "SavingsPlanOfferingRateFilterElementTypeDef",
-    {
-        "name": SavingsPlanRateFilterAttributeType,
-        "values": List[str],
-    },
-    total=False,
-)
+class DescribeSavingsPlansRequestTypeDef(TypedDict):
+    savingsPlanArns: NotRequired[Sequence[str]]
+    savingsPlanIds: NotRequired[Sequence[str]]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+    states: NotRequired[Sequence[SavingsPlanStateType]]
+    filters: NotRequired[Sequence[SavingsPlanFilterTypeDef]]
 
-SavingsPlanOfferingRatePropertyTypeDef = TypedDict(
-    "SavingsPlanOfferingRatePropertyTypeDef",
-    {
-        "name": str,
-        "value": str,
-    },
-    total=False,
-)
+class DescribeSavingsPlansResponseTypeDef(TypedDict):
+    savingsPlans: List[SavingsPlanTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-SavingsPlanOfferingRateTypeDef = TypedDict(
-    "SavingsPlanOfferingRateTypeDef",
-    {
-        "savingsPlanOffering": "ParentSavingsPlanOfferingTypeDef",
-        "rate": str,
-        "unit": SavingsPlanRateUnitType,
-        "productType": SavingsPlanProductTypeType,
-        "serviceCode": SavingsPlanRateServiceCodeType,
-        "usageType": str,
-        "operation": str,
-        "properties": List["SavingsPlanOfferingRatePropertyTypeDef"],
-    },
-    total=False,
-)
+class SavingsPlanOfferingTypeDef(TypedDict):
+    offeringId: NotRequired[str]
+    productTypes: NotRequired[List[SavingsPlanProductTypeType]]
+    planType: NotRequired[SavingsPlanTypeType]
+    description: NotRequired[str]
+    paymentOption: NotRequired[SavingsPlanPaymentOptionType]
+    durationSeconds: NotRequired[int]
+    currency: NotRequired[CurrencyCodeType]
+    serviceCode: NotRequired[str]
+    usageType: NotRequired[str]
+    operation: NotRequired[str]
+    properties: NotRequired[List[SavingsPlanOfferingPropertyTypeDef]]
 
-SavingsPlanOfferingTypeDef = TypedDict(
-    "SavingsPlanOfferingTypeDef",
-    {
-        "offeringId": str,
-        "productTypes": List[SavingsPlanProductTypeType],
-        "planType": SavingsPlanTypeType,
-        "description": str,
-        "paymentOption": SavingsPlanPaymentOptionType,
-        "durationSeconds": int,
-        "currency": CurrencyCodeType,
-        "serviceCode": str,
-        "usageType": str,
-        "operation": str,
-        "properties": List["SavingsPlanOfferingPropertyTypeDef"],
-    },
-    total=False,
-)
+class SavingsPlanOfferingRateTypeDef(TypedDict):
+    savingsPlanOffering: NotRequired[ParentSavingsPlanOfferingTypeDef]
+    rate: NotRequired[str]
+    unit: NotRequired[SavingsPlanRateUnitType]
+    productType: NotRequired[SavingsPlanProductTypeType]
+    serviceCode: NotRequired[SavingsPlanRateServiceCodeType]
+    usageType: NotRequired[str]
+    operation: NotRequired[str]
+    properties: NotRequired[List[SavingsPlanOfferingRatePropertyTypeDef]]
 
-SavingsPlanRateFilterTypeDef = TypedDict(
-    "SavingsPlanRateFilterTypeDef",
-    {
-        "name": SavingsPlanRateFilterNameType,
-        "values": List[str],
-    },
-    total=False,
-)
+class SavingsPlanRateTypeDef(TypedDict):
+    rate: NotRequired[str]
+    currency: NotRequired[CurrencyCodeType]
+    unit: NotRequired[SavingsPlanRateUnitType]
+    productType: NotRequired[SavingsPlanProductTypeType]
+    serviceCode: NotRequired[SavingsPlanRateServiceCodeType]
+    usageType: NotRequired[str]
+    operation: NotRequired[str]
+    properties: NotRequired[List[SavingsPlanRatePropertyTypeDef]]
 
-SavingsPlanRatePropertyTypeDef = TypedDict(
-    "SavingsPlanRatePropertyTypeDef",
-    {
-        "name": SavingsPlanRatePropertyKeyType,
-        "value": str,
-    },
-    total=False,
-)
+class DescribeSavingsPlansOfferingsResponseTypeDef(TypedDict):
+    searchResults: List[SavingsPlanOfferingTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-SavingsPlanRateTypeDef = TypedDict(
-    "SavingsPlanRateTypeDef",
-    {
-        "rate": str,
-        "currency": CurrencyCodeType,
-        "unit": SavingsPlanRateUnitType,
-        "productType": SavingsPlanProductTypeType,
-        "serviceCode": SavingsPlanRateServiceCodeType,
-        "usageType": str,
-        "operation": str,
-        "properties": List["SavingsPlanRatePropertyTypeDef"],
-    },
-    total=False,
-)
+class DescribeSavingsPlansOfferingRatesResponseTypeDef(TypedDict):
+    searchResults: List[SavingsPlanOfferingRateTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
 
-SavingsPlanTypeDef = TypedDict(
-    "SavingsPlanTypeDef",
-    {
-        "offeringId": str,
-        "savingsPlanId": str,
-        "savingsPlanArn": str,
-        "description": str,
-        "start": str,
-        "end": str,
-        "state": SavingsPlanStateType,
-        "region": str,
-        "ec2InstanceFamily": str,
-        "savingsPlanType": SavingsPlanTypeType,
-        "paymentOption": SavingsPlanPaymentOptionType,
-        "productTypes": List[SavingsPlanProductTypeType],
-        "currency": CurrencyCodeType,
-        "commitment": str,
-        "upfrontPaymentAmount": str,
-        "recurringPaymentAmount": str,
-        "termDurationInSeconds": int,
-        "tags": Dict[str, str],
-        "returnableUntil": str,
-    },
-    total=False,
-)
-
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tags": Dict[str, str],
-    },
-)
-
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tagKeys": List[str],
-    },
-)
+class DescribeSavingsPlanRatesResponseTypeDef(TypedDict):
+    savingsPlanId: str
+    searchResults: List[SavingsPlanRateTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]

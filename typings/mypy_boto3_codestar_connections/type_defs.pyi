@@ -1,20 +1,24 @@
 """
 Type annotations for codestar-connections service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_codestar_connections/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_codestar_connections/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_codestar_connections.type_defs import ConnectionTypeDef
 
-    data: ConnectionTypeDef = {...}
+    data: ConnectionTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
+from typing import Union
 
 from .literals import (
     BlockerStatusType,
@@ -26,55 +30,57 @@ from .literals import (
     TriggerResourceUpdateOnType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
     "ConnectionTypeDef",
-    "CreateConnectionInputRequestTypeDef",
+    "CreateConnectionInputTypeDef",
     "CreateConnectionOutputTypeDef",
-    "CreateHostInputRequestTypeDef",
+    "CreateHostInputTypeDef",
     "CreateHostOutputTypeDef",
-    "CreateRepositoryLinkInputRequestTypeDef",
+    "CreateRepositoryLinkInputTypeDef",
     "CreateRepositoryLinkOutputTypeDef",
-    "CreateSyncConfigurationInputRequestTypeDef",
+    "CreateSyncConfigurationInputTypeDef",
     "CreateSyncConfigurationOutputTypeDef",
-    "DeleteConnectionInputRequestTypeDef",
-    "DeleteHostInputRequestTypeDef",
-    "DeleteRepositoryLinkInputRequestTypeDef",
-    "DeleteSyncConfigurationInputRequestTypeDef",
-    "GetConnectionInputRequestTypeDef",
+    "DeleteConnectionInputTypeDef",
+    "DeleteHostInputTypeDef",
+    "DeleteRepositoryLinkInputTypeDef",
+    "DeleteSyncConfigurationInputTypeDef",
+    "GetConnectionInputTypeDef",
     "GetConnectionOutputTypeDef",
-    "GetHostInputRequestTypeDef",
+    "GetHostInputTypeDef",
     "GetHostOutputTypeDef",
-    "GetRepositoryLinkInputRequestTypeDef",
+    "GetRepositoryLinkInputTypeDef",
     "GetRepositoryLinkOutputTypeDef",
-    "GetRepositorySyncStatusInputRequestTypeDef",
+    "GetRepositorySyncStatusInputTypeDef",
     "GetRepositorySyncStatusOutputTypeDef",
-    "GetResourceSyncStatusInputRequestTypeDef",
+    "GetResourceSyncStatusInputTypeDef",
     "GetResourceSyncStatusOutputTypeDef",
-    "GetSyncBlockerSummaryInputRequestTypeDef",
+    "GetSyncBlockerSummaryInputTypeDef",
     "GetSyncBlockerSummaryOutputTypeDef",
-    "GetSyncConfigurationInputRequestTypeDef",
+    "GetSyncConfigurationInputTypeDef",
     "GetSyncConfigurationOutputTypeDef",
     "HostTypeDef",
-    "ListConnectionsInputRequestTypeDef",
+    "ListConnectionsInputTypeDef",
     "ListConnectionsOutputTypeDef",
-    "ListHostsInputRequestTypeDef",
+    "ListHostsInputTypeDef",
     "ListHostsOutputTypeDef",
-    "ListRepositoryLinksInputRequestTypeDef",
+    "ListRepositoryLinksInputTypeDef",
     "ListRepositoryLinksOutputTypeDef",
-    "ListRepositorySyncDefinitionsInputRequestTypeDef",
+    "ListRepositorySyncDefinitionsInputTypeDef",
     "ListRepositorySyncDefinitionsOutputTypeDef",
-    "ListSyncConfigurationsInputRequestTypeDef",
+    "ListSyncConfigurationsInputTypeDef",
     "ListSyncConfigurationsOutputTypeDef",
-    "ListTagsForResourceInputRequestTypeDef",
+    "ListTagsForResourceInputTypeDef",
     "ListTagsForResourceOutputTypeDef",
     "RepositoryLinkInfoTypeDef",
     "RepositorySyncAttemptTypeDef",
@@ -88,777 +94,374 @@ __all__ = (
     "SyncBlockerSummaryTypeDef",
     "SyncBlockerTypeDef",
     "SyncConfigurationTypeDef",
-    "TagResourceInputRequestTypeDef",
+    "TagResourceInputTypeDef",
     "TagTypeDef",
-    "UntagResourceInputRequestTypeDef",
-    "UpdateHostInputRequestTypeDef",
-    "UpdateRepositoryLinkInputRequestTypeDef",
+    "UntagResourceInputTypeDef",
+    "UpdateHostInputTypeDef",
+    "UpdateRepositoryLinkInputTypeDef",
     "UpdateRepositoryLinkOutputTypeDef",
-    "UpdateSyncBlockerInputRequestTypeDef",
+    "UpdateSyncBlockerInputTypeDef",
     "UpdateSyncBlockerOutputTypeDef",
-    "UpdateSyncConfigurationInputRequestTypeDef",
+    "UpdateSyncConfigurationInputTypeDef",
     "UpdateSyncConfigurationOutputTypeDef",
+    "VpcConfigurationOutputTypeDef",
     "VpcConfigurationTypeDef",
+    "VpcConfigurationUnionTypeDef",
 )
 
-ConnectionTypeDef = TypedDict(
-    "ConnectionTypeDef",
-    {
-        "ConnectionName": str,
-        "ConnectionArn": str,
-        "ProviderType": ProviderTypeType,
-        "OwnerAccountId": str,
-        "ConnectionStatus": ConnectionStatusType,
-        "HostArn": str,
-    },
-    total=False,
-)
+class ConnectionTypeDef(TypedDict):
+    ConnectionName: NotRequired[str]
+    ConnectionArn: NotRequired[str]
+    ProviderType: NotRequired[ProviderTypeType]
+    OwnerAccountId: NotRequired[str]
+    ConnectionStatus: NotRequired[ConnectionStatusType]
+    HostArn: NotRequired[str]
 
-_RequiredCreateConnectionInputRequestTypeDef = TypedDict(
-    "_RequiredCreateConnectionInputRequestTypeDef",
-    {
-        "ConnectionName": str,
-    },
-)
-_OptionalCreateConnectionInputRequestTypeDef = TypedDict(
-    "_OptionalCreateConnectionInputRequestTypeDef",
-    {
-        "ProviderType": ProviderTypeType,
-        "Tags": List["TagTypeDef"],
-        "HostArn": str,
-    },
-    total=False,
-)
+class TagTypeDef(TypedDict):
+    Key: str
+    Value: str
 
-class CreateConnectionInputRequestTypeDef(
-    _RequiredCreateConnectionInputRequestTypeDef, _OptionalCreateConnectionInputRequestTypeDef
-):
-    pass
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-CreateConnectionOutputTypeDef = TypedDict(
-    "CreateConnectionOutputTypeDef",
-    {
-        "ConnectionArn": str,
-        "Tags": List["TagTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class RepositoryLinkInfoTypeDef(TypedDict):
+    ConnectionArn: str
+    OwnerId: str
+    ProviderType: ProviderTypeType
+    RepositoryLinkArn: str
+    RepositoryLinkId: str
+    RepositoryName: str
+    EncryptionKeyArn: NotRequired[str]
 
-_RequiredCreateHostInputRequestTypeDef = TypedDict(
-    "_RequiredCreateHostInputRequestTypeDef",
-    {
-        "Name": str,
-        "ProviderType": ProviderTypeType,
-        "ProviderEndpoint": str,
-    },
-)
-_OptionalCreateHostInputRequestTypeDef = TypedDict(
-    "_OptionalCreateHostInputRequestTypeDef",
-    {
-        "VpcConfiguration": "VpcConfigurationTypeDef",
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
+class CreateSyncConfigurationInputTypeDef(TypedDict):
+    Branch: str
+    ConfigFile: str
+    RepositoryLinkId: str
+    ResourceName: str
+    RoleArn: str
+    SyncType: Literal["CFN_STACK_SYNC"]
+    PublishDeploymentStatus: NotRequired[PublishDeploymentStatusType]
+    TriggerResourceUpdateOn: NotRequired[TriggerResourceUpdateOnType]
 
-class CreateHostInputRequestTypeDef(
-    _RequiredCreateHostInputRequestTypeDef, _OptionalCreateHostInputRequestTypeDef
-):
-    pass
+class SyncConfigurationTypeDef(TypedDict):
+    Branch: str
+    OwnerId: str
+    ProviderType: ProviderTypeType
+    RepositoryLinkId: str
+    RepositoryName: str
+    ResourceName: str
+    RoleArn: str
+    SyncType: Literal["CFN_STACK_SYNC"]
+    ConfigFile: NotRequired[str]
+    PublishDeploymentStatus: NotRequired[PublishDeploymentStatusType]
+    TriggerResourceUpdateOn: NotRequired[TriggerResourceUpdateOnType]
 
-CreateHostOutputTypeDef = TypedDict(
-    "CreateHostOutputTypeDef",
-    {
-        "HostArn": str,
-        "Tags": List["TagTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DeleteConnectionInputTypeDef(TypedDict):
+    ConnectionArn: str
 
-_RequiredCreateRepositoryLinkInputRequestTypeDef = TypedDict(
-    "_RequiredCreateRepositoryLinkInputRequestTypeDef",
-    {
-        "ConnectionArn": str,
-        "OwnerId": str,
-        "RepositoryName": str,
-    },
-)
-_OptionalCreateRepositoryLinkInputRequestTypeDef = TypedDict(
-    "_OptionalCreateRepositoryLinkInputRequestTypeDef",
-    {
-        "EncryptionKeyArn": str,
-        "Tags": List["TagTypeDef"],
-    },
-    total=False,
-)
+class DeleteHostInputTypeDef(TypedDict):
+    HostArn: str
 
-class CreateRepositoryLinkInputRequestTypeDef(
-    _RequiredCreateRepositoryLinkInputRequestTypeDef,
-    _OptionalCreateRepositoryLinkInputRequestTypeDef,
-):
-    pass
+class DeleteRepositoryLinkInputTypeDef(TypedDict):
+    RepositoryLinkId: str
 
-CreateRepositoryLinkOutputTypeDef = TypedDict(
-    "CreateRepositoryLinkOutputTypeDef",
-    {
-        "RepositoryLinkInfo": "RepositoryLinkInfoTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DeleteSyncConfigurationInputTypeDef(TypedDict):
+    SyncType: Literal["CFN_STACK_SYNC"]
+    ResourceName: str
 
-_RequiredCreateSyncConfigurationInputRequestTypeDef = TypedDict(
-    "_RequiredCreateSyncConfigurationInputRequestTypeDef",
-    {
-        "Branch": str,
-        "ConfigFile": str,
-        "RepositoryLinkId": str,
-        "ResourceName": str,
-        "RoleArn": str,
-        "SyncType": Literal["CFN_STACK_SYNC"],
-    },
-)
-_OptionalCreateSyncConfigurationInputRequestTypeDef = TypedDict(
-    "_OptionalCreateSyncConfigurationInputRequestTypeDef",
-    {
-        "PublishDeploymentStatus": PublishDeploymentStatusType,
-        "TriggerResourceUpdateOn": TriggerResourceUpdateOnType,
-    },
-    total=False,
-)
+class GetConnectionInputTypeDef(TypedDict):
+    ConnectionArn: str
 
-class CreateSyncConfigurationInputRequestTypeDef(
-    _RequiredCreateSyncConfigurationInputRequestTypeDef,
-    _OptionalCreateSyncConfigurationInputRequestTypeDef,
-):
-    pass
+class GetHostInputTypeDef(TypedDict):
+    HostArn: str
 
-CreateSyncConfigurationOutputTypeDef = TypedDict(
-    "CreateSyncConfigurationOutputTypeDef",
-    {
-        "SyncConfiguration": "SyncConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class VpcConfigurationOutputTypeDef(TypedDict):
+    VpcId: str
+    SubnetIds: List[str]
+    SecurityGroupIds: List[str]
+    TlsCertificate: NotRequired[str]
 
-DeleteConnectionInputRequestTypeDef = TypedDict(
-    "DeleteConnectionInputRequestTypeDef",
-    {
-        "ConnectionArn": str,
-    },
-)
+class GetRepositoryLinkInputTypeDef(TypedDict):
+    RepositoryLinkId: str
 
-DeleteHostInputRequestTypeDef = TypedDict(
-    "DeleteHostInputRequestTypeDef",
-    {
-        "HostArn": str,
-    },
-)
+class GetRepositorySyncStatusInputTypeDef(TypedDict):
+    Branch: str
+    RepositoryLinkId: str
+    SyncType: Literal["CFN_STACK_SYNC"]
 
-DeleteRepositoryLinkInputRequestTypeDef = TypedDict(
-    "DeleteRepositoryLinkInputRequestTypeDef",
-    {
-        "RepositoryLinkId": str,
-    },
-)
+class GetResourceSyncStatusInputTypeDef(TypedDict):
+    ResourceName: str
+    SyncType: Literal["CFN_STACK_SYNC"]
 
-DeleteSyncConfigurationInputRequestTypeDef = TypedDict(
-    "DeleteSyncConfigurationInputRequestTypeDef",
-    {
-        "SyncType": Literal["CFN_STACK_SYNC"],
-        "ResourceName": str,
-    },
-)
+class RevisionTypeDef(TypedDict):
+    Branch: str
+    Directory: str
+    OwnerId: str
+    RepositoryName: str
+    ProviderType: ProviderTypeType
+    Sha: str
 
-GetConnectionInputRequestTypeDef = TypedDict(
-    "GetConnectionInputRequestTypeDef",
-    {
-        "ConnectionArn": str,
-    },
-)
+class GetSyncBlockerSummaryInputTypeDef(TypedDict):
+    SyncType: Literal["CFN_STACK_SYNC"]
+    ResourceName: str
 
-GetConnectionOutputTypeDef = TypedDict(
-    "GetConnectionOutputTypeDef",
-    {
-        "Connection": "ConnectionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetSyncConfigurationInputTypeDef(TypedDict):
+    SyncType: Literal["CFN_STACK_SYNC"]
+    ResourceName: str
 
-GetHostInputRequestTypeDef = TypedDict(
-    "GetHostInputRequestTypeDef",
-    {
-        "HostArn": str,
-    },
-)
+class ListConnectionsInputTypeDef(TypedDict):
+    ProviderTypeFilter: NotRequired[ProviderTypeType]
+    HostArnFilter: NotRequired[str]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
 
-GetHostOutputTypeDef = TypedDict(
-    "GetHostOutputTypeDef",
-    {
-        "Name": str,
-        "Status": str,
-        "ProviderType": ProviderTypeType,
-        "ProviderEndpoint": str,
-        "VpcConfiguration": "VpcConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListHostsInputTypeDef(TypedDict):
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
 
-GetRepositoryLinkInputRequestTypeDef = TypedDict(
-    "GetRepositoryLinkInputRequestTypeDef",
-    {
-        "RepositoryLinkId": str,
-    },
-)
+class ListRepositoryLinksInputTypeDef(TypedDict):
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
 
-GetRepositoryLinkOutputTypeDef = TypedDict(
-    "GetRepositoryLinkOutputTypeDef",
-    {
-        "RepositoryLinkInfo": "RepositoryLinkInfoTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListRepositorySyncDefinitionsInputTypeDef(TypedDict):
+    RepositoryLinkId: str
+    SyncType: Literal["CFN_STACK_SYNC"]
 
-GetRepositorySyncStatusInputRequestTypeDef = TypedDict(
-    "GetRepositorySyncStatusInputRequestTypeDef",
-    {
-        "Branch": str,
-        "RepositoryLinkId": str,
-        "SyncType": Literal["CFN_STACK_SYNC"],
-    },
-)
+class RepositorySyncDefinitionTypeDef(TypedDict):
+    Branch: str
+    Directory: str
+    Parent: str
+    Target: str
 
-GetRepositorySyncStatusOutputTypeDef = TypedDict(
-    "GetRepositorySyncStatusOutputTypeDef",
-    {
-        "LatestSync": "RepositorySyncAttemptTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListSyncConfigurationsInputTypeDef(TypedDict):
+    RepositoryLinkId: str
+    SyncType: Literal["CFN_STACK_SYNC"]
+    MaxResults: NotRequired[int]
+    NextToken: NotRequired[str]
 
-GetResourceSyncStatusInputRequestTypeDef = TypedDict(
-    "GetResourceSyncStatusInputRequestTypeDef",
-    {
-        "ResourceName": str,
-        "SyncType": Literal["CFN_STACK_SYNC"],
-    },
-)
+class ListTagsForResourceInputTypeDef(TypedDict):
+    ResourceArn: str
 
-GetResourceSyncStatusOutputTypeDef = TypedDict(
-    "GetResourceSyncStatusOutputTypeDef",
-    {
-        "DesiredState": "RevisionTypeDef",
-        "LatestSuccessfulSync": "ResourceSyncAttemptTypeDef",
-        "LatestSync": "ResourceSyncAttemptTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetSyncBlockerSummaryInputRequestTypeDef = TypedDict(
-    "GetSyncBlockerSummaryInputRequestTypeDef",
-    {
-        "SyncType": Literal["CFN_STACK_SYNC"],
-        "ResourceName": str,
-    },
-)
-
-GetSyncBlockerSummaryOutputTypeDef = TypedDict(
-    "GetSyncBlockerSummaryOutputTypeDef",
-    {
-        "SyncBlockerSummary": "SyncBlockerSummaryTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetSyncConfigurationInputRequestTypeDef = TypedDict(
-    "GetSyncConfigurationInputRequestTypeDef",
-    {
-        "SyncType": Literal["CFN_STACK_SYNC"],
-        "ResourceName": str,
-    },
-)
-
-GetSyncConfigurationOutputTypeDef = TypedDict(
-    "GetSyncConfigurationOutputTypeDef",
-    {
-        "SyncConfiguration": "SyncConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-HostTypeDef = TypedDict(
-    "HostTypeDef",
-    {
-        "Name": str,
-        "HostArn": str,
-        "ProviderType": ProviderTypeType,
-        "ProviderEndpoint": str,
-        "VpcConfiguration": "VpcConfigurationTypeDef",
-        "Status": str,
-        "StatusMessage": str,
-    },
-    total=False,
-)
-
-ListConnectionsInputRequestTypeDef = TypedDict(
-    "ListConnectionsInputRequestTypeDef",
-    {
-        "ProviderTypeFilter": ProviderTypeType,
-        "HostArnFilter": str,
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListConnectionsOutputTypeDef = TypedDict(
-    "ListConnectionsOutputTypeDef",
-    {
-        "Connections": List["ConnectionTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListHostsInputRequestTypeDef = TypedDict(
-    "ListHostsInputRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListHostsOutputTypeDef = TypedDict(
-    "ListHostsOutputTypeDef",
-    {
-        "Hosts": List["HostTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListRepositoryLinksInputRequestTypeDef = TypedDict(
-    "ListRepositoryLinksInputRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListRepositoryLinksOutputTypeDef = TypedDict(
-    "ListRepositoryLinksOutputTypeDef",
-    {
-        "RepositoryLinks": List["RepositoryLinkInfoTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListRepositorySyncDefinitionsInputRequestTypeDef = TypedDict(
-    "ListRepositorySyncDefinitionsInputRequestTypeDef",
-    {
-        "RepositoryLinkId": str,
-        "SyncType": Literal["CFN_STACK_SYNC"],
-    },
-)
-
-ListRepositorySyncDefinitionsOutputTypeDef = TypedDict(
-    "ListRepositorySyncDefinitionsOutputTypeDef",
-    {
-        "RepositorySyncDefinitions": List["RepositorySyncDefinitionTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListSyncConfigurationsInputRequestTypeDef = TypedDict(
-    "_RequiredListSyncConfigurationsInputRequestTypeDef",
-    {
-        "RepositoryLinkId": str,
-        "SyncType": Literal["CFN_STACK_SYNC"],
-    },
-)
-_OptionalListSyncConfigurationsInputRequestTypeDef = TypedDict(
-    "_OptionalListSyncConfigurationsInputRequestTypeDef",
-    {
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListSyncConfigurationsInputRequestTypeDef(
-    _RequiredListSyncConfigurationsInputRequestTypeDef,
-    _OptionalListSyncConfigurationsInputRequestTypeDef,
-):
-    pass
-
-ListSyncConfigurationsOutputTypeDef = TypedDict(
-    "ListSyncConfigurationsOutputTypeDef",
-    {
-        "SyncConfigurations": List["SyncConfigurationTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTagsForResourceInputRequestTypeDef = TypedDict(
-    "ListTagsForResourceInputRequestTypeDef",
-    {
-        "ResourceArn": str,
-    },
-)
-
-ListTagsForResourceOutputTypeDef = TypedDict(
-    "ListTagsForResourceOutputTypeDef",
-    {
-        "Tags": List["TagTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredRepositoryLinkInfoTypeDef = TypedDict(
-    "_RequiredRepositoryLinkInfoTypeDef",
-    {
-        "ConnectionArn": str,
-        "OwnerId": str,
-        "ProviderType": ProviderTypeType,
-        "RepositoryLinkArn": str,
-        "RepositoryLinkId": str,
-        "RepositoryName": str,
-    },
-)
-_OptionalRepositoryLinkInfoTypeDef = TypedDict(
-    "_OptionalRepositoryLinkInfoTypeDef",
-    {
-        "EncryptionKeyArn": str,
-    },
-    total=False,
-)
-
-class RepositoryLinkInfoTypeDef(
-    _RequiredRepositoryLinkInfoTypeDef, _OptionalRepositoryLinkInfoTypeDef
-):
-    pass
-
-RepositorySyncAttemptTypeDef = TypedDict(
-    "RepositorySyncAttemptTypeDef",
-    {
-        "StartedAt": datetime,
-        "Status": RepositorySyncStatusType,
-        "Events": List["RepositorySyncEventTypeDef"],
-    },
-)
-
-RepositorySyncDefinitionTypeDef = TypedDict(
-    "RepositorySyncDefinitionTypeDef",
-    {
-        "Branch": str,
-        "Directory": str,
-        "Parent": str,
-        "Target": str,
-    },
-)
-
-_RequiredRepositorySyncEventTypeDef = TypedDict(
-    "_RequiredRepositorySyncEventTypeDef",
+RepositorySyncEventTypeDef = TypedDict(
+    "RepositorySyncEventTypeDef",
     {
         "Event": str,
         "Time": datetime,
         "Type": str,
+        "ExternalId": NotRequired[str],
     },
 )
-_OptionalRepositorySyncEventTypeDef = TypedDict(
-    "_OptionalRepositorySyncEventTypeDef",
-    {
-        "ExternalId": str,
-    },
-    total=False,
-)
-
-class RepositorySyncEventTypeDef(
-    _RequiredRepositorySyncEventTypeDef, _OptionalRepositorySyncEventTypeDef
-):
-    pass
-
-ResourceSyncAttemptTypeDef = TypedDict(
-    "ResourceSyncAttemptTypeDef",
-    {
-        "Events": List["ResourceSyncEventTypeDef"],
-        "InitialRevision": "RevisionTypeDef",
-        "StartedAt": datetime,
-        "Status": ResourceSyncStatusType,
-        "TargetRevision": "RevisionTypeDef",
-        "Target": str,
-    },
-)
-
-_RequiredResourceSyncEventTypeDef = TypedDict(
-    "_RequiredResourceSyncEventTypeDef",
+ResourceSyncEventTypeDef = TypedDict(
+    "ResourceSyncEventTypeDef",
     {
         "Event": str,
         "Time": datetime,
         "Type": str,
-    },
-)
-_OptionalResourceSyncEventTypeDef = TypedDict(
-    "_OptionalResourceSyncEventTypeDef",
-    {
-        "ExternalId": str,
-    },
-    total=False,
-)
-
-class ResourceSyncEventTypeDef(
-    _RequiredResourceSyncEventTypeDef, _OptionalResourceSyncEventTypeDef
-):
-    pass
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
+        "ExternalId": NotRequired[str],
     },
 )
 
-RevisionTypeDef = TypedDict(
-    "RevisionTypeDef",
-    {
-        "Branch": str,
-        "Directory": str,
-        "OwnerId": str,
-        "RepositoryName": str,
-        "ProviderType": ProviderTypeType,
-        "Sha": str,
-    },
-)
+class SyncBlockerContextTypeDef(TypedDict):
+    Key: str
+    Value: str
 
-SyncBlockerContextTypeDef = TypedDict(
-    "SyncBlockerContextTypeDef",
-    {
-        "Key": str,
-        "Value": str,
-    },
-)
+class UntagResourceInputTypeDef(TypedDict):
+    ResourceArn: str
+    TagKeys: Sequence[str]
 
-_RequiredSyncBlockerSummaryTypeDef = TypedDict(
-    "_RequiredSyncBlockerSummaryTypeDef",
-    {
-        "ResourceName": str,
-    },
-)
-_OptionalSyncBlockerSummaryTypeDef = TypedDict(
-    "_OptionalSyncBlockerSummaryTypeDef",
-    {
-        "ParentResourceName": str,
-        "LatestBlockers": List["SyncBlockerTypeDef"],
-    },
-    total=False,
-)
+class UpdateRepositoryLinkInputTypeDef(TypedDict):
+    RepositoryLinkId: str
+    ConnectionArn: NotRequired[str]
+    EncryptionKeyArn: NotRequired[str]
 
-class SyncBlockerSummaryTypeDef(
-    _RequiredSyncBlockerSummaryTypeDef, _OptionalSyncBlockerSummaryTypeDef
-):
-    pass
+class UpdateSyncBlockerInputTypeDef(TypedDict):
+    Id: str
+    SyncType: Literal["CFN_STACK_SYNC"]
+    ResourceName: str
+    ResolvedReason: str
 
-_RequiredSyncBlockerTypeDef = TypedDict(
-    "_RequiredSyncBlockerTypeDef",
+class UpdateSyncConfigurationInputTypeDef(TypedDict):
+    ResourceName: str
+    SyncType: Literal["CFN_STACK_SYNC"]
+    Branch: NotRequired[str]
+    ConfigFile: NotRequired[str]
+    RepositoryLinkId: NotRequired[str]
+    RoleArn: NotRequired[str]
+    PublishDeploymentStatus: NotRequired[PublishDeploymentStatusType]
+    TriggerResourceUpdateOn: NotRequired[TriggerResourceUpdateOnType]
+
+class VpcConfigurationTypeDef(TypedDict):
+    VpcId: str
+    SubnetIds: Sequence[str]
+    SecurityGroupIds: Sequence[str]
+    TlsCertificate: NotRequired[str]
+
+class CreateConnectionInputTypeDef(TypedDict):
+    ConnectionName: str
+    ProviderType: NotRequired[ProviderTypeType]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+    HostArn: NotRequired[str]
+
+class CreateRepositoryLinkInputTypeDef(TypedDict):
+    ConnectionArn: str
+    OwnerId: str
+    RepositoryName: str
+    EncryptionKeyArn: NotRequired[str]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+
+class TagResourceInputTypeDef(TypedDict):
+    ResourceArn: str
+    Tags: Sequence[TagTypeDef]
+
+class CreateConnectionOutputTypeDef(TypedDict):
+    ConnectionArn: str
+    Tags: List[TagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateHostOutputTypeDef(TypedDict):
+    HostArn: str
+    Tags: List[TagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetConnectionOutputTypeDef(TypedDict):
+    Connection: ConnectionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListConnectionsOutputTypeDef(TypedDict):
+    Connections: List[ConnectionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListTagsForResourceOutputTypeDef(TypedDict):
+    Tags: List[TagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateRepositoryLinkOutputTypeDef(TypedDict):
+    RepositoryLinkInfo: RepositoryLinkInfoTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetRepositoryLinkOutputTypeDef(TypedDict):
+    RepositoryLinkInfo: RepositoryLinkInfoTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListRepositoryLinksOutputTypeDef(TypedDict):
+    RepositoryLinks: List[RepositoryLinkInfoTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class UpdateRepositoryLinkOutputTypeDef(TypedDict):
+    RepositoryLinkInfo: RepositoryLinkInfoTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateSyncConfigurationOutputTypeDef(TypedDict):
+    SyncConfiguration: SyncConfigurationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetSyncConfigurationOutputTypeDef(TypedDict):
+    SyncConfiguration: SyncConfigurationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListSyncConfigurationsOutputTypeDef(TypedDict):
+    SyncConfigurations: List[SyncConfigurationTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class UpdateSyncConfigurationOutputTypeDef(TypedDict):
+    SyncConfiguration: SyncConfigurationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetHostOutputTypeDef(TypedDict):
+    Name: str
+    Status: str
+    ProviderType: ProviderTypeType
+    ProviderEndpoint: str
+    VpcConfiguration: VpcConfigurationOutputTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class HostTypeDef(TypedDict):
+    Name: NotRequired[str]
+    HostArn: NotRequired[str]
+    ProviderType: NotRequired[ProviderTypeType]
+    ProviderEndpoint: NotRequired[str]
+    VpcConfiguration: NotRequired[VpcConfigurationOutputTypeDef]
+    Status: NotRequired[str]
+    StatusMessage: NotRequired[str]
+
+class ListRepositorySyncDefinitionsOutputTypeDef(TypedDict):
+    RepositorySyncDefinitions: List[RepositorySyncDefinitionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class RepositorySyncAttemptTypeDef(TypedDict):
+    StartedAt: datetime
+    Status: RepositorySyncStatusType
+    Events: List[RepositorySyncEventTypeDef]
+
+class ResourceSyncAttemptTypeDef(TypedDict):
+    Events: List[ResourceSyncEventTypeDef]
+    InitialRevision: RevisionTypeDef
+    StartedAt: datetime
+    Status: ResourceSyncStatusType
+    TargetRevision: RevisionTypeDef
+    Target: str
+
+SyncBlockerTypeDef = TypedDict(
+    "SyncBlockerTypeDef",
     {
         "Id": str,
         "Type": Literal["AUTOMATED"],
         "Status": BlockerStatusType,
         "CreatedReason": str,
         "CreatedAt": datetime,
+        "Contexts": NotRequired[List[SyncBlockerContextTypeDef]],
+        "ResolvedReason": NotRequired[str],
+        "ResolvedAt": NotRequired[datetime],
     },
 )
-_OptionalSyncBlockerTypeDef = TypedDict(
-    "_OptionalSyncBlockerTypeDef",
-    {
-        "Contexts": List["SyncBlockerContextTypeDef"],
-        "ResolvedReason": str,
-        "ResolvedAt": datetime,
-    },
-    total=False,
-)
+VpcConfigurationUnionTypeDef = Union[VpcConfigurationTypeDef, VpcConfigurationOutputTypeDef]
 
-class SyncBlockerTypeDef(_RequiredSyncBlockerTypeDef, _OptionalSyncBlockerTypeDef):
-    pass
+class ListHostsOutputTypeDef(TypedDict):
+    Hosts: List[HostTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-_RequiredSyncConfigurationTypeDef = TypedDict(
-    "_RequiredSyncConfigurationTypeDef",
-    {
-        "Branch": str,
-        "OwnerId": str,
-        "ProviderType": ProviderTypeType,
-        "RepositoryLinkId": str,
-        "RepositoryName": str,
-        "ResourceName": str,
-        "RoleArn": str,
-        "SyncType": Literal["CFN_STACK_SYNC"],
-    },
-)
-_OptionalSyncConfigurationTypeDef = TypedDict(
-    "_OptionalSyncConfigurationTypeDef",
-    {
-        "ConfigFile": str,
-        "PublishDeploymentStatus": PublishDeploymentStatusType,
-        "TriggerResourceUpdateOn": TriggerResourceUpdateOnType,
-    },
-    total=False,
-)
+class GetRepositorySyncStatusOutputTypeDef(TypedDict):
+    LatestSync: RepositorySyncAttemptTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class SyncConfigurationTypeDef(
-    _RequiredSyncConfigurationTypeDef, _OptionalSyncConfigurationTypeDef
-):
-    pass
+class GetResourceSyncStatusOutputTypeDef(TypedDict):
+    DesiredState: RevisionTypeDef
+    LatestSuccessfulSync: ResourceSyncAttemptTypeDef
+    LatestSync: ResourceSyncAttemptTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-TagResourceInputRequestTypeDef = TypedDict(
-    "TagResourceInputRequestTypeDef",
-    {
-        "ResourceArn": str,
-        "Tags": List["TagTypeDef"],
-    },
-)
+class SyncBlockerSummaryTypeDef(TypedDict):
+    ResourceName: str
+    ParentResourceName: NotRequired[str]
+    LatestBlockers: NotRequired[List[SyncBlockerTypeDef]]
 
-TagTypeDef = TypedDict(
-    "TagTypeDef",
-    {
-        "Key": str,
-        "Value": str,
-    },
-)
+class UpdateSyncBlockerOutputTypeDef(TypedDict):
+    ResourceName: str
+    ParentResourceName: str
+    SyncBlocker: SyncBlockerTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-UntagResourceInputRequestTypeDef = TypedDict(
-    "UntagResourceInputRequestTypeDef",
-    {
-        "ResourceArn": str,
-        "TagKeys": List[str],
-    },
-)
+class CreateHostInputTypeDef(TypedDict):
+    Name: str
+    ProviderType: ProviderTypeType
+    ProviderEndpoint: str
+    VpcConfiguration: NotRequired[VpcConfigurationUnionTypeDef]
+    Tags: NotRequired[Sequence[TagTypeDef]]
 
-_RequiredUpdateHostInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateHostInputRequestTypeDef",
-    {
-        "HostArn": str,
-    },
-)
-_OptionalUpdateHostInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateHostInputRequestTypeDef",
-    {
-        "ProviderEndpoint": str,
-        "VpcConfiguration": "VpcConfigurationTypeDef",
-    },
-    total=False,
-)
+class UpdateHostInputTypeDef(TypedDict):
+    HostArn: str
+    ProviderEndpoint: NotRequired[str]
+    VpcConfiguration: NotRequired[VpcConfigurationUnionTypeDef]
 
-class UpdateHostInputRequestTypeDef(
-    _RequiredUpdateHostInputRequestTypeDef, _OptionalUpdateHostInputRequestTypeDef
-):
-    pass
-
-_RequiredUpdateRepositoryLinkInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateRepositoryLinkInputRequestTypeDef",
-    {
-        "RepositoryLinkId": str,
-    },
-)
-_OptionalUpdateRepositoryLinkInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateRepositoryLinkInputRequestTypeDef",
-    {
-        "ConnectionArn": str,
-        "EncryptionKeyArn": str,
-    },
-    total=False,
-)
-
-class UpdateRepositoryLinkInputRequestTypeDef(
-    _RequiredUpdateRepositoryLinkInputRequestTypeDef,
-    _OptionalUpdateRepositoryLinkInputRequestTypeDef,
-):
-    pass
-
-UpdateRepositoryLinkOutputTypeDef = TypedDict(
-    "UpdateRepositoryLinkOutputTypeDef",
-    {
-        "RepositoryLinkInfo": "RepositoryLinkInfoTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UpdateSyncBlockerInputRequestTypeDef = TypedDict(
-    "UpdateSyncBlockerInputRequestTypeDef",
-    {
-        "Id": str,
-        "SyncType": Literal["CFN_STACK_SYNC"],
-        "ResourceName": str,
-        "ResolvedReason": str,
-    },
-)
-
-UpdateSyncBlockerOutputTypeDef = TypedDict(
-    "UpdateSyncBlockerOutputTypeDef",
-    {
-        "ResourceName": str,
-        "ParentResourceName": str,
-        "SyncBlocker": "SyncBlockerTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateSyncConfigurationInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateSyncConfigurationInputRequestTypeDef",
-    {
-        "ResourceName": str,
-        "SyncType": Literal["CFN_STACK_SYNC"],
-    },
-)
-_OptionalUpdateSyncConfigurationInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateSyncConfigurationInputRequestTypeDef",
-    {
-        "Branch": str,
-        "ConfigFile": str,
-        "RepositoryLinkId": str,
-        "RoleArn": str,
-        "PublishDeploymentStatus": PublishDeploymentStatusType,
-        "TriggerResourceUpdateOn": TriggerResourceUpdateOnType,
-    },
-    total=False,
-)
-
-class UpdateSyncConfigurationInputRequestTypeDef(
-    _RequiredUpdateSyncConfigurationInputRequestTypeDef,
-    _OptionalUpdateSyncConfigurationInputRequestTypeDef,
-):
-    pass
-
-UpdateSyncConfigurationOutputTypeDef = TypedDict(
-    "UpdateSyncConfigurationOutputTypeDef",
-    {
-        "SyncConfiguration": "SyncConfigurationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredVpcConfigurationTypeDef = TypedDict(
-    "_RequiredVpcConfigurationTypeDef",
-    {
-        "VpcId": str,
-        "SubnetIds": List[str],
-        "SecurityGroupIds": List[str],
-    },
-)
-_OptionalVpcConfigurationTypeDef = TypedDict(
-    "_OptionalVpcConfigurationTypeDef",
-    {
-        "TlsCertificate": str,
-    },
-    total=False,
-)
-
-class VpcConfigurationTypeDef(_RequiredVpcConfigurationTypeDef, _OptionalVpcConfigurationTypeDef):
-    pass
+class GetSyncBlockerSummaryOutputTypeDef(TypedDict):
+    SyncBlockerSummary: SyncBlockerSummaryTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef

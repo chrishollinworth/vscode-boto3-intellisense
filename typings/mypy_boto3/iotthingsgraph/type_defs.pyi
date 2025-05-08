@@ -1,20 +1,24 @@
 """
 Type annotations for iotthingsgraph service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotthingsgraph/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_iotthingsgraph.type_defs import AssociateEntityToThingRequestRequestTypeDef
+    from mypy_boto3_iotthingsgraph.type_defs import AssociateEntityToThingRequestTypeDef
 
-    data: AssociateEntityToThingRequestRequestTypeDef = {...}
+    data: AssociateEntityToThingRequestTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List, Union
+from typing import Union
 
 from .literals import (
     DeploymentTargetType,
@@ -28,36 +32,38 @@ from .literals import (
     UploadStatusType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
-    "AssociateEntityToThingRequestRequestTypeDef",
-    "CreateFlowTemplateRequestRequestTypeDef",
+    "AssociateEntityToThingRequestTypeDef",
+    "CreateFlowTemplateRequestTypeDef",
     "CreateFlowTemplateResponseTypeDef",
-    "CreateSystemInstanceRequestRequestTypeDef",
+    "CreateSystemInstanceRequestTypeDef",
     "CreateSystemInstanceResponseTypeDef",
-    "CreateSystemTemplateRequestRequestTypeDef",
+    "CreateSystemTemplateRequestTypeDef",
     "CreateSystemTemplateResponseTypeDef",
     "DefinitionDocumentTypeDef",
-    "DeleteFlowTemplateRequestRequestTypeDef",
+    "DeleteFlowTemplateRequestTypeDef",
     "DeleteNamespaceResponseTypeDef",
-    "DeleteSystemInstanceRequestRequestTypeDef",
-    "DeleteSystemTemplateRequestRequestTypeDef",
+    "DeleteSystemInstanceRequestTypeDef",
+    "DeleteSystemTemplateRequestTypeDef",
     "DependencyRevisionTypeDef",
-    "DeploySystemInstanceRequestRequestTypeDef",
+    "DeploySystemInstanceRequestTypeDef",
     "DeploySystemInstanceResponseTypeDef",
-    "DeprecateFlowTemplateRequestRequestTypeDef",
-    "DeprecateSystemTemplateRequestRequestTypeDef",
-    "DescribeNamespaceRequestRequestTypeDef",
+    "DeprecateFlowTemplateRequestTypeDef",
+    "DeprecateSystemTemplateRequestTypeDef",
+    "DescribeNamespaceRequestTypeDef",
     "DescribeNamespaceResponseTypeDef",
-    "DissociateEntityFromThingRequestRequestTypeDef",
+    "DissociateEntityFromThingRequestTypeDef",
     "EntityDescriptionTypeDef",
     "EntityFilterTypeDef",
     "FlowExecutionMessageTypeDef",
@@ -65,39 +71,49 @@ __all__ = (
     "FlowTemplateDescriptionTypeDef",
     "FlowTemplateFilterTypeDef",
     "FlowTemplateSummaryTypeDef",
-    "GetEntitiesRequestRequestTypeDef",
+    "GetEntitiesRequestTypeDef",
     "GetEntitiesResponseTypeDef",
-    "GetFlowTemplateRequestRequestTypeDef",
+    "GetFlowTemplateRequestTypeDef",
     "GetFlowTemplateResponseTypeDef",
-    "GetFlowTemplateRevisionsRequestRequestTypeDef",
+    "GetFlowTemplateRevisionsRequestPaginateTypeDef",
+    "GetFlowTemplateRevisionsRequestTypeDef",
     "GetFlowTemplateRevisionsResponseTypeDef",
     "GetNamespaceDeletionStatusResponseTypeDef",
-    "GetSystemInstanceRequestRequestTypeDef",
+    "GetSystemInstanceRequestTypeDef",
     "GetSystemInstanceResponseTypeDef",
-    "GetSystemTemplateRequestRequestTypeDef",
+    "GetSystemTemplateRequestTypeDef",
     "GetSystemTemplateResponseTypeDef",
-    "GetSystemTemplateRevisionsRequestRequestTypeDef",
+    "GetSystemTemplateRevisionsRequestPaginateTypeDef",
+    "GetSystemTemplateRevisionsRequestTypeDef",
     "GetSystemTemplateRevisionsResponseTypeDef",
-    "GetUploadStatusRequestRequestTypeDef",
+    "GetUploadStatusRequestTypeDef",
     "GetUploadStatusResponseTypeDef",
-    "ListFlowExecutionMessagesRequestRequestTypeDef",
+    "ListFlowExecutionMessagesRequestPaginateTypeDef",
+    "ListFlowExecutionMessagesRequestTypeDef",
     "ListFlowExecutionMessagesResponseTypeDef",
-    "ListTagsForResourceRequestRequestTypeDef",
+    "ListTagsForResourceRequestPaginateTypeDef",
+    "ListTagsForResourceRequestTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "MetricsConfigurationTypeDef",
     "PaginatorConfigTypeDef",
     "ResponseMetadataTypeDef",
-    "SearchEntitiesRequestRequestTypeDef",
+    "SearchEntitiesRequestPaginateTypeDef",
+    "SearchEntitiesRequestTypeDef",
     "SearchEntitiesResponseTypeDef",
-    "SearchFlowExecutionsRequestRequestTypeDef",
+    "SearchFlowExecutionsRequestPaginateTypeDef",
+    "SearchFlowExecutionsRequestTypeDef",
     "SearchFlowExecutionsResponseTypeDef",
-    "SearchFlowTemplatesRequestRequestTypeDef",
+    "SearchFlowTemplatesRequestPaginateTypeDef",
+    "SearchFlowTemplatesRequestTypeDef",
     "SearchFlowTemplatesResponseTypeDef",
-    "SearchSystemInstancesRequestRequestTypeDef",
+    "SearchSystemInstancesRequestPaginateTypeDef",
+    "SearchSystemInstancesRequestTypeDef",
     "SearchSystemInstancesResponseTypeDef",
-    "SearchSystemTemplatesRequestRequestTypeDef",
+    "SearchSystemTemplatesRequestPaginateTypeDef",
+    "SearchSystemTemplatesRequestTypeDef",
     "SearchSystemTemplatesResponseTypeDef",
-    "SearchThingsRequestRequestTypeDef",
+    "SearchThingsRequestPaginateTypeDef",
+    "SearchThingsRequestTypeDef",
     "SearchThingsResponseTypeDef",
     "SystemInstanceDescriptionTypeDef",
     "SystemInstanceFilterTypeDef",
@@ -105,930 +121,523 @@ __all__ = (
     "SystemTemplateDescriptionTypeDef",
     "SystemTemplateFilterTypeDef",
     "SystemTemplateSummaryTypeDef",
-    "TagResourceRequestRequestTypeDef",
+    "TagResourceRequestTypeDef",
     "TagTypeDef",
     "ThingTypeDef",
-    "UndeploySystemInstanceRequestRequestTypeDef",
+    "TimestampTypeDef",
+    "UndeploySystemInstanceRequestTypeDef",
     "UndeploySystemInstanceResponseTypeDef",
-    "UntagResourceRequestRequestTypeDef",
-    "UpdateFlowTemplateRequestRequestTypeDef",
+    "UntagResourceRequestTypeDef",
+    "UpdateFlowTemplateRequestTypeDef",
     "UpdateFlowTemplateResponseTypeDef",
-    "UpdateSystemTemplateRequestRequestTypeDef",
+    "UpdateSystemTemplateRequestTypeDef",
     "UpdateSystemTemplateResponseTypeDef",
-    "UploadEntityDefinitionsRequestRequestTypeDef",
+    "UploadEntityDefinitionsRequestTypeDef",
     "UploadEntityDefinitionsResponseTypeDef",
 )
 
-_RequiredAssociateEntityToThingRequestRequestTypeDef = TypedDict(
-    "_RequiredAssociateEntityToThingRequestRequestTypeDef",
-    {
-        "thingName": str,
-        "entityId": str,
-    },
-)
-_OptionalAssociateEntityToThingRequestRequestTypeDef = TypedDict(
-    "_OptionalAssociateEntityToThingRequestRequestTypeDef",
-    {
-        "namespaceVersion": int,
-    },
-    total=False,
-)
+class AssociateEntityToThingRequestTypeDef(TypedDict):
+    thingName: str
+    entityId: str
+    namespaceVersion: NotRequired[int]
 
-class AssociateEntityToThingRequestRequestTypeDef(
-    _RequiredAssociateEntityToThingRequestRequestTypeDef,
-    _OptionalAssociateEntityToThingRequestRequestTypeDef,
-):
-    pass
-
-_RequiredCreateFlowTemplateRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateFlowTemplateRequestRequestTypeDef",
-    {
-        "definition": "DefinitionDocumentTypeDef",
-    },
-)
-_OptionalCreateFlowTemplateRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateFlowTemplateRequestRequestTypeDef",
-    {
-        "compatibleNamespaceVersion": int,
-    },
-    total=False,
-)
-
-class CreateFlowTemplateRequestRequestTypeDef(
-    _RequiredCreateFlowTemplateRequestRequestTypeDef,
-    _OptionalCreateFlowTemplateRequestRequestTypeDef,
-):
-    pass
-
-CreateFlowTemplateResponseTypeDef = TypedDict(
-    "CreateFlowTemplateResponseTypeDef",
-    {
-        "summary": "FlowTemplateSummaryTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateSystemInstanceRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateSystemInstanceRequestRequestTypeDef",
-    {
-        "definition": "DefinitionDocumentTypeDef",
-        "target": DeploymentTargetType,
-    },
-)
-_OptionalCreateSystemInstanceRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateSystemInstanceRequestRequestTypeDef",
-    {
-        "tags": List["TagTypeDef"],
-        "greengrassGroupName": str,
-        "s3BucketName": str,
-        "metricsConfiguration": "MetricsConfigurationTypeDef",
-        "flowActionsRoleArn": str,
-    },
-    total=False,
-)
-
-class CreateSystemInstanceRequestRequestTypeDef(
-    _RequiredCreateSystemInstanceRequestRequestTypeDef,
-    _OptionalCreateSystemInstanceRequestRequestTypeDef,
-):
-    pass
-
-CreateSystemInstanceResponseTypeDef = TypedDict(
-    "CreateSystemInstanceResponseTypeDef",
-    {
-        "summary": "SystemInstanceSummaryTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateSystemTemplateRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateSystemTemplateRequestRequestTypeDef",
-    {
-        "definition": "DefinitionDocumentTypeDef",
-    },
-)
-_OptionalCreateSystemTemplateRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateSystemTemplateRequestRequestTypeDef",
-    {
-        "compatibleNamespaceVersion": int,
-    },
-    total=False,
-)
-
-class CreateSystemTemplateRequestRequestTypeDef(
-    _RequiredCreateSystemTemplateRequestRequestTypeDef,
-    _OptionalCreateSystemTemplateRequestRequestTypeDef,
-):
-    pass
-
-CreateSystemTemplateResponseTypeDef = TypedDict(
-    "CreateSystemTemplateResponseTypeDef",
-    {
-        "summary": "SystemTemplateSummaryTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DefinitionDocumentTypeDef = TypedDict(
-    "DefinitionDocumentTypeDef",
-    {
-        "language": Literal["GRAPHQL"],
-        "text": str,
-    },
-)
-
-DeleteFlowTemplateRequestRequestTypeDef = TypedDict(
-    "DeleteFlowTemplateRequestRequestTypeDef",
-    {
-        "id": str,
-    },
-)
-
-DeleteNamespaceResponseTypeDef = TypedDict(
-    "DeleteNamespaceResponseTypeDef",
-    {
-        "namespaceArn": str,
-        "namespaceName": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeleteSystemInstanceRequestRequestTypeDef = TypedDict(
-    "DeleteSystemInstanceRequestRequestTypeDef",
-    {
-        "id": str,
-    },
-    total=False,
-)
-
-DeleteSystemTemplateRequestRequestTypeDef = TypedDict(
-    "DeleteSystemTemplateRequestRequestTypeDef",
-    {
-        "id": str,
-    },
-)
-
-DependencyRevisionTypeDef = TypedDict(
-    "DependencyRevisionTypeDef",
-    {
-        "id": str,
-        "revisionNumber": int,
-    },
-    total=False,
-)
-
-DeploySystemInstanceRequestRequestTypeDef = TypedDict(
-    "DeploySystemInstanceRequestRequestTypeDef",
-    {
-        "id": str,
-    },
-    total=False,
-)
-
-DeploySystemInstanceResponseTypeDef = TypedDict(
-    "DeploySystemInstanceResponseTypeDef",
-    {
-        "summary": "SystemInstanceSummaryTypeDef",
-        "greengrassDeploymentId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeprecateFlowTemplateRequestRequestTypeDef = TypedDict(
-    "DeprecateFlowTemplateRequestRequestTypeDef",
-    {
-        "id": str,
-    },
-)
-
-DeprecateSystemTemplateRequestRequestTypeDef = TypedDict(
-    "DeprecateSystemTemplateRequestRequestTypeDef",
-    {
-        "id": str,
-    },
-)
-
-DescribeNamespaceRequestRequestTypeDef = TypedDict(
-    "DescribeNamespaceRequestRequestTypeDef",
-    {
-        "namespaceName": str,
-    },
-    total=False,
-)
-
-DescribeNamespaceResponseTypeDef = TypedDict(
-    "DescribeNamespaceResponseTypeDef",
-    {
-        "namespaceArn": str,
-        "namespaceName": str,
-        "trackingNamespaceName": str,
-        "trackingNamespaceVersion": int,
-        "namespaceVersion": int,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DissociateEntityFromThingRequestRequestTypeDef = TypedDict(
-    "DissociateEntityFromThingRequestRequestTypeDef",
-    {
-        "thingName": str,
-        "entityType": EntityTypeType,
-    },
-)
-
-EntityDescriptionTypeDef = TypedDict(
-    "EntityDescriptionTypeDef",
-    {
-        "id": str,
-        "arn": str,
-        "type": EntityTypeType,
-        "createdAt": datetime,
-        "definition": "DefinitionDocumentTypeDef",
-    },
-    total=False,
-)
-
-EntityFilterTypeDef = TypedDict(
-    "EntityFilterTypeDef",
-    {
-        "name": EntityFilterNameType,
-        "value": List[str],
-    },
-    total=False,
-)
-
-FlowExecutionMessageTypeDef = TypedDict(
-    "FlowExecutionMessageTypeDef",
-    {
-        "messageId": str,
-        "eventType": FlowExecutionEventTypeType,
-        "timestamp": datetime,
-        "payload": str,
-    },
-    total=False,
-)
-
-FlowExecutionSummaryTypeDef = TypedDict(
-    "FlowExecutionSummaryTypeDef",
-    {
-        "flowExecutionId": str,
-        "status": FlowExecutionStatusType,
-        "systemInstanceId": str,
-        "flowTemplateId": str,
-        "createdAt": datetime,
-        "updatedAt": datetime,
-    },
-    total=False,
-)
-
-FlowTemplateDescriptionTypeDef = TypedDict(
-    "FlowTemplateDescriptionTypeDef",
-    {
-        "summary": "FlowTemplateSummaryTypeDef",
-        "definition": "DefinitionDocumentTypeDef",
-        "validatedNamespaceVersion": int,
-    },
-    total=False,
-)
-
-FlowTemplateFilterTypeDef = TypedDict(
-    "FlowTemplateFilterTypeDef",
-    {
-        "name": Literal["DEVICE_MODEL_ID"],
-        "value": List[str],
-    },
-)
+class DefinitionDocumentTypeDef(TypedDict):
+    language: Literal["GRAPHQL"]
+    text: str
 
 FlowTemplateSummaryTypeDef = TypedDict(
     "FlowTemplateSummaryTypeDef",
     {
-        "id": str,
-        "arn": str,
-        "revisionNumber": int,
-        "createdAt": datetime,
-    },
-    total=False,
-)
-
-_RequiredGetEntitiesRequestRequestTypeDef = TypedDict(
-    "_RequiredGetEntitiesRequestRequestTypeDef",
-    {
-        "ids": List[str],
-    },
-)
-_OptionalGetEntitiesRequestRequestTypeDef = TypedDict(
-    "_OptionalGetEntitiesRequestRequestTypeDef",
-    {
-        "namespaceVersion": int,
-    },
-    total=False,
-)
-
-class GetEntitiesRequestRequestTypeDef(
-    _RequiredGetEntitiesRequestRequestTypeDef, _OptionalGetEntitiesRequestRequestTypeDef
-):
-    pass
-
-GetEntitiesResponseTypeDef = TypedDict(
-    "GetEntitiesResponseTypeDef",
-    {
-        "descriptions": List["EntityDescriptionTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "id": NotRequired[str],
+        "arn": NotRequired[str],
+        "revisionNumber": NotRequired[int],
+        "createdAt": NotRequired[datetime],
     },
 )
 
-_RequiredGetFlowTemplateRequestRequestTypeDef = TypedDict(
-    "_RequiredGetFlowTemplateRequestRequestTypeDef",
-    {
-        "id": str,
-    },
-)
-_OptionalGetFlowTemplateRequestRequestTypeDef = TypedDict(
-    "_OptionalGetFlowTemplateRequestRequestTypeDef",
-    {
-        "revisionNumber": int,
-    },
-    total=False,
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-class GetFlowTemplateRequestRequestTypeDef(
-    _RequiredGetFlowTemplateRequestRequestTypeDef, _OptionalGetFlowTemplateRequestRequestTypeDef
-):
-    pass
+class MetricsConfigurationTypeDef(TypedDict):
+    cloudMetricEnabled: NotRequired[bool]
+    metricRuleRoleArn: NotRequired[str]
 
-GetFlowTemplateResponseTypeDef = TypedDict(
-    "GetFlowTemplateResponseTypeDef",
-    {
-        "description": "FlowTemplateDescriptionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetFlowTemplateRevisionsRequestRequestTypeDef = TypedDict(
-    "_RequiredGetFlowTemplateRevisionsRequestRequestTypeDef",
-    {
-        "id": str,
-    },
-)
-_OptionalGetFlowTemplateRevisionsRequestRequestTypeDef = TypedDict(
-    "_OptionalGetFlowTemplateRevisionsRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-class GetFlowTemplateRevisionsRequestRequestTypeDef(
-    _RequiredGetFlowTemplateRevisionsRequestRequestTypeDef,
-    _OptionalGetFlowTemplateRevisionsRequestRequestTypeDef,
-):
-    pass
-
-GetFlowTemplateRevisionsResponseTypeDef = TypedDict(
-    "GetFlowTemplateRevisionsResponseTypeDef",
-    {
-        "summaries": List["FlowTemplateSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetNamespaceDeletionStatusResponseTypeDef = TypedDict(
-    "GetNamespaceDeletionStatusResponseTypeDef",
-    {
-        "namespaceArn": str,
-        "namespaceName": str,
-        "status": NamespaceDeletionStatusType,
-        "errorCode": Literal["VALIDATION_FAILED"],
-        "errorMessage": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetSystemInstanceRequestRequestTypeDef = TypedDict(
-    "GetSystemInstanceRequestRequestTypeDef",
-    {
-        "id": str,
-    },
-)
-
-GetSystemInstanceResponseTypeDef = TypedDict(
-    "GetSystemInstanceResponseTypeDef",
-    {
-        "description": "SystemInstanceDescriptionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetSystemTemplateRequestRequestTypeDef = TypedDict(
-    "_RequiredGetSystemTemplateRequestRequestTypeDef",
-    {
-        "id": str,
-    },
-)
-_OptionalGetSystemTemplateRequestRequestTypeDef = TypedDict(
-    "_OptionalGetSystemTemplateRequestRequestTypeDef",
-    {
-        "revisionNumber": int,
-    },
-    total=False,
-)
-
-class GetSystemTemplateRequestRequestTypeDef(
-    _RequiredGetSystemTemplateRequestRequestTypeDef, _OptionalGetSystemTemplateRequestRequestTypeDef
-):
-    pass
-
-GetSystemTemplateResponseTypeDef = TypedDict(
-    "GetSystemTemplateResponseTypeDef",
-    {
-        "description": "SystemTemplateDescriptionTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredGetSystemTemplateRevisionsRequestRequestTypeDef = TypedDict(
-    "_RequiredGetSystemTemplateRevisionsRequestRequestTypeDef",
-    {
-        "id": str,
-    },
-)
-_OptionalGetSystemTemplateRevisionsRequestRequestTypeDef = TypedDict(
-    "_OptionalGetSystemTemplateRevisionsRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-class GetSystemTemplateRevisionsRequestRequestTypeDef(
-    _RequiredGetSystemTemplateRevisionsRequestRequestTypeDef,
-    _OptionalGetSystemTemplateRevisionsRequestRequestTypeDef,
-):
-    pass
-
-GetSystemTemplateRevisionsResponseTypeDef = TypedDict(
-    "GetSystemTemplateRevisionsResponseTypeDef",
-    {
-        "summaries": List["SystemTemplateSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetUploadStatusRequestRequestTypeDef = TypedDict(
-    "GetUploadStatusRequestRequestTypeDef",
-    {
-        "uploadId": str,
-    },
-)
-
-GetUploadStatusResponseTypeDef = TypedDict(
-    "GetUploadStatusResponseTypeDef",
-    {
-        "uploadId": str,
-        "uploadStatus": UploadStatusType,
-        "namespaceArn": str,
-        "namespaceName": str,
-        "namespaceVersion": int,
-        "failureReason": List[str],
-        "createdDate": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListFlowExecutionMessagesRequestRequestTypeDef = TypedDict(
-    "_RequiredListFlowExecutionMessagesRequestRequestTypeDef",
-    {
-        "flowExecutionId": str,
-    },
-)
-_OptionalListFlowExecutionMessagesRequestRequestTypeDef = TypedDict(
-    "_OptionalListFlowExecutionMessagesRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-class ListFlowExecutionMessagesRequestRequestTypeDef(
-    _RequiredListFlowExecutionMessagesRequestRequestTypeDef,
-    _OptionalListFlowExecutionMessagesRequestRequestTypeDef,
-):
-    pass
-
-ListFlowExecutionMessagesResponseTypeDef = TypedDict(
-    "ListFlowExecutionMessagesResponseTypeDef",
-    {
-        "messages": List["FlowExecutionMessageTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "_RequiredListTagsForResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-    },
-)
-_OptionalListTagsForResourceRequestRequestTypeDef = TypedDict(
-    "_OptionalListTagsForResourceRequestRequestTypeDef",
-    {
-        "maxResults": int,
-        "nextToken": str,
-    },
-    total=False,
-)
-
-class ListTagsForResourceRequestRequestTypeDef(
-    _RequiredListTagsForResourceRequestRequestTypeDef,
-    _OptionalListTagsForResourceRequestRequestTypeDef,
-):
-    pass
-
-ListTagsForResourceResponseTypeDef = TypedDict(
-    "ListTagsForResourceResponseTypeDef",
-    {
-        "tags": List["TagTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-MetricsConfigurationTypeDef = TypedDict(
-    "MetricsConfigurationTypeDef",
-    {
-        "cloudMetricEnabled": bool,
-        "metricRuleRoleArn": str,
-    },
-    total=False,
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-_RequiredSearchEntitiesRequestRequestTypeDef = TypedDict(
-    "_RequiredSearchEntitiesRequestRequestTypeDef",
-    {
-        "entityTypes": List[EntityTypeType],
-    },
-)
-_OptionalSearchEntitiesRequestRequestTypeDef = TypedDict(
-    "_OptionalSearchEntitiesRequestRequestTypeDef",
-    {
-        "filters": List["EntityFilterTypeDef"],
-        "nextToken": str,
-        "maxResults": int,
-        "namespaceVersion": int,
-    },
-    total=False,
-)
-
-class SearchEntitiesRequestRequestTypeDef(
-    _RequiredSearchEntitiesRequestRequestTypeDef, _OptionalSearchEntitiesRequestRequestTypeDef
-):
-    pass
-
-SearchEntitiesResponseTypeDef = TypedDict(
-    "SearchEntitiesResponseTypeDef",
-    {
-        "descriptions": List["EntityDescriptionTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredSearchFlowExecutionsRequestRequestTypeDef = TypedDict(
-    "_RequiredSearchFlowExecutionsRequestRequestTypeDef",
-    {
-        "systemInstanceId": str,
-    },
-)
-_OptionalSearchFlowExecutionsRequestRequestTypeDef = TypedDict(
-    "_OptionalSearchFlowExecutionsRequestRequestTypeDef",
-    {
-        "flowExecutionId": str,
-        "startTime": Union[datetime, str],
-        "endTime": Union[datetime, str],
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-class SearchFlowExecutionsRequestRequestTypeDef(
-    _RequiredSearchFlowExecutionsRequestRequestTypeDef,
-    _OptionalSearchFlowExecutionsRequestRequestTypeDef,
-):
-    pass
-
-SearchFlowExecutionsResponseTypeDef = TypedDict(
-    "SearchFlowExecutionsResponseTypeDef",
-    {
-        "summaries": List["FlowExecutionSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-SearchFlowTemplatesRequestRequestTypeDef = TypedDict(
-    "SearchFlowTemplatesRequestRequestTypeDef",
-    {
-        "filters": List["FlowTemplateFilterTypeDef"],
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-SearchFlowTemplatesResponseTypeDef = TypedDict(
-    "SearchFlowTemplatesResponseTypeDef",
-    {
-        "summaries": List["FlowTemplateSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-SearchSystemInstancesRequestRequestTypeDef = TypedDict(
-    "SearchSystemInstancesRequestRequestTypeDef",
-    {
-        "filters": List["SystemInstanceFilterTypeDef"],
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-SearchSystemInstancesResponseTypeDef = TypedDict(
-    "SearchSystemInstancesResponseTypeDef",
-    {
-        "summaries": List["SystemInstanceSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-SearchSystemTemplatesRequestRequestTypeDef = TypedDict(
-    "SearchSystemTemplatesRequestRequestTypeDef",
-    {
-        "filters": List["SystemTemplateFilterTypeDef"],
-        "nextToken": str,
-        "maxResults": int,
-    },
-    total=False,
-)
-
-SearchSystemTemplatesResponseTypeDef = TypedDict(
-    "SearchSystemTemplatesResponseTypeDef",
-    {
-        "summaries": List["SystemTemplateSummaryTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredSearchThingsRequestRequestTypeDef = TypedDict(
-    "_RequiredSearchThingsRequestRequestTypeDef",
-    {
-        "entityId": str,
-    },
-)
-_OptionalSearchThingsRequestRequestTypeDef = TypedDict(
-    "_OptionalSearchThingsRequestRequestTypeDef",
-    {
-        "nextToken": str,
-        "maxResults": int,
-        "namespaceVersion": int,
-    },
-    total=False,
-)
-
-class SearchThingsRequestRequestTypeDef(
-    _RequiredSearchThingsRequestRequestTypeDef, _OptionalSearchThingsRequestRequestTypeDef
-):
-    pass
-
-SearchThingsResponseTypeDef = TypedDict(
-    "SearchThingsResponseTypeDef",
-    {
-        "things": List["ThingTypeDef"],
-        "nextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-SystemInstanceDescriptionTypeDef = TypedDict(
-    "SystemInstanceDescriptionTypeDef",
-    {
-        "summary": "SystemInstanceSummaryTypeDef",
-        "definition": "DefinitionDocumentTypeDef",
-        "s3BucketName": str,
-        "metricsConfiguration": "MetricsConfigurationTypeDef",
-        "validatedNamespaceVersion": int,
-        "validatedDependencyRevisions": List["DependencyRevisionTypeDef"],
-        "flowActionsRoleArn": str,
-    },
-    total=False,
-)
-
-SystemInstanceFilterTypeDef = TypedDict(
-    "SystemInstanceFilterTypeDef",
-    {
-        "name": SystemInstanceFilterNameType,
-        "value": List[str],
-    },
-    total=False,
-)
+class TagTypeDef(TypedDict):
+    key: str
+    value: str
 
 SystemInstanceSummaryTypeDef = TypedDict(
     "SystemInstanceSummaryTypeDef",
     {
-        "id": str,
-        "arn": str,
-        "status": SystemInstanceDeploymentStatusType,
-        "target": DeploymentTargetType,
-        "greengrassGroupName": str,
-        "createdAt": datetime,
-        "updatedAt": datetime,
-        "greengrassGroupId": str,
-        "greengrassGroupVersionId": str,
-    },
-    total=False,
-)
-
-SystemTemplateDescriptionTypeDef = TypedDict(
-    "SystemTemplateDescriptionTypeDef",
-    {
-        "summary": "SystemTemplateSummaryTypeDef",
-        "definition": "DefinitionDocumentTypeDef",
-        "validatedNamespaceVersion": int,
-    },
-    total=False,
-)
-
-SystemTemplateFilterTypeDef = TypedDict(
-    "SystemTemplateFilterTypeDef",
-    {
-        "name": Literal["FLOW_TEMPLATE_ID"],
-        "value": List[str],
+        "id": NotRequired[str],
+        "arn": NotRequired[str],
+        "status": NotRequired[SystemInstanceDeploymentStatusType],
+        "target": NotRequired[DeploymentTargetType],
+        "greengrassGroupName": NotRequired[str],
+        "createdAt": NotRequired[datetime],
+        "updatedAt": NotRequired[datetime],
+        "greengrassGroupId": NotRequired[str],
+        "greengrassGroupVersionId": NotRequired[str],
     },
 )
-
 SystemTemplateSummaryTypeDef = TypedDict(
     "SystemTemplateSummaryTypeDef",
     {
-        "id": str,
-        "arn": str,
-        "revisionNumber": int,
-        "createdAt": datetime,
-    },
-    total=False,
-)
-
-TagResourceRequestRequestTypeDef = TypedDict(
-    "TagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tags": List["TagTypeDef"],
+        "id": NotRequired[str],
+        "arn": NotRequired[str],
+        "revisionNumber": NotRequired[int],
+        "createdAt": NotRequired[datetime],
     },
 )
-
-TagTypeDef = TypedDict(
-    "TagTypeDef",
-    {
-        "key": str,
-        "value": str,
-    },
-)
-
-ThingTypeDef = TypedDict(
-    "ThingTypeDef",
-    {
-        "thingArn": str,
-        "thingName": str,
-    },
-    total=False,
-)
-
-UndeploySystemInstanceRequestRequestTypeDef = TypedDict(
-    "UndeploySystemInstanceRequestRequestTypeDef",
+DeleteFlowTemplateRequestTypeDef = TypedDict(
+    "DeleteFlowTemplateRequestTypeDef",
     {
         "id": str,
     },
-    total=False,
 )
-
-UndeploySystemInstanceResponseTypeDef = TypedDict(
-    "UndeploySystemInstanceResponseTypeDef",
+DeleteSystemInstanceRequestTypeDef = TypedDict(
+    "DeleteSystemInstanceRequestTypeDef",
     {
-        "summary": "SystemInstanceSummaryTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "id": NotRequired[str],
     },
 )
-
-UntagResourceRequestRequestTypeDef = TypedDict(
-    "UntagResourceRequestRequestTypeDef",
-    {
-        "resourceArn": str,
-        "tagKeys": List[str],
-    },
-)
-
-_RequiredUpdateFlowTemplateRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateFlowTemplateRequestRequestTypeDef",
+DeleteSystemTemplateRequestTypeDef = TypedDict(
+    "DeleteSystemTemplateRequestTypeDef",
     {
         "id": str,
-        "definition": "DefinitionDocumentTypeDef",
     },
 )
-_OptionalUpdateFlowTemplateRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateFlowTemplateRequestRequestTypeDef",
+DependencyRevisionTypeDef = TypedDict(
+    "DependencyRevisionTypeDef",
     {
-        "compatibleNamespaceVersion": int,
+        "id": NotRequired[str],
+        "revisionNumber": NotRequired[int],
     },
-    total=False,
 )
-
-class UpdateFlowTemplateRequestRequestTypeDef(
-    _RequiredUpdateFlowTemplateRequestRequestTypeDef,
-    _OptionalUpdateFlowTemplateRequestRequestTypeDef,
-):
-    pass
-
-UpdateFlowTemplateResponseTypeDef = TypedDict(
-    "UpdateFlowTemplateResponseTypeDef",
+DeploySystemInstanceRequestTypeDef = TypedDict(
+    "DeploySystemInstanceRequestTypeDef",
     {
-        "summary": "FlowTemplateSummaryTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "id": NotRequired[str],
     },
 )
-
-_RequiredUpdateSystemTemplateRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdateSystemTemplateRequestRequestTypeDef",
+DeprecateFlowTemplateRequestTypeDef = TypedDict(
+    "DeprecateFlowTemplateRequestTypeDef",
     {
         "id": str,
-        "definition": "DefinitionDocumentTypeDef",
     },
 )
-_OptionalUpdateSystemTemplateRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdateSystemTemplateRequestRequestTypeDef",
+DeprecateSystemTemplateRequestTypeDef = TypedDict(
+    "DeprecateSystemTemplateRequestTypeDef",
     {
-        "compatibleNamespaceVersion": int,
-    },
-    total=False,
-)
-
-class UpdateSystemTemplateRequestRequestTypeDef(
-    _RequiredUpdateSystemTemplateRequestRequestTypeDef,
-    _OptionalUpdateSystemTemplateRequestRequestTypeDef,
-):
-    pass
-
-UpdateSystemTemplateResponseTypeDef = TypedDict(
-    "UpdateSystemTemplateResponseTypeDef",
-    {
-        "summary": "SystemTemplateSummaryTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "id": str,
     },
 )
 
-UploadEntityDefinitionsRequestRequestTypeDef = TypedDict(
-    "UploadEntityDefinitionsRequestRequestTypeDef",
+class DescribeNamespaceRequestTypeDef(TypedDict):
+    namespaceName: NotRequired[str]
+
+class DissociateEntityFromThingRequestTypeDef(TypedDict):
+    thingName: str
+    entityType: EntityTypeType
+
+class EntityFilterTypeDef(TypedDict):
+    name: NotRequired[EntityFilterNameType]
+    value: NotRequired[Sequence[str]]
+
+class FlowExecutionMessageTypeDef(TypedDict):
+    messageId: NotRequired[str]
+    eventType: NotRequired[FlowExecutionEventTypeType]
+    timestamp: NotRequired[datetime]
+    payload: NotRequired[str]
+
+class FlowExecutionSummaryTypeDef(TypedDict):
+    flowExecutionId: NotRequired[str]
+    status: NotRequired[FlowExecutionStatusType]
+    systemInstanceId: NotRequired[str]
+    flowTemplateId: NotRequired[str]
+    createdAt: NotRequired[datetime]
+    updatedAt: NotRequired[datetime]
+
+class FlowTemplateFilterTypeDef(TypedDict):
+    name: Literal["DEVICE_MODEL_ID"]
+    value: Sequence[str]
+
+class GetEntitiesRequestTypeDef(TypedDict):
+    ids: Sequence[str]
+    namespaceVersion: NotRequired[int]
+
+GetFlowTemplateRequestTypeDef = TypedDict(
+    "GetFlowTemplateRequestTypeDef",
     {
-        "document": "DefinitionDocumentTypeDef",
-        "syncWithPublicNamespace": bool,
-        "deprecateExistingEntities": bool,
+        "id": str,
+        "revisionNumber": NotRequired[int],
     },
-    total=False,
 )
 
-UploadEntityDefinitionsResponseTypeDef = TypedDict(
-    "UploadEntityDefinitionsResponseTypeDef",
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+GetFlowTemplateRevisionsRequestTypeDef = TypedDict(
+    "GetFlowTemplateRevisionsRequestTypeDef",
     {
-        "uploadId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "id": str,
+        "nextToken": NotRequired[str],
+        "maxResults": NotRequired[int],
     },
 )
+GetSystemInstanceRequestTypeDef = TypedDict(
+    "GetSystemInstanceRequestTypeDef",
+    {
+        "id": str,
+    },
+)
+GetSystemTemplateRequestTypeDef = TypedDict(
+    "GetSystemTemplateRequestTypeDef",
+    {
+        "id": str,
+        "revisionNumber": NotRequired[int],
+    },
+)
+GetSystemTemplateRevisionsRequestTypeDef = TypedDict(
+    "GetSystemTemplateRevisionsRequestTypeDef",
+    {
+        "id": str,
+        "nextToken": NotRequired[str],
+        "maxResults": NotRequired[int],
+    },
+)
+
+class GetUploadStatusRequestTypeDef(TypedDict):
+    uploadId: str
+
+class ListFlowExecutionMessagesRequestTypeDef(TypedDict):
+    flowExecutionId: str
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class ListTagsForResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    maxResults: NotRequired[int]
+    nextToken: NotRequired[str]
+
+TimestampTypeDef = Union[datetime, str]
+
+class SystemInstanceFilterTypeDef(TypedDict):
+    name: NotRequired[SystemInstanceFilterNameType]
+    value: NotRequired[Sequence[str]]
+
+class SystemTemplateFilterTypeDef(TypedDict):
+    name: Literal["FLOW_TEMPLATE_ID"]
+    value: Sequence[str]
+
+class SearchThingsRequestTypeDef(TypedDict):
+    entityId: str
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+    namespaceVersion: NotRequired[int]
+
+class ThingTypeDef(TypedDict):
+    thingArn: NotRequired[str]
+    thingName: NotRequired[str]
+
+UndeploySystemInstanceRequestTypeDef = TypedDict(
+    "UndeploySystemInstanceRequestTypeDef",
+    {
+        "id": NotRequired[str],
+    },
+)
+
+class UntagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tagKeys: Sequence[str]
+
+class CreateFlowTemplateRequestTypeDef(TypedDict):
+    definition: DefinitionDocumentTypeDef
+    compatibleNamespaceVersion: NotRequired[int]
+
+class CreateSystemTemplateRequestTypeDef(TypedDict):
+    definition: DefinitionDocumentTypeDef
+    compatibleNamespaceVersion: NotRequired[int]
+
+EntityDescriptionTypeDef = TypedDict(
+    "EntityDescriptionTypeDef",
+    {
+        "id": NotRequired[str],
+        "arn": NotRequired[str],
+        "type": NotRequired[EntityTypeType],
+        "createdAt": NotRequired[datetime],
+        "definition": NotRequired[DefinitionDocumentTypeDef],
+    },
+)
+UpdateFlowTemplateRequestTypeDef = TypedDict(
+    "UpdateFlowTemplateRequestTypeDef",
+    {
+        "id": str,
+        "definition": DefinitionDocumentTypeDef,
+        "compatibleNamespaceVersion": NotRequired[int],
+    },
+)
+UpdateSystemTemplateRequestTypeDef = TypedDict(
+    "UpdateSystemTemplateRequestTypeDef",
+    {
+        "id": str,
+        "definition": DefinitionDocumentTypeDef,
+        "compatibleNamespaceVersion": NotRequired[int],
+    },
+)
+
+class UploadEntityDefinitionsRequestTypeDef(TypedDict):
+    document: NotRequired[DefinitionDocumentTypeDef]
+    syncWithPublicNamespace: NotRequired[bool]
+    deprecateExistingEntities: NotRequired[bool]
+
+class FlowTemplateDescriptionTypeDef(TypedDict):
+    summary: NotRequired[FlowTemplateSummaryTypeDef]
+    definition: NotRequired[DefinitionDocumentTypeDef]
+    validatedNamespaceVersion: NotRequired[int]
+
+class CreateFlowTemplateResponseTypeDef(TypedDict):
+    summary: FlowTemplateSummaryTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeleteNamespaceResponseTypeDef(TypedDict):
+    namespaceArn: str
+    namespaceName: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeNamespaceResponseTypeDef(TypedDict):
+    namespaceArn: str
+    namespaceName: str
+    trackingNamespaceName: str
+    trackingNamespaceVersion: int
+    namespaceVersion: int
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetFlowTemplateRevisionsResponseTypeDef(TypedDict):
+    summaries: List[FlowTemplateSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class GetNamespaceDeletionStatusResponseTypeDef(TypedDict):
+    namespaceArn: str
+    namespaceName: str
+    status: NamespaceDeletionStatusType
+    errorCode: Literal["VALIDATION_FAILED"]
+    errorMessage: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetUploadStatusResponseTypeDef(TypedDict):
+    uploadId: str
+    uploadStatus: UploadStatusType
+    namespaceArn: str
+    namespaceName: str
+    namespaceVersion: int
+    failureReason: List[str]
+    createdDate: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class SearchFlowTemplatesResponseTypeDef(TypedDict):
+    summaries: List[FlowTemplateSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class UpdateFlowTemplateResponseTypeDef(TypedDict):
+    summary: FlowTemplateSummaryTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UploadEntityDefinitionsResponseTypeDef(TypedDict):
+    uploadId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateSystemInstanceRequestTypeDef(TypedDict):
+    definition: DefinitionDocumentTypeDef
+    target: DeploymentTargetType
+    tags: NotRequired[Sequence[TagTypeDef]]
+    greengrassGroupName: NotRequired[str]
+    s3BucketName: NotRequired[str]
+    metricsConfiguration: NotRequired[MetricsConfigurationTypeDef]
+    flowActionsRoleArn: NotRequired[str]
+
+class ListTagsForResourceResponseTypeDef(TypedDict):
+    tags: List[TagTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class TagResourceRequestTypeDef(TypedDict):
+    resourceArn: str
+    tags: Sequence[TagTypeDef]
+
+class CreateSystemInstanceResponseTypeDef(TypedDict):
+    summary: SystemInstanceSummaryTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DeploySystemInstanceResponseTypeDef(TypedDict):
+    summary: SystemInstanceSummaryTypeDef
+    greengrassDeploymentId: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class SearchSystemInstancesResponseTypeDef(TypedDict):
+    summaries: List[SystemInstanceSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class UndeploySystemInstanceResponseTypeDef(TypedDict):
+    summary: SystemInstanceSummaryTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateSystemTemplateResponseTypeDef(TypedDict):
+    summary: SystemTemplateSummaryTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetSystemTemplateRevisionsResponseTypeDef(TypedDict):
+    summaries: List[SystemTemplateSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class SearchSystemTemplatesResponseTypeDef(TypedDict):
+    summaries: List[SystemTemplateSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class SystemTemplateDescriptionTypeDef(TypedDict):
+    summary: NotRequired[SystemTemplateSummaryTypeDef]
+    definition: NotRequired[DefinitionDocumentTypeDef]
+    validatedNamespaceVersion: NotRequired[int]
+
+class UpdateSystemTemplateResponseTypeDef(TypedDict):
+    summary: SystemTemplateSummaryTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class SystemInstanceDescriptionTypeDef(TypedDict):
+    summary: NotRequired[SystemInstanceSummaryTypeDef]
+    definition: NotRequired[DefinitionDocumentTypeDef]
+    s3BucketName: NotRequired[str]
+    metricsConfiguration: NotRequired[MetricsConfigurationTypeDef]
+    validatedNamespaceVersion: NotRequired[int]
+    validatedDependencyRevisions: NotRequired[List[DependencyRevisionTypeDef]]
+    flowActionsRoleArn: NotRequired[str]
+
+class SearchEntitiesRequestTypeDef(TypedDict):
+    entityTypes: Sequence[EntityTypeType]
+    filters: NotRequired[Sequence[EntityFilterTypeDef]]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+    namespaceVersion: NotRequired[int]
+
+class ListFlowExecutionMessagesResponseTypeDef(TypedDict):
+    messages: List[FlowExecutionMessageTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class SearchFlowExecutionsResponseTypeDef(TypedDict):
+    summaries: List[FlowExecutionSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class SearchFlowTemplatesRequestTypeDef(TypedDict):
+    filters: NotRequired[Sequence[FlowTemplateFilterTypeDef]]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+GetFlowTemplateRevisionsRequestPaginateTypeDef = TypedDict(
+    "GetFlowTemplateRevisionsRequestPaginateTypeDef",
+    {
+        "id": str,
+        "PaginationConfig": NotRequired[PaginatorConfigTypeDef],
+    },
+)
+GetSystemTemplateRevisionsRequestPaginateTypeDef = TypedDict(
+    "GetSystemTemplateRevisionsRequestPaginateTypeDef",
+    {
+        "id": str,
+        "PaginationConfig": NotRequired[PaginatorConfigTypeDef],
+    },
+)
+
+class ListFlowExecutionMessagesRequestPaginateTypeDef(TypedDict):
+    flowExecutionId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListTagsForResourceRequestPaginateTypeDef(TypedDict):
+    resourceArn: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class SearchEntitiesRequestPaginateTypeDef(TypedDict):
+    entityTypes: Sequence[EntityTypeType]
+    filters: NotRequired[Sequence[EntityFilterTypeDef]]
+    namespaceVersion: NotRequired[int]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class SearchFlowTemplatesRequestPaginateTypeDef(TypedDict):
+    filters: NotRequired[Sequence[FlowTemplateFilterTypeDef]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class SearchThingsRequestPaginateTypeDef(TypedDict):
+    entityId: str
+    namespaceVersion: NotRequired[int]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class SearchFlowExecutionsRequestPaginateTypeDef(TypedDict):
+    systemInstanceId: str
+    flowExecutionId: NotRequired[str]
+    startTime: NotRequired[TimestampTypeDef]
+    endTime: NotRequired[TimestampTypeDef]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class SearchFlowExecutionsRequestTypeDef(TypedDict):
+    systemInstanceId: str
+    flowExecutionId: NotRequired[str]
+    startTime: NotRequired[TimestampTypeDef]
+    endTime: NotRequired[TimestampTypeDef]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class SearchSystemInstancesRequestPaginateTypeDef(TypedDict):
+    filters: NotRequired[Sequence[SystemInstanceFilterTypeDef]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class SearchSystemInstancesRequestTypeDef(TypedDict):
+    filters: NotRequired[Sequence[SystemInstanceFilterTypeDef]]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class SearchSystemTemplatesRequestPaginateTypeDef(TypedDict):
+    filters: NotRequired[Sequence[SystemTemplateFilterTypeDef]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class SearchSystemTemplatesRequestTypeDef(TypedDict):
+    filters: NotRequired[Sequence[SystemTemplateFilterTypeDef]]
+    nextToken: NotRequired[str]
+    maxResults: NotRequired[int]
+
+class SearchThingsResponseTypeDef(TypedDict):
+    things: List[ThingTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class GetEntitiesResponseTypeDef(TypedDict):
+    descriptions: List[EntityDescriptionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class SearchEntitiesResponseTypeDef(TypedDict):
+    descriptions: List[EntityDescriptionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    nextToken: NotRequired[str]
+
+class GetFlowTemplateResponseTypeDef(TypedDict):
+    description: FlowTemplateDescriptionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetSystemTemplateResponseTypeDef(TypedDict):
+    description: SystemTemplateDescriptionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class GetSystemInstanceResponseTypeDef(TypedDict):
+    description: SystemInstanceDescriptionTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef

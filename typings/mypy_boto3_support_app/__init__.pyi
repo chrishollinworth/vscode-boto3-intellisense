@@ -1,19 +1,21 @@
 """
 Main interface for support-app service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_support_app/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_support_app import (
         Client,
         SupportAppClient,
     )
 
-    session = boto3.Session()
-
-    client: SupportAppClient = boto3.client("support-app")
-    session_client: SupportAppClient = session.client("support-app")
+    session = Session()
+    client: SupportAppClient = session.client("support-app")
     ```
 """
 

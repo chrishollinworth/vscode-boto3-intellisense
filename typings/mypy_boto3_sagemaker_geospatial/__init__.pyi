@@ -1,10 +1,14 @@
 """
 Main interface for sagemaker-geospatial service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_sagemaker_geospatial/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_sagemaker_geospatial import (
         Client,
         ListEarthObservationJobsPaginator,
@@ -13,10 +17,8 @@ Usage::
         SageMakergeospatialcapabilitiesClient,
     )
 
-    session = boto3.Session()
-
-    client: SageMakergeospatialcapabilitiesClient = boto3.client("sagemaker-geospatial")
-    session_client: SageMakergeospatialcapabilitiesClient = session.client("sagemaker-geospatial")
+    session = Session()
+    client: SageMakergeospatialcapabilitiesClient = session.client("sagemaker-geospatial")
 
     list_earth_observation_jobs_paginator: ListEarthObservationJobsPaginator = client.get_paginator("list_earth_observation_jobs")
     list_raster_data_collections_paginator: ListRasterDataCollectionsPaginator = client.get_paginator("list_raster_data_collections")

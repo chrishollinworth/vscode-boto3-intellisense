@@ -1,19 +1,21 @@
 """
 Main interface for savingsplans service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_savingsplans/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_savingsplans import (
         Client,
         SavingsPlansClient,
     )
 
-    session = boto3.Session()
-
-    client: SavingsPlansClient = boto3.client("savingsplans")
-    session_client: SavingsPlansClient = session.client("savingsplans")
+    session = Session()
+    client: SavingsPlansClient = session.client("savingsplans")
     ```
 """
 

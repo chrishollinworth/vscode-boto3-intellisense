@@ -1,14 +1,16 @@
 """
 Type annotations for machinelearning service client waiters.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_machinelearning/waiters.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_machinelearning/waiters/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
 
-    from mypy_boto3_machinelearning import MachineLearningClient
+    from mypy_boto3_machinelearning.client import MachineLearningClient
     from mypy_boto3_machinelearning.waiter import (
         BatchPredictionAvailableWaiter,
         DataSourceAvailableWaiter,
@@ -16,7 +18,8 @@ Usage::
         MLModelAvailableWaiter,
     )
 
-    client: MachineLearningClient = boto3.client("machinelearning")
+    session = Session()
+    client: MachineLearningClient = session.client("machinelearning")
 
     batch_prediction_available_waiter: BatchPredictionAvailableWaiter = client.get_waiter("batch_prediction_available")
     data_source_available_waiter: DataSourceAvailableWaiter = client.get_waiter("data_source_available")
@@ -25,16 +28,23 @@ Usage::
     ```
 """
 
-from botocore.waiter import Waiter as Boto3Waiter
+from __future__ import annotations
 
-from .literals import (
-    BatchPredictionFilterVariableType,
-    DataSourceFilterVariableType,
-    EvaluationFilterVariableType,
-    MLModelFilterVariableType,
-    SortOrderType,
+import sys
+
+from botocore.waiter import Waiter
+
+from .type_defs import (
+    DescribeBatchPredictionsInputWaitTypeDef,
+    DescribeDataSourcesInputWaitTypeDef,
+    DescribeEvaluationsInputWaitTypeDef,
+    DescribeMLModelsInputWaitTypeDef,
 )
-from .type_defs import WaiterConfigTypeDef
+
+if sys.version_info >= (3, 12):
+    from typing import Unpack
+else:
+    from typing_extensions import Unpack
 
 __all__ = (
     "BatchPredictionAvailableWaiter",
@@ -43,110 +53,54 @@ __all__ = (
     "MLModelAvailableWaiter",
 )
 
-class BatchPredictionAvailableWaiter(Boto3Waiter):
+class BatchPredictionAvailableWaiter(Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/machinelearning.html#MachineLearning.Waiter.BatchPredictionAvailable)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_machinelearning/waiters.html#batchpredictionavailablewaiter)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/machinelearning/waiter/BatchPredictionAvailable.html#MachineLearning.Waiter.BatchPredictionAvailable)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_machinelearning/waiters/#batchpredictionavailablewaiter)
     """
-
-    def wait(
-        self,
-        *,
-        FilterVariable: BatchPredictionFilterVariableType = None,
-        EQ: str = None,
-        GT: str = None,
-        LT: str = None,
-        GE: str = None,
-        LE: str = None,
-        NE: str = None,
-        Prefix: str = None,
-        SortOrder: SortOrderType = None,
-        NextToken: str = None,
-        Limit: int = None,
-        WaiterConfig: WaiterConfigTypeDef = None
+    def wait(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeBatchPredictionsInputWaitTypeDef]
     ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/machinelearning.html#MachineLearning.Waiter.BatchPredictionAvailable.wait)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_machinelearning/waiters.html#batchpredictionavailablewaiter)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/machinelearning/waiter/BatchPredictionAvailable.html#MachineLearning.Waiter.BatchPredictionAvailable.wait)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_machinelearning/waiters/#batchpredictionavailablewaiter)
         """
 
-class DataSourceAvailableWaiter(Boto3Waiter):
+class DataSourceAvailableWaiter(Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/machinelearning.html#MachineLearning.Waiter.DataSourceAvailable)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_machinelearning/waiters.html#datasourceavailablewaiter)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/machinelearning/waiter/DataSourceAvailable.html#MachineLearning.Waiter.DataSourceAvailable)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_machinelearning/waiters/#datasourceavailablewaiter)
     """
-
-    def wait(
-        self,
-        *,
-        FilterVariable: DataSourceFilterVariableType = None,
-        EQ: str = None,
-        GT: str = None,
-        LT: str = None,
-        GE: str = None,
-        LE: str = None,
-        NE: str = None,
-        Prefix: str = None,
-        SortOrder: SortOrderType = None,
-        NextToken: str = None,
-        Limit: int = None,
-        WaiterConfig: WaiterConfigTypeDef = None
+    def wait(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeDataSourcesInputWaitTypeDef]
     ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/machinelearning.html#MachineLearning.Waiter.DataSourceAvailable.wait)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_machinelearning/waiters.html#datasourceavailablewaiter)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/machinelearning/waiter/DataSourceAvailable.html#MachineLearning.Waiter.DataSourceAvailable.wait)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_machinelearning/waiters/#datasourceavailablewaiter)
         """
 
-class EvaluationAvailableWaiter(Boto3Waiter):
+class EvaluationAvailableWaiter(Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/machinelearning.html#MachineLearning.Waiter.EvaluationAvailable)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_machinelearning/waiters.html#evaluationavailablewaiter)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/machinelearning/waiter/EvaluationAvailable.html#MachineLearning.Waiter.EvaluationAvailable)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_machinelearning/waiters/#evaluationavailablewaiter)
     """
-
-    def wait(
-        self,
-        *,
-        FilterVariable: EvaluationFilterVariableType = None,
-        EQ: str = None,
-        GT: str = None,
-        LT: str = None,
-        GE: str = None,
-        LE: str = None,
-        NE: str = None,
-        Prefix: str = None,
-        SortOrder: SortOrderType = None,
-        NextToken: str = None,
-        Limit: int = None,
-        WaiterConfig: WaiterConfigTypeDef = None
+    def wait(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeEvaluationsInputWaitTypeDef]
     ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/machinelearning.html#MachineLearning.Waiter.EvaluationAvailable.wait)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_machinelearning/waiters.html#evaluationavailablewaiter)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/machinelearning/waiter/EvaluationAvailable.html#MachineLearning.Waiter.EvaluationAvailable.wait)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_machinelearning/waiters/#evaluationavailablewaiter)
         """
 
-class MLModelAvailableWaiter(Boto3Waiter):
+class MLModelAvailableWaiter(Waiter):
     """
-    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/machinelearning.html#MachineLearning.Waiter.MLModelAvailable)
-    [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_machinelearning/waiters.html#mlmodelavailablewaiter)
+    [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/machinelearning/waiter/MLModelAvailable.html#MachineLearning.Waiter.MLModelAvailable)
+    [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_machinelearning/waiters/#mlmodelavailablewaiter)
     """
-
-    def wait(
-        self,
-        *,
-        FilterVariable: MLModelFilterVariableType = None,
-        EQ: str = None,
-        GT: str = None,
-        LT: str = None,
-        GE: str = None,
-        LE: str = None,
-        NE: str = None,
-        Prefix: str = None,
-        SortOrder: SortOrderType = None,
-        NextToken: str = None,
-        Limit: int = None,
-        WaiterConfig: WaiterConfigTypeDef = None
+    def wait(  # type: ignore[override]
+        self, **kwargs: Unpack[DescribeMLModelsInputWaitTypeDef]
     ) -> None:
         """
-        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.34.138/reference/services/machinelearning.html#MachineLearning.Waiter.MLModelAvailable.wait)
-        [Show boto3-stubs documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_machinelearning/waiters.html#mlmodelavailablewaiter)
+        [Show boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/machinelearning/waiter/MLModelAvailable.html#MachineLearning.Waiter.MLModelAvailable.wait)
+        [Show boto3-stubs documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_machinelearning/waiters/#mlmodelavailablewaiter)
         """

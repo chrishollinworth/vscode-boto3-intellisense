@@ -1,10 +1,14 @@
 """
 Main interface for kafka service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kafka/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_kafka import (
         Client,
         KafkaClient,
@@ -22,10 +26,8 @@ Usage::
         ListVpcConnectionsPaginator,
     )
 
-    session = boto3.Session()
-
-    client: KafkaClient = boto3.client("kafka")
-    session_client: KafkaClient = session.client("kafka")
+    session = Session()
+    client: KafkaClient = session.client("kafka")
 
     list_client_vpc_connections_paginator: ListClientVpcConnectionsPaginator = client.get_paginator("list_client_vpc_connections")
     list_cluster_operations_paginator: ListClusterOperationsPaginator = client.get_paginator("list_cluster_operations")

@@ -1,20 +1,24 @@
 """
 Type annotations for cloudformation service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_cloudformation/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
     from mypy_boto3_cloudformation.type_defs import AccountGateResultTypeDef
 
-    data: AccountGateResultTypeDef = {...}
+    data: AccountGateResultTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
+from typing import Any, Union
 
 from .literals import (
     AccountFilterTypeType,
@@ -43,6 +47,7 @@ from .literals import (
     HookFailureModeType,
     HookStatusType,
     IdentityProviderType,
+    ListHookResultsTargetTypeType,
     OnFailureType,
     OnStackFailureType,
     OperationStatusType,
@@ -60,11 +65,17 @@ from .literals import (
     ResourceScanStatusType,
     ResourceSignalStatusType,
     ResourceStatusType,
+    ScanTypeType,
     StackDriftDetectionStatusType,
     StackDriftStatusType,
     StackInstanceDetailedStatusType,
     StackInstanceFilterNameType,
     StackInstanceStatusType,
+    StackRefactorActionEntityType,
+    StackRefactorActionTypeType,
+    StackRefactorDetectionType,
+    StackRefactorExecutionStatusType,
+    StackRefactorStatusType,
     StackResourceDriftStatusType,
     StackSetDriftDetectionStatusType,
     StackSetDriftStatusType,
@@ -82,144 +93,191 @@ from .literals import (
     WarningTypeType,
 )
 
-if sys.version_info >= (3, 8):
-    from typing import Literal
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import Literal
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import Literal, NotRequired, TypedDict
 else:
-    from typing_extensions import TypedDict
+    from typing_extensions import Literal, NotRequired, TypedDict
 
 __all__ = (
     "AccountGateResultTypeDef",
     "AccountLimitTypeDef",
-    "ActivateTypeInputRequestTypeDef",
+    "ActivateTypeInputTypeDef",
     "ActivateTypeOutputTypeDef",
     "AutoDeploymentTypeDef",
     "BatchDescribeTypeConfigurationsErrorTypeDef",
-    "BatchDescribeTypeConfigurationsInputRequestTypeDef",
+    "BatchDescribeTypeConfigurationsInputTypeDef",
     "BatchDescribeTypeConfigurationsOutputTypeDef",
-    "CancelUpdateStackInputRequestTypeDef",
-    "CancelUpdateStackInputStackTypeDef",
+    "CancelUpdateStackInputStackCancelUpdateTypeDef",
+    "CancelUpdateStackInputTypeDef",
     "ChangeSetHookResourceTargetDetailsTypeDef",
     "ChangeSetHookTargetDetailsTypeDef",
     "ChangeSetHookTypeDef",
     "ChangeSetSummaryTypeDef",
     "ChangeTypeDef",
-    "ContinueUpdateRollbackInputRequestTypeDef",
-    "CreateChangeSetInputRequestTypeDef",
+    "ContinueUpdateRollbackInputTypeDef",
+    "CreateChangeSetInputTypeDef",
     "CreateChangeSetOutputTypeDef",
-    "CreateGeneratedTemplateInputRequestTypeDef",
+    "CreateGeneratedTemplateInputTypeDef",
     "CreateGeneratedTemplateOutputTypeDef",
-    "CreateStackInputRequestTypeDef",
-    "CreateStackInputServiceResourceTypeDef",
-    "CreateStackInstancesInputRequestTypeDef",
+    "CreateStackInputServiceResourceCreateStackTypeDef",
+    "CreateStackInputTypeDef",
+    "CreateStackInstancesInputTypeDef",
     "CreateStackInstancesOutputTypeDef",
     "CreateStackOutputTypeDef",
-    "CreateStackSetInputRequestTypeDef",
+    "CreateStackRefactorInputTypeDef",
+    "CreateStackRefactorOutputTypeDef",
+    "CreateStackSetInputTypeDef",
     "CreateStackSetOutputTypeDef",
-    "DeactivateTypeInputRequestTypeDef",
-    "DeleteChangeSetInputRequestTypeDef",
-    "DeleteGeneratedTemplateInputRequestTypeDef",
-    "DeleteStackInputRequestTypeDef",
-    "DeleteStackInputStackTypeDef",
-    "DeleteStackInstancesInputRequestTypeDef",
+    "DeactivateTypeInputTypeDef",
+    "DeleteChangeSetInputTypeDef",
+    "DeleteGeneratedTemplateInputTypeDef",
+    "DeleteStackInputStackDeleteTypeDef",
+    "DeleteStackInputTypeDef",
+    "DeleteStackInstancesInputTypeDef",
     "DeleteStackInstancesOutputTypeDef",
-    "DeleteStackSetInputRequestTypeDef",
+    "DeleteStackSetInputTypeDef",
+    "DeploymentTargetsOutputTypeDef",
     "DeploymentTargetsTypeDef",
-    "DeregisterTypeInputRequestTypeDef",
-    "DescribeAccountLimitsInputRequestTypeDef",
+    "DeploymentTargetsUnionTypeDef",
+    "DeregisterTypeInputTypeDef",
+    "DescribeAccountLimitsInputPaginateTypeDef",
+    "DescribeAccountLimitsInputTypeDef",
     "DescribeAccountLimitsOutputTypeDef",
-    "DescribeChangeSetHooksInputRequestTypeDef",
+    "DescribeChangeSetHooksInputTypeDef",
     "DescribeChangeSetHooksOutputTypeDef",
-    "DescribeChangeSetInputRequestTypeDef",
+    "DescribeChangeSetInputPaginateTypeDef",
+    "DescribeChangeSetInputTypeDef",
+    "DescribeChangeSetInputWaitTypeDef",
     "DescribeChangeSetOutputTypeDef",
-    "DescribeGeneratedTemplateInputRequestTypeDef",
+    "DescribeGeneratedTemplateInputTypeDef",
     "DescribeGeneratedTemplateOutputTypeDef",
-    "DescribeOrganizationsAccessInputRequestTypeDef",
+    "DescribeOrganizationsAccessInputTypeDef",
     "DescribeOrganizationsAccessOutputTypeDef",
-    "DescribePublisherInputRequestTypeDef",
+    "DescribePublisherInputTypeDef",
     "DescribePublisherOutputTypeDef",
-    "DescribeResourceScanInputRequestTypeDef",
+    "DescribeResourceScanInputTypeDef",
     "DescribeResourceScanOutputTypeDef",
-    "DescribeStackDriftDetectionStatusInputRequestTypeDef",
+    "DescribeStackDriftDetectionStatusInputTypeDef",
     "DescribeStackDriftDetectionStatusOutputTypeDef",
-    "DescribeStackEventsInputRequestTypeDef",
+    "DescribeStackEventsInputPaginateTypeDef",
+    "DescribeStackEventsInputTypeDef",
     "DescribeStackEventsOutputTypeDef",
-    "DescribeStackInstanceInputRequestTypeDef",
+    "DescribeStackInstanceInputTypeDef",
     "DescribeStackInstanceOutputTypeDef",
-    "DescribeStackResourceDriftsInputRequestTypeDef",
+    "DescribeStackRefactorInputTypeDef",
+    "DescribeStackRefactorInputWaitExtraTypeDef",
+    "DescribeStackRefactorInputWaitTypeDef",
+    "DescribeStackRefactorOutputTypeDef",
+    "DescribeStackResourceDriftsInputTypeDef",
     "DescribeStackResourceDriftsOutputTypeDef",
-    "DescribeStackResourceInputRequestTypeDef",
+    "DescribeStackResourceInputTypeDef",
     "DescribeStackResourceOutputTypeDef",
-    "DescribeStackResourcesInputRequestTypeDef",
+    "DescribeStackResourcesInputTypeDef",
     "DescribeStackResourcesOutputTypeDef",
-    "DescribeStackSetInputRequestTypeDef",
-    "DescribeStackSetOperationInputRequestTypeDef",
+    "DescribeStackSetInputTypeDef",
+    "DescribeStackSetOperationInputTypeDef",
     "DescribeStackSetOperationOutputTypeDef",
     "DescribeStackSetOutputTypeDef",
-    "DescribeStacksInputRequestTypeDef",
+    "DescribeStacksInputPaginateTypeDef",
+    "DescribeStacksInputTypeDef",
+    "DescribeStacksInputWaitExtraExtraExtraExtraExtraTypeDef",
+    "DescribeStacksInputWaitExtraExtraExtraExtraTypeDef",
+    "DescribeStacksInputWaitExtraExtraExtraTypeDef",
+    "DescribeStacksInputWaitExtraExtraTypeDef",
+    "DescribeStacksInputWaitExtraTypeDef",
+    "DescribeStacksInputWaitTypeDef",
     "DescribeStacksOutputTypeDef",
-    "DescribeTypeInputRequestTypeDef",
+    "DescribeTypeInputTypeDef",
     "DescribeTypeOutputTypeDef",
-    "DescribeTypeRegistrationInputRequestTypeDef",
+    "DescribeTypeRegistrationInputTypeDef",
+    "DescribeTypeRegistrationInputWaitTypeDef",
     "DescribeTypeRegistrationOutputTypeDef",
-    "DetectStackDriftInputRequestTypeDef",
+    "DetectStackDriftInputTypeDef",
     "DetectStackDriftOutputTypeDef",
-    "DetectStackResourceDriftInputRequestTypeDef",
+    "DetectStackResourceDriftInputTypeDef",
     "DetectStackResourceDriftOutputTypeDef",
-    "DetectStackSetDriftInputRequestTypeDef",
+    "DetectStackSetDriftInputTypeDef",
     "DetectStackSetDriftOutputTypeDef",
-    "EstimateTemplateCostInputRequestTypeDef",
+    "EmptyResponseMetadataTypeDef",
+    "EstimateTemplateCostInputTypeDef",
     "EstimateTemplateCostOutputTypeDef",
-    "ExecuteChangeSetInputRequestTypeDef",
+    "ExecuteChangeSetInputTypeDef",
+    "ExecuteStackRefactorInputTypeDef",
     "ExportTypeDef",
-    "GetGeneratedTemplateInputRequestTypeDef",
+    "GetGeneratedTemplateInputTypeDef",
     "GetGeneratedTemplateOutputTypeDef",
-    "GetStackPolicyInputRequestTypeDef",
+    "GetStackPolicyInputTypeDef",
     "GetStackPolicyOutputTypeDef",
-    "GetTemplateInputRequestTypeDef",
+    "GetTemplateInputTypeDef",
     "GetTemplateOutputTypeDef",
-    "GetTemplateSummaryInputRequestTypeDef",
+    "GetTemplateSummaryInputTypeDef",
     "GetTemplateSummaryOutputTypeDef",
-    "ImportStacksToStackSetInputRequestTypeDef",
+    "HookResultSummaryTypeDef",
+    "ImportStacksToStackSetInputTypeDef",
     "ImportStacksToStackSetOutputTypeDef",
-    "ListChangeSetsInputRequestTypeDef",
+    "ListChangeSetsInputPaginateTypeDef",
+    "ListChangeSetsInputTypeDef",
     "ListChangeSetsOutputTypeDef",
-    "ListExportsInputRequestTypeDef",
+    "ListExportsInputPaginateTypeDef",
+    "ListExportsInputTypeDef",
     "ListExportsOutputTypeDef",
-    "ListGeneratedTemplatesInputRequestTypeDef",
+    "ListGeneratedTemplatesInputPaginateTypeDef",
+    "ListGeneratedTemplatesInputTypeDef",
     "ListGeneratedTemplatesOutputTypeDef",
-    "ListImportsInputRequestTypeDef",
+    "ListHookResultsInputTypeDef",
+    "ListHookResultsOutputTypeDef",
+    "ListImportsInputPaginateTypeDef",
+    "ListImportsInputTypeDef",
     "ListImportsOutputTypeDef",
-    "ListResourceScanRelatedResourcesInputRequestTypeDef",
+    "ListResourceScanRelatedResourcesInputPaginateTypeDef",
+    "ListResourceScanRelatedResourcesInputTypeDef",
     "ListResourceScanRelatedResourcesOutputTypeDef",
-    "ListResourceScanResourcesInputRequestTypeDef",
+    "ListResourceScanResourcesInputPaginateTypeDef",
+    "ListResourceScanResourcesInputTypeDef",
     "ListResourceScanResourcesOutputTypeDef",
-    "ListResourceScansInputRequestTypeDef",
+    "ListResourceScansInputPaginateTypeDef",
+    "ListResourceScansInputTypeDef",
     "ListResourceScansOutputTypeDef",
-    "ListStackInstanceResourceDriftsInputRequestTypeDef",
+    "ListStackInstanceResourceDriftsInputTypeDef",
     "ListStackInstanceResourceDriftsOutputTypeDef",
-    "ListStackInstancesInputRequestTypeDef",
+    "ListStackInstancesInputPaginateTypeDef",
+    "ListStackInstancesInputTypeDef",
     "ListStackInstancesOutputTypeDef",
-    "ListStackResourcesInputRequestTypeDef",
+    "ListStackRefactorActionsInputPaginateTypeDef",
+    "ListStackRefactorActionsInputTypeDef",
+    "ListStackRefactorActionsOutputTypeDef",
+    "ListStackRefactorsInputPaginateTypeDef",
+    "ListStackRefactorsInputTypeDef",
+    "ListStackRefactorsOutputTypeDef",
+    "ListStackResourcesInputPaginateTypeDef",
+    "ListStackResourcesInputTypeDef",
     "ListStackResourcesOutputTypeDef",
-    "ListStackSetAutoDeploymentTargetsInputRequestTypeDef",
+    "ListStackSetAutoDeploymentTargetsInputTypeDef",
     "ListStackSetAutoDeploymentTargetsOutputTypeDef",
-    "ListStackSetOperationResultsInputRequestTypeDef",
+    "ListStackSetOperationResultsInputPaginateTypeDef",
+    "ListStackSetOperationResultsInputTypeDef",
     "ListStackSetOperationResultsOutputTypeDef",
-    "ListStackSetOperationsInputRequestTypeDef",
+    "ListStackSetOperationsInputPaginateTypeDef",
+    "ListStackSetOperationsInputTypeDef",
     "ListStackSetOperationsOutputTypeDef",
-    "ListStackSetsInputRequestTypeDef",
+    "ListStackSetsInputPaginateTypeDef",
+    "ListStackSetsInputTypeDef",
     "ListStackSetsOutputTypeDef",
-    "ListStacksInputRequestTypeDef",
+    "ListStacksInputPaginateTypeDef",
+    "ListStacksInputTypeDef",
     "ListStacksOutputTypeDef",
-    "ListTypeRegistrationsInputRequestTypeDef",
+    "ListTypeRegistrationsInputTypeDef",
     "ListTypeRegistrationsOutputTypeDef",
-    "ListTypeVersionsInputRequestTypeDef",
+    "ListTypeVersionsInputTypeDef",
     "ListTypeVersionsOutputTypeDef",
-    "ListTypesInputRequestTypeDef",
+    "ListTypesInputPaginateTypeDef",
+    "ListTypesInputTypeDef",
     "ListTypesOutputTypeDef",
     "LoggingConfigTypeDef",
     "ManagedExecutionTypeDef",
@@ -232,12 +290,12 @@ __all__ = (
     "ParameterTypeDef",
     "PhysicalResourceIdContextKeyValuePairTypeDef",
     "PropertyDifferenceTypeDef",
-    "PublishTypeInputRequestTypeDef",
+    "PublishTypeInputTypeDef",
     "PublishTypeOutputTypeDef",
-    "RecordHandlerProgressInputRequestTypeDef",
-    "RegisterPublisherInputRequestTypeDef",
+    "RecordHandlerProgressInputTypeDef",
+    "RegisterPublisherInputTypeDef",
     "RegisterPublisherOutputTypeDef",
-    "RegisterTypeInputRequestTypeDef",
+    "RegisterTypeInputTypeDef",
     "RegisterTypeOutputTypeDef",
     "RequiredActivatedTypeTypeDef",
     "ResourceChangeDetailTypeDef",
@@ -245,25 +303,29 @@ __all__ = (
     "ResourceDefinitionTypeDef",
     "ResourceDetailTypeDef",
     "ResourceIdentifierSummaryTypeDef",
+    "ResourceLocationTypeDef",
+    "ResourceMappingTypeDef",
     "ResourceScanSummaryTypeDef",
     "ResourceTargetDefinitionTypeDef",
     "ResourceToImportTypeDef",
     "ResponseMetadataTypeDef",
+    "RollbackConfigurationOutputTypeDef",
     "RollbackConfigurationTypeDef",
-    "RollbackStackInputRequestTypeDef",
+    "RollbackConfigurationUnionTypeDef",
+    "RollbackStackInputTypeDef",
     "RollbackStackOutputTypeDef",
     "RollbackTriggerTypeDef",
+    "ScanFilterOutputTypeDef",
+    "ScanFilterTypeDef",
+    "ScanFilterUnionTypeDef",
     "ScannedResourceIdentifierTypeDef",
     "ScannedResourceTypeDef",
-    "ServiceResourceEventRequestTypeDef",
-    "ServiceResourceStackRequestTypeDef",
-    "ServiceResourceStackResourceRequestTypeDef",
-    "ServiceResourceStackResourceSummaryRequestTypeDef",
-    "SetStackPolicyInputRequestTypeDef",
-    "SetTypeConfigurationInputRequestTypeDef",
+    "SetStackPolicyInputTypeDef",
+    "SetTypeConfigurationInputTypeDef",
     "SetTypeConfigurationOutputTypeDef",
-    "SetTypeDefaultVersionInputRequestTypeDef",
-    "SignalResourceInputRequestTypeDef",
+    "SetTypeDefaultVersionInputTypeDef",
+    "SignalResourceInputTypeDef",
+    "StackDefinitionTypeDef",
     "StackDriftInformationSummaryTypeDef",
     "StackDriftInformationTypeDef",
     "StackEventTypeDef",
@@ -272,16 +334,19 @@ __all__ = (
     "StackInstanceResourceDriftsSummaryTypeDef",
     "StackInstanceSummaryTypeDef",
     "StackInstanceTypeDef",
+    "StackRefactorActionTypeDef",
+    "StackRefactorSummaryTypeDef",
     "StackResourceDetailTypeDef",
     "StackResourceDriftInformationSummaryTypeDef",
     "StackResourceDriftInformationTypeDef",
     "StackResourceDriftTypeDef",
-    "StackResourceRequestTypeDef",
     "StackResourceSummaryTypeDef",
     "StackResourceTypeDef",
     "StackSetAutoDeploymentTargetSummaryTypeDef",
     "StackSetDriftDetectionDetailsTypeDef",
+    "StackSetOperationPreferencesOutputTypeDef",
     "StackSetOperationPreferencesTypeDef",
+    "StackSetOperationPreferencesUnionTypeDef",
     "StackSetOperationResultSummaryTypeDef",
     "StackSetOperationStatusDetailsTypeDef",
     "StackSetOperationSummaryTypeDef",
@@ -290,34 +355,34 @@ __all__ = (
     "StackSetTypeDef",
     "StackSummaryTypeDef",
     "StackTypeDef",
-    "StartResourceScanInputRequestTypeDef",
+    "StartResourceScanInputTypeDef",
     "StartResourceScanOutputTypeDef",
-    "StopStackSetOperationInputRequestTypeDef",
+    "StopStackSetOperationInputTypeDef",
     "TagTypeDef",
     "TemplateConfigurationTypeDef",
     "TemplateParameterTypeDef",
     "TemplateProgressTypeDef",
     "TemplateSummaryConfigTypeDef",
     "TemplateSummaryTypeDef",
-    "TestTypeInputRequestTypeDef",
+    "TestTypeInputTypeDef",
     "TestTypeOutputTypeDef",
     "TypeConfigurationDetailsTypeDef",
     "TypeConfigurationIdentifierTypeDef",
     "TypeFiltersTypeDef",
     "TypeSummaryTypeDef",
     "TypeVersionSummaryTypeDef",
-    "UpdateGeneratedTemplateInputRequestTypeDef",
+    "UpdateGeneratedTemplateInputTypeDef",
     "UpdateGeneratedTemplateOutputTypeDef",
-    "UpdateStackInputRequestTypeDef",
-    "UpdateStackInputStackTypeDef",
-    "UpdateStackInstancesInputRequestTypeDef",
+    "UpdateStackInputStackUpdateTypeDef",
+    "UpdateStackInputTypeDef",
+    "UpdateStackInstancesInputTypeDef",
     "UpdateStackInstancesOutputTypeDef",
     "UpdateStackOutputTypeDef",
-    "UpdateStackSetInputRequestTypeDef",
+    "UpdateStackSetInputTypeDef",
     "UpdateStackSetOutputTypeDef",
-    "UpdateTerminationProtectionInputRequestTypeDef",
+    "UpdateTerminationProtectionInputTypeDef",
     "UpdateTerminationProtectionOutputTypeDef",
-    "ValidateTemplateInputRequestTypeDef",
+    "ValidateTemplateInputTypeDef",
     "ValidateTemplateOutputTypeDef",
     "WaiterConfigTypeDef",
     "WarningDetailTypeDef",
@@ -325,972 +390,1140 @@ __all__ = (
     "WarningsTypeDef",
 )
 
-AccountGateResultTypeDef = TypedDict(
-    "AccountGateResultTypeDef",
+class AccountGateResultTypeDef(TypedDict):
+    Status: NotRequired[AccountGateStatusType]
+    StatusReason: NotRequired[str]
+
+class AccountLimitTypeDef(TypedDict):
+    Name: NotRequired[str]
+    Value: NotRequired[int]
+
+class LoggingConfigTypeDef(TypedDict):
+    LogRoleArn: str
+    LogGroupName: str
+
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
+
+class AutoDeploymentTypeDef(TypedDict):
+    Enabled: NotRequired[bool]
+    RetainStacksOnAccountRemoval: NotRequired[bool]
+
+TypeConfigurationIdentifierTypeDef = TypedDict(
+    "TypeConfigurationIdentifierTypeDef",
     {
-        "Status": AccountGateStatusType,
-        "StatusReason": str,
+        "TypeArn": NotRequired[str],
+        "TypeConfigurationAlias": NotRequired[str],
+        "TypeConfigurationArn": NotRequired[str],
+        "Type": NotRequired[ThirdPartyTypeType],
+        "TypeName": NotRequired[str],
     },
-    total=False,
 )
 
-AccountLimitTypeDef = TypedDict(
-    "AccountLimitTypeDef",
+class TypeConfigurationDetailsTypeDef(TypedDict):
+    Arn: NotRequired[str]
+    Alias: NotRequired[str]
+    Configuration: NotRequired[str]
+    LastUpdated: NotRequired[datetime]
+    TypeArn: NotRequired[str]
+    TypeName: NotRequired[str]
+    IsDefaultConfiguration: NotRequired[bool]
+
+class CancelUpdateStackInputStackCancelUpdateTypeDef(TypedDict):
+    ClientRequestToken: NotRequired[str]
+
+class CancelUpdateStackInputTypeDef(TypedDict):
+    StackName: str
+    ClientRequestToken: NotRequired[str]
+
+class ChangeSetHookResourceTargetDetailsTypeDef(TypedDict):
+    LogicalResourceId: NotRequired[str]
+    ResourceType: NotRequired[str]
+    ResourceAction: NotRequired[ChangeActionType]
+
+class ChangeSetSummaryTypeDef(TypedDict):
+    StackId: NotRequired[str]
+    StackName: NotRequired[str]
+    ChangeSetId: NotRequired[str]
+    ChangeSetName: NotRequired[str]
+    ExecutionStatus: NotRequired[ExecutionStatusType]
+    Status: NotRequired[ChangeSetStatusType]
+    StatusReason: NotRequired[str]
+    CreationTime: NotRequired[datetime]
+    Description: NotRequired[str]
+    IncludeNestedStacks: NotRequired[bool]
+    ParentChangeSetId: NotRequired[str]
+    RootChangeSetId: NotRequired[str]
+    ImportExistingResources: NotRequired[bool]
+
+class ContinueUpdateRollbackInputTypeDef(TypedDict):
+    StackName: str
+    RoleARN: NotRequired[str]
+    ResourcesToSkip: NotRequired[Sequence[str]]
+    ClientRequestToken: NotRequired[str]
+
+class ParameterTypeDef(TypedDict):
+    ParameterKey: NotRequired[str]
+    ParameterValue: NotRequired[str]
+    UsePreviousValue: NotRequired[bool]
+    ResolvedValue: NotRequired[str]
+
+class ResourceToImportTypeDef(TypedDict):
+    ResourceType: str
+    LogicalResourceId: str
+    ResourceIdentifier: Mapping[str, str]
+
+class TagTypeDef(TypedDict):
+    Key: str
+    Value: str
+
+class ResourceDefinitionTypeDef(TypedDict):
+    ResourceType: str
+    ResourceIdentifier: Mapping[str, str]
+    LogicalResourceId: NotRequired[str]
+
+class TemplateConfigurationTypeDef(TypedDict):
+    DeletionPolicy: NotRequired[GeneratedTemplateDeletionPolicyType]
+    UpdateReplacePolicy: NotRequired[GeneratedTemplateUpdateReplacePolicyType]
+
+class StackDefinitionTypeDef(TypedDict):
+    StackName: NotRequired[str]
+    TemplateBody: NotRequired[str]
+    TemplateURL: NotRequired[str]
+
+class ManagedExecutionTypeDef(TypedDict):
+    Active: NotRequired[bool]
+
+DeactivateTypeInputTypeDef = TypedDict(
+    "DeactivateTypeInputTypeDef",
     {
-        "Name": str,
-        "Value": int,
+        "TypeName": NotRequired[str],
+        "Type": NotRequired[ThirdPartyTypeType],
+        "Arn": NotRequired[str],
     },
-    total=False,
 )
 
-ActivateTypeInputRequestTypeDef = TypedDict(
-    "ActivateTypeInputRequestTypeDef",
+class DeleteChangeSetInputTypeDef(TypedDict):
+    ChangeSetName: str
+    StackName: NotRequired[str]
+
+class DeleteGeneratedTemplateInputTypeDef(TypedDict):
+    GeneratedTemplateName: str
+
+class DeleteStackInputStackDeleteTypeDef(TypedDict):
+    RetainResources: NotRequired[Sequence[str]]
+    RoleARN: NotRequired[str]
+    ClientRequestToken: NotRequired[str]
+    DeletionMode: NotRequired[DeletionModeType]
+
+class DeleteStackInputTypeDef(TypedDict):
+    StackName: str
+    RetainResources: NotRequired[Sequence[str]]
+    RoleARN: NotRequired[str]
+    ClientRequestToken: NotRequired[str]
+    DeletionMode: NotRequired[DeletionModeType]
+
+class DeleteStackSetInputTypeDef(TypedDict):
+    StackSetName: str
+    CallAs: NotRequired[CallAsType]
+
+class DeploymentTargetsOutputTypeDef(TypedDict):
+    Accounts: NotRequired[List[str]]
+    AccountsUrl: NotRequired[str]
+    OrganizationalUnitIds: NotRequired[List[str]]
+    AccountFilterType: NotRequired[AccountFilterTypeType]
+
+class DeploymentTargetsTypeDef(TypedDict):
+    Accounts: NotRequired[Sequence[str]]
+    AccountsUrl: NotRequired[str]
+    OrganizationalUnitIds: NotRequired[Sequence[str]]
+    AccountFilterType: NotRequired[AccountFilterTypeType]
+
+DeregisterTypeInputTypeDef = TypedDict(
+    "DeregisterTypeInputTypeDef",
     {
-        "Type": ThirdPartyTypeType,
-        "PublicTypeArn": str,
-        "PublisherId": str,
-        "TypeName": str,
-        "TypeNameAlias": str,
-        "AutoUpdate": bool,
-        "LoggingConfig": "LoggingConfigTypeDef",
-        "ExecutionRoleArn": str,
-        "VersionBump": VersionBumpType,
-        "MajorVersion": int,
+        "Arn": NotRequired[str],
+        "Type": NotRequired[RegistryTypeType],
+        "TypeName": NotRequired[str],
+        "VersionId": NotRequired[str],
     },
-    total=False,
 )
 
-ActivateTypeOutputTypeDef = TypedDict(
-    "ActivateTypeOutputTypeDef",
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class DescribeAccountLimitsInputTypeDef(TypedDict):
+    NextToken: NotRequired[str]
+
+class DescribeChangeSetHooksInputTypeDef(TypedDict):
+    ChangeSetName: str
+    StackName: NotRequired[str]
+    NextToken: NotRequired[str]
+    LogicalResourceId: NotRequired[str]
+
+class DescribeChangeSetInputTypeDef(TypedDict):
+    ChangeSetName: str
+    StackName: NotRequired[str]
+    NextToken: NotRequired[str]
+    IncludePropertyValues: NotRequired[bool]
+
+class WaiterConfigTypeDef(TypedDict):
+    Delay: NotRequired[int]
+    MaxAttempts: NotRequired[int]
+
+class DescribeGeneratedTemplateInputTypeDef(TypedDict):
+    GeneratedTemplateName: str
+
+class TemplateProgressTypeDef(TypedDict):
+    ResourcesSucceeded: NotRequired[int]
+    ResourcesFailed: NotRequired[int]
+    ResourcesProcessing: NotRequired[int]
+    ResourcesPending: NotRequired[int]
+
+class DescribeOrganizationsAccessInputTypeDef(TypedDict):
+    CallAs: NotRequired[CallAsType]
+
+class DescribePublisherInputTypeDef(TypedDict):
+    PublisherId: NotRequired[str]
+
+class DescribeResourceScanInputTypeDef(TypedDict):
+    ResourceScanId: str
+
+class ScanFilterOutputTypeDef(TypedDict):
+    Types: NotRequired[List[str]]
+
+class DescribeStackDriftDetectionStatusInputTypeDef(TypedDict):
+    StackDriftDetectionId: str
+
+class DescribeStackEventsInputTypeDef(TypedDict):
+    StackName: NotRequired[str]
+    NextToken: NotRequired[str]
+
+class StackEventTypeDef(TypedDict):
+    StackId: str
+    EventId: str
+    StackName: str
+    Timestamp: datetime
+    LogicalResourceId: NotRequired[str]
+    PhysicalResourceId: NotRequired[str]
+    ResourceType: NotRequired[str]
+    ResourceStatus: NotRequired[ResourceStatusType]
+    ResourceStatusReason: NotRequired[str]
+    ResourceProperties: NotRequired[str]
+    ClientRequestToken: NotRequired[str]
+    HookType: NotRequired[str]
+    HookStatus: NotRequired[HookStatusType]
+    HookStatusReason: NotRequired[str]
+    HookInvocationPoint: NotRequired[Literal["PRE_PROVISION"]]
+    HookFailureMode: NotRequired[HookFailureModeType]
+    DetailedStatus: NotRequired[DetailedStatusType]
+
+class DescribeStackInstanceInputTypeDef(TypedDict):
+    StackSetName: str
+    StackInstanceAccount: str
+    StackInstanceRegion: str
+    CallAs: NotRequired[CallAsType]
+
+class DescribeStackRefactorInputTypeDef(TypedDict):
+    StackRefactorId: str
+
+class DescribeStackResourceDriftsInputTypeDef(TypedDict):
+    StackName: str
+    StackResourceDriftStatusFilters: NotRequired[Sequence[StackResourceDriftStatusType]]
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class DescribeStackResourceInputTypeDef(TypedDict):
+    StackName: str
+    LogicalResourceId: str
+
+class DescribeStackResourcesInputTypeDef(TypedDict):
+    StackName: NotRequired[str]
+    LogicalResourceId: NotRequired[str]
+    PhysicalResourceId: NotRequired[str]
+
+class DescribeStackSetInputTypeDef(TypedDict):
+    StackSetName: str
+    CallAs: NotRequired[CallAsType]
+
+class DescribeStackSetOperationInputTypeDef(TypedDict):
+    StackSetName: str
+    OperationId: str
+    CallAs: NotRequired[CallAsType]
+
+class DescribeStacksInputTypeDef(TypedDict):
+    StackName: NotRequired[str]
+    NextToken: NotRequired[str]
+
+DescribeTypeInputTypeDef = TypedDict(
+    "DescribeTypeInputTypeDef",
+    {
+        "Type": NotRequired[RegistryTypeType],
+        "TypeName": NotRequired[str],
+        "Arn": NotRequired[str],
+        "VersionId": NotRequired[str],
+        "PublisherId": NotRequired[str],
+        "PublicVersionNumber": NotRequired[str],
+    },
+)
+
+class RequiredActivatedTypeTypeDef(TypedDict):
+    TypeNameAlias: NotRequired[str]
+    OriginalTypeName: NotRequired[str]
+    PublisherId: NotRequired[str]
+    SupportedMajorVersions: NotRequired[List[int]]
+
+class DescribeTypeRegistrationInputTypeDef(TypedDict):
+    RegistrationToken: str
+
+class DetectStackDriftInputTypeDef(TypedDict):
+    StackName: str
+    LogicalResourceIds: NotRequired[Sequence[str]]
+
+class DetectStackResourceDriftInputTypeDef(TypedDict):
+    StackName: str
+    LogicalResourceId: str
+
+class ExecuteChangeSetInputTypeDef(TypedDict):
+    ChangeSetName: str
+    StackName: NotRequired[str]
+    ClientRequestToken: NotRequired[str]
+    DisableRollback: NotRequired[bool]
+    RetainExceptOnCreate: NotRequired[bool]
+
+class ExecuteStackRefactorInputTypeDef(TypedDict):
+    StackRefactorId: str
+
+class ExportTypeDef(TypedDict):
+    ExportingStackId: NotRequired[str]
+    Name: NotRequired[str]
+    Value: NotRequired[str]
+
+class GetGeneratedTemplateInputTypeDef(TypedDict):
+    GeneratedTemplateName: str
+    Format: NotRequired[TemplateFormatType]
+
+class GetStackPolicyInputTypeDef(TypedDict):
+    StackName: str
+
+class GetTemplateInputTypeDef(TypedDict):
+    StackName: NotRequired[str]
+    ChangeSetName: NotRequired[str]
+    TemplateStage: NotRequired[TemplateStageType]
+
+class TemplateSummaryConfigTypeDef(TypedDict):
+    TreatUnrecognizedResourceTypesAsWarnings: NotRequired[bool]
+
+class ResourceIdentifierSummaryTypeDef(TypedDict):
+    ResourceType: NotRequired[str]
+    LogicalResourceIds: NotRequired[List[str]]
+    ResourceIdentifiers: NotRequired[List[str]]
+
+class WarningsTypeDef(TypedDict):
+    UnrecognizedResourceTypes: NotRequired[List[str]]
+
+class HookResultSummaryTypeDef(TypedDict):
+    InvocationPoint: NotRequired[Literal["PRE_PROVISION"]]
+    FailureMode: NotRequired[HookFailureModeType]
+    TypeName: NotRequired[str]
+    TypeVersionId: NotRequired[str]
+    TypeConfigurationVersionId: NotRequired[str]
+    Status: NotRequired[HookStatusType]
+    HookStatusReason: NotRequired[str]
+
+class ListChangeSetsInputTypeDef(TypedDict):
+    StackName: str
+    NextToken: NotRequired[str]
+
+class ListExportsInputTypeDef(TypedDict):
+    NextToken: NotRequired[str]
+
+class ListGeneratedTemplatesInputTypeDef(TypedDict):
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class TemplateSummaryTypeDef(TypedDict):
+    GeneratedTemplateId: NotRequired[str]
+    GeneratedTemplateName: NotRequired[str]
+    Status: NotRequired[GeneratedTemplateStatusType]
+    StatusReason: NotRequired[str]
+    CreationTime: NotRequired[datetime]
+    LastUpdatedTime: NotRequired[datetime]
+    NumberOfResources: NotRequired[int]
+
+class ListHookResultsInputTypeDef(TypedDict):
+    TargetType: ListHookResultsTargetTypeType
+    TargetId: str
+    NextToken: NotRequired[str]
+
+class ListImportsInputTypeDef(TypedDict):
+    ExportName: str
+    NextToken: NotRequired[str]
+
+class ScannedResourceIdentifierTypeDef(TypedDict):
+    ResourceType: str
+    ResourceIdentifier: Mapping[str, str]
+
+class ScannedResourceTypeDef(TypedDict):
+    ResourceType: NotRequired[str]
+    ResourceIdentifier: NotRequired[Dict[str, str]]
+    ManagedByStack: NotRequired[bool]
+
+class ListResourceScanResourcesInputTypeDef(TypedDict):
+    ResourceScanId: str
+    ResourceIdentifier: NotRequired[str]
+    ResourceTypePrefix: NotRequired[str]
+    TagKey: NotRequired[str]
+    TagValue: NotRequired[str]
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class ListResourceScansInputTypeDef(TypedDict):
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+    ScanTypeFilter: NotRequired[ScanTypeType]
+
+class ResourceScanSummaryTypeDef(TypedDict):
+    ResourceScanId: NotRequired[str]
+    Status: NotRequired[ResourceScanStatusType]
+    StatusReason: NotRequired[str]
+    StartTime: NotRequired[datetime]
+    EndTime: NotRequired[datetime]
+    PercentageCompleted: NotRequired[float]
+    ScanType: NotRequired[ScanTypeType]
+
+class ListStackInstanceResourceDriftsInputTypeDef(TypedDict):
+    StackSetName: str
+    StackInstanceAccount: str
+    StackInstanceRegion: str
+    OperationId: str
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+    StackInstanceResourceDriftStatuses: NotRequired[Sequence[StackResourceDriftStatusType]]
+    CallAs: NotRequired[CallAsType]
+
+class StackInstanceFilterTypeDef(TypedDict):
+    Name: NotRequired[StackInstanceFilterNameType]
+    Values: NotRequired[str]
+
+class ListStackRefactorActionsInputTypeDef(TypedDict):
+    StackRefactorId: str
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class ListStackRefactorsInputTypeDef(TypedDict):
+    ExecutionStatusFilter: NotRequired[Sequence[StackRefactorExecutionStatusType]]
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class StackRefactorSummaryTypeDef(TypedDict):
+    StackRefactorId: NotRequired[str]
+    Description: NotRequired[str]
+    ExecutionStatus: NotRequired[StackRefactorExecutionStatusType]
+    ExecutionStatusReason: NotRequired[str]
+    Status: NotRequired[StackRefactorStatusType]
+    StatusReason: NotRequired[str]
+
+class ListStackResourcesInputTypeDef(TypedDict):
+    StackName: str
+    NextToken: NotRequired[str]
+
+class ListStackSetAutoDeploymentTargetsInputTypeDef(TypedDict):
+    StackSetName: str
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+    CallAs: NotRequired[CallAsType]
+
+class StackSetAutoDeploymentTargetSummaryTypeDef(TypedDict):
+    OrganizationalUnitId: NotRequired[str]
+    Regions: NotRequired[List[str]]
+
+class OperationResultFilterTypeDef(TypedDict):
+    Name: NotRequired[Literal["OPERATION_RESULT_STATUS"]]
+    Values: NotRequired[str]
+
+class ListStackSetOperationsInputTypeDef(TypedDict):
+    StackSetName: str
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+    CallAs: NotRequired[CallAsType]
+
+class ListStackSetsInputTypeDef(TypedDict):
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+    Status: NotRequired[StackSetStatusType]
+    CallAs: NotRequired[CallAsType]
+
+class ListStacksInputTypeDef(TypedDict):
+    NextToken: NotRequired[str]
+    StackStatusFilter: NotRequired[Sequence[StackStatusType]]
+
+ListTypeRegistrationsInputTypeDef = TypedDict(
+    "ListTypeRegistrationsInputTypeDef",
+    {
+        "Type": NotRequired[RegistryTypeType],
+        "TypeName": NotRequired[str],
+        "TypeArn": NotRequired[str],
+        "RegistrationStatusFilter": NotRequired[RegistrationStatusType],
+        "MaxResults": NotRequired[int],
+        "NextToken": NotRequired[str],
+    },
+)
+ListTypeVersionsInputTypeDef = TypedDict(
+    "ListTypeVersionsInputTypeDef",
+    {
+        "Type": NotRequired[RegistryTypeType],
+        "TypeName": NotRequired[str],
+        "Arn": NotRequired[str],
+        "MaxResults": NotRequired[int],
+        "NextToken": NotRequired[str],
+        "DeprecatedStatus": NotRequired[DeprecatedStatusType],
+        "PublisherId": NotRequired[str],
+    },
+)
+TypeVersionSummaryTypeDef = TypedDict(
+    "TypeVersionSummaryTypeDef",
+    {
+        "Type": NotRequired[RegistryTypeType],
+        "TypeName": NotRequired[str],
+        "VersionId": NotRequired[str],
+        "IsDefaultVersion": NotRequired[bool],
+        "Arn": NotRequired[str],
+        "TimeCreated": NotRequired[datetime],
+        "Description": NotRequired[str],
+        "PublicVersionNumber": NotRequired[str],
+    },
+)
+
+class TypeFiltersTypeDef(TypedDict):
+    Category: NotRequired[CategoryType]
+    PublisherId: NotRequired[str]
+    TypeNamePrefix: NotRequired[str]
+
+TypeSummaryTypeDef = TypedDict(
+    "TypeSummaryTypeDef",
+    {
+        "Type": NotRequired[RegistryTypeType],
+        "TypeName": NotRequired[str],
+        "DefaultVersionId": NotRequired[str],
+        "TypeArn": NotRequired[str],
+        "LastUpdated": NotRequired[datetime],
+        "Description": NotRequired[str],
+        "PublisherId": NotRequired[str],
+        "OriginalTypeName": NotRequired[str],
+        "PublicVersionNumber": NotRequired[str],
+        "LatestPublicVersion": NotRequired[str],
+        "PublisherIdentity": NotRequired[IdentityProviderType],
+        "PublisherName": NotRequired[str],
+        "IsActivated": NotRequired[bool],
+    },
+)
+
+class ModuleInfoTypeDef(TypedDict):
+    TypeHierarchy: NotRequired[str]
+    LogicalIdHierarchy: NotRequired[str]
+
+class OutputTypeDef(TypedDict):
+    OutputKey: NotRequired[str]
+    OutputValue: NotRequired[str]
+    Description: NotRequired[str]
+    ExportName: NotRequired[str]
+
+class ParameterConstraintsTypeDef(TypedDict):
+    AllowedValues: NotRequired[List[str]]
+
+class PhysicalResourceIdContextKeyValuePairTypeDef(TypedDict):
+    Key: str
+    Value: str
+
+class PropertyDifferenceTypeDef(TypedDict):
+    PropertyPath: str
+    ExpectedValue: str
+    ActualValue: str
+    DifferenceType: DifferenceTypeType
+
+PublishTypeInputTypeDef = TypedDict(
+    "PublishTypeInputTypeDef",
+    {
+        "Type": NotRequired[ThirdPartyTypeType],
+        "Arn": NotRequired[str],
+        "TypeName": NotRequired[str],
+        "PublicVersionNumber": NotRequired[str],
+    },
+)
+
+class RecordHandlerProgressInputTypeDef(TypedDict):
+    BearerToken: str
+    OperationStatus: OperationStatusType
+    CurrentOperationStatus: NotRequired[OperationStatusType]
+    StatusMessage: NotRequired[str]
+    ErrorCode: NotRequired[HandlerErrorCodeType]
+    ResourceModel: NotRequired[str]
+    ClientRequestToken: NotRequired[str]
+
+class RegisterPublisherInputTypeDef(TypedDict):
+    AcceptTermsAndConditions: NotRequired[bool]
+    ConnectionArn: NotRequired[str]
+
+class ResourceTargetDefinitionTypeDef(TypedDict):
+    Attribute: NotRequired[ResourceAttributeType]
+    Name: NotRequired[str]
+    RequiresRecreation: NotRequired[RequiresRecreationType]
+    Path: NotRequired[str]
+    BeforeValue: NotRequired[str]
+    AfterValue: NotRequired[str]
+    AttributeChangeType: NotRequired[AttributeChangeTypeType]
+
+class ResourceLocationTypeDef(TypedDict):
+    StackName: str
+    LogicalResourceId: str
+
+RollbackTriggerTypeDef = TypedDict(
+    "RollbackTriggerTypeDef",
     {
         "Arn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "Type": str,
     },
 )
 
-AutoDeploymentTypeDef = TypedDict(
-    "AutoDeploymentTypeDef",
+class RollbackStackInputTypeDef(TypedDict):
+    StackName: str
+    RoleARN: NotRequired[str]
+    ClientRequestToken: NotRequired[str]
+    RetainExceptOnCreate: NotRequired[bool]
+
+class ScanFilterTypeDef(TypedDict):
+    Types: NotRequired[Sequence[str]]
+
+class SetStackPolicyInputTypeDef(TypedDict):
+    StackName: str
+    StackPolicyBody: NotRequired[str]
+    StackPolicyURL: NotRequired[str]
+
+SetTypeConfigurationInputTypeDef = TypedDict(
+    "SetTypeConfigurationInputTypeDef",
     {
-        "Enabled": bool,
-        "RetainStacksOnAccountRemoval": bool,
+        "Configuration": str,
+        "TypeArn": NotRequired[str],
+        "ConfigurationAlias": NotRequired[str],
+        "TypeName": NotRequired[str],
+        "Type": NotRequired[ThirdPartyTypeType],
     },
-    total=False,
 )
-
-BatchDescribeTypeConfigurationsErrorTypeDef = TypedDict(
-    "BatchDescribeTypeConfigurationsErrorTypeDef",
+SetTypeDefaultVersionInputTypeDef = TypedDict(
+    "SetTypeDefaultVersionInputTypeDef",
     {
-        "ErrorCode": str,
-        "ErrorMessage": str,
-        "TypeConfigurationIdentifier": "TypeConfigurationIdentifierTypeDef",
+        "Arn": NotRequired[str],
+        "Type": NotRequired[RegistryTypeType],
+        "TypeName": NotRequired[str],
+        "VersionId": NotRequired[str],
     },
-    total=False,
 )
 
-BatchDescribeTypeConfigurationsInputRequestTypeDef = TypedDict(
-    "BatchDescribeTypeConfigurationsInputRequestTypeDef",
+class SignalResourceInputTypeDef(TypedDict):
+    StackName: str
+    LogicalResourceId: str
+    UniqueId: str
+    Status: ResourceSignalStatusType
+
+class StackDriftInformationSummaryTypeDef(TypedDict):
+    StackDriftStatus: StackDriftStatusType
+    LastCheckTimestamp: NotRequired[datetime]
+
+class StackDriftInformationTypeDef(TypedDict):
+    StackDriftStatus: StackDriftStatusType
+    LastCheckTimestamp: NotRequired[datetime]
+
+class StackInstanceComprehensiveStatusTypeDef(TypedDict):
+    DetailedStatus: NotRequired[StackInstanceDetailedStatusType]
+
+class StackResourceDriftInformationTypeDef(TypedDict):
+    StackResourceDriftStatus: StackResourceDriftStatusType
+    LastCheckTimestamp: NotRequired[datetime]
+
+class StackResourceDriftInformationSummaryTypeDef(TypedDict):
+    StackResourceDriftStatus: StackResourceDriftStatusType
+    LastCheckTimestamp: NotRequired[datetime]
+
+class StackSetDriftDetectionDetailsTypeDef(TypedDict):
+    DriftStatus: NotRequired[StackSetDriftStatusType]
+    DriftDetectionStatus: NotRequired[StackSetDriftDetectionStatusType]
+    LastDriftCheckTimestamp: NotRequired[datetime]
+    TotalStackInstancesCount: NotRequired[int]
+    DriftedStackInstancesCount: NotRequired[int]
+    InSyncStackInstancesCount: NotRequired[int]
+    InProgressStackInstancesCount: NotRequired[int]
+    FailedStackInstancesCount: NotRequired[int]
+
+class StackSetOperationPreferencesOutputTypeDef(TypedDict):
+    RegionConcurrencyType: NotRequired[RegionConcurrencyTypeType]
+    RegionOrder: NotRequired[List[str]]
+    FailureToleranceCount: NotRequired[int]
+    FailureTolerancePercentage: NotRequired[int]
+    MaxConcurrentCount: NotRequired[int]
+    MaxConcurrentPercentage: NotRequired[int]
+    ConcurrencyMode: NotRequired[ConcurrencyModeType]
+
+class StackSetOperationPreferencesTypeDef(TypedDict):
+    RegionConcurrencyType: NotRequired[RegionConcurrencyTypeType]
+    RegionOrder: NotRequired[Sequence[str]]
+    FailureToleranceCount: NotRequired[int]
+    FailureTolerancePercentage: NotRequired[int]
+    MaxConcurrentCount: NotRequired[int]
+    MaxConcurrentPercentage: NotRequired[int]
+    ConcurrencyMode: NotRequired[ConcurrencyModeType]
+
+class StackSetOperationStatusDetailsTypeDef(TypedDict):
+    FailedStackInstancesCount: NotRequired[int]
+
+class StopStackSetOperationInputTypeDef(TypedDict):
+    StackSetName: str
+    OperationId: str
+    CallAs: NotRequired[CallAsType]
+
+class TemplateParameterTypeDef(TypedDict):
+    ParameterKey: NotRequired[str]
+    DefaultValue: NotRequired[str]
+    NoEcho: NotRequired[bool]
+    Description: NotRequired[str]
+
+TestTypeInputTypeDef = TypedDict(
+    "TestTypeInputTypeDef",
     {
-        "TypeConfigurationIdentifiers": List["TypeConfigurationIdentifierTypeDef"],
+        "Arn": NotRequired[str],
+        "Type": NotRequired[ThirdPartyTypeType],
+        "TypeName": NotRequired[str],
+        "VersionId": NotRequired[str],
+        "LogDeliveryBucket": NotRequired[str],
     },
 )
 
-BatchDescribeTypeConfigurationsOutputTypeDef = TypedDict(
-    "BatchDescribeTypeConfigurationsOutputTypeDef",
+class UpdateTerminationProtectionInputTypeDef(TypedDict):
+    EnableTerminationProtection: bool
+    StackName: str
+
+class ValidateTemplateInputTypeDef(TypedDict):
+    TemplateBody: NotRequired[str]
+    TemplateURL: NotRequired[str]
+
+WarningPropertyTypeDef = TypedDict(
+    "WarningPropertyTypeDef",
     {
-        "Errors": List["BatchDescribeTypeConfigurationsErrorTypeDef"],
-        "UnprocessedTypeConfigurations": List["TypeConfigurationIdentifierTypeDef"],
-        "TypeConfigurations": List["TypeConfigurationDetailsTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "PropertyPath": NotRequired[str],
+        "Required": NotRequired[bool],
+        "Description": NotRequired[str],
     },
 )
 
-_RequiredCancelUpdateStackInputRequestTypeDef = TypedDict(
-    "_RequiredCancelUpdateStackInputRequestTypeDef",
+class StackSetOperationResultSummaryTypeDef(TypedDict):
+    Account: NotRequired[str]
+    Region: NotRequired[str]
+    Status: NotRequired[StackSetOperationResultStatusType]
+    StatusReason: NotRequired[str]
+    AccountGateResult: NotRequired[AccountGateResultTypeDef]
+    OrganizationalUnitId: NotRequired[str]
+
+ActivateTypeInputTypeDef = TypedDict(
+    "ActivateTypeInputTypeDef",
     {
-        "StackName": str,
+        "Type": NotRequired[ThirdPartyTypeType],
+        "PublicTypeArn": NotRequired[str],
+        "PublisherId": NotRequired[str],
+        "TypeName": NotRequired[str],
+        "TypeNameAlias": NotRequired[str],
+        "AutoUpdate": NotRequired[bool],
+        "LoggingConfig": NotRequired[LoggingConfigTypeDef],
+        "ExecutionRoleArn": NotRequired[str],
+        "VersionBump": NotRequired[VersionBumpType],
+        "MajorVersion": NotRequired[int],
     },
 )
-_OptionalCancelUpdateStackInputRequestTypeDef = TypedDict(
-    "_OptionalCancelUpdateStackInputRequestTypeDef",
-    {
-        "ClientRequestToken": str,
-    },
-    total=False,
-)
-
-class CancelUpdateStackInputRequestTypeDef(
-    _RequiredCancelUpdateStackInputRequestTypeDef, _OptionalCancelUpdateStackInputRequestTypeDef
-):
-    pass
-
-CancelUpdateStackInputStackTypeDef = TypedDict(
-    "CancelUpdateStackInputStackTypeDef",
-    {
-        "ClientRequestToken": str,
-    },
-    total=False,
-)
-
-ChangeSetHookResourceTargetDetailsTypeDef = TypedDict(
-    "ChangeSetHookResourceTargetDetailsTypeDef",
-    {
-        "LogicalResourceId": str,
-        "ResourceType": str,
-        "ResourceAction": ChangeActionType,
-    },
-    total=False,
-)
-
-ChangeSetHookTargetDetailsTypeDef = TypedDict(
-    "ChangeSetHookTargetDetailsTypeDef",
-    {
-        "TargetType": Literal["RESOURCE"],
-        "ResourceTargetDetails": "ChangeSetHookResourceTargetDetailsTypeDef",
-    },
-    total=False,
-)
-
-ChangeSetHookTypeDef = TypedDict(
-    "ChangeSetHookTypeDef",
-    {
-        "InvocationPoint": Literal["PRE_PROVISION"],
-        "FailureMode": HookFailureModeType,
-        "TypeName": str,
-        "TypeVersionId": str,
-        "TypeConfigurationVersionId": str,
-        "TargetDetails": "ChangeSetHookTargetDetailsTypeDef",
-    },
-    total=False,
-)
-
-ChangeSetSummaryTypeDef = TypedDict(
-    "ChangeSetSummaryTypeDef",
-    {
-        "StackId": str,
-        "StackName": str,
-        "ChangeSetId": str,
-        "ChangeSetName": str,
-        "ExecutionStatus": ExecutionStatusType,
-        "Status": ChangeSetStatusType,
-        "StatusReason": str,
-        "CreationTime": datetime,
-        "Description": str,
-        "IncludeNestedStacks": bool,
-        "ParentChangeSetId": str,
-        "RootChangeSetId": str,
-        "ImportExistingResources": bool,
-    },
-    total=False,
-)
-
-ChangeTypeDef = TypedDict(
-    "ChangeTypeDef",
-    {
-        "Type": Literal["Resource"],
-        "HookInvocationCount": int,
-        "ResourceChange": "ResourceChangeTypeDef",
-    },
-    total=False,
-)
-
-_RequiredContinueUpdateRollbackInputRequestTypeDef = TypedDict(
-    "_RequiredContinueUpdateRollbackInputRequestTypeDef",
-    {
-        "StackName": str,
-    },
-)
-_OptionalContinueUpdateRollbackInputRequestTypeDef = TypedDict(
-    "_OptionalContinueUpdateRollbackInputRequestTypeDef",
-    {
-        "RoleARN": str,
-        "ResourcesToSkip": List[str],
-        "ClientRequestToken": str,
-    },
-    total=False,
-)
-
-class ContinueUpdateRollbackInputRequestTypeDef(
-    _RequiredContinueUpdateRollbackInputRequestTypeDef,
-    _OptionalContinueUpdateRollbackInputRequestTypeDef,
-):
-    pass
-
-_RequiredCreateChangeSetInputRequestTypeDef = TypedDict(
-    "_RequiredCreateChangeSetInputRequestTypeDef",
-    {
-        "StackName": str,
-        "ChangeSetName": str,
-    },
-)
-_OptionalCreateChangeSetInputRequestTypeDef = TypedDict(
-    "_OptionalCreateChangeSetInputRequestTypeDef",
-    {
-        "TemplateBody": str,
-        "TemplateURL": str,
-        "UsePreviousTemplate": bool,
-        "Parameters": List["ParameterTypeDef"],
-        "Capabilities": List[CapabilityType],
-        "ResourceTypes": List[str],
-        "RoleARN": str,
-        "RollbackConfiguration": "RollbackConfigurationTypeDef",
-        "NotificationARNs": List[str],
-        "Tags": List["TagTypeDef"],
-        "ClientToken": str,
-        "Description": str,
-        "ChangeSetType": ChangeSetTypeType,
-        "ResourcesToImport": List["ResourceToImportTypeDef"],
-        "IncludeNestedStacks": bool,
-        "OnStackFailure": OnStackFailureType,
-        "ImportExistingResources": bool,
-    },
-    total=False,
-)
-
-class CreateChangeSetInputRequestTypeDef(
-    _RequiredCreateChangeSetInputRequestTypeDef, _OptionalCreateChangeSetInputRequestTypeDef
-):
-    pass
-
-CreateChangeSetOutputTypeDef = TypedDict(
-    "CreateChangeSetOutputTypeDef",
-    {
-        "Id": str,
-        "StackId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateGeneratedTemplateInputRequestTypeDef = TypedDict(
-    "_RequiredCreateGeneratedTemplateInputRequestTypeDef",
-    {
-        "GeneratedTemplateName": str,
-    },
-)
-_OptionalCreateGeneratedTemplateInputRequestTypeDef = TypedDict(
-    "_OptionalCreateGeneratedTemplateInputRequestTypeDef",
-    {
-        "Resources": List["ResourceDefinitionTypeDef"],
-        "StackName": str,
-        "TemplateConfiguration": "TemplateConfigurationTypeDef",
-    },
-    total=False,
-)
-
-class CreateGeneratedTemplateInputRequestTypeDef(
-    _RequiredCreateGeneratedTemplateInputRequestTypeDef,
-    _OptionalCreateGeneratedTemplateInputRequestTypeDef,
-):
-    pass
-
-CreateGeneratedTemplateOutputTypeDef = TypedDict(
-    "CreateGeneratedTemplateOutputTypeDef",
-    {
-        "GeneratedTemplateId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateStackInputRequestTypeDef = TypedDict(
-    "_RequiredCreateStackInputRequestTypeDef",
-    {
-        "StackName": str,
-    },
-)
-_OptionalCreateStackInputRequestTypeDef = TypedDict(
-    "_OptionalCreateStackInputRequestTypeDef",
-    {
-        "TemplateBody": str,
-        "TemplateURL": str,
-        "Parameters": List["ParameterTypeDef"],
-        "DisableRollback": bool,
-        "RollbackConfiguration": "RollbackConfigurationTypeDef",
-        "TimeoutInMinutes": int,
-        "NotificationARNs": List[str],
-        "Capabilities": List[CapabilityType],
-        "ResourceTypes": List[str],
-        "RoleARN": str,
-        "OnFailure": OnFailureType,
-        "StackPolicyBody": str,
-        "StackPolicyURL": str,
-        "Tags": List["TagTypeDef"],
-        "ClientRequestToken": str,
-        "EnableTerminationProtection": bool,
-        "RetainExceptOnCreate": bool,
-    },
-    total=False,
-)
-
-class CreateStackInputRequestTypeDef(
-    _RequiredCreateStackInputRequestTypeDef, _OptionalCreateStackInputRequestTypeDef
-):
-    pass
-
-_RequiredCreateStackInputServiceResourceTypeDef = TypedDict(
-    "_RequiredCreateStackInputServiceResourceTypeDef",
-    {
-        "StackName": str,
-    },
-)
-_OptionalCreateStackInputServiceResourceTypeDef = TypedDict(
-    "_OptionalCreateStackInputServiceResourceTypeDef",
-    {
-        "TemplateBody": str,
-        "TemplateURL": str,
-        "Parameters": List["ParameterTypeDef"],
-        "DisableRollback": bool,
-        "RollbackConfiguration": "RollbackConfigurationTypeDef",
-        "TimeoutInMinutes": int,
-        "NotificationARNs": List[str],
-        "Capabilities": List[CapabilityType],
-        "ResourceTypes": List[str],
-        "RoleARN": str,
-        "OnFailure": OnFailureType,
-        "StackPolicyBody": str,
-        "StackPolicyURL": str,
-        "Tags": List["TagTypeDef"],
-        "ClientRequestToken": str,
-        "EnableTerminationProtection": bool,
-        "RetainExceptOnCreate": bool,
-    },
-    total=False,
-)
-
-class CreateStackInputServiceResourceTypeDef(
-    _RequiredCreateStackInputServiceResourceTypeDef, _OptionalCreateStackInputServiceResourceTypeDef
-):
-    pass
-
-_RequiredCreateStackInstancesInputRequestTypeDef = TypedDict(
-    "_RequiredCreateStackInstancesInputRequestTypeDef",
-    {
-        "StackSetName": str,
-        "Regions": List[str],
-    },
-)
-_OptionalCreateStackInstancesInputRequestTypeDef = TypedDict(
-    "_OptionalCreateStackInstancesInputRequestTypeDef",
-    {
-        "Accounts": List[str],
-        "DeploymentTargets": "DeploymentTargetsTypeDef",
-        "ParameterOverrides": List["ParameterTypeDef"],
-        "OperationPreferences": "StackSetOperationPreferencesTypeDef",
-        "OperationId": str,
-        "CallAs": CallAsType,
-    },
-    total=False,
-)
-
-class CreateStackInstancesInputRequestTypeDef(
-    _RequiredCreateStackInstancesInputRequestTypeDef,
-    _OptionalCreateStackInstancesInputRequestTypeDef,
-):
-    pass
-
-CreateStackInstancesOutputTypeDef = TypedDict(
-    "CreateStackInstancesOutputTypeDef",
-    {
-        "OperationId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-CreateStackOutputTypeDef = TypedDict(
-    "CreateStackOutputTypeDef",
-    {
-        "StackId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreateStackSetInputRequestTypeDef = TypedDict(
-    "_RequiredCreateStackSetInputRequestTypeDef",
-    {
-        "StackSetName": str,
-    },
-)
-_OptionalCreateStackSetInputRequestTypeDef = TypedDict(
-    "_OptionalCreateStackSetInputRequestTypeDef",
-    {
-        "Description": str,
-        "TemplateBody": str,
-        "TemplateURL": str,
-        "StackId": str,
-        "Parameters": List["ParameterTypeDef"],
-        "Capabilities": List[CapabilityType],
-        "Tags": List["TagTypeDef"],
-        "AdministrationRoleARN": str,
-        "ExecutionRoleName": str,
-        "PermissionModel": PermissionModelsType,
-        "AutoDeployment": "AutoDeploymentTypeDef",
-        "CallAs": CallAsType,
-        "ClientRequestToken": str,
-        "ManagedExecution": "ManagedExecutionTypeDef",
-    },
-    total=False,
-)
-
-class CreateStackSetInputRequestTypeDef(
-    _RequiredCreateStackSetInputRequestTypeDef, _OptionalCreateStackSetInputRequestTypeDef
-):
-    pass
-
-CreateStackSetOutputTypeDef = TypedDict(
-    "CreateStackSetOutputTypeDef",
-    {
-        "StackSetId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeactivateTypeInputRequestTypeDef = TypedDict(
-    "DeactivateTypeInputRequestTypeDef",
+RegisterTypeInputTypeDef = TypedDict(
+    "RegisterTypeInputTypeDef",
     {
         "TypeName": str,
-        "Type": ThirdPartyTypeType,
-        "Arn": str,
-    },
-    total=False,
-)
-
-_RequiredDeleteChangeSetInputRequestTypeDef = TypedDict(
-    "_RequiredDeleteChangeSetInputRequestTypeDef",
-    {
-        "ChangeSetName": str,
-    },
-)
-_OptionalDeleteChangeSetInputRequestTypeDef = TypedDict(
-    "_OptionalDeleteChangeSetInputRequestTypeDef",
-    {
-        "StackName": str,
-    },
-    total=False,
-)
-
-class DeleteChangeSetInputRequestTypeDef(
-    _RequiredDeleteChangeSetInputRequestTypeDef, _OptionalDeleteChangeSetInputRequestTypeDef
-):
-    pass
-
-DeleteGeneratedTemplateInputRequestTypeDef = TypedDict(
-    "DeleteGeneratedTemplateInputRequestTypeDef",
-    {
-        "GeneratedTemplateName": str,
+        "SchemaHandlerPackage": str,
+        "Type": NotRequired[RegistryTypeType],
+        "LoggingConfig": NotRequired[LoggingConfigTypeDef],
+        "ExecutionRoleArn": NotRequired[str],
+        "ClientRequestToken": NotRequired[str],
     },
 )
 
-_RequiredDeleteStackInputRequestTypeDef = TypedDict(
-    "_RequiredDeleteStackInputRequestTypeDef",
-    {
-        "StackName": str,
-    },
-)
-_OptionalDeleteStackInputRequestTypeDef = TypedDict(
-    "_OptionalDeleteStackInputRequestTypeDef",
-    {
-        "RetainResources": List[str],
-        "RoleARN": str,
-        "ClientRequestToken": str,
-        "DeletionMode": DeletionModeType,
-    },
-    total=False,
-)
+class ActivateTypeOutputTypeDef(TypedDict):
+    Arn: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteStackInputRequestTypeDef(
-    _RequiredDeleteStackInputRequestTypeDef, _OptionalDeleteStackInputRequestTypeDef
-):
-    pass
+class CreateChangeSetOutputTypeDef(TypedDict):
+    Id: str
+    StackId: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-DeleteStackInputStackTypeDef = TypedDict(
-    "DeleteStackInputStackTypeDef",
-    {
-        "RetainResources": List[str],
-        "RoleARN": str,
-        "ClientRequestToken": str,
-        "DeletionMode": DeletionModeType,
-    },
-    total=False,
-)
+class CreateGeneratedTemplateOutputTypeDef(TypedDict):
+    GeneratedTemplateId: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredDeleteStackInstancesInputRequestTypeDef = TypedDict(
-    "_RequiredDeleteStackInstancesInputRequestTypeDef",
-    {
-        "StackSetName": str,
-        "Regions": List[str],
-        "RetainStacks": bool,
-    },
-)
-_OptionalDeleteStackInstancesInputRequestTypeDef = TypedDict(
-    "_OptionalDeleteStackInstancesInputRequestTypeDef",
-    {
-        "Accounts": List[str],
-        "DeploymentTargets": "DeploymentTargetsTypeDef",
-        "OperationPreferences": "StackSetOperationPreferencesTypeDef",
-        "OperationId": str,
-        "CallAs": CallAsType,
-    },
-    total=False,
-)
+class CreateStackInstancesOutputTypeDef(TypedDict):
+    OperationId: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteStackInstancesInputRequestTypeDef(
-    _RequiredDeleteStackInstancesInputRequestTypeDef,
-    _OptionalDeleteStackInstancesInputRequestTypeDef,
-):
-    pass
+class CreateStackOutputTypeDef(TypedDict):
+    StackId: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-DeleteStackInstancesOutputTypeDef = TypedDict(
-    "DeleteStackInstancesOutputTypeDef",
-    {
-        "OperationId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class CreateStackRefactorOutputTypeDef(TypedDict):
+    StackRefactorId: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredDeleteStackSetInputRequestTypeDef = TypedDict(
-    "_RequiredDeleteStackSetInputRequestTypeDef",
-    {
-        "StackSetName": str,
-    },
-)
-_OptionalDeleteStackSetInputRequestTypeDef = TypedDict(
-    "_OptionalDeleteStackSetInputRequestTypeDef",
-    {
-        "CallAs": CallAsType,
-    },
-    total=False,
-)
+class CreateStackSetOutputTypeDef(TypedDict):
+    StackSetId: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class DeleteStackSetInputRequestTypeDef(
-    _RequiredDeleteStackSetInputRequestTypeDef, _OptionalDeleteStackSetInputRequestTypeDef
-):
-    pass
+class DeleteStackInstancesOutputTypeDef(TypedDict):
+    OperationId: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-DeploymentTargetsTypeDef = TypedDict(
-    "DeploymentTargetsTypeDef",
-    {
-        "Accounts": List[str],
-        "AccountsUrl": str,
-        "OrganizationalUnitIds": List[str],
-        "AccountFilterType": AccountFilterTypeType,
-    },
-    total=False,
-)
+class DescribeAccountLimitsOutputTypeDef(TypedDict):
+    AccountLimits: List[AccountLimitTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-DeregisterTypeInputRequestTypeDef = TypedDict(
-    "DeregisterTypeInputRequestTypeDef",
-    {
-        "Arn": str,
-        "Type": RegistryTypeType,
-        "TypeName": str,
-        "VersionId": str,
-    },
-    total=False,
-)
+class DescribeOrganizationsAccessOutputTypeDef(TypedDict):
+    Status: OrganizationStatusType
+    ResponseMetadata: ResponseMetadataTypeDef
 
-DescribeAccountLimitsInputRequestTypeDef = TypedDict(
-    "DescribeAccountLimitsInputRequestTypeDef",
-    {
-        "NextToken": str,
-    },
-    total=False,
-)
+class DescribePublisherOutputTypeDef(TypedDict):
+    PublisherId: str
+    PublisherStatus: PublisherStatusType
+    IdentityProvider: IdentityProviderType
+    PublisherProfile: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-DescribeAccountLimitsOutputTypeDef = TypedDict(
-    "DescribeAccountLimitsOutputTypeDef",
-    {
-        "AccountLimits": List["AccountLimitTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DescribeStackDriftDetectionStatusOutputTypeDef(TypedDict):
+    StackId: str
+    StackDriftDetectionId: str
+    StackDriftStatus: StackDriftStatusType
+    DetectionStatus: StackDriftDetectionStatusType
+    DetectionStatusReason: str
+    DriftedStackResourceCount: int
+    Timestamp: datetime
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredDescribeChangeSetHooksInputRequestTypeDef = TypedDict(
-    "_RequiredDescribeChangeSetHooksInputRequestTypeDef",
-    {
-        "ChangeSetName": str,
-    },
-)
-_OptionalDescribeChangeSetHooksInputRequestTypeDef = TypedDict(
-    "_OptionalDescribeChangeSetHooksInputRequestTypeDef",
-    {
-        "StackName": str,
-        "NextToken": str,
-        "LogicalResourceId": str,
-    },
-    total=False,
-)
+class DescribeStackRefactorOutputTypeDef(TypedDict):
+    Description: str
+    StackRefactorId: str
+    StackIds: List[str]
+    ExecutionStatus: StackRefactorExecutionStatusType
+    ExecutionStatusReason: str
+    Status: StackRefactorStatusType
+    StatusReason: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeChangeSetHooksInputRequestTypeDef(
-    _RequiredDescribeChangeSetHooksInputRequestTypeDef,
-    _OptionalDescribeChangeSetHooksInputRequestTypeDef,
-):
-    pass
+class DescribeTypeRegistrationOutputTypeDef(TypedDict):
+    ProgressStatus: RegistrationStatusType
+    Description: str
+    TypeArn: str
+    TypeVersionArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-DescribeChangeSetHooksOutputTypeDef = TypedDict(
-    "DescribeChangeSetHooksOutputTypeDef",
-    {
-        "ChangeSetId": str,
-        "ChangeSetName": str,
-        "Hooks": List["ChangeSetHookTypeDef"],
-        "Status": ChangeSetHooksStatusType,
-        "NextToken": str,
-        "StackId": str,
-        "StackName": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DetectStackDriftOutputTypeDef(TypedDict):
+    StackDriftDetectionId: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredDescribeChangeSetInputRequestTypeDef = TypedDict(
-    "_RequiredDescribeChangeSetInputRequestTypeDef",
-    {
-        "ChangeSetName": str,
-    },
-)
-_OptionalDescribeChangeSetInputRequestTypeDef = TypedDict(
-    "_OptionalDescribeChangeSetInputRequestTypeDef",
-    {
-        "StackName": str,
-        "NextToken": str,
-        "IncludePropertyValues": bool,
-    },
-    total=False,
-)
+class DetectStackSetDriftOutputTypeDef(TypedDict):
+    OperationId: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeChangeSetInputRequestTypeDef(
-    _RequiredDescribeChangeSetInputRequestTypeDef, _OptionalDescribeChangeSetInputRequestTypeDef
-):
-    pass
+class EmptyResponseMetadataTypeDef(TypedDict):
+    ResponseMetadata: ResponseMetadataTypeDef
 
-DescribeChangeSetOutputTypeDef = TypedDict(
-    "DescribeChangeSetOutputTypeDef",
-    {
-        "ChangeSetName": str,
-        "ChangeSetId": str,
-        "StackId": str,
-        "StackName": str,
-        "Description": str,
-        "Parameters": List["ParameterTypeDef"],
-        "CreationTime": datetime,
-        "ExecutionStatus": ExecutionStatusType,
-        "Status": ChangeSetStatusType,
-        "StatusReason": str,
-        "NotificationARNs": List[str],
-        "RollbackConfiguration": "RollbackConfigurationTypeDef",
-        "Capabilities": List[CapabilityType],
-        "Tags": List["TagTypeDef"],
-        "Changes": List["ChangeTypeDef"],
-        "NextToken": str,
-        "IncludeNestedStacks": bool,
-        "ParentChangeSetId": str,
-        "RootChangeSetId": str,
-        "OnStackFailure": OnStackFailureType,
-        "ImportExistingResources": bool,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class EstimateTemplateCostOutputTypeDef(TypedDict):
+    Url: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-DescribeGeneratedTemplateInputRequestTypeDef = TypedDict(
-    "DescribeGeneratedTemplateInputRequestTypeDef",
-    {
-        "GeneratedTemplateName": str,
-    },
-)
+class GetGeneratedTemplateOutputTypeDef(TypedDict):
+    Status: GeneratedTemplateStatusType
+    TemplateBody: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-DescribeGeneratedTemplateOutputTypeDef = TypedDict(
-    "DescribeGeneratedTemplateOutputTypeDef",
-    {
-        "GeneratedTemplateId": str,
-        "GeneratedTemplateName": str,
-        "Resources": List["ResourceDetailTypeDef"],
-        "Status": GeneratedTemplateStatusType,
-        "StatusReason": str,
-        "CreationTime": datetime,
-        "LastUpdatedTime": datetime,
-        "Progress": "TemplateProgressTypeDef",
-        "StackId": str,
-        "TemplateConfiguration": "TemplateConfigurationTypeDef",
-        "TotalWarnings": int,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GetStackPolicyOutputTypeDef(TypedDict):
+    StackPolicyBody: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-DescribeOrganizationsAccessInputRequestTypeDef = TypedDict(
-    "DescribeOrganizationsAccessInputRequestTypeDef",
-    {
-        "CallAs": CallAsType,
-    },
-    total=False,
-)
+class GetTemplateOutputTypeDef(TypedDict):
+    TemplateBody: Dict[str, Any]
+    StagesAvailable: List[TemplateStageType]
+    ResponseMetadata: ResponseMetadataTypeDef
 
-DescribeOrganizationsAccessOutputTypeDef = TypedDict(
-    "DescribeOrganizationsAccessOutputTypeDef",
-    {
-        "Status": OrganizationStatusType,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ImportStacksToStackSetOutputTypeDef(TypedDict):
+    OperationId: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-DescribePublisherInputRequestTypeDef = TypedDict(
-    "DescribePublisherInputRequestTypeDef",
-    {
-        "PublisherId": str,
-    },
-    total=False,
-)
+class ListImportsOutputTypeDef(TypedDict):
+    Imports: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-DescribePublisherOutputTypeDef = TypedDict(
-    "DescribePublisherOutputTypeDef",
-    {
-        "PublisherId": str,
-        "PublisherStatus": PublisherStatusType,
-        "IdentityProvider": IdentityProviderType,
-        "PublisherProfile": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListTypeRegistrationsOutputTypeDef(TypedDict):
+    RegistrationTokenList: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-DescribeResourceScanInputRequestTypeDef = TypedDict(
-    "DescribeResourceScanInputRequestTypeDef",
-    {
-        "ResourceScanId": str,
-    },
-)
+class PublishTypeOutputTypeDef(TypedDict):
+    PublicTypeArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-DescribeResourceScanOutputTypeDef = TypedDict(
-    "DescribeResourceScanOutputTypeDef",
-    {
-        "ResourceScanId": str,
-        "Status": ResourceScanStatusType,
-        "StatusReason": str,
-        "StartTime": datetime,
-        "EndTime": datetime,
-        "PercentageCompleted": float,
-        "ResourceTypes": List[str],
-        "ResourcesScanned": int,
-        "ResourcesRead": int,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class RegisterPublisherOutputTypeDef(TypedDict):
+    PublisherId: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-DescribeStackDriftDetectionStatusInputRequestTypeDef = TypedDict(
-    "DescribeStackDriftDetectionStatusInputRequestTypeDef",
-    {
-        "StackDriftDetectionId": str,
-    },
-)
+class RegisterTypeOutputTypeDef(TypedDict):
+    RegistrationToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-DescribeStackDriftDetectionStatusOutputTypeDef = TypedDict(
-    "DescribeStackDriftDetectionStatusOutputTypeDef",
-    {
-        "StackId": str,
-        "StackDriftDetectionId": str,
-        "StackDriftStatus": StackDriftStatusType,
-        "DetectionStatus": StackDriftDetectionStatusType,
-        "DetectionStatusReason": str,
-        "DriftedStackResourceCount": int,
-        "Timestamp": datetime,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class RollbackStackOutputTypeDef(TypedDict):
+    StackId: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-DescribeStackEventsInputRequestTypeDef = TypedDict(
-    "DescribeStackEventsInputRequestTypeDef",
-    {
-        "StackName": str,
-        "NextToken": str,
-    },
-    total=False,
-)
+class SetTypeConfigurationOutputTypeDef(TypedDict):
+    ConfigurationArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-DescribeStackEventsOutputTypeDef = TypedDict(
-    "DescribeStackEventsOutputTypeDef",
-    {
-        "StackEvents": List["StackEventTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class StartResourceScanOutputTypeDef(TypedDict):
+    ResourceScanId: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredDescribeStackInstanceInputRequestTypeDef = TypedDict(
-    "_RequiredDescribeStackInstanceInputRequestTypeDef",
-    {
-        "StackSetName": str,
-        "StackInstanceAccount": str,
-        "StackInstanceRegion": str,
-    },
-)
-_OptionalDescribeStackInstanceInputRequestTypeDef = TypedDict(
-    "_OptionalDescribeStackInstanceInputRequestTypeDef",
-    {
-        "CallAs": CallAsType,
-    },
-    total=False,
-)
+class TestTypeOutputTypeDef(TypedDict):
+    TypeVersionArn: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeStackInstanceInputRequestTypeDef(
-    _RequiredDescribeStackInstanceInputRequestTypeDef,
-    _OptionalDescribeStackInstanceInputRequestTypeDef,
-):
-    pass
+class UpdateGeneratedTemplateOutputTypeDef(TypedDict):
+    GeneratedTemplateId: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-DescribeStackInstanceOutputTypeDef = TypedDict(
-    "DescribeStackInstanceOutputTypeDef",
-    {
-        "StackInstance": "StackInstanceTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class UpdateStackInstancesOutputTypeDef(TypedDict):
+    OperationId: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-_RequiredDescribeStackResourceDriftsInputRequestTypeDef = TypedDict(
-    "_RequiredDescribeStackResourceDriftsInputRequestTypeDef",
-    {
-        "StackName": str,
-    },
-)
-_OptionalDescribeStackResourceDriftsInputRequestTypeDef = TypedDict(
-    "_OptionalDescribeStackResourceDriftsInputRequestTypeDef",
-    {
-        "StackResourceDriftStatusFilters": List[StackResourceDriftStatusType],
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
+class UpdateStackOutputTypeDef(TypedDict):
+    StackId: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class DescribeStackResourceDriftsInputRequestTypeDef(
-    _RequiredDescribeStackResourceDriftsInputRequestTypeDef,
-    _OptionalDescribeStackResourceDriftsInputRequestTypeDef,
-):
-    pass
+class UpdateStackSetOutputTypeDef(TypedDict):
+    OperationId: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-DescribeStackResourceDriftsOutputTypeDef = TypedDict(
-    "DescribeStackResourceDriftsOutputTypeDef",
-    {
-        "StackResourceDrifts": List["StackResourceDriftTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class UpdateTerminationProtectionOutputTypeDef(TypedDict):
+    StackId: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-DescribeStackResourceInputRequestTypeDef = TypedDict(
-    "DescribeStackResourceInputRequestTypeDef",
-    {
-        "StackName": str,
-        "LogicalResourceId": str,
-    },
-)
+class BatchDescribeTypeConfigurationsErrorTypeDef(TypedDict):
+    ErrorCode: NotRequired[str]
+    ErrorMessage: NotRequired[str]
+    TypeConfigurationIdentifier: NotRequired[TypeConfigurationIdentifierTypeDef]
 
-DescribeStackResourceOutputTypeDef = TypedDict(
-    "DescribeStackResourceOutputTypeDef",
-    {
-        "StackResourceDetail": "StackResourceDetailTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class BatchDescribeTypeConfigurationsInputTypeDef(TypedDict):
+    TypeConfigurationIdentifiers: Sequence[TypeConfigurationIdentifierTypeDef]
 
-DescribeStackResourcesInputRequestTypeDef = TypedDict(
-    "DescribeStackResourcesInputRequestTypeDef",
-    {
-        "StackName": str,
-        "LogicalResourceId": str,
-        "PhysicalResourceId": str,
-    },
-    total=False,
-)
+class ChangeSetHookTargetDetailsTypeDef(TypedDict):
+    TargetType: NotRequired[Literal["RESOURCE"]]
+    ResourceTargetDetails: NotRequired[ChangeSetHookResourceTargetDetailsTypeDef]
 
-DescribeStackResourcesOutputTypeDef = TypedDict(
-    "DescribeStackResourcesOutputTypeDef",
-    {
-        "StackResources": List["StackResourceTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListChangeSetsOutputTypeDef(TypedDict):
+    Summaries: List[ChangeSetSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
-_RequiredDescribeStackSetInputRequestTypeDef = TypedDict(
-    "_RequiredDescribeStackSetInputRequestTypeDef",
-    {
-        "StackSetName": str,
-    },
-)
-_OptionalDescribeStackSetInputRequestTypeDef = TypedDict(
-    "_OptionalDescribeStackSetInputRequestTypeDef",
-    {
-        "CallAs": CallAsType,
-    },
-    total=False,
-)
+class EstimateTemplateCostInputTypeDef(TypedDict):
+    TemplateBody: NotRequired[str]
+    TemplateURL: NotRequired[str]
+    Parameters: NotRequired[Sequence[ParameterTypeDef]]
 
-class DescribeStackSetInputRequestTypeDef(
-    _RequiredDescribeStackSetInputRequestTypeDef, _OptionalDescribeStackSetInputRequestTypeDef
-):
-    pass
+class CreateGeneratedTemplateInputTypeDef(TypedDict):
+    GeneratedTemplateName: str
+    Resources: NotRequired[Sequence[ResourceDefinitionTypeDef]]
+    StackName: NotRequired[str]
+    TemplateConfiguration: NotRequired[TemplateConfigurationTypeDef]
 
-_RequiredDescribeStackSetOperationInputRequestTypeDef = TypedDict(
-    "_RequiredDescribeStackSetOperationInputRequestTypeDef",
-    {
-        "StackSetName": str,
-        "OperationId": str,
-    },
-)
-_OptionalDescribeStackSetOperationInputRequestTypeDef = TypedDict(
-    "_OptionalDescribeStackSetOperationInputRequestTypeDef",
-    {
-        "CallAs": CallAsType,
-    },
-    total=False,
-)
+class UpdateGeneratedTemplateInputTypeDef(TypedDict):
+    GeneratedTemplateName: str
+    NewGeneratedTemplateName: NotRequired[str]
+    AddResources: NotRequired[Sequence[ResourceDefinitionTypeDef]]
+    RemoveResources: NotRequired[Sequence[str]]
+    RefreshAllResources: NotRequired[bool]
+    TemplateConfiguration: NotRequired[TemplateConfigurationTypeDef]
 
-class DescribeStackSetOperationInputRequestTypeDef(
-    _RequiredDescribeStackSetOperationInputRequestTypeDef,
-    _OptionalDescribeStackSetOperationInputRequestTypeDef,
-):
-    pass
+class CreateStackSetInputTypeDef(TypedDict):
+    StackSetName: str
+    Description: NotRequired[str]
+    TemplateBody: NotRequired[str]
+    TemplateURL: NotRequired[str]
+    StackId: NotRequired[str]
+    Parameters: NotRequired[Sequence[ParameterTypeDef]]
+    Capabilities: NotRequired[Sequence[CapabilityType]]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+    AdministrationRoleARN: NotRequired[str]
+    ExecutionRoleName: NotRequired[str]
+    PermissionModel: NotRequired[PermissionModelsType]
+    AutoDeployment: NotRequired[AutoDeploymentTypeDef]
+    CallAs: NotRequired[CallAsType]
+    ClientRequestToken: NotRequired[str]
+    ManagedExecution: NotRequired[ManagedExecutionTypeDef]
 
-DescribeStackSetOperationOutputTypeDef = TypedDict(
-    "DescribeStackSetOperationOutputTypeDef",
-    {
-        "StackSetOperation": "StackSetOperationTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class StackSetSummaryTypeDef(TypedDict):
+    StackSetName: NotRequired[str]
+    StackSetId: NotRequired[str]
+    Description: NotRequired[str]
+    Status: NotRequired[StackSetStatusType]
+    AutoDeployment: NotRequired[AutoDeploymentTypeDef]
+    PermissionModel: NotRequired[PermissionModelsType]
+    DriftStatus: NotRequired[StackDriftStatusType]
+    LastDriftCheckTimestamp: NotRequired[datetime]
+    ManagedExecution: NotRequired[ManagedExecutionTypeDef]
 
-DescribeStackSetOutputTypeDef = TypedDict(
-    "DescribeStackSetOutputTypeDef",
-    {
-        "StackSet": "StackSetTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+DeploymentTargetsUnionTypeDef = Union[DeploymentTargetsTypeDef, DeploymentTargetsOutputTypeDef]
 
-DescribeStacksInputRequestTypeDef = TypedDict(
-    "DescribeStacksInputRequestTypeDef",
-    {
-        "StackName": str,
-        "NextToken": str,
-    },
-    total=False,
-)
+class DescribeAccountLimitsInputPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-DescribeStacksOutputTypeDef = TypedDict(
-    "DescribeStacksOutputTypeDef",
-    {
-        "Stacks": List["StackTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class DescribeChangeSetInputPaginateTypeDef(TypedDict):
+    ChangeSetName: str
+    StackName: NotRequired[str]
+    IncludePropertyValues: NotRequired[bool]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
 
-DescribeTypeInputRequestTypeDef = TypedDict(
-    "DescribeTypeInputRequestTypeDef",
-    {
-        "Type": RegistryTypeType,
-        "TypeName": str,
-        "Arn": str,
-        "VersionId": str,
-        "PublisherId": str,
-        "PublicVersionNumber": str,
-    },
-    total=False,
-)
+class DescribeStackEventsInputPaginateTypeDef(TypedDict):
+    StackName: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeStacksInputPaginateTypeDef(TypedDict):
+    StackName: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListChangeSetsInputPaginateTypeDef(TypedDict):
+    StackName: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListExportsInputPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListGeneratedTemplatesInputPaginateTypeDef(TypedDict):
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListImportsInputPaginateTypeDef(TypedDict):
+    ExportName: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListResourceScanResourcesInputPaginateTypeDef(TypedDict):
+    ResourceScanId: str
+    ResourceIdentifier: NotRequired[str]
+    ResourceTypePrefix: NotRequired[str]
+    TagKey: NotRequired[str]
+    TagValue: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListResourceScansInputPaginateTypeDef(TypedDict):
+    ScanTypeFilter: NotRequired[ScanTypeType]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListStackRefactorActionsInputPaginateTypeDef(TypedDict):
+    StackRefactorId: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListStackRefactorsInputPaginateTypeDef(TypedDict):
+    ExecutionStatusFilter: NotRequired[Sequence[StackRefactorExecutionStatusType]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListStackResourcesInputPaginateTypeDef(TypedDict):
+    StackName: str
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListStackSetOperationsInputPaginateTypeDef(TypedDict):
+    StackSetName: str
+    CallAs: NotRequired[CallAsType]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListStackSetsInputPaginateTypeDef(TypedDict):
+    Status: NotRequired[StackSetStatusType]
+    CallAs: NotRequired[CallAsType]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListStacksInputPaginateTypeDef(TypedDict):
+    StackStatusFilter: NotRequired[Sequence[StackStatusType]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class DescribeChangeSetInputWaitTypeDef(TypedDict):
+    ChangeSetName: str
+    StackName: NotRequired[str]
+    NextToken: NotRequired[str]
+    IncludePropertyValues: NotRequired[bool]
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class DescribeStackRefactorInputWaitExtraTypeDef(TypedDict):
+    StackRefactorId: str
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class DescribeStackRefactorInputWaitTypeDef(TypedDict):
+    StackRefactorId: str
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class DescribeStacksInputWaitExtraExtraExtraExtraExtraTypeDef(TypedDict):
+    StackName: NotRequired[str]
+    NextToken: NotRequired[str]
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class DescribeStacksInputWaitExtraExtraExtraExtraTypeDef(TypedDict):
+    StackName: NotRequired[str]
+    NextToken: NotRequired[str]
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class DescribeStacksInputWaitExtraExtraExtraTypeDef(TypedDict):
+    StackName: NotRequired[str]
+    NextToken: NotRequired[str]
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class DescribeStacksInputWaitExtraExtraTypeDef(TypedDict):
+    StackName: NotRequired[str]
+    NextToken: NotRequired[str]
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class DescribeStacksInputWaitExtraTypeDef(TypedDict):
+    StackName: NotRequired[str]
+    NextToken: NotRequired[str]
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class DescribeStacksInputWaitTypeDef(TypedDict):
+    StackName: NotRequired[str]
+    NextToken: NotRequired[str]
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class DescribeTypeRegistrationInputWaitTypeDef(TypedDict):
+    RegistrationToken: str
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class DescribeResourceScanOutputTypeDef(TypedDict):
+    ResourceScanId: str
+    Status: ResourceScanStatusType
+    StatusReason: str
+    StartTime: datetime
+    EndTime: datetime
+    PercentageCompleted: float
+    ResourceTypes: List[str]
+    ResourcesScanned: int
+    ResourcesRead: int
+    ScanFilters: List[ScanFilterOutputTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeStackEventsOutputTypeDef(TypedDict):
+    StackEvents: List[StackEventTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
 
 DescribeTypeOutputTypeDef = TypedDict(
     "DescribeTypeOutputTypeDef",
@@ -1306,8 +1539,8 @@ DescribeTypeOutputTypeDef = TypedDict(
         "Schema": str,
         "ProvisioningType": ProvisioningTypeType,
         "DeprecatedStatus": DeprecatedStatusType,
-        "LoggingConfig": "LoggingConfigTypeDef",
-        "RequiredActivatedTypes": List["RequiredActivatedTypeTypeDef"],
+        "LoggingConfig": LoggingConfigTypeDef,
+        "RequiredActivatedTypes": List[RequiredActivatedTypeTypeDef],
         "ExecutionRoleArn": str,
         "Visibility": VisibilityType,
         "SourceUrl": str,
@@ -1322,2181 +1555,725 @@ DescribeTypeOutputTypeDef = TypedDict(
         "LatestPublicVersion": str,
         "IsActivated": bool,
         "AutoUpdate": bool,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DescribeTypeRegistrationInputRequestTypeDef = TypedDict(
-    "DescribeTypeRegistrationInputRequestTypeDef",
-    {
-        "RegistrationToken": str,
-    },
-)
-
-DescribeTypeRegistrationOutputTypeDef = TypedDict(
-    "DescribeTypeRegistrationOutputTypeDef",
-    {
-        "ProgressStatus": RegistrationStatusType,
-        "Description": str,
-        "TypeArn": str,
-        "TypeVersionArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDetectStackDriftInputRequestTypeDef = TypedDict(
-    "_RequiredDetectStackDriftInputRequestTypeDef",
-    {
-        "StackName": str,
-    },
-)
-_OptionalDetectStackDriftInputRequestTypeDef = TypedDict(
-    "_OptionalDetectStackDriftInputRequestTypeDef",
-    {
-        "LogicalResourceIds": List[str],
-    },
-    total=False,
-)
-
-class DetectStackDriftInputRequestTypeDef(
-    _RequiredDetectStackDriftInputRequestTypeDef, _OptionalDetectStackDriftInputRequestTypeDef
-):
-    pass
-
-DetectStackDriftOutputTypeDef = TypedDict(
-    "DetectStackDriftOutputTypeDef",
-    {
-        "StackDriftDetectionId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DetectStackResourceDriftInputRequestTypeDef = TypedDict(
-    "DetectStackResourceDriftInputRequestTypeDef",
-    {
-        "StackName": str,
-        "LogicalResourceId": str,
-    },
-)
-
-DetectStackResourceDriftOutputTypeDef = TypedDict(
-    "DetectStackResourceDriftOutputTypeDef",
-    {
-        "StackResourceDrift": "StackResourceDriftTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredDetectStackSetDriftInputRequestTypeDef = TypedDict(
-    "_RequiredDetectStackSetDriftInputRequestTypeDef",
-    {
-        "StackSetName": str,
-    },
-)
-_OptionalDetectStackSetDriftInputRequestTypeDef = TypedDict(
-    "_OptionalDetectStackSetDriftInputRequestTypeDef",
-    {
-        "OperationPreferences": "StackSetOperationPreferencesTypeDef",
-        "OperationId": str,
-        "CallAs": CallAsType,
-    },
-    total=False,
-)
-
-class DetectStackSetDriftInputRequestTypeDef(
-    _RequiredDetectStackSetDriftInputRequestTypeDef, _OptionalDetectStackSetDriftInputRequestTypeDef
-):
-    pass
-
-DetectStackSetDriftOutputTypeDef = TypedDict(
-    "DetectStackSetDriftOutputTypeDef",
-    {
-        "OperationId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-EstimateTemplateCostInputRequestTypeDef = TypedDict(
-    "EstimateTemplateCostInputRequestTypeDef",
-    {
-        "TemplateBody": str,
-        "TemplateURL": str,
-        "Parameters": List["ParameterTypeDef"],
-    },
-    total=False,
-)
-
-EstimateTemplateCostOutputTypeDef = TypedDict(
-    "EstimateTemplateCostOutputTypeDef",
-    {
-        "Url": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredExecuteChangeSetInputRequestTypeDef = TypedDict(
-    "_RequiredExecuteChangeSetInputRequestTypeDef",
-    {
-        "ChangeSetName": str,
-    },
-)
-_OptionalExecuteChangeSetInputRequestTypeDef = TypedDict(
-    "_OptionalExecuteChangeSetInputRequestTypeDef",
-    {
-        "StackName": str,
-        "ClientRequestToken": str,
-        "DisableRollback": bool,
-        "RetainExceptOnCreate": bool,
-    },
-    total=False,
-)
-
-class ExecuteChangeSetInputRequestTypeDef(
-    _RequiredExecuteChangeSetInputRequestTypeDef, _OptionalExecuteChangeSetInputRequestTypeDef
-):
-    pass
-
-ExportTypeDef = TypedDict(
-    "ExportTypeDef",
-    {
-        "ExportingStackId": str,
-        "Name": str,
-        "Value": str,
-    },
-    total=False,
-)
-
-_RequiredGetGeneratedTemplateInputRequestTypeDef = TypedDict(
-    "_RequiredGetGeneratedTemplateInputRequestTypeDef",
-    {
-        "GeneratedTemplateName": str,
-    },
-)
-_OptionalGetGeneratedTemplateInputRequestTypeDef = TypedDict(
-    "_OptionalGetGeneratedTemplateInputRequestTypeDef",
-    {
-        "Format": TemplateFormatType,
-    },
-    total=False,
-)
-
-class GetGeneratedTemplateInputRequestTypeDef(
-    _RequiredGetGeneratedTemplateInputRequestTypeDef,
-    _OptionalGetGeneratedTemplateInputRequestTypeDef,
-):
-    pass
-
-GetGeneratedTemplateOutputTypeDef = TypedDict(
-    "GetGeneratedTemplateOutputTypeDef",
-    {
-        "Status": GeneratedTemplateStatusType,
-        "TemplateBody": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetStackPolicyInputRequestTypeDef = TypedDict(
-    "GetStackPolicyInputRequestTypeDef",
-    {
-        "StackName": str,
-    },
-)
-
-GetStackPolicyOutputTypeDef = TypedDict(
-    "GetStackPolicyOutputTypeDef",
-    {
-        "StackPolicyBody": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetTemplateInputRequestTypeDef = TypedDict(
-    "GetTemplateInputRequestTypeDef",
-    {
-        "StackName": str,
-        "ChangeSetName": str,
-        "TemplateStage": TemplateStageType,
-    },
-    total=False,
-)
-
-GetTemplateOutputTypeDef = TypedDict(
-    "GetTemplateOutputTypeDef",
-    {
-        "TemplateBody": str,
-        "StagesAvailable": List[TemplateStageType],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-GetTemplateSummaryInputRequestTypeDef = TypedDict(
-    "GetTemplateSummaryInputRequestTypeDef",
-    {
-        "TemplateBody": str,
-        "TemplateURL": str,
-        "StackName": str,
-        "StackSetName": str,
-        "CallAs": CallAsType,
-        "TemplateSummaryConfig": "TemplateSummaryConfigTypeDef",
-    },
-    total=False,
-)
-
-GetTemplateSummaryOutputTypeDef = TypedDict(
-    "GetTemplateSummaryOutputTypeDef",
-    {
-        "Parameters": List["ParameterDeclarationTypeDef"],
-        "Description": str,
-        "Capabilities": List[CapabilityType],
-        "CapabilitiesReason": str,
-        "ResourceTypes": List[str],
-        "Version": str,
-        "Metadata": str,
-        "DeclaredTransforms": List[str],
-        "ResourceIdentifierSummaries": List["ResourceIdentifierSummaryTypeDef"],
-        "Warnings": "WarningsTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredImportStacksToStackSetInputRequestTypeDef = TypedDict(
-    "_RequiredImportStacksToStackSetInputRequestTypeDef",
-    {
-        "StackSetName": str,
-    },
-)
-_OptionalImportStacksToStackSetInputRequestTypeDef = TypedDict(
-    "_OptionalImportStacksToStackSetInputRequestTypeDef",
-    {
-        "StackIds": List[str],
-        "StackIdsUrl": str,
-        "OrganizationalUnitIds": List[str],
-        "OperationPreferences": "StackSetOperationPreferencesTypeDef",
-        "OperationId": str,
-        "CallAs": CallAsType,
-    },
-    total=False,
-)
-
-class ImportStacksToStackSetInputRequestTypeDef(
-    _RequiredImportStacksToStackSetInputRequestTypeDef,
-    _OptionalImportStacksToStackSetInputRequestTypeDef,
-):
-    pass
-
-ImportStacksToStackSetOutputTypeDef = TypedDict(
-    "ImportStacksToStackSetOutputTypeDef",
-    {
-        "OperationId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListChangeSetsInputRequestTypeDef = TypedDict(
-    "_RequiredListChangeSetsInputRequestTypeDef",
-    {
-        "StackName": str,
-    },
-)
-_OptionalListChangeSetsInputRequestTypeDef = TypedDict(
-    "_OptionalListChangeSetsInputRequestTypeDef",
-    {
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListChangeSetsInputRequestTypeDef(
-    _RequiredListChangeSetsInputRequestTypeDef, _OptionalListChangeSetsInputRequestTypeDef
-):
-    pass
-
-ListChangeSetsOutputTypeDef = TypedDict(
-    "ListChangeSetsOutputTypeDef",
-    {
-        "Summaries": List["ChangeSetSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListExportsInputRequestTypeDef = TypedDict(
-    "ListExportsInputRequestTypeDef",
-    {
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListExportsOutputTypeDef = TypedDict(
-    "ListExportsOutputTypeDef",
-    {
-        "Exports": List["ExportTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListGeneratedTemplatesInputRequestTypeDef = TypedDict(
-    "ListGeneratedTemplatesInputRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-ListGeneratedTemplatesOutputTypeDef = TypedDict(
-    "ListGeneratedTemplatesOutputTypeDef",
-    {
-        "Summaries": List["TemplateSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListImportsInputRequestTypeDef = TypedDict(
-    "_RequiredListImportsInputRequestTypeDef",
-    {
-        "ExportName": str,
-    },
-)
-_OptionalListImportsInputRequestTypeDef = TypedDict(
-    "_OptionalListImportsInputRequestTypeDef",
-    {
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListImportsInputRequestTypeDef(
-    _RequiredListImportsInputRequestTypeDef, _OptionalListImportsInputRequestTypeDef
-):
-    pass
-
-ListImportsOutputTypeDef = TypedDict(
-    "ListImportsOutputTypeDef",
-    {
-        "Imports": List[str],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListResourceScanRelatedResourcesInputRequestTypeDef = TypedDict(
-    "_RequiredListResourceScanRelatedResourcesInputRequestTypeDef",
-    {
-        "ResourceScanId": str,
-        "Resources": List["ScannedResourceIdentifierTypeDef"],
-    },
-)
-_OptionalListResourceScanRelatedResourcesInputRequestTypeDef = TypedDict(
-    "_OptionalListResourceScanRelatedResourcesInputRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-class ListResourceScanRelatedResourcesInputRequestTypeDef(
-    _RequiredListResourceScanRelatedResourcesInputRequestTypeDef,
-    _OptionalListResourceScanRelatedResourcesInputRequestTypeDef,
-):
-    pass
-
-ListResourceScanRelatedResourcesOutputTypeDef = TypedDict(
-    "ListResourceScanRelatedResourcesOutputTypeDef",
-    {
-        "RelatedResources": List["ScannedResourceTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListResourceScanResourcesInputRequestTypeDef = TypedDict(
-    "_RequiredListResourceScanResourcesInputRequestTypeDef",
-    {
-        "ResourceScanId": str,
-    },
-)
-_OptionalListResourceScanResourcesInputRequestTypeDef = TypedDict(
-    "_OptionalListResourceScanResourcesInputRequestTypeDef",
-    {
-        "ResourceIdentifier": str,
-        "ResourceTypePrefix": str,
-        "TagKey": str,
-        "TagValue": str,
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-class ListResourceScanResourcesInputRequestTypeDef(
-    _RequiredListResourceScanResourcesInputRequestTypeDef,
-    _OptionalListResourceScanResourcesInputRequestTypeDef,
-):
-    pass
-
-ListResourceScanResourcesOutputTypeDef = TypedDict(
-    "ListResourceScanResourcesOutputTypeDef",
-    {
-        "Resources": List["ScannedResourceTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListResourceScansInputRequestTypeDef = TypedDict(
-    "ListResourceScansInputRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-    },
-    total=False,
-)
-
-ListResourceScansOutputTypeDef = TypedDict(
-    "ListResourceScansOutputTypeDef",
-    {
-        "ResourceScanSummaries": List["ResourceScanSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListStackInstanceResourceDriftsInputRequestTypeDef = TypedDict(
-    "_RequiredListStackInstanceResourceDriftsInputRequestTypeDef",
-    {
-        "StackSetName": str,
-        "StackInstanceAccount": str,
-        "StackInstanceRegion": str,
-        "OperationId": str,
-    },
-)
-_OptionalListStackInstanceResourceDriftsInputRequestTypeDef = TypedDict(
-    "_OptionalListStackInstanceResourceDriftsInputRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-        "StackInstanceResourceDriftStatuses": List[StackResourceDriftStatusType],
-        "CallAs": CallAsType,
-    },
-    total=False,
-)
-
-class ListStackInstanceResourceDriftsInputRequestTypeDef(
-    _RequiredListStackInstanceResourceDriftsInputRequestTypeDef,
-    _OptionalListStackInstanceResourceDriftsInputRequestTypeDef,
-):
-    pass
-
-ListStackInstanceResourceDriftsOutputTypeDef = TypedDict(
-    "ListStackInstanceResourceDriftsOutputTypeDef",
-    {
-        "Summaries": List["StackInstanceResourceDriftsSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListStackInstancesInputRequestTypeDef = TypedDict(
-    "_RequiredListStackInstancesInputRequestTypeDef",
-    {
-        "StackSetName": str,
-    },
-)
-_OptionalListStackInstancesInputRequestTypeDef = TypedDict(
-    "_OptionalListStackInstancesInputRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-        "Filters": List["StackInstanceFilterTypeDef"],
-        "StackInstanceAccount": str,
-        "StackInstanceRegion": str,
-        "CallAs": CallAsType,
-    },
-    total=False,
-)
-
-class ListStackInstancesInputRequestTypeDef(
-    _RequiredListStackInstancesInputRequestTypeDef, _OptionalListStackInstancesInputRequestTypeDef
-):
-    pass
-
-ListStackInstancesOutputTypeDef = TypedDict(
-    "ListStackInstancesOutputTypeDef",
-    {
-        "Summaries": List["StackInstanceSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListStackResourcesInputRequestTypeDef = TypedDict(
-    "_RequiredListStackResourcesInputRequestTypeDef",
-    {
-        "StackName": str,
-    },
-)
-_OptionalListStackResourcesInputRequestTypeDef = TypedDict(
-    "_OptionalListStackResourcesInputRequestTypeDef",
-    {
-        "NextToken": str,
-    },
-    total=False,
-)
-
-class ListStackResourcesInputRequestTypeDef(
-    _RequiredListStackResourcesInputRequestTypeDef, _OptionalListStackResourcesInputRequestTypeDef
-):
-    pass
-
-ListStackResourcesOutputTypeDef = TypedDict(
-    "ListStackResourcesOutputTypeDef",
-    {
-        "StackResourceSummaries": List["StackResourceSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListStackSetAutoDeploymentTargetsInputRequestTypeDef = TypedDict(
-    "_RequiredListStackSetAutoDeploymentTargetsInputRequestTypeDef",
-    {
-        "StackSetName": str,
-    },
-)
-_OptionalListStackSetAutoDeploymentTargetsInputRequestTypeDef = TypedDict(
-    "_OptionalListStackSetAutoDeploymentTargetsInputRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-        "CallAs": CallAsType,
-    },
-    total=False,
-)
-
-class ListStackSetAutoDeploymentTargetsInputRequestTypeDef(
-    _RequiredListStackSetAutoDeploymentTargetsInputRequestTypeDef,
-    _OptionalListStackSetAutoDeploymentTargetsInputRequestTypeDef,
-):
-    pass
-
-ListStackSetAutoDeploymentTargetsOutputTypeDef = TypedDict(
-    "ListStackSetAutoDeploymentTargetsOutputTypeDef",
-    {
-        "Summaries": List["StackSetAutoDeploymentTargetSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListStackSetOperationResultsInputRequestTypeDef = TypedDict(
-    "_RequiredListStackSetOperationResultsInputRequestTypeDef",
-    {
-        "StackSetName": str,
-        "OperationId": str,
-    },
-)
-_OptionalListStackSetOperationResultsInputRequestTypeDef = TypedDict(
-    "_OptionalListStackSetOperationResultsInputRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-        "CallAs": CallAsType,
-        "Filters": List["OperationResultFilterTypeDef"],
-    },
-    total=False,
-)
-
-class ListStackSetOperationResultsInputRequestTypeDef(
-    _RequiredListStackSetOperationResultsInputRequestTypeDef,
-    _OptionalListStackSetOperationResultsInputRequestTypeDef,
-):
-    pass
-
-ListStackSetOperationResultsOutputTypeDef = TypedDict(
-    "ListStackSetOperationResultsOutputTypeDef",
-    {
-        "Summaries": List["StackSetOperationResultSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListStackSetOperationsInputRequestTypeDef = TypedDict(
-    "_RequiredListStackSetOperationsInputRequestTypeDef",
-    {
-        "StackSetName": str,
-    },
-)
-_OptionalListStackSetOperationsInputRequestTypeDef = TypedDict(
-    "_OptionalListStackSetOperationsInputRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-        "CallAs": CallAsType,
-    },
-    total=False,
-)
-
-class ListStackSetOperationsInputRequestTypeDef(
-    _RequiredListStackSetOperationsInputRequestTypeDef,
-    _OptionalListStackSetOperationsInputRequestTypeDef,
-):
-    pass
-
-ListStackSetOperationsOutputTypeDef = TypedDict(
-    "ListStackSetOperationsOutputTypeDef",
-    {
-        "Summaries": List["StackSetOperationSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListStackSetsInputRequestTypeDef = TypedDict(
-    "ListStackSetsInputRequestTypeDef",
-    {
-        "NextToken": str,
-        "MaxResults": int,
-        "Status": StackSetStatusType,
-        "CallAs": CallAsType,
-    },
-    total=False,
-)
-
-ListStackSetsOutputTypeDef = TypedDict(
-    "ListStackSetsOutputTypeDef",
-    {
-        "Summaries": List["StackSetSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListStacksInputRequestTypeDef = TypedDict(
-    "ListStacksInputRequestTypeDef",
-    {
-        "NextToken": str,
-        "StackStatusFilter": List[StackStatusType],
-    },
-    total=False,
-)
-
-ListStacksOutputTypeDef = TypedDict(
-    "ListStacksOutputTypeDef",
-    {
-        "StackSummaries": List["StackSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTypeRegistrationsInputRequestTypeDef = TypedDict(
-    "ListTypeRegistrationsInputRequestTypeDef",
-    {
-        "Type": RegistryTypeType,
-        "TypeName": str,
-        "TypeArn": str,
-        "RegistrationStatusFilter": RegistrationStatusType,
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListTypeRegistrationsOutputTypeDef = TypedDict(
-    "ListTypeRegistrationsOutputTypeDef",
-    {
-        "RegistrationTokenList": List[str],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTypeVersionsInputRequestTypeDef = TypedDict(
-    "ListTypeVersionsInputRequestTypeDef",
-    {
-        "Type": RegistryTypeType,
-        "TypeName": str,
-        "Arn": str,
-        "MaxResults": int,
-        "NextToken": str,
-        "DeprecatedStatus": DeprecatedStatusType,
-        "PublisherId": str,
-    },
-    total=False,
-)
-
-ListTypeVersionsOutputTypeDef = TypedDict(
-    "ListTypeVersionsOutputTypeDef",
-    {
-        "TypeVersionSummaries": List["TypeVersionSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListTypesInputRequestTypeDef = TypedDict(
-    "ListTypesInputRequestTypeDef",
-    {
-        "Visibility": VisibilityType,
-        "ProvisioningType": ProvisioningTypeType,
-        "DeprecatedStatus": DeprecatedStatusType,
-        "Type": RegistryTypeType,
-        "Filters": "TypeFiltersTypeDef",
-        "MaxResults": int,
-        "NextToken": str,
-    },
-    total=False,
-)
-
-ListTypesOutputTypeDef = TypedDict(
-    "ListTypesOutputTypeDef",
-    {
-        "TypeSummaries": List["TypeSummaryTypeDef"],
-        "NextToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-LoggingConfigTypeDef = TypedDict(
-    "LoggingConfigTypeDef",
-    {
-        "LogRoleArn": str,
-        "LogGroupName": str,
-    },
-)
-
-ManagedExecutionTypeDef = TypedDict(
-    "ManagedExecutionTypeDef",
-    {
-        "Active": bool,
-    },
-    total=False,
-)
-
-ModuleInfoTypeDef = TypedDict(
-    "ModuleInfoTypeDef",
-    {
-        "TypeHierarchy": str,
-        "LogicalIdHierarchy": str,
-    },
-    total=False,
-)
-
-OperationResultFilterTypeDef = TypedDict(
-    "OperationResultFilterTypeDef",
-    {
-        "Name": Literal["OPERATION_RESULT_STATUS"],
-        "Values": str,
-    },
-    total=False,
-)
-
-OutputTypeDef = TypedDict(
-    "OutputTypeDef",
-    {
-        "OutputKey": str,
-        "OutputValue": str,
-        "Description": str,
-        "ExportName": str,
-    },
-    total=False,
-)
-
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
-    {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
-    },
-    total=False,
-)
-
-ParameterConstraintsTypeDef = TypedDict(
-    "ParameterConstraintsTypeDef",
-    {
-        "AllowedValues": List[str],
-    },
-    total=False,
-)
-
-ParameterDeclarationTypeDef = TypedDict(
-    "ParameterDeclarationTypeDef",
-    {
-        "ParameterKey": str,
-        "DefaultValue": str,
-        "ParameterType": str,
-        "NoEcho": bool,
-        "Description": str,
-        "ParameterConstraints": "ParameterConstraintsTypeDef",
-    },
-    total=False,
-)
-
-ParameterTypeDef = TypedDict(
-    "ParameterTypeDef",
-    {
-        "ParameterKey": str,
-        "ParameterValue": str,
-        "UsePreviousValue": bool,
-        "ResolvedValue": str,
-    },
-    total=False,
-)
-
-PhysicalResourceIdContextKeyValuePairTypeDef = TypedDict(
-    "PhysicalResourceIdContextKeyValuePairTypeDef",
-    {
-        "Key": str,
-        "Value": str,
-    },
-)
-
-PropertyDifferenceTypeDef = TypedDict(
-    "PropertyDifferenceTypeDef",
-    {
-        "PropertyPath": str,
-        "ExpectedValue": str,
-        "ActualValue": str,
-        "DifferenceType": DifferenceTypeType,
-    },
-)
-
-PublishTypeInputRequestTypeDef = TypedDict(
-    "PublishTypeInputRequestTypeDef",
-    {
-        "Type": ThirdPartyTypeType,
-        "Arn": str,
-        "TypeName": str,
-        "PublicVersionNumber": str,
-    },
-    total=False,
-)
-
-PublishTypeOutputTypeDef = TypedDict(
-    "PublishTypeOutputTypeDef",
-    {
-        "PublicTypeArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredRecordHandlerProgressInputRequestTypeDef = TypedDict(
-    "_RequiredRecordHandlerProgressInputRequestTypeDef",
-    {
-        "BearerToken": str,
-        "OperationStatus": OperationStatusType,
-    },
-)
-_OptionalRecordHandlerProgressInputRequestTypeDef = TypedDict(
-    "_OptionalRecordHandlerProgressInputRequestTypeDef",
-    {
-        "CurrentOperationStatus": OperationStatusType,
-        "StatusMessage": str,
-        "ErrorCode": HandlerErrorCodeType,
-        "ResourceModel": str,
-        "ClientRequestToken": str,
-    },
-    total=False,
-)
-
-class RecordHandlerProgressInputRequestTypeDef(
-    _RequiredRecordHandlerProgressInputRequestTypeDef,
-    _OptionalRecordHandlerProgressInputRequestTypeDef,
-):
-    pass
-
-RegisterPublisherInputRequestTypeDef = TypedDict(
-    "RegisterPublisherInputRequestTypeDef",
-    {
-        "AcceptTermsAndConditions": bool,
-        "ConnectionArn": str,
-    },
-    total=False,
-)
-
-RegisterPublisherOutputTypeDef = TypedDict(
-    "RegisterPublisherOutputTypeDef",
-    {
-        "PublisherId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredRegisterTypeInputRequestTypeDef = TypedDict(
-    "_RequiredRegisterTypeInputRequestTypeDef",
-    {
-        "TypeName": str,
-        "SchemaHandlerPackage": str,
-    },
-)
-_OptionalRegisterTypeInputRequestTypeDef = TypedDict(
-    "_OptionalRegisterTypeInputRequestTypeDef",
-    {
-        "Type": RegistryTypeType,
-        "LoggingConfig": "LoggingConfigTypeDef",
-        "ExecutionRoleArn": str,
-        "ClientRequestToken": str,
-    },
-    total=False,
-)
-
-class RegisterTypeInputRequestTypeDef(
-    _RequiredRegisterTypeInputRequestTypeDef, _OptionalRegisterTypeInputRequestTypeDef
-):
-    pass
-
-RegisterTypeOutputTypeDef = TypedDict(
-    "RegisterTypeOutputTypeDef",
-    {
-        "RegistrationToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-RequiredActivatedTypeTypeDef = TypedDict(
-    "RequiredActivatedTypeTypeDef",
-    {
-        "TypeNameAlias": str,
-        "OriginalTypeName": str,
-        "PublisherId": str,
-        "SupportedMajorVersions": List[int],
-    },
-    total=False,
-)
-
-ResourceChangeDetailTypeDef = TypedDict(
-    "ResourceChangeDetailTypeDef",
-    {
-        "Target": "ResourceTargetDefinitionTypeDef",
-        "Evaluation": EvaluationTypeType,
-        "ChangeSource": ChangeSourceType,
-        "CausingEntity": str,
-    },
-    total=False,
-)
-
-ResourceChangeTypeDef = TypedDict(
-    "ResourceChangeTypeDef",
-    {
-        "PolicyAction": PolicyActionType,
-        "Action": ChangeActionType,
-        "LogicalResourceId": str,
-        "PhysicalResourceId": str,
-        "ResourceType": str,
-        "Replacement": ReplacementType,
-        "Scope": List[ResourceAttributeType],
-        "Details": List["ResourceChangeDetailTypeDef"],
-        "ChangeSetId": str,
-        "ModuleInfo": "ModuleInfoTypeDef",
-        "BeforeContext": str,
-        "AfterContext": str,
-    },
-    total=False,
-)
-
-_RequiredResourceDefinitionTypeDef = TypedDict(
-    "_RequiredResourceDefinitionTypeDef",
-    {
-        "ResourceType": str,
-        "ResourceIdentifier": Dict[str, str],
-    },
-)
-_OptionalResourceDefinitionTypeDef = TypedDict(
-    "_OptionalResourceDefinitionTypeDef",
-    {
-        "LogicalResourceId": str,
-    },
-    total=False,
-)
-
-class ResourceDefinitionTypeDef(
-    _RequiredResourceDefinitionTypeDef, _OptionalResourceDefinitionTypeDef
-):
-    pass
-
-ResourceDetailTypeDef = TypedDict(
-    "ResourceDetailTypeDef",
-    {
-        "ResourceType": str,
-        "LogicalResourceId": str,
-        "ResourceIdentifier": Dict[str, str],
-        "ResourceStatus": GeneratedTemplateResourceStatusType,
-        "ResourceStatusReason": str,
-        "Warnings": List["WarningDetailTypeDef"],
-    },
-    total=False,
-)
-
-ResourceIdentifierSummaryTypeDef = TypedDict(
-    "ResourceIdentifierSummaryTypeDef",
-    {
-        "ResourceType": str,
-        "LogicalResourceIds": List[str],
-        "ResourceIdentifiers": List[str],
-    },
-    total=False,
-)
-
-ResourceScanSummaryTypeDef = TypedDict(
-    "ResourceScanSummaryTypeDef",
-    {
-        "ResourceScanId": str,
-        "Status": ResourceScanStatusType,
-        "StatusReason": str,
-        "StartTime": datetime,
-        "EndTime": datetime,
-        "PercentageCompleted": float,
-    },
-    total=False,
-)
-
-ResourceTargetDefinitionTypeDef = TypedDict(
-    "ResourceTargetDefinitionTypeDef",
-    {
-        "Attribute": ResourceAttributeType,
-        "Name": str,
-        "RequiresRecreation": RequiresRecreationType,
-        "Path": str,
-        "BeforeValue": str,
-        "AfterValue": str,
-        "AttributeChangeType": AttributeChangeTypeType,
-    },
-    total=False,
-)
-
-ResourceToImportTypeDef = TypedDict(
-    "ResourceToImportTypeDef",
-    {
-        "ResourceType": str,
-        "LogicalResourceId": str,
-        "ResourceIdentifier": Dict[str, str],
-    },
-)
-
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
-
-RollbackConfigurationTypeDef = TypedDict(
-    "RollbackConfigurationTypeDef",
-    {
-        "RollbackTriggers": List["RollbackTriggerTypeDef"],
-        "MonitoringTimeInMinutes": int,
-    },
-    total=False,
-)
-
-_RequiredRollbackStackInputRequestTypeDef = TypedDict(
-    "_RequiredRollbackStackInputRequestTypeDef",
-    {
-        "StackName": str,
-    },
-)
-_OptionalRollbackStackInputRequestTypeDef = TypedDict(
-    "_OptionalRollbackStackInputRequestTypeDef",
-    {
-        "RoleARN": str,
-        "ClientRequestToken": str,
-        "RetainExceptOnCreate": bool,
-    },
-    total=False,
-)
-
-class RollbackStackInputRequestTypeDef(
-    _RequiredRollbackStackInputRequestTypeDef, _OptionalRollbackStackInputRequestTypeDef
-):
-    pass
-
-RollbackStackOutputTypeDef = TypedDict(
-    "RollbackStackOutputTypeDef",
-    {
-        "StackId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-RollbackTriggerTypeDef = TypedDict(
-    "RollbackTriggerTypeDef",
-    {
-        "Arn": str,
-        "Type": str,
-    },
-)
-
-ScannedResourceIdentifierTypeDef = TypedDict(
-    "ScannedResourceIdentifierTypeDef",
-    {
-        "ResourceType": str,
-        "ResourceIdentifier": Dict[str, str],
-    },
-)
-
-ScannedResourceTypeDef = TypedDict(
-    "ScannedResourceTypeDef",
-    {
-        "ResourceType": str,
-        "ResourceIdentifier": Dict[str, str],
-        "ManagedByStack": bool,
-    },
-    total=False,
-)
-
-ServiceResourceEventRequestTypeDef = TypedDict(
-    "ServiceResourceEventRequestTypeDef",
-    {
-        "id": str,
-    },
-)
-
-ServiceResourceStackRequestTypeDef = TypedDict(
-    "ServiceResourceStackRequestTypeDef",
-    {
-        "name": str,
-    },
-)
-
-ServiceResourceStackResourceRequestTypeDef = TypedDict(
-    "ServiceResourceStackResourceRequestTypeDef",
-    {
-        "stack_name": str,
-        "logical_id": str,
-    },
-)
-
-ServiceResourceStackResourceSummaryRequestTypeDef = TypedDict(
-    "ServiceResourceStackResourceSummaryRequestTypeDef",
-    {
-        "stack_name": str,
-        "logical_id": str,
-    },
-)
-
-_RequiredSetStackPolicyInputRequestTypeDef = TypedDict(
-    "_RequiredSetStackPolicyInputRequestTypeDef",
-    {
-        "StackName": str,
-    },
-)
-_OptionalSetStackPolicyInputRequestTypeDef = TypedDict(
-    "_OptionalSetStackPolicyInputRequestTypeDef",
-    {
-        "StackPolicyBody": str,
-        "StackPolicyURL": str,
-    },
-    total=False,
-)
-
-class SetStackPolicyInputRequestTypeDef(
-    _RequiredSetStackPolicyInputRequestTypeDef, _OptionalSetStackPolicyInputRequestTypeDef
-):
-    pass
-
-_RequiredSetTypeConfigurationInputRequestTypeDef = TypedDict(
-    "_RequiredSetTypeConfigurationInputRequestTypeDef",
-    {
-        "Configuration": str,
-    },
-)
-_OptionalSetTypeConfigurationInputRequestTypeDef = TypedDict(
-    "_OptionalSetTypeConfigurationInputRequestTypeDef",
-    {
-        "TypeArn": str,
-        "ConfigurationAlias": str,
-        "TypeName": str,
-        "Type": ThirdPartyTypeType,
-    },
-    total=False,
-)
-
-class SetTypeConfigurationInputRequestTypeDef(
-    _RequiredSetTypeConfigurationInputRequestTypeDef,
-    _OptionalSetTypeConfigurationInputRequestTypeDef,
-):
-    pass
-
-SetTypeConfigurationOutputTypeDef = TypedDict(
-    "SetTypeConfigurationOutputTypeDef",
-    {
-        "ConfigurationArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-SetTypeDefaultVersionInputRequestTypeDef = TypedDict(
-    "SetTypeDefaultVersionInputRequestTypeDef",
-    {
-        "Arn": str,
-        "Type": RegistryTypeType,
-        "TypeName": str,
-        "VersionId": str,
-    },
-    total=False,
-)
-
-SignalResourceInputRequestTypeDef = TypedDict(
-    "SignalResourceInputRequestTypeDef",
-    {
-        "StackName": str,
-        "LogicalResourceId": str,
-        "UniqueId": str,
-        "Status": ResourceSignalStatusType,
-    },
-)
-
-_RequiredStackDriftInformationSummaryTypeDef = TypedDict(
-    "_RequiredStackDriftInformationSummaryTypeDef",
-    {
-        "StackDriftStatus": StackDriftStatusType,
-    },
-)
-_OptionalStackDriftInformationSummaryTypeDef = TypedDict(
-    "_OptionalStackDriftInformationSummaryTypeDef",
-    {
-        "LastCheckTimestamp": datetime,
-    },
-    total=False,
-)
-
-class StackDriftInformationSummaryTypeDef(
-    _RequiredStackDriftInformationSummaryTypeDef, _OptionalStackDriftInformationSummaryTypeDef
-):
-    pass
-
-_RequiredStackDriftInformationTypeDef = TypedDict(
-    "_RequiredStackDriftInformationTypeDef",
-    {
-        "StackDriftStatus": StackDriftStatusType,
-    },
-)
-_OptionalStackDriftInformationTypeDef = TypedDict(
-    "_OptionalStackDriftInformationTypeDef",
-    {
-        "LastCheckTimestamp": datetime,
-    },
-    total=False,
-)
-
-class StackDriftInformationTypeDef(
-    _RequiredStackDriftInformationTypeDef, _OptionalStackDriftInformationTypeDef
-):
-    pass
-
-_RequiredStackEventTypeDef = TypedDict(
-    "_RequiredStackEventTypeDef",
-    {
-        "StackId": str,
-        "EventId": str,
-        "StackName": str,
-        "Timestamp": datetime,
-    },
-)
-_OptionalStackEventTypeDef = TypedDict(
-    "_OptionalStackEventTypeDef",
-    {
-        "LogicalResourceId": str,
-        "PhysicalResourceId": str,
-        "ResourceType": str,
-        "ResourceStatus": ResourceStatusType,
-        "ResourceStatusReason": str,
-        "ResourceProperties": str,
-        "ClientRequestToken": str,
-        "HookType": str,
-        "HookStatus": HookStatusType,
-        "HookStatusReason": str,
-        "HookInvocationPoint": Literal["PRE_PROVISION"],
-        "HookFailureMode": HookFailureModeType,
-        "DetailedStatus": DetailedStatusType,
-    },
-    total=False,
-)
-
-class StackEventTypeDef(_RequiredStackEventTypeDef, _OptionalStackEventTypeDef):
-    pass
-
-StackInstanceComprehensiveStatusTypeDef = TypedDict(
-    "StackInstanceComprehensiveStatusTypeDef",
-    {
-        "DetailedStatus": StackInstanceDetailedStatusType,
-    },
-    total=False,
-)
-
-StackInstanceFilterTypeDef = TypedDict(
-    "StackInstanceFilterTypeDef",
-    {
-        "Name": StackInstanceFilterNameType,
-        "Values": str,
-    },
-    total=False,
-)
-
-_RequiredStackInstanceResourceDriftsSummaryTypeDef = TypedDict(
-    "_RequiredStackInstanceResourceDriftsSummaryTypeDef",
-    {
-        "StackId": str,
-        "LogicalResourceId": str,
-        "ResourceType": str,
-        "StackResourceDriftStatus": StackResourceDriftStatusType,
-        "Timestamp": datetime,
-    },
-)
-_OptionalStackInstanceResourceDriftsSummaryTypeDef = TypedDict(
-    "_OptionalStackInstanceResourceDriftsSummaryTypeDef",
-    {
-        "PhysicalResourceId": str,
-        "PhysicalResourceIdContext": List["PhysicalResourceIdContextKeyValuePairTypeDef"],
-        "PropertyDifferences": List["PropertyDifferenceTypeDef"],
-    },
-    total=False,
-)
-
-class StackInstanceResourceDriftsSummaryTypeDef(
-    _RequiredStackInstanceResourceDriftsSummaryTypeDef,
-    _OptionalStackInstanceResourceDriftsSummaryTypeDef,
-):
-    pass
-
-StackInstanceSummaryTypeDef = TypedDict(
-    "StackInstanceSummaryTypeDef",
-    {
-        "StackSetId": str,
-        "Region": str,
-        "Account": str,
-        "StackId": str,
-        "Status": StackInstanceStatusType,
-        "StatusReason": str,
-        "StackInstanceStatus": "StackInstanceComprehensiveStatusTypeDef",
-        "OrganizationalUnitId": str,
-        "DriftStatus": StackDriftStatusType,
-        "LastDriftCheckTimestamp": datetime,
-        "LastOperationId": str,
-    },
-    total=False,
-)
-
-StackInstanceTypeDef = TypedDict(
-    "StackInstanceTypeDef",
-    {
-        "StackSetId": str,
-        "Region": str,
-        "Account": str,
-        "StackId": str,
-        "ParameterOverrides": List["ParameterTypeDef"],
-        "Status": StackInstanceStatusType,
-        "StackInstanceStatus": "StackInstanceComprehensiveStatusTypeDef",
-        "StatusReason": str,
-        "OrganizationalUnitId": str,
-        "DriftStatus": StackDriftStatusType,
-        "LastDriftCheckTimestamp": datetime,
-        "LastOperationId": str,
-    },
-    total=False,
-)
-
-_RequiredStackResourceDetailTypeDef = TypedDict(
-    "_RequiredStackResourceDetailTypeDef",
-    {
-        "LogicalResourceId": str,
-        "ResourceType": str,
-        "LastUpdatedTimestamp": datetime,
-        "ResourceStatus": ResourceStatusType,
-    },
-)
-_OptionalStackResourceDetailTypeDef = TypedDict(
-    "_OptionalStackResourceDetailTypeDef",
-    {
-        "StackName": str,
-        "StackId": str,
-        "PhysicalResourceId": str,
-        "ResourceStatusReason": str,
-        "Description": str,
-        "Metadata": str,
-        "DriftInformation": "StackResourceDriftInformationTypeDef",
-        "ModuleInfo": "ModuleInfoTypeDef",
-    },
-    total=False,
-)
-
-class StackResourceDetailTypeDef(
-    _RequiredStackResourceDetailTypeDef, _OptionalStackResourceDetailTypeDef
-):
-    pass
-
-_RequiredStackResourceDriftInformationSummaryTypeDef = TypedDict(
-    "_RequiredStackResourceDriftInformationSummaryTypeDef",
-    {
-        "StackResourceDriftStatus": StackResourceDriftStatusType,
-    },
-)
-_OptionalStackResourceDriftInformationSummaryTypeDef = TypedDict(
-    "_OptionalStackResourceDriftInformationSummaryTypeDef",
-    {
-        "LastCheckTimestamp": datetime,
-    },
-    total=False,
-)
-
-class StackResourceDriftInformationSummaryTypeDef(
-    _RequiredStackResourceDriftInformationSummaryTypeDef,
-    _OptionalStackResourceDriftInformationSummaryTypeDef,
-):
-    pass
-
-_RequiredStackResourceDriftInformationTypeDef = TypedDict(
-    "_RequiredStackResourceDriftInformationTypeDef",
-    {
-        "StackResourceDriftStatus": StackResourceDriftStatusType,
-    },
-)
-_OptionalStackResourceDriftInformationTypeDef = TypedDict(
-    "_OptionalStackResourceDriftInformationTypeDef",
-    {
-        "LastCheckTimestamp": datetime,
-    },
-    total=False,
-)
-
-class StackResourceDriftInformationTypeDef(
-    _RequiredStackResourceDriftInformationTypeDef, _OptionalStackResourceDriftInformationTypeDef
-):
-    pass
-
-_RequiredStackResourceDriftTypeDef = TypedDict(
-    "_RequiredStackResourceDriftTypeDef",
-    {
-        "StackId": str,
-        "LogicalResourceId": str,
-        "ResourceType": str,
-        "StackResourceDriftStatus": StackResourceDriftStatusType,
-        "Timestamp": datetime,
-    },
-)
-_OptionalStackResourceDriftTypeDef = TypedDict(
-    "_OptionalStackResourceDriftTypeDef",
-    {
-        "PhysicalResourceId": str,
-        "PhysicalResourceIdContext": List["PhysicalResourceIdContextKeyValuePairTypeDef"],
-        "ExpectedProperties": str,
-        "ActualProperties": str,
-        "PropertyDifferences": List["PropertyDifferenceTypeDef"],
-        "ModuleInfo": "ModuleInfoTypeDef",
-    },
-    total=False,
-)
-
-class StackResourceDriftTypeDef(
-    _RequiredStackResourceDriftTypeDef, _OptionalStackResourceDriftTypeDef
-):
-    pass
-
-StackResourceRequestTypeDef = TypedDict(
-    "StackResourceRequestTypeDef",
-    {
-        "logical_id": str,
-    },
-)
-
-_RequiredStackResourceSummaryTypeDef = TypedDict(
-    "_RequiredStackResourceSummaryTypeDef",
-    {
-        "LogicalResourceId": str,
-        "ResourceType": str,
-        "LastUpdatedTimestamp": datetime,
-        "ResourceStatus": ResourceStatusType,
-    },
-)
-_OptionalStackResourceSummaryTypeDef = TypedDict(
-    "_OptionalStackResourceSummaryTypeDef",
-    {
-        "PhysicalResourceId": str,
-        "ResourceStatusReason": str,
-        "DriftInformation": "StackResourceDriftInformationSummaryTypeDef",
-        "ModuleInfo": "ModuleInfoTypeDef",
-    },
-    total=False,
-)
-
-class StackResourceSummaryTypeDef(
-    _RequiredStackResourceSummaryTypeDef, _OptionalStackResourceSummaryTypeDef
-):
-    pass
-
-_RequiredStackResourceTypeDef = TypedDict(
-    "_RequiredStackResourceTypeDef",
-    {
-        "LogicalResourceId": str,
-        "ResourceType": str,
-        "Timestamp": datetime,
-        "ResourceStatus": ResourceStatusType,
-    },
-)
-_OptionalStackResourceTypeDef = TypedDict(
-    "_OptionalStackResourceTypeDef",
-    {
-        "StackName": str,
-        "StackId": str,
-        "PhysicalResourceId": str,
-        "ResourceStatusReason": str,
-        "Description": str,
-        "DriftInformation": "StackResourceDriftInformationTypeDef",
-        "ModuleInfo": "ModuleInfoTypeDef",
-    },
-    total=False,
-)
-
-class StackResourceTypeDef(_RequiredStackResourceTypeDef, _OptionalStackResourceTypeDef):
-    pass
-
-StackSetAutoDeploymentTargetSummaryTypeDef = TypedDict(
-    "StackSetAutoDeploymentTargetSummaryTypeDef",
-    {
-        "OrganizationalUnitId": str,
-        "Regions": List[str],
-    },
-    total=False,
-)
-
-StackSetDriftDetectionDetailsTypeDef = TypedDict(
-    "StackSetDriftDetectionDetailsTypeDef",
-    {
-        "DriftStatus": StackSetDriftStatusType,
-        "DriftDetectionStatus": StackSetDriftDetectionStatusType,
-        "LastDriftCheckTimestamp": datetime,
-        "TotalStackInstancesCount": int,
-        "DriftedStackInstancesCount": int,
-        "InSyncStackInstancesCount": int,
-        "InProgressStackInstancesCount": int,
-        "FailedStackInstancesCount": int,
-    },
-    total=False,
-)
-
-StackSetOperationPreferencesTypeDef = TypedDict(
-    "StackSetOperationPreferencesTypeDef",
-    {
-        "RegionConcurrencyType": RegionConcurrencyTypeType,
-        "RegionOrder": List[str],
-        "FailureToleranceCount": int,
-        "FailureTolerancePercentage": int,
-        "MaxConcurrentCount": int,
-        "MaxConcurrentPercentage": int,
-        "ConcurrencyMode": ConcurrencyModeType,
-    },
-    total=False,
-)
-
-StackSetOperationResultSummaryTypeDef = TypedDict(
-    "StackSetOperationResultSummaryTypeDef",
-    {
-        "Account": str,
-        "Region": str,
-        "Status": StackSetOperationResultStatusType,
-        "StatusReason": str,
-        "AccountGateResult": "AccountGateResultTypeDef",
-        "OrganizationalUnitId": str,
-    },
-    total=False,
-)
-
-StackSetOperationStatusDetailsTypeDef = TypedDict(
-    "StackSetOperationStatusDetailsTypeDef",
-    {
-        "FailedStackInstancesCount": int,
-    },
-    total=False,
-)
-
-StackSetOperationSummaryTypeDef = TypedDict(
-    "StackSetOperationSummaryTypeDef",
-    {
-        "OperationId": str,
-        "Action": StackSetOperationActionType,
-        "Status": StackSetOperationStatusType,
-        "CreationTimestamp": datetime,
-        "EndTimestamp": datetime,
-        "StatusReason": str,
-        "StatusDetails": "StackSetOperationStatusDetailsTypeDef",
-        "OperationPreferences": "StackSetOperationPreferencesTypeDef",
-    },
-    total=False,
-)
-
-StackSetOperationTypeDef = TypedDict(
-    "StackSetOperationTypeDef",
-    {
-        "OperationId": str,
-        "StackSetId": str,
-        "Action": StackSetOperationActionType,
-        "Status": StackSetOperationStatusType,
-        "OperationPreferences": "StackSetOperationPreferencesTypeDef",
-        "RetainStacks": bool,
-        "AdministrationRoleARN": str,
-        "ExecutionRoleName": str,
-        "CreationTimestamp": datetime,
-        "EndTimestamp": datetime,
-        "DeploymentTargets": "DeploymentTargetsTypeDef",
-        "StackSetDriftDetectionDetails": "StackSetDriftDetectionDetailsTypeDef",
-        "StatusReason": str,
-        "StatusDetails": "StackSetOperationStatusDetailsTypeDef",
-    },
-    total=False,
-)
-
-StackSetSummaryTypeDef = TypedDict(
-    "StackSetSummaryTypeDef",
-    {
-        "StackSetName": str,
-        "StackSetId": str,
-        "Description": str,
-        "Status": StackSetStatusType,
-        "AutoDeployment": "AutoDeploymentTypeDef",
-        "PermissionModel": PermissionModelsType,
-        "DriftStatus": StackDriftStatusType,
-        "LastDriftCheckTimestamp": datetime,
-        "ManagedExecution": "ManagedExecutionTypeDef",
-    },
-    total=False,
-)
-
-StackSetTypeDef = TypedDict(
-    "StackSetTypeDef",
-    {
-        "StackSetName": str,
-        "StackSetId": str,
-        "Description": str,
-        "Status": StackSetStatusType,
-        "TemplateBody": str,
-        "Parameters": List["ParameterTypeDef"],
-        "Capabilities": List[CapabilityType],
-        "Tags": List["TagTypeDef"],
-        "StackSetARN": str,
-        "AdministrationRoleARN": str,
-        "ExecutionRoleName": str,
-        "StackSetDriftDetectionDetails": "StackSetDriftDetectionDetailsTypeDef",
-        "AutoDeployment": "AutoDeploymentTypeDef",
-        "PermissionModel": PermissionModelsType,
-        "OrganizationalUnitIds": List[str],
-        "ManagedExecution": "ManagedExecutionTypeDef",
-        "Regions": List[str],
-    },
-    total=False,
-)
-
-_RequiredStackSummaryTypeDef = TypedDict(
-    "_RequiredStackSummaryTypeDef",
-    {
-        "StackName": str,
-        "CreationTime": datetime,
-        "StackStatus": StackStatusType,
-    },
-)
-_OptionalStackSummaryTypeDef = TypedDict(
-    "_OptionalStackSummaryTypeDef",
-    {
-        "StackId": str,
-        "TemplateDescription": str,
-        "LastUpdatedTime": datetime,
-        "DeletionTime": datetime,
-        "StackStatusReason": str,
-        "ParentId": str,
-        "RootId": str,
-        "DriftInformation": "StackDriftInformationSummaryTypeDef",
-    },
-    total=False,
-)
-
-class StackSummaryTypeDef(_RequiredStackSummaryTypeDef, _OptionalStackSummaryTypeDef):
-    pass
-
-_RequiredStackTypeDef = TypedDict(
-    "_RequiredStackTypeDef",
-    {
-        "StackName": str,
-        "CreationTime": datetime,
-        "StackStatus": StackStatusType,
-    },
-)
-_OptionalStackTypeDef = TypedDict(
-    "_OptionalStackTypeDef",
-    {
-        "StackId": str,
-        "ChangeSetId": str,
-        "Description": str,
-        "Parameters": List["ParameterTypeDef"],
-        "DeletionTime": datetime,
-        "LastUpdatedTime": datetime,
-        "RollbackConfiguration": "RollbackConfigurationTypeDef",
-        "StackStatusReason": str,
-        "DisableRollback": bool,
-        "NotificationARNs": List[str],
-        "TimeoutInMinutes": int,
-        "Capabilities": List[CapabilityType],
-        "Outputs": List["OutputTypeDef"],
-        "RoleARN": str,
-        "Tags": List["TagTypeDef"],
-        "EnableTerminationProtection": bool,
-        "ParentId": str,
-        "RootId": str,
-        "DriftInformation": "StackDriftInformationTypeDef",
-        "RetainExceptOnCreate": bool,
-        "DeletionMode": DeletionModeType,
-        "DetailedStatus": DetailedStatusType,
-    },
-    total=False,
-)
-
-class StackTypeDef(_RequiredStackTypeDef, _OptionalStackTypeDef):
-    pass
-
-StartResourceScanInputRequestTypeDef = TypedDict(
-    "StartResourceScanInputRequestTypeDef",
-    {
-        "ClientRequestToken": str,
-    },
-    total=False,
-)
-
-StartResourceScanOutputTypeDef = TypedDict(
-    "StartResourceScanOutputTypeDef",
-    {
-        "ResourceScanId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredStopStackSetOperationInputRequestTypeDef = TypedDict(
-    "_RequiredStopStackSetOperationInputRequestTypeDef",
-    {
-        "StackSetName": str,
-        "OperationId": str,
-    },
-)
-_OptionalStopStackSetOperationInputRequestTypeDef = TypedDict(
-    "_OptionalStopStackSetOperationInputRequestTypeDef",
-    {
-        "CallAs": CallAsType,
-    },
-    total=False,
-)
-
-class StopStackSetOperationInputRequestTypeDef(
-    _RequiredStopStackSetOperationInputRequestTypeDef,
-    _OptionalStopStackSetOperationInputRequestTypeDef,
-):
-    pass
-
-TagTypeDef = TypedDict(
-    "TagTypeDef",
-    {
-        "Key": str,
-        "Value": str,
-    },
-)
-
-TemplateConfigurationTypeDef = TypedDict(
-    "TemplateConfigurationTypeDef",
-    {
-        "DeletionPolicy": GeneratedTemplateDeletionPolicyType,
-        "UpdateReplacePolicy": GeneratedTemplateUpdateReplacePolicyType,
-    },
-    total=False,
-)
-
-TemplateParameterTypeDef = TypedDict(
-    "TemplateParameterTypeDef",
-    {
-        "ParameterKey": str,
-        "DefaultValue": str,
-        "NoEcho": bool,
-        "Description": str,
-    },
-    total=False,
-)
-
-TemplateProgressTypeDef = TypedDict(
-    "TemplateProgressTypeDef",
-    {
-        "ResourcesSucceeded": int,
-        "ResourcesFailed": int,
-        "ResourcesProcessing": int,
-        "ResourcesPending": int,
-    },
-    total=False,
-)
-
-TemplateSummaryConfigTypeDef = TypedDict(
-    "TemplateSummaryConfigTypeDef",
-    {
-        "TreatUnrecognizedResourceTypesAsWarnings": bool,
-    },
-    total=False,
-)
-
-TemplateSummaryTypeDef = TypedDict(
-    "TemplateSummaryTypeDef",
-    {
-        "GeneratedTemplateId": str,
-        "GeneratedTemplateName": str,
-        "Status": GeneratedTemplateStatusType,
-        "StatusReason": str,
-        "CreationTime": datetime,
-        "LastUpdatedTime": datetime,
-        "NumberOfResources": int,
-    },
-    total=False,
-)
-
-TestTypeInputRequestTypeDef = TypedDict(
-    "TestTypeInputRequestTypeDef",
-    {
-        "Arn": str,
-        "Type": ThirdPartyTypeType,
-        "TypeName": str,
-        "VersionId": str,
-        "LogDeliveryBucket": str,
-    },
-    total=False,
-)
-
-TestTypeOutputTypeDef = TypedDict(
-    "TestTypeOutputTypeDef",
-    {
-        "TypeVersionArn": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-TypeConfigurationDetailsTypeDef = TypedDict(
-    "TypeConfigurationDetailsTypeDef",
-    {
-        "Arn": str,
-        "Alias": str,
-        "Configuration": str,
-        "LastUpdated": datetime,
-        "TypeArn": str,
-        "TypeName": str,
-        "IsDefaultConfiguration": bool,
-    },
-    total=False,
-)
-
-TypeConfigurationIdentifierTypeDef = TypedDict(
-    "TypeConfigurationIdentifierTypeDef",
-    {
-        "TypeArn": str,
-        "TypeConfigurationAlias": str,
-        "TypeConfigurationArn": str,
-        "Type": ThirdPartyTypeType,
-        "TypeName": str,
-    },
-    total=False,
-)
-
-TypeFiltersTypeDef = TypedDict(
-    "TypeFiltersTypeDef",
-    {
-        "Category": CategoryType,
-        "PublisherId": str,
-        "TypeNamePrefix": str,
-    },
-    total=False,
-)
-
-TypeSummaryTypeDef = TypedDict(
-    "TypeSummaryTypeDef",
-    {
-        "Type": RegistryTypeType,
-        "TypeName": str,
-        "DefaultVersionId": str,
-        "TypeArn": str,
-        "LastUpdated": datetime,
-        "Description": str,
-        "PublisherId": str,
-        "OriginalTypeName": str,
-        "PublicVersionNumber": str,
-        "LatestPublicVersion": str,
-        "PublisherIdentity": IdentityProviderType,
-        "PublisherName": str,
-        "IsActivated": bool,
-    },
-    total=False,
-)
-
-TypeVersionSummaryTypeDef = TypedDict(
-    "TypeVersionSummaryTypeDef",
-    {
-        "Type": RegistryTypeType,
-        "TypeName": str,
-        "VersionId": str,
-        "IsDefaultVersion": bool,
-        "Arn": str,
-        "TimeCreated": datetime,
-        "Description": str,
-        "PublicVersionNumber": str,
-    },
-    total=False,
-)
-
-_RequiredUpdateGeneratedTemplateInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateGeneratedTemplateInputRequestTypeDef",
-    {
-        "GeneratedTemplateName": str,
-    },
-)
-_OptionalUpdateGeneratedTemplateInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateGeneratedTemplateInputRequestTypeDef",
-    {
-        "NewGeneratedTemplateName": str,
-        "AddResources": List["ResourceDefinitionTypeDef"],
-        "RemoveResources": List[str],
-        "RefreshAllResources": bool,
-        "TemplateConfiguration": "TemplateConfigurationTypeDef",
-    },
-    total=False,
-)
-
-class UpdateGeneratedTemplateInputRequestTypeDef(
-    _RequiredUpdateGeneratedTemplateInputRequestTypeDef,
-    _OptionalUpdateGeneratedTemplateInputRequestTypeDef,
-):
-    pass
-
-UpdateGeneratedTemplateOutputTypeDef = TypedDict(
-    "UpdateGeneratedTemplateOutputTypeDef",
-    {
-        "GeneratedTemplateId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateStackInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateStackInputRequestTypeDef",
-    {
-        "StackName": str,
-    },
-)
-_OptionalUpdateStackInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateStackInputRequestTypeDef",
-    {
-        "TemplateBody": str,
-        "TemplateURL": str,
-        "UsePreviousTemplate": bool,
-        "StackPolicyDuringUpdateBody": str,
-        "StackPolicyDuringUpdateURL": str,
-        "Parameters": List["ParameterTypeDef"],
-        "Capabilities": List[CapabilityType],
-        "ResourceTypes": List[str],
-        "RoleARN": str,
-        "RollbackConfiguration": "RollbackConfigurationTypeDef",
-        "StackPolicyBody": str,
-        "StackPolicyURL": str,
-        "NotificationARNs": List[str],
-        "Tags": List["TagTypeDef"],
-        "DisableRollback": bool,
-        "ClientRequestToken": str,
-        "RetainExceptOnCreate": bool,
-    },
-    total=False,
-)
-
-class UpdateStackInputRequestTypeDef(
-    _RequiredUpdateStackInputRequestTypeDef, _OptionalUpdateStackInputRequestTypeDef
-):
-    pass
-
-UpdateStackInputStackTypeDef = TypedDict(
-    "UpdateStackInputStackTypeDef",
-    {
-        "TemplateBody": str,
-        "TemplateURL": str,
-        "UsePreviousTemplate": bool,
-        "StackPolicyDuringUpdateBody": str,
-        "StackPolicyDuringUpdateURL": str,
-        "Parameters": List["ParameterTypeDef"],
-        "Capabilities": List[CapabilityType],
-        "ResourceTypes": List[str],
-        "RoleARN": str,
-        "RollbackConfiguration": "RollbackConfigurationTypeDef",
-        "StackPolicyBody": str,
-        "StackPolicyURL": str,
-        "NotificationARNs": List[str],
-        "Tags": List["TagTypeDef"],
-        "DisableRollback": bool,
-        "ClientRequestToken": str,
-        "RetainExceptOnCreate": bool,
-    },
-    total=False,
-)
-
-_RequiredUpdateStackInstancesInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateStackInstancesInputRequestTypeDef",
-    {
-        "StackSetName": str,
-        "Regions": List[str],
-    },
-)
-_OptionalUpdateStackInstancesInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateStackInstancesInputRequestTypeDef",
-    {
-        "Accounts": List[str],
-        "DeploymentTargets": "DeploymentTargetsTypeDef",
-        "ParameterOverrides": List["ParameterTypeDef"],
-        "OperationPreferences": "StackSetOperationPreferencesTypeDef",
-        "OperationId": str,
-        "CallAs": CallAsType,
-    },
-    total=False,
-)
-
-class UpdateStackInstancesInputRequestTypeDef(
-    _RequiredUpdateStackInstancesInputRequestTypeDef,
-    _OptionalUpdateStackInstancesInputRequestTypeDef,
-):
-    pass
-
-UpdateStackInstancesOutputTypeDef = TypedDict(
-    "UpdateStackInstancesOutputTypeDef",
-    {
-        "OperationId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UpdateStackOutputTypeDef = TypedDict(
-    "UpdateStackOutputTypeDef",
-    {
-        "StackId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdateStackSetInputRequestTypeDef = TypedDict(
-    "_RequiredUpdateStackSetInputRequestTypeDef",
-    {
-        "StackSetName": str,
-    },
-)
-_OptionalUpdateStackSetInputRequestTypeDef = TypedDict(
-    "_OptionalUpdateStackSetInputRequestTypeDef",
-    {
-        "Description": str,
-        "TemplateBody": str,
-        "TemplateURL": str,
-        "UsePreviousTemplate": bool,
-        "Parameters": List["ParameterTypeDef"],
-        "Capabilities": List[CapabilityType],
-        "Tags": List["TagTypeDef"],
-        "OperationPreferences": "StackSetOperationPreferencesTypeDef",
-        "AdministrationRoleARN": str,
-        "ExecutionRoleName": str,
-        "DeploymentTargets": "DeploymentTargetsTypeDef",
-        "PermissionModel": PermissionModelsType,
-        "AutoDeployment": "AutoDeploymentTypeDef",
-        "OperationId": str,
-        "Accounts": List[str],
-        "Regions": List[str],
-        "CallAs": CallAsType,
-        "ManagedExecution": "ManagedExecutionTypeDef",
-    },
-    total=False,
-)
-
-class UpdateStackSetInputRequestTypeDef(
-    _RequiredUpdateStackSetInputRequestTypeDef, _OptionalUpdateStackSetInputRequestTypeDef
-):
-    pass
-
-UpdateStackSetOutputTypeDef = TypedDict(
-    "UpdateStackSetOutputTypeDef",
-    {
-        "OperationId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UpdateTerminationProtectionInputRequestTypeDef = TypedDict(
-    "UpdateTerminationProtectionInputRequestTypeDef",
-    {
-        "EnableTerminationProtection": bool,
-        "StackName": str,
-    },
-)
-
-UpdateTerminationProtectionOutputTypeDef = TypedDict(
-    "UpdateTerminationProtectionOutputTypeDef",
-    {
-        "StackId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ValidateTemplateInputRequestTypeDef = TypedDict(
-    "ValidateTemplateInputRequestTypeDef",
-    {
-        "TemplateBody": str,
-        "TemplateURL": str,
-    },
-    total=False,
-)
-
-ValidateTemplateOutputTypeDef = TypedDict(
-    "ValidateTemplateOutputTypeDef",
-    {
-        "Parameters": List["TemplateParameterTypeDef"],
-        "Description": str,
-        "Capabilities": List[CapabilityType],
-        "CapabilitiesReason": str,
-        "DeclaredTransforms": List[str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-WaiterConfigTypeDef = TypedDict(
-    "WaiterConfigTypeDef",
-    {
-        "Delay": int,
-        "MaxAttempts": int,
-    },
-    total=False,
-)
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+
+class ListExportsOutputTypeDef(TypedDict):
+    Exports: List[ExportTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class GetTemplateSummaryInputTypeDef(TypedDict):
+    TemplateBody: NotRequired[str]
+    TemplateURL: NotRequired[str]
+    StackName: NotRequired[str]
+    StackSetName: NotRequired[str]
+    CallAs: NotRequired[CallAsType]
+    TemplateSummaryConfig: NotRequired[TemplateSummaryConfigTypeDef]
+
+class ListHookResultsOutputTypeDef(TypedDict):
+    TargetType: ListHookResultsTargetTypeType
+    TargetId: str
+    HookResults: List[HookResultSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListGeneratedTemplatesOutputTypeDef(TypedDict):
+    Summaries: List[TemplateSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListResourceScanRelatedResourcesInputPaginateTypeDef(TypedDict):
+    ResourceScanId: str
+    Resources: Sequence[ScannedResourceIdentifierTypeDef]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListResourceScanRelatedResourcesInputTypeDef(TypedDict):
+    ResourceScanId: str
+    Resources: Sequence[ScannedResourceIdentifierTypeDef]
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+
+class ListResourceScanRelatedResourcesOutputTypeDef(TypedDict):
+    RelatedResources: List[ScannedResourceTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListResourceScanResourcesOutputTypeDef(TypedDict):
+    Resources: List[ScannedResourceTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListResourceScansOutputTypeDef(TypedDict):
+    ResourceScanSummaries: List[ResourceScanSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListStackInstancesInputPaginateTypeDef(TypedDict):
+    StackSetName: str
+    Filters: NotRequired[Sequence[StackInstanceFilterTypeDef]]
+    StackInstanceAccount: NotRequired[str]
+    StackInstanceRegion: NotRequired[str]
+    CallAs: NotRequired[CallAsType]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListStackInstancesInputTypeDef(TypedDict):
+    StackSetName: str
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+    Filters: NotRequired[Sequence[StackInstanceFilterTypeDef]]
+    StackInstanceAccount: NotRequired[str]
+    StackInstanceRegion: NotRequired[str]
+    CallAs: NotRequired[CallAsType]
+
+class ListStackRefactorsOutputTypeDef(TypedDict):
+    StackRefactorSummaries: List[StackRefactorSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListStackSetAutoDeploymentTargetsOutputTypeDef(TypedDict):
+    Summaries: List[StackSetAutoDeploymentTargetSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListStackSetOperationResultsInputPaginateTypeDef(TypedDict):
+    StackSetName: str
+    OperationId: str
+    CallAs: NotRequired[CallAsType]
+    Filters: NotRequired[Sequence[OperationResultFilterTypeDef]]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListStackSetOperationResultsInputTypeDef(TypedDict):
+    StackSetName: str
+    OperationId: str
+    NextToken: NotRequired[str]
+    MaxResults: NotRequired[int]
+    CallAs: NotRequired[CallAsType]
+    Filters: NotRequired[Sequence[OperationResultFilterTypeDef]]
+
+class ListTypeVersionsOutputTypeDef(TypedDict):
+    TypeVersionSummaries: List[TypeVersionSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+ListTypesInputPaginateTypeDef = TypedDict(
+    "ListTypesInputPaginateTypeDef",
+    {
+        "Visibility": NotRequired[VisibilityType],
+        "ProvisioningType": NotRequired[ProvisioningTypeType],
+        "DeprecatedStatus": NotRequired[DeprecatedStatusType],
+        "Type": NotRequired[RegistryTypeType],
+        "Filters": NotRequired[TypeFiltersTypeDef],
+        "PaginationConfig": NotRequired[PaginatorConfigTypeDef],
+    },
+)
+ListTypesInputTypeDef = TypedDict(
+    "ListTypesInputTypeDef",
+    {
+        "Visibility": NotRequired[VisibilityType],
+        "ProvisioningType": NotRequired[ProvisioningTypeType],
+        "DeprecatedStatus": NotRequired[DeprecatedStatusType],
+        "Type": NotRequired[RegistryTypeType],
+        "Filters": NotRequired[TypeFiltersTypeDef],
+        "MaxResults": NotRequired[int],
+        "NextToken": NotRequired[str],
+    },
+)
+
+class ListTypesOutputTypeDef(TypedDict):
+    TypeSummaries: List[TypeSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ParameterDeclarationTypeDef(TypedDict):
+    ParameterKey: NotRequired[str]
+    DefaultValue: NotRequired[str]
+    ParameterType: NotRequired[str]
+    NoEcho: NotRequired[bool]
+    Description: NotRequired[str]
+    ParameterConstraints: NotRequired[ParameterConstraintsTypeDef]
+
+class StackInstanceResourceDriftsSummaryTypeDef(TypedDict):
+    StackId: str
+    LogicalResourceId: str
+    ResourceType: str
+    StackResourceDriftStatus: StackResourceDriftStatusType
+    Timestamp: datetime
+    PhysicalResourceId: NotRequired[str]
+    PhysicalResourceIdContext: NotRequired[List[PhysicalResourceIdContextKeyValuePairTypeDef]]
+    PropertyDifferences: NotRequired[List[PropertyDifferenceTypeDef]]
+
+class StackResourceDriftTypeDef(TypedDict):
+    StackId: str
+    LogicalResourceId: str
+    ResourceType: str
+    StackResourceDriftStatus: StackResourceDriftStatusType
+    Timestamp: datetime
+    PhysicalResourceId: NotRequired[str]
+    PhysicalResourceIdContext: NotRequired[List[PhysicalResourceIdContextKeyValuePairTypeDef]]
+    ExpectedProperties: NotRequired[str]
+    ActualProperties: NotRequired[str]
+    PropertyDifferences: NotRequired[List[PropertyDifferenceTypeDef]]
+    ModuleInfo: NotRequired[ModuleInfoTypeDef]
+
+class ResourceChangeDetailTypeDef(TypedDict):
+    Target: NotRequired[ResourceTargetDefinitionTypeDef]
+    Evaluation: NotRequired[EvaluationTypeType]
+    ChangeSource: NotRequired[ChangeSourceType]
+    CausingEntity: NotRequired[str]
+
+class ResourceMappingTypeDef(TypedDict):
+    Source: ResourceLocationTypeDef
+    Destination: ResourceLocationTypeDef
+
+class RollbackConfigurationOutputTypeDef(TypedDict):
+    RollbackTriggers: NotRequired[List[RollbackTriggerTypeDef]]
+    MonitoringTimeInMinutes: NotRequired[int]
+
+class RollbackConfigurationTypeDef(TypedDict):
+    RollbackTriggers: NotRequired[Sequence[RollbackTriggerTypeDef]]
+    MonitoringTimeInMinutes: NotRequired[int]
+
+ScanFilterUnionTypeDef = Union[ScanFilterTypeDef, ScanFilterOutputTypeDef]
+
+class StackSummaryTypeDef(TypedDict):
+    StackName: str
+    CreationTime: datetime
+    StackStatus: StackStatusType
+    StackId: NotRequired[str]
+    TemplateDescription: NotRequired[str]
+    LastUpdatedTime: NotRequired[datetime]
+    DeletionTime: NotRequired[datetime]
+    StackStatusReason: NotRequired[str]
+    ParentId: NotRequired[str]
+    RootId: NotRequired[str]
+    DriftInformation: NotRequired[StackDriftInformationSummaryTypeDef]
+
+class StackInstanceSummaryTypeDef(TypedDict):
+    StackSetId: NotRequired[str]
+    Region: NotRequired[str]
+    Account: NotRequired[str]
+    StackId: NotRequired[str]
+    Status: NotRequired[StackInstanceStatusType]
+    StatusReason: NotRequired[str]
+    StackInstanceStatus: NotRequired[StackInstanceComprehensiveStatusTypeDef]
+    OrganizationalUnitId: NotRequired[str]
+    DriftStatus: NotRequired[StackDriftStatusType]
+    LastDriftCheckTimestamp: NotRequired[datetime]
+    LastOperationId: NotRequired[str]
+
+class StackInstanceTypeDef(TypedDict):
+    StackSetId: NotRequired[str]
+    Region: NotRequired[str]
+    Account: NotRequired[str]
+    StackId: NotRequired[str]
+    ParameterOverrides: NotRequired[List[ParameterTypeDef]]
+    Status: NotRequired[StackInstanceStatusType]
+    StackInstanceStatus: NotRequired[StackInstanceComprehensiveStatusTypeDef]
+    StatusReason: NotRequired[str]
+    OrganizationalUnitId: NotRequired[str]
+    DriftStatus: NotRequired[StackDriftStatusType]
+    LastDriftCheckTimestamp: NotRequired[datetime]
+    LastOperationId: NotRequired[str]
+
+class StackResourceDetailTypeDef(TypedDict):
+    LogicalResourceId: str
+    ResourceType: str
+    LastUpdatedTimestamp: datetime
+    ResourceStatus: ResourceStatusType
+    StackName: NotRequired[str]
+    StackId: NotRequired[str]
+    PhysicalResourceId: NotRequired[str]
+    ResourceStatusReason: NotRequired[str]
+    Description: NotRequired[str]
+    Metadata: NotRequired[str]
+    DriftInformation: NotRequired[StackResourceDriftInformationTypeDef]
+    ModuleInfo: NotRequired[ModuleInfoTypeDef]
+
+class StackResourceTypeDef(TypedDict):
+    LogicalResourceId: str
+    ResourceType: str
+    Timestamp: datetime
+    ResourceStatus: ResourceStatusType
+    StackName: NotRequired[str]
+    StackId: NotRequired[str]
+    PhysicalResourceId: NotRequired[str]
+    ResourceStatusReason: NotRequired[str]
+    Description: NotRequired[str]
+    DriftInformation: NotRequired[StackResourceDriftInformationTypeDef]
+    ModuleInfo: NotRequired[ModuleInfoTypeDef]
+
+class StackResourceSummaryTypeDef(TypedDict):
+    LogicalResourceId: str
+    ResourceType: str
+    LastUpdatedTimestamp: datetime
+    ResourceStatus: ResourceStatusType
+    PhysicalResourceId: NotRequired[str]
+    ResourceStatusReason: NotRequired[str]
+    DriftInformation: NotRequired[StackResourceDriftInformationSummaryTypeDef]
+    ModuleInfo: NotRequired[ModuleInfoTypeDef]
+
+class StackSetTypeDef(TypedDict):
+    StackSetName: NotRequired[str]
+    StackSetId: NotRequired[str]
+    Description: NotRequired[str]
+    Status: NotRequired[StackSetStatusType]
+    TemplateBody: NotRequired[str]
+    Parameters: NotRequired[List[ParameterTypeDef]]
+    Capabilities: NotRequired[List[CapabilityType]]
+    Tags: NotRequired[List[TagTypeDef]]
+    StackSetARN: NotRequired[str]
+    AdministrationRoleARN: NotRequired[str]
+    ExecutionRoleName: NotRequired[str]
+    StackSetDriftDetectionDetails: NotRequired[StackSetDriftDetectionDetailsTypeDef]
+    AutoDeployment: NotRequired[AutoDeploymentTypeDef]
+    PermissionModel: NotRequired[PermissionModelsType]
+    OrganizationalUnitIds: NotRequired[List[str]]
+    ManagedExecution: NotRequired[ManagedExecutionTypeDef]
+    Regions: NotRequired[List[str]]
+
+StackSetOperationPreferencesUnionTypeDef = Union[
+    StackSetOperationPreferencesTypeDef, StackSetOperationPreferencesOutputTypeDef
+]
+
+class StackSetOperationSummaryTypeDef(TypedDict):
+    OperationId: NotRequired[str]
+    Action: NotRequired[StackSetOperationActionType]
+    Status: NotRequired[StackSetOperationStatusType]
+    CreationTimestamp: NotRequired[datetime]
+    EndTimestamp: NotRequired[datetime]
+    StatusReason: NotRequired[str]
+    StatusDetails: NotRequired[StackSetOperationStatusDetailsTypeDef]
+    OperationPreferences: NotRequired[StackSetOperationPreferencesOutputTypeDef]
+
+class StackSetOperationTypeDef(TypedDict):
+    OperationId: NotRequired[str]
+    StackSetId: NotRequired[str]
+    Action: NotRequired[StackSetOperationActionType]
+    Status: NotRequired[StackSetOperationStatusType]
+    OperationPreferences: NotRequired[StackSetOperationPreferencesOutputTypeDef]
+    RetainStacks: NotRequired[bool]
+    AdministrationRoleARN: NotRequired[str]
+    ExecutionRoleName: NotRequired[str]
+    CreationTimestamp: NotRequired[datetime]
+    EndTimestamp: NotRequired[datetime]
+    DeploymentTargets: NotRequired[DeploymentTargetsOutputTypeDef]
+    StackSetDriftDetectionDetails: NotRequired[StackSetDriftDetectionDetailsTypeDef]
+    StatusReason: NotRequired[str]
+    StatusDetails: NotRequired[StackSetOperationStatusDetailsTypeDef]
+
+class ValidateTemplateOutputTypeDef(TypedDict):
+    Parameters: List[TemplateParameterTypeDef]
+    Description: str
+    Capabilities: List[CapabilityType]
+    CapabilitiesReason: str
+    DeclaredTransforms: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
 
 WarningDetailTypeDef = TypedDict(
     "WarningDetailTypeDef",
     {
-        "Type": WarningTypeType,
-        "Properties": List["WarningPropertyTypeDef"],
+        "Type": NotRequired[WarningTypeType],
+        "Properties": NotRequired[List[WarningPropertyTypeDef]],
     },
-    total=False,
 )
 
-WarningPropertyTypeDef = TypedDict(
-    "WarningPropertyTypeDef",
+class ListStackSetOperationResultsOutputTypeDef(TypedDict):
+    Summaries: List[StackSetOperationResultSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class BatchDescribeTypeConfigurationsOutputTypeDef(TypedDict):
+    Errors: List[BatchDescribeTypeConfigurationsErrorTypeDef]
+    UnprocessedTypeConfigurations: List[TypeConfigurationIdentifierTypeDef]
+    TypeConfigurations: List[TypeConfigurationDetailsTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ChangeSetHookTypeDef(TypedDict):
+    InvocationPoint: NotRequired[Literal["PRE_PROVISION"]]
+    FailureMode: NotRequired[HookFailureModeType]
+    TypeName: NotRequired[str]
+    TypeVersionId: NotRequired[str]
+    TypeConfigurationVersionId: NotRequired[str]
+    TargetDetails: NotRequired[ChangeSetHookTargetDetailsTypeDef]
+
+class ListStackSetsOutputTypeDef(TypedDict):
+    Summaries: List[StackSetSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class GetTemplateSummaryOutputTypeDef(TypedDict):
+    Parameters: List[ParameterDeclarationTypeDef]
+    Description: str
+    Capabilities: List[CapabilityType]
+    CapabilitiesReason: str
+    ResourceTypes: List[str]
+    Version: str
+    Metadata: str
+    DeclaredTransforms: List[str]
+    ResourceIdentifierSummaries: List[ResourceIdentifierSummaryTypeDef]
+    Warnings: WarningsTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListStackInstanceResourceDriftsOutputTypeDef(TypedDict):
+    Summaries: List[StackInstanceResourceDriftsSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class DescribeStackResourceDriftsOutputTypeDef(TypedDict):
+    StackResourceDrifts: List[StackResourceDriftTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class DetectStackResourceDriftOutputTypeDef(TypedDict):
+    StackResourceDrift: StackResourceDriftTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ResourceChangeTypeDef(TypedDict):
+    PolicyAction: NotRequired[PolicyActionType]
+    Action: NotRequired[ChangeActionType]
+    LogicalResourceId: NotRequired[str]
+    PhysicalResourceId: NotRequired[str]
+    ResourceType: NotRequired[str]
+    Replacement: NotRequired[ReplacementType]
+    Scope: NotRequired[List[ResourceAttributeType]]
+    Details: NotRequired[List[ResourceChangeDetailTypeDef]]
+    ChangeSetId: NotRequired[str]
+    ModuleInfo: NotRequired[ModuleInfoTypeDef]
+    BeforeContext: NotRequired[str]
+    AfterContext: NotRequired[str]
+
+class CreateStackRefactorInputTypeDef(TypedDict):
+    StackDefinitions: Sequence[StackDefinitionTypeDef]
+    Description: NotRequired[str]
+    EnableStackCreation: NotRequired[bool]
+    ResourceMappings: NotRequired[Sequence[ResourceMappingTypeDef]]
+
+class StackRefactorActionTypeDef(TypedDict):
+    Action: NotRequired[StackRefactorActionTypeType]
+    Entity: NotRequired[StackRefactorActionEntityType]
+    PhysicalResourceId: NotRequired[str]
+    ResourceIdentifier: NotRequired[str]
+    Description: NotRequired[str]
+    Detection: NotRequired[StackRefactorDetectionType]
+    DetectionReason: NotRequired[str]
+    TagResources: NotRequired[List[TagTypeDef]]
+    UntagResources: NotRequired[List[str]]
+    ResourceMapping: NotRequired[ResourceMappingTypeDef]
+
+class StackTypeDef(TypedDict):
+    StackName: str
+    CreationTime: datetime
+    StackStatus: StackStatusType
+    StackId: NotRequired[str]
+    ChangeSetId: NotRequired[str]
+    Description: NotRequired[str]
+    Parameters: NotRequired[List[ParameterTypeDef]]
+    DeletionTime: NotRequired[datetime]
+    LastUpdatedTime: NotRequired[datetime]
+    RollbackConfiguration: NotRequired[RollbackConfigurationOutputTypeDef]
+    StackStatusReason: NotRequired[str]
+    DisableRollback: NotRequired[bool]
+    NotificationARNs: NotRequired[List[str]]
+    TimeoutInMinutes: NotRequired[int]
+    Capabilities: NotRequired[List[CapabilityType]]
+    Outputs: NotRequired[List[OutputTypeDef]]
+    RoleARN: NotRequired[str]
+    Tags: NotRequired[List[TagTypeDef]]
+    EnableTerminationProtection: NotRequired[bool]
+    ParentId: NotRequired[str]
+    RootId: NotRequired[str]
+    DriftInformation: NotRequired[StackDriftInformationTypeDef]
+    RetainExceptOnCreate: NotRequired[bool]
+    DeletionMode: NotRequired[DeletionModeType]
+    DetailedStatus: NotRequired[DetailedStatusType]
+
+RollbackConfigurationUnionTypeDef = Union[
+    RollbackConfigurationTypeDef, RollbackConfigurationOutputTypeDef
+]
+
+class StartResourceScanInputTypeDef(TypedDict):
+    ClientRequestToken: NotRequired[str]
+    ScanFilters: NotRequired[Sequence[ScanFilterUnionTypeDef]]
+
+class ListStacksOutputTypeDef(TypedDict):
+    StackSummaries: List[StackSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class ListStackInstancesOutputTypeDef(TypedDict):
+    Summaries: List[StackInstanceSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class DescribeStackInstanceOutputTypeDef(TypedDict):
+    StackInstance: StackInstanceTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeStackResourceOutputTypeDef(TypedDict):
+    StackResourceDetail: StackResourceDetailTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeStackResourcesOutputTypeDef(TypedDict):
+    StackResources: List[StackResourceTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListStackResourcesOutputTypeDef(TypedDict):
+    StackResourceSummaries: List[StackResourceSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class DescribeStackSetOutputTypeDef(TypedDict):
+    StackSet: StackSetTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreateStackInstancesInputTypeDef(TypedDict):
+    StackSetName: str
+    Regions: Sequence[str]
+    Accounts: NotRequired[Sequence[str]]
+    DeploymentTargets: NotRequired[DeploymentTargetsUnionTypeDef]
+    ParameterOverrides: NotRequired[Sequence[ParameterTypeDef]]
+    OperationPreferences: NotRequired[StackSetOperationPreferencesUnionTypeDef]
+    OperationId: NotRequired[str]
+    CallAs: NotRequired[CallAsType]
+
+class DeleteStackInstancesInputTypeDef(TypedDict):
+    StackSetName: str
+    Regions: Sequence[str]
+    RetainStacks: bool
+    Accounts: NotRequired[Sequence[str]]
+    DeploymentTargets: NotRequired[DeploymentTargetsUnionTypeDef]
+    OperationPreferences: NotRequired[StackSetOperationPreferencesUnionTypeDef]
+    OperationId: NotRequired[str]
+    CallAs: NotRequired[CallAsType]
+
+class DetectStackSetDriftInputTypeDef(TypedDict):
+    StackSetName: str
+    OperationPreferences: NotRequired[StackSetOperationPreferencesUnionTypeDef]
+    OperationId: NotRequired[str]
+    CallAs: NotRequired[CallAsType]
+
+class ImportStacksToStackSetInputTypeDef(TypedDict):
+    StackSetName: str
+    StackIds: NotRequired[Sequence[str]]
+    StackIdsUrl: NotRequired[str]
+    OrganizationalUnitIds: NotRequired[Sequence[str]]
+    OperationPreferences: NotRequired[StackSetOperationPreferencesUnionTypeDef]
+    OperationId: NotRequired[str]
+    CallAs: NotRequired[CallAsType]
+
+class UpdateStackInstancesInputTypeDef(TypedDict):
+    StackSetName: str
+    Regions: Sequence[str]
+    Accounts: NotRequired[Sequence[str]]
+    DeploymentTargets: NotRequired[DeploymentTargetsUnionTypeDef]
+    ParameterOverrides: NotRequired[Sequence[ParameterTypeDef]]
+    OperationPreferences: NotRequired[StackSetOperationPreferencesUnionTypeDef]
+    OperationId: NotRequired[str]
+    CallAs: NotRequired[CallAsType]
+
+class UpdateStackSetInputTypeDef(TypedDict):
+    StackSetName: str
+    Description: NotRequired[str]
+    TemplateBody: NotRequired[str]
+    TemplateURL: NotRequired[str]
+    UsePreviousTemplate: NotRequired[bool]
+    Parameters: NotRequired[Sequence[ParameterTypeDef]]
+    Capabilities: NotRequired[Sequence[CapabilityType]]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+    OperationPreferences: NotRequired[StackSetOperationPreferencesUnionTypeDef]
+    AdministrationRoleARN: NotRequired[str]
+    ExecutionRoleName: NotRequired[str]
+    DeploymentTargets: NotRequired[DeploymentTargetsUnionTypeDef]
+    PermissionModel: NotRequired[PermissionModelsType]
+    AutoDeployment: NotRequired[AutoDeploymentTypeDef]
+    OperationId: NotRequired[str]
+    Accounts: NotRequired[Sequence[str]]
+    Regions: NotRequired[Sequence[str]]
+    CallAs: NotRequired[CallAsType]
+    ManagedExecution: NotRequired[ManagedExecutionTypeDef]
+
+class ListStackSetOperationsOutputTypeDef(TypedDict):
+    Summaries: List[StackSetOperationSummaryTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class DescribeStackSetOperationOutputTypeDef(TypedDict):
+    StackSetOperation: StackSetOperationTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ResourceDetailTypeDef(TypedDict):
+    ResourceType: NotRequired[str]
+    LogicalResourceId: NotRequired[str]
+    ResourceIdentifier: NotRequired[Dict[str, str]]
+    ResourceStatus: NotRequired[GeneratedTemplateResourceStatusType]
+    ResourceStatusReason: NotRequired[str]
+    Warnings: NotRequired[List[WarningDetailTypeDef]]
+
+class DescribeChangeSetHooksOutputTypeDef(TypedDict):
+    ChangeSetId: str
+    ChangeSetName: str
+    Hooks: List[ChangeSetHookTypeDef]
+    Status: ChangeSetHooksStatusType
+    StackId: str
+    StackName: str
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+ChangeTypeDef = TypedDict(
+    "ChangeTypeDef",
     {
-        "PropertyPath": str,
-        "Required": bool,
-        "Description": str,
+        "Type": NotRequired[Literal["Resource"]],
+        "HookInvocationCount": NotRequired[int],
+        "ResourceChange": NotRequired[ResourceChangeTypeDef],
     },
-    total=False,
 )
 
-WarningsTypeDef = TypedDict(
-    "WarningsTypeDef",
-    {
-        "UnrecognizedResourceTypes": List[str],
-    },
-    total=False,
-)
+class ListStackRefactorActionsOutputTypeDef(TypedDict):
+    StackRefactorActions: List[StackRefactorActionTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class DescribeStacksOutputTypeDef(TypedDict):
+    Stacks: List[StackTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]
+
+class CreateChangeSetInputTypeDef(TypedDict):
+    StackName: str
+    ChangeSetName: str
+    TemplateBody: NotRequired[str]
+    TemplateURL: NotRequired[str]
+    UsePreviousTemplate: NotRequired[bool]
+    Parameters: NotRequired[Sequence[ParameterTypeDef]]
+    Capabilities: NotRequired[Sequence[CapabilityType]]
+    ResourceTypes: NotRequired[Sequence[str]]
+    RoleARN: NotRequired[str]
+    RollbackConfiguration: NotRequired[RollbackConfigurationUnionTypeDef]
+    NotificationARNs: NotRequired[Sequence[str]]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+    ClientToken: NotRequired[str]
+    Description: NotRequired[str]
+    ChangeSetType: NotRequired[ChangeSetTypeType]
+    ResourcesToImport: NotRequired[Sequence[ResourceToImportTypeDef]]
+    IncludeNestedStacks: NotRequired[bool]
+    OnStackFailure: NotRequired[OnStackFailureType]
+    ImportExistingResources: NotRequired[bool]
+
+class CreateStackInputServiceResourceCreateStackTypeDef(TypedDict):
+    StackName: str
+    TemplateBody: NotRequired[str]
+    TemplateURL: NotRequired[str]
+    Parameters: NotRequired[Sequence[ParameterTypeDef]]
+    DisableRollback: NotRequired[bool]
+    RollbackConfiguration: NotRequired[RollbackConfigurationUnionTypeDef]
+    TimeoutInMinutes: NotRequired[int]
+    NotificationARNs: NotRequired[Sequence[str]]
+    Capabilities: NotRequired[Sequence[CapabilityType]]
+    ResourceTypes: NotRequired[Sequence[str]]
+    RoleARN: NotRequired[str]
+    OnFailure: NotRequired[OnFailureType]
+    StackPolicyBody: NotRequired[str]
+    StackPolicyURL: NotRequired[str]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+    ClientRequestToken: NotRequired[str]
+    EnableTerminationProtection: NotRequired[bool]
+    RetainExceptOnCreate: NotRequired[bool]
+
+class CreateStackInputTypeDef(TypedDict):
+    StackName: str
+    TemplateBody: NotRequired[str]
+    TemplateURL: NotRequired[str]
+    Parameters: NotRequired[Sequence[ParameterTypeDef]]
+    DisableRollback: NotRequired[bool]
+    RollbackConfiguration: NotRequired[RollbackConfigurationUnionTypeDef]
+    TimeoutInMinutes: NotRequired[int]
+    NotificationARNs: NotRequired[Sequence[str]]
+    Capabilities: NotRequired[Sequence[CapabilityType]]
+    ResourceTypes: NotRequired[Sequence[str]]
+    RoleARN: NotRequired[str]
+    OnFailure: NotRequired[OnFailureType]
+    StackPolicyBody: NotRequired[str]
+    StackPolicyURL: NotRequired[str]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+    ClientRequestToken: NotRequired[str]
+    EnableTerminationProtection: NotRequired[bool]
+    RetainExceptOnCreate: NotRequired[bool]
+
+class UpdateStackInputStackUpdateTypeDef(TypedDict):
+    TemplateBody: NotRequired[str]
+    TemplateURL: NotRequired[str]
+    UsePreviousTemplate: NotRequired[bool]
+    StackPolicyDuringUpdateBody: NotRequired[str]
+    StackPolicyDuringUpdateURL: NotRequired[str]
+    Parameters: NotRequired[Sequence[ParameterTypeDef]]
+    Capabilities: NotRequired[Sequence[CapabilityType]]
+    ResourceTypes: NotRequired[Sequence[str]]
+    RoleARN: NotRequired[str]
+    RollbackConfiguration: NotRequired[RollbackConfigurationUnionTypeDef]
+    StackPolicyBody: NotRequired[str]
+    StackPolicyURL: NotRequired[str]
+    NotificationARNs: NotRequired[Sequence[str]]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+    DisableRollback: NotRequired[bool]
+    ClientRequestToken: NotRequired[str]
+    RetainExceptOnCreate: NotRequired[bool]
+
+class UpdateStackInputTypeDef(TypedDict):
+    StackName: str
+    TemplateBody: NotRequired[str]
+    TemplateURL: NotRequired[str]
+    UsePreviousTemplate: NotRequired[bool]
+    StackPolicyDuringUpdateBody: NotRequired[str]
+    StackPolicyDuringUpdateURL: NotRequired[str]
+    Parameters: NotRequired[Sequence[ParameterTypeDef]]
+    Capabilities: NotRequired[Sequence[CapabilityType]]
+    ResourceTypes: NotRequired[Sequence[str]]
+    RoleARN: NotRequired[str]
+    RollbackConfiguration: NotRequired[RollbackConfigurationUnionTypeDef]
+    StackPolicyBody: NotRequired[str]
+    StackPolicyURL: NotRequired[str]
+    NotificationARNs: NotRequired[Sequence[str]]
+    Tags: NotRequired[Sequence[TagTypeDef]]
+    DisableRollback: NotRequired[bool]
+    ClientRequestToken: NotRequired[str]
+    RetainExceptOnCreate: NotRequired[bool]
+
+class DescribeGeneratedTemplateOutputTypeDef(TypedDict):
+    GeneratedTemplateId: str
+    GeneratedTemplateName: str
+    Resources: List[ResourceDetailTypeDef]
+    Status: GeneratedTemplateStatusType
+    StatusReason: str
+    CreationTime: datetime
+    LastUpdatedTime: datetime
+    Progress: TemplateProgressTypeDef
+    StackId: str
+    TemplateConfiguration: TemplateConfigurationTypeDef
+    TotalWarnings: int
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class DescribeChangeSetOutputTypeDef(TypedDict):
+    ChangeSetName: str
+    ChangeSetId: str
+    StackId: str
+    StackName: str
+    Description: str
+    Parameters: List[ParameterTypeDef]
+    CreationTime: datetime
+    ExecutionStatus: ExecutionStatusType
+    Status: ChangeSetStatusType
+    StatusReason: str
+    NotificationARNs: List[str]
+    RollbackConfiguration: RollbackConfigurationOutputTypeDef
+    Capabilities: List[CapabilityType]
+    Tags: List[TagTypeDef]
+    Changes: List[ChangeTypeDef]
+    IncludeNestedStacks: bool
+    ParentChangeSetId: str
+    RootChangeSetId: str
+    OnStackFailure: OnStackFailureType
+    ImportExistingResources: bool
+    ResponseMetadata: ResponseMetadataTypeDef
+    NextToken: NotRequired[str]

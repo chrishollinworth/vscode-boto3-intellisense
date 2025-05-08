@@ -1,19 +1,21 @@
 """
 Main interface for iotsecuretunneling service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotsecuretunneling/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_iotsecuretunneling import (
         Client,
         IoTSecureTunnelingClient,
     )
 
-    session = boto3.Session()
-
-    client: IoTSecureTunnelingClient = boto3.client("iotsecuretunneling")
-    session_client: IoTSecureTunnelingClient = session.client("iotsecuretunneling")
+    session = Session()
+    client: IoTSecureTunnelingClient = session.client("iotsecuretunneling")
     ```
 """
 

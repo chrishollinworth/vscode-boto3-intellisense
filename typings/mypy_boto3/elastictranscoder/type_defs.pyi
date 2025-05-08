@@ -1,875 +1,652 @@
 """
 Type annotations for elastictranscoder service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_elastictranscoder/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_elastictranscoder/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_elastictranscoder.type_defs import ArtworkTypeDef
+    from mypy_boto3_elastictranscoder.type_defs import EncryptionTypeDef
 
-    data: ArtworkTypeDef = {...}
+    data: EncryptionTypeDef = ...
     ```
 """
 
-import sys
-from typing import Any, Dict, List
+from __future__ import annotations
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+import sys
+from typing import Union
+
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from builtins import list as List
+    from collections.abc import Mapping, Sequence
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, List, Mapping, Sequence
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
     "ArtworkTypeDef",
     "AudioCodecOptionsTypeDef",
     "AudioParametersTypeDef",
-    "CancelJobRequestRequestTypeDef",
+    "CancelJobRequestTypeDef",
     "CaptionFormatTypeDef",
     "CaptionSourceTypeDef",
+    "CaptionsOutputTypeDef",
     "CaptionsTypeDef",
+    "CaptionsUnionTypeDef",
     "ClipTypeDef",
     "CreateJobOutputTypeDef",
     "CreateJobPlaylistTypeDef",
-    "CreateJobRequestRequestTypeDef",
+    "CreateJobRequestTypeDef",
     "CreateJobResponseTypeDef",
-    "CreatePipelineRequestRequestTypeDef",
+    "CreatePipelineRequestTypeDef",
     "CreatePipelineResponseTypeDef",
-    "CreatePresetRequestRequestTypeDef",
+    "CreatePresetRequestTypeDef",
     "CreatePresetResponseTypeDef",
-    "DeletePipelineRequestRequestTypeDef",
-    "DeletePresetRequestRequestTypeDef",
+    "DeletePipelineRequestTypeDef",
+    "DeletePresetRequestTypeDef",
     "DetectedPropertiesTypeDef",
     "EncryptionTypeDef",
     "HlsContentProtectionTypeDef",
+    "InputCaptionsOutputTypeDef",
     "InputCaptionsTypeDef",
+    "InputCaptionsUnionTypeDef",
+    "JobAlbumArtOutputTypeDef",
     "JobAlbumArtTypeDef",
+    "JobAlbumArtUnionTypeDef",
+    "JobInputOutputTypeDef",
     "JobInputTypeDef",
+    "JobInputUnionTypeDef",
     "JobOutputTypeDef",
     "JobTypeDef",
     "JobWatermarkTypeDef",
-    "ListJobsByPipelineRequestRequestTypeDef",
+    "ListJobsByPipelineRequestPaginateTypeDef",
+    "ListJobsByPipelineRequestTypeDef",
     "ListJobsByPipelineResponseTypeDef",
-    "ListJobsByStatusRequestRequestTypeDef",
+    "ListJobsByStatusRequestPaginateTypeDef",
+    "ListJobsByStatusRequestTypeDef",
     "ListJobsByStatusResponseTypeDef",
-    "ListPipelinesRequestRequestTypeDef",
+    "ListPipelinesRequestPaginateTypeDef",
+    "ListPipelinesRequestTypeDef",
     "ListPipelinesResponseTypeDef",
-    "ListPresetsRequestRequestTypeDef",
+    "ListPresetsRequestPaginateTypeDef",
+    "ListPresetsRequestTypeDef",
     "ListPresetsResponseTypeDef",
     "NotificationsTypeDef",
     "PaginatorConfigTypeDef",
+    "PermissionOutputTypeDef",
     "PermissionTypeDef",
+    "PipelineOutputConfigOutputTypeDef",
     "PipelineOutputConfigTypeDef",
+    "PipelineOutputConfigUnionTypeDef",
     "PipelineTypeDef",
     "PlayReadyDrmTypeDef",
     "PlaylistTypeDef",
     "PresetTypeDef",
     "PresetWatermarkTypeDef",
-    "ReadJobRequestRequestTypeDef",
+    "ReadJobRequestTypeDef",
+    "ReadJobRequestWaitTypeDef",
     "ReadJobResponseTypeDef",
-    "ReadPipelineRequestRequestTypeDef",
+    "ReadPipelineRequestTypeDef",
     "ReadPipelineResponseTypeDef",
-    "ReadPresetRequestRequestTypeDef",
+    "ReadPresetRequestTypeDef",
     "ReadPresetResponseTypeDef",
     "ResponseMetadataTypeDef",
-    "TestRoleRequestRequestTypeDef",
+    "TestRoleRequestTypeDef",
     "TestRoleResponseTypeDef",
     "ThumbnailsTypeDef",
     "TimeSpanTypeDef",
     "TimingTypeDef",
-    "UpdatePipelineNotificationsRequestRequestTypeDef",
+    "UpdatePipelineNotificationsRequestTypeDef",
     "UpdatePipelineNotificationsResponseTypeDef",
-    "UpdatePipelineRequestRequestTypeDef",
+    "UpdatePipelineRequestTypeDef",
     "UpdatePipelineResponseTypeDef",
-    "UpdatePipelineStatusRequestRequestTypeDef",
+    "UpdatePipelineStatusRequestTypeDef",
     "UpdatePipelineStatusResponseTypeDef",
+    "VideoParametersOutputTypeDef",
     "VideoParametersTypeDef",
+    "VideoParametersUnionTypeDef",
     "WaiterConfigTypeDef",
     "WarningTypeDef",
 )
 
-ArtworkTypeDef = TypedDict(
-    "ArtworkTypeDef",
-    {
-        "InputKey": str,
-        "MaxWidth": str,
-        "MaxHeight": str,
-        "SizingPolicy": str,
-        "PaddingPolicy": str,
-        "AlbumArtFormat": str,
-        "Encryption": "EncryptionTypeDef",
-    },
-    total=False,
-)
+class EncryptionTypeDef(TypedDict):
+    Mode: NotRequired[str]
+    Key: NotRequired[str]
+    KeyMd5: NotRequired[str]
+    InitializationVector: NotRequired[str]
 
-AudioCodecOptionsTypeDef = TypedDict(
-    "AudioCodecOptionsTypeDef",
-    {
-        "Profile": str,
-        "BitDepth": str,
-        "BitOrder": str,
-        "Signed": str,
-    },
-    total=False,
-)
+class AudioCodecOptionsTypeDef(TypedDict):
+    Profile: NotRequired[str]
+    BitDepth: NotRequired[str]
+    BitOrder: NotRequired[str]
+    Signed: NotRequired[str]
 
-AudioParametersTypeDef = TypedDict(
-    "AudioParametersTypeDef",
-    {
-        "Codec": str,
-        "SampleRate": str,
-        "BitRate": str,
-        "Channels": str,
-        "AudioPackingMode": str,
-        "CodecOptions": "AudioCodecOptionsTypeDef",
-    },
-    total=False,
-)
+class CancelJobRequestTypeDef(TypedDict):
+    Id: str
 
-CancelJobRequestRequestTypeDef = TypedDict(
-    "CancelJobRequestRequestTypeDef",
-    {
-        "Id": str,
-    },
-)
+class TimeSpanTypeDef(TypedDict):
+    StartTime: NotRequired[str]
+    Duration: NotRequired[str]
 
-CaptionFormatTypeDef = TypedDict(
-    "CaptionFormatTypeDef",
-    {
-        "Format": str,
-        "Pattern": str,
-        "Encryption": "EncryptionTypeDef",
-    },
-    total=False,
-)
+class HlsContentProtectionTypeDef(TypedDict):
+    Method: NotRequired[str]
+    Key: NotRequired[str]
+    KeyMd5: NotRequired[str]
+    InitializationVector: NotRequired[str]
+    LicenseAcquisitionUrl: NotRequired[str]
+    KeyStoragePolicy: NotRequired[str]
 
-CaptionSourceTypeDef = TypedDict(
-    "CaptionSourceTypeDef",
-    {
-        "Key": str,
-        "Language": str,
-        "TimeOffset": str,
-        "Label": str,
-        "Encryption": "EncryptionTypeDef",
-    },
-    total=False,
-)
+class PlayReadyDrmTypeDef(TypedDict):
+    Format: NotRequired[str]
+    Key: NotRequired[str]
+    KeyMd5: NotRequired[str]
+    KeyId: NotRequired[str]
+    InitializationVector: NotRequired[str]
+    LicenseAcquisitionUrl: NotRequired[str]
 
-CaptionsTypeDef = TypedDict(
-    "CaptionsTypeDef",
-    {
-        "MergePolicy": str,
-        "CaptionSources": List["CaptionSourceTypeDef"],
-        "CaptionFormats": List["CaptionFormatTypeDef"],
-    },
-    total=False,
-)
-
-ClipTypeDef = TypedDict(
-    "ClipTypeDef",
-    {
-        "TimeSpan": "TimeSpanTypeDef",
-    },
-    total=False,
-)
-
-CreateJobOutputTypeDef = TypedDict(
-    "CreateJobOutputTypeDef",
-    {
-        "Key": str,
-        "ThumbnailPattern": str,
-        "ThumbnailEncryption": "EncryptionTypeDef",
-        "Rotate": str,
-        "PresetId": str,
-        "SegmentDuration": str,
-        "Watermarks": List["JobWatermarkTypeDef"],
-        "AlbumArt": "JobAlbumArtTypeDef",
-        "Composition": List["ClipTypeDef"],
-        "Captions": "CaptionsTypeDef",
-        "Encryption": "EncryptionTypeDef",
-    },
-    total=False,
-)
-
-CreateJobPlaylistTypeDef = TypedDict(
-    "CreateJobPlaylistTypeDef",
-    {
-        "Name": str,
-        "Format": str,
-        "OutputKeys": List[str],
-        "HlsContentProtection": "HlsContentProtectionTypeDef",
-        "PlayReadyDrm": "PlayReadyDrmTypeDef",
-    },
-    total=False,
-)
-
-_RequiredCreateJobRequestRequestTypeDef = TypedDict(
-    "_RequiredCreateJobRequestRequestTypeDef",
-    {
-        "PipelineId": str,
-    },
-)
-_OptionalCreateJobRequestRequestTypeDef = TypedDict(
-    "_OptionalCreateJobRequestRequestTypeDef",
-    {
-        "Input": "JobInputTypeDef",
-        "Inputs": List["JobInputTypeDef"],
-        "Output": "CreateJobOutputTypeDef",
-        "Outputs": List["CreateJobOutputTypeDef"],
-        "OutputKeyPrefix": str,
-        "Playlists": List["CreateJobPlaylistTypeDef"],
-        "UserMetadata": Dict[str, str],
-    },
-    total=False,
-)
-
-class CreateJobRequestRequestTypeDef(
-    _RequiredCreateJobRequestRequestTypeDef, _OptionalCreateJobRequestRequestTypeDef
-):
-    pass
-
-CreateJobResponseTypeDef = TypedDict(
-    "CreateJobResponseTypeDef",
-    {
-        "Job": "JobTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreatePipelineRequestRequestTypeDef = TypedDict(
-    "_RequiredCreatePipelineRequestRequestTypeDef",
-    {
-        "Name": str,
-        "InputBucket": str,
-        "Role": str,
-    },
-)
-_OptionalCreatePipelineRequestRequestTypeDef = TypedDict(
-    "_OptionalCreatePipelineRequestRequestTypeDef",
-    {
-        "OutputBucket": str,
-        "AwsKmsKeyArn": str,
-        "Notifications": "NotificationsTypeDef",
-        "ContentConfig": "PipelineOutputConfigTypeDef",
-        "ThumbnailConfig": "PipelineOutputConfigTypeDef",
-    },
-    total=False,
-)
-
-class CreatePipelineRequestRequestTypeDef(
-    _RequiredCreatePipelineRequestRequestTypeDef, _OptionalCreatePipelineRequestRequestTypeDef
-):
-    pass
-
-CreatePipelineResponseTypeDef = TypedDict(
-    "CreatePipelineResponseTypeDef",
-    {
-        "Pipeline": "PipelineTypeDef",
-        "Warnings": List["WarningTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredCreatePresetRequestRequestTypeDef = TypedDict(
-    "_RequiredCreatePresetRequestRequestTypeDef",
-    {
-        "Name": str,
-        "Container": str,
-    },
-)
-_OptionalCreatePresetRequestRequestTypeDef = TypedDict(
-    "_OptionalCreatePresetRequestRequestTypeDef",
-    {
-        "Description": str,
-        "Video": "VideoParametersTypeDef",
-        "Audio": "AudioParametersTypeDef",
-        "Thumbnails": "ThumbnailsTypeDef",
-    },
-    total=False,
-)
-
-class CreatePresetRequestRequestTypeDef(
-    _RequiredCreatePresetRequestRequestTypeDef, _OptionalCreatePresetRequestRequestTypeDef
-):
-    pass
-
-CreatePresetResponseTypeDef = TypedDict(
-    "CreatePresetResponseTypeDef",
-    {
-        "Preset": "PresetTypeDef",
-        "Warning": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-DeletePipelineRequestRequestTypeDef = TypedDict(
-    "DeletePipelineRequestRequestTypeDef",
-    {
-        "Id": str,
-    },
-)
-
-DeletePresetRequestRequestTypeDef = TypedDict(
-    "DeletePresetRequestRequestTypeDef",
-    {
-        "Id": str,
-    },
-)
-
-DetectedPropertiesTypeDef = TypedDict(
-    "DetectedPropertiesTypeDef",
-    {
-        "Width": int,
-        "Height": int,
-        "FrameRate": str,
-        "FileSize": int,
-        "DurationMillis": int,
-    },
-    total=False,
-)
-
-EncryptionTypeDef = TypedDict(
-    "EncryptionTypeDef",
-    {
-        "Mode": str,
-        "Key": str,
-        "KeyMd5": str,
-        "InitializationVector": str,
-    },
-    total=False,
-)
-
-HlsContentProtectionTypeDef = TypedDict(
-    "HlsContentProtectionTypeDef",
-    {
-        "Method": str,
-        "Key": str,
-        "KeyMd5": str,
-        "InitializationVector": str,
-        "LicenseAcquisitionUrl": str,
-        "KeyStoragePolicy": str,
-    },
-    total=False,
-)
-
-InputCaptionsTypeDef = TypedDict(
-    "InputCaptionsTypeDef",
-    {
-        "MergePolicy": str,
-        "CaptionSources": List["CaptionSourceTypeDef"],
-    },
-    total=False,
-)
-
-JobAlbumArtTypeDef = TypedDict(
-    "JobAlbumArtTypeDef",
-    {
-        "MergePolicy": str,
-        "Artwork": List["ArtworkTypeDef"],
-    },
-    total=False,
-)
-
-JobInputTypeDef = TypedDict(
-    "JobInputTypeDef",
-    {
-        "Key": str,
-        "FrameRate": str,
-        "Resolution": str,
-        "AspectRatio": str,
-        "Interlaced": str,
-        "Container": str,
-        "Encryption": "EncryptionTypeDef",
-        "TimeSpan": "TimeSpanTypeDef",
-        "InputCaptions": "InputCaptionsTypeDef",
-        "DetectedProperties": "DetectedPropertiesTypeDef",
-    },
-    total=False,
-)
-
-JobOutputTypeDef = TypedDict(
-    "JobOutputTypeDef",
-    {
-        "Id": str,
-        "Key": str,
-        "ThumbnailPattern": str,
-        "ThumbnailEncryption": "EncryptionTypeDef",
-        "Rotate": str,
-        "PresetId": str,
-        "SegmentDuration": str,
-        "Status": str,
-        "StatusDetail": str,
-        "Duration": int,
-        "Width": int,
-        "Height": int,
-        "FrameRate": str,
-        "FileSize": int,
-        "DurationMillis": int,
-        "Watermarks": List["JobWatermarkTypeDef"],
-        "AlbumArt": "JobAlbumArtTypeDef",
-        "Composition": List["ClipTypeDef"],
-        "Captions": "CaptionsTypeDef",
-        "Encryption": "EncryptionTypeDef",
-        "AppliedColorSpaceConversion": str,
-    },
-    total=False,
-)
-
-JobTypeDef = TypedDict(
-    "JobTypeDef",
-    {
-        "Id": str,
-        "Arn": str,
-        "PipelineId": str,
-        "Input": "JobInputTypeDef",
-        "Inputs": List["JobInputTypeDef"],
-        "Output": "JobOutputTypeDef",
-        "Outputs": List["JobOutputTypeDef"],
-        "OutputKeyPrefix": str,
-        "Playlists": List["PlaylistTypeDef"],
-        "Status": str,
-        "UserMetadata": Dict[str, str],
-        "Timing": "TimingTypeDef",
-    },
-    total=False,
-)
-
-JobWatermarkTypeDef = TypedDict(
-    "JobWatermarkTypeDef",
-    {
-        "PresetWatermarkId": str,
-        "InputKey": str,
-        "Encryption": "EncryptionTypeDef",
-    },
-    total=False,
-)
-
-_RequiredListJobsByPipelineRequestRequestTypeDef = TypedDict(
-    "_RequiredListJobsByPipelineRequestRequestTypeDef",
-    {
-        "PipelineId": str,
-    },
-)
-_OptionalListJobsByPipelineRequestRequestTypeDef = TypedDict(
-    "_OptionalListJobsByPipelineRequestRequestTypeDef",
-    {
-        "Ascending": str,
-        "PageToken": str,
-    },
-    total=False,
-)
-
-class ListJobsByPipelineRequestRequestTypeDef(
-    _RequiredListJobsByPipelineRequestRequestTypeDef,
-    _OptionalListJobsByPipelineRequestRequestTypeDef,
-):
-    pass
-
-ListJobsByPipelineResponseTypeDef = TypedDict(
-    "ListJobsByPipelineResponseTypeDef",
-    {
-        "Jobs": List["JobTypeDef"],
-        "NextPageToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredListJobsByStatusRequestRequestTypeDef = TypedDict(
-    "_RequiredListJobsByStatusRequestRequestTypeDef",
-    {
-        "Status": str,
-    },
-)
-_OptionalListJobsByStatusRequestRequestTypeDef = TypedDict(
-    "_OptionalListJobsByStatusRequestRequestTypeDef",
-    {
-        "Ascending": str,
-        "PageToken": str,
-    },
-    total=False,
-)
-
-class ListJobsByStatusRequestRequestTypeDef(
-    _RequiredListJobsByStatusRequestRequestTypeDef, _OptionalListJobsByStatusRequestRequestTypeDef
-):
-    pass
-
-ListJobsByStatusResponseTypeDef = TypedDict(
-    "ListJobsByStatusResponseTypeDef",
-    {
-        "Jobs": List["JobTypeDef"],
-        "NextPageToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListPipelinesRequestRequestTypeDef = TypedDict(
-    "ListPipelinesRequestRequestTypeDef",
-    {
-        "Ascending": str,
-        "PageToken": str,
-    },
-    total=False,
-)
-
-ListPipelinesResponseTypeDef = TypedDict(
-    "ListPipelinesResponseTypeDef",
-    {
-        "Pipelines": List["PipelineTypeDef"],
-        "NextPageToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ListPresetsRequestRequestTypeDef = TypedDict(
-    "ListPresetsRequestRequestTypeDef",
-    {
-        "Ascending": str,
-        "PageToken": str,
-    },
-    total=False,
-)
-
-ListPresetsResponseTypeDef = TypedDict(
-    "ListPresetsResponseTypeDef",
-    {
-        "Presets": List["PresetTypeDef"],
-        "NextPageToken": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
 NotificationsTypeDef = TypedDict(
     "NotificationsTypeDef",
     {
-        "Progressing": str,
-        "Completed": str,
-        "Warning": str,
-        "Error": str,
+        "Progressing": NotRequired[str],
+        "Completed": NotRequired[str],
+        "Warning": NotRequired[str],
+        "Error": NotRequired[str],
     },
-    total=False,
 )
 
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef",
+class WarningTypeDef(TypedDict):
+    Code: NotRequired[str]
+    Message: NotRequired[str]
+
+class ThumbnailsTypeDef(TypedDict):
+    Format: NotRequired[str]
+    Interval: NotRequired[str]
+    Resolution: NotRequired[str]
+    AspectRatio: NotRequired[str]
+    MaxWidth: NotRequired[str]
+    MaxHeight: NotRequired[str]
+    SizingPolicy: NotRequired[str]
+    PaddingPolicy: NotRequired[str]
+
+class DeletePipelineRequestTypeDef(TypedDict):
+    Id: str
+
+class DeletePresetRequestTypeDef(TypedDict):
+    Id: str
+
+class DetectedPropertiesTypeDef(TypedDict):
+    Width: NotRequired[int]
+    Height: NotRequired[int]
+    FrameRate: NotRequired[str]
+    FileSize: NotRequired[int]
+    DurationMillis: NotRequired[int]
+
+class TimingTypeDef(TypedDict):
+    SubmitTimeMillis: NotRequired[int]
+    StartTimeMillis: NotRequired[int]
+    FinishTimeMillis: NotRequired[int]
+
+class PaginatorConfigTypeDef(TypedDict):
+    MaxItems: NotRequired[int]
+    PageSize: NotRequired[int]
+    StartingToken: NotRequired[str]
+
+class ListJobsByPipelineRequestTypeDef(TypedDict):
+    PipelineId: str
+    Ascending: NotRequired[str]
+    PageToken: NotRequired[str]
+
+class ListJobsByStatusRequestTypeDef(TypedDict):
+    Status: str
+    Ascending: NotRequired[str]
+    PageToken: NotRequired[str]
+
+class ListPipelinesRequestTypeDef(TypedDict):
+    Ascending: NotRequired[str]
+    PageToken: NotRequired[str]
+
+class ListPresetsRequestTypeDef(TypedDict):
+    Ascending: NotRequired[str]
+    PageToken: NotRequired[str]
+
+class PermissionOutputTypeDef(TypedDict):
+    GranteeType: NotRequired[str]
+    Grantee: NotRequired[str]
+    Access: NotRequired[List[str]]
+
+class PermissionTypeDef(TypedDict):
+    GranteeType: NotRequired[str]
+    Grantee: NotRequired[str]
+    Access: NotRequired[Sequence[str]]
+
+class PresetWatermarkTypeDef(TypedDict):
+    Id: NotRequired[str]
+    MaxWidth: NotRequired[str]
+    MaxHeight: NotRequired[str]
+    SizingPolicy: NotRequired[str]
+    HorizontalAlign: NotRequired[str]
+    HorizontalOffset: NotRequired[str]
+    VerticalAlign: NotRequired[str]
+    VerticalOffset: NotRequired[str]
+    Opacity: NotRequired[str]
+    Target: NotRequired[str]
+
+class ReadJobRequestTypeDef(TypedDict):
+    Id: str
+
+class WaiterConfigTypeDef(TypedDict):
+    Delay: NotRequired[int]
+    MaxAttempts: NotRequired[int]
+
+class ReadPipelineRequestTypeDef(TypedDict):
+    Id: str
+
+class ReadPresetRequestTypeDef(TypedDict):
+    Id: str
+
+class TestRoleRequestTypeDef(TypedDict):
+    Role: str
+    InputBucket: str
+    OutputBucket: str
+    Topics: Sequence[str]
+
+class UpdatePipelineStatusRequestTypeDef(TypedDict):
+    Id: str
+    Status: str
+
+class ArtworkTypeDef(TypedDict):
+    InputKey: NotRequired[str]
+    MaxWidth: NotRequired[str]
+    MaxHeight: NotRequired[str]
+    SizingPolicy: NotRequired[str]
+    PaddingPolicy: NotRequired[str]
+    AlbumArtFormat: NotRequired[str]
+    Encryption: NotRequired[EncryptionTypeDef]
+
+CaptionFormatTypeDef = TypedDict(
+    "CaptionFormatTypeDef",
     {
-        "MaxItems": int,
-        "PageSize": int,
-        "StartingToken": str,
+        "Format": NotRequired[str],
+        "Pattern": NotRequired[str],
+        "Encryption": NotRequired[EncryptionTypeDef],
     },
-    total=False,
 )
 
-PermissionTypeDef = TypedDict(
-    "PermissionTypeDef",
-    {
-        "GranteeType": str,
-        "Grantee": str,
-        "Access": List[str],
-    },
-    total=False,
-)
+class CaptionSourceTypeDef(TypedDict):
+    Key: NotRequired[str]
+    Language: NotRequired[str]
+    TimeOffset: NotRequired[str]
+    Label: NotRequired[str]
+    Encryption: NotRequired[EncryptionTypeDef]
 
-PipelineOutputConfigTypeDef = TypedDict(
-    "PipelineOutputConfigTypeDef",
-    {
-        "Bucket": str,
-        "StorageClass": str,
-        "Permissions": List["PermissionTypeDef"],
-    },
-    total=False,
-)
+class JobWatermarkTypeDef(TypedDict):
+    PresetWatermarkId: NotRequired[str]
+    InputKey: NotRequired[str]
+    Encryption: NotRequired[EncryptionTypeDef]
 
-PipelineTypeDef = TypedDict(
-    "PipelineTypeDef",
-    {
-        "Id": str,
-        "Arn": str,
-        "Name": str,
-        "Status": str,
-        "InputBucket": str,
-        "OutputBucket": str,
-        "Role": str,
-        "AwsKmsKeyArn": str,
-        "Notifications": "NotificationsTypeDef",
-        "ContentConfig": "PipelineOutputConfigTypeDef",
-        "ThumbnailConfig": "PipelineOutputConfigTypeDef",
-    },
-    total=False,
-)
+class AudioParametersTypeDef(TypedDict):
+    Codec: NotRequired[str]
+    SampleRate: NotRequired[str]
+    BitRate: NotRequired[str]
+    Channels: NotRequired[str]
+    AudioPackingMode: NotRequired[str]
+    CodecOptions: NotRequired[AudioCodecOptionsTypeDef]
 
-PlayReadyDrmTypeDef = TypedDict(
-    "PlayReadyDrmTypeDef",
-    {
-        "Format": str,
-        "Key": str,
-        "KeyMd5": str,
-        "KeyId": str,
-        "InitializationVector": str,
-        "LicenseAcquisitionUrl": str,
-    },
-    total=False,
-)
+class ClipTypeDef(TypedDict):
+    TimeSpan: NotRequired[TimeSpanTypeDef]
 
-PlaylistTypeDef = TypedDict(
-    "PlaylistTypeDef",
-    {
-        "Name": str,
-        "Format": str,
-        "OutputKeys": List[str],
-        "HlsContentProtection": "HlsContentProtectionTypeDef",
-        "PlayReadyDrm": "PlayReadyDrmTypeDef",
-        "Status": str,
-        "StatusDetail": str,
-    },
-    total=False,
-)
+class CreateJobPlaylistTypeDef(TypedDict):
+    Name: NotRequired[str]
+    Format: NotRequired[str]
+    OutputKeys: NotRequired[Sequence[str]]
+    HlsContentProtection: NotRequired[HlsContentProtectionTypeDef]
+    PlayReadyDrm: NotRequired[PlayReadyDrmTypeDef]
 
+class PlaylistTypeDef(TypedDict):
+    Name: NotRequired[str]
+    Format: NotRequired[str]
+    OutputKeys: NotRequired[List[str]]
+    HlsContentProtection: NotRequired[HlsContentProtectionTypeDef]
+    PlayReadyDrm: NotRequired[PlayReadyDrmTypeDef]
+    Status: NotRequired[str]
+    StatusDetail: NotRequired[str]
+
+class TestRoleResponseTypeDef(TypedDict):
+    Success: str
+    Messages: List[str]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdatePipelineNotificationsRequestTypeDef(TypedDict):
+    Id: str
+    Notifications: NotificationsTypeDef
+
+class ListJobsByPipelineRequestPaginateTypeDef(TypedDict):
+    PipelineId: str
+    Ascending: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListJobsByStatusRequestPaginateTypeDef(TypedDict):
+    Status: str
+    Ascending: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListPipelinesRequestPaginateTypeDef(TypedDict):
+    Ascending: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class ListPresetsRequestPaginateTypeDef(TypedDict):
+    Ascending: NotRequired[str]
+    PaginationConfig: NotRequired[PaginatorConfigTypeDef]
+
+class PipelineOutputConfigOutputTypeDef(TypedDict):
+    Bucket: NotRequired[str]
+    StorageClass: NotRequired[str]
+    Permissions: NotRequired[List[PermissionOutputTypeDef]]
+
+class PipelineOutputConfigTypeDef(TypedDict):
+    Bucket: NotRequired[str]
+    StorageClass: NotRequired[str]
+    Permissions: NotRequired[Sequence[PermissionTypeDef]]
+
+class VideoParametersOutputTypeDef(TypedDict):
+    Codec: NotRequired[str]
+    CodecOptions: NotRequired[Dict[str, str]]
+    KeyframesMaxDist: NotRequired[str]
+    FixedGOP: NotRequired[str]
+    BitRate: NotRequired[str]
+    FrameRate: NotRequired[str]
+    MaxFrameRate: NotRequired[str]
+    Resolution: NotRequired[str]
+    AspectRatio: NotRequired[str]
+    MaxWidth: NotRequired[str]
+    MaxHeight: NotRequired[str]
+    DisplayAspectRatio: NotRequired[str]
+    SizingPolicy: NotRequired[str]
+    PaddingPolicy: NotRequired[str]
+    Watermarks: NotRequired[List[PresetWatermarkTypeDef]]
+
+class VideoParametersTypeDef(TypedDict):
+    Codec: NotRequired[str]
+    CodecOptions: NotRequired[Mapping[str, str]]
+    KeyframesMaxDist: NotRequired[str]
+    FixedGOP: NotRequired[str]
+    BitRate: NotRequired[str]
+    FrameRate: NotRequired[str]
+    MaxFrameRate: NotRequired[str]
+    Resolution: NotRequired[str]
+    AspectRatio: NotRequired[str]
+    MaxWidth: NotRequired[str]
+    MaxHeight: NotRequired[str]
+    DisplayAspectRatio: NotRequired[str]
+    SizingPolicy: NotRequired[str]
+    PaddingPolicy: NotRequired[str]
+    Watermarks: NotRequired[Sequence[PresetWatermarkTypeDef]]
+
+class ReadJobRequestWaitTypeDef(TypedDict):
+    Id: str
+    WaiterConfig: NotRequired[WaiterConfigTypeDef]
+
+class JobAlbumArtOutputTypeDef(TypedDict):
+    MergePolicy: NotRequired[str]
+    Artwork: NotRequired[List[ArtworkTypeDef]]
+
+class JobAlbumArtTypeDef(TypedDict):
+    MergePolicy: NotRequired[str]
+    Artwork: NotRequired[Sequence[ArtworkTypeDef]]
+
+class CaptionsOutputTypeDef(TypedDict):
+    MergePolicy: NotRequired[str]
+    CaptionSources: NotRequired[List[CaptionSourceTypeDef]]
+    CaptionFormats: NotRequired[List[CaptionFormatTypeDef]]
+
+class CaptionsTypeDef(TypedDict):
+    MergePolicy: NotRequired[str]
+    CaptionSources: NotRequired[Sequence[CaptionSourceTypeDef]]
+    CaptionFormats: NotRequired[Sequence[CaptionFormatTypeDef]]
+
+class InputCaptionsOutputTypeDef(TypedDict):
+    MergePolicy: NotRequired[str]
+    CaptionSources: NotRequired[List[CaptionSourceTypeDef]]
+
+class InputCaptionsTypeDef(TypedDict):
+    MergePolicy: NotRequired[str]
+    CaptionSources: NotRequired[Sequence[CaptionSourceTypeDef]]
+
+class PipelineTypeDef(TypedDict):
+    Id: NotRequired[str]
+    Arn: NotRequired[str]
+    Name: NotRequired[str]
+    Status: NotRequired[str]
+    InputBucket: NotRequired[str]
+    OutputBucket: NotRequired[str]
+    Role: NotRequired[str]
+    AwsKmsKeyArn: NotRequired[str]
+    Notifications: NotRequired[NotificationsTypeDef]
+    ContentConfig: NotRequired[PipelineOutputConfigOutputTypeDef]
+    ThumbnailConfig: NotRequired[PipelineOutputConfigOutputTypeDef]
+
+PipelineOutputConfigUnionTypeDef = Union[
+    PipelineOutputConfigTypeDef, PipelineOutputConfigOutputTypeDef
+]
 PresetTypeDef = TypedDict(
     "PresetTypeDef",
     {
-        "Id": str,
-        "Arn": str,
+        "Id": NotRequired[str],
+        "Arn": NotRequired[str],
+        "Name": NotRequired[str],
+        "Description": NotRequired[str],
+        "Container": NotRequired[str],
+        "Audio": NotRequired[AudioParametersTypeDef],
+        "Video": NotRequired[VideoParametersOutputTypeDef],
+        "Thumbnails": NotRequired[ThumbnailsTypeDef],
+        "Type": NotRequired[str],
+    },
+)
+VideoParametersUnionTypeDef = Union[VideoParametersTypeDef, VideoParametersOutputTypeDef]
+JobAlbumArtUnionTypeDef = Union[JobAlbumArtTypeDef, JobAlbumArtOutputTypeDef]
+
+class JobOutputTypeDef(TypedDict):
+    Id: NotRequired[str]
+    Key: NotRequired[str]
+    ThumbnailPattern: NotRequired[str]
+    ThumbnailEncryption: NotRequired[EncryptionTypeDef]
+    Rotate: NotRequired[str]
+    PresetId: NotRequired[str]
+    SegmentDuration: NotRequired[str]
+    Status: NotRequired[str]
+    StatusDetail: NotRequired[str]
+    Duration: NotRequired[int]
+    Width: NotRequired[int]
+    Height: NotRequired[int]
+    FrameRate: NotRequired[str]
+    FileSize: NotRequired[int]
+    DurationMillis: NotRequired[int]
+    Watermarks: NotRequired[List[JobWatermarkTypeDef]]
+    AlbumArt: NotRequired[JobAlbumArtOutputTypeDef]
+    Composition: NotRequired[List[ClipTypeDef]]
+    Captions: NotRequired[CaptionsOutputTypeDef]
+    Encryption: NotRequired[EncryptionTypeDef]
+    AppliedColorSpaceConversion: NotRequired[str]
+
+CaptionsUnionTypeDef = Union[CaptionsTypeDef, CaptionsOutputTypeDef]
+JobInputOutputTypeDef = TypedDict(
+    "JobInputOutputTypeDef",
+    {
+        "Key": NotRequired[str],
+        "FrameRate": NotRequired[str],
+        "Resolution": NotRequired[str],
+        "AspectRatio": NotRequired[str],
+        "Interlaced": NotRequired[str],
+        "Container": NotRequired[str],
+        "Encryption": NotRequired[EncryptionTypeDef],
+        "TimeSpan": NotRequired[TimeSpanTypeDef],
+        "InputCaptions": NotRequired[InputCaptionsOutputTypeDef],
+        "DetectedProperties": NotRequired[DetectedPropertiesTypeDef],
+    },
+)
+InputCaptionsUnionTypeDef = Union[InputCaptionsTypeDef, InputCaptionsOutputTypeDef]
+
+class CreatePipelineResponseTypeDef(TypedDict):
+    Pipeline: PipelineTypeDef
+    Warnings: List[WarningTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ListPipelinesResponseTypeDef(TypedDict):
+    Pipelines: List[PipelineTypeDef]
+    NextPageToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ReadPipelineResponseTypeDef(TypedDict):
+    Pipeline: PipelineTypeDef
+    Warnings: List[WarningTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdatePipelineNotificationsResponseTypeDef(TypedDict):
+    Pipeline: PipelineTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdatePipelineResponseTypeDef(TypedDict):
+    Pipeline: PipelineTypeDef
+    Warnings: List[WarningTypeDef]
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class UpdatePipelineStatusResponseTypeDef(TypedDict):
+    Pipeline: PipelineTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class CreatePipelineRequestTypeDef(TypedDict):
+    Name: str
+    InputBucket: str
+    Role: str
+    OutputBucket: NotRequired[str]
+    AwsKmsKeyArn: NotRequired[str]
+    Notifications: NotRequired[NotificationsTypeDef]
+    ContentConfig: NotRequired[PipelineOutputConfigUnionTypeDef]
+    ThumbnailConfig: NotRequired[PipelineOutputConfigUnionTypeDef]
+
+class UpdatePipelineRequestTypeDef(TypedDict):
+    Id: str
+    Name: NotRequired[str]
+    InputBucket: NotRequired[str]
+    Role: NotRequired[str]
+    AwsKmsKeyArn: NotRequired[str]
+    Notifications: NotRequired[NotificationsTypeDef]
+    ContentConfig: NotRequired[PipelineOutputConfigUnionTypeDef]
+    ThumbnailConfig: NotRequired[PipelineOutputConfigUnionTypeDef]
+
+CreatePresetResponseTypeDef = TypedDict(
+    "CreatePresetResponseTypeDef",
+    {
+        "Preset": PresetTypeDef,
+        "Warning": str,
+        "ResponseMetadata": ResponseMetadataTypeDef,
+    },
+)
+
+class ListPresetsResponseTypeDef(TypedDict):
+    Presets: List[PresetTypeDef]
+    NextPageToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
+
+class ReadPresetResponseTypeDef(TypedDict):
+    Preset: PresetTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
+
+CreatePresetRequestTypeDef = TypedDict(
+    "CreatePresetRequestTypeDef",
+    {
         "Name": str,
-        "Description": str,
         "Container": str,
-        "Audio": "AudioParametersTypeDef",
-        "Video": "VideoParametersTypeDef",
-        "Thumbnails": "ThumbnailsTypeDef",
-        "Type": str,
-    },
-    total=False,
-)
-
-PresetWatermarkTypeDef = TypedDict(
-    "PresetWatermarkTypeDef",
-    {
-        "Id": str,
-        "MaxWidth": str,
-        "MaxHeight": str,
-        "SizingPolicy": str,
-        "HorizontalAlign": str,
-        "HorizontalOffset": str,
-        "VerticalAlign": str,
-        "VerticalOffset": str,
-        "Opacity": str,
-        "Target": str,
-    },
-    total=False,
-)
-
-ReadJobRequestRequestTypeDef = TypedDict(
-    "ReadJobRequestRequestTypeDef",
-    {
-        "Id": str,
+        "Description": NotRequired[str],
+        "Video": NotRequired[VideoParametersUnionTypeDef],
+        "Audio": NotRequired[AudioParametersTypeDef],
+        "Thumbnails": NotRequired[ThumbnailsTypeDef],
     },
 )
 
-ReadJobResponseTypeDef = TypedDict(
-    "ReadJobResponseTypeDef",
+class CreateJobOutputTypeDef(TypedDict):
+    Key: NotRequired[str]
+    ThumbnailPattern: NotRequired[str]
+    ThumbnailEncryption: NotRequired[EncryptionTypeDef]
+    Rotate: NotRequired[str]
+    PresetId: NotRequired[str]
+    SegmentDuration: NotRequired[str]
+    Watermarks: NotRequired[Sequence[JobWatermarkTypeDef]]
+    AlbumArt: NotRequired[JobAlbumArtUnionTypeDef]
+    Composition: NotRequired[Sequence[ClipTypeDef]]
+    Captions: NotRequired[CaptionsUnionTypeDef]
+    Encryption: NotRequired[EncryptionTypeDef]
+
+class JobTypeDef(TypedDict):
+    Id: NotRequired[str]
+    Arn: NotRequired[str]
+    PipelineId: NotRequired[str]
+    Input: NotRequired[JobInputOutputTypeDef]
+    Inputs: NotRequired[List[JobInputOutputTypeDef]]
+    Output: NotRequired[JobOutputTypeDef]
+    Outputs: NotRequired[List[JobOutputTypeDef]]
+    OutputKeyPrefix: NotRequired[str]
+    Playlists: NotRequired[List[PlaylistTypeDef]]
+    Status: NotRequired[str]
+    UserMetadata: NotRequired[Dict[str, str]]
+    Timing: NotRequired[TimingTypeDef]
+
+JobInputTypeDef = TypedDict(
+    "JobInputTypeDef",
     {
-        "Job": "JobTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
+        "Key": NotRequired[str],
+        "FrameRate": NotRequired[str],
+        "Resolution": NotRequired[str],
+        "AspectRatio": NotRequired[str],
+        "Interlaced": NotRequired[str],
+        "Container": NotRequired[str],
+        "Encryption": NotRequired[EncryptionTypeDef],
+        "TimeSpan": NotRequired[TimeSpanTypeDef],
+        "InputCaptions": NotRequired[InputCaptionsUnionTypeDef],
+        "DetectedProperties": NotRequired[DetectedPropertiesTypeDef],
     },
 )
 
-ReadPipelineRequestRequestTypeDef = TypedDict(
-    "ReadPipelineRequestRequestTypeDef",
-    {
-        "Id": str,
-    },
-)
+class CreateJobResponseTypeDef(TypedDict):
+    Job: JobTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ReadPipelineResponseTypeDef = TypedDict(
-    "ReadPipelineResponseTypeDef",
-    {
-        "Pipeline": "PipelineTypeDef",
-        "Warnings": List["WarningTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ListJobsByPipelineResponseTypeDef(TypedDict):
+    Jobs: List[JobTypeDef]
+    NextPageToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ReadPresetRequestRequestTypeDef = TypedDict(
-    "ReadPresetRequestRequestTypeDef",
-    {
-        "Id": str,
-    },
-)
+class ListJobsByStatusResponseTypeDef(TypedDict):
+    Jobs: List[JobTypeDef]
+    NextPageToken: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ReadPresetResponseTypeDef = TypedDict(
-    "ReadPresetResponseTypeDef",
-    {
-        "Preset": "PresetTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class ReadJobResponseTypeDef(TypedDict):
+    Job: JobTypeDef
+    ResponseMetadata: ResponseMetadataTypeDef
 
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
+JobInputUnionTypeDef = Union[JobInputTypeDef, JobInputOutputTypeDef]
 
-TestRoleRequestRequestTypeDef = TypedDict(
-    "TestRoleRequestRequestTypeDef",
-    {
-        "Role": str,
-        "InputBucket": str,
-        "OutputBucket": str,
-        "Topics": List[str],
-    },
-)
-
-TestRoleResponseTypeDef = TypedDict(
-    "TestRoleResponseTypeDef",
-    {
-        "Success": str,
-        "Messages": List[str],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-ThumbnailsTypeDef = TypedDict(
-    "ThumbnailsTypeDef",
-    {
-        "Format": str,
-        "Interval": str,
-        "Resolution": str,
-        "AspectRatio": str,
-        "MaxWidth": str,
-        "MaxHeight": str,
-        "SizingPolicy": str,
-        "PaddingPolicy": str,
-    },
-    total=False,
-)
-
-TimeSpanTypeDef = TypedDict(
-    "TimeSpanTypeDef",
-    {
-        "StartTime": str,
-        "Duration": str,
-    },
-    total=False,
-)
-
-TimingTypeDef = TypedDict(
-    "TimingTypeDef",
-    {
-        "SubmitTimeMillis": int,
-        "StartTimeMillis": int,
-        "FinishTimeMillis": int,
-    },
-    total=False,
-)
-
-UpdatePipelineNotificationsRequestRequestTypeDef = TypedDict(
-    "UpdatePipelineNotificationsRequestRequestTypeDef",
-    {
-        "Id": str,
-        "Notifications": "NotificationsTypeDef",
-    },
-)
-
-UpdatePipelineNotificationsResponseTypeDef = TypedDict(
-    "UpdatePipelineNotificationsResponseTypeDef",
-    {
-        "Pipeline": "PipelineTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-_RequiredUpdatePipelineRequestRequestTypeDef = TypedDict(
-    "_RequiredUpdatePipelineRequestRequestTypeDef",
-    {
-        "Id": str,
-    },
-)
-_OptionalUpdatePipelineRequestRequestTypeDef = TypedDict(
-    "_OptionalUpdatePipelineRequestRequestTypeDef",
-    {
-        "Name": str,
-        "InputBucket": str,
-        "Role": str,
-        "AwsKmsKeyArn": str,
-        "Notifications": "NotificationsTypeDef",
-        "ContentConfig": "PipelineOutputConfigTypeDef",
-        "ThumbnailConfig": "PipelineOutputConfigTypeDef",
-    },
-    total=False,
-)
-
-class UpdatePipelineRequestRequestTypeDef(
-    _RequiredUpdatePipelineRequestRequestTypeDef, _OptionalUpdatePipelineRequestRequestTypeDef
-):
-    pass
-
-UpdatePipelineResponseTypeDef = TypedDict(
-    "UpdatePipelineResponseTypeDef",
-    {
-        "Pipeline": "PipelineTypeDef",
-        "Warnings": List["WarningTypeDef"],
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-UpdatePipelineStatusRequestRequestTypeDef = TypedDict(
-    "UpdatePipelineStatusRequestRequestTypeDef",
-    {
-        "Id": str,
-        "Status": str,
-    },
-)
-
-UpdatePipelineStatusResponseTypeDef = TypedDict(
-    "UpdatePipelineStatusResponseTypeDef",
-    {
-        "Pipeline": "PipelineTypeDef",
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
-
-VideoParametersTypeDef = TypedDict(
-    "VideoParametersTypeDef",
-    {
-        "Codec": str,
-        "CodecOptions": Dict[str, str],
-        "KeyframesMaxDist": str,
-        "FixedGOP": str,
-        "BitRate": str,
-        "FrameRate": str,
-        "MaxFrameRate": str,
-        "Resolution": str,
-        "AspectRatio": str,
-        "MaxWidth": str,
-        "MaxHeight": str,
-        "DisplayAspectRatio": str,
-        "SizingPolicy": str,
-        "PaddingPolicy": str,
-        "Watermarks": List["PresetWatermarkTypeDef"],
-    },
-    total=False,
-)
-
-WaiterConfigTypeDef = TypedDict(
-    "WaiterConfigTypeDef",
-    {
-        "Delay": int,
-        "MaxAttempts": int,
-    },
-    total=False,
-)
-
-WarningTypeDef = TypedDict(
-    "WarningTypeDef",
-    {
-        "Code": str,
-        "Message": str,
-    },
-    total=False,
-)
+class CreateJobRequestTypeDef(TypedDict):
+    PipelineId: str
+    Input: NotRequired[JobInputUnionTypeDef]
+    Inputs: NotRequired[Sequence[JobInputUnionTypeDef]]
+    Output: NotRequired[CreateJobOutputTypeDef]
+    Outputs: NotRequired[Sequence[CreateJobOutputTypeDef]]
+    OutputKeyPrefix: NotRequired[str]
+    Playlists: NotRequired[Sequence[CreateJobPlaylistTypeDef]]
+    UserMetadata: NotRequired[Mapping[str, str]]

@@ -1,10 +1,14 @@
 """
 Main interface for lex-models service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_lex_models/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_lex_models import (
         Client,
         GetBotAliasesPaginator,
@@ -20,10 +24,8 @@ Usage::
         LexModelBuildingServiceClient,
     )
 
-    session = boto3.Session()
-
-    client: LexModelBuildingServiceClient = boto3.client("lex-models")
-    session_client: LexModelBuildingServiceClient = session.client("lex-models")
+    session = Session()
+    client: LexModelBuildingServiceClient = session.client("lex-models")
 
     get_bot_aliases_paginator: GetBotAliasesPaginator = client.get_paginator("get_bot_aliases")
     get_bot_channel_associations_paginator: GetBotChannelAssociationsPaginator = client.get_paginator("get_bot_channel_associations")

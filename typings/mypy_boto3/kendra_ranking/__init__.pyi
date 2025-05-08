@@ -1,19 +1,21 @@
 """
 Main interface for kendra-ranking service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_kendra_ranking/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_kendra_ranking import (
         Client,
         KendraRankingClient,
     )
 
-    session = boto3.Session()
-
-    client: KendraRankingClient = boto3.client("kendra-ranking")
-    session_client: KendraRankingClient = session.client("kendra-ranking")
+    session = Session()
+    client: KendraRankingClient = session.client("kendra-ranking")
     ```
 """
 

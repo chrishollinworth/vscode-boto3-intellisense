@@ -1,19 +1,21 @@
 """
 Main interface for healthlake service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_healthlake/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_healthlake import (
         Client,
         HealthLakeClient,
     )
 
-    session = boto3.Session()
-
-    client: HealthLakeClient = boto3.client("healthlake")
-    session_client: HealthLakeClient = session.client("healthlake")
+    session = Session()
+    client: HealthLakeClient = session.client("healthlake")
     ```
 """
 

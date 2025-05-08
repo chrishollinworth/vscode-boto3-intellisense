@@ -1,10 +1,14 @@
 """
 Main interface for iotanalytics service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_iotanalytics/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_iotanalytics import (
         Client,
         IoTAnalyticsClient,
@@ -15,10 +19,8 @@ Usage::
         ListPipelinesPaginator,
     )
 
-    session = boto3.Session()
-
-    client: IoTAnalyticsClient = boto3.client("iotanalytics")
-    session_client: IoTAnalyticsClient = session.client("iotanalytics")
+    session = Session()
+    client: IoTAnalyticsClient = session.client("iotanalytics")
 
     list_channels_paginator: ListChannelsPaginator = client.get_paginator("list_channels")
     list_dataset_contents_paginator: ListDatasetContentsPaginator = client.get_paginator("list_dataset_contents")

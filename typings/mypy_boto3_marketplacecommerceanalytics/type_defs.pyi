@@ -1,108 +1,77 @@
 """
 Type annotations for marketplacecommerceanalytics service type definitions.
 
-[Open documentation](https://vemel.github.io/boto3_stubs_docs/mypy_boto3_marketplacecommerceanalytics/type_defs.html)
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_marketplacecommerceanalytics/type_defs/)
+
+Copyright 2025 Vlad Emelianov
 
 Usage::
 
     ```python
-    from mypy_boto3_marketplacecommerceanalytics.type_defs import GenerateDataSetRequestRequestTypeDef
+    from mypy_boto3_marketplacecommerceanalytics.type_defs import TimestampTypeDef
 
-    data: GenerateDataSetRequestRequestTypeDef = {...}
+    data: TimestampTypeDef = ...
     ```
 """
 
+from __future__ import annotations
+
 import sys
 from datetime import datetime
-from typing import Any, Dict, Union
+from typing import Union
 
 from .literals import DataSetTypeType, SupportDataSetTypeType
 
-if sys.version_info >= (3, 8):
-    from typing import TypedDict
+if sys.version_info >= (3, 9):
+    from builtins import dict as Dict
+    from collections.abc import Mapping
 else:
-    from typing_extensions import TypedDict
+    from typing import Dict, Mapping
+if sys.version_info >= (3, 12):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 
 __all__ = (
-    "GenerateDataSetRequestRequestTypeDef",
+    "GenerateDataSetRequestTypeDef",
     "GenerateDataSetResultTypeDef",
     "ResponseMetadataTypeDef",
-    "StartSupportDataExportRequestRequestTypeDef",
+    "StartSupportDataExportRequestTypeDef",
     "StartSupportDataExportResultTypeDef",
+    "TimestampTypeDef",
 )
 
-_RequiredGenerateDataSetRequestRequestTypeDef = TypedDict(
-    "_RequiredGenerateDataSetRequestRequestTypeDef",
-    {
-        "dataSetType": DataSetTypeType,
-        "dataSetPublicationDate": Union[datetime, str],
-        "roleNameArn": str,
-        "destinationS3BucketName": str,
-        "snsTopicArn": str,
-    },
-)
-_OptionalGenerateDataSetRequestRequestTypeDef = TypedDict(
-    "_OptionalGenerateDataSetRequestRequestTypeDef",
-    {
-        "destinationS3Prefix": str,
-        "customerDefinedValues": Dict[str, str],
-    },
-    total=False,
-)
+TimestampTypeDef = Union[datetime, str]
 
-class GenerateDataSetRequestRequestTypeDef(
-    _RequiredGenerateDataSetRequestRequestTypeDef, _OptionalGenerateDataSetRequestRequestTypeDef
-):
-    pass
+class ResponseMetadataTypeDef(TypedDict):
+    RequestId: str
+    HTTPStatusCode: int
+    HTTPHeaders: Dict[str, str]
+    RetryAttempts: int
+    HostId: NotRequired[str]
 
-GenerateDataSetResultTypeDef = TypedDict(
-    "GenerateDataSetResultTypeDef",
-    {
-        "dataSetRequestId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class GenerateDataSetRequestTypeDef(TypedDict):
+    dataSetType: DataSetTypeType
+    dataSetPublicationDate: TimestampTypeDef
+    roleNameArn: str
+    destinationS3BucketName: str
+    snsTopicArn: str
+    destinationS3Prefix: NotRequired[str]
+    customerDefinedValues: NotRequired[Mapping[str, str]]
 
-ResponseMetadataTypeDef = TypedDict(
-    "ResponseMetadataTypeDef",
-    {
-        "RequestId": str,
-        "HostId": str,
-        "HTTPStatusCode": int,
-        "HTTPHeaders": Dict[str, Any],
-        "RetryAttempts": int,
-    },
-)
+class StartSupportDataExportRequestTypeDef(TypedDict):
+    dataSetType: SupportDataSetTypeType
+    fromDate: TimestampTypeDef
+    roleNameArn: str
+    destinationS3BucketName: str
+    snsTopicArn: str
+    destinationS3Prefix: NotRequired[str]
+    customerDefinedValues: NotRequired[Mapping[str, str]]
 
-_RequiredStartSupportDataExportRequestRequestTypeDef = TypedDict(
-    "_RequiredStartSupportDataExportRequestRequestTypeDef",
-    {
-        "dataSetType": SupportDataSetTypeType,
-        "fromDate": Union[datetime, str],
-        "roleNameArn": str,
-        "destinationS3BucketName": str,
-        "snsTopicArn": str,
-    },
-)
-_OptionalStartSupportDataExportRequestRequestTypeDef = TypedDict(
-    "_OptionalStartSupportDataExportRequestRequestTypeDef",
-    {
-        "destinationS3Prefix": str,
-        "customerDefinedValues": Dict[str, str],
-    },
-    total=False,
-)
+class GenerateDataSetResultTypeDef(TypedDict):
+    dataSetRequestId: str
+    ResponseMetadata: ResponseMetadataTypeDef
 
-class StartSupportDataExportRequestRequestTypeDef(
-    _RequiredStartSupportDataExportRequestRequestTypeDef,
-    _OptionalStartSupportDataExportRequestRequestTypeDef,
-):
-    pass
-
-StartSupportDataExportResultTypeDef = TypedDict(
-    "StartSupportDataExportResultTypeDef",
-    {
-        "dataSetRequestId": str,
-        "ResponseMetadata": "ResponseMetadataTypeDef",
-    },
-)
+class StartSupportDataExportResultTypeDef(TypedDict):
+    dataSetRequestId: str
+    ResponseMetadata: ResponseMetadataTypeDef

@@ -1,10 +1,14 @@
 """
 Main interface for appfabric service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_appfabric/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_appfabric import (
         AppFabricClient,
         Client,
@@ -14,10 +18,8 @@ Usage::
         ListIngestionsPaginator,
     )
 
-    session = boto3.Session()
-
-    client: AppFabricClient = boto3.client("appfabric")
-    session_client: AppFabricClient = session.client("appfabric")
+    session = Session()
+    client: AppFabricClient = session.client("appfabric")
 
     list_app_authorizations_paginator: ListAppAuthorizationsPaginator = client.get_paginator("list_app_authorizations")
     list_app_bundles_paginator: ListAppBundlesPaginator = client.get_paginator("list_app_bundles")

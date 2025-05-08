@@ -1,10 +1,14 @@
 """
 Main interface for emr-containers service.
 
+[Documentation](https://youtype.github.io/boto3_stubs_docs/mypy_boto3_emr_containers/)
+
+Copyright 2025 Vlad Emelianov
+
 Usage::
 
     ```python
-    import boto3
+    from boto3.session import Session
     from mypy_boto3_emr_containers import (
         Client,
         EMRContainersClient,
@@ -15,10 +19,8 @@ Usage::
         ListVirtualClustersPaginator,
     )
 
-    session = boto3.Session()
-
-    client: EMRContainersClient = boto3.client("emr-containers")
-    session_client: EMRContainersClient = session.client("emr-containers")
+    session = Session()
+    client: EMRContainersClient = session.client("emr-containers")
 
     list_job_runs_paginator: ListJobRunsPaginator = client.get_paginator("list_job_runs")
     list_job_templates_paginator: ListJobTemplatesPaginator = client.get_paginator("list_job_templates")
